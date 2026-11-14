@@ -1,0 +1,2745 @@
+{
+ "thema_schluessel": "messen.koerper_darstellung",
+ "thema_id": 52,
+ "block_id": 86,
+ "klasse": {
+  "gym_by": 8,
+  "rs_by": 5
+ },
+ "autor": "Claude (Paket Klasse 8)",
+ "inhalt": {
+  "ziel": "Prismen und Zylinder erkennen, ihre Netze verstehen und berechnen, Schrägbilder nach den Regeln anlegen und Ansichten zuordnen.",
+  "merke": [
+   "Prisma: 2 deckungsgleiche parallele Grundflächen, Mantel aus Rechtecken. n-seitig: 2n Ecken, 3n Kanten, n + 2 Flächen.",
+   "Zylindermantel abgewickelt: Rechteck mit Länge = Kreisumfang.",
+   "Schrägbild: Vorderfläche wahr, nach hinten unter 45° und mit q (meist 1/2) verkürzt."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Körper und Netze",
+    "lernziele": [
+     "prisma",
+     "netz",
+     "zylinder"
+    ]
+   },
+   {
+    "titel": "Darstellen",
+    "lernziele": [
+     "schraegbild",
+     "ansichten"
+    ]
+   },
+   {
+    "titel": "Verstehen",
+    "lernziele": [
+     "beurteilen"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "prisma",
+    "titel": "Prismen: Ecken, Kanten, Flächen",
+    "regel": "Ein ⟦Prisma⟧ hat zwei deckungsgleiche, parallele ⟦Grundflächen⟧ (n-Ecke) und n Rechtecke als ⟦Mantel⟧. Es hat 2n Ecken, 3n Kanten und n + 2 Flächen.",
+    "schritte": [
+     "Fünfseitiges Prisma: n = 5",
+     "Ecken: 2 · 5 = 10, Kanten: 3 · 5 = 15",
+     "Flächen: 5 + 2 = ⟦7⟧"
+    ],
+    "probe": "Eulerscher Polyedersatz: E + F − K = 10 + 7 − 15 = 2 ✓",
+    "fehler": "Ein dreiseitiges Prisma hat nicht 3 Flächen: Zu den 3 Rechtecken kommen die ⟦2 Grundflächen⟧ dazu, also 5."
+   },
+   {
+    "lernziel": "netz",
+    "titel": "Netze von Prismen",
+    "regel": "Schneidet man ein Prisma an Kanten auf und klappt es in die Ebene, entsteht ein ⟦Netz⟧: 2 Grundflächen und n Rechtecke. Die Rechtecke sind so hoch wie das Prisma; zusammen sind sie so breit wie der ⟦Umfang der Grundfläche⟧.",
+    "schritte": [
+     "Quader 5 cm × 3 cm × 4 cm (Höhe 4 cm)",
+     "Grundflächen: 2 · 5 · 3 = 30 cm²; Mantel: (5 + 3 + 5 + 3) · 4 = 64 cm²",
+     "Fläche des Netzes = Oberfläche = ⟦94 cm²⟧"
+    ],
+    "fehler": "Die Netzfläche eines Quaders ist nicht 5 · 3 · 4 = 60. Das wäre das ⟦Volumen⟧. Für das Netz werden die Flächen der 6 Rechtecke ⟦addiert⟧."
+   },
+   {
+    "lernziel": "zylinder",
+    "titel": "Zylinder und sein Netz",
+    "regel": "Ein ⟦Zylinder⟧ hat zwei Kreise als Grundflächen. Sein Mantel ist abgewickelt ein ⟦Rechteck⟧: so hoch wie der Zylinder und so lang wie der ⟦Umfang⟧ des Grundkreises.",
+    "schritte": [
+     "Zylinder: Kreisumfang u = 18,8 cm, Höhe h = 10 cm",
+     "Mantelrechteck: 18,8 cm lang, 10 cm hoch",
+     "Mantelfläche: 18,8 · 10 = ⟦188 cm²⟧"
+    ],
+    "fehler": "Das Mantelrechteck ist nicht so lang wie der ⟦Durchmesser⟧. Es muss einmal ganz um den Kreis herum reichen – also so lang wie der Umfang."
+   },
+   {
+    "lernziel": "schraegbild",
+    "titel": "Schrägbilder: Längen nach hinten",
+    "regel": "Im ⟦Schrägbild⟧ zeichnet man die Vorderfläche in ⟦wahrer Größe⟧. Kanten, die nach hinten gehen, zeichnet man unter dem ⟦Winkel 45°⟧ und ⟦verkürzt⟧, meist auf die Hälfte (Verkürzungsfaktor q = 1/2).",
+    "schritte": [
+     "Quader: 6 cm breit, 4 cm hoch, 8 cm tief",
+     "Breite und Höhe: wahre Größe (6 cm, 4 cm)",
+     "Tiefe: 8 cm · 1/2 = ⟦4 cm⟧ schräg nach hinten"
+    ],
+    "fehler": "Auch senkrechte Kanten werden nicht verkürzt: Nur die Kanten ⟦nach hinten⟧ werden mit q multipliziert."
+   },
+   {
+    "lernziel": "ansichten",
+    "titel": "Ansichten von Körpern",
+    "regel": "Die ⟦Vorderansicht⟧ zeigt den Körper von vorn, die ⟦Seitenansicht⟧ von der Seite und die ⟦Draufsicht⟧ von oben. Jede Ansicht ist eine ebene Figur.",
+    "schritte": [
+     "Ein Zylinder steht auf seiner Grundfläche.",
+     "Von vorn und von der Seite: ⟦Rechteck⟧",
+     "Von oben: ⟦Kreis⟧"
+    ],
+    "fehler": "Die Draufsicht eines stehenden Zylinders ist kein Rechteck. Von oben sieht man nur die ⟦Deckfläche⟧, einen Kreis."
+   },
+   {
+    "lernziel": "beurteilen",
+    "titel": "Aussagen über Körper prüfen",
+    "regel": "Prüfe Aussagen mit den Eigenschaften: Ein Prisma braucht ⟦zwei deckungsgleiche parallele Grundflächen⟧ und Rechtecke als Seitenflächen. Pyramide, Kegel und Kugel sind ⟦keine⟧ Prismen.",
+    "schritte": [
+     "Aussage: „Ein Würfel ist ein Prisma.“",
+     "Grund- und Deckfläche sind gleich große Quadrate, die Seiten sind Rechtecke (Quadrate).",
+     "Die Aussage ist ⟦richtig⟧."
+    ],
+    "fehler": "Eine Pyramide ist kein Prisma, obwohl sie eine Grundfläche hat: Ihr fehlt die ⟦zweite⟧, parallele Grundfläche."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "prisma",
+    "text": "Prismen: Ecken, Kanten, Flächen",
+    "lernziele": [
+     "prisma"
+    ]
+   },
+   {
+    "k": "netz",
+    "text": "Netze von Prismen",
+    "lernziele": [
+     "netz"
+    ]
+   },
+   {
+    "k": "zylinder",
+    "text": "Zylinder und sein Netz",
+    "lernziele": [
+     "zylinder"
+    ]
+   },
+   {
+    "k": "schraegbild",
+    "text": "Schrägbilder: Längen nach hinten",
+    "lernziele": [
+     "schraegbild"
+    ]
+   },
+   {
+    "k": "ansichten",
+    "text": "Ansichten von Körpern",
+    "lernziele": [
+     "ansichten"
+    ]
+   },
+   {
+    "k": "beurteilen",
+    "text": "Aussagen über Körper prüfen",
+    "lernziele": [
+     "beurteilen"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "prisma",
+    "netz",
+    "zylinder",
+    "schraegbild",
+    "ansichten",
+    "beurteilen"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude).",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Gymnasium)."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "prisma",
+   "t": "prisma",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Kanten hat ein dreiseitiges Prisma?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "3 * 3",
+   "w": "Grundfläche ist ein 3-Eck. Kanten: 3 · 3 = 9 (3 unten, 3 oben, 3 senkrecht).",
+   "h": "Zähle oben, unten und dazwischen."
+  },
+  {
+   "l": "prisma",
+   "t": "prisma",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Kanten hat ein achtseitiges Prisma?"
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "3 * 8",
+   "w": "Grundfläche ist ein 8-Eck. Kanten: 3 · 8 = 24 (8 unten, 8 oben, 8 senkrecht).",
+   "h": "Zähle oben, unten und dazwischen."
+  },
+  {
+   "l": "prisma",
+   "t": "prisma",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Kanten hat ein zehnseitiges Prisma?"
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "3 * 10",
+   "w": "Grundfläche ist ein 10-Eck. Kanten: 3 · 10 = 30 (10 unten, 10 oben, 10 senkrecht).",
+   "h": "Zähle oben, unten und dazwischen."
+  },
+  {
+   "l": "prisma",
+   "t": "prisma",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Flächen hat ein dreiseitiges Prisma?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "3 + 2",
+   "w": "Grundfläche ist ein 3-Eck. Flächen: 3 Rechtecke + 2 Grundflächen = 5.",
+   "h": "Zähle oben, unten und dazwischen."
+  },
+  {
+   "l": "prisma",
+   "t": "prisma",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat 30 Kanten. Wie viele Ecken hat seine Grundfläche?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "30 / 3",
+   "w": "3n = 30 → n = 10. Die Grundfläche ist ein 10-Eck.",
+   "h": "Stelle eine Gleichung mit n auf (Ecken 2n, Kanten 3n, Flächen n + 2)."
+  },
+  {
+   "l": "prisma",
+   "t": "prisma",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat 36 Kanten. Wie viele Ecken hat seine Grundfläche?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "36 / 3",
+   "w": "3n = 36 → n = 12. Die Grundfläche ist ein 12-Eck.",
+   "h": "Stelle eine Gleichung mit n auf (Ecken 2n, Kanten 3n, Flächen n + 2)."
+  },
+  {
+   "l": "prisma",
+   "t": "prisma",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat 8 Ecken. Wie viele Ecken hat seine Grundfläche?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "8 / 2",
+   "w": "2n = 8 → n = 4. Die Grundfläche ist ein 4-Eck.",
+   "h": "Stelle eine Gleichung mit n auf (Ecken 2n, Kanten 3n, Flächen n + 2)."
+  },
+  {
+   "l": "prisma",
+   "t": "prisma",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat 20 Ecken. Wie viele Ecken hat seine Grundfläche?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "20 / 2",
+   "w": "2n = 20 → n = 10. Die Grundfläche ist ein 10-Eck.",
+   "h": "Stelle eine Gleichung mit n auf (Ecken 2n, Kanten 3n, Flächen n + 2)."
+  },
+  {
+   "l": "prisma",
+   "t": "prisma",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat 12 Kanten. Wie viele Ecken hat seine Grundfläche?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "12 / 3",
+   "w": "3n = 12 → n = 4. Die Grundfläche ist ein 4-Eck.",
+   "h": "Stelle eine Gleichung mit n auf (Ecken 2n, Kanten 3n, Flächen n + 2)."
+  },
+  {
+   "l": "prisma",
+   "t": "prisma",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat 6 Ecken. Wie viele Ecken hat seine Grundfläche?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "6 / 2",
+   "w": "2n = 6 → n = 3. Die Grundfläche ist ein 3-Eck.",
+   "h": "Stelle eine Gleichung mit n auf (Ecken 2n, Kanten 3n, Flächen n + 2)."
+  },
+  {
+   "l": "prisma",
+   "t": "prisma",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades achtseitiges Prisma hat als Grundfläche ein regelmäßiges 8-Eck mit Seitenlänge 5 cm und ist 13 cm hoch. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 184,
+    "einheit": "cm"
+   },
+   "c": "2 * 8 * 5 + 8 * 13",
+   "w": "16 Grundkanten zu 5 cm: 80 cm. 8 Seitenkanten zu 13 cm: 104 cm. Zusammen 184 cm.",
+   "h": "Unterscheide Kanten der Grundflächen und senkrechte Kanten."
+  },
+  {
+   "l": "prisma",
+   "t": "prisma",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades zehnseitiges Prisma hat als Grundfläche ein regelmäßiges 10-Eck mit Seitenlänge 4 cm und ist 11 cm hoch. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 190,
+    "einheit": "cm"
+   },
+   "c": "2 * 10 * 4 + 10 * 11",
+   "w": "20 Grundkanten zu 4 cm: 80 cm. 10 Seitenkanten zu 11 cm: 110 cm. Zusammen 190 cm.",
+   "h": "Unterscheide Kanten der Grundflächen und senkrechte Kanten."
+  },
+  {
+   "l": "prisma",
+   "t": "prisma",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades achtseitiges Prisma hat als Grundfläche ein regelmäßiges 8-Eck mit Seitenlänge 3 cm und ist 17 cm hoch. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 184,
+    "einheit": "cm"
+   },
+   "c": "2 * 8 * 3 + 8 * 17",
+   "w": "16 Grundkanten zu 3 cm: 48 cm. 8 Seitenkanten zu 17 cm: 136 cm. Zusammen 184 cm.",
+   "h": "Unterscheide Kanten der Grundflächen und senkrechte Kanten."
+  },
+  {
+   "l": "prisma",
+   "t": "prisma",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades zwölfseitiges Prisma hat als Grundfläche ein regelmäßiges 12-Eck mit Seitenlänge 10 cm und ist 5 cm hoch. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 300,
+    "einheit": "cm"
+   },
+   "c": "2 * 12 * 10 + 12 * 5",
+   "w": "24 Grundkanten zu 10 cm: 240 cm. 12 Seitenkanten zu 5 cm: 60 cm. Zusammen 300 cm.",
+   "h": "Unterscheide Kanten der Grundflächen und senkrechte Kanten."
+  },
+  {
+   "l": "prisma",
+   "t": "prisma",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat 18 Ecken. Wie viele Ecken hat seine Grundfläche?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "18 / 2",
+   "w": "2n = 18 → n = 9. Die Grundfläche ist ein 9-Eck."
+  },
+  {
+   "l": "prisma",
+   "t": "prisma",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat 18 Kanten. Wie viele Ecken hat seine Grundfläche?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "18 / 3",
+   "w": "3n = 18 → n = 6. Die Grundfläche ist ein 6-Eck."
+  },
+  {
+   "l": "prisma",
+   "t": "prisma",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat 11 Flächen. Wie viele Ecken hat seine Grundfläche?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "11 - 2",
+   "w": "n + 2 = 11 → n = 9. Die Grundfläche ist ein 9-Eck."
+  },
+  {
+   "l": "prisma",
+   "t": "prisma",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat 12 Ecken. Wie viele Ecken hat seine Grundfläche?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "12 / 2",
+   "w": "2n = 12 → n = 6. Die Grundfläche ist ein 6-Eck."
+  },
+  {
+   "l": "prisma",
+   "t": "prisma",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat 6 Flächen. Wie viele Ecken hat seine Grundfläche?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "6 - 2",
+   "w": "n + 2 = 6 → n = 4. Die Grundfläche ist ein 4-Eck."
+  },
+  {
+   "l": "prisma",
+   "t": "prisma",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat 21 Kanten. Wie viele Ecken hat seine Grundfläche?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "21 / 3",
+   "w": "3n = 21 → n = 7. Die Grundfläche ist ein 7-Eck."
+  },
+  {
+   "l": "prisma",
+   "t": "prisma",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat 5 Flächen. Wie viele Ecken hat seine Grundfläche?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "5 - 2",
+   "w": "n + 2 = 5 → n = 3. Die Grundfläche ist ein 3-Eck."
+  },
+  {
+   "l": "prisma",
+   "t": "prisma",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat 8 Flächen. Wie viele Ecken hat seine Grundfläche?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "8 - 2",
+   "w": "n + 2 = 8 → n = 6. Die Grundfläche ist ein 6-Eck."
+  },
+  {
+   "l": "prisma",
+   "t": "prisma",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat 27 Kanten. Wie viele Ecken hat seine Grundfläche?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "27 / 3",
+   "w": "3n = 27 → n = 9. Die Grundfläche ist ein 9-Eck."
+  },
+  {
+   "l": "prisma",
+   "t": "prisma",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat 10 Flächen. Wie viele Ecken hat seine Grundfläche?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "10 - 2",
+   "w": "n + 2 = 10 → n = 8. Die Grundfläche ist ein 8-Eck."
+  },
+  {
+   "l": "netz",
+   "t": "netz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 7 cm lang, 3 cm breit und 4 cm hoch. Wie groß ist die Fläche seines Netzes?"
+   },
+   "o": {
+    "wert": 122,
+    "einheit": "cm²"
+   },
+   "c": "2 * (7 * 3 + 7 * 4 + 3 * 4)",
+   "w": "2 · (7 · 3 + 7 · 4 + 3 · 4) = 2 · 61 = 122 cm².",
+   "h": "Das Netz besteht aus 3 Paaren gleicher Rechtecke."
+  },
+  {
+   "l": "netz",
+   "t": "netz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 6 cm lang, 7 cm breit und 7 cm hoch. Wie groß ist die Fläche seines Netzes?"
+   },
+   "o": {
+    "wert": 266,
+    "einheit": "cm²"
+   },
+   "c": "2 * (6 * 7 + 6 * 7 + 7 * 7)",
+   "w": "2 · (6 · 7 + 6 · 7 + 7 · 7) = 2 · 133 = 266 cm².",
+   "h": "Das Netz besteht aus 3 Paaren gleicher Rechtecke."
+  },
+  {
+   "l": "netz",
+   "t": "netz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 2 cm lang, 6 cm breit und 13 cm hoch. Wie groß ist die Fläche seines Netzes?"
+   },
+   "o": {
+    "wert": 232,
+    "einheit": "cm²"
+   },
+   "c": "2 * (2 * 6 + 2 * 13 + 6 * 13)",
+   "w": "2 · (2 · 6 + 2 · 13 + 6 · 13) = 2 · 116 = 232 cm².",
+   "h": "Das Netz besteht aus 3 Paaren gleicher Rechtecke."
+  },
+  {
+   "l": "netz",
+   "t": "netz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 4 cm lang, 3 cm breit und 7 cm hoch. Wie groß ist die Fläche seines Netzes?"
+   },
+   "o": {
+    "wert": 122,
+    "einheit": "cm²"
+   },
+   "c": "2 * (4 * 3 + 4 * 7 + 3 * 7)",
+   "w": "2 · (4 · 3 + 4 · 7 + 3 · 7) = 2 · 61 = 122 cm².",
+   "h": "Das Netz besteht aus 3 Paaren gleicher Rechtecke."
+  },
+  {
+   "l": "netz",
+   "t": "netz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat als Grundfläche ein rechtwinkliges Dreieck mit den Katheten 3 cm und 4 cm und der Hypotenuse 5 cm. Es ist 10 cm hoch. Wie groß ist die Fläche seines Netzes?"
+   },
+   "o": {
+    "wert": 132,
+    "einheit": "cm²"
+   },
+   "c": "2 * 3 * 4 / 2 + (3 + 4 + 5) * 10",
+   "w": "Grundflächen: 2 · 3 · 4 : 2 = 12 cm². Mantel: (3 + 4 + 5) · 10 = 120 cm². Zusammen 132 cm².",
+   "h": "Netzfläche = 2 · Grundfläche + Umfang der Grundfläche · Höhe."
+  },
+  {
+   "l": "netz",
+   "t": "netz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat als Grundfläche ein rechtwinkliges Dreieck mit den Katheten 9 cm und 12 cm und der Hypotenuse 15 cm. Es ist 14 cm hoch. Wie groß ist die Fläche seines Netzes?"
+   },
+   "o": {
+    "wert": 612,
+    "einheit": "cm²"
+   },
+   "c": "2 * 9 * 12 / 2 + (9 + 12 + 15) * 14",
+   "w": "Grundflächen: 2 · 9 · 12 : 2 = 108 cm². Mantel: (9 + 12 + 15) · 14 = 504 cm². Zusammen 612 cm².",
+   "h": "Netzfläche = 2 · Grundfläche + Umfang der Grundfläche · Höhe."
+  },
+  {
+   "l": "netz",
+   "t": "netz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat als Grundfläche ein rechtwinkliges Dreieck mit den Seiten 9 cm, 12 cm und 15 cm (Katheten 9 cm und 12 cm). Es ist 15 cm hoch. Wie lang ist das Mantelrechteck im Netz insgesamt?"
+   },
+   "o": {
+    "wert": 36,
+    "einheit": "cm"
+   },
+   "c": "9 + 12 + 15",
+   "w": "Der Mantel ist so breit wie der Umfang der Grundfläche: 9 + 12 + 15 = 36 cm.",
+   "h": "Der abgewickelte Mantel ist so lang wie der Umfang der Grundfläche."
+  },
+  {
+   "l": "netz",
+   "t": "netz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat als Grundfläche ein rechtwinkliges Dreieck mit den Katheten 12 cm und 16 cm und der Hypotenuse 20 cm. Es ist 13 cm hoch. Wie groß ist die Fläche seines Netzes?"
+   },
+   "o": {
+    "wert": 816,
+    "einheit": "cm²"
+   },
+   "c": "2 * 12 * 16 / 2 + (12 + 16 + 20) * 13",
+   "w": "Grundflächen: 2 · 12 · 16 : 2 = 192 cm². Mantel: (12 + 16 + 20) · 13 = 624 cm². Zusammen 816 cm².",
+   "h": "Netzfläche = 2 · Grundfläche + Umfang der Grundfläche · Höhe."
+  },
+  {
+   "l": "netz",
+   "t": "netz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat als Grundfläche ein rechtwinkliges Dreieck mit den Katheten 3 cm und 4 cm und der Hypotenuse 5 cm. Es ist 5 cm hoch. Wie groß ist die Fläche seines Netzes?"
+   },
+   "o": {
+    "wert": 72,
+    "einheit": "cm²"
+   },
+   "c": "2 * 3 * 4 / 2 + (3 + 4 + 5) * 5",
+   "w": "Grundflächen: 2 · 3 · 4 : 2 = 12 cm². Mantel: (3 + 4 + 5) · 5 = 60 cm². Zusammen 72 cm².",
+   "h": "Netzfläche = 2 · Grundfläche + Umfang der Grundfläche · Höhe."
+  },
+  {
+   "l": "netz",
+   "t": "netz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat als Grundfläche ein rechtwinkliges Dreieck mit den Seiten 9 cm, 12 cm und 15 cm (Katheten 9 cm und 12 cm). Es ist 4 cm hoch. Wie lang ist das Mantelrechteck im Netz insgesamt?"
+   },
+   "o": {
+    "wert": 36,
+    "einheit": "cm"
+   },
+   "c": "9 + 12 + 15",
+   "w": "Der Mantel ist so breit wie der Umfang der Grundfläche: 9 + 12 + 15 = 36 cm.",
+   "h": "Der abgewickelte Mantel ist so lang wie der Umfang der Grundfläche."
+  },
+  {
+   "l": "netz",
+   "t": "netz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Das Netz eines Quaders hat die Fläche 136 cm². Die Grundfläche ist 7 cm × 6 cm. Wie hoch ist der Quader?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "cm"
+   },
+   "c": "(136 - 2 * 7 * 6) / (2 * (7 + 6))",
+   "w": "136 = 2 · 42 + 2 · (7 + 6) · h → 52 = 26 · h → h = 2 cm.",
+   "h": "Ziehe die beiden Grundflächen ab. Der Rest ist der Mantel: Umfang · Höhe."
+  },
+  {
+   "l": "netz",
+   "t": "netz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Das Netz eines Quaders hat die Fläche 122 cm². Die Grundfläche ist 7 cm × 4 cm. Wie hoch ist der Quader?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm"
+   },
+   "c": "(122 - 2 * 7 * 4) / (2 * (7 + 4))",
+   "w": "122 = 2 · 28 + 2 · (7 + 4) · h → 66 = 22 · h → h = 3 cm.",
+   "h": "Ziehe die beiden Grundflächen ab. Der Rest ist der Mantel: Umfang · Höhe."
+  },
+  {
+   "l": "netz",
+   "t": "netz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Das Netz eines Quaders hat die Fläche 118 cm². Die Grundfläche ist 7 cm × 5 cm. Wie hoch ist der Quader?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "cm"
+   },
+   "c": "(118 - 2 * 7 * 5) / (2 * (7 + 5))",
+   "w": "118 = 2 · 35 + 2 · (7 + 5) · h → 48 = 24 · h → h = 2 cm.",
+   "h": "Ziehe die beiden Grundflächen ab. Der Rest ist der Mantel: Umfang · Höhe."
+  },
+  {
+   "l": "netz",
+   "t": "netz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Das Netz eines Quaders hat die Fläche 180 cm². Die Grundfläche ist 6 cm × 8 cm. Wie hoch ist der Quader?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm"
+   },
+   "c": "(180 - 2 * 6 * 8) / (2 * (6 + 8))",
+   "w": "180 = 2 · 48 + 2 · (6 + 8) · h → 84 = 28 · h → h = 3 cm.",
+   "h": "Ziehe die beiden Grundflächen ab. Der Rest ist der Mantel: Umfang · Höhe."
+  },
+  {
+   "l": "netz",
+   "t": "netz",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat als Grundfläche ein rechtwinkliges Dreieck mit den Seiten 9 cm, 12 cm und 15 cm (Katheten 9 cm und 12 cm). Es ist 8 cm hoch. Wie lang ist das Mantelrechteck im Netz insgesamt?"
+   },
+   "o": {
+    "wert": 36,
+    "einheit": "cm"
+   },
+   "c": "9 + 12 + 15",
+   "w": "Der Mantel ist so breit wie der Umfang der Grundfläche: 9 + 12 + 15 = 36 cm."
+  },
+  {
+   "l": "netz",
+   "t": "netz",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat als Grundfläche ein rechtwinkliges Dreieck mit den Seiten 3 cm, 4 cm und 5 cm (Katheten 3 cm und 4 cm). Es ist 5 cm hoch. Wie lang ist das Mantelrechteck im Netz insgesamt?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "cm"
+   },
+   "c": "3 + 4 + 5",
+   "w": "Der Mantel ist so breit wie der Umfang der Grundfläche: 3 + 4 + 5 = 12 cm."
+  },
+  {
+   "l": "netz",
+   "t": "netz",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat als Grundfläche ein rechtwinkliges Dreieck mit den Katheten 6 cm und 8 cm und der Hypotenuse 10 cm. Es ist 14 cm hoch. Wie groß ist die Fläche seines Netzes?"
+   },
+   "o": {
+    "wert": 384,
+    "einheit": "cm²"
+   },
+   "c": "2 * 6 * 8 / 2 + (6 + 8 + 10) * 14",
+   "w": "Grundflächen: 2 · 6 · 8 : 2 = 48 cm². Mantel: (6 + 8 + 10) · 14 = 336 cm². Zusammen 384 cm²."
+  },
+  {
+   "l": "netz",
+   "t": "netz",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat als Grundfläche ein rechtwinkliges Dreieck mit den Katheten 9 cm und 12 cm und der Hypotenuse 15 cm. Es ist 13 cm hoch. Wie groß ist die Fläche seines Netzes?"
+   },
+   "o": {
+    "wert": 576,
+    "einheit": "cm²"
+   },
+   "c": "2 * 9 * 12 / 2 + (9 + 12 + 15) * 13",
+   "w": "Grundflächen: 2 · 9 · 12 : 2 = 108 cm². Mantel: (9 + 12 + 15) · 13 = 468 cm². Zusammen 576 cm²."
+  },
+  {
+   "l": "netz",
+   "t": "netz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat als Grundfläche ein rechtwinkliges Dreieck mit den Seiten 12 cm, 16 cm und 20 cm (Katheten 12 cm und 16 cm). Es ist 14 cm hoch. Wie lang ist das Mantelrechteck im Netz insgesamt?"
+   },
+   "o": {
+    "wert": 48,
+    "einheit": "cm"
+   },
+   "c": "12 + 16 + 20",
+   "w": "Der Mantel ist so breit wie der Umfang der Grundfläche: 12 + 16 + 20 = 48 cm."
+  },
+  {
+   "l": "netz",
+   "t": "netz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat als Grundfläche ein rechtwinkliges Dreieck mit den Seiten 3 cm, 4 cm und 5 cm (Katheten 3 cm und 4 cm). Es ist 13 cm hoch. Wie lang ist das Mantelrechteck im Netz insgesamt?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "cm"
+   },
+   "c": "3 + 4 + 5",
+   "w": "Der Mantel ist so breit wie der Umfang der Grundfläche: 3 + 4 + 5 = 12 cm."
+  },
+  {
+   "l": "netz",
+   "t": "netz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat als Grundfläche ein rechtwinkliges Dreieck mit den Seiten 12 cm, 16 cm und 20 cm (Katheten 12 cm und 16 cm). Es ist 9 cm hoch. Wie lang ist das Mantelrechteck im Netz insgesamt?"
+   },
+   "o": {
+    "wert": 48,
+    "einheit": "cm"
+   },
+   "c": "12 + 16 + 20",
+   "w": "Der Mantel ist so breit wie der Umfang der Grundfläche: 12 + 16 + 20 = 48 cm."
+  },
+  {
+   "l": "netz",
+   "t": "netz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat als Grundfläche ein rechtwinkliges Dreieck mit den Seiten 3 cm, 4 cm und 5 cm (Katheten 3 cm und 4 cm). Es ist 7 cm hoch. Wie lang ist das Mantelrechteck im Netz insgesamt?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "cm"
+   },
+   "c": "3 + 4 + 5",
+   "w": "Der Mantel ist so breit wie der Umfang der Grundfläche: 3 + 4 + 5 = 12 cm."
+  },
+  {
+   "l": "netz",
+   "t": "netz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat als Grundfläche ein rechtwinkliges Dreieck mit den Seiten 12 cm, 16 cm und 20 cm (Katheten 12 cm und 16 cm). Es ist 5 cm hoch. Wie lang ist das Mantelrechteck im Netz insgesamt?"
+   },
+   "o": {
+    "wert": 48,
+    "einheit": "cm"
+   },
+   "c": "12 + 16 + 20",
+   "w": "Der Mantel ist so breit wie der Umfang der Grundfläche: 12 + 16 + 20 = 48 cm."
+  },
+  {
+   "l": "netz",
+   "t": "netz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat als Grundfläche ein rechtwinkliges Dreieck mit den Katheten 3 cm und 4 cm und der Hypotenuse 5 cm. Es ist 12 cm hoch. Wie groß ist die Fläche seines Netzes?"
+   },
+   "o": {
+    "wert": 156,
+    "einheit": "cm²"
+   },
+   "c": "2 * 3 * 4 / 2 + (3 + 4 + 5) * 12",
+   "w": "Grundflächen: 2 · 3 · 4 : 2 = 12 cm². Mantel: (3 + 4 + 5) · 12 = 144 cm². Zusammen 156 cm²."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Aus welchen Flächen besteht das Netz eines Zylinders (stehend)?"
+   },
+   "a": [
+    "zwei Kreise und zwei Rechtecke",
+    "ein Kreis und ein Rechteck",
+    "zwei Kreise und ein Rechteck",
+    "zwei Rechtecke und ein Kreis"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Grund- und Deckfläche sind Kreise, der Mantel wird zu einem Rechteck abgewickelt.",
+   "h": "Denke an eine Konservendose: Deckel, Boden, Etikett."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Aus welchen Flächen besteht das Netz eines Zylinders (liegend)?"
+   },
+   "a": [
+    "zwei Kreise und zwei Rechtecke",
+    "ein Kreis und ein Rechteck",
+    "zwei Rechtecke und ein Kreis",
+    "zwei Kreise und ein Rechteck"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Grund- und Deckfläche sind Kreise, der Mantel wird zu einem Rechteck abgewickelt.",
+   "h": "Denke an eine Konservendose: Deckel, Boden, Etikett."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder ist 4 cm hoch, sein Grundkreis hat den Umfang 28,4 cm. Wie lang ist das Mantelrechteck im Netz?"
+   },
+   "o": {
+    "wert": 28.4,
+    "einheit": "cm"
+   },
+   "c": "(142/5)",
+   "w": "Das Mantelrechteck reicht einmal um den Kreis: Länge = Umfang = 28,4 cm (Höhe 4 cm).",
+   "h": "Das Etikett einer Dose reicht genau einmal herum."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder ist 13 cm hoch, sein Grundkreis hat den Umfang 7,8 cm. Wie lang ist das Mantelrechteck im Netz?"
+   },
+   "o": {
+    "wert": 7.8,
+    "einheit": "cm"
+   },
+   "c": "(39/5)",
+   "w": "Das Mantelrechteck reicht einmal um den Kreis: Länge = Umfang = 7,8 cm (Höhe 13 cm).",
+   "h": "Das Etikett einer Dose reicht genau einmal herum."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder ist 23 cm hoch, sein Grundkreis hat den Umfang 14,4 cm. Wie groß ist die Mantelfläche?"
+   },
+   "o": {
+    "wert": 331.2,
+    "einheit": "cm²"
+   },
+   "c": "(72/5) * 23",
+   "w": "Mantelrechteck: 14,4 cm · 23 cm = 331,2 cm².",
+   "h": "Mantelfläche = Umfang · Höhe."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder ist 22 cm hoch, sein Grundkreis hat den Umfang 39,1 cm. Wie groß ist die Mantelfläche?"
+   },
+   "o": {
+    "wert": 860.2,
+    "einheit": "cm²"
+   },
+   "c": "(391/10) * 22",
+   "w": "Mantelrechteck: 39,1 cm · 22 cm = 860,2 cm².",
+   "h": "Mantelfläche = Umfang · Höhe."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder ist 8 cm hoch, sein Grundkreis hat den Umfang 27,1 cm. Wie groß ist die Mantelfläche?"
+   },
+   "o": {
+    "wert": 216.8,
+    "einheit": "cm²"
+   },
+   "c": "(271/10) * 8",
+   "w": "Mantelrechteck: 27,1 cm · 8 cm = 216,8 cm².",
+   "h": "Mantelfläche = Umfang · Höhe."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder ist 11 cm hoch, sein Grundkreis hat den Umfang 29,9 cm. Wie groß ist die Mantelfläche?"
+   },
+   "o": {
+    "wert": 328.9,
+    "einheit": "cm²"
+   },
+   "c": "(299/10) * 11",
+   "w": "Mantelrechteck: 29,9 cm · 11 cm = 328,9 cm².",
+   "h": "Mantelfläche = Umfang · Höhe."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder ist 24 cm hoch, sein Grundkreis hat den Umfang 33 cm. Wie groß ist die Mantelfläche?"
+   },
+   "o": {
+    "wert": 792,
+    "einheit": "cm²"
+   },
+   "c": "33 * 24",
+   "w": "Mantelrechteck: 33 cm · 24 cm = 792 cm².",
+   "h": "Mantelfläche = Umfang · Höhe."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder ist 13 cm hoch, sein Grundkreis hat den Umfang 14,8 cm. Wie groß ist die Mantelfläche?"
+   },
+   "o": {
+    "wert": 192.4,
+    "einheit": "cm²"
+   },
+   "c": "(74/5) * 13",
+   "w": "Mantelrechteck: 14,8 cm · 13 cm = 192,4 cm².",
+   "h": "Mantelfläche = Umfang · Höhe."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Mantelfläche eines 23 cm hohen Zylinders ist 414 cm². Welchen Umfang hat der Grundkreis?"
+   },
+   "o": {
+    "wert": 18,
+    "einheit": "cm"
+   },
+   "c": "414 / 23",
+   "w": "M = u · h → u = M : h = 414 : 23 = 18 cm.",
+   "h": "Stelle M = u · h nach u um."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Mantelfläche eines 7 cm hohen Zylinders ist 139,3 cm². Welchen Umfang hat der Grundkreis?"
+   },
+   "o": {
+    "wert": 19.9,
+    "einheit": "cm"
+   },
+   "c": "(1393/10) / 7",
+   "w": "M = u · h → u = M : h = 139,3 : 7 = 19,9 cm.",
+   "h": "Stelle M = u · h nach u um."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Mantelfläche eines 8 cm hohen Zylinders ist 241,6 cm². Welchen Umfang hat der Grundkreis?"
+   },
+   "o": {
+    "wert": 30.2,
+    "einheit": "cm"
+   },
+   "c": "(1208/5) / 8",
+   "w": "M = u · h → u = M : h = 241,6 : 8 = 30,2 cm.",
+   "h": "Stelle M = u · h nach u um."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Mantelfläche eines 24 cm hohen Zylinders ist 619,2 cm². Welchen Umfang hat der Grundkreis?"
+   },
+   "o": {
+    "wert": 25.8,
+    "einheit": "cm"
+   },
+   "c": "(3096/5) / 24",
+   "w": "M = u · h → u = M : h = 619,2 : 24 = 25,8 cm.",
+   "h": "Stelle M = u · h nach u um."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder ist 21 cm hoch, sein Grundkreis hat den Umfang 31,3 cm. Wie groß ist die Mantelfläche?"
+   },
+   "o": {
+    "wert": 657.3,
+    "einheit": "cm²"
+   },
+   "c": "(313/10) * 21",
+   "w": "Mantelrechteck: 31,3 cm · 21 cm = 657,3 cm²."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder ist 9 cm hoch, sein Grundkreis hat den Umfang 34,4 cm. Wie groß ist die Mantelfläche?"
+   },
+   "o": {
+    "wert": 309.6,
+    "einheit": "cm²"
+   },
+   "c": "(172/5) * 9",
+   "w": "Mantelrechteck: 34,4 cm · 9 cm = 309,6 cm²."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder ist 9 cm hoch, sein Grundkreis hat den Umfang 39,5 cm. Wie groß ist die Mantelfläche?"
+   },
+   "o": {
+    "wert": 355.5,
+    "einheit": "cm²"
+   },
+   "c": "(79/2) * 9",
+   "w": "Mantelrechteck: 39,5 cm · 9 cm = 355,5 cm²."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder ist 19 cm hoch, sein Grundkreis hat den Umfang 32,8 cm. Wie groß ist die Mantelfläche?"
+   },
+   "o": {
+    "wert": 623.2,
+    "einheit": "cm²"
+   },
+   "c": "(164/5) * 19",
+   "w": "Mantelrechteck: 32,8 cm · 19 cm = 623,2 cm²."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder ist 21 cm hoch, sein Grundkreis hat den Umfang 18,9 cm. Wie groß ist die Mantelfläche?"
+   },
+   "o": {
+    "wert": 396.9,
+    "einheit": "cm²"
+   },
+   "c": "(189/10) * 21",
+   "w": "Mantelrechteck: 18,9 cm · 21 cm = 396,9 cm²."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder ist 23 cm hoch, sein Grundkreis hat den Umfang 14,8 cm. Wie groß ist die Mantelfläche?"
+   },
+   "o": {
+    "wert": 340.4,
+    "einheit": "cm²"
+   },
+   "c": "(74/5) * 23",
+   "w": "Mantelrechteck: 14,8 cm · 23 cm = 340,4 cm²."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder ist 9 cm hoch, sein Grundkreis hat den Umfang 32,2 cm. Wie groß ist die Mantelfläche?"
+   },
+   "o": {
+    "wert": 289.8,
+    "einheit": "cm²"
+   },
+   "c": "(161/5) * 9",
+   "w": "Mantelrechteck: 32,2 cm · 9 cm = 289,8 cm²."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder ist 22 cm hoch, sein Grundkreis hat den Umfang 25,2 cm. Wie groß ist die Mantelfläche?"
+   },
+   "o": {
+    "wert": 554.4,
+    "einheit": "cm²"
+   },
+   "c": "(126/5) * 22",
+   "w": "Mantelrechteck: 25,2 cm · 22 cm = 554,4 cm²."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder ist 12 cm hoch, sein Grundkreis hat den Umfang 19,1 cm. Wie groß ist die Mantelfläche?"
+   },
+   "o": {
+    "wert": 229.2,
+    "einheit": "cm²"
+   },
+   "c": "(191/10) * 12",
+   "w": "Mantelrechteck: 19,1 cm · 12 cm = 229,2 cm²."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder ist 19 cm hoch, sein Grundkreis hat den Umfang 16,7 cm. Wie groß ist die Mantelfläche?"
+   },
+   "o": {
+    "wert": 317.3,
+    "einheit": "cm²"
+   },
+   "c": "(167/10) * 19",
+   "w": "Mantelrechteck: 16,7 cm · 19 cm = 317,3 cm²."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante führt 11 cm nach hinten. Wie lang zeichnest du sie im Schrägbild mit q = 1/2?"
+   },
+   "o": {
+    "wert": 5.5,
+    "einheit": "cm"
+   },
+   "c": "11 / 2",
+   "w": "11 cm · 1/2 = 5,5 cm.",
+   "h": "Nach hinten: mit dem Verkürzungsfaktor multiplizieren."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante führt 13 cm nach hinten. Wie lang zeichnest du sie im Schrägbild mit q = 1/2?"
+   },
+   "o": {
+    "wert": 6.5,
+    "einheit": "cm"
+   },
+   "c": "13 / 2",
+   "w": "13 cm · 1/2 = 6,5 cm.",
+   "h": "Nach hinten: mit dem Verkürzungsfaktor multiplizieren."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 12 cm breit, 4 cm hoch und 10 cm tief. Wie lang zeichnest du im Schrägbild (q = 1/2, ω = 45°) die Höhe?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "4",
+   "w": "Die Höhe liegt in der Vorderfläche und wird in wahrer Größe gezeichnet: 4 cm.",
+   "h": "Nur Kanten nach hinten werden verkürzt."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 4 cm breit, 9 cm hoch und 14 cm tief. Wie lang zeichnest du im Schrägbild (q = 1/2, ω = 45°) die Breite?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "4",
+   "w": "Die Breite liegt in der Vorderfläche und wird in wahrer Größe gezeichnet: 4 cm.",
+   "h": "Nur Kanten nach hinten werden verkürzt."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 1/2) ist eine nach hinten laufende Kante 3 cm lang. Wie lang ist sie in Wirklichkeit?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "3 * 2",
+   "w": "Gezeichnet = wahr · 1/2 → wahr = 3 · 2 = 6 cm.",
+   "h": "Rechne rückwärts: durch q teilen."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 1/2) ist eine nach hinten laufende Kante 5 cm lang. Wie lang ist sie in Wirklichkeit?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "cm"
+   },
+   "c": "5 * 2",
+   "w": "Gezeichnet = wahr · 1/2 → wahr = 5 · 2 = 10 cm.",
+   "h": "Rechne rückwärts: durch q teilen."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 1/2) ist eine nach hinten laufende Kante 6,5 cm lang. Wie lang ist sie in Wirklichkeit?"
+   },
+   "o": {
+    "wert": 13,
+    "einheit": "cm"
+   },
+   "c": "(13/2) * 2",
+   "w": "Gezeichnet = wahr · 1/2 → wahr = 6,5 · 2 = 13 cm.",
+   "h": "Rechne rückwärts: durch q teilen."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 1/2) ist eine nach hinten laufende Kante 4,5 cm lang. Wie lang ist sie in Wirklichkeit?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "cm"
+   },
+   "c": "(9/2) * 2",
+   "w": "Gezeichnet = wahr · 1/2 → wahr = 4,5 · 2 = 9 cm.",
+   "h": "Rechne rückwärts: durch q teilen."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 1/2) ist eine nach hinten laufende Kante 7,5 cm lang. Wie lang ist sie in Wirklichkeit?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "cm"
+   },
+   "c": "(15/2) * 2",
+   "w": "Gezeichnet = wahr · 1/2 → wahr = 7,5 · 2 = 15 cm.",
+   "h": "Rechne rückwärts: durch q teilen."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 1/2) ist eine nach hinten laufende Kante 12,5 cm lang. Wie lang ist sie in Wirklichkeit?"
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "cm"
+   },
+   "c": "(25/2) * 2",
+   "w": "Gezeichnet = wahr · 1/2 → wahr = 12,5 · 2 = 25 cm.",
+   "h": "Rechne rückwärts: durch q teilen."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante ist 18 cm lang und führt nach hinten. Wie lang wird sie im Schrägbild mit dem Verkürzungsfaktor q = 1/3 gezeichnet?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "18 * (1/3)",
+   "w": "18 · 1/3 = 6 cm.",
+   "h": "Multipliziere die wahre Länge mit q."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Quader wird im Schrägbild (q = 1/3, ω = 45°) gezeichnet, Vorderfläche parallel zur Zeichenebene. Welche Strecke erscheint in wahrer Länge?"
+   },
+   "a": [
+    "die Raumdiagonale",
+    "die Diagonale der rechten Seitenfläche",
+    "die senkrechte Kante vorne rechts",
+    "die Kante, die von vorne nach hinten führt"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Alle Strecken in der Vorderfläche (oder parallel dazu) erscheinen in wahrer Länge. Kanten und Diagonalen mit Anteil nach hinten werden verzerrt.",
+   "h": "Was liegt parallel zur Zeichenebene?"
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante ist 12 cm lang und führt nach hinten. Wie lang wird sie im Schrägbild mit dem Verkürzungsfaktor q = 1/2 gezeichnet?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "12 * (1/2)",
+   "w": "12 · 1/2 = 6 cm.",
+   "h": "Multipliziere die wahre Länge mit q."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante ist 8 cm lang und führt nach hinten. Wie lang wird sie im Schrägbild mit dem Verkürzungsfaktor q = 3/4 gezeichnet?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "8 * (3/4)",
+   "w": "8 · 3/4 = 6 cm.",
+   "h": "Multipliziere die wahre Länge mit q."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 1/2) ist eine nach hinten laufende Kante 8,5 cm lang. Wie lang ist sie in Wirklichkeit?"
+   },
+   "o": {
+    "wert": 17,
+    "einheit": "cm"
+   },
+   "c": "(17/2) * 2",
+   "w": "Gezeichnet = wahr · 1/2 → wahr = 8,5 · 2 = 17 cm."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 1/2) ist eine nach hinten laufende Kante 12 cm lang. Wie lang ist sie in Wirklichkeit?"
+   },
+   "o": {
+    "wert": 24,
+    "einheit": "cm"
+   },
+   "c": "12 * 2",
+   "w": "Gezeichnet = wahr · 1/2 → wahr = 12 · 2 = 24 cm."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 1/2) ist eine nach hinten laufende Kante 4 cm lang. Wie lang ist sie in Wirklichkeit?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "cm"
+   },
+   "c": "4 * 2",
+   "w": "Gezeichnet = wahr · 1/2 → wahr = 4 · 2 = 8 cm."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 1/2) ist eine nach hinten laufende Kante 13 cm lang. Wie lang ist sie in Wirklichkeit?"
+   },
+   "o": {
+    "wert": 26,
+    "einheit": "cm"
+   },
+   "c": "13 * 2",
+   "w": "Gezeichnet = wahr · 1/2 → wahr = 13 · 2 = 26 cm."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 1/2) ist eine nach hinten laufende Kante 11 cm lang. Wie lang ist sie in Wirklichkeit?"
+   },
+   "o": {
+    "wert": 22,
+    "einheit": "cm"
+   },
+   "c": "11 * 2",
+   "w": "Gezeichnet = wahr · 1/2 → wahr = 11 · 2 = 22 cm."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 1/2) ist eine nach hinten laufende Kante 3,5 cm lang. Wie lang ist sie in Wirklichkeit?"
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "cm"
+   },
+   "c": "(7/2) * 2",
+   "w": "Gezeichnet = wahr · 1/2 → wahr = 3,5 · 2 = 7 cm."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 1/2) ist eine nach hinten laufende Kante 6 cm lang. Wie lang ist sie in Wirklichkeit?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "cm"
+   },
+   "c": "6 * 2",
+   "w": "Gezeichnet = wahr · 1/2 → wahr = 6 · 2 = 12 cm."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 1/2) ist eine nach hinten laufende Kante 2,5 cm lang. Wie lang ist sie in Wirklichkeit?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "cm"
+   },
+   "c": "(5/2) * 2",
+   "w": "Gezeichnet = wahr · 1/2 → wahr = 2,5 · 2 = 5 cm."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 1/2) ist eine nach hinten laufende Kante 10,5 cm lang. Wie lang ist sie in Wirklichkeit?"
+   },
+   "o": {
+    "wert": 21,
+    "einheit": "cm"
+   },
+   "c": "(21/2) * 2",
+   "w": "Gezeichnet = wahr · 1/2 → wahr = 10,5 · 2 = 21 cm."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 1/2) ist eine nach hinten laufende Kante 7 cm lang. Wie lang ist sie in Wirklichkeit?"
+   },
+   "o": {
+    "wert": 14,
+    "einheit": "cm"
+   },
+   "c": "7 * 2",
+   "w": "Gezeichnet = wahr · 1/2 → wahr = 7 · 2 = 14 cm."
+  },
+  {
+   "l": "ansichten",
+   "t": "ansichten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Form hat die Seitenansicht – betrachtet wird ein stehender Quader mit quadratischer Grundfläche (höher als breit)?"
+   },
+   "a": [
+    "Quadrat",
+    "Kreis",
+    "Dreieck",
+    "Rechteck"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Seitenansicht: Rechteck. (Vorderansicht Rechteck, Seitenansicht Rechteck, Draufsicht Quadrat.)",
+   "h": "Von vorn – von der Seite – von oben."
+  },
+  {
+   "l": "ansichten",
+   "t": "ansichten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Form hat die Draufsicht – betrachtet wird ein stehender Quader mit quadratischer Grundfläche (höher als breit)?"
+   },
+   "a": [
+    "Kreis",
+    "Quadrat",
+    "Dreieck"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Draufsicht: Quadrat. (Vorderansicht Rechteck, Seitenansicht Rechteck, Draufsicht Quadrat.)",
+   "h": "Von vorn – von der Seite – von oben."
+  },
+  {
+   "l": "ansichten",
+   "t": "ansichten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Form hat die Vorderansicht – betrachtet wird ein stehendes dreiseitiges Prisma (Dreieck oben)?"
+   },
+   "a": [
+    "Kreis",
+    "Rechteck",
+    "Dreieck",
+    "Quadrat"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Vorderansicht: Rechteck. (Vorderansicht Rechteck, Seitenansicht Rechteck, Draufsicht Dreieck.)",
+   "h": "Von vorn – von der Seite – von oben."
+  },
+  {
+   "l": "ansichten",
+   "t": "ansichten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Form hat die Vorderansicht – betrachtet wird ein liegender Zylinder (Achse von links nach rechts)?"
+   },
+   "a": [
+    "Kreis",
+    "Rechteck",
+    "Quadrat",
+    "Dreieck"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Vorderansicht: Rechteck. (Vorderansicht Rechteck, Seitenansicht Kreis, Draufsicht Rechteck.)",
+   "h": "Von vorn – von der Seite – von oben."
+  },
+  {
+   "l": "ansichten",
+   "t": "ansichten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Körper hat die Vorderansicht „Rechteck“ und die Draufsicht „Rechteck“?"
+   },
+   "a": [
+    "Eine Kugel",
+    "Ein liegender Zylinder (Achse von links nach rechts)",
+    "Ein dreiseitiges Prisma, das auf einer Rechteckfläche liegt (Dreieck vorne)",
+    "Ein stehender Kegel (Spitze oben)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ein liegender Zylinder (Achse von links nach rechts): von vorn Rechteck, von oben Rechteck.",
+   "h": "Stell dir vor, du schaust von vorn und von oben auf den Körper."
+  },
+  {
+   "l": "ansichten",
+   "t": "ansichten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Form hat die Draufsicht – betrachtet wird ein stehender Kegel (Spitze oben)?"
+   },
+   "a": [
+    "Quadrat",
+    "Rechteck",
+    "Dreieck",
+    "Kreis"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Draufsicht: Kreis. (Vorderansicht Dreieck, Seitenansicht Dreieck, Draufsicht Kreis.)",
+   "h": "Von vorn – von der Seite – von oben."
+  },
+  {
+   "l": "ansichten",
+   "t": "ansichten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Körper hat die Vorderansicht „Dreieck“ und die Draufsicht „Rechteck“?"
+   },
+   "a": [
+    "Ein dreiseitiges Prisma, das auf einer Rechteckfläche liegt (Dreieck vorne)",
+    "Eine Kugel",
+    "Ein stehender Kegel (Spitze oben)",
+    "Ein stehendes dreiseitiges Prisma (Dreieck oben)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein dreiseitiges Prisma, das auf einer Rechteckfläche liegt (Dreieck vorne): von vorn Dreieck, von oben Rechteck.",
+   "h": "Stell dir vor, du schaust von vorn und von oben auf den Körper."
+  },
+  {
+   "l": "ansichten",
+   "t": "ansichten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Körper hat die Vorderansicht „Dreieck“ und die Draufsicht „Kreis“?"
+   },
+   "a": [
+    "Ein stehender Quader mit quadratischer Grundfläche (höher als breit)",
+    "Ein Würfel",
+    "Ein stehender Zylinder",
+    "Ein stehender Kegel (Spitze oben)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ein stehender Kegel (Spitze oben): von vorn Dreieck, von oben Kreis.",
+   "h": "Stell dir vor, du schaust von vorn und von oben auf den Körper."
+  },
+  {
+   "l": "ansichten",
+   "t": "ansichten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Form hat die Vorderansicht – betrachtet wird ein Würfel?"
+   },
+   "a": [
+    "Dreieck",
+    "Quadrat",
+    "Kreis"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Vorderansicht: Quadrat. (Vorderansicht Quadrat, Seitenansicht Quadrat, Draufsicht Quadrat.)",
+   "h": "Von vorn – von der Seite – von oben."
+  },
+  {
+   "l": "ansichten",
+   "t": "ansichten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Form hat die Vorderansicht – betrachtet wird ein dreiseitiges Prisma, das auf einer Rechteckfläche liegt (Dreieck vorne)?"
+   },
+   "a": [
+    "Quadrat",
+    "Rechteck",
+    "Kreis",
+    "Dreieck"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Vorderansicht: Dreieck. (Vorderansicht Dreieck, Seitenansicht Rechteck, Draufsicht Rechteck.)",
+   "h": "Von vorn – von der Seite – von oben."
+  },
+  {
+   "l": "ansichten",
+   "t": "ansichten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Körper hat die Vorderansicht „Quadrat“ und die Draufsicht „Quadrat“?"
+   },
+   "a": [
+    "Ein Würfel",
+    "Eine quadratische Pyramide (Spitze oben)",
+    "Ein liegender Zylinder (Achse von links nach rechts)",
+    "Ein stehender Quader mit quadratischer Grundfläche (höher als breit)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein Würfel: von vorn Quadrat, von oben Quadrat.",
+   "h": "Stell dir vor, du schaust von vorn und von oben auf den Körper."
+  },
+  {
+   "l": "ansichten",
+   "t": "ansichten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Körper hat die Vorderansicht „Rechteck“ und die Draufsicht „Kreis“?"
+   },
+   "a": [
+    "Ein stehender Kegel (Spitze oben)",
+    "Ein liegender Zylinder (Achse von links nach rechts)",
+    "Ein Würfel",
+    "Ein stehender Zylinder"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ein stehender Zylinder: von vorn Rechteck, von oben Kreis.",
+   "h": "Stell dir vor, du schaust von vorn und von oben auf den Körper."
+  },
+  {
+   "l": "ansichten",
+   "t": "ansichten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Körper hat die Vorderansicht „Kreis“ und die Draufsicht „Kreis“?"
+   },
+   "a": [
+    "Ein stehender Kegel (Spitze oben)",
+    "Eine Kugel",
+    "Ein stehender Quader mit quadratischer Grundfläche (höher als breit)",
+    "Eine quadratische Pyramide (Spitze oben)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Eine Kugel: von vorn Kreis, von oben Kreis.",
+   "h": "Stell dir vor, du schaust von vorn und von oben auf den Körper."
+  },
+  {
+   "l": "ansichten",
+   "t": "ansichten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Körper hat die Vorderansicht „Rechteck“ und die Draufsicht „Dreieck“?"
+   },
+   "a": [
+    "Ein stehender Quader mit quadratischer Grundfläche (höher als breit)",
+    "Ein liegender Zylinder (Achse von links nach rechts)",
+    "Ein stehendes dreiseitiges Prisma (Dreieck oben)",
+    "Ein stehender Kegel (Spitze oben)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ein stehendes dreiseitiges Prisma (Dreieck oben): von vorn Rechteck, von oben Dreieck.",
+   "h": "Stell dir vor, du schaust von vorn und von oben auf den Körper."
+  },
+  {
+   "l": "ansichten",
+   "t": "ansichten",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Form hat die Draufsicht – betrachtet wird ein stehendes dreiseitiges Prisma (Dreieck oben)?"
+   },
+   "a": [
+    "Rechteck",
+    "Quadrat",
+    "Kreis",
+    "Dreieck"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Draufsicht: Dreieck. (Vorderansicht Rechteck, Seitenansicht Rechteck, Draufsicht Dreieck.)"
+  },
+  {
+   "l": "ansichten",
+   "t": "ansichten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Körper hat die Vorderansicht „Quadrat“ und die Draufsicht „Quadrat“?"
+   },
+   "a": [
+    "Ein Würfel",
+    "Ein stehender Kegel (Spitze oben)",
+    "Ein liegender Zylinder (Achse von links nach rechts)",
+    "Eine quadratische Pyramide (Spitze oben)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein Würfel: von vorn Quadrat, von oben Quadrat."
+  },
+  {
+   "l": "ansichten",
+   "t": "ansichten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Körper hat die Vorderansicht „Rechteck“ und die Draufsicht „Rechteck“?"
+   },
+   "a": [
+    "Ein stehender Kegel (Spitze oben)",
+    "Ein stehender Zylinder",
+    "Ein dreiseitiges Prisma, das auf einer Rechteckfläche liegt (Dreieck vorne)",
+    "Ein liegender Zylinder (Achse von links nach rechts)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ein liegender Zylinder (Achse von links nach rechts): von vorn Rechteck, von oben Rechteck."
+  },
+  {
+   "l": "ansichten",
+   "t": "ansichten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Körper hat die Vorderansicht „Quadrat“ und die Draufsicht „Quadrat“?"
+   },
+   "a": [
+    "Ein dreiseitiges Prisma, das auf einer Rechteckfläche liegt (Dreieck vorne)",
+    "Ein stehender Zylinder",
+    "Ein Würfel",
+    "Ein stehender Quader mit quadratischer Grundfläche (höher als breit)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ein Würfel: von vorn Quadrat, von oben Quadrat."
+  },
+  {
+   "l": "ansichten",
+   "t": "ansichten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Körper hat die Vorderansicht „Dreieck“ und die Draufsicht „Kreis“?"
+   },
+   "a": [
+    "Ein stehendes dreiseitiges Prisma (Dreieck oben)",
+    "Eine Kugel",
+    "Ein dreiseitiges Prisma, das auf einer Rechteckfläche liegt (Dreieck vorne)",
+    "Ein stehender Kegel (Spitze oben)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ein stehender Kegel (Spitze oben): von vorn Dreieck, von oben Kreis."
+  },
+  {
+   "l": "ansichten",
+   "t": "ansichten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Form hat die Vorderansicht – betrachtet wird ein stehender Quader mit quadratischer Grundfläche (höher als breit)?"
+   },
+   "a": [
+    "Quadrat",
+    "Rechteck",
+    "Dreieck",
+    "Kreis"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Vorderansicht: Rechteck. (Vorderansicht Rechteck, Seitenansicht Rechteck, Draufsicht Quadrat.)"
+  },
+  {
+   "l": "ansichten",
+   "t": "ansichten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Form hat die Draufsicht – betrachtet wird eine quadratische Pyramide (Spitze oben)?"
+   },
+   "a": [
+    "Dreieck",
+    "Kreis",
+    "Quadrat"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Draufsicht: Quadrat. (Vorderansicht Dreieck, Seitenansicht Dreieck, Draufsicht Quadrat.)"
+  },
+  {
+   "l": "ansichten",
+   "t": "ansichten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Körper hat die Vorderansicht „Rechteck“ und die Draufsicht „Rechteck“?"
+   },
+   "a": [
+    "Ein stehendes dreiseitiges Prisma (Dreieck oben)",
+    "Ein dreiseitiges Prisma, das auf einer Rechteckfläche liegt (Dreieck vorne)",
+    "Ein liegender Zylinder (Achse von links nach rechts)",
+    "Ein stehender Kegel (Spitze oben)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ein liegender Zylinder (Achse von links nach rechts): von vorn Rechteck, von oben Rechteck."
+  },
+  {
+   "l": "ansichten",
+   "t": "ansichten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Form hat die Vorderansicht – betrachtet wird eine Kugel?"
+   },
+   "a": [
+    "Kreis",
+    "Rechteck",
+    "Quadrat",
+    "Dreieck"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Vorderansicht: Kreis. (Vorderansicht Kreis, Seitenansicht Kreis, Draufsicht Kreis.)"
+  },
+  {
+   "l": "ansichten",
+   "t": "ansichten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Form hat die Draufsicht – betrachtet wird ein liegender Zylinder (Achse von links nach rechts)?"
+   },
+   "a": [
+    "Rechteck",
+    "Kreis",
+    "Quadrat",
+    "Dreieck"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Draufsicht: Rechteck. (Vorderansicht Rechteck, Seitenansicht Kreis, Draufsicht Rechteck.)"
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist richtig?"
+   },
+   "a": [
+    "Im Schrägbild werden Kanten nach hinten in wahrer Länge gezeichnet.",
+    "Ein neunseitiges Prisma hat 9 Flächen.",
+    "Ein Kegel ist ein Prisma.",
+    "Ein Würfel ist ein Prisma."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Richtig: Ein Würfel ist ein Prisma.",
+   "h": "Prüfe die Eigenschaften: zwei parallele, deckungsgleiche Grundflächen; Rechtecke als Seiten."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist richtig?"
+   },
+   "a": [
+    "Ein Kegel ist ein Prisma.",
+    "Ein Würfel ist ein Prisma.",
+    "Eine Pyramide ist ein Prisma.",
+    "Das Mantelrechteck eines Zylinders ist so lang wie der Durchmesser des Grundkreises."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Richtig: Ein Würfel ist ein Prisma.",
+   "h": "Prüfe die Eigenschaften: zwei parallele, deckungsgleiche Grundflächen; Rechtecke als Seiten."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist richtig?"
+   },
+   "a": [
+    "Ein vierseitiges Prisma hat 4 Flächen.",
+    "Bei einem Prisma können die Grundflächen verschieden groß sein.",
+    "Ein vierseitiges Prisma hat 12 Ecken.",
+    "Ein Zylinder hat keine Ecken."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Richtig: Ein Zylinder hat keine Ecken.",
+   "h": "Prüfe die Eigenschaften: zwei parallele, deckungsgleiche Grundflächen; Rechtecke als Seiten."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist richtig?"
+   },
+   "a": [
+    "Ein zehnseitiges Prisma hat 10 Flächen.",
+    "Ein zehnseitiges Prisma hat 24 Ecken.",
+    "Das Mantelrechteck eines Zylinders ist so lang wie der Durchmesser des Grundkreises.",
+    "Ein Zylinder hat genau zwei Kanten."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Richtig: Ein Zylinder hat genau zwei Kanten.",
+   "h": "Prüfe die Eigenschaften: zwei parallele, deckungsgleiche Grundflächen; Rechtecke als Seiten."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist FALSCH?"
+   },
+   "a": [
+    "Ein Zylinder hat keine Ecken.",
+    "Ein Kegel ist ein Prisma.",
+    "Das Netz eines vierseitigen Prismas enthält 4 Rechtecke.",
+    "Ein vierseitiges Prisma hat 12 Kanten."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Falsch: Ein Kegel ist ein Prisma.",
+   "h": "Suche ein Gegenbeispiel oder zähle nach."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist richtig?"
+   },
+   "a": [
+    "Ein Quader ist ein Prisma.",
+    "Das Mantelrechteck eines Zylinders ist so lang wie der Durchmesser des Grundkreises.",
+    "Eine Pyramide ist ein Prisma.",
+    "Ein achtseitiges Prisma hat 8 Flächen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Richtig: Ein Quader ist ein Prisma.",
+   "h": "Prüfe die Eigenschaften: zwei parallele, deckungsgleiche Grundflächen; Rechtecke als Seiten."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist FALSCH?"
+   },
+   "a": [
+    "Ein neunseitiges Prisma hat 9 Flächen.",
+    "Ein Würfel ist ein Prisma.",
+    "Ein Zylinder hat genau zwei Kanten.",
+    "Jedes Netz eines Würfels besteht aus 6 Quadraten."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Falsch: Ein neunseitiges Prisma hat 9 Flächen.",
+   "h": "Suche ein Gegenbeispiel oder zähle nach."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist FALSCH?"
+   },
+   "a": [
+    "Das Mantelrechteck eines Zylinders ist so lang wie der Durchmesser des Grundkreises.",
+    "Ein Würfel ist ein Prisma.",
+    "Jedes Netz eines Würfels besteht aus 6 Quadraten.",
+    "Die Grundflächen eines Prismas sind parallel und deckungsgleich."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Falsch: Das Mantelrechteck eines Zylinders ist so lang wie der Durchmesser des Grundkreises.",
+   "h": "Suche ein Gegenbeispiel oder zähle nach."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist richtig?"
+   },
+   "a": [
+    "Bei einem Prisma können die Grundflächen verschieden groß sein.",
+    "Ein neunseitiges Prisma hat 22 Ecken.",
+    "Ein neunseitiges Prisma hat 9 Flächen.",
+    "Jedes Netz eines Würfels besteht aus 6 Quadraten."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Richtig: Jedes Netz eines Würfels besteht aus 6 Quadraten.",
+   "h": "Prüfe die Eigenschaften: zwei parallele, deckungsgleiche Grundflächen; Rechtecke als Seiten."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist richtig?"
+   },
+   "a": [
+    "Bei einem Prisma können die Grundflächen verschieden groß sein.",
+    "Ein fünfseitiges Prisma hat 5 Flächen.",
+    "Ein Quader ist ein Prisma.",
+    "Das Mantelrechteck eines Zylinders ist so lang wie der Durchmesser des Grundkreises."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Richtig: Ein Quader ist ein Prisma.",
+   "h": "Prüfe die Eigenschaften: zwei parallele, deckungsgleiche Grundflächen; Rechtecke als Seiten."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist FALSCH?"
+   },
+   "a": [
+    "Bei einem Prisma können die Grundflächen verschieden groß sein.",
+    "Ein Quader ist ein Prisma.",
+    "Ein Zylinder hat genau zwei Kanten.",
+    "Im Schrägbild erscheint die Vorderfläche in wahrer Größe."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Falsch: Bei einem Prisma können die Grundflächen verschieden groß sein.",
+   "h": "Suche ein Gegenbeispiel oder zähle nach."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist FALSCH?"
+   },
+   "a": [
+    "Ein neunseitiges Prisma hat 9 Flächen.",
+    "Ein Quader ist ein Prisma.",
+    "Das Netz eines neunseitigen Prismas enthält 9 Rechtecke.",
+    "Ein Zylinder hat keine Ecken."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Falsch: Ein neunseitiges Prisma hat 9 Flächen.",
+   "h": "Suche ein Gegenbeispiel oder zähle nach."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist FALSCH?"
+   },
+   "a": [
+    "Ein Quader ist ein Prisma.",
+    "Das Mantelrechteck eines Zylinders ist so lang wie der Durchmesser des Grundkreises.",
+    "Ein Zylinder hat keine Ecken.",
+    "Die Grundflächen eines Prismas sind parallel und deckungsgleich."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Falsch: Das Mantelrechteck eines Zylinders ist so lang wie der Durchmesser des Grundkreises.",
+   "h": "Suche ein Gegenbeispiel oder zähle nach."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist FALSCH?"
+   },
+   "a": [
+    "Ein Kegel ist ein Prisma.",
+    "Die Grundflächen eines Prismas sind parallel und deckungsgleich.",
+    "Ein Zylinder hat keine Ecken.",
+    "Jedes Netz eines Würfels besteht aus 6 Quadraten."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Falsch: Ein Kegel ist ein Prisma.",
+   "h": "Suche ein Gegenbeispiel oder zähle nach."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist richtig?"
+   },
+   "a": [
+    "Ein zwölfseitiges Prisma hat 12 Flächen.",
+    "Im Schrägbild werden Kanten nach hinten in wahrer Länge gezeichnet.",
+    "Ein zwölfseitiges Prisma hat 36 Kanten.",
+    "Das Mantelrechteck eines Zylinders ist so lang wie der Durchmesser des Grundkreises."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Richtig: Ein zwölfseitiges Prisma hat 36 Kanten."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist FALSCH?"
+   },
+   "a": [
+    "Ein Zylinder hat keine Ecken.",
+    "Eine Pyramide ist ein Prisma.",
+    "Jedes Netz eines Würfels besteht aus 6 Quadraten.",
+    "Ein fünfseitiges Prisma hat 15 Kanten."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Falsch: Eine Pyramide ist ein Prisma."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist richtig?"
+   },
+   "a": [
+    "Ein Kegel ist ein Prisma.",
+    "Ein zwölfseitiges Prisma hat 24 Ecken.",
+    "Im Schrägbild werden Kanten nach hinten in wahrer Länge gezeichnet.",
+    "Das Mantelrechteck eines Zylinders ist so lang wie der Durchmesser des Grundkreises."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Richtig: Ein zwölfseitiges Prisma hat 24 Ecken."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist FALSCH?"
+   },
+   "a": [
+    "Ein Kegel ist ein Prisma.",
+    "Ein Zylinder hat keine Ecken.",
+    "Ein zehnseitiges Prisma hat 30 Kanten.",
+    "Ein Würfel ist ein Prisma."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Falsch: Ein Kegel ist ein Prisma."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist richtig?"
+   },
+   "a": [
+    "Ein zwölfseitiges Prisma hat 36 Kanten.",
+    "Ein zwölfseitiges Prisma hat 28 Ecken.",
+    "Ein Kegel ist ein Prisma.",
+    "Ein zwölfseitiges Prisma hat 12 Flächen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Richtig: Ein zwölfseitiges Prisma hat 36 Kanten."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist FALSCH?"
+   },
+   "a": [
+    "Ein Quader ist ein Prisma.",
+    "Ein neunseitiges Prisma hat 18 Ecken.",
+    "Eine Pyramide ist ein Prisma.",
+    "Ein Zylinder hat genau zwei Kanten."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Falsch: Eine Pyramide ist ein Prisma."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist FALSCH?"
+   },
+   "a": [
+    "Das Netz eines neunseitigen Prismas enthält 9 Rechtecke.",
+    "Ein neunseitiges Prisma hat 9 Flächen.",
+    "Ein Zylinder hat genau zwei Kanten.",
+    "Die Grundflächen eines Prismas sind parallel und deckungsgleich."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Falsch: Ein neunseitiges Prisma hat 9 Flächen."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist richtig?"
+   },
+   "a": [
+    "Ein zwölfseitiges Prisma hat 12 Flächen.",
+    "Die Grundflächen eines Prismas sind parallel und deckungsgleich.",
+    "Das Mantelrechteck eines Zylinders ist so lang wie der Durchmesser des Grundkreises.",
+    "Ein zwölfseitiges Prisma hat 26 Ecken."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Richtig: Die Grundflächen eines Prismas sind parallel und deckungsgleich."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist richtig?"
+   },
+   "a": [
+    "Ein Kegel ist ein Prisma.",
+    "Ein sechsseitiges Prisma hat 14 Ecken.",
+    "Eine Pyramide ist ein Prisma.",
+    "Ein sechsseitiges Prisma hat 12 Ecken."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Richtig: Ein sechsseitiges Prisma hat 12 Ecken."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist FALSCH?"
+   },
+   "a": [
+    "Ein Zylinder hat genau zwei Kanten.",
+    "Ein sechsseitiges Prisma hat 16 Ecken.",
+    "Ein sechsseitiges Prisma hat 12 Ecken.",
+    "Ein Quader ist ein Prisma."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Falsch: Ein sechsseitiges Prisma hat 16 Ecken."
+  }
+ ],
+ "offen": [
+  "Lernkarten „netz“, „zylinder“, „schraegbild“, „ansichten“: Netze erkennen („Welches Netz ergibt einen Würfel?“), Schrägbilder zeichnen und Ansichten zeichnen brauchen Zeichnungen. Gebaut wurde nur, was sich in Worten und mit Maßen eindeutig beschreiben lässt.",
+  "Zylinder: Der Kreisumfang wird in den Aufgaben gegeben, weil Kreisberechnungen (π) erst im Thema messen.kreisberechnung folgen."
+ ]
+}

@@ -1,0 +1,3116 @@
+{
+ "thema_schluessel": "gleichungen.lgs2",
+ "thema_id": 6,
+ "block_id": 59,
+ "klasse": {
+  "gym_by": 8,
+  "rs_by": 9
+ },
+ "autor": "Claude (Paket Klasse 8)",
+ "inhalt": {
+  "ziel": "Lineare Gleichungssysteme mit zwei Unbekannten rechnerisch lösen, Lösbarkeit begründen, das passende Verfahren wählen und Sachaufgaben lösen.",
+  "merke": [
+   "Lösung = Zahlenpaar (x | y), das beide Gleichungen erfüllt.",
+   "Gleichsetzen, Einsetzen oder Addieren – Ziel: eine Gleichung mit nur einer Variablen.",
+   "Falsche Aussage (0 = 5): keine Lösung. Wahre Aussage (0 = 0): unendlich viele Lösungen."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Grundidee",
+    "lernziele": [
+     "pruefen"
+    ]
+   },
+   {
+    "titel": "Lösungsverfahren",
+    "lernziele": [
+     "einsetzen",
+     "gleichsetzen",
+     "addition",
+     "verfahren"
+    ]
+   },
+   {
+    "titel": "Verstehen und Anwenden",
+    "lernziele": [
+     "loesbarkeit",
+     "sachaufgabe"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "pruefen",
+    "titel": "Ist das Zahlenpaar eine Lösung?",
+    "regel": "Ein Zahlenpaar (x | y) ist ⟦Lösung⟧ des Gleichungssystems, wenn es ⟦beide⟧ Gleichungen erfüllt. Prüfe durch Einsetzen in I und in II.",
+    "schritte": [
+     "I: x + y = 5   II: 2x − y = 1   Paar (2 | 3)",
+     "I: 2 + 3 = 5 ✓   II: 4 − 3 = 1 ✓",
+     "⟦(2 | 3) ist Lösung.⟧"
+    ],
+    "fehler": "Erfüllt (4 | 1) nur x + y = 5, ist es ⟦keine⟧ Lösung des Systems: In II gilt 8 − 1 = 7 ≠ 1. Beide Gleichungen müssen stimmen."
+   },
+   {
+    "lernziel": "einsetzen",
+    "titel": "Einsetzungsverfahren",
+    "regel": "Ist eine Gleichung nach einer Variablen aufgelöst (z. B. y = …), ⟦setzt du diesen Term⟧ in die andere Gleichung ein. Dann bleibt eine Gleichung mit nur einer Variablen.",
+    "schritte": [
+     "I: y = 2x − 1   II: 3x + y = 9",
+     "I in II: 3x + (2x − 1) = 9 → 5x = 10 → x = 2",
+     "x in I: y = 2 · 2 − 1 = 3. ⟦L = {(2 | 3)}⟧"
+    ],
+    "fehler": "Beim Einsetzen die ⟦Klammer⟧ nicht vergessen: 3x − (2x − 1) ist 3x − 2x + 1, nicht 3x − 2x − 1."
+   },
+   {
+    "lernziel": "gleichsetzen",
+    "titel": "Gleichsetzungsverfahren",
+    "regel": "Sind ⟦beide⟧ Gleichungen nach derselben Variablen aufgelöst, setzt du die rechten Seiten ⟦gleich⟧.",
+    "schritte": [
+     "I: y = 3x − 4   II: y = x + 2",
+     "3x − 4 = x + 2 → 2x = 6 → x = 3",
+     "y = 3 + 2 = 5. ⟦L = {(3 | 5)}⟧"
+    ],
+    "fehler": "Mit x = 3 ist die Aufgabe nicht fertig: Die Lösung ist ein ⟦Zahlenpaar⟧. Setze x noch ein, um y zu bestimmen."
+   },
+   {
+    "lernziel": "addition",
+    "titel": "Additionsverfahren",
+    "regel": "Multipliziere die Gleichungen so, dass vor einer Variablen ⟦Gegenzahlen⟧ stehen. Addierst du dann die Gleichungen, ⟦fällt diese Variable weg⟧.",
+    "schritte": [
+     "I: 2x + 3y = 12   II: x − y = 1",
+     "II · 3: 3x − 3y = 3",
+     "I + II: 5x = 15 → x = 3; aus II: y = 2. ⟦L = {(3 | 2)}⟧"
+    ],
+    "fehler": "Wer II mit 3 multipliziert, muss ⟦jedes⟧ Glied multiplizieren – auch die rechte Seite: 3x − 3y = 3, nicht 3x − 3y = 1."
+   },
+   {
+    "lernziel": "loesbarkeit",
+    "titel": "Wie viele Lösungen hat das System?",
+    "regel": "Fällt beim Rechnen ⟦x und y⟧ weg, entscheidet die Rest-Aussage: Eine ⟦falsche⟧ Aussage (z. B. 0 = 5) heißt keine Lösung, eine ⟦wahre⟧ (0 = 0) heißt unendlich viele Lösungen.",
+    "schritte": [
+     "I: y = 2x + 1   II: y = 2x − 3",
+     "Gleichsetzen: 2x + 1 = 2x − 3 → 1 = −3",
+     "Falsche Aussage: ⟦keine Lösung⟧ (parallele Geraden)."
+    ],
+    "fehler": "Bei 0 = 0 ist nicht „x = 0“ die Lösung. Die Aussage ist ⟦immer⟧ wahr: Jedes Paar, das eine Gleichung erfüllt, erfüllt auch die andere – unendlich viele Lösungen."
+   },
+   {
+    "lernziel": "verfahren",
+    "titel": "Welches Verfahren ist geschickt?",
+    "regel": "Alle Verfahren führen zum Ziel. ⟦Gleichsetzen⟧, wenn beide Gleichungen nach derselben Variablen aufgelöst sind. ⟦Einsetzen⟧, wenn eine aufgelöst ist. ⟦Addition⟧, wenn vor einer Variablen Gegenzahlen oder Vielfache stehen.",
+    "schritte": [
+     "I: 4x + 5y = 3   II: 2x − 5y = 9",
+     "Vor y stehen 5 und −5: Gegenzahlen.",
+     "Am geschicktesten: ⟦Additionsverfahren⟧."
+    ],
+    "fehler": "Bei I: y = 3x und II: y = x + 4 musst du nichts umstellen. Hier erst nach x aufzulösen kostet ⟦unnötige⟧ Schritte – gleichsetzen ist schneller."
+   },
+   {
+    "lernziel": "sachaufgabe",
+    "titel": "Sachaufgaben mit zwei Unbekannten",
+    "regel": "Lege für die beiden gesuchten Größen ⟦Variablen⟧ fest (x, y). Übersetze jede Information in ⟦eine Gleichung⟧, löse das System und antworte im Satz.",
+    "schritte": [
+     "In einem Stall sind Hühner (x) und Kaninchen (y): 10 Köpfe, 28 Beine.",
+     "I: x + y = 10   II: 2x + 4y = 28",
+     "II − 2 · I: 2y = 8 → y = 4, x = 6. ⟦6 Hühner, 4 Kaninchen⟧"
+    ],
+    "fehler": "Die Beine-Gleichung ist nicht x + y = 28: Ein Huhn hat ⟦2⟧, ein Kaninchen ⟦4⟧ Beine. Jede Information braucht die passenden Faktoren."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "pruefen",
+    "text": "Ist das Zahlenpaar eine Lösung?",
+    "lernziele": [
+     "pruefen"
+    ]
+   },
+   {
+    "k": "einsetzen",
+    "text": "Einsetzungsverfahren",
+    "lernziele": [
+     "einsetzen"
+    ]
+   },
+   {
+    "k": "gleichsetzen",
+    "text": "Gleichsetzungsverfahren",
+    "lernziele": [
+     "gleichsetzen"
+    ]
+   },
+   {
+    "k": "addition",
+    "text": "Additionsverfahren",
+    "lernziele": [
+     "addition"
+    ]
+   },
+   {
+    "k": "loesbarkeit",
+    "text": "Wie viele Lösungen hat das System?",
+    "lernziele": [
+     "loesbarkeit"
+    ]
+   },
+   {
+    "k": "verfahren",
+    "text": "Welches Verfahren ist geschickt?",
+    "lernziele": [
+     "verfahren"
+    ]
+   },
+   {
+    "k": "sachaufgabe",
+    "text": "Sachaufgaben mit zwei Unbekannten",
+    "lernziele": [
+     "sachaufgabe"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "pruefen",
+    "einsetzen",
+    "gleichsetzen",
+    "addition",
+    "loesbarkeit",
+    "verfahren",
+    "sachaufgabe"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude).",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Gymnasium)."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: 2x − y = 19   II: −2x + 5y = −31. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(2 | −15)",
+    "(14 | 9)",
+    "(−3 | 8)",
+    "(8 | −3)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "(8 | −3) erfüllt I: 19 = 19 und II: −31 = −31. Andere Paare erfüllen höchstens eine Gleichung.",
+   "h": "Ein Paar, das nur eine Gleichung erfüllt, ist keine Lösung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: 3x − 4y = 45   II: 6x + 6y = 6. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(11 | −3)",
+    "(−6 | 7)",
+    "(3 | −9)",
+    "(7 | −6)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "(7 | −6) erfüllt I: 45 = 45 und II: 6 = 6. Andere Paare erfüllen höchstens eine Gleichung.",
+   "h": "Ein Paar, das nur eine Gleichung erfüllt, ist keine Lösung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: −3x + 2y = −13   II: 2x + 6y = −6. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(−3 | −11)",
+    "(−2 | 3)",
+    "(3 | −2)",
+    "(1 | −5)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "(3 | −2) erfüllt I: −13 = −13 und II: −6 = −6. Andere Paare erfüllen höchstens eine Gleichung.",
+   "h": "Ein Paar, das nur eine Gleichung erfüllt, ist keine Lösung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: 5x − 3y = −2   II: x − 4y = −14. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(2 | 4)",
+    "(8 | 14)",
+    "(4 | 2)",
+    "(−4 | −6)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "(2 | 4) erfüllt I: −2 = −2 und II: −14 = −14. Andere Paare erfüllen höchstens eine Gleichung.",
+   "h": "Ein Paar, das nur eine Gleichung erfüllt, ist keine Lösung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: 6x − 6y = −54   II: 2x − 3y = −26. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(2 | 11)",
+    "(−7 | 2)",
+    "(8 | −1)",
+    "(−1 | 8)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "(−1 | 8) erfüllt I: −54 = −54 und II: −26 = −26. Andere Paare erfüllen höchstens eine Gleichung.",
+   "h": "Ein Paar, das nur eine Gleichung erfüllt, ist keine Lösung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: 5x − 5y = 40   II: 6x + y = 34. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(0 | −8)",
+    "(11 | 3)",
+    "(6 | −2)",
+    "(−2 | 6)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "(6 | −2) erfüllt I: 40 = 40 und II: 34 = 34. Andere Paare erfüllen höchstens eine Gleichung.",
+   "h": "Ein Paar, das nur eine Gleichung erfüllt, ist keine Lösung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: 3x − 2y = 0   II: −2x − 4y = −16. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(3 | 2)",
+    "(0 | 0)",
+    "(−2 | −3)",
+    "(2 | 3)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "(2 | 3) erfüllt I: 0 = 0 und II: −16 = −16. Andere Paare erfüllen höchstens eine Gleichung.",
+   "h": "Ein Paar, das nur eine Gleichung erfüllt, ist keine Lösung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: x + 4y = −9   II: −x + 4y = −15. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(−1 | −2)",
+    "(3 | −3)",
+    "(7 | −4)",
+    "(−3 | 3)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "(3 | −3) erfüllt I: −9 = −9 und II: −15 = −15. Andere Paare erfüllen höchstens eine Gleichung.",
+   "h": "Ein Paar, das nur eine Gleichung erfüllt, ist keine Lösung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: −2x + 5y = −9   II: 6x + y = −21. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(2 | −1)",
+    "(−3 | −3)",
+    "(−8 | −5)",
+    "(−2 | −3)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "(−3 | −3) erfüllt I: −9 = −9 und II: −21 = −21. Andere Paare erfüllen höchstens eine Gleichung.",
+   "h": "Ein Paar, das nur eine Gleichung erfüllt, ist keine Lösung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: 3x − 6y = −48   II: −4x + 5y = 49. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(5 | −6)",
+    "(−8 | 4)",
+    "(−10 | 3)",
+    "(−6 | 5)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "(−6 | 5) erfüllt I: −48 = −48 und II: 49 = 49. Andere Paare erfüllen höchstens eine Gleichung.",
+   "h": "Ein Paar, das nur eine Gleichung erfüllt, ist keine Lösung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: −x − 3y = −2   II: 2x + y = 4. Ist (3 | 0) eine Lösung?"
+   },
+   "a": [
+    "Nein, nur Gleichung II ist erfüllt.",
+    "Nein, keine der beiden Gleichungen ist erfüllt.",
+    "Nein, nur Gleichung I ist erfüllt.",
+    "Ja, beide Gleichungen sind erfüllt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "I: −3 ≠ −2. II: 6 ≠ 4.",
+   "h": "Setze x und y in jede Gleichung einzeln ein."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: −5x − 4y = −17   II: −4x − 3y = −13. Ist (3 | 1) eine Lösung?"
+   },
+   "a": [
+    "Nein, nur Gleichung II ist erfüllt.",
+    "Nein, nur Gleichung I ist erfüllt.",
+    "Nein, keine der beiden Gleichungen ist erfüllt.",
+    "Ja, beide Gleichungen sind erfüllt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "I: −19 ≠ −17. II: −15 ≠ −13.",
+   "h": "Setze x und y in jede Gleichung einzeln ein."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: −6x − 4y = −22   II: 5x + 6y = 37. Ist (7 | −1) eine Lösung?"
+   },
+   "a": [
+    "Nein, keine der beiden Gleichungen ist erfüllt.",
+    "Nein, nur Gleichung II ist erfüllt.",
+    "Ja, beide Gleichungen sind erfüllt.",
+    "Nein, nur Gleichung I ist erfüllt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "I: −38 ≠ −22. II: 29 ≠ 37.",
+   "h": "Setze x und y in jede Gleichung einzeln ein."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: −2x − 4y = −46   II: −2x − 3y = −38. Ist (8 | 8) eine Lösung?"
+   },
+   "a": [
+    "Nein, nur Gleichung I ist erfüllt.",
+    "Nein, nur Gleichung II ist erfüllt.",
+    "Nein, keine der beiden Gleichungen ist erfüllt.",
+    "Ja, beide Gleichungen sind erfüllt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "I: −48 ≠ −46. II: −40 ≠ −38.",
+   "h": "Setze x und y in jede Gleichung einzeln ein."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: x − 2y = 6   II: 5x − y = 21. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(4 | −1)",
+    "(−1 | 4)",
+    "(8 | 1)",
+    "(2 | −2)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "(4 | −1) erfüllt I: 6 = 6 und II: 21 = 21. Andere Paare erfüllen höchstens eine Gleichung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: 5x + 2y = −7   II: −4x + y = −10. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(1 | −6)",
+    "(−3 | 4)",
+    "(−6 | 1)",
+    "(7 | −21)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "(1 | −6) erfüllt I: −7 = −7 und II: −10 = −10. Andere Paare erfüllen höchstens eine Gleichung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: x − y = 8   II: −2x + 3y = −17. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(13 | 5)",
+    "(7 | −1)",
+    "(−1 | 7)",
+    "(10 | 2)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "(7 | −1) erfüllt I: 8 = 8 und II: −17 = −17. Andere Paare erfüllen höchstens eine Gleichung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: −x − 5y = 24   II: −5x + 5y = −30. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(−5 | 1)",
+    "(1 | −5)",
+    "(−4 | −4)",
+    "(6 | −6)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "(1 | −5) erfüllt I: 24 = 24 und II: −30 = −30. Andere Paare erfüllen höchstens eine Gleichung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: −x + 2y = 13   II: x + 6y = 51. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(5 | 9)",
+    "(8 | 3)",
+    "(7 | 10)",
+    "(3 | 8)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "(3 | 8) erfüllt I: 13 = 13 und II: 51 = 51. Andere Paare erfüllen höchstens eine Gleichung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: 5x − 4y = 0   II: x + 6y = 34. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(0 | 0)",
+    "(8 | 10)",
+    "(4 | 5)",
+    "(5 | 4)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "(4 | 5) erfüllt I: 0 = 0 und II: 34 = 34. Andere Paare erfüllen höchstens eine Gleichung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: 5x − 2y = −8   II: −4x − 5y = 46. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(−6 | −4)",
+    "(−6 | −11)",
+    "(−10 | −21)",
+    "(−4 | −6)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "(−4 | −6) erfüllt I: −8 = −8 und II: 46 = 46. Andere Paare erfüllen höchstens eine Gleichung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: 4x + 2y = 24   II: x − 3y = 20. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(11 | −10)",
+    "(12 | −12)",
+    "(8 | −4)",
+    "(−4 | 8)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "(8 | −4) erfüllt I: 24 = 24 und II: 20 = 20. Andere Paare erfüllen höchstens eine Gleichung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: −6x − 3y = −60   II: 3x + 5y = 44. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(6 | 8)",
+    "(8 | 4)",
+    "(4 | 8)",
+    "(9 | 2)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "(8 | 4) erfüllt I: −60 = −60 und II: 44 = 44. Andere Paare erfüllen höchstens eine Gleichung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: −4x + 6y = −24   II: −3x − 4y = −1. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(3 | −2)",
+    "(−2 | 3)",
+    "(0 | −4)",
+    "(9 | 2)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "(3 | −2) erfüllt I: −24 = −24 und II: −1 = −1. Andere Paare erfüllen höchstens eine Gleichung."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = x   II: 2x + y = −9. Gib y an."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "(1) * (-3) + (0)",
+   "w": "I in II: 2x + (x) = −9 → 3x = −9 → x = −3. In I: y = −3.",
+   "h": "Setze den Term für y (oder x) in die andere Gleichung ein. Klammern setzen!"
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = 2x   II: 5x − y = 15. Gib x an."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(15 - (-1) * (0)) / ((5) + (-1) * (2))",
+   "w": "I in II: 5x − (2x) = 15 → 3x = 15 → x = 5. In I: y = 10.",
+   "h": "Setze den Term für y (oder x) in die andere Gleichung ein. Klammern setzen!"
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = −4x   II: 2x + 2y = −30. Gib x an."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(-30 - (2) * (0)) / ((2) + (2) * (-4))",
+   "w": "I in II: 2x + 2 · (−4x) = −30 → −6x = −30 → x = 5. In I: y = −20.",
+   "h": "Setze den Term für y (oder x) in die andere Gleichung ein. Klammern setzen!"
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = −2x   II: 4x − y = −12. Gib x an."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "(-12 - (-1) * (0)) / ((4) + (-1) * (-2))",
+   "w": "I in II: 4x − (−2x) = −12 → 6x = −12 → x = −2. In I: y = 4.",
+   "h": "Setze den Term für y (oder x) in die andere Gleichung ein. Klammern setzen!"
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = x + 8   II: 2x − y = −9. Gib x an."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "(-9 - (-1) * (8)) / ((2) + (-1) * (1))",
+   "w": "I in II: 2x − (x + 8) = −9 → x − 8 = −9 → x = −1. In I: y = 7.",
+   "h": "Setze den Term für y (oder x) in die andere Gleichung ein. Klammern setzen!"
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = −4x − 2   II: 4x + 3y = −22. Gib y an."
+   },
+   "o": {
+    "wert": -10
+   },
+   "c": "(-4) * (2) + (-2)",
+   "w": "I in II: 4x + 3 · (−4x − 2) = −22 → −8x − 6 = −22 → x = 2. In I: y = −10.",
+   "h": "Setze den Term für y (oder x) in die andere Gleichung ein. Klammern setzen!"
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = x + 3   II: 3x − y = −15. Gib y an."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "(1) * (-6) + (3)",
+   "w": "I in II: 3x − (x + 3) = −15 → 2x − 3 = −15 → x = −6. In I: y = −3.",
+   "h": "Setze den Term für y (oder x) in die andere Gleichung ein. Klammern setzen!"
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = 3x + 8   II: 2x − 4y = 18. Gib y an."
+   },
+   "o": {
+    "wert": -7
+   },
+   "c": "(3) * (-5) + (8)",
+   "w": "I in II: 2x − 4 · (3x + 8) = 18 → −10x − 32 = 18 → x = −5. In I: y = −7.",
+   "h": "Setze den Term für y (oder x) in die andere Gleichung ein. Klammern setzen!"
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = −x + 8   II: −5x − 2y = −1. Gib y an."
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "(-1) * (-5) + (8)",
+   "w": "I in II: −5x − 2 · (−x + 8) = −1 → −3x − 16 = −1 → x = −5. In I: y = 13.",
+   "h": "Setze den Term für y (oder x) in die andere Gleichung ein. Klammern setzen!"
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = x − 2   II: −3x − 2y = −31. Gib x an."
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "(-31 - (-2) * (-2)) / ((-3) + (-2) * (1))",
+   "w": "I in II: −3x − 2 · (x − 2) = −31 → −5x + 4 = −31 → x = 7. In I: y = 5.",
+   "h": "Setze den Term für y (oder x) in die andere Gleichung ein. Klammern setzen!"
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: x = 3y − 5   II: −x + 4y = 6. Gib y an."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(6 - (-1) * (-5)) / ((-1) * (3) + (4))",
+   "w": "I in II: −1 · (3y − 5) + 4y = 6 → y + 5 = 6 → y = 1. In I: x = −2.",
+   "h": "Setze den Term für y (oder x) in die andere Gleichung ein. Klammern setzen!"
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: x = 4y + 9   II: −2x + 3y = −43. Gib x an."
+   },
+   "o": {
+    "wert": 29
+   },
+   "c": "(4) * (5) + (9)",
+   "w": "I in II: −2 · (4y + 9) + 3y = −43 → −5y − 18 = −43 → y = 5. In I: x = 29.",
+   "h": "Setze den Term für y (oder x) in die andere Gleichung ein. Klammern setzen!"
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = −x − 8   II: 5x + 3y = −32. Gib x an."
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "(-32 - (3) * (-8)) / ((5) + (3) * (-1))",
+   "w": "I in II: 5x + 3 · (−x − 8) = −32 → 2x − 24 = −32 → x = −4. In I: y = −4.",
+   "h": "Setze den Term für y (oder x) in die andere Gleichung ein. Klammern setzen!"
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = x − 4   II: x + y = −12. Gib y an."
+   },
+   "o": {
+    "wert": -8
+   },
+   "c": "(1) * (-4) + (-4)",
+   "w": "I in II: x + (x − 4) = −12 → 2x − 4 = −12 → x = −4. In I: y = −8.",
+   "h": "Setze den Term für y (oder x) in die andere Gleichung ein. Klammern setzen!"
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = 4x − 2   II: −2x + 2y = 32. Gib y an."
+   },
+   "o": {
+    "wert": 22
+   },
+   "c": "(4) * (6) + (-2)",
+   "w": "I in II: −2x + 2 · (4x − 2) = 32 → 6x − 4 = 32 → x = 6. In I: y = 22."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = −3x + 5   II: −x + 4y = 59. Gib y an."
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "(-3) * (-3) + (5)",
+   "w": "I in II: −x + 4 · (−3x + 5) = 59 → −13x + 20 = 59 → x = −3. In I: y = 14."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = 3x + 1   II: 3x + 2y = −25. Gib x an."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "(-25 - (2) * (1)) / ((3) + (2) * (3))",
+   "w": "I in II: 3x + 2 · (3x + 1) = −25 → 9x + 2 = −25 → x = −3. In I: y = −8."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = −x − 3   II: −4x − 2y = 2. Gib x an."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(2 - (-2) * (-3)) / ((-4) + (-2) * (-1))",
+   "w": "I in II: −4x − 2 · (−x − 3) = 2 → −2x + 6 = 2 → x = 2. In I: y = −5."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = −x − 1   II: x + 4y = −13. Gib x an."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(-13 - (4) * (-1)) / ((1) + (4) * (-1))",
+   "w": "I in II: x + 4 · (−x − 1) = −13 → −3x − 4 = −13 → x = 3. In I: y = −4."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = 3x − 6   II: −4x − y = −22. Gib y an."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(3) * (4) + (-6)",
+   "w": "I in II: −4x − (3x − 6) = −22 → −7x + 6 = −22 → x = 4. In I: y = 6."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = 3x + 7   II: −2x − y = 18. Gib y an."
+   },
+   "o": {
+    "wert": -8
+   },
+   "c": "(3) * (-5) + (7)",
+   "w": "I in II: −2x − (3x + 7) = 18 → −5x − 7 = 18 → x = −5. In I: y = −8."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = 4x + 7   II: −5x − 3y = −123. Gib x an."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(-123 - (-3) * (7)) / ((-5) + (-3) * (4))",
+   "w": "I in II: −5x − 3 · (4x + 7) = −123 → −17x − 21 = −123 → x = 6. In I: y = 31."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = −4x + 6   II: 3x − 4y = −100. Gib x an."
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "(-100 - (-4) * (6)) / ((3) + (-4) * (-4))",
+   "w": "I in II: 3x − 4 · (−4x + 6) = −100 → 19x − 24 = −100 → x = −4. In I: y = 22."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = −x + 2   II: 2x + 3y = 5. Gib y an."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(-1) * (1) + (2)",
+   "w": "I in II: 2x + 3 · (−x + 2) = 5 → −x + 6 = 5 → x = 1. In I: y = 1."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −3x + 9   II: y = 3. Gib y an."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(-3) * (2) + (9)",
+   "w": "−3x + 9 = 3 → −3x = −6 → x = 2. In I: y = 3.",
+   "h": "Setze die beiden rechten Seiten gleich und löse nach x."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −5x − 1   II: y = −1. Gib x an."
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "(-1 - (-1)) / ((-5) - (0))",
+   "w": "−5x − 1 = −1 → −5x = 0 → x = 0. In I: y = −1.",
+   "h": "Setze die beiden rechten Seiten gleich und löse nach x."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −3x + 5   II: y = −2x + 11. Gib y an."
+   },
+   "o": {
+    "wert": 23
+   },
+   "c": "(-3) * (-6) + (5)",
+   "w": "−3x + 5 = −2x + 11 → −x = 6 → x = −6. In I: y = 23.",
+   "h": "Setze die beiden rechten Seiten gleich und löse nach x."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −4x + 5   II: y = −5x + 2. Gib y an."
+   },
+   "o": {
+    "wert": 17
+   },
+   "c": "(-4) * (-3) + (5)",
+   "w": "−4x + 5 = −5x + 2 → x = −3 → x = −3. In I: y = 17.",
+   "h": "Setze die beiden rechten Seiten gleich und löse nach x."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −x + 1   II: y = x − 11. Gib x an."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(-11 - (1)) / ((-1) - (1))",
+   "w": "−x + 1 = x − 11 → −2x = −12 → x = 6. In I: y = −5.",
+   "h": "Setze die beiden rechten Seiten gleich und löse nach x."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −2x + 8   II: y = 3x + 28. Gib y an."
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "(-2) * (-4) + (8)",
+   "w": "−2x + 8 = 3x + 28 → −5x = 20 → x = −4. In I: y = 16.",
+   "h": "Setze die beiden rechten Seiten gleich und löse nach x."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −2x + 9   II: y = 3x + 14. Gib y an."
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "(-2) * (-1) + (9)",
+   "w": "−2x + 9 = 3x + 14 → −5x = 5 → x = −1. In I: y = 11.",
+   "h": "Setze die beiden rechten Seiten gleich und löse nach x."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = x − 6   II: y = −3x + 26. Gib x an."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(26 - (-6)) / ((1) - (-3))",
+   "w": "x − 6 = −3x + 26 → 4x = 32 → x = 8. In I: y = 2.",
+   "h": "Setze die beiden rechten Seiten gleich und löse nach x."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −3x − 2   II: y = x + 2. Gib y an."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(-3) * (-1) + (-2)",
+   "w": "−3x − 2 = x + 2 → −4x = 4 → x = −1. In I: y = 1.",
+   "h": "Setze die beiden rechten Seiten gleich und löse nach x."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −4x + 9   II: y = −x + 18. Gib x an."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "(18 - (9)) / ((-4) - (-1))",
+   "w": "−4x + 9 = −x + 18 → −3x = 9 → x = −3. In I: y = 21.",
+   "h": "Setze die beiden rechten Seiten gleich und löse nach x."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −5x − 9   II: −2x − 2y = −14. Gib y an."
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "(-5) * (-4) + (-9)",
+   "w": "II nach y auflösen: y = −x + 7. Gleichsetzen: −5x − 9 = −x + 7 → −4x = 16 → x = −4. y = 11.",
+   "h": "Löse zuerst Gleichung II nach y auf."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −2x − 2   II: −3x + 3y = −69. Gib y an."
+   },
+   "o": {
+    "wert": -16
+   },
+   "c": "(-2) * (7) + (-2)",
+   "w": "II nach y auflösen: y = x − 23. Gleichsetzen: −2x − 2 = x − 23 → −3x = −21 → x = 7. y = −16.",
+   "h": "Löse zuerst Gleichung II nach y auf."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = 2x − 8   II: 6x − 2y = 14. Gib y an."
+   },
+   "o": {
+    "wert": -10
+   },
+   "c": "(2) * (-1) + (-8)",
+   "w": "II nach y auflösen: y = 3x − 7. Gleichsetzen: 2x − 8 = 3x − 7 → −x = 1 → x = −1. y = −10.",
+   "h": "Löse zuerst Gleichung II nach y auf."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = 5x + 9   II: 6x + 3y = −57. Gib y an."
+   },
+   "o": {
+    "wert": -11
+   },
+   "c": "(5) * (-4) + (9)",
+   "w": "II nach y auflösen: y = −2x − 19. Gleichsetzen: 5x + 9 = −2x − 19 → 7x = −28 → x = −4. y = −11.",
+   "h": "Löse zuerst Gleichung II nach y auf."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −4x + 5   II: y = −3x + 3. Gib y an."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "(-4) * (2) + (5)",
+   "w": "−4x + 5 = −3x + 3 → −x = −2 → x = 2. In I: y = −3."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −5x − 4   II: y = −4x − 9. Gib x an."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(-9 - (-4)) / ((-5) - (-4))",
+   "w": "−5x − 4 = −4x − 9 → −x = −5 → x = 5. In I: y = −29."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = 4x − 4   II: y = 5x − 2. Gib x an."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "(-2 - (-4)) / ((4) - (5))",
+   "w": "4x − 4 = 5x − 2 → −x = 2 → x = −2. In I: y = −12."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = 3x + 9   II: y = −3x + 3. Gib y an."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(3) * (-1) + (9)",
+   "w": "3x + 9 = −3x + 3 → 6x = −6 → x = −1. In I: y = 6."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = x + 4   II: y = −x + 14. Gib x an."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(14 - (4)) / ((1) - (-1))",
+   "w": "x + 4 = −x + 14 → 2x = 10 → x = 5. In I: y = 9."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −4x + 5   II: y = −x − 19. Gib x an."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(-19 - (5)) / ((-4) - (-1))",
+   "w": "−4x + 5 = −x − 19 → −3x = −24 → x = 8. In I: y = −27."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −4x − 8   II: y = −5x − 9. Gib y an."
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "(-4) * (-1) + (-8)",
+   "w": "−4x − 8 = −5x − 9 → x = −1 → x = −1. In I: y = −4."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = x − 1   II: y = 4x + 5. Gib y an."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "(1) * (-2) + (-1)",
+   "w": "x − 1 = 4x + 5 → −3x = 6 → x = −2. In I: y = −3."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −2x − 4   II: y = 5x + 24. Gib y an."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(-2) * (-4) + (-4)",
+   "w": "−2x − 4 = 5x + 24 → −7x = 28 → x = −4. In I: y = 4."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −5x − 4   II: y = −2x + 14. Gib y an."
+   },
+   "o": {
+    "wert": 26
+   },
+   "c": "(-5) * (-6) + (-4)",
+   "w": "−5x − 4 = −2x + 14 → −3x = 18 → x = −6. In I: y = 26."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: −x + 6y = 30   II: 4x − 6y = −48. Gib x an."
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "(1 * (30) + (1) * (-48)) / (1 * (-1) + (1) * (4))",
+   "w": "Addieren: 3x = −18 → x = −6. Einsetzen: y = 4.",
+   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: −6x + 3y = −3   II: 3x − 3y = −6. Gib x an."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(1 * (-3) + (1) * (-6)) / (1 * (-6) + (1) * (3))",
+   "w": "Addieren: −3x = −9 → x = 3. Einsetzen: y = 5.",
+   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: 4x + 4y = 12   II: x − 4y = −22. Gib x an."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "(1 * (12) + (1) * (-22)) / (1 * (4) + (1) * (1))",
+   "w": "Addieren: 5x = −10 → x = −2. Einsetzen: y = 5.",
+   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: 3x + 6y = 27   II: −2x − 6y = −26. Gib y an."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(27 - (3) * (1)) / (6)",
+   "w": "Addieren: x = 1 → x = 1. Einsetzen: y = 4.",
+   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: 3x + 2y = 18   II: −x + y = −11. Gib y an."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "(18 - (3) * (8)) / (2)",
+   "w": "II · (−2): 2x − 2y = 22. Addieren: 5x = 40 → x = 8. Einsetzen: y = −3.",
+   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: 5x − 4y = −38   II: −4x + 2y = 28. Gib y an."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(-38 - (5) * (-6)) / (-4)",
+   "w": "II · 2: −8x + 4y = 56. Addieren: −3x = 18 → x = −6. Einsetzen: y = 2.",
+   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: −4x − 3y = 3   II: 6x − y = 1. Gib x an."
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "(1 * (3) + (-3) * (1)) / (1 * (-4) + (-3) * (6))",
+   "w": "II · (−3): −18x + 3y = −3. Addieren: −22x = 0 → x = 0. Einsetzen: y = −1.",
+   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: −4x − 2y = −22   II: 4x − y = 13. Gib x an."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(1 * (-22) + (-2) * (13)) / (1 * (-4) + (-2) * (4))",
+   "w": "II · (−2): −8x + 2y = −26. Addieren: −12x = −48 → x = 4. Einsetzen: y = 3.",
+   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: 3x + 4y = 30   II: −2x + 2y = 8. Gib y an."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(30 - (3) * (2)) / (4)",
+   "w": "II · (−2): 4x − 4y = −16. Addieren: 7x = 14 → x = 2. Einsetzen: y = 6.",
+   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: 2x + 4y = −28   II: −5x + 2y = −2. Gib y an."
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "(-28 - (2) * (-2)) / (4)",
+   "w": "II · (−2): 10x − 4y = 4. Addieren: 12x = −24 → x = −2. Einsetzen: y = −6.",
+   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: −4x − 6y = −4   II: −5x − 2y = 6. Gib y an."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(-4 - (-4) * (-2)) / (-6)",
+   "w": "I · 2: −8x − 12y = −8. II · (−6): 30x + 12y = −36. Addieren: 22x = −44 → x = −2. Einsetzen: y = 2.",
+   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: x − y = 7   II: −5x − 6y = −2. Gib y an."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "(7 - (1) * (4)) / (-1)",
+   "w": "I · 6: 6x − 6y = 42. II · (−1): 5x + 6y = 2. Addieren: 11x = 44 → x = 4. Einsetzen: y = −3.",
+   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: −6x + 5y = 36   II: 5x + 3y = 13. Gib x an."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "(3 * (36) + (-5) * (13)) / (3 * (-6) + (-5) * (5))",
+   "w": "I · 3: −18x + 15y = 108. II · (−5): −25x − 15y = −65. Addieren: −43x = 43 → x = −1. Einsetzen: y = 6.",
+   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: 4x + 2y = 16   II: −x + 6y = −4. Gib x an."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(6 * (16) + (-2) * (-4)) / (6 * (4) + (-2) * (-1))",
+   "w": "I · 6: 24x + 12y = 96. II · (−2): 2x − 12y = 8. Addieren: 26x = 104 → x = 4. Einsetzen: y = 0.",
+   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: −3x − 6y = −3   II: −4x − 3y = 1. Gib x an."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "(1 * (-3) + (-2) * (1)) / (1 * (-3) + (-2) * (-4))",
+   "w": "II · (−2): 8x + 6y = −2. Addieren: 5x = −5 → x = −1. Einsetzen: y = 1."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: −x − 6y = −12   II: 5x − 2y = −36. Gib x an."
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "(1 * (-12) + (-3) * (-36)) / (1 * (-1) + (-3) * (5))",
+   "w": "II · (−3): −15x + 6y = 108. Addieren: −16x = 96 → x = −6. Einsetzen: y = 3."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: −4x + 4y = −4   II: 5x + 2y = 40. Gib x an."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(1 * (-4) + (-2) * (40)) / (1 * (-4) + (-2) * (5))",
+   "w": "II · (−2): −10x − 4y = −80. Addieren: −14x = −84 → x = 6. Einsetzen: y = 5."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: −4x + 6y = −32   II: −5x + 2y = −18. Gib y an."
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "(-32 - (-4) * (2)) / (6)",
+   "w": "II · (−3): 15x − 6y = 54. Addieren: 11x = 22 → x = 2. Einsetzen: y = −4."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: −2x − 3y = −27   II: −4x + y = −19. Gib y an."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(-27 - (-2) * (6)) / (-3)",
+   "w": "II · 3: −12x + 3y = −57. Addieren: −14x = −84 → x = 6. Einsetzen: y = 5."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: 4x + 2y = −20   II: −4x − y = 14. Gib x an."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "(1 * (-20) + (2) * (14)) / (1 * (4) + (2) * (-4))",
+   "w": "II · 2: −8x − 2y = 28. Addieren: −4x = 8 → x = −2. Einsetzen: y = −6."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: −4x + 6y = 2   II: 6x − 3y = −9. Gib y an."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "(2 - (-4) * (-2)) / (6)",
+   "w": "II · 2: 12x − 6y = −18. Addieren: 8x = −16 → x = −2. Einsetzen: y = −1."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: −2x + 6y = −40   II: 5x − 3y = 28. Gib y an."
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "(-40 - (-2) * (2)) / (6)",
+   "w": "II · 2: 10x − 6y = 56. Addieren: 8x = 16 → x = 2. Einsetzen: y = −6."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: −3x + 6y = 36   II: 6x + 3y = 3. Gib x an."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "(1 * (36) + (-2) * (3)) / (1 * (-3) + (-2) * (6))",
+   "w": "II · (−2): −12x − 6y = −6. Addieren: −15x = 30 → x = −2. Einsetzen: y = 5."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: x + 4y = −23   II: 4x − 2y = 16. Gib y an."
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "(-23 - (1) * (1)) / (4)",
+   "w": "II · 2: 8x − 4y = 32. Addieren: 9x = 9 → x = 1. Einsetzen: y = −6."
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat I: y = 4x + 5   II: −8x + 2y = 10?"
+   },
+   "a": [
+    "genau eine Lösung",
+    "unendlich viele Lösungen",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "II durch 2 geteilt und nach y aufgelöst ergibt genau I. Beide Gleichungen beschreiben dieselbe Gerade.",
+   "h": "Vergleiche die beiden Gleichungen: Ist eine ein Vielfaches der anderen – links, rechts, oder beides?"
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat I: y = 4x + 2   II: y = −x − 8?"
+   },
+   "a": [
+    "unendlich viele Lösungen",
+    "genau eine Lösung",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Verschiedene Steigungen: Die Geraden schneiden sich in einem Punkt.",
+   "h": "Vergleiche die beiden Gleichungen: Ist eine ein Vielfaches der anderen – links, rechts, oder beides?"
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat I: y = −x − 8   II: y = −x − 13?"
+   },
+   "a": [
+    "genau eine Lösung",
+    "unendlich viele Lösungen",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gleichsetzen ergibt −8 = −13: falsch. Parallele Geraden.",
+   "h": "Vergleiche die beiden Gleichungen: Ist eine ein Vielfaches der anderen – links, rechts, oder beides?"
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat I: y = 4x + 1   II: −8x + 2y = 2?"
+   },
+   "a": [
+    "keine Lösung",
+    "unendlich viele Lösungen",
+    "genau eine Lösung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "II durch 2 geteilt und nach y aufgelöst ergibt genau I. Beide Gleichungen beschreiben dieselbe Gerade.",
+   "h": "Vergleiche die beiden Gleichungen: Ist eine ein Vielfaches der anderen – links, rechts, oder beides?"
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat I: x + 5y = 5   II: 5x + 15y = −9?"
+   },
+   "a": [
+    "keine Lösung",
+    "unendlich viele Lösungen",
+    "genau eine Lösung"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die linke Seite von II ist kein Vielfaches der linken Seite von I: Es gibt genau ein Lösungspaar.",
+   "h": "Vergleiche die beiden Gleichungen: Ist eine ein Vielfaches der anderen – links, rechts, oder beides?"
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat I: −x + 4y = 9   II: x − 8y = −10?"
+   },
+   "a": [
+    "keine Lösung",
+    "genau eine Lösung",
+    "unendlich viele Lösungen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die linke Seite von II ist kein Vielfaches der linken Seite von I: Es gibt genau ein Lösungspaar.",
+   "h": "Vergleiche die beiden Gleichungen: Ist eine ein Vielfaches der anderen – links, rechts, oder beides?"
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat I: −x + 4y = 5   II: −3x + 12y = 17?"
+   },
+   "a": [
+    "genau eine Lösung",
+    "keine Lösung",
+    "unendlich viele Lösungen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "I · 3 ergibt links dasselbe wie II, rechts aber 15 statt 17: Widerspruch.",
+   "h": "Vergleiche die beiden Gleichungen: Ist eine ein Vielfaches der anderen – links, rechts, oder beides?"
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat I: 3x + 4y = 1   II: 8x + 8y = −1?"
+   },
+   "a": [
+    "genau eine Lösung",
+    "keine Lösung",
+    "unendlich viele Lösungen"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die linke Seite von II ist kein Vielfaches der linken Seite von I: Es gibt genau ein Lösungspaar.",
+   "h": "Vergleiche die beiden Gleichungen: Ist eine ein Vielfaches der anderen – links, rechts, oder beides?"
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat I: 3x + 4y = 9   II: −6x − 8y = −21?"
+   },
+   "a": [
+    "unendlich viele Lösungen",
+    "genau eine Lösung",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "I · (−2) ergibt links dasselbe wie II, rechts aber −18 statt −21: Widerspruch.",
+   "h": "Vergleiche die beiden Gleichungen: Ist eine ein Vielfaches der anderen – links, rechts, oder beides?"
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat I: 6x − 3y = 7   II: 12x − 6y = 11?"
+   },
+   "a": [
+    "genau eine Lösung",
+    "unendlich viele Lösungen",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "I · 2 ergibt links dasselbe wie II, rechts aber 14 statt 11: Widerspruch.",
+   "h": "Vergleiche die beiden Gleichungen: Ist eine ein Vielfaches der anderen – links, rechts, oder beides?"
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "I: −x + y = 9   II: 2x + a · y = −15. Für welchen Wert von a hat das Gleichungssystem keine Lösung?"
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-2 * (1)",
+   "w": "Keine Lösung, wenn II die linke Seite von I mal (−2) ist, die rechte Seite aber nicht: a = (−2) · 1 = −2. Dann steht rechts −15 statt −18.",
+   "h": "Vergleiche die Faktoren vor x. Mit welcher Zahl wurde I multipliziert?"
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "I: 4x − 5y = −2   II: −4x + a · y = −2. Für welchen Wert von a hat das Gleichungssystem keine Lösung?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "-1 * (-5)",
+   "w": "Keine Lösung, wenn II die linke Seite von I mal (−1) ist, die rechte Seite aber nicht: a = (−1) · (−5) = 5. Dann steht rechts −2 statt 2.",
+   "h": "Vergleiche die Faktoren vor x. Mit welcher Zahl wurde I multipliziert?"
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "I: 2x − 5y = −4   II: 6x + a · y = −11. Für welchen Wert von a hat das Gleichungssystem keine Lösung?"
+   },
+   "o": {
+    "wert": -15
+   },
+   "c": "3 * (-5)",
+   "w": "Keine Lösung, wenn II die linke Seite von I mal 3 ist, die rechte Seite aber nicht: a = 3 · (−5) = −15. Dann steht rechts −11 statt −12.",
+   "h": "Vergleiche die Faktoren vor x. Mit welcher Zahl wurde I multipliziert?"
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat I: 5x + 3y = 8   II: −13x − 9y = 4?"
+   },
+   "a": [
+    "genau eine Lösung",
+    "unendlich viele Lösungen",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die linke Seite von II ist kein Vielfaches der linken Seite von I: Es gibt genau ein Lösungspaar.",
+   "h": "Vergleiche die beiden Gleichungen: Ist eine ein Vielfaches der anderen – links, rechts, oder beides?"
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat I: 6x + 3y = 3   II: 18x + 9y = 10?"
+   },
+   "a": [
+    "genau eine Lösung",
+    "unendlich viele Lösungen",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "I · 3 ergibt links dasselbe wie II, rechts aber 9 statt 10: Widerspruch."
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat I: 6x + 5y = −1   II: −18x − 15y = 3?"
+   },
+   "a": [
+    "genau eine Lösung",
+    "unendlich viele Lösungen",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "II ist genau I · (−3): Beide Gleichungen haben dieselben Lösungen."
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat I: −6x + 5y = 11   II: 11x − 10y = −4?"
+   },
+   "a": [
+    "unendlich viele Lösungen",
+    "keine Lösung",
+    "genau eine Lösung"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die linke Seite von II ist kein Vielfaches der linken Seite von I: Es gibt genau ein Lösungspaar."
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat I: 2x + 6y = 3   II: 6x + 18y = 9?"
+   },
+   "a": [
+    "unendlich viele Lösungen",
+    "genau eine Lösung",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "II ist genau I · 3: Beide Gleichungen haben dieselben Lösungen."
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat I: 5x − y = 0   II: −13x + 3y = 1?"
+   },
+   "a": [
+    "keine Lösung",
+    "unendlich viele Lösungen",
+    "genau eine Lösung"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die linke Seite von II ist kein Vielfaches der linken Seite von I: Es gibt genau ein Lösungspaar."
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat I: 5x + y = 1   II: 15x + 3y = 5?"
+   },
+   "a": [
+    "keine Lösung",
+    "genau eine Lösung",
+    "unendlich viele Lösungen"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "I · 3 ergibt links dasselbe wie II, rechts aber 3 statt 5: Widerspruch."
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat I: 6x − 5y = −10   II: −18x + 15y = 35?"
+   },
+   "a": [
+    "keine Lösung",
+    "genau eine Lösung",
+    "unendlich viele Lösungen"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "I · (−3) ergibt links dasselbe wie II, rechts aber 30 statt 35: Widerspruch."
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat I: 2x + 2y = 8   II: −6x − 6y = −24?"
+   },
+   "a": [
+    "keine Lösung",
+    "genau eine Lösung",
+    "unendlich viele Lösungen"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "II ist genau I · (−3): Beide Gleichungen haben dieselben Lösungen."
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat I: 5x − 4y = 4   II: −8x + 8y = −8?"
+   },
+   "a": [
+    "genau eine Lösung",
+    "keine Lösung",
+    "unendlich viele Lösungen"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die linke Seite von II ist kein Vielfaches der linken Seite von I: Es gibt genau ein Lösungspaar."
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat I: 2x − 3y = 5   II: 4x − 6y = 12?"
+   },
+   "a": [
+    "unendlich viele Lösungen",
+    "genau eine Lösung",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "I · 2 ergibt links dasselbe wie II, rechts aber 10 statt 12: Widerspruch."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: y = −3x − 1   II: −3x + y = −1 am geschicktesten?"
+   },
+   "a": [
+    "Gleichsetzungsverfahren",
+    "Einsetzungsverfahren",
+    "Additionsverfahren"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Eine Gleichung ist schon nach y aufgelöst, die andere nicht: einsetzen.",
+   "h": "Schau, ob eine Gleichung schon nach x oder y aufgelöst ist, und ob Gegenzahlen vorkommen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: −2x + 4y = −4   II: −4x − 4y = 28 am geschicktesten?"
+   },
+   "a": [
+    "Additionsverfahren",
+    "Einsetzungsverfahren",
+    "Gleichsetzungsverfahren"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Vor y stehen 4 und −4: Addieren lässt y sofort wegfallen.",
+   "h": "Schau, ob eine Gleichung schon nach x oder y aufgelöst ist, und ob Gegenzahlen vorkommen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: −6x + 4y = −8   II: −6x − 4y = −16 am geschicktesten?"
+   },
+   "a": [
+    "Gleichsetzungsverfahren",
+    "Einsetzungsverfahren",
+    "Additionsverfahren"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Vor y stehen 4 und −4: Addieren lässt y sofort wegfallen.",
+   "h": "Schau, ob eine Gleichung schon nach x oder y aufgelöst ist, und ob Gegenzahlen vorkommen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: x = −5y + 11   II: x = 3y − 13 am geschicktesten?"
+   },
+   "a": [
+    "Gleichsetzungsverfahren",
+    "Additionsverfahren",
+    "Einsetzungsverfahren"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Beide Gleichungen sind nach x aufgelöst: rechte Seiten gleichsetzen.",
+   "h": "Schau, ob eine Gleichung schon nach x oder y aufgelöst ist, und ob Gegenzahlen vorkommen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: y = 4x + 1   II: y = 5x am geschicktesten?"
+   },
+   "a": [
+    "Gleichsetzungsverfahren",
+    "Einsetzungsverfahren",
+    "Additionsverfahren"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Beide Gleichungen sind nach y aufgelöst: rechte Seiten gleichsetzen.",
+   "h": "Schau, ob eine Gleichung schon nach x oder y aufgelöst ist, und ob Gegenzahlen vorkommen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: x = 4y + 18   II: x = −3y − 3 am geschicktesten?"
+   },
+   "a": [
+    "Einsetzungsverfahren",
+    "Gleichsetzungsverfahren",
+    "Additionsverfahren"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Beide Gleichungen sind nach x aufgelöst: rechte Seiten gleichsetzen.",
+   "h": "Schau, ob eine Gleichung schon nach x oder y aufgelöst ist, und ob Gegenzahlen vorkommen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: y = −2x − 1   II: y = −4x + 3 am geschicktesten?"
+   },
+   "a": [
+    "Einsetzungsverfahren",
+    "Gleichsetzungsverfahren",
+    "Additionsverfahren"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Beide Gleichungen sind nach y aufgelöst: rechte Seiten gleichsetzen.",
+   "h": "Schau, ob eine Gleichung schon nach x oder y aufgelöst ist, und ob Gegenzahlen vorkommen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: y = 4x + 7   II: 4x + 4y = 28 am geschicktesten?"
+   },
+   "a": [
+    "Additionsverfahren",
+    "Einsetzungsverfahren",
+    "Gleichsetzungsverfahren"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Eine Gleichung ist schon nach y aufgelöst, die andere nicht: einsetzen.",
+   "h": "Schau, ob eine Gleichung schon nach x oder y aufgelöst ist, und ob Gegenzahlen vorkommen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: −2x + 3y = −5   II: 4x − 3y = 19 am geschicktesten?"
+   },
+   "a": [
+    "Gleichsetzungsverfahren",
+    "Einsetzungsverfahren",
+    "Additionsverfahren"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Vor y stehen 3 und −3: Addieren lässt y sofort wegfallen.",
+   "h": "Schau, ob eine Gleichung schon nach x oder y aufgelöst ist, und ob Gegenzahlen vorkommen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: y = 3x − 2   II: y = 2x + 1 am geschicktesten?"
+   },
+   "a": [
+    "Additionsverfahren",
+    "Gleichsetzungsverfahren",
+    "Einsetzungsverfahren"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Beide Gleichungen sind nach y aufgelöst: rechte Seiten gleichsetzen.",
+   "h": "Schau, ob eine Gleichung schon nach x oder y aufgelöst ist, und ob Gegenzahlen vorkommen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: −3x + 7y = 48   II: −2x − 7y = −38 am geschicktesten?"
+   },
+   "a": [
+    "Additionsverfahren",
+    "Gleichsetzungsverfahren",
+    "Einsetzungsverfahren"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Vor y stehen 7 und −7: Addieren lässt y sofort wegfallen.",
+   "h": "Schau, ob eine Gleichung schon nach x oder y aufgelöst ist, und ob Gegenzahlen vorkommen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: 6x + 4y = 20   II: 3x − 4y = −20 am geschicktesten?"
+   },
+   "a": [
+    "Additionsverfahren",
+    "Gleichsetzungsverfahren",
+    "Einsetzungsverfahren"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Vor y stehen 4 und −4: Addieren lässt y sofort wegfallen.",
+   "h": "Schau, ob eine Gleichung schon nach x oder y aufgelöst ist, und ob Gegenzahlen vorkommen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: −5x − 5y = 0   II: y = 4x + 5 am geschicktesten?"
+   },
+   "a": [
+    "Einsetzungsverfahren",
+    "Gleichsetzungsverfahren",
+    "Additionsverfahren"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Eine Gleichung ist schon nach y aufgelöst, die andere nicht: einsetzen.",
+   "h": "Schau, ob eine Gleichung schon nach x oder y aufgelöst ist, und ob Gegenzahlen vorkommen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: x = −4y − 10   II: x = 4y + 6 am geschicktesten?"
+   },
+   "a": [
+    "Einsetzungsverfahren",
+    "Gleichsetzungsverfahren",
+    "Additionsverfahren"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Beide Gleichungen sind nach x aufgelöst: rechte Seiten gleichsetzen.",
+   "h": "Schau, ob eine Gleichung schon nach x oder y aufgelöst ist, und ob Gegenzahlen vorkommen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: y = 5x + 4   II: y = 4x + 4 am geschicktesten?"
+   },
+   "a": [
+    "Gleichsetzungsverfahren",
+    "Einsetzungsverfahren",
+    "Additionsverfahren"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Beide Gleichungen sind nach y aufgelöst: rechte Seiten gleichsetzen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: 5x + 3y = 0   II: −6x − 3y = 3 am geschicktesten?"
+   },
+   "a": [
+    "Additionsverfahren",
+    "Gleichsetzungsverfahren",
+    "Einsetzungsverfahren"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Vor y stehen 3 und −3: Addieren lässt y sofort wegfallen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: 5x + 5y = −10   II: 4x − 5y = 1 am geschicktesten?"
+   },
+   "a": [
+    "Einsetzungsverfahren",
+    "Gleichsetzungsverfahren",
+    "Additionsverfahren"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Vor y stehen 5 und −5: Addieren lässt y sofort wegfallen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: −3x − 5y = −5   II: y = x − 7 am geschicktesten?"
+   },
+   "a": [
+    "Einsetzungsverfahren",
+    "Gleichsetzungsverfahren",
+    "Additionsverfahren"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Eine Gleichung ist schon nach y aufgelöst, die andere nicht: einsetzen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: y = 3x − 5   II: y = −3x + 19 am geschicktesten?"
+   },
+   "a": [
+    "Einsetzungsverfahren",
+    "Additionsverfahren",
+    "Gleichsetzungsverfahren"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Beide Gleichungen sind nach y aufgelöst: rechte Seiten gleichsetzen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: 5x − 2y = 8   II: y = −4x + 22 am geschicktesten?"
+   },
+   "a": [
+    "Gleichsetzungsverfahren",
+    "Additionsverfahren",
+    "Einsetzungsverfahren"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Eine Gleichung ist schon nach y aufgelöst, die andere nicht: einsetzen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: −5x + y = 7   II: y = 4x + 7 am geschicktesten?"
+   },
+   "a": [
+    "Einsetzungsverfahren",
+    "Additionsverfahren",
+    "Gleichsetzungsverfahren"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Eine Gleichung ist schon nach y aufgelöst, die andere nicht: einsetzen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: y = −x − 1   II: 2x + 3y = 0 am geschicktesten?"
+   },
+   "a": [
+    "Einsetzungsverfahren",
+    "Gleichsetzungsverfahren",
+    "Additionsverfahren"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Eine Gleichung ist schon nach y aufgelöst, die andere nicht: einsetzen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: 2x + 5y = 31   II: y = −4x − 1 am geschicktesten?"
+   },
+   "a": [
+    "Einsetzungsverfahren",
+    "Gleichsetzungsverfahren",
+    "Additionsverfahren"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Eine Gleichung ist schon nach y aufgelöst, die andere nicht: einsetzen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: y = −3x + 14   II: y = −5x + 26 am geschicktesten?"
+   },
+   "a": [
+    "Gleichsetzungsverfahren",
+    "Einsetzungsverfahren",
+    "Additionsverfahren"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Beide Gleichungen sind nach y aufgelöst: rechte Seiten gleichsetzen."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Summe zweier Zahlen ist 77, ihre Differenz ist 15. Wie heißt die größere Zahl?"
+   },
+   "o": {
+    "wert": 46
+   },
+   "c": "(77 + 15) / 2",
+   "w": "I: x + y = 77, II: x − y = 15. I + II: 2x = 92 → x = 46, y = 31.",
+   "h": "Stelle zwei Gleichungen auf und addiere sie."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Spardose sind 30 Münzen, nur 1-€- und 50-Cent-Stücke, zusammen 22 €. Wie viele 1-€-Stücke sind es?"
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "(22 - (1/2) * 30) / (1 - (1/2))",
+   "w": "I: x + y = 30, II: x + 0,5y = 22. y = 30 − x einsetzen: 0,5x = 7 → x = 14.",
+   "h": "x = Anzahl der wertvolleren Münzen. Eine Gleichung für die Anzahl, eine für den Wert."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einem Hof leben Hühner und Kaninchen, zusammen 15 Tiere mit 46 Beinen. Wie viele Kaninchen sind es?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(46 - 2 * 15) / 2",
+   "w": "I: x + y = 15, II: 2x + 4y = 46. II − 2 · I: 2y = 16 → y = 8.",
+   "h": "Hühner haben 2, Kaninchen 4 Beine."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Summe zweier Zahlen ist 29, ihre Differenz ist 3. Wie heißt die größere Zahl?"
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "(29 + 3) / 2",
+   "w": "I: x + y = 29, II: x − y = 3. I + II: 2x = 32 → x = 16, y = 13.",
+   "h": "Stelle zwei Gleichungen auf und addiere sie."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Eintrittskarte kostet für Erwachsene 8 €, für Kinder 4,50 €. Eine Gruppe aus 40 Personen zahlt 264 €. Wie viele Kinder sind dabei?"
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "(8 * 40 - 264) / (8 - (9/2))",
+   "w": "I: x + y = 40, II: 8x + 4,50y = 264. x = 40 − y einsetzen: 320 − 3,50y = 264 → y = 16.",
+   "h": "x = Erwachsene, y = Kinder. Eine Gleichung für die Personen, eine für den Preis."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einem Hof leben Hühner und Kaninchen, zusammen 22 Tiere mit 56 Beinen. Wie viele Hühner sind es?"
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "22 - (56 - 2 * 22) / 2",
+   "w": "I: x + y = 22, II: 2x + 4y = 56. II − 2 · I: 2y = 12 → y = 6, x = 22 − 6 = 16.",
+   "h": "Hühner haben 2, Kaninchen 4 Beine."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Summe zweier Zahlen ist 49, ihre Differenz ist 39. Wie heißt die größere Zahl?"
+   },
+   "o": {
+    "wert": 44
+   },
+   "c": "(49 + 39) / 2",
+   "w": "I: x + y = 49, II: x − y = 39. I + II: 2x = 88 → x = 44, y = 5.",
+   "h": "Stelle zwei Gleichungen auf und addiere sie."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Summe zweier Zahlen ist 75, ihre Differenz ist 35. Wie heißt die größere Zahl?"
+   },
+   "o": {
+    "wert": 55
+   },
+   "c": "(75 + 35) / 2",
+   "w": "I: x + y = 75, II: x − y = 35. I + II: 2x = 110 → x = 55, y = 20.",
+   "h": "Stelle zwei Gleichungen auf und addiere sie."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Eintrittskarte kostet für Erwachsene 14 €, für Kinder 9 €. Eine Gruppe aus 22 Personen zahlt 293 €. Wie viele Kinder sind dabei?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(14 * 22 - 293) / (14 - 9)",
+   "w": "I: x + y = 22, II: 14x + 9y = 293. x = 22 − y einsetzen: 308 − 5y = 293 → y = 3.",
+   "h": "x = Erwachsene, y = Kinder. Eine Gleichung für die Personen, eine für den Preis."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Eintrittskarte kostet für Erwachsene 12 €, für Kinder 7 €. Eine Gruppe aus 18 Personen zahlt 176 €. Wie viele Kinder sind dabei?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(12 * 18 - 176) / (12 - 7)",
+   "w": "I: x + y = 18, II: 12x + 7y = 176. x = 18 − y einsetzen: 216 − 5y = 176 → y = 8.",
+   "h": "x = Erwachsene, y = Kinder. Eine Gleichung für die Personen, eine für den Preis."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Eintrittskarte kostet für Erwachsene 10,50 €, für Kinder 6 €. Eine Gruppe aus 30 Personen zahlt 292,50 €. Wie viele Kinder sind dabei?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "((21/2) * 30 - (585/2)) / ((21/2) - 6)",
+   "w": "I: x + y = 30, II: 10,50x + 6y = 292,50. x = 30 − y einsetzen: 315 − 4,50y = 292,50 → y = 5.",
+   "h": "x = Erwachsene, y = Kinder. Eine Gleichung für die Personen, eine für den Preis."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Händler mischt Nüsse zu 2 € pro kg mit Nüssen zu 6 € pro kg. Er erhält 13 kg Mischung im Wert von 62 €. Wie viel kg der billigeren Sorte verwendet er?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "kg"
+   },
+   "c": "(6 * 13 - 62) / (6 - 2)",
+   "w": "I: x + y = 13, II: 2x + 6y = 62. y = 13 − x: 2x + 78 − 6x = 62 → −4x = −16 → x = 4.",
+   "h": "Eine Gleichung für die Masse, eine für den Preis."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Händler mischt Nüsse zu 4 € pro kg mit Nüssen zu 10 € pro kg. Er erhält 17 kg Mischung im Wert von 116 €. Wie viel kg der billigeren Sorte verwendet er?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "kg"
+   },
+   "c": "(10 * 17 - 116) / (10 - 4)",
+   "w": "I: x + y = 17, II: 4x + 10y = 116. y = 17 − x: 4x + 170 − 10x = 116 → −6x = −54 → x = 9.",
+   "h": "Eine Gleichung für die Masse, eine für den Preis."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Händler mischt Nüsse zu 2 € pro kg mit Nüssen zu 6 € pro kg. Er erhält 17 kg Mischung im Wert von 62 €. Wie viel kg der billigeren Sorte verwendet er?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "kg"
+   },
+   "c": "(6 * 17 - 62) / (6 - 2)",
+   "w": "I: x + y = 17, II: 2x + 6y = 62. y = 17 − x: 2x + 102 − 6x = 62 → −4x = −40 → x = 10.",
+   "h": "Eine Gleichung für die Masse, eine für den Preis."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einem Hof leben Hühner und Kaninchen, zusammen 43 Tiere mit 124 Beinen. Wie viele Hühner sind es?"
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "43 - (124 - 2 * 43) / 2",
+   "w": "I: x + y = 43, II: 2x + 4y = 124. II − 2 · I: 2y = 38 → y = 19, x = 43 − 19 = 24."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Eintrittskarte kostet für Erwachsene 15 €, für Kinder 8 €. Eine Gruppe aus 17 Personen zahlt 150 €. Wie viele Kinder sind dabei?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "(15 * 17 - 150) / (15 - 8)",
+   "w": "I: x + y = 17, II: 15x + 8y = 150. x = 17 − y einsetzen: 255 − 7y = 150 → y = 15."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Spardose sind 7 Münzen, nur 2-€- und 1-€-Stücke, zusammen 11 €. Wie viele 2-€-Stücke sind es?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(11 - 1 * 7) / (2 - 1)",
+   "w": "I: x + y = 7, II: 2x + y = 11. y = 7 − x einsetzen: x = 4."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Spardose sind 19 Münzen, nur 50-Cent- und 20-Cent-Stücke, zusammen 7,10 €. Wie viele 50-Cent-Stücke sind es?"
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "((71/10) - (1/5) * 19) / ((1/2) - (1/5))",
+   "w": "I: x + y = 19, II: 0,5x + 0,2y = 7,1. y = 19 − x einsetzen: 0,3x = 3,3 → x = 11."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Spardose sind 28 Münzen, nur 1-€- und 50-Cent-Stücke, zusammen 20 €. Wie viele 1-€-Stücke sind es?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "(20 - (1/2) * 28) / (1 - (1/2))",
+   "w": "I: x + y = 28, II: x + 0,5y = 20. y = 28 − x einsetzen: 0,5x = 6 → x = 12."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Spardose sind 27 Münzen, nur 1-€- und 50-Cent-Stücke, zusammen 18,50 €. Wie viele 1-€-Stücke sind es?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "((37/2) - (1/2) * 27) / (1 - (1/2))",
+   "w": "I: x + y = 27, II: x + 0,5y = 18,5. y = 27 − x einsetzen: 0,5x = 5 → x = 10."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Spardose sind 20 Münzen, nur 2-€- und 50-Cent-Stücke, zusammen 26,50 €. Wie viele 2-€-Stücke sind es?"
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "((53/2) - (1/2) * 20) / (2 - (1/2))",
+   "w": "I: x + y = 20, II: 2x + 0,5y = 26,5. y = 20 − x einsetzen: 1,5x = 16,5 → x = 11."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einem Hof leben Hühner und Kaninchen, zusammen 33 Tiere mit 104 Beinen. Wie viele Kaninchen sind es?"
+   },
+   "o": {
+    "wert": 19
+   },
+   "c": "(104 - 2 * 33) / 2",
+   "w": "I: x + y = 33, II: 2x + 4y = 104. II − 2 · I: 2y = 38 → y = 19."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Summe zweier Zahlen ist 87, ihre Differenz ist 23. Wie heißt die größere Zahl?"
+   },
+   "o": {
+    "wert": 55
+   },
+   "c": "(87 + 23) / 2",
+   "w": "I: x + y = 87, II: x − y = 23. I + II: 2x = 110 → x = 55, y = 32."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Spardose sind 37 Münzen, nur 2-€- und 1-€-Stücke, zusammen 54 €. Wie viele 2-€-Stücke sind es?"
+   },
+   "o": {
+    "wert": 17
+   },
+   "c": "(54 - 1 * 37) / (2 - 1)",
+   "w": "I: x + y = 37, II: 2x + y = 54. y = 37 − x einsetzen: x = 17."
+  }
+ ],
+ "offen": [
+  "Lehrplan/Umfang: Gleichungssysteme auch grafisch lösen (Schnittpunkt zweier Geraden) und Lösbarkeit an der Lage der Geraden zeigen. Dafür braucht die App ein Koordinatensystem mit Geraden; nicht gebaut.",
+  "Die Lösung ist ein Zahlenpaar. Da die App je Aufgabe nur eine Zahl abfragen kann, fragen die Rechenaufgaben abwechselnd nach x oder y. Ein Antworttyp „Zahlenpaar“ wäre sinnvoll."
+ ]
+}

@@ -1,0 +1,2757 @@
+{
+ "thema_schluessel": "funktionen.gebrochen",
+ "thema_id": 34,
+ "block_id": 71,
+ "klasse": {
+  "gym_by": 8
+ },
+ "autor": "Claude (Paket Klasse 8)",
+ "inhalt": {
+  "ziel": "Indirekte Proportionalitäten erkennen und Funktionen f(x) = a/(x + b) + c untersuchen: Definitionsmenge, Asymptoten, Achsenschnittpunkte, Verschiebungen.",
+  "merke": [
+   "Indirekt proportional: x · y = konstant, y = k/x.",
+   "f(x) = a/(x + b) + c: D = ℚ \\ {−b}, Asymptoten x = −b und y = c.",
+   "x − 3 in der Klammer: 3 nach rechts. + c: c nach oben."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Indirekte Proportionalität",
+    "lernziele": [
+     "indirekt"
+    ]
+   },
+   {
+    "titel": "Hyperbeln untersuchen",
+    "lernziele": [
+     "definitionsmenge",
+     "asymptoten",
+     "achsenpunkte"
+    ]
+   },
+   {
+    "titel": "Parameter und Verstehen",
+    "lernziele": [
+     "parameter",
+     "beurteilen"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "indirekt",
+    "titel": "Indirekte Proportionalität",
+    "regel": "Bei einer ⟦indirekten Proportionalität⟧ gehört zum Doppelten von x die Hälfte von y. Das ⟦Produkt x · y⟧ ist immer gleich: y = k/x. Der Graph ist eine ⟦Hyperbel⟧.",
+    "schritte": [
+     "4 Pumpen leeren ein Becken in 6 Stunden.",
+     "Produkt: 4 · 6 = 24 (Pumpen-Stunden)",
+     "3 Pumpen brauchen 24 : 3 = ⟦8 Stunden⟧."
+    ],
+    "fehler": "Mehr Pumpen brauchen ⟦weniger⟧ Zeit. Wer 6 : 4 · 3 = 4,5 h rechnet, behandelt die Zuordnung fälschlich als direkt proportional."
+   },
+   {
+    "lernziel": "definitionsmenge",
+    "titel": "Definitionsmenge von a/(x + b) + c",
+    "regel": "f(x) = a/(x + b) + c ist für ⟦x = −b⟧ nicht definiert, weil dann der Nenner 0 ist. Also ⟦D = ℚ \\ {−b}⟧.",
+    "schritte": [
+     "f(x) = 3/(x − 2) + 1",
+     "Nenner x − 2 = 0 für x = 2",
+     "⟦D = ℚ \\ {2}⟧"
+    ],
+    "fehler": "Bei f(x) = 3/(x − 2) + 1 fehlt nicht −2 in D: Der Nenner x − 2 wird für ⟦x = +2⟧ null. Das Vorzeichen dreht sich um."
+   },
+   {
+    "lernziel": "asymptoten",
+    "titel": "Asymptoten bestimmen",
+    "regel": "Eine ⟦Asymptote⟧ ist eine Gerade, der sich der Graph immer mehr nähert. Bei f(x) = a/(x + b) + c: ⟦senkrechte⟧ Asymptote x = −b, ⟦waagrechte⟧ Asymptote y = c.",
+    "schritte": [
+     "f(x) = 2/(x + 4) − 3",
+     "Senkrecht: x + 4 = 0 → ⟦x = −4⟧",
+     "Waagrecht: ⟦y = −3⟧ (für große x wird 2/(x + 4) fast 0)"
+    ],
+    "fehler": "Die waagrechte Asymptote von 2/(x + 4) − 3 ist nicht y = 2. Der Zähler a bestimmt sie nicht, sondern die ⟦Verschiebung c = −3⟧."
+   },
+   {
+    "lernziel": "achsenpunkte",
+    "titel": "Schnittpunkte mit den Achsen",
+    "regel": "⟦y-Achse⟧: x = 0 einsetzen (falls 0 in D). ⟦x-Achse⟧ (Nullstelle): f(x) = 0 lösen. Ist c = 0, gibt es ⟦keine⟧ Nullstelle, weil a/(x + b) nie 0 ist.",
+    "schritte": [
+     "f(x) = 6/(x + 1) − 2",
+     "y-Achse: f(0) = 6 − 2 = 4 → (0 | 4)",
+     "Nullstelle: 6/(x + 1) = 2 → x + 1 = 3 → ⟦x = 2⟧"
+    ],
+    "fehler": "f(x) = 5/(x − 1) hat keine Nullstelle bei x = 0: f(0) = −5. Ein Bruch ist nur 0, wenn der ⟦Zähler 0⟧ ist – und 5 ist nie 0."
+   },
+   {
+    "lernziel": "parameter",
+    "titel": "Verschieben: Einfluss von b und c",
+    "regel": "Der Graph von a/(x + b) + c entsteht aus a/x durch Verschieben: um ⟦−b in x-Richtung⟧ (bei x − 3 also 3 nach ⟦rechts⟧) und um ⟦c in y-Richtung⟧.",
+    "schritte": [
+     "f(x) = 1/(x − 3) + 2 aus g(x) = 1/x",
+     "x − 3: um 3 nach rechts",
+     "+ 2: um 2 nach oben. ⟦Asymptoten x = 3, y = 2⟧"
+    ],
+    "fehler": "Bei 1/(x − 3) geht es nicht nach links: Das Minus in der Klammer bedeutet eine Verschiebung nach ⟦rechts⟧ (die Lücke liegt bei x = 3)."
+   },
+   {
+    "lernziel": "beurteilen",
+    "titel": "Aussagen über Hyperbeln prüfen",
+    "regel": "Prüfe Aussagen mit D, den Asymptoten und Funktionswerten. Wichtig: Der Graph von a/(x + b) + c berührt ⟦keine⟧ seiner beiden Asymptoten.",
+    "schritte": [
+     "Aussage: „f(x) = 4/x + 1 nimmt den Wert 1 an.“",
+     "4/x = 0 hat keine Lösung.",
+     "Die Aussage ist ⟦falsch⟧: y = 1 ist die waagrechte Asymptote."
+    ],
+    "fehler": "Dass sich der Graph der Asymptote nähert, heißt nicht, dass er sie irgendwann erreicht. a/(x + b) wird ⟦nie genau 0⟧."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "indirekt",
+    "text": "Indirekte Proportionalität",
+    "lernziele": [
+     "indirekt"
+    ]
+   },
+   {
+    "k": "definitionsmenge",
+    "text": "Definitionsmenge von a/(x + b) + c",
+    "lernziele": [
+     "definitionsmenge"
+    ]
+   },
+   {
+    "k": "asymptoten",
+    "text": "Asymptoten bestimmen",
+    "lernziele": [
+     "asymptoten"
+    ]
+   },
+   {
+    "k": "achsenpunkte",
+    "text": "Schnittpunkte mit den Achsen",
+    "lernziele": [
+     "achsenpunkte"
+    ]
+   },
+   {
+    "k": "parameter",
+    "text": "Verschieben: Einfluss von b und c",
+    "lernziele": [
+     "parameter"
+    ]
+   },
+   {
+    "k": "beurteilen",
+    "text": "Aussagen über Hyperbeln prüfen",
+    "lernziele": [
+     "beurteilen"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "indirekt",
+    "definitionsmenge",
+    "asymptoten",
+    "achsenpunkte",
+    "parameter",
+    "beurteilen"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude).",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Gymnasium)."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Vorrat reicht für 2 Tiere 24 Tage. Wie viele Tage reicht er für 4 Tiere?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "2 * 24 / 4",
+   "w": "Produkt: 2 · 24 = 48. 48 : 4 = 12.",
+   "h": "Mehr ... – weniger ...: Berechne zuerst das konstante Produkt."
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "9 gleiche Pumpen leeren einen Teich in 2 Stunden. Wie viele Stunden brauchen 18 Pumpen?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "9 * 2 / 18",
+   "w": "Produkt: 9 · 2 = 18. 18 : 18 = 1.",
+   "h": "Mehr ... – weniger ...: Berechne zuerst das konstante Produkt."
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "8 gleiche Pumpen leeren einen Teich in 15 Stunden. Wie viele Stunden brauchen 20 Pumpen?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "8 * 15 / 20",
+   "w": "Produkt: 8 · 15 = 120. 120 : 20 = 6.",
+   "h": "Mehr ... – weniger ...: Berechne zuerst das konstante Produkt."
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "5 Maler streichen ein Haus in 6 Tagen. Wie viele Tage brauchen 3 Maler (bei gleicher Arbeitsweise)?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "5 * 6 / 3",
+   "w": "Produkt: 5 · 6 = 30. 30 : 3 = 10.",
+   "h": "Mehr ... – weniger ...: Berechne zuerst das konstante Produkt."
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Mit 40 km/h dauert eine Fahrt 3 h. Wie lange dauert sie mit 80 km/h?"
+   },
+   "o": {
+    "wert": 1.5,
+    "einheit": "h"
+   },
+   "c": "40 * 3 / 80",
+   "w": "v · t ist die Strecke: 40 · 3 = 120 km. t = 120 : 80 = 1,5 h.",
+   "h": "Geschwindigkeit · Zeit = Strecke bleibt gleich."
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle (2 | 6), (12 | 1), (6 | 2) gehört zu einer indirekten Proportionalität. Welcher y-Wert gehört zu x = 1?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "2 * 6 / 1",
+   "w": "x · y = 2 · 6 = 12. y = 12 : 1 = 12.",
+   "h": "Berechne das Produkt x · y."
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle (6 | 4), (1 | 24), (3 | 8) gehört zu einer indirekten Proportionalität. Welcher y-Wert gehört zu x = 12?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "6 * 4 / 12",
+   "w": "x · y = 6 · 4 = 24. y = 24 : 12 = 2.",
+   "h": "Berechne das Produkt x · y."
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle (12 | 1), (2 | 6), (4 | 3) gehört zu einer indirekten Proportionalität. Welcher y-Wert gehört zu x = 6?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "12 * 1 / 6",
+   "w": "x · y = 12 · 1 = 12. y = 12 : 6 = 2.",
+   "h": "Berechne das Produkt x · y."
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle (12 | 2), (2 | 12), (6 | 4) gehört zu einer indirekten Proportionalität. Welcher y-Wert gehört zu x = 4?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "12 * 2 / 4",
+   "w": "x · y = 12 · 2 = 24. y = 24 : 4 = 6.",
+   "h": "Berechne das Produkt x · y."
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Mit 40 km/h dauert eine Fahrt 2 h. Wie lange dauert sie mit 80 km/h?"
+   },
+   "o": {
+    "wert": 1,
+    "einheit": "h"
+   },
+   "c": "40 * 2 / 80",
+   "w": "v · t ist die Strecke: 40 · 2 = 80 km. t = 80 : 80 = 1 h.",
+   "h": "Geschwindigkeit · Zeit = Strecke bleibt gleich."
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie ist die Zuordnung (3 | 10), (5 | 6), (6 | 5)?"
+   },
+   "a": [
+    "direkt proportional",
+    "indirekt proportional",
+    "weder direkt noch indirekt proportional"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Produkte x · y: 30, 30, 30. Quotienten y : x: 10/3, 1,2, 5/6. Produkte gleich → indirekt.",
+   "h": "Prüfe: Sind alle Produkte x · y gleich? Sind alle Quotienten y : x gleich?"
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie ist die Zuordnung (1 | 18), (3 | 6), (9 | 2)?"
+   },
+   "a": [
+    "indirekt proportional",
+    "weder direkt noch indirekt proportional",
+    "direkt proportional"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Produkte x · y: 18, 18, 18. Quotienten y : x: 18, 2, 2/9. Produkte gleich → indirekt.",
+   "h": "Prüfe: Sind alle Produkte x · y gleich? Sind alle Quotienten y : x gleich?"
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie ist die Zuordnung (2 | 18), (6 | 16), (9 | 15)?"
+   },
+   "a": [
+    "weder direkt noch indirekt proportional",
+    "indirekt, weil y kleiner wird",
+    "direkt proportional",
+    "indirekt proportional"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Produkte x · y: 36, 96, 135. Quotienten y : x: 9, 8/3, 5/3. Weder Produkte noch Quotienten sind gleich.",
+   "h": "Prüfe: Sind alle Produkte x · y gleich? Sind alle Quotienten y : x gleich?"
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie ist die Zuordnung (1 | 30), (2 | 28), (3 | 27)?"
+   },
+   "a": [
+    "direkt proportional",
+    "indirekt, weil y kleiner wird",
+    "indirekt proportional",
+    "weder direkt noch indirekt proportional"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Produkte x · y: 30, 56, 81. Quotienten y : x: 30, 14, 9. Weder Produkte noch Quotienten sind gleich.",
+   "h": "Prüfe: Sind alle Produkte x · y gleich? Sind alle Quotienten y : x gleich?"
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle (1 | 60), (12 | 5), (3 | 20) gehört zu einer indirekten Proportionalität. Welcher y-Wert gehört zu x = 10?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "1 * 60 / 10",
+   "w": "x · y = 1 · 60 = 60. y = 60 : 10 = 6."
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle (12 | 3), (2 | 18), (6 | 6) gehört zu einer indirekten Proportionalität. Welcher y-Wert gehört zu x = 1?"
+   },
+   "o": {
+    "wert": 36
+   },
+   "c": "12 * 3 / 1",
+   "w": "x · y = 12 · 3 = 36. y = 36 : 1 = 36."
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Mit 100 km/h dauert eine Fahrt 4 h. Wie lange dauert sie mit 80 km/h?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "h"
+   },
+   "c": "100 * 4 / 80",
+   "w": "v · t ist die Strecke: 100 · 4 = 400 km. t = 400 : 80 = 5 h."
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Mit 120 km/h dauert eine Fahrt 3 h. Wie lange dauert sie mit 150 km/h?"
+   },
+   "o": {
+    "wert": 2.4,
+    "einheit": "h"
+   },
+   "c": "120 * 3 / 150",
+   "w": "v · t ist die Strecke: 120 · 3 = 360 km. t = 360 : 150 = 2,4 h."
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle (1 | 24), (2 | 12), (12 | 2) gehört zu einer indirekten Proportionalität. Welcher y-Wert gehört zu x = 8?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "1 * 24 / 8",
+   "w": "x · y = 1 · 24 = 24. y = 24 : 8 = 3."
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle (6 | 2), (4 | 3), (3 | 4) gehört zu einer indirekten Proportionalität. Welcher y-Wert gehört zu x = 12?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "6 * 2 / 12",
+   "w": "x · y = 6 · 2 = 12. y = 12 : 12 = 1."
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle (6 | 2), (1 | 12), (4 | 3) gehört zu einer indirekten Proportionalität. Welcher y-Wert gehört zu x = 2?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6 * 2 / 2",
+   "w": "x · y = 6 · 2 = 12. y = 12 : 2 = 6."
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Mit 50 km/h dauert eine Fahrt 2 h. Wie lange dauert sie mit 80 km/h?"
+   },
+   "o": {
+    "wert": 1.25,
+    "einheit": "h"
+   },
+   "c": "50 * 2 / 80",
+   "w": "v · t ist die Strecke: 50 · 2 = 100 km. t = 100 : 80 = 1,25 h."
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Mit 90 km/h dauert eine Fahrt 5 h. Wie lange dauert sie mit 40 km/h?"
+   },
+   "o": {
+    "wert": 11.25,
+    "einheit": "h"
+   },
+   "c": "90 * 5 / 40",
+   "w": "v · t ist die Strecke: 90 · 5 = 450 km. t = 450 : 40 = 11,25 h."
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Mit 40 km/h dauert eine Fahrt 2,5 h. Wie lange dauert sie mit 50 km/h?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "h"
+   },
+   "c": "40 * (5/2) / 50",
+   "w": "v · t ist die Strecke: 40 · 2,5 = 100 km. t = 100 : 50 = 2 h."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die Definitionsmenge von f(x) = −3/(x + 5) + 4 an."
+   },
+   "a": [
+    "D = ℚ \\ {5}",
+    "D = ℚ",
+    "D = ℚ \\ {−5}",
+    "D = ℚ \\ {4}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nenner x + 5 = 0 für x = −5. D = ℚ \\ {−5}.",
+   "h": "Welche Zahl macht den Nenner 0? Achte auf das Vorzeichen."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die Definitionsmenge von f(x) = −9/(x − 2) an."
+   },
+   "a": [
+    "D = ℚ",
+    "D = ℚ \\ {0}",
+    "D = ℚ \\ {−2}",
+    "D = ℚ \\ {2}"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Nenner x − 2 = 0 für x = 2. D = ℚ \\ {2}.",
+   "h": "Welche Zahl macht den Nenner 0? Achte auf das Vorzeichen."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die Definitionsmenge von f(x) = −8/(x − 1) + 6 an."
+   },
+   "a": [
+    "D = ℚ \\ {6}",
+    "D = ℚ \\ {1}",
+    "D = ℚ",
+    "D = ℚ \\ {−1}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nenner x − 1 = 0 für x = 1. D = ℚ \\ {1}.",
+   "h": "Welche Zahl macht den Nenner 0? Achte auf das Vorzeichen."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die Definitionsmenge von f(x) = −2/(x − 7) − 5 an."
+   },
+   "a": [
+    "D = ℚ \\ {7}",
+    "D = ℚ \\ {−5}",
+    "D = ℚ",
+    "D = ℚ \\ {−7}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nenner x − 7 = 0 für x = 7. D = ℚ \\ {7}.",
+   "h": "Welche Zahl macht den Nenner 0? Achte auf das Vorzeichen."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl gehört nicht zur Definitionsmenge von f(x) = −5/(x + 3) + 5?"
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "-(3)",
+   "w": "Nenner x + 3 = 0 für x = −3.",
+   "h": "Welche Zahl macht den Nenner 0?"
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl gehört nicht zur Definitionsmenge von f(x) = −3/(x + 4)?"
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "-(4)",
+   "w": "Nenner x + 4 = 0 für x = −4.",
+   "h": "Welche Zahl macht den Nenner 0?"
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die Definitionsmenge von f(x) = 3/(x + 4) + 2 an."
+   },
+   "a": [
+    "D = ℚ \\ {4}",
+    "D = ℚ \\ {−4}",
+    "D = ℚ",
+    "D = ℚ \\ {2}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nenner x + 4 = 0 für x = −4. D = ℚ \\ {−4}.",
+   "h": "Welche Zahl macht den Nenner 0? Achte auf das Vorzeichen."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl gehört nicht zur Definitionsmenge von f(x) = −9/(x + 4) + 5?"
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "-(4)",
+   "w": "Nenner x + 4 = 0 für x = −4.",
+   "h": "Welche Zahl macht den Nenner 0?"
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die Definitionsmenge von f(x) = −9/(x + 6) + 1 an."
+   },
+   "a": [
+    "D = ℚ \\ {6}",
+    "D = ℚ \\ {1}",
+    "D = ℚ \\ {−6}",
+    "D = ℚ"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nenner x + 6 = 0 für x = −6. D = ℚ \\ {−6}.",
+   "h": "Welche Zahl macht den Nenner 0? Achte auf das Vorzeichen."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl gehört nicht zur Definitionsmenge von f(x) = 8/(x − 8) − 2?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "-(-8)",
+   "w": "Nenner x − 8 = 0 für x = 8.",
+   "h": "Welche Zahl macht den Nenner 0?"
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl gehört nicht zur Definitionsmenge von f(x) = 4/(4x − 6) + 3?"
+   },
+   "o": {
+    "wert": 1.5
+   },
+   "c": "-(-6) / 4",
+   "w": "4x − 6 = 0 → x = 1,5. D = ℚ \\ {1,5}.",
+   "h": "Setze den Nenner gleich 0 und löse."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl gehört nicht zur Definitionsmenge von f(x) = −8/(5x − 1) − 5?"
+   },
+   "o": {
+    "wert": 0.2
+   },
+   "c": "-(-1) / 5",
+   "w": "5x − 1 = 0 → x = 0,2. D = ℚ \\ {0,2}.",
+   "h": "Setze den Nenner gleich 0 und löse."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl gehört nicht zur Definitionsmenge von f(x) = −3/(4x − 3) + 1?"
+   },
+   "o": {
+    "wert": 0.75
+   },
+   "c": "-(-3) / 4",
+   "w": "4x − 3 = 0 → x = 0,75. D = ℚ \\ {0,75}.",
+   "h": "Setze den Nenner gleich 0 und löse."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl gehört nicht zur Definitionsmenge von f(x) = −9/(2x + 5) + 3?"
+   },
+   "o": {
+    "wert": -2.5
+   },
+   "c": "-(5) / 2",
+   "w": "2x + 5 = 0 → x = −2,5. D = ℚ \\ {−2,5}.",
+   "h": "Setze den Nenner gleich 0 und löse."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl gehört nicht zur Definitionsmenge von f(x) = −5/(x + 5) + 4?"
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "-(5)",
+   "w": "Nenner x + 5 = 0 für x = −5."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die Definitionsmenge von f(x) = 3/(x + 8) − 2 an."
+   },
+   "a": [
+    "D = ℚ",
+    "D = ℚ \\ {−8}",
+    "D = ℚ \\ {−2}",
+    "D = ℚ \\ {8}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nenner x + 8 = 0 für x = −8. D = ℚ \\ {−8}."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl gehört nicht zur Definitionsmenge von f(x) = 5/(x − 3) + 2?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "-(-3)",
+   "w": "Nenner x − 3 = 0 für x = 3."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die Definitionsmenge von f(x) = −8/(x − 1) − 1 an."
+   },
+   "a": [
+    "D = ℚ \\ {0}",
+    "D = ℚ",
+    "D = ℚ \\ {−1}",
+    "D = ℚ \\ {1}"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Nenner x − 1 = 0 für x = 1. D = ℚ \\ {1}."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die Definitionsmenge von f(x) = −4/(x − 1) an."
+   },
+   "a": [
+    "D = ℚ",
+    "D = ℚ \\ {−1}",
+    "D = ℚ \\ {0}",
+    "D = ℚ \\ {1}"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Nenner x − 1 = 0 für x = 1. D = ℚ \\ {1}."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die Definitionsmenge von f(x) = −3/(x − 7) + 2 an."
+   },
+   "a": [
+    "D = ℚ",
+    "D = ℚ \\ {7}",
+    "D = ℚ \\ {−7}",
+    "D = ℚ \\ {2}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nenner x − 7 = 0 für x = 7. D = ℚ \\ {7}."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die Definitionsmenge von f(x) = −6/(x − 3) + 4 an."
+   },
+   "a": [
+    "D = ℚ",
+    "D = ℚ \\ {3}",
+    "D = ℚ \\ {4}",
+    "D = ℚ \\ {−3}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nenner x − 3 = 0 für x = 3. D = ℚ \\ {3}."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl gehört nicht zur Definitionsmenge von f(x) = −7/(x − 5) + 1?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "-(-5)",
+   "w": "Nenner x − 5 = 0 für x = 5."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl gehört nicht zur Definitionsmenge von f(x) = 3/(x + 1) − 5?"
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "-(1)",
+   "w": "Nenner x + 1 = 0 für x = −1."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die Definitionsmenge von f(x) = −1/(x − 7) − 1 an."
+   },
+   "a": [
+    "D = ℚ \\ {7}",
+    "D = ℚ",
+    "D = ℚ \\ {−1}",
+    "D = ℚ \\ {−7}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nenner x − 7 = 0 für x = 7. D = ℚ \\ {7}."
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die senkrechte Asymptote von f(x) = 6/(x − 2) − 4 an. x = □"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "-(-2)",
+   "w": "Nenner x − 2 = 0 für x = 2. Senkrechte Asymptote: x = 2.",
+   "h": "Wo ist der Nenner 0?"
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die waagrechte Asymptote von f(x) = 8/x + 6 an. y = □"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "Für sehr große x wird 8/(x) fast 0. Also nähert sich f dem Wert 6: y = 6.",
+   "h": "Was bleibt übrig, wenn der Bruch fast 0 wird?"
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die senkrechte Asymptote von f(x) = 4/(x + 5) − 2 an. x = □"
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "-(5)",
+   "w": "Nenner x + 5 = 0 für x = −5. Senkrechte Asymptote: x = −5.",
+   "h": "Wo ist der Nenner 0?"
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die senkrechte Asymptote von f(x) = 2/(x + 8) + 1 an. x = □"
+   },
+   "o": {
+    "wert": -8
+   },
+   "c": "-(8)",
+   "w": "Nenner x + 8 = 0 für x = −8. Senkrechte Asymptote: x = −8.",
+   "h": "Wo ist der Nenner 0?"
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die senkrechte Asymptote von f(x) = −8/(x + 2) + 3 an. x = □"
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-(2)",
+   "w": "Nenner x + 2 = 0 für x = −2. Senkrechte Asymptote: x = −2.",
+   "h": "Wo ist der Nenner 0?"
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die waagrechte Asymptote von f(x) = 9/(x − 5) + 5 an. y = □"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "Für sehr große x wird 9/(x − 5) fast 0. Also nähert sich f dem Wert 5: y = 5.",
+   "h": "Was bleibt übrig, wenn der Bruch fast 0 wird?"
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die waagrechte Asymptote von f(x) = −7/(x − 4) + 1 an. y = □"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "Für sehr große x wird −7/(x − 4) fast 0. Also nähert sich f dem Wert 1: y = 1.",
+   "h": "Was bleibt übrig, wenn der Bruch fast 0 wird?"
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die senkrechte Asymptote von f(x) = 2/(x − 8) − 1 an. x = □"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "-(-8)",
+   "w": "Nenner x − 8 = 0 für x = 8. Senkrechte Asymptote: x = 8.",
+   "h": "Wo ist der Nenner 0?"
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die waagrechte Asymptote von f(x) = −4/(x − 7) + 3 an. y = □"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Für sehr große x wird −4/(x − 7) fast 0. Also nähert sich f dem Wert 3: y = 3.",
+   "h": "Was bleibt übrig, wenn der Bruch fast 0 wird?"
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die waagrechte Asymptote von f(x) = 7/(x + 6) − 2 an. y = □"
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-2",
+   "w": "Für sehr große x wird 7/(x + 6) fast 0. Also nähert sich f dem Wert −2: y = −2.",
+   "h": "Was bleibt übrig, wenn der Bruch fast 0 wird?"
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die waagrechte Asymptote von f(x) = −3/(x + 3) − 3 an. y = □"
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "-3",
+   "w": "Für sehr große x wird −3/(x + 3) fast 0. Also nähert sich f dem Wert −3: y = −3.",
+   "h": "Was bleibt übrig, wenn der Bruch fast 0 wird?"
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Hyperbel f(x) = 7/(x + b) + c hat die Asymptoten x = −2 und y = −4. Wie heißt der Term?"
+   },
+   "a": [
+    "f(x) = 7/(x − 2) − 4",
+    "f(x) = 7/(x + 2) + 4",
+    "f(x) = 7/(x + 2) − 4",
+    "f(x) = 7/(x − 4) + 2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "x = −2 → b = 2; y = −4 → c = −4. f(x) = 7/(x + 2) − 4.",
+   "h": "Die senkrechte Asymptote liegt bei x = −b, die waagrechte bei y = c."
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die waagrechte Asymptote von f(x) = 4/(x − 1) − 5 an. y = □"
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "-5",
+   "w": "Für sehr große x wird 4/(x − 1) fast 0. Also nähert sich f dem Wert −5: y = −5.",
+   "h": "Was bleibt übrig, wenn der Bruch fast 0 wird?"
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Hyperbel f(x) = 8/(x + b) + c hat die Asymptoten x = 2 und y = −5. Wie heißt der Term?"
+   },
+   "a": [
+    "f(x) = 8/(x + 2) − 5",
+    "f(x) = 8/(x − 2) + 5",
+    "f(x) = 8/(x − 2) − 5",
+    "f(x) = 8/(x − 5) − 2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "x = 2 → b = −2; y = −5 → c = −5. f(x) = 8/(x − 2) − 5.",
+   "h": "Die senkrechte Asymptote liegt bei x = −b, die waagrechte bei y = c."
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die waagrechte Asymptote von f(x) = −6/(x + 2) − 2 an. y = □"
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-2",
+   "w": "Für sehr große x wird −6/(x + 2) fast 0. Also nähert sich f dem Wert −2: y = −2."
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die waagrechte Asymptote von f(x) = 7/(x + 1) − 6 an. y = □"
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "-6",
+   "w": "Für sehr große x wird 7/(x + 1) fast 0. Also nähert sich f dem Wert −6: y = −6."
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die waagrechte Asymptote von f(x) = 4/(x − 3) + 6 an. y = □"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "Für sehr große x wird 4/(x − 3) fast 0. Also nähert sich f dem Wert 6: y = 6."
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die senkrechte Asymptote von f(x) = 2/(x − 8) + 4 an. x = □"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "-(-8)",
+   "w": "Nenner x − 8 = 0 für x = 8. Senkrechte Asymptote: x = 8."
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die waagrechte Asymptote von f(x) = 1/(x + 8) + 3 an. y = □"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Für sehr große x wird 1/(x + 8) fast 0. Also nähert sich f dem Wert 3: y = 3."
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die senkrechte Asymptote von f(x) = 9/(x − 5) − 1 an. x = □"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "-(-5)",
+   "w": "Nenner x − 5 = 0 für x = 5. Senkrechte Asymptote: x = 5."
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die senkrechte Asymptote von f(x) = 3/(x − 1) + 4 an. x = □"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "-(-1)",
+   "w": "Nenner x − 1 = 0 für x = 1. Senkrechte Asymptote: x = 1."
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die waagrechte Asymptote von f(x) = −8/(x − 5) + 2 an. y = □"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Für sehr große x wird −8/(x − 5) fast 0. Also nähert sich f dem Wert 2: y = 2."
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die waagrechte Asymptote von f(x) = −5/(x − 4) − 3 an. y = □"
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "-3",
+   "w": "Für sehr große x wird −5/(x − 4) fast 0. Also nähert sich f dem Wert −3: y = −3."
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die senkrechte Asymptote von f(x) = 5/(x − 1) + 4 an. x = □"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "-(-1)",
+   "w": "Nenner x − 1 = 0 für x = 1. Senkrechte Asymptote: x = 1."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In welchem Punkt schneidet der Graph von f(x) = −7/(x + 4) − 1 die y-Achse? Gib den y-Wert an."
+   },
+   "o": {
+    "wert": -2.75
+   },
+   "c": "-7 / (4) + (-1)",
+   "w": "f(0) = −7/4 − 1 = −2,75.",
+   "h": "Auf der y-Achse ist x = 0."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In welchem Punkt schneidet der Graph von f(x) = −11/(x − 1) + 5 die y-Achse? Gib den y-Wert an."
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "-11 / (-1) + (5)",
+   "w": "f(0) = −11/(−1) + 5 = 16.",
+   "h": "Auf der y-Achse ist x = 0."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In welchem Punkt schneidet der Graph von f(x) = 8/(x − 1) − 3 die y-Achse? Gib den y-Wert an."
+   },
+   "o": {
+    "wert": -11
+   },
+   "c": "8 / (-1) + (-3)",
+   "w": "f(0) = 8/(−1) − 3 = −11.",
+   "h": "Auf der y-Achse ist x = 0."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In welchem Punkt schneidet der Graph von f(x) = 9/(x − 3) − 5 die y-Achse? Gib den y-Wert an."
+   },
+   "o": {
+    "wert": -8
+   },
+   "c": "9 / (-3) + (-5)",
+   "w": "f(0) = 9/(−3) − 5 = −8.",
+   "h": "Auf der y-Achse ist x = 0."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = 1/(x − 6) + 2."
+   },
+   "o": {
+    "wert": 5.5
+   },
+   "c": "-(1) / (2) - (-6)",
+   "w": "1/(x − 6) = −2 → x − 6 = 1 : (−2) = −0,5 → x = 5,5.",
+   "h": "Setze f(x) = 0, bringe c auf die andere Seite und multipliziere mit dem Nenner."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = −12/(x + 2) + 3."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "-(-12) / (3) - (2)",
+   "w": "−12/(x + 2) = −3 → x + 2 = −12 : (−3) = 4 → x = 2.",
+   "h": "Setze f(x) = 0, bringe c auf die andere Seite und multipliziere mit dem Nenner."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = −2/(x + 5) − 5."
+   },
+   "o": {
+    "wert": -5.4
+   },
+   "c": "-(-2) / (-5) - (5)",
+   "w": "−2/(x + 5) = 5 → x + 5 = −2 : 5 = −0,4 → x = −5,4.",
+   "h": "Setze f(x) = 0, bringe c auf die andere Seite und multipliziere mit dem Nenner."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = −6/(x + 4) − 6."
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "-(-6) / (-6) - (4)",
+   "w": "−6/(x + 4) = 6 → x + 4 = −6 : 6 = −1 → x = −5.",
+   "h": "Setze f(x) = 0, bringe c auf die andere Seite und multipliziere mit dem Nenner."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = 9/(x − 5) − 1."
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "-(9) / (-1) - (-5)",
+   "w": "9/(x − 5) = 1 → x − 5 = 9 : 1 = 9 → x = 14.",
+   "h": "Setze f(x) = 0, bringe c auf die andere Seite und multipliziere mit dem Nenner."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = 3/(x − 5) − 6."
+   },
+   "o": {
+    "wert": 5.5
+   },
+   "c": "-(3) / (-6) - (-5)",
+   "w": "3/(x − 5) = 6 → x − 5 = 3 : 6 = 0,5 → x = 5,5.",
+   "h": "Setze f(x) = 0, bringe c auf die andere Seite und multipliziere mit dem Nenner."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Nullstelle hat f(x) = 4/(x + 4)?"
+   },
+   "a": [
+    "x = −4",
+    "keine Nullstelle",
+    "x = 4",
+    "x = 0"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "4/(x + 4) = 0 wäre nur möglich, wenn der Zähler 4 null wäre. Keine Nullstelle.",
+   "h": "Wann ist ein Bruch gleich 0?"
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = −11/(x + 6) − 5."
+   },
+   "o": {
+    "wert": -8.2
+   },
+   "c": "-(-11) / (-5) - (6)",
+   "w": "−11/(x + 6) = 5 → x + 6 = −11 : 5 = −2,2 → x = −8,2.",
+   "h": "Setze f(x) = 0, bringe c auf die andere Seite und multipliziere mit dem Nenner."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = −3/(x − 6) + 4."
+   },
+   "o": {
+    "wert": 6.75
+   },
+   "c": "-(-3) / (4) - (-6)",
+   "w": "−3/(x − 6) = −4 → x − 6 = −3 : (−4) = 0,75 → x = 6,75.",
+   "h": "Setze f(x) = 0, bringe c auf die andere Seite und multipliziere mit dem Nenner."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = −1/(x + 6) − 4."
+   },
+   "o": {
+    "wert": -6.25
+   },
+   "c": "-(-1) / (-4) - (6)",
+   "w": "−1/(x + 6) = 4 → x + 6 = −1 : 4 = −0,25 → x = −6,25.",
+   "h": "Setze f(x) = 0, bringe c auf die andere Seite und multipliziere mit dem Nenner."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = −6/(x + 2) + 2."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "-(-6) / (2) - (2)",
+   "w": "−6/(x + 2) = −2 → x + 2 = −6 : (−2) = 3 → x = 1."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = 8/(x − 3) + 5."
+   },
+   "o": {
+    "wert": 1.4
+   },
+   "c": "-(8) / (5) - (-3)",
+   "w": "8/(x − 3) = −5 → x − 3 = 8 : (−5) = −1,6 → x = 1,4."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = −7/(x + 3) + 4."
+   },
+   "o": {
+    "wert": -1.25
+   },
+   "c": "-(-7) / (4) - (3)",
+   "w": "−7/(x + 3) = −4 → x + 3 = −7 : (−4) = 1,75 → x = −1,25."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = 2/(x − 5) − 4."
+   },
+   "o": {
+    "wert": 5.5
+   },
+   "c": "-(2) / (-4) - (-5)",
+   "w": "2/(x − 5) = 4 → x − 5 = 2 : 4 = 0,5 → x = 5,5."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = −7/(x − 5) + 1."
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "-(-7) / (1) - (-5)",
+   "w": "−7/(x − 5) = −1 → x − 5 = −7 : (−1) = 7 → x = 12."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = −5/(x − 3) − 2."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "-(-5) / (-2) - (-3)",
+   "w": "−5/(x − 3) = 2 → x − 3 = −5 : 2 = −2,5 → x = 0,5."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = −1/(x + 5) + 2."
+   },
+   "o": {
+    "wert": -4.5
+   },
+   "c": "-(-1) / (2) - (5)",
+   "w": "−1/(x + 5) = −2 → x + 5 = −1 : (−2) = 0,5 → x = −4,5."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = 7/(x + 6) + 5."
+   },
+   "o": {
+    "wert": -7.4
+   },
+   "c": "-(7) / (5) - (6)",
+   "w": "7/(x + 6) = −5 → x + 6 = 7 : (−5) = −1,4 → x = −7,4."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = −6/(x − 5) − 3."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "-(-6) / (-3) - (-5)",
+   "w": "−6/(x − 5) = 3 → x − 5 = −6 : 3 = −2 → x = 3."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = −4/(x + 2) + 4."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "-(-4) / (4) - (2)",
+   "w": "−4/(x + 2) = −4 → x + 2 = −4 : (−4) = 1 → x = −1."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht der Graph von f(x) = 1/(x + 2) aus dem Graphen von g(x) = 1/x?"
+   },
+   "a": [
+    "Verschiebung um 2 nach oben",
+    "Verschiebung um 2 nach rechts",
+    "Verschiebung um 2 nach links",
+    "gar nicht – der Graph ist gleich"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Im Nenner steht x + 2: Verschiebung um 2 nach links.",
+   "h": "Steht in der Klammer x − 3, geht es nach rechts. + c verschiebt nach oben."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht der Graph von f(x) = −1/x − 4 aus dem Graphen von g(x) = −1/x?"
+   },
+   "a": [
+    "Verschiebung um 4 nach links",
+    "Verschiebung um 4 nach oben",
+    "gar nicht – der Graph ist gleich",
+    "Verschiebung um 4 nach unten"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "− 4 hinter dem Bruch: Verschiebung um 4 nach unten.",
+   "h": "Steht in der Klammer x − 3, geht es nach rechts. + c verschiebt nach oben."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht der Graph von f(x) = −4/x + 6 aus dem Graphen von g(x) = −4/x?"
+   },
+   "a": [
+    "Verschiebung um 6 nach unten",
+    "gar nicht – der Graph ist gleich",
+    "Verschiebung um 6 nach rechts",
+    "Verschiebung um 6 nach oben"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "+ 6 hinter dem Bruch: Verschiebung um 6 nach oben.",
+   "h": "Steht in der Klammer x − 3, geht es nach rechts. + c verschiebt nach oben."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht der Graph von f(x) = −2/x + 1 aus dem Graphen von g(x) = −2/x?"
+   },
+   "a": [
+    "Verschiebung um 1 nach oben",
+    "gar nicht – der Graph ist gleich",
+    "Verschiebung um 1 nach unten",
+    "Verschiebung um 1 nach rechts"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "+ 1 hinter dem Bruch: Verschiebung um 1 nach oben.",
+   "h": "Steht in der Klammer x − 3, geht es nach rechts. + c verschiebt nach oben."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht der Graph von f(x) = 5/(x + 2) − 4 aus dem Graphen von g(x) = 5/x?"
+   },
+   "a": [
+    "Verschiebung um 2 nach links und um 4 nach unten",
+    "Verschiebung um 2 nach rechts und um 4 nach oben",
+    "Verschiebung um 2 nach rechts und um 4 nach unten",
+    "Verschiebung um 2 nach links und um 4 nach oben"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Asymptoten von f: x = −2, y = −4. Bei g: x = 0, y = 0. Also Verschiebung um 2 nach links und um 4 nach unten.",
+   "h": "Vergleiche die Asymptoten von f und g."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht der Graph von f(x) = 4/(x + 1) − 5 aus dem Graphen von g(x) = 4/x?"
+   },
+   "a": [
+    "Verschiebung um 1 nach links und um 5 nach unten",
+    "Verschiebung um 1 nach rechts und um 5 nach oben",
+    "Verschiebung um 1 nach rechts und um 5 nach unten",
+    "Verschiebung um 1 nach links und um 5 nach oben"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Asymptoten von f: x = −1, y = −5. Bei g: x = 0, y = 0. Also Verschiebung um 1 nach links und um 5 nach unten.",
+   "h": "Vergleiche die Asymptoten von f und g."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht der Graph von f(x) = 6/(x − 6) + 4 aus dem Graphen von g(x) = 6/x?"
+   },
+   "a": [
+    "Verschiebung um 6 nach rechts und um 4 nach unten",
+    "Verschiebung um 6 nach links und um 4 nach unten",
+    "Verschiebung um 6 nach links und um 4 nach oben",
+    "Verschiebung um 6 nach rechts und um 4 nach oben"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Asymptoten von f: x = 6, y = 4. Bei g: x = 0, y = 0. Also Verschiebung um 6 nach rechts und um 4 nach oben.",
+   "h": "Vergleiche die Asymptoten von f und g."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht der Graph von f(x) = 1/(x − 2) + 2 aus dem Graphen von g(x) = 1/x?"
+   },
+   "a": [
+    "Verschiebung um 2 nach links und um 2 nach unten",
+    "Verschiebung um 2 nach rechts und um 2 nach oben",
+    "Verschiebung um 2 nach links und um 2 nach oben",
+    "Verschiebung um 2 nach rechts und um 2 nach unten"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Asymptoten von f: x = 2, y = 2. Bei g: x = 0, y = 0. Also Verschiebung um 2 nach rechts und um 2 nach oben.",
+   "h": "Vergleiche die Asymptoten von f und g."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht der Graph von f(x) = 1/(x + 1) − 5 aus dem Graphen von g(x) = 1/x?"
+   },
+   "a": [
+    "Verschiebung um 1 nach rechts und um 5 nach unten",
+    "Verschiebung um 1 nach links und um 5 nach oben",
+    "Verschiebung um 1 nach links und um 5 nach unten",
+    "Verschiebung um 1 nach rechts und um 5 nach oben"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Asymptoten von f: x = −1, y = −5. Bei g: x = 0, y = 0. Also Verschiebung um 1 nach links und um 5 nach unten.",
+   "h": "Vergleiche die Asymptoten von f und g."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht der Graph von f(x) = −2/(x + 6) − 3 aus dem Graphen von g(x) = −2/x?"
+   },
+   "a": [
+    "Verschiebung um 6 nach links und um 3 nach unten",
+    "Verschiebung um 6 nach rechts und um 3 nach unten",
+    "Verschiebung um 6 nach links und um 3 nach oben",
+    "Verschiebung um 6 nach rechts und um 3 nach oben"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Asymptoten von f: x = −6, y = −3. Bei g: x = 0, y = 0. Also Verschiebung um 6 nach links und um 3 nach unten.",
+   "h": "Vergleiche die Asymptoten von f und g."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph von g(x) = −3/x wird um 5 nach rechts und um 2 nach unten verschoben. Wie heißt der neue Funktionsterm?"
+   },
+   "a": [
+    "f(x) = −3/(x + 5) − 2",
+    "f(x) = −3/(x − 5) + 2",
+    "f(x) = −3/(x − 5) − 2",
+    "f(x) = −3/(x + 5) + 2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "um 5 nach rechts: x wird zu x − 5. um 2 nach unten: + (−2). f(x) = −3/(x − 5) − 2.",
+   "h": "Nach rechts um d: x − d in die Klammer. Nach oben um e: + e."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph von g(x) = 4/x wird um 6 nach rechts und um 3 nach unten verschoben. Wie heißt der neue Funktionsterm?"
+   },
+   "a": [
+    "f(x) = 4/(x − 6) − 3",
+    "f(x) = 4/(x + 6) − 3",
+    "f(x) = 4/(x + 6) + 3",
+    "f(x) = 4/(x − 6) + 3"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "um 6 nach rechts: x wird zu x − 6. um 3 nach unten: + (−3). f(x) = 4/(x − 6) − 3.",
+   "h": "Nach rechts um d: x − d in die Klammer. Nach oben um e: + e."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph von g(x) = 3/x wird um 1 nach rechts und um 2 nach oben verschoben. Wie heißt der neue Funktionsterm?"
+   },
+   "a": [
+    "f(x) = 3/(x − 1) + 2",
+    "f(x) = 3/(x + 1) − 2",
+    "f(x) = 3/(x + 1) + 2",
+    "f(x) = 3/(x − 1) − 2"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "um 1 nach rechts: x wird zu x − 1. um 2 nach oben: + 2. f(x) = 3/(x − 1) + 2.",
+   "h": "Nach rechts um d: x − d in die Klammer. Nach oben um e: + e."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph von g(x) = 6/x wird um 4 nach rechts und um 3 nach unten verschoben. Wie heißt der neue Funktionsterm?"
+   },
+   "a": [
+    "f(x) = 6/(x + 4) + 3",
+    "f(x) = 6/(x − 4) − 3",
+    "f(x) = 6/(x − 4) + 3",
+    "f(x) = 6/(x + 4) − 3"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "um 4 nach rechts: x wird zu x − 4. um 3 nach unten: + (−3). f(x) = 6/(x − 4) − 3.",
+   "h": "Nach rechts um d: x − d in die Klammer. Nach oben um e: + e."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht der Graph von f(x) = 6/(x − 1) − 3 aus dem Graphen von g(x) = 6/x?"
+   },
+   "a": [
+    "Verschiebung um 1 nach links und um 3 nach oben",
+    "Verschiebung um 1 nach rechts und um 3 nach oben",
+    "Verschiebung um 1 nach links und um 3 nach unten",
+    "Verschiebung um 1 nach rechts und um 3 nach unten"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Asymptoten von f: x = 1, y = −3. Bei g: x = 0, y = 0. Also Verschiebung um 1 nach rechts und um 3 nach unten."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht der Graph von f(x) = 6/(x − 2) − 1 aus dem Graphen von g(x) = 6/x?"
+   },
+   "a": [
+    "Verschiebung um 2 nach links und um 1 nach unten",
+    "Verschiebung um 2 nach rechts und um 1 nach unten",
+    "Verschiebung um 2 nach links und um 1 nach oben",
+    "Verschiebung um 2 nach rechts und um 1 nach oben"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Asymptoten von f: x = 2, y = −1. Bei g: x = 0, y = 0. Also Verschiebung um 2 nach rechts und um 1 nach unten."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht der Graph von f(x) = −4/(x − 7) + 5 aus dem Graphen von g(x) = −4/x?"
+   },
+   "a": [
+    "Verschiebung um 7 nach links und um 5 nach oben",
+    "Verschiebung um 7 nach rechts und um 5 nach oben",
+    "Verschiebung um 7 nach rechts und um 5 nach unten",
+    "Verschiebung um 7 nach links und um 5 nach unten"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Asymptoten von f: x = 7, y = 5. Bei g: x = 0, y = 0. Also Verschiebung um 7 nach rechts und um 5 nach oben."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht der Graph von f(x) = −6/(x + 2) − 5 aus dem Graphen von g(x) = −6/x?"
+   },
+   "a": [
+    "Verschiebung um 2 nach rechts und um 5 nach oben",
+    "Verschiebung um 2 nach rechts und um 5 nach unten",
+    "Verschiebung um 2 nach links und um 5 nach unten",
+    "Verschiebung um 2 nach links und um 5 nach oben"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Asymptoten von f: x = −2, y = −5. Bei g: x = 0, y = 0. Also Verschiebung um 2 nach links und um 5 nach unten."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht der Graph von f(x) = −3/(x + 2) − 6 aus dem Graphen von g(x) = −3/x?"
+   },
+   "a": [
+    "Verschiebung um 2 nach rechts und um 6 nach unten",
+    "Verschiebung um 2 nach links und um 6 nach oben",
+    "Verschiebung um 2 nach rechts und um 6 nach oben",
+    "Verschiebung um 2 nach links und um 6 nach unten"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Asymptoten von f: x = −2, y = −6. Bei g: x = 0, y = 0. Also Verschiebung um 2 nach links und um 6 nach unten."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht der Graph von f(x) = −6/(x + 4) + 6 aus dem Graphen von g(x) = −6/x?"
+   },
+   "a": [
+    "Verschiebung um 4 nach links und um 6 nach oben",
+    "Verschiebung um 4 nach rechts und um 6 nach unten",
+    "Verschiebung um 4 nach rechts und um 6 nach oben",
+    "Verschiebung um 4 nach links und um 6 nach unten"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Asymptoten von f: x = −4, y = 6. Bei g: x = 0, y = 0. Also Verschiebung um 4 nach links und um 6 nach oben."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht der Graph von f(x) = −2/(x + 2) + 1 aus dem Graphen von g(x) = −2/x?"
+   },
+   "a": [
+    "Verschiebung um 2 nach links und um 1 nach oben",
+    "Verschiebung um 2 nach links und um 1 nach unten",
+    "Verschiebung um 2 nach rechts und um 1 nach unten",
+    "Verschiebung um 2 nach rechts und um 1 nach oben"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Asymptoten von f: x = −2, y = 1. Bei g: x = 0, y = 0. Also Verschiebung um 2 nach links und um 1 nach oben."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht der Graph von f(x) = −5/(x + 1) − 3 aus dem Graphen von g(x) = −5/x?"
+   },
+   "a": [
+    "Verschiebung um 1 nach rechts und um 3 nach unten",
+    "Verschiebung um 1 nach links und um 3 nach unten",
+    "Verschiebung um 1 nach rechts und um 3 nach oben",
+    "Verschiebung um 1 nach links und um 3 nach oben"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Asymptoten von f: x = −1, y = −3. Bei g: x = 0, y = 0. Also Verschiebung um 1 nach links und um 3 nach unten."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht der Graph von f(x) = 3/(x + 3) − 4 aus dem Graphen von g(x) = 3/x?"
+   },
+   "a": [
+    "Verschiebung um 3 nach links und um 4 nach unten",
+    "Verschiebung um 3 nach rechts und um 4 nach oben",
+    "Verschiebung um 3 nach links und um 4 nach oben",
+    "Verschiebung um 3 nach rechts und um 4 nach unten"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Asymptoten von f: x = −3, y = −4. Bei g: x = 0, y = 0. Also Verschiebung um 3 nach links und um 4 nach unten."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht der Graph von f(x) = 2/(x + 3) + 6 aus dem Graphen von g(x) = 2/x?"
+   },
+   "a": [
+    "Verschiebung um 3 nach links und um 6 nach unten",
+    "Verschiebung um 3 nach rechts und um 6 nach unten",
+    "Verschiebung um 3 nach links und um 6 nach oben",
+    "Verschiebung um 3 nach rechts und um 6 nach oben"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Asymptoten von f: x = −3, y = 6. Bei g: x = 0, y = 0. Also Verschiebung um 3 nach links und um 6 nach oben."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = −5/(x + 6) − 2 ist richtig?"
+   },
+   "a": [
+    "Der Graph schneidet die y-Achse bei y = −17/6.",
+    "Die waagrechte Asymptote ist y = −5.",
+    "Der Graph schneidet die Gerade y = −2.",
+    "f ist für x = 6 nicht definiert."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Richtig: Der Graph schneidet die y-Achse bei y = −17/6. Asymptoten x = −6, y = −2; Nullstelle −8,5.",
+   "h": "Bestimme D, Asymptoten und Nullstelle, dann vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = 2/(x + 1) + 4 ist richtig?"
+   },
+   "a": [
+    "f ist für x = −1 nicht definiert.",
+    "Der Graph schneidet die Gerade y = 4.",
+    "f(0) = 7",
+    "f ist für x = 1 nicht definiert."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Richtig: f ist für x = −1 nicht definiert. Asymptoten x = −1, y = 4; Nullstelle −1,5.",
+   "h": "Bestimme D, Asymptoten und Nullstelle, dann vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = 1/(x − 3) + 5 ist richtig?"
+   },
+   "a": [
+    "Der Graph hat zwei Nullstellen.",
+    "Die waagrechte Asymptote ist y = 1.",
+    "Die Nullstelle ist x = 2,8.",
+    "f ist für x = −3 nicht definiert."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Richtig: Die Nullstelle ist x = 2,8. Asymptoten x = 3, y = 5; Nullstelle 2,8.",
+   "h": "Bestimme D, Asymptoten und Nullstelle, dann vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = −4/(x − 5) − 5 ist richtig?"
+   },
+   "a": [
+    "f ist für x = −5 nicht definiert.",
+    "Die waagrechte Asymptote ist y = −4.",
+    "f(1) = −3",
+    "f(1) = −4"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Richtig: f(1) = −4 Asymptoten x = 5, y = −5; Nullstelle 4,2.",
+   "h": "Bestimme D, Asymptoten und Nullstelle, dann vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = 7/(x − 1) − 5 ist richtig?"
+   },
+   "a": [
+    "f ist für x = −1 nicht definiert.",
+    "Die waagrechte Asymptote ist y = 7.",
+    "Der Graph schneidet die y-Achse bei y = −12.",
+    "Der Graph schneidet die Gerade y = −5."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Richtig: Der Graph schneidet die y-Achse bei y = −12. Asymptoten x = 1, y = −5; Nullstelle 2,4.",
+   "h": "Bestimme D, Asymptoten und Nullstelle, dann vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = −2/(x − 5) + 5 ist FALSCH?"
+   },
+   "a": [
+    "Der Graph schneidet die y-Achse bei y = 5,4.",
+    "Die senkrechte Asymptote ist x = 5.",
+    "Die Nullstelle ist x = 5,4.",
+    "f(−3) = 6,25"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Falsch: f(−3) = 6,25 Asymptoten x = 5, y = 5; der Graph berührt die Asymptoten nie.",
+   "h": "Bestimme D, Asymptoten und Nullstelle, dann vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = −3/(x − 2) + 4 ist FALSCH?"
+   },
+   "a": [
+    "Die Nullstelle ist x = 2,75.",
+    "Der Graph schneidet die y-Achse bei y = 5,5.",
+    "f ist für x = 2 nicht definiert.",
+    "Der Graph hat zwei Nullstellen."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Falsch: Der Graph hat zwei Nullstellen. Asymptoten x = 2, y = 4; der Graph berührt die Asymptoten nie.",
+   "h": "Bestimme D, Asymptoten und Nullstelle, dann vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = 4/(x + 5) − 4 ist FALSCH?"
+   },
+   "a": [
+    "Der Graph schneidet die y-Achse bei y = −3,2.",
+    "Der Graph schneidet die Gerade y = −4.",
+    "Die senkrechte Asymptote ist x = −5.",
+    "f ist für x = −5 nicht definiert."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Falsch: Der Graph schneidet die Gerade y = −4. Asymptoten x = −5, y = −4; der Graph berührt die Asymptoten nie.",
+   "h": "Bestimme D, Asymptoten und Nullstelle, dann vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = 1/(x + 2) − 1 ist FALSCH?"
+   },
+   "a": [
+    "Der Graph hat zwei Nullstellen.",
+    "Die senkrechte Asymptote ist x = −2.",
+    "f ist für x = −2 nicht definiert.",
+    "Der Graph schneidet die y-Achse bei y = −0,5."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Falsch: Der Graph hat zwei Nullstellen. Asymptoten x = −2, y = −1; der Graph berührt die Asymptoten nie.",
+   "h": "Bestimme D, Asymptoten und Nullstelle, dann vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = 1/(x + 5) − 1 ist FALSCH?"
+   },
+   "a": [
+    "Die senkrechte Asymptote ist x = −5.",
+    "Die waagrechte Asymptote ist y = 1.",
+    "Die Nullstelle ist x = −4.",
+    "f ist für x = −5 nicht definiert."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Falsch: Die waagrechte Asymptote ist y = 1. Asymptoten x = −5, y = −1; der Graph berührt die Asymptoten nie.",
+   "h": "Bestimme D, Asymptoten und Nullstelle, dann vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = −7/(x + 1) + 5 ist FALSCH?"
+   },
+   "a": [
+    "f ist für x = −1 nicht definiert.",
+    "Der Graph schneidet die Gerade y = 5.",
+    "Die senkrechte Asymptote ist x = −1.",
+    "Der Graph schneidet die y-Achse bei y = −2."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Falsch: Der Graph schneidet die Gerade y = 5. Asymptoten x = −1, y = 5; der Graph berührt die Asymptoten nie.",
+   "h": "Bestimme D, Asymptoten und Nullstelle, dann vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = −5/(x − 5) + 5 ist FALSCH?"
+   },
+   "a": [
+    "Die senkrechte Asymptote ist x = 5.",
+    "f(−3) = 6,625",
+    "f ist für x = 5 nicht definiert.",
+    "Der Graph schneidet die y-Achse bei y = 6."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Falsch: f(−3) = 6,625 Asymptoten x = 5, y = 5; der Graph berührt die Asymptoten nie.",
+   "h": "Bestimme D, Asymptoten und Nullstelle, dann vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = −3/(x − 3) − 4 ist FALSCH?"
+   },
+   "a": [
+    "Der Graph hat zwei Nullstellen.",
+    "f(−5) = −3,625",
+    "Die Nullstelle ist x = 2,25.",
+    "Der Graph schneidet die y-Achse bei y = −3."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Falsch: Der Graph hat zwei Nullstellen. Asymptoten x = 3, y = −4; der Graph berührt die Asymptoten nie.",
+   "h": "Bestimme D, Asymptoten und Nullstelle, dann vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = 4/(x − 5) + 1 ist FALSCH?"
+   },
+   "a": [
+    "Der Graph schneidet die y-Achse bei y = 0,2.",
+    "Die senkrechte Asymptote ist x = 5.",
+    "f(−3) = 0,5",
+    "f(−3) = 1,5"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Falsch: f(−3) = 1,5 Asymptoten x = 5, y = 1; der Graph berührt die Asymptoten nie.",
+   "h": "Bestimme D, Asymptoten und Nullstelle, dann vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = 3/(x + 6) + 2 ist richtig?"
+   },
+   "a": [
+    "Der Graph hat zwei Nullstellen.",
+    "Der Graph schneidet die Gerade y = 2.",
+    "Der Graph schneidet die y-Achse bei y = 2,5.",
+    "f ist für x = 6 nicht definiert."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Richtig: Der Graph schneidet die y-Achse bei y = 2,5. Asymptoten x = −6, y = 2; Nullstelle −7,5."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = 3/(x + 1) − 4 ist richtig?"
+   },
+   "a": [
+    "Die waagrechte Asymptote ist y = 3.",
+    "Der Graph hat zwei Nullstellen.",
+    "Der Graph schneidet die Gerade y = −4.",
+    "Die Nullstelle ist x = −0,25."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Richtig: Die Nullstelle ist x = −0,25. Asymptoten x = −1, y = −4; Nullstelle −0,25."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = −8/(x + 3) − 5 ist FALSCH?"
+   },
+   "a": [
+    "f(−1) = −9",
+    "f ist für x = −3 nicht definiert.",
+    "Der Graph schneidet die Gerade y = −5.",
+    "Die Nullstelle ist x = −4,6."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Falsch: Der Graph schneidet die Gerade y = −5. Asymptoten x = −3, y = −5; der Graph berührt die Asymptoten nie."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = −4/(x + 2) + 4 ist richtig?"
+   },
+   "a": [
+    "Der Graph hat zwei Nullstellen.",
+    "Die waagrechte Asymptote ist y = −4.",
+    "Der Graph schneidet die Gerade y = 4.",
+    "Die Nullstelle ist x = −1."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Richtig: Die Nullstelle ist x = −1. Asymptoten x = −2, y = 4; Nullstelle −1."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = −4/(x − 6) − 1 ist richtig?"
+   },
+   "a": [
+    "Der Graph schneidet die y-Achse bei y = −1/3.",
+    "Der Graph schneidet die Gerade y = −1.",
+    "Der Graph hat zwei Nullstellen.",
+    "Die waagrechte Asymptote ist y = −4."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Richtig: Der Graph schneidet die y-Achse bei y = −1/3. Asymptoten x = 6, y = −1; Nullstelle 2."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = 1/(x + 3) − 5 ist FALSCH?"
+   },
+   "a": [
+    "Der Graph hat zwei Nullstellen.",
+    "Der Graph schneidet die y-Achse bei y = −14/3.",
+    "Die Nullstelle ist x = −2,8.",
+    "Die senkrechte Asymptote ist x = −3."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Falsch: Der Graph hat zwei Nullstellen. Asymptoten x = −3, y = −5; der Graph berührt die Asymptoten nie."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = 2/(x + 3) + 1 ist FALSCH?"
+   },
+   "a": [
+    "f(−5) = 0",
+    "Die Nullstelle ist x = −5.",
+    "Der Graph schneidet die Gerade y = 1.",
+    "f ist für x = −3 nicht definiert."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Falsch: Der Graph schneidet die Gerade y = 1. Asymptoten x = −3, y = 1; der Graph berührt die Asymptoten nie."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = −4/(x + 1) + 5 ist FALSCH?"
+   },
+   "a": [
+    "f(−3) = 8",
+    "Die senkrechte Asymptote ist x = −1.",
+    "Der Graph schneidet die y-Achse bei y = 1.",
+    "Die Nullstelle ist x = −0,2."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Falsch: f(−3) = 8 Asymptoten x = −1, y = 5; der Graph berührt die Asymptoten nie."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = 4/(x + 5) + 5 ist richtig?"
+   },
+   "a": [
+    "Der Graph hat zwei Nullstellen.",
+    "f ist für x = 5 nicht definiert.",
+    "f ist für x = −5 nicht definiert.",
+    "Die waagrechte Asymptote ist y = 4."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Richtig: f ist für x = −5 nicht definiert. Asymptoten x = −5, y = 5; Nullstelle −5,8."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = 1/(x + 4) + 1 ist FALSCH?"
+   },
+   "a": [
+    "Die waagrechte Asymptote ist y = 1.",
+    "Die Nullstelle ist x = −5.",
+    "f ist für x = −4 nicht definiert.",
+    "Der Graph hat zwei Nullstellen."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Falsch: Der Graph hat zwei Nullstellen. Asymptoten x = −4, y = 1; der Graph berührt die Asymptoten nie."
+  }
+ ],
+ "offen": [
+  "Lehrplan: Graphen mit Asymptoten zeichnen. Die App kann keine Hyperbeln und Asymptoten zeichnen; Aufgaben „Welcher Graph gehört zu …?“ fehlen."
+ ]
+}

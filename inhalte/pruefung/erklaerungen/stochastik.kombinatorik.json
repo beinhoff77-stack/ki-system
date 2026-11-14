@@ -2,8 +2,7 @@
   "thema_schluessel": "stochastik.kombinatorik",
   "gesamturteil": "gut",
   "thema_hinweise": [
-    "Fachlich richtig, sehr gute typische Fehler (plus statt mal, Händeschütteln doppelt). Unter „offen“ steht, dass das Baumdiagramm nicht gezeichnet werden kann. Das geht jetzt (Bildtyp „baum“, bis 3 Stufen); Bild für die Karte „baumdiagramm“ angegeben.",
-    "Hinweis an die Aufgaben-Prüfung: Bei „Aus 7 Eissorten 2 verschiedene Kugeln (Reihenfolge egal): 21 Möglichkeiten“ bitte die markierte Lösung prüfen – 7 · 6 : 2 = 21, die Aussage stimmt."
+    "Fachlich richtig, sehr gute typische Fehler (plus statt mal, Händeschütteln doppelt). Unter „offen“ steht, dass das Baumdiagramm nicht gezeichnet werden kann. Das geht jetzt (Bildtyp „baum“, bis 3 Stufen); Bild für die Karte „baumdiagramm“ angegeben."
   ],
   "karten": [
     {

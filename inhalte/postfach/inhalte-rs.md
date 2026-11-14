@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-14 17:10 – STATUS
+Thema 6/10 fertig: `funktionen.transformation` – 6 Lernkarten, 168 Aufgaben, Prüfskript OK. Gebaut auf RS-9-Niveau (Normalparabel + Bildpunkte allgemeiner Graphen); RS-10-Teil (Exp/Log, Spiegelung an y = x) weggelassen, siehe `offen`.
+
 ## 2026-11-14 16:50 – STATUS
 Thema 5/10 fertig: `terme.quadratische_extreme` – 5 Lernkarten, 140 Aufgaben, Prüfskript OK. Ohne Parabelgraphen (laut Umfang), Extremwerte über quadratische Ergänzung, Optimierung (Rechteck, Mauer, Zahlen, Preis).
 

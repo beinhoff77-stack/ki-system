@@ -1,0 +1,4287 @@
+{
+ "thema_schluessel": "funktionen.transformation",
+ "thema_id": 40,
+ "block_id": 70,
+ "klasse": {
+  "rs_by": 9
+ },
+ "autor": "Claude (Paket Realschule)",
+ "inhalt": {
+  "ziel": "Graphen verschieben, strecken und an den Achsen spiegeln – an der Normalparabel und an beliebigen Graphen über Bildpunkte.",
+  "merke": [
+   "f(x) + e: um e nach oben (e < 0: nach unten).",
+   "f(x − d): um d nach rechts – das Vorzeichen in der Klammer ist umgekehrt.",
+   "a · f(x): |a| > 1 gestreckt, |a| < 1 gestaucht, a < 0 zusätzlich an der x-Achse gespiegelt.",
+   "−f(x): Spiegelung an der x-Achse; f(−x): Spiegelung an der y-Achse.",
+   "y = a(x − d)² + e hat den Scheitel S(d | e)."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Verschieben",
+    "lernziele": [
+     "nach_oben",
+     "nach_rechts"
+    ]
+   },
+   {
+    "titel": "Strecken und Spiegeln",
+    "lernziele": [
+     "strecken",
+     "spiegeln"
+    ]
+   },
+   {
+    "titel": "Alles zusammen",
+    "lernziele": [
+     "kombiniert",
+     "punkte"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "nach_oben",
+    "titel": "Nach oben oder unten verschieben",
+    "regel": "Addierst du zum Funktionsterm eine Zahl e, wird jeder Punkt um e ⟦nach oben⟧ verschoben (bei e < 0 ⟦nach unten⟧): y = f(x) + e. Aus der Normalparabel y = x² wird ⟦y = x² + e⟧ mit Scheitel ⟦S(0 | e)⟧. Wie ein Aufzug: Alles fährt gleich weit.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -1,
+      9
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0.0,
+        0.0,
+        1.0
+       ],
+       "name": "y = x²"
+      },
+      {
+       "art": "poly",
+       "k": [
+        3.0,
+        0.0,
+        1.0
+       ],
+       "name": "y = x² + 3"
+      }
+     ]
+    },
+    "schritte": [
+     "Die Normalparabel wird um 3 nach oben verschoben: ⟦y = x² + 3⟧.",
+     "Der Scheitel wandert von S(0 | 0) nach ⟦S(0 | 3)⟧."
+    ],
+    "fehler": "y = (x + 3)² für „3 nach oben“ ist falsch: Eine Zahl ⟦in der Klammer⟧ verschiebt nach links oder rechts. Nach oben wird ⟦hinten addiert⟧: x² + 3."
+   },
+   {
+    "lernziel": "nach_rechts",
+    "titel": "Nach links oder rechts verschieben",
+    "regel": "Ersetzt du x durch ⟦(x − d)⟧, wird der Graph um d ⟦nach rechts⟧ verschoben, bei (x + d) ⟦nach links⟧. Aus y = x² wird ⟦y = (x − d)²⟧ mit Scheitel ⟦S(d | 0)⟧. Merke: Das Vorzeichen in der Klammer ist ⟦umgekehrt⟧ – bei x − 2 ist der Scheitel bei +2, denn dort wird die Klammer 0.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      5
+     ],
+     "y": [
+      -1,
+      9
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0.0,
+        0.0,
+        1.0
+       ],
+       "name": "y = x²"
+      },
+      {
+       "art": "poly",
+       "k": [
+        4.0,
+        -4.0,
+        1.0
+       ],
+       "name": "y = (x − 2)²"
+      }
+     ]
+    },
+    "schritte": [
+     "y = (x − 2)²: Die Klammer wird 0 für x = 2.",
+     "Scheitel ⟦S(2 | 0)⟧ – die Parabel ist um 2 ⟦nach rechts⟧ verschoben."
+    ],
+    "fehler": "y = (x + 4)² als „4 nach rechts“ zu lesen ist falsch: Die Klammer ist 0 für x = −4, also ⟦4 nach links⟧."
+   },
+   {
+    "lernziel": "strecken",
+    "titel": "Strecken, stauchen, nach unten öffnen",
+    "regel": "Multiplizierst du den Funktionsterm mit a, werden alle y-Werte mal a genommen: y = a · x². Für ⟦|a| > 1⟧ wird die Parabel ⟦gestreckt⟧ (enger), für ⟦0 < |a| < 1⟧ ⟦gestaucht⟧ (weiter). Ein ⟦negatives a⟧ spiegelt zusätzlich an der ⟦x-Achse⟧: Die Parabel ist nach unten geöffnet.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -5,
+      8
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0.0,
+        0.0,
+        1.0
+       ],
+       "name": "y = x²"
+      },
+      {
+       "art": "poly",
+       "k": [
+        0.0,
+        0.0,
+        2.0
+       ],
+       "name": "y = 2x²"
+      },
+      {
+       "art": "poly",
+       "k": [
+        0.0,
+        0.0,
+        -0.5
+       ],
+       "name": "y = −0,5x²"
+      }
+     ]
+    },
+    "schritte": [
+     "y = 2x²: An der Stelle x = 3 ist y = 2 · 9 = ⟦18⟧ statt 9 – doppelt so hoch.",
+     "y = −0,5x²: Für x = 4 ist y = −0,5 · 16 = ⟦−8⟧. Halb so hoch und nach unten geöffnet."
+    ],
+    "fehler": "y = 2x² für x = 3 als (2 · 3)² = 36 zu rechnen ist falsch: Erst ⟦quadrieren⟧, dann mit 2 multiplizieren: 2 · 9 = 18."
+   },
+   {
+    "lernziel": "spiegeln",
+    "titel": "An den Achsen spiegeln",
+    "regel": "Spiegeln an der ⟦x-Achse⟧: y-Werte bekommen das andere Vorzeichen, ⟦y = −f(x)⟧, Punkt (x | y) → (x | −y). Spiegeln an der ⟦y-Achse⟧: x wird durch −x ersetzt, ⟦y = f(−x)⟧, Punkt (x | y) → (−x | y). Wie im Spiegel: Was links war, ist rechts.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      5
+     ],
+     "y": [
+      -1,
+      8
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        5.0,
+        -4.0,
+        1.0
+       ],
+       "name": "y = (x − 2)² + 1"
+      },
+      {
+       "art": "poly",
+       "k": [
+        5.0,
+        4.0,
+        1.0
+       ],
+       "name": "y = (x + 2)² + 1"
+      }
+     ]
+    },
+    "schritte": [
+     "Parabel y = (x − 2)² + 1 mit S(2 | 1) an der y-Achse spiegeln: x durch −x ersetzen.",
+     "(−x − 2)² = (x + 2)², also ⟦y = (x + 2)² + 1⟧ mit ⟦S(−2 | 1)⟧."
+    ],
+    "fehler": "Beim Spiegeln an der y-Achse auch y umzudrehen, also S(−2 | −1), ist falsch: An der ⟦y-Achse⟧ ändert sich ⟦nur x⟧."
+   },
+   {
+    "lernziel": "kombiniert",
+    "titel": "Mehrere Schritte: y = a(x − d)² + e",
+    "regel": "Die Gleichung ⟦y = a(x − d)² + e⟧ verrät alles: Scheitel ⟦S(d | e)⟧, Form a (gestreckt, gestaucht, nach unten geöffnet). Sie entsteht aus der Normalparabel durch ⟦Strecken mit a⟧, dann ⟦Verschieben um d nach rechts und e nach oben⟧.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      7
+     ],
+     "y": [
+      -4,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0.0,
+        0.0,
+        1.0
+       ],
+       "name": "y = x²"
+      },
+      {
+       "art": "poly",
+       "k": [
+        -0.5,
+        3.0,
+        -0.5
+       ],
+       "name": "y = −0,5(x − 3)² + 4"
+      }
+     ]
+    },
+    "schritte": [
+     "y = −0,5(x − 3)² + 4: a = −0,5, also gestaucht und nach unten geöffnet.",
+     "Scheitel ⟦S(3 | 4)⟧: 3 nach rechts, 4 nach oben."
+    ],
+    "fehler": "Bei y = 2(x + 1)² − 5 den Scheitel S(1 | −5) abzulesen ist falsch: Die Klammer ist 0 für ⟦x = −1⟧, also S(−1 | −5)."
+   },
+   {
+    "lernziel": "punkte",
+    "titel": "Punkte mit abbilden",
+    "regel": "Kennst du einen Punkt P(x | y) auf dem Graphen von f, findest du sein Bild auf g(x) = a · f(x − d) + e ohne den Term von f: ⟦P'(x + d | a · y + e)⟧. Erst ⟦strecken⟧ (y mal a), dann ⟦verschieben⟧.",
+    "schritte": [
+     "P(1 | 4) liegt auf dem Graphen von f. g(x) = 2 · f(x − 3) − 1.",
+     "x: 1 + 3 = 4; y: 2 · 4 − 1 = 7. Also ⟦P'(4 | 7)⟧."
+    ],
+    "probe": "g(4) = 2 · f(4 − 3) − 1 = 2 · f(1) − 1 = 2 · 4 − 1 = 7 ✓",
+    "fehler": "Bei g(x) = f(x − 3) den Punkt nach links zu schieben (x − 3) ist falsch: f(x − 3) heißt ⟦3 nach rechts⟧, also x + 3."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "nach_oben",
+    "text": "Nach oben oder unten verschieben",
+    "lernziele": [
+     "nach_oben"
+    ]
+   },
+   {
+    "k": "nach_rechts",
+    "text": "Nach links oder rechts verschieben",
+    "lernziele": [
+     "nach_rechts"
+    ]
+   },
+   {
+    "k": "strecken",
+    "text": "Strecken, stauchen, nach unten öffnen",
+    "lernziele": [
+     "strecken"
+    ]
+   },
+   {
+    "k": "spiegeln",
+    "text": "An den Achsen spiegeln",
+    "lernziele": [
+     "spiegeln"
+    ]
+   },
+   {
+    "k": "kombiniert",
+    "text": "Mehrere Schritte: y = a(x − d)² + e",
+    "lernziele": [
+     "kombiniert"
+    ]
+   },
+   {
+    "k": "punkte",
+    "text": "Punkte mit abbilden",
+    "lernziele": [
+     "punkte"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "nach_oben",
+    "nach_rechts",
+    "strecken",
+    "spiegeln",
+    "kombiniert",
+    "punkte"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), Aufgaben vom Generator erzeugt und berechnet.",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Realschule, Wahlpflichtfächergruppe I)."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird um 1 nach unten verschoben. Welche Gleichung gehört dazu?"
+   },
+   "a": [
+    "y = x² + 1",
+    "y = (x − 1)²",
+    "y = (x + 1)²",
+    "y = x² − 1"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Nach unten: hinten −1 addieren: y = x² − 1.",
+   "h": "Verschiebt eine Zahl in der Klammer nach oben?"
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Die Normalparabel y = x² wird um 6 nach oben verschoben. Gib den Scheitel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     0,
+     6
+    ]
+   },
+   "w": "Verschieben nach oben ändert nur y: S(0 | 6). Gleichung y = x² + 6.",
+   "h": "Der Scheitel der Normalparabel ist S(0 | 0).",
+   "c": [
+    "0",
+    "6"
+   ]
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird um 7 nach oben verschoben. Welche Gleichung gehört dazu?"
+   },
+   "a": [
+    "y = x² − 7",
+    "y = x² + 7",
+    "y = (x + 7)²",
+    "y = (x − 7)²"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nach oben: hinten 7 addieren: y = x² + 7.",
+   "h": "Verschiebt eine Zahl in der Klammer nach oben?"
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Die Normalparabel y = x² wird um 2 nach oben verschoben. Gib den Scheitel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     0,
+     2
+    ]
+   },
+   "w": "Verschieben nach oben ändert nur y: S(0 | 2). Gleichung y = x² + 2.",
+   "h": "Der Scheitel der Normalparabel ist S(0 | 0).",
+   "c": [
+    "0",
+    "2"
+   ]
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Die Normalparabel y = x² wird um 4 nach oben verschoben. Gib den Scheitel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     0,
+     4
+    ]
+   },
+   "w": "Verschieben nach oben ändert nur y: S(0 | 4). Gleichung y = x² + 4.",
+   "h": "Der Scheitel der Normalparabel ist S(0 | 0).",
+   "c": [
+    "0",
+    "4"
+   ]
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Die Normalparabel y = x² wird um 5 nach unten verschoben. Gib den Scheitel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     0,
+     -5
+    ]
+   },
+   "w": "Verschieben nach unten ändert nur y: S(0 | −5). Gleichung y = x² − 5.",
+   "h": "Der Scheitel der Normalparabel ist S(0 | 0).",
+   "c": [
+    "0",
+    "-5"
+   ]
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x − 4)² − 4 wird um 6 nach unten verschoben. Gib den neuen Scheitel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     4,
+     -10
+    ]
+   },
+   "w": "Alter Scheitel S(4 | −4). Nur y ändert sich: −4 − 6 = −10. S(4 | −10).",
+   "h": "Lies zuerst den alten Scheitel ab.",
+   "c": [
+    "4",
+    "-4 + (-6)"
+   ]
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x − 2)² − 3 wird um 4 nach oben verschoben. Gib den neuen Scheitel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     2,
+     1
+    ]
+   },
+   "w": "Alter Scheitel S(2 | −3). Nur y ändert sich: −3 + 4 = 1. S(2 | 1).",
+   "h": "Lies zuerst den alten Scheitel ab.",
+   "c": [
+    "2",
+    "-3 + (4)"
+   ]
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x + 1)² − 1 wird um 7 nach unten verschoben. Gib den neuen Scheitel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -1,
+     -8
+    ]
+   },
+   "w": "Alter Scheitel S(−1 | −1). Nur y ändert sich: −1 − 7 = −8. S(−1 | −8).",
+   "h": "Lies zuerst den alten Scheitel ab.",
+   "c": [
+    "-1",
+    "-1 + (-7)"
+   ]
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x + 4)² − 4 wird um 2 nach unten verschoben. Gib den neuen Scheitel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -4,
+     -6
+    ]
+   },
+   "w": "Alter Scheitel S(−4 | −4). Nur y ändert sich: −4 − 2 = −6. S(−4 | −6).",
+   "h": "Lies zuerst den alten Scheitel ab.",
+   "c": [
+    "-4",
+    "-4 + (-2)"
+   ]
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(−1 | 1) liegt auf y = x². Wohin kommt P, wenn die Parabel um 2 nach unten verschoben wird?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -1,
+     -1
+    ]
+   },
+   "w": "Nur y ändert sich: 1 − 2 = −1. P'(−1 | −1).",
+   "h": "Bei einer Verschiebung nach oben/unten bleibt x gleich.",
+   "c": [
+    "-1",
+    "1 + (-2)"
+   ]
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x + 2)² + 2 wird um 7 nach oben verschoben. Gib den neuen Scheitel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -2,
+     9
+    ]
+   },
+   "w": "Alter Scheitel S(−2 | 2). Nur y ändert sich: 2 + 7 = 9. S(−2 | 9).",
+   "h": "Lies zuerst den alten Scheitel ab.",
+   "c": [
+    "-2",
+    "2 + (7)"
+   ]
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Parabel y = x² + 1 soll so verschoben werden, dass ihr Scheitel bei S(0 | −4) liegt. Um wie viel muss man sie nach oben verschieben? (Nach unten: negative Zahl.)"
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "(-4) - (1)",
+   "w": "Von 1 nach −4: −4 − 1 = −5.",
+   "h": "Differenz der y-Koordinaten der Scheitel."
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die gezeichnete Parabel ist eine nach oben oder unten verschobene Normalparabel. Gib ihren Scheitel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -8,
+      8
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -7.0,
+        0.0,
+        1.0
+       ],
+       "name": ""
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     0,
+     -7
+    ]
+   },
+   "w": "Die Parabel schneidet die y-Achse im Scheitel S(0 | −7). Gleichung y = x² − 7.",
+   "h": "Wo liegt der tiefste Punkt?",
+   "c": [
+    "0",
+    "-7"
+   ]
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die gezeichnete Parabel ist eine nach oben oder unten verschobene Normalparabel. Gib ihren Scheitel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -2,
+      11
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        5.0,
+        0.0,
+        1.0
+       ],
+       "name": ""
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     0,
+     5
+    ]
+   },
+   "w": "Die Parabel schneidet die y-Achse im Scheitel S(0 | 5). Gleichung y = x² + 5.",
+   "h": "Wo liegt der tiefste Punkt?",
+   "c": [
+    "0",
+    "5"
+   ]
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die gezeichnete Parabel ist eine nach oben oder unten verschobene Normalparabel. Gib ihren Scheitel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -6,
+      8
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -5.0,
+        0.0,
+        1.0
+       ],
+       "name": ""
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     0,
+     -5
+    ]
+   },
+   "w": "Die Parabel schneidet die y-Achse im Scheitel S(0 | −5). Gleichung y = x² − 5.",
+   "h": "Wo liegt der tiefste Punkt?",
+   "c": [
+    "0",
+    "-5"
+   ]
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Normalparabel wird um 6 nach unten verschoben. Welchen y-Wert hat die neue Parabel bei x = 2?"
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "(2) ** 2 + (-6)",
+   "w": "y = x² − 6: y = 2² − 6 = 4 − 6 = −2.",
+   "h": "Stelle zuerst die Gleichung auf."
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Parabel y = x² − 2 soll so verschoben werden, dass ihr Scheitel bei S(0 | −5) liegt. Um wie viel muss man sie nach oben verschieben? (Nach unten: negative Zahl.)"
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "(-5) - (-2)",
+   "w": "Von −2 nach −5: −5 − (−2) = −3.",
+   "h": "Differenz der y-Koordinaten der Scheitel."
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x + 1)² + 3 wird um 5 nach unten verschoben. Gib den neuen Scheitel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -1,
+     -2
+    ]
+   },
+   "w": "Alter Scheitel S(−1 | 3). Nur y ändert sich: 3 − 5 = −2. S(−1 | −2).",
+   "c": [
+    "-1",
+    "3 + (-5)"
+   ]
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x + 4)² − 3 wird um 3 nach oben verschoben. Gib den neuen Scheitel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -4,
+     0
+    ]
+   },
+   "w": "Alter Scheitel S(−4 | −3). Nur y ändert sich: −3 + 3 = 0. S(−4 | 0).",
+   "c": [
+    "-4",
+    "-3 + (3)"
+   ]
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x − 1)² wird um 5 nach oben verschoben. Gib den neuen Scheitel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     1,
+     5
+    ]
+   },
+   "w": "Alter Scheitel S(1 | 0). Nur y ändert sich: 0 + 5 = 5. S(1 | 5).",
+   "c": [
+    "1",
+    "0 + (5)"
+   ]
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x − 4)² − 2 wird um 3 nach oben verschoben. Gib den neuen Scheitel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     4,
+     1
+    ]
+   },
+   "w": "Alter Scheitel S(4 | −2). Nur y ändert sich: −2 + 3 = 1. S(4 | 1).",
+   "c": [
+    "4",
+    "-2 + (3)"
+   ]
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(−4 | 16) liegt auf y = x². Wohin kommt P, wenn die Parabel um 3 nach oben verschoben wird?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -4,
+     19
+    ]
+   },
+   "w": "Nur y ändert sich: 16 + 3 = 19. P'(−4 | 19).",
+   "c": [
+    "-4",
+    "16 + (3)"
+   ]
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x − 3)² + 3 wird um 5 nach oben verschoben. Gib den neuen Scheitel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     3,
+     8
+    ]
+   },
+   "w": "Alter Scheitel S(3 | 3). Nur y ändert sich: 3 + 5 = 8. S(3 | 8).",
+   "c": [
+    "3",
+    "3 + (5)"
+   ]
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(−1 | 1) liegt auf y = x². Wohin kommt P, wenn die Parabel um 4 nach oben verschoben wird?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -1,
+     5
+    ]
+   },
+   "w": "Nur y ändert sich: 1 + 4 = 5. P'(−1 | 5).",
+   "c": [
+    "-1",
+    "1 + (4)"
+   ]
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x + 2)² − 1 wird um 1 nach unten verschoben. Gib den neuen Scheitel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -2,
+     -2
+    ]
+   },
+   "w": "Alter Scheitel S(−2 | −1). Nur y ändert sich: −1 − 1 = −2. S(−2 | −2).",
+   "c": [
+    "-2",
+    "-1 + (-1)"
+   ]
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(2 | 4) liegt auf y = x². Wohin kommt P, wenn die Parabel um 5 nach oben verschoben wird?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     2,
+     9
+    ]
+   },
+   "w": "Nur y ändert sich: 4 + 5 = 9. P'(2 | 9).",
+   "c": [
+    "2",
+    "4 + (5)"
+   ]
+  },
+  {
+   "l": "nach_oben",
+   "t": "nach_oben",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(2 | 4) liegt auf y = x². Wohin kommt P, wenn die Parabel um 1 nach unten verschoben wird?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "w": "Nur y ändert sich: 4 − 1 = 3. P'(2 | 3).",
+   "c": [
+    "2",
+    "4 + (-1)"
+   ]
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = (x − 6)² an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     6,
+     0
+    ]
+   },
+   "w": "Die Klammer ist 0 für x = 6: S(6 | 0). Die Parabel ist um 6 nach rechts verschoben.",
+   "h": "Für welches x wird die Klammer null?",
+   "c": [
+    "6",
+    "0"
+   ]
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = (x + 3)² an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -3,
+     0
+    ]
+   },
+   "w": "Die Klammer ist 0 für x = −3: S(−3 | 0). Die Parabel ist um 3 nach links verschoben.",
+   "h": "Für welches x wird die Klammer null?",
+   "c": [
+    "-3",
+    "0"
+   ]
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird um 2 nach links verschoben. Welche Gleichung gehört dazu?"
+   },
+   "a": [
+    "y = (x + 2)²",
+    "y = (x − 2)²",
+    "y = x² − 2",
+    "y = x² + 2"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nach links um 2: Scheitel S(−2 | 0), Gleichung y = (x + 2)².",
+   "h": "Achtung: Das Vorzeichen in der Klammer ist umgekehrt."
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird um 4 nach rechts verschoben. Welche Gleichung gehört dazu?"
+   },
+   "a": [
+    "y = (x + 4)²",
+    "y = x² − 4",
+    "y = (x − 4)²",
+    "y = x² + 4"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nach rechts um 4: Scheitel S(4 | 0), Gleichung y = (x − 4)².",
+   "h": "Achtung: Das Vorzeichen in der Klammer ist umgekehrt."
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird um 3 nach rechts verschoben. Welche Gleichung gehört dazu?"
+   },
+   "a": [
+    "y = (x + 3)²",
+    "y = (x − 3)²",
+    "y = x² + 3",
+    "y = x² − 3"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nach rechts um 3: Scheitel S(3 | 0), Gleichung y = (x − 3)².",
+   "h": "Achtung: Das Vorzeichen in der Klammer ist umgekehrt."
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = (x + 2)² an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -2,
+     0
+    ]
+   },
+   "w": "Die Klammer ist 0 für x = −2: S(−2 | 0). Die Parabel ist um 2 nach links verschoben.",
+   "h": "Für welches x wird die Klammer null?",
+   "c": [
+    "-2",
+    "0"
+   ]
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht y = (x − 4)² aus der Normalparabel?"
+   },
+   "a": [
+    "Verschiebung um 4 nach links",
+    "Verschiebung um 16 nach oben",
+    "Verschiebung um 4 nach rechts",
+    "Verschiebung um 4 nach oben"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Klammer 0 für x = 4: Der Scheitel liegt bei S(4 | 0), also 4 nach rechts.",
+   "h": "Wo liegt der Scheitel?"
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht y = (x − 6)² aus der Normalparabel?"
+   },
+   "a": [
+    "Verschiebung um 6 nach oben",
+    "Verschiebung um 36 nach oben",
+    "Verschiebung um 6 nach rechts",
+    "Verschiebung um 6 nach links"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Klammer 0 für x = 6: Der Scheitel liegt bei S(6 | 0), also 6 nach rechts.",
+   "h": "Wo liegt der Scheitel?"
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = (x − 5)² + 5 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     5,
+     5
+    ]
+   },
+   "w": "Klammer 0 für x = 5, dahinter 5: S(5 | 5).",
+   "h": "Klammer null setzen; die Zahl hinten ist die y-Koordinate.",
+   "c": [
+    "5",
+    "5"
+   ]
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht y = (x + 3)² aus der Normalparabel?"
+   },
+   "a": [
+    "Verschiebung um 3 nach links",
+    "Verschiebung um 3 nach oben",
+    "Verschiebung um 3 nach rechts",
+    "Verschiebung um 9 nach oben"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Klammer 0 für x = −3: Der Scheitel liegt bei S(−3 | 0), also 3 nach links.",
+   "h": "Wo liegt der Scheitel?"
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = (x + 1)² − 2 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -1,
+     -2
+    ]
+   },
+   "w": "Klammer 0 für x = −1, dahinter −2: S(−1 | −2).",
+   "h": "Klammer null setzen; die Zahl hinten ist die y-Koordinate.",
+   "c": [
+    "-1",
+    "-2"
+   ]
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = (x + 6)² an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -6,
+     0
+    ]
+   },
+   "w": "Klammer 0 für x = −6, dahinter 0: S(−6 | 0).",
+   "h": "Klammer null setzen; die Zahl hinten ist die y-Koordinate.",
+   "c": [
+    "-6",
+    "0"
+   ]
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Parabel y = (x + 3)² wird um 5 nach links verschoben. Wie lautet die neue Gleichung?"
+   },
+   "a": [
+    "y = (x − 8)²",
+    "y = (x + 3)² − 5",
+    "y = (x − 2)²",
+    "y = (x + 8)²"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Alter Scheitel bei x = −3, neuer bei −3 − 5 = −8: y = (x + 8)².",
+   "h": "Wo liegt der Scheitel vorher, wo nachher?"
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die gezeichnete Parabel ist eine verschobene Normalparabel. Gib ihren Scheitel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      3
+     ],
+     "y": [
+      -1,
+      8
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        16.0,
+        8.0,
+        1.0
+       ],
+       "name": ""
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -4,
+     0
+    ]
+   },
+   "w": "Tiefster Punkt auf der x-Achse bei x = −4: S(−4 | 0). Gleichung y = (x + 4)².",
+   "h": "Wo liegt der tiefste Punkt?",
+   "c": [
+    "-4",
+    "0"
+   ]
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die gezeichnete Parabel ist eine verschobene Normalparabel. Gib ihren Scheitel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      4
+     ],
+     "y": [
+      -1,
+      8
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        1.0,
+        -2.0,
+        1.0
+       ],
+       "name": ""
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     1,
+     0
+    ]
+   },
+   "w": "Tiefster Punkt auf der x-Achse bei x = 1: S(1 | 0). Gleichung y = (x − 1)².",
+   "h": "Wo liegt der tiefste Punkt?",
+   "c": [
+    "1",
+    "0"
+   ]
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die gezeichnete Parabel ist eine verschobene Normalparabel. Gib ihren Scheitel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      8
+     ],
+     "y": [
+      -1,
+      8
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        25.0,
+        -10.0,
+        1.0
+       ],
+       "name": ""
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     5,
+     0
+    ]
+   },
+   "w": "Tiefster Punkt auf der x-Achse bei x = 5: S(5 | 0). Gleichung y = (x − 5)².",
+   "h": "Wo liegt der tiefste Punkt?",
+   "c": [
+    "5",
+    "0"
+   ]
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den y-Wert der Parabel y = (x + 3)² an der Stelle x = 1."
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "((1) - (-3)) ** 2",
+   "w": "y = (1 + 3)² = 4² = 16.",
+   "h": "Erst die Klammer ausrechnen, dann quadrieren."
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den y-Wert der Parabel y = (x + 4)² an der Stelle x = −5."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "((-5) - (-4)) ** 2",
+   "w": "y = (−5 + 4)² = (−1)² = 1.",
+   "h": "Erst die Klammer ausrechnen, dann quadrieren."
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht y = (x − 1)² aus der Normalparabel?"
+   },
+   "a": [
+    "Verschiebung um 1 nach oben",
+    "Verschiebung um 1 nach rechts",
+    "Verschiebung um 1 nach links"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Klammer 0 für x = 1: Der Scheitel liegt bei S(1 | 0), also 1 nach rechts."
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht y = (x − 2)² aus der Normalparabel?"
+   },
+   "a": [
+    "Verschiebung um 2 nach oben",
+    "Verschiebung um 2 nach links",
+    "Verschiebung um 4 nach oben",
+    "Verschiebung um 2 nach rechts"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Klammer 0 für x = 2: Der Scheitel liegt bei S(2 | 0), also 2 nach rechts."
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = (x − 4)² − 5 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     4,
+     -5
+    ]
+   },
+   "w": "Klammer 0 für x = 4, dahinter −5: S(4 | −5).",
+   "c": [
+    "4",
+    "-5"
+   ]
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = (x − 3)² − 1 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     3,
+     -1
+    ]
+   },
+   "w": "Klammer 0 für x = 3, dahinter −1: S(3 | −1).",
+   "c": [
+    "3",
+    "-1"
+   ]
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = (x + 5)² − 2 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -5,
+     -2
+    ]
+   },
+   "w": "Klammer 0 für x = −5, dahinter −2: S(−5 | −2).",
+   "c": [
+    "-5",
+    "-2"
+   ]
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = (x − 4)² − 2 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     4,
+     -2
+    ]
+   },
+   "w": "Klammer 0 für x = 4, dahinter −2: S(4 | −2).",
+   "c": [
+    "4",
+    "-2"
+   ]
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = (x + 2)² + 5 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -2,
+     5
+    ]
+   },
+   "w": "Klammer 0 für x = −2, dahinter 5: S(−2 | 5).",
+   "c": [
+    "-2",
+    "5"
+   ]
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = (x − 2)² + 4 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     2,
+     4
+    ]
+   },
+   "w": "Klammer 0 für x = 2, dahinter 4: S(2 | 4).",
+   "c": [
+    "2",
+    "4"
+   ]
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht y = (x + 4)² aus der Normalparabel?"
+   },
+   "a": [
+    "Verschiebung um 4 nach rechts",
+    "Verschiebung um 4 nach oben",
+    "Verschiebung um 4 nach links",
+    "Verschiebung um 16 nach oben"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Klammer 0 für x = −4: Der Scheitel liegt bei S(−4 | 0), also 4 nach links."
+  },
+  {
+   "l": "nach_rechts",
+   "t": "nach_rechts",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = (x + 6)² + 3 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -6,
+     3
+    ]
+   },
+   "w": "Klammer 0 für x = −6, dahinter 3: S(−6 | 3).",
+   "c": [
+    "-6",
+    "3"
+   ]
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den y-Wert von y = 0,25x² an der Stelle x = −2."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(1/4) * (-2) ** 2",
+   "w": "y = 0,25 · (−2)² = 0,25 · 4 = 1.",
+   "h": "Erst quadrieren, dann mit a multiplizieren."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den y-Wert von y = 0,25x² an der Stelle x = 1."
+   },
+   "o": {
+    "wert": 0.25
+   },
+   "c": "(1/4) * (1) ** 2",
+   "w": "y = 0,25 · 1² = 0,25 · 1 = 0,25.",
+   "h": "Erst quadrieren, dann mit a multiplizieren."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den y-Wert von y = 0,25x² an der Stelle x = 4."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(1/4) * (4) ** 2",
+   "w": "y = 0,25 · 4² = 0,25 · 16 = 4.",
+   "h": "Erst quadrieren, dann mit a multiplizieren."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den y-Wert von y = 2x² an der Stelle x = 3."
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "2 * (3) ** 2",
+   "w": "y = 2 · 3² = 2 · 9 = 18.",
+   "h": "Erst quadrieren, dann mit a multiplizieren."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den y-Wert von y = 0,25x² an der Stelle x = 3."
+   },
+   "o": {
+    "wert": 2.25
+   },
+   "c": "(1/4) * (3) ** 2",
+   "w": "y = 0,25 · 3² = 0,25 · 9 = 2,25.",
+   "h": "Erst quadrieren, dann mit a multiplizieren."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den y-Wert von y = 3x² an der Stelle x = −2."
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "3 * (-2) ** 2",
+   "w": "y = 3 · (−2)² = 3 · 4 = 12.",
+   "h": "Erst quadrieren, dann mit a multiplizieren."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie sieht die Parabel y = −0,25x² im Vergleich zur Normalparabel aus?"
+   },
+   "a": [
+    "gestaucht",
+    "gestreckt",
+    "nach unten geöffnet, gestaucht",
+    "nach unten geöffnet, gestreckt"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "a = −0,25: a < 0 heißt nach unten geöffnet; |a| < 1: gestaucht.",
+   "h": "Schau auf das Vorzeichen und auf den Betrag von a."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Parabel y = a · x² geht durch P(−4 | −16). Berechne a."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "-16 / (-4) ** 2",
+   "w": "−16 = a · (−4)² = a · 16 ⇒ a = −16 : 16 = −1.",
+   "h": "Setze P ein und teile durch x²."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie sieht die Parabel y = 1,5x² im Vergleich zur Normalparabel aus?"
+   },
+   "a": [
+    "nach unten geöffnet, gestreckt",
+    "gestreckt",
+    "nach unten geöffnet, weder gestreckt noch gestaucht",
+    "nach unten geöffnet, gestaucht"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "a = 1,5: |a| > 1: gestreckt.",
+   "h": "Schau auf das Vorzeichen und auf den Betrag von a."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Parabel y = a · x² geht durch P(2 | −12). Berechne a."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "-12 / (2) ** 2",
+   "w": "−12 = a · 2² = a · 4 ⇒ a = −12 : 4 = −3.",
+   "h": "Setze P ein und teile durch x²."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Parabel y = a · x² geht durch P(4 | −48). Berechne a."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "-48 / (4) ** 2",
+   "w": "−48 = a · 4² = a · 16 ⇒ a = −48 : 16 = −3.",
+   "h": "Setze P ein und teile durch x²."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Parabel y = a · x² geht durch P(−1 | 0,5). Berechne a."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "(1/2) / (-1) ** 2",
+   "w": "0,5 = a · (−1)² = a · 1 ⇒ a = 0,5 : 1 = 0,5.",
+   "h": "Setze P ein und teile durch x²."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die gezeichnete Parabel hat die Form y = a · x². Lies einen Punkt mit ganzen Koordinaten ab und bestimme a. Gib a als Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt); Minus in den Zähler; ganze Zahl mit Nenner 1.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -1,
+      9
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0.0,
+        0.0,
+        0.25
+       ],
+       "name": ""
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     1,
+     4
+    ]
+   },
+   "w": "Zum Beispiel P(−2 | 1): a = 1 : 4 = 1/4.",
+   "h": "Suche einen Punkt auf einem Kästchenkreuz und teile y durch x².",
+   "c": [
+    "1",
+    "4"
+   ]
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Parabel ist enger: y = −x² oder y = 0,5x²?"
+   },
+   "a": [
+    "Das hängt vom Vorzeichen ab.",
+    "y = 0,5x²",
+    "Beide sind gleich weit.",
+    "y = −x²"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Entscheidend ist der Betrag: |−1| = 1, |0,5| = 0,5. Größerer Betrag heißt enger.",
+   "h": "Vergleiche die Beträge von a."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die gezeichnete Parabel hat die Form y = a · x². Lies einen Punkt mit ganzen Koordinaten ab und bestimme a. Gib a als Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt); Minus in den Zähler; ganze Zahl mit Nenner 1.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -1,
+      9
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0.0,
+        0.0,
+        0.5
+       ],
+       "name": ""
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "w": "Zum Beispiel P(2 | 2): a = 2 : 4 = 1/2.",
+   "h": "Suche einen Punkt auf einem Kästchenkreuz und teile y durch x².",
+   "c": [
+    "1",
+    "2"
+   ]
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Parabel ist enger: y = 1,5x² oder y = 2x²?"
+   },
+   "a": [
+    "y = 2x²",
+    "Beide sind gleich weit.",
+    "y = 1,5x²",
+    "Das hängt vom Vorzeichen ab."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Entscheidend ist der Betrag: |1,5| = 1,5, |2| = 2. Größerer Betrag heißt enger.",
+   "h": "Vergleiche die Beträge von a."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die gezeichnete Parabel hat die Form y = a · x². Lies einen Punkt mit ganzen Koordinaten ab und bestimme a. Gib a als Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt); Minus in den Zähler; ganze Zahl mit Nenner 1.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -8,
+      8
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0.0,
+        0.0,
+        -0.25
+       ],
+       "name": ""
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -1,
+     4
+    ]
+   },
+   "w": "Zum Beispiel P(−4 | −4): a = −4 : 16 = −1/4.",
+   "h": "Suche einen Punkt auf einem Kästchenkreuz und teile y durch x².",
+   "c": [
+    "-1",
+    "4"
+   ]
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die gezeichnete Parabel hat die Form y = a · x². Lies einen Punkt mit ganzen Koordinaten ab und bestimme a. Gib a als Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt); Minus in den Zähler; ganze Zahl mit Nenner 1.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -1,
+      9
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0.0,
+        0.0,
+        3.0
+       ],
+       "name": ""
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     1
+    ]
+   },
+   "w": "Zum Beispiel P(1 | 3): a = 3 : 1 = 3.",
+   "h": "Suche einen Punkt auf einem Kästchenkreuz und teile y durch x².",
+   "c": [
+    "3",
+    "1"
+   ]
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Parabel y = a · x² geht durch P(4 | −8). Berechne a."
+   },
+   "o": {
+    "wert": -0.5
+   },
+   "c": "-8 / (4) ** 2",
+   "w": "−8 = a · 4² = a · 16 ⇒ a = −8 : 16 = −0,5."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie sieht die Parabel y = −2x² im Vergleich zur Normalparabel aus?"
+   },
+   "a": [
+    "gestaucht",
+    "nach unten geöffnet, weder gestreckt noch gestaucht",
+    "nach unten geöffnet, gestreckt",
+    "nach unten geöffnet, gestaucht"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "a = −2: a < 0 heißt nach unten geöffnet; |a| > 1: gestreckt."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Parabel y = a · x² geht durch P(−1 | −0,5). Berechne a."
+   },
+   "o": {
+    "wert": -0.5
+   },
+   "c": "(-1/2) / (-1) ** 2",
+   "w": "−0,5 = a · (−1)² = a · 1 ⇒ a = −0,5 : 1 = −0,5."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie sieht die Parabel y = 2x² im Vergleich zur Normalparabel aus?"
+   },
+   "a": [
+    "gestreckt",
+    "nach unten geöffnet, gestaucht",
+    "gestaucht",
+    "nach unten geöffnet, gestreckt"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "a = 2: |a| > 1: gestreckt."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Parabel y = a · x² geht durch P(−4 | −4). Berechne a."
+   },
+   "o": {
+    "wert": -0.25
+   },
+   "c": "-4 / (-4) ** 2",
+   "w": "−4 = a · (−4)² = a · 16 ⇒ a = −4 : 16 = −0,25."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie sieht die Parabel y = −x² im Vergleich zur Normalparabel aus?"
+   },
+   "a": [
+    "gestaucht",
+    "nach unten geöffnet, gestaucht",
+    "gestreckt",
+    "nach unten geöffnet, weder gestreckt noch gestaucht"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "a = −1: a < 0 heißt nach unten geöffnet; |a| = 1: gleiche Form."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Parabel y = a · x² geht durch P(3 | 13,5). Berechne a."
+   },
+   "o": {
+    "wert": 1.5
+   },
+   "c": "(27/2) / (3) ** 2",
+   "w": "13,5 = a · 3² = a · 9 ⇒ a = 13,5 : 9 = 1,5."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Parabel y = a · x² geht durch P(−1 | 1,5). Berechne a."
+   },
+   "o": {
+    "wert": 1.5
+   },
+   "c": "(3/2) / (-1) ** 2",
+   "w": "1,5 = a · (−1)² = a · 1 ⇒ a = 1,5 : 1 = 1,5."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Parabel y = a · x² geht durch P(2 | −2). Berechne a."
+   },
+   "o": {
+    "wert": -0.5
+   },
+   "c": "-2 / (2) ** 2",
+   "w": "−2 = a · 2² = a · 4 ⇒ a = −2 : 4 = −0,5."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie sieht die Parabel y = −3x² im Vergleich zur Normalparabel aus?"
+   },
+   "a": [
+    "nach unten geöffnet, gestaucht",
+    "nach unten geöffnet, gestreckt",
+    "gestaucht",
+    "nach unten geöffnet, weder gestreckt noch gestaucht"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "a = −3: a < 0 heißt nach unten geöffnet; |a| > 1: gestreckt."
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Spiegle P(5 | −6) an der y-Achse.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -5,
+     -6
+    ]
+   },
+   "w": "An der y-Achse ändert sich nur x: P'(−5 | −6).",
+   "h": "Welche Koordinate bekommt das andere Vorzeichen?",
+   "c": [
+    "-(5)",
+    "-6"
+   ]
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Spiegle P(−2 | −5) an der y-Achse.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     2,
+     -5
+    ]
+   },
+   "w": "An der y-Achse ändert sich nur x: P'(2 | −5).",
+   "h": "Welche Koordinate bekommt das andere Vorzeichen?",
+   "c": [
+    "-(-2)",
+    "-5"
+   ]
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Spiegle P(4 | −4) an der x-Achse.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     4,
+     4
+    ]
+   },
+   "w": "An der x-Achse ändert sich nur y: P'(4 | 4).",
+   "h": "Welche Koordinate bekommt das andere Vorzeichen?",
+   "c": [
+    "4",
+    "-(-4)"
+   ]
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Spiegle P(3 | −6) an der y-Achse.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -3,
+     -6
+    ]
+   },
+   "w": "An der y-Achse ändert sich nur x: P'(−3 | −6).",
+   "h": "Welche Koordinate bekommt das andere Vorzeichen?",
+   "c": [
+    "-(3)",
+    "-6"
+   ]
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Spiegle P(4 | −5) an der y-Achse.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -4,
+     -5
+    ]
+   },
+   "w": "An der y-Achse ändert sich nur x: P'(−4 | −5).",
+   "h": "Welche Koordinate bekommt das andere Vorzeichen?",
+   "c": [
+    "-(4)",
+    "-5"
+   ]
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Spiegle P(4 | 4) an der x-Achse.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     4,
+     -4
+    ]
+   },
+   "w": "An der x-Achse ändert sich nur y: P'(4 | −4).",
+   "h": "Welche Koordinate bekommt das andere Vorzeichen?",
+   "c": [
+    "4",
+    "-(4)"
+   ]
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x − 4)² − 4 wird an der y-Achse gespiegelt. Gib den Scheitel der Bildparabel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -4,
+     -4
+    ]
+   },
+   "w": "Alter Scheitel S(4 | −4), an der y-Achse: S'(−4 | −4). Gleichung y = (x + 4)² − 4.",
+   "h": "Spiegle den Scheitel.",
+   "c": [
+    "-(4)",
+    "-4"
+   ]
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x + 4)² + 4 wird an der x-Achse gespiegelt. Gib den Scheitel der Bildparabel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -4,
+     -4
+    ]
+   },
+   "w": "Alter Scheitel S(−4 | 4), an der x-Achse: S'(−4 | −4). Gleichung y = −(x + 4)² − 4.",
+   "h": "Spiegle den Scheitel.",
+   "c": [
+    "-4",
+    "-(4)"
+   ]
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x − 5)² − 5 wird an der y-Achse gespiegelt. Gib den Scheitel der Bildparabel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -5,
+     -5
+    ]
+   },
+   "w": "Alter Scheitel S(5 | −5), an der y-Achse: S'(−5 | −5). Gleichung y = (x + 5)² − 5.",
+   "h": "Spiegle den Scheitel.",
+   "c": [
+    "-(5)",
+    "-5"
+   ]
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x − 4)² + 3 wird an der y-Achse gespiegelt. Gib den Scheitel der Bildparabel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -4,
+     3
+    ]
+   },
+   "w": "Alter Scheitel S(4 | 3), an der y-Achse: S'(−4 | 3). Gleichung y = (x + 4)² + 3.",
+   "h": "Spiegle den Scheitel.",
+   "c": [
+    "-(4)",
+    "3"
+   ]
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x + 1)² + 5 wird an der y-Achse gespiegelt. Gib den Scheitel der Bildparabel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     1,
+     5
+    ]
+   },
+   "w": "Alter Scheitel S(−1 | 5), an der y-Achse: S'(1 | 5). Gleichung y = (x − 1)² + 5.",
+   "h": "Spiegle den Scheitel.",
+   "c": [
+    "-(-1)",
+    "5"
+   ]
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x + 2)² − 4 wird an der x-Achse gespiegelt. Gib den Scheitel der Bildparabel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -2,
+     4
+    ]
+   },
+   "w": "Alter Scheitel S(−2 | −4), an der x-Achse: S'(−2 | 4). Gleichung y = −(x + 2)² + 4.",
+   "h": "Spiegle den Scheitel.",
+   "c": [
+    "-2",
+    "-(-4)"
+   ]
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Parabel ändert sich NICHT, wenn man sie an der y-Achse spiegelt?"
+   },
+   "a": [
+    "y = (x + 1)²",
+    "y = (x + 1)² + 2",
+    "y = 2x² + 2",
+    "y = −(x + 1)² + 2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Parabeln mit Scheitel auf der y-Achse (d = 0) sind symmetrisch zur y-Achse und bleiben gleich.",
+   "h": "Wo muss der Scheitel liegen, damit der Spiegel nichts ändert?"
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Parabel y = (x − 1)² − 5 wird an der x-Achse gespiegelt. Welche Gleichung hat das Bild?"
+   },
+   "a": [
+    "y = −(x − 1)² + 5",
+    "y = −(x − 1)² − 5",
+    "y = (x − 1)² + 5",
+    "y = (x + 1)² − 5"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "y = −f(x) = −((x − 1)² − 5) = −(x − 1)² + 5. Beide Teile bekommen ein Minus.",
+   "h": "Das Minus gilt für den ganzen Term – auch für die Zahl hinten."
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Parabel y = (x + 3)² − 1 wird an der y-Achse gespiegelt. Welche Gleichung hat das Bild?"
+   },
+   "a": [
+    "y = (x + 3)² + 1",
+    "y = −(x − 3)² + 1",
+    "y = −(x + 3)² − 1",
+    "y = (x − 3)² − 1"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "x durch −x ersetzen: (−x + 3)² = (x − 3)². Bild: y = (x − 3)² − 1, Scheitel S(3 | −1).",
+   "h": "Nur der Scheitel wandert auf die andere Seite der y-Achse."
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Parabel y = (x − 3)² − 5 wird an der x-Achse gespiegelt. Welche Gleichung hat das Bild?"
+   },
+   "a": [
+    "y = (x − 3)² + 5",
+    "y = −(x − 3)² + 5",
+    "y = −(x − 3)² − 5",
+    "y = (x + 3)² − 5"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "y = −f(x) = −((x − 3)² − 5) = −(x − 3)² + 5. Beide Teile bekommen ein Minus.",
+   "h": "Das Minus gilt für den ganzen Term – auch für die Zahl hinten."
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Parabel y = (x − 2)² − 2 wird an der x-Achse gespiegelt. Welche Gleichung hat das Bild?"
+   },
+   "a": [
+    "y = −(x − 2)² − 2",
+    "y = (x − 2)² + 2",
+    "y = −(x − 2)² + 2",
+    "y = (x + 2)² − 2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "y = −f(x) = −((x − 2)² − 2) = −(x − 2)² + 2. Beide Teile bekommen ein Minus.",
+   "h": "Das Minus gilt für den ganzen Term – auch für die Zahl hinten."
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Parabel y = (x + 5)² − 2 wird an der x-Achse gespiegelt. Welche Gleichung hat das Bild?"
+   },
+   "a": [
+    "y = (x − 5)² − 2",
+    "y = (x + 5)² + 2",
+    "y = −(x + 5)² − 2",
+    "y = −(x + 5)² + 2"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "y = −f(x) = −((x + 5)² − 2) = −(x + 5)² + 2. Beide Teile bekommen ein Minus.",
+   "h": "Das Minus gilt für den ganzen Term – auch für die Zahl hinten."
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x + 3)² − 4 wird an der y-Achse gespiegelt. Gib den Scheitel der Bildparabel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     3,
+     -4
+    ]
+   },
+   "w": "Alter Scheitel S(−3 | −4), an der y-Achse: S'(3 | −4). Gleichung y = (x − 3)² − 4.",
+   "c": [
+    "-(-3)",
+    "-4"
+   ]
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x + 2)² − 2 wird an der x-Achse gespiegelt. Gib den Scheitel der Bildparabel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -2,
+     2
+    ]
+   },
+   "w": "Alter Scheitel S(−2 | −2), an der x-Achse: S'(−2 | 2). Gleichung y = −(x + 2)² + 2.",
+   "c": [
+    "-2",
+    "-(-2)"
+   ]
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x − 5)² + 3 wird an der y-Achse gespiegelt. Gib den Scheitel der Bildparabel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -5,
+     3
+    ]
+   },
+   "w": "Alter Scheitel S(5 | 3), an der y-Achse: S'(−5 | 3). Gleichung y = (x + 5)² + 3.",
+   "c": [
+    "-(5)",
+    "3"
+   ]
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x + 4)² + 1 wird an der x-Achse gespiegelt. Gib den Scheitel der Bildparabel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -4,
+     -1
+    ]
+   },
+   "w": "Alter Scheitel S(−4 | 1), an der x-Achse: S'(−4 | −1). Gleichung y = −(x + 4)² − 1.",
+   "c": [
+    "-4",
+    "-(1)"
+   ]
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x − 2)² + 3 wird an der y-Achse gespiegelt. Gib den Scheitel der Bildparabel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -2,
+     3
+    ]
+   },
+   "w": "Alter Scheitel S(2 | 3), an der y-Achse: S'(−2 | 3). Gleichung y = (x + 2)² + 3.",
+   "c": [
+    "-(2)",
+    "3"
+   ]
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x − 2)² − 5 wird an der x-Achse gespiegelt. Gib den Scheitel der Bildparabel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     2,
+     5
+    ]
+   },
+   "w": "Alter Scheitel S(2 | −5), an der x-Achse: S'(2 | 5). Gleichung y = −(x − 2)² + 5.",
+   "c": [
+    "2",
+    "-(-5)"
+   ]
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x + 1)² + 2 wird an der y-Achse gespiegelt. Gib den Scheitel der Bildparabel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "w": "Alter Scheitel S(−1 | 2), an der y-Achse: S'(1 | 2). Gleichung y = (x − 1)² + 2.",
+   "c": [
+    "-(-1)",
+    "2"
+   ]
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x + 4)² − 4 wird an der y-Achse gespiegelt. Gib den Scheitel der Bildparabel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     4,
+     -4
+    ]
+   },
+   "w": "Alter Scheitel S(−4 | −4), an der y-Achse: S'(4 | −4). Gleichung y = (x − 4)² − 4.",
+   "c": [
+    "-(-4)",
+    "-4"
+   ]
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x + 3)² − 3 wird an der y-Achse gespiegelt. Gib den Scheitel der Bildparabel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     3,
+     -3
+    ]
+   },
+   "w": "Alter Scheitel S(−3 | −3), an der y-Achse: S'(3 | −3). Gleichung y = (x − 3)² − 3.",
+   "c": [
+    "-(-3)",
+    "-3"
+   ]
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x − 1)² − 1 wird an der y-Achse gespiegelt. Gib den Scheitel der Bildparabel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -1,
+     -1
+    ]
+   },
+   "w": "Alter Scheitel S(1 | −1), an der y-Achse: S'(−1 | −1). Gleichung y = (x + 1)² − 1.",
+   "c": [
+    "-(1)",
+    "-1"
+   ]
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = 3(x + 3)² − 1 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -3,
+     -1
+    ]
+   },
+   "w": "Klammer 0 für x = −3, y = −1: S(−3 | −1).",
+   "h": "Klammer null setzen, hinten ablesen.",
+   "c": [
+    "-3",
+    "-1"
+   ]
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = −2(x + 4)² + 1 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -4,
+     1
+    ]
+   },
+   "w": "Klammer 0 für x = −4, y = 1: S(−4 | 1).",
+   "h": "Klammer null setzen, hinten ablesen.",
+   "c": [
+    "-4",
+    "1"
+   ]
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = −0,5(x + 4)² − 4 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -4,
+     -4
+    ]
+   },
+   "w": "Klammer 0 für x = −4, y = −4: S(−4 | −4).",
+   "h": "Klammer null setzen, hinten ablesen.",
+   "c": [
+    "-4",
+    "-4"
+   ]
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = −2(x + 5)² − 4 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -5,
+     -4
+    ]
+   },
+   "w": "Klammer 0 für x = −5, y = −4: S(−5 | −4).",
+   "h": "Klammer null setzen, hinten ablesen.",
+   "c": [
+    "-5",
+    "-4"
+   ]
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = −2(x − 3)² − 2 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     3,
+     -2
+    ]
+   },
+   "w": "Klammer 0 für x = 3, y = −2: S(3 | −2).",
+   "h": "Klammer null setzen, hinten ablesen.",
+   "c": [
+    "3",
+    "-2"
+   ]
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = −2(x − 4)² − 5 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate des Scheitels"
+   },
+   "o": {
+    "werte": [
+     4,
+     -5
+    ]
+   },
+   "w": "Klammer 0 für x = 4, y = −5: S(4 | −5).",
+   "h": "Klammer null setzen, hinten ablesen.",
+   "c": [
+    "4",
+    "-5"
+   ]
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird an der x-Achse gespiegelt, mit dem Faktor 0,5 gestaucht, um 3 nach rechts und um 2 nach oben verschoben. Welche Gleichung entsteht?"
+   },
+   "a": [
+    "y = −0,5(x − 3)² + 2",
+    "y = −0,5(x + 3)² + 2",
+    "y = 0,5(x − 3)² + 2",
+    "y = −0,5(x − 2)² + 3"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Form a = −0,5, Scheitel S(3 | 2): y = −0,5(x − 3)² + 2.",
+   "h": "Erst a bestimmen, dann den Scheitel."
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird an der x-Achse gespiegelt, mit dem Faktor 2 gestreckt, um 3 nach rechts und um 5 nach unten verschoben. Welche Gleichung entsteht?"
+   },
+   "a": [
+    "y = −2(x + 3)² − 5",
+    "y = −2(x − 3)² − 5",
+    "y = −2(x + 5)² + 3",
+    "y = 2(x − 3)² − 5"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Form a = −2, Scheitel S(3 | −5): y = −2(x − 3)² − 5.",
+   "h": "Erst a bestimmen, dann den Scheitel."
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird um 4 nach links und um 4 nach oben verschoben. Welche Gleichung entsteht?"
+   },
+   "a": [
+    "y = −(x + 4)² + 4",
+    "y = (x − 4)² + 4",
+    "y = (x + 4)² + 4",
+    "y = (x − 4)² − 4"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Form a = 1, Scheitel S(−4 | 4): y = (x + 4)² + 4.",
+   "h": "Erst a bestimmen, dann den Scheitel."
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Normalparabel wird um 1 nach links und um 5 nach unten verschoben. Gib a und den Scheitel an.",
+    "schablone": "a = □; S(□ | □)",
+    "hinweis": "a ganzzahlig; dann x und y des Scheitels"
+   },
+   "o": {
+    "werte": [
+     1,
+     -1,
+     -5
+    ]
+   },
+   "w": "a = 1, Scheitel S(−1 | −5). Gleichung y = (x + 1)² − 5.",
+   "h": "Spiegeln heißt a negativ.",
+   "c": [
+    "1",
+    "-1",
+    "-5"
+   ]
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Normalparabel wird an der x-Achse gespiegelt, mit dem Faktor 2 gestreckt, um 3 nach links und um 3 nach unten verschoben. Gib a und den Scheitel an.",
+    "schablone": "a = □; S(□ | □)",
+    "hinweis": "a ganzzahlig; dann x und y des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -2,
+     -3,
+     -3
+    ]
+   },
+   "w": "a = −2, Scheitel S(−3 | −3). Gleichung y = −2(x + 3)² − 3.",
+   "h": "Spiegeln heißt a negativ.",
+   "c": [
+    "-2",
+    "-3",
+    "-3"
+   ]
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird an der x-Achse gespiegelt, mit dem Faktor 0,5 gestaucht, um 1 nach links und um 6 nach unten verschoben. Welche Gleichung entsteht?"
+   },
+   "a": [
+    "y = −0,5(x + 6)² − 1",
+    "y = 0,5(x + 1)² − 6",
+    "y = −0,5(x − 1)² − 6",
+    "y = −0,5(x + 1)² − 6"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Form a = −0,5, Scheitel S(−1 | −6): y = −0,5(x + 1)² − 6.",
+   "h": "Erst a bestimmen, dann den Scheitel."
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand liest bei y = −0,5(x + 4)² − 2 den Scheitel S(4 | −2) ab. Was stimmt?"
+   },
+   "a": [
+    "Falsch: S(4 | 2).",
+    "Falsch: Die Klammer ist 0 für x = −4, also S(−4 | −2).",
+    "Falsch: S(−2 | −4).",
+    "Richtig."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "(x + 4) = 0 ⇔ x = −4. Scheitel S(−4 | −2).",
+   "h": "Setze x = 4 ein: Wird die Klammer null?"
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die gezeichnete Parabel hat die Form y = a(x − d)² + e mit a = 1 oder a = −1. Gib a und den Scheitel an.",
+    "schablone": "a = □; S(□ | □)",
+    "hinweis": "a; dann x und y des Scheitels",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      3
+     ],
+     "y": [
+      -1,
+      12
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        5.0,
+        2.0,
+        1.0
+       ],
+       "name": ""
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     1,
+     -1,
+     4
+    ]
+   },
+   "w": "Scheitel S(−1 | 4); geöffnet nach oben, Form der Normalparabel: a = 1.",
+   "h": "Lies den Scheitel ab und prüfe: einen Schritt nach rechts, wie weit nach oben/unten?",
+   "c": [
+    "1",
+    "-1",
+    "4"
+   ]
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand liest bei y = 2(x + 5)² + 2 den Scheitel S(5 | 2) ab. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Die Klammer ist 0 für x = −5, also S(−5 | 2).",
+    "Richtig.",
+    "Falsch: S(5 | −2).",
+    "Falsch: S(2 | −5)."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "(x + 5) = 0 ⇔ x = −5. Scheitel S(−5 | 2).",
+   "h": "Setze x = 5 ein: Wird die Klammer null?"
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand liest bei y = −2(x + 2)² + 6 den Scheitel S(2 | 6) ab. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Die Klammer ist 0 für x = −2, also S(−2 | 6).",
+    "Falsch: S(2 | −6).",
+    "Falsch: S(6 | −2).",
+    "Richtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "(x + 2) = 0 ⇔ x = −2. Scheitel S(−2 | 6).",
+   "h": "Setze x = 2 ein: Wird die Klammer null?"
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den y-Wert von y = 3(x − 4)² − 6 an der Stelle x = 3."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "3 * ((3) - (4)) ** 2 + (-6)",
+   "w": "y = 3 · (3 − 4)² − 6 = 3 · 1 − 6 = −3.",
+   "h": "Klammer, dann Quadrat, dann mal a, dann plus e."
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die gezeichnete Parabel hat die Form y = a(x − d)² + e mit a = 1 oder a = −1. Gib a und den Scheitel an.",
+    "schablone": "a = □; S(□ | □)",
+    "hinweis": "a; dann x und y des Scheitels",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      6
+     ],
+     "y": [
+      -4,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        1.0,
+        -4.0,
+        1.0
+       ],
+       "name": ""
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     1,
+     2,
+     -3
+    ]
+   },
+   "w": "Scheitel S(2 | −3); geöffnet nach oben, Form der Normalparabel: a = 1.",
+   "h": "Lies den Scheitel ab und prüfe: einen Schritt nach rechts, wie weit nach oben/unten?",
+   "c": [
+    "1",
+    "2",
+    "-3"
+   ]
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Normalparabel wird um 2 nach rechts und um 6 nach unten verschoben. Gib a und den Scheitel an.",
+    "schablone": "a = □; S(□ | □)",
+    "hinweis": "a ganzzahlig; dann x und y des Scheitels"
+   },
+   "o": {
+    "werte": [
+     1,
+     2,
+     -6
+    ]
+   },
+   "w": "a = 1, Scheitel S(2 | −6). Gleichung y = (x − 2)² − 6.",
+   "c": [
+    "1",
+    "2",
+    "-6"
+   ]
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Normalparabel wird um 5 nach links und um 5 nach unten verschoben. Gib a und den Scheitel an.",
+    "schablone": "a = □; S(□ | □)",
+    "hinweis": "a ganzzahlig; dann x und y des Scheitels"
+   },
+   "o": {
+    "werte": [
+     1,
+     -5,
+     -5
+    ]
+   },
+   "w": "a = 1, Scheitel S(−5 | −5). Gleichung y = (x + 5)² − 5.",
+   "c": [
+    "1",
+    "-5",
+    "-5"
+   ]
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Normalparabel wird um 5 nach links und um 5 nach oben verschoben. Gib a und den Scheitel an.",
+    "schablone": "a = □; S(□ | □)",
+    "hinweis": "a ganzzahlig; dann x und y des Scheitels"
+   },
+   "o": {
+    "werte": [
+     1,
+     -5,
+     5
+    ]
+   },
+   "w": "a = 1, Scheitel S(−5 | 5). Gleichung y = (x + 5)² + 5.",
+   "c": [
+    "1",
+    "-5",
+    "5"
+   ]
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird an der x-Achse gespiegelt, mit dem Faktor 2 gestreckt, um 3 nach rechts und um 5 nach oben verschoben. Welche Gleichung entsteht?"
+   },
+   "a": [
+    "y = −2(x − 5)² + 3",
+    "y = −2(x − 3)² + 5",
+    "y = 2(x − 3)² + 5",
+    "y = −2(x + 3)² + 5"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Form a = −2, Scheitel S(3 | 5): y = −2(x − 3)² + 5."
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird an der x-Achse gespiegelt, mit dem Faktor 2 gestreckt, um 4 nach links und um 2 nach oben verschoben. Welche Gleichung entsteht?"
+   },
+   "a": [
+    "y = −2(x − 2)² − 4",
+    "y = −2(x − 4)² + 2",
+    "y = −2(x + 4)² + 2",
+    "y = 2(x + 4)² + 2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Form a = −2, Scheitel S(−4 | 2): y = −2(x + 4)² + 2."
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird mit dem Faktor 0,5 gestaucht, um 3 nach links und um 4 nach unten verschoben. Welche Gleichung entsteht?"
+   },
+   "a": [
+    "y = 0,5(x − 3)² − 4",
+    "y = 0,5(x + 4)² − 3",
+    "y = −0,5(x + 3)² − 4",
+    "y = 0,5(x + 3)² − 4"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Form a = 0,5, Scheitel S(−3 | −4): y = 0,5(x + 3)² − 4."
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Normalparabel wird um 2 nach links und um 6 nach oben verschoben. Gib a und den Scheitel an.",
+    "schablone": "a = □; S(□ | □)",
+    "hinweis": "a ganzzahlig; dann x und y des Scheitels"
+   },
+   "o": {
+    "werte": [
+     1,
+     -2,
+     6
+    ]
+   },
+   "w": "a = 1, Scheitel S(−2 | 6). Gleichung y = (x + 2)² + 6.",
+   "c": [
+    "1",
+    "-2",
+    "6"
+   ]
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Normalparabel wird mit dem Faktor 3 gestreckt, um 5 nach links und um 3 nach oben verschoben. Gib a und den Scheitel an.",
+    "schablone": "a = □; S(□ | □)",
+    "hinweis": "a ganzzahlig; dann x und y des Scheitels"
+   },
+   "o": {
+    "werte": [
+     3,
+     -5,
+     3
+    ]
+   },
+   "w": "a = 3, Scheitel S(−5 | 3). Gleichung y = 3(x + 5)² + 3.",
+   "c": [
+    "3",
+    "-5",
+    "3"
+   ]
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird an der x-Achse gespiegelt, um 5 nach rechts und um 6 nach unten verschoben. Welche Gleichung entsteht?"
+   },
+   "a": [
+    "y = −(x + 6)² + 5",
+    "y = −(x + 5)² − 6",
+    "y = (x − 5)² − 6",
+    "y = −(x − 5)² − 6"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Form a = −1, Scheitel S(5 | −6): y = −(x − 5)² − 6."
+  },
+  {
+   "l": "kombiniert",
+   "t": "kombiniert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Normalparabel wird an der x-Achse gespiegelt, um 1 nach links und um 2 nach oben verschoben. Gib a und den Scheitel an.",
+    "schablone": "a = □; S(□ | □)",
+    "hinweis": "a ganzzahlig; dann x und y des Scheitels"
+   },
+   "o": {
+    "werte": [
+     -1,
+     -1,
+     2
+    ]
+   },
+   "w": "a = −1, Scheitel S(−1 | 2). Gleichung y = −(x + 1)² + 2.",
+   "c": [
+    "-1",
+    "-1",
+    "2"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "P(−2 | −5) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = f(x) + 3?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -2,
+     -2
+    ]
+   },
+   "w": "Verschiebung um 3 nach oben: P'(−2 | −2).",
+   "h": "Eine Zahl hinter f(x) verschiebt nach oben oder unten.",
+   "c": [
+    "-2",
+    "(-5) + (3)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "P(5 | 4) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = f(x − 2)?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     7,
+     4
+    ]
+   },
+   "w": "f(x − 2) ist um 2 nach rechts verschoben: P'(7 | 4).",
+   "h": "Klammer mit x − d heißt: nach rechts um d.",
+   "c": [
+    "(5) + (2)",
+    "4"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "P(−4 | 6) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = f(x − 2)?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -2,
+     6
+    ]
+   },
+   "w": "f(x − 2) ist um 2 nach rechts verschoben: P'(−2 | 6).",
+   "h": "Klammer mit x − d heißt: nach rechts um d.",
+   "c": [
+    "(-4) + (2)",
+    "6"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "P(−4 | −5) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = f(x + 3)?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -7,
+     -5
+    ]
+   },
+   "w": "f(x + 3) ist um 3 nach links verschoben: P'(−7 | −5).",
+   "h": "Klammer mit x − d heißt: nach rechts um d.",
+   "c": [
+    "(-4) + (-3)",
+    "-5"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "P(4 | −1) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = f(x − 3)?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     7,
+     -1
+    ]
+   },
+   "w": "f(x − 3) ist um 3 nach rechts verschoben: P'(7 | −1).",
+   "h": "Klammer mit x − d heißt: nach rechts um d.",
+   "c": [
+    "(4) + (3)",
+    "-1"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "P(−1 | −6) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = f(x + 4)?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -5,
+     -6
+    ]
+   },
+   "w": "f(x + 4) ist um 4 nach links verschoben: P'(−5 | −6).",
+   "h": "Klammer mit x − d heißt: nach rechts um d.",
+   "c": [
+    "(-1) + (-4)",
+    "-6"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(−1 | −4) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = 2 · f(x − 1) + 5?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     0,
+     -3
+    ]
+   },
+   "w": "x: −1 + 1 = 0. y: 2 · (−4) + 5 = −3. P'(0 | −3).",
+   "h": "x: um d verschieben. y: erst mal a, dann plus e.",
+   "c": [
+    "(-1) + (1)",
+    "2 * (-4) + (5)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(−4 | 6) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = 0,5 · f(x − 1) + 4?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -3,
+     7
+    ]
+   },
+   "w": "x: −4 + 1 = −3. y: 0,5 · 6 + 4 = 7. P'(−3 | 7).",
+   "h": "x: um d verschieben. y: erst mal a, dann plus e.",
+   "c": [
+    "(-4) + (1)",
+    "(1/2) * (6) + (4)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(3 | 3) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = −2 · f(x − 3) + 2?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     6,
+     -4
+    ]
+   },
+   "w": "x: 3 + 3 = 6. y: −2 · 3 + 2 = −4. P'(6 | −4).",
+   "h": "x: um d verschieben. y: erst mal a, dann plus e.",
+   "c": [
+    "(3) + (3)",
+    "-2 * (3) + (2)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(2 | −2) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = 3 · f(x + 3) − 2?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -1,
+     -8
+    ]
+   },
+   "w": "x: 2 − 3 = −1. y: 3 · (−2) − 2 = −8. P'(−1 | −8).",
+   "h": "x: um d verschieben. y: erst mal a, dann plus e.",
+   "c": [
+    "(2) + (-3)",
+    "3 * (-2) + (-2)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(−2 | 5) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = 2 · f(x − 2) + 2?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     0,
+     12
+    ]
+   },
+   "w": "x: −2 + 2 = 0. y: 2 · 5 + 2 = 12. P'(0 | 12).",
+   "h": "x: um d verschieben. y: erst mal a, dann plus e.",
+   "c": [
+    "(-2) + (2)",
+    "2 * (5) + (2)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(−1 | 6) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = −f(x − 1) + 1?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     0,
+     -5
+    ]
+   },
+   "w": "x: −1 + 1 = 0. y: −1 · 6 + 1 = −5. P'(0 | −5).",
+   "h": "x: um d verschieben. y: erst mal a, dann plus e.",
+   "c": [
+    "(-1) + (1)",
+    "-1 * (6) + (1)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "P(3 | −5) liegt auf f. Jemand rechnet für g(x) = f(x − 2) den Bildpunkt P'(1 | −5). Was stimmt?"
+   },
+   "a": [
+    "Falsch: f(x − 2) schiebt nach rechts, also P'(5 | −5).",
+    "Richtig.",
+    "Falsch: P'(5 | −3).",
+    "Falsch: P'(3 | −7)."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "g(5) = f(5 − 2) = f(3) = −5. Also liegt (5 | −5) auf g.",
+   "h": "Probe: Setze den vermuteten x-Wert in g ein."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "P(−2 | −4) liegt auf f. Jemand rechnet für g(x) = f(x − 2) den Bildpunkt P'(−4 | −4). Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: f(x − 2) schiebt nach rechts, also P'(0 | −4).",
+    "Falsch: P'(−2 | −6).",
+    "Falsch: P'(0 | −2)."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "g(0) = f(0 − 2) = f(−2) = −4. Also liegt (0 | −4) auf g.",
+   "h": "Probe: Setze den vermuteten x-Wert in g ein."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Auf dem Graphen von g(x) = 0,5 · f(x + 3) − 4 liegt P'(−8 | −2). Welcher Punkt P auf dem Graphen von f gehört dazu?",
+    "schablone": "P(□ | □)",
+    "hinweis": "x, y"
+   },
+   "o": {
+    "werte": [
+     -5,
+     4
+    ]
+   },
+   "w": "Rückwärts: x = −8 + 3 = −5; y = (−2 + 4) : 0,5 = 4.",
+   "h": "Schritte rückwärts: erst e abziehen, dann durch a teilen; x um d zurückschieben.",
+   "c": [
+    "(-8) - (-3)",
+    "((-2) - (-4)) / (1/2)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "P(−4 | −3) liegt auf dem Graphen von f. Welcher Punkt liegt auf g(x) = 2 · f(x − 4) + 2?"
+   },
+   "a": [
+    "P'(−8 | −8)",
+    "P'(0 | −2)",
+    "P'(0 | −4)",
+    "P'(−8 | −4)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "x: −4 + 4 = 0; y: 2 · (−3) + 2 = −4.",
+   "h": "Reihenfolge bei y: erst strecken, dann verschieben."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "P(2 | −3) liegt auf f. Jemand rechnet für g(x) = f(x − 1) den Bildpunkt P'(1 | −3). Was stimmt?"
+   },
+   "a": [
+    "Falsch: f(x − 1) schiebt nach rechts, also P'(3 | −3).",
+    "Falsch: P'(2 | −4).",
+    "Richtig.",
+    "Falsch: P'(3 | −2)."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "g(3) = f(3 − 1) = f(2) = −3. Also liegt (3 | −3) auf g.",
+   "h": "Probe: Setze den vermuteten x-Wert in g ein."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "P(4 | −5) liegt auf f. Jemand rechnet für g(x) = f(x + 2) den Bildpunkt P'(6 | −5). Was stimmt?"
+   },
+   "a": [
+    "Falsch: P'(4 | −3).",
+    "Richtig.",
+    "Falsch: f(x + 2) schiebt nach links, also P'(2 | −5).",
+    "Falsch: P'(2 | −7)."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "g(2) = f(2 + 2) = f(4) = −5. Also liegt (2 | −5) auf g.",
+   "h": "Probe: Setze den vermuteten x-Wert in g ein."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(2 | −1) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = 3 · f(x + 3) − 1?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -1,
+     -4
+    ]
+   },
+   "w": "x: 2 − 3 = −1. y: 3 · (−1) − 1 = −4. P'(−1 | −4).",
+   "c": [
+    "(2) + (-3)",
+    "3 * (-1) + (-1)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(−4 | −4) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = −2 · f(x − 3) + 5?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -1,
+     13
+    ]
+   },
+   "w": "x: −4 + 3 = −1. y: −2 · (−4) + 5 = 13. P'(−1 | 13).",
+   "c": [
+    "(-4) + (3)",
+    "-2 * (-4) + (5)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(4 | 6) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = 2 · f(x + 3) + 3?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     1,
+     15
+    ]
+   },
+   "w": "x: 4 − 3 = 1. y: 2 · 6 + 3 = 15. P'(1 | 15).",
+   "c": [
+    "(4) + (-3)",
+    "2 * (6) + (3)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(3 | −3) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = −f(x + 2) − 5?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     1,
+     -2
+    ]
+   },
+   "w": "x: 3 − 2 = 1. y: −1 · (−3) − 5 = −2. P'(1 | −2).",
+   "c": [
+    "(3) + (-2)",
+    "-1 * (-3) + (-5)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(2 | −4) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = 2 · f(x + 2) − 4?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     0,
+     -12
+    ]
+   },
+   "w": "x: 2 − 2 = 0. y: 2 · (−4) − 4 = −12. P'(0 | −12).",
+   "c": [
+    "(2) + (-2)",
+    "2 * (-4) + (-4)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(2 | 6) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = −2 · f(x + 3) + 3?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -1,
+     -9
+    ]
+   },
+   "w": "x: 2 − 3 = −1. y: −2 · 6 + 3 = −9. P'(−1 | −9).",
+   "c": [
+    "(2) + (-3)",
+    "-2 * (6) + (3)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(−1 | −5) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = −f(x − 1) + 3?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     0,
+     8
+    ]
+   },
+   "w": "x: −1 + 1 = 0. y: −1 · (−5) + 3 = 8. P'(0 | 8).",
+   "c": [
+    "(-1) + (1)",
+    "-1 * (-5) + (3)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(−4 | 5) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = 3 · f(x − 3) − 1?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -1,
+     14
+    ]
+   },
+   "w": "x: −4 + 3 = −1. y: 3 · 5 − 1 = 14. P'(−1 | 14).",
+   "c": [
+    "(-4) + (3)",
+    "3 * (5) + (-1)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(5 | 4) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = 0,5 · f(x − 3) − 1?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     8,
+     1
+    ]
+   },
+   "w": "x: 5 + 3 = 8. y: 0,5 · 4 − 1 = 1. P'(8 | 1).",
+   "c": [
+    "(5) + (3)",
+    "(1/2) * (4) + (-1)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(5 | 4) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = −f(x + 3) + 5?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     2,
+     1
+    ]
+   },
+   "w": "x: 5 − 3 = 2. y: −1 · 4 + 5 = 1. P'(2 | 1).",
+   "c": [
+    "(5) + (-3)",
+    "-1 * (4) + (5)"
+   ]
+  }
+ ],
+ "offen": [
+  "Klasse laut Liste RS 9; gebaut an Normalparabel und allgemeinen Graphen (Bildpunkte). Die RS-10-Erweiterung (transformierte Potenz-, Exponential- und Logarithmusfunktionen, Spiegelung an y = x) ist weggelassen; die Spiegelung an y = x steht im Thema funktionen.umkehr."
+ ]
+}

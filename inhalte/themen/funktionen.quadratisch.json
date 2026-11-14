@@ -1,0 +1,4159 @@
+{
+ "thema_schluessel": "funktionen.quadratisch",
+ "thema_id": 35,
+ "block_id": 70,
+ "klasse": {
+  "gym_by": 9,
+  "rs_by": 8,
+  "ib_myp": 4
+ },
+ "autor": "Claude (Paket Klasse 9)",
+ "inhalt": {
+  "ziel": "Parabeln in Scheitelform und allgemeiner Form deuten, Nullstellen bestimmen, Terme aufstellen und Extremwertprobleme lösen.",
+  "merke": [
+   "Scheitelform y = a(x − d)² + e: Scheitel S(d | e).",
+   "a > 0 nach oben, a < 0 nach unten; |a| > 1 gestreckt, |a| < 1 gestaucht.",
+   "Nullstellen: y = 0 setzen. Anzahl über D oder Scheitel und Öffnung.",
+   "Extremwert = y-Wert des Scheitels."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Parabeln lesen",
+    "lernziele": [
+     "scheitel",
+     "parameter",
+     "umformen"
+    ]
+   },
+   {
+    "titel": "Rechnen mit dem Term",
+    "lernziele": [
+     "nullstellen",
+     "punkte",
+     "bestimmen"
+    ]
+   },
+   {
+    "titel": "Anwenden",
+    "lernziele": [
+     "extremwert"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "scheitel",
+    "titel": "Scheitelpunkt ablesen",
+    "regel": "In der ⟦Scheitelform⟧ y = a(x − d)² + e liegt der Scheitel bei ⟦S(d | e)⟧. Achtung: In der Klammer steht x ⟦minus⟧ d.",
+    "schritte": [
+     "y = 2(x + 3)² − 5 = 2(x − (−3))² + (−5).",
+     "Also d = −3 und e = −5: ⟦S(−3 | −5)⟧."
+    ],
+    "probe": "x = −3 eingesetzt: 2 · 0² − 5 = −5 ✓",
+    "fehler": "Bei y = (x + 3)² − 5 den Scheitel S(3 | −5) abzulesen ist falsch: x + 3 = x − (−3), also ⟦d = −3⟧."
+   },
+   {
+    "lernziel": "parameter",
+    "titel": "Was bewirken a, d und e?",
+    "regel": "⟦a > 0⟧: nach oben geöffnet, ⟦a < 0⟧: nach unten. ⟦|a| > 1⟧ gestreckt (schmaler), ⟦|a| < 1⟧ gestaucht (breiter). d verschiebt nach rechts/links, e nach oben/unten.",
+    "schritte": [
+     "y = −0,5(x − 1)² + 4: a = −0,5 < 0 und |a| < 1.",
+     "Die Parabel ist ⟦nach unten geöffnet, gestaucht⟧ und hat den Scheitel S(1 | 4)."
+    ],
+    "probe": "Der Scheitel ist hier der höchste Punkt ✓",
+    "fehler": "„y = −3x² ist gestaucht, weil −3 < 1“ ist falsch: Es kommt auf den ⟦Betrag⟧ an. |−3| = 3 > 1, die Parabel ist gestreckt."
+   },
+   {
+    "lernziel": "umformen",
+    "titel": "Von der allgemeinen zur Scheitelform",
+    "regel": "Aus y = ax² + bx + c wird mit ⟦quadratischer Ergänzung⟧ die Scheitelform: a ausklammern, (b/(2a))² ergänzen und wieder abziehen. Kurz: ⟦d = −b/(2a)⟧, e = y(d).",
+    "schritte": [
+     "y = x² − 6x + 5 = x² − 6x + 9 − 9 + 5.",
+     "= (x − 3)² − 4, also ⟦S(3 | −4)⟧."
+    ],
+    "probe": "d = −(−6)/(2 · 1) = 3; y(3) = 9 − 18 + 5 = −4 ✓",
+    "fehler": "y = x² − 6x + 5 = (x − 6)² + 5 ist falsch: In die Klammer gehört die ⟦Hälfte⟧ von 6, und die Ergänzung 9 muss wieder ⟦abgezogen⟧ werden."
+   },
+   {
+    "lernziel": "nullstellen",
+    "titel": "Nullstellen bestimmen",
+    "regel": "Nullstellen: ⟦y = 0 setzen⟧ und die quadratische Gleichung lösen. Die ⟦Anzahl⟧ erkennst du an der Diskriminante oder an Scheitel und Öffnung.",
+    "schritte": [
+     "y = x² − 2x − 8: 0 = x² − 2x − 8, D = 4 + 32 = 36.",
+     "x₁,₂ = (2 ± 6)/2: ⟦x₁ = −2, x₂ = 4⟧."
+    ],
+    "probe": "(−2)² − 2 · (−2) − 8 = 4 + 4 − 8 = 0 ✓",
+    "fehler": "„S(2 | 3), nach oben geöffnet, hat zwei Nullstellen“ ist falsch: Der tiefste Punkt liegt ⟦über⟧ der x-Achse, es gibt ⟦keine⟧ Nullstelle."
+   },
+   {
+    "lernziel": "punkte",
+    "titel": "Funktionswerte und Punktprobe",
+    "regel": "Für den ⟦Funktionswert⟧ x einsetzen und ausrechnen. ⟦Punktprobe⟧: Liegt P(u | v) auf dem Graphen, muss f(u) = v gelten.",
+    "schritte": [
+     "f(x) = −x² + 4x + 1, P(3 | 4): f(3) = −9 + 12 + 1.",
+     "f(3) = 4 = v, also ⟦P liegt auf dem Graphen⟧."
+    ],
+    "probe": "Klammern beim Einsetzen: −(3)² = −9 ✓",
+    "fehler": "Bei f(x) = −x² ist f(−3) = 9 falsch: Erst quadrieren, dann das Minus davor: ⟦−(−3)² = −9⟧."
+   },
+   {
+    "lernziel": "bestimmen",
+    "titel": "Funktionsterm bestimmen",
+    "regel": "Scheitel bekannt: ⟦y = a(x − d)² + e⟧ ansetzen und a mit einem Punkt bestimmen. Nullstellen bekannt: ⟦y = a(x − x₁)(x − x₂)⟧. Drei Punkte: Gleichungssystem.",
+    "schritte": [
+     "Scheitel S(1 | −2), Punkt P(3 | 6): y = a(x − 1)² − 2.",
+     "6 = a · 2² − 2 ⇒ 4a = 8 ⇒ ⟦a = 2⟧, also y = 2(x − 1)² − 2."
+    ],
+    "probe": "x = 3: 2 · 4 − 2 = 6 ✓",
+    "fehler": "6 = a(3 − 1)² − 2 ⇒ 6 = 2a − 2 ist falsch: Die Klammer wird ⟦quadriert⟧: (3 − 1)² = 4, also 6 = 4a − 2."
+   },
+   {
+    "lernziel": "extremwert",
+    "titel": "Extremwertprobleme lösen",
+    "regel": "Stelle die Größe, die maximal/minimal werden soll, als ⟦quadratische Funktion⟧ einer Variablen auf. Der ⟦Scheitel⟧ liefert das Maximum bzw. Minimum.",
+    "schritte": [
+     "Rechteck mit Umfang 20 m: Seiten x und 10 − x, A(x) = x(10 − x) = −x² + 10x.",
+     "A(x) = −(x − 5)² + 25: Maximum bei ⟦x = 5⟧, A = 25 m² (ein Quadrat)."
+    ],
+    "probe": "x = 4: A = 24 < 25 ✓",
+    "fehler": "Beim Umfang 20 m die zweite Seite 20 − x zu nennen ist falsch: Der Umfang enthält ⟦jede Seite zweimal⟧, also 2x + 2y = 20 ⇒ y = 10 − x."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "scheitel",
+    "text": "Scheitelpunkt ablesen",
+    "lernziele": [
+     "scheitel"
+    ]
+   },
+   {
+    "k": "parameter",
+    "text": "Was bewirken a, d und e?",
+    "lernziele": [
+     "parameter"
+    ]
+   },
+   {
+    "k": "umformen",
+    "text": "Von der allgemeinen zur Scheitelform",
+    "lernziele": [
+     "umformen"
+    ]
+   },
+   {
+    "k": "nullstellen",
+    "text": "Nullstellen bestimmen",
+    "lernziele": [
+     "nullstellen"
+    ]
+   },
+   {
+    "k": "punkte",
+    "text": "Funktionswerte und Punktprobe",
+    "lernziele": [
+     "punkte"
+    ]
+   },
+   {
+    "k": "bestimmen",
+    "text": "Funktionsterm bestimmen",
+    "lernziele": [
+     "bestimmen"
+    ]
+   },
+   {
+    "k": "extremwert",
+    "text": "Extremwertprobleme lösen",
+    "lernziele": [
+     "extremwert"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "scheitel",
+    "parameter",
+    "umformen",
+    "nullstellen",
+    "punkte",
+    "bestimmen",
+    "extremwert"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), Aufgaben vom Generator erzeugt und berechnet.",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = (x − 3)² − 8 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     3,
+     -8
+    ]
+   },
+   "w": "y = (x − 3)² − 8 ist Scheitelform mit d = 3 und e = −8: S(3 | −8).",
+   "h": "Lies d aus der Klammer (x − d) mit umgedrehtem Vorzeichen ab.",
+   "c": [
+    "3",
+    "-8"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = x² an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     0,
+     0
+    ]
+   },
+   "w": "y = x² ist Scheitelform mit d = 0 und e = 0: S(0 | 0).",
+   "h": "Lies d aus der Klammer (x − d) mit umgedrehtem Vorzeichen ab.",
+   "c": [
+    "0",
+    "0"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = x² − 4 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     0,
+     -4
+    ]
+   },
+   "w": "y = x² − 4 ist Scheitelform mit d = 0 und e = −4: S(0 | −4).",
+   "h": "Lies d aus der Klammer (x − d) mit umgedrehtem Vorzeichen ab.",
+   "c": [
+    "0",
+    "-4"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = (x + 7)² − 4 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -7,
+     -4
+    ]
+   },
+   "w": "y = (x + 7)² − 4 ist Scheitelform mit d = −7 und e = −4: S(−7 | −4).",
+   "h": "Lies d aus der Klammer (x − d) mit umgedrehtem Vorzeichen ab.",
+   "c": [
+    "-7",
+    "-4"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = x² − 2 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     0,
+     -2
+    ]
+   },
+   "w": "y = x² − 2 ist Scheitelform mit d = 0 und e = −2: S(0 | −2).",
+   "h": "Lies d aus der Klammer (x − d) mit umgedrehtem Vorzeichen ab.",
+   "c": [
+    "0",
+    "-2"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = (x − 4)² + 7 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     4,
+     7
+    ]
+   },
+   "w": "y = (x − 4)² + 7 ist Scheitelform mit d = 4 und e = 7: S(4 | 7).",
+   "h": "Lies d aus der Klammer (x − d) mit umgedrehtem Vorzeichen ab.",
+   "c": [
+    "4",
+    "7"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = 0,5(x + 5)² + 7 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -5,
+     7
+    ]
+   },
+   "w": "y = 0,5(x + 5)² + 7 ist Scheitelform mit d = −5 und e = 7: S(−5 | 7).",
+   "h": "Lies d aus der Klammer (x − d) mit umgedrehtem Vorzeichen ab.",
+   "c": [
+    "-5",
+    "7"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = 2(x + 2)² + 8 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -2,
+     8
+    ]
+   },
+   "w": "y = 2(x + 2)² + 8 ist Scheitelform mit d = −2 und e = 8: S(−2 | 8).",
+   "h": "Lies d aus der Klammer (x − d) mit umgedrehtem Vorzeichen ab.",
+   "c": [
+    "-2",
+    "8"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = −x² + 6 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     0,
+     6
+    ]
+   },
+   "w": "y = −x² + 6 ist Scheitelform mit d = 0 und e = 6: S(0 | 6).",
+   "h": "Lies d aus der Klammer (x − d) mit umgedrehtem Vorzeichen ab.",
+   "c": [
+    "0",
+    "6"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = 2(x + 6)² − 1 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -6,
+     -1
+    ]
+   },
+   "w": "y = 2(x + 6)² − 1 ist Scheitelform mit d = −6 und e = −1: S(−6 | −1).",
+   "h": "Lies d aus der Klammer (x − d) mit umgedrehtem Vorzeichen ab.",
+   "c": [
+    "-6",
+    "-1"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = 2(x − 4)² − 2 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     4,
+     -2
+    ]
+   },
+   "w": "y = 2(x − 4)² − 2 ist Scheitelform mit d = 4 und e = −2: S(4 | −2).",
+   "h": "Lies d aus der Klammer (x − d) mit umgedrehtem Vorzeichen ab.",
+   "c": [
+    "4",
+    "-2"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = 3(x − 9)² − 2 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     9,
+     -2
+    ]
+   },
+   "w": "y = 3(x − 9)² − 2 ist Scheitelform mit d = 9 und e = −2: S(9 | −2).",
+   "h": "Lies d aus der Klammer (x − d) mit umgedrehtem Vorzeichen ab.",
+   "c": [
+    "9",
+    "-2"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = 4(x + 2)² − 1 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -2,
+     -1
+    ]
+   },
+   "w": "y = 4(x + 2)² − 1 ist Scheitelform mit d = −2 und e = −1: S(−2 | −1).",
+   "h": "Lies d aus der Klammer (x − d) mit umgedrehtem Vorzeichen ab.",
+   "c": [
+    "-2",
+    "-1"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = 2(x + 8)² − 2 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -8,
+     -2
+    ]
+   },
+   "w": "y = 2(x + 8)² − 2 ist Scheitelform mit d = −8 und e = −2: S(−8 | −2).",
+   "h": "Lies d aus der Klammer (x − d) mit umgedrehtem Vorzeichen ab.",
+   "c": [
+    "-8",
+    "-2"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = −3(x + 3)² − 1 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -3,
+     -1
+    ]
+   },
+   "w": "y = −3(x + 3)² − 1 ist Scheitelform mit d = −3 und e = −1: S(−3 | −1).",
+   "h": "Lies d aus der Klammer (x − d) mit umgedrehtem Vorzeichen ab.",
+   "c": [
+    "-3",
+    "-1"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = −2 − 0,5(x − 3)² an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     3,
+     -2
+    ]
+   },
+   "w": "Umgestellt: y = −0,5(x − 3)² − 2, also S(3 | −2).",
+   "h": "Ordne zuerst zur Scheitelform y = a(x − d)² + e.",
+   "c": [
+    "3",
+    "-2"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = −3(x + 4)² − 4 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -4,
+     -4
+    ]
+   },
+   "w": "y = −3(x + 4)² − 4 ist Scheitelform mit d = −4 und e = −4: S(−4 | −4).",
+   "h": "Lies d aus der Klammer (x − d) mit umgedrehtem Vorzeichen ab.",
+   "c": [
+    "-4",
+    "-4"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = −3(x + 8)² + 5 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -8,
+     5
+    ]
+   },
+   "w": "y = −3(x + 8)² + 5 ist Scheitelform mit d = −8 und e = 5: S(−8 | 5).",
+   "h": "Lies d aus der Klammer (x − d) mit umgedrehtem Vorzeichen ab.",
+   "c": [
+    "-8",
+    "5"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = −0,5(x + 4)² + 9 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -4,
+     9
+    ]
+   },
+   "w": "y = −0,5(x + 4)² + 9 ist Scheitelform mit d = −4 und e = 9: S(−4 | 9).",
+   "c": [
+    "-4",
+    "9"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = 0,5(x − 5)² + 4 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     5,
+     4
+    ]
+   },
+   "w": "y = 0,5(x − 5)² + 4 ist Scheitelform mit d = 5 und e = 4: S(5 | 4).",
+   "c": [
+    "5",
+    "4"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = 2(x + 5)² + 8 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -5,
+     8
+    ]
+   },
+   "w": "y = 2(x + 5)² + 8 ist Scheitelform mit d = −5 und e = 8: S(−5 | 8).",
+   "c": [
+    "-5",
+    "8"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = −(x − 2)² − 6 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     2,
+     -6
+    ]
+   },
+   "w": "y = −(x − 2)² − 6 ist Scheitelform mit d = 2 und e = −6: S(2 | −6).",
+   "c": [
+    "2",
+    "-6"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = 4(x − 2)² + 4 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     2,
+     4
+    ]
+   },
+   "w": "y = 4(x − 2)² + 4 ist Scheitelform mit d = 2 und e = 4: S(2 | 4).",
+   "c": [
+    "2",
+    "4"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = 3(x + 8)² + 1 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -8,
+     1
+    ]
+   },
+   "w": "y = 3(x + 8)² + 1 ist Scheitelform mit d = −8 und e = 1: S(−8 | 1).",
+   "c": [
+    "-8",
+    "1"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = 0,5(x − 1)² − 2 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     1,
+     -2
+    ]
+   },
+   "w": "y = 0,5(x − 1)² − 2 ist Scheitelform mit d = 1 und e = −2: S(1 | −2).",
+   "c": [
+    "1",
+    "-2"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = −3(x − 1)² − 6 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     1,
+     -6
+    ]
+   },
+   "w": "y = −3(x − 1)² − 6 ist Scheitelform mit d = 1 und e = −6: S(1 | −6).",
+   "c": [
+    "1",
+    "-6"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = −2(x + 8)² + 4 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -8,
+     4
+    ]
+   },
+   "w": "y = −2(x + 8)² + 4 ist Scheitelform mit d = −8 und e = 4: S(−8 | 4).",
+   "c": [
+    "-8",
+    "4"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = −(x + 6)² + 3 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -6,
+     3
+    ]
+   },
+   "w": "y = −(x + 6)² + 3 ist Scheitelform mit d = −6 und e = 3: S(−6 | 3).",
+   "c": [
+    "-6",
+    "3"
+   ]
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie sieht die Parabel y = −2(x + 5)² − 3 im Vergleich zur Normalparabel aus?"
+   },
+   "a": [
+    "nach unten geöffnet, gestaucht",
+    "nach unten geöffnet, gestreckt",
+    "nach oben geöffnet, gestreckt",
+    "nach oben geöffnet, gestaucht"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "a = −2: negativ ⇒ nach unten geöffnet; |a| = 2 > 1 ⇒ gestreckt.",
+   "h": "Vorzeichen von a: Öffnung. Betrag von a: Streckung oder Stauchung."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie sieht die Parabel y = 3(x − 3)² im Vergleich zur Normalparabel aus?"
+   },
+   "a": [
+    "nach oben geöffnet, gestreckt",
+    "nach oben geöffnet, gestaucht",
+    "nach unten geöffnet, gestaucht",
+    "nach unten geöffnet, gestreckt"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "a = 3: positiv ⇒ nach oben geöffnet; |a| = 3 > 1 ⇒ gestreckt.",
+   "h": "Vorzeichen von a: Öffnung. Betrag von a: Streckung oder Stauchung."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird um 6 nach links und um 2 nach oben verschoben. Welche Gleichung hat die neue Parabel?"
+   },
+   "a": [
+    "y = (x + 6)² − 2",
+    "y = (x − 6)² − 2",
+    "y = (x − 6)² + 2",
+    "y = (x + 6)² + 2"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Verschiebung nach links um 6: d = −6; nach oben um 2: e = 2. Also y = (x + 6)² + 2.",
+   "h": "Nach rechts verschieben: In der Klammer steht ein Minus."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird um 2 nach rechts und um 5 nach unten verschoben. Welche Gleichung hat die neue Parabel?"
+   },
+   "a": [
+    "y = (x + 2)² − 5",
+    "y = (x − 2)² − 5",
+    "y = (x + 2)² + 5",
+    "y = (x − 2)² + 5"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Verschiebung nach rechts um 2: d = 2; nach unten um 5: e = −5. Also y = (x − 2)² − 5.",
+   "h": "Nach rechts verschieben: In der Klammer steht ein Minus."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie sieht die Parabel y = −(x + 5)² − 5 im Vergleich zur Normalparabel aus?"
+   },
+   "a": [
+    "nach unten geöffnet, gestreckt",
+    "nach unten geöffnet, weder gestreckt noch gestaucht",
+    "nach oben geöffnet, weder gestreckt noch gestaucht",
+    "nach oben geöffnet, gestreckt"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "a = −1: negativ ⇒ nach unten geöffnet; |a| = 1 < 1 ⇒ weder gestreckt noch gestaucht.",
+   "h": "Vorzeichen von a: Öffnung. Betrag von a: Streckung oder Stauchung."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird um 3 nach rechts und um 1 nach oben verschoben. Welche Gleichung hat die neue Parabel?"
+   },
+   "a": [
+    "y = (x − 3)² − 1",
+    "y = (x + 3)² − 1",
+    "y = (x − 3)² + 1",
+    "y = (x + 3)² + 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Verschiebung nach rechts um 3: d = 3; nach oben um 1: e = 1. Also y = (x − 3)² + 1.",
+   "h": "Nach rechts verschieben: In der Klammer steht ein Minus."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie sieht die Parabel y = −(x − 2)² + 1 im Vergleich zur Normalparabel aus?"
+   },
+   "a": [
+    "nach unten geöffnet, gestreckt",
+    "nach unten geöffnet, weder gestreckt noch gestaucht",
+    "nach oben geöffnet, gestreckt",
+    "nach oben geöffnet, weder gestreckt noch gestaucht"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "a = −1: negativ ⇒ nach unten geöffnet; |a| = 1 < 1 ⇒ weder gestreckt noch gestaucht.",
+   "h": "Vorzeichen von a: Öffnung. Betrag von a: Streckung oder Stauchung."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird um 2 nach rechts und um 4 nach oben verschoben. Welche Gleichung hat die neue Parabel?"
+   },
+   "a": [
+    "y = (x − 2)² + 4",
+    "y = (x + 2)² + 4",
+    "y = (x + 2)² − 4",
+    "y = (x − 2)² − 4"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Verschiebung nach rechts um 2: d = 2; nach oben um 4: e = 4. Also y = (x − 2)² + 4.",
+   "h": "Nach rechts verschieben: In der Klammer steht ein Minus."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird um 4 nach links und um 2 nach unten verschoben. Welche Gleichung hat die neue Parabel?"
+   },
+   "a": [
+    "y = (x − 4)² + 2",
+    "y = (x + 4)² − 2",
+    "y = (x + 4)² + 2",
+    "y = (x − 4)² − 2"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Verschiebung nach links um 4: d = −4; nach unten um 2: e = −2. Also y = (x + 4)² − 2.",
+   "h": "Nach rechts verschieben: In der Klammer steht ein Minus."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird um 6 nach links und um 5 nach unten verschoben. Welche Gleichung hat die neue Parabel?"
+   },
+   "a": [
+    "y = (x − 6)² − 5",
+    "y = (x − 6)² + 5",
+    "y = (x + 6)² + 5",
+    "y = (x + 6)² − 5"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Verschiebung nach links um 6: d = −6; nach unten um 5: e = −5. Also y = (x + 6)² − 5.",
+   "h": "Nach rechts verschieben: In der Klammer steht ein Minus."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird um 2 nach links und um 1 nach oben verschoben. Welche Gleichung hat die neue Parabel?"
+   },
+   "a": [
+    "y = (x − 2)² − 1",
+    "y = (x − 2)² + 1",
+    "y = (x + 2)² + 1",
+    "y = (x + 2)² − 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Verschiebung nach links um 2: d = −2; nach oben um 1: e = 1. Also y = (x + 2)² + 1.",
+   "h": "Nach rechts verschieben: In der Klammer steht ein Minus."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie sieht die Parabel y = 3(x − 3)² − 1 im Vergleich zur Normalparabel aus?"
+   },
+   "a": [
+    "nach unten geöffnet, gestreckt",
+    "nach unten geöffnet, gestaucht",
+    "nach oben geöffnet, gestreckt",
+    "nach oben geöffnet, gestaucht"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "a = 3: positiv ⇒ nach oben geöffnet; |a| = 3 > 1 ⇒ gestreckt.",
+   "h": "Vorzeichen von a: Öffnung. Betrag von a: Streckung oder Stauchung."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand liest bei y = (x − 8)² + 2 den Scheitel S(−8 | 2) ab. Was stimmt?"
+   },
+   "a": [
+    "Falsch: S(8 | 2), denn die Klammer ist (x − d).",
+    "Falsch: S(−8 | −2)",
+    "Richtig.",
+    "Falsch: S(2 | 8)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "(x − 8) = x − (8), also d = 8. Bei x = 8 wird die Klammer null.",
+   "h": "Für welches x wird die Klammer null?"
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ohne zu rechnen: Wie viele Nullstellen hat y = 2(x − 4)² − 3?"
+   },
+   "a": [
+    "keine Nullstelle",
+    "genau eine Nullstelle",
+    "zwei Nullstellen"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Scheitel S(4 | −3) liegt unter der x-Achse, Parabel nach oben geöffnet: zwei Nullstellen.",
+   "h": "Wo liegt der Scheitel, und in welche Richtung ist die Parabel geöffnet?"
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand liest bei y = (x + 4)² − 8 den Scheitel S(4 | −8) ab. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: S(−8 | −4)",
+    "Falsch: S(4 | 8)",
+    "Falsch: S(−4 | −8), denn die Klammer ist (x − d)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "(x + 4) = x − (−4), also d = −4. Bei x = −4 wird die Klammer null.",
+   "h": "Für welches x wird die Klammer null?"
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ohne zu rechnen: Wie viele Nullstellen hat y = 2(x − 4)² + 8?"
+   },
+   "a": [
+    "zwei Nullstellen",
+    "keine Nullstelle",
+    "genau eine Nullstelle"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Scheitel S(4 | 8) liegt über der x-Achse, Parabel nach oben geöffnet: keine Nullstelle.",
+   "h": "Wo liegt der Scheitel, und in welche Richtung ist die Parabel geöffnet?"
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ohne zu rechnen: Wie viele Nullstellen hat y = 2(x − 5)² − 5?"
+   },
+   "a": [
+    "genau eine Nullstelle",
+    "keine Nullstelle",
+    "zwei Nullstellen"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Scheitel S(5 | −5) liegt unter der x-Achse, Parabel nach oben geöffnet: zwei Nullstellen.",
+   "h": "Wo liegt der Scheitel, und in welche Richtung ist die Parabel geöffnet?"
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ohne zu rechnen: Wie viele Nullstellen hat y = (x − 3)² + 5?"
+   },
+   "a": [
+    "genau eine Nullstelle",
+    "zwei Nullstellen",
+    "keine Nullstelle"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Scheitel S(3 | 5) liegt über der x-Achse, Parabel nach oben geöffnet: keine Nullstelle.",
+   "h": "Wo liegt der Scheitel, und in welche Richtung ist die Parabel geöffnet?"
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand liest bei y = (x − 4)² − 5 den Scheitel S(−4 | −5) ab. Was stimmt?"
+   },
+   "a": [
+    "Falsch: S(−5 | 4)",
+    "Falsch: S(4 | −5), denn die Klammer ist (x − d).",
+    "Falsch: S(−4 | 5)",
+    "Richtig."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "(x − 4) = x − (4), also d = 4. Bei x = 4 wird die Klammer null."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird um 2 nach rechts und um 2 nach unten verschoben. Welche Gleichung hat die neue Parabel?"
+   },
+   "a": [
+    "y = (x − 2)² + 2",
+    "y = (x − 2)² − 2",
+    "y = (x + 2)² − 2",
+    "y = (x + 2)² + 2"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Verschiebung nach rechts um 2: d = 2; nach unten um 2: e = −2. Also y = (x − 2)² − 2."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird um 3 nach links und um 3 nach unten verschoben. Welche Gleichung hat die neue Parabel?"
+   },
+   "a": [
+    "y = (x + 3)² + 3",
+    "y = (x − 3)² − 3",
+    "y = (x − 3)² + 3",
+    "y = (x + 3)² − 3"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Verschiebung nach links um 3: d = −3; nach unten um 3: e = −3. Also y = (x + 3)² − 3."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie sieht die Parabel y = 0,25(x − 5)² + 4 im Vergleich zur Normalparabel aus?"
+   },
+   "a": [
+    "nach unten geöffnet, gestaucht",
+    "nach oben geöffnet, gestaucht",
+    "nach oben geöffnet, gestreckt",
+    "nach unten geöffnet, gestreckt"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "a = 0,25: positiv ⇒ nach oben geöffnet; |a| = 0,25 < 1 ⇒ gestaucht."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird um 6 nach links und um 3 nach unten verschoben. Welche Gleichung hat die neue Parabel?"
+   },
+   "a": [
+    "y = (x + 6)² + 3",
+    "y = (x + 6)² − 3",
+    "y = (x − 6)² + 3",
+    "y = (x − 6)² − 3"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Verschiebung nach links um 6: d = −6; nach unten um 3: e = −3. Also y = (x + 6)² − 3."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand liest bei y = (x + 1)² + 4 den Scheitel S(1 | 4) ab. Was stimmt?"
+   },
+   "a": [
+    "Falsch: S(4 | −1)",
+    "Richtig.",
+    "Falsch: S(−1 | 4), denn die Klammer ist (x − d).",
+    "Falsch: S(1 | −4)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "(x + 1) = x − (−1), also d = −1. Bei x = −1 wird die Klammer null."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird um 1 nach links und um 5 nach unten verschoben. Welche Gleichung hat die neue Parabel?"
+   },
+   "a": [
+    "y = (x + 1)² − 5",
+    "y = (x − 1)² − 5",
+    "y = (x − 1)² + 5",
+    "y = (x + 1)² + 5"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Verschiebung nach links um 1: d = −1; nach unten um 5: e = −5. Also y = (x + 1)² − 5."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie sieht die Parabel y = −4(x − 2)² + 5 im Vergleich zur Normalparabel aus?"
+   },
+   "a": [
+    "nach unten geöffnet, gestaucht",
+    "nach oben geöffnet, gestreckt",
+    "nach oben geöffnet, gestaucht",
+    "nach unten geöffnet, gestreckt"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "a = −4: negativ ⇒ nach unten geöffnet; |a| = 4 > 1 ⇒ gestreckt."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand liest bei y = (x − 6)² − 2 den Scheitel S(−6 | −2) ab. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: S(6 | −2), denn die Klammer ist (x − d).",
+    "Falsch: S(−6 | 2)",
+    "Falsch: S(−2 | 6)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "(x − 6) = x − (6), also d = 6. Bei x = 6 wird die Klammer null."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird um 4 nach rechts und um 5 nach oben verschoben. Welche Gleichung hat die neue Parabel?"
+   },
+   "a": [
+    "y = (x + 4)² − 5",
+    "y = (x + 4)² + 5",
+    "y = (x − 4)² − 5",
+    "y = (x − 4)² + 5"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Verschiebung nach rechts um 4: d = 4; nach oben um 5: e = 5. Also y = (x − 4)² + 5."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = x² + 14x + 45.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -7,
+     -4
+    ]
+   },
+   "w": "Quadratische Ergänzung: y = x² + 14x + 45 = (x + 7)² − 4, also S(−7 | −4).",
+   "h": "Klammere a aus (falls nötig) und ergänze die Hälfte des x-Koeffizienten zum Quadrat.",
+   "c": [
+    "-(14) / (2 * (1))",
+    "(1) * (-7) ** 2 + (14) * (-7) + (45)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Bei y = x² − 2x − 4 liegt der Scheitel bei x = −b/(2a). Berechne die x-Koordinate des Scheitels."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "-(-2) / (2 * (1))",
+   "w": "x = −(−2)/(2 · 1) = 1.",
+   "h": "Lies b und a mit Vorzeichen ab."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = x² + 14x + 56.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -7,
+     7
+    ]
+   },
+   "w": "Quadratische Ergänzung: y = x² + 14x + 56 = (x + 7)² + 7, also S(−7 | 7).",
+   "h": "Klammere a aus (falls nötig) und ergänze die Hälfte des x-Koeffizienten zum Quadrat.",
+   "c": [
+    "-(14) / (2 * (1))",
+    "(1) * (-7) ** 2 + (14) * (-7) + (56)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Bei y = x² + 8x + 20 liegt der Scheitel bei x = −b/(2a). Berechne die x-Koordinate des Scheitels."
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "-(8) / (2 * (1))",
+   "w": "x = −(8)/(2 · 1) = −4.",
+   "h": "Lies b und a mit Vorzeichen ab."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = x² − 10x + 17.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     5,
+     -8
+    ]
+   },
+   "w": "Quadratische Ergänzung: y = x² − 10x + 17 = (x − 5)² − 8, also S(5 | −8).",
+   "h": "Klammere a aus (falls nötig) und ergänze die Hälfte des x-Koeffizienten zum Quadrat.",
+   "c": [
+    "-(-10) / (2 * (1))",
+    "(1) * (5) ** 2 + (-10) * (5) + (17)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Bei y = x² + 8x + 21 liegt der Scheitel bei x = −b/(2a). Berechne die x-Koordinate des Scheitels."
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "-(8) / (2 * (1))",
+   "w": "x = −(8)/(2 · 1) = −4.",
+   "h": "Lies b und a mit Vorzeichen ab."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = x² − 14x + 53.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     7,
+     4
+    ]
+   },
+   "w": "Quadratische Ergänzung: y = x² − 14x + 53 = (x − 7)² + 4, also S(7 | 4).",
+   "h": "Klammere a aus (falls nötig) und ergänze die Hälfte des x-Koeffizienten zum Quadrat.",
+   "c": [
+    "-(-14) / (2 * (1))",
+    "(1) * (7) ** 2 + (-14) * (7) + (53)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = x² − 10x + 18.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     5,
+     -7
+    ]
+   },
+   "w": "Quadratische Ergänzung: y = x² − 10x + 18 = (x − 5)² − 7, also S(5 | −7).",
+   "h": "Klammere a aus (falls nötig) und ergänze die Hälfte des x-Koeffizienten zum Quadrat.",
+   "c": [
+    "-(-10) / (2 * (1))",
+    "(1) * (5) ** 2 + (-10) * (5) + (18)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = −x² + 12x − 28.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     6,
+     8
+    ]
+   },
+   "w": "Quadratische Ergänzung: y = −x² + 12x − 28 = −(x − 6)² + 8, also S(6 | 8).",
+   "h": "Klammere a aus (falls nötig) und ergänze die Hälfte des x-Koeffizienten zum Quadrat.",
+   "c": [
+    "-(12) / (2 * (-1))",
+    "(-1) * (6) ** 2 + (12) * (6) + (-28)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = −x² + 8x − 17.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     4,
+     -1
+    ]
+   },
+   "w": "Quadratische Ergänzung: y = −x² + 8x − 17 = −(x − 4)² − 1, also S(4 | −1).",
+   "h": "Klammere a aus (falls nötig) und ergänze die Hälfte des x-Koeffizienten zum Quadrat.",
+   "c": [
+    "-(8) / (2 * (-1))",
+    "(-1) * (4) ** 2 + (8) * (4) + (-17)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = x² − 10x + 27.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     5,
+     2
+    ]
+   },
+   "w": "Quadratische Ergänzung: y = x² − 10x + 27 = (x − 5)² + 2, also S(5 | 2).",
+   "h": "Klammere a aus (falls nötig) und ergänze die Hälfte des x-Koeffizienten zum Quadrat.",
+   "c": [
+    "-(-10) / (2 * (1))",
+    "(1) * (5) ** 2 + (-10) * (5) + (27)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = x² + 4x + 6.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -2,
+     2
+    ]
+   },
+   "w": "Quadratische Ergänzung: y = x² + 4x + 6 = (x + 2)² + 2, also S(−2 | 2).",
+   "h": "Klammere a aus (falls nötig) und ergänze die Hälfte des x-Koeffizienten zum Quadrat.",
+   "c": [
+    "-(4) / (2 * (1))",
+    "(1) * (-2) ** 2 + (4) * (-2) + (6)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = 3x² + 12x + 15.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -2,
+     3
+    ]
+   },
+   "w": "Quadratische Ergänzung: y = 3x² + 12x + 15 = 3(x + 2)² + 3, also S(−2 | 3).",
+   "h": "Klammere a aus (falls nötig) und ergänze die Hälfte des x-Koeffizienten zum Quadrat.",
+   "c": [
+    "-(12) / (2 * (3))",
+    "(3) * (-2) ** 2 + (12) * (-2) + (15)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = −x² − 12x − 30.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -6,
+     6
+    ]
+   },
+   "w": "Quadratische Ergänzung: y = −x² − 12x − 30 = −(x + 6)² + 6, also S(−6 | 6).",
+   "h": "Klammere a aus (falls nötig) und ergänze die Hälfte des x-Koeffizienten zum Quadrat.",
+   "c": [
+    "-(-12) / (2 * (-1))",
+    "(-1) * (-6) ** 2 + (-12) * (-6) + (-30)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = 2x² + 28x + 103.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -7,
+     5
+    ]
+   },
+   "w": "Quadratische Ergänzung: y = 2x² + 28x + 103 = 2(x + 7)² + 5, also S(−7 | 5).",
+   "h": "Klammere a aus (falls nötig) und ergänze die Hälfte des x-Koeffizienten zum Quadrat.",
+   "c": [
+    "-(28) / (2 * (2))",
+    "(2) * (-7) ** 2 + (28) * (-7) + (103)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = −x² + 10x − 30.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     5,
+     -5
+    ]
+   },
+   "w": "Quadratische Ergänzung: y = −x² + 10x − 30 = −(x − 5)² − 5, also S(5 | −5).",
+   "h": "Klammere a aus (falls nötig) und ergänze die Hälfte des x-Koeffizienten zum Quadrat.",
+   "c": [
+    "-(10) / (2 * (-1))",
+    "(-1) * (5) ** 2 + (10) * (5) + (-30)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = 3x² − 42x + 138.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     7,
+     -9
+    ]
+   },
+   "w": "Quadratische Ergänzung: y = 3x² − 42x + 138 = 3(x − 7)² − 9, also S(7 | −9).",
+   "h": "Klammere a aus (falls nötig) und ergänze die Hälfte des x-Koeffizienten zum Quadrat.",
+   "c": [
+    "-(-42) / (2 * (3))",
+    "(3) * (7) ** 2 + (-42) * (7) + (138)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = 3x² − 42x + 156.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     7,
+     9
+    ]
+   },
+   "w": "Quadratische Ergänzung: y = 3x² − 42x + 156 = 3(x − 7)² + 9, also S(7 | 9).",
+   "h": "Klammere a aus (falls nötig) und ergänze die Hälfte des x-Koeffizienten zum Quadrat.",
+   "c": [
+    "-(-42) / (2 * (3))",
+    "(3) * (7) ** 2 + (-42) * (7) + (156)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = x² + 10x + 17.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -5,
+     -8
+    ]
+   },
+   "w": "Quadratische Ergänzung: y = x² + 10x + 17 = (x + 5)² − 8, also S(−5 | −8).",
+   "c": [
+    "-(10) / (2 * (1))",
+    "(1) * (-5) ** 2 + (10) * (-5) + (17)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = x² − 8x + 10.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     4,
+     -6
+    ]
+   },
+   "w": "Quadratische Ergänzung: y = x² − 8x + 10 = (x − 4)² − 6, also S(4 | −6).",
+   "c": [
+    "-(-8) / (2 * (1))",
+    "(1) * (4) ** 2 + (-8) * (4) + (10)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = −x² − 10x − 32.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -5,
+     -7
+    ]
+   },
+   "w": "Quadratische Ergänzung: y = −x² − 10x − 32 = −(x + 5)² − 7, also S(−5 | −7).",
+   "c": [
+    "-(-10) / (2 * (-1))",
+    "(-1) * (-5) ** 2 + (-10) * (-5) + (-32)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = x² + 2x + 1.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -1,
+     0
+    ]
+   },
+   "w": "Quadratische Ergänzung: y = x² + 2x + 1 = (x + 1)², also S(−1 | 0).",
+   "c": [
+    "-(2) / (2 * (1))",
+    "(1) * (-1) ** 2 + (2) * (-1) + (1)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = x² + 6x + 6.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -3,
+     -3
+    ]
+   },
+   "w": "Quadratische Ergänzung: y = x² + 6x + 6 = (x + 3)² − 3, also S(−3 | −3).",
+   "c": [
+    "-(6) / (2 * (1))",
+    "(1) * (-3) ** 2 + (6) * (-3) + (6)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = x² − 14x + 40.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     7,
+     -9
+    ]
+   },
+   "w": "Quadratische Ergänzung: y = x² − 14x + 40 = (x − 7)² − 9, also S(7 | −9).",
+   "c": [
+    "-(-14) / (2 * (1))",
+    "(1) * (7) ** 2 + (-14) * (7) + (40)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = x² + 2x + 2.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -1,
+     1
+    ]
+   },
+   "w": "Quadratische Ergänzung: y = x² + 2x + 2 = (x + 1)² + 1, also S(−1 | 1).",
+   "c": [
+    "-(2) / (2 * (1))",
+    "(1) * (-1) ** 2 + (2) * (-1) + (2)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = −x² − 14x − 44.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     -7,
+     5
+    ]
+   },
+   "w": "Quadratische Ergänzung: y = −x² − 14x − 44 = −(x + 7)² + 5, also S(−7 | 5).",
+   "c": [
+    "-(-14) / (2 * (-1))",
+    "(-1) * (-7) ** 2 + (-14) * (-7) + (-44)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = x² − 10x + 22.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     5,
+     -3
+    ]
+   },
+   "w": "Quadratische Ergänzung: y = x² − 10x + 22 = (x − 5)² − 3, also S(5 | −3).",
+   "c": [
+    "-(-10) / (2 * (1))",
+    "(1) * (5) ** 2 + (-10) * (5) + (22)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = −x² + 12x − 30.",
+    "schablone": "S(□ | □)",
+    "hinweis": "x-Wert, y-Wert"
+   },
+   "o": {
+    "werte": [
+     6,
+     6
+    ]
+   },
+   "w": "Quadratische Ergänzung: y = −x² + 12x − 30 = −(x − 6)² + 6, also S(6 | 6).",
+   "c": [
+    "-(12) / (2 * (-1))",
+    "(-1) * (6) ** 2 + (12) * (6) + (-30)"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von y = (x − 1) · (x − 8).",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     1,
+     8
+    ]
+   },
+   "w": "Ein Produkt ist null, wenn ein Faktor null ist: x = 1 oder x = 8.",
+   "h": "Setze jeden Faktor gleich null.",
+   "c": [
+    "min(1, 8)",
+    "max(1, 8)"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von y = (x + 8) · (x − 5).",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     -8,
+     5
+    ]
+   },
+   "w": "Ein Produkt ist null, wenn ein Faktor null ist: x = −8 oder x = 5.",
+   "h": "Setze jeden Faktor gleich null.",
+   "c": [
+    "min(-8, 5)",
+    "max(-8, 5)"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von y = (x + 2) · (x − 9).",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     -2,
+     9
+    ]
+   },
+   "w": "Ein Produkt ist null, wenn ein Faktor null ist: x = −2 oder x = 9.",
+   "h": "Setze jeden Faktor gleich null.",
+   "c": [
+    "min(-2, 9)",
+    "max(-2, 9)"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von y = (x + 6) · (x − 3).",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     -6,
+     3
+    ]
+   },
+   "w": "Ein Produkt ist null, wenn ein Faktor null ist: x = −6 oder x = 3.",
+   "h": "Setze jeden Faktor gleich null.",
+   "c": [
+    "min(-6, 3)",
+    "max(-6, 3)"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von y = (x − 3) · (x − 8).",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     3,
+     8
+    ]
+   },
+   "w": "Ein Produkt ist null, wenn ein Faktor null ist: x = 3 oder x = 8.",
+   "h": "Setze jeden Faktor gleich null.",
+   "c": [
+    "min(3, 8)",
+    "max(3, 8)"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von y = (x + 8) · (x + 3).",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     -8,
+     -3
+    ]
+   },
+   "w": "Ein Produkt ist null, wenn ein Faktor null ist: x = −8 oder x = −3.",
+   "h": "Setze jeden Faktor gleich null.",
+   "c": [
+    "min(-8, -3)",
+    "max(-8, -3)"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von y = 2x² + 28x + 96.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     -8,
+     -6
+    ]
+   },
+   "w": "0 = 2x² + 28x + 96; D = 16; x₁,₂ = (−28 ± 4) / 4: −8 und −6.",
+   "h": "Setze y = 0 und löse die quadratische Gleichung.",
+   "c": [
+    "min((-(28) - 4) / (2 * (2)), (-(28) + 4) / (2 * (2)))",
+    "max((-(28) - 4) / (2 * (2)), (-(28) + 4) / (2 * (2)))"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von y = 2x² − 4x − 48.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     -4,
+     6
+    ]
+   },
+   "w": "0 = 2x² − 4x − 48; D = 400; x₁,₂ = (4 ± 20) / 4: −4 und 6.",
+   "h": "Setze y = 0 und löse die quadratische Gleichung.",
+   "c": [
+    "min((-(-4) - 20) / (2 * (2)), (-(-4) + 20) / (2 * (2)))",
+    "max((-(-4) - 20) / (2 * (2)), (-(-4) + 20) / (2 * (2)))"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von y = 2x² + 16x + 14.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     -7,
+     -1
+    ]
+   },
+   "w": "0 = 2x² + 16x + 14; D = 144; x₁,₂ = (−16 ± 12) / 4: −7 und −1.",
+   "h": "Setze y = 0 und löse die quadratische Gleichung.",
+   "c": [
+    "min((-(16) - 12) / (2 * (2)), (-(16) + 12) / (2 * (2)))",
+    "max((-(16) - 12) / (2 * (2)), (-(16) + 12) / (2 * (2)))"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von y = x² + 5x − 6.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     -6,
+     1
+    ]
+   },
+   "w": "0 = x² + 5x − 6; D = 49; x₁,₂ = (−5 ± 7) / 2: −6 und 1.",
+   "h": "Setze y = 0 und löse die quadratische Gleichung.",
+   "c": [
+    "min((-(5) - 7) / (2 * (1)), (-(5) + 7) / (2 * (1)))",
+    "max((-(5) - 7) / (2 * (1)), (-(5) + 7) / (2 * (1)))"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von y = −x² − 4x + 12.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     -6,
+     2
+    ]
+   },
+   "w": "0 = −x² − 4x + 12; D = 64; x₁,₂ = (4 ± 8) / −2: −6 und 2.",
+   "h": "Setze y = 0 und löse die quadratische Gleichung.",
+   "c": [
+    "min((-(-4) - 8) / (2 * (-1)), (-(-4) + 8) / (2 * (-1)))",
+    "max((-(-4) - 8) / (2 * (-1)), (-(-4) + 8) / (2 * (-1)))"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von y = 2x² − 10x + 12.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "w": "0 = 2x² − 10x + 12; D = 4; x₁,₂ = (10 ± 2) / 4: 2 und 3.",
+   "h": "Setze y = 0 und löse die quadratische Gleichung.",
+   "c": [
+    "min((-(-10) - 2) / (2 * (2)), (-(-10) + 2) / (2 * (2)))",
+    "max((-(-10) - 2) / (2 * (2)), (-(-10) + 2) / (2 * (2)))"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Nullstellen hat der Graph von y = x² + 4x + 2?"
+   },
+   "a": [
+    "keine Nullstelle",
+    "genau eine Nullstelle",
+    "zwei Nullstellen"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "D = 4² − 4 · 1 · 2 = 8, also zwei Nullstellen.",
+   "h": "Berechne die Diskriminante."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Nullstellen hat der Graph von y = −x² − x + 6?"
+   },
+   "a": [
+    "zwei Nullstellen",
+    "genau eine Nullstelle",
+    "keine Nullstelle"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "D = (−1)² − 4 · (−1) · 6 = 25, also zwei Nullstellen.",
+   "h": "Berechne die Diskriminante."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Nullstellen hat der Graph von y = 3x² − 8x + 6?"
+   },
+   "a": [
+    "keine Nullstelle",
+    "genau eine Nullstelle",
+    "zwei Nullstellen"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "D = (−8)² − 4 · 3 · 6 = −8, also keine Nullstelle.",
+   "h": "Berechne die Diskriminante."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Nullstellen hat der Graph von y = −3x² − 3x + 4?"
+   },
+   "a": [
+    "genau eine Nullstelle",
+    "keine Nullstelle",
+    "zwei Nullstellen"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "D = (−3)² − 4 · (−3) · 4 = 57, also zwei Nullstellen.",
+   "h": "Berechne die Diskriminante."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Nullstellen hat der Graph von y = x² + 5x + 2?"
+   },
+   "a": [
+    "keine Nullstelle",
+    "genau eine Nullstelle",
+    "zwei Nullstellen"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "D = 5² − 4 · 1 · 2 = 17, also zwei Nullstellen.",
+   "h": "Berechne die Diskriminante."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Nullstellen hat der Graph von y = −3x² − 7x + 3?"
+   },
+   "a": [
+    "genau eine Nullstelle",
+    "keine Nullstelle",
+    "zwei Nullstellen"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "D = (−7)² − 4 · (−3) · 3 = 85, also zwei Nullstellen.",
+   "h": "Berechne die Diskriminante."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von y = 2x² + 22x + 48.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     -8,
+     -3
+    ]
+   },
+   "w": "0 = 2x² + 22x + 48; D = 100; x₁,₂ = (−22 ± 10) / 4: −8 und −3.",
+   "c": [
+    "min((-(22) - 10) / (2 * (2)), (-(22) + 10) / (2 * (2)))",
+    "max((-(22) - 10) / (2 * (2)), (-(22) + 10) / (2 * (2)))"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von y = 2x² − 2x − 12.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     -2,
+     3
+    ]
+   },
+   "w": "0 = 2x² − 2x − 12; D = 100; x₁,₂ = (2 ± 10) / 4: −2 und 3.",
+   "c": [
+    "min((-(-2) - 10) / (2 * (2)), (-(-2) + 10) / (2 * (2)))",
+    "max((-(-2) - 10) / (2 * (2)), (-(-2) + 10) / (2 * (2)))"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von y = −x² + 5x.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     5
+    ]
+   },
+   "w": "0 = −x² + 5x; D = 25; x₁,₂ = (−5 ± 5) / −2: 0 und 5.",
+   "c": [
+    "min((-(5) - 5) / (2 * (-1)), (-(5) + 5) / (2 * (-1)))",
+    "max((-(5) - 5) / (2 * (-1)), (-(5) + 5) / (2 * (-1)))"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von y = x² − 16.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     -4,
+     4
+    ]
+   },
+   "w": "0 = x² − 16; D = 64; x₁,₂ = (0 ± 8) / 2: −4 und 4.",
+   "c": [
+    "min((-(0) - 8) / (2 * (1)), (-(0) + 8) / (2 * (1)))",
+    "max((-(0) - 8) / (2 * (1)), (-(0) + 8) / (2 * (1)))"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von y = −x² + 5x + 14.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     -2,
+     7
+    ]
+   },
+   "w": "0 = −x² + 5x + 14; D = 81; x₁,₂ = (−5 ± 9) / −2: −2 und 7.",
+   "c": [
+    "min((-(5) - 9) / (2 * (-1)), (-(5) + 9) / (2 * (-1)))",
+    "max((-(5) - 9) / (2 * (-1)), (-(5) + 9) / (2 * (-1)))"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von y = 2x² + 10x − 28.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     -7,
+     2
+    ]
+   },
+   "w": "0 = 2x² + 10x − 28; D = 324; x₁,₂ = (−10 ± 18) / 4: −7 und 2.",
+   "c": [
+    "min((-(10) - 18) / (2 * (2)), (-(10) + 18) / (2 * (2)))",
+    "max((-(10) - 18) / (2 * (2)), (-(10) + 18) / (2 * (2)))"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von y = x² + 10x + 24.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     -6,
+     -4
+    ]
+   },
+   "w": "0 = x² + 10x + 24; D = 4; x₁,₂ = (−10 ± 2) / 2: −6 und −4.",
+   "c": [
+    "min((-(10) - 2) / (2 * (1)), (-(10) + 2) / (2 * (1)))",
+    "max((-(10) - 2) / (2 * (1)), (-(10) + 2) / (2 * (1)))"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von y = −x² − 4x + 5.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     -5,
+     1
+    ]
+   },
+   "w": "0 = −x² − 4x + 5; D = 36; x₁,₂ = (4 ± 6) / −2: −5 und 1.",
+   "c": [
+    "min((-(-4) - 6) / (2 * (-1)), (-(-4) + 6) / (2 * (-1)))",
+    "max((-(-4) - 6) / (2 * (-1)), (-(-4) + 6) / (2 * (-1)))"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von y = x² − 5x + 4.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     1,
+     4
+    ]
+   },
+   "w": "0 = x² − 5x + 4; D = 9; x₁,₂ = (5 ± 3) / 2: 1 und 4.",
+   "c": [
+    "min((-(-5) - 3) / (2 * (1)), (-(-5) + 3) / (2 * (1)))",
+    "max((-(-5) - 3) / (2 * (1)), (-(-5) + 3) / (2 * (1)))"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von y = x² + 9x + 20.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     -5,
+     -4
+    ]
+   },
+   "w": "0 = x² + 9x + 20; D = 1; x₁,₂ = (−9 ± 1) / 2: −5 und −4.",
+   "c": [
+    "min((-(9) - 1) / (2 * (1)), (-(9) + 1) / (2 * (1)))",
+    "max((-(9) - 1) / (2 * (1)), (-(9) + 1) / (2 * (1)))"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne f(4) für f(x) = 2x² + 4x + 6."
+   },
+   "o": {
+    "wert": 54
+   },
+   "c": "(2) * (4) ** 2 + (4) * (4) + (6)",
+   "w": "f(4) = 2 · 4² + 4 · 4 + 6 = 54.",
+   "h": "Setze die Zahl mit Klammern ein: erst Potenz, dann Punkt, dann Strich."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne f(4) für f(x) = −2x² − 3x − 5."
+   },
+   "o": {
+    "wert": -49
+   },
+   "c": "(-2) * (4) ** 2 + (-3) * (4) + (-5)",
+   "w": "f(4) = (−2) · 4² − 3 · 4 − 5 = −49.",
+   "h": "Setze die Zahl mit Klammern ein: erst Potenz, dann Punkt, dann Strich."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne f(4) für f(x) = −x² + 6x."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(-1) * (4) ** 2 + (6) * (4) + (0)",
+   "w": "f(4) = (−1) · 4² + 6 · 4 + 0 = 8.",
+   "h": "Setze die Zahl mit Klammern ein: erst Potenz, dann Punkt, dann Strich."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne f(3) für f(x) = x² − 4x − 4."
+   },
+   "o": {
+    "wert": -7
+   },
+   "c": "(1) * (3) ** 2 + (-4) * (3) + (-4)",
+   "w": "f(3) = 1 · 3² − 4 · 3 − 4 = −7.",
+   "h": "Setze die Zahl mit Klammern ein: erst Potenz, dann Punkt, dann Strich."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne f(−3) für f(x) = 3x² + x + 1."
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "(3) * (-3) ** 2 + (1) * (-3) + (1)",
+   "w": "f(−3) = 3 · (−3)² + 1 · (−3) + 1 = 25.",
+   "h": "Setze die Zahl mit Klammern ein: erst Potenz, dann Punkt, dann Strich."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne f(3) für f(x) = −3x² − 6x − 4."
+   },
+   "o": {
+    "wert": -49
+   },
+   "c": "(-3) * (3) ** 2 + (-6) * (3) + (-4)",
+   "w": "f(3) = (−3) · 3² − 6 · 3 − 4 = −49.",
+   "h": "Setze die Zahl mit Klammern ein: erst Potenz, dann Punkt, dann Strich."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Liegt P(0 | −4) auf dem Graphen von f(x) = x² + 3x − 4?"
+   },
+   "a": [
+    "Ja, denn f(0) = 4.",
+    "Nein, denn f(0) = −3.",
+    "Nein, denn f(0) = −4.",
+    "Ja, denn f(0) = −4."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "f(0) = 1 · 0² + 3 · 0 − 4 = −4 = −4, also liegt P auf dem Graphen.",
+   "h": "Setze die x-Koordinate ein und vergleiche mit der y-Koordinate."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Liegt P(0 | −6) auf dem Graphen von f(x) = −3x² − 2x − 6?"
+   },
+   "a": [
+    "Ja, denn f(0) = −6.",
+    "Nein, denn f(0) = −6.",
+    "Ja, denn f(0) = 6.",
+    "Nein, denn f(0) = −5."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "f(0) = (−3) · 0² − 2 · 0 − 6 = −6 = −6, also liegt P auf dem Graphen.",
+   "h": "Setze die x-Koordinate ein und vergleiche mit der y-Koordinate."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Liegt P(2 | −8) auf dem Graphen von f(x) = −2x² − 5x + 9?"
+   },
+   "a": [
+    "Ja, denn f(2) = −7.",
+    "Nein, denn f(2) = 9.",
+    "Nein, denn f(2) = −9.",
+    "Ja, denn f(2) = −9."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "f(2) = (−2) · 2² − 5 · 2 + 9 = −9 ≠ −8, also liegt P nicht auf dem Graphen.",
+   "h": "Setze die x-Koordinate ein und vergleiche mit der y-Koordinate."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Liegt P(4 | 29) auf dem Graphen von f(x) = 3x² − 5x?"
+   },
+   "a": [
+    "Ja, denn f(4) = 30.",
+    "Nein, denn f(4) = 28.",
+    "Nein, denn f(4) = −28.",
+    "Ja, denn f(4) = 28."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "f(4) = 3 · 4² − 5 · 4 + 0 = 28 ≠ 29, also liegt P nicht auf dem Graphen.",
+   "h": "Setze die x-Koordinate ein und vergleiche mit der y-Koordinate."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Liegt P(1 | 5) auf dem Graphen von f(x) = 2x² + 2x + 1?"
+   },
+   "a": [
+    "Nein, denn f(1) = 6.",
+    "Nein, denn f(1) = 5.",
+    "Ja, denn f(1) = 5.",
+    "Ja, denn f(1) = −5."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "f(1) = 2 · 1² + 2 · 1 + 1 = 5 = 5, also liegt P auf dem Graphen.",
+   "h": "Setze die x-Koordinate ein und vergleiche mit der y-Koordinate."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Liegt P(−2 | −24) auf dem Graphen von f(x) = −3x² + 6x?"
+   },
+   "a": [
+    "Ja, denn f(−2) = −24.",
+    "Nein, denn f(−2) = −23.",
+    "Nein, denn f(−2) = −24.",
+    "Ja, denn f(−2) = 24."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "f(−2) = (−3) · (−2)² + 6 · (−2) + 0 = −24 = −24, also liegt P auf dem Graphen.",
+   "h": "Setze die x-Koordinate ein und vergleiche mit der y-Koordinate."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Punkt P(−4 | −72) liegt auf dem Graphen von f(x) = −3x² + 4x + c. Bestimme c."
+   },
+   "o": {
+    "wert": -8
+   },
+   "c": "(-72) - ((-3) * (-4) ** 2 + (4) * (-4))",
+   "w": "−72 = (−3) · (−4)² + 4 · (−4) + c = −64 + c ⇒ c = −8.",
+   "h": "Setze die Koordinaten von P ein und löse nach c auf."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Punkt P(−1 | 3) liegt auf dem Graphen von f(x) = −2x² − 6x + c. Bestimme c."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "(3) - ((-2) * (-1) ** 2 + (-6) * (-1))",
+   "w": "3 = (−2) · (−1)² − 6 · (−1) + c = 4 + c ⇒ c = −1.",
+   "h": "Setze die Koordinaten von P ein und löse nach c auf."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Punkt P(1 | 7) liegt auf dem Graphen von f(x) = 2x² − 3x + c. Bestimme c."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(7) - ((2) * (1) ** 2 + (-3) * (1))",
+   "w": "7 = 2 · 1² − 3 · 1 + c = −1 + c ⇒ c = 8.",
+   "h": "Setze die Koordinaten von P ein und löse nach c auf."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Punkt P(−4 | 21) liegt auf dem Graphen von f(x) = 2x² + 5x + c. Bestimme c."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(21) - ((2) * (-4) ** 2 + (5) * (-4))",
+   "w": "21 = 2 · (−4)² + 5 · (−4) + c = 12 + c ⇒ c = 9.",
+   "h": "Setze die Koordinaten von P ein und löse nach c auf."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Punkt P(−3 | 10) liegt auf dem Graphen von f(x) = 2x² + 2x + c. Bestimme c."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "(10) - ((2) * (-3) ** 2 + (2) * (-3))",
+   "w": "10 = 2 · (−3)² + 2 · (−3) + c = 12 + c ⇒ c = −2.",
+   "h": "Setze die Koordinaten von P ein und löse nach c auf."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Punkt P(1 | 0) liegt auf dem Graphen von f(x) = −x² − x + c. Bestimme c."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(0) - ((-1) * (1) ** 2 + (-1) * (1))",
+   "w": "0 = (−1) · 1² − 1 · 1 + c = −2 + c ⇒ c = 2.",
+   "h": "Setze die Koordinaten von P ein und löse nach c auf."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Liegt P(−2 | −16) auf dem Graphen von f(x) = −x² + 3x − 8?"
+   },
+   "a": [
+    "Ja, denn f(−2) = −18.",
+    "Nein, denn f(−2) = 18.",
+    "Ja, denn f(−2) = −15.",
+    "Nein, denn f(−2) = −18."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "f(−2) = (−1) · (−2)² + 3 · (−2) − 8 = −18 ≠ −16, also liegt P nicht auf dem Graphen."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Liegt P(−1 | 0) auf dem Graphen von f(x) = −2x² − 2x?"
+   },
+   "a": [
+    "Nein, denn f(−1) = 1.",
+    "Nein, denn f(−1) = 0.",
+    "Ja, denn f(−1) = 1.",
+    "Ja, denn f(−1) = 0."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "f(−1) = (−2) · (−1)² − 2 · (−1) + 0 = 0 = 0, also liegt P auf dem Graphen."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Liegt P(−3 | −9) auf dem Graphen von f(x) = −x² + 2x + 6?"
+   },
+   "a": [
+    "Ja, denn f(−3) = 9.",
+    "Nein, denn f(−3) = −9.",
+    "Nein, denn f(−3) = −8.",
+    "Ja, denn f(−3) = −9."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "f(−3) = (−1) · (−3)² + 2 · (−3) + 6 = −9 = −9, also liegt P auf dem Graphen."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Liegt P(−4 | −58) auf dem Graphen von f(x) = −2x² + 4x − 8?"
+   },
+   "a": [
+    "Ja, denn f(−4) = −57.",
+    "Ja, denn f(−4) = −56.",
+    "Nein, denn f(−4) = −56.",
+    "Nein, denn f(−4) = 56."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "f(−4) = (−2) · (−4)² + 4 · (−4) − 8 = −56 ≠ −58, also liegt P nicht auf dem Graphen."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Liegt P(2 | 12) auf dem Graphen von f(x) = 2x² + x + 2?"
+   },
+   "a": [
+    "Ja, denn f(2) = −12.",
+    "Nein, denn f(2) = 12.",
+    "Ja, denn f(2) = 12.",
+    "Nein, denn f(2) = 13."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "f(2) = 2 · 2² + 1 · 2 + 2 = 12 = 12, also liegt P auf dem Graphen."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Liegt P(−1 | 1) auf dem Graphen von f(x) = −x² + 6x + 6?"
+   },
+   "a": [
+    "Ja, denn f(−1) = 2.",
+    "Ja, denn f(−1) = −1.",
+    "Nein, denn f(−1) = 1.",
+    "Nein, denn f(−1) = −1."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "f(−1) = (−1) · (−1)² + 6 · (−1) + 6 = −1 ≠ 1, also liegt P nicht auf dem Graphen."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Liegt P(4 | 41) auf dem Graphen von f(x) = x² + 5x + 5?"
+   },
+   "a": [
+    "Ja, denn f(4) = −41.",
+    "Nein, denn f(4) = 42.",
+    "Ja, denn f(4) = 41.",
+    "Nein, denn f(4) = 41."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "f(4) = 1 · 4² + 5 · 4 + 5 = 41 = 41, also liegt P auf dem Graphen."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Liegt P(4 | −1) auf dem Graphen von f(x) = −x² + 5x − 4?"
+   },
+   "a": [
+    "Nein, denn f(4) = 1.",
+    "Ja, denn f(4) = 0.",
+    "Nein, denn f(4) = 0."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "f(4) = (−1) · 4² + 5 · 4 − 4 = 0 ≠ −1, also liegt P nicht auf dem Graphen."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Liegt P(−2 | 24) auf dem Graphen von f(x) = 3x² − 3x + 4?"
+   },
+   "a": [
+    "Ja, denn f(−2) = 22.",
+    "Nein, denn f(−2) = −22.",
+    "Nein, denn f(−2) = 22.",
+    "Ja, denn f(−2) = 25."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "f(−2) = 3 · (−2)² − 3 · (−2) + 4 = 22 ≠ 24, also liegt P nicht auf dem Graphen."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Liegt P(−2 | 2) auf dem Graphen von f(x) = 3x² − 8?"
+   },
+   "a": [
+    "Nein, denn f(−2) = 4.",
+    "Ja, denn f(−2) = 3.",
+    "Ja, denn f(−2) = 4.",
+    "Nein, denn f(−2) = −4."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "f(−2) = 3 · (−2)² + 0 · (−2) − 8 = 4 ≠ 2, also liegt P nicht auf dem Graphen."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat den Scheitel S(5 | 1) und geht durch P(3 | −11). Bestimme a in y = a(x − d)² + e."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "((-11) - (1)) / ((3) - (5)) ** 2",
+   "w": "−11 = a · (3 − 5)² + 1 = 4a + 1 ⇒ a = −3.",
+   "h": "Setze Scheitel und Punkt in die Scheitelform ein."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat den Scheitel S(−4 | 4) und geht durch P(−7 | 22). Bestimme a in y = a(x − d)² + e."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "((22) - (4)) / ((-7) - (-4)) ** 2",
+   "w": "22 = a · (−7 − (−4))² + 4 = 9a + 4 ⇒ a = 2.",
+   "h": "Setze Scheitel und Punkt in die Scheitelform ein."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat den Scheitel S(0 | 4) und geht durch P(−3 | −14). Bestimme a in y = a(x − d)² + e."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "((-14) - (4)) / ((-3) - (0)) ** 2",
+   "w": "−14 = a · (−3 − 0)² + 4 = 9a + 4 ⇒ a = −2.",
+   "h": "Setze Scheitel und Punkt in die Scheitelform ein."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat den Scheitel S(−5 | −4) und geht durch P(−8 | 5). Bestimme a in y = a(x − d)² + e."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "((5) - (-4)) / ((-8) - (-5)) ** 2",
+   "w": "5 = a · (−8 − (−5))² − 4 = 9a − 4 ⇒ a = 1.",
+   "h": "Setze Scheitel und Punkt in die Scheitelform ein."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat den Scheitel S(−2 | −6) und geht durch P(0 | 2). Bestimme a in y = a(x − d)² + e."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "((2) - (-6)) / ((0) - (-2)) ** 2",
+   "w": "2 = a · (0 − (−2))² − 6 = 4a − 6 ⇒ a = 2.",
+   "h": "Setze Scheitel und Punkt in die Scheitelform ein."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat den Scheitel S(−5 | 0) und geht durch P(−3 | 4). Bestimme a in y = a(x − d)² + e."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "((4) - (0)) / ((-3) - (-5)) ** 2",
+   "w": "4 = a · (−3 − (−5))² + 0 = 4a + 0 ⇒ a = 1.",
+   "h": "Setze Scheitel und Punkt in die Scheitelform ein."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat die Nullstellen x₁ = 2 und x₂ = 6 und geht durch P(3 | −9). Bestimme a in y = a(x − x₁)(x − x₂)."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(-9) / (((3) - (2)) * ((3) - (6)))",
+   "w": "−9 = a · (3 − 2)(3 − 6) = −3a ⇒ a = 3.",
+   "h": "Setze die Nullstellen in die Produktform ein, dann den Punkt."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat die Nullstellen x₁ = 3 und x₂ = 6 und geht durch P(−1 | 84). Bestimme a in y = a(x − x₁)(x − x₂)."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(84) / (((-1) - (3)) * ((-1) - (6)))",
+   "w": "84 = a · (−1 − 3)(−1 − 6) = 28a ⇒ a = 3.",
+   "h": "Setze die Nullstellen in die Produktform ein, dann den Punkt."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat die Nullstellen x₁ = −5 und x₂ = −2 und geht durch P(2 | −56). Bestimme a in y = a(x − x₁)(x − x₂)."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "(-56) / (((2) - (-5)) * ((2) - (-2)))",
+   "w": "−56 = a · (2 − (−5))(2 − (−2)) = 28a ⇒ a = −2.",
+   "h": "Setze die Nullstellen in die Produktform ein, dann den Punkt."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat die Nullstellen x₁ = −6 und x₂ = 2 und geht durch P(4 | 60). Bestimme a in y = a(x − x₁)(x − x₂)."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(60) / (((4) - (-6)) * ((4) - (2)))",
+   "w": "60 = a · (4 − (−6))(4 − 2) = 20a ⇒ a = 3.",
+   "h": "Setze die Nullstellen in die Produktform ein, dann den Punkt."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat die Nullstellen x₁ = −5 und x₂ = 6 und geht durch P(−3 | −18). Bestimme a in y = a(x − x₁)(x − x₂)."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(-18) / (((-3) - (-5)) * ((-3) - (6)))",
+   "w": "−18 = a · (−3 − (−5))(−3 − 6) = −18a ⇒ a = 1.",
+   "h": "Setze die Nullstellen in die Produktform ein, dann den Punkt."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat die Nullstellen x₁ = 1 und x₂ = 4 und geht durch P(0 | 12). Bestimme a in y = a(x − x₁)(x − x₂)."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(12) / (((0) - (1)) * ((0) - (4)))",
+   "w": "12 = a · (0 − 1)(0 − 4) = 4a ⇒ a = 3.",
+   "h": "Setze die Nullstellen in die Produktform ein, dann den Punkt."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat die Nullstellen x₁ = −1 und x₂ = 4 und geht durch P(3 | −12). Bestimme a in y = a(x − x₁)(x − x₂)."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(-12) / (((3) - (-1)) * ((3) - (4)))",
+   "w": "−12 = a · (3 − (−1))(3 − 4) = −4a ⇒ a = 3.",
+   "h": "Setze die Nullstellen in die Produktform ein, dann den Punkt."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Parabel y = ax² + bx + c durch (0 | −4), (2 | −8), (−1 | −5).",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     -1,
+     0,
+     -4
+    ]
+   },
+   "w": "Aus (0 | −4) folgt c = −4; die anderen Punkte liefern a = −1, b = 0: y = −x² − 4.",
+   "h": "Setze die Punkte ein; der Punkt mit x = 0 liefert sofort c.",
+   "c": [
+    "6 / -6",
+    "0 / -6",
+    "24 / -6"
+   ]
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Parabel y = ax² + bx + c durch (0 | 3), (1 | 10), (−1 | 2).",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     3,
+     4,
+     3
+    ]
+   },
+   "w": "Aus (0 | 3) folgt c = 3; die anderen Punkte liefern a = 3, b = 4: y = 3x² + 4x + 3.",
+   "h": "Setze die Punkte ein; der Punkt mit x = 0 liefert sofort c.",
+   "c": [
+    "-6 / -2",
+    "-8 / -2",
+    "-6 / -2"
+   ]
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Parabel y = ax² + bx + c durch (0 | −3), (2 | −5), (−2 | −9).",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     -1,
+     1,
+     -3
+    ]
+   },
+   "w": "Aus (0 | −3) folgt c = −3; die anderen Punkte liefern a = −1, b = 1: y = −x² + x − 3.",
+   "h": "Setze die Punkte ein; der Punkt mit x = 0 liefert sofort c.",
+   "c": [
+    "16 / -16",
+    "-16 / -16",
+    "48 / -16"
+   ]
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat den Scheitel S(2 | 1) und geht durch P(3 | 0). Bestimme a in y = a(x − d)² + e."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "((0) - (1)) / ((3) - (2)) ** 2",
+   "w": "0 = a · (3 − 2)² + 1 = 1a + 1 ⇒ a = −1.",
+   "h": "Setze Scheitel und Punkt in die Scheitelform ein."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Parabel y = ax² + bx + c durch (0 | 4), (2 | 10), (−2 | 6).",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     1,
+     1,
+     4
+    ]
+   },
+   "w": "Aus (0 | 4) folgt c = 4; die anderen Punkte liefern a = 1, b = 1: y = x² + x + 4.",
+   "h": "Setze die Punkte ein; der Punkt mit x = 0 liefert sofort c.",
+   "c": [
+    "-16 / -16",
+    "-16 / -16",
+    "-64 / -16"
+   ]
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat die Nullstellen x₁ = 1 und x₂ = 6 und geht durch P(0 | −12). Bestimme a in y = a(x − x₁)(x − x₂)."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "(-12) / (((0) - (1)) * ((0) - (6)))",
+   "w": "−12 = a · (0 − 1)(0 − 6) = 6a ⇒ a = −2."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat die Nullstellen x₁ = −2 und x₂ = 1 und geht durch P(5 | 84). Bestimme a in y = a(x − x₁)(x − x₂)."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(84) / (((5) - (-2)) * ((5) - (1)))",
+   "w": "84 = a · (5 − (−2))(5 − 1) = 28a ⇒ a = 3."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat die Nullstellen x₁ = −6 und x₂ = 1 und geht durch P(4 | −60). Bestimme a in y = a(x − x₁)(x − x₂)."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "(-60) / (((4) - (-6)) * ((4) - (1)))",
+   "w": "−60 = a · (4 − (−6))(4 − 1) = 30a ⇒ a = −2."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat die Nullstellen x₁ = −5 und x₂ = 1 und geht durch P(4 | −81). Bestimme a in y = a(x − x₁)(x − x₂)."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "(-81) / (((4) - (-5)) * ((4) - (1)))",
+   "w": "−81 = a · (4 − (−5))(4 − 1) = 27a ⇒ a = −3."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat die Nullstellen x₁ = 0 und x₂ = 3 und geht durch P(5 | 20). Bestimme a in y = a(x − x₁)(x − x₂)."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(20) / (((5) - (0)) * ((5) - (3)))",
+   "w": "20 = a · (5 − 0)(5 − 3) = 10a ⇒ a = 2."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat die Nullstellen x₁ = −3 und x₂ = −2 und geht durch P(5 | 112). Bestimme a in y = a(x − x₁)(x − x₂)."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(112) / (((5) - (-3)) * ((5) - (-2)))",
+   "w": "112 = a · (5 − (−3))(5 − (−2)) = 56a ⇒ a = 2."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat die Nullstellen x₁ = 1 und x₂ = 5 und geht durch P(−1 | −36). Bestimme a in y = a(x − x₁)(x − x₂)."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "(-36) / (((-1) - (1)) * ((-1) - (5)))",
+   "w": "−36 = a · (−1 − 1)(−1 − 5) = 12a ⇒ a = −3."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat die Nullstellen x₁ = −5 und x₂ = 2 und geht durch P(−4 | 18). Bestimme a in y = a(x − x₁)(x − x₂)."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "(18) / (((-4) - (-5)) * ((-4) - (2)))",
+   "w": "18 = a · (−4 − (−5))(−4 − 2) = −6a ⇒ a = −3."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat die Nullstellen x₁ = −3 und x₂ = 3 und geht durch P(−1 | −16). Bestimme a in y = a(x − x₁)(x − x₂)."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(-16) / (((-1) - (-3)) * ((-1) - (3)))",
+   "w": "−16 = a · (−1 − (−3))(−1 − 3) = −8a ⇒ a = 2."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat die Nullstellen x₁ = −6 und x₂ = −5 und geht durch P(−4 | 2). Bestimme a in y = a(x − x₁)(x − x₂)."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(2) / (((-4) - (-6)) * ((-4) - (-5)))",
+   "w": "2 = a · (−4 − (−6))(−4 − (−5)) = 2a ⇒ a = 1."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen größten Wert nimmt f(x) = −2x² + 16x − 27 an?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(-2) * (4) ** 2 + (16) * (4) + (-27)",
+   "w": "f(x) = −2(x − 4)² + 5; Scheitel S(4 | 5), höchster Punkt: 5.",
+   "h": "Bestimme den Scheitel; sein y-Wert ist der Extremwert."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen kleinsten Wert nimmt f(x) = x² + 8x + 14 an?"
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "(1) * (-4) ** 2 + (8) * (-4) + (14)",
+   "w": "f(x) = (x + 4)² − 2; Scheitel S(−4 | −2), tiefster Punkt: −2.",
+   "h": "Bestimme den Scheitel; sein y-Wert ist der Extremwert."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen kleinsten Wert nimmt f(x) = 2x² − 16x + 27 an?"
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "(2) * (4) ** 2 + (-16) * (4) + (27)",
+   "w": "f(x) = 2(x − 4)² − 5; Scheitel S(4 | −5), tiefster Punkt: −5.",
+   "h": "Bestimme den Scheitel; sein y-Wert ist der Extremwert."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen größten Wert nimmt f(x) = −2x² − 16x − 30 an?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(-2) * (-4) ** 2 + (-16) * (-4) + (-30)",
+   "w": "f(x) = −2(x + 4)² + 2; Scheitel S(−4 | 2), höchster Punkt: 2.",
+   "h": "Bestimme den Scheitel; sein y-Wert ist der Extremwert."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen kleinsten Wert nimmt f(x) = 2x² − 12x + 11 an?"
+   },
+   "o": {
+    "wert": -7
+   },
+   "c": "(2) * (3) ** 2 + (-12) * (3) + (11)",
+   "w": "f(x) = 2(x − 3)² − 7; Scheitel S(3 | −7), tiefster Punkt: −7.",
+   "h": "Bestimme den Scheitel; sein y-Wert ist der Extremwert."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen kleinsten Wert nimmt f(x) = x² + 4x + 3 an?"
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "(1) * (-2) ** 2 + (4) * (-2) + (3)",
+   "w": "f(x) = (x + 2)² − 1; Scheitel S(−2 | −1), tiefster Punkt: −1.",
+   "h": "Bestimme den Scheitel; sein y-Wert ist der Extremwert."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechteckiges Gehege soll mit 32 m Zaun umgeben werden. Welchen größten Flächeninhalt kann es haben?"
+   },
+   "o": {
+    "wert": 64,
+    "einheit": "m²"
+   },
+   "c": "(32 / 4) * (32 / 2 - 32 / 4)",
+   "w": "Seiten x und 16 − x: A(x) = −x² + 16x = −(x − 8)² + 64. Maximum 64 m² (Quadrat).",
+   "h": "Drücke die zweite Seite durch x aus und bestimme den Scheitel von A(x)."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechteckiges Gehege soll mit 44 m Zaun umgeben werden. Welchen größten Flächeninhalt kann es haben?"
+   },
+   "o": {
+    "wert": 121,
+    "einheit": "m²"
+   },
+   "c": "(44 / 4) * (44 / 2 - 44 / 4)",
+   "w": "Seiten x und 22 − x: A(x) = −x² + 22x = −(x − 11)² + 121. Maximum 121 m² (Quadrat).",
+   "h": "Drücke die zweite Seite durch x aus und bestimme den Scheitel von A(x)."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Zahlen haben die Summe 56. Wie groß ist ihr Produkt höchstens?"
+   },
+   "o": {
+    "wert": 784
+   },
+   "c": "(56 / 2) * (56 - 56 / 2)",
+   "w": "P(x) = x(56 − x) = −(x − 28)² + 784: höchstens 784 (bei x = 28).",
+   "h": "Nenne eine Zahl x und drücke die andere durch x aus."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechteckiges Gehege soll mit 80 m Zaun umgeben werden. Welchen größten Flächeninhalt kann es haben?"
+   },
+   "o": {
+    "wert": 400,
+    "einheit": "m²"
+   },
+   "c": "(80 / 4) * (80 / 2 - 80 / 4)",
+   "w": "Seiten x und 40 − x: A(x) = −x² + 40x = −(x − 20)² + 400. Maximum 400 m² (Quadrat).",
+   "h": "Drücke die zweite Seite durch x aus und bestimme den Scheitel von A(x)."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechteckiges Gehege soll mit 100 m Zaun umgeben werden. Welchen größten Flächeninhalt kann es haben?"
+   },
+   "o": {
+    "wert": 625,
+    "einheit": "m²"
+   },
+   "c": "(100 / 4) * (100 / 2 - 100 / 4)",
+   "w": "Seiten x und 50 − x: A(x) = −x² + 50x = −(x − 25)² + 625. Maximum 625 m² (Quadrat).",
+   "h": "Drücke die zweite Seite durch x aus und bestimme den Scheitel von A(x)."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechteckiges Gehege soll mit 84 m Zaun umgeben werden. Welchen größten Flächeninhalt kann es haben?"
+   },
+   "o": {
+    "wert": 441,
+    "einheit": "m²"
+   },
+   "c": "(84 / 4) * (84 / 2 - 84 / 4)",
+   "w": "Seiten x und 42 − x: A(x) = −x² + 42x = −(x − 21)² + 441. Maximum 441 m² (Quadrat).",
+   "h": "Drücke die zweite Seite durch x aus und bestimme den Scheitel von A(x)."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Verein verkauft 600 Karten zu je 30 €. Je 5 € Preiserhöhung werden 50 Karten weniger verkauft. Welcher Preis bringt die höchsten Einnahmen?"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "€"
+   },
+   "c": "30 + ((600) * (5) - (30) * (50)) / (2 * 5 * 50) * 5",
+   "w": "E(k) = (30 + 5k)(600 − 50k), Scheitel bei k = 3: Preis 45 €, Einnahmen 20 250 €.",
+   "h": "k = Anzahl der Erhöhungen. Einnahmen = Preis · Anzahl; Scheitel von E(k) bestimmen."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Ball fliegt nach h(t) = −5t² + 10t + 1 (t in s, h in m). Wie hoch fliegt er höchstens?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "m"
+   },
+   "c": "-5 * (10 / 10) ** 2 + 10 * (10 / 10) + 1.0",
+   "w": "Scheitel bei t = −10/(2 · (−5)) = 1 s; h(1) = 6 m.",
+   "h": "Die größte Höhe ist der y-Wert des Scheitels. Nutze t = −b/(2a)."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Ball fliegt nach h(t) = −5t² + 25t + 0,5 (t in s, h in m). Wie hoch fliegt er höchstens?"
+   },
+   "o": {
+    "wert": 31.75,
+    "einheit": "m"
+   },
+   "c": "-5 * (25 / 10) ** 2 + 25 * (25 / 10) + 0.5",
+   "w": "Scheitel bei t = −25/(2 · (−5)) = 2,5 s; h(2,5) = 31,75 m.",
+   "h": "Die größte Höhe ist der y-Wert des Scheitels. Nutze t = −b/(2a)."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Hauswand soll ein rechteckiger Auslauf mit 28 m Zaun abgegrenzt werden (die Wand ersetzt eine Seite). Welche Fläche ist höchstens möglich?"
+   },
+   "o": {
+    "wert": 98,
+    "einheit": "m²"
+   },
+   "c": "(28 / 4) * (28 - 2 * (28 / 4))",
+   "w": "Seiten x, x und 28 − 2x: A(x) = x(28 − 2x) = −2(x − 7)² + 98. Maximum 98 m².",
+   "h": "Zwei Seiten senkrecht zur Wand heißen x; die dritte Seite ist der Rest des Zauns."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Hauswand soll ein rechteckiger Auslauf mit 68 m Zaun abgegrenzt werden (die Wand ersetzt eine Seite). Welche Fläche ist höchstens möglich?"
+   },
+   "o": {
+    "wert": 578,
+    "einheit": "m²"
+   },
+   "c": "(68 / 4) * (68 - 2 * (68 / 4))",
+   "w": "Seiten x, x und 68 − 2x: A(x) = x(68 − 2x) = −2(x − 17)² + 578. Maximum 578 m².",
+   "h": "Zwei Seiten senkrecht zur Wand heißen x; die dritte Seite ist der Rest des Zauns."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Hauswand soll ein rechteckiger Auslauf mit 44 m Zaun abgegrenzt werden (die Wand ersetzt eine Seite). Welche Fläche ist höchstens möglich?"
+   },
+   "o": {
+    "wert": 242,
+    "einheit": "m²"
+   },
+   "c": "(44 / 4) * (44 - 2 * (44 / 4))",
+   "w": "Seiten x, x und 44 − 2x: A(x) = x(44 − 2x) = −2(x − 11)² + 242. Maximum 242 m².",
+   "h": "Zwei Seiten senkrecht zur Wand heißen x; die dritte Seite ist der Rest des Zauns."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechteckiges Gehege soll mit 96 m Zaun umgeben werden. Welchen größten Flächeninhalt kann es haben?"
+   },
+   "o": {
+    "wert": 576,
+    "einheit": "m²"
+   },
+   "c": "(96 / 4) * (96 / 2 - 96 / 4)",
+   "w": "Seiten x und 48 − x: A(x) = −x² + 48x = −(x − 24)² + 576. Maximum 576 m² (Quadrat)."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Zahlen haben die Summe 12. Wie groß ist ihr Produkt höchstens?"
+   },
+   "o": {
+    "wert": 36
+   },
+   "c": "(12 / 2) * (12 - 12 / 2)",
+   "w": "P(x) = x(12 − x) = −(x − 6)² + 36: höchstens 36 (bei x = 6)."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechteckiges Gehege soll mit 92 m Zaun umgeben werden. Welchen größten Flächeninhalt kann es haben?"
+   },
+   "o": {
+    "wert": 529,
+    "einheit": "m²"
+   },
+   "c": "(92 / 4) * (92 / 2 - 92 / 4)",
+   "w": "Seiten x und 46 − x: A(x) = −x² + 46x = −(x − 23)² + 529. Maximum 529 m² (Quadrat)."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechteckiges Gehege soll mit 28 m Zaun umgeben werden. Welchen größten Flächeninhalt kann es haben?"
+   },
+   "o": {
+    "wert": 49,
+    "einheit": "m²"
+   },
+   "c": "(28 / 4) * (28 / 2 - 28 / 4)",
+   "w": "Seiten x und 14 − x: A(x) = −x² + 14x = −(x − 7)² + 49. Maximum 49 m² (Quadrat)."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Zahlen haben die Summe 78. Wie groß ist ihr Produkt höchstens?"
+   },
+   "o": {
+    "wert": 1521
+   },
+   "c": "(78 / 2) * (78 - 78 / 2)",
+   "w": "P(x) = x(78 − x) = −(x − 39)² + 1 521: höchstens 1 521 (bei x = 39)."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Zahlen haben die Summe 36. Wie groß ist ihr Produkt höchstens?"
+   },
+   "o": {
+    "wert": 324
+   },
+   "c": "(36 / 2) * (36 - 36 / 2)",
+   "w": "P(x) = x(36 − x) = −(x − 18)² + 324: höchstens 324 (bei x = 18)."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechteckiges Gehege soll mit 112 m Zaun umgeben werden. Welchen größten Flächeninhalt kann es haben?"
+   },
+   "o": {
+    "wert": 784,
+    "einheit": "m²"
+   },
+   "c": "(112 / 4) * (112 / 2 - 112 / 4)",
+   "w": "Seiten x und 56 − x: A(x) = −x² + 56x = −(x − 28)² + 784. Maximum 784 m² (Quadrat)."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechteckiges Gehege soll mit 40 m Zaun umgeben werden. Welchen größten Flächeninhalt kann es haben?"
+   },
+   "o": {
+    "wert": 100,
+    "einheit": "m²"
+   },
+   "c": "(40 / 4) * (40 / 2 - 40 / 4)",
+   "w": "Seiten x und 20 − x: A(x) = −x² + 20x = −(x − 10)² + 100. Maximum 100 m² (Quadrat)."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Zahlen haben die Summe 34. Wie groß ist ihr Produkt höchstens?"
+   },
+   "o": {
+    "wert": 289
+   },
+   "c": "(34 / 2) * (34 - 34 / 2)",
+   "w": "P(x) = x(34 − x) = −(x − 17)² + 289: höchstens 289 (bei x = 17)."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Zahlen haben die Summe 46. Wie groß ist ihr Produkt höchstens?"
+   },
+   "o": {
+    "wert": 529
+   },
+   "c": "(46 / 2) * (46 - 46 / 2)",
+   "w": "P(x) = x(46 − x) = −(x − 23)² + 529: höchstens 529 (bei x = 23)."
+  }
+ ],
+ "offen": [
+  "Lernkarten „scheitel“ und „parameter“ brauchen Zeichnung: Parabel im Koordinatensystem (Scheitel und Öffnung am Graphen ablesen, Graph einer Gleichung zuordnen). Bisher nur über Terme und Worte.",
+  "Lernkarte „nullstellen“: Nullstellen am Graphen ablesen wäre mit Funktionsgraphen-Zeichnung möglich.",
+  "Parabel durch drei Punkte kommt auch im Thema gleichungen.lgs3 vor (dort ausführlich), hier nur als Stufe-3-Variante."
+ ]
+}

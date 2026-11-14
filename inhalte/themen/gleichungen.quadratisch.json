@@ -1,0 +1,4337 @@
+{
+ "thema_schluessel": "gleichungen.quadratisch",
+ "thema_id": 8,
+ "block_id": 58,
+ "klasse": {
+  "gym_by": 9,
+  "rs_by": 9,
+  "ib_myp": 4
+ },
+ "autor": "Claude (Paket Klasse 9)",
+ "inhalt": {
+  "ziel": "Quadratische Gleichungen mit der passenden Methode lösen und die Anzahl der Lösungen mit der Diskriminante begründen.",
+  "merke": [
+   "Ohne x-Glied: nach x² umstellen, ± Wurzel. Ohne Zahlglied: x ausklammern.",
+   "Produkt = 0: Satz vom Nullprodukt.",
+   "Lösungsformel: x₁,₂ = (−b ± √(b² − 4ac)) / (2a).",
+   "D > 0: zwei, D = 0: eine, D < 0: keine Lösung."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Sonderfälle",
+    "lernziele": [
+     "reinquadratisch",
+     "ausklammern",
+     "faktorisieren"
+    ]
+   },
+   {
+    "titel": "Allgemeine Verfahren",
+    "lernziele": [
+     "ergaenzung",
+     "loesungsformel"
+    ]
+   },
+   {
+    "titel": "Lösbarkeit und Anwendung",
+    "lernziele": [
+     "diskriminante",
+     "sachaufgabe"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "reinquadratisch",
+    "titel": "Gleichungen ohne x-Glied lösen",
+    "regel": "Bei ax² + c = 0 stellst du nach ⟦x²⟧ um. Ist x² = d mit d > 0, gibt es ⟦zwei Lösungen ±√d⟧; bei d = 0 eine, bei d < 0 ⟦keine⟧.",
+    "schritte": [
+     "3x² − 75 = 0 | + 75, dann : 3 ergibt x² = 25.",
+     "x₁ = ⟦−5⟧ und x₂ = ⟦5⟧."
+    ],
+    "probe": "3 · (−5)² − 75 = 75 − 75 = 0 ✓",
+    "fehler": "x² = 25 ⇒ x = 5 ist unvollständig: Auch (−5)² = 25. Die Lösungsmenge ist ⟦{−5; 5}⟧."
+   },
+   {
+    "lernziel": "ausklammern",
+    "titel": "Gleichungen ohne Zahlglied lösen",
+    "regel": "Bei ax² + bx = 0 ⟦klammerst du x aus⟧: x(ax + b) = 0. Ein Produkt ist null, wenn ein ⟦Faktor null⟧ ist (Satz vom Nullprodukt).",
+    "schritte": [
+     "2x² − 12x = 0 ⇔ x(2x − 12) = 0.",
+     "x = 0 oder 2x − 12 = 0, also ⟦x₁ = 0, x₂ = 6⟧."
+    ],
+    "probe": "2 · 6² − 12 · 6 = 72 − 72 = 0 ✓",
+    "fehler": "2x² = 12x | : x ergibt nur x = 6 – dabei geht die Lösung ⟦x = 0⟧ verloren. Nie durch x teilen, sondern ausklammern."
+   },
+   {
+    "lernziel": "faktorisieren",
+    "titel": "Faktorisieren und Nullprodukt",
+    "regel": "Steht die Gleichung als ⟦Produkt = 0⟧, liest du die Lösungen ab: (x − p)(x − q) = 0 ⇔ ⟦x = p oder x = q⟧. Binomische Formeln helfen beim Faktorisieren.",
+    "schritte": [
+     "x² − 8x + 16 = 0: 2. binomische Formel, also (x − 4)² = 0.",
+     "Nur x − 4 = 0, also eine Lösung: ⟦x = 4⟧."
+    ],
+    "probe": "4² − 8 · 4 + 16 = 16 − 32 + 16 = 0 ✓",
+    "fehler": "(x + 3)(x − 2) = 0 ⇒ x = 3 oder x = −2 ist falsch: Die ⟦Vorzeichen drehen sich um⟧. Richtig: x = −3 oder x = 2."
+   },
+   {
+    "lernziel": "ergaenzung",
+    "titel": "Quadratische Ergänzung",
+    "regel": "Bei x² + bx + c = 0 ergänzt du ⟦(b/2)²⟧ auf beiden Seiten, sodass links ⟦(x + b/2)²⟧ steht. Dann wie bei x² = d weiterrechnen.",
+    "schritte": [
+     "x² + 6x − 7 = 0 ⇔ x² + 6x + 9 = 7 + 9.",
+     "(x + 3)² = 16 ⇒ x + 3 = ±4 ⇒ ⟦x₁ = −7, x₂ = 1⟧."
+    ],
+    "probe": "1² + 6 · 1 − 7 = 0 ✓",
+    "fehler": "x² + 6x − 7 = 0 ⇒ (x + 6)² = 7 ist falsch: In die Klammer gehört die ⟦Hälfte⟧ von 6, und (b/2)² = 9 muss auf ⟦beiden Seiten⟧ ergänzt werden."
+   },
+   {
+    "lernziel": "loesungsformel",
+    "titel": "Die Lösungsformel anwenden",
+    "regel": "Für ax² + bx + c = 0 (a ≠ 0) gilt ⟦x₁,₂ = (−b ± √(b² − 4ac)) / (2a)⟧. Den Term ⟦D = b² − 4ac⟧ unter der Wurzel heißt Diskriminante.",
+    "schritte": [
+     "2x² − 5x − 3 = 0: a = 2, b = −5, c = −3. D = 25 + 24 = 49.",
+     "x₁,₂ = (5 ± 7) / 4, also ⟦x₁ = −0,5; x₂ = 3⟧."
+    ],
+    "probe": "2 · 3² − 5 · 3 − 3 = 18 − 15 − 3 = 0 ✓",
+    "fehler": "Bei b = −5 ist −b = −5 falsch: Minus mal Minus ergibt ⟦−b = 5⟧. Auch b² = (−5)² = 25, nicht −25."
+   },
+   {
+    "lernziel": "diskriminante",
+    "titel": "Wie viele Lösungen gibt es?",
+    "regel": "Die Diskriminante entscheidet: ⟦D > 0⟧ zwei Lösungen, ⟦D = 0⟧ genau eine, ⟦D < 0⟧ keine Lösung.",
+    "schritte": [
+     "x² − 4x + 7 = 0: D = (−4)² − 4 · 1 · 7 = 16 − 28 = −12.",
+     "D < 0, also ⟦keine Lösung⟧."
+    ],
+    "probe": "Quadratische Ergänzung: (x − 2)² + 3 = 0 – links steht immer mindestens 3 ✓",
+    "fehler": "„D = −12, also zwei Lösungen, weil man ± rechnet“ ist falsch: Aus einer ⟦negativen⟧ Zahl gibt es keine Quadratwurzel."
+   },
+   {
+    "lernziel": "sachaufgabe",
+    "titel": "Sachaufgaben lösen",
+    "regel": "Variable festlegen, ⟦Gleichung aufstellen⟧, lösen und die Lösungen am ⟦Sachzusammenhang prüfen⟧ (z. B. keine negativen Längen).",
+    "schritte": [
+     "Ein Rechteck ist 4 cm länger als breit und hat 45 cm² Fläche: x(x + 4) = 45 ⇔ x² + 4x − 45 = 0.",
+     "Lösungen x = −9 und x = 5; nur ⟦x = 5⟧ ist eine Länge. Das Rechteck ist 5 cm breit und 9 cm lang."
+    ],
+    "probe": "5 cm · 9 cm = 45 cm² ✓",
+    "fehler": "Die Lösung x = −9 als Breite anzugeben ist falsch: Längen sind ⟦positiv⟧. Diese Lösung passt nicht zum Sachzusammenhang."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "reinquadratisch",
+    "text": "Gleichungen ohne x-Glied lösen",
+    "lernziele": [
+     "reinquadratisch"
+    ]
+   },
+   {
+    "k": "ausklammern",
+    "text": "Gleichungen ohne Zahlglied lösen",
+    "lernziele": [
+     "ausklammern"
+    ]
+   },
+   {
+    "k": "faktorisieren",
+    "text": "Faktorisieren und Nullprodukt",
+    "lernziele": [
+     "faktorisieren"
+    ]
+   },
+   {
+    "k": "ergaenzung",
+    "text": "Quadratische Ergänzung",
+    "lernziele": [
+     "ergaenzung"
+    ]
+   },
+   {
+    "k": "loesungsformel",
+    "text": "Die Lösungsformel anwenden",
+    "lernziele": [
+     "loesungsformel"
+    ]
+   },
+   {
+    "k": "diskriminante",
+    "text": "Wie viele Lösungen gibt es?",
+    "lernziele": [
+     "diskriminante"
+    ]
+   },
+   {
+    "k": "sachaufgabe",
+    "text": "Sachaufgaben lösen",
+    "lernziele": [
+     "sachaufgabe"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "reinquadratisch",
+    "ausklammern",
+    "faktorisieren",
+    "ergaenzung",
+    "loesungsformel",
+    "diskriminante",
+    "sachaufgabe"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), Aufgaben vom Generator erzeugt und berechnet.",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 169 = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -13,
+     13
+    ]
+   },
+   "w": "x² = 169, also x = ±13.",
+   "h": "Bringe die Zahl auf die andere Seite.",
+   "c": [
+    "-169 / 13",
+    "169 / 13"
+   ]
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² = 121.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -11,
+     11
+    ]
+   },
+   "w": "x = ±√121, also x₁ = −11, x₂ = 11.",
+   "h": "Denke an beide Vorzeichen.",
+   "c": [
+    "-121 / 11",
+    "121 / 11"
+   ]
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 64 = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -8,
+     8
+    ]
+   },
+   "w": "x² = 64, also x = ±8.",
+   "h": "Bringe die Zahl auf die andere Seite.",
+   "c": [
+    "-64 / 8",
+    "64 / 8"
+   ]
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² = 4.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -2,
+     2
+    ]
+   },
+   "w": "x = ±√4, also x₁ = −2, x₂ = 2.",
+   "h": "Denke an beide Vorzeichen.",
+   "c": [
+    "-4 / 2",
+    "4 / 2"
+   ]
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 196 = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -14,
+     14
+    ]
+   },
+   "w": "x² = 196, also x = ±14.",
+   "h": "Bringe die Zahl auf die andere Seite.",
+   "c": [
+    "-196 / 14",
+    "196 / 14"
+   ]
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² = 100.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -10,
+     10
+    ]
+   },
+   "w": "x = ±√100, also x₁ = −10, x₂ = 10.",
+   "h": "Denke an beide Vorzeichen.",
+   "c": [
+    "-100 / 10",
+    "100 / 10"
+   ]
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat 2x² + 98 = 0?"
+   },
+   "a": [
+    "L = {−7; 7}",
+    "L = {−7}",
+    "L = { }",
+    "L = {7}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "2x² = −98 ⇔ x² = −49. Ein Quadrat ist nie negativ, also keine Lösung.",
+   "h": "Stelle nach x² um. Kann ein Quadrat negativ sein?"
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 5x² − 320 = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -8,
+     8
+    ]
+   },
+   "w": "5x² = 320 ⇔ x² = 64, also x = ±8.",
+   "h": "Erst nach x² auflösen, dann die Wurzel ziehen.",
+   "c": [
+    "-(320 / 5) / 8",
+    "(320 / 5) / 8"
+   ]
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat 4x² + 100 = 0?"
+   },
+   "a": [
+    "L = { }",
+    "L = {−5}",
+    "L = {−5; 5}",
+    "L = {5}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "4x² = −100 ⇔ x² = −25. Ein Quadrat ist nie negativ, also keine Lösung.",
+   "h": "Stelle nach x² um. Kann ein Quadrat negativ sein?"
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat 2x² + 2 = 0?"
+   },
+   "a": [
+    "L = {−1}",
+    "L = { }",
+    "L = {1}",
+    "L = {−1; 1}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "2x² = −2 ⇔ x² = −1. Ein Quadrat ist nie negativ, also keine Lösung.",
+   "h": "Stelle nach x² um. Kann ein Quadrat negativ sein?"
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 6x² − 6 = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -1,
+     1
+    ]
+   },
+   "w": "6x² = 6 ⇔ x² = 1, also x = ±1.",
+   "h": "Erst nach x² auflösen, dann die Wurzel ziehen.",
+   "c": [
+    "-(6 / 6) / 1",
+    "(6 / 6) / 1"
+   ]
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 4x² − 144 = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -6,
+     6
+    ]
+   },
+   "w": "4x² = 144 ⇔ x² = 36, also x = ±6.",
+   "h": "Erst nach x² auflösen, dann die Wurzel ziehen.",
+   "c": [
+    "-(144 / 4) / 6",
+    "(144 / 4) / 6"
+   ]
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat (x + 9)² = -1?"
+   },
+   "a": [
+    "L = {−10; −8}",
+    "L = {−1; 1}",
+    "L = {−9}",
+    "L = { }"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ein Quadrat kann nicht -1 ergeben, also keine Lösung.",
+   "h": "Kann ein Quadrat negativ sein?"
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat (x + 1)² = -64?"
+   },
+   "a": [
+    "L = {−8; 8}",
+    "L = {−9; 7}",
+    "L = {−1}",
+    "L = { }"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ein Quadrat kann nicht -64 ergeben, also keine Lösung.",
+   "h": "Kann ein Quadrat negativ sein?"
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat (x − 5)² = -16?"
+   },
+   "a": [
+    "L = { }",
+    "L = {5}",
+    "L = {1; 9}",
+    "L = {−4; 4}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein Quadrat kann nicht -16 ergeben, also keine Lösung.",
+   "h": "Kann ein Quadrat negativ sein?"
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat (x + 3)² = -1?"
+   },
+   "a": [
+    "L = {−4; −2}",
+    "L = {−1; 1}",
+    "L = { }",
+    "L = {−3}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ein Quadrat kann nicht -1 ergeben, also keine Lösung.",
+   "h": "Kann ein Quadrat negativ sein?"
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x + 9)² = 4.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -11,
+     -7
+    ]
+   },
+   "w": "x + 9 = ±2, also x₁ = −9 − 2 = −11, x₂ = −9 + 2 = −7.",
+   "h": "Ziehe zuerst die Wurzel: Die Klammer ist ± die Wurzel.",
+   "c": [
+    "-9 - 4 / 2",
+    "-9 + 4 / 2"
+   ]
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x + 8)² = 36.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -14,
+     -2
+    ]
+   },
+   "w": "x + 8 = ±6, also x₁ = −8 − 6 = −14, x₂ = −8 + 6 = −2.",
+   "h": "Ziehe zuerst die Wurzel: Die Klammer ist ± die Wurzel.",
+   "c": [
+    "-8 - 36 / 6",
+    "-8 + 36 / 6"
+   ]
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 4x² − 36 = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -3,
+     3
+    ]
+   },
+   "w": "4x² = 36 ⇔ x² = 9, also x = ±3.",
+   "c": [
+    "-(36 / 4) / 3",
+    "(36 / 4) / 3"
+   ]
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 6x² − 54 = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -3,
+     3
+    ]
+   },
+   "w": "6x² = 54 ⇔ x² = 9, also x = ±3.",
+   "c": [
+    "-(54 / 6) / 3",
+    "(54 / 6) / 3"
+   ]
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat 2x² + 200 = 0?"
+   },
+   "a": [
+    "L = {−10; 10}",
+    "L = {10}",
+    "L = { }",
+    "L = {−10}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "2x² = −200 ⇔ x² = −100. Ein Quadrat ist nie negativ, also keine Lösung."
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 5x² − 245 = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -7,
+     7
+    ]
+   },
+   "w": "5x² = 245 ⇔ x² = 49, also x = ±7.",
+   "c": [
+    "-(245 / 5) / 7",
+    "(245 / 5) / 7"
+   ]
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 4x² − 64 = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -4,
+     4
+    ]
+   },
+   "w": "4x² = 64 ⇔ x² = 16, also x = ±4.",
+   "c": [
+    "-(64 / 4) / 4",
+    "(64 / 4) / 4"
+   ]
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat 2x² + 128 = 0?"
+   },
+   "a": [
+    "L = {8}",
+    "L = {−8}",
+    "L = {−8; 8}",
+    "L = { }"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "2x² = −128 ⇔ x² = −64. Ein Quadrat ist nie negativ, also keine Lösung."
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3x² − 300 = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -10,
+     10
+    ]
+   },
+   "w": "3x² = 300 ⇔ x² = 100, also x = ±10.",
+   "c": [
+    "-(300 / 3) / 10",
+    "(300 / 3) / 10"
+   ]
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 4x² − 196 = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -7,
+     7
+    ]
+   },
+   "w": "4x² = 196 ⇔ x² = 49, also x = ±7.",
+   "c": [
+    "-(196 / 4) / 7",
+    "(196 / 4) / 7"
+   ]
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat 4x² + 4 = 0?"
+   },
+   "a": [
+    "L = { }",
+    "L = {1}",
+    "L = {−1}",
+    "L = {−1; 1}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "4x² = −4 ⇔ x² = −1. Ein Quadrat ist nie negativ, also keine Lösung."
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3x² − 48 = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -4,
+     4
+    ]
+   },
+   "w": "3x² = 48 ⇔ x² = 16, also x = ±4.",
+   "c": [
+    "-(48 / 3) / 4",
+    "(48 / 3) / 4"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 12x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     12
+    ]
+   },
+   "w": "x(x − 12) = 0, also x = 0 oder x = 12.",
+   "h": "Klammere x aus.",
+   "c": [
+    "min(0, -(-12))",
+    "max(0, -(-12))"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² + 11x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -11,
+     0
+    ]
+   },
+   "w": "x(x + 11) = 0, also x = 0 oder x = −11.",
+   "h": "Klammere x aus.",
+   "c": [
+    "min(0, -(11))",
+    "max(0, -(11))"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     1
+    ]
+   },
+   "w": "x(x − 1) = 0, also x = 0 oder x = 1.",
+   "h": "Klammere x aus.",
+   "c": [
+    "min(0, -(-1))",
+    "max(0, -(-1))"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² + 3x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -3,
+     0
+    ]
+   },
+   "w": "x(x + 3) = 0, also x = 0 oder x = −3.",
+   "h": "Klammere x aus.",
+   "c": [
+    "min(0, -(3))",
+    "max(0, -(3))"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 3x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     3
+    ]
+   },
+   "w": "x(x − 3) = 0, also x = 0 oder x = 3.",
+   "h": "Klammere x aus.",
+   "c": [
+    "min(0, -(-3))",
+    "max(0, -(-3))"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² + 10x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -10,
+     0
+    ]
+   },
+   "w": "x(x + 10) = 0, also x = 0 oder x = −10.",
+   "h": "Klammere x aus.",
+   "c": [
+    "min(0, -(10))",
+    "max(0, -(10))"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 7x² + 21x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -3,
+     0
+    ]
+   },
+   "w": "x(7x + 21) = 0, also x = 0 oder 7x = −21, x = −3.",
+   "h": "Klammere x aus und setze jeden Faktor gleich null.",
+   "c": [
+    "min(0, -(21) / 7)",
+    "max(0, -(21) / 7)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3x² + 12x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -4,
+     0
+    ]
+   },
+   "w": "x(3x + 12) = 0, also x = 0 oder 3x = −12, x = −4.",
+   "h": "Klammere x aus und setze jeden Faktor gleich null.",
+   "c": [
+    "min(0, -(12) / 3)",
+    "max(0, -(12) / 3)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 4x² − 36x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     9
+    ]
+   },
+   "w": "x(4x − 36) = 0, also x = 0 oder 4x = 36, x = 9.",
+   "h": "Klammere x aus und setze jeden Faktor gleich null.",
+   "c": [
+    "min(0, -(-36) / 4)",
+    "max(0, -(-36) / 4)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3x² + 18x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -6,
+     0
+    ]
+   },
+   "w": "x(3x + 18) = 0, also x = 0 oder 3x = −18, x = −6.",
+   "h": "Klammere x aus und setze jeden Faktor gleich null.",
+   "c": [
+    "min(0, -(18) / 3)",
+    "max(0, -(18) / 3)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 5x² + 20x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -4,
+     0
+    ]
+   },
+   "w": "x(5x + 20) = 0, also x = 0 oder 5x = −20, x = −4.",
+   "h": "Klammere x aus und setze jeden Faktor gleich null.",
+   "c": [
+    "min(0, -(20) / 5)",
+    "max(0, -(20) / 5)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 2x² − 18x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     9
+    ]
+   },
+   "w": "x(2x − 18) = 0, also x = 0 oder 2x = 18, x = 9.",
+   "h": "Klammere x aus und setze jeden Faktor gleich null.",
+   "c": [
+    "min(0, -(-18) / 2)",
+    "max(0, -(-18) / 2)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst 4x² = 24x, indem er durch x teilt, und erhält x = 6. Was stimmt?"
+   },
+   "a": [
+    "Unvollständig: Auch x = 0 ist eine Lösung.",
+    "Richtig, das ist die einzige Lösung.",
+    "Falsch: Die Lösung ist x = 24.",
+    "Falsch: Die Lösung ist x = −6."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Durch x teilen ist nur für x ≠ 0 erlaubt. Ausklammern: x(4x − 24) = 0 liefert x = 0 und x = 6.",
+   "h": "Was passiert beim Teilen durch x mit der Möglichkeit x = 0?"
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 7x² = 14x.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     2
+    ]
+   },
+   "w": "7x² − 14x = 0 ⇔ x(7x − 14) = 0, also x = 0 oder x = 2.",
+   "h": "Bringe alles auf eine Seite – nicht durch x teilen!",
+   "c": [
+    "min(0, -(-14) / 7)",
+    "max(0, -(-14) / 7)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 7x² = 28x.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     4
+    ]
+   },
+   "w": "7x² − 28x = 0 ⇔ x(7x − 28) = 0, also x = 0 oder x = 4.",
+   "h": "Bringe alles auf eine Seite – nicht durch x teilen!",
+   "c": [
+    "min(0, -(-28) / 7)",
+    "max(0, -(-28) / 7)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 2x² = −4x.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -2,
+     0
+    ]
+   },
+   "w": "2x² + 4x = 0 ⇔ x(2x + 4) = 0, also x = 0 oder x = −2.",
+   "h": "Bringe alles auf eine Seite – nicht durch x teilen!",
+   "c": [
+    "min(0, -(4) / 2)",
+    "max(0, -(4) / 2)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst 7x² = −28x, indem er durch x teilt, und erhält x = −4. Was stimmt?"
+   },
+   "a": [
+    "Richtig, das ist die einzige Lösung.",
+    "Unvollständig: Auch x = 0 ist eine Lösung.",
+    "Falsch: Die Lösung ist x = −28.",
+    "Falsch: Die Lösung ist x = 4."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Durch x teilen ist nur für x ≠ 0 erlaubt. Ausklammern: x(7x + 28) = 0 liefert x = 0 und x = −4.",
+   "h": "Was passiert beim Teilen durch x mit der Möglichkeit x = 0?"
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 5x² = 30x.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     6
+    ]
+   },
+   "w": "5x² − 30x = 0 ⇔ x(5x − 30) = 0, also x = 0 oder x = 6.",
+   "h": "Bringe alles auf eine Seite – nicht durch x teilen!",
+   "c": [
+    "min(0, -(-30) / 5)",
+    "max(0, -(-30) / 5)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3x² − 18x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     6
+    ]
+   },
+   "w": "x(3x − 18) = 0, also x = 0 oder 3x = 18, x = 6.",
+   "c": [
+    "min(0, -(-18) / 3)",
+    "max(0, -(-18) / 3)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3x² + 15x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -5,
+     0
+    ]
+   },
+   "w": "x(3x + 15) = 0, also x = 0 oder 3x = −15, x = −5.",
+   "c": [
+    "min(0, -(15) / 3)",
+    "max(0, -(15) / 3)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3x² − 24x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     8
+    ]
+   },
+   "w": "x(3x − 24) = 0, also x = 0 oder 3x = 24, x = 8.",
+   "c": [
+    "min(0, -(-24) / 3)",
+    "max(0, -(-24) / 3)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 5x² + 35x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -7,
+     0
+    ]
+   },
+   "w": "x(5x + 35) = 0, also x = 0 oder 5x = −35, x = −7.",
+   "c": [
+    "min(0, -(35) / 5)",
+    "max(0, -(35) / 5)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 7x² − 63x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     9
+    ]
+   },
+   "w": "x(7x − 63) = 0, also x = 0 oder 7x = 63, x = 9.",
+   "c": [
+    "min(0, -(-63) / 7)",
+    "max(0, -(-63) / 7)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 4x² + 36x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -9,
+     0
+    ]
+   },
+   "w": "x(4x + 36) = 0, also x = 0 oder 4x = −36, x = −9.",
+   "c": [
+    "min(0, -(36) / 4)",
+    "max(0, -(36) / 4)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3x² + 9x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -3,
+     0
+    ]
+   },
+   "w": "x(3x + 9) = 0, also x = 0 oder 3x = −9, x = −3.",
+   "c": [
+    "min(0, -(9) / 3)",
+    "max(0, -(9) / 3)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 2x² + 16x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -8,
+     0
+    ]
+   },
+   "w": "x(2x + 16) = 0, also x = 0 oder 2x = −16, x = −8.",
+   "c": [
+    "min(0, -(16) / 2)",
+    "max(0, -(16) / 2)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 4x² + 4x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -1,
+     0
+    ]
+   },
+   "w": "x(4x + 4) = 0, also x = 0 oder 4x = −4, x = −1.",
+   "c": [
+    "min(0, -(4) / 4)",
+    "max(0, -(4) / 4)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 6x² + 42x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -7,
+     0
+    ]
+   },
+   "w": "x(6x + 42) = 0, also x = 0 oder 6x = −42, x = −7.",
+   "c": [
+    "min(0, -(42) / 6)",
+    "max(0, -(42) / 6)"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x + 2) · (x − 8) = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -2,
+     8
+    ]
+   },
+   "w": "Satz vom Nullprodukt: x + 2 = 0 oder x − 8 = 0, also x = −2 oder x = 8.",
+   "h": "Wann ist ein Produkt null?",
+   "c": [
+    "min(-2, 8)",
+    "max(-2, 8)"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x + 2) · (x − 4) = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -2,
+     4
+    ]
+   },
+   "w": "Satz vom Nullprodukt: x + 2 = 0 oder x − 4 = 0, also x = −2 oder x = 4.",
+   "h": "Wann ist ein Produkt null?",
+   "c": [
+    "min(-2, 4)",
+    "max(-2, 4)"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x + 2) · (x − 3) = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -2,
+     3
+    ]
+   },
+   "w": "Satz vom Nullprodukt: x + 2 = 0 oder x − 3 = 0, also x = −2 oder x = 3.",
+   "h": "Wann ist ein Produkt null?",
+   "c": [
+    "min(-2, 3)",
+    "max(-2, 3)"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x − 9) · (x + 3) = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -3,
+     9
+    ]
+   },
+   "w": "Satz vom Nullprodukt: x − 9 = 0 oder x + 3 = 0, also x = 9 oder x = −3.",
+   "h": "Wann ist ein Produkt null?",
+   "c": [
+    "min(9, -3)",
+    "max(9, -3)"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x + 8) · (x + 1) = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -8,
+     -1
+    ]
+   },
+   "w": "Satz vom Nullprodukt: x + 8 = 0 oder x + 1 = 0, also x = −8 oder x = −1.",
+   "h": "Wann ist ein Produkt null?",
+   "c": [
+    "min(-8, -1)",
+    "max(-8, -1)"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x + 4) · (x − 2) = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -4,
+     2
+    ]
+   },
+   "w": "Satz vom Nullprodukt: x + 4 = 0 oder x − 2 = 0, also x = −4 oder x = 2.",
+   "h": "Wann ist ein Produkt null?",
+   "c": [
+    "min(-4, 2)",
+    "max(-4, 2)"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 4x + 4 = 0.",
+    "schablone": "x = □",
+    "hinweis": "die einzige Lösung"
+   },
+   "o": {
+    "werte": [
+     2
+    ]
+   },
+   "w": "Binomische Formel: (x − 2)² = 0, also x = 2.",
+   "h": "Erkennst du eine binomische Formel?",
+   "c": [
+    "-(-4) / 2"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 4x² − 4 = 0 durch Faktorisieren.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -1,
+     1
+    ]
+   },
+   "w": "3. binomische Formel: (2x − 2)(2x + 2) = 0, also x = ±1.",
+   "h": "Erkennst du die 3. binomische Formel?",
+   "c": [
+    "-2 / 2",
+    "2 / 2"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 100 = 0 durch Faktorisieren.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -10,
+     10
+    ]
+   },
+   "w": "3. binomische Formel: (x − 10)(x + 10) = 0, also x = ±10.",
+   "h": "Erkennst du die 3. binomische Formel?",
+   "c": [
+    "-10 / 1",
+    "10 / 1"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 16x² − 16 = 0 durch Faktorisieren.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -1,
+     1
+    ]
+   },
+   "w": "3. binomische Formel: (4x − 4)(4x + 4) = 0, also x = ±1.",
+   "h": "Erkennst du die 3. binomische Formel?",
+   "c": [
+    "-4 / 4",
+    "4 / 4"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 9 = 0 durch Faktorisieren.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -3,
+     3
+    ]
+   },
+   "w": "3. binomische Formel: (x − 3)(x + 3) = 0, also x = ±3.",
+   "h": "Erkennst du die 3. binomische Formel?",
+   "c": [
+    "-3 / 1",
+    "3 / 1"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 16x² − 64 = 0 durch Faktorisieren.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -2,
+     2
+    ]
+   },
+   "w": "3. binomische Formel: (4x − 8)(4x + 8) = 0, also x = ±2.",
+   "h": "Erkennst du die 3. binomische Formel?",
+   "c": [
+    "-8 / 4",
+    "8 / 4"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 9x + 20 = 0. Tipp: Faktorisiere in (x − p)(x − q).",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     4,
+     5
+    ]
+   },
+   "w": "Gesucht p, q mit p + q = 9 und p · q = 20: p = 4, q = 5. (x − 4)(x − 5) = 0.",
+   "h": "Suche zwei Zahlen, deren Produkt das Zahlglied und deren Summe die Gegenzahl von b ist.",
+   "c": [
+    "(-(-9) - 1) / (2 * 1)",
+    "(-(-9) + 1) / (2 * 1)"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 8x + 15 = 0. Tipp: Faktorisiere in (x − p)(x − q).",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     3,
+     5
+    ]
+   },
+   "w": "Gesucht p, q mit p + q = 8 und p · q = 15: p = 3, q = 5. (x − 3)(x − 5) = 0.",
+   "h": "Suche zwei Zahlen, deren Produkt das Zahlglied und deren Summe die Gegenzahl von b ist.",
+   "c": [
+    "(-(-8) - 2) / (2 * 1)",
+    "(-(-8) + 2) / (2 * 1)"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 6x + 8 = 0. Tipp: Faktorisiere in (x − p)(x − q).",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     2,
+     4
+    ]
+   },
+   "w": "Gesucht p, q mit p + q = 6 und p · q = 8: p = 2, q = 4. (x − 2)(x − 4) = 0.",
+   "h": "Suche zwei Zahlen, deren Produkt das Zahlglied und deren Summe die Gegenzahl von b ist.",
+   "c": [
+    "(-(-6) - 2) / (2 * 1)",
+    "(-(-6) + 2) / (2 * 1)"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 13x + 40 = 0. Tipp: Faktorisiere in (x − p)(x − q).",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     5,
+     8
+    ]
+   },
+   "w": "Gesucht p, q mit p + q = 13 und p · q = 40: p = 5, q = 8. (x − 5)(x − 8) = 0.",
+   "h": "Suche zwei Zahlen, deren Produkt das Zahlglied und deren Summe die Gegenzahl von b ist.",
+   "c": [
+    "(-(-13) - 3) / (2 * 1)",
+    "(-(-13) + 3) / (2 * 1)"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² + x − 20 = 0. Tipp: Faktorisiere in (x − p)(x − q).",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -5,
+     4
+    ]
+   },
+   "w": "Gesucht p, q mit p + q = −1 und p · q = −20: p = −5, q = 4. (x + 5)(x − 4) = 0.",
+   "h": "Suche zwei Zahlen, deren Produkt das Zahlglied und deren Summe die Gegenzahl von b ist.",
+   "c": [
+    "(-(1) - 9) / (2 * 1)",
+    "(-(1) + 9) / (2 * 1)"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² + 8x − 9 = 0. Tipp: Faktorisiere in (x − p)(x − q).",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -9,
+     1
+    ]
+   },
+   "w": "Gesucht p, q mit p + q = −8 und p · q = −9: p = −9, q = 1. (x + 9)(x − 1) = 0.",
+   "h": "Suche zwei Zahlen, deren Produkt das Zahlglied und deren Summe die Gegenzahl von b ist.",
+   "c": [
+    "(-(8) - 10) / (2 * 1)",
+    "(-(8) + 10) / (2 * 1)"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 9x² − 9 = 0 durch Faktorisieren.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -1,
+     1
+    ]
+   },
+   "w": "3. binomische Formel: (3x − 3)(3x + 3) = 0, also x = ±1.",
+   "c": [
+    "-3 / 3",
+    "3 / 3"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 14x + 49 = 0.",
+    "schablone": "x = □",
+    "hinweis": "die einzige Lösung"
+   },
+   "o": {
+    "werte": [
+     7
+    ]
+   },
+   "w": "Binomische Formel: (x − 7)² = 0, also x = 7.",
+   "c": [
+    "-(-14) / 2"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 22x + 121 = 0.",
+    "schablone": "x = □",
+    "hinweis": "die einzige Lösung"
+   },
+   "o": {
+    "werte": [
+     11
+    ]
+   },
+   "w": "Binomische Formel: (x − 11)² = 0, also x = 11.",
+   "c": [
+    "-(-22) / 2"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² + 2x + 1 = 0.",
+    "schablone": "x = □",
+    "hinweis": "die einzige Lösung"
+   },
+   "o": {
+    "werte": [
+     -1
+    ]
+   },
+   "w": "Binomische Formel: (x + 1)² = 0, also x = −1.",
+   "c": [
+    "-(2) / 2"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² + 8x + 16 = 0.",
+    "schablone": "x = □",
+    "hinweis": "die einzige Lösung"
+   },
+   "o": {
+    "werte": [
+     -4
+    ]
+   },
+   "w": "Binomische Formel: (x + 4)² = 0, also x = −4.",
+   "c": [
+    "-(8) / 2"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 20x + 100 = 0.",
+    "schablone": "x = □",
+    "hinweis": "die einzige Lösung"
+   },
+   "o": {
+    "werte": [
+     10
+    ]
+   },
+   "w": "Binomische Formel: (x − 10)² = 0, also x = 10.",
+   "c": [
+    "-(-20) / 2"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 4x² − 64 = 0 durch Faktorisieren.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -4,
+     4
+    ]
+   },
+   "w": "3. binomische Formel: (2x − 8)(2x + 8) = 0, also x = ±4.",
+   "c": [
+    "-8 / 2",
+    "8 / 2"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 4x² − 16 = 0 durch Faktorisieren.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -2,
+     2
+    ]
+   },
+   "w": "3. binomische Formel: (2x − 4)(2x + 4) = 0, also x = ±2.",
+   "c": [
+    "-4 / 2",
+    "4 / 2"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 4 = 0 durch Faktorisieren.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -2,
+     2
+    ]
+   },
+   "w": "3. binomische Formel: (x − 2)(x + 2) = 0, also x = ±2.",
+   "c": [
+    "-2 / 1",
+    "2 / 1"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 24x + 144 = 0.",
+    "schablone": "x = □",
+    "hinweis": "die einzige Lösung"
+   },
+   "o": {
+    "werte": [
+     12
+    ]
+   },
+   "w": "Binomische Formel: (x − 12)² = 0, also x = 12.",
+   "c": [
+    "-(-24) / 2"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe x² + 10x + 24 = 0 mit quadratischer Ergänzung auf die Form (x + …)² = ….",
+    "schablone": "(x + □)² = □",
+    "hinweis": "Zahl in der Klammer, Zahl rechts"
+   },
+   "o": {
+    "werte": [
+     5,
+     1
+    ]
+   },
+   "w": "Hälfte von 10 ist 5, ergänze 25: x² + 10x + 25 = −24 + 25, also (x + 5)² = 1.",
+   "h": "Halbiere den Koeffizienten von x und quadriere ihn.",
+   "c": [
+    "abs(10) / 2",
+    "(10 / 2) ** 2 - (24)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe x² − 14x − 32 = 0 mit quadratischer Ergänzung auf die Form (x − …)² = ….",
+    "schablone": "(x − □)² = □",
+    "hinweis": "Zahl in der Klammer, Zahl rechts"
+   },
+   "o": {
+    "werte": [
+     7,
+     81
+    ]
+   },
+   "w": "Hälfte von −14 ist −7, ergänze 49: x² − 14x + 49 = 32 + 49, also (x − 7)² = 81.",
+   "h": "Halbiere den Koeffizienten von x und quadriere ihn.",
+   "c": [
+    "abs(-14) / 2",
+    "(-14 / 2) ** 2 - (-32)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe x² + 2x − 15 = 0 mit quadratischer Ergänzung auf die Form (x + …)² = ….",
+    "schablone": "(x + □)² = □",
+    "hinweis": "Zahl in der Klammer, Zahl rechts"
+   },
+   "o": {
+    "werte": [
+     1,
+     16
+    ]
+   },
+   "w": "Hälfte von 2 ist 1, ergänze 1: x² + 2x + 1 = 15 + 1, also (x + 1)² = 16.",
+   "h": "Halbiere den Koeffizienten von x und quadriere ihn.",
+   "c": [
+    "abs(2) / 2",
+    "(2 / 2) ** 2 - (-15)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe x² − 16x + 60 = 0 mit quadratischer Ergänzung auf die Form (x − …)² = ….",
+    "schablone": "(x − □)² = □",
+    "hinweis": "Zahl in der Klammer, Zahl rechts"
+   },
+   "o": {
+    "werte": [
+     8,
+     4
+    ]
+   },
+   "w": "Hälfte von −16 ist −8, ergänze 64: x² − 16x + 64 = −60 + 64, also (x − 8)² = 4.",
+   "h": "Halbiere den Koeffizienten von x und quadriere ihn.",
+   "c": [
+    "abs(-16) / 2",
+    "(-16 / 2) ** 2 - (60)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe x² + 2x = 0 mit quadratischer Ergänzung auf die Form (x + …)² = ….",
+    "schablone": "(x + □)² = □",
+    "hinweis": "Zahl in der Klammer, Zahl rechts"
+   },
+   "o": {
+    "werte": [
+     1,
+     1
+    ]
+   },
+   "w": "Hälfte von 2 ist 1, ergänze 1: x² + 2x + 1 = 0 + 1, also (x + 1)² = 1.",
+   "h": "Halbiere den Koeffizienten von x und quadriere ihn.",
+   "c": [
+    "abs(2) / 2",
+    "(2 / 2) ** 2 - (0)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe x² − 12x = 0 mit quadratischer Ergänzung auf die Form (x − …)² = ….",
+    "schablone": "(x − □)² = □",
+    "hinweis": "Zahl in der Klammer, Zahl rechts"
+   },
+   "o": {
+    "werte": [
+     6,
+     36
+    ]
+   },
+   "w": "Hälfte von −12 ist −6, ergänze 36: x² − 12x + 36 = 0 + 36, also (x − 6)² = 36.",
+   "h": "Halbiere den Koeffizienten von x und quadriere ihn.",
+   "c": [
+    "abs(-12) / 2",
+    "(-12 / 2) ** 2 - (0)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe x² − 8x + 15 = 0 mit quadratischer Ergänzung auf die Form (x − …)² = ….",
+    "schablone": "(x − □)² = □",
+    "hinweis": "Zahl in der Klammer, Zahl rechts"
+   },
+   "o": {
+    "werte": [
+     4,
+     1
+    ]
+   },
+   "w": "Hälfte von −8 ist −4, ergänze 16: x² − 8x + 16 = −15 + 16, also (x − 4)² = 1.",
+   "h": "Halbiere den Koeffizienten von x und quadriere ihn.",
+   "c": [
+    "abs(-8) / 2",
+    "(-8 / 2) ** 2 - (15)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe x² − 10x + 20 = 0 mit quadratischer Ergänzung auf die Form (x − …)² = ….",
+    "schablone": "(x − □)² = □",
+    "hinweis": "Zahl in der Klammer, Zahl rechts"
+   },
+   "o": {
+    "werte": [
+     5,
+     5
+    ]
+   },
+   "w": "Hälfte von −10 ist −5, ergänze 25: x² − 10x + 25 = −20 + 25, also (x − 5)² = 5.",
+   "h": "Halbiere den Koeffizienten von x und quadriere ihn.",
+   "c": [
+    "abs(-10) / 2",
+    "(-10 / 2) ** 2 - (20)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe x² − 4x = 0 mit quadratischer Ergänzung auf die Form (x − …)² = ….",
+    "schablone": "(x − □)² = □",
+    "hinweis": "Zahl in der Klammer, Zahl rechts"
+   },
+   "o": {
+    "werte": [
+     2,
+     4
+    ]
+   },
+   "w": "Hälfte von −4 ist −2, ergänze 4: x² − 4x + 4 = 0 + 4, also (x − 2)² = 4.",
+   "h": "Halbiere den Koeffizienten von x und quadriere ihn.",
+   "c": [
+    "abs(-4) / 2",
+    "(-4 / 2) ** 2 - (0)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe x² − 2x − 1 = 0 mit quadratischer Ergänzung auf die Form (x − …)² = ….",
+    "schablone": "(x − □)² = □",
+    "hinweis": "Zahl in der Klammer, Zahl rechts"
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "w": "Hälfte von −2 ist −1, ergänze 1: x² − 2x + 1 = 1 + 1, also (x − 1)² = 2.",
+   "h": "Halbiere den Koeffizienten von x und quadriere ihn.",
+   "c": [
+    "abs(-2) / 2",
+    "(-2 / 2) ** 2 - (-1)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe x² − 14x + 47 = 0 mit quadratischer Ergänzung auf die Form (x − …)² = ….",
+    "schablone": "(x − □)² = □",
+    "hinweis": "Zahl in der Klammer, Zahl rechts"
+   },
+   "o": {
+    "werte": [
+     7,
+     2
+    ]
+   },
+   "w": "Hälfte von −14 ist −7, ergänze 49: x² − 14x + 49 = −47 + 49, also (x − 7)² = 2.",
+   "h": "Halbiere den Koeffizienten von x und quadriere ihn.",
+   "c": [
+    "abs(-14) / 2",
+    "(-14 / 2) ** 2 - (47)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe x² + 14x + 41 = 0 mit quadratischer Ergänzung auf die Form (x + …)² = ….",
+    "schablone": "(x + □)² = □",
+    "hinweis": "Zahl in der Klammer, Zahl rechts"
+   },
+   "o": {
+    "werte": [
+     7,
+     8
+    ]
+   },
+   "w": "Hälfte von 14 ist 7, ergänze 49: x² + 14x + 49 = −41 + 49, also (x + 7)² = 8.",
+   "h": "Halbiere den Koeffizienten von x und quadriere ihn.",
+   "c": [
+    "abs(14) / 2",
+    "(14 / 2) ** 2 - (41)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 6x − 40 = 0 mit quadratischer Ergänzung.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -4,
+     10
+    ]
+   },
+   "w": "(x − 3)² = 40 + 9 = 49, also x − 3 = ±7: x₁ = −4, x₂ = 10.",
+   "h": "Ergänze (b/2)² auf beiden Seiten, dann Wurzel ziehen.",
+   "c": [
+    "(-(-6) - 14) / (2 * 1)",
+    "(-(-6) + 14) / (2 * 1)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 14x − 32 = 0 mit quadratischer Ergänzung.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -2,
+     16
+    ]
+   },
+   "w": "(x − 7)² = 32 + 49 = 81, also x − 7 = ±9: x₁ = −2, x₂ = 16.",
+   "h": "Ergänze (b/2)² auf beiden Seiten, dann Wurzel ziehen.",
+   "c": [
+    "(-(-14) - 18) / (2 * 1)",
+    "(-(-14) + 18) / (2 * 1)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² + 2x − 63 = 0 mit quadratischer Ergänzung.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -9,
+     7
+    ]
+   },
+   "w": "(x + 1)² = 63 + 1 = 64, also x + 1 = ±8: x₁ = −9, x₂ = 7.",
+   "h": "Ergänze (b/2)² auf beiden Seiten, dann Wurzel ziehen.",
+   "c": [
+    "(-(2) - 16) / (2 * 1)",
+    "(-(2) + 16) / (2 * 1)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 8x = 0 mit quadratischer Ergänzung.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     8
+    ]
+   },
+   "w": "(x − 4)² = 0 + 16 = 16, also x − 4 = ±4: x₁ = 0, x₂ = 8.",
+   "h": "Ergänze (b/2)² auf beiden Seiten, dann Wurzel ziehen.",
+   "c": [
+    "(-(-8) - 8) / (2 * 1)",
+    "(-(-8) + 8) / (2 * 1)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² + 10x − 39 = 0 mit quadratischer Ergänzung.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -13,
+     3
+    ]
+   },
+   "w": "(x + 5)² = 39 + 25 = 64, also x + 5 = ±8: x₁ = −13, x₂ = 3.",
+   "h": "Ergänze (b/2)² auf beiden Seiten, dann Wurzel ziehen.",
+   "c": [
+    "(-(10) - 16) / (2 * 1)",
+    "(-(10) + 16) / (2 * 1)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 10x + 9 = 0 mit quadratischer Ergänzung.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     1,
+     9
+    ]
+   },
+   "w": "(x − 5)² = −9 + 25 = 16, also x − 5 = ±4: x₁ = 1, x₂ = 9.",
+   "h": "Ergänze (b/2)² auf beiden Seiten, dann Wurzel ziehen.",
+   "c": [
+    "(-(-10) - 8) / (2 * 1)",
+    "(-(-10) + 8) / (2 * 1)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe x² + 6x + 5 = 0 mit quadratischer Ergänzung auf die Form (x + …)² = ….",
+    "schablone": "(x + □)² = □",
+    "hinweis": "Zahl in der Klammer, Zahl rechts"
+   },
+   "o": {
+    "werte": [
+     3,
+     4
+    ]
+   },
+   "w": "Hälfte von 6 ist 3, ergänze 9: x² + 6x + 9 = −5 + 9, also (x + 3)² = 4.",
+   "c": [
+    "abs(6) / 2",
+    "(6 / 2) ** 2 - (5)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe x² − 16x + 54 = 0 mit quadratischer Ergänzung auf die Form (x − …)² = ….",
+    "schablone": "(x − □)² = □",
+    "hinweis": "Zahl in der Klammer, Zahl rechts"
+   },
+   "o": {
+    "werte": [
+     8,
+     10
+    ]
+   },
+   "w": "Hälfte von −16 ist −8, ergänze 64: x² − 16x + 64 = −54 + 64, also (x − 8)² = 10.",
+   "c": [
+    "abs(-16) / 2",
+    "(-16 / 2) ** 2 - (54)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe x² − 6x + 5 = 0 mit quadratischer Ergänzung auf die Form (x − …)² = ….",
+    "schablone": "(x − □)² = □",
+    "hinweis": "Zahl in der Klammer, Zahl rechts"
+   },
+   "o": {
+    "werte": [
+     3,
+     4
+    ]
+   },
+   "w": "Hälfte von −6 ist −3, ergänze 9: x² − 6x + 9 = −5 + 9, also (x − 3)² = 4.",
+   "c": [
+    "abs(-6) / 2",
+    "(-6 / 2) ** 2 - (5)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe x² + 8x + 6 = 0 mit quadratischer Ergänzung auf die Form (x + …)² = ….",
+    "schablone": "(x + □)² = □",
+    "hinweis": "Zahl in der Klammer, Zahl rechts"
+   },
+   "o": {
+    "werte": [
+     4,
+     10
+    ]
+   },
+   "w": "Hälfte von 8 ist 4, ergänze 16: x² + 8x + 16 = −6 + 16, also (x + 4)² = 10.",
+   "c": [
+    "abs(8) / 2",
+    "(8 / 2) ** 2 - (6)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe x² + 2x − 8 = 0 mit quadratischer Ergänzung auf die Form (x + …)² = ….",
+    "schablone": "(x + □)² = □",
+    "hinweis": "Zahl in der Klammer, Zahl rechts"
+   },
+   "o": {
+    "werte": [
+     1,
+     9
+    ]
+   },
+   "w": "Hälfte von 2 ist 1, ergänze 1: x² + 2x + 1 = 8 + 1, also (x + 1)² = 9.",
+   "c": [
+    "abs(2) / 2",
+    "(2 / 2) ** 2 - (-8)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe x² − 6x + 1 = 0 mit quadratischer Ergänzung auf die Form (x − …)² = ….",
+    "schablone": "(x − □)² = □",
+    "hinweis": "Zahl in der Klammer, Zahl rechts"
+   },
+   "o": {
+    "werte": [
+     3,
+     8
+    ]
+   },
+   "w": "Hälfte von −6 ist −3, ergänze 9: x² − 6x + 9 = −1 + 9, also (x − 3)² = 8.",
+   "c": [
+    "abs(-6) / 2",
+    "(-6 / 2) ** 2 - (1)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe x² + 10x + 20 = 0 mit quadratischer Ergänzung auf die Form (x + …)² = ….",
+    "schablone": "(x + □)² = □",
+    "hinweis": "Zahl in der Klammer, Zahl rechts"
+   },
+   "o": {
+    "werte": [
+     5,
+     5
+    ]
+   },
+   "w": "Hälfte von 10 ist 5, ergänze 25: x² + 10x + 25 = −20 + 25, also (x + 5)² = 5.",
+   "c": [
+    "abs(10) / 2",
+    "(10 / 2) ** 2 - (20)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe x² − 10x + 17 = 0 mit quadratischer Ergänzung auf die Form (x − …)² = ….",
+    "schablone": "(x − □)² = □",
+    "hinweis": "Zahl in der Klammer, Zahl rechts"
+   },
+   "o": {
+    "werte": [
+     5,
+     8
+    ]
+   },
+   "w": "Hälfte von −10 ist −5, ergänze 25: x² − 10x + 25 = −17 + 25, also (x − 5)² = 8.",
+   "c": [
+    "abs(-10) / 2",
+    "(-10 / 2) ** 2 - (17)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe x² + 16x + 56 = 0 mit quadratischer Ergänzung auf die Form (x + …)² = ….",
+    "schablone": "(x + □)² = □",
+    "hinweis": "Zahl in der Klammer, Zahl rechts"
+   },
+   "o": {
+    "werte": [
+     8,
+     8
+    ]
+   },
+   "w": "Hälfte von 16 ist 8, ergänze 64: x² + 16x + 64 = −56 + 64, also (x + 8)² = 8.",
+   "c": [
+    "abs(16) / 2",
+    "(16 / 2) ** 2 - (56)"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe x² + 16x + 59 = 0 mit quadratischer Ergänzung auf die Form (x + …)² = ….",
+    "schablone": "(x + □)² = □",
+    "hinweis": "Zahl in der Klammer, Zahl rechts"
+   },
+   "o": {
+    "werte": [
+     8,
+     5
+    ]
+   },
+   "w": "Hälfte von 16 ist 8, ergänze 64: x² + 16x + 64 = −59 + 64, also (x + 8)² = 5.",
+   "c": [
+    "abs(16) / 2",
+    "(16 / 2) ** 2 - (59)"
+   ]
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Diskriminante von −3x² + x + 5 = 0."
+   },
+   "o": {
+    "wert": 61
+   },
+   "c": "(1) ** 2 - 4 * (-3) * (5)",
+   "w": "D = b² − 4ac = 1² − 4 · (−3) · 5 = 1 + 60 = 61.",
+   "h": "Lies a, b und c mit Vorzeichen ab und setze in b² − 4ac ein."
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Diskriminante von 3x² − 9x + 8 = 0."
+   },
+   "o": {
+    "wert": -15
+   },
+   "c": "(-9) ** 2 - 4 * (3) * (8)",
+   "w": "D = b² − 4ac = (−9)² − 4 · 3 · 8 = 81 − 96 = −15.",
+   "h": "Lies a, b und c mit Vorzeichen ab und setze in b² − 4ac ein."
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Diskriminante von x² + 8x + 11 = 0."
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "(8) ** 2 - 4 * (1) * (11)",
+   "w": "D = b² − 4ac = 8² − 4 · 1 · 11 = 64 − 44 = 20.",
+   "h": "Lies a, b und c mit Vorzeichen ab und setze in b² − 4ac ein."
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Diskriminante von −x² − 5x − 5 = 0."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(-5) ** 2 - 4 * (-1) * (-5)",
+   "w": "D = b² − 4ac = (−5)² − 4 · (−1) · (−5) = 25 − 20 = 5.",
+   "h": "Lies a, b und c mit Vorzeichen ab und setze in b² − 4ac ein."
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Diskriminante von 4x² + 8x − 5 = 0."
+   },
+   "o": {
+    "wert": 144
+   },
+   "c": "(8) ** 2 - 4 * (4) * (-5)",
+   "w": "D = b² − 4ac = 8² − 4 · 4 · (−5) = 64 + 80 = 144.",
+   "h": "Lies a, b und c mit Vorzeichen ab und setze in b² − 4ac ein."
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Diskriminante von −3x² − 8x − 5 = 0."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(-8) ** 2 - 4 * (-3) * (-5)",
+   "w": "D = b² − 4ac = (−8)² − 4 · (−3) · (−5) = 64 − 60 = 4.",
+   "h": "Lies a, b und c mit Vorzeichen ab und setze in b² − 4ac ein."
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse −x² + 5x + 6 = 0 mit der Lösungsformel.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -1,
+     6
+    ]
+   },
+   "w": "a = −1, b = 5, c = 6; D = 49, √D = 7; x₁,₂ = (−5 ± 7) / −2: −1 und 6.",
+   "h": "Erst a, b, c ablesen, dann D berechnen.",
+   "c": [
+    "(-(5) + 7) / (2 * -1)",
+    "(-(5) - 7) / (2 * -1)"
+   ]
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse −x² − 10x − 24 = 0 mit der Lösungsformel.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -6,
+     -4
+    ]
+   },
+   "w": "a = −1, b = −10, c = −24; D = 4, √D = 2; x₁,₂ = (10 ± 2) / −2: −6 und −4.",
+   "h": "Erst a, b, c ablesen, dann D berechnen.",
+   "c": [
+    "(-(-10) + 2) / (2 * -1)",
+    "(-(-10) - 2) / (2 * -1)"
+   ]
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse −x² + 11x − 30 = 0 mit der Lösungsformel.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     5,
+     6
+    ]
+   },
+   "w": "a = −1, b = 11, c = −30; D = 1, √D = 1; x₁,₂ = (−11 ± 1) / −2: 5 und 6.",
+   "h": "Erst a, b, c ablesen, dann D berechnen.",
+   "c": [
+    "(-(11) + 1) / (2 * -1)",
+    "(-(11) - 1) / (2 * -1)"
+   ]
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3x² − 27x + 60 = 0 mit der Lösungsformel.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     4,
+     5
+    ]
+   },
+   "w": "a = 3, b = −27, c = 60; D = 9, √D = 3; x₁,₂ = (27 ± 3) / 6: 4 und 5.",
+   "h": "Erst a, b, c ablesen, dann D berechnen.",
+   "c": [
+    "(-(-27) - 3) / (2 * 3)",
+    "(-(-27) + 3) / (2 * 3)"
+   ]
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 9x + 14 = 0 mit der Lösungsformel.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     2,
+     7
+    ]
+   },
+   "w": "a = 1, b = −9, c = 14; D = 25, √D = 5; x₁,₂ = (9 ± 5) / 2: 2 und 7.",
+   "h": "Erst a, b, c ablesen, dann D berechnen.",
+   "c": [
+    "(-(-9) - 5) / (2 * 1)",
+    "(-(-9) + 5) / (2 * 1)"
+   ]
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3x² − 6x − 24 = 0 mit der Lösungsformel.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -2,
+     4
+    ]
+   },
+   "w": "a = 3, b = −6, c = −24; D = 324, √D = 18; x₁,₂ = (6 ± 18) / 6: −2 und 4.",
+   "h": "Erst a, b, c ablesen, dann D berechnen.",
+   "c": [
+    "(-(-6) - 18) / (2 * 3)",
+    "(-(-6) + 18) / (2 * 3)"
+   ]
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2x² − 19x + 45 = 0 mit der Lösungsformel. Gib die größere Lösung an."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(-(-19) + 1) / (2 * 2)",
+   "w": "D = 1, √D = 1; x₁ = 4,5, x₂ = 5. Größere Lösung: 5.",
+   "h": "Setze sorgfältig mit Vorzeichen in die Lösungsformel ein."
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −2x² − x + 45 = 0 mit der Lösungsformel. Gib die größere Lösung an."
+   },
+   "o": {
+    "wert": 4.5
+   },
+   "c": "(-(-1) - 19) / (2 * -2)",
+   "w": "D = 361, √D = 19; x₁ = −5, x₂ = 4,5. Größere Lösung: 4,5.",
+   "h": "Setze sorgfältig mit Vorzeichen in die Lösungsformel ein."
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2x² − 9x − 18 = 0 mit der Lösungsformel. Gib die größere Lösung an."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(-(-9) + 15) / (2 * 2)",
+   "w": "D = 225, √D = 15; x₁ = −1,5, x₂ = 6. Größere Lösung: 6.",
+   "h": "Setze sorgfältig mit Vorzeichen in die Lösungsformel ein."
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −2x² − 5x + 25 = 0 mit der Lösungsformel. Gib die größere Lösung an."
+   },
+   "o": {
+    "wert": 2.5
+   },
+   "c": "(-(-5) - 15) / (2 * -2)",
+   "w": "D = 225, √D = 15; x₁ = −5, x₂ = 2,5. Größere Lösung: 2,5.",
+   "h": "Setze sorgfältig mit Vorzeichen in die Lösungsformel ein."
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −2x² + 5x + 18 = 0 mit der Lösungsformel. Gib die größere Lösung an."
+   },
+   "o": {
+    "wert": 4.5
+   },
+   "c": "(-(5) - 13) / (2 * -2)",
+   "w": "D = 169, √D = 13; x₁ = −2, x₂ = 4,5. Größere Lösung: 4,5.",
+   "h": "Setze sorgfältig mit Vorzeichen in die Lösungsformel ein."
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −2x² − 17x − 30 = 0 mit der Lösungsformel. Gib die größere Lösung an."
+   },
+   "o": {
+    "wert": -2.5
+   },
+   "c": "(-(-17) - 7) / (2 * -2)",
+   "w": "D = 49, √D = 7; x₁ = −6, x₂ = −2,5. Größere Lösung: −2,5.",
+   "h": "Setze sorgfältig mit Vorzeichen in die Lösungsformel ein."
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 2x² − 72 = 0 mit der Lösungsformel.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -6,
+     6
+    ]
+   },
+   "w": "a = 2, b = 0, c = −72; D = 576, √D = 24; x₁,₂ = (0 ± 24) / 4: −6 und 6.",
+   "c": [
+    "(-(0) - 24) / (2 * 2)",
+    "(-(0) + 24) / (2 * 2)"
+   ]
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse −x² + 25 = 0 mit der Lösungsformel.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -5,
+     5
+    ]
+   },
+   "w": "a = −1, b = 0, c = 25; D = 100, √D = 10; x₁,₂ = (0 ± 10) / −2: −5 und 5.",
+   "c": [
+    "(-(0) + 10) / (2 * -1)",
+    "(-(0) - 10) / (2 * -1)"
+   ]
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 7x + 12 = 0 mit der Lösungsformel.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     3,
+     4
+    ]
+   },
+   "w": "a = 1, b = −7, c = 12; D = 1, √D = 1; x₁,₂ = (7 ± 1) / 2: 3 und 4.",
+   "c": [
+    "(-(-7) - 1) / (2 * 1)",
+    "(-(-7) + 1) / (2 * 1)"
+   ]
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse −2x² − 18x − 36 = 0 mit der Lösungsformel.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -6,
+     -3
+    ]
+   },
+   "w": "a = −2, b = −18, c = −36; D = 36, √D = 6; x₁,₂ = (18 ± 6) / −4: −6 und −3.",
+   "c": [
+    "(-(-18) + 6) / (2 * -2)",
+    "(-(-18) - 6) / (2 * -2)"
+   ]
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse −x² − 9x − 14 = 0 mit der Lösungsformel.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -7,
+     -2
+    ]
+   },
+   "w": "a = −1, b = −9, c = −14; D = 25, √D = 5; x₁,₂ = (9 ± 5) / −2: −7 und −2.",
+   "c": [
+    "(-(-9) + 5) / (2 * -1)",
+    "(-(-9) - 5) / (2 * -1)"
+   ]
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 2x² − 50 = 0 mit der Lösungsformel.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -5,
+     5
+    ]
+   },
+   "w": "a = 2, b = 0, c = −50; D = 400, √D = 20; x₁,₂ = (0 ± 20) / 4: −5 und 5.",
+   "c": [
+    "(-(0) - 20) / (2 * 2)",
+    "(-(0) + 20) / (2 * 2)"
+   ]
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse −x² − 10x − 21 = 0 mit der Lösungsformel.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -7,
+     -3
+    ]
+   },
+   "w": "a = −1, b = −10, c = −21; D = 16, √D = 4; x₁,₂ = (10 ± 4) / −2: −7 und −3.",
+   "c": [
+    "(-(-10) + 4) / (2 * -1)",
+    "(-(-10) - 4) / (2 * -1)"
+   ]
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 2x² − 6x − 20 = 0 mit der Lösungsformel.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -2,
+     5
+    ]
+   },
+   "w": "a = 2, b = −6, c = −20; D = 196, √D = 14; x₁,₂ = (6 ± 14) / 4: −2 und 5.",
+   "c": [
+    "(-(-6) - 14) / (2 * 2)",
+    "(-(-6) + 14) / (2 * 2)"
+   ]
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − x − 12 = 0 mit der Lösungsformel.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -3,
+     4
+    ]
+   },
+   "w": "a = 1, b = −1, c = −12; D = 49, √D = 7; x₁,₂ = (1 ± 7) / 2: −3 und 4.",
+   "c": [
+    "(-(-1) - 7) / (2 * 1)",
+    "(-(-1) + 7) / (2 * 1)"
+   ]
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 10x + 24 = 0 mit der Lösungsformel.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     4,
+     6
+    ]
+   },
+   "w": "a = 1, b = −10, c = 24; D = 4, √D = 2; x₁,₂ = (10 ± 2) / 2: 4 und 6.",
+   "c": [
+    "(-(-10) - 2) / (2 * 1)",
+    "(-(-10) + 2) / (2 * 1)"
+   ]
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat x² + 5x + 5 = 0?"
+   },
+   "a": [
+    "zwei Lösungen",
+    "keine Lösung",
+    "genau eine Lösung"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "D = 5² − 4 · 1 · 5 = 5 > 0, also zwei Lösungen.",
+   "h": "Berechne D = b² − 4ac und achte auf das Vorzeichen."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat −x² + 6x − 7 = 0?"
+   },
+   "a": [
+    "zwei Lösungen",
+    "genau eine Lösung",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "D = 6² − 4 · (−1) · (−7) = 8 > 0, also zwei Lösungen.",
+   "h": "Berechne D = b² − 4ac und achte auf das Vorzeichen."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat −2x² + 6x + 3 = 0?"
+   },
+   "a": [
+    "zwei Lösungen",
+    "keine Lösung",
+    "genau eine Lösung"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "D = 6² − 4 · (−2) · 3 = 60 > 0, also zwei Lösungen.",
+   "h": "Berechne D = b² − 4ac und achte auf das Vorzeichen."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat 2x² − 5x − 4 = 0?"
+   },
+   "a": [
+    "keine Lösung",
+    "zwei Lösungen",
+    "genau eine Lösung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "D = (−5)² − 4 · 2 · (−4) = 57 > 0, also zwei Lösungen.",
+   "h": "Berechne D = b² − 4ac und achte auf das Vorzeichen."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat −4x² − 2x − 8 = 0?"
+   },
+   "a": [
+    "zwei Lösungen",
+    "keine Lösung",
+    "genau eine Lösung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "D = (−2)² − 4 · (−4) · (−8) = −124 < 0, also keine Lösung.",
+   "h": "Berechne D = b² − 4ac und achte auf das Vorzeichen."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat 3x² + 8x − 4 = 0?"
+   },
+   "a": [
+    "keine Lösung",
+    "zwei Lösungen",
+    "genau eine Lösung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "D = 8² − 4 · 3 · (−4) = 112 > 0, also zwei Lösungen.",
+   "h": "Berechne D = b² − 4ac und achte auf das Vorzeichen."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat −2x² − 7x + 7 = 0?"
+   },
+   "a": [
+    "zwei Lösungen",
+    "genau eine Lösung",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "D = (−7)² − 4 · (−2) · 7 = 105 > 0, also zwei Lösungen.",
+   "h": "Berechne D = b² − 4ac und achte auf das Vorzeichen."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl c hat x² + 4x + c = 0 genau eine Lösung?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(4) ** 2 / 4",
+   "w": "Genau eine Lösung bei D = 0: 16 − 4c = 0, also c = 4.",
+   "h": "Setze die Diskriminante gleich null."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat −2x² − 7x − 1 = 0?"
+   },
+   "a": [
+    "genau eine Lösung",
+    "zwei Lösungen",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "D = (−7)² − 4 · (−2) · (−1) = 41 > 0, also zwei Lösungen.",
+   "h": "Berechne D = b² − 4ac und achte auf das Vorzeichen."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat 4x² + 5x − 3 = 0?"
+   },
+   "a": [
+    "zwei Lösungen",
+    "keine Lösung",
+    "genau eine Lösung"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "D = 5² − 4 · 4 · (−3) = 73 > 0, also zwei Lösungen.",
+   "h": "Berechne D = b² − 4ac und achte auf das Vorzeichen."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl c hat x² + 14x + c = 0 genau eine Lösung?"
+   },
+   "o": {
+    "wert": 49
+   },
+   "c": "(14) ** 2 / 4",
+   "w": "Genau eine Lösung bei D = 0: 196 − 4c = 0, also c = 49.",
+   "h": "Setze die Diskriminante gleich null."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat 2x² + 4x + 2 = 0?"
+   },
+   "a": [
+    "zwei Lösungen",
+    "genau eine Lösung",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "D = 4² − 4 · 2 · 2 = 0, also genau eine Lösung.",
+   "h": "Berechne D = b² − 4ac und achte auf das Vorzeichen."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „4x² + 6x + 3 = 0 hat zwei Lösungen, weil die Lösungsformel ± enthält.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: D = −12 < 0, es gibt keine Lösung.",
+    "Richtig: D = 12 > 0.",
+    "Richtig: Wegen ± gibt es immer zwei Lösungen.",
+    "Falsch: Es gibt genau eine Lösung x = −3/4."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "D = 6² − 4 · 4 · 3 = −12. Aus einer negativen Zahl gibt es keine Wurzel, also keine Lösung.",
+   "h": "Berechne zuerst die Diskriminante."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „3x² + 6x + 7 = 0 hat zwei Lösungen, weil die Lösungsformel ± enthält.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig: D = 48 > 0.",
+    "Richtig: Wegen ± gibt es immer zwei Lösungen.",
+    "Falsch: Es gibt genau eine Lösung x = −1.",
+    "Falsch: D = −48 < 0, es gibt keine Lösung."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "D = 6² − 4 · 3 · 7 = −48. Aus einer negativen Zahl gibt es keine Wurzel, also keine Lösung.",
+   "h": "Berechne zuerst die Diskriminante."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „2x² + 3x + 8 = 0 hat zwei Lösungen, weil die Lösungsformel ± enthält.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: D = −55 < 0, es gibt keine Lösung.",
+    "Falsch: Es gibt genau eine Lösung x = −3/4.",
+    "Richtig: D = 55 > 0.",
+    "Richtig: Wegen ± gibt es immer zwei Lösungen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "D = 3² − 4 · 2 · 8 = −55. Aus einer negativen Zahl gibt es keine Wurzel, also keine Lösung.",
+   "h": "Berechne zuerst die Diskriminante."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche positive Zahl k hat x² + kx + 36 = 0 genau eine Lösung?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "(4 * 36) / (12)",
+   "w": "D = k² − 4 · 36 = 0 ⇔ k² = 144 ⇔ k = ±12; positiv: k = 12.",
+   "h": "Setze D = 0 und löse nach k."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche positive Zahl k hat x² + kx + 16 = 0 genau eine Lösung?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(4 * 16) / (8)",
+   "w": "D = k² − 4 · 16 = 0 ⇔ k² = 64 ⇔ k = ±8; positiv: k = 8.",
+   "h": "Setze D = 0 und löse nach k."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „x² − 4x + 6 = 0 hat zwei Lösungen, weil die Lösungsformel ± enthält.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig: Wegen ± gibt es immer zwei Lösungen.",
+    "Richtig: D = 8 > 0.",
+    "Falsch: Es gibt genau eine Lösung x = 2.",
+    "Falsch: D = −8 < 0, es gibt keine Lösung."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "D = (−4)² − 4 · 1 · 6 = −8. Aus einer negativen Zahl gibt es keine Wurzel, also keine Lösung.",
+   "h": "Berechne zuerst die Diskriminante."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl c hat x² + 8x + c = 0 genau eine Lösung?"
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "(8) ** 2 / 4",
+   "w": "Genau eine Lösung bei D = 0: 64 − 4c = 0, also c = 16."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl c hat x² − 2x + c = 0 genau eine Lösung?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(-2) ** 2 / 4",
+   "w": "Genau eine Lösung bei D = 0: 4 − 4c = 0, also c = 1."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl c hat x² − 14x + c = 0 genau eine Lösung?"
+   },
+   "o": {
+    "wert": 49
+   },
+   "c": "(-14) ** 2 / 4",
+   "w": "Genau eine Lösung bei D = 0: 196 − 4c = 0, also c = 49."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat x² + x − 4 = 0?"
+   },
+   "a": [
+    "zwei Lösungen",
+    "genau eine Lösung",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "D = 1² − 4 · 1 · (−4) = 17 > 0, also zwei Lösungen."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat x² + 2x + 9 = 0?"
+   },
+   "a": [
+    "zwei Lösungen",
+    "keine Lösung",
+    "genau eine Lösung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "D = 2² − 4 · 1 · 9 = −32 < 0, also keine Lösung."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl c hat x² + 12x + c = 0 genau eine Lösung?"
+   },
+   "o": {
+    "wert": 36
+   },
+   "c": "(12) ** 2 / 4",
+   "w": "Genau eine Lösung bei D = 0: 144 − 4c = 0, also c = 36."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat −2x² + 7x + 4 = 0?"
+   },
+   "a": [
+    "genau eine Lösung",
+    "zwei Lösungen",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "D = 7² − 4 · (−2) · 4 = 81 > 0, also zwei Lösungen."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat −3x² + 6x − 6 = 0?"
+   },
+   "a": [
+    "keine Lösung",
+    "genau eine Lösung",
+    "zwei Lösungen"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "D = 6² − 4 · (−3) · (−6) = −36 < 0, also keine Lösung."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat −3x² + x + 5 = 0?"
+   },
+   "a": [
+    "keine Lösung",
+    "genau eine Lösung",
+    "zwei Lösungen"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "D = 1² − 4 · (−3) · 5 = 61 > 0, also zwei Lösungen."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl c hat x² − 20x + c = 0 genau eine Lösung?"
+   },
+   "o": {
+    "wert": 100
+   },
+   "c": "(-20) ** 2 / 4",
+   "w": "Genau eine Lösung bei D = 0: 400 − 4c = 0, also c = 100."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Das Quadrat einer positiven Zahl ist 81. Wie heißt die Zahl?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "81 / 9",
+   "w": "x² = 81, x = ±9; positiv: x = 9.",
+   "h": "Stelle die Gleichung x² = … auf."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Das Quadrat einer positiven Zahl ist 289. Wie heißt die Zahl?"
+   },
+   "o": {
+    "wert": 17
+   },
+   "c": "289 / 17",
+   "w": "x² = 289, x = ±17; positiv: x = 17.",
+   "h": "Stelle die Gleichung x² = … auf."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Das Quadrat einer positiven Zahl ist 169. Wie heißt die Zahl?"
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "169 / 13",
+   "w": "x² = 169, x = ±13; positiv: x = 13.",
+   "h": "Stelle die Gleichung x² = … auf."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Das Quadrat einer positiven Zahl ist 25. Wie heißt die Zahl?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "25 / 5",
+   "w": "x² = 25, x = ±5; positiv: x = 5.",
+   "h": "Stelle die Gleichung x² = … auf."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Das Quadrat einer positiven Zahl ist 196. Wie heißt die Zahl?"
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "196 / 14",
+   "w": "x² = 196, x = ±14; positiv: x = 14.",
+   "h": "Stelle die Gleichung x² = … auf."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Das Quadrat einer positiven Zahl ist 36. Wie heißt die Zahl?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "36 / 6",
+   "w": "x² = 36, x = ±6; positiv: x = 6.",
+   "h": "Stelle die Gleichung x² = … auf."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 5 cm länger als breit und hat einen Flächeninhalt von 266 cm². Wie breit ist es?"
+   },
+   "o": {
+    "wert": 14,
+    "einheit": "cm"
+   },
+   "c": "(-(5) + 33) / (2 * 1)",
+   "w": "x(x + 5) = 266 ⇔ x² + 5x − 266 = 0. Lösungen −19 und 14; Breite 14 cm.",
+   "h": "Breite x, Länge x + 5. Flächeninhalt = Länge · Breite."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 4 cm länger als breit und hat einen Flächeninhalt von 140 cm². Wie breit ist es?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "cm"
+   },
+   "c": "(-(4) + 24) / (2 * 1)",
+   "w": "x(x + 4) = 140 ⇔ x² + 4x − 140 = 0. Lösungen −14 und 10; Breite 10 cm.",
+   "h": "Breite x, Länge x + 4. Flächeninhalt = Länge · Breite."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 7 cm länger als breit und hat einen Flächeninhalt von 198 cm². Wie breit ist es?"
+   },
+   "o": {
+    "wert": 11,
+    "einheit": "cm"
+   },
+   "c": "(-(7) + 29) / (2 * 1)",
+   "w": "x(x + 7) = 198 ⇔ x² + 7x − 198 = 0. Lösungen −18 und 11; Breite 11 cm.",
+   "h": "Breite x, Länge x + 7. Flächeninhalt = Länge · Breite."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 2 cm länger als breit und hat einen Flächeninhalt von 24 cm². Wie breit ist es?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "(-(2) + 10) / (2 * 1)",
+   "w": "x(x + 2) = 24 ⇔ x² + 2x − 24 = 0. Lösungen −6 und 4; Breite 4 cm.",
+   "h": "Breite x, Länge x + 2. Flächeninhalt = Länge · Breite."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 6 cm länger als breit und hat einen Flächeninhalt von 40 cm². Wie breit ist es?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "(-(6) + 14) / (2 * 1)",
+   "w": "x(x + 6) = 40 ⇔ x² + 6x − 40 = 0. Lösungen −10 und 4; Breite 4 cm.",
+   "h": "Breite x, Länge x + 6. Flächeninhalt = Länge · Breite."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 3 cm länger als breit und hat einen Flächeninhalt von 70 cm². Wie breit ist es?"
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "cm"
+   },
+   "c": "(-(3) + 17) / (2 * 1)",
+   "w": "x(x + 3) = 70 ⇔ x² + 3x − 70 = 0. Lösungen −10 und 7; Breite 7 cm.",
+   "h": "Breite x, Länge x + 3. Flächeninhalt = Länge · Breite."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Ball wird senkrecht nach oben geworfen. Seine Höhe über dem Abwurfpunkt ist h(t) = 30t − 5t² (t in s, h in m). Nach wie vielen Sekunden ist er zum ersten Mal 45 m hoch?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "s"
+   },
+   "c": "(-(-30) - 0) / (2 * 5)",
+   "w": "30t − 5t² = 45 ⇔ 5t² − 30t + 45 = 0. Lösungen t = 3 und t = 3; zuerst bei 3 s.",
+   "h": "Setze h(t) gleich der Höhe und bringe alles auf eine Seite. Zum ersten Mal = kleinere Lösung."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Das Produkt zweier aufeinanderfolgender positiver ganzer Zahlen ist 56. Wie heißt die kleinere Zahl?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "(-(1) + 15) / (2 * 1)",
+   "w": "x(x + 1) = 56 ⇔ x² + x − 56 = 0. Lösungen −8 und 7; positiv: 7.",
+   "h": "Nenne die kleinere Zahl x. Wie heißt die nächste Zahl?"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Um ein rechteckiges Beet (19 m × 15 m) wird ein gleich breiter Weg gelegt. Der Weg hat 336 m² Fläche. Wie breit ist er?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "m"
+   },
+   "c": "(-(68) + 100) / (2 * 4)",
+   "w": "(19 + 2x)(15 + 2x) − 285 = 336 ⇔ 4x² + 68x − 336 = 0. Positive Lösung x = 4.",
+   "h": "Ganze Fläche mit Weg minus Beetfläche = Wegfläche."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Das Produkt zweier aufeinanderfolgender positiver ganzer Zahlen ist 12. Wie heißt die kleinere Zahl?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(-(1) + 7) / (2 * 1)",
+   "w": "x(x + 1) = 12 ⇔ x² + x − 12 = 0. Lösungen −4 und 3; positiv: 3.",
+   "h": "Nenne die kleinere Zahl x. Wie heißt die nächste Zahl?"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Um ein rechteckiges Beet (10 m × 12 m) wird ein gleich breiter Weg gelegt. Der Weg hat 240 m² Fläche. Wie breit ist er?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "m"
+   },
+   "c": "(-(44) + 76) / (2 * 4)",
+   "w": "(10 + 2x)(12 + 2x) − 120 = 240 ⇔ 4x² + 44x − 240 = 0. Positive Lösung x = 4.",
+   "h": "Ganze Fläche mit Weg minus Beetfläche = Wegfläche."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Ball wird senkrecht nach oben geworfen. Seine Höhe über dem Abwurfpunkt ist h(t) = 45t − 5t² (t in s, h in m). Nach wie vielen Sekunden ist er zum ersten Mal 90 m hoch?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "s"
+   },
+   "c": "(-(-45) - 15) / (2 * 5)",
+   "w": "45t − 5t² = 90 ⇔ 5t² − 45t + 90 = 0. Lösungen t = 3 und t = 6; zuerst bei 3 s.",
+   "h": "Setze h(t) gleich der Höhe und bringe alles auf eine Seite. Zum ersten Mal = kleinere Lösung."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 8 cm länger als breit und hat einen Flächeninhalt von 273 cm². Wie breit ist es?"
+   },
+   "o": {
+    "wert": 13,
+    "einheit": "cm"
+   },
+   "c": "(-(8) + 34) / (2 * 1)",
+   "w": "x(x + 8) = 273 ⇔ x² + 8x − 273 = 0. Lösungen −21 und 13; Breite 13 cm."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 3 cm länger als breit und hat einen Flächeninhalt von 208 cm². Wie breit ist es?"
+   },
+   "o": {
+    "wert": 13,
+    "einheit": "cm"
+   },
+   "c": "(-(3) + 29) / (2 * 1)",
+   "w": "x(x + 3) = 208 ⇔ x² + 3x − 208 = 0. Lösungen −16 und 13; Breite 13 cm."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 5 cm länger als breit und hat einen Flächeninhalt von 300 cm². Wie breit ist es?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "cm"
+   },
+   "c": "(-(5) + 35) / (2 * 1)",
+   "w": "x(x + 5) = 300 ⇔ x² + 5x − 300 = 0. Lösungen −20 und 15; Breite 15 cm."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 4 cm länger als breit und hat einen Flächeninhalt von 60 cm². Wie breit ist es?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "(-(4) + 16) / (2 * 1)",
+   "w": "x(x + 4) = 60 ⇔ x² + 4x − 60 = 0. Lösungen −10 und 6; Breite 6 cm."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 2 cm länger als breit und hat einen Flächeninhalt von 80 cm². Wie breit ist es?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "cm"
+   },
+   "c": "(-(2) + 18) / (2 * 1)",
+   "w": "x(x + 2) = 80 ⇔ x² + 2x − 80 = 0. Lösungen −10 und 8; Breite 8 cm."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 7 cm länger als breit und hat einen Flächeninhalt von 98 cm². Wie breit ist es?"
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "cm"
+   },
+   "c": "(-(7) + 21) / (2 * 1)",
+   "w": "x(x + 7) = 98 ⇔ x² + 7x − 98 = 0. Lösungen −14 und 7; Breite 7 cm."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 2 cm länger als breit und hat einen Flächeninhalt von 224 cm². Wie breit ist es?"
+   },
+   "o": {
+    "wert": 14,
+    "einheit": "cm"
+   },
+   "c": "(-(2) + 30) / (2 * 1)",
+   "w": "x(x + 2) = 224 ⇔ x² + 2x − 224 = 0. Lösungen −16 und 14; Breite 14 cm."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 4 cm länger als breit und hat einen Flächeninhalt von 32 cm². Wie breit ist es?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "(-(4) + 12) / (2 * 1)",
+   "w": "x(x + 4) = 32 ⇔ x² + 4x − 32 = 0. Lösungen −8 und 4; Breite 4 cm."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 4 cm länger als breit und hat einen Flächeninhalt von 21 cm². Wie breit ist es?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm"
+   },
+   "c": "(-(4) + 10) / (2 * 1)",
+   "w": "x(x + 4) = 21 ⇔ x² + 4x − 21 = 0. Lösungen −7 und 3; Breite 3 cm."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 1 cm länger als breit und hat einen Flächeninhalt von 240 cm². Wie breit ist es?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "cm"
+   },
+   "c": "(-(1) + 31) / (2 * 1)",
+   "w": "x(x + 1) = 240 ⇔ x² + x − 240 = 0. Lösungen −16 und 15; Breite 15 cm."
+  }
+ ],
+ "offen": [
+  "Lösungen werden als Lücken „x₁ = □; x₂ = □“ (kleinere zuerst) abgefragt; Lösungen mit Wurzeln (irrational) sind bewusst ausgelassen, weil Lücken nur ganze Zahlen erlauben. Im Unterricht kommen sie vor – ggf. Antworttyp „Wurzelterm“ nachrüsten.",
+  "Grafische Deutung (Nullstellen der Parabel) steht im Thema funktionen.quadratisch."
+ ]
+}

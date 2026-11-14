@@ -1,0 +1,3083 @@
+{
+ "thema_schluessel": "abbildungen.aehnlichkeit",
+ "thema_id": 47,
+ "block_id": 78,
+ "klasse": {
+  "gym_by": 9,
+  "rs_by": 9,
+  "ib_myp": 3
+ },
+ "autor": "Claude (Paket Klasse 9)",
+ "inhalt": {
+  "ziel": "Zentrische Streckung und Ähnlichkeit verstehen, Strahlensätze anwenden und die Wirkung auf Fläche und Volumen berechnen.",
+  "merke": [
+   "Zentrische Streckung: Längen · |k|, Flächen · k², Volumina · |k|³.",
+   "Ähnlich: gleiche Winkel, alle Seiten im gleichen Verhältnis.",
+   "1. Strahlensatz: SA : SA' = SB : SB'.",
+   "2. Strahlensatz: AB : A'B' = SA : SA' (Strecken ab S!)."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Streckung und Ähnlichkeit",
+    "lernziele": [
+     "streckung",
+     "aehnlich"
+    ]
+   },
+   {
+    "titel": "Strahlensätze",
+    "lernziele": [
+     "strahlensatz1",
+     "strahlensatz2"
+    ]
+   },
+   {
+    "titel": "Anwenden",
+    "lernziele": [
+     "flaeche_volumen",
+     "anwendung"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "streckung",
+    "titel": "Zentrische Streckung",
+    "regel": "Bei einer zentrischen Streckung mit Zentrum Z und ⟦Streckfaktor k⟧ gilt ⟦ZP' = |k| · ZP⟧; alle Strecken werden mit |k| multipliziert. Bei k < 0 liegt P' auf der ⟦anderen Seite⟧ von Z.",
+    "schritte": [
+     "Z(1 | 2), P(4 | 3), k = 2: Vektor von Z nach P ist (3 | 1).",
+     "Verdoppeln: (6 | 2), also P' = (1 + 6 | 2 + 2) = ⟦P'(7 | 4)⟧."
+    ],
+    "probe": "P' liegt auf dem Strahl ZP, doppelt so weit von Z entfernt ✓",
+    "fehler": "P' = 2 · P = (8 | 6) ist falsch, wenn Z nicht der Ursprung ist: Man streckt den ⟦Abstand von Z⟧, nicht die Koordinaten von P."
+   },
+   {
+    "lernziel": "aehnlich",
+    "titel": "Ähnliche Figuren",
+    "regel": "Zwei Figuren sind ⟦ähnlich⟧, wenn entsprechende Winkel gleich sind und ⟦alle Seiten im gleichen Verhältnis k⟧ stehen. Für Dreiecke genügen zwei gleiche Winkel.",
+    "schritte": [
+     "Dreieck 1: 4 cm, 6 cm, 7 cm. Dreieck 2 ist ähnlich, die kürzeste Seite misst 10 cm: k = 10 : 4 = 2,5.",
+     "Die anderen Seiten: 6 · 2,5 = ⟦15 cm⟧ und 7 · 2,5 = ⟦17,5 cm⟧."
+    ],
+    "probe": "15 : 6 = 2,5 ✓",
+    "fehler": "Zu jeder Seite 6 cm zu addieren (4 → 10, 6 → 12) ist falsch: Bei Ähnlichkeit wird ⟦multipliziert⟧, nicht addiert."
+   },
+   {
+    "lernziel": "strahlensatz1",
+    "titel": "1. Strahlensatz (Abschnitte)",
+    "regel": "Werden zwei Strahlen von Parallelen geschnitten, stehen die ⟦Abschnitte auf einem Strahl⟧ im gleichen Verhältnis wie die entsprechenden auf dem anderen: ⟦SA : SA' = SB : SB'⟧.",
+    "schritte": [
+     "SA = 3 cm, SA' = 7,5 cm, SB = 4 cm. Gesucht SB'.",
+     "SB' : 4 = 7,5 : 3 = 2,5 ⇒ ⟦SB' = 10 cm⟧."
+    ],
+    "probe": "10 : 4 = 2,5 = 7,5 : 3 ✓",
+    "fehler": "SB' = SB + (SA' − SA) = 8,5 cm ist falsch: Die Strecken stehen im gleichen ⟦Verhältnis⟧, nicht im gleichen Abstand."
+   },
+   {
+    "lernziel": "strahlensatz2",
+    "titel": "2. Strahlensatz (Parallelen)",
+    "regel": "Die ⟦Parallelstrecken⟧ verhalten sich wie die zugehörigen Abschnitte ⟦ab S⟧: ⟦AB : A'B' = SA : SA'⟧. Nicht mit dem Stück AA' zwischen den Parallelen rechnen!",
+    "schritte": [
+     "SA = 5 cm, AA' = 3 cm, AB = 4 cm. Gesucht A'B'. SA' = 5 + 3 = 8 cm.",
+     "A'B' : 4 = 8 : 5 ⇒ A'B' = 4 · 1,6 = ⟦6,4 cm⟧."
+    ],
+    "probe": "6,4 : 4 = 1,6 = 8 : 5 ✓",
+    "fehler": "A'B' : AB = AA' : SA zu rechnen ist falsch: Beim 2. Strahlensatz braucht man Strecken ⟦ab S⟧, also SA' = SA + AA'."
+   },
+   {
+    "lernziel": "flaeche_volumen",
+    "titel": "Wirkung auf Fläche und Volumen",
+    "regel": "Werden alle Längen mit k multipliziert, wird der ⟦Flächeninhalt mit k²⟧ und das ⟦Volumen mit k³⟧ multipliziert.",
+    "schritte": [
+     "Ein Modell im Maßstab 1 : 20: k = 20. Das Modell hat 300 cm² Bodenfläche.",
+     "Original: 300 · 20² = 300 · 400 = ⟦120 000 cm²⟧ = 12 m²."
+    ],
+    "probe": "1 m² = 10 000 cm² ✓",
+    "fehler": "Bei doppelter Seitenlänge auch die doppelte Fläche anzunehmen ist falsch: Die Fläche wächst mit ⟦k² = 4⟧, das Volumen mit k³ = 8."
+   },
+   {
+    "lernziel": "anwendung",
+    "titel": "Strahlensätze anwenden",
+    "regel": "Skizze anfertigen, ⟦Scheitel S und Parallelen⟧ erkennen, Gleichung aufstellen. Steht die Unbekannte in einer Summe, entsteht eine ⟦Bruchgleichung⟧: mit den Nennern multiplizieren.",
+    "schritte": [
+     "Ein 2 m hoher Stab wirft 3 m Schatten, ein Baum zur gleichen Zeit 18 m. Strahlen: Sonnenstrahl und Boden, S = Schattenende.",
+     "h : 2 = 18 : 3 ⇒ h = 2 · 6 = ⟦12 m⟧."
+    ],
+    "probe": "12 : 18 = 2 : 3 ✓",
+    "fehler": "h : 18 = 3 : 2 ist falsch zugeordnet: ⟦Höhe zu Höhe⟧ und ⟦Schatten zu Schatten⟧ (oder Höhe zu Schatten auf beiden Seiten gleich)."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "streckung",
+    "text": "Zentrische Streckung",
+    "lernziele": [
+     "streckung"
+    ]
+   },
+   {
+    "k": "aehnlich",
+    "text": "Ähnliche Figuren",
+    "lernziele": [
+     "aehnlich"
+    ]
+   },
+   {
+    "k": "strahlensatz1",
+    "text": "1. Strahlensatz (Abschnitte)",
+    "lernziele": [
+     "strahlensatz1"
+    ]
+   },
+   {
+    "k": "strahlensatz2",
+    "text": "2. Strahlensatz (Parallelen)",
+    "lernziele": [
+     "strahlensatz2"
+    ]
+   },
+   {
+    "k": "flaeche_volumen",
+    "text": "Wirkung auf Fläche und Volumen",
+    "lernziele": [
+     "flaeche_volumen"
+    ]
+   },
+   {
+    "k": "anwendung",
+    "text": "Strahlensätze anwenden",
+    "lernziele": [
+     "anwendung"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "streckung",
+    "aehnlich",
+    "strahlensatz1",
+    "strahlensatz2",
+    "flaeche_volumen",
+    "anwendung"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), Aufgaben vom Generator erzeugt und berechnet.",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Strecke der Länge 14 cm wird zentrisch mit k = 3 gestreckt. Wie lang ist die Bildstrecke?"
+   },
+   "o": {
+    "wert": 42,
+    "einheit": "cm"
+   },
+   "c": "3 * 14",
+   "w": "Bildstrecke = |k| · Strecke = 3 · 14 cm = 42 cm.",
+   "h": "Alle Längen werden mit |k| multipliziert."
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Strecke der Länge 8 cm wird zentrisch mit k = 2,5 gestreckt. Wie lang ist die Bildstrecke?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "cm"
+   },
+   "c": "2.5 * 8",
+   "w": "Bildstrecke = |k| · Strecke = 2,5 · 8 cm = 20 cm.",
+   "h": "Alle Längen werden mit |k| multipliziert."
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Strecke der Länge 2 cm wird zentrisch mit k = 3 gestreckt. Wie lang ist die Bildstrecke?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "3 * 2",
+   "w": "Bildstrecke = |k| · Strecke = 3 · 2 cm = 6 cm.",
+   "h": "Alle Längen werden mit |k| multipliziert."
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Strecke der Länge 11 cm wird zentrisch mit k = 1,5 gestreckt. Wie lang ist die Bildstrecke?"
+   },
+   "o": {
+    "wert": 16.5,
+    "einheit": "cm"
+   },
+   "c": "1.5 * 11",
+   "w": "Bildstrecke = |k| · Strecke = 1,5 · 11 cm = 16,5 cm.",
+   "h": "Alle Längen werden mit |k| multipliziert."
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Strecke der Länge 15 cm wird zentrisch mit k = 0,5 gestreckt. Wie lang ist die Bildstrecke?"
+   },
+   "o": {
+    "wert": 7.5,
+    "einheit": "cm"
+   },
+   "c": "0.5 * 15",
+   "w": "Bildstrecke = |k| · Strecke = 0,5 · 15 cm = 7,5 cm.",
+   "h": "Alle Längen werden mit |k| multipliziert."
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Strecke der Länge 17 cm wird zentrisch mit k = 1,5 gestreckt. Wie lang ist die Bildstrecke?"
+   },
+   "o": {
+    "wert": 25.5,
+    "einheit": "cm"
+   },
+   "c": "1.5 * 17",
+   "w": "Bildstrecke = |k| · Strecke = 1,5 · 17 cm = 25,5 cm.",
+   "h": "Alle Längen werden mit |k| multipliziert."
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer zentrischen Streckung mit Zentrum Z ist ZP = 11 cm und ZP' = 33 cm (P' auf dem Strahl ZP). Bestimme k."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "33 / 11",
+   "w": "k = ZP' : ZP = 33 : 11 = 3.",
+   "h": "Teile die Bildlänge durch die Originallänge."
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Strecke P(4 | 0) zentrisch an Z(2 | 1) mit k = 2.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "x- und y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     6,
+     -1
+    ]
+   },
+   "w": "Von Z nach P: (2 | −1); mal 2: (4 | −2); P'(6 | −1).",
+   "h": "Bestimme den Weg von Z nach P, multipliziere mit k und gehe ihn von Z aus.",
+   "c": [
+    "2 + 2 * (4 - (2))",
+    "1 + 2 * (0 - (1))"
+   ]
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer zentrischen Streckung mit Zentrum Z ist ZP = 4 cm und ZP' = 2 cm (P' auf dem Strahl ZP). Bestimme k."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "2 / 4",
+   "w": "k = ZP' : ZP = 2 : 4 = 0,5.",
+   "h": "Teile die Bildlänge durch die Originallänge."
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Strecke P(−2 | −1) zentrisch an Z(−3 | 1) mit k = 2.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "x- und y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -1,
+     -3
+    ]
+   },
+   "w": "Von Z nach P: (1 | −2); mal 2: (2 | −4); P'(−1 | −3).",
+   "h": "Bestimme den Weg von Z nach P, multipliziere mit k und gehe ihn von Z aus.",
+   "c": [
+    "-3 + 2 * (-2 - (-3))",
+    "1 + 2 * (-1 - (1))"
+   ]
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer zentrischen Streckung mit Zentrum Z ist ZP = 6 cm und ZP' = 1,5 cm (P' auf dem Strahl ZP). Bestimme k."
+   },
+   "o": {
+    "wert": 0.25
+   },
+   "c": "1.5 / 6",
+   "w": "k = ZP' : ZP = 1,5 : 6 = 0,25.",
+   "h": "Teile die Bildlänge durch die Originallänge."
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer zentrischen Streckung mit Zentrum Z ist ZP = 12 cm und ZP' = 30 cm (P' auf dem Strahl ZP). Bestimme k."
+   },
+   "o": {
+    "wert": 2.5
+   },
+   "c": "30 / 12",
+   "w": "k = ZP' : ZP = 30 : 12 = 2,5.",
+   "h": "Teile die Bildlänge durch die Originallänge."
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Strecke P(−4 | 6) zentrisch an Z(−4 | 0) mit k = −3.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "x- und y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -4,
+     -18
+    ]
+   },
+   "w": "Von Z nach P: (0 | 6); mal −3: (0 | −18); P'(−4 | −18).",
+   "h": "Bestimme den Weg von Z nach P, multipliziere mit k und gehe ihn von Z aus.",
+   "c": [
+    "-4 + -3 * (-4 - (-4))",
+    "0 + -3 * (6 - (0))"
+   ]
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Strecke P(−2 | −2) zentrisch an Z(2 | −4) mit k = −0,5.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "x- und y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     4,
+     -5
+    ]
+   },
+   "w": "Von Z nach P: (−4 | 2); mal −0,5: (2 | −1); P'(4 | −5).",
+   "h": "Bestimme den Weg von Z nach P, multipliziere mit k und gehe ihn von Z aus.",
+   "c": [
+    "2 + -0.5 * (-2 - (2))",
+    "-4 + -0.5 * (-2 - (-4))"
+   ]
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Strecke P(5 | 0) zentrisch an Z(−1 | −2) mit k = 0,5.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "x- und y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     2,
+     -1
+    ]
+   },
+   "w": "Von Z nach P: (6 | 2); mal 0,5: (3 | 1); P'(2 | −1).",
+   "h": "Bestimme den Weg von Z nach P, multipliziere mit k und gehe ihn von Z aus.",
+   "c": [
+    "-1 + 0.5 * (5 - (-1))",
+    "-2 + 0.5 * (0 - (-2))"
+   ]
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Strecke P(−8 | −6) zentrisch an Z(−2 | −4) mit k = −3.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "x- und y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     16,
+     2
+    ]
+   },
+   "w": "Von Z nach P: (−6 | −2); mal −3: (18 | 6); P'(16 | 2).",
+   "h": "Bestimme den Weg von Z nach P, multipliziere mit k und gehe ihn von Z aus.",
+   "c": [
+    "-2 + -3 * (-8 - (-2))",
+    "-4 + -3 * (-6 - (-4))"
+   ]
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Strecke P(6 | 2) zentrisch an Z(0 | 2) mit k = −3.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "x- und y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -18,
+     2
+    ]
+   },
+   "w": "Von Z nach P: (6 | 0); mal −3: (−18 | 0); P'(−18 | 2).",
+   "h": "Bestimme den Weg von Z nach P, multipliziere mit k und gehe ihn von Z aus.",
+   "c": [
+    "0 + -3 * (6 - (0))",
+    "2 + -3 * (2 - (2))"
+   ]
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Strecke P(0 | −6) zentrisch an Z(0 | 0) mit k = −2.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "x- und y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     0,
+     12
+    ]
+   },
+   "w": "Von Z nach P: (0 | −6); mal −2: (0 | 12); P'(0 | 12).",
+   "h": "Bestimme den Weg von Z nach P, multipliziere mit k und gehe ihn von Z aus.",
+   "c": [
+    "0 + -2 * (0 - (0))",
+    "0 + -2 * (-6 - (0))"
+   ]
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer zentrischen Streckung mit Zentrum Z ist ZP = 8 cm und ZP' = 12 cm (P' auf dem Strahl ZP). Bestimme k."
+   },
+   "o": {
+    "wert": 1.5
+   },
+   "c": "12 / 8",
+   "w": "k = ZP' : ZP = 12 : 8 = 1,5."
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Strecke P(−2 | −5) zentrisch an Z(−1 | −3) mit k = −2.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "x- und y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     1,
+     1
+    ]
+   },
+   "w": "Von Z nach P: (−1 | −2); mal −2: (2 | 4); P'(1 | 1).",
+   "c": [
+    "-1 + -2 * (-2 - (-1))",
+    "-3 + -2 * (-5 - (-3))"
+   ]
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Strecke P(0 | 1) zentrisch an Z(3 | −3) mit k = 2.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "x- und y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -3,
+     5
+    ]
+   },
+   "w": "Von Z nach P: (−3 | 4); mal 2: (−6 | 8); P'(−3 | 5).",
+   "c": [
+    "3 + 2 * (0 - (3))",
+    "-3 + 2 * (1 - (-3))"
+   ]
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer zentrischen Streckung mit Zentrum Z ist ZP = 7 cm und ZP' = 3,5 cm (P' auf dem Strahl ZP). Bestimme k."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "3.5 / 7",
+   "w": "k = ZP' : ZP = 3,5 : 7 = 0,5."
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Strecke P(2 | 0) zentrisch an Z(3 | 0) mit k = −1.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "x- und y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     4,
+     0
+    ]
+   },
+   "w": "Von Z nach P: (−1 | 0); mal −1: (1 | 0); P'(4 | 0).",
+   "c": [
+    "3 + -1 * (2 - (3))",
+    "0 + -1 * (0 - (0))"
+   ]
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Strecke P(0 | −4) zentrisch an Z(2 | −2) mit k = −2.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "x- und y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     6,
+     2
+    ]
+   },
+   "w": "Von Z nach P: (−2 | −2); mal −2: (4 | 4); P'(6 | 2).",
+   "c": [
+    "2 + -2 * (0 - (2))",
+    "-2 + -2 * (-4 - (-2))"
+   ]
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer zentrischen Streckung mit Zentrum Z ist ZP = 9 cm und ZP' = 4,5 cm (P' auf dem Strahl ZP). Bestimme k."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "4.5 / 9",
+   "w": "k = ZP' : ZP = 4,5 : 9 = 0,5."
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer zentrischen Streckung mit Zentrum Z ist ZP = 3 cm und ZP' = 1,5 cm (P' auf dem Strahl ZP). Bestimme k."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "1.5 / 3",
+   "w": "k = ZP' : ZP = 1,5 : 3 = 0,5."
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer zentrischen Streckung mit Zentrum Z ist ZP = 8 cm und ZP' = 20 cm (P' auf dem Strahl ZP). Bestimme k."
+   },
+   "o": {
+    "wert": 2.5
+   },
+   "c": "20 / 8",
+   "w": "k = ZP' : ZP = 20 : 8 = 2,5."
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer zentrischen Streckung mit Zentrum Z ist ZP = 9 cm und ZP' = 2,25 cm (P' auf dem Strahl ZP). Bestimme k."
+   },
+   "o": {
+    "wert": 0.25
+   },
+   "c": "2.25 / 9",
+   "w": "k = ZP' : ZP = 2,25 : 9 = 0,25."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Dreiecke sind ähnlich mit k = 3. Eine Seite des kleinen Dreiecks ist 4 cm lang. Wie lang ist die entsprechende Seite des großen?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "cm"
+   },
+   "c": "4 * 3",
+   "w": "4 cm · 3 = 12 cm.",
+   "h": "Entsprechende Seiten: mit k multiplizieren."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Dreiecke sind ähnlich mit k = 1,5. Eine Seite des kleinen Dreiecks ist 3 cm lang. Wie lang ist die entsprechende Seite des großen?"
+   },
+   "o": {
+    "wert": 4.5,
+    "einheit": "cm"
+   },
+   "c": "3 * 1.5",
+   "w": "3 cm · 1,5 = 4,5 cm.",
+   "h": "Entsprechende Seiten: mit k multiplizieren."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Dreiecke sind ähnlich mit k = 3. Eine Seite des kleinen Dreiecks ist 12 cm lang. Wie lang ist die entsprechende Seite des großen?"
+   },
+   "o": {
+    "wert": 36,
+    "einheit": "cm"
+   },
+   "c": "12 * 3",
+   "w": "12 cm · 3 = 36 cm.",
+   "h": "Entsprechende Seiten: mit k multiplizieren."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Dreiecke sind ähnlich mit k = 2,5. Eine Seite des kleinen Dreiecks ist 12 cm lang. Wie lang ist die entsprechende Seite des großen?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "cm"
+   },
+   "c": "12 * 2.5",
+   "w": "12 cm · 2,5 = 30 cm.",
+   "h": "Entsprechende Seiten: mit k multiplizieren."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Dreiecke sind ähnlich mit k = 4. Eine Seite des kleinen Dreiecks ist 8 cm lang. Wie lang ist die entsprechende Seite des großen?"
+   },
+   "o": {
+    "wert": 32,
+    "einheit": "cm"
+   },
+   "c": "8 * 4",
+   "w": "8 cm · 4 = 32 cm.",
+   "h": "Entsprechende Seiten: mit k multiplizieren."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Dreiecke sind ähnlich mit k = 2,5. Eine Seite des kleinen Dreiecks ist 10 cm lang. Wie lang ist die entsprechende Seite des großen?"
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "cm"
+   },
+   "c": "10 * 2.5",
+   "w": "10 cm · 2,5 = 25 cm.",
+   "h": "Entsprechende Seiten: mit k multiplizieren."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 7 cm, 11 cm und 12 cm. In einem ähnlichen Dreieck ist die kürzeste Seite 17,5 cm lang. Wie lang ist die Seite, die 11 cm entspricht?"
+   },
+   "o": {
+    "wert": 27.5,
+    "einheit": "cm"
+   },
+   "c": "11 * (17.5 / 7)",
+   "w": "k = 17,5 : 7 = 2,5; 11 · 2,5 = 27,5 cm.",
+   "h": "Bestimme zuerst k aus den kürzesten Seiten."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 6 cm, 7 cm und 11 cm. In einem ähnlichen Dreieck ist die kürzeste Seite 18 cm lang. Wie lang ist die Seite, die 11 cm entspricht?"
+   },
+   "o": {
+    "wert": 33,
+    "einheit": "cm"
+   },
+   "c": "11 * (18 / 6)",
+   "w": "k = 18 : 6 = 3; 11 · 3 = 33 cm.",
+   "h": "Bestimme zuerst k aus den kürzesten Seiten."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 8 cm, 11 cm und 12 cm. In einem ähnlichen Dreieck ist die kürzeste Seite 24 cm lang. Wie lang ist die Seite, die 11 cm entspricht?"
+   },
+   "o": {
+    "wert": 33,
+    "einheit": "cm"
+   },
+   "c": "11 * (24 / 8)",
+   "w": "k = 24 : 8 = 3; 11 · 3 = 33 cm.",
+   "h": "Bestimme zuerst k aus den kürzesten Seiten."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 3 cm, 6 cm und 7 cm. In einem ähnlichen Dreieck ist die kürzeste Seite 4,5 cm lang. Wie lang ist die Seite, die 7 cm entspricht?"
+   },
+   "o": {
+    "wert": 10.5,
+    "einheit": "cm"
+   },
+   "c": "7 * (4.5 / 3)",
+   "w": "k = 4,5 : 3 = 1,5; 7 · 1,5 = 10,5 cm.",
+   "h": "Bestimme zuerst k aus den kürzesten Seiten."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 5 cm, 9 cm und 12 cm. In einem ähnlichen Dreieck ist die kürzeste Seite 10 cm lang. Wie lang ist die Seite, die 12 cm entspricht?"
+   },
+   "o": {
+    "wert": 24,
+    "einheit": "cm"
+   },
+   "c": "12 * (10 / 5)",
+   "w": "k = 10 : 5 = 2; 12 · 2 = 24 cm.",
+   "h": "Bestimme zuerst k aus den kürzesten Seiten."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 8 cm, 10 cm und 12 cm. In einem ähnlichen Dreieck ist die kürzeste Seite 20 cm lang. Wie lang ist die Seite, die 10 cm entspricht?"
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "cm"
+   },
+   "c": "10 * (20 / 8)",
+   "w": "k = 20 : 8 = 2,5; 10 · 2,5 = 25 cm.",
+   "h": "Bestimme zuerst k aus den kürzesten Seiten."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Dreieck 1: 8 cm, 9 cm, 11 cm. Dreieck 2: 12 cm, 13,5 cm, 18,5 cm. Sind sie ähnlich?"
+   },
+   "a": [
+    "Nein, weil die Seiten verschieden lang sind.",
+    "Ja, weil beide Dreiecke drei Seiten haben.",
+    "Nein, nicht alle Seitenverhältnisse sind gleich.",
+    "Ja, alle Seitenverhältnisse sind gleich."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "12 : 8 = 1,5, 13,5 : 9 = 1,5, 18,5 : 11 = 37/22 – verschieden.",
+   "h": "Bilde die Verhältnisse entsprechender Seiten (kurz zu kurz, lang zu lang)."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Dreieck 1: 3 cm, 10 cm, 11 cm. Dreieck 2: 4,5 cm, 15 cm, 17,5 cm. Sind sie ähnlich?"
+   },
+   "a": [
+    "Ja, alle Seitenverhältnisse sind gleich.",
+    "Nein, weil die Seiten verschieden lang sind.",
+    "Nein, nicht alle Seitenverhältnisse sind gleich.",
+    "Ja, weil beide Dreiecke drei Seiten haben."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "4,5 : 3 = 1,5, 15 : 10 = 1,5, 17,5 : 11 = 35/22 – verschieden.",
+   "h": "Bilde die Verhältnisse entsprechender Seiten (kurz zu kurz, lang zu lang)."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Dreieck 1: 3 cm, 8 cm, 10 cm. Dreieck 2: 9 cm, 24 cm, 30 cm. Sind sie ähnlich?"
+   },
+   "a": [
+    "Ja, alle Seitenverhältnisse sind gleich.",
+    "Nein, nicht alle Seitenverhältnisse sind gleich.",
+    "Ja, weil beide Dreiecke drei Seiten haben.",
+    "Nein, weil die Seiten verschieden lang sind."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "9 : 3 = 3, 24 : 8 = 3, 30 : 10 = 3 – gleich.",
+   "h": "Bilde die Verhältnisse entsprechender Seiten (kurz zu kurz, lang zu lang)."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Dreieck 1: 7 cm, 8 cm, 11 cm. Dreieck 2: 10,5 cm, 12 cm, 17,5 cm. Sind sie ähnlich?"
+   },
+   "a": [
+    "Ja, weil beide Dreiecke drei Seiten haben.",
+    "Ja, alle Seitenverhältnisse sind gleich.",
+    "Nein, weil die Seiten verschieden lang sind.",
+    "Nein, nicht alle Seitenverhältnisse sind gleich."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "10,5 : 7 = 1,5, 12 : 8 = 1,5, 17,5 : 11 = 35/22 – verschieden.",
+   "h": "Bilde die Verhältnisse entsprechender Seiten (kurz zu kurz, lang zu lang)."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Dreieck 1: 6 cm, 8 cm, 9 cm. Dreieck 2: 9 cm, 12 cm, 13,5 cm. Sind sie ähnlich?"
+   },
+   "a": [
+    "Ja, alle Seitenverhältnisse sind gleich.",
+    "Nein, weil die Seiten verschieden lang sind.",
+    "Nein, nicht alle Seitenverhältnisse sind gleich.",
+    "Ja, weil beide Dreiecke drei Seiten haben."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "9 : 6 = 1,5, 12 : 8 = 1,5, 13,5 : 9 = 1,5 – gleich.",
+   "h": "Bilde die Verhältnisse entsprechender Seiten (kurz zu kurz, lang zu lang)."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Dreieck 1: 8 cm, 9 cm, 12 cm. Dreieck 2: 12 cm, 13,5 cm, 18 cm. Sind sie ähnlich?"
+   },
+   "a": [
+    "Ja, alle Seitenverhältnisse sind gleich.",
+    "Nein, weil die Seiten verschieden lang sind.",
+    "Ja, weil beide Dreiecke drei Seiten haben.",
+    "Nein, nicht alle Seitenverhältnisse sind gleich."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "12 : 8 = 1,5, 13,5 : 9 = 1,5, 18 : 12 = 1,5 – gleich.",
+   "h": "Bilde die Verhältnisse entsprechender Seiten (kurz zu kurz, lang zu lang)."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 5 cm, 8 cm und 10 cm. In einem ähnlichen Dreieck ist die kürzeste Seite 6,25 cm lang. Wie lang ist die Seite, die 8 cm entspricht?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "cm"
+   },
+   "c": "8 * (6.25 / 5)",
+   "w": "k = 6,25 : 5 = 1,25; 8 · 1,25 = 10 cm."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 7 cm, 11 cm und 12 cm. In einem ähnlichen Dreieck ist die kürzeste Seite 10,5 cm lang. Wie lang ist die Seite, die 11 cm entspricht?"
+   },
+   "o": {
+    "wert": 16.5,
+    "einheit": "cm"
+   },
+   "c": "11 * (10.5 / 7)",
+   "w": "k = 10,5 : 7 = 1,5; 11 · 1,5 = 16,5 cm."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 5 cm, 6 cm und 7 cm. In einem ähnlichen Dreieck ist die kürzeste Seite 15 cm lang. Wie lang ist die Seite, die 7 cm entspricht?"
+   },
+   "o": {
+    "wert": 21,
+    "einheit": "cm"
+   },
+   "c": "7 * (15 / 5)",
+   "w": "k = 15 : 5 = 3; 7 · 3 = 21 cm."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 5 cm, 9 cm und 12 cm. In einem ähnlichen Dreieck ist die kürzeste Seite 15 cm lang. Wie lang ist die Seite, die 9 cm entspricht?"
+   },
+   "o": {
+    "wert": 27,
+    "einheit": "cm"
+   },
+   "c": "9 * (15 / 5)",
+   "w": "k = 15 : 5 = 3; 9 · 3 = 27 cm."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 8 cm, 10 cm und 12 cm. In einem ähnlichen Dreieck ist die kürzeste Seite 16 cm lang. Wie lang ist die Seite, die 12 cm entspricht?"
+   },
+   "o": {
+    "wert": 24,
+    "einheit": "cm"
+   },
+   "c": "12 * (16 / 8)",
+   "w": "k = 16 : 8 = 2; 12 · 2 = 24 cm."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 6 cm, 7 cm und 10 cm. In einem ähnlichen Dreieck ist die kürzeste Seite 12 cm lang. Wie lang ist die Seite, die 7 cm entspricht?"
+   },
+   "o": {
+    "wert": 14,
+    "einheit": "cm"
+   },
+   "c": "7 * (12 / 6)",
+   "w": "k = 12 : 6 = 2; 7 · 2 = 14 cm."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 6 cm, 9 cm und 10 cm. In einem ähnlichen Dreieck ist die kürzeste Seite 7,5 cm lang. Wie lang ist die Seite, die 9 cm entspricht?"
+   },
+   "o": {
+    "wert": 11.25,
+    "einheit": "cm"
+   },
+   "c": "9 * (7.5 / 6)",
+   "w": "k = 7,5 : 6 = 1,25; 9 · 1,25 = 11,25 cm."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 4 cm, 11 cm und 12 cm. In einem ähnlichen Dreieck ist die kürzeste Seite 6 cm lang. Wie lang ist die Seite, die 11 cm entspricht?"
+   },
+   "o": {
+    "wert": 16.5,
+    "einheit": "cm"
+   },
+   "c": "11 * (6 / 4)",
+   "w": "k = 6 : 4 = 1,5; 11 · 1,5 = 16,5 cm."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 3 cm, 4 cm und 6 cm. In einem ähnlichen Dreieck ist die kürzeste Seite 7,5 cm lang. Wie lang ist die Seite, die 6 cm entspricht?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "cm"
+   },
+   "c": "6 * (7.5 / 3)",
+   "w": "k = 7,5 : 3 = 2,5; 6 · 2,5 = 15 cm."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 4 cm, 5 cm und 6 cm. In einem ähnlichen Dreieck ist die kürzeste Seite 12 cm lang. Wie lang ist die Seite, die 5 cm entspricht?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "cm"
+   },
+   "c": "5 * (12 / 4)",
+   "w": "k = 12 : 4 = 3; 5 · 3 = 15 cm."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 6 cm, SA' = 12 cm, SB = 5 cm. Berechne SB'."
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "cm"
+   },
+   "c": "5 * 12 / 6",
+   "w": "SB' : SB = SA' : SA = 2 ⇒ SB' = 5 · 2 = 10 cm.",
+   "h": "Setze das Verhältnis auf beiden Strahlen gleich."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 4 cm, SA' = 10 cm, SB = 5 cm. Berechne SB'."
+   },
+   "o": {
+    "wert": 12.5,
+    "einheit": "cm"
+   },
+   "c": "5 * 10 / 4",
+   "w": "SB' : SB = SA' : SA = 2,5 ⇒ SB' = 5 · 2,5 = 12,5 cm.",
+   "h": "Setze das Verhältnis auf beiden Strahlen gleich."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 7 cm, SA' = 10,5 cm, SB = 9 cm. Berechne SB'."
+   },
+   "o": {
+    "wert": 13.5,
+    "einheit": "cm"
+   },
+   "c": "9 * 10.5 / 7",
+   "w": "SB' : SB = SA' : SA = 1,5 ⇒ SB' = 9 · 1,5 = 13,5 cm.",
+   "h": "Setze das Verhältnis auf beiden Strahlen gleich."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 5 cm, SA' = 6,25 cm, SB = 8 cm. Berechne SB'."
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "cm"
+   },
+   "c": "8 * 6.25 / 5",
+   "w": "SB' : SB = SA' : SA = 1,25 ⇒ SB' = 8 · 1,25 = 10 cm.",
+   "h": "Setze das Verhältnis auf beiden Strahlen gleich."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 3 cm, SA' = 3,75 cm, SB = 7 cm. Berechne SB'."
+   },
+   "o": {
+    "wert": 8.75,
+    "einheit": "cm"
+   },
+   "c": "7 * 3.75 / 3",
+   "w": "SB' : SB = SA' : SA = 1,25 ⇒ SB' = 7 · 1,25 = 8,75 cm.",
+   "h": "Setze das Verhältnis auf beiden Strahlen gleich."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 2 cm, SA' = 3,5 cm, SB = 4 cm. Berechne SB'."
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "cm"
+   },
+   "c": "4 * 3.5 / 2",
+   "w": "SB' : SB = SA' : SA = 1,75 ⇒ SB' = 4 · 1,75 = 7 cm.",
+   "h": "Setze das Verhältnis auf beiden Strahlen gleich."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 5 cm, SB = 10 cm, SB' = 30 cm. Berechne SA'."
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "cm"
+   },
+   "c": "5 * 30 / 10",
+   "w": "SA' : SA = SB' : SB = 3 ⇒ SA' = 5 · 3 = 15 cm.",
+   "h": "Welches Verhältnis kennst du vollständig?"
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 8 cm, SB = 2 cm, SB' = 2,5 cm. Berechne SA'."
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "cm"
+   },
+   "c": "8 * 2.5 / 2",
+   "w": "SA' : SA = SB' : SB = 1,25 ⇒ SA' = 8 · 1,25 = 10 cm.",
+   "h": "Welches Verhältnis kennst du vollständig?"
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 2 cm, SB = 6 cm, SB' = 15 cm. Berechne SA'."
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "cm"
+   },
+   "c": "2 * 15 / 6",
+   "w": "SA' : SA = SB' : SB = 2,5 ⇒ SA' = 2 · 2,5 = 5 cm.",
+   "h": "Welches Verhältnis kennst du vollständig?"
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 7 cm, SB = 7 cm, SB' = 14 cm. Berechne SA'."
+   },
+   "o": {
+    "wert": 14,
+    "einheit": "cm"
+   },
+   "c": "7 * 14 / 7",
+   "w": "SA' : SA = SB' : SB = 2 ⇒ SA' = 7 · 2 = 14 cm.",
+   "h": "Welches Verhältnis kennst du vollständig?"
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 2 cm, SB = 8 cm, SB' = 16 cm. Berechne SA'."
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "2 * 16 / 8",
+   "w": "SA' : SA = SB' : SB = 2 ⇒ SA' = 2 · 2 = 4 cm.",
+   "h": "Welches Verhältnis kennst du vollständig?"
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 9 cm, SB = 5 cm, SB' = 8,75 cm. Berechne SA'."
+   },
+   "o": {
+    "wert": 15.75,
+    "einheit": "cm"
+   },
+   "c": "9 * 8.75 / 5",
+   "w": "SA' : SA = SB' : SB = 1,75 ⇒ SA' = 9 · 1,75 = 15,75 cm.",
+   "h": "Welches Verhältnis kennst du vollständig?"
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA' = 10,5 cm, AA' = 4,5 cm, SB' = 14 cm. Berechne SB."
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "cm"
+   },
+   "c": "14 * (10.5 - 4.5) / 10.5",
+   "w": "SA = 10,5 − 4,5 = 6 cm. SB = SB' · SA : SA' = 8 cm.",
+   "h": "Berechne zuerst SA."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 3 cm, AA' = 4,5 cm, SB = 3 cm. Berechne BB'."
+   },
+   "o": {
+    "wert": 4.5,
+    "einheit": "cm"
+   },
+   "c": "3 * 4.5 / 3",
+   "w": "Auch die Abschnitte zwischen den Parallelen stehen im gleichen Verhältnis: BB' : SB = AA' : SA ⇒ BB' = 3 · 4,5 : 3 = 4,5 cm.",
+   "h": "Der 1. Strahlensatz gilt auch für die Teilstücke AA' und BB'."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA' = 11,25 cm, AA' = 2,25 cm, SB' = 5 cm. Berechne SB."
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "5 * (11.25 - 2.25) / 11.25",
+   "w": "SA = 11,25 − 2,25 = 9 cm. SB = SB' · SA : SA' = 4 cm.",
+   "h": "Berechne zuerst SA."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 3 cm, AA' = 0,75 cm, SB = 6 cm. Berechne BB'."
+   },
+   "o": {
+    "wert": 1.5,
+    "einheit": "cm"
+   },
+   "c": "6 * 0.75 / 3",
+   "w": "Auch die Abschnitte zwischen den Parallelen stehen im gleichen Verhältnis: BB' : SB = AA' : SA ⇒ BB' = 6 · 0,75 : 3 = 1,5 cm.",
+   "h": "Der 1. Strahlensatz gilt auch für die Teilstücke AA' und BB'."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA' = 3,5 cm, AA' = 1,5 cm, SB' = 3,5 cm. Berechne SB."
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "cm"
+   },
+   "c": "3.5 * (3.5 - 1.5) / 3.5",
+   "w": "SA = 3,5 − 1,5 = 2 cm. SB = SB' · SA : SA' = 2 cm.",
+   "h": "Berechne zuerst SA."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 8 cm, AA' = 6 cm, SB = 8 cm. Berechne BB'."
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "8 * 6 / 8",
+   "w": "Auch die Abschnitte zwischen den Parallelen stehen im gleichen Verhältnis: BB' : SB = AA' : SA ⇒ BB' = 8 · 6 : 8 = 6 cm.",
+   "h": "Der 1. Strahlensatz gilt auch für die Teilstücke AA' und BB'."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 7 cm, SB = 5 cm, SB' = 15 cm. Berechne SA'."
+   },
+   "o": {
+    "wert": 21,
+    "einheit": "cm"
+   },
+   "c": "7 * 15 / 5",
+   "w": "SA' : SA = SB' : SB = 3 ⇒ SA' = 7 · 3 = 21 cm."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 8 cm, SB = 2 cm, SB' = 5 cm. Berechne SA'."
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "cm"
+   },
+   "c": "8 * 5 / 2",
+   "w": "SA' : SA = SB' : SB = 2,5 ⇒ SA' = 8 · 2,5 = 20 cm."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 5 cm, SB = 2 cm, SB' = 2,5 cm. Berechne SA'."
+   },
+   "o": {
+    "wert": 6.25,
+    "einheit": "cm"
+   },
+   "c": "5 * 2.5 / 2",
+   "w": "SA' : SA = SB' : SB = 1,25 ⇒ SA' = 5 · 1,25 = 6,25 cm."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 5 cm, SB = 3 cm, SB' = 3,75 cm. Berechne SA'."
+   },
+   "o": {
+    "wert": 6.25,
+    "einheit": "cm"
+   },
+   "c": "5 * 3.75 / 3",
+   "w": "SA' : SA = SB' : SB = 1,25 ⇒ SA' = 5 · 1,25 = 6,25 cm."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 9 cm, SB = 8 cm, SB' = 16 cm. Berechne SA'."
+   },
+   "o": {
+    "wert": 18,
+    "einheit": "cm"
+   },
+   "c": "9 * 16 / 8",
+   "w": "SA' : SA = SB' : SB = 2 ⇒ SA' = 9 · 2 = 18 cm."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 3 cm, SB = 10 cm, SB' = 17,5 cm. Berechne SA'."
+   },
+   "o": {
+    "wert": 5.25,
+    "einheit": "cm"
+   },
+   "c": "3 * 17.5 / 10",
+   "w": "SA' : SA = SB' : SB = 1,75 ⇒ SA' = 3 · 1,75 = 5,25 cm."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 4 cm, SB = 6 cm, SB' = 10,5 cm. Berechne SA'."
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "cm"
+   },
+   "c": "4 * 10.5 / 6",
+   "w": "SA' : SA = SB' : SB = 1,75 ⇒ SA' = 4 · 1,75 = 7 cm."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 8 cm, SB = 4 cm, SB' = 7 cm. Berechne SA'."
+   },
+   "o": {
+    "wert": 14,
+    "einheit": "cm"
+   },
+   "c": "8 * 7 / 4",
+   "w": "SA' : SA = SB' : SB = 1,75 ⇒ SA' = 8 · 1,75 = 14 cm."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 6 cm, SB = 5 cm, SB' = 7,5 cm. Berechne SA'."
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "cm"
+   },
+   "c": "6 * 7.5 / 5",
+   "w": "SA' : SA = SB' : SB = 1,5 ⇒ SA' = 6 · 1,5 = 9 cm."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 3 cm, SB = 5 cm, SB' = 15 cm. Berechne SA'."
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "cm"
+   },
+   "c": "3 * 15 / 5",
+   "w": "SA' : SA = SB' : SB = 3 ⇒ SA' = 3 · 3 = 9 cm."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 3 cm, SA' = 7,5 cm, AB = 8 cm. Berechne A'B'."
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "cm"
+   },
+   "c": "8 * 7.5 / 3",
+   "w": "A'B' : AB = SA' : SA = 2,5 ⇒ A'B' = 8 · 2,5 = 20 cm.",
+   "h": "Parallelstrecken verhalten sich wie die Abschnitte ab S."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 4 cm, SA' = 5 cm, AB = 5 cm. Berechne A'B'."
+   },
+   "o": {
+    "wert": 6.25,
+    "einheit": "cm"
+   },
+   "c": "5 * 5 / 4",
+   "w": "A'B' : AB = SA' : SA = 1,25 ⇒ A'B' = 5 · 1,25 = 6,25 cm.",
+   "h": "Parallelstrecken verhalten sich wie die Abschnitte ab S."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 7 cm, SA' = 8,75 cm, AB = 8 cm. Berechne A'B'."
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "cm"
+   },
+   "c": "8 * 8.75 / 7",
+   "w": "A'B' : AB = SA' : SA = 1,25 ⇒ A'B' = 8 · 1,25 = 10 cm.",
+   "h": "Parallelstrecken verhalten sich wie die Abschnitte ab S."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 9 cm, SA' = 11,25 cm, AB = 9 cm. Berechne A'B'."
+   },
+   "o": {
+    "wert": 11.25,
+    "einheit": "cm"
+   },
+   "c": "9 * 11.25 / 9",
+   "w": "A'B' : AB = SA' : SA = 1,25 ⇒ A'B' = 9 · 1,25 = 11,25 cm.",
+   "h": "Parallelstrecken verhalten sich wie die Abschnitte ab S."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 2 cm, SA' = 3,2 cm, AB = 5 cm. Berechne A'B'."
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "cm"
+   },
+   "c": "5 * 3.2 / 2",
+   "w": "A'B' : AB = SA' : SA = 1,6 ⇒ A'B' = 5 · 1,6 = 8 cm.",
+   "h": "Parallelstrecken verhalten sich wie die Abschnitte ab S."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 6 cm, SA' = 9,6 cm, AB = 7 cm. Berechne A'B'."
+   },
+   "o": {
+    "wert": 11.2,
+    "einheit": "cm"
+   },
+   "c": "7 * 9.6 / 6",
+   "w": "A'B' : AB = SA' : SA = 1,6 ⇒ A'B' = 7 · 1,6 = 11,2 cm.",
+   "h": "Parallelstrecken verhalten sich wie die Abschnitte ab S."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). AB = 6 cm, A'B' = 9,6 cm, SA' = 6,4 cm. Berechne SA."
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "6.4 * 6 / 9.6",
+   "w": "SA : SA' = AB : A'B' ⇒ SA = 6,4 · 6 : 9,6 = 4 cm.",
+   "h": "Stelle das Verhältnis mit der Unbekannten auf."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 3 cm, AA' = 1,5 cm, AB = 8 cm. Berechne A'B'."
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "cm"
+   },
+   "c": "8 * (3 + 1.5) / 3",
+   "w": "SA' = 3 + 1,5 = 4,5 cm. A'B' = 8 · 4,5 : 3 = 12 cm.",
+   "h": "Rechne mit SA' (ab S), nicht mit AA'."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). AB = 4 cm, A'B' = 6 cm, SA' = 4,5 cm. Berechne SA."
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm"
+   },
+   "c": "4.5 * 4 / 6",
+   "w": "SA : SA' = AB : A'B' ⇒ SA = 4,5 · 4 : 6 = 3 cm.",
+   "h": "Stelle das Verhältnis mit der Unbekannten auf."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). AB = 6 cm, A'B' = 12 cm, SA' = 16 cm. Berechne SA."
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "cm"
+   },
+   "c": "16 * 6 / 12",
+   "w": "SA : SA' = AB : A'B' ⇒ SA = 16 · 6 : 12 = 8 cm.",
+   "h": "Stelle das Verhältnis mit der Unbekannten auf."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). AB = 7 cm, A'B' = 10,5 cm, SA' = 4,5 cm. Berechne SA."
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm"
+   },
+   "c": "4.5 * 7 / 10.5",
+   "w": "SA : SA' = AB : A'B' ⇒ SA = 4,5 · 7 : 10,5 = 3 cm.",
+   "h": "Stelle das Verhältnis mit der Unbekannten auf."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 9 cm, AA' = 2,25 cm, AB = 5 cm. Berechne A'B'."
+   },
+   "o": {
+    "wert": 6.25,
+    "einheit": "cm"
+   },
+   "c": "5 * (9 + 2.25) / 9",
+   "w": "SA' = 9 + 2,25 = 11,25 cm. A'B' = 5 · 11,25 : 9 = 6,25 cm.",
+   "h": "Rechne mit SA' (ab S), nicht mit AA'."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 2 cm, AA' = 4 cm, AB = 10 cm. Jemand rechnet A'B' = 10 · 4 : 2 = 20 cm. Was stimmt?"
+   },
+   "a": [
+    "Falsch: A'B' = 10/3 cm.",
+    "Falsch: Man braucht SA' = 6 cm, also A'B' = 30 cm.",
+    "Falsch: A'B' = 14 cm.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Beim 2. Strahlensatz stehen die Parallelen im Verhältnis der Abschnitte ab S: A'B' = 10 · 6 : 2 = 30 cm.",
+   "h": "Welche Strecken gehören beim 2. Strahlensatz zusammen?"
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 5 cm, AA' = 7,5 cm, AB = 4 cm. Jemand rechnet A'B' = 4 · 7,5 : 5 = 6 cm. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: A'B' = 11,5 cm.",
+    "Falsch: A'B' = 1,6 cm.",
+    "Falsch: Man braucht SA' = 12,5 cm, also A'B' = 10 cm."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Beim 2. Strahlensatz stehen die Parallelen im Verhältnis der Abschnitte ab S: A'B' = 4 · 12,5 : 5 = 10 cm.",
+   "h": "Welche Strecken gehören beim 2. Strahlensatz zusammen?"
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 4 cm, AA' = 8 cm, AB = 9 cm. Jemand rechnet A'B' = 9 · 8 : 4 = 18 cm. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: Man braucht SA' = 12 cm, also A'B' = 27 cm.",
+    "Falsch: A'B' = 17 cm.",
+    "Falsch: A'B' = 3 cm."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Beim 2. Strahlensatz stehen die Parallelen im Verhältnis der Abschnitte ab S: A'B' = 9 · 12 : 4 = 27 cm.",
+   "h": "Welche Strecken gehören beim 2. Strahlensatz zusammen?"
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 2 cm, AA' = 2 cm, AB = 10 cm. Jemand rechnet A'B' = 10 · 2 : 2 = 10 cm. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: Man braucht SA' = 4 cm, also A'B' = 20 cm.",
+    "Falsch: A'B' = 12 cm.",
+    "Falsch: A'B' = 5 cm."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Beim 2. Strahlensatz stehen die Parallelen im Verhältnis der Abschnitte ab S: A'B' = 10 · 4 : 2 = 20 cm.",
+   "h": "Welche Strecken gehören beim 2. Strahlensatz zusammen?"
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 9 cm, AA' = 13,5 cm, AB = 6 cm. Jemand rechnet A'B' = 6 · 13,5 : 9 = 9 cm. Was stimmt?"
+   },
+   "a": [
+    "Falsch: A'B' = 19,5 cm.",
+    "Falsch: Man braucht SA' = 22,5 cm, also A'B' = 15 cm.",
+    "Richtig.",
+    "Falsch: A'B' = 2,4 cm."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Beim 2. Strahlensatz stehen die Parallelen im Verhältnis der Abschnitte ab S: A'B' = 6 · 22,5 : 9 = 15 cm.",
+   "h": "Welche Strecken gehören beim 2. Strahlensatz zusammen?"
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 6 cm, AA' = 12 cm, AB = 10 cm. Jemand rechnet A'B' = 10 · 12 : 6 = 20 cm. Was stimmt?"
+   },
+   "a": [
+    "Falsch: A'B' = 10/3 cm.",
+    "Richtig.",
+    "Falsch: Man braucht SA' = 18 cm, also A'B' = 30 cm.",
+    "Falsch: A'B' = 22 cm."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Beim 2. Strahlensatz stehen die Parallelen im Verhältnis der Abschnitte ab S: A'B' = 10 · 18 : 6 = 30 cm.",
+   "h": "Welche Strecken gehören beim 2. Strahlensatz zusammen?"
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 7 cm, AA' = 1,75 cm, AB = 10 cm. Berechne A'B'."
+   },
+   "o": {
+    "wert": 12.5,
+    "einheit": "cm"
+   },
+   "c": "10 * (7 + 1.75) / 7",
+   "w": "SA' = 7 + 1,75 = 8,75 cm. A'B' = 10 · 8,75 : 7 = 12,5 cm."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 2 cm, AA' = 4 cm, AB = 3 cm. Berechne A'B'."
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "cm"
+   },
+   "c": "3 * (2 + 4) / 2",
+   "w": "SA' = 2 + 4 = 6 cm. A'B' = 3 · 6 : 2 = 9 cm."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). AB = 3 cm, A'B' = 4,8 cm, SA' = 11,2 cm. Berechne SA."
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "cm"
+   },
+   "c": "11.2 * 3 / 4.8",
+   "w": "SA : SA' = AB : A'B' ⇒ SA = 11,2 · 3 : 4,8 = 7 cm."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 2 cm, AA' = 4 cm, AB = 9 cm. Berechne A'B'."
+   },
+   "o": {
+    "wert": 27,
+    "einheit": "cm"
+   },
+   "c": "9 * (2 + 4) / 2",
+   "w": "SA' = 2 + 4 = 6 cm. A'B' = 9 · 6 : 2 = 27 cm."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). AB = 8 cm, A'B' = 10 cm, SA' = 6,25 cm. Berechne SA."
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "cm"
+   },
+   "c": "6.25 * 8 / 10",
+   "w": "SA : SA' = AB : A'B' ⇒ SA = 6,25 · 8 : 10 = 5 cm."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 4 cm, AA' = 6 cm, AB = 10 cm. Berechne A'B'."
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "cm"
+   },
+   "c": "10 * (4 + 6) / 4",
+   "w": "SA' = 4 + 6 = 10 cm. A'B' = 10 · 10 : 4 = 25 cm."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). AB = 7 cm, A'B' = 21 cm, SA' = 12 cm. Berechne SA."
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "12 * 7 / 21",
+   "w": "SA : SA' = AB : A'B' ⇒ SA = 12 · 7 : 21 = 4 cm."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). AB = 2 cm, A'B' = 6 cm, SA' = 18 cm. Berechne SA."
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "18 * 2 / 6",
+   "w": "SA : SA' = AB : A'B' ⇒ SA = 18 · 2 : 6 = 6 cm."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). AB = 7 cm, A'B' = 21 cm, SA' = 27 cm. Berechne SA."
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "cm"
+   },
+   "c": "27 * 7 / 21",
+   "w": "SA : SA' = AB : A'B' ⇒ SA = 27 · 7 : 21 = 9 cm."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen Geraden geschnitten: die erste Parallele schneidet in A und B, die zweite in A' und B' (A, A' auf dem einen, B, B' auf dem anderen Strahl; A liegt näher an S). SA = 5 cm, AA' = 10 cm, AB = 4 cm. Berechne A'B'."
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "cm"
+   },
+   "c": "4 * (5 + 10) / 5",
+   "w": "SA' = 5 + 10 = 15 cm. A'B' = 4 · 15 : 5 = 12 cm."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Alle Längen einer Figur werden mit 2 multipliziert. Die Figur hatte 10 cm² Flächeninhalt. Wie groß ist er jetzt?"
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "cm²"
+   },
+   "c": "10 * 2 ** 2",
+   "w": "Fläche · k² = 10 · 4 = 40 cm².",
+   "h": "Fläche wächst mit dem Quadrat des Streckfaktors."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Alle Längen einer Figur werden mit 3 multipliziert. Die Figur hatte 25 cm² Flächeninhalt. Wie groß ist er jetzt?"
+   },
+   "o": {
+    "wert": 225,
+    "einheit": "cm²"
+   },
+   "c": "25 * 3 ** 2",
+   "w": "Fläche · k² = 25 · 9 = 225 cm².",
+   "h": "Fläche wächst mit dem Quadrat des Streckfaktors."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Alle Längen einer Figur werden mit 4 multipliziert. Die Figur hatte 17 cm² Flächeninhalt. Wie groß ist er jetzt?"
+   },
+   "o": {
+    "wert": 272,
+    "einheit": "cm²"
+   },
+   "c": "17 * 4 ** 2",
+   "w": "Fläche · k² = 17 · 16 = 272 cm².",
+   "h": "Fläche wächst mit dem Quadrat des Streckfaktors."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Alle Längen einer Figur werden mit 4 multipliziert. Die Figur hatte 15 cm² Flächeninhalt. Wie groß ist er jetzt?"
+   },
+   "o": {
+    "wert": 240,
+    "einheit": "cm²"
+   },
+   "c": "15 * 4 ** 2",
+   "w": "Fläche · k² = 15 · 16 = 240 cm².",
+   "h": "Fläche wächst mit dem Quadrat des Streckfaktors."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Alle Längen einer Figur werden mit 3 multipliziert. Die Figur hatte 3 cm² Flächeninhalt. Wie groß ist er jetzt?"
+   },
+   "o": {
+    "wert": 27,
+    "einheit": "cm²"
+   },
+   "c": "3 * 3 ** 2",
+   "w": "Fläche · k² = 3 · 9 = 27 cm².",
+   "h": "Fläche wächst mit dem Quadrat des Streckfaktors."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Alle Längen einer Figur werden mit 2 multipliziert. Die Figur hatte 4 cm² Flächeninhalt. Wie groß ist er jetzt?"
+   },
+   "o": {
+    "wert": 16,
+    "einheit": "cm²"
+   },
+   "c": "4 * 2 ** 2",
+   "w": "Fläche · k² = 4 · 4 = 16 cm².",
+   "h": "Fläche wächst mit dem Quadrat des Streckfaktors."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Körper hat 24 cm³ Volumen. Alle Kanten werden mit k = 3 multipliziert. Wie groß ist das neue Volumen?"
+   },
+   "o": {
+    "wert": 648,
+    "einheit": "cm³"
+   },
+   "c": "24 * 3 ** 3",
+   "w": "Volumen · k³ = 24 · 27 = 648 cm³.",
+   "h": "Volumen wächst mit k³."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Figur wird so vergrößert, dass ihr Flächeninhalt 25-mal so groß ist. Mit welchem Faktor wurden die Längen multipliziert?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "25 / 5",
+   "w": "k² = 25 ⇒ k = 5.",
+   "h": "Fläche: k². Rückwärts: Wurzel ziehen."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Körper hat 80 cm³ Volumen. Alle Kanten werden mit k = 1,5 multipliziert. Wie groß ist das neue Volumen?"
+   },
+   "o": {
+    "wert": 270,
+    "einheit": "cm³"
+   },
+   "c": "80 * 1.5 ** 3",
+   "w": "Volumen · k³ = 80 · 3,375 = 270 cm³.",
+   "h": "Volumen wächst mit k³."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Körper hat 8 cm³ Volumen. Alle Kanten werden mit k = 3 multipliziert. Wie groß ist das neue Volumen?"
+   },
+   "o": {
+    "wert": 216,
+    "einheit": "cm³"
+   },
+   "c": "8 * 3 ** 3",
+   "w": "Volumen · k³ = 8 · 27 = 216 cm³.",
+   "h": "Volumen wächst mit k³."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Körper hat 16 cm³ Volumen. Alle Kanten werden mit k = 2 multipliziert. Wie groß ist das neue Volumen?"
+   },
+   "o": {
+    "wert": 128,
+    "einheit": "cm³"
+   },
+   "c": "16 * 2 ** 3",
+   "w": "Volumen · k³ = 16 · 8 = 128 cm³.",
+   "h": "Volumen wächst mit k³."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel wird so vergrößert, dass sein Volumen 64-mal so groß ist. Wie oft so groß ist seine Oberfläche?"
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "(64 / 4 ** 2) ** 2",
+   "w": "k³ = 64 ⇒ k = 4; Oberfläche · k² = 16-mal so groß.",
+   "h": "Bestimme zuerst k aus dem Volumen."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Modell im Maßstab 1 : 25 hat eine Grundfläche von 2 cm². Wie groß ist die Grundfläche des Originals in m²?"
+   },
+   "o": {
+    "wert": 0.125,
+    "einheit": "m²"
+   },
+   "c": "2 * 25 ** 2 / 10000",
+   "w": "2 cm² · 25² = 1 250 cm² = 0,125 m².",
+   "h": "Fläche · k², dann cm² in m² umrechnen (1 m² = 10 000 cm²)."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Modell im Maßstab 1 : 10 hat eine Grundfläche von 2 cm². Wie groß ist die Grundfläche des Originals in m²?"
+   },
+   "o": {
+    "wert": 0.02,
+    "einheit": "m²"
+   },
+   "c": "2 * 10 ** 2 / 10000",
+   "w": "2 cm² · 10² = 200 cm² = 0,02 m².",
+   "h": "Fläche · k², dann cm² in m² umrechnen (1 m² = 10 000 cm²)."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Modell im Maßstab 1 : 50 hat eine Grundfläche von 8 cm². Wie groß ist die Grundfläche des Originals in m²?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "m²"
+   },
+   "c": "8 * 50 ** 2 / 10000",
+   "w": "8 cm² · 50² = 20 000 cm² = 2 m².",
+   "h": "Fläche · k², dann cm² in m² umrechnen (1 m² = 10 000 cm²)."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Modell im Maßstab 1 : 10 hat 3 cm³ Volumen. Wie groß ist das Volumen des Originals in m³?"
+   },
+   "o": {
+    "wert": 0.003,
+    "einheit": "m³"
+   },
+   "c": "3 * 10 ** 3 / 1000000",
+   "w": "3 cm³ · 10³ = 3 000 cm³ = 0,003 m³.",
+   "h": "Volumen · k³, dann cm³ in m³ (1 m³ = 1 000 000 cm³)."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Modell im Maßstab 1 : 50 hat 5 cm³ Volumen. Wie groß ist das Volumen des Originals in m³?"
+   },
+   "o": {
+    "wert": 0.625,
+    "einheit": "m³"
+   },
+   "c": "5 * 50 ** 3 / 1000000",
+   "w": "5 cm³ · 50³ = 625 000 cm³ = 0,625 m³.",
+   "h": "Volumen · k³, dann cm³ in m³ (1 m³ = 1 000 000 cm³)."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Modell im Maßstab 1 : 20 hat 5 cm³ Volumen. Wie groß ist das Volumen des Originals in m³?"
+   },
+   "o": {
+    "wert": 0.04,
+    "einheit": "m³"
+   },
+   "c": "5 * 20 ** 3 / 1000000",
+   "w": "5 cm³ · 20³ = 40 000 cm³ = 0,04 m³.",
+   "h": "Volumen · k³, dann cm³ in m³ (1 m³ = 1 000 000 cm³)."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Körper hat 24 cm³ Volumen. Alle Kanten werden mit k = 0,5 multipliziert. Wie groß ist das neue Volumen?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm³"
+   },
+   "c": "24 * 0.5 ** 3",
+   "w": "Volumen · k³ = 24 · 0,125 = 3 cm³."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Figur wird so vergrößert, dass ihr Flächeninhalt 36-mal so groß ist. Mit welchem Faktor wurden die Längen multipliziert?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "36 / 6",
+   "w": "k² = 36 ⇒ k = 6."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Körper hat 8 cm³ Volumen. Alle Kanten werden mit k = 1,5 multipliziert. Wie groß ist das neue Volumen?"
+   },
+   "o": {
+    "wert": 27,
+    "einheit": "cm³"
+   },
+   "c": "8 * 1.5 ** 3",
+   "w": "Volumen · k³ = 8 · 3,375 = 27 cm³."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Figur wird so vergrößert, dass ihr Flächeninhalt 16-mal so groß ist. Mit welchem Faktor wurden die Längen multipliziert?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "16 / 4",
+   "w": "k² = 16 ⇒ k = 4."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel wird so vergrößert, dass sein Volumen 27-mal so groß ist. Wie oft so groß ist seine Oberfläche?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(27 / 3 ** 2) ** 2",
+   "w": "k³ = 27 ⇒ k = 3; Oberfläche · k² = 9-mal so groß."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Körper hat 16 cm³ Volumen. Alle Kanten werden mit k = 0,5 multipliziert. Wie groß ist das neue Volumen?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "cm³"
+   },
+   "c": "16 * 0.5 ** 3",
+   "w": "Volumen · k³ = 16 · 0,125 = 2 cm³."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Figur wird so vergrößert, dass ihr Flächeninhalt 4-mal so groß ist. Mit welchem Faktor wurden die Längen multipliziert?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "4 / 2",
+   "w": "k² = 4 ⇒ k = 2."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Figur wird so vergrößert, dass ihr Flächeninhalt 9-mal so groß ist. Mit welchem Faktor wurden die Längen multipliziert?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "9 / 3",
+   "w": "k² = 9 ⇒ k = 3."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Körper hat 80 cm³ Volumen. Alle Kanten werden mit k = 3 multipliziert. Wie groß ist das neue Volumen?"
+   },
+   "o": {
+    "wert": 2160,
+    "einheit": "cm³"
+   },
+   "c": "80 * 3 ** 3",
+   "w": "Volumen · k³ = 80 · 27 = 2 160 cm³."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Körper hat 40 cm³ Volumen. Alle Kanten werden mit k = 0,5 multipliziert. Wie groß ist das neue Volumen?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "cm³"
+   },
+   "c": "40 * 0.5 ** 3",
+   "w": "Volumen · k³ = 40 · 0,125 = 5 cm³."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein 2 m langer Stab wirft einen 5 m langen Schatten. Zur gleichen Zeit wirft ein Turm einen 70 m langen Schatten. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 28,
+    "einheit": "m"
+   },
+   "c": "2 * 70 / 5",
+   "w": "h : 2 = 70 : 5 ⇒ h = 2 · 14 = 28 m.",
+   "h": "Höhe zu Höhe wie Schatten zu Schatten."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein 2 m langer Stab wirft einen 5 m langen Schatten. Zur gleichen Zeit wirft ein Haus einen 65 m langen Schatten. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 26,
+    "einheit": "m"
+   },
+   "c": "2 * 65 / 5",
+   "w": "h : 2 = 65 : 5 ⇒ h = 2 · 13 = 26 m.",
+   "h": "Höhe zu Höhe wie Schatten zu Schatten."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein 2 m langer Stab wirft einen 3 m langen Schatten. Zur gleichen Zeit wirft ein Haus einen 42 m langen Schatten. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 28,
+    "einheit": "m"
+   },
+   "c": "2 * 42 / 3",
+   "w": "h : 2 = 42 : 3 ⇒ h = 2 · 14 = 28 m.",
+   "h": "Höhe zu Höhe wie Schatten zu Schatten."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein 1 m langer Stab wirft einen 2 m langen Schatten. Zur gleichen Zeit wirft ein Turm einen 24 m langen Schatten. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "m"
+   },
+   "c": "1 * 24 / 2",
+   "w": "h : 1 = 24 : 2 ⇒ h = 1 · 12 = 12 m.",
+   "h": "Höhe zu Höhe wie Schatten zu Schatten."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein 0,5 m langer Stab wirft einen 1 m langen Schatten. Zur gleichen Zeit wirft ein Turm einen 4 m langen Schatten. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "m"
+   },
+   "c": "0.5 * 4 / 1",
+   "w": "h : 0,5 = 4 : 1 ⇒ h = 0,5 · 4 = 2 m.",
+   "h": "Höhe zu Höhe wie Schatten zu Schatten."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein 1 m langer Stab wirft einen 1,25 m langen Schatten. Zur gleichen Zeit wirft ein Turm einen 6,25 m langen Schatten. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "m"
+   },
+   "c": "1 * 6.25 / 1.25",
+   "w": "h : 1 = 6,25 : 1,25 ⇒ h = 1 · 5 = 5 m.",
+   "h": "Höhe zu Höhe wie Schatten zu Schatten."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein 2 m langer Stab wirft einen 3 m langen Schatten. Zur gleichen Zeit wirft ein Mast einen 33 m langen Schatten. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 22,
+    "einheit": "m"
+   },
+   "c": "2 * 33 / 3",
+   "w": "h : 2 = 33 : 3 ⇒ h = 2 · 11 = 22 m.",
+   "h": "Höhe zu Höhe wie Schatten zu Schatten."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein 0,5 m langer Stab wirft einen 1 m langen Schatten. Zur gleichen Zeit wirft ein Mast einen 5 m langen Schatten. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 2.5,
+    "einheit": "m"
+   },
+   "c": "0.5 * 5 / 1",
+   "w": "h : 0,5 = 5 : 1 ⇒ h = 0,5 · 5 = 2,5 m.",
+   "h": "Höhe zu Höhe wie Schatten zu Schatten."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein 1 m langer Stab wirft einen 1,25 m langen Schatten. Zur gleichen Zeit wirft ein Turm einen 8,75 m langen Schatten. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "m"
+   },
+   "c": "1 * 8.75 / 1.25",
+   "w": "h : 1 = 8,75 : 1,25 ⇒ h = 1 · 7 = 7 m.",
+   "h": "Höhe zu Höhe wie Schatten zu Schatten."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Flussbreite messen: S, A und A' liegen auf einer Geraden (A am diesseitigen, A' am jenseitigen Ufer), B und B' auf einer zweiten Geraden durch S, und AB ∥ A'B'. Gemessen: SA = 6 m, SB = 6 m, SB' = 9 m. Wie breit ist der Fluss (AA')?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "m"
+   },
+   "c": "6 * 9 / 6 - 6",
+   "w": "(SA + x) : SA = SB' : SB ⇒ (6 + x) : 6 = 1,5 ⇒ x = 9 − 6 = 3 m.",
+   "h": "Stelle eine Verhältnisgleichung mit x in einer Summe auf."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Flussbreite messen: S, A und A' liegen auf einer Geraden (A am diesseitigen, A' am jenseitigen Ufer), B und B' auf einer zweiten Geraden durch S, und AB ∥ A'B'. Gemessen: SA = 2 m, SB = 12 m, SB' = 30 m. Wie breit ist der Fluss (AA')?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "m"
+   },
+   "c": "2 * 30 / 12 - 2",
+   "w": "(SA + x) : SA = SB' : SB ⇒ (2 + x) : 2 = 2,5 ⇒ x = 5 − 2 = 3 m.",
+   "h": "Stelle eine Verhältnisgleichung mit x in einer Summe auf."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein 2 m langer Stab wirft einen 5 m langen Schatten. Zur gleichen Zeit wirft ein Mast einen 20 m langen Schatten. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "m"
+   },
+   "c": "2 * 20 / 5",
+   "w": "h : 2 = 20 : 5 ⇒ h = 2 · 4 = 8 m.",
+   "h": "Höhe zu Höhe wie Schatten zu Schatten."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer Strahlensatzfigur ergibt sich die Gleichung x : (x + 3) = 1 : 2. Löse sie."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "1 * 3 / (2 - 1)",
+   "w": "2x = 1(x + 3) ⇒ 1x = 3 ⇒ x = 3.",
+   "h": "Multipliziere über Kreuz (mit beiden Nennern) und löse die lineare Gleichung."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer Strahlensatzfigur ergibt sich die Gleichung x : (x + 38) = 3 : 5. Löse sie."
+   },
+   "o": {
+    "wert": 57
+   },
+   "c": "3 * 38 / (5 - 3)",
+   "w": "5x = 3(x + 38) ⇒ 2x = 114 ⇒ x = 57.",
+   "h": "Multipliziere über Kreuz (mit beiden Nennern) und löse die lineare Gleichung."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer Strahlensatzfigur ergibt sich die Gleichung x : (x + 57) = 2 : 5. Löse sie."
+   },
+   "o": {
+    "wert": 38
+   },
+   "c": "2 * 57 / (5 - 2)",
+   "w": "5x = 2(x + 57) ⇒ 3x = 114 ⇒ x = 38.",
+   "h": "Multipliziere über Kreuz (mit beiden Nennern) und löse die lineare Gleichung."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer Strahlensatzfigur ergibt sich die Gleichung x : (x + 44) = 3 : 7. Löse sie."
+   },
+   "o": {
+    "wert": 33
+   },
+   "c": "3 * 44 / (7 - 3)",
+   "w": "7x = 3(x + 44) ⇒ 4x = 132 ⇒ x = 33.",
+   "h": "Multipliziere über Kreuz (mit beiden Nennern) und löse die lineare Gleichung."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer Strahlensatzfigur ergibt sich die Gleichung x : (x + 15) = 3 : 4. Löse sie."
+   },
+   "o": {
+    "wert": 45
+   },
+   "c": "3 * 15 / (4 - 3)",
+   "w": "4x = 3(x + 15) ⇒ 1x = 45 ⇒ x = 45.",
+   "h": "Multipliziere über Kreuz (mit beiden Nennern) und löse die lineare Gleichung."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Mit ausgestrecktem Arm (0,65 m vom Auge) verdeckt ein 2,5 cm breiter Daumen genau ein 15 m hohes Gebäude. Wie weit ist das Gebäude entfernt?"
+   },
+   "o": {
+    "wert": 390,
+    "einheit": "m"
+   },
+   "c": "0.65 * 15 / 0.025",
+   "w": "e : 0,65 = 15 : 0,025 ⇒ e = 0,65 · 15 : 0,025 = 390 m.",
+   "h": "S ist das Auge; Daumen und Gebäude sind die Parallelen."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein 1 m langer Stab wirft einen 1,25 m langen Schatten. Zur gleichen Zeit wirft ein Haus einen 12,5 m langen Schatten. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "m"
+   },
+   "c": "1 * 12.5 / 1.25",
+   "w": "h : 1 = 12,5 : 1,25 ⇒ h = 1 · 10 = 10 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein 1 m langer Stab wirft einen 2 m langen Schatten. Zur gleichen Zeit wirft ein Haus einen 20 m langen Schatten. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "m"
+   },
+   "c": "1 * 20 / 2",
+   "w": "h : 1 = 20 : 2 ⇒ h = 1 · 10 = 10 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Flussbreite messen: S, A und A' liegen auf einer Geraden (A am diesseitigen, A' am jenseitigen Ufer), B und B' auf einer zweiten Geraden durch S, und AB ∥ A'B'. Gemessen: SA = 9 m, SB = 4 m, SB' = 16 m. Wie breit ist der Fluss (AA')?"
+   },
+   "o": {
+    "wert": 27,
+    "einheit": "m"
+   },
+   "c": "9 * 16 / 4 - 9",
+   "w": "(SA + x) : SA = SB' : SB ⇒ (9 + x) : 9 = 4 ⇒ x = 36 − 9 = 27 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Flussbreite messen: S, A und A' liegen auf einer Geraden (A am diesseitigen, A' am jenseitigen Ufer), B und B' auf einer zweiten Geraden durch S, und AB ∥ A'B'. Gemessen: SA = 7 m, SB = 10 m, SB' = 15 m. Wie breit ist der Fluss (AA')?"
+   },
+   "o": {
+    "wert": 3.5,
+    "einheit": "m"
+   },
+   "c": "7 * 15 / 10 - 7",
+   "w": "(SA + x) : SA = SB' : SB ⇒ (7 + x) : 7 = 1,5 ⇒ x = 10,5 − 7 = 3,5 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Flussbreite messen: S, A und A' liegen auf einer Geraden (A am diesseitigen, A' am jenseitigen Ufer), B und B' auf einer zweiten Geraden durch S, und AB ∥ A'B'. Gemessen: SA = 2 m, SB = 11 m, SB' = 27,5 m. Wie breit ist der Fluss (AA')?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "m"
+   },
+   "c": "2 * 27.5 / 11 - 2",
+   "w": "(SA + x) : SA = SB' : SB ⇒ (2 + x) : 2 = 2,5 ⇒ x = 5 − 2 = 3 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Flussbreite messen: S, A und A' liegen auf einer Geraden (A am diesseitigen, A' am jenseitigen Ufer), B und B' auf einer zweiten Geraden durch S, und AB ∥ A'B'. Gemessen: SA = 12 m, SB = 3 m, SB' = 7,5 m. Wie breit ist der Fluss (AA')?"
+   },
+   "o": {
+    "wert": 18,
+    "einheit": "m"
+   },
+   "c": "12 * 7.5 / 3 - 12",
+   "w": "(SA + x) : SA = SB' : SB ⇒ (12 + x) : 12 = 2,5 ⇒ x = 30 − 12 = 18 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Flussbreite messen: S, A und A' liegen auf einer Geraden (A am diesseitigen, A' am jenseitigen Ufer), B und B' auf einer zweiten Geraden durch S, und AB ∥ A'B'. Gemessen: SA = 6 m, SB = 2 m, SB' = 3 m. Wie breit ist der Fluss (AA')?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "m"
+   },
+   "c": "6 * 3 / 2 - 6",
+   "w": "(SA + x) : SA = SB' : SB ⇒ (6 + x) : 6 = 1,5 ⇒ x = 9 − 6 = 3 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Flussbreite messen: S, A und A' liegen auf einer Geraden (A am diesseitigen, A' am jenseitigen Ufer), B und B' auf einer zweiten Geraden durch S, und AB ∥ A'B'. Gemessen: SA = 4 m, SB = 7 m, SB' = 10,5 m. Wie breit ist der Fluss (AA')?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "m"
+   },
+   "c": "4 * 10.5 / 7 - 4",
+   "w": "(SA + x) : SA = SB' : SB ⇒ (4 + x) : 4 = 1,5 ⇒ x = 6 − 4 = 2 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Flussbreite messen: S, A und A' liegen auf einer Geraden (A am diesseitigen, A' am jenseitigen Ufer), B und B' auf einer zweiten Geraden durch S, und AB ∥ A'B'. Gemessen: SA = 5 m, SB = 5 m, SB' = 15 m. Wie breit ist der Fluss (AA')?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "m"
+   },
+   "c": "5 * 15 / 5 - 5",
+   "w": "(SA + x) : SA = SB' : SB ⇒ (5 + x) : 5 = 3 ⇒ x = 15 − 5 = 10 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Flussbreite messen: S, A und A' liegen auf einer Geraden (A am diesseitigen, A' am jenseitigen Ufer), B und B' auf einer zweiten Geraden durch S, und AB ∥ A'B'. Gemessen: SA = 8 m, SB = 9 m, SB' = 18 m. Wie breit ist der Fluss (AA')?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "m"
+   },
+   "c": "8 * 18 / 9 - 8",
+   "w": "(SA + x) : SA = SB' : SB ⇒ (8 + x) : 8 = 2 ⇒ x = 16 − 8 = 8 m."
+  }
+ ],
+ "offen": [
+  "Lernkarten „strahlensatz1“, „strahlensatz2“ und „anwendung“ brauchen Zeichnung: Strahlensatzfigur (zwei Strahlen von S, zwei Parallelen, Punkte A, B, A', B'). Bisher in jeder Aufgabe als Text beschrieben – das ist lang; eine Skizze würde die Aufgaben deutlich kürzer machen.",
+  "Lernkarte „streckung“: Zeichnung der zentrischen Streckung im Koordinatensystem wäre hilfreich. X-Figur (Parallelen auf verschiedenen Seiten von S) ist ohne Zeichnung nicht enthalten."
+ ]
+}

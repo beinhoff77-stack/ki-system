@@ -1,0 +1,4313 @@
+{
+ "thema_schluessel": "gleichungen.lgs3",
+ "thema_id": 7,
+ "block_id": 113,
+ "klasse": {
+  "gym_by": 9
+ },
+ "autor": "Claude (Paket Klasse 9)",
+ "inhalt": {
+  "ziel": "Lineare Gleichungssysteme mit drei Unbekannten aufstellen und systematisch lösen, z. B. Parabel durch drei Punkte.",
+  "merke": [
+   "Lösung = Tripel, das alle drei Gleichungen erfüllt.",
+   "Additionsverfahren: Vielfache addieren/subtrahieren, bis eine Variable wegfällt.",
+   "Zweimal dieselbe Variable eliminieren → System mit zwei Unbekannten.",
+   "Parabel durch drei Punkte: jeden Punkt in y = ax² + bx + c einsetzen."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Grundlagen",
+    "lernziele": [
+     "pruefen",
+     "stufenform"
+    ]
+   },
+   {
+    "titel": "Lösungsverfahren",
+    "lernziele": [
+     "eliminieren",
+     "loesen"
+    ]
+   },
+   {
+    "titel": "Anwendungen",
+    "lernziele": [
+     "parabel",
+     "sachaufgabe"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "pruefen",
+    "titel": "Ist das Zahlentripel eine Lösung?",
+    "regel": "Ein Zahlentripel (x | y | z) ist ⟦Lösung⟧ des Systems, wenn es ⟦alle drei Gleichungen⟧ erfüllt. Setze ein und vergleiche jede Gleichung.",
+    "schritte": [
+     "System (I) x + y + z = 6; (II) 2x − y = 0; (III) x − z = −2. Prüfe (1 | 2 | 3).",
+     "(I) 1 + 2 + 3 = 6 ✓; (II) 2 − 2 = 0 ✓; (III) 1 − 3 = −2 ✓: ⟦(1 | 2 | 3) ist Lösung⟧."
+    ],
+    "probe": "Eine einzige falsche Gleichung genügt, damit das Tripel keine Lösung ist.",
+    "fehler": "Nur Gleichung (I) zu prüfen genügt nicht: (2 | 2 | 2) erfüllt (I), aber (II) ergibt 2 ≠ 0. Es müssen ⟦alle⟧ Gleichungen stimmen."
+   },
+   {
+    "lernziel": "stufenform",
+    "titel": "Stufenform von unten lösen",
+    "regel": "In der ⟦Stufenform⟧ hat die letzte Gleichung nur noch eine Variable. Löse sie, setze ⟦von unten nach oben⟧ ein.",
+    "schritte": [
+     "(III) 2z = 6 ⇒ z = 3. (II) y + z = 5 ⇒ y = 2.",
+     "(I) x + y − z = 1 ⇒ x + 2 − 3 = 1 ⇒ ⟦x = 2, y = 2, z = 3⟧."
+    ],
+    "probe": "(I) 2 + 2 − 3 = 1 ✓",
+    "fehler": "In (II) y + z = 5 mit z = 3 auf y = 8 zu kommen ist falsch: 3 wird ⟦abgezogen⟧, nicht addiert: y = 5 − 3 = 2."
+   },
+   {
+    "lernziel": "eliminieren",
+    "titel": "Eine Variable eliminieren",
+    "regel": "Mit dem ⟦Additionsverfahren⟧ addierst oder subtrahierst du Vielfache zweier Gleichungen so, dass eine ⟦Variable wegfällt⟧. Auch die rechte Seite mitrechnen!",
+    "schritte": [
+     "(I) x + 2y − z = 3; (II) 2x − y + z = 4. Berechne (II) − 2 · (I).",
+     "2x − 2x = 0, −y − 4y = −5y, z + 2z = 3z, 4 − 6 = −2: ⟦−5y + 3z = −2⟧."
+    ],
+    "probe": "Das x ist verschwunden ✓",
+    "fehler": "Bei (II) − 2 · (I) nur die x-Glieder zu verdoppeln ist falsch: ⟦Jedes Glied⟧ von (I), auch die rechte Seite, wird mit 2 multipliziert."
+   },
+   {
+    "lernziel": "loesen",
+    "titel": "LGS mit drei Unbekannten lösen",
+    "regel": "Eliminiere mit zwei Gleichungspaaren ⟦dieselbe Variable⟧. So entsteht ein System mit ⟦zwei Unbekannten⟧. Löse es und setze zurück ein.",
+    "schritte": [
+     "(I) x + y + z = 2; (II) x − y + z = 6; (III) 2x + y − z = −3. (I) − (II): 2y = −4 ⇒ y = −2.",
+     "(I) + (III): 3x + 2y = −1 ⇒ 3x − 4 = −1 ⇒ x = 1. Aus (I): 1 − 2 + z = 2 ⇒ ⟦x = 1, y = −2, z = 3⟧."
+    ],
+    "probe": "(II) 1 + 2 + 3 = 6 ✓; (III) 2 − 2 − 3 = −3 ✓",
+    "fehler": "Mit (I) und (II) x zu eliminieren, mit (II) und (III) aber y, führt nicht weiter: Beide neuen Gleichungen müssen ⟦dieselbe Variable⟧ verlieren."
+   },
+   {
+    "lernziel": "parabel",
+    "titel": "Parabel durch drei Punkte",
+    "regel": "Setze jeden Punkt (x | y) in ⟦y = ax² + bx + c⟧ ein. Das ergibt drei Gleichungen für ⟦a, b und c⟧.",
+    "schritte": [
+     "Punkte (0 | 1), (1 | 2), (−1 | 4): Aus (0 | 1) folgt c = 1.",
+     "a + b + 1 = 2 und a − b + 1 = 4 ⇒ 2a = 4 ⇒ a = 2, b = −1: ⟦y = 2x² − x + 1⟧."
+    ],
+    "probe": "x = −1: 2 · 1 + 1 + 1 = 4 ✓",
+    "fehler": "Den Punkt (−1 | 4) als a − b + c = −4 einzusetzen ist falsch: Der ⟦y-Wert⟧ steht rechts, (−1)² = ⟦+1⟧, also a − b + c = 4."
+   },
+   {
+    "lernziel": "sachaufgabe",
+    "titel": "Sachaufgaben mit drei Unbekannten",
+    "regel": "Lege ⟦drei Variablen⟧ fest, übersetze jede Angabe in eine Gleichung und löse das System. Antworte im ⟦Sachzusammenhang⟧.",
+    "schritte": [
+     "Drei Zahlen: Summe 12, die zweite ist doppelt so groß wie die erste, die dritte ist um 4 größer als die erste.",
+     "x + y + z = 12, y = 2x, z = x + 4 ⇒ 4x + 4 = 12 ⇒ ⟦x = 2, y = 4, z = 6⟧."
+    ],
+    "probe": "2 + 4 + 6 = 12 ✓",
+    "fehler": "„Doppelt so groß wie die erste“ als x = 2y zu schreiben ist falsch: Die ⟦zweite⟧ Zahl ist das Doppelte, also y = 2x."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "pruefen",
+    "text": "Ist das Zahlentripel eine Lösung?",
+    "lernziele": [
+     "pruefen"
+    ]
+   },
+   {
+    "k": "stufenform",
+    "text": "Stufenform von unten lösen",
+    "lernziele": [
+     "stufenform"
+    ]
+   },
+   {
+    "k": "eliminieren",
+    "text": "Eine Variable eliminieren",
+    "lernziele": [
+     "eliminieren"
+    ]
+   },
+   {
+    "k": "loesen",
+    "text": "LGS mit drei Unbekannten lösen",
+    "lernziele": [
+     "loesen"
+    ]
+   },
+   {
+    "k": "parabel",
+    "text": "Parabel durch drei Punkte",
+    "lernziele": [
+     "parabel"
+    ]
+   },
+   {
+    "k": "sachaufgabe",
+    "text": "Sachaufgaben mit drei Unbekannten",
+    "lernziele": [
+     "sachaufgabe"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "pruefen",
+    "stufenform",
+    "eliminieren",
+    "loesen",
+    "parabel",
+    "sachaufgabe"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), Aufgaben vom Generator erzeugt und berechnet.",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Setze (x | y | z) = (−1 | 1 | 0) in die linke Seite von 3x − y − 3z = −4 ein. Welcher Wert ergibt sich?"
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "(3) * (-1) + (-1) * (1) + (-3) * (0)",
+   "w": "3 · (−1) + (−1) · 1 + (−3) · 0 = −4.",
+   "h": "Ersetze x, y und z durch die Zahlen und achte auf die Vorzeichen."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Setze (x | y | z) = (−5 | 4 | 4) in die linke Seite von −3x + 3y + z = 31 ein. Welcher Wert ergibt sich?"
+   },
+   "o": {
+    "wert": 31
+   },
+   "c": "(-3) * (-5) + (3) * (4) + (1) * (4)",
+   "w": "(−3) · (−5) + 3 · 4 + 1 · 4 = 31.",
+   "h": "Ersetze x, y und z durch die Zahlen und achte auf die Vorzeichen."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Setze (x | y | z) = (5 | −1 | −2) in die linke Seite von −2x + 2y + z = −14 ein. Welcher Wert ergibt sich?"
+   },
+   "o": {
+    "wert": -14
+   },
+   "c": "(-2) * (5) + (2) * (-1) + (1) * (-2)",
+   "w": "(−2) · 5 + 2 · (−1) + 1 · (−2) = −14.",
+   "h": "Ersetze x, y und z durch die Zahlen und achte auf die Vorzeichen."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Setze (x | y | z) = (2 | −2 | −1) in die linke Seite von x + y − z = 1 ein. Welcher Wert ergibt sich?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(1) * (2) + (1) * (-2) + (-1) * (-1)",
+   "w": "1 · 2 + 1 · (−2) + (−1) · (−1) = 1.",
+   "h": "Ersetze x, y und z durch die Zahlen und achte auf die Vorzeichen."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Setze (x | y | z) = (2 | 3 | −2) in die linke Seite von −2x + 2y + z = 0 ein. Welcher Wert ergibt sich?"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "(-2) * (2) + (2) * (3) + (1) * (-2)",
+   "w": "(−2) · 2 + 2 · 3 + 1 · (−2) = 0.",
+   "h": "Ersetze x, y und z durch die Zahlen und achte auf die Vorzeichen."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Setze (x | y | z) = (2 | 0 | −3) in die linke Seite von −3x + 3y − z = −3 ein. Welcher Wert ergibt sich?"
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "(-3) * (2) + (3) * (0) + (-1) * (-3)",
+   "w": "(−3) · 2 + 3 · 0 + (−1) · (−3) = −3.",
+   "h": "Ersetze x, y und z durch die Zahlen und achte auf die Vorzeichen."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (3 | 4 | 4) Lösung des Systems (I) x − 3y − 2z = −17; (II) −2x + y + 3z = 10; (III) x − 2z = −5?"
+   },
+   "a": [
+    "Ja, alle drei Gleichungen sind erfüllt.",
+    "Nein, Gleichung (II) ist nicht erfüllt.",
+    "Nein, Gleichung (III) ist nicht erfüllt.",
+    "Nein, Gleichung (I) ist nicht erfüllt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Einsetzen: (I) −17 = −17 ✓; (II) 10 = 10 ✓; (III) −5 = −5 ✓",
+   "h": "Setze das Tripel in jede Gleichung ein."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (−4 | 2 | −1) Lösung des Systems (I) −2x + y = 10; (II) −y + 3z = −5; (III) −x + y + 3z = 3?"
+   },
+   "a": [
+    "Ja, alle drei Gleichungen sind erfüllt.",
+    "Nein, Gleichung (I) ist nicht erfüllt.",
+    "Nein, Gleichung (III) ist nicht erfüllt.",
+    "Nein, Gleichung (II) ist nicht erfüllt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Einsetzen: (I) 10 = 10 ✓; (II) −5 = −5 ✓; (III) 3 = 3 ✓",
+   "h": "Setze das Tripel in jede Gleichung ein."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (3 | 4 | −4) Lösung des Systems (I) 3x + y + 3z = 1; (II) x − 2y + 2z = −13; (III) 2x + 2y + z = 10?"
+   },
+   "a": [
+    "Nein, Gleichung (III) ist nicht erfüllt.",
+    "Nein, Gleichung (I) ist nicht erfüllt.",
+    "Ja, alle drei Gleichungen sind erfüllt.",
+    "Nein, Gleichung (II) ist nicht erfüllt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Einsetzen: (I) 1 = 1 ✓; (II) −13 = −13 ✓; (III) 10 = 10 ✓",
+   "h": "Setze das Tripel in jede Gleichung ein."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (−2 | −7 | 5) Lösung des Systems (I) 3x − y = −1; (II) 3x + z = −1; (III) −x + z = 7?"
+   },
+   "a": [
+    "Ja, alle drei Gleichungen sind erfüllt.",
+    "Nein, Gleichung (I) ist nicht erfüllt.",
+    "Nein, Gleichung (II) ist nicht erfüllt.",
+    "Nein, Gleichung (III) ist nicht erfüllt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Einsetzen: (I) 1 ≠ −1; (II) −1 = −1; (III) 7 = 7",
+   "h": "Setze das Tripel in jede Gleichung ein."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (1 | −5 | −3) Lösung des Systems (I) −3x + y = −8; (II) x + y = −4; (III) −3y + z = 12?"
+   },
+   "a": [
+    "Nein, Gleichung (I) ist nicht erfüllt.",
+    "Nein, Gleichung (II) ist nicht erfüllt.",
+    "Ja, alle drei Gleichungen sind erfüllt.",
+    "Nein, Gleichung (III) ist nicht erfüllt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Einsetzen: (I) −8 = −8 ✓; (II) −4 = −4 ✓; (III) 12 = 12 ✓",
+   "h": "Setze das Tripel in jede Gleichung ein."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (−1 | 3 | −4) Lösung des Systems (I) x − 2y = −7; (II) −2x − y − z = 3; (III) −x + y + 3z = −8?"
+   },
+   "a": [
+    "Nein, Gleichung (II) ist nicht erfüllt.",
+    "Nein, Gleichung (III) ist nicht erfüllt.",
+    "Nein, Gleichung (I) ist nicht erfüllt.",
+    "Ja, alle drei Gleichungen sind erfüllt."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Einsetzen: (I) −7 = −7 ✓; (II) 3 = 3 ✓; (III) −8 = −8 ✓",
+   "h": "Setze das Tripel in jede Gleichung ein."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (−5 | 4 | −3) Lösung des Systems (I) −x − 3y − z = −4; (II) −x + 2y − 2z = 19; (III) 2x − y − z = −11?"
+   },
+   "a": [
+    "Nein, Gleichung (III) ist nicht erfüllt.",
+    "Nein, Gleichung (I) ist nicht erfüllt.",
+    "Ja, alle drei Gleichungen sind erfüllt.",
+    "Nein, Gleichung (II) ist nicht erfüllt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Einsetzen: (I) −4 = −4 ✓; (II) 19 = 19 ✓; (III) −11 = −11 ✓",
+   "h": "Setze das Tripel in jede Gleichung ein."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (2 | 3 | 2) Lösung des Systems (I) x − y − 2z = −5; (II) −x + 2y + 2z = 8; (III) −y + 2z = 1?"
+   },
+   "a": [
+    "Nein, Gleichung (I) ist nicht erfüllt.",
+    "Ja, alle drei Gleichungen sind erfüllt.",
+    "Nein, Gleichung (II) ist nicht erfüllt.",
+    "Nein, Gleichung (III) ist nicht erfüllt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Einsetzen: (I) −5 = −5 ✓; (II) 8 = 8 ✓; (III) 1 = 1 ✓",
+   "h": "Setze das Tripel in jede Gleichung ein."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (−3 | −3 | 2) Lösung des Systems (I) 3x − 2y − z = −5; (II) 3x + z = −7; (III) 2x + y + 3z = −3?"
+   },
+   "a": [
+    "Nein, Gleichung (I) ist nicht erfüllt.",
+    "Ja, alle drei Gleichungen sind erfüllt.",
+    "Nein, Gleichung (III) ist nicht erfüllt.",
+    "Nein, Gleichung (II) ist nicht erfüllt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Einsetzen: (I) −5 = −5 ✓; (II) −7 = −7 ✓; (III) −3 = −3 ✓",
+   "h": "Setze das Tripel in jede Gleichung ein."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (1 | −2 | 3) Lösung des Systems (I) x − 2y − z = 2; (II) −2x + 3y − z = −11; (III) −x − y = 1?"
+   },
+   "a": [
+    "Nein, Gleichung (I) ist nicht erfüllt.",
+    "Nein, Gleichung (III) ist nicht erfüllt.",
+    "Nein, Gleichung (II) ist nicht erfüllt.",
+    "Ja, alle drei Gleichungen sind erfüllt."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Einsetzen: (I) 2 = 2 ✓; (II) −11 = −11 ✓; (III) 1 = 1 ✓",
+   "h": "Setze das Tripel in jede Gleichung ein."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (−3 | 0 | 2) Lösung des Systems (I) x + 2y + 3z = 3; (II) −3x + y − z = 7; (III) −2x + z = 8?"
+   },
+   "a": [
+    "Nein, Gleichung (I) ist nicht erfüllt.",
+    "Nein, Gleichung (II) ist nicht erfüllt.",
+    "Ja, alle drei Gleichungen sind erfüllt.",
+    "Nein, Gleichung (III) ist nicht erfüllt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Einsetzen: (I) 3 = 3 ✓; (II) 7 = 7 ✓; (III) 8 = 8 ✓",
+   "h": "Setze das Tripel in jede Gleichung ein."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (5 | −1 | 4) Lösung des Systems (I) 2x + y − 3z = −3; (II) −x − y − z = −8; (III) x − y − z = 2?"
+   },
+   "a": [
+    "Ja, alle drei Gleichungen sind erfüllt.",
+    "Nein, Gleichung (III) ist nicht erfüllt.",
+    "Nein, Gleichung (I) ist nicht erfüllt.",
+    "Nein, Gleichung (II) ist nicht erfüllt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Einsetzen: (I) −3 = −3 ✓; (II) −8 = −8 ✓; (III) 2 = 2 ✓",
+   "h": "Setze das Tripel in jede Gleichung ein."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (1 | −4 | −2) Lösung des Systems (I) −3x + y − z = −5; (II) −x + 3y + 2z = −17; (III) −x + y − z = −3?"
+   },
+   "a": [
+    "Nein, Gleichung (III) ist nicht erfüllt.",
+    "Nein, Gleichung (I) ist nicht erfüllt.",
+    "Ja, alle drei Gleichungen sind erfüllt.",
+    "Nein, Gleichung (II) ist nicht erfüllt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Einsetzen: (I) −5 = −5 ✓; (II) −17 = −17 ✓; (III) −3 = −3 ✓"
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (−5 | 1 | 2) Lösung des Systems (I) x − 2y − 2z = −11; (II) −3x + y + z = 18; (III) −y + 2z = 3?"
+   },
+   "a": [
+    "Nein, Gleichung (III) ist nicht erfüllt.",
+    "Nein, Gleichung (II) ist nicht erfüllt.",
+    "Ja, alle drei Gleichungen sind erfüllt.",
+    "Nein, Gleichung (I) ist nicht erfüllt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Einsetzen: (I) −11 = −11 ✓; (II) 18 = 18 ✓; (III) 3 = 3 ✓"
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (−4 | −1 | 4) Lösung des Systems (I) 2x + y + 3z = 3; (II) 3x − 2y + z = −6; (III) −x − 3y = 7?"
+   },
+   "a": [
+    "Ja, alle drei Gleichungen sind erfüllt.",
+    "Nein, Gleichung (II) ist nicht erfüllt.",
+    "Nein, Gleichung (III) ist nicht erfüllt.",
+    "Nein, Gleichung (I) ist nicht erfüllt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Einsetzen: (I) 3 = 3 ✓; (II) −6 = −6 ✓; (III) 7 = 7 ✓"
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (2 | 2 | 4) Lösung des Systems (I) −x − 2y − 3z = −18; (II) 3x − y = 4; (III) −x + 3z = 10?"
+   },
+   "a": [
+    "Nein, Gleichung (I) ist nicht erfüllt.",
+    "Ja, alle drei Gleichungen sind erfüllt.",
+    "Nein, Gleichung (III) ist nicht erfüllt.",
+    "Nein, Gleichung (II) ist nicht erfüllt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Einsetzen: (I) −18 = −18 ✓; (II) 4 = 4 ✓; (III) 10 = 10 ✓"
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (2 | −3 | −2) Lösung des Systems (I) −y − 2z = 7; (II) x − y + 3z = −1; (III) −x + z = −4?"
+   },
+   "a": [
+    "Nein, Gleichung (II) ist nicht erfüllt.",
+    "Nein, Gleichung (I) ist nicht erfüllt.",
+    "Nein, Gleichung (III) ist nicht erfüllt.",
+    "Ja, alle drei Gleichungen sind erfüllt."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Einsetzen: (I) 7 = 7 ✓; (II) −1 = −1 ✓; (III) −4 = −4 ✓"
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (−4 | 0 | 3) Lösung des Systems (I) y − 2z = −6; (II) 2x + y − z = −11; (III) −x − 3y + 2z = 10?"
+   },
+   "a": [
+    "Nein, Gleichung (III) ist nicht erfüllt.",
+    "Ja, alle drei Gleichungen sind erfüllt.",
+    "Nein, Gleichung (II) ist nicht erfüllt.",
+    "Nein, Gleichung (I) ist nicht erfüllt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Einsetzen: (I) −6 = −6 ✓; (II) −11 = −11 ✓; (III) 10 = 10 ✓"
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (1 | 2 | −4) Lösung des Systems (I) x + 3y + 2z = −1; (II) −3x + y + 2z = −9; (III) x − 3y + 3z = −17?"
+   },
+   "a": [
+    "Nein, Gleichung (I) ist nicht erfüllt.",
+    "Nein, Gleichung (II) ist nicht erfüllt.",
+    "Ja, alle drei Gleichungen sind erfüllt.",
+    "Nein, Gleichung (III) ist nicht erfüllt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Einsetzen: (I) −1 = −1 ✓; (II) −9 = −9 ✓; (III) −17 = −17 ✓"
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (5 | −2 | 3) Lösung des Systems (I) −3y − z = 3; (II) −2x − 2y + z = −3; (III) −x − 3y − z = −2?"
+   },
+   "a": [
+    "Nein, Gleichung (III) ist nicht erfüllt.",
+    "Nein, Gleichung (II) ist nicht erfüllt.",
+    "Ja, alle drei Gleichungen sind erfüllt.",
+    "Nein, Gleichung (I) ist nicht erfüllt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Einsetzen: (I) 3 = 3 ✓; (II) −3 = −3 ✓; (III) −2 = −2 ✓"
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (−3 | 0 | 1) Lösung des Systems (I) 3y + z = 1; (II) x + 3y − z = −4; (III) −x − 2y + z = 4?"
+   },
+   "a": [
+    "Nein, Gleichung (I) ist nicht erfüllt.",
+    "Nein, Gleichung (II) ist nicht erfüllt.",
+    "Nein, Gleichung (III) ist nicht erfüllt.",
+    "Ja, alle drei Gleichungen sind erfüllt."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Einsetzen: (I) 1 = 1 ✓; (II) −4 = −4 ✓; (III) 4 = 4 ✓"
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (−3 | 0 | −4) Lösung des Systems (I) −3x − y + 3z = −3; (II) x − y − 3z = 9; (III) −x − 2y + z = −1?"
+   },
+   "a": [
+    "Ja, alle drei Gleichungen sind erfüllt.",
+    "Nein, Gleichung (I) ist nicht erfüllt.",
+    "Nein, Gleichung (III) ist nicht erfüllt.",
+    "Nein, Gleichung (II) ist nicht erfüllt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Einsetzen: (I) −3 = −3 ✓; (II) 9 = 9 ✓; (III) −1 = −1 ✓"
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System in Stufenform: (I) x − 3y − z = 2; (II) y = 1; (III) 4z = −8.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     3,
+     1,
+     -2
+    ]
+   },
+   "w": "(III) z = −8 : 4 = −2; (II) y = 1; (I) x = 3.",
+   "h": "Beginne mit (III) und setze nach oben ein.",
+   "c": [
+    "((2)*((1)*(4) - (0)*(0)) - (-3)*((1)*(4) - (0)*(-8)) + (-1)*((1)*(0) - (1)*(-8))) / ((1)*((1)*(4) - (0)*(0)) - (-3)*((0)*(4) - (0)*(0)) + (-1)*((0)*(0) - (1)*(0)))",
+    "((1)*((1)*(4) - (0)*(-8)) - (2)*((0)*(4) - (0)*(0)) + (-1)*((0)*(-8) - (1)*(0))) / ((1)*((1)*(4) - (0)*(0)) - (-3)*((0)*(4) - (0)*(0)) + (-1)*((0)*(0) - (1)*(0)))",
+    "((1)*((1)*(-8) - (1)*(0)) - (-3)*((0)*(-8) - (1)*(0)) + (2)*((0)*(0) - (1)*(0))) / ((1)*((1)*(4) - (0)*(0)) - (-3)*((0)*(4) - (0)*(0)) + (-1)*((0)*(0) - (1)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System in Stufenform: (I) x + y + 2z = 13; (II) y − z = −6; (III) z = 5.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     4,
+     -1,
+     5
+    ]
+   },
+   "w": "(III) z = 5 : 1 = 5; (II) y = −1; (I) x = 4.",
+   "h": "Beginne mit (III) und setze nach oben ein.",
+   "c": [
+    "((13)*((1)*(1) - (-1)*(0)) - (1)*((-6)*(1) - (-1)*(5)) + (2)*((-6)*(0) - (1)*(5))) / ((1)*((1)*(1) - (-1)*(0)) - (1)*((0)*(1) - (-1)*(0)) + (2)*((0)*(0) - (1)*(0)))",
+    "((1)*((-6)*(1) - (-1)*(5)) - (13)*((0)*(1) - (-1)*(0)) + (2)*((0)*(5) - (-6)*(0))) / ((1)*((1)*(1) - (-1)*(0)) - (1)*((0)*(1) - (-1)*(0)) + (2)*((0)*(0) - (1)*(0)))",
+    "((1)*((1)*(5) - (-6)*(0)) - (1)*((0)*(5) - (-6)*(0)) + (13)*((0)*(0) - (1)*(0))) / ((1)*((1)*(1) - (-1)*(0)) - (1)*((0)*(1) - (-1)*(0)) + (2)*((0)*(0) - (1)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System in Stufenform: (I) x + y + z = 6; (II) y = 2; (III) 2z = −4.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     6,
+     2,
+     -2
+    ]
+   },
+   "w": "(III) z = −4 : 2 = −2; (II) y = 2; (I) x = 6.",
+   "h": "Beginne mit (III) und setze nach oben ein.",
+   "c": [
+    "((6)*((1)*(2) - (0)*(0)) - (1)*((2)*(2) - (0)*(-4)) + (1)*((2)*(0) - (1)*(-4))) / ((1)*((1)*(2) - (0)*(0)) - (1)*((0)*(2) - (0)*(0)) + (1)*((0)*(0) - (1)*(0)))",
+    "((1)*((2)*(2) - (0)*(-4)) - (6)*((0)*(2) - (0)*(0)) + (1)*((0)*(-4) - (2)*(0))) / ((1)*((1)*(2) - (0)*(0)) - (1)*((0)*(2) - (0)*(0)) + (1)*((0)*(0) - (1)*(0)))",
+    "((1)*((1)*(-4) - (2)*(0)) - (1)*((0)*(-4) - (2)*(0)) + (6)*((0)*(0) - (1)*(0))) / ((1)*((1)*(2) - (0)*(0)) - (1)*((0)*(2) - (0)*(0)) + (1)*((0)*(0) - (1)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System in Stufenform: (I) x + 3y + z = 7; (II) y + 3z = 11; (III) 2z = 8.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     6,
+     -1,
+     4
+    ]
+   },
+   "w": "(III) z = 8 : 2 = 4; (II) y = −1; (I) x = 6.",
+   "h": "Beginne mit (III) und setze nach oben ein.",
+   "c": [
+    "((7)*((1)*(2) - (3)*(0)) - (3)*((11)*(2) - (3)*(8)) + (1)*((11)*(0) - (1)*(8))) / ((1)*((1)*(2) - (3)*(0)) - (3)*((0)*(2) - (3)*(0)) + (1)*((0)*(0) - (1)*(0)))",
+    "((1)*((11)*(2) - (3)*(8)) - (7)*((0)*(2) - (3)*(0)) + (1)*((0)*(8) - (11)*(0))) / ((1)*((1)*(2) - (3)*(0)) - (3)*((0)*(2) - (3)*(0)) + (1)*((0)*(0) - (1)*(0)))",
+    "((1)*((1)*(8) - (11)*(0)) - (3)*((0)*(8) - (11)*(0)) + (7)*((0)*(0) - (1)*(0))) / ((1)*((1)*(2) - (3)*(0)) - (3)*((0)*(2) - (3)*(0)) + (1)*((0)*(0) - (1)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System in Stufenform: (I) x + 2y + z = 2; (II) y + 3z = 15; (III) 3z = 15.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -3,
+     0,
+     5
+    ]
+   },
+   "w": "(III) z = 15 : 3 = 5; (II) y = 0; (I) x = −3.",
+   "h": "Beginne mit (III) und setze nach oben ein.",
+   "c": [
+    "((2)*((1)*(3) - (3)*(0)) - (2)*((15)*(3) - (3)*(15)) + (1)*((15)*(0) - (1)*(15))) / ((1)*((1)*(3) - (3)*(0)) - (2)*((0)*(3) - (3)*(0)) + (1)*((0)*(0) - (1)*(0)))",
+    "((1)*((15)*(3) - (3)*(15)) - (2)*((0)*(3) - (3)*(0)) + (1)*((0)*(15) - (15)*(0))) / ((1)*((1)*(3) - (3)*(0)) - (2)*((0)*(3) - (3)*(0)) + (1)*((0)*(0) - (1)*(0)))",
+    "((1)*((1)*(15) - (15)*(0)) - (2)*((0)*(15) - (15)*(0)) + (2)*((0)*(0) - (1)*(0))) / ((1)*((1)*(3) - (3)*(0)) - (2)*((0)*(3) - (3)*(0)) + (1)*((0)*(0) - (1)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System in Stufenform: (I) x + 3y − z = 16; (II) y = 4; (III) 3z = −9.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     1,
+     4,
+     -3
+    ]
+   },
+   "w": "(III) z = −9 : 3 = −3; (II) y = 4; (I) x = 1.",
+   "h": "Beginne mit (III) und setze nach oben ein.",
+   "c": [
+    "((16)*((1)*(3) - (0)*(0)) - (3)*((4)*(3) - (0)*(-9)) + (-1)*((4)*(0) - (1)*(-9))) / ((1)*((1)*(3) - (0)*(0)) - (3)*((0)*(3) - (0)*(0)) + (-1)*((0)*(0) - (1)*(0)))",
+    "((1)*((4)*(3) - (0)*(-9)) - (16)*((0)*(3) - (0)*(0)) + (-1)*((0)*(-9) - (4)*(0))) / ((1)*((1)*(3) - (0)*(0)) - (3)*((0)*(3) - (0)*(0)) + (-1)*((0)*(0) - (1)*(0)))",
+    "((1)*((1)*(-9) - (4)*(0)) - (3)*((0)*(-9) - (4)*(0)) + (16)*((0)*(0) - (1)*(0))) / ((1)*((1)*(3) - (0)*(0)) - (3)*((0)*(3) - (0)*(0)) + (-1)*((0)*(0) - (1)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System in Stufenform: (I) 3x − 4z = 13; (II) y − 3z = 4; (III) −z = 1.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     3,
+     1,
+     -1
+    ]
+   },
+   "w": "(III) z = 1 : (−1) = −1; (II) y = 1; (I) x = 3.",
+   "h": "Beginne mit (III) und setze nach oben ein.",
+   "c": [
+    "((13)*((1)*(-1) - (-3)*(0)) - (0)*((4)*(-1) - (-3)*(1)) + (-4)*((4)*(0) - (1)*(1))) / ((3)*((1)*(-1) - (-3)*(0)) - (0)*((0)*(-1) - (-3)*(0)) + (-4)*((0)*(0) - (1)*(0)))",
+    "((3)*((4)*(-1) - (-3)*(1)) - (13)*((0)*(-1) - (-3)*(0)) + (-4)*((0)*(1) - (4)*(0))) / ((3)*((1)*(-1) - (-3)*(0)) - (0)*((0)*(-1) - (-3)*(0)) + (-4)*((0)*(0) - (1)*(0)))",
+    "((3)*((1)*(1) - (4)*(0)) - (0)*((0)*(1) - (4)*(0)) + (13)*((0)*(0) - (1)*(0))) / ((3)*((1)*(-1) - (-3)*(0)) - (0)*((0)*(-1) - (-3)*(0)) + (-4)*((0)*(0) - (1)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System in Stufenform: (I) 3x − 4y = 20; (II) y + 4z = −1; (III) 3z = 3.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     0,
+     -5,
+     1
+    ]
+   },
+   "w": "(III) z = 3 : 3 = 1; (II) y = −5; (I) x = 0.",
+   "h": "Beginne mit (III) und setze nach oben ein.",
+   "c": [
+    "((20)*((1)*(3) - (4)*(0)) - (-4)*((-1)*(3) - (4)*(3)) + (0)*((-1)*(0) - (1)*(3))) / ((3)*((1)*(3) - (4)*(0)) - (-4)*((0)*(3) - (4)*(0)) + (0)*((0)*(0) - (1)*(0)))",
+    "((3)*((-1)*(3) - (4)*(3)) - (20)*((0)*(3) - (4)*(0)) + (0)*((0)*(3) - (-1)*(0))) / ((3)*((1)*(3) - (4)*(0)) - (-4)*((0)*(3) - (4)*(0)) + (0)*((0)*(0) - (1)*(0)))",
+    "((3)*((1)*(3) - (-1)*(0)) - (-4)*((0)*(3) - (-1)*(0)) + (20)*((0)*(0) - (1)*(0))) / ((3)*((1)*(3) - (4)*(0)) - (-4)*((0)*(3) - (4)*(0)) + (0)*((0)*(0) - (1)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System in Stufenform: (I) 2x − y − 4z = −10; (II) 2y − z = −16; (III) 4z = 16.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     0,
+     -6,
+     4
+    ]
+   },
+   "w": "(III) z = 16 : 4 = 4; (II) y = −6; (I) x = 0.",
+   "h": "Beginne mit (III) und setze nach oben ein.",
+   "c": [
+    "((-10)*((2)*(4) - (-1)*(0)) - (-1)*((-16)*(4) - (-1)*(16)) + (-4)*((-16)*(0) - (2)*(16))) / ((2)*((2)*(4) - (-1)*(0)) - (-1)*((0)*(4) - (-1)*(0)) + (-4)*((0)*(0) - (2)*(0)))",
+    "((2)*((-16)*(4) - (-1)*(16)) - (-10)*((0)*(4) - (-1)*(0)) + (-4)*((0)*(16) - (-16)*(0))) / ((2)*((2)*(4) - (-1)*(0)) - (-1)*((0)*(4) - (-1)*(0)) + (-4)*((0)*(0) - (2)*(0)))",
+    "((2)*((2)*(16) - (-16)*(0)) - (-1)*((0)*(16) - (-16)*(0)) + (-10)*((0)*(0) - (2)*(0))) / ((2)*((2)*(4) - (-1)*(0)) - (-1)*((0)*(4) - (-1)*(0)) + (-4)*((0)*(0) - (2)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System in Stufenform: (I) 3x − y + 3z = 11; (II) 3y + z = −14; (III) 5z = 5.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     1,
+     -5,
+     1
+    ]
+   },
+   "w": "(III) z = 5 : 5 = 1; (II) y = −5; (I) x = 1.",
+   "h": "Beginne mit (III) und setze nach oben ein.",
+   "c": [
+    "((11)*((3)*(5) - (1)*(0)) - (-1)*((-14)*(5) - (1)*(5)) + (3)*((-14)*(0) - (3)*(5))) / ((3)*((3)*(5) - (1)*(0)) - (-1)*((0)*(5) - (1)*(0)) + (3)*((0)*(0) - (3)*(0)))",
+    "((3)*((-14)*(5) - (1)*(5)) - (11)*((0)*(5) - (1)*(0)) + (3)*((0)*(5) - (-14)*(0))) / ((3)*((3)*(5) - (1)*(0)) - (-1)*((0)*(5) - (1)*(0)) + (3)*((0)*(0) - (3)*(0)))",
+    "((3)*((3)*(5) - (-14)*(0)) - (-1)*((0)*(5) - (-14)*(0)) + (11)*((0)*(0) - (3)*(0))) / ((3)*((3)*(5) - (1)*(0)) - (-1)*((0)*(5) - (1)*(0)) + (3)*((0)*(0) - (3)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System in Stufenform: (I) 2x + 3y + 3z = −22; (II) 2y − z = −7; (III) −z = 3.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     1,
+     -5,
+     -3
+    ]
+   },
+   "w": "(III) z = 3 : (−1) = −3; (II) y = −5; (I) x = 1.",
+   "h": "Beginne mit (III) und setze nach oben ein.",
+   "c": [
+    "((-22)*((2)*(-1) - (-1)*(0)) - (3)*((-7)*(-1) - (-1)*(3)) + (3)*((-7)*(0) - (2)*(3))) / ((2)*((2)*(-1) - (-1)*(0)) - (3)*((0)*(-1) - (-1)*(0)) + (3)*((0)*(0) - (2)*(0)))",
+    "((2)*((-7)*(-1) - (-1)*(3)) - (-22)*((0)*(-1) - (-1)*(0)) + (3)*((0)*(3) - (-7)*(0))) / ((2)*((2)*(-1) - (-1)*(0)) - (3)*((0)*(-1) - (-1)*(0)) + (3)*((0)*(0) - (2)*(0)))",
+    "((2)*((2)*(3) - (-7)*(0)) - (3)*((0)*(3) - (-7)*(0)) + (-22)*((0)*(0) - (2)*(0))) / ((2)*((2)*(-1) - (-1)*(0)) - (3)*((0)*(-1) - (-1)*(0)) + (3)*((0)*(0) - (2)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System in Stufenform: (I) x + 2y + 2z = 3; (II) y − 3z = 8; (III) −3z = 3.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -5,
+     5,
+     -1
+    ]
+   },
+   "w": "(III) z = 3 : (−3) = −1; (II) y = 5; (I) x = −5.",
+   "h": "Beginne mit (III) und setze nach oben ein.",
+   "c": [
+    "((3)*((1)*(-3) - (-3)*(0)) - (2)*((8)*(-3) - (-3)*(3)) + (2)*((8)*(0) - (1)*(3))) / ((1)*((1)*(-3) - (-3)*(0)) - (2)*((0)*(-3) - (-3)*(0)) + (2)*((0)*(0) - (1)*(0)))",
+    "((1)*((8)*(-3) - (-3)*(3)) - (3)*((0)*(-3) - (-3)*(0)) + (2)*((0)*(3) - (8)*(0))) / ((1)*((1)*(-3) - (-3)*(0)) - (2)*((0)*(-3) - (-3)*(0)) + (2)*((0)*(0) - (1)*(0)))",
+    "((1)*((1)*(3) - (8)*(0)) - (2)*((0)*(3) - (8)*(0)) + (3)*((0)*(0) - (1)*(0))) / ((1)*((1)*(-3) - (-3)*(0)) - (2)*((0)*(-3) - (-3)*(0)) + (2)*((0)*(0) - (1)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System: (I) −2z = 10; (II) 4x + y − 2z = 5; (III) y − 2z = 13.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -2,
+     3,
+     -5
+    ]
+   },
+   "w": "Aus −2z = 10: z = −5. Dann y − 2z = 13: y = 3. Dann x = −2.",
+   "h": "Suche die Gleichung mit nur einer Variablen und arbeite dich weiter.",
+   "c": [
+    "((10)*((1)*(-2) - (-2)*(1)) - (0)*((5)*(-2) - (-2)*(13)) + (-2)*((5)*(1) - (1)*(13))) / ((0)*((1)*(-2) - (-2)*(1)) - (0)*((4)*(-2) - (-2)*(0)) + (-2)*((4)*(1) - (1)*(0)))",
+    "((0)*((5)*(-2) - (-2)*(13)) - (10)*((4)*(-2) - (-2)*(0)) + (-2)*((4)*(13) - (5)*(0))) / ((0)*((1)*(-2) - (-2)*(1)) - (0)*((4)*(-2) - (-2)*(0)) + (-2)*((4)*(1) - (1)*(0)))",
+    "((0)*((1)*(13) - (5)*(1)) - (0)*((4)*(13) - (5)*(0)) + (10)*((4)*(1) - (1)*(0))) / ((0)*((1)*(-2) - (-2)*(1)) - (0)*((4)*(-2) - (-2)*(0)) + (-2)*((4)*(1) - (1)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System: (I) −z = −6; (II) x − 2y − 4z = −38; (III) 3y + 3z = 33.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -4,
+     5,
+     6
+    ]
+   },
+   "w": "Aus −z = −6: z = 6. Dann 3y + 3z = 33: y = 5. Dann x = −4.",
+   "h": "Suche die Gleichung mit nur einer Variablen und arbeite dich weiter.",
+   "c": [
+    "((-6)*((-2)*(3) - (-4)*(3)) - (0)*((-38)*(3) - (-4)*(33)) + (-1)*((-38)*(3) - (-2)*(33))) / ((0)*((-2)*(3) - (-4)*(3)) - (0)*((1)*(3) - (-4)*(0)) + (-1)*((1)*(3) - (-2)*(0)))",
+    "((0)*((-38)*(3) - (-4)*(33)) - (-6)*((1)*(3) - (-4)*(0)) + (-1)*((1)*(33) - (-38)*(0))) / ((0)*((-2)*(3) - (-4)*(3)) - (0)*((1)*(3) - (-4)*(0)) + (-1)*((1)*(3) - (-2)*(0)))",
+    "((0)*((-2)*(33) - (-38)*(3)) - (0)*((1)*(33) - (-38)*(0)) + (-6)*((1)*(3) - (-2)*(0))) / ((0)*((-2)*(3) - (-4)*(3)) - (0)*((1)*(3) - (-4)*(0)) + (-1)*((1)*(3) - (-2)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System: (I) 5z = −30; (II) 4x + y = 4; (III) 2y + 3z = −10.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     0,
+     4,
+     -6
+    ]
+   },
+   "w": "Aus 5z = −30: z = −6. Dann 2y + 3z = −10: y = 4. Dann x = 0.",
+   "h": "Suche die Gleichung mit nur einer Variablen und arbeite dich weiter.",
+   "c": [
+    "((-30)*((1)*(3) - (0)*(2)) - (0)*((4)*(3) - (0)*(-10)) + (5)*((4)*(2) - (1)*(-10))) / ((0)*((1)*(3) - (0)*(2)) - (0)*((4)*(3) - (0)*(0)) + (5)*((4)*(2) - (1)*(0)))",
+    "((0)*((4)*(3) - (0)*(-10)) - (-30)*((4)*(3) - (0)*(0)) + (5)*((4)*(-10) - (4)*(0))) / ((0)*((1)*(3) - (0)*(2)) - (0)*((4)*(3) - (0)*(0)) + (5)*((4)*(2) - (1)*(0)))",
+    "((0)*((1)*(-10) - (4)*(2)) - (0)*((4)*(-10) - (4)*(0)) + (-30)*((4)*(2) - (1)*(0))) / ((0)*((1)*(3) - (0)*(2)) - (0)*((4)*(3) - (0)*(0)) + (5)*((4)*(2) - (1)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System: (I) −3z = −9; (II) 3x + 3y = 12; (III) y − 4z = −8.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     0,
+     4,
+     3
+    ]
+   },
+   "w": "Aus −3z = −9: z = 3. Dann y − 4z = −8: y = 4. Dann x = 0.",
+   "h": "Suche die Gleichung mit nur einer Variablen und arbeite dich weiter.",
+   "c": [
+    "((-9)*((3)*(-4) - (0)*(1)) - (0)*((12)*(-4) - (0)*(-8)) + (-3)*((12)*(1) - (3)*(-8))) / ((0)*((3)*(-4) - (0)*(1)) - (0)*((3)*(-4) - (0)*(0)) + (-3)*((3)*(1) - (3)*(0)))",
+    "((0)*((12)*(-4) - (0)*(-8)) - (-9)*((3)*(-4) - (0)*(0)) + (-3)*((3)*(-8) - (12)*(0))) / ((0)*((3)*(-4) - (0)*(1)) - (0)*((3)*(-4) - (0)*(0)) + (-3)*((3)*(1) - (3)*(0)))",
+    "((0)*((3)*(-8) - (12)*(1)) - (0)*((3)*(-8) - (12)*(0)) + (-9)*((3)*(1) - (3)*(0))) / ((0)*((3)*(-4) - (0)*(1)) - (0)*((3)*(-4) - (0)*(0)) + (-3)*((3)*(1) - (3)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System: (I) z = 0; (II) 2x − 3y + 3z = −4; (III) y = −2.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -5,
+     -2,
+     0
+    ]
+   },
+   "w": "Aus z = 0: z = 0. Dann y = −2: y = −2. Dann x = −5.",
+   "h": "Suche die Gleichung mit nur einer Variablen und arbeite dich weiter.",
+   "c": [
+    "((0)*((-3)*(0) - (3)*(1)) - (0)*((-4)*(0) - (3)*(-2)) + (1)*((-4)*(1) - (-3)*(-2))) / ((0)*((-3)*(0) - (3)*(1)) - (0)*((2)*(0) - (3)*(0)) + (1)*((2)*(1) - (-3)*(0)))",
+    "((0)*((-4)*(0) - (3)*(-2)) - (0)*((2)*(0) - (3)*(0)) + (1)*((2)*(-2) - (-4)*(0))) / ((0)*((-3)*(0) - (3)*(1)) - (0)*((2)*(0) - (3)*(0)) + (1)*((2)*(1) - (-3)*(0)))",
+    "((0)*((-3)*(-2) - (-4)*(1)) - (0)*((2)*(-2) - (-4)*(0)) + (0)*((2)*(1) - (-3)*(0))) / ((0)*((-3)*(0) - (3)*(1)) - (0)*((2)*(0) - (3)*(0)) + (1)*((2)*(1) - (-3)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System: (I) 4z = −12; (II) 3x − y − 2z = 12; (III) 2y − z = 9.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     3,
+     3,
+     -3
+    ]
+   },
+   "w": "Aus 4z = −12: z = −3. Dann 2y − z = 9: y = 3. Dann x = 3.",
+   "h": "Suche die Gleichung mit nur einer Variablen und arbeite dich weiter.",
+   "c": [
+    "((-12)*((-1)*(-1) - (-2)*(2)) - (0)*((12)*(-1) - (-2)*(9)) + (4)*((12)*(2) - (-1)*(9))) / ((0)*((-1)*(-1) - (-2)*(2)) - (0)*((3)*(-1) - (-2)*(0)) + (4)*((3)*(2) - (-1)*(0)))",
+    "((0)*((12)*(-1) - (-2)*(9)) - (-12)*((3)*(-1) - (-2)*(0)) + (4)*((3)*(9) - (12)*(0))) / ((0)*((-1)*(-1) - (-2)*(2)) - (0)*((3)*(-1) - (-2)*(0)) + (4)*((3)*(2) - (-1)*(0)))",
+    "((0)*((-1)*(9) - (12)*(2)) - (0)*((3)*(9) - (12)*(0)) + (-12)*((3)*(2) - (-1)*(0))) / ((0)*((-1)*(-1) - (-2)*(2)) - (0)*((3)*(-1) - (-2)*(0)) + (4)*((3)*(2) - (-1)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System in Stufenform: (I) 2x − 2y + z = −8; (II) 3y = 9; (III) 3z = −12.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     1,
+     3,
+     -4
+    ]
+   },
+   "w": "(III) z = −12 : 3 = −4; (II) y = 3; (I) x = 1.",
+   "c": [
+    "((-8)*((3)*(3) - (0)*(0)) - (-2)*((9)*(3) - (0)*(-12)) + (1)*((9)*(0) - (3)*(-12))) / ((2)*((3)*(3) - (0)*(0)) - (-2)*((0)*(3) - (0)*(0)) + (1)*((0)*(0) - (3)*(0)))",
+    "((2)*((9)*(3) - (0)*(-12)) - (-8)*((0)*(3) - (0)*(0)) + (1)*((0)*(-12) - (9)*(0))) / ((2)*((3)*(3) - (0)*(0)) - (-2)*((0)*(3) - (0)*(0)) + (1)*((0)*(0) - (3)*(0)))",
+    "((2)*((3)*(-12) - (9)*(0)) - (-2)*((0)*(-12) - (9)*(0)) + (-8)*((0)*(0) - (3)*(0))) / ((2)*((3)*(3) - (0)*(0)) - (-2)*((0)*(3) - (0)*(0)) + (1)*((0)*(0) - (3)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System in Stufenform: (I) 2x + y − z = 5; (II) 3y − 3z = 15; (III) 2z = 0.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     0,
+     5,
+     0
+    ]
+   },
+   "w": "(III) z = 0 : 2 = 0; (II) y = 5; (I) x = 0.",
+   "c": [
+    "((5)*((3)*(2) - (-3)*(0)) - (1)*((15)*(2) - (-3)*(0)) + (-1)*((15)*(0) - (3)*(0))) / ((2)*((3)*(2) - (-3)*(0)) - (1)*((0)*(2) - (-3)*(0)) + (-1)*((0)*(0) - (3)*(0)))",
+    "((2)*((15)*(2) - (-3)*(0)) - (5)*((0)*(2) - (-3)*(0)) + (-1)*((0)*(0) - (15)*(0))) / ((2)*((3)*(2) - (-3)*(0)) - (1)*((0)*(2) - (-3)*(0)) + (-1)*((0)*(0) - (3)*(0)))",
+    "((2)*((3)*(0) - (15)*(0)) - (1)*((0)*(0) - (15)*(0)) + (5)*((0)*(0) - (3)*(0))) / ((2)*((3)*(2) - (-3)*(0)) - (1)*((0)*(2) - (-3)*(0)) + (-1)*((0)*(0) - (3)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System in Stufenform: (I) 2x − y + 3z = −5; (II) 3y + z = 15; (III) −2z = −6.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -5,
+     4,
+     3
+    ]
+   },
+   "w": "(III) z = −6 : (−2) = 3; (II) y = 4; (I) x = −5.",
+   "c": [
+    "((-5)*((3)*(-2) - (1)*(0)) - (-1)*((15)*(-2) - (1)*(-6)) + (3)*((15)*(0) - (3)*(-6))) / ((2)*((3)*(-2) - (1)*(0)) - (-1)*((0)*(-2) - (1)*(0)) + (3)*((0)*(0) - (3)*(0)))",
+    "((2)*((15)*(-2) - (1)*(-6)) - (-5)*((0)*(-2) - (1)*(0)) + (3)*((0)*(-6) - (15)*(0))) / ((2)*((3)*(-2) - (1)*(0)) - (-1)*((0)*(-2) - (1)*(0)) + (3)*((0)*(0) - (3)*(0)))",
+    "((2)*((3)*(-6) - (15)*(0)) - (-1)*((0)*(-6) - (15)*(0)) + (-5)*((0)*(0) - (3)*(0))) / ((2)*((3)*(-2) - (1)*(0)) - (-1)*((0)*(-2) - (1)*(0)) + (3)*((0)*(0) - (3)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System in Stufenform: (I) x − 2y = −2; (II) 3y + z = 3; (III) 2z = 12.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -4,
+     -1,
+     6
+    ]
+   },
+   "w": "(III) z = 12 : 2 = 6; (II) y = −1; (I) x = −4.",
+   "c": [
+    "((-2)*((3)*(2) - (1)*(0)) - (-2)*((3)*(2) - (1)*(12)) + (0)*((3)*(0) - (3)*(12))) / ((1)*((3)*(2) - (1)*(0)) - (-2)*((0)*(2) - (1)*(0)) + (0)*((0)*(0) - (3)*(0)))",
+    "((1)*((3)*(2) - (1)*(12)) - (-2)*((0)*(2) - (1)*(0)) + (0)*((0)*(12) - (3)*(0))) / ((1)*((3)*(2) - (1)*(0)) - (-2)*((0)*(2) - (1)*(0)) + (0)*((0)*(0) - (3)*(0)))",
+    "((1)*((3)*(12) - (3)*(0)) - (-2)*((0)*(12) - (3)*(0)) + (-2)*((0)*(0) - (3)*(0))) / ((1)*((3)*(2) - (1)*(0)) - (-2)*((0)*(2) - (1)*(0)) + (0)*((0)*(0) - (3)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System in Stufenform: (I) 3x − 2y = −3; (II) 2y = 12; (III) 2z = 8.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     3,
+     6,
+     4
+    ]
+   },
+   "w": "(III) z = 8 : 2 = 4; (II) y = 6; (I) x = 3.",
+   "c": [
+    "((-3)*((2)*(2) - (0)*(0)) - (-2)*((12)*(2) - (0)*(8)) + (0)*((12)*(0) - (2)*(8))) / ((3)*((2)*(2) - (0)*(0)) - (-2)*((0)*(2) - (0)*(0)) + (0)*((0)*(0) - (2)*(0)))",
+    "((3)*((12)*(2) - (0)*(8)) - (-3)*((0)*(2) - (0)*(0)) + (0)*((0)*(8) - (12)*(0))) / ((3)*((2)*(2) - (0)*(0)) - (-2)*((0)*(2) - (0)*(0)) + (0)*((0)*(0) - (2)*(0)))",
+    "((3)*((2)*(8) - (12)*(0)) - (-2)*((0)*(8) - (12)*(0)) + (-3)*((0)*(0) - (2)*(0))) / ((3)*((2)*(2) - (0)*(0)) - (-2)*((0)*(2) - (0)*(0)) + (0)*((0)*(0) - (2)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System in Stufenform: (I) 4x − 2y − z = −15; (II) y + 4z = 8; (III) 4z = 12.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -5,
+     -4,
+     3
+    ]
+   },
+   "w": "(III) z = 12 : 4 = 3; (II) y = −4; (I) x = −5.",
+   "c": [
+    "((-15)*((1)*(4) - (4)*(0)) - (-2)*((8)*(4) - (4)*(12)) + (-1)*((8)*(0) - (1)*(12))) / ((4)*((1)*(4) - (4)*(0)) - (-2)*((0)*(4) - (4)*(0)) + (-1)*((0)*(0) - (1)*(0)))",
+    "((4)*((8)*(4) - (4)*(12)) - (-15)*((0)*(4) - (4)*(0)) + (-1)*((0)*(12) - (8)*(0))) / ((4)*((1)*(4) - (4)*(0)) - (-2)*((0)*(4) - (4)*(0)) + (-1)*((0)*(0) - (1)*(0)))",
+    "((4)*((1)*(12) - (8)*(0)) - (-2)*((0)*(12) - (8)*(0)) + (-15)*((0)*(0) - (1)*(0))) / ((4)*((1)*(4) - (4)*(0)) - (-2)*((0)*(4) - (4)*(0)) + (-1)*((0)*(0) - (1)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System in Stufenform: (I) 2x + 3y + z = −19; (II) 2y + z = −9; (III) −4z = 4.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -3,
+     -4,
+     -1
+    ]
+   },
+   "w": "(III) z = 4 : (−4) = −1; (II) y = −4; (I) x = −3.",
+   "c": [
+    "((-19)*((2)*(-4) - (1)*(0)) - (3)*((-9)*(-4) - (1)*(4)) + (1)*((-9)*(0) - (2)*(4))) / ((2)*((2)*(-4) - (1)*(0)) - (3)*((0)*(-4) - (1)*(0)) + (1)*((0)*(0) - (2)*(0)))",
+    "((2)*((-9)*(-4) - (1)*(4)) - (-19)*((0)*(-4) - (1)*(0)) + (1)*((0)*(4) - (-9)*(0))) / ((2)*((2)*(-4) - (1)*(0)) - (3)*((0)*(-4) - (1)*(0)) + (1)*((0)*(0) - (2)*(0)))",
+    "((2)*((2)*(4) - (-9)*(0)) - (3)*((0)*(4) - (-9)*(0)) + (-19)*((0)*(0) - (2)*(0))) / ((2)*((2)*(-4) - (1)*(0)) - (3)*((0)*(-4) - (1)*(0)) + (1)*((0)*(0) - (2)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System in Stufenform: (I) 4x + 4y + 2z = 28; (II) 3y − z = −12; (III) −4z = −24.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     6,
+     -2,
+     6
+    ]
+   },
+   "w": "(III) z = −24 : (−4) = 6; (II) y = −2; (I) x = 6.",
+   "c": [
+    "((28)*((3)*(-4) - (-1)*(0)) - (4)*((-12)*(-4) - (-1)*(-24)) + (2)*((-12)*(0) - (3)*(-24))) / ((4)*((3)*(-4) - (-1)*(0)) - (4)*((0)*(-4) - (-1)*(0)) + (2)*((0)*(0) - (3)*(0)))",
+    "((4)*((-12)*(-4) - (-1)*(-24)) - (28)*((0)*(-4) - (-1)*(0)) + (2)*((0)*(-24) - (-12)*(0))) / ((4)*((3)*(-4) - (-1)*(0)) - (4)*((0)*(-4) - (-1)*(0)) + (2)*((0)*(0) - (3)*(0)))",
+    "((4)*((3)*(-24) - (-12)*(0)) - (4)*((0)*(-24) - (-12)*(0)) + (28)*((0)*(0) - (3)*(0))) / ((4)*((3)*(-4) - (-1)*(0)) - (4)*((0)*(-4) - (-1)*(0)) + (2)*((0)*(0) - (3)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System in Stufenform: (I) x + 2z = 3; (II) 3y − 4z = −11; (III) 4z = −4.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     5,
+     -5,
+     -1
+    ]
+   },
+   "w": "(III) z = −4 : 4 = −1; (II) y = −5; (I) x = 5.",
+   "c": [
+    "((3)*((3)*(4) - (-4)*(0)) - (0)*((-11)*(4) - (-4)*(-4)) + (2)*((-11)*(0) - (3)*(-4))) / ((1)*((3)*(4) - (-4)*(0)) - (0)*((0)*(4) - (-4)*(0)) + (2)*((0)*(0) - (3)*(0)))",
+    "((1)*((-11)*(4) - (-4)*(-4)) - (3)*((0)*(4) - (-4)*(0)) + (2)*((0)*(-4) - (-11)*(0))) / ((1)*((3)*(4) - (-4)*(0)) - (0)*((0)*(4) - (-4)*(0)) + (2)*((0)*(0) - (3)*(0)))",
+    "((1)*((3)*(-4) - (-11)*(0)) - (0)*((0)*(-4) - (-11)*(0)) + (3)*((0)*(0) - (3)*(0))) / ((1)*((3)*(4) - (-4)*(0)) - (0)*((0)*(4) - (-4)*(0)) + (2)*((0)*(0) - (3)*(0)))"
+   ]
+  },
+  {
+   "l": "stufenform",
+   "t": "stufenform",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das System in Stufenform: (I) 2x − 2y = 8; (II) 2y − 3z = 5; (III) 2z = −6.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     2,
+     -2,
+     -3
+    ]
+   },
+   "w": "(III) z = −6 : 2 = −3; (II) y = −2; (I) x = 2.",
+   "c": [
+    "((8)*((2)*(2) - (-3)*(0)) - (-2)*((5)*(2) - (-3)*(-6)) + (0)*((5)*(0) - (2)*(-6))) / ((2)*((2)*(2) - (-3)*(0)) - (-2)*((0)*(2) - (-3)*(0)) + (0)*((0)*(0) - (2)*(0)))",
+    "((2)*((5)*(2) - (-3)*(-6)) - (8)*((0)*(2) - (-3)*(0)) + (0)*((0)*(-6) - (5)*(0))) / ((2)*((2)*(2) - (-3)*(0)) - (-2)*((0)*(2) - (-3)*(0)) + (0)*((0)*(0) - (2)*(0)))",
+    "((2)*((2)*(-6) - (5)*(0)) - (-2)*((0)*(-6) - (5)*(0)) + (8)*((0)*(0) - (2)*(0))) / ((2)*((2)*(2) - (-3)*(0)) - (-2)*((0)*(2) - (-3)*(0)) + (0)*((0)*(0) - (2)*(0)))"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (II) 3x + y − z = −1; (I) 3x − y − z = 5. Berechne (I) − (II).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     -2,
+     0,
+     6
+    ]
+   },
+   "w": "(I) − (II): x fällt weg, es bleibt −2y = 6.",
+   "h": "Rechne Glied für Glied, auch auf der rechten Seite.",
+   "c": [
+    "(-1) - (1) * (1)",
+    "(-1) - (1) * (-1)",
+    "(5) - (1) * (-1)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (I) 3x − 2y + z = 9; (II) 3x − 3y + z = 12. Berechne (II) − (I).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     -1,
+     0,
+     3
+    ]
+   },
+   "w": "(II) − (I): x fällt weg, es bleibt −y = 3.",
+   "h": "Rechne Glied für Glied, auch auf der rechten Seite.",
+   "c": [
+    "(-3) - (1) * (-2)",
+    "(1) - (1) * (1)",
+    "(12) - (1) * (9)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (I) −2x − y + 2z = 6; (III) −2x + 3y − z = −6. Berechne (III) − (I).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     4,
+     -3,
+     -12
+    ]
+   },
+   "w": "(III) − (I): x fällt weg, es bleibt 4y − 3z = −12.",
+   "h": "Rechne Glied für Glied, auch auf der rechten Seite.",
+   "c": [
+    "(3) - (1) * (-1)",
+    "(-1) - (1) * (2)",
+    "(-6) - (1) * (6)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (III) 3x − 2y − z = −9; (I) 3x + 3y + z = −19. Berechne (I) − (III).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     5,
+     2,
+     -10
+    ]
+   },
+   "w": "(I) − (III): x fällt weg, es bleibt 5y + 2z = −10.",
+   "h": "Rechne Glied für Glied, auch auf der rechten Seite.",
+   "c": [
+    "(3) - (1) * (-2)",
+    "(1) - (1) * (-1)",
+    "(-19) - (1) * (-9)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (II) −x − 2y + 3z = −20; (III) x − 2y = 1. Berechne (III) + (II).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     -4,
+     3,
+     -19
+    ]
+   },
+   "w": "(III) + (II): x fällt weg, es bleibt −4y + 3z = −19.",
+   "h": "Rechne Glied für Glied, auch auf der rechten Seite.",
+   "c": [
+    "(-2) - (-1) * (-2)",
+    "(0) - (-1) * (3)",
+    "(1) - (-1) * (-20)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (II) x − y + 3z = 18; (I) x − 2z = −1. Berechne (I) − (II).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     1,
+     -5,
+     -19
+    ]
+   },
+   "w": "(I) − (II): x fällt weg, es bleibt y − 5z = −19.",
+   "h": "Rechne Glied für Glied, auch auf der rechten Seite.",
+   "c": [
+    "(0) - (1) * (-1)",
+    "(-2) - (1) * (3)",
+    "(-1) - (1) * (18)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (III) 2x + y − 4z = 16; (II) −3x − 4y − z = −5. Berechne 2 · (II) + 3 · (III).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     -5,
+     -14,
+     38
+    ]
+   },
+   "w": "2 · (II) + 3 · (III): x fällt weg, es bleibt −5y − 14z = 38.",
+   "h": "Rechne Glied für Glied, auch auf der rechten Seite.",
+   "c": [
+    "(2) * (-4) - (-3) * (1)",
+    "(2) * (-1) - (-3) * (-4)",
+    "(2) * (-5) - (-3) * (16)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (III) −x + 3y + 2z = 9; (I) −2x + y + 3z = 16. Berechne (I) − 2 · (III).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     -5,
+     -1,
+     -2
+    ]
+   },
+   "w": "(I) − 2 · (III): x fällt weg, es bleibt −5y − z = −2.",
+   "h": "Rechne Glied für Glied, auch auf der rechten Seite.",
+   "c": [
+    "(1) - (2) * (3)",
+    "(3) - (2) * (2)",
+    "(16) - (2) * (9)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (III) −2x − 4y − z = −20; (I) −x − 2y − z = −10. Berechne 2 · (I) − (III).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     0,
+     -1,
+     0
+    ]
+   },
+   "w": "2 · (I) − (III): x fällt weg, es bleibt −z = 0.",
+   "h": "Rechne Glied für Glied, auch auf der rechten Seite.",
+   "c": [
+    "(2) * (-2) - (1) * (-4)",
+    "(2) * (-1) - (1) * (-1)",
+    "(2) * (-10) - (1) * (-20)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (III) −x + 2y + 4z = 7; (I) 4x + 3y + z = 22. Berechne (I) + 4 · (III).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     11,
+     17,
+     50
+    ]
+   },
+   "w": "(I) + 4 · (III): x fällt weg, es bleibt 11y + 17z = 50.",
+   "h": "Rechne Glied für Glied, auch auf der rechten Seite.",
+   "c": [
+    "(3) - (-4) * (2)",
+    "(1) - (-4) * (4)",
+    "(22) - (-4) * (7)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (III) −3x + 2y + z = −14; (II) x + 4y + 4z = −13. Berechne 3 · (II) + (III).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     14,
+     13,
+     -53
+    ]
+   },
+   "w": "3 · (II) + (III): x fällt weg, es bleibt 14y + 13z = −53.",
+   "h": "Rechne Glied für Glied, auch auf der rechten Seite.",
+   "c": [
+    "(3) * (4) - (-1) * (2)",
+    "(3) * (4) - (-1) * (1)",
+    "(3) * (-13) - (-1) * (-14)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (I) 2x − y − 3z = 17; (II) −x + y − 4z = 21. Berechne 2 · (II) + (I).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     1,
+     -11,
+     59
+    ]
+   },
+   "w": "2 · (II) + (I): x fällt weg, es bleibt y − 11z = 59.",
+   "h": "Rechne Glied für Glied, auch auf der rechten Seite.",
+   "c": [
+    "(2) * (1) - (-1) * (-1)",
+    "(2) * (-4) - (-1) * (-3)",
+    "(2) * (21) - (-1) * (17)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (I) x + 4z = 6; (III) 4x − y − 4z = −1. Berechne (III) − 4 · (I).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     -1,
+     -20,
+     -25
+    ]
+   },
+   "w": "(III) − 4 · (I): x fällt weg, es bleibt −y − 20z = −25.",
+   "h": "Rechne Glied für Glied, auch auf der rechten Seite.",
+   "c": [
+    "(-1) - (4) * (0)",
+    "(-4) - (4) * (4)",
+    "(-1) - (4) * (6)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (III) −x + 4y − 2z = 23; (I) −x + 4y = 19. Berechne (I) − (III).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     0,
+     2,
+     -4
+    ]
+   },
+   "w": "(I) − (III): x fällt weg, es bleibt 2z = −4.",
+   "h": "Rechne Glied für Glied, auch auf der rechten Seite.",
+   "c": [
+    "(4) - (1) * (4)",
+    "(0) - (1) * (-2)",
+    "(19) - (1) * (23)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (I) −3x + y − 2z = −16; (II) x − 2y = 8. Berechne 3 · (II) + (I).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     -5,
+     -2,
+     8
+    ]
+   },
+   "w": "3 · (II) + (I): x fällt weg, es bleibt −5y − 2z = 8.",
+   "h": "Rechne Glied für Glied, auch auf der rechten Seite.",
+   "c": [
+    "(3) * (-2) - (-1) * (1)",
+    "(3) * (0) - (-1) * (-2)",
+    "(3) * (8) - (-1) * (-16)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (I) x − z = 0; (II) −2x + y − 3z = 7. Berechne (II) + 2 · (I).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     1,
+     -5,
+     7
+    ]
+   },
+   "w": "(II) + 2 · (I): x fällt weg, es bleibt y − 5z = 7.",
+   "h": "Rechne Glied für Glied, auch auf der rechten Seite.",
+   "c": [
+    "(1) - (-2) * (0)",
+    "(-3) - (-2) * (-1)",
+    "(7) - (-2) * (0)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (II) −3x + y + z = −4; (I) −x − 2y − 3z = 2. Berechne 3 · (I) − (II).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     -7,
+     -10,
+     10
+    ]
+   },
+   "w": "3 · (I) − (II): x fällt weg, es bleibt −7y − 10z = 10.",
+   "h": "Rechne Glied für Glied, auch auf der rechten Seite.",
+   "c": [
+    "(3) * (-2) - (1) * (1)",
+    "(3) * (-3) - (1) * (1)",
+    "(3) * (2) - (1) * (-4)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (I) 3x + y − 2z = 12; (II) x + 4y − 2z = −9. Berechne 3 · (II) − (I).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     11,
+     -4,
+     -39
+    ]
+   },
+   "w": "3 · (II) − (I): x fällt weg, es bleibt 11y − 4z = −39.",
+   "h": "Rechne Glied für Glied, auch auf der rechten Seite.",
+   "c": [
+    "(3) * (4) - (1) * (1)",
+    "(3) * (-2) - (1) * (-2)",
+    "(3) * (-9) - (1) * (12)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (III) −3x − y − 4z = −1; (I) 4x − y + z = 4. Berechne 3 · (I) + 4 · (III).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     -7,
+     -13,
+     8
+    ]
+   },
+   "w": "3 · (I) + 4 · (III): x fällt weg, es bleibt −7y − 13z = 8.",
+   "c": [
+    "(3) * (-1) - (-4) * (-1)",
+    "(3) * (1) - (-4) * (-4)",
+    "(3) * (4) - (-4) * (-1)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (II) x − 2z = 11; (III) x − 4y = 23. Berechne (III) − (II).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     -4,
+     2,
+     12
+    ]
+   },
+   "w": "(III) − (II): x fällt weg, es bleibt −4y + 2z = 12.",
+   "c": [
+    "(-4) - (1) * (0)",
+    "(0) - (1) * (-2)",
+    "(23) - (1) * (11)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (I) x − 4y + z = −13; (II) 4x − 4y + z = −28. Berechne (II) − 4 · (I).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     12,
+     -3,
+     24
+    ]
+   },
+   "w": "(II) − 4 · (I): x fällt weg, es bleibt 12y − 3z = 24.",
+   "c": [
+    "(-4) - (4) * (-4)",
+    "(1) - (4) * (1)",
+    "(-28) - (4) * (-13)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (I) −x + 3y + 4z = 13; (II) 3x − 2y − z = −14. Berechne (II) + 3 · (I).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     7,
+     11,
+     25
+    ]
+   },
+   "w": "(II) + 3 · (I): x fällt weg, es bleibt 7y + 11z = 25.",
+   "c": [
+    "(-2) - (-3) * (3)",
+    "(-1) - (-3) * (4)",
+    "(-14) - (-3) * (13)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (III) 2x − 3y − z = −18; (II) x − y = −6. Berechne 2 · (II) − (III).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     1,
+     1,
+     6
+    ]
+   },
+   "w": "2 · (II) − (III): x fällt weg, es bleibt y + z = 6.",
+   "c": [
+    "(2) * (-1) - (1) * (-3)",
+    "(2) * (0) - (1) * (-1)",
+    "(2) * (-6) - (1) * (-18)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (I) −x + 2y + 3z = 18; (II) −x + 3y = 7. Berechne (II) − (I).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     1,
+     -3,
+     -11
+    ]
+   },
+   "w": "(II) − (I): x fällt weg, es bleibt y − 3z = −11.",
+   "c": [
+    "(3) - (1) * (2)",
+    "(0) - (1) * (3)",
+    "(7) - (1) * (18)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (I) −2x − z = 6; (III) x + 3y − 4z = −27. Berechne 2 · (III) + (I).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     6,
+     -9,
+     -48
+    ]
+   },
+   "w": "2 · (III) + (I): x fällt weg, es bleibt 6y − 9z = −48.",
+   "c": [
+    "(2) * (3) - (-1) * (0)",
+    "(2) * (-4) - (-1) * (-1)",
+    "(2) * (-27) - (-1) * (6)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (II) 3x − y + 4z = 14; (I) 3x − 4y − z = 21. Berechne (I) − (II).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     -3,
+     -5,
+     7
+    ]
+   },
+   "w": "(I) − (II): x fällt weg, es bleibt −3y − 5z = 7.",
+   "c": [
+    "(-4) - (1) * (-1)",
+    "(-1) - (1) * (4)",
+    "(21) - (1) * (14)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (II) x + 3y + 4z = 18; (I) −3x + y − 4z = −8. Berechne (I) + 3 · (II).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     10,
+     8,
+     46
+    ]
+   },
+   "w": "(I) + 3 · (II): x fällt weg, es bleibt 10y + 8z = 46.",
+   "c": [
+    "(1) - (-3) * (3)",
+    "(-4) - (-3) * (4)",
+    "(-8) - (-3) * (18)"
+   ]
+  },
+  {
+   "l": "eliminieren",
+   "t": "eliminieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben: (I) x + 4y − z = −23; (III) −4x + 2y − z = −13. Berechne (III) + 4 · (I).",
+    "schablone": "□y + □z = □",
+    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     18,
+     -5,
+     -105
+    ]
+   },
+   "w": "(III) + 4 · (I): x fällt weg, es bleibt 18y − 5z = −105.",
+   "c": [
+    "(2) - (-4) * (4)",
+    "(-1) - (-4) * (-1)",
+    "(-13) - (-4) * (-23)"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) x − y − z = 1; (II) x + y − z = 5; (III) −x + y = 0.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     2,
+     2,
+     -1
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = 2, y = 2, z = −1. Probe in allen drei Gleichungen.",
+   "h": "Eliminiere mit zwei Gleichungspaaren dieselbe Variable.",
+   "c": [
+    "((1)*((1)*(0) - (-1)*(1)) - (-1)*((5)*(0) - (-1)*(0)) + (-1)*((5)*(1) - (1)*(0))) / ((1)*((1)*(0) - (-1)*(1)) - (-1)*((1)*(0) - (-1)*(-1)) + (-1)*((1)*(1) - (1)*(-1)))",
+    "((1)*((5)*(0) - (-1)*(0)) - (1)*((1)*(0) - (-1)*(-1)) + (-1)*((1)*(0) - (5)*(-1))) / ((1)*((1)*(0) - (-1)*(1)) - (-1)*((1)*(0) - (-1)*(-1)) + (-1)*((1)*(1) - (1)*(-1)))",
+    "((1)*((1)*(0) - (5)*(1)) - (-1)*((1)*(0) - (5)*(-1)) + (1)*((1)*(1) - (1)*(-1))) / ((1)*((1)*(0) - (-1)*(1)) - (-1)*((1)*(0) - (-1)*(-1)) + (-1)*((1)*(1) - (1)*(-1)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) x − y + z = 9; (II) x − y = 4; (III) x + y = −6.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -1,
+     -5,
+     5
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = −1, y = −5, z = 5. Probe in allen drei Gleichungen.",
+   "h": "Eliminiere mit zwei Gleichungspaaren dieselbe Variable.",
+   "c": [
+    "((9)*((-1)*(0) - (0)*(1)) - (-1)*((4)*(0) - (0)*(-6)) + (1)*((4)*(1) - (-1)*(-6))) / ((1)*((-1)*(0) - (0)*(1)) - (-1)*((1)*(0) - (0)*(1)) + (1)*((1)*(1) - (-1)*(1)))",
+    "((1)*((4)*(0) - (0)*(-6)) - (9)*((1)*(0) - (0)*(1)) + (1)*((1)*(-6) - (4)*(1))) / ((1)*((-1)*(0) - (0)*(1)) - (-1)*((1)*(0) - (0)*(1)) + (1)*((1)*(1) - (-1)*(1)))",
+    "((1)*((-1)*(-6) - (4)*(1)) - (-1)*((1)*(-6) - (4)*(1)) + (9)*((1)*(1) - (-1)*(1))) / ((1)*((-1)*(0) - (0)*(1)) - (-1)*((1)*(0) - (0)*(1)) + (1)*((1)*(1) - (-1)*(1)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) −x − y − z = −3; (II) y − z = −1; (III) x − y − z = 1.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     2,
+     0,
+     1
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = 2, y = 0, z = 1. Probe in allen drei Gleichungen.",
+   "h": "Eliminiere mit zwei Gleichungspaaren dieselbe Variable.",
+   "c": [
+    "((-3)*((1)*(-1) - (-1)*(-1)) - (-1)*((-1)*(-1) - (-1)*(1)) + (-1)*((-1)*(-1) - (1)*(1))) / ((-1)*((1)*(-1) - (-1)*(-1)) - (-1)*((0)*(-1) - (-1)*(1)) + (-1)*((0)*(-1) - (1)*(1)))",
+    "((-1)*((-1)*(-1) - (-1)*(1)) - (-3)*((0)*(-1) - (-1)*(1)) + (-1)*((0)*(1) - (-1)*(1))) / ((-1)*((1)*(-1) - (-1)*(-1)) - (-1)*((0)*(-1) - (-1)*(1)) + (-1)*((0)*(-1) - (1)*(1)))",
+    "((-1)*((1)*(1) - (-1)*(-1)) - (-1)*((0)*(1) - (-1)*(1)) + (-3)*((0)*(-1) - (1)*(1))) / ((-1)*((1)*(-1) - (-1)*(-1)) - (-1)*((0)*(-1) - (-1)*(1)) + (-1)*((0)*(-1) - (1)*(1)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) x + z = −2; (II) x − y = −4; (III) x + y + z = −2.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -4,
+     0,
+     2
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = −4, y = 0, z = 2. Probe in allen drei Gleichungen.",
+   "h": "Eliminiere mit zwei Gleichungspaaren dieselbe Variable.",
+   "c": [
+    "((-2)*((-1)*(1) - (0)*(1)) - (0)*((-4)*(1) - (0)*(-2)) + (1)*((-4)*(1) - (-1)*(-2))) / ((1)*((-1)*(1) - (0)*(1)) - (0)*((1)*(1) - (0)*(1)) + (1)*((1)*(1) - (-1)*(1)))",
+    "((1)*((-4)*(1) - (0)*(-2)) - (-2)*((1)*(1) - (0)*(1)) + (1)*((1)*(-2) - (-4)*(1))) / ((1)*((-1)*(1) - (0)*(1)) - (0)*((1)*(1) - (0)*(1)) + (1)*((1)*(1) - (-1)*(1)))",
+    "((1)*((-1)*(-2) - (-4)*(1)) - (0)*((1)*(-2) - (-4)*(1)) + (-2)*((1)*(1) - (-1)*(1))) / ((1)*((-1)*(1) - (0)*(1)) - (0)*((1)*(1) - (0)*(1)) + (1)*((1)*(1) - (-1)*(1)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) −x + y = 0; (II) y − z = 1; (III) x − y + z = −3.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -2,
+     -2,
+     -3
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = −2, y = −2, z = −3. Probe in allen drei Gleichungen.",
+   "h": "Eliminiere mit zwei Gleichungspaaren dieselbe Variable.",
+   "c": [
+    "((0)*((1)*(1) - (-1)*(-1)) - (1)*((1)*(1) - (-1)*(-3)) + (0)*((1)*(-1) - (1)*(-3))) / ((-1)*((1)*(1) - (-1)*(-1)) - (1)*((0)*(1) - (-1)*(1)) + (0)*((0)*(-1) - (1)*(1)))",
+    "((-1)*((1)*(1) - (-1)*(-3)) - (0)*((0)*(1) - (-1)*(1)) + (0)*((0)*(-3) - (1)*(1))) / ((-1)*((1)*(1) - (-1)*(-1)) - (1)*((0)*(1) - (-1)*(1)) + (0)*((0)*(-1) - (1)*(1)))",
+    "((-1)*((1)*(-3) - (1)*(-1)) - (1)*((0)*(-3) - (1)*(1)) + (0)*((0)*(-1) - (1)*(1))) / ((-1)*((1)*(1) - (-1)*(-1)) - (1)*((0)*(1) - (-1)*(1)) + (0)*((0)*(-1) - (1)*(1)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) −x + y + z = −3; (II) x − z = 1; (III) −y + z = −1.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -2,
+     -2,
+     -3
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = −2, y = −2, z = −3. Probe in allen drei Gleichungen.",
+   "h": "Eliminiere mit zwei Gleichungspaaren dieselbe Variable.",
+   "c": [
+    "((-3)*((0)*(1) - (-1)*(-1)) - (1)*((1)*(1) - (-1)*(-1)) + (1)*((1)*(-1) - (0)*(-1))) / ((-1)*((0)*(1) - (-1)*(-1)) - (1)*((1)*(1) - (-1)*(0)) + (1)*((1)*(-1) - (0)*(0)))",
+    "((-1)*((1)*(1) - (-1)*(-1)) - (-3)*((1)*(1) - (-1)*(0)) + (1)*((1)*(-1) - (1)*(0))) / ((-1)*((0)*(1) - (-1)*(-1)) - (1)*((1)*(1) - (-1)*(0)) + (1)*((1)*(-1) - (0)*(0)))",
+    "((-1)*((0)*(-1) - (1)*(-1)) - (1)*((1)*(-1) - (1)*(0)) + (-3)*((1)*(-1) - (0)*(0))) / ((-1)*((0)*(1) - (-1)*(-1)) - (1)*((1)*(1) - (-1)*(0)) + (1)*((1)*(-1) - (0)*(0)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) x + y = 0; (II) x + 2z = −6; (III) x − y − 2z = −6.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -4,
+     4,
+     -1
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = −4, y = 4, z = −1. Probe in allen drei Gleichungen.",
+   "h": "Eliminiere mit zwei Gleichungspaaren dieselbe Variable.",
+   "c": [
+    "((0)*((0)*(-2) - (2)*(-1)) - (1)*((-6)*(-2) - (2)*(-6)) + (0)*((-6)*(-1) - (0)*(-6))) / ((1)*((0)*(-2) - (2)*(-1)) - (1)*((1)*(-2) - (2)*(1)) + (0)*((1)*(-1) - (0)*(1)))",
+    "((1)*((-6)*(-2) - (2)*(-6)) - (0)*((1)*(-2) - (2)*(1)) + (0)*((1)*(-6) - (-6)*(1))) / ((1)*((0)*(-2) - (2)*(-1)) - (1)*((1)*(-2) - (2)*(1)) + (0)*((1)*(-1) - (0)*(1)))",
+    "((1)*((0)*(-6) - (-6)*(-1)) - (1)*((1)*(-6) - (-6)*(1)) + (0)*((1)*(-1) - (0)*(1))) / ((1)*((0)*(-2) - (2)*(-1)) - (1)*((1)*(-2) - (2)*(1)) + (0)*((1)*(-1) - (0)*(1)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) x + 2y − 2z = −11; (II) 2y + z = 6; (III) x + z = −1.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -5,
+     1,
+     4
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = −5, y = 1, z = 4. Probe in allen drei Gleichungen.",
+   "h": "Eliminiere mit zwei Gleichungspaaren dieselbe Variable.",
+   "c": [
+    "((-11)*((2)*(1) - (1)*(0)) - (2)*((6)*(1) - (1)*(-1)) + (-2)*((6)*(0) - (2)*(-1))) / ((1)*((2)*(1) - (1)*(0)) - (2)*((0)*(1) - (1)*(1)) + (-2)*((0)*(0) - (2)*(1)))",
+    "((1)*((6)*(1) - (1)*(-1)) - (-11)*((0)*(1) - (1)*(1)) + (-2)*((0)*(-1) - (6)*(1))) / ((1)*((2)*(1) - (1)*(0)) - (2)*((0)*(1) - (1)*(1)) + (-2)*((0)*(0) - (2)*(1)))",
+    "((1)*((2)*(-1) - (6)*(0)) - (2)*((0)*(-1) - (6)*(1)) + (-11)*((0)*(0) - (2)*(1))) / ((1)*((2)*(1) - (1)*(0)) - (2)*((0)*(1) - (1)*(1)) + (-2)*((0)*(0) - (2)*(1)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) 2y + z = −2; (II) x − 2y − z = −3; (III) x + y + 2z = −6.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -5,
+     -1,
+     0
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = −5, y = −1, z = 0. Probe in allen drei Gleichungen.",
+   "h": "Eliminiere mit zwei Gleichungspaaren dieselbe Variable.",
+   "c": [
+    "((-2)*((-2)*(2) - (-1)*(1)) - (2)*((-3)*(2) - (-1)*(-6)) + (1)*((-3)*(1) - (-2)*(-6))) / ((0)*((-2)*(2) - (-1)*(1)) - (2)*((1)*(2) - (-1)*(1)) + (1)*((1)*(1) - (-2)*(1)))",
+    "((0)*((-3)*(2) - (-1)*(-6)) - (-2)*((1)*(2) - (-1)*(1)) + (1)*((1)*(-6) - (-3)*(1))) / ((0)*((-2)*(2) - (-1)*(1)) - (2)*((1)*(2) - (-1)*(1)) + (1)*((1)*(1) - (-2)*(1)))",
+    "((0)*((-2)*(-6) - (-3)*(1)) - (2)*((1)*(-6) - (-3)*(1)) + (-2)*((1)*(1) - (-2)*(1))) / ((0)*((-2)*(2) - (-1)*(1)) - (2)*((1)*(2) - (-1)*(1)) + (1)*((1)*(1) - (-2)*(1)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) −x − y − z = 3; (II) y − 2z = 11; (III) −x − 2y − 2z = 10.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     4,
+     -1,
+     -6
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = 4, y = −1, z = −6. Probe in allen drei Gleichungen.",
+   "h": "Eliminiere mit zwei Gleichungspaaren dieselbe Variable.",
+   "c": [
+    "((3)*((1)*(-2) - (-2)*(-2)) - (-1)*((11)*(-2) - (-2)*(10)) + (-1)*((11)*(-2) - (1)*(10))) / ((-1)*((1)*(-2) - (-2)*(-2)) - (-1)*((0)*(-2) - (-2)*(-1)) + (-1)*((0)*(-2) - (1)*(-1)))",
+    "((-1)*((11)*(-2) - (-2)*(10)) - (3)*((0)*(-2) - (-2)*(-1)) + (-1)*((0)*(10) - (11)*(-1))) / ((-1)*((1)*(-2) - (-2)*(-2)) - (-1)*((0)*(-2) - (-2)*(-1)) + (-1)*((0)*(-2) - (1)*(-1)))",
+    "((-1)*((1)*(10) - (11)*(-2)) - (-1)*((0)*(10) - (11)*(-1)) + (3)*((0)*(-2) - (1)*(-1))) / ((-1)*((1)*(-2) - (-2)*(-2)) - (-1)*((0)*(-2) - (-2)*(-1)) + (-1)*((0)*(-2) - (1)*(-1)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) x − 2y − 2z = 16; (II) −2x + y = 0; (III) 2x + y = −8.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -2,
+     -4,
+     -5
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = −2, y = −4, z = −5. Probe in allen drei Gleichungen.",
+   "h": "Eliminiere mit zwei Gleichungspaaren dieselbe Variable.",
+   "c": [
+    "((16)*((1)*(0) - (0)*(1)) - (-2)*((0)*(0) - (0)*(-8)) + (-2)*((0)*(1) - (1)*(-8))) / ((1)*((1)*(0) - (0)*(1)) - (-2)*((-2)*(0) - (0)*(2)) + (-2)*((-2)*(1) - (1)*(2)))",
+    "((1)*((0)*(0) - (0)*(-8)) - (16)*((-2)*(0) - (0)*(2)) + (-2)*((-2)*(-8) - (0)*(2))) / ((1)*((1)*(0) - (0)*(1)) - (-2)*((-2)*(0) - (0)*(2)) + (-2)*((-2)*(1) - (1)*(2)))",
+    "((1)*((1)*(-8) - (0)*(1)) - (-2)*((-2)*(-8) - (0)*(2)) + (16)*((-2)*(1) - (1)*(2))) / ((1)*((1)*(0) - (0)*(1)) - (-2)*((-2)*(0) - (0)*(2)) + (-2)*((-2)*(1) - (1)*(2)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) −2x + y + 2z = −11; (II) −x + y − 2z = −2; (III) −y − z = 0.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     5,
+     1,
+     -1
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = 5, y = 1, z = −1. Probe in allen drei Gleichungen.",
+   "h": "Eliminiere mit zwei Gleichungspaaren dieselbe Variable.",
+   "c": [
+    "((-11)*((1)*(-1) - (-2)*(-1)) - (1)*((-2)*(-1) - (-2)*(0)) + (2)*((-2)*(-1) - (1)*(0))) / ((-2)*((1)*(-1) - (-2)*(-1)) - (1)*((-1)*(-1) - (-2)*(0)) + (2)*((-1)*(-1) - (1)*(0)))",
+    "((-2)*((-2)*(-1) - (-2)*(0)) - (-11)*((-1)*(-1) - (-2)*(0)) + (2)*((-1)*(0) - (-2)*(0))) / ((-2)*((1)*(-1) - (-2)*(-1)) - (1)*((-1)*(-1) - (-2)*(0)) + (2)*((-1)*(-1) - (1)*(0)))",
+    "((-2)*((1)*(0) - (-2)*(-1)) - (1)*((-1)*(0) - (-2)*(0)) + (-11)*((-1)*(-1) - (1)*(0))) / ((-2)*((1)*(-1) - (-2)*(-1)) - (1)*((-1)*(-1) - (-2)*(0)) + (2)*((-1)*(-1) - (1)*(0)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) −x − 2z = 3; (II) x + 3z = −7; (III) −3x − 2y − z = 1.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     5,
+     -6,
+     -4
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = 5, y = −6, z = −4. Probe in allen drei Gleichungen.",
+   "h": "Eliminiere mit zwei Gleichungspaaren dieselbe Variable.",
+   "c": [
+    "((3)*((0)*(-1) - (3)*(-2)) - (0)*((-7)*(-1) - (3)*(1)) + (-2)*((-7)*(-2) - (0)*(1))) / ((-1)*((0)*(-1) - (3)*(-2)) - (0)*((1)*(-1) - (3)*(-3)) + (-2)*((1)*(-2) - (0)*(-3)))",
+    "((-1)*((-7)*(-1) - (3)*(1)) - (3)*((1)*(-1) - (3)*(-3)) + (-2)*((1)*(1) - (-7)*(-3))) / ((-1)*((0)*(-1) - (3)*(-2)) - (0)*((1)*(-1) - (3)*(-3)) + (-2)*((1)*(-2) - (0)*(-3)))",
+    "((-1)*((0)*(1) - (-7)*(-2)) - (0)*((1)*(1) - (-7)*(-3)) + (3)*((1)*(-2) - (0)*(-3))) / ((-1)*((0)*(-1) - (3)*(-2)) - (0)*((1)*(-1) - (3)*(-3)) + (-2)*((1)*(-2) - (0)*(-3)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) −y − 2z = −3; (II) −2x − y − 2z = −11; (III) −2x + y + z = −8.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     4,
+     -3,
+     3
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = 4, y = −3, z = 3. Probe in allen drei Gleichungen.",
+   "h": "Eliminiere mit zwei Gleichungspaaren dieselbe Variable.",
+   "c": [
+    "((-3)*((-1)*(1) - (-2)*(1)) - (-1)*((-11)*(1) - (-2)*(-8)) + (-2)*((-11)*(1) - (-1)*(-8))) / ((0)*((-1)*(1) - (-2)*(1)) - (-1)*((-2)*(1) - (-2)*(-2)) + (-2)*((-2)*(1) - (-1)*(-2)))",
+    "((0)*((-11)*(1) - (-2)*(-8)) - (-3)*((-2)*(1) - (-2)*(-2)) + (-2)*((-2)*(-8) - (-11)*(-2))) / ((0)*((-1)*(1) - (-2)*(1)) - (-1)*((-2)*(1) - (-2)*(-2)) + (-2)*((-2)*(1) - (-1)*(-2)))",
+    "((0)*((-1)*(-8) - (-11)*(1)) - (-1)*((-2)*(-8) - (-11)*(-2)) + (-3)*((-2)*(1) - (-1)*(-2))) / ((0)*((-1)*(1) - (-2)*(1)) - (-1)*((-2)*(1) - (-2)*(-2)) + (-2)*((-2)*(1) - (-1)*(-2)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) −3x + y + 2z = 3; (II) −3x + y − 3z = 33; (III) −x − y − 2z = 17.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -5,
+     0,
+     -6
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = −5, y = 0, z = −6. Probe in allen drei Gleichungen.",
+   "h": "Eliminiere mit zwei Gleichungspaaren dieselbe Variable.",
+   "c": [
+    "((3)*((1)*(-2) - (-3)*(-1)) - (1)*((33)*(-2) - (-3)*(17)) + (2)*((33)*(-1) - (1)*(17))) / ((-3)*((1)*(-2) - (-3)*(-1)) - (1)*((-3)*(-2) - (-3)*(-1)) + (2)*((-3)*(-1) - (1)*(-1)))",
+    "((-3)*((33)*(-2) - (-3)*(17)) - (3)*((-3)*(-2) - (-3)*(-1)) + (2)*((-3)*(17) - (33)*(-1))) / ((-3)*((1)*(-2) - (-3)*(-1)) - (1)*((-3)*(-2) - (-3)*(-1)) + (2)*((-3)*(-1) - (1)*(-1)))",
+    "((-3)*((1)*(17) - (33)*(-1)) - (1)*((-3)*(17) - (33)*(-1)) + (3)*((-3)*(-1) - (1)*(-1))) / ((-3)*((1)*(-2) - (-3)*(-1)) - (1)*((-3)*(-2) - (-3)*(-1)) + (2)*((-3)*(-1) - (1)*(-1)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) x − y − 3z = 17; (II) y + 2z = −10; (III) x − 2y = 7.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     3,
+     -2,
+     -4
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = 3, y = −2, z = −4. Probe in allen drei Gleichungen.",
+   "h": "Eliminiere mit zwei Gleichungspaaren dieselbe Variable.",
+   "c": [
+    "((17)*((1)*(0) - (2)*(-2)) - (-1)*((-10)*(0) - (2)*(7)) + (-3)*((-10)*(-2) - (1)*(7))) / ((1)*((1)*(0) - (2)*(-2)) - (-1)*((0)*(0) - (2)*(1)) + (-3)*((0)*(-2) - (1)*(1)))",
+    "((1)*((-10)*(0) - (2)*(7)) - (17)*((0)*(0) - (2)*(1)) + (-3)*((0)*(7) - (-10)*(1))) / ((1)*((1)*(0) - (2)*(-2)) - (-1)*((0)*(0) - (2)*(1)) + (-3)*((0)*(-2) - (1)*(1)))",
+    "((1)*((1)*(7) - (-10)*(-2)) - (-1)*((0)*(7) - (-10)*(1)) + (17)*((0)*(-2) - (1)*(1))) / ((1)*((1)*(0) - (2)*(-2)) - (-1)*((0)*(0) - (2)*(1)) + (-3)*((0)*(-2) - (1)*(1)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) 3x − y − 3z = −31; (II) 3y + z = 7; (III) 3x − z = −22.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -6,
+     1,
+     4
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = −6, y = 1, z = 4. Probe in allen drei Gleichungen.",
+   "h": "Eliminiere mit zwei Gleichungspaaren dieselbe Variable.",
+   "c": [
+    "((-31)*((3)*(-1) - (1)*(0)) - (-1)*((7)*(-1) - (1)*(-22)) + (-3)*((7)*(0) - (3)*(-22))) / ((3)*((3)*(-1) - (1)*(0)) - (-1)*((0)*(-1) - (1)*(3)) + (-3)*((0)*(0) - (3)*(3)))",
+    "((3)*((7)*(-1) - (1)*(-22)) - (-31)*((0)*(-1) - (1)*(3)) + (-3)*((0)*(-22) - (7)*(3))) / ((3)*((3)*(-1) - (1)*(0)) - (-1)*((0)*(-1) - (1)*(3)) + (-3)*((0)*(0) - (3)*(3)))",
+    "((3)*((3)*(-22) - (7)*(0)) - (-1)*((0)*(-22) - (7)*(3)) + (-31)*((0)*(0) - (3)*(3))) / ((3)*((3)*(-1) - (1)*(0)) - (-1)*((0)*(-1) - (1)*(3)) + (-3)*((0)*(0) - (3)*(3)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) 2x + y − z = −5; (II) −2x − y + 3z = 9; (III) −x − 2y − 2z = −7.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -3,
+     3,
+     2
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = −3, y = 3, z = 2. Probe in allen drei Gleichungen.",
+   "h": "Eliminiere mit zwei Gleichungspaaren dieselbe Variable.",
+   "c": [
+    "((-5)*((-1)*(-2) - (3)*(-2)) - (1)*((9)*(-2) - (3)*(-7)) + (-1)*((9)*(-2) - (-1)*(-7))) / ((2)*((-1)*(-2) - (3)*(-2)) - (1)*((-2)*(-2) - (3)*(-1)) + (-1)*((-2)*(-2) - (-1)*(-1)))",
+    "((2)*((9)*(-2) - (3)*(-7)) - (-5)*((-2)*(-2) - (3)*(-1)) + (-1)*((-2)*(-7) - (9)*(-1))) / ((2)*((-1)*(-2) - (3)*(-2)) - (1)*((-2)*(-2) - (3)*(-1)) + (-1)*((-2)*(-2) - (-1)*(-1)))",
+    "((2)*((-1)*(-7) - (9)*(-2)) - (1)*((-2)*(-7) - (9)*(-1)) + (-5)*((-2)*(-2) - (-1)*(-1))) / ((2)*((-1)*(-2) - (3)*(-2)) - (1)*((-2)*(-2) - (3)*(-1)) + (-1)*((-2)*(-2) - (-1)*(-1)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) −x − y + 2z = 5; (II) −x + 2y − 2z = 3; (III) −x + 2y + z = 18.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -1,
+     6,
+     5
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = −1, y = 6, z = 5. Probe in allen drei Gleichungen.",
+   "c": [
+    "((5)*((2)*(1) - (-2)*(2)) - (-1)*((3)*(1) - (-2)*(18)) + (2)*((3)*(2) - (2)*(18))) / ((-1)*((2)*(1) - (-2)*(2)) - (-1)*((-1)*(1) - (-2)*(-1)) + (2)*((-1)*(2) - (2)*(-1)))",
+    "((-1)*((3)*(1) - (-2)*(18)) - (5)*((-1)*(1) - (-2)*(-1)) + (2)*((-1)*(18) - (3)*(-1))) / ((-1)*((2)*(1) - (-2)*(2)) - (-1)*((-1)*(1) - (-2)*(-1)) + (2)*((-1)*(2) - (2)*(-1)))",
+    "((-1)*((2)*(18) - (3)*(2)) - (-1)*((-1)*(18) - (3)*(-1)) + (5)*((-1)*(2) - (2)*(-1))) / ((-1)*((2)*(1) - (-2)*(2)) - (-1)*((-1)*(1) - (-2)*(-1)) + (2)*((-1)*(2) - (2)*(-1)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) 2x − 2y + z = 5; (II) 2x + y − 2z = −16; (III) x − y + 2z = 10.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -2,
+     -2,
+     5
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = −2, y = −2, z = 5. Probe in allen drei Gleichungen.",
+   "c": [
+    "((5)*((1)*(2) - (-2)*(-1)) - (-2)*((-16)*(2) - (-2)*(10)) + (1)*((-16)*(-1) - (1)*(10))) / ((2)*((1)*(2) - (-2)*(-1)) - (-2)*((2)*(2) - (-2)*(1)) + (1)*((2)*(-1) - (1)*(1)))",
+    "((2)*((-16)*(2) - (-2)*(10)) - (5)*((2)*(2) - (-2)*(1)) + (1)*((2)*(10) - (-16)*(1))) / ((2)*((1)*(2) - (-2)*(-1)) - (-2)*((2)*(2) - (-2)*(1)) + (1)*((2)*(-1) - (1)*(1)))",
+    "((2)*((1)*(10) - (-16)*(-1)) - (-2)*((2)*(10) - (-16)*(1)) + (5)*((2)*(-1) - (1)*(1))) / ((2)*((1)*(2) - (-2)*(-1)) - (-2)*((2)*(2) - (-2)*(1)) + (1)*((2)*(-1) - (1)*(1)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) −x − 2z = −3; (II) 2y − z = 2; (III) y + 2z = 1.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     3,
+     1,
+     0
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = 3, y = 1, z = 0. Probe in allen drei Gleichungen.",
+   "c": [
+    "((-3)*((2)*(2) - (-1)*(1)) - (0)*((2)*(2) - (-1)*(1)) + (-2)*((2)*(1) - (2)*(1))) / ((-1)*((2)*(2) - (-1)*(1)) - (0)*((0)*(2) - (-1)*(0)) + (-2)*((0)*(1) - (2)*(0)))",
+    "((-1)*((2)*(2) - (-1)*(1)) - (-3)*((0)*(2) - (-1)*(0)) + (-2)*((0)*(1) - (2)*(0))) / ((-1)*((2)*(2) - (-1)*(1)) - (0)*((0)*(2) - (-1)*(0)) + (-2)*((0)*(1) - (2)*(0)))",
+    "((-1)*((2)*(1) - (2)*(1)) - (0)*((0)*(1) - (2)*(0)) + (-3)*((0)*(1) - (2)*(0))) / ((-1)*((2)*(2) - (-1)*(1)) - (0)*((0)*(2) - (-1)*(0)) + (-2)*((0)*(1) - (2)*(0)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) −x − 2z = −4; (II) −x − z = 0; (III) −2x + 2y − z = 10.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -4,
+     3,
+     4
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = −4, y = 3, z = 4. Probe in allen drei Gleichungen.",
+   "c": [
+    "((-4)*((0)*(-1) - (-1)*(2)) - (0)*((0)*(-1) - (-1)*(10)) + (-2)*((0)*(2) - (0)*(10))) / ((-1)*((0)*(-1) - (-1)*(2)) - (0)*((-1)*(-1) - (-1)*(-2)) + (-2)*((-1)*(2) - (0)*(-2)))",
+    "((-1)*((0)*(-1) - (-1)*(10)) - (-4)*((-1)*(-1) - (-1)*(-2)) + (-2)*((-1)*(10) - (0)*(-2))) / ((-1)*((0)*(-1) - (-1)*(2)) - (0)*((-1)*(-1) - (-1)*(-2)) + (-2)*((-1)*(2) - (0)*(-2)))",
+    "((-1)*((0)*(10) - (0)*(2)) - (0)*((-1)*(10) - (0)*(-2)) + (-4)*((-1)*(2) - (0)*(-2))) / ((-1)*((0)*(-1) - (-1)*(2)) - (0)*((-1)*(-1) - (-1)*(-2)) + (-2)*((-1)*(2) - (0)*(-2)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) x + 2y + 2z = −2; (II) x + z = −9; (III) −2y + z = −13.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -6,
+     5,
+     -3
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = −6, y = 5, z = −3. Probe in allen drei Gleichungen.",
+   "c": [
+    "((-2)*((0)*(1) - (1)*(-2)) - (2)*((-9)*(1) - (1)*(-13)) + (2)*((-9)*(-2) - (0)*(-13))) / ((1)*((0)*(1) - (1)*(-2)) - (2)*((1)*(1) - (1)*(0)) + (2)*((1)*(-2) - (0)*(0)))",
+    "((1)*((-9)*(1) - (1)*(-13)) - (-2)*((1)*(1) - (1)*(0)) + (2)*((1)*(-13) - (-9)*(0))) / ((1)*((0)*(1) - (1)*(-2)) - (2)*((1)*(1) - (1)*(0)) + (2)*((1)*(-2) - (0)*(0)))",
+    "((1)*((0)*(-13) - (-9)*(-2)) - (2)*((1)*(-13) - (-9)*(0)) + (-2)*((1)*(-2) - (0)*(0))) / ((1)*((0)*(1) - (1)*(-2)) - (2)*((1)*(1) - (1)*(0)) + (2)*((1)*(-2) - (0)*(0)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) −x + 2y − 2z = −23; (II) −2x − y − 2z = −4; (III) 2x − y − 2z = −8.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -1,
+     -6,
+     6
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = −1, y = −6, z = 6. Probe in allen drei Gleichungen.",
+   "c": [
+    "((-23)*((-1)*(-2) - (-2)*(-1)) - (2)*((-4)*(-2) - (-2)*(-8)) + (-2)*((-4)*(-1) - (-1)*(-8))) / ((-1)*((-1)*(-2) - (-2)*(-1)) - (2)*((-2)*(-2) - (-2)*(2)) + (-2)*((-2)*(-1) - (-1)*(2)))",
+    "((-1)*((-4)*(-2) - (-2)*(-8)) - (-23)*((-2)*(-2) - (-2)*(2)) + (-2)*((-2)*(-8) - (-4)*(2))) / ((-1)*((-1)*(-2) - (-2)*(-1)) - (2)*((-2)*(-2) - (-2)*(2)) + (-2)*((-2)*(-1) - (-1)*(2)))",
+    "((-1)*((-1)*(-8) - (-4)*(-1)) - (2)*((-2)*(-8) - (-4)*(2)) + (-23)*((-2)*(-1) - (-1)*(2))) / ((-1)*((-1)*(-2) - (-2)*(-1)) - (2)*((-2)*(-2) - (-2)*(2)) + (-2)*((-2)*(-1) - (-1)*(2)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) −2x + y − z = −18; (II) x + 2y + 2z = 4; (III) x − 2y − z = 9.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     4,
+     -5,
+     5
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = 4, y = −5, z = 5. Probe in allen drei Gleichungen.",
+   "c": [
+    "((-18)*((2)*(-1) - (2)*(-2)) - (1)*((4)*(-1) - (2)*(9)) + (-1)*((4)*(-2) - (2)*(9))) / ((-2)*((2)*(-1) - (2)*(-2)) - (1)*((1)*(-1) - (2)*(1)) + (-1)*((1)*(-2) - (2)*(1)))",
+    "((-2)*((4)*(-1) - (2)*(9)) - (-18)*((1)*(-1) - (2)*(1)) + (-1)*((1)*(9) - (4)*(1))) / ((-2)*((2)*(-1) - (2)*(-2)) - (1)*((1)*(-1) - (2)*(1)) + (-1)*((1)*(-2) - (2)*(1)))",
+    "((-2)*((2)*(9) - (4)*(-2)) - (1)*((1)*(9) - (4)*(1)) + (-18)*((1)*(-2) - (2)*(1))) / ((-2)*((2)*(-1) - (2)*(-2)) - (1)*((1)*(-1) - (2)*(1)) + (-1)*((1)*(-2) - (2)*(1)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) −y − z = −2; (II) −2x − 2y − z = −12; (III) −x − 2y − 2z = −8.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     4,
+     2,
+     0
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = 4, y = 2, z = 0. Probe in allen drei Gleichungen.",
+   "c": [
+    "((-2)*((-2)*(-2) - (-1)*(-2)) - (-1)*((-12)*(-2) - (-1)*(-8)) + (-1)*((-12)*(-2) - (-2)*(-8))) / ((0)*((-2)*(-2) - (-1)*(-2)) - (-1)*((-2)*(-2) - (-1)*(-1)) + (-1)*((-2)*(-2) - (-2)*(-1)))",
+    "((0)*((-12)*(-2) - (-1)*(-8)) - (-2)*((-2)*(-2) - (-1)*(-1)) + (-1)*((-2)*(-8) - (-12)*(-1))) / ((0)*((-2)*(-2) - (-1)*(-2)) - (-1)*((-2)*(-2) - (-1)*(-1)) + (-1)*((-2)*(-2) - (-2)*(-1)))",
+    "((0)*((-2)*(-8) - (-12)*(-2)) - (-1)*((-2)*(-8) - (-12)*(-1)) + (-2)*((-2)*(-2) - (-2)*(-1))) / ((0)*((-2)*(-2) - (-1)*(-2)) - (-1)*((-2)*(-2) - (-1)*(-1)) + (-1)*((-2)*(-2) - (-2)*(-1)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) −x − y − z = −7; (II) x + 2y + z = 13; (III) 2x − z = −1.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     0,
+     6,
+     1
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = 0, y = 6, z = 1. Probe in allen drei Gleichungen.",
+   "c": [
+    "((-7)*((2)*(-1) - (1)*(0)) - (-1)*((13)*(-1) - (1)*(-1)) + (-1)*((13)*(0) - (2)*(-1))) / ((-1)*((2)*(-1) - (1)*(0)) - (-1)*((1)*(-1) - (1)*(2)) + (-1)*((1)*(0) - (2)*(2)))",
+    "((-1)*((13)*(-1) - (1)*(-1)) - (-7)*((1)*(-1) - (1)*(2)) + (-1)*((1)*(-1) - (13)*(2))) / ((-1)*((2)*(-1) - (1)*(0)) - (-1)*((1)*(-1) - (1)*(2)) + (-1)*((1)*(0) - (2)*(2)))",
+    "((-1)*((2)*(-1) - (13)*(0)) - (-1)*((1)*(-1) - (13)*(2)) + (-7)*((1)*(0) - (2)*(2))) / ((-1)*((2)*(-1) - (1)*(0)) - (-1)*((1)*(-1) - (1)*(2)) + (-1)*((1)*(0) - (2)*(2)))"
+   ]
+  },
+  {
+   "l": "loesen",
+   "t": "loesen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse das Gleichungssystem: (I) −2x − y + 2z = −4; (II) −x + 2y − z = 21; (III) x + y − z = 5.",
+    "schablone": "x = □; y = □; z = □",
+    "hinweis": "Werte von x, y, z"
+   },
+   "o": {
+    "werte": [
+     -5,
+     6,
+     -4
+    ]
+   },
+   "w": "Eliminieren und Einsetzen ergibt x = −5, y = 6, z = −4. Probe in allen drei Gleichungen.",
+   "c": [
+    "((-4)*((2)*(-1) - (-1)*(1)) - (-1)*((21)*(-1) - (-1)*(5)) + (2)*((21)*(1) - (2)*(5))) / ((-2)*((2)*(-1) - (-1)*(1)) - (-1)*((-1)*(-1) - (-1)*(1)) + (2)*((-1)*(1) - (2)*(1)))",
+    "((-2)*((21)*(-1) - (-1)*(5)) - (-4)*((-1)*(-1) - (-1)*(1)) + (2)*((-1)*(5) - (21)*(1))) / ((-2)*((2)*(-1) - (-1)*(1)) - (-1)*((-1)*(-1) - (-1)*(1)) + (2)*((-1)*(1) - (2)*(1)))",
+    "((-2)*((2)*(5) - (21)*(1)) - (-1)*((-1)*(5) - (21)*(1)) + (-4)*((-1)*(1) - (2)*(1))) / ((-2)*((2)*(-1) - (-1)*(1)) - (-1)*((-1)*(-1) - (-1)*(1)) + (2)*((-1)*(1) - (2)*(1)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (0 | −6), (1 | −6), (−1 | −10). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     -2,
+     2,
+     -6
+    ]
+   },
+   "w": "Einsetzen ergibt (I) c = −6; (II) a + b + c = −6; (III) a − b + c = −10. Lösung a = −2, b = 2, c = −6: y = −2x² + 2x − 6.",
+   "h": "Setze jeden Punkt ein: y-Wert links, x² vor a, x vor b.",
+   "c": [
+    "((-6)*((1)*(1) - (1)*(-1)) - (0)*((-6)*(1) - (1)*(-10)) + (1)*((-6)*(-1) - (1)*(-10))) / ((0)*((1)*(1) - (1)*(-1)) - (0)*((1)*(1) - (1)*(1)) + (1)*((1)*(-1) - (1)*(1)))",
+    "((0)*((-6)*(1) - (1)*(-10)) - (-6)*((1)*(1) - (1)*(1)) + (1)*((1)*(-10) - (-6)*(1))) / ((0)*((1)*(1) - (1)*(-1)) - (0)*((1)*(1) - (1)*(1)) + (1)*((1)*(-1) - (1)*(1)))",
+    "((0)*((1)*(-10) - (-6)*(-1)) - (0)*((1)*(-10) - (-6)*(1)) + (-6)*((1)*(-1) - (1)*(1))) / ((0)*((1)*(1) - (1)*(-1)) - (0)*((1)*(1) - (1)*(1)) + (1)*((1)*(-1) - (1)*(1)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (0 | 1), (1 | −2), (−1 | 0). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     -2,
+     -1,
+     1
+    ]
+   },
+   "w": "Einsetzen ergibt (I) c = 1; (II) a + b + c = −2; (III) a − b + c = 0. Lösung a = −2, b = −1, c = 1: y = −2x² − x + 1.",
+   "h": "Setze jeden Punkt ein: y-Wert links, x² vor a, x vor b.",
+   "c": [
+    "((1)*((1)*(1) - (1)*(-1)) - (0)*((-2)*(1) - (1)*(0)) + (1)*((-2)*(-1) - (1)*(0))) / ((0)*((1)*(1) - (1)*(-1)) - (0)*((1)*(1) - (1)*(1)) + (1)*((1)*(-1) - (1)*(1)))",
+    "((0)*((-2)*(1) - (1)*(0)) - (1)*((1)*(1) - (1)*(1)) + (1)*((1)*(0) - (-2)*(1))) / ((0)*((1)*(1) - (1)*(-1)) - (0)*((1)*(1) - (1)*(1)) + (1)*((1)*(-1) - (1)*(1)))",
+    "((0)*((1)*(0) - (-2)*(-1)) - (0)*((1)*(0) - (-2)*(1)) + (1)*((1)*(-1) - (1)*(1))) / ((0)*((1)*(1) - (1)*(-1)) - (0)*((1)*(1) - (1)*(1)) + (1)*((1)*(-1) - (1)*(1)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (0 | 3), (1 | 6), (−1 | 6). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     3,
+     0,
+     3
+    ]
+   },
+   "w": "Einsetzen ergibt (I) c = 3; (II) a + b + c = 6; (III) a − b + c = 6. Lösung a = 3, b = 0, c = 3: y = 3x² + 3.",
+   "h": "Setze jeden Punkt ein: y-Wert links, x² vor a, x vor b.",
+   "c": [
+    "((3)*((1)*(1) - (1)*(-1)) - (0)*((6)*(1) - (1)*(6)) + (1)*((6)*(-1) - (1)*(6))) / ((0)*((1)*(1) - (1)*(-1)) - (0)*((1)*(1) - (1)*(1)) + (1)*((1)*(-1) - (1)*(1)))",
+    "((0)*((6)*(1) - (1)*(6)) - (3)*((1)*(1) - (1)*(1)) + (1)*((1)*(6) - (6)*(1))) / ((0)*((1)*(1) - (1)*(-1)) - (0)*((1)*(1) - (1)*(1)) + (1)*((1)*(-1) - (1)*(1)))",
+    "((0)*((1)*(6) - (6)*(-1)) - (0)*((1)*(6) - (6)*(1)) + (3)*((1)*(-1) - (1)*(1))) / ((0)*((1)*(1) - (1)*(-1)) - (0)*((1)*(1) - (1)*(1)) + (1)*((1)*(-1) - (1)*(1)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (0 | −3), (1 | −3), (−1 | −9). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     -3,
+     3,
+     -3
+    ]
+   },
+   "w": "Einsetzen ergibt (I) c = −3; (II) a + b + c = −3; (III) a − b + c = −9. Lösung a = −3, b = 3, c = −3: y = −3x² + 3x − 3.",
+   "h": "Setze jeden Punkt ein: y-Wert links, x² vor a, x vor b.",
+   "c": [
+    "((-3)*((1)*(1) - (1)*(-1)) - (0)*((-3)*(1) - (1)*(-9)) + (1)*((-3)*(-1) - (1)*(-9))) / ((0)*((1)*(1) - (1)*(-1)) - (0)*((1)*(1) - (1)*(1)) + (1)*((1)*(-1) - (1)*(1)))",
+    "((0)*((-3)*(1) - (1)*(-9)) - (-3)*((1)*(1) - (1)*(1)) + (1)*((1)*(-9) - (-3)*(1))) / ((0)*((1)*(1) - (1)*(-1)) - (0)*((1)*(1) - (1)*(1)) + (1)*((1)*(-1) - (1)*(1)))",
+    "((0)*((1)*(-9) - (-3)*(-1)) - (0)*((1)*(-9) - (-3)*(1)) + (-3)*((1)*(-1) - (1)*(1))) / ((0)*((1)*(1) - (1)*(-1)) - (0)*((1)*(1) - (1)*(1)) + (1)*((1)*(-1) - (1)*(1)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (0 | 1), (1 | 0), (−1 | −4). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     -3,
+     2,
+     1
+    ]
+   },
+   "w": "Einsetzen ergibt (I) c = 1; (II) a + b + c = 0; (III) a − b + c = −4. Lösung a = −3, b = 2, c = 1: y = −3x² + 2x + 1.",
+   "h": "Setze jeden Punkt ein: y-Wert links, x² vor a, x vor b.",
+   "c": [
+    "((1)*((1)*(1) - (1)*(-1)) - (0)*((0)*(1) - (1)*(-4)) + (1)*((0)*(-1) - (1)*(-4))) / ((0)*((1)*(1) - (1)*(-1)) - (0)*((1)*(1) - (1)*(1)) + (1)*((1)*(-1) - (1)*(1)))",
+    "((0)*((0)*(1) - (1)*(-4)) - (1)*((1)*(1) - (1)*(1)) + (1)*((1)*(-4) - (0)*(1))) / ((0)*((1)*(1) - (1)*(-1)) - (0)*((1)*(1) - (1)*(1)) + (1)*((1)*(-1) - (1)*(1)))",
+    "((0)*((1)*(-4) - (0)*(-1)) - (0)*((1)*(-4) - (0)*(1)) + (1)*((1)*(-1) - (1)*(1))) / ((0)*((1)*(1) - (1)*(-1)) - (0)*((1)*(1) - (1)*(1)) + (1)*((1)*(-1) - (1)*(1)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (0 | −3), (1 | 4), (−1 | −4). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     3,
+     4,
+     -3
+    ]
+   },
+   "w": "Einsetzen ergibt (I) c = −3; (II) a + b + c = 4; (III) a − b + c = −4. Lösung a = 3, b = 4, c = −3: y = 3x² + 4x − 3.",
+   "h": "Setze jeden Punkt ein: y-Wert links, x² vor a, x vor b.",
+   "c": [
+    "((-3)*((1)*(1) - (1)*(-1)) - (0)*((4)*(1) - (1)*(-4)) + (1)*((4)*(-1) - (1)*(-4))) / ((0)*((1)*(1) - (1)*(-1)) - (0)*((1)*(1) - (1)*(1)) + (1)*((1)*(-1) - (1)*(1)))",
+    "((0)*((4)*(1) - (1)*(-4)) - (-3)*((1)*(1) - (1)*(1)) + (1)*((1)*(-4) - (4)*(1))) / ((0)*((1)*(1) - (1)*(-1)) - (0)*((1)*(1) - (1)*(1)) + (1)*((1)*(-1) - (1)*(1)))",
+    "((0)*((1)*(-4) - (4)*(-1)) - (0)*((1)*(-4) - (4)*(1)) + (-3)*((1)*(-1) - (1)*(1))) / ((0)*((1)*(1) - (1)*(-1)) - (0)*((1)*(1) - (1)*(1)) + (1)*((1)*(-1) - (1)*(1)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (0 | 3), (2 | 25), (−2 | 5). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     3,
+     5,
+     3
+    ]
+   },
+   "w": "Einsetzen ergibt (I) c = 3; (II) 4a + 2b + c = 25; (III) 4a − 2b + c = 5. Lösung a = 3, b = 5, c = 3: y = 3x² + 5x + 3.",
+   "h": "Setze jeden Punkt ein: y-Wert links, x² vor a, x vor b.",
+   "c": [
+    "((3)*((2)*(1) - (1)*(-2)) - (0)*((25)*(1) - (1)*(5)) + (1)*((25)*(-2) - (2)*(5))) / ((0)*((2)*(1) - (1)*(-2)) - (0)*((4)*(1) - (1)*(4)) + (1)*((4)*(-2) - (2)*(4)))",
+    "((0)*((25)*(1) - (1)*(5)) - (3)*((4)*(1) - (1)*(4)) + (1)*((4)*(5) - (25)*(4))) / ((0)*((2)*(1) - (1)*(-2)) - (0)*((4)*(1) - (1)*(4)) + (1)*((4)*(-2) - (2)*(4)))",
+    "((0)*((2)*(5) - (25)*(-2)) - (0)*((4)*(5) - (25)*(4)) + (3)*((4)*(-2) - (2)*(4))) / ((0)*((2)*(1) - (1)*(-2)) - (0)*((4)*(1) - (1)*(4)) + (1)*((4)*(-2) - (2)*(4)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (0 | −3), (1 | −6), (3 | −18). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     -1,
+     -2,
+     -3
+    ]
+   },
+   "w": "Einsetzen ergibt (I) c = −3; (II) a + b + c = −6; (III) 9a + 3b + c = −18. Lösung a = −1, b = −2, c = −3: y = −x² − 2x − 3.",
+   "h": "Setze jeden Punkt ein: y-Wert links, x² vor a, x vor b.",
+   "c": [
+    "((-3)*((1)*(1) - (1)*(3)) - (0)*((-6)*(1) - (1)*(-18)) + (1)*((-6)*(3) - (1)*(-18))) / ((0)*((1)*(1) - (1)*(3)) - (0)*((1)*(1) - (1)*(9)) + (1)*((1)*(3) - (1)*(9)))",
+    "((0)*((-6)*(1) - (1)*(-18)) - (-3)*((1)*(1) - (1)*(9)) + (1)*((1)*(-18) - (-6)*(9))) / ((0)*((1)*(1) - (1)*(3)) - (0)*((1)*(1) - (1)*(9)) + (1)*((1)*(3) - (1)*(9)))",
+    "((0)*((1)*(-18) - (-6)*(3)) - (0)*((1)*(-18) - (-6)*(9)) + (-3)*((1)*(3) - (1)*(9))) / ((0)*((1)*(1) - (1)*(3)) - (0)*((1)*(1) - (1)*(9)) + (1)*((1)*(3) - (1)*(9)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (0 | −4), (1 | −4), (2 | 0). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     2,
+     -2,
+     -4
+    ]
+   },
+   "w": "Einsetzen ergibt (I) c = −4; (II) a + b + c = −4; (III) 4a + 2b + c = 0. Lösung a = 2, b = −2, c = −4: y = 2x² − 2x − 4.",
+   "h": "Setze jeden Punkt ein: y-Wert links, x² vor a, x vor b.",
+   "c": [
+    "((-4)*((1)*(1) - (1)*(2)) - (0)*((-4)*(1) - (1)*(0)) + (1)*((-4)*(2) - (1)*(0))) / ((0)*((1)*(1) - (1)*(2)) - (0)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (1)*(4)))",
+    "((0)*((-4)*(1) - (1)*(0)) - (-4)*((1)*(1) - (1)*(4)) + (1)*((1)*(0) - (-4)*(4))) / ((0)*((1)*(1) - (1)*(2)) - (0)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (1)*(4)))",
+    "((0)*((1)*(0) - (-4)*(2)) - (0)*((1)*(0) - (-4)*(4)) + (-4)*((1)*(2) - (1)*(4))) / ((0)*((1)*(1) - (1)*(2)) - (0)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (1)*(4)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (0 | 3), (1 | −1), (2 | −3). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     1,
+     -5,
+     3
+    ]
+   },
+   "w": "Einsetzen ergibt (I) c = 3; (II) a + b + c = −1; (III) 4a + 2b + c = −3. Lösung a = 1, b = −5, c = 3: y = x² − 5x + 3.",
+   "h": "Setze jeden Punkt ein: y-Wert links, x² vor a, x vor b.",
+   "c": [
+    "((3)*((1)*(1) - (1)*(2)) - (0)*((-1)*(1) - (1)*(-3)) + (1)*((-1)*(2) - (1)*(-3))) / ((0)*((1)*(1) - (1)*(2)) - (0)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (1)*(4)))",
+    "((0)*((-1)*(1) - (1)*(-3)) - (3)*((1)*(1) - (1)*(4)) + (1)*((1)*(-3) - (-1)*(4))) / ((0)*((1)*(1) - (1)*(2)) - (0)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (1)*(4)))",
+    "((0)*((1)*(-3) - (-1)*(2)) - (0)*((1)*(-3) - (-1)*(4)) + (3)*((1)*(2) - (1)*(4))) / ((0)*((1)*(1) - (1)*(2)) - (0)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (1)*(4)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (0 | −6), (1 | −7), (2 | −10). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     -1,
+     0,
+     -6
+    ]
+   },
+   "w": "Einsetzen ergibt (I) c = −6; (II) a + b + c = −7; (III) 4a + 2b + c = −10. Lösung a = −1, b = 0, c = −6: y = −x² − 6.",
+   "h": "Setze jeden Punkt ein: y-Wert links, x² vor a, x vor b.",
+   "c": [
+    "((-6)*((1)*(1) - (1)*(2)) - (0)*((-7)*(1) - (1)*(-10)) + (1)*((-7)*(2) - (1)*(-10))) / ((0)*((1)*(1) - (1)*(2)) - (0)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (1)*(4)))",
+    "((0)*((-7)*(1) - (1)*(-10)) - (-6)*((1)*(1) - (1)*(4)) + (1)*((1)*(-10) - (-7)*(4))) / ((0)*((1)*(1) - (1)*(2)) - (0)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (1)*(4)))",
+    "((0)*((1)*(-10) - (-7)*(2)) - (0)*((1)*(-10) - (-7)*(4)) + (-6)*((1)*(2) - (1)*(4))) / ((0)*((1)*(1) - (1)*(2)) - (0)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (1)*(4)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (0 | 5), (1 | 5), (2 | 11). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     3,
+     -3,
+     5
+    ]
+   },
+   "w": "Einsetzen ergibt (I) c = 5; (II) a + b + c = 5; (III) 4a + 2b + c = 11. Lösung a = 3, b = −3, c = 5: y = 3x² − 3x + 5.",
+   "h": "Setze jeden Punkt ein: y-Wert links, x² vor a, x vor b.",
+   "c": [
+    "((5)*((1)*(1) - (1)*(2)) - (0)*((5)*(1) - (1)*(11)) + (1)*((5)*(2) - (1)*(11))) / ((0)*((1)*(1) - (1)*(2)) - (0)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (1)*(4)))",
+    "((0)*((5)*(1) - (1)*(11)) - (5)*((1)*(1) - (1)*(4)) + (1)*((1)*(11) - (5)*(4))) / ((0)*((1)*(1) - (1)*(2)) - (0)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (1)*(4)))",
+    "((0)*((1)*(11) - (5)*(2)) - (0)*((1)*(11) - (5)*(4)) + (5)*((1)*(2) - (1)*(4))) / ((0)*((1)*(1) - (1)*(2)) - (0)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (1)*(4)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (−3 | 20), (−1 | 4), (1 | 4). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     2,
+     0,
+     2
+    ]
+   },
+   "w": "Einsetzen ergibt (I) 9a − 3b + c = 20; (II) a − b + c = 4; (III) a + b + c = 4. Lösung a = 2, b = 0, c = 2: y = 2x² + 2.",
+   "h": "Setze jeden Punkt ein: y-Wert links, x² vor a, x vor b.",
+   "c": [
+    "((20)*((-1)*(1) - (1)*(1)) - (-3)*((4)*(1) - (1)*(4)) + (1)*((4)*(1) - (-1)*(4))) / ((9)*((-1)*(1) - (1)*(1)) - (-3)*((1)*(1) - (1)*(1)) + (1)*((1)*(1) - (-1)*(1)))",
+    "((9)*((4)*(1) - (1)*(4)) - (20)*((1)*(1) - (1)*(1)) + (1)*((1)*(4) - (4)*(1))) / ((9)*((-1)*(1) - (1)*(1)) - (-3)*((1)*(1) - (1)*(1)) + (1)*((1)*(1) - (-1)*(1)))",
+    "((9)*((-1)*(4) - (4)*(1)) - (-3)*((1)*(4) - (4)*(1)) + (20)*((1)*(1) - (-1)*(1))) / ((9)*((-1)*(1) - (1)*(1)) - (-3)*((1)*(1) - (1)*(1)) + (1)*((1)*(1) - (-1)*(1)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (−3 | 8), (−2 | 3), (1 | 12). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     2,
+     5,
+     5
+    ]
+   },
+   "w": "Einsetzen ergibt (I) 9a − 3b + c = 8; (II) 4a − 2b + c = 3; (III) a + b + c = 12. Lösung a = 2, b = 5, c = 5: y = 2x² + 5x + 5.",
+   "h": "Setze jeden Punkt ein: y-Wert links, x² vor a, x vor b.",
+   "c": [
+    "((8)*((-2)*(1) - (1)*(1)) - (-3)*((3)*(1) - (1)*(12)) + (1)*((3)*(1) - (-2)*(12))) / ((9)*((-2)*(1) - (1)*(1)) - (-3)*((4)*(1) - (1)*(1)) + (1)*((4)*(1) - (-2)*(1)))",
+    "((9)*((3)*(1) - (1)*(12)) - (8)*((4)*(1) - (1)*(1)) + (1)*((4)*(12) - (3)*(1))) / ((9)*((-2)*(1) - (1)*(1)) - (-3)*((4)*(1) - (1)*(1)) + (1)*((4)*(1) - (-2)*(1)))",
+    "((9)*((-2)*(12) - (3)*(1)) - (-3)*((4)*(12) - (3)*(1)) + (8)*((4)*(1) - (-2)*(1))) / ((9)*((-2)*(1) - (1)*(1)) - (-3)*((4)*(1) - (1)*(1)) + (1)*((4)*(1) - (-2)*(1)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (1 | 1), (2 | −10), (3 | −27). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     -3,
+     -2,
+     6
+    ]
+   },
+   "w": "Einsetzen ergibt (I) a + b + c = 1; (II) 4a + 2b + c = −10; (III) 9a + 3b + c = −27. Lösung a = −3, b = −2, c = 6: y = −3x² − 2x + 6.",
+   "h": "Setze jeden Punkt ein: y-Wert links, x² vor a, x vor b.",
+   "c": [
+    "((1)*((2)*(1) - (1)*(3)) - (1)*((-10)*(1) - (1)*(-27)) + (1)*((-10)*(3) - (2)*(-27))) / ((1)*((2)*(1) - (1)*(3)) - (1)*((4)*(1) - (1)*(9)) + (1)*((4)*(3) - (2)*(9)))",
+    "((1)*((-10)*(1) - (1)*(-27)) - (1)*((4)*(1) - (1)*(9)) + (1)*((4)*(-27) - (-10)*(9))) / ((1)*((2)*(1) - (1)*(3)) - (1)*((4)*(1) - (1)*(9)) + (1)*((4)*(3) - (2)*(9)))",
+    "((1)*((2)*(-27) - (-10)*(3)) - (1)*((4)*(-27) - (-10)*(9)) + (1)*((4)*(3) - (2)*(9))) / ((1)*((2)*(1) - (1)*(3)) - (1)*((4)*(1) - (1)*(9)) + (1)*((4)*(3) - (2)*(9)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (−3 | 34), (−2 | 20), (2 | 4). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     2,
+     -4,
+     4
+    ]
+   },
+   "w": "Einsetzen ergibt (I) 9a − 3b + c = 34; (II) 4a − 2b + c = 20; (III) 4a + 2b + c = 4. Lösung a = 2, b = −4, c = 4: y = 2x² − 4x + 4.",
+   "h": "Setze jeden Punkt ein: y-Wert links, x² vor a, x vor b.",
+   "c": [
+    "((34)*((-2)*(1) - (1)*(2)) - (-3)*((20)*(1) - (1)*(4)) + (1)*((20)*(2) - (-2)*(4))) / ((9)*((-2)*(1) - (1)*(2)) - (-3)*((4)*(1) - (1)*(4)) + (1)*((4)*(2) - (-2)*(4)))",
+    "((9)*((20)*(1) - (1)*(4)) - (34)*((4)*(1) - (1)*(4)) + (1)*((4)*(4) - (20)*(4))) / ((9)*((-2)*(1) - (1)*(2)) - (-3)*((4)*(1) - (1)*(4)) + (1)*((4)*(2) - (-2)*(4)))",
+    "((9)*((-2)*(4) - (20)*(2)) - (-3)*((4)*(4) - (20)*(4)) + (34)*((4)*(2) - (-2)*(4))) / ((9)*((-2)*(1) - (1)*(2)) - (-3)*((4)*(1) - (1)*(4)) + (1)*((4)*(2) - (-2)*(4)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (−2 | 2), (1 | 8), (2 | 14). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     1,
+     3,
+     4
+    ]
+   },
+   "w": "Einsetzen ergibt (I) 4a − 2b + c = 2; (II) a + b + c = 8; (III) 4a + 2b + c = 14. Lösung a = 1, b = 3, c = 4: y = x² + 3x + 4.",
+   "h": "Setze jeden Punkt ein: y-Wert links, x² vor a, x vor b.",
+   "c": [
+    "((2)*((1)*(1) - (1)*(2)) - (-2)*((8)*(1) - (1)*(14)) + (1)*((8)*(2) - (1)*(14))) / ((4)*((1)*(1) - (1)*(2)) - (-2)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (1)*(4)))",
+    "((4)*((8)*(1) - (1)*(14)) - (2)*((1)*(1) - (1)*(4)) + (1)*((1)*(14) - (8)*(4))) / ((4)*((1)*(1) - (1)*(2)) - (-2)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (1)*(4)))",
+    "((4)*((1)*(14) - (8)*(2)) - (-2)*((1)*(14) - (8)*(4)) + (2)*((1)*(2) - (1)*(4))) / ((4)*((1)*(1) - (1)*(2)) - (-2)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (1)*(4)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (−2 | −9), (−1 | −4), (3 | −44). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     -3,
+     -4,
+     -5
+    ]
+   },
+   "w": "Einsetzen ergibt (I) 4a − 2b + c = −9; (II) a − b + c = −4; (III) 9a + 3b + c = −44. Lösung a = −3, b = −4, c = −5: y = −3x² − 4x − 5.",
+   "h": "Setze jeden Punkt ein: y-Wert links, x² vor a, x vor b.",
+   "c": [
+    "((-9)*((-1)*(1) - (1)*(3)) - (-2)*((-4)*(1) - (1)*(-44)) + (1)*((-4)*(3) - (-1)*(-44))) / ((4)*((-1)*(1) - (1)*(3)) - (-2)*((1)*(1) - (1)*(9)) + (1)*((1)*(3) - (-1)*(9)))",
+    "((4)*((-4)*(1) - (1)*(-44)) - (-9)*((1)*(1) - (1)*(9)) + (1)*((1)*(-44) - (-4)*(9))) / ((4)*((-1)*(1) - (1)*(3)) - (-2)*((1)*(1) - (1)*(9)) + (1)*((1)*(3) - (-1)*(9)))",
+    "((4)*((-1)*(-44) - (-4)*(3)) - (-2)*((1)*(-44) - (-4)*(9)) + (-9)*((1)*(3) - (-1)*(9))) / ((4)*((-1)*(1) - (1)*(3)) - (-2)*((1)*(1) - (1)*(9)) + (1)*((1)*(3) - (-1)*(9)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (0 | −2), (−1 | −1), (2 | −16). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     -2,
+     -3,
+     -2
+    ]
+   },
+   "w": "Einsetzen ergibt (I) c = −2; (II) a − b + c = −1; (III) 4a + 2b + c = −16. Lösung a = −2, b = −3, c = −2: y = −2x² − 3x − 2.",
+   "c": [
+    "((-2)*((-1)*(1) - (1)*(2)) - (0)*((-1)*(1) - (1)*(-16)) + (1)*((-1)*(2) - (-1)*(-16))) / ((0)*((-1)*(1) - (1)*(2)) - (0)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (-1)*(4)))",
+    "((0)*((-1)*(1) - (1)*(-16)) - (-2)*((1)*(1) - (1)*(4)) + (1)*((1)*(-16) - (-1)*(4))) / ((0)*((-1)*(1) - (1)*(2)) - (0)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (-1)*(4)))",
+    "((0)*((-1)*(-16) - (-1)*(2)) - (0)*((1)*(-16) - (-1)*(4)) + (-2)*((1)*(2) - (-1)*(4))) / ((0)*((-1)*(1) - (1)*(2)) - (0)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (-1)*(4)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (−1 | −2), (0 | −2), (1 | −6). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     -2,
+     -2,
+     -2
+    ]
+   },
+   "w": "Einsetzen ergibt (I) a − b + c = −2; (II) c = −2; (III) a + b + c = −6. Lösung a = −2, b = −2, c = −2: y = −2x² − 2x − 2.",
+   "c": [
+    "((-2)*((0)*(1) - (1)*(1)) - (-1)*((-2)*(1) - (1)*(-6)) + (1)*((-2)*(1) - (0)*(-6))) / ((1)*((0)*(1) - (1)*(1)) - (-1)*((0)*(1) - (1)*(1)) + (1)*((0)*(1) - (0)*(1)))",
+    "((1)*((-2)*(1) - (1)*(-6)) - (-2)*((0)*(1) - (1)*(1)) + (1)*((0)*(-6) - (-2)*(1))) / ((1)*((0)*(1) - (1)*(1)) - (-1)*((0)*(1) - (1)*(1)) + (1)*((0)*(1) - (0)*(1)))",
+    "((1)*((0)*(-6) - (-2)*(1)) - (-1)*((0)*(-6) - (-2)*(1)) + (-2)*((0)*(1) - (0)*(1))) / ((1)*((0)*(1) - (1)*(1)) - (-1)*((0)*(1) - (1)*(1)) + (1)*((0)*(1) - (0)*(1)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (0 | 4), (2 | 26), (−2 | 6). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     3,
+     5,
+     4
+    ]
+   },
+   "w": "Einsetzen ergibt (I) c = 4; (II) 4a + 2b + c = 26; (III) 4a − 2b + c = 6. Lösung a = 3, b = 5, c = 4: y = 3x² + 5x + 4.",
+   "c": [
+    "((4)*((2)*(1) - (1)*(-2)) - (0)*((26)*(1) - (1)*(6)) + (1)*((26)*(-2) - (2)*(6))) / ((0)*((2)*(1) - (1)*(-2)) - (0)*((4)*(1) - (1)*(4)) + (1)*((4)*(-2) - (2)*(4)))",
+    "((0)*((26)*(1) - (1)*(6)) - (4)*((4)*(1) - (1)*(4)) + (1)*((4)*(6) - (26)*(4))) / ((0)*((2)*(1) - (1)*(-2)) - (0)*((4)*(1) - (1)*(4)) + (1)*((4)*(-2) - (2)*(4)))",
+    "((0)*((2)*(6) - (26)*(-2)) - (0)*((4)*(6) - (26)*(4)) + (4)*((4)*(-2) - (2)*(4))) / ((0)*((2)*(1) - (1)*(-2)) - (0)*((4)*(1) - (1)*(4)) + (1)*((4)*(-2) - (2)*(4)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (0 | 2), (−1 | 1), (2 | 22). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     3,
+     4,
+     2
+    ]
+   },
+   "w": "Einsetzen ergibt (I) c = 2; (II) a − b + c = 1; (III) 4a + 2b + c = 22. Lösung a = 3, b = 4, c = 2: y = 3x² + 4x + 2.",
+   "c": [
+    "((2)*((-1)*(1) - (1)*(2)) - (0)*((1)*(1) - (1)*(22)) + (1)*((1)*(2) - (-1)*(22))) / ((0)*((-1)*(1) - (1)*(2)) - (0)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (-1)*(4)))",
+    "((0)*((1)*(1) - (1)*(22)) - (2)*((1)*(1) - (1)*(4)) + (1)*((1)*(22) - (1)*(4))) / ((0)*((-1)*(1) - (1)*(2)) - (0)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (-1)*(4)))",
+    "((0)*((-1)*(22) - (1)*(2)) - (0)*((1)*(22) - (1)*(4)) + (2)*((1)*(2) - (-1)*(4))) / ((0)*((-1)*(1) - (1)*(2)) - (0)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (-1)*(4)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (0 | 6), (2 | 20), (−2 | 0). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     1,
+     5,
+     6
+    ]
+   },
+   "w": "Einsetzen ergibt (I) c = 6; (II) 4a + 2b + c = 20; (III) 4a − 2b + c = 0. Lösung a = 1, b = 5, c = 6: y = x² + 5x + 6.",
+   "c": [
+    "((6)*((2)*(1) - (1)*(-2)) - (0)*((20)*(1) - (1)*(0)) + (1)*((20)*(-2) - (2)*(0))) / ((0)*((2)*(1) - (1)*(-2)) - (0)*((4)*(1) - (1)*(4)) + (1)*((4)*(-2) - (2)*(4)))",
+    "((0)*((20)*(1) - (1)*(0)) - (6)*((4)*(1) - (1)*(4)) + (1)*((4)*(0) - (20)*(4))) / ((0)*((2)*(1) - (1)*(-2)) - (0)*((4)*(1) - (1)*(4)) + (1)*((4)*(-2) - (2)*(4)))",
+    "((0)*((2)*(0) - (20)*(-2)) - (0)*((4)*(0) - (20)*(4)) + (6)*((4)*(-2) - (2)*(4))) / ((0)*((2)*(1) - (1)*(-2)) - (0)*((4)*(1) - (1)*(4)) + (1)*((4)*(-2) - (2)*(4)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (0 | 1), (2 | −3), (−2 | 13). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     1,
+     -4,
+     1
+    ]
+   },
+   "w": "Einsetzen ergibt (I) c = 1; (II) 4a + 2b + c = −3; (III) 4a − 2b + c = 13. Lösung a = 1, b = −4, c = 1: y = x² − 4x + 1.",
+   "c": [
+    "((1)*((2)*(1) - (1)*(-2)) - (0)*((-3)*(1) - (1)*(13)) + (1)*((-3)*(-2) - (2)*(13))) / ((0)*((2)*(1) - (1)*(-2)) - (0)*((4)*(1) - (1)*(4)) + (1)*((4)*(-2) - (2)*(4)))",
+    "((0)*((-3)*(1) - (1)*(13)) - (1)*((4)*(1) - (1)*(4)) + (1)*((4)*(13) - (-3)*(4))) / ((0)*((2)*(1) - (1)*(-2)) - (0)*((4)*(1) - (1)*(4)) + (1)*((4)*(-2) - (2)*(4)))",
+    "((0)*((2)*(13) - (-3)*(-2)) - (0)*((4)*(13) - (-3)*(4)) + (1)*((4)*(-2) - (2)*(4))) / ((0)*((2)*(1) - (1)*(-2)) - (0)*((4)*(1) - (1)*(4)) + (1)*((4)*(-2) - (2)*(4)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (0 | −5), (1 | −4), (2 | −7). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     -2,
+     3,
+     -5
+    ]
+   },
+   "w": "Einsetzen ergibt (I) c = −5; (II) a + b + c = −4; (III) 4a + 2b + c = −7. Lösung a = −2, b = 3, c = −5: y = −2x² + 3x − 5.",
+   "c": [
+    "((-5)*((1)*(1) - (1)*(2)) - (0)*((-4)*(1) - (1)*(-7)) + (1)*((-4)*(2) - (1)*(-7))) / ((0)*((1)*(1) - (1)*(2)) - (0)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (1)*(4)))",
+    "((0)*((-4)*(1) - (1)*(-7)) - (-5)*((1)*(1) - (1)*(4)) + (1)*((1)*(-7) - (-4)*(4))) / ((0)*((1)*(1) - (1)*(2)) - (0)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (1)*(4)))",
+    "((0)*((1)*(-7) - (-4)*(2)) - (0)*((1)*(-7) - (-4)*(4)) + (-5)*((1)*(2) - (1)*(4))) / ((0)*((1)*(1) - (1)*(2)) - (0)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (1)*(4)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (0 | 3), (1 | 3), (3 | −9). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     -2,
+     2,
+     3
+    ]
+   },
+   "w": "Einsetzen ergibt (I) c = 3; (II) a + b + c = 3; (III) 9a + 3b + c = −9. Lösung a = −2, b = 2, c = 3: y = −2x² + 2x + 3.",
+   "c": [
+    "((3)*((1)*(1) - (1)*(3)) - (0)*((3)*(1) - (1)*(-9)) + (1)*((3)*(3) - (1)*(-9))) / ((0)*((1)*(1) - (1)*(3)) - (0)*((1)*(1) - (1)*(9)) + (1)*((1)*(3) - (1)*(9)))",
+    "((0)*((3)*(1) - (1)*(-9)) - (3)*((1)*(1) - (1)*(9)) + (1)*((1)*(-9) - (3)*(9))) / ((0)*((1)*(1) - (1)*(3)) - (0)*((1)*(1) - (1)*(9)) + (1)*((1)*(3) - (1)*(9)))",
+    "((0)*((1)*(-9) - (3)*(3)) - (0)*((1)*(-9) - (3)*(9)) + (3)*((1)*(3) - (1)*(9))) / ((0)*((1)*(1) - (1)*(3)) - (0)*((1)*(1) - (1)*(9)) + (1)*((1)*(3) - (1)*(9)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (−1 | −1), (0 | 0), (1 | −3). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     -2,
+     -1,
+     0
+    ]
+   },
+   "w": "Einsetzen ergibt (I) a − b + c = −1; (II) c = 0; (III) a + b + c = −3. Lösung a = −2, b = −1, c = 0: y = −2x² − x.",
+   "c": [
+    "((-1)*((0)*(1) - (1)*(1)) - (-1)*((0)*(1) - (1)*(-3)) + (1)*((0)*(1) - (0)*(-3))) / ((1)*((0)*(1) - (1)*(1)) - (-1)*((0)*(1) - (1)*(1)) + (1)*((0)*(1) - (0)*(1)))",
+    "((1)*((0)*(1) - (1)*(-3)) - (-1)*((0)*(1) - (1)*(1)) + (1)*((0)*(-3) - (0)*(1))) / ((1)*((0)*(1) - (1)*(1)) - (-1)*((0)*(1) - (1)*(1)) + (1)*((0)*(1) - (0)*(1)))",
+    "((1)*((0)*(-3) - (0)*(1)) - (-1)*((0)*(-3) - (0)*(1)) + (-1)*((0)*(1) - (0)*(1))) / ((1)*((0)*(1) - (1)*(1)) - (-1)*((0)*(1) - (1)*(1)) + (1)*((0)*(1) - (0)*(1)))"
+   ]
+  },
+  {
+   "l": "parabel",
+   "t": "parabel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = ax² + bx + c geht durch (0 | 1), (1 | −2), (2 | −9). Bestimme a, b und c.",
+    "schablone": "a = □; b = □; c = □",
+    "hinweis": "Werte von a, b, c"
+   },
+   "o": {
+    "werte": [
+     -2,
+     -1,
+     1
+    ]
+   },
+   "w": "Einsetzen ergibt (I) c = 1; (II) a + b + c = −2; (III) 4a + 2b + c = −9. Lösung a = −2, b = −1, c = 1: y = −2x² − x + 1.",
+   "c": [
+    "((1)*((1)*(1) - (1)*(2)) - (0)*((-2)*(1) - (1)*(-9)) + (1)*((-2)*(2) - (1)*(-9))) / ((0)*((1)*(1) - (1)*(2)) - (0)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (1)*(4)))",
+    "((0)*((-2)*(1) - (1)*(-9)) - (1)*((1)*(1) - (1)*(4)) + (1)*((1)*(-9) - (-2)*(4))) / ((0)*((1)*(1) - (1)*(2)) - (0)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (1)*(4)))",
+    "((0)*((1)*(-9) - (-2)*(2)) - (0)*((1)*(-9) - (-2)*(4)) + (1)*((1)*(2) - (1)*(4))) / ((0)*((1)*(1) - (1)*(2)) - (0)*((1)*(1) - (1)*(4)) + (1)*((1)*(2) - (1)*(4)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Drei Zahlen haben die Summe 9. Die zweite ist 2-mal so groß wie die erste, die dritte ist um 1 größer als die erste. Bestimme die Zahlen.",
+    "schablone": "erste = □; dritteweite = □; dritte = □",
+    "hinweis": "erste, zweite, dritte Zahl"
+   },
+   "o": {
+    "werte": [
+     2,
+     4,
+     3
+    ]
+   },
+   "w": "x + y + z = 9, y = 2x, z = x + 1 ⇒ 4x + 1 = 9 ⇒ x = 2, y = 4, z = 3.",
+   "h": "Drücke y und z durch x aus und setze in die Summe ein.",
+   "c": [
+    "((9)*((1)*(1) - (0)*(0)) - (1)*((0)*(1) - (0)*(1)) + (1)*((0)*(0) - (1)*(1))) / ((1)*((1)*(1) - (0)*(0)) - (1)*((-2)*(1) - (0)*(-1)) + (1)*((-2)*(0) - (1)*(-1)))",
+    "((1)*((0)*(1) - (0)*(1)) - (9)*((-2)*(1) - (0)*(-1)) + (1)*((-2)*(1) - (0)*(-1))) / ((1)*((1)*(1) - (0)*(0)) - (1)*((-2)*(1) - (0)*(-1)) + (1)*((-2)*(0) - (1)*(-1)))",
+    "((1)*((1)*(1) - (0)*(0)) - (1)*((-2)*(1) - (0)*(-1)) + (9)*((-2)*(0) - (1)*(-1))) / ((1)*((1)*(1) - (0)*(0)) - (1)*((-2)*(1) - (0)*(-1)) + (1)*((-2)*(0) - (1)*(-1)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Drei Zahlen haben die Summe 63. Die zweite ist 3-mal so groß wie die erste, die dritte ist um 8 größer als die erste. Bestimme die Zahlen.",
+    "schablone": "erste = □; dritteweite = □; dritte = □",
+    "hinweis": "erste, zweite, dritte Zahl"
+   },
+   "o": {
+    "werte": [
+     11,
+     33,
+     19
+    ]
+   },
+   "w": "x + y + z = 63, y = 3x, z = x + 8 ⇒ 5x + 8 = 63 ⇒ x = 11, y = 33, z = 19.",
+   "h": "Drücke y und z durch x aus und setze in die Summe ein.",
+   "c": [
+    "((63)*((1)*(1) - (0)*(0)) - (1)*((0)*(1) - (0)*(8)) + (1)*((0)*(0) - (1)*(8))) / ((1)*((1)*(1) - (0)*(0)) - (1)*((-3)*(1) - (0)*(-1)) + (1)*((-3)*(0) - (1)*(-1)))",
+    "((1)*((0)*(1) - (0)*(8)) - (63)*((-3)*(1) - (0)*(-1)) + (1)*((-3)*(8) - (0)*(-1))) / ((1)*((1)*(1) - (0)*(0)) - (1)*((-3)*(1) - (0)*(-1)) + (1)*((-3)*(0) - (1)*(-1)))",
+    "((1)*((1)*(8) - (0)*(0)) - (1)*((-3)*(8) - (0)*(-1)) + (63)*((-3)*(0) - (1)*(-1))) / ((1)*((1)*(1) - (0)*(0)) - (1)*((-3)*(1) - (0)*(-1)) + (1)*((-3)*(0) - (1)*(-1)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Drei Zahlen haben die Summe 20. Die zweite ist 4-mal so groß wie die erste, die dritte ist um 8 größer als die erste. Bestimme die Zahlen.",
+    "schablone": "erste = □; dritteweite = □; dritte = □",
+    "hinweis": "erste, zweite, dritte Zahl"
+   },
+   "o": {
+    "werte": [
+     2,
+     8,
+     10
+    ]
+   },
+   "w": "x + y + z = 20, y = 4x, z = x + 8 ⇒ 6x + 8 = 20 ⇒ x = 2, y = 8, z = 10.",
+   "h": "Drücke y und z durch x aus und setze in die Summe ein.",
+   "c": [
+    "((20)*((1)*(1) - (0)*(0)) - (1)*((0)*(1) - (0)*(8)) + (1)*((0)*(0) - (1)*(8))) / ((1)*((1)*(1) - (0)*(0)) - (1)*((-4)*(1) - (0)*(-1)) + (1)*((-4)*(0) - (1)*(-1)))",
+    "((1)*((0)*(1) - (0)*(8)) - (20)*((-4)*(1) - (0)*(-1)) + (1)*((-4)*(8) - (0)*(-1))) / ((1)*((1)*(1) - (0)*(0)) - (1)*((-4)*(1) - (0)*(-1)) + (1)*((-4)*(0) - (1)*(-1)))",
+    "((1)*((1)*(8) - (0)*(0)) - (1)*((-4)*(8) - (0)*(-1)) + (20)*((-4)*(0) - (1)*(-1))) / ((1)*((1)*(1) - (0)*(0)) - (1)*((-4)*(1) - (0)*(-1)) + (1)*((-4)*(0) - (1)*(-1)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Drei Zahlen haben die Summe 47. Die zweite ist 4-mal so groß wie die erste, die dritte ist um 5 größer als die erste. Bestimme die Zahlen.",
+    "schablone": "erste = □; dritteweite = □; dritte = □",
+    "hinweis": "erste, zweite, dritte Zahl"
+   },
+   "o": {
+    "werte": [
+     7,
+     28,
+     12
+    ]
+   },
+   "w": "x + y + z = 47, y = 4x, z = x + 5 ⇒ 6x + 5 = 47 ⇒ x = 7, y = 28, z = 12.",
+   "h": "Drücke y und z durch x aus und setze in die Summe ein.",
+   "c": [
+    "((47)*((1)*(1) - (0)*(0)) - (1)*((0)*(1) - (0)*(5)) + (1)*((0)*(0) - (1)*(5))) / ((1)*((1)*(1) - (0)*(0)) - (1)*((-4)*(1) - (0)*(-1)) + (1)*((-4)*(0) - (1)*(-1)))",
+    "((1)*((0)*(1) - (0)*(5)) - (47)*((-4)*(1) - (0)*(-1)) + (1)*((-4)*(5) - (0)*(-1))) / ((1)*((1)*(1) - (0)*(0)) - (1)*((-4)*(1) - (0)*(-1)) + (1)*((-4)*(0) - (1)*(-1)))",
+    "((1)*((1)*(5) - (0)*(0)) - (1)*((-4)*(5) - (0)*(-1)) + (47)*((-4)*(0) - (1)*(-1))) / ((1)*((1)*(1) - (0)*(0)) - (1)*((-4)*(1) - (0)*(-1)) + (1)*((-4)*(0) - (1)*(-1)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Drei Zahlen haben die Summe 71. Die zweite ist 3-mal so groß wie die erste, die dritte ist um 1 größer als die erste. Bestimme die Zahlen.",
+    "schablone": "erste = □; dritteweite = □; dritte = □",
+    "hinweis": "erste, zweite, dritte Zahl"
+   },
+   "o": {
+    "werte": [
+     14,
+     42,
+     15
+    ]
+   },
+   "w": "x + y + z = 71, y = 3x, z = x + 1 ⇒ 5x + 1 = 71 ⇒ x = 14, y = 42, z = 15.",
+   "h": "Drücke y und z durch x aus und setze in die Summe ein.",
+   "c": [
+    "((71)*((1)*(1) - (0)*(0)) - (1)*((0)*(1) - (0)*(1)) + (1)*((0)*(0) - (1)*(1))) / ((1)*((1)*(1) - (0)*(0)) - (1)*((-3)*(1) - (0)*(-1)) + (1)*((-3)*(0) - (1)*(-1)))",
+    "((1)*((0)*(1) - (0)*(1)) - (71)*((-3)*(1) - (0)*(-1)) + (1)*((-3)*(1) - (0)*(-1))) / ((1)*((1)*(1) - (0)*(0)) - (1)*((-3)*(1) - (0)*(-1)) + (1)*((-3)*(0) - (1)*(-1)))",
+    "((1)*((1)*(1) - (0)*(0)) - (1)*((-3)*(1) - (0)*(-1)) + (71)*((-3)*(0) - (1)*(-1))) / ((1)*((1)*(1) - (0)*(0)) - (1)*((-3)*(1) - (0)*(-1)) + (1)*((-3)*(0) - (1)*(-1)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Drei Zahlen haben die Summe 83. Die zweite ist 4-mal so groß wie die erste, die dritte ist um 5 größer als die erste. Bestimme die Zahlen.",
+    "schablone": "erste = □; dritteweite = □; dritte = □",
+    "hinweis": "erste, zweite, dritte Zahl"
+   },
+   "o": {
+    "werte": [
+     13,
+     52,
+     18
+    ]
+   },
+   "w": "x + y + z = 83, y = 4x, z = x + 5 ⇒ 6x + 5 = 83 ⇒ x = 13, y = 52, z = 18.",
+   "h": "Drücke y und z durch x aus und setze in die Summe ein.",
+   "c": [
+    "((83)*((1)*(1) - (0)*(0)) - (1)*((0)*(1) - (0)*(5)) + (1)*((0)*(0) - (1)*(5))) / ((1)*((1)*(1) - (0)*(0)) - (1)*((-4)*(1) - (0)*(-1)) + (1)*((-4)*(0) - (1)*(-1)))",
+    "((1)*((0)*(1) - (0)*(5)) - (83)*((-4)*(1) - (0)*(-1)) + (1)*((-4)*(5) - (0)*(-1))) / ((1)*((1)*(1) - (0)*(0)) - (1)*((-4)*(1) - (0)*(-1)) + (1)*((-4)*(0) - (1)*(-1)))",
+    "((1)*((1)*(5) - (0)*(0)) - (1)*((-4)*(5) - (0)*(-1)) + (83)*((-4)*(0) - (1)*(-1))) / ((1)*((1)*(1) - (0)*(0)) - (1)*((-4)*(1) - (0)*(-1)) + (1)*((-4)*(0) - (1)*(-1)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Im Zoo gilt: 2 Erwachsene, 3 Kinder und 1 Senioren zahlen 77 €; 3 Erwachsene, 1 Kinder und 2 Senioren zahlen 85 €; 3 Erwachsene, 3 Kinder und 3 Senioren zahlen 114 €. Wie viel kostet je eine Karte für Erwachsene, Kinder und Senioren?",
+    "schablone": "Erwachsene □ €; Kinder □ €; Senioren □ €",
+    "hinweis": "Preise in Euro"
+   },
+   "o": {
+    "werte": [
+     19,
+     10,
+     9
+    ]
+   },
+   "w": "System (I) 2e + 3k + s = 77; (II) 3e + k + 2s = 85; (III) 3e + 3k + 3s = 114 ergibt e = 19, k = 10, s = 9.",
+   "h": "Eine Variable je Kartenart, eine Gleichung je Gruppe.",
+   "c": [
+    "((77)*((1)*(3) - (2)*(3)) - (3)*((85)*(3) - (2)*(114)) + (1)*((85)*(3) - (1)*(114))) / ((2)*((1)*(3) - (2)*(3)) - (3)*((3)*(3) - (2)*(3)) + (1)*((3)*(3) - (1)*(3)))",
+    "((2)*((85)*(3) - (2)*(114)) - (77)*((3)*(3) - (2)*(3)) + (1)*((3)*(114) - (85)*(3))) / ((2)*((1)*(3) - (2)*(3)) - (3)*((3)*(3) - (2)*(3)) + (1)*((3)*(3) - (1)*(3)))",
+    "((2)*((1)*(114) - (85)*(3)) - (3)*((3)*(114) - (85)*(3)) + (77)*((3)*(3) - (1)*(3))) / ((2)*((1)*(3) - (2)*(3)) - (3)*((3)*(3) - (2)*(3)) + (1)*((3)*(3) - (1)*(3)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Im Zoo gilt: 2 Erwachsene, 3 Kinder und 1 Senioren zahlen 59 €; 4 Erwachsene, 3 Kinder und 3 Senioren zahlen 111 €; 1 Erwachsene, 4 Kinder und 2 Senioren zahlen 68 €. Wie viel kostet je eine Karte für Erwachsene, Kinder und Senioren?",
+    "schablone": "Erwachsene □ €; Kinder □ €; Senioren □ €",
+    "hinweis": "Preise in Euro"
+   },
+   "o": {
+    "werte": [
+     12,
+     7,
+     14
+    ]
+   },
+   "w": "System (I) 2e + 3k + s = 59; (II) 4e + 3k + 3s = 111; (III) e + 4k + 2s = 68 ergibt e = 12, k = 7, s = 14.",
+   "h": "Eine Variable je Kartenart, eine Gleichung je Gruppe.",
+   "c": [
+    "((59)*((3)*(2) - (3)*(4)) - (3)*((111)*(2) - (3)*(68)) + (1)*((111)*(4) - (3)*(68))) / ((2)*((3)*(2) - (3)*(4)) - (3)*((4)*(2) - (3)*(1)) + (1)*((4)*(4) - (3)*(1)))",
+    "((2)*((111)*(2) - (3)*(68)) - (59)*((4)*(2) - (3)*(1)) + (1)*((4)*(68) - (111)*(1))) / ((2)*((3)*(2) - (3)*(4)) - (3)*((4)*(2) - (3)*(1)) + (1)*((4)*(4) - (3)*(1)))",
+    "((2)*((3)*(68) - (111)*(4)) - (3)*((4)*(68) - (111)*(1)) + (59)*((4)*(4) - (3)*(1))) / ((2)*((3)*(2) - (3)*(4)) - (3)*((4)*(2) - (3)*(1)) + (1)*((4)*(4) - (3)*(1)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Im Zoo gilt: 2 Erwachsene, 2 Kinder und 2 Senioren zahlen 56 €; 3 Erwachsene, 3 Kinder und 1 Senioren zahlen 54 €; 4 Erwachsene, 2 Kinder und 3 Senioren zahlen 87 €. Wie viel kostet je eine Karte für Erwachsene, Kinder und Senioren?",
+    "schablone": "Erwachsene □ €; Kinder □ €; Senioren □ €",
+    "hinweis": "Preise in Euro"
+   },
+   "o": {
+    "werte": [
+     8,
+     5,
+     15
+    ]
+   },
+   "w": "System (I) 2e + 2k + 2s = 56; (II) 3e + 3k + s = 54; (III) 4e + 2k + 3s = 87 ergibt e = 8, k = 5, s = 15.",
+   "h": "Eine Variable je Kartenart, eine Gleichung je Gruppe.",
+   "c": [
+    "((56)*((3)*(3) - (1)*(2)) - (2)*((54)*(3) - (1)*(87)) + (2)*((54)*(2) - (3)*(87))) / ((2)*((3)*(3) - (1)*(2)) - (2)*((3)*(3) - (1)*(4)) + (2)*((3)*(2) - (3)*(4)))",
+    "((2)*((54)*(3) - (1)*(87)) - (56)*((3)*(3) - (1)*(4)) + (2)*((3)*(87) - (54)*(4))) / ((2)*((3)*(3) - (1)*(2)) - (2)*((3)*(3) - (1)*(4)) + (2)*((3)*(2) - (3)*(4)))",
+    "((2)*((3)*(87) - (54)*(2)) - (2)*((3)*(87) - (54)*(4)) + (56)*((3)*(2) - (3)*(4))) / ((2)*((3)*(3) - (1)*(2)) - (2)*((3)*(3) - (1)*(4)) + (2)*((3)*(2) - (3)*(4)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Im Zoo gilt: 2 Erwachsene, 4 Kinder und 2 Senioren zahlen 98 €; 1 Erwachsene, 3 Kinder und 3 Senioren zahlen 87 €; 1 Erwachsene, 1 Kinder und 2 Senioren zahlen 53 €. Wie viel kostet je eine Karte für Erwachsene, Kinder und Senioren?",
+    "schablone": "Erwachsene □ €; Kinder □ €; Senioren □ €",
+    "hinweis": "Preise in Euro"
+   },
+   "o": {
+    "werte": [
+     15,
+     10,
+     14
+    ]
+   },
+   "w": "System (I) 2e + 4k + 2s = 98; (II) e + 3k + 3s = 87; (III) e + k + 2s = 53 ergibt e = 15, k = 10, s = 14.",
+   "h": "Eine Variable je Kartenart, eine Gleichung je Gruppe.",
+   "c": [
+    "((98)*((3)*(2) - (3)*(1)) - (4)*((87)*(2) - (3)*(53)) + (2)*((87)*(1) - (3)*(53))) / ((2)*((3)*(2) - (3)*(1)) - (4)*((1)*(2) - (3)*(1)) + (2)*((1)*(1) - (3)*(1)))",
+    "((2)*((87)*(2) - (3)*(53)) - (98)*((1)*(2) - (3)*(1)) + (2)*((1)*(53) - (87)*(1))) / ((2)*((3)*(2) - (3)*(1)) - (4)*((1)*(2) - (3)*(1)) + (2)*((1)*(1) - (3)*(1)))",
+    "((2)*((3)*(53) - (87)*(1)) - (4)*((1)*(53) - (87)*(1)) + (98)*((1)*(1) - (3)*(1))) / ((2)*((3)*(2) - (3)*(1)) - (4)*((1)*(2) - (3)*(1)) + (2)*((1)*(1) - (3)*(1)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Im Zoo gilt: 4 Erwachsene, 1 Kinder und 1 Senioren zahlen 75 €; 3 Erwachsene, 1 Kinder und 1 Senioren zahlen 61 €; 1 Erwachsene, 1 Kinder und 3 Senioren zahlen 63 €. Wie viel kostet je eine Karte für Erwachsene, Kinder und Senioren?",
+    "schablone": "Erwachsene □ €; Kinder □ €; Senioren □ €",
+    "hinweis": "Preise in Euro"
+   },
+   "o": {
+    "werte": [
+     14,
+     4,
+     15
+    ]
+   },
+   "w": "System (I) 4e + k + s = 75; (II) 3e + k + s = 61; (III) e + k + 3s = 63 ergibt e = 14, k = 4, s = 15.",
+   "h": "Eine Variable je Kartenart, eine Gleichung je Gruppe.",
+   "c": [
+    "((75)*((1)*(3) - (1)*(1)) - (1)*((61)*(3) - (1)*(63)) + (1)*((61)*(1) - (1)*(63))) / ((4)*((1)*(3) - (1)*(1)) - (1)*((3)*(3) - (1)*(1)) + (1)*((3)*(1) - (1)*(1)))",
+    "((4)*((61)*(3) - (1)*(63)) - (75)*((3)*(3) - (1)*(1)) + (1)*((3)*(63) - (61)*(1))) / ((4)*((1)*(3) - (1)*(1)) - (1)*((3)*(3) - (1)*(1)) + (1)*((3)*(1) - (1)*(1)))",
+    "((4)*((1)*(63) - (61)*(1)) - (1)*((3)*(63) - (61)*(1)) + (75)*((3)*(1) - (1)*(1))) / ((4)*((1)*(3) - (1)*(1)) - (1)*((3)*(3) - (1)*(1)) + (1)*((3)*(1) - (1)*(1)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Im Zoo gilt: 3 Erwachsene, 2 Kinder und 3 Senioren zahlen 85 €; 3 Erwachsene, 2 Kinder und 1 Senioren zahlen 65 €; 1 Erwachsene, 2 Kinder und 2 Senioren zahlen 45 €. Wie viel kostet je eine Karte für Erwachsene, Kinder und Senioren?",
+    "schablone": "Erwachsene □ €; Kinder □ €; Senioren □ €",
+    "hinweis": "Preise in Euro"
+   },
+   "o": {
+    "werte": [
+     15,
+     5,
+     10
+    ]
+   },
+   "w": "System (I) 3e + 2k + 3s = 85; (II) 3e + 2k + s = 65; (III) e + 2k + 2s = 45 ergibt e = 15, k = 5, s = 10.",
+   "h": "Eine Variable je Kartenart, eine Gleichung je Gruppe.",
+   "c": [
+    "((85)*((2)*(2) - (1)*(2)) - (2)*((65)*(2) - (1)*(45)) + (3)*((65)*(2) - (2)*(45))) / ((3)*((2)*(2) - (1)*(2)) - (2)*((3)*(2) - (1)*(1)) + (3)*((3)*(2) - (2)*(1)))",
+    "((3)*((65)*(2) - (1)*(45)) - (85)*((3)*(2) - (1)*(1)) + (3)*((3)*(45) - (65)*(1))) / ((3)*((2)*(2) - (1)*(2)) - (2)*((3)*(2) - (1)*(1)) + (3)*((3)*(2) - (2)*(1)))",
+    "((3)*((2)*(45) - (65)*(2)) - (2)*((3)*(45) - (65)*(1)) + (85)*((3)*(2) - (2)*(1))) / ((3)*((2)*(2) - (1)*(2)) - (2)*((3)*(2) - (1)*(1)) + (3)*((3)*(2) - (2)*(1)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Im Zoo gilt: 4 Erwachsene, 4 Kinder und 3 Senioren zahlen 129 €; 1 Erwachsene, 4 Kinder und 2 Senioren zahlen 81 €; 2 Erwachsene, 1 Kinder und 2 Senioren zahlen 62 €. Wie viel kostet je eine Karte für Erwachsene, Kinder und Senioren?",
+    "schablone": "Erwachsene □ €; Kinder □ €; Senioren □ €",
+    "hinweis": "Preise in Euro"
+   },
+   "o": {
+    "werte": [
+     11,
+     10,
+     15
+    ]
+   },
+   "w": "System (I) 4e + 4k + 3s = 129; (II) e + 4k + 2s = 81; (III) 2e + k + 2s = 62 ergibt e = 11, k = 10, s = 15.",
+   "h": "Eine Variable je Kartenart, eine Gleichung je Gruppe.",
+   "c": [
+    "((129)*((4)*(2) - (2)*(1)) - (4)*((81)*(2) - (2)*(62)) + (3)*((81)*(1) - (4)*(62))) / ((4)*((4)*(2) - (2)*(1)) - (4)*((1)*(2) - (2)*(2)) + (3)*((1)*(1) - (4)*(2)))",
+    "((4)*((81)*(2) - (2)*(62)) - (129)*((1)*(2) - (2)*(2)) + (3)*((1)*(62) - (81)*(2))) / ((4)*((4)*(2) - (2)*(1)) - (4)*((1)*(2) - (2)*(2)) + (3)*((1)*(1) - (4)*(2)))",
+    "((4)*((4)*(62) - (81)*(1)) - (4)*((1)*(62) - (81)*(2)) + (129)*((1)*(1) - (4)*(2))) / ((4)*((4)*(2) - (2)*(1)) - (4)*((1)*(2) - (2)*(2)) + (3)*((1)*(1) - (4)*(2)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Drei Kisten A, B, C wiegen paarweise: A und B zusammen 40 kg, B und C 33 kg, A und C 29 kg. Wie schwer ist jede Kiste?",
+    "schablone": "A = □ kg; B = □ kg; C = □ kg",
+    "hinweis": "Massen von A, B, C"
+   },
+   "o": {
+    "werte": [
+     18,
+     22,
+     11
+    ]
+   },
+   "w": "Alle drei Gleichungen addieren: 2(A + B + C) = 102 ⇒ A + B + C = 51. Dann A = 18, B = 22, C = 11.",
+   "h": "Addiere alle drei Gleichungen.",
+   "c": [
+    "((40)*((1)*(1) - (1)*(0)) - (1)*((33)*(1) - (1)*(29)) + (0)*((33)*(0) - (1)*(29))) / ((1)*((1)*(1) - (1)*(0)) - (1)*((0)*(1) - (1)*(1)) + (0)*((0)*(0) - (1)*(1)))",
+    "((1)*((33)*(1) - (1)*(29)) - (40)*((0)*(1) - (1)*(1)) + (0)*((0)*(29) - (33)*(1))) / ((1)*((1)*(1) - (1)*(0)) - (1)*((0)*(1) - (1)*(1)) + (0)*((0)*(0) - (1)*(1)))",
+    "((1)*((1)*(29) - (33)*(0)) - (1)*((0)*(29) - (33)*(1)) + (40)*((0)*(0) - (1)*(1))) / ((1)*((1)*(1) - (1)*(0)) - (1)*((0)*(1) - (1)*(1)) + (0)*((0)*(0) - (1)*(1)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Im Zoo gilt: 4 Erwachsene, 2 Kinder und 1 Senioren zahlen 74 €; 3 Erwachsene, 4 Kinder und 3 Senioren zahlen 88 €; 2 Erwachsene, 2 Kinder und 1 Senioren zahlen 46 €. Wie viel kostet je eine Karte für Erwachsene, Kinder und Senioren?",
+    "schablone": "Erwachsene □ €; Kinder □ €; Senioren □ €",
+    "hinweis": "Preise in Euro"
+   },
+   "o": {
+    "werte": [
+     14,
+     4,
+     10
+    ]
+   },
+   "w": "System (I) 4e + 2k + s = 74; (II) 3e + 4k + 3s = 88; (III) 2e + 2k + s = 46 ergibt e = 14, k = 4, s = 10.",
+   "h": "Eine Variable je Kartenart, eine Gleichung je Gruppe.",
+   "c": [
+    "((74)*((4)*(1) - (3)*(2)) - (2)*((88)*(1) - (3)*(46)) + (1)*((88)*(2) - (4)*(46))) / ((4)*((4)*(1) - (3)*(2)) - (2)*((3)*(1) - (3)*(2)) + (1)*((3)*(2) - (4)*(2)))",
+    "((4)*((88)*(1) - (3)*(46)) - (74)*((3)*(1) - (3)*(2)) + (1)*((3)*(46) - (88)*(2))) / ((4)*((4)*(1) - (3)*(2)) - (2)*((3)*(1) - (3)*(2)) + (1)*((3)*(2) - (4)*(2)))",
+    "((4)*((4)*(46) - (88)*(2)) - (2)*((3)*(46) - (88)*(2)) + (74)*((3)*(2) - (4)*(2))) / ((4)*((4)*(1) - (3)*(2)) - (2)*((3)*(1) - (3)*(2)) + (1)*((3)*(2) - (4)*(2)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Im Zoo gilt: 1 Erwachsene, 3 Kinder und 2 Senioren zahlen 44 €; 4 Erwachsene, 3 Kinder und 3 Senioren zahlen 90 €; 4 Erwachsene, 4 Kinder und 1 Senioren zahlen 74 €. Wie viel kostet je eine Karte für Erwachsene, Kinder und Senioren?",
+    "schablone": "Erwachsene □ €; Kinder □ €; Senioren □ €",
+    "hinweis": "Preise in Euro"
+   },
+   "o": {
+    "werte": [
+     12,
+     4,
+     10
+    ]
+   },
+   "w": "System (I) e + 3k + 2s = 44; (II) 4e + 3k + 3s = 90; (III) 4e + 4k + s = 74 ergibt e = 12, k = 4, s = 10.",
+   "h": "Eine Variable je Kartenart, eine Gleichung je Gruppe.",
+   "c": [
+    "((44)*((3)*(1) - (3)*(4)) - (3)*((90)*(1) - (3)*(74)) + (2)*((90)*(4) - (3)*(74))) / ((1)*((3)*(1) - (3)*(4)) - (3)*((4)*(1) - (3)*(4)) + (2)*((4)*(4) - (3)*(4)))",
+    "((1)*((90)*(1) - (3)*(74)) - (44)*((4)*(1) - (3)*(4)) + (2)*((4)*(74) - (90)*(4))) / ((1)*((3)*(1) - (3)*(4)) - (3)*((4)*(1) - (3)*(4)) + (2)*((4)*(4) - (3)*(4)))",
+    "((1)*((3)*(74) - (90)*(4)) - (3)*((4)*(74) - (90)*(4)) + (44)*((4)*(4) - (3)*(4))) / ((1)*((3)*(1) - (3)*(4)) - (3)*((4)*(1) - (3)*(4)) + (2)*((4)*(4) - (3)*(4)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Drei Kisten A, B, C wiegen paarweise: A und B zusammen 18 kg, B und C 22 kg, A und C 8 kg. Wie schwer ist jede Kiste?",
+    "schablone": "A = □ kg; B = □ kg; C = □ kg",
+    "hinweis": "Massen von A, B, C"
+   },
+   "o": {
+    "werte": [
+     2,
+     16,
+     6
+    ]
+   },
+   "w": "Alle drei Gleichungen addieren: 2(A + B + C) = 48 ⇒ A + B + C = 24. Dann A = 2, B = 16, C = 6.",
+   "h": "Addiere alle drei Gleichungen.",
+   "c": [
+    "((18)*((1)*(1) - (1)*(0)) - (1)*((22)*(1) - (1)*(8)) + (0)*((22)*(0) - (1)*(8))) / ((1)*((1)*(1) - (1)*(0)) - (1)*((0)*(1) - (1)*(1)) + (0)*((0)*(0) - (1)*(1)))",
+    "((1)*((22)*(1) - (1)*(8)) - (18)*((0)*(1) - (1)*(1)) + (0)*((0)*(8) - (22)*(1))) / ((1)*((1)*(1) - (1)*(0)) - (1)*((0)*(1) - (1)*(1)) + (0)*((0)*(0) - (1)*(1)))",
+    "((1)*((1)*(8) - (22)*(0)) - (1)*((0)*(8) - (22)*(1)) + (18)*((0)*(0) - (1)*(1))) / ((1)*((1)*(1) - (1)*(0)) - (1)*((0)*(1) - (1)*(1)) + (0)*((0)*(0) - (1)*(1)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Im Zoo gilt: 4 Erwachsene, 2 Kinder und 3 Senioren zahlen 112 €; 2 Erwachsene, 2 Kinder und 3 Senioren zahlen 82 €; 1 Erwachsene, 2 Kinder und 2 Senioren zahlen 55 €. Wie viel kostet je eine Karte für Erwachsene, Kinder und Senioren?",
+    "schablone": "Erwachsene □ €; Kinder □ €; Senioren □ €",
+    "hinweis": "Preise in Euro"
+   },
+   "o": {
+    "werte": [
+     15,
+     8,
+     12
+    ]
+   },
+   "w": "System (I) 4e + 2k + 3s = 112; (II) 2e + 2k + 3s = 82; (III) e + 2k + 2s = 55 ergibt e = 15, k = 8, s = 12.",
+   "h": "Eine Variable je Kartenart, eine Gleichung je Gruppe.",
+   "c": [
+    "((112)*((2)*(2) - (3)*(2)) - (2)*((82)*(2) - (3)*(55)) + (3)*((82)*(2) - (2)*(55))) / ((4)*((2)*(2) - (3)*(2)) - (2)*((2)*(2) - (3)*(1)) + (3)*((2)*(2) - (2)*(1)))",
+    "((4)*((82)*(2) - (3)*(55)) - (112)*((2)*(2) - (3)*(1)) + (3)*((2)*(55) - (82)*(1))) / ((4)*((2)*(2) - (3)*(2)) - (2)*((2)*(2) - (3)*(1)) + (3)*((2)*(2) - (2)*(1)))",
+    "((4)*((2)*(55) - (82)*(2)) - (2)*((2)*(55) - (82)*(1)) + (112)*((2)*(2) - (2)*(1))) / ((4)*((2)*(2) - (3)*(2)) - (2)*((2)*(2) - (3)*(1)) + (3)*((2)*(2) - (2)*(1)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Im Zoo gilt: 4 Erwachsene, 3 Kinder und 1 Senioren zahlen 116 €; 3 Erwachsene, 4 Kinder und 3 Senioren zahlen 136 €; 4 Erwachsene, 4 Kinder und 2 Senioren zahlen 140 €. Wie viel kostet je eine Karte für Erwachsene, Kinder und Senioren?",
+    "schablone": "Erwachsene □ €; Kinder □ €; Senioren □ €",
+    "hinweis": "Preise in Euro"
+   },
+   "o": {
+    "werte": [
+     18,
+     10,
+     14
+    ]
+   },
+   "w": "System (I) 4e + 3k + s = 116; (II) 3e + 4k + 3s = 136; (III) 4e + 4k + 2s = 140 ergibt e = 18, k = 10, s = 14.",
+   "c": [
+    "((116)*((4)*(2) - (3)*(4)) - (3)*((136)*(2) - (3)*(140)) + (1)*((136)*(4) - (4)*(140))) / ((4)*((4)*(2) - (3)*(4)) - (3)*((3)*(2) - (3)*(4)) + (1)*((3)*(4) - (4)*(4)))",
+    "((4)*((136)*(2) - (3)*(140)) - (116)*((3)*(2) - (3)*(4)) + (1)*((3)*(140) - (136)*(4))) / ((4)*((4)*(2) - (3)*(4)) - (3)*((3)*(2) - (3)*(4)) + (1)*((3)*(4) - (4)*(4)))",
+    "((4)*((4)*(140) - (136)*(4)) - (3)*((3)*(140) - (136)*(4)) + (116)*((3)*(4) - (4)*(4))) / ((4)*((4)*(2) - (3)*(4)) - (3)*((3)*(2) - (3)*(4)) + (1)*((3)*(4) - (4)*(4)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Im Zoo gilt: 3 Erwachsene, 1 Kinder und 3 Senioren zahlen 76 €; 2 Erwachsene, 1 Kinder und 2 Senioren zahlen 53 €; 3 Erwachsene, 4 Kinder und 2 Senioren zahlen 86 €. Wie viel kostet je eine Karte für Erwachsene, Kinder und Senioren?",
+    "schablone": "Erwachsene □ €; Kinder □ €; Senioren □ €",
+    "hinweis": "Preise in Euro"
+   },
+   "o": {
+    "werte": [
+     12,
+     7,
+     11
+    ]
+   },
+   "w": "System (I) 3e + k + 3s = 76; (II) 2e + k + 2s = 53; (III) 3e + 4k + 2s = 86 ergibt e = 12, k = 7, s = 11.",
+   "c": [
+    "((76)*((1)*(2) - (2)*(4)) - (1)*((53)*(2) - (2)*(86)) + (3)*((53)*(4) - (1)*(86))) / ((3)*((1)*(2) - (2)*(4)) - (1)*((2)*(2) - (2)*(3)) + (3)*((2)*(4) - (1)*(3)))",
+    "((3)*((53)*(2) - (2)*(86)) - (76)*((2)*(2) - (2)*(3)) + (3)*((2)*(86) - (53)*(3))) / ((3)*((1)*(2) - (2)*(4)) - (1)*((2)*(2) - (2)*(3)) + (3)*((2)*(4) - (1)*(3)))",
+    "((3)*((1)*(86) - (53)*(4)) - (1)*((2)*(86) - (53)*(3)) + (76)*((2)*(4) - (1)*(3))) / ((3)*((1)*(2) - (2)*(4)) - (1)*((2)*(2) - (2)*(3)) + (3)*((2)*(4) - (1)*(3)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Im Zoo gilt: 4 Erwachsene, 2 Kinder und 2 Senioren zahlen 104 €; 4 Erwachsene, 3 Kinder und 1 Senioren zahlen 98 €; 2 Erwachsene, 4 Kinder und 2 Senioren zahlen 94 €. Wie viel kostet je eine Karte für Erwachsene, Kinder und Senioren?",
+    "schablone": "Erwachsene □ €; Kinder □ €; Senioren □ €",
+    "hinweis": "Preise in Euro"
+   },
+   "o": {
+    "werte": [
+     14,
+     9,
+     15
+    ]
+   },
+   "w": "System (I) 4e + 2k + 2s = 104; (II) 4e + 3k + s = 98; (III) 2e + 4k + 2s = 94 ergibt e = 14, k = 9, s = 15.",
+   "c": [
+    "((104)*((3)*(2) - (1)*(4)) - (2)*((98)*(2) - (1)*(94)) + (2)*((98)*(4) - (3)*(94))) / ((4)*((3)*(2) - (1)*(4)) - (2)*((4)*(2) - (1)*(2)) + (2)*((4)*(4) - (3)*(2)))",
+    "((4)*((98)*(2) - (1)*(94)) - (104)*((4)*(2) - (1)*(2)) + (2)*((4)*(94) - (98)*(2))) / ((4)*((3)*(2) - (1)*(4)) - (2)*((4)*(2) - (1)*(2)) + (2)*((4)*(4) - (3)*(2)))",
+    "((4)*((3)*(94) - (98)*(4)) - (2)*((4)*(94) - (98)*(2)) + (104)*((4)*(4) - (3)*(2))) / ((4)*((3)*(2) - (1)*(4)) - (2)*((4)*(2) - (1)*(2)) + (2)*((4)*(4) - (3)*(2)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Im Zoo gilt: 1 Erwachsene, 1 Kinder und 3 Senioren zahlen 53 €; 1 Erwachsene, 2 Kinder und 2 Senioren zahlen 50 €; 2 Erwachsene, 2 Kinder und 2 Senioren zahlen 62 €. Wie viel kostet je eine Karte für Erwachsene, Kinder und Senioren?",
+    "schablone": "Erwachsene □ €; Kinder □ €; Senioren □ €",
+    "hinweis": "Preise in Euro"
+   },
+   "o": {
+    "werte": [
+     12,
+     8,
+     11
+    ]
+   },
+   "w": "System (I) e + k + 3s = 53; (II) e + 2k + 2s = 50; (III) 2e + 2k + 2s = 62 ergibt e = 12, k = 8, s = 11.",
+   "c": [
+    "((53)*((2)*(2) - (2)*(2)) - (1)*((50)*(2) - (2)*(62)) + (3)*((50)*(2) - (2)*(62))) / ((1)*((2)*(2) - (2)*(2)) - (1)*((1)*(2) - (2)*(2)) + (3)*((1)*(2) - (2)*(2)))",
+    "((1)*((50)*(2) - (2)*(62)) - (53)*((1)*(2) - (2)*(2)) + (3)*((1)*(62) - (50)*(2))) / ((1)*((2)*(2) - (2)*(2)) - (1)*((1)*(2) - (2)*(2)) + (3)*((1)*(2) - (2)*(2)))",
+    "((1)*((2)*(62) - (50)*(2)) - (1)*((1)*(62) - (50)*(2)) + (53)*((1)*(2) - (2)*(2))) / ((1)*((2)*(2) - (2)*(2)) - (1)*((1)*(2) - (2)*(2)) + (3)*((1)*(2) - (2)*(2)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Im Zoo gilt: 3 Erwachsene, 3 Kinder und 1 Senioren zahlen 92 €; 1 Erwachsene, 1 Kinder und 3 Senioren zahlen 68 €; 2 Erwachsene, 4 Kinder und 2 Senioren zahlen 98 €. Wie viel kostet je eine Karte für Erwachsene, Kinder und Senioren?",
+    "schablone": "Erwachsene □ €; Kinder □ €; Senioren □ €",
+    "hinweis": "Preise in Euro"
+   },
+   "o": {
+    "werte": [
+     17,
+     9,
+     14
+    ]
+   },
+   "w": "System (I) 3e + 3k + s = 92; (II) e + k + 3s = 68; (III) 2e + 4k + 2s = 98 ergibt e = 17, k = 9, s = 14.",
+   "c": [
+    "((92)*((1)*(2) - (3)*(4)) - (3)*((68)*(2) - (3)*(98)) + (1)*((68)*(4) - (1)*(98))) / ((3)*((1)*(2) - (3)*(4)) - (3)*((1)*(2) - (3)*(2)) + (1)*((1)*(4) - (1)*(2)))",
+    "((3)*((68)*(2) - (3)*(98)) - (92)*((1)*(2) - (3)*(2)) + (1)*((1)*(98) - (68)*(2))) / ((3)*((1)*(2) - (3)*(4)) - (3)*((1)*(2) - (3)*(2)) + (1)*((1)*(4) - (1)*(2)))",
+    "((3)*((1)*(98) - (68)*(4)) - (3)*((1)*(98) - (68)*(2)) + (92)*((1)*(4) - (1)*(2))) / ((3)*((1)*(2) - (3)*(4)) - (3)*((1)*(2) - (3)*(2)) + (1)*((1)*(4) - (1)*(2)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Im Zoo gilt: 4 Erwachsene, 2 Kinder und 1 Senioren zahlen 63 €; 3 Erwachsene, 3 Kinder und 2 Senioren zahlen 72 €; 4 Erwachsene, 4 Kinder und 2 Senioren zahlen 86 €. Wie viel kostet je eine Karte für Erwachsene, Kinder und Senioren?",
+    "schablone": "Erwachsene □ €; Kinder □ €; Senioren □ €",
+    "hinweis": "Preise in Euro"
+   },
+   "o": {
+    "werte": [
+     10,
+     4,
+     15
+    ]
+   },
+   "w": "System (I) 4e + 2k + s = 63; (II) 3e + 3k + 2s = 72; (III) 4e + 4k + 2s = 86 ergibt e = 10, k = 4, s = 15.",
+   "c": [
+    "((63)*((3)*(2) - (2)*(4)) - (2)*((72)*(2) - (2)*(86)) + (1)*((72)*(4) - (3)*(86))) / ((4)*((3)*(2) - (2)*(4)) - (2)*((3)*(2) - (2)*(4)) + (1)*((3)*(4) - (3)*(4)))",
+    "((4)*((72)*(2) - (2)*(86)) - (63)*((3)*(2) - (2)*(4)) + (1)*((3)*(86) - (72)*(4))) / ((4)*((3)*(2) - (2)*(4)) - (2)*((3)*(2) - (2)*(4)) + (1)*((3)*(4) - (3)*(4)))",
+    "((4)*((3)*(86) - (72)*(4)) - (2)*((3)*(86) - (72)*(4)) + (63)*((3)*(4) - (3)*(4))) / ((4)*((3)*(2) - (2)*(4)) - (2)*((3)*(2) - (2)*(4)) + (1)*((3)*(4) - (3)*(4)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Im Zoo gilt: 1 Erwachsene, 1 Kinder und 3 Senioren zahlen 48 €; 1 Erwachsene, 4 Kinder und 2 Senioren zahlen 52 €; 3 Erwachsene, 4 Kinder und 3 Senioren zahlen 83 €. Wie viel kostet je eine Karte für Erwachsene, Kinder und Senioren?",
+    "schablone": "Erwachsene □ €; Kinder □ €; Senioren □ €",
+    "hinweis": "Preise in Euro"
+   },
+   "o": {
+    "werte": [
+     10,
+     5,
+     11
+    ]
+   },
+   "w": "System (I) e + k + 3s = 48; (II) e + 4k + 2s = 52; (III) 3e + 4k + 3s = 83 ergibt e = 10, k = 5, s = 11.",
+   "c": [
+    "((48)*((4)*(3) - (2)*(4)) - (1)*((52)*(3) - (2)*(83)) + (3)*((52)*(4) - (4)*(83))) / ((1)*((4)*(3) - (2)*(4)) - (1)*((1)*(3) - (2)*(3)) + (3)*((1)*(4) - (4)*(3)))",
+    "((1)*((52)*(3) - (2)*(83)) - (48)*((1)*(3) - (2)*(3)) + (3)*((1)*(83) - (52)*(3))) / ((1)*((4)*(3) - (2)*(4)) - (1)*((1)*(3) - (2)*(3)) + (3)*((1)*(4) - (4)*(3)))",
+    "((1)*((4)*(83) - (52)*(4)) - (1)*((1)*(83) - (52)*(3)) + (48)*((1)*(4) - (4)*(3))) / ((1)*((4)*(3) - (2)*(4)) - (1)*((1)*(3) - (2)*(3)) + (3)*((1)*(4) - (4)*(3)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Im Zoo gilt: 4 Erwachsene, 4 Kinder und 2 Senioren zahlen 90 €; 4 Erwachsene, 2 Kinder und 3 Senioren zahlen 95 €; 1 Erwachsene, 4 Kinder und 3 Senioren zahlen 59 €. Wie viel kostet je eine Karte für Erwachsene, Kinder und Senioren?",
+    "schablone": "Erwachsene □ €; Kinder □ €; Senioren □ €",
+    "hinweis": "Preise in Euro"
+   },
+   "o": {
+    "werte": [
+     14,
+     3,
+     11
+    ]
+   },
+   "w": "System (I) 4e + 4k + 2s = 90; (II) 4e + 2k + 3s = 95; (III) e + 4k + 3s = 59 ergibt e = 14, k = 3, s = 11.",
+   "c": [
+    "((90)*((2)*(3) - (3)*(4)) - (4)*((95)*(3) - (3)*(59)) + (2)*((95)*(4) - (2)*(59))) / ((4)*((2)*(3) - (3)*(4)) - (4)*((4)*(3) - (3)*(1)) + (2)*((4)*(4) - (2)*(1)))",
+    "((4)*((95)*(3) - (3)*(59)) - (90)*((4)*(3) - (3)*(1)) + (2)*((4)*(59) - (95)*(1))) / ((4)*((2)*(3) - (3)*(4)) - (4)*((4)*(3) - (3)*(1)) + (2)*((4)*(4) - (2)*(1)))",
+    "((4)*((2)*(59) - (95)*(4)) - (4)*((4)*(59) - (95)*(1)) + (90)*((4)*(4) - (2)*(1))) / ((4)*((2)*(3) - (3)*(4)) - (4)*((4)*(3) - (3)*(1)) + (2)*((4)*(4) - (2)*(1)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Im Zoo gilt: 2 Erwachsene, 1 Kinder und 2 Senioren zahlen 51 €; 2 Erwachsene, 4 Kinder und 2 Senioren zahlen 60 €; 3 Erwachsene, 3 Kinder und 2 Senioren zahlen 76 €. Wie viel kostet je eine Karte für Erwachsene, Kinder und Senioren?",
+    "schablone": "Erwachsene □ €; Kinder □ €; Senioren □ €",
+    "hinweis": "Preise in Euro"
+   },
+   "o": {
+    "werte": [
+     19,
+     3,
+     5
+    ]
+   },
+   "w": "System (I) 2e + k + 2s = 51; (II) 2e + 4k + 2s = 60; (III) 3e + 3k + 2s = 76 ergibt e = 19, k = 3, s = 5.",
+   "c": [
+    "((51)*((4)*(2) - (2)*(3)) - (1)*((60)*(2) - (2)*(76)) + (2)*((60)*(3) - (4)*(76))) / ((2)*((4)*(2) - (2)*(3)) - (1)*((2)*(2) - (2)*(3)) + (2)*((2)*(3) - (4)*(3)))",
+    "((2)*((60)*(2) - (2)*(76)) - (51)*((2)*(2) - (2)*(3)) + (2)*((2)*(76) - (60)*(3))) / ((2)*((4)*(2) - (2)*(3)) - (1)*((2)*(2) - (2)*(3)) + (2)*((2)*(3) - (4)*(3)))",
+    "((2)*((4)*(76) - (60)*(3)) - (1)*((2)*(76) - (60)*(3)) + (51)*((2)*(3) - (4)*(3))) / ((2)*((4)*(2) - (2)*(3)) - (1)*((2)*(2) - (2)*(3)) + (2)*((2)*(3) - (4)*(3)))"
+   ]
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Im Zoo gilt: 3 Erwachsene, 4 Kinder und 1 Senioren zahlen 67 €; 1 Erwachsene, 1 Kinder und 3 Senioren zahlen 45 €; 1 Erwachsene, 3 Kinder und 1 Senioren zahlen 35 €. Wie viel kostet je eine Karte für Erwachsene, Kinder und Senioren?",
+    "schablone": "Erwachsene □ €; Kinder □ €; Senioren □ €",
+    "hinweis": "Preise in Euro"
+   },
+   "o": {
+    "werte": [
+     14,
+     4,
+     9
+    ]
+   },
+   "w": "System (I) 3e + 4k + s = 67; (II) e + k + 3s = 45; (III) e + 3k + s = 35 ergibt e = 14, k = 4, s = 9.",
+   "c": [
+    "((67)*((1)*(1) - (3)*(3)) - (4)*((45)*(1) - (3)*(35)) + (1)*((45)*(3) - (1)*(35))) / ((3)*((1)*(1) - (3)*(3)) - (4)*((1)*(1) - (3)*(1)) + (1)*((1)*(3) - (1)*(1)))",
+    "((3)*((45)*(1) - (3)*(35)) - (67)*((1)*(1) - (3)*(1)) + (1)*((1)*(35) - (45)*(1))) / ((3)*((1)*(1) - (3)*(3)) - (4)*((1)*(1) - (3)*(1)) + (1)*((1)*(3) - (1)*(1)))",
+    "((3)*((1)*(35) - (45)*(3)) - (4)*((1)*(35) - (45)*(1)) + (67)*((1)*(3) - (1)*(1))) / ((3)*((1)*(1) - (3)*(3)) - (4)*((1)*(1) - (3)*(1)) + (1)*((1)*(3) - (1)*(1)))"
+   ]
+  }
+ ],
+ "offen": [
+  "Gleichungssysteme stehen in einer Zeile, getrennt durch „;“ und (I), (II), (III). Falls die App Zeilenumbrüche im Fragetext darstellen kann, untereinander schreiben.",
+  "Sonderfälle (keine oder unendlich viele Lösungen) sind nicht enthalten, weil der Lehrplan nur „aufstellen und lösen“ nennt."
+ ]
+}

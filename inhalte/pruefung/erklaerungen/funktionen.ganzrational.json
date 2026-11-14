@@ -1,0 +1,39 @@
+{
+  "thema_schluessel": "funktionen.ganzrational",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Sehr gut: jede Eigenschaft mit Graph, präzise Fehler (Absolutglied als x⁰ bei der Symmetrie, Vorzeichen in der Produktform). Keine Verbesserung nötig.",
+    "Überschneidung (Fakt): „nullstellen“ (Vielfachheit, Schnitt/Berührung) steht fast gleich in gleichungen.polynom (Karte „vielfachheit“). Vorschlag: in einem der beiden Themen auf das andere verweisen oder die Karte nur einmal führen."
+  ],
+  "karten": [
+    {
+      "lernziel": "grad",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "ausmultiplizieren",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "randverhalten",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "symmetrie",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "nullstellen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "graph_term",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "term_bestimmen",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

@@ -1321,7 +1321,9 @@ async function viewLehrplan() {
     return el('article', { class: 'lp-zeile lp-' + z.k },
       el('div', { class: 'lp-text' }, el('b', {}, t.titel),
         el('span', { class: 'lern-plan-jg' }, lernJahrgangText(t.jahrgang) || 'ohne Lehrplan-Zuordnung'),
-        el('small', {}, [t.gebiet, t.ort].filter(Boolean).join(' · ')),
+        t.beschreibung ? el('small', {}, t.beschreibung) : null,
+        (t.gliederung || []).length ? el('ol', { class: 'lp-gliederung' }, ...t.gliederung.map((x) => el('li', {}, x))) : null,
+        t.ort ? el('small', { class: 'muted' }, 'Ort der Lernreise: ' + t.ort) : null,
         el('span', { class: 'lp-inhalt' }, el('i', { class: 'lp-punkt', 'aria-hidden': 'true' }), z.text),
         el('div', { class: 'lp-staende' }, ...stand),
         t.rueckmeldungen ? el('small', { class: 'muted' }, `${t.rueckmeldungen} offene Anmerkung${t.rueckmeldungen > 1 ? 'en' : ''}`) : null),
@@ -1346,7 +1348,9 @@ async function viewLehrplan() {
     }
     liste.replaceChildren(...[...gruppen].map(([kl, ts]) => el('section', { class: 'lp-gruppe' },
       el('h3', {}, klName(kl), el('small', { class: 'muted' }, ` · ${ts.length} ${ts.length === 1 ? 'Thema' : 'Themen'}`)),
-      ...ts.map(zeile))));
+      ...[...ts.reduce((m, t) => m.set(t.gebiet || 'Weitere', [...(m.get(t.gebiet || 'Weitere') || []), t]), new Map())].flatMap(([g, gs]) => [
+        el('h4', { class: 'lp-gebiet' }, g, el('small', { class: 'muted' }, ` · ${gs.filter((t) => lernInhaltZustand(t).k === 'fertig').length} von ${gs.length} mit Inhalt`)),
+        ...gs.map(zeile)]))));
     if (!treffer.length) liste.append(el('p', { class: 'muted' }, 'Keine Themen für diese Auswahl.'));
   };
   fuelleKlassen(); zeichne();

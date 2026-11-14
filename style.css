@@ -3522,3 +3522,6 @@ body.lern-seite { padding-bottom: 32px; }
 .lern-plan-jg { font-weight: 800; white-space: nowrap; }
 .lp-text > .lern-plan-jg { font-size: .9rem; }
 .lern-plan-auswahl > li { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 6px 0; border-top: 1px solid var(--border); }
+.lp-gebiet { margin: 10px 0 0; font-size: .95rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text-muted); border-bottom: 1px solid var(--border); padding-bottom: 4px; }
+.lp-gebiet small { text-transform: none; letter-spacing: 0; font-weight: 400; }
+.lp-gliederung { margin: 2px 0; padding-left: 1.4em; font-size: .88rem; columns: 2 220px; }

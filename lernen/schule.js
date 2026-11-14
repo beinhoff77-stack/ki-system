@@ -4,7 +4,7 @@
    Stellt die Hilfen bereit, die lernen.js erwartet (el, store, route, render, setChrome …). */
 'use strict';
 
-const APP_VERSION = '0.67.1';
+const APP_VERSION = '0.67.2';
 // lernen.js leitet daraus die lernen-api ab; app-api selbst wird von dieser Seite nie aufgerufen.
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const mitRegion = (u) => u + (u.includes('?') ? '&' : '?') + 'forceFunctionRegion=eu-west-1';

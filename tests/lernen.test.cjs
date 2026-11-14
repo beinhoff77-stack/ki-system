@@ -305,6 +305,8 @@ test('Lehrplan-Übersicht: Themen je Schulart und Klasse mit Inhaltsstand, Inhal
   assert.deepEqual(await page.locator('.lp-kachel b').allTextContents(), ['5', '1', '1', '3']);
   await page.getByRole('heading', { name: /Klasse 8.*Kind B/ }).waitFor();
   await page.getByRole('heading', { name: /Nicht im Gymnasium-Lehrplan/ }).waitFor();
+  await page.getByRole('heading', { name: 'Zahlen · 1 von 2 mit Inhalt' }).waitFor();
+  await page.getByRole('heading', { name: /^Funktionen/ }).waitFor();
   assert.equal(await page.getByRole('button', { name: 'Realschule' }).count(), 0);
   await page.locator('.lp-zeile.lp-fertig', { hasText: 'Große natürliche Zahlen' }).getByText('Kind A: geschafft').waitFor();
   await page.locator('.lp-zeile', { hasText: 'Große natürliche Zahlen' }).getByText('Gym 5 · RS 5 · IB 1').waitFor();

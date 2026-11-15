@@ -396,5 +396,77 @@ DATEI = datei(E, 'Flächeninhalt und Umfang von Rechteck, Quadrat und zusammenge
                      'Lehrplan „Näherungswerte durch Modellierung mit Rechtecken“ nur indirekt (Zerlegen in Rechtecke). Die Prüfung schlägt dafür eine spätere eigene Lernkarte vor (krumme Fläche, z. B. ein See, im Kästchengitter innen und außen abschätzen); noch nicht gebaut – braucht eine gezeichnete krumme Figur und eine Zählregel für angeschnittene Kästchen.',
                      'Zeichnungen: Rechtecke, Einheitsquadrate (gestrichelte Hilfslinien), L-Formen und Rahmen als Figur. Das Kind kann Flächen nicht selbst färben oder zerlegen.'])
 
+# Verständliche Fassung (Siebte Runde, 15.11.): Alltagssituation zuerst (einstieg), jedes neue Wort erklärt (woerter),
+# Beispiel in kleinen Schritten, Merksatz am Ende (regel). Durchgehende Situationen: Zimmer (Teppich, Fußleiste) und Garten (Zaun, Rasen).
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _klar_kl5.py) – die Aufgaben bleiben wörtlich gleich.
+from _klar_kl5 import klar  # noqa: E402
+
+KLAR = {
+ 'einheitsquadrate': {
+  'einstieg': 'Du willst den Boden eines kleinen Spielhauses mit quadratischen Fliesen auslegen. Wie groß der Boden ist, sagst du am besten mit der Zahl der Fliesen, die hineinpassen. In Mathe nimmt man dafür kleine Quadrate mit 1 cm, 1 m oder 1 km Seitenlänge. Wie viele davon in eine Fläche passen, heißt ⟦Flächeninhalt⟧.',
+  'woerter': [['Flächeninhalt A', 'wie viele Einheitsquadrate in eine Fläche passen; abgekürzt A'], ['Einheitsquadrat', 'ein Quadrat mit der Seitenlänge 1, zum Beispiel 1 cm'],
+              ['cm²', 'Quadratzentimeter: die Fläche eines Quadrats mit 1 cm Seitenlänge'], ['Reihe', 'eine Zeile von Quadraten nebeneinander']],
+  'schritte': ['Ein Rechteck ist 5 cm lang und 3 cm breit. Lege in Gedanken Quadrate mit 1 cm Seitenlänge hinein.',
+               'In eine Reihe passen 5 Quadrate, denn das Rechteck ist 5 cm lang.',
+               'Es gibt 3 Reihen, denn es ist 3 cm breit. Zusammen sind das 3 · 5 = 15 Quadrate.',
+               'Jedes Quadrat ist 1 cm² groß. Also ist ⟦A = 15 cm²⟧.'],
+  'regel': 'So bestimmst du den ⟦Flächeninhalt⟧: Zähle, wie viele ⟦Einheitsquadrate⟧ hineinpassen. Beim Rechteck rechnest du ⟦Reihen mal Quadrate pro Reihe⟧.',
+  'fehler': '5 + 3 = 8 cm² ist falsch: Das ist nur die halbe Länge des Randes. Beim Flächeninhalt zählst du ⟦Quadrate⟧ – Reihen ⟦mal⟧ Quadrate pro Reihe, wie Fliesen auf dem Boden.'},
+ 'rechteck': {
+  'einstieg': 'Ein Zimmer bekommt einen neuen Teppichboden und eine Fußleiste am Rand entlang. Für den Teppich brauchst du die Fläche des Bodens, für die Leiste die Länge des ganzen Randes. Die Fläche heißt Flächeninhalt, die Länge des Randes heißt ⟦Umfang⟧.',
+  'woerter': [['Umfang u', 'die Länge des ganzen Randes einer Figur'], ['a, b', 'Länge und Breite des Rechtecks'], ['m²', 'Quadratmeter: die Fläche eines Quadrats mit 1 m Seitenlänge'],
+              ['Formel', 'eine Rechenvorschrift mit Buchstaben'], ['A = a · b', 'Formel: Flächeninhalt = Länge mal Breite'], ['Fußleiste', 'eine Leiste unten an der Wand, am Rand des Bodens entlang']],
+  'schritte': ['Das Zimmer ist ein Rechteck mit a = 8 m und b = 5 m. Zuerst der Flächeninhalt für den Teppich.',
+               'A = a · b = 8 m · 5 m = 40 m². Der Teppich muss ⟦40 m²⟧ groß sein.',
+               'Jetzt der Umfang für die Leiste: Der Rand hat zwei lange Seiten mit 8 m und zwei kurze mit 5 m.',
+               'u = 2 · 8 m + 2 · 5 m = 16 m + 10 m = ⟦26 m⟧.'],
+  'regel': 'So rechnest du beim Rechteck: ⟦A = a · b⟧ und ⟦u = 2 · a + 2 · b⟧. Beim Quadrat mit der Seite a: ⟦A = a · a⟧ und ⟦u = 4 · a⟧. Vorher beide Seiten in ⟦dieselbe Längeneinheit⟧ bringen.',
+  'fehler': 'Umfang und Fläche verwechseln ist der häufigste Fehler. Der Umfang ist eine ⟦Länge⟧ (m) – die Fußleiste kaufst du in Metern. Der Flächeninhalt ist eine ⟦Fläche⟧ (m²) – den Teppich kaufst du in Quadratmetern.'},
+ 'einheiten': {
+  'einstieg': 'Ein Quadrat mit 1 m Seitenlänge kannst du mit kleinen Quadraten von 1 dm Seitenlänge auslegen. In eine Reihe passen 10 kleine, und es gibt 10 Reihen – zusammen 100 kleine Quadrate. Darum ist bei allen ⟦Flächeneinheiten⟧ die Umrechnungszahl 100.',
+  'woerter': [['Flächeneinheit', 'eine Einheit für Flächen, zum Beispiel cm² oder m²'], ['dm², mm²', 'Quadratdezimeter, Quadratmillimeter'],
+              ['a', 'Ar: 100 m², etwa ein großer Garten'], ['ha', 'Hektar: 100 a = 10 000 m², etwa anderthalb Fußballfelder'], ['km²', 'Quadratkilometer: 100 ha'],
+              ['Umrechnungszahl', 'die Zahl, mit der man beim Umrechnen malnimmt oder teilt']],
+  'schritte': ['Rechne 7 m² in dm² um. Ein Quadrat mit 1 m Seite ist 10 dm lang und 10 dm breit.',
+               'Darin liegen 10 Reihen mit je 10 kleinen Quadraten: 10 · 10 = 100. Also ist 1 m² = 100 dm².',
+               '7 m² sind 7-mal so viel: 7 · 100 = 700. Also ist ⟦7 m² = 700 dm²⟧.'],
+  'regel': 'So rechnest du Flächen um: km² → ha → a → m² → dm² → cm² → mm², bei jedem Schritt ist die ⟦Umrechnungszahl 100⟧. In die ⟦kleinere⟧ Einheit: mal 100. In die ⟦größere⟧: durch 100.'},
+ 'kommaschreibweise': {
+  'einstieg': 'Beim Geld weißt du: 4,07 € sind 4 € und 7 ct. Für die Cent gibt es zwei Stellen hinter dem Komma, weil 1 € = 100 ct sind. Bei Flächen ist es genauso, denn auch hier ist die Umrechnungszahl 100. So schreibst du Flächen in ⟦Kommaschreibweise⟧.',
+  'woerter': [['Kommaschreibweise', 'eine Fläche mit Komma in einer Einheit: 6,05 m² statt 6 m² 5 dm²'],
+              ['zwei Stellen', 'bei Flächen bekommt jede kleinere Einheit zwei Ziffern hinter dem Komma']],
+  'schritte': ['Schreibe 6 m² 5 dm² in m². Vor das Komma kommen die 6 m².',
+               'Die dm² bekommen zwei Stellen hinter dem Komma, weil 1 m² = 100 dm² sind.',
+               '5 dm² schreibst du mit zwei Stellen als 05.',
+               'Ergebnis: ⟦6 m² 5 dm² = 6,05 m²⟧.'],
+  'regel': 'So schreibst du Flächen mit Komma: Vor dem Komma steht die ⟦große Einheit⟧, dahinter bekommt jede kleinere Einheit ⟦zwei Stellen⟧: 3,25 m² = 3 m² 25 dm² und 4 a 7 m² = ⟦4,07 a⟧.',
+  'fehler': '6 m² 5 dm² = 6,5 m² ist falsch: 6,5 m² sind 6 m² ⟦50⟧ dm² – so wie 6,50 € etwas anderes sind als 6,05 €. Bei Flächen braucht jede Einheit zwei Stellen: 6,05 m².'},
+ 'zerlegen': {
+  'einstieg': 'In einem Zimmer fehlt eine Ecke, weil dort ein Schrank eingebaut ist. Der Boden hat dann die Form eines L. Für so eine Fläche gibt es keine eigene Formel. Du teilst sie in Rechtecke auf oder denkst dir das fehlende Stück dazu. Das heißt ⟦zerlegen⟧ oder ⟦ergänzen⟧.',
+  'woerter': [['zusammengesetzte Fläche', 'eine Fläche, die aus mehreren Rechtecken besteht, zum Beispiel eine L-Form'],
+              ['zerlegen', 'die Fläche in Rechtecke aufteilen und deren Flächen addieren'], ['ergänzen', 'das fehlende Stück dazudenken: großes Rechteck minus fehlendes Stück'],
+              ['8 m × 6 m', 'gelesen „8 m mal 6 m“: ein Rechteck, 8 m lang und 6 m breit']],
+  'schritte': ['Die L-Form im Bild passt in ein großes Rechteck von 8 m × 6 m. Oben rechts fehlt ein Stück von 3 m × 2 m.',
+               'Ergänzen: Das große Rechteck hat 8 · 6 = 48 m².',
+               'Das fehlende Stück hat 3 · 2 = 6 m². Ziehe es ab: 48 − 6 = ⟦42 m²⟧.'],
+  'regel': 'So berechnest du eine ⟦zusammengesetzte Fläche⟧: ⟦Zerlegen⟧ – in Rechtecke aufteilen und die Flächen addieren. Oder ⟦ergänzen⟧ – zu einem großen Rechteck vervollständigen und das fehlende Stück abziehen. Beide Wege ergeben dasselbe.'},
+ 'sachaufgaben': {
+  'einstieg': 'Ein Garten soll einen Zaun bekommen und neuen Rasen. Für den Zaun gehst du am Rand entlang – du brauchst eine Länge. Für den Rasen bedeckst du den ganzen Boden – du brauchst eine Fläche. Bei jeder ⟦Sachaufgabe⟧ zu Flächen klärst du deshalb zuerst: Rand oder Fläche?',
+  'woerter': [['Sachaufgabe', 'eine Rechenaufgabe, die als kleine Geschichte erzählt wird'], ['ringsherum', 'einmal ganz um den Rand herum']],
+  'schritte': ['Ein Garten ist 12 m lang und 7 m breit und bekommt einen Zaun ringsherum. Ein Zaun läuft am Rand entlang, gesucht ist also der Umfang.',
+               'Der Rand hat zwei Seiten mit 12 m und zwei Seiten mit 7 m.',
+               'u = 2 · 12 m + 2 · 7 m = 24 m + 14 m = ⟦38 m⟧. So viel Zaun brauchst du.'],
+  'regel': 'So löst du Flächen-Sachaufgaben: Frage zuerst, ob eine ⟦Länge⟧ gesucht ist (Zaun, Rand, Leiste → ⟦Umfang⟧) oder eine ⟦Fläche⟧ (Rasen, Boden, Farbe → ⟦Flächeninhalt⟧). Dann rechnest du in ⟦einer⟧ Einheit.'},
+ 'verstehen': {
+  'einstieg': 'Zwei Gärten haben beide einen Zaun von 16 m Länge. Ist dann in beiden gleich viel Platz zum Spielen? Nicht unbedingt! Ein langer, schmaler Garten kann bei gleich langem Zaun kleiner sein als ein quadratischer. Solche Behauptungen über ⟦Fläche und Umfang⟧ prüfst du mit Beispielen.',
+  'woerter': [['Behauptung', 'eine Aussage, die richtig oder falsch sein kann'], ['verdoppeln', 'mal 2 nehmen'], ['Gegenbeispiel', 'ein Fall, der eine Behauptung widerlegt']],
+  'schritte': ['Garten 1 ist ein Rechteck mit 6 m × 2 m. Umfang: 2 · 6 m + 2 · 2 m = 16 m. Fläche: 6 · 2 = 12 m².',
+               'Garten 2 ist ein Quadrat mit 4 m × 4 m. Umfang: 4 · 4 m = 16 m. Fläche: 4 · 4 = 16 m².',
+               'Beide haben 16 m Zaun, aber ⟦verschiedene Flächen⟧: 12 m² und 16 m².'],
+  'regel': 'Merke: ⟦Gleicher Umfang⟧ heißt nicht gleiche Fläche – und umgekehrt. Verdoppelst du ⟦Länge und Breite⟧, wird die Fläche ⟦viermal⟧ so groß. So prüfst du Behauptungen: mit einem ⟦Zahlenbeispiel⟧ nachrechnen.'},
+}
+klar(DATEI, KLAR)
+
+
 if __name__ == '__main__':
     schreibe(DATEI)

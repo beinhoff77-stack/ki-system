@@ -45,6 +45,53 @@ ETAPPEN = [
 ]
 
 
+# ---- KLAR (verständliche Erklärungen, Runde 7) ----
+KLAR = {
+ 'zufallsgeraet': {
+  'einstieg': 'Tim trifft beim Basketball-Freiwurf in 3 von 10 Fällen. Um zu sehen, wie ein Spiel mit 20 Würfen ausgehen könnte, muss er nicht in die Halle. Er lässt ein Zufallsgerät für sich „werfen“, das genauso oft trifft. Das nennt man ⟦simulieren⟧.',
+  'woerter': [['simulieren', 'einen echten Vorgang mit einem Zufallsgerät nachspielen'], ['Zufallsgerät', 'Münze, Würfel, Urne, Glücksrad oder Zufallsziffern'],
+              ['p', 'die Wahrscheinlichkeit für einen Treffer, z. B. p = 0,3'], ['mit Zurücklegen', 'die gezogene Kugel kommt wieder in die Urne']],
+  'schritte': ['Tim trifft mit der Wahrscheinlichkeit p = 0,3.', 'Eine Urne mit 10 Kugeln passt: 3 rote bedeuten Treffer, 7 weiße bedeuten kein Treffer.',
+               'Nach jedem Zug kommt die Kugel zurück, damit beim nächsten Wurf wieder p = 0,3 gilt. Ein Zug ⟦mit Zurücklegen⟧ simuliert also einen Wurf.'],
+  'regel': 'So wählst du ein ⟦Zufallsgerät⟧: Es muss ⟦dieselbe Wahrscheinlichkeit⟧ haben wie der echte Vorgang. Münze: 1/2, Würfel: 1/6, Urne oder Glücksrad: beliebige Anteile.'},
+ 'regel': {
+  'einstieg': 'Bevor Tim simuliert, legt er fest, was als Treffer zählt. Bei p = 0,35 reichen die Ziffern 0 bis 9 nicht, denn 3,5 Ziffern gibt es nicht. Mit zweistelligen Zahlen von 00 bis 99 klappt es. Diese Festlegung heißt ⟦Simulationsregel⟧.',
+  'woerter': [['Simulationsregel', 'die Festlegung, welche Zahlen als Treffer zählen'], ['00–99', 'alle zweistelligen Zahlen von 00 bis 99, zusammen 100 Stück'],
+              ['00–34', 'die Zahlen von 00 bis einschließlich 34, das sind 35 Stück']],
+  'schritte': ['Gesucht ist eine Regel für p = 0,35 = 35/100.', 'Man nimmt zweistellige Zufallszahlen von 00 bis 99. Das sind 100 gleich wahrscheinliche Zahlen.',
+               '35 davon sollen Treffer sein. Also gilt die Regel: ⟦00–34 = Treffer⟧, 35–99 = kein Treffer.'],
+  'regel': 'So legst du die ⟦Regel⟧ fest: p als Bruch mit Nenner 10 oder 100 schreiben. Bei p = 0,4 zählen ⟦4 von 10⟧ Ziffern, bei p = 0,35 zählen 35 der ⟦Zahlen 00 bis 99⟧. Zähle zur Kontrolle nach, wie viele es sind.'},
+ 'zufallsziffern': {
+  'einstieg': 'Statt eine Urne zu benutzen, kann Tim eine Liste mit Zufallsziffern nehmen, zum Beispiel vom Taschenrechner. Jede Ziffer von 0 bis 9 kommt dort gleich oft vor. Mit einer Regel wird aus jeder Ziffer ein Treffer oder kein Treffer. Das heißt: ⟦mit Zufallsziffern simulieren⟧.',
+  'woerter': [['Zufallsziffern', 'eine Folge von Ziffern 0–9, die zufällig entsteht; jede hat die Chance 1/10'], ['0–2', 'die Ziffern 0, 1 und 2 – drei Stück']],
+  'schritte': ['Die Regel lautet: 0, 1, 2 = Treffer. Das sind 3 von 10 Ziffern, also p = 0,3.', 'Die Liste lautet: 7 1 4 0 9 2 5 8 3 6.',
+               'Treffer sind die 1, die 0 und die 2. Das sind ⟦3 Treffer⟧ in 10 Versuchen.'],
+  'regel': 'So simulierst du mit ⟦Zufallsziffern⟧: Regel festlegen, welche Ziffern ⟦Treffer⟧ sind. Dann die Liste Ziffer für Ziffer durchgehen und die Treffer zählen.'},
+ 'auswerten': {
+  'einstieg': 'Tim hat 200-mal simuliert, ob in einem Spiel mindestens zwei Sechsen fallen. 46-mal war es so. Daraus kann er abschätzen, wie wahrscheinlich das ist. Die Simulation wird ⟦ausgewertet⟧.',
+  'woerter': [['Durchgang', 'eine vollständige Wiederholung der Simulation'], ['Schätzwert', 'ein ungefährer Wert, kein genauer'], ['≈', 'ungefähr gleich']],
+  'schritte': ['In 200 Durchgängen kam 46-mal „mindestens zwei Sechsen“ vor.', 'Die relative Häufigkeit ist 46 : 200 = 0,23.',
+               'Sie ist ein Schätzwert für die Wahrscheinlichkeit: ⟦P ≈ 0,23⟧.'],
+  'regel': 'So wertest du aus: ⟦Anzahl der Treffer : Anzahl der Durchgänge⟧ rechnen. Das Ergebnis ist ein ⟦Schätzwert⟧ für die Wahrscheinlichkeit. Mehr Durchgänge machen ihn zuverlässiger.'},
+ 'monte_carlo': {
+  'einstieg': 'Auf ein quadratisches Blatt mit einem Kreisbogen fallen Regentropfen ganz zufällig. Fallen drei Viertel der Tropfen in die Kreisfigur, bedeckt sie etwa drei Viertel des Blatts. So kann man eine Fläche mit Zufallspunkten schätzen. Das ist die ⟦Monte-Carlo-Methode⟧.',
+  'woerter': [['Monte-Carlo-Methode', 'Flächen mit vielen zufälligen Punkten schätzen; benannt nach einem Ort mit Spielkasino'], ['Zufallspunkt', 'ein Punkt an einer zufälligen Stelle im Quadrat'],
+              ['Viertelkreis', 'ein Viertel eines Kreises']],
+  'schritte': ['Das Quadrat ist 10 cm × 10 cm groß, also 100 cm². Darin liegt ein Viertelkreis mit r = 10 cm. Im Bild sind 40 Zufallspunkte.',
+               '31 der 40 Punkte liegen im Viertelkreis. Der Anteil ist 31 : 40 = 0,775.', 'Die Fläche hat etwa denselben Anteil am Quadrat: A ≈ 0,775 · 100 cm² = ⟦77,5 cm²⟧.']},
+ 'beurteilen': {
+  'einstieg': 'Ein Elfmeterschütze trifft in 3 von 4 Fällen. Jemand simuliert das mit einem Würfel: 1 bis 4 heißt Treffer. Passt das? Man prüft, ob das Zufallsgerät dieselbe Wahrscheinlichkeit hat. Dann ist die Simulation ⟦geeignet⟧.',
+  'woerter': [['geeignet', 'die Simulation spielt den echten Vorgang richtig nach'], ['75 %', '75 von 100, also 3/4'], ['Trefferfeld', 'das Feld auf dem Glücksrad, das als Treffer zählt']],
+  'schritte': ['Der Schütze trifft mit 75 % = 3/4.', 'Beim Würfel zählen 1 bis 4 als Treffer: 4 von 6, also p = 4/6 ≈ 67 %.',
+               '67 % ist nicht 75 %. Die Simulation ist ⟦nicht geeignet⟧. Ein Glücksrad mit einem 270°-Trefferfeld würde passen, denn 270° von 360° sind 3/4.'],
+  'regel': 'So prüfst du eine Simulation: Hat das Zufallsgerät für jeden Teilvorgang ⟦genau die richtige Wahrscheinlichkeit⟧? Und läuft jeder Durchgang ab wie in Wirklichkeit? Nur dann ist sie ⟦geeignet⟧.'},
+}
+
+for _e in ETAPPEN:
+    _e.update(KLAR.get(_e['lernziel'], {}))
+# ---- KLAR ENDE ----
+
+
 def p_text(p):
     return zt(p) if ist_endlich(p) else bruch(p)
 

@@ -52,6 +52,54 @@ ETAPPEN = [
      '_verbot': ['r = 3 cm, h = 10 cm']},
 ]
 
+
+# ---- KLAR (verständliche Erklärungen, Runde 7) ----
+KLAR = {
+ 'pyramide': {
+  'einstieg': 'Die berühmten Pyramiden in Ägypten haben einen quadratischen Boden und laufen nach oben in einer Spitze zusammen. Auch manche Kirchturmspitzen sehen so aus. Ein Körper mit einem Vieleck als Boden und einer Spitze heißt ⟦Pyramide⟧.',
+  'woerter': [['Pyramide', 'Körper mit einem n-Eck als Grundfläche und Dreiecken, die in einer Spitze zusammenlaufen'], ['Spitze', 'die oberste Ecke, in der alle Seitenkanten zusammenlaufen'],
+              ['n', 'Anzahl der Ecken der Grundfläche'], ['Seitenkante', 'Kante von einer Ecke der Grundfläche zur Spitze'],
+              ['E + F − K = 2', 'Ecken + Flächen − Kanten = 2 (Eulerscher Polyedersatz) – eine Kontrolle fürs Zählen']],
+  'schritte': ['Eine sechsseitige Pyramide hat als Grundfläche ein Sechseck: n = 6.', 'Ecken: 6 Ecken unten und die Spitze, also 7.',
+               'Kanten: 6 Kanten am Boden und 6 Seitenkanten zur Spitze, also 12.', 'Flächen: 6 Dreiecke und das Sechseck unten, zusammen ⟦7⟧.'],
+  'regel': 'So zählst du bei einer ⟦Pyramide⟧ mit n-Eck als Grundfläche: n + 1 Ecken, ⟦2n Kanten⟧ (n unten, n zur ⟦Spitze⟧) und n + 1 Flächen (n Dreiecke und die Grundfläche).'},
+ 'laengen': {
+  'einstieg': 'Wie zeichnet man ein Zelt so ins Heft, dass es räumlich aussieht? Die Front zeichnest du in echter Größe. Was nach hinten geht, zeichnest du schräg und kürzer. Die Zeltstange in der Mitte steht senkrecht – die zeichnest du in voller Länge. So entsteht das ⟦Schrägbild⟧ einer Pyramide.',
+  'woerter': [['Zeichenebene', 'die Fläche deines Hefts'], ['parallel zur Zeichenebene', 'die Strecke liegt „flach“ vor dir und geht nicht nach hinten'],
+              ['ω (Omega)', 'griechischer Buchstabe für den Winkel der Kanten nach hinten, meist 45°'], ['q (Verkürzungsfaktor)', 'Kanten nach hinten werden mit q malgenommen, meist q = 1/2'],
+              ['Fußpunkt F', 'der Punkt unter der Spitze, hier die Mitte der Grundfläche'], ['Höhe', 'der senkrechte Abstand von der Spitze zur Grundfläche']]},
+ 'lage': {
+  'einstieg': 'Unten eine Autobahn, oben eine Straße, die auf einer Brücke quer darüber führt: Die beiden laufen nicht in dieselbe Richtung und treffen sich trotzdem nie. So etwas gibt es nur im Raum, nicht auf einem flachen Blatt. Solche Geraden heißen ⟦windschief⟧.',
+  'woerter': [['Quader ABCDEFGH', 'A, B, C, D sind die Ecken unten; E liegt über A, F über B, G über C, H über D'], ['AB', 'die Gerade durch die Punkte A und B'],
+              ['parallel', 'gleiche Richtung, kein gemeinsamer Punkt'], ['schneiden sich', 'genau ein gemeinsamer Punkt'], ['windschief', 'nicht parallel und trotzdem ohne gemeinsamen Punkt']],
+  'schritte': ['Quader ABCDEFGH wie im Bild.', 'AB läuft unten vorne nach rechts. CG läuft hinten rechts senkrecht nach oben.', 'Die Richtungen sind verschieden, also sind sie nicht parallel.',
+               'Sie treffen sich auch nirgends: AB und CG sind ⟦windschief⟧.'],
+  'regel': 'So entscheidest du: gleiche Richtung → ⟦parallel⟧. Ein gemeinsamer Punkt → ⟦schneiden sich⟧. Weder das eine noch das andere → ⟦windschief⟧.'},
+ 'koordinaten': {
+  'einstieg': 'In einem großen Gebäude findest du einen Raum mit drei Angaben: wie weit den Gang entlang, wie weit nach rechts und in welchem Stockwerk. Genauso beschreibt man einen Punkt im Raum mit drei Zahlen. Sie heißen ⟦Koordinaten im Raum⟧.',
+  'woerter': [['P(x | y | z)', 'ein Punkt mit drei Koordinaten: x, y und z'], ['x-, y-, z-Achse', 'die drei Richtungen: hier entlang AB, entlang AD und nach oben'],
+              ['Ursprung', 'der Punkt (0 | 0 | 0), hier die Ecke A']],
+  'schritte': ['Quader: A liegt im Ursprung (0 | 0 | 0). Er ist 5 lang (x-Richtung), 3 breit (y-Richtung) und 2 hoch (z-Richtung).',
+               'B liegt 5 weit in x-Richtung: B(5 | 0 | 0). C liegt zusätzlich 3 weit in y-Richtung: C(5 | 3 | 0).', 'E liegt 2 über A: E(0 | 0 | 2).',
+               'G liegt 2 über C, also ⟦G(5 | 3 | 2)⟧.']},
+ 'rotation': {
+  'einstieg': 'Drehst du ein Fähnchen an seinem Stab schnell zwischen den Händen, siehst du plötzlich einen runden Körper. Aus einem rechteckigen Fähnchen wird so etwas wie eine Dose. Ein Körper, der durch Drehen einer flachen Figur entsteht, heißt ⟦Rotationskörper⟧.',
+  'woerter': [['Achse', 'die Linie, um die gedreht wird (der Stab)'], ['Rotationskörper', 'ein Körper, der durch Drehen einer Figur um eine Achse entsteht'],
+              ['Kathete', 'eine der beiden Seiten am rechten Winkel eines Dreiecks'], ['Radius r', 'Abstand vom Mittelpunkt bis zum Rand des Kreises']],
+  'schritte': ['Ein Rechteck 4 cm × 7 cm dreht sich um seine 7-cm-Seite.', 'Diese Seite liegt auf der Achse. Sie wird zur Höhe: h = 7 cm.',
+               'Die 4-cm-Seite dreht sich im Kreis um die Achse. Sie wird zum Radius: r = 4 cm.', 'Es entsteht ein ⟦Zylinder mit r = 4 cm und h = 7 cm⟧.']},
+ 'axialschnitt': {
+  'einstieg': 'Schneidest du eine Möhre der Länge nach genau durch die Mitte, siehst du eine Schnittfläche. Bei einer Dose wäre sie ein Rechteck, bei einer Eistüte ein Dreieck. Ein Schnitt genau entlang der Drehachse heißt ⟦Axialschnitt⟧.',
+  'woerter': [['Axialschnitt', 'Schnitt durch einen Rotationskörper genau entlang der Achse'], ['2r', 'der Durchmesser: zweimal der Radius'],
+              ['gleichschenklig', 'ein Dreieck mit zwei gleich langen Seiten']],
+  'schritte': ['Ein Zylinder hat r = 3 cm und h = 10 cm.', 'Der Schnitt geht durch die Mitte und erfasst den ganzen Durchmesser: 2 · 3 cm = 6 cm breit.',
+               'Er ist so hoch wie der Zylinder, also 10 cm. Der Axialschnitt ist ein Rechteck 6 cm × 10 cm.', 'Flächeninhalt: 6 cm · 10 cm = ⟦60 cm²⟧.']},
+}
+
+for _e in ETAPPEN:
+    _e.update(KLAR.get(_e['lernziel'], {}))
+# ---- KLAR ENDE ----
+
 N_ECK = {3: 'dreiseitige', 4: 'vierseitige', 5: 'fünfseitige', 6: 'sechsseitige', 7: 'siebenseitige', 8: 'achtseitige', 10: 'zehnseitige', 12: 'zwölfseitige'}
 
 

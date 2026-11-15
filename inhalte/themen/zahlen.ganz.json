@@ -45,21 +45,47 @@
    {
     "lernziel": "deuten",
     "titel": "Was bedeutet eine negative Zahl?",
-    "regel": "Negative Zahlen liegen ⟦unter null⟧. Sie haben ein Minus davor: −5 °C heißt 5 Grad unter null, −20 € heißt 20 € Schulden.",
+    "regel": "Für alles ⟦unter null⟧ schreibst du ein ⟦Minus⟧ vor die Zahl: 3 Grad unter null sind −3 °C, 20 € Schulden sind −20 €. Ohne Minus liegt die Zahl über null.",
     "schritte": [
-     "Das Thermometer zeigt 3 Grad unter null.",
-     "Unter null heißt negativ: Man schreibt ⟦−3 °C⟧."
+     "Das Thermometer zeigt 3 Grad unter null. Das wollen wir als Zahl schreiben.",
+     "„Unter null“ bedeutet: Es ist eine negative Zahl. Darum kommt ein Minus vor die 3.",
+     "Man schreibt ⟦−3 °C⟧ und sagt „minus drei Grad“.",
+     "Bei Geld geht es genauso: 5 € Schulden schreibt man als ⟦−5 €⟧."
     ],
-    "fehler": "Das Minus weglassen: 3 °C und −3 °C sind verschieden. Bei 3 °C taut Schnee, bei −3 °C friert es."
+    "fehler": "Das Minus weglassen: 3 °C und −3 °C sind sehr verschieden. Bei 3 °C taut der Schnee, bei −3 °C friert die Pfütze zu. Das Minus sagt ⟦unter null⟧ – ohne Minus stimmt die Zahl nicht mehr.",
+    "einstieg": "Im Winter zeigt das Thermometer morgens manchmal weniger als null Grad – dann friert die Pfütze zu. Oder du leihst dir 5 € von deiner Schwester und hast selbst kein Geld: Dann hast du 5 € Schulden. Für solche Werte „unter null“ gibt es Zahlen mit einem Minus davor. Sie heißen ⟦negative Zahlen⟧.",
+    "woerter": [
+     [
+      "negative Zahl",
+      "eine Zahl unter null, mit Minus davor, zum Beispiel −3"
+     ],
+     [
+      "positive Zahl",
+      "eine Zahl über null, zum Beispiel 3 (das Plus schreibt man meist nicht hin)"
+     ],
+     [
+      "−3 °C",
+      "gelesen „minus drei Grad“: 3 Grad unter null"
+     ],
+     [
+      "Schulden",
+      "Geld, das du jemandem zurückgeben musst"
+     ],
+     [
+      "ganze Zahlen",
+      "alle Zahlen ohne Komma: … −2, −1, 0, 1, 2 …"
+     ]
+    ]
    },
    {
     "lernziel": "zahlengerade",
     "titel": "Zahlen auf der Zahlengeraden",
-    "regel": "Links von der 0 stehen die ⟦negativen⟧ Zahlen, rechts die positiven. Nach links wird es immer kleiner: … −3, −2, −1, 0, 1, 2 …",
+    "regel": "So findest du eine Zahl auf der Zahlengeraden: Zuerst ausrechnen, ⟦wie viel ein Abschnitt wert ist⟧ (ganze Länge geteilt durch die Zahl der Abschnitte). Dann vom Anfang aus in diesen Schritten zählen. Links von 0 stehen die ⟦negativen⟧ Zahlen, rechts die positiven.",
     "schritte": [
-     "Die Zahlengerade geht von −10 bis 10. Dazwischen sind 10 gleich lange Abschnitte.",
-     "Von −10 bis 10 sind es 20 Schritte. 20 : 10 = 2, also ist ⟦ein Abschnitt 2 wert⟧.",
-     "Vom Anfang −10 aus zählst du in Zweierschritten: −8, −6, ⟦−4⟧. Die −4 ist der 3. Strich nach dem Anfang."
+     "Die Zahlengerade im Bild geht von −10 bis 10 und hat 10 gleich lange Abschnitte. Gesucht ist der Strich für −4.",
+     "Zuerst klärst du, wie viel ein Abschnitt wert ist. Von −10 bis 0 sind es 10, von 0 bis 10 noch einmal 10, zusammen 20.",
+     "Diese 20 verteilen sich auf 10 Abschnitte: 20 : 10 = 2. Also ist ⟦ein Abschnitt 2 wert⟧.",
+     "Vom linken Ende −10 aus zählst du in Zweierschritten: −8 ist der 1. Strich, −6 der 2., ⟦−4 der 3. Strich⟧."
     ],
     "bild": {
      "typ": "zahlenstrahl",
@@ -69,29 +95,61 @@
      "beschriftet": "anfang_ende",
      "pfeil": 3
     },
-    "fehler": "Jeden Strich als 1 zählen: Dann wäre der 3. Strich nach −10 die −7. Hier ist aber jeder Abschnitt ⟦2⟧ wert. Rechne immer zuerst aus, wie viel ein Abschnitt wert ist."
+    "fehler": "Jeden Strich als 1 zählen: Dann wäre der 3. Strich nach −10 die −7. Das ist, als würdest du am Thermometer jeden Strich als 1 Grad lesen, obwohl er 2 Grad bedeutet. Rechne immer zuerst aus, ⟦wie viel ein Abschnitt wert ist⟧.",
+    "einstieg": "Ein Thermometer hat eine Skala: in der Mitte die 0, darüber die Grade über null, darunter die Grade unter null. Legst du so eine Skala quer hin, hast du eine ⟦Zahlengerade⟧: in der Mitte die 0, rechts die positiven, links die negativen Zahlen.",
+    "woerter": [
+     [
+      "Zahlengerade",
+      "eine Linie, auf der alle Zahlen der Reihe nach stehen – wie ein liegendes Thermometer"
+     ],
+     [
+      "Strich",
+      "eine Markierung auf der Zahlengeraden"
+     ],
+     [
+      "Abschnitt",
+      "das Stück zwischen zwei Strichen; alle Abschnitte sind gleich lang"
+     ]
+    ]
    },
    {
     "lernziel": "ordnen",
     "titel": "Welche Zahl ist kleiner?",
-    "regel": "Die Zahl, die auf der Zahlengeraden ⟦weiter links⟧ steht, ist kleiner. Jede negative Zahl ist kleiner als jede positive.",
+    "regel": "So vergleichst du zwei Zahlen: Die Zahl, die auf der Zahlengeraden ⟦weiter links⟧ steht, ist kleiner. Jede negative Zahl ist kleiner als 0 und kleiner als jede positive Zahl.",
     "schritte": [
-     "Vergleiche −8 und −3: −8 liegt weiter links als −3.",
-     "Also ist ⟦−8 < −3⟧."
+     "Vergleiche −8 und −3. Denke an die Zahlengerade: Je weiter links eine Zahl steht, desto kleiner ist sie.",
+     "−8 liegt 8 Schritte links von der 0, −3 nur 3 Schritte. Also liegt −8 weiter links.",
+     "Darum ist −8 die kleinere Zahl: ⟦−8 < −3⟧."
     ],
     "probe": "Bei −8 °C ist es kälter als bei −3 °C ✓",
-    "fehler": "−8 > −3, „weil 8 größer ist als 3“: Bei negativen Zahlen ist es umgekehrt. Mehr Minus heißt ⟦kleiner⟧."
+    "fehler": "„−8 > −3, weil 8 größer ist als 3“ ist falsch. Am Thermometer merkst du es sofort: −8 °C ist kälter als −3 °C. Bei negativen Zahlen gilt: ⟦mehr Minus heißt kleiner⟧.",
+    "einstieg": "Morgens sind es −8 °C, abends −3 °C. Wann ist es kälter? Am Morgen – da steht das Thermometer tiefer. Auf der liegenden Zahlengeraden heißt „tiefer“: weiter links. Und weiter links bedeutet ⟦kleiner⟧.",
+    "woerter": [
+     [
+      "<",
+      "„ist kleiner als“: −8 < −3 heißt „−8 ist kleiner als −3“. Die Spitze zeigt zur kleineren Zahl."
+     ],
+     [
+      ">",
+      "„ist größer als“: Die offene Seite zeigt zur größeren Zahl."
+     ],
+     [
+      "ordnen",
+      "Zahlen der Größe nach hinschreiben, meist die kleinste zuerst"
+     ]
+    ]
    },
    {
     "lernziel": "betrag",
     "titel": "Betrag und Gegenzahl",
-    "regel": "Der ⟦Betrag⟧ einer Zahl ist ihr Abstand zur 0. Ein Abstand ist nie negativ: |−7| = 7 und |7| = 7. Die ⟦Gegenzahl⟧ liegt gleich weit von der 0 weg, aber auf der anderen Seite: Die Gegenzahl von −7 ist 7.",
+    "regel": "Den ⟦Betrag⟧ findest du, indem du das ⟦Minus weglässt⟧: |−7| = 7 und |7| = 7. Die ⟦Gegenzahl⟧ bekommst du, indem du das ⟦Vorzeichen umdrehst⟧: Aus −7 wird 7, aus 7 wird −7.",
     "schritte": [
-     "Ein Taucher ist 7 m unter dem Meeresspiegel: −7 m.",
-     "Wie weit ist er von der Wasseroberfläche weg? 7 m. Also |−7| = ⟦7⟧.",
-     "Ein Vogel 7 m über dem Wasser ist gleich weit weg, nur auf der anderen Seite: Die Gegenzahl von −7 ist ⟦7⟧."
+     "Der Taucher ist bei −7 m. Wie weit ist er von der Wasseroberfläche, also von der 0, entfernt?",
+     "Auf der Zahlengeraden zählst du von −7 bis 0. Das sind 7 Schritte.",
+     "Also ist der Betrag ⟦|−7| = 7⟧. Auch |7| = 7, denn der Vogel ist genauso weit weg.",
+     "Der Vogel ist gleich weit weg, aber auf der anderen Seite der 0. Darum ist 7 die ⟦Gegenzahl⟧ von −7."
     ],
-    "fehler": "|−7| = −7 ist falsch. Der Betrag fragt nur „wie weit weg?“ – und ein Abstand ist ⟦nie negativ⟧.",
+    "fehler": "|−7| = −7 ist falsch. Der Betrag fragt nur: Wie weit weg? Der Taucher ist 7 m von der Oberfläche entfernt, nicht „minus 7 m“. Ein Abstand ist ⟦nie negativ⟧.",
     "bild": {
      "typ": "zahlenstrahl",
      "start": -10,
@@ -99,19 +157,43 @@
      "abschnitte": 20,
      "beschriftet": "anfang_ende",
      "pfeil": 3
-    }
+    },
+    "einstieg": "Ein Taucher ist 7 m unter dem Wasser, ein Vogel fliegt 7 m über dem Wasser. Der Taucher ist bei −7 m, der Vogel bei 7 m. Trotzdem sind beide gleich weit von der Wasseroberfläche entfernt: 7 m. Diese Entfernung von der 0 heißt ⟦Betrag⟧.",
+    "woerter": [
+     [
+      "Betrag",
+      "wie weit eine Zahl von der 0 entfernt ist – immer ohne Minus"
+     ],
+     [
+      "|−7|",
+      "gelesen „Betrag von minus sieben“; die senkrechten Striche bedeuten Betrag"
+     ],
+     [
+      "Abstand",
+      "wie weit zwei Stellen auseinanderliegen; nie negativ"
+     ],
+     [
+      "Vorzeichen",
+      "das Plus oder Minus vor einer Zahl"
+     ],
+     [
+      "Gegenzahl",
+      "die Zahl, die gleich weit von der 0 entfernt ist, aber auf der anderen Seite: zu −7 gehört 7"
+     ]
+    ]
    },
    {
     "lernziel": "addieren",
     "titel": "Ganze Zahlen addieren",
-    "regel": "Stell dir die Zahlengerade vor. ⟦+ eine positive Zahl⟧: Du gehst nach rechts. ⟦+ eine negative Zahl⟧: Du gehst nach links. Abkürzung: Gleiche Vorzeichen – Beträge addieren. Verschiedene Vorzeichen – Beträge subtrahieren; das Ergebnis hat das Vorzeichen der Zahl, die weiter von der 0 weg ist.",
+    "regel": "So addierst du: ⟦Plus eine positive Zahl⟧ heißt auf der Zahlengeraden nach rechts, ⟦plus eine negative Zahl⟧ heißt nach links. Abkürzung: Bei ⟦gleichen Vorzeichen⟧ die Beträge addieren, das Vorzeichen bleibt: (−3) + (−5) = −8. Bei ⟦verschiedenen Vorzeichen⟧ den kleineren Betrag vom größeren abziehen; das Ergebnis bekommt das Vorzeichen der Zahl mit dem größeren Betrag.",
     "schritte": [
-     "Du hast 7 € Schulden, also −7 €. Dann bekommst du 4 € geschenkt: (−7) + 4.",
-     "Auf der Zahlengeraden: Start bei −7, dann 4 Schritte nach rechts: −6, −5, −4, ⟦−3⟧.",
-     "Du hast noch 3 € Schulden. Mit der Abkürzung: 7 − 4 = 3. Die −7 ist weiter von der 0 weg, also ⟦−3⟧."
+     "Rechne (−7) + 4. Starte auf der Zahlengeraden bei −7 – das sind die 7 € Schulden.",
+     "„+ 4“ heißt: 4 Schritte nach rechts, denn du bekommst Geld dazu. Du zählst −6, −5, −4, −3.",
+     "Du landest bei ⟦−3⟧. Es bleiben 3 € Schulden.",
+     "Die Abkürzung ohne Zählen: Die Vorzeichen sind verschieden, also rechnest du 7 − 4 = 3. Die −7 ist weiter von der 0 entfernt, darum bekommt das Ergebnis ihr Minus: ⟦−3⟧."
     ],
     "probe": "Kontostand: Von 7 € Schulden zahlst du 4 € zurück, es bleiben 3 € Schulden ✓",
-    "fehler": "(−7) + 4 = −11 ist falsch. Wer 4 € dazubekommt, hat danach ⟦weniger⟧ Schulden, nicht mehr. Bei verschiedenen Vorzeichen werden die Beträge ⟦subtrahiert⟧: 7 − 4 = 3, also −3.",
+    "fehler": "(−7) + 4 = −11 ist falsch. Wer 4 € dazubekommt, hat danach ⟦weniger⟧ Schulden, nicht mehr. Bei verschiedenen Vorzeichen werden die Beträge ⟦abgezogen⟧: 7 − 4 = 3, also −3.",
     "bild": {
      "typ": "zahlenstrahl",
      "start": -10,
@@ -119,40 +201,109 @@
      "abschnitte": 20,
      "beschriftet": "anfang_ende",
      "pfeil": 7
-    }
+    },
+    "einstieg": "Du hast 7 € Schulden bei deiner Schwester. Zum Geburtstag bekommst du 4 € und gibst sie ihr gleich. Danach hast du nur noch 3 € Schulden. Mit Zahlen: Von −7 € kommst du durch 4 € dazu auf −3 €. Etwas dazuzählen heißt ⟦addieren⟧ – das geht auch mit negativen Zahlen.",
+    "woerter": [
+     [
+      "addieren",
+      "plus rechnen, etwas dazuzählen"
+     ],
+     [
+      "(−7) + 4",
+      "die Klammer trennt das Minus der Zahl vom Rechenzeichen davor; gelesen „minus sieben plus vier“"
+     ],
+     [
+      "Abkürzung mit Beträgen",
+      "statt Schritte zu zählen, rechnest du mit den Zahlen ohne Vorzeichen und setzt danach das richtige Vorzeichen"
+     ]
+    ]
    },
    {
     "lernziel": "subtrahieren",
     "titel": "Ganze Zahlen subtrahieren",
-    "regel": "Subtrahieren heißt: ⟦die Gegenzahl addieren⟧. Also 3 − 8 = 3 + (−8) und 5 − (−3) = 5 + 3. Warum? Wenn dir jemand ⟦Schulden wegnimmt⟧, wirst du reicher.",
+    "regel": "So subtrahierst du: Mach daraus eine Addition mit der ⟦Gegenzahl⟧. 3 − 8 = 3 + (−8) und ⟦5 − (−3) = 5 + 3⟧. Merkhilfe: Wer dir Schulden wegnimmt, macht dich reicher.",
     "schritte": [
-     "3 − 8: Du hast 3 € und gibst 8 € aus. Das ist 3 + (−8). Von 3 gehst du 8 Schritte nach links: ⟦−5⟧.",
-     "5 − (−3): Du hast 5 €. Jemand streicht dir 3 € Schulden. Danach hast du 3 € mehr: 5 + 3 = ⟦8⟧."
+     "3 − 8: Du hast 3 € und gibst 8 € aus. Auf der Zahlengeraden gehst du von 3 aus 8 Schritte nach links.",
+     "Nach 3 Schritten bist du bei 0, nach 5 weiteren Schritten bei ⟦−5⟧. Das ist dasselbe wie 3 + (−8).",
+     "5 − (−3): Du hast 5 €, und dir werden 3 € Schulden erlassen. Danach hast du 3 € mehr.",
+     "Aus „minus minus 3“ wird also „plus 3“: 5 + 3 = ⟦8⟧."
     ],
     "probe": "Umkehraufgabe: (−5) + 8 = 3 ✓ und 8 + (−3) = 5 ✓",
-    "fehler": "5 − (−3) = 2 ist falsch. Hier werden nicht 3 € weggenommen, sondern ⟦3 € Schulden⟧. Weniger Schulden heißt mehr Geld: 5 − (−3) = 5 + 3 = 8. Vorsicht auch bei (−3) − 5: Das ist (−3) + (−5) = −8, nicht +8 – hier wird ja keine negative Zahl abgezogen."
+    "fehler": "5 − (−3) = 2 ist falsch. Hier werden nicht 3 € weggenommen, sondern ⟦3 € Schulden⟧. Weniger Schulden heißt mehr Geld: 5 − (−3) = 5 + 3 = 8. Vorsicht auch bei (−3) − 5: Das ist (−3) + (−5) = −8, nicht +8 – hier wird keine negative Zahl abgezogen, sondern du gibst noch 5 € mehr aus.",
+    "einstieg": "Du hast 3 € und kaufst etwas für 8 €. Dann fehlen dir 5 €, du stehst bei −5 €. Neu ist: Man kann auch Schulden wegnehmen. Wenn deine Schwester dir 3 € Schulden erlässt, nimmt sie dir etwas Negatives weg – und du stehst danach besser da. Abziehen heißt in Mathe ⟦subtrahieren⟧.",
+    "woerter": [
+     [
+      "subtrahieren",
+      "minus rechnen, etwas abziehen"
+     ],
+     [
+      "5 − (−3)",
+      "gelesen „fünf minus minus drei“: von 5 wird die Zahl −3 abgezogen"
+     ],
+     [
+      "erlassen",
+      "Schulden streichen: Man muss sie nicht mehr zurückzahlen"
+     ],
+     [
+      "Umkehraufgabe",
+      "die Probe mit Plus: Ergebnis plus die abgezogene Zahl ergibt wieder die Startzahl"
+     ]
+    ]
    },
    {
     "lernziel": "ketten",
     "titel": "Mehrere Zahlen hintereinander",
-    "regel": "Schreibe zuerst alles ⟦ohne Klammern⟧: + (−4) wird − 4, − (−4) wird + 4. Dann sammle alle Plus-Zahlen und alle Minus-Zahlen und verrechne sie.",
+    "regel": "So rechnest du eine Rechenkette: ⟦Erst jede Klammer auflösen⟧ („+ (−4)“ wird „− 4“, „− (−4)“ wird „+ 4“). Dann alle Plus-Zahlen zusammenzählen, alle Minus-Zahlen zusammenzählen und ⟦beides voneinander abziehen⟧.",
     "schritte": [
-     "12 − (−5) + (−9) − 4 wird zu 12 + 5 − 9 − 4.",
-     "Plus: 12 + 5 = 17. Minus: 9 + 4 = 13.",
-     "17 − 13 = ⟦4⟧."
+     "Rechne 12 − (−5) + (−9) − 4. Löse zuerst jede Klammer auf: „− (−5)“ wird „+ 5“, und „+ (−9)“ wird „− 9“.",
+     "Ohne Klammern steht jetzt da: 12 + 5 − 9 − 4.",
+     "Zähle alle Plus-Zahlen zusammen: 12 + 5 = 17. Zähle alle Minus-Zahlen zusammen: 9 + 4 = 13.",
+     "Ziehe die Minus-Summe von der Plus-Summe ab: 17 − 13 = ⟦4⟧."
     ],
-    "fehler": "Nur die erste Klammer auflösen und die zweite vergessen. Löse ⟦jede⟧ Klammer auf, bevor du rechnest."
+    "fehler": "Nur die erste Klammer auflösen und die zweite vergessen: 12 + 5 + 9 − 4 = 22 ist falsch, denn „+ (−9)“ bedeutet 9 € ausgeben. Löse ⟦jede⟧ Klammer auf, bevor du rechnest – wie beim Taschengeld, wo du keine Ausgabe übersehen darfst.",
+    "einstieg": "In einer Woche passiert viel mit deinem Taschengeld: 12 € bekommen, 5 € Schulden erlassen, 9 € ausgegeben, noch einmal 4 € ausgegeben. Am Ende willst du wissen, wie viel übrig ist. Dazu rechnest du viele Plus- und Minus-Schritte hintereinander – eine ⟦Rechenkette⟧.",
+    "woerter": [
+     [
+      "Rechenkette",
+      "mehrere Plus- und Minusrechnungen hintereinander"
+     ],
+     [
+      "Klammer auflösen",
+      "„+ (−9)“ als „− 9“ schreiben und „− (−5)“ als „+ 5“ – dann stehen keine Klammern mehr da"
+     ]
+    ]
    },
    {
     "lernziel": "sach",
     "titel": "Negative Zahlen im Alltag rechnen",
-    "regel": "Übersetze die Geschichte in eine Rechnung: Startwert, dann jede Änderung. ⟦Wärmer, einzahlen, steigen⟧ ist Plus. ⟦Kälter, abheben, sinken⟧ ist Minus.",
+    "regel": "So übersetzt du eine Geschichte in eine Rechnung: ⟦Startwert⟧ hinschreiben, dann jede Änderung dazu. ⟦Wärmer, einzahlen, steigen⟧ ist Plus. ⟦Kälter, abheben, sinken⟧ ist Minus.",
     "schritte": [
-     "Morgens sind es −4 °C. Bis mittags wird es 7 Grad wärmer.",
-     "Rechnung: −4 + 7 = ⟦3⟧. Mittags sind es 3 °C."
+     "Morgens sind es −4 °C. Das ist der Startwert.",
+     "Bis mittags wird es 7 Grad wärmer. „Wärmer“ heißt Plus, also + 7.",
+     "Die Rechnung lautet −4 + 7. Auf der Zahlengeraden gehst du von −4 aus 7 Schritte nach rechts.",
+     "Du landest bei ⟦3⟧. Mittags sind es 3 °C."
     ],
     "probe": "Von −4 bis 0 sind es 4 Grad, dann noch 3 weiter ✓",
-    "fehler": "Den Startwert ohne Minus einsetzen: 4 + 7 = 11 wäre der Start bei +4 °C, nicht bei ⟦−4 °C⟧."
+    "fehler": "Den Startwert ohne Minus nehmen: 4 + 7 = 11 hieße, es wäre morgens schon 4 Grad warm gewesen. Es waren aber ⟦−4 °C⟧, also 4 Grad unter null.",
+    "einstieg": "Die Wetter-App sagt: morgens −4 °C, bis mittags wird es 7 Grad wärmer. Wie warm ist es dann? Solche Fragen aus dem Alltag löst du, indem du die Geschichte in eine Rechnung übersetzt. Solche Aufgaben heißen ⟦Sachaufgaben⟧.",
+    "woerter": [
+     [
+      "Sachaufgabe",
+      "eine Rechenaufgabe, die als kleine Geschichte erzählt wird"
+     ],
+     [
+      "Startwert",
+      "die Zahl, mit der die Geschichte beginnt"
+     ],
+     [
+      "Änderung",
+      "was dazukommt (Plus) oder weggeht (Minus)"
+     ],
+     [
+      "Meeresspiegel",
+      "die Höhe 0 m; wer tiefer ist, hat eine negative Höhe"
+     ]
+    ]
    }
   ],
   "teilfaehigkeiten": [

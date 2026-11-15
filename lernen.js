@@ -63,7 +63,10 @@ function lernReiseDaten(u, kindId) {
   const gruppe = (e) => {
     const r = route.get(e.block_id);
     if (kind.ist_test || !kind.route?.length) return 'jetzt';
-    if (mitPlan && !r) return 'spaeter';
+    if (mitPlan && !r) { // nicht im Plan: frühere Klassen heißen „zum Auffrischen“, der Rest „später“
+      const k0 = e.jahrgang?.[kind.schulart || 'gym_by'] ?? e.ziel_klasse;
+      return k0 && kind.klasse && k0 < kind.klasse ? 'frueher' : 'spaeter';
+    }
     if (r?.kann_schon || r?.status === 'fertig') return 'kann'; // geschaffte Orte wandern zu „zum Wiederholen“
     if (mitPlan) return 'jetzt'; // im Plan: Eltern/Lehrer haben es bewusst eingeplant
     // Ohne Plan entscheidet die Klasse laut Lehrplan der Schulart: höhere Klassen später,

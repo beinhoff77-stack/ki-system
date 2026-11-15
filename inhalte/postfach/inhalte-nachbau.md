@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-15 13:20 – STATUS
+gleichungen.linear fertig: 6 Lernkarten (waage, beide_seiten, klammern, probe, sonderfaelle, sach), 162 Aufgaben, Prüfskript OK, alle Zahl-Aufgaben über „c“ nachgerechnet, zusätzlich 62 Gleichungen und alle Bruchlösungen (□/□) durch Einsetzen geprüft. Waage-Bild bei Äquivalenzumformung und „x auf beiden Seiten“, Rechteck-Bild für das Auflösen der Klammer.
+
 ## 2026-11-15 12:30 – STATUS
 groessen.indirekt fertig: 7 Lernkarten (erkennen, vervielfachen, produkt, dreisatz, graph, unterscheiden, sach), 189 Aufgaben, Prüfskript OK, alle Zahl-Aufgaben über „c“ nachgerechnet. Wertetabellen als Bild (tabelle), Hyperbeln als Koordinatensystem (auch Hyperbel neben Ursprungsgerade und zwei Hyperbeln zum Vergleich). Sachgrößen auf realistische Bereiche begrenzt (z. B. höchstens 60 Kinder pro Bus, höchstens 6 Bagger). Weiter mit gleichungen.linear.
 

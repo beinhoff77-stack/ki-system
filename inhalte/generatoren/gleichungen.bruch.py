@@ -58,6 +58,66 @@ ETAPPEN = [
 ]
 
 
+# ---- KLAR (verständliche Erklärungen, Runde 7) ----
+KLAR = {
+ 'definitionsmenge': {
+  'einstieg': 'Eine Klasse mietet einen Bus für 600 €. Fahren x Kinder mit, zahlt jedes 600/x Euro. Die Lehrerin sagt: „Jeder zahlt 25 €.“ Wie viele fahren mit? Das ist eine Gleichung mit x im Nenner – eine ⟦Bruchgleichung⟧. Bevor man rechnet, streicht man alle Zahlen, für die ein Nenner 0 würde.',
+  'woerter': [['Bruchgleichung', 'eine Gleichung, in der x im Nenner eines Bruchs steht'], ['Nenner', 'was unter dem Bruchstrich steht; er darf nie 0 sein'],
+              ['D', 'Definitionsmenge: alle Zahlen, die man für x einsetzen darf'], ['ℚ \\ {−4; 1}', 'alle Bruchzahlen außer −4 und 1']],
+  'schritte': ['Gleichung: 2/(x − 1) = 3/(x + 4).', 'Linker Nenner: x − 1 ist 0 für x = 1. Diese Zahl muss raus.', 'Rechter Nenner: x + 4 ist 0 für x = −4. Auch diese Zahl muss raus.',
+               'Also ⟦D = ℚ \\ {−4; 1}⟧.'],
+  'regel': 'So bestimmst du D bei einer ⟦Bruchgleichung⟧: ⟦jeden⟧ Nenner gleich 0 setzen und diese x-Werte streichen – noch bevor du irgendetwas anderes rechnest.'},
+ 'ein_bruch': {
+  'einstieg': 'Zurück zum Bus: 600/x = 25. Du fragst: 600 geteilt durch wie viele ergibt 25? Rechnerisch nimmst du beide Seiten mit dem Nenner x mal. Dann ist der Bruch verschwunden: 600 = 25 · x, also x = 24. Übrig bleibt eine ⟦lineare Gleichung⟧, wie du sie schon lösen kannst.',
+  'woerter': [['lineare Gleichung', 'eine Gleichung, in der x ohne Hochzahl vorkommt, z. B. 3x − 6 = 12'], ['· (x − 2)', 'beide Seiten mit der ganzen Klammer malnehmen'],
+              ['liegt in D', 'die Zahl ist erlaubt, kein Nenner wird 0']],
+  'schritte': ['Gleichung: 12/(x − 2) = 3. Zuerst D: x − 2 darf nicht 0 sein, also D = ℚ \\ {2}.',
+               'Beide Seiten mit (x − 2) malnehmen. Links fällt der Nenner weg: 12 = 3 · (x − 2) = 3x − 6.',
+               'Auf beiden Seiten 6 dazuzählen: 18 = 3x. Durch 3 teilen: ⟦x = 6⟧.',
+               'Kontrolle: 6 liegt in D. Schneller geht es mit der Frage „12 geteilt durch was ergibt 3?“ – durch 4, also x − 2 = 4.'],
+  'regel': 'So löst du: D bestimmen, dann beide Seiten mit dem ⟦Nenner⟧ malnehmen. Es bleibt eine ⟦lineare Gleichung⟧. Zum Schluss prüfen, ob die Lösung in ⟦D⟧ liegt.'},
+ 'ueber_kreuz': {
+  'einstieg': 'Ob zwei Brüche gleich groß sind, kann man ohne Kommazahlen prüfen: 2/3 und 4/6 sind gleich, weil 2 · 6 und 3 · 4 beide 12 ergeben. Dieses Malnehmen „über Kreuz“ klappt auch, wenn x in den Nennern steht. Es heißt ⟦über Kreuz multiplizieren⟧.',
+  'woerter': [['über Kreuz multiplizieren', 'Zähler links mal Nenner rechts = Zähler rechts mal Nenner links'], ['a/b = c/d', 'zwei Brüche, die gleich sein sollen'],
+              ['ausmultiplizieren', 'Klammer auflösen, z. B. 4(x − 3) = 4x − 12']],
+  'schritte': ['Gleichung: 4/(x + 1) = 2/(x − 3). Zuerst D = ℚ \\ {−1; 3}.',
+               'Über Kreuz: Zähler links mal Nenner rechts, Zähler rechts mal Nenner links: 4(x − 3) = 2(x + 1).', 'Ausmultiplizieren: 4x − 12 = 2x + 2.',
+               '2x abziehen und 12 dazuzählen: 2x = 14, also ⟦x = 7⟧. 7 liegt in D.']},
+ 'hauptnenner': {
+  'einstieg': 'Stehen in einer Gleichung mehrere Brüche, ist es mühsam, mit jedem einzeln zu rechnen. Besser: alles mit einem Term malnehmen, in den jeder Nenner hineinpasst – dann verschwinden alle Brüche auf einmal. Dieser Term ist der ⟦Hauptnenner⟧ (HN).',
+  'woerter': [['Hauptnenner (HN)', 'der kleinste Term, durch den jeder Nenner teilbar ist'], ['Glied', 'jeder durch + oder − getrennte Teil einer Seite'],
+              ['| · 2x', 'Randnotiz: Jedes Glied auf beiden Seiten wird mit 2x malgenommen.']],
+  'schritte': ['Gleichung: 5/x + 1/(2x) = 2. Die Nenner sind x und 2x; beide passen in 2x. Also HN = 2x.',
+               'Jedes Glied mal 2x: 5/x · 2x = 10, 1/(2x) · 2x = 1 und 2 · 2x = 4x.', 'Es bleibt 10 + 1 = 4x, also 11 = 4x.',
+               'Durch 4 teilen: ⟦x = 2,75⟧. 2,75 ist nicht 0, liegt also in D.'],
+  'regel': 'So gehst du vor: den ⟦Hauptnenner⟧ suchen und ⟦jedes Glied⟧ auf beiden Seiten damit malnehmen. Danach steht kein Bruch mehr da.'},
+ 'scheinloesung': {
+  'einstieg': 'Stell dir vor, eine Rechnung zum Busausflug ergibt: „Es fahren 0 Kinder mit.“ Dann müsste jedes 600/0 € zahlen – das ergibt keinen Sinn, obwohl die Zahl ausgerechnet wurde. Auch Bruchgleichungen liefern manchmal eine Zahl, die gar nicht eingesetzt werden darf. So eine Zahl heißt ⟦Scheinlösung⟧.',
+  'woerter': [['Scheinlösung', 'eine ausgerechnete Zahl, die nicht in D liegt – also keine echte Lösung'], ['L', 'Lösungsmenge: alle echten Lösungen'],
+              ['L = { }', 'leere Menge: Es gibt keine Lösung.']],
+  'schritte': ['Gleichung: (x + 1)/(x − 3) = 4/(x − 3). Zuerst D: x darf nicht 3 sein.', 'Beide Seiten mit (x − 3) malnehmen: x + 1 = 4.', 'Auf beiden Seiten 1 abziehen: x = 3.',
+               'Aber 3 liegt nicht in D. Es ist eine Scheinlösung, also ⟦L = { }⟧.']},
+ 'verhaeltnis': {
+  'einstieg': 'Für Pfannkuchen nimmst du auf 4 Eier 10 Esslöffel Mehl. Du hast aber 6 Eier und willst mehr Teig. Das Verhältnis von Mehl zu Eiern soll gleich bleiben, sonst wird der Teig zu dünn oder zu fest. Setzt man zwei gleiche Verhältnisse gleich, entsteht eine ⟦Verhältnisgleichung⟧.',
+  'woerter': [['Verhältnis a : b', '„a zu b“, z. B. 10 Löffel Mehl zu 4 Eiern'], ['Außenglieder', 'die beiden äußeren Zahlen in a : b = c : d, also a und d'],
+              ['Innenglieder', 'die beiden inneren Zahlen, also b und c'], ['Produktgleichheit', 'Außenglieder mal Außenglieder = Innenglieder mal Innenglieder'], ['EL', 'Esslöffel']],
+  'schritte': ['Gesucht sind x Esslöffel Mehl für 6 Eier. Das Verhältnis Mehl : Eier bleibt gleich: x : 6 = 10 : 4.',
+               'Außenglieder x und 4 malnehmen, Innenglieder 6 und 10 malnehmen: 4 · x = 6 · 10 = 60.', 'Beide Seiten durch 4 teilen: ⟦x = 15⟧ Esslöffel Mehl.'],
+  'regel': 'So löst du eine ⟦Verhältnisgleichung⟧ a : b = c : d: Schreibe die ⟦Produktgleichheit⟧ a · d = b · c auf und löse nach x auf.'},
+ 'graphisch': {
+  'einstieg': 'Statt zu rechnen, kannst du beide Seiten einer Gleichung zeichnen. Wo sich die beiden Linien treffen, haben beide Seiten denselben Wert – dort ist die Gleichung erfüllt. Die Stellen, an denen sich zwei Graphen treffen, heißen ⟦Schnittpunkte⟧.',
+  'woerter': [['Graph', 'die Linie, die man zu einer Funktion zeichnet'], ['Hyperbel', 'der Graph von y = 6/x: zwei geschwungene Äste'], ['Gerade', 'der Graph von y = x − 1'],
+              ['Schnittpunkt', 'ein Punkt, der auf beiden Graphen liegt'], ['(3 | 2)', 'der Punkt mit x = 3 und y = 2']],
+  'schritte': ['Gleichung: 6/x = x − 1. Die linke Seite zeichnest du als Hyperbel y = 6/x, die rechte als Gerade y = x − 1.',
+               'Im Bild schneiden sich die Graphen in (3 | 2) und in (−2 | −3).', 'Gesucht ist x. Also nimmst du die x-Werte der Schnittpunkte.',
+               'Die Lösungen sind ⟦x = 3⟧ und ⟦x = −2⟧.']},
+}
+
+for _e in ETAPPEN:
+    _e.update(KLAR.get(_e['lernziel'], {}))
+# ---- KLAR ENDE ----
+
+
 def quad1(p, q):
     """x² + p·x + q mit richtigen Vorzeichen."""
     t = lin(p, q) if p else zt(q)

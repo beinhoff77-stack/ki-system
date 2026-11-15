@@ -1,0 +1,543 @@
+#!/usr/bin/env python3
+"""Thema gleichungen.einfach – Einfache Gleichungen (Gymnasium Bayern, Klasse 5). Nachbau Runde 5.
+
+Waage-Modell, Umkehraufgaben (Plus/Minus, Mal/Geteilt, zwei Schritte), Probe und Fehler finden,
+Textaufgaben als Gleichung, Vertiefung: Gleichungen ohne Lösung in ℕ.
+Schreibweise Klasse 5: Malpunkt sichtbar (3 · x), Variable x als Platzhalter für eine unbekannte Zahl.
+"""
+import sys
+from pathlib import Path
+sys.dont_write_bytecode = True
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _nachbau import A, Z, baue, gl, mit_bild, tabelle, waage, zt  # noqa: E402
+
+META = {'thema_schluessel': 'gleichungen.einfach', 'thema_id': 1, 'block_id': 64, 'klasse': {'gym_by': 5, 'rs_by': 6, 'ib_myp': 1}}
+
+ETAPPEN = [
+    {'lernziel': 'waage', 'titel': 'Eine Gleichung ist wie eine Waage',
+     'regel': 'Eine ⟦Gleichung⟧ ist wie eine Waage im Gleichgewicht: Links ist genauso viel wie rechts. Das x steht für eine ⟦unbekannte Zahl⟧. '
+              'Die Zahl, die die Waage im Gleichgewicht hält, heißt ⟦Lösung⟧. Nimmst du auf ⟦beiden Seiten⟧ dasselbe weg, bleibt die Waage im Gleichgewicht.',
+     'schritte': ['Links liegen eine Dose mit x Murmeln und 3 einzelne Murmeln. Rechts liegen 10 Murmeln. Die Waage ist im Gleichgewicht: x + 3 = 10.',
+                  'Nimm auf beiden Seiten 3 Murmeln weg. Links bleibt nur die Dose, rechts bleiben 7 Murmeln: ⟦x = 7⟧.'],
+     'probe': '7 + 3 = 10 ✓',
+     'fehler': 'Nur auf einer Seite etwas wegnehmen: Wer links die 3 Murmeln wegnimmt und rechts nicht, bekommt x = 10. '
+               'Aber 10 + 3 = 13, nicht 10 – die Waage kippt. Was du links tust, tust du auch ⟦rechts⟧.',
+     'bild': waage('x + 3', '10'),
+     '_verbot': ['x + 3 = 10']},
+    {'lernziel': 'umkehr_plus', 'titel': 'Plus und Minus rückwärts rechnen',
+     'regel': 'Bei x + 8 = 20 fragst du: Welche Zahl plus 8 ergibt 20? Du rechnest ⟦rückwärts⟧. Die Umkehrung von Plus ist ⟦Minus⟧: x = 20 − 8. '
+              'Die Umkehrung von Minus ist ⟦Plus⟧: Bei x − 15 = 27 ist x = 27 + 15.',
+     'schritte': ['Im Geldbeutel war Geld. Nach einem Einkauf für 15 € sind noch 27 € darin: x − 15 = 27.',
+                  'Rückwärts: Leg die 15 € wieder hinein. 27 + 15 = ⟦42⟧. Vorher waren 42 € im Geldbeutel.'],
+     'probe': '42 − 15 = 27 ✓',
+     'fehler': 'Bei x − 15 = 27 rechnen viele 27 − 15 = 12. Probe: 12 − 15 ergibt nicht 27. '
+               'Wer etwas ausgegeben hat, hatte vorher ⟦mehr⟧ Geld. Die Umkehrung von Minus ist Plus: 27 + 15 = 42.',
+     '_verbot': ['x − 15 = 27']},
+    {'lernziel': 'umkehr_mal', 'titel': 'Mal und Geteilt rückwärts rechnen',
+     'regel': 'Die Umkehrung von Mal ist ⟦Geteilt⟧: Bei 4 · x = 12 ist x = 12 : 4. Die Umkehrung von Geteilt ist ⟦Mal⟧: Bei x : 4 = 12 ist x = 12 · 4.',
+     'schritte': ['4 gleich teure Hefte kosten zusammen 12 €: 4 · x = 12.',
+                  'Rückwärts: Verteile die 12 € auf 4 Hefte. 12 : 4 = ⟦3⟧. Ein Heft kostet 3 €.'],
+     'probe': '4 · 3 = 12 ✓',
+     'fehler': 'Bei x : 4 = 12 rechnen viele 12 : 4 = 3. Probe: 3 : 4 ergibt nicht 12. '
+               'Eine Pizza wurde in 4 gleiche Teile geteilt, jedes Teil wiegt 12 dag – die ganze Pizza wiegt ⟦mehr⟧, nämlich 12 · 4 = 48 dag.',
+     '_verbot': ['4 · x = 12', 'x : 4 = 12']},
+    {'lernziel': 'zwei_schritte', 'titel': 'Zwei Rechenschritte rückwärts',
+     'regel': 'Bei 3 · x + 4 = 19 wurde x erst ⟦mal 3⟧ genommen, dann ⟦plus 4⟧ gerechnet. Du gehst die Rechenkette rückwärts: '
+              'Den ⟦letzten⟧ Schritt kehrst du zuerst um. Also erst − 4, dann : 3.',
+     'schritte': ['3 Kinokarten und eine Tüte Popcorn für 4 € kosten zusammen 19 €: 3 · x + 4 = 19.',
+                  'Erst das Popcorn abziehen: 19 − 4 = 15. So viel kosten die 3 Karten.',
+                  'Dann auf 3 Karten verteilen: 15 : 3 = ⟦5⟧. Eine Karte kostet 5 €.'],
+     'probe': '3 · 5 + 4 = 15 + 4 = 19 ✓',
+     'fehler': 'Die Schritte in der falschen Reihenfolge umkehren. Bei 2 · x + 6 = 20 rechnet man falsch 20 : 2 = 10 und dann 10 − 6 = 4. '
+               'Probe: 2 · 4 + 6 = 14, nicht 20. Richtig ist ⟦erst − 6, dann : 2⟧: 20 − 6 = 14, 14 : 2 = 7.',
+     'bild': tabelle(['', 'Start', '1. Schritt', 'Zwischenwert', '2. Schritt', 'Ende'],
+                     [['vorwärts', 'x', '· 3', '?', '+ 4', '19'], ['rückwärts', '5', ': 3', '15', '− 4', '19']]),
+     '_verbot': ['3 · x + 4 = 19', '2 · x + 6 = 20']},
+    {'lernziel': 'probe', 'titel': 'Probe machen und Fehler finden',
+     'regel': 'Mit der ⟦Probe⟧ prüfst du eine Lösung: Setze die Zahl für x in die ⟦ursprüngliche Gleichung⟧ ein und rechne links aus. '
+              'Kommt dasselbe heraus wie rechts, ist die Waage im Gleichgewicht und die Lösung ⟦stimmt⟧.',
+     'schritte': ['Jemand hat 5 · x − 8 = 27 gelöst und x = 7 herausbekommen.',
+                  'Probe: 5 · 7 − 8 = 35 − 8 = 27. Rechts steht auch 27, also ⟦stimmt⟧ die Lösung.'],
+     'fehler': 'Die Probe mit der eigenen Rechnung statt mit der Gleichung machen. Wer bei x − 15 = 27 falsch 27 − 15 = 12 rechnet und dann prüft '
+               '„27 − 15 = 12 ✓“, findet seinen Fehler nie. Setze immer in die ⟦Gleichung⟧ ein: 12 − 15 ergibt nicht 27.',
+     '_verbot': ['5 · x − 8 = 27']},
+    {'lernziel': 'aufstellen', 'titel': 'Textaufgaben als Gleichung',
+     'regel': 'Die gesuchte Zahl nennst du ⟦x⟧. Dann übersetzt du den Text Stück für Stück: „das Dreifache“ heißt 3 · x, „vermehrt um 5“ heißt + 5, '
+              '„ergibt“ oder „kostet zusammen“ heißt ⟦=⟧. Stell dir die Waage vor: Was liegt links, was rechts?',
+     'schritte': ['Eine Packung Sammelkarten und ein Album für 2 € kosten zusammen 9 €. Wie teuer ist die Packung?',
+                  'Links: Packung x und 2 €. Rechts: 9 €. Gleichung: x + 2 = 9.',
+                  'Rückwärts: 9 − 2 = ⟦7⟧. Die Packung kostet 7 €.'],
+     'probe': '7 + 2 = 9 ✓',
+     'fehler': '„Das Doppelte einer Zahl, vermindert um 4, ergibt 10“ ist nicht 2 · (x − 4) = 10. Erst wird verdoppelt, dann 4 abgezogen: '
+               '⟦2 · x − 4 = 10⟧, also x = 7. Mit der falschen Gleichung käme 9 heraus – aber 2 · 9 − 4 = 14, nicht 10.',
+     '_verbot': ['x + 2 = 9']},
+    {'lernziel': 'ohne_loesung', 'titel': 'Gibt es immer eine Lösung?',
+     'regel': 'Nicht jede Gleichung hat eine Lösung in den ⟦natürlichen Zahlen⟧ ℕ = {0; 1; 2; 3; …}. x + 9 = 4 hat dort keine: Eine natürliche Zahl plus 9 ist mindestens 9. '
+              'Mit den ⟦ganzen Zahlen⟧ geht es: x = −5. Auch 3 · x = 10 hat in ℕ keine Lösung, denn 10 ist ⟦nicht durch 3 teilbar⟧.',
+     'schritte': ['Ein Aufzug fährt 9 Stockwerke nach oben und hält im 4. Stock: x + 9 = 4.',
+                  'Rückwärts: 4 − 9. Das ist keine natürliche Zahl. Mit ganzen Zahlen: 4 − 9 = ⟦−5⟧. Der Aufzug ist im 5. Untergeschoss losgefahren.'],
+     'probe': '(−5) + 9 = 4 ✓',
+     'fehler': 'Bei x + 9 = 4 einfach 9 − 4 = 5 rechnen. Probe: 5 + 9 = 14, nicht 4. Die Umkehrung ist 4 − 9, und das ist ⟦keine natürliche Zahl⟧.',
+     '_verbot': ['x + 9 = 4']},
+]
+
+
+# ---------------- Waage ----------------
+def g_waage(R, s):
+    if s == 1:
+        a, x = R.randint(2, 9), R.randint(1, 15)
+        b = x + a
+        if R.random() < .6:
+            return mit_bild(Z(f'Die Waage ist im Gleichgewicht: x + {a} = {b}. Welche Zahl ist x?', x, f'{b} - {a}',
+                              f'Auf beiden Seiten {a} wegnehmen: x = {b} − {a} = {x}. Probe: {x} + {a} = {b} ✓',
+                              'Was musst du auf beiden Seiten wegnehmen, damit links nur x bleibt?'), waage(f'x + {a}', str(b)))
+        n = R.choice([x, x, b, b + a])
+        if n == x:
+            return A(R, f'Ist {n} eine Lösung von x + {a} = {b}?', f'Ja, denn {n} + {a} = {b}.',
+                     [f'Nein, denn {n} ist kleiner als {b}.', f'Nein, die Lösung muss {b} sein.'],
+                     f'Einsetzen: {n} + {a} = {b}. Links und rechts steht dasselbe, die Waage ist im Gleichgewicht.',
+                     'Setze die Zahl für x ein und rechne die linke Seite aus.')
+        return A(R, f'Ist {n} eine Lösung von x + {a} = {b}?', f'Nein, denn {n} + {a} = {n + a}, nicht {b}.',
+                 [f'Ja, denn {n} + {a} = {b}.', f'Ja, x ist immer die Zahl rechts.'],
+                 f'Einsetzen: {n} + {a} = {n + a}. Rechts steht aber {b}. Die Lösung ist {x}, denn {x} + {a} = {b}.',
+                 'Setze die Zahl für x ein und rechne die linke Seite aus.')
+    if s == 2:
+        art = R.choice(['bild', 'bild', 'umgekehrt', 'beide', 'probieren'])
+        a, x = R.randint(5, 30), R.randint(4, 40)
+        b = x + a
+        if art == 'bild':
+            return mit_bild(Z(f'Die Waage ist im Gleichgewicht: x + {a} = {b}. Welche Zahl ist x?', x, f'{b} - {a}',
+                              f'Auf beiden Seiten {a} wegnehmen: x = {b} − {a} = {x}. Probe: {x} + {a} = {b} ✓',
+                              'Nimm auf beiden Seiten dasselbe weg.'), waage(f'x + {a}', str(b)))
+        if art == 'umgekehrt':
+            return mit_bild(Z(f'Die Waage ist im Gleichgewicht: {b} = x + {a}. Welche Zahl ist x?', x, f'{b} - {a}',
+                              f'Jetzt liegt x rechts. Auf beiden Seiten {a} wegnehmen: {b} − {a} = x, also x = {x}.',
+                              'Die Gleichung steht andersherum. Das ändert nichts: Nimm auf beiden Seiten dasselbe weg.'), waage(str(b), f'x + {a}'))
+        if art == 'beide':
+            return A(R, f'Auf der Waage liegt links x + {a}, rechts {b}. Du nimmst links {a} weg. Was musst du rechts tun, damit die Waage im Gleichgewicht bleibt?',
+                     f'Rechts auch {a} wegnehmen.', ['Rechts nichts ändern.', f'Rechts {a} dazulegen.', f'Rechts alles wegnehmen.'],
+                     f'Was links passiert, muss auch rechts passieren: {b} − {a} = {x}. Dann gilt x = {x}.',
+                     'Eine Waage bleibt nur im Gleichgewicht, wenn beide Seiten gleich verändert werden.')
+        return A(R, f'Welche Zahl ist die Lösung von {a} + x = {b}? Probiere aus.', str(x), [str(b), str(b + a), str(a)],
+                 f'{a} + {x} = {b} ✓. Mit {b} käme {a + b} heraus, mit {a} nur {2 * a}.',
+                 'Setze jede Zahl für x ein und rechne nach.')
+    art = R.choice(['zwei', 'drei', 'x_beide'])
+    if art == 'zwei':
+        x, a = R.randint(2, 15), R.randint(2, 9)
+        b = 2 * x + a
+        return mit_bild(Z(f'Links liegen zwei gleiche Dosen mit je x Murmeln und {a} Murmeln, rechts {b} Murmeln. Die Waage ist im Gleichgewicht. Wie viele Murmeln sind in einer Dose?',
+                          x, f'({b} - {a}) // 2', f'Erst auf beiden Seiten {a} Murmeln wegnehmen: In zwei Dosen sind zusammen {b - a} Murmeln. In einer Dose: {b - a} : 2 = {x}.',
+                          'Nimm zuerst die einzelnen Murmeln weg. Dann teile auf die Dosen auf.'), waage(f'x + x + {a}', str(b)))
+    if art == 'drei':
+        x = R.randint(2, 12)
+        b = 3 * x
+        return mit_bild(Z(f'Links liegen drei gleiche Dosen mit je x Murmeln, rechts {b} Murmeln. Die Waage ist im Gleichgewicht. Wie viele Murmeln sind in einer Dose?',
+                          x, f'{b} // 3', f'In drei Dosen sind zusammen {b} Murmeln. In einer Dose ist ein Drittel davon: {b} : 3 = {x}.',
+                          'Verteile die Murmeln rechts gleichmäßig auf die Dosen.'), waage('x + x + x', str(b)))
+    x, a = R.randint(2, 20), R.randint(2, 9)
+    b = x + a
+    return mit_bild(Z(f'Links liegen zwei gleiche Dosen und {a} Murmeln, rechts eine solche Dose und {b} Murmeln. Die Waage ist im Gleichgewicht. Wie viele Murmeln sind in einer Dose?',
+                      x, f'{b} - {a}', f'Auf beiden Seiten eine Dose wegnehmen: links x + {a}, rechts {b}. Dann {a} wegnehmen: x = {b} − {a} = {x}.',
+                      'Auf beiden Seiten liegt mindestens eine Dose. Was kannst du wegnehmen?'), waage(f'x + x + {a}', f'x + {b}'))
+
+
+# ---------------- Plus und Minus ----------------
+def g_umkehr_plus(R, s):
+    if s == 1:
+        a, x = R.randint(2, 20), R.randint(1, 40)
+        if R.random() < .5:
+            b = x + a
+            return Z(f'Löse x + {a} = {b}.', x, f'{b} - {a}', f'Umkehrung von Plus ist Minus: x = {b} − {a} = {x}. Probe: {x} + {a} = {b} ✓',
+                     'Welche Zahl plus ' + str(a) + ' ergibt ' + str(b) + '? Rechne rückwärts.')
+        x = x + a
+        b = x - a
+        return Z(f'Löse x − {a} = {b}.', x, f'{b} + {a}', f'Umkehrung von Minus ist Plus: x = {b} + {a} = {x}. Probe: {x} − {a} = {b} ✓',
+                 'Rechne rückwärts. Was ist die Umkehrung von Minus?')
+    if s == 2:
+        art = R.choice(['plus', 'minus', 'vorne', 'rechnung'])
+        a, x = R.randint(12, 250), R.randint(10, 400)
+        if art == 'plus':
+            b = x + a
+            return Z(f'Löse x + {a} = {b}.', x, f'{b} - {a}', f'x = {b} − {a} = {x}. Probe: {x} + {a} = {b} ✓', 'Umkehrung von Plus ist Minus.')
+        if art == 'vorne':
+            b = x + a
+            return Z(f'Löse {a} + x = {b}.', x, f'{b} - {a}', f'Ob x vorne oder hinten steht, ist bei Plus egal: x = {b} − {a} = {x}. Probe: {a} + {x} = {b} ✓',
+                     'Die Reihenfolge beim Addieren ist egal. Rechne rückwärts.')
+        if art == 'minus':
+            x = x + a
+            b = x - a
+            return Z(f'Löse x − {a} = {b}.', x, f'{b} + {a}', f'x = {b} + {a} = {x}. Probe: {x} − {a} = {b} ✓', 'Umkehrung von Minus ist Plus.')
+        x = x + a
+        b = x - a
+        return A(R, f'Welche Rechnung führt zur Lösung von x − {a} = {b}?', f'{b} + {a}', [f'{b} − {a}', f'{a} − {b}', f'{a} + {a}'],
+                 f'Von x wurde {a} abgezogen. Rückwärts wird {a} wieder addiert: x = {b} + {a} = {x}.',
+                 'Was ist die Umkehrung von Minus?')
+    art = R.choice(['a_minus_x', 'a_minus_x', 'rechnung', 'rechts_summe'])
+    if art == 'a_minus_x':
+        a = R.randint(30, 200)
+        b = R.randint(5, a - 5)
+        x = a - b
+        return Z(f'Löse {a} − x = {b}.', x, f'{a} - {b}', f'Von {a} wird x abgezogen, es bleibt {b}. Also ist x der Unterschied: x = {a} − {b} = {x}. Probe: {a} − {x} = {b} ✓',
+                 f'Achtung, x wird hier abgezogen. Wie viel musst du von {a} wegnehmen, damit {b} übrig bleibt?')
+    if art == 'rechnung':
+        a = R.randint(30, 200)
+        b = R.randint(5, a - 5)
+        return A(R, f'Welche Rechnung führt zur Lösung von {a} − x = {b}?', f'{a} − {b}', [f'{a} + {b}', f'{b} − {a}'],
+                 f'x ist das, was von {a} weggenommen wird, damit {b} bleibt: x = {a} − {b} = {a - b}. Mit {a} + {b} = {a + b} wäre {a} − {a + b} gar nicht {b}.',
+                 'Probiere mit kleinen Zahlen: 10 − x = 3. Welche Zahl ist x, und wie hast du sie gerechnet?')
+    a, p, q = R.randint(5, 60), R.randint(10, 80), R.randint(10, 80)
+    x = p + q - a
+    if x <= 0: return g_umkehr_plus(R, s)
+    return Z(f'Löse x + {a} = {p} + {q}.', x, f'{p} + {q} - {a}', f'Erst die rechte Seite ausrechnen: {p} + {q} = {p + q}. Dann x = {p + q} − {a} = {x}.',
+             'Rechne zuerst aus, was rechts steht.')
+
+
+# ---------------- Mal und Geteilt ----------------
+def g_umkehr_mal(R, s):
+    if s == 1:
+        a, x = R.randint(2, 10), R.randint(2, 12)
+        if R.random() < .5:
+            b = a * x
+            return Z(f'Löse {a} · x = {b}.', x, f'{b} // {a}', f'Umkehrung von Mal ist Geteilt: x = {b} : {a} = {x}. Probe: {a} · {x} = {b} ✓',
+                     f'Welche Zahl mal {a} ergibt {b}?')
+        b = x
+        x = a * b
+        return Z(f'Löse x : {a} = {b}.', x, f'{b} * {a}', f'Umkehrung von Geteilt ist Mal: x = {b} · {a} = {x}. Probe: {x} : {a} = {b} ✓',
+                 'Rechne rückwärts. Was ist die Umkehrung von Geteilt?')
+    if s == 2:
+        art = R.choice(['mal', 'geteilt', 'rechnung', 'mal'])
+        a, x = R.choice([3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 20, 25]), R.randint(6, 30)
+        if a == x: return g_umkehr_mal(R, s)
+        if art == 'mal':
+            b = a * x
+            return Z(f'Löse {a} · x = {b}.', x, f'{b} // {a}', f'x = {b} : {a} = {x}. Probe: {a} · {x} = {b} ✓', 'Umkehrung von Mal ist Geteilt.')
+        if art == 'geteilt':
+            return Z(f'Löse x : {a} = {x}.', a * x, f'{x} * {a}', f'x = {x} · {a} = {a * x}. Probe: {a * x} : {a} = {x} ✓', 'Umkehrung von Geteilt ist Mal.')
+        return A(R, f'Welche Rechnung führt zur Lösung von x : {a} = {x}?', f'{x} · {a}', [f'{x} : {a}', f'{x} − {a}', f'{a} : {x}'],
+                 f'x wurde durch {a} geteilt. Rückwärts wird mit {a} malgenommen: x = {x} · {a} = {a * x}.', 'Was ist die Umkehrung von Geteilt?')
+    art = R.choice(['a_durch_x', 'a_durch_x', 'rechnung', 'produkt_rechts'])
+    if art == 'a_durch_x':
+        x, b = R.randint(2, 12), R.randint(2, 12)
+        a = x * b
+        return Z(f'Löse {a} : x = {b}.', x, f'{a} // {b}', f'{a} wird durch x geteilt, es kommt {b} heraus. Also ist x = {a} : {b} = {x}. Probe: {a} : {x} = {b} ✓',
+                 f'Achtung, hier wird durch x geteilt. In wie viele Teile musst du {a} teilen, damit jedes Teil {b} ist?')
+    if art == 'rechnung':
+        x, b = R.randint(2, 12), R.randint(2, 12)
+        a = x * b
+        if x == b: return g_umkehr_mal(R, s)
+        return A(R, f'Welche Rechnung führt zur Lösung von {a} : x = {b}?', f'{a} : {b}', [f'{a} · {b}', f'{b} : {a}', f'{a} − {b}'],
+                 f'x ist die Zahl, durch die du {a} teilen musst, um {b} zu bekommen: x = {a} : {b} = {x}. Mit {a} · {b} = {a * b} wäre {a} : {a * b} viel kleiner als {b}.',
+                 'Probiere mit kleinen Zahlen: 12 : x = 3. Welche Zahl ist x, und wie hast du sie gerechnet?')
+    a, p, q = R.randint(2, 9), R.randint(2, 12), R.randint(2, 12)
+    if (p * q) % a or p == a or q == a: return g_umkehr_mal(R, s)
+    x = p * q // a
+    return Z(f'Löse {a} · x = {p} · {q}.', x, f'{p} * {q} // {a}', f'Erst rechts ausrechnen: {p} · {q} = {p * q}. Dann x = {p * q} : {a} = {x}.',
+             'Rechne zuerst aus, was rechts steht.')
+
+
+# ---------------- Zwei Schritte ----------------
+def kette(a, op1, b, op2, ende):
+    return tabelle(['', 'Start', '1. Schritt', 'Zwischenwert', '2. Schritt', 'Ende'], [['vorwärts', 'x', f'{op1} {a}', '?', f'{op2} {b}', str(ende)]])
+
+
+def g_zwei_schritte(R, s):
+    if s == 1:
+        a, x, b = R.randint(2, 6), R.randint(1, 10), R.randint(1, 15)
+        if R.random() < .5:
+            c = a * x + b
+            return Z(f'Löse {gl(a, b)} = {c}.', x, f'({c} - {b}) // {a}', f'Erst − {b}: {c} − {b} = {c - b}. Dann : {a}: {c - b} : {a} = {x}. Probe: {a} · {x} + {b} = {c} ✓',
+                     f'Kehre zuerst das „+ {b}“ um, dann das „· {a}“.')
+        if a * x <= b: return g_zwei_schritte(R, s)
+        c = a * x - b
+        return Z(f'Löse {gl(a, -b)} = {c}.', x, f'({c} + {b}) // {a}', f'Erst + {b}: {c} + {b} = {c + b}. Dann : {a}: {c + b} : {a} = {x}. Probe: {a} · {x} − {b} = {c} ✓',
+                 f'Kehre zuerst das „− {b}“ um, dann das „· {a}“.')
+    if s == 2:
+        art = R.choice(['plus', 'geteilt', 'reihenfolge', 'kette', 'kette'])
+        a, x, b = R.randint(2, 12), R.randint(2, 25), R.randint(2, 40)
+        if art == 'plus':
+            c = a * x + b
+            return Z(f'Löse {gl(a, b)} = {c}.', x, f'({c} - {b}) // {a}', f'{c} − {b} = {c - b}; {c - b} : {a} = {x}. Probe: {a} · {x} + {b} = {c} ✓',
+                     'Den letzten Rechenschritt zuerst umkehren.')
+        if art == 'geteilt':
+            q = x
+            c = q + b
+            return Z(f'Löse x : {a} + {b} = {c}.', q * a, f'({c} - {b}) * {a}', f'Erst − {b}: {c} − {b} = {q}. Dann · {a}: {q} · {a} = {q * a}. Probe: {q * a} : {a} + {b} = {c} ✓',
+                     f'Kehre zuerst das „+ {b}“ um, dann das „: {a}“.')
+        if art == 'reihenfolge':
+            c = a * x + b
+            return A(R, f'Wie löst du {gl(a, b)} = {c}?', f'Erst − {b}, dann : {a}', [f'Erst : {a}, dann − {b}', f'Erst + {b}, dann · {a}', f'Erst − {a}, dann : {b}'],
+                     f'Vorwärts wurde erst · {a}, dann + {b} gerechnet. Rückwärts: erst − {b}, dann : {a}. Das ergibt x = {x}.',
+                     'Welcher Rechenschritt wurde zuletzt gemacht?')
+        if R.random() < .5:
+            c = a * x - b
+            if c <= 0: return g_zwei_schritte(R, s)
+            return mit_bild(Z(f'Rechne die Rechenkette rückwärts: x · {a} − {b} = {c}. Welche Zahl ist x?', x, f'({c} + {b}) // {a}',
+                              f'Rückwärts: {c} + {b} = {c + b}, dann {c + b} : {a} = {x}.', 'Fange am Ende an und kehre jeden Schritt um.'), kette(a, '·', b, '−', c))
+        c = a * x + b
+        return mit_bild(Z(f'Rechne die Rechenkette rückwärts: x · {a} + {b} = {c}. Welche Zahl ist x?', x, f'({c} - {b}) // {a}',
+                          f'Rückwärts: {c} − {b} = {c - b}, dann {c - b} : {a} = {x}.', 'Fange am Ende an und kehre jeden Schritt um.'), kette(a, '·', b, '+', c))
+    art = R.choice(['klammer_plus', 'klammer_minus', 'geteilt_minus', 'wahl'])
+    a, x, b = R.randint(2, 9), R.randint(2, 20), R.randint(2, 15)
+    if art == 'klammer_plus':
+        c = (x + b) * a
+        return Z(f'Löse (x + {b}) · {a} = {c}.', x, f'{c} // {a} - {b}', f'Hier wurde zuerst + {b}, dann · {a} gerechnet. Rückwärts: erst : {a}: {c} : {a} = {c // a}. Dann − {b}: x = {x}.',
+                 'Die Klammer wird zuerst gerechnet. Welcher Schritt kommt also zuletzt?')
+    if art == 'klammer_minus':
+        x = x + b
+        c = (x - b) * a
+        return Z(f'Löse (x − {b}) · {a} = {c}.', x, f'{c} // {a} + {b}', f'Rückwärts: erst : {a}: {c} : {a} = {c // a}. Dann + {b}: x = {x}. Probe: ({x} − {b}) · {a} = {c} ✓',
+                 'Die Klammer wird zuerst gerechnet. Welcher Schritt kommt also zuletzt?')
+    if art == 'geteilt_minus':
+        q = x
+        c = q - b
+        if c <= 0: return g_zwei_schritte(R, s)
+        return Z(f'Löse x : {a} − {b} = {c}.', q * a, f'({c} + {b}) * {a}', f'Rückwärts: erst + {b}: {c} + {b} = {q}. Dann · {a}: x = {q * a}. Probe: {q * a} : {a} − {b} = {c} ✓',
+                 'Kehre zuerst das Minus um, dann das Geteilt.')
+    c = (x + b) * a
+    return A(R, f'Welche Rechnung löst (x + {b}) · {a} = {c}?', f'{c} : {a} − {b}', [f'{c} − {b} : {a}', f'({c} − {b}) : {a}', f'{c} · {a} − {b}'],
+             f'In der Klammer wird zuerst + {b} gerechnet, danach · {a}. Rückwärts also erst : {a}, dann − {b}: {c} : {a} − {b} = {x}.',
+             'Was wurde zuletzt gerechnet: das Plus in der Klammer oder das Mal?')
+
+
+# ---------------- Probe ----------------
+def g_probe(R, s):
+    if s == 1:
+        a, x, b = R.randint(2, 9), R.randint(2, 12), R.randint(1, 20)
+        c = a * x + b
+        art = R.choice(['ja', 'nein', 'links'])
+        if art == 'links':
+            n = x + R.choice([-1, 1, 2])
+            return Z(f'Mache die Probe für x = {n} bei {gl(a, b)} = {c}. Welche Zahl kommt links heraus?', a * n + b, f'{a} * {n} + {b}',
+                     f'{a} · {n} + {b} = {a * n} + {b} = {a * n + b}. ' + ('Das ist auch rechts, die Lösung stimmt.' if a * n + b == c else f'Rechts steht {c}, also ist {n} keine Lösung.'),
+                     'Setze die Zahl für x ein. Punkt vor Strich!')
+        if art == 'ja':
+            return A(R, f'Ist x = {x} eine Lösung von {gl(a, b)} = {c}?', f'Ja: {a} · {x} + {b} = {c}.',
+                     [f'Nein: {a} · {x} + {b} = {c + a}.', f'Nein: {a} · {x} + {b} = {a * (x + b)}.'],
+                     f'Einsetzen: {a} · {x} + {b} = {a * x} + {b} = {c}. Links und rechts steht dasselbe.',
+                     'Setze die Zahl für x ein. Punkt vor Strich!')
+        n = R.choice([(c - b) // a + 1 if (c - b) // a + 1 != x else x + 2, x - 1 if x > 2 else x + 3])
+        L = a * n + b
+        if a * (n + b) in (L, c): return g_probe(R, s)
+        return A(R, f'Ist x = {n} eine Lösung von {gl(a, b)} = {c}?', f'Nein: {a} · {n} + {b} = {L}, nicht {c}.',
+                 [f'Ja: {a} · {n} + {b} = {c}.', f'Nein: {a} · {n} + {b} = {a * (n + b)}, nicht {c}.'],
+                 f'Einsetzen: {a} · {n} + {b} = {a * n} + {b} = {L}. Rechts steht {c}, also keine Lösung. Richtig wäre x = {x}.',
+                 'Setze die Zahl für x ein. Punkt vor Strich!')
+    if s == 2:
+        art = R.choice(['schritt', 'schritt', 'richtig', 'welche'])
+        a, x, b = R.randint(2, 8), R.randint(2, 15), R.randint(2, 20)
+        c = a * x + b
+        if art == 'schritt':
+            if R.random() < .5 and x + 1 > a:
+                b = a
+                c = a * x + b
+                q = c // a
+                return A(R, f'So wurde {gl(a, b)} = {c} gelöst: Schritt 1: {c} : {a} = {q}. Schritt 2: {q} − {b} = {q - b}. Ergebnis: x = {q - b}. Wo steckt der Fehler?',
+                         f'Schritt 1: Zuerst muss {b} abgezogen werden.', [f'Schritt 2: Es muss + {b} heißen.', 'Kein Fehler, die Lösung stimmt.', f'Schritt 1: Es muss {c} · {a} heißen.'],
+                         f'Der letzte Schritt (+ {b}) wird zuerst umgekehrt: {c} − {b} = {c - b}, dann {c - b} : {a} = {x}. Probe mit {q - b}: {a} · {q - b} + {b} = {a * (q - b) + b}, nicht {c}.',
+                         'Mache die Probe mit dem Ergebnis. Welcher Rechenschritt wurde vorwärts zuletzt gemacht?')
+            if (c + b) % a: return g_probe(R, s)
+            f = (c + b) // a
+            return A(R, f'So wurde {gl(a, b)} = {c} gelöst: Schritt 1: {c} + {b} = {c + b}. Schritt 2: {c + b} : {a} = {f}. Ergebnis: x = {f}. Wo steckt der Fehler?',
+                     f'Schritt 1: Es muss {c} − {b} heißen.', [f'Schritt 2: Es muss {c + b} · {a} heißen.', 'Kein Fehler, die Lösung stimmt.', f'Schritt 1: Zuerst muss durch {a} geteilt werden.'],
+                     f'Die Umkehrung von + {b} ist − {b}: {c} − {b} = {c - b}, dann {c - b} : {a} = {x}. Probe mit {f}: {a} · {f} + {b} = {a * f + b}, nicht {c}.',
+                     'Mache die Probe. Was ist die Umkehrung von Plus?')
+        if art == 'richtig':
+            x2 = R.randint(10, 60)
+            a2 = R.randint(5, 40)
+            b2 = x2 - a2
+            if b2 <= a2 or b2 - a2 == x2: return g_probe(R, s)
+            return Z(f'Bei x − {a2} = {b2} hat jemand x = {b2 - a2} herausbekommen. Die Probe geht nicht auf. Wie heißt die richtige Lösung?',
+                     x2, f'{b2} + {a2}', f'Probe mit {b2 - a2}: {b2 - a2} − {a2} ergibt nicht {b2}. Die Umkehrung von Minus ist Plus: x = {b2} + {a2} = {x2}.',
+                     'Welche Umkehrung wurde verwechselt?')
+        opts = [x, (c - b) // a + 1 if (c - b) // a + 1 != x else x + 1, c // a if c // a not in (x,) else x + 2, c - b]
+        opts = [str(o) for o in opts]
+        return A(R, f'Welche Zahl ist die Lösung von {gl(a, b)} = {c}? Mache die Probe.', str(x), opts[1:],
+                 f'Probe mit {x}: {a} · {x} + {b} = {c} ✓.', 'Setze jede Zahl ein und vergleiche mit der rechten Seite.')
+    art = R.choice(['wer', 'groesser', 'groesser'])
+    a, x, b = R.randint(2, 6), R.randint(3, 12), R.randint(2, 9)
+    if art == 'wer':
+        c = (x + b) * a
+        f = (c - b) // a if (c - b) % a == 0 else None
+        if f is None or f == x: return g_probe(R, s)
+        return A(R, f'Ben und Ida lösen (x + {b}) · {a} = {c}. Ben erhält x = {x}, Ida erhält x = {f}. Wer hat recht?',
+                 f'Ben, denn ({x} + {b}) · {a} = {c}.', [f'Ida, denn ({f} + {b}) · {a} = {c}.', 'Beide, es gibt zwei Lösungen.', 'Keiner von beiden.'],
+                 f'Probe Ben: ({x} + {b}) · {a} = {x + b} · {a} = {c} ✓. Probe Ida: ({f} + {b}) · {a} = {(f + b) * a}, nicht {c}. Ida hat zuerst {b} abgezogen statt zuerst durch {a} zu teilen.',
+                 'Mache bei beiden die Probe.')
+    c = a * x + b
+    n = x + R.choice([-2, -1, 1, 2])
+    if n < 1: return g_probe(R, s)
+    L = a * n + b
+    richtig = 'Größer als ' + str(n) if L < c else 'Kleiner als ' + str(n)
+    return A(R, f'Bei {gl(a, b)} = {c} wird x = {n} getestet. Links kommt {L} heraus. Ist die Lösung größer oder kleiner als {n}?',
+             richtig, ['Kleiner als ' + str(n) if L < c else 'Größer als ' + str(n), f'Genau {n}', 'Das kann man nicht sagen.'],
+             f'Links kommt {L} heraus, rechts steht {c}. ' + (f'Links ist zu wenig, also muss x größer sein. ' if L < c else f'Links ist zu viel, also muss x kleiner sein. ')
+             + f'Die Lösung ist x = {x}.', 'Ist links zu viel oder zu wenig? Was passiert, wenn x größer wird?')
+
+
+# ---------------- Textaufgaben ----------------
+VERB = {'+': ('addiere', 'zu ihr'), '-': ('subtrahiere', 'von ihr')}
+
+
+def g_aufstellen(R, s):
+    if s == 1:
+        op = R.choice(['+', '-', '*', ':'])
+        if op == '+':
+            a, x = R.randint(3, 40), R.randint(2, 60)
+            t, gle, c, w = f'Ich denke mir eine Zahl und addiere {a}. Ich erhalte {x + a}. Welche Zahl habe ich mir gedacht?', f'x + {a} = {x + a}', f'{x + a} - {a}', f'x = {x + a} − {a} = {x}'
+        elif op == '-':
+            a, x = R.randint(3, 40), R.randint(45, 99)
+            t, gle, c, w = f'Ich denke mir eine Zahl und subtrahiere {a}. Ich erhalte {x - a}. Welche Zahl habe ich mir gedacht?', f'x − {a} = {x - a}', f'{x - a} + {a}', f'x = {x - a} + {a} = {x}'
+        elif op == '*':
+            a, x = R.randint(2, 9), R.randint(2, 15)
+            t, gle, c, w = f'Ich denke mir eine Zahl und multipliziere sie mit {a}. Ich erhalte {a * x}. Welche Zahl habe ich mir gedacht?', f'{a} · x = {a * x}', f'{a * x} // {a}', f'x = {a * x} : {a} = {x}'
+        else:
+            a, q = R.randint(2, 9), R.randint(2, 15)
+            x = a * q
+            t, gle, c, w = f'Ich denke mir eine Zahl und teile sie durch {a}. Ich erhalte {q}. Welche Zahl habe ich mir gedacht?', f'x : {a} = {q}', f'{q} * {a}', f'x = {q} · {a} = {x}'
+        if R.random() < .4 and op in '+-':
+            a_ = a
+            b = x + a_ if op == '+' else x - a_
+            richtig = f'x + {a_} = {b}' if op == '+' else f'x − {a_} = {b}'
+            falsch = [f'x − {a_} = {b}' if op == '+' else f'x + {a_} = {b}', f'{a_} − x = {b}', f'x = {a_} + {b}' if op == '+' else f'x = {b} − {a_}']
+            return A(R, t.replace('Welche Zahl habe ich mir gedacht?', 'Welche Gleichung passt?'), richtig, falsch,
+                     f'Die gedachte Zahl heißt x. „{VERB[op][0]} {a_}“ heißt {op.replace("-", "−")} {a_}, „ich erhalte“ heißt =. Also {richtig}.',
+                     'Nenne die gedachte Zahl x und schreibe den Text Stück für Stück als Rechnung.')
+        return Z(t, x, c, f'Gleichung: {gle}. Rückwärts: {w}.', 'Nenne die gedachte Zahl x. Schreibe eine Gleichung und rechne rückwärts.')
+    if s == 2:
+        art = R.choice(['raetsel', 'kauf', 'kauf', 'gleichung'])
+        if art == 'raetsel':
+            a, x, b = R.randint(2, 9), R.randint(2, 20), R.randint(2, 30)
+            c = a * x + b
+            return Z(f'Ich denke mir eine Zahl, nehme sie mal {a} und addiere dann {b}. Ich erhalte {c}. Welche Zahl habe ich mir gedacht?', x, f'({c} - {b}) // {a}',
+                     f'Gleichung: {gl(a, b)} = {c}. Rückwärts: {c} − {b} = {c - b}, {c - b} : {a} = {x}.', 'Schreibe die Gleichung auf. Kehre dann den letzten Schritt zuerst um.')
+        if art == 'kauf':
+            ding, eins, preis, extra, extra_p = R.choice([('Kinokarten', 'eine Kinokarte', (6, 12), 'eine Tüte Popcorn', (3, 6)),
+                                                           ('Hefte', 'ein Heft', (1, 3), 'einen Füller', (8, 15)),
+                                                           ('Eintrittskarten fürs Schwimmbad', 'eine Eintrittskarte', (3, 7), 'ein Eis', (2, 4)),
+                                                           ('Bälle', 'ein Ball', (6, 15), 'eine Pumpe', (5, 12)),
+                                                           ('Busfahrkarten', 'eine Busfahrkarte', (2, 4), 'einen Stadtplan', (3, 8))])
+            n, x, e = R.randint(2, 6), R.randint(*preis), R.randint(*extra_p)
+            c = n * x + e
+            return Z(f'Für {n} gleich teure {ding} und {extra} für {e} € zahlt man zusammen {c} €. Wie viel kostet {eins}?', x, f'({c} - {e}) // {n}',
+                     f'Gleichung: {n} · x + {e} = {c}. Erst − {e}: {c - e}. Dann : {n}: {x} €.', 'Der Preis für eins ist x. Was kosten dann alle zusammen?', einheit='€')
+        a, x, b = R.randint(2, 9), R.randint(2, 20), R.randint(2, 30)
+        c = a * x - b
+        if c <= 0: return g_aufstellen(R, s)
+        return A(R, f'„Das {({2: "Doppelte", 3: "Dreifache", 4: "Vierfache", 5: "Fünffache"}).get(a, f"{a}-Fache")} einer Zahl, vermindert um {b}, ergibt {c}.“ Welche Gleichung passt?',
+                 f'{gl(a, -b)} = {c}', [f'{a} · (x − {b}) = {c}', f'{gl(a, b)} = {c}', f'x − {a} · {b} = {c}'],
+                 f'Erst wird die Zahl mal {a} genommen, dann {b} abgezogen: {gl(a, -b)} = {c}. Die Lösung ist x = {x}.',
+                 'Was passiert zuerst mit der Zahl, was danach?')
+    art = R.choice(['text_zu_gl', 'rechteck', 'alter'])
+    if art == 'text_zu_gl':
+        a, x, b = R.randint(2, 6), R.randint(3, 12), R.randint(2, 10)
+        c = a * x + b
+        return A(R, f'Welche Geschichte passt zur Gleichung {gl(a, b)} = {c}?',
+                 f'{a} gleich teure Bücher und eine Tasche für {b} € kosten {c} €.',
+                 [f'{a} Bücher kosten zusammen {c} €, eines davon {b} €.', f'Ein Buch und eine Tasche für {b} € kosten {c} €.', f'{b} gleich teure Bücher und eine Tasche für {a} € kosten {c} €.'],
+                 f'{a} · x steht für {a} gleiche Dinge, die je x kosten. + {b} ist ein Ding für {b} €. Zusammen = {c}. Ein Buch kostet {x} €.',
+                 'Was bedeutet die Zahl vor dem x? Was bedeutet das „+“?')
+    if art == 'rechteck':
+        b, x = R.randint(2, 15), R.randint(3, 25)
+        if b == x: return g_aufstellen(R, s)
+        u = 2 * x + 2 * b
+        return Z(f'Ein Rechteck ist {b} cm breit. Sein Umfang beträgt {u} cm. Wie lang ist es?', x, f'({u} - 2 * {b}) // 2',
+                 f'Umfang = zweimal Länge + zweimal Breite: 2 · x + {2 * b} = {u}. Erst − {2 * b}: {u - 2 * b}. Dann : 2: x = {x} cm.',
+                 'Der Umfang ist zweimal die Länge plus zweimal die Breite. Stelle eine Gleichung auf.', einheit='cm')
+    k, x = R.choice([(3, R.randint(9, 14)), (4, R.randint(7, 11)), (5, R.randint(6, 8))])
+    S = x + k * x
+    return Z(f'Eine Mutter ist {k}-mal so alt wie ihre Tochter. Zusammen sind sie {S} Jahre alt. Wie alt ist die Tochter?', x, f'{S} // {k + 1}',
+             f'Tochter x, Mutter {k} · x. Zusammen: x + {k} · x = {S}. Das sind {k + 1} gleiche Teile wie {k + 1} Dosen auf der Waage: x = {S} : {k + 1} = {x} Jahre.',
+             f'Die Mutter zählt wie {k} Töchter. Wie viele „Töchter-Alter“ sind es zusammen?', einheit='Jahre')
+
+
+# ---------------- Ohne Lösung (Vertiefung) ----------------
+def g_ohne_loesung(R, s):
+    if s == 1:
+        art = R.choice(['plus_nein', 'plus_ja', 'mal_nein', 'mal_ja'])
+        if art.startswith('plus'):
+            a = R.randint(5, 30)
+            b = R.randint(0, a - 1) if art == 'plus_nein' else R.randint(a, a + 30)
+            if art == 'plus_nein':
+                return A(R, f'Hat x + {a} = {b} eine Lösung in ℕ?', f'Nein: x + {a} ist immer mindestens {a}.', [f'Ja: x = {a - b}', f'Ja: x = {a + b}'],
+                         f'Eine natürliche Zahl plus {a} ist mindestens {a}, also nie {b}. Probe mit {a - b}: {a - b} + {a} = {2 * a - b}, nicht {b}.',
+                         'Wie klein kann x + ' + str(a) + ' höchstens werden, wenn x eine natürliche Zahl ist?')
+            return A(R, f'Hat x + {a} = {b} eine Lösung in ℕ?', f'Ja: x = {b - a}', ['Nein, keine natürliche Zahl passt.', f'Ja: x = {a + b}'],
+                     f'x = {b} − {a} = {b - a} ist eine natürliche Zahl. Probe: {b - a} + {a} = {b} ✓', 'Rechne rückwärts. Ist das Ergebnis eine natürliche Zahl?')
+        a = R.randint(2, 9)
+        if art == 'mal_nein':
+            b = a * R.randint(2, 9) + R.randint(1, a - 1)
+            return A(R, f'Hat {a} · x = {b} eine Lösung in ℕ?', f'Nein: {b} ist nicht durch {a} teilbar.', [f'Ja: x = {b // a}', f'Ja: x = {b // a + 1}'],
+                     f'{a} · {b // a} = {a * (b // a)} und {a} · {b // a + 1} = {a * (b // a + 1)}. {b} liegt dazwischen, also gibt es keine natürliche Zahl x.',
+                     f'Ist {b} in der {a}er-Reihe?')
+        q = R.randint(2, 12)
+        return A(R, f'Hat {a} · x = {a * q} eine Lösung in ℕ?', f'Ja: x = {q}', ['Nein, keine natürliche Zahl passt.', f'Ja: x = {a * q * a}'],
+                 f'{a * q} : {a} = {q}. Probe: {a} · {q} = {a * q} ✓', f'Ist {a * q} in der {a}er-Reihe?')
+    if s == 2:
+        art = R.choice(['welche', 'ganz', 'temperatur', 'gruppen'])
+        if art == 'welche':
+            a = R.randint(3, 9)
+            nein = f'{a} · x = {a * R.randint(3, 9) + R.randint(1, a - 1)}'
+            p = R.randint(10, 40)
+            ja = [f'x + {p} = {p + R.randint(1, 30)}', f'{a} · x = {a * R.randint(2, 12)}', f'x − {R.randint(5, 20)} = {R.randint(1, 30)}']
+            return A(R, 'Welche Gleichung hat keine Lösung in ℕ?', nein, ja,
+                     f'{nein}: Die Zahl rechts ist nicht durch {a} teilbar. Die anderen Gleichungen lassen sich rückwärts in ℕ lösen.',
+                     'Rechne jede Gleichung rückwärts. Wo kommt keine natürliche Zahl heraus?')
+        if art == 'ganz':
+            a = R.randint(6, 30)
+            b = R.randint(0, a - 1)
+            return Z(f'Löse x + {a} = {b} mit ganzen Zahlen.', b - a, f'{b} - {a}', f'Rückwärts: x = {b} − {a} = {zt(b - a)}. Probe: ({zt(b - a)}) + {a} = {b} ✓',
+                     'Rechne rückwärts wie immer. Das Ergebnis darf negativ sein.')
+        if art == 'temperatur':
+            a, b = R.randint(5, 15), R.randint(1, 4)
+            return Z(f'Bis mittags steigt die Temperatur um {a} Grad auf {b} °C. Wie warm war es morgens?', b - a, f'{b} - {a}',
+                     f'x + {a} = {b}. Rückwärts: x = {b} − {a} = {zt(b - a)} °C. In ℕ gäbe es keine Lösung, mit ganzen Zahlen schon.',
+                     'Stelle eine Gleichung auf. Die Lösung darf unter null liegen.', einheit='°C')
+        g = R.randint(3, 6)
+        n = g * R.randint(4, 8) + R.randint(1, g - 1)
+        return A(R, f'{n} Kinder sollen in Gruppen zu je {g} Kindern eingeteilt werden, ohne dass jemand übrig bleibt: {g} · x = {n}. Geht das?',
+                 f'Nein: {n} ist nicht durch {g} teilbar.', [f'Ja: Es gibt {n // g} Gruppen.', f'Ja: Es gibt {n // g + 1} Gruppen.'],
+                 f'{g} · {n // g} = {g * (n // g)}, dann {"bleibt 1 Kind" if n % g == 1 else f"bleiben {n % g} Kinder"} übrig. Die Gleichung hat keine Lösung in ℕ.',
+                 f'Ist {n} in der {g}er-Reihe?')
+    art = R.choice(['null', 'kleinste', 'naechste'])
+    if art == 'null':
+        c = R.choice([0, R.randint(1, 20)])
+        if c == 0:
+            return A(R, '0 · x = 0. Wie viele Lösungen hat diese Gleichung?', 'Jede Zahl ist eine Lösung.', ['Keine Lösung.', 'Genau eine: x = 0.', 'Genau eine: x = 1.'],
+                     '0 mal irgendeine Zahl ist immer 0. Also passt jede Zahl für x.', 'Probiere ein paar Zahlen für x aus.')
+        return A(R, f'0 · x = {c}. Wie viele Lösungen hat diese Gleichung?', 'Keine Lösung.', ['Jede Zahl ist eine Lösung.', f'Genau eine: x = {c}.', 'Genau eine: x = 0.'],
+                 f'0 mal irgendeine Zahl ist immer 0, nie {c}. Also gibt es keine Lösung.', 'Probiere ein paar Zahlen für x aus.')
+    if art == 'kleinste':
+        a = R.randint(5, 50)
+        return Z(f'Für welche kleinste natürliche Zahl b hat x + {a} = b eine Lösung in ℕ?', a, f'{a}',
+                 f'Die kleinste natürliche Zahl ist x = 0. Dann ist b = 0 + {a} = {a}. Für kleinere b müsste x negativ sein.',
+                 'Welches ist die kleinste natürliche Zahl, die du für x einsetzen kannst?')
+    a = R.randint(3, 9)
+    b = a * R.randint(3, 9) + R.randint(1, a - 1)
+    nb = (b // a + 1) * a
+    return Z(f'{a} · x = {b} hat keine Lösung in ℕ. Welche ist die nächstgrößere Zahl statt {b}, für die es eine Lösung gibt?', nb, f'({b} // {a} + 1) * {a}',
+             f'Gesucht ist die nächste Zahl der {a}er-Reihe nach {b}: {nb}. Dann ist x = {nb // a}.', f'Zähle die {a}er-Reihe weiter.')
+
+
+GEN = {'waage': g_waage, 'umkehr_plus': g_umkehr_plus, 'umkehr_mal': g_umkehr_mal, 'zwei_schritte': g_zwei_schritte,
+       'probe': g_probe, 'aufstellen': g_aufstellen, 'ohne_loesung': g_ohne_loesung}
+
+TEIL = {'waage': 'verstehen', 'umkehr_plus': 'umkehren', 'umkehr_mal': 'umkehren', 'zwei_schritte': 'umkehren',
+        'probe': 'verstehen', 'aufstellen': 'anwenden', 'ohne_loesung': 'loesbarkeit',
+        '_texte': [('verstehen', 'Gleichungen als Waage verstehen, Lösungen durch die Probe prüfen'),
+                   ('umkehren', 'Gleichungen durch Umkehraufgaben lösen'),
+                   ('anwenden', 'Textaufgaben als Gleichung aufstellen und lösen'),
+                   ('loesbarkeit', 'Erkennen, ob eine Gleichung in ℕ lösbar ist')]}
+
+if __name__ == '__main__':
+    baue(META, ETAPPEN, GEN,
+         [('Was ist eine Gleichung?', ['waage']), ('Rückwärts rechnen', ['umkehr_plus', 'umkehr_mal', 'zwei_schritte']),
+          ('Prüfen und anwenden', ['probe', 'aufstellen']), ('Vertiefung', ['ohne_loesung'])],
+         'Einfache Gleichungen mit dem Waage-Modell und durch Rückwärtsrechnen lösen, mit der Probe prüfen, aus Texten aufstellen und erkennen, wann es in ℕ keine Lösung gibt.',
+         ['Eine Gleichung ist wie eine Waage im Gleichgewicht. Was du links tust, tust du auch rechts.',
+          'Umkehrung: Plus ↔ Minus, Mal ↔ Geteilt.',
+          'Bei zwei Schritten: den letzten Schritt zuerst umkehren.',
+          'Probe: Lösung in die Gleichung einsetzen – links und rechts muss dasselbe stehen.'],
+         offen=['Lehrplanbezug: Das Feld lehrplan_gym ist leer. Umgesetzt nach dem Feld „umfang“ (Umkehrrechnung, erste Äquivalenzumformung an der Waage, Sachzusammenhang); Klammern nur in der Form (x + b) · a, keine Variable auf beiden Seiten außer in der Waage-Anschauung (Stufe 3).',
+                'Vertiefung ohne_loesung nutzt negative Zahlen (Thema zahlen.ganz, Kl. 5) für „Lösung in ℤ statt in ℕ“; sollte zeitlich nach zahlen.ganz kommen.',
+                'Waage als Figur gezeichnet (Balken, Drehpunkt, zwei Schalen mit Beschriftung). Einzelne Gewichte/Dosen als Symbole kann die App nicht zeichnen; die Schalen tragen deshalb Terme wie „x + x + 3“.'],
+         vertiefung=['ohne_loesung'], teil=TEIL)

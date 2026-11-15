@@ -428,5 +428,77 @@ DATEI = {
     'aufgaben': baue(R, ETAPPEN, GEN, TEIL, je_stufe=5),
 }
 
+# Verständliche Fassung (Siebte Runde, 15.11.): Alltagssituation zuerst (einstieg), jedes neue Wort erklärt (woerter),
+# Beispiel in kleinen Schritten, Merksatz am Ende (regel). Durchgehende Situationen: Weitererzählen in Runden, Verdoppeln, Fliesen.
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _klar_kl5.py) – die Aufgaben bleiben wörtlich gleich.
+from _klar_kl5 import klar  # noqa: E402
+
+KLAR = {
+ 'schreibweise': {
+  'einstieg': 'Ein Kind erzählt eine Neuigkeit 3 Freunden. Jeder davon erzählt sie wieder 3 Freunden, und die erzählen sie noch einmal je 3 Freunden. In der dritten Runde hören sie 3 · 3 · 3 = 27 Kinder. Lange Malketten mit immer derselben Zahl schreibt man kürzer. Diese Kurzschreibweise heißt ⟦Potenz⟧.',
+  'woerter': [['Faktor', 'eine Zahl in einer Malrechnung'], ['Potenz', 'Kurzschreibweise für dieselbe Zahl mehrmals malgenommen, zum Beispiel 3³'],
+              ['Basis', 'die Zahl, die malgenommen wird (normal groß geschrieben)'], ['Exponent', 'die kleine Zahl oben rechts: Sie sagt, wie oft die Basis als Faktor dasteht'],
+              ['5³', 'gelesen „5 hoch 3“']],
+  'schritte': ['Schreibe 5 · 5 · 5 kürzer. Zähle zuerst: Die 5 steht 3-mal als Faktor da.',
+               'Die Zahl, die malgenommen wird, ist die Basis: hier die 5.',
+               'Wie oft sie dasteht, schreibst du klein oben rechts daneben. Das ist der Exponent: hier die 3.',
+               'Ergebnis: ⟦5 · 5 · 5 = 5³⟧. Man liest „5 hoch 3“.'],
+  'regel': 'So schreibst du eine Potenz: Die Zahl, die malgenommen wird, ist die ⟦Basis⟧. Wie oft sie dasteht, schreibst du als ⟦Exponent⟧ klein darüber: 3 · 3 · 3 · 3 = 3⁴.',
+  'fehler': '3⁴ ist nicht 3 · 4. Der Exponent zählt, ⟦wie oft⟧ die 3 dasteht: 3 · 3 · 3 · 3. Bei der Neuigkeit wären 3 · 4 = 12 Kinder viel zu wenig – in der vierten Runde hören sie 81 Kinder.'},
+ 'berechnen': {
+  'einstieg': 'Ein Bakterium teilt sich jede Stunde in zwei. Nach 5 Stunden sind es 2 · 2 · 2 · 2 · 2 Bakterien, kurz 2⁵. Aber wie viele sind das? Dazu schreibst du die Potenz wieder lang aus und rechnest Schritt für Schritt. Das Ergebnis heißt ⟦Wert der Potenz⟧.',
+  'woerter': [['Wert der Potenz', 'das Ergebnis, wenn man die Potenz ausrechnet: 2⁵ hat den Wert 32'], ['ausschreiben', 'die Potenz wieder als lange Malkette hinschreiben']],
+  'schritte': ['Rechne 2⁵ aus. Schreibe die Potenz lang aus: 2 · 2 · 2 · 2 · 2.',
+               'Rechne von links: 2 · 2 = 4. Dann 4 · 2 = 8.',
+               'Weiter: 8 · 2 = 16 und 16 · 2 = 32.',
+               'Also ist ⟦2⁵ = 32⟧. Nach 5 Stunden sind es 32 Bakterien.'],
+  'regel': 'So berechnest du eine Potenz: ⟦als Malkette ausschreiben⟧, dann ⟦Schritt für Schritt⟧ von links nach rechts malnehmen.',
+  'fehler': '2⁵ = 10 ist falsch: Das wäre 2 · 5. Nach 5 Stunden gäbe es dann nur 10 Bakterien. Richtig ist 2 · 2 · 2 · 2 · 2 = ⟦32⟧.'},
+ 'quadrat': {
+  'einstieg': 'Ein quadratischer Badboden soll gefliest werden: 14 Fliesen in jeder Reihe und 14 Reihen. Das sind 14 · 14 Fliesen, kurz 14². Weil die Fliesen ein Quadrat bilden, nennt man das Ergebnis von „Zahl hoch 2“ eine ⟦Quadratzahl⟧.',
+  'woerter': [['14²', 'gelesen „14 hoch 2“ oder „14 zum Quadrat“: 14 · 14'], ['quadratisch', 'geformt wie ein Quadrat: so viele Reihen, wie in einer Reihe Fliesen liegen'],
+              ['Quadratzahl', 'eine Zahl, die herauskommt, wenn man eine Zahl mal sich selbst nimmt: 1, 4, 9, 16 …'], ['natürliche Zahl', 'eine der Zahlen 0, 1, 2, 3 …']],
+  'schritte': ['Der Boden hat 14 Fliesen pro Reihe und 14 Reihen. Gesucht ist 14² = 14 · 14.',
+               'Teile die 14 Reihen in 10 und 4 Reihen. Die 10 Reihen haben 14 · 10 = 140 Fliesen.',
+               'Die übrigen 4 Reihen haben 14 · 4 = 56 Fliesen.',
+               'Zusammen: 140 + 56 = ⟦196⟧. Also ist 14² = 196.'],
+  'regel': '„Hoch 2“ heißt: ⟦die Zahl mal sich selbst⟧. Die Quadratzahlen von 1² bis 20² solltest du ⟦auswendig⟧ können: … 11² = 121, 12² = 144, 13² = 169, 14² = 196, 15² = 225, 16² = 256, 17² = 289, 18² = 324, 19² = 361, 20² = 400.'},
+ 'vertauschen': {
+  'einstieg': 'Wird eine Neuigkeit in 3 Runden an je 2 Freunde weitererzählt, hören sie in der letzten Runde 2 · 2 · 2 = 8 Kinder. Wird sie in 2 Runden an je 3 Freunde weitererzählt, sind es 3 · 3 = 9 Kinder. 2³ und 3² sind also verschieden. Bei Potenzen darf man ⟦Basis und Exponent nicht vertauschen⟧.',
+  'woerter': [['vertauschen', 'zwei Zahlen ihre Plätze wechseln lassen'], ['vergleichen', 'herausfinden, welche Zahl größer ist'], ['>', '„ist größer als“']],
+  'schritte': ['Vergleiche 2³ und 3². Rechne zuerst 2³ = 2 · 2 · 2 = 8.',
+               'Dann 3² = 3 · 3 = 9.',
+               '9 ist größer als 8. Also ist ⟦3² > 2³⟧, obwohl dieselben Zahlen vorkommen.'],
+  'regel': 'So vergleichst du Potenzen: ⟦beide ausrechnen⟧, dann vergleichen. Basis und Exponent darfst du ⟦nicht vertauschen⟧ – anders als beim Malnehmen, wo 3 · 4 = 4 · 3 ist.'},
+ 'zehner': {
+  'einstieg': 'Ein großes Fußballstadion hat ungefähr 70 000 Plätze. Bei so großen Zahlen verzählt man sich schnell mit den Nullen. Darum schreibt man sie mit „10 hoch …“, zum Beispiel 7 · 10⁴. Potenzen mit der Basis 10 heißen ⟦Zehnerpotenzen⟧.',
+  'woerter': [['Zehnerpotenz', 'eine Potenz mit der Basis 10: 10¹ = 10, 10² = 100, 10³ = 1 000 …'], ['7 · 10⁴', '7 mal 10 000, also 70 000'],
+              ['Million', '1 000 000 = 10⁶'], ['rund', 'ungefähr, gerundet']],
+  'schritte': ['Das Stadion hat rund 7 · 10⁴ Plätze. Was bedeutet 10⁴?',
+               '10⁴ = 10 · 10 · 10 · 10 = 10 000. Das ist eine 1 mit 4 Nullen.',
+               'Jetzt noch mal 7: 7 · 10 000 = ⟦70 000⟧ Plätze.'],
+  'regel': 'So liest du Zehnerpotenzen: Der Exponent sagt, ⟦wie viele Nullen⟧ hinter der 1 stehen: 10³ = 1 000, 10⁶ = 1 000 000. Bei 3 · 10⁵ hängst du an die 3 fünf Nullen an: ⟦300 000⟧.'},
+ 'negativ': {
+  'einstieg': 'Du weißt schon: Minus mal Minus ergibt Plus. Was passiert, wenn man eine negative Zahl mehrmals mit sich selbst malnimmt? Jedes weitere Minus dreht das Vorzeichen um – wie ein Lichtschalter, der bei jedem Drücken umschaltet: an, aus, an, aus. Darum geht es bei ⟦Potenzen mit negativer Basis⟧.',
+  'woerter': [['(−2)³', 'die −2 mit ihrem Minus ist die Basis: (−2) · (−2) · (−2)'], ['−2³', 'ohne Klammer gehört nur die 2 zur Basis: −(2 · 2 · 2)'],
+              ['Vorzeichen', 'das Plus oder Minus vor einer Zahl'], ['gerade Zahl', '2, 4, 6, 8 …'], ['ungerade Zahl', '1, 3, 5, 7 …']],
+  'schritte': ['Rechne (−2)³. Die Klammer zeigt: Die −2 mit Minus ist die Basis. Lang ausgeschrieben: (−2) · (−2) · (−2).',
+               'Die ersten beiden: (−2) · (−2) = 4. Zwei Minus ergeben Plus.',
+               'Dann 4 · (−2) = −8. Das dritte Minus hat keinen Partner.',
+               'Ergebnis: ⟦(−2)³ = −8⟧.'],
+  'regel': 'So bestimmst du das Vorzeichen: Je ⟦zwei Minus⟧ ergeben Plus. Ist der Exponent ⟦gerade⟧, ist das Ergebnis ⟦positiv⟧; ist er ⟦ungerade⟧, ist es ⟦negativ⟧. Ohne Klammer, wie bei −3², gehört das Minus ⟦nicht⟧ zur Basis.'},
+ 'sach': {
+  'einstieg': 'Faltest du ein Blatt Papier einmal, hat es 2 Lagen. Faltest du es noch einmal, sind es 4 Lagen, dann 8. Jedes Falten ⟦verdoppelt⟧ die Lagen. Wenn sich etwas immer wieder verdoppelt, verdreifacht oder verzehnfacht, rechnest du mit Potenzen.',
+  'woerter': [['verdoppeln', 'mal 2 nehmen'], ['verdreifachen', 'mal 3 nehmen'], ['verzehnfachen', 'mal 10 nehmen'], ['Lage', 'eine Schicht Papier']],
+  'schritte': ['Ein Blatt wird 4-mal gefaltet. Am Anfang hat es 1 Lage.',
+               'Jedes Falten verdoppelt die Lagen. Also wird 4-mal mit 2 malgenommen: 2 · 2 · 2 · 2.',
+               'Als Potenz geschrieben ist das 2⁴.',
+               'Ausgerechnet: 2⁴ = ⟦16⟧ Lagen.'],
+  'regel': 'So erkennst du eine Potenz in einer Geschichte: Wird ⟦immer wieder mit derselben Zahl⟧ malgenommen, ist das eine Potenz. Die Zahl ist die ⟦Basis⟧, wie oft es passiert, ist der ⟦Exponent⟧: 5-mal verdoppeln heißt 2⁵-mal so viel.',
+  'fehler': '4-mal verdoppeln ist nicht „mal 8“ (4 · 2). Falte es nach: 2, 4, 8, 16 Lagen. Es ist 2 · 2 · 2 · 2 = ⟦16⟧-mal so viel.'},
+}
+klar(DATEI, KLAR)
+
+
 if __name__ == '__main__':
     schreibe(DATEI, 'zahlen.potenzen_basis.json')

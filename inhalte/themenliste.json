@@ -1471,5 +1471,55 @@
   "lehrplan_gym": [],
   "lehrplan_andere": [],
   "datei": "inhalte/themen/zahlen.schranken.json"
+ },
+ {
+  "thema_id": 1,
+  "thema_schluessel": "gleichungen.einfach",
+  "block_id": 64,
+  "ort": "Bagdad",
+  "gebiet": "Algebra",
+  "titel": "Einfache Gleichungen",
+  "klasse": {
+   "gym_by": 5,
+   "rs_by": 6,
+   "ib_myp": 1
+  },
+  "umfang": "Gleichungen wie a + x = b oder a · x = b durch Umkehrrechnung oder erste Äquivalenzumformung lösen und im Sachzusammenhang aufstellen.",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [],
+  "datei": "inhalte/themen/gleichungen.einfach.json"
+ },
+ {
+  "thema_id": 2,
+  "thema_schluessel": "gleichungen.linear",
+  "block_id": 61,
+  "ort": "Delhi",
+  "gebiet": "Algebra",
+  "titel": "Lineare Gleichungen",
+  "klasse": {
+   "gym_by": 7,
+   "rs_by": 7,
+   "ib_myp": 2
+  },
+  "umfang": "Lineare Gleichungen (auch mit Klammern und Variable auf beiden Seiten) durch Äquivalenzumformungen lösen, Probe machen, aus Sachsituationen aufstellen und Lösungen deuten.",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [],
+  "datei": "inhalte/themen/gleichungen.linear.json"
+ },
+ {
+  "thema_id": 93,
+  "thema_schluessel": "groessen.indirekt",
+  "block_id": 107,
+  "ort": "Vancouver",
+  "gebiet": "Geld und Verhältnisse",
+  "titel": "Indirekte Proportionalität",
+  "klasse": {
+   "gym_by": 8,
+   "rs_by": 7
+  },
+  "umfang": "Indirekte Proportionalität erkennen, Produktgleichheit, Zuordnungsarten unterscheiden",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [],
+  "datei": "inhalte/themen/groessen.indirekt.json"
  }
 ]

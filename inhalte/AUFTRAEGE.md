@@ -550,3 +550,35 @@ Regeln:
 - Meldungen (Status nach jedem Thema, Fragen, Blocker, Abschlussbericht) nach inhalte/postfach/README.md in inhalte/postfach/inhalte-ib.md ablegen und pushen.
 Arbeite ohne Rückfragen durch.
 ```
+
+
+---
+
+# Fünfte Runde: Nachbau der drei alten Entwürfe (3 Themen)
+
+Diese drei Themen entstanden vor dem Bausatz (nur in der Datenbank, 12 Aufgaben je Lernkarte, kaum typische Fehler, keine Bilder). Sie werden nach dem Bausatz neu gebaut.
+
+```text
+Du baust Mathe-Lerninhalte für eine Lern-App (bayerisches Gymnasium).
+Repository: beinhoff77-stack/ki-system (lernen-app ist ein Zweig darin). Hole den aktuellen Stand des Zweigs lernen-app, lege davon den Zweig inhalte-nachbau an und arbeite nur dort.
+
+Lies zuerst vollständig: inhalte/README.md (Format, Regeln, „Erfahrungen“, „Zeichnungen“), inhalte/postfach/README.md (Meldungen),
+inhalte/vorlage_generator.py, inhalte/pruefung/README.md (worauf die Prüfer achten) und die Einträge der drei Themen in inhalte/themenliste.json.
+Als Beispiele für fertig geprüfte und eingearbeitete Themen: inhalte/generatoren/zahlen_ganz.py mit inhalte/themen/zahlen.ganz.json
+sowie ein Thema der passenden Klasse aus inhalte/themen/ (z. B. terme.umformen.json, gleichungen.ungleichungen.json).
+
+Aufgabe: Baue diese drei Themen nacheinander neu. Je Thema ein Generator (inhalte/generatoren/<thema_schluessel mit _ statt .>.py), der inhalte/themen/<thema_schluessel>.json schreibt.
+ 1. gleichungen.einfach – Einfache Gleichungen (thema_id 1, block_id 64, Gymnasium Klasse 5): Waage-Modell, Umkehraufgabe, Probe, Textaufgaben als Gleichung, Gleichungen ohne Lösung in ℕ als Vertiefung.
+ 2. groessen.indirekt – Indirekte Proportionalität (thema_id 93, block_id 107, Gymnasium Klasse 8): erkennen, Produktgleichheit, Dreisatz, Hyperbel-Graph, Abgrenzung zu direkt proportional und zu „weder noch“.
+ 3. gleichungen.linear – Lineare Gleichungen (thema_id 2, block_id 61, Gymnasium Klasse 7): Äquivalenzumformungen mit Waage, Klammern, Variable auf beiden Seiten, Probe, Sonderfälle (keine/unendlich viele Lösungen), Sachaufgaben.
+
+Regeln:
+- Gleich die Qualität der eingearbeiteten Themen liefern: Anschauungsmodell und Alltagsbeispiel in jeder Erklärung, typischer Fehler mit Zahlen,
+  Stufe 3 als anderer Gedanke (Fehler finden, Umkehraufgabe, Sachaufgabe), falsche Antworten aus typischen Denkfehlern, Bilder wo sie helfen.
+- Ein Thema ist erst fertig, wenn `python3 -I tools/inhalt_pruefen.py inhalte/themen/<datei>.json` OK meldet und jede Zahl-Aufgabe nachgerechnet ist.
+  Mindestens 10 Aufgaben je Lernkarte selbst lesen. Dann Commit + Push auf inhalte-nachbau (ein Thema = ein Commit).
+- Eigene Hilfsdatei nur als inhalte/generatoren/_nachbau.py. Bestehende Dateien anderer Pakete nicht ändern.
+- Keine Datenbank, keine Serverfunktionen, kein App-Code, kein Merge nach main. Keine Schulbuchaufgaben abschreiben.
+- Meldungen (Status nach jedem Thema, Fragen, Blocker, Abschlussbericht) nach inhalte/postfach/README.md in inhalte/postfach/inhalte-nachbau.md ablegen und pushen.
+Arbeite ohne Rückfragen durch.
+```

@@ -167,6 +167,10 @@ test('Lernen: Eltern sehen Kinder, Belohnungen und offene Wünsche', async (t) =
   await page.getByText('Jetzt: Rom · Natürliche Zahlen (2/4)').waitFor();
   await page.getByText('möchte „Eis“').waitFor();
   await page.getByRole('button', { name: 'Bestätigen' }).click();
+  // Nach dem Bestätigen zeichnet die Ansicht neu – erst danach das Formular ausfüllen (sonst geht die Eingabe im Neuzeichnen verloren).
+  for (let i = 0; i < 40 && !calls.some((c) => c.aktion === 'schule_einloesung_entscheiden'); i++) await page.waitForTimeout(50);
+  { const n = calls.filter((c) => c.aktion === 'schule_eltern').length; for (let i = 0; i < 40 && calls.filter((c) => c.aktion === 'schule_eltern').length === n && i < 10; i++) await page.waitForTimeout(50); }
+  await page.waitForTimeout(400);
   await page.locator('#bl-titel').fill('Kinoabend');
   await page.locator('#bl-stempel').fill('3');
   await page.getByRole('button', { name: 'Hinzufügen' }).click();

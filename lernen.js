@@ -821,6 +821,9 @@ function lernGraphWert(g, x) {
     case 'cos': return a * Math.cos((g.b ?? 1) * (g.bogen ? x : x * Math.PI / 180) + (g.c ?? 0)) + (g.d ?? 0);
     case 'exp': return a * (g.b ?? 2) ** x + (g.c ?? 0);
     case 'log': return x <= 0 ? NaN : Math.log(x) / Math.log(g.b ?? 10);
+    case 'tan': { const w = (g.b ?? 1) * (g.bogen ? x : x * Math.PI / 180) + (g.c ?? 0); return Math.abs(Math.cos(w)) < 1e-9 ? NaN : a * Math.tan(w) + (g.d ?? 0); }
+    case 'betrag': return a * Math.abs(x - (g.b ?? 0)) + (g.c ?? 0);
+    case 'glocke': return a * Math.exp(-((x - (g.mu ?? 0)) ** 2) / (2 * (g.sigma ?? 1) ** 2));
     default: return NaN;
   }
 }
@@ -832,12 +835,17 @@ function lernKoordinaten(b) {
     if (v > 1 && v <= 4) { const m = (x0 + x1) / 2, h = (y1 - y0) / 2; x0 = m - h; x1 = m + h; }
     else if (v < 1 && v >= 0.25) { const m = (y0 + y1) / 2, h = (x1 - x0) / 2; y0 = m - h; y1 = m + h; }
   }
-  const B = 340, H = Math.round(Math.min(340, Math.max(170, 300 * (y1 - y0) / (x1 - x0) * (b.streckung || 1)))), R = 32;
+  const B = 340, R = 32; const geo = !(b.graphen || []).length && !b.streckung;
+  // Reine Geometrie: gleiche Pixel je Einheit auf beiden Achsen (Kreise bleiben rund).
+  const H = geo ? Math.round(Math.min(420, Math.max(150, 2 * R + (B - 2 * R) * (y1 - y0) / (x1 - x0)))) : Math.round(Math.min(340, Math.max(170, 300 * (y1 - y0) / (x1 - x0) * (b.streckung || 1))));
   const px = (x) => R + (B - 2 * R) * (x - x0) / (x1 - x0), py = (y) => H - R - (H - 2 * R) * (y - y0) / (y1 - y0);
   const { svg, mk } = lernSvg(B, H, b.label || `Koordinatensystem von x = ${x0} bis ${x1} und y = ${y0} bis ${y1}`);
   const schritt = (lo, hi) => { const r = (hi - lo) / 10; const p = 10 ** Math.floor(Math.log10(r)); return [1, 2, 5, 10].map((m) => m * p).find((m) => m >= r) || p * 10; };
-  const sx = b.schritt_x || schritt(x0, x1), sy = b.schritt_y || schritt(y0, y1);
+  const sx = b.schritt_x || (b.pi ? Math.PI / 2 : schritt(x0, x1)), sy = b.schritt_y || schritt(y0, y1);
   const zahl = (v) => lernZahlText(v);
+  // pi: true → x-Achse in Vielfachen von π beschriften (½π, π, 3π/2 …)
+  const piText = (v) => { const k = Math.round(v / (Math.PI / 2)); const m = k < 0 ? '−' : ''; const n = Math.abs(k); return n % 2 === 0 ? m + (n === 2 ? '' : n / 2) + 'π' : m + (n === 1 ? '' : n) + 'π/2'; };
+  for (const f of b.flaechen || []) mk('polygon', { points: (f.punkte || []).map(([x, y]) => `${px(Math.min(Math.max(x, x0), x1)).toFixed(1)},${py(Math.min(Math.max(y, y0), y1)).toFixed(1)}`).join(' '), class: 'flaeche' });
   for (let x = Math.ceil(x0 / sx) * sx; x <= x1 + 1e-9; x += sx) mk('line', { x1: px(x), y1: py(y0), x2: px(x), y2: py(y1), class: 'gitter' });
   for (let y = Math.ceil(y0 / sy) * sy; y <= y1 + 1e-9; y += sy) mk('line', { x1: px(x0), y1: py(y), x2: px(x1), y2: py(y), class: 'gitter' });
   const ax = Math.min(Math.max(0, y0), y1), ay = Math.min(Math.max(0, x0), x1); // Achsen am Rand, wenn 0 außerhalb liegt
@@ -846,17 +854,18 @@ function lernKoordinaten(b) {
   mk('text', { x: px(x1) + 12, y: py(ax) + 15, class: 'zahl kursiv' }, b.name_x || 'x'); mk('text', { x: px(ay) + 11, y: py(y1) - 8, class: 'zahl kursiv' }, b.name_y || 'y');
   const jeder = (n) => Math.max(1, Math.ceil(n / 8));
   const nx = jeder((x1 - x0) / sx), ny = jeder((y1 - y0) / sy);
-  for (let i = Math.ceil(x0 / sx); i * sx <= x1 + 1e-9; i++) if (i !== 0 && i % nx === 0) mk('text', { x: px(i * sx), y: py(ax) + 14, class: 'zahl' }, zahl(i * sx) + (b.grad ? '°' : ''));
+  for (let i = Math.ceil(x0 / sx); i * sx <= x1 + 1e-9; i++) if (i !== 0 && i % nx === 0) mk('text', { x: px(i * sx), y: py(ax) + 14, class: 'zahl' }, b.pi ? piText(i * sx) : zahl(i * sx) + (b.grad ? '°' : ''));
   for (let i = Math.ceil(y0 / sy); i * sy <= y1 + 1e-9; i++) if (i !== 0 && i % ny === 0) mk('text', { x: px(ay) - 5, y: py(i * sy) + 4, class: 'zahl rechts' }, zahl(i * sy));
   for (const v of b.senkrecht || []) mk('line', { x1: px(v), y1: py(y0), x2: px(v), y2: py(y1), class: 'hilfslinie' });
   for (const v of b.waagrecht || []) mk('line', { x1: px(x0), y1: py(v), x2: px(x1), y2: py(v), class: 'hilfslinie' });
   (b.graphen || []).forEach((g, gi) => {
-    let d = '', offen = false;
+    let d = '', offen = false, yVor = null;
     const [gx0, gx1] = g.bereich || [x0, x1];
     for (let i = 0; i <= 400; i++) {
       const x = gx0 + (gx1 - gx0) * i / 400; const y = lernGraphWert(g, x);
-      if (!Number.isFinite(y) || y < y0 - (y1 - y0) || y > y1 + (y1 - y0)) { offen = false; continue; }
-      d += `${offen ? 'L' : 'M'}${px(x).toFixed(1)} ${py(y).toFixed(1)}`; offen = true;
+      if (!Number.isFinite(y) || y < y0 - (y1 - y0) || y > y1 + (y1 - y0)) { offen = false; yVor = null; continue; }
+      if (yVor !== null && Math.abs(y - yVor) > (y1 - y0)) offen = false; // Sprung an einer Polstelle (tan, Hyperbel): nicht verbinden
+      d += `${offen ? 'L' : 'M'}${px(x).toFixed(1)} ${py(y).toFixed(1)}`; offen = true; yVor = y;
     }
     const clip = `lk${Math.random().toString(36).slice(2, 8)}`;
     const cp = mk('clipPath', { id: clip }); const r = document.createElementNS(LERN_SVG, 'rect');
@@ -865,6 +874,13 @@ function lernKoordinaten(b) {
     if (g.name) { const xn = g.name_x ?? (x1 - (x1 - x0) * 0.12); const yn = lernGraphWert(g, xn); if (Number.isFinite(yn) && yn > y0 && yn < y1) mk('text', { x: px(xn) + 4, y: py(yn) - 6, class: 'zahl kursiv graphname' + (gi % 3) }, g.name); }
   });
   for (const st of b.strecken || []) mk('line', { x1: px(st[0]), y1: py(st[1]), x2: px(st[2]), y2: py(st[3]), class: st[4] === 'gestrichelt' ? 'hilfslinie' : 'strecke' });
+  for (const k of b.kreise || []) { const m = k.m || [0, 0]; mk('ellipse', { cx: px(m[0]), cy: py(m[1]), rx: Math.abs(px(m[0] + k.r) - px(m[0])), ry: Math.abs(py(m[1] + k.r) - py(m[1])), class: 'graph graph' + ((k.farbe ?? 1) % 3) }); if (k.name) mk('text', { x: px(m[0] + k.r * 0.71) + 6, y: py(m[1] + k.r * 0.71) - 4, class: 'zahl links kursiv' }, k.name); }
+  for (const v of b.pfeile || []) { // Vektorpfeil [x1, y1, x2, y2, name]
+    const [ax1, ay1, ax2, ay2] = [px(v[0]), py(v[1]), px(v[2]), py(v[3])]; const L = Math.hypot(ax2 - ax1, ay2 - ay1) || 1; const ux = (ax2 - ax1) / L, uy = (ay2 - ay1) / L;
+    mk('line', { x1: ax1, y1: ay1, x2: ax2 - ux * 6, y2: ay2 - uy * 6, class: 'strecke' });
+    mk('path', { d: `M${ax2.toFixed(1)} ${ay2.toFixed(1)} L${(ax2 - ux * 10 - uy * 4.5).toFixed(1)} ${(ay2 - uy * 10 + ux * 4.5).toFixed(1)} L${(ax2 - ux * 10 + uy * 4.5).toFixed(1)} ${(ay2 - uy * 10 - ux * 4.5).toFixed(1)} z`, class: 'spitze' });
+    if (v[4]) mk('text', { x: (ax1 + ax2) / 2 - uy * 12, y: (ay1 + ay2) / 2 + ux * 12 + 4, class: 'zahl kursiv' }, v[4]);
+  }
   for (const p of b.punkte || []) { mk('circle', { cx: px(p.x), cy: py(p.y), r: 4, class: p.offen ? 'punkt offen' : 'punkt' }); if (p.name) mk('text', { x: px(p.x) + 7, y: py(p.y) - 7, class: 'zahl links' }, p.name); }
   return svg;
 }

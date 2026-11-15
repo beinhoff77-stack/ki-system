@@ -43,20 +43,49 @@
     "titel": "Prismen: Ecken, Kanten, Flächen",
     "regel": "Ein ⟦Prisma⟧ hat zwei deckungsgleiche, parallele ⟦Grundflächen⟧ (n-Ecke) und n Rechtecke als ⟦Mantel⟧. Zählen statt auswendig lernen: Ecken – n unten und n oben, also ⟦2n⟧. Kanten – n unten, n oben, n senkrecht, also ⟦3n⟧. Flächen – n Rechtecke und 2 Grundflächen, also ⟦n + 2⟧.",
     "schritte": [
-     "Ein Bleistift ohne Spitze ist ein sechsseitiges Prisma: n = 6.",
-     "Ecken: 6 unten + 6 oben = 12. Kanten: 6 + 6 + 6 = 18.",
-     "Flächen: 6 Rechtecke + 2 Sechsecke = ⟦8⟧."
+     "Ein Bleistift ohne Spitze ist ein sechsseitiges Prisma: Die Grundfläche ist ein Sechseck, also n = 6.",
+     "Ecken: 6 unten und 6 oben, also 12.",
+     "Kanten: 6 unten, 6 oben und 6 senkrechte, also 18.",
+     "Flächen: 6 Rechtecke und 2 Sechsecke, zusammen ⟦8⟧."
     ],
     "probe": "Eulerscher Polyedersatz: E + F − K = 12 + 8 − 18 = 2 ✓",
-    "fehler": "Ein dreiseitiges Prisma hat nicht 3 Flächen: Zu den 3 Rechtecken kommen die ⟦2 Grundflächen⟧ dazu, also 5."
+    "fehler": "Ein dreiseitiges Prisma hat nicht 3 Flächen: Zu den 3 Rechtecken kommen die ⟦2 Grundflächen⟧ dazu, also 5.",
+    "einstieg": "Ein Bleistift ohne Spitze, eine dreieckige Schokoladenpackung, ein Schuhkarton: Alle haben oben und unten dieselbe Form, und ihre Seiten sind Rechtecke. Solche Körper heißen ⟦Prismen⟧. Wie viele Ecken, Kanten und Flächen sie haben, kann man zählen – oder geschickt ausrechnen.",
+    "woerter": [
+     [
+      "Prisma",
+      "Körper mit zwei gleichen, parallelen Grundflächen und Rechtecken als Seiten"
+     ],
+     [
+      "Grundfläche",
+      "die Fläche unten (die gleiche liegt oben)"
+     ],
+     [
+      "n-Eck",
+      "Vieleck mit n Ecken, z. B. Sechseck: n = 6"
+     ],
+     [
+      "Mantel",
+      "alle Seitenrechtecke zusammen"
+     ],
+     [
+      "Kante",
+      "Linie, an der zwei Flächen zusammenstoßen"
+     ],
+     [
+      "Eulerscher Polyedersatz",
+      "Ecken + Flächen − Kanten = 2; gilt für solche Körper ohne Rundungen"
+     ]
+    ]
    },
    {
     "lernziel": "netz",
     "titel": "Netze von Prismen",
     "regel": "Schneidest du eine Schachtel an einigen Kanten auf und klappst sie flach auf den Tisch, entsteht ein ⟦Netz⟧: 2 Grundflächen und n Rechtecke. Die Rechtecke sind so hoch wie das Prisma; nebeneinander sind sie so breit wie der ⟦Umfang der Grundfläche⟧.",
     "schritte": [
-     "Schachtel (Quader) 5 cm × 3 cm, Höhe 4 cm.",
-     "Boden und Deckel: 2 · 5 · 3 = 30 cm². Die vier Seiten bilden zusammen einen Streifen: (5 + 3 + 5 + 3) · 4 = 16 · 4 = 64 cm².",
+     "Schachtel (Quader): 5 cm lang, 3 cm breit, 4 cm hoch.",
+     "Boden und Deckel sind je 5 · 3 = 15 cm² groß, zusammen 30 cm².",
+     "Die vier Seiten bilden einen Streifen: 5 + 3 + 5 + 3 = 16 cm lang und 4 cm hoch, also 64 cm².",
      "Fläche des Netzes = Oberfläche = 30 + 64 = ⟦94 cm²⟧."
     ],
     "fehler": "Die Netzfläche eines Quaders ist nicht 5 · 3 · 4 = 60. Das wäre das ⟦Volumen⟧. Für das Netz werden die Flächen der 6 Rechtecke ⟦addiert⟧.",
@@ -204,7 +233,26 @@
        "3 cm"
       ]
      ]
-    }
+    },
+    "einstieg": "Schneide eine leere Müslischachtel an einigen Kanten auf und klappe sie flach auf den Tisch. Die flache Figur, die dabei entsteht, heißt ⟦Netz⟧. Ihre Fläche zeigt, wie viel Pappe man für die Schachtel braucht.",
+    "woerter": [
+     [
+      "Netz",
+      "die flach ausgebreitete Hülle eines Körpers"
+     ],
+     [
+      "Oberfläche",
+      "die Fläche aller Seiten zusammen – gleich der Fläche des Netzes"
+     ],
+     [
+      "Quader",
+      "ein Prisma mit Rechtecken als Grundflächen, z. B. eine Schachtel"
+     ],
+     [
+      "cm²",
+      "Quadratzentimeter, Einheit für Flächen"
+     ]
+    ]
    },
    {
     "lernziel": "zylinder",
@@ -212,7 +260,8 @@
     "regel": "Ein ⟦Zylinder⟧ hat zwei Kreise als Grundflächen. Ziehst du das Etikett einer Konservendose ab, siehst du den ⟦Mantel⟧: ein Rechteck, so hoch wie die Dose und so lang wie der ⟦Umfang⟧ des Grundkreises.",
     "schritte": [
      "Dose: Umfang des Grundkreises u = 18,8 cm, Höhe h = 10 cm.",
-     "Das Etikett ist ein Rechteck: 18,8 cm lang, 10 cm hoch.",
+     "Das Etikett reicht einmal um die Dose: Es ist so lang wie der Umfang, also 18,8 cm.",
+     "Es ist so hoch wie die Dose, also 10 cm.",
      "Mantelfläche: 18,8 cm · 10 cm = ⟦188 cm²⟧."
     ],
     "fehler": "Das Mantelrechteck so lang wie den ⟦Durchmesser⟧ nehmen. Das Etikett muss aber einmal ganz um die Dose herum reichen – also so lang wie der ⟦Umfang⟧. Der Umfang ist gut dreimal so lang wie der Durchmesser.",
@@ -274,7 +323,26 @@
        "r": 3
       }
      ]
-    }
+    },
+    "einstieg": "Eine Konservendose hat oben und unten einen Kreis. Ziehst du das Papier-Etikett ab und legst es flach hin, ist es ein Rechteck. So ein Körper heißt ⟦Zylinder⟧, das Etikett zeigt seinen ⟦Mantel⟧.",
+    "woerter": [
+     [
+      "Zylinder",
+      "Körper mit zwei gleichen Kreisen als Grund- und Deckfläche"
+     ],
+     [
+      "Umfang u",
+      "die Länge einmal um den Kreis herum"
+     ],
+     [
+      "Durchmesser",
+      "die Strecke quer durch den Kreis, durch die Mitte"
+     ],
+     [
+      "Mantelfläche",
+      "die Fläche des abgewickelten Rechtecks"
+     ]
+    ]
    },
    {
     "lernziel": "schraegbild",
@@ -400,18 +468,61 @@
        "45°"
       ]
      ]
-    }
+    },
+    "einstieg": "Eine Schachtel ist ein räumlicher Körper, dein Heft aber ist flach. Damit die Zeichnung trotzdem räumlich wirkt, zeichnet man Kanten, die nach hinten gehen, schräg und kürzer. So eine Zeichnung heißt ⟦Schrägbild⟧.",
+    "woerter": [
+     [
+      "Schrägbild",
+      "räumlich wirkende Zeichnung eines Körpers auf Papier"
+     ],
+     [
+      "wahre Größe",
+      "in der echten Länge gezeichnet"
+     ],
+     [
+      "Verkürzungsfaktor q",
+      "damit werden Kanten nach hinten verkürzt; q = 1/2 heißt: halb so lang"
+     ],
+     [
+      "45°",
+      "ein halber rechter Winkel – die Richtung „schräg nach hinten“"
+     ],
+     [
+      "gestrichelt",
+      "mit kurzen Strichen: diese Kante sieht man von vorn nicht"
+     ]
+    ]
    },
    {
     "lernziel": "ansichten",
     "titel": "Ansichten von Körpern",
     "regel": "Die ⟦Vorderansicht⟧ zeigt den Körper von vorn, die ⟦Seitenansicht⟧ von der Seite und die ⟦Draufsicht⟧ von oben. Jede Ansicht ist eine ebene Figur.",
     "schritte": [
-     "Ein Zylinder steht auf seiner Grundfläche.",
-     "Von vorn und von der Seite: ⟦Rechteck⟧",
-     "Von oben: ⟦Kreis⟧"
+     "Eine Dose (Zylinder) steht auf ihrem Boden.",
+     "Von vorn siehst du ihre Höhe und ihre Breite: ein ⟦Rechteck⟧.",
+     "Von der Seite sieht sie genauso aus: wieder ein Rechteck.",
+     "Von oben siehst du nur den Deckel: einen ⟦Kreis⟧."
     ],
-    "fehler": "Die Draufsicht eines stehenden Zylinders ist kein Rechteck. Von oben sieht man nur die ⟦Deckfläche⟧, einen Kreis."
+    "fehler": "Die Draufsicht eines stehenden Zylinders ist kein Rechteck. Von oben sieht man nur die ⟦Deckfläche⟧, einen Kreis.",
+    "einstieg": "Wer ein Haus plant, zeichnet es dreimal flach: von vorn, von der Seite und von oben. Aus diesen drei Blickrichtungen erkennt man die Form genau. Die drei Zeichnungen heißen ⟦Ansichten⟧.",
+    "woerter": [
+     [
+      "Vorderansicht",
+      "was man von vorn sieht"
+     ],
+     [
+      "Seitenansicht",
+      "was man von der Seite sieht"
+     ],
+     [
+      "Draufsicht",
+      "was man von oben sieht"
+     ],
+     [
+      "ebene Figur",
+      "eine flache Form wie Rechteck oder Kreis"
+     ]
+    ]
    },
    {
     "lernziel": "beurteilen",
@@ -419,10 +530,34 @@
     "regel": "Prüfe Aussagen mit den Eigenschaften: Ein Prisma braucht ⟦zwei deckungsgleiche parallele Grundflächen⟧ und Rechtecke als Seitenflächen. Pyramide, Kegel und Kugel sind ⟦keine⟧ Prismen.",
     "schritte": [
      "Aussage: „Ein Würfel ist ein Prisma.“",
-     "Grund- und Deckfläche sind gleich große Quadrate, die Seiten sind Rechtecke (Quadrate).",
+     "Merkmal 1: zwei gleiche, parallele Grundflächen. Beim Würfel sind Boden und Deckel gleich große Quadrate – erfüllt.",
+     "Merkmal 2: Die Seiten sind Rechtecke. Beim Würfel sind es Quadrate, und Quadrate sind besondere Rechtecke – erfüllt.",
      "Die Aussage ist ⟦richtig⟧."
     ],
-    "fehler": "Eine Pyramide ist kein Prisma, obwohl sie eine Grundfläche hat: Ihr fehlt die ⟦zweite⟧, parallele Grundfläche."
+    "fehler": "Eine Pyramide ist kein Prisma, obwohl sie eine Grundfläche hat: Ihr fehlt die ⟦zweite⟧, parallele Grundfläche.",
+    "einstieg": "Ist ein Würfel ein Prisma? Und eine Pyramide? Um das zu entscheiden, vergleichst du den Körper mit den Merkmalen eines Prismas. Fehlt auch nur ein Merkmal, ist er kein Prisma – der Körper ist dann ein ⟦Gegenbeispiel⟧ zur Behauptung.",
+    "woerter": [
+     [
+      "Merkmal",
+      "eine Eigenschaft, die erfüllt sein muss"
+     ],
+     [
+      "deckungsgleich",
+      "genau gleich groß und gleich geformt"
+     ],
+     [
+      "Pyramide",
+      "Körper mit einer Grundfläche und einer Spitze"
+     ],
+     [
+      "Kegel",
+      "wie eine Pyramide, aber mit einem Kreis als Grundfläche"
+     ],
+     [
+      "Gegenbeispiel",
+      "ein Fall, für den die Behauptung nicht stimmt"
+     ]
+    ]
    }
   ],
   "teilfaehigkeiten": [

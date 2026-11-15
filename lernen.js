@@ -1005,6 +1005,17 @@ function lernTabelle(b) {
 }
 // Erklärung einer Etappe: Regel, vorgerechnetes Beispiel Schritt für Schritt, Probe, typischer Fehler.
 function lernErklaerung(e, { kurz = false } = {}) {
+  // Verständliche Fassung (Lernkarte mit „einstieg“): erst die Alltagssituation, dann neue Wörter, Bild, Beispiel in Schritten, Merksatz zuletzt.
+  if (e.einstieg) return el('div', { class: 'lr-erklaert lr-erklaert-klar' },
+    el('div', { class: 'lr-einstieg' }, el('p', { class: 'lr-ueber' }, 'WORUM GEHT’S?'), el('p', {}, ...lernMarkiert(e.einstieg))),
+    e.woerter?.length ? el('div', { class: 'lr-woerter' }, el('p', { class: 'lr-ueber' }, 'NEUE WÖRTER'),
+      el('dl', {}, ...e.woerter.flatMap(([w, t]) => [el('dt', {}, lernText(w)), el('dd', {}, lernText(t))]))) : null,
+    lernBild(e.bild),
+    e.schritte?.length ? el('div', { class: 'lr-sogehts' }, el('p', { class: 'lr-ueber' }, 'BEISPIEL – SCHRITT FÜR SCHRITT'),
+      el('ol', {}, ...e.schritte.map((x) => el('li', {}, el('span', {}, ...lernMarkiert(x)))))) : null,
+    e.probe ? el('p', { class: 'lr-probe' }, 'Probe: ', ...lernMarkiert(e.probe)) : null,
+    el('div', { class: 'lr-merke' }, el('p', { class: 'lr-ueber' }, 'MERKE'), el('p', { class: 'lr-regel' }, ...lernMarkiert(e.regel))),
+    e.fehler && !kurz ? el('div', { class: 'lr-fehler' }, el('p', { class: 'lr-ueber' }, 'ACHTUNG, TYPISCHER FEHLER'), el('p', {}, ...lernMarkiert(e.fehler))) : null);
   return el('div', { class: 'lr-erklaert' },
     lernBild(e.bild),
     el('p', { class: 'lr-regel' }, ...lernMarkiert(e.regel)),

@@ -65,6 +65,70 @@ ETAPPEN = [
      '_verbot': ['x² − 2x']},
 ]
 
+# Verständliche Fassung (15.11., nach Rückmeldung von Eltern und Kind: „verstehen gar nichts“):
+# Alltagssituation zuerst (einstieg), jedes neue Wort erklärt (woerter), Beispiel in kleinen Schritten, Merksatz am Ende (regel).
+KLAR = {
+ 'eindeutig': {
+  'einstieg': 'Stell dir einen Getränkeautomaten vor. Du drückst eine Taste und es kommt ein Getränk heraus. Taste 1 gibt immer Cola, Taste 2 immer Wasser, Taste 3 auch Cola. Egal wie oft du drückst: Dieselbe Taste liefert immer dasselbe Getränk. So ein verlässlicher Automat heißt in Mathe ⟦Funktion⟧.',
+  'woerter': [['Zuordnung', 'Zu jeder Eingabe gehört eine Ausgabe – wie Taste → Getränk.'], ['x-Wert', 'die Eingabe (beim Automaten: die Taste)'], ['y-Wert', 'die Ausgabe (beim Automaten: das Getränk)'], ['(1 | 5)', 'kurz für: Eingabe 1 ergibt Ausgabe 5']],
+  'bild': {'typ': 'tabelle', 'kopf': ['x (Eingabe)', '1', '2', '3'], 'zeilen': [['y (Ausgabe)', '5', '7', '5']]},
+  'schritte': ['In der Tabelle steht oben die Eingabe x, unten die Ausgabe y: Zu 1 gehört 5, zu 2 gehört 7, zu 3 gehört 5.',
+               'Frage: Steht eine Eingabe ⟦doppelt⟧ da – mit zwei verschiedenen Ausgaben? Nein. 1, 2 und 3 kommen oben je einmal vor.',
+               'Die 5 steht unten zweimal. Das ist erlaubt – wie beim Automaten, bei dem zwei Tasten Cola geben.',
+               'Also: ⟦Es ist eine Funktion.⟧'],
+  'regel': 'Eine ⟦Funktion⟧ ist eine Zuordnung, bei der zu ⟦jeder Eingabe x genau eine Ausgabe y⟧ gehört. So prüfst du: Kommt ein x zweimal mit verschiedenen y vor? Dann ist es keine Funktion.',
+  'fehler': '(2 | 4) und (2 | 6) zusammen: Die Eingabe 2 hätte zwei Ausgaben, 4 und 6 – wie eine Taste, die mal Cola und mal Wasser gibt. Das ist ⟦keine⟧ Funktion. Aber (2 | 4) und (3 | 4) ist in Ordnung: Zwei Eingaben dürfen dieselbe Ausgabe haben.'},
+ 'mengen': {
+  'einstieg': 'Bleiben wir beim Automaten. Er hat nur bestimmte Tasten – nur die kannst du drücken. Und er hat nur bestimmte Getränke – nur die können herauskommen. Bei Funktionen ist es genauso: Es gibt Zahlen, die man hineingeben darf, und Zahlen, die herauskommen können.',
+  'woerter': [['f(x) = 2x + 1', 'die Rechenvorschrift: Nimm die Eingabe x mal 2 und zähle 1 dazu.'], ['Definitionsmenge D', 'alle Zahlen, die man für x einsetzen darf (alle Tasten)'], ['Wertemenge W', 'alle Zahlen, die herauskommen (alle Getränke)'], ['{0; 1; 3}', 'Mengenklammer: nur die Zahlen 0, 1 und 3'], ['ℚ \\ {2}', 'alle Bruchzahlen außer der 2']],
+  'schritte': ['Die Rechenvorschrift ist f(x) = 2x + 1. Erlaubt sind nur die Eingaben 0, 1 und 3, also D = {0; 1; 3}.',
+               'Rechne jede Eingabe durch. 0 ergibt 2 · 0 + 1 = 1.', '1 ergibt 2 · 1 + 1 = 3. Und 3 ergibt 2 · 3 + 1 = 7.',
+               'Herausgekommen sind 1, 3 und 7: ⟦W = {1; 3; 7}⟧'],
+  'regel': '⟦Definitionsmenge D⟧: alles, was man einsetzen darf. ⟦Wertemenge W⟧: alles, was herauskommt. Nicht einsetzen darf man Zahlen, bei denen man ⟦durch 0 teilen⟧ müsste.',
+  'fehler': 'Bei f(x) = 1/(x − 2) darf unter dem Bruchstrich keine 0 stehen. x − 2 wird 0, wenn x = 2 ist. Verboten ist also die ⟦2⟧ und nicht die −2: D = ℚ \\ {2}. Probe mit −2: 1/(−2 − 2) = 1/(−4), das geht.'},
+ 'funktionswert': {
+  'einstieg': 'Eine Funktion ist wie eine Maschine mit fester Rechenvorschrift: Vorne gibst du eine Zahl hinein, hinten kommt das Ergebnis heraus. Beispiel Taxi: 3 € Grundpreis und 2 € für jeden Kilometer. Für 5 km zahlst du 2 · 5 + 3 = 13 €.',
+  'woerter': [['f(x)', 'gelesen „f von x“: das Ergebnis der Maschine f, wenn man x hineingibt'], ['Funktionsterm', 'die Rechenvorschrift, zum Beispiel 2x + 3'], ['f(5)', 'das Ergebnis, wenn man 5 hineingibt'], ['Funktionswert', 'das Ergebnis, also der y-Wert']],
+  'schritte': ['Das Taxi als Funktion: t(x) = 2x + 3. Gesucht ist t(5), der Preis für 5 km.',
+               'Schreibe überall, wo x steht, eine 5 hin: t(5) = 2 · 5 + 3.', 'Ausrechnen: 10 + 3 = 13. Also ⟦t(5) = 13⟧.',
+               'Mit einer negativen Zahl: g(x) = 2x² − 3, gesucht g(−2). Setze −2 in Klammern ein: 2 · (−2)² − 3 = 2 · 4 − 3 = ⟦5⟧.'],
+  'regel': 'f(3) berechnen heißt: im Funktionsterm ⟦jedes x durch 3 ersetzen⟧ und ausrechnen. Negative Zahlen dabei ⟦in Klammern⟧ setzen.'},
+ 'stelle': {
+  'einstieg': 'Jetzt geht es rückwärts. Beim Taxi kennst du diesmal den Preis und willst wissen, wie weit du gefahren bist: 13 € bezahlt – wie viele Kilometer waren das? Du kennst also das Ergebnis und suchst die Eingabe.',
+  'woerter': [['Stelle', 'der x-Wert, also die Eingabe'], ['f(x) = 11', 'die Frage: Für welche Eingabe x kommt 11 heraus?']],
+  'schritte': ['f(x) = 3x − 4. Für welches x kommt 11 heraus?', 'Schreibe die Rechenvorschrift hin und setze sie gleich 11: 3x − 4 = 11.',
+               'Auf beiden Seiten 4 dazuzählen: 3x = 15.', 'Beide Seiten durch 3 teilen: ⟦x = 5⟧'],
+  'regel': 'Ist das Ergebnis y gegeben und x gesucht: ⟦f(x) = y⟧ als Gleichung hinschreiben und ⟦nach x auflösen⟧.',
+  'fehler': 'Bei „f(x) = 11“ nicht die 11 einsetzen! Die 11 ist das ⟦Ergebnis⟧ (y). Gesucht ist die Eingabe x.'},
+ 'wertetabelle': {
+  'einstieg': 'Eine Wertetabelle ist wie eine Preisliste: Oben stehen die Eingaben, darunter die Ergebnisse. Beim Taxi: 1 km kostet 5 €, 2 km kosten 7 €, 3 km kosten 9 €. So siehst du viele Werte auf einen Blick.',
+  'woerter': [['Wertetabelle', 'Tabelle mit x oben und dem Ergebnis f(x) darunter'], ['(3 | −5)', 'zu x = 3 gehört das Ergebnis −5']],
+  'schritte': ['f(x) = 4 − x². Fülle die Tabelle für x = −1, 0 und 3.', 'x = −1: 4 − (−1)² = 4 − 1 = 3.', 'x = 0: 4 − 0 = 4.', 'x = 3: 4 − 3² = 4 − 9 = ⟦−5⟧'],
+  'regel': 'In der ⟦Wertetabelle⟧ steht oben x, unten f(x). Fehlt ein Wert, rechnest du ihn mit dem Term aus. Fehlt der Term, suchst du eine ⟦Regel, die zu allen Spalten passt⟧.'},
+ 'graph_lesen': {
+  'einstieg': 'Ein Graph ist das Bild einer Funktion. Du kennst das von der Wetter-App: Unten steht die Uhrzeit, links die Temperatur. Willst du wissen, wie warm es um 14 Uhr ist, gehst du bei 14 Uhr nach oben bis zur Kurve und dann nach links zur Temperatur.',
+  'woerter': [['Graph', 'die Linie im Koordinatensystem; sie zeigt alle Paare (x | y) der Funktion'], ['x-Achse', 'die waagrechte Achse (Eingaben)'], ['y-Achse', 'die senkrechte Achse (Ergebnisse)']],
+  'schritte': ['Gesucht ist f(4). Suche auf der x-Achse die 4.', 'Gehe von dort ⟦senkrecht⟧ nach oben, bis du die Kurve triffst.',
+               'Gehe von diesem Punkt ⟦waagrecht⟧ nach links zur y-Achse. Dort steht 6, also ⟦f(4) = 6⟧.',
+               'Rückwärts: Wo ist f(x) = 6? Gehe bei y = 6 waagrecht durch das ganze Bild. Du triffst die Kurve ⟦zweimal⟧: bei x = 4 und bei x = −4.'],
+  'regel': 'f(a) ablesen: bei x = a ⟦senkrecht⟧ zur Kurve, dann ⟦waagrecht⟧ zur y-Achse. Zu einem y-Wert die x-Werte finden: waagrecht durchgehen – es kann ⟦mehrere⟧ Treffer geben.'},
+ 'nullstellen': {
+  'einstieg': 'Du hast 7 € Schulden bei deiner Schwester und zahlst jede Woche 2 € zurück. Nach wie vielen Wochen stehst du genau bei 0 €? Dein Kontostand nach x Wochen ist f(x) = 2x − 7. Die Stelle, an der 0 herauskommt, heißt ⟦Nullstelle⟧.',
+  'woerter': [['Nullstelle', 'ein x-Wert, bei dem 0 herauskommt: f(x) = 0'], ['im Bild', 'dort schneidet der Graph die x-Achse']],
+  'schritte': ['f(x) = 2x − 7. Für welches x kommt 0 heraus?', 'Setze den Term gleich 0: 2x − 7 = 0.', 'Auf beiden Seiten 7 dazuzählen: 2x = 7.',
+               'Durch 2 teilen: ⟦x = 3,5⟧. Nach dreieinhalb Wochen bist du schuldenfrei.'],
+  'probe': 'f(3,5) = 2 · 3,5 − 7 = 0 ✓',
+  'regel': '⟦Nullstelle⟧ berechnen: ⟦f(x) = 0⟧ hinschreiben und nach x auflösen. Im Bild ist das der Punkt, an dem der Graph die ⟦x-Achse⟧ schneidet.'},
+ 'punkt_graph': {
+  'einstieg': 'Der Graph besteht aus lauter Punkten, die zur Funktion passen. Ob ein bestimmter Punkt dazugehört, musst du nicht zeichnen – du kannst es ausrechnen. Wie bei einer Preisliste: Passt „3 km kosten 9 €“ zum Tarif? Rechne nach.',
+  'woerter': [['P(3 | 3)', 'Punkt mit x = 3 (erste Zahl) und y = 3 (zweite Zahl)'], ['Koordinaten', 'die beiden Zahlen eines Punktes: erst x, dann y']],
+  'schritte': ['f(x) = x² − 2x. Liegt P(3 | 3) auf dem Graphen?', 'Die erste Zahl ist x. Setze 3 ein: f(3) = 3² − 2 · 3 = 9 − 6 = 3.',
+               'Vergleiche mit der zweiten Zahl von P: auch 3. Passt, also ⟦P liegt auf dem Graphen.⟧', 'Q(3 | 1): f(3) ist 3 und nicht 1. ⟦Q liegt nicht auf dem Graphen.⟧'],
+  'regel': 'Punkt P(a | b) prüfen: ⟦a in den Term einsetzen⟧. Kommt ⟦genau b⟧ heraus, liegt P auf dem Graphen – sonst nicht.'},
+}
+for _e in ETAPPEN:
+    _e.update(KLAR.get(_e['lernziel'], {}))
+
 
 def nz(R, lo=-6, hi=6):
     return R.choice([k for k in range(lo, hi + 1) if k])

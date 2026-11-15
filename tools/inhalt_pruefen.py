@@ -83,6 +83,10 @@ def pruefe(pfad):
         if not n or not SLUG.match(n): F(f'Lernziel "{n}": nur a–z, 0–9, _ (2–31 Zeichen)')
         for k in ('titel', 'regel', 'schritte', 'fehler'):
             if not e.get(k): F(f'Karte {n}: "{k}" fehlt oder leer')
+        if e.get('einstieg') is not None and (not isinstance(e['einstieg'], str) or len(e['einstieg']) < 60):
+            F(f'Karte {n}: "einstieg" muss ein Text mit einer Alltagssituation sein (mindestens 60 Zeichen)')
+        if e.get('woerter') is not None and not (isinstance(e['woerter'], list) and all(isinstance(w, list) and len(w) == 2 and all(isinstance(x, str) and x for x in w) for w in e['woerter'])):
+            F(f'Karte {n}: "woerter" muss eine Liste aus [Wort, Erklärung] sein')
         if e.get('schritte') is not None and (not isinstance(e['schritte'], list) or len(e['schritte']) < 2):
             F(f'Karte {n}: "schritte" braucht mindestens 2 Schritte (vorgerechnetes Beispiel)')
         if len(e.get('titel', '')) > 40: W(f'Karte {n}: Titel über 40 Zeichen')

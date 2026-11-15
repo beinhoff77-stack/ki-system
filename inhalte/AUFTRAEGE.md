@@ -619,3 +619,34 @@ Verboten: Dateien unter inhalte/pruefung/ ändern, Datenbank, Serverfunktionen, 
 Meldungen (Status nach jedem Thema, Fragen, Blocker, Abschlussbericht mit umgesetzten/nicht umgesetzten Lücken) in inhalte/postfach/luecken-klN.md ablegen und pushen.
 Arbeite ohne Rückfragen durch.
 ```
+
+
+---
+
+# Siebte Runde: Erklärungen verständlich machen (alle Themen)
+
+Anlass und Maßstab: inhalte/README.md, Abschnitt „Verständliche Erklärungen (Pflicht seit 15.11.)“. Muster: funktionen.grundbegriffe (schon erledigt).
+Ein Chat je Klasse; N durch 5, 6, 7, 8, 9 oder 10 ersetzen. Reihenfolge der Dringlichkeit: 8 und 5 zuerst, dann 7 und 6, dann 9 und 10.
+
+```text
+Du machst die Erklärungen einer Mathe-Lern-App verständlich (Gymnasium Bayern, Klasse N).
+Repository: beinhoff77-stack/ki-system (lernen-app ist ein Zweig darin). Hole den aktuellen Stand des Zweigs lernen-app, lege davon den Zweig klar-klN an und arbeite nur dort.
+
+Lies vollständig: inhalte/README.md – vor allem den Abschnitt „Verständliche Erklärungen (Pflicht seit 15.11.)“ – und inhalte/postfach/README.md.
+Sieh dir das Muster genau an: inhalte/generatoren/funktionen.grundbegriffe.py (Abschnitt KLAR) und das Ergebnis in inhalte/themen/funktionen.grundbegriffe.json.
+
+Aufgabe: Überarbeite die Lernkarten ALLER Themen der Klasse N (Feld klasse.gym_by in inhalte/themenliste.json; funktionen.grundbegriffe ist fertig).
+Je Lernkarte: einstieg und woerter neu schreiben; schritte, regel, fehler und Bildbeschriftung nach dem Maßstab überarbeiten. Technisch wie im Muster:
+ein Abschnitt KLAR im Generator des Themas, der die Felder der Lernkarten überschreibt.
+- Stell dir beim Schreiben ein Kind vor, das das Thema noch nie gesehen hat, und ein Elternteil ohne Mathe-Erinnerung. Lies jede Karte am Ende laut gedacht durch:
+  Kommt ein Wort oder Zeichen vor, das nicht erklärt ist? Dann in woerter aufnehmen oder ersetzen.
+- Die Alltagssituation muss wirklich passen und rechnerisch stimmen (Zahlen nachrechnen). Keine erfundenen Sachverhalte, die fachlich schief sind.
+- Fachlich darf nichts falsch oder verkürzt-falsch werden. Fachwörter bleiben – sie werden erklärt, nicht weggelassen.
+- Aufgaben NICHT ändern: Nach dem Generatorlauf müssen alle Aufgaben wörtlich gleich sein wie vorher (mit einem kleinen Vergleichsskript gegen
+  `git show HEAD:inhalte/themen/<thema>.json` prüfen und das Ergebnis im Postfach nennen). Verwendet der Generator Beispieltexte der Karte zum Vermeiden von Dopplungen
+  und ändern sich dadurch Aufgaben, dann die alten Beispieltexte für diese Prüfung beibehalten (wie _verbot im Muster).
+- `python3 -I tools/inhalt_pruefen.py inhalte/themen/<thema>.json` muss OK melden. Ein Thema = ein Commit, Push auf klar-klN.
+
+Verboten: Datenbank, Serverfunktionen, App-Code, Tests, Dateien unter inhalte/pruefung/, Merge nach main.
+Meldungen (Status nach jedem Thema, Fragen, Abschlussbericht) in inhalte/postfach/klar-klN.md ablegen und pushen. Arbeite ohne Rückfragen durch.
+```

@@ -119,3 +119,28 @@ Noch nicht möglich: Schrägbilder und Netze von Körpern, Flächen zum Färben,
 ## Meldungen an den Haupt-Chat
 
 Status, Fragen, Blocker und der Abschlussbericht gehören zusätzlich in `inhalte/postfach/<name-des-zweigs>.md` (Format und Regeln: `inhalte/postfach/README.md`). So muss niemand Berichte von Hand weiterreichen.
+
+
+## Verständliche Erklärungen (Pflicht seit 15.11.)
+
+Rückmeldung aus dem ersten echten Einsatz: Vater und Kind (Klasse 8) haben die erste Lernkarte nicht verstanden. Die Erklärung begann mit dem Fachsatz
+(„Eine Funktion ordnet jedem x-Wert genau einen y-Wert zu“), benutzte Wörter und Schreibweisen ohne Erklärung („Zuordnung“, „(1 | 5)“) und sprang dann in eine Prüf-Frage.
+Maßstab ab jetzt: **Ein Kind, das das Thema noch nie gesehen hat, und ein Elternteil ohne Mathe-Erinnerung verstehen die Karte beim ersten Lesen.**
+
+Jede Lernkarte bekommt zusätzlich zwei Felder (Muster: inhalte/generatoren/funktionen.grundbegriffe.py, Abschnitt KLAR):
+
+- `einstieg` (Text, 2–5 Sätze): eine Alltagssituation, in der die Idee ohne Fachwort vorkommt (Getränkeautomat, Taxi-Tarif, Wetter-App, Taschengeld, Rezept …).
+  Erst die Situation, am Ende das neue Fachwort in ⟦…⟧. Kein „x“, keine Formel im ersten Satz. Eine Situation möglichst über mehrere Karten eines Themas weiterführen.
+- `woerter` (Liste aus `[Wort, Erklärung]`): jedes Fachwort, jedes Zeichen und jede Schreibweise, die in dieser Karte zum ersten Mal vorkommt
+  (auch scheinbar Selbstverständliches wie „x-Wert“, „f(x)“, „(1 | 5)“, „{0; 1; 3}“, „D“). Erklärung in Alltagssprache, höchstens eine Zeile, gern mit Bezug zur Situation.
+
+Dazu gelten für die bestehenden Felder:
+- `schritte`: ein Beispiel in kleinen Schritten, je Schritt ein Gedanke und ein ganzer Satz, der sagt, was man tut und warum („Auf beiden Seiten 4 dazuzählen: 3x = 15.“).
+  Keine Schritte, die nur einen Term hinschreiben. 3–5 Schritte. Das Ergebnis in ⟦…⟧.
+- `regel`: der Merksatz steht in der App jetzt am Ende („MERKE“). Kurz, mit den Wörtern aus `woerter`, als Handlungsanweisung („So prüfst du: …“).
+- `bild`: Tabellen mit sprechender Beschriftung („x (Eingabe)“), nicht nur „x“ und „y“.
+- `fehler`: den Fehler in der Alltagssituation deuten („wie eine Taste, die mal Cola und mal Wasser gibt“).
+- Verboten in `einstieg` und `schritte`: Fachwörter, die nicht in `woerter` dieser oder einer früheren Karte desselben Themas stehen; Schachtelsätze; „offensichtlich“, „einfach“, „trivial“.
+
+Die Anzeige mit `einstieg`: WORUM GEHT’S? → NEUE WÖRTER → Bild → BEISPIEL – SCHRITT FÜR SCHRITT → Probe → MERKE → typischer Fehler. Ohne `einstieg` bleibt die alte Anzeige.
+Aufgaben werden bei dieser Überarbeitung nicht geändert (Aufgabentexte bleiben wörtlich gleich, damit bearbeitete Aufgaben erhalten bleiben).

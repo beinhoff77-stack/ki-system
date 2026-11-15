@@ -3807,3 +3807,16 @@ body:has(.lr-abflug-nacht) header.top .ver { color: #A9B3C1; }
 body:has(.lr-abflug-tag) header.top { background: #F3F1EA; color: #11161D; border-bottom-color: #C9C4B6; }
 body:has(.lr-abflug) header.top h1 { font-size: 1.15rem; font-weight: 600; }
 .lr.lr-abflug { min-height: 100dvh; }
+
+/* W150: verständliche Erklärung (einstieg, neue Wörter, Beispiel, Merke) und gut lesbare Tabellen in Erklärungen */
+.lr-einstieg p:not(.lr-ueber) { margin: 4px 0 0; font-size: 18px; line-height: 1.5; }
+.lr-woerter dl { margin: 6px 0 0; display: grid; grid-template-columns: minmax(84px, auto) 1fr; gap: 6px 12px; font-size: 16px; line-height: 1.4; }
+.lr-woerter dt { font-weight: 800; color: var(--lr-text); }
+.lr-woerter dd { margin: 0; color: var(--lr-text); }
+.lr-merke { border-left: 4px solid var(--lr-akzent); padding: 2px 0 2px 12px; }
+.lr-merke .lr-regel { margin-top: 4px; font-size: 18px; }
+.lr-erklaert .lr-tafel { font-size: 1.2rem; }
+.lr-erklaert .lr-tafel th, .lr-erklaert .lr-tafel td { padding: 10px 14px; }
+.lr-erklaert .lr-sogehts li { font-size: 17px; line-height: 1.5; }
+@media (max-width: 420px) { .lr-woerter dl { grid-template-columns: 1fr; gap: 0; } .lr-woerter dd { margin-bottom: 8px; } }
+.lr-erklaert .lr-tafel { display: block; overflow-x: auto; max-width: 100%; width: max-content; margin: 0 auto; }

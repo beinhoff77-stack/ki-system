@@ -52,6 +52,54 @@ ETAPPEN = [
 ]
 
 
+# ---- KLAR (verständliche Erklärungen, Runde 7) ----
+KLAR = {
+ 'indirekt': {
+  'einstieg': 'Ein Teich soll leer gepumpt werden. Mit 4 Pumpen dauert es 6 Stunden. Mit mehr Pumpen geht es schneller, mit weniger langsamer: doppelt so viele Pumpen, halb so viel Zeit. So eine Zuordnung heißt ⟦indirekt proportional⟧.',
+  'woerter': [['indirekt proportional', 'doppelt so viel von x → halb so viel von y; das Produkt x · y bleibt gleich'], ['Pumpen-Stunden', 'Pumpen mal Stunden: so groß ist die ganze Arbeit'],
+              ['y = k/x', 'k ist das gleichbleibende Produkt, hier k = 24'], ['Hyperbel', 'der geschwungene Graph von y = k/x']],
+  'schritte': ['4 Pumpen leeren ein Becken in 6 Stunden. Wie lange brauchen 3 Pumpen?', 'Die ganze Arbeit sind 4 · 6 = 24 Pumpen-Stunden. Das bleibt gleich, egal wie viele Pumpen arbeiten.',
+               'Weniger Pumpen brauchen mehr Zeit: 3 Pumpen brauchen 24 : 3 = ⟦8 Stunden⟧.'],
+  'regel': 'So rechnest du bei ⟦indirekter Proportionalität⟧: Das ⟦Produkt x · y⟧ bleibt immer gleich. Erst dieses Produkt berechnen, dann durch das neue x teilen: y = k/x. Der Graph ist eine ⟦Hyperbel⟧.'},
+ 'definitionsmenge': {
+  'einstieg': 'Eine Pizza für 12 € wird unter x Freunden aufgeteilt; jeder zahlt 12/x €. Kommen pro Person noch 2 € für Getränke dazu, sind es 12/x + 2 €. Funktionen mit x im Nenner heißen ⟦gebrochen-rationale Funktionen⟧. Für x = 0 ergeben sie keinen Sinn – diese Zahl gehört nicht zur ⟦Definitionsmenge⟧.',
+  'woerter': [['gebrochen-rationale Funktion', 'eine Funktion mit x im Nenner, z. B. f(x) = 3/(x − 2) + 1'], ['a/(x + b) + c', 'die allgemeine Form; a, b und c sind feste Zahlen'],
+              ['Definitionsmenge D', 'alle x, die man einsetzen darf'], ['ℚ \\ {2}', 'alle Bruchzahlen außer 2']],
+  'schritte': ['f(x) = 3/(x − 2) + 1. Welches x ist verboten?', 'Der Nenner ist x − 2. Er wird 0, wenn x = 2 ist.', 'Durch 0 darf man nicht teilen. Also muss die 2 heraus.',
+               'Ergebnis: ⟦D = ℚ \\ {2}⟧.'],
+  'regel': 'So findest du D: den ⟦Nenner gleich 0⟧ setzen. Bei a/(x + b) + c ist das ⟦x = −b⟧, also D = ℚ \\ {−b}. Achte auf das Vorzeichen.'},
+ 'asymptoten': {
+  'einstieg': 'Je mehr Freunde sich die Pizza für 12 € teilen, desto weniger zahlt jeder: bei 12 Freunden 1 €, bei 1200 Freunden 1 Cent – aber nie ganz 0 €. Der Betrag nähert sich der 0 immer mehr, ohne sie zu erreichen. Eine Linie, der sich ein Graph so immer mehr nähert, heißt ⟦Asymptote⟧.',
+  'woerter': [['Asymptote', 'eine Gerade, der sich der Graph immer mehr nähert, ohne sie zu berühren'], ['senkrechte Asymptote', 'senkrechte Linie dort, wo der Nenner 0 wird, z. B. x = −4'],
+              ['waagrechte Asymptote', 'waagrechte Linie, der sich der Graph für sehr große x nähert, z. B. y = −3']],
+  'schritte': ['f(x) = 2/(x + 4) − 3.', 'Senkrechte Asymptote: Der Nenner x + 4 wird 0 bei x = −4. Dort hat der Graph eine Lücke: ⟦x = −4⟧.',
+               'Waagrechte Asymptote: Für sehr große x ist 2/(x + 4) fast 0. Übrig bleibt −3: ⟦y = −3⟧.', 'Im Bild siehst du beide Asymptoten als Linien, an die sich der Graph anschmiegt.'],
+  'regel': 'So bestimmst du die ⟦Asymptoten⟧ von f(x) = a/(x + b) + c: ⟦senkrecht⟧ bei x = −b (dort ist der Nenner 0), ⟦waagrecht⟧ bei y = c.'},
+ 'achsenpunkte': {
+  'einstieg': 'Wo ein Graph die Achsen trifft, steckt oft eine wichtige Information: der Wert ganz am Anfang, also bei x = 0, und die Stelle, an der der Wert genau 0 wird. Bei einem Kontostand wäre das: Wie viel ist am Anfang da, und wann ist er bei 0? Diese Punkte heißen ⟦Achsenschnittpunkte⟧.',
+  'woerter': [['Achsenschnittpunkt', 'ein Punkt, an dem der Graph eine Achse trifft'], ['Nullstelle', 'das x, bei dem f(x) = 0 ist – dort wird die x-Achse geschnitten'],
+              ['f(0)', 'der Wert bei x = 0 – dort wird die y-Achse geschnitten']],
+  'schritte': ['f(x) = 6/(x + 1) − 2.', 'y-Achse: x = 0 einsetzen: f(0) = 6/1 − 2 = 4. Der Punkt ist (0 | 4).',
+               'Nullstelle: f(x) = 0 setzen, also 6/(x + 1) − 2 = 0. Auf beiden Seiten 2 dazuzählen: 6/(x + 1) = 2.',
+               '6 geteilt durch 3 ergibt 2, also ist x + 1 = 3 und ⟦x = 2⟧. Der Punkt ist (2 | 0).']},
+ 'parameter': {
+  'einstieg': 'Ein Bild an der Wand kannst du nach rechts oder nach oben verschieben – es bleibt dasselbe Bild, nur an anderer Stelle. Mit Graphen geht das auch: Der Graph von 1/(x − 3) + 2 sieht genauso aus wie der von 1/x, nur ⟦verschoben⟧.',
+  'woerter': [['verschieben', 'den ganzen Graphen versetzen, ohne seine Form zu ändern'], ['g(x) = 1/x', 'die Grundform der Hyperbel'],
+              ['b und c', 'die Zahlen in a/(x + b) + c, die die Verschiebung festlegen']],
+  'schritte': ['f(x) = 1/(x − 3) + 2 soll aus g(x) = 1/x entstehen.', 'Der Nenner x − 3 wird bei x = 3 null. Die Lücke ist von 0 nach 3 gewandert: Verschiebung um 3 nach rechts.',
+               'Das + 2 hebt jeden Punkt um 2 an: Verschiebung um 2 nach oben.', 'Die Asymptoten sind jetzt ⟦x = 3 und y = 2⟧.']},
+ 'beurteilen': {
+  'einstieg': 'Bei der Pizza zahlt jeder 12/x Euro. Jemand behauptet: „Bei genug Freunden zahlt jeder 0 €.“ Das stimmt nicht – der Betrag wird immer kleiner, aber nie genau 0. Solche Aussagen über Hyperbeln prüfst du mit dem, was du über D und die ⟦Asymptoten⟧ weißt.',
+  'woerter': [['Aussage', 'ein Satz, der entweder wahr oder falsch ist'], ['berühren', 'einen gemeinsamen Punkt haben']],
+  'schritte': ['Aussage: „f(x) = 4/x + 1 nimmt den Wert 1 an.“', 'Wäre f(x) = 1, dann müsste 4/x = 0 sein.', '4 geteilt durch irgendeine Zahl ist nie 0. Also gibt es kein solches x.',
+               'Die Aussage ist ⟦falsch⟧: y = 1 ist die waagrechte Asymptote, die der Graph nie erreicht.']},
+}
+
+for _e in ETAPPEN:
+    _e.update(KLAR.get(_e['lernziel'], {}))
+# ---- KLAR ENDE ----
+
+
 def nz(R, lo=-6, hi=6):
     return R.choice([k for k in range(lo, hi + 1) if k])
 

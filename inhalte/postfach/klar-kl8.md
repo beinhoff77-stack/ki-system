@@ -4,6 +4,14 @@ Annahme: Der Auftrag kam mit „Klasse N“ ohne Zahl. Gewählt: Klasse 8 (erste
 
 ## Status
 
+## 2026-11-15 15:55 (Adelaide) – STATUS
+Zweiter Chat mit demselben Auftrag (Klasse 8) hat den fertigen Zweig vorgefunden und nicht neu geschrieben, sondern geprüft:
+- Alle 13 Generatoren neu ausgeführt: JSON identisch mit dem Stand im Zweig.
+- Aufgaben aller 13 Themen wörtlich gleich wie in lernen-app (61e1dde), inhalt_pruefen: OK für alle.
+- Alle 82 Lernkarten haben einstieg und woerter, je 3–5 Schritte.
+- Korrigiert: messen.kreisberechnung, Karte „exakt“ – verbotenes Wort „einfach“ im einstieg entfernt („Lässt man π als Zeichen stehen …“). Aufgaben weiter unverändert, Prüfskript OK.
+- Nicht geprüft: inhaltliche Durchsicht jeder einzelnen Karte (nur Stichprobe gleichungen.lgs2 „pruefen“: Situation und Zahlen stimmen).
+
 ## 2026-11-15 – FERTIG
 
 Siebte Runde, Klasse 8 abgeschlossen. Alle Lernkarten haben jetzt einstieg und woerter; schritte, regel, fehler und Bild-Beschriftungen sind nach dem Maßstab überarbeitet (KLAR-Abschnitt im jeweiligen Generator).

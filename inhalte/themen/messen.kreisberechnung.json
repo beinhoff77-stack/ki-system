@@ -152,7 +152,7 @@
      "Fläche: A = π · 3² cm². Es ist 3² = 9, also ⟦A = 9π cm²⟧."
     ],
     "fehler": "Bei r = 3 ist A nicht 6π: Dann hätte man 2 · 3 statt ⟦3²⟧ gerechnet. Das ist der Umfang, nicht die Fläche.",
-    "einstieg": "π hat unendlich viele Nachkommastellen. Jedes Runden macht ein Ergebnis ein bisschen ungenau. Lässt man π einfach als Zeichen stehen, bleibt das Ergebnis genau, etwa „9π cm²“. So ein Ergebnis heißt ⟦exakt⟧.",
+    "einstieg": "π hat unendlich viele Nachkommastellen. Jedes Runden macht ein Ergebnis ein bisschen ungenau. Lässt man π als Zeichen stehen, bleibt das Ergebnis genau, etwa „9π cm²“. So ein Ergebnis heißt ⟦exakt⟧.",
     "woerter": [
      [
       "exakt",

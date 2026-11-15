@@ -74,7 +74,7 @@ KLAR = {
                'Dann mit π malnehmen: A = π · 225 cm² ≈ ⟦706,9 cm²⟧.'],
   'regel': 'So berechnest du die ⟦Kreisfläche⟧: Radius bestimmen, quadrieren, mit π malnehmen: ⟦A = π · r²⟧. Hast du d, halbiere ihn zuerst.'},
  'exakt': {
-  'einstieg': 'π hat unendlich viele Nachkommastellen. Jedes Runden macht ein Ergebnis ein bisschen ungenau. Lässt man π einfach als Zeichen stehen, bleibt das Ergebnis genau, etwa „9π cm²“. So ein Ergebnis heißt ⟦exakt⟧.',
+  'einstieg': 'π hat unendlich viele Nachkommastellen. Jedes Runden macht ein Ergebnis ein bisschen ungenau. Lässt man π als Zeichen stehen, bleibt das Ergebnis genau, etwa „9π cm²“. So ein Ergebnis heißt ⟦exakt⟧.',
   'woerter': [['exakt', 'ganz genau, ohne Runden'], ['6π', '6 mal π – das Malzeichen lässt man weg'], ['Vielfaches von π', 'eine Zahl mal π, z. B. 9π']],
   'schritte': ['Ein Kreis hat den Radius r = 3 cm.', 'Umfang: u = 2 · π · 3 cm. Die Zahlen werden zuerst zusammengerechnet: 2 · 3 = 6, also ⟦u = 6π cm⟧.',
                'Fläche: A = π · 3² cm². Es ist 3² = 9, also ⟦A = 9π cm²⟧.'],

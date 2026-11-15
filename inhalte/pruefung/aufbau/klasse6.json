@@ -1,0 +1,252 @@
+{
+ "klasse": 6,
+ "reihenfolge": [
+  {
+   "thema_schluessel": "bruch.brueche",
+   "position": 1,
+   "braucht_vorher": [
+    "zahlen.teilbarkeit (Kl. 5, fehlt: ggT/kgV, Primfaktorzerlegung)",
+    "zahlen.ganz (Kl. 5: Zahlengerade, auch negative Brüche)",
+    "zahlen.rechengesetze (Kl. 5)"
+   ],
+   "begruendung": "Bruchvorstellung ist die Basis aller Kl.-6-Themen. Kürzen und Hauptnenner brauchen Teiler/Vielfache aus Kl. 5."
+  },
+  {
+   "thema_schluessel": "bruch.dezimal",
+   "position": 2,
+   "braucht_vorher": [
+    "bruch.brueche",
+    "zahlen.natuerlich (Kl. 5, fehlt: Stellenwerttafel, Runden)",
+    "groessen.einheiten (Kl. 5: Kommaschreibweise bei Größen)"
+   ],
+   "begruendung": "Dezimalbrüche werden als neue Schreibweise für Brüche eingeführt (M6 1.2); Karte 'periodisch' braucht die Primfaktorzerlegung des Nenners."
+  },
+  {
+   "thema_schluessel": "bruch.rechnen",
+   "position": 3,
+   "braucht_vorher": [
+    "bruch.brueche",
+    "bruch.dezimal",
+    "zahlen.rechengesetze (Kl. 5)"
+   ],
+   "begruendung": "M6 1.3–1.5: erst Plus/Minus, dann Mal/Geteilt, dann gemischte Terme."
+  },
+  {
+   "thema_schluessel": "zahlen.potenzen_zehner",
+   "position": 4,
+   "braucht_vorher": [
+    "bruch.dezimal",
+    "zahlen.potenzen_basis (Kl. 5)"
+   ],
+   "begruendung": "Negative Zehnerpotenzen setzen Dezimalbrüche voraus (M6 1.4). Vor terme.potenzgesetze, weil 10⁻ⁿ das anschaulichste Beispiel für negative Exponenten ist."
+  },
+  {
+   "thema_schluessel": "terme.potenzgesetze",
+   "position": 5,
+   "braucht_vorher": [
+    "bruch.rechnen (Kehrbruch, Bruch hoch n)",
+    "zahlen.potenzen_zehner"
+   ],
+   "begruendung": "In Kl. 6 nur die Karten 'potenz_begriff' (auch mit rationaler Basis) und 'negativer_exponent'. Die Gesetze-Karten gehören nach Kl. 7 (siehe zu_viel)."
+  },
+  {
+   "thema_schluessel": "messen.flaechen_vielecke",
+   "position": 6,
+   "braucht_vorher": [
+    "messen.flaechen (Kl. 5: Rechteckformel, Flächeneinheiten)",
+    "bruch.rechnen (Dezimalzahlen in Formeln)"
+   ],
+   "begruendung": "NEU/abgetrennt (Datei fehlt): Parallelogramm, Dreieck, Trapez aus der Rechteckformel herleiten; Oberfläche einfacher Körper (M6 2.1)."
+  },
+  {
+   "thema_schluessel": "messen.volumen",
+   "position": 7,
+   "braucht_vorher": [
+    "messen.flaechen_vielecke",
+    "groessen.einheiten (Kl. 5)",
+    "messen.koerper_berechnung (Kl. 5: Quader, Karte 'volumen' als Vorstufe)"
+   ],
+   "begruendung": "NEU/abgetrennt (Datei fehlt): Quadervolumen, Volumeneinheiten inkl. Liter (M6 2.2). Wird in Kl. 8 (Prisma, Zylinder) und Kl. 9 (Streckung, Volumen · k³) vorausgesetzt."
+  },
+  {
+   "thema_schluessel": "bruch.prozent",
+   "position": 8,
+   "braucht_vorher": [
+    "bruch.brueche",
+    "bruch.dezimal",
+    "groessen.proportional (Kl. 5: Schlussrechnung)"
+   ],
+   "begruendung": "M6 3: Prozent als andere Schreibweise für Hundertstel; Grundwert per Dreisatz."
+  },
+  {
+   "thema_schluessel": "daten.darstellen",
+   "position": 9,
+   "braucht_vorher": [
+    "bruch.prozent",
+    "geometrie.grundbegriffe (Kl. 5: Winkel für Kreisdiagramme)"
+   ],
+   "begruendung": "Relative Häufigkeiten als Bruch/Dezimal/Prozent; Kreisdiagramm-Winkel."
+  },
+  {
+   "thema_schluessel": "daten.kennwerte",
+   "position": 10,
+   "braucht_vorher": [
+    "daten.darstellen (Häufigkeitstabellen)",
+    "bruch.rechnen (Division mit Dezimalergebnis)"
+   ],
+   "begruendung": "Arithmetisches Mittel (M6 3) zuletzt; Median erst Kl. 7."
+  }
+ ],
+ "luecken": [
+  {
+   "was_fehlt": "Gemischte Zahlen (z. B. 2 ¾): lesen, in unechte Brüche umwandeln und damit rechnen. Ausdrücklich weggelassen (offen in bruch.rechnen), der Lehrplan verlangt sie.",
+   "lehrplan_bezug": "M6 1.3 („Brüche, gemischte Zahlen und Dezimalbrüche addieren und subtrahieren“) und M6 1.4 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "bruch.brueche, neue Lernkarte 'gemischte_zahlen' nach 'kuerzen'; in bruch.rechnen je eine Stufe-2/3-Aufgabengruppe mit gemischten Zahlen. App: Lücken-Schablone „□ □/□“.",
+   "dringlichkeit": "hoch"
+  },
+  {
+   "was_fehlt": "Flächeninhalt von Parallelogramm, Dreieck und Trapez (Herleitung durch Zerlegen/Ergänzen), Oberfläche einfacher Körper.",
+   "lehrplan_bezug": "M6 2.1 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "neues Thema messen.flaechen_vielecke (Kl. 6) in themenliste.json anlegen; messen.flaechen (Kl. 5) hat diese Figuren zu Recht weggelassen. Ohne Zeichnung nicht sinnvoll (Bild 'figur').",
+   "dringlichkeit": "hoch"
+  },
+  {
+   "was_fehlt": "Volumen: Quaderformel, Einheitswürfel, Volumeneinheiten inkl. Liter/Milliliter umrechnen, zusammengesetzte Körper.",
+   "lehrplan_bezug": "M6 2.2 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "neues Thema messen.volumen (Kl. 6). messen.koerper_berechnung (Kl. 5) enthält nur eine Vertiefungskarte 'volumen' ohne Einheitenumrechnung; Liter/Milliliter, Volumeneinheiten und zusammengesetzte Körper fehlen ganz.",
+   "dringlichkeit": "hoch"
+  },
+  {
+   "was_fehlt": "Potenzen mit rationaler Basis, z. B. (2/3)², 0,5³, (−1,2)². terme.potenzgesetze rechnet nur mit ganzen Basen.",
+   "lehrplan_bezug": "M6 1.4 („Potenzen mit natürlichen Hochzahlen und rationalen Grundzahlen“; Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "terme.potenzgesetze, Karte 'potenz_begriff' um Beispiel (2/3)³ = 8/27 erweitern, oder bruch.rechnen neue Lernkarte 'potenzen' nach 'dezimal_geteilt'.",
+   "dringlichkeit": "mittel"
+  },
+  {
+   "was_fehlt": "Prozent und Prozentpunkte unterscheiden; Prozentangaben aus Zeitungstexten prüfen.",
+   "lehrplan_bezug": "M6 3 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "bruch.prozent, Karte 'verstehen' um ein zweites vorgerechnetes Beispiel ergänzen (Partei von 20 % auf 25 %: +5 Prozentpunkte, aber +25 %).",
+   "dringlichkeit": "mittel"
+  },
+  {
+   "was_fehlt": "Anteile von Anteilen und Sachaufgaben mit mehreren Rechenarten (mit Skizze, Überschlag). bruch.rechnen hat keine Sachkarte.",
+   "lehrplan_bezug": "M6 1.5 („Sachprobleme … Anteile von Anteilen“; Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "bruch.rechnen, neue Lernkarte 'sach' am Ende (z. B. 2/3 der Klasse fahren mit, davon 3/4 mit dem Rad → 2/3 · 3/4 = 1/2).",
+   "dringlichkeit": "mittel"
+  },
+  {
+   "was_fehlt": "Brüche als Zahlen: negative Brüche am Zahlenstrahl ordnen; Unterschied ℕ, ℤ, ℚ (z. B. kein Nachfolger bei Brüchen, viele Schreibweisen derselben Zahl); Bruch als Quotient (3/4 = 3 : 4).",
+   "lehrplan_bezug": "M6 1.1 und 1.2 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "bruch.brueche, Karte 'zahlenstrahl' um negative Brüche erweitern; neue Lernkarte 'zahlbereiche' vor 'verstehen'.",
+   "dringlichkeit": "mittel"
+  },
+  {
+   "was_fehlt": "Teilbarkeit, ggT/kgV, Primfaktorzerlegung werden in bruch.brueche ('kuerzen': „größter gemeinsamer Teiler“, 'vergleichen': „kleinstes gemeinsames Vielfaches“) und bruch.dezimal ('periodisch': Primfaktoren 2 und 5) benutzt, aber nirgends erklärt.",
+   "lehrplan_bezug": "M5 3.1 (Primfaktorzerlegung) und M6 1.1 (Hauptnenner „z. B. über die Primfaktorzerlegung“) (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "neues Thema zahlen.teilbarkeit in Kl. 5 (siehe klasse5.json); in bruch.brueche bei 'vergleichen' einen Schritt „Hauptnenner über Primfaktorzerlegung“ vorrechnen.",
+   "dringlichkeit": "hoch"
+  },
+  {
+   "was_fehlt": "Kopfrechnen mit einfachen Brüchen und Dezimalzahlen (½ = 0,5 = 50 %, ¼, ⅕ …) als automatisiertes Wissen.",
+   "lehrplan_bezug": "M6 1.2 („automatisiertes Wissen über häufige Dezimalbrüche“) und M6 1.5 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "bruch.dezimal, neue Lernkarte 'merkwerte' nach 'dezimal_zu_bruch' (Tabelle ½, ¼, ¾, ⅕, ⅛, ⅓ als Bild 'tabelle').",
+   "dringlichkeit": "niedrig"
+  }
+ ],
+ "zu_viel": [
+  {
+   "thema_schluessel": "terme.potenzgesetze",
+   "lernziel": "mal_gleiche_basis, geteilt_gleiche_basis, gleicher_exponent, anwenden",
+   "warum": "gehört in Klasse 7: M7 1.2 „Produkte von Potenzen mit natürlichen Exponenten (bei gleicher Basis oder gleichem Exponenten) … zusammenfassen“ (geprüft). In Kl. 6 verlangt M6 1.4 nur Potenzen mit rationaler Basis und negative Exponenten als Kehrbruch. Mit negativen Exponenten gehören die Gesetze nach Kl. 9 (M9 5 „Erweiterung des Potenzbegriffs“; Wortlaut dort nicht geprüft). Der lehrplan_gym-Eintrag in themenliste.json ist für Kl. 6 zu weit gefasst."
+  },
+  {
+   "thema_schluessel": "daten.kennwerte",
+   "lernziel": "median, modal_spannweite",
+   "warum": "gehört in Klasse 7 (M7 4: Median, Spannweite, Quartile; geprüft). Median ist bereits als Vertiefung markiert; 'modal_spannweite' ist Pflicht – ebenfalls als Vertiefung markieren oder nach daten.boxplot (Kl. 7) verschieben."
+  },
+  {
+   "thema_schluessel": "bruch.prozent",
+   "lernziel": "rabatt_aufschlag (Stufe 3: Grundwert rückwärts aus vermehrtem/vermindertem Wert), zinsen (Monatszinsen)",
+   "warum": "„Komplexere Prozentaufgaben“ sind Klasse 7 (M7 3; eigenes Thema bruch.prozent_grundwert). In Kl. 6 nur einfache Alltagsaufgaben (M6 3). Stufe-3-Aufgaben dorthin verschieben."
+  },
+  {
+   "thema_schluessel": "zahlen.potenzen_zehner",
+   "lernziel": "gross_wissenschaftlich, vorsilben_gross (Giga, Tera)",
+   "warum": "Nicht ausdrücklich im M6-Text (dort: negative Zehnerpotenzen für Alltagsgrößen deuten). Fachlich harmlos und für NT/Physik nützlich; Vorschlag: als Vertiefung markieren, nicht streichen."
+  }
+ ],
+ "themen": [
+  {
+   "thema_schluessel": "bruch.brueche",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Anteile, Erweitern/Kürzen, Vergleichen, Zahlenstrahl: guter roter Faden, Verstehen-Karte am Ende.",
+    "Fehlt: gemischte Zahlen, negative Brüche, Prozent als Schreibweise (M6 1.1), Bruch als Quotient.",
+    "Setzt ggT/kgV voraus, die nirgends erklärt sind.",
+    "Bild: 'anteil_bestimmen' braucht ein Flächenmodell. Färbbare Flächen gehen noch nicht; Übergang: 'kreisdiagramm' mit n gleichen Teilen oder 'figur' mit Rechteck und gefülltem Teilrechteck."
+   ]
+  },
+  {
+   "thema_schluessel": "bruch.dezimal",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Deckt M6 1.2 ab (Stellenwerte, Runden, Umwandeln, periodisch mit Periodenlänge 1, Endlichkeitskriterium).",
+    "'offen' sagt, es gebe keinen lehrplan_gym-Wortlaut – den gibt es (M6 1.2); themenliste.json ergänzen.",
+    "Taschenrechneranzeige (0,166666667) deuten fehlt – kleine Ergänzung in 'periodisch'.",
+    "Keine Sachkarte; vertretbar, weil Anwendung in bruch.rechnen folgen soll."
+   ]
+  },
+  {
+   "thema_schluessel": "bruch.rechnen",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Alle vier Grundrechenarten für Brüche und Dezimalzahlen, Vorzeichen, Rechenvorteile, gemischte Terme, Fehler finden: solide.",
+    "Fehlt: gemischte Zahlen, Anteile von Anteilen, Sachaufgaben, Potenzen mit rationaler Basis.",
+    "Reihenfolge innerhalb passt (Plus/Minus → Mal/Geteilt → gemischt). Vorschlag: 'vorzeichen' erst nach den Mal/Geteilt-Karten, weil sie beide Vorzeichenregeln zusammenfasst."
+   ]
+  },
+  {
+   "thema_schluessel": "zahlen.potenzen_zehner",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Negative Zehnerpotenzen und Vorsilben gut aufgebaut, Vergleichen/Prüfen am Ende.",
+    "Doppelt mit zahlen.potenzen_basis (Karte 'zehner', Kl. 5) und terme.potenzgesetze (Karte 'negativer_exponent'). Vorschlag: 'zehnerpotenz' hier als kurze Wiederholung kennzeichnen; negative Exponenten nur hier ausführlich, in terme.potenzgesetze darauf verweisen.",
+    "'offen' sagt, es gebe keinen Lehrplan-Wortlaut – M6 1.4 („Darstellungen von Alltagsgrößen mit negativen Zehnerpotenzen interpretieren“) passt."
+   ]
+  },
+  {
+   "thema_schluessel": "terme.potenzgesetze",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Für Kl. 6 relevant sind nur 'potenz_begriff' und 'negativer_exponent'; die übrigen fünf Karten sind Kl.-7-Stoff.",
+    "Vorschlag: Thema aufteilen – Kl. 6: Potenzbegriff mit rationaler Basis + negativer Exponent; Kl. 7: Potenzgesetze mit natürlichen Exponenten (+ Potenz einer Potenz, die in M7 1.2 ausdrücklich steht und hier fehlt)."
+   ]
+  },
+  {
+   "thema_schluessel": "bruch.prozent",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Grundbegriffe und einfache Alltagsaufgaben (Rabatt, Zinsen) vollständig für Kl. 6.",
+    "Fehlt: Prozent vs. Prozentpunkte.",
+    "Stufe-3-Aufgaben mit Grundwert rückwärts sind Kl.-7-Niveau."
+   ]
+  },
+  {
+   "thema_schluessel": "daten.darstellen",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Häufigkeiten, Säulen- und Kreisdiagramm, irreführende Diagramme: deckt M6 3 ab.",
+    "Der Eintrag in 'offen' ist überholt: Säulen- und Kreisdiagramme kann die App seit 14.11. zeichnen. Ablese- und Täuschungsaufgaben jetzt mit 'saeulen' (auch y_start > 0) und 'kreisdiagramm' bauen – das ist hier der größte Gewinn."
+   ]
+  },
+  {
+   "thema_schluessel": "daten.kennwerte",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Arithmetisches Mittel inkl. Tabelle und Rückwärtsrechnen: gut und vollständig für Kl. 6.",
+    "Median/Modalwert/Spannweite sind Kl.-7-Stoff (siehe zu_viel).",
+    "Bild: Häufigkeitstabelle als 'tabelle' statt Fließtext."
+   ]
+  }
+ ]
+}

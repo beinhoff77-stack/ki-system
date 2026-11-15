@@ -1,0 +1,298 @@
+{
+ "klasse": 5,
+ "reihenfolge": [
+  {
+   "thema_schluessel": "zahlen.natuerlich",
+   "position": 1,
+   "braucht_vorher": [
+    "Grundschule: vier Grundrechenarten"
+   ],
+   "begruendung": "NEU (keine Datei, nicht in themenliste). Stellenwertsystem, große Zahlen, Zahlenstrahl, Runden sind das Fundament; Runden wird in zahlen.rechengesetze (Überschlag) und bruch.dezimal (Kl. 6) vorausgesetzt."
+  },
+  {
+   "thema_schluessel": "zahlen.ganz",
+   "position": 2,
+   "braucht_vorher": [
+    "zahlen.natuerlich"
+   ],
+   "begruendung": "Erweiterung zu den ganzen Zahlen und Addition/Subtraktion (M5 1.2)."
+  },
+  {
+   "thema_schluessel": "geometrie.grundbegriffe",
+   "position": 3,
+   "braucht_vorher": [
+    "zahlen.ganz (Koordinaten auch negativ)"
+   ],
+   "begruendung": "M5 2 liegt im Lehrplan zwischen Addition und Multiplikation. Karte 'koordinaten' rechnet mit negativen Koordinaten, braucht also zahlen.ganz."
+  },
+  {
+   "thema_schluessel": "geometrie.winkel",
+   "position": 4,
+   "braucht_vorher": [
+    "geometrie.grundbegriffe (Winkelarten)"
+   ],
+   "begruendung": "Rechnen mit Winkelgrößen (ergänzen, Uhr, Himmelsrichtungen) baut direkt auf 'winkelarten' auf."
+  },
+  {
+   "thema_schluessel": "geometrie.ortslinien",
+   "position": 5,
+   "braucht_vorher": [
+    "geometrie.grundbegriffe (Abstand, Lot, Kreis, Tangente)"
+   ],
+   "begruendung": "Abstandsbedingungen setzen Lot, Abstand und Lage Kreis–Gerade voraus."
+  },
+  {
+   "thema_schluessel": "zahlen.rechengesetze",
+   "position": 6,
+   "braucht_vorher": [
+    "zahlen.ganz",
+    "zahlen.natuerlich (Runden für Überschlag)"
+   ],
+   "begruendung": "M5 3.1/3.2. Karte mal_ganz braucht die Vorzeichenidee aus zahlen.ganz."
+  },
+  {
+   "thema_schluessel": "zahlen.potenzen_basis",
+   "position": 7,
+   "braucht_vorher": [
+    "zahlen.rechengesetze (Karte mal_ganz für negative Basen)"
+   ],
+   "begruendung": "Potenzen = wiederholtes Multiplizieren; Karte 'negativ' braucht Minus mal Minus."
+  },
+  {
+   "thema_schluessel": "zahlen.teilbarkeit",
+   "position": 8,
+   "braucht_vorher": [
+    "zahlen.rechengesetze",
+    "zahlen.potenzen_basis"
+   ],
+   "begruendung": "NEU (nicht in themenliste). Teilbarkeitsregeln und Primfaktorzerlegung (M5 3.1) sind Voraussetzung für Kürzen und Hauptnenner in Kl. 6."
+  },
+  {
+   "thema_schluessel": "stochastik.kombinatorik",
+   "position": 9,
+   "braucht_vorher": [
+    "zahlen.rechengesetze (Multiplizieren)"
+   ],
+   "begruendung": "Zählprinzip = Produkt (M5 3.1)."
+  },
+  {
+   "thema_schluessel": "groessen.einheiten",
+   "position": 10,
+   "braucht_vorher": [
+    "zahlen.rechengesetze",
+    "zahlen.natuerlich (Stellenwerttafel → Einheitentafel)"
+   ],
+   "begruendung": "M5 4.1; Voraussetzung für groessen.proportional (kg, €, ct) und messen.flaechen."
+  },
+  {
+   "thema_schluessel": "groessen.proportional",
+   "position": 11,
+   "braucht_vorher": [
+    "groessen.einheiten",
+    "zahlen.rechengesetze"
+   ],
+   "begruendung": "Schlussrechnung/Dreisatz steht in M5 4.1 nach den Größen; alle Sachaufgaben rechnen mit Einheiten."
+  },
+  {
+   "thema_schluessel": "messen.flaechen",
+   "position": 12,
+   "braucht_vorher": [
+    "groessen.einheiten (Kommaschreibweise)",
+    "zahlen.potenzen_basis (Quadratzahlen)",
+    "geometrie.grundbegriffe (Rechteck, Quadrat)"
+   ],
+   "begruendung": "M5 4.2: Rechteck/Quadrat, Flächeneinheiten, Zerlegen/Ergänzen."
+  },
+  {
+   "thema_schluessel": "messen.koerper_berechnung",
+   "position": 13,
+   "braucht_vorher": [
+    "messen.flaechen"
+   ],
+   "begruendung": "Oberfläche von Quadern = Summe von Rechteckflächen (M5 4.2), deshalb zuletzt."
+  }
+ ],
+ "luecken": [
+  {
+   "was_fehlt": "Natürliche Zahlen: Stellenwertsystem (auch Abgrenzung zu römischen Zahlen), Zahlen über einer Million lesen und schreiben, Zahlenstrahl mit passender Skalierung, Runden in Sachzusammenhängen.",
+   "lehrplan_bezug": "M5 1.1 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "neues Thema zahlen.natuerlich (vor zahlen.ganz): stellenwert, grosse_zahlen, zahlenstrahl, runden, roemisch, verstehen. Bilder: stellentafel, zahlenstrahl.",
+   "dringlichkeit": "hoch"
+  },
+  {
+   "was_fehlt": "Teilbarkeitsregeln (2, 3, 5, 10), Faktorisieren und Primfaktorzerlegung. Steht nicht in themenliste.json, wird aber in Kl. 6 beim Kürzen (ggT), Hauptnenner und bei endlichen/periodischen Dezimalbrüchen vorausgesetzt.",
+   "lehrplan_bezug": "M5 3.1 („faktorisieren natürliche Zahlen und ermitteln deren Primfaktorzerlegung … Teilbarkeit durch 2, 3, 5 und 10“; Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "neues Thema zahlen.teilbarkeit (nach zahlen.potenzen_basis): teiler_vielfache, teilbarkeitsregeln, primzahlen, primfaktorzerlegung, ggt_kgv, verstehen.",
+   "dringlichkeit": "hoch"
+  },
+  {
+   "was_fehlt": "Einfache Gleichungen durch Probieren oder Umkehraufgaben: a + x = b, x − a = b, a − x = b sowie a · x = b, x : a = b, a : x = b.",
+   "lehrplan_bezug": "M5 1.2 und M5 3.1 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "zahlen.ganz, neue Lernkarte 'umkehraufgabe' nach 'subtrahieren'; zahlen.rechengesetze, neue Lernkarte 'umkehraufgabe_mal' nach 'geteilt_ganz'.",
+   "dringlichkeit": "hoch"
+  },
+  {
+   "was_fehlt": "Schriftliches Addieren und Subtrahieren (auch über einer Million) mit Größenordnungs-Kontrolle.",
+   "lehrplan_bezug": "M5 1.2 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "zahlen.ganz, neue Lernkarte 'schriftlich_plus_minus' vor 'addieren' (oder in zahlen.natuerlich).",
+   "dringlichkeit": "mittel"
+  },
+  {
+   "was_fehlt": "Schriftliche Division mit mehrstelligen Divisoren (über 10) ist nur ein Satz in der Karte 'schriftlich'.",
+   "lehrplan_bezug": "M5 3.1 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "zahlen.rechengesetze: Karte 'schriftlich' teilen in 'schriftlich_mal' und 'schriftlich_geteilt' (vorgerechnet, z. B. 7 488 : 24).",
+   "dringlichkeit": "mittel"
+  },
+  {
+   "was_fehlt": "Kopfrechnen: einfache Fälle im Kopf, Kopfrechenstrategien als Anwendung des Distributivgesetzes.",
+   "lehrplan_bezug": "M5 1.2, 3.1, 3.2 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "zahlen.rechengesetze, neue Lernkarte 'kopfrechnen' nach 'verteilen'.",
+   "dringlichkeit": "mittel"
+  },
+  {
+   "was_fehlt": "Aussagen prüfen und mit Gegenbeispielen widerlegen – zahlen.ganz hat keine Verstehen-Karte.",
+   "lehrplan_bezug": "M5 1.1 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "zahlen.ganz, neue Lernkarte 'verstehen' nach 'ketten'.",
+   "dringlichkeit": "mittel"
+  },
+  {
+   "was_fehlt": "Sachaufgaben mit allen Grundrechenarten, Vorwärts-/Rückwärtsarbeiten; zahlen.rechengesetze hat keine Anwendungskarte.",
+   "lehrplan_bezug": "M5 3.2 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "zahlen.rechengesetze, neue Lernkarte 'sach' am Ende.",
+   "dringlichkeit": "mittel"
+  },
+  {
+   "was_fehlt": "Schrägbilder und Netze von Quadern (Lehrplan: Oberfläche „auch mit Netzen und Schrägbildern“). Die App kann Körper noch nicht zeichnen; in messen.koerper_berechnung gibt es nur Tabellen.",
+   "lehrplan_bezug": "M5 4.2 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "messen.koerper_berechnung, Lernkarten 'quader' und 'oberflaeche' – sobald die App eine Körper-Zeichnung kann. Übergang: Würfelnetz als 'figur' aus 6 Quadraten (ebene Figur, geht schon).",
+   "dringlichkeit": "mittel"
+  },
+  {
+   "was_fehlt": "Näherungswerte für krumm begrenzte Flächen durch Modellieren mit Rechtecken (z. B. See auf Karopapier).",
+   "lehrplan_bezug": "M5 4.2 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "messen.flaechen, Stufe-3-Aufgaben in 'sachaufgaben' mit 'figur' (Vieleck als Umriss über einem Gitter).",
+   "dringlichkeit": "niedrig"
+  },
+  {
+   "was_fehlt": "Winkel mit dem Geodreieck messen und zeichnen. Geht in der App nicht (Kind kann nicht zeichnen); geometrie.grundbegriffe und geometrie.winkel üben nur Winkelarten und Rechnen.",
+   "lehrplan_bezug": "M5 2 („Winkel bis 360° mit dem Geodreieck messen und zeichnen“; Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "Übergang: Aufgaben „Schätze die Winkelgröße“ mit 'figur' und Auswahl (z. B. 35°/55°/125°); echtes Messen bleibt Heft-Arbeit – in der Eltern-Ansicht als Hinweis vermerken.",
+   "dringlichkeit": "niedrig"
+  }
+ ],
+ "zu_viel": [
+  {
+   "thema_schluessel": "geometrie.winkel",
+   "lernziel": "kreuzung",
+   "warum": "Inhaltlich der Scheitelwinkelsatz (gegenüberliegende Winkel gleich) aus M7 2.2 – hier nur ohne Fachbegriff. Vertretbar, weil über „ergänzen zu 180°“ begründet; als Vorgriff auf Kl. 7 markieren. Das Thema selbst ist jetzt auf Kl.-5-Niveau gebaut; themenliste.json-Titel „Winkelsätze“ passt nicht mehr (Vorschlag: „Mit Winkeln rechnen“)."
+  },
+  {
+   "thema_schluessel": "messen.koerper_berechnung",
+   "lernziel": "volumen",
+   "warum": "Volumen ist Klasse 6 (M6 2.2, geprüft). Bereits als Vertiefung (nicht Pflicht) markiert – richtig so. In Kl. 6 fehlt das vollständige Volumen-Thema aber weiterhin (siehe klasse6.json)."
+  },
+  {
+   "thema_schluessel": "groessen.proportional",
+   "lernziel": "erkennen, pruefen",
+   "warum": "Über M5 4.1 hinaus (dort nur Schlussrechnung/Dreisatz); Begriff „proportional“ und Quotientenprüfung formal erst Kl. 8. Vorschlag: 'pruefen' als Vertiefung markieren."
+  }
+ ],
+ "themen": [
+  {
+   "thema_schluessel": "zahlen.ganz",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Ganze Zahlen deuten, ordnen, Betrag, Addition/Subtraktion: gut, roter Faden bis 'sach'.",
+    "Fehlt aus M5 1.2: Umkehraufgaben, schriftliches Rechnen mit großen Zahlen, Kopfrechnen, Verstehen-Karte."
+   ]
+  },
+  {
+   "thema_schluessel": "geometrie.grundbegriffe",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Deckt M5 2 ab: Koordinatensystem, Lagebeziehungen, Kreis–Gerade/Kreis–Kreis, Winkelarten, Vierecke, Verstehen am Ende. Guter roter Faden vom Punkt zur Figur.",
+    "Winkel messen/zeichnen geht in der App nicht (siehe luecken).",
+    "Dreiecksarten zu Recht weggelassen (stehen nicht in M5 2).",
+    "Lageskizzen im Koordinatensystem passen; überstumpfe Winkel als Bild fehlen noch."
+   ]
+  },
+  {
+   "thema_schluessel": "geometrie.winkel",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Auf Kl.-5-Niveau sinnvoll gebaut (ergänzen, Kreuzung, um einen Punkt, Uhr, Himmelsrichtungen, Rechteck/Quadrat).",
+    "Überschneidung mit geometrie.grundbegriffe ('winkelarten'). Vorschlag: als Fortsetzung direkt danach lernen.",
+    "Für Kl. 7 fehlen die eigentlichen Winkelsätze weiterhin (siehe klasse7.json).",
+    "Bild: Uhr und Windrose wären mit 'figur' (Kreis + Strecken) näherungsweise möglich."
+   ]
+  },
+  {
+   "thema_schluessel": "geometrie.ortslinien",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Kreislinie, Parallelenpaar, Verknüpfen, Sachsituationen, Verstehen: deckt „Punkte bestimmen, die Bedingungen erfüllen“ vollständig ab.",
+    "Mittelsenkrechte/Winkelhalbierende zu Recht nach Kl. 7 verschoben – dort fehlen sie aber (siehe klasse7.json)."
+   ]
+  },
+  {
+   "thema_schluessel": "zahlen.rechengesetze",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Vorrangregeln, Rechengesetze, Vorzeichenregeln mal/geteilt, Überschlag.",
+    "Reihenfolge: 'termaufbau' steht in 'abschnitte' an Platz 3, in 'etappen' zuletzt – 'etappen' angleichen.",
+    "Schriftliche Division zu dünn, keine Sachkarte."
+   ]
+  },
+  {
+   "thema_schluessel": "zahlen.potenzen_basis",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Deckt M5 3.1 vollständig ab.",
+    "'vertauschen' gehört direkt hinter 'berechnen' (wie in 'abschnitte')."
+   ]
+  },
+  {
+   "thema_schluessel": "stochastik.kombinatorik",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Systematisch zählen → Zählprinzip → Reihenfolgen → Baum → Bedingungen → Grenzen → Verstehen: vorbildlicher Aufbau, inkl. „prüfen, ob das Zählprinzip anwendbar ist“.",
+    "'offen' ist überholt: Bildtyp 'baum' gibt es seit 14.11. Karte 'baumdiagramm' und ihre Aufgaben jetzt mit echtem Baum bauen – wichtigstes Bild des Themas."
+   ]
+  },
+  {
+   "thema_schluessel": "groessen.einheiten",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Schätzen, Länge, Masse, Zeit, Kommaschreibweise, Rechnen, Maßstab, Verstehen: deckt M5 4.1 ab (ohne Dreisatz, der in groessen.proportional steht).",
+    "Geld hat keine eigene Karte, kommt aber in 'kommaschreibweise' und 'rechnen' vor – genügt.",
+    "„Prinzip des Messens“ (Vielfaches einer Einheit) könnte in 'schaetzen' einen Satz bekommen."
+   ]
+  },
+  {
+   "thema_schluessel": "groessen.proportional",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Dreisatz sauber aufgebaut. 'pruefen' fachlich vor den Dreisatz (wie in 'abschnitte') – 'etappen' angleichen.",
+    "Jetzt erst nach groessen.einheiten lernen."
+   ]
+  },
+  {
+   "thema_schluessel": "messen.flaechen",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Einheitsquadrate → Formel → Einheiten → Komma → Zerlegen → Sach → Verstehen: deckt M5 4.2 (ohne Quaderoberfläche) ab.",
+    "Dreieck/Parallelogramm/Trapez zu Recht weggelassen; sie fehlen jetzt in Kl. 6 (siehe klasse6.json).",
+    "Näherungswerte durch Modellieren nur indirekt."
+   ]
+  },
+  {
+   "thema_schluessel": "messen.koerper_berechnung",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Quaderoberfläche inkl. Sachaufgaben und zusammengesetzter Körper: gut.",
+    "Netze und Schrägbilder fehlen (App).",
+    "Volumen als Vertiefung richtig gekennzeichnet; das Feld 'umfang' in themenliste.json (Prisma … Kugel) auf Kl. 5 kürzen."
+   ]
+  }
+ ]
+}

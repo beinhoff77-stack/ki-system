@@ -1,0 +1,196 @@
+{
+ "klasse": 7,
+ "reihenfolge": [
+  {
+   "thema_schluessel": "terme.aufstellen",
+   "position": 1,
+   "braucht_vorher": [
+    "zahlen.rechengesetze (Kl. 5: Termstruktur)",
+    "bruch.rechnen (Kl. 6)",
+    "terme.potenzgesetze (Kl. 6: negative Exponenten)"
+   ],
+   "begruendung": "M7 1.1 – Grundlage der gesamten Algebra ab Kl. 7."
+  },
+  {
+   "thema_schluessel": "terme.umformen",
+   "position": 2,
+   "braucht_vorher": [
+    "terme.aufstellen"
+   ],
+   "begruendung": "NEU, fehlt in themenliste.json: zusammenfassen, ausmultiplizieren, ausklammern, Summen multiplizieren, binomische Formeln, Potenzgesetze mit natürlichen Exponenten (M7 1.2)."
+  },
+  {
+   "thema_schluessel": "abbildungen.kongruenz",
+   "position": 3,
+   "braucht_vorher": [
+    "geometrie.grundbegriffe (Kl. 5: Koordinatensystem, senkrecht, Abstand)"
+   ],
+   "begruendung": "M7 2.1 Achsen- und Punktsymmetrie. Vorher fehlt noch ein Teil zu Grundkonstruktionen (siehe luecken)."
+  },
+  {
+   "thema_schluessel": "geometrie.winkelsaetze",
+   "position": 4,
+   "braucht_vorher": [
+    "geometrie.winkel (Kl. 5: ergänzen zu 180°/360°)",
+    "abbildungen.kongruenz (Punktsymmetrie begründet Scheitelwinkel)"
+   ],
+   "begruendung": "NEU: M7 2.2 fehlt als Thema (geometrie.winkel wurde auf Kl.-5-Niveau gebaut)."
+  },
+  {
+   "thema_schluessel": "gleichungen.linear",
+   "position": 5,
+   "braucht_vorher": [
+    "terme.umformen",
+    "Kl.-5-Umkehraufgaben (fehlen dort noch)"
+   ],
+   "begruendung": "NEU, fehlt in themenliste.json: lineare Gleichungen mit Äquivalenzumformungen (M7 3)."
+  },
+  {
+   "thema_schluessel": "bruch.prozent_grundwert",
+   "position": 6,
+   "braucht_vorher": [
+    "bruch.prozent (Kl. 6)",
+    "gleichungen.linear (Rückwärtsrechnen als Gleichung)"
+   ],
+   "begruendung": "M7 3 (Vertiefung der Prozentrechnung) folgt im Lehrplan direkt auf die Gleichungen."
+  },
+  {
+   "thema_schluessel": "daten.boxplot",
+   "position": 7,
+   "braucht_vorher": [
+    "daten.kennwerte (Kl. 6)"
+   ],
+   "begruendung": "M7 4; unabhängig von Algebra und Geometrie."
+  },
+  {
+   "thema_schluessel": "geometrie.konstruktion",
+   "position": 8,
+   "braucht_vorher": [
+    "geometrie.winkelsaetze (Winkelsumme wird hier nur benutzt, nicht begründet)",
+    "abbildungen.kongruenz"
+   ],
+   "begruendung": "M7 5: Kongruenzsätze, besondere Dreiecke, Satz und Kehrsatz."
+  },
+  {
+   "thema_schluessel": "geometrie.kreis",
+   "position": 9,
+   "braucht_vorher": [
+    "geometrie.konstruktion (gleichschenklige Dreiecke, Winkelsumme)",
+    "Grundkonstruktionen Mittelsenkrechte/Winkelhalbierende (fehlen)"
+   ],
+   "begruendung": "M7 5: Thales-Beweis braucht Basiswinkel; Umkreis/Inkreis braucht Mittelsenkrechte und Winkelhalbierende."
+  }
+ ],
+ "luecken": [
+  {
+   "was_fehlt": "Winkelsätze: Neben-, Scheitel-, Stufen- und Wechselwinkel; Begründung der Innenwinkelsumme im Dreieck (180°) und im Vieleck; Parallelität über Winkel prüfen. Fällt durch: geometrie.winkel wurde (richtig) auf Kl.-5-Niveau gebaut, geometrie.konstruktion benutzt die Winkelsumme nur.",
+   "lehrplan_bezug": "M7 2.2 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "neues Thema geometrie.winkelsaetze (Kl. 7) in themenliste.json anlegen: nebenwinkel_scheitelwinkel, stufen_wechselwinkel, winkelsumme_begruenden, vieleck, parallel_pruefen, verstehen. Bild 'figur' mit Geradenkreuzungen.",
+   "dringlichkeit": "hoch"
+  },
+  {
+   "was_fehlt": "Grundkonstruktionen Mittelsenkrechte, Lot, Winkelhalbierende (Vorgehen beschreiben und begründen); Abstandsprobleme mit Mittelsenkrechte. Fällt durch: geometrie.ortslinien (Kl. 5) verweist auf Kl. 7, geometrie.konstruktion verweist auf ortslinien zurück. geometrie.kreis ('umkreis_inkreis') setzt beide Linien voraus.",
+   "lehrplan_bezug": "M7 2.1 („Mittelsenkrechte, Lote und Winkelhalbierende konstruieren …; Abstandsprobleme … Mittelsenkrechte und Kreis“; Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "abbildungen.kongruenz, neue Lernkarten 'mittelsenkrechte' und 'winkelhalbierende' nach 'punktspiegelung' (Eigenschaft: gleich weit von A und B bzw. von beiden Schenkeln; Konstruktionsschritte ordnen lassen).",
+   "dringlichkeit": "hoch"
+  },
+  {
+   "was_fehlt": "Lineare Gleichungen: aufstellen, Äquivalenzumformungen, Probe, Deutung im Sachzusammenhang. Fehlt in themenliste.json; wird in fast allen Kl.-8/9-Themen vorausgesetzt.",
+   "lehrplan_bezug": "M7 3 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "neues Thema gleichungen.linear (Kl. 7): aufstellen, waage_umformen, klammern, x_beide_seiten, probe, sonderfaelle, sach.",
+   "dringlichkeit": "hoch"
+  },
+  {
+   "was_fehlt": "Terme umformen: zusammenfassen, ausmultiplizieren, Summen multiplizieren, ausklammern, binomische Formeln, Potenzgesetze (natürliche Exponenten, auch Potenz einer Potenz). Fehlt in themenliste.json; terme.aufstellen schließt es ausdrücklich aus.",
+   "lehrplan_bezug": "M7 1.2 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "neues Thema terme.umformen (Kl. 7); Gesetze-Karten aus terme.potenzgesetze (Kl. 6) hierher verschieben.",
+   "dringlichkeit": "hoch"
+  },
+  {
+   "was_fehlt": "Dreiecke aus gegebenen Stücken konstruieren (auch mit Höhen), Planfigur nutzen, Konstruktionsbeschreibung. Kind kann in der App nicht zeichnen; geometrie.konstruktion prüft nur Konstruierbarkeit.",
+   "lehrplan_bezug": "M7 5 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "geometrie.konstruktion, neue Lernkarte 'planfigur' nach 'konstruierbar': Konstruktionsschritte in die richtige Reihenfolge bringen (Auswahl/Lücken), Planfigur als 'figur'.",
+   "dringlichkeit": "mittel"
+  },
+  {
+   "was_fehlt": "Symmetrische Vierecke nach Symmetrie ordnen und Spezialfälle begründen („Haus der Vierecke“).",
+   "lehrplan_bezug": "M7 2.1 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "abbildungen.kongruenz, Karte 'symmetrie' um einen Schritt „jedes Quadrat ist eine Raute“ ergänzen oder eigene Karte 'vierecke_ordnen'.",
+   "dringlichkeit": "niedrig"
+  },
+  {
+   "was_fehlt": "Boxplots zeichnen/ablesen: Die App kann seit 14.11. Boxplots zeichnen ('boxplot'); daten.boxplot zeigt nur Tabellen ('offen' ist überholt).",
+   "lehrplan_bezug": "M7 4 („Boxplots erstellen … aus Boxplots Informationen gewinnen“; Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "daten.boxplot, Karten 'boxplot' und 'vergleichen' mit Bild 'boxplot' (zwei Reihen) neu bebildern; Aufgaben „Lies ab“ und „Welcher Boxplot passt?“ ergänzen.",
+   "dringlichkeit": "mittel"
+  }
+ ],
+ "zu_viel": [
+  {
+   "thema_schluessel": "abbildungen.kongruenz",
+   "lernziel": "verschiebung, drehung, eigenschaften (Hintereinanderausführung, Umlaufsinn)",
+   "warum": "M7 2.1 nennt nur achsen- und punktsymmetrische Figuren (geprüft). Verschiebung/Drehung und Verkettung von Spiegelungen stehen im LehrplanPLUS Sek. I nicht (nach Kenntnisstand). Vorschlag: als Vertiefung markieren; Platz für Mittelsenkrechte/Winkelhalbierende nutzen."
+  },
+  {
+   "thema_schluessel": "daten.boxplot",
+   "lernziel": "kennwerte (Modalwert)",
+   "warum": "Modalwert steht nicht in M7 4 (geprüft: Median, Spannweite, Quartile). Unkritisch, kurz halten."
+  }
+ ],
+ "themen": [
+  {
+   "thema_schluessel": "terme.aufstellen",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Struktur → Termwert → Übersetzen → Sachsituation → Muster → Deuten: deckt M7 1.1 ab.",
+    "Termwerte mit Potenzen mit ganzzahligen (auch negativen) Exponenten (Lehrplan) nur mit x²; eine Stufe-3-Gruppe mit x⁻¹ ergänzen.",
+    "Tabellenkalkulation entfällt (App)."
+   ]
+  },
+  {
+   "thema_schluessel": "abbildungen.kongruenz",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Spiegelungen gut, im Koordinatensystem bebildert.",
+    "Fehlt: Mittelsenkrechte, Lot, Winkelhalbierende (siehe luecken) – das ist der Kern von M7 2.1.",
+    "Verschiebung/Drehung über Lehrplan."
+   ]
+  },
+  {
+   "thema_schluessel": "bruch.prozent_grundwert",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Faktor → vermehrt/vermindert → zurück → Prozentsatz → mehrfach → Argumente: sehr guter roter Faden, deckt M7 3 (Prozent-Teil) inkl. „mathematische und außermathematische Argumente“ ab.",
+    "Bilder Kreis-/Säulendiagramm passen nur bedingt; ein Prozentstreifen wäre besser (Bildtyp fehlt) – Übergang: 'saeulen' mit 100 % und 115 % nebeneinander."
+   ]
+  },
+  {
+   "thema_schluessel": "daten.boxplot",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Kennwerte, Quartile, Vergleich: inhaltlich vollständig.",
+    "Reihenfolge: 'abschnitte' stellt 'mittel_median' vor die Quartile, 'etappen' dahinter. Fachlich besser direkt nach 'kennwerte' (wie 'abschnitte'), weil es Median und Mittel vergleicht – 'etappen' angleichen.",
+    "Echte Boxplot-Bilder fehlen, obwohl jetzt möglich.",
+    "Überschneidung mit daten.kennwerte (Kl. 6: Median, Modalwert, Spannweite) – dort als Vertiefung lassen, hier ausführlich."
+   ]
+  },
+  {
+   "thema_schluessel": "geometrie.konstruktion",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Kongruenzsätze, Konstruierbarkeit, Satz/Kehrsatz: gut.",
+    "Karten 'winkelsumme' und 'vierecke' gehören fachlich zu M7 2.2 (Winkelsätze) und benutzen die Winkelsumme ohne Begründung. Reihenfolge in 'abschnitte' (Winkel zuerst) passt besser als 'etappen' ('vierecke' an Platz 5).",
+    "Dreieckskonstruktionen selbst fehlen (App)."
+   ]
+  },
+  {
+   "thema_schluessel": "geometrie.kreis",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Thales, Umkehrung, Beweis, Tangente, Umkreis/Inkreis: deckt M7 5 (Kreis-Teil) ab; Kreiswinkel zu Recht weggelassen.",
+    "Reihenfolge: 'beweis' gehört direkt hinter 'umkehrung' (wie 'abschnitte'), 'lage' vor 'tangente' – in 'etappen' ist beides anders. 'lage' wiederholt Kl. 5 (geometrie.grundbegriffe 'kreis_lage') und kann kurz bleiben.",
+    "'umkreis_inkreis' setzt Mittelsenkrechte und Winkelhalbierende voraus, die nirgends erklärt sind; außerdem ohne Bild – 'figur' mit Kreisen ergänzen."
+   ]
+  }
+ ]
+}

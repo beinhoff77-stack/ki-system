@@ -582,3 +582,40 @@ Regeln:
 - Meldungen (Status nach jedem Thema, Fragen, Blocker, Abschlussbericht) nach inhalte/postfach/README.md in inhalte/postfach/inhalte-nachbau.md ablegen und pushen.
 Arbeite ohne Rückfragen durch.
 ```
+
+
+---
+
+# Sechste Runde: Lücken laut Lehrplan schließen (Aufbau-Prüfung)
+
+Der Prüfer „Aufbau“ hat je Klasse den Stoff mit dem LehrplanPLUS (Gymnasium Bayern) abgeglichen: inhalte/pruefung/aufbau/klasse<N>.json
+(Felder: luecken mit was_fehlt/wohin/dringlichkeit, zu_viel, themen[].hinweise, reihenfolge). Ein Chat je Klasse; N durch 5, 6, 7, 8, 9 oder 10 ersetzen.
+
+Nicht Teil dieser Runde (macht der Haupt-Chat bzw. eine eigene Runde): neue Themen messen.flaechen_vielecke, messen.volumen, geometrie.winkelsaetze,
+messen.prisma_zylinder; die Themen gleichungen.einfach, gleichungen.linear, groessen.indirekt (Runde 5). Schon vorhanden und nicht mehr „fehlend“:
+zahlen.natuerlich, zahlen.teilbarkeit, terme.umformen.
+
+```text
+Du ergänzt Mathe-Lerninhalte einer Lern-App (Gymnasium Bayern, Klasse N) um fehlenden Lehrplan-Stoff.
+Repository: beinhoff77-stack/ki-system (lernen-app ist ein Zweig darin). Hole den aktuellen Stand des Zweigs lernen-app, lege davon den Zweig luecken-klN an und arbeite nur dort.
+
+Lies vollständig: inhalte/README.md (Format, „Erfahrungen“, „Zeichnungen“), inhalte/postfach/README.md (Meldungen) und inhalte/pruefung/aufbau/klasseN.json.
+
+Aufgabe: Arbeite die Einträge unter luecken mit dringlichkeit hoch und mittel ab, soweit sie eine neue Lernkarte oder eine Ergänzung in einem
+BESTEHENDEN Thema dieser Klasse verlangen (Feld wohin nennt Thema und Stelle). Prüfe zuerst im Generator, ob der Punkt inzwischen erledigt ist.
+- Neue Lernkarte = vollständige Lernkarte (lernziel, titel, regel, schritte, probe, fehler, wenn sinnvoll bild) mit eigenem Aufgaben-Generator und
+  allen Pools wie jede andere Karte (12 Übung, 1 Test, 3 Korrektur, 6 Sicherung; je Stufe mindestens 3 Übungen), eingehängt in abschnitte,
+  teilfaehigkeiten und bewertung (Pflicht oder Vertiefung – begründet entscheiden).
+- Ergänzung einer bestehenden Karte: Erklärung erweitern und passende Aufgaben in die Stufen einbauen, ohne bestehende Aufgabentexte zu ändern,
+  wenn es nicht nötig ist (bestehende Aufgaben können schon von Kindern bearbeitet sein).
+- Hinweise unter themen[].hinweise mit umsetzen, wenn sie eine Lücke betreffen (z. B. Zeichnungen, die die App inzwischen kann: boxplot, baum, figur, koordinaten).
+- zu_viel: nichts löschen. Betroffene Lernkarten höchstens von Pflicht auf Vertiefung setzen und das im Postfach melden.
+- Einträge, die ein NEUES Thema verlangen oder ein Thema einer anderen Klasse betreffen: nicht bauen, im Abschlussbericht auflisten.
+- Niedrige Dringlichkeit nur, wenn sie in einer ohnehin geänderten Karte mit einem Satz oder einer Aufgabengruppe erledigt ist.
+
+Je geändertem Thema: Generator laufen lassen, `python3 -I tools/inhalt_pruefen.py inhalte/themen/<thema>.json` muss OK melden, jede Zahl-Aufgabe nachgerechnet,
+mindestens 10 Aufgaben je neuer Lernkarte selbst lesen. Ein Thema = ein Commit, Push auf luecken-klN.
+Verboten: Dateien unter inhalte/pruefung/ ändern, Datenbank, Serverfunktionen, App-Code, Tests, Merge nach main. Keine Schulbuchaufgaben abschreiben.
+Meldungen (Status nach jedem Thema, Fragen, Blocker, Abschlussbericht mit umgesetzten/nicht umgesetzten Lücken) in inhalte/postfach/luecken-klN.md ablegen und pushen.
+Arbeite ohne Rückfragen durch.
+```

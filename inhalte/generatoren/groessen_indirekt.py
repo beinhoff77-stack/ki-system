@@ -511,6 +511,7 @@ def g_unterscheiden(R, s):
         else:
             t = R.randint(20, 40); m = R.randint(2, 4)
             ys = [t - m * x for x in xs]
+            if min(ys) <= 0: return g_unterscheiden(R, s)
             r, w = 2, f'y wird kleiner, aber die Produkte {", ".join(str(x * y) for x, y in zip(xs, ys))} sind verschieden. Also nicht indirekt proportional – weder noch.'
         return mit_bild(A(R, 'Welche Art von Zuordnung zeigt die Tabelle?', OPT[r], [o for o in OPT if o != OPT[r]] + (['nicht zu entscheiden'] if s == 2 else []), w,
                           'Berechne für jedes Paar den Quotienten y : x und das Produkt x · y.'), tab('x', 'y', xs, ys))

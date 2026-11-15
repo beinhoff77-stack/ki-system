@@ -4347,91 +4347,15 @@
      "kopf": [
       "x",
       "1",
-      "2",
-      "8"
-     ],
-     "zeilen": [
-      [
-       "y",
-       "25",
-       "21",
-       "−3"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "indirekt proportional",
-    "direkt proportional",
-    "weder noch",
-    "nicht zu entscheiden"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "y wird kleiner, aber die Produkte 25, 42, -24 sind verschieden. Also nicht indirekt proportional – weder noch.",
-   "h": "Berechne für jedes Paar den Quotienten y : x und das Produkt x · y."
-  },
-  {
-   "l": "unterscheiden",
-   "t": "darstellen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Zuordnung zeigt die Tabelle?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "x",
-      "2",
-      "4",
+      "6",
       "7"
      ],
      "zeilen": [
       [
        "y",
-       "14",
-       "28",
-       "49"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "weder noch",
-    "nicht zu entscheiden",
-    "indirekt proportional",
-    "direkt proportional"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Quotienten y : x: alle gleich 7. Also direkt proportional.",
-   "h": "Berechne für jedes Paar den Quotienten y : x und das Produkt x · y."
-  },
-  {
-   "l": "unterscheiden",
-   "t": "darstellen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Zuordnung zeigt die Tabelle?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "x",
-      "1",
-      "5",
-      "7"
-     ],
-     "zeilen": [
-      [
-       "y",
-       "32",
-       "16",
-       "8"
+       "5",
+       "30",
+       "35"
       ]
      ]
     }
@@ -4443,47 +4367,9 @@
     "indirekt proportional"
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "w": "y wird kleiner, aber die Produkte 32, 80, 56 sind verschieden. Also nicht indirekt proportional – weder noch.",
-   "h": "Berechne für jedes Paar den Quotienten y : x und das Produkt x · y."
-  },
-  {
-   "l": "unterscheiden",
-   "t": "darstellen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Zuordnung zeigt die Tabelle?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "x",
-      "1",
-      "3",
-      "7"
-     ],
-     "zeilen": [
-      [
-       "y",
-       "13",
-       "25",
-       "49"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "weder noch",
-    "nicht zu entscheiden",
-    "indirekt proportional",
-    "direkt proportional"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Quotienten: 13 und 25/3 – verschieden. Produkte: 13 und 75 – verschieden. Also weder noch.",
+   "w": "Quotienten y : x: alle gleich 5. Also direkt proportional.",
    "h": "Berechne für jedes Paar den Quotienten y : x und das Produkt x · y."
   },
   {
@@ -4500,26 +4386,26 @@
       "x",
       "5",
       "8",
-      "9"
+      "12"
      ],
      "zeilen": [
       [
        "y",
        "72",
        "45",
-       "40"
+       "30"
       ]
      ]
     }
    },
    "a": [
-    "weder noch",
     "indirekt proportional",
-    "direkt proportional",
-    "nicht zu entscheiden"
+    "nicht zu entscheiden",
+    "weder noch",
+    "direkt proportional"
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
    "w": "Produkte x · y: alle gleich 360. Also indirekt proportional.",
    "h": "Berechne für jedes Paar den Quotienten y : x und das Produkt x · y."
@@ -4528,22 +4414,115 @@
    "l": "unterscheiden",
    "t": "darstellen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Art von Zuordnung beschreibt y = 5 · x?"
+    "text": "Welche Art von Zuordnung zeigt die Tabelle?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "2",
+      "8",
+      "10"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "180",
+       "45",
+       "36"
+      ]
+     ]
+    }
    },
    "a": [
-    "quadratisch",
+    "nicht zu entscheiden",
+    "direkt proportional",
     "weder noch",
-    "indirekt proportional",
-    "direkt proportional"
+    "indirekt proportional"
    ],
    "o": {
     "index": 3
    },
-   "w": "y : x = 5 ist konstant: direkt proportional.",
-   "h": "Setze zwei x-Werte ein, z. B. 1 und 2. Was passiert mit y?"
+   "w": "Produkte x · y: alle gleich 360. Also indirekt proportional.",
+   "h": "Berechne für jedes Paar den Quotienten y : x und das Produkt x · y."
+  },
+  {
+   "l": "unterscheiden",
+   "t": "darstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Zuordnung zeigt die Tabelle?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "4",
+      "7",
+      "8"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "24",
+       "42",
+       "48"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "nicht zu entscheiden",
+    "direkt proportional",
+    "indirekt proportional",
+    "weder noch"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Quotienten y : x: alle gleich 6. Also direkt proportional.",
+   "h": "Berechne für jedes Paar den Quotienten y : x und das Produkt x · y."
+  },
+  {
+   "l": "unterscheiden",
+   "t": "darstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Zuordnung zeigt die Tabelle?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "3",
+      "4",
+      "6"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "120",
+       "90",
+       "60"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "direkt proportional",
+    "weder noch",
+    "indirekt proportional",
+    "nicht zu entscheiden"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Produkte x · y: alle gleich 360. Also indirekt proportional.",
+   "h": "Berechne für jedes Paar den Quotienten y : x und das Produkt x · y."
   },
   {
    "l": "unterscheiden",
@@ -4574,11 +4553,11 @@
    "a": [
     "Ergebnis falsch: Die Tabelle ist direkt proportional.",
     "Ergebnis falsch: Die Tabelle ist weder noch.",
-    "Ergebnis richtig, Begründung falsch: Entscheidend ist das gleiche Produkt.",
-    "Alles richtig."
+    "Alles richtig.",
+    "Ergebnis richtig, Begründung falsch: Entscheidend ist das gleiche Produkt."
    ],
    "o": {
-    "index": 2
+    "index": 3
    },
    "w": "Produkte: 2 · 18 = 36, 6 · 6 = 36, 9 · 4 = 36. Indirekt proportional stimmt. Aber „wird kleiner“ gilt auch für Zuordnungen, die weder noch sind.",
    "h": "Prüfe das Ergebnis mit den Produkten. Reicht „wird kleiner“ als Grund?"
@@ -4624,13 +4603,13 @@
     "text": "Welche Art von Zuordnung beschreibt y = 20 − 3 · x?"
    },
    "a": [
+    "weder noch",
     "direkt proportional",
     "indirekt proportional",
-    "weder noch",
     "quadratisch"
    ],
    "o": {
-    "index": 2
+    "index": 0
    },
    "w": "y wird kleiner, aber x · y ist nicht konstant (z. B. x = 1 und x = 2 testen): weder noch.",
    "h": "Setze zwei x-Werte ein, z. B. 1 und 2. Was passiert mit y?"
@@ -4663,15 +4642,46 @@
    },
    "a": [
     "Ergebnis falsch: Die Tabelle ist weder noch.",
-    "Ergebnis richtig, Begründung falsch: Entscheidend ist das gleiche Produkt.",
     "Alles richtig.",
+    "Ergebnis richtig, Begründung falsch: Entscheidend ist das gleiche Produkt.",
     "Ergebnis falsch: Die Tabelle ist direkt proportional."
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
    "w": "Produkte: 2 · 12 = 24, 6 · 4 = 24, 12 · 2 = 24. Indirekt proportional stimmt. Aber „wird kleiner“ gilt auch für Zuordnungen, die weder noch sind.",
    "h": "Prüfe das Ergebnis mit den Produkten. Reicht „wird kleiner“ als Grund?"
+  },
+  {
+   "l": "unterscheiden",
+   "t": "darstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zuordnung ist indirekt proportional. Ergänze den fehlenden Wert.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "3",
+      "12"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "20",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "3 * 20 / 12",
+   "w": "Indirekt: Produkt 3 · 20 = 60 bleibt gleich. y = 60 : 12 = 5. (Direkt wäre es 80.)",
+   "h": "Achtung: Hier ist die Zuordnung indirekt proportional."
   },
   {
    "l": "unterscheiden",
@@ -4685,30 +4695,30 @@
      "typ": "tabelle",
      "kopf": [
       "x",
-      "2",
-      "6",
-      "7"
+      "1",
+      "5",
+      "8"
      ],
      "zeilen": [
       [
        "y",
-       "13",
-       "37",
-       "43"
+       "18",
+       "10",
+       "4"
       ]
      ]
     }
    },
    "a": [
-    "weder noch",
-    "nicht zu entscheiden",
     "indirekt proportional",
-    "direkt proportional"
+    "nicht zu entscheiden",
+    "direkt proportional",
+    "weder noch"
    ],
    "o": {
-    "index": 0
+    "index": 3
    },
-   "w": "Quotienten: 6,5 und 37/6 – verschieden. Produkte: 26 und 222 – verschieden. Also weder noch."
+   "w": "y wird kleiner, aber die Produkte 18, 50, 32 sind verschieden. Also nicht indirekt proportional – weder noch."
   },
   {
    "l": "unterscheiden",
@@ -4722,28 +4732,28 @@
      "typ": "tabelle",
      "kopf": [
       "x",
-      "1",
-      "5",
-      "10"
+      "2",
+      "3",
+      "9"
      ],
      "zeilen": [
       [
        "y",
-       "360",
-       "72",
-       "36"
+       "180",
+       "120",
+       "40"
       ]
      ]
     }
    },
    "a": [
-    "weder noch",
+    "indirekt proportional",
     "nicht zu entscheiden",
     "direkt proportional",
-    "indirekt proportional"
+    "weder noch"
    ],
    "o": {
-    "index": 3
+    "index": 0
    },
    "w": "Produkte x · y: alle gleich 360. Also indirekt proportional."
   },
@@ -4759,30 +4769,30 @@
      "typ": "tabelle",
      "kopf": [
       "x",
-      "3",
-      "4",
+      "1",
+      "5",
       "7"
      ],
      "zeilen": [
       [
        "y",
-       "10",
        "12",
-       "18"
+       "32",
+       "42"
       ]
      ]
     }
    },
    "a": [
     "nicht zu entscheiden",
-    "weder noch",
+    "indirekt proportional",
     "direkt proportional",
-    "indirekt proportional"
+    "weder noch"
    ],
    "o": {
-    "index": 1
+    "index": 3
    },
-   "w": "Quotienten: 10/3 und 3 – verschieden. Produkte: 30 und 48 – verschieden. Also weder noch."
+   "w": "Quotienten: 12 und 6,4 – verschieden. Produkte: 12 und 160 – verschieden. Also weder noch."
   },
   {
    "l": "unterscheiden",
@@ -4796,30 +4806,30 @@
      "typ": "tabelle",
      "kopf": [
       "x",
-      "2",
-      "3",
-      "5"
+      "4",
+      "5",
+      "6"
      ],
      "zeilen": [
       [
        "y",
-       "25",
-       "23",
-       "19"
+       "8",
+       "10",
+       "12"
       ]
      ]
     }
    },
    "a": [
-    "direkt proportional",
-    "indirekt proportional",
     "nicht zu entscheiden",
-    "weder noch"
+    "direkt proportional",
+    "weder noch",
+    "indirekt proportional"
    ],
    "o": {
-    "index": 3
+    "index": 1
    },
-   "w": "y wird kleiner, aber die Produkte 50, 69, 95 sind verschieden. Also nicht indirekt proportional – weder noch."
+   "w": "Quotienten y : x: alle gleich 2. Also direkt proportional."
   },
   {
    "l": "unterscheiden",
@@ -4833,30 +4843,30 @@
      "typ": "tabelle",
      "kopf": [
       "x",
-      "4",
-      "5",
+      "3",
+      "6",
       "8"
      ],
      "zeilen": [
       [
        "y",
+       "12",
        "24",
-       "22",
-       "16"
+       "32"
       ]
      ]
     }
    },
    "a": [
-    "weder noch",
-    "indirekt proportional",
     "nicht zu entscheiden",
-    "direkt proportional"
+    "indirekt proportional",
+    "direkt proportional",
+    "weder noch"
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "w": "y wird kleiner, aber die Produkte 96, 110, 128 sind verschieden. Also nicht indirekt proportional – weder noch."
+   "w": "Quotienten y : x: alle gleich 4. Also direkt proportional."
   },
   {
    "l": "unterscheiden",
@@ -4870,15 +4880,52 @@
      "typ": "tabelle",
      "kopf": [
       "x",
-      "5",
-      "6",
-      "7"
+      "3",
+      "4",
+      "9"
      ],
      "zeilen": [
       [
        "y",
-       "12",
-       "10",
+       "120",
+       "90",
+       "40"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "indirekt proportional",
+    "direkt proportional",
+    "weder noch",
+    "nicht zu entscheiden"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Produkte x · y: alle gleich 360. Also indirekt proportional."
+  },
+  {
+   "l": "unterscheiden",
+   "t": "darstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Zuordnung zeigt die Tabelle?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "1",
+      "3",
+      "6"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "18",
+       "14",
        "8"
       ]
      ]
@@ -4886,125 +4933,14 @@
    },
    "a": [
     "nicht zu entscheiden",
-    "direkt proportional",
-    "weder noch",
-    "indirekt proportional"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "y wird kleiner, aber die Produkte 60, 60, 56 sind verschieden. Also nicht indirekt proportional – weder noch."
-  },
-  {
-   "l": "unterscheiden",
-   "t": "darstellen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Zuordnung zeigt die Tabelle?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "x",
-      "2",
-      "5",
-      "6"
-     ],
-     "zeilen": [
-      [
-       "y",
-       "10",
-       "25",
-       "30"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "nicht zu entscheiden",
     "indirekt proportional",
     "weder noch",
     "direkt proportional"
    ],
    "o": {
-    "index": 3
-   },
-   "w": "Quotienten y : x: alle gleich 5. Also direkt proportional."
-  },
-  {
-   "l": "unterscheiden",
-   "t": "darstellen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Zuordnung zeigt die Tabelle?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "x",
-      "6",
-      "8",
-      "12"
-     ],
-     "zeilen": [
-      [
-       "y",
-       "60",
-       "45",
-       "30"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "direkt proportional",
-    "indirekt proportional",
-    "weder noch",
-    "nicht zu entscheiden"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Produkte x · y: alle gleich 360. Also indirekt proportional."
-  },
-  {
-   "l": "unterscheiden",
-   "t": "darstellen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Zuordnung zeigt die Tabelle?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "x",
-      "1",
-      "7",
-      "8"
-     ],
-     "zeilen": [
-      [
-       "y",
-       "3",
-       "21",
-       "24"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "indirekt proportional",
-    "weder noch",
-    "direkt proportional",
-    "nicht zu entscheiden"
-   ],
-   "o": {
     "index": 2
    },
-   "w": "Quotienten y : x: alle gleich 3. Also direkt proportional."
+   "w": "y wird kleiner, aber die Produkte 18, 42, 48 sind verschieden. Also nicht indirekt proportional – weder noch."
   },
   {
    "l": "unterscheiden",
@@ -5033,31 +4969,89 @@
     }
    },
    "a": [
-    "weder noch",
     "indirekt proportional",
     "direkt proportional",
-    "nicht zu entscheiden"
+    "nicht zu entscheiden",
+    "weder noch"
    ],
    "o": {
-    "index": 0
+    "index": 3
    },
    "w": "Quotienten: 35/6 und 40/7 – verschieden. Produkte: 210 und 280 – verschieden. Also weder noch."
   },
   {
-   "l": "sach",
-   "t": "rechnen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
+   "l": "unterscheiden",
+   "t": "darstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
    "f": {
-    "text": "180 Kinder fahren ins Schullandheim. Mit 5 gleich vollen Bussen sitzen 36 Kinder in jedem Bus. Wie viele sind es pro Bus bei 4 Bussen?"
+    "text": "Welche Art von Zuordnung zeigt die Tabelle?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "3",
+      "5",
+      "6"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "24",
+       "36",
+       "42"
+      ]
+     ]
+    }
    },
+   "a": [
+    "weder noch",
+    "direkt proportional",
+    "nicht zu entscheiden",
+    "indirekt proportional"
+   ],
    "o": {
-    "wert": 45
+    "index": 0
    },
-   "c": "5 * 36 // 4",
-   "w": "5 · 36 = 180 Kinder. 180 : 4 = 45 pro Bus.",
-   "h": "Wie viele Kinder sind es insgesamt?"
+   "w": "Quotienten: 8 und 7,2 – verschieden. Produkte: 72 und 180 – verschieden. Also weder noch."
+  },
+  {
+   "l": "unterscheiden",
+   "t": "darstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Zuordnung zeigt die Tabelle?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "2",
+      "5",
+      "7"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "36",
+       "30",
+       "26"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "indirekt proportional",
+    "weder noch",
+    "nicht zu entscheiden",
+    "direkt proportional"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "y wird kleiner, aber die Produkte 72, 150, 182 sind verschieden. Also nicht indirekt proportional – weder noch."
   },
   {
    "l": "sach",
@@ -5066,14 +5060,14 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Heuvorrat reicht für 4 Pferde 30 Tage. Wie lange reicht er für 15 Pferde?"
+    "text": "Ein Heuvorrat reicht für 3 Pferde 40 Tage. Wie lange reicht er für 10 Pferde?"
    },
    "o": {
-    "wert": 8,
+    "wert": 12,
     "einheit": "Tage"
    },
-   "c": "4 * 30 // 15",
-   "w": "Für 1 Pferd: 4 · 30 = 120 Tage. Für 15: 120 : 15 = 8 Tage.",
+   "c": "3 * 40 // 10",
+   "w": "Für 1 Pferd: 3 · 40 = 120 Tage. Für 10: 120 : 10 = 12 Tage.",
    "h": "Mehr Pferde → kürzer, weniger Pferde → länger."
   },
   {
@@ -5083,14 +5077,48 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Bei 60 km/h dauert eine Fahrt 2 Stunden. Wie lange dauert sie bei 40 km/h?"
+    "text": "Ein Gewinn wird gleichmäßig verteilt. Bei 4 Personen bekommt jede 180 €. Wie viel bekommt jede bei 2 Personen?"
    },
    "o": {
-    "wert": 3,
+    "wert": 360,
+    "einheit": "€"
+   },
+   "c": "4 * 180 // 2",
+   "w": "Gewinn: 4 · 180 = 720 €. Pro Person: 720 : 2 = 360 €.",
+   "h": "Wie groß ist der ganze Gewinn?"
+  },
+  {
+   "l": "sach",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Heuvorrat reicht für 5 Pferde 24 Tage. Wie lange reicht er für 12 Pferde?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "Tage"
+   },
+   "c": "5 * 24 // 12",
+   "w": "Für 1 Pferd: 5 · 24 = 120 Tage. Für 12: 120 : 12 = 10 Tage.",
+   "h": "Mehr Pferde → kürzer, weniger Pferde → länger."
+  },
+  {
+   "l": "sach",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Bei 50 km/h dauert eine Fahrt 4 Stunden. Wie lange dauert sie bei 40 km/h?"
+   },
+   "o": {
+    "wert": 5,
     "einheit": "h"
    },
-   "c": "60 * 2 / 40",
-   "w": "Strecke: 60 · 2 = 120 km. Zeit: 120 : 40 = 3 h.",
+   "c": "50 * 4 / 40",
+   "w": "Strecke: 50 · 4 = 200 km. Zeit: 200 : 40 = 5 h.",
    "h": "Berechne zuerst die Länge der Strecke."
   },
   {
@@ -5100,29 +5128,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "180 Kinder fahren ins Schullandheim. Mit 6 gleich vollen Bussen sitzen 30 Kinder in jedem Bus. Wie viele sind es pro Bus bei 5 Bussen?"
+    "text": "180 Kinder fahren ins Schullandheim. Mit 3 gleich vollen Bussen sitzen 60 Kinder in jedem Bus. Wie viele sind es pro Bus bei 6 Bussen?"
    },
    "o": {
-    "wert": 36
+    "wert": 30
    },
-   "c": "6 * 30 // 5",
-   "w": "6 · 30 = 180 Kinder. 180 : 5 = 36 pro Bus.",
-   "h": "Wie viele Kinder sind es insgesamt?"
-  },
-  {
-   "l": "sach",
-   "t": "rechnen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "240 Kinder fahren ins Schullandheim. Mit 4 gleich vollen Bussen sitzen 60 Kinder in jedem Bus. Wie viele sind es pro Bus bei 5 Bussen?"
-   },
-   "o": {
-    "wert": 48
-   },
-   "c": "4 * 60 // 5",
-   "w": "4 · 60 = 240 Kinder. 240 : 5 = 48 pro Bus.",
+   "c": "3 * 60 // 6",
+   "w": "3 · 60 = 180 Kinder. 180 : 6 = 30 pro Bus.",
    "h": "Wie viele Kinder sind es insgesamt?"
   },
   {
@@ -5132,66 +5144,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Für einen Boden braucht man 150 quadratische Fliesen mit 20 cm Seitenlänge. Wie viele Fliesen mit 10 cm Seitenlänge braucht man?"
+    "text": "Eine Packung Müsli (800 g) reicht für 4 Portionen zu 200 g. Wie viele Portionen sind es, wenn eine Portion 50 g hat?"
    },
    "o": {
-    "wert": 600
+    "wert": 16
    },
-   "c": "150 * 20 * 20 // (10 * 10)",
-   "w": "Fläche einer Fliese: 400 cm² bzw. 100 cm². Boden: 150 · 400 = 60 000 cm². Anzahl: 60 000 : 100 = 600.",
-   "h": "Indirekt proportional sind Anzahl und Fläche einer Fliese – nicht die Seitenlänge!"
-  },
-  {
-   "l": "sach",
-   "t": "rechnen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Packung Müsli (600 g) reicht für 4 Portionen zu 150 g. Wie viele Portionen sind es, wenn eine Portion 50 g hat?"
-   },
-   "o": {
-    "wert": 12
-   },
-   "c": "4 * 150 // 50",
-   "w": "Gesamtmenge: 4 · 150 = 600 g. 600 : 50 = 12 Portionen.",
+   "c": "4 * 200 // 50",
+   "w": "Gesamtmenge: 4 · 200 = 800 g. 800 : 50 = 16 Portionen.",
    "h": "Kleinere Portionen → mehr Portionen."
-  },
-  {
-   "l": "sach",
-   "t": "rechnen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Packung Müsli (1200 g) reicht für 8 Portionen zu 150 g. Wie viele Portionen sind es, wenn eine Portion 120 g hat?"
-   },
-   "o": {
-    "wert": 10
-   },
-   "c": "8 * 150 // 120",
-   "w": "Gesamtmenge: 8 · 150 = 1200 g. 1200 : 120 = 10 Portionen.",
-   "h": "Kleinere Portionen → mehr Portionen."
-  },
-  {
-   "l": "sach",
-   "t": "rechnen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "3 Kinokarten kosten 30 €. Was kosten 6 Karten?"
-   },
-   "a": [
-    "60 €",
-    "15 €",
-    "33 €"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Doppelt so viele Karten kosten doppelt so viel: direkt. 1 Karte: 10 €, 6 Karten: 60 €.",
-   "h": "Zuerst: direkt oder indirekt?"
   },
   {
    "l": "sach",
@@ -5246,38 +5206,58 @@
    "l": "sach",
    "t": "rechnen",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
+   "s": 2,
+   "y": "auswahl",
    "f": {
-    "text": "Bei 100 km/h dauert eine Fahrt 72 Minuten. Wie viele Minuten dauert sie bei 40 km/h?"
+    "text": "3 Maler streichen ein Haus in 12 Tagen. Wie lange brauchen 12 Maler?"
    },
+   "a": [
+    "12 Tage",
+    "48 Tage",
+    "3 Tage"
+   ],
    "o": {
-    "wert": 180,
-    "einheit": "min"
+    "index": 2
    },
-   "c": "100 * 72 // 40",
-   "w": "Produkt: 100 · 72 = 7200. Zeit: 7200 : 40 = 180 Minuten. Die Einheit Minuten bleibt einfach erhalten.",
-   "h": "Du musst nicht in Stunden umrechnen – das Produkt reicht."
+   "w": "Mehr Maler → weniger Zeit, doppelt → halb: indirekt. 3 · 12 = 36, 36 : 12 = 3 Tage.",
+   "h": "Zuerst: direkt oder indirekt?"
   },
   {
    "l": "sach",
    "t": "rechnen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ein Freizeitpark: Eintritt 4 €, jede Fahrt 3 €. 4 Fahrten kosten mit Eintritt 16 €. Jemand rechnet für 12 Fahrten: 16 · 3 = 48 €. Stimmt das?"
+    "text": "Eine Taxifahrt kostet 5 € Grundgebühr und 2 € pro km. 4 km kosten 13 €. Was kosten 6 km?"
    },
    "a": [
-    "Nein: Es sind 8 €, weil es indirekt proportional ist.",
-    "Nein: Der Eintritt wird nur einmal bezahlt, es sind 40 €.",
-    "Ja, dreimal so viele Fahrten kosten dreimal so viel."
+    "12 €",
+    "17 €",
+    "19,5 €"
    ],
    "o": {
     "index": 1
    },
-   "w": "Die Zuordnung ist weder noch, weil der Eintritt fest ist: 4 + 12 · 3 = 40 €.",
-   "h": "Wird jeder Betrag bei mehr Fahrten mehrfach bezahlt?"
+   "w": "Weder direkt noch indirekt – kein Dreisatz! 5 € + 6 · 2 € = 17 €.",
+   "h": "Zuerst: direkt, indirekt oder keins von beiden?"
+  },
+  {
+   "l": "sach",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Mit dem Fahrrad (12 km/h) braucht jemand für den Schulweg 40 Minuten. Wie viele Minuten wären es mit 15 km/h?"
+   },
+   "o": {
+    "wert": 32,
+    "einheit": "min"
+   },
+   "c": "40 * 12 // 15",
+   "w": "Produkt: 40 · 12 = 480. 480 : 15 = 32 Minuten.",
+   "h": "Schneller → weniger Zeit. Das Produkt bleibt gleich."
   },
   {
    "l": "sach",
@@ -5303,14 +5283,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Bei 100 km/h dauert eine Fahrt 72 Minuten. Wie viele Minuten dauert sie bei 120 km/h?"
+    "text": "Bei 80 km/h dauert eine Fahrt 90 Minuten. Wie viele Minuten dauert sie bei 150 km/h?"
    },
    "o": {
-    "wert": 60,
+    "wert": 48,
     "einheit": "min"
    },
-   "c": "100 * 72 // 120",
-   "w": "Produkt: 100 · 72 = 7200. Zeit: 7200 : 120 = 60 Minuten. Die Einheit Minuten bleibt einfach erhalten.",
+   "c": "80 * 90 // 150",
+   "w": "Produkt: 80 · 90 = 7200. Zeit: 7200 : 150 = 48 Minuten. Die Einheit Minuten bleibt einfach erhalten.",
    "h": "Du musst nicht in Stunden umrechnen – das Produkt reicht."
   },
   {
@@ -5318,56 +5298,65 @@
    "t": "rechnen",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Bei 120 km/h dauert eine Fahrt 45 Minuten. Wie viele Minuten dauert sie bei 50 km/h?"
+    "text": "Ein Freizeitpark: Eintritt 3 €, jede Fahrt 4 €. 3 Fahrten kosten mit Eintritt 15 €. Jemand rechnet für 9 Fahrten: 15 · 3 = 45 €. Stimmt das?"
    },
+   "a": [
+    "Nein: Der Eintritt wird nur einmal bezahlt, es sind 39 €.",
+    "Nein: Es sind 5 €, weil es indirekt proportional ist.",
+    "Ja, dreimal so viele Fahrten kosten dreimal so viel."
+   ],
    "o": {
-    "wert": 108,
-    "einheit": "min"
+    "index": 0
    },
-   "c": "120 * 45 // 50",
-   "w": "Produkt: 120 · 45 = 5400. Zeit: 5400 : 50 = 108 Minuten. Die Einheit Minuten bleibt einfach erhalten.",
-   "h": "Du musst nicht in Stunden umrechnen – das Produkt reicht."
+   "w": "Die Zuordnung ist weder noch, weil der Eintritt fest ist: 3 + 9 · 4 = 39 €.",
+   "h": "Wird jeder Betrag bei mehr Fahrten mehrfach bezahlt?"
+  },
+  {
+   "l": "sach",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Freizeitpark: Eintritt 3 €, jede Fahrt 4 €. 2 Fahrten kosten mit Eintritt 11 €. Jemand rechnet für 6 Fahrten: 11 · 3 = 33 €. Stimmt das?"
+   },
+   "a": [
+    "Nein: Der Eintritt wird nur einmal bezahlt, es sind 27 €.",
+    "Ja, dreimal so viele Fahrten kosten dreimal so viel.",
+    "Nein: Es sind 5 €, weil es indirekt proportional ist."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Zuordnung ist weder noch, weil der Eintritt fest ist: 3 + 6 · 4 = 27 €.",
+   "h": "Wird jeder Betrag bei mehr Fahrten mehrfach bezahlt?"
+  },
+  {
+   "l": "sach",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Freizeitpark: Eintritt 3 €, jede Fahrt 4 €. 3 Fahrten kosten mit Eintritt 15 €. Jemand rechnet für 6 Fahrten: 15 · 2 = 30 €. Stimmt das?"
+   },
+   "a": [
+    "Ja, doppelt so viele Fahrten kosten doppelt so viel.",
+    "Nein: Der Eintritt wird nur einmal bezahlt, es sind 27 €.",
+    "Nein: Es sind 7,5 €, weil es indirekt proportional ist."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Zuordnung ist weder noch, weil der Eintritt fest ist: 3 + 6 · 4 = 27 €.",
+   "h": "Wird jeder Betrag bei mehr Fahrten mehrfach bezahlt?"
   },
   {
    "l": "sach",
    "t": "rechnen",
    "p": "test",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "4 Maler streichen ein Haus in 9 Tagen. Wie lange brauchen 12 Maler?"
-   },
-   "a": [
-    "27 Tage",
-    "9 Tage",
-    "3 Tage"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Mehr Maler → weniger Zeit, doppelt → halb: indirekt. 4 · 9 = 36, 36 : 12 = 3 Tage."
-  },
-  {
-   "l": "sach",
-   "t": "rechnen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Für einen Boden braucht man 96 quadratische Fliesen mit 25 cm Seitenlänge. Wie viele Fliesen mit 10 cm Seitenlänge braucht man?"
-   },
-   "o": {
-    "wert": 600
-   },
-   "c": "96 * 25 * 25 // (10 * 10)",
-   "w": "Fläche einer Fliese: 625 cm² bzw. 100 cm². Boden: 96 · 625 = 60 000 cm². Anzahl: 60 000 : 100 = 600."
-  },
-  {
-   "l": "sach",
-   "t": "rechnen",
-   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -5390,18 +5379,18 @@
    },
    "a": [
     "43 €",
-    "70 €",
-    "35 €"
+    "35 €",
+    "70 €"
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
    "w": "Doppelt so viele Karten kosten doppelt so viel: direkt. 1 Karte: 10 €, 7 Karten: 70 €."
   },
   {
    "l": "sach",
    "t": "rechnen",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -5412,6 +5401,21 @@
    },
    "c": "8 * 150 // 50",
    "w": "Gesamtmenge: 8 · 150 = 1200 g. 1200 : 50 = 24 Portionen."
+  },
+  {
+   "l": "sach",
+   "t": "rechnen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für einen Boden braucht man 96 quadratische Fliesen mit 25 cm Seitenlänge. Wie viele Fliesen mit 10 cm Seitenlänge braucht man?"
+   },
+   "o": {
+    "wert": 600
+   },
+   "c": "96 * 25 * 25 // (10 * 10)",
+   "w": "Fläche einer Fliese: 625 cm² bzw. 100 cm². Boden: 96 · 625 = 60 000 cm². Anzahl: 60 000 : 100 = 600."
   },
   {
    "l": "sach",
@@ -5492,6 +5496,25 @@
    },
    "c": "200 * 15 * 15 // (30 * 30)",
    "w": "Fläche einer Fliese: 225 cm² bzw. 900 cm². Boden: 200 · 225 = 45 000 cm². Anzahl: 45 000 : 900 = 50."
+  },
+  {
+   "l": "sach",
+   "t": "rechnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Taxifahrt kostet 3 € Grundgebühr und 2 € pro km. 3 km kosten 9 €. Was kosten 6 km?"
+   },
+   "a": [
+    "18 €",
+    "15 €",
+    "4,5 €"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Weder direkt noch indirekt – kein Dreisatz! 3 € + 6 · 2 € = 15 €."
   }
  ],
  "offen": [

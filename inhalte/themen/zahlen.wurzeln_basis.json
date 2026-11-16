@@ -1727,7 +1727,7 @@
    "l": "wurzel_dezimal",
    "t": "wurzel_dezimal",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Was ergibt √0,49?"
@@ -1749,24 +1749,16 @@
    "t": "wurzel_dezimal",
    "p": "uebung",
    "s": 3,
-   "y": "luecken",
+   "y": "zahl",
    "f": {
-    "text": "Berechne 4 · √(25/4). Gib das Ergebnis als gekürzten Bruch an.",
-    "schablone": "□/□",
-    "hinweis": "Zähler / Nenner (gekürzt)"
+    "text": "Berechne 4 · √(25/4)."
    },
    "o": {
-    "werte": [
-     10,
-     1
-    ]
+    "wert": 10
    },
-   "w": "√(25/4) = 5/2, mal 4 ergibt 10.",
-   "h": "Erst Zähler und Nenner einzeln radizieren, dann multiplizieren und kürzen.",
-   "c": [
-    "10",
-    "1"
-   ]
+   "c": "4 * 5 / 2",
+   "w": "√(25/4) = √25 : √4 = 5/2. 4 · 5/2 = 20/2 = 10.",
+   "h": "Ziehe die Wurzel aus Zähler und Nenner einzeln."
   },
   {
    "l": "wurzel_dezimal",
@@ -2207,7 +2199,7 @@
    "l": "kubikwurzel",
    "t": "kubikwurzel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne ∛27 · √9."
@@ -2223,7 +2215,7 @@
    "l": "kubikwurzel",
    "t": "kubikwurzel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne ∛8 · √4."
@@ -2759,7 +2751,7 @@
    "l": "abschaetzen",
    "t": "abschaetzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √1 605?",
@@ -2804,7 +2796,7 @@
    "l": "abschaetzen",
    "t": "abschaetzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √788?",
@@ -2876,7 +2868,7 @@
    "l": "abschaetzen",
    "t": "abschaetzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √1 291?",

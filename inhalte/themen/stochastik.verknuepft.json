@@ -43,14 +43,45 @@
    {
     "lernziel": "verknuepfen",
     "titel": "Schnitt, Vereinigung, Gegenereignis",
-    "regel": "So übersetzt du: ⟦A ∩ B⟧ heißt „A und B“, beide treten ein. ⟦A ∪ B⟧ heißt „A oder B“, mindestens eines tritt ein. ⟦Ā⟧ heißt „nicht A“. Bei Laplace-Experimenten gilt: P = Anzahl günstiger : Anzahl möglicher Ergebnisse.",
+    "regel": "∩ heißt ⟦und⟧, ∪ heißt ⟦oder⟧ (mindestens eins). P = günstige : mögliche Ergebnisse.",
     "schritte": [
-     "Lose 1 bis 20. A: Die Zahl ist gerade. B: Die Zahl ist durch 3 teilbar.",
-     "Beide Preise gibt es für Zahlen, die gerade und durch 3 teilbar sind: A ∩ B = {6, 12, 18}.",
-     "Das sind 3 günstige von 20 möglichen Losen.",
-     "P(A ∩ B) = 3 : 20 = ⟦0,15⟧."
+     {
+      "text": "A: Die Zahl ist gerade. B: Die Zahl ist durch 3 teilbar."
+     },
+     {
+      "text": "Beide Preise heißt A ∩ B: die Lose 6, 12 und 18.",
+      "bild": {
+       "punkte": {
+        "_M1": [
+         0,
+         0
+        ],
+        "_M2": [
+         4,
+         0
+        ],
+        "A: gerade": [
+         -2.6,
+         2.6
+        ],
+        "B: durch 3": [
+         6.6,
+         2.6
+        ],
+        "A ∩ B: 6, 12, 18": [
+         2,
+         0
+        ]
+       }
+      }
+     },
+     {
+      "text": "Das sind 3 von 20 Losen: P(A ∩ B) = ⟦0,15⟧."
+     },
+     {
+      "text": "Mindestens ein Preis hieße dagegen A ∪ B."
+     }
     ],
-    "probe": "6, 12, 18 sind gerade und durch 3 teilbar ✓",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -66,13 +97,9 @@
        -2.6,
        2.6
       ],
-      "B: durch 3 teilbar": [
+      "B: durch 3": [
        6.6,
        2.6
-      ],
-      "A ∩ B: 6, 12, 18": [
-       2,
-       0
       ]
      },
      "kreise": [
@@ -86,46 +113,38 @@
       }
      ]
     },
-    "fehler": "A ∪ B mit „beide“ zu übersetzen ist falsch: Für A ∪ B reicht schon ein Preis. ⟦∪ heißt „oder“⟧ (mindestens eines), ⟦∩ heißt „und“⟧ (beide).",
-    "einstieg": "Beim Schulfest zieht man ein Los mit einer Zahl von 1 bis 20. Einen Preis gibt es für gerade Zahlen, einen Sonderpreis für Zahlen, die durch 3 teilbar sind. Wer gewinnt beides? Wer gewinnt mindestens einen Preis? Solche Fragen verbinden zwei Ereignisse – man ⟦verknüpft Ereignisse⟧.",
+    "fehler": "A ∪ B heißt nicht „beide“. Für A ∪ B reicht schon ein Preis. ∩ heißt und, ∪ heißt oder.",
+    "einstieg": "Beim Schulfest ziehst du ein Los von 1 bis 20. Gerade Zahlen gewinnen einen Preis, durch 3 teilbare einen Sonderpreis. Wer gewinnt beides? Dafür ⟦verknüpfst⟧ du Ereignisse.",
     "woerter": [
      [
-      "Ereignis A, B",
-      "eine Menge von Ergebnissen, z. B. A = gerade Zahl"
+      "A ∩ B",
+      "„A und B“: beide Ereignisse treten ein"
      ],
      [
-      "A ∩ B („A und B“, Schnitt)",
-      "beide Ereignisse treten ein"
+      "A ∪ B",
+      "„A oder B“: mindestens eines tritt ein"
      ],
      [
-      "A ∪ B („A oder B“, Vereinigung)",
-      "mindestens eines der Ereignisse tritt ein"
-     ],
-     [
-      "Ā („nicht A“, Gegenereignis)",
-      "A tritt nicht ein"
-     ],
-     [
-      "Laplace-Experiment",
-      "alle Ergebnisse sind gleich wahrscheinlich, wie beim Losziehen"
-     ],
-     [
-      "P(…)",
-      "die Wahrscheinlichkeit, eine Zahl von 0 bis 1"
+      "Ereignisse",
+      "Mengen von Ergebnissen, z. B. A = gerade Zahl"
      ]
     ]
    },
    {
     "lernziel": "additionssatz",
     "titel": "Der Additionssatz",
-    "regel": "So rechnest du mit dem ⟦Additionssatz⟧: ⟦P(A ∪ B) = P(A) + P(B) − P(A ∩ B)⟧. Die Schnittmenge wird einmal abgezogen, weil sie sonst ⟦doppelt gezählt⟧ würde. Sind A und B ⟦unvereinbar⟧ (A ∩ B = ∅), gilt P(A ∪ B) = P(A) + P(B).",
+    "regel": "⟦P(A ∪ B) = P(A) + P(B) − P(A ∩ B)⟧. Ohne gemeinsame Ergebnisse fällt der letzte Teil weg.",
     "schritte": [
-     "Gegeben: P(A) = 0,5, P(B) = 0,3 und P(A ∩ B) = 0,1.",
-     "P(A) + P(B) = 0,8 enthält den Teil A ∩ B zweimal.",
-     "Einmal abziehen: 0,8 − 0,1.",
-     "Also P(A ∪ B) = ⟦0,7⟧."
+     {
+      "text": "P(A) = 0,5 und P(B) = 0,3. Die Schnittmenge hat P(A ∩ B) = 0,1."
+     },
+     {
+      "text": "0,5 + 0,3 = 0,8 zählt die Schnittmenge doppelt."
+     },
+     {
+      "text": "Einmal abziehen: P(A ∪ B) = 0,8 − 0,1 = ⟦0,7⟧."
+     }
     ],
-    "probe": "P(Ā ∩ B̄) = 1 − 0,7 = 0,3 ≥ 0 ✓",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -137,15 +156,15 @@
        4,
        0
       ],
-      "A: P = 0,5": [
+      "A: 0,5": [
        -2.6,
        2.6
       ],
-      "B: P = 0,3": [
+      "B: 0,3": [
        6.6,
        2.6
       ],
-      "A ∩ B: 0,1": [
+      "beide: 0,1": [
        2,
        0
       ]
@@ -161,8 +180,8 @@
       }
      ]
     },
-    "fehler": "P(A ∪ B) = 0,5 + 0,3 = 0,8 ist falsch, wenn A und B gemeinsame Ergebnisse haben: Die Doppelgewinner, also die ⟦Schnittmenge⟧, wurden doppelt gezählt.",
-    "einstieg": "Wie wahrscheinlich ist mindestens ein Preis? Zählt man nur die Gewinner von Preis A und Preis B zusammen, zählt man die Doppelgewinner zweimal. Diese müssen einmal wieder abgezogen werden. Die Regel dafür heißt ⟦Additionssatz⟧.",
+    "fehler": "P(A ∪ B) = 0,5 + 0,3 = 0,8 ist falsch. Die Doppelgewinner wurden zweimal gezählt.",
+    "einstieg": "Wie wahrscheinlich ist mindestens ein Preis? Zählst du die Gewinner von A und B zusammen, zählst du die Doppelgewinner zweimal. Das korrigiert der ⟦Additionssatz⟧.",
     "woerter": [
      [
       "Additionssatz",
@@ -170,34 +189,74 @@
      ],
      [
       "Schnittmenge",
-      "die Ergebnisse, die zu A und zu B gehören"
-     ],
-     [
-      "unvereinbar",
-      "A und B haben kein gemeinsames Ergebnis"
-     ],
-     [
-      "∅",
-      "die leere Menge"
+      "der Teil, der zu A und zu B gehört"
      ]
     ]
    },
    {
     "lernziel": "vierfeld",
     "titel": "Vierfeldertafel ergänzen",
-    "regel": "So ergänzt du eine ⟦Vierfeldertafel⟧: ⟦Zeilen- und Spaltensummen⟧ müssen stimmen; unten rechts steht die Gesamtzahl. Ein fehlendes Feld ist die Summe seiner Zeile oder Spalte minus die bekannten Felder.",
+    "regel": "Jede Zeile und Spalte muss ihre ⟦Summe⟧ ergeben. Fehlendes ist Summe minus Bekanntes.",
     "schritte": [
-     "200 Befragte, 80 haben gegessen (A). Von diesen 80 haben 30 auch gespielt (B).",
-     "Die Zeile A muss 80 ergeben. Das Feld „A und nicht B“ ist der Rest: 80 − 30 = ⟦50⟧.",
-     "Die Spalte Summe muss 200 ergeben. „Nicht A“ ist der Rest: 200 − 80 = 120.",
-     "So lassen sich alle Felder Schritt für Schritt zur jeweiligen Summe ergänzen."
+     {
+      "text": "200 Gäste, 80 haben gegessen, davon 30 auch gespielt."
+     },
+     {
+      "text": "Die Zeilensumme von A ist 80. Rest: 80 − 30 = ⟦50⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "A (gegessen)",
+         "30",
+         "50",
+         "80"
+        ],
+        [
+         "nicht A",
+         "",
+         "",
+         "?"
+        ],
+        [
+         "Summe",
+         "",
+         "",
+         "200"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Nicht gegessen haben 200 − 80 = 120 Gäste.",
+      "bild": {
+       "zeilen": [
+        [
+         "A (gegessen)",
+         "30",
+         "50",
+         "80"
+        ],
+        [
+         "nicht A",
+         "",
+         "",
+         "120"
+        ],
+        [
+         "Summe",
+         "",
+         "",
+         "200"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "30 + 50 = 80 ✓",
     "bild": {
      "typ": "tabelle",
      "kopf": [
       "",
-      "B (Los gespielt)",
+      "B (gespielt)",
       "nicht B",
       "Summe"
      ],
@@ -222,99 +281,153 @@
       ]
      ]
     },
-    "fehler": "Das Feld „A und nicht B“ als 200 − 30 zu berechnen ist falsch: Dann hätten mehr Gäste gegessen als die 80 in Zeile A. Man ergänzt innerhalb der ⟦Zeile A⟧ zu deren Summe 80.",
-    "einstieg": "Nach dem Schulfest werden 200 Gäste befragt: Haben sie gegessen (A)? Haben sie am Losstand gespielt (B)? Jeder Gast passt in genau eines von vier Feldern. So eine Tabelle mit zwei Merkmalen heißt ⟦Vierfeldertafel⟧.",
+    "fehler": "„A und nicht B“ ist nicht 200 − 30. Dann hätten mehr gegessen als die 80 in der Zeile.",
+    "einstieg": "Nach dem Fest werden 200 Gäste befragt: gegessen oder nicht, gespielt oder nicht. Jeder Gast passt in genau ein Feld der ⟦Vierfeldertafel⟧.",
     "woerter": [
      [
       "Vierfeldertafel",
-      "eine Tabelle mit zwei Merkmalen, je „ja“ und „nein“, also vier Feldern"
+      "eine Tabelle mit zwei Merkmalen, je ja oder nein"
      ],
      [
-      "Merkmal",
-      "eine Eigenschaft, z. B. „hat gegessen“"
-     ],
-     [
-      "Zeilensumme / Spaltensumme",
-      "die Summe einer Zeile bzw. Spalte, am Rand"
-     ],
-     [
-      "Gesamtzahl",
-      "unten rechts: alle Befragten"
+      "Zeilensumme",
+      "die Summe einer Zeile, ganz rechts"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "zeilen": [
+      [
+       "A (gegessen)",
+       "30",
+       "170?",
+       "80"
+      ],
+      [
+       "nicht A",
+       "",
+       "",
+       "?"
+      ],
+      [
+       "Summe",
+       "",
+       "",
+       "200"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "tafel_wkeit",
     "titel": "Wahrscheinlichkeiten aus der Tafel",
-    "regel": "So erhältst du Wahrscheinlichkeiten: Teile jede Anzahl durch die ⟦Gesamtzahl⟧. Die Randsummen ergeben sich wie vorher: ⟦P(A) = P(A ∩ B) + P(A ∩ B̄)⟧.",
+    "regel": "Teile jedes Feld durch die ⟦Gesamtzahl⟧. P(A) ist dann die Randsumme der Zeile.",
     "schritte": [
-     "Gesamt 400 Gäste. A und B: 60 Gäste, A und nicht B: 100 Gäste.",
-     "Jedes Feld durch 400 teilen: P(A ∩ B) = 60 : 400 = 0,15 und P(A ∩ B̄) = 100 : 400 = 0,25.",
-     "Die Randsumme der Zeile A: 60 + 100 = 160 Gäste.",
-     "P(A) = 160 : 400 = ⟦0,4⟧."
+     {
+      "text": "400 Gäste: 60 haben gegessen und gespielt, 100 nur gegessen."
+     },
+     {
+      "text": "Durch die Gesamtzahl teilen: 60 : 400 = 0,15 und 100 : 400 = 0,25.",
+      "bild": {
+       "zeilen": [
+        [
+         "A (gegessen)",
+         "60 → 0,15",
+         "100 → 0,25",
+         "160"
+        ],
+        [
+         "Summe",
+         "",
+         "",
+         "400 → 1"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Randsumme der Zeile: 160 : 400 = ⟦0,4⟧ = P(A).",
+      "bild": {
+       "zeilen": [
+        [
+         "A (gegessen)",
+         "60 → 0,15",
+         "100 → 0,25",
+         "160 → 0,4"
+        ],
+        [
+         "Summe",
+         "",
+         "",
+         "400 → 1"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "0,15 + 0,25 = 0,4 ✓",
     "bild": {
      "typ": "tabelle",
      "kopf": [
       "",
-      "B (Los gespielt)",
+      "B (gespielt)",
       "nicht B",
       "Summe"
      ],
      "zeilen": [
       [
        "A (gegessen)",
-       "60 → 0,15",
-       "100 → 0,25",
-       "160 → 0,4"
+       "60",
+       "100",
+       "160"
       ],
       [
        "Summe",
        "",
        "",
-       "400 → 1"
+       "400"
       ]
      ]
     },
-    "fehler": "P(A ∩ B) = 60 : 160 ist falsch, wenn nach der Wahrscheinlichkeit unter ⟦allen⟧ Gästen gefragt ist: Man teilt durch die ⟦Gesamtzahl⟧ 400.",
-    "einstieg": "Aus Anzahlen werden Anteile: Hat von 400 Gästen ein Viertel etwas getan, ist die Wahrscheinlichkeit 0,25, dass ein zufällig gewählter Gast es getan hat. Teilt man jedes Feld durch die Gesamtzahl, liest man ⟦Wahrscheinlichkeiten aus der Tafel⟧ ab.",
+    "fehler": "P(A ∩ B) ist nicht 60 : 160. Gefragt ist unter allen Gästen, also durch 400 teilen.",
+    "einstieg": "Aus Anzahlen werden Anteile. Teilst du jedes Feld durch die Gesamtzahl, liest du ⟦Wahrscheinlichkeiten⟧ ab.",
     "woerter": [
      [
       "Gesamtzahl",
-      "die Zahl aller Befragten, unten rechts"
+      "alle Befragten, unten rechts"
      ],
      [
       "Randsumme",
       "die Summe einer Zeile oder Spalte"
-     ],
-     [
-      "B̄",
-      "„nicht B“"
-     ],
-     [
-      "60 → 0,15",
-      "60 Personen entsprechen der Wahrscheinlichkeit 0,15"
      ]
     ]
    },
    {
     "lernziel": "bedingt",
     "titel": "Bedingte Wahrscheinlichkeit",
-    "regel": "So berechnest du ⟦P_B(A)⟧, die Wahrscheinlichkeit von A, ⟦wenn man schon weiß⟧, dass B eingetreten ist: ⟦P_B(A) = P(A ∩ B) : P(B)⟧. In der Tafel betrachtest du nur die ⟦Spalte B⟧ und teilst durch ihre Summe.",
+    "regel": "Bei ⟦P_B(A)⟧ nur in der Gruppe B zählen. Es gilt P_B(A) = P(A ∩ B) : P(B).",
     "schritte": [
-     "200 Gäste, davon haben 50 gespielt (B). Von diesen 50 haben 20 auch gegessen (A).",
-     "Bekannt ist: Der Gast hat gespielt. Also zählt nur die Spalte B mit 50 Gästen.",
-     "Davon haben 20 gegessen.",
-     "P_B(A) = 20 : 50 = ⟦0,4⟧."
+     {
+      "text": "Bekannt: Der Gast hat gespielt. Es zählt nur die Spalte B.",
+      "bild": {
+       "kopf": [
+        "",
+        "B: nur diese Spalte",
+        "nicht B",
+        "Summe"
+       ]
+      }
+     },
+     {
+      "text": "In Spalte B sind 50 Gäste, davon haben 20 gegessen."
+     },
+     {
+      "text": "P_B(A) = 20 : 50 = ⟦0,4⟧."
+     }
     ],
-    "probe": "Man teilt durch die Anzahl in B, nicht durch alle ✓",
-    "fehler": "P_B(A) und P_A(B) zu verwechseln ist falsch. P_B(A) = 20 : 50 = 0,4 (unter allen Spielern). P_A(B) = 20 : 80 = 0,25 (unter allen, die gegessen haben). Die ⟦Bedingung⟧ unten bestimmt, ⟦durch welche Summe⟧ du teilst.",
+    "fehler": "P_B(A) und P_A(B) nicht verwechseln. 20 : 80 = 0,25 gilt unter allen, die gegessen haben.",
     "bild": {
      "typ": "tabelle",
      "kopf": [
       "",
-      "B (Los gespielt)",
+      "B (gespielt)",
       "nicht B",
       "Summe"
      ],
@@ -339,7 +452,7 @@
       ]
      ]
     },
-    "einstieg": "Ein Gast erzählt, dass er am Losstand gespielt hat. Wie wahrscheinlich ist es, dass er auch gegessen hat? Jetzt zählen nicht mehr alle 200 Gäste, sondern nur die Spieler. Wissen verkleinert die Gruppe, durch die man teilt. Das heißt ⟦bedingte Wahrscheinlichkeit⟧.",
+    "einstieg": "Ein Gast erzählt, dass er gespielt hat. Wie wahrscheinlich hat er auch gegessen? Jetzt zählen nur die Spieler. Das ist eine ⟦bedingte Wahrscheinlichkeit⟧.",
     "woerter": [
      [
       "bedingte Wahrscheinlichkeit",
@@ -347,49 +460,65 @@
      ],
      [
       "P_B(A)",
-      "Wahrscheinlichkeit von A, wenn man weiß, dass B eingetreten ist"
-     ],
-     [
-      "Bedingung",
-      "das, was man schon weiß – der Buchstabe unten"
-     ],
-     [
-      "Spalte B",
-      "nur die Gäste mit Merkmal B"
+      "Wahrscheinlichkeit von A, wenn B schon eingetreten ist"
      ]
     ]
    },
    {
     "lernziel": "verstehen",
     "titel": "Aussagen über Ereignisse prüfen",
-    "regel": "So prüfst du Aussagen: Übersetze sie in Mengen und Zahlen. ⟦Unvereinbar⟧ heißt A ∩ B = ∅. Das ⟦Gegenereignis⟧ von „mindestens eins“ ist „keins“. Jede Wahrscheinlichkeit liegt zwischen ⟦0 und 1⟧.",
+    "regel": "Wahrscheinlichkeiten liegen ⟦zwischen 0 und 1⟧. Unvereinbar heißt: keine gemeinsamen Ergebnisse.",
     "schritte": [
-     "Behauptung: P(A) = 0,7 und P(B) = 0,6, und A und B sind unvereinbar.",
-     "Wären sie unvereinbar, wäre P(A ∪ B) = 0,7 + 0,6 = 1,3.",
-     "Eine Wahrscheinlichkeit kann nicht größer als 1 sein – mehr als alle Gäste gibt es nicht.",
-     "Also stimmt die Behauptung nicht: ⟦A und B müssen sich überschneiden⟧."
+     {
+      "text": "Behauptung: P(A) = 0,7, P(B) = 0,6, A und B sind unvereinbar."
+     },
+     {
+      "text": "Unvereinbar hieße: P(A ∪ B) = 0,7 + 0,6 = 1,3.",
+      "bild": {
+       "boegen": [
+        {
+         "von": 0,
+         "bis": 0.7,
+         "name": "gegessen"
+        },
+        {
+         "von": 0.7,
+         "bis": 1.3,
+         "name": "gespielt"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Mehr als alle Gäste gibt es nicht: 1,3 ist größer als 1.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 1,
+         "name": "alle"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Also ⟦überschneiden sich A und B⟧. Die Behauptung ist falsch."
+     }
     ],
-    "probe": "P(A ∩ B) ≥ 0,7 + 0,6 − 1 = 0,3 ✓",
-    "fehler": "Das Gegenereignis von „mindestens ein Treffer“ ist nicht „mindestens ein Fehlschuss“, sondern ⟦„kein Treffer“⟧. Beides zusammen muss genau alle Möglichkeiten abdecken.",
-    "einstieg": "Jemand behauptet: „70 % der Gäste haben gegessen, 60 % haben gespielt – das waren bestimmt verschiedene Leute.“ Kann das stimmen? Mit Mengen und ein wenig Rechnen lassen sich solche Behauptungen prüfen. So kann man ⟦Aussagen über Ereignisse prüfen⟧.",
+    "fehler": "Das Gegenteil von „mindestens ein Treffer“ ist nicht „mindestens ein Fehlschuss“, sondern „kein Treffer“.",
+    "einstieg": "Jemand sagt: 70 % haben gegessen, 60 % gespielt, und das waren verschiedene Leute. Kann das stimmen? Mit Zahlen ⟦prüfst du solche Aussagen⟧.",
     "woerter": [
      [
       "unvereinbar",
-      "A und B haben nichts gemeinsam: A ∩ B = ∅"
-     ],
-     [
-      "Gegenereignis",
-      "alles, was nicht zum Ereignis gehört"
-     ],
-     [
-      "„mindestens eins“",
-      "eins oder mehr"
-     ],
-     [
-      "P zwischen 0 und 1",
-      "keine Wahrscheinlichkeit ist negativ oder größer als 1"
+      "A und B haben kein gemeinsames Ergebnis"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 1.4,
+     "abschnitte": 7,
+     "beschriftet": "anfang_ende"
+    }
    }
   ],
   "teilfaehigkeiten": [

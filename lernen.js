@@ -332,11 +332,12 @@ async function viewReise(arg) {
     const kont = d.orte.filter((o) => o.kontinent === (d.orte.find((x) => x.block_id === n.block_id)?.kontinent));
     const ortN = d.orte.find((o) => o.block_id === n.block_id) || {};
     // Ein einziger Startknopf: erst die fälligen Wiederholungen, dann direkt ins Üben des Themas.
-    const ziel = n.laeuft ? `#/lerneinheit/${kind.id}-${n.id}-test` : nWdh ? `#/wiederholen/${kind.id}` : `#/lerneinheit/${kind.id}-${n.id}-ueben`;
+    const testDran = !n.laeuft && et.n > 0 && et.f >= et.n; // alle Lernkarten sitzen → als Nächstes der Test, nicht wieder üben
+    const ziel = n.laeuft || testDran ? `#/lerneinheit/${kind.id}-${n.id}-test` : nWdh ? `#/wiederholen/${kind.id}` : `#/lerneinheit/${kind.id}-${n.id}-ueben`;
     teile.push(el('section', { class: 'lr-karte-box lr-haupt' },
       el('p', { class: 'lr-ueber' }, `JETZT DRAN · ${(n.stadt || '').toUpperCase()}`),
       el('h1', { class: 'lr-titel lr-titel-thema' }, n.titel),
-      el('a', { class: 'lr-knopf lr-knopf-start', href: ziel }, n.laeuft ? 'Test weitermachen' : et.f || nWdh ? 'Weiter geht’s' : 'Los geht’s'),
+      el('a', { class: 'lr-knopf lr-knopf-start', href: ziel }, n.laeuft ? 'Test weitermachen' : testDran ? 'Zum Test' : et.f || nWdh ? 'Weiter geht’s' : 'Los geht’s'),
       nWdh && !n.laeuft ? el('p', { class: 'lr-leise lr-start-info' }, `Erst ${nWdh} ${nWdh === 1 ? 'Wiederholung' : 'Wiederholungen'}, dann ${n.stadt}.`) : null,
       et.n ? el('div', { class: 'lr-fortschritt' }, el('div', { class: 'lr-balken', role: 'img', 'aria-label': `${et.f} von ${et.n} Lernkarten sitzen` }, el('span', { style: `width:${Math.round(100 * et.f / et.n)}%` })), el('b', {}, `${et.f} von ${et.n} Lernkarten sitzen`)) : null,
       el('a', { class: 'lr-textlink', href: `#/lerneinheit/${kind.id}-${n.id}` }, 'Erst die Erklärungen ansehen'),
@@ -382,7 +383,8 @@ function lernAbflugtafel(d, { n, et, nWdh, wdhRest = 0 }) {
   const zeile = (e, status, klasse = '') => el('a', { class: 'lr-flug' + klasse, href: `#/lerneinheit/${kind.id}-${e.id}` },
     el('span', { class: 'lr-flug-ort' }, el('b', {}, code(e)), el('small', {}, e.titel)),
     el('span', { class: 'lr-flug-status' }, el('b', {}, status), kl(e) ? el('small', {}, `Klasse ${kl(e)}`) : null));
-  const ziel = n.laeuft ? `#/lerneinheit/${kind.id}-${n.id}-test` : nWdh ? `#/wiederholen/${kind.id}` : `#/lerneinheit/${kind.id}-${n.id}-ueben`;
+  const testDran = !n.laeuft && et.n > 0 && et.f >= et.n; // alle Lernkarten sitzen → als Nächstes der Test, nicht wieder üben
+  const ziel = n.laeuft || testDran ? `#/lerneinheit/${kind.id}-${n.id}-test` : nWdh ? `#/wiederholen/${kind.id}` : `#/lerneinheit/${kind.id}-${n.id}-ueben`;
   const weitere = d.jetzt.filter((e) => e !== n);
   const maxZ = kind.klasse && kind.klasse <= 6 ? 3 : 6;
   const offen = Math.max(0, et.n - et.f);
@@ -394,14 +396,14 @@ function lernAbflugtafel(d, { n, et, nWdh, wdhRest = 0 }) {
     el('section', { class: 'lr-abflugtafel', 'aria-label': 'Abflugtafel' },
       el('a', { class: 'lr-flug lr-flug-jetzt', href: ziel },
         el('span', { class: 'lr-flug-ort' }, el('span', { class: 'lr-klapp', role: 'img', 'aria-label': code(n) }, ...[...code(n).slice(0, 9)].map((c, i) => el('i', { style: `--i:${i}` }, c))), el('small', {}, n.titel)),
-        el('span', { class: 'lr-flug-status lr-einsteigen' }, el('b', {}, n.laeuft ? 'TEST LÄUFT' : 'EINSTEIGEN'), et.n ? el('small', {}, `${offen} von ${et.n} Karten offen`) : null)),
+        el('span', { class: 'lr-flug-status lr-einsteigen' }, el('b', {}, n.laeuft ? 'TEST LÄUFT' : testDran ? 'TEST BEREIT' : 'EINSTEIGEN'), et.n ? el('small', {}, testDran ? 'alle Karten sitzen' : `${offen} von ${et.n} Karten offen`) : null)),
       ...weitere.slice(0, maxZ).map((e) => zeile(e, e.geschafft ? 'GELANDET' : e.fertig ? 'UNTERWEGS' : 'WARTET', e.geschafft ? ' lr-flug-gelandet' : '')),
       ...d.kann.slice(0, 1).map((e) => zeile(e, 'GELANDET', ' lr-flug-gelandet')),
       ...d.spaeter.slice(0, 1).map((e) => zeile(e, `AB KLASSE ${kl(e) ?? ''}`.trim(), ' lr-flug-spaeter'))),
     et.n ? el('div', { class: 'lr-band', role: 'img', 'aria-label': `${et.f} von ${et.n} Lernkarten bis zum Stempel von ${n.stadt}` },
       ...Array.from({ length: et.n }, (_, i) => el('i', { class: i < et.f ? 'voll' : i === et.f ? 'dran' : '' })), el('span', {}, '◎'), el('small', {}, offen ? `Noch ${offen} ${offen === 1 ? 'Karte' : 'Karten'} bis zum Stempel` : 'Alle Karten sitzen')) : null,
     el('div', { class: 'lr-tafelchips' }, el('a', { href: `#/reisepass/${kind.id}` }, `◎ ${d.konto?.stempel ?? 0} Stempel`), el('span', {}, 'Abflug, wann es dir passt')),
-    nWdh && !n.laeuft ? el('p', { class: 'lr-leise lr-start-info' }, `Erst ${nWdh} ${nWdh === 1 ? 'Wiederholung' : 'Wiederholungen'}, dann ${n.stadt}.`) : null,
+    nWdh && !n.laeuft && !testDran ? el('p', { class: 'lr-leise lr-start-info' }, `Erst ${nWdh} ${nWdh === 1 ? 'Wiederholung' : 'Wiederholungen'}, dann ${n.stadt}.`) : null,
     wdhRest ? el('a', { class: 'lr-textlink', href: `#/wiederholen/${kind.id}` }, `Noch ${wdhRest} ${wdhRest === 1 ? 'Wiederholung' : 'Wiederholungen'} offen – wenn du magst`) : null,
     el('a', { class: 'lr-textlink', href: `#/lerneinheit/${kind.id}-${n.id}` }, 'Erst die Erklärungen ansehen'),
     gruppe('Alle offenen Flüge', weitere.length > maxZ ? weitere : []),
@@ -414,7 +416,7 @@ function lernAbflugtafel(d, { n, et, nWdh, wdhRest = 0 }) {
       el('div', { class: 'lr-fortschritt' }, el('div', { class: 'lr-balken', role: 'img', 'aria-label': `${jg.geschafft} von ${jg.themen} Themen geschafft` }, el('span', { style: `width:${Math.round(100 * jg.geschafft / jg.themen)}%` })),
         el('b', {}, `${jg.geschafft} von ${jg.themen} Themen`))) : null,
     el('div', { class: 'lr-dock lr-dock-start' }, el('a', { class: 'lr-knopf lr-einsteigen-knopf', href: ziel },
-      el('span', {}, n.laeuft ? 'Test weitermachen' : nWdh ? 'Erst wiederholen' : 'Einsteigen'), el('span', { class: 'lr-mono' }, code(n).slice(0, 14) + ' ›'))),
+      el('span', {}, n.laeuft ? 'Test weitermachen' : testDran ? 'Zum Test' : nWdh ? 'Erst wiederholen' : 'Einsteigen'), el('span', { class: 'lr-mono' }, code(n).slice(0, 14) + ' ›'))),
   ];
 }
 
@@ -1350,6 +1352,8 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
     const flaeche = el('div', { class: 'lr-ueben-flaeche' });
     lernErsetze(panels.ueben, el('div', { class: 'lr-karte-box lr-lk-kopf' }, wechsel(-1),
       el('div', { class: 'lr-lk-mitte' }, el('small', { class: 'lr-leise' }, neu ? `Karte ${pos + 1}/${mitAufg.length} · ${e.titel}` : `Lernkarte ${pos + 1} von ${mitAufg.length}`), neu ? null : el('b', {}, e.titel), punkte), wechsel(1)), flaeche, chipsStufe);
+    if (!pflicht.some((x) => !x.fertig) && !e.faellig) // alle Lernkarten sitzen: nicht endlos weiterüben lassen, sondern den Test anbieten
+      panels.ueben.prepend(el('div', { class: 'lr-karte-box lr-testbereit' }, el('p', {}, el('b', {}, 'Alle Lernkarten dieses Themas sitzen. '), 'Du musst hier nicht weiterüben – als Nächstes kommt der Test.'), lernTestTeil(ctx, etappen)));
     const pool = e.aufgaben.filter((a) => !stufe || a.stufe === stufe);
     const warte = [...pool].sort((a, b) => (a.geloest === b.geloest ? 0 : a.geloest ? 1 : -1) || (a.versuche || 0) - (b.versuche || 0) || (a.stufe || 2) - (b.stufe || 2));
     let sterne = 0, nr = 0, fehlFolge = 0; // fehlFolge: falsche Aufgaben hintereinander auf dieser Karte (V8)
@@ -1444,6 +1448,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
               sterne ? el('p', { class: 'lr-sterne-neu' }, lernIcon(LI.stern, 20), ` +${sterne} Sterne`) : null,
               el('p', { class: 'lr-leise' }, 'Die Karte kommt in ein paar Tagen zum Wiederholen.'),
               naechsteKarte ? el('button', { type: 'button', class: 'lr-knopf', onclick: () => { aktKarte = naechsteKarte; stufe = 0; zeichneUeben(); window.scrollTo(0, 0); } }, `Anschlussflug: ${naechsteKarte.titel} ›`) : null,
+              !naechsteKarte && !pflicht.some((x) => !x.fertig) ? lernTestTeil(ctx, etappen) : null,
               el('a', { class: 'lr-knopf-zweit', href: `#/reise/${ctx.kind}` }, 'Zur Abflugtafel'),
               el('a', { class: 'lr-textlink', href: `#/wiederholen/${ctx.kind}` }, 'Wiederholungen ansehen, falls noch welche offen sind')));
             window.scrollTo(0, 0); flaeche.querySelector('.lr-knopf, .lr-knopf-zweit')?.focus({ preventScroll: true });

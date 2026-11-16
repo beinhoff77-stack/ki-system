@@ -3918,3 +3918,6 @@ details.lr-woerter > summary::-webkit-details-marker { display: none; }
 /* R3: Was kommt wann wieder? (V12) */
 .lr-wdh-erklaert p { margin: 6px 0 0; font-size: 16px; line-height: 1.45; }
 .ls-wdh summary { cursor: pointer; } .ls-wdh p { margin: 8px 0 0; }
+
+.lr-testbereit { border: 2px solid var(--lr-akzent, #FFD23F); display: flex; flex-direction: column; gap: 10px; }
+.lr-testbereit p { margin: 0; }

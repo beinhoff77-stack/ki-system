@@ -504,6 +504,78 @@ for _e in ETAPPEN:
     _e.update(KLAR.get(_e['lernziel'], {}))
 
 
+# ---------- UMBAU: neues Muster (Achte Runde, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl7.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl7 import mit_umbau  # noqa: E402
+
+UMBAU = {
+ 'struktur': {
+  'einstieg': 'Ein Leihrad kostet 2 € Gebühr plus 3 € für die Stunde, zusammen 5 €. Eine Familie leiht 5 Räder: 5 · (2 + 3) = 25 €. Welche Rechnung zuletzt kommt, bestimmt die ⟦Termart⟧.',
+  'woerter': [['Term', 'eine Rechnung aus Zahlen, Buchstaben und Rechenzeichen'], ['Termart', 'Summe, Differenz, Produkt oder Quotient – je nach letzter Rechnung'],
+              ['Produkt', 'zuletzt wird malgenommen']],
+  'bild': {'typ': 'tabelle', 'kopf': ['', '5 · (x + 2)'], 'zeilen': [['zuerst', '?'], ['zuletzt', '?'], ['Termart', '?']]},
+  'schritte': [{'text': 'Was in Klammern steht, rechnet man zuerst: x + 2.', 'bild': {'zeilen': [['zuerst', 'x + 2'], ['zuletzt', '?'], ['Termart', '?']]}},
+               {'text': 'Danach kommt mal 5. Das ist die letzte Rechnung.', 'bild': {'zeilen': [['zuerst', 'x + 2'], ['zuletzt', '· 5'], ['Termart', '?']]}},
+               {'text': 'Zuletzt wird malgenommen. Der Term ist ein ⟦Produkt⟧.', 'bild': {'zeilen': [['zuerst', 'x + 2'], ['zuletzt', '· 5'], ['Termart', 'Produkt']]}}],
+  'fehler': '3x + 4 ist kein Produkt. Erst wird 3 · x gerechnet, ⟦zuletzt addiert⟧. Wie beim Verleih: Am Ende kommt die Gebühr dazu.',
+  'fehler_bild': {'kopf': ['', '3x + 4'], 'zeilen': [['zuerst', '3 · x'], ['zuletzt', '+ 4'], ['Termart', 'Summe']]},
+  'regel': 'Die ⟦letzte Rechnung⟧ bestimmt die Termart. Klammern zuerst, dann Punkt vor Strich.'},
+ 'termwert': {
+  'einstieg': 'Der Fahrradverleih nimmt 3 € pro Stunde plus 5 € Gebühr. Als Term heißt das 3x + 5. Was kosten 1, 2 oder 4 Stunden? Das Ergebnis heißt ⟦Termwert⟧.',
+  'woerter': [['Variable', 'ein Buchstabe wie x für eine Zahl, die sich ändern kann'], ['einsetzen', 'für x eine bestimmte Zahl hinschreiben'],
+              ['Termwert', 'das Ergebnis nach dem Einsetzen']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Stunden x', '1', '2', '4'], 'zeilen': [['3x + 5 (in €)', '?', '?', '?']]},
+  'schritte': [{'text': 'Für die Variable x die 1 einsetzen: 3 · 1 + 5 = 8.', 'bild': {'zeilen': [['3x + 5 (in €)', '8', '?', '?']]}},
+               {'text': 'Für x = 2: 3 · 2 + 5 = 11.', 'bild': {'zeilen': [['3x + 5 (in €)', '8', '11', '?']]}},
+               {'text': 'Für x = 4: 3 · 4 = 12, plus 5 ergibt den Termwert ⟦17⟧.', 'bild': {'zeilen': [['3x + 5 (in €)', '8', '11', '17']]}}],
+  'fehler': '3 · 4 + 5 ist nicht 3 · 9 = 27. Erst malnehmen, dann die Gebühr ⟦dazuzählen⟧: 12 + 5 = 17 €.',
+  'regel': 'Zahl für x ⟦einsetzen⟧ und ausrechnen. Negative Zahlen kommen in Klammern, Punkt vor Strich gilt.'},
+ 'uebersetzen': {
+  'einstieg': 'Zwei Kinder leihen Räder. Jedes zahlt die Leihgebühr plus 5 € Pfand. Den Preis für beide schreibst du als Rechnung auf. Das heißt ⟦übersetzen⟧.',
+  'woerter': [['Summe aus x und 5', 'x + 5'], ['das Doppelte', 'mal 2'], ['2(x + 5)', '2 · (x + 5): die ganze Klammer wird verdoppelt']],
+  'bild': {'typ': 'tabelle', 'kopf': ['in Worten', 'in Zeichen'], 'zeilen': [['die Summe aus x und 5', '?'], ['das Doppelte davon', '?']]},
+  'schritte': [{'text': 'Die Leihgebühr ist x. „Die Summe aus x und 5“ heißt x + 5.',
+                'bild': {'zeilen': [['die Summe aus x und 5', 'x + 5'], ['das Doppelte davon', '?']]}},
+               {'text': 'Das Doppelte gilt für die ganze Summe. Darum kommt sie in Klammern.'},
+               {'text': 'Ergebnis: ⟦2(x + 5)⟧.', 'bild': {'zeilen': [['die Summe aus x und 5', 'x + 5'], ['das Doppelte davon', '2(x + 5)']]}}],
+  'fehler': '2x + 5 ist falsch: Dann zahlt das zweite Kind kein Pfand. Gemeint ist die ganze Summe: 2(x + 5) = ⟦2x + 10⟧.',
+  'fehler_bild': {'kopf': ['', 'Term'], 'zeilen': [['falsch', '2x + 5'], ['richtig', '2x + 10']]},
+  'regel': 'Übersetze Wort für Wort in ⟦Rechenzeichen⟧. Was zuerst gerechnet wird, kommt in Klammern.'},
+ 'sachsituation': {
+  'einstieg': 'Der Verleih will eine Preistafel: 5 € Grundgebühr und 3 € pro Stunde. Wie lange jemand fährt, ist noch offen. Dafür nimmt man einen Buchstaben und stellt einen ⟦Term⟧ auf.',
+  'woerter': [['Grundgebühr', 'fester Betrag, der einmal anfällt'], ['pro Stunde', 'für jede Stunde einmal; wird mit x malgenommen']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Stunden', '1', '2', 'x'], 'zeilen': [['Preis in €', '?', '?', '?']]},
+  'schritte': [{'text': 'x steht für die Anzahl der Stunden.'},
+               {'text': 'Bei 1 Stunde: 3 · 1 + 5 = 8 €.', 'bild': {'zeilen': [['Preis in €', '8', '?', '?']]}},
+               {'text': 'Bei 2 Stunden: 3 · 2 + 5 = 11 €.', 'bild': {'zeilen': [['Preis in €', '8', '11', '?']]}},
+               {'text': 'Bei x Stunden: ⟦3x + 5⟧ Euro.', 'bild': {'zeilen': [['Preis in €', '8', '11', '3x + 5']]}}],
+  'fehler': '5x + 3 vertauscht die Rollen. Dann kostet jede Stunde 5 € und die ⟦Grundgebühr⟧ nur 3 €. Was pro Stunde anfällt, steht vor dem x.',
+  'regel': 'Was ⟦pro Stunde⟧ anfällt, wird mit x malgenommen. Feste Beträge zählst du dazu.'},
+ 'muster': {
+  'einstieg': 'Bei Regen legt ein Kind Quadrate aus Streichhölzern in eine Reihe. Wie viele Hölzer braucht es für 10 Quadrate, ohne alles zu legen? So eine wachsende Reihe heißt ⟦Figurenfolge⟧.',
+  'woerter': [['Figurenfolge', 'Figur 1, 2, 3 …, die nach einer festen Regel wächst'], ['n', 'die Nummer der Figur']],
+  'bild': _bild_quadrate(3),
+  'schritte': [{'text': 'Figur 1 ist ein Quadrat aus 4 Hölzern.', 'bild': _bild_quadrate(1)},
+               {'text': 'Jedes neue Quadrat bringt 3 Hölzer mit. Figur 2 hat 7.', 'bild': _bild_quadrate(2)},
+               {'text': 'Figur 3 hat 10: ganz links 1 Holz, dazu 3 pro Quadrat.', 'bild': _bild_quadrate(3)},
+               {'text': 'Figur n braucht ⟦3n + 1⟧ Hölzer. Figur 10 braucht also 31.'}],
+  'fehler': 'n + 3 passt nicht: Für Figur 2 ergibt es 5 statt 7. Pro Quadrat kommen ⟦3 Hölzer⟧ dazu, nicht 1.',
+  'regel': 'Die ⟦Zunahme pro Figur⟧ steht vor dem n. Mit Figur 1 prüfst du die feste Zahl.'},
+ 'deuten': {
+  'einstieg': 'Der Handyvertrag der Chefin hat eine feste Monatsgebühr und kostet pro Minute etwas. Auf der Rechnung steht nur: K = 0,1x + 8. Wofür jede Zahl steht, klärt man beim ⟦Deuten⟧.',
+  'woerter': [['deuten', 'erklären, was jede Zahl in der Situation bedeutet'], ['K', 'die Kosten im Monat in Euro']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Teil', 'Bedeutung'], 'zeilen': [['0,1x', '?'], ['8', '?']]},
+  'schritte': [{'text': 'x steht für die Minuten, K für die Kosten in Euro.'},
+               {'text': '0,1 steht vor dem x: 10 Cent pro Minute.', 'bild': {'zeilen': [['0,1x', '10 ct pro Minute'], ['8', '?']]}},
+               {'text': '8 steht ohne x: feste Grundgebühr von 8 €.', 'bild': {'zeilen': [['0,1x', '10 ct pro Minute'], ['8', '8 € im Monat']]}},
+               {'text': '50 Minuten kosten 0,1 · 50 + 8 = ⟦13 €⟧.'}],
+  'fehler': '8 ist nicht der Preis pro Minute – sonst kosteten 50 Minuten schon 400 €. Was pro Minute zählt, steht ⟦vor dem x⟧.',
+  'regel': 'Die Zahl ⟦vor dem x⟧ zählt pro Einheit. Die Zahl ohne x ist der feste Betrag.'},
+}
+UMBAU_OFFEN = []
+baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Terme lesen', ['struktur', 'termwert']), ('Terme aufstellen', ['uebersetzen', 'sachsituation', 'muster']), ('Terme deuten', ['deuten'])],

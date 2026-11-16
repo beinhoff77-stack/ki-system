@@ -515,6 +515,128 @@ UMBAU_OFFEN = []
 baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
 
 
+# ---- SCHWER (Zehnte Runde: schwerere Aufgaben nach Prüfungsvorbild, siehe _schwer_kl8.py) ----
+# Vorbilder (Typ und Niveau, nicht Wortlaut/Zahlen): VERA-8 2025 (Ecken und Kanten eines Prismas; an welche Kante passt das letzte Quadrat eines Würfelnetzes;
+# Augenzahlen am Spielwürfel), BMT8 2025 (Volumen aus einem Schrägbild; Modell im Maßstab 1 : 10 – Volumenverhältnis), BMT8 2015 (Netz und Würfel zuordnen),
+# BMT8 2008 (Quader mit herausgeschnittenem Würfel), Känguru Kl. 7/8 (angemalte Würfel aus kleinen Würfeln, Würfelgebäude).
+from _schwer_kl8 import Neu, mit_schwer  # noqa: E402
+
+SW = Neu(10_8_11)
+
+# prisma
+SW.z('prisma', 2, 'Ein Prisma hat 9 Flächen. Wie viele Kanten hat es?', 21, '3 * (9 - 2)', 'n + 2 = 9 ⇔ n = 7 (siebenseitiges Prisma). Kanten: 3 · 7 = 21.',
+     'Bestimme zuerst n aus der Flächenzahl n + 2.')
+SW.z('prisma', 2, 'Ein Prisma hat 15 Kanten. Wie viele Ecken hat es?', 10, '2 * 15 / 3', '3n = 15 ⇔ n = 5. Ecken: 2 · 5 = 10.', 'Bestimme n aus 3n Kanten.')
+SW.z('prisma', 3, 'Für ein sechsseitiges Prisma: Berechne Ecken + Flächen − Kanten.', 2, '2 * 6 + (6 + 2) - 3 * 6',
+     'Ecken 12, Flächen 8, Kanten 18: 12 + 8 − 18 = 2. (Das gilt sogar für jedes Prisma: 2n + n + 2 − 3n = 2.)', 'Zähle mit den Formeln 2n, n + 2 und 3n.', art='P')
+SW.z('prisma', 3, 'Ein Kantenmodell aus Draht hat die Form eines Prismas: Grundfläche ein gleichseitiges Dreieck mit 6 cm Seitenlänge, Länge 10 cm. Wie viel Draht braucht man?', 66,
+     '2 * 3 * 6 + 3 * 10', 'Zwei Dreiecke: 2 · 3 · 6 cm = 36 cm. Drei Längskanten: 3 · 10 cm = 30 cm. Zusammen 66 cm.', 'Zähle die Kanten nach Sorten: Dreieckskanten und Längskanten.',
+     einheit='cm', art='P')
+SW.z('prisma', 3, 'Bei einem Prisma ist die Summe aus Ecken, Kanten und Flächen 62. Wie viele Ecken hat seine Grundfläche?', 10, '(62 - 2) / 6',
+     '2n + 3n + (n + 2) = 6n + 2 = 62 ⇔ n = 10. Es ist ein zehnseitiges Prisma.', 'Stelle mit den drei Formeln eine Gleichung für n auf.', art='K')
+SW.z('prisma', 3, 'Von einem Würfel wird eine Ecke gerade abgeschnitten, sodass dort ein kleines Dreieck entsteht. Wie viele Ecken hat der neue Körper?', 10, '8 - 1 + 3',
+     'Eine Ecke fällt weg, das neue Dreieck bringt 3 neue Ecken: 8 − 1 + 3 = 10.', 'Stell dir die Schnittfläche vor: Wie viele Ecken hat sie?', art='K')
+
+# netz
+_fuenf = [(0, 0), (1, 0), (2, 0), (3, 0), (1, 1)]
+_frei = sorted({(x + dx, y + dy) for x, y in _fuenf for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))} - set(_fuenf))
+_passt = [z for z in _frei if falten(_fuenf + [z])]
+assert len(_passt) == 4
+_kreuz = [(1, 0), (0, 1), (1, 1), (2, 1), (1, 2), (1, 3)]
+_fl = falten(_kreuz)
+_zahlen = {(1, 1): 1, (0, 1): 2, (1, 0): 3}
+_gegen = {_fl[z]: z for z in _kreuz}
+_x = _gegen[GEGEN[_fl[(0, 1)]]]
+assert _x == (2, 1)
+SW.z('netz', 2, 'Ein Würfel hat die Kantenlänge 3 cm. Wie groß ist die Fläche seines Netzes?', 54, '6 * 3 * 3', 'Sechs Quadrate mit je 9 cm²: 54 cm².', 'Das Netz besteht aus 6 gleichen Quadraten.',
+     einheit='cm²')
+SW.z('netz', 2, 'Aus wie vielen Teilflächen besteht das Netz eines sechsseitigen Prismas?', 8, '6 + 2', '6 Rechtecke im Mantel und 2 Sechsecke als Grundflächen: 8.',
+     'Mantel und Grundflächen zählen.')
+SW.z('netz', 3, 'Fünf Quadrate eines Würfelnetzes sind gezeichnet. An wie viele verschiedene Stellen kann man das sechste Quadrat anlegen, sodass ein Würfelnetz entsteht?',
+     len(_passt), '1 + 1 + 1 + 1',
+     'Es passt nur unter die Viererreihe – an jede der 4 Stellen (Form „1-4-1“). Oben würde es mit dem schon vorhandenen Quadrat dieselbe Würfelfläche bedecken, an den Enden entsteht eine Fünferreihe.',
+     'Die Viererreihe bildet den Mantel. Oben ist schon ein Deckel. Wo fehlt noch einer?', grafik=netz_bild(_fuenf), art='P')
+SW.z('netz', 3, 'Aus dem Netz wird ein Spielwürfel gefaltet. Gegenüberliegende Seiten ergeben zusammen 7. Welche Zahl gehört auf das Feld X?', 7 - 2, '7 - 2',
+     'Das Feld X liegt beim Falten der 2 gegenüber (links und rechts vom Mittelfeld 1). Also X = 7 − 2 = 5.', 'Welches Feld liegt dem X im Würfel gegenüber?',
+     grafik=netz_bild([(1, 1), (0, 1), (1, 0), (2, 1)] + [(1, 2), (1, 3)], ['1', '2', '3', 'X', '_a', '_b']), art='P')
+SW.z('netz', 3, 'Ein großer Würfel wird aus 27 kleinen Würfeln (3 × 3 × 3) gebaut und außen rot angemalt. Wie viele kleine Würfel haben genau zwei rote Flächen?', 12, '12 * 1',
+     'Genau zwei rote Flächen haben die Würfel in der Mitte jeder Kante (nicht die Ecken). Ein Würfel hat 12 Kanten, an jeder liegt 1 solcher Würfel: 12.', 'Wo liegen Würfel mit zwei bemalten Seiten?', art='K')
+SW.z('netz', 3, 'Ein großer Würfel aus 4 × 4 × 4 kleinen Würfeln wird außen angemalt. Wie viele kleine Würfel haben gar keine Farbe?', 8, '2**3',
+     'Ungefärbt ist nur der innere Würfel, der nirgends an die Oberfläche stößt: 2 × 2 × 2 = 8.', 'Nimm von jeder Seite eine Schicht weg. Was bleibt innen?', art='K')
+
+# zylinder
+SW.z('zylinder', 2, 'Ein Zylinder hat den Radius 5 cm und die Höhe 10 cm. Wie lang ist das Mantelrechteck im Netz? (π ≈ 3,14)', 31.4, '2 * 3.14 * 5', 'Länge = Umfang = 2 · 3,14 · 5 = 31,4 cm.',
+     'Das Mantelrechteck ist so lang wie der Umfang des Grundkreises.', einheit='cm')
+SW.z('zylinder', 2, 'Das Mantelrechteck eines 12 cm hohen Zylinders ist 31,4 cm lang. Welchen Radius hat der Grundkreis? (π ≈ 3,14)', 5, '31.4 / (2 * 3.14)', 'u = 2πr ⇔ r = 31,4 : 6,28 = 5 cm.',
+     'Die Länge des Mantels ist der Umfang.', einheit='cm')
+SW.z('zylinder', 3, 'Ein Rechteck (22 cm × 15 cm) wird zu einem Zylindermantel gerollt, die 22-cm-Seite wird zum Umfang. Welchen Radius müssen die Deckel haben? (π ≈ 3,14, auf eine Nachkommastelle)',
+     3.5, '22 / (2 * 3.14)', 'r = u : (2π) = 22 : 6,28 ≈ 3,5 cm.', 'Der Umfang des Deckels muss 22 cm sein.', einheit='cm', toleranz=0.1, art='P')
+SW.a('zylinder', 3, 'Welches Rechteck kann der Mantel eines 7 cm hohen Zylinders mit 4 cm Durchmesser sein? (π ≈ 3,14)', '12,56 cm × 7 cm', ['4 cm × 7 cm', '25,12 cm × 7 cm', '6,28 cm × 7 cm'],
+     'Länge = π · d = 3,14 · 4 = 12,56 cm, Breite = Höhe = 7 cm. 25,12 entsteht, wenn man 2π · d rechnet, 6,28 mit π · r.', 'Umfang = π · Durchmesser.', art='P')
+SW.a('zylinder', 3, 'Ein Zylinder und ein Quader sind beide 10 cm hoch. Der Umfang der quadratischen Quader-Grundfläche ist so lang wie der Umfang des Zylinder-Grundkreises. Welcher Mantel ist größer?',
+     'Beide Mäntel sind gleich groß.', ['der Mantel des Zylinders', 'der Mantel des Quaders', 'Das kann man ohne Zahlen nicht sagen.'],
+     'Beide Mäntel sind aufgerollt Rechtecke: Umfang · Höhe. Umfang und Höhe sind gleich, also auch die Mantelflächen.', 'Wie berechnet man jeweils die Mantelfläche?', art='K')
+SW.z('zylinder', 3, 'Ein Etikett liegt ohne Überlappung genau einmal um eine Dose und ist 25,12 cm lang. Die Dose ist doppelt so hoch wie breit. Wie hoch ist sie? (π ≈ 3,14)', 16, '2 * 25.12 / 3.14',
+     'd = 25,12 : 3,14 = 8 cm. Doppelt so hoch wie breit: h = 16 cm.', 'Bestimme zuerst den Durchmesser aus der Etikettlänge.', einheit='cm', art='K')
+
+# schraegbild
+SW.z('schraegbild', 2, 'Ein Würfel mit 4 cm Kantenlänge wird im Schrägbild (q = 1/2, ω = 45°) gezeichnet. Wie lang zeichnest du die Kanten, die nach hinten führen?', 2, '4 / 2',
+     'Nach hinten wird mit q = 1/2 verkürzt: 4 cm · 1/2 = 2 cm.', 'Nur die Kanten nach hinten werden verkürzt.', einheit='cm')
+SW.z('schraegbild', 2, 'Wie viele Kanten eines Würfels werden im üblichen Schrägbild gestrichelt (verdeckt) gezeichnet?', 3, '3',
+     'Verdeckt ist die hintere untere linke Ecke. Von ihr gehen 3 Kanten aus – diese werden gestrichelt.', 'Welche Ecke sieht man nicht?')
+SW.z('schraegbild', 3, 'Das Schrägbild (q = 1/2, ω = 45°) zeigt einen Quader mit den gezeichneten Längen. Berechne sein wirkliches Volumen.', 192, '6 * 4 * (4 * 2)',
+     'Vorne wahre Größe: 6 cm breit, 4 cm hoch. Die schräge Kante ist 4 cm gezeichnet, also 8 cm tief. V = 6 · 4 · 8 = 192 cm³ (nicht 96 cm³).',
+     'Die schräge Kante ist verkürzt gezeichnet. Wie lang ist sie wirklich?', einheit='cm³', grafik=quader_schraeg(6, 4, 8, Fr(1, 2)), art='P')
+SW.a('schraegbild', 3, 'Ein Schrägbild zeigt ein Modell eines Bauteils im Maßstab 1 : 10. Wie viel Mal so groß ist das Volumen des echten Bauteils?', '1 000-mal', ['10-mal', '100-mal', '30-mal'],
+     'Länge, Breite und Höhe sind je 10-mal so groß: 10 · 10 · 10 = 1 000.', 'Wie viele Längen gehen in das Volumen ein?', art='P')
+SW.a('schraegbild', 3, 'Jemand zeichnet einen Quader im Schrägbild mit q = 1 statt q = 1/2. Wie wirkt der gezeichnete Quader?', 'tiefer, als er wirklich ist',
+     ['flacher, als er wirklich ist', 'genauso wie mit q = 1/2', 'breiter, als er wirklich ist'],
+     'Mit q = 1/2 sieht die verkürzte Tiefe natürlich aus. Mit q = 1 wird die Tiefe voll gezeichnet – durch die Schräge wirkt der Körper dann zu tief.',
+     'Was macht q mit den Kanten nach hinten?', art='K')
+SW.z('schraegbild', 3, 'Im Schrägbild (q = 1/2, ω = 45°) eines Würfels ist eine nach hinten führende Kante 3 cm lang gezeichnet. Wie groß ist die Oberfläche des Würfels?', 216, '6 * (3 * 2)**2',
+     'Wirkliche Kante: 3 cm · 2 = 6 cm. Oberfläche: 6 · 6² = 216 cm².', 'Rechne zuerst die wahre Kantenlänge aus.', einheit='cm²', art='K')
+
+# ansichten
+SW.a('ansichten', 2, 'Welche Form hat die Draufsicht eines liegenden Zylinders (Achse von links nach rechts)?', 'Rechteck', ['Kreis', 'Quadrat mit Kreis', 'Dreieck'],
+     'Von oben sieht man den Zylinder der Länge nach: ein Rechteck (Länge × Durchmesser).', 'Stell dir eine liegende Dose von oben vor.')
+SW.a('ansichten', 2, 'Welcher Körper hat in allen drei Ansichten (vorn, Seite, oben) einen Kreis?', 'eine Kugel', ['ein Zylinder', 'ein Kegel', 'ein Würfel'],
+     'Eine Kugel sieht aus jeder Richtung gleich aus: als Kreis.', 'Welcher Körper sieht von überall gleich aus?')
+SW.a('ansichten', 3, 'Ein Körper hat die Vorderansicht Rechteck, die Seitenansicht Rechteck und die Draufsicht Dreieck. Welcher Körper ist es?', 'ein stehendes dreiseitiges Prisma',
+     ['eine dreiseitige Pyramide', 'ein liegendes dreiseitiges Prisma (Dreieck vorne)', 'ein Quader'],
+     'Von oben ein Dreieck: Die Grundfläche ist ein Dreieck, der Körper steht. Von vorn und von der Seite sieht man Rechtecke – die Mantelflächen. Eine Pyramide hätte dort Dreiecke.',
+     'Was sieht man von oben, wenn das Dreieck die Grundfläche ist?', art='P')
+SW.z('ansichten', 3, 'Drei gleiche Würfel stehen in einer Reihe nebeneinander, auf dem mittleren steht ein vierter. Wie viele Quadrate siehst du in der Vorderansicht?', 4, '3 + 1',
+     'Unten 3 Quadrate nebeneinander, darüber in der Mitte 1 Quadrat: 4.', 'Zeichne die Ansicht von vorn.', art='P')
+SW.z('ansichten', 3, 'Ein Würfelgebäude hat in der Vorderansicht und in der Seitenansicht jeweils nur 2 Quadrate nebeneinander (eine Etage). Wie viele Würfel kann es höchstens haben?', 4, '2 * 2',
+     'Eine Etage, 2 Würfel breit und 2 Würfel tief: höchstens 2 · 2 = 4 Würfel. (Mindestens 2 Würfel, schräg versetzt.)', 'Wie groß kann die Grundfläche höchstens sein?', art='K')
+SW.a('ansichten', 3, 'Welcher Körper hat die Vorderansicht „Kreis“ und die Draufsicht „Quadrat“?', 'ein liegender Zylinder (Achse nach hinten), so lang wie dick',
+     ['eine Kugel', 'ein stehender Zylinder', 'ein Würfel mit Kugel darin'],
+     'Von vorn sieht man die runde Deckfläche. Von oben sieht man ein Rechteck aus Länge und Durchmesser – ein Quadrat, wenn beide gleich sind.',
+     'Welcher Körper zeigt von vorn einen Kreis, von oben aber Ecken?', art='K')
+
+# beurteilen
+SW.a('beurteilen', 2, 'Welche Aussage ist richtig?', 'Jedes Prisma hat eine gerade Anzahl Ecken.', ['Jedes Prisma hat eine gerade Anzahl Kanten.', 'Jedes Prisma hat mindestens 6 Flächen.',
+     'Ein Prisma kann 7 Ecken haben.'],
+     'Ecken: 2n – immer gerade. Kanten: 3n, beim dreiseitigen Prisma 9 (ungerade). Flächen: n + 2, beim dreiseitigen nur 5.', 'Prüfe jede Aussage mit dem dreiseitigen Prisma.')
+SW.a('beurteilen', 2, 'Stimmt die Aussage: „Ein Würfel ist ein besonderer Quader.“?', 'Ja, bei ihm sind alle Kanten gleich lang.', ['Nein, ein Quader hat Rechtecke als Flächen.',
+     'Nein, ein Würfel hat mehr Ecken.'], 'Ein Quader hat rechteckige Flächen; Quadrate sind besondere Rechtecke. Also ist der Würfel ein Quader mit gleich langen Kanten.',
+     'Ist ein Quadrat ein Rechteck?')
+SW.a('beurteilen', 3, 'Lea sagt: „Jedes Netz aus 6 Quadraten lässt sich zu einem Würfel falten.“ Was stimmt?', 'Falsch: Sechs Quadrate in einer Reihe ergeben keinen Würfel.',
+     ['Richtig: Ein Würfel hat 6 Flächen.', 'Richtig, wenn die Quadrate gleich groß sind.', 'Falsch: Ein Würfelnetz hat 8 Quadrate.'],
+     'Ein Gegenbeispiel genügt: Bei 6 Quadraten in einer Reihe überlappen sich zwei Flächen, zwei Würfelflächen bleiben offen.', 'Suche ein Gegenbeispiel.', art='P')
+SW.a('beurteilen', 3, 'Tom sagt: „Verdoppelt man alle Kanten eines Quaders, verdoppelt sich das Volumen.“ Was stimmt?', 'Falsch: Das Volumen wird 8-mal so groß.',
+     ['Richtig.', 'Falsch: Das Volumen wird 4-mal so groß.', 'Falsch: Das Volumen bleibt gleich.'],
+     'Länge, Breite und Höhe werden je verdoppelt: 2 · 2 · 2 = 8. Beispiel: 1 · 1 · 1 = 1, 2 · 2 · 2 = 8.', 'Probiere mit einem Würfel der Kante 1 cm.', art='P')
+SW.a('beurteilen', 3, 'Gibt es ein Prisma mit genau 2 026 Kanten?', 'Nein, 2 026 ist nicht durch 3 teilbar.', ['Ja, ein 2 026-seitiges.', 'Ja, ein 1 013-seitiges.', 'Nein, so viele Kanten gibt es nicht.'],
+     'Ein n-seitiges Prisma hat 3n Kanten. Die Quersumme von 2 026 ist 10 – nicht durch 3 teilbar. 2 025 oder 2 028 Kanten wären möglich.', 'Prüfe die Teilbarkeit durch 3.', art='K')
+SW.a('beurteilen', 3, 'Welche Aussage über Prismen ist FALSCH?', 'Ein Prisma mit 10 Ecken hat 12 Kanten.', ['Ein Prisma mit 12 Ecken hat 18 Kanten.', 'Ein Prisma mit 8 Flächen hat 12 Ecken.',
+     'Ein Prisma mit 15 Kanten hat 7 Flächen.'],
+     '10 Ecken: n = 5, also 15 Kanten, nicht 12. Die anderen stimmen: n = 6 (18 Kanten, 8 Flächen, 12 Ecken) und n = 5 (15 Kanten, 7 Flächen).',
+     'Bestimme in jeder Aussage zuerst n.', art='K')
+
+baue = mit_schwer(baue, SW)
+# ---- SCHWER ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Körper und Netze', ['prisma', 'netz', 'zylinder']), ('Darstellen', ['schraegbild', 'ansichten']), ('Verstehen', ['beurteilen'])],

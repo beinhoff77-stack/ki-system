@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 09:15 – STATUS
+messen.koerper_darstellung fertig: 36 neue Übungen. Prüfskript OK, Unverändert-Nachweis JA.
+
 ## 2026-11-16 08:50 – STATUS
 messen.kreisberechnung fertig: 42 neue Übungen. Prüfskript OK, Unverändert-Nachweis JA. Gerundete Ergebnisse haben Toleranz und einen Rechenausdruck mit round(…).
 

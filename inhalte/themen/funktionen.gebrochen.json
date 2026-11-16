@@ -40,14 +40,45 @@
    {
     "lernziel": "indirekt",
     "titel": "Indirekte Proportionalität",
-    "regel": "So rechnest du bei ⟦indirekter Proportionalität⟧: Das ⟦Produkt x · y⟧ bleibt immer gleich. Erst dieses Produkt berechnen, dann durch das neue x teilen: y = k/x. Der Graph ist eine ⟦Hyperbel⟧.",
+    "regel": "Bei indirekter Proportionalität bleibt ⟦x · y gleich⟧. Der Graph ist eine Hyperbel y = k/x.",
     "schritte": [
-     "4 Pumpen leeren ein Becken in 6 Stunden. Wie lange brauchen 3 Pumpen?",
-     "Die ganze Arbeit sind 4 · 6 = 24 Pumpen-Stunden. Das bleibt gleich, egal wie viele Pumpen arbeiten.",
-     "Weniger Pumpen brauchen mehr Zeit: 3 Pumpen brauchen 24 : 3 = ⟦8 Stunden⟧."
+     {
+      "text": "4 Pumpen brauchen 6 h. Wie lange brauchen 3 Pumpen?",
+      "bild": {
+       "punkte": [
+        {
+         "x": 4,
+         "y": 6,
+         "name": "(4 | 6)"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Die Arbeit ist 4 · 6 = 24 Pumpen-Stunden. Dieses Produkt bleibt gleich."
+     },
+     {
+      "text": "3 Pumpen brauchen 24 : 3 = ⟦8 Stunden⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 4,
+         "y": 6,
+         "name": "(4 | 6)"
+        },
+        {
+         "x": 3,
+         "y": 8,
+         "name": "(3 | 8)"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Alle Paare liegen auf der Hyperbel y = 24/x."
+     }
     ],
-    "probe": "Weniger Pumpen, also mehr Zeit: 8 h > 6 h ✓. Und 3 · 8 = 24 ✓",
-    "fehler": "6 : 4 · 3 = 4,5 h ist falsch – damit wäre das Becken mit weniger Pumpen schneller leer! Das ist die Rechnung für direkte Proportionalität. Hier bleibt das ⟦Produkt⟧ gleich: 3 · 8 = 4 · 6.",
+    "fehler": "6 : 4 · 3 = 4,5 h ist falsch: Mit weniger Pumpen wäre der Teich schneller leer. Hier bleibt das ⟦Produkt⟧ gleich.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -65,88 +96,141 @@
        "b": 0,
        "c": 0,
        "bereich": [
-        1,
+        2,
         12
        ]
-      }
-     ],
-     "punkte": [
-      {
-       "x": 3,
-       "y": 8,
-       "name": "(3 | 8)"
-      },
-      {
-       "x": 4,
-       "y": 6,
-       "name": "(4 | 6)"
       }
      ],
      "name_x": "Pumpen",
      "name_y": "h"
     },
-    "einstieg": "Ein Teich soll leer gepumpt werden. Mit 4 Pumpen dauert es 6 Stunden. Mit mehr Pumpen geht es schneller, mit weniger langsamer: doppelt so viele Pumpen, halb so viel Zeit. So eine Zuordnung heißt ⟦indirekt proportional⟧.",
+    "einstieg": "Ein Teich soll leer gepumpt werden. 4 Pumpen brauchen 6 Stunden, doppelt so viele Pumpen brauchen halb so lange. So eine Zuordnung heißt ⟦indirekt proportional⟧.",
     "woerter": [
      [
       "indirekt proportional",
-      "doppelt so viel von x → halb so viel von y; das Produkt x · y bleibt gleich"
-     ],
-     [
-      "Pumpen-Stunden",
-      "Pumpen mal Stunden: so groß ist die ganze Arbeit"
-     ],
-     [
-      "y = k/x",
-      "k ist das gleichbleibende Produkt, hier k = 24"
+      "doppelt so viel → halb so viel"
      ],
      [
       "Hyperbel",
-      "der geschwungene Graph von y = k/x"
+      "der gebogene Graph von y = k/x"
+     ],
+     [
+      "Produkt",
+      "das Ergebnis einer Malrechnung"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "punkte": [
+      {
+       "x": 4,
+       "y": 6,
+       "name": "(4 | 6)"
+      },
+      {
+       "x": 3,
+       "y": 4.5,
+       "name": "4,5 h?",
+       "offen": true
+      }
+     ]
+    }
    },
    {
     "lernziel": "definitionsmenge",
     "titel": "Definitionsmenge von a/(x + b) + c",
-    "regel": "So findest du D: den ⟦Nenner gleich 0⟧ setzen. Bei a/(x + b) + c ist das ⟦x = −b⟧, also D = ℚ \\ {−b}. Achte auf das Vorzeichen.",
+    "regel": "Setze ⟦den Nenner gleich 0⟧ und streiche dieses x. Bei a/(x + b) + c ist das x = −b.",
     "schritte": [
-     "f(x) = 3/(x − 2) + 1. Welches x ist verboten?",
-     "Der Nenner ist x − 2. Er wird 0, wenn x = 2 ist.",
-     "Durch 0 darf man nicht teilen. Also muss die 2 heraus.",
-     "Ergebnis: ⟦D = ℚ \\ {2}⟧."
+     {
+      "text": "f(x) = 3/(x − 2) + 1. Welches x ist verboten?"
+     },
+     {
+      "text": "Der Nenner x − 2 wird 0, wenn x = 2 ist.",
+      "bild": {
+       "senkrecht": [
+        2
+       ]
+      }
+     },
+     {
+      "text": "Durch 0 teilt man nicht: ⟦D = ℚ \\ {2}⟧."
+     }
     ],
-    "fehler": "Bei f(x) = 3/(x − 2) + 1 fehlt nicht −2 in D: Der Nenner x − 2 wird für ⟦x = +2⟧ null. Das Vorzeichen dreht sich um.",
-    "einstieg": "Eine Pizza für 12 € wird unter x Freunden aufgeteilt; jeder zahlt 12/x €. Kommen pro Person noch 2 € für Getränke dazu, sind es 12/x + 2 €. Funktionen mit x im Nenner heißen ⟦gebrochen-rationale Funktionen⟧. Für x = 0 ergeben sie keinen Sinn – diese Zahl gehört nicht zur ⟦Definitionsmenge⟧.",
+    "fehler": "Nicht −2 streichen: Der Nenner x − 2 wird bei ⟦x = +2⟧ null. Das Vorzeichen dreht sich um.",
+    "einstieg": "Eine Pizza für 12 € teilen sich x Freunde, dazu zahlt jeder 2 € für Getränke: 12/x + 2 Euro. So eine Funktion mit x im Nenner heißt ⟦gebrochen-rational⟧.",
     "woerter": [
      [
-      "gebrochen-rationale Funktion",
-      "eine Funktion mit x im Nenner, z. B. f(x) = 3/(x − 2) + 1"
+      "gebrochen-rational",
+      "eine Funktion mit x im Nenner"
      ],
      [
-      "a/(x + b) + c",
-      "die allgemeine Form; a, b und c sind feste Zahlen"
-     ],
-     [
-      "Definitionsmenge D",
-      "alle x, die man einsetzen darf"
+      "D",
+      "die Definitionsmenge: alle erlaubten x"
      ],
      [
       "ℚ \\ {2}",
       "alle Bruchzahlen außer 2"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      8
+     ],
+     "y": [
+      -5,
+      7
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 3,
+       "b": -2,
+       "c": 1,
+       "name": "f"
+      }
+     ]
+    },
+    "fehler_bild": {
+     "senkrecht": [
+      -2
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": -3,
+       "name": "−2?",
+       "offen": true
+      }
+     ]
+    }
    },
    {
     "lernziel": "asymptoten",
     "titel": "Asymptoten bestimmen",
-    "regel": "So bestimmst du die ⟦Asymptoten⟧ von f(x) = a/(x + b) + c: ⟦senkrecht⟧ bei x = −b (dort ist der Nenner 0), ⟦waagrecht⟧ bei y = c.",
+    "regel": "Asymptoten: ⟦x = −b⟧ und ⟦y = c⟧. Das gilt für f(x) = a/(x + b) + c.",
     "schritte": [
-     "f(x) = 2/(x + 4) − 3.",
-     "Senkrechte Asymptote: Der Nenner x + 4 wird 0 bei x = −4. Dort hat der Graph eine Lücke: ⟦x = −4⟧.",
-     "Waagrechte Asymptote: Für sehr große x ist 2/(x + 4) fast 0. Übrig bleibt −3: ⟦y = −3⟧.",
-     "Im Bild siehst du beide Asymptoten als Linien, an die sich der Graph anschmiegt."
+     {
+      "text": "f(x) = 2/(x + 4) − 3."
+     },
+     {
+      "text": "Der Nenner wird 0 bei x = −4: senkrechte Asymptote ⟦x = −4⟧.",
+      "bild": {
+       "senkrecht": [
+        -4
+       ]
+      }
+     },
+     {
+      "text": "Für große x ist 2/(x + 4) fast 0. Waagrecht bleibt ⟦y = −3⟧.",
+      "bild": {
+       "waagrecht": [
+        -3
+       ]
+      }
+     }
     ],
-    "fehler": "Die waagrechte Asymptote von 2/(x + 4) − 3 ist nicht y = 2. Der Zähler a bestimmt sie nicht, sondern die ⟦Verschiebung c = −3⟧.",
+    "fehler": "Die waagrechte Asymptote ist nicht y = 2. Nicht der Zähler zählt, sondern die ⟦Verschiebung −3⟧ am Ende.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -165,41 +249,79 @@
        "c": -3,
        "name": "f"
       }
-     ],
-     "senkrecht": [
-      -4
-     ],
-     "waagrecht": [
-      -3
      ]
     },
-    "einstieg": "Je mehr Freunde sich die Pizza für 12 € teilen, desto weniger zahlt jeder: bei 12 Freunden 1 €, bei 1200 Freunden 1 Cent – aber nie ganz 0 €. Der Betrag nähert sich der 0 immer mehr, ohne sie zu erreichen. Eine Linie, der sich ein Graph so immer mehr nähert, heißt ⟦Asymptote⟧.",
+    "einstieg": "Je mehr Freunde sich die 12-€-Pizza teilen, desto weniger zahlt jeder. Bei 1200 Freunden ist es 1 Cent, aber nie ganz 0 €. Eine Linie, der sich ein Graph so nähert, heißt ⟦Asymptote⟧.",
     "woerter": [
      [
       "Asymptote",
-      "eine Gerade, der sich der Graph immer mehr nähert, ohne sie zu berühren"
+      "eine Linie, der sich der Graph immer mehr nähert, ohne sie zu erreichen"
      ],
      [
-      "senkrechte Asymptote",
-      "senkrechte Linie dort, wo der Nenner 0 wird, z. B. x = −4"
+      "senkrecht",
+      "von oben nach unten, wie eine Hauswand"
      ],
      [
-      "waagrechte Asymptote",
-      "waagrechte Linie, der sich der Graph für sehr große x nähert, z. B. y = −3"
+      "waagrecht",
+      "von links nach rechts, wie der Horizont"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "waagrecht": [
+      -3,
+      2
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 2,
+       "name": "y = 2?"
+      }
+     ]
+    }
    },
    {
     "lernziel": "achsenpunkte",
     "titel": "Schnittpunkte mit den Achsen",
-    "regel": "⟦y-Achse⟧: x = 0 einsetzen (falls 0 in D). ⟦x-Achse⟧ (Nullstelle): f(x) = 0 lösen. Ist c = 0, gibt es ⟦keine⟧ Nullstelle, weil a/(x + b) nie 0 ist.",
+    "regel": "y-Achse: ⟦x = 0 einsetzen⟧. Nullstelle: f(x) = 0 lösen. Ist c = 0, gibt es keine Nullstelle.",
     "schritte": [
-     "f(x) = 6/(x + 1) − 2.",
-     "y-Achse: x = 0 einsetzen: f(0) = 6/1 − 2 = 4. Der Punkt ist (0 | 4).",
-     "Nullstelle: f(x) = 0 setzen, also 6/(x + 1) − 2 = 0. Auf beiden Seiten 2 dazuzählen: 6/(x + 1) = 2.",
-     "6 geteilt durch 3 ergibt 2, also ist x + 1 = 3 und ⟦x = 2⟧. Der Punkt ist (2 | 0)."
+     {
+      "text": "f(x) = 6/(x + 1) − 2."
+     },
+     {
+      "text": "y-Achse: f(0) = 6/1 − 2 = 4. Punkt (0 | 4).",
+      "bild": {
+       "punkte": [
+        {
+         "x": 0,
+         "y": 4,
+         "name": "(0 | 4)"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Nullstelle: 6/(x + 1) − 2 = 0, also 6/(x + 1) = 2."
+     },
+     {
+      "text": "Das gilt für x + 1 = 3, also ⟦x = 2⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 0,
+         "y": 4,
+         "name": "(0 | 4)"
+        },
+        {
+         "x": 2,
+         "y": 0,
+         "name": "(2 | 0)"
+        }
+       ]
+      }
+     }
     ],
-    "fehler": "Für die Nullstelle x = 0 einsetzen: f(0) = 4 ist der Schnittpunkt mit der ⟦y-Achse⟧. Die Nullstelle ist dort, wo ⟦y = 0⟧ ist. Merke: Achse x heißt y = 0, Achse y heißt x = 0.",
+    "fehler": "f(0) = 4 ist nicht die Nullstelle, sondern der Schnitt mit der ⟦y-Achse⟧. Die Nullstelle liegt dort, wo y = 0 ist.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -224,21 +346,9 @@
      ],
      "waagrecht": [
       -2
-     ],
-     "punkte": [
-      {
-       "x": 0,
-       "y": 4,
-       "name": "(0 | 4)"
-      },
-      {
-       "x": 2,
-       "y": 0,
-       "name": "(2 | 0)"
-      }
      ]
     },
-    "einstieg": "Wo ein Graph die Achsen trifft, steckt oft eine wichtige Information: der Wert ganz am Anfang, also bei x = 0, und die Stelle, an der der Wert genau 0 wird. Bei einem Kontostand wäre das: Wie viel ist am Anfang da, und wann ist er bei 0? Diese Punkte heißen ⟦Achsenschnittpunkte⟧.",
+    "einstieg": "Wo ein Graph die Achsen trifft, steckt oft das Wichtigste. Dort liest du den Startwert ab und die Stelle, an der der Wert 0 wird. Diese Punkte heißen ⟦Achsenschnittpunkte⟧.",
     "woerter": [
      [
       "Achsenschnittpunkt",
@@ -246,25 +356,84 @@
      ],
      [
       "Nullstelle",
-      "das x, bei dem f(x) = 0 ist – dort wird die x-Achse geschnitten"
-     ],
-     [
-      "f(0)",
-      "der Wert bei x = 0 – dort wird die y-Achse geschnitten"
+      "ein x-Wert, bei dem f(x) = 0 ist"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "punkte": [
+      {
+       "x": 0,
+       "y": 4,
+       "name": "y-Achse"
+      },
+      {
+       "x": 2,
+       "y": 0,
+       "name": "Nullstelle"
+      }
+     ]
+    }
    },
    {
     "lernziel": "parameter",
     "titel": "Verschieben: Einfluss von b und c",
-    "regel": "Der Graph von a/(x + b) + c entsteht aus a/x durch Verschieben. Die Lücke liegt dort, wo der Nenner 0 ist: Bei 1/(x − 3) ist das ⟦x = 3⟧, also ist der Graph um 3 nach ⟦rechts⟧ gerutscht. Das +c verschiebt um c nach ⟦oben⟧ (negatives c nach unten).",
+    "regel": "Die Lücke liegt bei ⟦x = −b⟧. +c schiebt nach oben, −c nach unten.",
     "schritte": [
-     "f(x) = 1/(x − 3) + 2 soll aus g(x) = 1/x entstehen.",
-     "Der Nenner x − 3 wird bei x = 3 null. Die Lücke ist von 0 nach 3 gewandert: Verschiebung um 3 nach rechts.",
-     "Das + 2 hebt jeden Punkt um 2 an: Verschiebung um 2 nach oben.",
-     "Die Asymptoten sind jetzt ⟦x = 3 und y = 2⟧."
+     {
+      "text": "Aus g(x) = 1/x soll f(x) = 1/(x − 3) + 2 werden."
+     },
+     {
+      "text": "Die Lücke liegt jetzt bei x = 3: 3 nach rechts.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "hyperbel",
+         "a": 1,
+         "b": 0,
+         "c": 0,
+         "name": "g"
+        },
+        {
+         "art": "hyperbel",
+         "a": 1,
+         "b": -3,
+         "c": 0
+        }
+       ],
+       "senkrecht": [
+        3
+       ]
+      }
+     },
+     {
+      "text": "+ 2 hebt jeden Punkt um 2 an.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "hyperbel",
+         "a": 1,
+         "b": 0,
+         "c": 0,
+         "name": "g"
+        },
+        {
+         "art": "hyperbel",
+         "a": 1,
+         "b": -3,
+         "c": 2,
+         "name": "f"
+        }
+       ],
+       "waagrecht": [
+        2
+       ]
+      }
+     },
+     {
+      "text": "Die Asymptoten sind ⟦x = 3 und y = 2⟧."
+     }
     ],
-    "fehler": "Bei 1/(x − 3) geht es nicht nach links: Das Minus in der Klammer bedeutet eine Verschiebung nach ⟦rechts⟧ (die Lücke liegt bei x = 3).",
+    "fehler": "Bei 1/(x − 3) geht es nicht nach links. Die Lücke liegt bei ⟦x = 3⟧, also rechts.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -282,60 +451,91 @@
        "b": 0,
        "c": 0,
        "name": "g"
+      }
+     ]
+    },
+    "einstieg": "Ein Bild an der Wand kannst du nach rechts oder nach oben rücken – es bleibt dasselbe Bild. Graphen kann man genauso ⟦verschieben⟧.",
+    "woerter": [
+     [
+      "verschieben",
+      "den ganzen Graphen rücken, ohne ihn zu verändern"
+     ],
+     [
+      "Lücke",
+      "die Stelle, an der der Graph nicht definiert ist"
+     ]
+    ],
+    "fehler_bild": {
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 1,
+       "b": 0,
+       "c": 0,
+       "name": "g"
       },
       {
        "art": "hyperbel",
        "a": 1,
-       "b": -3,
+       "b": 3,
        "c": 2,
-       "name": "f"
+       "name": "links?"
       }
      ],
      "senkrecht": [
-      3
-     ],
-     "waagrecht": [
-      2
+      -3
      ]
-    },
-    "einstieg": "Ein Bild an der Wand kannst du nach rechts oder nach oben verschieben – es bleibt dasselbe Bild, nur an anderer Stelle. Mit Graphen geht das auch: Der Graph von 1/(x − 3) + 2 sieht genauso aus wie der von 1/x, nur ⟦verschoben⟧.",
-    "woerter": [
-     [
-      "verschieben",
-      "den ganzen Graphen versetzen, ohne seine Form zu ändern"
-     ],
-     [
-      "g(x) = 1/x",
-      "die Grundform der Hyperbel"
-     ],
-     [
-      "b und c",
-      "die Zahlen in a/(x + b) + c, die die Verschiebung festlegen"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "beurteilen",
     "titel": "Aussagen über Hyperbeln prüfen",
-    "regel": "Prüfe Aussagen mit D, den Asymptoten und Funktionswerten. Wichtig: Der Graph von a/(x + b) + c berührt ⟦keine⟧ seiner beiden Asymptoten.",
+    "regel": "Der Graph ⟦berührt keine Asymptote⟧. Prüfe Aussagen mit D, Asymptoten und Funktionswerten.",
     "schritte": [
-     "Aussage: „f(x) = 4/x + 1 nimmt den Wert 1 an.“",
-     "Wäre f(x) = 1, dann müsste 4/x = 0 sein.",
-     "4 geteilt durch irgendeine Zahl ist nie 0. Also gibt es kein solches x.",
-     "Die Aussage ist ⟦falsch⟧: y = 1 ist die waagrechte Asymptote, die der Graph nie erreicht."
+     {
+      "text": "Aussage: „4/x + 1 nimmt den Wert 1 an.“"
+     },
+     {
+      "text": "Dann müsste 4/x = 0 sein."
+     },
+     {
+      "text": "4 geteilt durch eine Zahl ist nie 0. Die Aussage ist ⟦falsch⟧."
+     },
+     {
+      "text": "y = 1 ist die Asymptote. Der Graph erreicht sie nie."
+     }
     ],
-    "fehler": "Dass sich der Graph der Asymptote nähert, heißt nicht, dass er sie irgendwann erreicht. a/(x + b) wird ⟦nie genau 0⟧.",
-    "einstieg": "Bei der Pizza zahlt jeder 12/x Euro. Jemand behauptet: „Bei genug Freunden zahlt jeder 0 €.“ Das stimmt nicht – der Betrag wird immer kleiner, aber nie genau 0. Solche Aussagen über Hyperbeln prüfst du mit dem, was du über D und die ⟦Asymptoten⟧ weißt.",
+    "fehler": "Nah heran heißt nicht erreichen. a/(x + b) wird ⟦nie genau 0⟧ – wie der Pizzapreis pro Person.",
+    "einstieg": "Jemand behauptet: „Bei genug Freunden zahlt jeder 0 € für die Pizza.“ Der Betrag wird kleiner, aber nie 0. Solche Aussagen prüfst du mit den ⟦Asymptoten⟧.",
     "woerter": [
      [
-      "Aussage",
-      "ein Satz, der entweder wahr oder falsch ist"
-     ],
-     [
-      "berühren",
-      "einen gemeinsamen Punkt haben"
+      "Asymptote",
+      "eine Linie, der sich der Graph nähert, ohne sie zu erreichen"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -4,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 4,
+       "b": 0,
+       "c": 1,
+       "name": "f"
+      }
+     ],
+     "waagrecht": [
+      1
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [

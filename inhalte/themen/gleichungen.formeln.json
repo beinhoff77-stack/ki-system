@@ -894,18 +894,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "An einem Widerstand R = 10 Ω liegt U = 230 V. Jemand rechnet I = R : U = 0,04 A. Welche Probe zeigt den Fehler?"
+    "text": "An einem Widerstand R = 10 Ω liegt die Spannung U = 200 V. Jemand rechnet I = R : U = 0,05 A. Welche Probe zeigt den Fehler?"
    },
    "a": [
-    "0,04 A ist zu klein für eine Stromstärke",
-    "10 · 0,04 ergibt etwa 0,43, nicht 230",
     "Die Einheit A stimmt nicht",
-    "230 : 10 = 23 ist größer, also passt es"
+    "200 : 10 = 20 ist größer, also passt es",
+    "0,05 A ist zu klein für eine Stromstärke",
+    "R · I = 10 · 0,05 = 0,5, nicht 200"
    ],
    "o": {
-    "index": 1
+    "index": 3
    },
-   "w": "Aus U = R · I: Probe 10 · 0,04 ≈ 0,43 ≠ 230. Richtig: I = U : R = 23 A.",
+   "w": "Aus U = R · I: Probe 10 · 0,05 = 0,5 ≠ 200. Die Formel wurde falsch umgestellt. Richtig: I = U : R = 200 : 10 = 20 A.",
    "h": "Setze das Ergebnis in die ursprüngliche Formel ein."
   },
   {
@@ -3115,7 +3115,7 @@
    "l": "geometrie",
    "t": "geometrie",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Quader hat das Volumen 112 cm³, die Länge 2 cm und die Breite 4 cm. Wie hoch ist er?"
@@ -3132,7 +3132,7 @@
    "l": "geometrie",
    "t": "geometrie",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Quader hat das Volumen 1144 cm³, die Länge 11 cm und die Breite 8 cm. Wie hoch ist er?"

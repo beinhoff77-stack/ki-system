@@ -3,6 +3,14 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:31 – STATUS
+gleichungen.formeln fertig: umgestuft 2 / berichtigt 0 / ersetzt 1 / neu 0 / nicht umgesetzt 2. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „An einem Widerstand R = 10 Ω liegt U = 230 V. Jemand rechnet I = R : U = 0,04 A. Welche Probe zeigt den Fehler?“
+- nicht umgesetzt:
+  - geometrie S3 Pyramide (V = G · h : 3) – Formel steht in der Aufgabe; als reine Formelanwendung (Umstellen) passend zum Thema, Lösung richtig.
+  - einsetzen S3 Dichte mit dm³ (Aluminium, Glas, Eis) – Drei verschiedene Stoffe und Zahlen, alle richtig; Übungsreihe zum gleichen Schritt (dm³ → cm³) ist gewollt.
+
+## 2026-11-16 05:31 – STATUS
 zahlen.intervalle fertig: umgestuft 3 / berichtigt 0 / ersetzt 1 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):
   - „Ein Aquarium braucht Wasser von mindestens 24 °C bis höchstens 28 °C. Welches Intervall beschreibt die erlaubten Temperaturen (in °C)?“

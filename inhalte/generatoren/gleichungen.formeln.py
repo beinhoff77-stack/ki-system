@@ -610,6 +610,26 @@ SW.z('geometrie', 3, 'Ein Rechteck hat den Umfang 30 cm. Seine Länge ist doppel
 baue = mit_schwer(baue, SW)
 # ---- SCHWER ENDE ----
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, mit_befunden  # noqa: E402
+
+BF = Befunde('gleichungen.formeln', 13_8_9)
+# c) Text (0,04) und Antwort (≈ 0,43) passten nicht zusammen → Zahlen so gewählt, dass die Probe glatt aufgeht
+BF.ersetze('ein_schritt', 'An einem Widerstand R = 10 Ω liegt U = 230 V. Jemand rechnet I = R : U = 0,04 A. Welche Probe zeigt den Fehler?', BF.A(
+    'An einem Widerstand R = 10 Ω liegt die Spannung U = 200 V. Jemand rechnet I = R : U = 0,05 A. Welche Probe zeigt den Fehler?',
+    'R · I = 10 · 0,05 = 0,5, nicht 200',
+    ['0,05 A ist zu klein für eine Stromstärke', 'Die Einheit A stimmt nicht', '200 : 10 = 20 ist größer, also passt es'],
+    'Aus U = R · I: Probe 10 · 0,05 = 0,5 ≠ 200. Die Formel wurde falsch umgestellt. Richtig: I = U : R = 200 : 10 = 20 A.',
+    'Setze das Ergebnis in die ursprüngliche Formel ein.'))
+# a) gleicher Typ wie Stufe 2
+BF.stufe('geometrie', 'Ein Quader hat das Volumen 112 cm³, die Länge 2 cm und die Breite 4 cm. Wie hoch ist er?', 2)
+BF.stufe('geometrie', 'Ein Quader hat das Volumen 1144 cm³, die Länge 11 cm und die Breite 8 cm. Wie hoch ist er?', 2)
+BF.nicht_umgesetzt('geometrie S3 Pyramide (V = G · h : 3)', 'Formel steht in der Aufgabe; als reine Formelanwendung (Umstellen) passend zum Thema, Lösung richtig.')
+BF.nicht_umgesetzt('einsetzen S3 Dichte mit dm³ (Aluminium, Glas, Eis)', 'Drei verschiedene Stoffe und Zahlen, alle richtig; Übungsreihe zum gleichen Schritt (dm³ → cm³) ist gewollt.')
+
+baue = mit_befunden(baue, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Umstellen', ['ein_schritt', 'zwei_schritte', 'pruefen']), ('Anwenden', ['einsetzen', 'geometrie'])],

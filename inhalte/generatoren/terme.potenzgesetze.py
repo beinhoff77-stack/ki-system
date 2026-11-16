@@ -651,5 +651,48 @@ def _pg():
 ergaenzen(DATEI, _pg(), seed=6030)
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_anwenden  # noqa: E402
+
+BF = Befunde('terme.potenzgesetze', 13_6_5)
+_h = 'Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.'
+_q = '{} Welcher Satz beschreibt den Fehler richtig?'
+
+
+def _mal(b, m, n, falsch, art):
+    """Kind rechnet b^m · b^n = falsch. art 'basis': Basis wurde mitmultipliziert; art 'exp': Exponenten malgenommen."""
+    hoch = str.maketrans('0123456789', '⁰¹²³⁴⁵⁶⁷⁸⁹')
+    e = lambda x: str(x).translate(hoch)
+    if art == 'basis':
+        richtig = f'Die Basis bleibt {b}, nur die Exponenten werden addiert: {b}{e(m + n)}.'
+        weg = f'Gleiche Basis: Die Basis bleibt {b}, die Exponenten werden addiert. Also {b}{e(m)} · {b}{e(n)} = {b}{e(m + n)}, nicht {b * b}{e(m + n)}.'
+    else:
+        richtig = f'Die Exponenten werden addiert, nicht malgenommen: {b}{e(m + n)}.'
+        weg = f'Gleiche Basis: Exponenten addieren. {b}{e(m)} · {b}{e(n)} = {b}{e(m + n)}, nicht {b}{e(m * n)}.'
+    falsche = ['Nichts, die Rechnung ist richtig.', f'Die Exponenten werden malgenommen: {b}{e(m * n)}.' if art == 'basis' else f'Die Basen werden malgenommen: {b * b}{e(m + n)}.',
+               f'Die Exponenten werden subtrahiert: {b}{e(abs(m - n))}.']
+    return BF.A(_q.format(f'Ein Kind rechnet: {b}{e(m)} · {b}{e(n)} = {falsch}.'), richtig, falsche, weg, _h)
+
+
+# c) mehrdeutig: zwei Antworten sind wahre Sätze mit demselben richtigen Ergebnis → Ablenker mit anderen Ergebnissen
+BF.ersetze('fehler_finden', 'Ein Kind rechnet: 4³ · 4² = 16⁵. Was ist falsch?', _mal(4, 3, 2, '16⁵', 'basis'))
+BF.ersetze('fehler_finden', 'Ein Kind rechnet: 3³ · 3³ = 9⁶. Was ist falsch?', _mal(3, 3, 3, '9⁶', 'basis'))
+BF.ersetze('fehler_finden', 'Ein Kind rechnet: 4⁴ · 4² = 16⁶. Was ist falsch?', _mal(4, 4, 2, '16⁶', 'basis'))
+BF.ersetze('fehler_finden', 'Ein Kind rechnet: 4³ · 4³ = 4⁹. Was ist falsch?', _mal(4, 3, 3, '4⁹', 'exp'))
+# c) Ablenker nennt dasselbe Ergebnis wie die richtige Antwort (verwirrend)
+BF.ersetze('fehler_finden', 'Ein Kind rechnet: 3⁹ : 3³ = 3³. Was ist falsch?', BF.A(
+    _q.format('Ein Kind rechnet: 3⁹ : 3³ = 3³.'), 'Exponenten subtrahieren, nicht teilen: 3⁶.',
+    ['Nichts, die Rechnung ist richtig.', 'Die Exponenten werden addiert: 3¹².', 'Die Basen werden geteilt: 1³.'],
+    'Gleiche Basis beim Teilen: Exponenten subtrahieren. 3⁹ : 3³ = 3⁹⁻³ = 3⁶, nicht 3⁹:³ = 3³.', _h))
+# a) reines Ausrechnen bzw. Grundform
+for _k in (4, 7, 9, 6):
+    BF.stufe('potenz_begriff', f'Ein Würfel hat die Kantenlänge {_k} cm. Sein Volumen ist {_k}³ cm³. Berechne das Volumen.', 2)
+for _t in ('Berechne 10⁵ : 10³.', 'Berechne 2⁸ : 2⁶.', 'Berechne 3⁷ : 3⁵.'):
+    BF.stufe('geteilt_gleiche_basis', _t, 2)
+BF.stufe('mal_gleiche_basis', 'Berechne 2² · 2² mit dem Potenzgesetz und gib den Wert an.', 1)
+
+befunde_anwenden(DATEI, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI)

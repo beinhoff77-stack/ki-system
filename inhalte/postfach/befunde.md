@@ -2,6 +2,15 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 05:46 – STATUS
+terme.potenzgesetze fertig: umgestuft 8 / berichtigt 0 / ersetzt 5 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Ein Kind rechnet: 4³ · 4² = 16⁵. Was ist falsch?“
+  - „Ein Kind rechnet: 3³ · 3³ = 9⁶. Was ist falsch?“
+  - „Ein Kind rechnet: 4⁴ · 4² = 16⁶. Was ist falsch?“
+  - „Ein Kind rechnet: 4³ · 4³ = 4⁹. Was ist falsch?“
+  - „Ein Kind rechnet: 3⁹ : 3³ = 3³. Was ist falsch?“
+
 ## 2026-11-16 05:45 – STATUS
 bruch.rechnen fertig: umgestuft 1 / berichtigt 0 / ersetzt 2 / neu 0 / nicht umgesetzt 2. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):

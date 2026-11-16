@@ -3,6 +3,13 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:49 – STATUS
+funktionen.quadratisch fertig: umgestuft 5 / berichtigt 0 / ersetzt 1 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Ein Ball fliegt auf der Bahn h(x) = −0,05x² + 1x + 2 (x und h in m). Wie hoch fliegt er höchstens?“
+- nicht umgesetzt:
+  - bestimmen S3 „Parabel durch drei Punkte“ überschneidet sich mit gleichungen.lgs3/parabel – Laut Befund kein Fehler; Überschneidung betrifft den Plan.
+
+## 2026-11-16 05:49 – STATUS
 gleichungen.lgs3 fertig: umgestuft 6 / berichtigt 0 / ersetzt 1 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):
   - „Gegeben: (I) −x − 2y − z = −10; (III) −2x − 4y − z = −20. Berechne (III) − 2 · (I).“

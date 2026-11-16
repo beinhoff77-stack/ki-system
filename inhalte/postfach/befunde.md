@@ -3,6 +3,16 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:39 – STATUS
+messen.koerper_berechnung fertig: umgestuft 6 / berichtigt 0 / ersetzt 4 / neu 3 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Ein Würfel hat die Oberfläche 486 cm². Wie lang ist eine Kante?“
+  - „Ein Würfel hat die Oberfläche 1014 cm². Wie lang ist eine Kante?“
+  - „Zwei gleiche Quader (7 cm lang, 3 cm breit und 5 cm hoch) werden mit den 3 cm × 5 cm großen Flächen aneinandergeklebt. Wie groß ist die Oberfläche des neuen Quaders?“
+  - „Zwei gleiche Quader (4 cm lang, 7 cm breit und 4 cm hoch) werden mit den 7 cm × 4 cm großen Flächen aneinandergeklebt. Wie groß ist die Oberfläche des neuen Quaders?“
+- nicht umgesetzt:
+  - sachaufgaben S2 Aquarium ohne Deckel „anspruchsvoller als manche Stufe-3-Aufgabe“ – Passt auf Stufe 2 (fünf Flächen, ein Gedanke); Stufe 3 enthält Zusatzschritte (Abzüge, Fliesen, Umrechnung).
+
+## 2026-11-16 05:39 – STATUS
 messen.flaechen fertig: umgestuft 2 / berichtigt 6 / ersetzt 1 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):
   - „Ein Rechteck aus 6 · 5 Einheitsquadraten wird in beiden Richtungen doppelt so lang. Wie viele Einheitsquadrate passen jetzt hinein?“

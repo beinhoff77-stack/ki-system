@@ -81,6 +81,19 @@ Das sind über 15 Begriffe, mehrere davon doppelt belegt („Karte“ = Lernkart
 | B14 | **Zu viel auf der Startseite für Klasse 5:** „Später – für höhere Klassen (53)“, „Alle offenen Flüge (12)“; große Leerräume zwischen den eingeklappten Gruppen. | [nachgestellt] `k1-handy-1-abflugtafel.png` | niedrig |
 | – | **Gut:** Ein Startknopf im Daumenbereich. Flugtafel mit Zuständen (EINSTEIGEN, UNTERWEGS, WARTET, GELANDET). Klasse je Zeile. Stempel im Reisepass anschaulich. Suche im Merkheft. Zurück-Pfeil im Kopf. Tablet-Ansicht ruhig und lesbar. | [nachgestellt] | – |
 
+**Nachtrag B8 (Hinweis Sebastian, Themenplan der Eltern):** Im Plan von Kind A (Klasse 5) stehen:
+- **Alexandria** (Ort Klasse 7) mit „Kreis und Tangenten · Gym 7“ und „Ortslinien und Ortsbereiche · Gym 5 · RS 7“.
+- **Timbuktu** (Ort Klasse 7) mit „Winkelsätze · Gym 5“.
+
+Ursache: Ein Ort kommt in den Plan, sobald **ein** Thema zur Klasse passt; er bringt seine anderen Themen mit. Zwei Klassenangaben sind vermutlich falsch:
+- **Winkelsätze:** Laut LehrplanPLUS gehören Winkel an Geradenkreuzungen und Parallelität in Gym 7; in Gym 5 werden Winkel nur gemessen und gezeichnet. „Gym 5“ ist daher wahrscheinlich falsch.
+- **Ortslinien:** Hier fehlt in `themenliste.json` der Lehrplan-Bezug (`lehrplan_gym` leer). Die Angabe „Gym 5“ ist nicht geprüft.
+
+Vorschlag:
+- Je Ort nur eine Klasse.
+- Die Plan-Ansicht markiert Themen, deren Klasse nicht zur Klasse des Kindes passt.
+- Die Klassenangaben aller Themen mit leerem `lehrplan_gym` gegen LehrplanPLUS prüfen. Das sind 16 Themen, darunter `geometrie.winkel`, `geometrie.ortslinien`, `gleichungen.einfach` (je Gym 5), `bruch.dezimal`, `zahlen.potenzen_zehner` (je Gym 6) und `funktionen.grundbegriffe` (Gym 8).
+
 ---
 
 ## 4. Vorschlag: klarer Aufbau

@@ -6,6 +6,46 @@ erst NACH dem Erzeugen der Aufgaben – so bleiben die Aufgaben wörtlich gleich
 (Werte im Zahlenstrahl-Bereich, Thermometer-Stand, Figur-Punkte, Tabellenbreite). `probe` entfällt bei umgebauten Karten (kommt im neuen Muster nicht vor).
 Vergleich je Thema: `aufgaben` und alle Felder außer `inhalt.etappen` und `offen` gegen den Ausgangsstand bc7a754 (lernen-app).
 
+## 2026-11-16 03:12 – FERTIG
+Paket U5 (Klasse 5) umgebaut: 14 Themen, 101 Lernkarten. Jede Karte hat einstieg (≤ 35 Wörter, 2–3 Sätze), woerter (1–3), Kartenbild,
+schritte als Objekte mit Bild je Bildänderung, fehler (≤ 30 Wörter), regel (≤ 25 Wörter, erster Satz ≤ 12 Wörter als „Kurz gesagt“); fehler_bild bei 41 Karten.
+
+| Thema | Karten | Aufgaben | wörtlich gleich (gegen bc7a754) | inhalt_pruefen |
+|---|---|---|---|---|
+| zahlen.ganz | 8 | 224 | ja | OK, 0 Hinweise |
+| zahlen.rechengesetze | 10 | 250 | ja | OK, 0 Hinweise |
+| zahlen.potenzen_basis | 7 | 175 | ja | OK, 0 Hinweise |
+| groessen.einheiten | 8 | 224 | ja | OK, 0 Hinweise |
+| groessen.proportional | 7 | 175 | ja | OK, 0 Hinweise |
+| geometrie.grundbegriffe | 7 | 196 | ja | OK, 0 Hinweise |
+| geometrie.winkel | 7 | 196 | ja | OK, 0 Hinweise |
+| geometrie.ortslinien | 6 | 168 | ja | OK, 0 Hinweise |
+| messen.flaechen | 7 | 196 | ja | OK, 0 Hinweise |
+| messen.koerper_berechnung | 6 | 168 | ja | OK, 0 Hinweise |
+| stochastik.kombinatorik | 7 | 196 | ja | OK, 0 Hinweise |
+| gleichungen.einfach | 7 | 189 | ja | OK, 0 Hinweise |
+| zahlen.natuerlich (Überlagerung) | 12 | – | nicht berührt | Regeln mit _umbau_kl5.pruefe_karte geprüft |
+| zahlen.teilbarkeit (Überlagerung) | 8 | – | nicht berührt | Regeln mit _umbau_kl5.pruefe_karte geprüft |
+
+Prüfungen:
+- Vergleich je Thema: `aufgaben`, alle Felder außer `inhalt.etappen` und `offen`, titel und lernziel gleich dem Ausgangsstand. Generatoren laufen reproduzierbar (zweiter Lauf ändert nichts).
+- Render-Probe: Alle 507 Bildzustände (Kartenbild, jeder Schritt kumuliert wie lernSchrittBild, fehler_bild) mit lernBild aus lernen.js unter jsdom gezeichnet – 0 Fehler, kein NaN/undefined im SVG.
+  Nicht geprüft: das Aussehen auf dem Handy (Abstände, Überlappungen von Beschriftungen). Bitte bei der Abnahme ansehen, besonders das Baumdiagramm mit 8 Pfad-Blättern
+  (kombinatorik/baumdiagramm, letzter Schritt) und die breiteren Tabellen (Bakterien mit 7 Spalten, Rechenkette mit 6 Spalten).
+- Alle Zahlen der Situationen nachgerechnet; Laut-Lese-Durchgang über alle Schritte gemacht.
+
+Technik und Entscheidungen:
+- Abschnitt KARTEN je Generator ersetzt den KLAR-Abschnitt aus Runde 7; eingesetzt über `_umbau_kl5.py` (umbau, bei gleichungen.einfach die Hülle mit_umbau um baue aus _nachbau).
+  `_klar_kl5.py` wird nicht mehr gebraucht und ist gelöscht. `probe` entfällt bei umgebauten Karten (kein Platz im neuen Muster).
+- 'BEHALTEN' im Feld bild übernimmt vom Generator berechnete Figuren (Fliesenraster, Winkelfiguren, Uhr, Windrose, Quader, L-Form …); die Schritte ändern dann nur Beschriftungen.
+- Neue Wörter auf höchstens 3 begrenzt; was dadurch aus den Wörterlisten fiel, steht jetzt im Kartenbild (z. B. Vierecks-Übersicht, römische Zeichen) oder im Merksatz.
+- Merksätze wurden kürzer; einzelne Regeln stehen nur noch in den Lösungswegen der Aufgaben (genannt in den STATUS-Meldungen: Quadrat-Formeln, Kreis im Kreis, Quader-Oberflächenformel, schriftliches Teilen nur im Fehler).
+- Beispiele geändert, wo das Bild es verlangte: potenzen/schreibweise 2 · 2 · 2 statt 5 · 5 · 5, geometrie/winkelarten 135° statt 235°.
+
+Offen:
+- Keine Zeichnungsart fehlte für die Karten; kein Eintrag unter "offen" nötig. Schrägbilder/Netze (README) wären für messen.koerper_berechnung weiterhin schöner als die vorhandene Quader-Linienfigur.
+- inhalt_pruefen kann die Überlagerungen (inhalte/klar/…) nicht direkt prüfen; erst nach dem Einspielen mit den Aufgaben aus der Datenbank.
+
 ## 2026-11-16 03:11 – STATUS
 zahlen.teilbarkeit (8 Karten, ohne Generator) umgebaut: Überlagerung inhalte/klar/zahlen.teilbarkeit.json. quelle.md hatte für dieses Thema keine Bilder;
 neu: Tabellen, die sich füllen (Teilerpaare der Muffins, Quersumme, Prüfzahlen für 53 mit Rest, Primfaktorzerlegung von 60, Teilerlisten 12 und 18, Runden von Lena und Tim),

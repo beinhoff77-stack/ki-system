@@ -2,6 +2,10 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 03:06 – STATUS
+funktionen.quadratisch umgebaut (7 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator (umbau() in _kl9.py).
+Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/funktionen.quadratisch.json`: 196 Aufgaben, alle wörtlich gleich. inhalt_pruefen: 0 Fehler, 0 Hinweise. Ohne fehler_bild: scheitel, punkte, bestimmen, extremwert (Ablese- bzw. Rechenfehler, im Bild nicht sinnvoll zu zeigen).
+
 ## 2026-11-16 03:05 – STATUS
 gleichungen.lgs3 umgebaut (6 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator (umbau() in _kl9.py).
 Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/gleichungen.lgs3.json`: 168 Aufgaben, alle wörtlich gleich. inhalt_pruefen: 0 Fehler, 0 Hinweise. Ohne fehler_bild: loesen, sachaufgabe (Fehler im Vorgehen bzw. beim Übersetzen, im Bild nicht sinnvoll zu zeigen).

@@ -4278,6 +4278,646 @@
     "index": 2
    },
    "w": "z = x² war nur eine Hilfsvariable. Aus x² = 4 und x² = 16 folgen vier Lösungen."
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3x³ = 12x².",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Lösungen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     0,
+     4
+    ]
+   },
+   "w": "3x³ − 12x² = 0 ⇒ 3x²(x − 4) = 0 ⇒ x = 0 (doppelt) oder x = 4. Wer durch x² teilt, verliert x = 0.",
+   "h": "Alles auf eine Seite bringen, dann 3x² ausklammern. Nicht durch x² teilen!",
+   "c": [
+    "(0) + (3*(0)**3 - 12*(0)**2)",
+    "(4) + (3*(4)**3 - 12*(4)**2)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁵ − 16x³ = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "Lösungen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     -4,
+     0,
+     4
+    ]
+   },
+   "w": "x³(x² − 16) = 0 ⇒ x = 0 (dreifach) oder x² = 16 ⇒ x = ±4.",
+   "h": "Klammere die höchste gemeinsame Potenz x³ aus.",
+   "c": [
+    "(-4) + ((-4)**5 - 16*(-4)**3)",
+    "(0) + ((0)**5 - 16*(0)**3)",
+    "(4) + ((4)**5 - 16*(4)**3)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Gleichung x³ − kx = 0 hat die Lösung x = 5. Bestimme k und die beiden anderen Lösungen.",
+    "schablone": "k = □; x₁ = □; x₂ = □",
+    "hinweis": "k, dann die anderen Lösungen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     25,
+     -5,
+     0
+    ]
+   },
+   "w": "x = 5 einsetzen: 125 − 5k = 0 ⇒ k = 25. Dann x(x² − 25) = 0 ⇒ x = 0 oder x = ±5. Neben 5 also −5 und 0.",
+   "h": "Setze x = 5 ein, um k zu finden. Danach x ausklammern.",
+   "c": [
+    "125 // 5",
+    "-5 + ((-5)**3 - 25*(-5))",
+    "0"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 2x⁴ + 6x³ = 20x².",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "Lösungen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     -5,
+     0,
+     2
+    ]
+   },
+   "w": "2x⁴ + 6x³ − 20x² = 0 ⇒ 2x²(x² + 3x − 10) = 0 ⇒ 2x²(x + 5)(x − 2) = 0 ⇒ x = 0, x = −5, x = 2.",
+   "h": "Erst alles auf eine Seite, dann 2x² ausklammern; die Klammer ist quadratisch.",
+   "c": [
+    "(-5) + (2*(-5)**4 + 6*(-5)**3 - 20*(-5)**2)",
+    "(0) + (2*(0)**4 + 6*(0)**3 - 20*(0)**2)",
+    "(2) + (2*(2)**4 + 6*(2)**3 - 20*(2)**2)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x²(x − 1) = 4(x − 1).",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "Lösungen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     -2,
+     1,
+     2
+    ]
+   },
+   "w": "x²(x − 1) − 4(x − 1) = 0 ⇒ (x − 1)(x² − 4) = 0 ⇒ x = 1 oder x = ±2. Wer durch (x − 1) teilt, verliert x = 1.",
+   "h": "Nicht durch (x − 1) teilen: Bring alles auf eine Seite und klammere (x − 1) aus.",
+   "c": [
+    "(-2) + ((-2)**2*((-2) - 1) - 4*((-2) - 1))",
+    "(1) + ((1)**2*((1) - 1) - 4*((1) - 1))",
+    "(2) + ((2)**2*((2) - 1) - 4*((2) - 1))"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x³ = x²(x − 2) + 18.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Lösungen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     -3,
+     3
+    ]
+   },
+   "w": "Rechts ausmultiplizieren: x³ = x³ − 2x² + 18. x³ fällt weg: 2x² = 18 ⇒ x² = 9 ⇒ x = ±3.",
+   "h": "Multipliziere die rechte Seite aus. Was passiert mit x³?",
+   "c": [
+    "(-3) + ((-3)**3 - (-3)**2*((-3) - 2) - 18)",
+    "(3) + ((3)**3 - (3)**2*((3) - 2) - 18)"
+   ]
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (3x − 6)(x² + 2x) = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "Lösungen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     -2,
+     0,
+     2
+    ]
+   },
+   "w": "3x − 6 = 0 ⇒ x = 2. x² + 2x = x(x + 2) = 0 ⇒ x = 0 oder x = −2.",
+   "h": "Jeden Faktor null setzen; der zweite Faktor braucht noch Ausklammern.",
+   "c": [
+    "(-2) + ((3*(-2) - 6)*((-2)**2 + 2*(-2)))",
+    "(0) + ((3*(0) - 6)*((0)**2 + 2*(0)))",
+    "(2) + ((3*(2) - 6)*((2)**2 + 2*(2)))"
+   ]
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x² − 9)(x² + 9) = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Lösungen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     -3,
+     3
+    ]
+   },
+   "w": "x² − 9 = 0 ⇒ x = ±3. x² + 9 = 0 hat keine Lösung, weil x² + 9 immer positiv ist.",
+   "h": "Untersuche beide Faktoren einzeln.",
+   "c": [
+    "(-3) + (((-3)**2 - 9)*((-3)**2 + 9))",
+    "(3) + (((3)**2 - 9)*((3)**2 + 9))"
+   ]
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gleichung hat genau die Lösungen −2, 0 und 3?"
+   },
+   "a": [
+    "x(x − 2)(x + 3) = 0",
+    "x(x + 2)(x − 3) = 0",
+    "x + (x + 2)(x − 3) = 0",
+    "(x + 2)(x − 3) = 0"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Zu x = −2 gehört der Faktor (x + 2), zu x = 3 der Faktor (x − 3), zu x = 0 der Faktor x. Die Summe x + … ist kein Produkt mehr.",
+   "h": "Welcher Faktor wird bei x = −2 null?"
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele verschiedene Lösungen hat (x² − 4)(x² − 5x + 6) = 0?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "x² − 4 = 0 ⇒ x = ±2. x² − 5x + 6 = (x − 2)(x − 3) = 0 ⇒ x = 2 oder x = 3. Die 2 kommt doppelt vor: verschieden sind −2, 2, 3.",
+   "h": "Löse beide Faktoren und streiche doppelte Lösungen."
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche positive Zahl a hat (x − a)(x² − 9) = 0 nur zwei verschiedene Lösungen?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "x² − 9 = 0 liefert schon −3 und 3. Nur zwei verschiedene Lösungen gibt es, wenn x = a eine davon ist: a = 3 (oder a = −3). Positiv: a = 3.",
+   "h": "Welche Lösungen liefert x² − 9 = 0 schon? Wann bringt (x − a) nichts Neues?"
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x − 1)³ = x − 1.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "Lösungen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     0,
+     1,
+     2
+    ]
+   },
+   "w": "(x − 1)³ − (x − 1) = 0 ⇒ (x − 1)((x − 1)² − 1) = 0. Also x − 1 = 0 oder (x − 1)² = 1, d. h. x − 1 = ±1. Lösungen: 0, 1, 2.",
+   "h": "Fasse x − 1 als einen Block auf und klammere ihn aus.",
+   "c": [
+    "(0) + (((0) - 1)**3 - ((0) - 1))",
+    "(1) + (((1) - 1)**3 - ((1) - 1))",
+    "(2) + (((2) - 1)**3 - ((2) - 1))"
+   ]
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁴ − 13x² + 36 = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
+    "hinweis": "Lösungen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     -3,
+     -2,
+     2,
+     3
+    ]
+   },
+   "w": "z = x²: z² − 13z + 36 = 0 ⇒ z = 4 oder z = 9 ⇒ x = ±2 oder x = ±3.",
+   "h": "Setze z = x² und löse die quadratische Gleichung.",
+   "c": [
+    "(-3) + ((-3)**4 - 13*(-3)**2 + 36)",
+    "(-2) + ((-2)**4 - 13*(-2)**2 + 36)",
+    "(2) + ((2)**4 - 13*(2)**2 + 36)",
+    "(3) + ((3)**4 - 13*(3)**2 + 36)"
+   ]
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁴ − 3x² − 4 = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Lösungen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     -2,
+     2
+    ]
+   },
+   "w": "z = x²: z² − 3z − 4 = 0 ⇒ z = 4 oder z = −1. Nur z = 4 ist möglich: x = ±2.",
+   "h": "Prüfe beim Rücksubstituieren, ob z negativ ist.",
+   "c": [
+    "(-2) + ((-2)**4 - 3*(-2)**2 - 4)",
+    "(2) + ((2)**4 - 3*(2)**2 - 4)"
+   ]
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche positive Zahl k hat x⁴ − kx² + 16 = 0 genau zwei Lösungen?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "2 * 4",
+   "w": "z = x²: z² − kz + 16 = 0. Genau zwei Lösungen für x gibt es, wenn z eine einzige (doppelte) positive Lösung hat: (z − 4)² = z² − 8z + 16. Also k = 8, dann x = ±2.",
+   "h": "Wie viele Lösungen x liefert ein positives z? Was muss für die Gleichung in z dann gelten?"
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁶ − 9x³ + 8 = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Lösungen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "w": "z = x³: z² − 9z + 8 = 0 ⇒ z = 1 oder z = 8. x³ = 1 ⇒ x = 1; x³ = 8 ⇒ x = 2.",
+   "h": "Hier passt z = x³. Jede Zahl hat genau eine dritte Wurzel.",
+   "c": [
+    "(1) + ((1)**6 - 9*(1)**3 + 8)",
+    "(2) + ((2)**6 - 9*(2)**3 + 8)"
+   ]
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x² − 3)² − 4(x² − 3) − 12 = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
+    "hinweis": "Lösungen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     -3,
+     -1,
+     1,
+     3
+    ]
+   },
+   "w": "u = x² − 3: u² − 4u − 12 = 0 ⇒ u = 6 oder u = −2. x² − 3 = 6 ⇒ x = ±3; x² − 3 = −2 ⇒ x = ±1.",
+   "h": "Ersetze den Block x² − 3 durch eine neue Variable. Nicht ausmultiplizieren!",
+   "c": [
+    "(-3) + (((-3)**2 - 3)**2 - 4*((-3)**2 - 3) - 12)",
+    "(-1) + (((-1)**2 - 3)**2 - 4*((-1)**2 - 3) - 12)",
+    "(1) + (((1)**2 - 3)**2 - 4*((1)**2 - 3) - 12)",
+    "(3) + (((3)**2 - 3)**2 - 4*((3)**2 - 3) - 12)"
+   ]
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst x⁴ − 5x² − 36 = 0 und schreibt L = {−3; −2; 2; 3}. Was stimmt?"
+   },
+   "a": [
+    "Falsch: z = −4 liefert keine Lösung, L = {−3; 3}.",
+    "Richtig.",
+    "Falsch: L = {−4; 9}.",
+    "Falsch: L = {−9; 4}."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "z² − 5z − 36 = 0 ⇒ z = 9 oder z = −4. x² = 9 ⇒ x = ±3. x² = −4 ist unmöglich; ±2 sind falsch (Probe: 16 − 20 − 36 ≠ 0).",
+   "h": "Mache die Probe mit x = 2."
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = x³ · (x − 2)² · (x + 1). Welchen Grad hat f?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "3 + 2 + 1",
+   "w": "Die Exponenten addieren sich: 3 + 2 + 1 = 6.",
+   "h": "Beim Ausmultiplizieren entsteht als höchste Potenz x hoch (Summe der Vielfachheiten)."
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt x⁴ − 6x³ + 9x² = x²(x − 3)². Welche Vielfachheit hat die Nullstelle x = 3?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Der Faktor (x − 3) steht im Quadrat: doppelte Nullstelle.",
+   "h": "Zähle, wie oft der Faktor (x − 3) vorkommt."
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = x⁵ − 8x³ + 16x. Welche Vielfachheit hat die Nullstelle x = 2?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2 + (2**5 - 8*2**3 + 16*2)",
+   "w": "f(x) = x(x⁴ − 8x² + 16) = x(x² − 4)² = x(x − 2)²(x + 2)². Also ist x = 2 eine doppelte Nullstelle.",
+   "h": "Klammere x aus. Die Klammer ist ein Quadrat (binomische Formel)."
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine ganzrationale Funktion hat bei x = 1 eine doppelte und bei x = −2 eine dreifache Nullstelle. Welchen Grad hat sie mindestens?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "2 + 3",
+   "w": "Sie enthält mindestens die Faktoren (x − 1)² und (x + 2)³. Das ergibt mindestens Grad 2 + 3 = 5.",
+   "h": "Schreibe die nötigen Faktoren auf und addiere die Exponenten."
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "An wie vielen Stellen wechselt f(x) = (x − 1)² · (x + 3)³ · (x − 4) das Vorzeichen?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Vorzeichenwechsel nur bei ungerader Vielfachheit: x = −3 (dreifach) und x = 4 (einfach). Bei x = 1 (doppelt) berührt der Graph nur.",
+   "h": "Prüfe jede Nullstelle: gerade oder ungerade Vielfachheit?"
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche positive Zahl a hat f(x) = x · (x − 2) · (x − a)² eine dreifache Nullstelle?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Eine dreifache Nullstelle entsteht, wenn (x − a)² mit einem anderen Faktor zusammenfällt. a = 2 gibt (x − 2)³. (a = 0 gäbe x³, ist aber nicht positiv.)",
+   "h": "Mit welchem anderen Faktor kann (x − a)² zusammenfallen?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gleichung hat keine reelle Lösung?"
+   },
+   "a": [
+    "x⁴ − 1 = 0",
+    "x⁴ − 2x² + 1 = 0",
+    "x³ + 1 = 0",
+    "x⁴ + 2x² + 1 = 0"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "x⁴ + 2x² + 1 = (x² + 1)² ist immer mindestens 1. Die anderen haben x = ±1 bzw. x = −1 als Lösung.",
+   "h": "Erkennst du eine binomische Formel?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Gleichung 5. Grades hat die Lösungen 0, 1 und 2. Wie viele weitere Lösungen kann sie höchstens noch haben?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "5 - 3",
+   "w": "Grad 5: höchstens 5 Lösungen. Drei sind bekannt, also höchstens 2 weitere.",
+   "h": "Wie viele Lösungen hat eine Gleichung 5. Grades höchstens?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gleichung 4. Grades hat genau drei verschiedene Lösungen?"
+   },
+   "a": [
+    "x⁴ − 1 = 0",
+    "x²(x² − 1) = 0",
+    "x⁴ − 5x² + 4 = 0",
+    "x⁴ + x² = 0"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "x²(x² − 1) = 0: x = 0 (doppelt), x = ±1 – drei verschiedene. x⁴ − 1 = 0: ±1; x⁴ − 5x² + 4 = 0: ±1, ±2; x⁴ + x² = 0: nur 0.",
+   "h": "Löse jede Gleichung kurz und zähle verschiedene Lösungen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Der Graph einer Funktion 3. Grades mit Leitkoeffizient 1 schneidet die x-Achse bei x = −3 und berührt sie bei x = 1. Gib den Term ausmultipliziert an.",
+    "schablone": "x³ + □x² + □x + □",
+    "hinweis": "Koeffizienten"
+   },
+   "o": {
+    "werte": [
+     1,
+     -5,
+     3
+    ]
+   },
+   "w": "Schneiden: einfacher Faktor (x + 3). Berühren: doppelter Faktor (x − 1)². f(x) = (x + 3)(x² − 2x + 1) = x³ + x² − 5x + 3.",
+   "h": "Welche Vielfachheit gehört zu „berühren“? Stelle erst die Produktform auf.",
+   "c": [
+    "-2 + 3",
+    "1 - 6",
+    "3"
+   ]
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Verlängert man jede Kante eines Würfels um 2 cm, wächst sein Volumen um 152 cm³. Wie lang war eine Kante?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "4 + ((4 + 2)**3 - 4**3 - 152)",
+   "w": "(x + 2)³ − x³ = 152 ⇒ 6x² + 12x + 8 = 152 ⇒ x² + 2x − 24 = 0 ⇒ (x + 6)(x − 4) = 0. Eine Länge ist positiv: x = 4 cm.",
+   "h": "Stelle (x + 2)³ − x³ = 152 auf. Beim Ausmultiplizieren fällt x³ weg."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „x³ = −27 hat keine Lösung, weil man aus negativen Zahlen keine Wurzel ziehen kann.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: x = 3 und x = −3.",
+    "Falsch: x = −3, denn (−3)³ = −27.",
+    "Falsch: x = −9."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Eine ungerade Potenz einer negativen Zahl ist negativ: (−3)³ = −27. Nur bei geraden Potenzen gibt es keine Lösung für negative Werte.",
+   "h": "Rechne (−3)³ aus."
   }
  ],
  "offen": [

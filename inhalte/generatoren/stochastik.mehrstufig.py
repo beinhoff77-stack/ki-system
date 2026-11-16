@@ -5,6 +5,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _kl10 import *  # noqa: E402,F403
+from _schwer_kl10 import ergaenzen  # noqa: E402
 
 start(1007)
 
@@ -428,8 +429,166 @@ KLAR = {
 GEN = schoen({'pfad_mult': g_pfad_mult, 'pfad_add': g_pfad_add, 'ohne_zuruecklegen': g_ohne_zuruecklegen, 'gegenereignis': g_gegenereignis,
               'baum_ergaenzen': g_baum_ergaenzen, 'simulation': g_simulation, 'verstehen': g_verstehen})
 
+# ---------- Zehnte Runde (Zweig schwer-kl10): schwerere Übungen nach Prüfungsvorbild ----------
+# Eigener Zufallsstart (nur zum Mischen der Antworten); wird erst NACH bauen(...) aufgerufen, alte Aufgaben bleiben gleich.
+# Vorbilder (Typ und Niveau, eigene Zahlen und Einkleidung): Abitur Bayern Prüfungsteil A Stochastik (2023: Ereignis zu einem Term wie (3/4)⁵
+# angeben, ohne Zurücklegen; 2025: Produkt zweier Würfe – P(X = 10) = P(X = 15) begründen, Term für n Würfe; IlluPA A7: Augensumme dreier
+# Würfel), Realschul-Abschlussprüfung Bayern 2024 A 2 (Ziehen bis zur ersten B-Kugel, „bei welchem Zug sicher?“), Bayerischer
+# Mathematik-Test 10 (2010 Aufgabe 6: genau ein Treffer bei zwei verschiedenen Wahrscheinlichkeiten, Gegenereignis als Term; 2025 Aufgabe 2:
+# Zahl der Ergebnisse, relative Häufigkeit), ZP10 NRW ohne Hilfsmittel (Urneninhalt aus dem Baumdiagramm), LehrplanPLUS M10 2 (Simulation, π).
+def schwer():
+    start(10016)
+    N = []
+
+    def neu(l, s, a):
+        a['l'], a['s'] = l, s
+        N.append(a)
+
+    def bl(text, q, w, h):
+        q = Fr(q)
+        return bruch_luecke(text, q, w, h, c=frac_c(q))
+
+    # --- pfad_mult ---
+    neu('pfad_mult', 2, zahl('Zwei verschiedene Glücksräder werden je einmal gedreht. Das erste zeigt „rot“ mit 0,4, das zweite mit 0,25. Wie groß ist P(beide rot)?',
+                             'Ein Pfad: 0,4 · 0,25 = 0,1.', 'Entlang des Pfades multiplizieren.', 0.1, '0.4 * 0.25'))
+    neu('pfad_mult', 2, bl('Ein Würfel wird dreimal geworfen. Wie groß ist die Wahrscheinlichkeit, dass drei verschiedene Augenzahlen fallen?', Fr(5, 9),
+                           'Der erste Wurf ist beliebig (6/6), der zweite muss anders sein (5/6), der dritte anders als beide (4/6): 1 · 5/6 · 4/6 = 20/36 = 5/9.',
+                           'Wie viele „erlaubte“ Augenzahlen hat jeder Wurf noch?'))
+    neu('pfad_mult', 3, auswahl('Ein Glücksrad hat 4 gleich große Felder, eines davon blau. Es wird 6-mal gedreht. Welches Ereignis hat die Wahrscheinlichkeit (3/4)⁶?',
+                                'Blau erscheint kein einziges Mal.', ['Blau erscheint genau einmal.', 'Blau erscheint mindestens einmal.', 'Blau erscheint bei jeder Drehung.'],
+                                '3/4 ist die Wahrscheinlichkeit für „nicht blau“. Sechsmal hintereinander „nicht blau“: (3/4)⁶.',
+                                'Wofür steht 3/4 bei einer Drehung?'))
+    neu('pfad_mult', 3, bruch_luecke('Ein Glücksrad mit den Ziffern 1, 2, 3, 4 (gleich große Felder) wird 6-mal gedreht; die Ziffern ergeben eine sechsstellige Zahl. Wie wahrscheinlich ist genau die Zahl 123 412?',
+                                     Fr(1, 4096), 'Ein einziger Pfad mit sechs Ästen zu je 1/4: (1/4)⁶ = 1/4 096. Es gibt 4⁶ = 4 096 gleich wahrscheinliche Zahlen.',
+                                     'Jede Stelle ist eine eigene Stufe.', c=['1', '4 ** 6']))
+    neu('pfad_mult', 3, zahl('Eine Münze wird mehrmals geworfen. Wie oft muss man sie mindestens werfen, damit die Wahrscheinlichkeit für „jedes Mal Zahl“ kleiner als 1 % ist?',
+                             '0,5ⁿ < 0,01: 0,5⁶ ≈ 0,0156, 0,5⁷ ≈ 0,0078. Also mindestens 7 Würfe.', 'Probiere 0,5⁵, 0,5⁶, 0,5⁷ …', 7, '7'))
+    neu('pfad_mult', 3, zahl('A und B sind zwei unabhängige Stufen eines Zufallsexperiments. Es gilt P(A) = 0,3 und P(A, dann B) = 0,12. Wie groß ist P(B)?',
+                             'Pfadregel rückwärts: 0,3 · P(B) = 0,12 ⇒ P(B) = 0,4.', 'Die Pfadwahrscheinlichkeit ist ein Produkt. Welcher Faktor fehlt?', 0.4, '0.12 / 0.3'))
+
+    # --- pfad_add ---
+    neu('pfad_add', 2, bl('Zwei Würfel werden geworfen. Wie groß ist die Wahrscheinlichkeit für die Augensumme 4?', Fr(1, 12),
+                          'Pfade (1, 3), (2, 2), (3, 1): 3 · 1/36 = 3/36 = 1/12.', 'Schreibe alle Paare mit der Summe 4 auf.'))
+    neu('pfad_add', 2, zahl('Bei einer Torwand trifft ein Kind oben mit 30 %, unten mit 60 %. Es schießt einmal oben und einmal unten. Wie groß ist P(genau ein Treffer)?',
+                            'Treffer oben, unten nicht: 0,3 · 0,4 = 0,12. Oben nicht, unten Treffer: 0,7 · 0,6 = 0,42. Zusammen 0,54.',
+                            'Genau ein Treffer: zwei Pfade. Jeden multiplizieren, dann addieren.', 0.54, '0.3 * 0.4 + 0.7 * 0.6'))
+    neu('pfad_add', 3, bl('Zwei Würfel werden geworfen und die Augenzahlen multipliziert. Wie groß ist P(Produkt = 12)?', Fr(1, 9),
+                          'Pfade (2, 6), (6, 2), (3, 4), (4, 3): 4 · 1/36 = 1/9.', 'Zerlege 12 in zwei Faktoren zwischen 1 und 6 – auf beide Reihenfolgen achten.'))
+    neu('pfad_add', 3, auswahl('Zwei Würfel werden geworfen, X ist das Produkt der Augenzahlen. Warum gilt P(X = 10) = P(X = 15)?',
+                               'Zu beiden gehören genau zwei Pfade: (2, 5), (5, 2) bzw. (3, 5), (5, 3).',
+                               ['Weil 10 und 15 beide durch 5 teilbar sind.', 'Weil jedes Produkt gleich wahrscheinlich ist.', 'Weil 15 − 10 = 5 eine Augenzahl ist.'],
+                               'Alle 36 Pfade sind gleich wahrscheinlich. Gleich viele Pfade bedeuten gleiche Wahrscheinlichkeit: je 2/36. (Nicht jedes Produkt ist gleich wahrscheinlich: X = 12 hat 4 Pfade.)',
+                               'Zähle für beide Produkte die passenden Würfelpaare.'))
+    neu('pfad_add', 3, bl('Drei Würfel werden geworfen. Wie groß ist die Wahrscheinlichkeit, dass die Augensumme mindestens 17 ist?', Fr(1, 54),
+                          'Summe 18: nur (6, 6, 6). Summe 17: (5, 6, 6), (6, 5, 6), (6, 6, 5). Vier Pfade von 216: 4/216 = 1/54.',
+                          'Welche Würfe ergeben 18, welche 17? Achte auf die Reihenfolge.'))
+    neu('pfad_add', 3, bl('Eine Münze wird viermal geworfen. Wie groß ist P(genau zweimal Kopf)?', Fr(3, 8),
+                          'Pfade mit genau zwei K: KKZZ, KZKZ, KZZK, ZKKZ, ZKZK, ZZKK – das sind 6, je (1/2)⁴ = 1/16. Also 6/16 = 3/8.',
+                          'Zähle systematisch, an welchen zwei Stellen das K stehen kann.'))
+
+    # --- ohne_zuruecklegen ---
+    neu('ohne_zuruecklegen', 2, bl('In einer Urne liegen 4 rote und 6 grüne Kugeln. Zwei werden ohne Zurücklegen gezogen. Wie groß ist P(zuerst rot, dann grün)?', Fr(4, 15),
+                                   '4/10 · 6/9 = 24/90 = 4/15. Nach einer roten Kugel sind noch 9 Kugeln da, alle 6 grünen.', 'Beim zweiten Zug ist eine Kugel weniger in der Urne.'))
+    neu('ohne_zuruecklegen', 2, bl('In einer Lostrommel sind 10 Lose, davon 3 Gewinne. Du ziehst 2 Lose. Wie groß ist P(genau ein Gewinn)?', Fr(7, 15),
+                                   'Gewinn, Niete: 3/10 · 7/9 = 21/90. Niete, Gewinn: 7/10 · 3/9 = 21/90. Zusammen 42/90 = 7/15.', 'Zwei Pfade: G N und N G.'))
+    neu('ohne_zuruecklegen', 3, bl('In einer Urne liegen 5 rote und 3 blaue Kugeln. Zwei werden ohne Zurücklegen gezogen. Wie groß ist die Wahrscheinlichkeit, dass die zweite Kugel rot ist?', Fr(5, 8),
+                                   'Rot, rot: 5/8 · 4/7 = 20/56. Blau, rot: 3/8 · 5/7 = 15/56. Zusammen 35/56 = 5/8 – genauso groß wie beim ersten Zug.',
+                                   'Die erste Kugel ist unbekannt: Rechne beide Pfade, die mit „rot“ enden.'))
+    neu('ohne_zuruecklegen', 3, bl('In einer Urne liegen 2 blaue und 6 weiße Kugeln. Man zieht ohne Zurücklegen, bis eine blaue Kugel kommt. Wie groß ist die Wahrscheinlichkeit, dass man genau nach dem 2. Zug aufhört?', Fr(3, 14),
+                                   'Erst weiß, dann blau: 6/8 · 2/7 = 12/56 = 3/14.', 'Aufhören nach dem 2. Zug heißt: Der erste war nicht blau, der zweite schon.'))
+    neu('ohne_zuruecklegen', 3, zahl('In einer Urne liegen 4 blaue und 11 weiße Kugeln. Man zieht ohne Zurücklegen. Bei welchem Zug hat man spätestens sicher eine blaue Kugel gezogen?',
+                                     'Im ungünstigsten Fall kommen zuerst alle 11 weißen. Der 12. Zug ist dann sicher blau.', 'Denk an den ungünstigsten Fall.', 12, '11 + 1'))
+    neu('ohne_zuruecklegen', 3, zahl('In einer Urne liegen n Kugeln, genau 2 davon sind rot. Zieht man 2 Kugeln ohne Zurücklegen, sind beide mit der Wahrscheinlichkeit 1/15 rot. Wie groß ist n?',
+                                     '2/n · 1/(n − 1) = 1/15 ⇒ n · (n − 1) = 30 ⇒ n = 6 (6 · 5 = 30).', 'Stelle die Pfadwahrscheinlichkeit mit n auf und probiere.', 6, '6 + (6 * 5 - 30)'))
+
+    # --- gegenereignis ---
+    neu('gegenereignis', 2, bl('Ein Würfel wird dreimal geworfen. Wie groß ist P(mindestens eine gerade Zahl)?', Fr(7, 8),
+                               'Gegenereignis „nur ungerade“: (1/2)³ = 1/8. Also 1 − 1/8 = 7/8.', 'Was ist das Gegenteil von „mindestens eine gerade Zahl“?'))
+    neu('gegenereignis', 2, bl('Zwei Würfel werden geworfen. Wie groß ist die Wahrscheinlichkeit, dass die Augenzahlen verschieden sind?', Fr(5, 6),
+                               'Gegenereignis „Pasch“: 6 von 36 = 1/6. Also 1 − 1/6 = 5/6.', 'Rechne zuerst die Wahrscheinlichkeit für zwei gleiche Augenzahlen.'))
+    neu('gegenereignis', 3, auswahl('Ein Kind trifft die Torwand mit der Wahrscheinlichkeit 0,25 und schießt 10-mal. Welcher Term gibt P(mindestens ein Treffer) an?', '1 − 0,75¹⁰',
+                                    ['0,75¹⁰', '1 − 0,25¹⁰', '10 · 0,25'],
+                                    'Gegenereignis: kein Treffer, also 10-mal daneben: 0,75¹⁰. Davon das Gegenteil: 1 − 0,75¹⁰. (10 · 0,25 = 2,5 ist gar keine Wahrscheinlichkeit.)',
+                                    'Wie lautet das Gegenereignis, und wie wahrscheinlich ist ein Fehlschuss?'))
+    neu('gegenereignis', 3, zahl('Wie groß muss die Trefferwahrscheinlichkeit p mindestens sein, damit man bei 2 Versuchen mit mindestens 91 % Wahrscheinlichkeit wenigstens einmal trifft?',
+                                 '1 − (1 − p)² ≥ 0,91 ⇔ (1 − p)² ≤ 0,09 ⇔ 1 − p ≤ 0,3 ⇔ p ≥ 0,7.', 'Rechne rückwärts über das Gegenereignis „zweimal daneben“.', 0.7, '1 - 0.3'))
+    w = gerundet(1 - 0.96 ** 20, 3)
+    neu('gegenereignis', 3, zahl('Jede Birne einer Lichterkette fällt im ersten Jahr mit 4 % Wahrscheinlichkeit aus (unabhängig). Die Kette hat 20 Birnen. Wie groß ist P(mindestens eine fällt aus)? Runde auf drei Nachkommastellen.',
+                                 f'P(keine fällt aus) = 0,96²⁰ ≈ 0,442. Also 1 − 0,442 ≈ {dz(w)}.', 'Gegenereignis: Alle 20 Birnen halten.', w, f'round({K(1 - 0.96 ** 20)}, 3)', tol=0.001))
+    neu('gegenereignis', 3, auswahl('Jemand rechnet: „Bei 3 Würfen ist P(mindestens eine Sechs) = 1 − (1/6)³.“ Was stimmt?', 'Falsch: richtig ist 1 − (5/6)³.',
+                                    ['Richtig.', 'Falsch: richtig ist 3 · 1/6.', 'Falsch: richtig ist (5/6)³.'],
+                                    'Das Gegenereignis ist „keine Sechs“, nicht „nur Sechsen“. P(keine Sechs) = (5/6)³, also 1 − (5/6)³ ≈ 0,42.',
+                                    'Was genau ist das Gegenteil von „mindestens eine Sechs“?'))
+
+    # --- baum_ergaenzen ---
+    neu('baum_ergaenzen', 2, zahl('Im Baumdiagramm ist P(A) = 0,7 und die Pfadwahrscheinlichkeit „A, dann nicht B“ = 0,21. Welche Wahrscheinlichkeit steht am Ast von A nach B?',
+                                  'Ast A → nicht B: 0,21 : 0,7 = 0,3. Die Äste nach A ergeben zusammen 1: A → B = 1 − 0,3 = 0,7.',
+                                  'Erst den Ast zu „nicht B“ durch Teilen finden, dann die Ergänzung zu 1.', 0.7, '1 - 0.21 / 0.7'))
+    neu('baum_ergaenzen', 2, zahl('In einer Klasse sind 40 % Mädchen. Von den Mädchen tragen 25 % eine Brille. Welcher Anteil der ganzen Klasse sind Mädchen mit Brille?',
+                                  'Pfad „Mädchen, Brille“: 0,4 · 0,25 = 0,1, also 10 % der Klasse – das gehört in die Vierfeldertafel in das Feld „Mädchen und Brille“.',
+                                  'Ein Pfad im Baumdiagramm – multiplizieren.', 0.1, '0.4 * 0.25'))
+    baum = {'typ': 'baum', 'aeste': [{'text': 'A', 'p': '0,6', 'aeste': [{'text': 'B', 'p': '0,5'}, {'text': 'nicht B', 'p': '0,5'}]},
+                                     {'text': 'nicht A', 'p': '0,4', 'aeste': [{'text': 'B', 'p': '?'}, {'text': 'nicht B', 'p': '?'}]}]}
+    neu('baum_ergaenzen', 3, mit_grafik(zahl('Im Baumdiagramm fehlen zwei Äste. Bekannt ist: Insgesamt tritt B mit der Wahrscheinlichkeit 0,46 ein. Welche Wahrscheinlichkeit steht am Ast von „nicht A“ nach B?',
+                                             'P(B) = 0,6 · 0,5 + 0,4 · x = 0,46 ⇒ 0,3 + 0,4x = 0,46 ⇒ x = 0,16 : 0,4 = 0,4.',
+                                             'B wird über zwei Pfade erreicht. Stelle eine Gleichung für P(B) auf.', 0.4, '(0.46 - 0.6 * 0.5) / 0.4'), baum))
+    neu('baum_ergaenzen', 3, zahl('Aus einer Urne mit roten und blauen Kugeln werden zwei ohne Zurücklegen gezogen. Im Baumdiagramm steht am ersten Ast „rot“ 2/5 und am Ast „rot → rot“ 1/4. Wie viele Kugeln sind in der Urne?',
+                                  'Mit 5 Kugeln, davon 2 rot: erster Zug 2/5, nach einer roten noch 1 rote von 4: 1/4 ✓. (Mit 10 Kugeln, 4 rot, wäre es 3/9 = 1/3.)',
+                                  'Probiere die kleinste Urne mit dem Anteil 2/5 und prüfe den zweiten Ast.', 5, '5'))
+    neu('baum_ergaenzen', 3, zahl('Ein Experiment hat zwei gleiche, unabhängige Stufen mit den Ergebnissen A und nicht A. Es gilt P(A, A) = 0,49. Wie groß ist P(A, nicht A)?',
+                                  'P(A)² = 0,49 ⇒ P(A) = 0,7, P(nicht A) = 0,3. Also P(A, nicht A) = 0,7 · 0,3 = 0,21.', 'Welche Zahl mal sich selbst ergibt 0,49?', 0.21, '0.7 * 0.3'))
+    neu('baum_ergaenzen', 3, zahl('25 % der Kinder einer Schule tragen eine Brille. Von den Brillenträgern sind 60 % Mädchen, von den anderen Kindern 40 %. Welcher Anteil aller Kinder sind Mädchen?',
+                                  'Zwei Pfade zu „Mädchen“: 0,25 · 0,6 + 0,75 · 0,4 = 0,15 + 0,3 = 0,45.', 'Zeichne den Baum: erste Stufe Brille ja/nein, zweite Stufe Mädchen/Junge.',
+                                  0.45, '0.25 * 0.6 + 0.75 * 0.4'))
+
+    # --- simulation ---
+    neu('simulation', 2, auswahl('Ein Computer erzeugt zufällige ganze Zahlen von 1 bis 100. Damit soll ein Ereignis mit der Wahrscheinlichkeit 0,35 simuliert werden. Welche Zahlen zählen als „Treffer“?',
+                                 'die Zahlen 1 bis 35', ['die Zahlen 1 bis 34', 'die Zahlen 0 bis 35', 'die Zahlen 35 bis 100'],
+                                 '1 bis 35 sind genau 35 von 100 Zahlen, also Anteil 0,35. (35 bis 100 wären 66 Zahlen, 0 kommt nicht vor.)', 'Zähle, wie viele Zahlen jede Auswahl enthält.'))
+    neu('simulation', 2, zahl('Zwei Würfel werden 360-mal geworfen. Wie oft erwartet man einen Pasch (zwei gleiche Augenzahlen)?', 'P(Pasch) = 6/36 = 1/6. Erwartet: 360 · 1/6 = 60.',
+                              'Erst die Wahrscheinlichkeit für einen Pasch, dann n · p.', 60, '360 * 6 / 36'))
+    neu('simulation', 3, zahl('In ein Quadrat mit der Seitenlänge 2 ist ein Kreis mit Radius 1 gezeichnet. 1 000 zufällige Punkte im Quadrat: 785 liegen im Kreis. Welchen Näherungswert für π liefert das?',
+                              'Anteil im Kreis ≈ Kreisfläche : Quadratfläche = π · 1² : 4. Also π/4 ≈ 0,785 ⇒ π ≈ 3,14.', 'Vergleiche den Anteil der Treffer mit dem Flächenverhältnis.', 3.14, '4 * 785 / 1000'))
+    w, c = gerundet(2000 * math.pi / 4, 0), f'round({K(2000 * math.pi / 4)}, 0)'
+    neu('simulation', 3, zahl('Im Quadrat mit der Seitenlänge 2 liegt ein Kreis mit Radius 1. Wie viele von 2 000 zufälligen Punkten im Quadrat erwartet man im Kreis? Runde auf eine ganze Zahl.',
+                              f'p = Kreisfläche : Quadratfläche = π : 4 ≈ 0,785. Erwartet: 2 000 · π/4 ≈ {dz(w)}.', 'Die Trefferwahrscheinlichkeit ist ein Flächenverhältnis.', w, c, tol=1))
+    neu('simulation', 3, zahl('Nach 200 Würfen beträgt die relative Häufigkeit der Sechs 0,15. Wie viele Sechsen müssen bei den nächsten 100 Würfen fallen, damit die relative Häufigkeit nach 300 Würfen genau 1/6 ist?',
+                              'Bisher 0,15 · 200 = 30 Sechsen. Nach 300 Würfen sollen es 300 : 6 = 50 sein. Also 50 − 30 = 20.', 'Rechne mit absoluten Häufigkeiten: wie viele bisher, wie viele am Ende?', 20, '300 / 6 - 0.15 * 200'))
+    neu('simulation', 3, auswahl('Bei 10 Würfen kam 4-mal die Sechs (relative Häufigkeit 0,4). Jemand folgert: „Der Würfel ist gezinkt.“ Was stimmt?',
+                                 'Nicht zwingend: Bei nur 10 Würfen schwankt die relative Häufigkeit stark um 1/6.',
+                                 ['Richtig, denn 0,4 ist mehr als doppelt so groß wie 1/6.', 'Richtig, bei einem fairen Würfel wäre die Sechs genau 1- bis 2-mal gefallen.', 'Falsch, denn der Würfel ist sicher fair.'],
+                                 'Erst bei sehr vielen Würfen nähert sich die relative Häufigkeit der Wahrscheinlichkeit (empirisches Gesetz der großen Zahlen). 4 Sechsen in 10 Würfen kommen auch bei fairen Würfeln vor.',
+                                 'Wie stark schwankt eine relative Häufigkeit bei wenigen Versuchen?'))
+
+    # --- verstehen ---
+    neu('verstehen', 2, auswahl('Welche Aussage über ein Baumdiagramm ist falsch?', 'Ein Pfad kann wahrscheinlicher sein als sein erster Ast.',
+                                ['Die Summe aller Pfadwahrscheinlichkeiten ist 1.', 'An jeder Verzweigung ergeben die Äste zusammen 1.', 'Jede Pfadwahrscheinlichkeit liegt zwischen 0 und 1.'],
+                                'Entlang eines Pfades wird mit Zahlen ≤ 1 multipliziert – das Produkt wird nie größer als der erste Ast.', 'Was passiert, wenn man mit einer Zahl ≤ 1 multipliziert?'))
+    neu('verstehen', 2, auswahl('Wann unterscheiden sich „mit Zurücklegen“ und „ohne Zurücklegen“ beim Ziehen von zwei Kugeln kaum?', 'wenn sehr viele Kugeln in der Urne liegen',
+                                ['wenn nur wenige Kugeln in der Urne liegen', 'wenn genau zwei Farben vorkommen', 'nie, der Unterschied ist immer groß'],
+                                'Bei 1 000 Kugeln ändert eine gezogene Kugel die Anteile kaum (z. B. 500/1 000 und 499/999).', 'Rechne ein Beispiel mit 10 und mit 1 000 Kugeln.'))
+    neu('verstehen', 3, auswahl('Urne mit 3 roten und 2 blauen Kugeln, zwei Züge ohne Zurücklegen. Welches Ereignis hat die Wahrscheinlichkeit 3/5 · 2/4 + 2/5 · 3/4?',
+                                'Die beiden Kugeln haben verschiedene Farben.', ['Zuerst rot, dann blau.', 'Mindestens eine Kugel ist rot.', 'Beide Kugeln haben dieselbe Farbe.'],
+                                'Zwei Pfade werden addiert: rot → blau (3/5 · 2/4) und blau → rot (2/5 · 3/4). Das sind genau die Pfade mit zwei verschiedenen Farben.',
+                                'Welche zwei Pfade stehen in der Summe?'))
+    neu('verstehen', 3, auswahl('Ein Würfel wird n-mal geworfen. Welcher Term gibt die Wahrscheinlichkeit an, dass jedes Mal eine gerade Zahl fällt?', '(1/2)ⁿ',
+                                ['n · 1/2', '1 − (1/2)ⁿ', '(1/6)ⁿ'],
+                                'Pro Wurf ist P(gerade) = 3/6 = 1/2. n Würfe nacheinander: n-mal den Faktor 1/2. 1 − (1/2)ⁿ wäre „mindestens einmal ungerade“.',
+                                'Wie groß ist P(gerade) bei einem Wurf? Wie viele Stufen hat der Pfad?'))
+    a, b = 1 - (5 / 6) ** 4, 1 - (35 / 36) ** 24
+    neu('verstehen', 3, auswahl('Was ist wahrscheinlicher: mit 4 Würfen eines Würfels mindestens eine Sechs – oder mit 24 Würfen von zwei Würfeln mindestens einmal zwei Sechsen?',
+                                'mindestens eine Sechs bei 4 Würfen', ['mindestens ein Sechserpasch bei 24 Doppelwürfen', 'beide gleich wahrscheinlich, denn 4 : 6 = 24 : 36', 'Das lässt sich nicht berechnen.'],
+                                f'1 − (5/6)⁴ ≈ {dz(round(a, 3))} und 1 − (35/36)²⁴ ≈ {dz(round(b, 3))}. Die erste Wahrscheinlichkeit ist größer, obwohl das Verhältnis 4 : 6 = 24 : 36 gleich ist.',
+                                'Rechne beide über das Gegenereignis.'))
+    neu('verstehen', 3, auswahl('Jemand sagt: „Beim Lotto 6 aus 49 ist die Zahlenreihe 1, 2, 3, 4, 5, 6 unwahrscheinlicher als eine gemischte Reihe wie 3, 17, 22, 30, 41, 48.“ Was stimmt?',
+                                'Falsch: Jede bestimmte Sechserkombination ist gleich wahrscheinlich.', ['Richtig, Zahlen hintereinander kommen seltener.', 'Richtig, weil kleine Zahlen seltener gezogen werden.', 'Falsch: 1, 2, 3, 4, 5, 6 ist wahrscheinlicher.'],
+                                'Jede bestimmte Kombination ist ein einziger Pfad mit derselben Wahrscheinlichkeit (6/49 · 5/48 · … · 1/44). „Gemischt“ wirkt nur häufiger, weil es sehr viele gemischte Reihen gibt.',
+                                'Berechne die Wahrscheinlichkeit für eine ganz bestimmte Reihe. Hängt sie von den Zahlen ab?'))
+    return N
+
+
 if __name__ == '__main__':
-    bauen('stochastik.mehrstufig',
+    datei = bauen('stochastik.mehrstufig',
           'Mehrstufige Zufallsexperimente mit Pfadregeln berechnen (mit und ohne Zurücklegen), über das Gegenereignis rechnen und Simulationen deuten.',
           ['1. Pfadregel: entlang eines Pfades multiplizieren.', '2. Pfadregel: Pfade eines Ereignisses addieren.',
            'Ohne Zurücklegen ändern sich die Wahrscheinlichkeiten der zweiten Stufe.', 'P(mindestens einmal) = 1 − P(keinmal); erwartete Anzahl = n · p.'],
@@ -440,3 +599,4 @@ if __name__ == '__main__':
           offen=['Prüfung eingearbeitet (Runde 3): Baumdiagramme (Bildtyp „baum“) in den Lernkarten pfad_mult, pfad_add, ohne_zuruecklegen, gegenereignis, baum_ergaenzen sowie in Aufgaben (Pfadregel Stufe 1, ohne Zurücklegen mit „?“ auf der 2. Stufe, Baum ergänzen, Test bei Tieren); die Pfad-Tabellen entfallen. Neu: „mindestens ein Gewinn“ ohne Zurücklegen; Freiwurfquoten 0,6–0,9; keine Ablenker über 1; Ast-Paare nicht nur vertauscht; Simulationsergebnisse nahe am Erwartungswert.',
                  'Simulation: nur Auswertung (relative Häufigkeit, erwartete Anzahl, Gesetz der großen Zahlen). Selbst simulieren (Zufallszahlen erzeugen) kann das Kind in der App nicht.',
                  'Brüche als Antwort über Lücken „□/□“ (gekürzt).'])
+    ergaenzen(datei, schwer())

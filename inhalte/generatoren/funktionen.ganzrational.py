@@ -5,6 +5,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _kl10 import *  # noqa: E402,F403
+from _schwer_kl10 import ergaenzen  # noqa: E402
 
 start(1005)
 IDX = '₁₂₃₄₅'
@@ -492,8 +493,154 @@ KLAR = {
 GEN = schoen({'grad': g_grad, 'ausmultiplizieren': g_ausmultiplizieren, 'randverhalten': g_randverhalten, 'symmetrie': g_symmetrie,
               'nullstellen': g_nullstellen, 'graph_term': g_graph_term, 'term_bestimmen': g_term_bestimmen})
 
+# ---------- Zehnte Runde (Zweig schwer-kl10): schwerere Übungen nach Prüfungsvorbild ----------
+# Eigener Zufallsstart (nur zum Mischen der Antworten); wird erst NACH bauen(...) aufgerufen, alte Aufgaben bleiben gleich.
+# Vorbilder (Typ und Niveau, eigene Zahlen): Abitur Bayern Prüfungsteil A (2023: Mindestgrad aus Eigenschaften begründen;
+# 2025: Graph von g(2x − 1) aus g; IlluPA A2: f(x) = x⁴ − kx² mit Parameter; IlluPA A5: Symmetrie und Extrempunkte),
+# Grundwissen G9 Kl. 10 (Randverhalten, Nullstellen und Faktorisieren von (x − 1) · x² · (x + 2)³), Bayerischer Mathematik-Test 10
+# (Term mit vorgegebener Eigenschaft angeben). Lücken mit Term-Vorlage nur bis x³ (App-Regel); höhere Grade als Zahlenfelder.
+def schwer():
+    start(10014)
+    N = []
+
+    def neu(l, s, a):
+        a['l'], a['s'] = l, s
+        N.append(a)
+
+    # --- grad ---
+    neu('grad', 2, zahl('Bestimme den Leitkoeffizienten von f(x) = (2x² − 1)³.', 'Höchste Potenz: (2x²)³ = 8x⁶. Leitkoeffizient 8 (nicht 2).',
+                        'Nur die höchsten Glieder der Klammer bestimmen das höchste Glied.', 8, '2 ** 3'))
+    neu('grad', 2, zahl('Bestimme den Grad von f(x) = (x − 1)(x + 2) − x².', 'Ausmultipliziert: x² + x − 2 − x² = x − 2. Das x² fällt weg, der Grad ist 1.',
+                        'Erst ausmultiplizieren und zusammenfassen, dann den Grad ablesen.', 1, '1'))
+    neu('grad', 3, zahl('Eine ganzrationale Funktion ist punktsymmetrisch zum Ursprung und hat bei x = 2 eine doppelte Nullstelle. Welchen Grad hat sie mindestens?',
+                        'Wegen der Punktsymmetrie ist auch x = −2 doppelte Nullstelle, und f(0) = −f(0) gibt f(0) = 0. Also stecken x · (x − 2)² · (x + 2)² darin: Grad mindestens 5.',
+                        'Was folgt aus der Symmetrie für x = −2 und für x = 0?', 5, '1 + 2 + 2'))
+    neu('grad', 3, zahl('Für welche Zahl a hat f(x) = (a − 2)x³ + 4x² − 1 den Grad 2?', 'Grad 2 heißt: Das Glied mit x³ verschwindet. a − 2 = 0 ⇒ a = 2.',
+                        'Wann fällt das x³-Glied weg?', 2, '2'))
+    neu('grad', 3, zahl('Wie groß ist die Summe aller Koeffizienten (mit Absolutglied) von f(x) = (2x − 1)⁵?',
+                        'Die Summe aller Koeffizienten ist f(1), denn jede Potenz von 1 ist 1: f(1) = (2 − 1)⁵ = 1.', 'Setze eine geschickte Zahl für x ein, statt auszumultiplizieren.', 1, '(2 - 1) ** 5'))
+    neu('grad', 3, auswahl('Welcher Term beschreibt keine ganzrationale Funktion?', 'f(x) = 2/x + x²', ['f(x) = √3 · x² − 1', 'f(x) = (x − 1)⁵', 'f(x) = x³ : 4'],
+                           '2/x = 2 · x^(−1) hat einen negativen Exponenten. Ganzrational heißt: nur Potenzen x⁰, x¹, x², … mit beliebigen Zahlen als Faktor (auch √3 oder 1/4).',
+                           'Ganzrational: Summe von Vielfachen von x hoch 0, 1, 2, … Welcher Exponent passt nicht?'))
+
+    # --- ausmultiplizieren ---
+    neu('ausmultiplizieren', 2, luecken('Multipliziere aus: f(x) = (x − 3)³.', 'x³ + □x² + □x + □', 'Koeffizienten', [-9, 27, -27],
+                                        '(x − 3)² = x² − 6x + 9; mal (x − 3): x³ − 3x² − 6x² + 18x + 9x − 27 = x³ − 9x² + 27x − 27.',
+                                        'Erst (x − 3)², dann noch einmal mal (x − 3).', c=['-3 - 6', '18 + 9', '-27']))
+    neu('ausmultiplizieren', 2, luecken('Multipliziere aus: f(x) = (x² + 2)(x² − 3). Schreibe f(x) = x⁴ + b · x² + c.', 'b = □; c = □', 'Zwei Zahlen', [-1, -6],
+                                        'x⁴ − 3x² + 2x² − 6 = x⁴ − x² − 6.', 'Jedes Glied der ersten Klammer mit jedem der zweiten.', c=['-3 + 2', '2 * (-3)']))
+    neu('ausmultiplizieren', 3, luecken('f(x) = x³ + x² − 4x − 4. Schreibe f in Produktform (kleinste Nullstelle zuerst).', '(x − □)(x − □)(x − □)', 'Nullstellen aufsteigend',
+                                        [-2, -1, 2], 'Gruppieren: x²(x + 1) − 4(x + 1) = (x + 1)(x² − 4) = (x + 1)(x + 2)(x − 2).',
+                                        'Klammere aus den ersten beiden und aus den letzten beiden Gliedern aus.', c=['-2 + ((-2)**3 + (-2)**2 + 8 - 4)', '-1 + (-1 + 1 + 4 - 4)', '2 + (8 + 4 - 8 - 4)']))
+    neu('ausmultiplizieren', 3, zahl('Für welche Zahl a gilt (x + a)(x − 2) = x² + 3x − 10?', 'Ausmultipliziert: x² + (a − 2)x − 2a. Vergleich: −2a = −10 ⇒ a = 5 (Probe: a − 2 = 3 ✓).',
+                                     'Multipliziere aus und vergleiche das Absolutglied.', 5, '10 / 2'))
+    neu('ausmultiplizieren', 3, zahl('Welchen Koeffizienten hat x² in f(x) = (x + 1)(x + 2)(x + 3)? Ohne vollständiges Ausmultiplizieren.',
+                                     'x² entsteht, wenn man aus zwei Klammern x und aus der dritten die Zahl nimmt: 1 + 2 + 3 = 6.',
+                                     'Welche Auswahl aus den drei Klammern liefert genau x²?', 6, '1 + 2 + 3'))
+    neu('ausmultiplizieren', 3, auswahl('Jemand schreibt: (x + 2)³ = x³ + 8. Was stimmt?', 'Falsch: (x + 2)³ = x³ + 6x² + 12x + 8.',
+                                        ['Richtig.', 'Falsch: (x + 2)³ = x³ + 6x + 8.', 'Falsch: (x + 2)³ = 3x + 6.'],
+                                        '(x + 2)² = x² + 4x + 4; mal (x + 2): x³ + 6x² + 12x + 8. Probe mit x = 1: 3³ = 27, aber 1 + 8 = 9.',
+                                        'Probe mit x = 1.'))
+
+    # --- randverhalten ---
+    neu('randverhalten', 2, auswahl('Wie verläuft der Graph von f(x) = 3x² − x⁴ + 2 für sehr kleine und sehr große x?', 'von links unten nach rechts unten',
+                                    ['von links oben nach rechts oben', 'von links unten nach rechts oben', 'von links oben nach rechts unten'],
+                                    'Höchstes Glied −x⁴: Grad gerade, Leitkoeffizient negativ: beide Enden unten.', 'Ordne zuerst nach Potenzen.'))
+    neu('randverhalten', 2, auswahl('Wie verläuft der Graph von f(x) = −2 · (x − 1)³ für sehr kleine und sehr große x?', 'von links oben nach rechts unten',
+                                    ['von links unten nach rechts oben', 'von links oben nach rechts oben', 'von links unten nach rechts unten'],
+                                    'Höchstes Glied −2x³: ungerader Grad, negativer Leitkoeffizient.', 'Welches Glied entsteht beim Ausmultiplizieren als höchstes?'))
+    neu('randverhalten', 3, auswahl('Wie verläuft der Graph von f(x) = (1 − x)³ · (x + 2)² für sehr kleine und sehr große x?', 'von links oben nach rechts unten',
+                                    ['von links unten nach rechts oben', 'von links oben nach rechts oben', 'von links unten nach rechts unten'],
+                                    'Höchstes Glied: (−x)³ · x² = −x⁵. Ungerader Grad, negativer Leitkoeffizient. Falle: In (1 − x) steht x mit Minus.',
+                                    'Achte auf das Vorzeichen von x in (1 − x).'))
+    neu('randverhalten', 3, auswahl('Der Graph von f(x) = a · x⁴ + x³ verläuft von links unten nach rechts unten. Was gilt für a?', 'a < 0', ['a > 0', 'a = 0', 'a < 1'],
+                                    'Bei a ≠ 0 entscheidet a · x⁴: gerader Grad, beide Enden unten ⇒ a < 0. (Für a = 0 wäre f(x) = x³ von links unten nach rechts oben.)',
+                                    'Welches Glied ist für große |x| entscheidend, und welches Vorzeichen braucht es?'))
+    neu('randverhalten', 3, zahl('Eine ganzrationale Funktion vom Grad 4 verläuft von links oben nach rechts oben und hat f(0) = −1. Wie viele Nullstellen hat sie mindestens?',
+                                 'Von links oben muss der Graph bis f(0) = −1 unter die x-Achse: eine Nullstelle links von 0. Danach muss er wieder nach oben: eine rechts von 0. Mindestens 2.',
+                                 'Skizziere: Wo beginnt der Graph, wo ist er bei x = 0, wo endet er?', 2, '2'))
+    neu('randverhalten', 3, auswahl('Was geschieht mit f(x) = −x⁶ + 100x⁵ für x → −∞ (x wird immer kleiner)?', 'f(x) wird beliebig klein (→ −∞).',
+                                    ['f(x) wird beliebig groß (→ +∞).', 'f(x) nähert sich 0.', 'Das hängt vom Glied 100x⁵ ab.'],
+                                    'Für große |x| überwiegt −x⁶ (gerader Grad, negativer Faktor) – auch wenn 100x⁵ für kleine x größer wirkt. Für x → −∞ gilt f(x) → −∞.',
+                                    'Am Rand zählt nur die höchste Potenz – egal, wie groß die anderen Faktoren sind.'))
+
+    # --- symmetrie ---
+    neu('symmetrie', 2, auswahl('Welche Symmetrie hat der Graph von f(x) = (x − 1)² + (x + 1)²?', 'achsensymmetrisch zur y-Achse', ['punktsymmetrisch zum Ursprung', 'keine dieser Symmetrien'],
+                                'Ausmultipliziert: x² − 2x + 1 + x² + 2x + 1 = 2x² + 2. Nur gerade Hochzahlen.', 'Erst ausmultiplizieren, dann die Hochzahlen ansehen.'))
+    neu('symmetrie', 2, auswahl('Welche Symmetrie hat der Graph von f(x) = x · (x² − 4)?', 'punktsymmetrisch zum Ursprung', ['achsensymmetrisch zur y-Achse', 'keine dieser Symmetrien'],
+                                'f(x) = x³ − 4x: nur ungerade Hochzahlen.', 'Multipliziere aus.'))
+    neu('symmetrie', 3, zahl('Der Graph von f(x) = x⁴ − kx² hat bei x = 2 eine Nullstelle. Bestimme k.', 'f(2) = 16 − 4k = 0 ⇒ k = 4. Wegen der Achsensymmetrie ist dann auch x = −2 Nullstelle.',
+                             'Setze x = 2 ein.', 4, '16 / 4'))
+    neu('symmetrie', 3, luecken('Der Graph einer Funktion f ist punktsymmetrisch zum Ursprung und hat den Hochpunkt H(2 | 1). Welchen Tiefpunkt hat er sicher?', 'T(□ | □)', 'Koordinaten',
+                                [-2, -1], 'Punktspiegelung am Ursprung: (2 | 1) → (−2 | −1). Aus dem Hochpunkt wird ein Tiefpunkt.', 'Was macht eine Punktspiegelung am Ursprung mit beiden Koordinaten?',
+                                c=['-2', '-1']))
+    neu('symmetrie', 3, zahl('Für welche Zahl a ist der Graph von f(x) = x³ + (a − 3)x² + x punktsymmetrisch zum Ursprung?',
+                             'Nur ungerade Hochzahlen erlaubt: Das x²-Glied muss wegfallen, a − 3 = 0 ⇒ a = 3.', 'Welches Glied stört die Punktsymmetrie?', 3, '3'))
+    neu('symmetrie', 3, auswahl('Jemand sagt: „f(x) = x³ + x² ist punktsymmetrisch zum Ursprung, weil der Grad ungerade ist.“ Was stimmt?',
+                                'Falsch: x² ist eine gerade Hochzahl, f hat keine dieser Symmetrien.', ['Richtig.', 'Falsch: f ist achsensymmetrisch zur y-Achse.', 'Falsch: Symmetrie hängt nur vom Leitkoeffizienten ab.'],
+                                'Es zählen alle Hochzahlen, nicht nur der Grad. Probe: f(1) = 2, f(−1) = 0 ≠ −2.', 'Prüfe mit x = 1 und x = −1.'))
+
+    # --- nullstellen ---
+    neu('nullstellen', 2, luecken('Bestimme die Nullstellen von f(x) = x⁴ − 4x².', 'x₁ = □; x₂ = □; x₃ = □', 'Nullstellen aufsteigend', [-2, 0, 2],
+                                  'x²(x² − 4) = 0 ⇒ x = 0 (doppelt) oder x = ±2.', 'Klammere x² aus.', c=['-2 + (16 - 16)', '0', '2 + (16 - 16)']))
+    neu('nullstellen', 2, zahl('f(x) = (x² − 1)(x + 1). Welche Vielfachheit hat die Nullstelle x = −1?', 'x² − 1 = (x − 1)(x + 1), also f(x) = (x − 1)(x + 1)². x = −1 ist doppelt.',
+                               'Zerlege x² − 1 mit der dritten binomischen Formel.', 2, '2'))
+    neu('nullstellen', 3, auswahl('Für welche x gilt f(x) < 0 bei f(x) = (x − 1) · x² · (x + 2)³?', 'für −2 < x < 1, außer x = 0', ['für x < −2 und x > 1', 'für −2 < x < 0', 'für 0 < x < 1'],
+                                  'Vorzeichenwechsel nur bei −2 (dreifach) und 1 (einfach); bei 0 (doppelt) berührt der Graph. Grad 6, Leitkoeffizient positiv: außen positiv, zwischen −2 und 1 negativ – bei 0 ist f(0) = 0.',
+                                  'Bestimme die Vielfachheiten und das Randverhalten, dann skizziere.'))
+    neu('nullstellen', 3, zahl('Wie viele Nullstellen hat f(x) = x⁴ − 5x² + 4 im Bereich −1,5 < x < 1,5?', 'z = x²: z = 1 oder z = 4 ⇒ x = ±1 oder x = ±2. Im Bereich liegen nur −1 und 1.',
+                               'Bestimme alle Nullstellen mit Substitution und prüfe, welche im Bereich liegen.', 2, '2'))
+    neu('nullstellen', 3, zahl('Der Graph von f(x) = x³ − 3x + c berührt die x-Achse bei x = 1. Bestimme c.', 'f(1) = 1 − 3 + c = 0 ⇒ c = 2. Probe: x³ − 3x + 2 = (x − 1)²(x + 2) – doppelte Nullstelle bei 1.',
+                               'Berühren heißt mindestens: f(1) = 0.', 2, '3 - 1'))
+    neu('nullstellen', 3, auswahl('f(x) = x · (x − a)² hat genau zwei verschiedene Nullstellen. Was gilt für a?', 'a ≠ 0', ['a = 0', 'a > 0', 'für jede Zahl a'],
+                                  'Nullstellen 0 und a. Verschieden sind sie nur für a ≠ 0; für a = 0 ist f(x) = x³ mit nur einer Nullstelle.', 'Welche Nullstellen hat f? Wann fallen sie zusammen?'))
+
+    # --- graph_term ---
+    kf = mal([-1, -2], [1, -1], [1, -1])  # −(x + 2)(x − 1)²
+    neu('graph_term', 2, mit_grafik(auswahl('Welcher Funktionsterm gehört zum gezeichneten Graphen?', 'f(x) = −(x + 2) · (x − 1)²',
+                                            ['f(x) = (x + 2) · (x − 1)²', 'f(x) = −(x + 2)² · (x − 1)', 'f(x) = −(x − 2) · (x + 1)²'],
+                                            'Nullstellen −2 (Schnitt) und 1 (Berührung); Grad 3, von links oben nach rechts unten ⇒ Leitkoeffizient negativ.',
+                                            'Schneiden oder berühren? Und wie verlaufen die Enden?'), graph_bild(kf, [-2, 1])))
+    kf = mal([1, 0], [1, -2], [1, 2])
+    neu('graph_term', 2, mit_grafik(auswahl('Welcher Funktionsterm gehört zum gezeichneten Graphen?', 'f(x) = x · (x − 2) · (x + 2)',
+                                            ['f(x) = −x · (x − 2) · (x + 2)', 'f(x) = x² · (x − 2) · (x + 2)', 'f(x) = (x − 2) · (x + 2)'],
+                                            'Drei einfache Nullstellen −2, 0, 2; Grad 3, von links unten nach rechts oben.', 'Zähle die Nullstellen und prüfe den Verlauf an den Enden.'),
+                                    graph_bild(kf, [-2, 0, 2])))
+    kf = [Fr(1, 2) * c for c in mal([1, 1], [1, 1], [1, -2])]
+    neu('graph_term', 3, mit_grafik(auswahl('Welcher Funktionsterm gehört zum gezeichneten Graphen? Achte auch auf den Schnittpunkt mit der y-Achse.', 'f(x) = 0,5 · (x + 1)² · (x − 2)',
+                                            ['f(x) = (x + 1)² · (x − 2)', 'f(x) = 2 · (x + 1)² · (x − 2)', 'f(x) = 0,5 · (x + 1) · (x − 2)²'],
+                                            'Nullstellen −1 (Berührung) und 2 (Schnitt). Der Graph schneidet die y-Achse bei −1: f(0) = a · 1 · (−2) = −2a = −1 ⇒ a = 0,5.',
+                                            'Die Nullstellen passen bei drei Termen. Entscheide mit f(0).'),
+                                    graph_bild(kf, [-1, 2], punkte=[{'x': 0, 'y': -1}])))
+    neu('graph_term', 3, auswahl('Ein Graph kommt von links oben, berührt die x-Achse bei x = −1, schneidet sie bei x = 2 und verläuft nach rechts unten. Welcher Term passt?',
+                                 'f(x) = −(x + 1)² · (x − 2)', ['f(x) = (x + 1)² · (x − 2)', 'f(x) = −(x + 1) · (x − 2)²', 'f(x) = −(x − 1)² · (x + 2)'],
+                                 'Berühren bei −1: (x + 1)². Schneiden bei 2: (x − 2). Grad 3, von links oben nach rechts unten: negativer Leitkoeffizient.',
+                                 'Übersetze jede Eigenschaft in einen Teil des Terms.'))
+    neu('graph_term', 3, luecken('f(x) = (x − 1)² · (x − 3). Der Graph von g(x) = f(x + 1) entsteht durch Verschieben. Bestimme die Nullstellen von g.', 'x₁ = □; x₂ = □',
+                                 'Nullstellen aufsteigend', [0, 2], 'g(x) = (x + 1 − 1)² · (x + 1 − 3) = x² · (x − 2). Nullstellen 0 und 2: alles um 1 nach links verschoben.',
+                                 'Setze x + 1 in f ein, oder überlege: In welche Richtung verschiebt f(x + 1)?', c=['0', '2']))
+    neu('graph_term', 3, luecken('Der Graph von f(x) = a · x⁴ + b · x² ist achsensymmetrisch, hat den Leitkoeffizienten −1 und schneidet die x-Achse bei x = 2. Bestimme a und b.', 'a = □; b = □',
+                                 'Zwei Zahlen', [-1, 4], 'a = −1. f(2) = −16 + 4b = 0 ⇒ b = 4. Also f(x) = −x⁴ + 4x² = −x²(x² − 4).',
+                                 'Der Leitkoeffizient ist a. Setze dann x = 2 ein.', c=['-1', '16 / 4']))
+
+    # --- term_bestimmen ---
+    neu('term_bestimmen', 2, zahl('Eine Funktion 3. Grades mit Leitkoeffizient 1 hat die Nullstellen −1 (einfach) und 2 (doppelt). Berechne f(0).',
+                                  'f(x) = (x + 1)(x − 2)². f(0) = 1 · (−2)² = 4.', 'Stelle zuerst die Produktform auf.', 4, '(0 + 1) * (0 - 2) ** 2'))
+    neu('term_bestimmen', 2, zahl('f(x) = a · x · (x − 3) geht durch den Punkt (1 | 4). Bestimme a.', 'f(1) = a · 1 · (−2) = −2a = 4 ⇒ a = −2.', 'Setze den Punkt ein.', -2, '4 / (1 * (1 - 3))'))
+    neu('term_bestimmen', 3, zahl('Der Graph einer Funktion 3. Grades berührt die x-Achse bei x = 2, schneidet sie bei x = −1 und geht durch (0 | 8). Bestimme a in f(x) = a · (x + 1) · (x − 2)².',
+                                  'f(0) = a · 1 · 4 = 4a = 8 ⇒ a = 2.', 'Setze den Punkt (0 | 8) ein.', 2, '8 / ((0 + 1) * (0 - 2) ** 2)'))
+    neu('term_bestimmen', 3, zahl('Ein Graph 4. Grades hat bei x = 1 und x = −1 je eine doppelte Nullstelle und geht durch (2 | 18). Bestimme a in f(x) = a · (x − 1)² · (x + 1)².',
+                                  'f(2) = a · 1² · 3² = 9a = 18 ⇒ a = 2.', 'Setze x = 2 ein und rechne die Klammern aus.', 2, '18 / ((2 - 1) ** 2 * (2 + 1) ** 2)'))
+    neu('term_bestimmen', 3, zahl('Die Parabel f(x) = a · (x − 1)(x − 4) hat ihren Scheitel auf der Höhe y = 9. Bestimme a.',
+                                  'Der Scheitel liegt in der Mitte der Nullstellen: x = 2,5. f(2,5) = a · 1,5 · (−1,5) = −2,25a = 9 ⇒ a = −4.',
+                                  'Wo liegt der Scheitel einer Parabel mit zwei Nullstellen?', -4, '9 / ((2.5 - 1) * (2.5 - 4))'))
+    neu('term_bestimmen', 3, zahl('Ein Tunnel ist am Boden 8 m breit und in der Mitte 6 m hoch. Sein Querschnitt wird durch f(x) = a · (x + 4)(x − 4) beschrieben (x in m, Mitte bei x = 0). Bestimme a.',
+                                  'f(0) = a · 4 · (−4) = −16a = 6 ⇒ a = −0,375.', 'Die Höhe in der Mitte ist f(0).', -0.375, '6 / (4 * (-4))'))
+    return N
+
+
 if __name__ == '__main__':
-    bauen('funktionen.ganzrational',
+    datei = bauen('funktionen.ganzrational',
           'Ganzrationale Funktionen beschreiben: Grad und Koeffizienten, Randverhalten, Symmetrie, Nullstellen mit Vielfachheit; Graph und Term zuordnen und Terme aus Nullstellen bestimmen.',
           ['Grad = höchste Hochzahl, Leitkoeffizient = ihr Faktor, Absolutglied = f(0).', 'Randverhalten: nur das höchste Glied zählt.',
            'Nur gerade Hochzahlen: achsensymmetrisch; nur ungerade: punktsymmetrisch.', 'Ungerade Vielfachheit: Schnitt; gerade: Berührung.'],
@@ -505,3 +652,4 @@ if __name__ == '__main__':
                  'Zeichnungen: Graphen in den Lernkarten „randverhalten“, „symmetrie“, „nullstellen“, „graph_term“, „term_bestimmen“; Aufgaben zu Berührung, „Welcher Term gehört zum Graphen?“ und „a aus Nullstellen und Punkt“ zeigen den Graphen.',
                  'Lückenaufgaben „Ausmultiplizieren“ nutzen die Term-Vorlage (z. B. „x³ + □x² + □x + □“): Das Kind tippt den Term frei ein; Koeffizienten können negativ sein.',
                  'Extrempunkte (Ableitung) sind nicht enthalten – das ist Stoff der Oberstufe.'])
+    ergaenzen(datei, schwer())

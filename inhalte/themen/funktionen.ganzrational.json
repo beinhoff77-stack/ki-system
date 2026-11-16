@@ -7721,6 +7721,922 @@
    },
    "c": "(-27) / ((0 - (-3)) * (0 - (-1)) * (0 - (3)))",
    "w": "f(0) = a · 3 · 1 · (−3) = −9a = −27 ⇒ a = 3."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Leitkoeffizienten von f(x) = (2x² − 1)³."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "2 ** 3",
+   "w": "Höchste Potenz: (2x²)³ = 8x⁶. Leitkoeffizient 8 (nicht 2).",
+   "h": "Nur die höchsten Glieder der Klammer bestimmen das höchste Glied."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Grad von f(x) = (x − 1)(x + 2) − x²."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "Ausmultipliziert: x² + x − 2 − x² = x − 2. Das x² fällt weg, der Grad ist 1.",
+   "h": "Erst ausmultiplizieren und zusammenfassen, dann den Grad ablesen."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine ganzrationale Funktion ist punktsymmetrisch zum Ursprung und hat bei x = 2 eine doppelte Nullstelle. Welchen Grad hat sie mindestens?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "1 + 2 + 2",
+   "w": "Wegen der Punktsymmetrie ist auch x = −2 doppelte Nullstelle, und f(0) = −f(0) gibt f(0) = 0. Also stecken x · (x − 2)² · (x + 2)² darin: Grad mindestens 5.",
+   "h": "Was folgt aus der Symmetrie für x = −2 und für x = 0?"
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl a hat f(x) = (a − 2)x³ + 4x² − 1 den Grad 2?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Grad 2 heißt: Das Glied mit x³ verschwindet. a − 2 = 0 ⇒ a = 2.",
+   "h": "Wann fällt das x³-Glied weg?"
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist die Summe aller Koeffizienten (mit Absolutglied) von f(x) = (2x − 1)⁵?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(2 - 1) ** 5",
+   "w": "Die Summe aller Koeffizienten ist f(1), denn jede Potenz von 1 ist 1: f(1) = (2 − 1)⁵ = 1.",
+   "h": "Setze eine geschickte Zahl für x ein, statt auszumultiplizieren."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term beschreibt keine ganzrationale Funktion?"
+   },
+   "a": [
+    "f(x) = x³ : 4",
+    "f(x) = (x − 1)⁵",
+    "f(x) = √3 · x² − 1",
+    "f(x) = 2/x + x²"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "2/x = 2 · x^(−1) hat einen negativen Exponenten. Ganzrational heißt: nur Potenzen x⁰, x¹, x², … mit beliebigen Zahlen als Faktor (auch √3 oder 1/4).",
+   "h": "Ganzrational: Summe von Vielfachen von x hoch 0, 1, 2, … Welcher Exponent passt nicht?"
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = (x − 3)³.",
+    "schablone": "x³ + □x² + □x + □",
+    "hinweis": "Koeffizienten"
+   },
+   "o": {
+    "werte": [
+     -9,
+     27,
+     -27
+    ]
+   },
+   "w": "(x − 3)² = x² − 6x + 9; mal (x − 3): x³ − 3x² − 6x² + 18x + 9x − 27 = x³ − 9x² + 27x − 27.",
+   "h": "Erst (x − 3)², dann noch einmal mal (x − 3).",
+   "c": [
+    "-3 - 6",
+    "18 + 9",
+    "-27"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = (x² + 2)(x² − 3). Schreibe f(x) = x⁴ + b · x² + c.",
+    "schablone": "b = □; c = □",
+    "hinweis": "Zwei Zahlen"
+   },
+   "o": {
+    "werte": [
+     -1,
+     -6
+    ]
+   },
+   "w": "x⁴ − 3x² + 2x² − 6 = x⁴ − x² − 6.",
+   "h": "Jedes Glied der ersten Klammer mit jedem der zweiten.",
+   "c": [
+    "-3 + 2",
+    "2 * (-3)"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "f(x) = x³ + x² − 4x − 4. Schreibe f in Produktform (kleinste Nullstelle zuerst).",
+    "schablone": "(x − □)(x − □)(x − □)",
+    "hinweis": "Nullstellen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     -2,
+     -1,
+     2
+    ]
+   },
+   "w": "Gruppieren: x²(x + 1) − 4(x + 1) = (x + 1)(x² − 4) = (x + 1)(x + 2)(x − 2).",
+   "h": "Klammere aus den ersten beiden und aus den letzten beiden Gliedern aus.",
+   "c": [
+    "-2 + ((-2)**3 + (-2)**2 + 8 - 4)",
+    "-1 + (-1 + 1 + 4 - 4)",
+    "2 + (8 + 4 - 8 - 4)"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl a gilt (x + a)(x − 2) = x² + 3x − 10?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "10 / 2",
+   "w": "Ausmultipliziert: x² + (a − 2)x − 2a. Vergleich: −2a = −10 ⇒ a = 5 (Probe: a − 2 = 3 ✓).",
+   "h": "Multipliziere aus und vergleiche das Absolutglied."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen Koeffizienten hat x² in f(x) = (x + 1)(x + 2)(x + 3)? Ohne vollständiges Ausmultiplizieren."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "1 + 2 + 3",
+   "w": "x² entsteht, wenn man aus zwei Klammern x und aus der dritten die Zahl nimmt: 1 + 2 + 3 = 6.",
+   "h": "Welche Auswahl aus den drei Klammern liefert genau x²?"
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand schreibt: (x + 2)³ = x³ + 8. Was stimmt?"
+   },
+   "a": [
+    "Falsch: (x + 2)³ = 3x + 6.",
+    "Richtig.",
+    "Falsch: (x + 2)³ = x³ + 6x² + 12x + 8.",
+    "Falsch: (x + 2)³ = x³ + 6x + 8."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "(x + 2)² = x² + 4x + 4; mal (x + 2): x³ + 6x² + 12x + 8. Probe mit x = 1: 3³ = 27, aber 1 + 8 = 9.",
+   "h": "Probe mit x = 1."
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = 3x² − x⁴ + 2 für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links unten nach rechts oben",
+    "von links oben nach rechts oben",
+    "von links oben nach rechts unten",
+    "von links unten nach rechts unten"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Höchstes Glied −x⁴: Grad gerade, Leitkoeffizient negativ: beide Enden unten.",
+   "h": "Ordne zuerst nach Potenzen."
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = −2 · (x − 1)³ für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links oben nach rechts unten",
+    "von links unten nach rechts oben",
+    "von links unten nach rechts unten",
+    "von links oben nach rechts oben"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Höchstes Glied −2x³: ungerader Grad, negativer Leitkoeffizient.",
+   "h": "Welches Glied entsteht beim Ausmultiplizieren als höchstes?"
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = (1 − x)³ · (x + 2)² für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links oben nach rechts oben",
+    "von links unten nach rechts oben",
+    "von links oben nach rechts unten",
+    "von links unten nach rechts unten"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Höchstes Glied: (−x)³ · x² = −x⁵. Ungerader Grad, negativer Leitkoeffizient. Falle: In (1 − x) steht x mit Minus.",
+   "h": "Achte auf das Vorzeichen von x in (1 − x)."
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph von f(x) = a · x⁴ + x³ verläuft von links unten nach rechts unten. Was gilt für a?"
+   },
+   "a": [
+    "a > 0",
+    "a = 0",
+    "a < 0",
+    "a < 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Bei a ≠ 0 entscheidet a · x⁴: gerader Grad, beide Enden unten ⇒ a < 0. (Für a = 0 wäre f(x) = x³ von links unten nach rechts oben.)",
+   "h": "Welches Glied ist für große |x| entscheidend, und welches Vorzeichen braucht es?"
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine ganzrationale Funktion vom Grad 4 verläuft von links oben nach rechts oben und hat f(0) = −1. Wie viele Nullstellen hat sie mindestens?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Von links oben muss der Graph bis f(0) = −1 unter die x-Achse: eine Nullstelle links von 0. Danach muss er wieder nach oben: eine rechts von 0. Mindestens 2.",
+   "h": "Skizziere: Wo beginnt der Graph, wo ist er bei x = 0, wo endet er?"
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Was geschieht mit f(x) = −x⁶ + 100x⁵ für x → −∞ (x wird immer kleiner)?"
+   },
+   "a": [
+    "f(x) wird beliebig klein (→ −∞).",
+    "f(x) wird beliebig groß (→ +∞).",
+    "f(x) nähert sich 0.",
+    "Das hängt vom Glied 100x⁵ ab."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für große |x| überwiegt −x⁶ (gerader Grad, negativer Faktor) – auch wenn 100x⁵ für kleine x größer wirkt. Für x → −∞ gilt f(x) → −∞.",
+   "h": "Am Rand zählt nur die höchste Potenz – egal, wie groß die anderen Faktoren sind."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = (x − 1)² + (x + 1)²?"
+   },
+   "a": [
+    "keine dieser Symmetrien",
+    "punktsymmetrisch zum Ursprung",
+    "achsensymmetrisch zur y-Achse"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ausmultipliziert: x² − 2x + 1 + x² + 2x + 1 = 2x² + 2. Nur gerade Hochzahlen.",
+   "h": "Erst ausmultiplizieren, dann die Hochzahlen ansehen."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = x · (x² − 4)?"
+   },
+   "a": [
+    "achsensymmetrisch zur y-Achse",
+    "punktsymmetrisch zum Ursprung",
+    "keine dieser Symmetrien"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "f(x) = x³ − 4x: nur ungerade Hochzahlen.",
+   "h": "Multipliziere aus."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph von f(x) = x⁴ − kx² hat bei x = 2 eine Nullstelle. Bestimme k."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "16 / 4",
+   "w": "f(2) = 16 − 4k = 0 ⇒ k = 4. Wegen der Achsensymmetrie ist dann auch x = −2 Nullstelle.",
+   "h": "Setze x = 2 ein."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Der Graph einer Funktion f ist punktsymmetrisch zum Ursprung und hat den Hochpunkt H(2 | 1). Welchen Tiefpunkt hat er sicher?",
+    "schablone": "T(□ | □)",
+    "hinweis": "Koordinaten"
+   },
+   "o": {
+    "werte": [
+     -2,
+     -1
+    ]
+   },
+   "w": "Punktspiegelung am Ursprung: (2 | 1) → (−2 | −1). Aus dem Hochpunkt wird ein Tiefpunkt.",
+   "h": "Was macht eine Punktspiegelung am Ursprung mit beiden Koordinaten?",
+   "c": [
+    "-2",
+    "-1"
+   ]
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl a ist der Graph von f(x) = x³ + (a − 3)x² + x punktsymmetrisch zum Ursprung?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Nur ungerade Hochzahlen erlaubt: Das x²-Glied muss wegfallen, a − 3 = 0 ⇒ a = 3.",
+   "h": "Welches Glied stört die Punktsymmetrie?"
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „f(x) = x³ + x² ist punktsymmetrisch zum Ursprung, weil der Grad ungerade ist.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Symmetrie hängt nur vom Leitkoeffizienten ab.",
+    "Falsch: x² ist eine gerade Hochzahl, f hat keine dieser Symmetrien.",
+    "Falsch: f ist achsensymmetrisch zur y-Achse.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Es zählen alle Hochzahlen, nicht nur der Grad. Probe: f(1) = 2, f(−1) = 0 ≠ −2.",
+   "h": "Prüfe mit x = 1 und x = −1."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von f(x) = x⁴ − 4x².",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "Nullstellen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     -2,
+     0,
+     2
+    ]
+   },
+   "w": "x²(x² − 4) = 0 ⇒ x = 0 (doppelt) oder x = ±2.",
+   "h": "Klammere x² aus.",
+   "c": [
+    "-2 + (16 - 16)",
+    "0",
+    "2 + (16 - 16)"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = (x² − 1)(x + 1). Welche Vielfachheit hat die Nullstelle x = −1?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "x² − 1 = (x − 1)(x + 1), also f(x) = (x − 1)(x + 1)². x = −1 ist doppelt.",
+   "h": "Zerlege x² − 1 mit der dritten binomischen Formel."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche x gilt f(x) < 0 bei f(x) = (x − 1) · x² · (x + 2)³?"
+   },
+   "a": [
+    "für −2 < x < 1, außer x = 0",
+    "für x < −2 und x > 1",
+    "für 0 < x < 1",
+    "für −2 < x < 0"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Vorzeichenwechsel nur bei −2 (dreifach) und 1 (einfach); bei 0 (doppelt) berührt der Graph. Grad 6, Leitkoeffizient positiv: außen positiv, zwischen −2 und 1 negativ – bei 0 ist f(0) = 0.",
+   "h": "Bestimme die Vielfachheiten und das Randverhalten, dann skizziere."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Nullstellen hat f(x) = x⁴ − 5x² + 4 im Bereich −1,5 < x < 1,5?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "z = x²: z = 1 oder z = 4 ⇒ x = ±1 oder x = ±2. Im Bereich liegen nur −1 und 1.",
+   "h": "Bestimme alle Nullstellen mit Substitution und prüfe, welche im Bereich liegen."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph von f(x) = x³ − 3x + c berührt die x-Achse bei x = 1. Bestimme c."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "3 - 1",
+   "w": "f(1) = 1 − 3 + c = 0 ⇒ c = 2. Probe: x³ − 3x + 2 = (x − 1)²(x + 2) – doppelte Nullstelle bei 1.",
+   "h": "Berühren heißt mindestens: f(1) = 0."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = x · (x − a)² hat genau zwei verschiedene Nullstellen. Was gilt für a?"
+   },
+   "a": [
+    "a = 0",
+    "für jede Zahl a",
+    "a > 0",
+    "a ≠ 0"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Nullstellen 0 und a. Verschieden sind sie nur für a ≠ 0; für a = 0 ist f(x) = x³ mit nur einer Nullstelle.",
+   "h": "Welche Nullstellen hat f? Wann fallen sie zusammen?"
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      3
+     ],
+     "y": [
+      -20,
+      20
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -2,
+        3,
+        0,
+        -1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = −(x − 2) · (x + 1)²",
+    "f(x) = −(x + 2) · (x − 1)²",
+    "f(x) = (x + 2) · (x − 1)²",
+    "f(x) = −(x + 2)² · (x − 1)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nullstellen −2 (Schnitt) und 1 (Berührung); Grad 3, von links oben nach rechts unten ⇒ Leitkoeffizient negativ.",
+   "h": "Schneiden oder berühren? Und wie verlaufen die Enden?"
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -30,
+      30
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        -4,
+        0,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = −x · (x − 2) · (x + 2)",
+    "f(x) = x · (x − 2) · (x + 2)",
+    "f(x) = x² · (x − 2) · (x + 2)",
+    "f(x) = (x − 2) · (x + 2)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Drei einfache Nullstellen −2, 0, 2; Grad 3, von links unten nach rechts oben.",
+   "h": "Zähle die Nullstellen und prüfe den Verlauf an den Enden."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen? Achte auch auf den Schnittpunkt mit der y-Achse.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      4
+     ],
+     "y": [
+      -8,
+      8
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -1,
+        -1.5,
+        0,
+        0.5
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": -1
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = (x + 1)² · (x − 2)",
+    "f(x) = 0,5 · (x + 1)² · (x − 2)",
+    "f(x) = 0,5 · (x + 1) · (x − 2)²",
+    "f(x) = 2 · (x + 1)² · (x − 2)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nullstellen −1 (Berührung) und 2 (Schnitt). Der Graph schneidet die y-Achse bei −1: f(0) = a · 1 · (−2) = −2a = −1 ⇒ a = 0,5.",
+   "h": "Die Nullstellen passen bei drei Termen. Entscheide mit f(0)."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Graph kommt von links oben, berührt die x-Achse bei x = −1, schneidet sie bei x = 2 und verläuft nach rechts unten. Welcher Term passt?"
+   },
+   "a": [
+    "f(x) = (x + 1)² · (x − 2)",
+    "f(x) = −(x + 1)² · (x − 2)",
+    "f(x) = −(x + 1) · (x − 2)²",
+    "f(x) = −(x − 1)² · (x + 2)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Berühren bei −1: (x + 1)². Schneiden bei 2: (x − 2). Grad 3, von links oben nach rechts unten: negativer Leitkoeffizient.",
+   "h": "Übersetze jede Eigenschaft in einen Teil des Terms."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "f(x) = (x − 1)² · (x − 3). Der Graph von g(x) = f(x + 1) entsteht durch Verschieben. Bestimme die Nullstellen von g.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Nullstellen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     0,
+     2
+    ]
+   },
+   "w": "g(x) = (x + 1 − 1)² · (x + 1 − 3) = x² · (x − 2). Nullstellen 0 und 2: alles um 1 nach links verschoben.",
+   "h": "Setze x + 1 in f ein, oder überlege: In welche Richtung verschiebt f(x + 1)?",
+   "c": [
+    "0",
+    "2"
+   ]
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Der Graph von f(x) = a · x⁴ + b · x² ist achsensymmetrisch, hat den Leitkoeffizienten −1 und schneidet die x-Achse bei x = 2. Bestimme a und b.",
+    "schablone": "a = □; b = □",
+    "hinweis": "Zwei Zahlen"
+   },
+   "o": {
+    "werte": [
+     -1,
+     4
+    ]
+   },
+   "w": "a = −1. f(2) = −16 + 4b = 0 ⇒ b = 4. Also f(x) = −x⁴ + 4x² = −x²(x² − 4).",
+   "h": "Der Leitkoeffizient ist a. Setze dann x = 2 ein.",
+   "c": [
+    "-1",
+    "16 / 4"
+   ]
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Funktion 3. Grades mit Leitkoeffizient 1 hat die Nullstellen −1 (einfach) und 2 (doppelt). Berechne f(0)."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(0 + 1) * (0 - 2) ** 2",
+   "w": "f(x) = (x + 1)(x − 2)². f(0) = 1 · (−2)² = 4.",
+   "h": "Stelle zuerst die Produktform auf."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = a · x · (x − 3) geht durch den Punkt (1 | 4). Bestimme a."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "4 / (1 * (1 - 3))",
+   "w": "f(1) = a · 1 · (−2) = −2a = 4 ⇒ a = −2.",
+   "h": "Setze den Punkt ein."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph einer Funktion 3. Grades berührt die x-Achse bei x = 2, schneidet sie bei x = −1 und geht durch (0 | 8). Bestimme a in f(x) = a · (x + 1) · (x − 2)²."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "8 / ((0 + 1) * (0 - 2) ** 2)",
+   "w": "f(0) = a · 1 · 4 = 4a = 8 ⇒ a = 2.",
+   "h": "Setze den Punkt (0 | 8) ein."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Graph 4. Grades hat bei x = 1 und x = −1 je eine doppelte Nullstelle und geht durch (2 | 18). Bestimme a in f(x) = a · (x − 1)² · (x + 1)²."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "18 / ((2 - 1) ** 2 * (2 + 1) ** 2)",
+   "w": "f(2) = a · 1² · 3² = 9a = 18 ⇒ a = 2.",
+   "h": "Setze x = 2 ein und rechne die Klammern aus."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Parabel f(x) = a · (x − 1)(x − 4) hat ihren Scheitel auf der Höhe y = 9. Bestimme a."
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "9 / ((2.5 - 1) * (2.5 - 4))",
+   "w": "Der Scheitel liegt in der Mitte der Nullstellen: x = 2,5. f(2,5) = a · 1,5 · (−1,5) = −2,25a = 9 ⇒ a = −4.",
+   "h": "Wo liegt der Scheitel einer Parabel mit zwei Nullstellen?"
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Tunnel ist am Boden 8 m breit und in der Mitte 6 m hoch. Sein Querschnitt wird durch f(x) = a · (x + 4)(x − 4) beschrieben (x in m, Mitte bei x = 0). Bestimme a."
+   },
+   "o": {
+    "wert": -0.375
+   },
+   "c": "6 / (4 * (-4))",
+   "w": "f(0) = a · 4 · (−4) = −16a = 6 ⇒ a = −0,375.",
+   "h": "Die Höhe in der Mitte ist f(0)."
   }
  ],
  "offen": [

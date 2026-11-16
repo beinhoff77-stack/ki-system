@@ -354,72 +354,82 @@ DATEI = datei(E, 'Quader und Würfel beschreiben, ihren Oberflächeninhalt berec
                      'Zeichnungen: Schrägbilder von Quadern (verdeckte Kanten gestrichelt) und Würfelnetze werden als Figur aus Linien gezeichnet (Lernkarten quader, zusammengesetzt; Aufgaben „Ist das ein Würfelnetz?“). Netze von Quadern mit Maßen und das Falten durch das Kind gehen nicht.',
                      'Prüfpunkt nicht umgesetzt: Volumeneinheiten (1 dm³ = 1 000 cm³, Liter). Raumeinheiten sind laut LehrplanPLUS Stoff der Jahrgangsstufe 6; die Karte volumen ist hier nur Vertiefung und bleibt bei cm³ ohne Umrechnung.'])
 
-# Verständliche Fassung (Siebte Runde, 15.11.): Alltagssituation zuerst (einstieg), jedes neue Wort erklärt (woerter),
-# Beispiel in kleinen Schritten, Merksatz am Ende (regel). Durchgehende Situationen: Schuhkarton, Geschenkpapier, Aquarium, Spielwürfel, Bauklötze.
-# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _klar_kl5.py) – die Aufgaben bleiben wörtlich gleich.
-from _klar_kl5 import klar  # noqa: E402
+# Umbau U5 (Achte Runde, Vorgabe 16.11.): Lernkarten nach dem neuen Muster – einstieg, woerter (≤ 3), Kartenbild,
+# Bildergeschichte (schritte mit bild), „Pass auf!“ (fehler + fehler_bild), MERKE (regel).
+# Situationen: Schuhkarton, Geschenkpapier, Aquarium, Spielwürfel, Bauklötze. Rechentabellen füllen sich Schritt für Schritt.
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl5.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl5 import umbau  # noqa: E402
 
-KLAR = {
+OBER = lambda a, b, c, s=None: {'zeilen': [['oben und unten', '2', '5 cm · 3 cm', a], ['vorne und hinten', '2', '5 cm · 2 cm', b], ['links und rechts', '2', '3 cm · 2 cm', c]]
+                                + ([['alle 6', '', '', s]] if s else [])}
+GLAS = lambda a, b, c, s: {'zeilen': [['Boden', '60 · 30', a], ['vorne, hinten', '2 · 60 · 40', b], ['links, rechts', '2 · 30 · 40', c], ['Deckel', 'fehlt', '0'], ['Glas', 'zusammen', s]]}
+SCHICHT = lambda a, b, s: {'zeilen': [['1. Schicht', a], ['2. Schicht', b], ['zusammen', s]]}
+
+KARTEN = {
  'quader': {
-  'einstieg': 'Ein Schuhkarton, ein Ziegelstein, eine Milchpackung – sie alle haben dieselbe Form: sechs rechteckige Seiten, die gerade aneinanderstoßen. Ein Spielwürfel ist ein besonders regelmäßiger Fall davon. Diese Form heißt ⟦Quader⟧.',
-  'woerter': [['Körper', 'ein Ding mit Länge, Breite und Höhe, das Platz im Raum einnimmt'], ['Quader', 'ein Körper mit 6 rechteckigen Flächen, zum Beispiel ein Schuhkarton'],
-              ['Würfel', 'ein Quader, bei dem alle Kanten gleich lang sind'], ['Fläche', 'eine Seite des Körpers'],
-              ['Kante', 'die Linie, an der zwei Flächen zusammenstoßen'], ['Ecke', 'der Punkt, an dem drei Kanten zusammenstoßen'],
-              ['a, b, c', 'Länge, Breite und Höhe des Quaders'], ['gestrichelte Linie', 'im Bild eine Kante, die hinten liegt und eigentlich verdeckt ist']],
-  'schritte': ['Ein Quader ist 5 cm lang, 3 cm breit und 2 cm hoch. Wie lang sind alle 12 Kanten zusammen?',
-               'Je 4 Kanten sind gleich lang: 4 Kanten mit 5 cm, 4 mit 3 cm und 4 mit 2 cm.',
-               'Rechne: 4 · 5 cm + 4 · 3 cm + 4 · 2 cm = 20 cm + 12 cm + 8 cm.',
-               'Alle Kanten zusammen sind ⟦40 cm⟧ lang.'],
-  'regel': 'So beschreibst du einen ⟦Quader⟧: ⟦6 rechteckige Flächen⟧, ⟦12 Kanten⟧, ⟦8 Ecken⟧. Gegenüberliegende Flächen sind gleich groß, je 4 Kanten gleich lang. Beim ⟦Würfel⟧ sind alle 12 Kanten gleich lang und alle 6 Flächen Quadrate.',
-  'fehler': '5 + 3 + 2 = 10 cm als Länge aller Kanten ist falsch: Jede Kantenlänge kommt ⟦viermal⟧ vor, also 4 · (5 + 3 + 2) = 40 cm. Für ein Kantenmodell aus Draht wären 10 cm viel zu wenig.'},
+  'einstieg': 'Ein Schuhkarton, ein Ziegelstein, eine Milchpackung: Sie haben sechs rechteckige Seiten. Ein Spielwürfel ist ein besonders regelmäßiger Fall. Diese Form heißt ⟦Quader⟧.',
+  'woerter': [['Kante', 'die Linie, an der zwei Flächen zusammenstoßen'], ['Ecke', 'der Punkt, an dem drei Kanten zusammenstoßen'],
+              ['Würfel', 'ein Quader mit lauter gleich langen Kanten']],
+  'bild': 'BEHALTEN',
+  'schritte': [{'text': 'Ein Quader hat 12 Kanten, 8 Ecken und 6 Flächen.'},
+               {'text': 'Je 4 Kanten sind gleich lang: hier 5 cm, 3 cm und 2 cm.'},
+               {'text': 'Jede Länge viermal: 20 cm, 12 cm und 8 cm.'},
+               {'text': 'Zusammen sind alle Kanten ⟦40 cm⟧ lang.'}],
+  'fehler': '5 + 3 + 2 = 10 cm ist falsch. Jede Kantenlänge kommt viermal vor: 4 · 10 cm = 40 cm.',
+  'regel': 'Ein ⟦Quader⟧ hat 6 Flächen, 12 Kanten und 8 Ecken. Je 4 Kanten sind gleich lang.'},
  'oberflaeche': {
-  'einstieg': 'Du willst einen Schuhkarton ganz mit Geschenkpapier bekleben. Wie viel Papier brauchst du? Du musst alle sechs Seiten bedecken: oben und unten, vorne und hinten, links und rechts. Alle Flächen zusammen ergeben den ⟦Oberflächeninhalt⟧.',
-  'woerter': [['Oberflächeninhalt O', 'die Flächeninhalte aller 6 Flächen zusammengezählt'], ['Flächenpaar', 'zwei gegenüberliegende Flächen, die gleich groß sind']],
-  'schritte': ['Ein Quader hat a = 5 cm, b = 3 cm, c = 2 cm. Seine 6 Flächen bilden 3 Paare.',
-               'Oben und unten: 2 · 5 · 3 = 30 cm². Vorne und hinten: 2 · 5 · 2 = 20 cm².',
-               'Links und rechts: 2 · 3 · 2 = 12 cm².',
-               'Alles zusammen: O = 30 + 20 + 12 = ⟦62 cm²⟧.'],
-  'regel': 'So berechnest du den ⟦Oberflächeninhalt⟧: Die 6 Flächen bilden ⟦3 Paare⟧ gleich großer Rechtecke. ⟦O = 2 · a · b + 2 · a · c + 2 · b · c⟧. Beim Würfel sind alle 6 Flächen gleich: ⟦O = 6 · a · a⟧.',
-  'fehler': 'Nur die drei sichtbaren Flächen addieren (15 + 10 + 6 = 31 cm²) ist falsch: Jede Fläche hat ein ⟦Gegenüber⟧ – auch der Boden des Kartons will beklebt werden. Es sind ⟦6⟧ Flächen, also doppelt so viel.'},
+  'einstieg': 'Du willst einen Schuhkarton ganz mit Geschenkpapier bekleben. Oben, unten, vorne, hinten, links und rechts: Alle sechs Flächen zusammen ergeben den ⟦Oberflächeninhalt⟧.',
+  'woerter': [['Oberflächeninhalt', 'alle 6 Flächen zusammengezählt; abgekürzt O'], ['Flächenpaar', 'zwei gegenüberliegende, gleich große Flächen']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Flächenpaar', 'Anzahl', 'eine Fläche', 'zusammen'],
+           'zeilen': [['oben und unten', '2', '5 cm · 3 cm', '?'], ['vorne und hinten', '2', '5 cm · 2 cm', '?'], ['links und rechts', '2', '3 cm · 2 cm', '?']]},
+  'schritte': [{'text': 'Oben und unten: 2 · 5 cm · 3 cm = 30 cm².', 'bild': OBER('30 cm²', '?', '?')},
+               {'text': 'Vorne und hinten: 2 · 5 cm · 2 cm = 20 cm².', 'bild': OBER('30 cm²', '20 cm²', '?')},
+               {'text': 'Links und rechts: 2 · 3 cm · 2 cm = 12 cm².', 'bild': OBER('30 cm²', '20 cm²', '12 cm²')},
+               {'text': 'Jedes Flächenpaar addiert: 30 + 20 + 12 = ⟦62 cm²⟧.', 'bild': OBER('30 cm²', '20 cm²', '12 cm²', '62 cm²')}],
+  'fehler': 'Nur die drei sichtbaren Flächen addieren ergibt 31 cm². Auch der Boden will beklebt werden: Es ist doppelt so viel.',
+  'regel': 'Addiere ⟦alle 6 Flächen⟧, je zwei sind gleich groß. Beim Würfel: O = 6 · a · a.'},
  'sachaufgaben': {
-  'einstieg': 'Ein Aquarium ist aus Glas, aber oben offen – es hat keinen Deckel. Wer ausrechnet, wie viel Glas man braucht, darf den Deckel nicht mitzählen. Bei Aufgaben aus dem Alltag ist das oft so: Nicht immer werden alle sechs Flächen gebraucht. Du überlegst zuerst, ⟦welche Flächen wirklich da sind⟧.',
-  'woerter': [['Aquarium', 'ein Glasbehälter für Fische'], ['ohne Deckel', 'die obere Fläche fehlt'], ['Wände', 'die vier Flächen ringsherum, ohne Boden und Deckel'],
-              ['mindestens', 'so viel oder mehr; hier: nicht weniger, als nötig ist']],
-  'schritte': ['Ein Aquarium ohne Deckel ist 60 cm lang, 30 cm breit und 40 cm hoch. Gebraucht werden der Boden und vier Wände.',
-               'Boden: 60 · 30 = 1 800 cm².',
-               'Vorne und hinten: 2 · 60 · 40 = 4 800 cm². Links und rechts: 2 · 30 · 40 = 2 400 cm².',
-               'Glas zusammen: 1 800 + 4 800 + 2 400 = ⟦9 000 cm²⟧.'],
-  'regel': 'So löst du Oberflächen-Sachaufgaben: Überlege zuerst, ⟦welche Flächen gebraucht werden⟧. Ein Aquarium hat ⟦keinen Deckel⟧, ein Zimmer wird ⟦ohne Boden⟧ gestrichen, Fenster und Türen ziehst du ab. Dann addierst du nur diese Flächen.'},
+  'einstieg': 'Ein Aquarium ist oben offen, es hat keinen Deckel. Wer das Glas ausrechnet, darf den Deckel nicht mitzählen. Überlege zuerst, ⟦welche Flächen wirklich da sind⟧.',
+  'woerter': [['Aquarium', 'ein Glasbehälter für Fische'], ['keinen Deckel', 'die obere Fläche fehlt']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Fläche', 'Rechnung', 'cm²'], **GLAS('?', '?', '?', '?')},
+  'schritte': [{'text': 'Das Aquarium ist 60 cm lang, 30 cm breit und 40 cm hoch.'},
+               {'text': 'Boden: 60 · 30 = 1 800 cm².', 'bild': GLAS('1 800', '?', '?', '?')},
+               {'text': 'Wände: 4 800 cm² vorne und hinten, 2 400 cm² links und rechts.', 'bild': GLAS('1 800', '4 800', '2 400', '?')},
+               {'text': 'Glas zusammen: 1 800 + 4 800 + 2 400 = ⟦9 000 cm²⟧.', 'bild': GLAS('1 800', '4 800', '2 400', '9 000')}],
+  'fehler': 'Die volle Oberfläche nehmen, obwohl der Deckel fehlt, ist falsch. Zähle nur das Glas, das es wirklich gibt.',
+  'regel': 'Zähle nur die Flächen, ⟦die wirklich da sind⟧. Aquarium ohne Deckel, Zimmer ohne Boden, Fenster abziehen.'},
  'zusammengesetzt': {
-  'einstieg': 'Du klebst drei Spielwürfel zu einer Reihe zusammen und willst die Reihe danach anmalen. Die Seiten, an denen die Würfel aneinanderkleben, kannst du nicht mehr anmalen – sie liegen innen. Bei ⟦zusammengesetzten Körpern⟧ gehören diese Klebeflächen nicht mehr zur Oberfläche.',
-  'woerter': [['zusammengesetzter Körper', 'ein Körper aus mehreren Würfeln oder Quadern'], ['Berührfläche', 'die Fläche, an der zwei Körper aneinanderstoßen; sie liegt innen'],
-              ['Einzeloberfläche', 'die Oberfläche eines einzelnen Würfels oder Quaders, bevor er angeklebt wird']],
-  'schritte': ['3 Würfel mit 1 cm Kantenlänge liegen in einer Reihe. Jeder einzelne hat 6 Quadrate zu 1 cm², zusammen sind das 3 · 6 = 18 Quadrate.',
-               'Zwischen den Würfeln gibt es 2 Klebestellen. An jeder liegen 2 Quadrate aufeinander: eins vom linken und eins vom rechten Würfel.',
-               'Diese 2 · 2 = 4 Quadrate liegen innen und fallen weg: 18 − 4 = 14.',
-               'Die Oberfläche der Reihe ist ⟦14 cm²⟧.'],
-  'regel': 'So berechnest du die Oberfläche eines ⟦zusammengesetzten Körpers⟧: Einzeloberflächen addieren, dann ⟦jede Berührfläche zweimal abziehen⟧ – sie fehlt bei beiden Körpern. Bei Würfelreihen kannst du auch die ⟦sichtbaren Quadrate zählen⟧.',
-  'fehler': '3 · 6 cm² = 18 cm² ist falsch: Die Flächen, an denen die Würfel ⟦aneinanderkleben⟧, kannst du nicht anmalen. Sie gehören nicht mehr zur Oberfläche.'},
+  'einstieg': 'Du klebst drei Spielwürfel zu einer Reihe zusammen und malst sie an. Die Klebeflächen kannst du nicht anmalen, sie liegen innen. Sie heißen ⟦Berührflächen⟧.',
+  'woerter': [['Berührfläche', 'eine Fläche, an der zwei Körper aneinanderstoßen; sie liegt innen']],
+  'bild': 'BEHALTEN',
+  'schritte': [{'text': 'Jeder Würfel hat 6 Quadrate zu 1 cm²: zusammen 18.'},
+               {'text': 'An 2 Klebestellen liegen je 2 Quadrate aufeinander: 4 fallen weg.'},
+               {'text': '18 − 4 = 14. Die Oberfläche ist ⟦14 cm²⟧.'}],
+  'fehler': '3 · 6 cm² = 18 cm² ist falsch. Die Berührflächen liegen innen und gehören nicht zur Oberfläche.',
+  'regel': 'Einzeloberflächen addieren, dann ⟦jede Berührfläche zweimal⟧ abziehen.'},
  'volumen': {
-  'einstieg': 'In einen Karton sollen Bauklötze mit 1 cm Kantenlänge. Wie viele passen hinein? Du legst eine Schicht auf den Boden und stapelst dann Schicht auf Schicht. Wie viele solcher kleinen Würfel in einen Körper passen, heißt ⟦Volumen⟧.',
-  'woerter': [['Volumen V', 'wie viele Einheitswürfel in einen Körper passen (auch: Rauminhalt)'], ['Einheitswürfel', 'ein Würfel mit der Kantenlänge 1, zum Beispiel 1 cm'],
-              ['cm³', 'Kubikzentimeter: das Volumen eines Würfels mit 1 cm Kantenlänge'], ['Schicht', 'eine Lage Würfel auf gleicher Höhe']],
-  'schritte': ['Ein Quader ist 5 cm lang, 3 cm breit und 2 cm hoch. Fülle ihn in Gedanken mit Würfeln von 1 cm Kantenlänge.',
-               'Auf den Boden passt eine Schicht von 5 · 3 = 15 Würfeln.',
-               'Der Quader ist 2 cm hoch, also passen 2 Schichten übereinander: 15 · 2 = 30 Würfel.',
-               'Das Volumen ist ⟦V = 30 cm³⟧.'],
-  'regel': 'So berechnest du das ⟦Volumen⟧: Zähle die ⟦Einheitswürfel⟧ – Würfel pro Schicht mal Zahl der Schichten. Als Formel: Quader ⟦V = a · b · c⟧, Würfel ⟦V = a · a · a⟧.'},
+  'einstieg': 'In einen Karton sollen Bauklötze mit 1 cm Kantenlänge. Du legst eine Schicht auf den Boden und stapelst Schicht auf Schicht. Wie viele hineinpassen, heißt ⟦Volumen⟧.',
+  'woerter': [['Volumen', 'wie viele Einheitswürfel in einen Körper passen; abgekürzt V'], ['cm³', 'Kubikzentimeter: ein Würfel mit 1 cm Kante'],
+              ['Schicht', 'eine Lage Würfel auf gleicher Höhe']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Schicht', 'Würfel'], **SCHICHT('?', '?', '?')},
+  'schritte': [{'text': 'Der Quader ist 5 cm lang, 3 cm breit und 2 cm hoch.'},
+               {'text': 'Eine Schicht auf dem Boden: 5 · 3 = 15 Würfel.', 'bild': SCHICHT('15', '?', '?')},
+               {'text': 'Er ist 2 cm hoch: 2 Schichten, also 15 · 2 = 30.', 'bild': SCHICHT('15', '15', '30')},
+               {'text': 'Das Volumen ist ⟦30 cm³⟧.'}],
+  'fehler': 'Volumen und Oberfläche verwechseln. Das Volumen zählt Würfel (cm³), die Oberfläche zählt Quadrate (cm²).',
+  'regel': 'Volumen = ⟦a · b · c⟧. Beim Würfel: a · a · a.'},
  'verstehen': {
-  'einstieg': 'Zwei Geschenkkartons sind Würfel; der große hat doppelt so lange Kanten wie der kleine. Braucht er dann doppelt so viel Geschenkpapier? Das Gefühl sagt ja – Nachrechnen sagt etwas anderes. Behauptungen über Körper prüfst du mit einem ⟦Zahlenbeispiel⟧.',
-  'woerter': [['Behauptung', 'eine Aussage, die richtig oder falsch sein kann'], ['Zahlenbeispiel', 'eine Rechnung mit ausgedachten, bequemen Zahlen'],
-              ['vierfach, achtfach', '4-mal so viel, 8-mal so viel']],
-  'schritte': ['Die Aussage: „Ein Würfel mit doppelter Kantenlänge hat die doppelte Oberfläche.“ Nimm ein Zahlenbeispiel.',
-               'Kleiner Würfel: a = 1 cm, also O = 6 · 1 · 1 = 6 cm².',
-               'Großer Würfel: a = 2 cm, also O = 6 · 2 · 2 = 24 cm². Das ist ⟦viermal⟧ so viel, nicht doppelt so viel.',
-               'Die Aussage ist ⟦falsch⟧.'],
-  'regel': 'So prüfst du Aussagen über Körper: mit einem ⟦Zahlenbeispiel⟧ nachrechnen oder an einem Würfel ⟦abzählen⟧. Achte darauf, ob nach ⟦Kanten (cm)⟧, ⟦Flächen (cm²)⟧ oder ⟦Volumen (cm³)⟧ gefragt ist.'},
+  'einstieg': 'Zwei Geschenkkartons sind Würfel, der große hat doppelt so lange Kanten. Braucht er doppelt so viel Papier? Das prüfst du mit einem ⟦Zahlenbeispiel⟧.',
+  'woerter': [['Zahlenbeispiel', 'eine Rechnung mit ausgedachten, bequemen Zahlen']],
+  'bild': {'typ': 'saeulen', 'einheit': 'cm²', 'werte': [{'name': 'a = 1 cm', 'wert': 6}], 'y_max': 24},
+  'schritte': [{'text': 'Kante 1 cm: O = 6 · 1 · 1 = 6 cm².'},
+               {'text': 'Kante 2 cm: O = 6 · 2 · 2 = 24 cm².',
+                'bild': {'werte': [{'name': 'a = 1 cm', 'wert': 6}, {'name': 'a = 2 cm', 'wert': 24}]}},
+               {'text': '24 ist viermal 6. Doppelt so viel Papier stimmt also ⟦nicht⟧.'}],
+  'fehler': 'Kanten, Oberfläche und Volumen wachsen verschieden. Bei doppelter Kante: Oberfläche vierfach, Volumen achtfach.',
+  'regel': 'Prüfe Aussagen mit einem ⟦Zahlenbeispiel⟧. Achte darauf, ob cm, cm² oder cm³ gefragt ist.'},
 }
-klar(DATEI, KLAR)
+umbau(DATEI, KARTEN)
 
 
 if __name__ == '__main__':

@@ -6,6 +6,12 @@ erst NACH dem Erzeugen der Aufgaben – so bleiben die Aufgaben wörtlich gleich
 (Werte im Zahlenstrahl-Bereich, Thermometer-Stand, Figur-Punkte, Tabellenbreite). `probe` entfällt bei umgebauten Karten (kommt im neuen Muster nicht vor).
 Vergleich je Thema: `aufgaben` und alle Felder außer `inhalt.etappen` und `offen` gegen den Ausgangsstand bc7a754 (lernen-app).
 
+## 2026-11-16 03:02 – STATUS
+messen.koerper_berechnung (6 Karten) umgebaut. Vorhandene Quader- und Würfelreihen-Figuren bleiben Kartenbild; neue Tabellen füllen sich Schritt für Schritt (Flächenpaare, Aquarium-Glas, Schichten beim Volumen); Säulen für 6 cm² gegen 24 cm² (verstehen).
+inhalt_pruefen: OK, keine Hinweise. Vergleich: 168 Aufgaben wörtlich gleich, Rest gleich.
+oberflaeche: Die Quader-Formel O = 2 · a · b + 2 · a · c + 2 · b · c sprengt die Satzlänge (15 Wörter) – im Merksatz steht „alle 6 Flächen, je zwei gleich groß“; die Formel zeigt die Tabelle im Bild.
+Kein fehler_bild in diesem Thema (Fehler sind Zähl- und Formelfehler); Schrägbilder/Netze als Zeichnungsart fehlen weiterhin (siehe README).
+
 ## 2026-11-16 03:01 – STATUS
 messen.flaechen (7 Karten) umgebaut. Vorhandene Figuren bleiben Kartenbild (Einheitsquadrate, Rechteck, 1 m² = 100 dm², L-Form); L-Form wird im Beispiel gestrichelt zum Rechteck ergänzt und zur Probe zerlegt. Neu: Einheiten-Tabelle (kommaschreibweise, mit fehler_bild 6 | 50), Garten-Rechteck (sachaufgaben), zwei Gärten im selben Maßstab (verstehen).
 inhalt_pruefen: OK, keine Hinweise. Vergleich: 196 Aufgaben wörtlich gleich, Rest gleich.

@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 05:40 – STATUS
+stochastik.kombinatorik fertig: umgestuft 9 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
+
 ## 2026-11-16 05:39 – STATUS
 messen.koerper_berechnung fertig: umgestuft 6 / berichtigt 0 / ersetzt 4 / neu 3 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):

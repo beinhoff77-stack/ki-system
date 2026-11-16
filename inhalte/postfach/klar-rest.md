@@ -2,6 +2,24 @@
 
 Teil A (ohne Generator): Überlagerung inhalte/klar/<thema>.json. Teil B (mit Generator): Abschnitt KLAR, eingesetzt erst nach dem Erzeugen der Aufgaben (inhalte/generatoren/_klar_rest.py). Neueste Meldung oben.
 
+## 2026-11-16 02:18 – FERTIG – Abschlussbericht klar-rest (Runde 7b)
+Alle sechs Themen haben jetzt verständliche Erklärungen (einstieg, woerter, schritte 3–5 mit Ergebnis in ⟦…⟧, regel als „So …“, fehler mit Zahlen und Bezug zur Situation).
+
+| Thema | Teil | Datei | Karten | Prüfung |
+|---|---|---|---|---|
+| zahlen.natuerlich | A | inhalte/klar/zahlen.natuerlich.json | 12 | Prüfskript OK |
+| terme.umformen | A | inhalte/klar/terme.umformen.json | 8 | Prüfskript OK |
+| zahlen.teilbarkeit | A | inhalte/klar/zahlen.teilbarkeit.json | 8 | Prüfskript OK |
+| finanzen.zinsen | A | inhalte/klar/finanzen.zinsen.json | 8 | Prüfskript OK |
+| gleichungen.einfach | B | KLAR in gleichungen_einfach.py | 7 | 189 Aufgaben wörtlich gleich, inhalt_pruefen OK |
+| groessen.indirekt | B | KLAR in groessen_indirekt.py | 7 | 189 Aufgaben wörtlich gleich, inhalt_pruefen OK |
+
+Teil A: Prüfskript je Datei: gültiges JSON, genau die Lernziele aus quelle.md in derselben Reihenfolge, woerter als [Wort, Erklärung], 3–5 Schritte, einstieg ≥ 60 Zeichen mit ⟦…⟧, keine Verbotswörter in einstieg/schritte, Klammern ⟦⟧ paarig, Zahlformat (Leerzeichen als Tausendertrenner, − als Minus). Kein Feld bild; Beispielzahlen der Karten mit Bild beibehalten. Alle Zahlen und Proben nachgerechnet. fehler neu ergänzt, wo quelle.md keinen hatte (11 Karten).
+Teil B: Neue Hilfsdatei inhalte/generatoren/_klar_rest.py – legt sich um baue() aus _nachbau.py, setzt KLAR erst nach dem Erzeugen der Aufgaben ein (Prüfung wie _klar_kl6.klar) und schreibt die Datei neu. Bilder unverändert.
+inhalt_pruefen über alle Themen: OK.
+Hinweis an den Haupt-Chat: Die Überlagerungen in inhalte/klar/*.json müssen beim Einspielen in die Datenbank noch über die bestehenden Lernkarten gelegt werden – ein Import dafür ist nicht Teil dieses Auftrags (Datenbank war verboten).
+Nicht angefasst: Datenbank, Serverfunktionen, App-Code, Tests, inhalte/pruefung/, main. Merge offen – wartet auf Freigabe.
+
 ## 2026-11-16 02:18 – STATUS
 groessen.indirekt fertig: Abschnitt KLAR im Generator groessen_indirekt.py (über _klar_rest.py), 7 Karten (einstieg, woerter neu; schritte 3–4, regel „So …“, fehler überarbeitet).
 Situationen: Zimmer streichen, Futter für Pferde, Tippgemeinschaft teilt 120 €, Pumpen im Schwimmbecken, Etikett mit 12 cm², Taxi mit Grundgebühr, Urlaubsfahrt. Bilder (Tabellen, Hyperbel) unverändert.

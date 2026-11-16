@@ -2,6 +2,14 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 05:51 – STATUS
+trigo.allgemein fertig: umgestuft 5 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 2. Prüfskript OK, Nachweis OK.
+- nicht umgesetzt:
+  - kosinussatz_seite S3 viermal „Schiff fährt … dreht um … nach links“; Lernkarte erklärt „180° − Drehwinkel“ nicht – Aufgaben richtig; der Tipp nennt den Schritt („Der Innenwinkel am Wendepunkt ist 180° minus Drehwinkel“), der Lösungsweg rechnet ihn vor. Seit Runde 10 gibt es auf Stufe 3 weitere Typen. Lernkarte siehe „für Sebastian“.
+  - sinussatz_seite S3 viermal „Zwei Beobachter … Baum auf der anderen Seite eines Sees“ – Kein Fehler; seit Runde 10 gibt es auf Stufe 3 vier andere Typen.
+- für Sebastian:
+  - trigo.allgemein/kosinussatz_seite: Lernkarte erklärt nicht, dass der Dreieckswinkel 180° minus Drehwinkel ist (Schiff-Aufgaben). Ergänzen? Karten-Text nicht geändert.
+
 ## 2026-11-16 05:50 – STATUS
 trigo.rechtwinklig fertig: umgestuft 18 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
 

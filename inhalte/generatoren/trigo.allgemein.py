@@ -743,6 +743,20 @@ def schwer():
     ]
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('trigo.allgemein', 13_9_12)
+# a) nur Vorzeichenwechsel, „vier Nachkommastellen“ ist Abschreiben → Stufe 2
+for _w, _s, _w2 in [('17', '0,2924', '197'), ('85', '0,9962', '265'), ('40', '0,6428', '220'), ('5', '0,0872', '185'), ('45', '0,7071', '225')]:
+    BF.stufe('einheitskreis', f'Es gilt sin {_w}° ≈ {_s}. Wie groß ist sin {_w2}° (vier Nachkommastellen)?', 2)
+BF.nicht_umgesetzt('kosinussatz_seite S3 viermal „Schiff fährt … dreht um … nach links“; Lernkarte erklärt „180° − Drehwinkel“ nicht',
+                   'Aufgaben richtig; der Tipp nennt den Schritt („Der Innenwinkel am Wendepunkt ist 180° minus Drehwinkel“), der Lösungsweg rechnet ihn vor. Seit Runde 10 gibt es auf Stufe 3 weitere Typen. Lernkarte siehe „für Sebastian“.')
+BF.nicht_umgesetzt('sinussatz_seite S3 viermal „Zwei Beobachter … Baum auf der anderen Seite eines Sees“', 'Kein Fehler; seit Runde 10 gibt es auf Stufe 3 vier andere Typen.')
+BF.fuer_sebastian('trigo.allgemein/kosinussatz_seite: Lernkarte erklärt nicht, dass der Dreieckswinkel 180° minus Drehwinkel ist (Schiff-Aufgaben). Ergänzen? Karten-Text nicht geändert.')
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     d = bauen('trigo.allgemein',
           'Sinus und Kosinus am Einheitskreis deuten und in beliebigen Dreiecken mit Sinussatz, Kosinussatz und Flächenformel rechnen.',
@@ -759,3 +773,4 @@ if __name__ == '__main__':
                  'Gleichungen wie sin α = −0,5 stehen jetzt nur noch im Thema gleichungen.trig (Prüfvorschlag); Stufe 3 von „einheitskreis“ beurteilt Aussagen.',
                  'Rechenausdruck c: Winkelfunktionswerte als 12-stellige Konstanten (Prüfskript kennt sin/cos nicht).'])
     anhaengen(d, 9912, schwer)
+    befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

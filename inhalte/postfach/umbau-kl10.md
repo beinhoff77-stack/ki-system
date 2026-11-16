@@ -2,6 +2,10 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 03:07 – STATUS
+stochastik.mehrstufig umgebaut (7 Karten): einstieg (≤ 35 Wörter), woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel (erster Satz = Kurz gesagt). KLAR-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_kl10.bauen(klar=…)); probe entfällt.
+Aufgaben-Vergleich gegen `git show HEAD:inhalte/themen/stochastik.mehrstufig.json`: alle 196 wörtlich gleich, titel/lernziel unverändert. inhalt_pruefen: 0 Fehler, 0 Hinweise. simulation (der Fehler ist ein Denkfehler „der Würfel merkt sich etwas“, ein Diagramm würde ihn nicht zeigen) und verstehen (der Fehler ist allgemein „über 1 ist unmöglich“; dasselbe Bild steht schon als fehler_bild bei pfad_mult). Das Baum-Bild hat keine Markierung, daher zeigen die Schrittbilder den Baum stufenweise oder nur mit den gemeinten Pfaden
+
 ## 2026-11-16 03:06 – STATUS
 raum.pyramide_kegel_kugel umgebaut (7 Karten): einstieg (≤ 35 Wörter), woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel (erster Satz = Kurz gesagt). KLAR-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_kl10.bauen(klar=…)); probe entfällt.
 Aufgaben-Vergleich gegen `git show HEAD:inhalte/themen/raum.pyramide_kegel_kugel.json`: alle 196 wörtlich gleich, titel/lernziel unverändert. inhalt_pruefen: 0 Fehler, 0 Hinweise. kugel (der Fehler ist ein Einheitenfehler cm² statt cm³, er steckt in der Formel, nicht in der Zeichnung). Brüche im Text als 1/3 und 2/3 statt Unicode-Bruchzeichen (Prüfhinweis)

@@ -2901,7 +2901,7 @@
    "l": "dreisatz",
    "t": "dreisatz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "20 Hefte kosten 80 €. 11 Hefte kosten wie viel €?"
@@ -3589,7 +3589,7 @@
    "l": "sach",
    "t": "anwenden",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Lied dauert 4 Minuten, wenn 4 Kinder es singen. Wie viele Minuten dauert es, wenn 9 Kinder singen?"
@@ -3643,18 +3643,19 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ein Hahn füllt in 4 Minuten einen Eimer mit 48 Litern. Ungefähr wie viele Liter laufen in 20 Minuten?"
+    "text": "Aus einem Hahn laufen in 4 Minuten 48 Liter Wasser, jede Minute gleich viel. Wie viele Liter laufen in 20 Minuten?"
    },
    "a": [
-    "etwa 200 Liter",
-    "etwa 70 Liter",
-    "etwa 2 000 Liter"
+    "68 Liter",
+    "240 Liter",
+    "960 Liter",
+    "2 400 Liter"
    ],
    "o": {
-    "index": 0
+    "index": 1
    },
-   "w": "In 1 Minute sind es 48 : 4 = 12 Liter. In 20 Minuten: 12 · 20 = 240 Liter, also etwa 200 Liter. Nur dazuzählen (48 + 20) ist falsch.",
-   "h": "Überschlage: Wie viel ist es für 1? Wie oft so viel brauchst du?"
+   "w": "In 1 Minute sind es 48 : 4 = 12 Liter. In 20 Minuten: 12 · 20 = 240 Liter. Nur dazuzählen (48 + 20 = 68) ist falsch.",
+   "h": "Wie viel ist es in 1 Minute? Wie oft so viel brauchst du?"
   },
   {
    "l": "sach",
@@ -3714,7 +3715,7 @@
    "l": "sach",
    "t": "anwenden",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "2 Eier kochen 10 Minuten. Wie viele Minuten kochen 8 Eier im selben Topf?"
@@ -3771,7 +3772,7 @@
    "l": "sach",
    "t": "anwenden",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "3 Eier kochen 9 Minuten. Wie viele Minuten kochen 5 Eier im selben Topf?"
@@ -3811,17 +3812,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ein Hahn füllt in 2 Minuten einen Eimer mit 24 Litern. Ungefähr wie viele Liter laufen in 20 Minuten?"
+    "text": "Aus einem Hahn laufen in 2 Minuten 24 Liter Wasser, jede Minute gleich viel. Wie viele Liter laufen in 20 Minuten?"
    },
    "a": [
-    "etwa 2 000 Liter",
-    "etwa 40 Liter",
-    "etwa 200 Liter"
+    "240 Liter",
+    "480 Liter",
+    "2 400 Liter",
+    "44 Liter"
    ],
    "o": {
-    "index": 2
+    "index": 0
    },
-   "w": "In 1 Minute sind es 24 : 2 = 12 Liter. In 20 Minuten: 12 · 20 = 240 Liter, also etwa 200 Liter. Nur dazuzählen (24 + 20) ist falsch."
+   "w": "In 1 Minute sind es 24 : 2 = 12 Liter. In 20 Minuten: 12 · 20 = 240 Liter. Nur dazuzählen (24 + 20 = 44) ist falsch."
   },
   {
    "l": "sach",

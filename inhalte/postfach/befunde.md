@@ -3,6 +3,12 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:36 – STATUS
+groessen.proportional fertig: umgestuft 4 / berichtigt 0 / ersetzt 2 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Ein Hahn füllt in 4 Minuten einen Eimer mit 48 Litern. Ungefähr wie viele Liter laufen in 20 Minuten?“
+  - „Ein Hahn füllt in 2 Minuten einen Eimer mit 24 Litern. Ungefähr wie viele Liter laufen in 20 Minuten?“
+
+## 2026-11-16 05:36 – STATUS
 groessen.einheiten fertig: umgestuft 7 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
 
 ## 2026-11-16 05:36 – STATUS

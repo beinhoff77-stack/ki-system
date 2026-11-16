@@ -104,3 +104,16 @@ def umbau(datei, karten, offen=()):
     if offen:
         datei['offen'] = list(datei.get('offen') or []) + [o for o in offen if o not in (datei.get('offen') or [])]
     return datei
+
+
+def mit_umbau(baue, karten, offen=()):
+    """Für Generatoren mit baue(...) aus _nachbau.py (z. B. gleichungen.einfach): baue erzeugt die Aufgaben (mit den ALTEN
+    Beispieltexten) und schreibt die Datei; danach werden die Karten umgebaut und die Datei neu geschrieben."""
+    from _nachbau import THEMEN
+
+    def baue_umbau(meta, *args, **kwargs):
+        d = baue(meta, *args, **kwargs)
+        umbau(d, karten, offen)
+        (THEMEN / f"{meta['thema_schluessel']}.json").write_text(json.dumps(d, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
+        return d
+    return baue_umbau

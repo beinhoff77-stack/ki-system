@@ -6,6 +6,10 @@ erst NACH dem Erzeugen der Aufgaben – so bleiben die Aufgaben wörtlich gleich
 (Werte im Zahlenstrahl-Bereich, Thermometer-Stand, Figur-Punkte, Tabellenbreite). `probe` entfällt bei umgebauten Karten (kommt im neuen Muster nicht vor).
 Vergleich je Thema: `aufgaben` und alle Felder außer `inhalt.etappen` und `offen` gegen den Ausgangsstand bc7a754 (lernen-app).
 
+## 2026-11-16 03:06 – STATUS
+gleichungen.einfach (7 Karten) umgebaut (Generator mit baue aus _nachbau: neue Hülle mit_umbau in _umbau_kl5.py statt mit_klar). Waage-Figur mit wechselnden Schalen-Beschriftungen (waage, probe, aufstellen), gekippte Waage als fehler_bild (links 13, rechts 10); Zahlenstrahl mit Bögen (Geldbeutel, Aufzug mit schattiertem Bereich unter 0); Bruchstreifen 12 € auf 4 Hefte; Rechenketten-Tabelle vorwärts/rückwärts.
+inhalt_pruefen: OK, keine Hinweise. Vergleich: 189 Aufgaben wörtlich gleich, Rest gleich.
+
 ## 2026-11-16 03:04 – STATUS
 stochastik.kombinatorik (7 Karten) umgebaut. Tabellen füllen sich Schritt für Schritt (Outfits, Menü, Siegerpodest, Stellen, zweistellige Zahlen); Baumdiagramm wächst Stufe für Stufe, am Ende stehen die ganzen Pfade an den Blättern (✓ bei genau zweimal K); Händeschütteln als Figur: erst die 4 Linien von A, dann alle 10.
 inhalt_pruefen: OK, keine Hinweise. Vergleich: 196 Aufgaben wörtlich gleich, Rest gleich.

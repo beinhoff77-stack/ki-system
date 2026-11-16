@@ -739,6 +739,91 @@ KLAR = {
 baue = mit_klar(baue, KLAR)
 
 
+# ---------- UMBAU: neues Muster (Achte Runde, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl8.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl8 import mit_umbau  # noqa: E402
+
+def _t(kopf, *zeilen):
+    return {'typ': 'tabelle', 'kopf': list(kopf), 'zeilen': [list(z) for z in zeilen]}
+
+
+_ET = [{'x': 1, 'y': 12, 'name': '(1 | 12)'}, {'x': 2, 'y': 6, 'name': '(2 | 6)'}, {'x': 3, 'y': 4, 'name': '(3 | 4)'}, {'x': 4, 'y': 3}, {'x': 6, 'y': 2, 'name': '(6 | 2)'}]
+_ETG = [{'art': 'hyperbel', 'a': 12, 'b': 0, 'c': 0, 'bereich': [0.95, 13]}]
+_TX = ['Strecke in km', '2', '4', '6']
+UMBAU = {
+ 'erkennen': {
+  'einstieg': 'Ihr streicht ein Zimmer: Zu zweit braucht ihr 6 Stunden. Zu viert seid ihr doppelt so viele und braucht halb so lange. Das heißt ⟦indirekt proportional⟧.',
+  'woerter': [['indirekt proportional', 'zum Doppelten gehört die Hälfte, zum Dreifachen ein Drittel'], ['h', 'Abkürzung für Stunden']],
+  'bild': _t(['Personen', '2', '4', '6'], ['Zeit in h', '6', '?', '?']),
+  'schritte': [{'text': '2 Personen brauchen 6 h. Davon gehst du aus.'},
+               {'text': 'Doppelt so viele brauchen halb so lange: 6 h : 2 = ⟦3 h⟧.', 'bild': _t(['Personen', '2', '4', '6'], ['Zeit in h', '6', '3', '?'])},
+               {'text': 'Dreimal so viele brauchen ein Drittel: 6 h : 3 = 2 h.', 'bild': _t(['Personen', '2', '4', '6'], ['Zeit in h', '6', '3', '2'])},
+               {'text': 'Doppelt → halb, dreifach → ein Drittel: indirekt proportional.'}],
+  'fehler': '„Je älter, desto billiger“ reicht nicht. Ein doppelt so altes Auto ist nicht ⟦halb so viel⟧ wert.',
+  'fehler_bild': _t(['Alter in Jahren', '1', '2'], ['Wert in €', '20 000', '17 000']),
+  'regel': 'Doppelt so viel ⟦→ halb so viel⟧: indirekt proportional. „Je mehr, desto weniger“ allein reicht nicht.'},
+ 'vervielfachen': {
+  'einstieg': 'Ein Bauer hat Futter für 6 Pferde, es reicht 20 Tage. Er verkauft 3 Pferde. Bei halb so vielen Pferden reicht das Futter ⟦doppelt so lange⟧.',
+  'woerter': [['Wertepaar', 'zwei Werte, die zusammengehören: 6 Pferde – 20 Tage']],
+  'bild': _t(['Pferde', '6', '3'], ['Tage', '20', '?']),
+  'schritte': [{'text': 'Das Wertepaar ist 6 Pferde und 20 Tage.'},
+               {'text': 'Von 6 auf 3 Pferde wird durch 2 geteilt.'},
+               {'text': 'Die Tage umgekehrt mal 2: 20 · 2 = ⟦40⟧.', 'bild': _t(['Pferde', '6', '3'], ['Tage', '20', '40'])}],
+  'fehler': '3 Pferde → 20 : 2 = 10 Tage ist falsch. Weniger Pferde fressen weniger, das Futter reicht ⟦länger⟧.',
+  'fehler_bild': _t(['Pferde', '6', '3'], ['Tage', '20', '10 ?']),
+  'regel': 'Teilst du die eine Größe, ⟦multiplizierst⟧ du die andere. Und umgekehrt, immer mit derselben Zahl.'},
+ 'produkt': {
+  'einstieg': 'Eine Tippgemeinschaft gewinnt 120 € und teilt gerecht. Zu zweit bekommt jeder 60 €, zu dritt 40 €. Personen mal Betrag ergibt immer 120 €: ⟦Produktgleichheit⟧.',
+  'woerter': [['Produktgleichheit', 'für alle Wertepaare ist x · y gleich'], ['Produkt', 'das Ergebnis einer Malrechnung']],
+  'bild': _t(['Personen', '2', '3', '5', '8'], ['€ pro Person', '60', '40', '24', '?']),
+  'schritte': [{'text': 'Produkte: 2 · 60, 3 · 40 und 5 · 24 ergeben je 120.'},
+               {'text': 'Alle gleich: Das Produkt ist der Gewinn, 120 €.'},
+               {'text': 'Für 8 Personen: 120 € : 8 = ⟦15 €⟧.', 'bild': _t(['Personen', '2', '3', '5', '8'], ['€ pro Person', '60', '40', '24', '15'])}],
+  'fehler': 'Nur zwei Paare prüfen reicht nicht: 6 · 25 = 150 passt nicht zu 120. Prüfe ⟦alle⟧ Paare.',
+  'fehler_bild': _t(['Personen', '2', '4', '6'], ['€ pro Person', '60', '30', '25'], ['Produkt', '120', '120', '150']),
+  'regel': 'Gleiches ⟦Produkt x · y⟧ heißt indirekt proportional. Fehlende Werte: Produkt geteilt durch x.'},
+ 'dreisatz': {
+  'einstieg': '6 Pumpen leeren ein Becken in 10 Stunden, dann fallen 2 aus. Wie lange brauchen die übrigen 4? Du rechnest über eine Pumpe, mit dem ⟦Dreisatz⟧.',
+  'woerter': [['Dreisatz', 'in drei Schritten rechnen: gegeben → eine Einheit → gesucht']],
+  'bild': _t(['Pumpen', '6', '1', '4'], ['Zeit in h', '10', '?', '?']),
+  'schritte': [{'text': '6 Pumpen brauchen 10 h.'},
+               {'text': 'Eine Pumpe allein braucht 6-mal so lange: 60 h.', 'bild': _t(['Pumpen', '6', '1', '4'], ['Zeit in h', '10', '60', '?'])},
+               {'text': '4 Pumpen brauchen ein Viertel davon: 60 h : 4 = ⟦15 h⟧.', 'bild': _t(['Pumpen', '6', '1', '4'], ['Zeit in h', '10', '60', '15'])}],
+  'fehler': '10 h : 6 · 4 ≈ 6,7 h ist falsch: Weniger Pumpen sind nicht schneller. Weniger Pumpen brauchen ⟦mehr⟧ Zeit.',
+  'fehler_bild': _t(['Pumpen', '6', '1', '4'], ['Zeit in h', '10', '1,7 ?', '6,7 ?']),
+  'regel': 'Zur Einheit ⟦malnehmen⟧, nicht teilen. Eine Pumpe braucht länger als sechs.'},
+ 'graph': {
+  'einstieg': 'Ein Etikett soll 12 cm² groß sein, etwa 2 cm breit und 6 cm lang. Es gibt viele Möglichkeiten. Eingetragen liegen sie auf einer gebogenen Kurve, einer ⟦Hyperbel⟧.',
+  'woerter': [['Hyperbel', 'die gebogene Kurve von y = k : x'], ['y = 12 : x', 'die Länge, wenn die Breite x ist']],
+  'bild': {'typ': 'koordinaten', 'x': [0, 13], 'y': [0, 13], 'name_x': 'Breite', 'name_y': 'Länge', 'graphen': _ETG, 'punkte': _ET},
+  'schritte': [{'text': 'Breite mal Länge ist 12, also y = 12 : x.', 'bild': {'graphen': [], 'punkte': []}},
+               {'text': 'Wertepaare sind zum Beispiel (1 | 12), (2 | 6) und (3 | 4).', 'bild': {'punkte': _ET}},
+               {'text': 'Die Punkte verbindest du mit einer gebogenen Linie: einer ⟦Hyperbel⟧.', 'bild': {'graphen': _ETG}}],
+  'fehler': 'Die Kurve nicht bis zur Achse zeichnen. Bei Breite 0 gäbe es kein Etikett mit 12 cm²: Sie ⟦berührt die Achsen nie⟧.',
+  'regel': 'Der Graph ist eine ⟦Hyperbel y = k : x⟧. Sie geht nicht durch den Ursprung.'},
+ 'unterscheiden': {
+  'einstieg': 'Eine Taxifahrt kostet 4 € Grundgebühr und 2 € pro Kilometer. Mehr Kilometer kosten mehr, aber doppelt so weit kostet nicht doppelt so viel. Das ist ⟦weder noch⟧.',
+  'woerter': [['Quotient', 'das Ergebnis einer Geteiltrechnung, hier y : x'], ['weder noch', 'weder direkt noch indirekt proportional']],
+  'bild': _t(_TX, ['Preis in €', '8', '12', '16']),
+  'schritte': [{'text': 'Quotienten: 8 : 2 = 4, aber 12 : 4 = 3.', 'bild': _t(_TX, ['Preis in €', '8', '12', '16'], ['y : x', '4', '3', '2,67'])},
+               {'text': 'Produkte: 2 · 8 = 16, aber 4 · 12 = 48.', 'bild': _t(_TX, ['Preis in €', '8', '12', '16'], ['y : x', '4', '3', '2,67'], ['x · y', '16', '48', '96'])},
+               {'text': 'Weder Quotient noch Produkt bleibt gleich: ⟦weder noch⟧.'}],
+  'fehler': '„Der Preis steigt, also direkt proportional“ ist falsch. 4 km kosten 12 €, nicht ⟦das Doppelte⟧ von 8 €.',
+  'regel': 'Gleicher ⟦Quotient⟧: direkt. Gleiches ⟦Produkt⟧: indirekt. Sonst weder noch – dann hilft kein Dreisatz.'},
+ 'sach': {
+  'einstieg': 'Bei 80 km/h dauert die Urlaubsfahrt 3 Stunden. Wie lange dauert sie bei 120 km/h? Erst überlegst du: Schneller heißt weniger Zeit – so gehst du jede ⟦Sachaufgabe⟧ an.',
+  'woerter': [['Sachaufgabe', 'eine Rechenaufgabe als Geschichte'], ['km/h', 'Kilometer pro Stunde: die Geschwindigkeit']],
+  'bild': _t(['km/h', '80', '120'], ['Zeit in h', '3', '?']),
+  'schritte': [{'text': 'Doppelt so schnell heißt halb so lange: indirekt proportional.'},
+               {'text': 'Das Produkt bleibt: 80 · 3 = 240, die Strecke in km.'},
+               {'text': '240 : 120 = ⟦2 h⟧. Schneller, also weniger Zeit: passt.', 'bild': _t(['km/h', '80', '120'], ['Zeit in h', '3', '2'])}],
+  'fehler': 'Nicht bei jedem „mehr“ den Dreisatz nehmen. Mit Eintritt kosten 3 Fahrten nicht 3 · 7 €, denn der Eintritt wird nur ⟦einmal⟧ bezahlt.',
+  'regel': 'Erst fragen: ⟦Doppelt so viel – doppelt oder halb?⟧ Dann rechnen und das Ergebnis auf Sinn prüfen.'},
+}
+UMBAU_OFFEN = []
+baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Erkennen', ['erkennen', 'vervielfachen', 'produkt']), ('Rechnen', ['dreisatz']),

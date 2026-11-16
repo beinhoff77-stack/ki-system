@@ -9,6 +9,10 @@ Prüfung je Thema: Aufgaben Feld für Feld gegen `git show origin/lernen-app:inh
 
 ## Status
 
+## 2026-11-16 04:00 – STATUS
+abbildungen.kongruenz umgebaut (7 Karten): Koordinatenbilder mit Schritt-Zuständen (Abstand zur Achse → Bildpunkt; Weg P→Z → doppelter Weg; Verschiebungsweg mit Pfeil v; Weg O→P und mitgedrehter Weg), Rechteck mit nacheinander eingezeichneten Symmetrieachsen, Dreiecke um eine Parkett-Ecke (1 → 6), zwei Spiegelungen an parallelen Achsen (Dreieck → Bild 1 → Bild 2). fehler_bild bei achsenspiegelung (Spiegeln an der x-Achse), drehung (180° statt 90°), symmetrie (Diagonale ist keine Achse).
+Aufgaben: 168, 0 Unterschiede. inhalt_pruefen: 0 Fehler, 0 Hinweise.
+
 ## 2026-11-16 03:45 – STATUS
 terme.aufstellen umgebaut (6 Karten), durchgehend Fahrradverleih. Bilder: sich füllende Tabellen (Termart, Wertetabelle, Übersetzung, Preistafel, Deutung), Streichholz-Figuren 1 → 2 → 3 als Bildfolge. fehler_bild bei struktur (Gegenbeispiel 3x + 4 als Tabelle) und uebersetzen (falsch/richtig). Beispiel der Karte termwert jetzt in der Verleih-Situation (3x + 5 für 1, 2, 4 Stunden); die Klammerregel für negative Zahlen steht im Merksatz.
 Aufgaben: 144, 0 Unterschiede. inhalt_pruefen: 0 Fehler, 0 Hinweise.

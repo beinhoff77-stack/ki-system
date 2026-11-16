@@ -395,6 +395,78 @@ UMBAU_OFFEN = ['Umbau 16.11.: Die Lernkarten zeigen Intervalle jetzt auf dem Zah
 baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
 
 
+# ---- SCHWER (Zehnte Runde: schwerere Aufgaben nach Prüfungsvorbild, siehe _schwer_kl8.py) ----
+# Vorbilder (Typ und Niveau, nicht Wortlaut/Zahlen): Eigene Prüfungsaufgaben nur zu Intervallen wurden nicht gefunden. Vorbild sind
+# BMT10 2022 (Schnitt- und Vereinigungsmenge von Lösungsmengen), Schulaufgaben-Typ Kl. 8 (Lösungsmenge einer Ungleichung als Intervall),
+# BMT8 2025 (Aussage begründet widerlegen) und Sachbedingungen mit „ab / bis einschließlich / unter“ wie in VERA-Sachaufgaben.
+from _schwer_kl8 import Neu, mit_schwer  # noqa: E402
+
+SW = Neu(10_8_8)
+
+# lesen
+SW.a('lesen', 2, 'Was bedeutet das Intervall ]−∞; 2,5]?', 'x ≤ 2,5', ['x < 2,5', 'x ≥ 2,5', '−∞ ≤ x ≤ 2,5'],
+     'Links unbegrenzt, rechts gehört 2,5 dazu (Klammer zeigt zur Zahl): x ≤ 2,5.', 'Lies jede Klammer einzeln.')
+SW.a('lesen', 2, 'Was bedeutet das Intervall [−1,5; 0[?', '−1,5 ≤ x < 0', ['−1,5 < x ≤ 0', '−1,5 ≤ x ≤ 0', '−1,5 < x < 0'],
+     'Links zeigt die Klammer zur −1,5: dabei. Rechts zeigt sie von der 0 weg: nicht dabei.', 'Zur Zahl hin: dabei. Von der Zahl weg: nicht dabei.')
+SW.a('lesen', 3, 'Im Zoo gilt: Kinder ab 6 Jahren bis einschließlich 14 Jahren zahlen den Kinderpreis. Jugendliche über 14 bis unter 18 Jahren zahlen den Jugendpreis. Welches Intervall beschreibt das Alter (in Jahren) für den Jugendpreis?',
+     ']14; 18[', ['[14; 18[', ']14; 18]', '[6; 18['],
+     '„über 14“: 14 gehört nicht dazu (14-Jährige zahlen den Kinderpreis). „unter 18“: 18 gehört nicht dazu. Also ]14; 18[.', 'Wer genau 14 ist, zahlt welchen Preis?', art='P')
+SW.a('lesen', 3, 'Welche Zahlen liegen in [−2; 5[, aber nicht in [−2; 1]?', ']1; 5[', ['[1; 5[', ']1; 5]', '[−2; 1['],
+     'Aus [−2; 5[ fallen alle Zahlen von −2 bis 1 (mit 1) weg. Übrig bleibt alles über 1 bis unter 5: ]1; 5[.', 'Zeichne beide Bereiche auf einen Zahlenstrahl. Gehört die 1 zum Rest?', art='P')
+SW.z('lesen', 3, 'Das Intervall [a; a + 3[ enthält genau die ganzen Zahlen 4, 5 und 6. a ist eine ganze Zahl. Welche?', 4, '4',
+     'Die kleinste ganze Zahl im Intervall ist a selbst (Klammer zur Zahl). Also a = 4. Dann [4; 7[: 4, 5, 6 – die 7 gehört nicht dazu.', 'Welche Grenze gehört dazu, welche nicht?', art='K')
+SW.z('lesen', 3, 'Wie viele Zahlen mit genau einer Nachkommastelle (z. B. 1,3) liegen im Intervall ]1; 2[?', 9, '9',
+     '1,1; 1,2; …; 1,9 – das sind 9 Zahlen. 1,0 und 2,0 haben keine echte Nachkommastelle und sind außerdem Grenzen, die nicht dazugehören.',
+     'Zähle 1,1; 1,2; … auf.', art='K')
+
+# schreiben
+SW.a('schreiben', 2, 'Schreibe als Intervall: alle Zahlen, die kleiner als 0,5 sind.', ']−∞; 0,5[', [']−∞; 0,5]', ']0,5; ∞[', '[−∞; 0,5['],
+     'x < 0,5: nach links unbegrenzt, 0,5 gehört nicht dazu. Bei −∞ zeigt die Klammer immer nach außen.', '„kleiner als“: Grenze nicht dabei.')
+SW.a('schreiben', 2, 'Schreibe −4 ≤ x < −1,5 als Intervall.', '[−4; −1,5[', [']−4; −1,5]', '[−4; −1,5]', '[−1,5; −4['],
+     '≤ bei −4: Klammer zur Zahl. < bei −1,5: Klammer von der Zahl weg. Die kleinere Zahl steht links.', 'Die kleinere Grenze steht immer links.')
+SW.a('schreiben', 3, 'Ein Gerät darf bei −10 °C bis 40 °C betrieben werden, 40 °C selbst ist aber schon zu warm. Welches Intervall beschreibt die erlaubten Temperaturen (in °C)?',
+     '[−10; 40[', [']−10; 40]', '[−10; 40]', '[40; −10['], '−10 °C ist erlaubt (Klammer zur Zahl), 40 °C nicht (Klammer weg).', 'Übersetze erst in eine Ungleichung.', art='P')
+SW.a('schreiben', 3, 'Löse 2x − 3 > 4 und schreibe die Lösungsmenge als Intervall.', ']3,5; ∞[', ['[3,5; ∞[', ']−∞; 3,5[', ']0,5; ∞['],
+     '2x > 7 ⇔ x > 3,5. Die 3,5 gehört nicht dazu: ]3,5; ∞[.', 'Erst lösen, dann schreiben.', art='P')
+SW.a('schreiben', 3, 'Schreibe als Intervall: alle Zahlen, deren Abstand zur Zahl 2 höchstens 3 beträgt.', '[−1; 5]', [']−1; 5[', '[2; 5]', '[−3; 3]'],
+     'Von 2 aus 3 nach links: −1, 3 nach rechts: 5. „Höchstens“: Grenzen gehören dazu. [−1; 5].', 'Gehe vom Mittelpunkt 2 aus in beide Richtungen.', art='K')
+SW.a('schreiben', 3, 'Schreibe als Intervall: alle Zahlen, die nicht negativ sind.', '[0; ∞[', [']0; ∞[', ']−∞; 0]', ']−∞; 0['],
+     '„Nicht negativ“ heißt: positiv oder 0. Die 0 gehört dazu: [0; ∞[.', 'Ist 0 negativ?', art='K')
+
+# enthalten
+SW.z('enthalten', 2, 'Wie viele ganze Zahlen liegen im Intervall ]−2,5; 3,5]?', 6, '3 - (-2) + 1', 'Ganze Zahlen von −2 bis 3: −2, −1, 0, 1, 2, 3 – das sind 6.',
+     'Die Grenzen sind keine ganzen Zahlen. Suche die kleinste und größte ganze Zahl dazwischen.')
+SW.a('enthalten', 2, 'Welche Zahl liegt NICHT im Intervall ]−3; 1]?', '−3', ['−2,9', '0', '1'], 'Die Klammer bei −3 zeigt weg: −3 gehört nicht dazu. −2,9, 0 und 1 liegen darin.',
+     'Prüfe besonders die Grenzen.')
+SW.a('enthalten', 3, 'Welche Zahlen liegen in ]−1; 4] und gleichzeitig in [2; 6[?', '[2; 4]', [']−1; 6[', ']2; 4[', '[2; 4['],
+     'Gemeinsamer Teil: ab 2 (aus dem zweiten Intervall, 2 dabei) bis 4 (aus dem ersten, 4 dabei). Also [2; 4].', 'Größere linke Grenze, kleinere rechte Grenze. Klammern mitnehmen.', art='P')
+SW.a('enthalten', 3, 'Welche Zahlen liegen in [−3; 0[ oder in [0; 2]?', '[−3; 2]', ['[−3; 0[', ']−3; 2[', '[−3; 2] ohne die 0'],
+     'Das erste Intervall endet knapp vor 0, das zweite beginnt mit 0. Zusammen ist es lückenlos von −3 bis 2: [−3; 2].', '„oder“: Es genügt, in einem der Intervalle zu liegen. Wo liegt die 0?', art='P')
+SW.z('enthalten', 3, 'Das Intervall ]a; 7] enthält genau 4 ganze Zahlen. a ist eine ganze Zahl. Bestimme a.', 3, '7 - 4',
+     'Die 7 gehört dazu. Vier ganze Zahlen: 7, 6, 5, 4. Also gehört 3 nicht mehr dazu – das ist die offene Grenze a = 3.', 'Zähle von 7 abwärts. Die Grenze a gehört nicht dazu.', art='K')
+SW.z('enthalten', 3, 'Wie viele Brüche mit dem Nenner 4 (1/4, 2/4, 3/4, …) liegen im Intervall ]0; 2[?', 7, '8 - 1',
+     '2 = 8/4. Dazwischen liegen 1/4, 2/4, …, 7/4 – also 7 Brüche. 0/4 und 8/4 sind die Grenzen und gehören nicht dazu.', 'Schreibe die Grenzen als Viertel.', art='K')
+
+# beurteilen
+SW.a('beurteilen', 2, 'Welche Aussage über ]2; 3[ ist richtig?', 'Es enthält keine ganze Zahl.', ['Es enthält genau eine Zahl.', '2,999 liegt nicht darin.', 'Es ist leer.'],
+     'Zwischen 2 und 3 liegen unendlich viele Zahlen (2,5; 2,999 …), aber keine ganze: 2 und 3 gehören nicht dazu.', 'Denke an Kommazahlen zwischen 2 und 3.')
+SW.a('beurteilen', 2, 'Stimmt die Aussage: „]−∞; 0[ enthält genau alle negativen Zahlen“?', 'Ja.', ['Nein, die 0 fehlt noch.', 'Nein, −∞ gehört auch dazu.', 'Nein, nur die ganzen negativen Zahlen.'],
+     ']−∞; 0[ heißt x < 0. Das sind genau die negativen Zahlen. 0 ist nicht negativ, −∞ ist keine Zahl.', 'Übersetze in eine Ungleichung.')
+SW.a('beurteilen', 3, 'Tim sagt: „Im Intervall [0; 1] liegen nur die Zahlen 0 und 1.“ Was stimmt?', 'Falsch: Auch 0,5 oder 0,01 liegen darin – unendlich viele Zahlen.',
+     ['Richtig: Die Klammern zeigen nur auf 0 und 1.', 'Falsch: 0 und 1 gehören nicht dazu.', 'Richtig: Ein Intervall enthält nur ganze Zahlen.'],
+     '[0; 1] bedeutet 0 ≤ x ≤ 1. Jede Zahl dazwischen gehört dazu, z. B. 0,5. Ein Gegenbeispiel widerlegt Tims Aussage.', 'Suche eine Zahl zwischen 0 und 1.', art='P')
+SW.a('beurteilen', 3, 'Lisa sagt: „]1; 5[ ist länger als [1; 5], weil die Klammern nach außen zeigen.“ Was stimmt?', 'Falsch: Beide sind 4 lang. Die Klammern ändern nur, ob 1 und 5 dazugehören.',
+     ['Richtig: ]1; 5[ ist länger.', 'Falsch: [1; 5] ist länger, weil die Grenzen dazugehören.', 'Falsch: ]1; 5[ ist 3 lang.'],
+     'Länge = rechte Grenze − linke Grenze = 5 − 1 = 4, bei beiden. Einzelne Punkte haben keine Länge.', 'Wie berechnet man die Länge eines Intervalls?', art='P')
+SW.a('beurteilen', 3, 'Welche Zahlen enthält das Intervall [5; 5]?', 'genau die Zahl 5', ['keine Zahl', 'alle Zahlen ab 5', 'unendlich viele Zahlen'],
+     '[5; 5] bedeutet 5 ≤ x ≤ 5. Das erfüllt nur x = 5. (]5; 5[ wäre dagegen leer.)', 'Schreibe als Ungleichung.', art='K')
+SW.a('beurteilen', 3, 'Welche Aussage über JEDES Intervall [a; b] mit a < b ist FALSCH?', 'Es enthält mindestens eine ganze Zahl.',
+     ['Es enthält unendlich viele Zahlen.', 'Es enthält a und b.', 'Es ist genauso lang wie ]a; b[.'],
+     'Gegenbeispiel: [0,2; 0,8] enthält keine ganze Zahl. Die anderen Aussagen stimmen immer.', 'Suche ein kurzes Intervall zwischen zwei ganzen Zahlen.', art='K')
+
+baue = mit_schwer(baue, SW)
+# ---- SCHWER ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Schreibweise', ['lesen', 'schreiben']), ('Zahlen im Intervall', ['enthalten', 'beurteilen'])],

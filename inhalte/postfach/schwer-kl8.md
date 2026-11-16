@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 08:10 – STATUS
+zahlen.intervalle fertig: 24 neue Übungen. Prüfskript OK, Unverändert-Nachweis JA. Echte Prüfungsaufgaben nur zu Intervallen gibt es kaum; Vorbild sind Mengen-/Ungleichungsaufgaben (siehe Abschlussbericht).
+
 ## 2026-11-16 07:55 – STATUS
 gleichungen.ungleichungen fertig: 42 neue Übungen. Prüfskript OK, Unverändert-Nachweis JA. Fund: zwei S1-Aufgaben der Karte „grafisch“ antworten „x ≥ −4“ bzw. „x ≤ 2“ auf „oberhalb/unterhalb“ (richtig wären > bzw. <) – nicht geändert, steht in der Befundliste.
 

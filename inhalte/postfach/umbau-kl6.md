@@ -3,6 +3,12 @@
 Technik: je Generator ein Abschnitt KARTEN (ersetzt den Abschnitt KLAR der Runde 7), eingesetzt über `inhalte/generatoren/_umbau_kl6.py` (dieselben strengen Regeln wie `_umbau_kl5.py` aus Paket U5) erst NACH dem Erzeugen der Aufgaben – die Aufgaben bleiben wörtlich gleich. `probe` entfällt bei umgebauten Karten. finanzen.zinsen (ohne Generator): Überlagerung `inhalte/klar/finanzen.zinsen.json`, mit denselben Regeln geprüft.
 Vergleich je Thema: `aufgaben`, titel/lernziel und alle Felder außer `inhalt.etappen` und `offen` gegen den Ausgangsstand bc7a754 (lernen-app).
 
+## 2026-11-16 03:01 – STATUS
+daten.darstellen (6 Karten) umgebaut. Kartenbilder: Strichliste als sich füllende Tabelle (Würfeln), Bruchstreifen Lena 7/25 gegen Tom 11/50 → Säulen 28 % / 22 %, Häufigkeitstabelle Schulweg mit Summe und Anteilen, Säulen Lieblingssport, Kreisdiagramm Schulweg, Säulen Freibad (Achse ab 960 → im letzten Schritt ab 0).
+Neu: Kartenbilder für absolute_haeufigkeit und relative_haeufigkeit (bisher ohne Bild).
+Kein fehler_bild in diesem Thema (Lese- und Rechenfehler; das irreführende Bild selbst ist schon das Kartenbild).
+inhalt_pruefen: OK, keine Hinweise. Vergleich gegen bc7a754: 168 Aufgaben wörtlich gleich, Rest gleich, titel/lernziel gleich.
+
 ## 2026-11-16 03:00 – STATUS
 bruch.rechnen (10 Karten) umgebaut. Kartenbilder: Bruchstreifen (Wanderung 3/4 + 1/6 → Zwölftel, Schulgarten 3/4 → 9/12 → 6/12, 25-Cent-Münzen, Pizza Punkt vor Strich), Tabellen (Bäcker Komma unter Komma mit Übertrag, Aufkleber in € und Cent, Obstwaage mit Überschlag), Thermometer (−2,5 °C → −1,3 °C), Zahlenstrahl in Sechsteln mit Saft-Bereich und Becher-Bögen (Teilen durch 2/3), Figur Klebeband 0,3 m × 0,04 m.
 fehler_bild: brueche_plus_minus (4/10 kleiner als 3/4), dezimal_geteilt (Komma nur beim Preis verschoben). Übrige Fehler sind Rechenregel-Fehler.

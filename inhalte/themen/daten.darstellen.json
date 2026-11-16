@@ -39,72 +39,193 @@
    {
     "lernziel": "absolute_haeufigkeit",
     "titel": "Absolute Häufigkeit zählen",
-    "regel": "So bestimmst du die absolute Häufigkeit: Geh die ⟦Urliste⟧ der Reihe nach durch und führe eine ⟦Strichliste⟧. Die Zahl der Striche bei einem Wert ist seine ⟦absolute Häufigkeit⟧ – wie oft er vorkommt.",
+    "regel": "Zähle mit einer ⟦Strichliste⟧, wie oft ein Wert vorkommt. Alle Striche zusammen ergeben die Zahl der Würfe.",
     "schritte": [
-     "Die Urliste lautet: 2, 4, 2, 6, 2, 4.",
-     "Geh die Liste von vorn nach hinten durch und mach für jeden Wert einen Strich: bei der 2 drei Striche, bei der 4 zwei, bei der 6 einen.",
-     "Kontrolle: 3 + 2 + 1 = 6 Striche – genauso viele, wie es Würfe gab.",
-     "Die absolute Häufigkeit der 2 ist ⟦3⟧."
+     {
+      "text": "Geh die Urliste der Reihe nach durch."
+     },
+     {
+      "text": "Mach für jeden Wert einen Strich in der Strichliste.",
+      "bild": {
+       "zeilen": [
+        [
+         "Striche",
+         "|||",
+         "||",
+         "|"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Bei der 2 stehen 3 Striche. Die absolute Häufigkeit ist ⟦3⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "Striche",
+         "|||",
+         "||",
+         "|"
+        ],
+        [
+         "Anzahl",
+         "3",
+         "2",
+         "1"
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "Die Anzahl ⟦verschiedener⟧ Werte (hier 3: die 2, die 4 und die 6) ist keine Häufigkeit. Gefragt ist, ⟦wie oft⟧ ein bestimmter Wert gewürfelt wurde – bei der 2 dreimal.",
-    "einstieg": "In der Pause würfelt ihr und schreibt jedes Ergebnis auf: 2, 4, 2, 6, 2, 4. Wie oft kam die 2? Du zählst nach und kommst auf 3. Diese Anzahl heißt ⟦absolute Häufigkeit⟧.",
+    "fehler": "3 verschiedene Augenzahlen sind keine Häufigkeit. Gefragt ist, wie oft die 2 gewürfelt wurde.",
+    "einstieg": "In der Pause würfelt ihr: 2, 4, 2, 6, 2, 4. Wie oft kam die 2? Diese Anzahl heißt ⟦absolute Häufigkeit⟧.",
     "woerter": [
      [
-      "Daten",
-      "gesammelte Werte, z. B. Würfelergebnisse oder Antworten einer Umfrage"
-     ],
-     [
       "Urliste",
-      "die Daten in der Reihenfolge, in der sie gesammelt wurden"
+      "die Werte in der Reihenfolge, in der sie gesammelt wurden"
      ],
      [
       "Strichliste",
-      "für jeden Wert ein Strich; jeder fünfte Strich wird quer über die vier anderen gezogen (Fünferbündel)"
+      "für jeden Wert ein Strich"
      ],
      [
       "absolute Häufigkeit",
-      "wie oft ein Wert vorkommt – eine Anzahl"
+      "wie oft ein Wert vorkommt"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Augenzahl",
+      "2",
+      "4",
+      "6"
+     ],
+     "zeilen": [
+      [
+       "Striche",
+       "",
+       "",
+       ""
+      ]
+     ]
+    }
    },
    {
     "lernziel": "relative_haeufigkeit",
     "titel": "Relative Häufigkeit bestimmen",
-    "regel": "So bestimmst du die relative Häufigkeit: Rechne ⟦absolute Häufigkeit : Gesamtzahl⟧ und gib das Ergebnis als Bruch, Dezimalzahl oder in Prozent an. Alle relativen Häufigkeiten zusammen ergeben ⟦1 = 100 %⟧.",
+    "regel": "Relative Häufigkeit ist ⟦Anzahl durch Gesamtzahl⟧. Alle relativen Häufigkeiten zusammen ergeben 100 %.",
     "schritte": [
-     "Lena hat 7 Sechsen bei 25 Würfen. Teile die absolute Häufigkeit durch die Gesamtzahl: 7/25.",
-     "Als Dezimalzahl: 7 : 25 = 0,28.",
-     "In Prozent: 0,28 = ⟦28 %⟧.",
-     "Tom: 11 : 50 = 0,22 = 22 %. Lena hatte also anteilig öfter eine Sechs."
+     {
+      "text": "Lena: 7 Sechsen geteilt durch die Gesamtzahl 25. 7 : 25 = ⟦28 %⟧."
+     },
+     {
+      "text": "Tom: 11 : 50 = 0,22 = 22 %."
+     },
+     {
+      "text": "28 % ist mehr als 22 %. Lena hatte öfter eine Sechs.",
+      "bild": {
+       "typ": "saeulen",
+       "einheit": "%",
+       "werte": [
+        {
+         "name": "Lena",
+         "wert": 28
+        },
+        {
+         "name": "Tom",
+         "wert": 22
+        }
+       ],
+       "zahlen": true
+      }
+     }
     ],
-    "fehler": "7 Sechsen bei 25 Würfen sind ⟦nicht⟧ 7 %: 7 % wären 7 Sechsen bei 100 Würfen. Man muss durch die ⟦Gesamtzahl⟧ teilen: 7 : 25 = 0,28 = 28 %.",
-    "einstieg": "Lena hat 25-mal gewürfelt und 7 Sechsen bekommen, Tom hat 50-mal gewürfelt und 11 Sechsen. Wer hatte öfter Glück? Die Anzahlen allein helfen nicht, denn die beiden haben verschieden oft gewürfelt. Vergleichen kannst du den Anteil der Sechsen an allen Würfen. Er heißt ⟦relative Häufigkeit⟧.",
+    "fehler": "7 Sechsen sind nicht 7 %. 7 % wären 7 Sechsen bei 100 Würfen. Teile durch die Gesamtzahl 25.",
+    "einstieg": "Lena würfelt 25-mal und hat 7 Sechsen, Tom 50-mal und 11 Sechsen. Wer hatte öfter Glück? Vergleiche den Anteil: die ⟦relative Häufigkeit⟧.",
     "woerter": [
-     [
-      "Gesamtzahl",
-      "die Anzahl aller Werte – hier aller Würfe"
-     ],
-     [
-      "Anteil",
-      "Teil durch Ganzes, als Bruch, Dezimalzahl oder in Prozent"
-     ],
      [
       "relative Häufigkeit",
       "absolute Häufigkeit geteilt durch die Gesamtzahl"
+     ],
+     [
+      "Gesamtzahl",
+      "die Anzahl aller Werte, hier aller Würfe"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "bruchstreifen",
+     "teile": 25,
+     "gefaerbt": 7,
+     "teil_text": "Lena: 7 von 25",
+     "zeilen": [
+      {
+       "teile": 50,
+       "gefaerbt": 11,
+       "teil_text": "Tom: 11 von 50"
+      }
+     ]
+    }
    },
    {
     "lernziel": "tabelle_auswerten",
     "titel": "Häufigkeitstabellen auswerten",
-    "regel": "So wertest du eine Häufigkeitstabelle aus: Bilde zuerst die ⟦Summe⟧ aller Anzahlen – das ist die ⟦Gesamtzahl⟧. Sie ist der Grundwert für alle Anteile: Anteil = Anzahl : Gesamtzahl.",
+    "regel": "Bilde zuerst die ⟦Summe⟧ aller Anzahlen. Der Anteil ist Anzahl geteilt durch Summe.",
     "schritte": [
-     "In der Tabelle stehen: Bus 12, Rad 9, zu Fuß 6, Auto 3.",
-     "Zähle alle Anzahlen zusammen: 12 + 9 + 6 + 3 = 30. So viele Kinder wurden befragt.",
-     "Für den Anteil der Radfahrer teilst du durch diese Gesamtzahl: 9 : 30 = 0,3.",
-     "Mit dem Rad kommen ⟦30 %⟧ der Klasse."
+     {
+      "text": "Die Summe aller Anzahlen: 12 + 9 + 6 + 3 = 30.",
+      "bild": {
+       "zeilen": [
+        [
+         "Anzahl",
+         "12",
+         "9",
+         "6",
+         "3",
+         "30"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Anteil Rad: 9 : 30 = 0,3."
+     },
+     {
+      "text": "Mit dem Rad kommen ⟦30 %⟧ der Klasse.",
+      "bild": {
+       "zeilen": [
+        [
+         "Anzahl",
+         "12",
+         "9",
+         "6",
+         "3",
+         "30"
+        ],
+        [
+         "Anteil",
+         "40 %",
+         "30 %",
+         "20 %",
+         "10 %",
+         "100 %"
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "Die größte Zahl in der Tabelle ist ⟦nicht⟧ die Gesamtzahl: 12 Kinder fahren Bus, befragt wurden aber alle 30. Die Gesamtzahl ist die ⟦Summe⟧ aller Anzahlen.",
+    "fehler": "Die größte Zahl ist nicht die Gesamtzahl. Befragt wurden nicht 12, sondern alle 30 Kinder.",
+    "einstieg": "Eure Klasse hat gefragt: Wie kommst du zur Schule? Jede Antwort steht mit ihrer Anzahl in einer Tabelle. Das ist eine ⟦Häufigkeitstabelle⟧.",
+    "woerter": [
+     [
+      "Häufigkeitstabelle",
+      "eine Tabelle mit jeder Antwort und ihrer Anzahl"
+     ],
+     [
+      "Summe",
+      "alles zusammengezählt"
+     ]
+    ],
     "bild": {
      "typ": "tabelle",
      "kopf": [
@@ -122,41 +243,38 @@
        "9",
        "6",
        "3",
-       "30"
+       "?"
       ]
      ]
-    },
-    "einstieg": "Eure Klasse hat eine Umfrage gemacht: Wie kommst du zur Schule? Statt 30 einzelne Antworten aufzuschreiben, fasst ihr sie zusammen: zu jeder Antwort die Anzahl. So eine Übersicht heißt ⟦Häufigkeitstabelle⟧.",
-    "woerter": [
-     [
-      "Umfrage",
-      "viele Personen bekommen dieselbe Frage gestellt"
-     ],
-     [
-      "Häufigkeitstabelle",
-      "eine Tabelle mit jeder Antwort und ihrer Anzahl"
-     ],
-     [
-      "Summe",
-      "das Ergebnis, wenn man alles zusammenzählt"
-     ],
-     [
-      "Grundwert",
-      "das Ganze (100 %) – hier alle 30 befragten Kinder"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "saeulendiagramm",
     "titel": "Säulendiagramme und Maßstab",
-    "regel": "So zeichnest du ein Säulendiagramm: Wähle einen ⟦Maßstab⟧ (z. B. 1 cm für 4 Kinder) und rechne jede Säulenhöhe als ⟦Anzahl : Maßstab⟧. Die Hochachse beginnt bei ⟦0⟧, alle Säulen sind gleich breit.",
+    "regel": "Säulenhöhe ist ⟦Anzahl durch Maßstab⟧. Die Achse beginnt bei 0.",
     "schritte": [
-     "Der Maßstab ist 1 cm für 4 Kinder. Die Säule für Fußball soll 18 Kinder zeigen.",
-     "Frage: Wie oft passen 4 Kinder in 18 Kinder? Das rechnest du mit 18 : 4 = 4,5.",
-     "Jeder Zentimeter steht für 4 Kinder, also brauchst du 4,5 Zentimeter.",
-     "Die Fußball-Säule wird ⟦4,5 cm⟧ hoch. Die Hochachse beginnt dabei bei 0."
+     {
+      "text": "Der Maßstab ist 1 cm für 4 Kinder."
+     },
+     {
+      "text": "Für Fußball rechnest du 18 : 4 = 4,5."
+     },
+     {
+      "text": "Die Fußball-Säule im Säulendiagramm wird ⟦4,5 cm⟧ hoch."
+     }
     ],
-    "fehler": "Die Säule für 18 Kinder 18 cm hoch zu zeichnen, sprengt fast die Heftseite – bei mehr Kindern passt es gar nicht mehr. Erst einen ⟦Maßstab⟧ wählen, dann ⟦Anzahl : Maßstab⟧ rechnen.",
+    "fehler": "Die Säule 18 cm hoch zu zeichnen sprengt die Heftseite. Erst den Maßstab wählen, dann teilen.",
+    "einstieg": "Die Klasse zeichnet ihre Lieblingssportarten als Säulen. 18 Kinder mögen Fußball, aber 18 cm passen nicht ins Heft. Darum legt ihr einen ⟦Maßstab⟧ fest.",
+    "woerter": [
+     [
+      "Säulendiagramm",
+      "ein Bild, in dem die Höhe jeder Säule eine Anzahl zeigt"
+     ],
+     [
+      "Maßstab",
+      "wie viel 1 cm bedeutet, hier 4 Kinder"
+     ]
+    ],
     "bild": {
      "typ": "saeulen",
      "einheit": "Kinder",
@@ -180,38 +298,35 @@
      ],
      "y_start": 0,
      "zahlen": true
-    },
-    "einstieg": "Die Klasse will das Ergebnis der Umfrage „Lieblingssport“ ins Heft zeichnen: für jeden Sport eine Säule, je höher, desto mehr Kinder. 18 Kinder mögen Fußball – eine 18 cm hohe Säule passt kaum auf die Seite. Darum legt ihr fest, wie viele Kinder 1 cm bedeutet. Diese Festlegung heißt ⟦Maßstab⟧.",
-    "woerter": [
-     [
-      "Säulendiagramm",
-      "ein Bild, in dem die Höhe jeder Säule eine Anzahl zeigt"
-     ],
-     [
-      "Hochachse",
-      "die senkrechte Linie links, an der man die Höhe abliest"
-     ],
-     [
-      "Skala",
-      "die gleichmäßige Einteilung der Hochachse mit Zahlen"
-     ],
-     [
-      "Maßstab",
-      "wie viel 1 cm im Diagramm bedeutet, z. B. 1 cm für 4 Kinder"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "kreisdiagramm",
     "titel": "Kreisdiagramme berechnen",
-    "regel": "So berechnest du ein Kreisdiagramm: Bestimme für jede Antwort den ⟦Anteil⟧ (Anzahl : Gesamtzahl). Der Winkel ist ⟦Anteil · 360°⟧ – 1 % entspricht 3,6°. Alle Winkel zusammen ergeben ⟦360°⟧.",
+    "regel": "Der Winkel ist ⟦Anteil · 360°⟧. Alle Winkel zusammen ergeben 360°.",
     "schritte": [
-     "Rechne zuerst den Anteil der Radfahrer aus: 12 : 40 = 0,3 = 30 %.",
-     "Der ganze Kreis hat 360°. Der Ausschnitt bekommt 30 % davon: 0,3 · 360° = 108°.",
-     "Genauso rechnest du die anderen: Bus 40 % → 144°, zu Fuß 20 % → 72°, Auto 10 % → 36°.",
-     "Der Ausschnitt für Rad hat ⟦108°⟧. Zur Kontrolle ergeben alle Winkel zusammen 360°."
+     {
+      "text": "Anteil Rad: 12 : 40 = 0,3 = 30 %."
+     },
+     {
+      "text": "Der ganze Kreis hat 360°. Der Winkel für Rad ist 0,3 · 360° = ⟦108°⟧."
+     },
+     {
+      "text": "Bus 144°, zu Fuß 72°, Auto 36°. Zusammen sind es 360°."
+     }
     ],
-    "probe": "108° + 144° + 72° + 36° = 360° ✓",
+    "fehler": "30 % sind nicht 30°. Dann wäre die ganze Torte nur 100° groß. Rechne mit 360°.",
+    "einstieg": "In einer Klasse mit 40 Kindern fahren 12 Rad. Das soll ein Tortenstück zeigen, so groß wie sein Anteil. So ein Bild heißt ⟦Kreisdiagramm⟧.",
+    "woerter": [
+     [
+      "Kreisdiagramm",
+      "ein Kreis aus Stücken; jedes Stück zeigt einen Anteil"
+     ],
+     [
+      "Winkel",
+      "wie weit ein Stück geöffnet ist, in Grad (°)"
+     ]
+    ],
     "bild": {
      "typ": "kreisdiagramm",
      "einheit": " %",
@@ -234,39 +349,38 @@
       }
      ],
      "zahlen": true
-    },
-    "fehler": "30 % als Winkel von 30° einzuzeichnen ist falsch: Dann wäre die ganze Torte nur 100° groß – nicht einmal ein halber Kreis. Der Vollkreis hat ⟦360°⟧: 30 % sind 0,3 · 360° = 108°.",
-    "einstieg": "In einer anderen Klasse mit 40 Kindern kommt bei derselben Umfrage heraus: 12 fahren Rad, 16 Bus, 8 gehen zu Fuß und 4 werden mit dem Auto gebracht. Das soll eine Torte zeigen, bei der jedes Stück so groß ist wie sein Anteil. So eine Darstellung heißt ⟦Kreisdiagramm⟧.",
-    "woerter": [
-     [
-      "Kreisdiagramm",
-      "ein Kreis, aufgeteilt in Stücke; jedes Stück zeigt einen Anteil"
-     ],
-     [
-      "Kreisausschnitt",
-      "ein „Tortenstück“ des Kreises"
-     ],
-     [
-      "Winkel",
-      "wie weit ein Tortenstück geöffnet ist, gemessen in Grad (°)"
-     ],
-     [
-      "360°",
-      "der ganze Kreis; er steht für 100 %"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "irrefuehrend",
     "titel": "Irreführende Diagramme erkennen",
-    "regel": "So erkennst du ein irreführendes Diagramm: Lies immer ⟦Achse und Zahlen⟧. Prüfe, ob die Hochachse ⟦bei 0 beginnt⟧, ob die Abstände auf der Achse gleich sind und ob alles beschriftet ist. Bei Bildern statt Säulen gilt: doppelt so hoch und doppelt so breit ergibt die ⟦vierfache Fläche⟧.",
+    "regel": "Lies immer ⟦Achse und Zahlen⟧. Beginnt die Achse nicht bei 0, wirken Unterschiede größer.",
     "schritte": [
-     "Die Säulen zeigen 980 und 1 000 Besucher. Die Hochachse beginnt bei 960.",
-     "Sichtbar ist nur der Teil über 960: 980 − 960 = 20 und 1 000 − 960 = 40.",
-     "Darum wirkt die Sonntagssäule doppelt so hoch wie die Samstagssäule.",
-     "In Wirklichkeit kamen am Sonntag nur ⟦20 Besucher⟧ mehr – etwa 2 %."
+     {
+      "text": "Die Achse beginnt erst bei 960. Das ist eine abgeschnittene Achse."
+     },
+     {
+      "text": "Sichtbar sind nur 20 und 40 Besucher. Darum wirkt Sonntag doppelt."
+     },
+     {
+      "text": "Mit Achse ab 0 sieht man: nur ⟦20 Besucher⟧ mehr.",
+      "bild": {
+       "y_start": 0
+      }
+     }
     ],
-    "fehler": "Nur auf die Säulenhöhen zu schauen, ohne die Achse zu lesen, ist ein Fehler: Bei abgeschnittener Achse wirken kleine Unterschiede ⟦riesig⟧ – genau darauf setzt die Werbung des Freibads.",
+    "fehler": "Nur auf die Höhe der Säulen zu schauen ist ein Fehler. Lies immer zuerst die Zahlen an der Achse.",
+    "einstieg": "Ein Freibad wirbt: „Sonntag doppelt so viele Besucher!“ Die Säule ist doppelt so hoch. Doch es waren 980 und 1 000 Besucher: ein ⟦irreführendes Diagramm⟧.",
+    "woerter": [
+     [
+      "irreführend",
+      "erzeugt einen falschen Eindruck, obwohl die Zahlen stimmen"
+     ],
+     [
+      "abgeschnittene Achse",
+      "die Achse beginnt nicht bei 0"
+     ]
+    ],
     "bild": {
      "typ": "saeulen",
      "einheit": "Besucher",
@@ -282,22 +396,7 @@
      ],
      "y_start": 960,
      "zahlen": true
-    },
-    "einstieg": "Ein Freibad wirbt: „Am Sonntag doppelt so viele Besucher wie am Samstag!“ Im Diagramm ist die Sonntagssäule tatsächlich doppelt so hoch. Liest du die Zahlen, waren es aber 980 und 1 000 Besucher. Das Bild täuscht, weil die Hochachse erst bei 960 beginnt. So ein Bild heißt ⟦irreführendes Diagramm⟧.",
-    "woerter": [
-     [
-      "irreführend",
-      "erzeugt einen falschen Eindruck, obwohl die Zahlen stimmen"
-     ],
-     [
-      "abgeschnittene Achse",
-      "die Hochachse beginnt nicht bei 0, sondern weiter oben"
-     ],
-     [
-      "Fläche",
-      "wie viel Platz eine Figur einnimmt; doppelt so hoch und doppelt so breit heißt viermal so viel Fläche"
-     ]
-    ]
+    }
    }
   ],
   "teilfaehigkeiten": [

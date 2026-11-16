@@ -3,6 +3,11 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:29 – STATUS
+terme.bruchterme fertig: umgestuft 4 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
+- nicht umgesetzt:
+  - kuerzen S3 (x² − 49)/(x − 7) setzt die 3. binomische Formel voraus – Aufgaben sind richtig und echte Stufe 3. Offen ist nur, ob die binomischen Formeln im Plan vor diesem Thema stehen (Reihenfolge, Haupt-Chat).
+
+## 2026-11-16 05:29 – STATUS
 funktionen.gebrochen fertig: umgestuft 5 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
 - nicht umgesetzt:
   - indirekt: Überschneidung mit groessen.indirekt – Kein Mangel an einer Aufgabe; betrifft die Reihenfolge im Plan (Haupt-Chat).

@@ -724,6 +724,21 @@ N.a('fehler_finden', 3, 'Mit welcher Zahl kannst du zeigen, dass 1/x + 1/2 = 2/(
 baue = mit_schwer(baue, N)
 # ---- SCHWER ENDE ----
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, mit_befunden  # noqa: E402
+
+BF = Befunde('terme.bruchterme', 13_8_4)
+# a) gleicher Typ wie Stufe 2
+BF.stufe('erweitern', 'Mit welchem Term wurde 2/(4x) erweitert, wenn der neue Nenner 8x³ ist?', 2)
+BF.stufe('addieren', 'Fasse zusammen: (5x − 7)/x − (2x + 1)/x', 2)
+BF.stufe('addieren', 'Fasse zusammen: (5x + 5)/(x + 1) − (4x − 1)/(x + 1)', 2)
+BF.stufe('fehler_finden', 'Warum ist 5/x + 2/x nicht 7/(2x)?', 2)
+BF.nicht_umgesetzt('kuerzen S3 (x² − 49)/(x − 7) setzt die 3. binomische Formel voraus',
+                   'Aufgaben sind richtig und echte Stufe 3. Offen ist nur, ob die binomischen Formeln im Plan vor diesem Thema stehen (Reihenfolge, Haupt-Chat).')
+
+baue = mit_befunden(baue, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Grundlagen', ['definitionsmenge', 'termwert']), ('Kürzen und Erweitern', ['kuerzen', 'erweitern']),

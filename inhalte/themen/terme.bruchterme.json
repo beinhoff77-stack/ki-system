@@ -2447,7 +2447,7 @@
    "l": "erweitern",
    "t": "erweitern",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Mit welchem Term wurde 2/(4x) erweitert, wenn der neue Nenner 8x³ ist?",
@@ -3077,7 +3077,7 @@
    "l": "addieren",
    "t": "addieren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Fasse zusammen: (5x − 7)/x − (2x + 1)/x"
@@ -3098,7 +3098,7 @@
    "l": "addieren",
    "t": "addieren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Fasse zusammen: (5x + 5)/(x + 1) − (4x − 1)/(x + 1)"
@@ -4385,7 +4385,7 @@
    "l": "fehler_finden",
    "t": "fehler_finden",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Warum ist 5/x + 2/x nicht 7/(2x)?"

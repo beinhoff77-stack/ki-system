@@ -137,6 +137,91 @@ KLAR = {
 }
 klar(ETAPPEN, KLAR)
 # ---- KLAR ENDE ----
+# ---- UMBAU (neues Muster, Runde 8, Vorgabe 16.11.) ----
+def _zeile(*w): return [['Anzahl ·', *w]]
+UMBAU = {
+ 'nte_wurzel': {
+  'einstieg': 'Bakterien werden jede Stunde mit derselben Zahl malgenommen. Nach 4 Stunden sind es 625-mal so viele. Gesucht ist die ⟦vierte Wurzel⟧ aus 625.',
+  'woerter': [['vierte Wurzel', 'die Zahl, die viermal mit sich selbst malgenommen die Zahl ergibt; Zeichen ⁴√'],
+              ['Wurzelexponent', 'die kleine Zahl am Wurzelzeichen, hier 4'],
+              ['5⁴', '5 · 5 · 5 · 5']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Stunde', '0', '1', '2', '3', '4'], 'zeilen': _zeile('1', '?', '?', '?', '625')},
+  'schritte': [{'text': 'Der Wurzelexponent 4 sagt: viermal mit derselben Zahl malnehmen.'},
+               {'text': 'Probiere 5: Stunde für Stunde 5, 25, 125 und 625.',
+                'bild': {'zeilen': _zeile('1', '5', '25', '125', '625')}},
+               {'text': 'Also 5⁴ = 625 und ⁴√625 = ⟦5⟧. Pro Stunde mal 5.'}],
+  'fehler': '⁴√625 ist nicht 625 : 4 ≈ 156. Mit Faktor 156 pro Stunde gäbe es nach 4 Stunden fast 600 Millionen-mal so viele.',
+  'fehler_bild': {'zeilen': _zeile('1', '156', '24 336', '…', 'fast 600 Mio.')},
+  'regel': 'ⁿ√a ist die Zahl ohne Minus, die hoch n genau a ergibt. Die kleine Zahl n heißt ⟦Wurzelexponent⟧.'},
+ 'potenz_wert': {
+  'einstieg': 'Bakterien werden in 3 Stunden 27-mal so viele. Wie viele sind es nach 2 der 3 Stunden? Das beschreibt eine ⟦Potenz mit Bruch-Exponent⟧: 27^(2/3).',
+  'woerter': [['27^(2/3)', 'gelesen „27 hoch zwei Drittel“'],
+              ['Exponent', 'die Hochzahl, hier der Bruch 2/3']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Stunde', '0', '1', '2', '3'], 'zeilen': _zeile('1', '?', '?', '27')},
+  'schritte': [{'text': 'Der Nenner 3 im Exponent heißt: dritte Wurzel. ³√27 = 3 pro Stunde.',
+                'bild': {'zeilen': _zeile('1', '3', '?', '27')}},
+               {'text': 'Der Zähler 2 heißt: zwei Stunden, also 3² = 9.',
+                'bild': {'zeilen': _zeile('1', '3', '9', '27')}},
+               {'text': 'Also ist 27^(2/3) = ⟦9⟧: nach 2 Stunden 9-mal so viele.'}],
+  'fehler': '27^(2/3) ist nicht 27 · 2 : 3 = 18. Zwei Stunden mit Faktor 3 ergeben 3 · 3 = 9, nicht 18.',
+  'fehler_bild': {'zeilen': _zeile('1', '3', '18?', '27')},
+  'regel': 'Nenner = Wurzel, Zähler = Potenz: a^(m/n) = (ⁿ√a)^m. Ein Minus im Exponenten heißt ⟦Kehrwert⟧.'},
+ 'umwandeln': {
+  'einstieg': '„Halb drei“ und „14:30“ meinen dieselbe Uhrzeit. Auch eine Wurzel kann man anders schreiben, nämlich als Potenz. Dieses ⟦Umschreiben⟧ hilft beim Weiterrechnen.',
+  'woerter': [['x^(1/2)', 'x hoch ein halb, dasselbe wie √x'],
+              ['Umschreiben', 'dieselbe Zahl in einer anderen Schreibweise angeben']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Wurzel', 'Potenz'], 'zeilen': [['√x', 'x^(1/2)'], ['³√x', 'x^(1/3)'], ['⁶√(x⁴)', '?']]},
+  'schritte': [{'text': 'Bekannt ist √x = x^(1/2). Gesucht ist ⁶√(x⁴) als Potenz.'},
+               {'text': 'Der Wurzelexponent 6 wird der Nenner, die 4 der Zähler: x^(4/6).',
+                'bild': {'zeilen': [['√x', 'x^(1/2)'], ['³√x', 'x^(1/3)'], ['⁶√(x⁴)', 'x^(4/6)']]}},
+               {'text': 'Bruch kürzen: 4/6 = 2/3. Also ⁶√(x⁴) = ⟦x^(2/3)⟧.',
+                'bild': {'zeilen': [['√x', 'x^(1/2)'], ['³√x', 'x^(1/3)'], ['⁶√(x⁴)', 'x^(2/3)']]}}],
+  'fehler': '⁶√(x⁴) ist nicht x^(6/4): Zähler und Nenner sind vertauscht. Das Wurzelzeichen teilt – sein Exponent gehört nach unten.',
+  'fehler_bild': {'zeilen': [['√x', 'x^(1/2)'], ['³√x', 'x^(1/3)'], ['⁶√(x⁴)', 'x^(6/4)?']]},
+  'regel': 'ⁿ√(x^m) = x^(m/n): Der Wurzelexponent kommt in den ⟦Nenner⟧. Danach den Bruch kürzen.'},
+ 'zusammenfassen': {
+  'einstieg': 'Bakterien wachsen erst eine halbe Stunde, dann eine Drittelstunde. Zusammen sind das 5/6 Stunde. Bei gleicher Basis werden die Exponenten ⟦addiert⟧.',
+  'woerter': [['Basis', 'die Zahl unten, die hoch genommen wird, hier x'],
+              ['Potenzgesetz', 'eine Rechenregel für Potenzen mit gleicher Basis']],
+  'bild': {'typ': 'zahlenstrahl', 'start': 0, 'ende': 1, 'abschnitte': 6, 'beschriftet': 'anfang_ende'},
+  'schritte': [{'text': 'Gesucht ist √x · ³√x als eine Potenz.'},
+               {'text': 'Als Potenzen geschrieben: x^(1/2) · x^(1/3).',
+                'bild': {'boegen': [{'von': 0, 'bis': 0.5, 'name': '1/2'}]}},
+               {'text': 'Potenzgesetz: Beim Malnehmen die Exponenten addieren: 1/2 + 1/3 = 5/6.',
+                'bild': {'boegen': [{'von': 0, 'bis': 0.5, 'name': '1/2'}, {'von': 0.5, 'bis': 0.8333, 'name': '1/3'}],
+                         'punkte': [{'wert': 0.8333, 'name': '5/6'}]}},
+               {'text': 'Ergebnis: √x · ³√x = ⟦x^(5/6)⟧.'}],
+  'fehler': 'x^(1/2) · x^(1/3) ist nicht x^(1/6). Exponenten werden addiert, nicht malgenommen. Halbe plus Drittelstunde sind 5/6 Stunde.',
+  'fehler_bild': {'punkte': [{'wert': 0.8333, 'name': '5/6'}, {'wert': 0.1667, 'name': '1/6?'}]},
+  'regel': 'Gleiche Basis: beim Malnehmen Exponenten ⟦addieren⟧. Beim Teilen subtrahieren, bei (x^p)^q malnehmen.'},
+ 'gleichung_exp': {
+  'einstieg': 'Nach anderthalb Stunden sind es 64-mal so viele Bakterien. Mit welchem Faktor x pro Stunde? Gesucht ist x mit x^(3/2) = 64: eine ⟦Gleichung⟧.',
+  'woerter': [['Kehrwert', 'der umgedrehte Bruch: von 3/2 ist es 2/3'],
+              ['potenzieren', 'hoch eine Zahl nehmen']],
+  'bild': {'typ': 'tabelle', 'kopf': ['x (Faktor)', '4', '9', '?'], 'zeilen': [['x^(3/2)', '?', '?', '64']]},
+  'schritte': [{'text': 'Gesucht ist x > 0 mit x^(3/2) = 64.'},
+               {'text': 'Beide Seiten mit dem Kehrwert 2/3 potenzieren. Links bleibt x.'},
+               {'text': 'Rechts: 64^(2/3) = (³√64)² = 4² = 16.',
+                'bild': {'kopf': ['x (Faktor)', '4', '9', '16'], 'zeilen': [['x^(3/2)', '8', '27', '64']]}},
+               {'text': 'Also ist ⟦x = 16⟧: pro Stunde 16-mal so viele.'}],
+  'fehler': 'x ist nicht 64 · 2/3 ≈ 42,7. Man potenziert mit dem Kehrwert und nimmt nicht mal. Probe: 42,7^(3/2) ≈ 279.',
+  'fehler_bild': {'kopf': ['x (Faktor)', '16', '42,7?'], 'zeilen': [['x^(3/2)', '64', '≈ 279']]},
+  'regel': 'Potenziere beide Seiten mit dem ⟦Kehrwert⟧ des Exponenten. Aus x^(m/n) = c wird x = c^(n/m).'},
+ 'verstehen': {
+  'einstieg': 'Bakterien werden pro Stunde 25-mal so viele. Eine halbe Stunde früher waren es nur 1/5 so viele. Ein Minus im Exponenten bildet den ⟦Kehrwert⟧.',
+  'woerter': [['Kehrwert', '1 geteilt durch die Zahl: von 5 ist es 1/5'],
+              ['25^(−1/2)', 'gelesen „25 hoch minus ein halb“'],
+              ['Behauptung', 'eine Aussage, die man prüft']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Stunde', '−1/2', '0', '1/2', '1'], 'zeilen': _zeile('?', '1', '?', '25')},
+  'schritte': [{'text': 'Behauptung: 25^(−1/2) = −5. Stimmt das?'},
+               {'text': 'Das Minus im Exponenten heißt Kehrwert: 25^(−1/2) = 1 : 25^(1/2).'},
+               {'text': 'Hoch 1/2 ist die Quadratwurzel: √25 = 5.', 'bild': {'zeilen': _zeile('?', '1', '5', '25')}},
+               {'text': 'Also 25^(−1/2) = ⟦1/5⟧. Die Behauptung ist falsch.', 'bild': {'zeilen': _zeile('1/5', '1', '5', '25')}}],
+  'fehler': '9^(1/2) ist nicht 4,5. Hoch 1/2 heißt Quadratwurzel, nicht halbieren: 9^(1/2) = 3, denn 3 · 3 = 9.',
+  'regel': 'Ein Minus im Exponenten heißt ⟦Kehrwert⟧, nicht negativ. Hoch 1/2 heißt Quadratwurzel. Bruch-Exponenten gibt es nur für Basen ≥ 0.'},
+}
+umbau(ETAPPEN, UMBAU)
+# ---- UMBAU ENDE ----
 
 
 def g_nte_wurzel(s):

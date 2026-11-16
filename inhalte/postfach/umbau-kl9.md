@@ -2,6 +2,10 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 03:00 – STATUS
+zahlen.rationale_exponenten umgebaut (6 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator (umbau() in _kl9.py).
+Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/zahlen.rationale_exponenten.json`: 168 Aufgaben, alle wörtlich gleich. inhalt_pruefen: 0 Fehler, 0 Hinweise. Ohne fehler_bild: verstehen (Rechenfehler, im Bild nicht sinnvoll zu zeigen).
+
 ## 2026-11-16 02:58 – STATUS
 zahlen.reell umgebaut (6 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator (umbau() in _kl9.py).
 Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/zahlen.reell.json`: 168 Aufgaben, alle wörtlich gleich. inhalt_pruefen: 0 Fehler, 0 Hinweise. Ohne fehler_bild: zusammenfassen, nenner_rational (Rechenfehler, im Bild nicht sinnvoll zu zeigen).

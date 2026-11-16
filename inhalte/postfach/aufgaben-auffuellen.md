@@ -2,6 +2,23 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 04:08 – FERTIG: Runde 9 (Zweig aufgaben-auffuellen, nicht gemergt)
+
+| Thema | Lernkarten | Aufgaben | zahl / luecken / auswahl | inhalt_pruefen |
+|---|---|---|---|---|
+| terme.umformen | 8 | 184 | 6 / 147 / 31 | OK |
+| zahlen.teilbarkeit | 8 | 184 | 73 / 15 / 96 | OK |
+| finanzen.zinsen | 8 | 184 | 140 / 0 / 44 | OK |
+
+- Je Lernkarte 23 neue Aufgaben: 13 Übungen (Stufe 1/2/3: 4/5/4, alle mit Tipp), 1 Test, 3 Korrektur, 6 Sicherung. Vorher: 2 Übungen je Karte.
+- Generatoren: `terme_umformen.py`, `zahlen_teilbarkeit.py`, `finanzen_zinsen.py`, gemeinsame Hilfen in `_auffuellen.py` (nutzt `_bausatz.py`). Jede Zahl-Aufgabe und jede Lücke wird beim Bauen nachgerechnet; Dubletten über das ganze Thema ausgeschlossen; Beispielzahlen der Karten gesperrt.
+- Lernkarten: Lernziele, Reihenfolge und Titel wie in `inhalte/klar/quelle.md`; Erklärfelder unverändert aus `inhalte/klar/<thema>.json` (per Skript geprüft: identisch). Alle Karten hatten dort schon ein Bild.
+- abschnitte, teilfaehigkeiten (je Karte eine) und bewertung angelegt, alle Lernkarten Pflicht.
+- Term-Vorlagen (terme.umformen, 145 Aufgaben) mit dem Leser aus lernen.js geprüft: Die richtige Lösung, so getippt wie ein Kind (z. B. „x² + 13x + 40“, „6(x + 7)“), wird für jede Aufgabe richtig erkannt.
+- Je Lernkarte mindestens 11 Aufgaben gelesen; dabei gefundene Unschärfen behoben (Vorzeichen im Lösungsweg, „Wie viel Zinsen“, sehr lange Busintervalle).
+- Offen / Annahmen (auch im Feld „offen“ der Dateien): Die alten Aufgaben liegen nur in der Datenbank, Dubletten zu ihnen konnte ich nicht prüfen. Beim Einspielen mit einheit_abgleichen(…, 'lassen') kommen die neuen dazu. Primfaktor-Lücken erwarten die Faktoren klein → groß (Hinweis steht in der Aufgabe). Zahlen ab 1 000 mit Leerzeichen wie auf den Karten dieser Themen (sonst im Bausatz erst ab 10 000).
+- Kein Merge, keine Datenbank, kein App-Code.
+
 ## 2026-11-16 04:08 – STATUS
 finanzen.zinsen fertig: Generator `inhalte/generatoren/finanzen_zinsen.py`. 8 Lernkarten, 184 Aufgaben. Alle Beträge exakte Cent-Beträge, jede Zahl-Aufgabe mit Rechenausdruck (Z = K · p/100, p = Z : K · 100, K = Z · 100 : p, · m/12).
 Stufe 3: Kontostand nach einem Jahr, Bankvergleich, Kredit zurückzahlen, Sparziel, Fehler finden (p % ≠ p €, mal 0,025 statt 2,5, falsch herum geteilt, Monate statt Jahre, halbes Jahr · 6). Lernkarten identisch mit der Überlagerung. inhalt_pruefen: OK.

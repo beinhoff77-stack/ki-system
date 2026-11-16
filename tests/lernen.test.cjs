@@ -285,6 +285,8 @@ test('Lernen: Thema – Erklären | Üben | Typische Fehler, Punkte bis „sitzt
   await page.getByText('+10 Sterne').waitFor();
   await page.getByText('1 von 3 sitzen').waitFor();
   await page.getByRole('button', { name: 'Nächste Karte: Zahlenstrahl' }).click();
+  // Neue Lernkarte: erst die Erklärung, dann die Aufgaben
+  await page.getByRole('button', { name: 'Jetzt du ›' }).click();
   await page.getByRole('button', { name: 'Markierung 3' }).click();
   await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('Noch nicht – du hast einen zweiten Versuch.').waitFor(); // V2: erst beim zweiten Fehler kommt die Lösung
@@ -545,6 +547,9 @@ test('Gestaltung Abflug: Abflugtafel, Bordkarte mit Tastenfeld, Kurskorrektur, L
   await page.screenshot({ path: path.join(root, 'test-results/abflug-menue-390.png') });
   await page.getByRole('button', { name: 'Schließen' }).click();
   await start.click();
+  // Neue Lernkarte: „Einsteigen“ zeigt zuerst die Erklärung, „Jetzt du“ führt zu den Aufgaben
+  await page.waitForURL(/#\/lerneinheit\/1-1-erklaeren-1/);
+  await page.getByRole('button', { name: 'Jetzt du ›' }).click();
   await page.waitForURL(/#\/lerneinheit\/1-1-ueben/);
   await page.getByText(/BORDKARTE 1 · ROM/).waitFor();
   const los = page.getByRole('button', { name: 'Verstanden – los' }); if (await los.count()) await los.click();

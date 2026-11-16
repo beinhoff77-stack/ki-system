@@ -696,7 +696,7 @@ Aufgaben bleiben unverändert.
 | U5 | `umbau-kl5` | 5 | 14 | zuerst (Kind A); Thermometer, Zahlenstrahl mit Bögen, Bruchstreifen |
 | U8 | `umbau-kl8` | 8 | 15 | Kind B; meist Koordinatensystem mit Schritt-Zuständen |
 | U6 | `umbau-kl6` | 6 | 9 | erst nach dem Test mit den Kindern starten |
-| U7 | `umbau-kl7` | 7 | 9 | erst nach dem Test mit den Kindern starten |
+| U7 | `umbau-kl7` | 7 | 8 | erst nach dem Test mit den Kindern starten |
 | U9 | `umbau-kl9` | 9 | 14 | erst nach dem Test mit den Kindern starten |
 | U10 | `umbau-kl10` | 10 | 7 | erst nach dem Test mit den Kindern starten |
 | UR | `umbau-rest` | ohne gym_by | 24 | Realschule/IB; zuletzt |
@@ -713,7 +713,8 @@ Lies zuerst vollständig: inhalte/README.md (besonders „Verständliche Erklär
 inhalte/pruefung/erklaerungen/darstellung/umsetzung.md (Abschnitte 1, 3, 4, 5), inhalte/postfach/README.md und als Muster die Karte
 zahlen.ganz/betrag in inhalte/pruefung/erklaerungen/darstellung/entwurf.html.
 
-Aufgabe: Für jedes Thema mit "gym_by": <klasse> in inhalte/themenliste.json die Lernkarten so umbauen, dass jede dem Muster entspricht:
+Aufgabe: Für jedes Thema mit "gym_by": <klasse> in inhalte/themenliste.json – dazu die Themen ohne Generator, die zu dieser Klasse gehören
+(Klasse 5: zahlen.natuerlich, zahlen.teilbarkeit · Klasse 6: finanzen.zinsen · Klasse 7: terme.umformen) – die Lernkarten so umbauen, dass jede dem Muster entspricht:
 einstieg (≤ 35 Wörter), woerter (≤ 3), Kartenbild, schritte als Objekte {text, bild} mit Bild je Bildänderung, fehler + fehler_bild, regel (erster Satz = Kurz gesagt, ≤ 12 Wörter).
 - Themen mit Generator: im Generator inhalte/generatoren/<thema>.py ändern (dort gibt es schon einen Abschnitt KLAR bzw. eine Hilfsdatei _klar_*.py, die die Erklärfelder
   nach dem Erzeugen der Aufgaben überlagert – dort weiterarbeiten), nicht von Hand in der JSON-Datei.

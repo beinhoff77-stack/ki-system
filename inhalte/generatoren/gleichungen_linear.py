@@ -541,6 +541,77 @@ TEIL = {'waage': 'umformen', 'beide_seiten': 'umformen', 'klammern': 'umformen',
         '_texte': [('umformen', 'Lineare Gleichungen durch Äquivalenzumformungen lösen'), ('pruefen', 'Lösungen prüfen, Fehler finden, Sonderfälle erkennen'),
                    ('anwenden', 'Gleichungen zu Sachsituationen aufstellen, lösen und deuten')]}
 
+# Verständliche Fassung (Runde 7, Maßstab inhalte/README.md „Verständliche Erklärungen“):
+# Alltagssituation zuerst (einstieg), jedes neue Wort erklärt (woerter), Beispiel in kleinen Schritten, Merksatz am Ende (regel).
+# Durchgehende Situationen: Balkenwaage mit Dosen, Obsttüten, Handytarife.
+KLAR = {
+ 'waage': {
+  'einstieg': 'Auf einer Balkenwaage liegen links 3 gleich schwere Dosen und ein 5-kg-Gewicht, rechts liegen 20 kg. Die Waage ist im Gleichgewicht. Wie schwer ist eine Dose? Nimmst du auf beiden Seiten dasselbe weg, bleibt die Waage im Gleichgewicht – bis am Ende eine einzelne Dose allein dasteht. So ein Schritt heißt ⟦Äquivalenzumformung⟧.',
+  'woerter': [['Term', 'eine Rechnung aus Zahlen, Buchstaben und Rechenzeichen, zum Beispiel 3x + 5'], ['Gleichung', 'zwei Terme mit einem Gleichheitszeichen dazwischen – wie eine Waage im Gleichgewicht'], ['x', 'hier das Gewicht einer Dose in kg, das wir noch nicht kennen (die Variable)'],
+              ['3x', '3 · x, also drei Dosen'], ['Lösung', 'die Zahl für x, bei der beide Seiten gleich viel ergeben'],
+              ['Äquivalenzumformung', 'auf beiden Seiten dasselbe tun, sodass das Gleichgewicht bleibt'], ['| − 5', 'Notiz hinter dem Strich: „auf beiden Seiten 5 abziehen“'],
+              ['Probe', 'die Lösung zur Kontrolle in die Gleichung einsetzen']],
+  'schritte': ['Die Waage als Gleichung: 3x + 5 = 20. Gesucht ist das Gewicht x einer Dose.',
+               'Nimm auf beiden Seiten 5 kg weg (| − 5), damit links nur noch die Dosen liegen: 3x = 15.',
+               'Drei Dosen wiegen also 15 kg. Teile beide Seiten durch 3 (| : 3): x = 15 : 3.',
+               'Eine Dose wiegt ⟦x = 5⟧ kg.'],
+  'regel': 'So löst du eine Gleichung: Tu auf ⟦beiden Seiten dasselbe⟧ – dieselbe Zahl addieren oder subtrahieren, mit derselben Zahl (nicht 0) multiplizieren oder durch sie dividieren. Das ist eine ⟦Äquivalenzumformung⟧; schreib sie hinter einen Strich, zum Beispiel | − 5.',
+  'fehler': 'Nur auf einer Seite umformen: Aus 3x + 5 = 20 wird mit | − 5 nicht 3x = 25 und auch nicht 3x = 20. Nimmt man links 5 kg herunter und rechts nichts, kippt die Waage. Rechts muss man ebenfalls 5 ⟦abziehen⟧: 3x = 15.'},
+ 'beide_seiten': {
+  'einstieg': 'Jetzt liegen auf beiden Seiten der Waage Dosen: links 5 Dosen und 3 kg, rechts 2 Dosen und 15 kg. Nimm auf beiden Seiten 2 Dosen weg – die Waage bleibt im Gleichgewicht, und rechts liegen keine Dosen mehr. So bringst du die ⟦Variable auf eine Seite⟧.',
+  'woerter': [['x-Glied', 'ein Teil mit x, zum Beispiel 5x oder 2x (Dosen)'], ['Zahlglied', 'ein Teil ohne x, zum Beispiel 3 oder 15 (Gewichte)'],
+              ['| − 2x', 'auf beiden Seiten 2x abziehen, also 2 Dosen wegnehmen']],
+  'schritte': ['Die Gleichung ist 5x + 3 = 2x + 15.',
+               'Nimm auf beiden Seiten 2 Dosen weg (| − 2x): Links bleiben 5x − 2x = 3x, rechts verschwindet das x. Es bleibt 3x + 3 = 15.',
+               'Nimm auf beiden Seiten 3 kg weg (| − 3): 3x = 12.',
+               'Teile beide Seiten durch 3 (| : 3): ⟦x = 4⟧.'],
+  'regel': 'So löst du, wenn x auf beiden Seiten steht: Bring zuerst alle ⟦x-Glieder auf eine Seite⟧ (am besten dorthin, wo mehr x stehen) und alle ⟦Zahlglieder auf die andere⟧. An der Waage heißt das: auf beiden Seiten gleich viele Dosen wegnehmen.',
+  'fehler': 'Aus 5x + 3 = 2x + 15 wird mit | − 2x nicht 7x + 3 = 15. Rechts werden 2 Dosen ⟦weggenommen⟧, also links auch: 5x − 2x = 3x. Wer links 2 Dosen dazulegt, bringt die Waage aus dem Gleichgewicht.'},
+ 'klammern': {
+  'einstieg': 'In drei Tüten liegen je ein paar Äpfel – wie viele, weiß man nicht – und je 2 Birnen. In allen drei Tüten zusammen sind also 3-mal so viele Äpfel und 3 · 2 = 6 Birnen. Mit einer Klammer schreibt man das kurz als 3(x + 2). Um damit zu rechnen, muss man die ⟦Klammer auflösen⟧.',
+  'woerter': [['3(x + 2)', '3 · (x + 2): drei Tüten mit je x Äpfeln und 2 Birnen'], ['Klammer auflösen', 'die Zahl vor der Klammer mit jedem Teil in der Klammer malnehmen: 3(x + 2) = 3x + 6'],
+              ['Summand', 'ein Teil einer Summe, zum Beispiel x und 2 in x + 2'], ['−(x + 3)', 'Minus vor der Klammer: alle Vorzeichen in der Klammer drehen sich um, also −x − 3']],
+  'schritte': ['Die Gleichung ist 3(x + 2) = 2x + 11.',
+               'Löse die Klammer auf: 3 mal x und 3 mal 2. Das ergibt 3x + 6 = 2x + 11.',
+               'Nimm auf beiden Seiten 2x weg (| − 2x): x + 6 = 11.',
+               'Nimm auf beiden Seiten 6 weg (| − 6): ⟦x = 5⟧.'],
+  'regel': 'So löst du Gleichungen mit Klammern: Löse zuerst die ⟦Klammern auf⟧ – die Zahl vor der Klammer wird mit ⟦jedem⟧ Summanden malgenommen. Ein ⟦Minus vor der Klammer⟧ dreht alle Vorzeichen in der Klammer um. Dann fasst du zusammen und löst wie gewohnt.',
+  'fehler': '3(x + 2) ist nicht 3x + 2: In jeder der drei Tüten liegen 2 Birnen, zusammen also 6. Ebenso ist −(x + 3) nicht −x + 3. Das Minus gilt für die ⟦ganze⟧ Klammer: −(x + 3) = −x − 3.'},
+ 'probe': {
+  'einstieg': 'An der Kasse rechnet die Kassiererin dir dein Wechselgeld heraus, und du zählst kurz nach, ob es stimmt. Bei Gleichungen gibt es auch so eine Kontrolle: Du setzt deine Lösung in die Aufgabe ein und prüfst, ob beide Seiten gleich viel ergeben. Das ist die ⟦Probe⟧.',
+  'woerter': [['ursprüngliche Gleichung', 'die Gleichung, wie sie in der Aufgabe stand – vor allen Umformungen'], ['≈', '„ungefähr gleich“, wenn eine Zahl gerundet ist'], ['1/3', 'ein Drittel']],
+  'schritte': ['Jemand löst 4x − 7 = x + 8 so: Erst 3x − 7 = 8, dann 3x = 1, also x = 1/3.',
+               'Probe in der ursprünglichen Gleichung: Links ergibt 4 · 1/3 − 7 ≈ −5,7, rechts 1/3 + 8 ≈ 8,3. Die Seiten sind verschieden, die Lösung ist also falsch.',
+               'Suche den Fehler Zeile für Zeile: Von 3x − 7 = 8 kommt man mit | + 7 auf 3x = 15, nicht auf 3x = 1.',
+               'Richtig ist ⟦x = 5⟧. Probe: links 4 · 5 − 7 = 13, rechts 5 + 8 = 13. ✓'],
+  'regel': 'So machst du die ⟦Probe⟧: Setze die Lösung in die ⟦ursprüngliche⟧ Gleichung ein und rechne beide Seiten ⟦getrennt⟧ aus. Sind sie verschieden, suchst du den Fehler Zeile für Zeile.',
+  'fehler': 'Die Probe in einer umgeformten Zeile statt in der ursprünglichen Gleichung machen: Ist schon die Umformung falsch, passt die Probe dort trotzdem – der Fehler bleibt ⟦unentdeckt⟧. Das ist, als würdest du das Wechselgeld mit einer schon falsch abgeschriebenen Rechnung vergleichen.'},
+ 'sonderfaelle': {
+  'einstieg': 'Zwei Handytarife kosten beide 2 € pro Gigabyte. Der eine hat 3 € Grundgebühr, der andere 5 €. Ab wie vielen Gigabyte sind sie gleich teuer? Nie – der zweite ist immer 2 € teurer. Manche Gleichungen haben ⟦keine Lösung⟧, andere sogar ⟦unendlich viele⟧.',
+  'woerter': [['GB', 'Gigabyte, eine Menge an Internet-Daten'], ['Lösungsmenge L', 'alle Zahlen, die die Gleichung erfüllen'], ['L = { }', 'leere Menge: keine Zahl passt'],
+              ['ℚ', 'die rationalen Zahlen: alle Brüche und Dezimalzahlen, positiv und negativ'], ['L = ℚ', 'jede dieser Zahlen passt'],
+              ['Aussage', 'ein Satz wie „3 = 5“, der wahr oder falsch ist']],
+  'schritte': ['Die Tarife als Gleichung: 2x + 3 = 2x + 5. Nimm auf beiden Seiten 2x weg (| − 2x).',
+               'Es bleibt 3 = 5. Das x ist ganz verschwunden, und 3 = 5 ist falsch.',
+               'Die Tarife kosten also ⟦nie⟧ gleich viel: L = { }.',
+               'Anders bei 2(x + 3) = 2x + 6: Klammer auflösen ergibt 2x + 6 = 2x + 6, nach | − 2x bleibt 6 = 6. Das ist wahr, egal welches x: ⟦L = ℚ⟧.'],
+  'regel': 'So erkennst du Sonderfälle: Fällt x beim Umformen ganz weg, schau auf die übrig gebliebene Aussage. Ist sie ⟦falsch⟧ (wie 3 = 5), gibt es ⟦keine Lösung⟧: L = { }. Ist sie ⟦wahr⟧ (wie 6 = 6), ist ⟦jede Zahl⟧ eine Lösung: L = ℚ.',
+  'fehler': 'Aus 3 = 5 auf „x = 0“ schließen oder aus 6 = 6 auf „x = 6“ passt nicht: Bei den beiden Handytarifen gibt es keine Datenmenge, bei der sie gleich viel kosten. Wenn x weg ist, entscheidet nur, ob die Aussage ⟦wahr oder falsch⟧ ist.'},
+ 'sach': {
+  'einstieg': 'Tarif A kostet 10 € Grundgebühr und 2 € pro Gigabyte, Tarif B nur 4 € pro Gigabyte ohne Grundgebühr. Bei wenig Daten ist B günstiger, bei viel Daten A. Wo genau liegt die Grenze? Solche Fragen aus dem Alltag löst man mit einer Gleichung – das ist eine ⟦Sachaufgabe⟧.',
+  'woerter': [['Sachaufgabe', 'eine Aufgabe aus dem Alltag, die man mit einer Gleichung löst'], ['Variable festlegen', 'aufschreiben, wofür x steht, zum Beispiel x = Anzahl der GB'],
+              ['sinnvoll', 'passt zur Situation: keine halben Personen, keine negativen Längen'], ['aufeinanderfolgende Zahlen', 'ganze Zahlen direkt hintereinander, zum Beispiel 15 und 16']],
+  'schritte': ['Lege die Variable fest: x ist die Anzahl der Gigabyte.',
+               'Stelle für beide Tarife einen Term auf und setze sie gleich: 10 + 2x = 4x.',
+               'Löse: Auf beiden Seiten 2x weg (| − 2x) ergibt 10 = 2x. Beide Seiten durch 2 (| : 2) ergibt x = 5.',
+               'Antwort: Bei ⟦5 GB⟧ kosten beide 20 €. Darunter ist B günstiger, darüber A.'],
+  'regel': 'So löst du eine Sachaufgabe: ⟦1. Variable festlegen⟧ (x = …), ⟦2. Gleichung aufstellen⟧, ⟦3. lösen⟧, ⟦4. Antwort im Sachzusammenhang⟧ geben – und prüfen, ob die Lösung ⟦sinnvoll⟧ ist.',
+  'fehler': '„Zwei aufeinanderfolgende Zahlen ergeben zusammen 31“ ist nicht x + x = 31 – dann wäre x = 15,5, und es gäbe keine zwei ganzen Zahlen. Die zweite Zahl ist um eins größer, also ⟦x + 1⟧: x + (x + 1) = 31 ergibt x = 15; die Zahlen sind 15 und 16.'},
+}
+for _e in ETAPPEN:
+    _e.update(KLAR.get(_e['lernziel'], {}))
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Umformen', ['waage', 'beide_seiten', 'klammern']), ('Prüfen und Sonderfälle', ['probe', 'sonderfaelle']), ('Anwenden', ['sach'])],

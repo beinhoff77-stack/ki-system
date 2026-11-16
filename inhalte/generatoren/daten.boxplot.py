@@ -330,6 +330,78 @@ def g_vergleichen(R, st):
 
 GEN = {'median': g_median, 'kennwerte': g_kennwerte, 'quartile': g_quartile, 'boxplot': g_boxplot, 'mittel_median': g_mittel_median, 'vergleichen': g_vergleichen}
 
+# Verständliche Fassung (Runde 7, Maßstab inhalte/README.md „Verständliche Erklärungen“):
+# Alltagssituation zuerst (einstieg), jedes neue Wort erklärt (woerter), Beispiel in kleinen Schritten, Merksatz am Ende (regel).
+# Situationen: Umfragen in einer Schule (Schulweg, gelesene Bücher, Taschengeld, Quiz-Punkte, Laufzeiten zweier Klassen).
+KLAR = {
+ 'median': {
+  'einstieg': 'Sechs Kinder einer Klasse sagen, wie viele Minuten ihr Schulweg dauert: 7, 3, 9, 4, 12 und 5. Welche Zahl beschreibt einen „typischen“ Schulweg? Man stellt die Kinder der Reihe nach auf, vom kürzesten bis zum längsten Weg, und schaut, wer in der Mitte steht. Der Wert in der Mitte heißt ⟦Median⟧.',
+  'woerter': [['Daten / Werte', 'die gesammelten Zahlen, hier die Minuten'], ['geordnete Liste', 'die Werte der Größe nach, vom kleinsten zum größten'],
+              ['Median (Zentralwert)', 'der Wert in der Mitte der geordneten Liste'], ['7; 3; 9', 'Strichpunkte trennen die Werte, damit man sie nicht mit Kommazahlen verwechselt']],
+  'schritte': ['Die Werte sind 7; 3; 9; 4; 12; 5 Minuten.',
+               'Ordne sie der Größe nach: 3; 4; 5; 7; 9; 12. Das sind 6 Werte.',
+               'Bei 6 Werten gibt es keinen einzelnen mittleren Wert. In der Mitte stehen zwei: 5 und 7.',
+               'Nimm die Zahl genau zwischen beiden: (5 + 7) : 2 = ⟦6⟧. Der Median ist 6 Minuten.'],
+  'regel': 'So bestimmst du den ⟦Median⟧: Ordne die Werte der Größe nach und nimm den Wert in der ⟦Mitte⟧. Bei einer geraden Anzahl nimmst du die ⟦Zahl genau zwischen den beiden mittleren⟧ Werten.',
+  'fehler': 'Der Median von 7; 3; 9; 4; 12 ist nicht 9, nur weil die 9 in der ungeordneten Liste in der Mitte steht – das wäre, als würde man die Kinder irgendwie aufstellen. Erst ⟦ordnen⟧: 3; 4; 7; 9; 12 → Median 7.'},
+ 'kennwerte': {
+  'einstieg': 'Fünf Kinder zählen, wie viele Bücher sie in den Ferien gelesen haben: 2, 5, 5, 6 und 12. Man kann fragen: Welche Zahl kommt am häufigsten vor? Wie weit liegen das wenigste und das meiste auseinander? Und wie viele Bücher wären es pro Kind, wenn alle gleich viel gelesen hätten? Solche Zahlen, die eine Liste zusammenfassen, heißen ⟦Kennwerte⟧.',
+  'woerter': [['Kennwerte', 'Zahlen, die eine ganze Liste kurz beschreiben'], ['Modalwert', 'der Wert, der am häufigsten vorkommt'], ['Spannweite', 'größter Wert minus kleinster Wert'],
+              ['arithmetisches Mittel (Mittelwert)', 'alle Werte zusammenzählen und durch ihre Anzahl teilen – so viel hätte jeder bei gleicher Verteilung']],
+  'schritte': ['Die Werte sind 2; 5; 5; 6; 12 Bücher.',
+               'Die 5 kommt zweimal vor, jede andere Zahl nur einmal. Der Modalwert ist 5.',
+               'Der größte Wert ist 12, der kleinste 2. Die Spannweite ist 12 − 2 = 10.',
+               'Für den Mittelwert alle zusammenzählen: 2 + 5 + 5 + 6 + 12 = 30. Durch die Anzahl 5 teilen: 30 : 5 = ⟦6⟧.'],
+  'regel': 'So findest du die ⟦Kennwerte⟧: ⟦Modalwert⟧ – der häufigste Wert. ⟦Spannweite⟧ – größter minus kleinster Wert. ⟦Arithmetisches Mittel⟧ – Summe aller Werte geteilt durch ihre Anzahl.',
+  'fehler': 'Die Spannweite von 2; 5; 5; 6; 12 ist nicht 12. Sie ist der ⟦Abstand⟧ zwischen dem größten und dem kleinsten Wert: 12 − 2 = 10 – so viele Bücher mehr hat das Kind mit den meisten gelesen als das mit den wenigsten.',
+  'bild': {'typ': 'saeulen', 'einheit': 'Anzahl Kinder', 'werte': [{'name': '2 Bücher', 'wert': 1}, {'name': '5 Bücher', 'wert': 2}, {'name': '6 Bücher', 'wert': 1}, {'name': '12 Bücher', 'wert': 1}], 'zahlen': True}},
+ 'mittel_median': {
+  'einstieg': 'Fünf Kinder sagen, wie viel Taschengeld sie im Monat bekommen: 10 €, 12 €, 12 €, 15 € – und eines bekommt 101 €. Rechnet man den Mittelwert aus, kommt 30 € heraus, obwohl vier von fünf viel weniger bekommen. Ein einzelner Wert, der weit von allen anderen entfernt liegt, heißt ⟦Ausreißer⟧.',
+  'woerter': [['Ausreißer', 'ein einzelner Wert, der weit weg von allen anderen liegt'], ['typische Mitte', 'ein Wert, der beschreibt, was für die meisten gilt']],
+  'schritte': ['Die Werte sind 10; 12; 12; 15; 101 Euro.',
+               'Mittelwert: 10 + 12 + 12 + 15 + 101 = 150, und 150 : 5 = 30 €.',
+               'Median: Die Liste ist schon geordnet, in der Mitte steht 12 €.',
+               'Vier von fünf Kindern bekommen höchstens 15 €. Die typische Mitte beschreibt also der ⟦Median⟧ besser.'],
+  'regel': 'So entscheidest du: Der ⟦Mittelwert⟧ reagiert stark auf ⟦Ausreißer⟧, der ⟦Median⟧ kaum. Gibt es einen Ausreißer, beschreibt meist der Median die typische Mitte besser. Ohne Ausreißer passen oft beide.',
+  'fehler': 'Der Mittelwert 30 € ist nicht „das, was die meisten bekommen“. Das eine Kind mit 101 € ⟦zieht ihn nach oben⟧ – so wie ein einziger sehr großer Mensch die Durchschnittsgröße einer kleinen Gruppe deutlich anhebt.'},
+ 'quartile': {
+  'einstieg': 'Sieben Kinder machen bei einem Quiz mit und bekommen 1, 3, 4, 6, 8, 9 und 11 Punkte. Der Median teilt sie in eine untere und eine obere Hälfte. Teilt man jede Hälfte noch einmal in der Mitte, hat man vier Viertel. Die Werte an diesen Trennstellen heißen ⟦Quartile⟧.',
+  'woerter': [['Quartil', 'Trennstelle zwischen zwei Vierteln der geordneten Daten'], ['Q₁, Q₃', 'die kleine Zahl unten ist nur eine Nummer: erstes und drittes Quartil'],
+              ['unteres Quartil Q₁', 'der Median der unteren Hälfte; etwa ein Viertel der Werte liegt darunter'],
+              ['oberes Quartil Q₃', 'der Median der oberen Hälfte; etwa drei Viertel der Werte liegen darunter'], ['Quartilsabstand', 'Q₃ − Q₁; so breit ist die mittlere Hälfte der Daten']],
+  'schritte': ['Die geordneten Werte sind 1; 3; 4; 6; 8; 9; 11. Der Median ist 6.',
+               'Bei einer ungeraden Anzahl gehört der Median zu keiner Hälfte. Die untere Hälfte ist 1; 3; 4, ihr Median ist Q₁ = 3.',
+               'Die obere Hälfte ist 8; 9; 11, ihr Median ist ⟦Q₃ = 9⟧.',
+               'Der Quartilsabstand ist 9 − 3 = 6.'],
+  'regel': 'So bestimmst du die ⟦Quartile⟧: Teile die geordnete Liste am Median in eine untere und eine obere Hälfte. Das ⟦untere Quartil⟧ ist der Median der unteren Hälfte, das ⟦obere Quartil⟧ der Median der oberen Hälfte. Bei ungerader Anzahl gehört der Median ⟦zu keiner Hälfte⟧.',
+  'fehler': 'Das untere Quartil ist nicht „ein Viertel vom größten Wert“ (11 : 4). Es ist eine Trennstelle in der geordneten Liste: Etwa ⟦ein Viertel der Daten⟧ liegt darunter, drei Viertel darüber.',
+  'bild': {'typ': 'boxplot', 'achse': [0, 12], 'einheit': 'Punkte', 'reihen': [{'min': 1, 'q1': 3, 'median': 6, 'q3': 9, 'max': 11}]}},
+ 'boxplot': {
+  'einstieg': 'Bei einer großen Umfrage an der Schule haben 200 Kinder ihren Schulweg in Minuten angegeben. Eine Liste mit 200 Zahlen ist unübersichtlich. Man zeichnet stattdessen ein Bild aus einer Box und zwei Linien, das die fünf wichtigsten Werte auf einen Blick zeigt. So ein Bild heißt ⟦Boxplot⟧.',
+  'woerter': [['Minimum / Maximum', 'kleinster / größter Wert'], ['Box', 'das Rechteck von Q₁ bis Q₃; der Strich darin ist der Median'],
+              ['Antennen', 'die Linien links und rechts der Box bis zum Minimum und zum Maximum'], ['fünf Kennwerte', 'Minimum, Q₁, Median, Q₃, Maximum']],
+  'schritte': ['Lies die fünf Werte ab: Minimum 12, Q₁ = 18, Median 23, Q₃ = 30, Maximum 41 (in Minuten).',
+               'Die Spannweite ist die ganze Länge: 41 − 12 = 29 Minuten.',
+               'Der Quartilsabstand ist die Länge der Box: 30 − 18 = 12 Minuten.',
+               'Links von Q₃ liegen drei Viertel der Daten: Etwa ⟦75 %⟧ der Kinder brauchen weniger als 30 Minuten.'],
+  'regel': 'So liest du einen ⟦Boxplot⟧: Er zeigt Minimum, unteres Quartil, Median, oberes Quartil und Maximum. In der ⟦Box⟧ liegt etwa die ⟦Hälfte⟧ der Daten, in jeder ⟦Antenne⟧ und in jeder Hälfte der Box etwa ein ⟦Viertel⟧.',
+  'fehler': 'Eine längere Antenne bedeutet nicht, dass dort mehr Kinder sind. In jeder Antenne liegt etwa ⟦ein Viertel⟧ der Daten – nur ⟦weiter auseinander⟧: Die Kinder mit langem Schulweg unterscheiden sich stärker voneinander.',
+  'bild': {'typ': 'boxplot', 'achse': [10, 45], 'einheit': 'min', 'reihen': [{'min': 12, 'q1': 18, 'median': 23, 'q3': 30, 'max': 41}]}},
+ 'vergleichen': {
+  'einstieg': 'Zwei Klassen laufen dieselbe Strecke durch den Pausenhof, jede Zeit wird gestoppt. Welche Klasse war schneller? Und in welcher Klasse waren die Kinder ähnlich schnell, in welcher sehr unterschiedlich? Zwei Boxplots übereinander zeigen beides auf einen Blick. So kann man ⟦Datensätze vergleichen⟧.',
+  'woerter': [['Datensatz', 'alle Werte einer Gruppe, hier die Zeiten einer Klasse'], ['Mitte', 'wo die Werte ungefähr liegen; man vergleicht sie mit dem Median'],
+              ['Streuung', 'wie weit die Werte auseinanderliegen; man vergleicht sie mit Spannweite und Quartilsabstand'], ['einheitlich', 'die Werte liegen nah beieinander'], ['s', 'Sekunden']],
+  'schritte': ['Lies aus den Boxplots ab: Klasse A hat den Median 24 s und den Quartilsabstand 26 − 22 = 4 s.',
+               'Klasse B hat den Median 22 s und den Quartilsabstand 27 − 18 = 9 s.',
+               'Der Median von B ist die kleinere Zeit: B war in der Mitte schneller. Die Box von B ist aber länger: B streut stärker.',
+               'Die Aussage „In A sind die Zeiten einheitlicher“ ist also ⟦richtig⟧.'],
+  'regel': 'So vergleichst du ⟦Datensätze⟧: Vergleiche zuerst die ⟦Mitte⟧ (Median), dann die ⟦Streuung⟧ (Spannweite, Quartilsabstand). Aussagen über „die meisten“ oder „ein Viertel“ prüfst du mit den Quartilen.',
+  'fehler': 'Eine größere Spannweite heißt nicht, dass eine Klasse insgesamt besser oder schlechter ist – und auch nicht, dass sie mehr Kinder hat. Sie sagt nur etwas über die ⟦Streuung⟧: Die Zeiten liegen weiter auseinander.'},
+}
+for _e in ETAPPEN:
+    _e.update(KLAR.get(_e['lernziel'], {}))
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Kennwerte', ['median', 'kennwerte', 'mittel_median']), ('Quartile und Boxplot', ['quartile', 'boxplot']), ('Vergleichen', ['vergleichen'])],

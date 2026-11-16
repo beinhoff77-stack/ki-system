@@ -432,6 +432,78 @@ def g_deuten(R, st):
 
 GEN = {'struktur': g_struktur, 'termwert': g_termwert, 'uebersetzen': g_uebersetzen, 'sachsituation': g_sachsituation, 'muster': g_muster, 'deuten': g_deuten}
 
+# Verständliche Fassung (Runde 7, Maßstab inhalte/README.md „Verständliche Erklärungen“):
+# Alltagssituation zuerst (einstieg), jedes neue Wort erklärt (woerter), Beispiel in kleinen Schritten, Merksatz am Ende (regel).
+# Durchgehende Situation: ein Fahrradverleih am See.
+KLAR = {
+ 'struktur': {
+  'einstieg': 'Beim Fahrradverleih am See kostet ein Rad 2 € Grundgebühr und 3 € für die erste Stunde, zusammen 5 €. Eine Familie leiht 5 Räder. Die Kassiererin rechnet erst 2 + 3 und nimmt das Ergebnis dann mal 5: 25 €. Rechnet sie stattdessen erst 5 · 2 und zählt dann 3 dazu, kommen falsche 13 € heraus. So eine Rechnung heißt ⟦Term⟧, und welche Rechnung man zuletzt ausführt, bestimmt die ⟦Termart⟧.',
+  'woerter': [['Term', 'eine Rechnung aus Zahlen, Buchstaben und Rechenzeichen, zum Beispiel 5 · (2 + 3) oder 3x + 4'],
+              ['Variable', 'ein Buchstabe wie x als Platzhalter für eine Zahl, die man noch nicht kennt oder die sich ändern kann'],
+              ['3x', 'kurz für 3 · x; vor einem Buchstaben darf das Malzeichen fehlen'], ['Termart', 'Name des Terms nach der Rechnung, die man zuletzt ausführt'],
+              ['Summe / Differenz', 'zuletzt wird addiert (+) / subtrahiert (−)'], ['Produkt / Quotient', 'zuletzt wird malgenommen (·) / geteilt (:)'],
+              ['Punkt vor Strich', '· und : rechnet man vor + und −']],
+  'schritte': ['Der Term ist 5 · (x + 2). Schau zuerst, in welcher Reihenfolge gerechnet wird.',
+               'Was in Klammern steht, rechnet man zuerst: x + 2.',
+               'Danach wird das Ergebnis der Klammer mal 5 genommen. Das ist die letzte Rechnung.',
+               'Die letzte Rechnung ist ein Malnehmen. Also ist der Term ein ⟦Produkt⟧.'],
+  'regel': 'So bestimmst du die ⟦Termart⟧: Überlege, welche Rechnung du ⟦zuletzt⟧ ausführst. Klammern kommen zuerst, dann Punkt vor Strich. Zuletzt + heißt Summe, − Differenz, · Produkt, : Quotient.',
+  'fehler': '3x + 4 ist kein Produkt, obwohl in 3x ein Mal steckt. Punkt vor Strich: Erst wird 3 · x gerechnet, ⟦zuletzt wird addiert⟧. Es ist eine Summe – wie beim Verleih, wenn man erst 3 Stunden zu je x € ausrechnet und am Ende noch 4 € Gebühr dazuzählt.'},
+ 'termwert': {
+  'einstieg': 'Der Fahrradverleih hat eine Preistafel: „3 € pro Stunde plus 5 € Grundgebühr“. Als Term heißt das 3x + 5; x ist dabei die Anzahl der Stunden. Will ein Kunde wissen, was 4 Stunden kosten, setzt man für x die 4 ein: 3 · 4 + 5 = 17 €. Das Ergebnis heißt ⟦Termwert⟧.',
+  'woerter': [['einsetzen', 'für die Variable eine bestimmte Zahl hinschreiben'], ['Termwert', 'das Ergebnis, wenn man eine Zahl eingesetzt und ausgerechnet hat'],
+              ['T(x)', 'Name für einen Term mit der Variablen x; T(−2) ist sein Wert für x = −2'], ['x²', '„x hoch 2“, also x · x'], ['quadrieren', 'eine Zahl mit sich selbst malnehmen, zum Beispiel 4² = 4 · 4 = 16'],
+              ['Potenz', 'eine Rechnung mit Hochzahl wie x² oder 4³'], ['(−2)²', '(−2) · (−2) = 4; die Klammer zeigt: das Minus wird mitquadriert']],
+  'schritte': ['Gegeben ist T(x) = 2x² − 3x. Gesucht ist der Termwert für x = −2.',
+               'Schreibe überall, wo x steht, die −2 hin – in Klammern, weil sie negativ ist: 2 · (−2)² − 3 · (−2).',
+               'Zuerst die Potenz: (−2)² = 4. Dann die Malrechnungen: 2 · 4 = 8 und 3 · (−2) = −6.',
+               'Zum Schluss abziehen: 8 − (−6) = 8 + 6 = ⟦14⟧.'],
+  'regel': 'So berechnest du einen ⟦Termwert⟧: Für die Variable die Zahl ⟦einsetzen⟧, negative Zahlen in ⟦Klammern⟧. Dann der Reihe nach rechnen: Klammer, Potenz, Punkt, Strich.',
+  'fehler': 'Für x = −2 ist 2x² nicht 2 · (−4). Es wird ⟦erst quadriert⟧: (−2)² = 4, dann mal 2, also 8. Ohne Klammer würde man nur die 2 quadrieren und das Minus hinterher davorschreiben – das ist eine andere Rechnung.'},
+ 'uebersetzen': {
+  'einstieg': 'Die Chefin des Fahrradverleihs sagt am Telefon: „Nimm die Leihgebühr und zähl 5 € Pfand dazu – und das Ganze mal zwei, es sind zwei Kinder.“ Um das richtig zu rechnen, schreibt man den Satz als Rechnung auf. Ein Term in Worten heißt ⟦Wortterm⟧; ihn in Zeichen zu schreiben heißt ⟦übersetzen⟧.',
+  'woerter': [['Wortterm', 'ein Term in Worten, zum Beispiel „das Doppelte der Summe aus x und 5“'], ['das Doppelte / das Dreifache', 'mal 2 / mal 3'],
+              ['vermehrt um / vermindert um', 'plus / minus'], ['2(x + 5)', 'kurz für 2 · (x + 5): die ganze Klammer wird verdoppelt']],
+  'schritte': ['Der Wortterm lautet: „das Doppelte der Summe aus x und 5“.',
+               'Suche zuerst, was zusammengehört: „die Summe aus x und 5“ ist x + 5.',
+               'Diese Summe soll als Ganzes verdoppelt werden. Darum kommt sie in Klammern: (x + 5).',
+               'Jetzt verdoppeln: ⟦2(x + 5)⟧.'],
+  'regel': 'So übersetzt du Wort für Wort: Summe +, Differenz −, Produkt ·, Quotient :, das Dreifache 3 ·, vermehrt um +, vermindert um −. Was ⟦zuerst⟧ gerechnet werden soll, kommt in ⟦Klammern⟧.',
+  'fehler': '„Das Doppelte der Summe aus x und 5“ ist nicht 2x + 5. Dort wird nur das x verdoppelt – als würde für das zweite Kind nur die Leihgebühr bezahlt, aber kein Pfand. Gemeint ist die ganze ⟦Summe⟧: 2(x + 5) = 2x + 10.'},
+ 'sachsituation': {
+  'einstieg': 'Jetzt baust du die Preistafel des Fahrradverleihs selbst: 5 € Grundgebühr, egal wie lange, und 3 € für jede Stunde. Wie viele Stunden ein Kunde fährt, ist noch offen – dafür nimmt man einen Buchstaben. So entsteht ein ⟦Term zu einer Sachsituation⟧, mit dem man jeden Preis ausrechnen kann.',
+  'woerter': [['Sachsituation', 'eine Aufgabe aus dem Alltag, hier der Fahrradverleih'], ['Grundgebühr', 'ein fester Betrag, der immer einmal anfällt, egal wie lange'],
+              ['pro Stunde', 'für jede Stunde einmal – das wird mit der Anzahl der Stunden malgenommen']],
+  'schritte': ['Lege zuerst fest, wofür der Buchstabe steht: x ist die Anzahl der Stunden.',
+               'Für jede Stunde kommen 3 € dazu. Bei x Stunden sind das 3 · x, also 3x Euro.',
+               'Die Grundgebühr von 5 € kommt einmal dazu, egal wie lange: 3x + 5.',
+               'Der Term für die Kosten in Euro ist ⟦3x + 5⟧. Probe mit 2 Stunden: 3 · 2 + 5 = 11 €.'],
+  'regel': 'So stellst du einen Term auf: Lege fest, wofür die ⟦Variable⟧ steht (zum Beispiel x = Anzahl der Stunden). Beträge „pro Stück“ oder „pro Stunde“ werden ⟦mit x malgenommen⟧, feste Beträge werden ⟦dazugezählt⟧.',
+  'fehler': 'Der Term 5x + 3 vertauscht die Rollen: Dann müsste man die 5 € Grundgebühr ⟦jede Stunde⟧ neu bezahlen und die 3 € nur einmal. Was pro Stunde anfällt, steht vor dem x.'},
+ 'muster': {
+  'einstieg': 'Während es regnet, legt ein Kind am Fahrradverleih mit Streichhölzern Quadrate in eine Reihe: erst 1 Quadrat, dann 2, dann 3 nebeneinander. Es fragt sich: Wie viele Hölzer brauche ich für 10 Quadrate, ohne alles zu legen? Eine Reihe von Figuren, die nach einer festen Regel wächst, heißt ⟦Figurenfolge⟧.',
+  'woerter': [['Figurenfolge', 'Figur 1, Figur 2, Figur 3 …, die nach einer festen Regel wächst'], ['n', 'die Nummer der Figur (1, 2, 3, …); wie x eine Variable'],
+              ['Zunahme pro Schritt', 'so viele Hölzer kommen von einer Figur zur nächsten dazu']],
+  'schritte': ['Zähle die Hölzer: Figur 1 hat 4, Figur 2 hat 7, Figur 3 hat 10. Von Figur zu Figur kommen 3 Hölzer dazu.',
+               'Schau ins Bild: Ganz links steht 1 senkrechtes Holz. Jedes Quadrat bringt 3 neue Hölzer mit – oben, unten und rechts.',
+               'Figur n hat n Quadrate. Sie braucht also 1 Holz plus 3 · n Hölzer: ⟦3n + 1⟧.',
+               'Für 10 Quadrate setzt du n = 10 ein: 3 · 10 + 1 = 31 Hölzer.'],
+  'regel': 'So beschreibst du eine ⟦Figurenfolge⟧ mit einem Term: Suche, ⟦wie viel pro Schritt dazukommt⟧ – diese Zahl steht vor dem n. Prüfe dann mit Figur 1, welche feste Zahl noch dazukommt.',
+  'fehler': 'Der Term n + 3 passt nicht zu 4, 7, 10: Für n = 2 ergibt er 5 statt 7. Er tut so, als käme pro Quadrat nur ⟦1 Holz⟧ dazu. Die Zunahme pro Schritt (3) gehört vor das n.'},
+ 'deuten': {
+  'einstieg': 'Der Handyvertrag der Chefin hat eine feste Monatsgebühr und kostet außerdem für jede Minute etwas. Auf der Rechnung steht nur ein Term: K = 0,1x + 8. Was bedeuten die 8 und die 0,1? Wer erklärt, wofür jede Zahl in einem Term steht, ⟦deutet⟧ den Term.',
+  'woerter': [['deuten', 'erklären, was eine Zahl oder ein Buchstabe in der Situation bedeutet'], ['K', 'hier: die Kosten im Monat in Euro'], ['0,1', '0,10 €, also 10 Cent']],
+  'schritte': ['Der Term ist K = 0,1x + 8. Dabei ist x die Anzahl der Minuten, K sind die Kosten in Euro.',
+               'Die 0,1 steht vor dem x. Sie wird mit jeder Minute malgenommen: 0,10 € pro Minute.',
+               'Die 8 kommt immer dazu, egal wie viel man telefoniert: 8 € Grundgebühr.',
+               'Für 50 Minuten: K = 0,1 · 50 + 8 = 5 + 8 = ⟦13 €⟧.'],
+  'regel': 'So ⟦deutest⟧ du einen Term: Die Zahl ⟦vor dem x⟧ ist der Betrag pro Einheit (pro Minute, pro Stunde), die Zahl ⟦ohne x⟧ ist der feste Betrag. Passt eine Deutung nicht zu allen Teilen, ist sie ⟦falsch⟧.',
+  'fehler': 'In K = 0,1x + 8 ist 8 nicht der Preis pro Minute – sonst kosteten 50 Minuten schon 400 €. Was pro Minute zählt, steht ⟦vor dem x⟧.'},
+}
+for _e in ETAPPEN:
+    _e.update(KLAR.get(_e['lernziel'], {}))
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Terme lesen', ['struktur', 'termwert']), ('Terme aufstellen', ['uebersetzen', 'sachsituation', 'muster']), ('Terme deuten', ['deuten'])],

@@ -42,75 +42,129 @@
    {
     "lernziel": "median",
     "titel": "Den Median bestimmen",
-    "regel": "Der ⟦Median⟧ (Zentralwert) ist der Wert in der ⟦Mitte der geordneten Liste⟧. Bei einer geraden Anzahl nimmt man den ⟦Mittelwert der beiden mittleren⟧ Werte.",
+    "regel": "So bestimmst du den ⟦Median⟧: Ordne die Werte der Größe nach und nimm den Wert in der ⟦Mitte⟧. Bei einer geraden Anzahl nimmst du die ⟦Zahl genau zwischen den beiden mittleren⟧ Werten.",
     "schritte": [
-     "Werte: 7; 3; 9; 4; 12; 5",
-     "Geordnet: 3; 4; 5; 7; 9; 12 (6 Werte)",
-     "Median = (5 + 7) : 2 = ⟦6⟧"
+     "Die Werte sind 7; 3; 9; 4; 12; 5 Minuten.",
+     "Ordne sie der Größe nach: 3; 4; 5; 7; 9; 12. Das sind 6 Werte.",
+     "Bei 6 Werten gibt es keinen einzelnen mittleren Wert. In der Mitte stehen zwei: 5 und 7.",
+     "Nimm die Zahl genau zwischen beiden: (5 + 7) : 2 = ⟦6⟧. Der Median ist 6 Minuten."
     ],
-    "fehler": "Der Median von 7; 3; 9; 4; 12 ist nicht 9 (der mittlere Wert der ⟦ungeordneten⟧ Liste). Erst ordnen: 3; 4; 7; 9; 12 → Median 7."
+    "fehler": "Der Median von 7; 3; 9; 4; 12 ist nicht 9, nur weil die 9 in der ungeordneten Liste in der Mitte steht – das wäre, als würde man die Kinder irgendwie aufstellen. Erst ⟦ordnen⟧: 3; 4; 7; 9; 12 → Median 7.",
+    "einstieg": "Sechs Kinder einer Klasse sagen, wie viele Minuten ihr Schulweg dauert: 7, 3, 9, 4, 12 und 5. Welche Zahl beschreibt einen „typischen“ Schulweg? Man stellt die Kinder der Reihe nach auf, vom kürzesten bis zum längsten Weg, und schaut, wer in der Mitte steht. Der Wert in der Mitte heißt ⟦Median⟧.",
+    "woerter": [
+     [
+      "Daten / Werte",
+      "die gesammelten Zahlen, hier die Minuten"
+     ],
+     [
+      "geordnete Liste",
+      "die Werte der Größe nach, vom kleinsten zum größten"
+     ],
+     [
+      "Median (Zentralwert)",
+      "der Wert in der Mitte der geordneten Liste"
+     ],
+     [
+      "7; 3; 9",
+      "Strichpunkte trennen die Werte, damit man sie nicht mit Kommazahlen verwechselt"
+     ]
+    ]
    },
    {
     "lernziel": "kennwerte",
     "titel": "Modalwert, Spannweite, Mittelwert",
-    "regel": "⟦Modalwert⟧: der häufigste Wert. ⟦Spannweite⟧: größter minus kleinster Wert. ⟦Arithmetisches Mittel⟧: Summe aller Werte geteilt durch ihre Anzahl.",
+    "regel": "So findest du die ⟦Kennwerte⟧: ⟦Modalwert⟧ – der häufigste Wert. ⟦Spannweite⟧ – größter minus kleinster Wert. ⟦Arithmetisches Mittel⟧ – Summe aller Werte geteilt durch ihre Anzahl.",
     "schritte": [
-     "Werte: 2; 5; 5; 6; 12",
-     "Modalwert 5, Spannweite 12 − 2 = 10",
-     "Mittel: 30 : 5 = ⟦6⟧"
+     "Die Werte sind 2; 5; 5; 6; 12 Bücher.",
+     "Die 5 kommt zweimal vor, jede andere Zahl nur einmal. Der Modalwert ist 5.",
+     "Der größte Wert ist 12, der kleinste 2. Die Spannweite ist 12 − 2 = 10.",
+     "Für den Mittelwert alle zusammenzählen: 2 + 5 + 5 + 6 + 12 = 30. Durch die Anzahl 5 teilen: 30 : 5 = ⟦6⟧."
     ],
-    "fehler": "Die Spannweite von 2; 5; 5; 6; 12 ist nicht 12. Es ist der ⟦Abstand⟧ zwischen größtem und kleinstem Wert: 12 − 2 = 10.",
+    "fehler": "Die Spannweite von 2; 5; 5; 6; 12 ist nicht 12. Sie ist der ⟦Abstand⟧ zwischen dem größten und dem kleinsten Wert: 12 − 2 = 10 – so viele Bücher mehr hat das Kind mit den meisten gelesen als das mit den wenigsten.",
     "bild": {
      "typ": "saeulen",
-     "einheit": "Anzahl",
+     "einheit": "Anzahl Kinder",
      "werte": [
       {
-       "name": "2",
+       "name": "2 Bücher",
        "wert": 1
       },
       {
-       "name": "5",
+       "name": "5 Bücher",
        "wert": 2
       },
       {
-       "name": "6",
+       "name": "6 Bücher",
        "wert": 1
       },
       {
-       "name": "12",
+       "name": "12 Bücher",
        "wert": 1
       }
      ],
      "zahlen": true
-    }
+    },
+    "einstieg": "Fünf Kinder zählen, wie viele Bücher sie in den Ferien gelesen haben: 2, 5, 5, 6 und 12. Man kann fragen: Welche Zahl kommt am häufigsten vor? Wie weit liegen das wenigste und das meiste auseinander? Und wie viele Bücher wären es pro Kind, wenn alle gleich viel gelesen hätten? Solche Zahlen, die eine Liste zusammenfassen, heißen ⟦Kennwerte⟧.",
+    "woerter": [
+     [
+      "Kennwerte",
+      "Zahlen, die eine ganze Liste kurz beschreiben"
+     ],
+     [
+      "Modalwert",
+      "der Wert, der am häufigsten vorkommt"
+     ],
+     [
+      "Spannweite",
+      "größter Wert minus kleinster Wert"
+     ],
+     [
+      "arithmetisches Mittel (Mittelwert)",
+      "alle Werte zusammenzählen und durch ihre Anzahl teilen – so viel hätte jeder bei gleicher Verteilung"
+     ]
+    ]
    },
    {
     "lernziel": "mittel_median",
     "titel": "Mittelwert und Median vergleichen",
-    "regel": "Der ⟦Mittelwert⟧ reagiert stark auf ⟦Ausreißer⟧ (einzelne extreme Werte), der ⟦Median⟧ kaum. Bei Ausreißern beschreibt der Median die „typische Mitte“ meist besser.",
+    "regel": "So entscheidest du: Der ⟦Mittelwert⟧ reagiert stark auf ⟦Ausreißer⟧, der ⟦Median⟧ kaum. Gibt es einen Ausreißer, beschreibt meist der Median die typische Mitte besser. Ohne Ausreißer passen oft beide.",
     "schritte": [
-     "Taschengeld (€): 10; 12; 12; 15; 101",
-     "Mittelwert: 150 : 5 = 30 €; Median: 12 €",
-     "Der ⟦Median⟧ passt besser – vier von fünf bekommen höchstens 15 €."
+     "Die Werte sind 10; 12; 12; 15; 101 Euro.",
+     "Mittelwert: 10 + 12 + 12 + 15 + 101 = 150, und 150 : 5 = 30 €.",
+     "Median: Die Liste ist schon geordnet, in der Mitte steht 12 €.",
+     "Vier von fünf Kindern bekommen höchstens 15 €. Die typische Mitte beschreibt also der ⟦Median⟧ besser."
     ],
-    "fehler": "Der Mittelwert 30 € ist nicht „das, was die meisten bekommen“: Ein einziger großer Wert (101 €) ⟦zieht ihn nach oben⟧."
+    "fehler": "Der Mittelwert 30 € ist nicht „das, was die meisten bekommen“. Das eine Kind mit 101 € ⟦zieht ihn nach oben⟧ – so wie ein einziger sehr großer Mensch die Durchschnittsgröße einer kleinen Gruppe deutlich anhebt.",
+    "einstieg": "Fünf Kinder sagen, wie viel Taschengeld sie im Monat bekommen: 10 €, 12 €, 12 €, 15 € – und eines bekommt 101 €. Rechnet man den Mittelwert aus, kommt 30 € heraus, obwohl vier von fünf viel weniger bekommen. Ein einzelner Wert, der weit von allen anderen entfernt liegt, heißt ⟦Ausreißer⟧.",
+    "woerter": [
+     [
+      "Ausreißer",
+      "ein einzelner Wert, der weit weg von allen anderen liegt"
+     ],
+     [
+      "typische Mitte",
+      "ein Wert, der beschreibt, was für die meisten gilt"
+     ]
+    ]
    },
    {
     "lernziel": "quartile",
     "titel": "Quartile bestimmen",
-    "regel": "Der Median teilt die geordnete Liste in eine untere und eine obere Hälfte. Das ⟦untere Quartil⟧ ist der Median der unteren Hälfte, das ⟦obere Quartil⟧ der Median der oberen Hälfte. Bei ungerader Anzahl gehört der Median ⟦zu keiner Hälfte⟧.",
+    "regel": "So bestimmst du die ⟦Quartile⟧: Teile die geordnete Liste am Median in eine untere und eine obere Hälfte. Das ⟦untere Quartil⟧ ist der Median der unteren Hälfte, das ⟦obere Quartil⟧ der Median der oberen Hälfte. Bei ungerader Anzahl gehört der Median ⟦zu keiner Hälfte⟧.",
     "schritte": [
-     "Geordnet: 1; 3; 4; 6; 8; 9; 11",
-     "Median 6. Untere Hälfte 1; 3; 4 → Q₁ = 3",
-     "Obere Hälfte 8; 9; 11 → ⟦Q₃ = 9⟧. Quartilsabstand 9 − 3 = 6"
+     "Die geordneten Werte sind 1; 3; 4; 6; 8; 9; 11. Der Median ist 6.",
+     "Bei einer ungeraden Anzahl gehört der Median zu keiner Hälfte. Die untere Hälfte ist 1; 3; 4, ihr Median ist Q₁ = 3.",
+     "Die obere Hälfte ist 8; 9; 11, ihr Median ist ⟦Q₃ = 9⟧.",
+     "Der Quartilsabstand ist 9 − 3 = 6."
     ],
-    "fehler": "Das untere Quartil ist nicht „ein Viertel vom größten Wert“. Es ist der Wert, unter dem etwa ⟦ein Viertel der Daten⟧ liegt.",
+    "fehler": "Das untere Quartil ist nicht „ein Viertel vom größten Wert“ (11 : 4). Es ist eine Trennstelle in der geordneten Liste: Etwa ⟦ein Viertel der Daten⟧ liegt darunter, drei Viertel darüber.",
     "bild": {
      "typ": "boxplot",
      "achse": [
       0,
       12
      ],
+     "einheit": "Punkte",
      "reihen": [
       {
        "min": 1,
@@ -120,24 +174,49 @@
        "max": 11
       }
      ]
-    }
+    },
+    "einstieg": "Sieben Kinder machen bei einem Quiz mit und bekommen 1, 3, 4, 6, 8, 9 und 11 Punkte. Der Median teilt sie in eine untere und eine obere Hälfte. Teilt man jede Hälfte noch einmal in der Mitte, hat man vier Viertel. Die Werte an diesen Trennstellen heißen ⟦Quartile⟧.",
+    "woerter": [
+     [
+      "Quartil",
+      "Trennstelle zwischen zwei Vierteln der geordneten Daten"
+     ],
+     [
+      "Q₁, Q₃",
+      "die kleine Zahl unten ist nur eine Nummer: erstes und drittes Quartil"
+     ],
+     [
+      "unteres Quartil Q₁",
+      "der Median der unteren Hälfte; etwa ein Viertel der Werte liegt darunter"
+     ],
+     [
+      "oberes Quartil Q₃",
+      "der Median der oberen Hälfte; etwa drei Viertel der Werte liegen darunter"
+     ],
+     [
+      "Quartilsabstand",
+      "Q₃ − Q₁; so breit ist die mittlere Hälfte der Daten"
+     ]
+    ]
    },
    {
     "lernziel": "boxplot",
     "titel": "Informationen aus Boxplots",
-    "regel": "Ein ⟦Boxplot⟧ zeigt die fünf Kennwerte Minimum, unteres Quartil, Median, oberes Quartil, Maximum. In der ⟦Box⟧ (zwischen den Quartilen) liegt etwa die ⟦Hälfte⟧ der Daten, in jeder ⟦Antenne⟧ und jeder Boxhälfte etwa ein ⟦Viertel⟧.",
+    "regel": "So liest du einen ⟦Boxplot⟧: Er zeigt Minimum, unteres Quartil, Median, oberes Quartil und Maximum. In der ⟦Box⟧ liegt etwa die ⟦Hälfte⟧ der Daten, in jeder ⟦Antenne⟧ und in jeder Hälfte der Box etwa ein ⟦Viertel⟧.",
     "schritte": [
-     "Kennwerte: 12 | 18 | 23 | 30 | 41",
-     "Spannweite 41 − 12 = 29, Quartilsabstand 30 − 18 = 12",
-     "Etwa ⟦75 %⟧ der Werte liegen unter 30."
+     "Lies die fünf Werte ab: Minimum 12, Q₁ = 18, Median 23, Q₃ = 30, Maximum 41 (in Minuten).",
+     "Die Spannweite ist die ganze Länge: 41 − 12 = 29 Minuten.",
+     "Der Quartilsabstand ist die Länge der Box: 30 − 18 = 12 Minuten.",
+     "Links von Q₃ liegen drei Viertel der Daten: Etwa ⟦75 %⟧ der Kinder brauchen weniger als 30 Minuten."
     ],
-    "fehler": "Eine längere Antenne bedeutet nicht mehr Werte: In jeder Antenne liegt etwa ⟦ein Viertel⟧ der Daten, nur ⟦weiter gestreut⟧.",
+    "fehler": "Eine längere Antenne bedeutet nicht, dass dort mehr Kinder sind. In jeder Antenne liegt etwa ⟦ein Viertel⟧ der Daten – nur ⟦weiter auseinander⟧: Die Kinder mit langem Schulweg unterscheiden sich stärker voneinander.",
     "bild": {
      "typ": "boxplot",
      "achse": [
       10,
       45
      ],
+     "einheit": "min",
      "reihen": [
       {
        "min": 12,
@@ -147,18 +226,38 @@
        "max": 41
       }
      ]
-    }
+    },
+    "einstieg": "Bei einer großen Umfrage an der Schule haben 200 Kinder ihren Schulweg in Minuten angegeben. Eine Liste mit 200 Zahlen ist unübersichtlich. Man zeichnet stattdessen ein Bild aus einer Box und zwei Linien, das die fünf wichtigsten Werte auf einen Blick zeigt. So ein Bild heißt ⟦Boxplot⟧.",
+    "woerter": [
+     [
+      "Minimum / Maximum",
+      "kleinster / größter Wert"
+     ],
+     [
+      "Box",
+      "das Rechteck von Q₁ bis Q₃; der Strich darin ist der Median"
+     ],
+     [
+      "Antennen",
+      "die Linien links und rechts der Box bis zum Minimum und zum Maximum"
+     ],
+     [
+      "fünf Kennwerte",
+      "Minimum, Q₁, Median, Q₃, Maximum"
+     ]
+    ]
    },
    {
     "lernziel": "vergleichen",
     "titel": "Datensätze vergleichen und beurteilen",
-    "regel": "Vergleiche zuerst die ⟦Mitte⟧ (Median), dann die ⟦Streuung⟧ (Spannweite, Quartilsabstand). Eine Aussage über „die meisten“ oder „ein Viertel“ prüfst du mit den Quartilen.",
+    "regel": "So vergleichst du ⟦Datensätze⟧: Vergleiche zuerst die ⟦Mitte⟧ (Median), dann die ⟦Streuung⟧ (Spannweite, Quartilsabstand). Aussagen über „die meisten“ oder „ein Viertel“ prüfst du mit den Quartilen.",
     "schritte": [
-     "Klasse A: Median 24 s, Quartilsabstand 4 s. Klasse B: Median 22 s, Quartilsabstand 9 s.",
-     "B ist in der Mitte schneller (kleinere Zeit), streut aber stärker.",
-     "Aussage „In A sind die Zeiten einheitlicher“: ⟦richtig⟧."
+     "Lies aus den Boxplots ab: Klasse A hat den Median 24 s und den Quartilsabstand 26 − 22 = 4 s.",
+     "Klasse B hat den Median 22 s und den Quartilsabstand 27 − 18 = 9 s.",
+     "Der Median von B ist die kleinere Zeit: B war in der Mitte schneller. Die Box von B ist aber länger: B streut stärker.",
+     "Die Aussage „In A sind die Zeiten einheitlicher“ ist also ⟦richtig⟧."
     ],
-    "fehler": "Eine größere Spannweite heißt nicht, dass die Gruppe insgesamt besser oder schlechter ist. Sie sagt nur etwas über die ⟦Streuung⟧ aus.",
+    "fehler": "Eine größere Spannweite heißt nicht, dass eine Klasse insgesamt besser oder schlechter ist – und auch nicht, dass sie mehr Kinder hat. Sie sagt nur etwas über die ⟦Streuung⟧: Die Zeiten liegen weiter auseinander.",
     "bild": {
      "typ": "boxplot",
      "achse": [
@@ -184,7 +283,30 @@
        "max": 35
       }
      ]
-    }
+    },
+    "einstieg": "Zwei Klassen laufen dieselbe Strecke durch den Pausenhof, jede Zeit wird gestoppt. Welche Klasse war schneller? Und in welcher Klasse waren die Kinder ähnlich schnell, in welcher sehr unterschiedlich? Zwei Boxplots übereinander zeigen beides auf einen Blick. So kann man ⟦Datensätze vergleichen⟧.",
+    "woerter": [
+     [
+      "Datensatz",
+      "alle Werte einer Gruppe, hier die Zeiten einer Klasse"
+     ],
+     [
+      "Mitte",
+      "wo die Werte ungefähr liegen; man vergleicht sie mit dem Median"
+     ],
+     [
+      "Streuung",
+      "wie weit die Werte auseinanderliegen; man vergleicht sie mit Spannweite und Quartilsabstand"
+     ],
+     [
+      "einheitlich",
+      "die Werte liegen nah beieinander"
+     ],
+     [
+      "s",
+      "Sekunden"
+     ]
+    ]
    }
   ],
   "teilfaehigkeiten": [

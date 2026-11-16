@@ -460,6 +460,90 @@ def g_satz_kehrsatz(R, st):
 GEN = {'parallelen': g_parallelen, 'winkelsumme': g_winkelsumme, 'gleichschenklig': g_gleichschenklig, 'kongruenzsatz': g_kongruenzsatz, 'konstruierbar': g_konstruierbar,
        'vierecke': g_vierecke, 'satz_kehrsatz': g_satz_kehrsatz}
 
+# Verständliche Fassung (Runde 7, Maßstab inhalte/README.md „Verständliche Erklärungen“):
+# Alltagssituation zuerst (einstieg), jedes neue Wort erklärt (woerter), Beispiel in kleinen Schritten, Merksatz am Ende (regel).
+# Situationen: Straßen auf dem Stadtplan, Giebel eines Gartenhauses, Dreiecke aus Holzleisten, Drachen und Scherengitter, Regen und nasse Straße.
+KLAR = {
+ 'parallelen': {
+  'einstieg': 'Auf einem Stadtplan laufen zwei Straßen schnurgerade nebeneinander her, ohne sich je zu treffen. Eine dritte Straße kreuzt beide schräg. An beiden Kreuzungen sehen die Ecken genau gleich aus: Sie haben dieselben Winkel. Diese gleichen Winkel heißen ⟦Stufenwinkel⟧ und ⟦Wechselwinkel⟧.',
+  'woerter': [['Gerade', 'eine gerade Linie ohne Anfang und Ende'], ['parallel', 'zwei Geraden, die überall gleich weit voneinander entfernt sind und sich nie treffen'],
+              ['α, β, γ', 'griechische Buchstaben (Alpha, Beta, Gamma) als Namen für Winkel'], ['S, T', 'die beiden Kreuzungspunkte'],
+              ['Stufenwinkel', 'Winkel an den beiden Kreuzungen in derselben Lage, zum Beispiel jeweils rechts oberhalb'],
+              ['Wechselwinkel', 'Winkel auf verschiedenen Seiten; verbindet man sie, entsteht ein „Z“']],
+  'schritte': ['g und h sind parallel. Eine dritte Gerade schneidet g im Punkt S und h im Punkt T. Bei S ist α = 55°.',
+               'β liegt bei T an derselben Stelle wie α bei S, nämlich rechts oberhalb. Das sind Stufenwinkel, also ⟦β = 55°⟧.',
+               'γ liegt bei T links unterhalb, α bei S rechts oberhalb. Verbindet man die beiden, entsteht ein Z: Das sind Wechselwinkel, also ⟦γ = 55°⟧.'],
+  'regel': 'So nutzt du Winkel an Parallelen: Werden zwei ⟦parallele⟧ Geraden von einer dritten geschnitten, sind ⟦Stufenwinkel⟧ (gleiche Lage) und ⟦Wechselwinkel⟧ (Z-Form) gleich groß. Das gilt ⟦nur⟧, wenn die Geraden wirklich parallel sind.',
+  'fehler': 'Sind g und h nicht parallel – wie zwei Straßen, die aufeinander zulaufen –, dann sind die Stufenwinkel im Allgemeinen ⟦verschieden⟧. Umgekehrt gilt: Sind Stufenwinkel gleich groß, dann sind die Geraden parallel.'},
+ 'winkelsumme': {
+  'einstieg': 'Ein Gartenhaus bekommt ein Dach mit dreieckigem Giebel. Der Zimmermann misst unten links 50° und unten rechts 75°. Den Winkel ganz oben muss er nicht messen – er kann ihn ausrechnen. In jedem Dreieck ergeben die drei Winkel zusammen gleich viel: Das ist die ⟦Winkelsumme⟧.',
+  'woerter': [['Winkelsumme', 'alle Winkel innen im Dreieck zusammengezählt'], ['A, B, C', 'die Ecken des Dreiecks; α liegt bei A, β bei B, γ bei C'],
+              ['[AB]', 'die Strecke von A nach B'], ['gestreckter Winkel', 'ein Winkel von 180°; er sieht aus wie eine gerade Linie']],
+  'schritte': ['Im Dreieck sind zwei Winkel bekannt: α = 50° und β = 75°.',
+               'Alle drei Winkel ergeben zusammen 180°. Für γ bleibt also: γ = 180° − 50° − 75°.',
+               'Ausrechnen: 180° − 125° = ⟦55°⟧.',
+               'Warum 180°? Zieh durch C eine Parallele zu [AB]. Links von C taucht α wieder auf, rechts β (Wechselwinkel). Zusammen mit γ liegen sie auf einer geraden Linie, also 180°.'],
+  'regel': 'So berechnest du einen fehlenden Winkel im Dreieck: Ziehe die beiden bekannten Winkel von 180° ab. Denn in jedem Dreieck ist die ⟦Winkelsumme 180°⟧: α + β + γ = 180°.',
+  'fehler': 'γ = 360° − 50° − 75° ist falsch. 360° ist die Winkelsumme im ⟦Viereck⟧ – so viel wie eine volle Drehung. Im Dreieck sind es 180°, eine halbe Drehung.'},
+ 'gleichschenklig': {
+  'einstieg': 'Der Giebel des Gartenhauses ist gleichmäßig gebaut: Die beiden schrägen Dachseiten sind gleich lang. Darum sind auch die beiden Winkel unten gleich groß – das Dach ist auf beiden Seiten gleich steil. So ein Dreieck heißt ⟦gleichschenklig⟧.',
+  'woerter': [['Schenkel', 'die beiden gleich langen Seiten (die Dachseiten)'], ['Basis', 'die dritte Seite (unten)'], ['Basiswinkel', 'die beiden Winkel an der Basis; sie sind gleich groß'],
+              ['Spitzenwinkel', 'der Winkel oben zwischen den Schenkeln'], ['gleichseitig', 'alle drei Seiten gleich lang; dann sind alle Winkel 60°']],
+  'schritte': ['Der Spitzenwinkel oben ist γ = 40°.',
+               'Für die beiden Basiswinkel bleiben zusammen 180° − 40° = 140°.',
+               'Die Basiswinkel sind gleich groß, also teilt man durch 2: 140° : 2 = ⟦70°⟧.',
+               'Probe: 70° + 70° + 40° = 180°. ✓'],
+  'regel': 'So rechnest du im ⟦gleichschenkligen Dreieck⟧: Die beiden ⟦Basiswinkel⟧ sind gleich groß. Kennst du den Spitzenwinkel, ziehst du ihn von 180° ab und teilst den Rest durch 2. Im ⟦gleichseitigen⟧ Dreieck sind alle Winkel 60°.',
+  'fehler': 'Bei γ = 40° sind die Basiswinkel nicht auch je 40°. Nur die ⟦beiden Basiswinkel⟧ sind gleich – so wie beim Giebel nur die beiden unteren Ecken gleich steil sind und die Spitze anders aussieht.'},
+ 'kongruenzsatz': {
+  'einstieg': 'Zwei Freunde wollen am Telefon genau dasselbe Dreieck aus Holzleisten bauen. Was muss der eine dem anderen sagen, damit beide Dreiecke garantiert gleich werden? Manchmal reichen drei Angaben, manchmal nicht. Die Regeln dafür heißen ⟦Kongruenzsätze⟧.',
+  'woerter': [['kongruent', 'deckungsgleich: die Dreiecke passen genau aufeinander'], ['a, b, c', 'die Seiten des Dreiecks; a liegt gegenüber von A, b gegenüber von B, c gegenüber von C'],
+              ['eindeutig', 'es gibt nur ein einziges Dreieck mit diesen Angaben'], ['S und W', 'S steht für eine Seite, W für einen Winkel'],
+              ['SSS, SWS, WSW, SsW', 'die vier Kongruenzsätze: welche Seiten und Winkel man angeben muss'], ['eingeschlossener Winkel', 'der Winkel, der zwischen den beiden gegebenen Seiten liegt']],
+  'schritte': ['Gegeben sind b = 5 cm, c = 7 cm und α = 40°.',
+               'Wo liegt α? Bei der Ecke A. Dort treffen sich die Seiten b und c.',
+               'Der Winkel liegt also zwischen den beiden gegebenen Seiten: Seite – Winkel – Seite.',
+               'Der passende Kongruenzsatz ist ⟦SWS⟧. Mit diesen Angaben gibt es nur ein einziges Dreieck.'],
+  'regel': 'So findest du den ⟦Kongruenzsatz⟧: ⟦SSS⟧ – drei Seiten. ⟦SWS⟧ – zwei Seiten und der Winkel dazwischen. ⟦WSW⟧ – eine Seite und zwei Winkel. ⟦SsW⟧ – zwei Seiten und der Winkel gegenüber der ⟦größeren⟧ Seite. Passt einer davon, ist das Dreieck eindeutig.',
+  'fehler': 'Drei Winkel (WWW) reichen nicht. Sagt der Freund nur „60°, 60°, 60°“, kann das Dreieck aus 10-cm-Leisten oder aus 1-m-Leisten sein: gleiche Form, aber ⟦verschieden groß⟧.'},
+ 'konstruierbar': {
+  'einstieg': 'Du hast drei Holzleisten: 3 cm, 4 cm und 8 cm lang. Legst du die beiden kurzen an die Enden der langen, reichen sie nicht bis zueinander – es entsteht kein Dreieck. Ob man aus gegebenen Stücken ein Dreieck bauen kann, fragt man so: Ist es ⟦konstruierbar⟧?',
+  'woerter': [['konstruierbar', 'man kann das Dreieck mit Zirkel und Lineal zeichnen'], ['Dreiecksungleichung', 'je zwei Seiten zusammen müssen länger sein als die dritte'],
+              ['Kreisbogen', 'ein Stück Kreis, mit dem Zirkel gezeichnet; alle seine Punkte sind gleich weit vom Einstichpunkt entfernt']],
+  'schritte': ['Gegeben sind a = 3 cm, b = 4 cm und c = 8 cm.',
+               'Zeichne c = 8 cm. Um die beiden Enden schlägst du Kreisbögen mit 3 cm und mit 4 cm.',
+               'Die beiden kurzen Seiten sind zusammen 3 cm + 4 cm = 7 cm. Das ist weniger als 8 cm, deshalb treffen sich die Kreisbögen nicht.',
+               'Es gibt keinen dritten Eckpunkt: ⟦nicht konstruierbar⟧.'],
+  'regel': 'So prüfst du, ob ein Dreieck ⟦konstruierbar⟧ ist: Aus drei Seiten nur, wenn ⟦je zwei Seiten zusammen länger⟧ sind als die dritte. Zwei gegebene Winkel müssen zusammen ⟦weniger als 180°⟧ ergeben, sonst bleibt nichts für den dritten Winkel.',
+  'fehler': 'Bei a = 3 cm, b = 5 cm und c = 8 cm entsteht auch kein Dreieck: 3 + 5 = 8 ist ⟦nicht größer⟧ als 8. Die beiden kurzen Leisten lägen flach auf der langen – alle Ecken auf einer Linie.'},
+ 'vierecke': {
+  'einstieg': 'Ein Drachen zum Steigenlassen hat vier Ecken und ist links und rechts gleich gebaut. Ein Scherengitter am Gartentor besteht aus schiefen Vierecken, deren gegenüberliegende Seiten parallel sind. Bei solchen Vierecken hängen die Winkel nach festen Regeln zusammen. Für alle Vierecke gilt eine feste ⟦Winkelsumme im Viereck⟧.',
+  'woerter': [['Parallelogramm', 'Viereck, bei dem gegenüberliegende Seiten parallel sind (wie beim Scherengitter)'],
+              ['Drachenviereck', 'Viereck, das an einer Diagonale achsensymmetrisch ist (wie der Drachen)'],
+              ['gleichschenkliges Trapez', 'Viereck mit zwei parallelen Seiten (Grundseiten) und zwei gleich langen schrägen Seiten'],
+              ['benachbart / gegenüberliegend', 'Winkel nebeneinander an einer Seite / Winkel an entgegengesetzten Ecken'], ['δ', 'Delta, griechischer Buchstabe für den vierten Winkel (bei D)'],
+              ['spitz / stumpf', 'kleiner als 90° / größer als 90°'], ['Diagonale', 'Verbindungsstrecke zweier gegenüberliegender Ecken']],
+  'schritte': ['Im Parallelogramm ABCD ist α = 65°.',
+               'Gegenüberliegende Winkel sind gleich groß. γ liegt gegenüber von α, also ist γ = 65°.',
+               'Benachbarte Winkel ergänzen sich zu 180°. β liegt neben α: β = 180° − 65° = ⟦115°⟧. Genauso ist δ = 115°.',
+               'Probe mit der Winkelsumme: 65° + 115° + 65° + 115° = 360°. ✓'],
+  'regel': 'So berechnest du Winkel in Vierecken: Die ⟦Winkelsumme im Viereck⟧ ist ⟦360°⟧. Im ⟦Parallelogramm⟧ sind gegenüberliegende Winkel gleich, benachbarte ergeben 180°. Im ⟦Drachenviereck⟧ sind die beiden Winkel gleich, die nicht auf der Symmetrieachse liegen. Im ⟦gleichschenkligen Trapez⟧ sind die beiden Winkel an einer Grundseite gleich.',
+  'fehler': 'Im Parallelogramm ist β nicht auch 65°. ⟦Benachbarte⟧ Winkel ergänzen sich zu 180°, nur ⟦gegenüberliegende⟧ sind gleich. Beim Scherengitter sieht man es: Wird eine Ecke spitzer, wird die Ecke daneben stumpfer.'},
+ 'satz_kehrsatz': {
+  'einstieg': 'Ein Satz aus dem Alltag: „Wenn es regnet, dann ist die Straße nass.“ Das stimmt. Dreht man ihn um, heißt er: „Wenn die Straße nass ist, dann regnet es.“ Das stimmt nicht immer – vielleicht war nur die Straßenreinigung da. Der umgedrehte Satz heißt ⟦Kehrsatz⟧.',
+  'woerter': [['Satz', 'eine bewiesene Aussage der Form „Wenn …, dann …“'], ['Voraussetzung', 'der Wenn-Teil'], ['Behauptung', 'der Dann-Teil'],
+              ['Kehrsatz', 'Wenn-Teil und Dann-Teil vertauscht'], ['Gegenbeispiel', 'ein Fall, in dem der Wenn-Teil stimmt, der Dann-Teil aber nicht']],
+  'schritte': ['Der Satz lautet: Wenn ein Viereck ein Quadrat ist, dann hat es vier rechte Winkel. Er ist wahr.',
+               'Für den Kehrsatz vertauscht man Wenn-Teil und Dann-Teil: Wenn ein Viereck vier rechte Winkel hat, dann ist es ein Quadrat.',
+               'Suche ein Gegenbeispiel: ein Viereck mit vier rechten Winkeln, das kein Quadrat ist. Ein Rechteck mit den Seiten 2 cm und 5 cm passt.',
+               'Ein Gegenbeispiel genügt: Der Kehrsatz ist ⟦falsch⟧.'],
+  'regel': 'So prüfst du einen ⟦Kehrsatz⟧: Vertausche Voraussetzung und Behauptung („Wenn B, dann A“). Er ist ⟦nicht automatisch wahr⟧. Ein einziges Gegenbeispiel widerlegt ihn; dass er stimmt, muss man eigens begründen.',
+  'fehler': 'Aus „der Satz ist wahr“ folgt nicht „der Kehrsatz ist wahr“ – sonst würde jede nasse Straße Regen bedeuten. Jeder Kehrsatz muss ⟦eigens geprüft⟧ werden.'},
+}
+for _e in ETAPPEN:
+    _e.update(KLAR.get(_e['lernziel'], {}))
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Winkel', ['parallelen', 'winkelsumme', 'gleichschenklig', 'vierecke']), ('Kongruenz und Konstruktion', ['kongruenzsatz', 'konstruierbar']), ('Beweisen', ['satz_kehrsatz'])],

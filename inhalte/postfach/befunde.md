@@ -3,6 +3,9 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:35 – STATUS
+zahlen.rechengesetze fertig: umgestuft 5 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
+
+## 2026-11-16 05:35 – STATUS
 zahlen.ganz fertig: umgestuft 10 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
 
 ## 2026-11-16 05:34 – STATUS

@@ -947,5 +947,19 @@ def _schwer():
 
 ergaenze(DATEI, _schwer(), 1018)
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_anwenden  # noqa: E402
+
+BF = Befunde('zahlen.rechengesetze', 13_5_2)
+# a) gleich leicht wie Stufe 1
+for _t in ['Berechne (−3) · 2.', 'Berechne 4 · (−2).', 'Berechne (−3) · 9.']:
+    BF.stufe('mal_ganz', _t, 1)
+# a) nur größere Zahlen bzw. längere Rechnung ohne neuen Gedanken
+BF.stufe('schriftlich', 'Rechne schriftlich: 865 · 47', 2)
+BF.stufe('punkt_strich', 'Berechne 81 : 3 : 3 + 5 · 12.', 2)
+
+befunde_anwenden(DATEI, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI, 'zahlen.rechengesetze.json')

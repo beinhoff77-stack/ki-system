@@ -6,6 +6,11 @@ erst NACH dem Erzeugen der Aufgaben – so bleiben die Aufgaben wörtlich gleich
 (Werte im Zahlenstrahl-Bereich, Thermometer-Stand, Figur-Punkte, Tabellenbreite). `probe` entfällt bei umgebauten Karten (kommt im neuen Muster nicht vor).
 Vergleich je Thema: `aufgaben` und alle Felder außer `inhalt.etappen` und `offen` gegen den Ausgangsstand bc7a754 (lernen-app).
 
+## 2026-11-16 03:01 – STATUS
+messen.flaechen (7 Karten) umgebaut. Vorhandene Figuren bleiben Kartenbild (Einheitsquadrate, Rechteck, 1 m² = 100 dm², L-Form); L-Form wird im Beispiel gestrichelt zum Rechteck ergänzt und zur Probe zerlegt. Neu: Einheiten-Tabelle (kommaschreibweise, mit fehler_bild 6 | 50), Garten-Rechteck (sachaufgaben), zwei Gärten im selben Maßstab (verstehen).
+inhalt_pruefen: OK, keine Hinweise. Vergleich: 196 Aufgaben wörtlich gleich, Rest gleich.
+rechteck: Merksatz ohne die Quadrat-Formeln (25-Wörter-Grenze); A = a · a und u = 4 · a stehen in den Lösungswegen der Quadrat-Aufgaben.
+
 ## 2026-11-16 02:59 – STATUS
 geometrie.ortslinien (6 Karten) umgebaut. Figuren und Koordinatensysteme bauen sich Schritt für Schritt auf: Napf im Leinen-Kreis, Parallelen oben und unten, zwei Kreise mit Schnittpunkten S₁ und S₂ (nachgerechnet: x = 73/16, y ≈ ±2,05), Schatz mit Kreis und Parallelen, Sprenger mit Beet; sachsituationen und verstehen haben jetzt ein Bild.
 inhalt_pruefen: OK, keine Hinweise. Vergleich: 168 Aufgaben wörtlich gleich, Rest gleich.

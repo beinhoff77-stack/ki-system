@@ -2,6 +2,12 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 05:55 – STATUS
+raum.pyramide_kegel_kugel fertig: umgestuft 3 / berichtigt 3 / ersetzt 2 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Eine Pyramide hat als Grundfläche ein regelmäßiges 100-Eck. Was passiert, wenn man die Eckenzahl immer weiter erhöht?“
+  - „Eine Pyramide hat als Grundfläche ein regelmäßiges 12-Eck. Was passiert, wenn man die Eckenzahl immer weiter erhöht?“
+
 ## 2026-11-16 05:54 – STATUS
 funktionen.ganzrational fertig: umgestuft 2 / berichtigt 6 / ersetzt 0 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
 - nicht umgesetzt:

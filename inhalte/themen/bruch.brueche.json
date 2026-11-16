@@ -46,10 +46,12 @@
    {
     "lernziel": "bruchteil_von",
     "titel": "Bruchteil einer Größe berechnen",
-    "regel": "Ein Bruch wie 3/4 besteht aus ⟦Zähler⟧ (oben, 3) und ⟦Nenner⟧ (unten, 4). So berechnest du 3/4 von einer Größe: ⟦durch den Nenner teilen⟧, dann ⟦mit dem Zähler malnehmen⟧.",
+    "regel": "So berechnest du einen Bruchteil: Teile das Ganze ⟦durch den Nenner⟧ – das ist ein Teil. Nimm diesen Teil ⟦mal den Zähler⟧.",
     "schritte": [
-     "3/4 von 20 €: Teile die 20 € in 4 gleiche Teile. Ein Viertel: 20 € : 4 = 5 €.",
-     "Du nimmst 3 solche Teile: 5 € · 3 = ⟦15 €⟧. Das sind drei Viertel."
+     "Das Ganze sind die 20 € in der Kasse. Der Nenner 4 sagt: Teile sie in 4 gleich große Teile.",
+     "Ein Teil ist ein Viertel: 20 € : 4 = 5 €.",
+     "Der Zähler 3 sagt: Nimm 3 solche Teile. Also rechnest du 5 € · 3 = 15 €.",
+     "Für Getränke gibt die Klasse ⟦15 €⟧ aus – das sind drei Viertel von 20 €."
     ],
     "bild": {
      "typ": "figur",
@@ -143,16 +145,52 @@
      ]
     },
     "probe": "15 € ist weniger als 20 € – passt, denn 3/4 ist weniger als ein Ganzes ✓",
-    "fehler": "3/4 von 20 € als 20 : 3 · 4 zu rechnen ist falsch: Du teilst durch den ⟦Nenner⟧ (unten) und nimmst mit dem ⟦Zähler⟧ (oben) mal."
+    "fehler": "20 : 3 · 4 zu rechnen ist falsch: Dann teilst du das Geld in 3 Teile und nimmst 4 davon – mehr Teile, als es gibt. Heraus kämen etwa 26,67 €, mehr als in der Kasse liegt. Richtig: ⟦durch den Nenner (4)⟧, dann ⟦mal den Zähler (3)⟧.",
+    "einstieg": "Die Klasse 6b plant ein Klassenfest. In der Klassenkasse liegen 20 €, und drei Viertel davon sollen für Getränke ausgegeben werden. Dafür teilst du das Geld in Gedanken in 4 gleich große Teile und nimmst 3 davon. So berechnest du einen ⟦Bruchteil⟧.",
+    "woerter": [
+     [
+      "Bruch",
+      "eine Zahl wie 3/4; sie bedeutet „3 von 4 gleich großen Teilen“"
+     ],
+     [
+      "3/4",
+      "gelesen „drei Viertel“; der schräge Strich trennt die obere und die untere Zahl"
+     ],
+     [
+      "Nenner",
+      "die untere Zahl (bei 3/4 die 4): in wie viele gleich große Teile das Ganze geteilt wird"
+     ],
+     [
+      "Zähler",
+      "die obere Zahl (bei 3/4 die 3): wie viele dieser Teile du nimmst"
+     ],
+     [
+      "Viertel",
+      "einer von 4 gleich großen Teilen"
+     ],
+     [
+      "das Ganze",
+      "das, was geteilt wird – hier die 20 € in der Kasse"
+     ],
+     [
+      "Bruchteil",
+      "der Teil vom Ganzen, der zu einem Bruch gehört – hier das Geld für Getränke"
+     ],
+     [
+      "3/4 von 20 €",
+      "drei Viertel der 20 €"
+     ]
+    ]
    },
    {
     "lernziel": "anteil_bestimmen",
     "titel": "Welcher Anteil ist das?",
-    "regel": "Der ⟦Anteil⟧ ist ⟦Teil durch Ganzes⟧: Der Teil kommt in den Zähler, das Ganze in den Nenner. Danach ⟦kürzt⟧ man so weit wie möglich.",
+    "regel": "So bestimmst du einen Anteil: Schreibe ⟦Teil durch Ganzes⟧ als Bruch – den Teil in den Zähler, das Ganze in den Nenner. Danach ⟦kürzen⟧, so weit es geht.",
     "schritte": [
-     "Von 30 Kindern spielen 12 ein Instrument. Anteil = Teil durch Ganzes: 12/30.",
-     "Ordne die 30 Kinder in 5 Spalten zu je 6. Die 12 Musiker füllen genau 2 Spalten.",
-     "Zähler und Nenner durch 6 teilen: 12/30 = ⟦2/5⟧."
+     "Der Teil sind die 12 Kinder mit Instrument. Das Ganze ist die Klasse mit 30 Kindern.",
+     "Der Teil kommt in den Zähler, das Ganze in den Nenner. So entsteht der Bruch 12/30.",
+     "Stell dir die 30 Kinder in 5 Spalten zu je 6 Kindern vor. Die 12 Musiker füllen genau 2 Spalten.",
+     "Das heißt: Zähler und Nenner durch 6 teilen. Der Anteil ist ⟦2/5⟧ – zwei von fünf Kindern spielen ein Instrument."
     ],
     "bild": {
      "typ": "figur",
@@ -308,18 +346,39 @@
      ]
     },
     "probe": "2/5 von 30 = 30 : 5 · 2 = 12 ✓",
-    "fehler": "Den Anteil als 30/12 aufzuschreiben ist falsch: Der Teil steht ⟦oben⟧ im Zähler, das Ganze ⟦unten⟧ im Nenner."
+    "fehler": "30/12 aufzuschreiben ist falsch: Das hieße „30 von 12“ – mehr Musiker, als Kinder in der Klasse sind. Der ⟦Teil steht oben⟧ im Zähler, das ⟦Ganze unten⟧ im Nenner.",
+    "einstieg": "Für das Klassenfest soll eine Band spielen. Von den 30 Kindern der Klasse spielen 12 ein Instrument. Wie groß ist dieser Teil der Klasse? Du schreibst „12 von 30“ als Bruch und schreibst ihn danach möglichst kurz. Diese Zahl heißt ⟦Anteil⟧.",
+    "woerter": [
+     [
+      "Anteil",
+      "welcher Teil vom Ganzen etwas ist, als Bruch geschrieben: „12 von 30“ ist 12/30"
+     ],
+     [
+      "Teil durch Ganzes",
+      "der Teil (12 Musiker) kommt in den Zähler, das Ganze (30 Kinder) in den Nenner"
+     ],
+     [
+      "kürzen",
+      "Zähler und Nenner durch dieselbe Zahl teilen; die Zahlen werden kleiner, der Wert bleibt gleich"
+     ],
+     [
+      "Spalte",
+      "eine senkrechte Reihe im Bild"
+     ]
+    ]
    },
    {
     "lernziel": "ganzes_bestimmen",
     "titel": "Das Ganze aus einem Teil finden",
-    "regel": "Kennst du einen Bruchteil, findest du das ⟦Ganze⟧ rückwärts: ⟦durch den Zähler teilen⟧ – das ist ein Stück –, dann ⟦mit dem Nenner malnehmen⟧.",
+    "regel": "So findest du das Ganze aus einem Teil: Teile den bekannten Teil ⟦durch den Zähler⟧ – das ist ein Stück. Nimm dieses Stück ⟦mal den Nenner⟧.",
     "schritte": [
-     "2/5 der Klasse sind 12 Kinder. Ein Fünftel: 12 : 2 = 6 Kinder.",
-     "Das Ganze sind fünf Fünftel: 6 · 5 = ⟦30 Kinder⟧."
+     "12 Kinder sind 2/5 der Klasse. Der Zähler 2 sagt: Das sind 2 gleich große Teile.",
+     "Ein Fünftel sind darum 12 : 2 = 6 Kinder.",
+     "Der Nenner 5 sagt: Die ganze Klasse besteht aus 5 solchen Fünfteln.",
+     "Also hat die Klasse 6 · 5 = ⟦30 Kinder⟧."
     ],
     "probe": "2/5 von 30 = 30 : 5 · 2 = 12 ✓",
-    "fehler": "Das Ganze als 2/5 von 12 auszurechnen ist falsch: Dann bekommst du einen ⟦Teil vom Teil⟧. Rückwärts heißt: ⟦durch den Zähler, mal den Nenner⟧.",
+    "fehler": "2/5 von 12 auszurechnen ist falsch: Dann kämen 4,8 Kinder heraus – weniger als die 12 Bandkinder, obwohl die ganze Klasse größer sein muss. Rückwärts heißt: ⟦durch den Zähler, mal den Nenner⟧.",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -422,16 +481,32 @@
       "_2_1",
       "_0_1"
      ]
-    }
+    },
+    "einstieg": "Die Bandkinder erzählen einer Besucherin: „Wir sind 2/5 der Klasse, nämlich 12 Kinder.“ Sie fragt sich: Wie viele Kinder hat dann die ganze Klasse? Hier kennst du einen Teil und suchst rückwärts das ⟦Ganze⟧.",
+    "woerter": [
+     [
+      "Fünftel",
+      "einer von 5 gleich großen Teilen; 2/5 sind zwei solche Teile"
+     ],
+     [
+      "rückwärts rechnen",
+      "die Rechenschritte umdrehen: Aus „geteilt“ wird „mal“, aus „mal“ wird „geteilt“"
+     ],
+     [
+      "Stück",
+      "hier: ein Teil, also ein Fünftel der Klasse"
+     ]
+    ]
    },
    {
     "lernziel": "erweitern",
     "titel": "Brüche erweitern",
-    "regel": "⟦Erweitern⟧ heißt: Zähler und Nenner mit ⟦derselben Zahl⟧ malnehmen. Der Wert bleibt gleich – wie bei einer Schokolade, deren Stücke du noch einmal teilst: Du hast danach mehr, aber kleinere Stücke, und gleich viel Schokolade.",
+    "regel": "So erweiterst du einen Bruch: Nimm ⟦Zähler und Nenner mit derselben Zahl mal⟧. Der Wert bleibt gleich – die Stücke werden nur kleiner, und es werden mehr.",
     "schritte": [
-     "Erweitere 3/4 auf den Nenner 20. Es gilt 4 · 5 = 20.",
-     "Jedes Viertel wird in 5 Stücke geteilt. Aus 3 Vierteln werden 3 · 5 = 15 Stücke von 20.",
-     "Also 3/4 = ⟦15/20⟧."
+     "Du hast 3 von 4 Riegeln, also 3/4 der Tafel. Der Nenner soll 20 werden.",
+     "Jeder Riegel wird in 5 Stücke gebrochen. Weil 4 · 5 = 20 ist, hat die Tafel jetzt 20 Stücke. Der Nenner wird also mit 5 malgenommen.",
+     "Auch deine 3 Riegel werden zerbrochen: 3 · 5 = 15 Stücke. Der Zähler wird ebenfalls mit 5 malgenommen.",
+     "Du hast 15 von 20 Stücken: 3/4 = ⟦15/20⟧. Es ist dieselbe Menge Schokolade."
     ],
     "bild": {
      "typ": "figur",
@@ -563,39 +638,98 @@
      ]
     },
     "probe": "15/20 durch 5 gekürzt ergibt wieder 3/4 ✓",
-    "fehler": "3/4 = 3/20 ist falsch: Wer nur den Nenner ändert, verändert den Wert. ⟦Zähler und Nenner⟧ werden mit derselben Zahl malgenommen."
+    "fehler": "3/4 = 3/20 ist falsch: Dann wäre die Tafel in 20 kleine Stücke zerbrochen, du hättest aber nur 3 davon behalten – viel weniger Schokolade. Es werden ⟦Zähler und Nenner⟧ mit derselben Zahl malgenommen.",
+    "einstieg": "Beim Fest gibt es Schokolade. Eine Tafel hat 4 Riegel, und du bekommst 3 davon. Dann bricht jemand jeden Riegel noch einmal in 5 kleine Stücke. Du hast jetzt viel mehr Stücke – aber genauso viel Schokolade wie vorher. Diese Idee heißt ⟦Erweitern⟧.",
+    "woerter": [
+     [
+      "erweitern",
+      "Zähler und Nenner mit derselben Zahl malnehmen; die Stücke werden kleiner, die Menge bleibt gleich"
+     ],
+     [
+      "auf den Nenner 20 erweitern",
+      "den Bruch so umschreiben, dass unten 20 steht"
+     ],
+     [
+      "Wert eines Bruchs",
+      "wie viel der Bruch wirklich ist – hier: wie viel Schokolade du hast"
+     ]
+    ]
    },
    {
     "lernziel": "kuerzen",
     "titel": "Brüche vollständig kürzen",
-    "regel": "⟦Kürzen⟧ heißt: Zähler und Nenner durch ⟦dieselbe Zahl⟧ teilen. ⟦Vollständig gekürzt⟧ ist ein Bruch, wenn Zähler und Nenner keinen gemeinsamen Teiler außer 1 mehr haben.",
+    "regel": "So kürzt du vollständig: Teile ⟦Zähler und Nenner durch dieselbe Zahl⟧, am schnellsten durch den ⟦größten gemeinsamen Teiler⟧. Prüfe am Ende: Haben beide noch einen gemeinsamen Teiler außer 1? Dann kürze weiter.",
     "schritte": [
-     "Kürze 18/24. Der größte gemeinsame Teiler von 18 und 24 ist 6.",
-     "18 : 6 = 3 und 24 : 6 = 4, also 18/24 = ⟦3/4⟧."
+     "18 von 24 Muffins sind gegessen, das ist der Bruch 18/24.",
+     "Suche eine Zahl, durch die 18 und 24 beide ohne Rest teilbar sind. Die größte solche Zahl ist 6.",
+     "Teile Zähler und Nenner durch 6: 18 : 6 = 3 und 24 : 6 = 4.",
+     "Der vollständig gekürzte Bruch ist ⟦3/4⟧ – drei Viertel der Muffins sind weg."
     ],
     "probe": "3/4 mit 6 erweitert ergibt 18/24 ✓",
-    "fehler": "18/24 = 9/12 ist richtig gekürzt, aber ⟦nicht vollständig⟧: 9 und 12 haben noch den Teiler 3. Ganz gekürzt: 3/4."
+    "fehler": "18/24 = 9/12 ist richtig gekürzt, aber ⟦nicht vollständig⟧: Das sind Gruppen zu je 2 Muffins – man kann noch größere Gruppen bilden. 9 und 12 sind beide durch 3 teilbar: 9/12 = ⟦3/4⟧.",
+    "einstieg": "Nach dem Fest stehen noch Muffins auf dem Blech. 24 waren es, 18 sind gegessen. „18 von 24“ stimmt, ist aber unhandlich. Legst du je 6 Muffins zu einer Gruppe zusammen, sind 3 von 4 Gruppen gegessen. Dieses Verkleinern der Zahlen in einem Bruch heißt ⟦Kürzen⟧.",
+    "woerter": [
+     [
+      "Teiler",
+      "eine Zahl, durch die man ohne Rest teilen kann: 6 ist ein Teiler von 18"
+     ],
+     [
+      "gemeinsamer Teiler",
+      "eine Zahl, durch die Zähler und Nenner beide ohne Rest teilbar sind"
+     ],
+     [
+      "größter gemeinsamer Teiler",
+      "der größte gemeinsame Teiler zweier Zahlen; bei 18 und 24 ist es 6"
+     ],
+     [
+      "vollständig gekürzt",
+      "Zähler und Nenner haben keinen gemeinsamen Teiler außer 1 mehr"
+     ]
+    ]
    },
    {
     "lernziel": "vergleichen",
     "titel": "Brüche vergleichen",
-    "regel": "Gleicher Nenner: Der Bruch mit dem ⟦größeren Zähler⟧ ist größer. Verschiedene Nenner: Erst beide Brüche auf den ⟦Hauptnenner⟧ erweitern (das kleinste gemeinsame Vielfache der Nenner), dann die Zähler vergleichen.",
+    "regel": "So vergleichst du Brüche: Bei ⟦gleichem Nenner⟧ ist der Bruch mit dem größeren Zähler größer. Bei verschiedenen Nennern erweiterst du zuerst beide auf den ⟦Hauptnenner⟧ und vergleichst dann die Zähler.",
     "schritte": [
-     "Vergleiche 3/4 und 5/6. Hauptnenner von 4 und 6 ist 12.",
-     "3/4 = 9/12 und 5/6 = 10/12. Weil 10 > 9, ist ⟦5/6 größer⟧."
+     "Vom Apfelkuchen sind 3/4 übrig, vom Schokokuchen 5/6. Die Nenner sind verschieden, also auch die Stücke.",
+     "Suche die kleinste Zahl, die in der Viererreihe und in der Sechserreihe vorkommt: 12. Das ist der Hauptnenner.",
+     "Erweitere beide Brüche auf 12: 3/4 = 9/12 und 5/6 = 10/12.",
+     "Jetzt sind alle Stücke gleich groß. 10 Stücke sind mehr als 9, also ist ⟦5/6 größer⟧ – vom Schokokuchen ist mehr übrig."
     ],
     "probe": "Ohne Hauptnenner: 3/4 fehlt 1/4 bis zum Ganzen, 5/6 fehlt nur 1/6. Ein Sechstel ist kleiner als ein Viertel, also ist 5/6 näher an 1 und damit größer ✓",
-    "fehler": "„3/8 ist größer als 3/5, weil 8 > 5“ ist falsch: Ein größerer Nenner heißt ⟦kleinere Stücke⟧. Bei gleichem Zähler ist der Bruch mit dem ⟦kleineren Nenner⟧ größer."
+    "fehler": "„3/8 ist größer als 3/5, weil 8 > 5“ ist falsch: Wird ein Kuchen in 8 statt in 5 Stücke geschnitten, sind die Stücke ⟦kleiner⟧. 3 kleine Stücke sind weniger als 3 große, also ist ⟦3/5 größer⟧.",
+    "einstieg": "Auf dem Tisch stehen zwei gleich große Kuchen. Vom Apfelkuchen ist noch 3/4 übrig, vom Schokokuchen noch 5/6. Von welchem ist mehr da? Die Stücke sind verschieden groß, darum schneidest du in Gedanken beide Kuchen in gleich große Stücke. Die passende gemeinsame Stückzahl heißt ⟦Hauptnenner⟧.",
+    "woerter": [
+     [
+      "Vielfaches",
+      "eine Zahl aus der Einmaleins-Reihe: Vielfache von 4 sind 4, 8, 12, 16 …"
+     ],
+     [
+      "Hauptnenner",
+      "die kleinste Zahl, die ein Vielfaches beider Nenner ist; bei 4 und 6 ist es 12"
+     ],
+     [
+      "gleichnamig",
+      "Brüche mit demselben Nenner – ihre Stücke sind gleich groß"
+     ],
+     [
+      "< und >",
+      "„ist kleiner als“ und „ist größer als“; die Spitze zeigt auf die kleinere Zahl"
+     ]
+    ]
    },
    {
     "lernziel": "zahlenstrahl",
     "titel": "Brüche am Zahlenstrahl",
-    "regel": "Am ⟦Zahlenstrahl⟧ teilst du die Strecke von 0 bis 1 in so viele gleiche Teile, wie der ⟦Nenner⟧ angibt. Der ⟦Zähler⟧ sagt, wie viele Teile du von 0 aus nach rechts gehst.",
+    "regel": "So trägst du einen Bruch am Zahlenstrahl ein: Teile die Strecke von 0 bis 1 in ⟦so viele gleich lange Stücke, wie der Nenner sagt⟧. Gehe dann von 0 aus ⟦so viele Stücke nach rechts, wie der Zähler sagt⟧.",
     "schritte": [
-     "3/5: Teile die Strecke von 0 bis 1 in 5 gleiche Teile.",
-     "Gehe von 0 aus 3 Teile nach rechts: Dort liegt ⟦3/5⟧."
+     "Für 3/5 schaust du zuerst auf den Nenner 5: Teile die Strecke von 0 bis 1 in 5 gleich lange Stücke.",
+     "Dafür brauchst du 4 Striche zwischen 0 und 1. Der 5. Strich nach der 0 ist schon die 1.",
+     "Der Zähler 3 sagt: Gehe von 0 aus 3 Stücke nach rechts.",
+     "Dort, beim 3. Strich, liegt ⟦3/5⟧. Der Pfeil im Bild zeigt darauf."
     ],
-    "fehler": "3/5 beim 5. Strich einzutragen ist falsch: Der 5. Strich nach der 0 ist schon die ⟦1⟧ (5/5). 3/5 liegt beim ⟦3. Strich⟧.",
+    "fehler": "3/5 beim 5. Strich einzutragen ist falsch: Nach 5 Stücken bist du schon an der Festwiese, also bei ⟦1⟧ (5/5). 3/5 liegt beim ⟦3. Strich⟧.",
     "bild": {
      "typ": "zahlenstrahl",
      "start": 0,
@@ -603,17 +737,57 @@
      "abschnitte": 5,
      "beschriftet": "anfang_ende",
      "pfeil": 3
-    }
+    },
+    "einstieg": "Der Weg von der Schule zur Festwiese ist 1 km lang. Am Rand stehen in gleichen Abständen 4 Schilder, die den Weg in 5 gleich lange Stücke teilen. Am 3. Schild hast du 3 von 5 Stücken geschafft. Genauso zeigt eine Linie mit Strichen die Brüche: der ⟦Zahlenstrahl⟧.",
+    "woerter": [
+     [
+      "Zahlenstrahl",
+      "eine Linie, auf der die Zahlen der Größe nach von links nach rechts liegen"
+     ],
+     [
+      "Strich",
+      "eine kleine Markierung quer zur Linie; die Striche teilen die Strecke in gleich lange Stücke"
+     ],
+     [
+      "Strecke von 0 bis 1",
+      "das Stück des Zahlenstrahls, das für ein Ganzes steht – hier der ganze Weg"
+     ],
+     [
+      "Pfeil",
+      "zeigt im Bild auf die gesuchte Stelle"
+     ]
+    ]
    },
    {
     "lernziel": "verstehen",
     "titel": "Aussagen prüfen, Fehler finden",
-    "regel": "Bevor du eine Aussage über Brüche glaubst, ⟦prüfe sie mit einem Beispiel⟧: Erweitere, kürze oder rechne den Anteil aus. Ein einziges Gegenbeispiel zeigt, dass eine allgemeine Aussage ⟦falsch⟧ ist.",
+    "regel": "So prüfst du eine Aussage über Brüche: ⟦Teste sie mit Zahlen⟧ – erweitern, kürzen oder ausrechnen. Ein einziges ⟦Gegenbeispiel⟧ zeigt, dass eine allgemeine Aussage falsch ist. Ein passendes Beispiel allein beweist sie dagegen noch nicht.",
     "schritte": [
-     "Aussage: „Ein Bruch mit größerem Nenner ist immer größer.“ Teste 1/2 und 1/4.",
-     "1/2 = 2/4 ist größer als 1/4. Das ist ein Gegenbeispiel, die Aussage ist also ⟦falsch⟧."
+     "Die Aussage lautet: „Ein Bruch mit größerem Nenner ist immer größer.“",
+     "Teste sie mit 1/2 und 1/4. Der Nenner 4 ist größer als der Nenner 2.",
+     "Erweitere 1/2 auf Viertel: 1/2 = 2/4. Und 2/4 ist mehr als 1/4.",
+     "Hier ist der Bruch mit dem kleineren Nenner größer. Das ist ein Gegenbeispiel, die Aussage ist also ⟦falsch⟧."
     ],
-    "fehler": "Eine Aussage nur mit einem passenden Beispiel „beweisen“ reicht nicht: 1/4 < 3/5 bestätigt die Nenner-Regel zufällig. Ein ⟦Gegenbeispiel⟧ wie 1/2 > 1/4 widerlegt sie."
+    "fehler": "Eine Aussage mit einem einzigen passenden Beispiel „beweisen“ reicht nicht: 1/4 < 3/5 passt nur zufällig zur Nenner-Regel – wie ein Treffer beim Raten. Das ⟦Gegenbeispiel⟧ 1/2 > 1/4 widerlegt sie.",
+    "einstieg": "Beim Fest behauptet ein Kind: „Eine Viertelpizza ist mehr als eine halbe Pizza, weil 4 größer ist als 2.“ Stimmt das? Du legst eine halbe Pizza und eine Viertelpizza nebeneinander und siehst sofort den Unterschied. Ein Beispiel, das eine Behauptung widerlegt, heißt ⟦Gegenbeispiel⟧.",
+    "woerter": [
+     [
+      "Aussage",
+      "ein Satz, der wahr oder falsch sein kann, z. B. eine Behauptung"
+     ],
+     [
+      "allgemeine Aussage",
+      "soll immer gelten, für alle Brüche"
+     ],
+     [
+      "Gegenbeispiel",
+      "ein Beispiel, bei dem die Aussage nicht stimmt; eines genügt, um sie zu widerlegen"
+     ],
+     [
+      "widerlegen",
+      "zeigen, dass etwas falsch ist"
+     ]
+    ]
    }
   ],
   "teilfaehigkeiten": [

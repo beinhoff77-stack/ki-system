@@ -879,3 +879,34 @@ Aufgabe: Ein Generator inhalte/generatoren/zahlen_natuerlich.py, der inhalte/the
 - Fertig, wenn `python3 -I tools/inhalt_pruefen.py inhalte/themen/zahlen.natuerlich.json` OK meldet und du jede Aufgabe gelesen hast. Commit + Push auf schwer-natuerlich.
 Grenzen: Keine Datenbank, kein App-Code, keine Tests, kein Merge. Meldungen in inhalte/postfach/schwer-natuerlich.md. Arbeite ohne Rückfragen durch.
 ```
+
+# Dreizehnte Runde: Befundlisten aus Runde 10 abarbeiten (Stufen und Fehler in alten Aufgaben)
+
+Die sechs Klassen-Chats der Zehnten Runde haben alte Aufgaben nur gemeldet, nicht geändert. Die Listen stehen in inhalte/postfach/schwer-kl5.md … schwer-kl10.md
+(jeweils Abschlussbericht, Teil „Befundliste aus Teil 1“). Ein Chat arbeitet sie ab, Zweig `befunde`.
+
+```text
+Du korrigierst gemeldete Mängel in vorhandenen Aufgaben einer Mathe-Lern-App (bayerisches Gymnasium, Klassen 5–10).
+Repository: beinhoff77-stack/ki-system (lernen-app ist ein Zweig darin). Hole den aktuellen Stand des Zweigs lernen-app, lege davon den Zweig befunde an und arbeite nur dort.
+Gibt es den Zweig befunde schon, arbeite dort weiter: Lies zuerst inhalte/postfach/befunde.md und mache beim ersten Thema weiter, das dort noch nicht als fertig steht.
+
+Lies zuerst vollständig: inhalte/README.md, inhalte/postfach/README.md und die sechs Befundlisten in inhalte/postfach/schwer-kl5.md, schwer-kl6.md, schwer-kl7.md, schwer-kl8.md,
+schwer-kl9.md, schwer-kl10.md (jeweils im Abschlussbericht der Teil „Befundliste aus Teil 1“). Reihenfolge der Arbeit: Klasse 8, 5, 7, 6, 9, 10.
+
+Aufgabe je Thema: Jeden Befund prüfen (selbst nachrechnen, nicht blind übernehmen) und im Generator des Themas (inhalte/generatoren/, teils mit Hilfsdateien) beheben:
+ a) Falsch eingestufte Aufgabe: nur die Stufe ändern (Feld s). „Schwer“ heißt anderer Gedanke, nicht größere Zahlen. Frage und Antworten bleiben Zeichen für Zeichen gleich.
+ b) Falsche oder unklare Lösung, Tipp oder Lösungsweg bei gleicher Frage: Lösung (o), Tipp (h), Lösungsweg (w) berichtigen. Frage und Antworten bleiben gleich.
+ c) Fehler in der Frage selbst oder in den Antwortmöglichkeiten, Beinahe-Dubletten, mehrdeutige Aufgaben: die Aufgabe durch eine berichtigte ersetzen (neue Frage).
+    Führe dazu in inhalte/postfach/befunde.md je Thema eine Liste „ersetzt“ mit dem genauen alten Fragetext – der Haupt-Chat sperrt die alten Fassungen in der Datenbank.
+ d) Erklärung und Aufgabe passen nicht zusammen: die Aufgabe anpassen oder ersetzen (wie c), die Lernkarten-Texte NICHT ändern; solche Fälle zusätzlich unter „für Sebastian“ notieren.
+Regeln:
+- Alle nicht betroffenen Aufgaben bleiben Zeichen für Zeichen unverändert (per Skript gegen den Stand von lernen-app nachweisen: geändert sind nur die gemeldeten Aufgaben).
+- Nach dem Umstufen muss jede Lernkarte weiter mindestens 3 Übungen je Stufe haben; fehlt dadurch etwas, passende neue Übungen ergänzen (Regeln der Zehnten Runde in inhalte/AUFTRAEGE.md).
+- Befunde, die du nach eigener Prüfung für unbegründet hältst, nicht umsetzen, sondern mit kurzer Begründung unter „nicht umgesetzt“ notieren.
+- Ein Thema ist fertig, wenn `python3 -I tools/inhalt_pruefen.py inhalte/themen/<datei>.json` OK meldet und der Nachweis stimmt. Ein Thema = ein Commit + Push auf befunde.
+Grenzen: Keine Datenbank, kein App-Code, keine Tests, kein Merge. Keine Namen oder Daten von Kindern.
+Meldungen in inhalte/postfach/befunde.md ablegen und pushen: nach jedem Thema eine Zeile (Thema fertig, Zahl umgestuft / berichtigt / ersetzt / nicht umgesetzt), am Ende ein
+Abschlussbericht mit den Listen „ersetzt“ (alte Fragetexte je Thema), „nicht umgesetzt“ und „für Sebastian“. Arbeite ohne Rückfragen durch.
+```
+
+Einspielen (Haupt-Chat): einheit_abgleichen(…, 'lassen') übernimmt geänderte Stufen, Lösungen, Tipps und Lösungswege und fügt Ersatz-Aufgaben ein; die alten Fassungen aus „ersetzt“ danach sperren (freigegeben = false).

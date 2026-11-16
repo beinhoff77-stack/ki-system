@@ -6,6 +6,7 @@ from math import ceil, log
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _kl10 import *  # noqa: E402,F403
+from _schwer_kl10 import ergaenzen  # noqa: E402
 
 start(1001)
 TIEF = str.maketrans('0123456789', '₀₁₂₃₄₅₆₇₈₉')
@@ -567,10 +568,149 @@ KLAR = {
 }
 
 
+# ---------- Zehnte Runde (Zweig schwer-kl10): schwerere Übungen nach Prüfungsvorbild ----------
+# Eigener Zufallsstart (nur zum Mischen der Antworten); wird erst NACH bauen(...) aufgerufen, alte Aufgaben bleiben gleich.
+# Vorbilder (Typ und Niveau, eigene Zahlen und Einkleidung): Realschul-Abschlussprüfung Bayern Mathematik I 2021/2022 (A 1:
+# Wachstumsrate aus zwei Werten, erstes Jahr über einer Grenze, zwei Vorgänge gleichsetzen), Abitur Bayern Prüfungsteil A
+# (exakte Werte ohne Hilfsmittel, Definitionsmenge von lg/ln), Grundwissen G9 (Ausklammern bei Exponentialgleichungen).
+def schwer():
+    start(10010)
+    N = []
+
+    def neu(l, s, a):
+        a['l'], a['s'] = l, s
+        N.append(a)
+
+    def rz(wahr, nd):
+        return gerundet(wahr, nd), f'round({K(wahr)}, {nd})'
+
+    # --- logarithmus ---
+    neu('logarithmus', 2, luecken('Zwischen welchen aufeinanderfolgenden ganzen Zahlen liegt log₂(50)? Ohne Taschenrechner.', '□ < log₂(50) < □',
+                                  'Zwei ganze Zahlen', [5, 6], '2⁵ = 32 < 50 < 64 = 2⁶, also 5 < log₂(50) < 6.',
+                                  'Suche die Zweierpotenzen direkt unter und über 50.', c=['5', '6']))
+    neu('logarithmus', 2, zahl('Berechne log₄(8) ohne Taschenrechner.', '4 = 2² und 8 = 2³. Gesucht ist y mit 4^y = 8, also 2^(2y) = 2³, 2y = 3, y = 1,5.',
+                               'Schreibe 4 und 8 als Potenzen von 2.', Fr(3, 2), '3 / 2'))
+    neu('logarithmus', 3, zahl('Berechne ohne Taschenrechner: log₂(8) + log₃(1/9) − lg(1 000).',
+                               'log₂(8) = 3, log₃(1/9) = −2 (denn 3^(−2) = 1/9), lg(1 000) = 3. Also 3 + (−2) − 3 = −2.',
+                               'Bestimme jeden Logarithmus einzeln: Welcher Exponent passt?', -2, '3 + (-2) - 3'))
+    neu('logarithmus', 3, zahl('Es gilt log_b(1/27) = −3. Bestimme die Basis b.', 'log_b(1/27) = −3 heißt b^(−3) = 1/27, also b³ = 27 und b = 3.',
+                               'Ein negativer Exponent bedeutet Kehrwert: b^(−3) = 1/b³.', 3, '3 + (3 ** (-3) - 1 / 27)'))
+    a = auswahl('Ordne ohne Taschenrechner: a = log₂(7), b = log₃(30), c = lg(0,5).', 'c < a < b', ['a < b < c', 'c < b < a', 'a < c < b'],
+                'lg(0,5) < 0, weil 0,5 < 1. 2² = 4 < 7 < 8 = 2³, also liegt a zwischen 2 und 3. 3³ = 27 < 30 < 81, also liegt b zwischen 3 und 4. Damit c < a < b.',
+                'Schätze jeden Logarithmus zwischen zwei ganzen Zahlen ein.')
+    neu('logarithmus', 3, a)
+    neu('logarithmus', 3, zahl('Löse log₂(log₃(x)) = 2.', 'Von außen nach innen: log₂(…) = 2 heißt log₃(x) = 2² = 4. Dann x = 3⁴ = 81.',
+                               'Rückwärts denken: Was muss in der Klammer von log₂ stehen?', 81, '3 ** (2 ** 2)'))
+
+    # --- gleiche_basis ---
+    neu('gleiche_basis', 2, zahl('Löse 25^x = 1/125.', '25 = 5², 1/125 = 5^(−3). Also 5^(2x) = 5^(−3), 2x = −3, x = −1,5.',
+                                 'Schreibe beide Seiten als Potenz von 5.', Fr(-3, 2), '-3 / 2'))
+    neu('gleiche_basis', 2, zahl('Löse 4^x = 8^(x − 1).', '4^x = 2^(2x), 8^(x − 1) = 2^(3x − 3). Also 2x = 3x − 3, x = 3.',
+                                 'Schreibe 4 und 8 als Potenzen von 2 und multipliziere die Exponenten.', 3, '3'))
+    neu('gleiche_basis', 3, zahl('Löse 3^(x + 1) + 3^x = 108.', '3^(x + 1) = 3 · 3^x. Ausklammern: 3^x · (3 + 1) = 108, also 3^x = 27 = 3³ und x = 3.',
+                                 'Schreibe 3^(x + 1) als 3 · 3^x und klammere 3^x aus.', 3, '3 + (3 ** 4 + 3 ** 3 - 108)'))
+    neu('gleiche_basis', 3, zahl('Löse 2^(x + 2) − 2^x = 48.', '2^(x + 2) = 4 · 2^x. Ausklammern: 2^x · (4 − 1) = 48, also 2^x = 16 = 2⁴ und x = 4.',
+                                 'Schreibe 2^(x + 2) als 4 · 2^x und klammere 2^x aus.', 4, '4 + (2 ** 6 - 2 ** 4 - 48)'))
+    neu('gleiche_basis', 3, luecken('Löse 4^x − 6 · 2^x + 8 = 0.', 'x₁ = □; x₂ = □', 'Kleinere Lösung zuerst',
+                                    [1, 2], 'Mit u = 2^x: u² − 6u + 8 = 0, also (u − 2)(u − 4) = 0. u = 2 gibt x = 1, u = 4 gibt x = 2.',
+                                    'Es gilt 4^x = (2^x)². Ersetze 2^x durch u; dann entsteht eine quadratische Gleichung.', c=['1', '2']))
+    neu('gleiche_basis', 3, zahl('Für welche Zahl a hat die Gleichung 2^(x + a) = 8^x die Lösung x = 2?',
+                                 '8^x = 2^(3x). Gleiche Exponenten: x + a = 3x. Mit x = 2: 2 + a = 6, also a = 4.',
+                                 'Setze x = 2 ein und vergleiche die Exponenten.', 4, '3 * 2 - 2'))
+
+    # --- mit_log_loesen ---
+    w, c = rz(lg(3) / lg(1.2), 2)
+    neu('mit_log_loesen', 2, zahl('Löse 5 · 1,2^x + 3 = 18. Runde auf zwei Nachkommastellen.', f'5 · 1,2^x = 15, also 1,2^x = 3. x = lg 3 : lg 1,2 ≈ {dz(w)}.',
+                                  'Zuerst 3 abziehen, dann durch 5 teilen.', w, c, tol=0.01))
+    w, c = rz(3 / lg(2), 2)
+    neu('mit_log_loesen', 2, zahl('Löse 2^(x/3) = 10. Runde auf zwei Nachkommastellen.', f'x/3 = lg 10 : lg 2 ≈ 3,3219, also x = 3 · 3,3219 ≈ {dz(w)}.',
+                                  'Logarithmiere, dann multipliziere mit 3.', w, c, tol=0.01))
+    w, c = rz(lg(5) / lg(2), 2)
+    neu('mit_log_loesen', 3, zahl('Löse 2^x + 2^(x + 1) = 15. Runde auf zwei Nachkommastellen.',
+                                  f'2^(x + 1) = 2 · 2^x. Ausklammern: 2^x · 3 = 15, also 2^x = 5 und x = lg 5 : lg 2 ≈ {dz(w)}.',
+                                  'Klammere 2^x aus, bevor du logarithmierst.', w, c, tol=0.01))
+    xg = lg(0.25) / lg(0.8)
+    neu('mit_log_loesen', 3, zahl('Bestimme die kleinste ganze Zahl x mit 6 · 0,8^x < 1,5.',
+                                  f'0,8^x < 0,25. Logarithmieren: x · lg 0,8 < lg 0,25. Weil lg 0,8 negativ ist, dreht sich das Zeichen: x > {dz(round(xg, 2))}. Kleinste ganze Zahl: 7.',
+                                  'Achtung: Beim Teilen durch eine negative Zahl dreht sich das Ungleichheitszeichen.', math.floor(xg) + 1, '7'))
+    w, c = rz(lg(300), 2)
+    neu('mit_log_loesen', 3, zahl('Löse 5^x · 2^x = 300. Runde auf zwei Nachkommastellen.', f'5^x · 2^x = (5 · 2)^x = 10^x. Also 10^x = 300 und x = lg 300 ≈ {dz(w)}.',
+                                  'Gleiche Exponenten: Fasse die Basen zu einer Potenz zusammen.', w, c, tol=0.01))
+    neu('mit_log_loesen', 3, bruch_luecke('Für welche Zahl c hat die Gleichung 3^x = c die Lösung x = −2?', Fr(1, 9),
+                                          'x = −2 einsetzen: c = 3^(−2) = 1/3² = 1/9.', 'Rückwärts denken: Setze die Lösung in die Gleichung ein.', c=['1', '3 ** 2']))
+
+    # --- potenzregel ---
+    neu('potenzregel', 2, zahl('Berechne lg(0,001⁴) mit der Potenzregel.', 'lg(0,001⁴) = 4 · lg 0,001 = 4 · (−3) = −12.',
+                               'lg 0,001 ist der Exponent von 10, der 0,001 ergibt.', -12, '4 * (-3)'))
+    neu('potenzregel', 2, luecken('Vereinfache log₂(8^x) mit der Potenzregel.', '□x', 'Zahl vor x', [3],
+                                  'log₂(8^x) = x · log₂(8) = x · 3 = 3x.', 'Der Exponent x wird zum Faktor; dann log₂(8) berechnen.', c=['3']))
+    neu('potenzregel', 3, zahl('Es gilt lg 2 ≈ 0,30103. Wie viele Ziffern hat die Zahl 2¹⁰⁰?',
+                               'lg(2¹⁰⁰) = 100 · lg 2 ≈ 30,103. Also ist 10³⁰ < 2¹⁰⁰ < 10³¹. Eine Zahl zwischen 10³⁰ und 10³¹ hat 31 Ziffern.',
+                               '10³ hat 4 Ziffern, 10⁴ hat 5 Ziffern. Zwischen welchen Zehnerpotenzen liegt 2¹⁰⁰?', 31, '100 * 30103 // 100000 + 1'))
+    w, c = rz(lg(3) / (2 * lg(5) - lg(3)), 2)
+    neu('potenzregel', 3, zahl('Löse 5^(2x) = 3^(x + 1). Runde auf zwei Nachkommastellen.',
+                               f'2x · lg 5 = (x + 1) · lg 3. Ordnen: x · (2 lg 5 − lg 3) = lg 3, also x = lg 3 : (2 lg 5 − lg 3) ≈ {dz(w)}.',
+                               'Logarithmiere beide Seiten, setze die Klammer (x + 1) und sammle alle x auf einer Seite.', w, c, tol=0.01))
+    neu('potenzregel', 3, auswahl('Jemand löst 2^x = 3^(x − 1) so: „x · lg 2 = x − 1 · lg 3“. Was ist der Fehler?',
+                                  'Die Klammer fehlt: richtig ist (x − 1) · lg 3.',
+                                  ['Kein Fehler.', 'Man darf nicht logarithmieren, weil die Basen verschieden sind.', 'Richtig wäre x · lg 2 = x · lg 3 − 1.'],
+                                  'Die Potenzregel holt den ganzen Exponenten x − 1 als Faktor heraus: lg(3^(x − 1)) = (x − 1) · lg 3. Ohne Klammer wird nur 1 mit lg 3 multipliziert.',
+                                  'Welcher Teil ist der Exponent von 3?'))
+    neu('potenzregel', 3, zahl('Es gilt log₂(a) = 6. Berechne log₂(a²) + log₂(√a).', 'log₂(a²) = 2 · 6 = 12; √a = a^0,5, also log₂(√a) = 0,5 · 6 = 3. Summe: 15.',
+                               'Schreibe √a als Potenz von a und nutze die Potenzregel zweimal.', 15, '2 * 6 + 6 / 2'))
+
+    # --- wachstum ---
+    w, c = rz(3 ** 0.25, 2)
+    neu('wachstum', 2, zahl('Eine Bakterienkultur verdreifacht sich alle 4 Stunden. Um welchen Faktor wächst sie pro Stunde? Runde auf zwei Nachkommastellen.',
+                            f'q⁴ = 3, also q = 3^(1/4) ≈ {dz(w)}.', 'Vier gleiche Faktoren q ergeben zusammen 3.', w, c, tol=0.01))
+    t = lg(1 / 3) / lg(0.85)
+    neu('wachstum', 2, zahl('Ein Auto kostet neu 30 000 € und verliert jedes Jahr 15 % seines Werts. Nach wie vielen vollen Jahren ist es erstmals weniger als 10 000 € wert?',
+                            f'30 000 · 0,85^t < 10 000 ⇔ 0,85^t < 1/3 ⇔ t > lg(1/3) : lg 0,85 ≈ {dz(round(t, 2))}. Also nach 7 Jahren.',
+                            'Abnahme um 15 %: q = 0,85. Achte beim Ergebnis auf „erstmals“.', math.floor(t) + 1, '7'))
+    q = 1.2 ** (1 / 3)
+    w, c = rz((q - 1) * 100, 1)
+    neu('wachstum', 3, zahl('Eine Kinokarte kostete 2021 genau 9,00 € und 2024 genau 10,80 €. Der Preis stieg jedes Jahr um denselben Prozentsatz. Um wie viel Prozent pro Jahr? Runde auf eine Nachkommastelle.',
+                            f'9 · q³ = 10,80, also q³ = 1,2 und q = 1,2^(1/3) ≈ 1,0627. Das sind etwa {dz(w)} % pro Jahr.',
+                            'Zwischen 2021 und 2024 liegen 3 Jahre. Stelle 9 · q³ = 10,80 auf.', w, c, einheit='%', tol=0.1))
+    t = lg(15 / 9) / lg(q)
+    neu('wachstum', 3, zahl('Eine Kinokarte kostete 2021 genau 9,00 € und 2024 genau 10,80 € (gleicher Prozentsatz jedes Jahr). In welchem Jahr kostet sie bei gleicher Entwicklung erstmals mehr als 15 €?',
+                            f'q³ = 1,2. 9 · q^t > 15 ⇔ q^t > 5/3 ⇔ t > lg(5/3) : lg q = 3 · lg(5/3) : lg 1,2 ≈ {dz(round(t, 2))}. Also t = 9, das Jahr 2021 + 9 = 2030.',
+                            'Zähle t ab 2021. Nutze lg q = lg 1,2 : 3.', 2021 + math.floor(t) + 1, '2021 + 9'))
+    t = lg(1.25) / lg(1.04 / 1.02)
+    neu('wachstum', 3, zahl('Konto A: 5 000 € mit 2 % Zinseszins. Konto B: 4 000 € mit 4 % Zinseszins. Nach wie vielen vollen Jahren hat Konto B erstmals mehr Geld als Konto A?',
+                            f'4 000 · 1,04^t > 5 000 · 1,02^t ⇔ (1,04 : 1,02)^t > 1,25 ⇔ t > lg 1,25 : lg(1,04 : 1,02) ≈ {dz(round(t, 2))}. Also nach 12 Jahren.',
+                            'Setze beide Kontostände an und teile durch 4 000 · 1,02^t.', math.floor(t) + 1, '12'))
+    n = lg(0.01) / lg(0.5)
+    neu('wachstum', 3, zahl('Ein Stoff zerfällt mit fester Halbwertszeit. Nach wie vielen Halbwertszeiten ist erstmals weniger als 1 % übrig?',
+                            f'0,5^n < 0,01 ⇔ n > lg 0,01 : lg 0,5 ≈ {dz(round(n, 2))}. Also nach 7 Halbwertszeiten (0,5⁷ ≈ 0,8 %).',
+                            'Nach n Halbwertszeiten ist der Anteil 0,5^n übrig. Die Halbwertszeit selbst brauchst du nicht.', math.floor(n) + 1, '7'))
+
+    # --- verstehen ---
+    neu('verstehen', 2, auswahl('Für welche Zahlen x ist lg(x − 3) definiert?', 'x > 3', ['x ≥ 3', 'x > 0', 'alle x ≠ 3'],
+                                'Der Logarithmus braucht ein positives Argument: x − 3 > 0, also x > 3. Für x = 3 wäre das Argument 0.',
+                                'Was muss für die Zahl in der Klammer gelten?'))
+    neu('verstehen', 2, auswahl('Welche Gleichung hat keine Lösung?', '3^x = 0', ['2^x = 0,5', 'lg x = −2', '5^(x − 1) = 1'],
+                                '3^x ist immer positiv, wird also nie 0. Die anderen: x = −1, x = 0,01, x = 1.',
+                                'Kann eine Potenz mit positiver Basis 0 werden?'))
+    neu('verstehen', 3, auswahl('Für welche Zahlen c hat die Gleichung 2^x + 3 = c eine Lösung?', 'c > 3', ['c ≥ 3', 'c > 0', 'für alle c'],
+                                '2^x nimmt alle positiven Werte an, aber nie 0. Also nimmt 2^x + 3 alle Werte größer als 3 an.',
+                                'Welche Werte kann 2^x annehmen? Was ändert „+ 3“?'))
+    neu('verstehen', 3, auswahl('Jemand behauptet: „lg(x²) = 2 hat genau die Lösung x = 10.“ Was stimmt?', 'Falsch: auch x = −10 ist eine Lösung.',
+                                ['Richtig.', 'Falsch: die Lösung ist x = 100.', 'Falsch: die Lösung ist x = √10.'],
+                                'lg(x²) = 2 heißt x² = 100, also x = 10 oder x = −10. Probe: (−10)² = 100 > 0. Die Umformung zu 2 · lg x gilt nur für x > 0.',
+                                'Löse zuerst nach x² auf. Welche Zahlen haben das Quadrat 100?'))
+    neu('verstehen', 3, auswahl('Wie viele Lösungen hat die Gleichung 2^x = x + 1?', '2', ['0', '1', '3'],
+                                'x = 0 (1 = 1) und x = 1 (2 = 2) sind Lösungen. Der Graph von 2^x krümmt sich nach oben und schneidet eine Gerade höchstens zweimal.',
+                                'Probiere kleine ganze Zahlen. Denk an die Form der Graphen.'))
+    neu('verstehen', 3, auswahl('Die Zahl x = log₂(3) − 1 ist die Lösung einer der Gleichungen. Welcher?', '2^(x + 1) = 3', ['2^x = 3 − 1', '2^(x − 1) = 3', '2^x + 1 = 3'],
+                                'Aus x = log₂(3) − 1 folgt x + 1 = log₂(3), also 2^(x + 1) = 3.', 'Bringe die −1 auf die andere Seite und schreibe die Gleichung als Potenz.'))
+    return N
+
+
 GEN = schoen(GEN)
 
 if __name__ == '__main__':
-    bauen('gleichungen.exponential',
+    datei = bauen('gleichungen.exponential',
           'Logarithmen verstehen und Exponentialgleichungen lösen – mit gleicher Basis oder durch Logarithmieren mit der Potenzregel, auch bei Wachstum und Zerfall.',
           ['b^y = x ⇔ y = log_b(x); lg = log₁₀.', 'Gleiche Basis: Exponenten gleichsetzen.', 'Sonst: Potenz allein stellen, logarithmieren: x = lg c : lg b.',
            'Potenzregel: log_b(a^r) = r · log_b(a).'],
@@ -584,3 +724,4 @@ if __name__ == '__main__':
                  'Rechenausdruck c bei exakten Logarithmen: prüft b^n = x (z. B. „5 + (2 ** 5 − 32)“), weil das Prüfskript keinen Logarithmus kennt; gerundete Lösungen als 12-stellige Konstante mit Toleranz 0,01 bzw. 0,1.',
                  'Schreibweise: Exponenten mit Unbekannten als „2^x“ bzw. „3^(x − 1)“, Logarithmus als „log₂(32)“ und „lg“.',
                  'Prüfung eingearbeitet (Runde 3): Potenzregel begründet; neue Aufgabentypen Basis/Argument bestimmen, Kehrwert-Exponenten, gemeinsame Basis mit Verschiebung, Halbwertszeit und Wachstumsrate bestimmen. „wachstum“: in jedem Pool mindestens die Hälfte Zeitfragen; Geldbeträge auf Cent mit Toleranz 0,01.'])
+    ergaenzen(datei, schwer())

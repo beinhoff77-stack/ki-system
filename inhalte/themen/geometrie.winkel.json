@@ -1084,14 +1084,15 @@
   "bewertung": {
    "lernziele_pflicht": [
     "ergaenzen",
-    "kreuzung",
     "um_punkt",
     "uhr",
     "drehungen",
     "figuren",
     "verstehen"
    ],
-   "lernziele_vertiefung": [],
+   "lernziele_vertiefung": [
+    "kreuzung"
+   ],
    "testaufgaben_je_lernziel": 1
   },
   "quellen": {

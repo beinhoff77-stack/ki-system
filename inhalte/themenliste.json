@@ -126,7 +126,7 @@
    "rs_by": 5,
    "ib_myp": 1
   },
-  "umfang": "Winkel an Geraden und Parallelen, Innen- und Außenwinkelsummen, Winkelberechnungen.",
+  "umfang": "Winkel bis 360°: Winkel ergänzen (90°, 180°, 360°), Winkel an einer Geradenkreuzung und um einen Punkt, Winkel an der Uhr und bei Drehungen, Winkel in Rechteck und Quadrat. (Winkelsätze an Parallelen und Winkelsummen: geometrie.winkelsaetze, Klasse 7.)",
   "lehrplan_gym": [],
   "datei": "inhalte/themen/geometrie.winkel.json"
  },

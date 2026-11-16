@@ -1291,12 +1291,13 @@
    "lernziele_pflicht": [
     "pyramide",
     "laengen",
-    "lage",
-    "koordinaten",
     "rotation",
     "axialschnitt"
    ],
-   "lernziele_vertiefung": [],
+   "lernziele_vertiefung": [
+    "lage",
+    "koordinaten"
+   ],
    "testaufgaben_je_lernziel": 1
   },
   "quellen": {

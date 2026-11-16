@@ -1215,13 +1215,14 @@
    "lernziele_pflicht": [
     "achsenspiegelung",
     "punktspiegelung",
-    "verschiebung",
-    "drehung",
     "symmetrie",
-    "parkett",
     "eigenschaften"
    ],
-   "lernziele_vertiefung": [],
+   "lernziele_vertiefung": [
+    "verschiebung",
+    "drehung",
+    "parkett"
+   ],
    "testaufgaben_je_lernziel": 1
   },
   "quellen": {

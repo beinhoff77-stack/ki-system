@@ -49,7 +49,7 @@
       "text": "Gesucht ist √196: eine Zahl, die mal sich selbst 196 ergibt."
      },
      {
-      "text": "10 · 10 = 100 ist zu klein, 15 · 15 = 225 ist zu groß.",
+      "text": "10 · 10 = 100 ist zu klein, 15 · 15 = 225 zu groß.",
       "bild": {
        "punkte": {
         "_q1": [
@@ -560,7 +560,7 @@
       }
      },
      {
-      "text": "Probiere 7: 7 · 7 = 49 und 49 · 7 = 343. Also 7³ = 343.",
+      "text": "Probiere 7: 7 · 7 · 7 = 343. Also gilt 7³ = 343.",
       "bild": {
        "zeilen": [
         [
@@ -630,7 +630,7 @@
     "regel": "Suche die ⟦Quadratzahlen⟧ direkt unter und über a. Die Wurzel liegt zwischen deren Wurzeln.",
     "schritte": [
      {
-      "text": "Gesucht: Zwischen welchen ganzen Zahlen liegt √90? Wir grenzen ein."
+      "text": "Gesucht: Zwischen welchen ganzen Zahlen liegt √90?"
      },
      {
       "text": "Die Quadratzahl direkt unter 90 ist 81 = 9 · 9.",
@@ -692,7 +692,7 @@
      }
     ],
     "fehler": "√90 liegt nicht bei 45, der Hälfte von 90. Ein Beet mit 45 m Seite hätte 2 025 m².",
-    "einstieg": "Ein quadratisches Beet soll 90 m² groß sein. Mit 9 m Seite sind es 81 m², mit 10 m schon 100 m². Du ⟦grenzt die Seite ein⟧.",
+    "einstieg": "Ein quadratisches Beet soll 90 m² groß sein. Mit 9 m Seite sind es 81 m², mit 10 m schon 100 m². Die Seite kannst du ⟦eingrenzen⟧.",
     "woerter": [
      [
       "eingrenzen",
@@ -741,7 +741,7 @@
    {
     "lernziel": "wurzel_deuten",
     "titel": "Wurzeln richtig deuten",
-    "regel": "√a ist ⟦nie negativ⟧ und nur für a ≥ 0 erklärt. Die Gleichung x² = a mit a > 0 hat zwei Lösungen: √a und −√a.",
+    "regel": "√a ist ⟦nie negativ⟧ und nur für a ≥ 0 erklärt. x² = a mit a > 0 hat zwei Lösungen: √a und −√a.",
     "schritte": [
      {
       "text": "Die Gleichung x² = 25 fragt: Welche Zahlen ergeben mal sich selbst 25?"
@@ -780,7 +780,7 @@
      }
     ],
     "fehler": "√(9 + 16) ist nicht √9 + √16 = 7. Erst unter der Wurzel rechnen: √25 = 5. Probe: 7 · 7 = 49, nicht 25.",
-    "einstieg": "Ein Rätsel: „Meine Zahl mal sich selbst ergibt 25.“ Das passt für 5 und für −5. Das Wurzelzeichen meint aber nur die Zahl ⟦ohne Minus⟧.",
+    "einstieg": "Ein Rätsel: Meine Zahl mal sich selbst ergibt 25. Das passt für 5 und für −5. Das Wurzelzeichen meint aber nur die Zahl ⟦ohne Minus⟧.",
     "woerter": [
      [
       "x² = 25",
@@ -875,7 +875,7 @@
       }
      },
      {
-      "text": "10 · 10 · 10 = 1 000, also ist a = ∛1 000 cm = ⟦10 cm⟧.",
+      "text": "Wegen 10³ = 1 000 ist a = ∛1 000 cm = ⟦10 cm⟧.",
       "bild": {
        "zeilen": [
         [

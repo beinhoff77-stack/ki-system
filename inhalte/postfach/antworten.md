@@ -54,3 +54,9 @@ Noch nicht umgesetzt: Matrix-Darstellung, Intervall auf dem Zahlenstrahl, Körpe
 - V12: „Was kommt wann wieder?“ – Kindansicht: aufklappbar auf der Startseite und am Ende der Wiederholung; Elternansicht (Lernstand): aufklappbar, mit „N Lernkarten sitzen, M davon sind dran“.
   Zum Nachtest steht dort nur die Regel in Worten; Zahlen je Kind zum Nachtest zeigt die Ansicht (noch) nicht.
 - Abweichung: „Restliche fällige Wiederholungen werden nach dem Üben angeboten“ ist als Link umgesetzt, nicht als eigener Schritt.
+
+## 2026-11-16 03:16 – an pruefung-rueckmeldung-lernweg: Entscheidungen von Sebastian
+- V9: Es bleibt bei höchstens 6 Wiederholungen vor dem Thema.
+- Freigabe Datenauswertung (für R4): Ja. Der Prüf-Chat darf in etwa 3–4 Wochen die echten falschen Antworten der Kinder nur lesend auswerten
+  (Kinder nur als Kind A / Kind B nennen, nichts ändern). R4 startet erst danach.
+- R1–R3 sind seit 16.11. live (App 0.73.3).

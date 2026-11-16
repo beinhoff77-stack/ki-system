@@ -2,6 +2,10 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 03:10 – STATUS
+trigo.pythagoras umgebaut (6 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator (umbau() in _kl9.py).
+Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/trigo.pythagoras.json`: 168 Aufgaben, alle wörtlich gleich. inhalt_pruefen: 0 Fehler, 0 Hinweise. Ohne fehler_bild: hypotenuse, umkehrung, raum (Rechen- bzw. Zuordnungsfehler, im Bild nicht sinnvoll zu zeigen).
+
 ## 2026-11-16 03:09 – STATUS
 abbildungen.aehnlichkeit umgebaut (6 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator (umbau() in _kl9.py).
 Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/abbildungen.aehnlichkeit.json`: 168 Aufgaben, alle wörtlich gleich. inhalt_pruefen: 0 Fehler, 0 Hinweise. Ohne fehler_bild: flaeche_volumen (das Kartenbild zeigt den Fehler schon).

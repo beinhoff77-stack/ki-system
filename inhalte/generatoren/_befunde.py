@@ -182,3 +182,13 @@ def mit_befunden(baue, bef):
             {'ersetzt': bef.ersetzt, 'nicht': bef.nicht, 'sebastian': bef.sebastian, 'zaehler': dict(bef.zaehler)}, ensure_ascii=False, indent=1))
         return d
     return baue_befunde
+
+
+def befunde_anwenden(datei, bef):
+    """Für Generatoren, die eine fertige DATEI (dict) bauen und erst unter __main__ schreiben (Kl. 5, 6, 7, 9, 10):
+    Korrekturen direkt auf DATEI anwenden; geschrieben wird wie bisher von schreibe(...)."""
+    bef.anwenden(datei)
+    print('  BEFUNDE ' + bef.bericht())
+    (Path('/tmp') / f'befunde_{bef.thema}.json').write_text(json.dumps(
+        {'ersetzt': bef.ersetzt, 'nicht': bef.nicht, 'sebastian': bef.sebastian, 'zaehler': dict(bef.zaehler)}, ensure_ascii=False, indent=1))
+    return datei

@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 08:25 – STATUS
+gleichungen.formeln fertig: 30 neue Übungen. Prüfskript OK, Unverändert-Nachweis JA.
+
 ## 2026-11-16 08:10 – STATUS
 zahlen.intervalle fertig: 24 neue Übungen. Prüfskript OK, Unverändert-Nachweis JA. Echte Prüfungsaufgaben nur zu Intervallen gibt es kaum; Vorbild sind Mengen-/Ungleichungsaufgaben (siehe Abschlussbericht).
 

@@ -3,6 +3,11 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:30 – STATUS
+gleichungen.lgs2 fertig: umgestuft 4 / berichtigt 0 / ersetzt 1 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Ein Händler mischt Erdnüsse zu 10 € pro kg mit Cashewkerne zu 16 € pro kg. Er erhält 13 kg Mischung im Wert von 178 €. Wie viel kg der billigeren Sorte verwendet er?“
+
+## 2026-11-16 05:30 – STATUS
 gleichungen.bruch fertig: umgestuft 3 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
 
 ## 2026-11-16 05:29 – STATUS

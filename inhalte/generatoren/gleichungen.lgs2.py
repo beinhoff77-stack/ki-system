@@ -745,6 +745,25 @@ SW.z('sachaufgabe', 3, 'Eine zweistellige Zahl hat die Quersumme 11. Vertauscht 
 baue = mit_schwer(baue, SW)
 # ---- SCHWER ENDE ----
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, mit_befunden  # noqa: E402
+
+BF = Befunde('gleichungen.lgs2', 13_8_6)
+# c) Grammatik in der Frage („mit Cashewkerne“)
+BF.ersetze('sachaufgabe', 'Ein Händler mischt Erdnüsse zu 10 € pro kg mit Cashewkerne zu 16 € pro kg. Er erhält 13 kg Mischung im Wert von 178 €. Wie viel kg der billigeren Sorte verwendet er?',
+           BF.Z('Ein Händler mischt Erdnüsse zu 10 € pro kg mit Cashewkernen zu 16 € pro kg. Er erhält 13 kg Mischung im Wert von 178 €. Wie viel kg der billigeren Sorte verwendet er?',
+                5, '(16 * 13 - 178) / (16 - 10)',
+                'I: x + y = 13, II: 10x + 16y = 178. y = 13 − x: 10x + 208 − 16x = 178 → −6x = −30 → x = 5. Teurere Sorte: y = 13 − 5 = 8.',
+                'Eine Gleichung für die Masse, eine für den Preis.', einheit='kg'))
+# a) gleicher Typ wie Stufe 2
+BF.stufe('sachaufgabe', 'Eine Eintrittskarte kostet für Erwachsene 15 €, für Kinder 8 €. Eine Gruppe aus 45 Personen zahlt 563 €. Wie viele Kinder sind dabei?', 2)
+BF.stufe('sachaufgabe', 'Eine Eintrittskarte kostet für Erwachsene 8 €, für Kinder 4,50 €. Eine Gruppe aus 55 Personen zahlt 303,50 €. Wie viele Kinder sind dabei?', 2)
+BF.stufe('grafisch', 'Lies die Lösung des Gleichungssystems I: −2x + y = −3   II: y = x − 3 am Schnittpunkt ab.', 2)
+BF.stufe('grafisch', 'Lies die Lösung des Gleichungssystems I: y = x − 2   II: y = −x am Schnittpunkt ab.', 2)
+
+baue = mit_befunden(baue, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Grundidee', ['pruefen', 'grafisch']), ('Lösungsverfahren', ['einsetzen', 'gleichsetzen', 'addition', 'verfahren']),

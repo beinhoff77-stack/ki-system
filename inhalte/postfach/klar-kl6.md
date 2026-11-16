@@ -9,7 +9,7 @@ Alle 8 Klasse-6-Themen überarbeitet (je Karte: einstieg + woerter neu; schritte
 
 | Thema | Karten | Aufgaben | wörtlich gleich (git show HEAD) | inhalt_pruefen |
 |---|---|---|---|---|
-| bruch.brueche | 7 | 224 | ja | OK |
+| bruch.brueche | 8 | 224 | ja | OK |
 | bruch.dezimal | 7 | 196 | ja | OK |
 | bruch.prozent | 7 | 196 | ja | OK |
 | bruch.rechnen | 10 | 280 | ja | OK |

@@ -687,6 +687,19 @@ def schwer():
     ]
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('gleichungen.quadratisch', 13_9_4)
+# a) derselbe Typ steht auf Stufe 2
+BF.stufe('diskriminante', 'Für welche Zahl c hat x² − 14x + c = 0 genau eine Lösung?', 2)
+BF.stufe('diskriminante', 'Für welche Zahl c hat x² + 4x + c = 0 genau eine Lösung?', 2)
+# a) nur ein Umstellschritt mehr als Stufe 2
+BF.stufe('ausklammern', 'Löse 7x² = 14x.', 2)
+BF.stufe('ausklammern', 'Löse 5x² = 30x.', 2)
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     d = bauen('gleichungen.quadratisch',
           'Quadratische Gleichungen mit der passenden Methode lösen und die Anzahl der Lösungen mit der Diskriminante begründen.',
@@ -701,3 +714,4 @@ if __name__ == '__main__':
           offen=['Lösungen werden als Lücken „x₁ = □; x₂ = □“ (kleinere zuerst) abgefragt; Lösungen mit Wurzeln (irrational) sind bewusst ausgelassen, weil Lücken nur ganze Zahlen erlauben. Im Unterricht kommen sie vor – ggf. Antworttyp „Wurzelterm“ nachrüsten.',
                  'Grafische Deutung (Nullstellen der Parabel) steht im Thema funktionen.quadratisch.'])
     anhaengen(d, 9904, schwer)
+    befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

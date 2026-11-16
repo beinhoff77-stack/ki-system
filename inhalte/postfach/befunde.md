@@ -3,6 +3,9 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:48 – STATUS
+gleichungen.quadratisch fertig: umgestuft 4 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
+
+## 2026-11-16 05:48 – STATUS
 zahlen.rationale_exponenten fertig: umgestuft 3 / berichtigt 0 / ersetzt 2 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):
   - „Berechne 64^(−3/2). Gib das Ergebnis als Dezimalzahl an.“

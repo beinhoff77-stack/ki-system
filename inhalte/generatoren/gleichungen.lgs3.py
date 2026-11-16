@@ -107,6 +107,84 @@ ETAPPEN = [
      'fehler': '„Doppelt so groß wie die erste“ als x = 2y zu schreiben ist falsch: Die ⟦zweite⟧ Zahl ist das Doppelte, also y = 2x.'},
 ]
 
+# ---- KLAR (verständliche Erklärungen, Runde 7) ----
+KLAR = {
+ 'pruefen': {
+  'einstieg': 'Am Kiosk kosten ein Brötchen, ein Saft und ein Stück Kuchen zusammen 6 €. Der Saft kostet doppelt so viel wie das Brötchen, der Kuchen 2 € mehr als das Brötchen. Ein Freund behauptet: „1 €, 2 € und 3 €.“ Stimmt das? Es muss zu allen drei Angaben passen. Drei solche Gleichungen zusammen heißen ⟦lineares Gleichungssystem (LGS) mit drei Unbekannten⟧.',
+  'woerter': [['x, y, z', 'die drei gesuchten Zahlen, hier die Preise von Brötchen, Saft und Kuchen in €'],
+              ['(I), (II), (III)', 'Nummern für die erste, zweite und dritte Gleichung'],
+              ['linear', 'x, y und z kommen nur ohne Hochzahl vor'],
+              ['Zahlentripel (1 | 2 | 3)', 'drei Zahlen in fester Reihenfolge: x = 1, y = 2, z = 3'],
+              ['Lösung des Systems', 'ein Tripel, das alle Gleichungen zugleich erfüllt']],
+  'schritte': ['Das System: (I) x + y + z = 6; (II) 2x − y = 0; (III) x − z = −2. Zu prüfen ist (1 | 2 | 3).',
+               'In (I) einsetzen: 1 + 2 + 3 = 6. Stimmt.',
+               'In (II) einsetzen: 2 · 1 − 2 = 0. Stimmt.',
+               'In (III) einsetzen: 1 − 3 = −2. Stimmt. Alle drei passen, also ist ⟦(1 | 2 | 3) eine Lösung⟧.'],
+  'regel': 'So prüfst du ein ⟦Zahlentripel⟧: Setze x, y und z in ⟦jede⟧ Gleichung ein. Nur wenn ⟦alle drei⟧ stimmen, ist es eine Lösung des Systems.',
+  'fehler': 'Nur Gleichung (I) zu prüfen genügt nicht: (2 | 2 | 2) ergibt zwar zusammen 6 €, aber in (II) kommt 2 · 2 − 2 = 2 heraus, nicht 0 – der Saft wäre nicht doppelt so teuer. Es müssen ⟦alle⟧ Gleichungen stimmen.'},
+ 'stufenform': {
+  'einstieg': 'Bei einem anderen Einkauf sind die Angaben schon günstig sortiert: Eine Angabe nennt nur den Kuchenpreis, die nächste Saft und Kuchen, die letzte alle drei. Man beginnt bei der Angabe mit nur einem Preis und arbeitet sich nach oben vor – wie eine Treppe. Diese Anordnung heißt ⟦Stufenform⟧.',
+  'woerter': [['Stufenform', 'jede Gleichung weiter unten hat eine Unbekannte weniger'],
+              ['einsetzen', 'eine schon bekannte Zahl statt des Buchstabens schreiben'],
+              ['von unten nach oben', 'mit der letzten Gleichung anfangen']],
+  'schritte': ['Das System: (I) x + y − z = 1; (II) y + z = 5; (III) 2z = 6.',
+               'Unten anfangen: Aus (III) 2z = 6 folgt z = 3.',
+               'z = 3 in (II) einsetzen: y + 3 = 5, also y = 2.',
+               'y = 2 und z = 3 in (I) einsetzen: x + 2 − 3 = 1, also x = 2. Lösung: ⟦x = 2, y = 2, z = 3⟧.'],
+  'regel': 'So löst du ein System in ⟦Stufenform⟧: Löse die letzte Gleichung, die nur noch eine Unbekannte hat. Setze das Ergebnis ⟦von unten nach oben⟧ in die anderen Gleichungen ein.',
+  'fehler': 'In (II) y + z = 5 mit z = 3 auf y = 8 zu kommen ist falsch: Die 3 wird ⟦abgezogen⟧, nicht addiert: y = 5 − 3 = 2. Probe: 8 + 3 = 11, nicht 5.'},
+ 'eliminieren': {
+  'einstieg': 'Zwei Kassenzettel: Auf dem zweiten stehen genau doppelt so viele Brötchen wie auf dem ersten. Verdoppelt man den ersten Zettel und zieht ihn vom zweiten ab, fallen die Brötchen weg. Übrig bleibt eine Angabe nur über Saft und Kuchen. Eine Unbekannte so verschwinden zu lassen heißt ⟦eliminieren⟧.',
+  'woerter': [['eliminieren', 'eine Unbekannte durch geschicktes Rechnen wegfallen lassen'],
+              ['Additionsverfahren', 'Gleichungen (oder ihre Vielfachen) addieren oder abziehen'],
+              ['(II) − 2 · (I)', 'Gleichung (I) mal 2 nehmen und von Gleichung (II) abziehen'],
+              ['Glied', 'ein Teil einer Summe, z. B. 2y oder −z']],
+  'schritte': ['Gegeben: (I) x + 2y − z = 3; (II) 2x − y + z = 4. In (II) steht 2x, in (I) nur x.',
+               'Gleichung (I) mal 2, und zwar jedes Glied: 2x + 4y − 2z = 6.',
+               'Das von (II) abziehen, Glied für Glied: 2x − 2x = 0, −y − 4y = −5y, z − (−2z) = 3z, 4 − 6 = −2.',
+               'Ergebnis: ⟦−5y + 3z = −2⟧. Das x ist weggefallen.'],
+  'regel': 'So eliminierst du mit dem ⟦Additionsverfahren⟧: Nimm eine Gleichung so oft mal, dass vor der Unbekannten dieselbe Zahl steht. Dann addieren oder abziehen, sodass die ⟦Unbekannte wegfällt⟧. Die ⟦rechte Seite⟧ wird immer mitgerechnet.',
+  'fehler': 'Bei (II) − 2 · (I) nur die x-Glieder zu verdoppeln ist falsch: ⟦Jedes Glied⟧ von (I), auch die rechte Seite, wird mit 2 multipliziert – sonst würde man den Kassenzettel nur halb verdoppeln.'},
+ 'loesen': {
+  'einstieg': 'Jetzt werden alle Werkzeuge zusammengesetzt. Aus drei Angaben mit drei Unbekannten macht man durch Eliminieren zwei Angaben mit zwei Unbekannten. Daraus wird eine Angabe mit einer Unbekannten. Rückwärts eingesetzt ergeben sich alle drei Werte. So wird das ⟦LGS gelöst⟧.',
+  'woerter': [['dieselbe Variable', 'in beiden neuen Gleichungen muss die gleiche Unbekannte wegfallen'],
+              ['(I) − (II)', 'Gleichung (II) von Gleichung (I) abziehen'],
+              ['(I) + (III)', 'Gleichung (I) und Gleichung (III) addieren']],
+  'schritte': ['Das System: (I) x + y + z = 2; (II) x − y + z = 6; (III) 2x + y − z = −3.',
+               '(I) − (II): x und z fallen weg, es bleibt 2y = −4, also y = −2.',
+               '(I) + (III): z fällt weg, es bleibt 3x + 2y = −1. Mit y = −2: 3x − 4 = −1, also x = 1.',
+               'In (I) einsetzen: 1 + (−2) + z = 2, also z = 3. Lösung: ⟦x = 1, y = −2, z = 3⟧.'],
+  'regel': 'So löst du ein LGS mit drei Unbekannten: Eliminiere mit zwei verschiedenen Gleichungspaaren ⟦dieselbe Unbekannte⟧. So entsteht ein System mit ⟦zwei Unbekannten⟧. Löse es und setze die Werte zurück ein. Zum Schluss die Probe in allen drei Gleichungen.',
+  'fehler': 'Mit (I) und (II) x zu eliminieren, mit (II) und (III) aber y, führt nicht weiter: Dann hat jede neue Gleichung wieder andere Unbekannte. Beide neuen Gleichungen müssen ⟦dieselbe Unbekannte⟧ verlieren.'},
+ 'parabel': {
+  'einstieg': 'Ein Ball fliegt in einem Bogen. Drei Punkte seiner Flugbahn sind gemessen. Die Bahn ist eine Parabel mit der Form y = ax² + bx + c, nur a, b und c sind unbekannt. Jeder Punkt liefert eine Gleichung – zusammen ein LGS. So findet man die ⟦Parabel durch drei Punkte⟧.',
+  'woerter': [['Parabel', 'die Kurve zu y = ax² + bx + c'],
+              ['a, b, c', 'die drei unbekannten Zahlen der Parabel'],
+              ['Punkt (1 | 2)', 'x = 1 und y = 2'],
+              ['(−1)²', '(−1) · (−1) = 1']],
+  'bild': {'typ': 'koordinaten', 'x': [-2, 2], 'y': [0, 8], 'graphen': [{'art': 'poly', 'k': [1, -1, 2], 'name': 'Flugbahn y = 2x² − x + 1'}], 'punkte': [{'x': 0, 'y': 1, 'name': 'Messpunkt (0 | 1)'}, {'x': 1, 'y': 2, 'name': 'Messpunkt (1 | 2)'}, {'x': -1, 'y': 4, 'name': 'Messpunkt (−1 | 4)'}]},
+  'schritte': ['Die Punkte sind (0 | 1), (1 | 2) und (−1 | 4). Jeder wird in y = ax² + bx + c eingesetzt.',
+               '(0 | 1): a · 0 + b · 0 + c = 1, also c = 1.',
+               '(1 | 2): a + b + 1 = 2, also a + b = 1. (−1 | 4): a − b + 1 = 4, also a − b = 3.',
+               'Beide Gleichungen addieren: 2a = 4, also a = 2 und b = −1. Die Parabel: ⟦y = 2x² − x + 1⟧.'],
+  'regel': 'So findest du die Parabel: Setze jeden Punkt (x | y) in ⟦y = ax² + bx + c⟧ ein. Das ergibt drei Gleichungen für ⟦a, b und c⟧. Löse dieses LGS.',
+  'fehler': 'Den Punkt (−1 | 4) als a − b + c = −4 einzusetzen ist falsch: Der ⟦y-Wert⟧ 4 steht rechts, und (−1)² = ⟦+1⟧, also a − b + c = 4. Sonst läge der Messpunkt unter der x-Achse.'},
+ 'sachaufgabe': {
+  'einstieg': 'Drei Geschwister teilen 12 Bonbons. Das zweite bekommt doppelt so viele wie das erste, das dritte 4 mehr als das erste. Wie viele bekommt jedes? Jede Angabe wird zu einer Gleichung. Solche Probleme aus dem Alltag heißen ⟦Sachaufgaben⟧.',
+  'woerter': [['Variablen festlegen', 'sagen, wofür x, y und z stehen'],
+              ['„doppelt so viele wie das erste“', 'y = 2x'],
+              ['„4 mehr als das erste“', 'z = x + 4'],
+              ['Sachzusammenhang', 'die Situation, zu der die Lösung passen muss']],
+  'schritte': ['Variablen festlegen: x, y und z sind die Bonbons des ersten, zweiten und dritten Kindes.',
+               'Angaben übersetzen: x + y + z = 12, y = 2x und z = x + 4.',
+               'y und z in die erste Gleichung einsetzen: x + 2x + x + 4 = 12, also 4x + 4 = 12 und x = 2.',
+               'Zurück einsetzen: y = 4 und z = 6. Antwort: ⟦2, 4 und 6 Bonbons⟧.'],
+  'regel': 'So löst du eine Sachaufgabe: Lege ⟦drei Variablen⟧ fest, übersetze jede Angabe in eine Gleichung und löse das System. Antworte in einem Satz im ⟦Sachzusammenhang⟧.',
+  'fehler': '„Doppelt so viele wie das erste“ als x = 2y zu schreiben ist falsch: Das ⟦zweite⟧ Kind bekommt das Doppelte, also y = 2x. Probe: Mit x = 2y bekäme das erste Kind mehr.'},
+}
+klar(ETAPPEN, KLAR)
+# ---- KLAR ENDE ----
+
 
 def g_pruefen(s):
     M, b, x = zufall_lgs()

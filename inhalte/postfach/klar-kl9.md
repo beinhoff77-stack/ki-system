@@ -11,3 +11,4 @@ Neueste Meldung oben.
   - zahlen.rationale_exponenten: 168 Aufgaben, 0 Unterschiede, inhalt_pruefen OK
   - gleichungen.quadratisch: 196 Aufgaben, 0 Unterschiede, inhalt_pruefen OK
   - gleichungen.potenz: 168 Aufgaben, 0 Unterschiede, inhalt_pruefen OK
+  - gleichungen.lgs3: 168 Aufgaben, 0 Unterschiede, inhalt_pruefen OK

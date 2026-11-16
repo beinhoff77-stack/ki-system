@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 05:05 – STATUS
+stochastik.verknuepft fertig: 36 neue Übungen, inhalt_pruefen OK, Unverändert-Nachweis OK. Achtung Befund: eine vorhandene Stufe-3-Aufgabe in „verstehen“ hat unmögliche Angaben (siehe Abschlussbericht).
+
 ## 2026-11-16 05:02 – STATUS
 gleichungen.trig fertig: 36 neue Übungen, inhalt_pruefen OK, Unverändert-Nachweis OK.
 

@@ -2,6 +2,11 @@
 
 Teil A (ohne Generator): Überlagerung inhalte/klar/<thema>.json. Teil B (mit Generator): Abschnitt KLAR, eingesetzt erst nach dem Erzeugen der Aufgaben (inhalte/generatoren/_klar_rest.py). Neueste Meldung oben.
 
+## 2026-11-16 02:18 – STATUS
+groessen.indirekt fertig: Abschnitt KLAR im Generator groessen_indirekt.py (über _klar_rest.py), 7 Karten (einstieg, woerter neu; schritte 3–4, regel „So …“, fehler überarbeitet).
+Situationen: Zimmer streichen, Futter für Pferde, Tippgemeinschaft teilt 120 €, Pumpen im Schwimmbecken, Etikett mit 12 cm², Taxi mit Grundgebühr, Urlaubsfahrt. Bilder (Tabellen, Hyperbel) unverändert.
+inhalt_pruefen: OK. Vergleich gegen git show HEAD: 189 Aufgaben wörtlich gleich, übrige Datei gleich.
+
 ## 2026-11-16 02:17 – STATUS
 gleichungen.einfach fertig: Abschnitt KLAR im Generator gleichungen_einfach.py, 7 Karten (einstieg, woerter neu; schritte 4, regel „So …“, fehler überarbeitet). Neue Hilfsdatei inhalte/generatoren/_klar_rest.py: legt sich um baue() aus _nachbau.py und setzt KLAR erst NACH dem Erzeugen der Aufgaben ein.
 Situationen: Murmeln in der Dose auf der Waage, Geldbeutel, Hefte, Kino mit Popcorn, Probe der Freundin, Sammelkarten, Aufzug ins Untergeschoss. Bilder unverändert.

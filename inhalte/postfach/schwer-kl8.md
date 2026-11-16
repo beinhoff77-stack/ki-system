@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 11:00 – STATUS
+groessen.indirekt fertig: 42 neue Übungen. Prüfskript OK, Unverändert-Nachweis JA. Helfer übernimmt jetzt die Teilfähigkeit aus der Datei (hier fasst ein k mehrere Lernziele zusammen); alle anderen Themen bauen unverändert.
+
 ## 2026-11-16 10:35 – STATUS
 stochastik.simulation fertig: 36 neue Übungen. Prüfskript OK, Unverändert-Nachweis JA. Echte Prüfungsaufgaben zur Simulation nicht gefunden – Vorbilder übertragen (siehe Abschlussbericht).
 

@@ -78,13 +78,15 @@ class Neu:
         texte = {a['f']['text'] for a in d['aufgaben']}
         gesehen = {schl(a) for a in d['aufgaben']}
         neu = collections.defaultdict(list)
+        # Teilfähigkeit wie in der Datei festgelegt (meist = Lernziel; manche Themen fassen Lernziele zusammen)
+        tf = {lz: next((t['k'] for t in d['inhalt']['teilfaehigkeiten'] if lz in t.get('lernziele', [])), lz) for lz in lz_alle}
         for lz, s, art, a in self.liste:
             assert lz in lz_alle, f'Lernkarte {lz} gibt es nicht'
             # gleicher Text nur bei Auswahl-Aufgaben mit anderen Antworten (wie im Bestand üblich)
             assert a['y'] == 'auswahl' or a['f']['text'] not in texte, f'Text schon vorhanden: {a["f"]["text"]}'
             assert a['f']['text'] not in beispiele and schl(a) not in gesehen, f'doppelt: {a["f"]["text"]}'
             texte.add(a['f']['text']); gesehen.add(schl(a))
-            neu[lz].append({'l': lz, 't': lz, 'p': 'uebung', 's': s, **a})
+            neu[lz].append({'l': lz, 't': tf[lz], 'p': 'uebung', 's': s, **a})
         out = []
         letzte = {a['l']: i for i, a in enumerate(d['aufgaben'])}
         for i, a in enumerate(d['aufgaben']):

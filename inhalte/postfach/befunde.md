@@ -2,6 +2,11 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 05:50 – STATUS
+funktionen.potenz fertig: umgestuft 4 / berichtigt 0 / ersetzt 1 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Berechne f(−2) für f(x) = −2x³.“
+
 ## 2026-11-16 05:49 – STATUS
 funktionen.quadratisch fertig: umgestuft 5 / berichtigt 0 / ersetzt 1 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):

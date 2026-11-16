@@ -598,6 +598,24 @@ def schwer():
     ]
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('funktionen.potenz', 13_9_8)
+# a) eher Stufe 2; c) Beinahe-Dublette (dieselbe Frage einmal als Zahl-, einmal als Auswahl-Aufgabe)
+BF.stufe('werte', 'Berechne f(−2) für f(x) = −2x³.', 2, enthaelt='"y": "zahl"')
+BF.ersetze('werte', 'Berechne f(−2) für f(x) = −2x³.', BF.A(
+    'Welches Vorzeichen hat f(−5) für f(x) = −2x³? Entscheide, ohne den Wert auszurechnen.', 'positiv', ['negativ', 'null'],
+    '(−5)³ ist negativ (ungerader Exponent). Mal −2 wird daraus eine positive Zahl: f(−5) = −2 · (−125) = 250 > 0.',
+    'Ungerader Exponent: Das Vorzeichen bleibt. Was macht dann der Faktor −2?'), enthaelt='"y": "auswahl"', s=2)
+# a) vier fast gleiche Varianten auf Stufe 3 → zwei davon Stufe 2
+BF.stufe('verlauf', 'Welcher Graph liegt für 0 < x < 1 weiter oben: y = x² oder y = x⁷?', 2)
+BF.stufe('verlauf', 'Welcher Graph liegt für x > 1 weiter oben: y = x⁷ oder y = x²?', 2)
+# a) Standard → Stufe 2
+BF.stufe('negativ', 'Für welche x ist f(x) = x⁻³ definiert?', 2)
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     d = bauen('funktionen.potenz',
           'Potenzfunktionen y = a · xⁿ untersuchen: Werte, Symmetrie, Verlauf, Parameter; Erweiterung auf negative und rationale Exponenten.',
@@ -610,3 +628,4 @@ if __name__ == '__main__':
                   'negativ': ['f(4) für f(x) = x^(−2)'], 'wurzelfunktion': ['f(x) = 64?']},
           offen=['Negative Exponenten werden jetzt hochgestellt geschrieben (x⁻², wie in der Regel); bitte in der App prüfen, ob „⁻“ gut lesbar ist.'])
     anhaengen(d, 9908, schwer)
+    befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

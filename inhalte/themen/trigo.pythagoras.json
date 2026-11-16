@@ -1517,7 +1517,7 @@
    "l": "hypotenuse",
    "t": "hypotenuse",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein rechtwinkliges Dreieck hat die Katheten 11 cm und 5 cm. Berechne die Hypotenuse auf eine Nachkommastelle."
@@ -1668,7 +1668,7 @@
    "l": "hypotenuse",
    "t": "hypotenuse",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein rechtwinkliges Dreieck hat die Katheten 13 cm und 14 cm. Berechne die Hypotenuse auf eine Nachkommastelle."
@@ -1686,7 +1686,7 @@
    "l": "hypotenuse",
    "t": "hypotenuse",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein rechtwinkliges Dreieck hat die Katheten 13 cm und 13 cm. Berechne die Hypotenuse auf eine Nachkommastelle."
@@ -4438,15 +4438,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Eine Rampe steigt auf 600 cm waagrechter Länge um 17 cm an. Wie lang ist die Rampe? Runde auf ganze Zentimeter."
+    "text": "Eine Rampe steigt auf 240 cm waagrechter Länge um 70 cm an. Wie lang ist die Rampe?"
    },
    "o": {
-    "wert": 600,
-    "einheit": "cm",
-    "toleranz": 1
+    "wert": 250,
+    "einheit": "cm"
    },
-   "c": "round(600.240785018812, 0)",
-   "w": "l² = 600² + 17² = 360 289, l ≈ 600,2 cm ≈ 600 cm.",
+   "c": "(240 ** 2 + 70 ** 2) / 250",
+   "w": "l² = 240² + 70² = 57 600 + 4 900 = 62 500, l = √62 500 = 250 cm. Die Rampe ist 10 cm länger als ihre waagrechte Länge.",
    "h": "Waagrechte Länge und Höhe sind die Katheten."
   },
   {

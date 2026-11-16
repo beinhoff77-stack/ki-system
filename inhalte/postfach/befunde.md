@@ -3,6 +3,11 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:50 – STATUS
+trigo.pythagoras fertig: umgestuft 3 / berichtigt 0 / ersetzt 1 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Eine Rampe steigt auf 600 cm waagrechter Länge um 17 cm an. Wie lang ist die Rampe? Runde auf ganze Zentimeter.“
+
+## 2026-11-16 05:50 – STATUS
 abbildungen.aehnlichkeit fertig: umgestuft 8 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
 
 ## 2026-11-16 05:50 – STATUS

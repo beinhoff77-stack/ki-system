@@ -647,6 +647,21 @@ def schwer():
     ]
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('trigo.pythagoras', 13_9_10)
+# c) Lösung 600 cm = waagrechte Länge – bestätigt die Fehlvorstellung „kein Unterschied“ → größere Steigung
+BF.ersetze('anwendung', 'Eine Rampe steigt auf 600 cm waagrechter Länge um 17 cm an. Wie lang ist die Rampe? Runde auf ganze Zentimeter.', BF.Z(
+    'Eine Rampe steigt auf 240 cm waagrechter Länge um 70 cm an. Wie lang ist die Rampe?', 250, '(240 ** 2 + 70 ** 2) / 250',
+    'l² = 240² + 70² = 57 600 + 4 900 = 62 500, l = √62 500 = 250 cm. Die Rampe ist 10 cm länger als ihre waagrechte Länge.',
+    'Waagrechte Länge und Höhe sind die Katheten.', einheit='cm'))
+# a) Routine (Katheten gegeben, Hypotenuse runden) → Stufe 2
+for _a, _b in (('11', '5'), ('13', '14'), ('13', '13')):
+    BF.stufe('hypotenuse', f'Ein rechtwinkliges Dreieck hat die Katheten {_a} cm und {_b} cm. Berechne die Hypotenuse auf eine Nachkommastelle.', 2)
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     d = bauen('trigo.pythagoras',
           'Den Satz des Pythagoras und seine Umkehrung anwenden: Längen in der Ebene, im Raum und im Koordinatensystem berechnen.',
@@ -661,3 +676,4 @@ if __name__ == '__main__':
           offen=['Lernkarte „raum“: Das Bild ist ein mit „figur“ nachgebautes Schrägbild (echte Schrägbilder kann die App noch nicht); in den Aufgaben stehen die Quadermaße weiter in Worten.',
                  'Gerundete Ergebnisse: Der Wurzelwert steht als 12-stellige Konstante im Rechenausdruck c, weil das Prüfskript keine Wurzeln kennt.'])
     anhaengen(d, 9910, schwer)
+    befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

@@ -878,16 +878,16 @@
    "l": "werte",
    "t": "werte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(4) für f(x) = 1000 · 1,5^x."
+    "text": "Berechne f(4) für f(x) = 1 000 · 1,5^x."
    },
    "o": {
     "wert": 5062.5
    },
    "c": "1000 * 1.5 ** 4",
-   "w": "1,5⁴ = 5,0625; f(4) = 1000 · 5,0625 = 5 062,5.",
+   "w": "1,5⁴ = 5,0625; f(4) = 1 000 · 5,0625 = 5 062,5.",
    "h": "Potenziere die Dezimalzahl sorgfältig (Nachkommastellen addieren sich)."
   },
   {
@@ -1306,7 +1306,7 @@
    "l": "faktor",
    "t": "faktor",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Beschreibt f(t) = 300 · 1,04^t Wachstum oder Zerfall, und um wie viel Prozent pro Schritt?"
@@ -1327,7 +1327,7 @@
    "l": "faktor",
    "t": "faktor",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Beschreibt f(t) = 20 · 0,94^t Wachstum oder Zerfall, und um wie viel Prozent pro Schritt?"
@@ -1356,7 +1356,7 @@
     "wert": 0.7225
    },
    "c": "0.85 ** 2",
-   "w": "Faktor pro Jahr 0,85; in 2 Jahren 0,85² = 0,7225.",
+   "w": "Faktor pro Stunde 0,85; in 2 Stunden 0,85² = 0,7225.",
    "h": "Die Faktoren werden multipliziert, nicht die Prozente addiert."
   },
   {
@@ -1372,14 +1372,14 @@
     "wert": 0.5625
    },
    "c": "0.75 ** 2",
-   "w": "Faktor pro Jahr 0,75; in 2 Jahren 0,75² = 0,5625.",
+   "w": "Faktor pro Stunde 0,75; in 2 Stunden 0,75² = 0,5625.",
    "h": "Die Faktoren werden multipliziert, nicht die Prozente addiert."
   },
   {
    "l": "faktor",
    "t": "faktor",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Beschreibt f(t) = 5 000 · 1,01^t Wachstum oder Zerfall, und um wie viel Prozent pro Schritt?"
@@ -1400,7 +1400,7 @@
    "l": "faktor",
    "t": "faktor",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Guthaben wächst jedes Jahr um 5 %. Um welchen Faktor ändert es sich in 3 Jahren?"
@@ -2610,7 +2610,7 @@
    "l": "graph",
    "t": "graph",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Die Zeichnung zeigt den Graphen von g(x) = 3^x − 1. In welchem Punkt schneidet er die y-Achse?",
@@ -3302,7 +3302,7 @@
    "l": "logfunktion",
    "t": "logfunktion",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne f(0,25) für f(x) = log₄(x)."

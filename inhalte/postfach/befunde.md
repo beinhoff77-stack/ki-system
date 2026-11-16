@@ -3,6 +3,11 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:53 – STATUS
+funktionen.exponential_log fertig: umgestuft 6 / berichtigt 2 / ersetzt 1 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Berechne f(4) für f(x) = 1000 · 1,5^x.“
+
+## 2026-11-16 05:53 – STATUS
 gleichungen.polynom fertig: umgestuft 2 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 2. Prüfskript OK, Nachweis OK.
 - nicht umgesetzt:
   - vielfachheit: Ablenker „Nein, die Nullstelle ist 3-fach (ungerade)“ in sich widersprüchlich – Laut Befund kein Fehler; als Ablenker zulässig (prüft, ob man „ungerade ⇒ Wechsel“ kennt).

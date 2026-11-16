@@ -596,6 +596,29 @@ def schwer():
     return N
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('funktionen.exponential_log', 13_10_3)
+# b) Fehler im Lösungsweg: „pro Jahr … in 2 Jahren“ statt „pro Stunde … in 2 Stunden“ (Lösung stimmt)
+BF.loesung('faktor', 'Die Menge eines Medikaments im Blut sinkt jede Stunde um 15 %. Um welchen Faktor ändert sie sich in 2 Stunden?',
+           w='Faktor pro Stunde 0,85; in 2 Stunden 0,85² = 0,7225.')
+BF.loesung('faktor', 'Die Menge eines Medikaments im Blut sinkt jede Stunde um 25 %. Um welchen Faktor ändert sie sich in 2 Stunden?',
+           w='Faktor pro Stunde 0,75; in 2 Stunden 0,75² = 0,5625.')
+# a) Einschritt-Aufgaben → Stufe 2
+for _f in ('300 · 1,04^t', '20 · 0,94^t', '5 000 · 1,01^t'):
+    BF.stufe('faktor', f'Beschreibt f(t) = {_f} Wachstum oder Zerfall, und um wie viel Prozent pro Schritt?', 2)
+# c) Schreibweise „1000“ statt „1 000“; Stufe 3 war nur die größere Rechnung → Stufe 2
+BF.ersetze('werte', 'Berechne f(4) für f(x) = 1000 · 1,5^x.', BF.Z(
+    'Berechne f(4) für f(x) = 1 000 · 1,5^x.', 5062.5, '1000 * 1.5 ** 4', '1,5⁴ = 5,0625; f(4) = 1 000 · 5,0625 = 5 062,5.',
+    'Potenziere die Dezimalzahl sorgfältig (Nachkommastellen addieren sich).'), s=2)
+# a) eher Stufe 2
+BF.stufe('graph', 'Die Zeichnung zeigt den Graphen von g(x) = 3^x − 1. In welchem Punkt schneidet er die y-Achse?', 2)
+BF.stufe('logfunktion', 'Berechne f(0,25) für f(x) = log₄(x).', 2)
+BF.stufe('faktor', 'Ein Guthaben wächst jedes Jahr um 5 %. Um welchen Faktor ändert es sich in 3 Jahren?', 2)  # „in 2/3 Jahren“ der Liste = in 2 bzw. 3 Jahren
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     datei = bauen('funktionen.exponential_log',
           'Exponentielles Wachstum und Zerfall mit f(x) = a · b^x beschreiben, Graphen deuten, Logarithmusfunktion als Umkehrung nutzen und Zeitpunkte berechnen.',
@@ -610,3 +633,4 @@ if __name__ == '__main__':
                  'Zeichnungen: Jede Lernkarte hat ein Koordinatensystem (Exponential- und Logarithmuskurve, Spiegelung an y = x, Zielwert als waagrechte Linie). Aufgaben „Welcher Term passt zum Graphen?“ und y-Achsenabschnitt zeigen den Graphen.',
                  'Gerundete Ergebnisse mit Toleranz 0,1 bzw. 0,01; Logarithmuswerte als 12-stellige Konstanten in c.'])
     ergaenzen(datei, schwer())
+    befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

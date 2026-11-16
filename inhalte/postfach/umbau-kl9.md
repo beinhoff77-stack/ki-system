@@ -2,6 +2,10 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 03:03 – STATUS
+gleichungen.potenz umgebaut (6 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator (umbau() in _kl9.py).
+Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/gleichungen.potenz.json`: 168 Aufgaben, alle wörtlich gleich. inhalt_pruefen: 0 Fehler, 0 Hinweise. Ohne fehler_bild: ungerade, sachaufgabe (Fehler ohne sinnvolles Bild).
+
 ## 2026-11-16 03:02 – STATUS
 gleichungen.quadratisch umgebaut (7 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator (umbau() in _kl9.py).
 Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/gleichungen.quadratisch.json`: 196 Aufgaben, alle wörtlich gleich. inhalt_pruefen: 0 Fehler, 0 Hinweise. Ohne fehler_bild: reinquadratisch, faktorisieren, ergaenzung, loesungsformel, diskriminante (Rechen- oder Vorzeichenfehler, im Bild nicht sinnvoll zu zeigen).

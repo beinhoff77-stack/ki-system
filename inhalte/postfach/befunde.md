@@ -3,6 +3,11 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:29 – STATUS
+funktionen.gebrochen fertig: umgestuft 5 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
+- nicht umgesetzt:
+  - indirekt: Überschneidung mit groessen.indirekt – Kein Mangel an einer Aufgabe; betrifft die Reihenfolge im Plan (Haupt-Chat).
+
+## 2026-11-16 05:29 – STATUS
 funktionen.linear fertig: umgestuft 14 / berichtigt 0 / ersetzt 4 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK. Ersatz zwei_punkte (A(0|2)…) steht jetzt auf Stufe 2 (gleicher Typ wie die andere Stufe-2-Aufgabe).
 - ersetzt (alte Fragetexte, bitte sperren):
   - „Liegen A(−1 | −1), B(1 | 1) und C(3 | 3) auf einer Geraden?“

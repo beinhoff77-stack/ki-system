@@ -856,7 +856,7 @@
    "l": "sinus",
    "t": "sinus",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse sin x = −0,7 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
@@ -883,22 +883,22 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Löse sin x = −0,69 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
+    "text": "Löse sin x = −0,9 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
     "schablone": "x₁ ≈ □°; x₂ ≈ □°",
     "hinweis": "kleinere Lösung zuerst"
    },
    "o": {
     "werte": [
-     224,
-     316
+     244,
+     296
     ]
    },
-   "w": "sin⁻¹(−0,69) ≈ −43,6° liegt nicht im Bereich. 180° + 43,6° ≈ 224° und 360° − 43,6° ≈ 316°.",
-   "h": "Negativer Sinus: Der Punkt liegt unterhalb der x-Achse (3. und 4. Quadrant).",
    "c": [
-    "round(223.630108867854, 0)",
-    "round(316.369891132146, 0)"
-   ]
+    "round(244.158067236833, 0)",
+    "round(295.841932763167, 0)"
+   ],
+   "w": "sin⁻¹(−0,9) ≈ −64,2° liegt nicht im Bereich. 180° + 64,2° ≈ 244° und 360° − 64,2° ≈ 296°.",
+   "h": "Negativer Sinus: Der Punkt liegt unterhalb der x-Achse (3. und 4. Quadrant)."
   },
   {
    "l": "sinus",
@@ -925,7 +925,7 @@
    "l": "sinus",
    "t": "sinus",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse sin x = −0,72 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
@@ -949,7 +949,7 @@
    "l": "sinus",
    "t": "sinus",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse sin x = −0,46 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
@@ -973,7 +973,7 @@
    "l": "sinus",
    "t": "sinus",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse sin x = −0,31 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
@@ -1407,7 +1407,7 @@
    "l": "kosinus",
    "t": "kosinus",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse cos x = −0,57 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
@@ -1431,7 +1431,7 @@
    "l": "kosinus",
    "t": "kosinus",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse cos x = −0,61 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
@@ -1455,7 +1455,7 @@
    "l": "kosinus",
    "t": "kosinus",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse cos x = −0,68 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
@@ -1479,7 +1479,7 @@
    "l": "kosinus",
    "t": "kosinus",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse cos x = −0,46 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
@@ -1521,7 +1521,7 @@
    "l": "kosinus",
    "t": "kosinus",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse cos x = −0,2 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",

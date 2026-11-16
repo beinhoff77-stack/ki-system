@@ -3,6 +3,13 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:51 – STATUS
+gleichungen.trig fertig: umgestuft 9 / berichtigt 0 / ersetzt 1 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Löse sin x = −0,69 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.“
+- nicht umgesetzt:
+  - tangens S3 Rampe/„22 % Steigung“ gehören inhaltlich zu trigo.rechtwinklig – Lösungen richtig; tan x = Wert mit spitzem Winkel ist ein Sonderfall der Gleichung. Die Zuordnung zum Thema betrifft den Plan.
+
+## 2026-11-16 05:51 – STATUS
 trigo.allgemein fertig: umgestuft 5 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 2. Prüfskript OK, Nachweis OK.
 - nicht umgesetzt:
   - kosinussatz_seite S3 viermal „Schiff fährt … dreht um … nach links“; Lernkarte erklärt „180° − Drehwinkel“ nicht – Aufgaben richtig; der Tipp nennt den Schritt („Der Innenwinkel am Wendepunkt ist 180° minus Drehwinkel“), der Lösungsweg rechnet ihn vor. Seit Runde 10 gibt es auf Stufe 3 weitere Typen. Lernkarte siehe „für Sebastian“.

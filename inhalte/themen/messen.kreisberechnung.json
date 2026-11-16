@@ -926,7 +926,7 @@
    "l": "umfang",
    "t": "umfang",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Kreis hat den Durchmesser 43,2 cm. Berechne den Umfang. Runde auf eine Nachkommastelle."
@@ -2863,7 +2863,9 @@
     "text": "Ein Kreisausschnitt hat den Mittelpunktswinkel 30°. Wie viel Prozent des Kreises sind das? (Runde auf eine Nachkommastelle.)"
    },
    "o": {
-    "wert": 8.3
+    "wert": 8.3,
+    "einheit": "%",
+    "toleranz": 0.1
    },
    "c": "round(30 / 360 * 100, 1)",
    "w": "Anteil = 30° : 360° = 1/12 ≈ 8,3 %.",
@@ -5091,7 +5093,7 @@
    "l": "zylinder",
    "t": "zylinder",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Zylinder hat r = 7,4 cm und h = 28,7 cm. Berechne seine Oberfläche. Runde auf eine Nachkommastelle."
@@ -5109,7 +5111,7 @@
    "l": "zylinder",
    "t": "zylinder",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Zylinder hat r = 9 cm und h = 2,3 cm. Berechne seine Oberfläche. Runde auf eine Nachkommastelle."
@@ -5127,7 +5129,7 @@
    "l": "zylinder",
    "t": "zylinder",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Zylinder hat r = 1,6 cm und h = 7,5 cm. Berechne seine Oberfläche. Runde auf eine Nachkommastelle."

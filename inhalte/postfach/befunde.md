@@ -3,6 +3,12 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:31 – STATUS
+messen.kreisberechnung fertig: umgestuft 4 / berichtigt 1 / ersetzt 0 / neu 0 / nicht umgesetzt 2. Prüfskript OK, Nachweis OK.
+- nicht umgesetzt:
+  - flaeche S3 Pizzavergleich (3×) – Kein Fehler; Übungsreihe zum selben Typ mit verschiedenen Zahlen, Ablenker gut.
+  - verstehen S2 „Jemand rechnet A = 2 · π · r …“ (3×) – Kein Fehler; Übungsreihe mit verschiedenen Zahlen.
+
+## 2026-11-16 05:31 – STATUS
 gleichungen.formeln fertig: umgestuft 2 / berichtigt 0 / ersetzt 1 / neu 0 / nicht umgesetzt 2. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):
   - „An einem Widerstand R = 10 Ω liegt U = 230 V. Jemand rechnet I = R : U = 0,04 A. Welche Probe zeigt den Fehler?“

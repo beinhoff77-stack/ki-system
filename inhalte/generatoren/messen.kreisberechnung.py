@@ -596,6 +596,25 @@ SW.a('zylinder', 3, 'Ein Blatt (20 cm × 30 cm) wird zu einem Zylindermantel ger
 baue = mit_schwer(baue, SW)
 # ---- SCHWER ENDE ----
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, mit_befunden  # noqa: E402
+
+BF = Befunde('messen.kreisberechnung', 13_8_10)
+# b) gerundetes Ergebnis ohne Toleranz und ohne Einheit
+BF.loesung('sektor', 'Ein Kreisausschnitt hat den Mittelpunktswinkel 30°. Wie viel Prozent des Kreises sind das? (Runde auf eine Nachkommastelle.)',
+           o={'wert': 8.3, 'einheit': '%', 'toleranz': 0.1})
+# a) gleicher Typ wie Stufe 1 bzw. 2
+BF.stufe('umfang', 'Ein Kreis hat den Durchmesser 43,2 cm. Berechne den Umfang. Runde auf eine Nachkommastelle.', 1)
+for _t in ['Ein Zylinder hat r = 7,4 cm und h = 28,7 cm. Berechne seine Oberfläche. Runde auf eine Nachkommastelle.',
+           'Ein Zylinder hat r = 9 cm und h = 2,3 cm. Berechne seine Oberfläche. Runde auf eine Nachkommastelle.',
+           'Ein Zylinder hat r = 1,6 cm und h = 7,5 cm. Berechne seine Oberfläche. Runde auf eine Nachkommastelle.']:
+    BF.stufe('zylinder', _t, 2)
+BF.nicht_umgesetzt('flaeche S3 Pizzavergleich (3×)', 'Kein Fehler; Übungsreihe zum selben Typ mit verschiedenen Zahlen, Ablenker gut.')
+BF.nicht_umgesetzt('verstehen S2 „Jemand rechnet A = 2 · π · r …“ (3×)', 'Kein Fehler; Übungsreihe mit verschiedenen Zahlen.')
+
+baue = mit_befunden(baue, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Kreis', ['umfang', 'flaeche', 'exakt', 'verstehen']), ('Teile von Kreisen', ['sektor', 'zusammengesetzt']), ('Zylinder', ['zylinder'])],

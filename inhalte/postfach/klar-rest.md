@@ -2,6 +2,11 @@
 
 Teil A (ohne Generator): Überlagerung inhalte/klar/<thema>.json. Teil B (mit Generator): Abschnitt KLAR, eingesetzt erst nach dem Erzeugen der Aufgaben (inhalte/generatoren/_klar_rest.py). Neueste Meldung oben.
 
+## 2026-11-16 02:15 – STATUS
+finanzen.zinsen fertig: inhalte/klar/finanzen.zinsen.json, alle 8 Lernziele (einstieg, woerter, schritte 3–4, regel „So …“, fehler; probe bei jahreszinsen, jahreszinsen_komma, zinssatz, kapital, monatszinsen).
+Situationen: Omas Geld auf der Bank, Kredit/Sparkonto/Spardose, Tims, Leas, Opas und Jonas’ Sparbeträge. Beispielzahlen aus quelle.md beibehalten.
+Neu ergänzte fehler: jahreszinsen, zinssatz, kapital, monatszinsen, zeitanteil. Prüfskript OK, alle Beträge nachgerechnet.
+
 ## 2026-11-16 02:14 – STATUS
 zahlen.teilbarkeit fertig: inhalte/klar/zahlen.teilbarkeit.json, alle 8 Lernziele (einstieg, woerter, schritte 3–4, regel „So …“, fehler; probe bei primfaktoren).
 Durchgehende Situation: Klassenfest – Muffins auf Teller verteilen (Teiler, Primzahl, ggT), Packungen beim Bäcker (Vielfache), Kasse in Münzen (Endziffer), Bonbons auf 3 Klassen (Quersumme), Lena und Tim laufen Runden (kgV). Beispielzahlen aus quelle.md beibehalten.

@@ -84,3 +84,12 @@ Grundlage: inhalte/pruefung/UMBAU-AUFTRAG.md (Zweig pruefung-kinderansicht).
 - Nachgestellt: rundgang.test.cjs läuft durch (5 von 5); in den Kindertexten kein „Lernkarte“, „Aufgabe“, „Thema“, „Gebiet“ mehr (ein Treffer ist Inhalt: „Maßstab auf Karten und Plänen“).
 - D1 (Klassen-Zuordnung): Auftrag steht als „Elfte Runde“ in inhalte/AUFTRAEGE.md, Zweig daten-klassen. Noch nicht gestartet.
 - Phase 2 (K2 Mein Weg, A1/A3/A4 und R2 sind bereits umgesetzt) folgt nach der Nachprüfung.
+
+## 16.11. – Runde 9 und 10 eingespielt
+- Zweige aufgaben-auffuellen und schwer-kl5 … schwer-kl10 nach lernen-app zusammengeführt (Stand 973ac27). Alle 90 Themendateien: inhalt_pruefen OK.
+  Eigene Gegenprüfung: In allen 63 geänderten Dateien ist jede alte Aufgabe unverändert enthalten, Lernkarten unverändert; dazu kommen nur Übungen der Stufen 2 und 3.
+- Eingespielt mit einheit_abgleichen(…, 'lassen'): 3 068 neue Aufgaben (Runde 10: 2 516 Übungen, davon 1 726 Stufe 3 und 790 Stufe 2; Runde 9: je 184 Aufgaben für drei Themen).
+  Keine vorhandene Aufgabe geändert oder gelöscht, Lernstände unberührt.
+- Stand danach (67 freigegebene Gymnasium-Themen, 455 Lernkarten): 9 940 Übungen, im Schnitt 21,8 je Karte (vorher 15,6); 4 035 Stufe-3-Übungen (vorher 2 262).
+  Unter 12 Übungen oder unter 4 Stufe-3-Übungen liegen nur noch die Karten von zahlen.natuerlich (Einheit 1, kein Generator) → Auftrag „Zwölfte Runde“ in AUFTRAEGE.md.
+- Die Befundlisten der Klassen-Chats (falsch eingestufte oder fehlerhafte alte Aufgaben) sind noch nicht abgearbeitet.

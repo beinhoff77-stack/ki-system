@@ -853,3 +853,29 @@ und einer kurzen Liste der Punkte, die Sebastian entscheiden muss. Einfache Spra
 Grenzen: In dieser Runde KEINE Änderung an inhalte/themenliste.json, Generatoren, Datenbank, App-Code oder Tests – nur der Vorschlag. Kein Merge.
 Meldungen in inhalte/postfach/daten-klassen.md ablegen und pushen. Arbeite ohne Rückfragen durch.
 ```
+
+# Zwölfte Runde: zahlen.natuerlich (Rom, erster Flug) auffüllen und schwerer machen
+
+Nach Runde 9 und 10 ist „Natürliche Zahlen und Stellenwertsysteme“ (thema_id 15, block_id 49, Klasse 5) das einzige Gymnasium-Thema ohne Generator:
+je Lernkarte nur 9–11 Übungen und 2–5 der Stufe 3. Ein Kind arbeitet gerade daran.
+
+```text
+Du baust zusätzliche Übungsaufgaben für ein bestehendes Thema einer Mathe-Lern-App (bayerisches Gymnasium, Klasse 5).
+Repository: beinhoff77-stack/ki-system (lernen-app ist ein Zweig darin). Hole den aktuellen Stand des Zweigs lernen-app, lege davon den Zweig schwer-natuerlich an und arbeite nur dort.
+
+Lies zuerst vollständig: inhalte/README.md, inhalte/postfach/README.md, inhalte/vorlage_generator.py, inhalte/klar/quelle.md (dort stehen für zahlen.natuerlich alle Lernziele,
+Titel und bisherigen Beispiele) und inhalte/klar/zahlen.natuerlich.json (die aktuellen Lernkarten). Als Muster: inhalte/generatoren/zahlen_teilbarkeit.py (Runde 9, gleicher Fall)
+und inhalte/generatoren/_schwer_kl5.py mit einem Abschnitt „SCHWER (Zehnte Runde)“ aus einem Klasse-5-Generator. Lies außerdem in inhalte/AUFTRAEGE.md die Abschnitte
+„Neunte Runde“ und „Zehnte Runde“ – deren Regeln gelten hier beide.
+
+Aufgabe: Ein Generator inhalte/generatoren/zahlen_natuerlich.py, der inhalte/themen/zahlen.natuerlich.json schreibt (thema_id 15, block_id 49, klasse {"gym_by": 5}).
+- Lernziele (Schlüssel), Reihenfolge und Titel GENAU wie in inhalte/klar/quelle.md; die Erklärfelder jeder Lernkarte unverändert aus inhalte/klar/zahlen.natuerlich.json.
+- Je Lernkarte NEUE Aufgaben: 18 Übungen (Stufe 1: 4, Stufe 2: 6, Stufe 3: 8), 1 Test, 3 Korrektur, 6 Sicherung. Die vorhandenen Aufgaben in der Datenbank bleiben, deine kommen dazu –
+  also andere Zahlen und Einkleidungen als die Beispiele in quelle.md.
+- Von den Stufe-3-Aufgaben je Lernkarte mindestens 2 nach Prüfungsvorbild und mindestens 1 Knobelaufgabe. Recherchiere dafür mit Websuche echte Aufgaben zu natürlichen Zahlen,
+  Stellenwert, Runden, Zahlenstrahl, römischen Zahlen (z. B. bayerische Jahrgangsstufentests Klasse 6 des ISB, VERA, Känguru Klasse 5/6, Musterschulaufgaben Klasse 5).
+  Urheberrecht: nie wörtlich oder mit denselben Zahlen übernehmen; Typ und Niveau sind das Vorbild. Quellen mit Adresse im Abschlussbericht nennen.
+- Lösungen vom Programm berechnen und von Hand nachrechnen; Zahl-Aufgaben mit Rechenausdruck „c“; falsche Antworten aus typischen Denkfehlern; jede Aufgabe mit Tipp und Lösungsweg.
+- Fertig, wenn `python3 -I tools/inhalt_pruefen.py inhalte/themen/zahlen.natuerlich.json` OK meldet und du jede Aufgabe gelesen hast. Commit + Push auf schwer-natuerlich.
+Grenzen: Keine Datenbank, kein App-Code, keine Tests, kein Merge. Meldungen in inhalte/postfach/schwer-natuerlich.md. Arbeite ohne Rückfragen durch.
+```

@@ -1295,6 +1295,17 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
     tabLeiste, panels.erklaeren, panels.ueben, panels.fehler);
   const rahmen = lernRahmen(kind, 'weg', flaeche);
   if (neu) rahmen.classList.add('lr-ohne-nav');
+  if (neu) { // W150 Abflug: waagrecht wischen wechselt den Reiter (Erklären ↔ Üben ↔ Fehler)
+    let sx = 0, sy = 0, ok = false;
+    flaeche.addEventListener('touchstart', (ev) => { const t = ev.touches[0]; ok = ev.touches.length === 1 && !ev.target.closest?.('input, textarea, select, .lern-zeichnung, .lr-tafel, .lr-tastenfeld, .lr-kurs, .lern-stellen'); sx = t.clientX; sy = t.clientY; }, { passive: true });
+    flaeche.addEventListener('touchend', (ev) => {
+      if (!ok) return; const t = ev.changedTouches[0]; const dx = t.clientX - sx, dy = t.clientY - sy;
+      if (Math.abs(dx) < 70 || Math.abs(dy) > Math.abs(dx) * 0.6) return;
+      const r = ['erklaeren', 'ueben', 'fehler']; const z = r[r.findIndex((x) => !panels[x].hidden) + (dx < 0 ? 1 : -1)];
+      if (!z) return; zeige(z);
+      panels[z].classList.remove('lr-rein-links', 'lr-rein-rechts'); void panels[z].offsetWidth; panels[z].classList.add(dx < 0 ? 'lr-rein-rechts' : 'lr-rein-links');
+    }, { passive: true });
+  }
   lernErsetze(main, rahmen);
   zeige(start);
 }

@@ -561,6 +561,25 @@ test('Gestaltung Abflug: Abflugtafel, Bordkarte mit Tastenfeld, Kurskorrektur, L
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth), false, v);
     await page.screenshot({ path: path.join(root, `test-results/abflug-${v}-390.png`), fullPage: true });
   }
+  // Wischen wechselt den Reiter: von Üben nach links wischen → Fehler, nach rechts → zurück
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText(/BORDKARTE 1 · ROM/).waitFor();
+  const wisch = (x1, x2) => page.evaluate(([a, b]) => { const z = document.querySelector('.lr-thema'); const t = (x) => new Touch({ identifier: 1, target: z, clientX: x, clientY: 300 });
+    z.dispatchEvent(new TouchEvent('touchstart', { touches: [t(a)], changedTouches: [t(a)], bubbles: true })); z.dispatchEvent(new TouchEvent('touchend', { touches: [], changedTouches: [t(b)], bubbles: true })); }, [x1, x2]);
+  await wisch(320, 80);
+  assert.equal(await page.getByRole('tab', { name: /Fehler/ }).getAttribute('aria-selected'), 'true');
+  await wisch(80, 320);
+  assert.equal(await page.getByRole('tab', { name: /Üben/ }).getAttribute('aria-selected'), 'true');
+  // Tablet und Rechner: kein waagrechtes Scrollen, Bilder zum Ansehen
+  for (const [name, w, h] of [['tablet', 820, 1180], ['rechner', 1366, 800]]) {
+    await page.setViewportSize({ width: w, height: h });
+    await page.goto(origin + '/#/reise/1'); await page.getByRole('heading', { name: /Abflüge/ }).waitFor(); await page.waitForTimeout(500);
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth), false, name + ' Tafel');
+    await page.screenshot({ path: path.join(root, `test-results/abflug-tafel-${name}.png`) });
+    await page.goto(origin + '/#/lerneinheit/1-1-ueben-3'); await page.getByText(/BORDKARTE 1 · ROM/).waitFor(); await page.waitForTimeout(300);
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth), false, name + ' Bordkarte');
+    await page.screenshot({ path: path.join(root, `test-results/abflug-bordkarte-${name}.png`) });
+  }
+  await page.setViewportSize({ width: 390, height: 844 });
   // Tag-Ansicht und Rückweg zum bisherigen Design im Reisepass
   await page.goto(origin + '/#/reisepass/1');
   await page.getByRole('button', { name: 'Abflug hell' }).click();

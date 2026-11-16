@@ -3820,3 +3820,10 @@ body:has(.lr-abflug) header.top h1 { font-size: 1.15rem; font-weight: 600; }
 .lr-erklaert .lr-sogehts li { font-size: 17px; line-height: 1.5; }
 @media (max-width: 420px) { .lr-woerter dl { grid-template-columns: 1fr; gap: 0; } .lr-woerter dd { margin-bottom: 8px; } }
 .lr-erklaert .lr-tafel { display: block; overflow-x: auto; max-width: 100%; width: max-content; margin: 0 auto; }
+
+/* W150 Abflug Stufe 4: Wischen zwischen den Reitern, einheitliche Breite am Rechner */
+@keyframes lr-rein-rechts { from { transform: translateX(28px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes lr-rein-links { from { transform: translateX(-28px); opacity: 0; } to { transform: none; opacity: 1; } }
+.lr-rein-rechts { animation: lr-rein-rechts .18s ease-out; } .lr-rein-links { animation: lr-rein-links .18s ease-out; }
+@media (prefers-reduced-motion: reduce) { .lr-rein-rechts, .lr-rein-links { animation: none; } }
+@media (min-width: 900px) { .lr-abflug .lr-jgstand, .lr-abflug .lr-mehr, .lr-abflug .lr-start-info { max-width: 720px; width: 100%; margin-left: auto; margin-right: auto; box-sizing: border-box; } }

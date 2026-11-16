@@ -7,6 +7,9 @@ Prüfung je Thema: Generator neu ausgeführt, Aufgaben mit einem Vergleichsskrip
 
 ## Status
 
+## 2026-11-16 04:00 – STATUS
+daten.boxplot fertig: 6 Karten (Umfragen in der Schule: Schulweg, gelesene Bücher, Taschengeld mit Ausreißer, Quiz-Punkte, Laufzeiten zweier Klassen). Zahlen der bisherigen Beispiele beibehalten, nur in Sachzusammenhang gestellt. Bilder: Säulen mit „Anzahl Kinder“ / „… Bücher“, Boxplots mit Einheit. Aufgaben: 144, 0 Unterschiede. inhalt_pruefen: OK.
+
 ## 2026-11-16 03:40 – STATUS
 geometrie.kreis fertig: 6 Karten (Freilichtbühne mit Halbkreis-Plätzen für Thales, Geodreieck zwischen zwei Nägeln für die Umkehrung, Messen mit Geometrieprogramm vs. Beweis, Ball an der Pfütze für Passante/Tangente/Sekante, Fahrrad auf der Straße für den Berührradius, Treffpunkt dreier Freunde für den Umkreis). Aufgaben: 144, 0 Unterschiede. inhalt_pruefen: OK.
 

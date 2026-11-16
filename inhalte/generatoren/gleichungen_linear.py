@@ -576,7 +576,7 @@ KLAR = {
                'Nimm auf beiden Seiten 2x weg (| − 2x): x + 6 = 11.',
                'Nimm auf beiden Seiten 6 weg (| − 6): ⟦x = 5⟧.'],
   'regel': 'So löst du Gleichungen mit Klammern: Löse zuerst die ⟦Klammern auf⟧ – die Zahl vor der Klammer wird mit ⟦jedem⟧ Summanden malgenommen. Ein ⟦Minus vor der Klammer⟧ dreht alle Vorzeichen in der Klammer um. Dann fasst du zusammen und löst wie gewohnt.',
-  'fehler': '3(x + 2) ist nicht 3x + 2: In jeder der drei Tüten liegen 2 Birnen, zusammen also 6. Ebenso ist −(x + 3) nicht −x + 3. Das Minus gilt für die ⟦ganze⟧ Klammer: −(x + 3) = −x − 3.'},
+  'fehler': '3(x + 2) ist nicht 3x + 2. In jeder der drei Tüten liegen 2 Birnen, zusammen also 6. Ebenso ist −(x + 3) nicht −x + 3. Das Minus gilt für die ⟦ganze⟧ Klammer: −(x + 3) = −x − 3.'},
  'probe': {
   'einstieg': 'An der Kasse rechnet die Kassiererin dir dein Wechselgeld heraus, und du zählst kurz nach, ob es stimmt. Bei Gleichungen gibt es auch so eine Kontrolle: Du setzt deine Lösung in die Aufgabe ein und prüfst, ob beide Seiten gleich viel ergeben. Das ist die ⟦Probe⟧.',
   'woerter': [['ursprüngliche Gleichung', 'die Gleichung, wie sie in der Aufgabe stand – vor allen Umformungen'], ['≈', '„ungefähr gleich“, wenn eine Zahl gerundet ist'], ['1/3', 'ein Drittel']],
@@ -610,6 +610,99 @@ KLAR = {
 }
 for _e in ETAPPEN:
     _e.update(KLAR.get(_e['lernziel'], {}))
+
+
+# ---------- UMBAU: neues Muster (Achte Runde, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl7.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl7 import mit_umbau  # noqa: E402
+
+
+def waage_kipp(links, rechts):
+    """Gekippte Balkenwaage (links leichter, steigt hoch) – für den Fehler „nur auf einer Seite umgeformt“."""
+    return {'typ': 'figur', 'label': f'Waage nicht mehr im Gleichgewicht: links {links}, rechts {rechts}',
+            'punkte': {'_A': [1.5, 2.7], '_B': [8.5, 1.3], '_S': [5, 2], '_F1': [4, 0], '_F2': [6, 0],
+                       '_L1': [-0.5, 3.3], '_L2': [3.5, 3.3], '_R1': [6.5, 1.9], '_R2': [10.5, 1.9],
+                       '_LA': [1.5, 3.3], '_RA': [8.5, 1.9]},
+            'flaeche': ['_S', '_F1', '_F2'],
+            'linien': [['_A', '_B'], ['_A', '_LA'], ['_B', '_RA'], ['_L1', '_L2', links], ['_R1', '_R2', rechts]]}
+
+
+def _tarife(graphen, punkte=None, x=(0, 8), y=(0, 30)):
+    b = {'typ': 'koordinaten', 'x': list(x), 'y': list(y), 'graphen': graphen, 'name_x': 'GB', 'name_y': '€', 'schritt_y': 5}
+    if punkte: b['punkte'] = punkte
+    return b
+
+
+_AB_PAR = [{'art': 'linear', 'm': 2, 't': 3, 'name': '3 €'}, {'art': 'linear', 'm': 2, 't': 5, 'name': '5 €'}]
+
+UMBAU = {
+ 'waage': {
+  'einstieg': 'Auf einer Balkenwaage liegen links 3 gleiche Dosen und 5 kg, rechts 20 kg. Die Waage ist im Gleichgewicht. Wie schwer ist eine Dose? Man nimmt auf beiden Seiten dasselbe weg: eine ⟦Äquivalenzumformung⟧.',
+  'woerter': [['Gleichung', 'zwei Seiten mit Gleichheitszeichen – wie eine Waage im Gleichgewicht'], ['x', 'das unbekannte Gewicht einer Dose'],
+              ['Äquivalenzumformung', 'auf beiden Seiten dasselbe tun']],
+  'bild': waage('3x + 5', '20'),
+  'schritte': [{'text': 'Als Gleichung: 3x + 5 = 20. Gesucht ist x.'},
+               {'text': 'Auf beiden Seiten 5 kg wegnehmen: 3x = 15.', 'bild': waage('3x', '15')},
+               {'text': 'Beide Seiten durch 3 teilen: ⟦x = 5⟧. Eine Dose wiegt 5 kg.', 'bild': waage('x', '5')},
+               {'text': 'Probe: 3 · 5 + 5 = 20. ✓'}],
+  'fehler': 'Nimmt man nur links 5 kg weg, kippt die Waage. Aus 3x + 5 = 20 wird nicht 3x = 20, sondern ⟦3x = 15⟧.',
+  'fehler_bild': waage_kipp('3x', '20'),
+  'regel': 'Tu auf ⟦beiden Seiten dasselbe⟧. So bleibt die Gleichung im Gleichgewicht, bis x allein steht.'},
+ 'beide_seiten': {
+  'einstieg': 'Jetzt liegen auf beiden Seiten Dosen. Links: 5 Dosen und 3 kg. Rechts: 2 Dosen und 15 kg. Nimm auf beiden Seiten 2 Dosen weg. So bringst du die ⟦Variable auf eine Seite⟧.',
+  'woerter': [['Variable', 'der Buchstabe x für das unbekannte Gewicht'], ['x-Glied', 'ein Teil mit x, zum Beispiel 5x']],
+  'bild': waage('5x + 3', '2x + 15'),
+  'schritte': [{'text': 'Das x-Glied 2x auf beiden Seiten wegnehmen: 3x + 3 = 15.', 'bild': waage('3x + 3', '15')},
+               {'text': 'Auf beiden Seiten 3 kg wegnehmen: 3x = 12.', 'bild': waage('3x', '12')},
+               {'text': 'Beide Seiten durch 3 teilen: ⟦x = 4⟧.', 'bild': waage('x', '4')}],
+  'fehler': 'Aus 5x + 3 = 2x + 15 wird nicht 7x + 3 = 15. Rechts werden 2 Dosen ⟦weggenommen⟧, also links auch: 5x − 2x = 3x.',
+  'fehler_bild': waage_kipp('7x + 3', '15'),
+  'regel': 'Bring alle ⟦x-Glieder auf eine Seite⟧ und alle Zahlen auf die andere. Nimm dazu auf beiden Seiten dasselbe weg.'},
+ 'klammern': {
+  'einstieg': 'In drei Tüten liegen je ein paar Äpfel und 2 Birnen. Mit x Äpfeln pro Tüte sind das 3 · (x + 2) Früchte. Um damit zu rechnen, muss man die ⟦Klammer auflösen⟧.',
+  'woerter': [['Klammer auflösen', 'die Zahl vor der Klammer mit jedem Teil darin malnehmen'], ['3(x + 2)', 'kurz für 3 · (x + 2)']],
+  'bild': flaeche_bild(),
+  'schritte': [{'text': 'Die Gleichung ist 3(x + 2) = 2x + 11.'},
+               {'text': 'Klammer auflösen: 3x + 6 = 2x + 11.'},
+               {'text': 'Auf beiden Seiten 2x wegnehmen: x + 6 = 11.'},
+               {'text': 'Auf beiden Seiten 6 wegnehmen: ⟦x = 5⟧.'}],
+  'fehler': '3(x + 2) ist nicht 3x + 2. In jeder der drei Tüten sind 2 Birnen, zusammen ⟦6⟧. Ein Minus vor der Klammer dreht alle Vorzeichen um.',
+  'regel': 'Erst die ⟦Klammern auflösen⟧: Jeder Teil wird malgenommen. Ein Minus vor der Klammer dreht alle Vorzeichen um.'},
+ 'probe': {
+  'einstieg': 'An der Kasse zählst du dein Wechselgeld nach. Bei Gleichungen gibt es auch so eine Kontrolle: Lösung einsetzen und beide Seiten vergleichen. Das ist die ⟦Probe⟧.',
+  'woerter': [['ursprüngliche Gleichung', 'die Gleichung aus der Aufgabe, vor dem Umformen'], ['≈', 'ungefähr gleich (gerundet)'],
+              ['Probe', 'Lösung einsetzen und beide Seiten getrennt ausrechnen']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Lösung', 'links: 4x − 7', 'rechts: x + 8'], 'zeilen': [['x = 1/3', '?', '?']]},
+  'schritte': [{'text': 'Jemand löst 4x − 7 = x + 8 und erhält x = 1/3.'},
+               {'text': 'Einsetzen in die ursprüngliche Gleichung: links ≈ −5,7, rechts ≈ 8,3.', 'bild': {'zeilen': [['x = 1/3', '≈ −5,7', '≈ 8,3']]}},
+               {'text': 'Die Seiten sind verschieden. Die Lösung ist falsch, richtig ist x = 5.'},
+               {'text': 'Mit x = 5 ergeben beide Seiten 13. ⟦Stimmt.⟧', 'bild': {'zeilen': [['x = 1/3', '≈ −5,7', '≈ 8,3'], ['x = 5', '13', '13']]}}],
+  'fehler': 'Die Probe in einer schon umgeformten Zeile beweist nichts. War dort ein Fehler, bleibt er ⟦unentdeckt⟧. Setze immer in die ursprüngliche Gleichung ein.',
+  'regel': 'Setze die Lösung in die ⟦ursprüngliche Gleichung⟧ ein. Beide Seiten müssen dasselbe ergeben.'},
+ 'sonderfaelle': {
+  'einstieg': 'Zwei Handytarife kosten beide 2 € pro Gigabyte. Der eine hat 3 € Grundgebühr, der andere 5 €. Sind sie je gleich teuer? Nie! Manche Gleichungen haben ⟦keine Lösung⟧.',
+  'woerter': [['GB', 'Gigabyte: eine Menge an Internet-Daten'], ['L = { }', 'keine Zahl passt: leere Lösungsmenge'], ['L = ℚ', 'jede Zahl passt']],
+  'bild': _tarife(_AB_PAR, x=(0, 6), y=(0, 20)),
+  'schritte': [{'text': 'Gleichung mit x in GB: 2x + 3 = 2x + 5.'},
+               {'text': 'Beide Seiten minus 2x: Es bleibt 3 = 5. Das ist falsch, egal welches x.'},
+               {'text': 'Die Linien laufen parallel und treffen sich nie: ⟦L = { }⟧.'},
+               {'text': 'Bei 2(x + 3) = 2x + 6 bleibt 6 = 6: ⟦L = ℚ⟧.',
+                'bild': {'graphen': [{'art': 'linear', 'm': 2, 't': 6, 'name': 'beide gleich'}]}}],
+  'fehler': 'Aus 3 = 5 folgt nicht „x = 0“. Wenn x verschwindet, entscheidet nur: Ist der Rest ⟦wahr oder falsch⟧?',
+  'regel': 'Fällt x weg, zählt nur der Rest. ⟦Falsch⟧: keine Lösung. Wahr: Jede Zahl ist eine Lösung.'},
+ 'sach': {
+  'einstieg': 'Tarif A kostet 10 € Grundgebühr und 2 € pro GB. Tarif B kostet 4 € pro GB. Bei welcher Datenmenge kosten beide gleich viel? Das ist eine ⟦Sachaufgabe⟧.',
+  'woerter': [['Sachaufgabe', 'Aufgabe aus dem Alltag, gelöst mit einer Gleichung'], ['Variable festlegen', 'aufschreiben, wofür x steht']],
+  'bild': _tarife([{'art': 'linear', 'm': 2, 't': 10, 'name': 'A'}, {'art': 'linear', 'm': 4, 't': 0, 'name': 'B'}], y=(0, 35)),
+  'schritte': [{'text': 'Variable festlegen: x ist die Anzahl GB.'},
+               {'text': 'Beide Preise gleichsetzen: 10 + 2x = 4x.'},
+               {'text': 'Auf beiden Seiten 2x weg: 10 = 2x, also x = 5.'},
+               {'text': 'Bei ⟦5 GB⟧ kosten beide 20 €.', 'bild': {'punkte': [{'x': 5, 'y': 20, 'name': 'gleich teuer'}]}}],
+  'fehler': 'Die Antwort ist nicht nur „x = 5“. Gefragt ist die Datenmenge: ⟦Bei 5 GB⟧ kosten beide 20 €. Antworte immer im Sachzusammenhang.',
+  'regel': 'Variable festlegen, ⟦Gleichung aufstellen⟧, lösen und im Sachzusammenhang antworten.'},
+}
+UMBAU_OFFEN = []
+baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
 
 
 if __name__ == '__main__':

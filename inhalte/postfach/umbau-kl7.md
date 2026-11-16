@@ -9,6 +9,10 @@ Prüfung je Thema: Aufgaben Feld für Feld gegen `git show origin/lernen-app:inh
 
 ## Status
 
+## 2026-11-16 05:30 – STATUS
+gleichungen.linear umgebaut (6 Karten): Waage als Bildergeschichte (3x + 5 | 20 → 3x | 15 → x | 5; beide Seiten: 5x + 3 | 2x + 15 → 3x + 3 | 15 → 3x | 12 → x | 4) mit vorhandenem `waage()`. Neu `waage_kipp()` als fehler_bild (gekippte Waage, gleiche Zeichenart figur). Klammern: vorhandenes Flächenbild. Probe: Tabelle füllt sich (x = 1/3 falsch, x = 5 richtig). Sonderfälle und Sachaufgabe: Tarif-Geraden im Koordinatensystem (parallel → L = { }; deckungsgleich → L = ℚ; Schnittpunkt (5|20)).
+Aufgaben: 162, 0 Unterschiede. inhalt_pruefen: 0 Fehler, 0 Hinweise.
+
 ## 2026-11-16 05:00 – STATUS
 daten.boxplot umgebaut (6 Karten): Zahlenstrahl mit Punkten und Bereich (neu seit 16.11.) für Median (Werte → mittlerer Bereich 5–7 → Median 6), Ausreißer (Mittelwert 30 und Median 12 als Punkte), Quartile (Median → untere/obere Hälfte als Bereich → Boxplot). Säulen (Kennwerte), Boxplot (ablesen), zwei Boxplots (vergleichen). Ohne fehler_bild: alle sechs Fehler sind Lese-/Rechenfehler, die im Bild der Karte schon sichtbar sind.
 Aufgaben: 144, 0 Unterschiede. inhalt_pruefen: 0 Fehler, 0 Hinweise.

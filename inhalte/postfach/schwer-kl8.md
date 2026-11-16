@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 06:05 – STATUS
+funktionen.linear fertig: 42 neue Übungen (7 Karten × 4 S3 + 2 S2). Prüfskript OK, Unverändert-Nachweis JA.
+
 ## 2026-11-16 05:40 – STATUS
 funktionen.grundbegriffe fertig: 48 neue Übungen (je Lernkarte 4 × Stufe 3, 2 × Stufe 2; je Karte ≥ 2 nach Prüfungsvorbild, ≥ 1 Knobel).
 Prüfskript OK, Unverändert-Nachweis JA (`python3 -I inhalte/generatoren/_unveraendert_kl8.py funktionen.grundbegriffe`).

@@ -59,7 +59,7 @@ class Neu:
         opt.insert(i, richtig)
         return self._add(lz, s, art, {'y': 'auswahl', 'f': {'text': text}, 'a': opt, 'o': {'index': i}, 'w': w}, h, grafik)
 
-    def l(self, lz, s, text, schablone, werte, c, w, h, hinweis, grafik=None, art=''):
+    def l(self, lz, s, text, schablone, werte, c, w, h, hinweis='Tippe den ganzen Term ein, z. B. 3x − 2.', grafik=None, art=''):
         assert schablone.count('□') == len(werte) == len(c)
         for ci, v in zip(c, werte):
             assert rechne(ci) == Fr(v), f'Lücke falsch: {ci} != {v} ({text})'

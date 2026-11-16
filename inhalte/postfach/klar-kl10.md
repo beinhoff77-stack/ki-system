@@ -1,5 +1,8 @@
 # klar-kl10 – Erklärungen verständlich machen (Klasse 10)
 
+## 2026-11-16 01:58 – STATUS
+funktionen.ganzrational: 7 Lernkarten überarbeitet (einstieg, woerter, schritte, regel, fehler, Bildbeschriftung; Situationen Kassenbon/Beet/Tauziehen/Schmetterling/Wanderweg am See). Prüfskript OK. Vergleich Aufgaben gegen HEAD: 0 Unterschiede (196 Aufgaben).
+
 ## 2026-11-16 01:55 – STATUS
 funktionen.trig: 7 Lernkarten überarbeitet (einstieg, woerter, schritte, regel, fehler, Bildbeschriftung; Situationen Riesenrad/Hafenpegel). Prüfskript OK. Vergleich Aufgaben gegen HEAD: 0 Unterschiede (196 Aufgaben).
 

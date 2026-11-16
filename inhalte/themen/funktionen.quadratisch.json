@@ -4892,6 +4892,849 @@
    },
    "c": "(44 / 4) * (44 / 2 - 44 / 4)",
    "w": "Seiten x und 22 − x: A(x) = −x² + 22x = −(x − 11)² + 121. Maximum 121 m² (Quadrat)."
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Wertemenge hat die Funktion f mit f(x) = −2(x − 1)² + 3?"
+   },
+   "a": [
+    "W = ℝ",
+    "W = {y | y ≤ 1}",
+    "W = {y | y ≥ 3}",
+    "W = {y | y ≤ 3}"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Scheitel S(1 | 3), a = −2 < 0: nach unten geöffnet, 3 ist der größte Funktionswert. Alle y ≤ 3 kommen vor.",
+   "h": "Lies den Scheitel ab und überlege, ob er höchster oder tiefster Punkt ist."
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Parabel y = (x − x₁)(x − x₂) hat die Nullstellen −1 und 5. Gib ihren Scheitel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Koordinaten eintragen"
+   },
+   "o": {
+    "werte": [
+     2,
+     -9
+    ]
+   },
+   "w": "Der Scheitel liegt mittig zwischen den Nullstellen: x = (−1 + 5)/2 = 2. y = (2 + 1)(2 − 5) = 3 · (−3) = −9.",
+   "h": "Die Parabel ist symmetrisch: Der Scheitel liegt genau in der Mitte der Nullstellen.",
+   "c": [
+    "(-1 + 5) // 2",
+    "3 * (-3)"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = (x − d)² + e geht durch (0 | 5) und (4 | 5). Ihr kleinster Funktionswert ist 1. Gib den Scheitel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Koordinaten eintragen"
+   },
+   "o": {
+    "werte": [
+     2,
+     1
+    ]
+   },
+   "w": "Gleiche y-Werte liegen symmetrisch zur Achse, also d = (0 + 4)/2 = 2. Der kleinste Wert ist e = 1. Probe: (0 − 2)² + 1 = 5.",
+   "h": "Zwei Punkte mit gleichem y-Wert liegen spiegelbildlich zur Symmetrieachse.",
+   "c": [
+    "(0 + 4) // 2",
+    "1"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel von y = (x − 3)(x + 7) an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Koordinaten eintragen"
+   },
+   "o": {
+    "werte": [
+     -2,
+     -25
+    ]
+   },
+   "w": "Nullstellen 3 und −7, Mitte x = −2. y = (−2 − 3)(−2 + 7) = (−5) · 5 = −25.",
+   "h": "Erst die Nullstellen ablesen, dann die Mitte.",
+   "c": [
+    "(3 - 7) // 2",
+    "(-5) * 5"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Scheitel der Parabel y = 0,5(x − 4)² − 1 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Koordinaten eintragen"
+   },
+   "o": {
+    "werte": [
+     4,
+     -1
+    ]
+   },
+   "w": "Scheitelform a(x − d)² + e mit d = 4, e = −1: S(4 | −1).",
+   "h": "Lies d und e ab. Achte auf das Vorzeichen in der Klammer.",
+   "c": [
+    "4",
+    "-1"
+   ]
+  },
+  {
+   "l": "scheitel",
+   "t": "scheitel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Wo liegt der höchste Punkt des Graphen von y = −(x + 6)² + 2?",
+    "schablone": "H(□ | □)",
+    "hinweis": "Koordinaten eintragen"
+   },
+   "o": {
+    "werte": [
+     -6,
+     2
+    ]
+   },
+   "w": "Nach unten geöffnet, Scheitel bei x = −6, y = 2: H(−6 | 2).",
+   "h": "(x + 6) heißt d = −6.",
+   "c": [
+    "-6",
+    "2"
+   ]
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht der Graph von g mit g(x) = (x + 2)² − 3 aus der Normalparabel?"
+   },
+   "a": [
+    "um 2 nach links und um 3 nach unten verschoben",
+    "mit Faktor 2 gestreckt und um 3 nach unten verschoben",
+    "um 2 nach rechts und um 3 nach unten verschoben",
+    "um 2 nach links und um 3 nach oben verschoben"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "g(x) = (x − (−2))² − 3: Scheitel S(−2 | −3). Die Normalparabel wird also 2 nach links und 3 nach unten verschoben, ihre Form bleibt.",
+   "h": "Bestimme den Scheitel und vergleiche mit S(0 | 0)."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für den Bremsweg gilt näherungsweise s(v) = v²/200 (v in km/h, s in m). Wie ändert sich der Bremsweg, wenn die Geschwindigkeit verdoppelt wird?"
+   },
+   "a": [
+    "Er wird um 2 m länger.",
+    "Er wird viermal so lang.",
+    "Er wird doppelt so lang.",
+    "Er wird achtmal so lang."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "s(2v) = (2v)²/200 = 4v²/200 = 4 · s(v). Beispiel: 50 km/h → 12,5 m, 100 km/h → 50 m.",
+   "h": "Setze 2v ein oder rechne ein Beispiel mit 50 und 100 km/h."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Parabeln y = x² + e und y = −x² + 8 haben genau einen gemeinsamen Punkt. Wie groß ist e?"
+   },
+   "a": [
+    "e = 0",
+    "e = 4",
+    "e = −8",
+    "e = 8"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gleichsetzen: x² + e = −x² + 8 ⇔ 2x² = 8 − e. Genau eine Lösung nur bei 8 − e = 0, also e = 8. Die Scheitel berühren sich dann in (0 | 8).",
+   "h": "Setze gleich. Wann hat 2x² = Zahl genau eine Lösung?"
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Graph ist am schmalsten?"
+   },
+   "a": [
+    "y = 0,5x² + 7",
+    "y = −x² + 4",
+    "y = −3x²",
+    "y = 2x²"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Breite hängt nur von |a| ab: |−3| = 3 ist am größten. Verschieben (+7, +4) und Öffnungsrichtung ändern die Breite nicht.",
+   "h": "Vergleiche die Beträge der Zahlen vor x²."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Parabel ist nach unten geöffnet und gestaucht (breiter als die Normalparabel)?"
+   },
+   "a": [
+    "y = 0,4x² − 1",
+    "y = 4x² − 1",
+    "y = −0,4x² + 1",
+    "y = −4x² + 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nach unten: a < 0. Gestaucht: |a| < 1. Beides gilt nur für a = −0,4.",
+   "h": "Prüfe Vorzeichen und Betrag von a."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Normalparabel wird um 5 nach rechts verschoben. Welche Gleichung gehört zum neuen Graphen?"
+   },
+   "a": [
+    "y = (x + 5)²",
+    "y = x² − 5",
+    "y = (x − 5)²",
+    "y = x² + 5"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Scheitel wandert nach S(5 | 0): y = (x − 5)². Probe: Bei x = 5 ist y = 0.",
+   "h": "Wo liegt der neue Scheitel?"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = 0,5x² − 4x + 5.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Koordinaten eintragen"
+   },
+   "o": {
+    "werte": [
+     4,
+     -3
+    ]
+   },
+   "w": "0,5 ausklammern: y = 0,5(x² − 8x) + 5 = 0,5[(x − 4)² − 16] + 5 = 0,5(x − 4)² − 8 + 5 = 0,5(x − 4)² − 3.",
+   "h": "Klammere 0,5 aus den x-Gliedern aus, dann quadratische Ergänzung.",
+   "c": [
+    "8 // 2",
+    "-8 + 5"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe y = −x² + 6x − 5 in Scheitelform.",
+    "schablone": "y = −(x − □)² + □",
+    "hinweis": "Zahlen eintragen"
+   },
+   "o": {
+    "werte": [
+     3,
+     4
+    ]
+   },
+   "w": "y = −(x² − 6x) − 5 = −[(x − 3)² − 9] − 5 = −(x − 3)² + 9 − 5 = −(x − 3)² + 4.",
+   "h": "Klammere −1 aus. Achte auf das Vorzeichen beim Auflösen der eckigen Klammer.",
+   "c": [
+    "6 // 2",
+    "9 - 5"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl c liegt der Scheitel von y = x² − 6x + c genau auf der x-Achse?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(6 / 2) ** 2",
+   "w": "y = (x − 3)² − 9 + c. Der Scheitel S(3 | c − 9) liegt auf der x-Achse, wenn c − 9 = 0, also c = 9.",
+   "h": "Bestimme den Scheitel mit c als Platzhalter."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Scheitel von y = 2x² + 4x + 7.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Koordinaten eintragen"
+   },
+   "o": {
+    "werte": [
+     -1,
+     5
+    ]
+   },
+   "w": "y = 2(x² + 2x) + 7 = 2(x + 1)² − 2 + 7 = 2(x + 1)² + 5.",
+   "h": "Klammere zuerst 2 aus.",
+   "c": [
+    "-2 // 2",
+    "-2 + 7"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe y = x² − 2x + 3 in Scheitelform und gib den Scheitel an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Koordinaten eintragen"
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "w": "y = (x − 1)² − 1 + 3 = (x − 1)² + 2.",
+   "h": "Ergänze (2/2)² = 1 und ziehe es wieder ab.",
+   "c": [
+    "1",
+    "3 - 1"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere y = (x − 2)² + 1 aus.",
+    "schablone": "y = x² + □x + □",
+    "hinweis": "Zahlen eintragen (auch negativ)"
+   },
+   "o": {
+    "werte": [
+     -4,
+     5
+    ]
+   },
+   "w": "(x − 2)² = x² − 4x + 4, plus 1: y = x² − 4x + 5.",
+   "h": "Binomische Formel für (x − 2)².",
+   "c": [
+    "-2 * 2",
+    "4 + 1"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von f(x) = 2x² − 8x − 10.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -1,
+     5
+    ]
+   },
+   "w": "f(x) = 0 ⇔ x² − 4x − 5 = 0 ⇔ (x − 5)(x + 1) = 0. Nullstellen −1 und 5.",
+   "h": "Erst durch 2 teilen.",
+   "c": [
+    "-1",
+    "5"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Funktion hat genau eine Nullstelle?"
+   },
+   "a": [
+    "y = (x − 3)²",
+    "y = x² + 3",
+    "y = x² − 3",
+    "y = (x − 3)(x + 3)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "(x − 3)² = 0 nur für x = 3. x² − 3: zwei (±√3); x² + 3: keine; (x − 3)(x + 3): zwei.",
+   "h": "Löse jeweils f(x) = 0 im Kopf."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Parabel y = x² + bx + 12 hat die Nullstelle 3. Wo liegt die zweite Nullstelle?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "12 / 3",
+   "w": "Mit den Nullstellen gilt y = (x − 3)(x − n). Das Zahlglied ist 3 · n = 12, also n = 4. (Dann b = −7.)",
+   "h": "Denke an die Produktform: Was ergibt das Produkt der Nullstellen?"
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = x² − 2x − 3 und die Gerade y = x + 1 schneiden sich zweimal. Bestimme die x-Koordinaten der Schnittpunkte.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -1,
+     4
+    ]
+   },
+   "w": "Gleichsetzen: x² − 2x − 3 = x + 1 ⇔ x² − 3x − 4 = 0 ⇔ (x − 4)(x + 1) = 0.",
+   "h": "Gleichsetzen und alles auf eine Seite bringen.",
+   "c": [
+    "-1",
+    "4"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von y = x² − 6x + 8.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     2,
+     4
+    ]
+   },
+   "w": "(x − 2)(x − 4) = 0, also 2 und 4.",
+   "h": "Produkt 8, Summe 6.",
+   "c": [
+    "2",
+    "4"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Nullstellen hat y = 2(x + 1)² + 3?"
+   },
+   "a": [
+    "zwei Nullstellen",
+    "genau eine Nullstelle",
+    "keine Nullstelle"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Scheitel S(−1 | 3) liegt über der x-Achse, nach oben geöffnet: keine Nullstelle.",
+   "h": "Lage des Scheitels und Öffnung betrachten."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Bahn einer Kugel beim Kugelstoßen: h(x) = −0,1x² + 0,9x + 2 (x waagrechte Entfernung, h Höhe, beides in m). In welcher Höhe ist die Kugel 5 m vom Abstoß entfernt?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "m"
+   },
+   "c": "-0.1 * 5 ** 2 + 0.9 * 5 + 2",
+   "w": "h(5) = −0,1 · 25 + 0,9 · 5 + 2 = −2,5 + 4,5 + 2 = 4. Die Kugel ist dort 4 m hoch.",
+   "h": "Setze x = 5 ein. Erst quadrieren."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Punkt P(u | u) liegt auf der Parabel y = x² − 6, und u > 0. Bestimme u."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(1 + 5) / 2",
+   "w": "u = u² − 6 ⇔ u² − u − 6 = 0 ⇔ (u − 3)(u + 2) = 0. Wegen u > 0: u = 3. Probe: 3² − 6 = 3.",
+   "h": "x- und y-Wert sind gleich: setze beide als u ein."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "A(−2 | 7) und B(6 | 7) liegen auf derselben Parabel y = x² + bx + c. Bei welchem x liegt ihr Scheitel?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(-2 + 6) / 2",
+   "w": "Gleiche y-Werte liegen symmetrisch zur Symmetrieachse. Die Achse liegt mittig: x = (−2 + 6)/2 = 2.",
+   "h": "Rechnen ist nicht nötig – denke an die Symmetrie."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Punkt P(2 | 5) liegt auf dem Graphen von y = ax² − 3. Bestimme a."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(5 + 3) / 4",
+   "w": "5 = a · 4 − 3 ⇔ 4a = 8 ⇔ a = 2.",
+   "h": "Punkt einsetzen, nach a auflösen."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne f(−2) für f(x) = −x² + 3x + 1."
+   },
+   "o": {
+    "wert": -9
+   },
+   "c": "-(-2) ** 2 + 3 * (-2) + 1",
+   "w": "f(−2) = −(−2)² + 3 · (−2) + 1 = −4 − 6 + 1 = −9.",
+   "h": "Erst (−2)² = 4, dann das Minus davor."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Liegt P(−3 | 4) auf dem Graphen von y = x² + 2x + 1?"
+   },
+   "a": [
+    "Nein, denn es kommt −2 heraus.",
+    "Nein, denn es kommt 16 heraus.",
+    "Ja, denn (−3)² + 2 · (−3) + 1 = 4."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "9 − 6 + 1 = 4 = y-Wert von P.",
+   "h": "Setze x = −3 ein und vergleiche mit 4."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat den Scheitel S(2 | −8) und geht durch den Ursprung O(0 | 0). Bestimme a in y = a(x − 2)² − 8."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "8 / 4",
+   "w": "O einsetzen: 0 = a · (0 − 2)² − 8 = 4a − 8 ⇒ a = 2.",
+   "h": "Setze den Ursprung in die Scheitelform ein."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Eine nach unten geöffnete Normalparabel (a = −1) hat die Nullstellen 1 und 7. Gib die Gleichung in allgemeiner Form an.",
+    "schablone": "y = −x² + □x + □",
+    "hinweis": "Zahlen eintragen (auch negativ)"
+   },
+   "o": {
+    "werte": [
+     8,
+     -7
+    ]
+   },
+   "w": "y = −(x − 1)(x − 7) = −(x² − 8x + 7) = −x² + 8x − 7.",
+   "h": "Produktform mit a = −1 ansetzen und ausmultiplizieren.",
+   "c": [
+    "1 + 7",
+    "-(1 * 7)"
+   ]
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel y = ax² + c schneidet die y-Achse bei 8 und die x-Achse bei −4 und 4. Bestimme a."
+   },
+   "o": {
+    "wert": -0.5
+   },
+   "c": "-8 / 16",
+   "w": "c = 8. Nullstelle 4: 16a + 8 = 0 ⇒ a = −0,5. Die zweite Nullstelle −4 liefert dasselbe (Symmetrie).",
+   "h": "c liest du direkt ab. Setze dann eine Nullstelle ein."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel hat den Scheitel S(−1 | 4) und schneidet die y-Achse bei 2. Bestimme a in y = a(x + 1)² + 4."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "2 - 4",
+   "w": "Bei x = 0: a · 1² + 4 = 2 ⇒ a = −2.",
+   "h": "Der y-Achsenabschnitt ist der Punkt (0 | 2)."
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Scheitelform der Normalparabel (a = 1) mit dem Scheitel S(−3 | 2) an.",
+    "schablone": "y = (x + □)² + □",
+    "hinweis": "Zahlen eintragen"
+   },
+   "o": {
+    "werte": [
+     3,
+     2
+    ]
+   },
+   "w": "y = (x − (−3))² + 2 = (x + 3)² + 2.",
+   "h": "In der Klammer steht x − d.",
+   "c": [
+    "3",
+    "2"
+   ]
+  },
+  {
+   "l": "bestimmen",
+   "t": "bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Parabel y = a(x − 1)² + 3 geht durch P(3 | 11). Bestimme a."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(11 - 3) / 4",
+   "w": "11 = a · 4 + 3 ⇒ a = 2.",
+   "h": "Punkt einsetzen."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechtecke liegen mit zwei Seiten auf den Koordinatenachsen; die Ecke gegenüber dem Ursprung liegt auf der Geraden y = −0,5x + 6 (x > 0). Wie groß ist der größte Flächeninhalt?"
+   },
+   "o": {
+    "wert": 18,
+    "einheit": "FE"
+   },
+   "c": "-0.5 * 6 ** 2 + 6 * 6",
+   "w": "A(x) = x · (−0,5x + 6) = −0,5x² + 6x. Scheitel bei x = 6 (Mitte der Nullstellen 0 und 12). A(6) = −18 + 36 = 18.",
+   "h": "Breite x, Höhe ist der y-Wert der Geraden. Stelle A(x) auf."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Mit 16 m Zaun wird an einer Mauer ein rechteckiges Gehege gebaut (die Mauer ist eine Seite). Jedes Huhn braucht mindestens 3 m². Wie viele Hühner passen höchstens hinein?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "32 // 3",
+   "w": "A(x) = x(16 − 2x), größter Wert bei x = 4: A = 4 · 8 = 32 m². 32 : 3 ≈ 10,7 – also höchstens 10 Hühner (abrunden, sonst fehlt Platz).",
+   "h": "Erst die größte Fläche bestimmen. Überlege dann, ob du auf- oder abrunden musst."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Differenz zweier Zahlen ist 10. Wie klein kann ihr Produkt höchstens werden?"
+   },
+   "o": {
+    "wert": -25
+   },
+   "c": "-5 * 5",
+   "w": "Zahlen x und x + 10: P(x) = x² + 10x = (x + 5)² − 25. Kleinster Wert −25 bei x = −5 (die Zahlen −5 und 5).",
+   "h": "Das Produkt kann negativ werden. Stelle P(x) auf und bestimme den Scheitel."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Händler verkauft 200 Kappen zu je 10 €. Jede Preiserhöhung um 1 € kostet ihn 10 Verkäufe. Bei welchem Preis nimmt er am meisten ein?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "€"
+   },
+   "c": "10 + 5",
+   "w": "Erhöhung x: E(x) = (10 + x)(200 − 10x) = −10x² + 100x + 2 000. Scheitel bei x = 5. Preis 15 € (Einnahme 15 · 150 = 2 250 €).",
+   "h": "Stelle die Einnahme als Preis mal Stückzahl in Abhängigkeit von der Erhöhung x auf."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist der kleinste Funktionswert von y = (x − 3)² + 7?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "0 + 7",
+   "w": "Scheitel S(3 | 7), nach oben geöffnet: kleinster Wert 7.",
+   "h": "Lies den Scheitel ab."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist der größte Funktionswert von f(x) = −x² + 8x?"
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "-4 ** 2 + 8 * 4",
+   "w": "Nullstellen 0 und 8, Scheitel bei x = 4: f(4) = −16 + 32 = 16.",
+   "h": "Der Scheitel liegt mittig zwischen den Nullstellen."
   }
  ],
  "offen": [

@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 04:51 – STATUS
+funktionen.quadratisch fertig: 42 neue Übungen (7 Lernkarten), inhalt_pruefen OK, Unverändert-Nachweis OK.
+
 ## 2026-11-16 04:49 – STATUS
 gleichungen.lgs3 fertig: 36 neue Übungen, inhalt_pruefen OK, Unverändert-Nachweis OK. Hinweis: Zu LGS mit drei Unbekannten keine echten Prüfungsaufgaben gefunden; Vorbild Mathematik-Olympiade 651013 und Realschul-Leistungsaufgaben (LGS mit 2 Unbekannten).
 

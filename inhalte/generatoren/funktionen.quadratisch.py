@@ -597,8 +597,140 @@ def g_extremwert(s):
 GEN = {'scheitel': g_scheitel, 'parameter': g_parameter, 'umformen': g_umformen, 'nullstellen': g_nullstellen,
        'punkte': g_punkte, 'bestimmen': g_bestimmen, 'extremwert': g_extremwert}
 
+# ---------- Zehnte Runde (schwer-kl9): schwerere Übungen nach Prüfungsvorbild ----------
+# Eigener Abschnitt mit eigenem festen Zufallsstart (anhaengen(..., 9907, ...)), läuft erst nach bauen():
+# alle bisherigen Aufgaben bleiben unverändert. Vorbilder: Bayerischer Mathematik-Test 10 (ISB; Nullstellen,
+# Entstehung aus der Normalparabel, Wertemenge, Bremsweg bei doppelter Geschwindigkeit, Funktionswert im Sachzusammenhang,
+# Punkt auf y = x), Illustrierende Aufgaben Realschule 9 (I) (Parabel aus Eigenschaften, Gehege mit Rundung beim
+# Ergebnis, Bremsweg), Abschlussprüfung Realschule Bayern 2024 (Rechtecke mit Eckpunkt auf einer Geraden, Extremwert),
+# MSA Berlin/Brandenburg (Nullstellen und Scheitel einer Parabel). Zahlen und Wortlaut eigen.
+from _schwer_kl9 import anhaengen  # noqa: E402
+
+
+def schwer():
+    P, Kn, O = 'pruefung', 'knobel', ''
+    S, HS = 'S(□ | □)', 'Koordinaten eintragen'
+    L2, H2 = 'x₁ = □; x₂ = □', 'kleinere Lösung zuerst'
+    return [
+        # scheitel
+        ('scheitel', 3, P, auswahl('Welche Wertemenge hat die Funktion f mit f(x) = −2(x − 1)² + 3?', 'W = {y | y ≤ 3}',
+                                   ['W = {y | y ≥ 3}', 'W = {y | y ≤ 1}', 'W = ℝ'],
+                                   'Scheitel S(1 | 3), a = −2 < 0: nach unten geöffnet, 3 ist der größte Funktionswert. Alle y ≤ 3 kommen vor.',
+                                   'Lies den Scheitel ab und überlege, ob er höchster oder tiefster Punkt ist.')),
+        ('scheitel', 3, P, luecken('Eine Parabel y = (x − x₁)(x − x₂) hat die Nullstellen −1 und 5. Gib ihren Scheitel an.', S, HS, [2, -9],
+                                   'Der Scheitel liegt mittig zwischen den Nullstellen: x = (−1 + 5)/2 = 2. y = (2 + 1)(2 − 5) = 3 · (−3) = −9.',
+                                   'Die Parabel ist symmetrisch: Der Scheitel liegt genau in der Mitte der Nullstellen.', ['(-1 + 5) // 2', '3 * (-3)'])),
+        ('scheitel', 3, Kn, luecken('Die Parabel y = (x − d)² + e geht durch (0 | 5) und (4 | 5). Ihr kleinster Funktionswert ist 1. Gib den Scheitel an.', S, HS, [2, 1],
+                                    'Gleiche y-Werte liegen symmetrisch zur Achse, also d = (0 + 4)/2 = 2. Der kleinste Wert ist e = 1. Probe: (0 − 2)² + 1 = 5.',
+                                    'Zwei Punkte mit gleichem y-Wert liegen spiegelbildlich zur Symmetrieachse.', ['(0 + 4) // 2', '1'])),
+        ('scheitel', 3, O, luecken('Gib den Scheitel von y = (x − 3)(x + 7) an.', S, HS, [-2, -25],
+                                   'Nullstellen 3 und −7, Mitte x = −2. y = (−2 − 3)(−2 + 7) = (−5) · 5 = −25.', 'Erst die Nullstellen ablesen, dann die Mitte.', ['(3 - 7) // 2', '(-5) * 5'])),
+        ('scheitel', 2, O, luecken('Gib den Scheitel der Parabel y = 0,5(x − 4)² − 1 an.', S, HS, [4, -1], 'Scheitelform a(x − d)² + e mit d = 4, e = −1: S(4 | −1).',
+                                   'Lies d und e ab. Achte auf das Vorzeichen in der Klammer.', ['4', '-1'])),
+        ('scheitel', 2, O, luecken('Wo liegt der höchste Punkt des Graphen von y = −(x + 6)² + 2?', 'H(□ | □)', HS, [-6, 2],
+                                   'Nach unten geöffnet, Scheitel bei x = −6, y = 2: H(−6 | 2).', '(x + 6) heißt d = −6.', ['-6', '2'])),
+        # parameter
+        ('parameter', 3, P, auswahl('Wie entsteht der Graph von g mit g(x) = (x + 2)² − 3 aus der Normalparabel?', 'um 2 nach links und um 3 nach unten verschoben',
+                                    ['um 2 nach rechts und um 3 nach unten verschoben', 'um 2 nach links und um 3 nach oben verschoben', 'mit Faktor 2 gestreckt und um 3 nach unten verschoben'],
+                                    'g(x) = (x − (−2))² − 3: Scheitel S(−2 | −3). Die Normalparabel wird also 2 nach links und 3 nach unten verschoben, ihre Form bleibt.',
+                                    'Bestimme den Scheitel und vergleiche mit S(0 | 0).')),
+        ('parameter', 3, P, auswahl('Für den Bremsweg gilt näherungsweise s(v) = v²/200 (v in km/h, s in m). Wie ändert sich der Bremsweg, wenn die Geschwindigkeit verdoppelt wird?',
+                                    'Er wird viermal so lang.', ['Er wird doppelt so lang.', 'Er wird um 2 m länger.', 'Er wird achtmal so lang.'],
+                                    's(2v) = (2v)²/200 = 4v²/200 = 4 · s(v). Beispiel: 50 km/h → 12,5 m, 100 km/h → 50 m.',
+                                    'Setze 2v ein oder rechne ein Beispiel mit 50 und 100 km/h.')),
+        ('parameter', 3, Kn, auswahl('Die Parabeln y = x² + e und y = −x² + 8 haben genau einen gemeinsamen Punkt. Wie groß ist e?', 'e = 8', ['e = 0', 'e = 4', 'e = −8'],
+                                     'Gleichsetzen: x² + e = −x² + 8 ⇔ 2x² = 8 − e. Genau eine Lösung nur bei 8 − e = 0, also e = 8. Die Scheitel berühren sich dann in (0 | 8).',
+                                     'Setze gleich. Wann hat 2x² = Zahl genau eine Lösung?')),
+        ('parameter', 3, O, auswahl('Welcher Graph ist am schmalsten?', 'y = −3x²', ['y = 2x²', 'y = 0,5x² + 7', 'y = −x² + 4'],
+                                    'Die Breite hängt nur von |a| ab: |−3| = 3 ist am größten. Verschieben (+7, +4) und Öffnungsrichtung ändern die Breite nicht.',
+                                    'Vergleiche die Beträge der Zahlen vor x².')),
+        ('parameter', 2, O, auswahl('Welche Parabel ist nach unten geöffnet und gestaucht (breiter als die Normalparabel)?', 'y = −0,4x² + 1',
+                                    ['y = 0,4x² − 1', 'y = −4x² + 1', 'y = 4x² − 1'],
+                                    'Nach unten: a < 0. Gestaucht: |a| < 1. Beides gilt nur für a = −0,4.', 'Prüfe Vorzeichen und Betrag von a.')),
+        ('parameter', 2, O, auswahl('Die Normalparabel wird um 5 nach rechts verschoben. Welche Gleichung gehört zum neuen Graphen?', 'y = (x − 5)²',
+                                    ['y = (x + 5)²', 'y = x² + 5', 'y = x² − 5'],
+                                    'Der Scheitel wandert nach S(5 | 0): y = (x − 5)². Probe: Bei x = 5 ist y = 0.', 'Wo liegt der neue Scheitel?')),
+        # umformen
+        ('umformen', 3, P, luecken('Bestimme den Scheitel von y = 0,5x² − 4x + 5.', S, HS, [4, -3],
+                                   '0,5 ausklammern: y = 0,5(x² − 8x) + 5 = 0,5[(x − 4)² − 16] + 5 = 0,5(x − 4)² − 8 + 5 = 0,5(x − 4)² − 3.',
+                                   'Klammere 0,5 aus den x-Gliedern aus, dann quadratische Ergänzung.', ['8 // 2', '-8 + 5'])),
+        ('umformen', 3, P, luecken('Bringe y = −x² + 6x − 5 in Scheitelform.', 'y = −(x − □)² + □', 'Zahlen eintragen', [3, 4],
+                                   'y = −(x² − 6x) − 5 = −[(x − 3)² − 9] − 5 = −(x − 3)² + 9 − 5 = −(x − 3)² + 4.',
+                                   'Klammere −1 aus. Achte auf das Vorzeichen beim Auflösen der eckigen Klammer.', ['6 // 2', '9 - 5'])),
+        ('umformen', 3, Kn, zahl('Für welche Zahl c liegt der Scheitel von y = x² − 6x + c genau auf der x-Achse?',
+                                 'y = (x − 3)² − 9 + c. Der Scheitel S(3 | c − 9) liegt auf der x-Achse, wenn c − 9 = 0, also c = 9.',
+                                 'Bestimme den Scheitel mit c als Platzhalter.', 9, '(6 / 2) ** 2')),
+        ('umformen', 3, O, luecken('Bestimme den Scheitel von y = 2x² + 4x + 7.', S, HS, [-1, 5], 'y = 2(x² + 2x) + 7 = 2(x + 1)² − 2 + 7 = 2(x + 1)² + 5.',
+                                   'Klammere zuerst 2 aus.', ['-2 // 2', '-2 + 7'])),
+        ('umformen', 2, O, luecken('Bringe y = x² − 2x + 3 in Scheitelform und gib den Scheitel an.', S, HS, [1, 2], 'y = (x − 1)² − 1 + 3 = (x − 1)² + 2.',
+                                   'Ergänze (2/2)² = 1 und ziehe es wieder ab.', ['1', '3 - 1'])),
+        ('umformen', 2, O, luecken('Multipliziere y = (x − 2)² + 1 aus.', 'y = x² + □x + □', 'Zahlen eintragen (auch negativ)', [-4, 5],
+                                   '(x − 2)² = x² − 4x + 4, plus 1: y = x² − 4x + 5.', 'Binomische Formel für (x − 2)².', ['-2 * 2', '4 + 1'])),
+        # nullstellen
+        ('nullstellen', 3, P, luecken('Bestimme die Nullstellen von f(x) = 2x² − 8x − 10.', L2, H2, [-1, 5],
+                                      'f(x) = 0 ⇔ x² − 4x − 5 = 0 ⇔ (x − 5)(x + 1) = 0. Nullstellen −1 und 5.', 'Erst durch 2 teilen.', ['-1', '5'])),
+        ('nullstellen', 3, P, auswahl('Welche Funktion hat genau eine Nullstelle?', 'y = (x − 3)²', ['y = x² − 3', 'y = x² + 3', 'y = (x − 3)(x + 3)'],
+                                      '(x − 3)² = 0 nur für x = 3. x² − 3: zwei (±√3); x² + 3: keine; (x − 3)(x + 3): zwei.',
+                                      'Löse jeweils f(x) = 0 im Kopf.')),
+        ('nullstellen', 3, Kn, zahl('Die Parabel y = x² + bx + 12 hat die Nullstelle 3. Wo liegt die zweite Nullstelle?',
+                                    'Mit den Nullstellen gilt y = (x − 3)(x − n). Das Zahlglied ist 3 · n = 12, also n = 4. (Dann b = −7.)',
+                                    'Denke an die Produktform: Was ergibt das Produkt der Nullstellen?', 4, '12 / 3')),
+        ('nullstellen', 3, O, luecken('Die Parabel y = x² − 2x − 3 und die Gerade y = x + 1 schneiden sich zweimal. Bestimme die x-Koordinaten der Schnittpunkte.', L2, H2, [-1, 4],
+                                      'Gleichsetzen: x² − 2x − 3 = x + 1 ⇔ x² − 3x − 4 = 0 ⇔ (x − 4)(x + 1) = 0.', 'Gleichsetzen und alles auf eine Seite bringen.', ['-1', '4'])),
+        ('nullstellen', 2, O, luecken('Bestimme die Nullstellen von y = x² − 6x + 8.', L2, H2, [2, 4], '(x − 2)(x − 4) = 0, also 2 und 4.', 'Produkt 8, Summe 6.', ['2', '4'])),
+        ('nullstellen', 2, O, auswahl('Wie viele Nullstellen hat y = 2(x + 1)² + 3?', 'keine Nullstelle', ['genau eine Nullstelle', 'zwei Nullstellen'],
+                                      'Scheitel S(−1 | 3) liegt über der x-Achse, nach oben geöffnet: keine Nullstelle.', 'Lage des Scheitels und Öffnung betrachten.')),
+        # punkte
+        ('punkte', 3, P, zahl('Die Bahn einer Kugel beim Kugelstoßen: h(x) = −0,1x² + 0,9x + 2 (x waagrechte Entfernung, h Höhe, beides in m). In welcher Höhe ist die Kugel 5 m vom Abstoß entfernt?',
+                              'h(5) = −0,1 · 25 + 0,9 · 5 + 2 = −2,5 + 4,5 + 2 = 4. Die Kugel ist dort 4 m hoch.', 'Setze x = 5 ein. Erst quadrieren.', 4,
+                              '-0.1 * 5 ** 2 + 0.9 * 5 + 2', einheit='m')),
+        ('punkte', 3, P, zahl('Der Punkt P(u | u) liegt auf der Parabel y = x² − 6, und u > 0. Bestimme u.',
+                              'u = u² − 6 ⇔ u² − u − 6 = 0 ⇔ (u − 3)(u + 2) = 0. Wegen u > 0: u = 3. Probe: 3² − 6 = 3.', 'x- und y-Wert sind gleich: setze beide als u ein.', 3,
+                              '(1 + 5) / 2')),
+        ('punkte', 3, Kn, zahl('A(−2 | 7) und B(6 | 7) liegen auf derselben Parabel y = x² + bx + c. Bei welchem x liegt ihr Scheitel?',
+                               'Gleiche y-Werte liegen symmetrisch zur Symmetrieachse. Die Achse liegt mittig: x = (−2 + 6)/2 = 2.', 'Rechnen ist nicht nötig – denke an die Symmetrie.', 2,
+                               '(-2 + 6) / 2')),
+        ('punkte', 3, O, zahl('Der Punkt P(2 | 5) liegt auf dem Graphen von y = ax² − 3. Bestimme a.', '5 = a · 4 − 3 ⇔ 4a = 8 ⇔ a = 2.', 'Punkt einsetzen, nach a auflösen.', 2,
+                              '(5 + 3) / 4')),
+        ('punkte', 2, O, zahl('Berechne f(−2) für f(x) = −x² + 3x + 1.', 'f(−2) = −(−2)² + 3 · (−2) + 1 = −4 − 6 + 1 = −9.', 'Erst (−2)² = 4, dann das Minus davor.', -9,
+                              '-(-2) ** 2 + 3 * (-2) + 1')),
+        ('punkte', 2, O, auswahl('Liegt P(−3 | 4) auf dem Graphen von y = x² + 2x + 1?', 'Ja, denn (−3)² + 2 · (−3) + 1 = 4.', ['Nein, denn es kommt 16 heraus.', 'Nein, denn es kommt −2 heraus.'],
+                                 '9 − 6 + 1 = 4 = y-Wert von P.', 'Setze x = −3 ein und vergleiche mit 4.')),
+        # bestimmen
+        ('bestimmen', 3, P, zahl('Eine Parabel hat den Scheitel S(2 | −8) und geht durch den Ursprung O(0 | 0). Bestimme a in y = a(x − 2)² − 8.',
+                                 'O einsetzen: 0 = a · (0 − 2)² − 8 = 4a − 8 ⇒ a = 2.', 'Setze den Ursprung in die Scheitelform ein.', 2, '8 / 4')),
+        ('bestimmen', 3, P, luecken('Eine nach unten geöffnete Normalparabel (a = −1) hat die Nullstellen 1 und 7. Gib die Gleichung in allgemeiner Form an.', 'y = −x² + □x + □',
+                                    'Zahlen eintragen (auch negativ)', [8, -7],
+                                    'y = −(x − 1)(x − 7) = −(x² − 8x + 7) = −x² + 8x − 7.', 'Produktform mit a = −1 ansetzen und ausmultiplizieren.', ['1 + 7', '-(1 * 7)'])),
+        ('bestimmen', 3, Kn, zahl('Eine Parabel y = ax² + c schneidet die y-Achse bei 8 und die x-Achse bei −4 und 4. Bestimme a.',
+                                  'c = 8. Nullstelle 4: 16a + 8 = 0 ⇒ a = −0,5. Die zweite Nullstelle −4 liefert dasselbe (Symmetrie).', 'c liest du direkt ab. Setze dann eine Nullstelle ein.',
+                                  -0.5, '-8 / 16')),
+        ('bestimmen', 3, O, zahl('Eine Parabel hat den Scheitel S(−1 | 4) und schneidet die y-Achse bei 2. Bestimme a in y = a(x + 1)² + 4.',
+                                 'Bei x = 0: a · 1² + 4 = 2 ⇒ a = −2.', 'Der y-Achsenabschnitt ist der Punkt (0 | 2).', -2, '2 - 4')),
+        ('bestimmen', 2, O, luecken('Gib die Scheitelform der Normalparabel (a = 1) mit dem Scheitel S(−3 | 2) an.', 'y = (x + □)² + □', 'Zahlen eintragen', [3, 2],
+                                    'y = (x − (−3))² + 2 = (x + 3)² + 2.', 'In der Klammer steht x − d.', ['3', '2'])),
+        ('bestimmen', 2, O, zahl('Die Parabel y = a(x − 1)² + 3 geht durch P(3 | 11). Bestimme a.', '11 = a · 4 + 3 ⇒ a = 2.', 'Punkt einsetzen.', 2, '(11 - 3) / 4')),
+        # extremwert
+        ('extremwert', 3, P, zahl('Rechtecke liegen mit zwei Seiten auf den Koordinatenachsen; die Ecke gegenüber dem Ursprung liegt auf der Geraden y = −0,5x + 6 (x > 0). Wie groß ist der größte Flächeninhalt?',
+                                  'A(x) = x · (−0,5x + 6) = −0,5x² + 6x. Scheitel bei x = 6 (Mitte der Nullstellen 0 und 12). A(6) = −18 + 36 = 18.',
+                                  'Breite x, Höhe ist der y-Wert der Geraden. Stelle A(x) auf.', 18, '-0.5 * 6 ** 2 + 6 * 6', einheit='FE')),
+        ('extremwert', 3, P, zahl('Mit 16 m Zaun wird an einer Mauer ein rechteckiges Gehege gebaut (die Mauer ist eine Seite). Jedes Huhn braucht mindestens 3 m². Wie viele Hühner passen höchstens hinein?',
+                                  'A(x) = x(16 − 2x), größter Wert bei x = 4: A = 4 · 8 = 32 m². 32 : 3 ≈ 10,7 – also höchstens 10 Hühner (abrunden, sonst fehlt Platz).',
+                                  'Erst die größte Fläche bestimmen. Überlege dann, ob du auf- oder abrunden musst.', 10, '32 // 3')),
+        ('extremwert', 3, Kn, zahl('Die Differenz zweier Zahlen ist 10. Wie klein kann ihr Produkt höchstens werden?',
+                                   'Zahlen x und x + 10: P(x) = x² + 10x = (x + 5)² − 25. Kleinster Wert −25 bei x = −5 (die Zahlen −5 und 5).',
+                                   'Das Produkt kann negativ werden. Stelle P(x) auf und bestimme den Scheitel.', -25, '-5 * 5')),
+        ('extremwert', 3, O, zahl('Ein Händler verkauft 200 Kappen zu je 10 €. Jede Preiserhöhung um 1 € kostet ihn 10 Verkäufe. Bei welchem Preis nimmt er am meisten ein?',
+                                  'Erhöhung x: E(x) = (10 + x)(200 − 10x) = −10x² + 100x + 2 000. Scheitel bei x = 5. Preis 15 € (Einnahme 15 · 150 = 2 250 €).',
+                                  'Stelle die Einnahme als Preis mal Stückzahl in Abhängigkeit von der Erhöhung x auf.', 15, '10 + 5', einheit='€')),
+        ('extremwert', 2, O, zahl('Wie groß ist der kleinste Funktionswert von y = (x − 3)² + 7?', 'Scheitel S(3 | 7), nach oben geöffnet: kleinster Wert 7.', 'Lies den Scheitel ab.', 7, '0 + 7')),
+        ('extremwert', 2, O, zahl('Wie groß ist der größte Funktionswert von f(x) = −x² + 8x?', 'Nullstellen 0 und 8, Scheitel bei x = 4: f(4) = −16 + 32 = 16.',
+                                  'Der Scheitel liegt mittig zwischen den Nullstellen.', 16, '-4 ** 2 + 8 * 4')),
+    ]
+
+
 if __name__ == '__main__':
-    bauen('funktionen.quadratisch',
+    d = bauen('funktionen.quadratisch',
           'Parabeln in Scheitelform und allgemeiner Form deuten, Nullstellen bestimmen, Terme aufstellen und Extremwertprobleme lösen.',
           ['Scheitelform y = a(x − d)² + e: Scheitel S(d | e).', 'a > 0 nach oben, a < 0 nach unten; |a| > 1 gestreckt, |a| < 1 gestaucht.',
            'Nullstellen: y = 0 setzen. Anzahl über D oder Scheitel und Öffnung.', 'Extremwert = y-Wert des Scheitels.'],
@@ -608,3 +740,4 @@ if __name__ == '__main__':
           meiden={'scheitel': ['y = 2(x + 3)² − 5 '], 'umformen': ['y = x² − 6x + 5.'], 'nullstellen': ['y = x² − 2x − 8.'],
                   'bestimmen': ['S(1 | −2) und geht durch P(3 | 6)'], 'extremwert': ['mit 20 m Zaun']},
           offen=['Parabel durch drei Punkte kommt auch im Thema gleichungen.lgs3 vor (dort ausführlich), hier nur als Stufe-3-Variante.'])
+    anhaengen(d, 9907, schwer)

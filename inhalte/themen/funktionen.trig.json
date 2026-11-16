@@ -338,7 +338,7 @@
     "regel": "Bei a · sin(b · x) + d ist |a| die Amplitude. d verschiebt nach oben: ⟦Wertemenge [d − |a|; d + |a|]⟧.",
     "schritte": [
      {
-      "text": "f(x) = 3 · sin x + 1. sin x allein schwankt von −1 bis 1."
+      "text": "Gegeben ist 3 · sin x + 1. sin x schwankt von −1 bis 1."
      },
      {
       "text": "Mal 3 schwankt es von −3 bis 3: Amplitude 3.",

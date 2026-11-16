@@ -571,7 +571,7 @@ KLAR = {
               ['Wertemenge', 'alle Werte vom kleinsten bis zum größten']],
   'bild': {'typ': 'koordinaten', 'x': [0, 360], 'y': [-3, 5], 'schritt_y': 1, **_GRAD,
            'graphen': [{'art': 'sin', 'a': 1, 'b': 1, 'c': 0.0, 'd': 0, 'name': 'sin x', 'name_x': 200}]},
-  'schritte': [{'text': 'f(x) = 3 · sin x + 1. sin x allein schwankt von −1 bis 1.'},
+  'schritte': [{'text': 'Gegeben ist 3 · sin x + 1. sin x schwankt von −1 bis 1.'},
                {'text': 'Mal 3 schwankt es von −3 bis 3: Amplitude 3.',
                 'bild': {'graphen': [{'art': 'sin', 'a': 1, 'b': 1, 'c': 0.0, 'd': 0, 'name': 'sin x', 'name_x': 200},
                                      {'art': 'sin', 'a': 3, 'b': 1, 'c': 0.0, 'd': 0, 'name': '3 sin x'}]}},

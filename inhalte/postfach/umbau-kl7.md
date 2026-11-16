@@ -9,6 +9,35 @@ Prüfung je Thema: Aufgaben Feld für Feld gegen `git show origin/lernen-app:inh
 
 ## Status
 
+## 2026-11-16 06:00 – FERTIG (Abschlussbericht U7)
+Alle 8 Themen auf dem Zweig umbau-kl7 umgebaut, je ein Commit:
+
+| Thema | Karten | Aufgaben | Unterschiede | inhalt_pruefen |
+|---|---|---|---|---|
+| bruch.prozent_grundwert | 7 | 168 | 0 | 0 Fehler, 0 Hinweise |
+| terme.aufstellen | 6 | 144 | 0 | 0 / 0 |
+| abbildungen.kongruenz | 7 | 168 | 0 | 0 / 0 |
+| geometrie.konstruktion | 7 | 168 | 0 | 0 / 0 |
+| geometrie.kreis | 6 | 144 | 0 | 0 / 0 |
+| daten.boxplot | 6 | 144 | 0 | 0 / 0 |
+| gleichungen.linear | 6 | 162 | 0 | 0 / 0 |
+| terme.umformen (Überlagerung) | 8 | – (nur in der Datenbank) | – | 0 / 0 (Ersatzprüfung, s. u.) |
+
+Aufgaben-Vergleich: jedes Feld gegen `git show origin/lernen-app:inhalte/themen/<thema>.json`; titel und lernziel unverändert. Alle Beispielzahlen nachgerechnet (Terme zusätzlich durch Einsetzen von x = −5 … 5 geprüft).
+Nur Zeichnungsarten aus README benutzt (figur, koordinaten, tabelle, saeulen, boxplot, zahlenstrahl mit punkte/bereich, bruchstreifen). Keine Datenbank, keine Serverfunktionen, kein App-Code, keine Tests, kein Merge.
+
+offen:
+- terme.umformen: Die Überlagerung enthält kein Feld „probe“ mehr (wie bei den Generator-Themen). Beim Einspielen bitte die alte probe der Karten entfernen, sonst bleibt sie neben dem neuen Muster stehen.
+- terme.umformen: Prüfung ersatzweise – die acht Karten wurden in eine Kopie von gleichungen.linear.json eingesetzt und mit inhalt_pruefen geprüft (0 Fehler, 0 Hinweise). Die echte Prüfung geht erst nach dem Einspielen mit den Aufgaben aus der Datenbank (Dopplungen Beispiel/Aufgabe nicht geprüft).
+- terme.umformen: Beispiele aus quelle.md beibehalten; Einstiege gekürzt. minusklammer erzählt jetzt Konto/Rechnung mit Rabatt statt Hefte-Rückgabe (die alte Geschichte ging rechnerisch nicht ganz auf). produkte: Beet 3a · 2a als Bild, dann 3a · (−2a) aus der Quelle.
+- geometrie.konstruktion/vierecke: gleichschenkliges Trapez nicht mehr im Merksatz (25-Wörter-Grenze).
+- fehler_bild fehlt bewusst bei Karten, deren Fehler ein Rechen- oder Lesefehler ohne eigenes Bild ist (u. a. daten.boxplot, terme.umformen/produkte, gleichungen.linear klammern/probe/sonderfaelle/sach).
+- Die Kurven in koordinaten (Tarif-Geraden) habe ich nicht gerendert sehen können (eigenes Prüfbild zeichnet nur Punkte/Strecken); Format laut README.
+
+## 2026-11-16 05:50 – STATUS
+terme.umformen (ohne Generator): Überlagerung inhalte/klar/terme.umformen.json neu – 8 Karten mit bild, Schritten als {text, bild} und fehler_bild (außer produkte). Bilder: sich füllende Tabellen (Hefte/Stifte sortieren, Vorzeichenwechsel, Malkreuz-Tabellen für Ausmultiplizieren, Summe mal Summe, Ausklammern, binomische Formeln, Einsetztabelle für Äquivalenz), Beet 3a × 2a mit 6 Feldern a², Quadrat (x + 4)² mit zwei Streifen 4x und 16. fehler_bild meist als Einsetztabelle (falscher Term ergibt anderen Wert).
+Prüfung: siehe offen im Abschlussbericht.
+
 ## 2026-11-16 05:30 – STATUS
 gleichungen.linear umgebaut (6 Karten): Waage als Bildergeschichte (3x + 5 | 20 → 3x | 15 → x | 5; beide Seiten: 5x + 3 | 2x + 15 → 3x + 3 | 15 → 3x | 12 → x | 4) mit vorhandenem `waage()`. Neu `waage_kipp()` als fehler_bild (gekippte Waage, gleiche Zeichenart figur). Klammern: vorhandenes Flächenbild. Probe: Tabelle füllt sich (x = 1/3 falsch, x = 5 richtig). Sonderfälle und Sachaufgabe: Tarif-Geraden im Koordinatensystem (parallel → L = { }; deckungsgleich → L = ℚ; Schnittpunkt (5|20)).
 Aufgaben: 162, 0 Unterschiede. inhalt_pruefen: 0 Fehler, 0 Hinweise.

@@ -2,6 +2,11 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 05:39 – STATUS
+messen.flaechen fertig: umgestuft 2 / berichtigt 6 / ersetzt 1 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Ein Rechteck aus 6 · 5 Einheitsquadraten wird in beiden Richtungen doppelt so lang. Wie viele Einheitsquadrate passen jetzt hinein?“
+
 ## 2026-11-16 05:38 – STATUS
 geometrie.ortslinien fertig: umgestuft 0 / berichtigt 0 / ersetzt 8 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):

@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 07:20 – STATUS
+geometrie.kreis fertig: +36 Übungen (je Lernkarte 2× Stufe 2, 4× Stufe 3), Prüfskript OK, Nachweis: alle 144 alten Aufgaben unverändert. Weiter mit daten.boxplot (letztes Thema).
+
 ## 2026-11-16 06:55 – STATUS
 geometrie.konstruktion fertig: +42 Übungen (je Lernkarte 2× Stufe 2, 4× Stufe 3), Prüfskript OK, Nachweis: alle 168 alten Aufgaben unverändert. Weiter mit geometrie.kreis.
 

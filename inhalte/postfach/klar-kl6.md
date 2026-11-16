@@ -5,6 +5,11 @@ Technik wie klar-kl5: je Generator ein Abschnitt KLAR, eingesetzt über `inhalte
 Vergleich je Thema: `aufgaben` und alle Felder außer `inhalt.etappen` gegen `git show HEAD:inhalte/themen/<thema>.json`.
 
 ## 2026-11-16 01:57 – STATUS
+daten.kennwerte (6 Karten) fertig: einstieg + woerter neu, schritte/regel/fehler überarbeitet (Situationen: Punkte-Stapel, Notenspiegel,
+vergessener Test, Turnschuhgrößen, Schulweg in Minuten, Taschengeld mit Ausreißer). Bild mittelwert: Säulen „Kind A–D“ statt „A–D“, Werte gleich.
+inhalt_pruefen: OK. Vergleich: 168 Aufgaben wörtlich gleich, übrige Datei gleich.
+
+## 2026-11-16 01:57 – STATUS
 daten.darstellen (6 Karten) fertig: einstieg + woerter neu, schritte/regel/fehler überarbeitet (Situationen: Würfeln in der Pause,
 Lena und Tom vergleichen Sechsen, Klassenumfrage Schulweg/Lieblingssport, Freibad-Werbung). Bilder unverändert.
 inhalt_pruefen: OK. Vergleich: 168 Aufgaben wörtlich gleich, übrige Datei gleich.

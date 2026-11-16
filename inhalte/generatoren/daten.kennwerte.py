@@ -340,5 +340,82 @@ DATEI = datei(E, 'Das arithmetische Mittel bestimmen und deuten, Modalwert, Span
               offen=['„umfang“ nennt Median, Quartile und Boxplot; der Kl.-6-Lehrplan (lehrplan_gym) verlangt nur das arithmetische Mittel. Quartile und Boxplot weggelassen (höhere Klasse, Boxplot braucht außerdem eine Zeichnung). Median als Vertiefung (nicht Pflicht) aufgenommen, Modalwert und Spannweite als einfache Ergänzung zum Mittelwert.',
                      'Falls der Median doch Pflicht werden soll: in bewertung.lernziele_pflicht verschieben.'])
 
+# ---------- KLAR: verständliche Erklärungen (Siebte Runde, Pflicht seit 15.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _klar_kl6.py) – die Aufgaben bleiben wörtlich gleich.
+from _klar_kl6 import klar  # noqa: E402
+
+KLAR = {
+ 'mittelwert': {
+  'einstieg': 'Vier Kinder sammeln bei einem Spiel Punkte: 7, 9, 4 und 8. Wie viele Punkte hat jedes im Schnitt? Stell dir die Punkte als Stapel aus Bausteinen vor. Die hohen Stapel geben Steine an die niedrigen ab, bis alle gleich hoch sind. Diese gemeinsame Höhe heißt ⟦Mittelwert⟧.',
+  'woerter': [['Mittelwert (arithmetisches Mittel)', 'Summe aller Werte geteilt durch die Anzahl der Werte'],
+              ['Durchschnitt, im Schnitt', 'Alltagswörter für den Mittelwert'],
+              ['Summe', 'alle Werte zusammengezählt'],
+              ['Anzahl der Werte', 'wie viele Werte es gibt – hier 4 Kinder']],
+  'schritte': ['Zähle alle Punkte zusammen: 7 + 9 + 4 + 8 = 28.',
+               'Es sind 4 Kinder, also 4 Werte. Verteile die 28 Punkte gleichmäßig: 28 : 4 = 7.',
+               'Kontrolle mit den Stapeln: Der 9er-Stapel gibt 2 ab, der 8er-Stapel 1. Damit wächst der 4er-Stapel auf 7.',
+               'Jetzt sind alle Stapel 7 hoch. Der Mittelwert ist ⟦7⟧ Punkte.'],
+  'regel': 'So berechnest du den Mittelwert: ⟦Summe aller Werte : Anzahl der Werte⟧. Er ist der Wert, den alle hätten, wenn man ⟦gleichmäßig verteilt⟧.',
+  'fehler': 'Bei 7, 9, 4 und 8 die Summe 28 durch 2 zu teilen ist falsch: Heraus kämen 14 Punkte – mehr, als irgendein Kind hat. Geteilt wird durch die ⟦Anzahl der Werte⟧, hier 4.',
+  'bild': {'typ': 'saeulen', 'einheit': 'Punkte', 'werte': [{'name': 'Kind A', 'wert': 7}, {'name': 'Kind B', 'wert': 9}, {'name': 'Kind C', 'wert': 4}, {'name': 'Kind D', 'wert': 8}],
+           'zahlen': True}},
+ 'mittel_tabelle': {
+  'einstieg': 'Nach einer Probe hängt der Notenspiegel an der Tafel: zweimal die 1, fünfmal die 2, dreimal die 3. Wie lautet die Durchschnittsnote? Du könntest alle zehn Noten einzeln hinschreiben – schneller geht es mit der Tabelle. Dafür rechnest du mit den ⟦Häufigkeiten⟧.',
+  'woerter': [['Notenspiegel', 'eine Tabelle, die zeigt, wie oft jede Note vorkam'],
+              ['Häufigkeit', 'wie oft ein Wert vorkommt'],
+              ['Note · Anzahl', 'die Note mal ihre Häufigkeit – so oft zählt diese Note']],
+  'schritte': ['Jede Note zählt so oft, wie sie vorkommt: 1 · 2 = 2, 2 · 5 = 10 und 3 · 3 = 9.',
+               'Zähle diese Ergebnisse zusammen: 2 + 10 + 9 = 21. Das ist die Summe aller zehn Noten.',
+               'Zähle die Anzahl der Noten: 2 + 5 + 3 = 10.',
+               'Teile die Summe durch die Anzahl: 21 : 10 = ⟦2,1⟧.'],
+  'regel': 'So berechnest du den Mittelwert aus einer Tabelle: Nimm ⟦jeden Wert mal seine Häufigkeit⟧, addiere alles und teile durch die ⟦Gesamtzahl⟧ der Werte.',
+  'fehler': 'Nur 1, 2 und 3 zu mitteln, also (1 + 2 + 3) : 3 = 2, ist falsch: Dann zählt die 1 genauso viel wie die 2, obwohl die 2 fünfmal vorkam. Jeder Wert zählt so oft, wie er ⟦vorkommt⟧.'},
+ 'mittel_rueckwaerts': {
+  'einstieg': 'Du hast drei Tests geschrieben und im Mittel 8 Punkte. Zwei Ergebnisse weißt du noch: 7 und 10 Punkte. Das dritte hast du vergessen. Aus dem Mittelwert kannst du es zurückrechnen – du gehst den Weg ⟦rückwärts⟧.',
+  'woerter': [['rückwärts rechnen', 'die Rechnung umdrehen: Aus „geteilt“ wird „mal“, aus „plus“ wird „minus“'],
+              ['Summe = Mittelwert · Anzahl', 'aus dem Mittelwert bekommst du die Summe aller Werte zurück']],
+  'schritte': ['Der Mittelwert ist Summe : Anzahl. Rückwärts heißt das: Summe = Mittelwert · Anzahl.',
+               'Die Summe aller drei Tests ist also 8 · 3 = 24 Punkte.',
+               'Zwei Tests kennst du: 7 + 10 = 17 Punkte.',
+               'Der fehlende Test hatte 24 − 17 = ⟦7⟧ Punkte.'],
+  'regel': 'So rechnest du rückwärts mit dem Mittelwert: Bilde zuerst die ⟦Summe = Mittelwert · Anzahl⟧. Ziehe dann die bekannten Werte ab – der Rest ist der ⟦fehlende Wert⟧.',
+  'fehler': 'Den fehlenden Wert als 8 anzunehmen, weil der Mittelwert 8 ist, ist falsch: Dann wäre der Mittelwert (7 + 10 + 8) : 3 ≈ 8,3. Erst die ⟦Summe⟧ bilden, dann die bekannten Werte abziehen.'},
+ 'modal_spannweite': {
+  'einstieg': 'Ein Sportverein bestellt Turnschuhe für die Mannschaft. Die Schuhgrößen sind 36, 38, 37, 38, 40, 38 und 35. Am häufigsten braucht der Verein Größe 38, und die Größen reichen von 35 bis 40. Für beides gibt es einen eigenen Kennwert: ⟦Modalwert⟧ und ⟦Spannweite⟧.',
+  'woerter': [['Kennwert', 'eine Zahl, die eine ganze Liste kurz beschreibt, z. B. Mittelwert, Modalwert oder Spannweite'],
+              ['Modalwert', 'der Wert, der am häufigsten vorkommt'],
+              ['Spannweite', 'größter Wert minus kleinster Wert; zeigt, wie weit die Daten auseinanderliegen']],
+  'schritte': ['Zähle, wie oft jede Größe vorkommt: Die 38 kommt dreimal vor, jede andere Größe nur einmal.',
+               'Der häufigste Wert ist der Modalwert: ⟦38⟧.',
+               'Suche den größten und den kleinsten Wert: 40 und 35.',
+               'Die Spannweite ist 40 − 35 = ⟦5⟧ – so weit liegen die Schuhgrößen auseinander.'],
+  'regel': 'So bestimmst du die zwei Kennwerte: Der ⟦Modalwert⟧ ist der Wert, der ⟦am häufigsten⟧ vorkommt. Die ⟦Spannweite⟧ ist ⟦größter Wert − kleinster Wert⟧.',
+  'fehler': 'Die Spannweite als „letzter Wert − erster Wert“ der Liste zu rechnen ist falsch: 35 − 36 = −1 sagt nichts darüber, wie weit die Schuhgrößen auseinanderliegen. Man nimmt ⟦größten minus kleinsten⟧ Wert.'},
+ 'median': {
+  'einstieg': 'Fünf Kinder messen, wie viele Minuten ihr Schulweg dauert: 12, 3, 8, 5 und 20 Minuten. Stellen sie sich der Größe nach in eine Reihe, steht genau in der Mitte das Kind mit 8 Minuten. Links stehen die kürzeren, rechts die längeren Wege. Dieser Wert in der Mitte heißt ⟦Median⟧.',
+  'woerter': [['Median (Zentralwert)', 'der Wert in der Mitte der geordneten Liste'],
+              ['der Größe nach ordnen', 'vom kleinsten zum größten Wert sortieren'],
+              ['Ausreißer', 'ein einzelner Wert, der viel größer oder kleiner ist als die anderen']],
+  'schritte': ['Ordne die Werte der Größe nach: 3, 5, 8, 12, 20.',
+               'Es sind 5 Werte. In der Mitte steht der 3. Wert, links und rechts davon stehen je 2 Werte.',
+               'Der 3. Wert ist die 8. Der Median ist ⟦8⟧ Minuten.',
+               'Bei einer geraden Anzahl von Werten gibt es zwei mittlere Werte. Dann ist der Median ihr Mittelwert.'],
+  'regel': 'So bestimmst du den Median: ⟦Ordne die Werte der Größe nach⟧. Bei ungerader Anzahl ist der Median der ⟦Wert in der Mitte⟧, bei gerader Anzahl der ⟦Mittelwert der beiden mittleren Werte⟧. Ausreißer verändern ihn kaum.',
+  'fehler': 'Den mittleren Wert der ⟦ungeordneten⟧ Liste zu nehmen ist falsch: Bei 12, 3, 20, 5, 8 steht in der Mitte die 20 – der längste Schulweg von allen! Geordnet: 3, 5, 8, 12, 20, der Median ist ⟦8⟧. Zuerst ⟦ordnen⟧!'},
+ 'verstehen': {
+  'einstieg': 'Fünf Kinder vergleichen ihr Taschengeld: 5 €, 6 €, 5 €, 4 € und 30 €. Im Durchschnitt sind das 10 € – aber vier der fünf Kinder bekommen weniger. Schuld ist das eine Kind mit 30 €, das weit über den anderen liegt. So ein Wert heißt ⟦Ausreißer⟧.',
+  'woerter': [['verzerren', 'ein falsches Bild erzeugen'],
+              ['Zahlenbeispiel', 'eine Behauptung mit konkreten Zahlen ausprobieren']],
+  'schritte': ['Berechne den Mittelwert: 5 + 6 + 5 + 4 + 30 = 50 und 50 € : 5 = 10 €.',
+               'Vergleiche mit den einzelnen Werten: Vier von fünf Kindern bekommen weniger als 10 €.',
+               'Der Median (geordnet: 4, 5, 5, 6, 30) ist 5 € – er beschreibt ein typisches Kind besser.',
+               'Der Ausreißer 30 € ⟦verzerrt⟧ den Mittelwert nach oben.'],
+  'regel': 'So beurteilst du Kennwerte: Achte auf ⟦Ausreißer⟧ – sie ziehen den Mittelwert stark mit, den Median kaum. Der Mittelwert muss ⟦nicht⟧ in der Liste vorkommen und muss keine ganze Zahl sein. Prüfe Aussagen mit ⟦Zahlenbeispielen⟧.',
+  'fehler': '„Der Mittelwert ist 10 €, also bekommen die meisten Kinder etwa 10 €“ ist falsch: Ein ⟦Ausreißer⟧ kann den Mittelwert stark nach oben ziehen – hier bekommt kein einziges Kind etwa 10 €.'},
+}
+
+klar(DATEI, KLAR)
+
+
 if __name__ == '__main__':
     schreibe(DATEI)

@@ -2,6 +2,10 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 02:54 – STATUS
+gleichungen.formeln umgebaut (5 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_kl8.py).
+Aufgaben-Vergleich gegen `git show lernen-app:inhalte/themen/gleichungen.formeln.json`: alle wörtlich gleich. inhalt_pruefen: 0 Fehler, 0 Hinweise. Ohne fehler_bild: pruefen.
+
 ## 2026-11-16 02:52 – STATUS
 terme.bruchterme umgebaut (7 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_kl8.py).
 Aufgaben-Vergleich gegen `git show lernen-app:inhalte/themen/terme.bruchterme.json`: alle wörtlich gleich. inhalt_pruefen: 0 Fehler, 0 Hinweise. Ohne fehler_bild: definitionsmenge, termwert, kuerzen, multiplizieren (Fehler ist ein Rechenschritt ohne sinnvolles Bild).

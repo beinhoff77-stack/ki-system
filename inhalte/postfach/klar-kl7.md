@@ -7,6 +7,9 @@ Prüfung je Thema: Generator neu ausgeführt, Aufgaben mit einem Vergleichsskrip
 
 ## Status
 
+## 2026-11-16 03:20 – STATUS
+geometrie.konstruktion fertig: 7 Karten (Stadtplan mit parallelen Straßen, Giebel eines Gartenhauses, Dreiecke aus Holzleisten am Telefon, Drachen/Scherengitter, Regen und nasse Straße). Fachlich präzisiert: Drachenviereck – gleich sind die beiden Winkel, die nicht auf der Symmetrieachse liegen (vorher missverständlich „neben der Symmetrieachse“). Aufgaben: 168, 0 Unterschiede. inhalt_pruefen: OK.
+
 ## 2026-11-16 03:00 – STATUS
 abbildungen.kongruenz fertig: 7 Karten, durchgehend Klecksbild (Achsenspiegelung), Pfosten auf dem Schulhof (Punktspiegelung), Pauspapier (Verschiebung, Drehung mit Reißzwecke, Eigenschaften), Fliesen (Parkett). Bild symmetrie: Achsen als „Symmetrieachse“ beschriftet. Aufgaben: 168, 0 Unterschiede. inhalt_pruefen: OK.
 

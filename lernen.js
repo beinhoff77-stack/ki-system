@@ -34,7 +34,7 @@ const lernKinder = (kids) => kids.flat().filter((k) => k !== null && k !== undef
 const lernErsetze = (node, ...kids) => { node.replaceChildren(...lernKinder(kids)); return node; };
 const lernAnhaengen = (node, ...kids) => { node.append(...lernKinder(kids)); return node; };
 const lernText = (t) => String(t ?? '').replace(/(\d) (?=\d{3}(?!\d))/g, '$1 '); // Zahlen wie 20 000 nicht umbrechen
-const lernZahl = (n) => Number(n).toLocaleString('de-DE').replace(/\./g, ' ');
+const lernZahl = (n) => Number(n).toLocaleString('de-DE').replace(/\./g, ' ').replace('-', '−'); // Tausender mit Leerzeichen, echtes Minuszeichen
 const lernIcon = (d, size = 24) => {
   const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   s.setAttribute('viewBox', '0 0 24 24'); s.setAttribute('width', size); s.setAttribute('height', size); s.setAttribute('aria-hidden', 'true');
@@ -641,7 +641,7 @@ function lernVorlageFuellen(schablone, werte) {
 // Liefert { node, antwort(), sperren() }; antwort() ist null, solange nichts eingegeben ist.
 function lernAufgabe(a, vorher, opts = {}) {
   const f = a.frage || {};
-  let wert = vorher ?? null; let fehler = null; let stellenTipp = null, stellenNeu = null;
+  let wert = vorher ?? null; let fehler = null; let stellenTipp = null, stellenNeu = null; const optionen = [];
   const teile = [el('p', { class: 'lern-frage' }, lernText(f.text))];
   if (f.hinweis && a.antworttyp !== 'luecken') teile.push(el('p', { class: 'small muted' }, f.hinweis));
   const felder = [];
@@ -657,7 +657,7 @@ function lernAufgabe(a, vorher, opts = {}) {
       if (wert?.index === i) inp.checked = true;
       inp.addEventListener('change', () => { wert = { index: i }; });
       felder.push(inp);
-      return el('label', { class: 'lern-option' }, inp, el('span', {}, t));
+      const lab = el('label', { class: 'lern-option' }, inp, el('span', {}, t)); optionen.push(lab); return lab;
     })));
   } else if (a.antworttyp === 'zahl' || a.antworttyp === 'text') {
     const inp = el('input', { type: 'text', autocomplete: 'off', autocapitalize: a.antworttyp === 'text' ? 'characters' : 'off',
@@ -742,7 +742,11 @@ function lernAufgabe(a, vorher, opts = {}) {
     weiter: () => { const i = zahlFelder.indexOf(aktiv); if (i < zahlFelder.length - 1) { aktiv = zahlFelder[i + 1]; zahlFelder.forEach((y) => y.classList.toggle('dran', y === aktiv)); return true; } return false; },
     system: () => { zahlFelder.forEach((x) => x.removeAttribute('inputmode')); aktiv.focus(); },
   } : null;
-  return { node: el('div', { class: 'lern-aufgabe' }, ...teile), antwort: () => wert, fehlerText: () => fehler, tasten,
+  // Nach dem Prüfen (Auswahl): gewählte falsche Antwort rot mit ✗, richtige grün mit ✓ – nicht nur über Farbe.
+  const zeigeLoesung = (loesung) => { if (a.antworttyp !== 'auswahl' || loesung?.index === undefined) return;
+    optionen.forEach((lab, i) => { const richtigHier = i === loesung.index, gewaehlt = wert?.index === i; if (!richtigHier && !gewaehlt) return;
+      lab.classList.add(richtigHier ? 'ist-richtig' : 'ist-falsch'); lernAnhaengen(lab, el('span', { class: 'lern-option-zeichen', 'aria-label': richtigHier ? 'richtig' : 'falsch' }, richtigHier ? '✓' : '✗')); }); };
+  return { node: el('div', { class: 'lern-aufgabe' }, ...teile), antwort: () => wert, fehlerText: () => fehler, tasten, zeigeLoesung,
     sperren: (an = true) => { felder.forEach((x) => { x.disabled = an; }); stellenNeu?.(); } };
 }
 
@@ -767,11 +771,11 @@ function lernKurs(a, w) {
   const d = teil(du), z = teil(ziel);
   const lg = Math.max(d.g.length, z.g.length), ln = Math.max(d.n.length, z.n.length);
   if (lg + ln > 9) return null;
-  const zeile = (x) => [x.neg ? '−' : '', ...x.g.padStart(lg, ' '), ...(ln ? [',', ...x.n.padEnd(ln, ' ')] : [])];
+  const zeile = (x) => [x.neg ? '−' : '', ...x.g.padStart(lg, ' '), ...(ln ? [x.n ? ',' : ' ', ...x.n.padEnd(ln, ' ')] : [])];
   const zd = zeile(d), zz = zeile(z);
   const koepfe = !ln && lg <= 7 ? ['', ...['M', 'HT', 'ZT', 'T', 'H', 'Z', 'E'].slice(7 - lg)] : null;
   const reihe = (name, zs, andere) => el('div', { class: 'lr-kurs-zeile' }, el('span', { class: 'lr-kurs-name' }, name),
-    ...zs.map((c, i) => el('span', { class: 'lr-kurs-kachel' + (c === ',' ? ' komma' : '') + (c.trim() === '' ? ' leer' : '') + (c !== andere[i] ? ' ab' : '') }, c.trim())));
+    ...zs.map((c, i) => el('span', { class: 'lr-kurs-kachel' + (c === ',' || (ln && i === lg + 1) ? ' komma' : '') + (c.trim() === '' ? ' leer' : '') + (c !== andere[i] ? ' ab' : '') }, c.trim())));
   return el('div', { class: 'lr-kurs', role: 'img', 'aria-label': `Deine Zahl ${w.wert}, Ziel ${lernZahl(a.loesung.wert)}` },
     koepfe ? el('div', { class: 'lr-kurs-zeile lr-kurs-kopf' }, el('span', { class: 'lr-kurs-name' }), ...koepfe.map((c) => el('span', { class: 'lr-kurs-kachel' }, c))) : null,
     reihe('DU', zd, zz), reihe('ZIEL', zz, zd));
@@ -783,11 +787,15 @@ function lernStrichText(g, i) {
   const v = Number(g.start) + i * (Number(g.ende) - Number(g.start)) / (Number(g.abschnitte) || 1);
   return i === 0 ? `${lernZahl(v)} (der Anfang)` : `${lernZahl(v)} (der ${i}. Strich nach dem Anfang)`;
 }
+// Schreibweise: Minuszeichen statt Bindestrich; „+ −1“ wird „− 1“, „− −1“ wird „+ 1“ (z. B. □x + □ mit −3 und −1 → −3x − 1).
+function lernVorzeichenText(t) {
+  return String(t).replace(/(^|[^\w)])-(?=\d)/g, '$1−').replace(/\+ ?−\s?(?=\d)/g, '− ').replace(/− ?−\s?(?=\d)/g, '+ ');
+}
 function lernLoesungText(a) {
   const l = a.loesung || {};
   if (a.antworttyp === 'auswahl') return (a.antworten || [])[l.index] ?? '';
   if (a.antworttyp === 'markierung') return lernStrichText(a.frage?.grafik, l.index);
-  if (a.antworttyp === 'luecken') { const s = String(a.frage?.schablone || '').split('□'); return s.map((t, i) => t + (i < s.length - 1 ? String(l.werte?.[i] ?? '').replace('-', '−') : '')).join(''); }
+  if (a.antworttyp === 'luecken') { const s = String(a.frage?.schablone || '').split('□'); return lernVorzeichenText(s.map((t, i) => t + (i < s.length - 1 ? String(l.werte?.[i] ?? '') : '')).join('')); }
   if (a.antworttyp === 'text') return l.text ?? '';
   return l.wert !== undefined ? lernZahl(l.wert) + (l.einheit ? ' ' + l.einheit : '') : '';
 }
@@ -795,8 +803,8 @@ function lernAntwortText(a, w) {
   if (!w) return '(keine Antwort)';
   if (a.antworttyp === 'auswahl') return (a.antworten || [])[w.index] ?? '';
   if (a.antworttyp === 'markierung') return lernStrichText(a.frage?.grafik, w.index);
-  if (a.antworttyp === 'luecken') { const s = String(a.frage?.schablone || '').split('□'); return s.map((t, i) => t + (i < s.length - 1 ? (w.werte?.[i] ?? '') : '')).join(''); }
-  return w.wert ?? '';
+  if (a.antworttyp === 'luecken') { const s = String(a.frage?.schablone || '').split('□'); return lernVorzeichenText(s.map((t, i) => t + (i < s.length - 1 ? (w.werte?.[i] ?? '') : '')).join('')); }
+  return String(w.wert ?? '').replace(/^-/, '−');
 }
 
 // ---------- Kind: Lerneinheit in Etappen ----------
@@ -1328,7 +1336,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
       const auf = lernAufgabe(a, null, { tasten: neu, stellen: neu && kind.klasse && kind.klasse <= 6 }); let hilfe = 0; const dock = el('div', { class: 'lr-dock' }); const cid = lernCid();
       const meldung = el('div', { role: 'status', 'aria-live': 'polite' });
       const hilfeBox = el('div', { class: 'lr-hilfebox' });
-      const tipp = a.tipp ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { hilfe = 1; tipp.remove(); lernAnhaengen(hilfeBox, el('p', { class: 'lr-tipp' }, el('b', {}, 'Tipp: '), lernText(a.tipp), el('small', {}, ' (zählt nicht für die Punkte)'))); } }, 'Tipp') : null;
+      const tipp = a.tipp ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { hilfe = 1; tipp.remove(); lernAnhaengen(hilfeBox, el('p', { class: 'lr-tipp' }, el('b', {}, 'Tipp: '), lernText(a.tipp), el('small', {}, ' (zählt nicht für die Serie)'))); } }, 'Tipp') : null;
       // Vorgabe 16.11.: Beim Üben steht nur die Aufgabe. Darüber ein gut sichtbarer Link „Erklärung ansehen“ (am Rechner klappt sie links daneben auf).
       const breit = neu && !!e.regel && !!window.matchMedia?.('(min-width: 900px)').matches;
       const erkl = e.regel ? el('button', { type: 'button', class: 'lr-erkl-link', 'aria-expanded': 'false', onclick: () => {
@@ -1353,7 +1361,13 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
           auf.sperren(); a.loesung = r.loesung; warte.shift(); a.versuche = (a.versuche || 0) + 1;
           const sterneVor = sterne;
           if (r.richtig) { if (!a.geloest && !r.wiederholt) sterne += 10; a.geloest = true; warte.push(a); }
-          else warte.splice(Math.min(3, warte.length), 0, a);
+          else { // V5: gemerkte Lösung zählt nicht – nach einem Fehler kommt eine andere Aufgabe derselben Stufe; dieselbe erst ganz am Ende
+            warte.push(a);
+            const j = warte.findIndex((x) => x !== a && !x.geloest && (x.stufe || 2) === (a.stufe || 2) && !x.falschHeute);
+            if (j > 0) warte.unshift(...warte.splice(j, 1));
+            a.falschHeute = true;
+          }
+          auf.zeigeLoesung(r.loesung);
           const warSitzt = e.sitzt;
           if (r.karte) { e.serie = r.karte.serie; e.ziel = r.karte.ziel; e.sitzt = r.karte.sitzt; e.fertig = e.fertig || r.karte.sitzt; if (warSitzt && r.karte.sitzt) e.faellig = false; }
           zeichnePunkte(); zeichneFortschritt();
@@ -1364,7 +1378,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
           if (!neu && !r.richtig && erkl && erklBox.hidden && false) { erklBox.hidden = false; erkl.setAttribute('aria-expanded', 'true'); }
           lernErsetze(meldung, r.richtig
             ? el('div', { class: 'lr-rueck lr-rueck-ok' }, el('b', {}, neu ? '✓ An Bord' + (sterne > sterneVor ? ' · +10 Sterne' : '') : 'Richtig!'), r.loesungsweg ? el('p', {}, lernText(r.loesungsweg)) : null)
-            : neu ? el('div', { class: 'lr-rueck lr-rueck-falsch lr-kursbox' }, el('p', { class: 'lr-ueber' }, 'FAST – KURSKORREKTUR'), lernKurs(a, w),
+            : neu ? el('div', { class: 'lr-rueck lr-rueck-falsch lr-kursbox' }, el('p', { class: 'lr-ueber' }, a.antworttyp === 'zahl' ? 'FAST – KURSKORREKTUR' : 'NOCH NICHT'), lernKurs(a, w),
               el('b', {}, 'Richtig ist: ' + lernLoesungText(a)),
               a.antworttyp === 'luecken' && lernIstTermVorlage(a.frage?.schablone) && lernGleichwertigAusgeklammert(a.frage?.schablone, w.werte, r.loesung?.werte)
                 ? el('p', {}, 'Dein Term ist gleichwertig, aber noch nicht vollständig ausgeklammert: Vor die Klammer gehört der größte gemeinsame Faktor.') : null,
@@ -2094,9 +2108,10 @@ async function viewWiederholen(arg) {
   const zeige = () => {
     const a = liste[i];
     if (!a) {
-      lernErsetze(flaeche, el('section', { class: 'lr-geschafft' }, el('div', { class: 'lr-geschafft-haken' }, lernIcon(LI.haken, 64)),
+      const offen = liste.length - richtig; // V7: der Haken nur, wenn alles richtig war
+      lernErsetze(flaeche, el('section', { class: 'lr-geschafft' }, offen ? null : el('div', { class: 'lr-geschafft-haken' }, lernIcon(LI.haken, 64)),
         el('p', { class: 'lr-ueber' }, 'WIEDERHOLT'), el('h1', { class: 'lr-titel' }, `${richtig} von ${liste.length} richtig`),
-        el('p', { class: 'lr-leise' }, richtig === liste.length ? 'Super – das sitzt noch.' : 'Was nicht geklappt hat, kommt bald nochmal dran. Die Erklärung findest du im Merkheft.')),
+        el('p', { class: 'lr-leise' }, offen ? `${offen} ${offen === 1 ? 'Karte braucht' : 'Karten brauchen'} noch Übung – morgen ${offen === 1 ? 'kommt sie' : 'kommen sie'} wieder. Die Erklärung findest du im Merkheft.` : 'Super – das sitzt noch.')),
         el('a', { class: 'lr-knopf', href: `#/reise/${kind.id}` }, 'Weiter zu Heute'));
       return;
     }
@@ -2110,7 +2125,7 @@ async function viewWiederholen(arg) {
       try {
         const x = await lernCall('schule_uebung_pruefen', { lernender_id: kind.id, aufgabe_id: a.id, antwort: w, client_id: cid, hilfe: 0 });
         if (!x.format_ok) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, x.hinweis)); pruefen.disabled = false; return; }
-        auf.sperren(); a.loesung = x.loesung; if (x.richtig) richtig++;
+        auf.sperren(); a.loesung = x.loesung; if (x.richtig) richtig++; auf.zeigeLoesung(x.loesung);
         lernErsetze(meldung, x.richtig ? el('div', { class: 'lr-rueck lr-rueck-ok' }, el('b', {}, 'Richtig!'))
           : el('div', { class: 'lr-rueck lr-rueck-falsch' }, el('b', {}, 'Noch nicht. Richtig ist: ' + lernLoesungText(a)), x.loesungsweg ? el('p', {}, lernText(x.loesungsweg)) : null,
             el('a', { href: `#/lerneinheit/${kind.id}-${a.einheit_id}` }, 'Zur Lernkarte')));

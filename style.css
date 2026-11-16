@@ -3894,3 +3894,16 @@ details.lr-woerter > summary::-webkit-details-marker { display: none; }
 .lern-zeichnung .streifen { fill: var(--lr-flaeche, #fff); stroke: var(--lr-text, #111); stroke-width: 2; }
 .lern-zeichnung .streifen.voll { fill: #FFE58A; }
 .lern-zeichnung .klammer { fill: none; stroke: var(--lr-text, #111); stroke-width: 1.6; }
+
+/* ===== W150 Rückmeldung & Lernweg, Paket R1 (inhalte/pruefung/rueckmeldung/umsetzung.md) ===== */
+/* V1: gefärbte Flächen eindeutig sichtbar – Kontrast zur Karte ≥ 3:1 (hell #B58500 auf Weiß 3,3:1; dunkel #8A6A00 auf #151B24 3,4:1), dazu eine Kontur */
+.lern-zeichnung .flaeche, .lern-zeichnung .streifen.voll { fill: #B58500; fill-opacity: 1; stroke: #6E5100; stroke-width: 1.5; }
+.lr-abflug-nacht .lern-zeichnung .flaeche, .lr-abflug-nacht .lern-zeichnung .streifen.voll, .lr-nacht .lern-zeichnung .flaeche, .lr-nacht .lern-zeichnung .streifen.voll { fill: #8A6A00; stroke: #FFD23F; }
+.lern-zeichnung .streifen.voll { stroke: var(--lr-text, #111); stroke-width: 2; }
+/* V10: Auswahl nach dem Prüfen – richtig grün mit ✓, gewählte falsche rot mit ✗ */
+.lern-option.ist-richtig, .lr .lern-option.ist-richtig { border: 3px solid #0B7A4B; }
+.lern-option.ist-falsch, .lr .lern-option.ist-falsch { border: 3px solid #C0392B; }
+.lr-abflug-nacht .lern-option.ist-richtig { border-color: #45E0A0; } .lr-abflug-nacht .lern-option.ist-falsch { border-color: #FF7A66; }
+.lern-option-zeichen { margin-left: auto; font-weight: 800; font-size: 20px; line-height: 1; flex: none; }
+.lern-option.ist-richtig .lern-option-zeichen { color: #0B7A4B; } .lern-option.ist-falsch .lern-option-zeichen { color: #C0392B; }
+.lr-abflug-nacht .lern-option.ist-richtig .lern-option-zeichen { color: #45E0A0; } .lr-abflug-nacht .lern-option.ist-falsch .lern-option-zeichen { color: #FF7A66; }

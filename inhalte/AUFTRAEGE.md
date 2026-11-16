@@ -973,17 +973,27 @@ inhalte/postfach/antworten.md die Einträge vom 16.11. Nur lesen, nicht mergen (
 - origin/pruefung-eltern:inhalte/pruefung/eltern/umsetzung.md, bericht.md, info-seite.md (E-2 bis E-4)
 
 Reihenfolge – nach jedem Schritt Tests grün, Version erhöhen, Commit + Push, Meldung in inhalte/postfach/bau-phase2.md:
-Schritt A (klein, zuerst): Befunde N1–N4 aus der Nachprüfung.
-  N1 Bildergeschichte: ein Schrittbild nur zeigen, wenn es sich gegenüber dem vorigen Schritt ändert; N2 „Kurz gesagt“ in der Übersicht nicht abschneiden;
-  N3 Kurs-Grafik ohne loses Komma; N4 Startknopf „Erst 1 Wiederholung ›“, danach „Weiter nach <Ort> ›“. N5 (Fehler-Detektiv): den Detektiv-Kasten nur zeigen, wenn kein Fehlermuster
-  erkannt wurde und der Flug in Klasse 5/6 liegt.
+Schritt A (zuerst): Befunde N1–N8 aus der Nachprüfung (NACHPRUEFUNG-2026-11-16.md, Bilder unter inhalte/pruefung/nach/bilder/ im Zweig pruefung-kinderansicht).
+  N1 Bildergeschichte: Ein Schrittbild nur zeigen, wenn es sich gegenüber dem zuletzt gezeigten Bild (auch dem Einstiegsbild) ändert, sonst nur den Text. Was in einem Schritt neu ins
+     Bild kommt, in der Akzentfarbe und kräftig zeichnen (Punkte, Bögen, Steigungsdreieck mindestens 2 Einheiten breit). Ursache: lernErklaerung zeichnet den Bildzustand bei jedem Schritt;
+     betroffen sind 413 von 443 Etappen. Ziel: keine zwei gleichen Bilder hintereinander; Etappe „Was bedeutet eine negative Zahl?“ auf dem Handy deutlich unter 3 000 px.
+  N8 Bildergeschichte auf Tablet und Rechner: je Schritt Bild links und Text rechts daneben (oder Bild links mitlaufend, Schritte rechts). Heute stehen Nummer, Bild und Text auseinander.
+  N2 Übersicht der Etappen: „Kurz gesagt“ ganz zeigen (höchstens zwei Zeilen, kein „…“).
+  N3 Kurs-Grafik: Komma nur zeigen, wenn eine der beiden Zahlen Nachkommastellen hat (heute „2 4 ,“ bei 24 %).
+  N4 Startknopf auf der Abflugtafel: „Erst 1 Wiederholung ›“ statt „Erst wiederholen · ROM ›“; nach der Wiederholung „Weiter nach Rom ›“.
+  N5 Fehler-Detektiv: bis zu den Fehlbildern (R4) nur zeigen, wenn kein Fehlermuster erkannt wurde.
+  N6 Test-Seiten: im Kopf „Ort · Flugname“ wie im Erklären-Reiter statt des Ortstitels (ctx.titel in viewLernEinheit nimmt ort_titel).
+  N7 Testergebnis: Knöpfe im Abflug-Stil statt der ungestalteten Links „Zum Flug“/„Zur Reise“; bei „noch üben“ ein Hauptknopf „Erst üben: <Etappe> ›“ und danach „Verbessern ›“;
+     beim Zahlenstrahl die richtige Markierung grün einzeichnen.
+  Nach Schritt A eine eigene Meldung im Postfach („Schritt A fertig“), damit die Nachprüfung laufen kann.
 Schritt B (Phase 2, Kinder): K2 – Mein Weg mit den Reitern Stand · Kontinente · Karte; Weltkarte aus dem Menü in „Mein Weg“ (Menü: Abflugtafel · Mein Weg · Merkheft · Reisepass);
   Karte nur mit Orten der eigenen Klasse, Antarktis als Polarkarte von oben; Merkheft nur Geschafftes, gegliedert Kontinent → Flug → Etappe, Suche oben.
   Dazu: Die Flüge innerhalb eines Ortes nach dem Feld „reihenfolge“ der Übersicht ordnen, sobald es geliefert wird (sonst wie bisher).
 Schritt C (Phase 2, Eltern): E-2 – Startseite je Kind ein Bereich; Flugplan in zwei Spalten mit Ziehen (Maus und Finger) und ↑ ↓; Flüge innerhalb eines Ortes abwählbar.
   E-3 – ein Knopf „Ändern lassen“ an Erklärung, Etappe, Bordkarte, Flug und Plan; „Meine Aufträge“ mit Status und Antwort (ersetzt Rückmeldungen, Anmerkung, „Bauen lassen“).
 Schritt D (Phase 3): K3 – Mini-Linien GYM · RS · IB auf der Abflugtafel, „Stand“ mit 3 Ebenen, Feld stufen je Kind. K4 – Eltern-Ansicht mit 3 Ebenen und Einstiegs-Check
-  (Hinweis „Orientierung, keine Einstufung durch eine Schule“). E-4 – neuer Plan aus Lehrplan-Vorlage (Schulart, Klasse, Stufen).
+  (Hinweis „Orientierung, keine Einstufung durch eine Schule“). In K4 je Etappe anzeigen, wie viele Bordkarten bis „sitzt“ gebraucht wurden
+  (damit sichtbar wird, ob die Regel „6 Punkte und eine schwere Bordkarte“ für Klasse 5 zu lang ist; fehlt dafür ein Feld, als Migration vorschlagen). E-4 – neuer Plan aus Lehrplan-Vorlage (Schulart, Klasse, Stufen).
 Jeder Schritt richtet sich nach den Prüfpunkten („fertig, wenn …“) in den umsetzung.md-Dateien.
 
 Datenbank: Du führst nichts aus. Für abwählbare Flüge (E-2), neue Auftragsarten (E-3) und das Feld stufen (K3/E-4) schreibst du je eine Migration als Datei unter supabase/migrations/

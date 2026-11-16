@@ -43,21 +43,48 @@
    {
     "lernziel": "werte",
     "titel": "Funktionswerte von a · xⁿ",
-    "regel": "Bei f(x) = a · xⁿ zuerst ⟦potenzieren⟧, dann mit a multiplizieren. Negative x-Werte in ⟦Klammern⟧ einsetzen: Gerade Potenz → positiv, ungerade → negativ.",
+    "regel": "So berechnest du f(x) = a · xⁿ: Zuerst ⟦potenzieren⟧, dann mit a malnehmen. Negative Zahlen in ⟦Klammern⟧ einsetzen. Bei gerader Hochzahl wird das Ergebnis der Potenz positiv, bei ungerader bleibt es negativ.",
     "schritte": [
-     "f(x) = −2x³, gesucht f(−3): (−3)³ = −27.",
-     "f(−3) = −2 · (−27) = ⟦54⟧."
+     "Die Maschine heißt f(x) = −2x³. Eingabe: x = −3.",
+     "Zuerst die Potenz, mit Klammer: (−3)³ = (−3) · (−3) · (−3) = −27.",
+     "Dann mit a = −2 malnehmen: −2 · (−27).",
+     "Minus mal Minus ergibt Plus: f(−3) = ⟦54⟧."
     ],
     "probe": "Vorzeichen: − mal − ergibt + ✓",
-    "fehler": "Erst −2 · (−3) = 6 und dann 6³ = 216 zu rechnen ist falsch: ⟦Potenz vor Punkt⟧. Richtig: (−3)³ = −27, dann −2 · (−27) = 54."
+    "fehler": "Erst −2 · (−3) = 6 und dann 6³ = 216 zu rechnen ist falsch: ⟦Potenz vor Punkt⟧. Die Maschine potenziert zuerst: (−3)³ = −27, dann −2 · (−27) = 54.",
+    "einstieg": "Eine Rechenmaschine bekommt eine Zahl, nimmt sie dreimal mit sich selbst mal und verdoppelt das Ergebnis mit umgekehrtem Vorzeichen. Was kommt bei −3 heraus? Die Reihenfolge der Rechenschritte entscheidet. Eine solche Maschine der Form a · xⁿ heißt ⟦Potenzfunktion⟧.",
+    "woerter": [
+     [
+      "Potenzfunktion",
+      "eine Funktion der Form f(x) = a · xⁿ"
+     ],
+     [
+      "xⁿ",
+      "x n-mal mit sich selbst malgenommen"
+     ],
+     [
+      "a",
+      "die Zahl vor der Potenz, mit der am Ende malgenommen wird"
+     ],
+     [
+      "f(−3)",
+      "das Ergebnis der Maschine bei der Eingabe −3"
+     ],
+     [
+      "Potenz vor Punkt",
+      "erst hoch n rechnen, dann malnehmen"
+     ]
+    ]
    },
    {
     "lernziel": "symmetrie",
     "titel": "Symmetrie erkennen",
-    "regel": "n gerade: Graph ⟦achsensymmetrisch zur y-Achse⟧, f(−x) = f(x). n ungerade: ⟦punktsymmetrisch zum Ursprung⟧, f(−x) = −f(x).",
+    "regel": "So erkennst du die ⟦Symmetrie⟧ von y = a · xⁿ: Ist ⟦n gerade⟧, ist der Graph ⟦achsensymmetrisch zur y-Achse⟧, f(−x) = f(x). Ist ⟦n ungerade⟧, ist er ⟦punktsymmetrisch zum Ursprung⟧, f(−x) = −f(x).",
     "schritte": [
-     "f(x) = 0,5x⁴: n = 4 gerade, also achsensymmetrisch.",
-     "Aus f(2) = 8 folgt ohne Rechnen ⟦f(−2) = 8⟧."
+     "Die Funktion heißt f(x) = 0,5x⁴. Die Hochzahl 4 ist gerade.",
+     "Bei gerader Hochzahl ist (−x)⁴ = x⁴. Also ist f(−x) = f(x): Der Graph ist achsensymmetrisch zur y-Achse.",
+     "Bekannt ist f(2) = 0,5 · 16 = 8.",
+     "Der Spiegelpunkt hat denselben y-Wert, also ohne Rechnen ⟦f(−2) = 8⟧."
     ],
     "probe": "0,5 · (−2)⁴ = 0,5 · 16 = 8 ✓",
     "bild": {
@@ -75,31 +102,52 @@
        "art": "potenz",
        "a": 0.5,
        "n": 4,
-       "name": "f"
+       "name": "f(x) = 0,5x⁴"
       }
      ],
      "punkte": [
       {
        "x": 2,
        "y": 8,
-       "name": "(2 | 8)"
+       "name": "f(2) = 8"
       },
       {
        "x": -2,
        "y": 8,
-       "name": "(−2 | 8)"
+       "name": "Spiegelpunkt f(−2) = 8"
       }
      ]
     },
-    "fehler": "„y = x³ ist achsensymmetrisch zur y-Achse“ ist falsch: (−2)³ = −8, aber 2³ = 8. Bei ⟦ungeradem⟧ n ist der Graph punktsymmetrisch."
+    "fehler": "„y = x³ ist achsensymmetrisch zur y-Achse“ ist falsch: (−2)³ = −8, aber 2³ = 8 – die Spiegelpunkte haben verschiedene Höhen. Bei ⟦ungeradem⟧ n ist der Graph punktsymmetrisch.",
+    "einstieg": "Die Maschine f(x) = 0,5x⁴ liefert für 2 und für −2 dasselbe Ergebnis, denn vier Minuszeichen heben sich auf. Zeichnet man ihren Graphen, sind die linke und die rechte Hälfte Spiegelbilder – wie zwei Schmetterlingsflügel. Diese Eigenschaft heißt ⟦Symmetrie⟧.",
+    "woerter": [
+     [
+      "achsensymmetrisch zur y-Achse",
+      "die linke Hälfte ist das Spiegelbild der rechten; f(−x) = f(x)"
+     ],
+     [
+      "punktsymmetrisch zum Ursprung",
+      "nach einer halben Drehung um (0 | 0) liegt der Graph wieder auf sich; f(−x) = −f(x)"
+     ],
+     [
+      "Ursprung",
+      "der Punkt (0 | 0)"
+     ],
+     [
+      "f(−x)",
+      "das Ergebnis bei der Gegenzahl von x"
+     ]
+    ]
    },
    {
     "lernziel": "verlauf",
     "titel": "Verlauf und gemeinsame Punkte",
-    "regel": "y = xⁿ verläuft für ⟦n gerade⟧ von links oben nach rechts oben und durch (−1 | 1), (0 | 0), (1 | 1); für ⟦n ungerade⟧ von links unten nach rechts oben und durch (−1 | −1), (0 | 0), (1 | 1). ⟦a < 0⟧ spiegelt an der x-Achse.",
+    "regel": "So beschreibst du den Verlauf von y = xⁿ: Bei ⟦n gerade⟧ von links oben nach rechts oben, durch (−1 | 1), (0 | 0), (1 | 1). Bei ⟦n ungerade⟧ von links unten nach rechts oben, durch (−1 | −1), (0 | 0), (1 | 1). Ist ⟦a < 0⟧, wird an der x-Achse gespiegelt.",
     "schritte": [
-     "y = −x⁵: n = 5 ungerade, also y = x⁵ von links unten nach rechts oben.",
-     "a = −1 spiegelt an der x-Achse: ⟦von links oben nach rechts unten⟧."
+     "Die Funktion heißt y = −x⁵. Die Hochzahl 5 ist ungerade.",
+     "Ohne das Minus verläuft y = x⁵ von links unten nach rechts oben.",
+     "Das Minus vor x⁵ (a = −1) spiegelt den Graphen an der x-Achse: Oben und unten tauschen.",
+     "Also verläuft y = −x⁵ ⟦von links oben nach rechts unten⟧."
     ],
     "probe": "x = 2: −32 (unten), x = −2: 32 (oben) ✓",
     "bild": {
@@ -117,60 +165,98 @@
        "art": "potenz",
        "a": 1,
        "n": 2,
-       "name": "x²"
+       "name": "y = x²"
       },
       {
        "art": "potenz",
        "a": 1,
        "n": 3,
-       "name": "x³"
+       "name": "y = x³"
       },
       {
        "art": "potenz",
        "a": 1,
        "n": 4,
-       "name": "x⁴"
+       "name": "y = x⁴"
       }
      ],
      "punkte": [
       {
        "x": -1,
-       "y": 1
+       "y": 1,
+       "name": "(−1 | 1) bei geradem n"
       },
       {
        "x": 1,
-       "y": 1
+       "y": 1,
+       "name": "(1 | 1) bei allen"
       },
       {
        "x": -1,
-       "y": -1
+       "y": -1,
+       "name": "(−1 | −1) bei ungeradem n"
       },
       {
        "x": 0,
-       "y": 0
+       "y": 0,
+       "name": "(0 | 0) bei allen"
       }
      ]
     },
-    "fehler": "„Alle Potenzfunktionen y = xⁿ gehen durch (−1 | 1)“ ist falsch: Für ungerades n ist (−1)ⁿ = ⟦−1⟧."
+    "fehler": "„Alle Potenzfunktionen y = xⁿ gehen durch (−1 | 1)“ ist falsch: Für ungerades n bleibt ein Minus übrig, (−1)ⁿ = ⟦−1⟧. Im Bild geht y = x³ durch (−1 | −1).",
+    "einstieg": "Wer den Graphen von links nach rechts mit dem Finger nachfährt, sieht: Manche Potenzfunktionen kommen von oben und gehen nach oben, andere kommen von unten und gehen nach oben. Außerdem gehen alle durch bestimmte feste Punkte. Das nennt man den ⟦Verlauf⟧ des Graphen.",
+    "woerter": [
+     [
+      "Verlauf",
+      "woher der Graph links kommt und wohin er rechts geht"
+     ],
+     [
+      "gemeinsame Punkte",
+      "Punkte, durch die alle Graphen einer Gruppe gehen"
+     ],
+     [
+      "an der x-Achse spiegeln",
+      "oben und unten vertauschen; passiert bei a < 0"
+     ]
+    ]
    },
    {
     "lernziel": "parameter",
     "titel": "a oder n aus einem Punkt bestimmen",
-    "regel": "Liegt P(u | v) auf y = a · xⁿ, gilt ⟦v = a · uⁿ⟧. Ist n bekannt, teilst du durch uⁿ. Ist a = 1, suchst du die ⟦Hochzahl⟧ mit uⁿ = v.",
+    "regel": "So bestimmst du einen Parameter: Liegt P(u | v) auf y = a · xⁿ, gilt ⟦v = a · uⁿ⟧. Ist n bekannt, teilst du v durch uⁿ und erhältst a. Ist a = 1, suchst du die ⟦Hochzahl⟧ n mit uⁿ = v.",
     "schritte": [
-     "y = a · x³ geht durch P(2 | −24): −24 = a · 8.",
-     "a = −24 : 8 = ⟦−3⟧, also y = −3x³."
+     "Die Funktion heißt y = a · x³, der Punkt P(2 | −24) liegt auf dem Graphen.",
+     "Den Punkt einsetzen: −24 = a · 2³.",
+     "Die Potenz ausrechnen: 2³ = 2 · 2 · 2 = 8, also −24 = a · 8.",
+     "Durch 8 teilen: a = −24 : 8 = ⟦−3⟧. Die Funktion heißt y = −3x³."
     ],
     "probe": "−3 · 2³ = −24 ✓",
-    "fehler": "−24 = a · 2³ ⇒ a = −24 : 6 ist falsch: 2³ = 2 · 2 · 2 = ⟦8⟧, nicht 2 · 3."
+    "fehler": "−24 = a · 2³ ⇒ a = −24 : 6 ist falsch: 2³ = 2 · 2 · 2 = ⟦8⟧, nicht 2 · 3.",
+    "einstieg": "Eine Maschine der Form a · x³ ist bekannt bis auf die Zahl a. Man weiß nur: Gibt man 2 ein, kommt −24 heraus. Daraus lässt sich a zurückrechnen. Die einstellbare Zahl a heißt ⟦Parameter⟧.",
+    "woerter": [
+     [
+      "Parameter",
+      "eine Zahl in der Funktion, die man bestimmen oder einstellen kann"
+     ],
+     [
+      "P(2 | −24)",
+      "Eingabe 2, Ergebnis −24"
+     ],
+     [
+      "uⁿ",
+      "die Eingabe u hoch n"
+     ]
+    ]
    },
    {
     "lernziel": "negativ",
     "titel": "Potenzfunktionen mit x⁻ⁿ",
-    "regel": "⟦y = x⁻ⁿ = 1/xⁿ⟧ ist für ⟦x ≠ 0⟧ definiert. Die Achsen sind Asymptoten. n gerade: achsensymmetrisch, n ungerade: punktsymmetrisch.",
+    "regel": "So gehst du mit ⟦y = x⁻ⁿ = 1/xⁿ⟧ um: Rechne den Kehrwert von xⁿ aus. Die Funktion gibt es nur für ⟦x ≠ 0⟧. Die beiden Achsen sind Asymptoten. Bei geradem n ist der Graph achsensymmetrisch, bei ungeradem punktsymmetrisch.",
     "schritte": [
-     "f(x) = x⁻², gesucht f(4): f(4) = 1/4².",
-     "f(4) = 1/16 = ⟦0,0625⟧."
+     "Die Funktion heißt f(x) = x⁻². Gesucht ist f(4).",
+     "Der negative Exponent bedeutet Kehrwert: 4⁻² = 1 / 4².",
+     "4² = 16, also f(4) = 1/16.",
+     "Als Dezimalzahl: f(4) = ⟦0,0625⟧."
     ],
     "probe": "0,0625 · 16 = 1 ✓",
     "bild": {
@@ -188,22 +274,41 @@
        "art": "potenz",
        "a": 1,
        "n": -2,
-       "name": "x⁻²"
+       "name": "y = x⁻² (gerade)"
       },
       {
        "art": "potenz",
        "a": 1,
        "n": -1,
-       "name": "x⁻¹"
+       "name": "y = x⁻¹ (ungerade)"
       }
      ]
     },
-    "fehler": "f(4) = 4⁻² = −16 ist falsch: Ein negativer Exponent bedeutet ⟦Kehrwert⟧, nicht negatives Ergebnis: 4⁻² = 1/16."
+    "fehler": "f(4) = 4⁻² = −16 ist falsch: Ein negativer Exponent bedeutet ⟦Kehrwert⟧, nicht negatives Ergebnis: 4⁻² = 1/16 – wenig, aber mehr als null.",
+    "einstieg": "Teilen sich 1 kg Gummibärchen auf immer mehr Kinder auf, bekommt jedes immer weniger, aber nie ganz null. Bei null Kindern gibt es gar keine Rechnung. Solche Maschinen sehen aus wie x hoch einer negativen Zahl. Sie heißen ⟦Potenzfunktionen mit negativem Exponenten⟧.",
+    "woerter": [
+     [
+      "x⁻ⁿ",
+      "1 geteilt durch xⁿ, also der Kehrwert"
+     ],
+     [
+      "Kehrwert",
+      "1 geteilt durch die Zahl, z. B. von 16 ist es 1/16"
+     ],
+     [
+      "x ≠ 0",
+      "x darf nicht 0 sein, denn durch 0 teilt man nicht"
+     ],
+     [
+      "Asymptote",
+      "eine Gerade, der sich der Graph immer weiter nähert, ohne sie zu erreichen"
+     ]
+    ]
    },
    {
     "lernziel": "wurzelfunktion",
     "titel": "Wurzelfunktionen und Umkehrung",
-    "regel": "y = x^(1/2) = √x und y = x^(1/3) = ∛x sind für ⟦x ≥ 0⟧ definiert. Sie sind die ⟦Umkehrfunktionen⟧ von y = x² bzw. y = x³ (für x ≥ 0): Aus y wird x zurückgerechnet. Im Bild: Der Graph von √x ist der Graph von x², ⟦gespiegelt an der Geraden y = x⟧ – x und y tauschen die Rollen.",
+    "regel": "So nutzt du Wurzelfunktionen: y = √x und y = ∛x sind die ⟦Umkehrfunktionen⟧ von y = x² und y = x³ (für x ≥ 0) – sie rechnen von y zurück auf x. Sie gelten hier für ⟦x ≥ 0⟧. Im Bild ist der Graph der Umkehrfunktion das ⟦Spiegelbild an der Geraden y = x⟧.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -219,7 +324,7 @@
        "art": "potenz",
        "a": 1,
        "n": 2,
-       "name": "x²",
+       "name": "y = x² (vorwärts)",
        "bereich": [
         0,
         2
@@ -227,7 +332,7 @@
       },
       {
        "art": "wurzel",
-       "name": "√x"
+       "name": "y = √x (rückwärts)"
       }
      ],
      "strecken": [
@@ -243,21 +348,46 @@
       {
        "x": 2,
        "y": 4,
-       "name": "(2 | 4)"
+       "name": "2 → 4"
       },
       {
        "x": 4,
        "y": 2,
-       "name": "(4 | 2)"
+       "name": "4 → 2"
       }
      ]
     },
     "schritte": [
-     "f(x) = x³ (x ≥ 0). Für welches x ist f(x) = 64?",
-     "Umkehrung: x = ∛64 = ⟦4⟧."
+     "Die Funktion heißt f(x) = x³ für x ≥ 0. Gefragt: Für welches x ist f(x) = 64?",
+     "Rückwärts gedacht: Gesucht ist die Zahl, die hoch 3 genau 64 ergibt.",
+     "Das macht die Umkehrfunktion: x = ∛64.",
+     "Wegen 4 · 4 · 4 = 64 ist x = ⟦4⟧."
     ],
     "probe": "4³ = 64 ✓",
-    "fehler": "„√x ist für alle x definiert“ ist falsch: √(−4) gibt es nicht. Die Wurzelfunktion hat die ⟦Definitionsmenge x ≥ 0⟧."
+    "fehler": "„√x ist für alle x definiert“ ist falsch: √(−4) gibt es nicht, denn keine Zahl mal sich selbst ergibt −4. Die Wurzelfunktion hat die ⟦Definitionsmenge x ≥ 0⟧.",
+    "einstieg": "Eine Maschine rechnet hoch 3: Aus 4 macht sie 64. Jetzt liegt die 64 vor, und man will wissen, welche Zahl hineingesteckt wurde. Dafür braucht man eine Maschine, die rückwärts arbeitet. Sie heißt ⟦Umkehrfunktion⟧ – hier die Wurzelfunktion.",
+    "woerter": [
+     [
+      "Umkehrfunktion",
+      "die Funktion, die eine andere rückgängig macht"
+     ],
+     [
+      "√x = x^(1/2)",
+      "die Quadratwurzel als Funktion"
+     ],
+     [
+      "∛x = x^(1/3)",
+      "die dritte Wurzel als Funktion"
+     ],
+     [
+      "Definitionsmenge",
+      "alle x, die man einsetzen darf; hier x ≥ 0"
+     ],
+     [
+      "Gerade y = x",
+      "die schräge Linie, an der Funktion und Umkehrfunktion Spiegelbilder sind"
+     ]
+    ]
    }
   ],
   "teilfaehigkeiten": [

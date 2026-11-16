@@ -813,6 +813,27 @@ def schwer():
     return N
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('gleichungen.linear', 13_7_3)
+# a) ein bzw. zwei Umformungen wie Stufe 2
+BF.stufe('waage', 'Löse −11 − x = 5.', 2)
+BF.stufe('waage', 'Löse 2,5x + 4 = 29.', 2)
+# c) Ablenker „Es kommt 0 = c heraus“ ist unverständlich (c nirgends erklärt) → Aufgabe mit klarem Ablenker
+BF.ersetze('probe', 'Jemand multipliziert 6x + 6 = 21 auf beiden Seiten mit 0 und erhält 0 = 0. Er folgert: „Jede Zahl ist eine Lösung.“ Stimmt das?', BF.A(
+    'Jemand multipliziert die Gleichung 6x + 6 = 21 auf beiden Seiten mit 0 und erhält 0 = 0. Er folgert: „Jede Zahl ist eine Lösung.“ Hat er recht?',
+    'Nein: Mal 0 ist keine Äquivalenzumformung.',
+    ['Nein: Es kommt 6 = 21 heraus.', 'Ja: 0 = 0 ist immer wahr.', 'Ja: Auf beiden Seiten dasselbe ist erlaubt.'],
+    'Mit 0 multiplizieren macht aus jeder Gleichung 0 = 0 – dabei geht die Information verloren. Darum ist nur Multiplizieren mit Zahlen ≠ 0 erlaubt. Die Gleichung hat genau eine Lösung: x = 2,5.',
+    'Welche Zahl ist beim Multiplizieren und Dividieren ausgeschlossen – und warum?'))
+# a) prüft nur das Deuten von „−10 = −10“
+BF.stufe('probe', 'Die Probe für x = −4 bei x − 6 = −5x − 30 wird so geschrieben: „x − 6 = −5x − 30 | x = −4 → −10 = −10 ✓“. Welche Aussage stimmt?', 2)
+# a) Gleichung mit zwei Bezügen aufstellen → Stufe 2
+BF.stufe('sach', 'Eine Mutter ist 4 Jahre älter als das 3-Fache des Alters ihres Sohnes. Zusammen sind sie 44 Jahre alt. Wie alt ist der Sohn?', 2)
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Umformen', ['waage', 'beide_seiten', 'klammern']), ('Prüfen und Sonderfälle', ['probe', 'sonderfaelle']), ('Anwenden', ['sach'])],
@@ -824,3 +845,4 @@ if __name__ == '__main__':
                 'Bruchgleichungen (x im Nenner) und Ungleichungen gehören zu gleichungen.bruch bzw. gleichungen.ungleichungen (Kl. 8) und sind weggelassen.'],
          teil=TEIL)
     anhaengen(META['thema_schluessel'], schwer())
+    befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

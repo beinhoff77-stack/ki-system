@@ -3,6 +3,11 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:42 – STATUS
+gleichungen.linear fertig: umgestuft 4 / berichtigt 0 / ersetzt 1 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Jemand multipliziert 6x + 6 = 21 auf beiden Seiten mit 0 und erhält 0 = 0. Er folgert: „Jede Zahl ist eine Lösung.“ Stimmt das?“
+
+## 2026-11-16 05:42 – STATUS
 terme.aufstellen fertig: umgestuft 5 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 2. Prüfskript OK, Nachweis OK.
 - nicht umgesetzt:
   - sachsituation S3 „Kletterhalle … Bei wie vielen Besuchen kosten beide gleich viel?“ – Lösung 8 richtig und durch Probieren mit dem Term lösbar; passt als Stufe 3.

@@ -3,6 +3,14 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:52 – STATUS
+gleichungen.exponential fertig: umgestuft 8 / berichtigt 0 / ersetzt 4 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Ein Kapital von 5 000 € wird mit 6 % pro Jahr verzinst (Zinseszins). Wie groß ist es nach 5 Jahren? Runde auf Cent.“
+  - „Ein Kapital von 2 000 € wird mit 2 % pro Jahr verzinst (Zinseszins). Wie groß ist es nach 2 Jahren? Runde auf Cent.“
+  - „Ein Kapital von 1 000 € wird mit 6 % pro Jahr verzinst (Zinseszins). Wie groß ist es nach 2 Jahren? Runde auf Cent.“
+  - „Ein Kapital von 2 000 € wird mit 2 % pro Jahr verzinst (Zinseszins). Wie groß ist es nach 3 Jahren? Runde auf Cent.“
+
+## 2026-11-16 05:52 – STATUS
 stochastik.verknuepft fertig: umgestuft 6 / berichtigt 0 / ersetzt 1 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):
   - „P(A) = 0,6, P(B) = 0,5, P(A ∩ B) = 0,07. Jemand rechnet P(A ∪ B) = 1,1. Was stimmt?“

@@ -2,6 +2,20 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 05:38 – STATUS
+geometrie.ortslinien fertig: umgestuft 0 / berichtigt 0 / ersetzt 8 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Zwei Sender A und B stehen 7 km auseinander. Ein Handy hat genau 8 km Abstand zu A und genau 4 km Abstand zu B. An wie vielen Stellen kann es sein?“
+  - „Zwei Sender A und B stehen 10 km auseinander. Ein Handy hat genau 5 km Abstand zu A und genau 6 km Abstand zu B. An wie vielen Stellen kann es sein?“
+  - „g ist die waagrechte Gerade y = −1. Wie viele Punkte mit ganzzahligen Koordinaten auf der senkrechten Linie x = 2 haben von g höchstens den Abstand 3?“
+  - „Kreis um A mit r = 2 cm, Kreis um B mit r = 9 cm, [AB] = 6 cm. Wie viele Schnittpunkte haben die Kreise?“
+  - „Ein großer Kreis um A hat r = 9 cm, ein kleiner Kreis um B hat r = 4 cm. B liegt im großen Kreis, [AB] = 5 cm. Wie viele gemeinsame Punkte haben die Kreise?“
+  - „Kreis um A mit r = 4 cm, Kreis um B mit r = 8 cm, [AB] = 4 cm. Wie viele Schnittpunkte haben die Kreise?“
+  - „Ein großer Kreis um A hat r = 8 cm, ein kleiner Kreis um B hat r = 3 cm. B liegt im großen Kreis, [AB] = 5 cm. Wie viele gemeinsame Punkte haben die Kreise?“
+  - „Jemand sagt: „Kreise mit r = 3 cm und r = 5 cm, deren Mittelpunkte 1 cm auseinander liegen, schneiden sich, weil 1 cm < 3 cm + 5 cm.“ Stimmt das?“
+- für Sebastian:
+  - geometrie.ortslinien/zwei_kreise: Die Lernkarte erklärt nur sich schneidende/berührende Kreise; „Kreis im Kreis“ (r₁ − r₂) ist aus den älteren Übungen genommen; die Aufgabe „Welcher Abstand [AB] ist möglich?“ (Runde 10) nutzt die Grenze r₁ − r₂ noch (im Lösungsweg erklärt). Soll die Lernkarte das ergänzen? Außerdem: lehrplan_gym leer, Ortslinien stehen im LehrplanPLUS Gym erst in Jgst. 7 (laut D2 inzwischen Kairo/Kl. 7). Karten-Text nicht geändert.
+
 ## 2026-11-16 05:37 – STATUS
 geometrie.winkel fertig: umgestuft 1 / berichtigt 0 / ersetzt 3 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):

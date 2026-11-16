@@ -2145,14 +2145,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "g ist die waagrechte Gerade y = −1. Wie viele Punkte mit ganzzahligen Koordinaten auf der senkrechten Linie x = 2 haben von g höchstens den Abstand 3?"
+    "text": "g ist die waagrechte Gerade y = −1. Wie viele Punkte mit ganzzahligen Koordinaten auf der senkrechten Linie x = 2 haben von g mehr als 1, aber höchstens 3 Abstand?"
    },
    "o": {
-    "wert": 7
+    "wert": 4
    },
-   "c": "2 * 3 + 1",
-   "w": "y von −4 bis 2: Das sind 7 Werte.",
-   "h": "Zähle alle y-Werte von c − d bis c + d."
+   "c": "2 * 2",
+   "w": "Abstand 2 oder 3: oberhalb y = 1 und y = 2, unterhalb y = −3 und y = −4. Das sind 4 Punkte.",
+   "h": "Zähle oberhalb und unterhalb von g getrennt; der Abstand 1 gehört nicht dazu."
   },
   {
    "l": "parallelen",
@@ -3032,20 +3032,20 @@
    "p": "uebung",
    "s": 3,
    "y": "auswahl",
+   "f": {
+    "text": "Kreis um A mit r = 2 cm, Kreis um B mit r = 3 cm, [AB] = 7 cm. Wie viele Schnittpunkte haben die Kreise?"
+   },
    "a": [
-    "keinen",
-    "unendlich viele",
     "einen",
-    "zwei"
+    "zwei",
+    "unendlich viele",
+    "keinen"
    ],
    "o": {
-    "index": 0
+    "index": 3
    },
-   "f": {
-    "text": "Kreis um A mit r = 2 cm, Kreis um B mit r = 9 cm, [AB] = 6 cm. Wie viele Schnittpunkte haben die Kreise?"
-   },
-   "w": "Der kleine Kreis liegt im großen: 9 − 2 = 7 cm. [AB] ist kleiner: Er liegt ganz innen, kein Schnittpunkt – obwohl [AB] kleiner als 11 cm ist.",
-   "h": "Liegt ein Kreis im anderen? Vergleiche [AB] auch mit dem Unterschied der Radien."
+   "w": "2 + 3 = 5 cm ist weniger als [AB] = 7 cm: Die Kreise erreichen sich nicht, kein Schnittpunkt.",
+   "h": "Vergleiche [AB] mit der Summe der Radien."
   },
   {
    "l": "zwei_kreise",
@@ -3054,14 +3054,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein großer Kreis um A hat r = 9 cm, ein kleiner Kreis um B hat r = 4 cm. B liegt im großen Kreis, [AB] = 5 cm. Wie viele gemeinsame Punkte haben die Kreise?"
+    "text": "Ein Kreis um A hat r = 6 cm, ein Kreis um B hat r = 4 cm, [AB] = 10 cm. Wie viele gemeinsame Punkte haben die Kreise?"
    },
    "o": {
     "wert": 1
    },
    "c": "1",
-   "w": "9 − 4 = 5 = [AB]: Der kleine Kreis berührt den großen von innen – genau 1 Punkt.",
-   "h": "Wie weit reicht der kleine Kreis von A aus höchstens? [AB] + r₂."
+   "w": "6 + 4 = 10 = [AB]: Die Kreise berühren sich auf der Strecke [AB] – genau 1 Punkt.",
+   "h": "Vergleiche [AB] mit der Summe der Radien."
   },
   {
    "l": "zwei_kreise",
@@ -3069,20 +3069,20 @@
    "p": "uebung",
    "s": 3,
    "y": "auswahl",
+   "f": {
+    "text": "Kreis um A mit r = 5 cm, Kreis um B mit r = 4 cm, [AB] = 7 cm. Wie viele Schnittpunkte haben die Kreise?"
+   },
    "a": [
-    "unendlich viele",
     "einen",
-    "keinen",
-    "zwei"
+    "unendlich viele",
+    "zwei",
+    "keinen"
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "f": {
-    "text": "Kreis um A mit r = 4 cm, Kreis um B mit r = 8 cm, [AB] = 4 cm. Wie viele Schnittpunkte haben die Kreise?"
-   },
-   "w": "Der kleine Kreis liegt im großen: 8 − 4 = 4 cm. [AB] ist genau so groß: Er berührt den großen Kreis von innen, ein Punkt.",
-   "h": "Liegt ein Kreis im anderen? Vergleiche [AB] auch mit dem Unterschied der Radien."
+   "w": "5 + 4 = 9 cm ist mehr als [AB] = 7 cm: Die Kreise überlappen und schneiden sich oberhalb und unterhalb von AB – zwei Schnittpunkte.",
+   "h": "Vergleiche [AB] mit der Summe der Radien."
   },
   {
    "l": "zwei_kreise",
@@ -3091,14 +3091,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein großer Kreis um A hat r = 8 cm, ein kleiner Kreis um B hat r = 3 cm. B liegt im großen Kreis, [AB] = 5 cm. Wie viele gemeinsame Punkte haben die Kreise?"
+    "text": "Ein Kreis um A hat r = 3 cm, ein Kreis um B hat ebenfalls r = 3 cm, [AB] = 7 cm. Wie viele gemeinsame Punkte haben die Kreise?"
    },
    "o": {
-    "wert": 1
+    "wert": 0
    },
-   "c": "1",
-   "w": "8 − 3 = 5 = [AB]: Der kleine Kreis berührt den großen von innen – genau 1 Punkt.",
-   "h": "Wie weit reicht der kleine Kreis von A aus höchstens? [AB] + r₂."
+   "c": "0",
+   "w": "3 + 3 = 6 cm ist weniger als [AB] = 7 cm: Zwischen den Kreisen bleibt eine Lücke von 1 cm, kein gemeinsamer Punkt.",
+   "h": "Vergleiche [AB] mit der Summe der Radien."
   },
   {
    "l": "zwei_kreise",
@@ -5171,13 +5171,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Zwei Sender A und B stehen 7 km auseinander. Ein Handy hat genau 8 km Abstand zu A und genau 4 km Abstand zu B. An wie vielen Stellen kann es sein?"
+    "text": "Zwei Sender A und B stehen 7 km auseinander. Ein Handy hat genau 2 km Abstand zu A und genau 4 km Abstand zu B. An wie vielen Stellen kann es sein?"
    },
    "o": {
-    "wert": 2
+    "wert": 0
    },
-   "c": "2",
-   "w": "Kreise mit 8 km und 4 km um A und B. 8 + 4 = 12 km, Abstand 7 km: 2 Stellen.",
+   "c": "0",
+   "w": "Kreise mit 2 km und 4 km um A und B. 2 + 4 = 6 km ist weniger als der Abstand 7 km: Die Kreise treffen sich nicht, 0 Stellen.",
    "h": "Zeichne zwei Kreise und zähle die gemeinsamen Punkte."
   },
   {
@@ -5187,13 +5187,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Zwei Sender A und B stehen 10 km auseinander. Ein Handy hat genau 5 km Abstand zu A und genau 6 km Abstand zu B. An wie vielen Stellen kann es sein?"
+    "text": "Zwei Sender A und B stehen 10 km auseinander. Ein Handy hat genau 4 km Abstand zu A und genau 6 km Abstand zu B. An wie vielen Stellen kann es sein?"
    },
    "o": {
-    "wert": 2
+    "wert": 1
    },
-   "c": "2",
-   "w": "Kreise mit 5 km und 6 km um A und B. 5 + 6 = 11 km, Abstand 10 km: 2 Stellen.",
+   "c": "1",
+   "w": "Kreise mit 4 km und 6 km um A und B. 4 + 6 = 10 km ist genau der Abstand: Die Kreise berühren sich auf der Strecke [AB], 1 Stelle.",
    "h": "Zeichne zwei Kreise und zähle die gemeinsamen Punkte."
   },
   {
@@ -6289,19 +6289,19 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand sagt: „Kreise mit r = 3 cm und r = 5 cm, deren Mittelpunkte 1 cm auseinander liegen, schneiden sich, weil 1 cm < 3 cm + 5 cm.“ Stimmt das?"
+    "text": "Jemand sagt: „Kreise mit r = 3 cm und r = 5 cm, deren Mittelpunkte 9 cm auseinander liegen, schneiden sich, weil 9 cm > 5 cm.“ Stimmt das?"
    },
    "a": [
-    "Ja, das stimmt.",
     "Ja, in vier Punkten.",
-    "Nein: Der kleine Kreis liegt ganz im großen, weil 1 cm < 5 cm − 3 cm.",
+    "Ja, das stimmt.",
+    "Nein: 3 cm + 5 cm = 8 cm ist weniger als 9 cm, die Kreise treffen sich nicht.",
     "Nein, sie berühren sich in einem Punkt."
    ],
    "o": {
     "index": 2
    },
-   "w": "Der Unterschied der Radien ist 2 cm. Ist der Abstand kleiner als 2 cm, liegt der kleine Kreis innen und trifft den großen nicht.",
-   "h": "Zeichne beide Kreise mit fast gleichem Mittelpunkt."
+   "w": "Entscheidend ist die Summe der Radien: 3 + 5 = 8 cm. Der Abstand 9 cm ist größer, also bleibt 1 cm Lücke – kein gemeinsamer Punkt.",
+   "h": "Zeichne beide Kreise: Wie weit reichen sie zusammen?"
   },
   {
    "l": "verknuepfen",

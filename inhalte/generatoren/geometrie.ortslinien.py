@@ -518,5 +518,46 @@ def _schwer():
 
 ergaenze(DATEI, _schwer(), 1073)
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_anwenden  # noqa: E402
+
+BF = Befunde('geometrie.ortslinien', 13_5_8)
+_hs = 'Zeichne zwei Kreise und zähle die gemeinsamen Punkte.'
+# c) viermal dieselbe Sender-Aufgabe, jedes Mal Antwort 2 → zwei davon mit Antwort 0 bzw. 1
+BF.ersetze('sachsituationen', 'Zwei Sender A und B stehen 7 km auseinander. Ein Handy hat genau 8 km Abstand zu A und genau 4 km Abstand zu B. An wie vielen Stellen kann es sein?', BF.Z(
+    'Zwei Sender A und B stehen 7 km auseinander. Ein Handy hat genau 2 km Abstand zu A und genau 4 km Abstand zu B. An wie vielen Stellen kann es sein?', 0, '0',
+    'Kreise mit 2 km und 4 km um A und B. 2 + 4 = 6 km ist weniger als der Abstand 7 km: Die Kreise treffen sich nicht, 0 Stellen.', _hs))
+BF.ersetze('sachsituationen', 'Zwei Sender A und B stehen 10 km auseinander. Ein Handy hat genau 5 km Abstand zu A und genau 6 km Abstand zu B. An wie vielen Stellen kann es sein?', BF.Z(
+    'Zwei Sender A und B stehen 10 km auseinander. Ein Handy hat genau 4 km Abstand zu A und genau 6 km Abstand zu B. An wie vielen Stellen kann es sein?', 1, '1',
+    'Kreise mit 4 km und 6 km um A und B. 4 + 6 = 10 km ist genau der Abstand: Die Kreise berühren sich auf der Strecke [AB], 1 Stelle.', _hs))
+# c) Beinahe-Dublette (zweimal „höchstens Abstand 3“, Ergebnis 7)
+BF.ersetze('parallelen', 'g ist die waagrechte Gerade y = −1. Wie viele Punkte mit ganzzahligen Koordinaten auf der senkrechten Linie x = 2 haben von g höchstens den Abstand 3?', BF.Z(
+    'g ist die waagrechte Gerade y = −1. Wie viele Punkte mit ganzzahligen Koordinaten auf der senkrechten Linie x = 2 haben von g mehr als 1, aber höchstens 3 Abstand?', 4, '2 * 2',
+    'Abstand 2 oder 3: oberhalb y = 1 und y = 2, unterhalb y = −3 und y = −4. Das sind 4 Punkte.', 'Zähle oberhalb und unterhalb von g getrennt; der Abstand 1 gehört nicht dazu.'))
+# d) Lage „Kreis im Kreis“ wird in der Lernkarte nicht erklärt (nur sich schneidende/berührende Kreise) → Aufgaben zur erklärten Regel
+_hk = 'Vergleiche [AB] mit der Summe der Radien.'
+BF.ersetze('zwei_kreise', 'Kreis um A mit r = 2 cm, Kreis um B mit r = 9 cm, [AB] = 6 cm. Wie viele Schnittpunkte haben die Kreise?', BF.A(
+    'Kreis um A mit r = 2 cm, Kreis um B mit r = 3 cm, [AB] = 7 cm. Wie viele Schnittpunkte haben die Kreise?', 'keinen', ['unendlich viele', 'einen', 'zwei'],
+    '2 + 3 = 5 cm ist weniger als [AB] = 7 cm: Die Kreise erreichen sich nicht, kein Schnittpunkt.', _hk))
+BF.ersetze('zwei_kreise', 'Ein großer Kreis um A hat r = 9 cm, ein kleiner Kreis um B hat r = 4 cm. B liegt im großen Kreis, [AB] = 5 cm. Wie viele gemeinsame Punkte haben die Kreise?', BF.Z(
+    'Ein Kreis um A hat r = 6 cm, ein Kreis um B hat r = 4 cm, [AB] = 10 cm. Wie viele gemeinsame Punkte haben die Kreise?', 1, '1',
+    '6 + 4 = 10 = [AB]: Die Kreise berühren sich auf der Strecke [AB] – genau 1 Punkt.', _hk))
+BF.ersetze('zwei_kreise', 'Kreis um A mit r = 4 cm, Kreis um B mit r = 8 cm, [AB] = 4 cm. Wie viele Schnittpunkte haben die Kreise?', BF.A(
+    'Kreis um A mit r = 5 cm, Kreis um B mit r = 4 cm, [AB] = 7 cm. Wie viele Schnittpunkte haben die Kreise?', 'zwei', ['unendlich viele', 'einen', 'keinen'],
+    '5 + 4 = 9 cm ist mehr als [AB] = 7 cm: Die Kreise überlappen und schneiden sich oberhalb und unterhalb von AB – zwei Schnittpunkte.', _hk))
+BF.ersetze('zwei_kreise', 'Ein großer Kreis um A hat r = 8 cm, ein kleiner Kreis um B hat r = 3 cm. B liegt im großen Kreis, [AB] = 5 cm. Wie viele gemeinsame Punkte haben die Kreise?', BF.Z(
+    'Ein Kreis um A hat r = 3 cm, ein Kreis um B hat ebenfalls r = 3 cm, [AB] = 7 cm. Wie viele gemeinsame Punkte haben die Kreise?', 0, '0',
+    '3 + 3 = 6 cm ist weniger als [AB] = 7 cm: Zwischen den Kreisen bleibt eine Lücke von 1 cm, kein gemeinsamer Punkt.', _hk))
+BF.ersetze('zwei_kreise', 'Jemand sagt: „Kreise mit r = 3 cm und r = 5 cm, deren Mittelpunkte 1 cm auseinander liegen, schneiden sich, weil 1 cm < 3 cm + 5 cm.“ Stimmt das?', BF.A(
+    'Jemand sagt: „Kreise mit r = 3 cm und r = 5 cm, deren Mittelpunkte 9 cm auseinander liegen, schneiden sich, weil 9 cm > 5 cm.“ Stimmt das?',
+    'Nein: 3 cm + 5 cm = 8 cm ist weniger als 9 cm, die Kreise treffen sich nicht.',
+    ['Ja, das stimmt.', 'Ja, in vier Punkten.', 'Nein, sie berühren sich in einem Punkt.'],
+    'Entscheidend ist die Summe der Radien: 3 + 5 = 8 cm. Der Abstand 9 cm ist größer, also bleibt 1 cm Lücke – kein gemeinsamer Punkt.',
+    'Zeichne beide Kreise: Wie weit reichen sie zusammen?'))
+BF.fuer_sebastian('geometrie.ortslinien/zwei_kreise: Die Lernkarte erklärt nur sich schneidende/berührende Kreise; „Kreis im Kreis“ (r₁ − r₂) ist aus den älteren Übungen genommen; die Aufgabe „Welcher Abstand [AB] ist möglich?“ (Runde 10) nutzt die Grenze r₁ − r₂ noch (im Lösungsweg erklärt). Soll die Lernkarte das ergänzen? Außerdem: lehrplan_gym leer, Ortslinien stehen im LehrplanPLUS Gym erst in Jgst. 7 (laut D2 inzwischen Kairo/Kl. 7). Karten-Text nicht geändert.')
+
+befunde_anwenden(DATEI, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI)

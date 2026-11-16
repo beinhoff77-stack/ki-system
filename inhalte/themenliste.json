@@ -134,7 +134,7 @@
   "thema_id": 73,
   "thema_schluessel": "geometrie.ortslinien",
   "block_id": 83,
-  "ort": "Alexandria",
+  "ort": "Kairo",
   "gebiet": "Geometrie",
   "titel": "Ortslinien und Ortsbereiche",
   "klasse": {
@@ -206,7 +206,7 @@
   "thema_id": 19,
   "thema_schluessel": "zahlen.potenzen_zehner",
   "block_id": 44,
-  "ort": "Rom",
+  "ort": "Paris",
   "gebiet": "Zahlen",
   "titel": "Zehnerpotenzen und wissenschaftliche Schreibweise",
   "klasse": {
@@ -1492,8 +1492,8 @@
  {
   "thema_id": 2,
   "thema_schluessel": "gleichungen.linear",
-  "block_id": 61,
-  "ort": "Delhi",
+  "block_id": 62,
+  "ort": "Samarkand",
   "gebiet": "Algebra",
   "titel": "Lineare Gleichungen",
   "klasse": {

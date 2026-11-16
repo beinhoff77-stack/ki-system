@@ -103,3 +103,9 @@ Freigabe Sebastian: alles wie im Vorschlag (inhalte/pruefung/klassen/vorschlag.m
 - OFFEN: Umzug „Lineare Gleichungen“ Delhi → Samarkand und damit Delhi → Klasse 8. Grund: Ein Kind hat Samarkand schon abgeschlossen; der Flug würde dort als erledigt gelten. Wartet auf Sebastian.
 - Folgeaufträge: „Vierzehnte Runde“ (neuer Flug Winkelsätze Klasse 7 in Addis Abeba, Vertiefungen, Lehrplan-Reihenfolge) und „Bau-Auftrag Phase 2 und 3“ in inhalte/AUFTRAEGE.md.
 - Nachprüfung Phase 1 (NACHPRUEFUNG-2026-11-16.md) gelesen: K1 bestätigt; neue Befunde N1–N5 stehen im Bau-Auftrag Phase 2 (Schritt A).
+
+## 16.11. – D2 Teil 2 umgesetzt (Entscheidung Sebastian: A und ja)
+Migration supabase/migrations/20261116_w150_d2_teil2_lineare_gleichungen.sql, eingespielt.
+- „Lineare Gleichungen“ liegt jetzt in Samarkand (nach „Terme umformen“); Delhi ist Klasse 8 und heißt „Lineare Ungleichungen“. Kein Ort hat mehr Flüge mit abweichender Gymnasium-Klasse.
+- Samarkand ist bei dem Kind, das es schon abgeschlossen hatte, wieder offen (Sterne bleiben).
+- Plan Klasse 8: Cusco nicht mehr „kann schon“; Darwin und Brasília (Klasse 10) hinter die Orte der Klasse 9 gerückt.

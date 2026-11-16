@@ -663,6 +663,19 @@ SW.z('graphisch', 3, 'Die Ursprungsgerade y = m · x schneidet die Hyperbel f(x)
 baue = mit_schwer(baue, SW)
 # ---- SCHWER ENDE ----
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, mit_befunden  # noqa: E402
+
+BF = Befunde('gleichungen.bruch', 13_8_5)
+# a) Verhältnis 1 : 1 – sofort ablesbar → Stufe 1
+BF.stufe('verhaeltnis', 'Löse die Verhältnisgleichung 6 : x = 6 : 6.', 1)
+BF.stufe('verhaeltnis', 'Löse die Verhältnisgleichung 12 : x = 3 : 3.', 1)
+# a) einfacher Dreisatz → Stufe 2
+BF.stufe('verhaeltnis', 'Für 6 Personen braucht man 200 g Mehl. Wie viel Mehl braucht man für 9 Personen?', 2)
+
+baue = mit_befunden(baue, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Bruchgleichungen lösen', ['definitionsmenge', 'ein_bruch', 'ueber_kreuz', 'hauptnenner']), ('Prüfen', ['scheinloesung']), ('Verhältnisse und Graphen', ['verhaeltnis', 'graphisch'])],

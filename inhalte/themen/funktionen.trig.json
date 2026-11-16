@@ -44,20 +44,47 @@
    {
     "lernziel": "bogenmass",
     "titel": "Gradmaß und Bogenmaß",
-    "regel": "So rechnest du um: ⟦360° entsprechen 2π⟧, also 180° = π. Von Grad ins Bogenmaß: ⟦x = α · π/180°⟧. Zurück ins Gradmaß: mit 180°/π malnehmen.",
+    "regel": "360° entsprechen 2π, also 180° = π. Umrechnen: ⟦Bogenmaß = Grad · π : 180°⟧.",
     "schritte": [
-     "Eine ganze Drehung sind 360°, und der ganze Umfang des Einheitskreises ist 2π. Also entsprechen 180° genau π.",
-     "60° ist der wievielte Teil von 180°? 60 : 180 = 1/3.",
-     "Dann ist auch der Bogen ein Drittel von π: 60° entspricht π/3.",
-     "Mit π ≈ 3,14 gerechnet: ⟦60° = π/3 ≈ 1,05⟧."
+     {
+      "text": "Am Einheitskreis ist der ganze Umfang 2π. Also gehören 180° zu π."
+     },
+     {
+      "text": "60° ist ein Drittel von 180°, denn 60 : 180 = 1/3.",
+      "bild": {
+       "strecken": [
+        [
+         0,
+         0,
+         1,
+         0
+        ],
+        [
+         0,
+         0,
+         0.5,
+         0.866
+        ]
+       ],
+       "punkte": [
+        {
+         "x": 0.5,
+         "y": 0.866,
+         "name": "60°"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Der Bogen ist dann ein Drittel von π: ⟦60° = π/3⟧ ≈ 1,05."
+     }
     ],
-    "probe": "π/3 · 180°/π = 60° ✓",
-    "fehler": "60° = 60π ist falsch: 60π wären genau 30 ganze Runden des Riesenrads. Man muss durch ⟦180°⟧ teilen: 60 : 180 = 1/3, also π/3.",
-    "einstieg": "Ein Riesenrad dreht sich. Wie weit es sich gedreht hat, kann man als Winkel in Grad angeben – eine Vierteldrehung sind 90°. Man kann aber auch messen, wie lang der Weg ist, den eine Gondel auf dem Kreis zurücklegt. Hat der Kreis den Radius 1, ist dieser Weg bei einer halben Drehung genau π ≈ 3,14 lang. Diese Weglänge heißt ⟦Bogenmaß⟧.",
+    "fehler": "60° = 60π ist falsch. Das wären 30 ganze Runden. Man muss durch ⟦180°⟧ teilen: 60 : 180 = 1/3.",
+    "einstieg": "Ein Riesenrad dreht sich. Statt in Grad kann man messen, wie weit eine Gondel auf dem Kreis fährt. Beim Radius 1 ist eine halbe Drehung π lang: Das ist das ⟦Bogenmaß⟧.",
     "woerter": [
      [
-      "Gradmaß",
-      "Winkel in Grad: eine ganze Drehung sind 360°"
+      "Bogenmaß",
+      "die Länge des Bogens am Einheitskreis, die zum Winkel gehört"
      ],
      [
       "Einheitskreis",
@@ -65,109 +92,209 @@
      ],
      [
       "π",
-      "die Kreiszahl, etwa 3,14; der Einheitskreis hat den Umfang 2π"
-     ],
-     [
-      "Bogenmaß",
-      "die Länge des Bogens am Einheitskreis, die zu einem Winkel gehört"
-     ],
-     [
-      "α",
-      "griechischer Buchstabe „alpha“, Name für einen Winkel in Grad"
-     ],
-     [
-      "π/3",
-      "π geteilt durch 3, etwa 1,05"
+      "die Kreiszahl, etwa 3,14"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1.5,
+      1.5
+     ],
+     "y": [
+      -1.5,
+      1.5
+     ],
+     "kreise": [
+      {
+       "m": [
+        0,
+        0
+       ],
+       "r": 1
+      }
+     ],
+     "schritt_x": 0.5,
+     "schritt_y": 0.5,
+     "strecken": [
+      [
+       0,
+       0,
+       1,
+       0
+      ]
+     ]
+    }
    },
    {
     "lernziel": "werte",
     "titel": "Werte von sin x und cos x",
-    "regel": "So bestimmst du Werte: sin x ist die ⟦y-Koordinate⟧, cos x die ⟦x-Koordinate⟧ des Punktes am Einheitskreis. Merke sin(π/6) = 0,5, sin(π/2) = 1 und cos(π) = −1. Für das Bogenmaß den Taschenrechner auf ⟦RAD⟧ stellen.",
+    "regel": "sin x ist die Höhe, cos x der Abstand nach rechts. Merke ⟦sin(π/6) = 0,5⟧ und cos(π) = −1.",
     "schritte": [
-     "Gesucht ist sin(5π/6). Zuerst ins Gradmaß umrechnen: 5 · 180° : 6 = 150°.",
-     "Bei 150° ist die Gondel links oben. Sie ist genauso hoch wie bei 30°, nur auf der anderen Seite, also sin 150° = sin 30°.",
-     "Bei 30° ist die Höhe genau die Hälfte des Radius: sin 30° = 0,5.",
-     "Also ist ⟦sin(5π/6) = 0,5⟧."
+     {
+      "text": "5π/6 ist im Gradmaß 5 · 180° : 6 = 150°."
+     },
+     {
+      "text": "Bei 150° ist die Gondel links oben, so hoch wie bei 30°.",
+      "bild": {
+       "punkte": [
+        {
+         "x": -0.866,
+         "y": 0.5,
+         "name": "150°"
+        },
+        {
+         "x": 0.866,
+         "y": 0.5,
+         "name": "30°"
+        }
+       ],
+       "strecken": [
+        [
+         0,
+         0,
+         1,
+         0
+        ],
+        [
+         -0.866,
+         0,
+         -0.866,
+         0.5,
+         "gestrichelt"
+        ],
+        [
+         0.866,
+         0,
+         0.866,
+         0.5,
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Bei 30° ist die Höhe genau der halbe Radius: ⟦sin(5π/6) = 0,5⟧."
+     },
+     {
+      "text": "Der Rechner im RAD-Modus zeigt für sin(5π/6) ebenfalls 0,5."
+     }
     ],
-    "probe": "Der Punkt zu 150° liegt oberhalb der x-Achse: positiv ✓",
-    "fehler": "sin(2) im Gradmodus zu berechnen (≈ 0,035) ist falsch, wenn 2 im ⟦Bogenmaß⟧ gemeint ist: Das Rad hätte sich dann nur um 2° gedreht statt um etwa 115°. Richtig im RAD-Modus: sin(2) ≈ 0,909.",
+    "fehler": "sin(2) im Gradmodus ergibt 0,035. Das wären nur 2°. Gemeint sind 2 im Bogenmaß, etwa 115°. Im ⟦RAD⟧-Modus: sin(2) ≈ 0,909.",
     "bild": {
      "typ": "koordinaten",
      "x": [
-      0,
-      360
+      -1.5,
+      1.5
      ],
      "y": [
       -1.5,
       1.5
      ],
-     "graphen": [
+     "kreise": [
       {
-       "art": "sin",
-       "a": 1,
-       "b": 1,
-       "c": 0.0,
-       "d": 0,
-       "name": "sin (Höhe)"
-      },
-      {
-       "art": "cos",
-       "a": 1,
-       "b": 1,
-       "c": 0.0,
-       "d": 0,
-       "name": "cos",
-       "name_x": 150
+       "m": [
+        0,
+        0
+       ],
+       "r": 1
       }
      ],
-     "grad": true,
-     "schritt_x": 90,
+     "schritt_x": 0.5,
      "schritt_y": 0.5,
-     "streckung": 1.4,
-     "name_x": "Winkel"
+     "strecken": [
+      [
+       0,
+       0,
+       1,
+       0
+      ]
+     ]
     },
-    "einstieg": "Stell dir das Riesenrad als Kreis mit dem Radius 1 vor, die Mitte im Ursprung eines Koordinatensystems. Eine Gondel startet rechts auf Höhe der Mitte und fährt gegen den Uhrzeigersinn. Zu jedem Drehwinkel gehört eine Höhe über der Mitte und ein Abstand nach rechts oder links. Die Höhe heißt ⟦Sinus⟧ des Winkels, der Abstand nach rechts ⟦Kosinus⟧.",
+    "einstieg": "Eine Gondel fährt auf einem Kreis mit Radius 1 um die Mitte. Ihre Höhe über der Mitte heißt ⟦Sinus⟧ des Drehwinkels. Ihr Abstand nach rechts heißt ⟦Kosinus⟧.",
     "woerter": [
      [
-      "Ursprung",
-      "der Punkt (0 | 0), hier die Mitte des Rads"
+      "Sinus",
+      "sin x: die Höhe (y-Koordinate) des Punktes am Kreis"
      ],
      [
-      "Koordinate",
-      "eine der beiden Zahlen eines Punktes: erst x (rechts/links), dann y (oben/unten)"
-     ],
-     [
-      "sin x",
-      "Sinus von x: die y-Koordinate (Höhe) des Punktes auf dem Einheitskreis"
-     ],
-     [
-      "cos x",
-      "Kosinus von x: die x-Koordinate des Punktes; links von der Mitte ist sie negativ"
-     ],
-     [
-      "5π/6",
-      "5 · π : 6, das entspricht 150°"
+      "Kosinus",
+      "cos x: der Abstand nach rechts (x-Koordinate); links der Mitte negativ"
      ],
      [
       "RAD",
-      "Taschenrechner-Modus für Winkel im Bogenmaß; DEG ist der Gradmodus"
+      "Rechnermodus für das Bogenmaß; DEG ist der Gradmodus"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "punkte": [
+      {
+       "x": -0.416,
+       "y": 0.909,
+       "name": "2 (≈ 115°)"
+      },
+      {
+       "x": 0.999,
+       "y": 0.035,
+       "name": "2°"
+      }
+     ],
+     "strecken": [
+      [
+       0,
+       0,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -0.416,
+       0.909
+      ]
+     ]
+    }
    },
    {
     "lernziel": "periode",
     "titel": "Periode und Periodizität",
-    "regel": "So berechnest du die Periode: sin und cos wiederholen sich nach ⟦360° = 2π⟧. Bei f(x) = sin(b · x) ist die ⟦Periode p = 360° : b⟧ (im Bogenmaß 2π : b).",
+    "regel": "Bei sin(b · x) gilt: Periode p = 360° : b. Größeres b heißt ⟦kürzere Periode⟧.",
     "schritte": [
-     "Gegeben ist f(x) = sin(3x). Der Faktor vor x ist b = 3.",
-     "Für eine volle Schwingung muss 3x von 0° bis 360° laufen. Das ist schon geschafft, wenn x = 120° ist.",
-     "Die Periode ist also p = 360° : 3 = ⟦120°⟧.",
-     "Im Bogenmaß gerechnet: 2π : 3 = 2π/3."
+     {
+      "text": "f(x) = sin(3x): Der Faktor vor x ist b = 3."
+     },
+     {
+      "text": "Eine Schwingung ist fertig, wenn 3x = 360° ist, also bei x = 120°.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "sin",
+         "a": 1,
+         "b": 1,
+         "c": 0.0,
+         "d": 0,
+         "name": "sin x"
+        },
+        {
+         "art": "sin",
+         "a": 1,
+         "b": 3,
+         "c": 0.0,
+         "d": 0,
+         "name": "sin(3x)",
+         "name_x": 280
+        }
+       ],
+       "senkrecht": [
+        120
+       ]
+      }
+     },
+     {
+      "text": "Die Periode ist p = 360° : 3 = ⟦120°⟧, im Bogenmaß 2π/3."
+     }
     ],
-    "probe": "sin(3 · 120°) = sin 360° = 0 = sin 0 ✓",
-    "fehler": "Bei sin(3x) die Periode 3 · 360° = 1 080° anzunehmen ist falsch: Der Faktor 3 macht die Schwingung ⟦schneller⟧ – wie ein Rad, das sich dreimal so schnell dreht. Die Periode wird ⟦kürzer⟧: 120°.",
+    "fehler": "Die Periode ist nicht 3 · 360° = 1 080°. Der Faktor 3 macht die Schwingung ⟦schneller⟧, wie ein Rad mit dreifachem Tempo.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -178,6 +305,10 @@
       -1.5,
       1.5
      ],
+     "schritt_y": 0.5,
+     "grad": true,
+     "schritt_x": 90,
+     "streckung": 1.4,
      "graphen": [
       {
        "art": "sin",
@@ -186,58 +317,99 @@
        "c": 0.0,
        "d": 0,
        "name": "sin x"
-      },
-      {
-       "art": "sin",
-       "a": 1,
-       "b": 3,
-       "c": 0.0,
-       "d": 0,
-       "name": "sin(3x)",
-       "name_x": 280
       }
-     ],
-     "grad": true,
-     "schritt_x": 90,
-     "schritt_y": 0.5,
-     "streckung": 1.4
+     ]
     },
-    "einstieg": "Nach einer vollen Umdrehung ist die Gondel wieder an derselben Stelle, und alles wiederholt sich. Beim Sinus geschieht das nach 360°. Dreht sich ein Rad dreimal so schnell, ist eine Runde schon nach einem Drittel vorbei. Die Länge, nach der sich alles wiederholt, heißt ⟦Periode⟧.",
+    "einstieg": "Nach einer vollen Umdrehung ist die Gondel wieder am Start, und alles wiederholt sich. Beim Sinus geschieht das nach 360°. Dieser Abstand heißt ⟦Periode⟧.",
     "woerter": [
      [
-      "Periode p",
+      "Periode",
       "die Länge, nach der sich der Graph wiederholt"
      ],
      [
       "Schwingung",
       "ein Auf und Ab, das sich wiederholt"
-     ],
-     [
-      "sin(x + 360°) = sin x",
-      "nach einer vollen Drehung ist der Wert wieder derselbe"
-     ],
-     [
-      "sin(3x)",
-      "erst x mal 3 nehmen, dann den Sinus bilden: die Schwingung läuft dreimal so schnell"
-     ],
-     [
-      "b",
-      "der Faktor vor x im Sinus"
      ]
     ]
    },
    {
     "lernziel": "parameter",
     "titel": "Amplitude und Verschiebung",
-    "regel": "So liest du die Parameter von f(x) = a · sin(b · x) + d: ⟦|a| ist die Amplitude⟧, ⟦d verschiebt nach oben oder unten⟧ (Mittellinie y = d). Die Wertemenge ist ⟦[d − |a|; d + |a|]⟧.",
+    "regel": "Bei a · sin(b · x) + d ist |a| die Amplitude. d verschiebt nach oben: ⟦Wertemenge [d − |a|; d + |a|]⟧.",
     "schritte": [
-     "Gegeben ist f(x) = 3 · sin x + 1. Der Sinus allein schwankt zwischen −1 und 1.",
-     "Mal 3 genommen schwankt 3 · sin x zwischen −3 und 3. Die Amplitude ist also 3.",
-     "Die „+ 1“ schiebt alles um 1 nach oben. Die Mittellinie ist y = 1.",
-     "Die Werte liegen zwischen 1 − 3 und 1 + 3: Wertemenge ⟦[−2; 4]⟧, Maximum 4, Minimum −2."
+     {
+      "text": "f(x) = 3 · sin x + 1. sin x allein schwankt von −1 bis 1."
+     },
+     {
+      "text": "Mal 3 schwankt es von −3 bis 3: Amplitude 3.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "sin",
+         "a": 1,
+         "b": 1,
+         "c": 0.0,
+         "d": 0,
+         "name": "sin x",
+         "name_x": 200
+        },
+        {
+         "art": "sin",
+         "a": 3,
+         "b": 1,
+         "c": 0.0,
+         "d": 0,
+         "name": "3 sin x"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Plus 1 schiebt alles hoch. Die Mittellinie ist y = 1.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "sin",
+         "a": 1,
+         "b": 1,
+         "c": 0.0,
+         "d": 0,
+         "name": "sin x",
+         "name_x": 200
+        },
+        {
+         "art": "sin",
+         "a": 3,
+         "b": 1,
+         "c": 0.0,
+         "d": 1,
+         "name": "f"
+        }
+       ],
+       "waagrecht": [
+        1
+       ]
+      }
+     },
+     {
+      "text": "Wertemenge: von 1 − 3 bis 1 + 3, also ⟦[−2; 4]⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 90,
+         "y": 4,
+         "name": "größter: 4"
+        },
+        {
+         "x": 270,
+         "y": -2,
+         "name": "kleinster: −2"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "f(90°) = 3 · 1 + 1 = 4 ✓",
-    "fehler": "Bei f(x) = 3 sin x + 1 die Wertemenge [−3; 3] anzugeben ist falsch: Das hieße, das Wasser schwankt um die Markierung herum. Die Mittellinie liegt aber ⟦1 höher⟧, also [−2; 4].",
+    "fehler": "Die Wertemenge ist nicht [−3; 3]. Das Wasser schwankt nicht um die Markierung, sondern um eine Mitte ⟦1 höher⟧.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -248,15 +420,11 @@
       -3,
       5
      ],
+     "schritt_y": 1,
+     "grad": true,
+     "schritt_x": 90,
+     "streckung": 1.4,
      "graphen": [
-      {
-       "art": "sin",
-       "a": 3,
-       "b": 1,
-       "c": 0.0,
-       "d": 1,
-       "name": "3 sin x + 1"
-      },
       {
        "art": "sin",
        "a": 1,
@@ -266,55 +434,79 @@
        "name": "sin x",
        "name_x": 200
       }
-     ],
-     "grad": true,
-     "schritt_x": 90,
-     "schritt_y": 1,
-     "streckung": 1.4,
-     "waagrecht": [
-      1
      ]
     },
-    "einstieg": "An einer Hafenmauer ist eine Markierung. Bei Flut steht das Wasser 4 m über der Markierung, bei Ebbe 2 m darunter. Der mittlere Wasserstand liegt also 1 m über der Markierung, und das Wasser steigt und fällt um 3 m. Diese Schwankung um die Mitte heißt ⟦Amplitude⟧.",
+    "einstieg": "Bei Flut steht das Wasser 4 m über einer Markierung im Hafen. Bei Ebbe steht es 2 m darunter. Die Mitte liegt 1 m darüber, die Schwankung heißt ⟦Amplitude⟧.",
     "woerter": [
      [
-      "f(x) = a · sin(b · x) + d",
-      "die allgemeine Form; a, b und d sind feste Zahlen"
+      "Amplitude",
+      "wie weit es von der Mitte nach oben und nach unten geht"
      ],
      [
-      "Amplitude |a|",
-      "wie weit es von der Mitte nach oben (und nach unten) geht, hier 3"
+      "Mittellinie",
+      "die waagrechte Linie in der Mitte, y = d"
      ],
      [
-      "|a|",
-      "Betrag von a: die Zahl ohne Minuszeichen"
-     ],
-     [
-      "Mittellinie y = d",
-      "die waagrechte Linie in der Mitte zwischen höchstem und tiefstem Wert, hier y = 1"
-     ],
-     [
-      "Maximum, Minimum",
-      "der größte und der kleinste Wert"
-     ],
-     [
-      "Wertemenge [−2; 4]",
-      "alle Werte von −2 bis 4, beide Grenzen eingeschlossen"
+      "Wertemenge",
+      "alle Werte vom kleinsten bis zum größten"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "punkte": [
+      {
+       "x": 90,
+       "y": 4,
+       "name": "4, nicht 3"
+      },
+      {
+       "x": 270,
+       "y": -2,
+       "name": "−2, nicht −3"
+      }
+     ]
+    }
    },
    {
     "lernziel": "zuordnen",
     "titel": "Graph und Term zuordnen",
-    "regel": "So findest du den Term: ⟦Mittellinie⟧ ablesen (d), ⟦Abstand Maximum–Mittellinie⟧ (|a|), ⟦Länge einer Schwingung⟧ (p, dann b = 360° : p). Start auf der Mittellinie steigend: sin. Start im Maximum: cos.",
+    "regel": "Lies Mittellinie, Amplitude und Periode ab. Start auf der Mittellinie: ⟦sin⟧. Start ganz oben: cos.",
     "schritte": [
-     "Die Kurve schwankt um y = 0. Die Mittellinie ist also y = 0, und d = 0.",
-     "Der höchste Punkt liegt bei 2. Die Amplitude ist also a = 2.",
-     "Eine volle Schwingung reicht von 0° bis 180°. Also ist p = 180° und b = 360° : 180° = 2.",
-     "Bei x = 0 startet die Kurve auf der Mittellinie und steigt – das passt zu sin: ⟦f(x) = 2 · sin(2x)⟧."
+     {
+      "text": "Die Kurve schwankt um y = 0: Mittellinie y = 0, also d = 0.",
+      "bild": {
+       "waagrecht": [
+        0
+       ]
+      }
+     },
+     {
+      "text": "Der höchste Punkt liegt bei 2: a = 2.",
+      "bild": {
+       "waagrecht": [
+        0
+       ],
+       "punkte": [
+        {
+         "x": 45,
+         "y": 2,
+         "name": "2"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Eine Schwingung reicht bis 180°. Also b = 360° : 180° = 2.",
+      "bild": {
+       "senkrecht": [
+        180
+       ]
+      }
+     },
+     {
+      "text": "Start auf der Mittellinie, steigend: Das passt zu sin. ⟦f(x) = 2 · sin(2x)⟧."
+     }
     ],
-    "probe": "f(45°) = 2 · sin 90° = 2 = Maximum ✓",
-    "fehler": "Die Periode 180° als b = 180 einzusetzen ist falsch: sin(180x) würde auf diesen 180° ganze 90 Schwingungen machen. Richtig ist ⟦b = 360° : p⟧ = 2.",
+    "fehler": "b = 180 ist falsch. sin(180x) würde auf diesen 180° ganze 90 Schwingungen machen. Richtig ist ⟦b = 360° : p⟧ = 2.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -325,6 +517,10 @@
       -3,
       3
      ],
+     "schritt_y": 1,
+     "grad": true,
+     "schritt_x": 90,
+     "streckung": 1.4,
      "graphen": [
       {
        "art": "sin",
@@ -333,13 +529,9 @@
        "c": 0.0,
        "d": 0
       }
-     ],
-     "grad": true,
-     "schritt_x": 90,
-     "schritt_y": 1,
-     "streckung": 1.4
+     ]
     },
-    "einstieg": "Ein Messgerät im Hafen zeichnet den Wasserstand als Kurve auf. Aus der Kurve kann man die Rechenvorschrift zurückgewinnen: Wo liegt die Mitte? Wie weit geht es nach oben? Wie lange dauert ein Auf und Ab? Und wo beginnt die Kurve? Diese Rechenvorschrift heißt ⟦Funktionsterm⟧.",
+    "einstieg": "Ein Messgerät im Hafen zeichnet den Wasserstand als Kurve auf. Aus der Kurve kann man die Rechenvorschrift zurückgewinnen. Sie heißt ⟦Funktionsterm⟧.",
     "woerter": [
      [
       "Funktionsterm",
@@ -347,34 +539,55 @@
      ],
      [
       "Mittellinie",
-      "waagrechte Linie in der Mitte zwischen höchstem und tiefstem Punkt; sie liefert d"
+      "die waagrechte Linie in der Mitte der Kurve"
      ],
      [
-      "Amplitude",
-      "Abstand vom höchsten Punkt zur Mittellinie; er liefert |a|"
-     ],
-     [
-      "Periode p",
-      "die Länge einer vollen Schwingung; sie liefert b = 360° : p"
-     ],
-     [
-      "sin oder cos",
-      "sin startet bei x = 0 auf der Mittellinie und steigt, cos startet im höchsten Punkt"
+      "Schwingung",
+      "ein Auf und Ab; ihre Länge ist die Periode"
      ]
     ]
    },
    {
     "lernziel": "eigenschaften",
     "titel": "Nullstellen und Symmetrie",
-    "regel": "Merke die Nullstellen: sin x bei ⟦0°, 180°, 360°, …⟧ (k · 180°), cos x bei ⟦90°, 270°, …⟧. Der sin-Graph ist ⟦punktsymmetrisch⟧ zum Ursprung, der cos-Graph ⟦achsensymmetrisch⟧ zur y-Achse. Es gilt cos x = sin(x + 90°).",
+    "regel": "Nullstellen: sin bei 0°, 180°, 360°; cos bei ⟦90°, 270°⟧. Es gilt cos x = sin(x + 90°).",
     "schritte": [
-     "Gesucht sind die Nullstellen von cos x zwischen 0° und 360°. cos x ist der Abstand nach rechts oder links von der Mitte.",
-     "Dieser Abstand ist 0, wenn die Gondel genau senkrecht über oder unter der Mitte steht.",
-     "Das ist nach einer Vierteldrehung (90°) und nach einer Dreivierteldrehung (270°) der Fall.",
-     "Also hat cos x die Nullstellen ⟦90° und 270°⟧."
+     {
+      "text": "cos x ist der Abstand der Gondel nach rechts von der Mitte."
+     },
+     {
+      "text": "Er ist 0, wenn die Gondel genau oben oder unten steht."
+     },
+     {
+      "text": "Das ist bei 90° und bei 270°: ⟦Nullstellen 90° und 270°⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": -270,
+         "y": 0
+        },
+        {
+         "x": -90,
+         "y": 0
+        },
+        {
+         "x": 90,
+         "y": 0,
+         "name": "90°"
+        },
+        {
+         "x": 270,
+         "y": 0,
+         "name": "270°"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Der cos-Graph ist achsensymmetrisch zur y-Achse, der sin-Graph punktsymmetrisch."
+     }
     ],
-    "probe": "cos 90° = 0, cos 270° = 0 ✓",
-    "fehler": "„cos x hat bei 0° eine Nullstelle“ ist falsch: Beim Start ist die Gondel ganz rechts, so weit wie möglich von der Mitte weg: cos 0° = ⟦1⟧ (Maximum). Die Nullstelle bei 0° hat sin x.",
+    "fehler": "cos x hat bei 0° keine Nullstelle. Beim Start ist die Gondel ganz rechts: ⟦cos 0° = 1⟧. Die Nullstelle bei 0° hat sin x.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -385,6 +598,10 @@
       -1.5,
       1.5
      ],
+     "schritt_y": 0.5,
+     "grad": true,
+     "schritt_x": 90,
+     "streckung": 1.4,
      "graphen": [
       {
        "art": "cos",
@@ -394,66 +611,75 @@
        "d": 0,
        "name": "cos x"
       }
-     ],
-     "grad": true,
-     "schritt_x": 90,
-     "schritt_y": 0.5,
-     "streckung": 1.4,
-     "punkte": [
-      {
-       "x": -270,
-       "y": 0
-      },
-      {
-       "x": -90,
-       "y": 0
-      },
-      {
-       "x": 90,
-       "y": 0
-      },
-      {
-       "x": 270,
-       "y": 0
-      }
      ]
     },
-    "einstieg": "Wann ist die Gondel genau auf Höhe der Radmitte? Beim Start (0°), nach einer halben Drehung (180°) und nach einer ganzen (360°). Und wann ist sie genau senkrecht über oder unter der Mitte? Bei 90° und bei 270°. Stellen, an denen sin oder cos den Wert 0 hat, heißen ⟦Nullstellen⟧.",
+    "einstieg": "Wann steht die Gondel genau senkrecht über oder unter der Radmitte? Dann ist ihr Abstand nach rechts 0. Solche Stellen heißen ⟦Nullstellen⟧ des Kosinus.",
     "woerter": [
      [
-      "Nullstelle",
-      "ein Winkel, bei dem der Wert 0 ist"
+      "Nullstellen",
+      "Stellen, an denen der Wert 0 ist"
      ],
      [
-      "k · 180°",
-      "alle Vielfachen von 180°: 0°, 180°, 360°, … (k ist eine ganze Zahl)"
+      "achsensymmetrisch",
+      "an der y-Achse gespiegelt sieht der Graph gleich aus"
      ],
      [
-      "punktsymmetrisch zum Ursprung",
-      "dreht man den Graphen um (0 | 0) eine halbe Drehung, sieht er gleich aus"
-     ],
-     [
-      "achsensymmetrisch zur y-Achse",
-      "spiegelt man den Graphen an der y-Achse, sieht er gleich aus"
-     ],
-     [
-      "cos x = sin(x + 90°)",
-      "der cos-Graph ist der sin-Graph, um 90° nach links geschoben"
+      "punktsymmetrisch",
+      "um (0 | 0) halb gedreht sieht der Graph gleich aus"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "punkte": [
+      {
+       "x": 0,
+       "y": 1,
+       "name": "cos 0° = 1"
+      }
+     ]
+    }
    },
    {
     "lernziel": "anwendung",
     "titel": "Periodische Vorgänge beschreiben",
-    "regel": "So beschreibst du periodische Vorgänge: ⟦h(t) = a · sin(b · t) + d⟧ (oder mit cos). d = Mittelwert, |a| = halbe Schwankung, ⟦b = 360° : Periodendauer⟧.",
+    "regel": "h(t) = a · sin(b · t) + d beschreibt periodische Vorgänge. d = Mitte, |a| = halbe Schwankung, ⟦b = 360° : Periodendauer⟧.",
     "schritte": [
-     "Pro Minute dreht sich das Rad um 360° : 12 = 30°. Nach t Minuten ist der Drehwinkel 30° · t.",
-     "Die Gondel startet unten, deshalb h(t) = 20 − 18 · cos(30° · t). Probe beim Start: h(0) = 20 − 18 · 1 = 2.",
-     "Nach 4 Minuten ist der Drehwinkel 120°, und cos 120° = −0,5.",
-     "Also ist h(4) = 20 − 18 · (−0,5) = 20 + 9 = ⟦29 m⟧."
+     {
+      "text": "Pro Minute dreht sich das Rad um 360° : 12 = 30°."
+     },
+     {
+      "text": "Die Gondel startet unten: h(t) = 20 − 18 · cos(30° · t).",
+      "bild": {
+       "punkte": [
+        {
+         "x": 0,
+         "y": 2,
+         "name": "Start: 2 m"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Nach 4 Minuten ist der Winkel 120°, und cos 120° = −0,5."
+     },
+     {
+      "text": "h(4) = 20 − 18 · (−0,5) = 20 + 9 = ⟦29 m⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 0,
+         "y": 2,
+         "name": "Start: 2 m"
+        },
+        {
+         "x": 4,
+         "y": 29,
+         "name": "4 min: 29 m"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "t = 6 min: h = 20 + 18 = 38 m (oben) ✓",
-    "fehler": "b = 12 zu nehmen ist falsch: Dann würde sich das Rad nur um 12° pro Minute drehen und bräuchte 30 Minuten für eine Runde. In 12 min läuft der Winkel um ⟦360°⟧, also b = 360° : 12 = 30° pro Minute.",
+    "fehler": "b = 12 ist falsch. Dann drehte sich das Rad nur 12° pro Minute, eine Runde dauerte 30 Minuten. Richtig ist ⟦b = 30°⟧.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -476,20 +702,13 @@
        ]
       }
      ],
-     "punkte": [
-      {
-       "x": 4,
-       "y": 29,
-       "name": "(4 | 29)"
-      }
-     ],
      "schritt_x": 2,
      "schritt_y": 5,
-     "name_x": "t (min)",
-     "name_y": "h (m)",
+     "name_x": "Minuten",
+     "name_y": "Höhe",
      "streckung": 1.4
     },
-    "einstieg": "Jetzt ein echtes Riesenrad: Die Mitte liegt 20 m über dem Boden, der Radius ist 18 m, und eine Umdrehung dauert 12 Minuten. Eine Gondel steigt unten ein, 2 m über dem Boden. Nach 6 Minuten ist sie ganz oben in 38 m Höhe, nach 12 Minuten wieder unten. Vorgänge, die sich so immer wiederholen, heißen ⟦periodisch⟧.",
+    "einstieg": "Die Mitte eines Riesenrads ist 20 m hoch, der Radius 18 m. Eine Runde dauert 12 Minuten. Die Gondel startet unten in 2 m Höhe. Vorgänge, die sich so wiederholen, heißen ⟦periodisch⟧.",
     "woerter": [
      [
       "periodisch",
@@ -497,29 +716,35 @@
      ],
      [
       "h(t)",
-      "Höhe der Gondel in m nach t Minuten"
-     ],
-     [
-      "30° · t",
-      "Drehwinkel nach t Minuten: 360° : 12 min = 30° pro Minute"
-     ],
-     [
-      "20 − 18 · cos(…)",
-      "das Minus sorgt dafür, dass die Gondel unten startet"
-     ],
-     [
-      "Mittelwert d",
-      "die Höhe der Radmitte, 20 m"
-     ],
-     [
-      "halbe Schwankung |a|",
-      "der Radius, 18 m"
-     ],
-     [
-      "Periodendauer",
-      "die Zeit für eine volle Wiederholung, hier 12 Minuten"
+      "die Höhe der Gondel in m nach t Minuten"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "graphen": [
+      {
+       "art": "cos",
+       "a": -18,
+       "b": 30,
+       "d": 20,
+       "bereich": [
+        0,
+        24
+       ],
+       "name": "b = 30"
+      },
+      {
+       "art": "cos",
+       "a": -18,
+       "b": 12,
+       "d": 20,
+       "bereich": [
+        0,
+        24
+       ],
+       "name": "b = 12?"
+      }
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [

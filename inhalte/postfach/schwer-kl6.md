@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 06:25 – STATUS
+Thema 3/8 fertig: **bruch.dezimal** – 42 neue Übungen (je Lernkarte 2 × S2, 4 × S3). Prüfskript OK, Unverändert-Nachweis JA.
+
 ## 2026-11-16 06:05 – STATUS
 Thema 2/8 fertig: **bruch.brueche** – 48 neue Übungen (je Lernkarte 2 × S2, 4 × S3). Prüfskript OK, Unverändert-Nachweis JA.
 

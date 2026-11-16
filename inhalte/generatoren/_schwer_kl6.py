@@ -97,6 +97,7 @@ def anteil(text, teil, ganzes, h, weg, grafik=None):
 
 def mark(text, start, ende, abschnitte, index, h, weg, zahlwert=None):
     """Markierung am Zahlenstrahl; zahlwert (endliche Dezimalzahl) zum Nachrechnen, sonst weglassen."""
+    start, ende = wert(start), wert(ende)
     a = {'y': 'markierung', 'f': {'text': text, 'grafik': {'typ': 'zahlenstrahl', 'start': start, 'ende': ende,
                                                             'abschnitte': abschnitte, 'beschriftet': 'anfang_ende'}},
          'o': {'index': index}, 'h': h, 'w': weg}

@@ -33,12 +33,13 @@ class Neu:
         return a
 
     def z(self, lz, s, text, wert, c, w, h, einheit=None, toleranz=None, grafik=None, art=''):
-        ist = rechne(c)
         if isinstance(wert, float): wert = Fr(str(wert))
-        if toleranz is None:
-            assert ist == Fr(wert), f'Nachrechnung falsch: {c} = {ist}, Lösung {wert} ({text})'
-        else:
-            assert abs(ist - Fr(str(wert))) <= Fr(str(toleranz)), f'Nachrechnung falsch: {c} = {float(ist)}, Lösung {wert}'
+        if toleranz is not None and not c.startswith('round('):
+            # gerundetes Ergebnis: Rechenausdruck rundet wie verlangt (Toleranz = eine Einheit der letzten Stelle)
+            n = len(str(toleranz).split('.')[1]) if '.' in str(toleranz) else 0
+            c = f'round({c}, {n})' if n else f'round({c})'
+        ist = rechne(c)
+        assert ist == Fr(wert), f'Nachrechnung falsch: {c} = {ist}, Lösung {wert} ({text})'
         o = {'wert': jw(wert) if toleranz is None else float(wert)}
         if einheit: o['einheit'] = einheit
         if toleranz is not None: o['toleranz'] = toleranz

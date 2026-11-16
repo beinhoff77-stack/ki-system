@@ -469,6 +469,133 @@ UMBAU_OFFEN = []
 baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
 
 
+# ---- SCHWER (Zehnte Runde: schwerere Aufgaben nach Prüfungsvorbild, siehe _schwer_kl8.py) ----
+# Vorbilder (Typ und Niveau, nicht Wortlaut/Zahlen): RS-Jahrgangsstufentest 8 2014 (zwei Pizzagrößen mit Preis vergleichen),
+# VERA-8 2026 (Uferlänge/Fläche eines Sees mit Karte und Maßstab schätzen; bei gleichem Zaun größte Fläche), BMT10 2024 (Volumenterm eines Zylinders auswählen),
+# BMT10 2021 (Wasserhöhe in einem Gefäß), BMT8 2025 (Maßstab: Flächen-/Volumenverhältnis), Känguru Kl. 7/8 (Kreisteile in Quadraten, Seil um eine Kugel).
+from _schwer_kl8 import Neu, mit_schwer  # noqa: E402
+from _bausatz import PI  # noqa: E402
+
+SW = Neu(10_8_10)
+T1, T01 = 0.1, 0.01
+
+# umfang
+SW.z('umfang', 2, 'Ein Kreis hat den Umfang 50 cm. Berechne den Durchmesser. Runde auf eine Nachkommastelle.', 15.9, f'50 / {PI}', 'd = u : π = 50 : π ≈ 15,9 cm.',
+     'u = π · d. Stelle nach d um.', einheit='cm', toleranz=T1)
+SW.z('umfang', 2, 'Eine runde Tischdecke mit 1,4 m Durchmesser bekommt rundherum eine Borte. Wie viele Meter Borte braucht man? Runde auf zwei Nachkommastellen.', 4.40, f'{PI} * 1.4',
+     'u = π · d = π · 1,4 m ≈ 4,40 m.', 'Die Borte ist so lang wie der Umfang.', einheit='m', toleranz=T01)
+SW.z('umfang', 3, 'Ein See ist auf einer Karte im Maßstab 1 : 50 000 ungefähr ein Kreis mit 8 cm Durchmesser. Wie lang ist sein Ufer in Wirklichkeit ungefähr? Runde auf eine Nachkommastelle.',
+     12.6, f'{PI} * 8 * 50000 / 100000', 'Wirklicher Durchmesser: 8 cm · 50 000 = 400 000 cm = 4 km. Ufer ≈ π · 4 km ≈ 12,6 km.',
+     'Rechne zuerst den echten Durchmesser in km aus.', einheit='km', toleranz=T1, art='P')
+SW.z('umfang', 3, 'An einem Riesenrad hängen 20 Gondeln in gleichen Abständen. Entlang des Rands sind zwei Gondeln 9,4 m voneinander entfernt. Welchen Durchmesser hat das Rad etwa? Runde auf ganze Meter.',
+     60, f'20 * 9.4 / {PI}', 'Umfang ≈ 20 · 9,4 m = 188 m. d = u : π = 188 : π ≈ 59,8 m, also etwa 60 m.', 'Wie lang ist der ganze Rand?', einheit='m', toleranz=1, art='P')
+SW.z('umfang', 3, 'Ein Seil liegt straff um einen Ball mit Radius 10 cm. Es wird um 1 m verlängert und so gelegt, dass es überall gleich weit vom Ball absteht. Wie groß ist dieser Abstand? Runde auf eine Nachkommastelle.',
+     15.9, f'100 / (2 * {PI})', 'Neuer Umfang = alter Umfang + 100 cm. Da u = 2πr, wächst r um 100 : (2π) ≈ 15,9 cm – egal wie groß der Ball ist.',
+     'Wie ändert sich r, wenn u um 100 cm wächst?', einheit='cm', toleranz=T1, art='K')
+SW.a('umfang', 3, 'Was ist länger: der Umfang eines Kreises mit d = 10 cm oder die Umfänge von zwei Kreisen mit je d = 5 cm zusammen?', 'Beide sind gleich lang.',
+     ['der große Kreis', 'die zwei kleinen Kreise', 'Das kann man ohne π nicht sagen.'],
+     'Großer Kreis: π · 10. Zwei kleine: 2 · π · 5 = π · 10. Der Umfang ist proportional zum Durchmesser.', 'Rechne beide Umfänge mit π als Zeichen aus.', art='K')
+
+# flaeche
+SW.z('flaeche', 2, 'Ein runder Teppich hat den Durchmesser 2,4 m. Berechne seine Fläche. Runde auf zwei Nachkommastellen.', 4.52, f'{PI} * 1.2**2', 'r = 1,2 m. A = π · 1,2² ≈ 4,52 m².',
+     'Erst den Radius bestimmen.', einheit='m²', toleranz=T01)
+SW.a('flaeche', 2, 'Was ist größer: ein Quadrat mit 4 cm Seitenlänge oder ein Kreis mit 2,5 cm Radius?', 'der Kreis', ['das Quadrat', 'Beide sind gleich groß.'],
+     'Quadrat: 16 cm². Kreis: π · 2,5² ≈ 19,6 cm². Der Kreis ist größer.', 'Berechne beide Flächen.')
+SW.a('flaeche', 3, 'Kleine Pizza: 26 cm Durchmesser für 7 €. Große Pizza: 39 cm Durchmesser für 14 €. Wo bekommst du mehr Pizza pro Euro?', 'bei der großen (etwa 85 cm² pro €)',
+     ['bei der kleinen (etwa 76 cm² pro €)', 'gleich viel, weil die große doppelt so viel kostet', 'bei der kleinen, weil 39 cm nicht das Doppelte von 26 cm ist'],
+     'Klein: π · 13² ≈ 531 cm², 531 : 7 ≈ 76 cm² pro €. Groß: π · 19,5² ≈ 1 195 cm², 1 195 : 14 ≈ 85 cm² pro €. Die große lohnt sich mehr.',
+     'Berechne beide Flächen und teile durch den Preis.', art='P')
+SW.z('flaeche', 3, 'Mit 20 m Zaun soll ein Beet eingezäunt werden – als Quadrat oder als Kreis. Wie viele m² Fläche hat der Kreis mehr? Runde auf eine Nachkommastelle.', 6.8,
+     f'(20 / (2 * {PI}))**2 * {PI} - 5**2', 'Quadrat: Seite 5 m, A = 25 m². Kreis: r = 20 : (2π) ≈ 3,18 m, A ≈ 31,8 m². Unterschied ≈ 6,8 m².',
+     'Bestimme beim Kreis zuerst den Radius aus dem Umfang.', einheit='m²', toleranz=T1, art='P')
+SW.z('flaeche', 3, 'In einen Kreis mit r = 6 cm legt man zwei Kreise mit r = 3 cm nebeneinander. Welcher Anteil des großen Kreises bleibt frei? Gib ihn als Dezimalzahl an.', 0.5,
+     '(36 - 2 * 9) / 36', 'Großer Kreis: 36π. Kleine Kreise: 2 · 9π = 18π. Frei: 18π, also 18π : 36π = 0,5 – die Hälfte.', 'Rechne mit π als Zeichen. Es kürzt sich weg.', art='K')
+SW.z('flaeche', 3, 'Bei einem Kreis haben Umfang (in cm) und Flächeninhalt (in cm²) dieselbe Maßzahl. Wie groß ist sein Radius?', 2, '2',
+     '2 · π · r = π · r². Teilen durch π · r: 2 = r. Probe: u = 4π, A = 4π.', 'Setze die Formeln gleich und teile durch π · r.', einheit='cm', art='K')
+
+# exakt
+SW.z('exakt', 2, 'Ein Kreis hat den Durchmesser 9 cm. Gib den Umfang exakt an: u = □ · π cm. Welche Zahl gehört in das Kästchen?', 9, '9', 'u = π · d = 9π cm.',
+     'Mit dem Durchmesser ist u = π · d.')
+SW.z('exakt', 2, 'Ein Kreis hat den Flächeninhalt 49π cm². Wie groß ist sein Durchmesser?', 14, '2 * 7', 'r² = 49 ⇔ r = 7 cm. d = 14 cm.', 'Erst r aus r² = 49, dann verdoppeln.', einheit='cm')
+SW.l('exakt', 3, 'Eine Figur besteht aus einem Quadrat (Seite 8 cm) und einem aufgesetzten Halbkreis über der oberen Seite. Gib den Umfang der Figur exakt an.', 'u = □ + □ · π cm',
+     [24, 4], ['3 * 8', '8 / 2'], 'Drei Quadratseiten: 3 · 8 = 24 cm (die obere liegt innen). Halbkreisbogen: π · 8 : 2 = 4π cm. u = 24 + 4π cm.',
+     'Welche Seiten gehören zum Rand? Der Halbkreis hat den halben Umfang eines Kreises mit d = 8 cm.', 'Je Lücke eine ganze Zahl.', art='P')
+SW.l('exakt', 3, 'Dieselbe Figur (Quadrat mit Seite 8 cm, oben ein Halbkreis): Gib den Flächeninhalt exakt an.', 'A = □ + □ · π cm²', [64, 8], ['8 * 8', '4**2 / 2'],
+     'Quadrat: 64 cm². Halbkreis mit r = 4 cm: π · 16 : 2 = 8π cm². A = 64 + 8π cm².', 'Der Radius des Halbkreises ist 4 cm.', 'Je Lücke eine ganze Zahl.', art='P')
+SW.z('exakt', 3, 'Ein Kreis hat den Umfang 12π cm. Ein zweiter Kreis hat doppelt so viel Fläche. Gib die Fläche des zweiten Kreises exakt an: A = □ · π cm². Welche Zahl?', 72, '2 * 6**2',
+     'r = 6 cm, A₁ = 36π cm². Doppelte Fläche: 72π cm². (Achtung: nicht den Radius verdoppeln – das gäbe die vierfache Fläche.)', 'Bestimme zuerst A₁.', art='K')
+SW.z('exakt', 3, 'Ein Draht der Länge 8π cm wird zu einem Quadrat gebogen. Gib die Seitenlänge exakt an: s = □ · π cm. Welche Zahl?', 2, '8 / 4',
+     'Der Draht ist der Umfang: 4 · s = 8π cm ⇔ s = 2π cm (≈ 6,28 cm).', 'π bleibt als Zeichen stehen, du teilst nur die Zahl davor.', art='K')
+
+# verstehen
+SW.z('verstehen', 2, 'Der Durchmesser eines Kreises wird halbiert. Mit welchem Faktor ändert sich der Flächeninhalt?', 0.25, '0.5**2', 'Halber Durchmesser heißt halber Radius: Fläche · 0,5² = · 0,25.',
+     'Die Fläche hängt von r² ab.')
+SW.z('verstehen', 2, 'Der Umfang eines Kreises wird verdoppelt. Mit welchem Faktor ändert sich der Flächeninhalt?', 4, '2**2', 'Doppelter Umfang heißt doppelter Radius. Fläche · 2² = · 4.',
+     'Was passiert mit r, wenn u doppelt so groß wird?')
+SW.a('verstehen', 3, 'Eine Pizza mit 30 cm Durchmesser kostet doppelt so viel wie eine mit 15 cm. Ist die große Pizza günstiger?', 'Ja: Sie hat die vierfache Fläche zum doppelten Preis.',
+     ['Nein: Doppelter Preis für doppelte Größe ist gleich teuer.', 'Nein: Die kleine hat mehr Rand.', 'Das kann man ohne π nicht sagen.'],
+     'Doppelter Durchmesser gibt 2² = 4-fache Fläche. Für den doppelten Preis bekommt man also viermal so viel Pizza.', 'Wie ändert sich die Fläche bei doppeltem Durchmesser?', art='P')
+SW.z('verstehen', 3, 'Ein runder Turm wird im Maßstab 1 : 50 als Modell gebaut. Wie viel Mal so groß ist die Grundfläche des echten Turms?', 2500, '50**2',
+     'Jede Länge ist 50-mal so groß, also auch der Radius. Fläche: 50² = 2 500-mal so groß.', 'Die Fläche hängt vom Quadrat des Radius ab.', art='P')
+SW.z('verstehen', 3, 'Der Radius eines Kreises wächst um 10 %. Um wie viel Prozent wächst sein Flächeninhalt?', 21, '(1.1**2 - 1) * 100',
+     'Neuer Radius 1,1 · r. Fläche · 1,1² = · 1,21. Das ist ein Zuwachs um 21 %, nicht um 10 % oder 20 %.', 'Rechne mit dem Faktor 1,1.', einheit='%', art='K')
+SW.z('verstehen', 3, 'Der Radius eines Kreises wird um 1 cm vergrößert. Um wie viel wächst der Umfang? Runde auf zwei Nachkommastellen.', 6.28, f'2 * {PI} * 1',
+     'u = 2πr. Neuer Umfang 2π(r + 1) = 2πr + 2π. Er wächst um 2π ≈ 6,28 cm – bei jedem Kreis, egal wie groß.', 'Rechne 2π(r + 1) aus.', einheit='cm', toleranz=T01, art='K')
+
+# sektor
+SW.z('sektor', 2, 'Ein Kreisausschnitt hat r = 10 cm und α = 36°. Berechne die Bogenlänge. Runde auf eine Nachkommastelle.', 6.3, f'2 * {PI} * 10 * 36 / 360',
+     'b = 2π · 10 · 36/360 = 2π ≈ 6,3 cm.', '36° ist ein Zehntel des Vollkreises.', einheit='cm', toleranz=T1)
+SW.z('sektor', 2, 'Eine Pizza mit 30 cm Durchmesser wird in 8 gleiche Stücke geschnitten. Wie groß ist ein Stück? Runde auf eine Nachkommastelle.', 88.4, f'{PI} * 15**2 / 8',
+     'Ganze Pizza: π · 15² ≈ 706,9 cm². Ein Achtel ≈ 88,4 cm².', 'Radius 15 cm. Dann durch 8.', einheit='cm²', toleranz=T1)
+SW.z('sektor', 3, 'Der Minutenzeiger einer Uhr ist 12 cm lang. Welchen Weg legt seine Spitze in 20 Minuten zurück? Runde auf eine Nachkommastelle.', 25.1, f'2 * {PI} * 12 / 3',
+     '20 Minuten sind ein Drittel der Stunde (120°). Weg = 2π · 12 : 3 = 8π ≈ 25,1 cm.', 'Welcher Teil des Kreises ist das?', einheit='cm', toleranz=T1, art='P')
+SW.z('sektor', 3, 'In einem Kreisdiagramm stehen 15 % für „Bus“. Wie groß ist der Mittelpunktswinkel dieses Kreisausschnitts?', 54, '0.15 * 360',
+     '15 % von 360° = 0,15 · 360° = 54°.', 'Der ganze Kreis sind 100 % = 360°.', einheit='°', art='P')
+SW.z('sektor', 3, 'Ein Kreisausschnitt mit r = 6 cm hat denselben Flächeninhalt wie ein ganzer Kreis mit r = 2 cm. Wie groß ist sein Mittelpunktswinkel?', 40, '4 / 36 * 360',
+     'Kleiner Kreis: 4π. Großer Kreis: 36π. Anteil 4π : 36π = 1/9. α = 360° : 9 = 40°.', 'Rechne mit π als Zeichen.', einheit='°', art='K')
+SW.z('sektor', 3, 'Ein Viertelkreis hat r = 4 cm. Wie lang ist sein ganzer Rand (Bogen und beide Radien)? Runde auf eine Nachkommastelle.', 14.3, f'2 * {PI} * 4 / 4 + 2 * 4',
+     'Bogen: 2π · 4 : 4 = 2π ≈ 6,28 cm. Dazu zwei Radien: 8 cm. Rand ≈ 14,3 cm.', 'Der Rand besteht nicht nur aus dem Bogen.', einheit='cm', toleranz=T1, art='K')
+
+# zusammengesetzt
+SW.z('zusammengesetzt', 2, 'Ein Kreisring hat den Außendurchmesser 10 cm und den Innendurchmesser 6 cm. Berechne seinen Flächeninhalt. Runde auf eine Nachkommastelle.', 50.3,
+     f'{PI} * (5**2 - 3**2)', 'Radien 5 cm und 3 cm. A = π · (25 − 9) = 16π ≈ 50,3 cm².', 'Achtung: Durchmesser gegeben – erst halbieren.', einheit='cm²', toleranz=T1)
+SW.z('zusammengesetzt', 2, 'Ein Halbkreis hat den Durchmesser 12 cm. Berechne seinen Flächeninhalt. Runde auf eine Nachkommastelle.', 56.5, f'{PI} * 6**2 / 2',
+     'r = 6 cm. Halber Kreis: π · 36 : 2 ≈ 56,5 cm².', 'Radius bestimmen, Kreisfläche halbieren.', einheit='cm²', toleranz=T1)
+SW.z('zusammengesetzt', 3, 'Ein Fenster besteht aus einem Rechteck (1 m breit, 1,5 m hoch) mit einem aufgesetzten Halbkreis (Durchmesser 1 m). Berechne die Glasfläche. Runde auf zwei Nachkommastellen.',
+     1.89, f'1 * 1.5 + {PI} * 0.5**2 / 2', 'Rechteck: 1,5 m². Halbkreis: π · 0,5² : 2 ≈ 0,39 m². Zusammen ≈ 1,89 m².', 'Zerlege in Rechteck und Halbkreis.',
+     einheit='m²', toleranz=T01, art='P')
+SW.z('zusammengesetzt', 3, 'Ein Sportplatz besteht aus einem Rechteck (80 m × 60 m) und je einem Halbkreis an den beiden 60-m-Seiten. Wie groß ist die Rasenfläche? Runde auf ganze m².', 7627,
+     f'80 * 60 + {PI} * 30**2', 'Die zwei Halbkreise (r = 30 m) ergeben zusammen einen Kreis: π · 900 ≈ 2 827 m². Dazu 4 800 m². Gesamt ≈ 7 627 m².',
+     'Zwei Halbkreise sind ein ganzer Kreis.', einheit='m²', toleranz=1, art='P')
+SW.z('zusammengesetzt', 3, 'In einem Quadrat mit Seitenlänge 10 cm wird an jeder Ecke ein Viertelkreis mit Radius 5 cm ausgeschnitten. Wie groß ist die Restfläche? Runde auf eine Nachkommastelle.', 21.5,
+     f'100 - {PI} * 25', 'Vier Viertelkreise mit r = 5 cm sind zusammen ein ganzer Kreis: 25π ≈ 78,5 cm². Rest: 100 − 78,5 ≈ 21,5 cm².', 'Wie viele ganze Kreise ergeben die vier Viertel?',
+     einheit='cm²', toleranz=T1, grafik={'typ': 'figur', 'punkte': {'A': [0, 0], 'B': [10, 0], 'C': [10, 10], 'D': [0, 10]}, 'flaeche': ['A', 'B', 'C', 'D'],
+                                        'linien': [['A', 'B', '10 cm']], 'kreise': [{'m': 'A', 'r': 5}, {'m': 'B', 'r': 5}, {'m': 'C', 'r': 5}, {'m': 'D', 'r': 5}]}, art='K')
+SW.z('zusammengesetzt', 3, 'Zwei Kreise mit r = 2 cm liegen nebeneinander und berühren sich. Ein Rechteck umschließt beide genau. Wie groß ist die Fläche im Rechteck außerhalb der Kreise? Runde auf eine Nachkommastelle.',
+     6.9, f'8 * 4 - 2 * {PI} * 4', 'Rechteck: 8 cm × 4 cm = 32 cm². Kreise: 2 · π · 4 = 8π ≈ 25,1 cm². Rest ≈ 6,9 cm².', 'Wie lang und wie breit ist das Rechteck?', einheit='cm²', toleranz=T1, art='K')
+
+# zylinder
+SW.z('zylinder', 2, 'Eine Dose hat den Durchmesser 8 cm und die Höhe 11 cm. Berechne ihr Volumen. Runde auf ganze cm³.', 553, f'{PI} * 4**2 * 11', 'V = π · 4² · 11 ≈ 552,9 ≈ 553 cm³.',
+     'Erst den Radius bestimmen.', einheit='cm³', toleranz=1)
+SW.z('zylinder', 2, 'Eine Litfaßsäule (Zylinder) hat den Durchmesser 1,2 m und ist 3 m hoch. Nur die Mantelfläche wird beklebt. Wie viel m² sind das? Runde auf eine Nachkommastelle.', 11.3,
+     f'{PI} * 1.2 * 3', 'Mantel = Umfang · Höhe = π · 1,2 · 3 ≈ 11,3 m².', 'Der Mantel ist ein aufgerolltes Rechteck: Umfang mal Höhe.', einheit='m²', toleranz=T1)
+SW.a('zylinder', 3, 'Ein Zylinder hat den Durchmesser 6 cm und die Höhe 10 cm. Welcher Term gibt sein Volumen an?', 'π · 3² · 10', ['π · 6² · 10', '2 · π · 3 · 10', 'π · 6 · 10'],
+     'V = π · r² · h mit r = 3 cm: π · 3² · 10 = 90π cm³. 2 · π · 3 · 10 ist die Mantelfläche, π · 6² · 10 nimmt den Durchmesser statt des Radius.',
+     'Welcher Term enthält r² und h?', art='P')
+SW.z('zylinder', 3, 'Ein zylinderförmiges Glas hat innen den Radius 3 cm und ist 8 cm hoch mit Wasser gefüllt. Man gießt 100 cm³ dazu. Um wie viel cm steigt der Wasserspiegel? Runde auf eine Nachkommastelle.',
+     3.5, f'100 / ({PI} * 9)', 'Grundfläche: π · 3² ≈ 28,3 cm². Anstieg: 100 : 28,3 ≈ 3,5 cm. Die 8 cm braucht man nicht.', 'Das zusätzliche Wasser bildet einen flachen Zylinder.',
+     einheit='cm', toleranz=T1, art='P')
+SW.a('zylinder', 3, 'Zylinder A hat r = 2 cm und h = 8 cm. Zylinder B hat r = 4 cm und h = 2 cm. Welcher hat das größere Volumen?', 'Beide sind gleich groß.',
+     ['A, weil er höher ist.', 'B, weil er breiter ist.', 'Das kann man ohne Taschenrechner nicht sagen.'],
+     'A: π · 4 · 8 = 32π. B: π · 16 · 2 = 32π. Doppelter Radius vervierfacht die Grundfläche, ein Viertel der Höhe gleicht das aus.', 'Rechne mit π als Zeichen.', art='K')
+SW.a('zylinder', 3, 'Ein Blatt (20 cm × 30 cm) wird zu einem Zylindermantel gerollt: einmal mit der 30-cm-Seite als Umfang (Höhe 20 cm), einmal mit der 20-cm-Seite als Umfang (Höhe 30 cm). Welcher Zylinder fasst mehr?',
+     'der mit 30 cm Umfang', ['der mit 20 cm Umfang', 'Beide fassen gleich viel, das Blatt ist dasselbe.', 'Das hängt vom Material ab.'],
+     'Umfang 30: r ≈ 4,77 cm, V ≈ π · 22,8 · 20 ≈ 1 432 cm³. Umfang 20: r ≈ 3,18 cm, V ≈ π · 10,1 · 30 ≈ 955 cm³. Der Radius geht quadratisch ein.',
+     'Bestimme jeweils r aus dem Umfang und vergleiche π · r² · h.', art='K')
+
+baue = mit_schwer(baue, SW)
+# ---- SCHWER ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Kreis', ['umfang', 'flaeche', 'exakt', 'verstehen']), ('Teile von Kreisen', ['sektor', 'zusammengesetzt']), ('Zylinder', ['zylinder'])],

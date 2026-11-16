@@ -6,6 +6,12 @@ erst NACH dem Erzeugen der Aufgaben – so bleiben die Aufgaben wörtlich gleich
 (Werte im Zahlenstrahl-Bereich, Thermometer-Stand, Figur-Punkte, Tabellenbreite). `probe` entfällt bei umgebauten Karten (kommt im neuen Muster nicht vor).
 Vergleich je Thema: `aufgaben` und alle Felder außer `inhalt.etappen` und `offen` gegen den Ausgangsstand bc7a754 (lernen-app).
 
+## 2026-11-16 02:56 – STATUS
+geometrie.grundbegriffe (7 Karten) umgebaut. Koordinatensystem mit Schritt-Zuständen (Weg zum Punkt, Verschieben, Strecke in zwei Teilen, Lot), Figur mit Kreis und drei Geraden, Schere mit 45°/90°/135°, Vierecks-Übersicht als Tabelle mit Raute im Beispiel.
+inhalt_pruefen: OK, keine Hinweise. Vergleich: 196 Aufgaben wörtlich gleich, Rest gleich.
+winkelarten: Beispiel jetzt 135° (stumpf) statt 235° – die Figur kann keinen überstumpfen Winkelbogen zeichnen; 235° steht im Fehler.
+vierecke: Kartenbild ist eine Übersichtstabelle aller sechs Vierecke (nur 3 neue Wörter erlaubt, die Aufgaben fragen alle sechs ab).
+
 ## 2026-11-16 02:55 – STATUS
 groessen.proportional (7 Karten) umgebaut. Alle Bilder sind Tabellen, die sich Schritt für Schritt füllen (Brötchen, Äpfel, Hefte, Karten, Nudeln); fehler_bild zeigt jeweils die falsche oder die Gegen-Tabelle (Taxi mit Grundgebühr, Rabatt, Kochzeit).
 inhalt_pruefen: OK, keine Hinweise. Vergleich: 175 Aufgaben wörtlich gleich, Rest gleich.

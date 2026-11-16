@@ -432,5 +432,123 @@ KARTEN = {
 umbau(DATEI, KARTEN)
 
 
+# ---------- SCHWER (Zehnte Runde, Zweig schwer-kl5) ----------
+# Neue Übungen nach Prüfungsvorbild (Jahrgangsstufentest 6 Bayern: Körper mit 8 Ecken/12 Kanten, angemalter Würfel aus kleinen Würfeln,
+# Netz und Höhe, Eigenschaften ankreuzen; Bayerischer Mathematik-Test 2000: Quaderoberfläche mit gemischten Einheiten; Känguru: Würfelbauten).
+# Netze und Schrägbilder kann die App nicht zeichnen – solche Aufgaben sind in Worten gestellt.
+from itertools import product  # noqa: E402
+from _schwer_kl5 import A, L, Z, de, einzig, ergaenze, wahl  # noqa: E402
+
+
+def _oberflaeche(wuerfel):
+    """Oberfläche (in Einheitsquadraten) eines Baus aus Einheitswürfeln: 6 je Würfel minus 2 je Klebestelle."""
+    s = set(wuerfel)
+    kleben = sum(1 for (x, y, z) in s for d in ((1, 0, 0), (0, 1, 0), (0, 0, 1)) if (x + d[0], y + d[1], z + d[2]) in s)
+    return 6 * len(s) - 2 * kleben
+
+
+def _schwer():
+    N = {}
+    rote = {}
+    for x, y, z in product(range(3), repeat=3):
+        k = sum(1 for v in (x, y, z) if v in (0, 2))
+        rote[k] = rote.get(k, 0) + 1
+    N['quader'] = [
+        Z(2, 'Alle Kanten eines Würfels sind zusammen 60 cm lang. Wie lang ist eine Kante?', '60 / 12', 'Ein Würfel hat 12 gleich lange Kanten: 60 cm : 12 = 5 cm.', 'Wie viele Kanten hat ein Würfel?', einheit='cm'),
+        Z(2, 'Wie viele Flächen, Kanten und Ecken hat ein Quader zusammen?', '6 + 12 + 8', '6 Flächen + 12 Kanten + 8 Ecken = 26.', 'Zähle Flächen, Kanten und Ecken einzeln.'),
+        wahl(3, 'Welcher Körper hat 8 Ecken, 12 Kanten und nur quadratische Flächen?', ['Würfel', 'Quader mit 5 cm, 3 cm, 2 cm', 'Pyramide', 'Zylinder'], lambda o: o == 'Würfel',
+             'Ecken und Kanten passen zu Quader und Würfel. Nur beim Würfel sind alle 6 Flächen Quadrate.', 'Prüfe alle drei Bedingungen.'),
+        Z(3, 'Ein Würfelnetz besteht aus 6 gleich großen Quadraten. Das ganze Netz hat den Flächeninhalt 150 cm². Wie lang ist eine Würfelkante?', str(einzig([a for a in range(1, 30) if 6 * a * a == 150])),
+          'Ein Quadrat: 150 cm² : 6 = 25 cm². 5 cm · 5 cm = 25 cm², also ist die Kante 5 cm lang.', 'Wie groß ist ein Quadrat des Netzes?', einheit='cm'),
+        Z(3, 'Ein großer Würfel ist aus 3 · 3 · 3 kleinen Würfeln gebaut und wird außen rot angemalt. Wie viele kleine Würfel haben genau zwei rote Flächen?', str(rote[2]),
+          'Zwei rote Flächen haben die mittleren Würfel jeder Kante: 12 Kanten mit je 1 Würfel = 12.', 'Ecken-Würfel haben 3 rote Flächen. Wo liegen die Würfel mit genau 2?'),
+        Z(3, 'Ein großer Würfel aus 3 · 3 · 3 kleinen Würfeln wird außen rot angemalt. Wie viele kleine Würfel haben genau eine rote Fläche?', str(rote[1]),
+          'Genau eine rote Fläche hat der mittlere Würfel jeder Seitenfläche: 6 Flächen, also 6 Würfel.', 'Schau dir eine Seitenfläche mit 3 · 3 Würfeln an. Welcher hat nur diese eine rote Fläche?'),
+    ]
+    hoehe = einzig([h for h in range(1, 30) if 2 * (5 * 4 + 5 * h + 4 * h) == 94])
+    N['oberflaeche'] = [
+        Z(2, 'Berechne die Oberfläche eines Quaders, der 6 cm lang, 5 cm breit und 2 cm hoch ist.', '2 * (6 * 5 + 6 * 2 + 5 * 2)', '2 · 30 + 2 · 12 + 2 · 10 = 60 + 24 + 20 = 104 cm².',
+          'Je zwei Flächen sind gleich groß.', einheit='cm²'),
+        Z(2, 'Eine Seitenfläche eines Würfels hat 49 cm². Wie groß ist seine Oberfläche?', '6 * 49', 'Ein Würfel hat 6 gleiche Flächen: 6 · 49 cm² = 294 cm².', 'Wie viele gleiche Flächen hat ein Würfel?', einheit='cm²'),
+        Z(3, 'Ein Quader ist 4 cm lang, 25 mm breit und 3 cm hoch. Berechne die Oberfläche in cm².', '2 * (4 * 2.5 + 4 * 3 + 2.5 * 3)',
+          '25 mm = 2,5 cm. 2 · (4 · 2,5 + 4 · 3 + 2,5 · 3) = 2 · (10 + 12 + 7,5) = 59 cm².', 'Rechne zuerst alle Kanten in cm um.', einheit='cm²'),
+        Z(3, 'Ein Würfel mit 4 cm Kantenlänge wird in der Mitte durchgeschnitten. Um wie viele cm² ist die Oberfläche der beiden Teile zusammen größer als die des Würfels?', '2 * 4 * 4',
+          'Beim Schnitt entstehen zwei neue Schnittflächen mit je 4 cm · 4 cm = 16 cm². Zusammen 32 cm² mehr.', 'Welche Flächen kommen durch den Schnitt neu dazu?', einheit='cm²'),
+        Z(3, 'Ein Quader hat die Oberfläche 94 cm². Er ist 5 cm lang und 4 cm breit. Wie hoch ist er?', str(hoehe),
+          'Boden und Deckel: 2 · 20 = 40 cm². Für die vier Seiten bleiben 54 cm². Sie sind zusammen 2 · (5 + 4) = 18 cm breit: Höhe 54 : 18 = 3 cm.',
+          'Ziehe zuerst Boden und Deckel ab.', einheit='cm'),
+        A(3, 'Jemand berechnet die Oberfläche eines Quaders (6 cm × 4 cm × 2 cm) so: 6 · 4 · 2 = 48 cm². Was ist falsch?', 'Das ist das Volumen (48 cm³). Die Oberfläche ist 2 · (24 + 12 + 8) = 88 cm².',
+          ['Nichts, 48 cm² stimmt.', 'Man muss 6 + 4 + 2 = 12 cm² rechnen.', 'Richtig ist 6 · 48 = 288 cm².'],
+          'Für die Oberfläche addiert man die 6 Flächen: 2 · 6 · 4 + 2 · 6 · 2 + 2 · 4 · 2 = 88 cm².', 'Malnehmen aller drei Kanten ergibt das Volumen, nicht die Oberfläche.'),
+    ]
+    N['sachaufgaben'] = [
+        Z(2, 'Ein Karton ohne Deckel ist 20 cm lang, 10 cm breit und 10 cm hoch. Wie viel cm² Pappe braucht man?', '20 * 10 + 2 * 20 * 10 + 2 * 10 * 10',
+          'Boden 200 cm², vorne/hinten 2 · 200 cm², links/rechts 2 · 100 cm². Zusammen 800 cm².', 'Ohne Deckel: Es fehlt eine Fläche.', einheit='cm²'),
+        Z(2, 'Eine würfelförmige Kiste mit 30 cm Kantenlänge wird nur an den vier Seiten bemalt, nicht oben und nicht unten. Wie viele cm² werden bemalt?', '4 * 30 * 30',
+          'Vier Quadrate mit je 30 cm · 30 cm = 900 cm²: 4 · 900 = 3 600 cm².', 'Wie viele Flächen werden bemalt?', einheit='cm²'),
+        Z(3, 'Ein Schwimmbecken ist 10 m lang, 5 m breit und 2 m tief. Boden und Wände werden gefliest. Wie viele m² sind das?', '10 * 5 + 2 * 10 * 2 + 2 * 5 * 2',
+          'Boden: 50 m². Lange Wände: 2 · 20 m². Kurze Wände: 2 · 10 m². Zusammen 110 m².', 'Die Oberseite (Wasser) wird nicht gefliest.', einheit='m²'),
+        Z(3, 'Ein Becken ist 4 m lang, 3 m breit und 1 m tief. Boden und Wände werden mit quadratischen Fliesen (50 cm Seitenlänge) belegt. Wie viele Fliesen braucht man?',
+          '(4 * 3 + 2 * 4 * 1 + 2 * 3 * 1) / (0.5 * 0.5)', 'Fläche: 12 + 8 + 6 = 26 m². Eine Fliese: 0,5 m · 0,5 m = 0,25 m². 26 : 0,25 = 104 Fliesen.',
+          'Auf 1 m² passen 4 solche Fliesen.'),
+        Z(3, 'Ein Würfel mit 2 cm Kantenlänge steht mittig auf einem Würfel mit 4 cm Kantenlänge. Wie groß ist die Oberfläche des ganzen Körpers (Boden zählt mit)?', '6 * 4 * 4 + 6 * 2 * 2 - 2 * 2 * 2',
+          'Großer Würfel 96 cm², kleiner 24 cm². Die Auflagefläche (4 cm²) ist doppelt verdeckt: 96 + 24 − 8 = 112 cm².', 'Welche Flächen verschwinden beim Aufeinanderstellen?', einheit='cm²'),
+        Z(3, 'Für ein Aquarium ohne Deckel (60 cm × 30 cm × 40 cm) rechnet jemand die ganze Oberfläche aus. Um wie viele cm² zu viel ist das?', '60 * 30',
+          'Der fehlende Deckel ist 60 cm · 30 cm = 1 800 cm² groß – genau so viel wurde zu viel gerechnet.', 'Welche Fläche gibt es gar nicht?', einheit='cm²'),
+    ]
+    L4 = [(0, 0, 0), (1, 0, 0), (2, 0, 0), (0, 0, 1)]
+    reihe6 = [(i, 0, 0) for i in range(6)]
+    block = [(x, y, 0) for x in range(3) for y in range(2)]
+    N['zusammengesetzt'] = [
+        Z(2, '3 Würfel mit 2 cm Kantenlänge werden in einer Reihe zusammengeklebt. Wie groß ist die Oberfläche des Körpers?', '3 * 6 * 4 - 2 * 2 * 4',
+          '3 · 24 cm² = 72 cm². 2 Klebestellen verdecken je 2 Quadrate zu 4 cm²: 72 − 16 = 56 cm².', 'Wie viele Klebestellen gibt es?', einheit='cm²'),
+        Z(2, '4 Würfel mit 1 cm Kantenlänge werden als 2 · 2-Quadrat auf den Tisch gelegt und verklebt. Wie groß ist die Oberfläche des Körpers?', str(_oberflaeche([(x, y, 0) for x in range(2) for y in range(2)])),
+          'Es entsteht ein Quader 2 cm × 2 cm × 1 cm: 2 · (4 + 2 + 2) = 16 cm².', 'Welcher Quader entsteht?', einheit='cm²'),
+        Z(3, '8 Würfel mit 1 cm Kantenlänge werden zu einem großen Würfel (2 · 2 · 2) zusammengesetzt. Wie groß ist seine Oberfläche?', str(_oberflaeche([(x, y, z) for x in range(2) for y in range(2) for z in range(2)])),
+          'Der große Würfel hat 2 cm Kantenlänge: 6 · 2 · 2 = 24 cm². Die 8 einzelnen Würfel hatten zusammen 48 cm².', 'Rechne mit dem großen Würfel.', einheit='cm²'),
+        Z(3, '4 Würfel mit 1 cm Kantenlänge: 3 liegen in einer Reihe, der vierte sitzt oben auf dem ersten. Wie groß ist die Oberfläche?', str(_oberflaeche(L4)),
+          '4 · 6 = 24 Quadrate. Es gibt 3 Klebestellen mit je 2 verdeckten Quadraten: 24 − 6 = 18 cm².', 'Zähle die Klebestellen.', einheit='cm²'),
+        Z(3, 'Aus 6 Würfeln mit 1 cm Kantenlänge baut man einmal eine Reihe und einmal einen Quader 3 · 2 · 1. Um wie viele cm² ist die Oberfläche der Reihe größer?',
+          f'{_oberflaeche(reihe6)} - {_oberflaeche(block)}', f'Reihe: 6 · 6 − 2 · 5 = 26 cm². Quader 3 × 2 × 1: 2 · (6 + 3 + 2) = 22 cm². Unterschied 4 cm².',
+          'Rechne beide Oberflächen aus. Je mehr Klebestellen, desto kleiner die Oberfläche.', einheit='cm²'),
+        A(3, 'Jemand rechnet für zwei aneinandergeklebte Würfel (Kante 3 cm): 2 · 54 cm² = 108 cm². Was ist falsch?', 'Die beiden Klebeflächen (je 9 cm²) sind verdeckt: richtig ist 90 cm².',
+          ['Nichts, 108 cm² stimmt.', 'Nur eine Klebefläche fällt weg: 99 cm².', 'Richtig ist 54 cm², weil es ein Körper ist.'],
+          'Jeder Würfel hat 54 cm². Beim Kleben verschwinden zwei Quadrate zu je 9 cm²: 108 − 18 = 90 cm².', 'Wie viele Quadrate sind nach dem Kleben nicht mehr sichtbar?'),
+    ]
+    N['volumen'] = [
+        Z(2, 'Berechne das Volumen eines Quaders, der 8 cm lang, 5 cm breit und 3 cm hoch ist.', '8 * 5 * 3', 'V = 8 cm · 5 cm · 3 cm = 120 cm³.', 'Volumen = Länge · Breite · Höhe.', einheit='cm³'),
+        Z(2, 'Ein Würfel hat das Volumen 125 cm³. Wie lang ist eine Kante?', str(einzig([a for a in range(1, 20) if a ** 3 == 125])), '5 · 5 · 5 = 125. Die Kante ist 5 cm lang.',
+          'Welche Zahl dreimal mit sich selbst malgenommen ergibt 125?', einheit='cm'),
+        Z(3, 'Ein Aquarium ist 50 cm lang, 30 cm breit und 40 cm hoch. Es wird bis 5 cm unter den Rand gefüllt. Wie viele Liter Wasser sind darin? (1 Liter = 1 000 cm³)',
+          '50 * 30 * (40 - 5) / 1000', 'Wasserhöhe: 35 cm. V = 50 · 30 · 35 = 52 500 cm³ = 52,5 Liter.', 'Wie hoch steht das Wasser?', einheit='l'),
+        Z(3, 'Eine Schachtel ist innen 6 cm lang, 4 cm breit und 3 cm hoch. Wie viele Würfel mit 2 cm Kantenlänge passen höchstens hinein?', '(6 // 2) * (4 // 2) * (3 // 2)',
+          'Längs passen 3, quer 2, in der Höhe nur 1 (3 cm reichen nicht für 2 Würfel). 3 · 2 · 1 = 6. Volumen geteilt (72 : 8 = 9) wäre falsch.',
+          'Zähle in jeder Richtung, wie viele ganze Würfel passen.'),
+        Z(3, 'Die Kantenlänge eines Würfels wird verdreifacht. Wie oft so groß wird sein Volumen?', '3 * 3 * 3', 'Länge, Breite und Höhe werden je verdreifacht: 3 · 3 · 3 = 27-mal.',
+          'Probiere es aus: Kante 1 cm und Kante 3 cm.'),
+        Z(3, 'Ein Quader hat das Volumen 360 cm³. Seine Grundfläche ist ein Quadrat mit 6 cm Seitenlänge. Wie hoch ist er?', '360 / (6 * 6)',
+          'Grundfläche: 6 cm · 6 cm = 36 cm². Höhe: 360 : 36 = 10 cm.', 'Volumen = Grundfläche · Höhe.', einheit='cm'),
+    ]
+    N['verstehen'] = [
+        wahl(2, 'Stimmt die Aussage? „Ein Würfel ist ein besonderer Quader.“', ['Ja: ein Quader, bei dem alle Kanten gleich lang sind.', 'Nein: Ein Würfel hat mehr Ecken.', 'Nein: Quader haben keine Quadrate.'],
+             lambda o: o.startswith('Ja'), 'Ein Würfel hat alle Eigenschaften eines Quaders (6 Rechtecksflächen, 12 Kanten, 8 Ecken) – dazu gleich lange Kanten.', 'Vergleiche die Eigenschaften.'),
+        wahl(2, 'Stimmt die Aussage? „Ein Quader mit 2 cm, 3 cm und 4 cm hat das Volumen 24 cm³.“', ['Ja: 2 · 3 · 4 = 24.', 'Nein: 2 + 3 + 4 = 9 cm³.', 'Nein: Das sind 52 cm³.'],
+             lambda o: o.startswith('Ja'), 'V = 2 cm · 3 cm · 4 cm = 24 cm³.', 'Volumen = Länge · Breite · Höhe.'),
+        wahl(3, 'Welche Aussage über jeden Quader ist falsch?', ['Gegenüberliegende Flächen sind gleich groß.', 'Alle Flächen sind Rechtecke.', 'Alle Kanten sind gleich lang.', 'Er hat 8 Ecken.'],
+             lambda o: o == 'Alle Kanten sind gleich lang.', 'Gleich lange Kanten hat nur der Würfel. Ein Quader kann z. B. 5 cm, 3 cm und 2 cm haben.', 'Denk an einen Schuhkarton.'),
+        Z(3, 'Bei welchem Würfel haben Oberfläche (in cm²) und Volumen (in cm³) dieselbe Maßzahl? Gib die Kantenlänge an.', str(einzig([a for a in range(1, 30) if 6 * a * a == a ** 3])),
+          'Oberfläche 6 · a · a, Volumen a · a · a. Gleich, wenn a = 6: 6 · 36 = 216 und 6 · 6 · 6 = 216.', 'Probiere Kantenlängen aus und vergleiche.', einheit='cm'),
+        wahl(3, 'Stimmt die Aussage? „Ein Quader mit größerem Volumen hat immer auch die größere Oberfläche.“',
+             ['Nein: 3 × 3 × 3 hat V = 27 cm³ und O = 54 cm², 1 × 1 × 20 hat V = 20 cm³, aber O = 82 cm².', 'Ja, immer.', 'Ja, mehr Inhalt braucht mehr Hülle.', 'Nein, Volumen und Oberfläche sind immer gleich.'],
+             lambda o: o.startswith('Nein: 3'), 'Ein Gegenbeispiel genügt: Der lange, dünne Quader hat weniger Volumen, aber mehr Oberfläche.', 'Vergleiche einen Würfel mit einer langen Stange.'),
+        A(3, 'Jemand gibt das Volumen eines Würfels mit 3 cm Kantenlänge mit 9 cm³ an. Was ist falsch?', 'Es wurde nur a · a gerechnet. Richtig: 3 · 3 · 3 = 27 cm³.',
+          ['Nichts, das stimmt.', 'Richtig ist 3 · 3 · 6 = 54 cm³.', 'Richtig ist 3 + 3 + 3 = 9 cm³.'], 'Beim Volumen braucht man alle drei Kanten: 3 · 3 · 3 = 27 cm³. 9 cm² ist eine Seitenfläche.',
+          'Wie viele Faktoren braucht man beim Volumen?'),
+    ]
+    return N
+
+
+ergaenze(DATEI, _schwer(), 1053)
+
 if __name__ == '__main__':
     schreibe(DATEI)

@@ -1,5 +1,9 @@
 # Postfach schwer-kl5 (Zehnte Runde: Durchsicht Klasse 5 + schwerere Aufgaben nach Prüfungsvorbild)
 
+## 2026-11-16 08:30 – STATUS
+Thema 10/12 fertig: **messen.koerper_berechnung** – 36 neue Übungen (je Lernkarte 2 × Stufe 2, 4 × Stufe 3), danach je Lernkarte 10 Stufe-3-Übungen. Prüfskript OK, Unverändert-Nachweis JA.
+App-Wunsch (bekannt): Netze und Schrägbilder von Quadern kommen in fast jedem Jahrgangsstufentest 6 vor (Netz falten, fehlende Kanten ergänzen, Würfelnetz-Pfeil) – ohne Zeichenart nicht als Aufgabe umsetzbar.
+
 ## 2026-11-16 08:10 – STATUS
 Thema 9/12 fertig: **messen.flaechen** – 42 neue Übungen (je Lernkarte 2 × Stufe 2, 4 × Stufe 3), danach je Lernkarte 10 Stufe-3-Übungen. Prüfskript OK, Unverändert-Nachweis JA.
 

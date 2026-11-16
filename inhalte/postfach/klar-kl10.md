@@ -1,5 +1,8 @@
 # klar-kl10 – Erklärungen verständlich machen (Klasse 10)
 
+## 2026-11-16 01:59 – STATUS
+raum.pyramide_kegel_kugel: 7 Lernkarten überarbeitet (einstieg, woerter, schritte, regel, fehler, Bildbeschriftung; Situationen Zelt/Waffeltüte/Fußball/Eisdiele/Spitzbecher; Merke zu Cavalieri fachlich präzisiert (gleiche Querschnitte statt nur gleiche Grundfläche und Höhe)). Prüfskript OK. Vergleich Aufgaben gegen HEAD: 0 Unterschiede (196 Aufgaben).
+
 ## 2026-11-16 01:58 – STATUS
 funktionen.ganzrational: 7 Lernkarten überarbeitet (einstieg, woerter, schritte, regel, fehler, Bildbeschriftung; Situationen Kassenbon/Beet/Tauziehen/Schmetterling/Wanderweg am See). Prüfskript OK. Vergleich Aufgaben gegen HEAD: 0 Unterschiede (196 Aufgaben).
 

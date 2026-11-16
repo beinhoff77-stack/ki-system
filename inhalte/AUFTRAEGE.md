@@ -734,3 +734,39 @@ Arbeite ohne Rückfragen durch; Unklares unter "offen" notieren.
 
 Abnahme je Paket: Der Haupt-Chat prüft (Prüfskript, Aufgaben gleich, Zeichnungen rendern, drei Karten lesen) und spielt die Erklärungen ein.
 Danach liest das Kind eine Karte und löst die erste Aufgabe ohne Hilfe.
+
+
+---
+
+# Neunte Runde: Aufgaben auffüllen – drei Themen mit nur 2 Übungen je Lernkarte
+
+Befund aus dem echten Einsatz (16.11.): In zahlen.teilbarkeit (Athen), terme.umformen (Samarkand) und finanzen.zinsen (New York) gibt es je Lernkarte nur
+2 Übungsaufgaben (dazu 1 Test, 3 Korrektur, 6 Sicherung). Eine Karte „sitzt“ erst nach 2 richtigen Antworten hintereinander, und eine richtige Antwort im zweiten
+Versuch zählt dafür nicht. Folge: Das Kind bekommt dieselbe Aufgabe sofort noch einmal. Diese drei Themen stammen aus der Zeit vor dem Bausatz und haben keinen Generator.
+
+```text
+Du baust Übungsaufgaben für drei bestehende Themen einer Mathe-Lern-App nach (bayerisches Gymnasium).
+Repository: beinhoff77-stack/ki-system (lernen-app ist ein Zweig darin). Hole den aktuellen Stand des Zweigs lernen-app, lege davon den Zweig aufgaben-auffuellen an und arbeite nur dort.
+
+Lies zuerst vollständig: inhalte/README.md (Format, Regeln, „Erfahrungen“, „Zeichnungen“, „Verständliche Erklärungen“), inhalte/postfach/README.md, inhalte/vorlage_generator.py,
+inhalte/klar/quelle.md (dort stehen für die drei Themen alle Lernziele, Titel, bisherigen Beispiele) und die Überlagerungen inhalte/klar/zahlen.teilbarkeit.json,
+inhalte/klar/terme.umformen.json, inhalte/klar/finanzen.zinsen.json (das sind die aktuellen, bereits umgebauten Lernkarten dieser Themen).
+Als Muster für Generatoren: inhalte/generatoren/gleichungen_einfach.py mit _nachbau.py und inhalte/generatoren/zahlen.ganz.py.
+
+Aufgabe: Je Thema ein Generator inhalte/generatoren/<thema mit _ statt .>.py, der inhalte/themen/<thema_schluessel>.json schreibt:
+ 1. terme.umformen – Terme umformen (thema_id 29, block_id 62, klasse {"gym_by": 7}) – zuerst, ein Kind arbeitet gerade daran
+ 2. zahlen.teilbarkeit – Teilbarkeit und Primzahlen (thema_id 17, block_id 48, klasse {"gym_by": 5})
+ 3. finanzen.zinsen – Einfache Zinsen (thema_id 71, block_id 52, klasse {"gym_by": 6})
+- Lernziele (Schlüssel), Reihenfolge und Titel der Lernkarten GENAU wie in inhalte/klar/quelle.md. Die Erklärfelder jeder Lernkarte (einstieg, woerter, bild, schritte, fehler,
+  fehler_bild, regel, probe) unverändert aus inhalte/klar/<thema>.json übernehmen (der Generator liest die Datei ein); fehlt dort ein Bild, das Kartenbild aus quelle.md nachbauen.
+- Je Lernkarte NEUE Aufgaben mit allen Pools wie im Bausatz: 12 Übungen (je Stufe mindestens 3), 1 Test, 3 Korrektur, 6 Sicherung. Die Aufgaben vom Programm erzeugen,
+  jede Lösung berechnen, Zahl-Aufgaben mit Rechenausdruck „c“. Stufe 3 als anderer Gedanke (Fehler finden, Umkehraufgabe, Sachaufgabe). Falsche Antworten aus typischen Denkfehlern.
+  Aufgaben zu Termen: Antworttyp luecken mit Term-Vorlage wie in den vorhandenen Themen (z. B. „□x + □“, „□x² + □x + □“) – siehe README und terme.bruchterme/gleichungen.linear als Muster.
+- abschnitte, teilfaehigkeiten und bewertung vollständig anlegen (alle Lernkarten Pflicht, außer du begründest eine Vertiefung unter "offen").
+- Ein Thema ist fertig, wenn `python3 -I tools/inhalt_pruefen.py inhalte/themen/<datei>.json` OK meldet, jede Zahl-Aufgabe nachgerechnet ist und du je Lernkarte mindestens 10 Aufgaben gelesen hast.
+  Ein Thema = ein Commit + Push auf aufgaben-auffuellen.
+- Keine Datenbank, keine Serverfunktionen, kein App-Code, keine Tests, kein Merge nach main. Keine Schulbuchaufgaben abschreiben.
+Meldungen (Status nach jedem Thema, Fragen, Abschlussbericht) in inhalte/postfach/aufgaben-auffuellen.md ablegen und pushen. Arbeite ohne Rückfragen durch.
+```
+
+Einspielen (Haupt-Chat): mit einheit_abgleichen(…, 'lassen') – die vorhandenen Aufgaben und Lernstände bleiben, die neuen kommen dazu.

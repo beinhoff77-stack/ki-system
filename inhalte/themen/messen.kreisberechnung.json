@@ -42,15 +42,31 @@
    {
     "lernziel": "umfang",
     "titel": "Kreisumfang berechnen",
-    "regel": "So berechnest du den ⟦Umfang⟧: ⟦u = π · d = 2 · π · r⟧. Hast du den Radius, verdopple ihn zuerst.",
+    "regel": "Umfang: ⟦u = π · d = 2 · π · r⟧. Hast du den Radius, verdopple ihn zuerst.",
     "schritte": [
-     "Eine Dose hat den Radius r = 4 cm. Wie lang muss das Etikett sein?",
-     "Der Durchmesser ist doppelt so lang wie der Radius: d = 8 cm.",
-     "Der Umfang ist π-mal so lang wie der Durchmesser: u = π · 8 cm = 8π cm.",
-     "Mit π ≈ 3,14 gerundet: u ≈ ⟦25,1 cm⟧."
+     {
+      "text": "Die Dose hat den Radius r = 4 cm."
+     },
+     {
+      "text": "Der Durchmesser ist doppelt so lang: d = 8 cm.",
+      "bild": {
+       "linien": [
+        [
+         "_Q",
+         "_P",
+         "d = 8 cm"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Der Umfang ist π-mal der Durchmesser: u = π · 8 cm."
+     },
+     {
+      "text": "Mit π ≈ 3,14 gerechnet: u ≈ ⟦25,1 cm⟧."
+     }
     ],
-    "probe": "Überschlag: d = 8 cm, dreimal so viel sind 24 cm – passt zu 25,1 cm ✓",
-    "fehler": "u = π · r ist falsch: Man braucht den ⟦Durchmesser⟧ (d = 2r). Bei r = 4 cm ist u = π · 8 cm ≈ 25,1 cm, nicht 12,6 cm.",
+    "fehler": "u = π · r ist falsch. Dann reicht das Etikett nur halb herum: 12,6 cm statt 25,1 cm. Man braucht den ⟦Durchmesser⟧.",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -63,12 +79,8 @@
        0
       ],
       "_Q": [
-       0,
-       -4
-      ],
-      "_R": [
-       0,
-       4
+       -4,
+       0
       ]
      },
      "linien": [
@@ -76,12 +88,6 @@
        "M",
        "_P",
        "r = 4 cm"
-      ],
-      [
-       "_Q",
-       "_R",
-       "d = 8 cm",
-       "gestrichelt"
       ]
      ],
      "kreise": [
@@ -91,68 +97,110 @@
       }
      ]
     },
-    "einstieg": "Für eine Dose soll ein Etikett gedruckt werden, das genau einmal herumreicht. Wie lang muss es sein? Mit dem Lineal kann man um eine Rundung schlecht messen. Man kann die Länge aber aus dem Radius ausrechnen. Die Länge einmal um den Kreis heißt ⟦Umfang⟧.",
+    "einstieg": "Für eine Dose soll ein Etikett einmal herumreichen. Um eine Rundung misst du schlecht mit dem Lineal, aber du kannst rechnen. Die Länge einmal herum heißt ⟦Umfang⟧.",
     "woerter": [
      [
-      "Umfang u",
-      "die Länge einmal um den Kreis herum"
+      "Umfang",
+      "die Länge einmal um den Kreis"
      ],
      [
-      "Radius r",
-      "Abstand von der Mitte zum Rand"
+      "Durchmesser",
+      "einmal quer durch die Mitte: d = 2r"
      ],
      [
-      "Durchmesser d",
-      "Strecke quer durch die Mitte: d = 2r"
-     ],
-     [
-      "π (Pi)",
-      "die Zahl 3,14159…: so oft passt der Durchmesser in den Umfang"
-     ],
-     [
-      "≈",
-      "ungefähr gleich (gerundet)"
+      "π",
+      "die Kreiszahl, etwa 3,14"
      ]
     ]
    },
    {
     "lernziel": "flaeche",
     "titel": "Flächeninhalt eines Kreises",
-    "regel": "So berechnest du die ⟦Kreisfläche⟧: Radius bestimmen, quadrieren, mit π malnehmen: ⟦A = π · r²⟧. Hast du d, halbiere ihn zuerst.",
+    "regel": "Kreisfläche: ⟦A = π · r²⟧. Hast du den Durchmesser, halbiere ihn zuerst.",
     "schritte": [
-     "Eine Pizza hat den Durchmesser 30 cm. Der Radius ist die Hälfte: r = 15 cm.",
-     "Zuerst quadrieren: r² = 15 cm · 15 cm = 225 cm².",
-     "Dann mit π malnehmen: A = π · 225 cm² ≈ ⟦706,9 cm²⟧."
+     {
+      "text": "Durchmesser 30 cm, also Radius r = 15 cm.",
+      "bild": {
+       "linien": [
+        [
+         "M",
+         "_P",
+         "r = 15 cm"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Zuerst quadrieren: r² = 15 · 15 = 225 cm²."
+     },
+     {
+      "text": "Dann mal π: A = π · 225 cm² ≈ ⟦706,9 cm²⟧."
+     }
     ],
-    "probe": "Überschlag: Das Quadrat um die Pizza hat 30 · 30 = 900 cm². Der Kreis füllt gut drei Viertel davon: etwa 700 cm² ✓",
-    "fehler": "A = π · d² ist falsch: In die Formel gehört der ⟦Radius⟧. Mit d = 30 cm käme π · 900 ≈ 2 827 cm² heraus – viermal zu viel, die Pizza wäre größer als ihr eigener Karton.",
-    "einstieg": "Eine Pizzeria bietet Pizzen mit 30 cm Durchmesser an. Wie viel Pizza ist das eigentlich? Gemeint ist die Fläche des Kreises, also wie viel Platz die Pizza auf dem Teller bedeckt. Sie heißt ⟦Flächeninhalt des Kreises⟧.",
+    "fehler": "A = π · d² ist falsch: Das wären 2 827 cm², viermal zu viel. In die Formel gehört der ⟦Radius⟧.",
+    "einstieg": "Eine Pizzeria bietet Pizzen mit 30 cm Durchmesser an. Wie viel Pizza ist das? Gemeint ist die Fläche auf dem Teller, der ⟦Flächeninhalt⟧ des Kreises.",
     "woerter": [
      [
-      "Flächeninhalt A",
-      "wie viel Platz eine Figur bedeckt, in cm²"
+      "Flächeninhalt",
+      "wie viel Platz eine Figur bedeckt"
      ],
      [
       "r²",
-      "„r Quadrat“: r mal r"
+      "r mal r, gelesen „r Quadrat“"
      ],
      [
-      "π · r²",
-      "π mal r mal r – zuerst r² rechnen, dann mit π malnehmen"
+      "≈",
+      "„ungefähr gleich“"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_P": [
+       15,
+       0
+      ],
+      "_Q": [
+       -15,
+       0
+      ]
+     },
+     "linien": [
+      [
+       "_Q",
+       "_P",
+       "d = 30 cm"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 15
+      }
+     ]
+    }
    },
    {
     "lernziel": "exakt",
     "titel": "Exakt rechnen mit π",
-    "regel": "So rechnest du ⟦exakt⟧: Alle Zahlen ausrechnen und π als Zeichen stehen lassen, z. B. A = 16π cm². Erst wenn eine Kommazahl gefragt ist, mit π ≈ 3,14 malnehmen.",
+    "regel": "Exakt heißt: ⟦π als Zeichen stehen lassen⟧. Nur wenn eine Kommazahl gefragt ist, mit π ≈ 3,14 rechnen.",
     "schritte": [
-     "Ein Kreis hat den Radius r = 3 cm.",
-     "Umfang: u = 2 · π · 3 cm. Die Zahlen werden zuerst zusammengerechnet: 2 · 3 = 6, also ⟦u = 6π cm⟧.",
-     "Fläche: A = π · 3² cm². Es ist 3² = 9, also ⟦A = 9π cm²⟧."
+     {
+      "text": "Ein Kreis hat den Radius r = 3 cm."
+     },
+     {
+      "text": "Umfang: 2 · π · 3 cm. Nur die Zahlen rechnen: ⟦u = 6π cm⟧."
+     },
+     {
+      "text": "Fläche: π · 3² cm². Es ist 3² = 9, also ⟦A = 9π cm²⟧."
+     }
     ],
-    "fehler": "Bei r = 3 ist A nicht 6π: Dann hätte man 2 · 3 statt ⟦3²⟧ gerechnet. Das ist der Umfang, nicht die Fläche.",
-    "einstieg": "π hat unendlich viele Nachkommastellen. Jedes Runden macht ein Ergebnis ein bisschen ungenau. Lässt man π als Zeichen stehen, bleibt das Ergebnis genau, etwa „9π cm²“. So ein Ergebnis heißt ⟦exakt⟧.",
+    "fehler": "A = 6π ist falsch: Da wurde 2 · 3 statt ⟦3²⟧ gerechnet. Das ist der Umfang, nicht die Fläche.",
+    "einstieg": "π hat unendlich viele Nachkommastellen, jedes Runden macht ungenau. Lässt man π als Zeichen stehen, bleibt das Ergebnis genau, etwa 9π cm². So ein Ergebnis heißt ⟦exakt⟧.",
     "woerter": [
      [
       "exakt",
@@ -160,52 +208,150 @@
      ],
      [
       "6π",
-      "6 mal π – das Malzeichen lässt man weg"
-     ],
-     [
-      "Vielfaches von π",
-      "eine Zahl mal π, z. B. 9π"
+      "6 mal π – π bleibt als Zeichen stehen"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_P": [
+       3,
+       0
+      ],
+      "_Q": [
+       -3,
+       0
+      ]
+     },
+     "linien": [
+      [
+       "M",
+       "_P",
+       "r = 3 cm"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
    },
    {
     "lernziel": "verstehen",
     "titel": "Wie ändern sich Umfang und Fläche?",
-    "regel": "Der Umfang wächst ⟦wie r⟧: doppelter Radius, doppelter Umfang. Die Fläche wächst ⟦wie r²⟧: doppelter Radius, ⟦vierfache⟧ Fläche.",
+    "regel": "Die Fläche wächst ⟦mit r²⟧. Doppelter Radius: doppelter Umfang, aber vierfache Fläche.",
     "schritte": [
-     "Eine große Pizza (d = 30 cm) oder zwei kleine (je d = 20 cm)?",
-     "Groß: Der Radius ist 15 cm, die Fläche π · 15² = 225π cm².",
-     "Zwei kleine: Jede hat den Radius 10 cm. Zusammen ist die Fläche 2 · π · 10² = 200π cm².",
-     "Die eine große Pizza ist ⟦größer⟧, weil die Fläche mit ⟦r²⟧ wächst."
+     {
+      "text": "Groß: r = 15 cm, Fläche π · 15² = 225π cm²."
+     },
+     {
+      "text": "Klein: r = 10 cm, Fläche π · 10² = 100π cm²."
+     },
+     {
+      "text": "Zwei kleine zusammen: 2 · 100π = 200π cm²."
+     },
+     {
+      "text": "225π ist mehr: ⟦Die große Pizza ist größer.⟧"
+     }
     ],
-    "probe": "Dreifacher Radius: r = 2 cm gibt 4π cm², r = 6 cm gibt 36π cm². 36π : 4π = 9 = 3² ✓",
-    "fehler": "Doppelter Radius heißt nicht doppelte Fläche: π · (2r)² = π · 4r². Die Fläche wird ⟦vervierfacht⟧.",
-    "einstieg": "Im Angebot: eine große Pizza mit 30 cm Durchmesser oder zwei kleine mit je 20 cm, zum gleichen Preis. Zwei kleine klingt nach mehr. Doch die Fläche wächst nicht so wie der Durchmesser. Wer die Fläche vergleicht, kann gut ⟦Größen vergleichen⟧.",
+    "fehler": "Doppelter Radius heißt nicht doppelte Fläche, sondern ⟦vierfache⟧: π · (2r)² = 4 · π · r².",
+    "einstieg": "Gleicher Preis: eine große Pizza mit 30 cm Durchmesser oder zwei kleine mit je 20 cm. Zwei kleine klingt nach mehr. Entscheidend ist aber der ⟦Flächeninhalt⟧.",
     "woerter": [
      [
-      "wächst wie r",
-      "doppelter Radius → doppelter Wert"
+      "Flächeninhalt",
+      "wie viel Pizza auf dem Teller liegt"
      ],
      [
-      "wächst wie r²",
-      "doppelter Radius → vierfacher Wert"
-     ],
-     [
-      "vervierfachen",
-      "mal 4 nehmen"
+      "225π",
+      "225 mal π"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_a": [
+       15,
+       0
+      ],
+      "_B": [
+       28,
+       6
+      ],
+      "_b": [
+       38,
+       6
+      ],
+      "_C": [
+       28,
+       -14
+      ],
+      "_c": [
+       38,
+       -14
+      ]
+     },
+     "linien": [
+      [
+       "_A",
+       "_a",
+       "r = 15"
+      ],
+      [
+       "_B",
+       "_b",
+       "r = 10"
+      ],
+      [
+       "_C",
+       "_c",
+       "r = 10"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "_A",
+       "r": 15
+      },
+      {
+       "m": "_B",
+       "r": 10
+      },
+      {
+       "m": "_C",
+       "r": 10
+      }
+     ]
+    }
    },
    {
     "lernziel": "sektor",
     "titel": "Kreisausschnitt: Bogen und Fläche",
-    "regel": "Ein ⟦Kreisausschnitt⟧ mit Mittelpunktswinkel α ist der Anteil α/360° vom ganzen Kreis: ⟦Bogen b = α/360° · 2πr⟧, ⟦Fläche A = α/360° · πr²⟧.",
+    "regel": "Ausschnitt = ⟦α/360° vom ganzen Kreis⟧. Das gilt für den Bogen und für die Fläche.",
     "schritte": [
-     "Ein Tortenstück: r = 6 cm, Mittelpunktswinkel α = 120°. Anteil: 120° von 360° = 1/3 der Torte.",
-     "Bogen: 1/3 · 2π · 6 cm = 4π cm ≈ 12,6 cm.",
-     "Fläche: 1/3 · π · 6² cm² = ⟦12π cm² ≈ 37,7 cm²⟧."
+     {
+      "text": "Tortenstück: r = 6 cm, Mittelpunktswinkel α = 120°."
+     },
+     {
+      "text": "120° von 360° ist 1/3 der Torte."
+     },
+     {
+      "text": "Bogen b = 1/3 · 2π · 6 cm = 4π cm."
+     },
+     {
+      "text": "Fläche: 1/3 · π · 6² = ⟦12π cm²⟧ ≈ 37,7 cm²."
+     }
     ],
-    "fehler": "Der Anteil eines 90°-Ausschnitts ist nicht 90/100. Ein ganzer Kreis hat ⟦360°⟧: Der Anteil ist 90/360 = 1/4.",
+    "fehler": "Der Anteil von 90° ist nicht 90/100. Ein ganzer Kreis hat ⟦360°⟧, also 90/360 = 1/4.",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -278,37 +424,38 @@
       }
      ]
     },
-    "einstieg": "Eine runde Torte wird in Stücke geschnitten. Ein Stück hat eine Spitze in der Mitte und einen gebogenen Rand außen. Wie viel Torte es ist, hängt vom Winkel an der Spitze ab. So ein Stück heißt ⟦Kreisausschnitt⟧.",
+    "einstieg": "Ein Tortenstück hat eine Spitze in der Mitte und einen gebogenen Rand. Wie viel Torte es ist, hängt vom Winkel an der Spitze ab. So ein Stück heißt ⟦Kreisausschnitt⟧.",
     "woerter": [
      [
       "Kreisausschnitt",
-      "ein „Tortenstück“ des Kreises"
+      "ein Tortenstück aus dem Kreis"
      ],
      [
       "Mittelpunktswinkel α",
-      "der Winkel an der Spitze in der Kreismitte"
+      "der Winkel an der Spitze in der Mitte"
      ],
      [
       "Bogen b",
-      "der gebogene Rand außen am Stück"
-     ],
-     [
-      "α/360°",
-      "der Anteil des Stücks am ganzen Kreis"
+      "der gebogene Rand außen"
      ]
     ]
    },
    {
     "lernziel": "zusammengesetzt",
     "titel": "Kreisring und Kreisabschnitt",
-    "regel": "⟦Kreisring⟧: großer Kreis minus kleiner Kreis, A = π · (R² − r²). ⟦Kreisabschnitt⟧ (Segment) bei 90°: Viertelkreis minus rechtwinkliges Dreieck, A = πr²/4 − r²/2.",
+    "regel": "Kreisring: ⟦großer Kreis minus kleiner Kreis⟧. Ein Kreisabschnitt bei 90° ist Viertelkreis minus Dreieck.",
     "schritte": [
-     "Ein Ring hat außen R = 5 cm und innen r = 3 cm.",
-     "Großer Kreis: π · 5² = 25π cm². Kleiner Kreis: π · 3² = 9π cm².",
-     "Den kleinen Kreis abziehen: 25π − 9π = 16π cm².",
-     "Gerundet: A ≈ ⟦50,3 cm²⟧."
+     {
+      "text": "Der Ring hat außen R = 5 cm und innen r = 3 cm."
+     },
+     {
+      "text": "Groß: π · 5² = 25π cm². Klein: π · 3² = 9π cm²."
+     },
+     {
+      "text": "Abziehen: 25π − 9π = 16π cm² ≈ ⟦50,3 cm²⟧."
+     }
     ],
-    "fehler": "Beim Ring ist A nicht π · (5 − 3)² = 4π. Man muss erst ⟦jeden⟧ Radius quadrieren und dann subtrahieren: π · (25 − 9).",
+    "fehler": "π · (5 − 3)² = 4π ist falsch. Erst ⟦jeden⟧ Radius quadrieren, dann abziehen: π · (25 − 9).",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -348,60 +495,122 @@
       }
      ]
     },
-    "einstieg": "Ein Donut ist ein großer Kreis, aus dem in der Mitte ein kleiner Kreis fehlt. Seine Fläche ist also „groß minus klein“. So eine Form heißt ⟦Kreisring⟧. Auch andere Figuren setzt man so aus Kreisteilen zusammen.",
+    "einstieg": "Ein Donut ist ein großer Kreis, aus dem in der Mitte ein kleiner fehlt. Seine Fläche ist also groß minus klein. So eine Form heißt ⟦Kreisring⟧.",
     "woerter": [
      [
       "Kreisring",
-      "Fläche zwischen zwei Kreisen mit derselben Mitte"
+      "großer Kreis ohne den kleinen Kreis in der Mitte"
      ],
      [
-      "R und r",
-      "R ist der große Radius, r der kleine"
-     ],
-     [
-      "Kreisabschnitt (Segment)",
-      "Teil eines Kreises, der von einer geraden Linie abgeschnitten wird"
-     ],
-     [
-      "Viertelkreis",
-      "ein Kreisausschnitt mit 90°"
+      "R",
+      "der äußere Radius; r ist der innere"
      ]
     ]
    },
    {
     "lernziel": "zylinder",
     "titel": "Zylinder: Volumen und Oberfläche",
-    "regel": "Ein Zylinder ist ein „rundes Prisma“: ⟦V = π · r² · h⟧ (Grundfläche mal Höhe). Mantel M = 2πr · h, Oberfläche ⟦O = 2πr² + 2πrh⟧.",
+    "regel": "Zylinder: ⟦V = π · r² · h⟧. Die Oberfläche ist O = 2πr² + 2πrh.",
     "schritte": [
-     "Eine Dose hat r = 2 cm und h = 10 cm.",
-     "Volumen: Grundfläche π · 2² = 4π cm², mal Höhe 10 cm ergibt 40π cm³ ≈ 125,7 cm³.",
-     "Boden und Deckel: 2 · 4π = 8π cm². Mantel: 2π · 2 · 10 = 40π cm².",
-     "Oberfläche: 8π + 40π = 48π cm² ≈ ⟦150,8 cm²⟧."
+     {
+      "text": "Eine Dose hat r = 2 cm und h = 10 cm."
+     },
+     {
+      "text": "Volumen: π · 2² · 10 = 40π cm³ ≈ 125,7 cm³."
+     },
+     {
+      "text": "Boden und Deckel: 2 · π · 2² = 8π cm²."
+     },
+     {
+      "text": "Mantel: 2 · π · 2 · 10 = 40π cm².",
+      "bild": {
+       "flaeche": [
+        "_a",
+        "_b",
+        "_c",
+        "_d"
+       ]
+      }
+     },
+     {
+      "text": "Oberfläche: 8π + 40π = 48π cm² ≈ ⟦150,8 cm²⟧."
+     }
     ],
-    "fehler": "Die Oberfläche ist nicht nur der Mantel 2πrh: Es fehlen ⟦Boden und Deckel⟧ (2 · πr²).",
-    "einstieg": "Wie viel passt in eine Dose, und wie viel Blech braucht man für sie? Die Dose ist wie ein Stapel aus vielen dünnen Kreisscheiben. Darum rechnet man: Fläche des Bodens mal Höhe. Der Rauminhalt heißt ⟦Volumen⟧, das Blech ist die ⟦Oberfläche⟧.",
+    "fehler": "Die Oberfläche ist nicht nur der Mantel. Es fehlen ⟦Boden und Deckel⟧, zusammen 2 · π · r².",
+    "einstieg": "Wie viel passt in eine Dose, und wie viel Blech braucht sie? Die Dose ist wie ein Stapel dünner Kreisscheiben: Bodenfläche mal Höhe. Das ist ihr ⟦Volumen⟧.",
     "woerter": [
      [
-      "Volumen V",
-      "wie viel in einen Körper hineinpasst, in cm³"
+      "Volumen",
+      "der Rauminhalt: wie viel hineinpasst"
      ],
      [
-      "Grundfläche",
-      "der Kreis unten: π · r²"
+      "Oberfläche",
+      "Boden, Deckel und Mantel zusammen"
      ],
      [
-      "Mantel M",
-      "das abgewickelte Etikett: 2πr · h"
-     ],
-     [
-      "Oberfläche O",
-      "Boden + Deckel + Mantel"
-     ],
-     [
-      "cm³",
-      "Kubikzentimeter, Einheit für Volumen"
+      "Mantel",
+      "die gebogene Seite – flach ist sie ein Rechteck"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_a": [
+       0,
+       0
+      ],
+      "_b": [
+       12.57,
+       0
+      ],
+      "_c": [
+       12.57,
+       10
+      ],
+      "_d": [
+       0,
+       10
+      ],
+      "_M": [
+       2,
+       12
+      ],
+      "_N": [
+       2,
+       -2
+      ]
+     },
+     "linien": [
+      [
+       "_a",
+       "_b",
+       "u ≈ 12,6 cm"
+      ],
+      [
+       "_b",
+       "_c",
+       "h = 10 cm"
+      ],
+      [
+       "_c",
+       "_d"
+      ],
+      [
+       "_d",
+       "_a"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "_M",
+       "r": 2
+      },
+      {
+       "m": "_N",
+       "r": 2
+      }
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [

@@ -595,6 +595,156 @@ UMBAU_OFFEN = []
 baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
 
 
+# ---- SCHWER (Zehnte Runde: schwerere Aufgaben nach Prüfungsvorbild, siehe _schwer_kl8.py) ----
+# Vorbilder (Typ und Niveau, nicht Wortlaut/Zahlen): Grundwissen 8 bayerischer Gymnasien (Textaufgaben, die auf ein LGS führen;
+# grafisch und rechnerisch mit keiner/einer/unendlich vielen Lösungen), Schulaufgaben-Typ Kl. 8 (Tarifvergleich, Altersrätsel, Preisaufgabe,
+# Multiplizieren beider Gleichungen beim Additionsverfahren), BMT8 2024 (Rückwärts: Zahl so wählen, dass ein Paar Lösung ist),
+# Mathematik-Wettbewerbe (Ziffernrätsel, geschicktes Addieren/Subtrahieren symmetrischer Gleichungen).
+from _schwer_kl8 import Neu, mit_schwer  # noqa: E402
+
+SW = Neu(10_8_6)
+_k = lambda **k: {'typ': 'koordinaten', **k}
+_l = lambda m, t, name=None: {'art': 'linear', 'm': m, 't': t, **({'name': name} if name else {})}
+_HZ = 'Je Lücke eine ganze Zahl.'
+
+# pruefen
+SW.a('pruefen', 2, 'Welches Zahlenpaar erfüllt Gleichung I: 2x + y = 5, aber NICHT Gleichung II: x − y = 1?', '(1 | 3)', ['(2 | 1)', '(0 | −1)', '(3 | 2)'],
+     '(1 | 3): I: 2 + 3 = 5 ✓, II: 1 − 3 = −2 ✗. (2 | 1) erfüllt beide, (0 | −1) und (3 | 2) erfüllen I nicht.', 'Prüfe jedes Paar zuerst in I, dann in II.')
+SW.a('pruefen', 2, 'Ist (−2 | 0,5) eine Lösung von I: x + 4y = 0 und II: 3x − 2y = −7?', 'Ja, beide Gleichungen sind erfüllt.',
+     ['Nein, nur Gleichung I ist erfüllt.', 'Nein, nur Gleichung II ist erfüllt.', 'Nein, keine der beiden Gleichungen ist erfüllt.'],
+     'I: −2 + 4 · 0,5 = −2 + 2 = 0 ✓. II: 3 · (−2) − 2 · 0,5 = −6 − 1 = −7 ✓.', 'Setze x = −2 und y = 0,5 in beide Gleichungen ein.')
+SW.z('pruefen', 3, 'Das Zahlenpaar (3 | −2) soll Lösung von I: 2x + y = 4 und II: x − 4y = c sein. Bestimme c.', 11, '3 - 4 * (-2)',
+     'I stimmt: 6 − 2 = 4. In II einsetzen: c = 3 − 4 · (−2) = 3 + 8 = 11.', 'Setze das Paar in II ein. Achte auf minus mal minus.', art='P')
+SW.a('pruefen', 3, 'Ein Rechteck ist 4 cm länger als breit. Sein Umfang ist 36 cm. Welches Gleichungssystem passt (x = Länge, y = Breite)?', 'x = y + 4;  2x + 2y = 36',
+     ['x = y + 4;  x + y = 36', 'y = x + 4;  2x + 2y = 36', 'x = 4y;  2x + 2y = 36'],
+     '„4 cm länger als breit“: Länge = Breite + 4, also x = y + 4. Umfang = 2 · Länge + 2 · Breite = 36.', 'Übersetze jeden Satz einzeln. Was ist der Umfang eines Rechtecks?', art='P')
+SW.z('pruefen', 3, 'Das Zahlenpaar (a | 2a) ist Lösung von I: 3x + y = 15 und II: x − y = b. Bestimme b.', -3, '3 - 6',
+     'In I: 3a + 2a = 15 ⇔ a = 3. Das Paar ist (3 | 6). In II: b = 3 − 6 = −3.', 'Bestimme zuerst a mit Gleichung I.', art='K')
+SW.z('pruefen', 3, 'Wie viele Zahlenpaare aus positiven ganzen Zahlen erfüllen die Gleichung x + 2y = 9?', 4, '1 + 1 + 1 + 1',
+     'y = 1: x = 7. y = 2: x = 5. y = 3: x = 3. y = 4: x = 1. Bei y = 5 wäre x negativ. Also 4 Paare. Eine Gleichung allein hat viele Lösungen.',
+     'Probiere y = 1, 2, 3, … und berechne x.', art='K')
+
+# grafisch
+SW.l('grafisch', 2, 'Lies den Schnittpunkt der beiden Geraden ab.', 'S(□ | □)', [2, 3], ['2', '3'], 'Die Geraden y = 0,5x + 2 und y = −x + 5 schneiden sich in (2 | 3). Probe: 0,5 · 2 + 2 = 3 und −2 + 5 = 3.',
+     'Suche den gemeinsamen Punkt und lies x und y ab.', _HZ, grafik=_k(x=[-2, 6], y=[-1, 6], graphen=[_l(0.5, 2, 'g'), _l(-1, 5, 'h')]))
+SW.a('grafisch', 2, 'Die beiden Geraden eines Gleichungssystems sind gezeichnet. Wie viele Lösungen hat das System?', 'keine Lösung', ['genau eine Lösung', 'unendlich viele Lösungen', 'zwei Lösungen'],
+     'Die Geraden sind parallel (gleiche Steigung) und verschieden. Sie haben keinen gemeinsamen Punkt.', 'Haben die Geraden einen gemeinsamen Punkt?',
+     grafik=_k(x=[-4, 4], y=[-5, 5], graphen=[_l(1, 1, 'g'), _l(1, -2, 'h')]))
+SW.l('grafisch', 3, 'Die Geraden g: y = 2x − 1 und h: y = −x + 1,5 schneiden sich ungefähr bei (0,8 | 0,7). Berechne die x-Koordinate genau (gekürzter Bruch).', 'x = □/□', [5, 6], ['5', '6'],
+     'Gleichsetzen: 2x − 1 = −x + 1,5 ⇔ 3x = 2,5 ⇔ x = 2,5/3 = 5/6 ≈ 0,83. Am Bild kann man das nur ungefähr ablesen.',
+     'Ablesen ist hier ungenau. Rechne mit Gleichsetzen.', 'Zähler und Nenner je als ganze Zahl.',
+     grafik=_k(x=[-2, 3], y=[-3, 3], graphen=[_l(2, -1, 'g'), _l(-1, 1.5, 'h')]), art='P')
+SW.a('grafisch', 3, 'Welches Gleichungssystem gehört zu den gezeichneten Geraden?', 'I: x + y = 3;  II: 2x − y = 0',
+     ['I: x + y = 3;  II: x − 2y = 0', 'I: x − y = 3;  II: 2x − y = 0', 'I: x + y = −3;  II: 2x + y = 0'],
+     'Die fallende Gerade geht durch (0 | 3) und (3 | 0): y = −x + 3, also x + y = 3. Die steigende durch (0 | 0) und (1 | 2): y = 2x, also 2x − y = 0.',
+     'Bestimme zu jeder Geraden y = m · x + t und forme um.', grafik=_k(x=[-2, 4], y=[-2, 5], graphen=[_l(-1, 3), _l(2, 0)]), art='P')
+SW.a('grafisch', 3, 'Die Gerade g: y = x + 1 ist gezeichnet. Mit welcher zweiten Gleichung hat das System KEINE Lösung?', 'y = x − 3', ['y = −x + 1', '2y = 2x + 2', 'y = 2x + 1'],
+     'Keine Lösung heißt: parallel, aber verschieden. y = x − 3 hat dieselbe Steigung 1. 2y = 2x + 2 ist dieselbe Gerade wie g (unendlich viele Lösungen).',
+     'Welche Gerade ist parallel zu g, aber nicht gleich?', grafik=_k(x=[-4, 4], y=[-4, 5], graphen=[_l(1, 1, 'g')]), art='K')
+SW.l('grafisch', 3, 'Gerade g geht durch A(0 | 4) und B(4 | 0), Gerade h durch C(0 | −2) und D(2 | 0). Denke dir die Geraden durch die Punkte. Wo schneiden sie sich?', 'S(□ | □)',
+     [3, 1], ['(4 + 2) / 2', '-3 + 4'], 'g: y = −x + 4, h: y = x − 2. Gleichsetzen: −x + 4 = x − 2 ⇔ x = 3, y = 1. S(3 | 1).',
+     'Bestimme aus den Punkten die beiden Geradengleichungen.', _HZ,
+     grafik=_k(x=[-1, 5], y=[-3, 5], punkte=[{'x': 0, 'y': 4, 'name': 'A'}, {'x': 4, 'y': 0, 'name': 'B'}, {'x': 0, 'y': -2, 'name': 'C'}, {'x': 2, 'y': 0, 'name': 'D'}]), art='K')
+
+# einsetzen
+SW.l('einsetzen', 2, 'Löse mit dem Einsetzungsverfahren: I: x = 2y   II: 3x − 4y = 10. Gib die Lösung an.', 'x = □; y = □', [10, 5], ['2 * 5', '10 / 2'],
+     'x = 2y in II: 6y − 4y = 10 ⇔ y = 5. x = 2 · 5 = 10.', 'Ersetze x in II durch 2y.', _HZ)
+SW.l('einsetzen', 2, 'Löse mit dem Einsetzungsverfahren: I: y = 0,5x + 1   II: 2x − 2y = 4. Gib die Lösung an.', 'x = □; y = □', [6, 4], ['6', '0.5 * 6 + 1'],
+     '2x − 2(0,5x + 1) = 4 ⇔ 2x − x − 2 = 4 ⇔ x = 6. y = 3 + 1 = 4.', 'Setze den Term für y in Klammern ein.', _HZ)
+SW.z('einsetzen', 3, 'Ein Vater ist dreimal so alt wie seine Tochter. Zusammen sind sie 52 Jahre alt. Wie alt ist die Tochter?', 13, '52 / 4',
+     'I: v = 3t, II: v + t = 52. Einsetzen: 3t + t = 52 ⇔ t = 13. Der Vater ist 39.', 'Stelle zwei Gleichungen auf. Eine ist schon nach v aufgelöst.', einheit='Jahre', art='P')
+SW.l('einsetzen', 3, 'Löse: I: 2x + 3y = 7   II: x − 2y = 0. Gib die Lösung an.', 'x = □; y = □', [2, 1], ['2', '1'],
+     'II umstellen: x = 2y. In I: 4y + 3y = 7 ⇔ y = 1. x = 2. Probe: 4 + 3 = 7.', 'Stelle zuerst die einfachere Gleichung nach x um.', _HZ, art='P')
+SW.a('einsetzen', 3, 'Löse: I: y = 3x − 2   II: 6x − 2y = 4. Wie viele Lösungen gibt es?', 'unendlich viele', ['keine', 'genau eine: (0 | −2)', 'genau eine: (1 | 1)'],
+     'Einsetzen: 6x − 2(3x − 2) = 4 ⇔ 6x − 6x + 4 = 4 ⇔ 4 = 4. Immer wahr: Beide Gleichungen beschreiben dieselbe Gerade.',
+     'Rechne zu Ende. Was bleibt übrig, wenn x wegfällt?', art='K')
+SW.a('einsetzen', 3, 'Ben setzt I: y = 2x + 1 in II: 4x − 3y = 7 ein und schreibt: 4x − 3 · 2x + 1 = 7. Was stimmt?', 'Falsch: 2x + 1 muss in Klammern. Richtig ist x = −5.',
+     ['Richtig; es folgt x = −3.', 'Falsch: Man muss y in I einsetzen.', 'Falsch: Richtig ist x = 5.'],
+     'Richtig: 4x − 3(2x + 1) = 7 ⇔ 4x − 6x − 3 = 7 ⇔ −2x = 10 ⇔ x = −5, y = −9. Ohne Klammer wird nur 2x mit 3 multipliziert.',
+     'Was passiert mit der 1, wenn man −3 · (2x + 1) rechnet?', art='K')
+
+# gleichsetzen
+SW.l('gleichsetzen', 2, 'Löse mit dem Gleichsetzungsverfahren: I: x = 3y − 1   II: x = y + 5. Gib die Lösung an.', 'x = □; y = □', [8, 3], ['3 + 5', '6 / 2'],
+     '3y − 1 = y + 5 ⇔ 2y = 6 ⇔ y = 3. x = 3 + 5 = 8.', 'Hier ist zweimal x = … gegeben. Setze die rechten Seiten gleich.', _HZ)
+SW.l('gleichsetzen', 2, 'Löse mit dem Gleichsetzungsverfahren: I: y = 0,5x + 3   II: y = −0,5x + 1. Gib die Lösung an.', 'x = □; y = □', [-2, 2], ['-2', '0.5 * (-2) + 3'],
+     '0,5x + 3 = −0,5x + 1 ⇔ x = −2. y = −1 + 3 = 2.', 'Setze die Terme gleich und sammle x links.', _HZ)
+SW.z('gleichsetzen', 3, 'Handytarif A: 9 € im Monat plus 0,05 € pro Minute. Tarif B: 0,11 € pro Minute ohne Grundgebühr. Bei wie vielen Minuten kosten beide gleich viel?', 150, '9 / 0.06',
+     'A: y = 0,05x + 9, B: y = 0,11x. Gleichsetzen: 0,05x + 9 = 0,11x ⇔ 9 = 0,06x ⇔ x = 150.', 'Stelle für jeden Tarif y = … auf.', einheit='min', art='P')
+SW.z('gleichsetzen', 3, 'Zwei Wanderer sind 18 km voneinander entfernt und gehen gleichzeitig aufeinander zu: A mit 4 km/h, B mit 5 km/h. Nach wie vielen Stunden treffen sie sich?', 2, '18 / 9',
+     'Ort von A ab Start A: s = 4t. Ort von B: s = 18 − 5t. Gleichsetzen: 4t = 18 − 5t ⇔ 9t = 18 ⇔ t = 2.', 'Miss beide Orte vom Startpunkt von A aus.', einheit='h', art='P')
+SW.a('gleichsetzen', 3, 'Löse: I: 2y = 4x + 6   II: 3y = 6x − 3. Was ergibt sich?', 'keine Lösung', ['genau eine Lösung', 'unendlich viele Lösungen', 'x = 0, y = 3'],
+     'Nach y auflösen: I: y = 2x + 3, II: y = 2x − 1. Gleichsetzen: 2x + 3 = 2x − 1 ⇔ 3 = −1. Falsch – keine Lösung (parallele Geraden).',
+     'Löse zuerst beide Gleichungen nach y auf.', art='K')
+SW.z('gleichsetzen', 3, 'Für welchen Wert von t schneiden sich y = 2x + t und y = −x + 7 an der Stelle x = 3?', -2, '(-3 + 7) - 2 * 3',
+     'Die zweite Gerade hat bei x = 3 den Wert 4. Also 2 · 3 + t = 4 ⇔ t = −2.', 'Berechne den y-Wert des Schnittpunkts mit der Geraden ohne t.', art='K')
+
+# addition
+SW.l('addition', 2, 'Löse mit dem Additionsverfahren: I: 2x + 3y = 12   II: 2x − y = 4. Gib die Lösung an.', 'x = □; y = □', [3, 2], ['3', '2'],
+     'I − II: 4y = 8 ⇔ y = 2. In II: 2x − 2 = 4 ⇔ x = 3.', 'Ziehe II von I ab, dann fällt x weg.', _HZ)
+SW.l('addition', 2, 'Löse mit dem Additionsverfahren: I: 3x + 2y = 7   II: x − 2y = 5. Gib die Lösung an.', 'x = □; y = □', [3, -1], ['12 / 4', '(3 - 5) / 2'],
+     'I + II: 4x = 12 ⇔ x = 3. In II: 3 − 2y = 5 ⇔ y = −1.', '2y und −2y sind schon Gegenzahlen.', _HZ)
+SW.l('addition', 3, 'Löse: I: 3x + 4y = 10   II: 2x − 3y = 1. Gib die Lösung an.', 'x = □; y = □', [2, 1], ['34 / 17', '(10 - 6) / 4'],
+     'I · 3 und II · 4: 9x + 12y = 30 und 8x − 12y = 4. Addieren: 17x = 34 ⇔ x = 2. In I: 6 + 4y = 10 ⇔ y = 1.', 'Multipliziere beide Gleichungen, bis bei y Gegenzahlen stehen.', _HZ, art='P')
+SW.l('addition', 3, 'Löse: I: 0,5x + 0,25y = 2   II: x − y = 1. Gib die Lösung an.', 'x = □; y = □', [3, 2], ['9 / 3', '3 - 1'],
+     'I · 4: 2x + y = 8. Plus II: 3x = 9 ⇔ x = 3. In II: 3 − y = 1 ⇔ y = 2.', 'Mache zuerst die Kommazahlen in I zu ganzen Zahlen.', _HZ, art='P')
+SW.z('addition', 3, 'I: 4x + 6y = 10   II: 3x − 2y = 1. Mit welcher Zahl muss man II multiplizieren, damit beim Addieren y wegfällt?', 3, '6 / 2',
+     'In I steht 6y, in II −2y. −2y · 3 = −6y ist die Gegenzahl von 6y.', 'Welche Zahl macht aus −2y die Gegenzahl von 6y?', art='K')
+SW.l('addition', 3, 'Löse geschickt: I: 37x + 63y = 163   II: 63x + 37y = 137. Gib die Lösung an.', 'x = □; y = □', [1, 2], ['(3 - 1) / 2', '(3 + 1) / 2'],
+     'I + II: 100x + 100y = 300 ⇔ x + y = 3. II − I: 26x − 26y = −26 ⇔ x − y = −1. Daraus x = 1, y = 2.', 'Addiere I und II. Ziehe dann I von II ab. Was fällt auf?', _HZ, art='K')
+
+# verfahren
+SW.a('verfahren', 2, 'Welches Verfahren ist für I: x = 4 − 2y   II: 3x + y = 7 am geschicktesten?', 'Einsetzungsverfahren', ['Gleichsetzungsverfahren', 'Additionsverfahren'],
+     'I ist schon nach x aufgelöst. Den Term 4 − 2y setzt man direkt in II ein.', 'Ist eine Gleichung schon nach einer Variablen aufgelöst?')
+SW.a('verfahren', 2, 'Welches Verfahren ist für I: 2x + y = 5   II: 2x − 3y = 1 am geschicktesten?', 'Additionsverfahren', ['Gleichsetzungsverfahren', 'Einsetzungsverfahren'],
+     'Beide Gleichungen haben 2x. Zieht man II von I ab, fällt x sofort weg.', 'Stehen bei einer Variablen gleiche Zahlen?')
+SW.a('verfahren', 3, 'Bei I: y = 3x − 1   II: y = 3x + 2 sagt Lea: „Ich muss gar nicht rechnen.“ Warum?', 'Gleiche Steigung, verschiedener Achsenabschnitt: keine Lösung.',
+     ['Weil beide Gleichungen mit y beginnen.', 'Weil die Lösung x = 0 sofort sichtbar ist.', 'Weil die Geraden identisch sind.'],
+     'Beide Geraden haben die Steigung 3, schneiden die y-Achse aber bei −1 und 2. Sie sind parallel und verschieden – das System hat keine Lösung.',
+     'Vergleiche Steigungen und Achsenabschnitte.', art='P')
+SW.a('verfahren', 3, 'I: 5x + 3y = 1   II: 2x − 4y = 6. Welcher erste Schritt erzeugt beim Additionsverfahren Gegenzahlen vor x?', 'I · 2 und II · (−5)',
+     ['I · 2 und II · 5', 'I · (−2) und II · (−5)', 'I · 5 und II · 2'],
+     'I · 2: 10x + …, II · (−5): −10x + … – Gegenzahlen. Bei II · 5 stünden zweimal +10x, beim Addieren würde x nicht wegfallen.', 'Gegenzahlen haben gleichen Betrag, aber verschiedenes Vorzeichen.', art='P')
+SW.z('verfahren', 3, 'I: x + y = 10   II: x − y = 2   III: 2x + 3y = c. Für welches c hat das System aus allen drei Gleichungen eine Lösung?', 24, '2 * 6 + 3 * 4',
+     'Aus I und II (addieren): 2x = 12, x = 6, y = 4. III muss für (6 | 4) gelten: c = 12 + 12 = 24.', 'Löse zuerst I und II. Die Lösung muss auch III erfüllen.', art='K')
+SW.l('verfahren', 3, 'I: 3x + 5y = 21   II: 5x + 3y = 19. Addiere und subtrahiere die Gleichungen geschickt. Was ergibt sich für x + y und x − y?', 'x + y = □; x − y = □', [5, -1],
+     ['40 / 8', '-2 / 2'], 'I + II: 8x + 8y = 40 ⇔ x + y = 5. II − I: 2x − 2y = −2 ⇔ x − y = −1. Daraus x = 2, y = 3.', 'Bei vertauschten Zahlen hilft Addieren und Subtrahieren.', _HZ, art='K')
+
+# loesbarkeit
+SW.a('loesbarkeit', 2, 'Wie viele Lösungen hat I: x − y = 2   II: y − x = −2?', 'unendlich viele Lösungen', ['keine Lösung', 'genau eine Lösung'],
+     'II mal (−1): x − y = 2. Das ist Gleichung I. Beide Gleichungen beschreiben dieselbe Gerade.', 'Multipliziere II mit −1 und vergleiche.')
+SW.a('loesbarkeit', 2, 'Wie viele Lösungen hat I: y = 0,5x + 1   II: x − 2y = 4?', 'keine Lösung', ['unendlich viele Lösungen', 'genau eine Lösung'],
+     'II nach y: −2y = −x + 4 ⇔ y = 0,5x − 2. Gleiche Steigung 0,5, verschiedene Achsenabschnitte: parallel, keine Lösung.', 'Löse II nach y auf.')
+SW.z('loesbarkeit', 3, 'I: 3x − y = 4   II: 6x − 2y = □. Welche Zahl muss im Kästchen stehen, damit das System unendlich viele Lösungen hat?', 8, '2 * 4',
+     'II muss das Doppelte von I sein: 6x − 2y = 8. Bei jeder anderen Zahl wären die Geraden parallel und verschieden.', 'Womit wurde die linke Seite von I multipliziert?', art='P')
+SW.a('loesbarkeit', 3, 'Für welche Werte von a hat I: ax + 2y = 6   II: 3x + y = 5 genau eine Lösung?', 'für alle a ≠ 6', ['nur für a = 6', 'für alle a', 'für kein a'],
+     'II · 2: 6x + 2y = 10. Für a = 6 wären die Geraden parallel (6 ≠ 10, keine Lösung). Für jedes andere a schneiden sie sich in genau einem Punkt.',
+     'Bringe y in beiden Gleichungen auf dieselbe Zahl. Wann sind die Geraden parallel?', art='P')
+SW.a('loesbarkeit', 3, 'Ein lineares Gleichungssystem hat die Lösungen (1 | 2) und (3 | 6). Wie viele Lösungen hat es?', 'unendlich viele', ['genau zwei', 'genau eine', 'keine'],
+     'Zwei Geraden haben entweder keinen, genau einen oder unendlich viele gemeinsame Punkte. Zwei gemeinsame Punkte gibt es nur, wenn die Geraden gleich sind.',
+     'Wie viele Punkte können zwei Geraden gemeinsam haben?', art='K')
+SW.a('loesbarkeit', 3, 'Wie viele Lösungen hat das System aus I: x + y = 5, II: 2x + 2y = 10 und III: x − y = 1?', 'genau eine', ['keine', 'unendlich viele', 'genau zwei'],
+     'I und II beschreiben dieselbe Gerade. Mit III: x + y = 5 und x − y = 1 ergibt x = 3, y = 2. Genau eine Lösung (3 | 2).', 'Vergleiche I und II zuerst.', art='K')
+
+# sachaufgabe
+SW.z('sachaufgabe', 2, 'Kinokarten kosten für Erwachsene 9 € und für Kinder 6 €. 7 Personen zahlen zusammen 51 €. Wie viele Erwachsene sind dabei?', 3, '(51 - 6 * 7) / 3',
+     'e + k = 7, 9e + 6k = 51. Mit k = 7 − e: 9e + 42 − 6e = 51 ⇔ 3e = 9 ⇔ e = 3.', 'Stelle eine Gleichung für die Anzahl und eine für den Preis auf.', einheit='Erwachsene')
+SW.z('sachaufgabe', 2, 'Die Summe zweier Zahlen ist 40. Die eine ist dreimal so groß wie die andere. Wie heißt die kleinere Zahl?', 10, '40 / 4',
+     'a + b = 40, a = 3b. 3b + b = 40 ⇔ b = 10. Die Zahlen sind 30 und 10.', 'Nenne die kleinere Zahl b. Dann ist die größere 3b.')
+SW.z('sachaufgabe', 3, 'Klasse A kauft 3 Pizzen und 5 Getränke für 37 €. Klasse B zahlt für 2 Pizzen und 8 Getränke 34 €. Was kostet eine Pizza?', 9, '17 - 4 * 2',
+     '3p + 5g = 37 und 2p + 8g = 34 ⇔ p + 4g = 17. p = 17 − 4g in I: 51 − 12g + 5g = 37 ⇔ g = 2. p = 9.', 'Teile die zweite Gleichung zuerst durch 2.', einheit='€', art='P')
+SW.z('sachaufgabe', 3, 'Eine Mutter ist 26 Jahre älter als ihr Sohn. In 4 Jahren ist sie dreimal so alt wie er. Wie alt ist der Sohn heute?', 9, '(26 + 4 - 12) / 2',
+     'm = s + 26 und m + 4 = 3(s + 4). Einsetzen: s + 30 = 3s + 12 ⇔ 18 = 2s ⇔ s = 9. Probe: Mutter 35, in 4 Jahren 39 = 3 · 13.',
+     'In 4 Jahren sind beide 4 Jahre älter – auch der Sohn.', einheit='Jahre', art='P')
+SW.z('sachaufgabe', 3, 'Ein Bleistift und ein Heft kosten zusammen 2,30 €. Das Heft kostet 1,10 € mehr als der Bleistift. Was kostet der Bleistift?', 0.6, '(2.30 - 1.10) / 2',
+     'b + h = 2,30 und h = b + 1,10. Also 2b + 1,10 = 2,30 ⇔ b = 0,60 €. Nicht 1,20 €: Dann wäre das Heft 2,30 € und alles zusammen 3,50 €.',
+     'Stelle zwei Gleichungen auf, statt zu raten. Mach die Probe.', einheit='€', art='K')
+SW.z('sachaufgabe', 3, 'Eine zweistellige Zahl hat die Quersumme 11. Vertauscht man ihre Ziffern, wird die Zahl um 27 größer. Wie heißt die Zahl?', 47, '10 * 4 + 7',
+     'Zehner a, Einer b: a + b = 11 und (10b + a) − (10a + b) = 27 ⇔ 9b − 9a = 27 ⇔ b − a = 3. Also b = 7, a = 4: Zahl 47 (74 − 47 = 27).',
+     'Schreibe die Zahl als 10a + b und die vertauschte als 10b + a.', art='K')
+
+baue = mit_schwer(baue, SW)
+# ---- SCHWER ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Grundidee', ['pruefen', 'grafisch']), ('Lösungsverfahren', ['einsetzen', 'gleichsetzen', 'addition', 'verfahren']),

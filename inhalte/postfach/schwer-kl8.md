@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 07:30 – STATUS
+gleichungen.lgs2 fertig: 48 neue Übungen (8 Karten × 4 S3 + 2 S2). Prüfskript OK, Unverändert-Nachweis JA.
+
 ## 2026-11-16 07:05 – STATUS
 gleichungen.bruch fertig: 42 neue Übungen (7 Karten × 4 S3 + 2 S2). Prüfskript OK, Unverändert-Nachweis JA.
 

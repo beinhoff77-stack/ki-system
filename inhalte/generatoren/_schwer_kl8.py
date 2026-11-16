@@ -34,11 +34,12 @@ class Neu:
 
     def z(self, lz, s, text, wert, c, w, h, einheit=None, toleranz=None, grafik=None, art=''):
         ist = rechne(c)
+        if isinstance(wert, float): wert = Fr(str(wert))
         if toleranz is None:
             assert ist == Fr(wert), f'Nachrechnung falsch: {c} = {ist}, Lösung {wert} ({text})'
         else:
             assert abs(ist - Fr(str(wert))) <= Fr(str(toleranz)), f'Nachrechnung falsch: {c} = {float(ist)}, Lösung {wert}'
-        o = {'wert': jw(wert) if toleranz is None else wert}
+        o = {'wert': jw(wert) if toleranz is None else float(wert)}
         if einheit: o['einheit'] = einheit
         if toleranz is not None: o['toleranz'] = toleranz
         return self._add(lz, s, art, {'y': 'zahl', 'f': {'text': text}, 'o': o, 'c': c, 'w': w}, h, grafik)

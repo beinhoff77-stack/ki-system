@@ -4,6 +4,24 @@ Technik wie klar-kl5: je Generator ein Abschnitt KLAR, eingesetzt über `inhalte
 (die Generatoren nutzen die alten `schritte` gegen Dopplungen – so bleiben alle Aufgaben wörtlich gleich, wie `_verbot` im Muster).
 Vergleich je Thema: `aufgaben` und alle Felder außer `inhalt.etappen` gegen `git show HEAD:inhalte/themen/<thema>.json`.
 
+## 2026-11-16 02:01 – FERTIG – Abschlussbericht klar-kl6
+Alle 8 Klasse-6-Themen überarbeitet (je Karte: einstieg + woerter neu; schritte, regel als „So …“, fehler in der Situation gedeutet). Technik: Abschnitt KLAR im Generator, eingesetzt erst NACH dem Erzeugen der Aufgaben (inhalte/generatoren/_klar_kl6.py prüft Pflichtfelder, 3–5 Schritte, ⟦…⟧ und Verbotswörter).
+
+| Thema | Karten | Aufgaben | wörtlich gleich (git show HEAD) | inhalt_pruefen |
+|---|---|---|---|---|
+| bruch.brueche | 7 | 224 | ja | OK |
+| bruch.dezimal | 7 | 196 | ja | OK |
+| bruch.prozent | 7 | 196 | ja | OK |
+| bruch.rechnen | 10 | 280 | ja | OK |
+| daten.darstellen | 6 | 168 | ja | OK |
+| daten.kennwerte | 6 | 168 | ja | OK |
+| terme.potenzgesetze | 7 | 196 | ja | OK |
+| zahlen.potenzen_zehner | 7 | 196 | ja | OK |
+
+Gesamt: 1 624 Aufgaben wörtlich gleich, alle übrigen Dateifelder außer inhalt.etappen gleich. inhalt_pruefen über alle Themen: OK.
+Inhaltliche Entscheidungen: Beispiele so gewählt, dass sie zu den vorhandenen Bildern passen (Bilder unverändert; einzige Bildänderung: daten.kennwerte/mittelwert Beschriftung „Kind A–D“, Werte gleich). Je Thema eine durchgehende Alltagssituation (z. B. Klassenfest, Markt, Papierfalten). Verbotswort „einfach“ auch aus fehler-Texten entfernt.
+Nicht angefasst: Datenbank, Serverfunktionen, App-Code, Tests, inhalte/pruefung/, main. Merge nach lernen-app/main offen – wartet auf Freigabe.
+
 ## 2026-11-16 02:00 – STATUS
 zahlen.potenzen_zehner (7 Karten) fertig: einstieg + woerter neu, schritte/regel/fehler überarbeitet (Situationen: Stadion 100 000 Plätze,
 Sonnenabstand, Windrad 2,5 MW, Meter zerteilen, Sandkorn, Spinnenfaden 5 µm, Einwohnerzahlen). Bild Stellentafel unverändert.

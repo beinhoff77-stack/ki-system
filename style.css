@@ -3408,7 +3408,15 @@ body[data-kindmodus] header.top h1 { font-size: 1.15rem; white-space: nowrap; ov
 .lern-plan-knoepfe .iconbtn { flex: 0 0 40px; width: 40px; height: 40px; font-size: 1.2rem; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
 .lern-plan-kann { display: inline-flex; align-items: center; gap: 4px; font-size: .9rem; }
 .lern-plan-weg { margin-left: auto; background: none; border: 0; color: var(--err); font: inherit; cursor: pointer; min-height: 40px; }
-.lern-plan-speichern { position: sticky; bottom: calc(12px + env(safe-area-inset-bottom)); background: var(--bg, #f6f4ec); padding: 8px 0; z-index: 2; }
+.lern-plan-leiste { position: sticky; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 3; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px;
+  margin: 0 0 12px; padding: 10px 14px; border-radius: 14px; background: var(--text, #1d2433); color: var(--bg, #f6f4ec); box-shadow: 0 6px 20px rgba(0, 0, 0, .18); }
+.lern-plan-leiste[hidden] { display: none; }
+.lern-plan-leiste span { flex: 1 1 14em; }
+.lern-plan-rueck { min-height: 44px; padding: 0 14px; border-radius: 10px; border: 1px solid currentColor; background: transparent; color: inherit; font-weight: 700; cursor: pointer; }
+.lern-plan-gesperrt { opacity: .55; }
+.lern-info-oben { display: flex; justify-content: flex-end; margin: 0 0 -6px; }
+.lern-info-link { display: inline-flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 999px; font-weight: 600; text-decoration: none; }
+.lern-info-link:hover, .lern-info-link:focus-visible { background: var(--info-bg); }
 .lern-plan-auswahl { list-style: none; padding: 0; display: grid; gap: 6px; }
 .lern-plan-vorrat details { margin: 6px 0; }
 .lern-plan-vorrat summary { cursor: pointer; font-weight: 600; min-height: 32px; }
@@ -3927,3 +3935,15 @@ details.lr-woerter > summary::-webkit-details-marker { display: none; }
 
 .lr-testbereit { border: 2px solid var(--lr-akzent, #FFD23F); display: flex; flex-direction: column; gap: 10px; }
 .lr-testbereit p { margin: 0; }
+
+/* E-1 Info-Seite „So funktioniert’s“ (Eltern/Lehrer) */
+.lern-info-schritte { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 18px; }
+@media (min-width: 560px) { .lern-info-schritte { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .lern-info-schritte { grid-template-columns: repeat(4, 1fr); } }
+.lern-info-schritt { position: relative; padding-top: 16px; }
+.lern-info-schritt h3 { margin: 0 0 4px; }
+.lern-info-nr { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--info-bg); font-weight: 700; margin-bottom: 6px; }
+.lern-info-links { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.lern-info-schritt a, .lern-info-links a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; }
+.lern-info-frage summary { cursor: pointer; font-weight: 700; min-height: 44px; display: flex; align-items: center; }
+.lern-info-frage ul { margin: 6px 0 4px; padding-left: 1.2em; display: grid; gap: 6px; }

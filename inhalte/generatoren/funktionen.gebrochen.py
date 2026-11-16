@@ -412,6 +412,130 @@ UMBAU_OFFEN = []
 baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
 
 
+# ---- SCHWER (Zehnte Runde: schwerere Aufgaben nach Prüfungsvorbild, siehe _schwer_kl8.py) ----
+# Vorbilder (Typ und Niveau, nicht Wortlaut/Zahlen): BMT10 2024 (Rechtecke unter einer Hyperbel haben gleichen Flächeninhalt;
+# Schnitt Hyperbel–Gerade), Grundwissen 8 (Wippe/Hebelgesetz als indirekte Proportionalität; D bestimmen und Hyperbel mit Asymptoten;
+# Funktionsgleichung aus dem Graphen), Stegreifaufgaben-Typ Kl. 8 (Graphen und Terme zuordnen, Achsenschnittpunkte), BMT8 2025 (Aussage begründet widerlegen).
+from _schwer_kl8 import Neu, mit_schwer  # noqa: E402
+
+N = Neu(10_8_3)
+_k = lambda **k: {'typ': 'koordinaten', **k}
+_h = lambda a, b, c, **k: {'art': 'hyperbel', 'a': a, 'b': b, 'c': c, **k}
+
+# indirekt
+N.z('indirekt', 2, 'Bei einer Zuordnung bleibt x · y immer gleich. Für x = 4 ist y = 7,5. Berechne y für x = 6.', 5, '4 * 7.5 / 6', 'x · y = 4 · 7,5 = 30. Also y = 30 : 6 = 5.',
+    'Berechne zuerst das feste Produkt.')
+N.z('indirekt', 2, 'Ein Rechteck hat den Flächeninhalt 36 cm². Es ist 4,8 cm lang. Wie breit ist es?', 7.5, '36 / 4.8', 'Länge · Breite = 36. Breite = 36 : 4,8 = 7,5 cm.',
+    'Bei festem Flächeninhalt ist die Breite indirekt proportional zur Länge.', einheit='cm')
+N.z('indirekt', 3, 'Eine Wippe ist im Gleichgewicht, wenn auf beiden Seiten „Gewicht · Abstand zum Drehpunkt“ gleich ist. Ein Kind mit 30 kg sitzt 2 m vom Drehpunkt. Wie weit muss ein Kind mit 40 kg sitzen?',
+    1.5, '30 * 2 / 40', '30 · 2 = 60. Also 40 · Abstand = 60, Abstand = 1,5 m. Das schwerere Kind sitzt näher am Drehpunkt.',
+    'Gewicht und Abstand sind indirekt proportional.', einheit='m', art='P')
+N.a('indirekt', 3, 'P liegt auf dem Graphen von f(x) = 12/x (x > 0). P, der Ursprung und die beiden Lotfußpunkte auf den Achsen bilden ein Rechteck (Bild: P(3 | 4)). Was gilt für seinen Flächeninhalt, wenn P auf dem Graphen wandert?',
+    'Er ist immer 12, denn x · y = 12.', ['Er ist am größten für P(1 | 12).', 'Er wird immer kleiner, je weiter P nach rechts wandert.', 'Er ist nur für P(3 | 4) gleich 12.'],
+    'Das Rechteck ist x breit und y hoch. Sein Flächeninhalt ist x · y. Für jeden Punkt des Graphen gilt y = 12/x, also x · y = 12.',
+    'Der Flächeninhalt ist Breite · Höhe = x · y. Was weißt du über x · y?',
+    grafik=_k(x=[0, 8], y=[0, 8], graphen=[_h(12, 0, 0, bereich=[1.5, 8])], punkte=[{'x': 3, 'y': 4, 'name': 'P'}], flaechen=[{'punkte': [[0, 0], [3, 0], [3, 4], [0, 4]]}]), art='P')
+N.z('indirekt', 3, 'x und y sind indirekt proportional. x wird um 25 % erhöht. Um wie viel Prozent sinkt y?', 20, '(1 - 1 / 1.25) * 100',
+    'Neues x = 1,25 · x. Damit x · y gleich bleibt, wird y durch 1,25 geteilt: y · 0,8. Das ist eine Abnahme um 20 %, nicht um 25 %.',
+    'Teste mit Zahlen: x = 4, y = 10. Was ist y, wenn x = 5?', einheit='%', art='K')
+N.z('indirekt', 3, '8 Arbeiter brauchen für einen Auftrag 15 Tage. Nach 5 Tagen kommen 2 Arbeiter dazu. Wie viele Tage dauert der Auftrag insgesamt?', 13, '5 + (8 * 15 - 8 * 5) / 10',
+    'Der Auftrag braucht 8 · 15 = 120 Arbeitstage. Nach 5 Tagen sind 40 erledigt, 80 fehlen. 10 Arbeiter brauchen dafür 8 Tage. Insgesamt 5 + 8 = 13 Tage.',
+    'Rechne in „Arbeitstagen“ (Arbeiter · Tage).', einheit='Tage', art='K')
+
+# definitionsmenge
+N.a('definitionsmenge', 2, 'Gib die Definitionsmenge von f(x) = 2/(3 − x) + 1 an.', 'D = ℚ \\ {3}', ['D = ℚ \\ {−3}', 'D = ℚ \\ {1}', 'D = ℚ'],
+    'Nenner 0: 3 − x = 0 ⇔ x = 3. Also D = ℚ \\ {3}.', 'Hier steht x mit Minus im Nenner. Setze den Nenner gleich 0.')
+N.z('definitionsmenge', 2, 'Welche Zahl gehört nicht zur Definitionsmenge von f(x) = 5/(x + 0,5) − 2?', -0.5, '-0.5', 'x + 0,5 = 0 ⇔ x = −0,5.', 'Wann wird der Nenner 0?')
+N.a('definitionsmenge', 3, 'Gib die maximale Definitionsmenge von f(x) = 4/(x − 2) + 3/(x + 1) an.', 'D = ℚ \\ {−1; 2}', ['D = ℚ \\ {2}', 'D = ℚ \\ {−2; 1}', 'D = ℚ \\ {−1; 2; 3; 4}'],
+    'Beide Nenner dürfen nicht 0 sein: x − 2 ≠ 0 und x + 1 ≠ 0. Ausgeschlossen sind 2 und −1.', 'Es gibt zwei Nenner. Prüfe jeden.', art='P')
+N.a('definitionsmenge', 3, 'Die Abbildung zeigt den Graphen einer Funktion f(x) = a/(x + b) + c. Welche Definitionsmenge hat f?', 'D = ℚ \\ {−3}', ['D = ℚ \\ {3}', 'D = ℚ \\ {1}', 'D = ℚ \\ {−3; 1}'],
+    'Ausgeschlossen ist nur die Stelle der senkrechten Asymptote: x = −3. Die waagrechte Asymptote y = 1 betrifft die Werte, nicht die Definitionsmenge.',
+    'Welche Asymptote zeigt eine verbotene x-Stelle?', grafik=_k(x=[-8, 4], y=[-4, 6], graphen=[_h(2, 3, 1)], senkrecht=[-3], waagrecht=[1]), art='P')
+N.z('definitionsmenge', 3, 'f(x) = 6/(x + b) − 1 hat die Definitionsmenge D = ℚ \\ {4}. Bestimme b.', -4, '-4',
+    'Ausgeschlossen ist x = −b. Aus −b = 4 folgt b = −4. Probe: Nenner x − 4 ist bei x = 4 null.', 'Für welches x wird x + b null? Rückwärts denken.', art='K')
+N.z('definitionsmenge', 3, 'Für welche Zahl a ist f(x) = 3/(2x − a) an der Stelle x = 1,5 nicht definiert?', 3, '2 * 1.5',
+    'Nicht definiert heißt: Nenner 0. 2 · 1,5 − a = 0 ⇔ 3 − a = 0 ⇔ a = 3.', 'Setze x = 1,5 in den Nenner ein und verlange 0.', art='K')
+
+# asymptoten
+N.z('asymptoten', 2, 'Gib die senkrechte Asymptote von f(x) = 3/(x + 2,5) − 1 an. x = □', -2.5, '-2.5', 'Senkrechte Asymptote bei x = −b = −2,5.', 'Wo wird der Nenner 0?')
+N.z('asymptoten', 2, 'Gib die waagrechte Asymptote von f(x) = 5/x an. y = □', 0, '0', 'Es wird nichts addiert: c = 0. Die waagrechte Asymptote ist die x-Achse, y = 0. Die 5 ist kein c.',
+    'Welche Zahl wird hinter dem Bruch addiert?')
+N.l('asymptoten', 3, 'Der Graph gehört zu f(x) = a/(x − b) + c und geht durch den Punkt P. Lies die Asymptoten ab und bestimme den Term.', 'f(x) = □/(x − □) + □', [3, 1, 2],
+    ['5 - 2', '1', '2'], 'Asymptoten: x = 1 und y = 2, also f(x) = a/(x − 1) + 2. P(2 | 5) einsetzen: 5 = a/1 + 2 ⇔ a = 3.',
+    'Lies erst die beiden Asymptoten ab. a bekommst du durch Einsetzen von P.', 'Je Lücke eine ganze Zahl.',
+    grafik=_k(x=[-4, 6], y=[-3, 8], graphen=[_h(3, -1, 2)], senkrecht=[1], waagrecht=[2], punkte=[{'x': 2, 'y': 5, 'name': 'P'}]), art='P')
+N.z('asymptoten', 3, 'An welcher Stelle x schneidet die Gerade y = 2 den Graphen von f(x) = 4/(x − 1) + 3?', -3, '1 + 4 / (2 - 3)',
+    '4/(x − 1) + 3 = 2 ⇔ 4/(x − 1) = −1 ⇔ x − 1 = −4 ⇔ x = −3. Probe: 4/(−4) + 3 = 2.', 'Setze f(x) = 2 und löse nach x auf.', art='P')
+N.a('asymptoten', 3, 'Kann der Graph von f(x) = a/(x + b) + c (mit a ≠ 0) die Gerade y = c schneiden?', 'Nein: a/(x + b) ist nie 0, also ist f(x) nie gleich c.',
+    ['Ja: genau an der Stelle x = −b.', 'Ja: wenn x groß genug ist.', 'Nur wenn c = 0 ist.'],
+    'f(x) = c würde bedeuten a/(x + b) = 0. Ein Bruch ist nur 0, wenn der Zähler 0 ist – a ist aber nicht 0. Darum berührt der Graph die Asymptote nie.',
+    'Was müsste für a/(x + b) gelten, damit f(x) = c ist?', art='K')
+N.z('asymptoten', 3, 'Eine Hyperbel f(x) = a/(x + b) + c hat die Asymptoten x = −2 und y = 1 und geht durch den Ursprung. Bestimme a.', -2, '-1 * 2',
+    'b = 2 und c = 1: f(x) = a/(x + 2) + 1. f(0) = 0 ⇔ a/2 + 1 = 0 ⇔ a = −2.', 'Setze zuerst b und c ein. Dann nutze den Punkt (0 | 0).', art='K')
+
+# achsenpunkte
+N.z('achsenpunkte', 2, 'In welchem Punkt schneidet der Graph von f(x) = 6/(x − 3) + 4 die y-Achse? Gib den y-Wert an.', 2, '6 / (0 - 3) + 4', 'f(0) = 6/(−3) + 4 = −2 + 4 = 2.',
+    'Setze x = 0 ein.')
+N.z('achsenpunkte', 2, 'Berechne die Nullstelle von f(x) = 3/(x + 1) + 1,5.', -3, '3 / (-1.5) - 1', '3/(x + 1) = −1,5 ⇔ x + 1 = 3 : (−1,5) = −2 ⇔ x = −3.',
+    'Bringe 1,5 auf die andere Seite. Dann multipliziere mit dem Nenner.')
+N.l('achsenpunkte', 3, 'Bestimme beide Achsenschnittpunkte des Graphen von f(x) = 2/(x − 1) + 1.', 'N(□ | 0); S(0 | □)', [-1, -1], ['1 + 2 / (-1)', '2 / (0 - 1) + 1'],
+    'Nullstelle: 2/(x − 1) = −1 ⇔ x − 1 = −2 ⇔ x = −1. y-Achse: f(0) = 2/(−1) + 1 = −1. N(−1 | 0), S(0 | −1).',
+    'Für N setzt du f(x) = 0, für S setzt du x = 0.', 'Je Lücke eine ganze Zahl.', art='P')
+N.a('achsenpunkte', 3, 'Welche Funktion hat KEINE Nullstelle?', 'f(x) = 3/(x − 2)', ['f(x) = 3/(x − 2) + 1', 'f(x) = −3/x + 2', 'f(x) = 1/(x + 4) − 1'],
+    'Ohne +c ist f(x) = 3/(x − 2) nie 0 (der Zähler ist 3). Die anderen haben Nullstellen: −1, 1,5 und −3.', 'Ein Bruch ist nur 0, wenn sein Zähler 0 ist.', art='P')
+N.z('achsenpunkte', 3, 'Für welchen Wert von c hat f(x) = 4/(x − 2) + c die Nullstelle x = 4?', -2, '-(4 / (4 - 2))', 'f(4) = 4/2 + c = 2 + c = 0 ⇔ c = −2.',
+    'Setze x = 4 ein und verlange f(4) = 0.', art='K')
+N.a('achsenpunkte', 3, 'Für welche Werte von c schneidet der Graph von f(x) = 2/x + c die y-Achse?', 'für keinen Wert von c', ['nur für c = 0', 'für jeden Wert von c', 'nur für c = 2'],
+    'Die y-Achse ist die Stelle x = 0. Dort ist 2/x nicht definiert – egal, wie groß c ist. Der Graph schneidet die y-Achse nie.',
+    'Welches x hat die y-Achse? Darf man es einsetzen?', art='K')
+
+# parameter
+N.a('parameter', 2, 'Der Graph von g(x) = 2/x wird um 3 nach unten verschoben. Wie heißt der neue Term?', 'f(x) = 2/x − 3', ['f(x) = 2/(x − 3)', 'f(x) = 2/(x + 3)', 'f(x) = 2/x + 3'],
+    'Nach unten heißt: Von jedem Funktionswert 3 abziehen: f(x) = 2/x − 3.', 'Oben/unten ändert c, links/rechts ändert b.')
+N.a('parameter', 2, 'Wie entsteht der Graph von f(x) = 5/(x + 1) aus dem Graphen von g(x) = 5/x?', 'Verschiebung um 1 nach links', ['Verschiebung um 1 nach rechts',
+    'Verschiebung um 1 nach oben', 'Verschiebung um 1 nach unten'],
+    'Die Lücke liegt jetzt bei x = −1 statt bei 0: um 1 nach links verschoben.', 'Wo liegt die senkrechte Asymptote jetzt?')
+N.a('parameter', 3, 'Lies die Asymptoten der gezeichneten Hyperbel ab. Welcher Term gehört zu ihr?', 'f(x) = 1/(x − 2) − 1', ['f(x) = 1/(x + 2) − 1', 'f(x) = 1/(x − 2) + 1', 'f(x) = −1/(x − 2) − 1'],
+    'Senkrechte Asymptote x = 2: Nenner x − 2. Waagrechte Asymptote y = −1: − 1. Der Graph liegt rechts oben und links unten wie bei 1/x: Zähler positiv.',
+    'Lies beide Asymptoten ab. Liegen die Äste wie bei 1/x oder wie bei −1/x?',
+    grafik=_k(x=[-3, 7], y=[-5, 3], graphen=[_h(1, -2, -1)], senkrecht=[2], waagrecht=[-1]), art='P')
+N.a('parameter', 3, 'Der Graph von f(x) = 3/(x − 1) + 2 wird um 4 nach links und um 5 nach unten verschoben. Wie heißt der neue Term?', 'g(x) = 3/(x + 3) − 3',
+    ['g(x) = 3/(x − 5) − 3', 'g(x) = 3/(x + 4) − 5', 'g(x) = 3/(x + 3) + 7'],
+    'Senkrechte Asymptote: von x = 1 um 4 nach links zu x = −3, also Nenner x + 3. Waagrechte: von y = 2 um 5 nach unten zu y = −3.',
+    'Verschiebe die Asymptoten. Sie bestimmen den neuen Term.', art='P')
+N.l('parameter', 3, 'Der Graph von f(x) = a/(x + b) + c ist punktsymmetrisch zum Punkt Z(−2 | 3). Bestimme b und c.', 'b = □; c = □', [2, 3], ['2', '3'],
+    'Eine Hyperbel ist punktsymmetrisch zum Schnittpunkt ihrer Asymptoten. Also x = −2 (b = 2) und y = 3 (c = 3).',
+    'Welcher Punkt ist bei 1/x das Symmetriezentrum? Wohin wandert er beim Verschieben?', 'Je Lücke eine ganze Zahl.', art='K')
+N.a('parameter', 3, 'Der Graph von g(x) = 4/x wird an der x-Achse gespiegelt. Welche Funktion gehört zum neuen Graphen?', 'f(x) = −4/x', ['f(x) = 4/x − 4', 'f(x) = 4/(x − 4)', 'f(x) = 1/(4x)'],
+    'Beim Spiegeln an der x-Achse wechselt jeder Funktionswert das Vorzeichen: aus 4/x wird −4/x. Die Äste liegen dann im 2. und 4. Feld.',
+    'Was passiert beim Spiegeln an der x-Achse mit dem Punkt (1 | 4)?', art='K')
+
+# beurteilen
+N.a('beurteilen', 2, 'Welche Aussage über f(x) = 2/x ist richtig?', 'Wird x verdoppelt, so halbiert sich f(x).', ['Der Graph geht durch (0 | 2).', 'f(x) ist nie negativ.',
+                                                                                                     'f(−1) = 2'],
+    'f(2x) = 2/(2x) = (2/x) : 2. Doppeltes x, halbes f(x). Für x = 0 gibt es keinen Wert, f(−1) = −2 ist negativ.', 'Teste jede Aussage mit einer Zahl.')
+N.a('beurteilen', 2, 'Welche Aussage über f(x) = −1/(x + 2) + 3 ist FALSCH?', 'Die senkrechte Asymptote ist x = 2.', ['f ist für x = −2 nicht definiert.', 'f(−1) = 2',
+                                                                                                         'Der Graph schneidet die Gerade y = 3 nie.'],
+    'Senkrechte Asymptote: x + 2 = 0 ⇔ x = −2, nicht 2. f(−1) = −1/1 + 3 = 2 stimmt. y = 3 ist Asymptote und wird nie erreicht.', 'Prüfe jede Aussage einzeln.')
+N.a('beurteilen', 3, 'Ben sagt: „Der Graph von f(x) = 1/x fällt. Also ist f(−1) größer als f(1).“ Was stimmt?',
+    'Falsch: f(−1) = −1 ist kleiner als f(1) = 1. Der Graph fällt nur in jedem Ast für sich.',
+    ['Richtig: Fallende Graphen haben links größere Werte.', 'Richtig: f(−1) = 1 und f(1) = −1.', 'Falsch: Der Graph von 1/x steigt.'],
+    'f(−1) = −1 und f(1) = 1. Links der Lücke sind alle Werte negativ, rechts positiv. „Fällt“ gilt nur innerhalb jedes Astes, nicht über die Lücke bei x = 0 hinweg.',
+    'Rechne f(−1) und f(1) wirklich aus.', art='P')
+N.a('beurteilen', 3, 'Ina behauptet: „Für sehr große x liegen die Werte von f(x) = 6/(x − 1) + 2 ganz nahe bei 2.“ Was stimmt?',
+    'Richtig: 6/(x − 1) wird für große x fast 0.', ['Falsch: Sie liegen nahe bei 6.', 'Falsch: Sie werden immer größer.', 'Richtig: f(2) = 2.'],
+    'Für x = 1 001 ist 6/(x − 1) = 0,006. Der Bruch wird immer kleiner, f(x) nähert sich 2 – der waagrechten Asymptote. f(2) = 8, nicht 2.',
+    'Setze eine große Zahl ein, z. B. x = 1 001.', art='P')
+N.a('beurteilen', 3, 'Wie viele Schnittpunkte haben der Graph von f(x) = 6/x und die Gerade y = x + 1?', 'zwei', ['keinen', 'einen', 'drei'],
+    'Probieren: x = 2 gibt 6/2 = 3 und 2 + 1 = 3. x = −3 gibt 6/(−3) = −2 und −3 + 1 = −2. Zwei Schnittpunkte: (2 | 3) und (−3 | −2). Die Gerade schneidet jeden Ast einmal.',
+    'Skizziere beide Graphen. Probiere dann ganze Zahlen als x.', art='K')
+N.a('beurteilen', 3, 'Welcher Punkt kann auf KEINEM Graphen einer Funktion f(x) = a/x mit a > 0 liegen?', 'P(−2 | 3)', ['P(2 | 3)', 'P(−2 | −3)', 'P(0,5 | 12)'],
+    'Für a > 0 haben x und f(x) immer dasselbe Vorzeichen (Äste im 1. und 3. Feld). P(−2 | 3) hat verschiedene Vorzeichen. Die anderen passen zu a = 6.',
+    'Welche Vorzeichen haben x und y, wenn a positiv ist?', art='K')
+
+baue = mit_schwer(baue, N)
+# ---- SCHWER ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Indirekte Proportionalität', ['indirekt']), ('Hyperbeln untersuchen', ['definitionsmenge', 'asymptoten', 'achsenpunkte']),

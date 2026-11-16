@@ -4007,6 +4007,717 @@
     "text": "Stimmt die Aussage? „Die Spannweite von 3, 10, 12, 5, 7 ist 9.“"
    },
    "w": "Ja, größter minus kleinster Wert: 12 − 3 = 9."
+  },
+  {
+   "l": "mittelwert",
+   "t": "mittelwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Mittelwert von 2,5; 3,1; 4,2 und 1,8."
+   },
+   "o": {
+    "wert": 2.9
+   },
+   "c": "(2.5 + 3.1 + 4.2 + 1.8) / 4",
+   "h": "Summe durch Anzahl.",
+   "w": "Summe 11,6. 11,6 : 4 = 2,9."
+  },
+  {
+   "l": "mittelwert",
+   "t": "mittelwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Mittelwert von −4, 6, −2 und 8."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(-4 + 6 - 2 + 8) / 4",
+   "h": "Achte bei der Summe auf die Vorzeichen.",
+   "w": "Summe: −4 + 6 − 2 + 8 = 8. 8 : 4 = 2."
+  },
+  {
+   "l": "mittelwert",
+   "t": "mittelwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit welcher Rechnung bekommst du den Mittelwert von 52 und 60?"
+   },
+   "a": [
+    "52 + 60 : 2",
+    "(52 + 60) : 2",
+    "52 : 2 + 60",
+    "(52 + 60) · 2"
+   ],
+   "o": {
+    "index": 1
+   },
+   "h": "Erst die Summe, dann teilen. Denk an Punkt vor Strich.",
+   "w": "(52 + 60) : 2 = 56. Ohne Klammer würde nur 60 halbiert: 52 + 30 = 82."
+  },
+  {
+   "l": "mittelwert",
+   "t": "mittelwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Mittelwert von fünf aufeinanderfolgenden natürlichen Zahlen ist 23. Wie heißt die größte der fünf Zahlen?"
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "23 + 2",
+   "h": "Bei aufeinanderfolgenden Zahlen steht der Mittelwert genau in der Mitte.",
+   "w": "Die Zahlen sind 21, 22, 23, 24, 25. Summe 115, 115 : 5 = 23. Größte: 25."
+  },
+  {
+   "l": "mittelwert",
+   "t": "mittelwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei welchem Notenspiegel ist der Durchschnitt genau 3,0?"
+   },
+   "a": [
+    "1: 2, 2: 4, 3: 6, 4: 4, 5: 0, 6: 2",
+    "1: 4, 2: 4, 3: 6, 4: 4, 5: 2, 6: 0",
+    "1: 0, 2: 4, 3: 6, 4: 4, 5: 2, 6: 2",
+    "1: 2, 2: 4, 3: 6, 4: 4, 5: 2, 6: 0"
+   ],
+   "o": {
+    "index": 3
+   },
+   "h": "Rechne Note mal Anzahl, addiere und teile durch die Zahl der Kinder.",
+   "w": "2 · 1 + 4 · 2 + 6 · 3 + 4 · 4 + 2 · 5 = 54 Punkte für 18 Kinder. 54 : 18 = 3,0. Die anderen ergeben 56 : 20 = 2,8; 56 : 18 ≈ 3,1; 64 : 18 ≈ 3,6."
+  },
+  {
+   "l": "mittelwert",
+   "t": "mittelwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kind hat in vier Tests 14, 17, 12 und 13 Punkte. Es sagt: „Ohne den schlechtesten Test wäre mein Mittelwert um mehr als 1 Punkt höher.“ Stimmt das?"
+   },
+   "a": [
+    "Ja, um genau 2 Punkte.",
+    "Ja, um 1,5 Punkte.",
+    "Nein, er bliebe gleich.",
+    "Nein, er wäre nur um etwa 0,7 Punkte höher."
+   ],
+   "o": {
+    "index": 3
+   },
+   "h": "Rechne beide Mittelwerte aus.",
+   "w": "Mit allen: 56 : 4 = 14. Ohne die 12: 44 : 3 ≈ 14,7. Unterschied etwa 0,7 Punkte."
+  },
+  {
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“ in einer Klasse. Berechne den Mittelwert.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Geschwister",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Kinder",
+       "4",
+       "9",
+       "5",
+       "2"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1.25
+   },
+   "c": "(0 * 4 + 1 * 9 + 2 * 5 + 3 * 2) / 20",
+   "h": "Wert mal Anzahl, addieren, durch die Zahl der Kinder teilen.",
+   "w": "0 · 4 + 1 · 9 + 2 · 5 + 3 · 2 = 25. 20 Kinder. 25 : 20 = 1,25."
+  },
+  {
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt einen Notenspiegel. Berechne die Durchschnittsnote.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Note",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "3",
+       "6",
+       "8",
+       "5",
+       "2",
+       "1"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(1 * 3 + 2 * 6 + 3 * 8 + 4 * 5 + 5 * 2 + 6 * 1) / 25",
+   "h": "Note mal Anzahl, addieren, durch die Zahl der Kinder teilen.",
+   "w": "3 + 12 + 24 + 20 + 10 + 6 = 75. 25 Kinder. 75 : 25 = 3."
+  },
+  {
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Schule zahlen 55 % der Kinder 8 € Kopiergeld, 20 % zahlen 10 € und 25 % zahlen 12 €. Wie viel Euro zahlt ein Kind im Durchschnitt?"
+   },
+   "o": {
+    "wert": 9.4,
+    "einheit": "€"
+   },
+   "c": "(55 * 8 + 20 * 10 + 25 * 12) / 100",
+   "h": "Rechne mit 100 Kindern.",
+   "w": "100 Kinder: 55 · 8 € + 20 · 10 € + 25 · 12 € = 440 € + 200 € + 300 € = 940 €. 940 € : 100 = 9,40 €."
+  },
+  {
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Schule zahlen 55 % der Kinder 8 € Kopiergeld, 20 % zahlen 10 € und 25 % zahlen 12 €. Im nächsten Jahr zahlt die erste Gruppe 1 € mehr, die zweite Gruppe 1 € weniger. Um wie viel Euro steigt der Durchschnitt?"
+   },
+   "o": {
+    "wert": 0.35,
+    "einheit": "€"
+   },
+   "c": "(55 * 1 - 20 * 1) / 100",
+   "h": "Die Gruppen sind verschieden groß. Rechne wieder mit 100 Kindern.",
+   "w": "55 Kinder zahlen zusammen 55 € mehr, 20 Kinder 20 € weniger. Plus 35 € für 100 Kinder: 0,35 € mehr. (Es hebt sich nicht auf!)"
+  },
+  {
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Notenspiegel ist eine Anzahl verwischt: Note 1: 2 Kinder, Note 2: 3 Kinder, Note 3: ? Kinder, Note 4: 2 Kinder. Der Durchschnitt ist genau 2,5. Wie viele Kinder haben Note 3?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(2.5 * 7 - (2 + 6 + 8)) / (3 - 2.5)",
+   "h": "Probiere aus: 1, 2, 3 … Kinder mit Note 3. Rechne jeweils den Durchschnitt.",
+   "w": "Mit 3 Kindern: 2 + 6 + 9 + 8 = 25 Notenpunkte für 10 Kinder. 25 : 10 = 2,5. Es passt."
+  },
+  {
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Mannschaft hat in 4 Spielen 0 Tore, in 3 Spielen 1 Tor und in 3 Spielen 2 Tore geschossen. Ein Kind rechnet den Mittelwert als (0 + 1 + 2) : 3 = 1. Wie groß ist er richtig?"
+   },
+   "o": {
+    "wert": 0.9
+   },
+   "c": "(0 * 4 + 1 * 3 + 2 * 3) / 10",
+   "h": "Jeder Wert zählt so oft, wie er vorkommt.",
+   "w": "Tore: 0 · 4 + 1 · 3 + 2 · 3 = 9 in 10 Spielen. 9 : 10 = 0,9."
+  },
+  {
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Mittelwert von vier Zahlen ist 7,5. Drei der Zahlen sind 6, 9 und 8. Wie heißt die vierte Zahl?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7.5 * 4 - 6 - 9 - 8",
+   "h": "Summe = Mittelwert · Anzahl.",
+   "w": "Summe 7,5 · 4 = 30. 30 − 6 − 9 − 8 = 7."
+  },
+  {
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Familie mit 4 Personen schaut im Mittel 1,5 Stunden am Tag auf Bildschirme. Wie viele Stunden sind das zusammen an einem Tag?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "h"
+   },
+   "c": "1.5 * 4",
+   "h": "Summe = Mittelwert · Anzahl.",
+   "w": "1,5 h · 4 = 6 h."
+  },
+  {
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Nach drei Schulaufgaben hat ein Kind den Durchschnitt 3,0. Welche Note braucht es in der vierten Schulaufgabe, damit der Durchschnitt 2,5 wird?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "2.5 * 4 - 3 * 3",
+   "h": "Wie viele Notenpunkte braucht es nach vier Arbeiten insgesamt?",
+   "w": "Bisher 3 · 3,0 = 9. Nötig 4 · 2,5 = 10. 10 − 9 = 1, also eine 1."
+  },
+  {
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Fünf Kinder sind im Mittel 1,50 m groß. Ein Kind mit 1,62 m verlässt die Gruppe. Wie groß sind die übrigen vier im Mittel?"
+   },
+   "o": {
+    "wert": 1.47,
+    "einheit": "m"
+   },
+   "c": "(1.5 * 5 - 1.62) / 4",
+   "h": "Rechne die Summe aller Größen aus und ziehe 1,62 m ab.",
+   "w": "Summe 5 · 1,50 m = 7,50 m. 7,50 − 1,62 = 5,88 m. 5,88 : 4 = 1,47 m."
+  },
+  {
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Mittelwert von 3, 8, 10 und x ist genauso groß wie x. Wie groß ist x?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "(3 + 8 + 10) / 3",
+   "h": "Probiere Werte für x aus, oder: Wenn x der Mittelwert ist, gleichen sich die Abstände der anderen Zahlen zu x aus.",
+   "w": "x = 7: (3 + 8 + 10 + 7) : 4 = 28 : 4 = 7. Es passt."
+  },
+  {
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In der 6a (20 Kinder) sind es im Mittel 12 Punkte, in der 6b (30 Kinder) 17 Punkte. Wie groß ist der Mittelwert aller 50 Kinder?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "(20 * 12 + 30 * 17) / 50",
+   "h": "Rechne die Punktsumme jeder Klasse aus. Die Klassen sind verschieden groß.",
+   "w": "6a: 240 Punkte, 6b: 510 Punkte. 750 : 50 = 15. (Nicht (12 + 17) : 2 = 14,5.)"
+  },
+  {
+   "l": "modal_spannweite",
+   "t": "modal_spannweite",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme die Spannweite von 2,4; 3,9; 1,7 und 2,8."
+   },
+   "o": {
+    "wert": 2.2
+   },
+   "c": "3.9 - 1.7",
+   "h": "Größter minus kleinster Wert.",
+   "w": "3,9 − 1,7 = 2,2."
+  },
+  {
+   "l": "modal_spannweite",
+   "t": "modal_spannweite",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Lieblingsfarben: rot, blau, rot, grün, blau, rot, gelb. Welcher Wert ist der Modalwert?"
+   },
+   "a": [
+    "rot",
+    "Es gibt keinen.",
+    "blau",
+    "grün"
+   ],
+   "o": {
+    "index": 0
+   },
+   "h": "Welche Farbe kommt am häufigsten vor?",
+   "w": "rot 3-mal, blau 2-mal, grün und gelb je 1-mal. Modalwert: rot."
+  },
+  {
+   "l": "modal_spannweite",
+   "t": "modal_spannweite",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Datenreihe hat die Spannweite 12. Der kleinste Wert ist −5. Wie groß ist der größte Wert?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "-5 + 12",
+   "h": "Rückwärts: größter = kleinster + Spannweite.",
+   "w": "Größter Wert = kleinster Wert + Spannweite = −5 + 12 = 7."
+  },
+  {
+   "l": "modal_spannweite",
+   "t": "modal_spannweite",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zur Reihe 4, 7, 7, 9 kommt eine Zahl größer als 9 dazu. Danach ist die Spannweite 10 und der Modalwert immer noch 7. Welche Zahl kommt dazu?"
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "4 + 10",
+   "h": "Der kleinste Wert bleibt 4. Was muss der größte sein?",
+   "w": "Spannweite 10 mit kleinstem Wert 4: größter Wert 14. Die 7 bleibt am häufigsten."
+  },
+  {
+   "l": "modal_spannweite",
+   "t": "modal_spannweite",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Das Diagramm zeigt die Noten 1 bis 5 einer Klasse. Note 6 fehlt noch. Wie viele Kinder dürfen höchstens Note 6 haben, damit Note 3 der einzige Modalwert bleibt?",
+    "grafik": {
+     "typ": "saeulen",
+     "werte": [
+      {
+       "name": "1",
+       "wert": 2
+      },
+      {
+       "name": "2",
+       "wert": 6
+      },
+      {
+       "name": "3",
+       "wert": 8
+      },
+      {
+       "name": "4",
+       "wert": 5
+      },
+      {
+       "name": "5",
+       "wert": 3
+      }
+     ],
+     "zahlen": true,
+     "einheit": "Kinder"
+    }
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "8 - 1",
+   "h": "Wie oft kommt Note 3 vor? Note 6 muss seltener sein.",
+   "w": "Note 3 haben 8 Kinder. Note 6 darf höchstens 7-mal vorkommen, sonst gäbe es einen zweiten Modalwert."
+  },
+  {
+   "l": "modal_spannweite",
+   "t": "modal_spannweite",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind sagt: „Die Spannweite von 12, 5, 9, 20 ist 8, weil 20 − 12 = 8.“ Wie groß ist die Spannweite richtig?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "20 - 5",
+   "h": "Nicht erster und letzter Wert, sondern größter und kleinster.",
+   "w": "Größter Wert 20, kleinster 5. 20 − 5 = 15."
+  },
+  {
+   "l": "median",
+   "t": "median",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Median von 3, 9, 4, 9, 1, 7."
+   },
+   "o": {
+    "wert": 5.5
+   },
+   "c": "(4 + 7) / 2",
+   "h": "Ordne zuerst. Bei 6 Werten gibt es zwei mittlere.",
+   "w": "Geordnet: 1, 3, 4, 7, 9, 9. Mitte: (4 + 7) : 2 = 5,5."
+  },
+  {
+   "l": "median",
+   "t": "median",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Median von −2, 5, 0, −7, 3."
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "h": "Ordne zuerst, auch die negativen Zahlen.",
+   "w": "Geordnet: −7, −2, 0, 3, 5. In der Mitte steht 0."
+  },
+  {
+   "l": "median",
+   "t": "median",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Punkte von 13 Kindern: 4, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 9, 10. Bestimme den Median."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "8",
+   "h": "Bei 13 Werten ist der 7. Wert die Mitte. Zähle genau, auch die doppelten Werte.",
+   "w": "Die Werte sind schon geordnet. Der 7. Wert ist 8 (6 Werte davor, 6 danach)."
+  },
+  {
+   "l": "median",
+   "t": "median",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt, wie viele Runden 150 Kinder beim Spendenlauf geschafft haben. Bestimme den Median der Runden.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Runden",
+      "5",
+      "10",
+      "15",
+      "20"
+     ],
+     "zeilen": [
+      [
+       "Kinder",
+       "24",
+       "50",
+       "40",
+       "36"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "15",
+   "h": "Bei 150 Werten liegen der 75. und 76. Wert in der Mitte. Zähle von vorne zusammen.",
+   "w": "5 Runden: Platz 1–24. 10 Runden: Platz 25–74. 15 Runden: Platz 75–114. Der 75. und 76. Wert sind 15, also Median 15 (knapp nicht 10)."
+  },
+  {
+   "l": "median",
+   "t": "median",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zur Reihe 2, 5, 9, 12 kommt eine Zahl dazu. Danach ist der Median genau 6. Welche Zahl kommt dazu?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "h": "Bei 5 Werten ist der Median der 3. Wert der geordneten Reihe.",
+   "w": "Damit der 3. Wert 6 ist, muss die neue Zahl 6 sein: 2, 5, 6, 9, 12."
+  },
+  {
+   "l": "median",
+   "t": "median",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Median und Mittelwert von 3, 4, 5, 6 und x sollen gleich groß sein. x ist größer als 6. Wie groß ist x?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "5 * 5 - (3 + 4 + 5 + 6)",
+   "h": "Der Median ist 5 (x steht ganz rechts). Welche Summe braucht der Mittelwert 5?",
+   "w": "Median 5. Mittelwert 5 heißt Summe 25. 25 − 18 = 7."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Der Mittelwert liegt immer zwischen dem kleinsten und dem größten Wert (oder ist gleich einem von ihnen).“"
+   },
+   "a": [
+    "Nein, bei Ausreißern kann er größer sein als der größte Wert.",
+    "Nein, Gegenbeispiel 2, 4, 6.",
+    "Ja: Beim gerechten Verteilen bekommt niemand mehr als der Größte oder weniger als der Kleinste hatte."
+   ],
+   "o": {
+    "index": 2
+   },
+   "h": "Denke an gerechtes Verteilen.",
+   "w": "Teilt man gerecht, gibt der Größte ab und der Kleinste bekommt dazu. Der Mittelwert liegt dazwischen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Verdoppelt man alle Werte, verdoppelt sich auch der Mittelwert.“"
+   },
+   "a": [
+    "Ja: Die Summe verdoppelt sich, die Anzahl bleibt gleich.",
+    "Nein, der Mittelwert bleibt gleich.",
+    "Nein, er wird um 2 größer."
+   ],
+   "o": {
+    "index": 0
+   },
+   "h": "Probiere mit 1, 2, 3.",
+   "w": "1, 2, 3 → Mittel 2. 2, 4, 6 → Mittel 4."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Klasse A hat im Mittel 12 Punkte, Klasse B 18 Punkte. Jemand sagt: „Der Mittelwert aller Kinder ist (12 + 18) : 2 = 15.“ Stimmt das?"
+   },
+   "a": [
+    "Nein, nie.",
+    "Ja, immer.",
+    "Nur wenn beide Klassen gleich viele Kinder haben.",
+    "Nur wenn Klasse A mehr Kinder hat."
+   ],
+   "o": {
+    "index": 2
+   },
+   "h": "Probiere: A hat 10 Kinder, B hat 30 Kinder.",
+   "w": "Bei 10 und 30 Kindern: (120 + 540) : 40 = 16,5, nicht 15. Bei gleich großen Klassen passt 15."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Der Median ist immer einer der Datenwerte.“"
+   },
+   "a": [
+    "Ja, außer bei negativen Zahlen.",
+    "Nein: Bei 1, 2, 3, 4 ist der Median 2,5.",
+    "Nein: Der Median ist nie ein Datenwert.",
+    "Ja, er ist immer der mittlere Wert der Liste."
+   ],
+   "o": {
+    "index": 1
+   },
+   "h": "Denke an eine gerade Anzahl von Werten.",
+   "w": "Bei gerader Anzahl ist der Median der Mittelwert der beiden mittleren Werte, z. B. (2 + 3) : 2 = 2,5."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Drei natürliche Zahlen haben den Mittelwert 10 und den Median 4. Wie groß ist die größte Zahl mindestens?"
+   },
+   "o": {
+    "wert": 22
+   },
+   "c": "3 * 10 - 4 - 4",
+   "h": "Die Summe ist 30. Die kleinste Zahl ist höchstens 4. Wie groß darf sie sein, damit die größte möglichst klein wird?",
+   "w": "Summe 30, Median 4. Die kleinste Zahl ist höchstens 4. Mit 4, 4, x: x = 30 − 8 = 22. Kleiner geht es nicht."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einem Test war der Mittelwert 15 Punkte, der Median 17 Punkte. Lisa hat 16 Punkte. Sie sagt: „Ich bin besser als die Hälfte der Klasse.“ Stimmt das?"
+   },
+   "a": [
+    "Ja, denn 16 ist mehr als der Mittelwert 15.",
+    "Nein: Mindestens die Hälfte hat 17 Punkte oder mehr.",
+    "Ja, genau die Hälfte ist schlechter.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "h": "Was sagt der Median über die Hälfte der Klasse?",
+   "w": "Median 17: Die bessere Hälfte hat mindestens 17 Punkte. Mit 16 liegt Lisa unter dem Median. Der Mittelwert sagt darüber nichts."
   }
  ],
  "offen": [

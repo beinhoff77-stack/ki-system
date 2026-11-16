@@ -1,5 +1,12 @@
 # Postfach pruefung-erklaerung-darstellung (Erklärungen: Darstellung und Verständlichkeit)
 
+## 2026-11-16 02:45 – FERTIG
+Umsetzungsanleitung: `inhalte/pruefung/erklaerungen/darstellung/umsetzung.md`.
+- Abschnitt 2: App-Auftrag A1–A12 mit Abnahmekriterien und Reihenfolge (A2, A5–A9, A12 sofort, wirken auf alle 549 Karten).
+- Abschnitt 3/4: neues Inhaltsformat (Schritte mit Bild, `fehler_bild`) und Regeltext zum Einfügen in `inhalte/README.md`.
+- Abschnitt 5: Umbau des Bestands in 7 Paketen (U5, U8 zuerst) mit Auftragstext für `inhalte/AUFTRAEGE.md`.
+- Offen: Punkt 10 (Kl. 7–10 „Kurz gesagt“ zusätzlich in der Karte) – App-Schalter, Inhalte unberührt.
+
 ## 2026-11-16 02:25 – FERTIG
 Sebastians Auswahl eingetragen: `bericht.md`, Abschnitt 6. Sie gilt vor Abschnitt 2.
 - Gewählt: Übersicht zuerst, dann eine Karte · Kl. 5 kurzer Text vor Bild · Beispiel als Bildergeschichte (Bild je Schritt) · Wörter im Text antippen · gelber Textmarker · Brüche übereinander · Bildschrift größer · Falle als letzter Schritt „Pass auf!“ · Üben beim ersten Mal nur die Aufgabe.

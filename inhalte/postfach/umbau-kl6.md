@@ -3,6 +3,12 @@
 Technik: je Generator ein Abschnitt KARTEN (ersetzt den Abschnitt KLAR der Runde 7), eingesetzt über `inhalte/generatoren/_umbau_kl6.py` (dieselben strengen Regeln wie `_umbau_kl5.py` aus Paket U5) erst NACH dem Erzeugen der Aufgaben – die Aufgaben bleiben wörtlich gleich. `probe` entfällt bei umgebauten Karten. finanzen.zinsen (ohne Generator): Überlagerung `inhalte/klar/finanzen.zinsen.json`, mit denselben Regeln geprüft.
 Vergleich je Thema: `aufgaben`, titel/lernziel und alle Felder außer `inhalt.etappen` und `offen` gegen den Ausgangsstand bc7a754 (lernen-app).
 
+## 2026-11-16 03:04 – STATUS
+terme.potenzgesetze (7 Karten) umgebaut. Alle Karten bekommen erstmals ein Kartenbild, durchweg Tabellen, die sich Schritt für Schritt füllen (Papierfalten: Faltungen → Lagen; Potenzreihe 2³ bis 2⁻³; Faktoren zählen; 10⁶ und 10⁴; Paare 2 · 5; Zahlen als Potenzen; Zahlenprobe 3² · 3³ gegen 3⁶ und 3⁵). Für Potenzen gibt es keine passendere Zeichnungsart.
+fehler_bild nur bei potenz_begriff (2 · 4 = 8 statt 16 Lagen).
+Hinweis: Die Tabelle bei negativer_exponent hat 8 Spalten – auf dem Handy bitte prüfen, ob sie lesbar bleibt (sonst auf 2¹ … 2⁻³ kürzen).
+inhalt_pruefen: OK, keine Hinweise. Vergleich gegen bc7a754: 196 Aufgaben wörtlich gleich, Rest gleich, titel/lernziel gleich.
+
 ## 2026-11-16 03:02 – STATUS
 daten.kennwerte (6 Karten) umgebaut. Kartenbilder: Säulen (Punkte 7, 9, 4, 8 → alle 7; drei Tests mit fehlendem Ergebnis → 7; Schuhgrößen als Häufigkeiten; Taschengeld mit Ausreißer), Notenspiegel-Tabelle mit Zeile „Note · Anzahl“, Zahlenstrahl 0–20 mit den geordneten Schulweg-Zeiten und markiertem Median.
 Neu: Kartenbilder für mittel_rueckwaerts, modal_spannweite, median, verstehen (bisher ohne Bild).

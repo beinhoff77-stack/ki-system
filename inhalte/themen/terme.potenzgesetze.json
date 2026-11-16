@@ -44,208 +44,467 @@
    {
     "lernziel": "potenz_begriff",
     "titel": "Was ist eine Potenz?",
-    "regel": "So rechnest du eine Potenz aus: Schreibe die ⟦Basis⟧ so oft als Faktor hin, wie der ⟦Exponent⟧ sagt, und nimm alles mal: 2⁴ = 2 · 2 · 2 · 2. Eine negative Basis steht in ⟦Klammern⟧: (−2)³.",
+    "regel": "Der ⟦Exponent⟧ sagt, wie oft die Basis malgenommen wird. Eine negative Basis steht in Klammern.",
     "schritte": [
-     "Nach 4-mal Falten hast du 2 · 2 · 2 · 2 = 16 Lagen. Kurz: 2⁴ = 16.",
-     "Bei einer negativen Basis brauchst du Klammern: (−2)³ heißt (−2) · (−2) · (−2).",
-     "Rechne von links: (−2) · (−2) = 4, denn minus mal minus ergibt plus.",
-     "Dann 4 · (−2) = −8. Also ist (−2)³ = ⟦−8⟧."
+     {
+      "text": "Jedes Falten verdoppelt die Lagen: 2, 4, 8, 16.",
+      "bild": {
+       "zeilen": [
+        [
+         "Lagen",
+         "2",
+         "4",
+         "8",
+         "16"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Nach 4-mal Falten: 2 · 2 · 2 · 2 = ⟦2⁴ = 16⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "Lagen",
+         "2",
+         "4",
+         "8",
+         "16"
+        ],
+        [
+         "Potenz",
+         "2¹",
+         "2²",
+         "2³",
+         "2⁴"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Bei 2⁴ ist die Basis 2 und der Exponent 4."
+     },
+     {
+      "text": "Negative Basis in Klammern: (−2)³ = (−2) · (−2) · (−2) = ⟦−8⟧."
+     }
     ],
-    "fehler": "2⁴ = 8 ist falsch: Das wäre 2 · 4. Nach 4-mal Falten liegen aber ⟦2 · 2 · 2 · 2 = 16⟧ Lagen übereinander. Achtung auch: −2² = −(2 · 2) = −4, aber (−2)² = 4.",
-    "einstieg": "Du faltest ein Blatt Papier immer wieder in der Mitte. Nach dem ersten Falten liegen 2 Lagen übereinander, dann 4, dann 8, dann 16. Jedes Mal werden die Lagen mal 2 genommen. Statt 2 · 2 · 2 · 2 schreibt man kurz 2⁴. Diese Kurzschrift heißt ⟦Potenz⟧.",
+    "fehler": "2⁴ = 8 ist falsch: Das wäre 2 · 4. Nach 4-mal Falten hast du aber 16 Lagen.",
+    "einstieg": "Du faltest ein Blatt immer wieder in der Mitte: 2, 4, 8, 16 Lagen. Statt 2 · 2 · 2 · 2 schreibt man kurz 2⁴. Das ist eine ⟦Potenz⟧.",
     "woerter": [
      [
-      "Faktor",
-      "eine Zahl, die malgenommen wird"
-     ],
-     [
-      "Produkt",
-      "eine Malaufgabe oder ihr Ergebnis"
-     ],
-     [
       "Potenz",
-      "ein Produkt aus lauter gleichen Faktoren, kurz geschrieben: 2⁴ = 2 · 2 · 2 · 2"
+      "ein Produkt aus lauter gleichen Faktoren, kurz geschrieben: 2⁴"
      ],
      [
-      "Basis (Grundzahl)",
-      "die große Zahl unten, die malgenommen wird (bei 2⁴ die 2)"
+      "Basis",
+      "die Zahl unten, die malgenommen wird"
      ],
      [
-      "Exponent (Hochzahl)",
-      "die kleine Zahl oben: wie oft die Basis als Faktor vorkommt (bei 2⁴ die 4)"
-     ],
-     [
-      "aⁿ",
-      "allgemein geschrieben: a ist die Basis, n der Exponent"
-     ],
-     [
-      "(−2)³",
-      "die Klammer zeigt: Die ganze Zahl −2 ist die Basis"
+      "Exponent",
+      "die kleine Zahl oben: wie oft die Basis vorkommt"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Faltungen",
+      "1",
+      "2",
+      "3",
+      "4"
+     ],
+     "zeilen": [
+      [
+       "Lagen",
+       "2",
+       "",
+       "",
+       ""
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "zeilen": [
+      [
+       "Lagen",
+       "2",
+       "4",
+       "8",
+       "16"
+      ],
+      [
+       "2 · 4?",
+       "",
+       "",
+       "",
+       "8"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "negativer_exponent",
     "titel": "Negative Exponenten und Hoch 0",
-    "regel": "So rechnest du mit Exponent 0 und negativem Exponenten: ⟦a⁰ = 1⟧ (für a ≠ 0). Ein negativer Exponent bedeutet ⟦Kehrbruch⟧: a⁻ⁿ = 1/aⁿ. Grund: Geht der Exponent um 1 runter, wird ⟦durch a geteilt⟧.",
+    "regel": "Ein ⟦negativer Exponent⟧ bedeutet Kehrbruch: a⁻ⁿ = 1/aⁿ. Außerdem gilt a⁰ = 1.",
     "schritte": [
-     "Schreibe die Reihe von oben: 2³ = 8, 2² = 4, 2¹ = 2. Bei jedem Schritt nach unten wird durch 2 geteilt.",
-     "Weiter geht es mit 2⁰ = 2 : 2 = 1.",
-     "Dann folgen 2⁻¹ = 1 : 2 = 1/2, 2⁻² = 1/4 und 2⁻³ = 1/8.",
-     "Also ist 2⁻³ = 1/2³ = ⟦1/8⟧ = 0,125 – eine positive Zahl, kleiner als 1."
+     {
+      "text": "Von 2¹ = 2 einmal durch 2 geteilt: 2⁰ = ⟦1⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "Wert",
+         "8",
+         "4",
+         "2",
+         "1",
+         "",
+         "",
+         ""
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Weiter durch 2: 2⁻¹ = 1/2, 2⁻² = 1/4, 2⁻³ = 1/8.",
+      "bild": {
+       "zeilen": [
+        [
+         "Wert",
+         "8",
+         "4",
+         "2",
+         "1",
+         "1/2",
+         "1/4",
+         "1/8"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "2⁻³ ist der Kehrbruch von 2³: ⟦1/8⟧."
+     }
     ],
-    "probe": "2⁻³ · 2³ = 1/8 · 8 = 1 ✓",
-    "fehler": "2⁰ = 0 ist falsch: Von 2¹ = 2 einmal durch 2 geteilt ergibt ⟦1⟧ – eine Lage Papier, nicht keine. Und 2⁻³ = −8 ist falsch: Das Minus im Exponenten macht ⟦keine negative Zahl⟧, sondern den Kehrbruch 1/8.",
-    "einstieg": "Spiel das Falten rückwärts: 8 Lagen, 4 Lagen, 2 Lagen, 1 Lage – jedes Mal wird durch 2 geteilt. Als Potenzen geschrieben: 2³, 2², 2¹, 2⁰. Der Exponent wird dabei jedes Mal um 1 kleiner. Rechnest du weiter, kommst du zu 1/2, 1/4 … und zu Exponenten unter null: ⟦negativen Exponenten⟧.",
+    "fehler": "2⁻³ = −8 ist falsch. Das Minus im Exponenten macht keine negative Zahl, sondern den Kehrbruch 1/8.",
+    "einstieg": "Spiel das Falten rückwärts: 8, 4, 2, 1 Lage. Jedes Mal wird durch 2 geteilt, der Exponent wird um 1 kleiner. Hochzahlen unter null heißen ⟦negative Exponenten⟧.",
     "woerter": [
      [
-      "2⁰",
-      "gelesen „2 hoch 0“; das ergibt 1"
-     ],
-     [
-      "negativer Exponent",
-      "eine Hochzahl mit Minus, z. B. 2⁻³"
+      "negative Exponenten",
+      "Hochzahlen mit Minus, z. B. 2⁻³"
      ],
      [
       "Kehrbruch",
-      "Zähler und Nenner vertauscht: Der Kehrbruch von 8 = 8/1 ist 1/8"
-     ],
-     [
-      "a ≠ 0",
-      "a ist nicht 0"
+      "Zähler und Nenner vertauscht: Der Kehrbruch von 8 ist 1/8"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Potenz",
+      "2³",
+      "2²",
+      "2¹",
+      "2⁰",
+      "2⁻¹",
+      "2⁻²",
+      "2⁻³"
+     ],
+     "zeilen": [
+      [
+       "Wert",
+       "8",
+       "4",
+       "2",
+       "",
+       "",
+       "",
+       ""
+      ]
+     ]
+    }
    },
    {
     "lernziel": "mal_gleiche_basis",
     "titel": "Gleiche Basis: malnehmen",
-    "regel": "So multiplizierst du Potenzen mit ⟦gleicher Basis⟧: Die Basis bleibt, die ⟦Exponenten werden addiert⟧: aᵐ · aⁿ = aᵐ⁺ⁿ.",
+    "regel": "Bei ⟦gleicher Basis⟧ addierst du beim Malnehmen die Exponenten. Die Basis bleibt.",
     "schritte": [
-     "Gesucht ist 2³ · 2⁴. Beide Potenzen haben die Basis 2.",
-     "Schreibe sie aus: (2 · 2 · 2) · (2 · 2 · 2 · 2).",
-     "Zähle die Faktoren 2: Es sind 3 + 4 = 7 Stück.",
-     "Also ist 2³ · 2⁴ = ⟦2⁷⟧ = 128 – nach insgesamt 7-mal Falten liegen 128 Lagen übereinander."
+     {
+      "text": "Schreib beide Potenzen als Malaufgabe aus, wie in der Tabelle."
+     },
+     {
+      "text": "Zähle die Faktoren 2: 3 + 4 = 7.",
+      "bild": {
+       "zeilen": [
+        [
+         "2³",
+         "2 · 2 · 2",
+         "3"
+        ],
+        [
+         "2⁴",
+         "2 · 2 · 2 · 2",
+         "4"
+        ],
+        [
+         "2³ · 2⁴",
+         "7-mal die 2",
+         "7"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Also ist 2³ · 2⁴ = ⟦2⁷ = 128⟧."
+     }
     ],
-    "fehler": "2³ · 2⁴ = 2¹² ist falsch: Gefaltet wird nicht 12-mal, sondern 3-mal und dann 4-mal – die Exponenten werden ⟦addiert⟧. Auch 2³ · 2⁴ = 4⁷ ist falsch: Jedes Falten verdoppelt nur, die ⟦Basis bleibt⟧ 2.",
-    "einstieg": "Ein Blatt wird erst 3-mal gefaltet und danach noch 4-mal. Die Lagen verdoppeln sich also erst 3-mal und dann noch 4-mal – zusammen 7-mal. Statt 2³ · 2⁴ kannst du deshalb gleich 2⁷ schreiben. So fasst du Potenzen mit ⟦gleicher Basis⟧ zusammen.",
+    "fehler": "2³ · 2⁴ = 2¹² ist falsch. Gefaltet wird 3-mal und dann 4-mal, nicht 12-mal.",
+    "einstieg": "Ein Blatt wird erst 3-mal gefaltet, dann noch 4-mal. Zusammen sind das 7 Faltungen. Darum gilt 2³ · 2⁴ = 2⁷: ⟦gleiche Basis⟧, Exponenten addieren.",
     "woerter": [
      [
       "gleiche Basis",
-      "beide Potenzen haben unten dieselbe Zahl, z. B. 2³ und 2⁴"
-     ],
-     [
-      "addieren",
-      "zusammenzählen"
-     ],
-     [
-      "aᵐ · aⁿ = aᵐ⁺ⁿ",
-      "gleiche Basis malnehmen: die Exponenten werden addiert"
+      "beide Potenzen haben unten dieselbe Zahl"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Potenz",
+      "ausgeschrieben",
+      "Faktoren"
+     ],
+     "zeilen": [
+      [
+       "2³",
+       "2 · 2 · 2",
+       "3"
+      ],
+      [
+       "2⁴",
+       "2 · 2 · 2 · 2",
+       "4"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "geteilt_gleiche_basis",
     "titel": "Gleiche Basis: teilen",
-    "regel": "So teilst du Potenzen mit ⟦gleicher Basis⟧: Die Basis bleibt, die ⟦Exponenten werden subtrahiert⟧: aᵐ : aⁿ = aᵐ⁻ⁿ. Ist der zweite Exponent größer, entsteht ein ⟦negativer⟧ Exponent.",
+    "regel": "Bei ⟦gleicher Basis⟧ subtrahierst du beim Teilen die Exponenten. Die Basis bleibt.",
     "schritte": [
-     "Gesucht ist 10⁶ : 10⁴. Beide Potenzen haben die Basis 10.",
-     "Schreibe es als Bruch: oben 6 Faktoren 10, unten 4 Faktoren 10.",
-     "Vier Faktoren 10 kürzen sich weg. Oben bleiben 6 − 4 = 2 Faktoren übrig.",
-     "Also ist 10⁶ : 10⁴ = ⟦10²⟧ = 100. Jeder bekommt 100 €."
+     {
+      "text": "Oben stehen 6 Faktoren 10, unten stehen 4."
+     },
+     {
+      "text": "4 Faktoren kürzen sich weg. Es bleiben 6 − 4 = 2."
+     },
+     {
+      "text": "10⁶ : 10⁴ = ⟦10² = 100⟧. Jeder bekommt 100 €.",
+      "bild": {
+       "zeilen": [
+        [
+         "10⁶",
+         "1 000 000"
+        ],
+        [
+         "10⁴",
+         "10 000"
+        ],
+        [
+         "10⁶ : 10⁴",
+         "100"
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "10⁶ : 10³ = 10² ist falsch: Die Exponenten werden ⟦subtrahiert⟧, nicht geteilt. 1 000 000 : 1 000 = 1 000, also 10⁶⁻³ = ⟦10³⟧.",
-    "einstieg": "Ein Gewinn von 1 000 000 € wird gerecht an 10 000 Menschen verteilt. Wie viel bekommt jeder? Beide Zahlen sind Zehnerpotenzen: 10⁶ und 10⁴. Beim Teilen streichst du vier Nullen weg, übrig bleiben 100 € = 10². Genauso teilst du Potenzen mit ⟦gleicher Basis⟧.",
+    "fehler": "10⁶ : 10³ = 10² ist falsch. Die Exponenten werden subtrahiert, nicht geteilt: 10³.",
+    "einstieg": "1 000 000 € Gewinn werden an 10 000 Menschen verteilt. Das ist 10⁶ : 10⁴. Beim Teilen streichst du 4 Nullen: ⟦Exponenten subtrahieren⟧.",
     "woerter": [
-     [
-      "dividieren",
-      "teilen (:)"
-     ],
      [
       "subtrahieren",
       "abziehen"
-     ],
-     [
-      "wegkürzen",
-      "gleiche Faktoren oben und unten in einem Bruch heben sich beim Teilen auf"
-     ],
-     [
-      "aᵐ : aⁿ = aᵐ⁻ⁿ",
-      "gleiche Basis teilen: die Exponenten werden subtrahiert"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Potenz",
+      "Zahl"
+     ],
+     "zeilen": [
+      [
+       "10⁶",
+       "1 000 000"
+      ],
+      [
+       "10⁴",
+       "10 000"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "gleicher_exponent",
     "titel": "Gleicher Exponent: Basen zusammen",
-    "regel": "So fasst du Potenzen mit ⟦gleichem Exponenten⟧ zusammen: ⟦Basen malnehmen⟧, der Exponent bleibt: aⁿ · bⁿ = (a · b)ⁿ. Beim Teilen gilt: aⁿ : bⁿ = (a : b)ⁿ.",
+    "regel": "Bei ⟦gleichem Exponenten⟧ nimmst du die Basen mal. Der Exponent bleibt: aⁿ · bⁿ = (a · b)ⁿ.",
     "schritte": [
-     "Gesucht ist 2³ · 5³. Beide Potenzen haben den Exponenten 3.",
-     "Schreibe aus: 2 · 2 · 2 · 5 · 5 · 5.",
-     "Ordne zu Paaren: (2 · 5) · (2 · 5) · (2 · 5). Das ist (2 · 5)³.",
-     "Jedes Paar ist 10, also ist 2³ · 5³ = 10³ = ⟦1 000⟧."
+     {
+      "text": "2³ · 5³ = 2 · 2 · 2 · 5 · 5 · 5."
+     },
+     {
+      "text": "Ordne zu Paaren: 2 · 5 kommt dreimal vor, also (2 · 5)³."
+     },
+     {
+      "text": "Jedes Paar ist 10: 10³ = ⟦1 000⟧."
+     }
     ],
-    "fehler": "2³ · 5³ = 10⁶ ist falsch: Es gibt nur ⟦3 Paare⟧ zu je 10, nicht 6. Bei ⟦verschiedenen Basen⟧ werden die Exponenten nicht addiert: (2 · 5)³ = 10³.",
-    "einstieg": "Fünf 2-Cent-Münzen sind zusammen 10 Cent: 2 und 5 ergeben malgenommen 10. Hast du dreimal den Faktor 2 und dreimal den Faktor 5, bildest du daraus drei Paare – und jedes Paar ist 10. Das klappt immer, wenn beide Potenzen denselben Exponenten haben. Man fasst Potenzen mit ⟦gleichem Exponenten⟧ so zusammen.",
+    "fehler": "2³ · 5³ = 10⁶ ist falsch. Es gibt nur 3 Paare zu je 10, nicht 6.",
+    "einstieg": "2 mal 5 ist 10. Dreimal die 2 und dreimal die 5 ergeben 3 Paare zu je 10. Das geht bei ⟦gleichem Exponenten⟧.",
     "woerter": [
      [
-      "gleicher Exponent",
-      "beide Potenzen haben oben dieselbe Zahl, z. B. 2³ und 5³"
-     ],
-     [
-      "aⁿ · bⁿ = (a · b)ⁿ",
-      "gleicher Exponent: Basen malnehmen, der Exponent bleibt"
-     ],
-     [
-      "aⁿ : bⁿ = (a : b)ⁿ",
-      "beim Teilen genauso: Basen teilen, der Exponent bleibt"
+      "gleichem Exponenten",
+      "beide Potenzen haben oben dieselbe Zahl"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Paar",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "2 · 5",
+       "10",
+       "10",
+       "10"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "anwenden",
     "titel": "Potenzgesetze geschickt nutzen",
-    "regel": "So nutzt du die Potenzgesetze: Prüfe zuerst, ob die ⟦Basen⟧ oder die ⟦Exponenten⟧ gleich sind – davon hängt ab, welches Gesetz passt. Passt keines, schreibe eine Zahl ⟦als Potenz⟧ (4 = 2², 8 = 2³, 9 = 3²) oder rechne die Potenzen aus.",
+    "regel": "Prüfe zuerst: ⟦gleiche Basis oder gleicher Exponent?⟧ Sonst schreib eine Zahl als Potenz oder rechne aus.",
     "schritte": [
-     "Gesucht ist 8 · 2⁴. Die 8 steht noch nicht als Potenz da.",
-     "Schreibe 8 als Potenz von 2: 8 = 2 · 2 · 2 = 2³.",
-     "Jetzt haben beide die Basis 2: 2³ · 2⁴. Exponenten addieren ergibt 2⁷.",
-     "2⁷ = ⟦128⟧ – so viele Lagen liegen übereinander."
+     {
+      "text": "Gesucht ist 8 · 2⁴. Schreib 8 als Potenz: 8 = 2³."
+     },
+     {
+      "text": "Jetzt hast du gleiche Basis: 2³ · 2⁴ = 2⁷."
+     },
+     {
+      "text": "2⁷ = ⟦128⟧ Lagen."
+     }
     ],
-    "fehler": "3² · 2³ = 6⁵ ist falsch: Weder die Basen noch die Exponenten sind gleich, also passt ⟦kein⟧ Potenzgesetz. Dann rechnest du jede Potenz aus: 9 · 8 = 72.",
-    "einstieg": "Ein Stapel aus 8 Blättern wird noch 4-mal gefaltet. Wie viele Lagen liegen danach übereinander? 8 Lagen bekommst du auch, wenn du ein einzelnes Blatt 3-mal faltest. Schreibst du die 8 deshalb als 2³, passt ein ⟦Potenzgesetz⟧.",
+    "fehler": "3² · 2³ = 6⁵ ist falsch. Weder Basis noch Exponent sind gleich. Rechne aus: 9 · 8 = 72.",
+    "einstieg": "Ein Stapel aus 8 Lagen wird noch 4-mal gefaltet. 8 Lagen entstehen durch 3-mal Falten, also 2³. Dann passt ein ⟦Potenzgesetz⟧.",
     "woerter": [
      [
       "Potenzgesetz",
-      "eine Regel zum Zusammenfassen von Potenzen (gleiche Basis oder gleicher Exponent)"
-     ],
-     [
-      "als Potenz schreiben",
-      "eine Zahl als Basis hoch Exponent darstellen: 4 = 2², 8 = 2³, 9 = 3²"
+      "eine Regel zum Zusammenfassen von Potenzen"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Zahl",
+      "4",
+      "8",
+      "9"
+     ],
+     "zeilen": [
+      [
+       "als Potenz",
+       "2²",
+       "2³",
+       "3²"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "fehler_finden",
     "titel": "Fehler bei Potenzen finden",
-    "regel": "So findest du Fehler bei Potenzen: Mach eine ⟦Zahlenprobe⟧ oder ⟦schreibe die Potenzen aus⟧. Typische Fehler: ⟦Basis mal Exponent⟧ statt Potenz, Exponenten ⟦malnehmen statt addieren⟧, ein negativer Exponent als ⟦negative Zahl⟧, Klammern bei negativer Basis vergessen.",
+    "regel": "Prüfe Potenzen mit einer ⟦Zahlenprobe⟧ oder schreib sie aus. Typisch: Exponenten malnehmen statt addieren.",
     "schritte": [
-     "Behauptet wird: 3² · 3³ = 3⁶.",
-     "Rechne die linke Seite aus: 3² = 9 und 3³ = 27, also 9 · 27 = 243.",
-     "Rechne die rechte Seite aus: 3⁶ = 729. Das passt nicht zu 243.",
-     "Dagegen ist 3⁵ = 243. Richtig ist also ⟦3⁵⟧ – die Exponenten werden addiert, nicht malgenommen."
+     {
+      "text": "Links: 3² · 3³ = 9 · 27 = 243.",
+      "bild": {
+       "zeilen": [
+        [
+         "3² · 3³",
+         "243"
+        ],
+        [
+         "3⁶",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Rechts: 3⁶ = 729. Das passt nicht.",
+      "bild": {
+       "zeilen": [
+        [
+         "3² · 3³",
+         "243"
+        ],
+        [
+         "3⁶",
+         "729"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Aber 3⁵ = 243. Richtig ist ⟦3⁵⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "3² · 3³",
+         "243"
+        ],
+        [
+         "3⁶",
+         "729"
+        ],
+        [
+         "3⁵",
+         "243"
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "Eine Regel nur auswendig anzuwenden, ohne sie an kleinen Zahlen zu prüfen, führt zu Verwechslungen. ⟦Ausschreiben⟧ hilft: 3² · 3³ = (3 · 3) · (3 · 3 · 3) – das sind 5 Faktoren, nicht 6.",
-    "einstieg": "Ein Freund behauptet: „Beim Malnehmen werden die Exponenten malgenommen.“ Er rechnet 3² · 3³ = 3⁶. Statt zu streiten, rechnest du beide Seiten mit Zahlen aus und vergleichst. So eine Kontrolle heißt ⟦Zahlenprobe⟧.",
+    "fehler": "Regeln nur auswendig anzuwenden führt zu Verwechslungen. Schreib aus: (3 · 3) · (3 · 3 · 3) sind 5 Faktoren.",
+    "einstieg": "Ein Freund sagt: „Beim Malnehmen werden Exponenten malgenommen“. Er rechnet 3² · 3³ = 3⁶. Du prüfst das mit einer ⟦Zahlenprobe⟧.",
     "woerter": [
      [
       "Zahlenprobe",
-      "eine Rechnung mit konkreten Zahlen ausrechnen und so prüfen"
-     ],
-     [
-      "ausschreiben",
-      "eine Potenz als Malaufgabe hinschreiben: 3² = 3 · 3"
+      "beide Seiten mit Zahlen ausrechnen und vergleichen"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Rechnung",
+      "Wert"
+     ],
+     "zeilen": [
+      [
+       "3² · 3³",
+       "?"
+      ],
+      [
+       "3⁶",
+       "?"
+      ]
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [

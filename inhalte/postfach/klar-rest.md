@@ -2,6 +2,11 @@
 
 Teil A (ohne Generator): Überlagerung inhalte/klar/<thema>.json. Teil B (mit Generator): Abschnitt KLAR, eingesetzt erst nach dem Erzeugen der Aufgaben (inhalte/generatoren/_klar_rest.py). Neueste Meldung oben.
 
+## 2026-11-16 02:12 – STATUS
+terme.umformen fertig: inhalte/klar/terme.umformen.json, alle 8 Lernziele (einstieg, woerter, schritte 4, regel „So …“, fehler; probe bei minusklammer, ausmultiplizieren, summe_mal_summe, ausklammern).
+Durchgehende Situation: Einkauf mit Heften (x) und Stiften (y), Ausflugstüten (Ausmultiplizieren/Ausklammern), Beet/Garten (Produkte, Summe mal Summe, binomische Formeln). Beispielterme aus quelle.md beibehalten.
+Neu ergänzte fehler: aequivalenz. Prüfskript OK, Proben mit Zahlen nachgerechnet.
+
 ## 2026-11-16 02:11 – STATUS
 zahlen.natuerlich fertig: inhalte/klar/zahlen.natuerlich.json, alle 12 Lernziele aus quelle.md (einstieg, woerter, schritte 4–5, regel „So …“, fehler; probe bei roemisch_schreiben).
 Durchgehende Situationen: Kronkorken sammeln, Spendenbarometer (Zahlenstrahl, Runden mit Übertrag), Stadion/Schulfest. Beispielzahlen der Karten mit Bild beibehalten (4 052; 12 | 008 | 000; Strahl 0–100 mit Pfeil bei 3 bzw. 7).

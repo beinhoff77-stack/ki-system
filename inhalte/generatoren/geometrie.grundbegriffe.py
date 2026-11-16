@@ -659,5 +659,144 @@ KARTEN = {
 umbau(DATEI, KARTEN)
 
 
+# ---------- SCHWER (Zehnte Runde, Zweig schwer-kl5) ----------
+# Neue Übungen nach Prüfungsvorbild (Jahrgangsstufentest 6 Bayern: Koordinaten vertauscht, Symbolschreibweise D ∈ [EG],
+# Zaun im Abstand um ein Becken, Leiter-Winkel, Quadrat mit Umfang/Fläche, Lage von Geraden a, b, c, d); eigene Zahlen.
+from itertools import combinations  # noqa: E402
+from _schwer_kl5 import A, L, Z, de, einzig, ergaenze, wahl  # noqa: E402
+
+
+def _schwer():
+    N = {}
+    rob = (0, 0)
+    for i in range(10):
+        rob = (rob[0] + 1, rob[1]) if i % 2 == 0 else (rob[0], rob[1] + 2)
+    N['koordinaten'] = [
+        wahl(2, 'Welcher Punkt liegt auf der y-Achse?', ['(0 | −3)', '(−3 | 0)', '(3 | 3)', '(−3 | 3)'], lambda o: o.startswith('(0 |'),
+             'Auf der y-Achse ist die erste Zahl (x-Koordinate) 0: (0 | −3).', 'Welche Koordinate ist auf der y-Achse immer 0?'),
+        L(2, 'Wo liegt der Mittelpunkt M der Strecke [AB] mit A(−4 | 2) und B(6 | 2)?', 'M(□ | □)', 'Trage x- und y-Koordinate ein.', ['(-4 + 6) // 2', '2'],
+          'Von −4 bis 6 sind es 10 Einheiten, die Hälfte ist 5: −4 + 5 = 1. Die Höhe bleibt 2: M(1 | 2).', 'Beide Punkte liegen auf derselben Höhe. Wo ist die Mitte zwischen −4 und 6?'),
+        A(3, 'Jemand soll A(−1 | 3) eintragen. Er geht vom Ursprung 3 nach links und 1 nach oben. Was ist falsch?',
+          'x und y sind vertauscht: erst 1 nach links, dann 3 nach oben.',
+          ['Nichts, das ist richtig.', 'Er hätte 1 nach rechts gehen müssen.', 'Er hätte 3 nach unten gehen müssen.'],
+          'Die erste Zahl (−1) sagt rechts/links, die zweite (3) sagt oben/unten. Richtig: 1 nach links, 3 nach oben.', 'Welche Zahl gehört zur Bewegung nach rechts/links?'),
+        L(3, 'Ein Quadrat ABCD hat die Ecken A(1 | 1) und B(4 | 1). Die Ecken C und D liegen unterhalb von [AB]. Welche Koordinaten haben C und D?',
+          'C(□ | □), D(□ | □)', 'Trage alle vier Koordinaten ein.', ['4', '1 - (4 - 1)', '1', '1 - (4 - 1)'],
+          'Die Seite [AB] ist 3 lang. C liegt 3 unter B: C(4 | −2). D liegt 3 unter A: D(1 | −2).', 'Wie lang ist die Seite [AB]? Geh von B und von A gleich weit nach unten.'),
+        Z(3, 'Wie viele Punkte mit ganzzahligen Koordinaten liegen auf der Strecke von (−3 | 2) bis (4 | 2)? Die Endpunkte zählen mit.', str(len(range(-3, 5))),
+          'x läuft von −3 bis 4: −3, −2, −1, 0, 1, 2, 3, 4. Das sind 8 Punkte.', 'Zähle die x-Werte auf. Vergiss die 0 nicht.'),
+        L(3, 'Ein Roboter startet im Ursprung. Er geht abwechselnd 1 Schritt nach rechts und 2 Schritte nach oben, beginnend mit rechts. Wo steht er nach 10 solchen Zügen?',
+          'R(□ | □)', 'Trage x- und y-Koordinate ein.', [str(rob[0]), str(rob[1])],
+          '10 Züge sind 5-mal „rechts“ und 5-mal „oben“: x = 5 · 1 = 5, y = 5 · 2 = 10. R(5 | 10).', 'Wie viele der 10 Züge gehen nach rechts, wie viele nach oben?'),
+    ]
+    N['strecken'] = [
+        Z(2, 'Wie lang ist die Strecke [AB] mit A(−4 | −1) und B(−4 | 6) (in Einheiten)?', '6 - (-1)', 'Senkrechte Strecke: von −1 bis 6 sind es 1 + 6 = 7 Einheiten.', 'Die 0 liegt zwischen den y-Werten.'),
+        Z(2, 'Eine Seite eines Quadrats geht von (−2 | −2) bis (3 | −2). Wie groß ist der Umfang des Quadrats (in Einheiten)?', '4 * (3 - (-2))',
+          'Seitenlänge: von −2 bis 3 sind es 5. Umfang: 4 · 5 = 20.', 'Bestimme zuerst eine Seitenlänge.'),
+        Z(3, 'Ein rechteckiges Beet ist 6 m lang und 2 m breit. Im Abstand von 2 m wird ringsum ein Zaun gezogen, parallel zu den Beetseiten. Wie lang ist der Zaun?',
+          '2 * ((6 + 2 * 2) + (2 + 2 * 2))', 'Das Zaun-Rechteck ist auf jeder Seite 2 m größer: 10 m lang, 6 m breit. Umfang: 2 · (10 + 6) = 32 m.',
+          'Mach eine Skizze. Wie lang und breit ist das Rechteck, das der Zaun bildet?', einheit='m'),
+        L(3, 'A(−3 | 1). B liegt auf derselben waagrechten Linie wie A, 8 Einheiten von A entfernt und rechts von der y-Achse. Welche Koordinaten hat B?',
+          'B(□ | □)', 'Trage x- und y-Koordinate ein.', ['-3 + 8', '1'],
+          'Nach links (−11) wäre B links der y-Achse. Also nach rechts: −3 + 8 = 5. B(5 | 1).', 'Prüfe beide Richtungen: 8 nach rechts und 8 nach links.'),
+        Z(3, 'Die Strecke von A(−5 | 3) bis B(7 | 3) wird in 4 gleich lange Teile geteilt. Welche x-Koordinate hat der erste Teilungspunkt nach A?', '-5 + (7 - (-5)) // 4',
+          'Länge: 12. Ein Teil: 12 : 4 = 3. Erster Teilungspunkt: −5 + 3 = −2.', 'Wie lang ist die Strecke, wie lang ein Teil?'),
+        L(3, 'Ein Rechteck ABCD mit A(−3 | −2) ist 6 Einheiten breit (nach rechts) und hat den Umfang 20. C liegt rechts oberhalb von A. Welche Koordinaten hat C?',
+          'C(□ | □)', 'Trage x- und y-Koordinate ein.', ['-3 + 6', '-2 + (20 // 2 - 6)'],
+          'Länge + Breite = 20 : 2 = 10, also ist die Höhe 10 − 6 = 4. C = (−3 + 6 | −2 + 4) = (3 | 2).', 'Umfang : 2 ergibt Breite + Höhe.'),
+    ]
+    a_d = ['a ∥ d', 'a ⊥ d', 'a und d schneiden sich schräg', 'Das kann man nicht sagen.']
+    N['lagebeziehungen'] = [
+        Z(2, 'g ist die waagrechte Gerade durch alle Punkte mit y = 4, h die waagrechte Gerade durch alle Punkte mit y = −3. Welchen Abstand haben g und h (in Einheiten)?',
+          '4 - (-3)', 'Von −3 bis 4: 3 + 4 = 7 Einheiten.', 'Die 0 liegt zwischen den beiden Geraden.'),
+        wahl(2, 'Wie viele Geraden durch einen Punkt P stehen senkrecht auf einer Geraden g?', ['genau eine', 'zwei', 'keine', 'unendlich viele'], lambda o: o == 'genau eine',
+             'Durch P gibt es genau ein Lot auf g.', 'Denk an das Geodreieck: Wie oft kannst du es an g und P anlegen?'),
+        wahl(3, 'Welche Schreibweise bedeutet: „Die Gerade g steht senkrecht auf der Geraden h“?', ['g ⊥ h', 'g ∥ h', 'g ∈ h', '[gh]'], lambda o: o == 'g ⊥ h',
+             '⊥ heißt „senkrecht zu“, ∥ heißt „parallel zu“, ∈ heißt „liegt auf / ist Element von“.', 'Das Zeichen sieht selbst aus wie ein rechter Winkel.'),
+        wahl(3, 'Für vier Geraden gilt: a ⊥ b, b ⊥ c und c ∥ d. Wie liegen a und d zueinander?', a_d, lambda o: o == 'a ∥ d',
+             'a und c stehen beide senkrecht auf b, also a ∥ c. Weil c ∥ d, ist auch a ∥ d.', 'Mach eine Skizze: Zeichne b waagrecht.'),
+        Z(3, 'Vier Geraden liegen in einer Ebene. Keine zwei sind parallel, und keine drei gehen durch denselben Punkt. Wie viele Schnittpunkte gibt es?', str(len(list(combinations(range(4), 2)))),
+          'Jedes Paar schneidet sich genau einmal. Paare aus 4 Geraden: 3 + 2 + 1 = 6 Schnittpunkte.', 'Zähle alle Paare von Geraden.'),
+        Z(3, 'Die Geraden g und h sind parallel. Ein Punkt P hat von g den Abstand 7 cm und von h den Abstand 3 cm. P liegt nicht zwischen g und h. Welchen Abstand haben g und h?',
+          '7 - 3', 'P liegt außerhalb, h ist näher an P. Abstand g zu h: 7 cm − 3 cm = 4 cm.', 'Zeichne g, h und P untereinander.', einheit='cm'),
+    ]
+    punkte = {'(5 | 1)': (5, 1), '(4 | 4)': (4, 4), '(1 | 4)': (1, 4), '(−4 | 1)': (-4, 1)}
+    N['kreis_lage'] = [
+        wahl(2, 'Ein Kreis hat den Durchmesser 10 cm. Eine Gerade hat vom Mittelpunkt den Abstand 4 cm. Was ist die Gerade?',
+             ['Sekante (2 Schnittpunkte)', 'Tangente (1 Berührpunkt)', 'Passante (kein gemeinsamer Punkt)'], lambda o: o.startswith('Sekante'),
+             'Radius = 10 cm : 2 = 5 cm. Abstand 4 cm ist kleiner als 5 cm: Sekante.', 'Achtung: Gegeben ist der Durchmesser, nicht der Radius.'),
+        wahl(2, 'Ein Kreis um M(1 | 1) hat den Radius 4. Welcher Punkt liegt auf dem Kreis?', list(punkte),
+             lambda o: (punkte[o][0] - 1) ** 2 + (punkte[o][1] - 1) ** 2 == 16,
+             '(5 | 1) liegt 4 nach rechts von M, also genau im Abstand 4. (1 | 4) ist nur 3 entfernt, (−4 | 1) 5, (4 | 4) liegt schräg und nicht im Abstand 4.',
+             'Gehe von M aus 4 Einheiten waagrecht oder senkrecht.'),
+        wahl(3, 'Zwei Funkmasten stehen 10 km voneinander entfernt. Jeder sendet 6 km weit in jede Richtung. Gibt es Orte mit Empfang von beiden Masten?',
+             ['Ja, denn 6 km + 6 km sind mehr als 10 km.', 'Nein, denn 6 km sind weniger als 10 km.', 'Nur genau in der Mitte.', 'Das kann man nicht sagen.'],
+             lambda o: o.startswith('Ja'), 'Die beiden Empfangskreise überlappen, weil die Radien zusammen (12 km) größer sind als der Abstand (10 km).',
+             'Zeichne um jeden Mast einen Kreis. Überschneiden sie sich?'),
+        Z(3, 'Ein Kreis berührt die x-Achse und die y-Achse je in einem Punkt. Sein Mittelpunkt M liegt rechts der y-Achse und hat die y-Koordinate 4. Welche x-Koordinate hat M?', '4',
+          'Berührt der Kreis die x-Achse, ist der Radius 4 (Abstand von M zur x-Achse). Zur y-Achse ist der Abstand auch 4, also x = 4.', 'Wie groß ist der Radius, wenn der Kreis die x-Achse berührt?'),
+        wahl(3, 'Wie viele gemeinsame Punkte können zwei verschiedene Kreise höchstens haben?', ['1', '2', '3', 'unendlich viele'], lambda o: o == '2',
+             'Zwei verschiedene Kreise schneiden sich in höchstens 2 Punkten. Unendlich viele nur, wenn die Kreise gleich sind.', 'Probiere mit einer Skizze verschiedene Lagen aus.'),
+        Z(3, 'Kreis k₁ hat den Mittelpunkt M₁(0 | 0) und den Radius 3. Kreis k₂ hat den Mittelpunkt M₂(8 | 0). Wie groß muss der Radius von k₂ sein, damit sich die Kreise von außen in genau einem Punkt berühren?',
+          '8 - 3', 'Der Berührpunkt liegt auf der Verbindung bei (3 | 0). Von dort bis M₂ sind es 8 − 3 = 5.', 'Wo liegt der Berührpunkt auf der x-Achse?'),
+    ]
+    zahl_stumpf = sum(1 for w in (17, 90, 135, 180, 200, 359) if 90 < w < 180)
+    N['winkelarten'] = [
+        Z(2, 'Wie groß ist ein Viertel eines Vollwinkels?', '360 / 4', 'Vollwinkel: 360°. 360° : 4 = 90°.', 'Ein Vollwinkel ist eine ganze Drehung.', einheit='°'),
+        wahl(2, 'Ein Winkel ist um 30° größer als ein rechter Winkel. Welche Winkelart ist er?', ['stumpf', 'spitz', 'gestreckt', 'überstumpf'], lambda o: o == 'stumpf',
+             '90° + 30° = 120°. Zwischen 90° und 180°: stumpf.', 'Rechne zuerst die Größe aus.'),
+        wahl(3, 'Eine Leiter lehnt an einer Wand. Außen zwischen Leiter und Boden misst man 108°. Sicher steht sie, wenn der Winkel innen zwischen Boden und Leiter 68° bis 75° beträgt. Steht sie sicher?',
+             ['Ja, der Winkel innen ist 72°.', 'Nein, der Winkel innen ist 108°.', 'Nein, der Winkel innen ist 18°.', 'Ja, der Winkel innen ist 108°.'],
+             lambda o: o == f'Ja, der Winkel innen ist {180 - 108}°.', 'Innen und außen ergeben zusammen einen gestreckten Winkel: 180° − 108° = 72°. 72° liegt zwischen 68° und 75°.',
+             'Innen und außen liegen zusammen auf dem Boden – wie viel Grad ist das?'),
+        wahl(3, 'Welche Winkelart überstreicht der Minutenzeiger in 40 Minuten?', ['überstumpf', 'stumpf', 'gestreckt', 'spitz'], lambda o: o == 'überstumpf',
+             'In 60 Minuten 360°, also 6° pro Minute. 40 · 6° = 240°: zwischen 180° und 360°, überstumpf.', 'Wie viel Grad dreht sich der Minutenzeiger in einer Minute?'),
+        Z(3, 'Wie viele der Winkel 17°, 90°, 135°, 180°, 200°, 359° sind stumpf?', str(zahl_stumpf),
+          'Stumpf heißt größer als 90° und kleiner als 180°. Das trifft nur auf 135° zu.', 'Prüfe jeden Winkel. 90° und 180° sind nicht stumpf.'),
+        Z(3, 'Ein Winkel ist dreimal so groß wie der Winkel, der ihn zum Vollwinkel ergänzt. Wie groß ist er?', '360 * 3 // 4',
+          'Zusammen 360°, aufgeteilt im Verhältnis 3 : 1. Ein Teil: 360° : 4 = 90°. Der Winkel ist 3 · 90° = 270°.', 'Der Winkel hat 3 Teile, die Ergänzung 1 Teil.', einheit='°'),
+    ]
+    gitter = sum(1 for _ in combinations(range(3), 2)) ** 2
+    aussagen = ['Jedes Quadrat ist eine Raute.', 'Jede Raute ist ein Rechteck.', 'Jedes Parallelogramm ist ein Rechteck.', 'Jedes Trapez ist ein Drachenviereck.']
+    N['vierecke'] = [
+        wahl(2, 'Welches Viereck hat genau ein Paar paralleler Seiten?', ['Trapez', 'Parallelogramm', 'Rechteck', 'Raute'], lambda o: o == 'Trapez',
+             'Parallelogramm, Rechteck und Raute haben zwei Paare paralleler Seiten. Ein (allgemeines) Trapez hat genau eins.', 'Wie viele Paare paralleler Seiten hat ein Rechteck?'),
+        Z(2, 'Ein Rechteck hat den Umfang 18 cm. Eine Seite ist 5 cm lang. Wie lang ist die andere Seite?', '18 / 2 - 5',
+          'Zwei Seiten zusammen: 18 cm : 2 = 9 cm. Die andere Seite: 9 cm − 5 cm = 4 cm.', 'Eine lange und eine kurze Seite zusammen sind der halbe Umfang.', einheit='cm'),
+        Z(3, 'Ein Quadrat hat den Umfang 28 cm. Welchen Flächeninhalt hat es?', '(28 // 4) ** 2', 'Seite: 28 cm : 4 = 7 cm. Fläche: 7 cm · 7 cm = 49 cm².',
+          'Bestimme zuerst die Seitenlänge.', einheit='cm²'),
+        Z(3, 'Ein Rechteck ist 3 cm breit. Umfang (in cm) und Flächeninhalt (in cm²) haben dieselbe Maßzahl. Wie lang ist das Rechteck?',
+          str(einzig([l for l in range(1, 100) if 2 * (l + 3) == 3 * l])), 'Probieren: Länge 6 cm ergibt Umfang 2 · (6 + 3) = 18 und Fläche 6 · 3 = 18.',
+          'Probiere Längen aus und vergleiche Umfang und Fläche.', einheit='cm'),
+        Z(3, 'Ein Gitter besteht aus 2 · 2 gleich großen Kästchen. Wie viele Rechtecke (Quadrate mitgezählt) kann man entlang der Linien finden?', str(gitter),
+          '4 kleine Quadrate, 2 waagrechte und 2 senkrechte Rechtecke aus je 2 Kästchen, 1 großes Quadrat: 4 + 4 + 1 = 9.', 'Zähle geordnet: erst 1 Kästchen, dann 2, dann 4.'),
+        wahl(3, 'Welche Aussage stimmt?', aussagen, lambda o: o == 'Jedes Quadrat ist eine Raute.',
+             'Ein Quadrat hat vier gleich lange Seiten, also ist es eine Raute. Eine Raute ohne rechte Winkel ist kein Rechteck.',
+             'Prüfe jede Aussage: Hat jedes Viereck der ersten Art alle Eigenschaften der zweiten Art?'),
+    ]
+    N['verstehen'] = [
+        wahl(2, 'Stimmt die Aussage? „Eine Strecke hat zwei Endpunkte.“', ['Ja: Eine Strecke hat einen Anfangs- und einen Endpunkt.', 'Nein: Eine Strecke hat keinen Endpunkt.', 'Nein: nur einen.'],
+             lambda o: o.startswith('Ja'), 'Eine Strecke [AB] beginnt bei A und endet bei B.', 'Vergleiche Strecke, Halbgerade und Gerade.'),
+        wahl(2, 'Stimmt die Aussage? „Zwei Strecken, die sich nicht schneiden, sind parallel.“',
+             ['Nein: Kurze Strecken können sich verfehlen, obwohl sie schräg zueinander liegen.', 'Ja: Wer sich nicht schneidet, ist parallel.', 'Ja, aber nur bei gleich langen Strecken.'],
+             lambda o: o.startswith('Nein'), 'Verlängert man die Strecken, können sie sich schneiden. Parallel sind sie nur, wenn ihre Geraden sich nie schneiden.',
+             'Zeichne zwei kurze schräge Strecken, die sich nicht treffen.'),
+        wahl(3, 'Welche Aussage über ein Rechteck ist falsch?', ['Die Diagonalen sind gleich lang.', 'Gegenüberliegende Seiten sind parallel.', 'Alle Seiten sind gleich lang.', 'Alle Winkel sind 90°.'],
+             lambda o: o == 'Alle Seiten sind gleich lang.', 'Gleich lange Seiten hat nur ein Quadrat. Die anderen drei Aussagen gelten für jedes Rechteck.',
+             'Denk an ein Rechteck mit 6 cm und 3 cm.'),
+        wahl(3, 'Der Punkt D liegt auf der Strecke [EG]. Welche Schreibweise passt?', ['D ∈ [EG]', 'D ⊥ [EG]', 'D ∥ [EG]', '[ED] = G'], lambda o: o == 'D ∈ [EG]',
+             '„∈“ heißt „liegt auf“ bzw. „ist Element von“. ⊥ und ∥ beschreiben die Lage von Linien zueinander.', 'Welches Zeichen sagt, dass ein Punkt zu einer Menge von Punkten gehört?'),
+        wahl(3, 'Jemand behauptet: „Ein Viereck mit zwei rechten Winkeln ist immer ein Rechteck.“ Welches Gegenbeispiel widerlegt das?',
+             ['Ein Trapez mit zwei rechten Winkeln an derselben Seite', 'Ein Quadrat', 'Ein Rechteck mit 6 cm und 3 cm', 'Ein Kreis'], lambda o: o.startswith('Ein Trapez'),
+             'Ein rechtwinkliges Trapez hat zwei rechte Winkel, aber die anderen beiden sind nicht 90°. Es ist kein Rechteck.', 'Ein Gegenbeispiel erfüllt die Bedingung, ist aber kein Rechteck.'),
+        wahl(3, 'Stimmt die Aussage? „Durch drei Punkte kann man immer eine Gerade zeichnen.“',
+             ['Nein, nur wenn die drei Punkte auf einer Linie liegen.', 'Ja, durch jeden Punkt geht eine Gerade.', 'Ja, sogar drei verschiedene.', 'Nein, durch drei Punkte geht nie eine Gerade.'],
+             lambda o: o.startswith('Nein, nur'), 'Durch zwei Punkte geht genau eine Gerade. Der dritte Punkt liegt nur zufällig darauf.', 'Zeichne drei Punkte als Dreieck.'),
+    ]
+    return N
+
+
+ergaenze(DATEI, _schwer(), 1042)
+
 if __name__ == '__main__':
     schreibe(DATEI)

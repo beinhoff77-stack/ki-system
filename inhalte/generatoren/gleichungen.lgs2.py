@@ -489,6 +489,112 @@ def g_grafisch(R, st):
 GEN = {'grafisch': g_grafisch, 'pruefen': g_pruefen, 'einsetzen': g_einsetzen, 'gleichsetzen': g_gleichsetzen, 'addition': g_addition,
        'loesbarkeit': g_loesbarkeit, 'verfahren': g_verfahren, 'sachaufgabe': g_sachaufgabe}
 
+
+# ---------- UMBAU: neues Muster (Achte Runde, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl8.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl8 import mit_umbau  # noqa: E402
+
+def _pr(*z):
+    return {'typ': 'tabelle', 'kopf': ['Paar', 'I: x + y = 5', 'II: 2x − y = 1'], 'zeilen': [list(r) for r in z]}
+
+
+def _add(*z):
+    return {'typ': 'tabelle', 'kopf': ['', 'links', 'rechts'], 'zeilen': [list(r) for r in z]}
+
+
+def _hof(a, b, c, d):
+    return {'typ': 'tabelle', 'kopf': ['', 'Hühner', 'Kaninchen', 'zusammen'], 'zeilen': [['Köpfe', a, b, '10'], ['Beine', c, d, '28']]}
+
+
+_HEFT = {'typ': 'koordinaten', 'x': [-1, 5], 'y': [-2, 6], 'graphen': [{'art': 'linear', 'm': -1, 't': 5, 'name': 'I'}, {'art': 'linear', 'm': 2, 't': -1, 'name': 'II'}], 'name_x': 'Heft', 'name_y': 'Stift'}
+UMBAU = {
+ 'pruefen': {
+  'einstieg': 'Im Laden weißt du: Heft und Stift kosten zusammen 5 €. Zwei Hefte kosten 1 € mehr als ein Stift. Zwei Angaben, die zusammen gelten sollen, bilden ein ⟦Gleichungssystem⟧.',
+  'woerter': [['Gleichungssystem', 'zwei Gleichungen, die gleichzeitig stimmen sollen'], ['I', 'die erste Gleichung; II ist die zweite'], ['(2 | 3)', 'Zahlenpaar: x = 2 (Heft) und y = 3 (Stift)']],
+  'bild': _pr(('(2 | 3)', '?', '?')),
+  'schritte': [{'text': 'Als Gleichungen: I: x + y = 5, II: 2x − y = 1.'},
+               {'text': '(2 | 3) heißt: Heft 2 €, Stift 3 €.'},
+               {'text': 'In I: 2 + 3 = 5 ✓', 'bild': _pr(('(2 | 3)', '5 ✓', '?'))},
+               {'text': 'In II: 2 · 2 − 3 = 1 ✓', 'bild': _pr(('(2 | 3)', '5 ✓', '1 ✓'))},
+               {'text': 'Beide stimmen: ⟦(2 | 3) ist die Lösung⟧.'}],
+  'fehler': '(4 | 1) passt nur zu I. In II gilt 8 − 1 = 7, nicht 1. Ein Paar muss ⟦beide⟧ Gleichungen erfüllen.',
+  'fehler_bild': _pr(('(2 | 3)', '5 ✓', '1 ✓'), ('(4 | 1)', '5 ✓', '7 ✗')),
+  'regel': 'Setze das Paar in ⟦beide Gleichungen⟧ ein. Nur wenn beide stimmen, ist es eine Lösung.'},
+ 'grafisch': {
+  'einstieg': 'Zu „Heft und Stift kosten zusammen 5 €“ passen viele Preispaare. Eingezeichnet liegen sie auf einer Geraden, die zweite Angabe gibt eine zweite. Das Paar, das zu beiden passt, ist der ⟦Schnittpunkt⟧.',
+  'woerter': [['Gerade', 'auf ihr liegen alle passenden Paare einer Gleichung'], ['Schnittpunkt', 'der Punkt, der auf beiden Geraden liegt'], ['nach y umstellen', 'so umformen, dass y allein links steht']],
+  'bild': _HEFT,
+  'schritte': [{'text': 'I nach y umstellen: y = −x + 5. Das ist die Gerade I.'},
+               {'text': 'II nach y umstellen: y = 2x − 1. Das ist die Gerade II.'},
+               {'text': 'Sie schneiden sich in S(2 | 3). Also ⟦L = {(2 | 3)}⟧.', 'bild': {'punkte': [{'x': 2, 'y': 3, 'name': 'S(2 | 3)'}], 'senkrecht': [2], 'waagrecht': [3]}}],
+  'fehler': 'Liegt S zwischen den Kästchen, ist abgelesen nur geschätzt. Setze das Paar zur Kontrolle in ⟦beide Gleichungen⟧ ein.',
+  'regel': 'Die Lösung ist der ⟦Schnittpunkt⟧ der beiden Geraden. Kontrolliere ihn durch Einsetzen.'},
+ 'einsetzen': {
+  'einstieg': 'Manchmal steht eine Angabe schon fertig da: Ein Stift kostet 1 € weniger als zwei Hefte. Diesen Term setzt du für y in die andere Gleichung. Das heißt ⟦Einsetzungsverfahren⟧.',
+  'woerter': [['Einsetzungsverfahren', 'den Term für y in die andere Gleichung einsetzen'], ['Term', 'ein Rechenausdruck, z. B. 2x − 1']],
+  'bild': {**_HEFT, 'y': [-2, 10], 'graphen': [{'art': 'linear', 'm': 2, 't': -1, 'name': 'I'}, {'art': 'linear', 'm': -3, 't': 9, 'name': 'II'}]},
+  'schritte': [{'text': 'I: y = 2x − 1. II: 3x + y = 9.'},
+               {'text': 'Den Term in II einsetzen, mit Klammer: 3x + (2x − 1) = 9.'},
+               {'text': 'Zusammenfassen: 5x − 1 = 9, also 5x = 10 und x = 2.'},
+               {'text': 'x = 2 in I: y = 3. Also ⟦L = {(2 | 3)}⟧.', 'bild': {'punkte': [{'x': 2, 'y': 3, 'name': '(2 | 3)'}]}}],
+  'fehler': 'Die ⟦Klammer⟧ zählt: 3x − (2x − 1) = 3x − 2x + 1. Ohne Klammer stünde dort fälschlich − 1.',
+  'regel': 'Steht y = … schon da, ⟦setzt du diesen Term ein⟧. Dann bleibt eine Gleichung mit nur x.'},
+ 'gleichsetzen': {
+  'einstieg': 'Verleih A kostet 10 € plus 2 € pro Stunde, Verleih B 4 € plus 4 € pro Stunde. Wann kosten beide gleich viel? Dann ist Preis A gleich Preis B: ⟦Gleichsetzungsverfahren⟧.',
+  'woerter': [['Gleichsetzungsverfahren', 'die beiden Terme für y gleichsetzen'], ['Zahlenpaar', 'die Lösung (x | y), hier Stunden und Preis']],
+  'bild': {'typ': 'koordinaten', 'x': [0, 6], 'y': [0, 30], 'graphen': [{'art': 'linear', 'm': 2, 't': 10, 'name': 'A'}, {'art': 'linear', 'm': 4, 't': 4, 'name': 'B'}], 'schritt_y': 5, 'name_x': 'h', 'name_y': '€'},
+  'schritte': [{'text': 'A: y = 2x + 10. B: y = 4x + 4.'},
+               {'text': 'Gleich viel heißt gleichsetzen: 2x + 10 = 4x + 4.'},
+               {'text': '2x und 4 abziehen: 6 = 2x, also x = 3.', 'bild': {'senkrecht': [3]}},
+               {'text': 'y = 2 · 3 + 10 = 16. Das Zahlenpaar ist ⟦(3 | 16)⟧.', 'bild': {'punkte': [{'x': 3, 'y': 16, 'name': '(3 | 16)'}]}}],
+  'fehler': 'Mit x = 3 ist nicht Schluss: Die Lösung ist ein ⟦Zahlenpaar⟧. Erst y = 16 sagt, was die 3 Stunden kosten.',
+  'regel': 'Steht zweimal y = …, ⟦setzt du die Terme gleich⟧. Dann x ausrechnen und für y einsetzen.'},
+ 'addition': {
+  'einstieg': 'Zwei Waagen sind im Gleichgewicht. Legst du beide linken Schalen zusammen und beide rechten auch, bleibt es im Gleichgewicht. So darfst du Gleichungen addieren: das ⟦Additionsverfahren⟧.',
+  'woerter': [['Additionsverfahren', 'zwei Gleichungen zusammenzählen, damit eine Variable wegfällt'], ['Gegenzahlen', 'gleiche Zahl, anderes Vorzeichen: 3 und −3']],
+  'bild': _add(('I', '2x + 3y', '12'), ('II', 'x − y', '1')),
+  'schritte': [{'text': 'I: 2x + 3y = 12, II: x − y = 1.'},
+               {'text': 'II mal 3: 3x − 3y = 3. Vor y stehen jetzt Gegenzahlen.', 'bild': _add(('I', '2x + 3y', '12'), ('3 · II', '3x − 3y', '3'))},
+               {'text': 'Addieren: 5x = 15, also x = 3.', 'bild': _add(('I', '2x + 3y', '12'), ('3 · II', '3x − 3y', '3'), ('Summe', '5x', '15'))},
+               {'text': 'Aus II folgt y = 2. ⟦L = {(3 | 2)}⟧.'}],
+  'fehler': 'Mal 3 gilt für ⟦jedes⟧ Glied, auch rechts: 3x − 3y = 3, nicht = 1. Sonst wird nur eine Waagschale verdreifacht.',
+  'fehler_bild': _add(('I', '2x + 3y', '12'), ('3 · II', '3x − 3y', '1 ?')),
+  'regel': 'Mach vor einer Variablen ⟦Gegenzahlen⟧, dann addiere. Diese Variable fällt weg.'},
+ 'verfahren': {
+  'einstieg': 'Zur Schule kommst du mit dem Rad, zu Fuß oder mit dem Bus. Alle kommen an, einer ist am schnellsten. Bei Gleichungssystemen siehst du das schnellste ⟦Verfahren⟧ an der Form.',
+  'woerter': [['Verfahren', 'ein fester Rechenweg: Einsetzen, Gleichsetzen oder Addieren'], ['Gegenzahlen', 'gleiche Zahl, anderes Vorzeichen: 5 und −5']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Form', 'Verfahren'], 'zeilen': [['zweimal y = …', 'Gleichsetzen'], ['einmal y = …', 'Einsetzen'], ['Gegenzahlen', 'Addieren']]},
+  'schritte': [{'text': 'I: 4x + 5y = 3, II: 2x − 5y = 9.'},
+               {'text': 'Keine Gleichung ist nach x oder y aufgelöst.'},
+               {'text': 'Vor y stehen 5 und −5, also Gegenzahlen.'},
+               {'text': 'Am geschicktesten ist hier ⟦Addieren⟧: y fällt sofort weg.'}],
+  'fehler': 'Bei y = 3x und y = x + 4 erst umzustellen kostet unnötig Zeit. Beide sind schon nach y aufgelöst: ⟦gleichsetzen⟧.',
+  'regel': 'Wähle das Verfahren nach der ⟦Form der Gleichungen⟧. Zweimal y = …: gleichsetzen. Einmal: einsetzen. Gegenzahlen: addieren.'},
+ 'loesbarkeit': {
+  'einstieg': 'Zwei Sonnenblumen wachsen beide 2 cm pro Tag, eine ist 4 cm größer. Sie werden nie gleich groß. Dann hat das Gleichungssystem ⟦keine Lösung⟧.',
+  'woerter': [['parallel', 'gleich steil – die Geraden treffen sich nie'], ['unendlich viele Lösungen', 'beide Gleichungen beschreiben dieselbe Gerade']],
+  'bild': {'typ': 'koordinaten', 'x': [-3, 3], 'y': [-5, 5], 'graphen': [{'art': 'linear', 'm': 2, 't': 1, 'name': 'I'}, {'art': 'linear', 'm': 2, 't': -3, 'name': 'II'}]},
+  'schritte': [{'text': 'I: y = 2x + 1, II: y = 2x − 3.'},
+               {'text': 'Gleichsetzen: 2x + 1 = 2x − 3. 2x abziehen: 1 = −3.'},
+               {'text': 'Das ist falsch. Die Geraden sind parallel: ⟦keine Lösung⟧.'},
+               {'text': 'Kommt dagegen 0 = 0 heraus, gibt es unendlich viele Lösungen.', 'bild': {'graphen': [{'art': 'linear', 'm': 2, 't': 1, 'name': 'I = II'}]}}],
+  'fehler': 'Bei 0 = 0 ist nicht x = 0 die Lösung. Die Aussage stimmt ⟦immer⟧: Es gibt unendlich viele Lösungen.',
+  'regel': 'Fällt x weg, entscheidet der Rest: ⟦falsch heißt keine Lösung⟧. Wahr, wie 0 = 0, heißt unendlich viele.'},
+ 'sachaufgabe': {
+  'einstieg': 'Auf einem Hof zählst du 10 Köpfe und 28 Beine, nur Hühner und Kaninchen. Wie viele sind es von jeder Sorte? So eine Textaufgabe ist eine ⟦Sachaufgabe⟧.',
+  'woerter': [['Sachaufgabe', 'eine Rechenaufgabe als Geschichte'], ['Variable', 'ein Buchstabe für eine gesuchte Zahl, hier x und y']],
+  'bild': _hof('x', 'y', '2x', '4y'),
+  'schritte': [{'text': 'Variable festlegen: x Hühner, y Kaninchen.'},
+               {'text': 'Köpfe: x + y = 10. Beine: 2x + 4y = 28.'},
+               {'text': 'Beine minus zweimal Köpfe: 2y = 8, also y = 4.'},
+               {'text': 'Dann ist x = 6. Antwort: ⟦6 Hühner und 4 Kaninchen⟧.', 'bild': _hof('6', '4', '12', '16')}],
+  'fehler': 'Die Beine-Gleichung ist nicht x + y = 28: Ein Huhn hat ⟦2⟧ Beine, ein Kaninchen 4.',
+  'regel': 'Für jede gesuchte Größe eine ⟦Variable⟧, für jede Angabe eine Gleichung. Dann lösen und im Satz antworten.'},
+}
+UMBAU_OFFEN = []
+baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Grundidee', ['pruefen', 'grafisch']), ('Lösungsverfahren', ['einsetzen', 'gleichsetzen', 'addition', 'verfahren']),

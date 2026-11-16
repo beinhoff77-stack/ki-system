@@ -43,50 +43,137 @@
    {
     "lernziel": "pruefen",
     "titel": "Ist das Zahlenpaar eine Lösung?",
-    "regel": "So prüfst du ein Zahlenpaar: x und y in ⟦beide⟧ Gleichungen einsetzen. Nur wenn ⟦beide⟧ stimmen, ist das Paar eine ⟦Lösung⟧ des ⟦Gleichungssystems⟧.",
+    "regel": "Setze das Paar in ⟦beide Gleichungen⟧ ein. Nur wenn beide stimmen, ist es eine Lösung.",
     "schritte": [
-     "Die Angaben als Gleichungen: I: x + y = 5 und II: 2x − y = 1.",
-     "Probiere das Paar (2 | 3), also Heft 2 € und Stift 3 €. In I: 2 + 3 = 5 – stimmt.",
-     "In II: 2 · 2 − 3 = 4 − 3 = 1 – stimmt auch.",
-     "Beide Gleichungen sind erfüllt: ⟦(2 | 3) ist die Lösung.⟧"
+     {
+      "text": "Als Gleichungen: I: x + y = 5, II: 2x − y = 1."
+     },
+     {
+      "text": "(2 | 3) heißt: Heft 2 €, Stift 3 €."
+     },
+     {
+      "text": "In I: 2 + 3 = 5 ✓",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Paar",
+        "I: x + y = 5",
+        "II: 2x − y = 1"
+       ],
+       "zeilen": [
+        [
+         "(2 | 3)",
+         "5 ✓",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "In II: 2 · 2 − 3 = 1 ✓",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Paar",
+        "I: x + y = 5",
+        "II: 2x − y = 1"
+       ],
+       "zeilen": [
+        [
+         "(2 | 3)",
+         "5 ✓",
+         "1 ✓"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Beide stimmen: ⟦(2 | 3) ist die Lösung⟧."
+     }
     ],
-    "fehler": "Erfüllt (4 | 1) nur x + y = 5, ist es ⟦keine⟧ Lösung: In II gilt 8 − 1 = 7 ≠ 1. Der Preis würde zur ersten Angabe passen, aber nicht zur zweiten. Beide Gleichungen müssen stimmen.",
-    "einstieg": "Im Schreibwarenladen weißt du zwei Dinge: Ein Heft und ein Stift kosten zusammen 5 €. Und zwei Hefte kosten 1 € mehr als ein Stift. Welche Preise passen zu beiden Angaben gleichzeitig? Zwei Gleichungen, die zusammen gelten sollen, bilden ein ⟦Gleichungssystem⟧.",
+    "fehler": "(4 | 1) passt nur zu I. In II gilt 8 − 1 = 7, nicht 1. Ein Paar muss ⟦beide⟧ Gleichungen erfüllen.",
+    "einstieg": "Im Laden weißt du: Heft und Stift kosten zusammen 5 €. Zwei Hefte kosten 1 € mehr als ein Stift. Zwei Angaben, die zusammen gelten sollen, bilden ein ⟦Gleichungssystem⟧.",
     "woerter": [
      [
       "Gleichungssystem",
-      "zwei (oder mehr) Gleichungen, die gleichzeitig stimmen sollen"
+      "zwei Gleichungen, die gleichzeitig stimmen sollen"
      ],
      [
-      "x, y",
-      "zwei Unbekannte: hier x = Heftpreis und y = Stiftpreis in €"
-     ],
-     [
-      "I, II",
-      "die Nummern der beiden Gleichungen"
+      "I",
+      "die erste Gleichung; II ist die zweite"
      ],
      [
       "(2 | 3)",
-      "Zahlenpaar: x = 2 und y = 3"
-     ],
-     [
-      "Lösung",
-      "ein Zahlenpaar, das beide Gleichungen erfüllt"
+      "Zahlenpaar: x = 2 (Heft) und y = 3 (Stift)"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Paar",
+      "I: x + y = 5",
+      "II: 2x − y = 1"
+     ],
+     "zeilen": [
+      [
+       "(2 | 3)",
+       "?",
+       "?"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Paar",
+      "I: x + y = 5",
+      "II: 2x − y = 1"
+     ],
+     "zeilen": [
+      [
+       "(2 | 3)",
+       "5 ✓",
+       "1 ✓"
+      ],
+      [
+       "(4 | 1)",
+       "5 ✓",
+       "7 ✗"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "grafisch",
     "titel": "Gleichungssystem grafisch lösen",
-    "regel": "Jede lineare Gleichung mit x und y beschreibt eine ⟦Gerade⟧. Ein Punkt auf der Geraden erfüllt die Gleichung. Der ⟦Schnittpunkt⟧ liegt auf beiden Geraden – er ist die Lösung des Systems.",
+    "regel": "Die Lösung ist der ⟦Schnittpunkt⟧ der beiden Geraden. Kontrolliere ihn durch Einsetzen.",
     "schritte": [
-     "I: x + y = 5 nach y umstellen: Auf beiden Seiten x abziehen ergibt y = −x + 5.",
-     "II: 2x − y = 1 nach y umstellen: y dazuzählen und 1 abziehen ergibt y = 2x − 1.",
-     "Beide Geraden zeichnen. Sie schneiden sich im Punkt S(2 | 3).",
-     "Der Schnittpunkt liegt auf beiden Geraden: ⟦L = {(2 | 3)}⟧."
+     {
+      "text": "I nach y umstellen: y = −x + 5. Das ist die Gerade I."
+     },
+     {
+      "text": "II nach y umstellen: y = 2x − 1. Das ist die Gerade II."
+     },
+     {
+      "text": "Sie schneiden sich in S(2 | 3). Also ⟦L = {(2 | 3)}⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 2,
+         "y": 3,
+         "name": "S(2 | 3)"
+        }
+       ],
+       "senkrecht": [
+        2
+       ],
+       "waagrecht": [
+        3
+       ]
+      }
+     }
     ],
-    "probe": "I: 2 + 3 = 5 ✓   II: 4 − 3 = 1 ✓",
-    "fehler": "Ungenau ablesen und nicht prüfen. Liegt der Schnittpunkt zwischen den Kästchen, ist abgelesen nur eine Schätzung. Setze das Paar ⟦immer in beide Gleichungen⟧ ein; stimmt es nicht genau, rechne mit einem Verfahren.",
+    "fehler": "Liegt S zwischen den Kästchen, ist abgelesen nur geschätzt. Setze das Paar zur Kontrolle in ⟦beide Gleichungen⟧ ein.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -111,155 +198,362 @@
        "name": "II"
       }
      ],
-     "punkte": [
-      {
-       "x": 2,
-       "y": 3,
-       "name": "S(2 | 3)"
-      }
-     ]
+     "name_x": "Heft",
+     "name_y": "Stift"
     },
-    "einstieg": "Zur Angabe „Heft und Stift kosten zusammen 5 €“ passen viele Preispaare: 1 € und 4 €, 2 € und 3 €, 2,50 € und 2,50 € … Trägt man alle passenden Paare ein, liegen sie auf einer geraden Linie. Zur zweiten Angabe gehört eine zweite Linie. Das Paar, das zu beiden passt, ist ihr ⟦Schnittpunkt⟧.",
+    "einstieg": "Zu „Heft und Stift kosten zusammen 5 €“ passen viele Preispaare. Eingezeichnet liegen sie auf einer Geraden, die zweite Angabe gibt eine zweite. Das Paar, das zu beiden passt, ist der ⟦Schnittpunkt⟧.",
     "woerter": [
      [
       "Gerade",
-      "gerade Linie, auf der alle passenden Paare (x | y) einer Gleichung liegen"
+      "auf ihr liegen alle passenden Paare einer Gleichung"
+     ],
+     [
+      "Schnittpunkt",
+      "der Punkt, der auf beiden Geraden liegt"
      ],
      [
       "nach y umstellen",
-      "so umformen, dass y allein steht, z. B. y = −x + 5"
-     ],
-     [
-      "S(2 | 3)",
-      "der Schnittpunkt S mit x = 2 und y = 3"
-     ],
-     [
-      "L = {(2 | 3)}",
-      "die Lösungsmenge enthält genau das Paar (2 | 3)"
+      "so umformen, dass y allein links steht"
      ]
     ]
    },
    {
     "lernziel": "einsetzen",
     "titel": "Einsetzungsverfahren",
-    "regel": "Ist eine Gleichung nach einer Variablen aufgelöst (z. B. y = …), ⟦setzt du diesen Term⟧ in die andere Gleichung ein. Dann bleibt eine Gleichung mit nur einer Variablen.",
+    "regel": "Steht y = … schon da, ⟦setzt du diesen Term ein⟧. Dann bleibt eine Gleichung mit nur x.",
     "schritte": [
-     "I: y = 2x − 1 (Stiftpreis). II: 3x + y = 9 (drei Hefte und ein Stift kosten 9 €).",
-     "In II statt y den Ausdruck aus I einsetzen, mit Klammer: 3x + (2x − 1) = 9.",
-     "Zusammenfassen: 5x − 1 = 9. 1 dazuzählen und durch 5 teilen: x = 2.",
-     "x = 2 in I einsetzen: y = 2 · 2 − 1 = 3. ⟦L = {(2 | 3)}⟧ – Heft 2 €, Stift 3 €."
+     {
+      "text": "I: y = 2x − 1. II: 3x + y = 9."
+     },
+     {
+      "text": "Den Term in II einsetzen, mit Klammer: 3x + (2x − 1) = 9."
+     },
+     {
+      "text": "Zusammenfassen: 5x − 1 = 9, also 5x = 10 und x = 2."
+     },
+     {
+      "text": "x = 2 in I: y = 3. Also ⟦L = {(2 | 3)}⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 2,
+         "y": 3,
+         "name": "(2 | 3)"
+        }
+       ]
+      }
+     }
     ],
-    "fehler": "Beim Einsetzen die ⟦Klammer⟧ nicht vergessen: 3x − (2x − 1) ist 3x − 2x + 1, nicht 3x − 2x − 1.",
-    "einstieg": "Manchmal steht eine Angabe schon fertig da, etwa: „Ein Stift kostet 1 € weniger als zwei Hefte“, also y = 2x − 1. Dann schreibst du in der anderen Gleichung statt y genau diesen Ausdruck hin. Danach kommt nur noch x vor. Dieses Vorgehen heißt ⟦Einsetzungsverfahren⟧.",
+    "fehler": "Die ⟦Klammer⟧ zählt: 3x − (2x − 1) = 3x − 2x + 1. Ohne Klammer stünde dort fälschlich − 1.",
+    "einstieg": "Manchmal steht eine Angabe schon fertig da: Ein Stift kostet 1 € weniger als zwei Hefte. Diesen Term setzt du für y in die andere Gleichung. Das heißt ⟦Einsetzungsverfahren⟧.",
     "woerter": [
      [
       "Einsetzungsverfahren",
-      "eine nach y aufgelöste Gleichung in die andere einsetzen"
+      "den Term für y in die andere Gleichung einsetzen"
      ],
      [
-      "aufgelöst nach y",
-      "y steht allein auf einer Seite: y = …"
-     ],
-     [
-      "Variable",
-      "ein Buchstabe für eine unbekannte Zahl, hier x und y"
+      "Term",
+      "ein Rechenausdruck, z. B. 2x − 1"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -2,
+      10
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": -1,
+       "name": "I"
+      },
+      {
+       "art": "linear",
+       "m": -3,
+       "t": 9,
+       "name": "II"
+      }
+     ],
+     "name_x": "Heft",
+     "name_y": "Stift"
+    }
    },
    {
     "lernziel": "gleichsetzen",
     "titel": "Gleichsetzungsverfahren",
-    "regel": "Sind ⟦beide⟧ Gleichungen nach derselben Variablen aufgelöst, setzt du die rechten Seiten ⟦gleich⟧. Das ist die Frage: Für welches x sind beide y-Werte gleich?",
+    "regel": "Steht zweimal y = …, ⟦setzt du die Terme gleich⟧. Dann x ausrechnen und für y einsetzen.",
     "schritte": [
-     "A: y = 2x + 10, B: y = 4x + 4 (x Stunden, y Preis in €). Gesucht: Wann kosten beide gleich viel?",
-     "Gleich viel heißt: Die beiden rechten Seiten sind gleich, also 2x + 10 = 4x + 4.",
-     "Auf beiden Seiten 2x und 4 abziehen: 6 = 2x, also x = 3.",
-     "x = 3 in A einsetzen: y = 2 · 3 + 10 = 16. ⟦L = {(3 | 16)}⟧ – bei 3 Stunden kosten beide 16 €."
+     {
+      "text": "A: y = 2x + 10. B: y = 4x + 4."
+     },
+     {
+      "text": "Gleich viel heißt gleichsetzen: 2x + 10 = 4x + 4."
+     },
+     {
+      "text": "2x und 4 abziehen: 6 = 2x, also x = 3.",
+      "bild": {
+       "senkrecht": [
+        3
+       ]
+      }
+     },
+     {
+      "text": "y = 2 · 3 + 10 = 16. Das Zahlenpaar ist ⟦(3 | 16)⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 3,
+         "y": 16,
+         "name": "(3 | 16)"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "B: 4 · 3 + 4 = 16 ✓",
-    "fehler": "Mit x = 3 ist die Aufgabe nicht fertig: Die Lösung ist ein ⟦Zahlenpaar⟧. Setze x noch ein, um y zu bestimmen – sonst weißt du nicht, wie viel die 3 Stunden kosten.",
-    "einstieg": "Zwei Fahrradverleihe haben unterschiedliche Preise: A verlangt 10 € Grundgebühr und 2 € pro Stunde, B nur 4 € Grundgebühr, aber 4 € pro Stunde. Bei kurzen Touren ist B billiger, bei langen A. Bei welcher Dauer kosten beide gleich viel? Dann ist Preis A gleich Preis B – so arbeitet das ⟦Gleichsetzungsverfahren⟧.",
+    "fehler": "Mit x = 3 ist nicht Schluss: Die Lösung ist ein ⟦Zahlenpaar⟧. Erst y = 16 sagt, was die 3 Stunden kosten.",
+    "einstieg": "Verleih A kostet 10 € plus 2 € pro Stunde, Verleih B 4 € plus 4 € pro Stunde. Wann kosten beide gleich viel? Dann ist Preis A gleich Preis B: ⟦Gleichsetzungsverfahren⟧.",
     "woerter": [
      [
       "Gleichsetzungsverfahren",
-      "zwei nach y aufgelöste Gleichungen gleichsetzen"
+      "die beiden Terme für y gleichsetzen"
      ],
      [
-      "y = 2x + 10",
-      "Preis y in € bei Verleih A für x Stunden"
-     ],
-     [
-      "(3 | 16)",
-      "3 Stunden, 16 €"
+      "Zahlenpaar",
+      "die Lösung (x | y), hier Stunden und Preis"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      6
+     ],
+     "y": [
+      0,
+      30
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 10,
+       "name": "A"
+      },
+      {
+       "art": "linear",
+       "m": 4,
+       "t": 4,
+       "name": "B"
+      }
+     ],
+     "schritt_y": 5,
+     "name_x": "h",
+     "name_y": "€"
+    }
    },
    {
     "lernziel": "addition",
     "titel": "Additionsverfahren",
-    "regel": "So gehst du vor: die Gleichungen so ⟦malnehmen⟧, dass vor einer Variablen ⟦Gegenzahlen⟧ stehen. Dann die Gleichungen ⟦addieren⟧ – diese Variable ⟦fällt weg⟧.",
+    "regel": "Mach vor einer Variablen ⟦Gegenzahlen⟧, dann addiere. Diese Variable fällt weg.",
     "schritte": [
-     "I: 2x + 3y = 12 und II: x − y = 1.",
-     "Ziel: Vor y sollen Gegenzahlen stehen. Dazu II mal 3 nehmen: II′: 3x − 3y = 3.",
-     "I und II′ addieren: 3y und −3y ergeben 0. Es bleibt 5x = 15, also x = 3.",
-     "x = 3 in II einsetzen: 3 − y = 1, also y = 2. ⟦L = {(3 | 2)}⟧"
+     {
+      "text": "I: 2x + 3y = 12, II: x − y = 1."
+     },
+     {
+      "text": "II mal 3: 3x − 3y = 3. Vor y stehen jetzt Gegenzahlen.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "links",
+        "rechts"
+       ],
+       "zeilen": [
+        [
+         "I",
+         "2x + 3y",
+         "12"
+        ],
+        [
+         "3 · II",
+         "3x − 3y",
+         "3"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Addieren: 5x = 15, also x = 3.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "links",
+        "rechts"
+       ],
+       "zeilen": [
+        [
+         "I",
+         "2x + 3y",
+         "12"
+        ],
+        [
+         "3 · II",
+         "3x − 3y",
+         "3"
+        ],
+        [
+         "Summe",
+         "5x",
+         "15"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Aus II folgt y = 2. ⟦L = {(3 | 2)}⟧."
+     }
     ],
-    "probe": "I: 6 + 6 = 12 ✓   II: 3 − 2 = 1 ✓",
-    "fehler": "Wer II mit 3 multipliziert, muss ⟦jedes⟧ Glied multiplizieren – auch die rechte Seite: 3x − 3y = 3, nicht 3x − 3y = 1. Sonst wird nur eine Waagschale verdreifacht, und das Gleichgewicht ist weg.",
-    "einstieg": "Stell dir zwei Waagen vor, die beide im Gleichgewicht sind. Legst du den Inhalt der beiden linken Schalen zusammen und den der beiden rechten auch, bleibt es im Gleichgewicht. Genauso darf man zwei Gleichungen zusammenzählen. Geschickt gemacht, fällt dabei eine Unbekannte weg – das ist das ⟦Additionsverfahren⟧.",
+    "fehler": "Mal 3 gilt für ⟦jedes⟧ Glied, auch rechts: 3x − 3y = 3, nicht = 1. Sonst wird nur eine Waagschale verdreifacht.",
+    "einstieg": "Zwei Waagen sind im Gleichgewicht. Legst du beide linken Schalen zusammen und beide rechten auch, bleibt es im Gleichgewicht. So darfst du Gleichungen addieren: das ⟦Additionsverfahren⟧.",
     "woerter": [
      [
       "Additionsverfahren",
-      "zwei Gleichungen addieren, sodass eine Variable wegfällt"
+      "zwei Gleichungen zusammenzählen, damit eine Variable wegfällt"
      ],
      [
       "Gegenzahlen",
-      "Zahlen, die zusammen 0 ergeben, z. B. 3 und −3"
-     ],
-     [
-      "II · 3",
-      "jedes Glied von Gleichung II mal 3"
-     ],
-     [
-      "II′",
-      "die veränderte Gleichung II"
+      "gleiche Zahl, anderes Vorzeichen: 3 und −3"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "links",
+      "rechts"
+     ],
+     "zeilen": [
+      [
+       "I",
+       "2x + 3y",
+       "12"
+      ],
+      [
+       "II",
+       "x − y",
+       "1"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "links",
+      "rechts"
+     ],
+     "zeilen": [
+      [
+       "I",
+       "2x + 3y",
+       "12"
+      ],
+      [
+       "3 · II",
+       "3x − 3y",
+       "1 ?"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "verfahren",
     "titel": "Welches Verfahren ist geschickt?",
-    "regel": "Alle Verfahren führen zum Ziel. ⟦Gleichsetzen⟧, wenn beide Gleichungen nach derselben Variablen aufgelöst sind. ⟦Einsetzen⟧, wenn eine aufgelöst ist. ⟦Addition⟧, wenn vor einer Variablen Gegenzahlen oder Vielfache stehen.",
+    "regel": "Wähle das Verfahren nach der ⟦Form der Gleichungen⟧. Zweimal y = …: gleichsetzen. Einmal: einsetzen. Gegenzahlen: addieren.",
     "schritte": [
-     "I: 4x + 5y = 3, II: 2x − 5y = 9.",
-     "Keine der Gleichungen ist nach x oder y aufgelöst. Einsetzen oder Gleichsetzen bräuchte erst Umformungen.",
-     "Vor y stehen 5 und −5. Das sind Gegenzahlen: Beim Addieren fällt y sofort weg.",
-     "Am geschicktesten ist hier das ⟦Additionsverfahren⟧."
+     {
+      "text": "I: 4x + 5y = 3, II: 2x − 5y = 9."
+     },
+     {
+      "text": "Keine Gleichung ist nach x oder y aufgelöst."
+     },
+     {
+      "text": "Vor y stehen 5 und −5, also Gegenzahlen."
+     },
+     {
+      "text": "Am geschicktesten ist hier ⟦Addieren⟧: y fällt sofort weg."
+     }
     ],
-    "fehler": "Bei I: y = 3x und II: y = x + 4 musst du nichts umstellen. Hier erst nach x aufzulösen kostet ⟦unnötige⟧ Schritte – gleichsetzen ist schneller.",
-    "einstieg": "Zu einem Ziel führen oft mehrere Wege – mit dem Rad, zu Fuß oder mit dem Bus. Alle kommen an, aber einer ist meist am schnellsten. Bei Gleichungssystemen ist es genauso: Einsetzen, Gleichsetzen und Addieren führen alle zur Lösung. Welches ⟦Verfahren⟧ am wenigsten Arbeit macht, siehst du an der Form der Gleichungen.",
+    "fehler": "Bei y = 3x und y = x + 4 erst umzustellen kostet unnötig Zeit. Beide sind schon nach y aufgelöst: ⟦gleichsetzen⟧.",
+    "einstieg": "Zur Schule kommst du mit dem Rad, zu Fuß oder mit dem Bus. Alle kommen an, einer ist am schnellsten. Bei Gleichungssystemen siehst du das schnellste ⟦Verfahren⟧ an der Form.",
     "woerter": [
      [
       "Verfahren",
-      "ein fester Lösungsweg (Einsetzen, Gleichsetzen, Addition)"
+      "ein fester Rechenweg: Einsetzen, Gleichsetzen oder Addieren"
      ],
      [
-      "Vielfache",
-      "z. B. sind 2, 4, 6 Vielfache von 2"
+      "Gegenzahlen",
+      "gleiche Zahl, anderes Vorzeichen: 5 und −5"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Form",
+      "Verfahren"
+     ],
+     "zeilen": [
+      [
+       "zweimal y = …",
+       "Gleichsetzen"
+      ],
+      [
+       "einmal y = …",
+       "Einsetzen"
+      ],
+      [
+       "Gegenzahlen",
+       "Addieren"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "loesbarkeit",
     "titel": "Wie viele Lösungen hat das System?",
-    "regel": "Jede Gleichung ist eine Gerade, die Lösung ist ihr Schnittpunkt. Fällt beim Rechnen ⟦x und y⟧ weg, entscheidet die Rest-Aussage: ⟦falsch⟧ (z. B. 1 = −3) heißt keine Lösung – die Geraden sind parallel. ⟦Wahr⟧ (z. B. 0 = 0) heißt unendlich viele Lösungen – beide Gleichungen beschreiben dieselbe Gerade.",
+    "regel": "Fällt x weg, entscheidet der Rest: ⟦falsch heißt keine Lösung⟧. Wahr, wie 0 = 0, heißt unendlich viele.",
     "schritte": [
-     "I: y = 2x + 1, II: y = 2x − 3. Beide Geraden steigen gleich stark (2 pro Schritt nach rechts).",
-     "Gleichsetzen: 2x + 1 = 2x − 3.",
-     "Auf beiden Seiten 2x abziehen: 1 = −3. Das x ist verschwunden, und die Aussage ist falsch.",
-     "Das System hat ⟦keine Lösung⟧ – die Geraden sind parallel und treffen sich nie."
+     {
+      "text": "I: y = 2x + 1, II: y = 2x − 3."
+     },
+     {
+      "text": "Gleichsetzen: 2x + 1 = 2x − 3. 2x abziehen: 1 = −3."
+     },
+     {
+      "text": "Das ist falsch. Die Geraden sind parallel: ⟦keine Lösung⟧."
+     },
+     {
+      "text": "Kommt dagegen 0 = 0 heraus, gibt es unendlich viele Lösungen.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 2,
+         "t": 1,
+         "name": "I = II"
+        }
+       ]
+      }
+     }
     ],
-    "fehler": "Bei 0 = 0 ist nicht „x = 0“ die Lösung. Die Aussage ist ⟦immer⟧ wahr: Jedes Paar, das eine Gleichung erfüllt, erfüllt auch die andere – unendlich viele Lösungen.",
+    "fehler": "Bei 0 = 0 ist nicht x = 0 die Lösung. Die Aussage stimmt ⟦immer⟧: Es gibt unendlich viele Lösungen.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -285,49 +579,94 @@
       }
      ]
     },
-    "einstieg": "Zwei Sonnenblumen wachsen beide 2 cm pro Tag. Die eine ist heute 4 cm größer als die andere. Werden sie je gleich groß? Nein – der Abstand bleibt immer 4 cm. So etwas gibt es auch bei Gleichungssystemen: Dann hat das System ⟦keine Lösung⟧. Es kann sogar ⟦unendlich viele⟧ Lösungen haben.",
+    "einstieg": "Zwei Sonnenblumen wachsen beide 2 cm pro Tag, eine ist 4 cm größer. Sie werden nie gleich groß. Dann hat das Gleichungssystem ⟦keine Lösung⟧.",
     "woerter": [
      [
       "parallel",
-      "Geraden mit gleicher Steigung, die sich nie treffen"
-     ],
-     [
-      "Aussage wahr / falsch",
-      "0 = 0 ist wahr, 1 = −3 ist falsch"
+      "gleich steil – die Geraden treffen sich nie"
      ],
      [
       "unendlich viele Lösungen",
-      "beide Gleichungen beschreiben dieselbe Gerade; jeder Punkt darauf passt"
+      "beide Gleichungen beschreiben dieselbe Gerade"
      ]
     ]
    },
    {
     "lernziel": "sachaufgabe",
     "titel": "Sachaufgaben mit zwei Unbekannten",
-    "regel": "Lege für die beiden gesuchten Größen ⟦Variablen⟧ fest (x, y). Übersetze jede Information in ⟦eine Gleichung⟧, löse das System und antworte im Satz.",
+    "regel": "Für jede gesuchte Größe eine ⟦Variable⟧, für jede Angabe eine Gleichung. Dann lösen und im Satz antworten.",
     "schritte": [
-     "Festlegen: x = Anzahl der Hühner, y = Anzahl der Kaninchen.",
-     "Köpfe: x + y = 10 (I). Beine: Huhn 2, Kaninchen 4, also 2x + 4y = 28 (II).",
-     "II minus zweimal I: 4y − 2y = 28 − 20, also 2y = 8 und y = 4.",
-     "Dann ist x = 10 − 4 = 6. Antwort: ⟦6 Hühner und 4 Kaninchen⟧."
+     {
+      "text": "Variable festlegen: x Hühner, y Kaninchen."
+     },
+     {
+      "text": "Köpfe: x + y = 10. Beine: 2x + 4y = 28."
+     },
+     {
+      "text": "Beine minus zweimal Köpfe: 2y = 8, also y = 4."
+     },
+     {
+      "text": "Dann ist x = 6. Antwort: ⟦6 Hühner und 4 Kaninchen⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "Hühner",
+        "Kaninchen",
+        "zusammen"
+       ],
+       "zeilen": [
+        [
+         "Köpfe",
+         "6",
+         "4",
+         "10"
+        ],
+        [
+         "Beine",
+         "12",
+         "16",
+         "28"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "Ohne Gleichungen: Alle 10 Tiere heben 2 Beine hoch – das sind 20 Beine. Am Boden bleiben 28 − 20 = 8 Beine, und das sind nur die Kaninchen, je 2. Also 8 : 2 = 4 Kaninchen ✓ Genau das rechnet II − 2 · I.",
-    "fehler": "Die Beine-Gleichung ist nicht x + y = 28: Ein Huhn hat ⟦2⟧, ein Kaninchen ⟦4⟧ Beine. Jede Information braucht die passenden Faktoren.",
-    "einstieg": "Auf einem Bauernhof zählst du 10 Köpfe und 28 Beine. Es gibt nur Hühner und Kaninchen. Wie viele sind es von jeder Sorte? Zwei Unbekannte und zwei Angaben – daraus wird ein Gleichungssystem. Solche Textaufgaben heißen ⟦Sachaufgaben⟧.",
+    "fehler": "Die Beine-Gleichung ist nicht x + y = 28: Ein Huhn hat ⟦2⟧ Beine, ein Kaninchen 4.",
+    "einstieg": "Auf einem Hof zählst du 10 Köpfe und 28 Beine, nur Hühner und Kaninchen. Wie viele sind es von jeder Sorte? So eine Textaufgabe ist eine ⟦Sachaufgabe⟧.",
     "woerter": [
      [
-      "Variable festlegen",
-      "aufschreiben, wofür x und y stehen: x = Hühner, y = Kaninchen"
+      "Sachaufgabe",
+      "eine Rechenaufgabe als Geschichte"
      ],
      [
-      "II − 2 · I",
-      "von Gleichung II das Doppelte von Gleichung I abziehen"
-     ],
-     [
-      "Antwortsatz",
-      "das Ergebnis in Worten zur Frage"
+      "Variable",
+      "ein Buchstabe für eine gesuchte Zahl, hier x und y"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Hühner",
+      "Kaninchen",
+      "zusammen"
+     ],
+     "zeilen": [
+      [
+       "Köpfe",
+       "x",
+       "y",
+       "10"
+      ],
+      [
+       "Beine",
+       "2x",
+       "4y",
+       "28"
+      ]
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [

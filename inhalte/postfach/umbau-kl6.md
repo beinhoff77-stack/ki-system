@@ -3,6 +3,12 @@
 Technik: je Generator ein Abschnitt KARTEN (ersetzt den Abschnitt KLAR der Runde 7), eingesetzt über `inhalte/generatoren/_umbau_kl6.py` (dieselben strengen Regeln wie `_umbau_kl5.py` aus Paket U5) erst NACH dem Erzeugen der Aufgaben – die Aufgaben bleiben wörtlich gleich. `probe` entfällt bei umgebauten Karten. finanzen.zinsen (ohne Generator): Überlagerung `inhalte/klar/finanzen.zinsen.json`, mit denselben Regeln geprüft.
 Vergleich je Thema: `aufgaben`, titel/lernziel und alle Felder außer `inhalt.etappen` und `offen` gegen den Ausgangsstand bc7a754 (lernen-app).
 
+## 2026-11-16 03:00 – STATUS
+bruch.rechnen (10 Karten) umgebaut. Kartenbilder: Bruchstreifen (Wanderung 3/4 + 1/6 → Zwölftel, Schulgarten 3/4 → 9/12 → 6/12, 25-Cent-Münzen, Pizza Punkt vor Strich), Tabellen (Bäcker Komma unter Komma mit Übertrag, Aufkleber in € und Cent, Obstwaage mit Überschlag), Thermometer (−2,5 °C → −1,3 °C), Zahlenstrahl in Sechsteln mit Saft-Bereich und Becher-Bögen (Teilen durch 2/3), Figur Klebeband 0,3 m × 0,04 m.
+fehler_bild: brueche_plus_minus (4/10 kleiner als 3/4), dezimal_geteilt (Komma nur beim Preis verschoben). Übrige Fehler sind Rechenregel-Fehler.
+Das Raster-Bild (figur 4 × 3) bei brueche_mal ist durch zwei Bruchstreifen ersetzt.
+inhalt_pruefen: OK, keine Hinweise. Vergleich gegen bc7a754: 280 Aufgaben wörtlich gleich, Rest gleich, titel/lernziel gleich.
+
 ## 2026-11-16 02:58 – STATUS
 bruch.prozent (7 Karten) umgebaut. Kartenbilder: Bruchstreifen (Akku 3/4 → 75/100, Fahrrad in 20 Teilen zu 5 %, Probe 21/25 gegen 34/40, Kartoffelernte in Zehnteln, Jacke in Vierteln), Säulen (Sparbuch 500 € → 515 €, Spielpreis 100 → 90 → 99 €); prozentsatz wechselt im letzten Schritt zu Säulen 84 % / 85 %.
 fehler_bild nur bei prozent_bedeutung (0,5 = 50 %, nicht 5 %); die übrigen Fehler sind Rechenweg-Fehler.

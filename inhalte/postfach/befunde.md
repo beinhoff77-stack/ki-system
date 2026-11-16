@@ -2,6 +2,15 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 05:31 – STATUS
+zahlen.intervalle fertig: umgestuft 3 / berichtigt 0 / ersetzt 1 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Ein Aquarium braucht Wasser von mindestens 24 °C bis höchstens 28 °C. Welches Intervall beschreibt die erlaubten Temperaturen (in °C)?“
+- nicht umgesetzt:
+  - enthalten S1 „Welche Zahl liegt im Intervall [1; 7]?“ hat nur 3 Antworten – Zulässig und richtig; kein Fehler.
+- für Sebastian:
+  - zahlen.intervalle: lehrplan_gym der Karten ist leer – das Thema hat keine eigene LehrplanPLUS-Zeile (Inhalt gehört zu Ungleichungen, Kl. 8). Karten-Text nicht geändert.
+
 ## 2026-11-16 05:30 – STATUS
 gleichungen.ungleichungen fertig: umgestuft 2 / berichtigt 0 / ersetzt 3 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):

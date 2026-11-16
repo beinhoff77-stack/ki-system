@@ -822,18 +822,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Ein Aquarium braucht Wasser von mindestens 24 °C bis höchstens 28 °C. Welches Intervall beschreibt die erlaubten Temperaturen (in °C)?"
+    "text": "Ein Impfstoff muss im Kühlschrank bei mehr als 2 °C, aber höchstens 8 °C gelagert werden. Welches Intervall beschreibt die erlaubten Temperaturen (in °C)?"
    },
    "a": [
-    "[24; 28[",
-    "]24; 28[",
-    "]24; 28]",
-    "[24; 28]"
+    "]2; 8[",
+    "]2; 8]",
+    "[2; 8]",
+    "[2; 8["
    ],
    "o": {
-    "index": 3
+    "index": 1
    },
-   "w": "In Zeichen: 24 ≤ x ≤ 28. „mindestens“/„ab“/„bis einschließlich“: Grenze gehört dazu, Klammer nach innen. Intervall: [24; 28].",
+   "w": "In Zeichen: 2 < x ≤ 8. „mehr als“: Grenze gehört nicht dazu, Klammer nach außen. „höchstens“: Grenze gehört dazu, Klammer nach innen. Intervall: ]2; 8].",
    "h": "Übersetze jedes Wort an einer Grenze: gehört die Zahl dazu oder nicht?"
   },
   {
@@ -1679,7 +1679,7 @@
    "l": "schreiben",
    "t": "schreiben",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Schreibe als Intervall: alle Zahlen zwischen −5 und −3, beide Grenzen eingeschlossen."
@@ -1700,7 +1700,7 @@
    "l": "schreiben",
    "t": "schreiben",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Schreibe als Intervall: alle Zahlen zwischen −9 und −1, beide Grenzen eingeschlossen."
@@ -1721,7 +1721,7 @@
    "l": "schreiben",
    "t": "schreiben",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Schreibe als Intervall: alle Zahlen zwischen −12 und 8, beide Grenzen ausgeschlossen."

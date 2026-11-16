@@ -461,6 +461,132 @@ def g_verstehen(s):
 
 GEN = {'logarithmus': g_logarithmus, 'gleiche_basis': g_gleiche_basis, 'mit_log_loesen': g_mit_log_loesen, 'potenzregel': g_potenzregel,
        'wachstum': g_wachstum, 'verstehen': g_verstehen}
+
+# ---------- KLAR: verständliche Fassung der Lernkarten (Runde 7) ----------
+# Wird erst nach dem Bauen der Aufgaben eingesetzt (bauen(..., klar=KLAR)), die Aufgaben bleiben wörtlich gleich.
+KLAR = {
+ 'logarithmus': {
+  'einstieg': 'In einer Schale mit Nährlösung verdoppeln sich Bakterien jede Stunde. Aus 1 Bakterium werden 2, dann 4, 8, 16 und 32. '
+              'Wie viele Stunden hat es gedauert, bis es 32 sind? Du zählst, wie oft mit 2 malgenommen wurde: 5-mal, also 5 Stunden. '
+              'Diese Anzahl heißt ⟦Logarithmus⟧.',
+  'woerter': [['2⁵', 'Potenz: 2 · 2 · 2 · 2 · 2 = 32 – die 2 wird 5-mal malgenommen'],
+              ['Basis', 'die Zahl, die immer wieder malgenommen wird (hier 2: Verdoppeln)'],
+              ['Exponent', 'die kleine hochgestellte Zahl: wie oft malgenommen wird (hier 5 Stunden)'],
+              ['log₂(32)', 'gelesen „Logarithmus von 32 zur Basis 2“: der Exponent, mit dem aus 2 die 32 wird'],
+              ['b^y', '„b hoch y“: b wird y-mal malgenommen (b und y stehen für irgendwelche Zahlen)'],
+              ['log_b(x)', 'allgemein: der Exponent, mit dem aus der Basis b die Zahl x wird'],
+              ['⇔', '„ist gleichbedeutend mit“: beide Aussagen sagen dasselbe'],
+              ['≠', '„ist nicht gleich“'],
+              ['lg', 'Logarithmus zur Basis 10, Taste „log“ am Taschenrechner: lg 1 000 = 3, weil 10³ = 1 000']],
+  'bild': {'typ': 'koordinaten', 'x': [-1, 6], 'y': [0, 36], 'graphen': [{'art': 'exp', 'a': 1, 'b': 2, 'name': 'y = 2ˣ'}],
+           'punkte': [{'x': 5, 'y': 32, 'name': 'nach 5 h: 32'}], 'strecken': [[5, 0, 5, 32, 'gestrichelt'], [0, 32, 5, 32, 'gestrichelt']],
+           'name_x': 'Stunden', 'name_y': 'Bakterien'},
+  'schritte': ['Gesucht ist log₂(32). Die Frage dahinter lautet: 2 hoch wie viel ergibt 32?',
+               'Nimm die 2 so lange mit 2 mal, bis 32 erreicht ist: 2, 4, 8, 16, 32.',
+               'Das waren fünf Zweien, also gilt 2⁵ = 32.',
+               'Der gesuchte Exponent ist 5: ⟦log₂(32) = 5⟧. Die Bakterien haben 5 Stunden gebraucht.'],
+  'regel': 'So berechnest du log_b(x): Frage, mit welchem ⟦Exponenten⟧ man die Basis b potenzieren muss, damit x herauskommt. '
+           'Kurz: ⟦b^y = x ⇔ y = log_b(x)⟧. Das geht nur für b > 0, b ≠ 1 und x > 0. lg ist der Logarithmus zur Basis 10.',
+  'fehler': 'log₂(32) = 32 : 2 = 16 ist falsch. 16 wäre die Zahl der Bakterien eine Stunde früher. Der Logarithmus fragt nach der '
+            '⟦Anzahl der Verdopplungen⟧, also nach dem Exponenten: 5.'},
+ 'gleiche_basis': {
+  'einstieg': 'Bei einem Kettenbrief schreibt eine Person den ersten Brief. Wer einen Brief bekommt, schickt ihn an 3 neue Leute weiter. '
+              'Auf Stufe 1 gibt es also 1 Brief, auf Stufe 2 sind es 3, auf Stufe 3 sind es 9, auf Stufe 4 sind es 27 – jede Stufe dreimal so viele. '
+              'Auf welcher Stufe sind es 81 Briefe? Schreibt man 81 als ⟦Potenz mit derselben Basis⟧ 3, kann man die Stufe ablesen.',
+  'woerter': [['x', 'die gesuchte Zahl, hier die Stufe'],
+              ['3^(x − 1)', '3 hoch (x − 1): die Zahl der Briefe auf Stufe x (Stufe 1: 3⁰ = 1, Stufe 2: 3¹ = 3 …)'],
+              ['3⁰ = 1', 'eine Zahl hoch 0 ergibt immer 1'],
+              ['gleiche Basis', 'beide Seiten der Gleichung als Potenz derselben Zahl schreiben, hier 3'],
+              ['Exponenten gleichsetzen', 'sind Basis und Ergebnis gleich, müssen auch die Exponenten gleich sein'],
+              ['b^u = b^v ⇔ u = v', 'dieselbe Regel allgemein: gleiche Basis b, gleiches Ergebnis, also gleiche Exponenten u und v']],
+  'schritte': ['Die Gleichung lautet 3^(x − 1) = 81. Links steht eine Potenz mit der Basis 3.',
+               'Schreibe auch 81 als Potenz von 3: 3 · 3 · 3 · 3 = 81, also 81 = 3⁴.',
+               'Jetzt steht da 3^(x − 1) = 3⁴. Die Basis ist gleich, also müssen die Exponenten gleich sein: x − 1 = 4.',
+               'Auf beiden Seiten 1 dazuzählen: ⟦x = 5⟧. Auf Stufe 5 sind es 81 Briefe.'],
+  'regel': 'So löst du solche Gleichungen: Schreibe beide Seiten als Potenzen ⟦derselben Basis⟧. Dann ⟦setze die Exponenten gleich⟧ '
+           '(b^u = b^v ⇔ u = v) und löse die Gleichung, die dabei entsteht.',
+  'fehler': '3^(x − 1) = 81 ⇒ x − 1 = 81 : 3 = 27 ist falsch. 27 ist die Zahl der Briefe eine Stufe vorher, nicht die Stufe selbst. '
+            'Verglichen werden die ⟦Exponenten⟧ – dazu muss 81 erst als 3⁴ geschrieben werden.'},
+ 'mit_log_loesen': {
+  'einstieg': 'Zurück zu den Bakterien. Diesmal liegen am Anfang 3 Bakterien in der Schale, und sie verdoppeln sich wieder jede Stunde. '
+              'Nach 3 Stunden sind es 24, nach 4 Stunden schon 48. Wann genau sind es 30? Die Antwort liegt zwischen 3 und 4 Stunden. '
+              'Ausrechnen kann man sie, wenn man beide Seiten der Gleichung ⟦logarithmiert⟧.',
+  'woerter': [['3 · 2^x', '3 Bakterien am Anfang, x Stunden lang verdoppelt'],
+              ['Potenz allein stellen', 'so umformen, dass auf einer Seite nur noch 2^x steht'],
+              ['logarithmieren', 'den Logarithmus der Zahl bilden, um den Exponenten zu bekommen'],
+              ['lg 10 : lg 2', 'so rechnet der Taschenrechner log₂(10) aus: lg der Zahl geteilt durch lg der Basis'],
+              ['log_b(c) = lg c : lg b', 'die Umrechnung allgemein: jeden Logarithmus mit der lg-Taste berechnen'],
+              ['≈', '„ungefähr gleich“ – das Ergebnis ist gerundet']],
+  'bild': {'typ': 'koordinaten', 'x': [-1, 5], 'y': [0, 16], 'graphen': [{'art': 'exp', 'a': 1, 'b': 2, 'name': 'y = 2ˣ'}],
+           'punkte': [{'x': 3.32, 'y': 10, 'name': 'x ≈ 3,32'}], 'waagrecht': [10], 'name_x': 'Stunden'},
+  'schritte': ['Die Gleichung 3 · 2^x = 30 bedeutet: 3 Bakterien, x Stunden lang verdoppelt, ergeben 30.',
+               'Zuerst die Potenz allein stellen: Beide Seiten durch 3 teilen ergibt 2^x = 10.',
+               '10 ist keine Potenz von 2, denn 2³ = 8 und 2⁴ = 16. Also liegt x zwischen 3 und 4.',
+               'Mit dem Logarithmus ausrechnen: x = log₂(10) = lg 10 : lg 2 ≈ ⟦3,32⟧. Nach gut 3 Stunden sind es 30 Bakterien.'],
+  'regel': 'So löst du b^x = c, wenn keine gemeinsame Basis passt: Erst die Potenz ⟦allein stellen⟧, dann ⟦logarithmieren⟧: '
+           '⟦x = log_b(c) = lg c : lg b⟧. Das Ergebnis sinnvoll runden.',
+  'fehler': '3 · 2^x = 30 ⇒ 6^x = 30 ist falsch. Verdoppelt wird nur die 2 – die 3 ist die Anzahl am Anfang und wird nicht mit hochgenommen. '
+            '3 · 2^x ist nicht (3 · 2)^x. Erst ⟦durch 3 teilen⟧, dann logarithmieren.'},
+ 'potenzregel': {
+  'einstieg': 'In zwei Schalen wachsen verschiedene Bakterien. In Schale A liegt anfangs 1 Bakterium, und jede Stunde werden es fünfmal so viele. '
+              'In Schale B liegen anfangs 2, und sie verdoppeln sich jede Stunde. A holt B bald ein – aber wann genau? '
+              'Die gesuchte Zeit steht jetzt auf beiden Seiten oben im Exponenten. Herunter holt man sie mit der ⟦Potenzregel für Logarithmen⟧.',
+  'woerter': [['5^x', 'Anzahl in Schale A nach x Stunden'],
+              ['2^(x + 1)', 'gleich 2 · 2^x: Anzahl in Schale B nach x Stunden'],
+              ['Faktor', 'eine Zahl, mit der malgenommen wird'],
+              ['Potenzregel', 'lg(a^r) = r · lg(a): ein Exponent im Logarithmus darf als Faktor nach vorn'],
+              ['log_b(a^r) = r · log_b(a)', 'dieselbe Regel für jede Basis b'],
+              ['ausmultiplizieren', 'eine Klammer auflösen: (x + 1) · lg 2 = x · lg 2 + lg 2']],
+  'schritte': ['Gleich viele Bakterien heißt: 5^x = 2^(x + 1). Auf beiden Seiten steht x im Exponenten.',
+               'Nimm auf beiden Seiten den lg. Mit der Potenzregel wandern die Exponenten als Faktoren nach vorn: x · lg 5 = (x + 1) · lg 2.',
+               'Rechts ausmultiplizieren und alles mit x nach links bringen: x · lg 5 − x · lg 2 = lg 2, also x · (lg 5 − lg 2) = lg 2.',
+               'Durch die Klammer teilen: x = lg 2 : (lg 5 − lg 2) ≈ ⟦0,76⟧. Nach etwa einer Dreiviertelstunde sind es in beiden Schalen gleich viele.'],
+  'regel': 'Ein Exponent im Logarithmus wird zum ⟦Faktor⟧: ⟦log_b(a^r) = r · log_b(a)⟧. So gehst du vor: beide Seiten logarithmieren, '
+           'die Exponenten als Faktoren nach vorn holen, nach x auflösen. Warum es stimmt: Ist a = b^y, dann ist a^r = b^(r · y), '
+           'also log_b(a^r) = r · y = r · log_b(a).',
+  'fehler': 'lg(5x) = x · lg 5 ist falsch. Die Potenzregel gilt nur für ⟦Potenzen⟧ wie 5^x (die 5 wird x-mal malgenommen), '
+            'nicht für Produkte wie 5x (5 mal x).'},
+ 'wachstum': {
+  'einstieg': 'Oma legt 1 000 € auf ein Sparkonto mit 4 % Zinsen pro Jahr. Die Zinsen bleiben auf dem Konto und bringen im nächsten Jahr selbst wieder Zinsen. '
+              'Nach einem Jahr sind es 1 040 €, nach zwei Jahren 1 081,60 €. Wann sind es 1 500 €? '
+              'Das Konto wird jedes Jahr mit derselben Zahl malgenommen – so etwas heißt ⟦exponentielles Wachstum⟧.',
+  'woerter': [['Zinseszins', 'Zinsen, die selbst wieder Zinsen bringen'],
+              ['Wachstumsfaktor q', 'die Zahl, mit der jedes Jahr malgenommen wird: bei +4 % ist q = 1,04'],
+              ['p', 'der Prozentsatz als Dezimalzahl: 4 % = 0,04'],
+              ['N₀', 'der Anfangswert (hier 1 000 €); die kleine 0 heißt „zum Zeitpunkt 0“'],
+              ['t', 'die Zeit, hier in Jahren'],
+              ['N(t) = N₀ · q^t', 'der Wert nach t Jahren'],
+              ['Zerfall', 'Abnahme um einen festen Prozentsatz; dann ist q = 1 − p kleiner als 1']],
+  'bild': {'typ': 'koordinaten', 'x': [0, 15], 'y': [0, 2000], 'graphen': [{'art': 'exp', 'a': 1000, 'b': 1.04, 'bereich': [0, 15]}],
+           'waagrecht': [1500], 'senkrecht': [10.34], 'name_x': 't (Jahre)', 'name_y': 'Konto (€)', 'schritt_y': 250},
+  'schritte': ['Nach t Jahren sind 1 000 · 1,04^t Euro auf dem Konto. Gesucht ist t mit 1 000 · 1,04^t = 1 500.',
+               'Durch 1 000 teilen, damit die Potenz allein steht: 1,04^t = 1,5.',
+               'Logarithmieren: t = lg 1,5 : lg 1,04 ≈ 10,34.',
+               'Zinsen gibt es nur am Jahresende. Nach 10 Jahren sind es erst etwa 1 480 €, deshalb sind die 1 500 € nach ⟦11 vollen Jahren⟧ erreicht.'],
+  'regel': 'So findest du den Zeitpunkt t: Ansatz ⟦N₀ · q^t = Ziel⟧ aufschreiben (Zunahme um p: q = 1 + p, Abnahme um p: q = 1 − p), '
+           'durch N₀ teilen und logarithmieren: ⟦t = lg(Ziel : N₀) : lg q⟧.',
+  'fehler': 'Bei 4 % Zinsen q = 4 oder q = 0,04 zu nehmen ist falsch. Mit 4 würde das Geld jedes Jahr vervierfacht, mit 0,04 bliebe nur ein winziger Rest. '
+            'Der ⟦Wachstumsfaktor⟧ ist q = 1,04: das ganze Geld (1) plus 4 % (0,04).'},
+ 'verstehen': {
+  'einstieg': 'Bei den Bakterien wird die Zahl jede Stunde größer. Rechnet man rückwärts, halbiert sie sich jede Stunde: 1, ½, ¼ … '
+              'Sie wird immer kleiner, aber nie null und nie negativ. Deshalb gibt es Gleichungen mit Potenzen, die ⟦keine Lösung⟧ haben, '
+              'und Zahlen, von denen es keinen Logarithmus gibt.',
+  'woerter': [['2^(−3)', 'ein Minus im Exponenten bedeutet Kehrwert: 2^(−3) = 1/2³ = 1/8'],
+              ['Kehrwert', '1 geteilt durch die Zahl, zum Beispiel ist 1/8 der Kehrwert von 8'],
+              ['keine Lösung', 'es gibt keine Zahl, die man für x einsetzen kann, damit die Gleichung stimmt'],
+              ['log_b(1) = 0', 'jede Basis hoch 0 ergibt 1'],
+              ['log_b(b) = 1', 'jede Basis hoch 1 ergibt sich selbst'],
+              ['Graph von y = 2^x', 'die Kurve, die zu jedem x den Wert 2^x zeigt']],
+  'schritte': ['Behauptung: 2^x = −8 hat die Lösung x = −3.',
+               'Probe: 2^(−3) ist der Kehrwert von 2³, also 1/8. Das ist positiv und nicht −8.',
+               'Egal welches x man einsetzt, 2^x ist immer größer als 0. Der Graph von y = 2^x bleibt ganz über der x-Achse.',
+               'Also hat 2^x = −8 ⟦keine Lösung⟧, und die Behauptung ist falsch.'],
+  'regel': 'So prüfst du Aussagen über Logarithmen: Einen Logarithmus gibt es nur von Zahlen ⟦größer als 0⟧. '
+           'Merke ⟦log_b(1) = 0⟧ und ⟦log_b(b) = 1⟧. Für Summen gibt es keine Regel: lg(a + b) ist nicht lg a + lg b.',
+  'fehler': '„Bei 2^x = −8 ist x = −3“ ist falsch. Ein Minus im Exponenten macht die Zahl nicht negativ, es bildet den ⟦Kehrwert⟧ – '
+            'wie bei den Bakterien rückwärts: Es werden weniger, aber nie weniger als null.'},
+}
+
 GEN = schoen(GEN)
 
 if __name__ == '__main__':
@@ -470,7 +596,7 @@ if __name__ == '__main__':
            'Potenzregel: log_b(a^r) = r · log_b(a).'],
           [('Logarithmus', ['logarithmus', 'gleiche_basis']), ('Lösen mit dem Logarithmus', ['mit_log_loesen', 'potenzregel']),
            ('Anwenden und Verstehen', ['wachstum', 'verstehen'])],
-          ETAPPEN, GEN,
+          ETAPPEN, GEN, klar=KLAR,
           meiden={'logarithmus': ['log₂(32).'], 'gleiche_basis': ['3^(x − 1) = 81.'], 'mit_log_loesen': ['3 · 2^x = 30'],
                   'potenzregel': ['5^x = 2^(x + 1)'], 'wachstum': ['4 % pro Jahr verzinst (Zinseszins). Wie groß'], 'verstehen': ['2^x = −8']},
           offen=['Zeichnungen: Lernkarten „logarithmus“, „mit_log_loesen“, „wachstum“ und „verstehen“ haben ein Koordinatensystem; Aufgaben zum Abschätzen (Stufe 1 „mit_log_loesen“) und zu „keine Lösung“ zeigen den Graphen. Die Exponenten heißen in den Graphnamen „2^x“ (Text).',

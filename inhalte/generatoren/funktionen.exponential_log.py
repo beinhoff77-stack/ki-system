@@ -354,6 +354,137 @@ def g_zeitpunkt(s):
                 v, f'round({K(t)}, 1)', einheit='min', tol=0.1)
 
 
+
+# ---------- KLAR: verständliche Fassung der Lernkarten (Runde 7) ----------
+# Wird erst nach dem Bauen der Aufgaben eingesetzt (bauen(..., klar=KLAR)), die Aufgaben bleiben wörtlich gleich.
+KLAR = {
+ 'werte': {
+  'einstieg': 'Auf einem Teich wachsen Wasserlinsen, kleine grüne Pflänzchen. Heute bedecken sie 5 m², und jede Woche verdoppelt sich die Fläche: '
+              'nach einer Woche 10 m², nach zwei Wochen 20 m², nach drei Wochen 40 m². Eine Woche vor heute waren es nur 2,5 m². '
+              'Die Rechnung „Anfangswert mal Faktor hoch Zahl der Wochen“ heißt ⟦Exponentialfunktion⟧.',
+  'woerter': [['f(x) = 5 · 2^x', 'die bedeckte Fläche in m² nach x Wochen: 5 mal 2 hoch x'],
+              ['f(3)', 'der Wert der Funktion für x = 3, hier die Fläche nach 3 Wochen'],
+              ['Exponent', 'die hochgestellte Zahl; hier steht x im Exponenten'],
+              ['Anfangswert a', 'der Wert bei x = 0, also heute: a = 5'],
+              ['Wachstumsfaktor b', 'damit wird pro Schritt malgenommen, hier b = 2'],
+              ['x = −1', 'eine Woche vor heute'],
+              ['b^(−n) = 1/bⁿ', 'ein negativer Exponent bedeutet Kehrwert: 2^(−1) = ½'],
+              ['a ≠ 0, b > 0, b ≠ 1', 'a ist nicht 0, b ist positiv und nicht 1 – sonst gäbe es kein Wachstum']],
+  'bild': {'typ': 'koordinaten', 'x': [-2, 4], 'y': [0, 45], 'graphen': [{'art': 'exp', 'a': 5, 'b': 2, 'name': 'f'}],
+           'punkte': [{'x': 3, 'y': 40, 'name': '(3 | 40)'}, {'x': -1, 'y': 2.5, 'name': '(−1 | 2,5)'}], 'name_x': 'Wochen x', 'name_y': 'Fläche (m²)'},
+  'schritte': ['Die Fläche ist f(x) = 5 · 2^x. Gesucht sind f(3) und f(−1).',
+               'Für x = 3 zuerst die Potenz berechnen: 2³ = 8. Dann mit dem Anfangswert malnehmen: f(3) = 5 · 8 = ⟦40⟧.',
+               'Für x = −1 bedeutet der negative Exponent den Kehrwert: 2^(−1) = ½.',
+               'Also ist f(−1) = 5 · ½ = ⟦2,5⟧. Eine Woche vor heute waren es 2,5 m².'],
+  'regel': 'So berechnest du Werte von ⟦f(x) = a · b^x⟧: erst die Potenz b^x ausrechnen, dann mit a malnehmen. a ist der ⟦Anfangswert⟧ f(0), '
+           'b der ⟦Wachstumsfaktor⟧. Negative Exponenten: ⟦b^(−n) = 1/bⁿ⟧.',
+  'fehler': 'f(3) = (5 · 2)³ = 1 000 ist falsch. Verdoppelt wird jede Woche die ganze Fläche – die 5 m² vom Anfang werden nicht selbst hoch 3 genommen. '
+            'Nur die ⟦2⟧ wird potenziert: 5 · 2³ = 40.'},
+ 'faktor': {
+  'einstieg': 'Ein neues Auto kostet 20 000 €. Jedes Jahr verliert es 12 % seines Wertes. Nach einem Jahr ist es also noch 88 % wert, das sind 17 600 €. '
+              'Statt „minus 12 %“ rechnet man deshalb jedes Jahr „mal 0,88“. Diese Zahl, mit der man pro Jahr malnimmt, heißt ⟦Wachstumsfaktor⟧.',
+  'woerter': [['p %', 'der Prozentsatz der Änderung pro Schritt, hier 12 %'],
+              ['p/100', 'der Prozentsatz als Dezimalzahl: 12 % = 12/100 = 0,12'],
+              ['b = 1 − p/100', 'Faktor bei Abnahme: 1 − 0,12 = 0,88'],
+              ['b = 1 + p/100', 'Faktor bei Zunahme: bei +12 % ist b = 1,12'],
+              ['t', 'die Zeit, hier in Jahren'],
+              ['f(t) = f(0) · 0,88^t', 'der Wert nach t Jahren: Anfangswert mal 0,88 hoch t'],
+              ['Wachstum, Zerfall', 'Zunahme (b > 1) und Abnahme (b zwischen 0 und 1)']],
+  'bild': {'typ': 'koordinaten', 'x': [0, 10], 'y': [0, 320],
+           'graphen': [{'art': 'exp', 'a': 100, 'b': 0.88, 'name': '100 · 0,88ᵗ (−12 %)'}, {'art': 'exp', 'a': 100, 'b': 1.12, 'name': '100 · 1,12ᵗ (+12 %)'}],
+           'name_x': 't (Jahre)', 'name_y': 'Wert'},
+  'schritte': ['Der Wert nimmt jedes Jahr um 12 % ab. Als Dezimalzahl sind das 0,12.',
+               'Übrig bleibt jedes Jahr 1 − 0,12 = 0,88 des Wertes. Der Wachstumsfaktor ist also ⟦b = 0,88⟧.',
+               'Für t Jahre nimmt man t-mal mit 0,88 mal: f(t) = f(0) · 0,88^t.',
+               'Probe für ein Jahr: 20 000 · 0,88 = 17 600. Das sind 2 400 € weniger, und 2 400 € sind 12 % von 20 000 €.'],
+  'regel': 'So findest du den Faktor: Zunahme um p %: ⟦b = 1 + p/100⟧. Abnahme um p %: ⟦b = 1 − p/100⟧. '
+           'Ist b > 1, wächst der Wert; liegt b zwischen 0 und 1, nimmt er ab.',
+  'fehler': 'Bei 12 % Abnahme b = 0,12 zu nehmen ist falsch: Dann wäre das Auto nach einem Jahr nur noch 2 400 € wert – es blieben nur 12 % übrig. '
+            'Übrig bleiben aber ⟦88 %⟧, also b = 0,88.'},
+ 'modell': {
+  'einstieg': 'In einem Labor liegen zu Beginn 400 Bakterien in einer Schale. Alle 3 Stunden verdoppelt sich ihre Zahl: nach 3 Stunden 800, '
+              'nach 6 Stunden 1 600, nach 9 Stunden 3 200. Wie viele sind es nach 12 Stunden – und wie viele nach 5 Stunden? '
+              'Eine Formel, die das für jede Zeit beschreibt, heißt ⟦Wachstumsmodell⟧.',
+  'woerter': [['Modell', 'eine Formel, die eine echte Entwicklung näherungsweise beschreibt'],
+              ['t', 'die Zeit in Stunden'],
+              ['T', 'die Verdopplungszeit, hier 3 Stunden'],
+              ['2^(t/3)', '2 hoch (t geteilt durch 3): so oft wurde bis zur Zeit t verdoppelt'],
+              ['Quotient', 'das Ergebnis einer Division, z. B. 800 : 400 = 2'],
+              ['aufeinanderfolgende Werte', 'Werte direkt nacheinander mit gleichem Zeitabstand'],
+              ['linear', 'jedes Mal kommt gleich viel dazu (statt malnehmen)']],
+  'bild': {'typ': 'koordinaten', 'x': [0, 12], 'y': [0, 7000], 'graphen': [{'art': 'exp', 'a': 400, 'b': 1.2599210498948732, 'bereich': [0, 12]}],
+           'punkte': [{'x': 0, 'y': 400}, {'x': 3, 'y': 800}, {'x': 6, 'y': 1600}, {'x': 9, 'y': 3200}, {'x': 12, 'y': 6400}],
+           'name_x': 't (Stunden)', 'name_y': 'Bakterien', 'schritt_x': 3},
+  'schritte': ['Der Anfangswert ist a = 400, denn zur Zeit t = 0 sind es 400 Bakterien.',
+               'Verdoppelt wird alle 3 Stunden. Bis zur Zeit t wurde also (t : 3)-mal verdoppelt, deshalb gilt f(t) = 400 · 2^(t/3).',
+               'Für t = 12 ist t : 3 = 4. Es wurde viermal verdoppelt, und 2⁴ = 16.',
+               'Also ist f(12) = 400 · 16 = ⟦6 400⟧ Bakterien.'],
+  'regel': 'So stellst du ein Modell auf: Der Anfangswert ist ⟦a = f(0)⟧. Den Faktor b erhältst du als ⟦Quotient aufeinanderfolgender Werte⟧ '
+           '(gleicher Zeitabstand). Verdopplung alle T Zeiteinheiten: ⟦f(t) = a · 2^(t/T)⟧.',
+  'fehler': 'Nach 12 h mit 400 · 2 · 12 = 9 600 zu rechnen ist falsch: Das wäre ⟦lineares⟧ Wachstum, bei dem jedes Mal gleich viel dazukommt. '
+            'Hier wird ⟦4-mal verdoppelt⟧: 400 → 800 → 1 600 → 3 200 → 6 400.'},
+ 'graph': {
+  'einstieg': 'Grob gerechnet sind nach einer Spritze 3 mg eines Wirkstoffs im Blut, und der Körper baut in jeder Stunde die Hälfte ab: '
+              'nach einer Stunde 1,5 mg, nach zwei Stunden 0,75 mg und so weiter. Die Menge wird immer kleiner, erreicht aber nie genau 0. '
+              'Eine Linie, der sich ein Graph immer weiter nähert, ohne sie zu erreichen, heißt ⟦Asymptote⟧.',
+  'woerter': [['f(x) = 3 · 0,5^x', 'Wirkstoff in mg nach x Stunden'],
+              ['Graph', 'die Kurve der Funktion im Koordinatensystem'],
+              ['(0 | 3)', 'der Punkt mit x = 0 und y = 3: der Startwert auf der y-Achse'],
+              ['steigend, fallend', 'der Graph geht von links nach rechts nach oben bzw. nach unten'],
+              ['Asymptote', 'eine Gerade, der sich der Graph immer weiter nähert, ohne sie zu erreichen; hier die x-Achse'],
+              ['Nullstelle', 'eine Stelle, an der der Wert 0 ist'],
+              ['0 < b < 1', 'b liegt zwischen 0 und 1']],
+  'bild': {'typ': 'koordinaten', 'x': [-2, 6], 'y': [0, 13], 'graphen': [{'art': 'exp', 'a': 3, 'b': 0.5, 'name': 'f'}],
+           'punkte': [{'x': 0, 'y': 3, 'name': '(0 | 3)'}], 'name_x': 'Stunden', 'name_y': 'mg'},
+  'schritte': ['Bei f(x) = 3 · 0,5^x ist der Faktor b = 0,5. Er ist kleiner als 1, also wird es jede Stunde weniger: Der Graph ⟦fällt⟧.',
+               'Für x = 0 ist 0,5⁰ = 1, also f(0) = 3. Der Graph geht durch ⟦(0 | 3)⟧.',
+               'Nach 10 Stunden ist f(10) = 3 · 0,5¹⁰ ≈ 0,003. Das ist sehr wenig, aber noch mehr als 0.',
+               'Die Werte kommen der 0 immer näher, ohne sie zu erreichen: Die x-Achse ist ⟦Asymptote⟧, und es gibt keine Nullstelle.'],
+  'regel': 'So beschreibst du den Graphen von ⟦f(x) = a · b^x⟧ mit a > 0: Er schneidet die y-Achse in ⟦(0 | a)⟧, hat die ⟦x-Achse als Asymptote⟧ '
+           'und keine Nullstelle. Für b > 1 ⟦steigt⟧ er, für 0 < b < 1 ⟦fällt⟧ er.',
+  'fehler': '„f(x) = 3 · 0,5^x hat bei großem x eine Nullstelle“ ist falsch: Die Hälfte von etwas Positivem ist immer noch positiv. '
+            'Die Werte werden ⟦beliebig klein, aber nie 0⟧.'},
+ 'logfunktion': {
+  'einstieg': 'Zurück zum Teich: Diesmal ist am Anfang 1 m² mit Wasserlinsen bedeckt, und die Fläche verdoppelt sich jede Woche. '
+              'Die Funktion 2^x beantwortet: Wie groß ist die Fläche nach x Wochen? Oft fragt man umgekehrt: Nach wie vielen Wochen sind es 8 m²? '
+              'Die Funktion, die diese Frage für jede Fläche beantwortet, heißt ⟦Logarithmusfunktion⟧.',
+  'woerter': [['g(x) = 2^x', 'Fläche in m² nach x Wochen'],
+              ['f(x) = log₂(x)', 'Zahl der Wochen, bis die Fläche x m² groß ist'],
+              ['log₂(8) = 3', 'mit 3 als Exponent wird aus 2 die 8: 2³ = 8'],
+              ['Umkehrfunktion', 'sie macht die Zuordnung rückwärts: aus dem Ergebnis wird die Eingabe'],
+              ['(3 | 8)', 'Punkt mit x = 3 und y = 8 (3 Wochen → 8 m²)'],
+              ['Gerade y = x', 'die Gerade, auf der x und y immer gleich sind'],
+              ['definiert', 'man darf diesen Wert einsetzen'],
+              ['x > 0', 'nur positive Zahlen']],
+  'schritte': ['Die Funktion g(x) = 2^x geht durch (3 | 8): Nach 3 Wochen sind es 8 m².',
+               'Die Umkehrfunktion f(x) = log₂(x) fragt rückwärts: Nach wie vielen Wochen sind es 8 m²? Antwort 3, denn log₂(8) = 3.',
+               'Bei der Umkehrfunktion sind x und y vertauscht. Aus dem Punkt (3 | 8) wird ⟦(8 | 3)⟧.',
+               'Im Bild liegen die beiden Graphen deshalb spiegelbildlich zur Geraden y = x.'],
+  'regel': 'So hängen beide zusammen: ⟦f(x) = log_b(x)⟧ ist die ⟦Umkehrfunktion⟧ von g(x) = b^x – x- und y-Werte werden ⟦vertauscht⟧. '
+           'Sie ist nur für ⟦x > 0⟧ definiert und geht immer durch (1 | 0) und (b | 1).',
+  'fehler': '„log₂(x) ist für alle x definiert“ ist falsch. Eine Fläche von 0 m² oder −4 m² wird nie erreicht, denn 2^y ist immer positiv. '
+            'Deshalb gibt es log₂(x) nur für ⟦x > 0⟧.'},
+ 'zeitpunkt': {
+  'einstieg': 'Ein Sportverein hat 200 Mitglieder. Jedes Jahr kommen 5 % dazu: nach einem Jahr 210, nach zwei Jahren etwa 220. '
+              'Der Vorstand möchte wissen, wann der Verein 300 Mitglieder hat. Gesucht ist diesmal kein Wert, sondern ein ⟦Zeitpunkt⟧.',
+  'woerter': [['f(t) = 200 · 1,05^t', 'Zahl der Mitglieder nach t Jahren'],
+              ['logarithmieren', 'den Logarithmus bilden, um an den Exponenten t zu kommen'],
+              ['lg', 'Logarithmus zur Basis 10 (Taste „log“ am Taschenrechner)'],
+              ['c/a', 'c geteilt durch a: Zielwert durch Anfangswert'],
+              ['Verdopplungszeit T₂', 'die Zeit, nach der sich der Wert verdoppelt hat'],
+              ['Halbwertszeit T½', 'die Zeit, nach der nur noch die Hälfte da ist']],
+  'bild': {'typ': 'koordinaten', 'x': [0, 16], 'y': [0, 450], 'graphen': [{'art': 'exp', 'a': 200, 'b': 1.05, 'bereich': [0, 16]}],
+           'waagrecht': [300], 'senkrecht': [8.3], 'name_x': 't (Jahre)', 'name_y': 'Mitglieder'},
+  'schritte': ['Gesucht ist t mit 200 · 1,05^t = 300.',
+               'Zuerst durch den Anfangswert 200 teilen, damit die Potenz allein steht: 1,05^t = 1,5.',
+               'Jetzt logarithmieren: t = lg 1,5 : lg 1,05.',
+               'Der Taschenrechner liefert t ≈ ⟦8,3⟧. Nach gut 8 Jahren hat der Verein 300 Mitglieder.'],
+  'regel': 'So findest du den Zeitpunkt zu a · b^x = c: erst ⟦durch a teilen⟧, dann ⟦logarithmieren⟧: x = lg(c/a) : lg b. '
+           '⟦Verdopplungszeit⟧ T₂ = lg 2 : lg b, ⟦Halbwertszeit⟧ T½ = lg 0,5 : lg b.',
+  'fehler': '200 · 1,05^t = 300 ⇒ 210^t = 300 ist falsch: 200 · 1,05^t ist ein Produkt. Die 200 Mitglieder vom Anfang werden nicht jedes Jahr mit potenziert – '
+            '⟦erst durch 200 teilen⟧.'},
+}
+
 GEN = schoen({'werte': g_werte, 'faktor': g_faktor, 'modell': g_modell, 'graph': g_graph, 'logfunktion': g_logfunktion, 'zeitpunkt': g_zeitpunkt})
 
 if __name__ == '__main__':
@@ -362,7 +493,7 @@ if __name__ == '__main__':
           ['f(x) = a · b^x: a = f(0) Anfangswert, b Wachstumsfaktor (b > 1 Wachstum, 0 < b < 1 Zerfall).', 'p % Zunahme: b = 1 + p/100; Abnahme: b = 1 − p/100.',
            'Graph: durch (0 | a), x-Achse als Asymptote, keine Nullstelle.', 'log_b(x) ist Umkehrfunktion von b^x, nur für x > 0; durch (1 | 0).'],
           [('Exponentialfunktion', ['werte', 'faktor', 'modell']), ('Graphen und Logarithmus', ['graph', 'logfunktion']), ('Anwenden', ['zeitpunkt'])],
-          ETAPPEN, GEN,
+          ETAPPEN, GEN, klar=KLAR,
           meiden={'werte': ['f(3) für f(x) = 5 · 2^x', 'f(−1) für f(x) = 5 · 2^x'], 'faktor': ['um 12 % ab.'], 'modell': ['400 Zellen und verdoppelt sich alle 3 h'],
                   'logfunktion': ['P(3 | 8)'], 'zeitpunkt': ['200 · 1,05^t. Für welches t ist f(t) = 300']},
           offen=['Prüfung eingearbeitet (Runde 3): realistische Raten je Größe mit passendem Pronomen, Tabelle „linear oder exponentiell?“, Modell aus Halbwertszeit, verschobene Graphen mit Zeichnung, Logarithmus im Kopf, Graph der Logarithmusfunktion, realistische Getränketemperaturen, eine Nachkommastelle immer angezeigt.',

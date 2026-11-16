@@ -458,6 +458,132 @@ def g_verstehen(s):
                    ['ein Drittel', 'die Hälfte', 'drei Viertel'], 'V_Zylinder = πr² · 2r = 2πr³; V_Kugel = ⁴⁄₃πr³ = ⅔ · 2πr³.', 'Setze h = 2r in die Zylinderformel ein.')
 
 
+
+# ---------- KLAR: verständliche Fassung der Lernkarten (Runde 7) ----------
+# Wird erst nach dem Bauen der Aufgaben eingesetzt (bauen(..., klar=KLAR)), die Aufgaben bleiben wörtlich gleich.
+KLAR = {
+ 'pyr_volumen': {
+  'einstieg': 'Ein Zelt hat einen quadratischen Boden und läuft oben in einer Spitze zusammen. Wie viel Luft passt hinein? '
+              'Stellt man daneben eine Kiste mit demselben Boden und derselben Höhe, passt in die Kiste genau dreimal so viel. '
+              'Ein Körper mit einem Vieleck als Boden und einer Spitze heißt ⟦Pyramide⟧.',
+  'woerter': [['Pyramide', 'ein Körper mit einem Vieleck als Boden; die Seitenflächen sind Dreiecke, die sich in einer Spitze treffen'],
+              ['Grundfläche G', 'der Boden; bei einem Quadrat mit der Seite a ist G = a · a'],
+              ['Höhe h', 'der senkrechte Abstand von der Spitze zum Boden'],
+              ['Prisma', 'ein Körper mit gleichem Boden und Deckel und geraden Seitenwänden, z. B. eine Kiste (Quader)'],
+              ['V', 'das Volumen: wie viel hineinpasst, z. B. in cm³'],
+              ['⅓', 'ein Drittel'],
+              ['Schrägbild', 'eine Zeichnung, die den Körper räumlich zeigt; verdeckte Kanten sind gestrichelt']],
+  'schritte': ['Die Pyramide hat einen quadratischen Boden mit a = 6 cm und ist h = 10 cm hoch.',
+               'Zuerst die Grundfläche: G = 6 cm · 6 cm = 36 cm².',
+               'Eine Kiste mit demselben Boden und derselben Höhe hätte 36 cm² · 10 cm = 360 cm³.',
+               'Die Pyramide hat ein Drittel davon: V = ⅓ · 36 · 10 = ⟦120 cm³⟧.'],
+  'regel': 'So berechnest du das Volumen: Jede Pyramide hat ⟦ein Drittel⟧ des Volumens eines Prismas mit gleicher Grundfläche und Höhe: ⟦V = ⅓ · G · h⟧. '
+           'Anschaulich: Ein Würfel lässt sich in ⟦drei gleiche Pyramiden⟧ zerlegen, deren gemeinsame Spitze eine Würfelecke ist.',
+  'fehler': 'V = G · h = 360 cm³ ist falsch: Das wäre die ganze Kiste. In die Pyramide passt nur ⟦ein Drittel⟧ davon, weil sie nach oben spitz zuläuft.'},
+ 'pyr_oberflaeche': {
+  'einstieg': 'Das Zelt soll neuen Stoff bekommen. Wie viel Stoff braucht man? Dafür zählt man alle Flächen zusammen: den quadratischen Boden '
+              'und die vier dreieckigen Seitenwände. Die Seitenwände sind schräg, deshalb ist ihre Höhe länger als die Höhe des Zelts. '
+              'Alle Flächen zusammen heißen ⟦Oberfläche⟧.',
+  'woerter': [['Oberfläche O', 'alle Außenflächen zusammen, z. B. in cm²'],
+              ['Mantel M', 'alle Seitenflächen ohne den Boden; hier vier Dreiecke'],
+              ['Seitenhöhe hₛ', 'die Höhe eines Seitendreiecks, schräg an der Wand entlang gemessen'],
+              ['a/2', 'die halbe Grundkante'],
+              ['Satz des Pythagoras', 'im rechtwinkligen Dreieck: die beiden kurzen Seiten im Quadrat zusammen ergeben die lange Seite im Quadrat'],
+              ['√', 'Wurzel: die Zahl, die mit sich selbst malgenommen den Wert unter der Wurzel ergibt, z. B. √25 = 5']],
+  'schritte': ['Gegeben sind a = 6 cm und h = 4 cm. Im Schnitt durch die Mitte entsteht ein rechtwinkliges Dreieck aus h, a/2 = 3 cm und hₛ.',
+               'Mit Pythagoras: hₛ² = 4² + 3² = 16 + 9 = 25, also hₛ = 5 cm.',
+               'Ein Seitendreieck hat die Fläche ½ · 6 · 5 = 15 cm². Alle vier zusammen ergeben den Mantel M = 60 cm².',
+               'Dazu kommt der Boden mit 6 · 6 = 36 cm²: O = 36 + 60 = ⟦96 cm²⟧.'],
+  'regel': 'So berechnest du die Oberfläche: ⟦O = G + M⟧. Bei der quadratischen Pyramide besteht der ⟦Mantel aus 4 Dreiecken⟧: M = 4 · ½ · a · hₛ. '
+           'Die ⟦Seitenhöhe hₛ⟧ findest du mit hₛ² = h² + (a/2)².',
+  'fehler': 'Mit der Körperhöhe h statt der ⟦Seitenhöhe hₛ⟧ zu rechnen ist falsch: Die Zeltwände sind schräg und deshalb höher, als das Zelt hoch ist. '
+            'Mit 4 cm statt 5 cm würde der Stoff nicht reichen.'},
+ 'kegel_volumen': {
+  'einstieg': 'Eine Waffeltüte für Eis ist unten spitz und oben rund. Sie ist wie eine Pyramide gebaut, nur mit einem Kreis als Boden. '
+              'Deshalb gilt auch für sie: Sie fasst ein Drittel von dem, was in einen Becher mit gleichem Kreis und gleicher Höhe passt. '
+              'So ein Körper heißt ⟦Kegel⟧.',
+  'woerter': [['Kegel', 'ein Körper mit einem Kreis als Grundfläche und einer Spitze'],
+              ['Radius r', 'der Abstand von der Kreismitte zum Rand'],
+              ['r²', 'r · r, der Radius mit sich selbst malgenommen'],
+              ['π · r²', 'der Flächeninhalt des Grundkreises (π ≈ 3,14)'],
+              ['Zylinder', 'ein Körper wie eine Dose: Kreis unten und oben, gerade Wand'],
+              ['Achsenschnitt', 'ein Schnitt senkrecht durch Spitze und Kreismitte; er ist ein Dreieck'],
+              ['Mantellinie s', 'die schräge Strecke von der Spitze zum Rand']],
+  'schritte': ['Der Kegel hat den Radius r = 3 cm und die Höhe h = 8 cm.',
+               'Grundfläche: π · 3² = π · 9 = 9π cm².',
+               'Volumen: ⅓ · 9π · 8 = 24π cm³.',
+               'Mit π ≈ 3,14159 ergibt das V ≈ ⟦75,4 cm³⟧.'],
+  'regel': 'So berechnest du das Volumen: Ein Kegel ist eine „Pyramide mit Kreis als Grundfläche“: ⟦V = ⅓ · π · r² · h⟧. '
+           'Erst den Radius quadrieren, dann mit π, h und ⅓ malnehmen.',
+  'fehler': 'V = ⅓ · π · 3 · 8 ist falsch: Der Radius wird ⟦quadriert⟧, denn die Grundfläche ist ein Kreis mit π · r². '
+            'Ohne Quadrat kämen nur 8π ≈ 25 cm³ heraus – ein Drittel des richtigen Werts.'},
+ 'kegel_mantel': {
+  'einstieg': 'Schneidet man eine Waffeltüte an der Seite gerade auf und rollt sie flach aus, entsteht ein Stück aus einem Kreis – wie ein Stück Torte. '
+              'Sein Radius ist die schräge Seitenlinie der Tüte, und sein Bogen ist so lang wie der runde Rand oben. '
+              'Dieses Tortenstück heißt ⟦Kreissektor⟧.',
+  'woerter': [['Mantel', 'die gebogene Seitenfläche des Kegels'],
+              ['Mantellinie s', 'die schräge Strecke von der Spitze zum Rand'],
+              ['Kreissektor', 'ein Kreisstück wie ein Tortenstück'],
+              ['Mittelpunktswinkel φ', 'der Winkel an der Spitze des Tortenstücks (φ: griechisch „phi“)'],
+              ['Grundkreisumfang 2πr', 'die Länge des Randes des Grundkreises'],
+              ['O = πr² + πrs', 'Oberfläche des Kegels: Grundkreis plus Mantel']],
+  'schritte': ['Gegeben sind r = 3 cm und h = 4 cm. Im Achsenschnitt bilden r, h und s ein rechtwinkliges Dreieck.',
+               'Mit Pythagoras: s² = 3² + 4² = 25, also s = 5 cm.',
+               'Mantel: M = π · r · s = π · 3 · 5 = 15π ≈ ⟦47,1 cm²⟧.',
+               'Der Sektor ist der Anteil r : s = 3 : 5 eines ganzen Kreises, also φ = 360° · 3/5 = ⟦216°⟧.'],
+  'regel': 'So rechnest du mit dem Mantel: Ausgerollt ist er ein ⟦Kreissektor⟧ mit dem Radius s. Sein Bogen ist so lang wie der Grundkreisumfang 2πr. '
+           'Daraus folgen ⟦M = π · r · s⟧ und ⟦φ = 360° · r : s⟧. Oberfläche: O = πr² + πrs.',
+  'fehler': 'M = π · r · h ist falsch: Ausgerollt wird die schräge Seite, also die ⟦Mantellinie s⟧. Die Höhe h ist kürzer – mit ihr würde das Papier für die Tüte nicht reichen.'},
+ 'kugel': {
+  'einstieg': 'Ein Fußball ist rund. Wie viel Luft passt hinein, und wie viel Material braucht man für die Hülle? Für beides genügt eine einzige Länge, '
+              'denn jeder Punkt der Hülle ist gleich weit vom Mittelpunkt entfernt. So ein Körper heißt ⟦Kugel⟧, der Abstand ist ihr Radius.',
+  'woerter': [['Kugel', 'ein Körper, dessen Oberflächenpunkte alle gleich weit vom Mittelpunkt M entfernt sind'],
+              ['r³', 'r · r · r'],
+              ['⁴⁄₃', 'vier Drittel'],
+              ['V = ⁴⁄₃ · π · r³', 'das Volumen: wie viel hineinpasst'],
+              ['O = 4 · π · r²', 'die Oberfläche: wie viel Hülle man braucht'],
+              ['dritte Wurzel ∛', 'die Zahl, die dreimal mit sich malgenommen den Wert ergibt: ∛216 = 6']],
+  'schritte': ['Die Kugel hat den Radius r = 6 cm. Zuerst r³ = 6 · 6 · 6 = 216.',
+               'Volumen: V = ⁴⁄₃ · π · 216 = 288π ≈ ⟦904,8 cm³⟧.',
+               'Für die Oberfläche braucht man r² = 36: O = 4 · π · 36 = 144π ≈ ⟦452,4 cm²⟧.',
+               'Passt das? Die Kugel passt in einen Würfel mit 12 cm Kante, der 1 728 cm³ fasst – 904,8 cm³ ist gut die Hälfte davon.'],
+  'regel': 'Merke ⟦V = ⁴⁄₃ · π · r³⟧ und ⟦O = 4 · π · r²⟧. Ist V oder O gegeben, löst du nach r auf: bei V mit der dritten Wurzel, bei O mit der Quadratwurzel.',
+  'fehler': 'V = ⁴⁄₃ · π · r² ist falsch: Ein Volumen hat die Einheit cm³ (Länge mal Länge mal Länge), also braucht es ⟦r³⟧.'},
+ 'sachkontext': {
+  'einstieg': 'In der Eisdiele besteht eine Portion aus einer Waffeltüte und einer halben Kugel Eis obendrauf. Wie viel passt insgesamt hinein? '
+              'Man zerlegt die Portion in Körper, die man schon kennt, und zählt ihre Volumen zusammen. '
+              'Solche Körper heißen ⟦zusammengesetzte Körper⟧.',
+  'woerter': [['zusammengesetzter Körper', 'ein Körper aus mehreren bekannten Teilen, z. B. Kegel plus Halbkugel'],
+              ['Halbkugel', 'eine halbe Kugel; ihr Volumen ist ⅔ · π · r³'],
+              ['Teilvolumen', 'das Volumen eines Teils'],
+              ['tan, sin, cos', 'Winkelfunktionen im rechtwinkligen Dreieck, z. B. tan = Gegenkathete : Ankathete']],
+  'schritte': ['Die Eistüte ist ein Kegel mit r = 2,5 cm und h = 10 cm. Darauf sitzt eine Halbkugel mit demselben Radius.',
+               'Kegel: ⅓ · π · 2,5² · 10 = ⅓ · π · 6,25 · 10 ≈ 65,45 cm³.',
+               'Halbkugel: die Hälfte von ⁴⁄₃ · π · 2,5³, also ⅔ · π · 15,625 ≈ 32,72 cm³.',
+               'Zusammen: 65,45 + 32,72 ≈ ⟦98,2 cm³⟧.'],
+  'regel': 'So gehst du vor: Zusammengesetzte Körper ⟦zerlegen⟧ und die Teilvolumen ⟦addieren oder abziehen⟧. '
+           'Fehlende Längen mit ⟦Pythagoras⟧, Winkel mit ⟦tan, sin, cos⟧ im Achsenschnitt bestimmen.',
+  'fehler': 'Die Halbkugel mit dem vollen Kugelvolumen zu rechnen ist falsch: Auf der Tüte sitzt nur ⟦die Hälfte⟧ einer Kugel, also ⅔ · π · r³.'},
+ 'verstehen': {
+  'einstieg': 'Zwei Spitzbecher aus Papier sind gleich hoch, aber der große hat oben den doppelten Radius. Passt doppelt so viel hinein? '
+              'Nein, viermal so viel: Der Boden ist in zwei Richtungen doppelt so breit. '
+              'Wie sich Flächen und Volumen ändern, wenn man Längen mit einem Faktor malnimmt, beschreibt das ⟦Vergrößern mit dem Faktor k⟧.',
+  'woerter': [['Faktor k', 'die Zahl, mit der Längen malgenommen werden; k = 2 heißt doppelt so lang'],
+              ['k², k³', 'k · k und k · k · k'],
+              ['Querschnitt', 'die Schnittfläche, wenn man waagrecht durch den Körper schneidet'],
+              ['Prinzip von Cavalieri', 'Körper, die in jeder Höhe gleich große Querschnitte haben, haben gleiches Volumen'],
+              ['⇒', '„daraus folgt“']],
+  'schritte': ['Ein Kegel hat den doppelten Radius eines anderen, die Höhe ist gleich.',
+               'Die Grundfläche ist π · r². Mit doppeltem Radius wird sie π · (2r)² = π · 4r², also viermal so groß.',
+               'Die Höhe bleibt gleich. Deshalb wird auch das Volumen ⅓ · Grundfläche · Höhe viermal so groß.',
+               'Ergebnis: ⟦Volumen · 4⟧, nicht · 8 – verdoppelt werden nur zwei der drei Richtungen.'],
+  'regel': 'So denkst du über Vergrößerungen nach: Werden alle Längen mit k malgenommen, werden ⟦Flächen mit k², Volumen mit k³⟧ malgenommen. '
+           'Pyramide und Kegel haben ⅓ des Volumens von Prisma und Zylinder mit gleicher Grundfläche und Höhe. '
+           'Haben zwei Körper in jeder Höhe gleich große Querschnitte, haben sie ⟦gleiches Volumen⟧ (Prinzip von Cavalieri).',
+  'fehler': 'Bei doppeltem Radius das doppelte Kegelvolumen anzunehmen ist falsch: r steht ⟦im Quadrat⟧. '
+            'Der Boden ist in zwei Richtungen doppelt so breit und hat deshalb die vierfache Fläche.'},
+}
+
 GEN = schoen({'pyr_volumen': g_pyr_volumen, 'pyr_oberflaeche': g_pyr_oberflaeche, 'kegel_volumen': g_kegel_volumen, 'kegel_mantel': g_kegel_mantel,
               'kugel': g_kugel, 'sachkontext': g_sachkontext, 'verstehen': g_verstehen})
 
@@ -468,7 +594,7 @@ if __name__ == '__main__':
            'Kegel: s² = r² + h², M = π r s, O = π r² + π r s, Sektorwinkel φ = 360° · r/s.', 'Kugel: V = ⁴⁄₃ π r³, O = 4 π r².'],
           [('Pyramide', ['pyr_volumen', 'pyr_oberflaeche']), ('Kegel', ['kegel_volumen', 'kegel_mantel']), ('Kugel', ['kugel']),
            ('Anwenden und Verstehen', ['sachkontext', 'verstehen'])],
-          ETAPPEN, GEN,
+          ETAPPEN, GEN, klar=KLAR,
           meiden={'pyr_volumen': ['Grundkante a = 6 cm und die Höhe h = 10 cm'], 'pyr_oberflaeche': ['Grundkante a = 6 cm und die Höhe h = 4 cm'],
                   'kegel_volumen': ['Radius r = 3 cm und die Höhe h = 8 cm'], 'kegel_mantel': ['Radius 3 cm und die Höhe 4 cm', 'r = 3 cm, s = 5 cm'],
                   'kugel': ['Radius 6 cm']},

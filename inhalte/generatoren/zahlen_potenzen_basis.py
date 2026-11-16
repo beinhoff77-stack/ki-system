@@ -519,5 +519,126 @@ KARTEN = {
 umbau(DATEI, KARTEN)
 
 
+# ---------- SCHWER (Zehnte Runde, Zweig schwer-kl5) ----------
+# Neue Übungen nach Prüfungsvorbild (Jahrgangsstufentest 6 Bayern: Quadratzahlen, Zahlenfolgen, Verdopplung; Bayerischer Mathematik-Test); eigene Zahlen.
+from _schwer_kl5 import A, L, Z, de, einzig, ergaenze, rw, wahl  # noqa: E402
+
+_HOCH = str.maketrans('0123456789', '⁰¹²³⁴⁵⁶⁷⁸⁹')
+
+
+def _p(term):
+    """Wert eines Terms mit hochgestellten Exponenten, z. B. '2⁶' oder '(−2)³' oder '−2⁴' (Potenz vor Minus)."""
+    import re
+    rueck = str.maketrans('⁰¹²³⁴⁵⁶⁷⁸⁹', '0123456789')
+    t = re.sub(r'([⁰¹²³⁴⁵⁶⁷⁸⁹]+)', lambda m: '**' + m.group(1).translate(rueck), term)
+    return rw(t)
+
+
+def _schwer():
+    N = {}
+    sechzig = [(b, e) for b in range(2, 65) for e in range(2, 7) if b ** e == 64]
+    N['schreibweise'] = [
+        wahl(2, 'Schreibe mit zwei Potenzen: 7 · 7 · 7 · 2 · 2', ['7³ · 2²', '7² · 2³', '14⁵', '7³ + 2²'], lambda o: o == '7³ · 2²',
+             'Die 7 steht 3-mal da, die 2 steht 2-mal da: 7³ · 2².', 'Zähle für jede Basis, wie oft sie vorkommt.'),
+        Z(2, 'Eine Potenz hat den Exponenten 3 und den Wert 1 000. Wie heißt die Basis?', str(einzig([b for b in range(1, 100) if b ** 3 == 1000])),
+          '10 · 10 · 10 = 1 000. Die Basis ist 10.', 'Welche Zahl dreimal mit sich selbst malgenommen ergibt 1 000?'),
+        Z(3, 'Die Zahlenfolge 3, 9, 27, 81, … geht immer nach derselben Regel weiter. Welche Zahl steht an der 6. Stelle?', '3 ** 6',
+          'Jede Zahl ist das Dreifache der vorigen: 3¹, 3², 3³, 3⁴ … An 6. Stelle steht 3⁶ = 729.', 'Wie kommt man von einer Zahl zur nächsten? Schreibe die Zahlen als Potenzen von 3.'),
+        wahl(3, 'Was ist größer: 2¹⁰ oder 1 000?', ['2¹⁰', '1 000', 'beide gleich groß'], lambda o: o == '2¹⁰',
+             '2¹⁰ = 1 024. Das ist etwas mehr als 1 000.', 'Verdopple 10-mal: 2, 4, 8, 16, …'),
+        Z(3, 'Wie viele Möglichkeiten gibt es, 64 als Potenz zu schreiben? Basis und Exponent sollen natürliche Zahlen größer als 1 sein.', str(len(sechzig)),
+          '64 = 2⁶ = 4³ = 8². Das sind 3 Möglichkeiten.', 'Probiere die Basen 2, 4 und 8.'),
+        A(3, 'Jemand schreibt 5 + 5 + 5 = 5³. Was ist falsch?', 'Dreimal 5 addieren ist 3 · 5 = 15. 5³ heißt 5 · 5 · 5 = 125.',
+          ['Nichts, das stimmt.', 'Richtig wäre 3⁵.', 'Richtig wäre 5² + 5.'],
+          'Eine Potenz steht für wiederholtes Malnehmen, nicht für wiederholtes Addieren.', 'Was bedeutet der Exponent: wie oft addieren oder wie oft malnehmen?'),
+    ]
+    welche = ['2⁶', '4³', '8²', '3⁴']
+    N['berechnen'] = [
+        Z(2, 'Berechne 2⁴ + 3².', '2**4 + 3**2', '2⁴ = 16 und 3² = 9. 16 + 9 = 25.', 'Rechne zuerst beide Potenzen aus.'),
+        Z(2, 'Berechne 3 · 2³.', '3 * 2**3', 'Potenz zuerst: 2³ = 8. Dann 3 · 8 = 24.', 'Potenzen rechnest du vor dem Malnehmen.'),
+        Z(3, 'Berechne 5 + 2 · 3³.', '5 + 2 * 3**3', 'Potenz vor Punkt vor Strich: 3³ = 27, 2 · 27 = 54, 5 + 54 = 59.', 'Reihenfolge: erst Potenz, dann mal, dann plus.'),
+        A(3, 'Jemand rechnet 2 · 5² = 10² = 100. Was ist falsch?', 'Die Potenz kommt zuerst: 5² = 25, dann 2 · 25 = 50.',
+          ['Nichts, 100 stimmt.', 'Richtig ist 2 · 5 · 2 = 20.', 'Richtig ist 2² · 5² = 100, also stimmt es.'],
+          'Der Exponent 2 gehört nur zur 5. Erst 5² = 25, dann mal 2: 50.', 'Zu welcher Zahl gehört der Exponent?'),
+        wahl(3, 'Welche Zahl ist am größten?', welche, lambda o: _p(o) == max(_p(x) for x in welche),
+             '2⁶ = 64, 4³ = 64, 8² = 64, aber 3⁴ = 81. Am größten ist 3⁴.', 'Rechne alle vier aus.'),
+        Z(3, 'Berechne (2 + 3)² − (2² + 3²).', '(2 + 3)**2 - (2**2 + 3**2)', '(2 + 3)² = 5² = 25. 2² + 3² = 4 + 9 = 13. 25 − 13 = 12.',
+          'Bei (2 + 3)² zuerst die Klammer. Achtung: (2 + 3)² ist nicht 2² + 3².'),
+    ]
+    paar = einzig([n for n in range(1, 25) if (n + 1) ** 2 - n ** 2 == 31])
+    N['quadrat'] = [
+        Z(2, 'Berechne 15² − 14².', '15**2 - 14**2', '15² = 225 und 14² = 196. 225 − 196 = 29.', 'Rechne beide Quadratzahlen aus.'),
+        Z(2, 'Welche Quadratzahl liegt zwischen 280 und 300?', str(einzig([n * n for n in range(1, 25) if 280 < n * n < 300])),
+          '16² = 256 ist zu klein, 17² = 289 passt, 18² = 324 ist zu groß.', 'Probiere 16², 17², 18².'),
+        Z(3, 'Die Folge 100, 121, 144, 169, … besteht aus Quadratzahlen. Welche Zahl kommt als nächste?', '14**2',
+          '100 = 10², 121 = 11², 144 = 12², 169 = 13². Als nächste kommt 14² = 196.', 'Welche Zahlen werden hier quadriert?'),
+        Z(3, 'Berechne 13² + 31.', '13**2 + 31', 'Potenz zuerst: 13² = 169. Dann 169 + 31 = 200.', 'Zuerst 13 · 13 ausrechnen.'),
+        Z(3, 'Ein Quadrat ist aus Fliesen gelegt, 15 Fliesen je Seite. Wie viele Fliesen liegen am Rand?', '15**2 - 13**2',
+          'Alle Fliesen: 15² = 225. Innen bleibt ein Quadrat mit 13 · 13 = 169. Am Rand: 225 − 169 = 56.',
+          'Zieh von allen Fliesen die inneren ab. Wie viele Fliesen hat das innere Quadrat je Seite?'),
+        L(3, 'Zwei Quadratzahlen, die direkt aufeinander folgen, unterscheiden sich um 31. Welche sind es?', 'kleinere: □; größere: □', 'Trage beide Quadratzahlen ein.',
+          [f'{paar}**2', f'{paar + 1}**2'], f'{paar}² = {paar ** 2} und {paar + 1}² = {(paar + 1) ** 2}. Der Unterschied ist 31.',
+          'Schau dir die Unterschiede an: 4 − 1 = 3, 9 − 4 = 5, 16 − 9 = 7 … Wie geht es weiter?'),
+    ]
+    kl3 = ['2⁵', '5²', '3³']
+    gleich = ['a = 2, b = 4', 'a = 2, b = 3', 'a = 3, b = 4', 'a = 1, b = 2']
+    def gl(o):
+        a, b = (int(x.split('= ')[1]) for x in o.split(', '))
+        return a ** b == b ** a
+    N['vertauschen'] = [
+        wahl(2, 'Welche der Potenzen 2⁵, 5² und 3³ ist am kleinsten?', kl3, lambda o: _p(o) == min(_p(x) for x in kl3),
+             '2⁵ = 32, 5² = 25, 3³ = 27. Am kleinsten ist 5².', 'Rechne alle drei aus.'),
+        Z(2, 'Berechne 2⁵ − 5².', '2**5 - 5**2', '2⁵ = 32 und 5² = 25. 32 − 25 = 7.', 'Erst beide Potenzen ausrechnen.'),
+        wahl(3, 'Für welches Zahlenpaar gilt aᵇ = bᵃ, obwohl a und b verschieden sind?', gleich, gl,
+             '2⁴ = 16 und 4² = 16. Bei den anderen Paaren: 2³ = 8 ≠ 9 = 3², 3⁴ = 81 ≠ 64 = 4³, 1² = 1 ≠ 2 = 2¹.', 'Rechne für jedes Paar beide Potenzen aus.'),
+        Z(3, 'Wie viel größer ist 3⁴ als 4³?', '3**4 - 4**3', '3⁴ = 81 und 4³ = 64. Unterschied: 17.', 'Rechne beide Potenzen aus.'),
+        A(3, 'Jemand behauptet: 10² = 2¹⁰, weil in beiden eine 10 und eine 2 vorkommen. Stimmt das?', 'Nein: 10² = 100, aber 2¹⁰ = 1 024.',
+          ['Ja, Basis und Exponent darf man tauschen.', 'Nein: 10² = 20 und 2¹⁰ = 20, also doch gleich.', 'Ja, beide ergeben 100.'],
+          '10² = 10 · 10 = 100. 2¹⁰ ist zehnmal die 2 malgenommen: 1 024.', 'Rechne beide Potenzen aus.'),
+        Z(3, 'Wie heißt der kleinste Exponent n, für den 2ⁿ größer ist als 5²?', str(min(n for n in range(1, 20) if 2 ** n > 25)),
+          '5² = 25. 2⁴ = 16 ist zu klein, 2⁵ = 32 ist größer. Also n = 5.', 'Verdopple so lange, bis du über 25 kommst.'),
+    ]
+    N['zehner'] = [
+        Z(2, 'Schreibe 3 · 10⁵ + 4 · 10³ als Zahl.', '3 * 10**5 + 4 * 10**3', '3 · 10⁵ = 300 000 und 4 · 10³ = 4 000. Zusammen 304 000.', 'Schreibe beide Teile als Zahl und addiere.'),
+        Z(2, 'Ein Jahr hat rund 3 · 10⁷ Sekunden. Schreibe die Zahl aus.', '3 * 10**7', '10⁷ ist eine 1 mit 7 Nullen. 3 · 10⁷ = 30 000 000.', 'Hänge an die 3 so viele Nullen an, wie der Exponent sagt.'),
+        Z(3, 'Schreibe als Zahl: 2 · 10⁶ + 7 · 10⁴ + 5 · 10', '2 * 10**6 + 7 * 10**4 + 5 * 10',
+          'Millionen: 2, Zehntausender: 7, Zehner: 5. Alle anderen Stellen sind 0: 2 070 050.', 'Trage die Ziffern in eine Stellenwerttafel ein. Leere Stellen bekommen eine 0.'),
+        Z(3, 'Wie viele Nullen hat die Zahl 50 · 10⁴, wenn man sie ausschreibt?', str(str(50 * 10 ** 4).count('0')),
+          '50 · 10⁴ = 500 000. Die 50 bringt schon eine Null mit, dazu kommen 4 Nullen: 5 Nullen.', 'Schreibe die Zahl aus. Achte auf die Null in der 50.'),
+        Z(3, 'Wie oft passt 10³ in 10⁷?', '10**7 // 10**3', '10⁷ = 10 000 000, 10³ = 1 000. 10 000 000 : 1 000 = 10 000 = 10⁴.', 'Teile: Wie viele Nullen fallen weg?'),
+        Z(3, 'In einem Tresor liegen 4 · 10³ Geldscheine zu je 50 €. Wie viel Euro sind das?', '4 * 10**3 * 50', '4 · 10³ = 4 000 Scheine. 4 000 · 50 € = 200 000 €.',
+          'Schreibe zuerst die Anzahl der Scheine aus.', einheit='€'),
+    ]
+    klein = ['(−2)⁴', '−2⁴', '(−2)³', '−(−2)³']
+    N['negativ'] = [
+        Z(2, 'Berechne (−2)⁵.', '(-2)**5', '2⁵ = 32. Ungerader Exponent bei negativer Basis: −32.', 'Zähle die Minuszeichen: gerade oder ungerade?'),
+        Z(2, 'Berechne (−10)⁴.', '(-10)**4', '10⁴ = 10 000. Gerader Exponent: positiv, also 10 000.', 'Gerader Exponent bei negativer Basis ergibt plus.'),
+        Z(3, 'Berechne (−2)³ − (−3)².', '(-2)**3 - (-3)**2', '(−2)³ = −8 und (−3)² = 9. −8 − 9 = −17.', 'Rechne beide Potenzen mit Vorzeichen aus.'),
+        wahl(3, 'Welche Zahl ist am kleinsten?', klein, lambda o: _p(o) == min(_p(x) for x in klein),
+             '(−2)⁴ = 16, −2⁴ = −16 (nur die 2 wird potenziert), (−2)³ = −8, −(−2)³ = 8. Am kleinsten ist −2⁴.', 'Achte genau auf die Klammern.'),
+        Z(3, 'Für wie viele Exponenten n von 1 bis 10 gilt (−1)ⁿ = 1?', str(sum(1 for n in range(1, 11) if (-1) ** n == 1)),
+          'Bei geraden Exponenten ist (−1)ⁿ = 1: n = 2, 4, 6, 8, 10. Das sind 5.', 'Wann ist eine Potenz mit negativer Basis positiv?'),
+        Z(3, '(−3)ⁿ ist negativ und größer als −100. Der Exponent n ist größer als 1. Wie heißt n?', str(einzig([n for n in range(2, 12) if -100 < (-3) ** n < 0])),
+          'Negativ nur bei ungeradem n: (−3)³ = −27 liegt über −100, (−3)⁵ = −243 liegt darunter. Also n = 3.', 'Probiere die ungeraden Exponenten 3, 5, …'),
+    ]
+    N['sach'] = [
+        Z(2, 'Ein Karton enthält 10 Packungen. In jeder Packung sind 10 Beutel mit je 10 Bonbons. Wie viele Bonbons sind im Karton?', '10**3',
+          '10 · 10 · 10 = 10³ = 1 000 Bonbons.', 'Dreimal „je 10“: Welche Potenz ist das?'),
+        Z(2, 'Ein quadratisches Beet hat eine Fläche von 64 m². Wie lang ist eine Seite?', str(einzig([n for n in range(1, 30) if n * n == 64])),
+          '8 · 8 = 64. Eine Seite ist 8 m lang.', 'Welche Zahl mal sich selbst ergibt 64?', einheit='m'),
+        Z(3, 'In einem Teich leben 300 Algenzellen. Alle 3 Stunden verdoppelt sich ihre Anzahl. Wie viele sind es nach 12 Stunden?', '300 * 2**(12 // 3)',
+          '12 Stunden sind 4-mal 3 Stunden, also 4 Verdopplungen: 300 · 2⁴ = 300 · 16 = 4 800.', 'Wie oft wird in 12 Stunden verdoppelt?'),
+        Z(3, 'Eine Seerose verdoppelt jede Woche ihre Fläche. Nach 10 Wochen ist der Teich ganz bedeckt. Nach wie vielen Wochen war er zur Hälfte bedeckt?', '10 - 1',
+          'Von halb voll zu ganz voll ist genau eine Verdopplung, also eine Woche. Nach 9 Wochen war er halb bedeckt.', 'Denk rückwärts: Was war eine Woche vor dem vollen Teich?'),
+        Z(3, 'Ein großer Würfel ist aus 4 · 4 · 4 kleinen Würfeln gebaut. Wie viele kleine Würfel liegen ganz innen und berühren keine Außenfläche?', '(4 - 2)**3',
+          'Innen bleibt ein Würfel mit 2 · 2 · 2 = 2³ = 8 kleinen Würfeln.', 'Nimm von jeder Seite eine Schicht weg. Wie groß ist der Würfel innen?'),
+        Z(3, 'Eine Zahl wird dreimal hintereinander verdoppelt. Das Ergebnis ist 200. Wie hieß die Zahl am Anfang?', '200 // 2**3',
+          'Dreimal verdoppeln heißt mal 2³ = 8. Rückwärts: 200 : 8 = 25.', 'Dreimal verdoppeln heißt mal wie viel?'),
+    ]
+    return N
+
+
+ergaenze(DATEI, _schwer(), 1067)
+
 if __name__ == '__main__':
     schreibe(DATEI, 'zahlen.potenzen_basis.json')

@@ -43,37 +43,97 @@
    {
     "lernziel": "ablesen",
     "titel": "Steigung m und Achsenabschnitt t",
-    "regel": "So liest du ab: die Gleichung in die Form ⟦y = m · x + t⟧ bringen. ⟦m⟧ ist die Zahl vor dem x (mit Vorzeichen), ⟦t⟧ die Zahl ohne x.",
+    "regel": "⟦m⟧ steht vor dem x, ⟦t⟧ steht allein. Vorher in die Form y = m · x + t bringen und das Vorzeichen mitnehmen.",
     "schritte": [
-     "Gegeben ist y = 5 − 2x. Zuerst umsortieren, damit das x vorne steht: y = −2x + 5.",
-     "Die Zahl ohne x ist ⟦t = 5⟧. Die Gerade schneidet die y-Achse also bei (0 | 5).",
-     "Die Zahl vor dem x ist ⟦m = −2⟧: Von jedem Punkt aus geht es 1 nach rechts und 2 nach unten. Die Gerade fällt.",
-     "Genau das zeigt das gestrichelte Steigungsdreieck im Bild."
+     {
+      "text": "Preis = 3 + 2x. Umsortiert, mit x vorne: y = 2x + 3."
+     },
+     {
+      "text": "Die Zahl ohne x ist ⟦t = 3⟧: der Grundpreis bei 0 km.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 0,
+         "y": 3,
+         "name": "(0 | 3)"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Die Zahl vor x ist ⟦m = 2⟧: 1 km weiter, 2 € mehr.",
+      "bild": {
+       "strecken": [
+        [
+         1,
+         5,
+         2,
+         5,
+         "gestrichelt"
+        ],
+        [
+         2,
+         5,
+         2,
+         7,
+         "gestrichelt"
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "Bei y = 5 − 2x ist m nicht 5. Die Steigung ist die Zahl ⟦vor dem x⟧, mit Vorzeichen: m = −2. Beim Taxi wäre das, als würde man den Grundpreis für den Kilometerpreis halten.",
+    "fehler": "Bei y = 5 − 2x ist m nicht 5. Die Steigung ist die Zahl ⟦vor dem x⟧, mit Vorzeichen: −2. Die Gerade fällt.",
     "bild": {
      "typ": "koordinaten",
      "x": [
       -1,
-      4
+      5
      ],
      "y": [
-      -2,
-      6
+      0,
+      14
      ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 3,
+       "name": "Taxi"
+      }
+     ],
+     "name_x": "km",
+     "name_y": "€",
+     "schritt_y": 2
+    },
+    "einstieg": "Ein Taxi kostet 3 € Grundpreis und 2 € pro Kilometer. Im Koordinatensystem liegen alle Preise auf einer geraden Linie. So eine Zuordnung heißt ⟦lineare Funktion⟧.",
+    "woerter": [
+     [
+      "lineare Funktion",
+      "ihr Graph ist eine Gerade: y = m · x + t"
+     ],
+     [
+      "m (Steigung)",
+      "so viel geht es hoch, wenn man 1 nach rechts geht"
+     ],
+     [
+      "t (y-Achsenabschnitt)",
+      "der Startwert: dort trifft die Gerade die y-Achse"
+     ]
+    ],
+    "fehler_bild": {
      "graphen": [
       {
        "art": "linear",
        "m": -2,
        "t": 5,
-       "name": "y = −2x + 5"
+       "name": "5 − 2x"
       }
      ],
      "punkte": [
       {
        "x": 0,
        "y": 5,
-       "name": "(0 | 5)"
+       "name": "t = 5"
       }
      ],
      "strecken": [
@@ -92,42 +152,56 @@
        "gestrichelt"
       ]
      ]
-    },
-    "einstieg": "Eine Taxifahrt kostet 3 € Grundpreis und 2 € pro Kilometer. Trägt man Strecke und Preis in ein Koordinatensystem ein, liegen alle Punkte auf einer geraden Linie. Die 3 € liest man dort ab, wo die Linie die senkrechte Achse trifft; die 2 € pro km zeigen, wie steil sie ist. So eine Zuordnung heißt ⟦lineare Funktion⟧.",
-    "woerter": [
-     [
-      "lineare Funktion",
-      "eine Funktion, deren Graph eine Gerade ist: y = m · x + t"
-     ],
-     [
-      "m (Steigung)",
-      "so viel geht es nach oben, wenn man 1 nach rechts geht"
-     ],
-     [
-      "t (y-Achsenabschnitt)",
-      "dort schneidet die Gerade die y-Achse – der Startwert"
-     ],
-     [
-      "Steigungsdreieck",
-      "das kleine Dreieck „1 nach rechts, m nach oben“ im Bild"
-     ],
-     [
-      "(0 | 5)",
-      "der Punkt mit x = 0 und y = 5"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "zwei_punkte",
     "titel": "Steigung aus zwei Punkten",
-    "regel": "Durch zwei Punkte P(x₁ | y₁) und Q(x₂ | y₂) geht genau eine Gerade. Ihre Steigung ist ⟦m = (y₂ − y₁) : (x₂ − x₁)⟧ („Höhenunterschied durch Längenunterschied“).",
+    "regel": "Steigung = ⟦nach oben : nach rechts⟧. Mit zwei Punkten: m = (y₂ − y₁) : (x₂ − x₁).",
     "schritte": [
-     "Gegeben sind P(1 | 3) und Q(4 | 9).",
-     "Von P nach Q geht es nach rechts: 4 − 1 = 3.",
-     "Dabei geht es nach oben: 9 − 3 = 6.",
-     "Steigung = nach oben : nach rechts = 6 : 3, also ⟦m = 2⟧."
+     {
+      "text": "Die Punkte sind P(1 | 3) und Q(4 | 9)."
+     },
+     {
+      "text": "Nach rechts: 4 − 1 = 3.",
+      "bild": {
+       "strecken": [
+        [
+         1,
+         3,
+         4,
+         3,
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Nach oben: 9 − 3 = 6.",
+      "bild": {
+       "strecken": [
+        [
+         1,
+         3,
+         4,
+         3,
+         "gestrichelt"
+        ],
+        [
+         4,
+         3,
+         4,
+         9,
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Steigung: 6 : 3, also ⟦m = 2⟧."
+     }
     ],
-    "fehler": "m = (4 − 1) : (9 − 3) = 0,5 ist falsch: Die ⟦y-Differenz⟧ gehört nach oben (in den Zähler), die x-Differenz nach unten.",
+    "fehler": "m = 3 : 6 = 0,5 ist falsch. Der Höhenunterschied kommt ⟦nach oben⟧ in den Bruch, die Strecke nach rechts nach unten.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -156,55 +230,69 @@
        "y": 9,
        "name": "Q"
       }
-     ],
-     "strecken": [
-      [
-       1,
-       3,
-       4,
-       3,
-       "gestrichelt"
-      ],
-      [
-       4,
-       3,
-       4,
-       9,
-       "gestrichelt"
-      ]
      ]
     },
-    "einstieg": "Ein Wanderweg steigt gleichmäßig an: Nach 3 km Weg bist du 6 m höher als am Start. Pro Kilometer sind das 6 : 3 = 2 m. Genauso berechnest du die Steigung einer Geraden aus zwei Punkten: Höhenunterschied geteilt durch den Unterschied nach rechts. Das Ergebnis ist die ⟦Steigung m⟧.",
+    "einstieg": "Ein Wanderweg steigt gleichmäßig. Von Kilometer 1 bis Kilometer 4 gewinnst du 6 m Höhe. Höhenunterschied geteilt durch Wegunterschied ist die ⟦Steigung⟧.",
     "woerter": [
      [
+      "Steigung",
+      "Höhenunterschied : Unterschied nach rechts"
+     ],
+     [
       "P(1 | 3)",
-      "Punkt P mit x = 1 und y = 3"
-     ],
-     [
-      "x₁, y₁ und x₂, y₂",
-      "die Koordinaten des ersten und des zweiten Punkts (die kleine Zahl ist nur eine Nummer)"
-     ],
-     [
-      "Differenz",
-      "Unterschied, das Ergebnis einer Minus-Rechnung"
-     ],
-     [
-      "m = (y₂ − y₁) : (x₂ − x₁)",
-      "Steigung = Unterschied nach oben : Unterschied nach rechts"
+      "Punkt bei x = 1 und y = 3"
      ]
     ]
    },
    {
     "lernziel": "proportional",
     "titel": "Proportionalität: Ursprungsgerade",
-    "regel": "So erkennst du ⟦direkte Proportionalität⟧: Die Gleichung hat die Form y = k · x, der Graph geht durch den ⟦Ursprung⟧. k berechnest du als y : x.",
+    "regel": "Proportional heißt ⟦y = k · x⟧, Gerade durch den Ursprung. k berechnest du als y : x.",
     "schritte": [
-     "3 kg Äpfel kosten 7,50 €.",
-     "Preis für 1 kg: 7,50 € : 3 = 2,50 €. Das ist k.",
-     "Die Funktion heißt also ⟦y = 2,5 · x⟧.",
-     "Damit kosten 8 kg: 2,5 · 8 = 20 €."
+     {
+      "text": "3 kg kosten 7,50 €.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 0,
+         "y": 0,
+         "name": "O"
+        },
+        {
+         "x": 3,
+         "y": 7.5,
+         "name": "(3 | 7,5)"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Preis für 1 kg: 7,50 € : 3 = 2,50 €. Das ist k.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 0,
+         "y": 0,
+         "name": "O"
+        },
+        {
+         "x": 1,
+         "y": 2.5,
+         "name": "(1 | 2,5)"
+        },
+        {
+         "x": 3,
+         "y": 7.5,
+         "name": "(3 | 7,5)"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Die Funktion heißt ⟦y = 2,5 · x⟧. Sie geht durch den Ursprung O."
+     }
     ],
-    "fehler": "y = 2x + 1 ist ⟦keine⟧ Proportionalität: Für x = 0 ist y = 1, die Gerade geht nicht durch den Ursprung. Verdoppelt man x, verdoppelt sich y nicht.",
+    "fehler": "y = 2x + 1 ist ⟦nicht⟧ proportional: Bei 0 kg müsstest du 1 € zahlen. Die Gerade verfehlt den Ursprung.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -220,13 +308,47 @@
        "art": "linear",
        "m": 2.5,
        "t": 0,
-       "name": "y = 2,5x"
+       "name": "2,5x"
+      }
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ],
+     "name_x": "kg",
+     "name_y": "€"
+    },
+    "einstieg": "Am Obststand kostet 1 kg Äpfel 2,50 €. Doppelt so viel kostet doppelt so viel, nichts kostet nichts. So eine Zuordnung heißt ⟦direkt proportional⟧.",
+    "woerter": [
+     [
+      "direkt proportional",
+      "doppelt so viel → doppelt so teuer, 0 → 0"
+     ],
+     [
+      "k",
+      "der Preis für 1 kg, allgemein y : x"
+     ],
+     [
+      "Ursprung O",
+      "der Nullpunkt (0 | 0)"
+     ]
+    ],
+    "fehler_bild": {
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2.5,
+       "t": 0,
+       "name": "2,5x"
       },
       {
        "art": "linear",
        "m": 2,
        "t": 1,
-       "name": "y = 2x + 1"
+       "name": "2x + 1"
       }
      ],
      "punkte": [
@@ -237,71 +359,125 @@
       },
       {
        "x": 0,
-       "y": 1
+       "y": 1,
+       "name": "1 €?"
       }
-     ],
-     "name_x": "kg",
-     "name_y": "€"
-    },
-    "einstieg": "Am Obststand kostet 1 kg Äpfel 2,50 €. Kaufst du doppelt so viel, zahlst du doppelt so viel; kaufst du nichts, zahlst du nichts. So eine Zuordnung heißt ⟦direkt proportional⟧. Ihr Graph ist eine Gerade durch den Nullpunkt.",
-    "woerter": [
-     [
-      "direkt proportional",
-      "doppelt so viel → doppelt so teuer; 0 kg → 0 €"
-     ],
-     [
-      "k (Proportionalitätsfaktor)",
-      "der Preis für 1 kg – allgemein: y für x = 1"
-     ],
-     [
-      "Ursprung O",
-      "der Nullpunkt (0 | 0)"
-     ],
-     [
-      "y = 2,5 · x",
-      "Preis y in € für x kg"
      ]
-    ]
+    }
    },
    {
     "lernziel": "aufstellen",
     "titel": "Geradengleichung aufstellen",
-    "regel": "Kennst du m und einen Punkt P(a | b), setzt du P in y = m · x + t ein und berechnest ⟦t = b − m · a⟧. Bei zwei Punkten berechnest du ⟦zuerst m⟧.",
+    "regel": "Setze den Punkt ein und ⟦löse nach t auf⟧. Bei zwei Punkten berechnest du zuerst m.",
     "schritte": [
-     "Gegeben: m = 3 und der Punkt P(2 | 1). Gesucht ist t.",
-     "Setze x = 2 und y = 1 in y = 3x + t ein: 1 = 3 · 2 + t, also 1 = 6 + t.",
-     "Auf beiden Seiten 6 abziehen: t = −5.",
-     "Die Geradengleichung lautet ⟦y = 3x − 5⟧."
+     {
+      "text": "Gegeben: m = 3 und P(2 | 1). Gesucht ist t."
+     },
+     {
+      "text": "P einsetzen: 1 = 3 · 2 + t, also 1 = 6 + t."
+     },
+     {
+      "text": "6 abziehen: ⟦t = −5⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 2,
+         "y": 1,
+         "name": "P(2 | 1)"
+        },
+        {
+         "x": 0,
+         "y": -5,
+         "name": "(0 | −5)"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Die Geradengleichung lautet y = 3x − 5.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 3,
+         "t": -5
+        }
+       ]
+      }
+     }
     ],
-    "probe": "3 · 2 − 5 = 1 ✓",
-    "fehler": "Bei P(2 | 1) setzt man x = 2 und y = 1 ein – nicht umgekehrt. 2 = 3 · 1 + t führt zu ⟦t = −1⟧ und einer falschen Geraden.",
-    "einstieg": "Ein Wanderer kennt die Steigung seines Weges und weiß, an welcher Stelle er gerade steht. Daraus kann er berechnen, auf welcher Höhe der Weg angefangen hat. Bei Geraden ist es genauso: Aus der Steigung m und einem Punkt berechnest du den Startwert t – du ⟦stellst die Geradengleichung auf⟧.",
+    "fehler": "Bei P(2 | 1) ist x = 2 und y = 1, nicht umgekehrt. Vertauscht kommt ⟦t = −1⟧ heraus – die Gerade verfehlt P.",
+    "einstieg": "Du kennst die Steigung eines Weges und einen Punkt, an dem du gerade bist. Daraus berechnest du, wo der Weg beginnt. So stellst du die ⟦Geradengleichung⟧ auf.",
     "woerter": [
      [
       "Geradengleichung",
-      "die Gleichung y = m · x + t mit bestimmten Zahlen für m und t"
-     ],
-     [
-      "P(2 | 1)",
-      "Punkt mit x = 2 und y = 1"
-     ],
-     [
-      "t = b − m · a",
-      "Formel für t, wenn der Punkt P(a | b) bekannt ist"
+      "y = m · x + t mit festen Zahlen für m und t"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -6,
+      6
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 1,
+       "name": "P(2 | 1)"
+      }
+     ]
+    },
+    "fehler_bild": {
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 3,
+       "t": -1,
+       "name": "falsch"
+      }
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 1,
+       "name": "P"
+      }
+     ]
+    }
    },
    {
     "lernziel": "schnittpunkte",
     "titel": "Schnittpunkte berechnen",
-    "regel": "Schnitt mit der ⟦x-Achse⟧: y = 0 setzen (Nullstelle). Schnitt mit der ⟦y-Achse⟧: x = 0, also (0 | t). Schnitt zweier Geraden: Im Schnittpunkt haben beide ⟦dasselbe x und dasselbe y⟧. Deshalb setzt du die Terme ⟦gleich⟧.",
+    "regel": "Für den Schnittpunkt ⟦setzt du die Terme gleich⟧. Mit der x-Achse: y = 0. Mit der y-Achse: x = 0.",
     "schritte": [
-     "g: y = 2x − 1 und h: y = −x + 5. Im Schnittpunkt haben beide dasselbe y.",
-     "Deshalb die Terme gleichsetzen: 2x − 1 = −x + 5.",
-     "Auf beiden Seiten x und 1 dazuzählen: 3x = 6, also x = 2.",
-     "x = 2 in g einsetzen: y = 2 · 2 − 1 = 3. Der Schnittpunkt ist ⟦S(2 | 3)⟧."
+     {
+      "text": "g: y = 2x − 1 und h: y = −x + 5."
+     },
+     {
+      "text": "Im Schnittpunkt ist y gleich, also gleichsetzen: 2x − 1 = −x + 5."
+     },
+     {
+      "text": "x und 1 dazuzählen: 3x = 6, also x = 2."
+     },
+     {
+      "text": "In g: y = 2 · 2 − 1 = 3. ⟦S(2 | 3)⟧",
+      "bild": {
+       "punkte": [
+        {
+         "x": 2,
+         "y": 3,
+         "name": "S(2 | 3)"
+        }
+       ]
+      }
+     }
     ],
-    "fehler": "Der Schnittpunkt mit der x-Achse von y = 2x − 1 ist nicht (0 | −1). Das ist der Schnitt mit der ⟦y-Achse⟧. Für die x-Achse gilt y = 0: x = 0,5.",
+    "fehler": "(0 | −1) ist der Schnitt mit der ⟦y-Achse⟧, nicht mit der x-Achse. Für die x-Achse setzt du y = 0: x = 0,5.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -325,42 +501,103 @@
        "t": 5,
        "name": "h"
       }
-     ],
-     "punkte": [
-      {
-       "x": 2,
-       "y": 3,
-       "name": "S(2 | 3)"
-      }
      ]
     },
-    "einstieg": "Zwei Freunde laufen dieselbe Strecke; einer startet früher, der andere läuft schneller. Wann holt der Schnellere den anderen ein? In diesem Moment sind beide zur selben Zeit am selben Ort. Im Koordinatensystem ist das der Punkt, an dem sich ihre Geraden treffen: der ⟦Schnittpunkt⟧.",
+    "einstieg": "Zwei Freunde laufen dieselbe Strecke, einer startet früher, der andere ist schneller. Beim Einholen sind beide zur selben Zeit am selben Ort. Im Bild ist das der ⟦Schnittpunkt⟧.",
     "woerter": [
      [
-      "Schnittpunkt S",
+      "Schnittpunkt",
       "der Punkt, der auf beiden Geraden liegt"
      ],
      [
-      "x-Achse / y-Achse",
-      "die waagrechte / die senkrechte Achse im Koordinatensystem"
-     ],
-     [
       "gleichsetzen",
-      "die beiden Terme für y gleich setzen, weil y im Schnittpunkt gleich ist"
+      "die beiden Terme für y gleich setzen"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "punkte": [
+      {
+       "x": 0,
+       "y": -1,
+       "name": "y-Achse"
+      },
+      {
+       "x": 0.5,
+       "y": 0,
+       "name": "x-Achse"
+      }
+     ]
+    }
    },
    {
     "lernziel": "lage",
     "titel": "Parallel oder senkrecht?",
-    "regel": "Gleiche Steigung (m₁ = m₂): Die Geraden sind ⟦parallel⟧. Ist ⟦m₁ · m₂ = −1⟧, stehen sie ⟦senkrecht⟧ aufeinander. Warum? Drehst du das Steigungsdreieck „1 nach rechts, 2 nach oben“ um 90°, wird daraus „2 nach rechts, 1 nach unten“. Die neue Steigung ist −1/2, und 2 · (−1/2) = −1.",
+    "regel": "Gleiche Steigung: ⟦parallel⟧. Produkt der Steigungen −1: ⟦senkrecht⟧.",
     "schritte": [
-     "g: y = 2x + 1 hat die Steigung m₁ = 2. h: y = −0,5x + 3 hat die Steigung m₂ = −0,5.",
-     "Die Steigungen sind verschieden, also sind g und h nicht parallel.",
-     "Produkt der Steigungen: 2 · (−0,5) = −1.",
-     "Das Produkt ist −1, also sind ⟦g und h senkrecht zueinander⟧."
+     {
+      "text": "g: y = 2x + 1 hat die Steigung m₁ = 2.",
+      "bild": {
+       "strecken": [
+        [
+         0,
+         1,
+         1,
+         1,
+         "gestrichelt"
+        ],
+        [
+         1,
+         1,
+         1,
+         3,
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "h: y = −0,5x + 3 hat m₂ = −0,5.",
+      "bild": {
+       "strecken": [
+        [
+         0,
+         1,
+         1,
+         1,
+         "gestrichelt"
+        ],
+        [
+         1,
+         1,
+         1,
+         3,
+         "gestrichelt"
+        ],
+        [
+         0,
+         3,
+         2,
+         3,
+         "gestrichelt"
+        ],
+        [
+         2,
+         3,
+         2,
+         2,
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Verschiedene Steigungen: nicht parallel. Produkt: 2 · (−0,5) = −1."
+     },
+     {
+      "text": "Produkt −1 heißt: ⟦g und h stehen senkrecht⟧."
+     }
     ],
-    "fehler": "y = 2x + 1 und y = −2x + 1 stehen nicht senkrecht: 2 · (−2) = −4 ≠ −1. Für senkrecht braucht man den ⟦negativen Kehrwert⟧: −1/2.",
+    "fehler": "y = 2x + 1 und y = −2x + 1 sind nicht senkrecht: 2 · (−2) = −4. Nötig ist der ⟦negative Kehrwert⟧ −1/2.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -385,88 +622,142 @@
        "t": 3,
        "name": "h"
       }
-     ],
-     "strecken": [
-      [
-       0,
-       1,
-       1,
-       1,
-       "gestrichelt"
-      ],
-      [
-       1,
-       1,
-       1,
-       3,
-       "gestrichelt"
-      ],
-      [
-       0,
-       3,
-       2,
-       3,
-       "gestrichelt"
-      ],
-      [
-       2,
-       3,
-       2,
-       2,
-       "gestrichelt"
-      ]
      ]
     },
-    "einstieg": "Bahngleise laufen nebeneinander her und treffen sich nie – sie sind parallel. Eine Straße, die eine andere im rechten Winkel kreuzt, steht senkrecht auf ihr. Ob zwei Geraden parallel oder ⟦senkrecht⟧ sind, kannst du an ihren Steigungen ablesen, ohne zu zeichnen.",
+    "einstieg": "Bahngleise treffen sich nie, sie sind parallel. Eine Straße, die eine andere im rechten Winkel kreuzt, steht ⟦senkrecht⟧ auf ihr. Das erkennst du an den Steigungen.",
     "woerter": [
      [
       "parallel",
-      "gleiche Richtung, kein gemeinsamer Punkt"
+      "gleich steil, ohne Schnittpunkt"
      ],
      [
       "senkrecht",
-      "die Geraden kreuzen sich im rechten Winkel (90°)"
+      "im rechten Winkel, wie ein Kreuz"
      ],
      [
-      "m₁, m₂",
-      "die Steigungen der ersten und der zweiten Geraden"
-     ],
-     [
-      "negativer Kehrwert",
-      "Bruch umdrehen und Vorzeichen wechseln: von 2 ist es −1/2"
+      "m₁",
+      "die Steigung der ersten Geraden; m₂ die der zweiten"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 1,
+       "name": "g"
+      },
+      {
+       "art": "linear",
+       "m": -2,
+       "t": 1,
+       "name": "nicht ⊥"
+      }
+     ],
+     "strecken": []
+    }
    },
    {
     "lernziel": "deuten",
     "titel": "Lineare Funktionen im Sachzusammenhang",
-    "regel": "In Anwendungen ist ⟦t der Startwert⟧ (bei x = 0) und ⟦m die Änderung pro Einheit⟧ von x. Ein negatives m heißt: Die Größe nimmt ab.",
+    "regel": "⟦t ist der Start, m die Änderung⟧ pro Einheit. Ein negatives m heißt: Die Größe nimmt ab.",
     "schritte": [
-     "Kerze: h(x) = −1,5x + 20, h in cm, x in Stunden.",
-     "t = 20 ist der Wert bei x = 0: Anfangs ist die Kerze 20 cm hoch.",
-     "m = −1,5 ist die Änderung pro Stunde: Die Kerze wird jede Stunde 1,5 cm kürzer.",
-     "Abgebrannt ist sie bei h = 0: 1,5x = 20, also ⟦x ≈ 13,3 h⟧."
+     {
+      "text": "Die Funktion ist h(x) = −1,5x + 20."
+     },
+     {
+      "text": "t = 20 ist der Start: 20 cm bei x = 0.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 0,
+         "y": 20,
+         "name": "Start"
+        }
+       ]
+      }
+     },
+     {
+      "text": "m = −1,5: Jede Stunde wird sie 1,5 cm kürzer.",
+      "bild": {
+       "strecken": [
+        [
+         2,
+         17,
+         3,
+         17,
+         "gestrichelt"
+        ],
+        [
+         3,
+         17,
+         3,
+         15.5,
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Abgebrannt bei h = 0: 1,5x = 20, also ⟦x ≈ 13,3 h⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 0,
+         "y": 20,
+         "name": "Start"
+        },
+        {
+         "x": 13.33,
+         "y": 0,
+         "name": "leer"
+        }
+       ]
+      }
+     }
     ],
     "fehler": "m = −1,5 heißt nicht, dass die Kerze 1,5 cm hoch ist. m ist eine ⟦Änderung⟧ pro Stunde, keine Höhe.",
-    "einstieg": "Eine Kerze ist anfangs 20 cm hoch und wird pro Stunde 1,5 cm kürzer. In der Funktion h(x) = −1,5x + 20 steckt diese ganze Geschichte. Jede Zahl hat eine Bedeutung: Die 20 ist der Anfang, die −1,5 die Änderung pro Stunde. Diese Bedeutung herauszulesen heißt ⟦deuten⟧.",
+    "einstieg": "Eine Kerze ist anfangs 20 cm hoch und wird pro Stunde 1,5 cm kürzer. Jede Zahl der Funktion erzählt davon. Diese Bedeutung herauszulesen heißt ⟦deuten⟧.",
     "woerter": [
      [
+      "deuten",
+      "sagen, was eine Zahl in der Geschichte bedeutet"
+     ],
+     [
       "h(x)",
-      "Höhe der Kerze in cm nach x Stunden"
-     ],
-     [
-      "Startwert",
-      "der Wert am Anfang, also bei x = 0 – hier t = 20"
-     ],
-     [
-      "Änderung pro Einheit",
-      "um so viel ändert sich der Wert, wenn x um 1 wächst – hier m = −1,5"
+      "die Höhe der Kerze nach x Stunden"
      ],
      [
       "≈",
-      "„ungefähr gleich“ (gerundet)"
+      "„ungefähr gleich“"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      15
+     ],
+     "y": [
+      0,
+      22
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -1.5,
+       "t": 20,
+       "name": "Kerze",
+       "bereich": [
+        0,
+        13.4
+       ]
+      }
+     ],
+     "name_x": "h",
+     "name_y": "cm",
+     "schritt_y": 5
+    }
    }
   ],
   "teilfaehigkeiten": [

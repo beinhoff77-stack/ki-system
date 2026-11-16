@@ -2,6 +2,10 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 02:58 – STATUS
+funktionen.linear umgebaut (7 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_kl8.py).
+Aufgaben-Vergleich gegen `git show lernen-app:inhalte/themen/funktionen.linear.json`: alle wörtlich gleich. inhalt_pruefen: 0 Fehler, 0 Hinweise. Ohne fehler_bild: zwei_punkte, deuten.
+
 ## 2026-11-16 02:57 – STATUS
 gleichungen.lgs2 umgebaut (8 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_kl8.py).
 Aufgaben-Vergleich gegen `git show lernen-app:inhalte/themen/gleichungen.lgs2.json`: alle wörtlich gleich. inhalt_pruefen: 0 Fehler, 0 Hinweise. Ohne fehler_bild: grafisch, einsetzen, gleichsetzen, verfahren, loesbarkeit, sachaufgabe (Fehler ist ein Rechen- bzw. Ablesefehler ohne eigenes Bild).

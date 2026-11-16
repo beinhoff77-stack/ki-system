@@ -480,6 +480,91 @@ def g_deuten(R, st):
 GEN = {'ablesen': g_ablesen, 'zwei_punkte': g_zwei_punkte, 'aufstellen': g_aufstellen, 'proportional': g_proportional,
        'schnittpunkte': g_schnittpunkte, 'lage': g_lage, 'deuten': g_deuten}
 
+
+# ---------- UMBAU: neues Muster (Achte Runde, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl8.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl8 import mit_umbau  # noqa: E402
+
+_KO = lambda **k: {'typ': 'koordinaten', **k}
+UMBAU = {
+ 'ablesen': {
+  'einstieg': 'Ein Taxi kostet 3 € Grundpreis und 2 € pro Kilometer. Im Koordinatensystem liegen alle Preise auf einer geraden Linie. So eine Zuordnung heißt ⟦lineare Funktion⟧.',
+  'woerter': [['lineare Funktion', 'ihr Graph ist eine Gerade: y = m · x + t'], ['m (Steigung)', 'so viel geht es hoch, wenn man 1 nach rechts geht'], ['t (y-Achsenabschnitt)', 'der Startwert: dort trifft die Gerade die y-Achse']],
+  'bild': _KO(x=[-1, 5], y=[0, 14], graphen=[{'art': 'linear', 'm': 2, 't': 3, 'name': 'Taxi'}], name_x='km', name_y='€', schritt_y=2),
+  'schritte': [{'text': 'Preis = 3 + 2x. Umsortiert, mit x vorne: y = 2x + 3.'},
+               {'text': 'Die Zahl ohne x ist ⟦t = 3⟧: der Grundpreis bei 0 km.', 'bild': {'punkte': [{'x': 0, 'y': 3, 'name': '(0 | 3)'}]}},
+               {'text': 'Die Zahl vor x ist ⟦m = 2⟧: 1 km weiter, 2 € mehr.', 'bild': {'strecken': [[1, 5, 2, 5, 'gestrichelt'], [2, 5, 2, 7, 'gestrichelt']]}}],
+  'fehler': 'Bei y = 5 − 2x ist m nicht 5. Die Steigung ist die Zahl ⟦vor dem x⟧, mit Vorzeichen: −2. Die Gerade fällt.',
+  'fehler_bild': {'graphen': [{'art': 'linear', 'm': -2, 't': 5, 'name': '5 − 2x'}], 'punkte': [{'x': 0, 'y': 5, 'name': 't = 5'}], 'strecken': [[1, 3, 2, 3, 'gestrichelt'], [2, 3, 2, 1, 'gestrichelt']]},
+  'regel': '⟦m⟧ steht vor dem x, ⟦t⟧ steht allein. Vorher in die Form y = m · x + t bringen und das Vorzeichen mitnehmen.'},
+ 'zwei_punkte': {
+  'einstieg': 'Ein Wanderweg steigt gleichmäßig. Von Kilometer 1 bis Kilometer 4 gewinnst du 6 m Höhe. Höhenunterschied geteilt durch Wegunterschied ist die ⟦Steigung⟧.',
+  'woerter': [['Steigung', 'Höhenunterschied : Unterschied nach rechts'], ['P(1 | 3)', 'Punkt bei x = 1 und y = 3']],
+  'bild': _KO(x=[-1, 6], y=[-1, 11], graphen=[{'art': 'linear', 'm': 2, 't': 1}], punkte=[{'x': 1, 'y': 3, 'name': 'P'}, {'x': 4, 'y': 9, 'name': 'Q'}]),
+  'schritte': [{'text': 'Die Punkte sind P(1 | 3) und Q(4 | 9).'},
+               {'text': 'Nach rechts: 4 − 1 = 3.', 'bild': {'strecken': [[1, 3, 4, 3, 'gestrichelt']]}},
+               {'text': 'Nach oben: 9 − 3 = 6.', 'bild': {'strecken': [[1, 3, 4, 3, 'gestrichelt'], [4, 3, 4, 9, 'gestrichelt']]}},
+               {'text': 'Steigung: 6 : 3, also ⟦m = 2⟧.'}],
+  'fehler': 'm = 3 : 6 = 0,5 ist falsch. Der Höhenunterschied kommt ⟦nach oben⟧ in den Bruch, die Strecke nach rechts nach unten.',
+  'regel': 'Steigung = ⟦nach oben : nach rechts⟧. Mit zwei Punkten: m = (y₂ − y₁) : (x₂ − x₁).'},
+ 'proportional': {
+  'einstieg': 'Am Obststand kostet 1 kg Äpfel 2,50 €. Doppelt so viel kostet doppelt so viel, nichts kostet nichts. So eine Zuordnung heißt ⟦direkt proportional⟧.',
+  'woerter': [['direkt proportional', 'doppelt so viel → doppelt so teuer, 0 → 0'], ['k', 'der Preis für 1 kg, allgemein y : x'], ['Ursprung O', 'der Nullpunkt (0 | 0)']],
+  'bild': _KO(x=[0, 4], y=[0, 10], graphen=[{'art': 'linear', 'm': 2.5, 't': 0, 'name': '2,5x'}], punkte=[{'x': 0, 'y': 0, 'name': 'O'}], name_x='kg', name_y='€'),
+  'schritte': [{'text': '3 kg kosten 7,50 €.', 'bild': {'punkte': [{'x': 0, 'y': 0, 'name': 'O'}, {'x': 3, 'y': 7.5, 'name': '(3 | 7,5)'}]}},
+               {'text': 'Preis für 1 kg: 7,50 € : 3 = 2,50 €. Das ist k.', 'bild': {'punkte': [{'x': 0, 'y': 0, 'name': 'O'}, {'x': 1, 'y': 2.5, 'name': '(1 | 2,5)'}, {'x': 3, 'y': 7.5, 'name': '(3 | 7,5)'}]}},
+               {'text': 'Die Funktion heißt ⟦y = 2,5 · x⟧. Sie geht durch den Ursprung O.'}],
+  'fehler': 'y = 2x + 1 ist ⟦nicht⟧ proportional: Bei 0 kg müsstest du 1 € zahlen. Die Gerade verfehlt den Ursprung.',
+  'fehler_bild': {'graphen': [{'art': 'linear', 'm': 2.5, 't': 0, 'name': '2,5x'}, {'art': 'linear', 'm': 2, 't': 1, 'name': '2x + 1'}], 'punkte': [{'x': 0, 'y': 0, 'name': 'O'}, {'x': 0, 'y': 1, 'name': '1 €?'}]},
+  'regel': 'Proportional heißt ⟦y = k · x⟧, Gerade durch den Ursprung. k berechnest du als y : x.'},
+ 'aufstellen': {
+  'einstieg': 'Du kennst die Steigung eines Weges und einen Punkt, an dem du gerade bist. Daraus berechnest du, wo der Weg beginnt. So stellst du die ⟦Geradengleichung⟧ auf.',
+  'woerter': [['Geradengleichung', 'y = m · x + t mit festen Zahlen für m und t']],
+  'bild': _KO(x=[-1, 4], y=[-6, 6], punkte=[{'x': 2, 'y': 1, 'name': 'P(2 | 1)'}]),
+  'schritte': [{'text': 'Gegeben: m = 3 und P(2 | 1). Gesucht ist t.'},
+               {'text': 'P einsetzen: 1 = 3 · 2 + t, also 1 = 6 + t.'},
+               {'text': '6 abziehen: ⟦t = −5⟧.', 'bild': {'punkte': [{'x': 2, 'y': 1, 'name': 'P(2 | 1)'}, {'x': 0, 'y': -5, 'name': '(0 | −5)'}]}},
+               {'text': 'Die Geradengleichung lautet y = 3x − 5.', 'bild': {'graphen': [{'art': 'linear', 'm': 3, 't': -5}]}}],
+  'fehler': 'Bei P(2 | 1) ist x = 2 und y = 1, nicht umgekehrt. Vertauscht kommt ⟦t = −1⟧ heraus – die Gerade verfehlt P.',
+  'fehler_bild': {'graphen': [{'art': 'linear', 'm': 3, 't': -1, 'name': 'falsch'}], 'punkte': [{'x': 2, 'y': 1, 'name': 'P'}]},
+  'regel': 'Setze den Punkt ein und ⟦löse nach t auf⟧. Bei zwei Punkten berechnest du zuerst m.'},
+ 'schnittpunkte': {
+  'einstieg': 'Zwei Freunde laufen dieselbe Strecke, einer startet früher, der andere ist schneller. Beim Einholen sind beide zur selben Zeit am selben Ort. Im Bild ist das der ⟦Schnittpunkt⟧.',
+  'woerter': [['Schnittpunkt', 'der Punkt, der auf beiden Geraden liegt'], ['gleichsetzen', 'die beiden Terme für y gleich setzen']],
+  'bild': _KO(x=[-1, 5], y=[-2, 6], graphen=[{'art': 'linear', 'm': 2, 't': -1, 'name': 'g'}, {'art': 'linear', 'm': -1, 't': 5, 'name': 'h'}]),
+  'schritte': [{'text': 'g: y = 2x − 1 und h: y = −x + 5.'},
+               {'text': 'Im Schnittpunkt ist y gleich, also gleichsetzen: 2x − 1 = −x + 5.'},
+               {'text': 'x und 1 dazuzählen: 3x = 6, also x = 2.'},
+               {'text': 'In g: y = 2 · 2 − 1 = 3. ⟦S(2 | 3)⟧', 'bild': {'punkte': [{'x': 2, 'y': 3, 'name': 'S(2 | 3)'}]}}],
+  'fehler': '(0 | −1) ist der Schnitt mit der ⟦y-Achse⟧, nicht mit der x-Achse. Für die x-Achse setzt du y = 0: x = 0,5.',
+  'fehler_bild': {'punkte': [{'x': 0, 'y': -1, 'name': 'y-Achse'}, {'x': 0.5, 'y': 0, 'name': 'x-Achse'}]},
+  'regel': 'Für den Schnittpunkt ⟦setzt du die Terme gleich⟧. Mit der x-Achse: y = 0. Mit der y-Achse: x = 0.'},
+ 'lage': {
+  'einstieg': 'Bahngleise treffen sich nie, sie sind parallel. Eine Straße, die eine andere im rechten Winkel kreuzt, steht ⟦senkrecht⟧ auf ihr. Das erkennst du an den Steigungen.',
+  'woerter': [['parallel', 'gleich steil, ohne Schnittpunkt'], ['senkrecht', 'im rechten Winkel, wie ein Kreuz'], ['m₁', 'die Steigung der ersten Geraden; m₂ die der zweiten']],
+  'bild': _KO(x=[-2, 4], y=[-1, 5], streckung=1.14, graphen=[{'art': 'linear', 'm': 2, 't': 1, 'name': 'g'}, {'art': 'linear', 'm': -0.5, 't': 3, 'name': 'h'}]),
+  'schritte': [{'text': 'g: y = 2x + 1 hat die Steigung m₁ = 2.', 'bild': {'strecken': [[0, 1, 1, 1, 'gestrichelt'], [1, 1, 1, 3, 'gestrichelt']]}},
+               {'text': 'h: y = −0,5x + 3 hat m₂ = −0,5.', 'bild': {'strecken': [[0, 1, 1, 1, 'gestrichelt'], [1, 1, 1, 3, 'gestrichelt'], [0, 3, 2, 3, 'gestrichelt'], [2, 3, 2, 2, 'gestrichelt']]}},
+               {'text': 'Verschiedene Steigungen: nicht parallel. Produkt: 2 · (−0,5) = −1.'},
+               {'text': 'Produkt −1 heißt: ⟦g und h stehen senkrecht⟧.'}],
+  'fehler': 'y = 2x + 1 und y = −2x + 1 sind nicht senkrecht: 2 · (−2) = −4. Nötig ist der ⟦negative Kehrwert⟧ −1/2.',
+  'fehler_bild': {'graphen': [{'art': 'linear', 'm': 2, 't': 1, 'name': 'g'}, {'art': 'linear', 'm': -2, 't': 1, 'name': 'nicht ⊥'}], 'strecken': []},
+  'regel': 'Gleiche Steigung: ⟦parallel⟧. Produkt der Steigungen −1: ⟦senkrecht⟧.'},
+ 'deuten': {
+  'einstieg': 'Eine Kerze ist anfangs 20 cm hoch und wird pro Stunde 1,5 cm kürzer. Jede Zahl der Funktion erzählt davon. Diese Bedeutung herauszulesen heißt ⟦deuten⟧.',
+  'woerter': [['deuten', 'sagen, was eine Zahl in der Geschichte bedeutet'], ['h(x)', 'die Höhe der Kerze nach x Stunden'], ['≈', '„ungefähr gleich“']],
+  'bild': _KO(x=[0, 15], y=[0, 22], graphen=[{'art': 'linear', 'm': -1.5, 't': 20, 'name': 'Kerze', 'bereich': [0, 13.4]}], name_x='h', name_y='cm', schritt_y=5),
+  'schritte': [{'text': 'Die Funktion ist h(x) = −1,5x + 20.'},
+               {'text': 't = 20 ist der Start: 20 cm bei x = 0.', 'bild': {'punkte': [{'x': 0, 'y': 20, 'name': 'Start'}]}},
+               {'text': 'm = −1,5: Jede Stunde wird sie 1,5 cm kürzer.', 'bild': {'strecken': [[2, 17, 3, 17, 'gestrichelt'], [3, 17, 3, 15.5, 'gestrichelt']]}},
+               {'text': 'Abgebrannt bei h = 0: 1,5x = 20, also ⟦x ≈ 13,3 h⟧.', 'bild': {'punkte': [{'x': 0, 'y': 20, 'name': 'Start'}, {'x': 13.33, 'y': 0, 'name': 'leer'}]}}],
+  'fehler': 'm = −1,5 heißt nicht, dass die Kerze 1,5 cm hoch ist. m ist eine ⟦Änderung⟧ pro Stunde, keine Höhe.',
+  'regel': '⟦t ist der Start, m die Änderung⟧ pro Einheit. Ein negatives m heißt: Die Größe nimmt ab.'},
+}
+UMBAU_OFFEN = []
+baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Steigung und Achsenabschnitt', ['ablesen', 'zwei_punkte', 'proportional']), ('Geraden bestimmen', ['aufstellen', 'schnittpunkte', 'lage']),

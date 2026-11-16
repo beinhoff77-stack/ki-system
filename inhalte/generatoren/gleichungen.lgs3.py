@@ -512,8 +512,129 @@ def g_sachaufgabe(s):
 GEN = {'pruefen': g_pruefen, 'stufenform': g_stufenform, 'eliminieren': g_eliminieren, 'loesen': g_loesen,
        'parabel': g_parabel, 'sachaufgabe': g_sachaufgabe}
 
+# ---------- Zehnte Runde (schwer-kl9): schwerere Übungen nach Prüfungsvorbild ----------
+# Eigener Abschnitt mit eigenem festen Zufallsstart (anhaengen(..., 9906, ...)), läuft erst nach bauen():
+# alle bisherigen Aufgaben bleiben unverändert. Vorbilder: 65. Mathematik-Olympiade, 1. Runde, Kl. 9/10 (Aufgabe
+# 651013: Gleichungssysteme mit zyklischen Summen – erst die Gesamtsumme bestimmen, Unlösbarkeit zeigen),
+# Illustrierende Aufgaben Realschule 9 (I) (Lösungen zweier Schüler beurteilen, Tarif-Sachaufgabe),
+# LehrplanPLUS-Beispiel „Parabel durch drei Punkte“, BMT10 2025 (Punkte auf einer Parabel). Zahlen und Wortlaut eigen.
+# Echte Prüfungsaufgaben speziell zu LGS mit drei Unbekannten (Gymnasium Bayern, frei zugänglich) wurden nicht gefunden.
+from _schwer_kl9 import anhaengen  # noqa: E402
+
+
+def schwer():
+    P, Kn, O = 'pruefung', 'knobel', ''
+    X3 = 'x = □; y = □; z = □'
+    Hz = 'ganze Zahlen eintragen'
+    return [
+        # pruefen
+        ('pruefen', 3, P, auswahl('Zwei Schüler lösen (I) x + y + z = 6; (II) x − y = 1; (III) y + z = 3. A erhält (3 | 2 | 1), B erhält (2 | 1 | 3). Wer hat recht?',
+                                  'nur A', ['nur B', 'beide', 'keiner'],
+                                  'A: 3 + 2 + 1 = 6, 3 − 2 = 1, 2 + 1 = 3 – alles stimmt. B: (I) und (II) stimmen, aber (III): 1 + 3 = 4 ≠ 3.',
+                                  'Setze jedes Tripel in alle drei Gleichungen ein.')),
+        ('pruefen', 3, P, zahl('Für welche Zahl a ist (2 | −1 | 3) eine Lösung von (I) x + y + z = 4; (II) ax − y + z = 8; (III) x + 2y − z = −3?',
+                               '(I): 2 − 1 + 3 = 4 und (III): 2 − 2 − 3 = −3 stimmen. (II): 2a + 1 + 3 = 8 ⇒ 2a = 4 ⇒ a = 2.',
+                               'Setze das Tripel in (II) ein und löse nach a auf. Prüfe auch (I) und (III).', 2, '(8 - 1 - 3) / 2')),
+        ('pruefen', 3, Kn, auswahl('Was gilt für das System (I) x − y = 1; (II) y − z = 1; (III) z − x = 1?', 'Keine Lösung: Addiert man alle drei Gleichungen, entsteht 0 = 3.',
+                                   ['Genau eine Lösung: (1 | 0 | −1).', 'Unendlich viele Lösungen.', 'Genau eine Lösung: (2 | 1 | 0).'],
+                                   'Links: (x − y) + (y − z) + (z − x) = 0, rechts 1 + 1 + 1 = 3. 0 = 3 ist falsch, also gibt es kein Tripel. (2 | 1 | 0) erfüllt (I) und (II), aber (III): 0 − 2 = −2.',
+                                   'Addiere alle drei Gleichungen. Was bleibt links übrig?')),
+        ('pruefen', 3, O, auswahl('Welches Tripel löst (I) x + y + z = 0; (II) x = 2y; (III) z = y − 4?', '(2 | 1 | −3)', ['(1 | 2 | −3)', '(2 | 1 | 3)', '(−2 | −1 | 3)'],
+                                  'Einsetzen: 2y + y + (y − 4) = 0 ⇒ 4y = 4 ⇒ y = 1, x = 2, z = −3. Probe: 2 + 1 − 3 = 0.',
+                                  'Drücke x und z durch y aus und setze in (I) ein.')),
+        ('pruefen', 2, O, auswahl('Ist (1 | 1 | 1) Lösung von (I) x + y + z = 3; (II) 2x − y = 1; (III) x + 3z = 5?', 'Nein, (III) ist nicht erfüllt.',
+                                  ['Ja, alle drei Gleichungen sind erfüllt.', 'Nein, (I) ist nicht erfüllt.', 'Nein, (II) ist nicht erfüllt.'],
+                                  '(I): 3 ✓, (II): 2 − 1 = 1 ✓, (III): 1 + 3 = 4 ≠ 5.', 'Setze in jede Gleichung ein.')),
+        ('pruefen', 2, O, auswahl('Ist (0 | 2 | −1) Lösung von (I) x + y + z = 1; (II) 3x + y = 2; (III) y + 2z = 0?', 'Ja, alle drei Gleichungen sind erfüllt.',
+                                  ['Nein, (I) ist nicht erfüllt.', 'Nein, (II) ist nicht erfüllt.', 'Nein, (III) ist nicht erfüllt.'],
+                                  '(I): 0 + 2 − 1 = 1 ✓, (II): 0 + 2 = 2 ✓, (III): 2 − 2 = 0 ✓.', 'Setze in jede Gleichung ein; achte auf z = −1.')),
+        # stufenform
+        ('stufenform', 3, P, luecken('Löse: (I) x + y + z = 2; (II) 2y − z = 7; (III) 3z = −3.', X3, Hz, [0, 3, -1],
+                                     'Aus (III): z = −1. In (II): 2y + 1 = 7 ⇒ y = 3. In (I): x + 3 − 1 = 2 ⇒ x = 0.', 'Von unten nach oben einsetzen.', ['2 - 3 + 1', '(7 - 1) // 2', '-3 // 3'])),
+        ('stufenform', 3, P, luecken('Löse: (I) 2x − y + z = 9; (II) 4y + z = −5; (III) 0,5z = 1,5.', X3, Hz, [2, -2, 3],
+                                     'Aus (III): z = 3. In (II): 4y = −8 ⇒ y = −2. In (I): 2x + 2 + 3 = 9 ⇒ x = 2.', 'Bei (III) mit 2 malnehmen.', ['(9 - 2 - 3) // 2', '-8 // 4', '3'])),
+        ('stufenform', 3, Kn, zahl('Im System (I) x + y + z = 6; (II) y + z = ?; (III) z = 1 ist die Zahl in (II) verdeckt. Die Lösung hat x = 2. Welche Zahl ist verdeckt?',
+                                   'Aus (I): y + z = 6 − x = 6 − 2 = 4. Genau das steht in (II): Die verdeckte Zahl ist 4 (dann y = 3, z = 1).',
+                                   'Rückwärts: Was folgt aus (I) für y + z, wenn x = 2 ist?', 4, '6 - 2')),
+        ('stufenform', 3, O, luecken('Löse: (I) x − 2y + 3z = 13; (II) −y + 4z = 11; (III) −2z = −6.', X3, Hz, [6, 1, 3],
+                                     'z = 3. (II): −y + 12 = 11 ⇒ y = 1. (I): x − 2 + 9 = 13 ⇒ x = 6.', 'Achte auf die Minuszeichen.', ['13 + 2 - 9', '12 - 11', '3'])),
+        ('stufenform', 2, O, luecken('Löse: (I) x + y + z = 9; (II) y + z = 5; (III) z = 2.', X3, Hz, [4, 3, 2], 'z = 2, y = 3, x = 9 − 5 = 4.', 'Von unten nach oben.', ['9 - 5', '5 - 2', '2'])),
+        ('stufenform', 2, O, luecken('Löse: (I) x − y = 1; (II) y − z = 2; (III) z = 4.', X3, Hz, [7, 6, 4], 'z = 4, y = 6, x = 7.', 'Von unten nach oben.', ['6 + 1', '4 + 2', '4'])),
+        # eliminieren
+        ('eliminieren', 3, P, zahl('Für das System (I) x + y = 9; (II) y + z = 13; (III) x + z = 12 gilt: Wie groß ist x + y + z?',
+                                   'Alle drei Gleichungen addieren: 2x + 2y + 2z = 34, also x + y + z = 17. (Daraus: z = 17 − 9 = 8, x = 4, y = 5.)',
+                                   'Addiere alle drei Gleichungen. Jede Unbekannte kommt zweimal vor.', 17, '(9 + 13 + 12) / 2')),
+        ('eliminieren', 3, P, zahl('(I) x + y + z = 10; (II) x + y − z = 4. Bestimme z, ohne x und y einzeln zu kennen.',
+                                   '(I) − (II): x und y fallen weg, 2z = 6, also z = 3.', 'Welche Rechnung lässt x und y gleichzeitig verschwinden?', 3, '(10 - 4) / 2')),
+        ('eliminieren', 3, Kn, zahl('(I) x + 2y + 3z = 14; (II) 3x + 2y + z = 10. Wie groß ist x + y + z?',
+                                    '(I) + (II): 4x + 4y + 4z = 24, also x + y + z = 6. x, y, z einzeln sind gar nicht nötig.',
+                                    'Addiere die beiden Gleichungen und schau auf die Koeffizienten.', 6, '(14 + 10) / 4')),
+        ('eliminieren', 3, O, luecken('(I) x + y + z = 6; (II) 2x − y + 3z = 9. Berechne (II) − 2 · (I).', '□y + □z = □', 'Zahlen eintragen (auch negativ)', [-3, 1, -3],
+                                      '2 · (I): 2x + 2y + 2z = 12. (II) − 2 · (I): (−1 − 2)y + (3 − 2)z = 9 − 12, also −3y + z = −3.',
+                                      'Erst jedes Glied von (I) verdoppeln, dann spaltenweise subtrahieren.', ['-1 - 2', '3 - 2', '9 - 12'])),
+        ('eliminieren', 2, O, luecken('(I) x + y − z = 2; (II) x − y + 2z = 7. Berechne (I) + (II).', '□x + □z = □', 'Zahlen eintragen', [2, 1, 9],
+                                      'y fällt weg: 2x + z = 9.', 'Spaltenweise addieren.', ['1 + 1', '-1 + 2', '2 + 7'])),
+        ('eliminieren', 2, O, auswahl('(I) x + 3y − z = 4; (II) 2x + y + z = 1. Welche Rechnung eliminiert z?', '(I) + (II)', ['(I) − (II)', '2 · (I) − (II)', '(I) − 2 · (II)'],
+                                      'Die z-Koeffizienten sind −1 und +1: Addieren ergibt 0.', 'Schau nur auf die z-Glieder.')),
+        # loesen
+        ('loesen', 3, P, luecken('Löse: (I) x + y + z = 6; (II) x − y + z = 2; (III) x + y − z = 0.', X3, Hz, [1, 2, 3],
+                                 '(I) − (II): 2y = 4 ⇒ y = 2. (I) − (III): 2z = 6 ⇒ z = 3. Dann x = 6 − 2 − 3 = 1.', 'Subtrahiere geschickt, sodass gleich zwei Unbekannte wegfallen.',
+                                 ['6 - 2 - 3', '4 // 2', '6 // 2'])),
+        ('loesen', 3, P, luecken('Löse: (I) 2x + y + z = 5; (II) x + 2y + z = 6; (III) x + y + 2z = 9.', X3, Hz, [0, 1, 4],
+                                 'Alle addieren: 4(x + y + z) = 20 ⇒ x + y + z = 5. (I) − Summe: x = 0; (II): y = 1; (III): z = 4.',
+                                 'Addiere alle drei Gleichungen und nutze die Summe x + y + z.', ['5 - 5', '6 - 5', '9 - 5'])),
+        ('loesen', 3, Kn, zahl('Drei Zahlen haben die Summe 30. Die erste ist um 4 größer als die zweite, die dritte so groß wie die beiden anderen zusammen. Wie heißt die erste Zahl?',
+                               'z = x + y ⇒ 2(x + y) = 30 ⇒ x + y = 15. Mit x = y + 4: 2y + 4 = 15 ⇒ y = 5,5 und x = 9,5 (z = 15).',
+                               'Setze die dritte Bedingung in die Summe ein – dann kennst du x + y.', 9.5, '(15 + 4) / 2')),
+        ('loesen', 3, O, luecken('Löse: (I) x + 2y − z = 3; (II) 2x − y + z = 4; (III) x + y + z = 4.', X3, Hz, [2, 1, 1],
+                                 '(I) + (II): 3x + y = 7. (I) + (III): 2x + 3y = 7. Daraus 7x = 14 ⇒ x = 2, y = 1; aus (III) z = 1.',
+                                 'Eliminiere z zweimal, dann bleibt ein System mit x und y.', ['14 // 7', '7 - 6', '4 - 2 - 1'])),
+        ('loesen', 2, O, luecken('Löse: (I) x + y = 5; (II) y + z = 7; (III) x + z = 6.', X3, Hz, [2, 3, 4],
+                                 'Addieren: 2(x + y + z) = 18 ⇒ Summe 9. z = 9 − 5 = 4, x = 9 − 7 = 2, y = 9 − 6 = 3.', 'Addiere alle drei Gleichungen.', ['9 - 7', '9 - 6', '9 - 5'])),
+        ('loesen', 2, O, auswahl('Welche Unbekannte eliminierst du in (I) x + y + 2z = 5; (II) x − y + z = 1; (III) 2x + y − z = 3 am geschicktesten zuerst?', 'y',
+                                 ['x', 'z', 'Keine – man muss mit Brüchen rechnen.'],
+                                 'y hat die Koeffizienten 1, −1, 1: (I) + (II) und (II) + (III) eliminieren y ohne Vervielfachen.', 'Suche Koeffizienten, die sich direkt zu 0 addieren.')),
+        # parabel
+        ('parabel', 3, P, luecken('Eine Parabel y = ax² + bx + c geht durch A(0 | 3), B(1 | 4) und C(2 | 3). Bestimme a, b und c.', 'a = □; b = □; c = □', Hz, [-1, 2, 3],
+                                  'A: c = 3. B: a + b = 1. C: 4a + 2b = 0 ⇒ b = −2a ⇒ −a = 1 ⇒ a = −1, b = 2.', 'Beginne mit dem Punkt auf der y-Achse.', ['-1', '1 + 1', '3'])),
+        ('parabel', 3, P, zahl('Ein Brückenbogen hat die Form einer Parabel y = ax² + bx + c durch (0 | 0), (40 | 0) und (20 | 10) (alles in m). Bestimme a.',
+                               '(0 | 0): c = 0. (40 | 0): 1 600a + 40b = 0 ⇒ b = −40a. (20 | 10): 400a + 20b = 10 ⇒ 400a − 800a = 10 ⇒ a = −0,025 (b = 1).',
+                               'Setze die drei Punkte ein; c ist sofort klar.', -0.025, '-10 / 400')),
+        ('parabel', 3, Kn, zahl('Die Parabel y = x² + bx + c geht durch (1 | 0) und (5 | 0). In welchem Punkt (0 | c) schneidet sie die y-Achse? Gib c an.',
+                                'Mit den Nullstellen gilt y = (x − 1)(x − 5) = x² − 6x + 5. Also c = 1 · 5 = 5 – ganz ohne Gleichungssystem.',
+                                'Denke an die Produktform mit den Nullstellen.', 5, '1 * 5')),
+        ('parabel', 3, O, luecken('Die Parabel y = ax² + bx + c geht durch (−1 | 6), (1 | 2) und (2 | 3). Bestimme a, b und c.', 'a = □; b = □; c = □', Hz, [1, -2, 3],
+                                  '(I) a − b + c = 6; (II) a + b + c = 2; (III) 4a + 2b + c = 3. (II) − (I): 2b = −4 ⇒ b = −2. Dann a + c = 4 und 4a + c = 7 ⇒ a = 1, c = 3.',
+                                  'Subtrahiere (I) von (II), dann fällt a und c weg.', ['1', '-4 // 2', '4 - 1'])),
+        ('parabel', 2, O, luecken('Eine Parabel y = ax² + c geht durch (0 | −4) und (2 | 0). Bestimme a und c.', 'a = □; c = □', Hz, [1, -4],
+                                  '(0 | −4): c = −4. (2 | 0): 4a − 4 = 0 ⇒ a = 1.', 'Erst c aus dem Punkt auf der y-Achse.', ['4 // 4', '-4'])),
+        ('parabel', 2, O, luecken('Setze P(3 | 10) in y = ax² + bx + c ein. Welche Gleichung entsteht?', '□a + □b + c = □', 'Zahlen eintragen', [9, 3, 10],
+                                  'x = 3, y = 10: a · 3² + b · 3 + c = 10, also 9a + 3b + c = 10.', 'x = 3 für x einsetzen, y = 10 nach rechts.', ['3 ** 2', '3', '10'])),
+        # sachaufgabe
+        ('sachaufgabe', 3, P, luecken('Ein Kino hat Preise für Erwachsene (E), Jugendliche (J) und Kinder (K). Montag: 2 E, 1 J und 3 K kosten 61 €. Dienstag: 1 E, 2 J und 1 K kosten 40 €. Mittwoch: 3 E und 1 K kosten 50 €. Was kostet je eine Karte?',
+                                      'E = □ €; J = □ €; K = □ €', Hz, [14, 9, 8],
+                                      '(III): K = 50 − 3E. In (I): 2E + J + 150 − 9E = 61 ⇒ J = 7E − 89. In (II): E + 14E − 178 + 50 − 3E = 40 ⇒ 12E = 168 ⇒ E = 14, J = 9, K = 8.',
+                                      'Stelle drei Gleichungen auf. (III) hat nur zwei Unbekannte – damit anfangen.', ['168 // 12', '7 * 14 - 89', '50 - 42'])),
+        ('sachaufgabe', 3, P, luecken('Von 26 Kindern einer Klasse fahren einige mit dem Bus, einige mit dem Rad, der Rest geht zu Fuß. Mit dem Rad kommen doppelt so viele wie zu Fuß, mit dem Bus 6 mehr als mit dem Rad. Wie viele sind es jeweils?',
+                                      'Bus: □; Rad: □; zu Fuß: □', Hz, [14, 8, 4],
+                                      'Zu Fuß z, Rad 2z, Bus 2z + 6. Summe: 5z + 6 = 26 ⇒ z = 4, Rad 8, Bus 14.', 'Drücke alles durch die Zahl der Fußgänger aus.', ['2 * 4 + 6', '2 * 4', '(26 - 6) // 5'])),
+        ('sachaufgabe', 3, Kn, zahl('Eine dreistellige Zahl hat die Quersumme 13. Die Hunderterziffer ist doppelt so groß wie die Einerziffer, die Zehnerziffer um 1 größer als die Einerziffer. Wie heißt die Zahl?',
+                                    'Einer e, Hunderter 2e, Zehner e + 1. Quersumme: 2e + (e + 1) + e = 13 ⇒ 4e = 12 ⇒ e = 3. Zahl: 643.',
+                                    'Nimm die drei Ziffern als Unbekannte, nicht die Zahl selbst.', 643, '6 * 100 + 4 * 10 + 3')),
+        ('sachaufgabe', 3, O, luecken('1 kg Nussmischung besteht aus Mandeln (12 €/kg), Haselnüssen (8 €/kg) und Cashews (16 €/kg) und kostet 11,20 €. Es sind doppelt so viele Haselnüsse wie Cashews (nach Gewicht). Wie viel Gramm von jeder Sorte?',
+                                      'Mandeln □ g; Haselnüsse □ g; Cashews □ g', Hz, [400, 400, 200],
+                                      'm + h + c = 1 000; 12m + 8h + 16c = 11 200 (in €/1 000); h = 2c. Dann m = 1 000 − 3c und 12 000 − 36c + 32c = 11 200 ⇒ c = 200, h = 400, m = 400.',
+                                      'Rechne mit Gramm; der Preis für 1 kg: 12 · m/1 000 + … = 11,20.', ['1000 - 600', '2 * 200', '800 // 4'])),
+        ('sachaufgabe', 2, O, luecken('Drei Zahlen haben die Summe 20. Die zweite ist doppelt so groß wie die erste, die dritte um 4 größer als die erste. Wie heißen die Zahlen?',
+                                      '1. Zahl: □; 2. Zahl: □; 3. Zahl: □', Hz, [4, 8, 8], 'x + 2x + (x + 4) = 20 ⇒ 4x = 16 ⇒ x = 4; dann 8 und 8.', 'Drücke alle durch die erste Zahl aus.',
+                                      ['16 // 4', '2 * 4', '4 + 4'])),
+        ('sachaufgabe', 2, O, luecken('In einem Dreieck ist β doppelt so groß wie α, und γ ist um 20° größer als β. Wie groß sind die Winkel?', 'α = □°; β = □°; γ = □°', Hz, [32, 64, 84],
+                                      'α + 2α + (2α + 20°) = 180° ⇒ 5α = 160° ⇒ α = 32°, β = 64°, γ = 84°.', 'Die Winkelsumme im Dreieck ist 180°.', ['160 // 5', '2 * 32', '64 + 20'])),
+    ]
+
+
 if __name__ == '__main__':
-    bauen('gleichungen.lgs3',
+    d = bauen('gleichungen.lgs3',
           'Lineare Gleichungssysteme mit drei Unbekannten aufstellen und systematisch lösen, z. B. Parabel durch drei Punkte.',
           ['Lösung = Tripel, das alle drei Gleichungen erfüllt.', 'Additionsverfahren: Vielfache addieren/subtrahieren, bis eine Variable wegfällt.',
            'Zweimal dieselbe Variable eliminieren → System mit zwei Unbekannten.', 'Parabel durch drei Punkte: jeden Punkt in y = ax² + bx + c einsetzen.'],
@@ -523,3 +644,4 @@ if __name__ == '__main__':
           meiden={'parabel': ['(0 | 1), (1 | 2), (−1 | 4)']},
           offen=['Gleichungssysteme stehen im Fragetext in einer Zeile; bei „stufenform“ und „loesen“ zusätzlich untereinander als Tabelle (f.grafik). Bei den übrigen Karten noch einzeilig.',
                  'Sonderfälle (keine oder unendlich viele Lösungen) nur als Erkennen-Aufgabe in Stufe 3 von „loesen“ (Prüfvorschlag); die Erklärung der Karte nennt sie nicht ausdrücklich.'])
+    anhaengen(d, 9906, schwer)

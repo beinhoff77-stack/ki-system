@@ -3,6 +3,15 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:44 – STATUS
+bruch.dezimal fertig: umgestuft 5 / berichtigt 0 / ersetzt 3 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Stimmt die Aussage? „Eine Zahl mit drei Nachkommastellen ist immer größer als eine mit einer, z. B. 0,37 > 0,8.““
+  - „Berechne 1 + 0,5 und gib das Ergebnis als Dezimalzahl an.“
+  - „Berechne 1 + 0,4 und gib das Ergebnis als Dezimalzahl an.“
+- nicht umgesetzt:
+  - runden „Runde 2,596 auf Hundertstel“ (Test 30,096): Lösung als 2,6 bzw. 30,1 gespeichert – Die App wertet 2,60 = 2,6; der Lösungsweg nennt die Endnull bereits („2,596 ≈ 2,60. Die Null am Ende bleibt stehen …“).
+
+## 2026-11-16 05:44 – STATUS
 bruch.brueche fertig: umgestuft 6 / berichtigt 0 / ersetzt 1 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):
   - „Um wie viel ist 5/6 größer als 4/7?“

@@ -45,6 +45,59 @@ ETAPPEN = [
 ]
 
 
+# ---- KLAR (verständliche Erklärungen, Runde 7) ----
+KLAR = {
+ 'begriffe': {
+  'einstieg': 'Beim Spieleabend würfelt Lena. Sie weiß vorher nicht, welche Zahl kommt – aber sie weiß, welche Zahlen überhaupt möglich sind: 1 bis 6. Ein Vorgang, dessen Ausgang man nicht vorhersagen kann, heißt ⟦Zufallsexperiment⟧.',
+  'woerter': [['Zufallsexperiment', 'ein Vorgang mit mehreren möglichen Ausgängen, die man nicht vorhersagen kann'], ['Ergebnis', 'ein möglicher Ausgang, z. B. die 5'],
+              ['Ergebnisraum Ω', 'alle möglichen Ergebnisse zusammen; Ω ist der griechische Buchstabe Omega'], ['Ereignis E', 'eine Auswahl von Ergebnissen, z. B. „größer als 4“'],
+              ['{ ; }', 'geschweifte Klammern: darin stehen die Ergebnisse einer Menge']],
+  'schritte': ['Lena würfelt. Möglich sind die Zahlen 1 bis 6: Ω = {1; 2; 3; 4; 5; 6}.', 'Sie gewinnt, wenn die Augenzahl größer als 4 ist. Das ist das Ereignis E.',
+               'Größer als 4 sind nur die 5 und die 6: ⟦E = {5; 6}⟧.'],
+  'regel': 'So beschreibst du ein ⟦Zufallsexperiment⟧: Erst alle möglichen ⟦Ergebnisse⟧ in Ω aufschreiben. Dann für ein ⟦Ereignis⟧ die passenden Ergebnisse heraussuchen.'},
+ 'rel_haeufigkeit': {
+  'einstieg': 'Lena hat 50-mal gewürfelt und 12-mal eine Sechs bekommen. Ist das viel? Das sieht man erst, wenn man die 12 mit den 50 Würfen vergleicht. Diesen Anteil nennt man ⟦relative Häufigkeit⟧.',
+  'woerter': [['absolute Häufigkeit', 'wie oft etwas eingetreten ist, z. B. 12-mal'], ['relative Häufigkeit', 'der Anteil: absolute Häufigkeit geteilt durch die Anzahl der Versuche'],
+              ['Anteil', 'als Bruch, Dezimalzahl oder in Prozent, z. B. 0,24 = 24 %']],
+  'schritte': ['Lena würfelt 50-mal und bekommt 12-mal eine Sechs.', 'Die 12 ist die absolute Häufigkeit. Für den Anteil teilt man durch die Anzahl der Würfe: 12 : 50.',
+               'Das ergibt ⟦0,24 = 24 %⟧.'],
+  'regel': 'So berechnest du die ⟦relative Häufigkeit⟧: ⟦absolute Häufigkeit : Anzahl der Versuche⟧. Das Ergebnis liegt immer zwischen 0 und 1.'},
+ 'laplace': {
+  'einstieg': 'Auf dem Schulfest gibt es eine Lostrommel mit 3 roten, 5 blauen und 2 grünen Kugeln. Alle Kugeln sind gleich groß und gut gemischt, also hat jede dieselbe Chance. Dann kann man die Chance für „rot“ ausrechnen. Diese Zahl heißt ⟦Wahrscheinlichkeit⟧.',
+  'woerter': [['Wahrscheinlichkeit P', 'eine Zahl zwischen 0 und 1, die angibt, wie wahrscheinlich ein Ereignis ist'], ['P(rot)', 'die Wahrscheinlichkeit für das Ereignis „rot“'],
+              ['Laplace-Experiment', 'ein Zufallsexperiment, bei dem alle Ergebnisse gleich wahrscheinlich sind'], ['günstige Ergebnisse', 'die Ergebnisse, bei denen das Ereignis eintritt'],
+              ['Urne', 'ein Gefäß mit Kugeln, aus dem man zufällig zieht']],
+  'schritte': ['In der Trommel sind 3 rote, 5 blaue und 2 grüne Kugeln; eine wird gezogen.', 'Günstig für „rot“ sind die 3 roten Kugeln.',
+               'Möglich sind alle 3 + 5 + 2 = 10 Kugeln. Also ist ⟦P(rot) = 3/10 = 0,3⟧.'],
+  'regel': 'So berechnest du eine ⟦Laplace-Wahrscheinlichkeit⟧: ⟦P(E) = Anzahl der günstigen Ergebnisse : Anzahl aller Ergebnisse⟧. Das geht nur, wenn alle Ergebnisse gleich wahrscheinlich sind.'},
+ 'laplace_pruefen': {
+  'einstieg': 'Auf dem Schulfest steht auch ein Glücksrad. Das Feld A ist halb so groß wie das ganze Rad, B und C sind kleiner. Es gibt drei Felder – aber hat jedes die Chance 1/3? Nur wenn alle Ergebnisse gleich wahrscheinlich sind, ist es ein ⟦Laplace-Experiment⟧.',
+  'woerter': [['Laplace-Experiment', 'alle Ergebnisse haben dieselbe Wahrscheinlichkeit'], ['Mittelpunktswinkel', 'der Winkel eines Feldes an der Mitte des Rades'],
+              ['Reißzwecke', 'ein Pin; er landet auf dem Kopf oder auf der Seite – nicht gleich oft']],
+  'schritte': ['Glücksrad: Feld A hat 180°, Feld B 90°, Feld C 90°.', 'A ist doppelt so groß wie B und auch doppelt so groß wie C. Also bleibt der Zeiger öfter auf A stehen.',
+               'Die Felder sind nicht gleich wahrscheinlich: ⟦kein⟧ Laplace-Experiment. Richtig ist P(A) = 180°/360° = 1/2, nicht 1/3.'],
+  'regel': 'So prüfst du: Haben ⟦alle Ergebnisse dieselbe Chance⟧? Nur dann ist es ein ⟦Laplace-Experiment⟧. Sind Felder unterschiedlich groß, ist es keines.'},
+ 'gegenereignis': {
+  'einstieg': 'Lena braucht beim Spiel keine Sechs, sonst muss sie zurück. Statt die Fälle „1, 2, 3, 4 oder 5“ zu zählen, kann sie rechnen: alles außer der Sechs. Das Ereignis „nicht E“ heißt ⟦Gegenereignis⟧.',
+  'woerter': [['Gegenereignis Ē', 'tritt genau dann ein, wenn E nicht eintritt; gesprochen „E quer“'], ['1 − P(E)', 'der Rest bis 1, also bis zu 100 %'],
+              ['mindestens eine', 'eine oder mehr'], ['keine', 'gar keine – das Gegenteil von „mindestens eine“']],
+  'schritte': ['E heißt „Sechs würfeln“. Die Wahrscheinlichkeit ist P(E) = 1/6.', 'Das Gegenereignis Ē heißt „keine Sechs“.',
+               'Beide zusammen ergeben immer 1. Also ist ⟦P(Ē) = 1 − 1/6 = 5/6⟧.'],
+  'regel': 'So nutzt du das ⟦Gegenereignis⟧: Ist „nicht E“ leichter zu berechnen, rechne ⟦P(Ē) = 1 − P(E)⟧.'},
+ 'grosse_zahlen': {
+  'einstieg': 'Wirft man eine Münze nur 10-mal, kommt vielleicht 7-mal Wappen. Wirft man sie 1000-mal, liegt der Anteil fast immer nahe bei der Hälfte. Je öfter man wiederholt, desto näher rückt die relative Häufigkeit an die Wahrscheinlichkeit. Das ist das ⟦Gesetz der großen Zahlen⟧.',
+  'woerter': [['Gesetz der großen Zahlen', 'bei vielen Versuchen liegt die relative Häufigkeit meist nahe der Wahrscheinlichkeit'], ['n · P(E)', 'erwartete Anzahl der Treffer bei n Versuchen'],
+              ['erwarten', 'ungefähr damit rechnen – es ist keine sichere Vorhersage']],
+  'schritte': ['Eine Münze wird 1000-mal geworfen. P(Wappen) = 0,5.', 'Man erwartet 1000 · 0,5 = ⟦etwa 500-mal Wappen⟧.',
+               'Tatsächlich kommt z. B. 488 oder 513 heraus. Der Zufall bleibt – nur der Anteil liegt nahe bei 0,5.'],
+  'regel': 'So schätzt du: Bei n Versuchen erwartest du etwa ⟦n · P(E)⟧ Treffer. Je ⟦mehr⟧ Versuche, desto näher liegt die relative Häufigkeit meist an der ⟦Wahrscheinlichkeit⟧. Genau vorhersagen kann man es nie.'},
+}
+
+for _e in ETAPPEN:
+    _e.update(KLAR.get(_e['lernziel'], {}))
+# ---- KLAR ENDE ----
+
+
 def frac_opts(p, guenstig, alle):
     """Richtige Wahrscheinlichkeit als Bruch + typische Fehler."""
     f = [bruch(Fr(guenstig, max(1, alle - guenstig))) if alle - guenstig else '1/2', bruch(1 - p) if p != Fr(1, 2) else '1/3',

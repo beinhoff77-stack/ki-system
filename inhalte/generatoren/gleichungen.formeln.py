@@ -40,6 +40,52 @@ ETAPPEN = [
      '_verbot': ['A = 24 cm² und g = 8 cm']},
 ]
 
+
+# ---- KLAR (verständliche Erklärungen, Runde 7) ----
+KLAR = {
+ 'ein_schritt': {
+  'einstieg': 'An der Obsttheke gilt: Preis = Kilopreis · Menge. Damit rechnest du aus, was 3 kg Äpfel zu 2 € pro kg kosten: 6 €. Oft willst du es andersherum wissen: Wie viele kg bekomme ich für 5 €? Dann drehst du die Rechnung um. Eine Rechenvorschrift mit Buchstaben heißt ⟦Formel⟧, das Umdrehen heißt ⟦umstellen⟧.',
+  'woerter': [['Formel', 'eine Rechenvorschrift mit Buchstaben, z. B. W = F · s'], ['Größe', 'ein Buchstabe in der Formel für eine messbare Sache (Kraft, Weg, Preis …)'],
+              ['W = F · s', 'aus der Physik: Arbeit W = Kraft F mal Weg s'], ['umstellen', 'die Formel so umformen, dass die gesuchte Größe allein auf einer Seite steht'],
+              ['Umkehrrechnung', 'die Rechnung, die eine andere rückgängig macht: mal ↔ geteilt, plus ↔ minus']],
+  'schritte': ['Formel: W = F · s. Gesucht ist s.', 's wird mit F malgenommen. Die Umkehrrechnung dazu ist: durch F teilen.', 'Beide Seiten durch F teilen: W : F = s.',
+               'Andersherum geschrieben: ⟦s = W : F⟧.'],
+  'regel': 'So stellst du eine ⟦Formel⟧ um: Schau, was mit der gesuchten Größe gerechnet wird, und mach es mit der ⟦Umkehrrechnung⟧ auf beiden Seiten rückgängig. Mal wird zu ⟦geteilt⟧, plus wird zu ⟦minus⟧.',
+  'fehler': 'Aus W = F · s wird nicht s = W · F. Das wäre, als würdest du an der Obsttheke für 6 € bei 2 € pro kg nicht 6 : 2 = 3 kg, sondern 6 · 2 = 12 kg erwarten. Wer mit F ⟦malgenommen⟧ ist, wird durch F ⟦geteilt⟧.'},
+ 'zwei_schritte': {
+  'einstieg': 'Eine Taxifahrt kostet 4 € Grundgebühr und 2 € pro Kilometer. Für 8 km zahlst du 4 + 2 · 8 = 20 €. Jetzt andersherum: Du hast 20 € bezahlt – wie weit bist du gefahren? Dafür musst du zwei Rechenschritte rückgängig machen, und zwar in der ⟦umgekehrten Reihenfolge⟧.',
+  'woerter': [['K = G + p · s', 'Taxi-Formel: Kosten K = Grundgebühr G plus Preis p pro km mal Strecke s'], ['| − G', 'Randnotiz: Auf beiden Seiten wird G abgezogen.'],
+              ['(K − G) : p', 'erst die Klammer ausrechnen, dann teilen']],
+  'schritte': ['Taxi-Formel: K = G + p · s. Gesucht ist die Strecke s.',
+               'Beim Ausrechnen kam zuletzt „+ G“ dazu. Das machst du zuerst rückgängig: Auf beiden Seiten G abziehen ergibt K − G = p · s.',
+               'Jetzt wird s nur noch mit p malgenommen. Beide Seiten durch p teilen.', 'Ergebnis: ⟦s = (K − G) : p⟧. Mit den Zahlen: (20 − 4) : 2 = 8 km.']},
+ 'pruefen': {
+  'einstieg': 'Du hast eine Formel umgestellt und bist dir unsicher? Dann probier sie mit erfundenen Zahlen aus – so, wie man ein neues Rezept erst einmal probekocht. Passt das Ergebnis zur ursprünglichen Formel, war die Umstellung wahrscheinlich richtig. Dieses Ausprobieren heißt ⟦Probe mit Zahlen⟧.',
+  'woerter': [['u = 4 · a', 'Umfang u eines Quadrats mit der Seitenlänge a'], ['Probe mit Zahlen', 'Werte erfinden, in beide Formeln einsetzen und vergleichen'],
+              ['Behauptung', 'eine Aussage, die noch geprüft werden muss']],
+  'schritte': ['Behauptung: Aus u = 4 · a folgt a = u − 4.', 'Erfinde eine Zahl: a = 3. Dann ist u = 4 · 3 = 12.',
+               'Setze u = 12 in die Umstellung ein: 12 − 4 = 8. Herauskommen müsste aber 3.', 'Also ist die Umstellung ⟦falsch⟧. Richtig ist a = u : 4.']},
+ 'einsetzen': {
+  'einstieg': 'Du planst eine Radtour über 45 km und schaffst im Schnitt 18 km pro Stunde. Wie lange bist du unterwegs? Die Formel v = s : t kennt man aus der Physik, gesucht ist hier aber t. Also erst ⟦umstellen⟧, dann die Zahlen mit ihren ⟦Einheiten⟧ einsetzen.',
+  'woerter': [['v = s : t', 'Geschwindigkeit v = Strecke s geteilt durch Zeit t'], ['km/h', 'Kilometer pro Stunde'], ['Einheit', 'die Maßangabe hinter der Zahl: km, h, €, cm²'],
+              ['h', 'Stunde (vom lateinischen hora)']],
+  'schritte': ['Gesucht ist die Zeit t. Die Formel heißt v = s : t.', 't steht unter dem Bruchstrich. Beide Seiten mit t malnehmen und dann durch v teilen ergibt t = s : v.',
+               'Werte einsetzen: t = 45 km : 18 km/h.', 'Ausrechnen: 45 : 18 = 2,5, und km : km/h ergibt h. Also ⟦t = 2,5 h⟧, zweieinhalb Stunden.'],
+  'regel': 'So gehst du vor: zuerst die Formel nach der ⟦gesuchten Größe⟧ umstellen, dann die Werte ⟦mit Einheiten⟧ einsetzen und ausrechnen. Die Einheit des Ergebnisses verrät, ob du richtig umgestellt hast.',
+  'fehler': 't = v : s = 18 : 45 = 0,4 h ist falsch – 45 km in 24 Minuten schafft kein Radfahrer. Prüfe mit den ⟦Einheiten⟧: km/h : km ergibt keine Zeit.'},
+ 'geometrie': {
+  'einstieg': 'Ein dreieckiges Beet soll 24 m² groß werden. Die Seite am Zaun ist 8 m lang. Wie weit muss das Beet in den Garten hineinreichen? Die Flächenformel für Dreiecke kennst du – du musst sie nach der fehlenden Länge ⟦umstellen⟧.',
+  'woerter': [['A = g · h : 2', 'Flächeninhalt eines Dreiecks: Grundseite g mal Höhe h, geteilt durch 2'], ['Höhe h', 'der senkrechte Abstand von der Grundseite zur gegenüberliegenden Ecke'],
+              ['m², cm²', 'Quadratmeter, Quadratzentimeter – Einheiten für Flächen']],
+  'schritte': ['Das Beet ist ein Dreieck mit A = 24 m² und g = 8 m. Gesucht ist die Höhe h.', 'Formel: A = g · h : 2. Zuerst das „: 2“ rückgängig machen: 2 · A = g · h.',
+               'Dann beide Seiten durch g teilen: h = 2 · A : g.', 'Einsetzen: h = 48 m² : 8 m = ⟦6 m⟧.'],
+  'regel': 'So berechnest du eine fehlende Länge: die Formel für ⟦Fläche⟧ oder ⟦Volumen⟧ aufschreiben, nach der Länge ⟦umstellen⟧, Werte einsetzen.'},
+}
+
+for _e in ETAPPEN:
+    _e.update(KLAR.get(_e['lernziel'], {}))
+# ---- KLAR ENDE ----
+
 # Formel: (Anzeige, linke Seite, rechte Seite, {Variable: [(Anzeige, Python) – erste richtig]})
 EIN = [
     ('v = s : t', 'v', 's/t', {'s': [('s = v · t', 'v*t'), ('s = v : t', 'v/t'), ('s = t : v', 't/v'), ('s = v + t', 'v+t')],

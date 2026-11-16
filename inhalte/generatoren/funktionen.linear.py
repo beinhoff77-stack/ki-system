@@ -64,6 +64,62 @@ ETAPPEN = [
 ]
 
 
+# ---- KLAR (verständliche Erklärungen, Runde 7) ----
+KLAR = {
+ 'ablesen': {
+  'einstieg': 'Eine Taxifahrt kostet 3 € Grundpreis und 2 € pro Kilometer. Trägt man Strecke und Preis in ein Koordinatensystem ein, liegen alle Punkte auf einer geraden Linie. Die 3 € liest man dort ab, wo die Linie die senkrechte Achse trifft; die 2 € pro km zeigen, wie steil sie ist. So eine Zuordnung heißt ⟦lineare Funktion⟧.',
+  'woerter': [['lineare Funktion', 'eine Funktion, deren Graph eine Gerade ist: y = m · x + t'], ['m (Steigung)', 'so viel geht es nach oben, wenn man 1 nach rechts geht'],
+              ['t (y-Achsenabschnitt)', 'dort schneidet die Gerade die y-Achse – der Startwert'], ['Steigungsdreieck', 'das kleine Dreieck „1 nach rechts, m nach oben“ im Bild'],
+              ['(0 | 5)', 'der Punkt mit x = 0 und y = 5']],
+  'schritte': ['Gegeben ist y = 5 − 2x. Zuerst umsortieren, damit das x vorne steht: y = −2x + 5.',
+               'Die Zahl ohne x ist ⟦t = 5⟧. Die Gerade schneidet die y-Achse also bei (0 | 5).',
+               'Die Zahl vor dem x ist ⟦m = −2⟧: Von jedem Punkt aus geht es 1 nach rechts und 2 nach unten. Die Gerade fällt.',
+               'Genau das zeigt das gestrichelte Steigungsdreieck im Bild.'],
+  'regel': 'So liest du ab: die Gleichung in die Form ⟦y = m · x + t⟧ bringen. ⟦m⟧ ist die Zahl vor dem x (mit Vorzeichen), ⟦t⟧ die Zahl ohne x.',
+  'fehler': 'Bei y = 5 − 2x ist m nicht 5. Die Steigung ist die Zahl ⟦vor dem x⟧, mit Vorzeichen: m = −2. Beim Taxi wäre das, als würde man den Grundpreis für den Kilometerpreis halten.'},
+ 'zwei_punkte': {
+  'einstieg': 'Ein Wanderweg steigt gleichmäßig an: Nach 3 km Weg bist du 6 m höher als am Start. Pro Kilometer sind das 6 : 3 = 2 m. Genauso berechnest du die Steigung einer Geraden aus zwei Punkten: Höhenunterschied geteilt durch den Unterschied nach rechts. Das Ergebnis ist die ⟦Steigung m⟧.',
+  'woerter': [['P(1 | 3)', 'Punkt P mit x = 1 und y = 3'], ['x₁, y₁ und x₂, y₂', 'die Koordinaten des ersten und des zweiten Punkts (die kleine Zahl ist nur eine Nummer)'],
+              ['Differenz', 'Unterschied, das Ergebnis einer Minus-Rechnung'], ['m = (y₂ − y₁) : (x₂ − x₁)', 'Steigung = Unterschied nach oben : Unterschied nach rechts']],
+  'schritte': ['Gegeben sind P(1 | 3) und Q(4 | 9).', 'Von P nach Q geht es nach rechts: 4 − 1 = 3.', 'Dabei geht es nach oben: 9 − 3 = 6.',
+               'Steigung = nach oben : nach rechts = 6 : 3, also ⟦m = 2⟧.']},
+ 'proportional': {
+  'einstieg': 'Am Obststand kostet 1 kg Äpfel 2,50 €. Kaufst du doppelt so viel, zahlst du doppelt so viel; kaufst du nichts, zahlst du nichts. So eine Zuordnung heißt ⟦direkt proportional⟧. Ihr Graph ist eine Gerade durch den Nullpunkt.',
+  'woerter': [['direkt proportional', 'doppelt so viel → doppelt so teuer; 0 kg → 0 €'], ['k (Proportionalitätsfaktor)', 'der Preis für 1 kg – allgemein: y für x = 1'],
+              ['Ursprung O', 'der Nullpunkt (0 | 0)'], ['y = 2,5 · x', 'Preis y in € für x kg']],
+  'schritte': ['3 kg Äpfel kosten 7,50 €.', 'Preis für 1 kg: 7,50 € : 3 = 2,50 €. Das ist k.', 'Die Funktion heißt also ⟦y = 2,5 · x⟧.', 'Damit kosten 8 kg: 2,5 · 8 = 20 €.'],
+  'regel': 'So erkennst du ⟦direkte Proportionalität⟧: Die Gleichung hat die Form y = k · x, der Graph geht durch den ⟦Ursprung⟧. k berechnest du als y : x.'},
+ 'aufstellen': {
+  'einstieg': 'Ein Wanderer kennt die Steigung seines Weges und weiß, an welcher Stelle er gerade steht. Daraus kann er berechnen, auf welcher Höhe der Weg angefangen hat. Bei Geraden ist es genauso: Aus der Steigung m und einem Punkt berechnest du den Startwert t – du ⟦stellst die Geradengleichung auf⟧.',
+  'woerter': [['Geradengleichung', 'die Gleichung y = m · x + t mit bestimmten Zahlen für m und t'], ['P(2 | 1)', 'Punkt mit x = 2 und y = 1'],
+              ['t = b − m · a', 'Formel für t, wenn der Punkt P(a | b) bekannt ist']],
+  'schritte': ['Gegeben: m = 3 und der Punkt P(2 | 1). Gesucht ist t.', 'Setze x = 2 und y = 1 in y = 3x + t ein: 1 = 3 · 2 + t, also 1 = 6 + t.',
+               'Auf beiden Seiten 6 abziehen: t = −5.', 'Die Geradengleichung lautet ⟦y = 3x − 5⟧.']},
+ 'schnittpunkte': {
+  'einstieg': 'Zwei Freunde laufen dieselbe Strecke; einer startet früher, der andere läuft schneller. Wann holt der Schnellere den anderen ein? In diesem Moment sind beide zur selben Zeit am selben Ort. Im Koordinatensystem ist das der Punkt, an dem sich ihre Geraden treffen: der ⟦Schnittpunkt⟧.',
+  'woerter': [['Schnittpunkt S', 'der Punkt, der auf beiden Geraden liegt'], ['x-Achse / y-Achse', 'die waagrechte / die senkrechte Achse im Koordinatensystem'],
+              ['gleichsetzen', 'die beiden Terme für y gleich setzen, weil y im Schnittpunkt gleich ist']],
+  'schritte': ['g: y = 2x − 1 und h: y = −x + 5. Im Schnittpunkt haben beide dasselbe y.', 'Deshalb die Terme gleichsetzen: 2x − 1 = −x + 5.',
+               'Auf beiden Seiten x und 1 dazuzählen: 3x = 6, also x = 2.', 'x = 2 in g einsetzen: y = 2 · 2 − 1 = 3. Der Schnittpunkt ist ⟦S(2 | 3)⟧.']},
+ 'lage': {
+  'einstieg': 'Bahngleise laufen nebeneinander her und treffen sich nie – sie sind parallel. Eine Straße, die eine andere im rechten Winkel kreuzt, steht senkrecht auf ihr. Ob zwei Geraden parallel oder ⟦senkrecht⟧ sind, kannst du an ihren Steigungen ablesen, ohne zu zeichnen.',
+  'woerter': [['parallel', 'gleiche Richtung, kein gemeinsamer Punkt'], ['senkrecht', 'die Geraden kreuzen sich im rechten Winkel (90°)'],
+              ['m₁, m₂', 'die Steigungen der ersten und der zweiten Geraden'], ['negativer Kehrwert', 'Bruch umdrehen und Vorzeichen wechseln: von 2 ist es −1/2']],
+  'schritte': ['g: y = 2x + 1 hat die Steigung m₁ = 2. h: y = −0,5x + 3 hat die Steigung m₂ = −0,5.', 'Die Steigungen sind verschieden, also sind g und h nicht parallel.',
+               'Produkt der Steigungen: 2 · (−0,5) = −1.', 'Das Produkt ist −1, also sind ⟦g und h senkrecht zueinander⟧.']},
+ 'deuten': {
+  'einstieg': 'Eine Kerze ist anfangs 20 cm hoch und wird pro Stunde 1,5 cm kürzer. In der Funktion h(x) = −1,5x + 20 steckt diese ganze Geschichte. Jede Zahl hat eine Bedeutung: Die 20 ist der Anfang, die −1,5 die Änderung pro Stunde. Diese Bedeutung herauszulesen heißt ⟦deuten⟧.',
+  'woerter': [['h(x)', 'Höhe der Kerze in cm nach x Stunden'], ['Startwert', 'der Wert am Anfang, also bei x = 0 – hier t = 20'],
+              ['Änderung pro Einheit', 'um so viel ändert sich der Wert, wenn x um 1 wächst – hier m = −1,5'], ['≈', '„ungefähr gleich“ (gerundet)']],
+  'schritte': ['Kerze: h(x) = −1,5x + 20, h in cm, x in Stunden.', 't = 20 ist der Wert bei x = 0: Anfangs ist die Kerze 20 cm hoch.',
+               'm = −1,5 ist die Änderung pro Stunde: Die Kerze wird jede Stunde 1,5 cm kürzer.', 'Abgebrannt ist sie bei h = 0: 1,5x = 20, also ⟦x ≈ 13,3 h⟧.']},
+}
+
+for _e in ETAPPEN:
+    _e.update(KLAR.get(_e['lernziel'], {}))
+# ---- KLAR ENDE ----
+
+
 def nz(R, lo=-6, hi=6):
     return R.choice([k for k in range(lo, hi + 1) if k])
 

@@ -33,6 +33,46 @@ ETAPPEN = [
 ]
 
 
+# ---- KLAR (verständliche Erklärungen, Runde 7) ----
+KLAR = {
+ 'lesen': {
+  'einstieg': 'Auf einem Spielzeug steht: „für Kinder von 3 bis unter 6 Jahren“. Erlaubt sind also 3-Jährige, 4-Jährige, 5-Jährige – und jedes Alter dazwischen, etwa 5 Jahre und 11 Monate. Wer schon 6 ist, gehört nicht mehr dazu. Für so einen lückenlosen Bereich gibt es in Mathe eine Kurzschrift: das ⟦Intervall⟧ [3; 6[.',
+  'woerter': [['Intervall', 'ein lückenloser Zahlenbereich zwischen zwei Grenzen'], ['Grenze', 'die Zahl am Anfang oder am Ende des Bereichs'],
+              ['[ … ] nach innen', 'die eckige Klammer zeigt zur Zahl hin: die Grenze gehört dazu'], ['] … [ nach außen', 'die Klammer zeigt von der Zahl weg: die Grenze gehört nicht dazu'],
+              ['−2 ≤ x < 5', 'alle Zahlen x von −2 (mit −2) bis 5 (ohne 5)'], ['Punkt / Kreis im Bild', 'gefüllter Punkt: Grenze gehört dazu; leerer Kreis: gehört nicht dazu']],
+  'schritte': ['Gegeben ist das Intervall [−2; 5[.', 'Links zeigt die Klammer zur −2 hin. Also gehört −2 dazu (gefüllter Punkt).',
+               'Rechts zeigt die Klammer von der 5 weg. Also gehört 5 nicht dazu (leerer Kreis).', 'In Zeichen heißt das ⟦−2 ≤ x < 5⟧: alle Zahlen von −2 bis knapp unter 5.'],
+  'regel': 'So liest du ein ⟦Intervall⟧: Schau jede ⟦Klammer⟧ einzeln an. Zeigt sie zur Zahl hin, gehört die Grenze dazu (≤). Zeigt sie von ihr weg, gehört sie nicht dazu (<).',
+  'fehler': ']1; 4] heißt nicht 1 ≤ x ≤ 4. Die linke Klammer zeigt ⟦nach außen⟧, also gehört 1 nicht dazu: 1 < x ≤ 4. Wie bei „über 1 Jahr bis 4 Jahre“: Wer genau 1 Jahr alt ist, ist noch nicht dabei.'},
+ 'schreiben': {
+  'einstieg': 'An der Achterbahn steht: „Mitfahren ab 140 cm.“ Eine obere Grenze gibt es nicht – auch sehr große Menschen dürfen mitfahren. Für „ohne Ende nach oben“ benutzt man das Zeichen ∞, gesprochen ⟦unendlich⟧.',
+  'woerter': [['≥ und ≤', '„größer oder gleich“ bzw. „kleiner oder gleich“: die Grenze gehört dazu'], ['> und <', '„größer als“ bzw. „kleiner als“: die Grenze gehört nicht dazu'],
+              ['∞', 'unendlich: der Bereich hört nach oben nie auf'], ['−∞', 'minus unendlich: der Bereich hört nach unten nie auf'], ['unbegrenzt', 'auf dieser Seite gibt es keine Grenze']],
+  'schritte': ['Mitfahren darf, wer mindestens 140 cm groß ist. In Zeichen: x ≥ 140.', 'Die 140 gehört dazu, also zeigt die Klammer zur 140 hin: [140; …',
+               'Nach oben gibt es keine Grenze. Dort steht ∞, und bei ∞ zeigt die Klammer immer nach außen.', 'Das Intervall heißt ⟦[140; ∞[⟧.'],
+  'regel': 'So schreibst du ein Intervall: Bei ≤ und ≥ zeigt die Klammer ⟦nach innen⟧, bei < und > ⟦nach außen⟧. Ist der Bereich auf einer Seite ⟦unbegrenzt⟧, schreibst du −∞ oder ∞ – immer mit Klammer nach außen.',
+  'fehler': 'x > 3 ist nicht [3; ∞]. Die 3 gehört nicht dazu, also ]3; … . Und ∞ ist keine Zahl, die man je erreicht – deshalb zeigt die Klammer dort ⟦immer⟧ nach außen: ]3; ∞[.'},
+ 'enthalten': {
+  'einstieg': 'Ein Spiel ist „für Kinder über 1 bis einschließlich 3 Jahre“. Wer genau 1 Jahr alt ist, gehört nicht dazu, wer genau 3 ist, schon. Dazwischen passt jedes Alter, auch 2 Jahre und 4 Monate. Ein Intervall enthält also nicht nur ganze Zahlen, sondern ⟦unendlich viele⟧ Zahlen.',
+  'woerter': [['ganze Zahlen', '…, −2, −1, 0, 1, 2, … – Zahlen ohne Komma'], ['enthalten', 'die Zahl liegt im Bereich'],
+              ['unendlich viele', 'man kann sie nie fertig aufzählen, z. B. 0,5; 0,51; 0,501; …']],
+  'schritte': ['Frage: Welche ganzen Zahlen liegen in ]−1; 3]?', 'Links zeigt die Klammer von der −1 weg. Also gehört −1 nicht dazu.',
+               'Dann kommen 0, 1 und 2. Rechts zeigt die Klammer zur 3 hin, also gehört auch 3 dazu.', 'Gezählt: 0, 1, 2, 3 – das sind ⟦4⟧ ganze Zahlen.'],
+  'regel': 'So prüfst du eine Zahl: Liegt sie ⟦zwischen den Grenzen⟧, gehört sie dazu. Ist sie genau eine Grenze, entscheidet die ⟦Klammer⟧.',
+  'fehler': 'In ]−1; 3] liegen nicht nur 0, 1, 2 und 3. Auch 0,5 oder 2,99 gehören dazu – wie ein Kind mit 2 Jahren und 4 Monaten. Ein Intervall enthält ⟦unendlich viele⟧ Zahlen.'},
+ 'beurteilen': {
+  'einstieg': 'Im Schwimmbad steht: „Eintritt frei für Kinder unter 4 Jahren.“ Dein Bruder hat heute seinen 4. Geburtstag. Muss er zahlen? Ja – „unter 4“ heißt: Die 4 gehört nicht dazu. Um so etwas sicher zu entscheiden, liest du Grenzen und Klammern genau und suchst notfalls ein ⟦Gegenbeispiel⟧.',
+  'woerter': [['Aussage', 'ein Satz, der entweder wahr oder falsch ist'], ['Gegenbeispiel', 'ein einziger Fall, in dem die Aussage nicht stimmt – dann ist sie falsch']],
+  'schritte': ['Aussage: „4 liegt in [0; 4[.“', 'Schau auf die rechte Grenze 4: Dort zeigt die Klammer von der 4 weg.',
+               'Also gehört 4 nicht zum Intervall – wie beim Bruder an seinem 4. Geburtstag.', 'Die Aussage ist ⟦falsch⟧.'],
+  'regel': 'So prüfst du eine Aussage über ein Intervall: ⟦Grenzen⟧ und ⟦Klammern⟧ genau lesen. Ein einziges ⟦Gegenbeispiel⟧ genügt, um eine Aussage zu widerlegen.'},
+}
+
+for _e in ETAPPEN:
+    _e.update(KLAR.get(_e['lernziel'], {}))
+# ---- KLAR ENDE ----
+
+
 def iv(lo, hi, li, ri):
     l = '[' if li else ']'
     r = ']' if ri else '['

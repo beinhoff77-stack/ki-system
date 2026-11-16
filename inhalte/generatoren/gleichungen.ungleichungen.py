@@ -57,6 +57,75 @@ ETAPPEN = [
 ]
 
 
+# ---- KLAR (verständliche Erklärungen, Runde 7) ----
+KLAR = {
+ 'umformen': {
+  'einstieg': 'Im Freizeitpark kostet der Eintritt 5 €, jede Fahrt kostet 3 €. Du hast 17 € dabei und willst danach noch etwas Geld übrig haben. Wie viele Fahrten sind drin? Es muss nicht genau aufgehen – du musst nur unter 17 € bleiben. Eine Rechenfrage mit „weniger als“ statt „gleich“ heißt ⟦Ungleichung⟧.',
+  'woerter': [['Ungleichung', 'wie eine Gleichung, aber mit <, >, ≤ oder ≥ statt mit ='], ['<', '„kleiner als“, z. B. 3 < 5'], ['>', '„größer als“, z. B. 5 > 3'],
+              ['x', 'die gesuchte Zahl – hier die Anzahl der Fahrten'], ['Lösung', 'jede Zahl für x, mit der die Aussage stimmt'],
+              ['| − 5', 'Randnotiz: Im nächsten Schritt wird auf beiden Seiten 5 abgezogen']],
+  'schritte': ['Die Frage als Ungleichung: 5 € Eintritt plus 3 € je Fahrt soll weniger als 17 € sein, also 3x + 5 < 17.',
+               'Auf beiden Seiten 5 abziehen, denn der Eintritt ist schon bezahlt: 3x < 12.',
+               'Beide Seiten durch 3 teilen, den Preis einer Fahrt: x < 4.',
+               'Alle Zahlen kleiner als 4 sind Lösungen: ⟦x < 4⟧. Fahrten gibt es nur ganz, also höchstens 3.'],
+  'regel': 'So löst du eine ⟦Ungleichung⟧: wie eine Gleichung umformen. Auf beiden Seiten ⟦dasselbe addieren oder abziehen⟧ oder mit derselben ⟦positiven⟧ Zahl malnehmen bzw. durch sie teilen – das Zeichen bleibt dabei gleich.',
+  'fehler': 'Aus 3x + 5 < 17 wird nicht 3x < 22. Das wäre, als würdest du den bezahlten Eintritt noch einmal zu deinem Geld dazulegen. Die 5 wird auf beiden Seiten ⟦abgezogen⟧: 3x < 12.'},
+ 'umdrehen': {
+  'einstieg': 'Schau aufs Thermometer: 2 °C ist kälter als 3 °C, also 2 < 3. Jetzt dieselben Zahlen mit Minus: Bei −3 °C ist es kälter als bei −2 °C, also −2 > −3. Das Minus hat die Reihenfolge umgekehrt. Darum muss man beim Malnehmen oder Teilen mit einer ⟦negativen Zahl⟧ das Zeichen umdrehen.',
+  'woerter': [['negative Zahl', 'eine Zahl unter 0 mit Minus davor, z. B. −2 oder −3,5'], ['≤', '„kleiner oder gleich“, also höchstens'], ['≥', '„größer oder gleich“, also mindestens'],
+              ['Zeichen umdrehen', 'aus < wird >, aus ≤ wird ≥ – und umgekehrt']],
+  'schritte': ['Aufgabe: −2x + 1 ≤ 9.', 'Auf beiden Seiten 1 abziehen: −2x ≤ 8. Beim Abziehen bleibt das Zeichen, wie es ist.',
+               'Beide Seiten durch (−2) teilen. Weil −2 negativ ist, wird aus ≤ ein ≥.', 'Ergebnis: ⟦x ≥ −4⟧. Alle Zahlen ab −4 aufwärts sind Lösungen.'],
+  'regel': 'So gehst du vor: Teilst du beide Seiten durch eine ⟦negative Zahl⟧ oder nimmst du sie damit mal, ⟦drehst du das Zeichen um⟧: < wird >, ≤ wird ≥. Beim Addieren und Abziehen bleibt es, wie es ist.',
+  'fehler': '−2x ≤ 8 ergibt nicht x ≤ −4. Prüfe mit x = −5: −2 · (−5) = 10, und 10 ≤ 8 ist falsch. Ohne Umdrehen wäre es wie beim Thermometer, auf dem −3 °C plötzlich wärmer als −2 °C sein soll. Richtig: ⟦x ≥ −4⟧. Beim Abziehen, z. B. | − 1, dreht sich nichts um.'},
+ 'klammern': {
+  'einstieg': 'Zwei Freunde gehen ins Kino. Jeder zahlt den Eintritt x € und eine Cola für 3 €. Zusammen zahlen sie 2 · (x + 3) € – die 2 gilt für den Eintritt und für die Cola. Will man das mit einem anderen Preis vergleichen, muss man zuerst die ⟦Klammer auflösen⟧ und dann alle x auf eine Seite bringen.',
+  'woerter': [['Klammer auflösen', 'die Zahl vor der Klammer mit jedem Teil darin malnehmen: 2(x + 3) = 2x + 6'], ['2(x + 3)', 'kurz für 2 · (x + 3)'],
+              ['x-Glied', 'ein Teil mit x, z. B. 5x'], ['Faktor vor x', 'die Zahl, mit der x malgenommen wird: in −3x ist es −3']],
+  'schritte': ['Aufgabe: 2(x + 3) > 5x − 9.', 'Klammer auflösen: 2 mal x und 2 mal 3 ergibt 2x + 6 > 5x − 9.',
+               'Alle x nach links, alle Zahlen nach rechts: Auf beiden Seiten 5x und 6 abziehen ergibt −3x > −15.',
+               'Durch −3 teilen. −3 ist negativ, also Zeichen umdrehen: ⟦x < 5⟧.'],
+  'regel': 'So gehst du vor: zuerst ⟦Klammern auflösen⟧ und zusammenfassen, dann alle ⟦x-Glieder auf eine Seite⟧ und alle Zahlen auf die andere. Ist der Faktor vor x am Ende negativ, beim Teilen das Zeichen umdrehen.',
+  'fehler': '2(x + 3) ist nicht 2x + 3. Das wäre, als hätten die beiden Freunde zwei Eintritte, aber nur eine Cola bezahlt. Die 2 gilt für ⟦jeden⟧ Teil in der Klammer: 2x + 6.'},
+ 'intervall': {
+  'einstieg': 'An einer Achterbahn steht: „Mitfahren ab 1,20 m Körpergröße.“ Erlaubt sind also 1,20 m und alle Größen darüber – ein ganzer Bereich ohne Lücken. Statt „alle Zahlen ab 1,2“ schreibt man kurz [1,2; ∞[. So ein lückenloser Zahlenbereich heißt ⟦Intervall⟧.',
+  'woerter': [['Lösungsmenge L', 'alle Lösungen zusammen'], ['Intervall', 'ein lückenloser Zahlenbereich, z. B. alle Zahlen von 2 bis 5'],
+              ['[ … ]', 'zeigt die eckige Klammer zur Zahl hin (nach innen), gehört die Grenze dazu'], ['] … [', 'zeigt sie von der Zahl weg (nach außen), gehört die Grenze nicht dazu'],
+              ['∞', '„unendlich“: ohne Ende nach oben; −∞: ohne Ende nach unten']],
+  'schritte': ['x ≤ 3 heißt: die 3 und alle Zahlen darunter.', 'Nach unten gibt es kein Ende, also beginnt der Bereich bei −∞. Dort zeigt die Klammer immer nach außen.',
+               'Die 3 gehört dazu, also zeigt die Klammer bei der 3 nach innen: L = ⟦]−∞; 3]⟧.',
+               'Genauso: x > −2 heißt „alles über −2, aber nicht −2 selbst“: L = ⟦]−2; ∞[⟧.'],
+  'regel': 'So schreibst du die Lösungsmenge als ⟦Intervall⟧: Gehört die Grenze dazu (≤, ≥), zeigt die Klammer ⟦nach innen⟧. Gehört sie nicht dazu (<, >), zeigt sie ⟦nach außen⟧. Bei ∞ und −∞ zeigt sie immer nach außen.',
+  'fehler': 'x < 3 ist nicht ]−∞; 3]. Das wäre wie das Schild „Eintritt frei unter 3 Jahren“, an der Kasse aber auch Dreijährige frei durchlassen. Die 3 erfüllt x < 3 nicht, also Klammer ⟦nach außen⟧: ]−∞; 3[.'},
+ 'pruefen': {
+  'einstieg': 'Du hast ausgerechnet, dass im Freizeitpark höchstens 3 Fahrten drin sind. Bevor du an der Kasse stehst, rechnest du lieber nach: 5 € Eintritt und 3 Fahrten zu 3 € sind 14 € – das passt. So ein Nachrechnen mit einer eingesetzten Zahl heißt ⟦Probe⟧.',
+  'woerter': [['einsetzen', 'für x eine Zahl hinschreiben und ausrechnen'], ['Probe', 'Nachrechnen, ob eine Zahl wirklich passt'], ['Aussage stimmt', 'z. B. 9 > 7 – das ist wahr']],
+  'schritte': ['Frage: Ist 6 eine Lösung von 2x − 3 > 7?', 'Setze 6 für x ein: 2 · 6 − 3 = 12 − 3 = 9.', 'Vergleiche mit der rechten Seite: Ist 9 > 7? Ja, das stimmt.',
+               'Also: ⟦Ja, 6 ist eine Lösung.⟧'],
+  'regel': 'So prüfst du: Zahl für x ⟦einsetzen⟧, ausrechnen und schauen, ob die Aussage ⟦stimmt⟧. Bei einer fremden Rechnung jeden Schritt nachrechnen – besonders, ob beim Teilen durch eine negative Zahl das Zeichen umgedreht wurde.',
+  'fehler': 'Eine passende Zahl bestätigt noch nicht die ganze Lösung. Wer nur „0 Fahrten“ testet, merkt nicht, ob 4 Fahrten auch noch gingen. Teste auch eine Zahl ⟦nahe der Grenze⟧, auf beiden Seiten.'},
+ 'grafisch': {
+  'einstieg': 'Statt zu rechnen kannst du auch zeichnen: eine Linie für deine Ausgaben im Freizeitpark (5 € Eintritt plus 3 € je Fahrt) und eine waagrechte Linie bei 17 € für dein Geld. Solange die Ausgaben-Linie unter der Geld-Linie liegt, reicht das Geld. Wo sich die Linien treffen, liegt die Grenze – am ⟦Schnittpunkt⟧.',
+  'woerter': [['Gerade', 'eine gerade Linie im Koordinatensystem, z. B. y = 3x + 5'], ['y = 17', 'eine waagrechte Gerade: überall auf der Höhe 17'],
+              ['unterhalb', 'die Linie liegt tiefer, ihre Werte sind kleiner'], ['Schnittpunkt', 'die Stelle, an der sich zwei Linien treffen']],
+  'schritte': ['Aufgabe: 3x + 5 < 17.', 'Zeichne die linke Seite als Gerade y = 3x + 5 und die rechte Seite als waagrechte Gerade y = 17.',
+               'Die Geraden schneiden sich bei x = 4, denn 3 · 4 + 5 = 17.', 'Links von x = 4 liegt y = 3x + 5 unterhalb der 17. Also ⟦x < 4⟧.'],
+  'regel': 'So löst du eine Ungleichung am Bild: Jede Seite als ⟦Gerade⟧ zeichnen. Bei „links < rechts“ die x-Werte suchen, bei denen die linke Gerade ⟦unterhalb⟧ der rechten liegt. Die Grenze ist die x-Stelle des ⟦Schnittpunkts⟧.',
+  'fehler': 'Die falsche Seite nehmen: Rechts vom Schnittpunkt liegt y = 3x + 5 ⟦über⟧ der 17 – dort wären die Ausgaben höher als dein Geld. Bei „<“ gehört der Bereich ⟦unterhalb⟧ dazu, also links von x = 4.'},
+ 'sachaufgabe': {
+  'einstieg': 'In einem anderen Park kostet der Eintritt 4 €, jede Fahrt 2,50 €, und du willst höchstens 20 € ausgeben. Wörter wie „höchstens“, „mindestens“, „mehr als“ oder „weniger als“ verraten: Gesucht ist kein einzelner Wert, sondern ein ganzer Bereich. Solche Texte übersetzt du in eine Ungleichung – das ist eine ⟦Sachaufgabe⟧.',
+  'woerter': [['höchstens', 'nicht mehr als: ≤'], ['mindestens', 'nicht weniger als: ≥'], ['mehr als / weniger als', '> bzw. < – die Grenze selbst zählt nicht'],
+              ['abrunden', 'zur nächstkleineren ganzen Zahl gehen, z. B. 6,4 → 6']],
+  'schritte': ['Übersetzen: 4 € Eintritt plus 2,50 € je Fahrt dürfen höchstens 20 € sein, also 4 + 2,5x ≤ 20.', 'Auf beiden Seiten 4 abziehen: 2,5x ≤ 16.',
+               'Beide Seiten durch 2,5 teilen: x ≤ 6,4.', 'Fahrten gibt es nur ganz, und 7 wären zu viel. Also abrunden: ⟦höchstens 6 Fahrten⟧.'],
+  'regel': 'So übersetzt du: ⟦höchstens⟧ → ≤, ⟦mindestens⟧ → ≥, ⟦mehr als⟧ → >, ⟦weniger als⟧ → <. Dann die Ungleichung lösen und prüfen, ob nur ⟦ganze Zahlen⟧ sinnvoll sind.'},
+}
+
+for _e in ETAPPEN:
+    _e.update(KLAR.get(_e['lernziel'], {}))
+# ---- KLAR ENDE ----
+
+
 def loese(p, q, z, r, s):
     """p·x + q  z  r·x + s  ->  (Zeichen, Grenze)."""
     k = p - r

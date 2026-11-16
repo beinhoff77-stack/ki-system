@@ -60,6 +60,67 @@ ETAPPEN = [
 ]
 
 
+# ---- KLAR (verständliche Erklärungen, Runde 7) ----
+KLAR = {
+ 'pruefen': {
+  'einstieg': 'Im Schreibwarenladen weißt du zwei Dinge: Ein Heft und ein Stift kosten zusammen 5 €. Und zwei Hefte kosten 1 € mehr als ein Stift. Welche Preise passen zu beiden Angaben gleichzeitig? Zwei Gleichungen, die zusammen gelten sollen, bilden ein ⟦Gleichungssystem⟧.',
+  'woerter': [['Gleichungssystem', 'zwei (oder mehr) Gleichungen, die gleichzeitig stimmen sollen'], ['x, y', 'zwei Unbekannte: hier x = Heftpreis und y = Stiftpreis in €'],
+              ['I, II', 'die Nummern der beiden Gleichungen'], ['(2 | 3)', 'Zahlenpaar: x = 2 und y = 3'], ['Lösung', 'ein Zahlenpaar, das beide Gleichungen erfüllt']],
+  'schritte': ['Die Angaben als Gleichungen: I: x + y = 5 und II: 2x − y = 1.', 'Probiere das Paar (2 | 3), also Heft 2 € und Stift 3 €. In I: 2 + 3 = 5 – stimmt.',
+               'In II: 2 · 2 − 3 = 4 − 3 = 1 – stimmt auch.', 'Beide Gleichungen sind erfüllt: ⟦(2 | 3) ist die Lösung.⟧'],
+  'regel': 'So prüfst du ein Zahlenpaar: x und y in ⟦beide⟧ Gleichungen einsetzen. Nur wenn ⟦beide⟧ stimmen, ist das Paar eine ⟦Lösung⟧ des ⟦Gleichungssystems⟧.',
+  'fehler': 'Erfüllt (4 | 1) nur x + y = 5, ist es ⟦keine⟧ Lösung: In II gilt 8 − 1 = 7 ≠ 1. Der Preis würde zur ersten Angabe passen, aber nicht zur zweiten. Beide Gleichungen müssen stimmen.'},
+ 'grafisch': {
+  'einstieg': 'Zur Angabe „Heft und Stift kosten zusammen 5 €“ passen viele Preispaare: 1 € und 4 €, 2 € und 3 €, 2,50 € und 2,50 € … Trägt man alle passenden Paare ein, liegen sie auf einer geraden Linie. Zur zweiten Angabe gehört eine zweite Linie. Das Paar, das zu beiden passt, ist ihr ⟦Schnittpunkt⟧.',
+  'woerter': [['Gerade', 'gerade Linie, auf der alle passenden Paare (x | y) einer Gleichung liegen'], ['nach y umstellen', 'so umformen, dass y allein steht, z. B. y = −x + 5'],
+              ['S(2 | 3)', 'der Schnittpunkt S mit x = 2 und y = 3'], ['L = {(2 | 3)}', 'die Lösungsmenge enthält genau das Paar (2 | 3)']],
+  'schritte': ['I: x + y = 5 nach y umstellen: Auf beiden Seiten x abziehen ergibt y = −x + 5.',
+               'II: 2x − y = 1 nach y umstellen: y dazuzählen und 1 abziehen ergibt y = 2x − 1.', 'Beide Geraden zeichnen. Sie schneiden sich im Punkt S(2 | 3).',
+               'Der Schnittpunkt liegt auf beiden Geraden: ⟦L = {(2 | 3)}⟧.']},
+ 'einsetzen': {
+  'einstieg': 'Manchmal steht eine Angabe schon fertig da, etwa: „Ein Stift kostet 1 € weniger als zwei Hefte“, also y = 2x − 1. Dann schreibst du in der anderen Gleichung statt y genau diesen Ausdruck hin. Danach kommt nur noch x vor. Dieses Vorgehen heißt ⟦Einsetzungsverfahren⟧.',
+  'woerter': [['Einsetzungsverfahren', 'eine nach y aufgelöste Gleichung in die andere einsetzen'], ['aufgelöst nach y', 'y steht allein auf einer Seite: y = …'],
+              ['Variable', 'ein Buchstabe für eine unbekannte Zahl, hier x und y']],
+  'schritte': ['I: y = 2x − 1 (Stiftpreis). II: 3x + y = 9 (drei Hefte und ein Stift kosten 9 €).', 'In II statt y den Ausdruck aus I einsetzen, mit Klammer: 3x + (2x − 1) = 9.',
+               'Zusammenfassen: 5x − 1 = 9. 1 dazuzählen und durch 5 teilen: x = 2.', 'x = 2 in I einsetzen: y = 2 · 2 − 1 = 3. ⟦L = {(2 | 3)}⟧ – Heft 2 €, Stift 3 €.']},
+ 'gleichsetzen': {
+  'einstieg': 'Zwei Fahrradverleihe haben unterschiedliche Preise: A verlangt 10 € Grundgebühr und 2 € pro Stunde, B nur 4 € Grundgebühr, aber 4 € pro Stunde. Bei kurzen Touren ist B billiger, bei langen A. Bei welcher Dauer kosten beide gleich viel? Dann ist Preis A gleich Preis B – so arbeitet das ⟦Gleichsetzungsverfahren⟧.',
+  'woerter': [['Gleichsetzungsverfahren', 'zwei nach y aufgelöste Gleichungen gleichsetzen'], ['y = 2x + 10', 'Preis y in € bei Verleih A für x Stunden'], ['(3 | 16)', '3 Stunden, 16 €']],
+  'schritte': ['A: y = 2x + 10, B: y = 4x + 4 (x Stunden, y Preis in €). Gesucht: Wann kosten beide gleich viel?',
+               'Gleich viel heißt: Die beiden rechten Seiten sind gleich, also 2x + 10 = 4x + 4.', 'Auf beiden Seiten 2x und 4 abziehen: 6 = 2x, also x = 3.',
+               'x = 3 in A einsetzen: y = 2 · 3 + 10 = 16. ⟦L = {(3 | 16)}⟧ – bei 3 Stunden kosten beide 16 €.']},
+ 'addition': {
+  'einstieg': 'Stell dir zwei Waagen vor, die beide im Gleichgewicht sind. Legst du den Inhalt der beiden linken Schalen zusammen und den der beiden rechten auch, bleibt es im Gleichgewicht. Genauso darf man zwei Gleichungen zusammenzählen. Geschickt gemacht, fällt dabei eine Unbekannte weg – das ist das ⟦Additionsverfahren⟧.',
+  'woerter': [['Additionsverfahren', 'zwei Gleichungen addieren, sodass eine Variable wegfällt'], ['Gegenzahlen', 'Zahlen, die zusammen 0 ergeben, z. B. 3 und −3'],
+              ['II · 3', 'jedes Glied von Gleichung II mal 3'], ['II′', 'die veränderte Gleichung II']],
+  'schritte': ['I: 2x + 3y = 12 und II: x − y = 1.', 'Ziel: Vor y sollen Gegenzahlen stehen. Dazu II mal 3 nehmen: II′: 3x − 3y = 3.',
+               'I und II′ addieren: 3y und −3y ergeben 0. Es bleibt 5x = 15, also x = 3.', 'x = 3 in II einsetzen: 3 − y = 1, also y = 2. ⟦L = {(3 | 2)}⟧'],
+  'regel': 'So gehst du vor: die Gleichungen so ⟦malnehmen⟧, dass vor einer Variablen ⟦Gegenzahlen⟧ stehen. Dann die Gleichungen ⟦addieren⟧ – diese Variable ⟦fällt weg⟧.',
+  'fehler': 'Wer II mit 3 multipliziert, muss ⟦jedes⟧ Glied multiplizieren – auch die rechte Seite: 3x − 3y = 3, nicht 3x − 3y = 1. Sonst wird nur eine Waagschale verdreifacht, und das Gleichgewicht ist weg.'},
+ 'verfahren': {
+  'einstieg': 'Zu einem Ziel führen oft mehrere Wege – mit dem Rad, zu Fuß oder mit dem Bus. Alle kommen an, aber einer ist meist am schnellsten. Bei Gleichungssystemen ist es genauso: Einsetzen, Gleichsetzen und Addieren führen alle zur Lösung. Welches ⟦Verfahren⟧ am wenigsten Arbeit macht, siehst du an der Form der Gleichungen.',
+  'woerter': [['Verfahren', 'ein fester Lösungsweg (Einsetzen, Gleichsetzen, Addition)'], ['Vielfache', 'z. B. sind 2, 4, 6 Vielfache von 2']],
+  'schritte': ['I: 4x + 5y = 3, II: 2x − 5y = 9.', 'Keine der Gleichungen ist nach x oder y aufgelöst. Einsetzen oder Gleichsetzen bräuchte erst Umformungen.',
+               'Vor y stehen 5 und −5. Das sind Gegenzahlen: Beim Addieren fällt y sofort weg.', 'Am geschicktesten ist hier das ⟦Additionsverfahren⟧.']},
+ 'loesbarkeit': {
+  'einstieg': 'Zwei Sonnenblumen wachsen beide 2 cm pro Tag. Die eine ist heute 4 cm größer als die andere. Werden sie je gleich groß? Nein – der Abstand bleibt immer 4 cm. So etwas gibt es auch bei Gleichungssystemen: Dann hat das System ⟦keine Lösung⟧. Es kann sogar ⟦unendlich viele⟧ Lösungen haben.',
+  'woerter': [['parallel', 'Geraden mit gleicher Steigung, die sich nie treffen'], ['Aussage wahr / falsch', '0 = 0 ist wahr, 1 = −3 ist falsch'],
+              ['unendlich viele Lösungen', 'beide Gleichungen beschreiben dieselbe Gerade; jeder Punkt darauf passt']],
+  'schritte': ['I: y = 2x + 1, II: y = 2x − 3. Beide Geraden steigen gleich stark (2 pro Schritt nach rechts).', 'Gleichsetzen: 2x + 1 = 2x − 3.',
+               'Auf beiden Seiten 2x abziehen: 1 = −3. Das x ist verschwunden, und die Aussage ist falsch.', 'Das System hat ⟦keine Lösung⟧ – die Geraden sind parallel und treffen sich nie.']},
+ 'sachaufgabe': {
+  'einstieg': 'Auf einem Bauernhof zählst du 10 Köpfe und 28 Beine. Es gibt nur Hühner und Kaninchen. Wie viele sind es von jeder Sorte? Zwei Unbekannte und zwei Angaben – daraus wird ein Gleichungssystem. Solche Textaufgaben heißen ⟦Sachaufgaben⟧.',
+  'woerter': [['Variable festlegen', 'aufschreiben, wofür x und y stehen: x = Hühner, y = Kaninchen'], ['II − 2 · I', 'von Gleichung II das Doppelte von Gleichung I abziehen'],
+              ['Antwortsatz', 'das Ergebnis in Worten zur Frage']],
+  'schritte': ['Festlegen: x = Anzahl der Hühner, y = Anzahl der Kaninchen.', 'Köpfe: x + y = 10 (I). Beine: Huhn 2, Kaninchen 4, also 2x + 4y = 28 (II).',
+               'II minus zweimal I: 4y − 2y = 28 − 20, also 2y = 8 und y = 4.', 'Dann ist x = 10 − 4 = 6. Antwort: ⟦6 Hühner und 4 Kaninchen⟧.']},
+}
+
+for _e in ETAPPEN:
+    _e.update(KLAR.get(_e['lernziel'], {}))
+# ---- KLAR ENDE ----
+
+
 def g2(a, b):
     """a·x + b·y als Text."""
     s = lin(a, 0) if a else ''

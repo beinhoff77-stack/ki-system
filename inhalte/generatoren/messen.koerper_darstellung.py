@@ -53,6 +53,52 @@ ETAPPEN = [
      'fehler': 'Eine Pyramide ist kein Prisma, obwohl sie eine Grundfläche hat: Ihr fehlt die ⟦zweite⟧, parallele Grundfläche.'},
 ]
 
+
+# ---- KLAR (verständliche Erklärungen, Runde 7) ----
+KLAR = {
+ 'prisma': {
+  'einstieg': 'Ein Bleistift ohne Spitze, eine dreieckige Schokoladenpackung, ein Schuhkarton: Alle haben oben und unten dieselbe Form, und ihre Seiten sind Rechtecke. Solche Körper heißen ⟦Prismen⟧. Wie viele Ecken, Kanten und Flächen sie haben, kann man zählen – oder geschickt ausrechnen.',
+  'woerter': [['Prisma', 'Körper mit zwei gleichen, parallelen Grundflächen und Rechtecken als Seiten'], ['Grundfläche', 'die Fläche unten (die gleiche liegt oben)'],
+              ['n-Eck', 'Vieleck mit n Ecken, z. B. Sechseck: n = 6'], ['Mantel', 'alle Seitenrechtecke zusammen'], ['Kante', 'Linie, an der zwei Flächen zusammenstoßen'],
+              ['Eulerscher Polyedersatz', 'Ecken + Flächen − Kanten = 2; gilt für solche Körper ohne Rundungen']],
+  'schritte': ['Ein Bleistift ohne Spitze ist ein sechsseitiges Prisma: Die Grundfläche ist ein Sechseck, also n = 6.', 'Ecken: 6 unten und 6 oben, also 12.',
+               'Kanten: 6 unten, 6 oben und 6 senkrechte, also 18.', 'Flächen: 6 Rechtecke und 2 Sechsecke, zusammen ⟦8⟧.']},
+ 'netz': {
+  'einstieg': 'Schneide eine leere Müslischachtel an einigen Kanten auf und klappe sie flach auf den Tisch. Die flache Figur, die dabei entsteht, heißt ⟦Netz⟧. Ihre Fläche zeigt, wie viel Pappe man für die Schachtel braucht.',
+  'woerter': [['Netz', 'die flach ausgebreitete Hülle eines Körpers'], ['Oberfläche', 'die Fläche aller Seiten zusammen – gleich der Fläche des Netzes'],
+              ['Quader', 'ein Prisma mit Rechtecken als Grundflächen, z. B. eine Schachtel'], ['cm²', 'Quadratzentimeter, Einheit für Flächen']],
+  'schritte': ['Schachtel (Quader): 5 cm lang, 3 cm breit, 4 cm hoch.', 'Boden und Deckel sind je 5 · 3 = 15 cm² groß, zusammen 30 cm².',
+               'Die vier Seiten bilden einen Streifen: 5 + 3 + 5 + 3 = 16 cm lang und 4 cm hoch, also 64 cm².', 'Fläche des Netzes = Oberfläche = 30 + 64 = ⟦94 cm²⟧.']},
+ 'zylinder': {
+  'einstieg': 'Eine Konservendose hat oben und unten einen Kreis. Ziehst du das Papier-Etikett ab und legst es flach hin, ist es ein Rechteck. So ein Körper heißt ⟦Zylinder⟧, das Etikett zeigt seinen ⟦Mantel⟧.',
+  'woerter': [['Zylinder', 'Körper mit zwei gleichen Kreisen als Grund- und Deckfläche'], ['Umfang u', 'die Länge einmal um den Kreis herum'],
+              ['Durchmesser', 'die Strecke quer durch den Kreis, durch die Mitte'], ['Mantelfläche', 'die Fläche des abgewickelten Rechtecks']],
+  'schritte': ['Dose: Umfang des Grundkreises u = 18,8 cm, Höhe h = 10 cm.', 'Das Etikett reicht einmal um die Dose: Es ist so lang wie der Umfang, also 18,8 cm.',
+               'Es ist so hoch wie die Dose, also 10 cm.', 'Mantelfläche: 18,8 cm · 10 cm = ⟦188 cm²⟧.']},
+ 'schraegbild': {
+  'einstieg': 'Eine Schachtel ist ein räumlicher Körper, dein Heft aber ist flach. Damit die Zeichnung trotzdem räumlich wirkt, zeichnet man Kanten, die nach hinten gehen, schräg und kürzer. So eine Zeichnung heißt ⟦Schrägbild⟧.',
+  'woerter': [['Schrägbild', 'räumlich wirkende Zeichnung eines Körpers auf Papier'], ['wahre Größe', 'in der echten Länge gezeichnet'],
+              ['Verkürzungsfaktor q', 'damit werden Kanten nach hinten verkürzt; q = 1/2 heißt: halb so lang'], ['45°', 'ein halber rechter Winkel – die Richtung „schräg nach hinten“'],
+              ['gestrichelt', 'mit kurzen Strichen: diese Kante sieht man von vorn nicht']]},
+ 'ansichten': {
+  'einstieg': 'Wer ein Haus plant, zeichnet es dreimal flach: von vorn, von der Seite und von oben. Aus diesen drei Blickrichtungen erkennt man die Form genau. Die drei Zeichnungen heißen ⟦Ansichten⟧.',
+  'woerter': [['Vorderansicht', 'was man von vorn sieht'], ['Seitenansicht', 'was man von der Seite sieht'], ['Draufsicht', 'was man von oben sieht'],
+              ['ebene Figur', 'eine flache Form wie Rechteck oder Kreis']],
+  'schritte': ['Eine Dose (Zylinder) steht auf ihrem Boden.', 'Von vorn siehst du ihre Höhe und ihre Breite: ein ⟦Rechteck⟧.', 'Von der Seite sieht sie genauso aus: wieder ein Rechteck.',
+               'Von oben siehst du nur den Deckel: einen ⟦Kreis⟧.']},
+ 'beurteilen': {
+  'einstieg': 'Ist ein Würfel ein Prisma? Und eine Pyramide? Um das zu entscheiden, vergleichst du den Körper mit den Merkmalen eines Prismas. Fehlt auch nur ein Merkmal, ist er kein Prisma – der Körper ist dann ein ⟦Gegenbeispiel⟧ zur Behauptung.',
+  'woerter': [['Merkmal', 'eine Eigenschaft, die erfüllt sein muss'], ['deckungsgleich', 'genau gleich groß und gleich geformt'],
+              ['Pyramide', 'Körper mit einer Grundfläche und einer Spitze'], ['Kegel', 'wie eine Pyramide, aber mit einem Kreis als Grundfläche'],
+              ['Gegenbeispiel', 'ein Fall, für den die Behauptung nicht stimmt']],
+  'schritte': ['Aussage: „Ein Würfel ist ein Prisma.“', 'Merkmal 1: zwei gleiche, parallele Grundflächen. Beim Würfel sind Boden und Deckel gleich große Quadrate – erfüllt.',
+               'Merkmal 2: Die Seiten sind Rechtecke. Beim Würfel sind es Quadrate, und Quadrate sind besondere Rechtecke – erfüllt.', 'Die Aussage ist ⟦richtig⟧.']},
+}
+
+for _e in ETAPPEN:
+    _e.update(KLAR.get(_e['lernziel'], {}))
+# ---- KLAR ENDE ----
+
 N_ECK = {3: 'dreiseitiges', 4: 'vierseitiges', 5: 'fünfseitiges', 6: 'sechsseitiges', 7: 'siebenseitiges', 8: 'achtseitiges', 9: 'neunseitiges',
          10: 'zehnseitiges', 12: 'zwölfseitiges'}
 

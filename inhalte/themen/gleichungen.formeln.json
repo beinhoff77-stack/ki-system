@@ -34,26 +34,66 @@
    {
     "lernziel": "ein_schritt",
     "titel": "Formeln in einem Schritt umstellen",
-    "regel": "Eine Formel stellst du um wie eine Gleichung: Mit der ⟦Umkehrrechnung⟧ isolierst du die gesuchte Größe. Mal wird zu ⟦geteilt⟧, plus wird zu ⟦minus⟧.",
+    "regel": "So stellst du eine ⟦Formel⟧ um: Schau, was mit der gesuchten Größe gerechnet wird, und mach es mit der ⟦Umkehrrechnung⟧ auf beiden Seiten rückgängig. Mal wird zu ⟦geteilt⟧, plus wird zu ⟦minus⟧.",
     "schritte": [
-     "W = F · s nach s umstellen.",
-     "s ist mit F multipliziert, also beide Seiten durch F teilen.",
-     "⟦s = W : F⟧"
+     "Formel: W = F · s. Gesucht ist s.",
+     "s wird mit F malgenommen. Die Umkehrrechnung dazu ist: durch F teilen.",
+     "Beide Seiten durch F teilen: W : F = s.",
+     "Andersherum geschrieben: ⟦s = W : F⟧."
     ],
     "probe": "F = 5, s = 4 → W = 20. Und 20 : 5 = 4 ✓",
-    "fehler": "Aus W = F · s wird nicht s = W · F. Wer mit F ⟦multipliziert⟧ ist, wird durch F ⟦geteilt⟧."
+    "fehler": "Aus W = F · s wird nicht s = W · F. Das wäre, als würdest du an der Obsttheke für 6 € bei 2 € pro kg nicht 6 : 2 = 3 kg, sondern 6 · 2 = 12 kg erwarten. Wer mit F ⟦malgenommen⟧ ist, wird durch F ⟦geteilt⟧.",
+    "einstieg": "An der Obsttheke gilt: Preis = Kilopreis · Menge. Damit rechnest du aus, was 3 kg Äpfel zu 2 € pro kg kosten: 6 €. Oft willst du es andersherum wissen: Wie viele kg bekomme ich für 5 €? Dann drehst du die Rechnung um. Eine Rechenvorschrift mit Buchstaben heißt ⟦Formel⟧, das Umdrehen heißt ⟦umstellen⟧.",
+    "woerter": [
+     [
+      "Formel",
+      "eine Rechenvorschrift mit Buchstaben, z. B. W = F · s"
+     ],
+     [
+      "Größe",
+      "ein Buchstabe in der Formel für eine messbare Sache (Kraft, Weg, Preis …)"
+     ],
+     [
+      "W = F · s",
+      "aus der Physik: Arbeit W = Kraft F mal Weg s"
+     ],
+     [
+      "umstellen",
+      "die Formel so umformen, dass die gesuchte Größe allein auf einer Seite steht"
+     ],
+     [
+      "Umkehrrechnung",
+      "die Rechnung, die eine andere rückgängig macht: mal ↔ geteilt, plus ↔ minus"
+     ]
+    ]
    },
    {
     "lernziel": "zwei_schritte",
     "titel": "Formeln in zwei Schritten umstellen",
     "regel": "Gehe ⟦rückwärts⟧ vor – wie beim Ausziehen: Socken zuerst an, Schuhe zuletzt an, also Schuhe ⟦zuerst⟧ wieder aus. In der Formel wird mal zuerst gerechnet und plus zuletzt. Also entfernst du zuerst das ⟦Plus⟧, dann das Mal.",
     "schritte": [
-     "Taxipreis: K = G + p · s (K Kosten, G Grundgebühr, p Preis pro km, s Strecke). Gesucht ist s.",
-     "Zuletzt wurde G addiert, also zuerst | − G: K − G = p · s.",
-     "Dann | : p: ⟦s = (K − G) : p⟧."
+     "Taxi-Formel: K = G + p · s. Gesucht ist die Strecke s.",
+     "Beim Ausrechnen kam zuletzt „+ G“ dazu. Das machst du zuerst rückgängig: Auf beiden Seiten G abziehen ergibt K − G = p · s.",
+     "Jetzt wird s nur noch mit p malgenommen. Beide Seiten durch p teilen.",
+     "Ergebnis: ⟦s = (K − G) : p⟧. Mit den Zahlen: (20 − 4) : 2 = 8 km."
     ],
     "probe": "G = 4 €, p = 2 € pro km, s = 8 km: K = 4 + 16 = 20 €. Rückwärts: (20 − 4) : 2 = 8 ✓",
-    "fehler": "Aus K = G + p · s wird nicht s = K : p − G. Mit Zahlen: 20 : 2 − 4 = 6 km statt 8 km. Zuerst muss das ⟦+ G⟧ weg, sonst wird die Grundgebühr auch durch p geteilt. Richtig: s = (K − G) : p."
+    "fehler": "Aus K = G + p · s wird nicht s = K : p − G. Mit Zahlen: 20 : 2 − 4 = 6 km statt 8 km. Zuerst muss das ⟦+ G⟧ weg, sonst wird die Grundgebühr auch durch p geteilt. Richtig: s = (K − G) : p.",
+    "einstieg": "Eine Taxifahrt kostet 4 € Grundgebühr und 2 € pro Kilometer. Für 8 km zahlst du 4 + 2 · 8 = 20 €. Jetzt andersherum: Du hast 20 € bezahlt – wie weit bist du gefahren? Dafür musst du zwei Rechenschritte rückgängig machen, und zwar in der ⟦umgekehrten Reihenfolge⟧.",
+    "woerter": [
+     [
+      "K = G + p · s",
+      "Taxi-Formel: Kosten K = Grundgebühr G plus Preis p pro km mal Strecke s"
+     ],
+     [
+      "| − G",
+      "Randnotiz: Auf beiden Seiten wird G abgezogen."
+     ],
+     [
+      "(K − G) : p",
+      "erst die Klammer ausrechnen, dann teilen"
+     ]
+    ]
    },
    {
     "lernziel": "pruefen",
@@ -61,32 +101,84 @@
     "regel": "Eine Umstellung prüfst du mit ⟦Zahlen⟧: Wähle Werte, rechne mit der Originalformel und setze in die umgestellte Formel ein. Es muss ⟦dasselbe⟧ herauskommen. Nimm keine 0 und keine 1 – mit ihnen fallen viele Fehler nicht auf.",
     "schritte": [
      "Behauptung: Aus u = 4 · a folgt a = u − 4.",
-     "Test: a = 3 → u = 12. Dann u − 4 = 8, nicht 3.",
-     "Also ⟦falsch⟧. Richtig: a = u : 4."
+     "Erfinde eine Zahl: a = 3. Dann ist u = 4 · 3 = 12.",
+     "Setze u = 12 in die Umstellung ein: 12 − 4 = 8. Herauskommen müsste aber 3.",
+     "Also ist die Umstellung ⟦falsch⟧. Richtig ist a = u : 4."
     ],
-    "fehler": "Ein passendes Zahlenbeispiel beweist noch nichts. Jemand stellt u = 4 · a um zu a = u − 12 und testet a = 4: u = 16, und 16 − 12 = 4 ✓ – reiner Zufall! Mit a = 5: u = 20, aber 20 − 12 = 8 ≠ 5. Teste deshalb ⟦zwei verschiedene⟧ Zahlen."
+    "fehler": "Ein passendes Zahlenbeispiel beweist noch nichts. Jemand stellt u = 4 · a um zu a = u − 12 und testet a = 4: u = 16, und 16 − 12 = 4 ✓ – reiner Zufall! Mit a = 5: u = 20, aber 20 − 12 = 8 ≠ 5. Teste deshalb ⟦zwei verschiedene⟧ Zahlen.",
+    "einstieg": "Du hast eine Formel umgestellt und bist dir unsicher? Dann probier sie mit erfundenen Zahlen aus – so, wie man ein neues Rezept erst einmal probekocht. Passt das Ergebnis zur ursprünglichen Formel, war die Umstellung wahrscheinlich richtig. Dieses Ausprobieren heißt ⟦Probe mit Zahlen⟧.",
+    "woerter": [
+     [
+      "u = 4 · a",
+      "Umfang u eines Quadrats mit der Seitenlänge a"
+     ],
+     [
+      "Probe mit Zahlen",
+      "Werte erfinden, in beide Formeln einsetzen und vergleichen"
+     ],
+     [
+      "Behauptung",
+      "eine Aussage, die noch geprüft werden muss"
+     ]
+    ]
    },
    {
     "lernziel": "einsetzen",
     "titel": "Umstellen und Werte einsetzen",
-    "regel": "Stelle zuerst die Formel nach der ⟦gesuchten Größe⟧ um, dann setze die Werte ⟦mit Einheiten⟧ ein und rechne aus.",
+    "regel": "So gehst du vor: zuerst die Formel nach der ⟦gesuchten Größe⟧ umstellen, dann die Werte ⟦mit Einheiten⟧ einsetzen und ausrechnen. Die Einheit des Ergebnisses verrät, ob du richtig umgestellt hast.",
     "schritte": [
-     "Ein Radfahrer fährt 45 km mit 18 km/h. Wie lange dauert es?",
-     "v = s : t umstellen: t = s : v",
-     "t = 45 km : 18 km/h = ⟦2,5 h⟧"
+     "Gesucht ist die Zeit t. Die Formel heißt v = s : t.",
+     "t steht unter dem Bruchstrich. Beide Seiten mit t malnehmen und dann durch v teilen ergibt t = s : v.",
+     "Werte einsetzen: t = 45 km : 18 km/h.",
+     "Ausrechnen: 45 : 18 = 2,5, und km : km/h ergibt h. Also ⟦t = 2,5 h⟧, zweieinhalb Stunden."
     ],
-    "fehler": "t = v : s = 18 : 45 = 0,4 h ist falsch: Die Formel wurde falsch umgestellt. Prüfe mit den ⟦Einheiten⟧: km/h : km ergibt keine Zeit."
+    "fehler": "t = v : s = 18 : 45 = 0,4 h ist falsch – 45 km in 24 Minuten schafft kein Radfahrer. Prüfe mit den ⟦Einheiten⟧: km/h : km ergibt keine Zeit.",
+    "einstieg": "Du planst eine Radtour über 45 km und schaffst im Schnitt 18 km pro Stunde. Wie lange bist du unterwegs? Die Formel v = s : t kennt man aus der Physik, gesucht ist hier aber t. Also erst ⟦umstellen⟧, dann die Zahlen mit ihren ⟦Einheiten⟧ einsetzen.",
+    "woerter": [
+     [
+      "v = s : t",
+      "Geschwindigkeit v = Strecke s geteilt durch Zeit t"
+     ],
+     [
+      "km/h",
+      "Kilometer pro Stunde"
+     ],
+     [
+      "Einheit",
+      "die Maßangabe hinter der Zahl: km, h, €, cm²"
+     ],
+     [
+      "h",
+      "Stunde (vom lateinischen hora)"
+     ]
+    ]
    },
    {
     "lernziel": "geometrie",
     "titel": "Fehlende Maße aus Formeln",
-    "regel": "Kennst du die ⟦Fläche⟧ oder das ⟦Volumen⟧, kannst du eine fehlende Länge berechnen: Formel aufschreiben, nach der Länge ⟦umstellen⟧, einsetzen.",
+    "regel": "So berechnest du eine fehlende Länge: die Formel für ⟦Fläche⟧ oder ⟦Volumen⟧ aufschreiben, nach der Länge ⟦umstellen⟧, Werte einsetzen.",
     "schritte": [
-     "Ein Dreieck hat A = 24 cm² und g = 8 cm. Wie hoch ist es?",
-     "A = g · h : 2 → h = 2 · A : g",
-     "h = 48 cm² : 8 cm = ⟦6 cm⟧"
+     "Das Beet ist ein Dreieck mit A = 24 m² und g = 8 m. Gesucht ist die Höhe h.",
+     "Formel: A = g · h : 2. Zuerst das „: 2“ rückgängig machen: 2 · A = g · h.",
+     "Dann beide Seiten durch g teilen: h = 2 · A : g.",
+     "Einsetzen: h = 48 m² : 8 m = ⟦6 m⟧."
     ],
-    "fehler": "h = A : g = 3 cm ist falsch: Beim Dreieck steht in der Formel noch ⟦: 2⟧. Beim Umstellen wird daraus · 2."
+    "fehler": "h = A : g = 3 cm ist falsch: Beim Dreieck steht in der Formel noch ⟦: 2⟧. Beim Umstellen wird daraus · 2.",
+    "einstieg": "Ein dreieckiges Beet soll 24 m² groß werden. Die Seite am Zaun ist 8 m lang. Wie weit muss das Beet in den Garten hineinreichen? Die Flächenformel für Dreiecke kennst du – du musst sie nach der fehlenden Länge ⟦umstellen⟧.",
+    "woerter": [
+     [
+      "A = g · h : 2",
+      "Flächeninhalt eines Dreiecks: Grundseite g mal Höhe h, geteilt durch 2"
+     ],
+     [
+      "Höhe h",
+      "der senkrechte Abstand von der Grundseite zur gegenüberliegenden Ecke"
+     ],
+     [
+      "m², cm²",
+      "Quadratmeter, Quadratzentimeter – Einheiten für Flächen"
+     ]
+    ]
    }
   ],
   "teilfaehigkeiten": [

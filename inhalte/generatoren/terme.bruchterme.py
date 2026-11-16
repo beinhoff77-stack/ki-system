@@ -49,6 +49,68 @@ ETAPPEN = [
 ]
 
 
+# ---- KLAR (verständliche Erklärungen, Runde 7) ----
+KLAR = {
+ 'definitionsmenge': {
+  'einstieg': 'Eine Klasse mietet für einen Ausflug einen Bus für 600 €. Jeder zahlt seinen Anteil: 600 € geteilt durch die Anzahl x der Mitfahrenden, also 600/x Euro. Bei 20 Mitfahrenden sind das 30 €. Aber was ist bei x = 0? Durch 0 kann man nicht teilen – diesen Wert gibt es nicht. Ein Term mit x im Nenner heißt ⟦Bruchterm⟧.',
+  'woerter': [['Bruchterm', 'ein Bruch, in dessen Nenner ein x vorkommt, z. B. 600/x'], ['Zähler / Nenner', 'was über / unter dem Bruchstrich steht'],
+              ['5/(x − 3)', '5 geteilt durch (x − 3)'], ['ℚ', 'alle Bruchzahlen (rationale Zahlen), positive und negative'],
+              ['ℚ \\ {3}', 'alle diese Zahlen außer der 3'], ['Definitionsmenge D', 'alle Zahlen, die man für x einsetzen darf']],
+  'schritte': ['Term: 5/(x − 3). Frage: Welche Zahl darf man für x nicht einsetzen?', 'Der Nenner x − 3 darf nicht 0 werden.',
+               'x − 3 ist 0, wenn x = 3 ist. Diese Zahl muss also raus.', 'Ergebnis: ⟦D = ℚ \\ {3}⟧, also alle Zahlen außer 3.'],
+  'regel': 'So bestimmst du die ⟦Definitionsmenge⟧: Jeden Nenner gleich 0 setzen und ausrechnen, für welches x das passiert. Diese Zahlen streichst du: D = ℚ \\ {…}.',
+  'fehler': 'Bei (x − 2)/(x + 4) muss die 2 nicht raus: Ein ⟦Zähler⟧ 0 ist kein Problem – 0 € auf 6 Personen verteilt sind eben 0 € pro Person. Nur x = −4 macht den ⟦Nenner⟧ 0, also D = ℚ \\ {−4}.'},
+ 'termwert': {
+  'einstieg': 'Beim Busausflug zahlt jeder 600/x Euro. Fahren 24 Kinder mit, rechnest du 600 : 24 = 25 € pro Person. Für jede Anzahl x kann man so einen Betrag ausrechnen – das ist der ⟦Termwert⟧. Nur für x = 0 gibt es keinen.',
+  'woerter': [['T(x)', 'ein Name für den Term; T(3) heißt: der Wert, wenn man 3 für x einsetzt'], ['Termwert', 'das Ergebnis nach dem Einsetzen'],
+              ['nicht definiert', 'es gibt keinen Wert, weil man durch 0 teilen müsste']],
+  'schritte': ['T(x) = (2x + 1)/(x − 1). Gesucht ist T(3), also der Wert für x = 3.', 'Zuerst den Zähler ausrechnen: 2 · 3 + 1 = 7.',
+               'Dann den Nenner ausrechnen: 3 − 1 = 2.', 'Zum Schluss teilen: T(3) = 7/2 = ⟦3,5⟧.'],
+  'regel': 'So berechnest du einen ⟦Termwert⟧: Zahl für x einsetzen, ⟦Zähler und Nenner getrennt⟧ ausrechnen, dann teilen. Wird der Nenner 0, ist der Term dort ⟦nicht definiert⟧.',
+  'fehler': 'T(1) ist nicht 3/0 = 0. Durch 0 teilen geht nicht – 600 € auf 0 Mitfahrende zu verteilen ergibt keinen Preis. T(1) ist ⟦nicht definiert⟧.'},
+ 'kuerzen': {
+  'einstieg': 'Beim Bruch 6/10 teilst du oben und unten durch 2 und erhältst 3/5 – derselbe Anteil, nur einfacher geschrieben. Das klappt auch mit Termen. Allerdings nur mit Teilen, die oben und unten ⟦malgenommen⟧ werden, nicht mit Teilen, die addiert werden. Dieses Vereinfachen heißt ⟦Kürzen⟧.',
+  'woerter': [['Kürzen', 'Zähler und Nenner durch dasselbe teilen; der Wert bleibt gleich'], ['Faktor', 'ein Teil, der malgenommen wird: in 3(x + 2) sind 3 und (x + 2) Faktoren'],
+              ['Summand', 'ein Teil, der addiert wird: in x + 6 sind x und 6 Summanden'], ['ausklammern', 'eine gemeinsame Zahl vor eine Klammer ziehen: 3x + 6 = 3(x + 2)'],
+              ['x ≠ −2', 'x darf nicht −2 sein']],
+  'schritte': ['Aufgabe: (3x + 6)/(5x + 10) kürzen.', 'Oben steckt in beiden Teilen eine 3: 3x + 6 = 3(x + 2). Unten steckt eine 5: 5x + 10 = 5(x + 2).',
+               'Jetzt steht oben und unten derselbe Faktor (x + 2). Den darf man kürzen.', 'Übrig bleibt ⟦3/5⟧. Das gilt für alle x außer −2, weil dort der Nenner 0 wäre.'],
+  'regel': 'So kürzt du: Zähler und Nenner erst in ⟦Faktoren⟧ zerlegen (⟦ausklammern⟧), dann gleiche Faktoren oben und unten streichen. Aus Summen darf man nicht kürzen.',
+  'fehler': '(x + 6)/3 ist nicht x + 2. Die 6 ist ein ⟦Summand⟧, kein Faktor. Das wäre, als würde man bei „Pizza plus 6 € Lieferung, durch 3 geteilt“ nur die Lieferung teilen. Richtig wäre nur (3x + 6)/3 = x + 2.'},
+ 'erweitern': {
+  'einstieg': 'Aus 1/2 Pizza werden 4/8 Pizza, wenn du die Pizza in 8 statt in 2 Stücke schneidest: oben und unten mal 4. Der Anteil bleibt gleich, nur die Stücke sind kleiner. Dieses Malnehmen von Zähler und Nenner mit derselben Zahl heißt ⟦Erweitern⟧. Man braucht es, um Brüche auf denselben Nenner zu bringen.',
+  'woerter': [['Erweitern', 'Zähler und Nenner mit demselben malnehmen; der Wert bleibt gleich'], ['gleichnamig', 'Brüche mit demselben Nenner'], ['x²', 'kurz für x · x'],
+              ['8x² : (2x)', 'die Frage: Womit muss ich 2x malnehmen, um 8x² zu bekommen?']],
+  'schritte': ['Aufgabe: 3/(2x) soll den Nenner 8x² bekommen.', 'Womit muss man 2x malnehmen, um 8x² zu erhalten? 8 : 2 = 4 und x² : x = x, also mit 4x.',
+               'Auch der Zähler wird mit 4x malgenommen: 3 · 4x = 12x.', 'Ergebnis: 3/(2x) = 12x/(8x²). Der neue Zähler ist ⟦12x⟧.'],
+  'regel': 'So erweiterst du: ⟦neuen Nenner durch alten Nenner⟧ teilen – mit dem Ergebnis nimmst du ⟦Zähler und Nenner⟧ mal. So machst du Brüche ⟦gleichnamig⟧.',
+  'fehler': 'Nur den Nenner malnehmen ist falsch: 3/(8x²) ist viel weniger als 3/(2x) – wie wenn du die Pizza in mehr Stücke schneidest, aber trotzdem nur 3 Stücke nimmst. Auch der ⟦Zähler⟧ ändert sich: 12x/(8x²).'},
+ 'addieren': {
+  'einstieg': '2/7 Kuchen plus 3/7 Kuchen sind 5/7 Kuchen: Die Stücke sind gleich groß, du zählst nur die Stücke zusammen. Bei verschieden großen Stücken, etwa Halben und Dritteln, schneidest du erst alles in gleich große Stücke. Mit Bruchtermen geht das genauso; der gemeinsame Nenner heißt ⟦Hauptnenner⟧.',
+  'woerter': [['Hauptnenner', 'der kleinste gemeinsame Nenner aller Brüche'], ['2/x', '2 geteilt durch x'], ['4x', 'kurz für 4 · x']],
+  'schritte': ['Aufgabe: 2/x + 3/(4x).', 'Der Hauptnenner ist 4x, denn x passt in 4x hinein: 4x : x = 4.', 'Den ersten Bruch mit 4 erweitern: 2/x = 8/(4x).',
+               'Jetzt sind die Nenner gleich. Die Zähler addieren: 8 + 3 = 11. Ergebnis ⟦11/(4x)⟧.'],
+  'regel': 'So addierst du Bruchterme: Bei gleichem Nenner die ⟦Zähler addieren⟧, der Nenner bleibt. Bei verschiedenen Nennern zuerst auf den ⟦Hauptnenner⟧ erweitern. Genau wie bei Zahlen: 2/7 + 3/7 = 5/7.',
+  'fehler': '2/x + 3/x ist nicht 5/(2x): Die ⟦Nenner werden nicht addiert⟧ – aus 2 Siebteln und 3 Siebteln werden 5 Siebtel, keine Vierzehntel. Prüfe mit x = 1: 2 + 3 = 5, aber 5/2 = 2,5. Richtig ist 5/x.'},
+ 'multiplizieren': {
+  'einstieg': 'Die Hälfte von einem Drittel einer Pizza ist ein Sechstel: 1/2 · 1/3 = 1/6. Beim Malnehmen von Brüchen rechnet man oben mal oben und unten mal unten. Beim Teilen durch einen Bruch dreht man ihn um und nimmt mal. Der umgedrehte Bruch heißt ⟦Kehrbruch⟧.',
+  'woerter': [['Kehrbruch', 'der umgedrehte Bruch: von 4/x² ist es x²/4'], [':', 'geteilt durch'], ['(4x/9) · (3/x²)', '„4x Neuntel mal 3 durch x²“']],
+  'schritte': ['Aufgabe: (4x/9) · (3/x²).', 'Alles auf einen Bruchstrich schreiben, oben mal oben, unten mal unten: (4x · 3)/(9 · x²).',
+               'Vor dem Ausrechnen kürzen: 3 und 9 durch 3 teilen ergibt 1 und 3; x und x² durch x teilen ergibt 1 und x.', 'Übrig bleibt ⟦4/(3x)⟧.'],
+  'regel': 'So rechnest du: Beim Malnehmen ⟦Zähler mal Zähler, Nenner mal Nenner⟧, dann kürzen. Beim Teilen mit dem ⟦Kehrbruch⟧ des zweiten Bruchs malnehmen.'},
+ 'fehler_finden': {
+  'einstieg': 'Ein Mitschüler behauptet: „(x + 4)/4 ist dasselbe wie x + 1.“ Klingt praktisch – aber stimmt es? Statt lange zu überlegen, setzt du eine Zahl ein und rechnest beide Seiten aus. Kommt bei einer einzigen Zahl etwas Verschiedenes heraus, hast du ein ⟦Gegenbeispiel⟧ gefunden.',
+  'woerter': [['Umformung', 'einen Term anders schreiben, ohne seinen Wert zu ändern'], ['Gegenbeispiel', 'eine Zahl, bei der beide Seiten verschieden herauskommen'], ['≠', '„ist nicht gleich“']],
+  'schritte': ['Behauptung: (x + 4)/4 = x + 1.', 'Setze eine Zahl ein, zum Beispiel x = 4. Links: (4 + 4)/4 = 8/4 = 2.', 'Rechts: 4 + 1 = 5. Es ist 2 ≠ 5.',
+               'Die Umformung ist also ⟦falsch⟧. Richtig wäre (x + 4)/4 = x/4 + 1.'],
+  'regel': 'So prüfst du eine ⟦Umformung⟧: eine Zahl aus D ⟦einsetzen⟧ und beide Seiten ausrechnen. Kommt etwas Verschiedenes heraus, ist die Umformung ⟦falsch⟧.'},
+}
+
+for _e in ETAPPEN:
+    _e.update(KLAR.get(_e['lernziel'], {}))
+# ---- KLAR ENDE ----
+
+
 def nenner_lin(a, b):
     """a·x + b als Text in Klammern, falls Summe."""
     t = lin(a, b)

@@ -3914,3 +3914,7 @@ details.lr-woerter > summary::-webkit-details-marker { display: none; }
 .lr-grund { margin: 0 0 8px; font-weight: 700; }
 .lr-andererweg { margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--lr-linie, #ccc); display: flex; flex-direction: column; gap: 8px; }
 .lr-andererweg p { margin: 0; }
+
+/* R3: Was kommt wann wieder? (V12) */
+.lr-wdh-erklaert p { margin: 6px 0 0; font-size: 16px; line-height: 1.45; }
+.ls-wdh summary { cursor: pointer; } .ls-wdh p { margin: 8px 0 0; }

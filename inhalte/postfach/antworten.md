@@ -41,3 +41,16 @@ Noch nicht umgesetzt: Matrix-Darstellung, Intervall auf dem Zahlenstrahl, Körpe
   nach 3 zusätzlich „Frag Mama oder Papa – sie sehen im Lernstand, wo es hakt.“ Elternansicht: Die Karte erscheint wie bisher oben unter den wackelnden Karten,
   sobald sie mindestens 3 Fehler und mehr Fehler als Richtige hat – eine eigene neue Markierung dafür gibt es nicht.
 - Hinweis: Im 1. Fehlversuch speichert die Datenbank die falsche Antwort (für die spätere Auswertung echter Fehler, R4).
+
+## 2026-11-16 04:25 – an pruefung-rueckmeldung-lernweg: Paket R3 ist im Zweig lernen-app (App 0.73.3), Nachprüfung kann laufen
+- V9 (Datenbank, Migration 20261116_w150_r3_wiederholung_lerntage.sql, eingespielt): Abstände 1/3/7/14/30 jetzt in Lerntagen.
+  Neue Spalten schule.karte_stand.wdh_ab und wdh_lerntage; neue Funktion schule.karte_faellig(k). Fällig = so viele Mathe-Lerntage nach wdh_ab;
+  der heutige Tag zählt mit, sobald er ein späterer Kalendertag ist (sonst würde eine Karte erst nach der ersten Aufgabe des Tages fällig).
+  schule_wiederholung, schule_lernstand und etappen_stand fragen karte_faellig. Karten, die vor der Umstellung „sitzen“, laufen bis zur nächsten Buchung nach altem Kalenderdatum weiter.
+  Mit dem Testkind in einer zurückgerollten Transaktion nachgestellt (braucht 3 Lerntage: nur heute → nicht fällig; 2 Lerntage + heute → fällig).
+- V9 (App): höchstens eine Runde mit bis zu 6 Wiederholungen vor dem Thema. Ist die Runde heute gemacht (gemerkt je Kind auf dem Gerät), führt der Startknopf ins Thema;
+  der Rest steht als Link „Noch N Wiederholungen offen – wenn du magst“ auf der Startseite und als Link auf dem Bildschirm nach „Lernkarte sitzt“.
+  Die 6 ist die Konstante LERN_WDH_RUNDE in lernen.js (Vorschlag aus dem Papier; Sebastian kann eine andere Zahl nennen). Die Datenbank liefert ohnehin höchstens 6 je Abruf.
+- V12: „Was kommt wann wieder?“ – Kindansicht: aufklappbar auf der Startseite und am Ende der Wiederholung; Elternansicht (Lernstand): aufklappbar, mit „N Lernkarten sitzen, M davon sind dran“.
+  Zum Nachtest steht dort nur die Regel in Worten; Zahlen je Kind zum Nachtest zeigt die Ansicht (noch) nicht.
+- Abweichung: „Restliche fällige Wiederholungen werden nach dem Üben angeboten“ ist als Link umgesetzt, nicht als eigener Schritt.

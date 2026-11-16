@@ -318,14 +318,15 @@ async function viewReise(arg) {
   loading();
   const d = await lernLadeKind(arg);
   if (!d || !live()) return;
-  const [merk, wdh] = await Promise.all([lernMerkDaten(d).catch(() => []), lernCall('schule_wiederholung', { lernender_id: d.kind.id, anzahl: 3 }).catch(() => null)]);
+  const [merk, wdh] = await Promise.all([lernMerkDaten(d).catch(() => []), lernCall('schule_wiederholung', { lernender_id: d.kind.id, anzahl: LERN_WDH_RUNDE }).catch(() => null)]);
   if (!live()) return;
   const { kind, naechste: n } = d;
   $('#title').textContent = 'Lernreise ' + kind.name;
   const ortStand = (blockId) => (d.konto?.orte || []).find((o) => o.block_id === blockId);
   const et = n ? lernEtappenZahl(merk.find((m) => m.einheit_id === n.id)) : { n: 0, f: 0 };
-  const nWdh = wdh?.aufgaben?.length || 0;
-  if (lernNeu(kind) && n) { lernErsetze(main, lernRahmen(kind, 'reise', ...lernAbflugtafel(d, { n, et, nWdh }))); return; }
+  const wdhGemacht = lernWdhHeute(kind.id); // Runde heute schon gemacht → Start führt ins Thema, der Rest wird nur angeboten
+  const nWdh = wdhGemacht ? 0 : wdh?.aufgaben?.length || 0; const wdhRest = wdhGemacht ? Number(wdh?.faellig || 0) : 0;
+  if (lernNeu(kind) && n) { lernErsetze(main, lernRahmen(kind, 'reise', ...lernAbflugtafel(d, { n, et, nWdh, wdhRest }))); return; }
   const teile = [el('header', { class: 'lr-kopf lr-kopf-kurz' }, el('p', { class: 'lr-gruss' }, `Hallo ${kind.name}!`))];
   if (n) {
     const kont = d.orte.filter((o) => o.kontinent === (d.orte.find((x) => x.block_id === n.block_id)?.kontinent));
@@ -360,7 +361,21 @@ async function viewReise(arg) {
 }
 
 // W150 Abflug: Startseite als Abflugtafel. Oberste Zeile = jetzt dran, ein gelber Knopf im Daumenbereich.
-function lernAbflugtafel(d, { n, et, nWdh }) {
+// V9: Vor dem Thema höchstens eine Runde Wiederholungen am Tag (bis zu 6 Karten). Ist die Runde heute gemacht, führt der Startknopf ins Thema.
+const LERN_WDH_RUNDE = 6;
+function lernWdhHeute(kindId, setzen) {
+  const heute = new Date().toLocaleDateString('sv-SE');
+  try { if (setzen) localStorage.setItem('lern.wdhrunde.' + kindId, heute); return localStorage.getItem('lern.wdhrunde.' + kindId) === heute; } catch { return false; }
+}
+// V12: „Was kommt wann wieder?“ in einfachen Worten (Kindansicht)
+function lernWdhErklaert() {
+  return el('details', { class: 'lr-mehr lr-wdh-erklaert' }, el('summary', {}, 'Was kommt wann wieder?'),
+    el('p', {}, 'Sitzt eine Lernkarte, kommt sie später zum Wiederholen zurück – jedes Mal mit einer Aufgabe.'),
+    el('p', {}, 'Die Abstände werden größer: nach 1, 3, 7, 14 und 30 Lerntagen. Ein Lerntag ist ein Tag, an dem du übst. Machst du Pause, wartet die Karte.'),
+    el('p', {}, 'Stimmt die Aufgabe nicht, kommt die Karte am nächsten Lerntag wieder. Erst beim zweiten Fehler übst du sie noch einmal von vorn.'),
+    el('p', {}, 'Vor einem Thema kommen höchstens ' + LERN_WDH_RUNDE + ' Wiederholungen. Nach dem Test zu einem Thema folgt später ein kurzer Nachtest.'));
+}
+function lernAbflugtafel(d, { n, et, nWdh, wdhRest = 0 }) {
   const { kind } = d; const sa = kind.schulart || 'gym_by';
   const kl = (e) => e.jahrgang?.[sa] ?? e.ziel_klasse;
   const code = (e) => String(e.stadt || e.ort_titel || '').toUpperCase();
@@ -387,11 +402,13 @@ function lernAbflugtafel(d, { n, et, nWdh }) {
       ...Array.from({ length: et.n }, (_, i) => el('i', { class: i < et.f ? 'voll' : i === et.f ? 'dran' : '' })), el('span', {}, '◎'), el('small', {}, offen ? `Noch ${offen} ${offen === 1 ? 'Karte' : 'Karten'} bis zum Stempel` : 'Alle Karten sitzen')) : null,
     el('div', { class: 'lr-tafelchips' }, el('a', { href: `#/reisepass/${kind.id}` }, `◎ ${d.konto?.stempel ?? 0} Stempel`), el('span', {}, 'Abflug, wann es dir passt')),
     nWdh && !n.laeuft ? el('p', { class: 'lr-leise lr-start-info' }, `Erst ${nWdh} ${nWdh === 1 ? 'Wiederholung' : 'Wiederholungen'}, dann ${n.stadt}.`) : null,
+    wdhRest ? el('a', { class: 'lr-textlink', href: `#/wiederholen/${kind.id}` }, `Noch ${wdhRest} ${wdhRest === 1 ? 'Wiederholung' : 'Wiederholungen'} offen – wenn du magst`) : null,
     el('a', { class: 'lr-textlink', href: `#/lerneinheit/${kind.id}-${n.id}` }, 'Erst die Erklärungen ansehen'),
     gruppe('Alle offenen Flüge', weitere.length > maxZ ? weitere : []),
     gruppe('Gelandet oder kann schon – zum Wiederholen', d.kann),
     gruppe('Aus früheren Klassen – zum Auffrischen', d.frueher),
     gruppe('Später – für höhere Klassen', d.spaeter),
+    lernWdhErklaert(),
     jg?.themen ? el('section', { class: 'lr-karte-box lr-jgstand' },
       el('p', { class: 'lr-ueber' }, `MEIN STAND · ${(LERN_SCHULART[jg.schulart] || '').toUpperCase()} KLASSE ${jg.klasse}`),
       el('div', { class: 'lr-fortschritt' }, el('div', { class: 'lr-balken', role: 'img', 'aria-label': `${jg.geschafft} von ${jg.themen} Themen geschafft` }, el('span', { style: `width:${Math.round(100 * jg.geschafft / jg.themen)}%` })),
@@ -1427,7 +1444,8 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
               sterne ? el('p', { class: 'lr-sterne-neu' }, lernIcon(LI.stern, 20), ` +${sterne} Sterne`) : null,
               el('p', { class: 'lr-leise' }, 'Die Karte kommt in ein paar Tagen zum Wiederholen.'),
               naechsteKarte ? el('button', { type: 'button', class: 'lr-knopf', onclick: () => { aktKarte = naechsteKarte; stufe = 0; zeichneUeben(); window.scrollTo(0, 0); } }, `Anschlussflug: ${naechsteKarte.titel} ›`) : null,
-              el('a', { class: 'lr-knopf-zweit', href: `#/reise/${ctx.kind}` }, 'Zur Abflugtafel')));
+              el('a', { class: 'lr-knopf-zweit', href: `#/reise/${ctx.kind}` }, 'Zur Abflugtafel'),
+              el('a', { class: 'lr-textlink', href: `#/wiederholen/${ctx.kind}` }, 'Wiederholungen ansehen, falls noch welche offen sind')));
             window.scrollTo(0, 0); flaeche.querySelector('.lr-knopf, .lr-knopf-zweit')?.focus({ preventScroll: true });
             return;
           }
@@ -2112,6 +2130,12 @@ async function viewLernstand(arg) {
   lernErsetze(main,
     el('section', { class: 'start-intro' }, el('p', { class: 'eyebrow' }, 'LERNSTAND'), el('h2', {}, d.kind.name),
       el('p', {}, `Letzte 7 Tage: ${w.aufgaben || 0} Aufgaben, davon ${w.richtig || 0} richtig` + (w.mit_tipp ? `, ${w.mit_tipp}-mal mit Tipp` : '') + `. Lerntage in 4 Wochen: ${(d.lerntage || []).length}` + ((d.lerntage || []).length ? ` (zuletzt ${tag(d.lerntage[0])})` : '') + '.')),
+    (() => { const alle = (d.einheiten || []).flatMap((e) => e.karten || []); const sitzt = alle.filter((k) => k.sitzt).length, faellig = alle.filter((k) => k.faellig).length;
+      return el('details', { class: 'card ls-wdh' }, el('summary', {}, el('b', {}, 'Was kommt wann wieder? '), `${sitzt} ${sitzt === 1 ? 'Lernkarte sitzt' : 'Lernkarten sitzen'}, ${faellig} davon ${faellig === 1 ? 'ist' : 'sind'} zum Wiederholen dran`),
+        el('p', {}, 'Karten-Wiederholung: Sitzt eine Lernkarte, kommt sie nach 1, 3, 7, 14 und 30 Lerntagen wieder – jeweils mit einer Aufgabe. Ein Lerntag ist ein Tag, an dem das Kind in Mathe übt; in Pausen (Reisetage) wartet die Karte.'),
+        el('p', {}, 'Bei einem Fehler in der Wiederholung geht die Karte eine Stufe zurück und kommt am nächsten Lerntag wieder. Erst beim zweiten Fehler hintereinander muss das Kind sie neu üben.'),
+        el('p', {}, `Vor einem Thema kommen höchstens ${LERN_WDH_RUNDE} Wiederholungen pro Tag; weitere werden nur angeboten.`),
+        el('p', {}, 'Nachtest: Nach einem bestandenen Thementest folgt später ein kurzer Nachtest zum selben Thema, ebenfalls nach Lerntagen gezählt.')); })(),
     el('section', { class: 'card ls-wackelt' }, el('h3', {}, 'Was wackelt?'),
       wackelt.length ? el('ul', { class: 'ls-liste' }, ...wackelt.map((k) => el('li', { class: 'ls-karte ls-wackelt' }, el('div', { class: 'ls-kopf' }, el('b', {}, k.titel), el('span', { class: 'ls-zustand' }, `${k.falsch} falsch`)), el('small', { class: 'muted' }, `${k.ort || ''} · ${k.thema}`))))
         : el('p', { class: 'muted' }, 'Im Moment nichts: Keine Lernkarte hat deutlich mehr falsche als richtige Antworten.'),
@@ -2129,7 +2153,7 @@ async function viewWiederholen(arg) {
   loading();
   const d = await lernLadeKind(arg);
   if (!d || !live()) return;
-  const r = await lernCall('schule_wiederholung', { lernender_id: d.kind.id, anzahl: 3 });
+  const r = await lernCall('schule_wiederholung', { lernender_id: d.kind.id, anzahl: LERN_WDH_RUNDE });
   if (!live()) return;
   const { kind } = d; const liste = r.aufgaben || [];
   const flaeche = el('div', { class: 'lr-etappe-flaeche' });
@@ -2138,10 +2162,11 @@ async function viewWiederholen(arg) {
     const a = liste[i];
     if (!a) {
       const offen = liste.length - richtig; // V7: der Haken nur, wenn alles richtig war
+      lernWdhHeute(kind.id, true); // V9: Runde für heute gemacht
       lernErsetze(flaeche, el('section', { class: 'lr-geschafft' }, offen ? null : el('div', { class: 'lr-geschafft-haken' }, lernIcon(LI.haken, 64)),
         el('p', { class: 'lr-ueber' }, 'WIEDERHOLT'), el('h1', { class: 'lr-titel' }, `${richtig} von ${liste.length} richtig`),
         el('p', { class: 'lr-leise' }, offen ? `${offen} ${offen === 1 ? 'Karte braucht' : 'Karten brauchen'} noch Übung – morgen ${offen === 1 ? 'kommt sie' : 'kommen sie'} wieder. Die Erklärung findest du im Merkheft.` : 'Super – das sitzt noch.')),
-        el('a', { class: 'lr-knopf', href: `#/reise/${kind.id}` }, 'Weiter zu Heute'));
+        el('a', { class: 'lr-knopf', href: `#/reise/${kind.id}` }, 'Weiter zu Heute'), lernWdhErklaert());
       return;
     }
     const auf = lernAufgabe(a); const cid = lernCid();

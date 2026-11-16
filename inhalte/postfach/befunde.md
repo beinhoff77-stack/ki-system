@@ -2,6 +2,14 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 05:29 – STATUS
+funktionen.linear fertig: umgestuft 14 / berichtigt 0 / ersetzt 4 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK. Ersatz zwei_punkte (A(0|2)…) steht jetzt auf Stufe 2 (gleicher Typ wie die andere Stufe-2-Aufgabe).
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Liegen A(−1 | −1), B(1 | 1) und C(3 | 3) auf einer Geraden?“
+  - „Liegen A(0 | 2), B(2 | 8) und C(4 | 14) auf einer Geraden?“
+  - „6 m Stoff kosten 48 €. Wie viel kosten 1 m?“
+  - „2 l Saft kosten 3 €. Wie viel kosten 1 l?“
+
 ## 2026-11-16 05:28 – STATUS
 funktionen.grundbegriffe fertig: umgestuft 3 / berichtigt 0 / ersetzt 3 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):

@@ -1794,18 +1794,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Liegen A(−1 | −1), B(1 | 1) und C(3 | 3) auf einer Geraden?"
+    "text": "Liegen die Punkte A(−1 | −1), B(1 | 1) und C(3 | 3) auf einer gemeinsamen Geraden?"
    },
    "a": [
+    "Nein, AB hat Steigung 1, BC hat Steigung 2.",
+    "Ja, beide Steigungen sind 1.",
     "Ja, alle Punkte haben verschiedene x-Werte.",
-    "Das kann man nur mit einer Zeichnung entscheiden.",
-    "Nein, AB hat Steigung 1, BC hat 1.",
-    "Ja, beide Steigungen sind 1."
+    "Das kann man nur mit einer Zeichnung entscheiden."
    ],
    "o": {
-    "index": 3
+    "index": 1
    },
-   "w": "m(AB) = (1 − (−1)) : 2 = 1; m(BC) = (3 − 1) : 2 = 1. Gleich, also eine Gerade.",
+   "w": "m(AB) = (1 − (−1)) : 2 = 1; m(BC) = (3 − 1) : 2 = 1. Gleich, also eine Gerade. (Wer bei BC nur 2 : 1 rechnet, vergisst die x-Differenz 2.)",
    "h": "Berechne die Steigung von A nach B und von B nach C."
   },
   {
@@ -1901,21 +1901,21 @@
    "l": "zwei_punkte",
    "t": "zwei_punkte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Liegen A(0 | 2), B(2 | 8) und C(4 | 14) auf einer Geraden?"
+    "text": "Liegen die Punkte A(0 | 2), B(2 | 8) und C(4 | 14) auf einer gemeinsamen Geraden?"
    },
    "a": [
-    "Nein, AB hat Steigung 3, BC hat 3.",
     "Das kann man nur mit einer Zeichnung entscheiden.",
+    "Nein, AB hat Steigung 3, BC hat Steigung 6.",
     "Ja, beide Steigungen sind 3.",
     "Ja, alle Punkte haben verschiedene x-Werte."
    ],
    "o": {
     "index": 2
    },
-   "w": "m(AB) = (8 − 2) : 2 = 3; m(BC) = (14 − 8) : 2 = 3. Gleich, also eine Gerade.",
+   "w": "m(AB) = (8 − 2) : 2 = 3; m(BC) = (14 − 8) : 2 = 3. Gleich, also eine Gerade. (6 entsteht, wenn man die x-Differenz 2 vergisst.)",
    "h": "Berechne die Steigung von A nach B und von B nach C."
   },
   {
@@ -2333,7 +2333,7 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "6 m Stoff kosten 48 €. Wie viel kosten 1 m?"
+    "text": "6 m Stoff kosten 48 €. Wie viel kostet 1 m?"
    },
    "o": {
     "wert": 8,
@@ -2367,7 +2367,7 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "2 l Saft kosten 3 €. Wie viel kosten 1 l?"
+    "text": "2 l Saft kosten 3 €. Wie viel kostet 1 l?"
    },
    "o": {
     "wert": 1.5,
@@ -2477,7 +2477,7 @@
    "l": "proportional",
    "t": "proportional",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ist die Zuordnung (1 | 7), (2 | 14), (9 | 63) proportional?"
@@ -2498,7 +2498,7 @@
    "l": "proportional",
    "t": "proportional",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ist die Zuordnung (3 | 24), (5 | 40), (6 | 48) proportional?"
@@ -2519,7 +2519,7 @@
    "l": "proportional",
    "t": "proportional",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ist die Zuordnung (1 | 1), (2 | 4), (5 | 25) proportional?"
@@ -2540,7 +2540,7 @@
    "l": "proportional",
    "t": "proportional",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ist die Zuordnung (1 | 7), (6 | 32), (7 | 37) proportional?"
@@ -3726,7 +3726,7 @@
    "l": "schnittpunkte",
    "t": "schnittpunkte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Berechne den Schnittpunkt von g: y = −3x − 3 und h: y = −2x − 2.",
@@ -3750,7 +3750,7 @@
    "l": "schnittpunkte",
    "t": "schnittpunkte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Berechne den Schnittpunkt von g: y = 2x − 5 und h: y = −x − 5.",
@@ -3774,7 +3774,7 @@
    "l": "schnittpunkte",
    "t": "schnittpunkte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Berechne den Schnittpunkt von g: y = −3x − 7 und h: y = 4x + 14.",
@@ -3798,7 +3798,7 @@
    "l": "schnittpunkte",
    "t": "schnittpunkte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Berechne den Schnittpunkt von g: y = 3x + 2 und h: y = −5x + 10.",
@@ -4359,7 +4359,7 @@
    "l": "lage",
    "t": "lage",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Gib die Steigung einer Geraden an, die senkrecht auf y = −2x steht."
@@ -4375,7 +4375,7 @@
    "l": "lage",
    "t": "lage",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Gib die Steigung einer Geraden an, die parallel zu y = 4x + 6 ist."
@@ -4391,7 +4391,7 @@
    "l": "lage",
    "t": "lage",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Gib die Steigung einer Geraden an, die parallel zu y = 2,5x ist."
@@ -4407,7 +4407,7 @@
    "l": "lage",
    "t": "lage",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Wie liegen die Geraden g: y = x − 5 und h: y = 2x − 6 zueinander?"
@@ -4917,7 +4917,7 @@
    "l": "deuten",
    "t": "deuten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Taxifahrt: P(x) = 1,8x + 4,5 (x in km, P in €). Wie weit ist man gefahren, wenn 31,50 € zu zahlen sind?"
@@ -5002,7 +5002,7 @@
    "l": "deuten",
    "t": "deuten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Planschbecken wird befüllt: h(x) = 0,5x + 5 (x in Minuten, h in cm). Nach wie vielen Minuten steht das Wasser 30 cm hoch?"

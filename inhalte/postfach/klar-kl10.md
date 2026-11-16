@@ -1,5 +1,8 @@
 # klar-kl10 – Erklärungen verständlich machen (Klasse 10)
 
+## 2026-11-16 01:54 – STATUS
+funktionen.exponential_log: 6 Lernkarten überarbeitet (einstieg, woerter, schritte, regel, fehler, Bildbeschriftung; Situationen Wasserlinsen/Auto/Bakterien/Wirkstoff/Sportverein). Prüfskript OK. Vergleich Aufgaben gegen HEAD: 0 Unterschiede (168 Aufgaben).
+
 ## 2026-11-16 01:52 – STATUS
 gleichungen.polynom: 5 Lernkarten überarbeitet (einstieg, woerter, schritte, regel, fehler, Bildbeschriftung; Situationen Achterbahn/Einkauf/Spitzname). Prüfskript OK. Vergleich Aufgaben gegen HEAD: 0 Unterschiede (140 Aufgaben).
 

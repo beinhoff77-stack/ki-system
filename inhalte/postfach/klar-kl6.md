@@ -4,6 +4,12 @@ Technik wie klar-kl5: je Generator ein Abschnitt KLAR, eingesetzt über `inhalte
 (die Generatoren nutzen die alten `schritte` gegen Dopplungen – so bleiben alle Aufgaben wörtlich gleich, wie `_verbot` im Muster).
 Vergleich je Thema: `aufgaben` und alle Felder außer `inhalt.etappen` gegen `git show HEAD:inhalte/themen/<thema>.json`.
 
+## 2026-11-16 01:54 – STATUS
+bruch.rechnen (10 Karten) fertig: einstieg + woerter neu, schritte/regel/fehler überarbeitet (Situationen: Wanderung, Bäcker, Thermometer,
+Schulgarten (passt zum Flächenmodell-Bild), Pizza und Saftbecher, Klebeband-Fläche, Aufkleber, 25-Cent-Münzen, Obstwaage).
+Beispiele: brueche_geteilt jetzt 5/6 l Saft : 2/3 l Becher = 5/4 (Rechnung wie bisher); brueche_mal mit Bild 2/3 · 3/4 und Kürzen über Kreuz am selben Beispiel.
+inhalt_pruefen: OK. Vergleich: 280 Aufgaben wörtlich gleich, übrige Datei gleich.
+
 ## 2026-11-16 01:52 – STATUS
 bruch.prozent (7 Karten) fertig: einstieg + woerter neu, schritte/regel/fehler überarbeitet (Situationen: Handy-Akku, Fahrrad-Anzahlung,
 Mathe-Probe, Kartoffelernte, Schlussverkauf, Sparbuch, Spielpreis −10 %/+10 %). Hunderterfeld-Bild unverändert.

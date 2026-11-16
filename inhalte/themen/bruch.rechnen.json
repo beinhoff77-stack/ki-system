@@ -48,45 +48,133 @@
    {
     "lernziel": "brueche_plus_minus",
     "titel": "Brüche addieren und subtrahieren",
-    "regel": "Bei ⟦gleichem Nenner⟧ addierst oder subtrahierst du nur die ⟦Zähler⟧, der Nenner bleibt. Bei verschiedenen Nennern erweiterst du zuerst auf den ⟦Hauptnenner⟧. Am Ende ⟦kürzen⟧.",
+    "regel": "So addierst und subtrahierst du Brüche: Mach sie zuerst ⟦gleichnamig⟧ (auf den ⟦Hauptnenner⟧ erweitern). Dann rechnest du ⟦nur mit den Zählern⟧, der Nenner bleibt. Am Ende ⟦kürzen⟧.",
     "schritte": [
-     "Eine Wanderung: Vormittags schaffst du 3/4 der Strecke, nachmittags noch 1/6. Wie viel ist geschafft? 3/4 + 1/6.",
-     "Hauptnenner 12: 3/4 = 9/12 und 1/6 = 2/12.",
-     "9/12 + 2/12 = ⟦11/12⟧ der Strecke."
+     "Gesucht ist 3/4 + 1/6. Die Nenner 4 und 6 sind verschieden, die Stücke also verschieden groß.",
+     "Der Hauptnenner von 4 und 6 ist 12, denn 12 steht in der Viererreihe und in der Sechserreihe.",
+     "Erweitere beide Brüche auf 12: 3/4 = 9/12 (mal 3) und 1/6 = 2/12 (mal 2).",
+     "Jetzt addierst du nur die Zähler, der Nenner bleibt: 9/12 + 2/12 = ⟦11/12⟧ des Weges."
     ],
     "probe": "11/12 − 1/6 = 11/12 − 2/12 = 9/12 = 3/4 ✓",
-    "fehler": "3/4 + 1/6 = 4/10 ist falsch. Schon 3/4 allein ist mehr als 4/10 – durch Dazulaufen kann der Weg nicht kürzer werden! Nenner werden ⟦nie addiert⟧: Erst gleichnamig machen, dann nur die Zähler addieren."
+    "fehler": "3/4 + 1/6 = 4/10 ist falsch: Schon 3/4 allein ist mehr als 4/10 – durch Weiterlaufen kann der geschaffte Weg nicht kürzer werden. Nenner werden ⟦nie addiert⟧: erst gleichnamig machen, dann nur die Zähler addieren.",
+    "einstieg": "Ihr macht eine Tageswanderung. Bis zur Mittagspause schafft ihr 3/4 des Weges, danach noch 1/6. Wie viel des Weges habt ihr insgesamt geschafft? Viertel und Sechstel sind verschieden große Stücke – du musst sie erst gleich groß machen, bevor du sie zusammenzählen kannst. Das heißt ⟦Brüche addieren⟧.",
+    "woerter": [
+     [
+      "addieren",
+      "zusammenzählen (+)"
+     ],
+     [
+      "subtrahieren",
+      "abziehen (−)"
+     ],
+     [
+      "gleichnamig",
+      "mit demselben Nenner – die Stücke sind gleich groß"
+     ],
+     [
+      "Hauptnenner",
+      "der kleinste gemeinsame Nenner; bei 4 und 6 ist es 12, denn 12 steht in beiden Einmaleins-Reihen"
+     ],
+     [
+      "erweitern",
+      "Zähler und Nenner mit derselben Zahl malnehmen"
+     ],
+     [
+      "kürzen",
+      "Zähler und Nenner durch dieselbe Zahl teilen"
+     ]
+    ]
    },
    {
     "lernziel": "dezimal_plus_minus",
     "titel": "Dezimalzahlen addieren, subtrahieren",
-    "regel": "Dezimalzahlen addierst und subtrahierst du ⟦stellengerecht⟧: ⟦Komma unter Komma⟧. Fehlende Stellen füllst du mit Nullen auf.",
+    "regel": "So addierst und subtrahierst du Dezimalzahlen: Schreibe ⟦Komma unter Komma⟧ und fülle fehlende Stellen mit ⟦Endnullen⟧ auf. Rechne dann Stelle für Stelle von rechts, wie bei ganzen Zahlen.",
     "schritte": [
-     "4,7 + 2,85: Komma unter Komma schreiben, 4,70 + 2,85.",
-     "Stelle für Stelle addieren: ⟦7,55⟧."
+     "Schreibe 4,7 und 2,85 Komma unter Komma. Fülle 4,7 mit einer Endnull auf: 4,70.",
+     "Beginne rechts bei den Hundertsteln: 0 + 5 = 5.",
+     "Zehntel: 7 + 8 = 15. Schreibe die 5 hin, die 1 wandert als Übertrag zu den Einern.",
+     "Einer: 4 + 2 + 1 = 7. Zusammen zahlst du ⟦7,55 €⟧."
     ],
     "probe": "7,55 − 2,85 = 4,70 = 4,7 ✓",
-    "fehler": "4,7 + 2,85 = 3,32 ist falsch: Da wurden die Ziffern einfach rechtsbündig untereinandergeschrieben (47 + 285). Es gilt ⟦Komma unter Komma⟧."
+    "fehler": "4,7 + 2,85 = 3,32 ist falsch: Hier stehen die Ziffern rechtsbündig untereinander (47 + 285). Dann kosteten Brot und Kuchen zusammen weniger als das Brot allein. Es gilt ⟦Komma unter Komma⟧.",
+    "einstieg": "Beim Bäcker kostet ein Brot 4,70 €, ein Stück Kuchen 2,85 €. Wie viel zahlst du zusammen? Du schreibst Euro unter Euro und Cent unter Cent, damit nichts durcheinanderkommt. Das heißt ⟦stellengerecht rechnen⟧.",
+    "woerter": [
+     [
+      "stellengerecht",
+      "jede Ziffer steht unter der Ziffer mit demselben Stellenwert"
+     ],
+     [
+      "Komma unter Komma",
+      "die Kommas stehen genau untereinander – dann stehen auch Zehntel unter Zehnteln"
+     ],
+     [
+      "Endnull",
+      "eine Null ganz hinten nach dem Komma; sie ändert den Wert nicht: 4,7 = 4,70"
+     ],
+     [
+      "Übertrag",
+      "ergibt eine Stelle 10 oder mehr, wandert eine 1 in die nächste Stelle links"
+     ]
+    ]
    },
    {
     "lernziel": "vorzeichen",
     "titel": "Rationale Zahlen mit Vorzeichen",
-    "regel": "Für Brüche und Dezimalzahlen mit Vorzeichen gelten dieselben ⟦Vorzeichenregeln⟧ wie bei ganzen Zahlen. Eine negative Zahl subtrahieren heißt ⟦ihre Gegenzahl addieren⟧. Beim Malnehmen und Teilen: gleiche Vorzeichen ⟦plus⟧, verschiedene ⟦minus⟧.",
+    "regel": "So rechnest du mit Vorzeichen: Es gelten dieselben ⟦Vorzeichenregeln⟧ wie bei ganzen Zahlen. Eine negative Zahl ⟦subtrahieren⟧ heißt: ihre ⟦Gegenzahl addieren⟧. Beim Malnehmen und Teilen gilt: ⟦gleiche Vorzeichen plus⟧, ⟦verschiedene Vorzeichen minus⟧.",
     "schritte": [
-     "(−2,5) + 1,2: verschiedene Vorzeichen, also Beträge subtrahieren: 2,5 − 1,2 = 1,3.",
-     "Der größere Betrag (2,5) ist negativ: ⟦−1,3⟧."
+     "Gerechnet wird (−2,5) + 1,2. Die beiden Zahlen haben verschiedene Vorzeichen.",
+     "Bei verschiedenen Vorzeichen ziehst du die Beträge voneinander ab: 2,5 − 1,2 = 1,3.",
+     "Das Ergebnis bekommt das Vorzeichen der Zahl mit dem größeren Betrag. Das ist −2,5, also minus.",
+     "Mittags ist es ⟦−1,3 °C⟧ – noch unter null."
     ],
     "probe": "−1,3 − 1,2 = −2,5 ✓",
-    "fehler": "(−0,5) · (−0,4) = −0,2 ist falsch: Zwei negative Faktoren ergeben ein ⟦positives⟧ Ergebnis: 0,2."
+    "fehler": "(−0,5) · (−0,4) = −0,2 ist falsch: Zwei negative Faktoren ergeben ein ⟦positives⟧ Ergebnis, also 0,2. Das ist wie bei einer doppelten Verneinung: „Das ist nicht unmöglich“ heißt „das ist möglich“.",
+    "einstieg": "Am Morgen zeigt das Thermometer −2,5 °C. Bis Mittag wird es um 1,2 Grad wärmer. Wie warm ist es dann? Auf dem Thermometer gehst du von −2,5 aus 1,2 nach oben und bist immer noch unter null. Zahlen mit Plus- oder Minuszeichen davor heißen ⟦Zahlen mit Vorzeichen⟧.",
+    "woerter": [
+     [
+      "°C",
+      "Grad Celsius, die Einheit der Temperatur"
+     ],
+     [
+      "Vorzeichen",
+      "das + oder − vor einer Zahl; − heißt: kleiner als 0"
+     ],
+     [
+      "negative Zahl",
+      "eine Zahl kleiner als 0, z. B. −2,5"
+     ],
+     [
+      "rationale Zahlen",
+      "alle Brüche und Dezimalzahlen, positiv und negativ, und die 0"
+     ],
+     [
+      "Betrag",
+      "der Abstand einer Zahl von 0, ohne Vorzeichen: Der Betrag von −2,5 ist 2,5"
+     ],
+     [
+      "(−2,5)",
+      "die Klammer trennt das Vorzeichen vom Rechenzeichen davor"
+     ],
+     [
+      "Gegenzahl",
+      "dieselbe Zahl mit umgekehrtem Vorzeichen: Die Gegenzahl von 1,2 ist −1,2"
+     ],
+     [
+      "Faktor",
+      "eine Zahl, die malgenommen wird"
+     ]
+    ]
    },
    {
     "lernziel": "brueche_mal",
     "titel": "Brüche multiplizieren",
-    "regel": "„Mal“ heißt bei Brüchen ⟦„von“⟧: 2/3 · 3/4 ist 2/3 von 3/4. Rechne ⟦Zähler mal Zähler, Nenner mal Nenner⟧. ⟦Vorher kürzen⟧ (auch über Kreuz) spart Arbeit. Eine ganze Zahl schreibst du als Bruch mit Nenner 1: 4 = 4/1.",
+    "regel": "So multiplizierst du Brüche: ⟦Zähler mal Zähler, Nenner mal Nenner⟧. ⟦Vorher kürzen⟧ – auch über Kreuz – spart Arbeit. Eine ganze Zahl schreibst du als Bruch mit Nenner 1: 4 = 4/1.",
     "schritte": [
-     "2/3 · 3/4: Nimm von einem Rechteck 3/4 (3 von 4 Spalten) und davon 2/3 (2 von 3 Zeilen).",
-     "Gefärbt sind 2 · 3 = 6 von 3 · 4 = 12 Kästchen: 6/12 = 1/2. Genau das rechnet „Zähler mal Zähler, Nenner mal Nenner“.",
-     "Mit Kürzen vorher: 3/4 · 8/9 – 3 und 9 durch 3, 8 und 4 durch 4: 1/1 · 2/3 = ⟦2/3⟧."
+     "Teile den Garten in 4 Spalten. 3 davon sind Beet – das sind 3/4.",
+     "Teile ihn außerdem in 3 Zeilen. Vom Beet nimmst du 2 Zeilen – das sind 2/3 des Beets.",
+     "Gefärbt sind 2 · 3 = 6 von 3 · 4 = 12 Kästchen. Genau das bedeutet „Zähler mal Zähler, Nenner mal Nenner“.",
+     "Also ist 2/3 · 3/4 = 6/12 = ⟦1/2⟧ – der halbe Garten ist Kartoffelacker.",
+     "Schneller geht es, wenn du vorher über Kreuz kürzt: 2 und 4 durch 2, 3 und 3 durch 3. Es bleibt 1/1 · 1/2 = 1/2."
     ],
     "bild": {
      "typ": "figur",
@@ -207,70 +295,207 @@
       "_0_2"
      ]
     },
-    "fehler": "2/3 · 4 = 8/12 ist falsch: 4 = 4/1, also wird nur der ⟦Zähler⟧ mal 4 genommen: 2/3 · 4 = 8/3."
+    "fehler": "2/3 · 4 = 8/12 ist falsch: Vier Gärten mit je 2/3 Beet haben zusammen mehr als einen ganzen Garten voll Beet – 8/12 ist aber weniger als 1. Weil 4 = 4/1 ist, wird nur der ⟦Zähler⟧ mal 4 genommen: 2/3 · 4 = ⟦8/3⟧.",
+    "einstieg": "Ein rechteckiger Schulgarten: 3/4 davon sind Gemüsebeet, und auf 2/3 dieses Beets wachsen Kartoffeln. Welcher Teil des ganzen Gartens ist Kartoffelacker? Du nimmst einen Bruchteil von einem Bruchteil. Das rechnest du, indem du ⟦Brüche multiplizierst⟧.",
+    "woerter": [
+     [
+      "multiplizieren",
+      "malnehmen (·)"
+     ],
+     [
+      "„mal“ bei Brüchen",
+      "bedeutet „von“: 2/3 · 3/4 heißt 2/3 von 3/4"
+     ],
+     [
+      "Spalte, Zeile",
+      "senkrechte und waagrechte Reihe von Kästchen im Bild"
+     ],
+     [
+      "über Kreuz kürzen",
+      "den Zähler des einen Bruchs mit dem Nenner des anderen kürzen, bevor man malnimmt"
+     ],
+     [
+      "4 = 4/1",
+      "jede ganze Zahl lässt sich als Bruch mit dem Nenner 1 schreiben"
+     ]
+    ]
    },
    {
     "lernziel": "brueche_geteilt",
     "titel": "Durch einen Bruch teilen",
-    "regel": "Teilen fragt: ⟦Wie oft passt der Teiler hinein?⟧ Wie viele halbe Pizzen sind 3 Pizzen? 6 Stück – also 3 : 1/2 = 3 · 2. Allgemein: Durch einen Bruch teilst du, indem du mit seinem ⟦Kehrbruch⟧ malnimmst. Kehrbruch heißt ⟦Zähler und Nenner vertauschen⟧: Der Kehrbruch von 3/8 ist 8/3.",
+    "regel": "So teilst du durch einen Bruch: Nimm mit seinem ⟦Kehrbruch⟧ mal – also ⟦Zähler und Nenner des Teilers vertauschen⟧. Beispiel Pizza: 3 : 1/2 = 3 · 2/1 = 6.",
     "schritte": [
-     "5/6 : 2/3 = 5/6 · 3/2.",
-     "Kürzen (3 und 6 durch 3): 5/2 · 1/2 = ⟦5/4⟧."
+     "Du hast 5/6 l Saft, ein Becher fasst 2/3 l. Wie oft passt 2/3 in 5/6? Gerechnet wird 5/6 : 2/3.",
+     "Durch einen Bruch teilst du, indem du mit seinem Kehrbruch malnimmst: 5/6 : 2/3 = 5/6 · 3/2.",
+     "Kürze vorher über Kreuz: 3 und 6 durch 3. Es bleibt 5/2 · 1/2.",
+     "Zähler mal Zähler, Nenner mal Nenner: Du füllst ⟦5/4⟧ Becher – einen ganzen und noch ein Viertel."
     ],
     "probe": "5/4 · 2/3 = 10/12 = 5/6 ✓",
-    "fehler": "5/6 : 2/3 = 6/5 · 2/3 ist falsch: Umgedreht wird nur der ⟦Teiler⟧, also der Bruch ⟦hinter⟧ dem Geteiltzeichen."
+    "fehler": "5/6 : 2/3 = 6/5 · 2/3 ist falsch: Umgedreht wird nur der ⟦Teiler⟧, also der Bruch ⟦hinter⟧ dem Geteiltzeichen – der Becher, nicht der Saft.",
+    "einstieg": "Drei Pizzen werden halbiert. Wie viele halbe Pizzen gibt es? Sechs – eine halbe Pizza passt 6-mal in 3 Pizzen. „Wie oft passt das hinein?“ ist die Frage beim Teilen. Beim Teilen durch einen Bruch hilft dir der ⟦Kehrbruch⟧.",
+    "woerter": [
+     [
+      "dividieren",
+      "teilen (:)"
+     ],
+     [
+      "Teiler",
+      "die Zahl hinter dem Geteiltzeichen – das, was hineinpassen soll"
+     ],
+     [
+      "Kehrbruch",
+      "Zähler und Nenner vertauscht: Der Kehrbruch von 2/3 ist 3/2"
+     ],
+     [
+      "l",
+      "Liter"
+     ]
+    ]
    },
    {
     "lernziel": "dezimal_mal",
     "titel": "Dezimalzahlen multiplizieren",
-    "regel": "Rechne zuerst ⟦ohne Komma⟧. Das Ergebnis hat so viele ⟦Nachkommastellen wie beide Faktoren zusammen⟧. Warum? 0,3 = 3/10 und 0,04 = 4/100. Mal genommen: 12/1 000 – Zehntel mal Hundertstel gibt Tausendstel.",
+    "regel": "So multiplizierst du Dezimalzahlen: Rechne zuerst ⟦ohne Komma⟧. Das Ergebnis bekommt so viele ⟦Nachkommastellen wie beide Faktoren zusammen⟧. Grund: Zehntel mal Hundertstel ergibt Tausendstel (3/10 · 4/100 = 12/1 000).",
     "schritte": [
-     "0,3 · 0,04: ohne Komma 3 · 4 = 12. Nachkommastellen: 1 + 2 = 3.",
-     "Also 0,3 · 0,04 = ⟦0,012⟧."
+     "Rechne zuerst ohne Komma: 3 · 4 = 12.",
+     "Zähle die Nachkommastellen der Faktoren: 0,3 hat eine, 0,04 hat zwei. Zusammen sind es 3.",
+     "Das Ergebnis braucht also 3 Nachkommastellen. Aus 12 wird 0,012.",
+     "Das Klebeband hat ⟦0,012 m²⟧ Fläche – das sind 30 cm · 4 cm = 120 cm²."
     ],
     "probe": "0,012 ist kleiner als 0,04 – passt, denn mal 0,3 macht kleiner ✓",
-    "fehler": "0,3 · 0,04 = 0,12 ist falsch: Die Faktoren haben zusammen ⟦3⟧ Nachkommastellen, also braucht das Ergebnis auch 3: 0,012."
+    "fehler": "0,3 · 0,04 = 0,12 ist falsch: 0,12 m² wären 1 200 cm² – zehnmal zu viel für ein kleines Stück Klebeband. Die Faktoren haben zusammen ⟦3⟧ Nachkommastellen, also braucht das Ergebnis auch 3: 0,012.",
+    "einstieg": "Ein Stück Klebeband ist 0,3 m lang und 0,04 m breit. Wie groß ist seine Fläche? Fläche ist Länge mal Breite, du rechnest also 0,3 · 0,04. Die Frage ist nur: Wohin kommt im Ergebnis das Komma? Dafür gibt es eine Regel zum ⟦Multiplizieren von Dezimalzahlen⟧.",
+    "woerter": [
+     [
+      "Nachkommastellen",
+      "die Ziffern hinter dem Komma; 0,04 hat zwei"
+     ],
+     [
+      "m²",
+      "Quadratmeter, eine Einheit für Flächen; 1 m² = 10 000 cm²"
+     ],
+     [
+      "Zehntel, Hundertstel, Tausendstel",
+      "0,1 = 1/10, 0,01 = 1/100 und 0,001 = 1/1 000"
+     ]
+    ]
    },
    {
     "lernziel": "dezimal_geteilt",
     "titel": "Durch eine Dezimalzahl teilen",
-    "regel": "Teilst du durch eine Dezimalzahl, verschiebst du das Komma ⟦bei beiden Zahlen gleich weit nach rechts⟧, bis der Teiler eine ⟦ganze Zahl⟧ ist. Der Wert des Quotienten ändert sich dabei nicht.",
+    "regel": "So teilst du durch eine Dezimalzahl: Verschiebe das Komma ⟦bei beiden Zahlen gleich weit nach rechts⟧, bis der Teiler eine ⟦ganze Zahl⟧ ist. Der Quotient ändert sich dabei nicht.",
     "schritte": [
-     "4,8 : 0,06: Komma bei beiden um 2 Stellen nach rechts: 480 : 6.",
-     "480 : 6 = ⟦80⟧."
+     "Gerechnet wird 4,8 : 0,06. Der Teiler 0,06 hat zwei Nachkommastellen.",
+     "Verschiebe das Komma bei beiden Zahlen um 2 Stellen nach rechts – wie beim Umrechnen in Cent: Aus 4,8 wird 480, aus 0,06 wird 6.",
+     "Jetzt ist der Teiler eine ganze Zahl: 480 : 6 = 80.",
+     "Du bekommst ⟦80⟧ Aufkleber."
     ],
     "probe": "80 · 0,06 = 4,8 ✓",
-    "fehler": "4,8 : 0,06 = 0,8 ist falsch: Das Komma wurde nur beim Teiler verschoben. Es muss ⟦bei beiden Zahlen⟧ gleich weit wandern."
+    "fehler": "4,8 : 0,06 = 0,8 ist falsch: Das Komma wurde nur beim Teiler verschoben – als hättest du den Preis in Cent, dein Geld aber in Euro gerechnet. Es muss ⟦bei beiden Zahlen⟧ gleich weit wandern.",
+    "einstieg": "Ein Aufkleber kostet 0,06 €. Wie viele Aufkleber bekommst du für 4,80 €? Rechnest du alles in Cent, wird es leicht: 480 Cent geteilt durch 6 Cent. Diese Idee – beide Zahlen gleich umrechnen – hilft beim ⟦Teilen durch eine Dezimalzahl⟧.",
+    "woerter": [
+     [
+      "Quotient",
+      "das Ergebnis einer Geteilt-Aufgabe"
+     ],
+     [
+      "Teiler",
+      "die Zahl, durch die geteilt wird – hier 0,06"
+     ],
+     [
+      "Komma verschieben",
+      "eine Stelle nach rechts heißt mal 10, zwei Stellen nach rechts heißt mal 100"
+     ]
+    ]
    },
    {
     "lernziel": "rechenvorteile",
     "titel": "Geschickt rechnen bei · und :",
-    "regel": "Bei ⟦Produkten⟧ darfst du Faktoren ⟦vertauschen⟧ und beliebig ⟦zusammenfassen⟧. Suche Paare, die eine runde Zahl ergeben: 0,25 · 4 = 1, 0,5 · 2 = 1, 2/3 · 3/2 = 1. Mehrmals teilen kannst du zusammenfassen: a : b : c = a : ⟦(b · c)⟧.",
+    "regel": "So rechnest du geschickt: Bei ⟦Produkten⟧ darfst du die Faktoren ⟦vertauschen⟧ und beliebig ⟦zusammenfassen⟧. Suche Paare mit rundem Ergebnis: 0,25 · 4 = 1, 0,5 · 2 = 1, 2/3 · 3/2 = 1. Mehrmals teilen fasst du so zusammen: a : b : c = a : ⟦(b · c)⟧.",
     "schritte": [
-     "0,25 · 7,3 · 4: Vertauschen zu (0,25 · 4) · 7,3.",
-     "= 1 · 7,3 = ⟦7,3⟧."
+     "Gerechnet wird 0,25 · 7,3 · 4. Von links nach rechts wäre 0,25 · 7,3 mühsam.",
+     "0,25 und 4 ergeben zusammen genau 1 – wie vier 25-Cent-Münzen. Vertausche die Faktoren, damit sie nebeneinanderstehen: 0,25 · 4 · 7,3.",
+     "Fasse sie mit einer Klammer zusammen: (0,25 · 4) · 7,3 = 1 · 7,3.",
+     "Ergebnis: ⟦7,3⟧."
     ],
-    "fehler": "24 : 0,5 : 2 = 24 : (0,5 : 2) ist falsch: Beim Teilen darf man ⟦nicht beliebig klammern⟧. Richtig: 24 : 0,5 : 2 = 24 : (0,5 · 2) = 24."
+    "fehler": "24 : 0,5 : 2 = 24 : (0,5 : 2) ist falsch: Beim Teilen darfst du ⟦nicht beliebig klammern⟧. Erst durch 0,5 und dann durch 2 teilen ist dasselbe wie durch 0,5 · 2 = 1 teilen: 24 : 0,5 : 2 = ⟦24⟧.",
+    "einstieg": "Vier 25-Cent-Münzen sind zusammen genau 1 €. Solche Paare, die eine runde Zahl ergeben, machen Kopfrechnen leicht. Beim Malnehmen darfst du die Zahlen umstellen und so passende Paare zusammenholen. Das heißt ⟦geschickt rechnen⟧.",
+    "woerter": [
+     [
+      "Produkt",
+      "eine Malaufgabe oder ihr Ergebnis"
+     ],
+     [
+      "vertauschen",
+      "die Reihenfolge der Faktoren ändern; bei · bleibt das Ergebnis gleich (Kommutativgesetz)"
+     ],
+     [
+      "zusammenfassen",
+      "Klammern anders setzen; bei · bleibt das Ergebnis gleich (Assoziativgesetz)"
+     ],
+     [
+      "a : b : c",
+      "erst durch b teilen, dann durch c"
+     ]
+    ]
    },
    {
     "lernziel": "gemischt",
     "titel": "Gemischte Rechnungen",
-    "regel": "⟦Klammern zuerst⟧, dann ⟦Punkt vor Strich⟧ (· und : vor + und −), sonst ⟦von links nach rechts⟧. Brüche und Dezimalzahlen darfst du umwandeln, wenn es die Rechnung leichter macht.",
+    "regel": "So rechnest du gemischte Aufgaben: ⟦Klammern zuerst⟧, dann ⟦Punkt vor Strich⟧, sonst ⟦von links nach rechts⟧. Brüche und Dezimalzahlen darfst du ineinander umwandeln, wenn es die Rechnung leichter macht.",
     "schritte": [
-     "1/2 + 3/4 · 2/3: Punkt vor Strich, also zuerst 3/4 · 2/3 = 1/2.",
-     "1/2 + 1/2 = ⟦1⟧."
+     "Gerechnet wird 1/2 + 3/4 · 2/3. Eine Klammer gibt es nicht.",
+     "Punkt vor Strich: Zuerst kommt die Malaufgabe 3/4 · 2/3 = 6/12 = 1/2.",
+     "Danach folgt die Plusaufgabe: 1/2 + 1/2.",
+     "Ergebnis: ⟦1⟧ – du hast genau eine ganze Pizza gegessen."
     ],
-    "fehler": "1/2 + 3/4 · 2/3 = 5/4 · 2/3 = 5/6 ist falsch: Hier wurde zuerst addiert. ⟦Punkt vor Strich⟧ – erst malnehmen!"
+    "fehler": "1/2 + 3/4 · 2/3 = 5/4 · 2/3 = 5/6 ist falsch: Hier wurde zuerst addiert – als hättest du auch von der schon gegessenen halben Pizza noch einmal 2/3 genommen. ⟦Punkt vor Strich⟧: erst malnehmen, dann addieren.",
+    "einstieg": "Du hast schon eine halbe Pizza gegessen. Dann bekommst du noch 2/3 von einer Pizza, von der nur 3/4 übrig waren. Wie viel Pizza hast du insgesamt gegessen? In dieser Aufgabe kommen plus und mal zusammen vor. Damit alle dasselbe herausbekommen, gibt es eine feste ⟦Rechenreihenfolge⟧.",
+    "woerter": [
+     [
+      "Punktrechnung",
+      "mal (·) und geteilt (:) – diese Zeichen haben Punkte"
+     ],
+     [
+      "Strichrechnung",
+      "plus (+) und minus (−) – diese Zeichen bestehen aus Strichen"
+     ],
+     [
+      "Punkt vor Strich",
+      "mal und geteilt werden vor plus und minus gerechnet"
+     ],
+     [
+      "Rechenreihenfolge",
+      "Klammern zuerst, dann Punkt vor Strich, sonst von links nach rechts"
+     ]
+    ]
    },
    {
     "lernziel": "fehler_finden",
     "titel": "Fehler in Rechnungen finden",
-    "regel": "Prüfe eine Rechnung mit einer ⟦Überschlagsrechnung⟧ oder der ⟦Umkehraufgabe⟧. Typische Fehler: Nenner addieren, Komma falsch setzen, falschen Bruch umdrehen, Punkt-vor-Strich vergessen.",
+    "regel": "So prüfst du eine Rechnung: Mach einen ⟦Überschlag⟧ oder rechne die ⟦Umkehraufgabe⟧. Typische Fehler: Nenner addieren, Komma falsch setzen, den falschen Bruch umdrehen, Punkt vor Strich vergessen.",
     "schritte": [
-     "Behauptet: 2,4 · 0,5 = 12. Überschlag: 2,4 · 0,5 ist die Hälfte von 2,4, also etwa 1,2.",
-     "12 ist viel zu groß. Fehler: ⟦Komma vergessen⟧, richtig ist 1,2."
+     "Behauptet wird: 2,4 · 0,5 = 12.",
+     "Überschlag: Mal 0,5 heißt „die Hälfte davon“. Die Hälfte von 2,4 ist 1,2.",
+     "12 ist zehnmal so groß wie 1,2 – das kann nicht stimmen. Beim Ausrechnen wurde das Komma vergessen.",
+     "Richtig ist 2,4 · 0,5 = 1,2. Der Fehler: ⟦Komma vergessen⟧. Die Äpfel kosten 1,20 €."
     ],
-    "fehler": "Nur nachrechnen, ohne zu überlegen, ob das Ergebnis passen kann, übersieht Kommafehler. Mal eine Zahl kleiner als 1 macht ein Ergebnis ⟦kleiner⟧, geteilt durch eine Zahl kleiner als 1 macht es ⟦größer⟧."
+    "fehler": "Nur nachzurechnen, ohne zu überlegen, ob das Ergebnis passen kann, übersieht Kommafehler. Denk an die Äpfel: Mal eine Zahl kleiner als 1 macht ein Ergebnis ⟦kleiner⟧, geteilt durch eine Zahl kleiner als 1 macht es ⟦größer⟧.",
+    "einstieg": "An der Obstwaage steht: 2,4 kg Äpfel zu 0,50 € pro Kilogramm kosten 12 €. Kann das stimmen? Ein Kilogramm kostet nur 50 Cent, da können knapp 2,5 kg nicht so teuer sein. Wer so ungefähr nachrechnet, macht einen ⟦Überschlag⟧.",
+    "woerter": [
+     [
+      "pro Kilogramm",
+      "für jedes Kilogramm"
+     ],
+     [
+      "Überschlag",
+      "eine schnelle, ungefähre Rechnung mit runden Zahlen, um ein Ergebnis zu prüfen"
+     ],
+     [
+      "Umkehraufgabe",
+      "die Gegenrechnung: statt mal geteilt, statt plus minus"
+     ]
+    ]
    }
   ],
   "teilfaehigkeiten": [

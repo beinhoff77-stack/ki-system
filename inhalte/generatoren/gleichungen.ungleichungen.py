@@ -591,7 +591,7 @@ UMBAU = {
   'bild': _ZS,
   'schritte': [{'text': 'Behauptung: 3 Fahrten passen. Setze 3 ein: 3 · 3 + 5 = 14.', 'bild': {'punkte': [{'wert': 3, 'name': '3 ✓'}]}},
                {'text': '14 < 17 stimmt. Also ⟦ist 3 eine Lösung⟧.'},
-               {'text': 'Knapp dahinter: 3 · 4 + 5 = 17, das ist nicht < 17.', 'bild': {'punkte': [{'wert': 3, 'name': '3 ✓'}, {'wert': 4, 'name': '4 ✗'}]}},
+               {'text': 'Hinter der Grenze: 3 · 4 + 5 = 17, nicht < 17.', 'bild': {'punkte': [{'wert': 3, 'name': '3 ✓'}, {'wert': 4, 'name': '4 ✗'}]}},
                {'text': 'Damit stimmt die Lösung: ⟦x < 4⟧.'}],
   'fehler': 'Nur eine Zahl zu testen reicht nicht. Wer bloß 0 Fahrten prüft, merkt nicht, ob 4 noch gingen. Teste auch ⟦nahe der Grenze⟧.',
   'fehler_bild': {'punkte': [{'wert': 0, 'name': 'nur 0?'}, {'wert': 4, 'name': '4 ✗'}]},

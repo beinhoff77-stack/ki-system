@@ -417,6 +417,7 @@ DATEI = datei(E, 'Winkel ergänzen und an Geradenkreuzungen, um einen Punkt, an 
                ('Winkel im Alltag', ['uhr', 'drehungen']),
                ('Figuren und Verstehen', ['figuren', 'verstehen'])],
               ETAPPEN, GEN,
+              vertiefung=('kreuzung',),  # Vierzehnte Runde: Vorgriff auf M7 2.2, nicht Pflicht
               offen=['WICHTIG: themenliste.json ordnet „Winkelsätze“ Kl. 5 zu, nennt aber keinen lehrplan_gym-Wortlaut. Laut LehrplanPLUS Gymnasium Kl. 5 gibt es nur „Winkel bis 360° messen, zeichnen, beschreiben“. Stufen-/Wechselwinkel und Innenwinkelsummen (Dreieck, Viereck) sind Stoff der Jahrgangsstufe 7 und wurden weggelassen. Vorschlag: dieses Thema für Kl. 5 so lassen und die eigentlichen Winkelsätze als Kl.-7-Thema führen.',
                      'Nachbarwinkel an der Geradenkreuzung werden nur über „ergänzen zu 180°“ begründet, ohne die Fachbegriffe Neben-/Scheitelwinkel einzuführen (Kl. 7).',
                      'Zeichnungen: Strahlenfächer und Geradenkreuzung als Figur mit Winkelbögen, Rechteck/Quadrat mit Diagonale; Uhr (Zifferblatt mit Zeigern) und Windrose als Figur in den Lernkarten uhr und drehungen und in Aufgaben.'])

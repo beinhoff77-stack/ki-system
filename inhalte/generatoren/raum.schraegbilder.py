@@ -520,6 +520,7 @@ if __name__ == '__main__':
          'Schrägbilder von Prismen und Pyramiden verstehen, Lagebeziehungen im Raum erkennen, Rotationskörper und Axialschnitte beschreiben und Punkte im Raum mit Koordinaten angeben.',
          ['Pyramide: n + 1 Ecken, 2n Kanten, n + 1 Flächen.', 'Schrägbild: parallel zur Zeichenebene wahr, nach hinten mit q verkürzt.',
           'Raum: parallel, schneidend oder windschief.', 'Rechteck → Zylinder, rechtwinkliges Dreieck → Kegel, Halbkreis → Kugel.'],
+         vertiefung=('lage', 'koordinaten'),  # Vierzehnte Runde: windschiefe Geraden und Raumkoordinaten ohne Beleg in Gym 5–10, nicht Pflicht
          offen=['Schrägbilder werden jetzt mit dem Bildtyp „figur“ gezeigt (Pyramide, Quader, Rechteck an der Drehachse). Selbst zeichnen lassen kann die App noch nicht.',
                 'Lehrplan: lehrplan_gym ist für dieses Thema leer. Laut Prüfung stehen Raumkoordinaten, windschiefe Geraden und Kegel/Axialschnitte eher in späteren Jahrgangsstufen – '
                 'bitte im Aufbau klären, ob die Karten „lage“, „koordinaten“ und „axialschnitt“ bleiben.',

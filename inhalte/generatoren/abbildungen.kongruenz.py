@@ -816,6 +816,7 @@ if __name__ == '__main__':
          'Achsenspiegelung, Punktspiegelung, Verschiebung und Drehung im Koordinatensystem ausführen, Symmetrien von Figuren erkennen, Parkettierungen prüfen und die Eigenschaften von Kongruenzabbildungen begründen.',
          ['Achsenspiegelung: gleich weit auf die andere Seite, senkrecht zur Achse.', 'Punktspiegelung an Z: Z ist Mitte von P und P\'.',
           'Verschiebung v = (a | b): x + a, y + b. Drehung um O um 90°: (x | y) → (−y | x).', 'Längen, Winkel und Flächen bleiben erhalten.', 'Parkett: Die Winkel an einer Ecke ergeben 360°.'],
+         vertiefung=('verschiebung', 'drehung', 'parkett'),  # Vierzehnte Runde: kein Beleg in LehrplanPLUS Gym 5–10, nicht Pflicht
          offen=['Aufgaben zu Spiegelung, Verschiebung und Drehung zeigen die gegebenen Punkte, Achsen und Zentren im Koordinatensystem; das Kind gibt den Bildpunkt als Koordinaten ein. '
                 'Selbst zeichnen (Konstruktion mit Zirkel und Geodreieck) kann die App noch nicht – dafür bräuchte es Eingabe durch Zeichnen.',
                 'Neue Lernkarte „parkett“ (aus der Prüfung): Bild einer Ecke mit sechs Dreiecken; Aufgaben rechnerisch. Ganze Parkettflächen als Bild wären möglich, sind aber nicht eingebaut.',

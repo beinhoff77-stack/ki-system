@@ -6108,18 +6108,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welcher Großbuchstabe (Blockschrift) ist punktsymmetrisch, hat aber keine Symmetrieachse?"
+    "text": "Welcher Großbuchstabe (Blockschrift) ist punktsymmetrisch und hat genau zwei Symmetrieachsen?"
    },
    "a": [
+    "H",
+    "E",
     "A",
-    "X",
-    "V",
     "N"
    ],
    "o": {
-    "index": 3
+    "index": 0
    },
-   "w": "N: 0 Symmetrieachsen, punktsymmetrisch.",
+   "w": "H: eine senkrechte und eine waagrechte Symmetrieachse, und um 180° gedreht sieht es gleich aus. N ist nur punktsymmetrisch, A und E haben je eine Achse und sind nicht punktsymmetrisch.",
    "h": "Prüfe bei jedem Buchstaben: falten? um 180° drehen?"
   },
   {
@@ -6865,18 +6865,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Passen 4 gleichseitige Dreiecke und ein Quadrat lückenlos um eine Ecke?"
+    "text": "Lässt sich eine Ecke lückenlos mit 4 gleichseitigen Dreiecken und einem Quadrat auslegen?"
    },
    "a": [
-    "Nein: Verschiedene Vielecke kann man an einer Ecke nie kombinieren.",
-    "Nein: Es müssen immer gleich viele von jeder Sorte sein.",
-    "Ja: 4 · 60° + 1 · 90° = 330°.",
-    "Nein: 4 · 60° + 1 · 90° = 330° ≠ 360°."
+    "Ja: Dreiecke und Quadrate passen immer zusammen.",
+    "Ja: 4 · 60° + 90° = 360°.",
+    "Nein: 4 · 60° + 90° = 330°, es bleibt eine Lücke von 30°.",
+    "Nein: Verschiedene Vielecke kann man an einer Ecke nie kombinieren."
    ],
    "o": {
-    "index": 3
+    "index": 2
    },
-   "w": "Nein: 4 · 60° + 1 · 90° = 330° ≠ 360°.",
+   "w": "4 · 60° + 90° = 240° + 90° = 330°. Bis 360° fehlen 30°, die Ecke ist nicht lückenlos.",
    "h": "Addiere alle Winkel an der Ecke und vergleiche mit 360°."
   },
   {
@@ -6886,18 +6886,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Passen 3 gleichseitige Dreiecke und 2 Quadrate lückenlos um eine Ecke?"
+    "text": "Lässt sich eine Ecke lückenlos mit 3 gleichseitigen Dreiecken und 2 Quadraten auslegen?"
    },
    "a": [
     "Nein: Verschiedene Vielecke kann man an einer Ecke nie kombinieren.",
-    "Ja: 3 · 60° + 2 · 90° = 360°.",
-    "Nein: 3 · 60° + 2 · 90° = 360° ≠ 360°.",
-    "Nein: Es müssen immer gleich viele von jeder Sorte sein."
+    "Nein: 3 · 60° + 2 · 90° = 330°.",
+    "Nein: Es müssen immer gleich viele von jeder Sorte sein.",
+    "Ja: 3 · 60° + 2 · 90° = 360°."
    ],
    "o": {
-    "index": 1
+    "index": 3
    },
-   "w": "Ja: 3 · 60° + 2 · 90° = 360°.",
+   "w": "3 · 60° + 2 · 90° = 180° + 180° = 360°. Die Ecke ist genau voll – das Muster kommt in echten Parketten vor.",
    "h": "Addiere alle Winkel an der Ecke und vergleiche mit 360°."
   },
   {
@@ -7105,7 +7105,7 @@
    "l": "eigenschaften",
    "t": "eigenschaften",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Aussage über Kongruenzabbildungen ist richtig?"

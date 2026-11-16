@@ -3,6 +3,13 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:42 – STATUS
+abbildungen.kongruenz fertig: umgestuft 1 / berichtigt 0 / ersetzt 3 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Welcher Großbuchstabe (Blockschrift) ist punktsymmetrisch, hat aber keine Symmetrieachse?“
+  - „Passen 4 gleichseitige Dreiecke und ein Quadrat lückenlos um eine Ecke?“
+  - „Passen 3 gleichseitige Dreiecke und 2 Quadrate lückenlos um eine Ecke?“
+
+## 2026-11-16 05:42 – STATUS
 gleichungen.linear fertig: umgestuft 4 / berichtigt 0 / ersetzt 1 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):
   - „Jemand multipliziert 6x + 6 = 21 auf beiden Seiten mit 0 und erhält 0 = 0. Er folgert: „Jede Zahl ist eine Lösung.“ Stimmt das?“

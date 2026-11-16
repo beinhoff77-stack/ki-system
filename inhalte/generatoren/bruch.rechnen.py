@@ -953,5 +953,169 @@ KARTEN = {
 umbau(DATEI, KARTEN)
 
 
+
+# ---------- SCHWER (Zehnte Runde, Zweig schwer-kl6): je Lernkarte 2 Übungen Stufe 2 + 4 Übungen Stufe 3 ----------
+# Läuft nach allen bisherigen Aufgaben mit eigenem Zufallsstart; die bisherigen Aufgaben bleiben unverändert.
+# Prüfungsvorbilder: Bayerischer Mathematik-Test Jgst. 8 (ISB) 2024 Aufg. 6a (Produkt aus bekanntem Ganzzahlprodukt, Kommastellen zählen),
+# 2025 Aufg. 5 (Formel für den Mittelwert ohne Klammern), 2014 Gruppe B Aufg. 1c (Anteil vom Anteil) und Aufg. 2 (Bruchterm durch eine Zahl teilen),
+# 2023 Aufg. 4b (Einheiten umrechnen mit Dezimalfaktor), 2023 Aufg. 5a (Restanteil);
+# Jahrgangsstufentest Realschule Jgst. 6 (ISB) 2024 Nr. 7 (Lücken so füllen, dass das Ergebnis stimmt), Nr. 15 (Kassenbon prüfen),
+# 2018 Nr. 14 (Klammern setzen), 2016 (Term zu einem Text); Fehler beschreiben (2020, 2022).
+from _schwer_kl6 import ergaenzen, zahl, wahl, luecken, anteil  # noqa: E402
+
+_HB = 'Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt; ein Minus gehört in den Zähler.'
+
+
+def _bl(text, z, n, cz, cn, h, w):
+    return luecken(text, '□/□', _HB, [z, n], [cz, cn], h, w)
+
+
+def _rr():
+    return {
+        'brueche_plus_minus': [
+            (2, lambda R: anteil('Berechne 5/6 − 3/8.', 20 - 9, 24, 'Hauptnenner von 6 und 8 ist 24.', '5/6 = 20/24, 3/8 = 9/24. 20/24 − 9/24 = 11/24.')),
+            (2, lambda R: anteil('Berechne 1 3/4 + 2/3. Gib das Ergebnis als Bruch an.', 21 + 8, 12, 'Schreibe 1 3/4 als Bruch: 7/4. Hauptnenner 12.',
+                                 '1 3/4 = 7/4 = 21/12, 2/3 = 8/12. 21/12 + 8/12 = 29/12.')),
+            (3, lambda R: anteil('Von der Kasse für eine Klassenfahrt gehen 2/5 für die Unterkunft, 1/4 für die Fahrt und 1/6 für Eintritte weg. '
+                                 'Welcher Anteil bleibt für das Essen?', 60 - 24 - 15 - 10, 60, 'Das Ganze ist 1. Hauptnenner von 5, 4 und 6 ist 60.',
+                                 '2/5 = 24/60, 1/4 = 15/60, 1/6 = 10/60. Zusammen 49/60. Für das Essen bleiben 60/60 − 49/60 = 11/60.')),
+            (3, lambda R: zahl('Welche Zahl gehört in das Kästchen? 1/3 + 1/□ = 1/2', 6, '1 / (1/2 - 1/3)',
+                               'Rechne zuerst aus, wie viel von 1/3 bis 1/2 fehlt.', '1/2 − 1/3 = 3/6 − 2/6 = 1/6. Also gehört 6 in das Kästchen.')),
+            (3, lambda R: anteil('Berechne, wie viel bis 1 fehlt: 1/2 + 1/4 + 1/8 + 1/16', 16 - 8 - 4 - 2 - 1, 16,
+                                 'Schreibe alle Brüche in Sechzehnteln.', '8/16 + 4/16 + 2/16 + 1/16 = 15/16. Bis 1 fehlt 1/16.')),
+            (3, lambda R: anteil('Ein Kind rechnet 2 1/2 − 1 3/4 so: 2 − 1 = 1 und 3/4 − 1/2 = 1/4, also 1 1/4. Wie heißt das richtige Ergebnis?',
+                                 10 - 7, 4, 'Schreibe beide gemischten Zahlen als Brüche mit dem Nenner 4.',
+                                 '2 1/2 = 10/4, 1 3/4 = 7/4. 10/4 − 7/4 = 3/4. Das Kind hat die Brüche vertauscht abgezogen.')),
+        ],
+        'dezimal_plus_minus': [
+            (2, lambda R: zahl('Berechne 12 − 3,47.', Fr('8.53'), '12 - 3.47', 'Schreibe 12 als 12,00.', '12,00 − 3,47 = 8,53.')),
+            (2, lambda R: zahl('Berechne 0,6 + 0,45 + 0,055.', Fr('1.105'), '0.6 + 0.45 + 0.055', 'Komma unter Komma, mit Endnullen auffüllen.',
+                               '0,600 + 0,450 + 0,055 = 1,105.')),
+            (3, lambda R: zahl('Ein Kind springt 3,85 m, 4,1 m und 3,9 m weit. Um wie viele Zentimeter ist der beste Sprung weiter als der schlechteste?', 25,
+                               '(4.1 - 3.85) * 100', 'Finde den besten und den schlechtesten Sprung. Rechne am Ende in cm um.',
+                               'Bester Sprung 4,10 m, schlechtester 3,85 m. 4,10 − 3,85 = 0,25 m = 25 cm.', einheit='cm')),
+            (3, lambda R: zahl('Auf einem Kassenbon stehen 2,49 €, 0,89 € und 3,15 €. Die Kasse verlangt 6,83 €. Um wie viel Cent hat sich die Kasse verrechnet?', 30,
+                               '(6.83 - (2.49 + 0.89 + 3.15)) * 100', 'Addiere die drei Preise und vergleiche mit 6,83 €.',
+                               '2,49 € + 0,89 € + 3,15 € = 6,53 €. 6,83 € − 6,53 € = 0,30 € = 30 Cent zu viel.', einheit='Cent')),
+            (3, lambda R: zahl('Eine Zahl wird um 2,75 vergrößert und danach um 4,6 verkleinert. Es kommt 1,2 heraus. Wie hieß die Zahl?', Fr('3.05'), '1.2 + 4.6 - 2.75',
+                               'Rechne rückwärts: Mach jeden Schritt in umgekehrter Reihenfolge rückgängig.', '1,2 + 4,6 = 5,8. 5,8 − 2,75 = 3,05. Probe: 3,05 + 2,75 − 4,6 = 1,2.')),
+            (3, lambda R: zahl('Ein Kind rechnet 5,3 + 2,48 = 7,51, weil es die Zahlen rechtsbündig untereinander geschrieben hat. Wie heißt das richtige Ergebnis?',
+                               Fr('7.78'), '5.3 + 2.48', 'Komma unter Komma: 5,30 + 2,48.', '5,30 + 2,48 = 7,78. Rechtsbündig stand die 3 Zehntel unter den 8 Hundertsteln.')),
+        ],
+        'vorzeichen': [
+            (2, lambda R: zahl('Berechne (−2,5) − 1,75.', Fr('-4.25'), '(-2.5) - 1.75', 'Du gehst von −2,5 noch weiter nach links.', '(−2,5) − 1,75 = −(2,5 + 1,75) = −4,25.')),
+            (2, lambda R: _bl('Berechne (−2/3) + 1/4.', -5, 12, '-8 + 3', '12', 'Hauptnenner 12. Verschiedene Vorzeichen: Beträge abziehen.',
+                              '(−8/12) + 3/12 = −5/12. Der größere Betrag (8/12) ist negativ.')),
+            (3, lambda R: zahl('Welche Zahl gehört in das Kästchen? □ : (−0,5) = 14', -7, '14 * (-0.5)', 'Rechne rückwärts: Teilen macht man mit Malnehmen rückgängig.',
+                               '□ = 14 · (−0,5) = −7. Probe: (−7) : (−0,5) = 14.')),
+            (3, lambda R: zahl('Morgens sind es −3,5 °C. Bis mittags steigt die Temperatur um 7,8 °C, bis abends fällt sie um 5,25 °C. Wie warm ist es abends?',
+                               Fr('-0.95'), '-3.5 + 7.8 - 5.25', 'Steigen heißt plus, fallen heißt minus.', '−3,5 + 7,8 = 4,3. 4,3 − 5,25 = −0,95. Abends sind es −0,95 °C.',
+                               einheit='°C')),
+            (3, lambda R: zahl('Berechne (−0,5) · (−2) · (−0,1) · (−3) · (−1).', Fr('-0.3'), '(-0.5) * (-2) * (-0.1) * (-3) * (-1)',
+                               'Zähle zuerst die Minuszeichen: Gerade Anzahl ergibt plus, ungerade minus.',
+                               'Fünf negative Faktoren: ungerade Anzahl, also minus. Beträge: 0,5 · 2 · 0,1 · 3 · 1 = 0,3. Ergebnis −0,3.')),
+            (3, lambda R: _bl('Ein Kind rechnet (−3/4) − (−1/2) = −5/4. Wie heißt das richtige Ergebnis?', -1, 4, '-3 + 2', '4',
+                              'Minus eine negative Zahl heißt: die Gegenzahl addieren.', '(−3/4) − (−1/2) = (−3/4) + 2/4 = −1/4. Das Kind hat −1/2 addiert statt abgezogen.')),
+        ],
+        'brueche_mal': [
+            (2, lambda R: anteil('Berechne 2/3 · 9/16. Kürze vorher.', 2 * 9, 3 * 16, 'Kürze über Kreuz: 2 mit 16 und 3 mit 9.', '2/3 · 9/16 = (1 · 3)/(1 · 8) = 3/8.')),
+            (2, lambda R: anteil('Berechne 1 1/2 · 2/9.', 3 * 2, 2 * 9, 'Schreibe 1 1/2 als Bruch.', '1 1/2 = 3/2. 3/2 · 2/9 = 6/18 = 1/3.')),
+            (3, lambda R: anteil('3/4 der Besucher eines Festes kommen aus der Stadt. 2/5 davon kommen mit dem Rad. '
+                                 'Welcher Anteil aller Besucher kommt aus der Stadt mit dem Rad?', 3 * 2, 4 * 5,
+                                 '„2/5 davon“ heißt: 2/5 von 3/4. Von heißt mal.', '2/5 · 3/4 = 6/20 = 3/10. (Nicht 2/5 aller Besucher!)')),
+            (3, lambda R: anteil('Für 4 Personen braucht man 3/4 l Milch. Wie viele Liter braucht man für 6 Personen?', 3 * 6, 4 * 4,
+                                 'Wie viel braucht eine Person? Oder: 6 Personen sind 6/4 von 4 Personen.',
+                                 'Eine Person: 3/4 : 4 = 3/16 l. Sechs Personen: 6 · 3/16 = 18/16 = 9/8 l.')),
+            (3, lambda R: anteil('Mit welchem Bruch musst du 4/9 malnehmen, um 2/3 zu erhalten?', 2 * 9, 3 * 4,
+                                 'Rückwärts: Das Gegenteil von Malnehmen ist Teilen. Rechne 2/3 : 4/9.', '2/3 : 4/9 = 2/3 · 9/4 = 18/12 = 3/2. Probe: 4/9 · 3/2 = 12/18 = 2/3.')),
+            (3, lambda R: anteil('Ein Kind rechnet 2/5 · 3/5 = 6/5. Wie heißt das richtige Ergebnis?', 2 * 3, 5 * 5,
+                                 'Beim Malnehmen werden auch die Nenner malgenommen.', '2/5 · 3/5 = (2 · 3)/(5 · 5) = 6/25. 6/5 wäre mehr als 1, aber ein Teil von 3/5 muss kleiner sein.')),
+        ],
+        'brueche_geteilt': [
+            (2, lambda R: anteil('Berechne 5/6 : 10/9.', 5 * 9, 6 * 10, 'Mit dem Kehrbruch 9/10 malnehmen.', '5/6 · 9/10 = 45/60 = 3/4.')),
+            (2, lambda R: zahl('Berechne 4 : 2/3.', 6, '4 / (2/3)', 'Mit dem Kehrbruch 3/2 malnehmen.', '4 · 3/2 = 12/2 = 6.')),
+            (3, lambda R: anteil('Teile die Differenz von 2 1/2 und 3/4 durch 5.', 10 - 3, 4 * 5, 'Rechne zuerst die Differenz aus, dann teilen durch 5 = mal 1/5.',
+                                 '2 1/2 − 3/4 = 10/4 − 3/4 = 7/4. 7/4 : 5 = 7/20.')),
+            (3, lambda R: zahl('Ein Band ist 7 1/2 m lang. Es wird in Stücke zu je 3/4 m geschnitten. Wie viele Stücke entstehen?', 10, '(15/2) / (3/4)',
+                               'Wie oft passt 3/4 in 7 1/2? Schreibe 7 1/2 als Bruch.', '7 1/2 = 15/2. 15/2 : 3/4 = 15/2 · 4/3 = 60/6 = 10 Stücke.')),
+            (3, lambda R: anteil('Durch welchen Bruch musst du 3/5 teilen, um 9/10 zu erhalten?', 3 * 10, 5 * 9,
+                                 'Rückwärts: 3/5 : □ = 9/10. Also □ = 3/5 : 9/10.', '3/5 : 9/10 = 3/5 · 10/9 = 30/45 = 2/3. Probe: 3/5 : 2/3 = 9/10.')),
+            (3, lambda R: wahl(R, 'Ohne zu rechnen: Welche Rechnung hat das größte Ergebnis?', '7 : 1/2', ['7 · 1/2', '7 : 2', '7 − 1/2'],
+                               'Durch eine Zahl kleiner als 1 teilen macht größer, mal eine Zahl kleiner als 1 macht kleiner.',
+                               '7 : 1/2 = 14. 7 · 1/2 = 3,5; 7 : 2 = 3,5; 7 − 1/2 = 6,5.')),
+        ],
+        'dezimal_mal': [
+            (2, lambda R: zahl('Berechne 0,25 · 0,36.', Fr('0.09'), '0.25 * 0.36', 'Rechne 25 · 36 und zähle die Nachkommastellen.', '25 · 36 = 900. Vier Nachkommastellen: 0,0900 = 0,09.')),
+            (2, lambda R: zahl('Berechne 12,5 · 0,08.', 1, '12.5 * 0.08', 'Rechne 125 · 8 und zähle die Nachkommastellen.', '125 · 8 = 1 000. Drei Nachkommastellen: 1,000 = 1.')),
+            (3, lambda R: zahl('Es gilt 37 · 23 = 851. Berechne damit 3,7 · 0,23.', Fr('0.851'), '3.7 * 0.23', 'Zähle die Nachkommastellen beider Faktoren.',
+                               '3,7 hat eine, 0,23 hat zwei Nachkommastellen, zusammen drei. Also 0,851.')),
+            (3, lambda R: zahl('Strom kostet 0,32 € je kWh. Ein Gerät braucht 0,15 kWh pro Stunde und läuft 40 Stunden. Was kostet der Strom?', Fr('1.92'),
+                               '0.15 * 40 * 0.32', 'Rechne zuerst den ganzen Verbrauch in kWh aus.', '0,15 kWh · 40 = 6 kWh. 6 · 0,32 € = 1,92 €.', einheit='€')),
+            (3, lambda R: zahl('Welche Zahl musst du mit 0,4 malnehmen, um 1 zu erhalten?', Fr('2.5'), '1 / 0.4', 'Rückwärts: 1 : 0,4.',
+                               '1 : 0,4 = 10 : 4 = 2,5. Probe: 2,5 · 0,4 = 1.')),
+            (3, lambda R: zahl('Ein Kind rechnet 0,6 · 0,6 = 3,6. Wie heißt das richtige Ergebnis?', Fr('0.36'), '0.6 * 0.6',
+                               'Mal eine Zahl kleiner als 1 macht kleiner. Zähle die Nachkommastellen.', '6 · 6 = 36, zwei Nachkommastellen: 0,36. 3,6 ist größer als 0,6 – das kann nicht stimmen.')),
+        ],
+        'dezimal_geteilt': [
+            (2, lambda R: zahl('Berechne 1,8 : 0,06.', 30, '1.8 / 0.06', 'Verschiebe das Komma bei beiden Zahlen um 2 Stellen.', '1,8 : 0,06 = 180 : 6 = 30.')),
+            (2, lambda R: zahl('Berechne 0,09 : 0,3.', Fr('0.3'), '0.09 / 0.3', 'Verschiebe das Komma bei beiden Zahlen um 1 Stelle.', '0,09 : 0,3 = 0,9 : 3 = 0,3.')),
+            (3, lambda R: zahl('1 Zoll sind 2,54 cm. Ein Bildschirm ist 63,5 cm breit. Wie viele Zoll sind das?', 25, '63.5 / 2.54',
+                               'Wie oft passt 2,54 cm in 63,5 cm?', '63,5 : 2,54 = 6 350 : 254 = 25 Zoll.')),
+            (3, lambda R: zahl('Packung A: 0,75 kg für 2,40 €. Packung B: 1,2 kg für 3,60 €. Wie viel kostet 1 kg bei der günstigeren Packung?', 3,
+                               'min(2.40 / 0.75, 3.60 / 1.2)', 'Rechne für beide Packungen den Preis für 1 kg aus.',
+                               'A: 2,40 € : 0,75 = 3,20 € je kg. B: 3,60 € : 1,2 = 3,00 € je kg. B ist günstiger: 3 €.', einheit='€')),
+            (3, lambda R: zahl('Eine Zahl wird durch 0,5 geteilt und das Ergebnis durch 0,2. Es kommt 30 heraus. Wie hieß die Zahl?', 3, '30 * 0.2 * 0.5',
+                               'Rechne rückwärts: Mach das Teilen durch Malnehmen rückgängig.', '30 · 0,2 = 6. 6 · 0,5 = 3. Probe: 3 : 0,5 = 6, 6 : 0,2 = 30.')),
+            (3, lambda R: wahl(R, 'Ohne zu rechnen: Welches Ergebnis ist größer als 8?', '8 : 0,9', ['8 : 1,1', '8 · 0,9', '8 : 8,5'],
+                               'Teilen durch eine Zahl kleiner als 1 macht größer.', '0,9 ist kleiner als 1, also ist 8 : 0,9 größer als 8 (etwa 8,9). Die anderen sind kleiner als 8.')),
+        ],
+        'rechenvorteile': [
+            (2, lambda R: zahl('Berechne geschickt: 0,125 · 7,3 · 8', Fr('7.3'), '0.125 * 7.3 * 8', 'Fasse 0,125 · 8 zusammen.', '0,125 · 8 = 1. 1 · 7,3 = 7,3.')),
+            (2, lambda R: zahl('Berechne geschickt: 2/5 · 17 · 5/2', 17, '(2/5) * 17 * (5/2)', 'Vertausche so, dass 2/5 und 5/2 nebeneinander stehen.', '2/5 · 5/2 = 1. 1 · 17 = 17.')),
+            (3, lambda R: wahl(R, 'Wo müssen Klammern stehen, damit 36 : 4 · 3 das Ergebnis 3 hat?', '36 : (4 · 3)', ['(36 : 4) · 3', 'Man braucht keine Klammern.', '36 : 4 · (3)'],
+                               'Rechne beide Möglichkeiten aus.', '36 : (4 · 3) = 36 : 12 = 3. Ohne Klammern rechnet man von links: 36 : 4 · 3 = 9 · 3 = 27.')),
+            (3, lambda R: zahl('Berechne geschickt: 1,25 · 0,8 · 2,5 · 0,4 · 3,7', Fr('3.7'), '1.25 * 0.8 * 2.5 * 0.4 * 3.7',
+                               'Suche Paare, die 1 ergeben.', '1,25 · 0,8 = 1 und 2,5 · 0,4 = 1. 1 · 1 · 3,7 = 3,7.')),
+            (3, lambda R: wahl(R, 'Ein Kind rechnet 60 : 6 : 2 = 60 : 3 = 20. Was stimmt?', 'Falsch: Beim Teilen darf man nicht umklammern. 60 : 6 : 2 = 10 : 2 = 5.',
+                               ['Richtig.', 'Falsch: Das Ergebnis ist 10.', 'Falsch: Das Ergebnis ist 180.'],
+                               'Rechne von links nach rechts.', '60 : 6 = 10, 10 : 2 = 5. Das Kind hat 6 : 2 zuerst gerechnet – beim Teilen ist das nicht erlaubt.')),
+            (3, lambda R: zahl('Welche Zahl gehört in das Kästchen? 3/4 · □ · 4/3 · 0,5 = 6', 12, '6 / ((3/4) * (4/3) * 0.5)',
+                               'Fasse zuerst die bekannten Faktoren geschickt zusammen.', '3/4 · 4/3 = 1, also bleibt □ · 0,5 = 6. □ = 6 : 0,5 = 12.')),
+        ],
+        'gemischt': [
+            (2, lambda R: zahl('Berechne 2,5 − 0,5 · 1,4.', Fr('1.8'), '2.5 - 0.5 * 1.4', 'Punkt vor Strich.', '0,5 · 1,4 = 0,7. 2,5 − 0,7 = 1,8.')),
+            (2, lambda R: zahl('Berechne (3/4 − 1/2) : 1/8.', 2, '(3/4 - 1/2) / (1/8)', 'Zuerst die Klammer.', '3/4 − 1/2 = 1/4. 1/4 : 1/8 = 1/4 · 8 = 2.')),
+            (3, lambda R: zahl('Für den Mittelwert von 52 und 60 tippt ein Kind in den Rechner: 52 + 60 : 2. Welche Zahl zeigt der Rechner an?', 82, '52 + 60 / 2',
+                               'Der Rechner beachtet Punkt vor Strich.', 'Der Rechner teilt zuerst: 60 : 2 = 30, dann 52 + 30 = 82. Für den Mittelwert braucht man (52 + 60) : 2 = 56.')),
+            (3, lambda R: zahl('Multipliziere die Differenz von 4,5 und 1,5 mit der Summe aus 0,2 und 0,3.', Fr('1.5'), '(4.5 - 1.5) * (0.2 + 0.3)',
+                               'Differenz und Summe kommen in Klammern.', '(4,5 − 1,5) · (0,2 + 0,3) = 3 · 0,5 = 1,5.')),
+            (3, lambda R: wahl(R, 'Welches Rechenzeichen gehört in das Kästchen? 1/2 □ 1/4 = 2', ':', ['·', '+', '−'],
+                               'Probiere alle vier Rechenarten aus.', '1/2 : 1/4 = 1/2 · 4 = 2. (1/2 · 1/4 = 1/8, 1/2 + 1/4 = 3/4, 1/2 − 1/4 = 1/4.)')),
+            (3, lambda R: zahl('Eine Familie kauft 3 Kinokarten zu je 8 € und 2 Getränke zu je 2,80 €. Auf die Karten gibt es 1/4 Nachlass. Wie viel Euro zahlt sie?',
+                               Fr('23.6'), '3 * 8 * 3/4 + 2 * 2.8', 'Der Nachlass gilt nur für die Karten. Nach dem Nachlass bleiben 3/4 des Kartenpreises.',
+                               'Karten: 3 · 8 € = 24 €, davon 3/4 = 18 €. Getränke: 2 · 2,80 € = 5,60 €. Zusammen 23,60 €.', einheit='€')),
+        ],
+        'fehler_finden': [
+            (2, lambda R: zahl('Ein Kind rechnet 0,3 · 0,2 = 0,6. Wie heißt das richtige Ergebnis?', Fr('0.06'), '0.3 * 0.2', 'Zähle die Nachkommastellen beider Faktoren.',
+                               '3 · 2 = 6, zwei Nachkommastellen: 0,06.')),
+            (2, lambda R: wahl(R, 'Ein Kind rechnet 3/5 − 1/3 = 2/2 = 1. Was ist der Fehler?', 'Zähler und Nenner wurden einzeln abgezogen. Richtig ist 4/15.',
+                               ['Es gibt keinen Fehler.', 'Man hätte die Nenner addieren müssen: 2/8.', 'Man hätte den Kehrbruch nehmen müssen.'],
+                               'Kann das Ergebnis größer sein als 3/5?', '3/5 − 1/3 = 9/15 − 5/15 = 4/15. Das Ergebnis 1 ist sogar größer als 3/5.')),
+            (3, lambda R: wahl(R, 'Ein Kind gibt für 4,2 · 0,35 das Ergebnis 14,7 an. Mache einen Überschlag. Welches Ergebnis stimmt?', '1,47', ['14,7', '0,147', '147'],
+                               'Überschlag: 4 · 0,35 ist etwa 4 · 1/3.', '4 · 0,35 = 1,4, also etwa 1,4. 42 · 35 = 1 470, drei Nachkommastellen: 1,470 = 1,47.')),
+            (3, lambda R: zahl('Ein Kind rechnet 7,2 : 0,9 = 0,8. Wie heißt das richtige Ergebnis?', 8, '7.2 / 0.9',
+                               'Durch eine Zahl kleiner als 1 teilen macht größer. Verschiebe bei beiden Zahlen das Komma.', '7,2 : 0,9 = 72 : 9 = 8. Das Ergebnis muss größer als 7,2 sein.')),
+            (3, lambda R: zahl('Ein Kind sollte eine Zahl mit 0,5 malnehmen. Aus Versehen hat es durch 0,5 geteilt und 18 erhalten. Welches Ergebnis wäre richtig gewesen?',
+                               Fr('4.5'), '18 * 0.5 * 0.5', 'Finde zuerst die Zahl: Rechne das Teilen durch 0,5 rückwärts.',
+                               'Die Zahl ist 18 · 0,5 = 9 (denn 9 : 0,5 = 18). Richtig wäre 9 · 0,5 = 4,5.')),
+            (3, lambda R: zahl('Ein Kind rechnet 2 − 1/3 · 3 = 5/3 · 3 = 5. Wie heißt das richtige Ergebnis?', 1, '2 - (1/3) * 3', 'Punkt vor Strich.',
+                               'Zuerst 1/3 · 3 = 1. Dann 2 − 1 = 1. Das Kind hat zuerst subtrahiert.')),
+        ],
+    }
+
+
+ergaenzen(DATEI, _rr(), seed=6023)
+
+
 if __name__ == '__main__':
     schreibe(DATEI)

@@ -579,5 +579,137 @@ KARTEN = {
 umbau(DATEI, KARTEN)
 
 
+
+# ---------- SCHWER (Zehnte Runde, Zweig schwer-kl6): je Lernkarte 2 Übungen Stufe 2 + 4 Übungen Stufe 3 ----------
+# Läuft nach allen bisherigen Aufgaben mit eigenem Zufallsstart; die bisherigen Aufgaben bleiben unverändert.
+# Prüfungsvorbilder: Bayerischer Mathematik-Test Jgst. 8 (ISB) 2021 Aufg. 5 („20 % weniger als“ – Grundwert erkennen),
+# 2021 Aufg. 6c (Prozentpunkte statt Prozent), 2014 Gruppe B Aufg. 1c (Prozent vom Prozent), 2023 Aufg. 5a (Restanteil aus Prozent und Bruch),
+# 2023 Aufg. 6 (99 % entfernt – 1 % bleibt), 2024 Aufg. 3a–c (Anteile ergänzen sich zu 100 %, „ein Drittel“ genau prüfen, Gesamtzahl aus
+# Anzahl und Prozentsatz), 2025 Aufg. 6b/6d (Veränderung in beide Richtungen; gleicher Prozentsatz bei verschiedener Gesamtzahl);
+# IQB VERA-8 (Aufgabe „Zwanzig Prozent“, Didaktische Handreichung).
+from _basis import tabelle  # noqa: E402
+from _schwer_kl6 import ergaenzen, zahl, wahl  # noqa: E402
+
+_PW = 'Frag dich: Prozent wovon? Das ist der Grundwert.'
+
+
+def _pz():
+    return {
+        'prozent_bedeutung': [
+            (2, lambda R: wahl(R, 'Welche Angabe ist am größten: 0,35; 3/8; 36 % oder 7/20?', '3/8', ['0,35', '36 %', '7/20'],
+                               'Schreibe alle Angaben in Prozent.', '0,35 = 35 %; 3/8 = 0,375 = 37,5 %; 36 %; 7/20 = 35/100 = 35 %. Am größten: 3/8.')),
+            (2, lambda R: zahl('Wie viel Prozent sind 7/25?', 28, '7 / 25 * 100', 'Erweitere auf den Nenner 100.', '7/25 = 28/100 = 28 %.', einheit='%')),
+            (3, lambda R: zahl('Ein Kind gibt 45 % seines Taschengelds für Süßes aus und spart 1/4. Der Rest ist für Bücher. Wie viel Prozent sind für Bücher?', 30,
+                               '100 - 45 - 100 / 4', 'Schreibe 1/4 in Prozent. Alles zusammen sind 100 %.', '1/4 = 25 %. 100 % − 45 % − 25 % = 30 %.', einheit='%')),
+            (3, lambda R: zahl('Die Tabelle zeigt, wie die Kinder einer Schule zur Schule kommen. Ein Wert fehlt. Wie viel Prozent kommen zu Fuß?', 30,
+                               '100 - 35 - 100 / 5 - 0.15 * 100', 'Rechne alle Angaben in Prozent um. Zusammen müssen es 100 % sein.',
+                               'Rad 1/5 = 20 %, Auto 0,15 = 15 %. 100 % − 35 % − 20 % − 15 % = 30 %.', einheit='%',
+                               grafik=tabelle(['Weg', 'Bus', 'Rad', 'Auto', 'zu Fuß'], [['Anteil', '35 %', '1/5', '0,15', '?']]))),
+            (3, lambda R: zahl('Die Recyclingquote einer Stadt steigt von 40 % auf 50 %. Um wie viele Prozentpunkte ist sie gestiegen?', 10, '50 - 40',
+                               'Prozentpunkte sind der Unterschied zwischen zwei Prozentangaben.', '50 % − 40 % = 10 Prozentpunkte.', einheit='Prozentpunkte')),
+            (3, lambda R: zahl('Wie viel Prozent sind 1 1/4?', 125, '(1 + 1/4) * 100', 'Ein Ganzes sind 100 %. Wie viel Prozent ist 1/4?',
+                               '1 = 100 % und 1/4 = 25 %. Zusammen 125 %. Prozentangaben über 100 % sind möglich.', einheit='%')),
+        ],
+        'prozentwert': [
+            (2, lambda R: zahl('Berechne 12,5 % von 64 kg.', 8, '64 * 12.5 / 100', '12,5 % sind 1/8.', '12,5 % = 1/8. 64 kg : 8 = 8 kg.', einheit='kg')),
+            (2, lambda R: zahl('Berechne 150 % von 36 €.', 54, '36 * 150 / 100', '150 % sind 100 % und noch einmal 50 %.', '100 % = 36 €, 50 % = 18 €. Zusammen 54 €.', einheit='€')),
+            (3, lambda R: zahl('70 % der Besucher eines Konzerts sind Erwachsene. 40 % dieser Erwachsenen sind älter als 50 Jahre. '
+                               'Wie viel Prozent aller Besucher sind Erwachsene über 50?', 28, '70 * 40 / 100',
+                               'Die 40 % beziehen sich nur auf die Erwachsenen. Rechne mit 100 Besuchern.',
+                               'Bei 100 Besuchern: 70 Erwachsene. 40 % von 70 = 28. Also 28 % aller Besucher.', einheit='%')),
+            (3, lambda R: zahl('Ein Luftfilter entfernt 99 % von 5 000 000 Pollenkörnern. Wie viele Pollenkörner bleiben übrig?', 50000, '5000000 * 1 / 100',
+                               'Wie viel Prozent bleiben übrig?', 'Es bleibt 1 % übrig. 1 % von 5 000 000 = 50 000.')),
+            (3, lambda R: zahl('15 % einer Zahl sind 9. Wie viel sind 35 % derselben Zahl?', 21, '9 / 15 * 35', 'Rechne zuerst 1 % oder 5 % der Zahl aus.',
+                               '15 % = 9, also 5 % = 3. 35 % = 7 · 5 % = 21.')),
+            (3, lambda R: zahl('Ein Kind rechnet 4 % von 250 € so: 250 : 4 = 62,50 €. Wie heißt das richtige Ergebnis?', 10, '250 * 4 / 100',
+                               '4 % sind 4 Hundertstel, nicht ein Viertel.', '1 % von 250 € = 2,50 €. 4 % = 10 €. Das Kind hat 25 % ausgerechnet.', einheit='€')),
+        ],
+        'prozentsatz': [
+            (2, lambda R: zahl('Von 40 Aufgaben sind 34 richtig. Wie viel Prozent sind richtig?', 85, '34 / 40 * 100', 'Teil durch Ganzes, mal 100.',
+                               '34/40 = 85/100 = 85 %.', einheit='%')),
+            (2, lambda R: zahl('Wie viel Prozent sind 450 g von 1,5 kg?', 30, '450 / 1500 * 100', 'Rechne beide in Gramm.', '1,5 kg = 1 500 g. 450/1 500 = 30/100 = 30 %.',
+                               einheit='%')),
+            (3, lambda R: zahl('Beim Spendenlauf liefen im ersten Jahr 40 Kinder mit, im zweiten Jahr 50. Um wie viel Prozent ist die Zahl gestiegen?', 25,
+                               '(50 - 40) / 40 * 100', 'Grundwert ist der alte Wert 40.', 'Zunahme 10 Kinder. 10 von 40 = 25 %.', einheit='%')),
+            (3, lambda R: zahl('Beim Spendenlauf liefen im ersten Jahr 50 Kinder mit, im zweiten Jahr 40. Um wie viel Prozent ist die Zahl gesunken?', 20,
+                               '(50 - 40) / 50 * 100', 'Grundwert ist der alte Wert 50 – nicht 40.', 'Abnahme 10 Kinder. 10 von 50 = 20 %. (Umgekehrt waren es 25 %.)', einheit='%')),
+            (3, lambda R: zahl('In einem Verein sind 30 Mädchen und 24 Jungen. Um wie viel Prozent sind es weniger Jungen als Mädchen?', 20, '(30 - 24) / 30 * 100',
+                               '„Weniger als die Mädchen“: Die Mädchen sind der Grundwert.', '30 − 24 = 6. 6 von 30 = 20 %.', einheit='%')),
+            (3, lambda R: zahl('Ein Quadrat hat 10 cm Seitenlänge. Jede Seite wird um 10 % länger. Um wie viel Prozent wächst der Flächeninhalt?', 21,
+                               '(11 * 11 - 10 * 10) / (10 * 10) * 100', 'Rechne den alten und den neuen Flächeninhalt aus.',
+                               'Neue Seite 11 cm. Alt 100 cm², neu 121 cm². Zunahme 21 cm² von 100 cm² = 21 % (nicht 10 %).', einheit='%')),
+        ],
+        'grundwert': [
+            (2, lambda R: zahl('35 % sind 49 kg. Wie viel sind 100 %?', 140, '49 / 35 * 100', 'Rechne zuerst 1 % oder 5 % aus.', '5 % = 7 kg. 100 % = 20 · 7 kg = 140 kg.', einheit='kg')),
+            (2, lambda R: zahl('12,5 % sind 15 €. Wie viel sind 100 %?', 120, '15 / 12.5 * 100', '12,5 % sind 1/8.', '1/8 sind 15 €, das Ganze 8 · 15 € = 120 €.', einheit='€')),
+            (3, lambda R: zahl('In einem Chor sind 20 % weniger Jungen als Mädchen. Es singen 24 Jungen. Wie viele Mädchen singen im Chor?', 30, '24 / 80 * 100',
+                               'Die Mädchen sind der Grundwert (100 %). Wie viel Prozent davon sind die Jungen?',
+                               'Jungen = 80 % der Mädchen = 24. 1 % = 0,3, also 100 % = 30 Mädchen. (24 + 20 % von 24 = 28,8 wäre falsch.)')),
+            (3, lambda R: zahl('Bei einer Untersuchung waren 63 Kinder sichere Schwimmer. Das sind 45 % aller untersuchten Kinder. Wie viele Kinder wurden untersucht?', 140,
+                               '63 / 45 * 100', '63 Kinder sind der Prozentwert. Rechne über 5 % auf 100 %.', '45 % = 63, also 5 % = 7 und 100 % = 140 Kinder.')),
+            (3, lambda R: zahl('Nach 20 % Rabatt kostet eine Jacke 64 €. Wie viel kostete sie vorher?', 80, '64 / 80 * 100',
+                               '64 € sind nicht 100 %, sondern 100 % − 20 %.', '64 € = 80 %. 10 % = 8 €, 100 % = 80 €. (64 € + 20 % = 76,80 € wäre falsch.)', einheit='€')),
+            (3, lambda R: zahl('Ein Kind hat 30 % seines Buchs gelesen. Es fehlen noch 154 Seiten. Wie viele Seiten hat das Buch?', 220, '154 / 70 * 100',
+                               'Wie viel Prozent fehlen noch?', 'Es fehlen 70 % = 154 Seiten. 10 % = 22 Seiten, 100 % = 220 Seiten.')),
+        ],
+        'rabatt_aufschlag': [
+            (2, lambda R: zahl('Ein Handy kostet 240 €. Im Angebot ist es 15 % billiger. Was kostet es jetzt?', 204, '240 * 85 / 100', 'Man zahlt 100 % − 15 % = 85 %.',
+                               '15 % von 240 € = 36 €. 240 € − 36 € = 204 €.', einheit='€')),
+            (2, lambda R: zahl('Eine Monatskarte kostet 48 €. Der Preis steigt um 12,5 %. Was kostet sie jetzt?', 54, '48 * 112.5 / 100', '12,5 % sind 1/8.',
+                               '1/8 von 48 € = 6 €. 48 € + 6 € = 54 €.', einheit='€')),
+            (3, lambda R: zahl('Ein Preis wird erst um 20 % erhöht und danach um 20 % gesenkt. Am Ende kostet die Ware 96 €. Wie viel kostete sie am Anfang?', 100,
+                               '96 / (1.2 * 0.8)', 'Probiere mit 100 € als Anfangspreis.', '100 € → +20 % → 120 € → −20 % (von 120 €) → 96 €. Der Anfangspreis war 100 €.', einheit='€')),
+            (3, lambda R: zahl('Nach einer Preiserhöhung um 25 % kostet ein Buch 15 €. Wie viel kostete es vorher?', 12, '15 / 125 * 100',
+                               '15 € sind 125 % des alten Preises.', '125 % = 15 €, also 25 % = 3 € und 100 % = 12 €.', einheit='€')),
+            (3, lambda R: zahl('Eine Packung kostet 4,50 €. Angebot A: 3 Packungen zum Preis von 2. Angebot B: 30 % Rabatt auf jede Packung. '
+                               'Du kaufst 3 Packungen. Wie viel Euro sparst du mit dem günstigeren Angebot gegenüber dem anderen?', Fr('0.45'),
+                               '3 * 4.5 * 0.7 - 2 * 4.5', 'Rechne für beide Angebote den Preis für 3 Packungen aus.',
+                               'A: 2 · 4,50 € = 9,00 €. B: 3 · 4,50 € = 13,50 €, davon 70 % = 9,45 €. A ist um 0,45 € günstiger.', einheit='€')),
+            (3, lambda R: zahl('Ein Kind sagt: „20 % Rabatt und danach noch einmal 10 % Rabatt sind zusammen 30 %.“ Wie viel Prozent Rabatt sind es wirklich?', 28,
+                               '100 - 100 * 0.8 * 0.9', 'Rechne mit 100 €. Die zweiten 10 % gelten vom schon reduzierten Preis.',
+                               '100 € → 80 € → 10 % von 80 € = 8 € → 72 €. Man spart 28 €, also 28 %.', einheit='%')),
+        ],
+        'zinsen': [
+            (2, lambda R: zahl('Wie viel Euro Zinsen bringen 1 250 € in einem Jahr bei 2,4 %?', 30, '1250 * 2.4 / 100', 'Rechne 1 % von 1 250 € aus.',
+                               '1 % = 12,50 €. 2,4 % = 2,4 · 12,50 € = 30 €.', einheit='€')),
+            (2, lambda R: zahl('Ein Guthaben wächst in einem Jahr durch Zinsen von 800 € auf 820 €. Wie hoch ist der Zinssatz?', Fr('2.5'), '(820 - 800) / 800 * 100',
+                               'Wie viel Euro Zinsen gab es? Teile durch das Kapital.', 'Zinsen 20 €. 20/800 = 2,5/100 = 2,5 %.', einheit='%')),
+            (3, lambda R: zahl('Bei einem Zinssatz von 2 % bekommt man nach einem Jahr 36 € Zinsen. Wie hoch war das Kapital?', 1800, '36 / 2 * 100',
+                               'Die Zinsen sind der Prozentwert, das Kapital ist der Grundwert.', '2 % = 36 €, 1 % = 18 €, 100 % = 1 800 €.', einheit='€')),
+            (3, lambda R: zahl('Nach einem Jahr mit 3 % Zinsen sind 1 545 € auf dem Konto. Wie viel Geld wurde eingezahlt?', 1500, '1545 / 103 * 100',
+                               'Das neue Guthaben sind 103 % des eingezahlten Betrags.', '103 % = 1 545 €, 1 % = 15 €, 100 % = 1 500 €.', einheit='€')),
+            (3, lambda R: zahl('Ein Kredit über 600 € kostet 9 % Zinsen im Jahr. Er wird schon nach 8 Monaten zurückgezahlt. Wie viel Euro Zinsen fallen an?', 36,
+                               '600 * 9 / 100 * 8 / 12', 'Rechne erst die Zinsen für ein ganzes Jahr, dann den Anteil für 8 von 12 Monaten.',
+                               'Jahreszinsen: 9 % von 600 € = 54 €. 8 Monate sind 8/12 = 2/3 Jahr: 54 € : 3 · 2 = 36 €.', einheit='€')),
+            (3, lambda R: zahl('1 000 € liegen zwei Jahre auf einem Konto mit 10 % Zinsen. Die Zinsen des ersten Jahres werden im zweiten Jahr mitverzinst. '
+                               'Wie viel Geld ist nach zwei Jahren auf dem Konto?', 1210, '1000 * 1.1 * 1.1',
+                               'Im zweiten Jahr ist der Grundwert das Guthaben nach dem ersten Jahr.', 'Nach 1 Jahr: 1 100 €. Nach 2 Jahren: 1 100 € + 110 € = 1 210 € (nicht 1 200 €).',
+                               einheit='€')),
+        ],
+        'verstehen': [
+            (2, lambda R: wahl(R, 'Stimmt die Aussage? „200 % von 15 sind 30.“', 'Ja: 200 % heißt das Doppelte, 2 · 15 = 30.',
+                               ['Nein, mehr als 100 % gibt es nicht.', 'Nein, 200 % von 15 sind 3 000.'], _PW, '200 % = 2. 2 · 15 = 30.', n=3)),
+            (2, lambda R: wahl(R, 'Stimmt die Aussage? „3/5 sind mehr als 55 %.“', 'Ja: 3/5 = 60 %.', ['Nein: 3/5 = 35 %.', 'Nein: 3/5 = 53 %.'],
+                               'Schreibe 3/5 in Prozent.', '3/5 = 60/100 = 60 %. 60 % > 55 %.', n=3)),
+            (3, lambda R: wahl(R, 'Bei einer Umfrage nannten 31 % Sport als Hobby. Jemand sagt: „Das ist mehr als ein Drittel.“ Stimmt das?',
+                               'Nein: Ein Drittel sind etwa 33,3 %, 31 % ist weniger.', ['Ja: 31 % ist mehr als 30 %.', 'Ja: Ein Drittel sind 30 %.', 'Es ist genau ein Drittel.'],
+                               'Wie viel Prozent ist 1/3?', '1/3 = 100 % : 3 ≈ 33,3 %. 31 % < 33,3 %.')),
+            (3, lambda R: wahl(R, 'In Klasse A spielen 50 % der 20 Kinder ein Instrument, in Klasse B 40 % der 30 Kinder. Jemand sagt: „In A spielen mehr Kinder ein Instrument.“ Stimmt das?',
+                               'Nein: In A sind es 10 Kinder, in B 12 Kinder.', ['Ja, denn 50 % ist mehr als 40 %.', 'Beide Klassen haben gleich viele.', 'Ja: In A 10 Kinder, in B 8 Kinder.'],
+                               'Rechne die Anzahlen aus. Die Klassen sind verschieden groß.', '50 % von 20 = 10. 40 % von 30 = 12. Der größere Prozentsatz gehört zur kleineren Klasse.')),
+            (3, lambda R: wahl(R, 'Der Anteil der Radfahrer steigt von 20 % auf 30 %. Jemand sagt: „Er ist um 10 % gestiegen.“ Was stimmt?',
+                               'Er ist um 10 Prozentpunkte gestiegen. Das sind 50 % mehr Radfahrer-Anteil.',
+                               ['Die Aussage stimmt genau.', 'Er ist um 30 % gestiegen.', 'Er ist um 10 Prozentpunkte gestiegen, das sind 10 % mehr.'],
+                               'Unterscheide Prozentpunkte (Differenz) und Prozent (Veränderung im Vergleich zum alten Wert).',
+                               '30 % − 20 % = 10 Prozentpunkte. Im Vergleich zum alten Wert: 10 von 20 = 50 % mehr.')),
+            (3, lambda R: wahl(R, 'Stimmt die Aussage? „10 % von 10 % sind 1 %.“', 'Ja: 1/10 von 1/10 sind 1/100 = 1 %.', ['Nein, es sind 20 %.', 'Nein, es sind 100 %.', 'Nein, es sind 10 %.'],
+                               'Rechne mit 1 000 €: 10 % davon, dann davon wieder 10 %.', '10 % von 1 000 € = 100 €. 10 % von 100 € = 10 € = 1 % von 1 000 €.')),
+        ],
+    }
+
+
+ergaenzen(DATEI, _pz(), seed=6024)
+
+
 if __name__ == '__main__':
     schreibe(DATEI)

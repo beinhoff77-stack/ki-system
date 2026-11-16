@@ -6162,6 +6162,1135 @@
     "text": "Ein Kind rechnet: 1/2 : 3/4 = 2/1 · 3/4. Was ist der Fehler?"
    },
    "w": "Nur der Teiler 3/4 wird umgedreht: 1/2 · 4/3 = 2/3."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 5/6 − 3/8.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     11,
+     24
+    ]
+   },
+   "c": [
+    "11 // 1",
+    "24 // 1"
+   ],
+   "h": "Hauptnenner von 6 und 8 ist 24.",
+   "w": "5/6 = 20/24, 3/8 = 9/24. 20/24 − 9/24 = 11/24."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1 3/4 + 2/3. Gib das Ergebnis als Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     29,
+     12
+    ]
+   },
+   "c": [
+    "29 // 1",
+    "12 // 1"
+   ],
+   "h": "Schreibe 1 3/4 als Bruch: 7/4. Hauptnenner 12.",
+   "w": "1 3/4 = 7/4 = 21/12, 2/3 = 8/12. 21/12 + 8/12 = 29/12."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Von der Kasse für eine Klassenfahrt gehen 2/5 für die Unterkunft, 1/4 für die Fahrt und 1/6 für Eintritte weg. Welcher Anteil bleibt für das Essen?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     11,
+     60
+    ]
+   },
+   "c": [
+    "11 // 1",
+    "60 // 1"
+   ],
+   "h": "Das Ganze ist 1. Hauptnenner von 5, 4 und 6 ist 60.",
+   "w": "2/5 = 24/60, 1/4 = 15/60, 1/6 = 10/60. Zusammen 49/60. Für das Essen bleiben 60/60 − 49/60 = 11/60."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl gehört in das Kästchen? 1/3 + 1/□ = 1/2"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "1 / (1/2 - 1/3)",
+   "h": "Rechne zuerst aus, wie viel von 1/3 bis 1/2 fehlt.",
+   "w": "1/2 − 1/3 = 3/6 − 2/6 = 1/6. Also gehört 6 in das Kästchen."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne, wie viel bis 1 fehlt: 1/2 + 1/4 + 1/8 + 1/16",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     1,
+     16
+    ]
+   },
+   "c": [
+    "1 // 1",
+    "16 // 1"
+   ],
+   "h": "Schreibe alle Brüche in Sechzehnteln.",
+   "w": "8/16 + 4/16 + 2/16 + 1/16 = 15/16. Bis 1 fehlt 1/16."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Kind rechnet 2 1/2 − 1 3/4 so: 2 − 1 = 1 und 3/4 − 1/2 = 1/4, also 1 1/4. Wie heißt das richtige Ergebnis?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     3,
+     4
+    ]
+   },
+   "c": [
+    "3 // 1",
+    "4 // 1"
+   ],
+   "h": "Schreibe beide gemischten Zahlen als Brüche mit dem Nenner 4.",
+   "w": "2 1/2 = 10/4, 1 3/4 = 7/4. 10/4 − 7/4 = 3/4. Das Kind hat die Brüche vertauscht abgezogen."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 12 − 3,47."
+   },
+   "o": {
+    "wert": 8.53
+   },
+   "c": "12 - 3.47",
+   "h": "Schreibe 12 als 12,00.",
+   "w": "12,00 − 3,47 = 8,53."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 0,6 + 0,45 + 0,055."
+   },
+   "o": {
+    "wert": 1.105
+   },
+   "c": "0.6 + 0.45 + 0.055",
+   "h": "Komma unter Komma, mit Endnullen auffüllen.",
+   "w": "0,600 + 0,450 + 0,055 = 1,105."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind springt 3,85 m, 4,1 m und 3,9 m weit. Um wie viele Zentimeter ist der beste Sprung weiter als der schlechteste?"
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "cm"
+   },
+   "c": "(4.1 - 3.85) * 100",
+   "h": "Finde den besten und den schlechtesten Sprung. Rechne am Ende in cm um.",
+   "w": "Bester Sprung 4,10 m, schlechtester 3,85 m. 4,10 − 3,85 = 0,25 m = 25 cm."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einem Kassenbon stehen 2,49 €, 0,89 € und 3,15 €. Die Kasse verlangt 6,83 €. Um wie viel Cent hat sich die Kasse verrechnet?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "Cent"
+   },
+   "c": "(6.83 - (2.49 + 0.89 + 3.15)) * 100",
+   "h": "Addiere die drei Preise und vergleiche mit 6,83 €.",
+   "w": "2,49 € + 0,89 € + 3,15 € = 6,53 €. 6,83 € − 6,53 € = 0,30 € = 30 Cent zu viel."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl wird um 2,75 vergrößert und danach um 4,6 verkleinert. Es kommt 1,2 heraus. Wie hieß die Zahl?"
+   },
+   "o": {
+    "wert": 3.05
+   },
+   "c": "1.2 + 4.6 - 2.75",
+   "h": "Rechne rückwärts: Mach jeden Schritt in umgekehrter Reihenfolge rückgängig.",
+   "w": "1,2 + 4,6 = 5,8. 5,8 − 2,75 = 3,05. Probe: 3,05 + 2,75 − 4,6 = 1,2."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet 5,3 + 2,48 = 7,51, weil es die Zahlen rechtsbündig untereinander geschrieben hat. Wie heißt das richtige Ergebnis?"
+   },
+   "o": {
+    "wert": 7.78
+   },
+   "c": "5.3 + 2.48",
+   "h": "Komma unter Komma: 5,30 + 2,48.",
+   "w": "5,30 + 2,48 = 7,78. Rechtsbündig stand die 3 Zehntel unter den 8 Hundertsteln."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−2,5) − 1,75."
+   },
+   "o": {
+    "wert": -4.25
+   },
+   "c": "(-2.5) - 1.75",
+   "h": "Du gehst von −2,5 noch weiter nach links.",
+   "w": "(−2,5) − 1,75 = −(2,5 + 1,75) = −4,25."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne (−2/3) + 1/4.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt; ein Minus gehört in den Zähler."
+   },
+   "o": {
+    "werte": [
+     -5,
+     12
+    ]
+   },
+   "c": [
+    "-8 + 3",
+    "12"
+   ],
+   "h": "Hauptnenner 12. Verschiedene Vorzeichen: Beträge abziehen.",
+   "w": "(−8/12) + 3/12 = −5/12. Der größere Betrag (8/12) ist negativ."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl gehört in das Kästchen? □ : (−0,5) = 14"
+   },
+   "o": {
+    "wert": -7
+   },
+   "c": "14 * (-0.5)",
+   "h": "Rechne rückwärts: Teilen macht man mit Malnehmen rückgängig.",
+   "w": "□ = 14 · (−0,5) = −7. Probe: (−7) : (−0,5) = 14."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Morgens sind es −3,5 °C. Bis mittags steigt die Temperatur um 7,8 °C, bis abends fällt sie um 5,25 °C. Wie warm ist es abends?"
+   },
+   "o": {
+    "wert": -0.95,
+    "einheit": "°C"
+   },
+   "c": "-3.5 + 7.8 - 5.25",
+   "h": "Steigen heißt plus, fallen heißt minus.",
+   "w": "−3,5 + 7,8 = 4,3. 4,3 − 5,25 = −0,95. Abends sind es −0,95 °C."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−0,5) · (−2) · (−0,1) · (−3) · (−1)."
+   },
+   "o": {
+    "wert": -0.3
+   },
+   "c": "(-0.5) * (-2) * (-0.1) * (-3) * (-1)",
+   "h": "Zähle zuerst die Minuszeichen: Gerade Anzahl ergibt plus, ungerade minus.",
+   "w": "Fünf negative Faktoren: ungerade Anzahl, also minus. Beträge: 0,5 · 2 · 0,1 · 3 · 1 = 0,3. Ergebnis −0,3."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Kind rechnet (−3/4) − (−1/2) = −5/4. Wie heißt das richtige Ergebnis?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt; ein Minus gehört in den Zähler."
+   },
+   "o": {
+    "werte": [
+     -1,
+     4
+    ]
+   },
+   "c": [
+    "-3 + 2",
+    "4"
+   ],
+   "h": "Minus eine negative Zahl heißt: die Gegenzahl addieren.",
+   "w": "(−3/4) − (−1/2) = (−3/4) + 2/4 = −1/4. Das Kind hat −1/2 addiert statt abgezogen."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 2/3 · 9/16. Kürze vorher.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     3,
+     8
+    ]
+   },
+   "c": [
+    "18 // 6",
+    "48 // 6"
+   ],
+   "h": "Kürze über Kreuz: 2 mit 16 und 3 mit 9.",
+   "w": "2/3 · 9/16 = (1 · 3)/(1 · 8) = 3/8."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1 1/2 · 2/9.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "c": [
+    "6 // 6",
+    "18 // 6"
+   ],
+   "h": "Schreibe 1 1/2 als Bruch.",
+   "w": "1 1/2 = 3/2. 3/2 · 2/9 = 6/18 = 1/3."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "3/4 der Besucher eines Festes kommen aus der Stadt. 2/5 davon kommen mit dem Rad. Welcher Anteil aller Besucher kommt aus der Stadt mit dem Rad?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     3,
+     10
+    ]
+   },
+   "c": [
+    "6 // 2",
+    "20 // 2"
+   ],
+   "h": "„2/5 davon“ heißt: 2/5 von 3/4. Von heißt mal.",
+   "w": "2/5 · 3/4 = 6/20 = 3/10. (Nicht 2/5 aller Besucher!)"
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Für 4 Personen braucht man 3/4 l Milch. Wie viele Liter braucht man für 6 Personen?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     9,
+     8
+    ]
+   },
+   "c": [
+    "18 // 2",
+    "16 // 2"
+   ],
+   "h": "Wie viel braucht eine Person? Oder: 6 Personen sind 6/4 von 4 Personen.",
+   "w": "Eine Person: 3/4 : 4 = 3/16 l. Sechs Personen: 6 · 3/16 = 18/16 = 9/8 l."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Mit welchem Bruch musst du 4/9 malnehmen, um 2/3 zu erhalten?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     3,
+     2
+    ]
+   },
+   "c": [
+    "18 // 6",
+    "12 // 6"
+   ],
+   "h": "Rückwärts: Das Gegenteil von Malnehmen ist Teilen. Rechne 2/3 : 4/9.",
+   "w": "2/3 : 4/9 = 2/3 · 9/4 = 18/12 = 3/2. Probe: 4/9 · 3/2 = 12/18 = 2/3."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Kind rechnet 2/5 · 3/5 = 6/5. Wie heißt das richtige Ergebnis?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     6,
+     25
+    ]
+   },
+   "c": [
+    "6 // 1",
+    "25 // 1"
+   ],
+   "h": "Beim Malnehmen werden auch die Nenner malgenommen.",
+   "w": "2/5 · 3/5 = (2 · 3)/(5 · 5) = 6/25. 6/5 wäre mehr als 1, aber ein Teil von 3/5 muss kleiner sein."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 5/6 : 10/9.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     3,
+     4
+    ]
+   },
+   "c": [
+    "45 // 15",
+    "60 // 15"
+   ],
+   "h": "Mit dem Kehrbruch 9/10 malnehmen.",
+   "w": "5/6 · 9/10 = 45/60 = 3/4."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 4 : 2/3."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "4 / (2/3)",
+   "h": "Mit dem Kehrbruch 3/2 malnehmen.",
+   "w": "4 · 3/2 = 12/2 = 6."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Teile die Differenz von 2 1/2 und 3/4 durch 5.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     7,
+     20
+    ]
+   },
+   "c": [
+    "7 // 1",
+    "20 // 1"
+   ],
+   "h": "Rechne zuerst die Differenz aus, dann teilen durch 5 = mal 1/5.",
+   "w": "2 1/2 − 3/4 = 10/4 − 3/4 = 7/4. 7/4 : 5 = 7/20."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Band ist 7 1/2 m lang. Es wird in Stücke zu je 3/4 m geschnitten. Wie viele Stücke entstehen?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "(15/2) / (3/4)",
+   "h": "Wie oft passt 3/4 in 7 1/2? Schreibe 7 1/2 als Bruch.",
+   "w": "7 1/2 = 15/2. 15/2 : 3/4 = 15/2 · 4/3 = 60/6 = 10 Stücke."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Durch welchen Bruch musst du 3/5 teilen, um 9/10 zu erhalten?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "c": [
+    "30 // 15",
+    "45 // 15"
+   ],
+   "h": "Rückwärts: 3/5 : □ = 9/10. Also □ = 3/5 : 9/10.",
+   "w": "3/5 : 9/10 = 3/5 · 10/9 = 30/45 = 2/3. Probe: 3/5 : 2/3 = 9/10."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ohne zu rechnen: Welche Rechnung hat das größte Ergebnis?"
+   },
+   "a": [
+    "7 : 2",
+    "7 : 1/2",
+    "7 · 1/2",
+    "7 − 1/2"
+   ],
+   "o": {
+    "index": 1
+   },
+   "h": "Durch eine Zahl kleiner als 1 teilen macht größer, mal eine Zahl kleiner als 1 macht kleiner.",
+   "w": "7 : 1/2 = 14. 7 · 1/2 = 3,5; 7 : 2 = 3,5; 7 − 1/2 = 6,5."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 0,25 · 0,36."
+   },
+   "o": {
+    "wert": 0.09
+   },
+   "c": "0.25 * 0.36",
+   "h": "Rechne 25 · 36 und zähle die Nachkommastellen.",
+   "w": "25 · 36 = 900. Vier Nachkommastellen: 0,0900 = 0,09."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 12,5 · 0,08."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "12.5 * 0.08",
+   "h": "Rechne 125 · 8 und zähle die Nachkommastellen.",
+   "w": "125 · 8 = 1 000. Drei Nachkommastellen: 1,000 = 1."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt 37 · 23 = 851. Berechne damit 3,7 · 0,23."
+   },
+   "o": {
+    "wert": 0.851
+   },
+   "c": "3.7 * 0.23",
+   "h": "Zähle die Nachkommastellen beider Faktoren.",
+   "w": "3,7 hat eine, 0,23 hat zwei Nachkommastellen, zusammen drei. Also 0,851."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Strom kostet 0,32 € je kWh. Ein Gerät braucht 0,15 kWh pro Stunde und läuft 40 Stunden. Was kostet der Strom?"
+   },
+   "o": {
+    "wert": 1.92,
+    "einheit": "€"
+   },
+   "c": "0.15 * 40 * 0.32",
+   "h": "Rechne zuerst den ganzen Verbrauch in kWh aus.",
+   "w": "0,15 kWh · 40 = 6 kWh. 6 · 0,32 € = 1,92 €."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl musst du mit 0,4 malnehmen, um 1 zu erhalten?"
+   },
+   "o": {
+    "wert": 2.5
+   },
+   "c": "1 / 0.4",
+   "h": "Rückwärts: 1 : 0,4.",
+   "w": "1 : 0,4 = 10 : 4 = 2,5. Probe: 2,5 · 0,4 = 1."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet 0,6 · 0,6 = 3,6. Wie heißt das richtige Ergebnis?"
+   },
+   "o": {
+    "wert": 0.36
+   },
+   "c": "0.6 * 0.6",
+   "h": "Mal eine Zahl kleiner als 1 macht kleiner. Zähle die Nachkommastellen.",
+   "w": "6 · 6 = 36, zwei Nachkommastellen: 0,36. 3,6 ist größer als 0,6 – das kann nicht stimmen."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 1,8 : 0,06."
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "1.8 / 0.06",
+   "h": "Verschiebe das Komma bei beiden Zahlen um 2 Stellen.",
+   "w": "1,8 : 0,06 = 180 : 6 = 30."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 0,09 : 0,3."
+   },
+   "o": {
+    "wert": 0.3
+   },
+   "c": "0.09 / 0.3",
+   "h": "Verschiebe das Komma bei beiden Zahlen um 1 Stelle.",
+   "w": "0,09 : 0,3 = 0,9 : 3 = 0,3."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "1 Zoll sind 2,54 cm. Ein Bildschirm ist 63,5 cm breit. Wie viele Zoll sind das?"
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "63.5 / 2.54",
+   "h": "Wie oft passt 2,54 cm in 63,5 cm?",
+   "w": "63,5 : 2,54 = 6 350 : 254 = 25 Zoll."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Packung A: 0,75 kg für 2,40 €. Packung B: 1,2 kg für 3,60 €. Wie viel kostet 1 kg bei der günstigeren Packung?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "€"
+   },
+   "c": "min(2.40 / 0.75, 3.60 / 1.2)",
+   "h": "Rechne für beide Packungen den Preis für 1 kg aus.",
+   "w": "A: 2,40 € : 0,75 = 3,20 € je kg. B: 3,60 € : 1,2 = 3,00 € je kg. B ist günstiger: 3 €."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl wird durch 0,5 geteilt und das Ergebnis durch 0,2. Es kommt 30 heraus. Wie hieß die Zahl?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "30 * 0.2 * 0.5",
+   "h": "Rechne rückwärts: Mach das Teilen durch Malnehmen rückgängig.",
+   "w": "30 · 0,2 = 6. 6 · 0,5 = 3. Probe: 3 : 0,5 = 6, 6 : 0,2 = 30."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ohne zu rechnen: Welches Ergebnis ist größer als 8?"
+   },
+   "a": [
+    "8 : 8,5",
+    "8 · 0,9",
+    "8 : 0,9",
+    "8 : 1,1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "h": "Teilen durch eine Zahl kleiner als 1 macht größer.",
+   "w": "0,9 ist kleiner als 1, also ist 8 : 0,9 größer als 8 (etwa 8,9). Die anderen sind kleiner als 8."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne geschickt: 0,125 · 7,3 · 8"
+   },
+   "o": {
+    "wert": 7.3
+   },
+   "c": "0.125 * 7.3 * 8",
+   "h": "Fasse 0,125 · 8 zusammen.",
+   "w": "0,125 · 8 = 1. 1 · 7,3 = 7,3."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne geschickt: 2/5 · 17 · 5/2"
+   },
+   "o": {
+    "wert": 17
+   },
+   "c": "(2/5) * 17 * (5/2)",
+   "h": "Vertausche so, dass 2/5 und 5/2 nebeneinander stehen.",
+   "w": "2/5 · 5/2 = 1. 1 · 17 = 17."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wo müssen Klammern stehen, damit 36 : 4 · 3 das Ergebnis 3 hat?"
+   },
+   "a": [
+    "Man braucht keine Klammern.",
+    "36 : (4 · 3)",
+    "(36 : 4) · 3",
+    "36 : 4 · (3)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "h": "Rechne beide Möglichkeiten aus.",
+   "w": "36 : (4 · 3) = 36 : 12 = 3. Ohne Klammern rechnet man von links: 36 : 4 · 3 = 9 · 3 = 27."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne geschickt: 1,25 · 0,8 · 2,5 · 0,4 · 3,7"
+   },
+   "o": {
+    "wert": 3.7
+   },
+   "c": "1.25 * 0.8 * 2.5 * 0.4 * 3.7",
+   "h": "Suche Paare, die 1 ergeben.",
+   "w": "1,25 · 0,8 = 1 und 2,5 · 0,4 = 1. 1 · 1 · 3,7 = 3,7."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kind rechnet 60 : 6 : 2 = 60 : 3 = 20. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: Das Ergebnis ist 180.",
+    "Falsch: Beim Teilen darf man nicht umklammern. 60 : 6 : 2 = 10 : 2 = 5.",
+    "Falsch: Das Ergebnis ist 10."
+   ],
+   "o": {
+    "index": 2
+   },
+   "h": "Rechne von links nach rechts.",
+   "w": "60 : 6 = 10, 10 : 2 = 5. Das Kind hat 6 : 2 zuerst gerechnet – beim Teilen ist das nicht erlaubt."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl gehört in das Kästchen? 3/4 · □ · 4/3 · 0,5 = 6"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "6 / ((3/4) * (4/3) * 0.5)",
+   "h": "Fasse zuerst die bekannten Faktoren geschickt zusammen.",
+   "w": "3/4 · 4/3 = 1, also bleibt □ · 0,5 = 6. □ = 6 : 0,5 = 12."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 2,5 − 0,5 · 1,4."
+   },
+   "o": {
+    "wert": 1.8
+   },
+   "c": "2.5 - 0.5 * 1.4",
+   "h": "Punkt vor Strich.",
+   "w": "0,5 · 1,4 = 0,7. 2,5 − 0,7 = 1,8."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (3/4 − 1/2) : 1/8."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(3/4 - 1/2) / (1/8)",
+   "h": "Zuerst die Klammer.",
+   "w": "3/4 − 1/2 = 1/4. 1/4 : 1/8 = 1/4 · 8 = 2."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für den Mittelwert von 52 und 60 tippt ein Kind in den Rechner: 52 + 60 : 2. Welche Zahl zeigt der Rechner an?"
+   },
+   "o": {
+    "wert": 82
+   },
+   "c": "52 + 60 / 2",
+   "h": "Der Rechner beachtet Punkt vor Strich.",
+   "w": "Der Rechner teilt zuerst: 60 : 2 = 30, dann 52 + 30 = 82. Für den Mittelwert braucht man (52 + 60) : 2 = 56."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Multipliziere die Differenz von 4,5 und 1,5 mit der Summe aus 0,2 und 0,3."
+   },
+   "o": {
+    "wert": 1.5
+   },
+   "c": "(4.5 - 1.5) * (0.2 + 0.3)",
+   "h": "Differenz und Summe kommen in Klammern.",
+   "w": "(4,5 − 1,5) · (0,2 + 0,3) = 3 · 0,5 = 1,5."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Rechenzeichen gehört in das Kästchen? 1/2 □ 1/4 = 2"
+   },
+   "a": [
+    ":",
+    "·",
+    "−",
+    "+"
+   ],
+   "o": {
+    "index": 0
+   },
+   "h": "Probiere alle vier Rechenarten aus.",
+   "w": "1/2 : 1/4 = 1/2 · 4 = 2. (1/2 · 1/4 = 1/8, 1/2 + 1/4 = 3/4, 1/2 − 1/4 = 1/4.)"
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Familie kauft 3 Kinokarten zu je 8 € und 2 Getränke zu je 2,80 €. Auf die Karten gibt es 1/4 Nachlass. Wie viel Euro zahlt sie?"
+   },
+   "o": {
+    "wert": 23.6,
+    "einheit": "€"
+   },
+   "c": "3 * 8 * 3/4 + 2 * 2.8",
+   "h": "Der Nachlass gilt nur für die Karten. Nach dem Nachlass bleiben 3/4 des Kartenpreises.",
+   "w": "Karten: 3 · 8 € = 24 €, davon 3/4 = 18 €. Getränke: 2 · 2,80 € = 5,60 €. Zusammen 23,60 €."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet 0,3 · 0,2 = 0,6. Wie heißt das richtige Ergebnis?"
+   },
+   "o": {
+    "wert": 0.06
+   },
+   "c": "0.3 * 0.2",
+   "h": "Zähle die Nachkommastellen beider Faktoren.",
+   "w": "3 · 2 = 6, zwei Nachkommastellen: 0,06."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kind rechnet 3/5 − 1/3 = 2/2 = 1. Was ist der Fehler?"
+   },
+   "a": [
+    "Man hätte den Kehrbruch nehmen müssen.",
+    "Man hätte die Nenner addieren müssen: 2/8.",
+    "Zähler und Nenner wurden einzeln abgezogen. Richtig ist 4/15.",
+    "Es gibt keinen Fehler."
+   ],
+   "o": {
+    "index": 2
+   },
+   "h": "Kann das Ergebnis größer sein als 3/5?",
+   "w": "3/5 − 1/3 = 9/15 − 5/15 = 4/15. Das Ergebnis 1 ist sogar größer als 3/5."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kind gibt für 4,2 · 0,35 das Ergebnis 14,7 an. Mache einen Überschlag. Welches Ergebnis stimmt?"
+   },
+   "a": [
+    "1,47",
+    "0,147",
+    "14,7",
+    "147"
+   ],
+   "o": {
+    "index": 0
+   },
+   "h": "Überschlag: 4 · 0,35 ist etwa 4 · 1/3.",
+   "w": "4 · 0,35 = 1,4, also etwa 1,4. 42 · 35 = 1 470, drei Nachkommastellen: 1,470 = 1,47."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet 7,2 : 0,9 = 0,8. Wie heißt das richtige Ergebnis?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "7.2 / 0.9",
+   "h": "Durch eine Zahl kleiner als 1 teilen macht größer. Verschiebe bei beiden Zahlen das Komma.",
+   "w": "7,2 : 0,9 = 72 : 9 = 8. Das Ergebnis muss größer als 7,2 sein."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind sollte eine Zahl mit 0,5 malnehmen. Aus Versehen hat es durch 0,5 geteilt und 18 erhalten. Welches Ergebnis wäre richtig gewesen?"
+   },
+   "o": {
+    "wert": 4.5
+   },
+   "c": "18 * 0.5 * 0.5",
+   "h": "Finde zuerst die Zahl: Rechne das Teilen durch 0,5 rückwärts.",
+   "w": "Die Zahl ist 18 · 0,5 = 9 (denn 9 : 0,5 = 18). Richtig wäre 9 · 0,5 = 4,5."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet 2 − 1/3 · 3 = 5/3 · 3 = 5. Wie heißt das richtige Ergebnis?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "2 - (1/3) * 3",
+   "h": "Punkt vor Strich.",
+   "w": "Zuerst 1/3 · 3 = 1. Dann 2 − 1 = 1. Das Kind hat zuerst subtrahiert."
   }
  ],
  "offen": [

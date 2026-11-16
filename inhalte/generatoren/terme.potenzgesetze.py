@@ -540,5 +540,116 @@ KARTEN = {
 umbau(DATEI, KARTEN)
 
 
+
+# ---------- SCHWER (Zehnte Runde, Zweig schwer-kl6): je Lernkarte 2 Übungen Stufe 2 + 4 Übungen Stufe 3 ----------
+# Läuft nach allen bisherigen Aufgaben mit eigenem Zufallsstart; die bisherigen Aufgaben bleiben unverändert.
+# Prüfungsvorbilder: Bayerischer Mathematik-Test Jgst. 8 (ISB) 2021 Aufg. 1 (gehört das Minus zur Basis?), 2023 Aufg. 1c (Potenz eines Bruchs),
+# 2025 Aufg. 2b (Maßstab 1 : 10 – Volumen ändert sich mit 10³), 2021 Aufg. 6b und 2023 Aufg. 6 (Größen mit Zehnerpotenzen);
+# Känguru 5/6 / Mathematik-Olympiade Kl. 6: Endziffern von Potenzen, Potenzen ohne Ausrechnen vergleichen (eigene Aufgaben).
+from _schwer_kl6 import ergaenzen, zahl, wahl, luecken, anteil  # noqa: E402
+
+_HB = 'Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt.'
+
+
+def _pg():
+    return {
+        'potenz_begriff': [
+            (2, lambda R: zahl('Berechne (−2)³.', -8, '(-2) ** 3', 'Die Klammer gehört zur Basis: dreimal (−2) als Faktor.', '(−2) · (−2) · (−2) = 4 · (−2) = −8.')),
+            (2, lambda R: zahl('Berechne (1/10)⁴. Gib das Ergebnis als Dezimalzahl an.', Fr('0.0001'), '(1/10) ** 4', '1/10 = 0,1. Wie oft wird 0,1 malgenommen?',
+                               '0,1 · 0,1 · 0,1 · 0,1 = 0,0001.')),
+            (3, lambda R: zahl('Berechne −3² + (−3)².', 0, '-(3 ** 2) + (-3) ** 2', 'Achtung: Bei −3² gehört das Minus nicht zur Basis.',
+                               '−3² = −(3 · 3) = −9. (−3)² = (−3) · (−3) = 9. Zusammen −9 + 9 = 0.')),
+            (3, lambda R: zahl('Ein Modellwürfel ist in jeder Kante 10-mal kürzer als ein großer Würfel. Wie viele Modellwürfel passen in den großen Würfel?', 1000,
+                               '10 ** 3', 'Denke an Länge, Breite und Höhe: In jeder Richtung passen 10 kleine Würfel.',
+                               '10 · 10 · 10 = 10³ = 1 000. Das Volumen ändert sich nicht mit 10, sondern mit 10³.')),
+            (3, lambda R: zahl('Auf welche Ziffer endet 3²⁰?', 1, '3 ** 20 % 10', 'Schreibe die Endziffern von 3¹, 3², 3³, 3⁴, 3⁵ auf. Was fällt dir auf?',
+                               'Die Endziffern wiederholen sich: 3, 9, 7, 1, 3, 9, 7, 1 … 20 ist durch 4 teilbar, also endet 3²⁰ wie 3⁴ auf 1.')),
+            (3, lambda R: wahl(R, 'Welche Zahl ist größer: 2¹⁰ oder 10³?', '2¹⁰', ['10³', 'Beide sind gleich groß'],
+                               'Rechne beide aus: 2¹⁰ durch Verdoppeln.', '2¹⁰ = 1 024 und 10³ = 1 000. 2¹⁰ ist etwas größer.', n=3)),
+        ],
+        'negativer_exponent': [
+            (2, lambda R: luecken('Berechne (2/3)⁻².', '□/□', _HB, [9, 4], ['3 ** 2', '2 ** 2'], 'Negativer Exponent: Kehrbruch, dann quadrieren.',
+                                  '(2/3)⁻² = (3/2)² = 9/4.')),
+            (2, lambda R: zahl('Berechne 5⁰ + 5⁻¹. Gib das Ergebnis als Dezimalzahl an.', Fr('1.2'), '5 ** 0 + 5 ** -1', 'a⁰ = 1 und a⁻¹ = 1/a.', '5⁰ = 1, 5⁻¹ = 1/5 = 0,2. Zusammen 1,2.')),
+            (3, lambda R: wahl(R, 'Welche dieser Zahlen ist negativ?', '(−2)⁻³', ['2⁻³', '(−2)⁻²', '(−2)⁰'],
+                               'Ein negativer Exponent macht keine negative Zahl. Entscheidend ist die Basis und ob der Exponent gerade ist.',
+                               '(−2)⁻³ = 1/(−2)³ = −1/8 ist negativ. 2⁻³ = 1/8, (−2)⁻² = 1/4, (−2)⁰ = 1 sind positiv.')),
+            (3, lambda R: wahl(R, 'Welche Zahl ist am kleinsten: 2⁻³, 3⁻², 4⁻¹ oder 0,1?', '0,1', ['2⁻³', '3⁻²', '4⁻¹'],
+                               'Schreibe alle als Bruch oder Dezimalzahl.', '2⁻³ = 1/8 = 0,125; 3⁻² = 1/9 ≈ 0,111; 4⁻¹ = 0,25; 0,1 = 1/10. Am kleinsten: 0,1.')),
+            (3, lambda R: zahl('Für welchen Exponenten n gilt 4ⁿ = 1/64?', -3, '-3', 'Welche Potenz von 4 ergibt 64? Ein Kehrbruch heißt negativer Exponent.',
+                               '4³ = 64, also 1/64 = 4⁻³ und n = −3.')),
+            (3, lambda R: luecken('Ein Kind rechnet 5⁻² = 1/10. Wie heißt der Bruch richtig?', '□/□', _HB, [1, 25], ['1', '5 ** 2'],
+                                  'Kehrbruch von 5², nicht von 5 · 2.', '5⁻² = 1/5² = 1/25. Das Kind hat 5 · 2 statt 5 · 5 gerechnet.')),
+        ],
+        'mal_gleiche_basis': [
+            (2, lambda R: zahl('x² · x · x⁴ = xᵏ. Wie groß ist k?', 7, '2 + 1 + 4', 'Das x in der Mitte hat den Exponenten 1.', 'x² · x¹ · x⁴ = x²⁺¹⁺⁴ = x⁷.')),
+            (2, lambda R: zahl('3⁴ · 3⁻⁶ = 3ᵏ. Wie groß ist k?', -2, '4 + (-6)', 'Exponenten addieren, auch wenn einer negativ ist.', '4 + (−6) = −2, also 3⁻².')),
+            (3, lambda R: zahl('Ein Lichtjahr sind etwa 9,5 · 10¹² km. Wie viele km sind 10⁴ Lichtjahre? Schreibe das Ergebnis als 9,5 · 10ᵏ km. Wie groß ist k?', 16, '12 + 4',
+                               'Gleiche Basis 10: Exponenten addieren.', '9,5 · 10¹² · 10⁴ = 9,5 · 10¹⁶ km, also k = 16.')),
+            (3, lambda R: zahl('2ᵃ · 2ᵇ = 2¹⁰. a und b sind natürliche Zahlen ab 1. Wie viele Paare (a | b) gibt es?', 9, '10 - 1',
+                               'a + b muss 10 ergeben. Schreibe die Paare auf: (1 | 9), (2 | 8), …', 'a + b = 10 mit a, b ≥ 1: a = 1 bis 9. Das sind 9 Paare.')),
+            (3, lambda R: zahl('27 · 3⁵ = 3ᵏ. Wie groß ist k?', 8, '3 + 5', 'Schreibe 27 als Potenz von 3.', '27 = 3³. 3³ · 3⁵ = 3⁸, also k = 8.')),
+            (3, lambda R: zahl('Ein Kind rechnet a³ · a⁴ = a¹². Wie heißt der richtige Exponent?', 7, '3 + 4', 'Schreibe die Faktoren aus: a · a · a mal a · a · a · a.',
+                               'Es sind 3 + 4 = 7 Faktoren a, also a⁷. Das Kind hat die Exponenten malgenommen.')),
+        ],
+        'geteilt_gleiche_basis': [
+            (2, lambda R: zahl('x⁸ : x = xᵏ. Wie groß ist k?', 7, '8 - 1', 'x hat den Exponenten 1.', 'x⁸ : x¹ = x⁸⁻¹ = x⁷.')),
+            (2, lambda R: zahl('5³ : 5³ = 5ᵏ. Wie groß ist k?', 0, '3 - 3', 'Exponenten subtrahieren. Was ist 5³ : 5³ als Zahl?', '3 − 3 = 0, also 5⁰. Und tatsächlich: 125 : 125 = 1 = 5⁰.')),
+            (3, lambda R: zahl('Eine Festplatte fasst 8 · 10¹² Byte, ein Film braucht 4 · 10⁹ Byte. Wie viele Filme passen auf die Festplatte?', 2000,
+                               '(8 * 10 ** 12) / (4 * 10 ** 9)', 'Teile die Zahlen vorne und die Zehnerpotenzen getrennt.',
+                               '8 : 4 = 2 und 10¹² : 10⁹ = 10³. Also 2 · 10³ = 2 000 Filme.')),
+            (3, lambda R: zahl('2¹⁰ : 2ⁿ = 1/4. Wie groß ist n?', 12, '10 + 2', 'Schreibe 1/4 als Potenz von 2.',
+                               '1/4 = 2⁻². Also 10 − n = −2 und n = 12.')),
+            (3, lambda R: zahl('Berechne 6⁵ : (2⁵ · 3⁴).', 3, '6 ** 5 / (2 ** 5 * 3 ** 4)', 'Schreibe 6⁵ als 2⁵ · 3⁵.',
+                               '6⁵ = 2⁵ · 3⁵. Geteilt durch 2⁵ · 3⁴ bleibt 3⁵ : 3⁴ = 3.')),
+            (3, lambda R: zahl('Ein Kind rechnet 10⁶ : 10² = 10³. Wie heißt der richtige Exponent?', 4, '6 - 2',
+                               'Beim Teilen werden die Exponenten subtrahiert, nicht geteilt.', '10⁶ : 10² = 10⁶⁻² = 10⁴ (1 000 000 : 100 = 10 000).')),
+        ],
+        'gleicher_exponent': [
+            (2, lambda R: zahl('Berechne geschickt: 0,25³ · 8³', 8, '0.25 ** 3 * 8 ** 3', 'Gleicher Exponent: Basen zuerst malnehmen.', '0,25³ · 8³ = (0,25 · 8)³ = 2³ = 8.')),
+            (2, lambda R: zahl('Berechne geschickt: 12³ : 4³', 27, '12 ** 3 / 4 ** 3', 'Gleicher Exponent: Basen zuerst teilen.', '12³ : 4³ = (12 : 4)³ = 3³ = 27.')),
+            (3, lambda R: luecken('Berechne geschickt: (3/4)² · (4/9)²', '□/□', _HB, [1, 9], ['1', '3 ** 2'], 'Nimm zuerst die Brüche in der Klammer mal.',
+                                  '(3/4 · 4/9)² = (12/36)² = (1/3)² = 1/9.')),
+            (3, lambda R: zahl('Welche Zahl gehört ins Kästchen? □³ · 4³ = 1 000', Fr('2.5'), '10 / 4', 'Schreibe 1 000 als Potenz mit dem Exponenten 3.',
+                               '1 000 = 10³. Also (□ · 4)³ = 10³ und □ · 4 = 10, □ = 2,5.')),
+            (3, lambda R: zahl('Berechne geschickt: 25⁴ · 0,04⁴', 1, '(25 * 0.04) ** 4', 'Was ergibt 25 · 0,04?', '25 · 0,04 = 1. Also (25 · 0,04)⁴ = 1⁴ = 1.')),
+            (3, lambda R: zahl('Ein Kind rechnet 2³ · 3³ = 6⁹. Richtig ist 6ᵏ. Wie groß ist k?', 3, '3', 'Gleicher Exponent: Die Basen werden malgenommen, der Exponent bleibt.',
+                               '2³ · 3³ = (2 · 3)³ = 6³. Probe: 8 · 27 = 216 = 6³.')),
+        ],
+        'anwenden': [
+            (2, lambda R: zahl('Berechne geschickt: 5³ · 2⁵', 4000, '5 ** 3 * 2 ** 5', 'Zerlege 2⁵ in 2³ · 2².', '5³ · 2⁵ = (5 · 2)³ · 2² = 1 000 · 4 = 4 000.')),
+            (2, lambda R: zahl('100² · 10³ = 10ᵉ. Wie groß ist e?', 7, '2 * 2 + 3', 'Schreibe 100 als Potenz von 10.', '100² = 100 · 100 = 10² · 10² = 10⁴. 10⁴ · 10³ = 10⁷.')),
+            (3, lambda R: zahl('Ein Blatt Papier ist 0,1 mm dick. Nach 10-mal Falten liegen 2¹⁰ Lagen übereinander. Wie hoch ist der Stapel in cm? Runde auf eine Nachkommastelle.',
+                               Fr('10.2'), 'round(2 ** 10 * 0.1 / 10, 1)', 'Berechne 2¹⁰, dann die Höhe in mm, dann in cm.',
+                               '2¹⁰ = 1 024 Lagen. 1 024 · 0,1 mm = 102,4 mm = 10,24 cm ≈ 10,2 cm.', einheit='cm', toleranz=0.1)),
+            (3, lambda R: wahl(R, 'Welche Zahl ist größer: 2³⁰ oder 3²⁰?', '3²⁰', ['2³⁰', 'Beide sind gleich groß'],
+                               'Fasse je 3 Faktoren 2 zu einer 8 und je 2 Faktoren 3 zu einer 9 zusammen.', '30 Faktoren 2 sind 10 Gruppen 2 · 2 · 2 = 8, also 2³⁰ = 8¹⁰. Ebenso 3²⁰ = 9¹⁰. Gleicher Exponent, größere Basis: 3²⁰ ist größer.', n=3)),
+            (3, lambda R: zahl('4³ · 8² = 2ᵉ. Wie groß ist e?', 12, '2 * 3 + 3 * 2', 'Schreibe 4 und 8 als Potenz von 2.', '4³ = 2² · 2² · 2² = 2⁶ und 8² = 2³ · 2³ = 2⁶. 2⁶ · 2⁶ = 2¹².')),
+            (3, lambda R: zahl('Wie viele Nullen stehen am Ende von 2⁶ · 5⁸, wenn du die Zahl ausschreibst?', 6, '6',
+                               'Je ein Paar 2 · 5 gibt eine 10.', '2⁶ · 5⁸ = (2 · 5)⁶ · 5² = 10⁶ · 25 = 25 000 000. Am Ende stehen 6 Nullen.')),
+        ],
+        'fehler_finden': [
+            (2, lambda R: zahl('Ein Kind rechnet (−1)⁴ = −1. Wie heißt das richtige Ergebnis?', 1, '(-1) ** 4', 'Vier Minuszeichen als Faktoren: gerade Anzahl.',
+                               '(−1) · (−1) · (−1) · (−1) = 1. Bei geradem Exponenten wird es positiv.')),
+            (2, lambda R: wahl(R, 'Ein Kind rechnet 0,2² = 0,4. Was ist der Fehler?', 'Es hat 0,2 · 2 gerechnet. Richtig: 0,2 · 0,2 = 0,04.',
+                               ['Es gibt keinen Fehler.', 'Richtig wäre 0,02.', 'Richtig wäre 4.'],
+                               'Der Exponent sagt, wie oft die Basis als Faktor vorkommt.', '0,2² = 0,2 · 0,2 = 0,04 (zwei Nachkommastellen).')),
+            (3, lambda R: zahl('Ein Kind rechnet −4² = 16. Wie heißt das richtige Ergebnis?', -16, '-(4 ** 2)', 'Ohne Klammer gehört das Minus nicht zur Basis.',
+                               '−4² = −(4 · 4) = −16. Nur (−4)² wäre 16.')),
+            (3, lambda R: zahl('Ein Kind rechnet 2³ + 2³ = 2⁶. Welche Zahl ist richtig?', 16, '2 ** 3 + 2 ** 3', 'Für Plus gibt es kein Potenzgesetz. Rechne aus.',
+                               '2³ + 2³ = 8 + 8 = 16 = 2⁴. 2⁶ wäre 64.')),
+            (3, lambda R: wahl(R, 'Welche Rechnung ist richtig?', '3² · 3⁴ = 3⁶', ['3² + 3⁴ = 3⁶', '3⁴ : 3² = 1²', '2³ · 5³ = 10⁶'],
+                               'Prüfe jede Rechnung mit dem passenden Potenzgesetz oder durch Ausrechnen.',
+                               '3² · 3⁴ = 3⁶ stimmt (Exponenten addieren). 3² + 3⁴ = 90, 3⁶ = 729. 3⁴ : 3² = 3². 2³ · 5³ = 10³.')),
+            (3, lambda R: wahl(R, 'Ein Kind behauptet: „aⁿ ist immer größer als a, wenn n größer als 1 ist.“ Welches Beispiel widerlegt das?',
+                               'a = 1/2, n = 2', ['a = 3, n = 2', 'a = 2, n = 3', 'a = 10, n = 2'],
+                               'Probiere eine Zahl kleiner als 1.', '(1/2)² = 1/4 ist kleiner als 1/2. Die anderen Beispiele bestätigen die Behauptung nur.')),
+        ],
+    }
+
+
+ergaenzen(DATEI, _pg(), seed=6030)
+
+
 if __name__ == '__main__':
     schreibe(DATEI)

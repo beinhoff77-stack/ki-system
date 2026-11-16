@@ -2,6 +2,13 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 05:43 – STATUS
+geometrie.konstruktion fertig: umgestuft 6 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
+- nicht umgesetzt:
+  - kongruenzsatz S3 SsW-Fälle „Wie viele Dreiecke gibt es?“: Hinweis „Zeichne es auf Papier“ ergänzen – Der Tipp sagt schon „Zeichne c und α. Schlage um B einen Kreis mit Radius a …“; Lösungen richtig. Ein Hinweis im Fragetext wäre eine Änderung der Frage.
+- für Sebastian:
+  - geometrie.konstruktion/kongruenzsatz: SsW-Fälle (Stufe 3) sind ohne Zeichnung kaum zu entscheiden (Rechnung bräuchte den Sinus) – als Vertiefung kennzeichnen? Karten-Text nicht geändert.
+
 ## 2026-11-16 05:42 – STATUS
 abbildungen.kongruenz fertig: umgestuft 1 / berichtigt 0 / ersetzt 3 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):

@@ -544,6 +544,129 @@ for _e in ETAPPEN:
     _e.update(KLAR.get(_e['lernziel'], {}))
 
 
+# ---------- UMBAU: neues Muster (Achte Runde, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl7.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl7 import mit_umbau  # noqa: E402
+
+
+def _summe_bild():
+    """Giebel 50°/75° mit Parallele durch C: α und β tauchen oben wieder auf (Wechselwinkel)."""
+    p = dreieck(50, 75)
+    C = p['C']
+    p['_l'] = [round(C[0] - 3, 2), C[1]]; p['_r'] = [round(C[0] + 3, 2), C[1]]
+    return figur(p, linien=[['A', 'B'], ['B', 'C'], ['C', 'A'], ['_l', '_r', 'Parallele', 'gestrichelt']], flaeche=['A', 'B', 'C'],
+                 winkel=[['A', 'B', 'C', '50°'], ['B', 'C', 'A', '75°'], ['C', '_l', 'A', '50°'], ['C', 'B', '_r', '75°'], ['C', 'A', 'B', '55°']])
+
+
+def _giebel(a, b, c):
+    return figur({'A': [0, 0], 'B': [4, 0], 'C': [2, 5.49]}, linien=[['A', 'B', 'Basis'], ['B', 'C', 'Schenkel'], ['C', 'A', 'Schenkel']], flaeche=['A', 'B', 'C'],
+                 winkel=[w for w in [['A', 'B', 'C', a], ['B', 'C', 'A', b], ['C', 'A', 'B', c]] if w[3]])
+
+
+_C40 = [round(5 * math.cos(math.radians(40)), 2), round(5 * math.sin(math.radians(40)), 2)]
+
+
+def _leisten(winkel=False, dritte=False):
+    li = [['A', 'B', 'c = 7 cm'], ['A', 'C', 'b = 5 cm']]
+    if dritte: li.append(['B', 'C', 'a', 'gestrichelt'])
+    return figur({'A': [0, 0], 'B': [7, 0], 'C': _C40}, linien=li, winkel=[['A', 'B', 'C', '40°']] if winkel else None)
+
+
+def _boegen(r1=None, r2=None, c=8):
+    kr = [k for k in ({'m': 'A', 'r': r1} if r1 else None, {'m': 'B', 'r': r2} if r2 else None) if k]
+    return figur({'A': [0, 0], 'B': [c, 0]}, linien=[['A', 'B', f'c = {c} cm']], kreise=kr or None)
+
+
+_PG = {'A': [0, 0], 'B': [5, 0], 'C': [6.27, 2.72], 'D': [1.27, 2.72]}
+
+
+def _pg(*w):
+    alle = {'a': ['A', 'B', 'D', '65°'], 'g': ['C', 'D', 'B', '65°'], 'b': ['B', 'C', 'A', '115°'], 'd': ['D', 'A', 'C', '115°']}
+    return figur(_PG, linien=[['A', 'B'], ['B', 'C'], ['C', 'D'], ['D', 'A']], flaeche=['A', 'B', 'C', 'D'], winkel=[alle[k] for k in w])
+
+
+_KT = {'typ': 'tabelle', 'kopf': ['', 'Wenn …', 'dann …'], 'zeilen': [['Satz', 'Quadrat', '4 rechte Winkel'], ['Kehrsatz', '?', '?']]}
+
+UMBAU = {
+ 'parallelen': {
+  'einstieg': 'Auf dem Stadtplan laufen zwei Straßen nebeneinander, ohne sich zu treffen. Eine dritte kreuzt beide schräg. An beiden Kreuzungen sind die Winkel gleich: ⟦Stufenwinkel⟧ und Wechselwinkel.',
+  'woerter': [['parallel', 'überall gleich weit auseinander; die Geraden treffen sich nie'], ['Stufenwinkel', 'Winkel in gleicher Lage an beiden Kreuzungen'],
+              ['Wechselwinkel', 'Winkel auf verschiedenen Seiten; zusammen bilden sie ein Z']],
+  'bild': par_bild(55, [('S', 'ro', '55°')]),
+  'schritte': [{'text': 'g und h sind parallel. Bei S ist der Winkel 55°.'},
+               {'text': 'β liegt bei T an derselben Stelle: Stufenwinkel, also ⟦β = 55°⟧.', 'bild': par_bild(55, [('S', 'ro', '55°'), ('T', 'ro', 'β')])},
+               {'text': 'γ liegt gegenüber, in Z-Form: Wechselwinkel, also ⟦γ = 55°⟧.', 'bild': par_bild(55, [('S', 'ro', '55°'), ('T', 'ro', 'β'), ('T', 'lu', 'γ')])}],
+  'fehler': 'Laufen die Straßen aufeinander zu, sind die Stufenwinkel ⟦verschieden⟧. Die Regel gilt nur für parallele Geraden.',
+  'fehler_bild': par_bild(55, [('S', 'ro', '55°'), ('T', 'ro', '65°')], parallel=False, be=65),
+  'regel': 'An Parallelen sind ⟦Stufenwinkel und Wechselwinkel⟧ gleich groß. Ohne Parallelen gilt das nicht.'},
+ 'winkelsumme': {
+  'einstieg': 'Ein Gartenhaus bekommt einen dreieckigen Giebel. Der Zimmermann misst unten links 50° und unten rechts 75°. Den Winkel oben rechnet er aus – mit der ⟦Winkelsumme⟧.',
+  'woerter': [['Winkelsumme', 'alle drei Winkel im Dreieck zusammen: 180°'], ['γ', 'Gamma, der Name des Winkels oben (unten heißen sie α und β)']],
+  'bild': dreieck_bild(50, 75, ('50°', '75°', 'γ')),
+  'schritte': [{'text': 'Unten sind 50° und 75° gemessen. Gesucht ist γ oben.'},
+               {'text': 'Alle drei Winkel ergeben zusammen 180°.'},
+               {'text': 'γ = 180° − 50° − 75° = ⟦55°⟧.', 'bild': dreieck_bild(50, 75, ('50°', '75°', '55°'))},
+               {'text': 'Warum 180°? Mit einer Parallele oben liegen alle drei auf einer Geraden.', 'bild': _summe_bild()}],
+  'fehler': '360° gilt für Vierecke, nicht für Dreiecke. 360° − 50° − 75° ergäbe 235° – so einen Giebel ⟦gibt es nicht⟧.',
+  'regel': 'Im Dreieck ergeben die Winkel zusammen ⟦180°⟧. Den fehlenden Winkel bekommst du durch Abziehen.'},
+ 'gleichschenklig': {
+  'einstieg': 'Der Giebel ist gleichmäßig gebaut: Beide Dachseiten sind gleich lang. Darum sind auch die beiden Winkel unten gleich groß. So ein Dreieck heißt ⟦gleichschenklig⟧.',
+  'woerter': [['Schenkel', 'die beiden gleich langen Seiten'], ['Basiswinkel', 'die beiden gleichen Winkel unten'], ['Spitzenwinkel', 'der Winkel oben zwischen den Schenkeln']],
+  'bild': _giebel('?', '?', '40°'),
+  'schritte': [{'text': 'Zwischen den Schenkeln liegt oben der Spitzenwinkel: 40°.'},
+               {'text': 'Für beide Basiswinkel bleiben 180° − 40° = 140°.'},
+               {'text': 'Sie sind gleich groß: 140° : 2 = ⟦70°⟧.', 'bild': _giebel('70°', '70°', '40°')}],
+  'fehler': 'Die Basiswinkel sind nicht auch 40°. Nur die ⟦beiden unteren⟧ Winkel sind gleich, die Spitze ist anders.',
+  'regel': 'Im gleichschenkligen Dreieck sind die ⟦Basiswinkel gleich⟧. Rechne: (180° − Spitzenwinkel) : 2.'},
+ 'kongruenzsatz': {
+  'einstieg': 'Zwei Freunde wollen am Telefon dasselbe Dreieck aus Holzleisten bauen. Welche Angaben reichen, damit beide Dreiecke gleich werden? Das sagen die ⟦Kongruenzsätze⟧.',
+  'woerter': [['kongruent', 'deckungsgleich: passt genau aufeinander'], ['SWS', 'Seite, Winkel dazwischen, Seite'], ['eindeutig', 'es gibt nur ein einziges solches Dreieck']],
+  'bild': _leisten(),
+  'schritte': [{'text': 'Gegeben sind die Leisten b = 5 cm und c = 7 cm.'},
+               {'text': 'Der Winkel α = 40° liegt zwischen ihnen, bei A.', 'bild': _leisten(winkel=True)},
+               {'text': 'Damit liegt die dritte Seite fest. Das ist ⟦SWS⟧, das Dreieck ist eindeutig.', 'bild': _leisten(winkel=True, dritte=True)},
+               {'text': 'Alle so gebauten Dreiecke sind kongruent.'}],
+  'fehler': 'Drei Winkel reichen nicht. Mit 60°, 60°, 60° wird das Dreieck klein oder riesig. Gleiche Form, aber ⟦andere Größe⟧.',
+  'fehler_bild': figur({'_a': [0, 0], '_b': [2, 0], '_c': [1, 1.73], '_d': [3, 0], '_e': [7, 0], '_f': [5, 3.46]},
+                       linien=[['_a', '_b'], ['_b', '_c'], ['_c', '_a'], ['_d', '_e'], ['_e', '_f'], ['_f', '_d']]),
+  'regel': 'Eindeutig wird ein Dreieck mit ⟦SSS, SWS, WSW oder SsW⟧. Bei SsW liegt der Winkel der größeren Seite gegenüber.'},
+ 'konstruierbar': {
+  'einstieg': 'Du hast drei Holzleisten: 3 cm, 4 cm und 8 cm. Die kurzen reichen nicht bis zueinander, es entsteht kein Dreieck. Kann man ein Dreieck bauen, heißt es ⟦konstruierbar⟧.',
+  'woerter': [['konstruierbar', 'mit Zirkel und Lineal zeichenbar'], ['Kreisbogen', 'mit dem Zirkel gezeichnet; alle Punkte sind gleich weit vom Einstich']],
+  'bild': _boegen(),
+  'schritte': [{'text': 'Zeichne die lange Seite c = 8 cm.'},
+               {'text': 'Um A kommt ein Kreisbogen mit 3 cm, um B einer mit 4 cm.', 'bild': _boegen(3, 4)},
+               {'text': '3 cm + 4 cm = 7 cm, also weniger als 8 cm.'},
+               {'text': 'Die Bögen treffen sich nicht. Keine dritte Ecke: ⟦nicht konstruierbar⟧.'}],
+  'fehler': 'Auch 3 cm, 5 cm und 8 cm geht nicht. 3 + 5 = 8 ist ⟦nicht größer⟧ als 8: Die Leisten lägen flach aufeinander.',
+  'fehler_bild': _boegen(3, 5),
+  'regel': 'Je ⟦zwei Seiten zusammen⟧ müssen länger sein als die dritte. Zwei Winkel müssen zusammen unter 180° bleiben.'},
+ 'vierecke': {
+  'einstieg': 'Ein Scherengitter am Gartentor besteht aus schiefen Vierecken mit parallelen Gegenseiten. Wird eine Ecke spitzer, wird die Nachbarecke stumpfer. So ein Viereck heißt ⟦Parallelogramm⟧.',
+  'woerter': [['Parallelogramm', 'Viereck, bei dem gegenüberliegende Seiten parallel sind'], ['gegenüberliegend', 'an entgegengesetzten Ecken'], ['benachbart', 'nebeneinander an einer Seite']],
+  'bild': _pg('a'),
+  'schritte': [{'text': 'Im Parallelogramm ist α = 65°.'},
+               {'text': 'γ ist gegenüberliegend zu α, also auch 65°.', 'bild': _pg('a', 'g')},
+               {'text': 'β ist benachbart zu α: β = 180° − 65° = ⟦115°⟧. Genauso δ.', 'bild': _pg('a', 'g', 'b', 'd')},
+               {'text': 'Probe: 65° + 115° + 65° + 115° = 360°.'}],
+  'fehler': 'β ist nicht auch 65°. ⟦Benachbarte⟧ Winkel ergeben zusammen 180°, nur gegenüberliegende sind gleich.',
+  'regel': 'Im Parallelogramm sind ⟦gegenüberliegende⟧ Winkel gleich, benachbarte ergeben 180°. Beim Drachenviereck sind die beiden Winkel abseits der Symmetrieachse gleich. Jedes Viereck hat zusammen 360°.'},
+ 'satz_kehrsatz': {
+  'einstieg': '„Wenn es regnet, ist die Straße nass.“ Das stimmt. Umgedreht heißt es: „Wenn die Straße nass ist, regnet es.“ Das stimmt nicht immer! Der umgedrehte Satz heißt ⟦Kehrsatz⟧.',
+  'woerter': [['Kehrsatz', 'Wenn-Teil und Dann-Teil vertauscht'], ['Gegenbeispiel', 'ein Fall, bei dem der Wenn-Teil stimmt, der Dann-Teil aber nicht']],
+  'bild': _KT,
+  'schritte': [{'text': 'Satz: Wenn ein Viereck ein Quadrat ist, hat es vier rechte Winkel.'},
+               {'text': 'Kehrsatz: Wenn ein Viereck vier rechte Winkel hat, ist es ein Quadrat.',
+                'bild': {'zeilen': [['Satz', 'Quadrat', '4 rechte Winkel'], ['Kehrsatz', '4 rechte Winkel', 'Quadrat']]}},
+               {'text': 'Gegenbeispiel: ein Rechteck 2 cm × 5 cm. Der Kehrsatz ist ⟦falsch⟧.',
+                'bild': {'zeilen': [['Satz', 'Quadrat', '4 rechte Winkel'], ['Kehrsatz', '4 rechte Winkel', 'Quadrat'], ['Rechteck 2 × 5', 'ja', 'nein']]}}],
+  'fehler': 'Ein wahrer Satz macht den Kehrsatz nicht wahr. Sonst würde jede nasse Straße Regen bedeuten. Jeder Kehrsatz muss ⟦eigens geprüft⟧ werden.',
+  'regel': 'Beim Kehrsatz werden ⟦Wenn und Dann vertauscht⟧. Ein Gegenbeispiel genügt, um ihn zu widerlegen.'},
+}
+UMBAU_OFFEN = []
+baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Winkel', ['parallelen', 'winkelsumme', 'gleichschenklig', 'vierecke']), ('Kongruenz und Konstruktion', ['kongruenzsatz', 'konstruierbar']), ('Beweisen', ['satz_kehrsatz'])],

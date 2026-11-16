@@ -402,6 +402,87 @@ for _e in ETAPPEN:
     _e.update(KLAR.get(_e['lernziel'], {}))
 
 
+# ---------- UMBAU: neues Muster (Achte Runde, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl7.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl7 import mit_umbau  # noqa: E402
+
+
+def _strahl(start, ende, abschnitte, werte, extra=(), bereich=None):
+    b = {'typ': 'zahlenstrahl', 'start': start, 'ende': ende, 'abschnitte': abschnitte, 'beschriftet': 'anfang_ende',
+         'punkte': [{'wert': w} for w in werte] + list(extra)}
+    if bereich: b['bereich'] = bereich
+    return b
+
+
+_WEG = [7, 3, 9, 4, 12, 5]
+_GELD = [10, 12, 12, 15, 101]
+_QUIZ = [1, 3, 4, 6, 8, 9, 11]
+_BP_QUIZ = {'typ': 'boxplot', 'achse': [0, 12], 'einheit': 'Punkte', 'reihen': [{'min': 1, 'q1': 3, 'median': 6, 'q3': 9, 'max': 11}]}
+
+UMBAU = {
+ 'median': {
+  'einstieg': 'Sechs Kinder sagen, wie lange ihr Schulweg dauert: 7, 3, 9, 4, 12 und 5 Minuten. Welcher Wert ist typisch? Man ordnet und schaut in die Mitte. Dieser Wert heißt ⟦Median⟧.',
+  'woerter': [['geordnet', 'der Größe nach, vom kleinsten zum größten Wert'], ['Median', 'der Wert in der Mitte der geordneten Liste']],
+  'bild': _strahl(0, 14, 14, _WEG),
+  'schritte': [{'text': 'Geordnet: 3; 4; 5; 7; 9; 12. Das sind 6 Werte.'},
+               {'text': 'In der Mitte stehen zwei Werte: 5 und 7.', 'bild': {'bereich': {'von': 5, 'bis': 7}}},
+               {'text': 'Die Zahl genau dazwischen: (5 + 7) : 2 = ⟦6⟧ Minuten.', 'bild': {'punkte': [{'wert': w} for w in _WEG] + [{'wert': 6, 'name': 'Median'}]}}],
+  'fehler': 'Nicht die Mitte der ungeordneten Liste nehmen. Bei 7; 3; 9; 4; 12 ist der Median nicht 9. Erst ordnen: Er ist ⟦7⟧.',
+  'regel': 'Werte ⟦ordnen⟧ und die Mitte nehmen. Bei gerader Anzahl liegt der Median genau zwischen den beiden mittleren Werten.'},
+ 'kennwerte': {
+  'einstieg': 'Fünf Kinder zählen ihre Ferienbücher: 2, 5, 5, 6 und 12. Welche Zahl ist am häufigsten? Wie weit liegen die Werte auseinander? Wie viel wäre es gerecht verteilt? Das sagen ⟦Kennwerte⟧.',
+  'woerter': [['Modalwert', 'der häufigste Wert'], ['Spannweite', 'größter minus kleinster Wert'], ['Mittelwert', 'Summe aller Werte geteilt durch ihre Anzahl']],
+  'bild': {'typ': 'saeulen', 'einheit': 'Kinder', 'werte': [{'name': '2', 'wert': 1}, {'name': '5', 'wert': 2}, {'name': '6', 'wert': 1}, {'name': '12', 'wert': 1}], 'zahlen': True},
+  'schritte': [{'text': 'Die 5 kommt zweimal vor, alle anderen einmal: Modalwert 5.'},
+               {'text': 'Spannweite: 12 − 2 = 10 Bücher.'},
+               {'text': 'Summe: 2 + 5 + 5 + 6 + 12 = 30.'},
+               {'text': 'Mittelwert: 30 : 5 = ⟦6⟧ Bücher pro Kind.'}],
+  'fehler': 'Die Spannweite ist nicht 12. Sie ist der ⟦Abstand⟧ zwischen größtem und kleinstem Wert: 12 − 2 = 10.',
+  'regel': 'Modalwert: ⟦häufigster Wert⟧. Spannweite: größter minus kleinster Wert. Mittelwert: Summe durch Anzahl.'},
+ 'mittel_median': {
+  'einstieg': 'Fünf Kinder bekommen Taschengeld: 10 €, 12 €, 12 €, 15 € und eines 101 €. Der Mittelwert ist 30 €, mehr als vier von fünf bekommen. Schuld ist ein ⟦Ausreißer⟧.',
+  'woerter': [['Ausreißer', 'ein Wert weit weg von allen anderen']],
+  'bild': _strahl(0, 110, 11, _GELD),
+  'schritte': [{'text': 'Mittelwert: 150 € : 5 = 30 €.', 'bild': {'punkte': [{'wert': w} for w in _GELD] + [{'wert': 30, 'name': 'Mittelwert'}]}},
+               {'text': 'Median: In der Mitte der Liste steht 12 €.', 'bild': {'punkte': [{'wert': w} for w in _GELD] + [{'wert': 30, 'name': 'Mittelwert'}, {'wert': 12, 'name': 'Median'}]}},
+               {'text': 'Vier Kinder liegen nahe bei 12 €. Der ⟦Median⟧ beschreibt sie besser.'}],
+  'fehler': 'Der Mittelwert ist nicht „das, was die meisten bekommen“. Der eine Ausreißer mit 101 € ⟦zieht ihn hoch⟧.',
+  'regel': 'Bei Ausreißern beschreibt der ⟦Median⟧ die Mitte besser. Der Mittelwert wird vom Ausreißer weggezogen.'},
+ 'quartile': {
+  'einstieg': 'Sieben Kinder machen ein Quiz: 1, 3, 4, 6, 8, 9 und 11 Punkte. Man teilt die geordnete Liste in vier Viertel. Die Trennstellen heißen ⟦Quartile⟧.',
+  'woerter': [['Quartil', 'Trennstelle zwischen zwei Vierteln der geordneten Werte'], ['Q₁', 'unteres Quartil: Median der unteren Hälfte'], ['Q₃', 'oberes Quartil: Median der oberen Hälfte']],
+  'bild': _strahl(0, 12, 12, _QUIZ),
+  'schritte': [{'text': 'Der Median der sieben Werte ist 6.', 'bild': {'punkte': [{'wert': w} for w in _QUIZ] + [{'wert': 6, 'name': 'Median'}]}},
+               {'text': 'Untere Hälfte 1; 3; 4. Ihr Median ist Q₁ = 3.', 'bild': {'bereich': {'von': 1, 'bis': 4}}},
+               {'text': 'Obere Hälfte 8; 9; 11. Ihr Median ist ⟦Q₃ = 9⟧.', 'bild': {'bereich': {'von': 8, 'bis': 11}}},
+               {'text': 'Mit Q₁ und Q₃ entsteht der Boxplot.', 'bild': _BP_QUIZ}],
+  'fehler': 'Q₁ ist nicht ein Viertel vom größten Wert (11 : 4). Es ist eine Trennstelle: Etwa ⟦ein Viertel⟧ der Werte liegt darunter.',
+  'regel': 'Q₁ und Q₃ sind die ⟦Mediane der Hälften⟧. Bei ungerader Anzahl gehört der Median zu keiner Hälfte.'},
+ 'boxplot': {
+  'einstieg': '200 Kinder geben ihren Schulweg in Minuten an. 200 Zahlen sind unübersichtlich. Ein Bild aus Box und zwei Linien zeigt die fünf wichtigsten Werte: der ⟦Boxplot⟧.',
+  'woerter': [['Box', 'Rechteck von Q₁ bis Q₃; der Strich darin ist der Median'], ['Antenne', 'Linie von der Box bis zum kleinsten bzw. größten Wert']],
+  'bild': {'typ': 'boxplot', 'achse': [10, 45], 'einheit': 'min', 'reihen': [{'min': 12, 'q1': 18, 'median': 23, 'q3': 30, 'max': 41}]},
+  'schritte': [{'text': 'Ablesen: kleinster Wert 12, Q₁ = 18, Median 23, Q₃ = 30, größter 41.'},
+               {'text': 'Die Box reicht von 18 bis 30. Darin liegt die mittlere Hälfte.'},
+               {'text': 'Jede Antenne enthält etwa ein Viertel der Kinder.'},
+               {'text': 'Links von 30 liegen drei Viertel: ⟦75 %⟧ brauchen höchstens 30 Minuten.'}],
+  'fehler': 'Eine lange Antenne heißt nicht, dort seien mehr Kinder. In jeder Antenne liegt ⟦ein Viertel⟧, nur weiter gestreut.',
+  'regel': 'Die ⟦Box⟧ enthält die mittlere Hälfte der Werte. Jede Antenne enthält ein Viertel, der Strich ist der Median.'},
+ 'vergleichen': {
+  'einstieg': 'Zwei Klassen laufen dieselbe Strecke, jede Zeit wird gestoppt. Welche Klasse war schneller, welche gleichmäßiger? Zwei Boxplots übereinander zeigen es. So kann man ⟦Daten vergleichen⟧.',
+  'woerter': [['Streuung', 'wie weit die Werte auseinanderliegen'], ['gleichmäßig', 'die Werte liegen nah beieinander']],
+  'bild': {'typ': 'boxplot', 'achse': [10, 40], 'einheit': 's', 'reihen': [{'name': 'Klasse A', 'min': 19, 'q1': 22, 'median': 24, 'q3': 26, 'max': 31},
+                                                                          {'name': 'Klasse B', 'min': 15, 'q1': 18, 'median': 22, 'q3': 27, 'max': 35}]},
+  'schritte': [{'text': 'Median A: 24 s, Median B: 22 s. B ist in der Mitte schneller.'},
+               {'text': 'Box A reicht von 22 bis 26 s, Box B von 18 bis 27 s.'},
+               {'text': 'B hat mehr Streuung. In A sind die Zeiten ⟦gleichmäßiger⟧.'}],
+  'fehler': 'Eine größere Spannweite heißt nicht, dass eine Klasse mehr Kinder hat. Sie zeigt nur die ⟦Streuung⟧.',
+  'regel': 'Vergleiche zuerst die ⟦Mitte⟧ mit dem Median. Dann die Streuung mit Box und Antennen.'},
+}
+UMBAU_OFFEN = []
+baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Kennwerte', ['median', 'kennwerte', 'mittel_median']), ('Quartile und Boxplot', ['quartile', 'boxplot']), ('Vergleichen', ['vergleichen'])],

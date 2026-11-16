@@ -41,281 +41,728 @@
    {
     "lernziel": "struktur",
     "titel": "Termart bestimmen",
-    "regel": "So bestimmst du die ⟦Termart⟧: Überlege, welche Rechnung du ⟦zuletzt⟧ ausführst. Klammern kommen zuerst, dann Punkt vor Strich. Zuletzt + heißt Summe, − Differenz, · Produkt, : Quotient.",
+    "regel": "Die ⟦letzte Rechnung⟧ bestimmt die Termart. Klammern zuerst, dann Punkt vor Strich.",
     "schritte": [
-     "Der Term ist 5 · (x + 2). Schau zuerst, in welcher Reihenfolge gerechnet wird.",
-     "Was in Klammern steht, rechnet man zuerst: x + 2.",
-     "Danach wird das Ergebnis der Klammer mal 5 genommen. Das ist die letzte Rechnung.",
-     "Die letzte Rechnung ist ein Malnehmen. Also ist der Term ein ⟦Produkt⟧."
+     {
+      "text": "Was in Klammern steht, rechnet man zuerst: x + 2.",
+      "bild": {
+       "zeilen": [
+        [
+         "zuerst",
+         "x + 2"
+        ],
+        [
+         "zuletzt",
+         "?"
+        ],
+        [
+         "Termart",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Danach kommt mal 5. Das ist die letzte Rechnung.",
+      "bild": {
+       "zeilen": [
+        [
+         "zuerst",
+         "x + 2"
+        ],
+        [
+         "zuletzt",
+         "· 5"
+        ],
+        [
+         "Termart",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Zuletzt wird malgenommen. Der Term ist ein ⟦Produkt⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "zuerst",
+         "x + 2"
+        ],
+        [
+         "zuletzt",
+         "· 5"
+        ],
+        [
+         "Termart",
+         "Produkt"
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "3x + 4 ist kein Produkt, obwohl in 3x ein Mal steckt. Punkt vor Strich: Erst wird 3 · x gerechnet, ⟦zuletzt wird addiert⟧. Es ist eine Summe – wie beim Verleih, wenn man erst 3 Stunden zu je x € ausrechnet und am Ende noch 4 € Gebühr dazuzählt.",
-    "einstieg": "Beim Fahrradverleih am See kostet ein Rad 2 € Grundgebühr und 3 € für die erste Stunde, zusammen 5 €. Eine Familie leiht 5 Räder. Die Kassiererin rechnet erst 2 + 3 und nimmt das Ergebnis dann mal 5: 25 €. Rechnet sie stattdessen erst 5 · 2 und zählt dann 3 dazu, kommen falsche 13 € heraus. So eine Rechnung heißt ⟦Term⟧, und welche Rechnung man zuletzt ausführt, bestimmt die ⟦Termart⟧.",
+    "fehler": "3x + 4 ist kein Produkt. Erst wird 3 · x gerechnet, ⟦zuletzt addiert⟧. Wie beim Verleih: Am Ende kommt die Gebühr dazu.",
+    "einstieg": "Ein Leihrad kostet 2 € Gebühr plus 3 € für die Stunde, zusammen 5 €. Eine Familie leiht 5 Räder: 5 · (2 + 3) = 25 €. Welche Rechnung zuletzt kommt, bestimmt die ⟦Termart⟧.",
     "woerter": [
      [
       "Term",
-      "eine Rechnung aus Zahlen, Buchstaben und Rechenzeichen, zum Beispiel 5 · (2 + 3) oder 3x + 4"
-     ],
-     [
-      "Variable",
-      "ein Buchstabe wie x als Platzhalter für eine Zahl, die man noch nicht kennt oder die sich ändern kann"
-     ],
-     [
-      "3x",
-      "kurz für 3 · x; vor einem Buchstaben darf das Malzeichen fehlen"
+      "eine Rechnung aus Zahlen, Buchstaben und Rechenzeichen"
      ],
      [
       "Termart",
-      "Name des Terms nach der Rechnung, die man zuletzt ausführt"
+      "Summe, Differenz, Produkt oder Quotient – je nach letzter Rechnung"
      ],
      [
-      "Summe / Differenz",
-      "zuletzt wird addiert (+) / subtrahiert (−)"
-     ],
-     [
-      "Produkt / Quotient",
-      "zuletzt wird malgenommen (·) / geteilt (:)"
-     ],
-     [
-      "Punkt vor Strich",
-      "· und : rechnet man vor + und −"
+      "Produkt",
+      "zuletzt wird malgenommen"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "5 · (x + 2)"
+     ],
+     "zeilen": [
+      [
+       "zuerst",
+       "?"
+      ],
+      [
+       "zuletzt",
+       "?"
+      ],
+      [
+       "Termart",
+       "?"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "kopf": [
+      "",
+      "3x + 4"
+     ],
+     "zeilen": [
+      [
+       "zuerst",
+       "3 · x"
+      ],
+      [
+       "zuletzt",
+       "+ 4"
+      ],
+      [
+       "Termart",
+       "Summe"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "termwert",
     "titel": "Termwerte berechnen",
-    "regel": "So berechnest du einen ⟦Termwert⟧: Für die Variable die Zahl ⟦einsetzen⟧, negative Zahlen in ⟦Klammern⟧. Dann der Reihe nach rechnen: Klammer, Potenz, Punkt, Strich.",
+    "regel": "Zahl für x ⟦einsetzen⟧ und ausrechnen. Negative Zahlen kommen in Klammern, Punkt vor Strich gilt.",
     "schritte": [
-     "Gegeben ist T(x) = 2x² − 3x. Gesucht ist der Termwert für x = −2.",
-     "Schreibe überall, wo x steht, die −2 hin – in Klammern, weil sie negativ ist: 2 · (−2)² − 3 · (−2).",
-     "Zuerst die Potenz: (−2)² = 4. Dann die Malrechnungen: 2 · 4 = 8 und 3 · (−2) = −6.",
-     "Zum Schluss abziehen: 8 − (−6) = 8 + 6 = ⟦14⟧."
+     {
+      "text": "Für die Variable x die 1 einsetzen: 3 · 1 + 5 = 8.",
+      "bild": {
+       "zeilen": [
+        [
+         "3x + 5 (in €)",
+         "8",
+         "?",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Für x = 2: 3 · 2 + 5 = 11.",
+      "bild": {
+       "zeilen": [
+        [
+         "3x + 5 (in €)",
+         "8",
+         "11",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Für x = 4: 3 · 4 = 12, plus 5 ergibt den Termwert ⟦17⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "3x + 5 (in €)",
+         "8",
+         "11",
+         "17"
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "Für x = −2 ist 2x² nicht 2 · (−4). Es wird ⟦erst quadriert⟧: (−2)² = 4, dann mal 2, also 8. Ohne Klammer würde man nur die 2 quadrieren und das Minus hinterher davorschreiben – das ist eine andere Rechnung.",
-    "einstieg": "Der Fahrradverleih hat eine Preistafel: „3 € pro Stunde plus 5 € Grundgebühr“. Als Term heißt das 3x + 5; x ist dabei die Anzahl der Stunden. Will ein Kunde wissen, was 4 Stunden kosten, setzt man für x die 4 ein: 3 · 4 + 5 = 17 €. Das Ergebnis heißt ⟦Termwert⟧.",
+    "fehler": "3 · 4 + 5 ist nicht 3 · 9 = 27. Erst malnehmen, dann die Gebühr ⟦dazuzählen⟧: 12 + 5 = 17 €.",
+    "einstieg": "Der Fahrradverleih nimmt 3 € pro Stunde plus 5 € Gebühr. Als Term heißt das 3x + 5. Was kosten 1, 2 oder 4 Stunden? Das Ergebnis heißt ⟦Termwert⟧.",
     "woerter": [
      [
+      "Variable",
+      "ein Buchstabe wie x für eine Zahl, die sich ändern kann"
+     ],
+     [
       "einsetzen",
-      "für die Variable eine bestimmte Zahl hinschreiben"
+      "für x eine bestimmte Zahl hinschreiben"
      ],
      [
       "Termwert",
-      "das Ergebnis, wenn man eine Zahl eingesetzt und ausgerechnet hat"
-     ],
-     [
-      "T(x)",
-      "Name für einen Term mit der Variablen x; T(−2) ist sein Wert für x = −2"
-     ],
-     [
-      "x²",
-      "„x hoch 2“, also x · x"
-     ],
-     [
-      "quadrieren",
-      "eine Zahl mit sich selbst malnehmen, zum Beispiel 4² = 4 · 4 = 16"
-     ],
-     [
-      "Potenz",
-      "eine Rechnung mit Hochzahl wie x² oder 4³"
-     ],
-     [
-      "(−2)²",
-      "(−2) · (−2) = 4; die Klammer zeigt: das Minus wird mitquadriert"
+      "das Ergebnis nach dem Einsetzen"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Stunden x",
+      "1",
+      "2",
+      "4"
+     ],
+     "zeilen": [
+      [
+       "3x + 5 (in €)",
+       "?",
+       "?",
+       "?"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "uebersetzen",
     "titel": "Wortterme in Terme übersetzen",
-    "regel": "So übersetzt du Wort für Wort: Summe +, Differenz −, Produkt ·, Quotient :, das Dreifache 3 ·, vermehrt um +, vermindert um −. Was ⟦zuerst⟧ gerechnet werden soll, kommt in ⟦Klammern⟧.",
+    "regel": "Übersetze Wort für Wort in ⟦Rechenzeichen⟧. Was zuerst gerechnet wird, kommt in Klammern.",
     "schritte": [
-     "Der Wortterm lautet: „das Doppelte der Summe aus x und 5“.",
-     "Suche zuerst, was zusammengehört: „die Summe aus x und 5“ ist x + 5.",
-     "Diese Summe soll als Ganzes verdoppelt werden. Darum kommt sie in Klammern: (x + 5).",
-     "Jetzt verdoppeln: ⟦2(x + 5)⟧."
+     {
+      "text": "Die Leihgebühr ist x. „Die Summe aus x und 5“ heißt x + 5.",
+      "bild": {
+       "zeilen": [
+        [
+         "die Summe aus x und 5",
+         "x + 5"
+        ],
+        [
+         "das Doppelte davon",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Das Doppelte gilt für die ganze Summe. Darum kommt sie in Klammern."
+     },
+     {
+      "text": "Ergebnis: ⟦2(x + 5)⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "die Summe aus x und 5",
+         "x + 5"
+        ],
+        [
+         "das Doppelte davon",
+         "2(x + 5)"
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "„Das Doppelte der Summe aus x und 5“ ist nicht 2x + 5. Dort wird nur das x verdoppelt – als würde für das zweite Kind nur die Leihgebühr bezahlt, aber kein Pfand. Gemeint ist die ganze ⟦Summe⟧: 2(x + 5) = 2x + 10.",
-    "einstieg": "Die Chefin des Fahrradverleihs sagt am Telefon: „Nimm die Leihgebühr und zähl 5 € Pfand dazu – und das Ganze mal zwei, es sind zwei Kinder.“ Um das richtig zu rechnen, schreibt man den Satz als Rechnung auf. Ein Term in Worten heißt ⟦Wortterm⟧; ihn in Zeichen zu schreiben heißt ⟦übersetzen⟧.",
+    "fehler": "2x + 5 ist falsch: Dann zahlt das zweite Kind kein Pfand. Gemeint ist die ganze Summe: 2(x + 5) = ⟦2x + 10⟧.",
+    "einstieg": "Zwei Kinder leihen Räder. Jedes zahlt die Leihgebühr plus 5 € Pfand. Den Preis für beide schreibst du als Rechnung auf. Das heißt ⟦übersetzen⟧.",
     "woerter": [
      [
-      "Wortterm",
-      "ein Term in Worten, zum Beispiel „das Doppelte der Summe aus x und 5“"
+      "Summe aus x und 5",
+      "x + 5"
      ],
      [
-      "das Doppelte / das Dreifache",
-      "mal 2 / mal 3"
-     ],
-     [
-      "vermehrt um / vermindert um",
-      "plus / minus"
+      "das Doppelte",
+      "mal 2"
      ],
      [
       "2(x + 5)",
-      "kurz für 2 · (x + 5): die ganze Klammer wird verdoppelt"
+      "2 · (x + 5): die ganze Klammer wird verdoppelt"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "in Worten",
+      "in Zeichen"
+     ],
+     "zeilen": [
+      [
+       "die Summe aus x und 5",
+       "?"
+      ],
+      [
+       "das Doppelte davon",
+       "?"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "kopf": [
+      "",
+      "Term"
+     ],
+     "zeilen": [
+      [
+       "falsch",
+       "2x + 5"
+      ],
+      [
+       "richtig",
+       "2x + 10"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "sachsituation",
     "titel": "Terme zu Sachsituationen",
-    "regel": "So stellst du einen Term auf: Lege fest, wofür die ⟦Variable⟧ steht (zum Beispiel x = Anzahl der Stunden). Beträge „pro Stück“ oder „pro Stunde“ werden ⟦mit x malgenommen⟧, feste Beträge werden ⟦dazugezählt⟧.",
+    "regel": "Was ⟦pro Stunde⟧ anfällt, wird mit x malgenommen. Feste Beträge zählst du dazu.",
     "schritte": [
-     "Lege zuerst fest, wofür der Buchstabe steht: x ist die Anzahl der Stunden.",
-     "Für jede Stunde kommen 3 € dazu. Bei x Stunden sind das 3 · x, also 3x Euro.",
-     "Die Grundgebühr von 5 € kommt einmal dazu, egal wie lange: 3x + 5.",
-     "Der Term für die Kosten in Euro ist ⟦3x + 5⟧. Probe mit 2 Stunden: 3 · 2 + 5 = 11 €."
+     {
+      "text": "x steht für die Anzahl der Stunden."
+     },
+     {
+      "text": "Bei 1 Stunde: 3 · 1 + 5 = 8 €.",
+      "bild": {
+       "zeilen": [
+        [
+         "Preis in €",
+         "8",
+         "?",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Bei 2 Stunden: 3 · 2 + 5 = 11 €.",
+      "bild": {
+       "zeilen": [
+        [
+         "Preis in €",
+         "8",
+         "11",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Bei x Stunden: ⟦3x + 5⟧ Euro.",
+      "bild": {
+       "zeilen": [
+        [
+         "Preis in €",
+         "8",
+         "11",
+         "3x + 5"
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "Der Term 5x + 3 vertauscht die Rollen: Dann müsste man die 5 € Grundgebühr ⟦jede Stunde⟧ neu bezahlen und die 3 € nur einmal. Was pro Stunde anfällt, steht vor dem x.",
-    "einstieg": "Jetzt baust du die Preistafel des Fahrradverleihs selbst: 5 € Grundgebühr, egal wie lange, und 3 € für jede Stunde. Wie viele Stunden ein Kunde fährt, ist noch offen – dafür nimmt man einen Buchstaben. So entsteht ein ⟦Term zu einer Sachsituation⟧, mit dem man jeden Preis ausrechnen kann.",
+    "fehler": "5x + 3 vertauscht die Rollen. Dann kostet jede Stunde 5 € und die ⟦Grundgebühr⟧ nur 3 €. Was pro Stunde anfällt, steht vor dem x.",
+    "einstieg": "Der Verleih will eine Preistafel: 5 € Grundgebühr und 3 € pro Stunde. Wie lange jemand fährt, ist noch offen. Dafür nimmt man einen Buchstaben und stellt einen ⟦Term⟧ auf.",
     "woerter": [
      [
-      "Sachsituation",
-      "eine Aufgabe aus dem Alltag, hier der Fahrradverleih"
-     ],
-     [
       "Grundgebühr",
-      "ein fester Betrag, der immer einmal anfällt, egal wie lange"
+      "fester Betrag, der einmal anfällt"
      ],
      [
       "pro Stunde",
-      "für jede Stunde einmal – das wird mit der Anzahl der Stunden malgenommen"
+      "für jede Stunde einmal; wird mit x malgenommen"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Stunden",
+      "1",
+      "2",
+      "x"
+     ],
+     "zeilen": [
+      [
+       "Preis in €",
+       "?",
+       "?",
+       "?"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "muster",
     "titel": "Figurenfolgen mit Termen beschreiben",
-    "regel": "So beschreibst du eine ⟦Figurenfolge⟧ mit einem Term: Suche, ⟦wie viel pro Schritt dazukommt⟧ – diese Zahl steht vor dem n. Prüfe dann mit Figur 1, welche feste Zahl noch dazukommt.",
+    "regel": "Die ⟦Zunahme pro Figur⟧ steht vor dem n. Mit Figur 1 prüfst du die feste Zahl.",
     "schritte": [
-     "Zähle die Hölzer: Figur 1 hat 4, Figur 2 hat 7, Figur 3 hat 10. Von Figur zu Figur kommen 3 Hölzer dazu.",
-     "Schau ins Bild: Ganz links steht 1 senkrechtes Holz. Jedes Quadrat bringt 3 neue Hölzer mit – oben, unten und rechts.",
-     "Figur n hat n Quadrate. Sie braucht also 1 Holz plus 3 · n Hölzer: ⟦3n + 1⟧.",
-     "Für 10 Quadrate setzt du n = 10 ein: 3 · 10 + 1 = 31 Hölzer."
+     {
+      "text": "Figur 1 ist ein Quadrat aus 4 Hölzern.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "_o0": [
+         0,
+         1
+        ],
+        "_u0": [
+         0,
+         0
+        ],
+        "_o1": [
+         1,
+         1
+        ],
+        "_u1": [
+         1,
+         0
+        ]
+       },
+       "linien": [
+        [
+         "_o0",
+         "_o1"
+        ],
+        [
+         "_u0",
+         "_u1"
+        ],
+        [
+         "_o0",
+         "_u0"
+        ],
+        [
+         "_o1",
+         "_u1"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Jedes neue Quadrat bringt 3 Hölzer mit. Figur 2 hat 7.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "_o0": [
+         0,
+         1
+        ],
+        "_u0": [
+         0,
+         0
+        ],
+        "_o1": [
+         1,
+         1
+        ],
+        "_u1": [
+         1,
+         0
+        ],
+        "_o2": [
+         2,
+         1
+        ],
+        "_u2": [
+         2,
+         0
+        ]
+       },
+       "linien": [
+        [
+         "_o0",
+         "_o1"
+        ],
+        [
+         "_o1",
+         "_o2"
+        ],
+        [
+         "_u0",
+         "_u1"
+        ],
+        [
+         "_u1",
+         "_u2"
+        ],
+        [
+         "_o0",
+         "_u0"
+        ],
+        [
+         "_o1",
+         "_u1"
+        ],
+        [
+         "_o2",
+         "_u2"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Figur 3 hat 10: ganz links 1 Holz, dazu 3 pro Quadrat.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "_o0": [
+         0,
+         1
+        ],
+        "_u0": [
+         0,
+         0
+        ],
+        "_o1": [
+         1,
+         1
+        ],
+        "_u1": [
+         1,
+         0
+        ],
+        "_o2": [
+         2,
+         1
+        ],
+        "_u2": [
+         2,
+         0
+        ],
+        "_o3": [
+         3,
+         1
+        ],
+        "_u3": [
+         3,
+         0
+        ]
+       },
+       "linien": [
+        [
+         "_o0",
+         "_o1"
+        ],
+        [
+         "_o1",
+         "_o2"
+        ],
+        [
+         "_o2",
+         "_o3"
+        ],
+        [
+         "_u0",
+         "_u1"
+        ],
+        [
+         "_u1",
+         "_u2"
+        ],
+        [
+         "_u2",
+         "_u3"
+        ],
+        [
+         "_o0",
+         "_u0"
+        ],
+        [
+         "_o1",
+         "_u1"
+        ],
+        [
+         "_o2",
+         "_u2"
+        ],
+        [
+         "_o3",
+         "_u3"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Figur n braucht ⟦3n + 1⟧ Hölzer. Figur 10 braucht also 31."
+     }
     ],
-    "probe": "n = 2: 3 · 2 + 1 = 7 ✓",
-    "fehler": "Der Term n + 3 passt nicht zu 4, 7, 10: Für n = 2 ergibt er 5 statt 7. Er tut so, als käme pro Quadrat nur ⟦1 Holz⟧ dazu. Die Zunahme pro Schritt (3) gehört vor das n.",
+    "fehler": "n + 3 passt nicht: Für Figur 2 ergibt es 5 statt 7. Pro Quadrat kommen ⟦3 Hölzer⟧ dazu, nicht 1.",
     "bild": {
      "typ": "figur",
      "punkte": {
-      "_a0": [
-       0,
-       0
-      ],
-      "_a1": [
-       1,
-       0
-      ],
-      "_a2": [
-       2,
-       0
-      ],
-      "_a3": [
-       3,
-       0
-      ],
-      "_b0": [
+      "_o0": [
        0,
        1
       ],
-      "_b1": [
+      "_u0": [
+       0,
+       0
+      ],
+      "_o1": [
        1,
        1
       ],
-      "_b2": [
+      "_u1": [
+       1,
+       0
+      ],
+      "_o2": [
        2,
        1
       ],
-      "_b3": [
+      "_u2": [
+       2,
+       0
+      ],
+      "_o3": [
        3,
        1
+      ],
+      "_u3": [
+       3,
+       0
       ]
      },
      "linien": [
       [
-       "_a0",
-       "_a1"
+       "_o0",
+       "_o1"
       ],
       [
-       "_a1",
-       "_a2"
+       "_o1",
+       "_o2"
       ],
       [
-       "_a2",
-       "_a3"
+       "_o2",
+       "_o3"
       ],
       [
-       "_b0",
-       "_b1"
+       "_u0",
+       "_u1"
       ],
       [
-       "_b1",
-       "_b2"
+       "_u1",
+       "_u2"
       ],
       [
-       "_b2",
-       "_b3"
+       "_u2",
+       "_u3"
       ],
       [
-       "_a0",
-       "_b0"
+       "_o0",
+       "_u0"
       ],
       [
-       "_a1",
-       "_b1"
+       "_o1",
+       "_u1"
       ],
       [
-       "_a2",
-       "_b2"
+       "_o2",
+       "_u2"
       ],
       [
-       "_a3",
-       "_b3",
-       "Figur 3: 10 Hölzer"
+       "_o3",
+       "_u3"
       ]
      ]
     },
-    "einstieg": "Während es regnet, legt ein Kind am Fahrradverleih mit Streichhölzern Quadrate in eine Reihe: erst 1 Quadrat, dann 2, dann 3 nebeneinander. Es fragt sich: Wie viele Hölzer brauche ich für 10 Quadrate, ohne alles zu legen? Eine Reihe von Figuren, die nach einer festen Regel wächst, heißt ⟦Figurenfolge⟧.",
+    "einstieg": "Bei Regen legt ein Kind Quadrate aus Streichhölzern in eine Reihe. Wie viele Hölzer braucht es für 10 Quadrate, ohne alles zu legen? So eine wachsende Reihe heißt ⟦Figurenfolge⟧.",
     "woerter": [
      [
       "Figurenfolge",
-      "Figur 1, Figur 2, Figur 3 …, die nach einer festen Regel wächst"
+      "Figur 1, 2, 3 …, die nach einer festen Regel wächst"
      ],
      [
       "n",
-      "die Nummer der Figur (1, 2, 3, …); wie x eine Variable"
-     ],
-     [
-      "Zunahme pro Schritt",
-      "so viele Hölzer kommen von einer Figur zur nächsten dazu"
+      "die Nummer der Figur"
      ]
     ]
    },
    {
     "lernziel": "deuten",
     "titel": "Terme deuten und prüfen",
-    "regel": "So ⟦deutest⟧ du einen Term: Die Zahl ⟦vor dem x⟧ ist der Betrag pro Einheit (pro Minute, pro Stunde), die Zahl ⟦ohne x⟧ ist der feste Betrag. Passt eine Deutung nicht zu allen Teilen, ist sie ⟦falsch⟧.",
+    "regel": "Die Zahl ⟦vor dem x⟧ zählt pro Einheit. Die Zahl ohne x ist der feste Betrag.",
     "schritte": [
-     "Der Term ist K = 0,1x + 8. Dabei ist x die Anzahl der Minuten, K sind die Kosten in Euro.",
-     "Die 0,1 steht vor dem x. Sie wird mit jeder Minute malgenommen: 0,10 € pro Minute.",
-     "Die 8 kommt immer dazu, egal wie viel man telefoniert: 8 € Grundgebühr.",
-     "Für 50 Minuten: K = 0,1 · 50 + 8 = 5 + 8 = ⟦13 €⟧."
+     {
+      "text": "x steht für die Minuten, K für die Kosten in Euro."
+     },
+     {
+      "text": "0,1 steht vor dem x: 10 Cent pro Minute.",
+      "bild": {
+       "zeilen": [
+        [
+         "0,1x",
+         "10 ct pro Minute"
+        ],
+        [
+         "8",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "8 steht ohne x: feste Grundgebühr von 8 €.",
+      "bild": {
+       "zeilen": [
+        [
+         "0,1x",
+         "10 ct pro Minute"
+        ],
+        [
+         "8",
+         "8 € im Monat"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "50 Minuten kosten 0,1 · 50 + 8 = ⟦13 €⟧."
+     }
     ],
-    "fehler": "In K = 0,1x + 8 ist 8 nicht der Preis pro Minute – sonst kosteten 50 Minuten schon 400 €. Was pro Minute zählt, steht ⟦vor dem x⟧.",
-    "einstieg": "Der Handyvertrag der Chefin hat eine feste Monatsgebühr und kostet außerdem für jede Minute etwas. Auf der Rechnung steht nur ein Term: K = 0,1x + 8. Was bedeuten die 8 und die 0,1? Wer erklärt, wofür jede Zahl in einem Term steht, ⟦deutet⟧ den Term.",
+    "fehler": "8 ist nicht der Preis pro Minute – sonst kosteten 50 Minuten schon 400 €. Was pro Minute zählt, steht ⟦vor dem x⟧.",
+    "einstieg": "Der Handyvertrag der Chefin hat eine feste Monatsgebühr und kostet pro Minute etwas. Auf der Rechnung steht nur: K = 0,1x + 8. Wofür jede Zahl steht, klärt man beim ⟦Deuten⟧.",
     "woerter": [
      [
       "deuten",
-      "erklären, was eine Zahl oder ein Buchstabe in der Situation bedeutet"
+      "erklären, was jede Zahl in der Situation bedeutet"
      ],
      [
       "K",
-      "hier: die Kosten im Monat in Euro"
-     ],
-     [
-      "0,1",
-      "0,10 €, also 10 Cent"
+      "die Kosten im Monat in Euro"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Teil",
+      "Bedeutung"
+     ],
+     "zeilen": [
+      [
+       "0,1x",
+       "?"
+      ],
+      [
+       "8",
+       "?"
+      ]
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [

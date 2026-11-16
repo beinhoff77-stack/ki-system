@@ -532,6 +532,128 @@ for _e in ETAPPEN:
     _e.update(KLAR.get(_e['lernziel'], {}))
 
 
+# ---------- UMBAU: neues Muster (Achte Runde, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl7.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl7 import mit_umbau  # noqa: E402
+
+
+def _pt(x, y, n): return {'x': x, 'y': y, 'name': n}
+
+
+def _rechteck(achsen=(), diagonale=False):
+    pk = {'A': [0, 0], 'B': [6, 0], 'C': [6, 3], 'D': [0, 3], '_1': [3, -0.7], '_2': [3, 3.7], '_3': [-0.7, 1.5], '_4': [6.7, 1.5]}
+    li = [['A', 'B'], ['B', 'C'], ['C', 'D'], ['D', 'A']]
+    if 's' in achsen: li.append(['_1', '_2', 'Achse', 'gestrichelt'])
+    if 'w' in achsen: li.append(['_3', '_4', 'Achse', 'gestrichelt'])
+    if diagonale: li.append(['A', 'C', 'keine Achse', 'gestrichelt'])
+    return {'typ': 'figur', 'punkte': pk, 'flaeche': ['A', 'B', 'C', 'D'], 'linien': li}
+
+
+def _dreiecke(k):
+    """k gleichseitige Dreiecke um die Ecke O (Ausschnitt eines Dreiecksparketts)."""
+    ecken = [[3.0, 0.0], [1.5, 2.6], [-1.5, 2.6], [-3.0, 0.0], [-1.5, -2.6], [1.5, -2.6]]
+    pk = {'O': [0, 0]}
+    li = []
+    for i in range(k):
+        a, b = f'_h{i}', f'_h{(i + 1) % 6}'
+        pk[a] = ecken[i]; pk[b] = ecken[(i + 1) % 6]
+        li += [['O', a], [a, b], ['O', b]]
+    return {'typ': 'figur', 'punkte': pk, 'linien': li, 'winkel': [['O', '_h0', '_h1', '60°']]}
+
+
+_D0 = [(1, 1), (2, 1), (1, 3)]
+_D1 = [(6 - x, y) for x, y in _D0]
+_D2 = [(12 - x, y) for x, y in _D1]
+
+
+def _dreieck(P, stil=None):
+    return [[P[i][0], P[i][1], P[(i + 1) % 3][0], P[(i + 1) % 3][1]] + ([stil] if stil else []) for i in range(3)]
+
+
+UMBAU = {
+ 'achsenspiegelung': {
+  'einstieg': 'Mal einen nassen Farbklecks auf ein Blatt, falte es und klapp es wieder auf. Der Klecks ist jetzt auch gegenüber, gleich weit vom Knick. Das heißt ⟦Achsenspiegelung⟧.',
+  'woerter': [['Achse', 'die Gerade, an der gespiegelt wird – wie der Knick'], ['P(4 | 3)', 'Punkt mit x = 4 (nach rechts) und y = 3 (nach oben)'],
+              ["P'", 'gelesen „P Strich“: der Bildpunkt von P']],
+  'bild': {'typ': 'koordinaten', 'x': [-3, 5], 'y': [-1, 4], 'senkrecht': [1], 'punkte': [_pt(4, 3, 'P')]},
+  'schritte': [{'text': 'P(4 | 3) wird an der Achse x = 1 gespiegelt.'},
+               {'text': 'P liegt 3 Kästchen rechts von der Achse.', 'bild': {'strecken': [[1, 3, 4, 3, 'gestrichelt']]}},
+               {'text': "Auf der anderen Seite 3 Kästchen nach links: ⟦P'(−2 | 3)⟧.",
+                'bild': {'punkte': [_pt(4, 3, 'P'), _pt(-2, 3, "P'")], 'strecken': [[-2, 3, 4, 3, 'gestrichelt']]}}],
+  'fehler': 'An der x-Achse ist das Bild von P(4 | 3) nicht (−4 | 3). Die x-Achse liegt waagrecht wie eine Wasseroberfläche. Das Bild liegt darunter: ⟦(4 | −3)⟧.',
+  'fehler_bild': {'y': [-4, 4], 'senkrecht': [], 'punkte': [_pt(4, 3, 'P'), _pt(4, -3, "P'")], 'strecken': [[4, 3, 4, -3, 'gestrichelt']]},
+  'regel': "Spiegeln heißt: ⟦gleich weit⟧ auf die andere Seite der Achse. Die Strecke PP' steht senkrecht auf der Achse."},
+ 'punktspiegelung': {
+  'einstieg': 'Du gehst geradeaus auf einen Pfosten zu und zählst deine Schritte. Am Pfosten gehst du genauso viele Schritte weiter. Dort steht dein Bild bei der ⟦Punktspiegelung⟧.',
+  'woerter': [['Zentrum Z', 'der Punkt, an dem gespiegelt wird – der Pfosten'], ['Mittelpunkt', 'der Punkt genau in der Mitte einer Strecke']],
+  'bild': {'typ': 'koordinaten', 'x': [-1, 6], 'y': [-2, 6], 'punkte': [_pt(1, 5, 'P'), _pt(3, 2, 'Z')]},
+  'schritte': [{'text': 'P(1 | 5) wird am Zentrum Z(3 | 2) gespiegelt.'},
+               {'text': 'Von P nach Z sind es 2 nach rechts und 3 nach unten.', 'bild': {'strecken': [[1, 5, 3, 2, 'gestrichelt']]}},
+               {'text': "Von Z aus denselben Weg noch einmal: ⟦P'(5 | −1)⟧.",
+                'bild': {'punkte': [_pt(1, 5, 'P'), _pt(3, 2, 'Z'), _pt(5, -1, "P'")], 'strecken': [[1, 5, 5, -1, 'gestrichelt']]}},
+               {'text': "Z ist jetzt der Mittelpunkt der Strecke von P nach P'."}],
+  'fehler': "Nicht am Pfosten stehen bleiben: P'(3 | 2) wäre Z selbst. Man geht von P aus ⟦doppelt so weit⟧ wie bis Z.",
+  'regel': "Geh von P zu Z und ⟦denselben Weg weiter⟧. Z ist dann die Mitte von PP'."},
+ 'verschiebung': {
+  'einstieg': 'Du schiebst ein Pauspapier 3 Kästchen nach links und 4 nach oben. Gedreht wird es nicht. Jeder Punkt wandert gleich weit. Das heißt ⟦Verschiebung⟧.',
+  'woerter': [['Pauspapier', 'durchsichtiges Papier zum Abzeichnen'], ['v = (−3 | 4)', 'der Verschiebungspfeil: 3 nach links, 4 nach oben']],
+  'bild': {'typ': 'koordinaten', 'x': [-2, 3], 'y': [-2, 4], 'punkte': [_pt(2, -1, 'A')]},
+  'schritte': [{'text': 'A(2 | −1) wird mit v = (−3 | 4) verschoben.'},
+               {'text': 'Erste Zahl zu x: 2 + (−3) = −1. Das sind 3 nach links.', 'bild': {'strecken': [[2, -1, -1, -1, 'gestrichelt']]}},
+               {'text': "Zweite Zahl zu y: −1 + 4 = 3. Ergebnis: ⟦A'(−1 | 3)⟧.",
+                'bild': {'punkte': [_pt(2, -1, 'A'), _pt(-1, 3, "A'")], 'strecken': [[2, -1, -1, -1, 'gestrichelt'], [-1, -1, -1, 3, 'gestrichelt']], 'pfeile': [[2, -1, -1, 3, 'v']]}}],
+  'fehler': 'Die Zahlen nicht vertauschen: −3 gehört zu x, 4 zu y. Vertauscht landet das Papier ganz woanders, bei ⟦(6 | −4)⟧.',
+  'regel': 'Verschieben: erste Zahl zu ⟦x⟧, zweite Zahl zu ⟦y⟧. Minus heißt links bzw. unten.'},
+ 'drehung': {
+  'einstieg': 'Steck eine Reißzwecke durch das Pauspapier und dreh es. Jeder Punkt läuft auf einem Kreis und bleibt gleich weit von der Zwecke. Das ist eine ⟦Drehung⟧.',
+  'woerter': [['Ursprung O', 'der Punkt (0 | 0) – hier sitzt die Reißzwecke'], ['90°', 'eine Vierteldrehung'], ['gegen den Uhrzeigersinn', 'andersherum als die Uhrzeiger']],
+  'bild': {'typ': 'koordinaten', 'x': [-2, 5], 'y': [-1, 5], 'punkte': [_pt(4, 1, 'P'), _pt(0, 0, 'O')]},
+  'schritte': [{'text': 'P(4 | 1) wird um O um 90° gegen den Uhrzeigersinn gedreht.'},
+               {'text': 'Weg vom Ursprung O zu P: 4 nach rechts, 1 nach oben.', 'bild': {'strecken': [[0, 0, 4, 0, 'gestrichelt'], [4, 0, 4, 1, 'gestrichelt']]}},
+               {'text': 'Den Weg mitdrehen: 4 nach oben, dann 1 nach links.', 'bild': {'strecken': [[0, 0, 0, 4, 'gestrichelt'], [0, 4, -1, 4, 'gestrichelt']]}},
+               {'text': "Der Bildpunkt ist ⟦P'(−1 | 4)⟧.", 'bild': {'punkte': [_pt(4, 1, 'P'), _pt(0, 0, 'O'), _pt(-1, 4, "P'")]}}],
+  'fehler': 'Bei 90° nicht nur die Vorzeichen ändern. (−4 | −1) wäre eine ⟦halbe Drehung⟧, also 180°.',
+  'fehler_bild': {'x': [-5, 5], 'y': [-2, 5], 'punkte': [_pt(4, 1, 'P'), _pt(0, 0, 'O'), _pt(-4, -1, '180°')],
+                  'strecken': [[0, 0, 4, 1, 'gestrichelt'], [0, 0, -4, -1, 'gestrichelt']]},
+  'regel': '90° links herum: aus ⟦(x | y) wird (−y | x)⟧. Der Abstand zu O bleibt gleich.'},
+ 'symmetrie': {
+  'einstieg': 'Ein Schmetterling, ein Fenster, ein Herz: Beide Hälften sehen gleich aus. Faltet man in der Mitte, liegen sie genau aufeinander. Solche Figuren heißen ⟦achsensymmetrisch⟧.',
+  'woerter': [['Symmetrieachse', 'Faltlinie, an der beide Hälften aufeinanderfallen'], ['punktsymmetrisch', 'sieht nach einer halben Drehung genauso aus']],
+  'bild': _rechteck(),
+  'schritte': [{'text': 'Untersucht wird ein Rechteck, das kein Quadrat ist.'},
+               {'text': 'Senkrecht falten: Die Hälften passen. Das ist eine Symmetrieachse.', 'bild': _rechteck('s')},
+               {'text': 'Waagrecht geht es auch. Es hat ⟦2 Symmetrieachsen⟧.', 'bild': _rechteck('sw')},
+               {'text': 'Nach einer halben Drehung liegt es wieder gleich: ⟦punktsymmetrisch⟧.'}],
+  'fehler': 'Die Diagonale ist keine Symmetrieachse. Faltet man ein rechteckiges Blatt diagonal, stehen ⟦Zipfel über⟧.',
+  'fehler_bild': _rechteck(diagonale=True),
+  'regel': 'Symmetrisch heißt: ⟦Falten⟧ oder halbe Drehung, und alles passt. Ein Quadrat hat 4 Achsen, ein Rechteck 2.'},
+ 'parkett': {
+  'einstieg': 'Im Bad liegen Fliesen dicht an dicht, ohne Lücke. Mit Quadraten geht das, mit Sechsecken auch, mit Fünfecken nicht. So eine lückenlose Auslegung heißt ⟦Parkett⟧.',
+  'woerter': [['Innenwinkel', 'der Winkel innen an einer Ecke'], ['360°', 'eine volle Umdrehung um eine Ecke']],
+  'bild': _dreiecke(1),
+  'schritte': [{'text': 'Ein gleichseitiges Dreieck hat an jeder Ecke einen Innenwinkel von 60°.'},
+               {'text': 'Um eine Ecke ist Platz für 360°. 360° : 60° = 6.', 'bild': _dreiecke(6)},
+               {'text': 'Sechs Dreiecke passen genau: ⟦ein Parkett⟧.'},
+               {'text': 'Fünfeck: 360° : 108° = 3,33…, es bleibt eine ⟦Lücke⟧.'}],
+  'fehler': 'Nicht jedes regelmäßige Vieleck passt. Drei Fünfecke sind 324°, es bleibt ein Spalt von 36°. Vier wären mit 432° zu viel.',
+  'regel': '360° muss durch den ⟦Innenwinkel⟧ teilbar sein. Nur dann passen die Fliesen lückenlos.'},
+ 'eigenschaften': {
+  'einstieg': 'Du klappst das Pauspapier um, schiebst oder drehst es. Die Figur bleibt gleich groß, mit gleichen Seiten und Winkeln. Solche Bewegungen heißen ⟦Kongruenzabbildungen⟧.',
+  'woerter': [['kongruent', 'deckungsgleich: passt genau aufeinander'], ['parallel', 'überall gleich weit auseinander, wie Schienen'],
+              ['Umlaufsinn', 'Reihenfolge der Ecken: im oder gegen den Uhrzeigersinn']],
+  'bild': {'typ': 'koordinaten', 'x': [0, 9], 'y': [0, 4], 'senkrecht': [3, 6], 'strecken': _dreieck(_D0)},
+  'schritte': [{'text': 'Das Dreieck wird an zwei parallelen Achsen gespiegelt, 3 Kästchen auseinander.'},
+               {'text': 'Nach der ersten Spiegelung ist der Umlaufsinn umgekehrt.', 'bild': {'strecken': _dreieck(_D0) + _dreieck(_D1, 'gestrichelt')}},
+               {'text': 'Nach der zweiten stimmt er wieder. Das Bild ist kongruent zum Original.',
+                'bild': {'strecken': _dreieck(_D0) + _dreieck(_D1, 'gestrichelt') + _dreieck(_D2)}},
+               {'text': 'Es ist nur verschoben, um ⟦2 · 3 = 6⟧ Kästchen.'}],
+  'fehler': 'Eine Drehung macht die Figur nicht größer. Das Pauspapier wird gedreht, nicht gedehnt: Längen und Winkel ⟦bleiben gleich⟧.',
+  'regel': 'Kongruenzabbildungen erhalten ⟦Längen und Winkel⟧. Nur das Achsenspiegeln dreht den Umlaufsinn um.'},
+}
+UMBAU_OFFEN = []
+baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Spiegeln', ['achsenspiegelung', 'punktspiegelung']), ('Verschieben und Drehen', ['verschiebung', 'drehung']), ('Symmetrie und Eigenschaften', ['symmetrie', 'parkett', 'eigenschaften'])],

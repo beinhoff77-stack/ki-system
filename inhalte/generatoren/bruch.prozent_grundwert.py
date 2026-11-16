@@ -435,6 +435,112 @@ for _e in ETAPPEN:
     _e.update(KLAR.get(_e['lernziel'], {}))
 
 
+# ---------- UMBAU: neues Muster (Achte Runde, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl7.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl7 import mit_umbau  # noqa: E402
+
+
+def _streifen(neu=None, oben=''):
+    """Prozentstreifen: 100 % als Rechteck (Länge 10); neu = Prozentwert danach (z. B. 115 oder 85)."""
+    pk = {'_a': [0, 0], '_b': [10, 0], '_e': [10, 1.5], '_f': [0, 1.5]}
+    li = [['_a', '_b', '100 % = Grundwert'], ['_b', '_e'], ['_f', '_a']]
+    fl = None
+    if neu is None:
+        li.append(['_e', '_f'])
+    elif neu > 100:
+        x = 10 + (neu - 100) / 10
+        pk.update({'_c': [x, 0], '_d': [x, 1.5]})
+        li += [['_b', '_c', f'+{neu - 100} %'], ['_c', '_d'], ['_d', '_f', oben]]
+        fl = ['_b', '_c', '_d', '_e']
+    else:
+        x = neu / 10
+        pk.update({'_c': [x, 0], '_d': [x, 1.5]})
+        li += [['_c', '_d', '', 'gestrichelt'], ['_e', '_f', oben]]
+        fl = ['_c', '_b', '_e', '_d']
+    b = {'typ': 'figur', 'punkte': pk, 'linien': li}
+    if fl: b['flaeche'] = fl
+    return b
+
+
+UMBAU = {
+ 'faktor': {
+  'einstieg': 'Im Sportgeschäft steigen alle Preise um 15 %. Ein Ball für 100 € kostet dann 115 €. Mit einer einzigen Zahl rechnest du jeden neuen Preis aus: dem ⟦Wachstumsfaktor⟧.',
+  'woerter': [['%', 'Prozent, also Hundertstel: 15 % = 15/100 = 0,15'], ['Grundwert', 'der Wert vorher; er zählt als 100 %'],
+              ['Wachstumsfaktor', 'die Zahl, mit der man den alten Wert malnimmt']],
+  'bild': _streifen(),
+  'schritte': [{'text': 'Der alte Preis ist der Grundwert. Er zählt als 100 %.'},
+               {'text': 'Dazu kommen 15 %. Neu sind es 100 % + 15 % = 115 %.', 'bild': _streifen(115, '115 %')},
+               {'text': '115 % = 115/100 = ⟦1,15⟧. Das ist der Wachstumsfaktor.', 'bild': _streifen(115, '115 % → Faktor 1,15')},
+               {'text': 'Bei 15 % weniger bleiben 85 %. Der Faktor ist ⟦0,85⟧.', 'bild': _streifen(85, '85 % → Faktor 0,85')}],
+  'fehler': 'Der Faktor für 15 % mehr ist nicht 0,15. Mal 0,15 ergibt nur die Erhöhung: 15 € statt 115 € für den Ball.',
+  'regel': 'Der ⟦Wachstumsfaktor⟧ ist der neue Prozentwert geteilt durch 100. Plus 15 % ergibt 1,15, minus 15 % ergibt 0,85.'},
+ 'vermehrt': {
+  'einstieg': 'Ein Fahrrad kostet 480 €. Nächsten Monat wird es 5 % teurer. Mit dem Faktor rechnest du den neuen Preis in einem Schritt aus. Er heißt ⟦vermehrter Grundwert⟧.',
+  'woerter': [['vermehrter Grundwert', 'der Wert nach einer Erhöhung'], ['·', 'Malzeichen']],
+  'bild': {'typ': 'saeulen', 'einheit': '€', 'werte': [{'name': 'vorher', 'wert': 480}], 'y_start': 0, 'zahlen': True},
+  'schritte': [{'text': 'Der alte Preis ist der Grundwert: 480 €.'},
+               {'text': '5 % mehr heißt: Faktor 1 + 5/100 = 1,05.'},
+               {'text': 'Neuer Preis: 480 € · 1,05 = ⟦504 €⟧. Das ist der vermehrte Grundwert.',
+                'bild': {'werte': [{'name': 'vorher', 'wert': 480}, {'name': 'nachher', 'wert': 504}]}}],
+  'fehler': '480 € + 5 = 485 € ist falsch. 5 % sind nicht 5 €, sondern 5 Hundertstel von 480 €, also ⟦24 €⟧.',
+  'fehler_bild': {'werte': [{'name': 'vorher', 'wert': 480}, {'name': 'falsch', 'wert': 485}, {'name': 'richtig', 'wert': 504}]},
+  'regel': 'Neuer Wert = ⟦Grundwert · Faktor⟧. Bei 5 % mehr ist der Faktor 1,05.'},
+ 'vermindert': {
+  'einstieg': 'Eine Jacke kostet 120 €. Im Schlussverkauf gibt es 30 % Rabatt. Was zahlst du? Der neue, kleinere Preis heißt ⟦verminderter Grundwert⟧.',
+  'woerter': [['Rabatt', 'Preisnachlass in Prozent'], ['verminderter Grundwert', 'der Wert nach einer Senkung']],
+  'bild': {'typ': 'bruchstreifen', 'teile': 10, 'gefaerbt': 10, 'ganzes': '120 €', 'teil_text': '100 %'},
+  'schritte': [{'text': 'Teile den Preis in 10 gleiche Teile. Jeder Teil sind 10 % = 12 €.'},
+               {'text': '30 % Rabatt nehmen 3 Teile weg. Es bleiben 70 %, also Faktor 0,7.', 'bild': {'gefaerbt': 7, 'teil_text': '70 %'}},
+               {'text': 'Du zahlst 120 € · 0,7 = ⟦84 €⟧. Das ist der verminderte Grundwert.', 'bild': {'teil_text': '84 €'}}],
+  'fehler': '120 € · 0,3 = 36 € ist der Rabatt, nicht der Preis. Das sparst du nur. Zahlen musst du ⟦84 €⟧.',
+  'fehler_bild': {'gefaerbt': 3, 'teil_text': '36 € gespart'},
+  'regel': 'Bei Rabatt nimmst du mal den ⟦Rest-Anteil⟧. 30 % Rabatt heißt: mal 0,7.'},
+ 'zurueck': {
+  'einstieg': 'Auf dem Kassenzettel steht 59,50 € für ein T-Shirt. Darin stecken 19 % Steuer. Wie viel kostet es ohne Steuer? Du rechnest ⟦zurück zum Grundwert⟧.',
+  'woerter': [['Mehrwertsteuer', 'Steuer, die auf den Preis aufgeschlagen wird, meist 19 %'], ['Nettopreis', 'der Preis ohne Steuer; er ist hier der Grundwert']],
+  'bild': {'typ': 'tabelle', 'kopf': ['', 'Anteil', 'Betrag'], 'zeilen': [['ohne Steuer', '100 %', '?'], ['Steuer', '19 %', '?'], ['mit Steuer', '119 %', '59,50 €']]},
+  'schritte': [{'text': 'Der Nettopreis ist 100 %. Mit Mehrwertsteuer sind es 119 %.'},
+               {'text': 'Also gilt: Nettopreis · 1,19 = 59,50 €.'},
+               {'text': 'Rückwärts wird geteilt: 59,50 € : 1,19 = ⟦50 €⟧.',
+                'bild': {'zeilen': [['ohne Steuer', '100 %', '50 €'], ['Steuer', '19 %', '9,50 €'], ['mit Steuer', '119 %', '59,50 €']]}}],
+  'fehler': 'Nicht 19 % von 59,50 € abziehen: Das ergibt 48,20 €. Die 19 % kamen auf den kleineren Nettopreis. Darum ⟦durch 1,19 teilen⟧.',
+  'regel': 'Zurück zum Grundwert: ⟦neuer Wert : Faktor⟧. Teilen macht das Malnehmen rückgängig.'},
+ 'prozentsatz': {
+  'einstieg': 'Turnschuhe kosteten letzte Woche 40 €, heute 46 €. Um wie viel Prozent ist der Preis gestiegen? Gesucht ist der ⟦Prozentsatz⟧ der Änderung.',
+  'woerter': [['Prozentsatz', 'die Prozentzahl, zum Beispiel 15 %']],
+  'bild': {'typ': 'saeulen', 'einheit': '€', 'werte': [{'name': 'vorher', 'wert': 40}, {'name': 'heute', 'wert': 46}], 'y_start': 0, 'zahlen': True},
+  'schritte': [{'text': 'Teile den neuen Preis durch den alten: 46 : 40 = 1,15.'},
+               {'text': '1,15 ist größer als 1. Der Preis ist also gestiegen.'},
+               {'text': '1,15 = 115 %. Das sind ⟦15 % mehr⟧ als vorher.'}],
+  'fehler': '6 € mehr sind nicht 6 %. Die 6 € beziehen sich auf die alten 40 €: 6 : 40 = ⟦15 %⟧.',
+  'regel': 'Teile neu durch ⟦alt⟧ und vergleiche mit 100 %. Mehr als 100 % heißt Zunahme, weniger heißt Abnahme.'},
+ 'mehrfach': {
+  'einstieg': 'Eine Spielkonsole kostet 200 €. Im Herbst wird sie 10 % teurer, im Januar wieder 10 % billiger. Kostet sie dann 200 €? Nein – man rechnet mit ⟦Faktoren nacheinander⟧.',
+  'woerter': [['Gesamtfaktor', 'alle Faktoren miteinander malgenommen']],
+  'bild': {'typ': 'saeulen', 'einheit': '€', 'werte': [{'name': 'Start', 'wert': 200}], 'y_start': 0, 'zahlen': True},
+  'schritte': [{'text': 'Plus 10 %: 200 € · 1,1 = 220 €.', 'bild': {'werte': [{'name': 'Start', 'wert': 200}, {'name': 'Herbst', 'wert': 220}]}},
+               {'text': 'Minus 10 % vom neuen Preis: 220 € · 0,9 = ⟦198 €⟧.',
+                'bild': {'werte': [{'name': 'Start', 'wert': 200}, {'name': 'Herbst', 'wert': 220}, {'name': 'Januar', 'wert': 198}]}},
+               {'text': 'Schneller mit dem Gesamtfaktor: 1,1 · 0,9 = 0,99.'}],
+  'fehler': '+10 % und −10 % heben sich nicht auf. Die 10 % Abzug rechnet man von 220 €: Das sind 22 €, nicht 20 €.',
+  'regel': 'Bei mehreren Änderungen ⟦Faktoren malnehmen⟧. Die Prozentsätze darfst du nicht addieren.'},
+ 'argumente': {
+  'einstieg': 'Ein Laden wirbt: „20 % Rabatt und an der Kasse noch einmal 10 %. Zusammen 30 %!“ Stimmt das? Eine Begründung mit Rechnung heißt ⟦mathematisches Argument⟧.',
+  'woerter': [['mathematisches Argument', 'eine Begründung mit Rechnung, die jeder nachprüfen kann'],
+              ['außermathematisch', 'ein Grund ohne Rechnung, zum Beispiel „das klingt fair“']],
+  'bild': {'typ': 'saeulen', 'einheit': '%', 'werte': [{'name': 'vorher', 'wert': 100}], 'y_start': 0, 'zahlen': True},
+  'schritte': [{'text': 'Nach 20 % Rabatt zahlst du noch 80 % des Preises.', 'bild': {'werte': [{'name': 'vorher', 'wert': 100}, {'name': '−20 %', 'wert': 80}]}},
+               {'text': 'Davon gehen noch 10 % weg: 0,8 · 0,9 = 0,72.',
+                'bild': {'werte': [{'name': 'vorher', 'wert': 100}, {'name': '−20 %', 'wert': 80}, {'name': '−10 %', 'wert': 72}]}},
+               {'text': 'Du zahlst 72 % und sparst 28 %. Die Werbung ist ⟦falsch⟧.'},
+               {'text': 'Das Werbeschild selbst ist nur ein außermathematisches Argument.'}],
+  'fehler': '„Der Laden schreibt doch 30 %, also stimmt es“ ist kein mathematisches Argument. Nur die ⟦Rechnung⟧ entscheidet.',
+  'regel': 'Prüfe Aussagen mit einer ⟦Rechnung⟧. Gründe wie „klingt fair“ beweisen nichts.'},
+}
+UMBAU_OFFEN = []
+baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Faktoren', ['faktor', 'vermehrt', 'vermindert']), ('Rückwärts rechnen', ['zurueck', 'prozentsatz']), ('Komplexere Aufgaben', ['mehrfach', 'argumente'])],

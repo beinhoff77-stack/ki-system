@@ -3,6 +3,12 @@
 Technik: je Generator ein Abschnitt KARTEN (ersetzt den Abschnitt KLAR der Runde 7), eingesetzt über `inhalte/generatoren/_umbau_kl6.py` (dieselben strengen Regeln wie `_umbau_kl5.py` aus Paket U5) erst NACH dem Erzeugen der Aufgaben – die Aufgaben bleiben wörtlich gleich. `probe` entfällt bei umgebauten Karten. finanzen.zinsen (ohne Generator): Überlagerung `inhalte/klar/finanzen.zinsen.json`, mit denselben Regeln geprüft.
 Vergleich je Thema: `aufgaben`, titel/lernziel und alle Felder außer `inhalt.etappen` und `offen` gegen den Ausgangsstand bc7a754 (lernen-app).
 
+## 2026-11-16 03:05 – STATUS
+zahlen.potenzen_zehner (7 Karten) umgebaut. Kartenbilder: Stellentafel, in der die 1 bei jedem Mal-10 eine Stelle nach links rückt (zehnerpotenz), Tabellen normal ↔ wissenschaftlich (Sonnenabstand, Sandkorn), Tabellen der Vorsilben (k, M, G, T; m, µ, n), Potenzreihe 10¹ bis 10⁻⁴, Einwohnertabelle → Säulen 90 000 / 200 000.
+Neu: Kartenbilder für alle Karten außer zehnerpotenz (bisher ohne Bild).
+Kein fehler_bild (Lese- und Umrechnungsfehler).
+inhalt_pruefen: OK, keine Hinweise. Vergleich gegen bc7a754: 196 Aufgaben wörtlich gleich, Rest gleich, titel/lernziel gleich.
+
 ## 2026-11-16 03:04 – STATUS
 terme.potenzgesetze (7 Karten) umgebaut. Alle Karten bekommen erstmals ein Kartenbild, durchweg Tabellen, die sich Schritt für Schritt füllen (Papierfalten: Faltungen → Lagen; Potenzreihe 2³ bis 2⁻³; Faktoren zählen; 10⁶ und 10⁴; Paare 2 · 5; Zahlen als Potenzen; Zahlenprobe 3² · 3³ gegen 3⁶ und 3⁵). Für Potenzen gibt es keine passendere Zeichnungsart.
 fehler_bild nur bei potenz_begriff (2 · 4 = 8 statt 16 Lagen).

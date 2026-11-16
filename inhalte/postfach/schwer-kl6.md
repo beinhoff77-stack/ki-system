@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 06:05 – STATUS
+Thema 2/8 fertig: **bruch.brueche** – 48 neue Übungen (je Lernkarte 2 × S2, 4 × S3). Prüfskript OK, Unverändert-Nachweis JA.
+
 ## 2026-11-16 05:40 – STATUS
 Thema 1/8 fertig: **zahlen.potenzen_zehner** – 42 neue Übungen (je Lernkarte 2 × Stufe 2, 4 × Stufe 3), danach je Lernkarte 10 Übungen Stufe 3.
 Prüfskript OK, Unverändert-Nachweis JA (`python3 -I inhalte/generatoren/_schwer_kl6_nachweis.py zahlen.potenzen_zehner`).

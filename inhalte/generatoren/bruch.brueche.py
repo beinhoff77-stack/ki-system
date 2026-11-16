@@ -649,5 +649,189 @@ KARTEN = {
 umbau(DATEI, KARTEN)
 
 
+
+# ---------- SCHWER (Zehnte Runde, Zweig schwer-kl6): je Lernkarte 2 Übungen Stufe 2 + 4 Übungen Stufe 3 ----------
+# Läuft nach allen bisherigen Aufgaben mit eigenem Zufallsstart; die bisherigen Aufgaben bleiben unverändert.
+# Prüfungsvorbilder: Bayerischer Mathematik-Test Jgst. 8 (ISB) 2023 Aufg. 5a (fehlender Restanteil), 2024 Aufg. 3b/3c (Aussagen zu
+# Anteilen prüfen, „ein Drittel“; Gesamtzahl aus Anzahl und Anteil), 2025 Aufg. 6d (gleicher Anteil, verschiedene Gesamtzahlen);
+# Jahrgangsstufentest Realschule Jgst. 6 (ISB) 2024 Nr. 16 (Ganzes aus gleichen Teilen); Känguru 5/6 (2021): Mischungen vergleichen,
+# Anteil einer Fläche; IQB VERA-8 „Anteile in geometrischen Objekten“: Falle Verhältnis statt Anteil.
+from _schwer_kl6 import ergaenzen, zahl, wahl, luecken, anteil, mark  # noqa: E402
+
+_JA_NEIN = 'Rechne beide Seiten mit Zahlen nach, bevor du entscheidest.'
+
+
+def _br():
+    return {
+        'bruchteil_von': [
+            (2, lambda R: zahl('Wie viele Gramm sind 3/5 von 2 kg?', 1200, '2000 / 5 * 3', 'Rechne 2 kg zuerst in Gramm um.',
+                               '2 kg = 2 000 g. 2 000 g : 5 = 400 g. 400 g · 3 = 1 200 g.', einheit='g')),
+            (2, lambda R: zahl('Ein Tag hat 24 Stunden. Ein Kind schläft 3/8 des Tages. Wie viele Stunden sind das?', 9, '24 / 8 * 3',
+                               'Durch den Nenner teilen, mit dem Zähler malnehmen.', '24 h : 8 = 3 h. 3 h · 3 = 9 h.', einheit='h')),
+            (3, lambda R: zahl('Ein Schulfest bringt 360 € ein. 1/4 davon bekommt die Klassenkasse, 2/5 der Förderverein, '
+                               'den Rest ein Tierheim. Wie viel Euro bekommt das Tierheim?', 126, '360 - 360 / 4 - 360 / 5 * 2',
+                               'Rechne zuerst die beiden Teile aus und ziehe sie von 360 € ab.',
+                               '1/4 von 360 € = 90 €. 2/5 von 360 € = 144 €. 360 € − 90 € − 144 € = 126 €.', einheit='€')),
+            (3, lambda R: zahl('Von 48 Kindern fahren 1/3 mit dem Bus. Von den übrigen Kindern kommt die Hälfte mit dem Rad. '
+                               'Wie viele Kinder kommen mit dem Rad?', 16, '(48 - 48 / 3) / 2',
+                               'Achtung: Die Hälfte bezieht sich nur auf die übrigen Kinder, nicht auf alle 48.',
+                               '1/3 von 48 = 16 Kinder fahren Bus. Übrig: 48 − 16 = 32. Die Hälfte davon: 32 : 2 = 16 Kinder.')),
+            (3, lambda R: zahl('Was ist mehr: 2/3 von 90 € oder 3/4 von 80 €? Gib den Unterschied in Euro an.', 0,
+                               '90 / 3 * 2 - 80 / 4 * 3', 'Rechne beide Bruchteile einzeln aus.',
+                               '2/3 von 90 € = 60 €. 3/4 von 80 € = 60 €. Beide sind gleich, der Unterschied ist 0 €.', einheit='€')),
+            (3, lambda R: zahl('Ein Kind rechnet 3/5 von 40 m so: 40 · 5 : 3. Welches Ergebnis ist richtig? Gib es in Metern an.', 24,
+                               '40 / 5 * 3', 'Welche Zahl gehört zum Teilen, welche zum Malnehmen?',
+                               'Richtig: durch den Nenner 5 teilen, mit dem Zähler 3 malnehmen. 40 m : 5 = 8 m, 8 m · 3 = 24 m. '
+                               'Das Kind hat Zähler und Nenner vertauscht.', einheit='m')),
+        ],
+        'anteil_bestimmen': [
+            (2, lambda R: anteil('Welcher Anteil eines Tages sind 8 Stunden?', 8, 24, 'Ein Tag hat 24 Stunden.',
+                                 'Anteil = 8/24. Durch 8 kürzen: 1/3.')),
+            (2, lambda R: anteil('Welcher Anteil von 2 kg sind 250 g?', 250, 2000, 'Rechne beide Angaben in dieselbe Einheit um.',
+                                 '2 kg = 2 000 g. Anteil = 250/2 000. Durch 250 kürzen: 1/8.')),
+            (3, lambda R: anteil('Ein Saft wird aus 2 Teilen Sirup und 3 Teilen Wasser gemischt. Welcher Anteil der Mischung ist Sirup?', 2, 5,
+                                 'Wie viele Teile hat die ganze Mischung?',
+                                 'Die Mischung hat 2 + 3 = 5 Teile, davon 2 Teile Sirup. Anteil 2/5 (nicht 2/3 – das wäre Sirup im Vergleich zu Wasser).')),
+            (3, lambda R: anteil('In der 6a sind 12 von 30 Kindern im Sportverein, in der 6b 9 von 20 Kindern. '
+                                 'Welcher Anteil aller Kinder beider Klassen ist im Sportverein?', 21, 50,
+                                 'Zähle alle Vereinskinder und alle Kinder zusammen. Brüche einfach addieren geht hier nicht.',
+                                 'Im Verein: 12 + 9 = 21 Kinder. Alle: 30 + 20 = 50 Kinder. Anteil 21/50.')),
+            (3, lambda R: anteil('Ein Kind gibt 1/3 seines Taschengelds aus und danach die Hälfte vom Rest. Welcher Anteil des Taschengelds ist noch übrig?',
+                                 1, 3, 'Probiere mit einem Betrag, z. B. 30 €.',
+                                 'Mit 30 €: 1/3 sind 10 €, Rest 20 €. Die Hälfte davon (10 €) wird ausgegeben. Übrig 10 € von 30 €, also 1/3.')),
+            (3, lambda R: zahl('In einer Dose liegen 3 rote und 5 blaue Kugeln. Wie viele rote Kugeln musst du dazulegen, '
+                               'damit genau die Hälfte aller Kugeln rot ist?', 2, '5 - 3',
+                               'Bei der Hälfte gibt es gleich viele rote wie blaue Kugeln.',
+                               'Die Hälfte ist rot, wenn es gleich viele rote wie blaue sind: 5 rote. Es fehlen 5 − 3 = 2 rote Kugeln.')),
+        ],
+        'ganzes_bestimmen': [
+            (2, lambda R: zahl('18 Seiten sind 3/8 eines Hefts. Wie viele Seiten hat das Heft?', 48, '18 / 3 * 8',
+                               'Durch den Zähler teilen, mit dem Nenner malnehmen.', '18 : 3 = 6 Seiten sind 1/8. 6 · 8 = 48 Seiten.')),
+            (2, lambda R: zahl('Nach 2/5 der Fahrt hat ein Bus 60 km geschafft. Wie lang ist die ganze Fahrt?', 150, '60 / 2 * 5',
+                               'Wie viele km sind 1/5 der Fahrt?', '60 km : 2 = 30 km sind 1/5. 30 km · 5 = 150 km.', einheit='km')),
+            (3, lambda R: zahl('Ein Riesenrad hat 20 gleiche Gondeln. 4 Gondeln haben zusammen 24 Sitzplätze. '
+                               'Wie viele Sitzplätze hat das ganze Riesenrad?', 120, '24 / 4 * 20',
+                               'Welcher Anteil des Riesenrads sind 4 Gondeln? Oder: Wie viele Plätze hat eine Gondel?',
+                               '4 von 20 Gondeln sind 1/5 des Rads. 24 Plätze · 5 = 120 Plätze. (Oder: 24 : 4 = 6 Plätze je Gondel, 6 · 20 = 120.)')),
+            (3, lambda R: zahl('Bei einer Umfrage nannten 45 Kinder Fußball als Lieblingssport. Das waren 3/8 aller Befragten. '
+                               'Wie viele Befragte nannten etwas anderes?', 75, '45 / 3 * 8 - 45',
+                               'Bestimme zuerst, wie viele Kinder insgesamt befragt wurden.',
+                               '45 : 3 = 15 sind 1/8. Alle: 15 · 8 = 120 Kinder. Etwas anderes: 120 − 45 = 75 Kinder.')),
+            (3, lambda R: zahl('Ein Kind gibt 1/4 seines Geldes aus und hat danach noch 27 €. Wie viel Geld hatte es vorher?', 36, '27 / 3 * 4',
+                               'Die 27 € sind nicht 1/4, sondern der Rest. Welcher Anteil ist der Rest?',
+                               'Übrig sind 3/4 des Geldes = 27 €. 27 € : 3 = 9 € sind 1/4. 9 € · 4 = 36 €.', einheit='€')),
+            (3, lambda R: zahl('Ein Kind rechnet: „2/3 sind 16 Liter, also ist das Ganze 2/3 von 16 Litern.“ Wie viele Liter ist das Ganze wirklich?', 24,
+                               '16 / 2 * 3', 'Rückwärts: durch den Zähler, mal den Nenner.',
+                               '16 l : 2 = 8 l sind 1/3. 8 l · 3 = 24 l. 2/3 von 16 l wären weniger als 16 l – das kann nicht das Ganze sein.', einheit='l')),
+        ],
+        'erweitern': [
+            (2, lambda R: luecken('Ergänze: 7/12 = □/60', '□', 'Trage den Zähler ein.', [35], ['7 * (60 // 12)'],
+                                  'Mit welcher Zahl wird 12 zu 60?', '12 · 5 = 60, also auch 7 · 5 = 35. 7/12 = 35/60.')),
+            (2, lambda R: luecken('Erweitere 5/8 so, dass der Nenner 1 000 ist.', '□/□', 'Zähler ins erste Kästchen, Nenner ins zweite.',
+                                  [625, 1000], ['5 * 125', '8 * 125'], 'Mit welcher Zahl wird 8 zu 1 000?', '8 · 125 = 1 000, also 5 · 125 = 625. 5/8 = 625/1 000.')),
+            (3, lambda R: luecken('Bringe 2/3 und 3/4 auf den kleinsten gemeinsamen Nenner.', '2/3 = □/□;  3/4 = □/□',
+                                  'Zähler und Nenner der beiden erweiterten Brüche eintragen.', [8, 12, 9, 12], ['2 * 4', '3 * 4', '3 * 3', '4 * 3'],
+                                  'Suche die kleinste Zahl, die in der Dreier- und in der Viererreihe steht.',
+                                  'Kleinster gemeinsamer Nenner: 12. 2/3 mit 4 erweitern: 8/12. 3/4 mit 3 erweitern: 9/12.')),
+            (3, lambda R: luecken('Erweitere 3/5 so, dass Zähler und Nenner zusammen 48 ergeben.', '□/□', 'Zähler ins erste Kästchen, Nenner ins zweite.',
+                                  [18, 30], ['3 * (48 // 8)', '5 * (48 // 8)'], 'Bei 3/5 sind Zähler und Nenner zusammen 8. Wie oft passt 8 in 48?',
+                                  '3 + 5 = 8 und 48 : 8 = 6. Mit 6 erweitern: 18/30. Probe: 18 + 30 = 48.')),
+            (3, lambda R: luecken('Ein Bruch wurde mit 4 erweitert. Jetzt heißt er 12/28. Wie hieß er vorher?', '□/□',
+                                  'Zähler ins erste Kästchen, Nenner ins zweite.', [3, 7], ['12 // 4', '28 // 4'],
+                                  'Rückwärts: Was ist das Gegenteil von „mit 4 erweitern“?', 'Zähler und Nenner durch 4 teilen: 12 : 4 = 3, 28 : 4 = 7. Vorher 3/7.')),
+            (3, lambda R: wahl(R, 'Welcher Bruch ist NICHT gleich 3/4?', '9/16', ['6/8', '15/20', '75/100'],
+                               'Prüfe bei jedem Bruch: Wurden Zähler und Nenner mit derselben Zahl malgenommen?',
+                               '6/8 (mal 2), 15/20 (mal 5), 75/100 (mal 25) sind gleich 3/4. Bei 9/16 wurde der Zähler mal 3, der Nenner mal 4 genommen.')),
+        ],
+        'kuerzen': [
+            (2, lambda R: anteil('Kürze 42/56 vollständig.', 42, 56, 'Der größte gemeinsame Teiler von 42 und 56 steht in der Siebenerreihe.',
+                                 'ggT(42, 56) = 14. 42 : 14 = 3, 56 : 14 = 4. Also 3/4.')),
+            (2, lambda R: anteil('Kürze 64/80 vollständig.', 64, 80, 'Kürze schrittweise, z. B. zuerst durch 8.',
+                                 '64/80 durch 8: 8/10, durch 2: 4/5. (Oder gleich durch 16.)')),
+            (3, lambda R: anteil('Ein Fußballspiel dauert 90 Minuten. Eine Mannschaft hat 54 Minuten lang den Ball. '
+                                 'Welcher Anteil der Spielzeit ist das? Vollständig gekürzt.', 54, 90,
+                                 'Teil durch Ganzes, dann kürzen.', 'Anteil 54/90. ggT = 18: 54 : 18 = 3, 90 : 18 = 5. Also 3/5.')),
+            (3, lambda R: zahl('Wie viele der Brüche 1/12, 2/12, 3/12, …, 11/12 lassen sich NICHT kürzen?', 4, '11 - 7',
+                               'Ein Bruch lässt sich kürzen, wenn Zähler und 12 einen gemeinsamen Teiler haben (2 oder 3).',
+                               'Kürzbar sind die Zähler 2, 3, 4, 6, 8, 9, 10 (7 Stück). Nicht kürzbar: 1, 5, 7, 11 – also 4 Brüche.')),
+            (3, lambda R: wahl(R, 'Ein Kind „kürzt“ 16/64, indem es in Zähler und Nenner die 6 streicht. Es erhält 1/4. Was stimmt?',
+                               'Das Ergebnis stimmt zufällig, aber Ziffern streichen ist kein Kürzen.',
+                               ['So darf man immer kürzen.', 'Das Ergebnis ist falsch, richtig ist 4/16.', 'Das Ergebnis ist falsch, 16/64 lässt sich nicht kürzen.'],
+                               'Kürze 16/64 richtig: durch welche Zahl kann man Zähler und Nenner teilen?',
+                               '16/64 durch 16 gekürzt ist wirklich 1/4. Ziffern streichen klappt aber meist nicht, z. B. 12/24 wäre nach Streichen der 2 dann 1/4 – richtig ist 1/2.')),
+            (3, lambda R: anteil('Kürze vollständig, am besten vor dem Ausrechnen: (12 · 25)/(15 · 40)', 12 * 25, 15 * 40,
+                                 'Zerlege die Zahlen in Faktoren und kürze gleiche Faktoren oben und unten.',
+                                 '12 · 25 = 300, 15 · 40 = 600. 300/600 = 1/2. Mit Faktoren: 12/40 = 3/10 und 25/15 = 5/3, zusammen (3 · 5)/(10 · 3) = 1/2.')),
+        ],
+        'vergleichen': [
+            (2, lambda R: wahl(R, 'Welcher Bruch ist größer: 5/8 oder 7/12?', '5/8', ['7/12', 'Beide sind gleich groß'],
+                               'Hauptnenner von 8 und 12 ist 24.', '5/8 = 15/24 und 7/12 = 14/24. 15 > 14, also ist 5/8 größer.', n=3)),
+            (2, lambda R: wahl(R, 'Welcher Bruch ist kleiner: 4/9 oder 1/2?', '4/9', ['1/2', 'Beide sind gleich groß'],
+                               'Wie viele Neuntel wären genau die Hälfte?', 'Hauptnenner 18: 4/9 = 8/18 und 1/2 = 9/18. 8 < 9, also ist 4/9 kleiner.', n=3)),
+            (3, lambda R: wahl(R, 'Drei Saftmischungen: A aus 1 Teil Sirup und 3 Teilen Wasser, B aus 2 Teilen Sirup und 5 Teilen Wasser, '
+                                  'C aus 3 Teilen Sirup und 8 Teilen Wasser. Welche Mischung schmeckt am stärksten nach Sirup?',
+                               'B', ['A', 'C', 'Alle gleich stark'],
+                               'Bestimme für jede Mischung den Anteil Sirup an der ganzen Mischung und vergleiche.',
+                               'Anteile Sirup: A 1/4, B 2/7, C 3/11. Hauptnenner 308: A 77/308, B 88/308, C 84/308. Am meisten Sirup hat B.')),
+            (3, lambda R: zahl('Welche natürliche Zahl kannst du für □ einsetzen, damit 2/5 < □/10 < 3/5 gilt?', 5, '(4 + 6) // 2',
+                               'Erweitere 2/5 und 3/5 auf den Nenner 10.', '2/5 = 4/10 und 3/5 = 6/10. Zwischen 4/10 und 6/10 liegt nur 5/10, also □ = 5.')),
+            (3, lambda R: wahl(R, 'Ordne 2/3, 3/5 und 5/8 der Größe nach. Welcher Bruch steht in der Mitte?', '5/8', ['2/3', '3/5'],
+                               'Hauptnenner von 3, 5 und 8 ist 120.', '2/3 = 80/120, 3/5 = 72/120, 5/8 = 75/120. Reihenfolge: 3/5 < 5/8 < 2/3. In der Mitte: 5/8.', n=3)),
+            (3, lambda R: wahl(R, 'Ein Kind sagt: „3/4 < 4/5 < 5/6.“ Stimmt das?',
+                               'Ja: Bis zum Ganzen fehlen 1/4, 1/5 und 1/6 – und 1/6 ist am kleinsten.',
+                               ['Nein, alle drei sind gleich groß.', 'Nein, 3/4 ist am größten.', 'Nein, das kann man ohne Hauptnenner nicht entscheiden.'],
+                               'Wie viel fehlt jedem Bruch bis zu 1?',
+                               '3/4 fehlt 1/4, 4/5 fehlt 1/5, 5/6 fehlt 1/6. Je weniger fehlt, desto größer der Bruch. Die Reihenfolge stimmt.')),
+        ],
+        'zahlenstrahl': [
+            (2, lambda R: mark('Markiere 3/2 am Zahlenstrahl (von 0 bis 3, 12 gleiche Teile).', 0, 3, 12, 6,
+                               'Wie viele Teile kommen auf die Strecke von 0 bis 1?', 'Von 0 bis 1 sind es 4 Teile, jeder Teil ist 1/4. 3/2 = 6/4, also 6 Teile nach rechts.', Fr(3, 2))),
+            (2, lambda R: mark('Markiere 2/5 am Zahlenstrahl (von 0 bis 1, 10 gleiche Teile).', 0, 1, 10, 4,
+                               'Erweitere 2/5 auf Zehntel.', '2/5 = 4/10. Also 4 Teile von 0 aus nach rechts.', Fr(2, 5))),
+            (3, lambda R: mark('Markiere die Zahl, die genau in der Mitte zwischen 1/4 und 1/2 liegt (Zahlenstrahl von 0 bis 1, 8 gleiche Teile).', 0, 1, 8, 3,
+                               'Schreibe 1/4 und 1/2 in Achteln.', '1/4 = 2/8 und 1/2 = 4/8. Die Mitte ist 3/8, also der 3. Strich.', Fr(3, 8))),
+            (3, lambda R: mark('Markiere die Zahl, die um 3/10 größer ist als 3/2 (Zahlenstrahl von 0 bis 2, 10 gleiche Teile).', 0, 2, 10, 9,
+                               'Jeder Teil ist hier 2/10 = 1/5 lang. Schreibe die gesuchte Zahl in Zehnteln.',
+                               '3/2 + 3/10 = 15/10 + 3/10 = 18/10. Jeder Teil ist 2/10, also 18 : 2 = 9 Teile nach rechts.', Fr(9, 5))),
+            (3, lambda R: zahl('Auf einem Zahlenstrahl ist die Strecke von 0 bis 1 in 6 gleiche Teile geteilt. Beim wievielten Strich nach der 0 liegt 4/3?', 8,
+                               '4 * 6 // 3', 'Ein Teil ist 1/6. Schreibe 4/3 in Sechsteln.', '4/3 = 8/6. Also beim 8. Strich nach der 0.')),
+            (3, lambda R: zahl('Auf einem Zahlenstrahl liegt 3/5 genau beim 9. Strich nach der 0. In wie viele gleiche Teile ist die Strecke von 0 bis 1 geteilt?', 15,
+                               '9 * 5 // 3', 'Rückwärts: 3/5 = 9/□. Mit welcher Zahl wurde erweitert?', '3/5 = 9/15 (mit 3 erweitert). Die Strecke von 0 bis 1 hat 15 Teile.')),
+        ],
+        'verstehen': [
+            (2, lambda R: wahl(R, 'Stimmt die Aussage? „3/4 von 20 ist dasselbe wie 4/3 von 20.“', 'Nein: 3/4 von 20 = 15, 4/3 von 20 ist mehr als 20.',
+                               ['Ja, es kommen dieselben Zahlen vor.', 'Das kann man nicht entscheiden.'], _JA_NEIN,
+                               '3/4 von 20 = 20 : 4 · 3 = 15. 4/3 ist mehr als ein Ganzes, also ist 4/3 von 20 mehr als 20.', n=3)),
+            (2, lambda R: wahl(R, 'Stimmt die Aussage? „Ein Bruch mit dem Zähler 1 und einem Nenner größer als 2 ist kleiner als 1/2.“',
+                               'Ja: Bei mehr als 2 Teilen ist jedes Stück kleiner als eine Hälfte.',
+                               ['Nein, Gegenbeispiel 1/3.', 'Das kann man nicht entscheiden.'], _JA_NEIN,
+                               '1/3, 1/4, 1/5 … – je größer der Nenner, desto kleiner das Stück. Alle sind kleiner als 1/2.', n=3)),
+            (3, lambda R: wahl(R, 'In einer Klasse spielen 9 von 28 Kindern ein Instrument. Lisa sagt: „Das ist mehr als ein Drittel der Klasse.“ Stimmt das?',
+                               'Nein: 9/28 ist knapp weniger als 1/3.',
+                               ['Ja: 9/28 ist mehr als 1/3.', 'Ja: 9 ist ein Drittel von 27, und 28 ist mehr.', 'Es ist genau ein Drittel.'],
+                               'Vergleiche 9/28 und 1/3 mit dem Hauptnenner 84.',
+                               '9/28 = 27/84 und 1/3 = 28/84. 27/84 < 28/84, also ist es etwas weniger als ein Drittel. (Ein Drittel von 28 wären 9 1/3 Kinder.)')),
+            (3, lambda R: wahl(R, 'In der Klasse A (16 Kinder) lesen 1/2 der Kinder gern, in der Klasse B (30 Kinder) 1/3. Max sagt: '
+                                  '„In A lesen mehr Kinder gern, weil 1/2 größer ist als 1/3.“ Stimmt das?',
+                               'Nein: In A sind es 8 Kinder, in B 10 Kinder.',
+                               ['Ja, ein größerer Anteil heißt immer mehr Kinder.', 'Ja, in A sind es 8, in B nur 3 Kinder.', 'Beide Klassen haben gleich viele Leser.'],
+                               'Rechne die Anzahlen aus. Die Klassen sind verschieden groß.',
+                               '1/2 von 16 = 8, 1/3 von 30 = 10. Der größere Anteil gehört hier zur kleineren Anzahl, weil Klasse A kleiner ist.')),
+            (3, lambda R: wahl(R, 'Stimmt die Aussage? „Zwischen 1/3 und 1/2 liegt kein weiterer Bruch.“', 'Nein, zum Beispiel liegt 5/12 dazwischen.',
+                               ['Ja, 1/3 und 1/2 sind Nachbarn.', 'Nein, zum Beispiel liegt 2/3 dazwischen.', 'Nein, zum Beispiel liegt 1/4 dazwischen.'],
+                               'Schreibe beide Brüche mit dem Nenner 12.',
+                               '1/3 = 4/12 und 1/2 = 6/12. Dazwischen liegt 5/12. (Zwischen zwei Brüchen liegt sogar immer ein weiterer.)')),
+            (3, lambda R: wahl(R, 'Ein Kind „erweitert“ 2/3 so: (2 + 4)/(3 + 4) = 6/7. Was ist der Fehler?',
+                               'Erweitern heißt malnehmen, nicht addieren: Mit 4 erweitert ist 2/3 = 8/12.',
+                               ['Es gibt keinen Fehler.', 'Man darf nur den Nenner verändern.', 'Man hätte 4 abziehen müssen.'],
+                               'Vergleiche 2/3 und 6/7: Sind sie gleich groß?',
+                               '2/3 = 14/21, 6/7 = 18/21 – verschieden. Beim Erweitern werden Zähler und Nenner mit derselben Zahl malgenommen: 8/12.')),
+        ],
+    }
+
+
+ergaenzen(DATEI, _br(), seed=6021)
+
+
 if __name__ == '__main__':
     schreibe(DATEI)

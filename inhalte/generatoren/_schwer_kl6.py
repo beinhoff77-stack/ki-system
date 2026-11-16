@@ -85,3 +85,22 @@ def bruch_luecke(text, x, c_z, c_n, h, weg, grafik=None):
     x = Fr(x)
     return luecken(text, '□/□', 'Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt.',
                    [x.numerator, x.denominator], [c_z, c_n], h, weg, grafik)
+
+
+def anteil(text, teil, ganzes, h, weg, grafik=None):
+    """Anteil teil/ganzes vollständig gekürzt als □/□; c teilt beide durch den ggT."""
+    from math import gcd
+    g = gcd(teil, ganzes)
+    return luecken(text, '□/□', 'Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt.',
+                   [teil // g, ganzes // g], [f'{teil} // {g}', f'{ganzes} // {g}'], h, weg, grafik)
+
+
+def mark(text, start, ende, abschnitte, index, h, weg, zahlwert=None):
+    """Markierung am Zahlenstrahl; zahlwert (endliche Dezimalzahl) zum Nachrechnen, sonst weglassen."""
+    a = {'y': 'markierung', 'f': {'text': text, 'grafik': {'typ': 'zahlenstrahl', 'start': start, 'ende': ende,
+                                                            'abschnitte': abschnitte, 'beschriftet': 'anfang_ende'}},
+         'o': {'index': index}, 'h': h, 'w': weg}
+    if zahlwert is not None:
+        a['zahl'] = wert(zahlwert)
+        a['c'] = f'{start} + ({ende} - {start}) * {index} / {abschnitte}'
+    return a

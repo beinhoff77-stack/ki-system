@@ -2,6 +2,18 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 05:56 – STATUS
+stochastik.mehrstufig fertig: umgestuft 3 / berichtigt 0 / ersetzt 6 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „In einem zweistufigen Baumdiagramm ist P(A) = 0,5 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,45. Welche Wahrscheinlichkeit steht am Ast von A nach B?“
+  - „In einem zweistufigen Baumdiagramm ist P(A) = 0,2 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,18. Welche Wahrscheinlichkeit steht am Ast von A nach B?“
+  - „Ein Würfel wird 2-mal geworfen. Wie groß ist P(mindestens eine Eins)?“
+  - „Jemand sagt: „Bei 5 Würfen ist P(mindestens eine Sechs) = 5 · 1/6 = 5/6.“ Was stimmt?“
+  - „Jemand sagt: „Bei 2 Würfen ist P(mindestens eine Sechs) = 2 · 1/6 = 1/3.“ Was stimmt?“
+  - „Jemand sagt: „Bei 4 Würfen ist P(mindestens eine Sechs) = 4 · 1/6 = 2/3.“ Was stimmt?“
+- nicht umgesetzt:
+  - simulation S2 „Simulation 500-mal … relative Häufigkeit“ (reines Ablesen) – Lösungen richtig; die eigentliche Simulation (Zufallszahlen zuordnen) wurde in Runde 10 ergänzt.
+
 ## 2026-11-16 05:55 – STATUS
 raum.pyramide_kegel_kugel fertig: umgestuft 3 / berichtigt 3 / ersetzt 2 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):

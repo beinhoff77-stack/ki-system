@@ -6,6 +6,11 @@ erst NACH dem Erzeugen der Aufgaben – so bleiben die Aufgaben wörtlich gleich
 (Werte im Zahlenstrahl-Bereich, Thermometer-Stand, Figur-Punkte, Tabellenbreite). `probe` entfällt bei umgebauten Karten (kommt im neuen Muster nicht vor).
 Vergleich je Thema: `aufgaben` und alle Felder außer `inhalt.etappen` und `offen` gegen den Ausgangsstand bc7a754 (lernen-app).
 
+## 2026-11-16 03:04 – STATUS
+stochastik.kombinatorik (7 Karten) umgebaut. Tabellen füllen sich Schritt für Schritt (Outfits, Menü, Siegerpodest, Stellen, zweistellige Zahlen); Baumdiagramm wächst Stufe für Stufe, am Ende stehen die ganzen Pfade an den Blättern (✓ bei genau zweimal K); Händeschütteln als Figur: erst die 4 Linien von A, dann alle 10.
+inhalt_pruefen: OK, keine Hinweise. Vergleich: 196 Aufgaben wörtlich gleich, Rest gleich.
+fehler_bild bei verstehen (Tabelle mit 11, 22, 33 = mit Wiederholung 9 Zahlen).
+
 ## 2026-11-16 03:02 – STATUS
 messen.koerper_berechnung (6 Karten) umgebaut. Vorhandene Quader- und Würfelreihen-Figuren bleiben Kartenbild; neue Tabellen füllen sich Schritt für Schritt (Flächenpaare, Aquarium-Glas, Schichten beim Volumen); Säulen für 6 cm² gegen 24 cm² (verstehen).
 inhalt_pruefen: OK, keine Hinweise. Vergleich: 168 Aufgaben wörtlich gleich, Rest gleich.

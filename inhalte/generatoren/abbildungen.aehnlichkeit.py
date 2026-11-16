@@ -172,6 +172,99 @@ KLAR = {
 }
 klar(ETAPPEN, KLAR)
 # ---- KLAR ENDE ----
+# ---- UMBAU (neues Muster, Runde 8, Vorgabe 16.11.) ----
+_Z = {'x': 1, 'y': 2, 'name': 'Z (Lampe)'}
+_P = {'x': 4, 'y': 3, 'name': 'P'}
+_D = {'_A': [0, 0], '_B': [7, 0], '_C': [2.071, 3.422], '_A2': [9, 0], '_B2': [26.5, 0], '_C2': [14.179, 8.555]}
+def _dreiecke(a, b, c):
+    return [['_A', '_C', '4 cm'], ['_C', '_B', '6 cm'], ['_A', '_B', '7 cm'], ['_A2', '_C2', a], ['_C2', '_B2', b], ['_A2', '_B2', c]]
+_S1 = {'S': [0, 0], 'A': [3, 0], "A'": [7.5, 0], 'B': [3.277, 2.294], "B'": [8.192, 5.736]}
+def _s1(bb): return [['S', 'A', 'SA = 3'], ['A', "A'", "AA' = 4,5"], ['S', 'B', 'SB = 4'], ['B', "B'", bb], ['A', 'B', ''], ["A'", "B'", '']]
+_S2 = {'S': [0, 0], 'A': [5, 0], "A'": [8, 0], 'B': [4.305, 3.939], "B'": [6.889, 6.303]}
+def _s2(sch): return [['S', 'A', 'SA = 5'], ['A', "A'", "AA' = 3"], ['S', 'B', ''], ['B', "B'", ''], ['A', 'B', 'Figur 4'], ["A'", "B'", sch]]
+_BP = {'S': [0, 0], '_F1': [3, 0], '_T1': [3, 2], '_F2': [18, 0], '_T2': [18, 12]}
+def _baum(h): return [['S', '_F1', '3 m'], ['_F1', '_F2', ''], ['_F1', '_T1', 'Stab 2 m'], ['_F2', '_T2', h], ['S', '_T2', '', 'gestrichelt']]
+UMBAU = {
+ 'streckung': {
+  'einstieg': 'Beim Schattenspiel hält man eine Figur vor eine Lampe. Jeder Schattenpunkt liegt auf einem Lichtstrahl, nur weiter weg. Das ist eine ⟦zentrische Streckung⟧.',
+  'woerter': [['Zentrum Z', 'der feste Punkt, von dem aus gestreckt wird, hier die Lampe'],
+              ['Streckfaktor k', 'wie viel mal so weit vom Zentrum der Bildpunkt liegt'],
+              ["P'", '„P Strich“: der Bildpunkt von P']],
+  'bild': {'typ': 'koordinaten', 'x': [0, 9], 'y': [0, 7], 'punkte': [_Z, _P]},
+  'schritte': [{'text': 'Das Zentrum Z(1 | 2) ist die Lampe. Gestreckt wird P(4 | 3).'},
+               {'text': 'Von Z nach P: 3 nach rechts, 1 nach oben.', 'bild': {'strecken': [[1, 2, 4, 3]]}},
+               {'text': 'Mit dem Streckfaktor k = 2 verdoppeln: 6 nach rechts, 2 nach oben.'},
+               {'text': "Von Z aus gegangen landest du bei ⟦P'(7 | 4)⟧.",
+                'bild': {'strecken': [[1, 2, 7, 4]], 'punkte': [_Z, _P, {'x': 7, 'y': 4, 'name': "P'"}]}}],
+  'fehler': "P' ist nicht 2 · P = (8 | 6). Gestreckt wird der Abstand von der Lampe Z, nicht die Koordinaten.",
+  'fehler_bild': {'punkte': [_Z, _P, {'x': 7, 'y': 4, 'name': "P'"}, {'x': 8, 'y': 6, 'name': '2 · P (falsch)', 'offen': True}]},
+  'regel': "P' liegt auf dem Strahl von Z durch P. Der Abstand zu Z wird mit ⟦k⟧ malgenommen."},
+ 'aehnlich': {
+  'einstieg': 'Ein Foto wird vergrößert. Damit niemand verzerrt aussieht, wird jede Länge mit derselben Zahl malgenommen. Die Winkel bleiben gleich. Original und Vergrößerung sind ⟦ähnlich⟧.',
+  'woerter': [['ähnlich', 'gleiche Form, andere Größe: gleiche Winkel, alle Seiten mal k'],
+              ['entsprechende Seiten', 'Seiten an der gleichen Stelle beider Figuren'],
+              ['Faktor k', 'die Zahl, mit der jede Seite malgenommen wird']],
+  'bild': {'typ': 'figur', 'punkte': _D, 'linien': _dreiecke('10 cm', '?', '?')},
+  'schritte': [{'text': 'Dreieck 1 hat Seiten mit 4, 6 und 7 cm. Dreieck 2 ist ähnlich.'},
+               {'text': 'Entsprechende Seiten: 4 cm wird zu 10 cm. Faktor k = 2,5.'},
+               {'text': '6 · 2,5 = ⟦15 cm⟧ und 7 · 2,5 = ⟦17,5 cm⟧.',
+                'bild': {'linien': _dreiecke('10 cm', '15 cm', '17,5 cm')}}],
+  'fehler': 'Zu jeder Seite 6 cm addieren ist falsch. Aus 6 cm würden 12 cm, das Foto wäre verzerrt. Ähnlich heißt malnehmen.',
+  'fehler_bild': {'linien': _dreiecke('10 cm', '12 cm?', '13 cm?')},
+  'regel': 'Ähnlich: ⟦alle Seiten mal k⟧, Winkel bleiben gleich. Bei Dreiecken genügen zwei gleiche Winkel.'},
+ 'strahlensatz1': {
+  'einstieg': 'Zwei Lichtstrahlen gehen von der Lampe S aus. Zwei parallele Figuren werden getroffen. Wird der Weg auf einem Strahl 2,5-mal so lang, dann auch auf dem anderen: ⟦1. Strahlensatz⟧.',
+  'woerter': [['Scheitel S', 'der Punkt, von dem beide Strahlen ausgehen'],
+              ['parallel', 'überall gleich weit voneinander entfernt'],
+              ["SA' : SA", "die Länge SA' geteilt durch die Länge SA"]],
+  'bild': {'typ': 'figur', 'punkte': _S1, 'linien': _s1('?')},
+  'schritte': [{'text': "Scheitel S ist die Lampe. SA = 3, SA' = 7,5, SB = 4."},
+               {'text': "Die Strecken AB und A'B' sind parallel."},
+               {'text': "SA' : SA = 7,5 : 3 = 2,5. Das gilt auch für SB."},
+               {'text': "SB' = 4 · 2,5 = ⟦10 cm⟧. Also ist BB' = 6 cm.", 'bild': {'linien': _s1("BB' = 6")}}],
+  'fehler': "SB' ist nicht 4 + 4,5 = 8,5 cm. Die Strecken wachsen mit dem gleichen Faktor, nicht um die gleiche Länge.",
+  'fehler_bild': {'linien': _s1("4,5?")},
+  'regel': "Abschnitte ab S stehen im ⟦gleichen Verhältnis⟧. Es gilt SA : SA' = SB : SB'."},
+ 'strahlensatz2': {
+  'einstieg': 'Wie groß wird der Schatten an der Wand? Figur und Schatten sind parallel. Sie wachsen wie der Abstand zur Lampe: ⟦2. Strahlensatz⟧.',
+  'woerter': [['Parallelstrecken', "die parallelen Strecken AB (Figur) und A'B' (Schatten)"],
+              ["SA' = SA + AA'", "die ganze Strecke von S bis A'"]],
+  'bild': {'typ': 'figur', 'punkte': _S2, 'linien': _s2('Schatten ?')},
+  'schritte': [{'text': "Figur AB = 4 cm, SA = 5 cm, AA' = 3 cm."},
+               {'text': "Ganze Strecke ab S: SA' = SA + AA' = 8 cm."},
+               {'text': 'Faktor 8 : 5 = 1,6 für die Parallelstrecken.'},
+               {'text': "Schatten A'B' = 4 · 1,6 = ⟦6,4 cm⟧.", 'bild': {'linien': _s2('Schatten 6,4')}}],
+  'fehler': "A'B' : AB = AA' : SA ist falsch. Der Schatten hängt vom ganzen Abstand zur Lampe ab, also von SA'.",
+  'fehler_bild': {'linien': _s2('2,4?')},
+  'regel': "Parallelstrecken wachsen wie die ⟦Abschnitte ab S⟧. AB : A'B' = SA : SA'."},
+ 'flaeche_volumen': {
+  'einstieg': 'Ein Bild wird doppelt so breit und doppelt so hoch kopiert. Dafür braucht es viermal so viel Papier. Die Fläche wächst mit dem ⟦Streckfaktor hoch 2⟧.',
+  'woerter': [['k²', 'k · k – damit wird jede Fläche malgenommen'],
+              ['k³', 'k · k · k – damit wird jedes Volumen malgenommen']],
+  'bild': {'typ': 'figur', 'punkte': {'_a': [0, 0], '_b': [1, 0], '_c': [2, 0], '_d': [2, 1], '_e': [2, 2], '_f': [1, 2], '_g': [0, 2], '_h': [0, 1], '_m': [1, 1]},
+           'flaeche': ['_a', '_b', '_m', '_h'],
+           'linien': [['_a', '_c', '2 · Seite'], ['_c', '_e'], ['_e', '_g'], ['_g', '_a'], ['_b', '_f'], ['_h', '_d']]},
+  'schritte': [{'text': 'Alle Längen mal k = 2, die Fläche mal k² = 4.'},
+               {'text': 'Im Bild passen 4 kleine Quadrate ins große.'},
+               {'text': 'Ein Bild mit 300 cm² wird also ⟦1 200 cm²⟧ groß.'},
+               {'text': 'Volumen: Ein Würfel mit doppelter Kante fasst k³ = 8-mal so viel.'}],
+  'fehler': 'Doppelte Seite heißt nicht doppelte Fläche. Im Bild passen 4 kleine Quadrate ins große, denn k² = 4.',
+  'regel': 'Fläche mal ⟦k²⟧, Volumen mal ⟦k³⟧. Dabei werden alle Längen mit k malgenommen.'},
+ 'anwendung': {
+  'einstieg': 'Wie hoch ist ein Baum? Stell einen Stab daneben und miss beide Schatten zur gleichen Zeit. Die Sonnenstrahlen liefern eine Strahlensatz-Figur: Du ⟦wendest den Strahlensatz an⟧.',
+  'woerter': [['Skizze', 'eine schnelle Zeichnung mit allen bekannten Längen'],
+              ['h', 'die gesuchte Höhe des Baums']],
+  'bild': {'typ': 'figur', 'punkte': _BP, 'linien': _baum('Baum h = ?'), 'rechter_winkel': [['_F2', 'S', '_T2'], ['_F1', 'S', '_T1']]},
+  'schritte': [{'text': 'Skizze: Stab 2 m, sein Schatten 3 m. Baumschatten 18 m.'},
+               {'text': 'Höhe zu Schatten ist gleich: h : 18 = 2 : 3.'},
+               {'text': '18 : 3 = 6, also ist der Baum 6-mal so hoch.'},
+               {'text': 'h = 2 · 6 = ⟦12 m⟧.', 'bild': {'linien': _baum('Baum 12 m')}}],
+  'fehler': 'h : 18 = 3 : 2 ist falsch zugeordnet. Dann wäre der Baum 27 m hoch. Höhe zu Höhe, Schatten zu Schatten.',
+  'fehler_bild': {'linien': _baum('27 m?')},
+  'regel': 'Zeichne eine ⟦Skizze⟧ und ordne entsprechende Strecken zu. Dann stellst du eine Verhältnisgleichung auf.'},
+}
+umbau(ETAPPEN, UMBAU)
+# ---- UMBAU ENDE ----
 
 
 def g_streckung(s):

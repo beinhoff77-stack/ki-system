@@ -699,5 +699,178 @@ KARTEN = {
 umbau(DATEI, KARTEN)
 
 
+# ---------- SCHWER (Zehnte Runde, Zweig schwer-kl5) ----------
+# Neue Übungen nach Prüfungsvorbild (Jahrgangsstufentest 6 Bayern, Klassenarbeiten Kl. 5, Känguru 5/6); eigene Zahlen und Einkleidung.
+# Werden hinter alle bisherigen Aufgaben gehängt; eigener Zufallsstart nur zum Mischen der Antworten.
+from _schwer_kl5 import A, L, M, Z, de, einzig, ergaenze, wahl  # noqa: E402
+
+
+def _schwer():
+    N = {}
+    # deuten
+    kaelter = einzig([x for x in range(-20, 21) if x < 0 and abs(x) < 4 and x < -2])
+    N['deuten'] = [
+        Z(2, 'Welche ganze Zahl kommt auf der Zahlengeraden direkt nach −1 000 (der Nachfolger)?', '-1000 + 1',
+          'Der Nachfolger liegt 1 weiter rechts: −1 000 + 1 = −999.', 'Nachfolger heißt: eins weiter nach rechts, also plus 1.'),
+        Z(2, 'Welche ganze Zahl kommt direkt vor −250 (der Vorgänger)?', '-250 - 1',
+          'Der Vorgänger liegt 1 weiter links: −250 − 1 = −251.', 'Vorgänger heißt: eins weiter nach links. Links wird es bei negativen Zahlen „mehr Minus“.'),
+        Z(3, 'Ein Ort am Ufer eines Salzsees liegt 410 m unter dem Meeresspiegel, ein Bergdorf 1 250 m darüber. Wie groß ist der Höhenunterschied?',
+          '1250 - (-410)', 'Vom See bis zum Meeresspiegel sind es 410 m, von dort bis zum Dorf 1 250 m: 410 + 1 250 = 1 660 m.',
+          'Zeichne eine senkrechte Zahlengerade: Wie weit ist es vom See bis 0, wie weit von 0 bis zum Dorf?', einheit='m'),
+        A(3, 'Im Januar zeigt ein Konto −40 €, im Februar −65 €. Welche Aussage stimmt?',
+          'Im Februar sind die Schulden um 25 € größer.',
+          ['Im Februar ist mehr Geld auf dem Konto, weil 65 größer ist als 40.', 'Die Schulden sind um 105 € gestiegen.', 'Beide Kontostände sind gleich viel wert.'],
+          '−65 € sind 65 € Schulden, −40 € sind 40 € Schulden. 65 − 40 = 25 € mehr Schulden.',
+          'Übersetze beide Kontostände in „… € Schulden“ und vergleiche.'),
+        Z(3, 'Ein Parkhaus hat die Ebenen −4 bis 6. Die 0 ist das Erdgeschoss. Wie viele Ebenen hat das Parkhaus?', '6 - (-4) + 1',
+          'Unter der Erde: −4, −3, −2, −1 (4 Ebenen). Dazu 0 und 1 bis 6 (7 Ebenen). Zusammen 11. Achtung: 6 − (−4) = 10 zählt nur die Abstände.',
+          'Zähle die Ebenen einzeln auf. Vergiss das Erdgeschoss nicht.'),
+        Z(3, 'Ich denke an eine negative ganze Zahl. Ihr Abstand zu 0 ist kleiner als 4. Sie ist kleiner als −2. Welche Zahl ist es?', str(kaelter),
+          f'Negativ mit Abstand kleiner als 4: −1, −2, −3. Davon ist nur −3 kleiner als −2. Also {de(kaelter)}.',
+          'Schreibe alle negativen Zahlen mit Abstand kleiner als 4 zur 0 auf. Streiche dann.'),
+    ]
+    # zahlengerade
+    N['zahlengerade'] = [
+        Z(2, 'Welche Zahl liegt genau in der Mitte zwischen −11 und 3?', '(-11 + 3) // 2',
+          'Von −11 bis 3 sind es 14 Schritte. Die Hälfte ist 7. −11 + 7 = −4.', 'Abstand bestimmen, halbieren und vom linken Ende aus so weit gehen.'),
+        M(2, 'Die Zahlengerade reicht von −30 bis 30. Tippe die Markierung an, an der −15 liegt.', -30, 30, 12, -15,
+          'Von −30 bis 30 sind es 60, verteilt auf 12 Abschnitte: 5 je Abschnitt. −15 ist 3 Abschnitte rechts von −30.',
+          'Rechne zuerst aus, wie viel ein Abschnitt wert ist.'),
+        Z(3, 'Die Zahlengerade beginnt bei −40 und endet bei 80. Welche Zahl gehört zum Punkt A?', '-40 + 3 * (80 - (-40)) // 6',
+          'Von −40 bis 80 sind es 120, auf 6 Abschnitte: 20 je Abschnitt. A ist 3 Abschnitte rechts von −40: −40 + 60 = 20.',
+          'Erst den Wert eines Abschnitts bestimmen, dann vom Anfang aus zählen.',
+          grafik={'typ': 'zahlenstrahl', 'start': -40, 'ende': 80, 'abschnitte': 6, 'beschriftet': 'anfang_ende', 'punkte': [{'wert': 20, 'name': 'A'}]}),
+        L(3, 'Zwei Zahlen liegen gleich weit von −2 entfernt. Ihr Abstand voneinander ist 18. Welche Zahlen sind es?',
+          'kleinere: □; größere: □', 'Trage beide Zahlen ein (mit Minus, falls negativ).', ['-2 - 18 // 2', '-2 + 18 // 2'],
+          'Jede Zahl ist die Hälfte von 18, also 9, von −2 entfernt: −2 − 9 = −11 und −2 + 9 = 7.',
+          '−2 liegt genau in der Mitte. Wie weit ist jede Zahl von der Mitte weg?'),
+        Z(3, 'Auf einer Zahlengeraden liegen zwischen −12 und 0 genau 4 gleich lange Abschnitte. Nach der 0 geht sie noch 5 solche Abschnitte weiter. Bei welcher Zahl endet sie?',
+          '(0 - (-12)) // 4 * 5', 'Ein Abschnitt ist 12 : 4 = 3 wert. 5 Abschnitte nach der 0: 5 · 3 = 15.', 'Wie viel ist ein Abschnitt wert?'),
+        Z(3, 'A liegt bei −9, B bei 15. C liegt zwischen A und B, dreimal so weit von A entfernt wie von B. Welche Zahl ist C?', '-9 + (15 - (-9)) * 3 // 4',
+          'A bis B: 24. Teile in 4 gleiche Teile zu je 6: 3 Teile von A, 1 Teil von B. C = −9 + 18 = 9.',
+          'Teile die Strecke von A nach B in 3 + 1 gleich große Teile.'),
+    ]
+    # ordnen
+    temp = [-3, -9, -14]
+    N['ordnen'] = [
+        Z(2, 'Ordne 0, −5, 3 und −12 der Größe nach, mit der kleinsten Zahl zuerst. Welche Zahl steht an zweiter Stelle?', str(sorted([0, -5, 3, -12])[1]),
+          'Von klein nach groß: −12 < −5 < 0 < 3. An zweiter Stelle steht −5.', 'Die negative Zahl, die am weitesten von 0 weg ist, ist die kleinste.'),
+        wahl(2, 'Welche Zahl liegt zwischen −20 und −15?', ['−21', '−17', '−14', '17'], lambda o: -20 < int(o.replace('−', '-')) < -15,
+             '−17 liegt rechts von −20 und links von −15. −21 ist zu klein, −14 und 17 sind zu groß.', 'Stell dir die Zahlengerade vor: Was liegt rechts von −20, aber links von −15?'),
+        wahl(3, 'Am Morgen war es in Oslo kälter als in Berlin. In Moskau war es kälter als in Oslo. Gemessen wurden −3 °C, −9 °C und −14 °C. Welche Temperatur hatte Oslo?',
+             [f'{de(t)} °C' for t in temp], lambda o: o == f'{de(sorted(temp)[1])} °C',
+             'Moskau ist am kältesten (−14 °C), Berlin am wärmsten (−3 °C). Oslo liegt dazwischen: −9 °C.',
+             'Ordne die Städte von kalt nach warm. Kälter heißt: kleinere Zahl.'),
+        wahl(3, 'Welche Reihe ist richtig geordnet?', ['−110 < −101 < −11 < 0', '−101 < −110 < −11 < 0', '0 < −11 < −101 < −110', '−11 < −101 < −110 < 0'],
+             lambda o: o == '−110 < −101 < −11 < 0',
+             '−110 liegt am weitesten links, dann −101, dann −11, dann 0.', 'Bei negativen Zahlen ist die Zahl mit dem größeren Betrag kleiner.'),
+        Z(3, 'Wie viele ganze Zahlen liegen zwischen −7 und 4? Die −7 und die 4 zählen nicht mit.', str(len(range(-6, 4))),
+          'Es sind −6, −5, −4, −3, −2, −1, 0, 1, 2, 3: genau 10 Zahlen. Achtung: 4 − (−7) = 11 zählt die Schritte, nicht die Zahlen dazwischen.',
+          'Schreibe die Zahlen auf. Vergiss die 0 nicht.'),
+        Z(3, 'Welche ist die größte ganze Zahl, die kleiner ist als −20?', str(max(x for x in range(-40, 0) if x < -20)),
+          'Kleiner als −20 heißt links von −20. Die nächste Zahl links davon ist −21.', 'Gehe von −20 einen Schritt nach links, nicht nach rechts.'),
+    ]
+    # betrag
+    N['betrag'] = [
+        Z(2, 'Wie heißt die Gegenzahl von |−12|?', '-abs(-12)', '|−12| = 12. Die Gegenzahl von 12 ist −12.', 'Zuerst den Betrag ausrechnen, dann die Gegenzahl bilden.'),
+        wahl(2, 'Welcher Wert ist größer?', ['|−9|', '|5|', 'beide gleich groß'], lambda o: o == '|−9|',
+             '|−9| = 9 und |5| = 5. 9 ist größer als 5, also ist |−9| größer.', 'Rechne beide Beträge aus und vergleiche dann.'),
+        wahl(3, 'Welche Aussage ist falsch?', ['Der Betrag einer Zahl ist nie negativ.', 'Eine Zahl und ihre Gegenzahl haben denselben Betrag.',
+                                               'Die Gegenzahl einer negativen Zahl ist negativ.', '0 ist ihre eigene Gegenzahl.'],
+             lambda o: o == 'Die Gegenzahl einer negativen Zahl ist negativ.',
+             'Die Gegenzahl von −5 ist 5, also positiv. Die anderen drei Aussagen stimmen.', 'Prüfe jede Aussage an einem Beispiel, z. B. mit −5.'),
+        Z(3, 'Ein Taucher ist bei −14 m, eine Möwe fliegt bei 9 m. Um wie viele Meter ist der Taucher weiter von der Wasseroberfläche entfernt als die Möwe?',
+          'abs(-14) - abs(9)', 'Abstand Taucher: |−14| = 14 m. Abstand Möwe: |9| = 9 m. 14 − 9 = 5 m.', 'Der Abstand zur Wasseroberfläche ist der Betrag.', einheit='m'),
+        Z(3, 'Wie viele ganze Zahlen haben einen Betrag kleiner als 4?', str(len([x for x in range(-10, 11) if abs(x) < 4])),
+          'Das sind −3, −2, −1, 0, 1, 2, 3: genau 7 Zahlen.', 'Denk an beide Seiten der 0 – und an die 0 selbst.'),
+        Z(3, 'Eine Zahl hat den Betrag 8 und liegt links von −3. Welche Zahl ist es?', str(einzig([x for x in (-8, 8) if x < -3])),
+          'Betrag 8 haben 8 und −8. Links von −3 liegt nur −8.', 'Welche zwei Zahlen haben den Betrag 8? Welche davon liegt links von −3?'),
+    ]
+    # addieren
+    rech = {'(−9) + 4': -9 + 4, '(−3) + (−5)': -3 - 5, '2 + (−11)': 2 - 11, '(−6) + (−1)': -6 - 1}
+    N['addieren'] = [
+        L(2, 'Ergänze die Lücke: (−18) + □ = −5', '(−18) + □ = −5', 'Trage die fehlende Zahl ein.', ['-5 - (-18)'],
+          'Von −18 bis −5 sind es 13 Schritte nach rechts: (−18) + 13 = −5.', 'Wie viele Schritte sind es von −18 bis −5, und in welche Richtung?'),
+        Z(2, 'Berechne geschickt: (−25) + (−38) + 25', '(-25) + (-38) + 25', '(−25) und 25 ergeben zusammen 0. Übrig bleibt −38.',
+          'Suche zwei Zahlen, die zusammen 0 ergeben.'),
+        L(3, 'Ergänze die Lücke: □ + (−47) = −12', '□ + (−47) = −12', 'Trage die fehlende Zahl ein (mit Minus, falls negativ).', ['-12 - (-47)'],
+          'Rückwärts: −12 − (−47) = −12 + 47 = 35. Probe: 35 + (−47) = −12.', 'Rechne rückwärts: Was muss man vor dem Plus-Minus-47 gehabt haben?'),
+        wahl(3, 'Welche Rechnung hat das kleinste Ergebnis?', list(rech), lambda o: rech[o] == min(rech.values()),
+             'Ergebnisse: (−9) + 4 = −5, (−3) + (−5) = −8, 2 + (−11) = −9, (−6) + (−1) = −7. Am kleinsten ist −9.',
+             'Rechne alle vier aus. Die Zahl am weitesten links ist am kleinsten.'),
+        L(3, 'Die Summe zweier ganzer Zahlen ist −3. Auf der Zahlengeraden haben sie den Abstand 11. Welche Zahlen sind es?',
+          'kleinere: □; größere: □', 'Trage beide Zahlen ein.', ['(-3 - 11) // 2', '(-3 + 11) // 2'],
+          'Probieren mit Abstand 11: −7 und 4. Probe: (−7) + 4 = −3 und 4 − (−7) = 11.', 'Probiere Zahlenpaare mit Abstand 11, z. B. −5 und 6. Ist die Summe zu groß oder zu klein?'),
+        A(3, 'Jemand rechnet (−27) + 15 = −42. Was ist falsch?', 'Die Beträge wurden addiert statt subtrahiert. Richtig ist −12.',
+          ['Nur das Vorzeichen ist falsch. Richtig ist 42.', 'Nichts, die Rechnung stimmt.', 'Richtig ist 12, weil 27 − 15 = 12.'],
+          'Verschiedene Vorzeichen: Beträge subtrahieren, 27 − 15 = 12. Die −27 ist weiter von 0 weg, also −12.',
+          'Starte bei −27 und gehe 15 Schritte nach rechts. Wo landest du?'),
+    ]
+    # subtrahieren
+    zeichen = {'+ und +': 8 + (-3) + 6, '+ und −': 8 + (-3) - 6, '− und +': 8 - (-3) + 6, '− und −': 8 - (-3) - 6}
+    N['subtrahieren'] = [
+        L(2, 'Ergänze die Lücke: 7 − □ = 15', '7 − □ = 15', 'Trage die fehlende Zahl ein (mit Minus, falls negativ).', ['7 - 15'],
+          'Damit 7 − □ größer wird als 7, muss eine negative Zahl abgezogen werden: 7 − (−8) = 15.', 'Das Ergebnis ist größer als 7. Was muss man dann abziehen?'),
+        Z(2, 'Um wie viel ist −6 größer als −20?', '-6 - (-20)', '−6 − (−20) = −6 + 20 = 14.', 'Unterschied = größere Zahl minus kleinere Zahl.'),
+        Z(3, 'Welche Zahl musst du von −14 subtrahieren, um 9 zu erhalten?', '-14 - 9',
+          'Gesucht ist □ mit −14 − □ = 9. Rückwärts: □ = −14 − 9 = −23. Probe: −14 − (−23) = 9.',
+          'Schreibe die Aufgabe als Lückenrechnung: −14 − □ = 9. Das Ergebnis ist größer – also ist □ negativ.'),
+        Z(3, 'Eine Bergbahn startet im Tal auf 640 m Höhe und fährt 1 850 m hinauf. Von der Bergstation steigt eine Wanderin 2 300 m ab. Um wie viele Meter liegt ihr Ziel tiefer als die Talstation?',
+          '640 - (640 + 1850 - 2300)', 'Bergstation: 640 + 1 850 = 2 490 m. Ziel: 2 490 − 2 300 = 190 m. Unterschied zur Talstation: 640 − 190 = 450 m.',
+          'Rechne zuerst die Höhe der Bergstation und dann die Höhe des Ziels aus.', einheit='m'),
+        A(3, 'Jemand rechnet 4 − (−9) = −5. Was ist falsch?', 'Minus (−9) heißt plus 9. Richtig ist 13.',
+          ['Richtig ist −13.', 'Nichts, die Rechnung stimmt.', 'Richtig ist 5, weil 9 − 4 = 5.'],
+          'Eine negative Zahl abziehen heißt ihre Gegenzahl addieren: 4 − (−9) = 4 + 9 = 13.', 'Denk an die erlassenen Schulden: Was passiert, wenn −9 abgezogen wird?'),
+        wahl(3, 'Welche Rechenzeichen musst du in 8 □ (−3) □ 6 = −1 einsetzen?', list(zeichen), lambda o: zeichen[o] == -1,
+             'Probieren: 8 + (−3) − 6 = 5 − 6 = −1. Die anderen ergeben 11, 17 und 5.', 'Probiere alle vier Möglichkeiten aus.'),
+    ]
+    # ketten
+    klammer = {'20 − (8 − 5) − 3': 20 - (8 - 5) - 3, '(20 − 8) − 5 − 3': (20 - 8) - 5 - 3, '20 − 8 − (5 − 3)': 20 - 8 - (5 - 3), '20 − (8 − 5 − 3)': 20 - (8 - 5 - 3)}
+    N['ketten'] = [
+        Z(2, 'Berechne geschickt: (−17) + 38 + (−3) + 12', '(-17) + 38 + (-3) + 12', 'Plus-Zahlen: 38 + 12 = 50. Minus-Zahlen: 17 + 3 = 20. 50 − 20 = 30.',
+          'Sammle Plus-Zahlen und Minus-Zahlen getrennt.'),
+        Z(2, 'Berechne −40 + 25 − (−15) − 10', '-40 + 25 - (-15) - 10', 'Klammer auflösen: −40 + 25 + 15 − 10. Plus: 40, minus: 50. Ergebnis −10.',
+          'Zuerst − (−15) in + 15 umschreiben.'),
+        Z(3, 'Berechne 9 − (14 − 31) − (−6 + 20)', '9 - (14 - 31) - (-6 + 20)',
+          'Klammern zuerst: 14 − 31 = −17 und −6 + 20 = 14. Dann 9 − (−17) − 14 = 9 + 17 − 14 = 12.',
+          'Rechne zuerst beide Klammern aus. Achte dann auf das Minus vor jeder Klammer.'),
+        wahl(3, 'Wo muss die Klammer stehen, damit das Ergebnis 14 ist?', list(klammer), lambda o: klammer[o] == 14,
+             'Ergebnisse: 20 − 3 − 3 = 14, 12 − 5 − 3 = 4, 12 − 2 = 10, 20 − 0 = 20. Richtig ist 20 − (8 − 5) − 3.',
+             'Rechne jede Möglichkeit aus – die Klammer zuerst.'),
+        Z(3, 'Berechne 1 − 2 + 3 − 4 + 5 − 6 + 7 − 8 + 9 − 10', '1 - 2 + 3 - 4 + 5 - 6 + 7 - 8 + 9 - 10',
+          'Paare bilden: (1 − 2) + (3 − 4) + … + (9 − 10) sind 5 Paare mit je −1. Ergebnis −5.', 'Fasse immer zwei Nachbarn zusammen.'),
+        Z(3, 'Fünf Zahlen ergeben zusammen 0: 13, −8, eine unbekannte Zahl, 21 und −30. Welche Zahl fehlt?', '-(13 - 8 + 21 - 30)',
+          'Die bekannten Zahlen ergeben 13 − 8 + 21 − 30 = −4. Damit die Summe 0 wird, fehlt 4.', 'Addiere zuerst die vier bekannten Zahlen.'),
+    ]
+    # sach
+    rest = -45 + 120 - 60
+    tiefe, minute = -32, 0
+    while tiefe < 0:
+        minute += 1
+        if minute % 3: tiefe += 4
+    N['sach'] = [
+        Z(2, 'Ein Konto steht bei −35 €. Es werden dreimal je 20 € eingezahlt. Wie ist der neue Kontostand?', '-35 + 3 * 20',
+          'Eingezahlt: 3 · 20 = 60 €. −35 + 60 = 25 €.', 'Rechne zuerst aus, wie viel insgesamt eingezahlt wird.', einheit='€'),
+        Z(2, 'Eine Bohrstelle liegt 15 m über dem Meeresspiegel. Das Bohrloch ist 60 m tief. In welcher Höhe endet es?', '15 - 60',
+          'Start bei 15 m, 60 m nach unten: 15 − 60 = −45 m, also 45 m unter dem Meeresspiegel.', 'Nach unten heißt minus.', einheit='m'),
+        Z(3, 'Ein Gefrierfach hat −20 °C. Nach dem Ausschalten wird es alle 10 Minuten um 3 Grad wärmer. Welche Temperatur hat es nach 40 Minuten?',
+          '-20 + (40 // 10) * 3', '40 Minuten sind 4-mal 10 Minuten: 4 · 3 = 12 Grad wärmer. −20 + 12 = −8 °C.',
+          'Wie oft vergehen 10 Minuten?', einheit='°C'),
+        wahl(3, f'Ein Konto steht bei −45 €. Es kommen 120 € dazu, dann wird ein Spiel für 60 € bezahlt. Reicht der Rest für ein Buch für 18 €?',
+             [f'Ja, es bleiben {de(rest)} €.', f'Nein, es fehlen {de(18 - rest)} €.', f'Ja, es bleiben {de(45 + 120 - 60)} €.', 'Nein, das Konto bleibt im Minus.'],
+             lambda o: o == (f'Ja, es bleiben {de(rest)} €.' if rest >= 18 else f'Nein, es fehlen {de(18 - rest)} €.'),
+             f'−45 + 120 − 60 = {de(rest)} €. Für das Buch fehlen 18 − {de(rest)} = {de(18 - rest)} €.',
+             'Rechne den Kontostand nach beiden Buchungen aus und vergleiche mit 18 €.'),
+        Z(3, 'Ein Taucher ist auf −32 m. Er steigt jede Minute 4 m. Nach je 2 Minuten Steigen macht er 1 Minute Pause. Nach wie vielen Minuten ist er an der Oberfläche?',
+          str(minute), f'Je 3 Minuten steigt er 8 m. Nach 9 Minuten ist er auf −8 m. Minute 10: −4 m, Minute 11: 0 m. Also nach {minute} Minuten.',
+          'Schreibe eine Tabelle: Minute und Tiefe. Achte auf die Pausen.'),
+        Z(3, 'Abends zeigt das Thermometer −7 °C. Seit dem Mittag ist die Temperatur um 12 Grad gefallen. Von morgens bis mittags war sie um 9 Grad gestiegen. Wie warm war es morgens?',
+          '-7 + 12 - 9', 'Rückwärts: mittags −7 + 12 = 5 °C, morgens 5 − 9 = −4 °C.', 'Rechne rückwärts: Gefallen wird zu plus, gestiegen wird zu minus.', einheit='°C'),
+    ]
+    return N
+
+
+ergaenze(DATEI, _schwer(), 1016)
+
 if __name__ == '__main__':
     schreibe(DATEI, 'zahlen.ganz.json')

@@ -4623,6 +4623,893 @@
    },
    "c": "(-55) + 100",
    "w": "Rückwärts rechnen: Die Abhebung rückgängig machen. −55 + 100 = 45."
+  },
+  {
+   "l": "deuten",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche ganze Zahl kommt auf der Zahlengeraden direkt nach −1 000 (der Nachfolger)?"
+   },
+   "o": {
+    "wert": -999
+   },
+   "c": "-1000 + 1",
+   "w": "Der Nachfolger liegt 1 weiter rechts: −1 000 + 1 = −999.",
+   "h": "Nachfolger heißt: eins weiter nach rechts, also plus 1."
+  },
+  {
+   "l": "deuten",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche ganze Zahl kommt direkt vor −250 (der Vorgänger)?"
+   },
+   "o": {
+    "wert": -251
+   },
+   "c": "-250 - 1",
+   "w": "Der Vorgänger liegt 1 weiter links: −250 − 1 = −251.",
+   "h": "Vorgänger heißt: eins weiter nach links. Links wird es bei negativen Zahlen „mehr Minus“."
+  },
+  {
+   "l": "deuten",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Ort am Ufer eines Salzsees liegt 410 m unter dem Meeresspiegel, ein Bergdorf 1 250 m darüber. Wie groß ist der Höhenunterschied?"
+   },
+   "o": {
+    "wert": 1660,
+    "einheit": "m"
+   },
+   "c": "1250 - (-410)",
+   "w": "Vom See bis zum Meeresspiegel sind es 410 m, von dort bis zum Dorf 1 250 m: 410 + 1 250 = 1 660 m.",
+   "h": "Zeichne eine senkrechte Zahlengerade: Wie weit ist es vom See bis 0, wie weit von 0 bis zum Dorf?"
+  },
+  {
+   "l": "deuten",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Januar zeigt ein Konto −40 €, im Februar −65 €. Welche Aussage stimmt?"
+   },
+   "a": [
+    "Im Februar sind die Schulden um 25 € größer.",
+    "Im Februar ist mehr Geld auf dem Konto, weil 65 größer ist als 40.",
+    "Beide Kontostände sind gleich viel wert.",
+    "Die Schulden sind um 105 € gestiegen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "−65 € sind 65 € Schulden, −40 € sind 40 € Schulden. 65 − 40 = 25 € mehr Schulden.",
+   "h": "Übersetze beide Kontostände in „… € Schulden“ und vergleiche."
+  },
+  {
+   "l": "deuten",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Parkhaus hat die Ebenen −4 bis 6. Die 0 ist das Erdgeschoss. Wie viele Ebenen hat das Parkhaus?"
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "6 - (-4) + 1",
+   "w": "Unter der Erde: −4, −3, −2, −1 (4 Ebenen). Dazu 0 und 1 bis 6 (7 Ebenen). Zusammen 11. Achtung: 6 − (−4) = 10 zählt nur die Abstände.",
+   "h": "Zähle die Ebenen einzeln auf. Vergiss das Erdgeschoss nicht."
+  },
+  {
+   "l": "deuten",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ich denke an eine negative ganze Zahl. Ihr Abstand zu 0 ist kleiner als 4. Sie ist kleiner als −2. Welche Zahl ist es?"
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "-3",
+   "w": "Negativ mit Abstand kleiner als 4: −1, −2, −3. Davon ist nur −3 kleiner als −2. Also −3.",
+   "h": "Schreibe alle negativen Zahlen mit Abstand kleiner als 4 zur 0 auf. Streiche dann."
+  },
+  {
+   "l": "zahlengerade",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl liegt genau in der Mitte zwischen −11 und 3?"
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "(-11 + 3) // 2",
+   "w": "Von −11 bis 3 sind es 14 Schritte. Die Hälfte ist 7. −11 + 7 = −4.",
+   "h": "Abstand bestimmen, halbieren und vom linken Ende aus so weit gehen."
+  },
+  {
+   "l": "zahlengerade",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Die Zahlengerade reicht von −30 bis 30. Tippe die Markierung an, an der −15 liegt.",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": -30,
+     "ende": 30,
+     "abschnitte": 12,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 3
+   },
+   "zahl": -15,
+   "w": "Von −30 bis 30 sind es 60, verteilt auf 12 Abschnitte: 5 je Abschnitt. −15 ist 3 Abschnitte rechts von −30.",
+   "h": "Rechne zuerst aus, wie viel ein Abschnitt wert ist."
+  },
+  {
+   "l": "zahlengerade",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlengerade beginnt bei −40 und endet bei 80. Welche Zahl gehört zum Punkt A?",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": -40,
+     "ende": 80,
+     "abschnitte": 6,
+     "beschriftet": "anfang_ende",
+     "punkte": [
+      {
+       "wert": 20,
+       "name": "A"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "-40 + 3 * (80 - (-40)) // 6",
+   "w": "Von −40 bis 80 sind es 120, auf 6 Abschnitte: 20 je Abschnitt. A ist 3 Abschnitte rechts von −40: −40 + 60 = 20.",
+   "h": "Erst den Wert eines Abschnitts bestimmen, dann vom Anfang aus zählen."
+  },
+  {
+   "l": "zahlengerade",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Zwei Zahlen liegen gleich weit von −2 entfernt. Ihr Abstand voneinander ist 18. Welche Zahlen sind es?",
+    "schablone": "kleinere: □; größere: □",
+    "hinweis": "Trage beide Zahlen ein (mit Minus, falls negativ)."
+   },
+   "o": {
+    "werte": [
+     -11,
+     7
+    ]
+   },
+   "c": [
+    "-2 - 18 // 2",
+    "-2 + 18 // 2"
+   ],
+   "w": "Jede Zahl ist die Hälfte von 18, also 9, von −2 entfernt: −2 − 9 = −11 und −2 + 9 = 7.",
+   "h": "−2 liegt genau in der Mitte. Wie weit ist jede Zahl von der Mitte weg?"
+  },
+  {
+   "l": "zahlengerade",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einer Zahlengeraden liegen zwischen −12 und 0 genau 4 gleich lange Abschnitte. Nach der 0 geht sie noch 5 solche Abschnitte weiter. Bei welcher Zahl endet sie?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "(0 - (-12)) // 4 * 5",
+   "w": "Ein Abschnitt ist 12 : 4 = 3 wert. 5 Abschnitte nach der 0: 5 · 3 = 15.",
+   "h": "Wie viel ist ein Abschnitt wert?"
+  },
+  {
+   "l": "zahlengerade",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "A liegt bei −9, B bei 15. C liegt zwischen A und B, dreimal so weit von A entfernt wie von B. Welche Zahl ist C?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "-9 + (15 - (-9)) * 3 // 4",
+   "w": "A bis B: 24. Teile in 4 gleiche Teile zu je 6: 3 Teile von A, 1 Teil von B. C = −9 + 18 = 9.",
+   "h": "Teile die Strecke von A nach B in 3 + 1 gleich große Teile."
+  },
+  {
+   "l": "ordnen",
+   "t": "ordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ordne 0, −5, 3 und −12 der Größe nach, mit der kleinsten Zahl zuerst. Welche Zahl steht an zweiter Stelle?"
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "-5",
+   "w": "Von klein nach groß: −12 < −5 < 0 < 3. An zweiter Stelle steht −5.",
+   "h": "Die negative Zahl, die am weitesten von 0 weg ist, ist die kleinste."
+  },
+  {
+   "l": "ordnen",
+   "t": "ordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl liegt zwischen −20 und −15?"
+   },
+   "a": [
+    "−21",
+    "−17",
+    "17",
+    "−14"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "−17 liegt rechts von −20 und links von −15. −21 ist zu klein, −14 und 17 sind zu groß.",
+   "h": "Stell dir die Zahlengerade vor: Was liegt rechts von −20, aber links von −15?"
+  },
+  {
+   "l": "ordnen",
+   "t": "ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Am Morgen war es in Oslo kälter als in Berlin. In Moskau war es kälter als in Oslo. Gemessen wurden −3 °C, −9 °C und −14 °C. Welche Temperatur hatte Oslo?"
+   },
+   "a": [
+    "−3 °C",
+    "−9 °C",
+    "−14 °C"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Moskau ist am kältesten (−14 °C), Berlin am wärmsten (−3 °C). Oslo liegt dazwischen: −9 °C.",
+   "h": "Ordne die Städte von kalt nach warm. Kälter heißt: kleinere Zahl."
+  },
+  {
+   "l": "ordnen",
+   "t": "ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Reihe ist richtig geordnet?"
+   },
+   "a": [
+    "−11 < −101 < −110 < 0",
+    "−110 < −101 < −11 < 0",
+    "−101 < −110 < −11 < 0",
+    "0 < −11 < −101 < −110"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "−110 liegt am weitesten links, dann −101, dann −11, dann 0.",
+   "h": "Bei negativen Zahlen ist die Zahl mit dem größeren Betrag kleiner."
+  },
+  {
+   "l": "ordnen",
+   "t": "ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele ganze Zahlen liegen zwischen −7 und 4? Die −7 und die 4 zählen nicht mit."
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "10",
+   "w": "Es sind −6, −5, −4, −3, −2, −1, 0, 1, 2, 3: genau 10 Zahlen. Achtung: 4 − (−7) = 11 zählt die Schritte, nicht die Zahlen dazwischen.",
+   "h": "Schreibe die Zahlen auf. Vergiss die 0 nicht."
+  },
+  {
+   "l": "ordnen",
+   "t": "ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche ist die größte ganze Zahl, die kleiner ist als −20?"
+   },
+   "o": {
+    "wert": -21
+   },
+   "c": "-21",
+   "w": "Kleiner als −20 heißt links von −20. Die nächste Zahl links davon ist −21.",
+   "h": "Gehe von −20 einen Schritt nach links, nicht nach rechts."
+  },
+  {
+   "l": "betrag",
+   "t": "ordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie heißt die Gegenzahl von |−12|?"
+   },
+   "o": {
+    "wert": -12
+   },
+   "c": "-abs(-12)",
+   "w": "|−12| = 12. Die Gegenzahl von 12 ist −12.",
+   "h": "Zuerst den Betrag ausrechnen, dann die Gegenzahl bilden."
+  },
+  {
+   "l": "betrag",
+   "t": "ordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Wert ist größer?"
+   },
+   "a": [
+    "|−9|",
+    "beide gleich groß",
+    "|5|"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "|−9| = 9 und |5| = 5. 9 ist größer als 5, also ist |−9| größer.",
+   "h": "Rechne beide Beträge aus und vergleiche dann."
+  },
+  {
+   "l": "betrag",
+   "t": "ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist falsch?"
+   },
+   "a": [
+    "Der Betrag einer Zahl ist nie negativ.",
+    "Die Gegenzahl einer negativen Zahl ist negativ.",
+    "Eine Zahl und ihre Gegenzahl haben denselben Betrag.",
+    "0 ist ihre eigene Gegenzahl."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Gegenzahl von −5 ist 5, also positiv. Die anderen drei Aussagen stimmen.",
+   "h": "Prüfe jede Aussage an einem Beispiel, z. B. mit −5."
+  },
+  {
+   "l": "betrag",
+   "t": "ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Taucher ist bei −14 m, eine Möwe fliegt bei 9 m. Um wie viele Meter ist der Taucher weiter von der Wasseroberfläche entfernt als die Möwe?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "m"
+   },
+   "c": "abs(-14) - abs(9)",
+   "w": "Abstand Taucher: |−14| = 14 m. Abstand Möwe: |9| = 9 m. 14 − 9 = 5 m.",
+   "h": "Der Abstand zur Wasseroberfläche ist der Betrag."
+  },
+  {
+   "l": "betrag",
+   "t": "ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele ganze Zahlen haben einen Betrag kleiner als 4?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "Das sind −3, −2, −1, 0, 1, 2, 3: genau 7 Zahlen.",
+   "h": "Denk an beide Seiten der 0 – und an die 0 selbst."
+  },
+  {
+   "l": "betrag",
+   "t": "ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl hat den Betrag 8 und liegt links von −3. Welche Zahl ist es?"
+   },
+   "o": {
+    "wert": -8
+   },
+   "c": "-8",
+   "w": "Betrag 8 haben 8 und −8. Links von −3 liegt nur −8.",
+   "h": "Welche zwei Zahlen haben den Betrag 8? Welche davon liegt links von −3?"
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze die Lücke: (−18) + □ = −5",
+    "schablone": "(−18) + □ = −5",
+    "hinweis": "Trage die fehlende Zahl ein."
+   },
+   "o": {
+    "werte": [
+     13
+    ]
+   },
+   "c": [
+    "-5 - (-18)"
+   ],
+   "w": "Von −18 bis −5 sind es 13 Schritte nach rechts: (−18) + 13 = −5.",
+   "h": "Wie viele Schritte sind es von −18 bis −5, und in welche Richtung?"
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne geschickt: (−25) + (−38) + 25"
+   },
+   "o": {
+    "wert": -38
+   },
+   "c": "(-25) + (-38) + 25",
+   "w": "(−25) und 25 ergeben zusammen 0. Übrig bleibt −38.",
+   "h": "Suche zwei Zahlen, die zusammen 0 ergeben."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze die Lücke: □ + (−47) = −12",
+    "schablone": "□ + (−47) = −12",
+    "hinweis": "Trage die fehlende Zahl ein (mit Minus, falls negativ)."
+   },
+   "o": {
+    "werte": [
+     35
+    ]
+   },
+   "c": [
+    "-12 - (-47)"
+   ],
+   "w": "Rückwärts: −12 − (−47) = −12 + 47 = 35. Probe: 35 + (−47) = −12.",
+   "h": "Rechne rückwärts: Was muss man vor dem Plus-Minus-47 gehabt haben?"
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Rechnung hat das kleinste Ergebnis?"
+   },
+   "a": [
+    "(−9) + 4",
+    "(−3) + (−5)",
+    "2 + (−11)",
+    "(−6) + (−1)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ergebnisse: (−9) + 4 = −5, (−3) + (−5) = −8, 2 + (−11) = −9, (−6) + (−1) = −7. Am kleinsten ist −9.",
+   "h": "Rechne alle vier aus. Die Zahl am weitesten links ist am kleinsten."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Summe zweier ganzer Zahlen ist −3. Auf der Zahlengeraden haben sie den Abstand 11. Welche Zahlen sind es?",
+    "schablone": "kleinere: □; größere: □",
+    "hinweis": "Trage beide Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     -7,
+     4
+    ]
+   },
+   "c": [
+    "(-3 - 11) // 2",
+    "(-3 + 11) // 2"
+   ],
+   "w": "Probieren mit Abstand 11: −7 und 4. Probe: (−7) + 4 = −3 und 4 − (−7) = 11.",
+   "h": "Probiere Zahlenpaare mit Abstand 11, z. B. −5 und 6. Ist die Summe zu groß oder zu klein?"
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet (−27) + 15 = −42. Was ist falsch?"
+   },
+   "a": [
+    "Die Beträge wurden addiert statt subtrahiert. Richtig ist −12.",
+    "Richtig ist 12, weil 27 − 15 = 12.",
+    "Nur das Vorzeichen ist falsch. Richtig ist 42.",
+    "Nichts, die Rechnung stimmt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Verschiedene Vorzeichen: Beträge subtrahieren, 27 − 15 = 12. Die −27 ist weiter von 0 weg, also −12.",
+   "h": "Starte bei −27 und gehe 15 Schritte nach rechts. Wo landest du?"
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze die Lücke: 7 − □ = 15",
+    "schablone": "7 − □ = 15",
+    "hinweis": "Trage die fehlende Zahl ein (mit Minus, falls negativ)."
+   },
+   "o": {
+    "werte": [
+     -8
+    ]
+   },
+   "c": [
+    "7 - 15"
+   ],
+   "w": "Damit 7 − □ größer wird als 7, muss eine negative Zahl abgezogen werden: 7 − (−8) = 15.",
+   "h": "Das Ergebnis ist größer als 7. Was muss man dann abziehen?"
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Um wie viel ist −6 größer als −20?"
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "-6 - (-20)",
+   "w": "−6 − (−20) = −6 + 20 = 14.",
+   "h": "Unterschied = größere Zahl minus kleinere Zahl."
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl musst du von −14 subtrahieren, um 9 zu erhalten?"
+   },
+   "o": {
+    "wert": -23
+   },
+   "c": "-14 - 9",
+   "w": "Gesucht ist □ mit −14 − □ = 9. Rückwärts: □ = −14 − 9 = −23. Probe: −14 − (−23) = 9.",
+   "h": "Schreibe die Aufgabe als Lückenrechnung: −14 − □ = 9. Das Ergebnis ist größer – also ist □ negativ."
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Bergbahn startet im Tal auf 640 m Höhe und fährt 1 850 m hinauf. Von der Bergstation steigt eine Wanderin 2 300 m ab. Um wie viele Meter liegt ihr Ziel tiefer als die Talstation?"
+   },
+   "o": {
+    "wert": 450,
+    "einheit": "m"
+   },
+   "c": "640 - (640 + 1850 - 2300)",
+   "w": "Bergstation: 640 + 1 850 = 2 490 m. Ziel: 2 490 − 2 300 = 190 m. Unterschied zur Talstation: 640 − 190 = 450 m.",
+   "h": "Rechne zuerst die Höhe der Bergstation und dann die Höhe des Ziels aus."
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet 4 − (−9) = −5. Was ist falsch?"
+   },
+   "a": [
+    "Minus (−9) heißt plus 9. Richtig ist 13.",
+    "Richtig ist 5, weil 9 − 4 = 5.",
+    "Richtig ist −13.",
+    "Nichts, die Rechnung stimmt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Eine negative Zahl abziehen heißt ihre Gegenzahl addieren: 4 − (−9) = 4 + 9 = 13.",
+   "h": "Denk an die erlassenen Schulden: Was passiert, wenn −9 abgezogen wird?"
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Rechenzeichen musst du in 8 □ (−3) □ 6 = −1 einsetzen?"
+   },
+   "a": [
+    "− und −",
+    "+ und −",
+    "+ und +",
+    "− und +"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Probieren: 8 + (−3) − 6 = 5 − 6 = −1. Die anderen ergeben 11, 17 und 5.",
+   "h": "Probiere alle vier Möglichkeiten aus."
+  },
+  {
+   "l": "ketten",
+   "t": "verbinden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne geschickt: (−17) + 38 + (−3) + 12"
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "(-17) + 38 + (-3) + 12",
+   "w": "Plus-Zahlen: 38 + 12 = 50. Minus-Zahlen: 17 + 3 = 20. 50 − 20 = 30.",
+   "h": "Sammle Plus-Zahlen und Minus-Zahlen getrennt."
+  },
+  {
+   "l": "ketten",
+   "t": "verbinden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne −40 + 25 − (−15) − 10"
+   },
+   "o": {
+    "wert": -10
+   },
+   "c": "-40 + 25 - (-15) - 10",
+   "w": "Klammer auflösen: −40 + 25 + 15 − 10. Plus: 40, minus: 50. Ergebnis −10.",
+   "h": "Zuerst − (−15) in + 15 umschreiben."
+  },
+  {
+   "l": "ketten",
+   "t": "verbinden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 9 − (14 − 31) − (−6 + 20)"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "9 - (14 - 31) - (-6 + 20)",
+   "w": "Klammern zuerst: 14 − 31 = −17 und −6 + 20 = 14. Dann 9 − (−17) − 14 = 9 + 17 − 14 = 12.",
+   "h": "Rechne zuerst beide Klammern aus. Achte dann auf das Minus vor jeder Klammer."
+  },
+  {
+   "l": "ketten",
+   "t": "verbinden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wo muss die Klammer stehen, damit das Ergebnis 14 ist?"
+   },
+   "a": [
+    "20 − (8 − 5 − 3)",
+    "20 − (8 − 5) − 3",
+    "(20 − 8) − 5 − 3",
+    "20 − 8 − (5 − 3)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ergebnisse: 20 − 3 − 3 = 14, 12 − 5 − 3 = 4, 12 − 2 = 10, 20 − 0 = 20. Richtig ist 20 − (8 − 5) − 3.",
+   "h": "Rechne jede Möglichkeit aus – die Klammer zuerst."
+  },
+  {
+   "l": "ketten",
+   "t": "verbinden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 1 − 2 + 3 − 4 + 5 − 6 + 7 − 8 + 9 − 10"
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "1 - 2 + 3 - 4 + 5 - 6 + 7 - 8 + 9 - 10",
+   "w": "Paare bilden: (1 − 2) + (3 − 4) + … + (9 − 10) sind 5 Paare mit je −1. Ergebnis −5.",
+   "h": "Fasse immer zwei Nachbarn zusammen."
+  },
+  {
+   "l": "ketten",
+   "t": "verbinden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Fünf Zahlen ergeben zusammen 0: 13, −8, eine unbekannte Zahl, 21 und −30. Welche Zahl fehlt?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "-(13 - 8 + 21 - 30)",
+   "w": "Die bekannten Zahlen ergeben 13 − 8 + 21 − 30 = −4. Damit die Summe 0 wird, fehlt 4.",
+   "h": "Addiere zuerst die vier bekannten Zahlen."
+  },
+  {
+   "l": "sach",
+   "t": "verbinden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Konto steht bei −35 €. Es werden dreimal je 20 € eingezahlt. Wie ist der neue Kontostand?"
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "€"
+   },
+   "c": "-35 + 3 * 20",
+   "w": "Eingezahlt: 3 · 20 = 60 €. −35 + 60 = 25 €.",
+   "h": "Rechne zuerst aus, wie viel insgesamt eingezahlt wird."
+  },
+  {
+   "l": "sach",
+   "t": "verbinden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Bohrstelle liegt 15 m über dem Meeresspiegel. Das Bohrloch ist 60 m tief. In welcher Höhe endet es?"
+   },
+   "o": {
+    "wert": -45,
+    "einheit": "m"
+   },
+   "c": "15 - 60",
+   "w": "Start bei 15 m, 60 m nach unten: 15 − 60 = −45 m, also 45 m unter dem Meeresspiegel.",
+   "h": "Nach unten heißt minus."
+  },
+  {
+   "l": "sach",
+   "t": "verbinden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Gefrierfach hat −20 °C. Nach dem Ausschalten wird es alle 10 Minuten um 3 Grad wärmer. Welche Temperatur hat es nach 40 Minuten?"
+   },
+   "o": {
+    "wert": -8,
+    "einheit": "°C"
+   },
+   "c": "-20 + (40 // 10) * 3",
+   "w": "40 Minuten sind 4-mal 10 Minuten: 4 · 3 = 12 Grad wärmer. −20 + 12 = −8 °C.",
+   "h": "Wie oft vergehen 10 Minuten?"
+  },
+  {
+   "l": "sach",
+   "t": "verbinden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Konto steht bei −45 €. Es kommen 120 € dazu, dann wird ein Spiel für 60 € bezahlt. Reicht der Rest für ein Buch für 18 €?"
+   },
+   "a": [
+    "Ja, es bleiben 15 €.",
+    "Ja, es bleiben 105 €.",
+    "Nein, es fehlen 3 €.",
+    "Nein, das Konto bleibt im Minus."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "−45 + 120 − 60 = 15 €. Für das Buch fehlen 18 − 15 = 3 €.",
+   "h": "Rechne den Kontostand nach beiden Buchungen aus und vergleiche mit 18 €."
+  },
+  {
+   "l": "sach",
+   "t": "verbinden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Taucher ist auf −32 m. Er steigt jede Minute 4 m. Nach je 2 Minuten Steigen macht er 1 Minute Pause. Nach wie vielen Minuten ist er an der Oberfläche?"
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "11",
+   "w": "Je 3 Minuten steigt er 8 m. Nach 9 Minuten ist er auf −8 m. Minute 10: −4 m, Minute 11: 0 m. Also nach 11 Minuten.",
+   "h": "Schreibe eine Tabelle: Minute und Tiefe. Achte auf die Pausen."
+  },
+  {
+   "l": "sach",
+   "t": "verbinden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Abends zeigt das Thermometer −7 °C. Seit dem Mittag ist die Temperatur um 12 Grad gefallen. Von morgens bis mittags war sie um 9 Grad gestiegen. Wie warm war es morgens?"
+   },
+   "o": {
+    "wert": -4,
+    "einheit": "°C"
+   },
+   "c": "-7 + 12 - 9",
+   "w": "Rückwärts: mittags −7 + 12 = 5 °C, morgens 5 − 9 = −4 °C.",
+   "h": "Rechne rückwärts: Gefallen wird zu plus, gestiegen wird zu minus."
   }
  ]
 }

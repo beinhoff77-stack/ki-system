@@ -6,6 +6,11 @@ erst NACH dem Erzeugen der Aufgaben – so bleiben die Aufgaben wörtlich gleich
 (Werte im Zahlenstrahl-Bereich, Thermometer-Stand, Figur-Punkte, Tabellenbreite). `probe` entfällt bei umgebauten Karten (kommt im neuen Muster nicht vor).
 Vergleich je Thema: `aufgaben` und alle Felder außer `inhalt.etappen` und `offen` gegen den Ausgangsstand bc7a754 (lernen-app).
 
+## 2026-11-16 02:53 – STATUS
+groessen.einheiten (8 Karten) umgebaut. Bilder: Raum mit Tür als Figur (schaetzen), Einheitentafeln (laenge, masse, kommaschreibweise), Zeitspannen-Tabelle (zeit), Zahlenstrahl mit Bögen (rechnen, massstab), Säulen (verstehen).
+inhalt_pruefen: OK, keine Hinweise. Vergleich: 224 Aufgaben wörtlich gleich, Rest gleich.
+fehler_bild bei laenge und kommaschreibweise (falsch gefüllte Tafel). Merksätze nennen jetzt nur die wichtigsten Umrechnungen (Längenregel: 25 Wörter); die Umrechnungszahlen stehen vollständig in den Lösungswegen der Aufgaben.
+
 ## 2026-11-16 02:51 – STATUS
 zahlen.potenzen_basis (7 Karten) umgebaut. Bilder: Baumdiagramm für das Weitererzählen in Runden (2 · 2 · 2), Tabellen (Bakterien, Fliesen), Säulen (2³ gegen 3², Papier falten), Stellentafel (Zehnerpotenz), Zahlenstrahl mit springenden Punkten (negative Basis).
 inhalt_pruefen: OK, keine Hinweise. Vergleich: 175 Aufgaben wörtlich gleich, Rest gleich.

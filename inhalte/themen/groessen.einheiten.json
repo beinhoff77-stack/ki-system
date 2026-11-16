@@ -42,75 +42,227 @@
    {
     "lernziel": "schaetzen",
     "titel": "Größen schätzen",
-    "regel": "So schätzt du: Suche eine ⟦Bezugsgröße⟧, die du kennst (Tür 2 m, Schokolade 100 g, Schulstunde 45 min), und vergleiche damit. Schreibe immer ⟦Maßzahl und Einheit⟧.",
+    "regel": "Schätze mit einer ⟦Bezugsgröße⟧, die du kennst. Tür 2 m, Schokolade 100 g, Schulstunde 45 min. Schreibe immer Zahl und Einheit.",
     "schritte": [
-     "Wie hoch ist ein Klassenzimmer? Ein Maßband reicht nicht bis zur Decke. Darum suchst du eine Bezugsgröße.",
-     "Eine Tür ist etwa 2 m hoch. Über der Tür ist bis zur Decke noch ungefähr eine halbe Tür Platz.",
-     "Eine halbe Tür ist etwa 1 m. Also ist der Raum etwa 2 m + 1 m = ⟦3 m⟧ hoch."
+     {
+      "text": "Die Tür ist etwa 2 m hoch."
+     },
+     {
+      "text": "Über der Tür ist noch etwa eine halbe Tür Platz: 1 m.",
+      "bild": {
+       "linien": [
+        [
+         "_A",
+         "_B"
+        ],
+        [
+         "_B",
+         "_C",
+         "?"
+        ],
+        [
+         "_C",
+         "_D"
+        ],
+        [
+         "_D",
+         "_A"
+        ],
+        [
+         "_T1",
+         "_T4",
+         "Tür 2 m"
+        ],
+        [
+         "_T4",
+         "_T3"
+        ],
+        [
+         "_T3",
+         "_T2"
+        ],
+        [
+         "_H1",
+         "_H2",
+         "1 m",
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Zusammen: 2 m + 1 m = ⟦3 m⟧. Zahl und Einheit gehören zusammen.",
+      "bild": {
+       "linien": [
+        [
+         "_A",
+         "_B"
+        ],
+        [
+         "_B",
+         "_C",
+         "≈ 3 m"
+        ],
+        [
+         "_C",
+         "_D"
+        ],
+        [
+         "_D",
+         "_A"
+        ],
+        [
+         "_T1",
+         "_T4",
+         "Tür 2 m"
+        ],
+        [
+         "_T4",
+         "_T3"
+        ],
+        [
+         "_T3",
+         "_T2"
+        ],
+        [
+         "_H1",
+         "_H2",
+         "1 m",
+         "gestrichelt"
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "Nur auf die Maßzahl achten: Ein Bleistift ist 18 ⟦cm⟧ lang, nicht 18 m – 18 m wären so hoch wie ein sechsstöckiges Haus. Die ⟦Einheit⟧ entscheidet.",
-    "einstieg": "Wie lang ist dein Bleistift? Wie schwer ist ein Apfel? Oft hast du kein Lineal und keine Waage dabei. Dann schätzt du mit Dingen, deren Maße du kennst: Eine Tür ist etwa 2 m hoch, eine Tafel Schokolade wiegt 100 g. Alles, was man so messen kann – Länge, Gewicht, Dauer, Preis –, heißt in Mathe ⟦Größe⟧.",
+    "fehler": "Nur auf die Zahl achten: Ein Bleistift ist 18 cm lang, nicht 18 m. 18 m wären ein Haus mit sechs Stockwerken.",
+    "einstieg": "Wie hoch ist dein Klassenzimmer? Ein Maßband reicht nicht bis zur Decke, also vergleichst du mit der Tür. Sie ist etwa 2 m hoch – eine ⟦Bezugsgröße⟧.",
     "woerter": [
      [
-      "Größe",
-      "etwas, das man messen kann, zum Beispiel 18 cm oder 100 g"
-     ],
-     [
-      "Maßzahl",
-      "die Zahl in einer Größe: bei 18 cm die 18"
+      "Bezugsgröße",
+      "etwas, dessen Maß du kennst und mit dem du vergleichst"
      ],
      [
       "Einheit",
-      "das Maß hinter der Zahl: bei 18 cm das cm"
-     ],
-     [
-      "Bezugsgröße",
-      "ein Ding, dessen Maß du kennst und mit dem du vergleichst"
-     ],
-     [
-      "mm, cm, m, km",
-      "Millimeter, Zentimeter, Meter, Kilometer"
-     ],
-     [
-      "g, kg",
-      "Gramm, Kilogramm"
-     ],
-     [
-      "min, h",
-      "Minute, Stunde"
+      "das Maß hinter der Zahl: m, kg, min"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       5,
+       0
+      ],
+      "_C": [
+       5,
+       3
+      ],
+      "_D": [
+       0,
+       3
+      ],
+      "_T1": [
+       1,
+       0
+      ],
+      "_T2": [
+       2,
+       0
+      ],
+      "_T3": [
+       2,
+       2
+      ],
+      "_T4": [
+       1,
+       2
+      ],
+      "_H1": [
+       1.5,
+       2
+      ],
+      "_H2": [
+       1.5,
+       3
+      ]
+     },
+     "linien": [
+      [
+       "_A",
+       "_B"
+      ],
+      [
+       "_B",
+       "_C",
+       "?"
+      ],
+      [
+       "_C",
+       "_D"
+      ],
+      [
+       "_D",
+       "_A"
+      ],
+      [
+       "_T1",
+       "_T4",
+       "Tür 2 m"
+      ],
+      [
+       "_T4",
+       "_T3"
+      ],
+      [
+       "_T3",
+       "_T2"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "laenge",
     "titel": "Längen umrechnen",
-    "regel": "So rechnest du Längen um: ⟦1 km = 1 000 m⟧, ⟦1 m = 10 dm = 100 cm⟧, ⟦1 dm = 10 cm⟧, ⟦1 cm = 10 mm⟧. In die ⟦kleinere⟧ Einheit: malnehmen. In die ⟦größere⟧ Einheit: teilen.",
+    "regel": "In die kleinere ⟦Einheit⟧ nimmst du mal, in die größere teilst du. 1 m = 100 cm, 1 km = 1 000 m.",
     "schritte": [
-     "Rechne 7 m in cm um. Schreibe die 7 in der Einheitentafel in die Spalte m.",
-     "Rechts davon kommen die Spalten dm und cm. Fülle sie mit Nullen: dm 0, cm 0.",
-     "Lies bis zur Spalte cm ab: ⟦7 m = 700 cm⟧.",
-     "Du bist zwei Spalten weiter gegangen. Das heißt zweimal mal 10, also mal 100."
+     {
+      "text": "Schreibe die 7 in der Einheitentafel unter m.",
+      "bild": {
+       "ziffern": [
+        "7",
+        "",
+        ""
+       ],
+       "markiert": 0
+      }
+     },
+     {
+      "text": "Fülle die Spalten dm und cm mit Nullen.",
+      "bild": {
+       "ziffern": [
+        "7",
+        "0",
+        "0"
+       ],
+       "markiert": 2
+      }
+     },
+     {
+      "text": "Lies bis cm ab: ⟦7 m = 700 cm⟧."
+     },
+     {
+      "text": "Zwei Spalten weiter heißt zweimal mal 10, also mal 100."
+     }
     ],
-    "probe": "700 cm : 100 = 7 m ✓",
-    "fehler": "7 m = 70 cm ist falsch: Zwischen m und cm liegt noch dm. Die Umrechnungszahl ist ⟦100⟧, nicht 10.",
-    "bild": {
-     "typ": "stellentafel",
-     "stellen": [
-      "m",
-      "dm",
-      "cm"
-     ],
-     "ziffern": [
-      7,
-      0,
-      0
-     ],
-     "markiert": 2
-    },
-    "einstieg": "Deine Hand misst du mit dem Lineal, ein Zimmer mit dem Zollstock, den Schulweg in Kilometern – jedes Mal in einer anderen Einheit. Um Längen zu vergleichen, brauchst du dieselbe Einheit. Die Einheiten hängen fest zusammen: 1 m sind genau 100 cm. Das Wechseln der Einheit heißt ⟦Umrechnen⟧.",
+    "fehler": "7 m = 70 cm ist falsch: Das ist erst eine Spalte weiter, bei dm. Bis cm sind es zwei Spalten, also 700 cm.",
+    "einstieg": "Eine Wäscheleine ist 7 m lang. Im Bastelladen steht aber alles in Zentimetern. Dieselbe Länge in einer anderen Einheit schreiben heißt ⟦umrechnen⟧.",
     "woerter": [
      [
-      "Umrechnen",
+      "umrechnen",
       "dieselbe Länge in einer anderen Einheit schreiben: 7 m = 700 cm"
      ],
      [
@@ -118,85 +270,10 @@
       "Dezimeter: 10 cm, etwa eine Handbreite"
      ],
      [
-      "Umrechnungszahl",
-      "die Zahl, mit der man malnimmt oder teilt, zum Beispiel 100 von m zu cm"
-     ],
-     [
       "Einheitentafel",
-      "eine Tabelle mit einer Spalte je Einheit (m, dm, cm); in jede Spalte kommt eine Ziffer"
+      "eine Tabelle mit einer Spalte je Einheit; in jede Spalte kommt eine Ziffer"
      ]
-    ]
-   },
-   {
-    "lernziel": "masse",
-    "titel": "Massen umrechnen",
-    "regel": "So rechnest du Massen um: ⟦1 t = 1 000 kg⟧, ⟦1 kg = 1 000 g⟧, ⟦1 g = 1 000 mg⟧. Die Umrechnungszahl ist ⟦immer 1 000⟧.",
-    "schritte": [
-     "Rechne 3 kg in g um. Von kg zu g ist die Umrechnungszahl 1 000.",
-     "g ist die kleinere Einheit. In die kleinere Einheit nimmst du mal.",
-     "3 · 1 000 = 3 000. Also ist ⟦3 kg = 3 000 g⟧."
     ],
-    "probe": "3 000 g : 1 000 = 3 kg ✓",
-    "fehler": "3 kg = 300 g ist falsch: Bei Massen ist die Umrechnungszahl ⟦1 000⟧, nicht 100. 300 g Kartoffeln wären nur zwei oder drei Stück.",
-    "einstieg": "Im Rezept steht: 3 kg Kartoffeln. Deine Küchenwaage zeigt aber Gramm an. Wie viel Gramm musst du abwiegen? Bei Gewichten ist jede Einheit tausendmal so groß wie die nächstkleinere. Was im Alltag „Gewicht“ heißt, nennt man in Mathe ⟦Masse⟧.",
-    "woerter": [
-     [
-      "Masse",
-      "wie schwer etwas ist (im Alltag: Gewicht)"
-     ],
-     [
-      "mg",
-      "Milligramm: 1 000 mg sind 1 g"
-     ],
-     [
-      "kg",
-      "Kilogramm: 1 000 g"
-     ],
-     [
-      "t",
-      "Tonne: 1 000 kg, etwa so viel wie ein kleines Auto"
-     ]
-    ]
-   },
-   {
-    "lernziel": "zeit",
-    "titel": "Mit Zeit rechnen",
-    "regel": "So rechnest du mit Zeit: ⟦1 d = 24 h⟧, ⟦1 h = 60 min⟧, ⟦1 min = 60 s⟧ – die Umrechnungszahl ist ⟦60⟧ oder 24, nicht 10 oder 100. Zeitspannen rechnest du ⟦in Schritten bis zur vollen Stunde⟧.",
-    "schritte": [
-     "Der Film läuft von 18:40 Uhr bis 20:15 Uhr. Gehe zuerst bis zur vollen Stunde: Von 18:40 bis 19:00 Uhr sind es 20 min.",
-     "Dann die ganzen Stunden: Von 19:00 bis 20:00 Uhr ist es 1 h.",
-     "Dann der Rest: Von 20:00 bis 20:15 Uhr sind es 15 min.",
-     "Zusammen: 1 h + 20 min + 15 min = ⟦1 h 35 min⟧."
-    ],
-    "fehler": "20:15 − 18:40 = 1:75 ist falsch: Eine Stunde hat ⟦60 Minuten⟧, nicht 100. Man darf Uhrzeiten nicht wie Kommazahlen abziehen.",
-    "einstieg": "Ein Film beginnt um 18:40 Uhr und endet um 20:15 Uhr. Wie lange dauert er? Bei der Uhr zählt man anders als sonst: Nach 59 Minuten kommt nicht die 100, sondern eine neue Stunde. Die Zeit zwischen Anfang und Ende heißt ⟦Zeitspanne⟧.",
-    "woerter": [
-     [
-      "Zeitpunkt",
-      "eine Uhrzeit, zum Beispiel 18:40 Uhr (18 Uhr und 40 Minuten)"
-     ],
-     [
-      "Zeitspanne",
-      "wie lange etwas dauert, zum Beispiel 1 h 35 min"
-     ],
-     [
-      "s, min, h, d",
-      "Sekunde, Minute, Stunde, Tag"
-     ]
-    ]
-   },
-   {
-    "lernziel": "kommaschreibweise",
-    "titel": "Größen in Kommaschreibweise",
-    "regel": "So schreibst du mit Komma: Vor dem Komma steht die ⟦große Einheit⟧, dahinter die kleineren. Hinter dem Komma stehen ⟦so viele Stellen, wie die Umrechnungszahl Nullen hat⟧: bei m und cm zwei (3,05 m), bei kg und g drei (2,500 kg = 2,5 kg).",
-    "schritte": [
-     "Schreibe 3 m 5 cm in m. Von m zu cm ist die Umrechnungszahl 100, und 100 hat zwei Nullen.",
-     "Also brauchst du ⟦zwei Stellen⟧ hinter dem Komma: eine für dm und eine für cm.",
-     "5 cm sind 0 dm und 5 cm. Hinter das Komma schreibst du deshalb 05.",
-     "Ergebnis: ⟦3 m 5 cm = 3,05 m⟧."
-    ],
-    "probe": "3,05 m = 305 cm = 3 m 5 cm ✓",
-    "fehler": "3 m 5 cm = 3,5 m ist falsch: 3,5 m sind 3 m ⟦50⟧ cm. Beim Geld kennst du das: 4,50 € und 4,05 € sind verschieden. Bei cm brauchst du ⟦zwei⟧ Stellen nach dem Komma: 3,05 m.",
     "bild": {
      "typ": "stellentafel",
      "stellen": [
@@ -205,93 +282,407 @@
       "cm"
      ],
      "ziffern": [
-      3,
-      0,
-      5
+      "",
+      "",
+      ""
+     ]
+    },
+    "fehler_bild": {
+     "ziffern": [
+      "7",
+      "0",
+      ""
      ],
      "markiert": 1
-    },
-    "einstieg": "Auf einem Preisschild steht 4,07 €. Das sind 4 Euro und 7 Cent. Das Komma trennt die ganzen Euro von den Cent. Genauso schreibt man Längen und Massen: 3,45 m sind 3 m und 45 cm. Das nennt man ⟦Kommaschreibweise⟧.",
+    }
+   },
+   {
+    "lernziel": "masse",
+    "titel": "Massen umrechnen",
+    "regel": "Bei Massen ist die ⟦Umrechnungszahl 1 000⟧. 1 kg = 1 000 g und 1 t = 1 000 kg.",
+    "schritte": [
+     {
+      "text": "Von kg zu g ist die Umrechnungszahl 1 000."
+     },
+     {
+      "text": "Schreibe die 3 unter kg und fülle die Gramm-Spalten mit Nullen.",
+      "bild": {
+       "ziffern": [
+        "3",
+        "0",
+        "0",
+        "0"
+       ],
+       "markiert": 0
+      }
+     },
+     {
+      "text": "Abgelesen: ⟦3 kg = 3 000 g⟧."
+     }
+    ],
+    "fehler": "3 kg = 300 g ist falsch. Bei Massen ist die Umrechnungszahl 1 000, nicht 100. 300 g wären nur zwei Kartoffeln.",
+    "einstieg": "Im Rezept stehen 3 kg Kartoffeln, die Küchenwaage zeigt aber Gramm. Wie viel Gramm musst du abwiegen? Was man im Alltag Gewicht nennt, heißt in Mathe ⟦Masse⟧.",
+    "woerter": [
+     [
+      "Masse",
+      "wie schwer etwas ist (im Alltag: Gewicht)"
+     ],
+     [
+      "Umrechnungszahl",
+      "die Zahl, mit der man beim Umrechnen malnimmt oder teilt"
+     ]
+    ],
+    "bild": {
+     "typ": "stellentafel",
+     "stellen": [
+      "kg",
+      "100 g",
+      "10 g",
+      "1 g"
+     ],
+     "ziffern": [
+      "",
+      "",
+      "",
+      ""
+     ]
+    }
+   },
+   {
+    "lernziel": "zeit",
+    "titel": "Mit Zeit rechnen",
+    "regel": "Rechne Zeitspannen ⟦bis zur vollen Stunde⟧ und dann weiter. 1 h = 60 min, 1 min = 60 s, 1 d = 24 h.",
+    "schritte": [
+     {
+      "text": "Bis zur vollen Stunde: 18:40 bis 19:00 Uhr sind 20 min.",
+      "bild": {
+       "zeilen": [
+        [
+         "18:40",
+         "19:00",
+         "20 min"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Dann 19:00 bis 20:00 Uhr: 1 h.",
+      "bild": {
+       "zeilen": [
+        [
+         "18:40",
+         "19:00",
+         "20 min"
+        ],
+        [
+         "19:00",
+         "20:00",
+         "1 h"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Der Rest: 20:00 bis 20:15 Uhr sind 15 min.",
+      "bild": {
+       "zeilen": [
+        [
+         "18:40",
+         "19:00",
+         "20 min"
+        ],
+        [
+         "19:00",
+         "20:00",
+         "1 h"
+        ],
+        [
+         "20:00",
+         "20:15",
+         "15 min"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Zusammen: 1 h + 20 min + 15 min = ⟦1 h 35 min⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "18:40",
+         "19:00",
+         "20 min"
+        ],
+        [
+         "19:00",
+         "20:00",
+         "1 h"
+        ],
+        [
+         "20:00",
+         "20:15",
+         "15 min"
+        ],
+        [
+         "zusammen",
+         "",
+         "1 h 35 min"
+        ]
+       ]
+      }
+     }
+    ],
+    "fehler": "Uhrzeiten wie normale Zahlen abziehen: 2 015 − 1 840 = 175. Eine Stunde hat aber 60 Minuten, nicht 100.",
+    "einstieg": "Ein Film beginnt um 18:40 Uhr und endet um 20:15 Uhr. Wie lange dauert er? Die Zeit zwischen Anfang und Ende heißt ⟦Zeitspanne⟧.",
+    "woerter": [
+     [
+      "Zeitspanne",
+      "wie lange etwas dauert, zum Beispiel 1 h 35 min"
+     ],
+     [
+      "vollen Stunde",
+      "eine Uhrzeit mit :00, zum Beispiel 19:00 Uhr"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "von",
+      "bis",
+      "Dauer"
+     ],
+     "zeilen": [
+      [
+       "18:40",
+       "20:15",
+       "?"
+      ]
+     ]
+    }
+   },
+   {
+    "lernziel": "kommaschreibweise",
+    "titel": "Größen in Kommaschreibweise",
+    "regel": "Hinter dem Komma bekommt ⟦jede kleinere Einheit⟧ ihre Stelle. Bei m und cm sind es zwei Stellen, bei kg und g drei.",
+    "schritte": [
+     {
+      "text": "Schreibe 3 m 5 cm in die Tafel: 3 unter m, 5 unter cm.",
+      "bild": {
+       "ziffern": [
+        "3",
+        "",
+        "5"
+       ]
+      }
+     },
+     {
+      "text": "Die leere Spalte dm bekommt eine 0.",
+      "bild": {
+       "ziffern": [
+        "3",
+        "0",
+        "5"
+       ],
+       "markiert": 1
+      }
+     },
+     {
+      "text": "Das Komma kommt hinter die Meter: ⟦3,05 m⟧."
+     }
+    ],
+    "fehler": "3 m 5 cm = 3,5 m ist falsch. 3,5 m sind 3 m 50 cm. Wie beim Geld: 4,50 € sind nicht 4,05 €.",
+    "einstieg": "Auf dem Preisschild steht 4,07 €: 4 Euro und 7 Cent. Genauso schreibt man Längen: 3,05 m sind 3 m und 5 cm. Das heißt ⟦Kommaschreibweise⟧.",
     "woerter": [
      [
       "Kommaschreibweise",
-      "eine Größe mit Komma in einer Einheit: 3,45 m statt 3 m 45 cm"
-     ],
-     [
-      "ct",
-      "Cent: 100 ct sind 1 €"
-     ],
-     [
-      "Stelle hinter dem Komma",
-      "jede Ziffer rechts vom Komma"
+      "eine Größe mit Komma in einer Einheit: 3,05 m statt 3 m 5 cm"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "stellentafel",
+     "stellen": [
+      "m",
+      "dm",
+      "cm"
+     ],
+     "ziffern": [
+      "",
+      "",
+      ""
+     ]
+    },
+    "fehler_bild": {
+     "ziffern": [
+      "3",
+      "5",
+      "0"
+     ],
+     "markiert": 1
+    }
    },
    {
     "lernziel": "rechnen",
     "titel": "Mit Größen rechnen",
-    "regel": "So rechnest du mit Größen: Vor dem Addieren oder Subtrahieren beide auf ⟦dieselbe Einheit⟧ bringen. Beim Vervielfachen und Teilen rechnest du oft leichter in der ⟦kleineren Einheit⟧ (ct statt €, cm statt m).",
+    "regel": "Vor plus und minus bringst du beide Größen auf ⟦dieselbe Einheit⟧. Oft rechnet es sich in der kleineren Einheit leichter.",
     "schritte": [
-     "Rechne 1,2 km + 350 m. Die Einheiten sind verschieden. Rechne darum zuerst beides in m um.",
-     "1 km = 1 000 m, also sind 1,2 km = 1 200 m.",
-     "Jetzt addieren: 1 200 m + 350 m = ⟦1 550 m⟧."
+     {
+      "text": "1 km = 1 000 m, also sind 1,2 km = 1 200 m.",
+      "bild": {
+       "boegen": [
+        {
+         "von": 0,
+         "bis": 1200,
+         "name": "Schule"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Dazu kommen 350 m zum Bäcker.",
+      "bild": {
+       "boegen": [
+        {
+         "von": 0,
+         "bis": 1200,
+         "name": "Schule"
+        },
+        {
+         "von": 1200,
+         "bis": 1550,
+         "name": "Bäcker"
+        }
+       ]
+      }
+     },
+     {
+      "text": "1 200 m + 350 m = ⟦1 550 m⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 1550
+        }
+       ]
+      }
+     }
     ],
-    "fehler": "1,2 km + 350 m = 351,2 ist falsch: Kilometer und Meter darf man nicht zusammenzählen, als wären sie dasselbe. Erst ⟦umrechnen⟧, dann rechnen.",
-    "einstieg": "Du gehst 1,2 km zur Schule und danach noch 350 m zum Bäcker. Wie weit bist du gegangen? 1,2 und 350 kann man nicht direkt zusammenzählen – das eine sind Kilometer, das andere Meter. Zuerst brauchen beide Größen ⟦dieselbe Einheit⟧.",
+    "fehler": "1,2 + 350 = 351,2 ist falsch. Das zählt Kilometer und Meter zusammen, als wären sie dasselbe.",
+    "einstieg": "Du gehst 1,2 km zur Schule und danach 350 m zum Bäcker. Kilometer und Meter kann man nicht direkt zusammenzählen. Erst brauchen beide ⟦dieselbe Einheit⟧.",
     "woerter": [
      [
-      "Rückgeld",
-      "das Geld, das du an der Kasse zurückbekommst"
-     ],
-     [
-      "vervielfachen",
-      "mit einer Zahl malnehmen, zum Beispiel 3 Brötchen zu je 0,45 €"
+      "dieselbe Einheit",
+      "beide Größen in Metern oder beide in Kilometern"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 2000,
+     "abschnitte": 4,
+     "beschriftet": "alle"
+    }
    },
    {
     "lernziel": "massstab",
     "titel": "Maßstab auf Karten und Plänen",
-    "regel": "So rechnest du mit dem Maßstab ⟦1 : 25 000⟧: Wirklichkeit = ⟦Kartenlänge · 25 000⟧, danach in eine passende Einheit umrechnen. Bei ⟦10 : 1⟧ ist das Bild 10-mal so groß wie in Wirklichkeit: Dann teilst du die Bildlänge durch 10.",
+    "regel": "Bei 1 : 25 000 gilt: Wirklichkeit = ⟦Kartenlänge · 25 000⟧. Bei 10 : 1 ist das Bild 10-mal so groß.",
     "schritte": [
-     "Die Karte hat den Maßstab 1 : 25 000. Das heißt: 1 cm auf der Karte sind 25 000 cm in Wirklichkeit.",
-     "Rechne in m um: 25 000 cm = 250 m. Jeder Zentimeter auf der Karte steht also für 250 m.",
-     "Der Weg ist auf der Karte 4 cm lang: 4 · 250 m = 1 000 m.",
-     "1 000 m sind ⟦1 km⟧. Du läufst also 1 km."
+     {
+      "text": "1 cm auf der Karte sind 25 000 cm, also 250 m.",
+      "bild": {
+       "boegen": [
+        {
+         "von": 0,
+         "bis": 250,
+         "name": "1 cm"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Dein Weg ist 4 cm lang, also 4-mal 250 m.",
+      "bild": {
+       "boegen": [
+        {
+         "von": 0,
+         "bis": 250,
+         "name": "1 cm"
+        },
+        {
+         "von": 250,
+         "bis": 500
+        },
+        {
+         "von": 500,
+         "bis": 750
+        },
+        {
+         "von": 750,
+         "bis": 1000
+        }
+       ]
+      }
+     },
+     {
+      "text": "4 · 250 m = 1 000 m = ⟦1 km⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 1000,
+         "name": "Ziel"
+        }
+       ]
+      }
+     }
     ],
-    "fehler": "4 cm · 25 000 = 100 000 m ist falsch: Die Einheit bleibt erst einmal ⟦cm⟧. 100 000 cm sind nur 1 km.",
-    "probe": "Andersherum: 1 km = 100 000 cm, und 100 000 : 25 000 = 4 cm ✓",
-    "einstieg": "Auf einer Wanderkarte ist ein Weg nur 4 cm lang – in Wirklichkeit läufst du viel weiter. Die Karte zeigt alles verkleinert, aber überall gleich stark. Wie stark, steht am Rand der Karte, zum Beispiel 1 : 25 000. Diese Angabe heißt ⟦Maßstab⟧.",
+    "fehler": "Mit dem Maßstab teilen statt malnehmen ist falsch. Auf der Karte ist alles kleiner, draußen also größer.",
+    "einstieg": "Auf der Wanderkarte ist dein Weg nur 4 cm lang. Am Rand steht 1 : 25 000. Diese Angabe heißt ⟦Maßstab⟧: 1 cm auf der Karte sind 25 000 cm draußen.",
     "woerter": [
      [
       "Maßstab",
-      "sagt, wie stark eine Karte oder ein Bild verkleinert oder vergrößert ist"
+      "sagt, wie stark eine Karte verkleinert ist"
      ],
      [
       "1 : 25 000",
-      "gelesen „eins zu fünfundzwanzigtausend“: 1 cm auf der Karte sind 25 000 cm in Wirklichkeit"
-     ],
-     [
-      "20 : 1",
-      "vergrößert: 20 cm im Bild sind 1 cm in Wirklichkeit"
-     ],
-     [
-      "Wirklichkeit",
-      "die echte Länge draußen"
+      "gelesen „eins zu fünfundzwanzigtausend“"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 1000,
+     "abschnitte": 4,
+     "beschriftet": "alle"
+    }
    },
    {
     "lernziel": "verstehen",
     "titel": "Größen prüfen, Fehler finden",
-    "regel": "So prüfst du ein Ergebnis: ⟦Passt die Einheit?⟧ ⟦Ist die Größe realistisch?⟧ Vergleiche mit einer Bezugsgröße. Eine Umrechnung prüfst du durch ⟦Rückwärtsrechnen⟧.",
+    "regel": "Prüfe jedes Ergebnis: Passt die ⟦Einheit⟧? Ist die Größe realistisch? Vergleiche mit einer Bezugsgröße.",
     "schritte": [
-     "Die Aussage: 1,5 km zu Fuß in 2 Minuten. Nimm eine Bezugsgröße: 1 km zu Fuß dauert etwa 12 bis 15 min.",
-     "1,5 km sind anderthalb Kilometer. Das dauert also etwa 18 bis 22 min, rund 20 min.",
-     "20 min sind viel mehr als 2 min. Die Aussage ist ⟦unrealistisch⟧."
+     {
+      "text": "Bezugsgröße: 1 km zu Fuß dauert etwa 12 bis 15 min."
+     },
+     {
+      "text": "1,5 km dauern also rund 20 min.",
+      "bild": {
+       "werte": [
+        {
+         "name": "Behauptung",
+         "wert": 2
+        },
+        {
+         "name": "realistisch",
+         "wert": 20
+        }
+       ]
+      }
+     },
+     {
+      "text": "2 min sind viel zu wenig. Die Angabe ist ⟦unrealistisch⟧."
+     }
     ],
-    "fehler": "Ein Ergebnis wie „Ein Ei wiegt 60 kg“ hinschreiben, ohne nachzudenken – so viel wiegt ein Erwachsener! Die ⟦Plausibilität⟧ prüfen: Richtig sind 60 g.",
-    "einstieg": "Jemand erzählt: „Mein Schulweg ist 1,5 km lang, zu Fuß brauche ich 2 Minuten.“ Da stutzt du – so schnell kann niemand gehen. Du hast die Angabe mit deiner Erfahrung verglichen. Dieses Nachprüfen, ob eine Angabe stimmen kann, heißt ⟦Plausibilität prüfen⟧.",
+    "fehler": "„Ein Ei wiegt 60 kg“ hinschreiben, ohne nachzudenken. So viel wiegt ein Erwachsener. Richtig sind 60 g.",
+    "einstieg": "Jemand erzählt: Sein Schulweg ist 1,5 km lang, zu Fuß braucht er 2 Minuten. So schnell geht niemand! Du prüfst, ob eine Angabe ⟦plausibel⟧ ist.",
     "woerter": [
      [
       "plausibel",
@@ -300,12 +691,19 @@
      [
       "realistisch",
       "passt zur Wirklichkeit"
-     ],
-     [
-      "Rückwärtsrechnen",
-      "die Umrechnung umgekehrt machen und schauen, ob die Startzahl wieder herauskommt"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "saeulen",
+     "einheit": "min",
+     "werte": [
+      {
+       "name": "Behauptung",
+       "wert": 2
+      }
+     ],
+     "y_max": 25
+    }
    }
   ],
   "teilfaehigkeiten": [

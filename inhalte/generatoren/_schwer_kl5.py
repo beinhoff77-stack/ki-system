@@ -125,7 +125,7 @@ def ergaenze(datei, neu, start, mindest=6):
             k = _schluessel(b)
             assert k not in gesehen, f'Dublette: {b["f"]["text"]}'
             assert b['f']['text'] not in beispiele
-            assert len(b['w']) >= 15 and b['h']
+            assert len(b['w']) >= 15 and b['h'], b['f']['text']
             gesehen.add(k)
             dazu.append(b)
     datei['aufgaben'] = alt + dazu

@@ -1,5 +1,8 @@
 # Postfach schwer-kl5 (Zehnte Runde: Durchsicht Klasse 5 + schwerere Aufgaben nach Prüfungsvorbild)
 
+## 2026-11-16 07:30 – STATUS
+Thema 7/12 fertig: **geometrie.winkel** – 42 neue Übungen (je Lernkarte 2 × Stufe 2, 4 × Stufe 3), danach je Lernkarte 10 Stufe-3-Übungen. Prüfskript OK, Unverändert-Nachweis JA.
+
 ## 2026-11-16 07:10 – STATUS
 Thema 6/12 fertig: **geometrie.grundbegriffe** – 42 neue Übungen (je Lernkarte 2 × Stufe 2, 4 × Stufe 3), danach je Lernkarte 10 Stufe-3-Übungen. Prüfskript OK, Unverändert-Nachweis JA.
 

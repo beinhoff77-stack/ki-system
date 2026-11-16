@@ -506,5 +506,136 @@ KARTEN = {
 umbau(DATEI, KARTEN)
 
 
+# ---------- SCHWER (Zehnte Runde, Zweig schwer-kl5) ----------
+# Neue Übungen nach Prüfungsvorbild (Jahrgangsstufentest 6 Bayern: Winkelmaß bestimmen, drei Geraden durch einen Punkt,
+# Leiter/Begründen, Kreissektor; Känguru 5/6: Drehungen, Uhr); eigene Zahlen. Winkelsätze an Parallelen (Kl. 7) bewusst nicht.
+from _schwer_kl5 import A, L, Z, de, einzig, ergaenze, wahl  # noqa: E402
+
+_RICHT = ['Norden', 'Nordosten', 'Osten', 'Südosten', 'Süden', 'Südwesten', 'Westen', 'Nordwesten']
+
+
+def _richtung(grad):
+    return _RICHT[(grad % 360) // 45]
+
+
+def _schwer():
+    N = {}
+    N['ergaenzen'] = [
+        Z(2, 'Wie groß ist der Winkel, der 125° zum Vollwinkel ergänzt?', '360 - 125', '360° − 125° = 235°.', 'Ein Vollwinkel hat 360°.', einheit='°'),
+        Z(2, 'Wie groß ist der Winkel, der 18° zu einem rechten Winkel ergänzt?', '90 - 18', '90° − 18° = 72°.', 'Ein rechter Winkel hat 90°.', einheit='°'),
+        Z(3, 'Eine Rampe bildet mit dem Boden einen Winkel von 12°. Wie groß ist der Winkel auf der anderen Seite der Rampe, ebenfalls am Boden gemessen?', '180 - 12',
+          'Beide Winkel liegen nebeneinander auf dem geraden Boden: zusammen 180°. 180° − 12° = 168°.', 'Der Boden ist eine gerade Linie. Welches Ganze ergeben die beiden Winkel?', einheit='°'),
+        Z(3, 'Ein gestreckter Winkel ist in drei Winkel geteilt: 48°, α und 2 · α. Wie groß ist α?', '(180 - 48) / 3',
+          'α und 2 · α sind zusammen 180° − 48° = 132°. Das sind 3 gleiche Teile: α = 132° : 3 = 44°.', 'α und 2 · α zusammen sind wie 3 · α.', einheit='°'),
+        Z(3, 'α und β ergänzen sich zu 90°. β und γ ergänzen sich zu 180°. Es ist α = 37°. Wie groß ist γ?', '180 - (90 - 37)',
+          'β = 90° − 37° = 53°. γ = 180° − 53° = 127°.', 'Rechne zuerst β aus.', einheit='°'),
+        Z(3, 'Ein Winkel ist halb so groß wie der Winkel, der ihn zu 180° ergänzt. Wie groß ist er?', '180 // 3',
+          'Der Winkel ist 1 Teil, die Ergänzung 2 Teile: zusammen 3 Teile = 180°. Ein Teil: 60°.', 'Zeichne einen Streifen aus 3 gleichen Teilen für 180°.', einheit='°'),
+    ]
+    N['kreuzung'] = [
+        Z(2, 'Zwei Geraden schneiden sich. α = 35°. Wie groß ist die Summe der anderen drei Winkel β + γ + δ?', '360 - 35', 'Alle vier Winkel ergeben 360°. 360° − 35° = 325°.',
+          'Die vier Winkel liegen rund um den Schnittpunkt.', einheit='°'),
+        Z(2, 'Zwei Geraden schneiden sich. Drei der vier Winkel sind zusammen 290°. Wie groß ist der vierte?', '360 - 290', '360° − 290° = 70°.', 'Rundherum sind es 360°.', einheit='°'),
+        Z(3, 'Drei Geraden schneiden sich in einem Punkt. Zwei nebeneinanderliegende Winkel sind 50° und 70°. Wie groß ist der dritte Winkel daneben, der mit ihnen zusammen einen gestreckten Winkel bildet?',
+          '180 - 50 - 70', 'Drei nebeneinanderliegende Winkel an einer Geraden ergeben 180°: 180° − 50° − 70° = 60°.', 'Auf einer Seite einer Geraden ergeben die Winkel zusammen 180°.', einheit='°'),
+        Z(3, 'Drei Geraden schneiden sich in einem Punkt. Alle sechs Winkel, die dabei entstehen, sind gleich groß. Wie groß ist jeder?', '360 / 6',
+          'Die sechs Winkel liegen rund um den Schnittpunkt: 360° : 6 = 60°. (Probe: drei nebeneinander ergeben 180°.)', 'Wie viel Grad liegen rund um einen Punkt?', einheit='°'),
+        wahl(3, 'An einer Geradenkreuzung sind zwei Winkel zusammen 100°. Was folgt daraus?', ['Sie liegen sich gegenüber, jeder ist 50°.', 'Sie sind Nachbarwinkel, 40° und 60°.',
+                                                                                             'Sie sind Nachbarwinkel, jeder ist 50°.', 'So etwas gibt es nicht.'],
+             lambda o: o.startswith('Sie liegen sich gegenüber'), 'Nachbarwinkel ergäben 180°. Also liegen sie sich gegenüber und sind gleich groß: 100° : 2 = 50°.',
+             'Was ergeben zwei Nachbarwinkel zusammen?'),
+        Z(3, 'Zwei Geraden schneiden sich. Drei der vier Winkel sind zusammen 3-mal so groß wie der vierte. Wie groß ist der vierte Winkel?', '360 // 4',
+          'Vierter Winkel: 1 Teil, die anderen drei: 3 Teile. Zusammen 4 Teile = 360°, also 90°.', 'Alle vier Winkel sind zusammen 360°. Wie viele Teile sind das?', einheit='°'),
+    ]
+    N['um_punkt'] = [
+        Z(2, 'Um einen Punkt liegen lückenlos 6 gleich große Winkel. Wie groß ist jeder?', '360 / 6', 'Vollwinkel geteilt durch 6: 360° : 6 = 60°.', 'Zusammen bilden sie einen Vollwinkel.', einheit='°'),
+        Z(2, 'Auf einer Seite einer Geraden liegen nebeneinander die Winkel 35°, 50°, 45° und ein weiterer Winkel. Wie groß ist er?', '180 - 35 - 50 - 45',
+          '180° − 35° − 50° − 45° = 50°.', 'Auf einer Seite einer Geraden sind es zusammen 180°.', einheit='°'),
+        Z(3, 'Ein Kreis wird in drei Teile (Kreisausschnitte) geteilt. Der erste hat am Mittelpunkt 120°. Der zweite ist doppelt so groß wie der dritte. Wie groß ist der dritte?',
+          '(360 - 120) / 3', 'Für den zweiten und dritten bleiben 240°. Das sind 3 Teile (2 + 1): 240° : 3 = 80°.', 'Wie viel Grad bleiben für die beiden anderen Teile?', einheit='°'),
+        Z(3, 'Ein Rad hat 12 Speichen in gleichen Abständen. Wie groß ist der Winkel zwischen zwei Speichen, zwischen denen genau zwei weitere Speichen liegen?', '3 * 360 / 12',
+          'Zwischen benachbarten Speichen: 360° : 12 = 30°. Mit zwei Speichen dazwischen sind es 3 Abstände: 90°.', 'Zähle die Abstände, nicht die Speichen.', einheit='°'),
+        Z(3, 'Um einen Punkt liegen vier Winkel. Jeder ist 10° größer als der vorige. Wie groß ist der kleinste?', str(einzig([x for x in range(1, 360) if 4 * x + 60 == 360])),
+          'x + (x + 10°) + (x + 20°) + (x + 30°) = 4 · x + 60° = 360°. Also 4 · x = 300°, x = 75°.', 'Wie viel kommt zu den vier gleichen Teilen dazu?', einheit='°'),
+        A(3, 'Jemand rechnet: Um einen Punkt liegen 120°, 95° und δ. Also δ = 180° − 120° − 95°. Was ist falsch?', 'Um einen Punkt sind es 360°: δ = 360° − 120° − 95° = 145°.',
+          ['Nichts, das stimmt.', 'Man muss 120° + 95° rechnen.', 'Es müsste 90° − 120° − 95° heißen.'],
+          'Winkel um einen Punkt ergeben einen Vollwinkel (360°), nicht 180°. Das Ergebnis −35° hätte stutzig machen müssen.', 'Rechne mit 180° aus. Kann das Ergebnis stimmen?'),
+    ]
+    def zeiger(h, m):
+        w = abs((30 * h + m / 2) - 6 * m) % 360
+        return min(w, 360 - w)
+    deckung = sum(1 for k in range(0, 20) if 720 * k / 11 < 360)
+    N['uhr'] = [
+        Z(2, 'Wie groß ist der kleinere Winkel zwischen den Zeigern um 5:00 Uhr?', '5 * 30', '5 Stundenabstände: 5 · 30° = 150°.', 'Zwischen zwei Zahlen liegen 30°.', einheit='°'),
+        Z(2, 'Um wie viel Grad dreht sich der Minutenzeiger von 7:10 Uhr bis 7:50 Uhr?', '(50 - 10) * 6', '40 Minuten: 40 · 6° = 240°.', 'Wie viele Minuten vergehen?', einheit='°'),
+        Z(3, 'Wie groß ist der kleinere Winkel zwischen den Zeigern um 2:30 Uhr?', str(int(zeiger(2, 30))),
+          'Minutenzeiger auf 6: 180°. Stundenzeiger zwischen 2 und 3: 60° + 15° = 75°. Unterschied: 180° − 75° = 105°.',
+          'Der Stundenzeiger steht nicht genau auf der 2, sondern in der Mitte zwischen 2 und 3.', einheit='°'),
+        Z(3, 'Wie groß ist der kleinere Winkel zwischen den Zeigern um 9:20 Uhr?', str(int(zeiger(9, 20))),
+          'Minutenzeiger auf 4: 120°. Stundenzeiger: 9 · 30° + 20 · 0,5° = 280°. Unterschied 160°.', 'Der Stundenzeiger wandert in 20 Minuten 10° weiter.', einheit='°'),
+        Z(3, 'Wie oft stehen die beiden Zeiger zwischen 12:00 Uhr und 18:00 Uhr genau übereinander? 12:00 Uhr zählt mit, 18:00 Uhr nicht.', str(deckung),
+          'Um 12:00 Uhr, kurz nach 1, nach 2, nach 3, nach 4 und nach 5 Uhr – zwischen 5 und 6 Uhr nicht mehr. Das sind 6-mal.',
+          'Wann holt der Minutenzeiger den Stundenzeiger ungefähr ein? Geh Stunde für Stunde durch.'),
+        Z(3, 'Um wie viel Grad dreht sich der Stundenzeiger an einem ganzen Tag (24 Stunden)?', '24 * 30', 'In 12 Stunden eine ganze Drehung (360°), in 24 Stunden zwei: 720°.',
+          'Wie lange braucht der Stundenzeiger für eine ganze Runde?', einheit='°'),
+    ]
+    N['drehungen'] = [
+        wahl(2, 'Du schaust nach Westen und drehst dich um 90° gegen den Uhrzeigersinn. Wohin schaust du jetzt?', ['Süden', 'Norden', 'Osten', 'Südwesten'],
+             lambda o: o == _richtung(270 - 90), 'Gegen den Uhrzeigersinn von Westen aus: über Südwesten nach Süden (2 · 45° = 90°).', 'Gegen den Uhrzeigersinn heißt: links herum.'),
+        Z(2, 'Wie viel Grad sind eine Dreivierteldrehung?', '360 * 3 / 4', '360° : 4 = 90°, dreimal: 270°.', 'Eine Vierteldrehung sind 90°.', einheit='°'),
+        wahl(3, 'Ein Zeiger zeigt nach Norden. Er dreht sich 10-mal hintereinander um 45° im Uhrzeigersinn. Wohin zeigt er jetzt?', ['Osten', 'Norden', 'Süden', 'Nordosten'],
+             lambda o: o == _richtung(10 * 45), '10 · 45° = 450° = 360° + 90°. Nach einer ganzen Runde noch 90° weiter: Osten.', 'Zieh ganze Runden (360°) ab.'),
+        wahl(3, 'Du schaust nach Osten. Du drehst dich erst 135° im Uhrzeigersinn, dann 270° gegen den Uhrzeigersinn. Wohin schaust du jetzt?',
+             ['Nordwesten', 'Südwesten', 'Norden', 'Nordosten'], lambda o: o == _richtung(90 + 135 - 270),
+             'Osten + 135° im Uhrzeigersinn = Südwesten. Dann 270° zurück: Südwesten → Süden → … → Nordwesten (6 Schritte zu 45°).',
+             'Rechne die Richtungen als Grad: Norden 0°, Osten 90°, Süden 180°, Westen 270°.'),
+        wahl(3, 'Nach einer Drehung um 225° im Uhrzeigersinn schaust du nach Norden. Wohin hast du vorher geschaut?', ['Südosten', 'Südwesten', 'Nordwesten', 'Osten'],
+             lambda o: o == _richtung(0 - 225), 'Rückwärts: 225° gegen den Uhrzeigersinn von Norden aus: Nordwesten, Westen, Südwesten, Süden, Südosten.',
+             'Drehe rückwärts: gleich viel Grad, aber gegen den Uhrzeigersinn.'),
+        A(3, 'Jemand sagt: „Von Norden nach Westen im Uhrzeigersinn sind es 90°.“ Stimmt das?', 'Nein: im Uhrzeigersinn über Osten und Süden sind es 270°.',
+          ['Ja, das stimmt.', 'Nein, es sind 180°.', 'Nein, es sind 45°.'], 'Im Uhrzeigersinn: N → O (90°) → S (180°) → W (270°). 90° wären es gegen den Uhrzeigersinn.',
+          'Welche Richtungen liegen im Uhrzeigersinn zwischen Norden und Westen?'),
+    ]
+    N['figuren'] = [
+        Z(2, 'Im Quadrat ABCD teilt die Diagonale [AC] den Winkel bei A in zwei gleich große Teile. Wie groß ist jeder Teil?', '90 / 2', 'Die Ecke hat 90°. Halbiert: 90° : 2 = 45°.',
+          'Im Quadrat teilt die Diagonale die Ecke genau in der Mitte.', einheit='°'),
+        Z(2, 'Wie groß ist die Summe aller vier Eckwinkel eines Rechtecks?', '4 * 90', 'Vier rechte Winkel: 4 · 90° = 360°.', 'Jede Ecke eines Rechtecks ist ein rechter Winkel.', einheit='°'),
+        Z(3, 'Im Quadrat ABCD geht von A eine Strecke zu einem Punkt auf der Seite [BC]. Sie bildet mit [AB] einen Winkel von 28°. Wie groß ist der Winkel zwischen der Strecke und [AD]?',
+          '90 - 28', 'Der Winkel bei A ist 90° und wird in 28° und den Rest geteilt: 90° − 28° = 62°.', 'Wie groß ist der ganze Winkel bei A?', einheit='°'),
+        A(3, 'Jemand sagt: „Im Rechteck teilt die Diagonale jede Ecke in zwei Winkel von 45°.“ Stimmt das?', 'Nein, das gilt nur im Quadrat. In einem langen Rechteck sind die Teile verschieden.',
+          ['Ja, in jedem Rechteck.', 'Nein, die Teile sind immer 30° und 60°.', 'Ja, weil jede Ecke 90° hat.'],
+          'Bei einem Rechteck mit 6 cm und 2 cm ist die Diagonale flach: Die Teile sind ungleich. Nur beim Quadrat sind es 2 · 45°.', 'Denk an ein sehr langes, schmales Rechteck.'),
+        Z(3, 'Ein Eckwinkel eines Rechtecks wird in 3 Teile geteilt. Die beiden äußeren Teile sind gleich groß, der mittlere ist doppelt so groß wie jeder äußere. Wie groß ist der mittlere Teil?',
+          '2 * 90 / 4', 'Außen je 1 Teil, Mitte 2 Teile: zusammen 4 Teile = 90°. Ein Teil 22,5°, der mittlere 45°.', 'Zähle die Teile: 1 + 2 + 1.', einheit='°'),
+        Z(3, 'Im Rechteck teilt eine Strecke von einer Ecke aus den Eckwinkel in zwei Teile. Ein Teil ist 4-mal so groß wie der andere. Wie groß ist der kleinere Teil?', '90 / 5',
+          'Zusammen 1 + 4 = 5 Teile = 90°. Ein Teil: 90° : 5 = 18°.', 'Wie viele gleiche Teile sind es insgesamt?', einheit='°'),
+    ]
+    N['verstehen'] = [
+        wahl(2, 'Stimmt die Aussage? „Zwei Winkel, die zusammen 90° ergeben, sind beide spitz.“', ['Ja: Jeder ist kleiner als 90°.', 'Nein: Einer kann stumpf sein.', 'Nein: Beide sind rechte Winkel.'],
+             lambda o: o.startswith('Ja'), 'Ist die Summe 90°, muss jeder Teil kleiner als 90° sein – also spitz.', 'Kann einer der beiden 90° oder mehr haben?'),
+        wahl(2, 'Stimmt die Aussage? „Gegenüberliegende Winkel an einer Geradenkreuzung ergeben zusammen 180°.“',
+             ['Nein: Gegenüberliegende Winkel sind gleich groß. Nachbarwinkel ergeben 180°.', 'Ja, immer.', 'Nein: Sie ergeben 360°.'], lambda o: o.startswith('Nein: Gegen'),
+             'Beispiel: α = 70°, dann ist der gegenüberliegende Winkel auch 70°. Zusammen 140°, nicht 180°.', 'Prüfe mit einem Beispiel, z. B. 70°.'),
+        wahl(3, 'Ein Dach darf man nur betreten, wenn es höchstens 30° steil ist (Winkel zur Waagrechten). Zwischen Dachfläche und Senkrechter misst man 55°. Darf man es betreten?',
+             ['Nein, die Steigung ist 35°.', 'Ja, die Steigung ist 25°.', 'Ja, 55° ist kleiner als 90°.', 'Nein, die Steigung ist 55°.'],
+             lambda o: o == f'Nein, die Steigung ist {90 - 55}°.', 'Waagrechte und Senkrechte bilden 90°. Steigung: 90° − 55° = 35°. Das ist mehr als 30°.',
+             'Wie groß ist der Winkel zwischen Waagrechter und Senkrechter?'),
+        wahl(3, 'Stimmt die Aussage? „Ein spitzer und ein stumpfer Winkel nebeneinander ergeben immer einen gestreckten Winkel.“',
+             ['Nein, z. B. 30° + 100° = 130°.', 'Ja, immer genau 180°.', 'Nein, sie ergeben immer mehr als 180°.', 'Ja, weil spitz + stumpf = gestreckt ist.'],
+             lambda o: o.startswith('Nein, z. B.'), 'Ein Gegenbeispiel genügt: 30° (spitz) + 100° (stumpf) = 130°, nicht 180°.', 'Suche ein Gegenbeispiel.'),
+        wahl(3, 'Stimmt die Aussage? „Drei spitze Winkel können um einen Punkt lückenlos einen Vollwinkel bilden.“',
+             ['Nein: Drei spitze Winkel sind zusammen weniger als 270°.', 'Ja, z. B. 3 · 120°.', 'Ja, wenn sie gleich groß sind.', 'Nein: Sie ergeben immer genau 180°.'],
+             lambda o: o.startswith('Nein: Drei'), 'Jeder spitze Winkel ist kleiner als 90°, drei also kleiner als 270°. 360° werden nie erreicht. (120° ist stumpf.)',
+             'Wie groß können drei spitze Winkel zusammen höchstens werden?'),
+        wahl(3, 'Stimmt die Aussage? „Halbiert man einen stumpfen Winkel, entsteht immer ein spitzer Winkel.“',
+             ['Ja: Die Hälfte von weniger als 180° ist weniger als 90°.', 'Nein: Die Hälfte von 170° ist stumpf.', 'Nein, es entsteht ein rechter Winkel.', 'Nur bei 100°.'],
+             lambda o: o.startswith('Ja'), 'Ein stumpfer Winkel ist kleiner als 180°. Seine Hälfte ist kleiner als 90°, also spitz (z. B. 170° : 2 = 85°).',
+             'Rechne die Hälfte des größten stumpfen Winkels aus, z. B. 179°.'),
+    ]
+    return N
+
+
+ergaenze(DATEI, _schwer(), 1043)
+
 if __name__ == '__main__':
     schreibe(DATEI)

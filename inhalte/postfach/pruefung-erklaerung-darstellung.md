@@ -1,6 +1,6 @@
 # Postfach pruefung-erklaerung-darstellung (Erklärungen: Darstellung und Verständlichkeit)
 
-## 2026-11-16 02:10 – FERTIG
+## 2026-11-16 02:00 – FERTIG
 Bericht: `inhalte/pruefung/erklaerungen/darstellung/bericht.md`, klickbarer Entwurf `…/darstellung/entwurf.html`, Bilder in `…/darstellung/bilder/`.
 Nichts an App, Inhalten oder Tests geändert.
 

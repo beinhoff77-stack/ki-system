@@ -615,6 +615,129 @@ KARTEN = {
 baue = mit_umbau(baue, KARTEN)
 
 
+# ---------- SCHWER (Zehnte Runde, Zweig schwer-kl5) ----------
+# Neue Übungen nach Prüfungsvorbild (Jahrgangsstufentest 6 Bayern: 3 · (□ − 15) = 18, −23 + x = −12, □ : □ = −70; Mathematik-Test 2005:
+# 5 · 3 + 4 · x = 35; Bayerischer Mathematik-Test 2004: Zahl von 1 000 subtrahieren; Känguru 5/6: 23 Kinder in 7 Zimmern). Eigene Zahlen.
+# Hier läuft baue() erst unter __main__; darum wird baue umhüllt: erst alles wie bisher erzeugen, dann die neuen Übungen anhängen.
+# Die Helfer werden als Modul _S eingebunden, damit die Namen A und Z aus _nachbau (von den alten Generatoren benutzt) unverändert bleiben.
+import _schwer_kl5 as _S  # noqa: E402
+from _nachbau import THEMEN as _THEMEN  # noqa: E402
+
+
+def _schwer():
+    Z, A, L, wahl, einzig = _S.Z, _S.A, _S.L, _S.wahl, _S.einzig
+    N = {}
+    N['waage'] = [
+        Z(2, 'Die Waage ist im Gleichgewicht: links x + x + 6, rechts 20. Welche Zahl ist x?', '(20 - 6) / 2', 'Auf beiden Seiten 6 wegnehmen: x + x = 14. Also x = 7.',
+          'Nimm zuerst auf beiden Seiten 6 weg.'),
+        Z(2, 'Links liegen 3 gleiche Dosen, rechts 1 solche Dose und 12 Murmeln. Die Waage ist im Gleichgewicht. Wie viele Murmeln sind in einer Dose?', '12 / 2',
+          'Auf beiden Seiten 1 Dose wegnehmen: 2 Dosen = 12 Murmeln. Eine Dose: 6 Murmeln.', 'Nimm auf beiden Seiten dieselbe Dose weg.'),
+        Z(3, 'Löse 4 · 3 + 5 · x = 47.', '(47 - 4 * 3) / 5', '4 · 3 = 12. 12 + 5 · x = 47, also 5 · x = 35 und x = 7. Probe: 12 + 35 = 47.',
+          'Rechne zuerst 4 · 3 aus. Was bleibt für 5 · x?'),
+        Z(3, 'Auf einer Waage gilt: 2 Äpfel wiegen so viel wie 3 Birnen. Eine Birne wiegt 120 g. Wie viel wiegt ein Apfel?', '3 * 120 / 2',
+          '3 Birnen: 360 g. Das wiegen auch 2 Äpfel. Ein Apfel: 360 g : 2 = 180 g.', 'Was wiegen 3 Birnen zusammen?', einheit='g'),
+        Z(3, 'Eine Waage ist im Gleichgewicht: links 5 gleiche Würfel, rechts 2 solche Würfel und ein 60-g-Gewicht. Wie schwer ist ein Würfel?', '60 / 3',
+          'Auf beiden Seiten 2 Würfel wegnehmen: 3 Würfel = 60 g. Ein Würfel: 20 g.', 'Nimm auf beiden Seiten gleich viele Würfel weg.', einheit='g'),
+        A(3, 'Bei x + 7 = 15 nimmt jemand nur links 7 weg und schreibt x = 15. Was ist falsch?', 'Die 7 muss auch rechts weg: x = 15 − 7 = 8.',
+          ['Nichts, x = 15 stimmt.', 'Man muss rechts 7 dazulegen: x = 22.', 'Man muss durch 7 teilen.'],
+          'Nur links wegnehmen bringt die Waage aus dem Gleichgewicht. Beide Seiten minus 7: x = 8. Probe: 8 + 7 = 15.', 'Was passiert mit der Waage, wenn nur eine Seite leichter wird?'),
+    ]
+    N['umkehr_plus'] = [
+        Z(2, 'Löse 63 = x − 28.', '63 + 28', 'Umkehrung von minus ist plus: x = 63 + 28 = 91. Probe: 91 − 28 = 63.', 'Es ist egal, auf welcher Seite x steht.'),
+        Z(2, 'Löse 250 − x = 175.', '250 - 175', 'Von 250 muss man so viel abziehen, dass 175 bleibt: x = 250 − 175 = 75.', 'Achtung: x wird abgezogen. Wie groß ist der Unterschied zwischen 250 und 175?'),
+        Z(3, 'Löse −23 + x = −12.', '-12 - (-23)', 'Umkehrung: x = −12 − (−23) = −12 + 23 = 11. Probe: −23 + 11 = −12.', 'Von −23 bis −12: wie viele Schritte nach rechts?'),
+        Z(3, 'Welche Zahl muss man von 1 000 subtrahieren, um 2 026 zu erhalten?', '1000 - 2026',
+          '1 000 − x = 2 026. Das Ergebnis ist größer, also ist x negativ: x = 1 000 − 2 026 = −1 026. Probe: 1 000 − (−1 026) = 2 026.',
+          'Schreibe die Gleichung 1 000 − x = 2 026 auf. Was muss x sein, damit das Ergebnis größer wird?'),
+        Z(3, 'Ich denke mir eine Zahl, ziehe 45 ab und addiere dann 17. Ich erhalte 30. Welche Zahl habe ich mir gedacht?', '30 - 17 + 45',
+          'Rückwärts: 30 − 17 = 13, dann 13 + 45 = 58. Probe: 58 − 45 + 17 = 30.', 'Kehre den letzten Schritt zuerst um.'),
+        A(3, 'Jemand löst x − 15 = 40 so: x = 40 − 15 = 25. Was ist falsch?', 'Die Umkehrung von minus ist plus: x = 40 + 15 = 55.',
+          ['Nichts, x = 25 stimmt.', 'Richtig ist x = 15 − 40.', 'Richtig ist x = 40 : 15.'], 'Probe mit 25: 25 − 15 = 10, nicht 40. Mit 55: 55 − 15 = 40.', 'Mach die Probe mit x = 25.'),
+    ]
+    N['umkehr_mal'] = [
+        Z(2, 'Löse 7 · x = 0.', '0 / 7', 'Ein Produkt ist 0, wenn ein Faktor 0 ist: x = 0 : 7 = 0. Probe: 7 · 0 = 0.', 'Welche Zahl mal 7 ergibt 0?'),
+        Z(2, 'Löse x : 12 = 15.', '15 * 12', 'Umkehrung von geteilt ist mal: x = 15 · 12 = 180.', 'Rückwärts mit Malnehmen.'),
+        Z(3, 'Löse x : (−4) = 15.', '15 * (-4)', 'Umkehrung: x = 15 · (−4) = −60. Probe: (−60) : (−4) = 15.', 'Rechne rückwärts mit Malnehmen. Achte auf das Vorzeichen.'),
+        A(3, 'Jemand löst 96 : x = 8 mit x = 96 · 8 = 768. Was ist falsch?', 'x ist der Teiler: x = 96 : 8 = 12.',
+          ['Nichts, x = 768 stimmt.', 'Richtig ist x = 8 : 96.', 'Richtig ist x = 96 − 8 = 88.'], 'Probe: 96 : 768 ist nicht 8. Richtig: 96 : 12 = 8.',
+          'Mach die Probe. Durch welche Zahl muss man 96 teilen, damit 8 herauskommt?'),
+        Z(3, 'Das Fünffache einer Zahl ist um 48 größer als die Zahl selbst. Wie heißt die Zahl?', str(einzig([x for x in range(1, 100) if 5 * x - x == 48])),
+          '5 · x − x = 4 · x. Also 4 · x = 48 und x = 12. Probe: 60 ist um 48 größer als 12.', 'Wie viel mal die Zahl ist der Unterschied?'),
+        Z(3, 'Ein Seil wird ohne Rest in 12 gleich lange Stücke von 35 cm geschnitten. Wie lang war das Seil in m?', '12 * 35 / 100',
+          'Gleichung: x : 35 = 12, also x = 12 · 35 = 420 cm = 4,2 m.', 'Rechne zuerst in cm, dann in m.', einheit='m'),
+    ]
+    N['zwei_schritte'] = [
+        Z(2, 'Löse 7 · x − 12 = 51.', '(51 + 12) / 7', 'Erst + 12: 7 · x = 63. Dann : 7: x = 9.', 'Den letzten Schritt (− 12) zuerst umkehren.'),
+        Z(2, 'Löse x : 5 − 3 = 9.', '(9 + 3) * 5', 'Erst + 3: x : 5 = 12. Dann · 5: x = 60.', 'Den letzten Schritt zuerst umkehren.'),
+        L(3, 'Ergänze die Lücke: 6 · (□ − 12) = 42', '6 · (□ − 12) = 42', 'Trage die fehlende Zahl ein.', ['42 // 6 + 12'],
+          'Die Klammer muss 42 : 6 = 7 ergeben. □ − 12 = 7, also □ = 19. Probe: 6 · 7 = 42.', 'Was muss in der Klammer herauskommen?'),
+        Z(3, 'Löse (x + 7) : 3 = 11.', '11 * 3 - 7', 'Erst · 3: x + 7 = 33. Dann − 7: x = 26. Probe: 33 : 3 = 11.', 'Die Klammer wird zuletzt geteilt – kehre das zuerst um.'),
+        Z(3, 'Ich denke mir eine Zahl, verdopple sie, addiere 9 und teile das Ergebnis durch 5. Ich erhalte 7. Welche Zahl habe ich mir gedacht?', '(7 * 5 - 9) / 2',
+          'Rückwärts: 7 · 5 = 35, 35 − 9 = 26, 26 : 2 = 13. Probe: 13 · 2 + 9 = 35, 35 : 5 = 7.', 'Drei Schritte rückwärts: den letzten zuerst.'),
+        A(3, 'Jemand löst 4 · x + 8 = 40 so: zuerst 40 : 4 = 10, dann 10 − 8 = 2. Was ist falsch?', 'Die Reihenfolge: zuerst − 8 (letzter Schritt), dann : 4. Richtig ist x = 8.',
+          ['Nichts, x = 2 stimmt.', 'Man muss 40 · 4 rechnen.', 'Richtig ist x = 40 − 8 − 4 = 28.'], 'Probe mit 2: 4 · 2 + 8 = 16. Richtig: 40 − 8 = 32, 32 : 4 = 8.',
+          'Mach die Probe mit x = 2.'),
+    ]
+    welche = [x for x in (3, 4, 5, 6) if 2 * x + 7 == 4 * x - 3]
+    N['probe'] = [
+        wahl(2, 'Ist x = 7 eine Lösung von 3 · (x − 2) = 15?', ['Ja: 3 · (7 − 2) = 3 · 5 = 15.', 'Nein: 3 · 7 − 2 = 19.', 'Nein: 3 · (7 − 2) = 21.'],
+             lambda o: o.startswith('Ja') and 3 * (7 - 2) == 15, 'Einsetzen: 3 · (7 − 2) = 3 · 5 = 15. Beide Seiten sind gleich.', 'Rechne zuerst die Klammer aus.'),
+        Z(2, 'Mache die Probe für x = 4 bei 50 − 6 · x = 26. Welche Zahl kommt links heraus?', '50 - 6 * 4', '50 − 6 · 4 = 50 − 24 = 26. Links steht auch 26: Die Lösung stimmt.',
+          'Punkt vor Strich.'),
+        Z(3, 'Für welche der Zahlen 3, 4, 5 und 6 gilt 2 · x + 7 = 4 · x − 3?', str(_S.einzig(welche)),
+          'Probe mit 5: links 2 · 5 + 7 = 17, rechts 4 · 5 − 3 = 17. Gleich! (Bei 3, 4, 6 sind die Seiten verschieden.)', 'Setze jede Zahl links und rechts ein.'),
+        wahl(3, 'Zwei Kinder lösen 5 · x − 20 = 30. Eins erhält x = 2, das andere x = 10. Wer hat recht?', ['Das Kind mit x = 10.', 'Das Kind mit x = 2.', 'Beide.', 'Keins von beiden.'],
+             lambda o: o == 'Das Kind mit x = 10.' and 5 * 10 - 20 == 30, 'Probe: 5 · 10 − 20 = 30 stimmt. 5 · 2 − 20 = −10 stimmt nicht.', 'Mach mit beiden Zahlen die Probe.'),
+        Z(3, 'Bei 7 · x − 4 = 59 wird x = 10 getestet. Links kommt 66 heraus – zu viel. Wie heißt die richtige Lösung?', '(59 + 4) / 7',
+          '66 ist 7 zu viel, also ist x um 1 zu groß: x = 9. Probe: 63 − 4 = 59.', 'Um wie viel ändert sich die linke Seite, wenn x um 1 kleiner wird?'),
+        Z(3, 'Bei 4 · x + 1 = 33 wird x = 7 getestet. Links kommt 29 heraus. Um wie viel muss x noch größer werden?', '(33 - 1) / 4 - 7',
+          'Es fehlen 33 − 29 = 4. Jede 1 bei x bringt links 4 mehr. Also x um 1 größer: x = 8.', 'Um wie viel wächst die linke Seite, wenn x um 1 größer wird?'),
+    ]
+    zimmer = _S.einzig([v for v in range(0, 9) if 4 * v + 3 * (8 - v) == 26])
+    N['aufstellen'] = [
+        Z(2, 'Ein Kind ist 4 Jahre älter als sein Bruder. Zusammen sind sie 22 Jahre alt. Wie alt ist der Bruder?', '(22 - 4) / 2',
+          'x + (x + 4) = 22, also 2 · x = 18 und x = 9. Der Bruder ist 9, das Kind 13.', 'Nimm zuerst die 4 Jahre Unterschied weg.', einheit='Jahre'),
+        wahl(2, '„Die Hälfte einer Zahl, vermehrt um 8, ergibt 20.“ Welche Gleichung passt?', ['x : 2 + 8 = 20', '(x + 8) : 2 = 20', 'x · 2 + 8 = 20', 'x : 2 − 8 = 20'],
+             lambda o: o == 'x : 2 + 8 = 20', 'Erst die Hälfte (x : 2), dann vermehrt um 8 (+ 8): x : 2 + 8 = 20.', 'Was passiert zuerst mit der Zahl?'),
+        Z(3, '26 Kinder schlafen in 8 Zimmern. In jedem Zimmer schlafen 3 oder 4 Kinder. Wie viele Viererzimmer gibt es?', str(zimmer),
+          'Wären alle 8 Zimmer Dreierzimmer, schliefen dort 24 Kinder. 2 Kinder fehlen – jedes Viererzimmer bringt 1 mehr: 2 Viererzimmer. Probe: 2 · 4 + 6 · 3 = 26.',
+          'Stell dir zuerst vor, alle Zimmer wären Dreierzimmer.'),
+        Z(3, 'Subtrahiert man von 100 das Dreifache einer Zahl, erhält man 37. Wie heißt die Zahl?', '(100 - 37) / 3',
+          '100 − 3 · x = 37. Also 3 · x = 63 und x = 21. Probe: 100 − 63 = 37.', 'Schreibe die Gleichung auf: 100 − 3 · x = 37.'),
+        Z(3, 'Drei aufeinanderfolgende natürliche Zahlen haben die Summe 72. Wie heißt die kleinste?', str(_S.einzig([n for n in range(1, 100) if n + (n + 1) + (n + 2) == 72])),
+          'x + (x + 1) + (x + 2) = 72, also 3 · x + 3 = 72, 3 · x = 69, x = 23. Probe: 23 + 24 + 25 = 72.', 'Die mittlere Zahl ist ein Drittel der Summe.'),
+        Z(3, 'Ein Vater ist heute 40 Jahre alt, sein Sohn 10. In wie vielen Jahren ist der Vater doppelt so alt wie der Sohn?', str(_S.einzig([t for t in range(0, 60) if 40 + t == 2 * (10 + t)])),
+          '40 + t = 2 · (10 + t). Probieren: In 20 Jahren ist der Vater 60, der Sohn 30 – doppelt so alt.', 'Der Altersunterschied bleibt immer 30 Jahre.', einheit='Jahre'),
+    ]
+    vier = {'30': 30, '31': 31, '32': 32, '33': 33}
+    N['ohne_loesung'] = [
+        wahl(2, 'Welche Gleichung hat eine Lösung in ℕ?', ['7 · x = 50', 'x + 12 = 5', '7 · x = 56', '20 − x = 25'], lambda o: o == '7 · x = 56',
+             '7 · 8 = 56. Bei 50 bleibt beim Teilen ein Rest, bei den anderen müsste x negativ sein.', 'Prüfe jede Gleichung mit Rückwärtsrechnen.'),
+        Z(2, 'Löse mit ganzen Zahlen: x + 12 = 5.', '5 - 12', 'x = 5 − 12 = −7. Probe: −7 + 12 = 5. In ℕ gäbe es keine Lösung.', 'Rechne rückwärts – das Ergebnis darf negativ sein.'),
+        Z(3, 'Ein 368 cm langes Band soll in Stücke von 15 cm geschnitten werden. Ohne Rest geht das nicht (15 · x = 368 hat keine Lösung in ℕ). Wie viele cm bleiben übrig, wenn man möglichst viele Stücke schneidet?',
+          '368 % 15', '368 : 15 = 24 Rest 8. Es bleiben 8 cm übrig.', 'Teile mit Rest.', einheit='cm'),
+        wahl(3, 'Für welche Zahl rechts hat 4 · x = □ eine Lösung in ℕ?', list(vier), lambda o: vier[o] % 4 == 0,
+             'Nur 32 ist durch 4 teilbar: x = 8. 30, 31 und 33 lassen beim Teilen durch 4 einen Rest.', 'Welche Zahl ist durch 4 teilbar?'),
+        Z(3, 'Wie viele der Gleichungen 6 · x = 1, 6 · x = 2, 6 · x = 3, … , 6 · x = 50 haben eine Lösung in ℕ?', str(sum(1 for n in range(1, 51) if n % 6 == 0)),
+          'Eine Lösung gibt es, wenn rechts ein Vielfaches von 6 steht: 6, 12, 18, 24, 30, 36, 42, 48. Das sind 8.', 'Welche Zahlen bis 50 sind durch 6 teilbar?'),
+        wahl(3, 'Welche Gleichung hat jede Zahl als Lösung?', ['0 · x = 0', '0 · x = 5', 'x + 0 = 5', '1 · x = 0'], lambda o: o == '0 · x = 0',
+             '0 mal jede Zahl ist 0. Also stimmt 0 · x = 0 für jedes x. 0 · x = 5 hat keine Lösung, die anderen genau eine.', 'Setze verschiedene Zahlen ein.'),
+    ]
+    return N
+
+
+def _mit_schwer(baue_alt):
+    def baue_neu(meta, *args, **kwargs):
+        d = baue_alt(meta, *args, **kwargs)
+        _S.ergaenze(d, _schwer(), 1001)
+        (_THEMEN / f"{meta['thema_schluessel']}.json").write_text(_S.json.dumps(d, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
+        print(f"  + Zehnte Runde: jetzt {len(d['aufgaben'])} Aufgaben")
+        return d
+    return baue_neu
+
+
+baue = _mit_schwer(baue)
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Was ist eine Gleichung?', ['waage']), ('Rückwärts rechnen', ['umkehr_plus', 'umkehr_mal', 'zwei_schritte']),

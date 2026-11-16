@@ -1,5 +1,9 @@
 # Postfach schwer-kl5 (Zehnte Runde: Durchsicht Klasse 5 + schwerere Aufgaben nach Prüfungsvorbild)
 
+## 2026-11-16 09:10 – STATUS
+Thema 12/12 fertig: **gleichungen.einfach** – 42 neue Übungen (je Lernkarte 2 × Stufe 2, 4 × Stufe 3), danach je Lernkarte 9 Stufe-3-Übungen. Prüfskript OK, Unverändert-Nachweis JA.
+Technik-Hinweis: Hier erzeugt baue() die Datei erst unter __main__; die neuen Übungen werden über eine Hülle um baue angehängt. Die Helfer sind als Modul _S eingebunden, damit A und Z aus _nachbau unangetastet bleiben.
+
 ## 2026-11-16 08:50 – STATUS
 Thema 11/12 fertig: **stochastik.kombinatorik** – 42 neue Übungen (je Lernkarte 2 × Stufe 2, 4 × Stufe 3), danach je Lernkarte 10 Stufe-3-Übungen; alle Anzahlen durch vollständiges Aufzählen im Generator berechnet. Prüfskript OK, Unverändert-Nachweis JA.
 

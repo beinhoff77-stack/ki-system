@@ -2,6 +2,10 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 03:06 – STATUS
+raum.pyramide_kegel_kugel umgebaut (7 Karten): einstieg (≤ 35 Wörter), woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel (erster Satz = Kurz gesagt). KLAR-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_kl10.bauen(klar=…)); probe entfällt.
+Aufgaben-Vergleich gegen `git show HEAD:inhalte/themen/raum.pyramide_kegel_kugel.json`: alle 196 wörtlich gleich, titel/lernziel unverändert. inhalt_pruefen: 0 Fehler, 0 Hinweise. kugel (der Fehler ist ein Einheitenfehler cm² statt cm³, er steckt in der Formel, nicht in der Zeichnung). Brüche im Text als 1/3 und 2/3 statt Unicode-Bruchzeichen (Prüfhinweis)
+
 ## 2026-11-16 03:03 – STATUS
 funktionen.ganzrational umgebaut (7 Karten): einstieg (≤ 35 Wörter), woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel (erster Satz = Kurz gesagt). KLAR-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_kl10.bauen(klar=…)); probe entfällt.
 Aufgaben-Vergleich gegen `git show HEAD:inhalte/themen/funktionen.ganzrational.json`: alle 196 wörtlich gleich, titel/lernziel unverändert. inhalt_pruefen: 0 Fehler, 0 Hinweise. randverhalten (der Fehler ist ein Rechenvergleich bei x = 100, ein Bild würde nur das Kartenbild wiederholen) und term_bestimmen (der Fehler liegt in der Gleichung 3a = 6, nicht im Graphen)

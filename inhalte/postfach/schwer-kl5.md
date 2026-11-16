@@ -1,5 +1,8 @@
 # Postfach schwer-kl5 (Zehnte Runde: Durchsicht Klasse 5 + schwerere Aufgaben nach Prüfungsvorbild)
 
+## 2026-11-16 06:30 – STATUS
+Thema 4/12 fertig: **groessen.einheiten** – 48 neue Übungen (je Lernkarte 2 × Stufe 2, 4 × Stufe 3), danach je Lernkarte 10 Stufe-3-Übungen. Prüfskript OK, Unverändert-Nachweis JA.
+
 ## 2026-11-16 06:10 – STATUS
 Thema 3/12 fertig: **zahlen.potenzen_basis** – 42 neue Übungen (je Lernkarte 2 × Stufe 2, 4 × Stufe 3), danach je Lernkarte 8 Stufe-3-Übungen. Prüfskript OK, Unverändert-Nachweis JA.
 

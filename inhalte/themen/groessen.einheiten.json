@@ -4976,6 +4976,923 @@
     "text": "Stimmt das? „8,90 € = 8 € 90 ct“"
    },
    "w": "Ja, zwei Stellen nach dem Komma sind Cent."
+  },
+  {
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Was ist realistisch? Ein Klassenzimmer ist etwa … lang."
+   },
+   "a": [
+    "900 m",
+    "9 cm",
+    "9 m",
+    "90 m"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ein Klassenzimmer ist etwa so lang wie 4 bis 5 Türen hoch sind: rund 9 m.",
+   "h": "Vergleiche mit einer Tür (etwa 2 m hoch)."
+  },
+  {
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Bus ist etwa 12 m lang. Wie viele Busse hintereinander sind ungefähr 1 km lang?"
+   },
+   "a": [
+    "800",
+    "80",
+    "8 000",
+    "8"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "1 km = 1 000 m. 1 000 : 12 ist etwa 83, also ungefähr 80 Busse.",
+   "h": "Rechne 1 km in m um und teile durch 12."
+  },
+  {
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Auf einem Foto steht ein Erwachsener (etwa 1,80 m groß) vor einem Baum. Der Baum ist etwa 6-mal so hoch wie der Mensch. Wie hoch ist der Baum ungefähr?"
+   },
+   "a": [
+    "etwa 11 m",
+    "etwa 110 m",
+    "etwa 1,1 m",
+    "etwa 6 m"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "6 · 1,80 m = 10,80 m, also etwa 11 m.",
+   "h": "Nimm die Größe des Menschen als Maßstab."
+  },
+  {
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Herz schlägt etwa 70-mal in der Minute. Wie oft schlägt es ungefähr an einem Tag?"
+   },
+   "a": [
+    "etwa 10 000-mal",
+    "etwa 100 000-mal",
+    "etwa 1 000-mal",
+    "etwa 1 000 000-mal"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "70 · 60 = 4 200 Schläge pro Stunde. 4 200 · 24 = 100 800, also etwa 100 000.",
+   "h": "Rechne zuerst die Schläge pro Stunde aus, dann pro Tag."
+  },
+  {
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Blatt Papier ist etwa 0,1 mm dick. Wie hoch ist ein Stapel aus 500 Blatt? Gib das Ergebnis in cm an."
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "cm"
+   },
+   "c": "500 * 0.1 / 10",
+   "w": "500 · 0,1 mm = 50 mm = 5 cm.",
+   "h": "Rechne zuerst in mm, dann in cm um."
+  },
+  {
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Neugeborenes wird gewogen. Welche Angabe ist sicher falsch?"
+   },
+   "a": [
+    "3 500 g",
+    "35 kg",
+    "3 kg 500 g",
+    "3,5 kg"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "3 500 g, 3,5 kg und 3 kg 500 g sind dasselbe und realistisch. 35 kg wiegt etwa ein Kind in der 5. Klasse.",
+   "h": "Drei Angaben sind gleich groß. Welche passt nicht dazu?"
+  },
+  {
+   "l": "laenge",
+   "t": "laenge",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 3 km 40 m = ? m"
+   },
+   "o": {
+    "wert": 3040,
+    "einheit": "m"
+   },
+   "c": "3 * 1000 + 40",
+   "w": "3 km = 3 000 m. Dazu 40 m: 3 040 m.",
+   "h": "Achtung: 40 m sind keine 400 m."
+  },
+  {
+   "l": "laenge",
+   "t": "laenge",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 4 500 mm = ? dm"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "dm"
+   },
+   "c": "4500 / 100",
+   "w": "Von mm zu dm sind es zwei Stufen: : 10 und : 10, also : 100. 4 500 : 100 = 45 dm.",
+   "h": "mm → cm → dm: zweimal durch 10."
+  },
+  {
+   "l": "laenge",
+   "t": "laenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wandle um: 15 m 4 cm = ? cm"
+   },
+   "o": {
+    "wert": 1504,
+    "einheit": "cm"
+   },
+   "c": "15 * 100 + 4",
+   "w": "15 m = 1 500 cm. Dazu 4 cm: 1 504 cm. Nicht 154 cm!",
+   "h": "Rechne zuerst die Meter in Zentimeter um."
+  },
+  {
+   "l": "laenge",
+   "t": "laenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wandle um: 382 dm = ? mm"
+   },
+   "o": {
+    "wert": 38200,
+    "einheit": "mm"
+   },
+   "c": "382 * 100",
+   "w": "dm → cm: mal 10, cm → mm: mal 10. 382 · 100 = 38 200 mm.",
+   "h": "Wie viele Stufen sind es von dm bis mm?"
+  },
+  {
+   "l": "laenge",
+   "t": "laenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zebrastreifen beginnt und endet mit einem dunklen Streifen. Es gibt 8 weiße Streifen. Jeder Streifen ist 50 cm breit. Wie breit ist die Straße in m?"
+   },
+   "o": {
+    "wert": 8.5,
+    "einheit": "m"
+   },
+   "c": "(8 + 9) * 50 / 100",
+   "w": "Zwischen und neben 8 weißen Streifen liegen 9 dunkle: 17 Streifen. 17 · 50 cm = 850 cm = 8,5 m.",
+   "h": "Zeichne eine Skizze. Wie viele dunkle Streifen gibt es bei 8 weißen?"
+  },
+  {
+   "l": "laenge",
+   "t": "laenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zaun ist 24 m lang. Alle 3 m steht ein Pfosten, auch ganz am Anfang und ganz am Ende. Wie viele Pfosten sind es?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "24 // 3 + 1",
+   "w": "24 : 3 = 8 Abstände. Dazu kommt ein Pfosten mehr als Abstände: 9 Pfosten.",
+   "h": "Zeichne einen kurzen Zaun, z. B. 6 m. Zähle Abstände und Pfosten."
+  },
+  {
+   "l": "masse",
+   "t": "masse",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 2 t 50 kg = ? kg"
+   },
+   "o": {
+    "wert": 2050,
+    "einheit": "kg"
+   },
+   "c": "2 * 1000 + 50",
+   "w": "2 t = 2 000 kg. Dazu 50 kg: 2 050 kg.",
+   "h": "Die Umrechnungszahl ist 1 000."
+  },
+  {
+   "l": "masse",
+   "t": "masse",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 4 500 mg = ? g"
+   },
+   "o": {
+    "wert": 4.5,
+    "einheit": "g"
+   },
+   "c": "4500 / 1000",
+   "w": "Von mg zu g: durch 1 000. 4 500 : 1 000 = 4,5 g.",
+   "h": "Wie viele mg sind 1 g?"
+  },
+  {
+   "l": "masse",
+   "t": "masse",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Masse ist am kleinsten?"
+   },
+   "a": [
+    "2 kg 80 g",
+    "2 800 g",
+    "2,08 kg",
+    "2 kg 8 g"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "In Gramm: 2 080 g, 2 080 g, 2 008 g und 2 800 g. Am kleinsten ist 2 kg 8 g = 2 008 g.",
+   "h": "Rechne alle Angaben in Gramm um."
+  },
+  {
+   "l": "masse",
+   "t": "masse",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Lieferwagen wiegt leer 2 t 300 kg. Er darf mit Ladung höchstens 3,5 t wiegen. Geladen sind 40 Kisten zu je 25 kg. Wie viele kg darf er noch zuladen?"
+   },
+   "o": {
+    "wert": 200,
+    "einheit": "kg"
+   },
+   "c": "3500 - 2300 - 40 * 25",
+   "w": "Erlaubte Ladung: 3 500 kg − 2 300 kg = 1 200 kg. Geladen: 40 · 25 kg = 1 000 kg. Noch frei: 200 kg.",
+   "h": "Rechne alles in kg um."
+  },
+  {
+   "l": "masse",
+   "t": "masse",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein volles Honigglas wiegt 750 g. Das leere Glas wiegt 250 g. Wie viel wiegt das Glas, wenn nur noch halb so viel Honig darin ist?"
+   },
+   "o": {
+    "wert": 500,
+    "einheit": "g"
+   },
+   "c": "250 + (750 - 250) // 2",
+   "w": "Honig: 750 g − 250 g = 500 g. Die Hälfte sind 250 g. Mit Glas: 250 g + 250 g = 500 g.",
+   "h": "Rechne zuerst aus, wie viel der Honig allein wiegt."
+  },
+  {
+   "l": "masse",
+   "t": "masse",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand schreibt: 3 kg − 250 g = 2 kg 750 g = 2,75 kg. Stimmt das?"
+   },
+   "a": [
+    "Nein, es sind 2,250 kg.",
+    "Ja, beides stimmt.",
+    "Nein, 2 kg 750 g sind 2,075 kg.",
+    "Nein, kg und g darf man nicht voneinander abziehen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "3 kg = 3 000 g. 3 000 g − 250 g = 2 750 g = 2 kg 750 g = 2,75 kg.",
+   "h": "Rechne alles in Gramm und prüfe Schritt für Schritt."
+  },
+  {
+   "l": "zeit",
+   "t": "zeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Sekunden sind 3 min 20 s?"
+   },
+   "o": {
+    "wert": 200,
+    "einheit": "s"
+   },
+   "c": "3 * 60 + 20",
+   "w": "3 min = 180 s. Dazu 20 s: 200 s.",
+   "h": "1 min = 60 s."
+  },
+  {
+   "l": "zeit",
+   "t": "zeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Stunden sind 3 Tage und 5 Stunden?"
+   },
+   "o": {
+    "wert": 77,
+    "einheit": "h"
+   },
+   "c": "3 * 24 + 5",
+   "w": "3 · 24 h = 72 h. Dazu 5 h: 77 h.",
+   "h": "1 Tag = 24 h."
+  },
+  {
+   "l": "zeit",
+   "t": "zeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind beginnt um 15:50 Uhr mit den Hausaufgaben und braucht 1 h 25 min. Um 17:30 Uhr beginnt das Training, der Weg dauert 20 min. Wie viele Minuten kommt es zu spät?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "min"
+   },
+   "c": "(15 * 60 + 50 + 85 + 20) - (17 * 60 + 30)",
+   "w": "Fertig um 17:15 Uhr, am Training um 17:35 Uhr. Das sind 5 min zu spät.",
+   "h": "Rechne Schritt für Schritt: Wann ist es mit den Hausaufgaben fertig, wann beim Training?"
+  },
+  {
+   "l": "zeit",
+   "t": "zeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet: 3 h 15 min = 315 min. Was ist falsch?"
+   },
+   "a": [
+    "Nichts, 315 min stimmt.",
+    "Richtig ist 45 min.",
+    "Richtig ist 3 h 15 min = 3,15 h.",
+    "Eine Stunde hat 60 min, nicht 100. Richtig: 195 min."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "3 h = 3 · 60 min = 180 min. Dazu 15 min: 195 min.",
+   "h": "Wie viele Minuten hat eine Stunde?"
+  },
+  {
+   "l": "zeit",
+   "t": "zeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Uhr geht jeden Tag 4 Minuten nach. Am Montag um 12:00 Uhr wird sie richtig gestellt. Was zeigt sie genau eine Woche später, wenn es wirklich 12:00 Uhr ist?",
+    "schablone": "□:□ Uhr",
+    "hinweis": "Trage Stunde und Minute ein."
+   },
+   "o": {
+    "werte": [
+     11,
+     32
+    ]
+   },
+   "c": [
+    "(12 * 60 - 7 * 4) // 60",
+    "(12 * 60 - 7 * 4) % 60"
+   ],
+   "w": "In 7 Tagen geht sie 7 · 4 = 28 min nach. Sie zeigt 12:00 Uhr − 28 min = 11:32 Uhr.",
+   "h": "„Nachgehen“ heißt: Die Uhr zeigt eine frühere Zeit."
+  },
+  {
+   "l": "zeit",
+   "t": "zeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Film dauert 135 min und endet um 21:10 Uhr. Wann hat er begonnen?",
+    "schablone": "□:□ Uhr",
+    "hinweis": "Trage Stunde und Minute ein."
+   },
+   "o": {
+    "werte": [
+     18,
+     55
+    ]
+   },
+   "c": [
+    "(21 * 60 + 10 - 135) // 60",
+    "(21 * 60 + 10 - 135) % 60"
+   ],
+   "w": "135 min = 2 h 15 min. 21:10 Uhr − 2 h = 19:10 Uhr, minus 15 min = 18:55 Uhr.",
+   "h": "Rechne 135 min in Stunden und Minuten um und gehe rückwärts."
+  },
+  {
+   "l": "kommaschreibweise",
+   "t": "kommaschreibweise",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe in Kommaschreibweise: 7 kg 45 g = ? kg"
+   },
+   "o": {
+    "wert": 7.045,
+    "einheit": "kg"
+   },
+   "c": "7 + 45 / 1000",
+   "w": "Gramm brauchen drei Stellen nach dem Komma: 45 g = 0,045 kg. Also 7,045 kg.",
+   "h": "Bei kg und g gibt es drei Stellen nach dem Komma."
+  },
+  {
+   "l": "kommaschreibweise",
+   "t": "kommaschreibweise",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe in Kommaschreibweise: 8 m 9 cm = ? m"
+   },
+   "o": {
+    "wert": 8.09,
+    "einheit": "m"
+   },
+   "c": "8 + 9 / 100",
+   "w": "Zwei Stellen für cm: 9 cm = 0,09 m. Also 8,09 m.",
+   "h": "Die leere dm-Stelle bekommt eine 0."
+  },
+  {
+   "l": "kommaschreibweise",
+   "t": "kommaschreibweise",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Länge ist die zweitkleinste: 1,5 km; 1 km 50 m; 1 005 m; 1,505 km?"
+   },
+   "a": [
+    "1,5 km",
+    "1,505 km",
+    "1 km 50 m",
+    "1 005 m"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "In Meter: 1 500 m, 1 050 m, 1 005 m, 1 505 m. Der Größe nach: 1 005 < 1 050 < 1 500 < 1 505. Die zweitkleinste ist 1 km 50 m.",
+   "h": "Rechne alle Längen in Meter um."
+  },
+  {
+   "l": "kommaschreibweise",
+   "t": "kommaschreibweise",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 4 km 30 m in km."
+   },
+   "o": {
+    "wert": 4.03,
+    "einheit": "km"
+   },
+   "c": "4 + 30 / 1000",
+   "w": "30 m = 0,030 km. Also 4,03 km (nicht 4,3 km).",
+   "h": "Bei km und m gibt es drei Stellen nach dem Komma."
+  },
+  {
+   "l": "kommaschreibweise",
+   "t": "kommaschreibweise",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand schreibt 2 kg 5 g = 2,5 kg. Was ist falsch?"
+   },
+   "a": [
+    "Richtig ist 25 kg.",
+    "Nichts, das stimmt.",
+    "Gramm brauchen drei Stellen: richtig ist 2,005 kg.",
+    "Richtig ist 2,05 kg."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "2,5 kg wären 2 kg 500 g. 5 g sind 0,005 kg, also 2,005 kg.",
+   "h": "Schreibe die Zahl in eine Einheitentafel."
+  },
+  {
+   "l": "kommaschreibweise",
+   "t": "kommaschreibweise",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Angabe ist NICHT dasselbe wie 6,04 m?"
+   },
+   "a": [
+    "604 cm",
+    "6 m 40 cm",
+    "6 m 4 cm",
+    "60,4 dm"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "6,04 m = 604 cm = 6 m 4 cm = 60,4 dm. 6 m 40 cm wären 6,40 m.",
+   "h": "Rechne alle Angaben in cm um."
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 2 m − 35 cm. Gib das Ergebnis in cm an."
+   },
+   "o": {
+    "wert": 165,
+    "einheit": "cm"
+   },
+   "c": "200 - 35",
+   "w": "2 m = 200 cm. 200 cm − 35 cm = 165 cm.",
+   "h": "Rechne zuerst in dieselbe Einheit um."
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 1,5 kg + 750 g. Gib das Ergebnis in g an."
+   },
+   "o": {
+    "wert": 2250,
+    "einheit": "g"
+   },
+   "c": "1500 + 750",
+   "w": "1,5 kg = 1 500 g. 1 500 g + 750 g = 2 250 g.",
+   "h": "Rechne kg in g um."
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet 8 m − 40 cm = 80 cm − 40 cm = 40 cm. Was ist falsch?"
+   },
+   "a": [
+    "Nichts, 40 cm stimmt.",
+    "8 m sind 800 cm, nicht 80 cm. Richtig: 760 cm.",
+    "Richtig ist 8 m − 40 m = −32 m.",
+    "Man darf m und cm nicht abziehen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "1 m = 100 cm, also 8 m = 800 cm. 800 cm − 40 cm = 760 cm.",
+   "h": "Wie viele cm hat ein Meter?"
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für ein Klassenfest werden 3 Kuchen zu je 7,50 € gekauft. Vom Rest der 50 € gibt es Saft. Eine Flasche kostet 2,40 €. Wie viele Flaschen können höchstens gekauft werden?"
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "(50 - 3 * 7.5) // 2.4",
+   "w": "Kuchen: 3 · 7,50 € = 22,50 €. Rest: 27,50 €. 11 Flaschen kosten 26,40 €, 12 Flaschen 28,80 € – zu viel. Also 11.",
+   "h": "Rechne zuerst den Rest aus. Probiere dann 10, 11, 12 Flaschen."
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Leiste ist 3,60 m lang. Sie soll ohne Rest in gleich lange Stücke gesägt werden. Welche Stücklänge geht?"
+   },
+   "a": [
+    "35 cm",
+    "40 cm",
+    "70 cm",
+    "25 cm"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "3,60 m = 360 cm. 360 : 40 = 9 geht ohne Rest. 360 : 25, 360 : 35 und 360 : 70 lassen einen Rest.",
+   "h": "Rechne 3,60 m in cm um und prüfe, welche Länge ohne Rest hineinpasst."
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein leerer Korb wiegt 400 g. Mit 6 gleich schweren Äpfeln wiegt er 1,3 kg. Wie viele Gramm wiegt ein Apfel?"
+   },
+   "o": {
+    "wert": 150,
+    "einheit": "g"
+   },
+   "c": "(1300 - 400) / 6",
+   "w": "1,3 kg = 1 300 g. Äpfel zusammen: 1 300 g − 400 g = 900 g. Ein Apfel: 900 g : 6 = 150 g.",
+   "h": "Rechne alles in g. Was wiegen die Äpfel ohne Korb?"
+  },
+  {
+   "l": "massstab",
+   "t": "massstab",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Maßstab 1 : 200 000. Auf der Karte sind es 3,5 cm. Wie viele km sind es in Wirklichkeit?"
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "km"
+   },
+   "c": "3.5 * 200000 / 100000",
+   "w": "3,5 cm · 200 000 = 700 000 cm = 7 000 m = 7 km.",
+   "h": "1 km = 100 000 cm."
+  },
+  {
+   "l": "massstab",
+   "t": "massstab",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Modellauto ist im Maßstab 1 : 20 gebaut und 21 cm lang. Wie lang ist das echte Auto in m?"
+   },
+   "o": {
+    "wert": 4.2,
+    "einheit": "m"
+   },
+   "c": "21 * 20 / 100",
+   "w": "21 cm · 20 = 420 cm = 4,20 m.",
+   "h": "Wirklichkeit = Modelllänge · 20."
+  },
+  {
+   "l": "massstab",
+   "t": "massstab",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Floh ist 2 mm lang. Im Buch ist er 3 cm groß abgebildet. Wie heißt der Maßstab?",
+    "schablone": "□ : 1",
+    "hinweis": "Trage die Zahl vor dem Doppelpunkt ein."
+   },
+   "o": {
+    "werte": [
+     15
+    ]
+   },
+   "c": [
+    "30 // 2"
+   ],
+   "w": "3 cm = 30 mm. 30 mm : 2 mm = 15. Das Bild ist 15-mal so groß: 15 : 1.",
+   "h": "Rechne beide Längen in mm um. Wie oft passt 2 mm in das Bild?"
+  },
+  {
+   "l": "massstab",
+   "t": "massstab",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Zwei Orte sind auf einer Karte im Maßstab 1 : 25 000 genau 8 cm voneinander entfernt. Auf einer anderen Karte sind es 4 cm. Welchen Maßstab hat die zweite Karte?",
+    "schablone": "1 : □",
+    "hinweis": "Trage die Zahl hinter dem Doppelpunkt ein."
+   },
+   "o": {
+    "werte": [
+     50000
+    ]
+   },
+   "c": [
+    "8 * 25000 // 4"
+   ],
+   "w": "Wirklich: 8 cm · 25 000 = 200 000 cm. Auf der zweiten Karte sind das 4 cm: 200 000 : 4 = 50 000. Maßstab 1 : 50 000.",
+   "h": "Rechne zuerst die wirkliche Entfernung aus."
+  },
+  {
+   "l": "massstab",
+   "t": "massstab",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einem Plan im Maßstab 1 : 100 ist ein Zimmer 4 cm lang und 3 cm breit. Wie viele m² hat das Zimmer in Wirklichkeit?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "m²"
+   },
+   "c": "(4 * 100 // 100) * (3 * 100 // 100)",
+   "w": "Länge: 4 cm · 100 = 400 cm = 4 m. Breite: 3 m. Fläche: 4 m · 3 m = 12 m².",
+   "h": "Rechne zuerst Länge und Breite in Wirklichkeit aus, dann die Fläche."
+  },
+  {
+   "l": "massstab",
+   "t": "massstab",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „Bei 1 : 50 000 sind 2 cm auf der Karte 100 m in Wirklichkeit.“ Stimmt das?"
+   },
+   "a": [
+    "Nein, es sind 10 m.",
+    "Nein: 2 cm · 50 000 = 100 000 cm = 1 km.",
+    "Ja, das stimmt.",
+    "Nein, es sind 100 km."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "2 · 50 000 = 100 000 cm. 100 000 cm = 1 000 m = 1 km.",
+   "h": "Rechne 100 000 cm schrittweise in m um."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt das? „1,25 h = 1 h 25 min“"
+   },
+   "a": [
+    "Ja, nach dem Komma stehen die Minuten.",
+    "Nein, 0,25 h = 2 min 5 s.",
+    "Nein, 0,25 h ist eine Viertelstunde = 15 min."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "0,25 h ist ein Viertel einer Stunde: 60 min : 4 = 15 min. Also 1,25 h = 1 h 15 min.",
+   "h": "Eine Stunde hat 60 min, nicht 100."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Angabe ist gleich 2 500 m?"
+   },
+   "a": [
+    "2,5 km",
+    "2,05 km",
+    "25 km",
+    "250 km"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "1 km = 1 000 m. 2 500 m = 2 km 500 m = 2,5 km.",
+   "h": "Teile durch 1 000."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kind hat 35 € gespart. Es kauft 2 Bücher und hat danach noch 11 € übrig. Welche Frage kann man damit NICHT beantworten?"
+   },
+   "a": [
+    "Wie viel haben beide Bücher zusammen gekostet?",
+    "Wie viel Geld hat das Kind ausgegeben?",
+    "Wie teuer war das teurere Buch?",
+    "Wie viel kostet ein Buch, wenn beide gleich teuer sind?"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Zusammen 24 € ausgegeben, gleich teuer je 12 €. Wie sich 24 € auf zwei verschieden teure Bücher verteilen, weiß man nicht.",
+   "h": "Prüfe bei jeder Frage, ob die Angaben dafür reichen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „450 g ist mehr als 0,5 kg, weil 450 größer ist als 0,5.“ Stimmt das?"
+   },
+   "a": [
+    "Ja, 450 ist größer als 0,5.",
+    "Nein: 0,5 kg = 500 g, und 500 g ist mehr als 450 g.",
+    "Man kann g und kg nicht vergleichen.",
+    "Nein, beide sind gleich schwer."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Vor dem Vergleichen in dieselbe Einheit umrechnen: 0,5 kg = 500 g > 450 g.",
+   "h": "Rechne zuerst beide Angaben in dieselbe Einheit um."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Lkw soll 1 000 Schulranzen zu je etwa 4 kg transportieren. Jemand rechnet mit 40 t Ladung. Ist das realistisch?"
+   },
+   "a": [
+    "Nein, sie wiegen etwa 400 t.",
+    "Nein, 1 000 Ranzen wiegen nur etwa 4 t.",
+    "Ja, Lkw laden immer 40 t.",
+    "Ja, 1 000 · 4 kg = 40 t."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "1 000 · 4 kg = 4 000 kg = 4 t. 40 t ist zehnmal zu viel.",
+   "h": "Rechne 1 000 · 4 kg aus und wandle in t um."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zeitspanne ist am längsten: 1,5 h; 100 min; 1 h 35 min; 5 400 s?"
+   },
+   "a": [
+    "1 h 35 min",
+    "5 400 s",
+    "100 min",
+    "1,5 h"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "In Minuten: 1,5 h = 90 min, 100 min, 1 h 35 min = 95 min, 5 400 s = 90 min. Am längsten sind 100 min.",
+   "h": "Rechne alle Angaben in Minuten um."
   }
  ],
  "offen": [

@@ -543,5 +543,146 @@ KARTEN = {
 umbau(DATEI, KARTEN)
 
 
+# ---------- SCHWER (Zehnte Runde, Zweig schwer-kl5) ----------
+# Neue Übungen nach Prüfungsvorbild (Jahrgangsstufentest 6 Bayern: Umwandeln mit gemischten Einheiten, Größen ordnen,
+# Fehler beschreiben, Schätzen mit Bezugsgröße, fehlende Information; Känguru: Zaunpfähle); eigene Zahlen und Einkleidung.
+from _schwer_kl5 import A, L, Z, de, einzig, ergaenze, wahl  # noqa: E402
+
+
+def _schwer():
+    N = {}
+    N['schaetzen'] = [
+        wahl(2, 'Was ist realistisch? Ein Klassenzimmer ist etwa … lang.', ['9 m', '90 m', '9 cm', '900 m'], lambda o: o == '9 m',
+             'Ein Klassenzimmer ist etwa so lang wie 4 bis 5 Türen hoch sind: rund 9 m.', 'Vergleiche mit einer Tür (etwa 2 m hoch).'),
+        wahl(2, 'Ein Bus ist etwa 12 m lang. Wie viele Busse hintereinander sind ungefähr 1 km lang?', ['8', '80', '800', '8 000'],
+             lambda o: abs(int(o.replace(' ', '')) - 1000 / 12) == min(abs(x - 1000 / 12) for x in (8, 80, 800, 8000)),
+             '1 km = 1 000 m. 1 000 : 12 ist etwa 83, also ungefähr 80 Busse.', 'Rechne 1 km in m um und teile durch 12.'),
+        wahl(3, 'Auf einem Foto steht ein Erwachsener (etwa 1,80 m groß) vor einem Baum. Der Baum ist etwa 6-mal so hoch wie der Mensch. Wie hoch ist der Baum ungefähr?',
+             ['etwa 11 m', 'etwa 6 m', 'etwa 110 m', 'etwa 1,1 m'], lambda o: o == f'etwa {round(1.8 * 6)} m',
+             '6 · 1,80 m = 10,80 m, also etwa 11 m.', 'Nimm die Größe des Menschen als Maßstab.'),
+        wahl(3, 'Ein Herz schlägt etwa 70-mal in der Minute. Wie oft schlägt es ungefähr an einem Tag?', ['etwa 1 000-mal', 'etwa 10 000-mal', 'etwa 100 000-mal', 'etwa 1 000 000-mal'],
+             lambda o: o == 'etwa 100 000-mal',
+             '70 · 60 = 4 200 Schläge pro Stunde. 4 200 · 24 = 100 800, also etwa 100 000.', 'Rechne zuerst die Schläge pro Stunde aus, dann pro Tag.'),
+        Z(3, 'Ein Blatt Papier ist etwa 0,1 mm dick. Wie hoch ist ein Stapel aus 500 Blatt? Gib das Ergebnis in cm an.', '500 * 0.1 / 10',
+          '500 · 0,1 mm = 50 mm = 5 cm.', 'Rechne zuerst in mm, dann in cm um.', einheit='cm'),
+        wahl(3, 'Ein Neugeborenes wird gewogen. Welche Angabe ist sicher falsch?', ['3 500 g', '3,5 kg', '35 kg', '3 kg 500 g'], lambda o: o == '35 kg',
+             '3 500 g, 3,5 kg und 3 kg 500 g sind dasselbe und realistisch. 35 kg wiegt etwa ein Kind in der 5. Klasse.', 'Drei Angaben sind gleich groß. Welche passt nicht dazu?'),
+    ]
+    N['laenge'] = [
+        Z(2, 'Rechne um: 3 km 40 m = ? m', '3 * 1000 + 40', '3 km = 3 000 m. Dazu 40 m: 3 040 m.', 'Achtung: 40 m sind keine 400 m.', einheit='m'),
+        Z(2, 'Rechne um: 4 500 mm = ? dm', '4500 / 100', 'Von mm zu dm sind es zwei Stufen: : 10 und : 10, also : 100. 4 500 : 100 = 45 dm.', 'mm → cm → dm: zweimal durch 10.', einheit='dm'),
+        Z(3, 'Wandle um: 15 m 4 cm = ? cm', '15 * 100 + 4', '15 m = 1 500 cm. Dazu 4 cm: 1 504 cm. Nicht 154 cm!', 'Rechne zuerst die Meter in Zentimeter um.', einheit='cm'),
+        Z(3, 'Wandle um: 382 dm = ? mm', '382 * 100', 'dm → cm: mal 10, cm → mm: mal 10. 382 · 100 = 38 200 mm.', 'Wie viele Stufen sind es von dm bis mm?', einheit='mm'),
+        Z(3, 'Ein Zebrastreifen beginnt und endet mit einem dunklen Streifen. Es gibt 8 weiße Streifen. Jeder Streifen ist 50 cm breit. Wie breit ist die Straße in m?',
+          '(8 + 9) * 50 / 100', 'Zwischen und neben 8 weißen Streifen liegen 9 dunkle: 17 Streifen. 17 · 50 cm = 850 cm = 8,5 m.',
+          'Zeichne eine Skizze. Wie viele dunkle Streifen gibt es bei 8 weißen?', einheit='m'),
+        Z(3, 'Ein Zaun ist 24 m lang. Alle 3 m steht ein Pfosten, auch ganz am Anfang und ganz am Ende. Wie viele Pfosten sind es?', '24 // 3 + 1',
+          '24 : 3 = 8 Abstände. Dazu kommt ein Pfosten mehr als Abstände: 9 Pfosten.', 'Zeichne einen kurzen Zaun, z. B. 6 m. Zähle Abstände und Pfosten.'),
+    ]
+    klein = {'2,08 kg': 2080, '2 kg 80 g': 2080, '2 kg 8 g': 2008, '2 800 g': 2800}
+    N['masse'] = [
+        Z(2, 'Rechne um: 2 t 50 kg = ? kg', '2 * 1000 + 50', '2 t = 2 000 kg. Dazu 50 kg: 2 050 kg.', 'Die Umrechnungszahl ist 1 000.', einheit='kg'),
+        Z(2, 'Rechne um: 4 500 mg = ? g', '4500 / 1000', 'Von mg zu g: durch 1 000. 4 500 : 1 000 = 4,5 g.', 'Wie viele mg sind 1 g?', einheit='g'),
+        wahl(3, 'Welche Masse ist am kleinsten?', list(klein), lambda o: klein[o] == min(klein.values()),
+             'In Gramm: 2 080 g, 2 080 g, 2 008 g und 2 800 g. Am kleinsten ist 2 kg 8 g = 2 008 g.', 'Rechne alle Angaben in Gramm um.'),
+        Z(3, 'Ein Lieferwagen wiegt leer 2 t 300 kg. Er darf mit Ladung höchstens 3,5 t wiegen. Geladen sind 40 Kisten zu je 25 kg. Wie viele kg darf er noch zuladen?',
+          '3500 - 2300 - 40 * 25', 'Erlaubte Ladung: 3 500 kg − 2 300 kg = 1 200 kg. Geladen: 40 · 25 kg = 1 000 kg. Noch frei: 200 kg.',
+          'Rechne alles in kg um.', einheit='kg'),
+        Z(3, 'Ein volles Honigglas wiegt 750 g. Das leere Glas wiegt 250 g. Wie viel wiegt das Glas, wenn nur noch halb so viel Honig darin ist?', '250 + (750 - 250) // 2',
+          'Honig: 750 g − 250 g = 500 g. Die Hälfte sind 250 g. Mit Glas: 250 g + 250 g = 500 g.', 'Rechne zuerst aus, wie viel der Honig allein wiegt.', einheit='g'),
+        A(3, 'Jemand schreibt: 3 kg − 250 g = 2 kg 750 g = 2,75 kg. Stimmt das?', 'Ja, beides stimmt.',
+          ['Nein, es sind 2,250 kg.', 'Nein, kg und g darf man nicht voneinander abziehen.', 'Nein, 2 kg 750 g sind 2,075 kg.'],
+          '3 kg = 3 000 g. 3 000 g − 250 g = 2 750 g = 2 kg 750 g = 2,75 kg.', 'Rechne alles in Gramm und prüfe Schritt für Schritt.'),
+    ]
+    N['zeit'] = [
+        Z(2, 'Wie viele Sekunden sind 3 min 20 s?', '3 * 60 + 20', '3 min = 180 s. Dazu 20 s: 200 s.', '1 min = 60 s.', einheit='s'),
+        Z(2, 'Wie viele Stunden sind 3 Tage und 5 Stunden?', '3 * 24 + 5', '3 · 24 h = 72 h. Dazu 5 h: 77 h.', '1 Tag = 24 h.', einheit='h'),
+        Z(3, 'Ein Kind beginnt um 15:50 Uhr mit den Hausaufgaben und braucht 1 h 25 min. Um 17:30 Uhr beginnt das Training, der Weg dauert 20 min. Wie viele Minuten kommt es zu spät?',
+          '(15 * 60 + 50 + 85 + 20) - (17 * 60 + 30)', 'Fertig um 17:15 Uhr, am Training um 17:35 Uhr. Das sind 5 min zu spät.',
+          'Rechne Schritt für Schritt: Wann ist es mit den Hausaufgaben fertig, wann beim Training?', einheit='min'),
+        A(3, 'Jemand rechnet: 3 h 15 min = 315 min. Was ist falsch?', 'Eine Stunde hat 60 min, nicht 100. Richtig: 195 min.',
+          ['Nichts, 315 min stimmt.', 'Richtig ist 3 h 15 min = 3,15 h.', 'Richtig ist 45 min.'],
+          '3 h = 3 · 60 min = 180 min. Dazu 15 min: 195 min.', 'Wie viele Minuten hat eine Stunde?'),
+        L(3, 'Eine Uhr geht jeden Tag 4 Minuten nach. Am Montag um 12:00 Uhr wird sie richtig gestellt. Was zeigt sie genau eine Woche später, wenn es wirklich 12:00 Uhr ist?',
+          '□:□ Uhr', 'Trage Stunde und Minute ein.', ['(12 * 60 - 7 * 4) // 60', '(12 * 60 - 7 * 4) % 60'],
+          'In 7 Tagen geht sie 7 · 4 = 28 min nach. Sie zeigt 12:00 Uhr − 28 min = 11:32 Uhr.', '„Nachgehen“ heißt: Die Uhr zeigt eine frühere Zeit.'),
+        L(3, 'Ein Film dauert 135 min und endet um 21:10 Uhr. Wann hat er begonnen?', '□:□ Uhr', 'Trage Stunde und Minute ein.',
+          ['(21 * 60 + 10 - 135) // 60', '(21 * 60 + 10 - 135) % 60'],
+          '135 min = 2 h 15 min. 21:10 Uhr − 2 h = 19:10 Uhr, minus 15 min = 18:55 Uhr.', 'Rechne 135 min in Stunden und Minuten um und gehe rückwärts.'),
+    ]
+    lang = {'1,5 km': 1500, '1 km 50 m': 1050, '1 005 m': 1005, '1,505 km': 1505}
+    nicht = {'6 m 4 cm': 604, '604 cm': 604, '60,4 dm': 604, '6 m 40 cm': 640}
+    N['kommaschreibweise'] = [
+        Z(2, 'Schreibe in Kommaschreibweise: 7 kg 45 g = ? kg', '7 + 45 / 1000', 'Gramm brauchen drei Stellen nach dem Komma: 45 g = 0,045 kg. Also 7,045 kg.',
+          'Bei kg und g gibt es drei Stellen nach dem Komma.', einheit='kg'),
+        Z(2, 'Schreibe in Kommaschreibweise: 8 m 9 cm = ? m', '8 + 9 / 100', 'Zwei Stellen für cm: 9 cm = 0,09 m. Also 8,09 m.', 'Die leere dm-Stelle bekommt eine 0.', einheit='m'),
+        wahl(3, 'Welche Länge ist die zweitkleinste: 1,5 km; 1 km 50 m; 1 005 m; 1,505 km?', list(lang), lambda o: lang[o] == sorted(lang.values())[1],
+             'In Meter: 1 500 m, 1 050 m, 1 005 m, 1 505 m. Der Größe nach: 1 005 < 1 050 < 1 500 < 1 505. Die zweitkleinste ist 1 km 50 m.',
+             'Rechne alle Längen in Meter um.'),
+        Z(3, 'Schreibe 4 km 30 m in km.', '4 + 30 / 1000', '30 m = 0,030 km. Also 4,03 km (nicht 4,3 km).', 'Bei km und m gibt es drei Stellen nach dem Komma.', einheit='km'),
+        A(3, 'Jemand schreibt 2 kg 5 g = 2,5 kg. Was ist falsch?', 'Gramm brauchen drei Stellen: richtig ist 2,005 kg.',
+          ['Nichts, das stimmt.', 'Richtig ist 2,05 kg.', 'Richtig ist 25 kg.'],
+          '2,5 kg wären 2 kg 500 g. 5 g sind 0,005 kg, also 2,005 kg.', 'Schreibe die Zahl in eine Einheitentafel.'),
+        wahl(3, 'Welche Angabe ist NICHT dasselbe wie 6,04 m?', list(nicht), lambda o: nicht[o] != 604,
+             '6,04 m = 604 cm = 6 m 4 cm = 60,4 dm. 6 m 40 cm wären 6,40 m.', 'Rechne alle Angaben in cm um.'),
+    ]
+    N['rechnen'] = [
+        Z(2, 'Berechne 2 m − 35 cm. Gib das Ergebnis in cm an.', '200 - 35', '2 m = 200 cm. 200 cm − 35 cm = 165 cm.', 'Rechne zuerst in dieselbe Einheit um.', einheit='cm'),
+        Z(2, 'Berechne 1,5 kg + 750 g. Gib das Ergebnis in g an.', '1500 + 750', '1,5 kg = 1 500 g. 1 500 g + 750 g = 2 250 g.', 'Rechne kg in g um.', einheit='g'),
+        A(3, 'Jemand rechnet 8 m − 40 cm = 80 cm − 40 cm = 40 cm. Was ist falsch?', '8 m sind 800 cm, nicht 80 cm. Richtig: 760 cm.',
+          ['Nichts, 40 cm stimmt.', 'Man darf m und cm nicht abziehen.', 'Richtig ist 8 m − 40 m = −32 m.'],
+          '1 m = 100 cm, also 8 m = 800 cm. 800 cm − 40 cm = 760 cm.', 'Wie viele cm hat ein Meter?'),
+        Z(3, 'Für ein Klassenfest werden 3 Kuchen zu je 7,50 € gekauft. Vom Rest der 50 € gibt es Saft. Eine Flasche kostet 2,40 €. Wie viele Flaschen können höchstens gekauft werden?',
+          '(50 - 3 * 7.5) // 2.4', 'Kuchen: 3 · 7,50 € = 22,50 €. Rest: 27,50 €. 11 Flaschen kosten 26,40 €, 12 Flaschen 28,80 € – zu viel. Also 11.',
+          'Rechne zuerst den Rest aus. Probiere dann 10, 11, 12 Flaschen.'),
+        wahl(3, 'Eine Leiste ist 3,60 m lang. Sie soll ohne Rest in gleich lange Stücke gesägt werden. Welche Stücklänge geht?', ['25 cm', '35 cm', '40 cm', '70 cm'],
+             lambda o: 360 % int(o.split()[0]) == 0, '3,60 m = 360 cm. 360 : 40 = 9 geht ohne Rest. 360 : 25, 360 : 35 und 360 : 70 lassen einen Rest.',
+             'Rechne 3,60 m in cm um und prüfe, welche Länge ohne Rest hineinpasst.'),
+        Z(3, 'Ein leerer Korb wiegt 400 g. Mit 6 gleich schweren Äpfeln wiegt er 1,3 kg. Wie viele Gramm wiegt ein Apfel?', '(1300 - 400) / 6',
+          '1,3 kg = 1 300 g. Äpfel zusammen: 1 300 g − 400 g = 900 g. Ein Apfel: 900 g : 6 = 150 g.', 'Rechne alles in g. Was wiegen die Äpfel ohne Korb?', einheit='g'),
+    ]
+    N['massstab'] = [
+        Z(2, 'Maßstab 1 : 200 000. Auf der Karte sind es 3,5 cm. Wie viele km sind es in Wirklichkeit?', '3.5 * 200000 / 100000',
+          '3,5 cm · 200 000 = 700 000 cm = 7 000 m = 7 km.', '1 km = 100 000 cm.', einheit='km'),
+        Z(2, 'Ein Modellauto ist im Maßstab 1 : 20 gebaut und 21 cm lang. Wie lang ist das echte Auto in m?', '21 * 20 / 100',
+          '21 cm · 20 = 420 cm = 4,20 m.', 'Wirklichkeit = Modelllänge · 20.', einheit='m'),
+        L(3, 'Ein Floh ist 2 mm lang. Im Buch ist er 3 cm groß abgebildet. Wie heißt der Maßstab?', '□ : 1', 'Trage die Zahl vor dem Doppelpunkt ein.', ['30 // 2'],
+          '3 cm = 30 mm. 30 mm : 2 mm = 15. Das Bild ist 15-mal so groß: 15 : 1.', 'Rechne beide Längen in mm um. Wie oft passt 2 mm in das Bild?'),
+        L(3, 'Zwei Orte sind auf einer Karte im Maßstab 1 : 25 000 genau 8 cm voneinander entfernt. Auf einer anderen Karte sind es 4 cm. Welchen Maßstab hat die zweite Karte?',
+          '1 : □', 'Trage die Zahl hinter dem Doppelpunkt ein.', ['8 * 25000 // 4'],
+          'Wirklich: 8 cm · 25 000 = 200 000 cm. Auf der zweiten Karte sind das 4 cm: 200 000 : 4 = 50 000. Maßstab 1 : 50 000.',
+          'Rechne zuerst die wirkliche Entfernung aus.'),
+        Z(3, 'Auf einem Plan im Maßstab 1 : 100 ist ein Zimmer 4 cm lang und 3 cm breit. Wie viele m² hat das Zimmer in Wirklichkeit?', '(4 * 100 // 100) * (3 * 100 // 100)',
+          'Länge: 4 cm · 100 = 400 cm = 4 m. Breite: 3 m. Fläche: 4 m · 3 m = 12 m².', 'Rechne zuerst Länge und Breite in Wirklichkeit aus, dann die Fläche.', einheit='m²'),
+        A(3, 'Jemand sagt: „Bei 1 : 50 000 sind 2 cm auf der Karte 100 m in Wirklichkeit.“ Stimmt das?', 'Nein: 2 cm · 50 000 = 100 000 cm = 1 km.',
+          ['Ja, das stimmt.', 'Nein, es sind 10 m.', 'Nein, es sind 100 km.'],
+          '2 · 50 000 = 100 000 cm. 100 000 cm = 1 000 m = 1 km.', 'Rechne 100 000 cm schrittweise in m um.'),
+    ]
+    zeiten = {'1,5 h': 90, '100 min': 100, '1 h 35 min': 95, '5 400 s': 90}
+    N['verstehen'] = [
+        wahl(2, 'Stimmt das? „1,25 h = 1 h 25 min“', ['Nein, 0,25 h ist eine Viertelstunde = 15 min.', 'Ja, nach dem Komma stehen die Minuten.', 'Nein, 0,25 h = 2 min 5 s.'],
+             lambda o: o.startswith('Nein, 0,25 h ist'), '0,25 h ist ein Viertel einer Stunde: 60 min : 4 = 15 min. Also 1,25 h = 1 h 15 min.',
+             'Eine Stunde hat 60 min, nicht 100.'),
+        wahl(2, 'Welche Angabe ist gleich 2 500 m?', ['2,5 km', '25 km', '250 km', '2,05 km'], lambda o: o == '2,5 km',
+             '1 km = 1 000 m. 2 500 m = 2 km 500 m = 2,5 km.', 'Teile durch 1 000.'),
+        wahl(3, 'Ein Kind hat 35 € gespart. Es kauft 2 Bücher und hat danach noch 11 € übrig. Welche Frage kann man damit NICHT beantworten?',
+             ['Wie viel haben beide Bücher zusammen gekostet?', 'Wie viel kostet ein Buch, wenn beide gleich teuer sind?', 'Wie teuer war das teurere Buch?', 'Wie viel Geld hat das Kind ausgegeben?'],
+             lambda o: o == 'Wie teuer war das teurere Buch?',
+             'Zusammen 24 € ausgegeben, gleich teuer je 12 €. Wie sich 24 € auf zwei verschieden teure Bücher verteilen, weiß man nicht.',
+             'Prüfe bei jeder Frage, ob die Angaben dafür reichen.'),
+        A(3, 'Jemand sagt: „450 g ist mehr als 0,5 kg, weil 450 größer ist als 0,5.“ Stimmt das?', 'Nein: 0,5 kg = 500 g, und 500 g ist mehr als 450 g.',
+          ['Ja, 450 ist größer als 0,5.', 'Nein, beide sind gleich schwer.', 'Man kann g und kg nicht vergleichen.'],
+          'Vor dem Vergleichen in dieselbe Einheit umrechnen: 0,5 kg = 500 g > 450 g.', 'Rechne zuerst beide Angaben in dieselbe Einheit um.'),
+        wahl(3, 'Ein Lkw soll 1 000 Schulranzen zu je etwa 4 kg transportieren. Jemand rechnet mit 40 t Ladung. Ist das realistisch?',
+             ['Nein, 1 000 Ranzen wiegen nur etwa 4 t.', 'Ja, 1 000 · 4 kg = 40 t.', 'Nein, sie wiegen etwa 400 t.', 'Ja, Lkw laden immer 40 t.'],
+             lambda o: o.startswith('Nein, 1 000 Ranzen'), '1 000 · 4 kg = 4 000 kg = 4 t. 40 t ist zehnmal zu viel.', 'Rechne 1 000 · 4 kg aus und wandle in t um.'),
+        wahl(3, 'Welche Zeitspanne ist am längsten: 1,5 h; 100 min; 1 h 35 min; 5 400 s?', list(zeiten), lambda o: zeiten[o] == max(zeiten.values()),
+             'In Minuten: 1,5 h = 90 min, 100 min, 1 h 35 min = 95 min, 5 400 s = 90 min. Am längsten sind 100 min.', 'Rechne alle Angaben in Minuten um.'),
+    ]
+    return N
+
+
+ergaenze(DATEI, _schwer(), 1025)
+
 if __name__ == '__main__':
     schreibe(DATEI)

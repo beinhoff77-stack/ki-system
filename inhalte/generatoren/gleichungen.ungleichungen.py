@@ -621,6 +621,125 @@ UMBAU_OFFEN = []
 baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
 
 
+# ---- SCHWER (Zehnte Runde: schwerere Aufgaben nach Prüfungsvorbild, siehe _schwer_kl8.py) ----
+# Vorbilder (Typ und Niveau, nicht Wortlaut/Zahlen): VERA-8 2012 (Testheft III, „Ungleichung erfüllen“: Zahlen auf Erfüllung prüfen),
+# BMT10 2022 (Schnitt/Vereinigung von Lösungsmengen), Stegreifaufgaben-Typ Kl. 8 („einfache Ungleichung lösen“, Punkt oberhalb/unterhalb),
+# BMT8 2025 (Mittelwert, Aussage begründet widerlegen), Schulaufgaben-Typ (Fehler beim Umdrehen finden, Tarifvergleich „ab wann günstiger“).
+from _schwer_kl8 import Neu, mit_schwer  # noqa: E402
+
+SW = Neu(10_8_7)
+_k = lambda **k: {'typ': 'koordinaten', **k}
+_l = lambda m, t, name=None, **k: {'art': 'linear', 'm': m, 't': t, **({'name': name} if name else {}), **k}
+
+# umformen
+SW.z('umformen', 2, 'Löse 0,5x − 3 ≥ 1. Die Lösung hat die Form x ≥ □. Gib die Zahl an.', 8, '4 / 0.5', '0,5x ≥ 4 ⇔ x ≥ 8 (durch 0,5 teilen, positiv: Zeichen bleibt).',
+     'Erst + 3, dann durch 0,5 teilen.')
+SW.z('umformen', 2, 'Löse x/3 + 2 < 5. Die Lösung hat die Form x < □. Gib die Zahl an.', 9, '3 * 3', 'x/3 < 3 ⇔ x < 9.', 'Ziehe 2 ab und multipliziere mit 3.')
+SW.z('umformen', 3, 'Wie viele der Zahlen −2,5; −0,5; 0 und 1,5 erfüllen die Ungleichung 3x + 4 > 2,5?', 2, '1 + 1',
+     '3x > −1,5 ⇔ x > −0,5. Es passen 0 und 1,5. −0,5 ist die Grenze und gehört bei „>“ nicht dazu, −2,5 ist zu klein.', 'Löse die Ungleichung zuerst. Prüfe die Grenze besonders.', art='P')
+SW.a('umformen', 3, 'Löse die Ungleichung 2(x + 3) > 2x + 1.', 'L = ℚ (jede Zahl)', ['L = { } (keine Zahl)', 'x > 2,5', 'x > 0'],
+     '2x + 6 > 2x + 1 ⇔ 6 > 1. Das stimmt immer, egal welches x. Jede Zahl ist Lösung.', 'Löse die Klammer auf. Was passiert mit x?', art='P')
+SW.z('umformen', 3, 'Für welchen Wert von a hat die Ungleichung a · x + 3 < 3 + 2x keine Lösung?', 2, '2',
+     'Umformen: (a − 2) · x < 0. Für a = 2 steht 0 < 0 da – das ist nie wahr, keine Lösung. Für jedes andere a gibt es Lösungen.', 'Bringe alles mit x auf eine Seite.', art='K')
+SW.z('umformen', 3, 'Die Ungleichung 5x − 7 ≤ c hat die Lösungsmenge x ≤ 4. Bestimme c.', 13, '5 * 4 - 7', 'An der Grenze x = 4 gilt Gleichheit: 5 · 4 − 7 = c ⇔ c = 13.',
+     'Setze die Grenze in den linken Term ein.', art='K')
+
+# umdrehen
+SW.z('umdrehen', 2, 'Löse 6 − 2x > 0. Die Lösung hat die Form x < □. Gib die Zahl an.', 3, '6 / 2', '−2x > −6 ⇔ x < 3 (durch −2 teilen: Zeichen umdrehen).',
+     'Ziehe 6 ab. Beim Teilen durch −2 dreht sich das Zeichen.')
+SW.z('umdrehen', 2, 'Löse −x/4 ≥ 2. Die Lösung hat die Form x ≤ □. Gib die Zahl an.', -8, '2 * (-4)', 'Mal (−4): x ≤ −8.', 'Multipliziere mit −4. Was passiert mit dem Zeichen?')
+SW.a('umdrehen', 3, 'Mia löst 3 − 5x < 18 so: −5x < 15, also x < −3. Was stimmt?', 'Falsch: Beim Teilen durch −5 muss sich das Zeichen umdrehen. Richtig ist x > −3.',
+     ['Richtig gerechnet.', 'Falsch: Richtig ist x < 3.', 'Falsch: Im ersten Schritt muss −5x < 21 stehen.'],
+     '3 − 5x < 18 ⇔ −5x < 15 stimmt. Durch −5 teilen dreht das Zeichen: x > −3. Probe: x = 0 erfüllt 3 < 18, liegt aber nicht in „x < −3“.', 'Mache eine Probe mit x = 0.', art='P')
+SW.a('umdrehen', 3, 'Löse −0,2x + 1 ≤ 3 und gib die Lösungsmenge als Intervall an.', 'L = [−10; ∞[', ['L = ]−∞; −10]', 'L = [10; ∞[', 'L = ]−10; ∞['],
+     '−0,2x ≤ 2. Durch −0,2 teilen, Zeichen umdrehen: x ≥ −10. Die Grenze gehört dazu: [−10; ∞[.', '2 : (−0,2) = −10. Und das Zeichen?', art='P')
+SW.a('umdrehen', 3, 'Für zwei Zahlen gilt a < b. Welche Aussage stimmt dann sicher?', '−a > −b', ['−a < −b', 'a² < b²', 'a < −b'],
+     'Mal (−1) dreht das Zeichen: −a > −b. a² < b² stimmt nicht immer: a = −3, b = 1 gibt 9 > 1. a < −b ist für a = 1, b = 2 falsch.',
+     'Teste mit negativen Zahlen, z. B. a = −3 und b = 1.', art='K')
+SW.a('umdrehen', 3, 'Für welche Zahlen x gilt −3x > x?', 'für alle x < 0', ['für alle x > 0', 'für keine Zahl', 'für alle Zahlen'],
+     '−3x > x ⇔ −4x > 0 ⇔ x < 0 (durch −4 teilen). Probe: x = −1 gibt 3 > −1 ✓, x = 1 gibt −3 > 1 ✗.', 'Bringe x auf eine Seite. Oder probiere x = 1 und x = −1.', art='K')
+
+# klammern
+SW.z('klammern', 2, 'Löse 3(2 − x) ≤ 12. Die Lösung hat die Form x ≥ □. Gib die Zahl an.', -2, '-6 / 3', '6 − 3x ≤ 12 ⇔ −3x ≤ 6 ⇔ x ≥ −2.', 'Klammer auflösen, dann durch −3 teilen.')
+SW.z('klammern', 2, 'Löse −(x − 5) > 2x − 4. Die Lösung hat die Form x < □. Gib die Zahl an.', 3, '9 / 3', '−x + 5 > 2x − 4 ⇔ 9 > 3x ⇔ x < 3.', 'Minus vor der Klammer ändert beide Vorzeichen.')
+SW.z('klammern', 3, 'Löse (x + 1)/2 − (x − 3)/4 > 1. Die Lösung hat die Form x > □. Gib die Zahl an.', -1, '4 - 5',
+     'Mal 4: 2(x + 1) − (x − 3) > 4 ⇔ 2x + 2 − x + 3 > 4 ⇔ x + 5 > 4 ⇔ x > −1.', 'Multipliziere mit 4. Der zweite Zähler kommt in Klammern.', art='P')
+SW.z('klammern', 3, 'Löse x(x + 2) ≤ x² − 6. Die Lösung hat die Form x ≤ □. Gib die Zahl an.', -3, '-6 / 2', 'x² + 2x ≤ x² − 6 ⇔ 2x ≤ −6 ⇔ x ≤ −3. Das x² fällt weg.',
+     'Multipliziere aus. Was passiert mit x²?', art='P')
+SW.a('klammern', 3, 'Löse 4(x − 1) − 2(2x − 3) < 1.', 'L = { } (keine Zahl)', ['L = ℚ (jede Zahl)', 'x < 0,5', 'x > −0,5'],
+     '4x − 4 − 4x + 6 < 1 ⇔ 2 < 1. Das ist nie wahr. Keine Zahl erfüllt die Ungleichung.', 'Löse beide Klammern auf. Achte auf −2 · (−3).', art='K')
+SW.z('klammern', 3, 'Welches ist die größte ganze Zahl, die 2(3 − x) > 3(x − 8) erfüllt?', 5, '30 // 5 - 1',
+     '6 − 2x > 3x − 24 ⇔ 30 > 5x ⇔ x < 6. Die 6 gehört nicht dazu, die größte ganze Zahl ist 5.', 'Löse zuerst. Ist die Grenze selbst erlaubt?', art='K')
+
+# intervall
+SW.a('intervall', 2, 'Löse 5 − x > 7 und gib die Lösungsmenge als Intervall an.', 'L = ]−∞; −2[', ['L = ]−2; ∞[', 'L = ]−∞; 2[', 'L = ]−∞; −2]'],
+     '−x > 2 ⇔ x < −2. Die Grenze gehört nicht dazu: ]−∞; −2[.', 'Durch −1 teilen dreht das Zeichen.')
+SW.a('intervall', 2, 'Welche Ungleichung hat die Lösungsmenge L = [2,5; ∞[?', '2x ≥ 5', ['2x > 5', '−2x ≥ −5', '2x ≤ 5'],
+     '2x ≥ 5 ⇔ x ≥ 2,5. Bei −2x ≥ −5 dreht sich das Zeichen: x ≤ 2,5.', 'Löse jede Ungleichung und vergleiche.')
+SW.a('intervall', 3, 'x soll 2x − 1 > 3 und zugleich x − 4 ≤ 2 erfüllen. Gib die Lösungsmenge als Intervall an.', 'L = ]2; 6]', ['L = [2; 6[', 'L = ]2; ∞[', 'L = ]−∞; 6]'],
+     'Erste Ungleichung: x > 2. Zweite: x ≤ 6. Beides gleichzeitig: 2 < x ≤ 6, also ]2; 6].', 'Löse beide Ungleichungen. „Zugleich“ heißt: Beides muss gelten.', art='P')
+SW.a('intervall', 3, 'Löse −3 ≤ 1 − 2x < 5 und gib die Lösungsmenge als Intervall an.', 'L = ]−2; 2]', ['L = [−2; 2[', 'L = [2; −2[', 'L = ]−4; 4]'],
+     '−1: −4 ≤ −2x < 4. Durch −2, beide Zeichen umdrehen: 2 ≥ x > −2. Also −2 < x ≤ 2: ]−2; 2].', 'Teile alle drei Teile durch −2 und drehe beide Zeichen um.', art='P')
+SW.z('intervall', 3, 'Wie viele ganze Zahlen liegen in der Lösungsmenge von −7 < 3x + 2 ≤ 11?', 6, '3 - (-2) + 1',
+     '−9 < 3x ≤ 9 ⇔ −3 < x ≤ 3. Ganze Zahlen: −2, −1, 0, 1, 2, 3. Das sind 6.', 'Löse zuerst. −3 gehört nicht dazu, 3 schon.', art='K')
+SW.a('intervall', 3, 'Eine Zahl soll 3x ≤ 6 und 2x > 8 gleichzeitig erfüllen. Welche Lösungsmenge ergibt sich?', 'L = { }', ['L = ]4; 2]', 'L = [2; 4[', 'L = ℚ'],
+     'Erste: x ≤ 2. Zweite: x > 4. Keine Zahl ist zugleich höchstens 2 und größer als 4.', 'Zeichne beide Bereiche auf einem Zahlenstrahl.', art='K')
+
+# pruefen
+SW.a('pruefen', 2, 'Welche Zahl ist eine Lösung von −2x + 3 > 10?', '−4', ['−3', '0', '4'], '−2x > 7 ⇔ x < −3,5. Nur −4 ist kleiner als −3,5. Probe: 8 + 3 = 11 > 10.',
+     'Löse zuerst oder setze jede Zahl ein.')
+SW.z('pruefen', 2, 'Gib die kleinste ganze Zahl an, die 2,5x − 1 ≥ 6 erfüllt.', 3, '3', '2,5x ≥ 7 ⇔ x ≥ 2,8. Die kleinste ganze Zahl ab 2,8 ist 3.', 'Löse zuerst, dann runde passend.')
+SW.a('pruefen', 3, 'Tom sagt: „x = 2 erfüllt 3x − 4 > x. Also gilt die Ungleichung für alle Zahlen.“ Was stimmt?', 'Falsch: x = 2 erfüllt sie gar nicht (2 > 2 ist falsch). L = ]2; ∞[.',
+     ['Richtig: Ein Beispiel genügt.', 'Falsch: L = ]−∞; 2[.', 'Falsch: Es gibt keine Lösung.'],
+     'Einsetzen: 3 · 2 − 4 = 2, und 2 > 2 ist falsch. Lösen: 2x > 4 ⇔ x > 2. Ein Beispiel beweist ohnehin keine Aussage über alle Zahlen.', 'Prüfe Toms Beispiel selbst nach.', art='P')
+SW.a('pruefen', 3, 'Lea löst 4 − 3x ≥ 10 und erhält x ≥ −2. Ihre Probe mit x = 0 ergibt 4 ≥ 10 – falsch. Was folgt daraus?', 'Lea hat das Zeichen nicht umgedreht. Richtig ist x ≤ −2.',
+     ['Die Probe ist wertlos, weil 0 keine Lösung sein kann.', 'Die Ungleichung hat keine Lösung.', 'Richtig ist x ≥ 2.'],
+     '0 liegt in Leas Lösung x ≥ −2, erfüllt die Ungleichung aber nicht. Also ist Leas Lösung falsch. −3x ≥ 6 ⇔ x ≤ −2.', 'Liegt 0 in Leas Lösungsmenge?', art='P')
+SW.z('pruefen', 3, 'Wie viele positive ganze Zahlen erfüllen 2x − 5 < x + 3?', 7, '8 - 1', 'x < 8. Positive ganze Zahlen: 1, 2, …, 7. Das sind 7. Die 8 gehört nicht dazu.',
+     'Löse zuerst. Zähle dann ab 1.', art='K')
+SW.z('pruefen', 3, 'Die Ungleichung a · x ≥ 6 hat die Lösungsmenge x ≤ −2. Bestimme a.', -3, '6 / (-2)',
+     'Aus „≥“ wurde „≤“: Es wurde durch eine negative Zahl geteilt, a < 0. Grenze 6/a = −2 ⇔ a = −3. Probe: −3x ≥ 6 ⇔ x ≤ −2.',
+     'Das Zeichen hat sich umgedreht. Was weißt du dann über a?', art='K')
+
+# grafisch
+SW.z('grafisch', 2, 'Löse x − 1 < −x + 3 mit den Graphen. Die Lösung hat die Form x < □. Gib die Zahl an.', 2, '4 / 2',
+     'Schnittpunkt bei x = 2. Links davon liegt y = x − 1 unter y = −x + 3. Also x < 2.', 'Lies den Schnittpunkt ab. Wo liegt die erste Gerade unten?',
+     grafik=_k(x=[-2, 5], y=[-3, 5], graphen=[_l(1, -1, 'f'), _l(-1, 3, 'g')]))
+SW.a('grafisch', 2, 'Für welche x gilt 0,5x + 1 > 0? Lies am Graphen ab.', 'x > −2', ['x < −2', 'x > 1', 'x > 2'],
+     'Die Gerade schneidet die x-Achse bei −2. Rechts davon liegt sie oberhalb der Achse.', 'Wo schneidet die Gerade die x-Achse?',
+     grafik=_k(x=[-5, 4], y=[-2, 4], graphen=[_l(0.5, 1, 'f')]))
+SW.a('grafisch', 3, 'Tarif A (Gerade f) und Tarif B (Gerade g): x ist die Gesprächszeit in Minuten, y der Preis in €. Für welche Gesprächszeiten ist A billiger?', 'x > 50',
+     ['x < 50', 'x > 10', 'x < 10'],
+     'Die Geraden schneiden sich bei x = 50. Rechts davon liegt f unter g, also ist A billiger. f: y = 0,1x + 5, g: y = 0,2x.', 'Billiger heißt: Die Gerade liegt weiter unten.',
+     grafik=_k(x=[0, 100], y=[0, 20], schritt_x=10, schritt_y=5, name_x='min', name_y='€', graphen=[_l(0.1, 5, 'f'), _l(0.2, 0, 'g')]), art='P')
+SW.a('grafisch', 3, 'Für welche x liegt der Graph von f: y = 2x − 1 zwischen den Geraden y = 1 und y = 5 (Grenzen ausgeschlossen)?', 'L = ]1; 3[', ['L = [1; 3]', 'L = ]1; 5[', 'L = ]0; 3['],
+     '1 < 2x − 1 < 5 ⇔ 2 < 2x < 6 ⇔ 1 < x < 3. Am Bild: f trifft y = 1 bei x = 1 und y = 5 bei x = 3.', 'Lies die beiden Schnittstellen ab.',
+     grafik=_k(x=[-1, 5], y=[-2, 7], graphen=[_l(2, -1, 'f')], waagrecht=[1, 5]), art='P')
+SW.a('grafisch', 3, 'Für welche x sind beide Funktionswerte f(x) = −2x + 4 und g(x) = x − 2 positiv?', 'für kein x', ['für x < 2', 'für x > 2', 'für alle x'],
+     'f(x) > 0 für x < 2, g(x) > 0 für x > 2. Beides zugleich geht nicht. Bei x = 2 sind beide 0.', 'Wo liegt jede Gerade über der x-Achse?',
+     grafik=_k(x=[-2, 5], y=[-4, 6], graphen=[_l(-2, 4, 'f'), _l(1, -2, 'g')]), art='K')
+SW.z('grafisch', 3, 'Für welchen Wert von m liegt die Gerade y = m · x + 2 für jedes x unterhalb der Geraden y = 3?', 0, '0',
+     'Steigt oder fällt die Gerade (m ≠ 0), kommt sie irgendwann über y = 3. Nur die waagrechte Gerade y = 2 (m = 0) bleibt immer darunter.',
+     'Was passiert mit einer steigenden Geraden weit rechts?', art='K')
+
+# sachaufgabe
+SW.z('sachaufgabe', 2, 'Ein Kind hat 20 €. Es kauft einen Füller für 6 € und Hefte zu je 1,40 €. Wie viele Hefte kann es höchstens kaufen?', 10, '(20 - 6) / 1.4',
+     '6 + 1,40 · h ≤ 20 ⇔ 1,40 · h ≤ 14 ⇔ h ≤ 10.', 'Stelle eine Ungleichung mit „höchstens“ auf.', einheit='Hefte')
+SW.z('sachaufgabe', 2, 'Ein Einzeleintritt kostet 4,50 €, eine Zehnerkarte 36 €. Ab wie vielen Besuchen ist die Zehnerkarte billiger als Einzelkarten?', 9, '36 // 4.5 + 1',
+     '4,50 · n > 36 ⇔ n > 8. Bei 8 Besuchen kostet beides 36 €. Ab 9 Besuchen ist die Zehnerkarte billiger.', 'Wann kosten Einzelkarten mehr als 36 €?', einheit='Besuche')
+SW.z('sachaufgabe', 3, 'Für eine Fahrt kostet der Bus 450 €, dazu kommen 18 € Eintritt pro Person. Pro Person sollen höchstens 30 € anfallen. Wie viele Personen müssen mindestens mitfahren?',
+     38, '450 // 12 + 1', 'Kosten pro Person: (450 + 18n)/n ≤ 30 ⇔ 450 + 18n ≤ 30n ⇔ 450 ≤ 12n ⇔ n ≥ 37,5. Also mindestens 38 Personen.',
+     'Der Bus wird geteilt. Stelle die Kosten pro Person als Bruch auf.', einheit='Personen', art='P')
+SW.z('sachaufgabe', 3, 'Lena hat in drei Tests 12, 9 und 13 Punkte. Wie viele Punkte braucht sie im vierten Test mindestens, damit ihr Durchschnitt mindestens 12 Punkte beträgt?', 14,
+     '4 * 12 - (12 + 9 + 13)', '(12 + 9 + 13 + x)/4 ≥ 12 ⇔ 34 + x ≥ 48 ⇔ x ≥ 14.', 'Der Durchschnitt ist die Summe geteilt durch 4.', einheit='Punkte', art='P')
+SW.z('sachaufgabe', 3, 'Ein Rechteck ist 3 cm länger als breit. Sein Umfang soll höchstens 30 cm betragen. Wie breit darf es höchstens sein?', 6, '24 / 4',
+     'Breite b, Länge b + 3. 2b + 2(b + 3) ≤ 30 ⇔ 4b + 6 ≤ 30 ⇔ b ≤ 6.', 'Umfang = 2 · Länge + 2 · Breite.', einheit='cm', art='K')
+SW.z('sachaufgabe', 3, 'Kerze A ist 30 cm lang und brennt pro Stunde 2 cm ab, Kerze B ist 20 cm lang und brennt 1 cm pro Stunde ab. Ab welcher Brenndauer t (in h) ist A kürzer als B? Gib die Grenze an.',
+     10, '(30 - 20) / (2 - 1)', '30 − 2t < 20 − t ⇔ 10 < t. Ab mehr als 10 Stunden ist A kürzer (bei 10 h sind beide 10 cm).', 'Stelle für jede Kerze einen Term auf.', einheit='h', art='K')
+
+baue = mit_schwer(baue, SW)
+# ---- SCHWER ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Ungleichungen lösen', ['umformen', 'umdrehen', 'klammern']), ('Lösungsmenge', ['intervall', 'pruefen', 'grafisch']), ('Anwenden', ['sachaufgabe'])],

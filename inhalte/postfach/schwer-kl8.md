@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 07:55 – STATUS
+gleichungen.ungleichungen fertig: 42 neue Übungen. Prüfskript OK, Unverändert-Nachweis JA. Fund: zwei S1-Aufgaben der Karte „grafisch“ antworten „x ≥ −4“ bzw. „x ≤ 2“ auf „oberhalb/unterhalb“ (richtig wären > bzw. <) – nicht geändert, steht in der Befundliste.
+
 ## 2026-11-16 07:30 – STATUS
 gleichungen.lgs2 fertig: 48 neue Übungen (8 Karten × 4 S3 + 2 S2). Prüfskript OK, Unverändert-Nachweis JA.
 

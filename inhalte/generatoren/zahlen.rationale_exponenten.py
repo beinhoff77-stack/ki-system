@@ -489,8 +489,107 @@ GEN = {'nte_wurzel': g_nte_wurzel, 'potenz_wert': g_potenz_wert, 'umwandeln': g_
        'gleichung_exp': g_gleichung_exp, 'verstehen': g_verstehen}
 GEN = {k: _schoen(v) for k, v in GEN.items()}
 
+# ---------- Zehnte Runde (schwer-kl9): schwerere Übungen nach Prüfungsvorbild ----------
+# Eigener Abschnitt mit eigenem festen Zufallsstart (anhaengen(..., 9903, ...)), läuft erst nach bauen():
+# alle bisherigen Aufgaben bleiben unverändert. Vorbilder: Bayerischer Mathematik-Test 10 (ISB; Terme mit Potenzen
+# und negativen/gebrochenen Exponenten ohne Taschenrechner vereinfachen, Schnittstellen zweier Potenzfunktionen
+# durch Gleichsetzen), Illustrierende Aufgaben Realschule 9 (Behauptungen beurteilen). Zahlen und Wortlaut eigen.
+from _schwer_kl9 import anhaengen  # noqa: E402
+
+
+def schwer():
+    P, K, O = 'pruefung', 'knobel', ''
+    L = 'Zahlen in die Felder eintragen'
+    return [
+        # nte_wurzel
+        ('nte_wurzel', 3, P, zahl('Berechne ohne Taschenrechner ⁴√0,0016 · ³√1 000.', '⁴√0,0016 = 0,2, denn 0,2⁴ = 0,0016. ³√1 000 = 10. Also 0,2 · 10 = 2.',
+                                  'Ziehe beide Wurzeln einzeln. Tipp: 2⁴ = 16.', 2, '(0.0016 / 0.008) * (1000 / 100)')),
+        ('nte_wurzel', 3, P, zahl('Berechne ohne Taschenrechner ⁵√(2⁵ · 3⁵).', '2⁵ · 3⁵ = (2 · 3)⁵ = 6⁵. Also ⁵√(6⁵) = 6. Man muss 7 776 gar nicht ausrechnen.',
+                                  'Fasse 2⁵ · 3⁵ zu einer Potenz zusammen.', 6, '2 * 3')),
+        ('nte_wurzel', 3, K, zahl('Für welche natürliche Zahl n gilt ⁿ√1 024 = 2?', 'Gesucht ist n mit 2ⁿ = 1 024. Verdoppeln: 2, 4, 8, …, 512, 1 024 – das ist 2¹⁰. Also n = 10.',
+                                  'Rückwärts denken: Wie oft musst du 2 mit sich selbst malnehmen, um 1 024 zu erhalten?', 10, '5 * 2')),
+        ('nte_wurzel', 3, O, zahl('Berechne ³√(√64).', 'Von innen nach außen: √64 = 8, dann ³√8 = 2. (Das ist die sechste Wurzel aus 64.)',
+                                  'Rechne zuerst die innere Wurzel aus.', 2, '8 / 4')),
+        ('nte_wurzel', 2, O, zahl('Berechne ⁴√10 000.', '10⁴ = 10 000, also ⁴√10 000 = 10.', 'Zähle die Nullen.', 10, '10000 / 1000')),
+        ('nte_wurzel', 2, O, zahl('Berechne ³√0,027.', '0,3³ = 0,027, also ³√0,027 = 0,3.', 'Denke an 3³ = 27 und an die Nachkommastellen.', 0.3, '0.027 / 0.09')),
+        # potenz_wert
+        ('potenz_wert', 3, P, luecken('Berechne ohne Taschenrechner 8^(−2/3) + 4^(−1/2).', '□/□', 'Zähler und Nenner eintragen', [3, 4],
+                                      '8^(−2/3) = 1/(³√8)² = 1/4 und 4^(−1/2) = 1/√4 = 1/2. Zusammen 1/4 + 2/4 = 3/4.',
+                                      'Minus im Exponenten heißt Kehrwert. Berechne beide Summanden einzeln.', ['1 + 2', '4'])),
+        ('potenz_wert', 3, P, zahl('Berechne ohne Taschenrechner 0,25^(−1/2).', '0,25^(1/2) = √0,25 = 0,5. Das Minus heißt Kehrwert: 1 : 0,5 = 2.',
+                                   'Erst die Wurzel, dann den Kehrwert.', 2, '1 / 0.5')),
+        ('potenz_wert', 3, K, auswahl('Welche Zahl ist größer: 2^(1/2) oder 3^(1/3)?', '3^(1/3)', ['2^(1/2)', 'Beide sind gleich groß.'],
+                                      'Beide hoch 6 nehmen: (2^(1/2))⁶ = 2³ = 8 und (3^(1/3))⁶ = 3² = 9. Wegen 9 > 8 ist 3^(1/3) größer.',
+                                      'Nimm beide Zahlen hoch 6 – dann verschwinden die Brüche im Exponenten.')),
+        ('potenz_wert', 3, O, zahl('Berechne 0,001^(−2/3).', '0,001^(1/3) = 0,1. Hoch 2: 0,01. Kehrwert: 1 : 0,01 = 100.',
+                                   'Nenner 3: dritte Wurzel, Zähler 2: quadrieren, Minus: Kehrwert.', 100, '1 / 0.1 ** 2')),
+        ('potenz_wert', 2, O, zahl('Berechne 125^(2/3).', '³√125 = 5, dann 5² = 25.', 'Erst die dritte Wurzel, dann quadrieren.', 25, '(125 / 25) ** 2')),
+        ('potenz_wert', 2, O, luecken('Berechne 9^(−1/2).', '□/□', 'Zähler und Nenner eintragen', [1, 3], '9^(−1/2) = 1/√9 = 1/3.',
+                                      'Minus im Exponenten heißt Kehrwert.', ['1', '9 // 3'])),
+        # umwandeln
+        ('umwandeln', 3, P, luecken('Schreibe ³√(x⁶ · y³) für x, y ≥ 0 ohne Wurzelzeichen.', 'x^□ · y^□', L, [2, 1],
+                                    '³√(x⁶ · y³) = x^(6/3) · y^(3/3) = x² · y.', 'Teile jeden Exponenten durch den Wurzelexponenten 3.', ['6 // 3', '3 // 3'])),
+        ('umwandeln', 3, P, luecken('Schreibe 1/³√(x²) für x > 0 als Potenz.', 'x^(□/□)', L, [-2, 3],
+                                    '³√(x²) = x^(2/3). Der Kehrwert hat ein Minus im Exponenten: x^(−2/3).', 'Erst die Wurzel als Potenz schreiben, dann der Kehrwert.', ['-2', '3'])),
+        ('umwandeln', 3, K, auswahl('Welcher Term ist für x > 0 NICHT gleich x^(1/2)?', '√x · ⁴√x', ['⁴√(x²)', 'x : √x', '(x²)^(1/4)'],
+                                    '√x · ⁴√x = x^(1/2 + 1/4) = x^(3/4). Die anderen: ⁴√(x²) = x^(2/4), x : √x = x^(1 − 1/2), (x²)^(1/4) = x^(2/4) – alle gleich x^(1/2).',
+                                    'Schreibe jeden Term als Potenz von x und vergleiche die Exponenten.')),
+        ('umwandeln', 3, O, luecken('Schreibe √(x · √x) für x ≥ 0 als Potenz.', 'x^(□/□)', L, [3, 4],
+                                    'Innen: x · √x = x^(1 + 1/2) = x^(3/2). Außen: (x^(3/2))^(1/2) = x^(3/4).', 'Von innen nach außen umwandeln.', ['3', '4'])),
+        ('umwandeln', 2, O, auswahl('Welcher Term ist gleich x^(3/5) für x ≥ 0?', '⁵√(x³)', ['³√(x⁵)', 'x³ : 5', '5 · √(x³)'],
+                                    'Der Nenner 5 wird zum Wurzelexponenten, der Zähler 3 zum Exponenten unter der Wurzel.', 'Nenner = Wurzel, Zähler = Potenz.')),
+        ('umwandeln', 2, O, luecken('Schreibe 1/x³ für x > 0 als Potenz.', 'x^□', 'den Exponenten eintragen', [-3],
+                                    '1/x³ = x^(−3): Der Kehrwert hat ein Minus im Exponenten.', 'Kehrwert heißt Minus im Exponenten.', ['-3'])),
+        # zusammenfassen
+        ('zusammenfassen', 3, P, luecken('Vereinfache für x > 0: (x^(2/3))³ · √x.', 'x^(□/□)', L, [5, 2],
+                                         '(x^(2/3))³ = x². Dann x² · x^(1/2) = x^(5/2).', 'Erst die Klammer potenzieren (Exponenten malnehmen), dann Exponenten addieren.', ['5', '2'])),
+        ('zusammenfassen', 3, P, luecken('Vereinfache für x > 0: x⁴ : ³√x.', 'x^(□/□)', L, [11, 3],
+                                         'x⁴ : x^(1/3) = x^(4 − 1/3) = x^(11/3).', 'Beim Teilen die Exponenten subtrahieren: 4 = 12/3.', ['12 - 1', '3'])),
+        ('zusammenfassen', 3, K, zahl('Berechne 2^(1/3) · 4^(1/3).', 'Gleicher Exponent: 2^(1/3) · 4^(1/3) = (2 · 4)^(1/3) = 8^(1/3) = 2.',
+                                      'Die Basen sind verschieden, aber die Exponenten gleich. Welches Potenzgesetz passt?', 2, '(2 * 4) / 4')),
+        ('zusammenfassen', 3, O, zahl('Berechne 27^(1/2) · 3^(1/2).', '27^(1/2) · 3^(1/2) = (27 · 3)^(1/2) = √81 = 9.',
+                                      'Gleiche Exponenten: Basen malnehmen.', 9, '(27 * 3) / 9')),
+        ('zusammenfassen', 2, O, luecken('Fasse zu einer Potenz zusammen (x > 0): √x · √x · √x.', 'x^(□/□)', L, [3, 2],
+                                         'x^(1/2 + 1/2 + 1/2) = x^(3/2).', 'Schreibe √x = x^(1/2) und addiere die Exponenten.', ['3', '2'])),
+        ('zusammenfassen', 2, O, zahl('Berechne 5^(3/4) · 5^(1/4).', 'Exponenten addieren: 3/4 + 1/4 = 1, also 5¹ = 5.', 'Gleiche Basis: Exponenten addieren.', 5, '5 ** 1')),
+        # gleichung_exp
+        ('gleichung_exp', 3, P, zahl('Die Graphen von y = x^(1/2) und y = x/4 (x ≥ 0) schneiden sich bei x = 0 und an einer weiteren Stelle. Bei welchem x?',
+                                     'Gleichsetzen: √x = x/4. Beide Seiten quadrieren: x = x²/16, also x² = 16x und (x ≠ 0) x = 16. Probe: √16 = 4 = 16/4.',
+                                     'Setze die beiden Terme gleich und quadriere.', 16, '4 ** 2')),
+        ('gleichung_exp', 3, P, zahl('Löse 5 · x^(2/3) − 3 = 17 für x > 0.', '5 · x^(2/3) = 20, also x^(2/3) = 4. Hoch 3/2: x = 4^(3/2) = (√4)³ = 8.',
+                                     'Erst x^(2/3) allein stellen, dann mit dem Kehrwert 3/2 potenzieren.', 8, '(20 / 5) ** 3 / 8')),
+        ('gleichung_exp', 3, K, zahl('Für welches x > 0 gilt x^(1/2) = 2 · x^(1/3)?', 'Durch x^(1/3) teilen: x^(1/2 − 1/3) = x^(1/6) = 2. Hoch 6: x = 2⁶ = 64. Probe: √64 = 8 = 2 · ³√64.',
+                                     'Bringe alle x-Potenzen auf eine Seite (teilen) und fasse die Exponenten zusammen.', 64, '2 ** 6')),
+        ('gleichung_exp', 3, O, zahl('Löse x^(−1/2) = 0,2 für x > 0.', 'x^(−1/2) = 1/√x = 0,2, also √x = 1 : 0,2 = 5 und x = 25.',
+                                     'Das Minus heißt Kehrwert. Bestimme zuerst √x.', 25, '(1 / 0.2) ** 2')),
+        ('gleichung_exp', 2, O, zahl('Löse x^(2/5) = 4 für x > 0.', 'Hoch 5/2: x = 4^(5/2) = (√4)⁵ = 2⁵ = 32.', 'Potenziere mit dem Kehrwert 5/2.', 32, '2 ** 5')),
+        ('gleichung_exp', 2, O, zahl('Löse 2 · x^(1/2) = 14 für x > 0.', 'Durch 2 teilen: x^(1/2) = 7. Quadrieren: x = 49.', 'Erst x^(1/2) allein stellen, dann quadrieren.', 49, '(14 / 2) ** 2')),
+        # verstehen
+        ('verstehen', 3, P, auswahl('Jemand behauptet: „(a^(1/2))² = a gilt für jede reelle Zahl a.“ Was stimmt?',
+                                    'Falsch: Für a < 0 ist a^(1/2) nicht definiert; die Aussage gilt nur für a ≥ 0.',
+                                    ['Richtig: Hoch 1/2 und hoch 2 heben sich immer auf.', 'Falsch: Es kommt immer −a heraus.', 'Falsch: Es gilt nur für a > 1.'],
+                                    'Bruch-Exponenten sind nur für Basen ≥ 0 erklärt. Gegenbeispiel a = −4: (−4)^(1/2) gibt es nicht. Für a ≥ 0 stimmt es, z. B. (9^(1/2))² = 3² = 9.',
+                                    'Suche ein Gegenbeispiel mit einer negativen Zahl.')),
+        ('verstehen', 3, P, auswahl('Welche Gleichung ist für x > 0 falsch?', 'x^(1/2) + x^(1/2) = x',
+                                    ['x^(1/2) · x^(1/2) = x', 'x^(−1) = 1/x', '(x^(1/3))³ = x'],
+                                    'x^(1/2) + x^(1/2) = 2√x, nicht x. Probe mit x = 4: 2 + 2 = 4 stimmt zufällig, aber mit x = 9: 3 + 3 = 6 ≠ 9.',
+                                    'Prüfe jede Gleichung mit einer Zahl, z. B. x = 9.')),
+        ('verstehen', 3, K, auswahl('Für welche Zahlen x > 0 gilt x^(1/2) > x?', 'für 0 < x < 1', ['für x > 1', 'für alle x > 0', 'für kein x'],
+                                    'Beispiel x = 0,25: √0,25 = 0,5 > 0,25. Beispiel x = 4: √4 = 2 < 4. Bei x = 1 sind beide gleich. Die Wurzel ist nur zwischen 0 und 1 größer.',
+                                    'Probiere je eine Zahl unter 1 und über 1.')),
+        ('verstehen', 3, O, auswahl('Jemand rechnet 16^(−1/4) = −2. Was stimmt?', 'Falsch: 16^(−1/4) = 1/⁴√16 = 1/2.',
+                                    ['Richtig, das Minus kommt vor das Ergebnis.', 'Falsch: 16^(−1/4) = −4.', 'Falsch: 16^(−1/4) = 1/4.'],
+                                    'Ein Minus im Exponenten heißt Kehrwert: 16^(−1/4) = 1 : 16^(1/4) = 1 : 2 = 1/2. 1/4 wäre 16^(−1/2).',
+                                    'Minus im Exponenten heißt Kehrwert, nicht negatives Ergebnis.')),
+        ('verstehen', 2, O, auswahl('Welche Aussage gilt für x ≥ 0?', 'x^0,5 = √x', ['x^0,5 = x : 2', 'x^0,5 = 1/x²', 'x^0,5 = x − 0,5'],
+                                    '0,5 = 1/2, und hoch 1/2 bedeutet Quadratwurzel.', 'Schreibe 0,5 als Bruch.')),
+        ('verstehen', 2, O, auswahl('Welchen Wert hat 7^(−2)?', '1/49', ['−49', '−14', '49'],
+                                    '7^(−2) = 1/7² = 1/49. Das Minus im Exponenten macht den Kehrwert, nicht eine negative Zahl.', 'Minus im Exponenten heißt Kehrwert.')),
+    ]
+
+
 if __name__ == '__main__':
-    bauen('zahlen.rationale_exponenten',
+    d = bauen('zahlen.rationale_exponenten',
           'n-te Wurzeln berechnen, Wurzeln und Potenzen mit rationalen Exponenten ineinander umwandeln und zusammenfassen.',
           ['ⁿ√a (a ≥ 0) ist die nicht-negative Zahl b mit bⁿ = a.', 'a^(m/n) = ⁿ√(a^m) = (ⁿ√a)^m für a ≥ 0 (bei negativem Exponenten a > 0).',
            'a^(−q) = 1/a^q.', 'Potenzgesetze gelten auch für Bruch-Exponenten.'],
@@ -501,3 +600,4 @@ if __name__ == '__main__':
                   'gleichung_exp': ['= 64 für'], 'verstehen': ['25^(−1/2)', '9^(1/2)']},
           offen=['Exponenten werden als Text „x^(2/3)“ geschrieben, weil die App keine Hochstellung von Brüchen kann. Falls eine Formel-Darstellung kommt, Texte umstellen.',
                  'Gleichungen xⁿ = c: Lösungsanzahl und negative Lösungen stehen ausführlich im Thema gleichungen.potenz; hier nur als Stufe-3-Aufgabe mit ungeradem n (Prüfvorschlag x³ = −125).'])
+    anhaengen(d, 9903, schwer)

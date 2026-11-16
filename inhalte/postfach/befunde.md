@@ -2,6 +2,15 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 05:47 – STATUS
+daten.kennwerte fertig: umgestuft 4 / berichtigt 0 / ersetzt 4 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Geschwister hat ein Kind im Mittel?“
+  - „Stimmt die Aussage? „Taschengeld (€): 9, 8, 8, 9, 77. Der Median beschreibt ein typisches Kind besser als der Mittelwert.““
+  - „Stimmt die Aussage? „Taschengeld (€): 7, 4, 11, 12, 82. Der Median beschreibt ein typisches Kind besser als der Mittelwert.““
+- für Sebastian:
+  - daten.kennwerte: laut themenliste lehrplan_gym ist für Kl. 6 nur „Arithmetisches Mittel bestimmen“ vorgesehen; die Karten modal_spannweite und median gehen darüber hinaus (BMT8-Stoff bis Kl. 7). Als Vertiefung führen? Karten nicht geändert.
+
 ## 2026-11-16 05:46 – STATUS
 daten.darstellen fertig: umgestuft 5 / berichtigt 0 / ersetzt 5 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):

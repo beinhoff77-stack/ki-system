@@ -7,6 +7,32 @@ Prüfung je Thema: Generator neu ausgeführt, Aufgaben mit einem Vergleichsskrip
 
 ## Status
 
+## 2026-11-16 04:30 – FERTIG
+
+Siebte Runde, Klasse 7 abgeschlossen. Alle 45 Lernkarten der 7 Themen haben jetzt einstieg und woerter; schritte (je 3–5 ganze Sätze), regel (als Handlungsanweisung „So …“), fehler (in der Alltagssituation gedeutet) und Bildbeschriftungen sind nach dem Maßstab überarbeitet. Technisch wie im Muster: Abschnitt KLAR im Generator, der die Kartenfelder überschreibt.
+
+| Thema | Lernkarten | Aufgaben | Unterschiede zu lernen-app (284d809) | Situation |
+|---|---|---|---|---|
+| bruch.prozent_grundwert | 7 | 168 | 0 | Preise im Sportgeschäft |
+| terme.aufstellen | 6 | 144 | 0 | Fahrradverleih am See |
+| abbildungen.kongruenz | 7 | 168 | 0 | Klecksbild, Pfosten, Pauspapier, Fliesen |
+| geometrie.konstruktion | 7 | 168 | 0 | Stadtplan, Gartenhaus-Giebel, Holzleisten, Drachen, Regen |
+| geometrie.kreis | 6 | 144 | 0 | Freilichtbühne, Geodreieck zwischen Nägeln, Pfütze, Fahrrad, Treffpunkt |
+| daten.boxplot | 6 | 144 | 0 | Umfragen in der Schule |
+| gleichungen.linear | 6 | 162 | 0 | Balkenwaage, Obsttüten, Handytarife |
+
+- Aufgaben: in allen 7 Themen Feld für Feld identisch mit lernen-app (Vergleichsskript gegen `git show origin/lernen-app:inhalte/themen/<thema>.json`), Generatoren reproduzierbar (zweiter Lauf ohne Änderung).
+- Prüfskript `python3 -I tools/inhalt_pruefen.py`: OK für alle 7.
+- Zusatzprüfung: keine Wörter „einfach/offensichtlich/trivial“ in einstieg/schritte; alle Zahlen der Alltagssituationen nachgerechnet.
+- Fachlich präzisiert: geometrie.konstruktion, Karte vierecke – beim Drachenviereck sind die beiden Winkel gleich, die nicht auf der Symmetrieachse liegen (vorher „neben der Symmetrieachse“, missverständlich). geometrie.kreis: „Der Überlieferung nach“ bei Thales.
+- Beispielzahlen der Karten wurden beibehalten (nur in Sachzusammenhang gestellt); _verbot-Listen unverändert.
+- gleichungen.linear steht in der Klasse-7-Liste und wurde mitbearbeitet (Generator gleichungen_linear.py, Baukasten _nachbau).
+- Nicht geprüft: Anzeige in der App selbst (nur JSON und Prüfskript).
+- Nicht gemergt. Merge nach lernen-app/main erst nach „Live“.
+
+## 2026-11-16 04:20 – STATUS
+gleichungen.linear fertig: 6 Karten (Balkenwaage mit Dosen, Obsttüten für Klammern, Handytarife für Sonderfälle und Sachaufgaben). Aufgaben: 162, 0 Unterschiede. inhalt_pruefen: OK.
+
 ## 2026-11-16 04:00 – STATUS
 daten.boxplot fertig: 6 Karten (Umfragen in der Schule: Schulweg, gelesene Bücher, Taschengeld mit Ausreißer, Quiz-Punkte, Laufzeiten zweier Klassen). Zahlen der bisherigen Beispiele beibehalten, nur in Sachzusammenhang gestellt. Bilder: Säulen mit „Anzahl Kinder“ / „… Bücher“, Boxplots mit Einheit. Aufgaben: 144, 0 Unterschiede. inhalt_pruefen: OK.
 

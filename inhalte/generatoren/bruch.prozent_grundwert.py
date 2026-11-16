@@ -684,6 +684,28 @@ def schwer():
     return N
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('bruch.prozent_grundwert', 13_7_1)
+# a) einschrittig wie Stufe 2, nur andere Zahlen
+BF.stufe('vermehrt', 'Ein Fahrrad kostet 720 €. Der Preis steigt um 2,5 %. Wie hoch ist der neue Preis?', 2, anzahl=1)
+BF.stufe('vermehrt', 'Ein Nettopreis beträgt 60 €. Dazu kommen 19 % Mehrwertsteuer. Wie hoch ist der Preis mit Mehrwertsteuer?', 2)
+BF.stufe('zurueck', 'Nach einer Erhöhung um 2 % kostet eine Ware 61,20 €. Wie viel kostete sie vorher?', 2)
+BF.stufe('zurueck', 'Nach 3 % Rabatt kostet eine Ware 300,70 €. Wie viel kostete sie ursprünglich?', 2)
+# a) Stufen 1 und 2 vertauscht: vier lange Aussagen-Auswahlen (Stufe 1) ↔ „Welche Begründung zeigt das?“ (Stufe 2)
+_q = 'Welche Aussage ist mathematisch richtig begründet?'
+for _richtig in ['500 € mit 19 % Mehrwertsteuer ergeben 595 €, denn', 'Erst 30 % Rabatt, dann 50 % Rabatt ergibt denselben Preis',
+                 '200 € mit 19 % Mehrwertsteuer ergeben 238 €, denn', 'Erst +20 %, dann −20 %: Der Preis ist danach niedriger']:
+    BF.stufe('argumente', _q, 2, enthaelt=_richtig)
+for _t in ['Ein Preis von 60 € sinkt um 40 % auf 36 €. Welche Begründung zeigt das mathematisch?',
+           'Ein Preis von 150 € sinkt um 25 % auf 112,50 €. Welche Begründung zeigt das mathematisch?',
+           'Ein Preis von 80 € sinkt um 10 % auf 72 €. Welche Begründung zeigt das mathematisch?']:
+    BF.stufe('argumente', _t, 1)
+BF.nicht_umgesetzt('argumente: Ablenker „Sinkt ein Wert um 100 %, halbiert er sich, denn 100 % ist die Hälfte von 200 %“', 'Laut Befund kein Fehler (eindeutig falsch als Ablenker).')
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Faktoren', ['faktor', 'vermehrt', 'vermindert']), ('Rückwärts rechnen', ['zurueck', 'prozentsatz']), ('Komplexere Aufgaben', ['mehrfach', 'argumente'])],
@@ -692,3 +714,4 @@ if __name__ == '__main__':
           'Mehrere Änderungen: Faktoren multiplizieren, nicht Prozente addieren.'],
 )
     anhaengen(META['thema_schluessel'], schwer())
+    befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

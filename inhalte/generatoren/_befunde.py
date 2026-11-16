@@ -192,3 +192,13 @@ def befunde_anwenden(datei, bef):
     (Path('/tmp') / f'befunde_{bef.thema}.json').write_text(json.dumps(
         {'ersetzt': bef.ersetzt, 'nicht': bef.nicht, 'sebastian': bef.sebastian, 'zaehler': dict(bef.zaehler)}, ensure_ascii=False, indent=1))
     return datei
+
+
+def befunde_datei(schluessel, bef):
+    """Für Generatoren, deren letzte Bauschritte erst unter __main__ laufen (Kl. 7: anhaengen(...) der Zehnten Runde):
+    fertige Datei lesen, Korrekturen anwenden, im selben Format zurückschreiben."""
+    pfad = THEMEN / f'{schluessel}.json'
+    roh = pfad.read_text(encoding='utf-8')
+    d = befunde_anwenden(json.loads(roh), bef)
+    pfad.write_text(json.dumps(d, ensure_ascii=False, indent=1) + ('\n' if roh.endswith('\n') else ''), encoding='utf-8')
+    return d

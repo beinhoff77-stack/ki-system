@@ -2,6 +2,11 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 05:41 – STATUS
+bruch.prozent_grundwert fertig: umgestuft 11 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
+- nicht umgesetzt:
+  - argumente: Ablenker „Sinkt ein Wert um 100 %, halbiert er sich, denn 100 % ist die Hälfte von 200 %“ – Laut Befund kein Fehler (eindeutig falsch als Ablenker).
+
 ## 2026-11-16 05:40 – STATUS
 gleichungen.einfach fertig: umgestuft 2 / berichtigt 0 / ersetzt 4 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):

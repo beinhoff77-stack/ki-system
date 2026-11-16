@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 05:44 – STATUS
+zahlen.potenzen_zehner fertig: umgestuft 7 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
+
 ## 2026-11-16 05:43 – STATUS
 daten.boxplot fertig: umgestuft 4 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
 - nicht umgesetzt:

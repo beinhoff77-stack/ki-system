@@ -6522,18 +6522,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Ein Freizeitpark: Eintritt 3 €, jede Fahrt 4 €. 3 Fahrten kosten mit Eintritt 15 €. Jemand rechnet für 6 Fahrten: 15 · 2 = 30 €. Stimmt das?"
+    "text": "Eine Handwerkerin berechnet 40 € Anfahrt und 50 € je Arbeitsstunde. 2 Stunden kosten zusammen 140 €. Jemand rechnet für 4 Stunden: 140 · 2 = 280 €. Stimmt das?"
    },
    "a": [
-    "Ja, doppelt so viele Fahrten kosten doppelt so viel.",
-    "Nein: Der Eintritt wird nur einmal bezahlt, es sind 27 €.",
-    "Nein: Es sind 7,5 €, weil es indirekt proportional ist."
+    "Nein: Die Anfahrt wird nur einmal bezahlt, es sind 240 €.",
+    "Ja, doppelt so viele Stunden kosten doppelt so viel.",
+    "Nein: Es sind 70 €, weil es indirekt proportional ist."
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
-   "w": "Die Zuordnung ist weder noch, weil der Eintritt fest ist: 3 + 6 · 4 = 27 €.",
-   "h": "Wird jeder Betrag bei mehr Fahrten mehrfach bezahlt?"
+   "w": "Die Zuordnung ist weder noch, weil die Anfahrt fest ist: 40 + 4 · 50 = 240 €.",
+   "h": "Wird jeder Betrag bei mehr Stunden mehrfach bezahlt?"
   },
   {
    "l": "sach",

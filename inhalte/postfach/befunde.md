@@ -3,6 +3,18 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:34 – STATUS
+groessen.indirekt fertig: umgestuft 0 / berichtigt 0 / ersetzt 1 / neu 0 / nicht umgesetzt 4. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Ein Freizeitpark: Eintritt 3 €, jede Fahrt 4 €. 3 Fahrten kosten mit Eintritt 15 €. Jemand rechnet für 6 Fahrten: 15 · 2 = 30 €. Stimmt das?“
+- nicht umgesetzt:
+  - erkennen S3 „… Je mehr, desto weniger, also indirekt proportional.“ (4×) – Kein Fehler; Übungsreihe zum selben Fehlschluss mit verschiedenen Beispielen.
+  - unterscheiden S1/S2 „Welche Art von Zuordnung zeigt die Tabelle?“ (11×) – Kein Fehler; Stufe 2 hat den zusätzlichen Ablenker „nicht zu entscheiden“ und andere Tabellen.
+  - sach S2 „Taxi … Was kosten 6 km?“ (weder noch) – Laut Befund gut als Abgrenzung; Lösung richtig.
+  - Überschneidung mit funktionen.gebrochen/„indirekt“ – Reihenfolge im Plan (Haupt-Chat), keine einzelne Aufgabe.
+- für Sebastian:
+  - groessen.indirekt: lehrplan_gym leer und Überschneidung mit funktionen.gebrochen/„indirekt“ – Reihenfolge im Plan klären. Karten-Texte nicht geändert.
+
+## 2026-11-16 05:34 – STATUS
 stochastik.simulation fertig: umgestuft 4 / berichtigt 1 / ersetzt 1 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):
   - „Ein Bauteil ist fehlerhaft mit p = 5/6. Simuliert wird mit einer Urne mit 7 roten von 10 Kugeln (mit Zurücklegen). Ist das geeignet?“

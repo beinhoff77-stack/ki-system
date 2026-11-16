@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 05:02 – STATUS
+gleichungen.trig fertig: 36 neue Übungen, inhalt_pruefen OK, Unverändert-Nachweis OK.
+
 ## 2026-11-16 05:01 – STATUS
 trigo.allgemein fertig: 42 neue Übungen (7 Lernkarten), inhalt_pruefen OK, Unverändert-Nachweis OK.
 

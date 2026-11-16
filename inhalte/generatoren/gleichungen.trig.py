@@ -558,8 +558,114 @@ def g_anwendung(s):
 
 GEN = {'sinus': g_sinus, 'kosinus': g_kosinus, 'tangens': g_tangens, 'anzahl': g_anzahl, 'umformen': g_umformen, 'anwendung': g_anwendung}
 
+# ---------- Zehnte Runde (schwer-kl9): schwerere Übungen nach Prüfungsvorbild ----------
+# Eigener Abschnitt mit eigenem festen Zufallsstart (anhaengen(..., 9913, ...)), läuft erst nach bauen():
+# alle bisherigen Aufgaben bleiben unverändert. Vorbilder: Abschlussprüfung Realschule Bayern Mathematik I
+# (2023 Teil A: Sinusgleichung ohne Taschenrechner mit Lösungsmenge in [0°; 180°]; 2025 A 2.4/B 2.3: Flächeninhalt bzw.
+# Volumen als Term mit sin/tan aufstellen und den Winkel zu einem gegebenen Wert bestimmen; 2024 B 4.3: Winkel aus einer
+# Formel), Bayerischer Mathematik-Test 10 2025 (Gleichung ohne Lösung angeben). Zahlen und Wortlaut eigen.
+from _schwer_kl9 import anhaengen  # noqa: E402
+from _kl9 import K as _K  # noqa: E402
+
+
+def schwer():
+    P, Kn, O = 'pruefung', 'knobel', ''
+    r1 = lambda x: round(x, 1)
+    c1 = lambda x: f'round({_K(x)}, 1)'
+    L2, L4 = 'x₁ = □°; x₂ = □°', 'x₁ = □°; x₂ = □°; x₃ = □°; x₄ = □°'
+    H = 'Grad-Zahlen, kleinere zuerst'
+    rg = lambda x: f'round({_K(x)}, 0)'
+    return [
+        # sinus
+        ('sinus', 3, P, luecken('Löse 2 · sin x − 1 = 0 für 0° ≤ x ≤ 180° ohne Taschenrechner.', L2, H, [30, 150],
+                                '2 sin x = 1 ⇒ sin x = 0,5. Im Bereich 0° bis 180°: x = 30° und x = 180° − 30° = 150°.', 'Erst sin x allein stellen. sin 30° = 0,5 kennst du.', ['30', '180 - 30'])),
+        ('sinus', 3, P, zahl('Ein Dreieck hat die Seiten 6 cm und 8 cm, die den Winkel φ einschließen. Sein Flächeninhalt ist A(φ) = 24 · sin φ (in cm²). Für welchen spitzen Winkel φ ist A = 18 cm²? Runde auf eine Nachkommastelle.',
+                             '24 · sin φ = 18 ⇒ sin φ = 0,75 ⇒ φ ≈ 48,6° (spitz; der stumpfe Winkel 131,4° hätte dieselbe Fläche).', 'Setze A = 18 und stelle nach sin φ um.',
+                             r1(asin(0.75)), c1(asin(0.75)), einheit='°')),
+        ('sinus', 3, Kn, zahl('Wie viele Lösungen hat sin x = 0,3 im Bereich 0° ≤ x < 720°?', 'In jeder vollen Umdrehung (360°) gibt es zwei Lösungen. 720° sind zwei Umdrehungen: 2 · 2 = 4 Lösungen.',
+                              'Wie viele Lösungen gibt es in einer Umdrehung? Wie viele Umdrehungen sind 720°?', 4, '2 * 2')),
+        ('sinus', 3, O, luecken('Löse sin x = −0,5 im Bereich 0° ≤ x < 360° ohne Taschenrechner.', L2, H, [210, 330],
+                                'sin x < 0: unterhalb der Mitte. Bezugswinkel 30°: x = 180° + 30° = 210° und x = 360° − 30° = 330°.', 'Bezugswinkel 30°, dann in die beiden unteren Viertel.',
+                                ['180 + 30', '360 - 30'])),
+        ('sinus', 2, O, luecken('Löse sin x = 0,9 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.', L2, H, [round(asin(0.9)), round(180 - asin(0.9))],
+                                'sin⁻¹(0,9) ≈ 64,2°, zweite Lösung 180° − 64,2° ≈ 115,8°. Gerundet 64° und 116°.', 'x₂ = 180° − x₁.', [rg(asin(0.9)), rg(180 - asin(0.9))])),
+        ('sinus', 2, O, auswahl('sin x = 0,4 hat die Lösung x₁ ≈ 23,6°. Welche zweite Lösung gibt es im Bereich 0° ≤ x < 360°?', '156,4°', ['203,6°', '336,4°', '66,4°'],
+                                'Beim Sinus gilt x₂ = 180° − x₁ = 156,4°.', 'Sinus: an der y-Achse spiegeln.')),
+        # kosinus
+        ('kosinus', 3, P, luecken('Löse 2 · cos x + 1 = 0 im Bereich 0° ≤ x < 360° ohne Taschenrechner.', L2, H, [120, 240],
+                                  'cos x = −0,5. Bezugswinkel 60°, Kosinus negativ links: x = 180° − 60° = 120° und x = 360° − 120° = 240°.', 'cos 60° = 0,5. Wo ist der Kosinus negativ?',
+                                  ['180 - 60', '360 - 120'])),
+        ('kosinus', 3, P, zahl('Eine Strecke hat die Länge d(φ) = 10 · cos φ (in cm) für 0° < φ < 90°. Für welchen Winkel φ ist sie 7 cm lang? Runde auf eine Nachkommastelle.',
+                               '10 · cos φ = 7 ⇒ cos φ = 0,7 ⇒ φ ≈ 45,6°.', 'Setze d = 7 und stelle nach cos φ um.', r1(acos(0.7)), c1(acos(0.7)), einheit='°')),
+        ('kosinus', 3, Kn, auswahl('Für welche x im Bereich 0° ≤ x < 360° gilt cos x = cos 40°?', 'x = 40° und x = 320°', ['x = 40° und x = 140°', 'nur x = 40°', 'x = 40° und x = 220°'],
+                                   'Gleicher Kosinus heißt gleiche x-Koordinate: Spiegelung an der x-Achse, also 360° − 40° = 320°. 140° hätte den gleichen Sinus.',
+                                   'Wo auf dem Einheitskreis haben zwei Punkte die gleiche x-Koordinate?')),
+        ('kosinus', 3, O, luecken('Löse cos x = 1 im Bereich 0° ≤ x ≤ 720°.', 'x₁ = □°; x₂ = □°; x₃ = □°', H, [0, 360, 720], 'cos x = 1 ganz rechts auf dem Einheitskreis: bei 0°, nach einer Runde bei 360° und nach zwei Runden bei 720° (Grenze gehört dazu).',
+                                  'Der Bereich umfasst zwei volle Runden – und das Ende 720° gehört dazu.', ['0', '360', '2 * 360'])),
+        ('kosinus', 2, O, luecken('Löse cos x = 0,3 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.', L2, H, [round(acos(0.3)), round(360 - acos(0.3))],
+                                  'cos⁻¹(0,3) ≈ 72,5°, zweite Lösung 360° − 72,5° ≈ 287,5°. Gerundet 73° und 287°.', 'x₂ = 360° − x₁. Runde jede Lösung einzeln.',
+                                  [rg(acos(0.3)), rg(360 - acos(0.3))])),
+        ('kosinus', 2, O, auswahl('cos x = −0,8 hat die Lösung x₁ ≈ 143,1°. Welche zweite Lösung gibt es im Bereich 0° ≤ x < 360°?', '216,9°', ['36,9°', '323,1°', '323,9°'],
+                                  'Beim Kosinus gilt x₂ = 360° − x₁ = 216,9°.', 'Kosinus: an der x-Achse spiegeln.')),
+        # tangens
+        ('tangens', 3, P, zahl('Das Volumen eines Prismas ist V(φ) = 12 · tan φ (in cm³) für 0° < φ < 90°. Für welchen Winkel φ ist V = 30 cm³? Runde auf eine Nachkommastelle.',
+                               '12 · tan φ = 30 ⇒ tan φ = 2,5 ⇒ φ ≈ 68,2°.', 'Setze V = 30 und stelle nach tan φ um.', r1(atan(2.5)), c1(atan(2.5)), einheit='°')),
+        ('tangens', 3, P, luecken('Löse tan x = −√3 im Bereich 0° ≤ x < 360° ohne Taschenrechner (tan 60° = √3).', L2, H, [120, 300],
+                                  'Bezugswinkel 60°. Tangens negativ links oben und rechts unten: x = 180° − 60° = 120° und x = 120° + 180° = 300°.',
+                                  'Der Tangens wiederholt sich alle 180°.', ['180 - 60', '120 + 180'])),
+        ('tangens', 3, Kn, zahl('Wie viele Lösungen hat tan x = 5 im Bereich 0° ≤ x < 900°?', 'Der Tangens wiederholt sich alle 180°: genau eine Lösung pro 180°-Abschnitt. 900° : 180° = 5 Lösungen.',
+                                'Wie oft passt 180° in 900°?', 5, '900 // 180')),
+        ('tangens', 3, O, zahl('Löse 3 · tan x − 2 = 0 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an.', 'tan x = 2/3 ⇒ x₁ ≈ 33,7°, x₂ = x₁ + 180° ≈ 213,7°.',
+                               'Erst tan x allein stellen, dann + 180°.', r1(atan(2 / 3) + 180), c1(atan(2 / 3) + 180), einheit='°')),
+        ('tangens', 2, O, zahl('Löse tan x = 0,5 im Bereich 0° ≤ x < 360°. Gib die kleinere Lösung auf eine Nachkommastelle an.', 'tan⁻¹(0,5) ≈ 26,6°.', 'Umkehrtaste tan⁻¹.',
+                               r1(atan(0.5)), c1(atan(0.5)), einheit='°')),
+        ('tangens', 2, O, auswahl('tan x = 2 hat die Lösung x₁ ≈ 63,4°. Welche zweite Lösung gibt es im Bereich 0° ≤ x < 360°?', '243,4°', ['116,6°', '296,6°', '153,4°'],
+                                  'Beim Tangens gilt x₂ = x₁ + 180° = 243,4°.', 'Tangens: plus 180°.')),
+        # anzahl
+        ('anzahl', 3, P, auswahl('Für welche Zahl c hat die Gleichung 3 · sin x = c im Bereich 0° ≤ x < 360° keine Lösung?', 'c = 4', ['c = 3', 'c = −2', 'c = 0'],
+                                 'sin x = c/3 braucht −1 ≤ c/3 ≤ 1, also −3 ≤ c ≤ 3. Nur c = 4 liegt außerhalb.', 'Stelle nach sin x um. Welche Werte kann sin x annehmen?')),
+        ('anzahl', 3, P, auswahl('Wie viele Lösungen hat cos x = 0,5 im Bereich 0° ≤ x ≤ 180°?', 'genau eine', ['zwei', 'keine', 'drei'],
+                                 'Im ganzen Kreis wären es 60° und 300°. Im Bereich bis 180° liegt nur 60°.', 'Bestimme alle Lösungen und prüfe, welche im Bereich liegen.')),
+        ('anzahl', 3, Kn, zahl('Wie viele Lösungen hat sin x = cos x im Bereich 0° ≤ x < 720°?', 'In einer Umdrehung: 45° und 225° (tan x = 1). In zwei Umdrehungen: 4 Lösungen.',
+                               'Teile durch cos x: Welche Gleichung entsteht? Wie oft passt ihre Periode hinein?', 4, '2 * 2')),
+        ('anzahl', 3, O, auswahl('Wie viele Lösungen hat (sin x)² = 1 im Bereich 0° ≤ x < 360°?', 'zwei', ['eine', 'vier', 'keine'],
+                                 'sin x = 1 (bei 90°) oder sin x = −1 (bei 270°): zwei Lösungen.', 'Aus (sin x)² = 1 folgt sin x = 1 oder sin x = −1.')),
+        ('anzahl', 2, O, auswahl('Wie viele Lösungen hat cos x = −1,5?', 'keine', ['eine', 'zwei'], 'cos x liegt immer zwischen −1 und 1.', 'Welche Werte kann der Kosinus annehmen?')),
+        ('anzahl', 2, O, auswahl('Wie viele Lösungen hat sin x = −1 im Bereich 0° ≤ x < 360°?', 'genau eine', ['zwei', 'keine'], 'Nur bei 270° ist sin x = −1.', 'Tiefster Punkt des Einheitskreises.')),
+        # umformen
+        ('umformen', 3, P, luecken('Löse 6 · sin x + 1 = 4 im Bereich 0° ≤ x < 360°.', L2, H, [30, 150], '6 sin x = 3 ⇒ sin x = 0,5 ⇒ x = 30° oder x = 150°.', 'Erst 1 abziehen, dann durch 6 teilen.',
+                                   ['30', '180 - 30'])),
+        ('umformen', 3, P, luecken('Löse 3 · cos x + 2 = cos x + 1 im Bereich 0° ≤ x < 360°.', L2, H, [120, 240], '2 cos x = −1 ⇒ cos x = −0,5 ⇒ x = 120° oder x = 240°.',
+                                   'Bringe alle cos x auf eine Seite.', ['180 - 60', '180 + 60'])),
+        ('umformen', 3, Kn, luecken('Löse sin x · cos x = 0 im Bereich 0° ≤ x < 360°.', L4, H, [0, 90, 180, 270],
+                                    'Ein Produkt ist 0, wenn ein Faktor 0 ist: sin x = 0 (0°, 180°) oder cos x = 0 (90°, 270°).', 'Satz vom Nullprodukt – wie bei quadratischen Gleichungen.',
+                                    ['0', '90', '180', '270'])),
+        ('umformen', 3, O, luecken('Löse 2 · (sin x)² = sin x im Bereich 0° ≤ x < 360°.', L4, H, [0, 30, 150, 180],
+                                   'sin x · (2 sin x − 1) = 0: sin x = 0 (0°, 180°) oder sin x = 0,5 (30°, 150°). Falle: Durch sin x teilen verliert 0° und 180°.',
+                                   'Nicht durch sin x teilen! Ausklammern.', ['0', '30', '150', '180'])),
+        ('umformen', 2, O, luecken('Löse 2 · cos x = 1 im Bereich 0° ≤ x < 360°.', L2, H, [60, 300], 'cos x = 0,5 ⇒ x = 60° oder x = 300°.', 'Durch 2 teilen.', ['60', '360 - 60'])),
+        ('umformen', 2, O, luecken('Löse sin x + 1 = 0 im Bereich 0° ≤ x < 360°.', 'x = □°', 'Grad-Zahl', [270], 'sin x = −1 nur bei 270°.', 'Stelle sin x allein.', ['270'])),
+        # anwendung
+        ('anwendung', 3, P, zahl('Eine Gondel im Riesenrad ist h(x) = 20 − 18 · cos x Meter hoch (x Drehwinkel in Grad). Bei welchem Drehwinkel zwischen 0° und 180° ist sie 29 m hoch?',
+                                 '20 − 18 cos x = 29 ⇒ cos x = −0,5 ⇒ x = 120° (im Bereich 0° bis 180° die einzige Lösung).', 'Gleichung aufstellen und nach cos x umstellen.', 120, '180 - 60',
+                                 einheit='°')),
+        ('anwendung', 3, P, zahl('Ein Dreieck hat die Seiten a = 5 cm und b = 8 cm und den Flächeninhalt 10 cm². Der Winkel γ zwischen a und b ist stumpf. Wie groß ist γ?',
+                                 '1/2 · 5 · 8 · sin γ = 10 ⇒ sin γ = 0,5 ⇒ γ = 30° oder 150°. Stumpf: γ = 150°.', 'Flächenformel, dann beide Lösungen bedenken.', 150, '180 - 30', einheit='°')),
+        ('anwendung', 3, Kn, zahl('Eine Gondel ist h(x) = 25 − 20 · cos x Meter hoch (x Drehwinkel in Grad, eine Runde 0° bis 360°). Über wie viele Grad der Drehung ist sie höher als 35 m?',
+                                  'h > 35 ⇔ cos x < −0,5. Das gilt zwischen 120° und 240°: über 240° − 120° = 120°, also ein Drittel der Runde.',
+                                  'Bestimme die beiden Winkel mit h = 35 m. Dazwischen ist die Gondel höher.', 120, '240 - 120', einheit='°')),
+        ('anwendung', 3, O, zahl('Im Dreieck ABC ist a = 9 cm, b = 12 cm und α = 40°. Der Winkel β ist stumpf. Berechne β (auf eine Nachkommastelle).',
+                                 'sin β = 12 · sin 40° : 9 ≈ 0,857 ⇒ 59,0° oder 180° − 59,0° = 121,0°. Stumpf: β ≈ 121,0° (40° + 121° < 180° passt).',
+                                 'Der Taschenrechner liefert nur den spitzen Winkel. Rechne 180° minus.', r1(180 - asin(12 * sin(40) / 9)), c1(180 - asin(12 * sin(40) / 9)), einheit='°')),
+        ('anwendung', 2, O, luecken('Die Tageslänge an einem Ort ist d(x) = 12 + 4 · sin x Stunden (x in Grad, 360° entsprechen einem Jahr). Für welche x ist der Tag genau 14 Stunden lang?', L2, H,
+                                    [30, 150], '12 + 4 sin x = 14 ⇒ sin x = 0,5 ⇒ x = 30° oder x = 150°.', 'Gleichung aufstellen, sin x allein stellen.', ['30', '180 - 30'])),
+        ('anwendung', 2, O, zahl('Die Auslenkung eines Pendels ist s(x) = 10 · sin x (in cm). Für welchen Winkel x zwischen 0° und 90° ist s = 5 cm?', '10 sin x = 5 ⇒ sin x = 0,5 ⇒ x = 30°.',
+                                 'Nach sin x umstellen.', 30, '180 / 6', einheit='°')),
+    ]
+
+
 if __name__ == '__main__':
-    bauen('gleichungen.trig',
+    d = bauen('gleichungen.trig',
           'Winkel zu einem gegebenen Sinus-, Kosinus- oder Tangenswert bestimmen und die Mehrdeutigkeit im Bereich 0° bis 360° beachten.',
           ['sin x = v: x₂ = 180° − x₁. cos x = v: x₂ = 360° − x₁. tan x = v: x₂ = x₁ + 180°.', '|v| > 1 bei sin/cos: keine Lösung; v = ±1: eine Lösung.',
            'Negative Ergebnisse des Taschenrechners in den Bereich 0°–360° verschieben.', 'Im Dreieck: Winkelsumme prüfen.'],
@@ -569,3 +675,4 @@ if __name__ == '__main__':
                   'umformen': ['4 sin x + 1 = 3'], 'anwendung': ['α = 40° und sin β = 0,5']},
           offen=['Lernkarten „sinus“, „kosinus“, „anzahl“ zeigen jetzt die Graphen mit der Geraden y = v; Aufgaben mit Graph gibt es bei „anzahl“. Für den Tangens gibt es noch keinen Graphentyp (Vorschlag der Prüfung: „tan“ ergänzen).',
                  'Lösungsbereich durchgängig 0° ≤ x < 360°; Bogenmaß ist nicht enthalten (gehört nicht zur 9. Klasse).'])
+    anhaengen(d, 9913, schwer)

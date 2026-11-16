@@ -6,6 +6,12 @@ erst NACH dem Erzeugen der Aufgaben – so bleiben die Aufgaben wörtlich gleich
 (Werte im Zahlenstrahl-Bereich, Thermometer-Stand, Figur-Punkte, Tabellenbreite). `probe` entfällt bei umgebauten Karten (kommt im neuen Muster nicht vor).
 Vergleich je Thema: `aufgaben` und alle Felder außer `inhalt.etappen` und `offen` gegen den Ausgangsstand bc7a754 (lernen-app).
 
+## 2026-11-16 03:10 – STATUS
+zahlen.natuerlich (12 Karten, ohne Generator) umgebaut: Überlagerung inhalte/klar/zahlen.natuerlich.json mit einstieg, woerter, bild, schritte als Objekte, fehler, fehler_bild, regel.
+Bilder aus quelle.md beibehalten und erweitert: Stellenwerttafeln (4 052, 12 | 008 | 000, 3 | 040 | 500, Runden 3 472 und 2 995, 333, 999 999 999 + 1), Zahlenstrahl 0–100 mit Pfeil 3 bzw. 7,
+Tabellen (90 909 gegen 90 990, Runden sinnvoll, römische Zeichen, 39 = XXXIX). Beispielzahlen der Karten unverändert.
+Geprüft mit _umbau_kl5.pruefe_karte (dieselben Regeln wie inhalt_pruefen + Bildzustände); inhalt_pruefen selbst braucht die Themen-Datei, die es für dieses Thema im Zweig nicht gibt.
+
 ## 2026-11-16 03:06 – STATUS
 gleichungen.einfach (7 Karten) umgebaut (Generator mit baue aus _nachbau: neue Hülle mit_umbau in _umbau_kl5.py statt mit_klar). Waage-Figur mit wechselnden Schalen-Beschriftungen (waage, probe, aufstellen), gekippte Waage als fehler_bild (links 13, rechts 10); Zahlenstrahl mit Bögen (Geldbeutel, Aufzug mit schattiertem Bereich unter 0); Bruchstreifen 12 € auf 4 Hefte; Rechenketten-Tabelle vorwärts/rückwärts.
 inhalt_pruefen: OK, keine Hinweise. Vergleich: 189 Aufgaben wörtlich gleich, Rest gleich.

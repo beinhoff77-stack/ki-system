@@ -143,8 +143,14 @@ async function setup(t, opt = {}) {
       const a = AUFG[d.aufgabe_id]; const r = bewerte(a, d.antwort);
       const k = stand.karten[a.lernziel] ||= { serie: 0, ziel: 2, sitzt: false };
       let neu = false;
-      if (r.format_ok) { if (r.richtig && !d.hilfe) k.serie++; else if (!r.richtig) k.serie = 0; if (!k.sitzt && k.serie >= k.ziel) { k.sitzt = true; neu = true; } }
-      e = { ok: true, ...r, loesung: a.loesung, loesungsweg: 'Weg zur Lösung.', karte: { ...k, neu_sitzt: neu } };
+      // wie die Datenbank (R2): Fehlermuster als grund; anlauf 1 + falsch → keine Lösung, keine Buchung; anlauf 2 + richtig → Serie steigt nicht
+      let grund; if (r.format_ok && !r.richtig && a.antworttyp === 'zahl') { const v = Number(String(d.antwort.wert).replace(/\s/g, '').replace(',', '.').replace('−', '-')), w = Number(a.loesung.wert);
+        if (Math.abs(v) === Math.abs(w)) grund = 'vorzeichen'; else if ([10, 100, 1000, 0.1, 0.01, 0.001].includes(v / w)) grund = 'komma'; }
+      if (r.format_ok && !r.richtig && d.anlauf === 1) e = { ok: true, format_ok: true, richtig: false, nochmal: true, ...(grund ? { grund } : {}) };
+      else {
+        if (r.format_ok) { if (r.richtig && !d.hilfe && d.anlauf !== 2) k.serie++; else if (!r.richtig) k.serie = 0; if (!k.sitzt && k.serie >= k.ziel) { k.sitzt = true; neu = true; } }
+        e = { ok: true, ...r, ...(grund ? { grund } : {}), loesung: a.loesung, loesungsweg: 'Weg zur Lösung.', karte: { ...k, neu_sitzt: neu } };
+      }
     }
     else if (b.aktion === 'schule_test_starten') { stand.test = 77; e = { ok: true, sitzung_id: 77, art: d.art, aufgaben: [AUFG[14], AUFG[12]].map((a) => { const { loesung, ...r } = a; return r; }), beantwortet: [] }; }
     else if (b.aktion === 'schule_test_antwort') { const a = AUFG[d.aufgabe_id]; const r = bewerte(a, d.antwort); if (r.format_ok) stand.antworten[a.id] = { w: d.antwort, ok: r.richtig }; e = { ok: true, format_ok: r.format_ok, hinweis: r.hinweis, gespeichert: r.format_ok }; }
@@ -281,6 +287,9 @@ test('Lernen: Thema – Erklären | Üben | Typische Fehler, Punkte bis „sitzt
   await page.getByRole('button', { name: 'Nächste Karte: Zahlenstrahl' }).click();
   await page.getByRole('button', { name: 'Markierung 3' }).click();
   await page.getByRole('button', { name: 'Prüfen' }).click();
+  await page.getByText('Noch nicht – du hast einen zweiten Versuch.').waitFor(); // V2: erst beim zweiten Fehler kommt die Lösung
+  assert.equal(await page.getByText(/Richtig ist: 20 000/).count(), 0);
+  await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('Richtig ist: 20 000 (der 4. Strich nach dem Anfang)').waitFor();
   // Üben zeigt nur die Aufgabe; die Erklärung öffnet der Link darüber.
   assert.equal(await sichtbar.locator('.lr-nochmal').isVisible(), false);
@@ -325,9 +334,11 @@ test('Lernen: Thema – Erklären | Üben | Typische Fehler, Punkte bis „sitzt
   await page.getByRole('textbox', { name: 'Lücke 2' }).fill('1');
   await page.screenshot({ path: path.join(root, 'test-results/lernen-luecken-390.png'), fullPage: true });
   await page.getByRole('button', { name: 'Prüfen' }).click();
+  await page.getByText('Noch nicht – du hast einen zweiten Versuch.').waitFor();
+  await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('Richtig ist: x = 2; y = −1').waitFor();
   const p = calls.filter((c) => c.aktion === 'schule_uebung_pruefen');
-  assert.deepEqual(p.map((c) => c.daten.antwort), [{ wert: '2.000' }, { wert: '2 000' }, { wert: '2000' }, { index: 3 }, { index: 4 }, { werte: ['1', '2', '1'] }, { werte: ['3', '4'] }, { werte: ['2', '1'] }]);
+  assert.deepEqual(p.map((c) => c.daten.antwort), [{ wert: '2.000' }, { wert: '2 000' }, { wert: '2000' }, { index: 3 }, { index: 3 }, { index: 4 }, { werte: ['1', '2', '1'] }, { werte: ['3', '4'] }, { werte: ['2', '1'] }, { werte: ['2', '1'] }]);
   assert.ok(p.every((c) => c.daten.lernender_id === 1 && c.daten.client_id));
   const w = await page.evaluate(() => document.documentElement.scrollWidth); assert.ok(w <= 390, 'keine Querverschiebung: ' + w);
 });
@@ -549,6 +560,11 @@ test('Gestaltung Abflug: Abflugtafel, Bordkarte mit Tastenfeld, Kurskorrektur, L
   await feld.getByRole('button', { name: 'löschen' }).click(); await feld.getByRole('button', { name: 'löschen' }).click(); await feld.getByRole('button', { name: 'löschen' }).click(); await feld.getByRole('button', { name: 'löschen' }).click();
   for (const z of ['2', '0', '0']) await feld.getByRole('button', { name: z, exact: true }).click();
   await page.screenshot({ path: path.join(root, 'test-results/abflug-bordkarte-390.png') });
+  await pruefen.click();
+  // V2/V3: erster Fehler → keine Lösung, nur der Hinweis zum Fehlermuster (200 statt 2 000 = Komma/Stelle); zweiter Versuch
+  await page.getByText('Noch nicht – du hast einen zweiten Versuch.').waitFor();
+  await page.getByText('Die Ziffern stimmen – schau, wo das Komma hingehört.').waitFor();
+  assert.equal(await page.getByText('Richtig ist: 2 000').count(), 0);
   await pruefen.click();
   await page.getByText('FAST – KURSKORREKTUR').waitFor();
   assert.equal(await page.locator('.lr-kurs-kachel.ab').count() > 0, true);

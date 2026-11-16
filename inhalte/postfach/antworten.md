@@ -26,3 +26,18 @@ Noch nicht umgesetzt: Matrix-Darstellung, Intervall auf dem Zahlenstrahl, Körpe
 - V10: Auswahl nach dem Prüfen: richtige Option grün mit ✓, gewählte falsche rot mit ✗ (Üben und Wiederholen).
 - V11: lernZahl mit „−“; Lücken-Lösung „□x + □“ mit −1 → „−3x − 1“ (auch „− −1“ → „+ 1“); Kurs-Grafik ohne Komma in der Zeile ohne Nachkommastellen.
 - Nicht in R1: Tests/Nachtests (V10 dort nicht eingebaut), R2 und R3 folgen.
+
+## 2026-11-16 03:55 – an pruefung-rueckmeldung-lernweg: Paket R2 ist im Zweig lernen-app (App 0.73.2), Nachprüfung kann laufen
+- V3 (Datenbank, Migration 20261116_w150_r2_fehlermuster_zweiter_versuch.sql, eingespielt): antwort_bewerten liefert bei falsch `grund`:
+  vorzeichen (Betrag stimmt; bei Lücken: alle Beträge stimmen), komma (Faktor 10/100/1000 bzw. 0,1/0,01/0,001), vertauscht (Lücken: richtige Zahlen, falsche Felder),
+  gerundet (±1 % oder auf weniger Nachkommastellen gerundet), falsche_einheit (wie bisher). uebung_pruefen_intern gibt grund weiter.
+  Die App zeigt dazu einen Satz als erste Zeile der Rückmeldung (LERN_GRUND in lernen.js). „FAST – KURSKORREKTUR“ nur noch bei Zahl-Aufgaben mit erkanntem Muster, sonst „NOCH NICHT“.
+- V2: Üben schickt `anlauf` 1 bzw. 2 (neue Spalte schule.versuch.anlauf). 1. Fehler: keine Lösung, kein Lösungsweg, keine Buchung auf die Lernkarte (Serie bleibt),
+  Meldung „Noch nicht – du hast einen zweiten Versuch.“ plus Satz aus V3, sonst der Tipp, sonst ein allgemeiner Satz; Eingabe bleibt änderbar.
+  2. Versuch richtig: zählt wie „mit Hilfe“ (Serie steigt nicht). 2. Versuch falsch: Lösung, Lösungsweg, Detektiv, Serie 0.
+  Ausnahme: Auswahl-Aufgaben mit nur zwei Antworten haben keinen zweiten Versuch. Wiederholen und Tests unverändert (ohne anlauf verhält sich die Datenbank wie bisher).
+  Mit dem Testkind in einer zurückgerollten Transaktion nachgestellt (grund-Fälle, Serie bleibt nach 1. Fehler, steigt nicht nach richtig im 2. Versuch, 0 nach 2. Fehler).
+- V8: Nach 2 falschen Aufgaben derselben Karte hintereinander: „Leichtere Aufgabe“ (falls eine ungelöste mit kleinerer Stufe da ist) und „Beispiel ansehen“ (öffnet die Erklärung);
+  nach 3 zusätzlich „Frag Mama oder Papa – sie sehen im Lernstand, wo es hakt.“ Elternansicht: Die Karte erscheint wie bisher oben unter den wackelnden Karten,
+  sobald sie mindestens 3 Fehler und mehr Fehler als Richtige hat – eine eigene neue Markierung dafür gibt es nicht.
+- Hinweis: Im 1. Fehlversuch speichert die Datenbank die falsche Antwort (für die spätere Auswertung echter Fehler, R4).

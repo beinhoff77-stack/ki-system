@@ -791,6 +791,14 @@ function lernStrichText(g, i) {
 function lernVorzeichenText(t) {
   return String(t).replace(/(^|[^\w)])-(?=\d)/g, '$1−').replace(/\+ ?−\s?(?=\d)/g, '− ').replace(/− ?−\s?(?=\d)/g, '+ ');
 }
+// V3: erkanntes Fehlermuster (von der Datenbank als „grund“) → ein Satz als erste Zeile der Rückmeldung
+const LERN_GRUND = {
+  vorzeichen: 'Die Zahl stimmt – schau aufs Vorzeichen.',
+  komma: 'Die Ziffern stimmen – schau, wo das Komma hingehört.',
+  falsche_einheit: 'Schau auf die Einheit: Ist nach € oder nach % gefragt?',
+  vertauscht: 'Die Zahlen stimmen, aber sie stehen in den falschen Feldern.',
+  gerundet: 'Fast – das ist nur ungefähr. Rechne genau oder runde so, wie es die Aufgabe verlangt.',
+};
 function lernLoesungText(a) {
   const l = a.loesung || {};
   if (a.antworttyp === 'auswahl') return (a.antworten || [])[l.index] ?? '';
@@ -1327,13 +1335,15 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
       el('div', { class: 'lr-lk-mitte' }, el('small', { class: 'lr-leise' }, neu ? `Karte ${pos + 1}/${mitAufg.length} · ${e.titel}` : `Lernkarte ${pos + 1} von ${mitAufg.length}`), neu ? null : el('b', {}, e.titel), punkte), wechsel(1)), flaeche, chipsStufe);
     const pool = e.aufgaben.filter((a) => !stufe || a.stufe === stufe);
     const warte = [...pool].sort((a, b) => (a.geloest === b.geloest ? 0 : a.geloest ? 1 : -1) || (a.versuche || 0) - (b.versuche || 0) || (a.stufe || 2) - (b.stufe || 2));
-    let sterne = 0, nr = 0;
+    let sterne = 0, nr = 0, fehlFolge = 0; // fehlFolge: falsche Aufgaben hintereinander auf dieser Karte (V8)
     const naechsteKarte = etappen.slice(e.nr).find((x) => !x.fertig && x.aufgaben.length) || etappen.find((x) => x !== e && !x.fertig && x.aufgaben.length);
     const zeigeAufgabe = () => {
       const a = warte[0];
       if (!a) { lernErsetze(flaeche, el('p', { class: 'lr-leise' }, 'Für diese Auswahl gibt es keine Aufgaben.')); return; }
       nr++;
-      const auf = lernAufgabe(a, null, { tasten: neu, stellen: neu && kind.klasse && kind.klasse <= 6 }); let hilfe = 0; const dock = el('div', { class: 'lr-dock' }); const cid = lernCid();
+      const auf = lernAufgabe(a, null, { tasten: neu, stellen: neu && kind.klasse && kind.klasse <= 6 }); let hilfe = 0; const dock = el('div', { class: 'lr-dock' }); let cid = lernCid();
+      // V2: zweiter Versuch vor der Lösung (nicht bei Ja/Nein-Auswahl – dort wäre der zweite Versuch die Lösung)
+      let anlauf = 1; const zweiteChance = !(a.antworttyp === 'auswahl' && (a.antworten || []).length <= 2);
       const meldung = el('div', { role: 'status', 'aria-live': 'polite' });
       const hilfeBox = el('div', { class: 'lr-hilfebox' });
       const tipp = a.tipp ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { hilfe = 1; tipp.remove(); lernAnhaengen(hilfeBox, el('p', { class: 'lr-tipp' }, el('b', {}, 'Tipp: '), lernText(a.tipp), el('small', {}, ' (zählt nicht für die Serie)'))); } }, 'Tipp') : null;
@@ -1349,15 +1359,23 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
       const erklBox = el('div', { class: 'lr-karte-box lr-nochmal' + (breit ? ' lr-seite-links' : ''), hidden: true }, e.regel ? lernErklaerung(e, { kurz: true }) : null);
       flaeche.classList.remove('lr-zweispaltig');
       const pruefen = el('button', { type: 'button', class: 'lr-knopf' }, 'Prüfen');
-      auf.node.addEventListener('input', () => { if (!pruefen.disabled && pruefen.isConnected) lernErsetze(meldung); });
+      auf.node.addEventListener('input', () => { if (anlauf === 1 && !pruefen.disabled && pruefen.isConnected) lernErsetze(meldung); });
       pruefen.addEventListener('click', async () => {
         const w = auf.antwort();
         if (!w) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, auf.fehlerText() || 'Bitte erst antworten.')); return; }
         pruefen.disabled = true;
         try {
-          const r = await lernCall('schule_uebung_pruefen', { lernender_id: ctx.kind, aufgabe_id: a.id, antwort: w, client_id: cid, hilfe });
+          const r = await lernCall('schule_uebung_pruefen', { lernender_id: ctx.kind, aufgabe_id: a.id, antwort: w, client_id: cid, hilfe, ...(zweiteChance ? { anlauf } : {}) });
           if (!ctx.live()) return;
           if (!r.format_ok) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, r.hinweis)); pruefen.disabled = false; return; }
+          if (r.nochmal) { // 1. Fehler: keine Lösung, nur ein Hinweis – die Eingabe bleibt änderbar
+            anlauf = 2; cid = lernCid(); pruefen.disabled = false;
+            lernErsetze(meldung, el('div', { class: 'lr-rueck lr-rueck-nochmal' }, el('b', {}, 'Noch nicht – du hast einen zweiten Versuch.'),
+              el('p', {}, LERN_GRUND[r.grund] || (a.tipp ? 'Tipp: ' + lernText(a.tipp) : 'Lies die Aufgabe noch einmal genau und prüfe deine Rechnung.'))));
+            if (!LERN_GRUND[r.grund] && a.tipp) tipp?.remove();
+            meldung.scrollIntoView?.({ block: 'nearest', behavior: 'smooth' });
+            return;
+          }
           auf.sperren(); a.loesung = r.loesung; warte.shift(); a.versuche = (a.versuche || 0) + 1;
           const sterneVor = sterne;
           if (r.richtig) { if (!a.geloest && !r.wiederholt) sterne += 10; a.geloest = true; warte.push(a); }
@@ -1367,7 +1385,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
             if (j > 0) warte.unshift(...warte.splice(j, 1));
             a.falschHeute = true;
           }
-          auf.zeigeLoesung(r.loesung);
+          auf.zeigeLoesung(r.loesung); fehlFolge = r.richtig ? 0 : fehlFolge + 1;
           const warSitzt = e.sitzt;
           if (r.karte) { e.serie = r.karte.serie; e.ziel = r.karte.ziel; e.sitzt = r.karte.sitzt; e.fertig = e.fertig || r.karte.sitzt; if (warSitzt && r.karte.sitzt) e.faellig = false; }
           zeichnePunkte(); zeichneFortschritt();
@@ -1378,7 +1396,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
           if (!neu && !r.richtig && erkl && erklBox.hidden && false) { erklBox.hidden = false; erkl.setAttribute('aria-expanded', 'true'); }
           lernErsetze(meldung, r.richtig
             ? el('div', { class: 'lr-rueck lr-rueck-ok' }, el('b', {}, neu ? '✓ An Bord' + (sterne > sterneVor ? ' · +10 Sterne' : '') : 'Richtig!'), r.loesungsweg ? el('p', {}, lernText(r.loesungsweg)) : null)
-            : neu ? el('div', { class: 'lr-rueck lr-rueck-falsch lr-kursbox' }, el('p', { class: 'lr-ueber' }, a.antworttyp === 'zahl' ? 'FAST – KURSKORREKTUR' : 'NOCH NICHT'), lernKurs(a, w),
+            : neu ? el('div', { class: 'lr-rueck lr-rueck-falsch lr-kursbox' }, el('p', { class: 'lr-ueber' }, a.antworttyp === 'zahl' && r.grund ? 'FAST – KURSKORREKTUR' : 'NOCH NICHT'), lernKurs(a, w),
               el('b', {}, 'Richtig ist: ' + lernLoesungText(a)),
               a.antworttyp === 'luecken' && lernIstTermVorlage(a.frage?.schablone) && lernGleichwertigAusgeklammert(a.frage?.schablone, w.werte, r.loesung?.werte)
                 ? el('p', {}, 'Dein Term ist gleichwertig, aber noch nicht vollständig ausgeklammert: Vor die Klammer gehört der größte gemeinsame Faktor.') : null,
@@ -1390,6 +1408,17 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
               r.loesungsweg ? el('p', {}, el('b', {}, 'So geht’s: '), lernText(r.loesungsweg)) : null,
               e.fehler ? el('div', { class: 'lr-fehler lr-detektiv' }, el('p', { class: 'lr-ueber' }, 'FEHLER-DETEKTIV: IST DIR DAS PASSIERT?'), el('p', {}, ...lernMarkiert(e.fehler))) : null,
               el('p', { class: 'lr-leise' }, 'Die Punkte fangen wieder bei 0 an. Die Erklärung steht aufgeklappt bei der Aufgabe.')));
+          if (!r.richtig) {
+            if (LERN_GRUND[r.grund]) meldung.firstElementChild?.prepend(el('p', { class: 'lr-grund' }, LERN_GRUND[r.grund])); // V3
+            if (fehlFolge >= 2) { // V8: nach 2 Fehlern in Folge ein anderer Weg, nach 3 der Hinweis auf die Eltern
+              const leichter = (a.stufe || 2) > 1 ? warte.find((x) => !x.geloest && !x.falschHeute && (x.stufe || 2) < (a.stufe || 2)) : null;
+              lernAnhaengen(meldung.firstElementChild, el('div', { class: 'lr-andererweg' }, el('p', {}, el('b', {}, 'Das hakt gerade. '), 'Probier einen anderen Weg:'),
+                el('div', { class: 'lr-knopfzeile' },
+                  leichter ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { warte.splice(warte.indexOf(leichter), 1); warte.unshift(leichter); zeigeAufgabe(); window.scrollTo(0, 0); } }, 'Leichtere Aufgabe') : null,
+                  erkl ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { if (erkl.getAttribute('aria-expanded') !== 'true') erkl.click(); erklBox.scrollIntoView?.({ block: 'start', behavior: 'smooth' }); } }, 'Beispiel ansehen') : null),
+                fehlFolge >= 3 ? el('p', { class: 'lr-leise' }, 'Frag Mama oder Papa – sie sehen im Lernstand, wo es hakt.') : null));
+            }
+          }
           if (jetztSitzt && neu) {
             lernErsetze(flaeche, el('section', { class: 'lr-gelandet' },
               el('p', { class: 'lr-ueber' }, `KARTE ${pos + 1} VON ${mitAufg.length}`),

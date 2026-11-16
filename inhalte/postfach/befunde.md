@@ -2,6 +2,14 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 05:33 – STATUS
+raum.schraegbilder fertig: umgestuft 6 / berichtigt 0 / ersetzt 0 / neu 1 / nicht umgesetzt 2. Prüfskript OK, Nachweis OK.
+- nicht umgesetzt:
+  - koordinaten S2 „Gib die z-Koordinate von C an“ (3× gleicher Typ) – Laut Befund in Ordnung; Lösungen richtig.
+  - Karte „laengen“ ≈ messen.koerper_darstellung/„schraegbild“ – Doppelung im Plan (Haupt-Chat), keine einzelne fehlerhafte Aufgabe.
+- für Sebastian:
+  - raum.schraegbilder: lehrplan_gym leer; Raumkoordinaten und windschiefe Geraden stehen im LehrplanPLUS Gymnasium nicht in Jgst. 8 – Thema im Plan als Vertiefung markieren? Karten-Texte nicht geändert.
+
 ## 2026-11-16 05:32 – STATUS
 messen.koerper_darstellung fertig: umgestuft 0 / berichtigt 0 / ersetzt 3 / neu 0 / nicht umgesetzt 3. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):

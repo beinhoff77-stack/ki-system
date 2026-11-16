@@ -514,6 +514,32 @@ SW.z('axialschnitt', 3, 'Der Axialschnitt eines Zylinders ist ein Quadrat mit de
 baue = mit_schwer(baue, SW)
 # ---- SCHWER ENDE ----
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, mit_befunden  # noqa: E402
+
+BF = Befunde('raum.schraegbilder', 13_8_12)
+# a) reine Verkürzung: q = 1/2 ist Stufe-1-Typ, q = 1/3 und 2/3 Stufe 2
+BF.stufe('laengen', 'Eine Kante führt 2 cm nach hinten. Wie lang wird sie im Schrägbild mit q = 1/2 gezeichnet?', 1)
+BF.stufe('laengen', 'Eine Kante führt 8 cm nach hinten. Wie lang wird sie im Schrägbild mit q = 1/2 gezeichnet?', 1)
+BF.stufe('laengen', 'Eine Kante führt 6 cm nach hinten. Wie lang wird sie im Schrägbild mit q = 1/3 gezeichnet?', 2)
+BF.stufe('laengen', 'Eine Kante führt 15 cm nach hinten. Wie lang wird sie im Schrägbild mit q = 2/3 gezeichnet?', 2)
+# a) windschief → Stufe 2; dafür eine neue Stufe-1-Aufgabe (parallel), damit Stufe 1 mindestens 3 Übungen behält
+_q = 'Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). '
+BF.stufe('lage', _q + 'Wie liegen die Geraden BF und GH zueinander?', 2)
+BF.stufe('lage', _q + 'Wie liegen die Geraden BF und DA zueinander?', 2)
+_quader = {"typ": "figur", "punkte": {"A": [0, 0], "B": [5, 0], "C": [6.06, 1.06], "D": [1.06, 1.06], "E": [0, 2], "F": [5, 2], "G": [6.06, 3.06], "H": [1.06, 3.06]},
+           "linien": [["A", "B"], ["B", "F"], ["F", "E"], ["E", "A"], ["B", "C"], ["C", "G"], ["G", "F"], ["E", "H"], ["H", "G"],
+                      ["A", "D", "", "gestrichelt"], ["D", "C", "", "gestrichelt"], ["D", "H", "", "gestrichelt"]]}
+BF.neu('lage', 1, BF.A(_q + 'Wie liegen die Geraden AB und DC zueinander?', 'parallel', ['identisch', 'windschief', 'schneiden sich'],
+                       'AB und DC sind gegenüberliegende Kanten der Grundfläche ABCD: gleiche Richtung, kein gemeinsamer Punkt. Also parallel.',
+                       'Stell dir den Quader vor (z. B. eine Schachtel). Haben die Geraden dieselbe Richtung? Gibt es einen gemeinsamen Punkt?', grafik=_quader))
+BF.nicht_umgesetzt('koordinaten S2 „Gib die z-Koordinate von C an“ (3× gleicher Typ)', 'Laut Befund in Ordnung; Lösungen richtig.')
+BF.nicht_umgesetzt('Karte „laengen“ ≈ messen.koerper_darstellung/„schraegbild“', 'Doppelung im Plan (Haupt-Chat), keine einzelne fehlerhafte Aufgabe.')
+BF.fuer_sebastian('raum.schraegbilder: lehrplan_gym leer; Raumkoordinaten und windschiefe Geraden stehen im LehrplanPLUS Gymnasium nicht in Jgst. 8 – Thema im Plan als Vertiefung markieren? Karten-Texte nicht geändert.')
+
+baue = mit_befunden(baue, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Prismen und Pyramiden', ['pyramide', 'laengen']), ('Lage im Raum', ['lage', 'koordinaten']), ('Rotationskörper', ['rotation', 'axialschnitt'])],

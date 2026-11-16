@@ -4,6 +4,11 @@ Technik wie klar-kl5: je Generator ein Abschnitt KLAR, eingesetzt über `inhalte
 (die Generatoren nutzen die alten `schritte` gegen Dopplungen – so bleiben alle Aufgaben wörtlich gleich, wie `_verbot` im Muster).
 Vergleich je Thema: `aufgaben` und alle Felder außer `inhalt.etappen` gegen `git show HEAD:inhalte/themen/<thema>.json`.
 
+## 2026-11-16 02:00 – STATUS
+terme.potenzgesetze (7 Karten) fertig: einstieg + woerter neu, schritte/regel/fehler überarbeitet (durchgehende Situation: Papier falten = Verdoppeln;
+Teilen über 1 000 000 € an 10 000 Menschen; 2-Cent-Münzen-Paare; Zahlenprobe gegen eine falsche Behauptung). Keine Bilder im Thema.
+inhalt_pruefen: OK. Vergleich: 196 Aufgaben wörtlich gleich, übrige Datei gleich.
+
 ## 2026-11-16 01:57 – STATUS
 daten.kennwerte (6 Karten) fertig: einstieg + woerter neu, schritte/regel/fehler überarbeitet (Situationen: Punkte-Stapel, Notenspiegel,
 vergessener Test, Turnschuhgrößen, Schulweg in Minuten, Taschengeld mit Ausreißer). Bild mittelwert: Säulen „Kind A–D“ statt „A–D“, Werte gleich.

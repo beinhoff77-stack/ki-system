@@ -6,6 +6,11 @@ erst NACH dem Erzeugen der Aufgaben – so bleiben die Aufgaben wörtlich gleich
 (Werte im Zahlenstrahl-Bereich, Thermometer-Stand, Figur-Punkte, Tabellenbreite). `probe` entfällt bei umgebauten Karten (kommt im neuen Muster nicht vor).
 Vergleich je Thema: `aufgaben` und alle Felder außer `inhalt.etappen` und `offen` gegen den Ausgangsstand bc7a754 (lernen-app).
 
+## 2026-11-16 02:58 – STATUS
+geometrie.winkel (7 Karten) umgebaut. Die vorhandenen Figuren bleiben Kartenbild; die Schritte tragen die ausgerechneten Winkel nach und nach ein (β = 130°, Kreuzung, Torte, Uhr 120°, Windrose 45° → 135°, Rechteck 55°). verstehen hat jetzt ein Bild (zwei stumpfe Winkel nebeneinander).
+inhalt_pruefen: OK, keine Hinweise. Vergleich: 196 Aufgaben wörtlich gleich, Rest gleich.
+fehler_bild nur bei drehungen (N → O = 90°): Bei den übrigen Fehlern wäre eine falsch beschriftete, aber richtig gezeichnete Figur irreführend.
+
 ## 2026-11-16 02:56 – STATUS
 geometrie.grundbegriffe (7 Karten) umgebaut. Koordinatensystem mit Schritt-Zuständen (Weg zum Punkt, Verschieben, Strecke in zwei Teilen, Lot), Figur mit Kreis und drei Geraden, Schere mit 45°/90°/135°, Vierecks-Übersicht als Tabelle mit Raute im Beispiel.
 inhalt_pruefen: OK, keine Hinweise. Vergleich: 196 Aufgaben wörtlich gleich, Rest gleich.

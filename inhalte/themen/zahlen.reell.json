@@ -4248,6 +4248,746 @@
     "90 / (2 * 15)",
     "15"
    ]
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist wahr?"
+   },
+   "a": [
+    "√2 ist rational, weil der Taschenrechner 1,414213562 anzeigt.",
+    "Jede reelle Zahl ist rational.",
+    "Jede rationale Zahl ist auch eine reelle Zahl.",
+    "Jede Wurzel ist irrational."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "ℚ ist ein Teil von ℝ. Umgekehrt nicht: √2 ist reell, aber irrational – der Taschenrechner zeigt nur eine Näherung. √9 = 3 ist eine rationale Wurzel.",
+   "h": "Prüfe jede Aussage mit einem Gegenbeispiel wie √9 oder √2."
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche der Zahlen ist rational?"
+   },
+   "a": [
+    "π/2",
+    "√0,09",
+    "√0,9",
+    "√90"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "√0,09 = 0,3, denn 0,3² = 0,09. 0,9 und 90 sind keine Quadrate rationaler Zahlen, π/2 ist irrational.",
+   "h": "Achte auf die Nachkommastellen: Bei welcher Zahl geht die Wurzel glatt auf?"
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele der 50 Zahlen √1, √2, √3, …, √50 sind rational?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "1 + 1 + 1 + 1 + 1 + 1 + 1",
+   "w": "Rational sind nur die Wurzeln aus Quadratzahlen: 1, 4, 9, 16, 25, 36, 49. Das sind 7 Zahlen.",
+   "h": "Eine Wurzel aus einer natürlichen Zahl ist nur rational, wenn die Zahl eine Quadratzahl ist."
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist √2 · √8 rational oder irrational?"
+   },
+   "a": [
+    "irrational, weil beide Faktoren irrational sind",
+    "irrational, denn √2 · √8 = √10",
+    "rational, denn √2 · √8 = √16 = 4",
+    "rational, denn 2 · 8 = 16 ist gerade"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "√2 · √8 = √(2 · 8) = √16 = 4. Das Produkt zweier irrationaler Zahlen kann rational sein.",
+   "h": "Fasse zu einer Wurzel zusammen und rechne aus."
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist irrational?"
+   },
+   "a": [
+    "0,555… (die 5 wiederholt sich)",
+    "−√16",
+    "√12",
+    "√(4/9)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "12 ist keine Quadratzahl, also ist √12 irrational. √(4/9) = 2/3, 0,555… = 5/9, −√16 = −4.",
+   "h": "Prüfe, welche Zahl sich als Bruch schreiben lässt."
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zu welcher kleinsten Zahlenmenge gehört −√25?"
+   },
+   "a": [
+    "ℚ (rationale Zahlen)",
+    "ℤ (ganze Zahlen)",
+    "ℝ (reelle Zahlen)",
+    "ℕ (natürliche Zahlen)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "−√25 = −5 ist eine negative ganze Zahl, also nicht in ℕ, aber in ℤ.",
+   "h": "Rechne zuerst aus und achte auf das Minus."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein quadratischer Tisch soll mindestens 2 m² Fläche haben. Reicht eine Seitenlänge von 1,41 m?"
+   },
+   "a": [
+    "Nein, man bräuchte mindestens 1,5 m.",
+    "Ja, denn √2 ist genau 1,41.",
+    "Ja, denn 1,41² = 2,82.",
+    "Nein, knapp nicht: 1,41² = 1,9881 < 2."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "1,41 · 1,41 = 1,9881 m², das ist etwas weniger als 2 m². √2 ≈ 1,4142 ist irrational, 1,41 ist nur eine Näherung. 1,42² = 2,0164 würde reichen.",
+   "h": "Quadriere 1,41 und vergleiche mit 2."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl liegt zwischen √5 und √6?"
+   },
+   "a": [
+    "2,2",
+    "5,5",
+    "2,3",
+    "2,5"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "2,3² = 5,29 liegt zwischen 5 und 6, also √5 < 2,3 < √6. 2,5² = 6,25 ist zu groß, 2,2² = 4,84 zu klein. 5,5 liegt zwischen 5 und 6, aber nicht zwischen den Wurzeln.",
+   "h": "Quadriere die Kandidaten und vergleiche mit 5 und 6."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele ganze Zahlen liegen zwischen −√10 und √30?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "5 - (-3) + 1",
+   "w": "−√10 ≈ −3,16 und √30 ≈ 5,48. Dazwischen liegen die ganzen Zahlen −3, −2, …, 5: das sind 5 − (−3) + 1 = 9 Zahlen.",
+   "h": "Grenze beide Wurzeln zwischen ganzen Zahlen ein (3² = 9, 4² = 16, 5² = 25, 6² = 36). Vergiss die 0 nicht."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zahlen mit einer Nachkommastelle liegt √0,9?"
+   },
+   "a": [
+    "0,09 und 0,1",
+    "0,3 und 0,4",
+    "0,4 und 0,5",
+    "0,9 und 1,0"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "0,9² = 0,81 < 0,9 < 1 = 1,0². Also 0,9 < √0,9 < 1,0. Falle: 0,3² = 0,09 – das wäre √0,09.",
+   "h": "Bei Zahlen zwischen 0 und 1 ist die Wurzel größer als die Zahl. Quadriere 0,9 und 1,0."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zahlen mit einer Nachkommastelle liegt √20?"
+   },
+   "a": [
+    "4,3 und 4,4",
+    "4,5 und 4,6",
+    "4,4 und 4,5",
+    "10,0 und 10,1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "4,4² = 19,36 < 20 < 20,25 = 4,5², also 4,4 < √20 < 4,5.",
+   "h": "Quadriere Zahlen wie 4,4 und 4,5."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist größer: √50 oder 7,1?"
+   },
+   "a": [
+    "7,1",
+    "√50",
+    "Beide sind gleich groß."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "7,1² = 50,41 > 50, also ist 7,1 > √50.",
+   "h": "Quadriere beide Zahlen und vergleiche."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne ohne Taschenrechner √0,5 · √50."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(0.5 * 50) / 5",
+   "w": "√0,5 · √50 = √(0,5 · 50) = √25 = 5.",
+   "h": "Fasse zu einer Wurzel zusammen."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne ohne Taschenrechner √(2/3) · √(27/2)."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(2 / 3) * (27 / 2) / 3",
+   "w": "√(2/3 · 27/2) = √(54/6) = √9 = 3.",
+   "h": "Fasse zu einer Wurzel zusammen und kürze den Bruch unter der Wurzel."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche kleinste natürliche Zahl n > 0 macht √(12 · n) zu einer natürlichen Zahl?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "36 / 12",
+   "w": "12 = 4 · 3. Damit 12 · n eine Quadratzahl wird, fehlt noch eine 3: 12 · 3 = 36 = 6². Also n = 3.",
+   "h": "Zerlege 12 in Faktoren. Welcher Faktor fehlt zur Quadratzahl?"
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Vereinfache √(18a) · √(2a) für a ≥ 0."
+   },
+   "a": [
+    "6a²",
+    "√(20a)",
+    "36a²",
+    "6a"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "√(18a · 2a) = √(36a²) = 6a (a ≥ 0). 36a² ist der Radikand, √(20a) entsteht durch falsches Addieren.",
+   "h": "Fasse zu einer Wurzel zusammen. Welche Zahl ergibt quadriert 36a²?"
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √72 : √2."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(72 / 2) / 6",
+   "w": "√72 : √2 = √(72 : 2) = √36 = 6.",
+   "h": "Fasse zu einer Wurzel zusammen."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √3 · √12."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(3 * 12) / 6",
+   "w": "√3 · √12 = √36 = 6.",
+   "h": "Fasse zu einer Wurzel zusammen."
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze die Lücke: √□ = 5√3.",
+    "schablone": "√□",
+    "hinweis": "die Zahl unter der Wurzel eintragen"
+   },
+   "o": {
+    "werte": [
+     75
+    ]
+   },
+   "w": "5√3 = √25 · √3 = √(25 · 3) = √75.",
+   "h": "Bringe die 5 als √25 unter die Wurzel.",
+   "c": [
+    "25 * 3"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Quadrat hat den Flächeninhalt 98 cm². Gib die Seitenlänge exakt an (teilweise Wurzel ziehen).",
+    "schablone": "□√□ cm",
+    "hinweis": "Zahlen in die Felder eintragen"
+   },
+   "o": {
+    "werte": [
+     7,
+     2
+    ]
+   },
+   "w": "a = √98 cm = √(49 · 2) cm = 7√2 cm.",
+   "h": "Seite = √Fläche. Suche die größte Quadratzahl in 98.",
+   "c": [
+    "49 // 7",
+    "98 // 49"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist am größten?"
+   },
+   "a": [
+    "2√11",
+    "4√3",
+    "3√5",
+    "5√2"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Unter eine Wurzel bringen: 3√5 = √45, 2√11 = √44, 4√3 = √48, 5√2 = √50. Am größten ist √50 = 5√2.",
+   "h": "Bringe jeweils den Faktor als Quadrat unter die Wurzel und vergleiche die Radikanden."
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel, so weit wie möglich: √(50x³) für x ≥ 0.",
+    "schablone": "□x√(□x)",
+    "hinweis": "Zahlen in die Felder eintragen"
+   },
+   "o": {
+    "werte": [
+     5,
+     2
+    ]
+   },
+   "w": "√(50x³) = √(25 · 2 · x² · x) = 5x√(2x).",
+   "h": "Zerlege 50 = 25 · 2 und x³ = x² · x. Aus den Quadraten ziehst du die Wurzel.",
+   "c": [
+    "25 // 5",
+    "50 // 25"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel, so weit wie möglich: √180.",
+    "schablone": "□√□",
+    "hinweis": "Zahlen in die Felder eintragen"
+   },
+   "o": {
+    "werte": [
+     6,
+     5
+    ]
+   },
+   "w": "√180 = √(36 · 5) = 6√5.",
+   "h": "Suche die größte Quadratzahl, die in 180 steckt.",
+   "c": [
+    "36 // 6",
+    "180 // 36"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 3√7 als eine einzige Wurzel.",
+    "schablone": "√□",
+    "hinweis": "die Zahl unter der Wurzel eintragen"
+   },
+   "o": {
+    "werte": [
+     63
+    ]
+   },
+   "w": "3√7 = √9 · √7 = √63.",
+   "h": "Schreibe 3 als √9.",
+   "c": [
+    "9 * 7"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: √12 + √27 − √48.",
+    "schablone": "□√□",
+    "hinweis": "Zahlen in die Felder eintragen"
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "w": "√12 = 2√3, √27 = 3√3, √48 = 4√3. Zusammen (2 + 3 − 4)√3 = 1√3 = √3.",
+   "h": "Ziehe bei jedem Summanden teilweise die Wurzel. Alle haben dann den Radikanden 3.",
+   "c": [
+    "2 + 3 - 4",
+    "3"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (√6 + √2) · (√6 − √2)."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "6 - 2",
+   "w": "3. binomische Formel: (√6)² − (√2)² = 6 − 2 = 4.",
+   "h": "Erkenne die Form (a + b)(a − b)."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne geschickt: (√3 + 1)² − (√3 − 1)².",
+    "schablone": "□√□",
+    "hinweis": "Zahlen in die Felder eintragen"
+   },
+   "o": {
+    "werte": [
+     4,
+     3
+    ]
+   },
+   "w": "Ausmultiplizieren: (3 + 2√3 + 1) − (3 − 2√3 + 1) = 4√3. Kürzer: (a + b)² − (a − b)² = 4ab = 4 · √3 · 1.",
+   "h": "Multipliziere beide Klammern aus. Was fällt beim Subtrahieren weg?",
+   "c": [
+    "2 + 2",
+    "3"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Multipliziere aus und vereinfache: √2 · (√8 + √18)."
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "4 + 6",
+   "w": "√2 · √8 + √2 · √18 = √16 + √36 = 4 + 6 = 10.",
+   "h": "Jeden Summanden in der Klammer mit √2 malnehmen."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: 3√5 + √20.",
+    "schablone": "□√□",
+    "hinweis": "Zahlen in die Felder eintragen"
+   },
+   "o": {
+    "werte": [
+     5,
+     5
+    ]
+   },
+   "w": "√20 = 2√5, also 3√5 + 2√5 = 5√5.",
+   "h": "Ziehe bei √20 teilweise die Wurzel.",
+   "c": [
+    "3 + 2",
+    "5"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: √27 − √3.",
+    "schablone": "□√□",
+    "hinweis": "Zahlen in die Felder eintragen"
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "w": "√27 = 3√3, also 3√3 − √3 = 2√3.",
+   "h": "Ziehe bei √27 teilweise die Wurzel.",
+   "c": [
+    "3 - 1",
+    "3"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Schüler sagt: „Bei 5/√7 mache ich den Nenner rational, indem ich nur den Nenner mit √7 malnehme. Dann steht da 5/7.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Er muss auch den Zähler mit √7 malnehmen (erweitern): 5√7/7.",
+    "Richtig, der Wert bleibt so gleich.",
+    "Falsch: Er muss mit 7 erweitern.",
+    "Richtig, denn √7 · √7 = 7."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nimmt man nur den Nenner mal √7, ändert sich der Wert (5/√7 ≈ 1,89, aber 5/7 ≈ 0,71). Erweitern heißt Zähler und Nenner mit derselben Zahl malnehmen.",
+   "h": "Vergleiche die Werte vorher und nachher mit dem Taschenrechner."
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 2/(√7 + √5).",
+    "schablone": "√□ − √□",
+    "hinweis": "die Radikanden eintragen"
+   },
+   "o": {
+    "werte": [
+     7,
+     5
+    ]
+   },
+   "w": "Mit √7 − √5 erweitern: Nenner (√7)² − (√5)² = 7 − 5 = 2. Also 2(√7 − √5)/2 = √7 − √5.",
+   "h": "Erweitere mit √7 − √5 (3. binomische Formel).",
+   "c": [
+    "7",
+    "5"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 1/(√2 − 1) − 1/(√2 + 1)."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(1) - (-1)",
+   "w": "1/(√2 − 1) = √2 + 1 und 1/(√2 + 1) = √2 − 1 (jeweils erweitern, Nenner 2 − 1 = 1). Differenz: (√2 + 1) − (√2 − 1) = 2.",
+   "h": "Mache bei beiden Brüchen den Nenner rational. Der Nenner wird jeweils 1."
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 6/(3 + √3).",
+    "schablone": "□ − √□",
+    "hinweis": "Zahlen in die Felder eintragen"
+   },
+   "o": {
+    "werte": [
+     3,
+     3
+    ]
+   },
+   "w": "Mit 3 − √3 erweitern: Nenner 9 − 3 = 6. Also 6(3 − √3)/6 = 3 − √3.",
+   "h": "Erweitere mit 3 − √3.",
+   "c": [
+    "6 // 2",
+    "3"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational und vereinfache: √3/√6.",
+    "schablone": "√□/□",
+    "hinweis": "Zahlen in die Felder eintragen"
+   },
+   "o": {
+    "werte": [
+     2,
+     2
+    ]
+   },
+   "w": "√3/√6 = √(3/6) = √(1/2) = 1/√2 = √2/2.",
+   "h": "Fasse erst zu einer Wurzel zusammen und kürze.",
+   "c": [
+    "2",
+    "2"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 15/√5.",
+    "schablone": "□√□",
+    "hinweis": "Zahlen in die Felder eintragen"
+   },
+   "o": {
+    "werte": [
+     3,
+     5
+    ]
+   },
+   "w": "15/√5 = 15√5/5 = 3√5.",
+   "h": "Erweitere mit √5.",
+   "c": [
+    "15 // 5",
+    "5"
+   ]
   }
  ],
  "offen": [

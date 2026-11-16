@@ -5,6 +5,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _kl10 import *  # noqa: E402,F403
+from _schwer_kl10 import ergaenzen  # noqa: E402
 
 start(1002)
 IDX = '₁₂₃₄₅'
@@ -388,8 +389,129 @@ KLAR = {
 GEN = schoen({'ausklammern': g_ausklammern, 'nullprodukt': g_nullprodukt, 'substitution': g_substitution, 'vielfachheit': g_vielfachheit,
               'verstehen': g_verstehen})
 
+# ---------- Zehnte Runde (Zweig schwer-kl10): schwerere Übungen nach Prüfungsvorbild ----------
+# Eigener Zufallsstart (nur zum Mischen der Antworten); wird erst NACH bauen(...) aufgerufen, alte Aufgaben bleiben gleich.
+# Vorbilder (Typ und Niveau, eigene Zahlen): Bayerischer Mathematik-Test 10 (2025, Aufgabe 1: Gleichung durch Ausklammern lösen,
+# „Geben Sie einen Term an, sodass …“), Abitur Bayern Prüfungsteil A (2023: Grad aus Nullstellen begründen; IlluPA A2: x⁴ − kx² mit Parameter),
+# Grundwissen G9 (faktorisieren, Vielfachheit ablesen). Rechenausdruck c bei Lücken wie oben: „x + f(x)“ prüft jede Lösung durch Einsetzen.
+def schwer():
+    start(10011)
+    N = []
+
+    def neu(l, s, a):
+        a['l'], a['s'] = l, s
+        N.append(a)
+
+    def pc(expr, xs):
+        return [f'({x}) + ({expr.replace("x", f"({x})")})' for x in xs]
+
+    # --- ausklammern ---
+    neu('ausklammern', 2, luecken('Löse 3x³ = 12x².', schab(2), 'Lösungen aufsteigend', [0, 4],
+                                  '3x³ − 12x² = 0 ⇒ 3x²(x − 4) = 0 ⇒ x = 0 (doppelt) oder x = 4. Wer durch x² teilt, verliert x = 0.',
+                                  'Alles auf eine Seite bringen, dann 3x² ausklammern. Nicht durch x² teilen!', c=pc('3*x**3 - 12*x**2', [0, 4])))
+    neu('ausklammern', 2, luecken('Löse x⁵ − 16x³ = 0.', schab(3), 'Lösungen aufsteigend', [-4, 0, 4],
+                                  'x³(x² − 16) = 0 ⇒ x = 0 (dreifach) oder x² = 16 ⇒ x = ±4.', 'Klammere die höchste gemeinsame Potenz x³ aus.',
+                                  c=pc('x**5 - 16*x**3', [-4, 0, 4])))
+    neu('ausklammern', 3, luecken('Die Gleichung x³ − kx = 0 hat die Lösung x = 5. Bestimme k und die beiden anderen Lösungen.', 'k = □; x₁ = □; x₂ = □',
+                                  'k, dann die anderen Lösungen aufsteigend', [25, -5, 0],
+                                  'x = 5 einsetzen: 125 − 5k = 0 ⇒ k = 25. Dann x(x² − 25) = 0 ⇒ x = 0 oder x = ±5. Neben 5 also −5 und 0.',
+                                  'Setze x = 5 ein, um k zu finden. Danach x ausklammern.', c=['125 // 5', '-5 + ((-5)**3 - 25*(-5))', '0']))
+    neu('ausklammern', 3, luecken('Löse 2x⁴ + 6x³ = 20x².', schab(3), 'Lösungen aufsteigend', [-5, 0, 2],
+                                  '2x⁴ + 6x³ − 20x² = 0 ⇒ 2x²(x² + 3x − 10) = 0 ⇒ 2x²(x + 5)(x − 2) = 0 ⇒ x = 0, x = −5, x = 2.',
+                                  'Erst alles auf eine Seite, dann 2x² ausklammern; die Klammer ist quadratisch.', c=pc('2*x**4 + 6*x**3 - 20*x**2', [-5, 0, 2])))
+    neu('ausklammern', 3, luecken('Löse x²(x − 1) = 4(x − 1).', schab(3), 'Lösungen aufsteigend', [-2, 1, 2],
+                                  'x²(x − 1) − 4(x − 1) = 0 ⇒ (x − 1)(x² − 4) = 0 ⇒ x = 1 oder x = ±2. Wer durch (x − 1) teilt, verliert x = 1.',
+                                  'Nicht durch (x − 1) teilen: Bring alles auf eine Seite und klammere (x − 1) aus.', c=pc('x**2*(x - 1) - 4*(x - 1)', [-2, 1, 2])))
+    neu('ausklammern', 3, luecken('Löse x³ = x²(x − 2) + 18.', schab(2), 'Lösungen aufsteigend', [-3, 3],
+                                  'Rechts ausmultiplizieren: x³ = x³ − 2x² + 18. x³ fällt weg: 2x² = 18 ⇒ x² = 9 ⇒ x = ±3.',
+                                  'Multipliziere die rechte Seite aus. Was passiert mit x³?', c=pc('x**3 - x**2*(x - 2) - 18', [-3, 3])))
+
+    # --- nullprodukt ---
+    neu('nullprodukt', 2, luecken('Löse (3x − 6)(x² + 2x) = 0.', schab(3), 'Lösungen aufsteigend', [-2, 0, 2],
+                                  '3x − 6 = 0 ⇒ x = 2. x² + 2x = x(x + 2) = 0 ⇒ x = 0 oder x = −2.', 'Jeden Faktor null setzen; der zweite Faktor braucht noch Ausklammern.',
+                                  c=pc('(3*x - 6)*(x**2 + 2*x)', [-2, 0, 2])))
+    neu('nullprodukt', 2, luecken('Löse (x² − 9)(x² + 9) = 0.', schab(2), 'Lösungen aufsteigend', [-3, 3],
+                                  'x² − 9 = 0 ⇒ x = ±3. x² + 9 = 0 hat keine Lösung, weil x² + 9 immer positiv ist.', 'Untersuche beide Faktoren einzeln.',
+                                  c=pc('(x**2 - 9)*(x**2 + 9)', [-3, 3])))
+    neu('nullprodukt', 3, auswahl('Welche Gleichung hat genau die Lösungen −2, 0 und 3?', 'x(x + 2)(x − 3) = 0',
+                                  ['x(x − 2)(x + 3) = 0', '(x + 2)(x − 3) = 0', 'x + (x + 2)(x − 3) = 0'],
+                                  'Zu x = −2 gehört der Faktor (x + 2), zu x = 3 der Faktor (x − 3), zu x = 0 der Faktor x. Die Summe x + … ist kein Produkt mehr.',
+                                  'Welcher Faktor wird bei x = −2 null?'))
+    neu('nullprodukt', 3, zahl('Wie viele verschiedene Lösungen hat (x² − 4)(x² − 5x + 6) = 0?',
+                               'x² − 4 = 0 ⇒ x = ±2. x² − 5x + 6 = (x − 2)(x − 3) = 0 ⇒ x = 2 oder x = 3. Die 2 kommt doppelt vor: verschieden sind −2, 2, 3.',
+                               'Löse beide Faktoren und streiche doppelte Lösungen.', 3, '3'))
+    neu('nullprodukt', 3, zahl('Für welche positive Zahl a hat (x − a)(x² − 9) = 0 nur zwei verschiedene Lösungen?',
+                               'x² − 9 = 0 liefert schon −3 und 3. Nur zwei verschiedene Lösungen gibt es, wenn x = a eine davon ist: a = 3 (oder a = −3). Positiv: a = 3.',
+                               'Welche Lösungen liefert x² − 9 = 0 schon? Wann bringt (x − a) nichts Neues?', 3, '3'))
+    neu('nullprodukt', 3, luecken('Löse (x − 1)³ = x − 1.', schab(3), 'Lösungen aufsteigend', [0, 1, 2],
+                                  '(x − 1)³ − (x − 1) = 0 ⇒ (x − 1)((x − 1)² − 1) = 0. Also x − 1 = 0 oder (x − 1)² = 1, d. h. x − 1 = ±1. Lösungen: 0, 1, 2.',
+                                  'Fasse x − 1 als einen Block auf und klammere ihn aus.', c=pc('(x - 1)**3 - (x - 1)', [0, 1, 2])))
+
+    # --- substitution ---
+    neu('substitution', 2, luecken('Löse x⁴ − 13x² + 36 = 0.', schab(4), 'Lösungen aufsteigend', [-3, -2, 2, 3],
+                                   'z = x²: z² − 13z + 36 = 0 ⇒ z = 4 oder z = 9 ⇒ x = ±2 oder x = ±3.', 'Setze z = x² und löse die quadratische Gleichung.',
+                                   c=pc('x**4 - 13*x**2 + 36', [-3, -2, 2, 3])))
+    neu('substitution', 2, luecken('Löse x⁴ − 3x² − 4 = 0.', schab(2), 'Lösungen aufsteigend', [-2, 2],
+                                   'z = x²: z² − 3z − 4 = 0 ⇒ z = 4 oder z = −1. Nur z = 4 ist möglich: x = ±2.', 'Prüfe beim Rücksubstituieren, ob z negativ ist.',
+                                   c=pc('x**4 - 3*x**2 - 4', [-2, 2])))
+    neu('substitution', 3, zahl('Für welche positive Zahl k hat x⁴ − kx² + 16 = 0 genau zwei Lösungen?',
+                                'z = x²: z² − kz + 16 = 0. Genau zwei Lösungen für x gibt es, wenn z eine einzige (doppelte) positive Lösung hat: (z − 4)² = z² − 8z + 16. Also k = 8, dann x = ±2.',
+                                'Wie viele Lösungen x liefert ein positives z? Was muss für die Gleichung in z dann gelten?', 8, '2 * 4'))
+    neu('substitution', 3, luecken('Löse x⁶ − 9x³ + 8 = 0.', schab(2), 'Lösungen aufsteigend', [1, 2],
+                                   'z = x³: z² − 9z + 8 = 0 ⇒ z = 1 oder z = 8. x³ = 1 ⇒ x = 1; x³ = 8 ⇒ x = 2.',
+                                   'Hier passt z = x³. Jede Zahl hat genau eine dritte Wurzel.', c=pc('x**6 - 9*x**3 + 8', [1, 2])))
+    neu('substitution', 3, luecken('Löse (x² − 3)² − 4(x² − 3) − 12 = 0.', schab(4), 'Lösungen aufsteigend', [-3, -1, 1, 3],
+                                   'u = x² − 3: u² − 4u − 12 = 0 ⇒ u = 6 oder u = −2. x² − 3 = 6 ⇒ x = ±3; x² − 3 = −2 ⇒ x = ±1.',
+                                   'Ersetze den Block x² − 3 durch eine neue Variable. Nicht ausmultiplizieren!', c=pc('(x**2 - 3)**2 - 4*(x**2 - 3) - 12', [-3, -1, 1, 3])))
+    neu('substitution', 3, auswahl('Jemand löst x⁴ − 5x² − 36 = 0 und schreibt L = {−3; −2; 2; 3}. Was stimmt?', 'Falsch: z = −4 liefert keine Lösung, L = {−3; 3}.',
+                                   ['Richtig.', 'Falsch: L = {−4; 9}.', 'Falsch: L = {−9; 4}.'],
+                                   'z² − 5z − 36 = 0 ⇒ z = 9 oder z = −4. x² = 9 ⇒ x = ±3. x² = −4 ist unmöglich; ±2 sind falsch (Probe: 16 − 20 − 36 ≠ 0).',
+                                   'Mache die Probe mit x = 2.'))
+
+    # --- vielfachheit ---
+    neu('vielfachheit', 2, zahl('f(x) = x³ · (x − 2)² · (x + 1). Welchen Grad hat f?', 'Die Exponenten addieren sich: 3 + 2 + 1 = 6.',
+                                'Beim Ausmultiplizieren entsteht als höchste Potenz x hoch (Summe der Vielfachheiten).', 6, '3 + 2 + 1'))
+    neu('vielfachheit', 2, zahl('Es gilt x⁴ − 6x³ + 9x² = x²(x − 3)². Welche Vielfachheit hat die Nullstelle x = 3?', 'Der Faktor (x − 3) steht im Quadrat: doppelte Nullstelle.',
+                                'Zähle, wie oft der Faktor (x − 3) vorkommt.', 2, '2'))
+    neu('vielfachheit', 3, zahl('f(x) = x⁵ − 8x³ + 16x. Welche Vielfachheit hat die Nullstelle x = 2?',
+                                'f(x) = x(x⁴ − 8x² + 16) = x(x² − 4)² = x(x − 2)²(x + 2)². Also ist x = 2 eine doppelte Nullstelle.',
+                                'Klammere x aus. Die Klammer ist ein Quadrat (binomische Formel).', 2, '2 + (2**5 - 8*2**3 + 16*2)'))
+    neu('vielfachheit', 3, zahl('Eine ganzrationale Funktion hat bei x = 1 eine doppelte und bei x = −2 eine dreifache Nullstelle. Welchen Grad hat sie mindestens?',
+                                'Sie enthält mindestens die Faktoren (x − 1)² und (x + 2)³. Das ergibt mindestens Grad 2 + 3 = 5.',
+                                'Schreibe die nötigen Faktoren auf und addiere die Exponenten.', 5, '2 + 3'))
+    neu('vielfachheit', 3, zahl('An wie vielen Stellen wechselt f(x) = (x − 1)² · (x + 3)³ · (x − 4) das Vorzeichen?',
+                                'Vorzeichenwechsel nur bei ungerader Vielfachheit: x = −3 (dreifach) und x = 4 (einfach). Bei x = 1 (doppelt) berührt der Graph nur.',
+                                'Prüfe jede Nullstelle: gerade oder ungerade Vielfachheit?', 2, '2'))
+    neu('vielfachheit', 3, zahl('Für welche positive Zahl a hat f(x) = x · (x − 2) · (x − a)² eine dreifache Nullstelle?',
+                                'Eine dreifache Nullstelle entsteht, wenn (x − a)² mit einem anderen Faktor zusammenfällt. a = 2 gibt (x − 2)³. (a = 0 gäbe x³, ist aber nicht positiv.)',
+                                'Mit welchem anderen Faktor kann (x − a)² zusammenfallen?', 2, '2'))
+
+    # --- verstehen ---
+    neu('verstehen', 2, auswahl('Welche Gleichung hat keine reelle Lösung?', 'x⁴ + 2x² + 1 = 0', ['x⁴ − 2x² + 1 = 0', 'x³ + 1 = 0', 'x⁴ − 1 = 0'],
+                                'x⁴ + 2x² + 1 = (x² + 1)² ist immer mindestens 1. Die anderen haben x = ±1 bzw. x = −1 als Lösung.',
+                                'Erkennst du eine binomische Formel?'))
+    neu('verstehen', 2, zahl('Eine Gleichung 5. Grades hat die Lösungen 0, 1 und 2. Wie viele weitere Lösungen kann sie höchstens noch haben?',
+                             'Grad 5: höchstens 5 Lösungen. Drei sind bekannt, also höchstens 2 weitere.', 'Wie viele Lösungen hat eine Gleichung 5. Grades höchstens?', 2, '5 - 3'))
+    neu('verstehen', 3, auswahl('Welche Gleichung 4. Grades hat genau drei verschiedene Lösungen?', 'x²(x² − 1) = 0',
+                                ['x⁴ − 1 = 0', 'x⁴ − 5x² + 4 = 0', 'x⁴ + x² = 0'],
+                                'x²(x² − 1) = 0: x = 0 (doppelt), x = ±1 – drei verschiedene. x⁴ − 1 = 0: ±1; x⁴ − 5x² + 4 = 0: ±1, ±2; x⁴ + x² = 0: nur 0.',
+                                'Löse jede Gleichung kurz und zähle verschiedene Lösungen.'))
+    neu('verstehen', 3, luecken('Der Graph einer Funktion 3. Grades mit Leitkoeffizient 1 schneidet die x-Achse bei x = −3 und berührt sie bei x = 1. Gib den Term ausmultipliziert an.',
+                                'x³ + □x² + □x + □', 'Koeffizienten', [1, -5, 3],
+                                'Schneiden: einfacher Faktor (x + 3). Berühren: doppelter Faktor (x − 1)². f(x) = (x + 3)(x² − 2x + 1) = x³ + x² − 5x + 3.',
+                                'Welche Vielfachheit gehört zu „berühren“? Stelle erst die Produktform auf.', c=['-2 + 3', '1 - 6', '3']))
+    neu('verstehen', 3, zahl('Verlängert man jede Kante eines Würfels um 2 cm, wächst sein Volumen um 152 cm³. Wie lang war eine Kante?',
+                             '(x + 2)³ − x³ = 152 ⇒ 6x² + 12x + 8 = 152 ⇒ x² + 2x − 24 = 0 ⇒ (x + 6)(x − 4) = 0. Eine Länge ist positiv: x = 4 cm.',
+                             'Stelle (x + 2)³ − x³ = 152 auf. Beim Ausmultiplizieren fällt x³ weg.', 4, '4 + ((4 + 2)**3 - 4**3 - 152)', einheit='cm'))
+    neu('verstehen', 3, auswahl('Jemand sagt: „x³ = −27 hat keine Lösung, weil man aus negativen Zahlen keine Wurzel ziehen kann.“ Was stimmt?',
+                                'Falsch: x = −3, denn (−3)³ = −27.', ['Richtig.', 'Falsch: x = 3 und x = −3.', 'Falsch: x = −9.'],
+                                'Eine ungerade Potenz einer negativen Zahl ist negativ: (−3)³ = −27. Nur bei geraden Potenzen gibt es keine Lösung für negative Werte.',
+                                'Rechne (−3)³ aus.'))
+    return N
+
+
 if __name__ == '__main__':
-    bauen('gleichungen.polynom',
+    datei = bauen('gleichungen.polynom',
           'Gleichungen höheren Grades durch Ausklammern, Satz vom Nullprodukt oder Substitution lösen und Nullstellen mit Vielfachheit deuten.',
           ['Kein Zahlglied: höchste gemeinsame x-Potenz ausklammern (nie durch x teilen).', 'Produkt = 0: jeden Faktor null setzen.',
            'Biquadratisch: z = x², quadratisch lösen, rücksubstituieren (nur z ≥ 0).', 'k-fache Nullstelle: ungerade k mit, gerade k ohne Vorzeichenwechsel.'],
@@ -401,3 +523,4 @@ if __name__ == '__main__':
                  'Lösungen werden als Lücken „x₁ = □; …“ ohne Wiederholung (aufsteigend) abgefragt; die Anzahl der Lücken verrät, wie viele Lösungen es gibt. Wer das vermeiden will, braucht einen Antworttyp „Lösungsmenge“.',
                  'Rechenausdruck c bei Lücken: „x + f(x)“ – ergibt nur dann x, wenn f(x) = 0, prüft also jede Lösung durch Einsetzen.',
                  'Prüfung eingearbeitet (Runde 3): Substitution mit nicht ganzzahligen Lösungen (zahl, Toleranz 0,01), Vorzeichenwechsel in Stufe 3/Korrektur/Sicherung ohne Grafik und Ja/Nein ausgewogen, Sachaufgaben (Quader, Schachtel aus Karton) in „verstehen“ Stufe 3.'])
+    ergaenzen(datei, schwer())

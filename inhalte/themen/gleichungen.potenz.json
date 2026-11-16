@@ -926,7 +926,7 @@
    "l": "gerade",
    "t": "gerade",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Lösungsmenge hat 5x² = 0?"
@@ -968,7 +968,7 @@
    "l": "gerade",
    "t": "gerade",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Lösungsmenge hat 4x⁸ = 0?"
@@ -1414,7 +1414,7 @@
    "l": "ungerade",
    "t": "ungerade",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse x⁵ = −0,03125."

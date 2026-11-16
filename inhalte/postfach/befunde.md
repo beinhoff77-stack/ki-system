@@ -2,6 +2,13 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 05:49 – STATUS
+gleichungen.potenz fertig: umgestuft 3 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
+- nicht umgesetzt:
+  - sachaufgabe S2 Zinseszins („Guthaben wächst in 2 Jahren …“) – Aufgaben richtig; mathematisch nur (1 + p)² = q, also eine Potenzgleichung. Ob der Sachkontext in Kl. 9 passt, ist eine Plan-Frage (siehe „für Sebastian“).
+- für Sebastian:
+  - gleichungen.potenz/sachaufgabe: Zinseszins-Aufgaben (Stufe 2, alle Pools) – Zinseszins ist laut Themenliste Zusatzstoff Kl. 10 (finanzen.zinseszins). In Kl. 9 belassen?
+
 ## 2026-11-16 05:48 – STATUS
 gleichungen.quadratisch fertig: umgestuft 4 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
 

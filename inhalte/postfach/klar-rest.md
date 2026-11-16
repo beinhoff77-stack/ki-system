@@ -2,6 +2,11 @@
 
 Teil A (ohne Generator): Überlagerung inhalte/klar/<thema>.json. Teil B (mit Generator): Abschnitt KLAR, eingesetzt erst nach dem Erzeugen der Aufgaben (inhalte/generatoren/_klar_rest.py). Neueste Meldung oben.
 
+## 2026-11-16 02:17 – STATUS
+gleichungen.einfach fertig: Abschnitt KLAR im Generator gleichungen_einfach.py, 7 Karten (einstieg, woerter neu; schritte 4, regel „So …“, fehler überarbeitet). Neue Hilfsdatei inhalte/generatoren/_klar_rest.py: legt sich um baue() aus _nachbau.py und setzt KLAR erst NACH dem Erzeugen der Aufgaben ein.
+Situationen: Murmeln in der Dose auf der Waage, Geldbeutel, Hefte, Kino mit Popcorn, Probe der Freundin, Sammelkarten, Aufzug ins Untergeschoss. Bilder unverändert.
+inhalt_pruefen: OK. Vergleich gegen git show HEAD: 189 Aufgaben wörtlich gleich, übrige Datei gleich.
+
 ## 2026-11-16 02:15 – STATUS
 finanzen.zinsen fertig: inhalte/klar/finanzen.zinsen.json, alle 8 Lernziele (einstieg, woerter, schritte 3–4, regel „So …“, fehler; probe bei jahreszinsen, jahreszinsen_komma, zinssatz, kapital, monatszinsen).
 Situationen: Omas Geld auf der Bank, Kredit/Sparkonto/Spardose, Tims, Leas, Opas und Jonas’ Sparbeträge. Beispielzahlen aus quelle.md beibehalten.

@@ -528,6 +528,102 @@ TEIL = {'waage': 'verstehen', 'umkehr_plus': 'umkehren', 'umkehr_mal': 'umkehren
                    ('anwenden', 'Textaufgaben als Gleichung aufstellen und lösen'),
                    ('loesbarkeit', 'Erkennen, ob eine Gleichung in ℕ lösbar ist')]}
 
+# ---------- KLAR: verständliche Erklärungen (Runde 7b, Pflicht seit 15.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _klar_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _klar_rest import mit_klar  # noqa: E402
+
+KLAR = {
+ 'waage': {
+  'einstieg': 'Auf einer Balkenwaage liegen links eine geschlossene Dose mit Murmeln und 3 einzelne Murmeln, rechts liegen 10 Murmeln. Die Waage hängt gerade – beide Seiten sind gleich schwer. Wie viele Murmeln sind in der Dose? Kurz aufgeschrieben: x + 3 = 10. So eine Aussage mit Gleichheitszeichen heißt ⟦Gleichung⟧.',
+  'woerter': [['Balkenwaage', 'eine Waage mit zwei Schalen; die schwerere Seite sinkt nach unten'],
+              ['Gleichgewicht', 'beide Seiten sind gleich schwer, die Waage hängt gerade'],
+              ['x', 'ein Buchstabe für die unbekannte Zahl – hier die Murmeln in der Dose'],
+              ['Gleichung', 'zwei Seiten mit einem = dazwischen, z. B. x + 3 = 10'],
+              ['Lösung', 'die Zahl für x, bei der beide Seiten gleich sind']],
+  'schritte': ['Links liegen die Dose x und 3 Murmeln, rechts 10 Murmeln: x + 3 = 10.',
+               'Nimm auf beiden Seiten 3 Murmeln weg. So bleibt die Waage im Gleichgewicht.',
+               'Links bleibt nur die Dose, rechts bleiben 10 − 3 = 7 Murmeln.',
+               'Also ist ⟦x = 7⟧: In der Dose sind 7 Murmeln.'],
+  'probe': '7 + 3 = 10 ✓',
+  'regel': 'So löst du eine Gleichung an der Waage: Tu auf ⟦beiden Seiten⟧ dasselbe, dann bleibt die Waage im ⟦Gleichgewicht⟧. Die Zahl für x, bei der beide Seiten gleich sind, ist die ⟦Lösung⟧.',
+  'fehler': 'Nur auf einer Seite etwas wegnehmen: Wer links die 3 Murmeln wegnimmt und rechts nicht, bekommt x = 10. Aber 10 + 3 = 13, nicht 10 – die Waage kippt. Was du links tust, tust du auch ⟦rechts⟧.'},
+ 'umkehr_plus': {
+  'einstieg': 'In deinem Geldbeutel war Geld. Du kaufst etwas für 15 € und hast danach noch 27 €. Wie viel war vorher drin? Du spielst die Geschichte rückwärts: Die 15 € kommen wieder in den Geldbeutel. So eine Rechnung, die eine andere rückgängig macht, heißt ⟦Umkehrung⟧.',
+  'woerter': [['rückwärts rechnen', 'vom Ergebnis aus zurück zum Anfang rechnen'],
+              ['Umkehrung', 'die Rechnung, die eine andere rückgängig macht: Minus macht Plus rückgängig und Plus macht Minus rückgängig']],
+  'schritte': ['Schreib die Geschichte als Gleichung: x − 15 = 27. Dabei ist x das Geld vorher.',
+               'Vom Geld wurden 15 € abgezogen. Die Umkehrung von Minus ist Plus.',
+               'Rechne rückwärts: 27 + 15 = ⟦42⟧.',
+               'Vorher waren ⟦42 €⟧ im Geldbeutel.'],
+  'probe': '42 − 15 = 27 ✓',
+  'regel': 'So rechnest du rückwärts: Die ⟦Umkehrung von Plus ist Minus⟧, die ⟦Umkehrung von Minus ist Plus⟧. Bei x + 8 = 20 ist x = 20 − 8, bei x − 15 = 27 ist x = 27 + 15.',
+  'fehler': 'Bei x − 15 = 27 rechnen viele 27 − 15 = 12. Probe: 12 − 15 ergibt nicht 27. Wer etwas ausgegeben hat, hatte vorher ⟦mehr⟧ Geld. Die Umkehrung von Minus ist Plus: 27 + 15 = 42.'},
+ 'umkehr_mal': {
+  'einstieg': '4 gleich teure Hefte kosten zusammen 12 €. Wie viel kostet ein Heft? Du verteilst die 12 € gerecht auf die 4 Hefte. Teilen macht das Malnehmen rückgängig – auch das ist eine ⟦Umkehrung⟧.',
+  'woerter': [['4 · x', '4 mal die unbekannte Zahl, hier 4 Hefte zu je x €'],
+              ['x : 4', 'die unbekannte Zahl geteilt durch 4']],
+  'schritte': ['4 Hefte zu je x € kosten 12 €: 4 · x = 12.',
+               'x wurde mit 4 malgenommen. Die Umkehrung von Mal ist Geteilt.',
+               'Rechne rückwärts: 12 : 4 = ⟦3⟧.',
+               'Ein Heft kostet ⟦3 €⟧.'],
+  'probe': '4 · 3 = 12 ✓',
+  'regel': 'So rechnest du rückwärts: Die ⟦Umkehrung von Mal ist Geteilt⟧: Bei 4 · x = 12 ist x = 12 : 4. Die ⟦Umkehrung von Geteilt ist Mal⟧: Bei x : 4 = 12 ist x = 12 · 4.',
+  'fehler': 'Bei x : 4 = 12 rechnen viele 12 : 4 = 3. Probe: 3 : 4 ergibt nicht 12. Ein Geldbetrag wurde gerecht auf 4 Kinder verteilt, jedes bekam 12 € – vorher war es also ⟦mehr⟧, nämlich 12 · 4 = 48 €.'},
+ 'zwei_schritte': {
+  'einstieg': 'Im Kino kosten 3 Karten und eine Tüte Popcorn für 4 € zusammen 19 €. Hier wurde zweimal nacheinander gerechnet: erst der Kartenpreis mal 3, dann plus 4 € für das Popcorn. Mehrere Rechenschritte hintereinander nennt man eine ⟦Rechenkette⟧. Rückwärts baust du sie in umgekehrter Reihenfolge ab.',
+  'woerter': [['Rechenkette', 'mehrere Rechenschritte nacheinander'],
+              ['3 · x + 4', 'erst die unbekannte Zahl mal 3, dann plus 4'],
+              ['Zwischenwert', 'das Ergebnis nach dem ersten Rechenschritt']],
+  'schritte': ['Die Gleichung lautet 3 · x + 4 = 19. Vorwärts heißt das: erst mal 3, dann plus 4.',
+               'Kehre den letzten Schritt zuerst um und zieh das Popcorn ab: 19 − 4 = 15. So viel kosten die 3 Karten zusammen.',
+               'Kehre dann den ersten Schritt um und verteile auf 3 Karten: 15 : 3 = ⟦5⟧.',
+               'Eine Karte kostet ⟦5 €⟧.'],
+  'probe': '3 · 5 + 4 = 15 + 4 = 19 ✓',
+  'regel': 'So löst du eine Gleichung mit zwei Rechenschritten: Geh die ⟦Rechenkette rückwärts⟧. Den ⟦letzten⟧ Schritt kehrst du zuerst um – bei 3 · x + 4 = 19 also erst − 4, dann : 3.',
+  'fehler': 'Die Schritte in der falschen Reihenfolge umkehren – wie Socken ausziehen, bevor die Schuhe aus sind. Bei 2 · x + 6 = 20 rechnet man falsch 20 : 2 = 10 und 10 − 6 = 4. Probe: 2 · 4 + 6 = 14, nicht 20. Richtig ist ⟦erst − 6, dann : 2⟧: 20 − 6 = 14, 14 : 2 = 7.'},
+ 'probe': {
+  'einstieg': 'Deine Freundin hat eine Gleichung gelöst und ruft: „x = 7!“ Stimmt das? Du musst nicht alles noch einmal rechnen. Du legst die 7 sozusagen in die Waage und schaust, ob sie im Gleichgewicht bleibt. Diese Kontrolle heißt ⟦Probe⟧.',
+  'woerter': [['Probe', 'die gefundene Zahl in die Gleichung einsetzen und nachrechnen'],
+              ['einsetzen', 'für x die Zahl hinschreiben'],
+              ['ursprüngliche Gleichung', 'die Gleichung so, wie sie in der Aufgabe steht']],
+  'schritte': ['Die Gleichung lautet 5 · x − 8 = 27, die angebliche Lösung ist x = 7.',
+               'Setze 7 für x ein: 5 · 7 − 8.',
+               'Rechne die linke Seite aus: 35 − 8 = 27.',
+               'Rechts steht auch 27. Beide Seiten sind gleich – die Lösung ⟦stimmt⟧.'],
+  'regel': 'So machst du die Probe: Setze die Zahl für x in die ⟦ursprüngliche Gleichung⟧ ein und rechne die linke Seite aus. Kommt dasselbe heraus wie rechts, ⟦stimmt⟧ die Lösung.',
+  'fehler': 'Die Probe mit der eigenen Rechnung statt mit der Gleichung machen. Wer bei x − 15 = 27 falsch 27 − 15 = 12 rechnet und dann prüft „27 − 15 = 12 ✓“, findet seinen Fehler nie. Setze immer in die ⟦Gleichung⟧ ein: 12 − 15 ergibt nicht 27.'},
+ 'aufstellen': {
+  'einstieg': 'Eine Packung Sammelkarten und ein Album für 2 € kosten zusammen 9 €. Was kostet die Packung? Bevor du rechnest, übersetzt du den Text in die Sprache der Mathematik – wie beim Übersetzen in eine andere Sprache, Wort für Wort. Das heißt, eine Gleichung ⟦aufstellen⟧.',
+  'woerter': [['aufstellen', 'aus einem Text eine Gleichung machen'],
+              ['das Dreifache', '3 · x'],
+              ['vermehrt um 5, vermindert um 4', '+ 5 und − 4'],
+              ['ergibt, kostet zusammen', 'das Gleichheitszeichen =']],
+  'schritte': ['Nenne die gesuchte Zahl x: Hier ist x der Preis der Packung.',
+               'Übersetze Stück für Stück: Packung und Album sind x + 2, „kosten zusammen“ ist =, dann folgt 9. Die Gleichung lautet x + 2 = 9.',
+               'Rechne rückwärts: 9 − 2 = ⟦7⟧.',
+               'Die Packung kostet ⟦7 €⟧.'],
+  'probe': '7 + 2 = 9 ✓',
+  'regel': 'So stellst du eine Gleichung auf: Nenne die gesuchte Zahl ⟦x⟧ und übersetze den Text Stück für Stück: „das Dreifache“ heißt 3 · x, „vermehrt um 5“ heißt + 5, „ergibt“ oder „kostet zusammen“ heißt ⟦=⟧. Stell dir die Waage vor: Was liegt links, was rechts?',
+  'fehler': '„Das Doppelte einer Zahl, vermindert um 4, ergibt 10“ ist nicht 2 · (x − 4) = 10. Erst wird verdoppelt, dann 4 abgezogen: ⟦2 · x − 4 = 10⟧, also x = 7. Mit der falschen Gleichung käme 9 heraus – aber 2 · 9 − 4 = 14, nicht 10.'},
+ 'ohne_loesung': {
+  'einstieg': 'Ein Aufzug fährt 9 Stockwerke nach oben und hält im 4. Stock. Wo ist er losgefahren? Mit den Zahlen 0, 1, 2, 3, … klappt das nicht – er muss unter dem Erdgeschoss gestartet sein. Mit diesen Zahlen allein hat die Gleichung ⟦keine Lösung⟧.',
+  'woerter': [['natürliche Zahlen ℕ', 'die Zahlen zum Zählen: ℕ = {0; 1; 2; 3; …}'],
+              ['{ … }', 'Mengenklammern: In ihnen stehen die Zahlen, die dazugehören'],
+              ['ganze Zahlen', 'die natürlichen Zahlen und ihre Minus-Zahlen: …, −2, −1, 0, 1, 2, …'],
+              ['Untergeschoss', 'ein Stockwerk unter dem Erdgeschoss; im Aufzug oft −1, −2, …'],
+              ['teilbar', 'lässt sich ohne Rest teilen']],
+  'schritte': ['Die Gleichung lautet x + 9 = 4.',
+               'Rückwärts gerechnet ist x = 4 − 9. Von 4 kannst du nicht 9 abziehen, ohne unter 0 zu kommen. In ℕ gibt es also keine Lösung.',
+               'Mit ganzen Zahlen geht es: 4 − 9 = ⟦−5⟧. Der Aufzug ist im 5. Untergeschoss losgefahren.',
+               'Genauso hat 3 · x = 10 in ℕ keine Lösung, denn 10 ist ⟦nicht durch 3 teilbar⟧.'],
+  'probe': '(−5) + 9 = 4 ✓',
+  'regel': 'So erkennst du, ob es in ℕ eine Lösung gibt: Rechne rückwärts. Kommt eine Zahl ⟦unter 0⟧ heraus oder geht das Teilen ⟦nicht ohne Rest⟧, gibt es in den ⟦natürlichen Zahlen⟧ keine Lösung. Mit den ⟦ganzen Zahlen⟧ hat x + 9 = 4 die Lösung −5.',
+  'fehler': 'Bei x + 9 = 4 die Zahlen tauschen und 9 − 4 = 5 rechnen. Probe: 5 + 9 = 14, nicht 4 – der Aufzug wäre im 14. Stock gelandet. Die Umkehrung ist 4 − 9, und das ist ⟦keine natürliche Zahl⟧.'},
+}
+
+baue = mit_klar(baue, KLAR)
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Was ist eine Gleichung?', ['waage']), ('Rückwärts rechnen', ['umkehr_plus', 'umkehr_mal', 'zwei_schritte']),

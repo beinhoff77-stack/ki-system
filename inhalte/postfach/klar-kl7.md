@@ -7,5 +7,8 @@ Prüfung je Thema: Generator neu ausgeführt, Aufgaben mit einem Vergleichsskrip
 
 ## Status
 
+## 2026-11-16 02:40 – STATUS
+terme.aufstellen fertig: 6 Karten, durchgehende Situation Fahrradverleih am See (Termart, Termwert, Übersetzen, Preistafel als Term, Streichholzmuster, Handytarif deuten). Aufgaben: 144, 0 Unterschiede. inhalt_pruefen: OK.
+
 ## 2026-11-16 02:20 – STATUS
 bruch.prozent_grundwert fertig: 7 Karten mit einstieg/woerter (durchgehende Situation: Preise im Sportgeschäft), Schritte als ganze Sätze, Merksätze als Handlungsanweisung, Bildbeschriftungen sprechend (neue Tabelle bei prozentsatz). Aufgaben: 168, 0 Unterschiede. inhalt_pruefen: OK.

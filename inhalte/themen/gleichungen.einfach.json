@@ -49,15 +49,192 @@
    {
     "lernziel": "waage",
     "titel": "Eine Gleichung ist wie eine Waage",
-    "regel": "So löst du eine Gleichung an der Waage: Tu auf ⟦beiden Seiten⟧ dasselbe, dann bleibt die Waage im ⟦Gleichgewicht⟧. Die Zahl für x, bei der beide Seiten gleich sind, ist die ⟦Lösung⟧.",
+    "regel": "Tu auf ⟦beiden Seiten⟧ dasselbe. Dann bleibt die Waage im Gleichgewicht.",
     "schritte": [
-     "Links liegen die Dose x und 3 Murmeln, rechts 10 Murmeln: x + 3 = 10.",
-     "Nimm auf beiden Seiten 3 Murmeln weg. So bleibt die Waage im Gleichgewicht.",
-     "Links bleibt nur die Dose, rechts bleiben 10 − 3 = 7 Murmeln.",
-     "Also ist ⟦x = 7⟧: In der Dose sind 7 Murmeln."
+     {
+      "text": "Nimm auf beiden Seiten 3 Murmeln weg. Das Gleichgewicht bleibt.",
+      "bild": {
+       "typ": "figur",
+       "label": "Waage im Gleichgewicht: links x, rechts 10 − 3",
+       "punkte": {
+        "_A": [
+         1.5,
+         2
+        ],
+        "_B": [
+         8.5,
+         2
+        ],
+        "_S": [
+         5,
+         2
+        ],
+        "_F1": [
+         4,
+         0
+        ],
+        "_F2": [
+         6,
+         0
+        ],
+        "_L1": [
+         -0.5,
+         2.6
+        ],
+        "_L2": [
+         3.5,
+         2.6
+        ],
+        "_R1": [
+         6.5,
+         2.6
+        ],
+        "_R2": [
+         10.5,
+         2.6
+        ],
+        "_LA": [
+         1.5,
+         2.6
+        ],
+        "_RA": [
+         8.5,
+         2.6
+        ]
+       },
+       "flaeche": [
+        "_S",
+        "_F1",
+        "_F2"
+       ],
+       "linien": [
+        [
+         "_A",
+         "_B"
+        ],
+        [
+         "_A",
+         "_LA"
+        ],
+        [
+         "_B",
+         "_RA"
+        ],
+        [
+         "_L1",
+         "_L2",
+         "x"
+        ],
+        [
+         "_R1",
+         "_R2",
+         "10 − 3"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Links bleibt die Dose, rechts bleiben 10 − 3 = 7 Murmeln.",
+      "bild": {
+       "typ": "figur",
+       "label": "Waage im Gleichgewicht: links x, rechts 7",
+       "punkte": {
+        "_A": [
+         1.5,
+         2
+        ],
+        "_B": [
+         8.5,
+         2
+        ],
+        "_S": [
+         5,
+         2
+        ],
+        "_F1": [
+         4,
+         0
+        ],
+        "_F2": [
+         6,
+         0
+        ],
+        "_L1": [
+         -0.5,
+         2.6
+        ],
+        "_L2": [
+         3.5,
+         2.6
+        ],
+        "_R1": [
+         6.5,
+         2.6
+        ],
+        "_R2": [
+         10.5,
+         2.6
+        ],
+        "_LA": [
+         1.5,
+         2.6
+        ],
+        "_RA": [
+         8.5,
+         2.6
+        ]
+       },
+       "flaeche": [
+        "_S",
+        "_F1",
+        "_F2"
+       ],
+       "linien": [
+        [
+         "_A",
+         "_B"
+        ],
+        [
+         "_A",
+         "_LA"
+        ],
+        [
+         "_B",
+         "_RA"
+        ],
+        [
+         "_L1",
+         "_L2",
+         "x"
+        ],
+        [
+         "_R1",
+         "_R2",
+         "7"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Also ist die Lösung ⟦x = 7⟧: In der Dose sind 7 Murmeln."
+     }
     ],
-    "probe": "7 + 3 = 10 ✓",
-    "fehler": "Nur auf einer Seite etwas wegnehmen: Wer links die 3 Murmeln wegnimmt und rechts nicht, bekommt x = 10. Aber 10 + 3 = 13, nicht 10 – die Waage kippt. Was du links tust, tust du auch ⟦rechts⟧.",
+    "fehler": "Nur links 3 wegnehmen ergibt x = 10. Aber 10 + 3 = 13, nicht 10: Die Waage kippt.",
+    "einstieg": "Auf einer Waage liegen links eine Dose und 3 Murmeln, rechts 10 Murmeln. Die Waage hängt gerade. Kurz geschrieben: x + 3 = 10, eine ⟦Gleichung⟧.",
+    "woerter": [
+     [
+      "x",
+      "die unbekannte Zahl, hier die Murmeln in der Dose"
+     ],
+     [
+      "Gleichgewicht",
+      "beide Seiten sind gleich schwer, die Waage hängt gerade"
+     ],
+     [
+      "Lösung",
+      "die Zahl für x, bei der beide Seiten gleich sind"
+     ]
+    ],
     "bild": {
      "typ": "figur",
      "label": "Waage im Gleichgewicht: links x + 3, rechts 10",
@@ -137,90 +314,267 @@
       ]
      ]
     },
-    "einstieg": "Auf einer Balkenwaage liegen links eine geschlossene Dose mit Murmeln und 3 einzelne Murmeln, rechts liegen 10 Murmeln. Die Waage hängt gerade – beide Seiten sind gleich schwer. Wie viele Murmeln sind in der Dose? Kurz aufgeschrieben: x + 3 = 10. So eine Aussage mit Gleichheitszeichen heißt ⟦Gleichung⟧.",
-    "woerter": [
-     [
-      "Balkenwaage",
-      "eine Waage mit zwei Schalen; die schwerere Seite sinkt nach unten"
+    "fehler_bild": {
+     "punkte": {
+      "_A": [
+       1.5,
+       1.5
+      ],
+      "_B": [
+       8.5,
+       2.5
+      ],
+      "_S": [
+       5,
+       2
+      ],
+      "_F1": [
+       4,
+       0
+      ],
+      "_F2": [
+       6,
+       0
+      ],
+      "_L1": [
+       -0.5,
+       2.1
+      ],
+      "_L2": [
+       3.5,
+       2.1
+      ],
+      "_R1": [
+       6.5,
+       3.1
+      ],
+      "_R2": [
+       10.5,
+       3.1
+      ],
+      "_LA": [
+       1.5,
+       2.1
+      ],
+      "_RA": [
+       8.5,
+       3.1
+      ]
+     },
+     "linien": [
+      [
+       "_A",
+       "_B"
+      ],
+      [
+       "_A",
+       "_LA"
+      ],
+      [
+       "_B",
+       "_RA"
+      ],
+      [
+       "_L1",
+       "_L2",
+       "10 + 3"
+      ],
+      [
+       "_R1",
+       "_R2",
+       "10"
+      ]
      ],
-     [
-      "Gleichgewicht",
-      "beide Seiten sind gleich schwer, die Waage hängt gerade"
-     ],
-     [
-      "x",
-      "ein Buchstabe für die unbekannte Zahl – hier die Murmeln in der Dose"
-     ],
-     [
-      "Gleichung",
-      "zwei Seiten mit einem = dazwischen, z. B. x + 3 = 10"
-     ],
-     [
-      "Lösung",
-      "die Zahl für x, bei der beide Seiten gleich sind"
-     ]
-    ]
+     "label": "Waage kippt nach links: links 13, rechts 10"
+    }
    },
    {
     "lernziel": "umkehr_plus",
     "titel": "Plus und Minus rückwärts rechnen",
-    "regel": "So rechnest du rückwärts: Die ⟦Umkehrung von Plus ist Minus⟧, die ⟦Umkehrung von Minus ist Plus⟧. Bei x + 8 = 20 ist x = 20 − 8, bei x − 15 = 27 ist x = 27 + 15.",
+    "regel": "Die ⟦Umkehrung⟧ von plus ist minus, von minus ist plus. Bei x − 15 = 27 ist x = 27 + 15.",
     "schritte": [
-     "Schreib die Geschichte als Gleichung: x − 15 = 27. Dabei ist x das Geld vorher.",
-     "Vom Geld wurden 15 € abgezogen. Die Umkehrung von Minus ist Plus.",
-     "Rechne rückwärts: 27 + 15 = ⟦42⟧.",
-     "Vorher waren ⟦42 €⟧ im Geldbeutel."
+     {
+      "text": "Als Gleichung: x − 15 = 27. Nachher sind 27 € übrig.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 27,
+         "name": "nachher"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Die Umkehrung von minus ist plus: von 27 aus 15 nach rechts.",
+      "bild": {
+       "boegen": [
+        {
+         "von": 27,
+         "bis": 42,
+         "name": "+15"
+        }
+       ]
+      }
+     },
+     {
+      "text": "27 + 15 = ⟦42⟧. Vorher waren 42 € im Geldbeutel.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 27,
+         "name": "nachher"
+        },
+        {
+         "wert": 42,
+         "name": "vorher"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "42 − 15 = 27 ✓",
-    "fehler": "Bei x − 15 = 27 rechnen viele 27 − 15 = 12. Probe: 12 − 15 ergibt nicht 27. Wer etwas ausgegeben hat, hatte vorher ⟦mehr⟧ Geld. Die Umkehrung von Minus ist Plus: 27 + 15 = 42.",
-    "einstieg": "In deinem Geldbeutel war Geld. Du kaufst etwas für 15 € und hast danach noch 27 €. Wie viel war vorher drin? Du spielst die Geschichte rückwärts: Die 15 € kommen wieder in den Geldbeutel. So eine Rechnung, die eine andere rückgängig macht, heißt ⟦Umkehrung⟧.",
+    "fehler": "x − 15 = 27 mit 27 − 15 = 12 lösen ist falsch. Wer etwas ausgegeben hat, hatte vorher mehr Geld.",
+    "einstieg": "In deinem Geldbeutel war Geld. Du kaufst etwas für 15 € und hast noch 27 €. Rückwärts kommen die 15 € wieder hinein: Das ist die ⟦Umkehrung⟧.",
     "woerter": [
      [
-      "rückwärts rechnen",
-      "vom Ergebnis aus zurück zum Anfang rechnen"
+      "Umkehrung",
+      "eine Rechnung, die eine andere rückgängig macht"
      ],
      [
-      "Umkehrung",
-      "die Rechnung, die eine andere rückgängig macht: Minus macht Plus rückgängig und Plus macht Minus rückgängig"
+      "x",
+      "die gesuchte Zahl, hier das Geld vorher"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 50,
+     "abschnitte": 10,
+     "beschriftet": "alle"
+    },
+    "fehler_bild": {
+     "punkte": [
+      {
+       "wert": 27,
+       "name": "nachher"
+      }
+     ],
+     "boegen": [
+      {
+       "von": 27,
+       "bis": 12,
+       "name": "falsche Richtung"
+      }
+     ]
+    }
    },
    {
     "lernziel": "umkehr_mal",
     "titel": "Mal und Geteilt rückwärts rechnen",
-    "regel": "So rechnest du rückwärts: Die ⟦Umkehrung von Mal ist Geteilt⟧: Bei 4 · x = 12 ist x = 12 : 4. Die ⟦Umkehrung von Geteilt ist Mal⟧: Bei x : 4 = 12 ist x = 12 · 4.",
+    "regel": "Die ⟦Umkehrung⟧ von mal ist geteilt, von geteilt ist mal. Bei x : 4 = 12 ist x = 12 · 4.",
     "schritte": [
-     "4 Hefte zu je x € kosten 12 €: 4 · x = 12.",
-     "x wurde mit 4 malgenommen. Die Umkehrung von Mal ist Geteilt.",
-     "Rechne rückwärts: 12 : 4 = ⟦3⟧.",
-     "Ein Heft kostet ⟦3 €⟧."
+     {
+      "text": "Als Gleichung: 4 · x = 12."
+     },
+     {
+      "text": "Die Umkehrung von mal ist geteilt: 12 € in 4 gleiche Teile.",
+      "bild": {
+       "gefaerbt": 1
+      }
+     },
+     {
+      "text": "12 : 4 = ⟦3⟧. Ein Heft kostet 3 €.",
+      "bild": {
+       "teil_text": "3 €"
+      }
+     }
     ],
-    "probe": "4 · 3 = 12 ✓",
-    "fehler": "Bei x : 4 = 12 rechnen viele 12 : 4 = 3. Probe: 3 : 4 ergibt nicht 12. Ein Geldbetrag wurde gerecht auf 4 Kinder verteilt, jedes bekam 12 € – vorher war es also ⟦mehr⟧, nämlich 12 · 4 = 48 €.",
-    "einstieg": "4 gleich teure Hefte kosten zusammen 12 €. Wie viel kostet ein Heft? Du verteilst die 12 € gerecht auf die 4 Hefte. Teilen macht das Malnehmen rückgängig – auch das ist eine ⟦Umkehrung⟧.",
+    "fehler": "Bei x : 4 = 12 rechnen viele 12 : 4 = 3. Doch jedes von 4 Kindern bekam 12 €: Vorher waren es 48 €.",
+    "einstieg": "4 gleich teure Hefte kosten zusammen 12 €. Was kostet ein Heft? Du verteilst die 12 € auf 4 Hefte: Teilen ist die ⟦Umkehrung⟧ von Malnehmen.",
     "woerter": [
      [
       "4 · x",
-      "4 mal die unbekannte Zahl, hier 4 Hefte zu je x €"
+      "4-mal der Preis eines Hefts"
      ],
      [
-      "x : 4",
-      "die unbekannte Zahl geteilt durch 4"
+      "Umkehrung",
+      "eine Rechnung, die eine andere rückgängig macht"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "bruchstreifen",
+     "teile": 4,
+     "gefaerbt": 0,
+     "ganzes": "12 € für 4 Hefte"
+    },
+    "fehler_bild": {
+     "gefaerbt": 1,
+     "teil_text": "12 €",
+     "ganzes": "vorher: 4 · 12 € = 48 €"
+    }
    },
    {
     "lernziel": "zwei_schritte",
     "titel": "Zwei Rechenschritte rückwärts",
-    "regel": "So löst du eine Gleichung mit zwei Rechenschritten: Geh die ⟦Rechenkette rückwärts⟧. Den ⟦letzten⟧ Schritt kehrst du zuerst um – bei 3 · x + 4 = 19 also erst − 4, dann : 3.",
+    "regel": "Kehre den ⟦letzten Schritt zuerst⟧ um. Bei 3 · x + 4 = 19: erst − 4, dann : 3.",
     "schritte": [
-     "Die Gleichung lautet 3 · x + 4 = 19. Vorwärts heißt das: erst mal 3, dann plus 4.",
-     "Kehre den letzten Schritt zuerst um und zieh das Popcorn ab: 19 − 4 = 15. So viel kosten die 3 Karten zusammen.",
-     "Kehre dann den ersten Schritt um und verteile auf 3 Karten: 15 : 3 = ⟦5⟧.",
-     "Eine Karte kostet ⟦5 €⟧."
+     {
+      "text": "3 · x + 4 = 19: vorwärts erst mal 3, dann plus 4."
+     },
+     {
+      "text": "Den letzten Schritt zuerst umkehren: 19 − 4 = 15.",
+      "bild": {
+       "zeilen": [
+        [
+         "vorwärts",
+         "x",
+         "· 3",
+         "?",
+         "+ 4",
+         "19"
+        ],
+        [
+         "rückwärts",
+         "?",
+         ": 3",
+         "15",
+         "− 4",
+         "19"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Dann den ersten: 15 : 3 = ⟦5⟧. Eine Karte kostet 5 €.",
+      "bild": {
+       "zeilen": [
+        [
+         "vorwärts",
+         "x",
+         "· 3",
+         "15",
+         "+ 4",
+         "19"
+        ],
+        [
+         "rückwärts",
+         "5",
+         ": 3",
+         "15",
+         "− 4",
+         "19"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "3 · 5 + 4 = 15 + 4 = 19 ✓",
-    "fehler": "Die Schritte in der falschen Reihenfolge umkehren – wie Socken ausziehen, bevor die Schuhe aus sind. Bei 2 · x + 6 = 20 rechnet man falsch 20 : 2 = 10 und 10 − 6 = 4. Probe: 2 · 4 + 6 = 14, nicht 20. Richtig ist ⟦erst − 6, dann : 2⟧: 20 − 6 = 14, 14 : 2 = 7.",
+    "fehler": "Bei 2 · x + 6 = 20 erst teilen: 10 − 6 = 4. Probe: 2 · 4 + 6 = 14, nicht 20.",
+    "einstieg": "3 Kinokarten und ein Popcorn für 4 € kosten 19 €. Gerechnet wurde erst mal 3, dann plus 4. Rückwärts baust du die ⟦Rechenkette⟧ von hinten ab.",
+    "woerter": [
+     [
+      "Rechenkette",
+      "mehrere Rechenschritte hintereinander"
+     ]
+    ],
     "bild": {
      "typ": "tabelle",
      "kopf": [
@@ -242,124 +596,688 @@
       ],
       [
        "rückwärts",
-       "5",
+       "?",
        ": 3",
-       "15",
+       "?",
        "− 4",
        "19"
       ]
      ]
-    },
-    "einstieg": "Im Kino kosten 3 Karten und eine Tüte Popcorn für 4 € zusammen 19 €. Hier wurde zweimal nacheinander gerechnet: erst der Kartenpreis mal 3, dann plus 4 € für das Popcorn. Mehrere Rechenschritte hintereinander nennt man eine ⟦Rechenkette⟧. Rückwärts baust du sie in umgekehrter Reihenfolge ab.",
-    "woerter": [
-     [
-      "Rechenkette",
-      "mehrere Rechenschritte nacheinander"
-     ],
-     [
-      "3 · x + 4",
-      "erst die unbekannte Zahl mal 3, dann plus 4"
-     ],
-     [
-      "Zwischenwert",
-      "das Ergebnis nach dem ersten Rechenschritt"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "probe",
     "titel": "Probe machen und Fehler finden",
-    "regel": "So machst du die Probe: Setze die Zahl für x in die ⟦ursprüngliche Gleichung⟧ ein und rechne die linke Seite aus. Kommt dasselbe heraus wie rechts, ⟦stimmt⟧ die Lösung.",
+    "regel": "Setze die Lösung in die ⟦Gleichung⟧ ein. Sind beide Seiten gleich, stimmt sie.",
     "schritte": [
-     "Die Gleichung lautet 5 · x − 8 = 27, die angebliche Lösung ist x = 7.",
-     "Setze 7 für x ein: 5 · 7 − 8.",
-     "Rechne die linke Seite aus: 35 − 8 = 27.",
-     "Rechts steht auch 27. Beide Seiten sind gleich – die Lösung ⟦stimmt⟧."
+     {
+      "text": "Die Gleichung: 5 · x − 8 = 27. Behauptet wird x = 7."
+     },
+     {
+      "text": "Einsetzen: 7 für x, also 5 · 7 − 8.",
+      "bild": {
+       "typ": "figur",
+       "label": "Waage im Gleichgewicht: links 5 · 7 − 8, rechts 27",
+       "punkte": {
+        "_A": [
+         1.5,
+         2
+        ],
+        "_B": [
+         8.5,
+         2
+        ],
+        "_S": [
+         5,
+         2
+        ],
+        "_F1": [
+         4,
+         0
+        ],
+        "_F2": [
+         6,
+         0
+        ],
+        "_L1": [
+         -0.5,
+         2.6
+        ],
+        "_L2": [
+         3.5,
+         2.6
+        ],
+        "_R1": [
+         6.5,
+         2.6
+        ],
+        "_R2": [
+         10.5,
+         2.6
+        ],
+        "_LA": [
+         1.5,
+         2.6
+        ],
+        "_RA": [
+         8.5,
+         2.6
+        ]
+       },
+       "flaeche": [
+        "_S",
+        "_F1",
+        "_F2"
+       ],
+       "linien": [
+        [
+         "_A",
+         "_B"
+        ],
+        [
+         "_A",
+         "_LA"
+        ],
+        [
+         "_B",
+         "_RA"
+        ],
+        [
+         "_L1",
+         "_L2",
+         "5 · 7 − 8"
+        ],
+        [
+         "_R1",
+         "_R2",
+         "27"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Links: 35 − 8 = 27. Rechts steht auch 27.",
+      "bild": {
+       "typ": "figur",
+       "label": "Waage im Gleichgewicht: links 27, rechts 27",
+       "punkte": {
+        "_A": [
+         1.5,
+         2
+        ],
+        "_B": [
+         8.5,
+         2
+        ],
+        "_S": [
+         5,
+         2
+        ],
+        "_F1": [
+         4,
+         0
+        ],
+        "_F2": [
+         6,
+         0
+        ],
+        "_L1": [
+         -0.5,
+         2.6
+        ],
+        "_L2": [
+         3.5,
+         2.6
+        ],
+        "_R1": [
+         6.5,
+         2.6
+        ],
+        "_R2": [
+         10.5,
+         2.6
+        ],
+        "_LA": [
+         1.5,
+         2.6
+        ],
+        "_RA": [
+         8.5,
+         2.6
+        ]
+       },
+       "flaeche": [
+        "_S",
+        "_F1",
+        "_F2"
+       ],
+       "linien": [
+        [
+         "_A",
+         "_B"
+        ],
+        [
+         "_A",
+         "_LA"
+        ],
+        [
+         "_B",
+         "_RA"
+        ],
+        [
+         "_L1",
+         "_L2",
+         "27"
+        ],
+        [
+         "_R1",
+         "_R2",
+         "27"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Beide Seiten sind gleich: Die Lösung ⟦stimmt⟧."
+     }
     ],
-    "fehler": "Die Probe mit der eigenen Rechnung statt mit der Gleichung machen. Wer bei x − 15 = 27 falsch 27 − 15 = 12 rechnet und dann prüft „27 − 15 = 12 ✓“, findet seinen Fehler nie. Setze immer in die ⟦Gleichung⟧ ein: 12 − 15 ergibt nicht 27.",
-    "einstieg": "Deine Freundin hat eine Gleichung gelöst und ruft: „x = 7!“ Stimmt das? Du musst nicht alles noch einmal rechnen. Du legst die 7 sozusagen in die Waage und schaust, ob sie im Gleichgewicht bleibt. Diese Kontrolle heißt ⟦Probe⟧.",
+    "fehler": "Die Probe mit der eigenen Rechnung statt mit der Gleichung machen. So findest du deinen Fehler nie.",
+    "einstieg": "Deine Freundin ruft: „x = 7!“ Stimmt das? Du setzt die 7 in die Gleichung ein und schaust, ob die Waage gerade hängt. Das heißt ⟦Probe⟧.",
     "woerter": [
      [
-      "Probe",
-      "die gefundene Zahl in die Gleichung einsetzen und nachrechnen"
-     ],
-     [
       "einsetzen",
-      "für x die Zahl hinschreiben"
+      "statt x die Zahl hinschreiben"
      ],
      [
-      "ursprüngliche Gleichung",
-      "die Gleichung so, wie sie in der Aufgabe steht"
+      "Probe",
+      "Kontrolle: Lösung einsetzen und beide Seiten vergleichen"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "label": "Waage im Gleichgewicht: links 5 · x − 8, rechts 27",
+     "punkte": {
+      "_A": [
+       1.5,
+       2
+      ],
+      "_B": [
+       8.5,
+       2
+      ],
+      "_S": [
+       5,
+       2
+      ],
+      "_F1": [
+       4,
+       0
+      ],
+      "_F2": [
+       6,
+       0
+      ],
+      "_L1": [
+       -0.5,
+       2.6
+      ],
+      "_L2": [
+       3.5,
+       2.6
+      ],
+      "_R1": [
+       6.5,
+       2.6
+      ],
+      "_R2": [
+       10.5,
+       2.6
+      ],
+      "_LA": [
+       1.5,
+       2.6
+      ],
+      "_RA": [
+       8.5,
+       2.6
+      ]
+     },
+     "flaeche": [
+      "_S",
+      "_F1",
+      "_F2"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B"
+      ],
+      [
+       "_A",
+       "_LA"
+      ],
+      [
+       "_B",
+       "_RA"
+      ],
+      [
+       "_L1",
+       "_L2",
+       "5 · x − 8"
+      ],
+      [
+       "_R1",
+       "_R2",
+       "27"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "aufstellen",
     "titel": "Textaufgaben als Gleichung",
-    "regel": "So stellst du eine Gleichung auf: Nenne die gesuchte Zahl ⟦x⟧ und übersetze den Text Stück für Stück: „das Dreifache“ heißt 3 · x, „vermehrt um 5“ heißt + 5, „ergibt“ oder „kostet zusammen“ heißt ⟦=⟧. Stell dir die Waage vor: Was liegt links, was rechts?",
+    "regel": "Gesuchte Zahl ⟦x⟧ nennen und Stück für Stück übersetzen. „Das Dreifache“ ist 3 · x, „ergibt“ ist =.",
     "schritte": [
-     "Nenne die gesuchte Zahl x: Hier ist x der Preis der Packung.",
-     "Übersetze Stück für Stück: Packung und Album sind x + 2, „kosten zusammen“ ist =, dann folgt 9. Die Gleichung lautet x + 2 = 9.",
-     "Rechne rückwärts: 9 − 2 = ⟦7⟧.",
-     "Die Packung kostet ⟦7 €⟧."
+     {
+      "text": "Nenne die gesuchte Zahl x: den Preis der Karten.",
+      "bild": {
+       "typ": "figur",
+       "label": "Waage im Gleichgewicht: links x, rechts ?",
+       "punkte": {
+        "_A": [
+         1.5,
+         2
+        ],
+        "_B": [
+         8.5,
+         2
+        ],
+        "_S": [
+         5,
+         2
+        ],
+        "_F1": [
+         4,
+         0
+        ],
+        "_F2": [
+         6,
+         0
+        ],
+        "_L1": [
+         -0.5,
+         2.6
+        ],
+        "_L2": [
+         3.5,
+         2.6
+        ],
+        "_R1": [
+         6.5,
+         2.6
+        ],
+        "_R2": [
+         10.5,
+         2.6
+        ],
+        "_LA": [
+         1.5,
+         2.6
+        ],
+        "_RA": [
+         8.5,
+         2.6
+        ]
+       },
+       "flaeche": [
+        "_S",
+        "_F1",
+        "_F2"
+       ],
+       "linien": [
+        [
+         "_A",
+         "_B"
+        ],
+        [
+         "_A",
+         "_LA"
+        ],
+        [
+         "_B",
+         "_RA"
+        ],
+        [
+         "_L1",
+         "_L2",
+         "x"
+        ],
+        [
+         "_R1",
+         "_R2",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "„Zusammen kosten“ heißt =. Gleichung aufstellen: x + 2 = 9.",
+      "bild": {
+       "typ": "figur",
+       "label": "Waage im Gleichgewicht: links x + 2, rechts 9",
+       "punkte": {
+        "_A": [
+         1.5,
+         2
+        ],
+        "_B": [
+         8.5,
+         2
+        ],
+        "_S": [
+         5,
+         2
+        ],
+        "_F1": [
+         4,
+         0
+        ],
+        "_F2": [
+         6,
+         0
+        ],
+        "_L1": [
+         -0.5,
+         2.6
+        ],
+        "_L2": [
+         3.5,
+         2.6
+        ],
+        "_R1": [
+         6.5,
+         2.6
+        ],
+        "_R2": [
+         10.5,
+         2.6
+        ],
+        "_LA": [
+         1.5,
+         2.6
+        ],
+        "_RA": [
+         8.5,
+         2.6
+        ]
+       },
+       "flaeche": [
+        "_S",
+        "_F1",
+        "_F2"
+       ],
+       "linien": [
+        [
+         "_A",
+         "_B"
+        ],
+        [
+         "_A",
+         "_LA"
+        ],
+        [
+         "_B",
+         "_RA"
+        ],
+        [
+         "_L1",
+         "_L2",
+         "x + 2"
+        ],
+        [
+         "_R1",
+         "_R2",
+         "9"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Rückwärts: 9 − 2 = ⟦7⟧. Die Karten kosten 7 €.",
+      "bild": {
+       "typ": "figur",
+       "label": "Waage im Gleichgewicht: links x, rechts 7",
+       "punkte": {
+        "_A": [
+         1.5,
+         2
+        ],
+        "_B": [
+         8.5,
+         2
+        ],
+        "_S": [
+         5,
+         2
+        ],
+        "_F1": [
+         4,
+         0
+        ],
+        "_F2": [
+         6,
+         0
+        ],
+        "_L1": [
+         -0.5,
+         2.6
+        ],
+        "_L2": [
+         3.5,
+         2.6
+        ],
+        "_R1": [
+         6.5,
+         2.6
+        ],
+        "_R2": [
+         10.5,
+         2.6
+        ],
+        "_LA": [
+         1.5,
+         2.6
+        ],
+        "_RA": [
+         8.5,
+         2.6
+        ]
+       },
+       "flaeche": [
+        "_S",
+        "_F1",
+        "_F2"
+       ],
+       "linien": [
+        [
+         "_A",
+         "_B"
+        ],
+        [
+         "_A",
+         "_LA"
+        ],
+        [
+         "_B",
+         "_RA"
+        ],
+        [
+         "_L1",
+         "_L2",
+         "x"
+        ],
+        [
+         "_R1",
+         "_R2",
+         "7"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "7 + 2 = 9 ✓",
-    "fehler": "„Das Doppelte einer Zahl, vermindert um 4, ergibt 10“ ist nicht 2 · (x − 4) = 10. Erst wird verdoppelt, dann 4 abgezogen: ⟦2 · x − 4 = 10⟧, also x = 7. Mit der falschen Gleichung käme 9 heraus – aber 2 · 9 − 4 = 14, nicht 10.",
-    "einstieg": "Eine Packung Sammelkarten und ein Album für 2 € kosten zusammen 9 €. Was kostet die Packung? Bevor du rechnest, übersetzt du den Text in die Sprache der Mathematik – wie beim Übersetzen in eine andere Sprache, Wort für Wort. Das heißt, eine Gleichung ⟦aufstellen⟧.",
+    "fehler": "„Das Doppelte, vermindert um 4“ heißt 2 · x − 4. Falsch ist 2 · (x − 4): Erst wird verdoppelt, dann abgezogen.",
+    "einstieg": "Sammelkarten und ein Album für 2 € kosten zusammen 9 €. Was kosten die Karten? Erst übersetzt du den Text in eine ⟦Gleichung⟧.",
     "woerter": [
      [
       "aufstellen",
-      "aus einem Text eine Gleichung machen"
-     ],
-     [
-      "das Dreifache",
-      "3 · x"
-     ],
-     [
-      "vermehrt um 5, vermindert um 4",
-      "+ 5 und − 4"
-     ],
-     [
-      "ergibt, kostet zusammen",
-      "das Gleichheitszeichen ="
+      "einen Text in eine Gleichung übersetzen"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "label": "Waage im Gleichgewicht: links ?, rechts ?",
+     "punkte": {
+      "_A": [
+       1.5,
+       2
+      ],
+      "_B": [
+       8.5,
+       2
+      ],
+      "_S": [
+       5,
+       2
+      ],
+      "_F1": [
+       4,
+       0
+      ],
+      "_F2": [
+       6,
+       0
+      ],
+      "_L1": [
+       -0.5,
+       2.6
+      ],
+      "_L2": [
+       3.5,
+       2.6
+      ],
+      "_R1": [
+       6.5,
+       2.6
+      ],
+      "_R2": [
+       10.5,
+       2.6
+      ],
+      "_LA": [
+       1.5,
+       2.6
+      ],
+      "_RA": [
+       8.5,
+       2.6
+      ]
+     },
+     "flaeche": [
+      "_S",
+      "_F1",
+      "_F2"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B"
+      ],
+      [
+       "_A",
+       "_LA"
+      ],
+      [
+       "_B",
+       "_RA"
+      ],
+      [
+       "_L1",
+       "_L2",
+       "?"
+      ],
+      [
+       "_R1",
+       "_R2",
+       "?"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "ohne_loesung",
     "titel": "Gibt es immer eine Lösung?",
-    "regel": "So erkennst du, ob es in ℕ eine Lösung gibt: Rechne rückwärts. Kommt eine Zahl ⟦unter 0⟧ heraus oder geht das Teilen ⟦nicht ohne Rest⟧, gibt es in den ⟦natürlichen Zahlen⟧ keine Lösung. Mit den ⟦ganzen Zahlen⟧ hat x + 9 = 4 die Lösung −5.",
+    "regel": "In ℕ gibt es keine Lösung, wenn rückwärts etwas ⟦unter 0⟧ herauskommt. Ebenso, wenn Teilen nicht ohne Rest aufgeht.",
     "schritte": [
-     "Die Gleichung lautet x + 9 = 4.",
-     "Rückwärts gerechnet ist x = 4 − 9. Von 4 kannst du nicht 9 abziehen, ohne unter 0 zu kommen. In ℕ gibt es also keine Lösung.",
-     "Mit ganzen Zahlen geht es: 4 − 9 = ⟦−5⟧. Der Aufzug ist im 5. Untergeschoss losgefahren.",
-     "Genauso hat 3 · x = 10 in ℕ keine Lösung, denn 10 ist ⟦nicht durch 3 teilbar⟧."
+     {
+      "text": "Die Gleichung: x + 9 = 4. Rückwärts: x = 4 − 9."
+     },
+     {
+      "text": "Von 4 aus 9 nach unten: Unter 0 gibt es in ℕ keine Zahl.",
+      "bild": {
+       "boegen": [
+        {
+         "von": 4,
+         "bis": -5,
+         "name": "−9"
+        }
+       ],
+       "bereich": {
+        "von": -6,
+        "bis": 0
+       }
+      }
+     },
+     {
+      "text": "Ganze Zahlen helfen: ⟦x = −5⟧, das 5. Untergeschoss.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 4,
+         "name": "Ziel"
+        },
+        {
+         "wert": -5,
+         "name": "Start"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "(−5) + 9 = 4 ✓",
-    "fehler": "Bei x + 9 = 4 die Zahlen tauschen und 9 − 4 = 5 rechnen. Probe: 5 + 9 = 14, nicht 4 – der Aufzug wäre im 14. Stock gelandet. Die Umkehrung ist 4 − 9, und das ist ⟦keine natürliche Zahl⟧.",
-    "einstieg": "Ein Aufzug fährt 9 Stockwerke nach oben und hält im 4. Stock. Wo ist er losgefahren? Mit den Zahlen 0, 1, 2, 3, … klappt das nicht – er muss unter dem Erdgeschoss gestartet sein. Mit diesen Zahlen allein hat die Gleichung ⟦keine Lösung⟧.",
+    "fehler": "Bei x + 9 = 4 die Zahlen tauschen: 9 − 4 = 5. Probe: 5 + 9 = 14, nicht 4.",
+    "einstieg": "Ein Aufzug fährt 9 Stockwerke nach oben und hält im vierten Stock. Wo ist er losgefahren? Mit 0, 1, 2, 3 … allein gibt es ⟦keine Lösung⟧.",
     "woerter": [
      [
-      "natürliche Zahlen ℕ",
-      "die Zahlen zum Zählen: ℕ = {0; 1; 2; 3; …}"
-     ],
-     [
-      "{ … }",
-      "Mengenklammern: In ihnen stehen die Zahlen, die dazugehören"
+      "ℕ",
+      "die natürlichen Zahlen 0, 1, 2, 3 …"
      ],
      [
       "ganze Zahlen",
-      "die natürlichen Zahlen und ihre Minus-Zahlen: …, −2, −1, 0, 1, 2, …"
-     ],
-     [
-      "Untergeschoss",
-      "ein Stockwerk unter dem Erdgeschoss; im Aufzug oft −1, −2, …"
-     ],
-     [
-      "teilbar",
-      "lässt sich ohne Rest teilen"
+      "auch die negativen: … −2, −1, 0, 1, 2 …"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": -6,
+     "ende": 6,
+     "abschnitte": 12,
+     "beschriftet": "anfang_ende",
+     "punkte": [
+      {
+       "wert": 4,
+       "name": "Ziel"
+      }
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [

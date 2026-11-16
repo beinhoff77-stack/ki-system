@@ -421,76 +421,89 @@ DATEI = datei(E, 'Winkel ergänzen und an Geradenkreuzungen, um einen Punkt, an 
                      'Nachbarwinkel an der Geradenkreuzung werden nur über „ergänzen zu 180°“ begründet, ohne die Fachbegriffe Neben-/Scheitelwinkel einzuführen (Kl. 7).',
                      'Zeichnungen: Strahlenfächer und Geradenkreuzung als Figur mit Winkelbögen, Rechteck/Quadrat mit Diagonale; Uhr (Zifferblatt mit Zeigern) und Windrose als Figur in den Lernkarten uhr und drehungen und in Aufgaben.'])
 
-# Verständliche Fassung (Siebte Runde, 15.11.): Alltagssituation zuerst (einstieg), jedes neue Wort erklärt (woerter),
-# Beispiel in kleinen Schritten, Merksatz am Ende (regel). Situationen: Pizza und Torte, Straßenkreuzung, Uhr, Windrose, Blatt Papier.
-# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _klar_kl5.py) – die Aufgaben bleiben wörtlich gleich.
-from _klar_kl5 import klar  # noqa: E402
+# Umbau U5 (Achte Runde, Vorgabe 16.11.): Lernkarten nach dem neuen Muster – einstieg, woerter (≤ 3), Kartenbild,
+# Bildergeschichte (schritte mit bild), „Pass auf!“ (fehler + fehler_bild), MERKE (regel).
+# Situationen: Pizza, Straßenkreuzung, Torte, Uhr, Kompass, Blatt Papier. Die vorhandenen Figuren bleiben Kartenbild;
+# die Schritte ändern nur die Winkelbeschriftungen (Feld winkel).
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl5.py) – die Aufgaben bleiben wörtlich gleich.
+import math  # noqa: E402
 
-KLAR = {
+from _umbau_kl5 import umbau  # noqa: E402
+
+KREUZ = lambda b, g, d: {'winkel': [['S', '_P0', '_P1', 'α = 70°'], ['S', '_P1', '_P2', b], ['S', '_P2', '_P3', g], ['S', '_P3', '_P4', d]]}
+STRAHL = lambda w: [round(5 * math.cos(math.radians(w)), 3), round(5 * math.sin(math.radians(w)), 3)]
+
+KARTEN = {
  'ergaenzen': {
-  'einstieg': 'Eine Pizza ist in Stücke geschnitten. Legst du zwei Stücke nebeneinander, ist ihre Spitze zusammen so breit wie beide Spitzen zusammengezählt. Bei Winkeln ist es genauso: Zwei Winkel nebeneinander zählt man zusammen. Fehlt ein Stück bis zu einem bekannten Ganzen, rechnest du den Rest aus – du ⟦ergänzt⟧ den Winkel.',
-  'woerter': [['Scheitel, Schenkel', 'der Eckpunkt eines Winkels und die beiden Linien, die von ihm ausgehen'], ['ergänzen', 'den fehlenden Teil bis zu einem Ganzen ausrechnen'], ['nebeneinander', 'zwei Winkel mit gemeinsamem Scheitel und gemeinsamem Schenkel'],
-              ['rechter Winkel', '90°, wie die Ecke eines Blattes'], ['gestreckter Winkel', '180°: die beiden Schenkel bilden eine gerade Linie'],
-              ['Vollwinkel', '360°: eine ganze Drehung'], ['α, β', 'griechische Buchstaben „alpha“ und „beta“ als Namen für Winkel']],
-  'schritte': ['α = 50° und β liegen nebeneinander. Ihre äußeren Schenkel bilden eine gerade Linie, also einen gestreckten Winkel.',
-               'Ein gestreckter Winkel hat 180°. Also gilt: 50° + β = 180°.',
-               'Den Rest rechnest du mit Minus aus: β = 180° − 50° = ⟦130°⟧.'],
-  'regel': 'So ergänzt du einen Winkel: Prüfe, ⟦welches Ganze⟧ die Winkel zusammen bilden – ⟦90°⟧, ⟦180°⟧ oder ⟦360°⟧. Der fehlende Winkel ist das Ganze ⟦minus⟧ den bekannten Winkel.'},
+  'einstieg': 'Zwei Pizzastücke nebeneinander ergeben zusammen eine breitere Spitze. Bei Winkeln ist es genauso: Nebeneinander werden sie addiert. Fehlt ein Stück bis zu einem bekannten Ganzen, ⟦ergänzt⟧ du es.',
+  'woerter': [['ergänzt', 'den fehlenden Teil bis zum Ganzen ausgerechnet'], ['gestreckten Winkel', '180°: Die Schenkel bilden eine gerade Linie'],
+              ['β', 'der griechische Buchstabe „beta“, ein Name für einen Winkel']],
+  'bild': 'BEHALTEN',
+  'schritte': [{'text': 'α = 50° und β liegen nebeneinander an einer geraden Linie.'},
+               {'text': 'Zusammen bilden sie einen gestreckten Winkel: 180°.'},
+               {'text': 'Also ist β = 180° − 50° = ⟦130°⟧.', 'bild': {'winkel': [['S', '_P0', '_P1', 'α = 50°'], ['S', '_P1', '_P2', 'β = 130°']]}}],
+  'fehler': 'β = 90° − 50° = 40° ist falsch. Die Linie ist gerade, das Ganze sind also 180°, nicht 90°.',
+  'regel': 'Fehlender Winkel = ⟦Ganzes minus bekannter Winkel⟧. Das Ganze ist 90°, 180° oder 360°.'},
  'kreuzung': {
-  'einstieg': 'Wo sich zwei gerade Straßen kreuzen, entstehen vier Ecken. Je zwei gegenüberliegende Ecken sehen gleich aus. Und zwei Ecken nebeneinander ergeben zusammen eine gerade Straßenseite. So ist es an jeder ⟦Geradenkreuzung⟧.',
-  'woerter': [['Geradenkreuzung', 'die Stelle, an der sich zwei Geraden schneiden; dort entstehen vier Winkel'],
-              ['benachbarte Winkel', 'zwei Winkel nebeneinander an der Kreuzung; zusammen 180°'], ['gegenüberliegende Winkel', 'zwei Winkel, die sich an der Kreuzung gegenüberliegen'],
-              ['γ, δ', 'griechische Buchstaben „gamma“ und „delta“']],
-  'schritte': ['Zwei Geraden schneiden sich, α = 70°. Gesucht sind die anderen Winkel.',
-               'β liegt neben α. Zusammen bilden sie einen gestreckten Winkel: β = 180° − 70° = 110°.',
-               'γ liegt α gegenüber und neben β. Also ist γ = 180° − 110° = 70°.',
-               'Damit ist γ genauso groß wie α: ⟦γ = 70°⟧. Ebenso ist δ so groß wie β: ⟦δ = 110°⟧.'],
-  'regel': 'So rechnest du an einer Kreuzung: ⟦Benachbarte Winkel⟧ ergeben zusammen ⟦180°⟧. ⟦Gegenüberliegende Winkel⟧ sind ⟦gleich groß⟧. Alle vier zusammen ergeben 360°.'},
+  'einstieg': 'Wo sich zwei gerade Straßen kreuzen, entstehen vier Ecken. Gegenüberliegende Ecken sind gleich groß. Ecken nebeneinander ergeben zusammen eine gerade Straßenseite: So ist es an jeder ⟦Geradenkreuzung⟧.',
+  'woerter': [['Nachbarwinkel', 'zwei Winkel nebeneinander an der Kreuzung; zusammen 180°'], ['gegenüberliegende Winkel', 'liegen sich gegenüber; sie sind gleich groß']],
+  'bild': 'BEHALTEN',
+  'schritte': [{'text': 'α = 70°. Sein Nachbarwinkel β ergänzt ihn zu 180°: β = 110°.', 'bild': KREUZ('β = 110°', 'γ', 'δ')},
+               {'text': 'γ ist Nachbarwinkel von β: 180° − 110° = 70°.', 'bild': KREUZ('β = 110°', 'γ = 70°', 'δ')},
+               {'text': 'Also sind gegenüberliegende Winkel gleich: ⟦γ = α = 70°⟧, δ = β = 110°.', 'bild': KREUZ('β = 110°', 'γ = 70°', 'δ = 110°')}],
+  'fehler': 'β = 70° annehmen, nur weil β neben α liegt, ist falsch. Gleich groß sind nur die gegenüberliegenden Winkel.',
+  'regel': '⟦Gegenüberliegende Winkel⟧ sind gleich groß. Nachbarwinkel ergeben zusammen 180°.'},
  'um_punkt': {
-  'einstieg': 'Eine runde Torte wird in Stücke geschnitten, die alle in der Mitte zusammenstoßen. Egal wie groß die einzelnen Stücke sind: Zusammen ergeben sie die ganze Torte. Ihre Spitzen ergeben zusammen eine ganze Drehung, also 360°. So rechnest du mit ⟦Winkeln um einen Punkt⟧.',
-  'woerter': [['lückenlos', 'ohne Lücke und ohne Überlappung nebeneinander'], ['um einen Punkt', 'alle Winkel haben denselben Scheitel – wie die Spitzen der Tortenstücke']],
-  'schritte': ['Um einen Punkt liegen lückenlos α = 100°, β = 80°, γ = 120° und δ. Gesucht ist δ.',
-               'Alle vier zusammen ergeben einen Vollwinkel, also 360°.',
-               'Ziehe alle bekannten Winkel ab: 360° − 100° − 80° − 120° = ⟦60°⟧. Also ist δ = 60°.'],
-  'regel': 'So findest du den fehlenden Winkel: Liegen die Winkel ⟦lückenlos um einen Punkt⟧, ergeben sie ⟦360°⟧; liegen sie auf einer Seite einer Geraden, ergeben sie ⟦180°⟧. Fehlender Winkel = Ganzes ⟦minus alle bekannten Winkel⟧.',
-  'fehler': 'Nur einen der bekannten Winkel abziehen: 360° − 120° = 240° wäre für ein einziges Tortenstück fast die ganze Torte. ⟦Alle⟧ bekannten Winkel müssen vom Vollwinkel abgezogen werden.'},
+  'einstieg': 'Eine runde Torte wird in Stücke geschnitten, die in der Mitte zusammenstoßen. Alle Spitzen zusammen ergeben eine ganze Drehung. So ergeben ⟦Winkel um einen Punkt⟧ zusammen 360°.',
+  'woerter': [['lückenlos', 'ohne Lücke und ohne Überlappung'], ['Vollwinkel', '360°, eine ganze Drehung']],
+  'bild': 'BEHALTEN',
+  'schritte': [{'text': 'Um einen Punkt liegen lückenlos 100°, 80°, 120° und δ.'},
+               {'text': 'Zusammen bilden sie einen Vollwinkel: 360°.'},
+               {'text': 'δ = 360° − 100° − 80° − 120° = ⟦60°⟧.',
+                'bild': {'winkel': [['S', '_P0', '_P1', 'α = 100°'], ['S', '_P1', '_P2', 'β = 80°'], ['S', '_P2', '_P3', 'γ = 120°'], ['S', '_P3', '_P4', 'δ = 60°']]}}],
+  'fehler': 'Nur einen Winkel abziehen: 360° − 120° = 240°. Das wäre für ein einziges Stück fast die ganze Torte.',
+  'regel': 'Winkel um einen Punkt ergeben ⟦360°⟧. Auf einer Seite einer Geraden ergeben sie 180°.'},
  'uhr': {
-  'einstieg': 'Die Zeiger einer Uhr drehen sich immer im Kreis. Der große Zeiger schafft eine ganze Runde, also 360°, in einer Stunde. Das Zifferblatt hat 12 Zahlen in gleichen Abständen. Damit kannst du für jede Uhrzeit ausrechnen, welchen Winkel die Zeiger bilden – die ⟦Winkel an der Uhr⟧.',
-  'woerter': [['Zifferblatt', 'die Scheibe der Uhr mit den Zahlen 1 bis 12'], ['Minutenzeiger', 'der große Zeiger; eine Runde in 60 Minuten'],
-              ['Stundenzeiger', 'der kleine Zeiger; eine Runde in 12 Stunden'], ['Stundenabstand', 'der Abstand zwischen zwei benachbarten Zahlen: 360° : 12 = 30°']],
-  'schritte': ['Ein Stundenabstand ist 360° : 12 = 30°, denn 12 gleiche Abstände ergeben die ganze Runde.',
-               'Um 4:00 Uhr zeigt der Minutenzeiger auf die 12, der Stundenzeiger auf die 4.',
-               'Von 12 bis 4 liegen 4 Stundenabstände: 4 · 30° = ⟦120°⟧.'],
-  'regel': 'So rechnest du an der Uhr: Zwischen zwei Zahlen liegen ⟦30°⟧. Der ⟦Minutenzeiger⟧ dreht sich ⟦6° pro Minute⟧ (360° in 60 min). Der ⟦Stundenzeiger⟧ dreht sich 30° pro Stunde, also ⟦0,5° pro Minute⟧ – darum steht er um 7:30 Uhr genau zwischen 7 und 8.'},
+  'einstieg': 'Der große Uhrzeiger dreht sich in einer Stunde einmal ganz herum, also 360°. Das Zifferblatt hat 12 Zahlen in gleichen Abständen. So rechnest du ⟦Winkel an der Uhr⟧ aus.',
+  'woerter': [['Zifferblatt', 'die Scheibe der Uhr mit den Zahlen 1 bis 12'], ['Stundenabstand', 'Abstand zweier Nachbarzahlen: 360° : 12 = 30°']],
+  'bild': 'BEHALTEN',
+  'schritte': [{'text': 'Ein Stundenabstand ist 360° : 12 = 30°.', 'bild': {'winkel': []}},
+               {'text': 'Um 4:00 Uhr zeigen die Zeiger auf 12 und auf 4.'},
+               {'text': 'Dazwischen liegen 4 Stundenabstände: 4 · 30° = ⟦120°⟧.', 'bild': {'winkel': [['M', '_z12', '_z4', '120°']]}}],
+  'fehler': 'In 15 Minuten dreht sich der Minutenzeiger nicht um 15°. Er schafft 6° pro Minute, also 90°.',
+  'regel': 'Zwischen zwei Zahlen liegen ⟦30°⟧. Der Minutenzeiger dreht 6° pro Minute, der Stundenzeiger 0,5° pro Minute.'},
  'drehungen': {
-  'einstieg': 'Auf einem Kompass siehst du eine Windrose: Norden oben, Osten rechts, Süden unten, Westen links – und dazwischen Nordosten, Südosten, Südwesten und Nordwesten. Wer sich von einer Richtung zur anderen dreht, dreht sich um einen Winkel. So rechnest du mit ⟦Drehungen⟧.',
-  'woerter': [['Windrose', 'Bild mit den 8 Himmelsrichtungen N, NO, O, SO, S, SW, W, NW'], ['N, O, S, W', 'Norden, Osten, Süden, Westen'],
-              ['NO, SO, SW, NW', 'die Richtungen dazwischen, zum Beispiel Nordosten'], ['im Uhrzeigersinn', 'in die Richtung, in die sich Uhrzeiger drehen: rechts herum'],
-              ['Vierteldrehung', 'ein Viertel einer ganzen Drehung: 90°']],
-  'schritte': ['Die 8 Richtungen teilen eine ganze Drehung in 8 gleiche Teile: 360° : 8 = 45°.',
-               'Du schaust nach Norden und drehst dich im Uhrzeigersinn bis Südosten: N → NO → O → SO.',
-               'Das sind 3 Schritte zu je 45°: 3 · 45° = ⟦135°⟧.'],
-  'regel': 'So rechnest du mit Drehungen: ⟦ganze Drehung⟧ 360°, ⟦halbe Drehung⟧ 180°, ⟦Vierteldrehung⟧ 90°. Zwischen zwei benachbarten Richtungen der Windrose liegen ⟦45°⟧: Zähle die Schritte und nimm mal 45°.'},
+  'einstieg': 'Ein Kompass zeigt Norden, Osten, Süden, Westen und die Richtungen dazwischen. Von einer Richtung zur anderen drehst du dich um einen Winkel. So rechnest du mit ⟦Drehungen⟧.',
+  'woerter': [['Windrose', 'Bild mit 8 Himmelsrichtungen: N, NO, O, SO, S, SW, W, NW'], ['im Uhrzeigersinn', 'rechts herum, wie die Uhrzeiger']],
+  'bild': 'BEHALTEN',
+  'schritte': [{'text': 'Die Windrose teilt 360° in 8 gleiche Teile: je 45°.', 'bild': {'winkel': [['_M', 'N', 'NO', '45°']]}},
+               {'text': 'Von N im Uhrzeigersinn bis SO: N → NO → O → SO.'},
+               {'text': 'Das sind 3 Schritte: 3 · 45° = ⟦135°⟧.', 'bild': {'winkel': [['_M', 'N', 'SO', '135°']]}}],
+  'fehler': 'Von Norden nach Osten 180° annehmen ist falsch. Das ist eine Vierteldrehung, also 90°. 180° wäre bis Süden.',
+  'fehler_bild': {'winkel': [['_M', 'N', 'O', '90°']]},
+  'regel': 'Zwischen zwei Nachbarrichtungen liegen ⟦45°⟧. Ganze Drehung 360°, halbe 180°, Vierteldrehung 90°.'},
  'figuren': {
-  'einstieg': 'Ein Blatt Papier hat vier Ecken, und jede ist ein rechter Winkel. Faltest du es schräg von Ecke zu Ecke, teilt der Knick eine Ecke in zwei Teile. Die beiden Teile ergeben zusammen wieder die ganze Ecke, also 90°. Die schräge Verbindung zweier Ecken heißt ⟦Diagonale⟧.',
-  'woerter': [['Diagonale', 'die Strecke zwischen zwei gegenüberliegenden Ecken'], ['Eckwinkel', 'der Winkel in einer Ecke der Figur'],
-              ['ABCD', 'die Ecken des Vierecks, der Reihe nach benannt'], ['[AC]', 'die Diagonale von Ecke A nach Ecke C']],
-  'schritte': ['Im Rechteck ABCD ist der Eckwinkel bei A ein rechter Winkel: 90°.',
-               'Die Diagonale [AC] teilt ihn in zwei Teile. Ein Teil ist 35°.',
-               'Beide Teile zusammen ergeben 90°. Der andere Teil ist also 90° − 35° = ⟦55°⟧.'],
-  'regel': 'So rechnest du in ⟦Rechteck und Quadrat⟧: Jeder Eckwinkel ist ⟦90°⟧. Wird er geteilt, ergeben die Teile zusammen 90°. Im ⟦Quadrat⟧ teilt die Diagonale die Ecke in zwei gleiche Teile: je ⟦45°⟧.'},
+  'einstieg': 'Ein Blatt Papier hat vier rechte Ecken. Faltest du es schräg von Ecke zu Ecke, teilt der Knick eine Ecke. Diese schräge Linie heißt ⟦Diagonale⟧.',
+  'woerter': [['Diagonale', 'die Strecke zwischen zwei gegenüberliegenden Ecken'], ['[AC]', 'die Diagonale von A nach C']],
+  'bild': 'BEHALTEN',
+  'schritte': [{'text': 'Im Rechteck ABCD ist der Winkel bei A ein rechter Winkel: 90°.'},
+               {'text': 'Die Diagonale [AC] teilt ihn. Ein Teil ist 35°.'},
+               {'text': 'Der andere Teil ist 90° − 35° = ⟦55°⟧.', 'bild': {'winkel': [['A', 'B', 'C', '35°'], ['A', 'C', 'D', '55°']]}}],
+  'fehler': 'Den zweiten Teil auch 35° nennen ist falsch. Gleich groß sind die beiden Teile nur im Quadrat: je 45°.',
+  'regel': 'In Rechteck und Quadrat ist jede Ecke ⟦90°⟧. Die Teile einer geteilten Ecke ergeben zusammen 90°.'},
  'verstehen': {
-  'einstieg': 'Jemand behauptet: „Zwei Tortenstücke, die jedes breiter als ein Viertel der Torte sind, ergeben zusammen mehr als die halbe Torte.“ Stimmt das? Mit dem, was du über 90°, 180° und 360° weißt, kannst du das ohne Torte entscheiden. So eine Behauptung ist eine ⟦Aussage⟧, die richtig oder falsch ist.',
-  'woerter': [['Aussage', 'ein Satz, der richtig oder falsch ist'], ['Bezugswinkel', 'die bekannten Winkel 90°, 180° und 360°, mit denen man vergleicht'],
-              ['stumpf', 'zwischen 90° und 180°'], ['überstumpf', 'zwischen 180° und 360°'], ['Gegenbeispiel', 'ein Fall, bei dem die Aussage nicht stimmt'],
-              ['Skizze', 'eine schnelle Zeichnung ohne genaue Maße']],
-  'schritte': ['Die Aussage lautet: „Zwei stumpfe Winkel nebeneinander ergeben immer einen überstumpfen Winkel.“',
-               'Ein Beispiel zeigt die Idee: 100° + 100° = 200°, das ist überstumpf. Ein Beispiel allein reicht aber nicht für „immer“.',
-               'Darum allgemein: Jeder stumpfe Winkel ist größer als 90°, zwei zusammen also größer als 180°. Jeder ist kleiner als 180°, zwei zusammen also kleiner als 360°.',
-               'Die Summe liegt also immer zwischen 180° und 360°. Die Aussage ist ⟦richtig⟧.'],
-  'regel': 'So prüfst du eine Winkelaussage: Vergleiche mit den ⟦Bezugswinkeln⟧ 90°, 180° und 360° und mach eine ⟦Skizze⟧. Für „immer“ brauchst du eine Begründung, die für ⟦alle⟧ Fälle gilt. Zum Widerlegen genügt ⟦ein Gegenbeispiel⟧.'},
+  'einstieg': 'Jemand behauptet: „Zwei stumpfe Winkel nebeneinander ergeben immer mehr als 180°.“ Stimmt das immer? So eine Behauptung ist eine ⟦Aussage⟧, die du prüfst.',
+  'woerter': [['Aussage', 'ein Satz, der richtig oder falsch ist'], ['stumpf', 'zwischen 90° und 180°'], ['überstumpf', 'zwischen 180° und 360°']],
+  'bild': {'typ': 'figur', 'punkte': {'S': [0, 0], '_P0': [5, 0], '_P1': STRAHL(100), '_P2': STRAHL(200)},
+           'linien': [['S', '_P0'], ['S', '_P1'], ['S', '_P2']], 'winkel': [['S', '_P0', '_P1', '100°'], ['S', '_P1', '_P2', '100°']]},
+  'schritte': [{'text': 'Beispiel: 100° + 100° = 200°. Ein Beispiel reicht aber nicht für „immer“.'},
+               {'text': 'Jeder stumpfe Winkel ist größer als 90°. Zwei sind größer als 180°.'},
+               {'text': 'Jeder ist kleiner als 180°. Zwei sind kleiner als 360°.'},
+               {'text': 'Die Summe ist immer überstumpf. Die Aussage ist ⟦richtig⟧.'}],
+  'fehler': 'Nur ein Beispiel prüfen, das zufällig passt, ist unsicher. Für „immer“ brauchst du eine Begründung oder ein Gegenbeispiel.',
+  'regel': 'Für „immer“ brauchst du eine ⟦Begründung⟧ für alle Fälle. Zum Widerlegen genügt ein Gegenbeispiel.'},
 }
-klar(DATEI, KLAR)
+umbau(DATEI, KARTEN)
 
 
 if __name__ == '__main__':

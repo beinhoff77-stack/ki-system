@@ -153,8 +153,10 @@ def _schluessel(a):
             + json.dumps(f.get('schablone'), ensure_ascii=False) + '|' + json.dumps(f.get('grafik'), sort_keys=True))
 
 
-def bauen(thema, ziel, merke, abschnitte, etappen, gen, offen=(), vertiefung=(), plan=PLAN, meiden=None):
-    """meiden: {lernziel: [Textstücke]} – Aufgaben mit den Zahlen des vorgerechneten Beispiels auslassen."""
+def bauen(thema, ziel, merke, abschnitte, etappen, gen, offen=(), vertiefung=(), plan=PLAN, meiden=None, klar=None):
+    """meiden: {lernziel: [Textstücke]} – Aufgaben mit den Zahlen des vorgerechneten Beispiels auslassen.
+    klar: {lernziel: {Feld: Wert}} – verständliche Fassung der Lernkarten (Runde 7). Wird erst NACH dem Bauen der Aufgaben
+    eingesetzt, damit die Aufgaben wörtlich gleich bleiben (die alten Beispiel-Schritte dienen weiter zum Vermeiden von Dopplungen)."""
     meiden = meiden or {}
     meta = next(t for t in json.loads(LISTE.read_text(encoding='utf-8')) if t['thema_schluessel'] == thema)
     lz = [e['lernziel'] for e in etappen]
@@ -183,6 +185,8 @@ def bauen(thema, ziel, merke, abschnitte, etappen, gen, offen=(), vertiefung=(),
                 a.pop('h', None)
             t = a.pop('t', None) or e['lernziel']
             alle.append({'l': e['lernziel'], 't': t, 'p': pool, 's': stufe, **a})
+    for e in etappen:
+        e.update((klar or {}).get(e['lernziel'], {}))
     datei = {
         'thema_schluessel': thema, 'thema_id': meta['thema_id'], 'block_id': meta['block_id'],
         'klasse': meta['klasse'], 'autor': 'Claude (Paket Klasse 10)',

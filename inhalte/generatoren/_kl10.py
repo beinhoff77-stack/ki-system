@@ -186,7 +186,10 @@ def bauen(thema, ziel, merke, abschnitte, etappen, gen, offen=(), vertiefung=(),
             t = a.pop('t', None) or e['lernziel']
             alle.append({'l': e['lernziel'], 't': t, 'p': pool, 's': stufe, **a})
     for e in etappen:
-        e.update((klar or {}).get(e['lernziel'], {}))
+        k = (klar or {}).get(e['lernziel'], {})
+        if any(isinstance(x, dict) for x in k.get('schritte', [])):
+            e.pop('probe', None)   # Runde 8 (neues Muster): die Kontrolle steht, wo nötig, als Schritt in der Bildergeschichte
+        e.update(k)
     datei = {
         'thema_schluessel': thema, 'thema_id': meta['thema_id'], 'block_id': meta['block_id'],
         'klasse': meta['klasse'], 'autor': 'Claude (Paket Klasse 10)',

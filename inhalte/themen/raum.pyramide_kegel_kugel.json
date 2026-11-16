@@ -49,15 +49,220 @@
    {
     "lernziel": "pyr_volumen",
     "titel": "Volumen einer Pyramide",
-    "regel": "So berechnest du das Volumen: Jede Pyramide hat ⟦ein Drittel⟧ des Volumens eines Prismas mit gleicher Grundfläche und Höhe: ⟦V = ⅓ · G · h⟧. Anschaulich: Ein Würfel lässt sich in ⟦drei gleiche Pyramiden⟧ zerlegen, deren gemeinsame Spitze eine Würfelecke ist.",
+    "regel": "Eine Pyramide fasst ein Drittel des passenden Prismas. Formel: ⟦V = 1/3 · G · h⟧.",
     "schritte": [
-     "Die Pyramide hat einen quadratischen Boden mit a = 6 cm und ist h = 10 cm hoch.",
-     "Zuerst die Grundfläche: G = 6 cm · 6 cm = 36 cm².",
-     "Eine Kiste mit demselben Boden und derselben Höhe hätte 36 cm² · 10 cm = 360 cm³.",
-     "Die Pyramide hat ein Drittel davon: V = ⅓ · 36 · 10 = ⟦120 cm³⟧."
+     {
+      "text": "Das Zelt hat a = 6 cm. Die Höhe h ist 10 cm."
+     },
+     {
+      "text": "Grundfläche G = 6 · 6 = 36 cm².",
+      "bild": {
+       "flaeche": [
+        "A",
+        "B",
+        "C",
+        "D"
+       ],
+       "label": "Grundfläche G = 36 cm²"
+      }
+     },
+     {
+      "text": "Eine Kiste mit gleichem Boden und gleicher Höhe fasst 36 · 10 = 360 cm³.",
+      "bild": {
+       "punkte": {
+        "A": [
+         0,
+         0
+        ],
+        "B": [
+         6,
+         0
+        ],
+        "C": [
+         8.12,
+         2.12
+        ],
+        "D": [
+         2.12,
+         2.12
+        ],
+        "A2": [
+         0,
+         10
+        ],
+        "B2": [
+         6,
+         10
+        ],
+        "C2": [
+         8.12,
+         12.12
+        ],
+        "D2": [
+         2.12,
+         12.12
+        ],
+        "F": [
+         4.06,
+         1.06
+        ],
+        "S": [
+         4.06,
+         11.06
+        ]
+       },
+       "linien": [
+        [
+         "A",
+         "B",
+         "a = 6 cm"
+        ],
+        [
+         "B",
+         "C",
+         ""
+        ],
+        [
+         "A",
+         "D",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "D",
+         "C",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "A",
+         "A2",
+         ""
+        ],
+        [
+         "B",
+         "B2",
+         ""
+        ],
+        [
+         "C",
+         "C2",
+         ""
+        ],
+        [
+         "D",
+         "D2",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "A2",
+         "B2",
+         ""
+        ],
+        [
+         "B2",
+         "C2",
+         ""
+        ],
+        [
+         "C2",
+         "D2",
+         ""
+        ],
+        [
+         "D2",
+         "A2",
+         ""
+        ]
+       ],
+       "flaeche": [],
+       "label": "Kiste mit gleichem Boden und gleicher Höhe: 360 cm³"
+      }
+     },
+     {
+      "text": "Die Pyramide fasst ein Drittel davon: V = 1/3 · 360 = ⟦120 cm³⟧.",
+      "bild": {
+       "punkte": {
+        "A": [
+         0,
+         0
+        ],
+        "B": [
+         6,
+         0
+        ],
+        "C": [
+         8.12,
+         2.12
+        ],
+        "D": [
+         2.12,
+         2.12
+        ],
+        "F": [
+         4.06,
+         1.06
+        ],
+        "S": [
+         4.06,
+         11.06
+        ]
+       },
+       "linien": [
+        [
+         "A",
+         "B",
+         "a = 6 cm"
+        ],
+        [
+         "B",
+         "C",
+         ""
+        ],
+        [
+         "A",
+         "D",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "D",
+         "C",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "S",
+         "A"
+        ],
+        [
+         "S",
+         "B"
+        ],
+        [
+         "S",
+         "C"
+        ],
+        [
+         "S",
+         "D",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "F",
+         "S",
+         "h = 10 cm",
+         "gestrichelt"
+        ]
+       ],
+       "flaeche": [],
+       "label": "Pyramide: ein Drittel der Kiste"
+      }
+     }
     ],
-    "probe": "Quaderförmiges Prisma mit gleicher Grundfläche und Höhe: 36 cm² · 10 cm = 360 cm³; ein Drittel davon sind 120 cm³ ✓",
-    "fehler": "V = G · h = 360 cm³ ist falsch: Das wäre die ganze Kiste. In die Pyramide passt nur ⟦ein Drittel⟧ davon, weil sie nach oben spitz zuläuft.",
+    "fehler": "V = G · h = 360 cm³ ist falsch. Das wäre die ganze Kiste. Die Pyramide läuft spitz zu und fasst nur ⟦ein Drittel⟧.",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -70,7 +275,7 @@
        0
       ],
       "C": [
-       8.120000000000001,
+       8.12,
        2.12
       ],
       "D": [
@@ -132,66 +337,298 @@
        "S",
        "h = 10 cm",
        "gestrichelt"
+      ]
+     ],
+     "label": "Zelt als Pyramide: a = 6 cm, h = 10 cm"
+    },
+    "einstieg": "Ein Zelt hat einen quadratischen Boden und läuft oben spitz zu. Eine Kiste mit gleichem Boden und gleicher Höhe fasst dreimal so viel. So ein Körper heißt ⟦Pyramide⟧.",
+    "woerter": [
+     [
+      "Pyramide",
+      "ein Vieleck als Boden, Dreiecke als Seiten, oben eine Spitze"
+     ],
+     [
+      "Grundfläche G",
+      "der Boden; beim Quadrat G = a · a"
+     ],
+     [
+      "Höhe h",
+      "der senkrechte Abstand von der Spitze zum Boden"
+     ]
+    ],
+    "fehler_bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       6,
+       0
+      ],
+      "C": [
+       8.12,
+       2.12
+      ],
+      "D": [
+       2.12,
+       2.12
+      ],
+      "A2": [
+       0,
+       10
+      ],
+      "B2": [
+       6,
+       10
+      ],
+      "C2": [
+       8.12,
+       12.12
+      ],
+      "D2": [
+       2.12,
+       12.12
+      ],
+      "F": [
+       4.06,
+       1.06
+      ],
+      "S": [
+       4.06,
+       11.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "a = 6 cm"
+      ],
+      [
+       "B",
+       "C",
+       ""
       ],
       [
        "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
        "C",
        "",
        "gestrichelt"
       ],
       [
+       "A",
+       "A2",
+       ""
+      ],
+      [
        "B",
+       "B2",
+       ""
+      ],
+      [
+       "C",
+       "C2",
+       ""
+      ],
+      [
+       "D",
+       "D2",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "A2",
+       "B2",
+       ""
+      ],
+      [
+       "B2",
+       "C2",
+       ""
+      ],
+      [
+       "C2",
+       "D2",
+       ""
+      ],
+      [
+       "D2",
+       "A2",
+       ""
+      ],
+      [
+       "S",
+       "A"
+      ],
+      [
+       "S",
+       "B"
+      ],
+      [
+       "S",
+       "C"
+      ],
+      [
+       "S",
        "D",
        "",
        "gestrichelt"
+      ],
+      [
+       "F",
+       "S",
+       "h = 10 cm",
+       "gestrichelt"
       ]
      ],
-     "label": "Schrägbild einer quadratischen Pyramide (verdeckte Kanten gestrichelt)"
-    },
-    "einstieg": "Ein Zelt hat einen quadratischen Boden und läuft oben in einer Spitze zusammen. Wie viel Luft passt hinein? Stellt man daneben eine Kiste mit demselben Boden und derselben Höhe, passt in die Kiste genau dreimal so viel. Ein Körper mit einem Vieleck als Boden und einer Spitze heißt ⟦Pyramide⟧.",
-    "woerter": [
-     [
-      "Pyramide",
-      "ein Körper mit einem Vieleck als Boden; die Seitenflächen sind Dreiecke, die sich in einer Spitze treffen"
-     ],
-     [
-      "Grundfläche G",
-      "der Boden; bei einem Quadrat mit der Seite a ist G = a · a"
-     ],
-     [
-      "Höhe h",
-      "der senkrechte Abstand von der Spitze zum Boden"
-     ],
-     [
-      "Prisma",
-      "ein Körper mit gleichem Boden und Deckel und geraden Seitenwänden, z. B. eine Kiste (Quader)"
-     ],
-     [
-      "V",
-      "das Volumen: wie viel hineinpasst, z. B. in cm³"
-     ],
-     [
-      "⅓",
-      "ein Drittel"
-     ],
-     [
-      "Schrägbild",
-      "eine Zeichnung, die den Körper räumlich zeigt; verdeckte Kanten sind gestrichelt"
-     ]
-    ]
+     "label": "Kiste 360 cm³, Pyramide darin nur 120 cm³"
+    }
    },
    {
     "lernziel": "pyr_oberflaeche",
     "titel": "Oberfläche einer Pyramide",
-    "regel": "So berechnest du die Oberfläche: ⟦O = G + M⟧. Bei der quadratischen Pyramide besteht der ⟦Mantel aus 4 Dreiecken⟧: M = 4 · ½ · a · hₛ. Die ⟦Seitenhöhe hₛ⟧ findest du mit hₛ² = h² + (a/2)².",
+    "regel": "Oberfläche ist Boden plus Mantel: O = G + M. Der Mantel sind vier Dreiecke. ⟦hₛ² = h² + (a/2)²⟧.",
     "schritte": [
-     "Gegeben sind a = 6 cm und h = 4 cm. Im Schnitt durch die Mitte entsteht ein rechtwinkliges Dreieck aus h, a/2 = 3 cm und hₛ.",
-     "Mit Pythagoras: hₛ² = 4² + 3² = 16 + 9 = 25, also hₛ = 5 cm.",
-     "Ein Seitendreieck hat die Fläche ½ · 6 · 5 = 15 cm². Alle vier zusammen ergeben den Mantel M = 60 cm².",
-     "Dazu kommt der Boden mit 6 · 6 = 36 cm²: O = 36 + 60 = ⟦96 cm²⟧."
+     {
+      "text": "Mit a = 6 cm und h = 4 cm suchen wir die Seitenhöhe hₛ."
+     },
+     {
+      "text": "Pythagoras im Schnitt: hₛ² = 4² + 3² = 25, also hₛ = 5.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "S": [
+         0,
+         4
+        ],
+        "M": [
+         0,
+         0
+        ],
+        "F": [
+         3.0,
+         0
+        ],
+        "_G": [
+         -3.0,
+         0
+        ]
+       },
+       "flaeche": [
+        "_G",
+        "F",
+        "S"
+       ],
+       "linien": [
+        [
+         "_G",
+         "F",
+         ""
+        ],
+        [
+         "_G",
+         "S",
+         ""
+        ],
+        [
+         "S",
+         "F",
+         "hₛ = 5"
+        ],
+        [
+         "M",
+         "F",
+         "a/2 = 3"
+        ],
+        [
+         "M",
+         "S",
+         "h = 4",
+         "gestrichelt"
+        ]
+       ],
+       "rechter_winkel": [
+        [
+         "M",
+         "F",
+         "S"
+        ]
+       ],
+       "label": "Schnitt durch die Mitte des Zelts"
+      }
+     },
+     {
+      "text": "Ein Seitendreieck hat 6 · 5 : 2 = 15 cm². Mantel M: 60 cm².",
+      "bild": {
+       "punkte": {
+        "P": [
+         0,
+         0
+        ],
+        "Q": [
+         6,
+         0
+        ],
+        "T": [
+         3,
+         5
+        ],
+        "H": [
+         3,
+         0
+        ]
+       },
+       "flaeche": [
+        "P",
+        "Q",
+        "T"
+       ],
+       "linien": [
+        [
+         "P",
+         "Q",
+         "a = 6"
+        ],
+        [
+         "P",
+         "T",
+         ""
+        ],
+        [
+         "Q",
+         "T",
+         ""
+        ],
+        [
+         "H",
+         "T",
+         "hₛ = 5",
+         "gestrichelt"
+        ]
+       ],
+       "rechter_winkel": [
+        [
+         "H",
+         "Q",
+         "T"
+        ]
+       ],
+       "label": "Ein Seitendreieck: 15 cm²"
+      }
+     },
+     {
+      "text": "Mit Boden: Oberfläche O = 36 + 60 = ⟦96 cm²⟧."
+     }
     ],
-    "probe": "hₛ ist länger als h ✓",
-    "fehler": "Mit der Körperhöhe h statt der ⟦Seitenhöhe hₛ⟧ zu rechnen ist falsch: Die Zeltwände sind schräg und deshalb höher, als das Zelt hoch ist. Mit 4 cm statt 5 cm würde der Stoff nicht reichen.",
+    "fehler": "Mit h = 4 cm statt ⟦hₛ = 5 cm⟧ zu rechnen ist falsch. Die Wände sind schräg und deshalb länger. Der Stoff würde nicht reichen.",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -252,48 +689,254 @@
        "S"
       ]
      ],
-     "label": "Schnitt durch die Pyramide: Höhe, halbe Grundkante, Seitenhöhe"
+     "label": "Schnitt durch die Mitte des Zelts"
     },
-    "einstieg": "Das Zelt soll neuen Stoff bekommen. Wie viel Stoff braucht man? Dafür zählt man alle Flächen zusammen: den quadratischen Boden und die vier dreieckigen Seitenwände. Die Seitenwände sind schräg, deshalb ist ihre Höhe länger als die Höhe des Zelts. Alle Flächen zusammen heißen ⟦Oberfläche⟧.",
+    "einstieg": "Das Zelt bekommt neuen Stoff. Man braucht den Boden und vier schräge Dreieckswände. Alle Flächen zusammen heißen ⟦Oberfläche⟧.",
     "woerter": [
      [
       "Oberfläche O",
-      "alle Außenflächen zusammen, z. B. in cm²"
+      "alle Außenflächen zusammen"
      ],
      [
       "Mantel M",
-      "alle Seitenflächen ohne den Boden; hier vier Dreiecke"
+      "alle Seitenflächen ohne den Boden"
      ],
      [
       "Seitenhöhe hₛ",
-      "die Höhe eines Seitendreiecks, schräg an der Wand entlang gemessen"
-     ],
-     [
-      "a/2",
-      "die halbe Grundkante"
-     ],
-     [
-      "Satz des Pythagoras",
-      "im rechtwinkligen Dreieck: die beiden kurzen Seiten im Quadrat zusammen ergeben die lange Seite im Quadrat"
-     ],
-     [
-      "√",
-      "Wurzel: die Zahl, die mit sich selbst malgenommen den Wert unter der Wurzel ergibt, z. B. √25 = 5"
+      "die Höhe eines Seitendreiecks, schräg gemessen"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       4
+      ],
+      "M": [
+       0,
+       0
+      ],
+      "F": [
+       3.0,
+       0
+      ],
+      "_G": [
+       -3.0,
+       0
+      ]
+     },
+     "flaeche": [
+      "_G",
+      "F",
+      "S"
+     ],
+     "linien": [
+      [
+       "_G",
+       "F",
+       ""
+      ],
+      [
+       "_G",
+       "S",
+       ""
+      ],
+      [
+       "S",
+       "F",
+       "hₛ = 5: schräg"
+      ],
+      [
+       "M",
+       "F",
+       "a/2 = 3"
+      ],
+      [
+       "M",
+       "S",
+       "h = 4: senkrecht",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "F",
+       "S"
+      ]
+     ],
+     "label": "Schnitt durch die Mitte des Zelts"
+    }
    },
    {
     "lernziel": "kegel_volumen",
     "titel": "Volumen eines Kegels",
-    "regel": "So berechnest du das Volumen: Ein Kegel ist eine „Pyramide mit Kreis als Grundfläche“: ⟦V = ⅓ · π · r² · h⟧. Erst den Radius quadrieren, dann mit π, h und ⅓ malnehmen.",
+    "regel": "Ein Kegel fasst ein Drittel des passenden Zylinders. ⟦V = 1/3 · π · r² · h⟧.",
     "schritte": [
-     "Der Kegel hat den Radius r = 3 cm und die Höhe h = 8 cm.",
-     "Grundfläche: π · 3² = π · 9 = 9π cm².",
-     "Volumen: ⅓ · 9π · 8 = 24π cm³.",
-     "Mit π ≈ 3,14159 ergibt das V ≈ ⟦75,4 cm³⟧."
+     {
+      "text": "Der Kegel hat den Radius r = 3 cm. Er ist 8 cm hoch."
+     },
+     {
+      "text": "Grundfläche: π · 3² = 9π cm²."
+     },
+     {
+      "text": "Ein Zylinder mit gleichem Kreis und gleicher Höhe fasst 9π · 8 = 72π cm³.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "S": [
+         0,
+         8
+        ],
+        "A": [
+         -3,
+         0
+        ],
+        "B": [
+         3,
+         0
+        ],
+        "M": [
+         0,
+         0
+        ],
+        "A2": [
+         -3,
+         8
+        ],
+        "B2": [
+         3,
+         8
+        ]
+       },
+       "flaeche": [
+        "A",
+        "B",
+        "S"
+       ],
+       "linien": [
+        [
+         "A",
+         "B",
+         ""
+        ],
+        [
+         "A",
+         "S",
+         ""
+        ],
+        [
+         "B",
+         "S",
+         "s"
+        ],
+        [
+         "M",
+         "B",
+         "r = 3"
+        ],
+        [
+         "M",
+         "S",
+         "h = 8",
+         "gestrichelt"
+        ],
+        [
+         "A",
+         "A2",
+         ""
+        ],
+        [
+         "B",
+         "B2",
+         ""
+        ],
+        [
+         "A2",
+         "B2",
+         ""
+        ]
+       ],
+       "winkel": [],
+       "rechter_winkel": [
+        [
+         "M",
+         "B",
+         "S"
+        ]
+       ],
+       "label": "Zylinder um den Kegel: 72π cm³"
+      }
+     },
+     {
+      "text": "Der Kegel fasst ein Drittel: 24π cm³ ≈ ⟦75,4 cm³⟧.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "S": [
+         0,
+         8
+        ],
+        "A": [
+         -3,
+         0
+        ],
+        "B": [
+         3,
+         0
+        ],
+        "M": [
+         0,
+         0
+        ]
+       },
+       "flaeche": [
+        "A",
+        "B",
+        "S"
+       ],
+       "linien": [
+        [
+         "A",
+         "B",
+         ""
+        ],
+        [
+         "A",
+         "S",
+         ""
+        ],
+        [
+         "B",
+         "S",
+         "s"
+        ],
+        [
+         "M",
+         "B",
+         "r = 3"
+        ],
+        [
+         "M",
+         "S",
+         "h = 8",
+         "gestrichelt"
+        ]
+       ],
+       "winkel": [],
+       "rechter_winkel": [
+        [
+         "M",
+         "B",
+         "S"
+        ]
+       ],
+       "label": "Kegel: ein Drittel davon"
+      }
+     }
     ],
-    "probe": "Zylinder mit gleichem r und h: 72π ≈ 226 cm³, ein Drittel ✓",
-    "fehler": "V = ⅓ · π · 3 · 8 ist falsch: Der Radius wird ⟦quadriert⟧, denn die Grundfläche ist ein Kreis mit π · r². Ohne Quadrat kämen nur 8π ≈ 25 cm³ heraus – ein Drittel des richtigen Werts.",
+    "fehler": "V = π · r² · h ist falsch. Das ist der ganze Zylinder. Der Kegel fasst nur ⟦ein Drittel⟧ davon.",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -347,6 +990,7 @@
        "gestrichelt"
       ]
      ],
+     "winkel": [],
      "rechter_winkel": [
       [
        "M",
@@ -354,52 +998,507 @@
        "S"
       ]
      ],
-     "label": "Achsenschnitt eines Kegels"
+     "label": "Achsenschnitt des Kegels"
     },
-    "einstieg": "Eine Waffeltüte für Eis ist unten spitz und oben rund. Sie ist wie eine Pyramide gebaut, nur mit einem Kreis als Boden. Deshalb gilt auch für sie: Sie fasst ein Drittel von dem, was in einen Becher mit gleichem Kreis und gleicher Höhe passt. So ein Körper heißt ⟦Kegel⟧.",
+    "einstieg": "Eine Waffeltüte ist unten spitz und oben rund. Sie fasst ein Drittel eines Bechers mit gleichem Kreis und gleicher Höhe. So ein Körper heißt ⟦Kegel⟧.",
     "woerter": [
      [
       "Kegel",
-      "ein Körper mit einem Kreis als Grundfläche und einer Spitze"
+      "ein Kreis als Boden und oben eine Spitze"
      ],
      [
       "Radius r",
       "der Abstand von der Kreismitte zum Rand"
      ],
      [
-      "r²",
-      "r · r, der Radius mit sich selbst malgenommen"
-     ],
-     [
-      "π · r²",
-      "der Flächeninhalt des Grundkreises (π ≈ 3,14)"
-     ],
-     [
       "Zylinder",
-      "ein Körper wie eine Dose: Kreis unten und oben, gerade Wand"
-     ],
-     [
-      "Achsenschnitt",
-      "ein Schnitt senkrecht durch Spitze und Kreismitte; er ist ein Dreieck"
-     ],
-     [
-      "Mantellinie s",
-      "die schräge Strecke von der Spitze zum Rand"
+      "ein Körper wie eine Dose oder ein Becher"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       8
+      ],
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ],
+      "A2": [
+       -3,
+       8
+      ],
+      "B2": [
+       3,
+       8
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       ""
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       "s"
+      ],
+      [
+       "M",
+       "B",
+       "r = 3"
+      ],
+      [
+       "M",
+       "S",
+       "h = 8",
+       "gestrichelt"
+      ],
+      [
+       "A",
+       "A2",
+       ""
+      ],
+      [
+       "B",
+       "B2",
+       ""
+      ],
+      [
+       "A2",
+       "B2",
+       ""
+      ]
+     ],
+     "winkel": [],
+     "rechter_winkel": [
+      [
+       "M",
+       "B",
+       "S"
+      ]
+     ],
+     "label": "π · r² · h ist der Zylinder, nicht der Kegel"
+    }
    },
    {
     "lernziel": "kegel_mantel",
     "titel": "Mantel und Oberfläche des Kegels",
-    "regel": "So rechnest du mit dem Mantel: Ausgerollt ist er ein ⟦Kreissektor⟧ mit dem Radius s. Sein Bogen ist so lang wie der Grundkreisumfang 2πr. Daraus folgen ⟦M = π · r · s⟧ und ⟦φ = 360° · r : s⟧. Oberfläche: O = πr² + πrs.",
+    "regel": "Der Mantel ist ein Kreissektor mit Radius s. ⟦M = π · r · s⟧. Winkel: φ = 360° · r : s.",
     "schritte": [
-     "Gegeben sind r = 3 cm und h = 4 cm. Im Achsenschnitt bilden r, h und s ein rechtwinkliges Dreieck.",
-     "Mit Pythagoras: s² = 3² + 4² = 25, also s = 5 cm.",
-     "Mantel: M = π · r · s = π · 3 · 5 = 15π ≈ ⟦47,1 cm²⟧.",
-     "Der Sektor ist der Anteil r : s = 3 : 5 eines ganzen Kreises, also φ = 360° · 3/5 = ⟦216°⟧."
+     {
+      "text": "Bei r = 3 und h = 4 suchen wir die Mantellinie s.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "S": [
+         0,
+         4
+        ],
+        "A": [
+         -3,
+         0
+        ],
+        "B": [
+         3,
+         0
+        ],
+        "M": [
+         0,
+         0
+        ]
+       },
+       "flaeche": [
+        "A",
+        "B",
+        "S"
+       ],
+       "linien": [
+        [
+         "A",
+         "B",
+         ""
+        ],
+        [
+         "A",
+         "S",
+         ""
+        ],
+        [
+         "B",
+         "S",
+         "s = ?"
+        ],
+        [
+         "M",
+         "B",
+         "r = 3"
+        ],
+        [
+         "M",
+         "S",
+         "h = 4",
+         "gestrichelt"
+        ]
+       ],
+       "winkel": [],
+       "rechter_winkel": [
+        [
+         "M",
+         "B",
+         "S"
+        ]
+       ],
+       "label": "Achsenschnitt des Kegels"
+      }
+     },
+     {
+      "text": "Pythagoras: s² = 3² + 4² = 25. Also s = 5 cm.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "S": [
+         0,
+         4
+        ],
+        "A": [
+         -3,
+         0
+        ],
+        "B": [
+         3,
+         0
+        ],
+        "M": [
+         0,
+         0
+        ]
+       },
+       "flaeche": [
+        "A",
+        "B",
+        "S"
+       ],
+       "linien": [
+        [
+         "A",
+         "B",
+         ""
+        ],
+        [
+         "A",
+         "S",
+         ""
+        ],
+        [
+         "B",
+         "S",
+         "s = 5"
+        ],
+        [
+         "M",
+         "B",
+         "r = 3"
+        ],
+        [
+         "M",
+         "S",
+         "h = 4",
+         "gestrichelt"
+        ]
+       ],
+       "winkel": [],
+       "rechter_winkel": [
+        [
+         "M",
+         "B",
+         "S"
+        ]
+       ],
+       "label": "Achsenschnitt des Kegels"
+      }
+     },
+     {
+      "text": "Ausgerollt ist der Mantel ein Kreissektor mit dem Radius s = 5 cm.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "Z": [
+         0,
+         0
+        ],
+        "_0": [
+         4.7553,
+         -1.5451
+        ],
+        "_1": [
+         4.9547,
+         -0.6712
+        ],
+        "_2": [
+         4.995,
+         0.2243
+        ],
+        "_3": [
+         4.8746,
+         1.1126
+        ],
+        "_4": [
+         4.5976,
+         1.9651
+        ],
+        "_5": [
+         4.1729,
+         2.7545
+        ],
+        "_6": [
+         3.614,
+         3.4553
+        ],
+        "_7": [
+         2.9389,
+         4.0451
+        ],
+        "_8": [
+         2.1694,
+         4.5048
+        ],
+        "_9": [
+         1.3302,
+         4.8198
+        ],
+        "_10": [
+         0.4482,
+         4.9799
+        ],
+        "_11": [
+         -0.4482,
+         4.9799
+        ],
+        "_12": [
+         -1.3302,
+         4.8198
+        ],
+        "_13": [
+         -2.1694,
+         4.5048
+        ],
+        "_14": [
+         -2.9389,
+         4.0451
+        ],
+        "_15": [
+         -3.614,
+         3.4553
+        ],
+        "_16": [
+         -4.1729,
+         2.7545
+        ],
+        "_17": [
+         -4.5976,
+         1.9651
+        ],
+        "_18": [
+         -4.8746,
+         1.1126
+        ],
+        "_19": [
+         -4.995,
+         0.2243
+        ],
+        "_20": [
+         -4.9547,
+         -0.6712
+        ],
+        "_21": [
+         -4.7553,
+         -1.5451
+        ]
+       },
+       "flaeche": [
+        "Z",
+        "_0",
+        "_1",
+        "_2",
+        "_3",
+        "_4",
+        "_5",
+        "_6",
+        "_7",
+        "_8",
+        "_9",
+        "_10",
+        "_11",
+        "_12",
+        "_13",
+        "_14",
+        "_15",
+        "_16",
+        "_17",
+        "_18",
+        "_19",
+        "_20",
+        "_21"
+       ],
+       "linien": [
+        [
+         "Z",
+         "_0",
+         "s = 5"
+        ],
+        [
+         "Z",
+         "_21",
+         ""
+        ],
+        [
+         "_0",
+         "_1",
+         ""
+        ],
+        [
+         "_1",
+         "_2",
+         ""
+        ],
+        [
+         "_2",
+         "_3",
+         ""
+        ],
+        [
+         "_3",
+         "_4",
+         ""
+        ],
+        [
+         "_4",
+         "_5",
+         ""
+        ],
+        [
+         "_5",
+         "_6",
+         ""
+        ],
+        [
+         "_6",
+         "_7",
+         ""
+        ],
+        [
+         "_7",
+         "_8",
+         ""
+        ],
+        [
+         "_8",
+         "_9",
+         ""
+        ],
+        [
+         "_9",
+         "_10",
+         ""
+        ],
+        [
+         "_10",
+         "_11",
+         ""
+        ],
+        [
+         "_11",
+         "_12",
+         ""
+        ],
+        [
+         "_12",
+         "_13",
+         ""
+        ],
+        [
+         "_13",
+         "_14",
+         ""
+        ],
+        [
+         "_14",
+         "_15",
+         ""
+        ],
+        [
+         "_15",
+         "_16",
+         ""
+        ],
+        [
+         "_16",
+         "_17",
+         ""
+        ],
+        [
+         "_17",
+         "_18",
+         ""
+        ],
+        [
+         "_18",
+         "_19",
+         ""
+        ],
+        [
+         "_19",
+         "_20",
+         ""
+        ],
+        [
+         "_20",
+         "_21",
+         ""
+        ]
+       ],
+       "rechter_winkel": [],
+       "winkel": [
+        [
+         "Z",
+         "_0",
+         "_21",
+         "φ = 216°"
+        ]
+       ],
+       "label": "Ausgerollter Mantel: Kreissektor mit Radius s"
+      }
+     },
+     {
+      "text": "Mantel: M = π · r · s = 15π ≈ ⟦47,1 cm²⟧."
+     },
+     {
+      "text": "Mittelpunktswinkel φ = 360° · 3 : 5 = 216°."
+     }
     ],
-    "probe": "Sektoranteil 216/360 = 3/5 = r/s ✓",
-    "fehler": "M = π · r · h ist falsch: Ausgerollt wird die schräge Seite, also die ⟦Mantellinie s⟧. Die Höhe h ist kürzer – mit ihr würde das Papier für die Tüte nicht reichen.",
+    "fehler": "M = π · r · h ist falsch. Ausgerollt wird die schräge Seite, die ⟦Mantellinie s⟧. Die Höhe h ist kürzer.",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -638,6 +1737,7 @@
        ""
       ]
      ],
+     "rechter_winkel": [],
      "winkel": [
       [
        "Z",
@@ -646,14 +1746,10 @@
        "φ = 216°"
       ]
      ],
-     "label": "Abgewickelter Kegelmantel: Kreissektor"
+     "label": "Ausgerollter Mantel: Kreissektor mit Radius s"
     },
-    "einstieg": "Schneidet man eine Waffeltüte an der Seite gerade auf und rollt sie flach aus, entsteht ein Stück aus einem Kreis – wie ein Stück Torte. Sein Radius ist die schräge Seitenlinie der Tüte, und sein Bogen ist so lang wie der runde Rand oben. Dieses Tortenstück heißt ⟦Kreissektor⟧.",
+    "einstieg": "Man schneidet eine Waffeltüte an der Seite auf und rollt sie flach aus. Es entsteht ein Kreisstück wie ein Tortenstück. Es heißt ⟦Kreissektor⟧.",
     "woerter": [
-     [
-      "Mantel",
-      "die gebogene Seitenfläche des Kegels"
-     ],
      [
       "Mantellinie s",
       "die schräge Strecke von der Spitze zum Rand"
@@ -664,30 +1760,148 @@
      ],
      [
       "Mittelpunktswinkel φ",
-      "der Winkel an der Spitze des Tortenstücks (φ: griechisch „phi“)"
-     ],
-     [
-      "Grundkreisumfang 2πr",
-      "die Länge des Randes des Grundkreises"
-     ],
-     [
-      "O = πr² + πrs",
-      "Oberfläche des Kegels: Grundkreis plus Mantel"
+      "der Winkel an der Spitze des Tortenstücks"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       4
+      ],
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       ""
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       "s = 5: wird ausgerollt"
+      ],
+      [
+       "M",
+       "B",
+       "r = 3"
+      ],
+      [
+       "M",
+       "S",
+       "h = 4",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [],
+     "rechter_winkel": [
+      [
+       "M",
+       "B",
+       "S"
+      ]
+     ],
+     "label": "h = 4 ist kürzer als s = 5"
+    }
    },
    {
     "lernziel": "kugel",
     "titel": "Volumen und Oberfläche der Kugel",
-    "regel": "Merke ⟦V = ⁴⁄₃ · π · r³⟧ und ⟦O = 4 · π · r²⟧. Ist V oder O gegeben, löst du nach r auf: bei V mit der dritten Wurzel, bei O mit der Quadratwurzel.",
+    "regel": "Bei der Kugel genügt der Radius. ⟦V = ⁴⁄₃ · π · r³⟧ und O = 4 · π · r².",
     "schritte": [
-     "Die Kugel hat den Radius r = 6 cm. Zuerst r³ = 6 · 6 · 6 = 216.",
-     "Volumen: V = ⁴⁄₃ · π · 216 = 288π ≈ ⟦904,8 cm³⟧.",
-     "Für die Oberfläche braucht man r² = 36: O = 4 · π · 36 = 144π ≈ ⟦452,4 cm²⟧.",
-     "Passt das? Die Kugel passt in einen Würfel mit 12 cm Kante, der 1 728 cm³ fasst – 904,8 cm³ ist gut die Hälfte davon."
+     {
+      "text": "Radius r = 6 cm. Zuerst r³ = 216."
+     },
+     {
+      "text": "Volumen V = ⁴⁄₃ · π · 216 = 288π ≈ ⟦904,8 cm³⟧."
+     },
+     {
+      "text": "Oberfläche mit r² = 36: O = 4 · π · 36 ≈ 452,4 cm²."
+     },
+     {
+      "text": "Probe: Der Würfel um die Kugel fasst 1 728 cm³. Gut die Hälfte passt.",
+      "bild": {
+       "punkte": {
+        "M": [
+         0,
+         0
+        ],
+        "_P": [
+         6,
+         0
+        ],
+        "W1": [
+         -6,
+         -6
+        ],
+        "W2": [
+         6,
+         -6
+        ],
+        "W3": [
+         6,
+         6
+        ],
+        "W4": [
+         -6,
+         6
+        ]
+       },
+       "linien": [
+        [
+         "M",
+         "_P",
+         "r = 6"
+        ],
+        [
+         "W1",
+         "W2",
+         "12 cm"
+        ],
+        [
+         "W2",
+         "W3",
+         ""
+        ],
+        [
+         "W3",
+         "W4",
+         ""
+        ],
+        [
+         "W4",
+         "W1",
+         ""
+        ]
+       ],
+       "label": "Kugel im Würfel mit 12 cm Kante"
+      }
+     }
     ],
-    "probe": "Die Kugel passt in einen Würfel mit 12 cm Kante (1 728 cm³) ✓",
-    "fehler": "V = ⁴⁄₃ · π · r² ist falsch: Ein Volumen hat die Einheit cm³ (Länge mal Länge mal Länge), also braucht es ⟦r³⟧.",
+    "fehler": "V = ⁴⁄₃ · π · r² ist falsch. Ein Volumen hat die Einheit cm³. Also braucht es ⟦r³⟧.",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -729,46 +1943,91 @@
      ],
      "label": "Kugel mit Mittelpunkt M und Radius r"
     },
-    "einstieg": "Ein Fußball ist rund. Wie viel Luft passt hinein, und wie viel Material braucht man für die Hülle? Für beides genügt eine einzige Länge, denn jeder Punkt der Hülle ist gleich weit vom Mittelpunkt entfernt. So ein Körper heißt ⟦Kugel⟧, der Abstand ist ihr Radius.",
+    "einstieg": "Ein Fußball ist rund. Jeder Punkt der Hülle ist gleich weit vom Mittelpunkt entfernt. So ein Körper heißt ⟦Kugel⟧. Für alles genügt der Radius.",
     "woerter": [
      [
       "Kugel",
-      "ein Körper, dessen Oberflächenpunkte alle gleich weit vom Mittelpunkt M entfernt sind"
+      "alle Punkte der Hülle sind gleich weit vom Mittelpunkt M entfernt"
      ],
      [
       "r³",
       "r · r · r"
      ],
      [
-      "⁴⁄₃",
-      "vier Drittel"
-     ],
-     [
-      "V = ⁴⁄₃ · π · r³",
-      "das Volumen: wie viel hineinpasst"
-     ],
-     [
-      "O = 4 · π · r²",
-      "die Oberfläche: wie viel Hülle man braucht"
-     ],
-     [
-      "dritte Wurzel ∛",
-      "die Zahl, die dreimal mit sich malgenommen den Wert ergibt: ∛216 = 6"
+      "Volumen V",
+      "wie viel hineinpasst, in cm³"
      ]
     ]
    },
    {
     "lernziel": "sachkontext",
     "titel": "Körper in Sachaufgaben",
-    "regel": "So gehst du vor: Zusammengesetzte Körper ⟦zerlegen⟧ und die Teilvolumen ⟦addieren oder abziehen⟧. Fehlende Längen mit ⟦Pythagoras⟧, Winkel mit ⟦tan, sin, cos⟧ im Achsenschnitt bestimmen.",
+    "regel": "Zerlege den Körper in bekannte Teile. Teilvolumen ⟦addieren oder abziehen⟧. Fehlende Längen mit Pythagoras oder tan, sin, cos.",
     "schritte": [
-     "Die Eistüte ist ein Kegel mit r = 2,5 cm und h = 10 cm. Darauf sitzt eine Halbkugel mit demselben Radius.",
-     "Kegel: ⅓ · π · 2,5² · 10 = ⅓ · π · 6,25 · 10 ≈ 65,45 cm³.",
-     "Halbkugel: die Hälfte von ⁴⁄₃ · π · 2,5³, also ⅔ · π · 15,625 ≈ 32,72 cm³.",
-     "Zusammen: 65,45 + 32,72 ≈ ⟦98,2 cm³⟧."
+     {
+      "text": "Die Tüte ist ein Kegel: r = 2,5 cm und h = 10 cm.",
+      "bild": {
+       "flaeche": [
+        "_A",
+        "_S",
+        "_B"
+       ],
+       "label": "Teil 1: Kegel"
+      }
+     },
+     {
+      "text": "Kegel: 1/3 · π · 2,5² · 10 ≈ 65,45 cm³."
+     },
+     {
+      "text": "Darauf sitzt eine Halbkugel mit demselben Radius.",
+      "bild": {
+       "flaeche": [
+        "_0",
+        "_1",
+        "_2",
+        "_3",
+        "_4",
+        "_5",
+        "_6",
+        "_7",
+        "_8",
+        "_9",
+        "_10",
+        "_11",
+        "_12"
+       ],
+       "label": "Teil 2: Halbkugel"
+      }
+     },
+     {
+      "text": "Halbkugel: die Hälfte von ⁴⁄₃ · π · 2,5³ ≈ 32,72 cm³."
+     },
+     {
+      "text": "Teilvolumen addieren: 65,45 + 32,72 ≈ ⟦98,2 cm³⟧.",
+      "bild": {
+       "flaeche": [
+        "_A",
+        "_S",
+        "_B",
+        "_0",
+        "_1",
+        "_2",
+        "_3",
+        "_4",
+        "_5",
+        "_6",
+        "_7",
+        "_8",
+        "_9",
+        "_10",
+        "_11",
+        "_12"
+       ],
+       "label": "Ganze Portion ≈ 98,2 cm³"
+      }
+     }
     ],
-    "probe": "Halbkugel = halbes Kugelvolumen ✓",
-    "fehler": "Die Halbkugel mit dem vollen Kugelvolumen zu rechnen ist falsch: Auf der Tüte sitzt nur ⟦die Hälfte⟧ einer Kugel, also ⅔ · π · r³.",
+    "fehler": "Die Halbkugel mit dem ganzen Kugelvolumen zu rechnen ist falsch. Auf der Tüte sitzt nur ⟦die Hälfte⟧: 2/3 · π · r³.",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -944,61 +2203,327 @@
      ],
      "label": "Eistüte im Schnitt: Kegel mit Halbkugel"
     },
-    "einstieg": "In der Eisdiele besteht eine Portion aus einer Waffeltüte und einer halben Kugel Eis obendrauf. Wie viel passt insgesamt hinein? Man zerlegt die Portion in Körper, die man schon kennt, und zählt ihre Volumen zusammen. Solche Körper heißen ⟦zusammengesetzte Körper⟧.",
+    "einstieg": "In der Eisdiele gibt es eine Waffeltüte mit einer halben Kugel Eis darauf. Man zerlegt sie in bekannte Teile. So etwas ist ein ⟦zusammengesetzter Körper⟧.",
     "woerter": [
      [
       "zusammengesetzter Körper",
-      "ein Körper aus mehreren bekannten Teilen, z. B. Kegel plus Halbkugel"
+      "ein Körper aus bekannten Teilen, z. B. Kegel plus Halbkugel"
      ],
      [
       "Halbkugel",
-      "eine halbe Kugel; ihr Volumen ist ⅔ · π · r³"
+      "eine halbe Kugel: 2/3 · π · r³"
      ],
      [
       "Teilvolumen",
       "das Volumen eines Teils"
-     ],
-     [
-      "tan, sin, cos",
-      "Winkelfunktionen im rechtwinkligen Dreieck, z. B. tan = Gegenkathete : Ankathete"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "typ": "figur",
+     "punkte": {
+      "_S": [
+       0,
+       -10
+      ],
+      "_A": [
+       -2.5,
+       0
+      ],
+      "_B": [
+       2.5,
+       0
+      ],
+      "_M": [
+       0,
+       0
+      ],
+      "_0": [
+       2.5,
+       0.0
+      ],
+      "_1": [
+       2.4148,
+       0.647
+      ],
+      "_2": [
+       2.1651,
+       1.25
+      ],
+      "_3": [
+       1.7678,
+       1.7678
+      ],
+      "_4": [
+       1.25,
+       2.1651
+      ],
+      "_5": [
+       0.647,
+       2.4148
+      ],
+      "_6": [
+       0.0,
+       2.5
+      ],
+      "_7": [
+       -0.647,
+       2.4148
+      ],
+      "_8": [
+       -1.25,
+       2.1651
+      ],
+      "_9": [
+       -1.7678,
+       1.7678
+      ],
+      "_10": [
+       -2.1651,
+       1.25
+      ],
+      "_11": [
+       -2.4148,
+       0.647
+      ],
+      "_12": [
+       -2.5,
+       0.0
+      ]
+     },
+     "flaeche": [
+      "_A",
+      "_S",
+      "_B"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_S",
+       ""
+      ],
+      [
+       "_B",
+       "_S",
+       ""
+      ],
+      [
+       "_M",
+       "_B",
+       "r = 2,5"
+      ],
+      [
+       "_M",
+       "_S",
+       "h = 10",
+       "gestrichelt"
+      ],
+      [
+       "_0",
+       "_1",
+       ""
+      ],
+      [
+       "_1",
+       "_2",
+       ""
+      ],
+      [
+       "_2",
+       "_3",
+       ""
+      ],
+      [
+       "_3",
+       "_4",
+       ""
+      ],
+      [
+       "_4",
+       "_5",
+       ""
+      ],
+      [
+       "_5",
+       "_6",
+       ""
+      ],
+      [
+       "_6",
+       "_7",
+       ""
+      ],
+      [
+       "_7",
+       "_8",
+       ""
+      ],
+      [
+       "_8",
+       "_9",
+       ""
+      ],
+      [
+       "_9",
+       "_10",
+       ""
+      ],
+      [
+       "_10",
+       "_11",
+       ""
+      ],
+      [
+       "_11",
+       "_12",
+       ""
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "_M",
+       "r": 2.5
+      }
+     ],
+     "label": "Die ganze Kugel wäre zu viel"
+    }
    },
    {
     "lernziel": "verstehen",
     "titel": "Zusammenhänge verstehen",
-    "regel": "So denkst du über Vergrößerungen nach: Werden alle Längen mit k malgenommen, werden ⟦Flächen mit k², Volumen mit k³⟧ malgenommen. Pyramide und Kegel haben ⅓ des Volumens von Prisma und Zylinder mit gleicher Grundfläche und Höhe. Haben zwei Körper in jeder Höhe gleich große Querschnitte, haben sie ⟦gleiches Volumen⟧ (Prinzip von Cavalieri).",
+    "regel": "Längen mal k: Flächen mal k², Volumen mal k³. Gleiche Querschnitte in jeder Höhe bedeuten ⟦gleiches Volumen⟧ (Cavalieri).",
     "schritte": [
-     "Ein Kegel hat den doppelten Radius eines anderen, die Höhe ist gleich.",
-     "Die Grundfläche ist π · r². Mit doppeltem Radius wird sie π · (2r)² = π · 4r², also viermal so groß.",
-     "Die Höhe bleibt gleich. Deshalb wird auch das Volumen ⅓ · Grundfläche · Höhe viermal so groß.",
-     "Ergebnis: ⟦Volumen · 4⟧, nicht · 8 – verdoppelt werden nur zwei der drei Richtungen."
+     {
+      "text": "Zwei Kegel sind gleich hoch. Der zweite hat den doppelten Radius."
+     },
+     {
+      "text": "Grundfläche: π · (2r)² = 4 · π · r². Sie ist viermal so groß.",
+      "bild": {
+       "label": "Grundfläche: viermal so groß"
+      }
+     },
+     {
+      "text": "Die Höhe bleibt gleich. Also wird auch das Volumen ⟦viermal so groß⟧."
+     },
+     {
+      "text": "Alle Längen mal Faktor k = 2: Flächen mal k², Volumen mal k³."
+     }
     ],
-    "probe": "⅓π(2r)²h = 4 · ⅓πr²h ✓",
-    "fehler": "Bei doppeltem Radius das doppelte Kegelvolumen anzunehmen ist falsch: r steht ⟦im Quadrat⟧. Der Boden ist in zwei Richtungen doppelt so breit und hat deshalb die vierfache Fläche.",
-    "einstieg": "Zwei Spitzbecher aus Papier sind gleich hoch, aber der große hat oben den doppelten Radius. Passt doppelt so viel hinein? Nein, viermal so viel: Der Boden ist in zwei Richtungen doppelt so breit. Wie sich Flächen und Volumen ändern, wenn man Längen mit einem Faktor malnimmt, beschreibt das ⟦Vergrößern mit dem Faktor k⟧.",
+    "fehler": "Doppelter Radius heißt nicht doppeltes Volumen. r steht ⟦im Quadrat⟧. Der Boden wird in zwei Richtungen doppelt so breit.",
+    "einstieg": "Zwei Spitzbecher sind gleich hoch. Der große hat den doppelten Radius. Er fasst nicht doppelt, sondern viermal so viel. Das erklärt das ⟦Vergrößern mit dem Faktor k⟧.",
     "woerter": [
      [
       "Faktor k",
-      "die Zahl, mit der Längen malgenommen werden; k = 2 heißt doppelt so lang"
+      "die Zahl, mit der Längen malgenommen werden"
      ],
      [
-      "k², k³",
-      "k · k und k · k · k"
+      "k²",
+      "k · k"
      ],
      [
-      "Querschnitt",
-      "die Schnittfläche, wenn man waagrecht durch den Körper schneidet"
-     ],
-     [
-      "Prinzip von Cavalieri",
-      "Körper, die in jeder Höhe gleich große Querschnitte haben, haben gleiches Volumen"
-     ],
-     [
-      "⇒",
-      "„daraus folgt“"
+      "k³",
+      "k · k · k"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -1,
+       0
+      ],
+      "B": [
+       1,
+       0
+      ],
+      "S": [
+       0,
+       3
+      ],
+      "M1": [
+       0,
+       0
+      ],
+      "C": [
+       3,
+       0
+      ],
+      "D": [
+       7,
+       0
+      ],
+      "T": [
+       5,
+       3
+      ],
+      "M2": [
+       5,
+       0
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       ""
+      ],
+      [
+       "S",
+       "A",
+       ""
+      ],
+      [
+       "S",
+       "B",
+       ""
+      ],
+      [
+       "M1",
+       "B",
+       "r"
+      ],
+      [
+       "C",
+       "D",
+       ""
+      ],
+      [
+       "T",
+       "C",
+       ""
+      ],
+      [
+       "T",
+       "D",
+       ""
+      ],
+      [
+       "M2",
+       "D",
+       "2r"
+      ]
+     ],
+     "label": "Gleiche Höhe, doppelter Radius"
+    },
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Radius",
+      "Grundfläche",
+      "Volumen"
+     ],
+     "zeilen": [
+      [
+       "r",
+       "π · r²",
+       "V"
+      ],
+      [
+       "2r",
+       "4 · π · r²",
+       "4 · V"
+      ]
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [

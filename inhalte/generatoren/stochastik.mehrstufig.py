@@ -305,125 +305,125 @@ def g_verstehen(s):
 
 
 
-# ---------- KLAR: verständliche Fassung der Lernkarten (Runde 7) ----------
+# ---------- KLAR: Lernkarten im neuen Muster (Achte Runde, Vorgabe 16.11.) ----------
 # Wird erst nach dem Bauen der Aufgaben eingesetzt (bauen(..., klar=KLAR)), die Aufgaben bleiben wörtlich gleich.
+# Muster: einstieg (≤ 35 Wörter) → Kartenbild → Schritte als {text, bild} (Bildergeschichte) → „Pass auf!“ (fehler + fehler_bild) → MERKE (regel).
+# Ein Baum-Bild hat keine Markierung; die Bildergeschichte zeigt den Baum deshalb Stufe für Stufe oder nur mit den gemeinten Pfaden.
+def _ast(t, p, *k):
+    a = {'text': t, 'p': p}
+    if k: a['aeste'] = list(k)
+    return a
+_RB = lambda p_rot, p_blau: [_ast('rot', p_rot), _ast('blau', p_blau)]
+_SCHULFEST = {'typ': 'baum', 'aeste': [_ast('rot', '3/5', *_RB('3/5', '2/5')), _ast('blau', '2/5', *_RB('3/5', '2/5'))]}
+_MUENZE = {'typ': 'baum', 'aeste': [_ast('K', '1/2', _ast('K', '1/2'), _ast('Z', '1/2')), _ast('Z', '1/2', _ast('K', '1/2'), _ast('Z', '1/2'))]}
+_BONBON = {'typ': 'baum', 'aeste': [_ast('rot', '3/5', *_RB('2/4', '2/4')), _ast('blau', '2/5', *_RB('3/4', '1/4'))]}
+_SECHS = {'typ': 'baum', 'aeste': [_ast('6', '1/6'), _ast('keine 6', '5/6', _ast('6', '1/6'), _ast('keine 6', '5/6', _ast('6', '1/6'), _ast('keine 6', '5/6')))]}
+def _regen(b='?', nb='?', na='?'):
+    return {'typ': 'baum', 'aeste': [_ast('A: Regen', '0,4', _ast('B: Stau', b), _ast('nicht B', nb)), _ast('nicht A', na)]}
+_PASCH = {'typ': 'saeulen', 'einheit': 'Anzahl in 600 Würfen', 'werte': [{'name': 'Pasch', 'wert': 94}, {'name': 'kein Pasch', 'wert': 506}], 'zahlen': True}
+
 KLAR = {
  'pfad_mult': {
-  'einstieg': 'Beim Schulfest steht ein Säckchen mit 3 roten und 2 blauen Kugeln. Du ziehst ohne hinzusehen eine Kugel, merkst dir die Farbe '
-              'und legst sie zurück. Dann ziehst du ein zweites Mal. Einen Preis gibt es nur für zweimal Rot. '
-              'Den Ablauf zeichnet man als ⟦Baumdiagramm⟧: Jede Ziehung ist eine Stufe, jede mögliche Farbe ein Ast.',
-  'woerter': [['Wahrscheinlichkeit P', 'wie wahrscheinlich ein Ergebnis ist, als Zahl von 0 (nie) bis 1 (sicher)'],
-              ['P(rot) = 3/5', '3 von 5 Kugeln sind rot'],
-              ['P(rot, rot)', 'die Wahrscheinlichkeit, erst Rot und dann wieder Rot zu ziehen'],
-              ['mehrstufiges Zufallsexperiment', 'mehrere Zufallsschritte nacheinander, hier zweimal ziehen'],
-              ['Baumdiagramm', 'eine Zeichnung, in der sich Äste verzweigen; an jedem Ast steht seine Wahrscheinlichkeit'],
-              ['Pfad', 'ein Weg durch den Baum vom Anfang bis zum Ende, z. B. rot – rot'],
-              ['mit Zurücklegen', 'die Kugel kommt wieder ins Säckchen; die Wahrscheinlichkeiten bleiben gleich']],
-  'schritte': ['Beim ersten Ziehen sind 3 von 5 Kugeln rot: P(rot) = 3/5.',
-               'Die Kugel wird zurückgelegt. Beim zweiten Ziehen ist P(rot) deshalb wieder 3/5.',
-               'Im Baum führt der Pfad rot – rot über zwei Äste mit je 3/5. Zuerst ist in 3/5 der Fälle Rot dabei, und davon in 3/5 der Fälle noch einmal.',
-               'Deshalb wird entlang des Pfades malgenommen: P(rot, rot) = 3/5 · 3/5 = ⟦9/25⟧.'],
-  'regel': 'So berechnest du einen Pfad (1. Pfadregel): Die Wahrscheinlichkeit eines Pfades ist das ⟦Produkt der Wahrscheinlichkeiten entlang des Pfades⟧.',
-  'fehler': 'P(rot, rot) = 3/5 + 3/5 = 6/5 ist falsch: Eine Wahrscheinlichkeit über 1 gibt es nicht. Zweimal Rot ist seltener als einmal Rot, '
-            'deshalb wird entlang eines Pfades ⟦multipliziert⟧, nicht addiert.'},
+  'einstieg': 'Beim Schulfest ziehst du aus 3 roten und 2 blauen Kugeln. Du legst die Kugel zurück und ziehst noch einmal. '
+              'Den Ablauf zeigt ein ⟦Baumdiagramm⟧.',
+  'woerter': [['Baumdiagramm', 'jede Ziehung ist eine Stufe, jede mögliche Farbe ein Ast'],
+              ['Ast', 'eine Linie im Baum mit ihrer Wahrscheinlichkeit'],
+              ['Pfad', 'ein Weg durch den Baum bis zu einem Ende']],
+  'bild': _SCHULFEST,
+  'schritte': [{'text': 'Erster Zug: 3 von 5 Kugeln sind rot. Der Ast „rot“ hat 3/5.',
+                'bild': {'aeste': [_ast('rot', '3/5'), _ast('blau', '2/5')]}},
+               {'text': 'Die Kugel kommt zurück. Beim zweiten Zug gilt wieder 3/5.', 'bild': {'aeste': _SCHULFEST['aeste']}},
+               {'text': 'Der Pfad rot – rot führt über zwei Äste mit je 3/5.',
+                'bild': {'aeste': [_ast('rot', '3/5', _ast('rot', '3/5'))]}},
+               {'text': 'Entlang des Pfades malnehmen: 3/5 · 3/5 = ⟦9/25⟧.'}],
+  'fehler': '3/5 + 3/5 = 6/5 ist falsch. Über 1 gibt es nicht. Zweimal Rot ist seltener als einmal Rot. Also ⟦multiplizieren⟧.',
+  'fehler_bild': {'typ': 'zahlenstrahl', 'start': 0, 'ende': 1.2, 'abschnitte': 6, 'beschriftet': 'alle', 'bereich': {'von': 0, 'bis': 1},
+                  'punkte': [{'wert': 0.36, 'name': '9/25'}, {'wert': 1.2, 'name': '6/5: unmöglich'}]},
+  'regel': 'Entlang eines Pfades wird multipliziert. Das ist die ⟦1. Pfadregel⟧.'},
  'pfad_add': {
-  'einstieg': 'Zwei Freunde werfen eine Münze zweimal. Wer auf „genau einmal Kopf“ tippt, gewinnt. Das kann auf zwei Wegen passieren: '
-              'erst Kopf, dann Zahl – oder erst Zahl, dann Kopf. Weil beide Wege zählen, werden ihre Wahrscheinlichkeiten zusammengezählt. '
-              'Das ist die ⟦2. Pfadregel⟧.',
+  'einstieg': 'Zwei Freunde werfen eine Münze zweimal. Wer auf „genau einmal Kopf“ tippt, gewinnt. Das klappt auf zwei Wegen. '
+              'Dafür gibt es die ⟦2. Pfadregel⟧.',
   'woerter': [['K, Z', 'Kopf und Zahl'],
-              ['Ereignis', 'eine Beschreibung, zu der mehrere Ergebnisse gehören können, z. B. „genau einmal Kopf“'],
-              ['(K, Z)', 'der Pfad: erster Wurf Kopf, zweiter Wurf Zahl'],
-              ['½, ¼', 'ein Halb und ein Viertel'],
-              ['2. Pfadregel', 'gehören mehrere Pfade zu einem Ereignis, addiert man ihre Wahrscheinlichkeiten']],
-  'schritte': ['Zum Ereignis „genau einmal Kopf“ gehören zwei Pfade: (K, Z) und (Z, K).',
-               'Pfad (K, Z): ½ · ½ = ¼. Pfad (Z, K): ebenfalls ½ · ½ = ¼.',
-               'Beide Pfade führen zum Gewinn, deshalb werden sie addiert: ¼ + ¼.',
-               'Ergebnis: P(genau einmal Kopf) = ⟦½⟧.'],
-  'regel': 'So berechnest du ein Ereignis (2. Pfadregel): Alle ⟦Pfade suchen⟧, die dazugehören, jeden Pfad wie gewohnt multiplizieren und die Ergebnisse ⟦addieren⟧.',
-  'fehler': 'Bei „genau einmal Kopf“ nur den Pfad (K, Z) zu zählen ist falsch: Auch ⟦(Z, K)⟧ gehört dazu – für den Tipp ist die Reihenfolge egal.'},
+              ['Ereignis', 'alles, worauf man tippt; oft mehrere Pfade']],
+  'bild': _MUENZE,
+  'schritte': [{'text': 'Zum Ereignis „genau einmal Kopf“ gehören zwei Pfade: (K, Z) und (Z, K).',
+                'bild': {'aeste': [_ast('K', '1/2', _ast('Z', '1/2')), _ast('Z', '1/2', _ast('K', '1/2'))]}},
+               {'text': 'Jeder Pfad hat 1/2 · 1/2 = 1/4.'},
+               {'text': 'Beide Pfade zählen. Also addieren: 1/4 + 1/4 = ⟦1/2⟧.'}],
+  'fehler': 'Nur (K, Z) zu zählen ist falsch. Auch ⟦(Z, K)⟧ ist genau einmal Kopf. Für den Tipp ist die Reihenfolge egal.',
+  'fehler_bild': {'typ': 'tabelle', 'kopf': ['Pfad', 'genau einmal Kopf?'],
+                  'zeilen': [['(K, K)', 'nein'], ['(K, Z)', 'ja'], ['(Z, K)', 'ja'], ['(Z, Z)', 'nein']]},
+  'regel': 'Die Pfade eines Ereignisses werden addiert. Jeden Pfad vorher ⟦multiplizieren⟧.'},
  'ohne_zuruecklegen': {
-  'einstieg': 'In einer Tüte sind 3 rote und 2 blaue Bonbons. Du nimmst eins, isst es auf und nimmst dann noch eins. '
-              'Beim zweiten Mal sind nur noch 4 Bonbons in der Tüte – und wenn das erste rot war, nur noch 2 rote. '
-              'Dieses Vorgehen heißt ⟦Ziehen ohne Zurücklegen⟧.',
-  'woerter': [['ohne Zurücklegen', 'was gezogen ist, kommt nicht zurück; beim nächsten Ziehen sind es weniger'],
-              ['erste und zweite Stufe', 'das erste und das zweite Ziehen im Baum'],
-              ['Zähler, Nenner', 'die Zahl über und die Zahl unter dem Bruchstrich'],
-              ['2/4', 'nach einem roten Bonbon: noch 2 rote von 4 Bonbons']],
-  'schritte': ['Beim ersten Griff sind 3 von 5 Bonbons rot: P(rot) = 3/5.',
-               'Das rote Bonbon ist gegessen. Jetzt sind noch 4 Bonbons da, davon 2 rote: Der zweite Ast hat 2/4.',
-               'Entlang des Pfades malnehmen: P(rot, rot) = 3/5 · 2/4 = 6/20.',
-               'Kürzen ergibt ⟦3/10⟧.'],
-  'regel': 'So rechnest du ohne Zurücklegen: Auf der zweiten Stufe ⟦ändern sich die Wahrscheinlichkeiten⟧. Im Nenner steht eins weniger, '
-           'und ist dieselbe Sorte gemeint, auch im Zähler eins weniger.',
-  'fehler': 'P(rot, rot) = 3/5 · 3/5 gilt nur ⟦mit⟧ Zurücklegen. Das erste rote Bonbon ist aber schon gegessen: Es bleiben 2 rote von 4.'},
+  'einstieg': 'In einer Tüte sind 3 rote und 2 blaue Bonbons. Du isst eins und nimmst dann noch eins. '
+              'Das ist ⟦Ziehen ohne Zurücklegen⟧.',
+  'woerter': [['ohne Zurücklegen', 'was gezogen ist, kommt nicht zurück'],
+              ['Nenner', 'die Zahl unter dem Bruchstrich: wie viele noch da sind']],
+  'bild': _BONBON,
+  'schritte': [{'text': 'Erster Griff: 3 von 5 Bonbons sind rot. Der Ast hat 3/5.',
+                'bild': {'aeste': [_ast('rot', '3/5'), _ast('blau', '2/5')]}},
+               {'text': 'Das rote ist gegessen. Übrig sind 2 rote von 4. Der Nenner ist jetzt 4.',
+                'bild': {'aeste': [_ast('rot', '3/5', *_RB('2/4', '2/4')), _ast('blau', '2/5')]}},
+               {'text': 'Pfad rot – rot: 3/5 · 2/4 = 6/20 = ⟦3/10⟧.', 'bild': {'aeste': _BONBON['aeste']}}],
+  'fehler': '3/5 · 3/5 gilt nur ⟦mit⟧ Zurücklegen. Das erste rote Bonbon ist schon gegessen. Es bleiben 2 rote von 4.',
+  'fehler_bild': {'typ': 'tabelle', 'kopf': ['', '1. Griff', '2. Griff (nach Rot)'], 'zeilen': [['rote', '3', '2'], ['alle', '5', '4']]},
+  'regel': 'Ohne Zurücklegen ändern sich die Äste der zweiten Stufe. ⟦Im Nenner eins weniger⟧, bei gleicher Sorte auch im Zähler.'},
  'gegenereignis': {
-  'einstieg': 'Bei einem Brettspiel darfst du erst losziehen, wenn du eine Sechs würfelst, und du hast drei Versuche. Wie wahrscheinlich ist mindestens eine Sechs? '
-              'Dazu gehören viele Pfade: Sechs im ersten Wurf, im zweiten, im dritten, zweimal … Viel kürzer ist die Gegenfrage: '
-              'Wie wahrscheinlich ist gar keine Sechs? Diese Gegenfrage heißt ⟦Gegenereignis⟧.',
-  'woerter': [['mindestens einmal', 'einmal oder öfter'],
-              ['Gegenereignis', 'genau das Gegenteil, hier „keinmal eine Sechs“'],
-              ['P(keinmal)', 'die Wahrscheinlichkeit, dass es nie eintritt'],
-              ['(5/6)³', '5/6 · 5/6 · 5/6: dreimal keine Sechs'],
-              ['1 − P', 'Ereignis und Gegenereignis ergeben zusammen 1, denn eines von beiden tritt sicher ein'],
-              ['≈', '„ungefähr gleich“']],
-  'schritte': ['Bei einem Wurf kommt mit der Wahrscheinlichkeit 5/6 keine Sechs.',
-               'Dreimal keine Sechs ist ein einziger Pfad: (5/6)³ = 125/216.',
-               '„Mindestens eine Sechs“ ist alles andere. Zusammen ergeben beide 1.',
-               'Also ist P(mindestens eine Sechs) = 1 − 125/216 = ⟦91/216⟧ ≈ 0,42.'],
-  'regel': 'So rechnest du bei „⟦mindestens einmal⟧“: über das ⟦Gegenereignis „keinmal“⟧. P(mindestens einmal) = 1 − P(keinmal).',
-  'fehler': 'P(mindestens eine Sechs) = 3 · 1/6 = ½ ist falsch: So werden Pfade mit mehreren Sechsen ⟦mehrfach gezählt⟧. '
-            'Bei sechs Würfen käme sogar 1 heraus – als wäre eine Sechs dann sicher. Über das Gegenereignis rechnen.'},
+  'einstieg': 'Beim Brettspiel brauchst du eine Sechs und hast drei Versuche. Wie wahrscheinlich ist mindestens eine Sechs? '
+              'Kürzer ist die Gegenfrage: gar keine Sechs. Sie heißt ⟦Gegenereignis⟧.',
+  'woerter': [['Gegenereignis', 'alles, was nicht zum Ereignis gehört'],
+              ['mindestens eine', 'eine oder mehr']],
+  'bild': _SECHS,
+  'schritte': [{'text': 'Zu „mindestens eine Sechs“ gehören viele Pfade.'},
+               {'text': 'Das Gegenereignis „keine Sechs“ ist nur ein Pfad.',
+                'bild': {'aeste': [_ast('keine 6', '5/6', _ast('keine 6', '5/6', _ast('keine 6', '5/6')))]}},
+               {'text': 'Dieser Pfad: 5/6 · 5/6 · 5/6 = 125/216.'},
+               {'text': 'Beide zusammen ergeben 1. Also 1 − 125/216 = ⟦91/216⟧ ≈ 0,42.', 'bild': {'aeste': _SECHS['aeste']}}],
+  'fehler': '3 · 1/6 = 1/2 ist falsch. So zählt man Pfade mit mehreren Sechsen ⟦mehrfach⟧. Bei sechs Würfen käme sonst 1 heraus.',
+  'fehler_bild': {'typ': 'tabelle', 'kopf': ['Würfe', 'falsch: Anzahl · 1/6', 'richtig: 1 − (5/6)^Anzahl'],
+                  'zeilen': [['3', '0,5', '≈ 0,42'], ['6', '1 (sicher?)', '≈ 0,67']]},
+  'regel': 'Bei „mindestens einmal“ über das Gegenereignis rechnen. ⟦P = 1 − P(keinmal)⟧.'},
  'baum_ergaenzen': {
-  'einstieg': 'In einer Stadt regnet es an 40 % aller Tage. An 10 % aller Tage regnet es und es gibt zugleich Stau. '
-              'An welchem Anteil der Regentage gibt es also Stau? Diese Zahl gehört an einen Ast, der im Baum noch leer ist. '
-              'Fehlende Zahlen findet man beim ⟦Baumdiagramm vervollständigen⟧.',
-  'woerter': [['A, B', 'Namen für Ereignisse, hier A: Regen, B: Stau'],
-              ['nicht A', 'das Gegenereignis: kein Regen'],
-              ['Verzweigungspunkt', 'eine Stelle im Baum, an der sich Äste teilen'],
-              ['P(A und B)', 'die Wahrscheinlichkeit des Pfades „A, dann B“'],
-              ['Gegenast', 'der andere Ast an derselben Verzweigung'],
-              ['0,4', '40 % als Dezimalzahl']],
-  'schritte': ['Bekannt sind der erste Ast P(A) = 0,4 und der Pfad P(A und B) = 0,1.',
-               'Für den Pfad gilt: 0,4 mal der zweite Ast ergibt 0,1.',
-               'Also ist der zweite Ast 0,1 : 0,4 = ⟦0,25⟧. An einem Viertel der Regentage gibt es Stau.',
-               'Die Äste an einer Verzweigung ergeben zusammen 1: Der Gegenast „nicht B“ hat 1 − 0,25 = 0,75, der Ast „nicht A“ hat 1 − 0,4 = 0,6.'],
-  'regel': 'So vervollständigst du: Die Äste von ⟦einem Verzweigungspunkt⟧ ergeben zusammen ⟦1⟧. Kennst du einen Pfad und seinen ersten Ast, '
-           'findest du den zweiten Ast durch ⟦Teilen⟧.',
-  'fehler': 'Den zweiten Ast als 0,1 − 0,4 oder 0,1 + 0,4 zu berechnen ist falsch: Der Pfad ist das Produkt der Äste, also muss man ⟦teilen⟧: 0,1 : 0,4 = 0,25.'},
+  'einstieg': 'In einer Stadt regnet es an 40 % der Tage. An 10 % der Tage gibt es Regen und Stau. '
+              'Fehlende Äste findet man beim ⟦Baumdiagramm vervollständigen⟧.',
+  'woerter': [['Verzweigung', 'ein Punkt, an dem sich der Baum teilt'],
+              ['Pfad', 'ein Weg durch den Baum; seine Wahrscheinlichkeit ist das Produkt der Äste']],
+  'bild': _regen(),
+  'schritte': [{'text': 'Bekannt: P(A) = 0,4. Der Pfad Regen und Stau hat 0,1.'},
+               {'text': 'Pfad: 0,4 · Ast = 0,1. Also Ast = 0,1 : 0,4 = 0,25.', 'bild': _regen('0,25')},
+               {'text': 'Die Äste einer Verzweigung ergeben 1. „Nicht B“ hat 0,75.', 'bild': _regen('0,25', '0,75')},
+               {'text': 'Ebenso hat „nicht A“ 1 − 0,4 = ⟦0,6⟧.', 'bild': _regen('0,25', '0,75', '0,6')}],
+  'fehler': '0,1 − 0,4 oder 0,1 + 0,4 ist falsch. Der Pfad ist ein Produkt. Also wird ⟦geteilt⟧: 0,1 : 0,4 = 0,25.',
+  'fehler_bild': _regen('0,1 : 0,4 = 0,25'),
+  'regel': 'Äste an einer Verzweigung ergeben zusammen 1. Einen fehlenden Ast findest du durch ⟦Teilen⟧.'},
  'simulation': {
-  'einstieg': 'Wirfst du zwei Würfel, zeigen sie manchmal dieselbe Zahl – das heißt Pasch. Von 36 möglichen Ergebnissen sind 6 ein Pasch, also ein Sechstel. '
-              'Würfelst du 600-mal, erwartest du etwa 100 Pasche, aber selten genau 100. Wie oft etwas tatsächlich vorkam, '
-              'geteilt durch die Zahl aller Versuche, heißt ⟦relative Häufigkeit⟧.',
+  'einstieg': 'Zeigen zwei Würfel dieselbe Zahl, heißt das Pasch. Bei 600 Würfen erwartest du etwa 100 Pasche. '
+              'Wie oft es wirklich passiert, zeigt die ⟦relative Häufigkeit⟧.',
   'woerter': [['Pasch', 'beide Würfel zeigen dieselbe Zahl'],
-              ['n', 'die Anzahl der Durchführungen, hier 600'],
-              ['p', 'die Wahrscheinlichkeit für einen Treffer, hier 1/6'],
-              ['n · p', 'die erwartete Anzahl der Treffer'],
-              ['relative Häufigkeit', 'Treffer geteilt durch alle Versuche'],
-              ['Simulation', 'den Zufallsversuch nachspielen, z. B. mit Würfeln oder am Computer']],
-  'bild': {'typ': 'saeulen', 'einheit': 'Anzahl in 600 Würfen', 'werte': [{'name': 'Pasch', 'wert': 94}, {'name': 'kein Pasch', 'wert': 506}], 'zahlen': True},
-  'schritte': ['Bei zwei Würfeln gibt es 6 · 6 = 36 Ergebnisse, davon sind 6 ein Pasch (1-1, 2-2, …, 6-6). Also ist p = 6/36 = 1/6.',
-               'Es wird n = 600-mal gewürfelt.',
-               'Erwartet werden n · p = 600 · 1/6 = ⟦100⟧ Pasche.',
-               'Eine Simulation ergab 94 Pasche. Die relative Häufigkeit 94 : 600 ≈ 0,157 liegt nah bei 1/6 ≈ 0,167.'],
-  'regel': 'So schätzt du ab: Bei n Durchführungen erwartest du etwa ⟦n · p⟧ Treffer. Die ⟦relative Häufigkeit⟧ schwankt, '
-           'nähert sich aber bei vielen Durchführungen der Wahrscheinlichkeit.',
-  'fehler': '„Nach 5 Würfen ohne Sechs kommt die Sechs jetzt wahrscheinlicher“ ist falsch: Der Würfel weiß nicht, was vorher kam – er hat ⟦kein Gedächtnis⟧. P bleibt 1/6.'},
+              ['relative Häufigkeit', 'Anzahl der Treffer geteilt durch die Anzahl der Versuche'],
+              ['Simulation', 'den Versuch oft durchführen oder nachspielen und zählen']],
+  'bild': _PASCH,
+  'schritte': [{'text': 'Zwei Würfel haben 36 Ergebnisse, davon 6 Pasche. Also p = 1/6.'},
+               {'text': 'Bei n = 600 Würfen erwartet man 600 · 1/6 = ⟦100⟧ Pasche.',
+                'bild': {'einheit': 'erwartet in 600 Würfen', 'werte': [{'name': 'Pasch', 'wert': 100}, {'name': 'kein Pasch', 'wert': 500}]}},
+               {'text': 'Die Simulation ergab 94 Pasche. Relative Häufigkeit: 94 : 600 ≈ 0,157.', 'bild': _PASCH},
+               {'text': 'Das liegt nah bei 1/6 ≈ 0,167. Mit mehr Würfen wird es meist genauer.'}],
+  'fehler': '„Nach 5 Würfen ohne Sechs kommt sie eher“ ist falsch. Der Würfel hat ⟦kein Gedächtnis⟧. P bleibt 1/6.',
+  'regel': 'Bei n Versuchen erwartest du etwa ⟦n · p⟧ Treffer. Die relative Häufigkeit schwankt um p.'},
  'verstehen': {
-  'einstieg': 'Jemand sagt: „Wenn ich zweimal eine Münze werfe, kommt sicher zweimal Kopf – ein Halb plus ein Halb ist ja 1.“ Stimmt das? '
-              'Bei Wahrscheinlichkeiten hilft eine Prüfliste: Wird richtig malgenommen und zusammengezählt? Bleiben die Zahlen zwischen 0 und 1? '
-              'Mit ihr kann man ⟦Aussagen prüfen⟧.',
+  'einstieg': 'Jemand sagt: „Bei zwei Münzwürfen kommt sicher zweimal Kopf. 1/2 plus 1/2 ist ja 1.“ Stimmt das? '
+              'Mit einer Prüfliste kann man ⟦Aussagen prüfen⟧.',
   'woerter': [['entlang eines Pfades', 'auf einem Weg durch den Baum: malnehmen'],
-              ['zwischen Pfaden', 'mehrere Wege zum selben Ereignis: addieren'],
-              ['P = 1', 'das Ereignis ist sicher'],
-              ['Prüfliste', 'die Fragen aus dem Merksatz unten']],
-  'schritte': ['Behauptung: Bei zweimal Münzwurf ist P(zweimal Kopf) = ½ + ½ = 1.',
-               'Zweimal Kopf ist ein einziger Pfad: erst Kopf, dann Kopf.',
-               'Entlang eines Pfades wird malgenommen: ½ · ½ = ¼.',
-               'Die Behauptung ist ⟦falsch⟧. P = 1 hieße „sicher“, aber zweimal Kopf ist nicht sicher.'],
-  'regel': 'So prüfst du: Wird ⟦entlang⟧ eines Pfades multipliziert und ⟦zwischen⟧ Pfaden addiert? Ändern sich die Wahrscheinlichkeiten ⟦ohne Zurücklegen⟧? '
-           'Ergeben die Äste an jeder Verzweigung 1?',
-  'fehler': 'Wahrscheinlichkeiten über 1 gibt es nicht. Sie sind immer ein Hinweis auf einen ⟦Rechenfehler⟧ – meistens wurde addiert statt multipliziert.'},
+              ['Behauptung', 'eine Aussage, die man prüfen will']],
+  'bild': _MUENZE,
+  'schritte': [{'text': 'Behauptung: P(zweimal Kopf) = 1/2 + 1/2 = 1.'},
+               {'text': 'Zweimal Kopf ist ein einziger Pfad: erst Kopf, dann Kopf.', 'bild': {'aeste': [_ast('K', '1/2', _ast('K', '1/2'))]}},
+               {'text': 'Entlang eines Pfades wird malgenommen: 1/2 · 1/2 = 1/4.'},
+               {'text': 'Die Behauptung ist ⟦falsch⟧. P = 1 hieße sicher.', 'bild': {'aeste': _MUENZE['aeste']}}],
+  'fehler': 'Wahrscheinlichkeiten über 1 gibt es nicht. Sie zeigen einen ⟦Rechenfehler⟧. Meist wurde addiert statt multipliziert.',
+  'regel': 'Prüfe: Entlang eines Pfades multiplizieren, zwischen Pfaden addieren. ⟦Ergebnis zwischen 0 und 1⟧?'},
 }
+
 
 GEN = schoen({'pfad_mult': g_pfad_mult, 'pfad_add': g_pfad_add, 'ohne_zuruecklegen': g_ohne_zuruecklegen, 'gegenereignis': g_gegenereignis,
               'baum_ergaenzen': g_baum_ergaenzen, 'simulation': g_simulation, 'verstehen': g_verstehen})

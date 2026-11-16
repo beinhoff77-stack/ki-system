@@ -1010,6 +1010,163 @@
    "w": "v · t ist die Strecke: 90 · 1 = 90 km. t = 90 : 80 = 1,125 h."
   },
   {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer Zuordnung bleibt x · y immer gleich. Für x = 4 ist y = 7,5. Berechne y für x = 6."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "4 * 7.5 / 6",
+   "w": "x · y = 4 · 7,5 = 30. Also y = 30 : 6 = 5.",
+   "h": "Berechne zuerst das feste Produkt."
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck hat den Flächeninhalt 36 cm². Es ist 4,8 cm lang. Wie breit ist es?"
+   },
+   "o": {
+    "wert": 7.5,
+    "einheit": "cm"
+   },
+   "c": "36 / 4.8",
+   "w": "Länge · Breite = 36. Breite = 36 : 4,8 = 7,5 cm.",
+   "h": "Bei festem Flächeninhalt ist die Breite indirekt proportional zur Länge."
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Wippe ist im Gleichgewicht, wenn auf beiden Seiten „Gewicht · Abstand zum Drehpunkt“ gleich ist. Ein Kind mit 30 kg sitzt 2 m vom Drehpunkt. Wie weit muss ein Kind mit 40 kg sitzen?"
+   },
+   "o": {
+    "wert": 1.5,
+    "einheit": "m"
+   },
+   "c": "30 * 2 / 40",
+   "w": "30 · 2 = 60. Also 40 · Abstand = 60, Abstand = 1,5 m. Das schwerere Kind sitzt näher am Drehpunkt.",
+   "h": "Gewicht und Abstand sind indirekt proportional."
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "P liegt auf dem Graphen von f(x) = 12/x (x > 0). P, der Ursprung und die beiden Lotfußpunkte auf den Achsen bilden ein Rechteck (Bild: P(3 | 4)). Was gilt für seinen Flächeninhalt, wenn P auf dem Graphen wandert?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      8
+     ],
+     "y": [
+      0,
+      8
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 12,
+       "b": 0,
+       "c": 0,
+       "bereich": [
+        1.5,
+        8
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 3,
+       "y": 4,
+       "name": "P"
+      }
+     ],
+     "flaechen": [
+      {
+       "punkte": [
+        [
+         0,
+         0
+        ],
+        [
+         3,
+         0
+        ],
+        [
+         3,
+         4
+        ],
+        [
+         0,
+         4
+        ]
+       ]
+      }
+     ]
+    }
+   },
+   "a": [
+    "Er ist nur für P(3 | 4) gleich 12.",
+    "Er wird immer kleiner, je weiter P nach rechts wandert.",
+    "Er ist am größten für P(1 | 12).",
+    "Er ist immer 12, denn x · y = 12."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Das Rechteck ist x breit und y hoch. Sein Flächeninhalt ist x · y. Für jeden Punkt des Graphen gilt y = 12/x, also x · y = 12.",
+   "h": "Der Flächeninhalt ist Breite · Höhe = x · y. Was weißt du über x · y?"
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "x und y sind indirekt proportional. x wird um 25 % erhöht. Um wie viel Prozent sinkt y?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "%"
+   },
+   "c": "(1 - 1 / 1.25) * 100",
+   "w": "Neues x = 1,25 · x. Damit x · y gleich bleibt, wird y durch 1,25 geteilt: y · 0,8. Das ist eine Abnahme um 20 %, nicht um 25 %.",
+   "h": "Teste mit Zahlen: x = 4, y = 10. Was ist y, wenn x = 5?"
+  },
+  {
+   "l": "indirekt",
+   "t": "indirekt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "8 Arbeiter brauchen für einen Auftrag 15 Tage. Nach 5 Tagen kommen 2 Arbeiter dazu. Wie viele Tage dauert der Auftrag insgesamt?"
+   },
+   "o": {
+    "wert": 13,
+    "einheit": "Tage"
+   },
+   "c": "5 + (8 * 15 - 8 * 5) / 10",
+   "w": "Der Auftrag braucht 8 · 15 = 120 Arbeitstage. Nach 5 Tagen sind 40 erledigt, 80 fehlen. 10 Arbeiter brauchen dafür 8 Tage. Insgesamt 5 + 8 = 13 Tage.",
+   "h": "Rechne in „Arbeitstagen“ (Arbeiter · Tage)."
+  },
+  {
    "l": "definitionsmenge",
    "t": "definitionsmenge",
    "p": "uebung",
@@ -1442,6 +1599,142 @@
     "index": 3
    },
    "w": "Nenner x + 6 = 0 für x = −6. D = ℚ \\ {−6}."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die Definitionsmenge von f(x) = 2/(3 − x) + 1 an."
+   },
+   "a": [
+    "D = ℚ \\ {3}",
+    "D = ℚ \\ {−3}",
+    "D = ℚ",
+    "D = ℚ \\ {1}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nenner 0: 3 − x = 0 ⇔ x = 3. Also D = ℚ \\ {3}.",
+   "h": "Hier steht x mit Minus im Nenner. Setze den Nenner gleich 0."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl gehört nicht zur Definitionsmenge von f(x) = 5/(x + 0,5) − 2?"
+   },
+   "o": {
+    "wert": -0.5
+   },
+   "c": "-0.5",
+   "w": "x + 0,5 = 0 ⇔ x = −0,5.",
+   "h": "Wann wird der Nenner 0?"
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die maximale Definitionsmenge von f(x) = 4/(x − 2) + 3/(x + 1) an."
+   },
+   "a": [
+    "D = ℚ \\ {−2; 1}",
+    "D = ℚ \\ {−1; 2; 3; 4}",
+    "D = ℚ \\ {−1; 2}",
+    "D = ℚ \\ {2}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Beide Nenner dürfen nicht 0 sein: x − 2 ≠ 0 und x + 1 ≠ 0. Ausgeschlossen sind 2 und −1.",
+   "h": "Es gibt zwei Nenner. Prüfe jeden."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Abbildung zeigt den Graphen einer Funktion f(x) = a/(x + b) + c. Welche Definitionsmenge hat f?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -8,
+      4
+     ],
+     "y": [
+      -4,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 2,
+       "b": 3,
+       "c": 1
+      }
+     ],
+     "senkrecht": [
+      -3
+     ],
+     "waagrecht": [
+      1
+     ]
+    }
+   },
+   "a": [
+    "D = ℚ \\ {3}",
+    "D = ℚ \\ {−3}",
+    "D = ℚ \\ {1}",
+    "D = ℚ \\ {−3; 1}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ausgeschlossen ist nur die Stelle der senkrechten Asymptote: x = −3. Die waagrechte Asymptote y = 1 betrifft die Werte, nicht die Definitionsmenge.",
+   "h": "Welche Asymptote zeigt eine verbotene x-Stelle?"
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = 6/(x + b) − 1 hat die Definitionsmenge D = ℚ \\ {4}. Bestimme b."
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "-4",
+   "w": "Ausgeschlossen ist x = −b. Aus −b = 4 folgt b = −4. Probe: Nenner x − 4 ist bei x = 4 null.",
+   "h": "Für welches x wird x + b null? Rückwärts denken."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl a ist f(x) = 3/(2x − a) an der Stelle x = 1,5 nicht definiert?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "2 * 1.5",
+   "w": "Nicht definiert heißt: Nenner 0. 2 · 1,5 − a = 0 ⇔ 3 − a = 0 ⇔ a = 3.",
+   "h": "Setze x = 1,5 in den Nenner ein und verlange 0."
   },
   {
    "l": "asymptoten",
@@ -1960,6 +2253,149 @@
    "w": "Nenner x − 3 = 0 für x = 3. Senkrechte Asymptote: x = 3."
   },
   {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die senkrechte Asymptote von f(x) = 3/(x + 2,5) − 1 an. x = □"
+   },
+   "o": {
+    "wert": -2.5
+   },
+   "c": "-2.5",
+   "w": "Senkrechte Asymptote bei x = −b = −2,5.",
+   "h": "Wo wird der Nenner 0?"
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die waagrechte Asymptote von f(x) = 5/x an. y = □"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "Es wird nichts addiert: c = 0. Die waagrechte Asymptote ist die x-Achse, y = 0. Die 5 ist kein c.",
+   "h": "Welche Zahl wird hinter dem Bruch addiert?"
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Der Graph gehört zu f(x) = a/(x − b) + c und geht durch den Punkt P. Lies die Asymptoten ab und bestimme den Term.",
+    "schablone": "f(x) = □/(x − □) + □",
+    "hinweis": "Je Lücke eine ganze Zahl.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      6
+     ],
+     "y": [
+      -3,
+      8
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 3,
+       "b": -1,
+       "c": 2
+      }
+     ],
+     "senkrecht": [
+      1
+     ],
+     "waagrecht": [
+      2
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 5,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     1,
+     2
+    ]
+   },
+   "c": [
+    "5 - 2",
+    "1",
+    "2"
+   ],
+   "w": "Asymptoten: x = 1 und y = 2, also f(x) = a/(x − 1) + 2. P(2 | 5) einsetzen: 5 = a/1 + 2 ⇔ a = 3.",
+   "h": "Lies erst die beiden Asymptoten ab. a bekommst du durch Einsetzen von P."
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "An welcher Stelle x schneidet die Gerade y = 2 den Graphen von f(x) = 4/(x − 1) + 3?"
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "1 + 4 / (2 - 3)",
+   "w": "4/(x − 1) + 3 = 2 ⇔ 4/(x − 1) = −1 ⇔ x − 1 = −4 ⇔ x = −3. Probe: 4/(−4) + 3 = 2.",
+   "h": "Setze f(x) = 2 und löse nach x auf."
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann der Graph von f(x) = a/(x + b) + c (mit a ≠ 0) die Gerade y = c schneiden?"
+   },
+   "a": [
+    "Ja: genau an der Stelle x = −b.",
+    "Ja: wenn x groß genug ist.",
+    "Nur wenn c = 0 ist.",
+    "Nein: a/(x + b) ist nie 0, also ist f(x) nie gleich c."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "f(x) = c würde bedeuten a/(x + b) = 0. Ein Bruch ist nur 0, wenn der Zähler 0 ist – a ist aber nicht 0. Darum berührt der Graph die Asymptote nie.",
+   "h": "Was müsste für a/(x + b) gelten, damit f(x) = c ist?"
+  },
+  {
+   "l": "asymptoten",
+   "t": "asymptoten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Hyperbel f(x) = a/(x + b) + c hat die Asymptoten x = −2 und y = 1 und geht durch den Ursprung. Bestimme a."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-1 * 2",
+   "w": "b = 2 und c = 1: f(x) = a/(x + 2) + 1. f(0) = 0 ⇔ a/2 + 1 = 0 ⇔ a = −2.",
+   "h": "Setze zuerst b und c ein. Dann nutze den Punkt (0 | 0)."
+  },
+  {
    "l": "achsenpunkte",
    "t": "achsenpunkte",
    "p": "uebung",
@@ -2381,6 +2817,120 @@
    },
    "c": "-(3) / (1) - (-5)",
    "w": "3/(x − 5) = −1 → x − 5 = 3 : (−1) = −3 → x = 2."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In welchem Punkt schneidet der Graph von f(x) = 6/(x − 3) + 4 die y-Achse? Gib den y-Wert an."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "6 / (0 - 3) + 4",
+   "w": "f(0) = 6/(−3) + 4 = −2 + 4 = 2.",
+   "h": "Setze x = 0 ein."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = 3/(x + 1) + 1,5."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "3 / (-1.5) - 1",
+   "w": "3/(x + 1) = −1,5 ⇔ x + 1 = 3 : (−1,5) = −2 ⇔ x = −3.",
+   "h": "Bringe 1,5 auf die andere Seite. Dann multipliziere mit dem Nenner."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme beide Achsenschnittpunkte des Graphen von f(x) = 2/(x − 1) + 1.",
+    "schablone": "N(□ | 0); S(0 | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     -1,
+     -1
+    ]
+   },
+   "c": [
+    "1 + 2 / (-1)",
+    "2 / (0 - 1) + 1"
+   ],
+   "w": "Nullstelle: 2/(x − 1) = −1 ⇔ x − 1 = −2 ⇔ x = −1. y-Achse: f(0) = 2/(−1) + 1 = −1. N(−1 | 0), S(0 | −1).",
+   "h": "Für N setzt du f(x) = 0, für S setzt du x = 0."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Funktion hat KEINE Nullstelle?"
+   },
+   "a": [
+    "f(x) = 3/(x − 2) + 1",
+    "f(x) = 1/(x + 4) − 1",
+    "f(x) = 3/(x − 2)",
+    "f(x) = −3/x + 2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ohne +c ist f(x) = 3/(x − 2) nie 0 (der Zähler ist 3). Die anderen haben Nullstellen: −1, 1,5 und −3.",
+   "h": "Ein Bruch ist nur 0, wenn sein Zähler 0 ist."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welchen Wert von c hat f(x) = 4/(x − 2) + c die Nullstelle x = 4?"
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-(4 / (4 - 2))",
+   "w": "f(4) = 4/2 + c = 2 + c = 0 ⇔ c = −2.",
+   "h": "Setze x = 4 ein und verlange f(4) = 0."
+  },
+  {
+   "l": "achsenpunkte",
+   "t": "achsenpunkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche Werte von c schneidet der Graph von f(x) = 2/x + c die y-Achse?"
+   },
+   "a": [
+    "für jeden Wert von c",
+    "für keinen Wert von c",
+    "nur für c = 0",
+    "nur für c = 2"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die y-Achse ist die Stelle x = 0. Dort ist 2/x nicht definiert – egal, wie groß c ist. Der Graph schneidet die y-Achse nie.",
+   "h": "Welches x hat die y-Achse? Darf man es einsetzen?"
   },
   {
    "l": "parameter",
@@ -2946,6 +3496,160 @@
    "w": "Asymptoten von f: x = −7, y = −1. Bei g: x = 0, y = 0. Also Verschiebung um 7 nach links und um 1 nach unten."
   },
   {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph von g(x) = 2/x wird um 3 nach unten verschoben. Wie heißt der neue Term?"
+   },
+   "a": [
+    "f(x) = 2/x − 3",
+    "f(x) = 2/x + 3",
+    "f(x) = 2/(x + 3)",
+    "f(x) = 2/(x − 3)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nach unten heißt: Von jedem Funktionswert 3 abziehen: f(x) = 2/x − 3.",
+   "h": "Oben/unten ändert c, links/rechts ändert b."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht der Graph von f(x) = 5/(x + 1) aus dem Graphen von g(x) = 5/x?"
+   },
+   "a": [
+    "Verschiebung um 1 nach unten",
+    "Verschiebung um 1 nach links",
+    "Verschiebung um 1 nach oben",
+    "Verschiebung um 1 nach rechts"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Lücke liegt jetzt bei x = −1 statt bei 0: um 1 nach links verschoben.",
+   "h": "Wo liegt die senkrechte Asymptote jetzt?"
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Lies die Asymptoten der gezeichneten Hyperbel ab. Welcher Term gehört zu ihr?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      7
+     ],
+     "y": [
+      -5,
+      3
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 1,
+       "b": -2,
+       "c": -1
+      }
+     ],
+     "senkrecht": [
+      2
+     ],
+     "waagrecht": [
+      -1
+     ]
+    }
+   },
+   "a": [
+    "f(x) = −1/(x − 2) − 1",
+    "f(x) = 1/(x − 2) + 1",
+    "f(x) = 1/(x − 2) − 1",
+    "f(x) = 1/(x + 2) − 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Senkrechte Asymptote x = 2: Nenner x − 2. Waagrechte Asymptote y = −1: − 1. Der Graph liegt rechts oben und links unten wie bei 1/x: Zähler positiv.",
+   "h": "Lies beide Asymptoten ab. Liegen die Äste wie bei 1/x oder wie bei −1/x?"
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph von f(x) = 3/(x − 1) + 2 wird um 4 nach links und um 5 nach unten verschoben. Wie heißt der neue Term?"
+   },
+   "a": [
+    "g(x) = 3/(x + 3) − 3",
+    "g(x) = 3/(x + 4) − 5",
+    "g(x) = 3/(x − 5) − 3",
+    "g(x) = 3/(x + 3) + 7"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Senkrechte Asymptote: von x = 1 um 4 nach links zu x = −3, also Nenner x + 3. Waagrechte: von y = 2 um 5 nach unten zu y = −3.",
+   "h": "Verschiebe die Asymptoten. Sie bestimmen den neuen Term."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Der Graph von f(x) = a/(x + b) + c ist punktsymmetrisch zum Punkt Z(−2 | 3). Bestimme b und c.",
+    "schablone": "b = □; c = □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "c": [
+    "2",
+    "3"
+   ],
+   "w": "Eine Hyperbel ist punktsymmetrisch zum Schnittpunkt ihrer Asymptoten. Also x = −2 (b = 2) und y = 3 (c = 3).",
+   "h": "Welcher Punkt ist bei 1/x das Symmetriezentrum? Wohin wandert er beim Verschieben?"
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph von g(x) = 4/x wird an der x-Achse gespiegelt. Welche Funktion gehört zum neuen Graphen?"
+   },
+   "a": [
+    "f(x) = 1/(4x)",
+    "f(x) = 4/(x − 4)",
+    "f(x) = 4/x − 4",
+    "f(x) = −4/x"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Beim Spiegeln an der x-Achse wechselt jeder Funktionswert das Vorzeichen: aus 4/x wird −4/x. Die Äste liegen dann im 2. und 4. Feld.",
+   "h": "Was passiert beim Spiegeln an der x-Achse mit dem Punkt (1 | 4)?"
+  },
+  {
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
@@ -3438,6 +4142,132 @@
     "index": 3
    },
    "w": "Falsch ist: Der Graph hat zwei Nullstellen. Es gibt genau eine Nullstelle, x = 1,5. Die anderen Aussagen stimmen: Asymptoten x = 2 und y = 4, Nullstelle 1,5."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = 2/x ist richtig?"
+   },
+   "a": [
+    "f(−1) = 2",
+    "f(x) ist nie negativ.",
+    "Der Graph geht durch (0 | 2).",
+    "Wird x verdoppelt, so halbiert sich f(x)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "f(2x) = 2/(2x) = (2/x) : 2. Doppeltes x, halbes f(x). Für x = 0 gibt es keinen Wert, f(−1) = −2 ist negativ.",
+   "h": "Teste jede Aussage mit einer Zahl."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über f(x) = −1/(x + 2) + 3 ist FALSCH?"
+   },
+   "a": [
+    "f ist für x = −2 nicht definiert.",
+    "Die senkrechte Asymptote ist x = 2.",
+    "Der Graph schneidet die Gerade y = 3 nie.",
+    "f(−1) = 2"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Senkrechte Asymptote: x + 2 = 0 ⇔ x = −2, nicht 2. f(−1) = −1/1 + 3 = 2 stimmt. y = 3 ist Asymptote und wird nie erreicht.",
+   "h": "Prüfe jede Aussage einzeln."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ben sagt: „Der Graph von f(x) = 1/x fällt. Also ist f(−1) größer als f(1).“ Was stimmt?"
+   },
+   "a": [
+    "Richtig: f(−1) = 1 und f(1) = −1.",
+    "Falsch: Der Graph von 1/x steigt.",
+    "Falsch: f(−1) = −1 ist kleiner als f(1) = 1. Der Graph fällt nur in jedem Ast für sich.",
+    "Richtig: Fallende Graphen haben links größere Werte."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "f(−1) = −1 und f(1) = 1. Links der Lücke sind alle Werte negativ, rechts positiv. „Fällt“ gilt nur innerhalb jedes Astes, nicht über die Lücke bei x = 0 hinweg.",
+   "h": "Rechne f(−1) und f(1) wirklich aus."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ina behauptet: „Für sehr große x liegen die Werte von f(x) = 6/(x − 1) + 2 ganz nahe bei 2.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig: 6/(x − 1) wird für große x fast 0.",
+    "Falsch: Sie werden immer größer.",
+    "Falsch: Sie liegen nahe bei 6.",
+    "Richtig: f(2) = 2."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für x = 1 001 ist 6/(x − 1) = 0,006. Der Bruch wird immer kleiner, f(x) nähert sich 2 – der waagrechten Asymptote. f(2) = 8, nicht 2.",
+   "h": "Setze eine große Zahl ein, z. B. x = 1 001."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Schnittpunkte haben der Graph von f(x) = 6/x und die Gerade y = x + 1?"
+   },
+   "a": [
+    "einen",
+    "drei",
+    "zwei",
+    "keinen"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Probieren: x = 2 gibt 6/2 = 3 und 2 + 1 = 3. x = −3 gibt 6/(−3) = −2 und −3 + 1 = −2. Zwei Schnittpunkte: (2 | 3) und (−3 | −2). Die Gerade schneidet jeden Ast einmal.",
+   "h": "Skizziere beide Graphen. Probiere dann ganze Zahlen als x."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Punkt kann auf KEINEM Graphen einer Funktion f(x) = a/x mit a > 0 liegen?"
+   },
+   "a": [
+    "P(2 | 3)",
+    "P(0,5 | 12)",
+    "P(−2 | −3)",
+    "P(−2 | 3)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Für a > 0 haben x und f(x) immer dasselbe Vorzeichen (Äste im 1. und 3. Feld). P(−2 | 3) hat verschiedene Vorzeichen. Die anderen passen zu a = 6.",
+   "h": "Welche Vorzeichen haben x und y, wenn a positiv ist?"
   }
  ],
  "offen": [

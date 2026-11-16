@@ -607,6 +607,123 @@ UMBAU_OFFEN = []
 baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
 
 
+# ---- SCHWER (Zehnte Runde: schwerere Aufgaben nach Prüfungsvorbild, siehe _schwer_kl8.py) ----
+# Vorbilder (Typ und Niveau, nicht Wortlaut/Zahlen): BMT10 2024 (Potenzbruch vereinfachen), Grundwissen 8 verschiedener Gymnasien
+# (Bruchterme kürzen nach Ausklammern, „zu einem Bruch zusammenfassen“ mit Summanden ohne Nenner, Hauptnenner), Stegreifaufgaben-Typ
+# „maximale Definitionsmenge“, BMT8 2022/2025 (Tabellenkalkulation, Punkt vor Strich), RS-Jahrgangsstufentest 8 2023 (Fehler in einer Rechnung finden).
+from _schwer_kl8 import Neu, mit_schwer  # noqa: E402
+
+N = Neu(10_8_4)
+
+# definitionsmenge
+N.z('definitionsmenge', 2, 'Für welche Zahl ist der Term 6/(9 − 3x) nicht definiert?', 3, '9 / 3', '9 − 3x = 0 ⇔ 3x = 9 ⇔ x = 3.', 'Setze den Nenner gleich 0.')
+N.a('definitionsmenge', 2, 'Gib die Definitionsmenge von 1/x + 1/(x + 1) an.', 'ℚ \\ {−1; 0}', ['ℚ \\ {0}', 'ℚ \\ {1}', 'ℚ \\ {0; 1}'],
+    'Beide Nenner dürfen nicht 0 werden: x ≠ 0 und x + 1 ≠ 0, also x ≠ −1.', 'Prüfe jeden Nenner einzeln.')
+N.a('definitionsmenge', 3, 'Gib die Definitionsmenge von (x + 2)/(x² − 4x) an.', 'ℚ \\ {0; 4}', ['ℚ \\ {4}', 'ℚ \\ {−2; 0; 4}', 'ℚ \\ {−4; 0}'],
+    'Nenner ausklammern: x² − 4x = x(x − 4). Ein Produkt ist 0, wenn ein Faktor 0 ist: x = 0 oder x = 4. Der Zähler spielt keine Rolle.',
+    'Klammere im Nenner x aus. Wann wird das Produkt 0?', art='P')
+N.a('definitionsmenge', 3, 'Ein Term hat die Definitionsmenge ℚ \\ {−2; 0}. Welcher kann es sein?', '3/(x² + 2x)', ['3/(x² − 2x)', '(x + 2)/x', '3/(x + 2) + x'],
+    'x² + 2x = x(x + 2) ist 0 für x = 0 und x = −2. Bei x² − 2x wären es 0 und 2. (x + 2)/x schließt nur 0 aus, 3/(x + 2) + x nur −2.',
+    'Klammere in jedem Nenner aus und bestimme die verbotenen Zahlen.', art='P')
+N.a('definitionsmenge', 3, 'Gib die Definitionsmenge von x/(2x + 1) : (x − 3)/x an.', 'ℚ \\ {−0,5; 0; 3}', ['ℚ \\ {−0,5; 0}', 'ℚ \\ {−0,5; 3}', 'ℚ \\ {0; 0,5; 3}'],
+    'Nenner 2x + 1 ≠ 0 (x ≠ −0,5) und x ≠ 0. Außerdem teilt man durch (x − 3)/x – dieser Bruch darf nicht 0 sein: x ≠ 3.',
+    'Beim Teilen darf auch der ganze zweite Bruch nicht 0 sein.', art='K')
+N.z('definitionsmenge', 3, 'Für welchen Wert von a hat der Term 5/(x² + a) die Definitionsmenge ℚ \\ {−3; 3}?', -9, '-(3**2)',
+    'Ausgeschlossen sind 3 und −3: Dort muss x² + a = 0 sein. 9 + a = 0 ⇔ a = −9. Probe: x² − 9 = 0 für x = ±3.', 'Setze x = 3 in den Nenner ein. Er muss 0 werden.', art='K')
+
+# termwert
+N.z('termwert', 2, 'Berechne T(−3) für T(x) = (x² − 1)/(x + 2).', -8, '((-3)**2 - 1) / (-3 + 2)', 'Zähler: 9 − 1 = 8. Nenner: −3 + 2 = −1. T(−3) = 8 : (−1) = −8.',
+    'Rechne Zähler und Nenner getrennt. (−3)² ist positiv.')
+N.z('termwert', 2, 'Berechne T(0,5) für T(x) = (2x + 3)/(4x).', 2, '(2 * 0.5 + 3) / (4 * 0.5)', 'Zähler: 1 + 3 = 4. Nenner: 2. T(0,5) = 4 : 2 = 2.', 'Zähler und Nenner getrennt.')
+N.z('termwert', 3, 'Der Term T(x) = (a · x + 4)/(x − 2) hat an der Stelle x = 3 den Wert 10. Bestimme a.', 2, '(10 * (3 - 2) - 4) / 3',
+    'T(3) = (3a + 4)/(3 − 2) = 3a + 4. Aus 3a + 4 = 10 folgt a = 2.', 'Setze x = 3 ein. Dann bleibt eine Gleichung für a.', art='P')
+N.z('termwert', 3, 'In Zelle A1 steht 4. In B1 steht =(A1+2)/(A1-1)/2. Welchen Wert zeigt B1? (Der Computer rechnet gleichrangige Rechenarten von links nach rechts.)', 1,
+    '((4 + 2) / (4 - 1)) / 2', 'Klammern zuerst: 6 und 3. Dann von links: 6 / 3 = 2, danach 2 / 2 = 1. Nicht 6 : (3 : 2) = 4.',
+    'Rechne die beiden Klammern aus. Dann teile von links nach rechts.', art='P')
+N.z('termwert', 3, 'Für welches x hat T(x) = (x + 1)/(x − 1) den Wert −1?', 0, '0', 'x + 1 = −(x − 1) = −x + 1 ⇔ 2x = 0 ⇔ x = 0. Probe: 1/(−1) = −1.',
+    'Multipliziere mit dem Nenner. Achte auf das Minus vor der Klammer.', art='K')
+N.a('termwert', 3, 'Welchen Wert kann T(x) = (2x + 1)/x für kein x annehmen?', '2', ['0', '1', '3'],
+    'Aufteilen: (2x + 1)/x = 2 + 1/x. Der Bruch 1/x ist nie 0, also ist T(x) nie 2. 0 gibt es bei x = −0,5, 1 bei x = −1, 3 bei x = 1.',
+    'Teile den Bruch in 2x/x + 1/x auf.', art='K')
+
+# kuerzen
+N.a('kuerzen', 2, 'Kürze vollständig: 12x²y/(18xy²)', '2x/(3y)', ['2/3', '2xy/3', '6x/(9y)'], '12 : 6 = 2, 18 : 6 = 3. x²/x = x, y/y² = 1/y. Ergebnis 2x/(3y).',
+    'Kürze Zahlen und jede Variable einzeln.')
+N.a('kuerzen', 2, 'Kürze vollständig: (6x + 4)/(9x + 6)', '2/3', ['(6x + 2)/(9x + 3)', '4/6', '(2x + 4)/(3x + 6)'],
+    'Ausklammern: 6x + 4 = 2(3x + 2) und 9x + 6 = 3(3x + 2). Der gleiche Faktor (3x + 2) kürzt sich: 2/3.', 'Klammere im Zähler 2 und im Nenner 3 aus.')
+N.a('kuerzen', 3, 'Kürze vollständig: (3x² + 9x)/(6x)', '(x + 3)/2', ['(x + 9)/2', '(x² + 3x)/2', 'x + 3/2'],
+    'Zähler ausklammern: 3x² + 9x = 3x(x + 3). Dann 3x(x + 3)/(6x) = (x + 3)/2. Man darf nicht nur 3x² kürzen.', 'Klammere im Zähler 3x aus.', art='P')
+N.a('kuerzen', 3, 'Kürze vollständig: (x − 4)/(4 − x)', '−1', ['1', '0', 'nicht kürzbar'],
+    '4 − x = −(x − 4). Also (x − 4)/(−(x − 4)) = −1 (für x ≠ 4). Probe mit x = 6: 2/(−2) = −1.', 'Klammere im Nenner −1 aus.', art='P')
+N.a('kuerzen', 3, 'Kürze vollständig: (x² + 6x + 9)/(2x + 6)', '(x + 3)/2', ['(x + 9)/2', 'x/2 + 9/6', '(x² + 3)/2'],
+    'Zähler: binomische Formel x² + 6x + 9 = (x + 3)². Nenner: 2(x + 3). Kürzen mit (x + 3): (x + 3)/2.', 'Erkennst du im Zähler eine binomische Formel?', art='K')
+N.z('kuerzen', 3, 'Für welchen Wert von a lässt sich (x + a)/(3x + 12) vollständig zu 1/3 kürzen?', 4, '12 / 3',
+    '3x + 12 = 3(x + 4). Damit 1/3 übrig bleibt, muss der Zähler x + 4 sein: a = 4.', 'Klammere im Nenner 3 aus.', art='K')
+
+# erweitern
+N.l('erweitern', 2, 'Erweitere 3/(x + 2) auf den Nenner x² + 2x. Gib den neuen Zähler ein.', '□x', [3], ['3'],
+    'x² + 2x = x(x + 2). Also mit x erweitern: neuer Zähler 3x.', 'Wie entsteht x² + 2x aus x + 2?', 'Tippe den Term ein, z. B. 3x.')
+N.l('erweitern', 2, 'Mit welchem Term wurde (x + 1)/3 erweitert, wenn der neue Nenner 6x ist?', '□x', [2], ['6 / 3'], '6x : 3 = 2x. Erweitert wurde mit 2x.',
+    'Neuer Nenner : alter Nenner.', 'Tippe den Term ein, z. B. 2x.')
+N.l('erweitern', 3, 'Gib den Hauptnenner von 1/(4x) und 5/(6x²) an.', '□x²', [12], ['12'],
+    'Zahlen: kleinstes gemeinsames Vielfaches von 4 und 6 ist 12. Variablen: x² enthält x. Hauptnenner 12x² (nicht 24x³).',
+    'kgV der Zahlen, höchste Potenz von x.', 'Tippe den Term ein, z. B. 12x².', art='P')
+N.l('erweitern', 3, 'Gib den Hauptnenner von 2/(x + 1) und 3/(x² + x) an.', '□x² + □x', [1, 1], ['1', '1'],
+    'x² + x = x(x + 1) enthält schon x + 1. Hauptnenner ist x(x + 1) = x² + x.', 'Klammere im zweiten Nenner aus.', 'Tippe den Term ein, z. B. x² + x.', art='P')
+N.z('erweitern', 3, 'Erweitere 2/(x − 1) auf den Nenner 1 − x. Wie heißt der neue Zähler?', -2, '2 * (-1)',
+    '1 − x = (−1) · (x − 1). Erweitert wird also mit −1: neuer Zähler 2 · (−1) = −2. 2/(x − 1) = −2/(1 − x).', 'Mit welcher Zahl wird x − 1 zu 1 − x?', art='K')
+N.l('erweitern', 3, 'Der Bruch (x + 3)/(2x) wurde erweitert. Er heißt jetzt (x² + 3x)/(□x²). Ergänze den Nenner.', '□x²', [2], ['2'],
+    'Der Zähler x + 3 wurde zu x² + 3x = x(x + 3). Erweitert wurde mit x, also wird der Nenner 2x · x = 2x².', 'Womit wurde der Zähler multipliziert?',
+    'Tippe den Term ein, z. B. 2x².', art='K')
+
+# addieren
+N.a('addieren', 2, 'Fasse zusammen: 3/(2x) + 1/(4x)', '7/(4x)', ['4/(6x)', '4/(4x)', '7/(8x²)'], 'Hauptnenner 4x: 3/(2x) = 6/(4x). 6/(4x) + 1/(4x) = 7/(4x).',
+    'Erweitere den ersten Bruch auf 4x.')
+N.a('addieren', 2, 'Fasse zu einem Bruch zusammen: 1 + 2/x', '(x + 2)/x', ['3/x', '(1 + 2)/x', '2/(x + 1)'], '1 = x/x. Also x/x + 2/x = (x + 2)/x.', 'Schreibe 1 als Bruch mit Nenner x.')
+N.a('addieren', 3, 'Fasse zusammen und vereinfache: (x + 2)/x² − 1/x', '2/x²', ['(x + 1)/x²', '(x + 2)/x', '(2 − x)/x²'],
+    'Hauptnenner x²: 1/x = x/x². (x + 2 − x)/x² = 2/x².', 'Erweitere 1/x auf x². Achte beim Abziehen auf alle Glieder.', art='P')
+N.a('addieren', 3, 'Fasse zu einem Bruch zusammen: 3x/(x − 2) − 1', '(2x + 2)/(x − 2)', ['(2x − 2)/(x − 2)', '(3x − 1)/(x − 2)', '3x/(x − 3)'],
+    '1 = (x − 2)/(x − 2). 3x − (x − 2) = 3x − x + 2 = 2x + 2. Ergebnis (2x + 2)/(x − 2).', 'Schreibe 1 mit dem Nenner x − 2. Das Minus gilt für den ganzen Zähler.', art='P')
+N.a('addieren', 3, 'Fasse zusammen: 1/(x − 2) + 1/(2 − x)', '0', ['2/(x − 2)', '2/(x² − 4)', '1/(2x − 4)'],
+    '2 − x = −(x − 2), also 1/(2 − x) = −1/(x − 2). Dann 1/(x − 2) − 1/(x − 2) = 0.', 'Vergleiche die Nenner genau. Was ist 2 − x im Vergleich zu x − 2?', art='K')
+N.z('addieren', 3, 'Es gilt a/x + 3/(x + 1) = (5x + 2)/(x(x + 1)). Bestimme a.', 2, '2',
+    'a/x + 3/(x + 1) = (a(x + 1) + 3x)/(x(x + 1)) = ((a + 3)x + a)/(x(x + 1)). Vergleich mit 5x + 2: a = 2 (und a + 3 = 5 passt).',
+    'Bringe die linke Seite auf den Hauptnenner und vergleiche die Zähler.', art='K')
+
+# multiplizieren
+N.a('multiplizieren', 2, 'Berechne und kürze: (2x/3) · (9/(4x²))', '3/(2x)', ['18x/(12x²)', '3x/2', '2/(3x)'], '2x · 9 = 18x, 3 · 4x² = 12x². 18x/(12x²) = 3/(2x).',
+    'Zähler mal Zähler, Nenner mal Nenner, dann kürzen.')
+N.a('multiplizieren', 2, 'Berechne und kürze: (x + 1)/x : (x + 1)/x²', 'x', ['1/x', '(x + 1)²/x³', '1'], 'Mit dem Kehrbruch malnehmen: (x + 1)/x · x²/(x + 1) = x²/x = x.',
+    'Teilen heißt: mit dem Kehrbruch malnehmen.')
+N.a('multiplizieren', 3, 'Berechne und kürze: 2x : (4/x)', 'x²/2', ['8/x', '1/(2x²)', '8x²'], '2x · x/4 = 2x²/4 = x²/2.', 'Schreibe 2x als 2x/1 und nimm mit dem Kehrbruch mal.', art='P')
+N.a('multiplizieren', 3, 'Berechne und kürze: (x² − 9)/(2x) · 4x/(x + 3)', '2(x − 3)', ['2(x + 3)', '4(x − 3)/2x', '2x − 9'],
+    'x² − 9 = (x + 3)(x − 3). Dann (x + 3)(x − 3) · 4x/(2x(x + 3)) = 2(x − 3).', 'Zerlege x² − 9 mit der binomischen Formel, dann kürzen.', art='P')
+N.z('multiplizieren', 3, 'Das Ergebnis von (3x − 6)/(x + 1) : (x − 2)/(2x + 2) ist eine Zahl. Welche?', 6, '3 * 2',
+    '3x − 6 = 3(x − 2) und 2x + 2 = 2(x + 1). Kehrbruch: 3(x − 2)/(x + 1) · 2(x + 1)/(x − 2) = 3 · 2 = 6.', 'Klammere zuerst aus. Dann kürzt sich alles mit x weg.', art='K')
+N.a('multiplizieren', 3, 'Mit welchem Bruchterm muss man x/(x + 1) multiplizieren, um 1 zu erhalten?', '(x + 1)/x', ['1/(x + 1)', '(x − 1)/x', 'x/(x + 1)'],
+    'Ein Bruch mal sein Kehrbruch ergibt 1: x/(x + 1) · (x + 1)/x = 1.', 'Was ergibt 2/3 · 3/2?', art='K')
+
+# fehler_finden
+N.a('fehler_finden', 2, 'Welche Umformung ist richtig (für alle x aus D)?', '(2x + 4)/2 = x + 2', ['(2x + 4)/2 = x + 4', 'x/(x + 4) = 1/4', '(x + 4)/x = 4'],
+    '(2x + 4)/2 = 2(x + 2)/2 = x + 2. Die anderen kürzen Summanden statt Faktoren.', 'Kürzen geht nur mit gemeinsamen Faktoren.')
+N.a('fehler_finden', 2, 'Welche Umformung ist FALSCH (für alle x aus D)?', '(x² + 4)/(x + 2) = x + 2', ['x/(2x) = 1/2', '(x − 3)/(3 − x) = −1', '(x + 2)²/(x + 2) = x + 2'],
+    'x² + 4 ist keine binomische Formel; (x + 2)² wäre x² + 4x + 4. Gegenbeispiel x = 1: 5/3 ≠ 3.', 'Setze eine Zahl ein, z. B. x = 1.')
+N.a('fehler_finden', 3, 'Tim rechnet: 2/x − (x − 1)/x = (2 − x − 1)/x = (1 − x)/x. Was stimmt?', 'Falsch: Das Minus gilt für den ganzen Zähler. Richtig ist (3 − x)/x.',
+    ['Richtig gerechnet.', 'Falsch: Man darf nur gleiche Nenner subtrahieren.', 'Falsch: Richtig ist (1 − x)/(2x).'],
+    'Vor (x − 1) steht ein Minus: 2 − (x − 1) = 2 − x + 1 = 3 − x. Tim hat die Klammer weggelassen.', 'Setze den zweiten Zähler in Klammern.', art='P')
+N.a('fehler_finden', 3, 'Lena prüft (x² + x)/x = x + 1 mit x = 0 und sagt: „Stimmt nicht.“ Was stimmt?', 'Lenas Probe zählt nicht: x = 0 gehört nicht zu D. Für alle x ≠ 0 stimmt die Umformung.',
+    ['Lena hat recht: Ein Gegenbeispiel genügt.', 'Lena hat recht: Kürzen mit x ist verboten.', 'Die Umformung stimmt nur für x = 1.'],
+    'Für x = 0 ist der linke Term gar nicht definiert. (x² + x)/x = x(x + 1)/x = x + 1 gilt für jedes x aus D = ℚ \\ {0}.',
+    'Darf man x = 0 überhaupt einsetzen?', art='P')
+N.z('fehler_finden', 3, 'Die Umformung (x + 6)/(x + 2) = 6/2 ist falsch. Für welches x ergibt sie trotzdem eine wahre Aussage?', 0, '0',
+    '(x + 6)/(x + 2) = 3 ⇔ x + 6 = 3x + 6 ⇔ x = 0. Nur bei x = 0 stimmt es zufällig: 6/2 = 3.', 'Löse (x + 6)/(x + 2) = 3.', art='K')
+N.a('fehler_finden', 3, 'Mit welcher Zahl kannst du zeigen, dass 1/x + 1/2 = 2/(x + 2) falsch ist?', 'x = 2', ['x = 0', 'x = −2', 'mit keiner, die Umformung stimmt'],
+    'x = 2: links 1/2 + 1/2 = 1, rechts 2/4 = 0,5. Ungleich – Gegenbeispiel. x = 0 und x = −2 darf man nicht einsetzen.',
+    'Ein Gegenbeispiel muss erlaubt sein (in D liegen).', art='K')
+
+baue = mit_schwer(baue, N)
+# ---- SCHWER ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Grundlagen', ['definitionsmenge', 'termwert']), ('Kürzen und Erweitern', ['kuerzen', 'erweitern']),

@@ -1707,6 +1707,108 @@
    "w": "n + 1 = 7 → n = 6."
   },
   {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pyramide hat 12 Kanten. Wie viele Flächen hat sie?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "12 / 2 + 1",
+   "w": "2n = 12 ⇔ n = 6. Flächen: n + 1 = 7.",
+   "h": "Bestimme n aus der Kantenzahl 2n."
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Körper hat 6 Ecken und 6 Flächen?"
+   },
+   "a": [
+    "eine sechsseitige Pyramide",
+    "eine fünfseitige Pyramide",
+    "ein Würfel",
+    "ein dreiseitiges Prisma"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Fünfseitige Pyramide: 5 + 1 = 6 Ecken, 5 + 1 = 6 Flächen. Der Würfel hat 8 Ecken, das dreiseitige Prisma 5 Flächen.",
+   "h": "Bei einer Pyramide ist Ecken = Flächen = n + 1."
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne für eine siebenseitige Pyramide: Ecken + Flächen − Kanten."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(7 + 1) + (7 + 1) - 2 * 7",
+   "w": "8 Ecken, 8 Flächen, 14 Kanten: 8 + 8 − 14 = 2.",
+   "h": "Nutze n + 1, n + 1 und 2n."
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kantenmodell einer quadratischen Pyramide aus Draht: Grundkante 8 cm, jede Seitenkante 12 cm. Man hat 1 m Draht. Wie viele cm bleiben übrig?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "cm"
+   },
+   "c": "100 - (4 * 8 + 4 * 12)",
+   "w": "Kanten: 4 · 8 cm + 4 · 12 cm = 80 cm. Übrig: 100 cm − 80 cm = 20 cm.",
+   "h": "Zähle Grundkanten und Seitenkanten getrennt. 1 m = 100 cm."
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Auf jede der 6 Flächen eines Würfels wird eine quadratische Pyramide geklebt (Grundfläche = Würfelfläche). Wie viele Ecken hat der neue Körper?"
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "8 + 6",
+   "w": "Die 8 Würfelecken bleiben Ecken. Jede Pyramide bringt eine neue Spitze: 8 + 6 = 14.",
+   "h": "Was kommt pro Pyramide an Ecken dazu?"
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pyramide und ein Prisma haben dieselbe n-eckige Grundfläche. Zusammen haben sie 45 Kanten. Wie groß ist n?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "45 / 5",
+   "w": "Pyramide 2n Kanten, Prisma 3n Kanten: 5n = 45 ⇔ n = 9.",
+   "h": "Stelle eine Gleichung mit 2n und 3n auf."
+  },
+  {
    "l": "laengen",
    "t": "laengen",
    "p": "uebung",
@@ -2103,6 +2205,112 @@
    },
    "c": "4 * 10 + 4 * 7 + 4 * 10 / 2",
    "w": "4 Breiten (40 cm) und 4 Höhen (28 cm) in wahrer Länge, 4 Tiefen zu 5 cm (20 cm). Zusammen 88 cm."
+  },
+  {
+   "l": "laengen",
+   "t": "laengen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel mit 6 cm Kantenlänge wird im Schrägbild (q = 1/2) gezeichnet. Wie lang sind alle 12 gezeichneten Kanten zusammen?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "cm"
+   },
+   "c": "8 * 6 + 4 * 3",
+   "w": "8 Kanten in wahrer Länge (6 cm), 4 Kanten nach hinten verkürzt (3 cm): 48 + 12 = 60 cm.",
+   "h": "Wie viele Kanten führen nach hinten?"
+  },
+  {
+   "l": "laengen",
+   "t": "laengen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild mit q = 2/3 ist eine nach hinten führende Kante 4 cm lang gezeichnet. Wie lang ist sie in Wirklichkeit?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "4 * 3 / 2",
+   "w": "Gezeichnet = wahr · 2/3. Wahre Länge = 4 : 2/3 = 4 · 3/2 = 6 cm.",
+   "h": "Rückwärts: durch q teilen."
+  },
+  {
+   "l": "laengen",
+   "t": "laengen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat als Vorderfläche ein rechtwinkliges Dreieck mit den Katheten 4 cm und 3 cm. Im Schrägbild (q = 1/2) ist die Kante nach hinten 5 cm lang gezeichnet. Berechne das Volumen."
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "cm³"
+   },
+   "c": "4 * 3 / 2 * (5 * 2)",
+   "w": "Grundfläche: 4 · 3 : 2 = 6 cm². Wahre Tiefe: 5 cm · 2 = 10 cm. V = 6 · 10 = 60 cm³ (nicht 30 cm³).",
+   "h": "Die gezeichnete Tiefe ist verkürzt."
+  },
+  {
+   "l": "laengen",
+   "t": "laengen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus einem Quader (8 cm × 5 cm × 6 cm) wird an einer Ecke ein Würfel mit 2 cm Kantenlänge herausgeschnitten. Wie groß ist das Volumen des Restkörpers?"
+   },
+   "o": {
+    "wert": 232,
+    "einheit": "cm³"
+   },
+   "c": "8 * 5 * 6 - 2**3",
+   "w": "Quader: 240 cm³. Würfel: 8 cm³. Rest: 232 cm³.",
+   "h": "Ganzer Quader minus Würfel."
+  },
+  {
+   "l": "laengen",
+   "t": "laengen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Aus einer Ecke eines Quaders wird ein kleiner Würfel herausgeschnitten. Wie ändert sich die Oberfläche?"
+   },
+   "a": [
+    "Sie wird kleiner.",
+    "Das hängt von der Größe des Würfels ab.",
+    "Sie bleibt gleich groß.",
+    "Sie wird größer."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Drei kleine Quadrate fallen außen weg, drei gleich große Quadrate kommen innen in der Ecke dazu. Die Oberfläche bleibt gleich – das Volumen nicht.",
+   "h": "Zähle, welche Flächen weg- und welche dazukommen."
+  },
+  {
+   "l": "laengen",
+   "t": "laengen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 1/2) ist ein Quader 5 cm breit, 3 cm hoch und nach hinten 2 cm tief gezeichnet. Wie viele Würfel mit 1 cm Kantenlänge passen genau hinein?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "Würfel"
+   },
+   "c": "5 * 3 * (2 * 2)",
+   "w": "Wahre Tiefe: 4 cm. Also 5 · 3 · 4 = 60 Würfel.",
+   "h": "Erst die wahre Tiefe bestimmen."
   },
   {
    "l": "lage",
@@ -4831,6 +5039,680 @@
    "w": "AE und DA haben einen gemeinsamen Punkt (A)."
   },
   {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Kante des Quaders ist parallel zu AE?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "AB",
+    "EF",
+    "GH",
+    "CG"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "AE ist eine senkrechte Kante. Parallel dazu sind BF, CG und DH.",
+   "h": "Welche Kanten zeigen in dieselbe Richtung?"
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie liegen die Geraden AB und GH zueinander?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "parallel",
+    "windschief",
+    "identisch",
+    "schneiden sich"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "AB und GH zeigen beide von links nach rechts (wie DC). Sie sind parallel.",
+   "h": "Verschiebe GH in Gedanken nach unten."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gerade ist windschief zur Flächendiagonale AC der Grundfläche?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "EG",
+    "AE",
+    "CG",
+    "BF"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "BF trifft die Grundfläche nur in B, und B liegt nicht auf AC. Parallel sind sie auch nicht: windschief. CG und AE schneiden AC in C bzw. A, EG ist parallel zu AC.",
+   "h": "Prüfe für jede Gerade: gemeinsamer Punkt? gleiche Richtung?"
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Zimmer (Quader) steht ein Stab genau an der Kante AE. Wie viele der vier Kanten der Decke EFGH sind zu diesem Stab windschief?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "1 + 1",
+   "w": "EF und HE gehen durch E und schneiden AE. FG und GH berühren AE nicht und sind nicht parallel: 2 windschiefe Kanten.",
+   "h": "Welche Deckenkanten gehen durch E?"
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele der 12 Kanten eines Quaders sind windschief zur Kante AB?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "12 - 1 - 3 - 4",
+   "w": "Parallel zu AB: CD, EF, GH (3). Schneiden AB (in A oder B): AD, AE, BC, BF (4). Übrig: 12 − 1 − 3 − 4 = 4 windschiefe Kanten (CG, DH, FG, HE).",
+   "h": "Zähle erst die parallelen und die schneidenden."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gibt es im Quader zwei Flächendiagonalen, die windschief zueinander sind?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Nein, Diagonalen schneiden sich immer.",
+    "Ja, zum Beispiel AC und BG.",
+    "Ja, zum Beispiel AC und EG.",
+    "Nein, Diagonalen sind immer parallel."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "AC liegt in der Grundfläche, BG trifft die Grundfläche nur in B (nicht auf AC). Sie sind nicht parallel: windschief. AC und EG sind parallel.",
+   "h": "Nimm eine Diagonale unten und eine in einer Seitenfläche."
+  },
+  {
    "l": "koordinaten",
    "t": "koordinaten",
    "p": "uebung",
@@ -5223,6 +6105,117 @@
    },
    "c": "6",
    "w": "G(3 | 6 | 8), also y = 6."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Quader ABCDEFGH hat A(0 | 0 | 0), B(4 | 0 | 0), D(0 | 6 | 0) und E(0 | 0 | 3). Welche Koordinaten hat C?"
+   },
+   "a": [
+    "C(4 | 0 | 6)",
+    "C(4 | 6 | 3)",
+    "C(4 | 6 | 0)",
+    "C(6 | 4 | 0)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "C liegt in der Grundfläche (z = 0), über B hinaus in Richtung D: x wie B, y wie D.",
+   "h": "C liegt B gegenüber in der Grundfläche."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat A(0 | 0 | 0), B(4 | 0 | 0), D(0 | 6 | 0) und E(0 | 0 | 3). Wie lang ist die Kante CG?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "CG ist senkrecht, so lang wie AE: 3.",
+   "h": "Welche Kante ist genauso lang?"
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Quader hat A(0 | 0 | 0) und G(6 | 4 | 8). Tom gibt als Mittelpunkt der Raumdiagonale AG den Punkt M(6 | 4 | 8) an. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Man muss die Koordinaten halbieren. M(3 | 2 | 4).",
+    "Falsch: M(6 | 4 | 0).",
+    "Falsch: M(12 | 8 | 16).",
+    "Richtig gerechnet."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Mittelpunkt: je Koordinate (Anfang + Ende) : 2 = (0 + 6) : 2 = 3, (0 + 4) : 2 = 2, (0 + 8) : 2 = 4. Tom hat nur addiert.",
+   "h": "Wie berechnet man in der Ebene den Mittelpunkt einer Strecke?"
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat A(0 | 0 | 0), B(5 | 0 | 0), D(0 | 4 | 0) und E(0 | 0 | 3). Berechne sein Volumen."
+   },
+   "o": {
+    "wert": 60
+   },
+   "c": "5 * 4 * 3",
+   "w": "Länge 5, Breite 4, Höhe 3: V = 60 (Volumeneinheiten).",
+   "h": "Lies die Kantenlängen an den Koordinaten ab."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einem Würfel ist A(0 | 0 | 0). Der Mittelpunkt der Raumdiagonale AG ist M(3 | 3 | 3). Wie lang ist eine Kante?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "3 * 2",
+   "w": "M liegt in der Mitte: G(6 | 6 | 6). Kantenlänge 6.",
+   "h": "Von A bis M ist es die halbe Diagonale."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Quader hat A(0 | 0 | 0) und G(4 | 6 | 2). Welcher Punkt liegt NICHT auf einer Kante des Quaders?"
+   },
+   "a": [
+    "(0 | 6 | 1)",
+    "(2 | 3 | 0)",
+    "(4 | 3 | 0)",
+    "(2 | 0 | 2)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "(4 | 3 | 0) liegt auf BC, (0 | 6 | 1) auf DH, (2 | 0 | 2) auf EF. (2 | 3 | 0) liegt mitten in der Grundfläche, auf keiner Kante.",
+   "h": "Auf einer Kante sind zwei Koordinaten „Randwerte“ (0 oder Maximum)."
   },
   {
    "l": "rotation",
@@ -5643,6 +6636,198 @@
    "w": "Die Kathete auf der Achse (13 cm) wird zur Höhe, die andere (14 cm) zum Radius."
   },
   {
+   "l": "rotation",
+   "t": "rotation",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck mit den Seiten 5 cm und 2 cm dreht sich um die 2-cm-Seite. Wie hoch ist der entstehende Zylinder?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "cm"
+   },
+   "c": "2",
+   "w": "Die Seite, um die gedreht wird, ist die Achse: Höhe 2 cm. Die andere Seite wird zum Radius (5 cm) – ein flacher Zylinder.",
+   "h": "Die Drehachse wird zur Höhe."
+  },
+  {
+   "l": "rotation",
+   "t": "rotation",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Körper entsteht, wenn sich ein gleichschenkliges Dreieck um seine Symmetrieachse dreht?"
+   },
+   "a": [
+    "eine Pyramide",
+    "ein Zylinder",
+    "eine Kugel",
+    "ein Kegel"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Jede Hälfte ist ein rechtwinkliges Dreieck, das sich um eine Kathete dreht: ein Kegel.",
+   "h": "Was überstreicht die halbe Grundseite?"
+  },
+  {
+   "l": "rotation",
+   "t": "rotation",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Figur dreht sich um die gestrichelte Achse. Welcher Körper entsteht?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       6,
+       0
+      ],
+      "C": [
+       6,
+       4
+      ],
+      "D": [
+       0,
+       4
+      ],
+      "S": [
+       3,
+       7
+      ],
+      "_o": [
+       3,
+       -1
+      ],
+      "_p": [
+       3,
+       8
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "S",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "6 cm"
+      ],
+      [
+       "B",
+       "C",
+       "4 cm"
+      ],
+      [
+       "C",
+       "S"
+      ],
+      [
+       "S",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ],
+      [
+       "_o",
+       "_p",
+       "Achse",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "eine Pyramide auf einem Würfel",
+    "ein Zylinder",
+    "ein Zylinder mit einem Kegel darauf",
+    "zwei Kegel"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Das Rechteck wird zum Zylinder (r = 3 cm, h = 4 cm), das Dreieck darüber zum Kegel (r = 3 cm, h = 3 cm).",
+   "h": "Zerlege die Figur in Teile und drehe jedes einzeln."
+  },
+  {
+   "l": "rotation",
+   "t": "rotation",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein rechtwinkliges Trapez dreht sich um die Seite, die auf beiden parallelen Seiten senkrecht steht. Welcher Körper entsteht?"
+   },
+   "a": [
+    "ein Kegel, dem die Spitze abgeschnitten wurde (Kegelstumpf)",
+    "ein Zylinder",
+    "eine Kugel",
+    "ein Kegel"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die parallelen Seiten werden zu zwei verschieden großen Kreisen (oben und unten). Die schräge Seite bildet den Mantel: ein Kegelstumpf – wie ein Lampenschirm.",
+   "h": "Was wird aus den beiden parallelen Seiten beim Drehen?"
+  },
+  {
+   "l": "rotation",
+   "t": "rotation",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Rechteck (6 cm × 4 cm) dreht sich um eine Achse, die parallel zur 4-cm-Seite liegt, aber 2 cm außerhalb des Rechtecks. Was entsteht?"
+   },
+   "a": [
+    "ein Rohr (Hohlzylinder)",
+    "ein Kegel",
+    "ein Zylinder mit 6 cm Radius",
+    "zwei Zylinder"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Zwischen Achse und Rechteck bleibt eine Lücke von 2 cm: Innen entsteht ein Loch mit 2 cm Radius, außen ist der Radius 8 cm. Das ist ein Rohr.",
+   "h": "Berührt das Rechteck die Achse?"
+  },
+  {
+   "l": "rotation",
+   "t": "rotation",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Quadrat dreht sich um eine seiner Diagonalen. Welcher Körper entsteht?"
+   },
+   "a": [
+    "ein Zylinder",
+    "ein Würfel",
+    "eine Kugel",
+    "ein Doppelkegel (zwei Kegel mit gemeinsamer Grundfläche)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Diagonale teilt das Quadrat in zwei gleichschenklige Dreiecke. Jedes dreht sich um seine Grundseite, die Diagonale. So entstehen zwei Kegel, die mit ihren Grundflächen aneinanderliegen.",
+   "h": "Zerlege das Quadrat an der Diagonale in zwei Dreiecke."
+  },
+  {
    "l": "axialschnitt",
    "t": "axialschnitt",
    "p": "uebung",
@@ -6047,6 +7232,232 @@
    },
    "c": "2 * 9 * 10 / 2",
    "w": "Dreieck mit Grundseite 18 cm und Höhe 10 cm: A = 18 · 10 : 2 = 90 cm²."
+  },
+  {
+   "l": "axialschnitt",
+   "t": "axialschnitt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder hat den Durchmesser 10 cm und die Höhe 4 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "cm²"
+   },
+   "c": "10 * 4",
+   "w": "Der Axialschnitt ist ein Rechteck d × h = 10 cm × 4 cm = 40 cm².",
+   "h": "Achtung: Hier ist schon der Durchmesser gegeben."
+  },
+  {
+   "l": "axialschnitt",
+   "t": "axialschnitt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kugel hat den Radius 5 cm. Wie lang ist der Umfang ihres Axialschnitts? (π ≈ 3,14)"
+   },
+   "o": {
+    "wert": 31.4,
+    "einheit": "cm"
+   },
+   "c": "2 * 3.14 * 5",
+   "w": "Der Axialschnitt einer Kugel ist ein Kreis mit r = 5 cm: u = 2 · 3,14 · 5 = 31,4 cm.",
+   "h": "Welche Figur ist der Axialschnitt einer Kugel?"
+  },
+  {
+   "l": "axialschnitt",
+   "t": "axialschnitt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Axialschnitt einer Spielfigur besteht aus einem Rechteck (6 cm breit, 2 cm hoch) und einem daraufgesetzten gleichschenkligen Dreieck (Grundseite 6 cm, Höhe 5 cm). Wie groß ist der Axialschnitt?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       6,
+       0
+      ],
+      "C": [
+       6,
+       2
+      ],
+      "D": [
+       0,
+       2
+      ],
+      "S": [
+       3,
+       7
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "S",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "6 cm"
+      ],
+      [
+       "B",
+       "C",
+       "2 cm"
+      ],
+      [
+       "C",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "C",
+       "S"
+      ],
+      [
+       "S",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 27,
+    "einheit": "cm²"
+   },
+   "c": "6 * 2 + 6 * 5 / 2",
+   "w": "Rechteck: 12 cm². Dreieck: 6 · 5 : 2 = 15 cm². Zusammen 27 cm².",
+   "h": "Zerlege in Rechteck und Dreieck."
+  },
+  {
+   "l": "axialschnitt",
+   "t": "axialschnitt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Dieselbe Spielfigur entsteht durch Drehung des Axialschnitts um seine Symmetrieachse. Welchen Radius hat der kegelförmige obere Teil?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       6,
+       0
+      ],
+      "C": [
+       6,
+       2
+      ],
+      "D": [
+       0,
+       2
+      ],
+      "S": [
+       3,
+       7
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "S",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "6 cm"
+      ],
+      [
+       "B",
+       "C",
+       "2 cm"
+      ],
+      [
+       "C",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "C",
+       "S"
+      ],
+      [
+       "S",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm"
+   },
+   "c": "6 / 2",
+   "w": "Der Kegel hat als Axialschnitt das Dreieck mit Grundseite 6 cm. Der Radius ist die halbe Grundseite: 3 cm.",
+   "h": "Die Grundseite des Dreiecks ist der Durchmesser."
+  },
+  {
+   "l": "axialschnitt",
+   "t": "axialschnitt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Axialschnitt eines Kegels ist ein gleichseitiges Dreieck mit dem Umfang 18 cm. Wie groß ist der Radius des Kegels?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm"
+   },
+   "c": "18 / 3 / 2",
+   "w": "Jede Seite ist 6 cm lang, also auch die Grundseite (der Durchmesser). Radius 3 cm.",
+   "h": "Die Grundseite des Dreiecks ist der Durchmesser."
+  },
+  {
+   "l": "axialschnitt",
+   "t": "axialschnitt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Axialschnitt eines Zylinders ist ein Quadrat mit dem Umfang 24 cm. Berechne das Volumen des Zylinders. (π ≈ 3,14)"
+   },
+   "o": {
+    "wert": 169.56,
+    "einheit": "cm³"
+   },
+   "c": "3.14 * 3**2 * 6",
+   "w": "Quadratseite 6 cm: Durchmesser 6 cm (r = 3 cm) und Höhe 6 cm. V = 3,14 · 9 · 6 = 169,56 cm³.",
+   "h": "Was bedeuten die Quadratseiten für den Zylinder?"
   }
  ],
  "offen": [

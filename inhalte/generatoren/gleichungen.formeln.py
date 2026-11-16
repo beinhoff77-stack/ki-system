@@ -525,6 +525,91 @@ UMBAU_OFFEN = []
 baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
 
 
+# ---- SCHWER (Zehnte Runde: schwerere Aufgaben nach Prüfungsvorbild, siehe _schwer_kl8.py) ----
+# Vorbilder (Typ und Niveau, nicht Wortlaut/Zahlen): Grundwissen 8 bayerischer Gymnasien (Linsenformel nach einer Variablen auflösen und Werte
+# einsetzen; Trapezformel umstellen), BMT10 2024 (Parameter einer Formel aus einem Messwert bestimmen), BMT8 2023 (Quaderhöhe aus Volumen in Litern),
+# RS-Jahrgangsstufentest 8 2023 (Fehler in einer Rechnung finden), Physik-Formeln (U = R · I, ρ = m : V) wie in Schulaufgaben.
+from _schwer_kl8 import Neu, mit_schwer  # noqa: E402
+
+SW = Neu(10_8_9)
+
+# ein_schritt
+SW.a('ein_schritt', 2, 'Stelle P = U · I nach I um.', 'I = P : U', ['I = U : P', 'I = P · U', 'I = P − U'], 'I wird mit U multipliziert. Umkehrung: durch U teilen: I = P : U.',
+     'Welche Rechnung macht „· U“ rückgängig?')
+SW.a('ein_schritt', 2, 'Stelle m = ρ · V nach ρ um.', 'ρ = m : V', ['ρ = V : m', 'ρ = m · V', 'ρ = m − V'], 'Durch V teilen: ρ = m : V.', 'Teile beide Seiten durch V.')
+SW.z('ein_schritt', 3, 'Für einen elektrischen Widerstand gilt U = R · I. Ein Gerät nimmt bei 230 V eine Stromstärke von 0,5 A auf. Wie groß ist sein Widerstand R?', 460, '230 / 0.5',
+     'R = U : I = 230 : 0,5 = 460 Ω.', 'Stelle nach R um. Durch 0,5 teilen heißt verdoppeln.', einheit='Ω', art='P')
+SW.a('ein_schritt', 3, 'Für Linsen gilt 1/f = 1/g + 1/b. Stelle nach 1/b um.', '1/b = 1/f − 1/g', ['1/b = 1/g − 1/f', '1/b = 1/f + 1/g', 'b = f − g'],
+     '1/g steht als Summand bei 1/b. Rückgängig: auf beiden Seiten 1/g abziehen: 1/b = 1/f − 1/g.', 'Behandle 1/g wie eine Zahl, die addiert wurde.', art='P')
+SW.a('ein_schritt', 3, 'Es gilt v = s : t. Die Strecke s wird verdoppelt, die Zeit t halbiert. Was passiert mit v?', 'v wird viermal so groß.', ['v bleibt gleich.', 'v wird doppelt so groß.', 'v wird halbiert.'],
+     'Doppeltes s verdoppelt v. Halbes t verdoppelt v noch einmal. Zusammen: 4-mal so groß. Beispiel: 100 : 20 = 5, 200 : 10 = 20.', 'Probiere mit Zahlen, z. B. s = 100, t = 20.', art='K')
+SW.a('ein_schritt', 3, 'Für ein Dreieck gilt A = g · h : 2. Die Grundseite g wird verdreifacht. Wie muss sich h ändern, damit A gleich bleibt?', 'h muss gedrittelt werden.',
+     ['h muss verdreifacht werden.', 'h muss um 3 kleiner werden.', 'h bleibt gleich.'],
+     'A bleibt gleich, wenn g · h gleich bleibt. Bei 3-fachem g muss h ein Drittel so groß sein.', 'Wie hängen g und h zusammen, wenn A fest ist?', art='K')
+
+# zwei_schritte
+SW.a('zwei_schritte', 2, 'Stelle u = 2 · (l + b) nach b um.', 'b = u : 2 − l', ['b = u − 2 · l', 'b = (u − l) : 2', 'b = u : 2 + l'],
+     'Erst durch 2 teilen: u : 2 = l + b. Dann l abziehen: b = u : 2 − l.', 'Was wurde zuletzt gerechnet? Das kommt zuerst weg.')
+SW.a('zwei_schritte', 2, 'Stelle K = 5 + 0,2 · x nach x um.', 'x = (K − 5) : 0,2', ['x = K : 0,2 − 5', 'x = (K + 5) : 0,2', 'x = (K − 5) · 0,2'],
+     'Erst 5 abziehen: K − 5 = 0,2 · x. Dann durch 0,2 teilen.', 'Zuerst plus/minus, dann mal/geteilt rückgängig machen.')
+SW.a('zwei_schritte', 3, 'Stelle die Trapezformel A = (a + c) · h : 2 nach c um.', 'c = 2 · A : h − a', ['c = 2 · A : (h − a)', 'c = A : (2 · h) − a', 'c = 2 · A − a : h'],
+     'Mal 2: 2A = (a + c) · h. Durch h: 2A : h = a + c. Minus a: c = 2 · A : h − a.', 'Mache die Schritte „: 2“, „· h“ und „+ a“ in umgekehrter Reihenfolge rückgängig.', art='P')
+SW.z('zwei_schritte', 3, 'Für den Bremsweg auf nasser Straße gilt näherungsweise s = v² : k (v in km/h, s in m). Bei 50 km/h ist der Bremsweg 50 m lang. Bestimme k.', 50, '50**2 / 50',
+     'Einsetzen: 50 = 2 500 : k ⇔ 50 · k = 2 500 ⇔ k = 50.', 'Setze die beiden Messwerte ein. Dann ist nur k unbekannt.', art='P')
+SW.a('zwei_schritte', 3, 'Welche Formel ergibt nach x umgestellt x = y : 5 − 2?', 'y = 5 · (x + 2)', ['y = 5x + 2', 'y = 5x − 10', 'y = (x + 2) : 5'],
+     'Rückwärts: x = y : 5 − 2 ⇔ x + 2 = y : 5 ⇔ y = 5 · (x + 2). Probe: y = 5x − 10 ergäbe x = y : 5 + 2.', 'Stelle x = y : 5 − 2 nach y um.', art='K')
+SW.a('zwei_schritte', 3, 'Stelle a · x + b = c · x nach x um (a ≠ c).', 'x = b : (c − a)', ['x = b : (a − c)', 'x = (c − b) : a', 'x = c : (a + b)'],
+     'Alle x nach rechts: b = c · x − a · x = (c − a) · x. Durch (c − a): x = b : (c − a).', 'Sammle beide x-Glieder auf einer Seite und klammere x aus.', art='K')
+
+# pruefen
+SW.a('pruefen', 2, 'Jemand stellt U = R · I nach R um und erhält R = U : I. Stimmt das?', 'Ja, die Umstellung ist richtig.', ['Nein, richtig wäre R = I : U.', 'Nein, richtig wäre R = U · I.'],
+     'Probe mit R = 4, I = 3: U = 12. Umstellung: 12 : 3 = 4 ✓.', 'Prüfe mit zwei erfundenen Zahlen.')
+SW.a('pruefen', 2, 'Jemand stellt s = v · t + 5 nach t um und erhält t = s : v − 5. Stimmt das?', 'Nein, richtig wäre t = (s − 5) : v.', ['Ja, die Umstellung ist richtig.', 'Nein, richtig wäre t = s : (v − 5).'],
+     'Probe mit v = 2, t = 3: s = 11. Umstellung: 11 : 2 − 5 = 0,5 ≠ 3. Richtig: (11 − 5) : 2 = 3 ✓.', 'Was wurde zuletzt gerechnet: das Mal oder das Plus 5?')
+SW.a('pruefen', 3, 'Jemand stellt 1/f = 1/g + 1/b nach f um und erhält f = g + b. Stimmt das?', 'Nein: Probe g = 2, b = 2 gibt 1/f = 1, also f = 1, nicht 4.',
+     ['Ja: Kehrwerte darf man einzeln bilden.', 'Nein: richtig ist f = g − b.', 'Ja: Probe g = 2, b = 2 gibt f = 4.'],
+     'Kehrwert einer Summe ist nicht die Summe der Kehrwerte. 1/2 + 1/2 = 1, also f = 1. Richtig: f = g · b : (g + b) = 4 : 4 = 1 ✓.', 'Setze für g und b dieselbe Zahl 2 ein.', art='P')
+SW.a('pruefen', 3, 'Ist h = 2 · A : (a + c) die richtige Umstellung von A = (a + c) · h : 2?', 'Ja, die Umstellung ist richtig.', ['Nein, richtig wäre h = A : (2 · (a + c)).',
+     'Nein, richtig wäre h = 2 · A : a + c.'],
+     'Probe a = 2, c = 4, h = 3: A = 6 · 3 : 2 = 9. Umstellung: 2 · 9 : (2 + 4) = 18 : 6 = 3 ✓.', 'Erfinde a, c und h, berechne A und setze ein.', art='P')
+SW.a('pruefen', 3, 'Jemand stellt A = a · b nach b um und erhält (falsch) b = A · a. Mit welcher Probezahl für a fällt der Fehler NICHT auf?', 'a = 1', ['a = 2', 'a = 5', 'a = 10'],
+     'Für a = 1 ist A · 1 = A : 1. Beide Formeln geben dasselbe – der Fehler bleibt unentdeckt. Darum nimmt man keine 1 (und keine 0) zum Prüfen.',
+     'Für welche Zahl ist „mal“ dasselbe wie „geteilt“?', art='K')
+SW.a('pruefen', 3, 'Lea stellt M = (a + b + c) : 3 nach c um: c = 3 · M − a − b. Tom schreibt: c = 3 · (M − a − b). Wer hat recht?', 'Lea',
+     ['Tom', 'beide', 'keiner'],
+     'Probe a = b = c = 3: M = 3. Lea: 9 − 3 − 3 = 3 ✓. Tom: 3 · (3 − 6) = −9 ✗. Erst mal 3, dann a und b abziehen.', 'Prüfe beide mit denselben Zahlen.', art='K')
+
+# einsetzen
+SW.z('einsetzen', 2, 'Gold hat die Dichte ρ = 19,3 g/cm³. Ein Goldbarren wiegt 965 g. Welches Volumen hat er? (ρ = m : V)', 50, '965 / 19.3', 'V = m : ρ = 965 : 19,3 = 50 cm³.',
+     'Stelle nach V um.', einheit='cm³')
+SW.z('einsetzen', 2, 'Eine Lampe hat den Widerstand 920 Ω und liegt an 230 V. Wie groß ist die Stromstärke? (U = R · I)', 0.25, '230 / 920', 'I = U : R = 230 : 920 = 0,25 A.',
+     'Stelle nach I um.', einheit='A')
+SW.z('einsetzen', 3, 'Eine Regentonne fasst 210 Liter. Ihre Grundfläche beträgt 0,35 m². Wie hoch steht das Wasser, wenn sie voll ist? (V = G · h)', 60, '210 / 35 * 10',
+     '210 l = 210 dm³, 0,35 m² = 35 dm². h = V : G = 210 : 35 = 6 dm = 60 cm.', 'Rechne alles in dm um: 1 l = 1 dm³, 1 m² = 100 dm².', einheit='cm', art='P')
+SW.z('einsetzen', 3, 'Für Linsen gilt 1/f = 1/g + 1/b. Berechne f für g = 30 cm und b = 15 cm.', 10, '1 / (1/30 + 1/15)',
+     '1/f = 1/30 + 2/30 = 3/30 = 1/10. Also f = 10 cm.', 'Rechne erst die rechte Seite mit Hauptnenner 30 aus. Dann den Kehrwert bilden.', einheit='cm', art='P')
+SW.z('einsetzen', 3, 'Eine Läuferin schafft 400 m in 50 s. Wie schnell ist sie in km/h? (v = s : t)', 28.8, '400 / 50 * 3.6',
+     'v = 400 m : 50 s = 8 m/s. In einer Stunde (3 600 s): 8 · 3 600 = 28 800 m = 28,8 km. Also 28,8 km/h.', 'Rechne erst m/s aus und dann auf eine Stunde hoch.', einheit='km/h', art='K')
+SW.z('einsetzen', 3, 'Es gilt F = 1,8 · C + 32 (F in °F, C in °C). Bei welcher Celsius-Temperatur zeigen beide Skalen dieselbe Zahl?', -40, '32 / (1 - 1.8)',
+     'Gleiche Zahl: C = 1,8 · C + 32 ⇔ −0,8 · C = 32 ⇔ C = −40. Probe: 1,8 · (−40) + 32 = −40.', 'Setze F = C und löse nach C.', einheit='°C', art='K')
+
+# geometrie
+SW.z('geometrie', 2, 'Ein Dreieck hat den Flächeninhalt 18 cm² und die Höhe 4 cm. Wie lang ist die zugehörige Grundseite?', 9, '2 * 18 / 4', 'g = 2 · A : h = 36 : 4 = 9 cm.',
+     'A = g · h : 2. Das „: 2“ nicht vergessen.', einheit='cm')
+SW.z('geometrie', 2, 'Ein Rechteck hat den Umfang 50 cm und die Breite 7,5 cm. Wie lang ist es?', 17.5, '50 / 2 - 7.5', 'u : 2 = l + b ⇔ 25 = l + 7,5 ⇔ l = 17,5 cm.',
+     'Der halbe Umfang ist Länge plus Breite.', einheit='cm')
+SW.z('geometrie', 3, 'Ein quaderförmiges Aquarium fasst 96 Liter. Es ist 6 dm lang und 4 dm breit. Wie hoch ist es?', 4, '96 / (6 * 4)',
+     '96 l = 96 dm³. h = V : (l · b) = 96 : 24 = 4 dm.', '1 Liter = 1 dm³.', einheit='dm', art='P')
+SW.z('geometrie', 3, 'Ein Quader mit der Grundfläche 5 cm × 8 cm hat dasselbe Volumen wie ein Würfel mit der Kantenlänge 10 cm. Wie hoch ist der Quader?', 25, '10**3 / (5 * 8)',
+     'Würfel: V = 10 · 10 · 10 = 1 000 cm³. Quader: 40 cm² · h = 1 000 cm³ ⇔ h = 25 cm.', 'Berechne zuerst das Würfelvolumen.', einheit='cm', art='P')
+SW.z('geometrie', 3, 'Ein Trapez hat den Flächeninhalt 54 cm² und die Höhe 6 cm. Eine der parallelen Seiten ist doppelt so lang wie die andere. Wie lang ist die kürzere?', 6, '54 * 2 / 6 / 3',
+     'a + c = 2A : h = 108 : 6 = 18. Mit c = 2a: 3a = 18 ⇔ a = 6 cm (und c = 12 cm).', 'Stelle zuerst nach a + c um. Dann nutze c = 2a.', einheit='cm', art='K')
+SW.z('geometrie', 3, 'Ein Rechteck hat den Umfang 30 cm. Seine Länge ist doppelt so groß wie seine Breite. Berechne den Flächeninhalt.', 50, '10 * 5',
+     '2 · (2b + b) = 30 ⇔ 6b = 30 ⇔ b = 5 cm, l = 10 cm. A = 10 · 5 = 50 cm².', 'Drücke die Länge durch die Breite aus.', einheit='cm²', art='K')
+
+baue = mit_schwer(baue, SW)
+# ---- SCHWER ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Umstellen', ['ein_schritt', 'zwei_schritte', 'pruefen']), ('Anwenden', ['einsetzen', 'geometrie'])],

@@ -550,6 +550,119 @@ UMBAU_OFFEN = []
 baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
 
 
+# ---- SCHWER (Zehnte Runde: schwerere Aufgaben nach Prüfungsvorbild, siehe _schwer_kl8.py) ----
+# Vorbilder (Typ und Niveau, nicht Wortlaut/Zahlen): Känguru 2014 Kl. 7/8 (Platzhalter in zwei Brüchen, Verhältnisgleichung),
+# ISB-Lehrplanmaterial M 8.3 (G8: „über Kreuz multiplizieren“ begründen), Lernumgebung Uni Bayreuth (Textaufgaben, die auf Bruchgleichungen führen),
+# BMT8 2024 (Rückwärts: Zahl ersetzen, damit eine Lösung herauskommt), BMT8 2025 (Maßstab: Volumen/Fläche), BMT10 2024 (Schnitt Hyperbel–Gerade),
+# Schulaufgaben-Typ Kl. 8 (Hauptnenner aus x² − 4, Lösung mit D abgleichen).
+from _schwer_kl8 import Neu, mit_schwer  # noqa: E402
+
+SW = Neu(10_8_5)
+_k = lambda **k: {'typ': 'koordinaten', **k}
+_h = lambda a, b=0, c=0, **k: {'art': 'hyperbel', 'a': a, 'b': b, 'c': c, **k}
+
+# definitionsmenge
+SW.a('definitionsmenge', 2, 'Bestimme die Definitionsmenge von 3/(2x − 1) = 1/x.', 'ℚ \\ {0; 0,5}', ['ℚ \\ {0; 1}', 'ℚ \\ {0,5}', 'ℚ \\ {0; 2}'],
+    '2x − 1 = 0 ⇔ x = 0,5. Der zweite Nenner ist x, also auch x ≠ 0.', 'Prüfe beide Nenner.')
+SW.a('definitionsmenge', 2, 'Bestimme die Definitionsmenge von 5/x − 2/(x − 5) = 1/(3x).', 'ℚ \\ {0; 5}', ['ℚ \\ {5}', 'ℚ \\ {0; 3; 5}', 'ℚ \\ {−5; 0}'],
+    'Nenner x, x − 5 und 3x. 3x = 0 gilt auch nur für x = 0. Ausgeschlossen: 0 und 5.', 'Wann wird 3x null?')
+SW.a('definitionsmenge', 3, 'Bestimme die Definitionsmenge von 1/(x² − 2x) = 4/(x − 2).', 'ℚ \\ {0; 2}', ['ℚ \\ {2}', 'ℚ \\ {−2; 0}', 'ℚ \\ {0; 2; 4}'],
+    'x² − 2x = x(x − 2) ist 0 für x = 0 und x = 2. Der zweite Nenner schließt auch 2 aus.', 'Klammere im ersten Nenner aus.', art='P')
+SW.a('definitionsmenge', 3, 'Welche Gleichung hat die Definitionsmenge ℚ \\ {−3; 3}?', '2/(x − 3) = 5/(x + 3)', ['(x + 3)/(x − 3) = 1', 'x/3 = 3/x', '2/(x − 3) = 5'],
+    'Nur bei 2/(x − 3) = 5/(x + 3) stehen x − 3 und x + 3 im Nenner. (x + 3)/(x − 3) schließt nur 3 aus, x/3 = 3/x nur 0.', 'Nur Nenner zählen, Zähler nicht.', art='P')
+SW.z('definitionsmenge', 3, 'Für welchen Wert von a hat die Gleichung 2/(x − a) = 3/(x + 1) die Definitionsmenge ℚ \\ {−1}?', -1, '-1',
+    'Ausgeschlossen sind a und −1. Damit nur −1 übrig bleibt, muss a = −1 sein (beide Nenner gleich).', 'Welche Zahlen schließen die beiden Nenner aus?', art='K')
+SW.z('definitionsmenge', 3, 'Wie viele Zahlen schließt die Definitionsmenge von 1/x + 1/(x + 2) = 1/(2x) aus?', 2, '1 + 1',
+    'Nenner x und 2x schließen beide nur 0 aus, x + 2 schließt −2 aus. D = ℚ \\ {−2; 0}: 2 Zahlen.', 'Gleiche ausgeschlossene Zahlen zählen nur einmal.', art='K')
+
+# ein_bruch
+SW.z('ein_bruch', 2, 'Löse 15/(2x) = 6.', 1.25, '15 / 12', '15 = 12x ⇔ x = 15 : 12 = 1,25. x = 1,25 liegt in D.', 'Multipliziere mit 2x.')
+SW.z('ein_bruch', 2, 'Löse 7/(x − 1) = −0,5.', -13, '1 + 7 / (-0.5)', '7 = −0,5(x − 1) ⇔ x − 1 = −14 ⇔ x = −13.', 'Multipliziere mit (x − 1), dann teile durch −0,5.')
+SW.z('ein_bruch', 3, 'Die Gleichung 6/(x + 2) = 2 hat die Lösung x = 1. Durch welche Zahl muss man die 6 ersetzen, damit x = 4 die Lösung ist?', 12, '2 * (4 + 2)',
+    'x = 4 einsetzen: a/(4 + 2) = 2 ⇔ a/6 = 2 ⇔ a = 12. Probe: 12/6 = 2.', 'Setze x = 4 ein und bestimme die gesuchte Zahl.', art='P')
+SW.z('ein_bruch', 3, 'Ein Geschenk für 180 € wird gleichmäßig auf alle Kinder einer Gruppe verteilt. Jedes Kind zahlt 7,50 €. Wie viele Kinder sind es?', 24, '180 / 7.5',
+    'Bei x Kindern zahlt jedes 180/x €. 180/x = 7,5 ⇔ x = 180 : 7,5 = 24.', 'Stelle den Anteil pro Kind als Bruch mit x auf.', einheit='Kinder', art='P')
+SW.a('ein_bruch', 3, 'Löse (2x + 1)/(x − 3) = 2.', 'L = { }', ['L = {3}', 'L = {−3,5}', 'L = ℚ \\ {3}'],
+    'Mal (x − 3): 2x + 1 = 2x − 6 ⇔ 1 = −6. Das ist falsch für jedes x. Die Gleichung hat keine Lösung.', 'Nach dem Malnehmen fällt x weg. Was bleibt übrig?', art='K')
+SW.z('ein_bruch', 3, 'Teilt man 30 durch eine Zahl und subtrahiert 2, erhält man die Hälfte des Quotienten „30 durch die Zahl“. Welche Zahl ist es?', 7.5, '15 / 2',
+    '30/x − 2 = 15/x ⇔ 15/x = 2 ⇔ x = 7,5. Probe: 30 : 7,5 = 4, 4 − 2 = 2 = Hälfte von 4.', 'Übersetze Satz für Satz in eine Gleichung mit 30/x.', art='K')
+
+# ueber_kreuz
+SW.z('ueber_kreuz', 2, 'Löse 3/(2x) = 5/(x + 7).', 3, '21 / 7', '3(x + 7) = 5 · 2x ⇔ 3x + 21 = 10x ⇔ 21 = 7x ⇔ x = 3.', 'Über Kreuz multiplizieren.')
+SW.z('ueber_kreuz', 2, 'Löse (x + 1)/4 = (x − 2)/3.', 11, '3 + 8', '3(x + 1) = 4(x − 2) ⇔ 3x + 3 = 4x − 8 ⇔ x = 11.', 'Auch hier hilft über Kreuz: Klammern setzen!')
+SW.z('ueber_kreuz', 3, 'Für welche Zahl z gilt (z + 2)/10 = (12 + z)/30?', 3, '60 / 20',
+    'Über Kreuz: 30(z + 2) = 10(12 + z) ⇔ 30z + 60 = 120 + 10z ⇔ 20z = 60 ⇔ z = 3. Probe: 5/10 = 15/30.', 'Multipliziere über Kreuz. Oder: erweitere den linken Bruch auf 30.', art='P')
+SW.a('ueber_kreuz', 3, 'Warum darf man a/b = c/d (b, d ≠ 0) zu a · d = c · b umformen?', 'Man multipliziert beide Seiten mit b · d.',
+    ['Weil man Zähler und Nenner vertauschen darf.', 'Weil gleiche Brüche immer gleiche Zähler haben.', 'Das gilt nur für positive Zahlen.'],
+    'a/b · bd = ad und c/d · bd = cb. Beide Seiten werden mit derselben Zahl b · d (≠ 0) multipliziert – eine erlaubte Umformung.', 'Mit welchem Term musst du multiplizieren, damit beide Nenner verschwinden?', art='P')
+SW.a('ueber_kreuz', 3, 'Tom rechnet 2/x = 3/(x + 1) + 1 über Kreuz: 2(x + 1) = 3x + 1. Was stimmt?', 'Falsch: Über Kreuz geht nur, wenn auf jeder Seite genau ein Bruch steht.',
+    ['Richtig gerechnet.', 'Falsch: Es muss 2(x + 1) = 3x heißen.', 'Falsch: Es muss 2x = 3(x + 1) + 1 heißen.'],
+    'Rechts steht eine Summe aus Bruch und 1. Richtig: mit x(x + 1) multiplizieren: 2(x + 1) = 3x + x(x + 1).', 'Steht auf der rechten Seite nur ein Bruch?', art='K')
+SW.z('ueber_kreuz', 3, 'Für welchen Wert von a hat a/(x − 1) = 3/(x + 1) die Lösung x = 2?', 1, '3 * (2 - 1) / (2 + 1)', 'x = 2 einsetzen: a/1 = 3/3 = 1. Also a = 1.',
+    'Setze die Lösung ein. Dann ist nur noch a unbekannt.', art='K')
+
+# hauptnenner
+SW.z('hauptnenner', 2, 'Löse 1/2 + 1/x = 5/6.', 3, '1 / (5/6 - 1/2)', 'Mal 6x: 3x + 6 = 5x ⇔ 6 = 2x ⇔ x = 3.', 'Hauptnenner ist 6x.')
+SW.z('hauptnenner', 2, 'Löse 4/x − 1 = 3/x.', 1, '4 - 3', 'Mal x: 4 − x = 3 ⇔ x = 1.', 'Vergiss nicht, auch die 1 mit x zu multiplizieren.')
+SW.z('hauptnenner', 3, 'Ein Becken wird über zwei Rohre gefüllt. Rohr A allein braucht 4 h, beide zusammen 2,4 h. Wie lange bräuchte Rohr B allein?', 6, '1 / (1 / 2.4 - 1 / 4)',
+    'Pro Stunde: 1/4 + 1/x = 1/2,4. 1/2,4 = 5/12, also 1/x = 5/12 − 3/12 = 2/12 ⇔ x = 6.', 'Rechne mit „Teil des Beckens pro Stunde“.', einheit='h', art='P')
+SW.z('hauptnenner', 3, 'Löse 3/(x − 2) + 1/(x + 2) = 4/(x² − 4).', 0, '0',
+    'x² − 4 = (x − 2)(x + 2) ist Hauptnenner. Mal HN: 3(x + 2) + (x − 2) = 4 ⇔ 4x + 4 = 4 ⇔ x = 0. 0 liegt in D = ℚ \\ {−2; 2}.',
+    'Zerlege x² − 4 mit der binomischen Formel.', art='P')
+SW.a('hauptnenner', 3, 'Löse x/(x − 1) − 1 = 1/(x − 1).', 'L = ℚ \\ {1}', ['L = { }', 'L = {1}', 'L = ℚ'],
+    'Mal (x − 1): x − (x − 1) = 1 ⇔ 1 = 1. Das stimmt immer. Jede Zahl aus D ist Lösung: L = ℚ \\ {1}.', 'Rechne zu Ende. Was bedeutet eine immer wahre Aussage?', art='K')
+SW.a('hauptnenner', 3, 'Löse 2/(x − 3) − 1/x = 6/(x(x − 3)).', 'L = { }', ['L = {3}', 'L = {0; 3}', 'L = {−3}'],
+    'Mal x(x − 3): 2x − (x − 3) = 6 ⇔ x + 3 = 6 ⇔ x = 3. Aber 3 ∉ D = ℚ \\ {0; 3}. Keine Lösung.', 'Bestimme D zuerst. Prüfe am Ende.', art='K')
+
+# scheinloesung
+SW.a('scheinloesung', 2, 'Gib die Lösungsmenge von 2x/(x − 1) = 2/(x − 1) an.', 'L = { }', ['L = {1}', 'L = {−1}', 'L = ℚ \\ {1}'],
+    '2x = 2 ⇔ x = 1. Aber für x = 1 ist der Nenner 0. Scheinlösung, L = { }.', 'Rechne und vergleiche mit D.')
+SW.a('scheinloesung', 2, 'Gib die Lösungsmenge von 6/(x − 2) = 3/(x − 2) + 3 an.', 'L = {3}', ['L = { }', 'L = {2}', 'L = {−3}'],
+    '3/(x − 2) = 3 ⇔ x − 2 = 1 ⇔ x = 3. 3 liegt in D = ℚ \\ {2}. L = {3}.', 'Nicht jede Bruchgleichung hat eine Scheinlösung. Prüfe.')
+SW.a('scheinloesung', 3, 'Gib die Lösungsmenge von 1/(x − 1) + 1/(x + 1) = 2/(x² − 1) an.', 'L = { }', ['L = {1}', 'L = {−1; 1}', 'L = {0}'],
+    'HN (x − 1)(x + 1) = x² − 1: (x + 1) + (x − 1) = 2 ⇔ 2x = 2 ⇔ x = 1. Aber 1 ∉ D = ℚ \\ {−1; 1}. L = { }.', 'Zerlege x² − 1. Prüfe das Ergebnis mit D.', art='P')
+SW.a('scheinloesung', 3, 'Mia löst 2x/(x + 3) = −6/(x + 3) und schreibt L = {−3}. Was stimmt?', 'Falsch: −3 gehört nicht zu D. Richtig ist L = { }.',
+    ['Richtig gerechnet.', 'Falsch: Richtig ist L = {3}.', 'Falsch: Richtig ist L = ℚ \\ {−3}.'],
+    'Die Rechnung 2x = −6 ⇔ x = −3 stimmt. Aber für x = −3 ist der Nenner 0. Mia hat die Probe mit D vergessen.', 'Prüfe Mias Ergebnis mit der Definitionsmenge.', art='P')
+SW.a('scheinloesung', 3, 'Gib die Lösungsmenge von (x² − 1)/(x − 1) = 2 an.', 'L = { }', ['L = {1}', 'L = {−1; 1}', 'L = {3}'],
+    'Kürzen: (x − 1)(x + 1)/(x − 1) = x + 1 (für x ≠ 1). x + 1 = 2 ⇔ x = 1. Aber 1 ∉ D. Keine Lösung.', 'Zerlege den Zähler. Was ist mit x = 1?', art='K')
+SW.z('scheinloesung', 3, 'Für welchen Wert von a hat (x + a)/(x − 5) = 3/(x − 5) KEINE Lösung?', -2, '3 - 5',
+    'Mal (x − 5): x + a = 3 ⇔ x = 3 − a. Keine Lösung, wenn das die verbotene Zahl 5 ist: 3 − a = 5 ⇔ a = −2.', 'Löse allgemein nach x auf. Wann ist das eine Scheinlösung?', art='K')
+
+# verhaeltnis
+SW.z('verhaeltnis', 2, 'Löse die Verhältnisgleichung x : 2,5 = 6 : 5.', 3, '2.5 * 6 / 5', 'x · 5 = 2,5 · 6 = 15 ⇔ x = 3.', 'Außenglieder mal Außenglieder = Innenglieder mal Innenglieder.')
+SW.z('verhaeltnis', 2, 'Beton wird aus Zement und Kies im Verhältnis 1 : 4 gemischt. Wie viel Kies steckt in 60 kg Mischung?', 48, '60 * 4 / 5',
+    '1 : 4 heißt 5 Teile insgesamt, davon 4 Teile Kies. 60 kg : 5 = 12 kg pro Teil, Kies 4 · 12 = 48 kg.', 'Wie viele Teile hat die ganze Mischung?', einheit='kg')
+SW.z('verhaeltnis', 3, 'Auf einer Wanderkarte im Maßstab 1 : 50 000 liegen zwei Hütten 7 cm auseinander. Wie weit ist das in Wirklichkeit?', 3.5, '7 * 50000 / 100000',
+    '7 cm · 50 000 = 350 000 cm = 3 500 m = 3,5 km.', '1 km = 100 000 cm.', einheit='km', art='P')
+SW.z('verhaeltnis', 3, 'Ein Hausmodell ist im Maßstab 1 : 20 gebaut. Eine Wand hat im Modell 30 cm² Fläche. Wie groß ist die Fläche in Wirklichkeit?', 12000, '30 * 20 * 20',
+    'Jede Länge wird 20-mal so groß, eine Fläche also 20 · 20 = 400-mal so groß: 30 cm² · 400 = 12 000 cm² (= 1,2 m²).', 'Länge und Breite werden beide vergrößert.', einheit='cm²', art='P')
+SW.z('verhaeltnis', 3, 'Zwei Zahlen stehen im Verhältnis 3 : 5. Ihre Differenz ist 14. Wie groß ist die kleinere Zahl?', 21, '3 * 14 / 2',
+    'Die Zahlen sind 3k und 5k. Differenz 2k = 14 ⇔ k = 7. Kleinere Zahl 3 · 7 = 21 (größere 35).', 'Schreibe die Zahlen als 3k und 5k.', art='K')
+SW.z('verhaeltnis', 3, 'In einer Gruppe ist das Verhältnis Jungen : Mädchen = 4 : 5. Kommen 2 Jungen dazu, ist es 1 : 1. Wie viele Mädchen sind in der Gruppe?', 10, '5 * 2',
+    'Jungen 4k, Mädchen 5k. 4k + 2 = 5k ⇔ k = 2. Mädchen: 5 · 2 = 10 (Jungen 8, dann 10).', 'Schreibe Jungen und Mädchen mit einem gemeinsamen k.', einheit='Mädchen', art='K')
+
+# graphisch
+SW.z('graphisch', 2, 'Das Bild zeigt die Graphen von f(x) = 6/x und g(x) = 2. Lies die Lösung von 6/x = 2 ab.', 3, '6 / 2', 'Die Graphen schneiden sich bei x = 3. Probe: 6/3 = 2.',
+    'Lies den x-Wert des Schnittpunkts ab.', grafik=_k(x=[-5, 7], y=[-4, 6], graphen=[_h(6, name='f'), {'art': 'linear', 'm': 0, 't': 2, 'name': 'g'}]))
+SW.a('graphisch', 2, 'Welche Gleichung löst man, wenn man den Schnittpunkt der Graphen von f(x) = 4/(x − 1) und g(x) = 2 sucht?', '4/(x − 1) = 2',
+    ['4/(x − 1) = 0', '4/x − 1 = 2', '4 = 2(x + 1)'], 'Am Schnittpunkt sind die Funktionswerte gleich: f(x) = g(x), also 4/(x − 1) = 2.', 'Was gilt für f(x) und g(x) im Schnittpunkt?')
+SW.l('graphisch', 3, 'Die Gleichung 4/x = x hat zwei Lösungen. Lies sie am Bild ab, die kleinere zuerst.', 'x₁ = □; x₂ = □', [-2, 2], ['-2', '2'],
+    'Die Gerade y = x schneidet beide Äste der Hyperbel: bei (−2 | −2) und (2 | 2). Probe: 4/2 = 2.', 'Suche beide Schnittpunkte, auch links.', 'Je Lücke eine ganze Zahl.',
+    grafik=_k(x=[-5, 5], y=[-5, 5], graphen=[_h(4, name='f'), {'art': 'linear', 'm': 1, 't': 0, 'name': 'g'}]), art='P')
+SW.a('graphisch', 3, 'Für welche Zahl c hat 2/(x − 1) = c keine Lösung? Entscheide am Bild.', 'c = 0', ['c = 1', 'c = −2', 'c = 2'],
+    'Die Hyperbel nähert sich der waagrechten Asymptote y = 0, berührt sie aber nie. Jede andere waagrechte Gerade trifft einen Ast.',
+    'Welche waagrechte Gerade trifft die Hyperbel nie?', grafik=_k(x=[-4, 6], y=[-5, 5], graphen=[_h(2, -1)], senkrecht=[1]), art='P')
+SW.a('graphisch', 3, 'Wie viele Lösungen hat die Gleichung 1/x = −x? Entscheide am Bild.', '0 Lösungen', ['1 Lösung', '2 Lösungen', 'unendlich viele Lösungen'],
+    'Die Hyperbel 1/x liegt im 1. und 3. Feld, die Gerade y = −x im 2. und 4. Feld. Sie treffen sich nie. (Rechnerisch: x² = −1 geht nicht.)',
+    'In welchen Feldern liegt welcher Graph?', grafik=_k(x=[-4, 4], y=[-4, 4], graphen=[_h(1, name='f'), {'art': 'linear', 'm': -1, 't': 0, 'name': 'g'}]), art='K')
+SW.z('graphisch', 3, 'Die Ursprungsgerade y = m · x schneidet die Hyperbel f(x) = 9/x an der Stelle x = 3. Bestimme m.', 1, '9 / 3 / 3',
+    'Schnittpunkt: f(3) = 3, also P(3 | 3). P liegt auf der Geraden: 3 = m · 3 ⇔ m = 1. Wegen der Symmetrie ist auch (−3 | −3) ein Schnittpunkt.',
+    'Berechne zuerst den y-Wert des Schnittpunkts.', art='K')
+
+baue = mit_schwer(baue, SW)
+# ---- SCHWER ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Bruchgleichungen lösen', ['definitionsmenge', 'ein_bruch', 'ueber_kreuz', 'hauptnenner']), ('Prüfen', ['scheinloesung']), ('Verhältnisse und Graphen', ['verhaeltnis', 'graphisch'])],

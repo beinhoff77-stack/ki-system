@@ -824,6 +824,128 @@ UMBAU_OFFEN = []
 baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
 
 
+# ---- SCHWER (Zehnte Runde: schwerere Aufgaben nach Prüfungsvorbild, siehe _schwer_kl8.py) ----
+# Vorbilder (Typ und Niveau, nicht Wortlaut/Zahlen): Grundwissen 8 bayerischer Gymnasien (begründen, ob indirekt proportional; Wippe/Hebelgesetz;
+# Hyperbel aus dem Graphen), Schulaufgaben-Typ Kl. 8 („Zuordnung benennen“, Dreisatz mit Änderung unterwegs), BMT10 2024 (Rechtecke unter einer Hyperbel),
+# BMT8 2022/2025 (Tabellenkalkulations-Formel), Mathematik-Wettbewerbe (gemischte Proportionalität „Hennen und Eier“).
+from _schwer_kl8 import Neu, mit_schwer  # noqa: E402
+
+SW = Neu(10_8_15)
+_k = lambda **k: {'typ': 'koordinaten', **k}
+_ART = ['indirekt proportional', 'direkt proportional', 'weder noch']
+
+# erkennen
+SW.a('erkennen', 2, 'Ist diese Zuordnung indirekt proportional? Seitenlänge eines Quadrats → Flächeninhalt.', 'Nein: weder doppelt → halb noch doppelt → doppelt.',
+     ['Ja: doppelt so viel → halb so viel.', 'Nein: doppelt so viel → doppelt so viel.'],
+     'Doppelte Seitenlänge ergibt die vierfache Fläche (2 cm → 4 cm², 4 cm → 16 cm²). Das ist weder direkt noch indirekt proportional.', 'Rechne zwei Beispiele aus.')
+SW.a('erkennen', 2, 'Ist diese Zuordnung indirekt proportional? Rechtecke mit dem Umfang 20 cm: Breite → Länge.', 'Nein: weder doppelt → halb noch doppelt → doppelt.',
+     ['Ja: doppelt so viel → halb so viel.', 'Nein: doppelt so viel → doppelt so viel.'],
+     'Breite + Länge = 10 cm bleibt gleich, nicht das Produkt. Breite 2 → Länge 8, Breite 4 → Länge 6 (nicht 4). Also weder noch.', 'Was bleibt hier gleich: die Summe oder das Produkt?')
+SW.a('erkennen', 3, 'Ein Becken wird von gleich starken Pumpen geleert. Anzahl der Pumpen → Zeit ist indirekt proportional. Welche Begründung ist richtig?',
+     'Doppelt so viele Pumpen schaffen in derselben Zeit doppelt so viel Wasser, brauchen also halb so lange.',
+     ['Mit mehr Pumpen wird die Zeit kleiner.', 'Pumpenzahl und Zeit ergeben zusammen immer dieselbe Zahl.', 'Mit jeder Pumpe mehr dauert es eine Stunde weniger.'],
+     '„Je mehr, desto weniger“ reicht nicht als Begründung. Entscheidend ist: doppelt → halb, dreifach → ein Drittel (das Produkt bleibt gleich).', 'Was passiert genau bei doppelt so vielen Pumpen?', art='P')
+SW.a('erkennen', 3, 'Messwerte: 4 Arbeiter brauchen 6 h, 3 Arbeiter 8 h, 8 Arbeiter 4 h. Ist die Zuordnung Arbeiter → Zeit indirekt proportional?', 'Nein: 4 · 6 = 24 und 3 · 8 = 24, aber 8 · 4 = 32.',
+     ['Ja: Mehr Arbeiter brauchen weniger Zeit.', 'Ja: Alle Produkte sind 24.', 'Nein: Die Zeiten müssten um gleich viel sinken.'],
+     'Bei indirekter Proportionalität ist das Produkt immer gleich. Der dritte Messwert passt nicht (8 Arbeiter müssten 3 h brauchen).', 'Bilde für jedes Paar das Produkt.', art='P')
+SW.a('erkennen', 3, 'x und y sind indirekt proportional. x wird um 50 % größer. Was passiert mit y?', 'y sinkt um etwa 33 % (auf 2/3).', ['y sinkt um 50 %.', 'y steigt um 50 %.', 'y halbiert sich.'],
+     'x · 1,5 heißt y : 1,5 = y · 2/3. y wird also um ein Drittel kleiner, etwa 33 %, nicht 50 %.', 'Probiere mit x = 2, y = 6.', art='K')
+SW.a('erkennen', 3, 'Ist y = 2/x eine indirekte Proportionalität?', 'Ja: x · y = 2 ist für alle Paare gleich.', ['Nein: Es fehlt die Form y = k · x.', 'Nein: Für x = 0 gibt es keinen Wert.',
+     'Ja: y wird kleiner, wenn x größer wird.'],
+     'y = 2/x heißt x · y = 2 – das Produkt ist konstant. Das ist genau die indirekte Proportionalität (k = 2). x = 0 ist ohnehin ausgeschlossen.', 'Multipliziere beide Seiten mit x.', art='K')
+
+# vervielfachen
+SW.z('vervielfachen', 2, 'Die Zuordnung Pumpen → Stunden ist indirekt proportional: 2 Pumpen brauchen 15 Stunden. Wie lange brauchen 6 Pumpen?', 5, '15 / 3',
+     '6 Pumpen sind 3-mal so viele, also ein Drittel der Zeit: 15 h : 3 = 5 h.', 'Mit welcher Zahl wird die Pumpenzahl multipliziert?', einheit='h')
+SW.z('vervielfachen', 2, 'Indirekt proportional: Zu x = 5 gehört y = 12. Welcher y-Wert gehört zu x = 2,5?', 24, '12 * 2', 'x wird halbiert, also wird y verdoppelt: 24.', 'Halb so viel → doppelt so viel.')
+SW.z('vervielfachen', 3, 'Indirekt proportional: Bei 6 Bussen sitzen 45 Kinder in jedem Bus. Wie viele sind es pro Bus bei 9 Bussen?', 30, '45 * 6 / 9',
+     'Über die 3 Busse: 6 : 2 = 3 Busse → 90 Kinder pro Bus; 3 · 3 = 9 Busse → 90 : 3 = 30. Oder: 6 · 45 = 270 Kinder, 270 : 9 = 30.', 'Gehe über einen Zwischenschritt (z. B. 3 Busse).', einheit='Kinder', art='P')
+SW.l('vervielfachen', 3, 'Die Tabelle gehört zu einer indirekten Proportionalität. Ergänze die beiden fehlenden Werte.', 'x = □; y = □', [6, 4], ['48 / 8', '48 / 12'],
+     'Produkt: 3 · 16 = 48 (auch 4 · 12 = 48). Fehlender x-Wert: 48 : 8 = 6. Fehlender y-Wert: 48 : 12 = 4.', 'Bestimme zuerst das konstante Produkt.', 'Je Lücke eine ganze Zahl.',
+     grafik={'typ': 'tabelle', 'kopf': ['x', '3', '4', '?', '12'], 'zeilen': [['y', '16', '12', '8', '?']]}, art='P')
+SW.z('vervielfachen', 3, 'x und y sind indirekt proportional. x wird mit 1,5 multipliziert, danach ist y = 10. Wie groß war y vorher?', 15, '10 * 1.5',
+     'x · 1,5 bedeutet y : 1,5. Rückwärts: vorher y = 10 · 1,5 = 15.', 'Rechne rückwärts: Was wurde mit y gemacht?', art='K')
+SW.z('vervielfachen', 3, 'Die Paare (2 | a) und (8 | a − 6) gehören zu derselben indirekten Proportionalität. Bestimme a.', 8, '48 / 6',
+     'Gleiche Produkte: 2a = 8(a − 6) ⇔ 2a = 8a − 48 ⇔ 6a = 48 ⇔ a = 8. Probe: 2 · 8 = 16 und 8 · 2 = 16.', 'Setze die beiden Produkte gleich.', art='K')
+
+# produkt
+SW.z('produkt', 2, 'Eine indirekte Proportionalität enthält das Paar (0,5 | 36). Welcher y-Wert gehört zu x = 4,5?', 4, '0.5 * 36 / 4.5', 'Produkt: 0,5 · 36 = 18. y = 18 : 4,5 = 4.',
+     'Erst das Produkt, dann teilen.')
+SW.a('produkt', 2, 'Eine indirekte Proportionalität enthält das Paar (3 | 20). Welches Paar passt NICHT dazu?', '(5 | 15)', ['(6 | 10)', '(12 | 5)', '(15 | 4)'],
+     'Das Produkt muss 60 sein. 5 · 15 = 75, alle anderen ergeben 60.', 'Bilde jeweils x · y.')
+SW.a('produkt', 3, 'An einer Wippe herrscht Gleichgewicht. Gemessen: 20 kg bei 3 m, 30 kg bei 2 m, 40 kg bei 1,6 m, 60 kg bei 1 m Abstand. Welcher Messwert passt nicht zur indirekten Proportionalität?',
+     '40 kg bei 1,6 m', ['20 kg bei 3 m', '30 kg bei 2 m', '60 kg bei 1 m'],
+     'Gewicht · Abstand: 60, 60, 64, 60. Nur 40 · 1,6 = 64 weicht ab; richtig wären 1,5 m.', 'Bilde für jeden Messwert das Produkt.', art='P')
+SW.a('produkt', 3, 'In einer Tabellenkalkulation steht x in Spalte A. In Spalte B soll y einer indirekten Proportionalität mit x · y = 120 stehen. Welche Formel gehört in B2?', '=120/A2',
+     ['=120*A2', '=A2/120', '=120-A2'], 'Aus x · y = 120 folgt y = 120 : x. Also =120/A2.', 'Stelle x · y = 120 nach y um.', art='P')
+SW.z('produkt', 3, 'Ein Rechteck ist 9 cm lang und 2 cm breit. Ein zweites Rechteck mit demselben Flächeninhalt ist doppelt so lang wie breit. Wie breit ist es?', 3, '18 / 6',
+     'Fläche 18 cm². Breite b, Länge 2b: 2b · b = 18 ⇔ b · b = 9 ⇔ b = 3 cm (Länge 6 cm).', 'Schreibe die Länge als 2 · b.', einheit='cm', art='K')
+SW.z('produkt', 3, 'Bei einer indirekten Proportionalität ist y = 9, wenn x = 4. Für welches positive x sind x und y gleich groß?', 6, '36 / 6',
+     'Produkt 36. x = y heißt x · x = 36, also x = 6 (6 · 6 = 36).', 'Welche Zahl mal sich selbst ergibt das Produkt?', art='K')
+
+# dreisatz
+SW.z('dreisatz', 2, '4 gleich starke Pumpen leeren ein Becken in 9 Stunden. Wie lange brauchen 6 Pumpen?', 6, '4 * 9 / 6', 'Eine Pumpe: 36 h. Sechs Pumpen: 36 : 6 = 6 h.', 'Erst auf eine Pumpe zurückrechnen.',
+     einheit='h')
+SW.z('dreisatz', 2, 'Ein Futtervorrat reicht für 15 Tiere 8 Tage. Für wie viele Tiere reicht er 12 Tage?', 10, '15 * 8 / 12', '15 · 8 = 120 Tierfuttertage. 120 : 12 = 10 Tiere.',
+     'Hier ist die Anzahl der Tiere gesucht.', einheit='Tiere')
+SW.z('dreisatz', 3, '8 Maler brauchen für einen Auftrag 15 Tage. Nach 3 Tagen fallen 2 Maler aus. Wie viele Tage dauert der Auftrag insgesamt?', 19, '3 + (8 * 15 - 8 * 3) / 6',
+     'Gesamtarbeit: 8 · 15 = 120 Malertage. Nach 3 Tagen sind 24 erledigt, 96 fehlen. 6 Maler brauchen 96 : 6 = 16 Tage. Insgesamt 3 + 16 = 19 Tage.',
+     'Rechne in Malertagen (Maler · Tage).', einheit='Tage', art='P')
+SW.z('dreisatz', 3, 'Bei 90 km/h dauert eine Fahrt 40 Minuten. Wie schnell muss man fahren, um 10 Minuten früher anzukommen?', 120, '90 * 40 / 30',
+     'Gleiche Strecke: Geschwindigkeit · Zeit bleibt gleich. 90 · 40 = v · 30 ⇔ v = 120 km/h.', 'Welche Fahrzeit ist gesucht? Dann Produkt gleich setzen.', einheit='km/h', art='P')
+SW.z('dreisatz', 3, '3 Hühner legen in 3 Tagen 3 Eier. Wie viele Eier legen 6 Hühner in 6 Tagen (bei gleicher Legeleistung)?', 12, '3 * 2 * 2',
+     'Doppelt so viele Hühner: doppelt so viele Eier (6 in 3 Tagen). Doppelt so viele Tage: nochmal doppelt (12). Beides ist direkt proportional.', 'Ändere eine Größe nach der anderen.', einheit='Eier', art='K')
+SW.z('dreisatz', 3, 'Ein Rohr füllt einen Tank in 6 Stunden. Wie viele gleich starke Rohre braucht man mindestens, damit es weniger als 1,5 Stunden dauert?', 5, '6 // 1.5 + 1',
+     'n Rohre brauchen 6 : n Stunden. 4 Rohre brauchen genau 1,5 h – nicht weniger. Also mindestens 5 Rohre (1,2 h).', 'Prüfe 4 Rohre genau.', einheit='Rohre', art='K')
+
+# graph
+SW.a('graph', 2, 'Liegt der Punkt Q(0,5 | 48) auf dem Graphen von y = 24 : x?', 'Ja, denn 0,5 · 48 = 24.', ['Nein, denn 48 > 24.', 'Nein, denn 48 : 0,5 = 96 ≠ 24.'],
+     '0,5 · 48 = 24. Das Produkt stimmt, Q liegt auf dem Graphen.', 'Prüfe x · y.')
+SW.z('graph', 2, 'Der Graph gehört zu einer indirekten Proportionalität und geht durch P(4 | 3). Welchen y-Wert hat er bei x = 6?', 2, '4 * 3 / 6', 'k = 4 · 3 = 12. Bei x = 6: y = 12 : 6 = 2.',
+     'Bestimme zuerst k aus P.', grafik=_k(x=[0, 8], y=[0, 8], graphen=[{'art': 'hyperbel', 'a': 12, 'b': 0, 'c': 0, 'bereich': [1.5, 8]}], punkte=[{'x': 4, 'y': 3, 'name': 'P'}]))
+SW.z('graph', 3, 'P(2 | 9) und Q(6 | 3) liegen auf derselben Hyperbel y = k : x. Jeder Punkt bildet mit dem Ursprung und den Achsen ein Rechteck. Um wie viel cm² unterscheiden sich die Flächeninhalte?', 0,
+     '2 * 9 - 6 * 3', 'P: 2 · 9 = 18, Q: 6 · 3 = 18. Beide Rechtecke haben 18 cm² – Unterschied 0. Das gilt für alle Punkte der Hyperbel.', 'Fläche = x · y.', einheit='cm²', art='P')
+SW.a('graph', 3, 'Eine Hyperbel einer indirekten Proportionalität geht durch P(3 | 4). Durch welchen Punkt geht sie außerdem?', '(6 | 2)', ['(6 | 8)', '(1 | 7)', '(2 | 5)'],
+     'k = 3 · 4 = 12. Nur 6 · 2 = 12. (6 | 8) wäre direkt proportional gedacht, (1 | 7) und (2 | 5) haben die Summe 7 wie P.', 'Bilde das Produkt.', art='P')
+SW.z('graph', 3, 'Die Hyperbel y = k : x und die Gerade y = x schneiden sich bei x = 5 (x > 0). Bestimme k.', 25, '5 * 5', 'Schnittpunkt (5 | 5) liegt auf der Hyperbel: k = 5 · 5 = 25.',
+     'Welchen y-Wert hat die Gerade bei x = 5?', art='K')
+SW.a('graph', 3, 'Für welche x > 0 liegt der Graph von y = 12 : x oberhalb der Geraden y = 3?', 'für 0 < x < 4', ['für x > 4', 'für x > 3', 'für alle x > 0'],
+     'Bei x = 4 ist y = 3. Für kleinere x ist 12 : x größer als 3, für größere kleiner.', 'Wo ist 12 : x genau 3?', art='K')
+
+# unterscheiden
+SW.a('unterscheiden', 2, 'Welche Art von Zuordnung beschreibt y = 15 : x?', 'indirekt proportional', ['direkt proportional', 'weder noch', 'quadratisch'],
+     'x · y = 15 ist konstant: indirekt proportional.', 'Multipliziere mit x.')
+SW.a('unterscheiden', 2, 'Welche Art von Zuordnung zeigt die Tabelle?', 'weder noch', ['indirekt proportional', 'direkt proportional'],
+     'Produkte: 10, 16, 10 – nicht gleich. Quotienten: 10, 4, 0,4 – nicht gleich. Also weder noch.', 'Prüfe Produkt und Quotient für alle Paare.',
+     grafik={'typ': 'tabelle', 'kopf': ['x', '1', '2', '5'], 'zeilen': [['y', '10', '8', '2']]})
+SW.a('unterscheiden', 3, 'Ein Auto braucht 6 Liter auf 100 km. Zuordnung A: gefahrene Strecke → verbrauchter Kraftstoff. Zuordnung B: Verbrauch pro 100 km → Strecke, die man mit 30 Litern fahren kann. Welche Arten sind das?',
+     'A direkt, B indirekt proportional', ['A indirekt, B direkt proportional', 'beide direkt proportional', 'beide indirekt proportional'],
+     'A: doppelte Strecke, doppelter Verbrauch. B: Braucht ein Auto doppelt so viel pro 100 km, kommt es mit 30 Litern nur halb so weit.', 'Prüfe jeweils „doppelt → doppelt“ oder „doppelt → halb“.', art='P')
+SW.a('unterscheiden', 3, 'In einer Tabellenkalkulation steht in A2 bis A6 x, in B2 die Formel =36/A2 (nach unten kopiert) und in C2 =A2*B2. Was zeigt Spalte C?', 'überall 36 – ein Zeichen für indirekte Proportionalität',
+     ['die Quotienten, die alle gleich sind', 'lauter verschiedene Zahlen', 'überall 1'], 'C berechnet x · y = x · (36 : x) = 36. Konstantes Produkt: indirekt proportional.', 'Setze für x eine Zahl ein, z. B. 4.', art='P')
+SW.a('unterscheiden', 3, 'Welche Gleichung beschreibt eine indirekte Proportionalität?', 'y = 3/x', ['y = x/3', 'y = 3 − x', 'y = 1/(x + 3)'],
+     'Nur bei y = 3/x ist x · y immer 3. y = x/3 ist direkt proportional. y = 1/(x + 3) ist auch eine Hyperbel, aber x · y ist nicht konstant (x = 1: 0,25; x = 2: 0,4).',
+     'Prüfe, ob x · y überall gleich ist.', art='K')
+SW.a('unterscheiden', 3, 'Die Zuordnung x → y ist indirekt proportional. Was gilt für die Zuordnung x → 1/y?', 'Sie ist direkt proportional.', ['Sie ist auch indirekt proportional.', 'Sie ist weder noch.',
+     'Das hängt von den Zahlen ab.'], 'Aus y = k/x folgt 1/y = x/k = (1/k) · x – eine direkte Proportionalität.', 'Bilde den Kehrwert von k/x.', art='K')
+
+# sach
+SW.z('sach', 2, 'Mit einer Schrittlänge von 75 cm braucht jemand für einen Weg 1 200 Schritte. Wie viele Schritte sind es bei 60 cm Schrittlänge?', 1500, '75 * 1200 / 60',
+     '75 cm · 1 200 = 90 000 cm Weg. 90 000 : 60 = 1 500 Schritte.', 'Der Weg bleibt gleich.', einheit='Schritte')
+SW.z('sach', 2, 'Ein Saftvorrat füllt 30 Gläser zu je 0,2 l. Wie viele Gläser zu je 0,25 l kann man damit füllen?', 24, '30 * 0.2 / 0.25', 'Vorrat: 30 · 0,2 l = 6 l. 6 : 0,25 = 24 Gläser.',
+     'Berechne zuerst den ganzen Vorrat.', einheit='Gläser')
+SW.z('sach', 3, 'Kind A (35 kg) sitzt auf einer Wippe 1,6 m vom Drehpunkt entfernt. Kind B sitzt auf der anderen Seite 1,4 m vom Drehpunkt. Wie schwer muss B sein, damit die Wippe im Gleichgewicht ist?',
+     40, '35 * 1.6 / 1.4', 'Gewicht · Abstand gleich: 35 · 1,6 = 56. B: 56 : 1,4 = 40 kg.', 'Das Produkt aus Gewicht und Abstand ist auf beiden Seiten gleich.', einheit='kg', art='P')
+SW.z('sach', 3, 'Zahnrad A hat 40 Zähne und dreht sich 30-mal pro Minute. Es greift in Zahnrad B mit 24 Zähnen. Wie oft dreht sich B pro Minute?', 50, '40 * 30 / 24',
+     'Pro Minute greifen 40 · 30 = 1 200 Zähne ineinander. B: 1 200 : 24 = 50 Umdrehungen. Das kleinere Rad dreht sich schneller.', 'Zähnezahl · Umdrehungen ist für beide Räder gleich.', art='P')
+SW.z('sach', 3, 'Für eine Fahrt wird ein Bus gemietet und die Kosten werden geteilt. Fahren 5 Kinder mehr mit, zahlt jedes nur noch 30 € statt 36 €. Wie viele Kinder wollten ursprünglich mitfahren?', 25,
+     '30 * 5 / (36 - 30)', 'Gesamtpreis gleich: 36 · n = 30 · (n + 5) ⇔ 6n = 150 ⇔ n = 25. Probe: 36 · 25 = 900 = 30 · 30.', 'Der Buspreis bleibt gleich. Stelle eine Gleichung mit n auf.', einheit='Kinder', art='K')
+SW.z('sach', 3, 'Ein Läufer braucht für eine Runde 80 Sekunden. Wie lange braucht er, wenn er 25 % schneller läuft?', 64, '80 / 1.25',
+     'Geschwindigkeit · 1,25 heißt Zeit : 1,25 = 80 : 1,25 = 64 s. Nicht 80 · 0,75 = 60 s.', 'Zeit und Geschwindigkeit sind indirekt proportional.', einheit='s', art='K')
+
+baue = mit_schwer(baue, SW)
+# ---- SCHWER ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Erkennen', ['erkennen', 'vervielfachen', 'produkt']), ('Rechnen', ['dreisatz']),

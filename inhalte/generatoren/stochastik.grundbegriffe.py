@@ -465,6 +465,119 @@ UMBAU_OFFEN = []
 baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
 
 
+# ---- SCHWER (Zehnte Runde: schwerere Aufgaben nach Prüfungsvorbild, siehe _schwer_kl8.py) ----
+# Vorbilder (Typ und Niveau, nicht Wortlaut/Zahlen): VERA-8 2026 (Kugeln 1–100 mit Glücksziffer; „Würfelgedächtnis“ nach einer Serie;
+# Glücksrad: aus absoluten Häufigkeiten ergänzen, Feld für „etwa jede zweite Drehung“; Kugeln aus zwei Säckchen zusammenschütten),
+# BMT10 2024 (Kugeln 1–100, Ereignisse und ihre Schnittmenge), BMT10 2011 (Augensumme bei zwei Würfen), BMT10 2023 (Ereignis „keiner der beiden Schäden“),
+# BMT8 2023 (fehlenden Anteil ergänzen), Grundwissen 8 (Ergebnismengen, relative Häufigkeiten).
+from _schwer_kl8 import Neu, mit_schwer  # noqa: E402
+
+SW = Neu(10_8_13)
+_SIEBEN = sum('7' in str(i) for i in range(1, 101))
+assert _SIEBEN == 19
+_GROESSER = sum(1 for a in range(1, 7) for b in range(1, 7) if b > a)
+_SUMME_UEBER_10 = sum(1 for a in range(1, 7) for b in range(1, 7) if a + b > 10)
+_HB = 'Zähler und Nenner je als ganze Zahl, vollständig gekürzt.'
+
+# begriffe
+SW.a('begriffe', 2, 'Zwei Münzen werden geworfen. Notiert wird nur, wie oft Wappen fällt. Welcher Ergebnisraum passt?', 'Ω = {0; 1; 2}', ['Ω = {WW; WZ; ZW; ZZ}', 'Ω = {1; 2}', 'Ω = {W; Z}'],
+     'Notiert wird eine Anzahl: kein, ein oder zwei Wappen. Ω = {0; 1; 2}. Der Ergebnisraum hängt davon ab, was man notiert.', 'Was wird aufgeschrieben – die Münzbilder oder eine Zahl?')
+SW.z('begriffe', 2, 'Ein Spielwürfel (1 bis 6) wird geworfen. Wie viele Ergebnisse gehören zum Ereignis „Augenzahl ist keine Primzahl“?', 3, '6 - 3',
+     'Primzahlen sind 2, 3, 5. Keine Primzahl: 1, 4, 6 – das sind 3 Ergebnisse. (1 ist keine Primzahl.)', 'Schreibe erst die Primzahlen bis 6 auf.')
+SW.z('begriffe', 3, 'In einer Lostrommel liegen Kugeln mit den Nummern 1 bis 100. Wie viele Ergebnisse gehören zum Ereignis „Die Nummer enthält mindestens einmal die Ziffer 7“?', _SIEBEN, '10 + 10 - 1',
+     'Einerziffer 7: 7, 17, …, 97 (10 Zahlen). Zehnerziffer 7: 70 bis 79 (10 Zahlen). Die 77 ist doppelt gezählt: 10 + 10 − 1 = 19.', 'Zähle Einer-7 und Zehner-7 getrennt. Welche Zahl zählst du doppelt?', art='P')
+SW.z('begriffe', 3, 'Kugeln mit den Nummern 1 bis 30. A: „Nummer ist gerade“, B: „Nummer ist durch 5 teilbar“. Wie viele Nummern gehören zu A und zugleich zu B?', 3, '30 // 10',
+     'Gerade und durch 5 teilbar heißt durch 10 teilbar: 10, 20, 30. Das sind 3.', 'Welche Zahlen sind gerade und durch 5 teilbar?', art='P')
+SW.z('begriffe', 3, 'Ein Spielwürfel wird zweimal geworfen. Notiert wird die Augensumme. Wie viele Ergebnisse hat der Ergebnisraum?', 11, '12 - 2 + 1',
+     'Die Summe kann 2, 3, …, 12 sein: 11 Ergebnisse (nicht 36 – das wären die Zahlenpaare).', 'Was ist die kleinste, was die größte Summe?', art='K')
+SW.z('begriffe', 3, 'Eine Münze wird dreimal geworfen, die Reihenfolge wird notiert. Wie viele Ergebnisse gehören zum Ereignis „genau zweimal Wappen“?', 3, '3',
+     'WWZ, WZW, ZWW – die eine Zahl kann an der 1., 2. oder 3. Stelle stehen: 3 Ergebnisse.', 'Wo kann die einzige Zahl stehen?', art='K')
+
+# rel_haeufigkeit
+SW.z('rel_haeufigkeit', 2, 'Ein Kronkorken wurde 80-mal geworfen. Die relative Häufigkeit für „Öffnung oben“ ist 0,35. Wie oft lag er so?', 28, '0.35 * 80', '0,35 · 80 = 28.',
+     'Absolute Häufigkeit = relative Häufigkeit · Anzahl der Würfe.')
+SW.z('rel_haeufigkeit', 2, 'In einer Klasse mit 25 Kindern tragen 6 eine Brille. Wie groß ist die relative Häufigkeit in Prozent?', 24, '6 / 25 * 100', '6 : 25 = 0,24 = 24 %.',
+     'Teile durch die Gesamtzahl.', einheit='%')
+SW.z('rel_haeufigkeit', 3, 'Ein Glücksrad wurde 180-mal gedreht: 72-mal rot, 63-mal grün, sonst blau. Wie groß ist die relative Häufigkeit von blau? Gib sie als Dezimalzahl an.', 0.25,
+     '(180 - 72 - 63) / 180', 'Blau: 180 − 72 − 63 = 45. Relative Häufigkeit 45 : 180 = 0,25.', 'Bestimme zuerst, wie oft blau kam.', art='P')
+SW.z('rel_haeufigkeit', 3, 'Bei einer Umfrage unter 160 Kindern kommen 40 % mit dem Bus, 1/4 mit dem Fahrrad, der Rest zu Fuß. Wie viele kommen zu Fuß?', 56, '160 * (1 - 0.4 - 0.25)',
+     '1/4 = 25 %. Zu Fuß: 100 % − 40 % − 25 % = 35 %. 35 % von 160 = 56.', 'Schreibe alle Anteile in Prozent.', einheit='Kinder', art='P')
+SW.z('rel_haeufigkeit', 3, 'Nach 40 Würfen ist die relative Häufigkeit der Sechs 0,15. Wie viele Sechsen müssen in den nächsten 10 Würfen fallen, damit sie danach 0,2 beträgt?', 4, '0.2 * 50 - 0.15 * 40',
+     'Bisher 0,15 · 40 = 6 Sechsen. Nach 50 Würfen braucht man 0,2 · 50 = 10. Es fehlen 4.', 'Rechne mit absoluten Anzahlen vorher und nachher.', art='K')
+SW.a('rel_haeufigkeit', 3, 'Lea würfelt 20-mal und hat 5 Sechsen, Tim würfelt 200-mal und hat 40 Sechsen. Wessen relative Häufigkeit liegt näher an 1/6 ≈ 0,167?', 'Tims (0,2)',
+     ['Leas (0,25)', 'Beide gleich nah', 'Leas, weil sie weniger Fehlwürfe hat'],
+     'Lea: 5 : 20 = 0,25 (Abstand 0,083). Tim: 40 : 200 = 0,2 (Abstand 0,033). Mit mehr Würfen liegt der Anteil meist näher an der Wahrscheinlichkeit.', 'Berechne beide relativen Häufigkeiten.', art='K')
+
+# laplace
+SW.l('laplace', 2, 'Aus Kugeln mit den Nummern 1 bis 20 wird eine gezogen. Wie groß ist die Wahrscheinlichkeit für ein Vielfaches von 4?', '□/□', [1, 4], ['1', '4'],
+     'Vielfache von 4: 4, 8, 12, 16, 20 – das sind 5. P = 5/20 = 1/4.', 'Zähle die günstigen Nummern.', _HB)
+SW.l('laplace', 2, 'Ein Glücksrad hat 12 gleich große Felder: 3 gelb, 4 rot, der Rest blau. Wie groß ist P(blau)?', '□/□', [5, 12], ['12 - 3 - 4', '12'],
+     'Blau: 12 − 3 − 4 = 5 Felder. P = 5/12.', 'Wie viele Felder sind blau?', _HB)
+SW.l('laplace', 3, 'Zwei faire Würfel werden geworfen. Wie groß ist die Wahrscheinlichkeit, dass die Augensumme größer als 10 ist?', '□/□', [1, 12], ['1', '36 // ' + str(_SUMME_UEBER_10)],
+     'Summe 11: (5|6), (6|5). Summe 12: (6|6). 3 von 36 Paaren: 3/36 = 1/12.', 'Zähle die Zahlenpaare mit Summe 11 und 12.', _HB, art='P')
+SW.l('laplace', 3, 'Säckchen A enthält 3 weiße und 2 schwarze Kugeln, Säckchen B 1 weiße und 9 schwarze. Beide werden in einen Sack geschüttet. Wie groß ist dann P(weiß)?', '□/□', [4, 15],
+     ['3 + 1', '(5 + 10) // 1'], 'Im Sack: 4 weiße von 15 Kugeln. P = 4/15. Den Mittelwert aus 3/5 und 1/10 zu nehmen wäre falsch – die Säckchen sind verschieden groß.',
+     'Zähle alle weißen und alle Kugeln im großen Sack.', _HB, art='P')
+SW.z('laplace', 3, 'In einer Urne liegen 3 rote und 5 blaue Kugeln. Wie viele rote Kugeln muss man dazulegen, damit P(rot) = 3/4 ist?', 12, '(3 * 8 - 4 * 3) / (4 - 3)',
+     '(3 + x)/(8 + x) = 3/4 ⇔ 12 + 4x = 24 + 3x ⇔ x = 12. Probe: 15/20 = 3/4.', 'Stelle eine Bruchgleichung auf.', art='K')
+SW.l('laplace', 3, 'Ein Spielwürfel wird zweimal geworfen. Wie groß ist die Wahrscheinlichkeit, dass die zweite Zahl größer ist als die erste?', '□/□', [5, 12], ['5', '12'],
+     f'Von 36 Paaren haben 6 gleiche Zahlen. Die übrigen 30 teilen sich gleich auf: {_GROESSER}-mal ist die zweite größer. P = 15/36 = 5/12.', 'Wie viele Paare haben gleiche Zahlen?', _HB, art='K')
+
+# laplace_pruefen
+SW.a('laplace_pruefen', 2, 'Aus einer Urne mit 3 roten und 1 blauen Kugel wird eine gezogen, notiert wird die Farbe. Ist das ein Laplace-Experiment?', 'Nein, rot ist wahrscheinlicher als blau.',
+     ['Ja, jede Kugel ist gleich wahrscheinlich.', 'Ja, es gibt zwei Ergebnisse.'], 'Ergebnisse sind die Farben: P(rot) = 3/4, P(blau) = 1/4 – nicht gleich wahrscheinlich.',
+     'Was sind hier die Ergebnisse: Kugeln oder Farben?')
+SW.a('laplace_pruefen', 2, 'Zwei Würfel werden geworfen, notiert wird die Augensumme. Ist das ein Laplace-Experiment?', 'Nein, die Summe 7 ist wahrscheinlicher als die Summe 2.',
+     ['Ja, jede Summe ist gleich wahrscheinlich.', 'Ja, weil die Würfel fair sind.'], 'Summe 2 nur mit (1|1), Summe 7 mit sechs Paaren. Die Summen sind nicht gleich wahrscheinlich.',
+     'Auf wie viele Arten erhält man Summe 2, auf wie viele Summe 7?')
+SW.a('laplace_pruefen', 3, 'Lisa sagt: „Beim Lotto ist die Reihe 1, 2, 3, 4, 5, 6 unwahrscheinlicher als eine gemischte Reihe wie 4, 11, 19, 23, 37, 42.“ Was stimmt?',
+     'Falsch: Jede bestimmte Reihe ist gleich wahrscheinlich.', ['Richtig: Zahlen in Folge kommen selten.', 'Richtig: Kleine Zahlen werden seltener gezogen.', 'Falsch: 1, 2, 3, 4, 5, 6 ist wahrscheinlicher.'],
+     'Jede Kugel hat dieselbe Chance. Darum hat jede einzelne Sechserreihe dieselbe Wahrscheinlichkeit. „Gemischt aussehende“ Reihen gibt es nur viel mehr.', 'Ist eine Kugel mit kleiner Nummer schwerer zu ziehen?', art='P')
+SW.z('laplace_pruefen', 3, 'Ein Glücksrad soll so gestaltet werden, dass „grün“ bei etwa jeder zweiten Drehung kommt. Wie groß muss der Mittelpunktswinkel des grünen Feldes sein?', 180, '360 / 2',
+     'Jede zweite Drehung heißt P = 1/2. Das grüne Feld muss den halben Kreis einnehmen: 180°.', 'Welcher Anteil des Kreises ist „jede zweite“?', einheit='°', art='P')
+SW.a('laplace_pruefen', 3, 'Ein Glücksrad hat die Felder A (90°), B (90°) und C (180°). Wie kann man es trotzdem mit Laplace berechnen?', 'C gedanklich in zwei 90°-Felder teilen: 4 gleich wahrscheinliche Teile.',
+     ['Gar nicht, es ist kein Laplace-Experiment.', 'P(A) = P(B) = P(C) = 1/3 setzen.', 'Nur wenn man es sehr oft dreht.'],
+     'Teilt man C in C₁ und C₂, gibt es 4 gleich große Felder. Dann P(C) = 2/4 = 1/2, P(A) = P(B) = 1/4.', 'Kann man die Felder in gleich große Teile zerlegen?', art='K')
+SW.a('laplace_pruefen', 3, 'Eine Münze zeigte 7-mal hintereinander Wappen. Ist sie deshalb sicher gezinkt?', 'Nein: Das ist bei einer fairen Münze selten, aber möglich.',
+     ['Ja: Bei einer fairen Münze geht das nicht.', 'Ja: Jetzt muss Zahl kommen.', 'Nein: Bei 7 Würfen kommt immer 7-mal dasselbe.'],
+     'Bei einer fairen Münze hat „7-mal Wappen“ die Wahrscheinlichkeit 1/128 – selten, aber nicht unmöglich. Es ist ein Verdacht, kein Beweis. Mehr Würfe würden helfen.',
+     'Ist ein seltenes Ereignis unmöglich?', art='K')
+
+# gegenereignis
+SW.z('gegenereignis', 2, 'Aus Kugeln mit den Nummern 1 bis 50 wird eine gezogen. Wie groß ist die Wahrscheinlichkeit, dass die Nummer NICHT durch 5 teilbar ist? Gib sie als Dezimalzahl an.', 0.8,
+     '1 - 10 / 50', 'Durch 5 teilbar: 10 Nummern, P = 0,2. Gegenereignis: 1 − 0,2 = 0,8.', 'Rechne erst P(durch 5 teilbar).')
+SW.a('gegenereignis', 2, 'Ein Würfel wird viermal geworfen. Wie heißt das Gegenereignis zu „höchstens zwei Sechsen“?', 'mindestens drei Sechsen', ['höchstens drei Sechsen', 'keine Sechs',
+     'genau zwei Sechsen'], 'Höchstens zwei: 0, 1 oder 2 Sechsen. Gegenteil: 3 oder 4 Sechsen, also mindestens drei.', 'Schreibe alle möglichen Anzahlen 0 bis 4 auf.')
+SW.z('gegenereignis', 3, 'Aus Kugeln mit den Nummern 1 bis 100 wird eine gezogen. Wie groß ist die Wahrscheinlichkeit, dass ihre Nummer KEINE 7 enthält? Gib sie als Dezimalzahl an.', 0.81,
+     '1 - 19 / 100', '19 Nummern enthalten eine 7 (siehe 7, 17, …, 97 und 70–79, die 77 nur einmal). P = 1 − 0,19 = 0,81.', 'Zähle die Nummern mit 7 – das ist leichter.', art='P')
+SW.z('gegenereignis', 3, 'Von 100 untersuchten Bäumen haben 60 Trockenschäden, 30 Schädlingsschäden und 10 beide Schäden. Wie groß ist die Wahrscheinlichkeit, dass ein zufällig gewählter Baum keinen der beiden Schäden hat? Gib sie als Dezimalzahl an.',
+     0.2, '(100 - (60 + 30 - 10)) / 100', 'Mit mindestens einem Schaden: 60 + 30 − 10 = 80 (die 10 nicht doppelt zählen). Ohne Schaden: 20 von 100, P = 0,2.',
+     'Wie viele Bäume haben mindestens einen Schaden?', art='P')
+SW.l('gegenereignis', 3, 'Zwei Würfel werden geworfen. Wie groß ist die Wahrscheinlichkeit für mindestens eine Sechs?', '□/□', [11, 36], ['36 - 25', '36'],
+     'Gegenereignis „keine Sechs“: 5 · 5 = 25 Paare. P = 1 − 25/36 = 11/36. (Nicht 2/6 – die Sechs-Sechs würde doppelt gezählt.)', 'Zähle die Paare ganz ohne Sechs.', _HB, art='K')
+SW.z('gegenereignis', 3, 'Die Wahrscheinlichkeit eines Ereignisses E ist dreimal so groß wie die seines Gegenereignisses. Wie groß ist P(E)? Gib sie als Dezimalzahl an.', 0.75, '3 / 4',
+     'P(E) = 3 · (1 − P(E)) ⇔ 4 · P(E) = 3 ⇔ P(E) = 0,75.', 'P(E) und P(Ē) ergeben zusammen 1.', art='K')
+
+# grosse_zahlen
+SW.z('grosse_zahlen', 2, 'Ein Würfel wird 300-mal geworfen. Wie oft erwartest du ungefähr eine Zahl größer als 4?', 100, '300 * 2 / 6', 'Größer als 4: 5 oder 6, P = 2/6. Erwartet: 300 · 2/6 = 100.',
+     'Bestimme zuerst die Wahrscheinlichkeit.')
+SW.z('grosse_zahlen', 2, 'Ein Glücksrad hat ein Gewinnfeld mit 90° Mittelpunktswinkel. Wie viele Gewinne erwartest du bei 1 200 Drehungen ungefähr?', 300, '1200 * 90 / 360',
+     'P(Gewinn) = 90/360 = 1/4. Erwartet: 1 200 · 1/4 = 300.', 'Welcher Anteil des Kreises ist 90°?')
+SW.a('grosse_zahlen', 3, 'Ein Glücksrad zeigt mit der Wahrscheinlichkeit 1/3 „rot“. Es wird 180-mal gedreht. Welche Aussage stimmt?', 'Ungefähr 60-mal kommt rot, genau vorhersagen kann man es nicht.',
+     ['Genau 60-mal kommt rot.', 'Das kann man nicht abschätzen, weil es Zufall ist.', 'Rot kommt höchstens 60-mal.'],
+     'Erwartungswert: 180 · 1/3 = 60. Das ist eine Schätzung – es können auch 55 oder 66 sein. Zufall heißt nicht, dass man nichts abschätzen kann.',
+     'Was erwartest du, und wie sicher ist das?', art='P')
+SW.a('grosse_zahlen', 3, 'Bei einem Gewinnspiel wird jede Woche eine Kugel aus 100 gezogen. 20 Wochen lang hat niemand gewonnen. Hat man jetzt bessere Chancen?', 'Nein, jede Ziehung ist unabhängig von den vorigen.',
+     ['Ja, jetzt ist ein Gewinn „fällig“.', 'Ja, weil die Gewinnkugeln sich gesammelt haben.', 'Nein, jetzt sind die Chancen schlechter.'],
+     'Die Kugeln haben kein Gedächtnis: Es liegen jede Woche dieselben 100 Kugeln in der Trommel. Die Wahrscheinlichkeit bleibt gleich.', 'Ändert sich etwas an den Kugeln in der Trommel?', art='P')
+SW.z('grosse_zahlen', 3, 'Ein Würfel wird 600-mal geworfen. Wie oft erwartest du ungefähr eine gerade Zahl, die größer als 2 ist?', 200, '600 * 2 / 6',
+     'Gerade und größer als 2: 4 und 6. P = 2/6 = 1/3. Erwartet: 600 · 1/3 = 200.', 'Welche Augenzahlen erfüllen beide Bedingungen?', art='K')
+SW.z('grosse_zahlen', 3, 'Ein Reißnagel landete bei 400 Würfen 248-mal auf dem Kopf. Wie oft erwartest du bei 1 000 weiteren Würfen, dass er auf der Seite landet?', 380, '1000 * (400 - 248) / 400',
+     'Seite: 400 − 248 = 152, relative Häufigkeit 152 : 400 = 0,38. Erwartet: 1 000 · 0,38 = 380.', 'Gefragt ist die Seite, nicht der Kopf.', art='K')
+
+baue = mit_schwer(baue, SW)
+# ---- SCHWER ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Grundbegriffe', ['begriffe', 'rel_haeufigkeit']), ('Wahrscheinlichkeiten', ['laplace', 'laplace_pruefen', 'gegenereignis']), ('Zufall auf Dauer', ['grosse_zahlen'])],

@@ -565,6 +565,146 @@ UMBAU_OFFEN = []
 baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
 
 
+# ---- SCHWER (Zehnte Runde: schwerere Aufgaben nach Prüfungsvorbild, siehe _schwer_kl8.py) ----
+# Vorbilder (Typ und Niveau, nicht Wortlaut/Zahlen): BMT10 2017 (Steigung einer Straße wie Geradensteigung, in Prozent),
+# Schulaufgaben-Typ Kl. 8 (Gerade aus zwei Punkten, Nullstelle, Schnittpunkt zweier Geraden, Kostenfunktion aufstellen und deuten),
+# BMT10 2024 (Schnittpunkt zweier Graphen im Sachkontext), RS-Jahrgangsstufentest 8 2023 (Rechenfehler finden), Grundwissen 8 (direkt proportional begründen).
+from _schwer_kl8 import Neu, mit_schwer  # noqa: E402
+
+N = Neu(10_8_2)
+_k = lambda **k: {'typ': 'koordinaten', **k}
+
+# ablesen
+N.a('ablesen', 2, 'Welche Gerade ist am steilsten?', 'y = −3x + 1', ['y = 2x + 5', 'y = 0,5x − 4', 'y = −x'],
+    'Wie steil eine Gerade ist, zeigt der Betrag der Steigung: |−3| = 3 ist größer als 2, 0,5 und 1. Das Minus sagt nur: Die Gerade fällt.',
+    'Vergleiche die Steigungen ohne Vorzeichen. Der Achsenabschnitt spielt keine Rolle.')
+N.z('ablesen', 2, 'Gib den y-Achsenabschnitt t der Geraden y = 7 − 0,5x an.', 7, '7', 'Umsortieren: y = −0,5x + 7. Die Zahl ohne x ist t = 7.',
+    'Schreibe zuerst in der Form y = m · x + t.')
+N.z('ablesen', 3, 'Eine Straße steigt auf 250 m waagrechter Strecke um 20 m an. Ihre Steigung gibt man wie bei Geraden an, aber in Prozent. Wie viel Prozent sind es?',
+    8, '20 / 250 * 100', 'm = Höhe : waagrechte Strecke = 20 : 250 = 0,08 = 8 %.', 'Steigung = nach oben : nach rechts. Dann mal 100 %.', einheit='%', art='P')
+N.a('ablesen', 3, 'Die Gerade geht durch die beiden markierten Gitterpunkte. Welche Gleichung gehört zu ihr?', 'y = (2/3)x − 1', ['y = 1,5x − 1', 'y = (2/3)x + 1', 'y = −(2/3)x − 1'],
+    'Die Gerade schneidet die y-Achse bei −1: t = −1. Von (0 | −1) nach (3 | 1) geht es 3 nach rechts und 2 nach oben: m = 2 : 3 = 2/3.',
+    'Lies t an der y-Achse ab. Für m: Wie viel geht es nach oben, wenn du 3 nach rechts gehst?',
+    grafik=_k(x=[-4, 5], y=[-4, 4], graphen=[{'art': 'linear', 'm': 0.666667, 't': -1}], punkte=[{'x': 0, 'y': -1}, {'x': 3, 'y': 1}]), art='P')
+N.z('ablesen', 3, 'Gib den y-Achsenabschnitt t der Geraden x − 2y = 6 an.', -3, '6 / (-2)',
+    'Nach y auflösen: −2y = −x + 6, dann durch −2 teilen: y = 0,5x − 3. Also t = −3.', 'Bringe x auf die rechte Seite und teile durch −2. Jedes Glied ändert das Vorzeichen.', art='K')
+N.z('ablesen', 3, 'Die Gerade 3y = a · x + 12 hat die Steigung −2. Bestimme a.', -6, '-2 * 3',
+    'Durch 3 teilen: y = (a/3)x + 4. Steigung a/3 = −2, also a = −6. Nicht a = −2: Die 3 vor dem y muss weg.', 'Bringe die Gleichung zuerst auf die Form y = m · x + t.', art='K')
+
+# zwei_punkte
+N.z('zwei_punkte', 2, 'Berechne die Steigung der Geraden durch P(−2 | 3) und Q(4 | 0).', -0.5, '(0 - 3) / (4 - (-2))', 'm = (0 − 3) : (4 − (−2)) = −3 : 6 = −0,5.',
+    'y-Differenz durch x-Differenz, beide in derselben Reihenfolge.')
+N.z('zwei_punkte', 2, 'Geht man auf einer Geraden 4 Einheiten nach rechts, so geht es 6 Einheiten nach unten. Wie groß ist die Steigung?', -1.5, '-6 / 4',
+    'Nach unten heißt negativ: m = −6 : 4 = −1,5.', 'Steigung = nach oben : nach rechts. „Nach unten“ zählt negativ.')
+N.a('zwei_punkte', 3, 'Tom rechnet die Steigung der Geraden durch A(2 | 5) und B(6 | 7) so aus: m = (6 − 2) : (7 − 5) = 2. Was ist falsch?',
+    'Er hat x und y vertauscht. Richtig ist m = (7 − 5) : (6 − 2) = 0,5.', ['Nichts, die Rechnung stimmt.', 'Er hätte addieren müssen: m = 12 : 10 = 1,2.',
+                                                                           'Es fehlt ein Minus: richtig ist m = −2.'],
+    'Steigung = Änderung von y durch Änderung von x. Tom hat x-Differenz durch y-Differenz gerechnet. Richtig: 2 : 4 = 0,5.',
+    'Was gehört nach oben in den Bruch: die y-Werte oder die x-Werte?', art='P')
+N.z('zwei_punkte', 3, 'Eine Rampe für Rollstühle darf höchstens 6 % Steigung haben. Sie soll 0,9 m Höhe überwinden. Wie lang muss sie waagrecht mindestens sein?', 15, '0.9 / 0.06',
+    '6 % = 0,06 = Höhe : Länge. Also Länge = 0,9 : 0,06 = 15 m. Kürzer wäre zu steil.', 'Steigung = Höhe : waagrechte Länge. Stelle nach der Länge um.', einheit='m', art='P')
+N.z('zwei_punkte', 3, 'Die Punkte A(1 | 2), B(4 | 8) und C(a | 14) liegen auf einer Geraden. Bestimme a.', 7, '4 + (14 - 8) / 2',
+    'Steigung AB: (8 − 2) : (4 − 1) = 2. Von B nach C geht es 6 nach oben, also 6 : 2 = 3 nach rechts: a = 4 + 3 = 7.',
+    'Berechne die Steigung aus A und B. Sie muss auch zwischen B und C gelten.', art='K')
+N.a('zwei_punkte', 3, 'Welche Steigung hat die Gerade durch P(3 | 1) und Q(3 | 5)?', 'Keine: Die Gerade ist senkrecht, x₂ − x₁ = 0.', ['m = 0', 'm = 4', 'm = 4/3'],
+    'Beide Punkte haben x = 3. Dann ist x₂ − x₁ = 0, und durch 0 kann man nicht teilen. Die Gerade x = 3 ist senkrecht und hat keine Steigung (sie ist auch keine Funktion).',
+    'Rechne die x-Differenz aus. Was passiert beim Teilen?', art='K')
+
+# proportional
+N.a('proportional', 2, 'Welche Gleichung beschreibt eine proportionale Zuordnung?', 'y = −2,5x', ['y = 2x + 1', 'y = x²', 'y = 4/x'],
+    'Proportional heißt y = k · x: eine Gerade durch den Ursprung. Das gilt nur für y = −2,5x (k = −2,5). Bei 2x + 1 fehlt der Ursprung, x² und 4/x sind keine Geraden.',
+    'Gesucht ist die Form y = k · x ohne Zusatz.')
+N.z('proportional', 2, 'y ist proportional zu x. Für x = 2,5 ist y = 10. Berechne y für x = 7.', 28, '10 / 2.5 * 7', 'k = 10 : 2,5 = 4. Dann y = 4 · 7 = 28.',
+    'Berechne zuerst k = y : x.')
+N.a('proportional', 3, 'Ein Rezept für 4 Personen braucht 300 g Mehl. Lisa rechnet für 6 Personen: 300 g + 2 · 100 g = 500 g. Was stimmt?',
+    'Falsch: Pro Person sind es 75 g, für 6 Personen also 450 g.', ['Richtig: Pro Person kommen 100 g dazu.', 'Falsch: Es sind 300 g · 6 = 1 800 g.',
+                                                                    'Falsch: Für mehr Personen braucht man weniger Mehl pro Kopf, also 400 g.'],
+    'Mehl ist proportional zur Personenzahl: 300 g : 4 = 75 g pro Person. 6 · 75 g = 450 g. Lisa hat 100 g pro Person angenommen.',
+    'Rechne erst auf 1 Person zurück.', art='P')
+N.a('proportional', 3, 'Ein Taxi kostet 3 € Grundgebühr und 2 € pro km. Ist der Preis proportional zur Strecke?',
+    'Nein: Doppelte Strecke kostet nicht das Doppelte, z. B. 2 km 7 €, 4 km 11 €.', ['Ja: Pro km kommen immer 2 € dazu.', 'Ja: Der Graph ist eine Gerade.',
+                                                                                 'Nein: Der Preis fällt mit der Strecke.'],
+    'P(x) = 2x + 3 ist eine Gerade, aber nicht durch den Ursprung (0 km kosten schon 3 €). Proportional wäre y = k · x. Gegenbeispiel: 2 km → 7 €, 4 km → 11 €, nicht 14 €.',
+    'Prüfe: Was kostet die doppelte Strecke? Geht die Gerade durch (0 | 0)?', art='P')
+N.z('proportional', 3, 'y ist proportional zu x. Wenn x um 3 wächst, wächst y um 12. Berechne y für x = 5.', 20, '12 / 3 * 5',
+    'Bei proportionalen Zuordnungen ist die Änderung auch proportional: k = 12 : 3 = 4. Also y = 4 · 5 = 20.', 'Die Steigung k bekommst du auch aus den Änderungen.', art='K')
+N.z('proportional', 3, 'Die Punkte P(4 | 6) und Q(−2 | a) liegen auf derselben Ursprungsgeraden. Bestimme a.', -3, '6 / 4 * (-2)',
+    'k = 6 : 4 = 1,5. Q liegt auch darauf: a = 1,5 · (−2) = −3.', 'Bestimme k aus P. Auf einer Ursprungsgeraden gilt y = k · x.', art='K')
+
+# aufstellen
+N.l('aufstellen', 2, 'Eine Gerade ist parallel zu y = −2x + 5 und geht durch P(1 | 4). Gib den Funktionsterm an.', '□x + □', [-2, 6], ['-2', '4 - (-2) * 1'],
+    'Parallel heißt gleiche Steigung: m = −2. Punkt einsetzen: 4 = −2 · 1 + t ⇔ t = 6. Also y = −2x + 6.', 'Übernimm die Steigung. Dann setze P ein.')
+N.l('aufstellen', 2, 'Eine Gerade geht durch P(0 | −3) und Q(2 | 5). Gib den Funktionsterm an.', '□x + □', [4, -3], ['(5 - (-3)) / 2', '-3'],
+    'P liegt auf der y-Achse: t = −3. Steigung: (5 − (−3)) : (2 − 0) = 8 : 2 = 4. Also y = 4x − 3.', 'Ein Punkt hat x = 0. Was verrät er?')
+N.l('aufstellen', 3, 'Eine Gerade geht durch A(−6 | 7) und B(6 | −1). Gib die Steigung als gekürzten Bruch und den y-Achsenabschnitt an.', 'm = □/□; t = □', [-2, 3, 3],
+    ['-2', '3', '7 - (-2) * (-6) / 3'],
+    'm = (−1 − 7) : (6 − (−6)) = −8 : 12 = −2/3. Mit A: 7 = (−2/3) · (−6) + t = 4 + t, also t = 3. y = −(2/3)x + 3.',
+    'Erst m aus beiden Punkten, kürzen. Dann einen Punkt einsetzen.', 'Zähler, Nenner (Minus in den Zähler) und t je als ganze Zahl.', art='P')
+N.l('aufstellen', 3, 'Eine Elektrikerin berechnet für 2 Stunden Arbeit 130 € und für 5 Stunden 280 € (jeweils mit Anfahrt). Gib die Kosten K(x) für x Stunden an.', '□x + □',
+    [50, 30], ['(280 - 130) / (5 - 2)', '130 - 50 * 2'],
+    '3 Stunden mehr kosten 150 € mehr: 50 € pro Stunde. Für 2 Stunden: 130 € = 2 · 50 € + Anfahrt, also Anfahrt 30 €. K(x) = 50x + 30.',
+    'Die Punkte (2 | 130) und (5 | 280) liegen auf der Geraden.', 'Tippe den Term ein, z. B. 50x + 30.', art='P')
+N.l('aufstellen', 3, 'Die Gerade g geht durch P(2 | 1) und ist parallel zur Geraden durch A(0 | 0) und B(3 | −6). Gib g an.', '□x + □', [-2, 5], ['-6 / 3', '1 - (-2) * 2'],
+    'Steigung von AB: −6 : 3 = −2. g hat dieselbe Steigung. P einsetzen: 1 = −2 · 2 + t ⇔ t = 5. g: y = −2x + 5.',
+    'Parallel heißt: dieselbe Steigung wie AB.', 'Tippe den Term ein, z. B. −2x + 5.', art='K')
+N.l('aufstellen', 3, 'Eine Gerade schneidet die x-Achse bei x = 3 und die y-Achse bei y = −6. Gib den Funktionsterm an.', '□x + □', [2, -6], ['6 / 3', '-6'],
+    'Die Punkte sind (3 | 0) und (0 | −6). t = −6. Von (0 | −6) nach (3 | 0): 3 nach rechts, 6 nach oben, m = 2. y = 2x − 6.',
+    'Schreibe die beiden Achsenschnittpunkte als Punkte.', 'Tippe den Term ein, z. B. 2x − 6.', art='K')
+
+# schnittpunkte
+N.l('schnittpunkte', 2, 'Berechne den Schnittpunkt von g: y = 0,5x + 1 und h: y = −x + 4.', 'S(□ | □)', [2, 2], ['3 / 1.5', '0.5 * 2 + 1'],
+    'Gleichsetzen: 0,5x + 1 = −x + 4 ⇔ 1,5x = 3 ⇔ x = 2. y = 0,5 · 2 + 1 = 2. S(2 | 2).', 'Setze die Terme gleich.', 'Je Lücke eine ganze Zahl.')
+N.l('schnittpunkte', 2, 'Berechne den Schnittpunkt der Geraden g: y = 3 und h: y = 2x − 5.', 'S(□ | □)', [4, 3], ['(3 + 5) / 2', '3'],
+    'g ist waagrecht: y = 3. Also 2x − 5 = 3 ⇔ x = 4. S(4 | 3).', 'g: y = 3 heißt, jeder Punkt hat y = 3.', 'Je Lücke eine ganze Zahl.')
+N.z('schnittpunkte', 3, 'Fitnessstudio A kostet 20 € im Monat plus 5 € pro Besuch. Studio B kostet 50 € im Monat, jeder Besuch ist frei. Bei wie vielen Besuchen im Monat kosten beide gleich viel?',
+    6, '(50 - 20) / 5', 'A: K = 5x + 20, B: K = 50. Gleichsetzen: 5x + 20 = 50 ⇔ x = 6.', 'Stelle für beide Studios einen Term auf und setze sie gleich.', art='P')
+N.z('schnittpunkte', 3, 'Fitnessstudio A: 20 € im Monat plus 5 € pro Besuch. Studio B: 50 € im Monat ohne Besuchsgebühr. Ab wie vielen Besuchen im Monat ist B billiger?',
+    7, '(50 - 20) / 5 + 1', 'Bei 6 Besuchen kosten beide 50 €. Ab dem 7. Besuch kostet A 55 € oder mehr, B bleibt bei 50 €. Also ab 7 Besuchen.',
+    'Berechne den Gleichstand. Dann überlege: Ab wann ist B wirklich billiger?', art='P')
+N.z('schnittpunkte', 3, 'Die Geraden y = 2x + 1 und y = a · x − 3 schneiden sich an der Stelle x = 2. Bestimme a.', 4, '(2 * 2 + 1 + 3) / 2',
+    'An der Stelle 2 hat die erste Gerade y = 5. Also gilt auch 5 = 2a − 3 ⇔ 2a = 8 ⇔ a = 4.', 'Berechne den Schnittpunkt mit der ersten Geraden. Er liegt auch auf der zweiten.', art='K')
+N.z('schnittpunkte', 3, 'Die Geraden y = x + 2 und y = −x + 6 bilden mit der x-Achse ein Dreieck. Berechne seinen Flächeninhalt.', 16, '(6 - (-2)) * 4 / 2',
+    'Nullstellen: −2 und 6, also Grundseite 8. Schnittpunkt: x + 2 = −x + 6 ⇔ x = 2, y = 4, also Höhe 4. Fläche = 8 · 4 : 2 = 16.',
+    'Berechne beide Nullstellen und den Schnittpunkt der Geraden. Dann Grundseite · Höhe : 2.', einheit='FE', art='K')
+
+# lage
+N.a('lage', 2, 'Welche Gerade ist parallel zu y = 0,5x − 3?', 'y = 0,5x + 7', ['y = −0,5x − 3', 'y = 2x − 3', 'y = −2x + 1'],
+    'Parallel heißt: gleiche Steigung 0,5. Der Achsenabschnitt darf anders sein. Das ist y = 0,5x + 7.', 'Vergleiche nur die Zahl vor dem x.')
+N.z('lage', 2, 'Gib die Steigung einer Geraden an, die senkrecht auf y = 4x − 1 steht.', -0.25, '-1 / 4', 'm₁ · m₂ = −1: 4 · m₂ = −1 ⇔ m₂ = −0,25.',
+    'Das Produkt der Steigungen ist −1.')
+N.a('lage', 3, 'Wie viele Schnittpunkte haben g: y = −2x + 4 und h: 2x + y = 4?', 'unendlich viele', ['genau einen', 'keinen', 'genau zwei'],
+    'h nach y auflösen: y = −2x + 4. Das ist dieselbe Gerade wie g. Alle Punkte sind gemeinsam.', 'Bringe h auf die Form y = m · x + t und vergleiche.', art='K')
+N.l('lage', 3, 'Die Gerade h steht senkrecht auf g: y = −0,5x + 1 und geht durch P(1 | 1). Gib h an.', '□x + □', [2, -1], ['-1 / (-0.5)', '1 - 2 * 1'],
+    'Senkrecht: m · (−0,5) = −1, also m = 2. P einsetzen: 1 = 2 · 1 + t ⇔ t = −1. h: y = 2x − 1.', 'Bestimme zuerst die Steigung von h.', 'Tippe den Term ein, z. B. 2x − 1.', art='P')
+N.z('lage', 3, 'Für welchen Wert von a sind g: y = (a + 1)x − 2 und h: y = 3x + 5 parallel?', 2, '3 - 1', 'Parallel: gleiche Steigung. a + 1 = 3 ⇔ a = 2.',
+    'Die Steigung von g ist der ganze Ausdruck a + 1.', art='K')
+N.a('lage', 3, 'Hat das Dreieck mit A(0 | 0), B(4 | 2) und C(−3 | 6) bei A einen rechten Winkel?', 'Ja: Die Steigungen von AB und AC multiplizieren sich zu −1.',
+    ['Nein: AB und AC haben verschiedene Steigungen.', 'Nein: Ein rechter Winkel geht nur mit waagrechten Seiten.', 'Ja: AB ist kürzer als AC.'],
+    'm(AB) = 2 : 4 = 0,5. m(AC) = 6 : (−3) = −2. Produkt: 0,5 · (−2) = −1. Also stehen AB und AC senkrecht aufeinander – rechter Winkel bei A.',
+    'Berechne die Steigungen der beiden Seiten, die in A zusammenstoßen.', art='P')
+
+# deuten
+_hw = _k(x=[0, 6], y=[0, 300], schritt_y=50, name_x='x in h', name_y='K in €', graphen=[{'art': 'linear', 'm': 40, 't': 60, 'bereich': [0, 5]}])
+N.z('deuten', 2, 'Ein Tank wird geleert: V(x) = 60 − 7,5x (x in Stunden, V in Litern). Nach wie vielen Stunden ist er leer?', 8, '60 / 7.5',
+    '60 − 7,5x = 0 ⇔ 7,5x = 60 ⇔ x = 8.', 'Leer heißt V(x) = 0.', einheit='h')
+N.z('deuten', 2, 'Ein Ballon sinkt: h(t) = 1 200 − 4t (t in Sekunden, h in Metern). Wie hoch ist er nach 2 Minuten?', 720, '1200 - 4 * 120',
+    '2 Minuten = 120 Sekunden. h(120) = 1 200 − 480 = 720 m.', 'Achte auf die Einheit: t zählt Sekunden.', einheit='m')
+N.z('deuten', 3, 'Eine Kerze brennt gleichmäßig ab. Nach 2 Stunden ist sie 16 cm hoch, nach 5 Stunden 10 cm. Wie hoch war sie am Anfang?', 20, '16 + 2 * (16 - 10) / 3',
+    'In 3 Stunden verliert sie 6 cm, also 2 cm pro Stunde. In den ersten 2 Stunden waren es 4 cm: 16 + 4 = 20 cm.', 'Bestimme zuerst, wie viel pro Stunde abbrennt.', einheit='cm', art='P')
+N.a('deuten', 3, 'Der Graph zeigt die Kosten K eines Handwerkers für x Stunden Arbeit. Was bedeutet der Schnittpunkt mit der y-Achse?', 'Es fallen 60 € an, auch ohne Arbeitszeit (Anfahrt).',
+    ['Eine Stunde kostet 60 €.', 'Er arbeitet höchstens 60 Minuten.', 'Nach einer Stunde kostet es 60 €.'],
+    'Am Schnittpunkt mit der y-Achse ist x = 0: noch keine Stunde gearbeitet. Trotzdem kostet es 60 €. Eine Stunde kostet 40 € (Steigung).',
+    'Was ist x am Schnittpunkt mit der y-Achse?', grafik=_hw, art='P')
+N.z('deuten', 3, 'Kerze A ist 24 cm hoch und brennt pro Stunde 3 cm ab. Kerze B ist 18 cm hoch und brennt pro Stunde 1,5 cm ab. Nach wie vielen Stunden sind beide gleich hoch?',
+    4, '(24 - 18) / (3 - 1.5)', '24 − 3t = 18 − 1,5t ⇔ 6 = 1,5t ⇔ t = 4. Probe: beide 12 cm.', 'Stelle für jede Kerze einen Term auf und setze gleich.', einheit='h', art='K')
+N.a('deuten', 3, 'Taxi A: K = 2x + 3,5. Taxi B: K = 2x + 5 (x in km, K in €). Ab welcher Strecke ist B billiger?', 'nie',
+    ['ab 1,5 km', 'ab 5 km', 'ab 0 km'],
+    'Beide Geraden haben die Steigung 2: Sie sind parallel. B kostet bei jeder Strecke 1,50 € mehr. B ist nie billiger.',
+    'Vergleiche die Steigungen. Können sich die Geraden schneiden?', art='K')
+
+baue = mit_schwer(baue, N)
+# ---- SCHWER ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Steigung und Achsenabschnitt', ['ablesen', 'zwei_punkte', 'proportional']), ('Geraden bestimmen', ['aufstellen', 'schnittpunkte', 'lage']),

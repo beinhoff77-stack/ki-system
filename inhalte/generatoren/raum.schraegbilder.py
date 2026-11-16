@@ -398,6 +398,122 @@ UMBAU_OFFEN = []
 baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
 
 
+# ---- SCHWER (Zehnte Runde: schwerere Aufgaben nach Prüfungsvorbild, siehe _schwer_kl8.py) ----
+# Vorbilder (Typ und Niveau, nicht Wortlaut/Zahlen): Realschule Bayern, Leistungsaufgaben Jgst. 8 (I) (ISB): Axialschnitt eines Rotationskörpers,
+# Teilkörper nennen; RS-Leistungsaufgaben Jgst. 9: Kantenmodell einer Pyramide aus Draht; RS-Abschlussprüfungen 2022/2024 (Axialschnitt von Kerzenhalter/Spielfigur,
+# auf Kl.-8-Niveau ohne Kegelvolumen); BMT8 2025 und 2008 (Volumen aus Schrägbild; Quader mit herausgeschnittenem Würfel); RS-Jahrgangsstufentest 8 2023
+# (Mittelpunkt-Fehler finden, hier übertragen auf Raumkoordinaten); VERA-8 2025 (Ecken und Kanten). Für Raumkoordinaten und windschiefe Geraden gibt es
+# auf Kl.-8-Niveau keine Prüfungsaufgaben (Stoff späterer Jahrgangsstufen); dort sind die P-Aufgaben übertragene Typen.
+from _schwer_kl8 import Neu, mit_schwer  # noqa: E402
+
+SW = Neu(10_8_12)
+_M = (4, 6, 2)
+for _g, _h, _soll in (('AC', 'BF', 'windschief'), ('AC', 'BG', 'windschief'), ('AB', 'GH', 'parallel'), ('AE', 'CG', 'parallel'), ('AE', 'FG', 'windschief'), ('AE', 'GH', 'windschief'),
+                      ('AE', 'EF', 'schneiden sich'), ('AC', 'EG', 'parallel'), ('AC', 'CG', 'schneiden sich')):
+    assert lage_von(_g, _h, _M) == _soll, (_g, _h)
+assert sum(lage_von('AB', k, _M) == 'windschief' for k in KANTEN) == 4
+
+# pyramide
+SW.z('pyramide', 2, 'Eine Pyramide hat 12 Kanten. Wie viele Flächen hat sie?', 7, '12 / 2 + 1', '2n = 12 ⇔ n = 6. Flächen: n + 1 = 7.', 'Bestimme n aus der Kantenzahl 2n.')
+SW.a('pyramide', 2, 'Welcher Körper hat 6 Ecken und 6 Flächen?', 'eine fünfseitige Pyramide', ['ein Würfel', 'ein dreiseitiges Prisma', 'eine sechsseitige Pyramide'],
+     'Fünfseitige Pyramide: 5 + 1 = 6 Ecken, 5 + 1 = 6 Flächen. Der Würfel hat 8 Ecken, das dreiseitige Prisma 5 Flächen.', 'Bei einer Pyramide ist Ecken = Flächen = n + 1.')
+SW.z('pyramide', 3, 'Berechne für eine siebenseitige Pyramide: Ecken + Flächen − Kanten.', 2, '(7 + 1) + (7 + 1) - 2 * 7', '8 Ecken, 8 Flächen, 14 Kanten: 8 + 8 − 14 = 2.',
+     'Nutze n + 1, n + 1 und 2n.', art='P')
+SW.z('pyramide', 3, 'Ein Kantenmodell einer quadratischen Pyramide aus Draht: Grundkante 8 cm, jede Seitenkante 12 cm. Man hat 1 m Draht. Wie viele cm bleiben übrig?', 20, '100 - (4 * 8 + 4 * 12)',
+     'Kanten: 4 · 8 cm + 4 · 12 cm = 80 cm. Übrig: 100 cm − 80 cm = 20 cm.', 'Zähle Grundkanten und Seitenkanten getrennt. 1 m = 100 cm.', einheit='cm', art='P')
+SW.z('pyramide', 3, 'Auf jede der 6 Flächen eines Würfels wird eine quadratische Pyramide geklebt (Grundfläche = Würfelfläche). Wie viele Ecken hat der neue Körper?', 14, '8 + 6',
+     'Die 8 Würfelecken bleiben Ecken. Jede Pyramide bringt eine neue Spitze: 8 + 6 = 14.', 'Was kommt pro Pyramide an Ecken dazu?', art='K')
+SW.z('pyramide', 3, 'Eine Pyramide und ein Prisma haben dieselbe n-eckige Grundfläche. Zusammen haben sie 45 Kanten. Wie groß ist n?', 9, '45 / 5',
+     'Pyramide 2n Kanten, Prisma 3n Kanten: 5n = 45 ⇔ n = 9.', 'Stelle eine Gleichung mit 2n und 3n auf.', art='K')
+
+# laengen
+SW.z('laengen', 2, 'Ein Würfel mit 6 cm Kantenlänge wird im Schrägbild (q = 1/2) gezeichnet. Wie lang sind alle 12 gezeichneten Kanten zusammen?', 60, '8 * 6 + 4 * 3',
+     '8 Kanten in wahrer Länge (6 cm), 4 Kanten nach hinten verkürzt (3 cm): 48 + 12 = 60 cm.', 'Wie viele Kanten führen nach hinten?', einheit='cm')
+SW.z('laengen', 2, 'Im Schrägbild mit q = 2/3 ist eine nach hinten führende Kante 4 cm lang gezeichnet. Wie lang ist sie in Wirklichkeit?', 6, '4 * 3 / 2',
+     'Gezeichnet = wahr · 2/3. Wahre Länge = 4 : 2/3 = 4 · 3/2 = 6 cm.', 'Rückwärts: durch q teilen.', einheit='cm')
+SW.z('laengen', 3, 'Ein Prisma hat als Vorderfläche ein rechtwinkliges Dreieck mit den Katheten 4 cm und 3 cm. Im Schrägbild (q = 1/2) ist die Kante nach hinten 5 cm lang gezeichnet. Berechne das Volumen.',
+     60, '4 * 3 / 2 * (5 * 2)', 'Grundfläche: 4 · 3 : 2 = 6 cm². Wahre Tiefe: 5 cm · 2 = 10 cm. V = 6 · 10 = 60 cm³ (nicht 30 cm³).', 'Die gezeichnete Tiefe ist verkürzt.',
+     einheit='cm³', art='P')
+SW.z('laengen', 3, 'Aus einem Quader (8 cm × 5 cm × 6 cm) wird an einer Ecke ein Würfel mit 2 cm Kantenlänge herausgeschnitten. Wie groß ist das Volumen des Restkörpers?', 232, '8 * 5 * 6 - 2**3',
+     'Quader: 240 cm³. Würfel: 8 cm³. Rest: 232 cm³.', 'Ganzer Quader minus Würfel.', einheit='cm³', art='P')
+SW.a('laengen', 3, 'Aus einer Ecke eines Quaders wird ein kleiner Würfel herausgeschnitten. Wie ändert sich die Oberfläche?', 'Sie bleibt gleich groß.', ['Sie wird kleiner.', 'Sie wird größer.',
+     'Das hängt von der Größe des Würfels ab.'],
+     'Drei kleine Quadrate fallen außen weg, drei gleich große Quadrate kommen innen in der Ecke dazu. Die Oberfläche bleibt gleich – das Volumen nicht.', 'Zähle, welche Flächen weg- und welche dazukommen.', art='K')
+SW.z('laengen', 3, 'Im Schrägbild (q = 1/2) ist ein Quader 5 cm breit, 3 cm hoch und nach hinten 2 cm tief gezeichnet. Wie viele Würfel mit 1 cm Kantenlänge passen genau hinein?', 60, '5 * 3 * (2 * 2)',
+     'Wahre Tiefe: 4 cm. Also 5 · 3 · 4 = 60 Würfel.', 'Erst die wahre Tiefe bestimmen.', einheit='Würfel', art='K')
+
+# lage
+SW.a('lage', 2, 'Welche Kante des Quaders ist parallel zu AE?', 'CG', ['AB', 'EF', 'GH'], 'AE ist eine senkrechte Kante. Parallel dazu sind BF, CG und DH.', 'Welche Kanten zeigen in dieselbe Richtung?',
+     grafik=QUADER_BILD)
+SW.a('lage', 2, 'Wie liegen die Geraden AB und GH zueinander?', 'parallel', ['schneiden sich', 'windschief', 'identisch'], 'AB und GH zeigen beide von links nach rechts (wie DC). Sie sind parallel.',
+     'Verschiebe GH in Gedanken nach unten.', grafik=QUADER_BILD)
+SW.a('lage', 3, 'Welche Gerade ist windschief zur Flächendiagonale AC der Grundfläche?', 'BF', ['CG', 'EG', 'AE'],
+     'BF trifft die Grundfläche nur in B, und B liegt nicht auf AC. Parallel sind sie auch nicht: windschief. CG und AE schneiden AC in C bzw. A, EG ist parallel zu AC.',
+     'Prüfe für jede Gerade: gemeinsamer Punkt? gleiche Richtung?', grafik=QUADER_BILD, art='P')
+SW.z('lage', 3, 'In einem Zimmer (Quader) steht ein Stab genau an der Kante AE. Wie viele der vier Kanten der Decke EFGH sind zu diesem Stab windschief?', 2, '1 + 1',
+     'EF und HE gehen durch E und schneiden AE. FG und GH berühren AE nicht und sind nicht parallel: 2 windschiefe Kanten.', 'Welche Deckenkanten gehen durch E?', grafik=QUADER_BILD, art='P')
+SW.z('lage', 3, 'Wie viele der 12 Kanten eines Quaders sind windschief zur Kante AB?', 4, '12 - 1 - 3 - 4',
+     'Parallel zu AB: CD, EF, GH (3). Schneiden AB (in A oder B): AD, AE, BC, BF (4). Übrig: 12 − 1 − 3 − 4 = 4 windschiefe Kanten (CG, DH, FG, HE).', 'Zähle erst die parallelen und die schneidenden.',
+     grafik=QUADER_BILD, art='K')
+SW.a('lage', 3, 'Gibt es im Quader zwei Flächendiagonalen, die windschief zueinander sind?', 'Ja, zum Beispiel AC und BG.', ['Nein, Diagonalen schneiden sich immer.',
+     'Ja, zum Beispiel AC und EG.', 'Nein, Diagonalen sind immer parallel.'],
+     'AC liegt in der Grundfläche, BG trifft die Grundfläche nur in B (nicht auf AC). Sie sind nicht parallel: windschief. AC und EG sind parallel.', 'Nimm eine Diagonale unten und eine in einer Seitenfläche.',
+     grafik=QUADER_BILD, art='K')
+
+# koordinaten
+SW.a('koordinaten', 2, 'Ein Quader ABCDEFGH hat A(0 | 0 | 0), B(4 | 0 | 0), D(0 | 6 | 0) und E(0 | 0 | 3). Welche Koordinaten hat C?', 'C(4 | 6 | 0)', ['C(6 | 4 | 0)', 'C(4 | 6 | 3)', 'C(4 | 0 | 6)'],
+     'C liegt in der Grundfläche (z = 0), über B hinaus in Richtung D: x wie B, y wie D.', 'C liegt B gegenüber in der Grundfläche.')
+SW.z('koordinaten', 2, 'Ein Quader hat A(0 | 0 | 0), B(4 | 0 | 0), D(0 | 6 | 0) und E(0 | 0 | 3). Wie lang ist die Kante CG?', 3, '3', 'CG ist senkrecht, so lang wie AE: 3.',
+     'Welche Kante ist genauso lang?')
+SW.a('koordinaten', 3, 'Ein Quader hat A(0 | 0 | 0) und G(6 | 4 | 8). Tom gibt als Mittelpunkt der Raumdiagonale AG den Punkt M(6 | 4 | 8) an. Was stimmt?', 'Falsch: Man muss die Koordinaten halbieren. M(3 | 2 | 4).',
+     ['Richtig gerechnet.', 'Falsch: M(12 | 8 | 16).', 'Falsch: M(6 | 4 | 0).'],
+     'Mittelpunkt: je Koordinate (Anfang + Ende) : 2 = (0 + 6) : 2 = 3, (0 + 4) : 2 = 2, (0 + 8) : 2 = 4. Tom hat nur addiert.', 'Wie berechnet man in der Ebene den Mittelpunkt einer Strecke?', art='P')
+SW.z('koordinaten', 3, 'Ein Quader hat A(0 | 0 | 0), B(5 | 0 | 0), D(0 | 4 | 0) und E(0 | 0 | 3). Berechne sein Volumen.', 60, '5 * 4 * 3', 'Länge 5, Breite 4, Höhe 3: V = 60 (Volumeneinheiten).',
+     'Lies die Kantenlängen an den Koordinaten ab.', art='P')
+SW.z('koordinaten', 3, 'Bei einem Würfel ist A(0 | 0 | 0). Der Mittelpunkt der Raumdiagonale AG ist M(3 | 3 | 3). Wie lang ist eine Kante?', 6, '3 * 2', 'M liegt in der Mitte: G(6 | 6 | 6). Kantenlänge 6.',
+     'Von A bis M ist es die halbe Diagonale.', art='K')
+SW.a('koordinaten', 3, 'Ein Quader hat A(0 | 0 | 0) und G(4 | 6 | 2). Welcher Punkt liegt NICHT auf einer Kante des Quaders?', '(2 | 3 | 0)', ['(4 | 3 | 0)', '(0 | 6 | 1)', '(2 | 0 | 2)'],
+     '(4 | 3 | 0) liegt auf BC, (0 | 6 | 1) auf DH, (2 | 0 | 2) auf EF. (2 | 3 | 0) liegt mitten in der Grundfläche, auf keiner Kante.', 'Auf einer Kante sind zwei Koordinaten „Randwerte“ (0 oder Maximum).', art='K')
+
+# rotation
+_haus = {'typ': 'figur', 'punkte': {'A': [0, 0], 'B': [6, 0], 'C': [6, 4], 'D': [0, 4], 'S': [3, 7], '_o': [3, -1], '_p': [3, 8]}, 'flaeche': ['A', 'B', 'C', 'S', 'D'],
+         'linien': [['A', 'B', '6 cm'], ['B', 'C', '4 cm'], ['C', 'S'], ['S', 'D'], ['D', 'A'], ['_o', '_p', 'Achse', 'gestrichelt']]}
+SW.z('rotation', 2, 'Ein Rechteck mit den Seiten 5 cm und 2 cm dreht sich um die 2-cm-Seite. Wie hoch ist der entstehende Zylinder?', 2, '2',
+     'Die Seite, um die gedreht wird, ist die Achse: Höhe 2 cm. Die andere Seite wird zum Radius (5 cm) – ein flacher Zylinder.', 'Die Drehachse wird zur Höhe.', einheit='cm')
+SW.a('rotation', 2, 'Welcher Körper entsteht, wenn sich ein gleichschenkliges Dreieck um seine Symmetrieachse dreht?', 'ein Kegel', ['ein Zylinder', 'eine Pyramide', 'eine Kugel'],
+     'Jede Hälfte ist ein rechtwinkliges Dreieck, das sich um eine Kathete dreht: ein Kegel.', 'Was überstreicht die halbe Grundseite?')
+SW.a('rotation', 3, 'Die Figur dreht sich um die gestrichelte Achse. Welcher Körper entsteht?', 'ein Zylinder mit einem Kegel darauf', ['ein Zylinder', 'eine Pyramide auf einem Würfel', 'zwei Kegel'],
+     'Das Rechteck wird zum Zylinder (r = 3 cm, h = 4 cm), das Dreieck darüber zum Kegel (r = 3 cm, h = 3 cm).', 'Zerlege die Figur in Teile und drehe jedes einzeln.', grafik=_haus, art='P')
+SW.a('rotation', 3, 'Ein rechtwinkliges Trapez dreht sich um die Seite, die auf beiden parallelen Seiten senkrecht steht. Welcher Körper entsteht?',
+     'ein Kegel, dem die Spitze abgeschnitten wurde (Kegelstumpf)', ['ein Zylinder', 'ein Kegel', 'eine Kugel'],
+     'Die parallelen Seiten werden zu zwei verschieden großen Kreisen (oben und unten). Die schräge Seite bildet den Mantel: ein Kegelstumpf – wie ein Lampenschirm.',
+     'Was wird aus den beiden parallelen Seiten beim Drehen?', art='P')
+SW.a('rotation', 3, 'Ein Rechteck (6 cm × 4 cm) dreht sich um eine Achse, die parallel zur 4-cm-Seite liegt, aber 2 cm außerhalb des Rechtecks. Was entsteht?', 'ein Rohr (Hohlzylinder)',
+     ['ein Zylinder mit 6 cm Radius', 'ein Kegel', 'zwei Zylinder'],
+     'Zwischen Achse und Rechteck bleibt eine Lücke von 2 cm: Innen entsteht ein Loch mit 2 cm Radius, außen ist der Radius 8 cm. Das ist ein Rohr.', 'Berührt das Rechteck die Achse?', art='K')
+SW.a('rotation', 3, 'Ein Quadrat dreht sich um eine seiner Diagonalen. Welcher Körper entsteht?', 'ein Doppelkegel (zwei Kegel mit gemeinsamer Grundfläche)', ['ein Zylinder', 'eine Kugel', 'ein Würfel'],
+     'Die Diagonale teilt das Quadrat in zwei gleichschenklige Dreiecke. Jedes dreht sich um seine Grundseite, die Diagonale. So entstehen zwei Kegel, die mit ihren Grundflächen aneinanderliegen.',
+     'Zerlege das Quadrat an der Diagonale in zwei Dreiecke.', art='K')
+
+# axialschnitt
+_fig = {'typ': 'figur', 'punkte': {'A': [0, 0], 'B': [6, 0], 'C': [6, 2], 'D': [0, 2], 'S': [3, 7]}, 'flaeche': ['A', 'B', 'C', 'S', 'D'],
+        'linien': [['A', 'B', '6 cm'], ['B', 'C', '2 cm'], ['C', 'D', '', 'gestrichelt'], ['C', 'S'], ['S', 'D'], ['D', 'A']]}
+SW.z('axialschnitt', 2, 'Ein Zylinder hat den Durchmesser 10 cm und die Höhe 4 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?', 40, '10 * 4', 'Der Axialschnitt ist ein Rechteck d × h = 10 cm × 4 cm = 40 cm².',
+     'Achtung: Hier ist schon der Durchmesser gegeben.', einheit='cm²')
+SW.z('axialschnitt', 2, 'Eine Kugel hat den Radius 5 cm. Wie lang ist der Umfang ihres Axialschnitts? (π ≈ 3,14)', 31.4, '2 * 3.14 * 5', 'Der Axialschnitt einer Kugel ist ein Kreis mit r = 5 cm: u = 2 · 3,14 · 5 = 31,4 cm.',
+     'Welche Figur ist der Axialschnitt einer Kugel?', einheit='cm')
+SW.z('axialschnitt', 3, 'Der Axialschnitt einer Spielfigur besteht aus einem Rechteck (6 cm breit, 2 cm hoch) und einem daraufgesetzten gleichschenkligen Dreieck (Grundseite 6 cm, Höhe 5 cm). Wie groß ist der Axialschnitt?',
+     27, '6 * 2 + 6 * 5 / 2', 'Rechteck: 12 cm². Dreieck: 6 · 5 : 2 = 15 cm². Zusammen 27 cm².', 'Zerlege in Rechteck und Dreieck.', einheit='cm²', grafik=_fig, art='P')
+SW.z('axialschnitt', 3, 'Dieselbe Spielfigur entsteht durch Drehung des Axialschnitts um seine Symmetrieachse. Welchen Radius hat der kegelförmige obere Teil?', 3, '6 / 2',
+     'Der Kegel hat als Axialschnitt das Dreieck mit Grundseite 6 cm. Der Radius ist die halbe Grundseite: 3 cm.', 'Die Grundseite des Dreiecks ist der Durchmesser.', einheit='cm', grafik=_fig, art='P')
+SW.z('axialschnitt', 3, 'Der Axialschnitt eines Kegels ist ein gleichseitiges Dreieck mit dem Umfang 18 cm. Wie groß ist der Radius des Kegels?', 3, '18 / 3 / 2',
+     'Jede Seite ist 6 cm lang, also auch die Grundseite (der Durchmesser). Radius 3 cm.', 'Die Grundseite des Dreiecks ist der Durchmesser.', einheit='cm', art='K')
+SW.z('axialschnitt', 3, 'Der Axialschnitt eines Zylinders ist ein Quadrat mit dem Umfang 24 cm. Berechne das Volumen des Zylinders. (π ≈ 3,14)', 169.56, '3.14 * 3**2 * 6',
+     'Quadratseite 6 cm: Durchmesser 6 cm (r = 3 cm) und Höhe 6 cm. V = 3,14 · 9 · 6 = 169,56 cm³.', 'Was bedeuten die Quadratseiten für den Zylinder?', einheit='cm³', art='K')
+
+baue = mit_schwer(baue, SW)
+# ---- SCHWER ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Prismen und Pyramiden', ['pyramide', 'laengen']), ('Lage im Raum', ['lage', 'koordinaten']), ('Rotationskörper', ['rotation', 'axialschnitt'])],

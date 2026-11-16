@@ -1136,6 +1136,128 @@
    "w": "V = G · h | : G → h = V : G. Probe: G = 3, h = 8 → V = 24; 24 : 3 = 8 ✓"
   },
   {
+   "l": "ein_schritt",
+   "t": "ein_schritt",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stelle P = U · I nach I um."
+   },
+   "a": [
+    "I = U : P",
+    "I = P − U",
+    "I = P · U",
+    "I = P : U"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "I wird mit U multipliziert. Umkehrung: durch U teilen: I = P : U.",
+   "h": "Welche Rechnung macht „· U“ rückgängig?"
+  },
+  {
+   "l": "ein_schritt",
+   "t": "ein_schritt",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stelle m = ρ · V nach ρ um."
+   },
+   "a": [
+    "ρ = m : V",
+    "ρ = V : m",
+    "ρ = m − V",
+    "ρ = m · V"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Durch V teilen: ρ = m : V.",
+   "h": "Teile beide Seiten durch V."
+  },
+  {
+   "l": "ein_schritt",
+   "t": "ein_schritt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für einen elektrischen Widerstand gilt U = R · I. Ein Gerät nimmt bei 230 V eine Stromstärke von 0,5 A auf. Wie groß ist sein Widerstand R?"
+   },
+   "o": {
+    "wert": 460,
+    "einheit": "Ω"
+   },
+   "c": "230 / 0.5",
+   "w": "R = U : I = 230 : 0,5 = 460 Ω.",
+   "h": "Stelle nach R um. Durch 0,5 teilen heißt verdoppeln."
+  },
+  {
+   "l": "ein_schritt",
+   "t": "ein_schritt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für Linsen gilt 1/f = 1/g + 1/b. Stelle nach 1/b um."
+   },
+   "a": [
+    "1/b = 1/f + 1/g",
+    "1/b = 1/f − 1/g",
+    "b = f − g",
+    "1/b = 1/g − 1/f"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "1/g steht als Summand bei 1/b. Rückgängig: auf beiden Seiten 1/g abziehen: 1/b = 1/f − 1/g.",
+   "h": "Behandle 1/g wie eine Zahl, die addiert wurde."
+  },
+  {
+   "l": "ein_schritt",
+   "t": "ein_schritt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Es gilt v = s : t. Die Strecke s wird verdoppelt, die Zeit t halbiert. Was passiert mit v?"
+   },
+   "a": [
+    "v wird doppelt so groß.",
+    "v bleibt gleich.",
+    "v wird viermal so groß.",
+    "v wird halbiert."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Doppeltes s verdoppelt v. Halbes t verdoppelt v noch einmal. Zusammen: 4-mal so groß. Beispiel: 100 : 20 = 5, 200 : 10 = 20.",
+   "h": "Probiere mit Zahlen, z. B. s = 100, t = 20."
+  },
+  {
+   "l": "ein_schritt",
+   "t": "ein_schritt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für ein Dreieck gilt A = g · h : 2. Die Grundseite g wird verdreifacht. Wie muss sich h ändern, damit A gleich bleibt?"
+   },
+   "a": [
+    "h muss um 3 kleiner werden.",
+    "h muss gedrittelt werden.",
+    "h bleibt gleich.",
+    "h muss verdreifacht werden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "A bleibt gleich, wenn g · h gleich bleibt. Bei 3-fachem g muss h ein Drittel so groß sein.",
+   "h": "Wie hängen g und h zusammen, wenn A fest ist?"
+  },
+  {
    "l": "zwei_schritte",
    "t": "zwei_schritte",
    "p": "uebung",
@@ -1572,6 +1694,127 @@
     "index": 0
    },
    "w": "Z = K · p : 100 | · 100 → 100 · Z = K · p | : p → K = 100 · Z : p. Probe: K = 2, p = 9 → Z = 0,18; 100 · 0,18 : 9 = 2 ✓"
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "zwei_schritte",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stelle u = 2 · (l + b) nach b um."
+   },
+   "a": [
+    "b = u : 2 − l",
+    "b = (u − l) : 2",
+    "b = u − 2 · l",
+    "b = u : 2 + l"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Erst durch 2 teilen: u : 2 = l + b. Dann l abziehen: b = u : 2 − l.",
+   "h": "Was wurde zuletzt gerechnet? Das kommt zuerst weg."
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "zwei_schritte",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stelle K = 5 + 0,2 · x nach x um."
+   },
+   "a": [
+    "x = (K + 5) : 0,2",
+    "x = (K − 5) · 0,2",
+    "x = (K − 5) : 0,2",
+    "x = K : 0,2 − 5"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Erst 5 abziehen: K − 5 = 0,2 · x. Dann durch 0,2 teilen.",
+   "h": "Zuerst plus/minus, dann mal/geteilt rückgängig machen."
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "zwei_schritte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Stelle die Trapezformel A = (a + c) · h : 2 nach c um."
+   },
+   "a": [
+    "c = 2 · A : (h − a)",
+    "c = A : (2 · h) − a",
+    "c = 2 · A − a : h",
+    "c = 2 · A : h − a"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Mal 2: 2A = (a + c) · h. Durch h: 2A : h = a + c. Minus a: c = 2 · A : h − a.",
+   "h": "Mache die Schritte „: 2“, „· h“ und „+ a“ in umgekehrter Reihenfolge rückgängig."
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "zwei_schritte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für den Bremsweg auf nasser Straße gilt näherungsweise s = v² : k (v in km/h, s in m). Bei 50 km/h ist der Bremsweg 50 m lang. Bestimme k."
+   },
+   "o": {
+    "wert": 50
+   },
+   "c": "50**2 / 50",
+   "w": "Einsetzen: 50 = 2 500 : k ⇔ 50 · k = 2 500 ⇔ k = 50.",
+   "h": "Setze die beiden Messwerte ein. Dann ist nur k unbekannt."
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "zwei_schritte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Formel ergibt nach x umgestellt x = y : 5 − 2?"
+   },
+   "a": [
+    "y = 5x − 10",
+    "y = 5 · (x + 2)",
+    "y = 5x + 2",
+    "y = (x + 2) : 5"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Rückwärts: x = y : 5 − 2 ⇔ x + 2 = y : 5 ⇔ y = 5 · (x + 2). Probe: y = 5x − 10 ergäbe x = y : 5 + 2.",
+   "h": "Stelle x = y : 5 − 2 nach y um."
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "zwei_schritte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Stelle a · x + b = c · x nach x um (a ≠ c)."
+   },
+   "a": [
+    "x = b : (c − a)",
+    "x = c : (a + b)",
+    "x = b : (a − c)",
+    "x = (c − b) : a"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Alle x nach rechts: b = c · x − a · x = (c − a) · x. Durch (c − a): x = b : (c − a).",
+   "h": "Sammle beide x-Glieder auf einer Seite und klammere x aus."
   },
   {
    "l": "pruefen",
@@ -2044,6 +2287,129 @@
    "w": "Richtig ist a = 2 · M − b: M = (a + b) : 2 | · 2 → 2 · M = a + b | − b → a = 2 · M − b. Probe: a = 3, b = 9 → M = 6; 2 · 6 − 9 = 3 ✓"
   },
   {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand stellt U = R · I nach R um und erhält R = U : I. Stimmt das?"
+   },
+   "a": [
+    "Ja, die Umstellung ist richtig.",
+    "Nein, richtig wäre R = U · I.",
+    "Nein, richtig wäre R = I : U."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Probe mit R = 4, I = 3: U = 12. Umstellung: 12 : 3 = 4 ✓.",
+   "h": "Prüfe mit zwei erfundenen Zahlen."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand stellt s = v · t + 5 nach t um und erhält t = s : v − 5. Stimmt das?"
+   },
+   "a": [
+    "Nein, richtig wäre t = s : (v − 5).",
+    "Ja, die Umstellung ist richtig.",
+    "Nein, richtig wäre t = (s − 5) : v."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Probe mit v = 2, t = 3: s = 11. Umstellung: 11 : 2 − 5 = 0,5 ≠ 3. Richtig: (11 − 5) : 2 = 3 ✓.",
+   "h": "Was wurde zuletzt gerechnet: das Mal oder das Plus 5?"
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand stellt 1/f = 1/g + 1/b nach f um und erhält f = g + b. Stimmt das?"
+   },
+   "a": [
+    "Nein: richtig ist f = g − b.",
+    "Ja: Kehrwerte darf man einzeln bilden.",
+    "Nein: Probe g = 2, b = 2 gibt 1/f = 1, also f = 1, nicht 4.",
+    "Ja: Probe g = 2, b = 2 gibt f = 4."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Kehrwert einer Summe ist nicht die Summe der Kehrwerte. 1/2 + 1/2 = 1, also f = 1. Richtig: f = g · b : (g + b) = 4 : 4 = 1 ✓.",
+   "h": "Setze für g und b dieselbe Zahl 2 ein."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist h = 2 · A : (a + c) die richtige Umstellung von A = (a + c) · h : 2?"
+   },
+   "a": [
+    "Nein, richtig wäre h = 2 · A : a + c.",
+    "Ja, die Umstellung ist richtig.",
+    "Nein, richtig wäre h = A : (2 · (a + c))."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Probe a = 2, c = 4, h = 3: A = 6 · 3 : 2 = 9. Umstellung: 2 · 9 : (2 + 4) = 18 : 6 = 3 ✓.",
+   "h": "Erfinde a, c und h, berechne A und setze ein."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand stellt A = a · b nach b um und erhält (falsch) b = A · a. Mit welcher Probezahl für a fällt der Fehler NICHT auf?"
+   },
+   "a": [
+    "a = 10",
+    "a = 5",
+    "a = 2",
+    "a = 1"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Für a = 1 ist A · 1 = A : 1. Beide Formeln geben dasselbe – der Fehler bleibt unentdeckt. Darum nimmt man keine 1 (und keine 0) zum Prüfen.",
+   "h": "Für welche Zahl ist „mal“ dasselbe wie „geteilt“?"
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Lea stellt M = (a + b + c) : 3 nach c um: c = 3 · M − a − b. Tom schreibt: c = 3 · (M − a − b). Wer hat recht?"
+   },
+   "a": [
+    "Lea",
+    "keiner",
+    "Tom",
+    "beide"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Probe a = b = c = 3: M = 3. Lea: 9 − 3 − 3 = 3 ✓. Tom: 3 · (3 − 6) = −9 ✗. Erst mal 3, dann a und b abziehen.",
+   "h": "Prüfe beide mit denselben Zahlen."
+  },
+  {
    "l": "einsetzen",
    "t": "einsetzen",
    "p": "uebung",
@@ -2438,6 +2804,108 @@
    },
    "c": "100 * 1 / 200",
    "w": "p = 100 · Z : K = 100 · 1 : 200 = 0,5."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gold hat die Dichte ρ = 19,3 g/cm³. Ein Goldbarren wiegt 965 g. Welches Volumen hat er? (ρ = m : V)"
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "cm³"
+   },
+   "c": "965 / 19.3",
+   "w": "V = m : ρ = 965 : 19,3 = 50 cm³.",
+   "h": "Stelle nach V um."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Lampe hat den Widerstand 920 Ω und liegt an 230 V. Wie groß ist die Stromstärke? (U = R · I)"
+   },
+   "o": {
+    "wert": 0.25,
+    "einheit": "A"
+   },
+   "c": "230 / 920",
+   "w": "I = U : R = 230 : 920 = 0,25 A.",
+   "h": "Stelle nach I um."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Regentonne fasst 210 Liter. Ihre Grundfläche beträgt 0,35 m². Wie hoch steht das Wasser, wenn sie voll ist? (V = G · h)"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "cm"
+   },
+   "c": "210 / 35 * 10",
+   "w": "210 l = 210 dm³, 0,35 m² = 35 dm². h = V : G = 210 : 35 = 6 dm = 60 cm.",
+   "h": "Rechne alles in dm um: 1 l = 1 dm³, 1 m² = 100 dm²."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für Linsen gilt 1/f = 1/g + 1/b. Berechne f für g = 30 cm und b = 15 cm."
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "cm"
+   },
+   "c": "1 / (1/30 + 1/15)",
+   "w": "1/f = 1/30 + 2/30 = 3/30 = 1/10. Also f = 10 cm.",
+   "h": "Rechne erst die rechte Seite mit Hauptnenner 30 aus. Dann den Kehrwert bilden."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Läuferin schafft 400 m in 50 s. Wie schnell ist sie in km/h? (v = s : t)"
+   },
+   "o": {
+    "wert": 28.8,
+    "einheit": "km/h"
+   },
+   "c": "400 / 50 * 3.6",
+   "w": "v = 400 m : 50 s = 8 m/s. In einer Stunde (3 600 s): 8 · 3 600 = 28 800 m = 28,8 km. Also 28,8 km/h.",
+   "h": "Rechne erst m/s aus und dann auf eine Stunde hoch."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt F = 1,8 · C + 32 (F in °F, C in °C). Bei welcher Celsius-Temperatur zeigen beide Skalen dieselbe Zahl?"
+   },
+   "o": {
+    "wert": -40,
+    "einheit": "°C"
+   },
+   "c": "32 / (1 - 1.8)",
+   "w": "Gleiche Zahl: C = 1,8 · C + 32 ⇔ −0,8 · C = 32 ⇔ C = −40. Probe: 1,8 · (−40) + 32 = −40.",
+   "h": "Setze F = C und löse nach C."
   },
   {
    "l": "geometrie",
@@ -2836,6 +3304,108 @@
    },
    "c": "74 / 2 - 25",
    "w": "u = 2 · (a + b) → b = u : 2 − a = 37 − 25 = 12 cm."
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat den Flächeninhalt 18 cm² und die Höhe 4 cm. Wie lang ist die zugehörige Grundseite?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "cm"
+   },
+   "c": "2 * 18 / 4",
+   "w": "g = 2 · A : h = 36 : 4 = 9 cm.",
+   "h": "A = g · h : 2. Das „: 2“ nicht vergessen."
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck hat den Umfang 50 cm und die Breite 7,5 cm. Wie lang ist es?"
+   },
+   "o": {
+    "wert": 17.5,
+    "einheit": "cm"
+   },
+   "c": "50 / 2 - 7.5",
+   "w": "u : 2 = l + b ⇔ 25 = l + 7,5 ⇔ l = 17,5 cm.",
+   "h": "Der halbe Umfang ist Länge plus Breite."
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein quaderförmiges Aquarium fasst 96 Liter. Es ist 6 dm lang und 4 dm breit. Wie hoch ist es?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "dm"
+   },
+   "c": "96 / (6 * 4)",
+   "w": "96 l = 96 dm³. h = V : (l · b) = 96 : 24 = 4 dm.",
+   "h": "1 Liter = 1 dm³."
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader mit der Grundfläche 5 cm × 8 cm hat dasselbe Volumen wie ein Würfel mit der Kantenlänge 10 cm. Wie hoch ist der Quader?"
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "cm"
+   },
+   "c": "10**3 / (5 * 8)",
+   "w": "Würfel: V = 10 · 10 · 10 = 1 000 cm³. Quader: 40 cm² · h = 1 000 cm³ ⇔ h = 25 cm.",
+   "h": "Berechne zuerst das Würfelvolumen."
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Trapez hat den Flächeninhalt 54 cm² und die Höhe 6 cm. Eine der parallelen Seiten ist doppelt so lang wie die andere. Wie lang ist die kürzere?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "54 * 2 / 6 / 3",
+   "w": "a + c = 2A : h = 108 : 6 = 18. Mit c = 2a: 3a = 18 ⇔ a = 6 cm (und c = 12 cm).",
+   "h": "Stelle zuerst nach a + c um. Dann nutze c = 2a."
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck hat den Umfang 30 cm. Seine Länge ist doppelt so groß wie seine Breite. Berechne den Flächeninhalt."
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "cm²"
+   },
+   "c": "10 * 5",
+   "w": "2 · (2b + b) = 30 ⇔ 6b = 30 ⇔ b = 5 cm, l = 10 cm. A = 10 · 5 = 50 cm².",
+   "h": "Drücke die Länge durch die Breite aus."
   }
  ]
 }

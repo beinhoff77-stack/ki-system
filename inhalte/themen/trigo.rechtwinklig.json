@@ -1258,7 +1258,7 @@
    "l": "seiten",
    "t": "seiten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Im Dreieck DFM ist der Winkel bei F ein rechter. Welche Strecke ist die Ankathete des Winkels bei M?"
@@ -1278,7 +1278,7 @@
    "l": "seiten",
    "t": "seiten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Im Dreieck ELR ist der Winkel bei R ein rechter. Welche Strecke ist die Ankathete des Winkels bei E?"
@@ -1298,7 +1298,7 @@
    "l": "seiten",
    "t": "seiten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Im Dreieck DMR ist der Winkel bei R ein rechter. Welche Strecke ist die Ankathete des Winkels bei D?"
@@ -1318,7 +1318,7 @@
    "l": "seiten",
    "t": "seiten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Im Dreieck DKQ ist der Winkel bei Q ein rechter. Welche Strecke ist die Ankathete des Winkels bei K?"
@@ -1338,7 +1338,7 @@
    "l": "seiten",
    "t": "seiten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Im Dreieck KMQ ist der Winkel bei K ein rechter. Welche Strecke ist die Ankathete des Winkels bei Q?"
@@ -1358,7 +1358,7 @@
    "l": "seiten",
    "t": "seiten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Im Dreieck DEK ist der Winkel bei K ein rechter. Welche Strecke ist die Ankathete des Winkels bei D?"
@@ -2721,7 +2721,7 @@
    "l": "seite",
    "t": "seite",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist γ = 90°, α = 53° und a = 14 cm. Berechne c (auf eine Nachkommastelle)."
@@ -2739,7 +2739,7 @@
    "l": "seite",
    "t": "seite",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist γ = 90°, α = 38° und a = 12 cm. Berechne b (auf eine Nachkommastelle)."
@@ -2757,7 +2757,7 @@
    "l": "seite",
    "t": "seite",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist γ = 90°, β = 55° und a = 7 cm. Berechne c (auf eine Nachkommastelle)."
@@ -2775,7 +2775,7 @@
    "l": "seite",
    "t": "seite",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist γ = 90°, α = 20° und a = 15 cm. Berechne b (auf eine Nachkommastelle)."
@@ -2793,7 +2793,7 @@
    "l": "seite",
    "t": "seite",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist γ = 90°, β = 51° und a = 8 cm. Berechne c (auf eine Nachkommastelle)."
@@ -2811,7 +2811,7 @@
    "l": "seite",
    "t": "seite",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist γ = 90°, β = 57° und a = 6 cm. Berechne c (auf eine Nachkommastelle)."
@@ -3215,7 +3215,7 @@
    "l": "winkel",
    "t": "winkel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist γ = 90°, a = 3 cm und c = 21 cm. Berechne β (in Grad, auf eine Nachkommastelle)."
@@ -3233,7 +3233,7 @@
    "l": "winkel",
    "t": "winkel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist γ = 90°, a = 13 cm und c = 17 cm. Berechne β (in Grad, auf eine Nachkommastelle)."
@@ -3251,7 +3251,7 @@
    "l": "winkel",
    "t": "winkel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist γ = 90°, a = 6 cm und c = 22 cm. Berechne β (in Grad, auf eine Nachkommastelle)."
@@ -3269,7 +3269,7 @@
    "l": "winkel",
    "t": "winkel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist γ = 90°, a = 5 cm und c = 13 cm. Berechne β (in Grad, auf eine Nachkommastelle)."
@@ -3287,7 +3287,7 @@
    "l": "winkel",
    "t": "winkel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist γ = 90°, a = 2 cm und c = 22 cm. Berechne β (in Grad, auf eine Nachkommastelle)."
@@ -3305,7 +3305,7 @@
    "l": "winkel",
    "t": "winkel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist γ = 90°, a = 14 cm und c = 20 cm. Berechne β (in Grad, auf eine Nachkommastelle)."

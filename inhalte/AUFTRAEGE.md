@@ -770,3 +770,52 @@ Meldungen (Status nach jedem Thema, Fragen, Abschlussbericht) in inhalte/postfac
 ```
 
 Einspielen (Haupt-Chat): mit einheit_abgleichen(…, 'lassen') – die vorhandenen Aufgaben und Lernstände bleiben, die neuen kommen dazu.
+
+# Zehnte Runde: Durchsicht je Jahrgang + schwerere Aufgaben nach Prüfungsvorbild
+
+Befund (16.11.): Rund ein Drittel der Übungen ist Stufe 3, aber 18 Lernkarten haben keine einzige und 7 nur 1–2 Stufe-3-Übungen. Stufe 3 ist bisher gehobenes Schulniveau;
+Aufgaben auf dem Niveau echter Prüfungen (Jahrgangsstufentest, Abschlussprüfung, Wettbewerb) fehlen. Ein Chat je Jahrgang, Zweige `schwer-kl5` … `schwer-kl10`.
+Im Text unten `<N>` durch die Klasse ersetzen (5, 6, 7, 8, 9 oder 10).
+
+```text
+Du prüfst und erweiterst die Aufgaben einer Mathe-Lern-App für Klasse <N> (bayerisches Gymnasium, LehrplanPLUS).
+Repository: beinhoff77-stack/ki-system (lernen-app ist ein Zweig darin). Hole den aktuellen Stand des Zweigs lernen-app, lege davon den Zweig schwer-kl<N> an und arbeite nur dort.
+
+Lies zuerst vollständig: inhalte/README.md (Format, Regeln, „Erfahrungen“, „Zeichnungen“, „Verständliche Erklärungen“), inhalte/postfach/README.md, inhalte/vorlage_generator.py.
+Deine Themen: alle Einträge in inhalte/themenliste.json mit klasse {"gym_by": <N>}. Zu jedem Thema gibt es inhalte/themen/<thema_schluessel>.json und einen Generator
+unter inhalte/generatoren/ (teils mit Hilfsdateien _klar_*.py, _nachbau.py). Themen ohne Generator auslassen und im Postfach nennen.
+
+Teil 1 – Durchsicht (je Thema, vor dem Erweitern):
+- Jede Lernkarte und je Lernkarte mindestens 10 vorhandene Aufgaben lesen. Prüfen: Lösung richtig? Aufgabe eindeutig? Passt die Stufe (1 leicht, 2 mittel, 3 schwer)?
+  Passen Aufgaben und Erklärung zusammen? Fehlt laut LehrplanPLUS Klasse <N> ein Aufgabentyp, der in Schulaufgaben üblich ist?
+- Vorhandene Aufgaben NICHT ändern oder löschen (Lernstände hängen daran). Fehler, falsch eingestufte Aufgaben und Lücken nur als Liste melden (Thema, Lernkarte, Aufgabe, Befund).
+
+Teil 2 – Recherche echter Prüfungsaufgaben (je Thema, mit Websuche):
+- Suche frei zugängliche, echte Prüfungs- und Testaufgaben zu genau diesem Thema und dieser Klasse, z. B. bayerische Jahrgangsstufentests / Bayerischer Mathematik-Test (ISB),
+  VERA-Vergleichsarbeiten (IQB), Abschlussprüfungen Realschule/Mittlerer Schulabschluss Bayern (für Klasse 9/10), ab Klasse 10 auch einfache Abitur-Grundaufgaben ohne Hilfsmittel,
+  Musterschulaufgaben bayerischer Gymnasien, Wettbewerbe (Känguru, Mathematik-Olympiade Schulrunde, Pangea) für Knobelaufgaben.
+- Halte je Thema fest: welche Aufgabentypen kommen in Prüfungen wirklich vor, welches Niveau, welche typischen Einkleidungen und Fallen. Quelle mit Adresse notieren.
+- WICHTIG (Urheberrecht): Prüfungsaufgaben nie wörtlich oder mit denselben Zahlen übernehmen. Sie sind das Vorbild für Typ, Aufbau und Niveau; Wortlaut, Einkleidung und Zahlen
+  sind eigene. Keine Schulbuchaufgaben abschreiben. Findest du zu einem Thema nichts Belastbares, das ehrlich melden statt etwas zu erfinden.
+
+Teil 3 – Neue Aufgaben (je Lernkarte, Pool uebung):
+- Mindestens 6 neue Übungen je Lernkarte: 4 der Stufe 3 und 2 der Stufe 2. Danach hat jede Lernkarte mindestens 6 Stufe-3-Übungen.
+- Von den neuen Stufe-3-Aufgaben mindestens 2 nach Prüfungsvorbild aus Teil 2 (Typ und Niveau wie dort) und mindestens 1 echte Knobelaufgabe, sofern das Thema es hergibt:
+  mehrschrittig, Verknüpfung mit früherem Stoff, Rückwärtsdenken, Begründen/Fehler finden, ungewohnte Einkleidung, Parameter statt Zahl. „Schwer“ heißt anderer Gedanke,
+  nicht größere Zahlen oder längere Rechnung.
+- Mehrteilige Prüfungsaufgaben in einzelne, je für sich prüfbare Aufgaben zerlegen (gleiche Einkleidung, Teil a/b/c als eigene Aufgaben). Nur die Antworttypen der App verwenden.
+- Jede Aufgabe mit Tipp und Lösungsweg wie im Bausatz; Zahl-Aufgaben mit Rechenausdruck „c“; falsche Antworten aus typischen Denkfehlern. Lösungen vom Programm berechnen
+  und zusätzlich von Hand nachrechnen.
+- Technik: Die neuen Aufgaben im Generator in einem eigenen Abschnitt mit eigenem festen Zufallsstart ergänzen, sodass alle bisherigen Aufgaben unverändert bleiben.
+  Per Skript nachweisen: jede Aufgabe der alten Datei (Stand lernen-app) steht unverändert in der neuen Datei. Lernkarten-Texte und Zeichnungen nicht ändern.
+- Ein Thema ist fertig, wenn `python3 -I tools/inhalt_pruefen.py inhalte/themen/<datei>.json` OK meldet, der Unverändert-Nachweis stimmt und du jede neue Aufgabe gelesen hast.
+  Ein Thema = ein Commit + Push auf schwer-kl<N>.
+
+Grenzen: Keine Datenbank, keine Serverfunktionen, kein App-Code, keine Tests, kein Merge nach main oder lernen-app. Keine Namen oder Daten von Kindern.
+Meldungen in inhalte/postfach/schwer-kl<N>.md ablegen und pushen: Status nach jedem Thema; am Ende ein Abschlussbericht mit (1) Befundliste aus Teil 1,
+(2) je Thema den genutzten Prüfungsquellen mit Adresse und den daraus abgeleiteten Aufgabentypen, (3) Zahl der neuen Aufgaben je Lernkarte und Stufe, (4) Themen, zu denen
+keine Prüfungsaufgaben zu finden waren. Arbeite ohne Rückfragen durch.
+```
+
+Einspielen (Haupt-Chat): Zweige zusammenführen, prüfen, mit einheit_abgleichen(…, 'lassen') einspielen – vorhandene Aufgaben und Lernstände bleiben, neue kommen dazu.
+Reihenfolge: Klasse 8 und 5 zuerst (dort arbeiten die Kinder), dann 7, 6, 9, 10.

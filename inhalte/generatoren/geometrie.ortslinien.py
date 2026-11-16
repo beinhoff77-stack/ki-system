@@ -300,5 +300,70 @@ DATEI = datei(E, 'Punkte bestimmen, die Abstandsbedingungen zu Punkten oder Gera
                      'Abstände im Koordinatensystem nur waagrecht/senkrecht, weil schräge Abstände den Satz des Pythagoras (Kl. 9) bräuchten.',
                      'Zeichnungen: Kreise, Parallelen, Streifen und Schnittfiguren als Figur bzw. Koordinatensystem. Eine Kreisfläche oder einen Streifen farbig zu füllen kann die App nicht; das Kind kann auch nicht selbst konstruieren.'])
 
+# Verständliche Fassung (Siebte Runde, 15.11.): Alltagssituation zuerst (einstieg), jedes neue Wort erklärt (woerter),
+# Beispiel in kleinen Schritten, Merksatz am Ende (regel). Situationen: Hund an der Leine, Hecke an der Straße, Funkmasten, Schatzsuche.
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _klar_kl5.py) – die Aufgaben bleiben wörtlich gleich.
+from _klar_kl5 import klar  # noqa: E402
+
+KLAR = {
+ 'kreislinie': {
+  'einstieg': 'Ein Hund ist mit einer 3 m langen Leine an einem Pflock angebunden. Läuft er mit straffer Leine herum, läuft er im Kreis – jeder Punkt dieses Weges ist genau 3 m vom Pflock entfernt. Alle Punkte mit genau demselben Abstand zu einem festen Punkt bilden eine ⟦Kreislinie⟧.',
+  'woerter': [['M(0 | 0)', 'der Punkt in der Mitte des Koordinatensystems, wo sich x-Achse (waagrecht) und y-Achse (senkrecht) kreuzen'], ['Einheit', 'ein Kästchenabstand im Koordinatensystem'],
+              ['Kreislinie', 'alle Punkte, die vom Mittelpunkt genau den Abstand r haben – der Rand des Kreises'], ['Mittelpunkt M', 'der feste Punkt in der Mitte – hier der Pflock'],
+              ['Radius r', 'der feste Abstand – hier die Länge der Leine'], ['innerhalb, außerhalb', 'näher am Mittelpunkt als r, weiter weg als r'],
+              ['höchstens', 'so viel oder weniger'], ['Kreisfläche', 'alle Punkte mit höchstens r Abstand: das Innere samt Rand']],
+  'schritte': ['Ein Kreis um M(0 | 0) hat den Radius r = 3. Liegt P(2 | 0) innerhalb, auf oder außerhalb?',
+               'P liegt auf der x-Achse, 2 Einheiten rechts von M. Also ist P 2 von M entfernt.',
+               'Vergleiche mit dem Radius: 2 ist kleiner als 3. P liegt ⟦innerhalb⟧ des Kreises.'],
+  'regel': 'So prüfst du die Lage eines Punktes: Bestimme seinen ⟦Abstand zu M⟧ und vergleiche ihn mit ⟦r⟧. Kleiner als r: ⟦innerhalb⟧. Genau r: ⟦auf der Kreislinie⟧. Größer als r: ⟦außerhalb⟧. „Höchstens r“ heißt: Kreisfläche mit Rand.',
+  'fehler': 'Einen Punkt mit Abstand 3 zu M „innerhalb“ nennen, wenn r = 3 ist, ist falsch: Er liegt genau ⟦auf⟧ der Kreislinie – wie der Hund, wenn die Leine gerade straff ist.'},
+ 'parallelen': {
+  'einstieg': 'Entlang einer geraden Straße soll auf beiden Seiten eine Hecke gepflanzt werden, jeweils genau 2 m vom Straßenrand entfernt. Dann entstehen zwei Heckenreihen, links und rechts, und jede läuft gleich weit neben der Straße her. Alle Punkte mit festem Abstand zu einer Geraden liegen auf so einem ⟦Parallelenpaar⟧.',
+  'woerter': [['senkrecht', 'im rechten Winkel, wie ein Laternenpfahl auf der Straße'], ['Parallele', 'eine Gerade, die überall gleich weit von g entfernt ist'], ['Parallelenpaar', 'die zwei Parallelen auf beiden Seiten von g'],
+              ['y = 1', 'die waagrechte Gerade durch alle Punkte mit der y-Koordinate 1'], ['Abstand von g', 'die Länge des senkrechten Wegs zu g'],
+              ['Streifen', 'der Bereich zwischen den beiden Parallelen']],
+  'schritte': ['g ist die waagrechte Gerade y = 1. Gesucht sind alle Punkte mit dem Abstand 2 von g.',
+               'Gehe von g senkrecht 2 nach oben: 1 + 2 = 3. Dort liegt die eine Parallele, ⟦y = 3⟧.',
+               'Gehe von g senkrecht 2 nach unten: 1 − 2 = −1. Dort liegt die andere Parallele, ⟦y = −1⟧.'],
+  'regel': 'So findest du alle Punkte mit Abstand d von einer Geraden g: Zeichne ⟦zwei Parallelen⟧ zu g, ⟦auf jeder Seite eine⟧, jeweils im Abstand d. Punkte mit ⟦höchstens d⟧ Abstand bilden den ⟦Streifen⟧ dazwischen.',
+  'fehler': 'Nur eine Parallele einzeichnen ist ein häufiger Fehler – wie eine Hecke nur auf einer Straßenseite. Es gibt ⟦auf beiden Seiten⟧ von g Punkte mit Abstand d.'},
+ 'zwei_kreise': {
+  'einstieg': 'Zwei Funkmasten A und B stehen 8 km voneinander entfernt. Ein Handy ist 5 km von A und 4 km von B entfernt. Wo kann es sein? Es liegt auf dem Kreis um A mit 5 km und zugleich auf dem Kreis um B mit 4 km – also dort, wo sich die Kreise treffen. Diese Stellen heißen ⟦Schnittpunkte⟧.',
+  'woerter': [['Schnittpunkt', 'ein Punkt, der auf beiden Linien zugleich liegt'], ['r₁, r₂', 'die Radien der beiden Kreise (gelesen „r eins“, „r zwei“)'],
+              ['[AB]', 'hier: die Länge der Strecke von A nach B'], ['und', 'beide Bedingungen müssen gleichzeitig erfüllt sein']],
+  'schritte': ['A und B sind 8 km voneinander entfernt. Gesucht sind Orte, die 5 km von A und 4 km von B entfernt sind.',
+               'Stell dir den Kreis um A mit 5 km und den Kreis um B mit 4 km vor. Zusammen reichen die Radien 5 + 4 = 9 km weit.',
+               '9 km sind mehr als 8 km. Die Kreise überlappen also ein Stück und schneiden sich oberhalb und unterhalb der Strecke [AB].',
+               'Es gibt ⟦zwei⟧ solche Orte.'],
+  'regel': 'So zählst du die Orte: Sie liegen in den ⟦Schnittpunkten⟧ der beiden Kreise. [AB] ⟦größer als r₁ + r₂⟧: kein Punkt. [AB] ⟦gleich r₁ + r₂⟧: genau einer. Sonst meist zwei – außer ein Kreis liegt ganz im anderen: Ist der ⟦Unterschied der Radien⟧ größer als [AB], gibt es keinen Punkt, ist er gleich [AB], genau einen.'},
+ 'verknuepfen': {
+  'einstieg': 'Ein Schatz liegt 3 m vom alten Baum entfernt und 2 m vom Gartenzaun. Jede Angabe allein beschreibt eine ganze Linie: einen Kreis um den Baum und zwei Parallelen zum Zaun. Der Schatz muss auf beiden zugleich liegen. Zwei Bedingungen so zusammenzunehmen heißt, sie zu ⟦verknüpfen⟧.',
+  'woerter': [['Ortslinie', 'die Linie, auf der alle Punkte mit einer bestimmten Eigenschaft liegen (Kreis oder Parallelen)'],
+              ['verknüpfen', 'zwei Bedingungen mit „und“ verbinden: beide müssen gelten'], ['Tangente', 'eine Gerade, die den Kreis in genau einem Punkt berührt']],
+  'schritte': ['M hat von der Geraden g den Abstand 5. Gesucht sind Punkte mit Abstand 3 von M und Abstand 2 von g.',
+               'Die Punkte mit Abstand 2 von g liegen auf zwei Parallelen. Die eine ist M näher: 5 − 2 = 3 von M entfernt. Die andere ist 5 + 2 = 7 von M entfernt.',
+               'Die nähere Parallele hat von M den Abstand 3, genau so viel wie der Radius. Sie berührt den Kreis als Tangente in einem Punkt.',
+               'Die andere ist 7 entfernt, mehr als der Radius 3: kein Treffer. Es gibt genau ⟦einen⟧ Punkt.'],
+  'regel': 'So verknüpfst du „Abstand r von M ⟦und⟧ Abstand d von g“: Schneide den ⟦Kreis um M⟧ mit den ⟦beiden Parallelen⟧ zu g. Jede Parallele trifft den Kreis in 2, 1 oder 0 Punkten – zähle für ⟦beide⟧ Parallelen.'},
+ 'sachsituationen': {
+  'einstieg': 'Ein Rasensprenger erreicht alles bis 4 m Entfernung. Ein Funkmast hat eine bestimmte Reichweite. Neben einer Straße soll ein Sicherheitsstreifen frei bleiben. All das sind Fragen nach Abständen. Du übersetzt sie in Kreise oder Parallelen – in eine ⟦Abstandsbedingung⟧.',
+  'woerter': [['Abstandsbedingung', 'eine Vorgabe wie „höchstens 4 m vom Sprenger entfernt“'], ['Reichweite', 'die größte Entfernung, die etwas erreicht'],
+              ['≤', '„kleiner oder gleich“, also höchstens'], ['Sicherheitsabstand', 'ein Abstand, der aus Sicherheitsgründen frei bleiben muss']],
+  'schritte': ['Ein Rasensprenger erreicht alles bis 4 m. Ein Beet liegt 3 m vom Sprenger entfernt. Wird es gegossen?',
+               '„Bis 4 m“ heißt höchstens 4 m. Das ist die ganze Kreisfläche um den Sprenger mit r = 4 m.',
+               'Das Beet ist 3 m entfernt, und 3 m ≤ 4 m. Es liegt in der Kreisfläche und wird ⟦gegossen⟧.'],
+  'regel': 'So löst du Abstandsfragen im Alltag: Übersetze die Bedingung. ⟦Reichweite⟧ von Sprenger oder Funkmast und Länge einer ⟦Leine⟧: Kreisfläche. ⟦Sicherheitsabstand⟧ zu einer Straße: Streifen zwischen Parallelen. Dann prüfst du, ob der Punkt darin liegt.'},
+ 'verstehen': {
+  'einstieg': 'Jemand sagt: „Es gibt nur einen Platz, der genau 2 m vom Zaun entfernt ist.“ Stell dir den Zaun vor: Du kannst an sehr vielen Stellen 2 m davor stehen – und auch auf der anderen Seite. Solche Aussagen prüfst du am besten mit einer kleinen ⟦Skizze⟧.',
+  'woerter': [['Skizze', 'eine schnelle Zeichnung ohne genaue Maße'], ['Punktmenge', 'alle Punkte, die eine Bedingung erfüllen'],
+              ['genau, höchstens, mindestens', 'genau gleich viel / so viel oder weniger / so viel oder mehr'], ['unendlich viele', 'so viele, dass man nie mit dem Zählen fertig wird']],
+  'schritte': ['Die Aussage: „Es gibt genau einen Punkt mit Abstand 2 von g.“',
+               'Skizze: Alle Punkte mit Abstand 2 von g liegen auf zwei Parallelen zu g, eine auf jeder Seite.',
+               'Auf jeder Parallele liegen unendlich viele Punkte. Die Aussage ist ⟦falsch⟧.'],
+  'regel': 'So prüfst du Aussagen über Punktmengen: Zeichne eine ⟦Skizze⟧ – Kreis um M für „Abstand zu M“, Parallelenpaar für „Abstand zu g“. Achte genau auf die Wörter ⟦genau⟧, ⟦höchstens⟧ und ⟦mindestens⟧.'},
+}
+klar(DATEI, KLAR)
+
+
 if __name__ == '__main__':
     schreibe(DATEI)

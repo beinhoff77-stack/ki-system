@@ -44,32 +44,71 @@
    {
     "lernziel": "schreibweise",
     "titel": "Was ist eine Potenz?",
-    "regel": "Eine Potenz ist eine Kurzschreibweise für ⟦mehrmals dieselbe Zahl malnehmen⟧: 3 · 3 · 3 · 3 = 3⁴. Die ⟦Basis⟧ 3 ist der Faktor, der ⟦Exponent⟧ 4 sagt, wie oft er dasteht.",
+    "regel": "So schreibst du eine Potenz: Die Zahl, die malgenommen wird, ist die ⟦Basis⟧. Wie oft sie dasteht, schreibst du als ⟦Exponent⟧ klein darüber: 3 · 3 · 3 · 3 = 3⁴.",
     "schritte": [
-     "5 · 5 · 5: Der Faktor 5 steht 3-mal da.",
-     "Basis 5, Exponent 3: ⟦5³⟧. Man liest „5 hoch 3“."
+     "Schreibe 5 · 5 · 5 kürzer. Zähle zuerst: Die 5 steht 3-mal als Faktor da.",
+     "Die Zahl, die malgenommen wird, ist die Basis: hier die 5.",
+     "Wie oft sie dasteht, schreibst du klein oben rechts daneben. Das ist der Exponent: hier die 3.",
+     "Ergebnis: ⟦5 · 5 · 5 = 5³⟧. Man liest „5 hoch 3“."
     ],
-    "fehler": "3⁴ ist nicht 3 · 4. Der Exponent zählt, ⟦wie oft⟧ die 3 als Faktor dasteht: 3 · 3 · 3 · 3."
+    "fehler": "3⁴ ist nicht 3 · 4. Der Exponent zählt, ⟦wie oft⟧ die 3 dasteht: 3 · 3 · 3 · 3. Bei der Neuigkeit wären 3 · 4 = 12 Kinder viel zu wenig – in der vierten Runde hören sie 81 Kinder.",
+    "einstieg": "Ein Kind erzählt eine Neuigkeit 3 Freunden. Jeder davon erzählt sie wieder 3 Freunden, und die erzählen sie noch einmal je 3 Freunden. In der dritten Runde hören sie 3 · 3 · 3 = 27 Kinder. Lange Malketten mit immer derselben Zahl schreibt man kürzer. Diese Kurzschreibweise heißt ⟦Potenz⟧.",
+    "woerter": [
+     [
+      "Faktor",
+      "eine Zahl in einer Malrechnung"
+     ],
+     [
+      "Potenz",
+      "Kurzschreibweise für dieselbe Zahl mehrmals malgenommen, zum Beispiel 3³"
+     ],
+     [
+      "Basis",
+      "die Zahl, die malgenommen wird (normal groß geschrieben)"
+     ],
+     [
+      "Exponent",
+      "die kleine Zahl oben rechts: Sie sagt, wie oft die Basis als Faktor dasteht"
+     ],
+     [
+      "5³",
+      "gelesen „5 hoch 3“"
+     ]
+    ]
    },
    {
     "lernziel": "berechnen",
     "titel": "Potenzen ausrechnen",
-    "regel": "Schreibe die Potenz als Produkt und rechne ⟦Schritt für Schritt⟧ von links nach rechts.",
+    "regel": "So berechnest du eine Potenz: ⟦als Malkette ausschreiben⟧, dann ⟦Schritt für Schritt⟧ von links nach rechts malnehmen.",
     "schritte": [
-     "2⁵ = 2 · 2 · 2 · 2 · 2",
-     "2 · 2 = 4, · 2 = 8, · 2 = 16, · 2 = ⟦32⟧"
+     "Rechne 2⁵ aus. Schreibe die Potenz lang aus: 2 · 2 · 2 · 2 · 2.",
+     "Rechne von links: 2 · 2 = 4. Dann 4 · 2 = 8.",
+     "Weiter: 8 · 2 = 16 und 16 · 2 = 32.",
+     "Also ist ⟦2⁵ = 32⟧. Nach 5 Stunden sind es 32 Bakterien."
     ],
     "probe": "32 : 2 = 16, : 2 = 8, : 2 = 4, : 2 = 2 ✓",
-    "fehler": "2⁵ = 10 ist falsch: Das wäre 2 · 5. Richtig ist 2 · 2 · 2 · 2 · 2 = ⟦32⟧."
+    "fehler": "2⁵ = 10 ist falsch: Das wäre 2 · 5. Nach 5 Stunden gäbe es dann nur 10 Bakterien. Richtig ist 2 · 2 · 2 · 2 · 2 = ⟦32⟧.",
+    "einstieg": "Ein Bakterium teilt sich jede Stunde in zwei. Nach 5 Stunden sind es 2 · 2 · 2 · 2 · 2 Bakterien, kurz 2⁵. Aber wie viele sind das? Dazu schreibst du die Potenz wieder lang aus und rechnest Schritt für Schritt. Das Ergebnis heißt ⟦Wert der Potenz⟧.",
+    "woerter": [
+     [
+      "Wert der Potenz",
+      "das Ergebnis, wenn man die Potenz ausrechnet: 2⁵ hat den Wert 32"
+     ],
+     [
+      "ausschreiben",
+      "die Potenz wieder als lange Malkette hinschreiben"
+     ]
+    ]
    },
    {
     "lernziel": "quadrat",
     "titel": "Quadratzahlen bis 400",
-    "regel": "„Hoch 2“ heißt ⟦Quadrat⟧: die Zahl mal sich selbst. Der Name kommt vom Quadrat: Ein Quadrat mit 14 Fliesen pro Reihe und 14 Reihen hat 14 · 14 = 14² Fliesen. Die Quadratzahlen von 1² bis 20² solltest du auswendig können: … 11² = 121, 12² = 144, 13² = 169, 14² = 196, 15² = 225, 16² = 256, 17² = 289, 18² = 324, 19² = 361, 20² = 400.",
+    "regel": "„Hoch 2“ heißt: ⟦die Zahl mal sich selbst⟧. Die Quadratzahlen von 1² bis 20² solltest du ⟦auswendig⟧ können: … 11² = 121, 12² = 144, 13² = 169, 14² = 196, 15² = 225, 16² = 256, 17² = 289, 18² = 324, 19² = 361, 20² = 400.",
     "schritte": [
-     "Ein quadratischer Badboden hat 14 Fliesen pro Reihe und 14 Reihen. Das sind 14² Fliesen.",
-     "Zerlege: 14 · 10 = 140 und 14 · 4 = 56.",
-     "Zusammen: 140 + 56 = ⟦196⟧ Fliesen."
+     "Der Boden hat 14 Fliesen pro Reihe und 14 Reihen. Gesucht ist 14² = 14 · 14.",
+     "Teile die 14 Reihen in 10 und 4 Reihen. Die 10 Reihen haben 14 · 10 = 140 Fliesen.",
+     "Die übrigen 4 Reihen haben 14 · 4 = 56 Fliesen.",
+     "Zusammen: 140 + 56 = ⟦196⟧. Also ist 14² = 196."
     ],
     "fehler": "14² = 28 ist falsch: Das wäre 14 · 2. Quadrat heißt 14 · ⟦14⟧. Denk an die Fliesen: 14 Reihen mit je 14 Fliesen sind viel mehr als 28.",
     "probe": "Nachbar-Trick: 15² = 225. Vom Quadrat mit 14 · 14 Fliesen zum Quadrat mit 15 · 15 kommen eine Reihe und eine Spalte dazu, also 14 + 15 = 29 Fliesen. 196 + 29 = 225 ✓",
@@ -483,50 +522,149 @@
        "gestrichelt"
       ]
      ]
-    }
+    },
+    "einstieg": "Ein quadratischer Badboden soll gefliest werden: 14 Fliesen in jeder Reihe und 14 Reihen. Das sind 14 · 14 Fliesen, kurz 14². Weil die Fliesen ein Quadrat bilden, nennt man das Ergebnis von „Zahl hoch 2“ eine ⟦Quadratzahl⟧.",
+    "woerter": [
+     [
+      "14²",
+      "gelesen „14 hoch 2“ oder „14 zum Quadrat“: 14 · 14"
+     ],
+     [
+      "quadratisch",
+      "geformt wie ein Quadrat: so viele Reihen, wie in einer Reihe Fliesen liegen"
+     ],
+     [
+      "Quadratzahl",
+      "eine Zahl, die herauskommt, wenn man eine Zahl mal sich selbst nimmt: 1, 4, 9, 16 …"
+     ],
+     [
+      "natürliche Zahl",
+      "eine der Zahlen 0, 1, 2, 3 …"
+     ]
+    ]
    },
    {
     "lernziel": "vertauschen",
     "titel": "Basis und Exponent nicht vertauschen",
-    "regel": "Bei Potenzen darf man Basis und Exponent ⟦nicht vertauschen⟧: 2³ = 8, aber 3² = 9.",
+    "regel": "So vergleichst du Potenzen: ⟦beide ausrechnen⟧, dann vergleichen. Basis und Exponent darfst du ⟦nicht vertauschen⟧ – anders als beim Malnehmen, wo 3 · 4 = 4 · 3 ist.",
     "schritte": [
-     "2³ = 2 · 2 · 2 = 8",
-     "3² = 3 · 3 = 9",
-     "Also ist ⟦3² größer⟧ als 2³."
+     "Vergleiche 2³ und 3². Rechne zuerst 2³ = 2 · 2 · 2 = 8.",
+     "Dann 3² = 3 · 3 = 9.",
+     "9 ist größer als 8. Also ist ⟦3² > 2³⟧, obwohl dieselben Zahlen vorkommen."
     ],
-    "fehler": "Bei 3 · 4 = 4 · 3 darf man tauschen. Bei Potenzen nicht: 2⁵ = 32, aber 5² = ⟦25⟧."
+    "fehler": "Bei 3 · 4 = 4 · 3 darf man tauschen. Bei Potenzen nicht: 2⁵ = 32, aber 5² = ⟦25⟧.",
+    "einstieg": "Wird eine Neuigkeit in 3 Runden an je 2 Freunde weitererzählt, hören sie in der letzten Runde 2 · 2 · 2 = 8 Kinder. Wird sie in 2 Runden an je 3 Freunde weitererzählt, sind es 3 · 3 = 9 Kinder. 2³ und 3² sind also verschieden. Bei Potenzen darf man ⟦Basis und Exponent nicht vertauschen⟧.",
+    "woerter": [
+     [
+      "vertauschen",
+      "zwei Zahlen ihre Plätze wechseln lassen"
+     ],
+     [
+      "vergleichen",
+      "herausfinden, welche Zahl größer ist"
+     ],
+     [
+      ">",
+      "„ist größer als“"
+     ]
+    ]
    },
    {
     "lernziel": "zehner",
     "titel": "Zehnerpotenzen für große Zahlen",
-    "regel": "Bei Zehnerpotenzen sagt der Exponent, ⟦wie viele Nullen⟧ die Zahl hat: 10³ = 1 000, 10⁶ = 1 000 000. Große Zahlen schreibt man kurz als Produkt: 3 · 10⁵ = 300 000.",
+    "regel": "So liest du Zehnerpotenzen: Der Exponent sagt, ⟦wie viele Nullen⟧ hinter der 1 stehen: 10³ = 1 000, 10⁶ = 1 000 000. Bei 3 · 10⁵ hängst du an die 3 fünf Nullen an: ⟦300 000⟧.",
     "schritte": [
-     "Ein großes Fußballstadion hat rund 7 · 10⁴ Plätze.",
-     "10⁴ ist eine 1 mit 4 Nullen: 10 000.",
-     "7 · 10 000 = ⟦70 000⟧ Plätze."
+     "Das Stadion hat rund 7 · 10⁴ Plätze. Was bedeutet 10⁴?",
+     "10⁴ = 10 · 10 · 10 · 10 = 10 000. Das ist eine 1 mit 4 Nullen.",
+     "Jetzt noch mal 7: 7 · 10 000 = ⟦70 000⟧ Plätze."
     ],
-    "fehler": "7 · 10⁴ = 700 000 ist falsch: Hinter die 7 kommen genau ⟦4⟧ Nullen, also 70 000. Und 10⁴ ist nicht 40: 10⁴ = 10 · 10 · 10 · 10 = ⟦10 000⟧."
+    "fehler": "7 · 10⁴ = 700 000 ist falsch: Hinter die 7 kommen genau ⟦4⟧ Nullen, also 70 000. Und 10⁴ ist nicht 40: 10⁴ = 10 · 10 · 10 · 10 = ⟦10 000⟧.",
+    "einstieg": "Ein großes Fußballstadion hat ungefähr 70 000 Plätze. Bei so großen Zahlen verzählt man sich schnell mit den Nullen. Darum schreibt man sie mit „10 hoch …“, zum Beispiel 7 · 10⁴. Potenzen mit der Basis 10 heißen ⟦Zehnerpotenzen⟧.",
+    "woerter": [
+     [
+      "Zehnerpotenz",
+      "eine Potenz mit der Basis 10: 10¹ = 10, 10² = 100, 10³ = 1 000 …"
+     ],
+     [
+      "7 · 10⁴",
+      "7 mal 10 000, also 70 000"
+     ],
+     [
+      "Million",
+      "1 000 000 = 10⁶"
+     ],
+     [
+      "rund",
+      "ungefähr, gerundet"
+     ]
+    ]
    },
    {
     "lernziel": "negativ",
     "titel": "Potenzen mit negativer Basis",
-    "regel": "Steht eine negative Zahl ⟦in Klammern⟧, wird sie samt Minus malgenommen. Je zwei Minus-Faktoren ergeben zusammen Plus. Gerader Exponent: Alle Minus finden einen Partner, das Ergebnis ist ⟦positiv⟧. Ungerader Exponent: Ein Minus bleibt übrig, das Ergebnis ist ⟦negativ⟧.",
+    "regel": "So bestimmst du das Vorzeichen: Je ⟦zwei Minus⟧ ergeben Plus. Ist der Exponent ⟦gerade⟧, ist das Ergebnis ⟦positiv⟧; ist er ⟦ungerade⟧, ist es ⟦negativ⟧. Ohne Klammer, wie bei −3², gehört das Minus ⟦nicht⟧ zur Basis.",
     "schritte": [
-     "(−2)³ = (−2) · (−2) · (−2)",
-     "(−2) · (−2) = 4, dann 4 · (−2) = ⟦−8⟧. Ein Minus ist übrig geblieben."
+     "Rechne (−2)³. Die Klammer zeigt: Die −2 mit Minus ist die Basis. Lang ausgeschrieben: (−2) · (−2) · (−2).",
+     "Die ersten beiden: (−2) · (−2) = 4. Zwei Minus ergeben Plus.",
+     "Dann 4 · (−2) = −8. Das dritte Minus hat keinen Partner.",
+     "Ergebnis: ⟦(−2)³ = −8⟧."
     ],
     "probe": "(−2)² = (−2) · (−2) = 4: zwei Minus, ein Paar, positiv ✓",
-    "fehler": "−3² und (−3)² verwechseln. In (−3)² ist die −3 die Basis: (−3) · (−3) = ⟦9⟧. In −3² ohne Klammer gehört nur die 3 zur Basis: −3² = −(3 · 3) = ⟦−9⟧."
+    "fehler": "−3² und (−3)² verwechseln. In (−3)² ist die −3 die Basis: (−3) · (−3) = ⟦9⟧. In −3² ohne Klammer gehört nur die 3 zur Basis: −3² = −(3 · 3) = ⟦−9⟧.",
+    "einstieg": "Du weißt schon: Minus mal Minus ergibt Plus. Was passiert, wenn man eine negative Zahl mehrmals mit sich selbst malnimmt? Jedes weitere Minus dreht das Vorzeichen um – wie ein Lichtschalter, der bei jedem Drücken umschaltet: an, aus, an, aus. Darum geht es bei ⟦Potenzen mit negativer Basis⟧.",
+    "woerter": [
+     [
+      "(−2)³",
+      "die −2 mit ihrem Minus ist die Basis: (−2) · (−2) · (−2)"
+     ],
+     [
+      "−2³",
+      "ohne Klammer gehört nur die 2 zur Basis: −(2 · 2 · 2)"
+     ],
+     [
+      "Vorzeichen",
+      "das Plus oder Minus vor einer Zahl"
+     ],
+     [
+      "gerade Zahl",
+      "2, 4, 6, 8 …"
+     ],
+     [
+      "ungerade Zahl",
+      "1, 3, 5, 7 …"
+     ]
+    ]
    },
    {
     "lernziel": "sach",
     "titel": "Potenzen im Alltag",
-    "regel": "Wenn sich etwas immer wieder ⟦verdoppelt, verdreifacht oder verzehnfacht⟧, hilft eine Potenz: nach 5 Verdopplungen hat man 2⁵-mal so viel.",
+    "regel": "So erkennst du eine Potenz in einer Geschichte: Wird ⟦immer wieder mit derselben Zahl⟧ malgenommen, ist das eine Potenz. Die Zahl ist die ⟦Basis⟧, wie oft es passiert, ist der ⟦Exponent⟧: 5-mal verdoppeln heißt 2⁵-mal so viel.",
     "schritte": [
-     "Ein Blatt wird 4-mal gefaltet. Jedes Falten verdoppelt die Lagen.",
-     "2 · 2 · 2 · 2 = 2⁴ = ⟦16⟧ Lagen"
+     "Ein Blatt wird 4-mal gefaltet. Am Anfang hat es 1 Lage.",
+     "Jedes Falten verdoppelt die Lagen. Also wird 4-mal mit 2 malgenommen: 2 · 2 · 2 · 2.",
+     "Als Potenz geschrieben ist das 2⁴.",
+     "Ausgerechnet: 2⁴ = ⟦16⟧ Lagen."
     ],
-    "fehler": "4-mal verdoppeln ist nicht „mal 8“ (4 · 2). Es ist 2 · 2 · 2 · 2 = ⟦16⟧-mal so viel."
+    "fehler": "4-mal verdoppeln ist nicht „mal 8“ (4 · 2). Falte es nach: 2, 4, 8, 16 Lagen. Es ist 2 · 2 · 2 · 2 = ⟦16⟧-mal so viel.",
+    "einstieg": "Faltest du ein Blatt Papier einmal, hat es 2 Lagen. Faltest du es noch einmal, sind es 4 Lagen, dann 8. Jedes Falten ⟦verdoppelt⟧ die Lagen. Wenn sich etwas immer wieder verdoppelt, verdreifacht oder verzehnfacht, rechnest du mit Potenzen.",
+    "woerter": [
+     [
+      "verdoppeln",
+      "mal 2 nehmen"
+     ],
+     [
+      "verdreifachen",
+      "mal 3 nehmen"
+     ],
+     [
+      "verzehnfachen",
+      "mal 10 nehmen"
+     ],
+     [
+      "Lage",
+      "eine Schicht Papier"
+     ]
+    ]
    }
   ],
   "teilfaehigkeiten": [

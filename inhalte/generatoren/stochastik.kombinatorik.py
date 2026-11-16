@@ -391,5 +391,79 @@ DATEI = datei(E, 'Anzahlen systematisch, mit dem Zählprinzip und mit Baumdiagra
               offen=['Zeichnungen: Baumdiagramme (Bildtyp baum) in der Lernkarte baumdiagramm und in Aufgaben mit höchstens etwa 9 Pfaden; größere Bäume bleiben in Worten beschrieben. Kombinationstabellen als Tabelle mit passenden Zeilen- und Spaltenköpfen.',
                      'Begriffe wie Permutation, Variation, Kombination, n! und Binomialkoeffizient werden bewusst nicht eingeführt (höhere Klassen); alles läuft über Zählprinzip, Auflisten und „durch 2 teilen“.'])
 
+# Verständliche Fassung (Siebte Runde, 15.11.): Alltagssituation zuerst (einstieg), jedes neue Wort erklärt (woerter),
+# Beispiel in kleinen Schritten, Merksatz am Ende (regel). Situationen: Kleiderschrank, Restaurant-Menü, Sportfest, Münzwurf, Zahlenschloss, Händeschütteln.
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _klar_kl5.py) – die Aufgaben bleiben wörtlich gleich.
+from _klar_kl5 import klar  # noqa: E402
+
+KLAR = {
+ 'systematisch': {
+  'einstieg': 'Du hast 2 Hosen und 3 T-Shirts und willst wissen, wie viele verschiedene Kombinationen du anziehen kannst. Wer wild durcheinander probiert, vergisst leicht eine oder zählt eine doppelt. Besser ist ein fester Plan: erst alle Kombinationen mit der ersten Hose, dann alle mit der zweiten. So ein geordnetes Vorgehen heißt ⟦systematisch⟧.',
+  'woerter': [['Möglichkeit', 'eine mögliche Wahl, hier ein Outfit'], ['Outfit', 'eine Kombination aus einer Hose und einem T-Shirt'],
+              ['systematisch', 'nach einem festen Plan, der Reihe nach'], ['Tabelle', 'Zeilen für die erste Wahl, Spalten für die zweite; jedes Feld ist eine Möglichkeit']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Hose ↓  T-Shirt →', 'rot', 'weiß', 'grün'], 'zeilen': [['blau', 'blau-rot', 'blau-weiß', 'blau-grün'], ['schwarz', 'schwarz-rot', 'schwarz-weiß', 'schwarz-grün']]},
+  'schritte': ['Halte zuerst die blaue Hose fest. Dazu passen die T-Shirts rot, weiß und grün: 3 Möglichkeiten.',
+               'Halte dann die schwarze Hose fest. Wieder passen rot, weiß und grün: noch einmal 3 Möglichkeiten.',
+               'Mehr Hosen gibt es nicht. Zusammen sind es 3 + 3 = ⟦6 Outfits⟧. Die Tabelle zeigt alle 6 auf einen Blick.'],
+  'regel': 'So findest du alle Möglichkeiten ⟦systematisch⟧: Halte die ⟦erste Wahl fest⟧ und gehe ⟦alle zweiten Wahlen⟧ durch. Dann kommt die nächste erste Wahl dran. Eine ⟦Tabelle⟧ hilft, damit du keine vergisst und keine doppelt zählst.'},
+ 'zaehlprinzip': {
+  'einstieg': 'Ein Restaurant bietet ein Menü an: Vorspeise, Hauptspeise und Nachspeise, jeweils zur Auswahl. Zu jeder Vorspeise passt jede Hauptspeise, und dazu jede Nachspeise. Statt alle Menüs aufzuschreiben, kannst du die Anzahlen malnehmen. Diese Abkürzung heißt ⟦Zählprinzip⟧.',
+  'woerter': [['Schritt', 'eine einzelne Wahl, zum Beispiel die Vorspeise'], ['Zählprinzip', 'bei mehreren Wahlen nacheinander die Anzahlen der Möglichkeiten malnehmen'],
+              ['Produkt', 'das Ergebnis einer Malrechnung'], ['Ergebnisfolge', 'die Ergebnisse mehrerer Würfe der Reihe nach, zum Beispiel Kopf, Zahl, Kopf']],
+  'schritte': ['Es gibt 3 Vorspeisen, 4 Hauptspeisen und 2 Nachspeisen. Ein Menü hat von jedem Gang genau eins.',
+               'Zu jeder der 3 Vorspeisen passen 4 Hauptspeisen: 3 · 4 = 12 Kombinationen.',
+               'Zu jeder dieser 12 Kombinationen passen 2 Nachspeisen: 12 · 2 = 24.',
+               'Kurz mit dem Zählprinzip: 3 · 4 · 2 = ⟦24 Menüs⟧.'],
+  'regel': 'So rechnest du mit dem ⟦Zählprinzip⟧: Wird in ⟦mehreren Schritten nacheinander⟧ gewählt und hat jeder Schritt eine ⟦feste Anzahl⟧ an Möglichkeiten, ⟦nimmst du diese Anzahlen mal⟧. Die Anzahlen dürfen in den einzelnen Schritten verschieden sein.'},
+ 'reihenfolgen': {
+  'einstieg': 'Beim Sportfest laufen 6 Kinder um die Wette. Aufs Siegerpodest kommen Platz 1, 2 und 3. Wer Erster ist, kann nicht auch Zweiter sein – für jeden weiteren Platz bleibt ein Kind weniger übrig. Das sind ⟦Reihenfolgen ohne Wiederholung⟧.',
+  'woerter': [['Reihenfolge', 'wer auf welchem Platz steht; tauschen Erster und Zweiter, ist das eine andere Reihenfolge'],
+              ['ohne Wiederholung', 'jedes Kind (jedes Ding) darf nur einmal vorkommen'], ['Siegerpodest', 'die Plätze 1, 2 und 3']],
+  'schritte': ['Für Platz 1 kommen alle 6 Kinder infrage: 6 Möglichkeiten.',
+               'Für Platz 2 bleiben nur noch 5 Kinder, denn der Sieger ist schon vergeben.',
+               'Für Platz 3 bleiben noch 4 Kinder.',
+               'Mit dem Zählprinzip: 6 · 5 · 4 = ⟦120⟧ mögliche Siegerpodeste.'],
+  'regel': 'So zählst du ⟦Reihenfolgen ohne Wiederholung⟧: Bei jedem weiteren Platz wird die Auswahl ⟦um eins kleiner⟧. Für 4 Plätze bei 4 Kindern: 4 · 3 · 2 · 1 = 24.'},
+ 'baumdiagramm': {
+  'einstieg': 'Du wirfst eine Münze dreimal hintereinander. Jedes Mal kann Kopf oder Zahl fallen. Um alle Möglichkeiten zu sehen, zeichnest du vom Start aus zwei Äste für den ersten Wurf, von jedem Ast wieder zwei für den zweiten und so weiter. Das sieht aus wie ein Baum und heißt ⟦Baumdiagramm⟧.',
+  'woerter': [['Baumdiagramm', 'ein Bild, in dem sich die Möglichkeiten Schritt für Schritt wie Äste verzweigen'], ['Stufe', 'ein Schritt im Baum, hier ein Münzwurf'],
+              ['Ast', 'eine Linie für eine Möglichkeit in einer Stufe'], ['Pfad', 'ein ganzer Weg vom Start bis zum Ende, zum Beispiel K → Z → K'],
+              ['K, Z', 'Kopf und Zahl, die beiden Seiten der Münze'], ['genau zweimal', 'zweimal, nicht öfter und nicht seltener']],
+  'schritte': ['Jede Stufe hat 2 Äste, und es gibt 3 Stufen. Also hat der Baum 2 · 2 · 2 = 8 Pfade.',
+               'Gesucht sind Pfade mit genau zweimal Kopf. Gehe alle 8 Pfade durch und zähle jeweils die K.',
+               'Passend sind KKZ, KZK und ZKK. Die Reihenfolge der Würfe macht sie zu verschiedenen Pfaden.',
+               'Es sind ⟦3⟧ Pfade.'],
+  'regel': 'So zählst du mit dem ⟦Baumdiagramm⟧: Jede ⟦Stufe⟧ ist ein Schritt; von jedem Punkt gehen so viele ⟦Äste⟧ ab, wie es Möglichkeiten gibt. Jeder ⟦Pfad⟧ vom Anfang bis zum Ende ist ein Ergebnis. Zähle die Pfade, die zur Frage passen.'},
+ 'bedingungen': {
+  'einstieg': 'Ein Zahlenschloss hat drei Räder mit den Ziffern 0 bis 9. Willst du aber nur echte dreistellige Zahlen zählen, darf vorne keine 0 stehen – 047 ist ja eigentlich 47. So eine Einschränkung heißt ⟦Bedingung⟧.',
+  'woerter': [['Bedingung', 'eine Vorgabe, die die Auswahl einschränkt'], ['dreistellige Zahl', 'eine Zahl von 100 bis 999; vorne steht keine 0'],
+              ['Hunderter, Zehner, Einer', 'die erste, zweite und dritte Stelle einer dreistelligen Zahl'], ['Wiederholung erlaubt', 'eine Ziffer darf mehrmals vorkommen, zum Beispiel 112'],
+              ['gerade Zahl', 'eine Zahl, die auf 0, 2, 4, 6 oder 8 endet']],
+  'schritte': ['Gesucht sind alle dreistelligen Zahlen mit den Ziffern 0 bis 9, Wiederholung erlaubt. Beginne mit der Stelle, für die es eine Bedingung gibt.',
+               'Die Hunderterstelle darf nicht 0 sein. Übrig bleiben die Ziffern 1 bis 9: 9 Möglichkeiten.',
+               'Zehner und Einer haben keine Bedingung: je 10 Möglichkeiten.',
+               'Mit dem Zählprinzip: 9 · 10 · 10 = ⟦900⟧ dreistellige Zahlen.'],
+  'regel': 'So zählst du mit ⟦Bedingungen⟧: Überlege für ⟦jeden Schritt⟧, wie viele Möglichkeiten ⟦übrig bleiben⟧. Fang mit dem Schritt an, der die ⟦stärkste Einschränkung⟧ hat (zum Beispiel: „die erste Ziffer darf nicht 0 sein“).'},
+ 'grenzen': {
+  'einstieg': 'Nach einem Spiel geben sich 5 Kinder gegenseitig die Hand. Jedes Kind schüttelt 4 anderen die Hand. Sind das 5 · 4 = 20 Handschläge? Nein! Wenn A der B die Hand gibt, gibt auch B der A die Hand – das ist ein und derselbe Handschlag. Hier stößt das Zählprinzip an seine ⟦Grenzen⟧.',
+  'woerter': [['geordnet', 'die Reihenfolge zählt: A–B ist etwas anderes als B–A (zum Beispiel Klassensprecher und Stellvertreter)'],
+              ['Reihenfolge egal', 'A–B und B–A sind dasselbe (zum Beispiel beim Händeschütteln)'], ['doppelt gezählt', 'dieselbe Möglichkeit wurde zweimal mitgezählt']],
+  'schritte': ['Jedes der 5 Kinder gibt 4 anderen die Hand. Das Zählprinzip ergibt 5 · 4 = 20.',
+               'Dabei ist jeder Handschlag doppelt gezählt: einmal als „A gibt B die Hand“ und einmal als „B gibt A die Hand“.',
+               'Darum teilst du durch 2: 20 : 2 = ⟦10 Handschläge⟧.'],
+  'regel': 'So prüfst du, ob das Zählprinzip passt: Es zählt ⟦geordnete⟧ Auswahlen. Ist die ⟦Reihenfolge egal⟧ (Händeschütteln, Paare bilden), wird jede Möglichkeit ⟦doppelt⟧ gezählt – dann ⟦durch 2 teilen⟧ oder systematisch auflisten.'},
+ 'verstehen': {
+  'einstieg': 'Jemand behauptet: „Mit den Ziffern 1, 2 und 3 kann ich 9 verschiedene zweistellige Zahlen bilden, ohne eine Ziffer doppelt zu nehmen.“ Ob das stimmt, hängt an kleinen Wörtern: „ohne doppelt“, „und“, „oder“, „Reihenfolge“. Solche ⟦Zählaussagen⟧ prüfst du mit diesen Fragen – oder durch Auflisten.',
+  'woerter': [['Zählaussage', 'eine Behauptung über die Anzahl von Möglichkeiten'], ['und', 'nacheinander wählen → malnehmen'], ['oder', 'eins von beiden wählen → addieren'],
+              ['auflisten', 'alle Möglichkeiten einzeln aufschreiben']],
+  'schritte': ['Die Aussage: „Mit 1, 2, 3 gibt es 9 zweistellige Zahlen ohne doppelte Ziffer.“',
+               'Erste Stelle: 3 Möglichkeiten. Zweite Stelle: Die erste Ziffer ist schon verbraucht, also nur noch 2.',
+               'Zählprinzip: 3 · 2 = 6. Auflisten bestätigt es: 12, 13, 21, 23, 31, 32.',
+               'Es sind 6, nicht 9. Die Aussage ist ⟦falsch⟧.'],
+  'regel': 'So prüfst du Zählaussagen: Frag dich: ⟦Und⟧ (nacheinander → mal) oder ⟦oder⟧ (eins von beiden → plus)? Ist ⟦Wiederholung⟧ erlaubt? Ist die ⟦Reihenfolge⟧ wichtig? Kleine Fälle kannst du ⟦auflisten⟧.'},
+}
+klar(DATEI, KLAR)
+
+
 if __name__ == '__main__':
     schreibe(DATEI)

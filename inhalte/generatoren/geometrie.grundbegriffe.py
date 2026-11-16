@@ -558,5 +558,88 @@ DATEI = datei(E, 'Punkte, Strecken, Geraden und Kreise im Koordinatensystem besc
                      'Lehrplan „Winkel bis 360° messen und zeichnen“: Messen mit dem Geodreieck und Zeichnen durch das Kind geht in der App nicht; enthalten sind Winkelarten und Rechnen mit Winkelgrößen.',
                      'Dreiecksarten aus „umfang“ weggelassen: LehrplanPLUS Kl. 5 nennt nur die Vierecke Quadrat, Rechteck, Parallelogramm, Raute, Drachenviereck und Trapez.'])
 
+# Verständliche Fassung (Siebte Runde, 15.11.): Alltagssituation zuerst (einstieg), jedes neue Wort erklärt (woerter),
+# Beispiel in kleinen Schritten, Merksatz am Ende (regel). Situationen: Schatzkarte, Straße, Schienen, Rasensprenger, Schere.
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _klar_kl5.py) – die Aufgaben bleiben wörtlich gleich.
+from _klar_kl5 import klar  # noqa: E402
+
+KLAR = {
+ 'koordinaten': {
+  'einstieg': 'Auf einer Schatzkarte steht: „Vom alten Baum 3 Schritte nach Osten, dann 2 Schritte nach Süden.“ Mit zwei Angaben findest du jeden Ort – erst rechts oder links, dann hoch oder runter. Mathe macht das mit zwei Zahlengeraden, die sich am Startpunkt kreuzen. Dieses Gitter heißt ⟦Koordinatensystem⟧.',
+  'woerter': [['Koordinatensystem', 'zwei Zahlengeraden, die sich rechtwinklig kreuzen: eine waagrecht, eine senkrecht'],
+              ['x-Achse', 'die waagrechte Zahlengerade (rechts und links)'], ['y-Achse', 'die senkrechte Zahlengerade (oben und unten)'],
+              ['Ursprung O(0 | 0)', 'der Punkt, an dem sich die Achsen kreuzen – der Startpunkt, wie der alte Baum'],
+              ['P(3 | −2)', 'Punkt P mit der x-Koordinate 3 (erste Zahl) und der y-Koordinate −2 (zweite Zahl)'], ['Koordinaten', 'die beiden Zahlen eines Punktes'],
+              ['verschieben', 'einen Punkt ein Stück nach rechts oder links und nach oben oder unten bewegen'], ['P′', 'gelesen „P Strich“: der Punkt P nach dem Verschieben']],
+  'schritte': ['P(3 | −2): Die erste Zahl ist 3. Gehe vom Ursprung 3 Kästchen nach rechts.',
+               'Die zweite Zahl ist −2. Gehe von dort 2 Kästchen nach unten. Dort liegt P.',
+               'Jetzt verschiebst du P um 4 nach links und 5 nach oben. Links heißt minus bei x: 3 − 4 = −1. Oben heißt plus bei y: −2 + 5 = 3.',
+               'Der neue Punkt ist ⟦P′(−1 | 3)⟧.'],
+  'regel': 'So liest und zeichnest du Punkte P(x | y): Die ⟦erste Zahl (x)⟧ sagt, wie weit nach rechts (+) oder links (−), die ⟦zweite Zahl (y)⟧, wie weit nach oben (+) oder unten (−). Gestartet wird immer im ⟦Ursprung⟧ O(0 | 0).',
+  'fehler': 'P(3 | −2) und Q(−2 | 3) verwechseln: Das sind zwei verschiedene Orte – wie „3 Schritte nach Osten, 2 nach Süden“ und „2 Schritte nach Westen, 3 nach Norden“. Die ⟦x-Koordinate steht immer zuerst⟧.'},
+ 'strecken': {
+  'einstieg': 'Zwei Häuser stehen an derselben geraden Straße: eins 3 Häuser links vom Marktplatz, das andere 4 Häuser rechts davon. Wie weit sind sie voneinander entfernt? Du zählst über den Marktplatz hinweg: 3 + 4 = 7. Genauso bestimmst du im Koordinatensystem die Länge einer ⟦Strecke⟧.',
+  'woerter': [['Strecke [AB]', 'die gerade Verbindung von A nach B; sie hat einen Anfang und ein Ende'], ['waagrecht', 'von links nach rechts, wie der Horizont'],
+              ['senkrecht', 'von unten nach oben, wie ein Laternenpfahl'], ['Einheit', 'hier: ein Kästchenabstand im Koordinatensystem']],
+  'schritte': ['A(−3 | 2) und B(4 | 2) haben dieselbe y-Koordinate 2. Sie liegen also auf einer waagrechten Linie.',
+               'Darum zählt nur der Unterschied der x-Koordinaten: von −3 bis 4.',
+               'Von −3 bis 0 sind es 3 Einheiten, von 0 bis 4 noch 4 Einheiten.',
+               'Zusammen: 3 + 4 = ⟦7⟧. Die Strecke [AB] ist 7 Einheiten lang.'],
+  'regel': 'So misst du eine Strecke: Haben die Punkte dieselbe ⟦y-Koordinate⟧ (waagrecht), ist die Länge der ⟦Unterschied der x-Koordinaten⟧. Haben sie dieselbe x-Koordinate (senkrecht), ist es der Unterschied der y-Koordinaten. Liegt die 0 dazwischen, ⟦addierst⟧ du die beiden Teile.',
+  'fehler': '„4 − 3 = 1“ ist falsch: Die Punkte liegen auf ⟦verschiedenen Seiten⟧ der 0 – wie die Häuser links und rechts vom Marktplatz. Richtig: 4 − (−3) = 4 + 3 = 7.'},
+ 'lagebeziehungen': {
+  'einstieg': 'Eisenbahnschienen laufen nebeneinander her und treffen sich nie – sie sind überall gleich weit voneinander entfernt. Ein Laternenpfahl dagegen steht gerade auf der Straße, im rechten Winkel. Wie zwei Linien zueinander liegen, nennt man ihre ⟦Lagebeziehung⟧.',
+  'woerter': [['Gerade', 'eine gerade Linie ohne Anfang und Ende; Namen wie g oder h'], ['rechter Winkel', 'eine Ecke wie bei einem Blatt Papier (90°)'],
+              ['parallel (g ∥ h)', 'schneiden sich nie und sind überall gleich weit voneinander entfernt – wie Schienen'],
+              ['senkrecht (g ⊥ h)', 'schneiden sich im rechten Winkel – wie Pfahl und Straße'],
+              ['Lot', 'die senkrechte Linie von einem Punkt auf eine Gerade'], ['das Lot fällen', 'von einem Punkt aus senkrecht zur Geraden gehen'],
+              ['Abstand', 'die Länge des Lots: der kürzeste Weg vom Punkt zur Geraden']],
+  'schritte': ['Die Gerade g läuft waagrecht durch alle Punkte mit der y-Koordinate 1. Gesucht ist der Abstand von P(4 | 6) zu g.',
+               'Fälle das Lot: Gehe von P senkrecht nach unten, bis du g triffst. Du landest bei (4 | 1).',
+               'Die Länge des Lots ist der Unterschied der y-Koordinaten: 6 − 1 = ⟦5⟧. Der Abstand ist 5 Einheiten.'],
+  'regel': 'So bestimmst du den ⟦Abstand⟧ eines Punktes P von einer Geraden g: ⟦das Lot fällen⟧ – von P senkrecht auf g – und seine Länge messen. ⟦Parallel⟧ heißt: nie schneiden, überall gleicher Abstand. ⟦Senkrecht⟧ heißt: Schnitt im rechten Winkel.',
+  'fehler': 'Den Abstand von P zu g schräg messen ist falsch. Schräg ist der Weg länger – wie wenn du quer über den Hof zur Mauer läufst statt geradeaus. Der Abstand ist die ⟦kürzeste⟧ Verbindung, also das ⟦Lot⟧.'},
+ 'kreis_lage': {
+  'einstieg': 'Ein Rasensprenger in der Mitte des Gartens erreicht alles bis 4 m Entfernung. Der Rand seines nassen Bereichs ist ein Kreis. Ein gerader Weg kann diesen Kreis durchqueren, ihn gerade berühren oder außen vorbeiführen. Was davon passiert, hängt vom Abstand des Weges zum ⟦Mittelpunkt⟧ ab.',
+  'woerter': [['Kreis', 'alle Punkte, die vom Mittelpunkt genau gleich weit entfernt sind'], ['Mittelpunkt M', 'die Mitte des Kreises – hier der Rasensprenger'],
+              ['Radius r', 'der Abstand vom Mittelpunkt zum Kreisrand'], ['d', 'der Abstand der Geraden vom Mittelpunkt'],
+              ['Sekante', 'Gerade mit 2 Schnittpunkten (d < r)'], ['Tangente', 'Gerade mit genau 1 Berührpunkt (d = r)'], ['Passante', 'Gerade ohne gemeinsamen Punkt (d > r)']],
+  'schritte': ['Ein Kreis um M hat den Radius r = 4 cm. Die Gerade g hat vom Mittelpunkt den Abstand d = 4 cm.',
+               'Vergleiche d mit r: Beide sind 4 cm lang, also ist d = r.',
+               'Die Gerade erreicht den Kreis genau an einer Stelle. Sie ist eine ⟦Tangente⟧.'],
+  'regel': 'So bestimmst du die Lage einer Geraden zum Kreis: Vergleiche ihren Abstand ⟦d⟧ vom Mittelpunkt mit dem Radius ⟦r⟧. d < r: ⟦Sekante⟧ (2 Schnittpunkte). d = r: ⟦Tangente⟧ (1 Berührpunkt). d > r: ⟦Passante⟧ (kein gemeinsamer Punkt).'},
+ 'winkelarten': {
+  'einstieg': 'Öffnest du eine Schere ein wenig, bilden die Klingen eine schmale Spitze. Öffnest du sie weiter, wird die Öffnung immer breiter. Diese Öffnung zwischen zwei Linien, die an einem Punkt zusammenkommen, heißt ⟦Winkel⟧. Man misst sie in Grad.',
+  'woerter': [['Winkel', 'die Öffnung zwischen zwei Linien mit gemeinsamem Anfangspunkt'], ['Schenkel', 'die beiden Linien des Winkels – wie die Klingen der Schere'],
+              ['Scheitel', 'der Punkt, an dem die Schenkel zusammenkommen – wie das Gelenk der Schere'], ['°', 'Grad: die Maßeinheit für Winkel; eine ganze Drehung hat 360°'],
+              ['α', 'griechischer Buchstabe „alpha“, ein Name für einen Winkel'], ['spitz, recht, stumpf, gestreckt, überstumpf, Vollwinkel', 'die Namen der Winkelarten, siehe Merksatz']],
+  'schritte': ['Der Winkel α ist 235° groß. Welche Winkelart ist das?',
+               'Vergleiche mit den Grenzen: 235° ist mehr als 180° (gestreckter Winkel), aber weniger als 360° (Vollwinkel).',
+               'Winkel zwischen 180° und 360° heißen ⟦überstumpf⟧.'],
+  'regel': 'So bestimmst du die Winkelart: ⟦spitz⟧ unter 90°, ⟦recht⟧ genau 90°, ⟦stumpf⟧ zwischen 90° und 180°, ⟦gestreckt⟧ genau 180°, ⟦überstumpf⟧ zwischen 180° und 360°, ⟦Vollwinkel⟧ genau 360°.'},
+ 'vierecke': {
+  'einstieg': 'Ein Fenster, ein Drachen, eine Tischtennisplatte, eine Rautenfliese – alle haben vier Ecken, aber sie sehen verschieden aus. Den Unterschied machen Seiten und Ecken: Sind Seiten gleich lang? Sind Seiten parallel? Gibt es rechte Winkel? Danach bekommen ⟦besondere Vierecke⟧ eigene Namen.',
+  'woerter': [['benachbart', 'nebeneinander, mit einer gemeinsamen Ecke'], ['gegenüberliegend', 'sich gegenüber, ohne gemeinsame Ecke'],
+              ['Quadrat', '4 gleich lange Seiten und 4 rechte Winkel'], ['Rechteck', '4 rechte Winkel'], ['Raute', '4 gleich lange Seiten'],
+              ['Parallelogramm', 'je zwei gegenüberliegende Seiten sind parallel'], ['Trapez', 'mindestens zwei Seiten sind parallel'],
+              ['Drachenviereck', 'zwei Paare gleich langer Seiten, die jeweils benachbart sind – wie beim Papierdrachen']],
+  'schritte': ['Ein Viereck hat 4 gleich lange Seiten, aber keinen rechten Winkel. Wie heißt es?',
+               '4 gleich lange Seiten: Das passt zum Quadrat und zur Raute.',
+               'Ein Quadrat braucht aber 4 rechte Winkel. Die fehlen hier, also ist es kein Quadrat.',
+               'Es bleibt die ⟦Raute⟧.'],
+  'regel': 'So bestimmst du ein Viereck: Prüfe ⟦Seitenlängen⟧, ⟦parallele Seiten⟧ und ⟦rechte Winkel⟧. Nimm den genauesten Namen, der passt. Ein Viereck kann mehrere Namen tragen: Jedes Quadrat ist auch ein Rechteck und eine Raute.'},
+ 'verstehen': {
+  'einstieg': 'Ein Freund behauptet: „Alle Vögel können fliegen.“ Du musst nicht alle Vögel aufzählen, um ihm zu widersprechen – ein einziger Pinguin reicht. So ein einzelner Fall, der eine „immer“-Aussage widerlegt, heißt ⟦Gegenbeispiel⟧.',
+  'woerter': [['Aussage', 'ein Satz, der wahr oder falsch ist'], ['Allaussage', 'eine Aussage mit „jeder“, „alle“ oder „immer“'],
+              ['Gegenbeispiel', 'ein Fall, bei dem die Allaussage nicht stimmt'], ['widerlegen', 'zeigen, dass eine Aussage falsch ist'],
+              ['Skizze', 'eine schnelle Zeichnung ohne genaue Maße'], ['Halbgerade', 'eine gerade Linie mit Anfang, aber ohne Ende']],
+  'schritte': ['Die Aussage lautet: „Jedes Rechteck ist ein Quadrat.“ Das ist eine Allaussage.',
+               'Suche ein Gegenbeispiel: ein Rechteck mit den Seiten 6 cm und 3 cm. Es hat 4 rechte Winkel, ist also ein Rechteck.',
+               'Seine Seiten sind aber nicht alle gleich lang, also ist es kein Quadrat. Die Aussage ist ⟦falsch⟧.'],
+  'regel': 'So prüfst du eine geometrische Aussage: Mach eine ⟦Skizze⟧. Für „immer“-Aussagen suchst du ein ⟦Gegenbeispiel⟧ – eines genügt, um sie zu widerlegen. Achte auf genaue Fachwörter: Strecke, Gerade, Halbgerade, Lot, Abstand, Tangente.'},
+}
+klar(DATEI, KLAR)
+
+
 if __name__ == '__main__':
     schreibe(DATEI)

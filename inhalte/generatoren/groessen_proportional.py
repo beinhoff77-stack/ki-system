@@ -560,5 +560,77 @@ DATEI = {
     'aufgaben': baue(R, ETAPPEN, GEN, TEIL, je_stufe=5),
 }
 
+# Verständliche Fassung (Siebte Runde, 15.11.): Alltagssituation zuerst (einstieg), jedes neue Wort erklärt (woerter),
+# Beispiel in kleinen Schritten, Merksatz am Ende (regel). Durchgehende Situation: Einkaufen beim Bäcker, auf dem Markt, im Laden.
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _klar_kl5.py) – die Aufgaben bleiben wörtlich gleich.
+from _klar_kl5 import klar  # noqa: E402
+
+KLAR = {
+ 'erkennen': {
+  'einstieg': 'Beim Bäcker kostet ein Brötchen 40 ct. Kaufst du doppelt so viele, zahlst du doppelt so viel; kaufst du keins, zahlst du nichts. Beim Taxi ist das anders: Schon das Einsteigen kostet Geld. Wenn zur doppelten Menge immer der doppelte Preis gehört, nennt man das ⟦proportional⟧.',
+  'woerter': [['Zuordnung', 'zu jeder Menge gehört ein Wert, zum Beispiel zu jeder Anzahl Brötchen ein Preis'], ['Anzahl → Preis', 'der Pfeil heißt: Der Anzahl wird ein Preis zugeordnet'],
+              ['proportional', 'doppelte Menge → doppelter Wert, dreifache Menge → dreifacher Wert, halbe Menge → halber Wert'],
+              ['Grundgebühr', 'ein fester Betrag, den man immer zahlt, egal wie viel man fährt oder kauft']],
+  'schritte': ['1 Brötchen kostet 40 ct. Dann kosten 2 Brötchen 80 ct und 3 Brötchen 120 ct.',
+               'Von 1 auf 2 Brötchen verdoppelt sich die Anzahl – und der Preis auch, von 40 ct auf 80 ct.',
+               'Von 1 auf 3 Brötchen verdreifacht sich die Anzahl – und der Preis auch, von 40 ct auf 120 ct. Für 0 Brötchen zahlst du 0 ct.',
+               'Die Zuordnung Anzahl → Preis ist darum ⟦proportional⟧.'],
+  'regel': 'So prüfst du, ob eine Zuordnung ⟦proportional⟧ ist: Gehört zur ⟦doppelten⟧ Menge der doppelte Wert, zur dreifachen der dreifache, zur halben der halbe? Und gehört zu ⟦0⟧ der Wert 0? Nur dann ist sie proportional.'},
+ 'vervielfachen': {
+  'einstieg': 'Auf dem Markt kosten 3 kg Äpfel 6 €. Du brauchst aber 9 kg für Apfelmus. Du musst nicht neu fragen: 9 kg sind dreimal so viel wie 3 kg, also kosten sie auch dreimal so viel. Bei proportionalen Zuordnungen darfst du Menge und Preis ⟦mit derselben Zahl malnehmen oder teilen⟧.',
+  'woerter': [['vervielfachen', 'mit einer Zahl malnehmen'], ['halbieren', 'durch 2 teilen'], ['ergänzen', 'fehlende Werte in eine Tabelle eintragen']],
+  'schritte': ['3 kg Äpfel kosten 6 €. Gesucht ist der Preis für 9 kg.',
+               'Wie oft passt 3 kg in 9 kg? 9 : 3 = 3. Also sind 9 kg dreimal so viel.',
+               'Darum ist auch der Preis dreimal so groß: 6 € · 3 = ⟦18 €⟧.'],
+  'regel': 'So rechnest du bei proportionalen Zuordnungen: ⟦auf beiden Seiten dasselbe⟧ tun. Menge mal 3 → Preis mal 3. Menge geteilt durch 2 → Preis geteilt durch 2. Gerechnet wird mit ⟦mal und geteilt⟧, nicht mit plus und minus.',
+  'fehler': 'Auf beiden Seiten dieselbe Zahl ⟦addieren⟧: Von 3 kg auf 9 kg sind es 6 kg mehr, aber der Preis steigt nicht um 6 € auf 12 €. 9 kg kosten dreimal so viel, also 18 €. Gerechnet wird mit ⟦mal und geteilt⟧.'},
+ 'pruefen': {
+  'einstieg': 'Ein Obsthändler hat eine Preisliste: 2 kg kosten 6 €, 5 kg kosten 15 €, 8 kg kosten 24 €. Ist der Preis gleichbleibend – oder gibt es irgendwo Rabatt? Du prüfst es, indem du für jede Spalte den Preis für 1 kg ausrechnest. Ist er überall gleich, ist die Tabelle ⟦proportional⟧.',
+  'woerter': [['Paar', 'eine Spalte der Tabelle: eine Menge und der Preis dazu'], ['Preis : Menge', 'der Preis geteilt durch die Menge, also der Preis für 1 kg (1 Stück, 1 Liter …)'],
+              ['Rabatt', 'ein Preisnachlass: Man zahlt weniger als den normalen Preis']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Menge Äpfel', '2 kg', '5 kg', '8 kg'], 'zeilen': [['Preis', '6 €', '15 €', '24 €'], ['Preis für 1 kg (Preis : Menge)', '3 €', '3 €', '3 €']]},
+  'schritte': ['Rechne für jedes Paar Preis : Menge. Erstes Paar: 6 € : 2 = 3 € für 1 kg.',
+               'Zweites Paar: 15 € : 5 = 3 €. Drittes Paar: 24 € : 8 = 3 €.',
+               'Überall kommt 3 € für 1 kg heraus. Die Tabelle ist ⟦proportional⟧.'],
+  'regel': 'So prüfst du eine Tabelle: Rechne für ⟦jedes Paar Preis : Menge⟧. Kommt ⟦überall dieselbe Zahl⟧ heraus, ist die Zuordnung proportional. Diese Zahl ist der Preis für 1 Stück (1 kg, 1 Liter …).'},
+ 'einheit': {
+  'einstieg': 'Im Schreibwarenladen kosten 5 Hefte zusammen 10 €. Du willst aber wissen: Was kostet ein einziges Heft? Dafür teilst du den Preis auf die 5 Hefte auf. Den Preis für ein Stück ausrechnen heißt ⟦auf die Einheit schließen⟧.',
+  'woerter': [['Einheit', 'hier: 1 Stück, 1 kg, 1 Liter oder 1 Minute'], ['auf die Einheit schließen', 'ausrechnen, was 1 Stück kostet (oder wie viel in 1 Minute fließt …)']],
+  'schritte': ['5 Hefte kosten 10 €. Gesucht ist der Preis für 1 Heft.',
+               'Von 5 Heften auf 1 Heft teilst du durch 5. Das musst du auch beim Preis tun.',
+               '10 € : 5 = 2 €. Also kostet ⟦1 Heft 2 €⟧.'],
+  'regel': 'So schließt du auf die Einheit: ⟦Wert durch Anzahl⟧ teilen. Dann weißt du, was ⟦1 Stück⟧ kostet (wie viel 1 kg kostet, wie viel in 1 Minute fließt …).',
+  'fehler': 'Falsch herum teilen: 5 : 10 = 0,5 statt 10 : 5 = 2. Ein Heft für 50 ct wäre viel zu billig, wenn fünf Hefte 10 € kosten. Geteilt wird der ⟦Wert⟧ durch die ⟦Anzahl⟧.'},
+ 'dreisatz': {
+  'einstieg': '4 kg Äpfel kosten 12 €. Was kosten 7 kg? 7 ist kein Vielfaches von 4 – verdoppeln oder verdreifachen hilft hier nicht. Darum gehst du einen Umweg: Erst rechnest du aus, was 1 kg kostet, dann, was 7 kg kosten. Dieser Rechenweg in drei Zeilen heißt ⟦Dreisatz⟧.',
+  'woerter': [['Vielfaches', 'eine Zahl, die man durch Malnehmen erhält: 8 und 12 sind Vielfache von 4'], ['Dreisatz', 'Rechenweg in drei Zeilen: bekannt → 1 Stück → gesucht']],
+  'bild': {'typ': 'tabelle', 'kopf': ['', 'Menge Äpfel', 'Preis'], 'zeilen': [['Zeile 1: bekannt', '4 kg', '12 €'], ['Zeile 2: beide Seiten : 4', '1 kg', '3 €'], ['Zeile 3: beide Seiten · 7', '7 kg', '21 €']]},
+  'schritte': ['Zeile 1 schreibt auf, was du weißt: 4 kg kosten 12 €.',
+               'Zeile 2 schließt auf 1 kg: Links teilst du durch 4, also teilst du auch rechts durch 4. 1 kg kostet 12 € : 4 = 3 €.',
+               'Zeile 3 schließt auf das Gesuchte: Links nimmst du mal 7, also auch rechts mal 7.',
+               '7 kg kosten 3 € · 7 = ⟦21 €⟧.'],
+  'regel': 'So rechnest du mit dem ⟦Dreisatz⟧: 1. Was du weißt. 2. Auf 1 Stück schließen – ⟦beide Seiten teilen⟧. 3. Auf das Gesuchte schließen – ⟦beide Seiten malnehmen⟧. Was du links tust, tust du auch rechts.'},
+ 'geschickt': {
+  'einstieg': 'Für einen Klassenausflug kosten 6 Eintrittskarten 42 €. Jetzt kommen 3 Kinder dazu, ihr braucht 9 Karten. Statt auf 1 Karte zu gehen, kannst du klüger rechnen: 3 Karten sind die Hälfte von 6. So eine passende Zwischenmenge spart Arbeit – sie ist ein ⟦geschickter Zwischenschritt⟧.',
+  'woerter': [['Zwischenmenge', 'eine Menge auf dem Weg zum Ziel, mit der man bequem rechnen kann'], ['ohne Rest passen', 'das Teilen geht glatt auf: 3 passt in 6 und in 9'],
+              ['Zeilen addieren', 'zwei bekannte Zeilen zusammenzählen: 6 Karten + 3 Karten = 9 Karten, die Preise ebenso']],
+  'schritte': ['6 Karten kosten 42 €. Gesucht ist der Preis für 9 Karten. Die Zahl 3 passt ohne Rest in 6 und in 9.',
+               '3 Karten sind die Hälfte von 6 Karten. Also kosten sie die Hälfte: 42 € : 2 = 21 €.',
+               '9 Karten sind dreimal 3 Karten. Also kosten sie 21 € · 3 = ⟦63 €⟧.',
+               'Oder du addierst Zeilen: 9 Karten = 6 Karten + 3 Karten. Sie kosten 42 € + 21 € = ⟦63 €⟧.'],
+  'regel': 'So rechnest du geschickt: Suche eine ⟦Zwischenmenge, die in beide Zahlen passt⟧ (von 6 nach 9 über 3). Bei proportionalen Zuordnungen darfst du auch ⟦Zeilen addieren⟧.'},
+ 'sach': {
+  'einstieg': 'Im Rezept stehen 600 g Nudeln für 4 Personen, heute kommen aber 6. Mehr Personen essen mehr – im gleichen Verhältnis. Doch nicht alles im Alltag ist so: Ein Ei kocht 8 Minuten, drei Eier im selben Topf auch. Darum prüfst du bei jeder ⟦Sachaufgabe⟧ zuerst, ob sie proportional ist.',
+  'woerter': [['Sachaufgabe', 'eine Rechenaufgabe, die als kleine Geschichte erzählt wird'], ['Falle', 'eine Aufgabe, die proportional aussieht, es aber nicht ist'],
+              ['im gleichen Verhältnis', 'doppelt so viele Personen brauchen doppelt so viel Essen']],
+  'schritte': ['Für 4 Personen braucht man 600 g Nudeln. Gesucht ist die Menge für 6 Personen.',
+               'Prüfe zuerst: Essen doppelt so viele Personen doppelt so viel? Ja, die Zuordnung ist proportional.',
+               'Zwischenschritt über 2 Personen: Die Hälfte von 4 Personen braucht die Hälfte, 600 g : 2 = 300 g.',
+               '6 Personen sind dreimal 2 Personen: 300 g · 3 = ⟦900 g⟧.'],
+  'regel': 'So löst du eine Sachaufgabe: Prüfe zuerst, ob die Zuordnung überhaupt ⟦proportional⟧ ist. Nur dann rechnest du mit dem ⟦Dreisatz⟧. Ist sie es nicht (Kochzeit, Grundgebühr), rechnest du anders.'},
+}
+klar(DATEI, KLAR)
+
+
 if __name__ == '__main__':
     schreibe(DATEI, 'groessen.proportional.json')

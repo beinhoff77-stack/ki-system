@@ -109,3 +109,7 @@ Migration supabase/migrations/20261116_w150_d2_teil2_lineare_gleichungen.sql, ei
 - „Lineare Gleichungen“ liegt jetzt in Samarkand (nach „Terme umformen“); Delhi ist Klasse 8 und heißt „Lineare Ungleichungen“. Kein Ort hat mehr Flüge mit abweichender Gymnasium-Klasse.
 - Samarkand ist bei dem Kind, das es schon abgeschlossen hatte, wieder offen (Sterne bleiben).
 - Plan Klasse 8: Cusco nicht mehr „kann schon“; Darwin und Brasília (Klasse 10) hinter die Orte der Klasse 9 gerückt.
+
+## 16.11. – Zwölfte Runde eingespielt (zahlen.natuerlich, Rom)
+Zweig schwer-natuerlich zusammengeführt (Stand a1558f6), inhalt_pruefen OK. Lernkarten in Datei und Datenbank identisch. Eingespielt mit einheit_abgleichen(…, 'lassen'):
+334 neue Aufgaben, 2 vorhandene mit gleicher Frage angeglichen. Je Lernkarte jetzt 20 freigegebene Übungen, davon 8–10 Stufe 3 (vorher 2 freigegebene Übungen je Karte, der Rest war gesperrt).

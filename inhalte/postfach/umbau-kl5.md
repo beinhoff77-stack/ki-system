@@ -6,6 +6,12 @@ erst NACH dem Erzeugen der Aufgaben – so bleiben die Aufgaben wörtlich gleich
 (Werte im Zahlenstrahl-Bereich, Thermometer-Stand, Figur-Punkte, Tabellenbreite). `probe` entfällt bei umgebauten Karten (kommt im neuen Muster nicht vor).
 Vergleich je Thema: `aufgaben` und alle Felder außer `inhalt.etappen` und `offen` gegen den Ausgangsstand bc7a754 (lernen-app).
 
+## 2026-11-16 03:11 – STATUS
+zahlen.teilbarkeit (8 Karten, ohne Generator) umgebaut: Überlagerung inhalte/klar/zahlen.teilbarkeit.json. quelle.md hatte für dieses Thema keine Bilder;
+neu: Tabellen, die sich füllen (Teilerpaare der Muffins, Quersumme, Prüfzahlen für 53 mit Rest, Primfaktorzerlegung von 60, Teilerlisten 12 und 18, Runden von Lena und Tim),
+Zahlenstrahl mit Siebenerbögen (Vielfache), Stellenwerttafel (Endziffer). Alle Reste und Ergebnisse nachgerechnet (53 = 2 · 26 + 1 = 3 · 17 + 2 = 5 · 10 + 3 = 7 · 7 + 4; 4 251 : 3 = 1 417).
+Geprüft mit _umbau_kl5.pruefe_karte.
+
 ## 2026-11-16 03:10 – STATUS
 zahlen.natuerlich (12 Karten, ohne Generator) umgebaut: Überlagerung inhalte/klar/zahlen.natuerlich.json mit einstieg, woerter, bild, schritte als Objekte, fehler, fehler_bild, regel.
 Bilder aus quelle.md beibehalten und erweitert: Stellenwerttafeln (4 052, 12 | 008 | 000, 3 | 040 | 500, Runden 3 472 und 2 995, 333, 999 999 999 + 1), Zahlenstrahl 0–100 mit Pfeil 3 bzw. 7,

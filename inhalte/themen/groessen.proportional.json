@@ -3972,6 +3972,778 @@
    },
    "c": "64/4*6",
    "w": "1 Muffin: 64 g : 4 = 16 g. 6 Muffins: 16 g · 6 = 96 g."
+  },
+  {
+   "l": "erkennen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zuordnung ist proportional?"
+   },
+   "a": [
+    "Zahl der Spieler → Dauer eines Fußballspiels",
+    "Fahrstrecke mit dem Taxi (mit Grundgebühr) → Preis",
+    "Alter eines Kindes → Schuhgröße",
+    "Anzahl gleicher Busfahrkarten → Preis"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Doppelt so viele gleiche Karten kosten doppelt so viel, und 0 Karten kosten 0 €.",
+   "h": "Prüfe: Doppelte Menge – doppelter Wert? Und gehört zu 0 die 0?"
+  },
+  {
+   "l": "erkennen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Für 2 Stunden Parken zahlt man 3 €, für 4 Stunden 6 €, für 6 Stunden 8 €. Ist Parkdauer → Preis proportional?"
+   },
+   "a": [
+    "Nein, für 6 Stunden müssten es 9 € sein.",
+    "Ja, 2 → 3 und 4 → 6 passen.",
+    "Ja, je länger, desto teurer."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "3 € : 2 = 1,50 € je Stunde. Für 6 Stunden wären es 6 · 1,50 € = 9 €, nicht 8 €.",
+   "h": "Prüfe jede Spalte, nicht nur die ersten beiden."
+  },
+  {
+   "l": "erkennen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Faustregel beim Gewitter: In 3 Sekunden legt der Donner etwa 1 km zurück. Wie weit ist das Gewitter entfernt, wenn der Donner 12 Sekunden nach dem Blitz kommt?"
+   },
+   "a": [
+    "etwa 4 km",
+    "Das kann man nicht sagen.",
+    "etwa 9 km",
+    "etwa 36 km"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Zuordnung ist proportional: 12 s sind 4-mal 3 s, also 4 · 1 km = 4 km.",
+   "h": "Wie oft passen 3 Sekunden in 12 Sekunden?"
+  },
+  {
+   "l": "erkennen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „Je älter ein Baum, desto höher ist er. Also ist Alter → Höhe proportional.“ Stimmt das?"
+   },
+   "a": [
+    "Nein: „Je mehr, desto mehr“ reicht nicht. Ein doppelt so alter Baum ist nicht doppelt so hoch.",
+    "Ja, weil beide Größen zusammen wachsen.",
+    "Ja, aber nur bei jungen Bäumen.",
+    "Nein, weil ein Baum gar nicht wächst."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Proportional heißt: doppeltes Alter, doppelte Höhe. Bäume wachsen aber irgendwann kaum noch.",
+   "h": "Was müsste bei doppeltem Alter passieren?"
+  },
+  {
+   "l": "erkennen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Tabelle: 0 → 0, 2 → 5, 4 → 10, 6 → 16. Ein Wert ist falsch. Welcher Wert müsste bei 6 stehen, damit die Zuordnung proportional ist?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "6 * 5 / 2",
+   "w": "Zu 2 gehört 5, also zu 1 der Wert 2,5. Zu 6 gehört 6 · 2,5 = 15, nicht 16.",
+   "h": "Schließe zuerst auf den Wert für 1."
+  },
+  {
+   "l": "erkennen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Kerze ist 20 cm lang und brennt jede Stunde 2 cm ab. Ist „Brenndauer → Restlänge der Kerze“ proportional?"
+   },
+   "a": [
+    "Ja, jede Stunde fehlen 2 cm.",
+    "Nein, die Restlänge wird kleiner, wenn die Zeit größer wird.",
+    "Ja, nach 5 Stunden sind es 10 cm."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nach 1 h sind es 18 cm, nach 2 h 16 cm. Doppelte Zeit gibt nicht doppelte Restlänge. Proportional wäre „Brenndauer → abgebrannte Länge“.",
+   "h": "Rechne die Restlänge nach 1 und nach 2 Stunden aus."
+  },
+  {
+   "l": "vervielfachen",
+   "t": "tabelle",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "6 Kugeln Eis kosten 7,20 €. Was kosten 2 Kugeln?"
+   },
+   "o": {
+    "wert": 2.4,
+    "einheit": "€"
+   },
+   "c": "7.2 / 3",
+   "w": "2 Kugeln sind ein Drittel von 6 Kugeln: 7,20 € : 3 = 2,40 €.",
+   "h": "Von 6 auf 2: durch 3."
+  },
+  {
+   "l": "vervielfachen",
+   "t": "tabelle",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für 5 Kuchen braucht man 15 Eier. Für wie viele Kuchen reichen 45 Eier?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "5 * 45 // 15",
+   "w": "45 Eier sind 3-mal 15 Eier. Also 3 · 5 = 15 Kuchen.",
+   "h": "Wie oft passen 15 Eier in 45 Eier?"
+  },
+  {
+   "l": "vervielfachen",
+   "t": "tabelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "20 gleiche Waggons sind zusammen 260 m lang. Wie lang sind 35 solche Waggons?"
+   },
+   "o": {
+    "wert": 455,
+    "einheit": "m"
+   },
+   "c": "260 * 35 / 20",
+   "w": "Über 5 Waggons: 260 m : 4 = 65 m. 35 Waggons sind 7-mal 5 Waggons: 7 · 65 m = 455 m.",
+   "h": "Suche eine Zwischenzahl, die in 20 und in 35 passt."
+  },
+  {
+   "l": "vervielfachen",
+   "t": "tabelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Riesenrad hat 30 gleiche Gondeln. 5 Gondeln bieten zusammen 40 Plätze. Wie viele Personen passen in alle Gondeln?"
+   },
+   "o": {
+    "wert": 240
+   },
+   "c": "40 * 30 // 5",
+   "w": "30 Gondeln sind 6-mal 5 Gondeln: 6 · 40 = 240 Plätze.",
+   "h": "Wie oft passen 5 Gondeln in 30 Gondeln?"
+  },
+  {
+   "l": "vervielfachen",
+   "t": "tabelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "3 Katzen fangen in 3 Minuten 3 Mäuse. Wie viele Mäuse fangen 6 Katzen in 6 Minuten, wenn alle gleich schnell sind?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "3 * 2 * 2",
+   "w": "Doppelt so viele Katzen: 6 Mäuse in 3 Minuten. Doppelt so lange Zeit: 12 Mäuse in 6 Minuten.",
+   "h": "Verdopple zuerst die Katzen, dann die Zeit."
+  },
+  {
+   "l": "vervielfachen",
+   "t": "tabelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet: 4 Hefte kosten 6 €, also kosten 8 Hefte 6 € + 4 € = 10 €. Was ist falsch?"
+   },
+   "a": [
+    "Richtig ist 6 € · 8 = 48 €.",
+    "Richtig ist 6 € + 8 € = 14 €.",
+    "Nichts, 10 € stimmt.",
+    "Doppelt so viele Hefte kosten doppelt so viel: 12 €."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Von 4 auf 8 Hefte wird verdoppelt. Also wird auch der Preis verdoppelt: 6 € · 2 = 12 €.",
+   "h": "Was passiert mit der Menge? Mach dasselbe mit dem Preis."
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist die Tabelle proportional? 2 → 7, 4 → 14, 10 → 35"
+   },
+   "a": [
+    "Nein, die Abstände sind verschieden.",
+    "Ja, Wert : Menge ist immer 3,5.",
+    "Nein, 35 ist kein Vielfaches von 14."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "7 : 2 = 3,5; 14 : 4 = 3,5; 35 : 10 = 3,5. Immer gleich, also proportional.",
+   "h": "Rechne in jeder Spalte Wert : Menge."
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine proportionale Tabelle: 4 → 10. Welcher Wert gehört zu 6?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "10 / 4 * 6",
+   "w": "Zu 2 gehört 5. Zu 6 gehört 3 · 5 = 15.",
+   "h": "Gehe über 2."
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Kasse werden in 30 Minuten 240 Besucher eingelassen. Wie viele Minuten dauert es bei gleichem Tempo für 680 Besucher?"
+   },
+   "o": {
+    "wert": 85,
+    "einheit": "min"
+   },
+   "c": "680 / (240 / 30)",
+   "w": "In 1 Minute: 240 : 30 = 8 Besucher. Für 680 Besucher: 680 : 8 = 85 Minuten.",
+   "h": "Wie viele Besucher kommen in einer Minute hinein?"
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Tabelle soll proportional sein. Welcher Preis passt nicht?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Anzahl",
+      "3",
+      "5",
+      "8"
+     ],
+     "zeilen": [
+      [
+       "Preis",
+       "4,50 €",
+       "7,50 €",
+       "12,50 €"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "12,50 €",
+    "4,50 €",
+    "7,50 €"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "3 Stück: 4,50 €, also 1,50 € je Stück. 5 Stück: 7,50 € passt. 8 Stück müssten 12,00 € kosten, nicht 12,50 €.",
+   "h": "Rechne für jede Spalte den Preis für 1 Stück aus."
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer proportionalen Tabelle gehört zu 4 der Wert 18. Zu welcher Menge gehört der Wert 45?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "45 / (18 / 4)",
+   "w": "Zu 4 gehört 18, also zu 2 der Wert 9. 45 ist 5-mal 9, also gehört 45 zu 5 · 2 = 10.",
+   "h": "Gehe über einen Zwischenschritt: Zu 2 gehört …"
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Tabelle ist proportional?"
+   },
+   "a": [
+    "2 → 3, 4 → 5, 7 → 8",
+    "2 → 4, 4 → 6, 7 → 9",
+    "2 → 3, 4 → 6, 7 → 10,5",
+    "2 → 3, 4 → 6, 7 → 12"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Bei 2 → 3, 4 → 6, 7 → 10,5 ist Wert : Menge immer 1,5. Bei den anderen ändert sich der Quotient.",
+   "h": "Teile in jeder Spalte Wert durch Menge."
+  },
+  {
+   "l": "einheit",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "12 Brezen kosten 8,40 €. Was kostet 1 Breze?"
+   },
+   "o": {
+    "wert": 0.7,
+    "einheit": "€"
+   },
+   "c": "8.4 / 12",
+   "w": "8,40 € : 12 = 0,70 €.",
+   "h": "Teile den Preis durch die Anzahl. Rechne in Cent: 840 ct : 12."
+  },
+  {
+   "l": "einheit",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "5 gleich lange Bretter sind zusammen 4 m lang. Wie viele cm ist 1 Brett lang?"
+   },
+   "o": {
+    "wert": 80,
+    "einheit": "cm"
+   },
+   "c": "400 / 5",
+   "w": "4 m = 400 cm. 400 cm : 5 = 80 cm.",
+   "h": "Rechne zuerst in cm um."
+  },
+  {
+   "l": "einheit",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "10 gleich große Käfer liegen hintereinander und sind zusammen 6 cm lang. Ein Hirschkäfer ist 4,8 cm lang. Wie oft so lang wie ein kleiner Käfer ist er?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "4.8 / (6 / 10)",
+   "w": "Ein kleiner Käfer: 6 cm : 10 = 0,6 cm. 4,8 cm : 0,6 cm = 8. Der Hirschkäfer ist 8-mal so lang.",
+   "h": "Wie lang ist ein kleiner Käfer?"
+  },
+  {
+   "l": "einheit",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Packung A: 250 g für 2,00 €. Packung B: 400 g für 3,00 €. Wie viel Cent kosten 100 g bei der günstigeren Packung?"
+   },
+   "o": {
+    "wert": 75,
+    "einheit": "ct"
+   },
+   "c": "min(200 * 100 / 250, 300 * 100 / 400)",
+   "w": "A: 100 g kosten 200 ct : 2,5 = 80 ct. B: 100 g kosten 300 ct : 4 = 75 ct. B ist günstiger: 75 ct.",
+   "h": "Rechne für beide Packungen den Preis für 100 g aus."
+  },
+  {
+   "l": "einheit",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "3 Äpfel und 2 Birnen kosten 1,90 €. 3 Äpfel und 4 Birnen kosten 2,90 €. Wie viel Cent kostet 1 Birne?"
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "ct"
+   },
+   "c": "50",
+   "w": "Der Unterschied sind 2 Birnen. Sie kosten 2,90 € − 1,90 € = 1,00 €. 1 Birne kostet 50 ct.",
+   "h": "Vergleiche die beiden Einkäufe: Was ist beim zweiten mehr?"
+  },
+  {
+   "l": "einheit",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Stück kostet 35 ct. Wie viele Stück bekommst du höchstens für 5 €?"
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "500 // 35",
+   "w": "5 € = 500 ct. 14 Stück kosten 490 ct, 15 Stück 525 ct – zu viel. Also 14 Stück.",
+   "h": "Rechne in Cent und teile. Was bedeutet der Rest?"
+  },
+  {
+   "l": "dreisatz",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "7 Kinokarten kosten 63 €. Was kosten 5 Karten?"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "€"
+   },
+   "c": "63 / 7 * 5",
+   "w": "1 Karte: 63 € : 7 = 9 €. 5 Karten: 5 · 9 € = 45 €.",
+   "h": "Erst auf 1 Karte schließen."
+  },
+  {
+   "l": "dreisatz",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In 6 Minuten tropfen 90 ml aus einem Hahn. Wie viele ml sind es in 15 Minuten?"
+   },
+   "o": {
+    "wert": 225,
+    "einheit": "ml"
+   },
+   "c": "90 / 6 * 15",
+   "w": "1 Minute: 90 ml : 6 = 15 ml. 15 Minuten: 15 · 15 ml = 225 ml.",
+   "h": "Erst auf 1 Minute schließen."
+  },
+  {
+   "l": "dreisatz",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Schall legt in 5 Sekunden etwa 1 700 m zurück. Der Donner kommt 13 Sekunden nach dem Blitz. Wie viele Meter ist das Gewitter entfernt?"
+   },
+   "o": {
+    "wert": 4420,
+    "einheit": "m"
+   },
+   "c": "1700 / 5 * 13",
+   "w": "1 Sekunde: 1 700 m : 5 = 340 m. 13 Sekunden: 13 · 340 m = 4 420 m.",
+   "h": "Wie weit kommt der Schall in 1 Sekunde?"
+  },
+  {
+   "l": "dreisatz",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "6 gleiche Ordner wiegen zusammen 4,2 kg. Wie viel kg wiegen 25 Ordner?"
+   },
+   "o": {
+    "wert": 17.5,
+    "einheit": "kg"
+   },
+   "c": "4.2 / 6 * 25",
+   "w": "1 Ordner: 4,2 kg : 6 = 0,7 kg. 25 Ordner: 25 · 0,7 kg = 17,5 kg.",
+   "h": "Rechne in g, wenn dir das leichter fällt: 4 200 g : 6."
+  },
+  {
+   "l": "dreisatz",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Mit 8 Litern Farbe streicht man 56 m². Ein Zaun hat 91 m². Die Farbe gibt es nur in 2-Liter-Dosen. Wie viele Dosen muss man kaufen?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "-(-(91 / (56 / 8)) // 2)",
+   "w": "1 Liter reicht für 56 : 8 = 7 m². Für 91 m² braucht man 91 : 7 = 13 Liter. 6 Dosen sind nur 12 Liter, also 7 Dosen.",
+   "h": "Rechne zuerst die Liter aus. Reichen 6 Dosen?"
+  },
+  {
+   "l": "dreisatz",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet: 5 kg kosten 15 €. Also kostet 1 kg 5 € und 8 kg kosten 40 €. Was ist falsch?"
+   },
+   "a": [
+    "Man muss 15 € · 8 = 120 € rechnen.",
+    "Beim Schluss auf 1 kg wurde falsch geteilt: 15 € : 5 = 3 €. 8 kg kosten 24 €.",
+    "Nichts, 40 € stimmt.",
+    "Richtig ist 15 € + 3 € = 18 €."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "1 kg kostet 15 € : 5 = 3 €, nicht 5 €. 8 kg: 8 · 3 € = 24 €.",
+   "h": "Prüfe den zweiten Schritt: Was ist 15 : 5?"
+  },
+  {
+   "l": "geschickt",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 12 Eier kosten 3,60 €. Was kosten 18 Eier?"
+   },
+   "o": {
+    "wert": 5.4,
+    "einheit": "€"
+   },
+   "c": "3.6 / 2 * 3",
+   "w": "Über 6 Eier: 3,60 € : 2 = 1,80 €. 18 Eier: 3 · 1,80 € = 5,40 €.",
+   "h": "Welche Zahl passt in 12 und in 18?"
+  },
+  {
+   "l": "geschickt",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 25 m Stoff kosten 75 €. Was kosten 15 m?"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "€"
+   },
+   "c": "75 / 5 * 3",
+   "w": "Über 5 m: 75 € : 5 = 15 €. 15 m: 3 · 15 € = 45 €.",
+   "h": "Gehe über 5 m."
+  },
+  {
+   "l": "geschickt",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "16 gleiche Platten wiegen zusammen 40 kg. Wie schwer sind 24 Platten?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "kg"
+   },
+   "c": "40 / 2 * 3",
+   "w": "Über 8 Platten: 40 kg : 2 = 20 kg. 24 Platten: 3 · 20 kg = 60 kg.",
+   "h": "Welche Zahl passt in 16 und in 24?"
+  },
+  {
+   "l": "geschickt",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Du kennst den Preis für 45 Stück und suchst den Preis für 75 Stück. Welcher Zwischenschritt passt ohne Rest in beide Zahlen und ist am größten?"
+   },
+   "a": [
+    "5",
+    "1",
+    "15",
+    "30"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "15 passt in 45 (3-mal) und in 75 (5-mal). 30 passt nicht ohne Rest; 5 und 1 gehen auch, sind aber kleiner.",
+   "h": "Prüfe für jede Zahl, ob sie ohne Rest in 45 und in 75 passt."
+  },
+  {
+   "l": "geschickt",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Drucker druckt 18 Seiten in 45 Sekunden. Wie viele Seiten schafft er in 2 Minuten?"
+   },
+   "o": {
+    "wert": 48
+   },
+   "c": "18 / 45 * 120",
+   "w": "2 min = 120 s. Über 15 s: 18 : 3 = 6 Seiten. 120 s sind 8-mal 15 s: 8 · 6 = 48 Seiten.",
+   "h": "Rechne 2 Minuten in Sekunden um. Welche Zeit passt in 45 s und in 120 s?"
+  },
+  {
+   "l": "geschickt",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 0,5 kg Kirschen kosten 3,40 €. Was kosten 1,5 kg?"
+   },
+   "o": {
+    "wert": 10.2,
+    "einheit": "€"
+   },
+   "c": "3.4 * 3",
+   "w": "1,5 kg sind 3-mal 0,5 kg: 3 · 3,40 € = 10,20 €.",
+   "h": "Wie oft passen 0,5 kg in 1,5 kg?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rezept für 6 Personen braucht 300 ml Sahne. Wie viel ml braucht man für 4 Personen?"
+   },
+   "o": {
+    "wert": 200,
+    "einheit": "ml"
+   },
+   "c": "300 / 6 * 4",
+   "w": "1 Person: 50 ml. 4 Personen: 200 ml.",
+   "h": "Gehe über 2 Personen oder über 1 Person."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Auto braucht für 100 km 6 Liter Benzin. Wie viele Liter braucht es für 250 km?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "l"
+   },
+   "c": "6 * 250 / 100",
+   "w": "250 km sind 2,5-mal 100 km: 2,5 · 6 l = 15 l. Oder über 50 km: 3 l · 5 = 15 l.",
+   "h": "Wie viel braucht es für 50 km?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Liter Apfelsaft kostet 1,20 €. Für das Klassenfest gibt es 15 €. Wie viele ganze Liter kann man kaufen, und wie viel Geld bleibt übrig?",
+    "schablone": "□ Liter, Rest □ ct",
+    "hinweis": "Trage die Liter und den Rest in Cent ein."
+   },
+   "o": {
+    "werte": [
+     12,
+     60
+    ]
+   },
+   "c": [
+    "1500 // 120",
+    "1500 % 120"
+   ],
+   "w": "15 € = 1 500 ct. 1 500 : 120 = 12 Rest 60. Also 12 Liter, es bleiben 60 ct.",
+   "h": "Rechne in Cent: 1 500 ct : 120 ct."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kind läuft 100 m in 16 Sekunden. Wie lange braucht es für 1 000 m?"
+   },
+   "a": [
+    "Das kann man so nicht ausrechnen: Auf langen Strecken wird man langsamer.",
+    "16 Sekunden",
+    "1 600 Sekunden",
+    "160 Sekunden"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Laufzeit und Strecke sind nicht proportional: Niemand hält das Sprinttempo 1 000 m lang durch.",
+   "h": "Prüfe zuerst, ob die Zuordnung proportional ist."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kerze brennt in 3 Stunden 4 cm ab. Sie ist 18 cm lang. Wie viele Stunden brennt sie insgesamt?"
+   },
+   "o": {
+    "wert": 13.5,
+    "einheit": "h"
+   },
+   "c": "18 / 4 * 3",
+   "w": "1 cm brennt in 3 h : 4 = 0,75 h ab. 18 cm: 18 · 0,75 h = 13,5 h. Oder: 18 cm sind 4,5-mal 4 cm, also 4,5 · 3 h.",
+   "h": "Wie oft passen 4 cm in 18 cm?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Wasserhahn tropft. In 10 Minuten sammeln sich 60 ml. Wie viele Liter tropfen an einem ganzen Tag?"
+   },
+   "o": {
+    "wert": 8.64,
+    "einheit": "l"
+   },
+   "c": "60 / 10 * 60 * 24 / 1000",
+   "w": "1 Minute: 6 ml. 1 Stunde: 360 ml. 1 Tag: 24 · 360 ml = 8 640 ml = 8,64 l.",
+   "h": "Rechne zuerst pro Stunde, dann pro Tag. Zum Schluss in Liter umrechnen."
   }
  ]
 }

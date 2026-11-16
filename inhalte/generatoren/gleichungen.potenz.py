@@ -492,8 +492,111 @@ def g_sachaufgabe(s):
 GEN = {'gerade': g_gerade, 'ungerade': g_ungerade, 'anzahl': g_anzahl, 'umformen': g_umformen, 'naeherung': g_naeherung,
        'sachaufgabe': g_sachaufgabe}
 
+# ---------- Zehnte Runde (schwer-kl9): schwerere Übungen nach Prüfungsvorbild ----------
+# Eigener Abschnitt mit eigenem festen Zufallsstart (anhaengen(..., 9905, ...)), läuft erst nach bauen():
+# alle bisherigen Aufgaben bleiben unverändert. Vorbilder: Bayerischer Mathematik-Test 10 (ISB; Gleichung zweier
+# Potenzterme lösen und als Schnittpunkte der Graphen deuten, 2x³ − 15x = 0 durch Ausklammern), Abschlussprüfung
+# Realschule Bayern (Ergebnisse auf zwei Stellen runden, Raumgeometrie), Illustrierende Aufgaben Realschule 9
+# (proportionale Zusammenhänge mit Potenzen). Zahlen und Wortlaut eigen.
+from _schwer_kl9 import anhaengen  # noqa: E402
+from _kl9 import K as _K  # noqa: E402
+
+
+def schwer():
+    P, Kn, O = 'pruefung', 'knobel', ''
+    L2, H = 'x₁ = □; x₂ = □', 'kleinere Lösung zuerst'
+    g = lambda n, c, xs, ys: {'typ': 'koordinaten', 'x': xs, 'y': ys, 'graphen': [{'art': 'potenz', 'a': 1, 'n': n, 'name': f'y = x{"⁴" if n == 4 else "³"}'}],
+                              'waagrecht': [c]}
+    return [
+        # gerade
+        ('gerade', 3, P, luecken('Die Graphen von y = x⁴ und y = 16 schneiden sich in zwei Punkten. Gib die x-Koordinaten an.', L2, H, [-2, 2],
+                                 'Gleichsetzen: x⁴ = 16, also x = 2 oder x = −2. Die Schnittpunkte sind (−2 | 16) und (2 | 16).',
+                                 'Setze die beiden Terme gleich. Denke an beide Vorzeichen.', ['-2', '2'])),
+        ('gerade', 3, P, luecken('Löse 2x⁴ − 30 = 132.', L2, H, [-3, 3], '2x⁴ = 162 ⇒ x⁴ = 81 ⇒ x = ±3.', 'Erst 30 addieren, dann durch 2 teilen.', ['-3', '3'])),
+        ('gerade', 3, Kn, zahl('Wie viele Lösungen hat die Gleichung x⁴ = x²?', 'x⁴ − x² = 0 ⇔ x²(x² − 1) = 0. Also x = 0 oder x² = 1, d. h. x = 1 oder x = −1: drei Lösungen. Falle: Durch x² teilen verliert die 0.',
+                               'Nicht durch x² teilen! Bringe alles auf eine Seite und klammere aus.', 3, '1 + 2')),
+        ('gerade', 3, O, auswahl('Welche Lösungsmenge hat x⁶ = 0,000064?', 'L = {−0,2; 0,2}', ['L = {0,2}', 'L = {−0,02; 0,02}', 'L = { }'],
+                                 '0,2⁶ = 0,000064 (2⁶ = 64, sechs Nachkommastellen). Gerader Exponent: auch −0,2 ist Lösung.',
+                                 'Denke an 2⁶ = 64 und zähle die Nachkommastellen.')),
+        ('gerade', 2, O, luecken('Löse x⁴ = 10 000.', L2, H, [-10, 10], 'x = ±⁴√10 000 = ±10, denn 10⁴ = 10 000.', 'Zähle die Nullen.', ['-10', '10'])),
+        ('gerade', 2, O, auswahl('Welche Lösungsmenge hat x⁴ + 1 = 0?', 'L = { }', ['L = {−1; 1}', 'L = {−1}', 'L = {1}'],
+                                 'x⁴ = −1, aber x⁴ ist nie negativ: keine Lösung.', 'Stelle x⁴ allein. Kann eine gerade Potenz negativ sein?')),
+        # ungerade
+        ('ungerade', 3, P, zahl('Die Graphen von y = x³ und y = −27 schneiden sich in genau einem Punkt. Welche x-Koordinate hat er?',
+                                'x³ = −27 ⇒ x = −3, denn (−3)³ = −27. Ungerader Exponent: genau ein Schnittpunkt (−3 | −27).',
+                                'Setze gleich und denke daran, dass ein Minus bei ungeradem Exponenten bleibt.', -3, '-27 / 9')),
+        ('ungerade', 3, P, zahl('Löse 4x³ + 32 = 0.', '4x³ = −32 ⇒ x³ = −8 ⇒ x = −2.', 'Erst 32 abziehen, dann durch 4 teilen.', -2, '-8 / 4')),
+        ('ungerade', 3, Kn, zahl('Für welche Zahl a hat die Gleichung x⁵ = a die Lösung x = −0,1?', 'Einsetzen: a = (−0,1)⁵ = −0,00001 (ungerader Exponent, Minus bleibt; fünf Nachkommastellen).',
+                                 'Rückwärts: Setze x = −0,1 ein.', -0.00001, '(-0.1) ** 5')),
+        ('ungerade', 3, O, zahl('Löse (2x − 1)³ = 125.', '2x − 1 = ³√125 = 5 ⇒ 2x = 6 ⇒ x = 3.', 'Erst die dritte Wurzel aus 125, dann die lineare Gleichung lösen.', 3, '(5 + 1) / 2')),
+        ('ungerade', 2, O, zahl('Löse x³ = −1 000.', 'x = −10, denn (−10)³ = −1 000.', 'Ungerader Exponent: genau eine Lösung, hier negativ.', -10, '-1000 / 100')),
+        ('ungerade', 2, O, zahl('Löse x⁷ = −1.', 'x = −1, denn (−1)⁷ = −1 (ungerade viele Minus).', 'Welche Zahl hoch 7 ergibt −1?', -1, '(-1) ** 7')),
+        # anzahl
+        ('anzahl', 3, P, bild(auswahl('Die Abbildung zeigt den Graphen von y = x⁴ und die Linie y = 3. Was folgt daraus für die Gleichung x⁴ = 3?',
+                                      'Sie hat zwei Lösungen, eine positive und eine negative.',
+                                      ['Sie hat genau eine Lösung.', 'Sie hat keine Lösung, weil 3 keine vierte Potenz einer ganzen Zahl ist.', 'Sie hat vier Lösungen, weil der Exponent 4 ist.'],
+                                      'Die Linie y = 3 schneidet den Graphen zweimal, symmetrisch zur y-Achse: x = ±⁴√3 ≈ ±1,32.',
+                                      'Zähle die Schnittpunkte der Linie mit dem Graphen.'), g(4, 3, [-2, 2], [-1, 5]))),
+        ('anzahl', 3, P, bild(auswahl('Die Abbildung zeigt den Graphen von y = x³ und die Linie y = −2. Was folgt daraus für die Gleichung x³ = −2?',
+                                      'Sie hat genau eine Lösung, und die ist negativ.', ['Sie hat keine Lösung.', 'Sie hat zwei Lösungen.', 'Sie hat genau eine Lösung, und die ist positiv.'],
+                                      'Die Linie y = −2 schneidet den Graphen genau einmal, links von der y-Achse: x = −³√2 ≈ −1,26.',
+                                      'Zähle die Schnittpunkte und schau, auf welcher Seite der y-Achse sie liegen.'), g(3, -2, [-2, 2], [-4, 4]))),
+        ('anzahl', 3, Kn, zahl('Für wie viele ganze Zahlen c von −5 bis 5 hat die Gleichung x⁴ = c genau zwei Lösungen?',
+                               'Zwei Lösungen gibt es nur für c > 0, also für c = 1, 2, 3, 4, 5: fünf Zahlen. (c = 0: eine Lösung, c < 0: keine.)',
+                               'Überlege getrennt für c > 0, c = 0 und c < 0.', 5, '5 - 1 + 1')),
+        ('anzahl', 3, O, auswahl('Wie viele Lösungen hat die Gleichung x³ = x?', 'drei', ['eine', 'zwei', 'keine'],
+                                 'x³ − x = 0 ⇔ x(x² − 1) = 0: x = 0, x = 1, x = −1.', 'Nicht durch x teilen – ausklammern.')),
+        ('anzahl', 2, O, auswahl('Wie viele Lösungen hat x¹⁰ = 0?', 'genau eine Lösung', ['zwei Lösungen', 'keine Lösung'],
+                                 'Nur 0 hoch 10 ergibt 0, also genau eine Lösung x = 0.', 'Welche Zahl hoch 10 ergibt 0?')),
+        ('anzahl', 2, O, auswahl('Wie viele Lösungen hat x⁷ = −5?', 'genau eine Lösung', ['zwei Lösungen', 'keine Lösung'],
+                                 'Ungerader Exponent: immer genau eine Lösung, hier x = −⁷√5.', 'Ist der Exponent gerade oder ungerade?')),
+        # umformen
+        ('umformen', 3, P, luecken('Löse x⁵ − 16x = 0.', 'x₁ = □; x₂ = □; x₃ = □', 'der Größe nach', [-2, 0, 2],
+                                   'x(x⁴ − 16) = 0. Also x = 0 oder x⁴ = 16, d. h. x = ±2.', 'Klammere x aus. Nicht durch x teilen.', ['-2', '0', '2'])),
+        ('umformen', 3, P, zahl('Löse 0,5 · (x − 2)³ + 4 = 0.', '0,5(x − 2)³ = −4 ⇒ (x − 2)³ = −8 ⇒ x − 2 = −2 ⇒ x = 0.',
+                                'Rückwärts: erst 4 abziehen, dann mal 2, dann dritte Wurzel.', 0, '2 + (-2)')),
+        ('umformen', 3, Kn, luecken('Löse (x² − 5)² = 16.', 'x₁ = □; x₂ = □; x₃ = □; x₄ = □', 'der Größe nach', [-3, -1, 1, 3],
+                                    'x² − 5 = 4 oder x² − 5 = −4. Also x² = 9 (x = ±3) oder x² = 1 (x = ±1): vier Lösungen.',
+                                    'Die Klammer ist 4 oder −4. Löse dann beide Gleichungen.', ['-3', '-1', '1', '3'])),
+        ('umformen', 3, O, zahl('Löse 2 − 3x³ = 26.', '−3x³ = 24 ⇒ x³ = −8 ⇒ x = −2.', 'Erst 2 abziehen, dann durch −3 teilen.', -2, '-8 / 4')),
+        ('umformen', 2, O, luecken('Löse 5x⁴ = 80.', L2, H, [-2, 2], 'x⁴ = 16 ⇒ x = ±2.', 'Erst durch 5 teilen.', ['-2', '2'])),
+        ('umformen', 2, O, zahl('Löse x³ − 4 = 60.', 'x³ = 64 ⇒ x = 4.', 'Erst 4 addieren.', 4, '64 / 16')),
+        # naeherung
+        ('naeherung', 3, P, zahl('Ein würfelförmiger Behälter soll innen genau 50 Liter fassen. Wie lang muss eine Innenkante sein? Gib das Ergebnis in cm auf eine Nachkommastelle an.',
+                                 '50 Liter = 50 dm³. a = ³√50 dm ≈ 3,684 dm ≈ 36,8 cm.', 'Erst in dm³ rechnen (1 Liter = 1 dm³), dann in cm umrechnen.',
+                                 round(50 ** (1 / 3) * 10, 1), f'round({_K(50 ** (1 / 3) * 10)}, 1)', einheit='cm')),
+        ('naeherung', 3, P, zahl('Löse 3x⁴ − 5 = 70. Gib die positive Lösung auf zwei Nachkommastellen an.', '3x⁴ = 75 ⇒ x⁴ = 25 ⇒ x = ⁴√25 = √5 ≈ 2,24.',
+                                 'Erst umformen bis x⁴ = … dasteht.', round(5 ** 0.5, 2), f'round({_K(5 ** 0.5)}, 2)')),
+        ('naeherung', 3, Kn, zahl('Das Volumen eines Würfels wird verdoppelt. Um wie viel Prozent wird dabei seine Kante länger? Runde auf ganze Prozent.',
+                                  'Neue Kante: ∛2 ≈ 1,26-mal so lang. Das ist ein Zuwachs von etwa 26 % – nicht 100 %.',
+                                  'Nimm einen Würfel mit Kante 1. Welche Kante hat ein Würfel mit Volumen 2?', round((2 ** (1 / 3) - 1) * 100), f'round({_K((2 ** (1 / 3) - 1) * 100)}, 0)', einheit='%')),
+        ('naeherung', 3, O, zahl('Löse x⁵ + 100 = 0. Runde auf zwei Nachkommastellen.', 'x⁵ = −100 ⇒ x = −⁵√100 ≈ −2,51.', 'Ungerader Exponent: Das Minus bleibt.',
+                                 round(-(100 ** 0.2), 2), f'round({_K(-(100 ** 0.2))}, 2)')),
+        ('naeherung', 2, O, zahl('Löse x³ = 500. Runde auf eine Nachkommastelle.', 'x = ³√500 ≈ 7,9. Schätzung: 7³ = 343, 8³ = 512.', 'Erst schätzen, dann Taschenrechner.',
+                                 round(500 ** (1 / 3), 1), f'round({_K(500 ** (1 / 3))}, 1)')),
+        ('naeherung', 2, O, zahl('Löse x⁴ = 50. Gib die positive Lösung auf zwei Nachkommastellen an.', 'x = ⁴√50 ≈ 2,66.', 'Vierte Wurzel mit dem Taschenrechner.',
+                                 round(50 ** 0.25, 2), f'round({_K(50 ** 0.25)}, 2)')),
+        # sachaufgabe
+        ('sachaufgabe', 3, P, zahl('Ein Aquarium hat die Form eines Würfels und fasst 125 Liter. Wie viele cm² Glas braucht man für Boden und vier Seitenwände (ohne Deckel)?',
+                                   '125 Liter = 125 dm³, Kante ∛125 dm = 5 dm = 50 cm. Eine Fläche: 50 · 50 = 2 500 cm². Fünf Flächen: 12 500 cm².',
+                                   'Kante bestimmen, dann zählen: Wie viele Quadrate braucht man ohne Deckel?', 12500, '5 * 50 ** 2', einheit='cm²')),
+        ('sachaufgabe', 3, P, zahl('Die Masse einer Metallkugel ist proportional zu r³. Eine Kugel mit 2 cm Radius wiegt 270 g. Welchen Radius hat eine Kugel aus demselben Metall mit 2 160 g?',
+                                   '2 160 : 270 = 8. Die Masse ist 8-mal so groß, also r³ 8-mal so groß und r = ∛8 = 2-mal so groß: 4 cm.',
+                                   'Um welchen Faktor ist die Masse größer? Welcher Faktor beim Radius gehört dazu?', 4, '2 * 2', einheit='cm')),
+        ('sachaufgabe', 3, Kn, zahl('Jede Kante eines Würfels wird um 1 cm verlängert. Dadurch wächst sein Volumen um 61 cm³. Wie lang war eine Kante vorher?',
+                                    '(a + 1)³ − a³ = 3a² + 3a + 1 = 61 ⇔ a² + a − 20 = 0 ⇔ a = 4 (oder −5, passt nicht). Probe: 5³ − 4³ = 125 − 64 = 61.',
+                                    'Probieren geht auch: Vergleiche 2³ und 3³, 3³ und 4³, …', 4, '(-1 + 9) / 2', einheit='cm')),
+        ('sachaufgabe', 3, O, zahl('Ein quaderförmiger Karton ist doppelt so lang wie breit und genauso hoch wie breit. Er fasst 16 Liter. Wie breit ist er in cm?',
+                                   'Breite x (in dm): x · 2x · x = 2x³ = 16 ⇒ x³ = 8 ⇒ x = 2 dm = 20 cm.', 'Rechne in dm (1 Liter = 1 dm³).', 20, '2 * 10', einheit='cm')),
+        ('sachaufgabe', 2, O, zahl('Ein Würfel hat 343 cm³ Volumen. Wie groß ist seine Oberfläche?', 'a = ³√343 = 7 cm. O = 6 · 7² = 294 cm².', 'Erst die Kante, dann sechs Quadrate.',
+                                   294, '6 * 7 ** 2', einheit='cm²')),
+        ('sachaufgabe', 2, O, zahl('Ein quadratisches Feld hat 2,25 ha Fläche (1 ha = 10 000 m²). Wie lang ist eine Seite?', '2,25 ha = 22 500 m². a = √22 500 m = 150 m.',
+                                   'Erst in m² umrechnen.', 150, '22500 / 150', einheit='m')),
+    ]
+
+
 if __name__ == '__main__':
-    bauen('gleichungen.potenz',
+    d = bauen('gleichungen.potenz',
           'Gleichungen der Form xⁿ = c lösen und die Anzahl der Lösungen begründen.',
           ['n gerade, c > 0: zwei Lösungen ±ⁿ√c; c = 0: x = 0; c < 0: keine Lösung.', 'n ungerade: genau eine Lösung (bei c < 0 negativ).',
            'Erst auf die Form (…)ⁿ = c bringen, dann Wurzel ziehen.'],
@@ -503,3 +606,4 @@ if __name__ == '__main__':
           meiden={'gerade': ['x⁴ = 16.'], 'ungerade': ['x³ = −125.'], 'anzahl': ['x⁶ = −1?'], 'umformen': ['= 61.'],
                   'naeherung': ['x³ = 40.'], 'sachaufgabe': ['216 dm³']},
           offen=['Rechenausdruck c bei gerundeten Lösungen (Lernkarte „naeherung“): Das Prüfskript kann keine Wurzeln ziehen; der Wurzelwert steht als 12-stellige Konstante im Ausdruck.'])
+    anhaengen(d, 9905, schwer)

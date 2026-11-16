@@ -42,14 +42,71 @@
    {
     "lernziel": "begriffe",
     "titel": "Ergebnis, Ergebnisraum, Ereignis",
-    "regel": "So beschreibst du ein ⟦Zufallsexperiment⟧: Erst alle möglichen ⟦Ergebnisse⟧ in Ω aufschreiben. Dann für ein ⟦Ereignis⟧ die passenden Ergebnisse heraussuchen.",
+    "regel": "Erst alle ⟦Ergebnisse⟧ in Ω aufschreiben. Dann für das Ereignis die passenden heraussuchen.",
     "schritte": [
-     "Lena würfelt. Möglich sind die Zahlen 1 bis 6: Ω = {1; 2; 3; 4; 5; 6}.",
-     "Sie gewinnt, wenn die Augenzahl größer als 4 ist. Das ist das Ereignis E.",
-     "Größer als 4 sind nur die 5 und die 6: ⟦E = {5; 6}⟧."
+     {
+      "text": "Möglich sind 1 bis 6: Ergebnisraum Ω = {1; 2; 3; 4; 5; 6}."
+     },
+     {
+      "text": "Lena gewinnt bei mehr als 4 Augen. Das ist das Ereignis E."
+     },
+     {
+      "text": "Mehr als 4 sind nur 5 und 6: ⟦E = {5; 6}⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "mehr als 4?",
+         "nein",
+         "nein",
+         "nein",
+         "nein",
+         "ja",
+         "ja"
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "Zweimal eine Münze werfen hat nicht 3 Ergebnisse (WW, WZ, ZZ). Stell dir eine 1-€- und eine 2-€-Münze vor: „1 € Wappen, 2 € Zahl“ ist etwas anderes als „1 € Zahl, 2 € Wappen“. Der Baum zeigt ⟦vier⟧ Wege: Ω = {WW; WZ; ZW; ZZ}.",
+    "fehler": "Zwei Münzwürfe haben nicht 3 Ergebnisse. WZ und ZW sind verschieden – der Baum zeigt ⟦vier⟧ Wege.",
     "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Augenzahl",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "zeilen": [
+      [
+       "mehr als 4?",
+       "?",
+       "?",
+       "?",
+       "?",
+       "?",
+       "?"
+      ]
+     ]
+    },
+    "einstieg": "Beim Spieleabend würfelt Lena. Sie weiß vorher nicht, welche Zahl kommt, aber möglich sind 1 bis 6. So ein Vorgang heißt ⟦Zufallsexperiment⟧.",
+    "woerter": [
+     [
+      "Zufallsexperiment",
+      "ein Vorgang, dessen Ausgang man nicht vorhersagen kann"
+     ],
+     [
+      "Ergebnisraum Ω",
+      "alle möglichen Ergebnisse, hier 1 bis 6"
+     ],
+     [
+      "Ereignis",
+      "eine Auswahl von Ergebnissen, z. B. „mehr als 4“"
+     ]
+    ],
+    "fehler_bild": {
      "typ": "baum",
      "aeste": [
       {
@@ -81,101 +138,133 @@
        ]
       }
      ]
-    },
-    "einstieg": "Beim Spieleabend würfelt Lena. Sie weiß vorher nicht, welche Zahl kommt – aber sie weiß, welche Zahlen überhaupt möglich sind: 1 bis 6. Ein Vorgang, dessen Ausgang man nicht vorhersagen kann, heißt ⟦Zufallsexperiment⟧.",
-    "woerter": [
-     [
-      "Zufallsexperiment",
-      "ein Vorgang mit mehreren möglichen Ausgängen, die man nicht vorhersagen kann"
-     ],
-     [
-      "Ergebnis",
-      "ein möglicher Ausgang, z. B. die 5"
-     ],
-     [
-      "Ergebnisraum Ω",
-      "alle möglichen Ergebnisse zusammen; Ω ist der griechische Buchstabe Omega"
-     ],
-     [
-      "Ereignis E",
-      "eine Auswahl von Ergebnissen, z. B. „größer als 4“"
-     ],
-     [
-      "{ ; }",
-      "geschweifte Klammern: darin stehen die Ergebnisse einer Menge"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "rel_haeufigkeit",
     "titel": "Relative Häufigkeit",
-    "regel": "So berechnest du die ⟦relative Häufigkeit⟧: ⟦absolute Häufigkeit : Anzahl der Versuche⟧. Das Ergebnis liegt immer zwischen 0 und 1.",
+    "regel": "Relative Häufigkeit = ⟦absolute Häufigkeit : Anzahl der Versuche⟧. Sie liegt immer zwischen 0 und 1.",
     "schritte": [
-     "Lena würfelt 50-mal und bekommt 12-mal eine Sechs.",
-     "Die 12 ist die absolute Häufigkeit. Für den Anteil teilt man durch die Anzahl der Würfe: 12 : 50.",
-     "Das ergibt ⟦0,24 = 24 %⟧."
+     {
+      "text": "12 Sechsen: Das ist die absolute Häufigkeit."
+     },
+     {
+      "text": "Für den Anteil teilst du durch alle Würfe: 12 : 50."
+     },
+     {
+      "text": "Die relative Häufigkeit ist ⟦0,24 = 24 %⟧.",
+      "bild": {
+       "typ": "kreisdiagramm",
+       "einheit": " %",
+       "werte": [
+        {
+         "name": "Sechs",
+         "wert": 24
+        },
+        {
+         "name": "andere",
+         "wert": 76
+        }
+       ],
+       "zahlen": true
+      }
+     }
     ],
-    "fehler": "Die relative Häufigkeit von 12 Sechsen bei 50 Würfen ist nicht 12. Das ist die ⟦absolute⟧ Häufigkeit. Relativ heißt: im Verhältnis zur Gesamtzahl.",
-    "einstieg": "Lena hat 50-mal gewürfelt und 12-mal eine Sechs bekommen. Ist das viel? Das sieht man erst, wenn man die 12 mit den 50 Würfen vergleicht. Diesen Anteil nennt man ⟦relative Häufigkeit⟧.",
+    "fehler": "Die relative Häufigkeit ist nicht 12. Das ist die ⟦absolute⟧ Häufigkeit; relativ heißt im Vergleich zu allen 50 Würfen.",
+    "einstieg": "Lena hat 50-mal gewürfelt und 12-mal eine Sechs bekommen. Ist das viel? Das zeigt erst der Anteil an allen Würfen, die ⟦relative Häufigkeit⟧.",
     "woerter": [
      [
       "absolute Häufigkeit",
-      "wie oft etwas eingetreten ist, z. B. 12-mal"
+      "wie oft etwas vorkam, hier 12"
      ],
      [
       "relative Häufigkeit",
-      "der Anteil: absolute Häufigkeit geteilt durch die Anzahl der Versuche"
-     ],
-     [
-      "Anteil",
-      "als Bruch, Dezimalzahl oder in Prozent, z. B. 0,24 = 24 %"
+      "der Anteil: absolute Häufigkeit : Anzahl der Versuche"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "saeulen",
+     "einheit": "Würfe",
+     "werte": [
+      {
+       "name": "Sechs",
+       "wert": 12
+      },
+      {
+       "name": "andere",
+       "wert": 38
+      }
+     ],
+     "zahlen": true
+    }
    },
    {
     "lernziel": "laplace",
     "titel": "Laplace-Wahrscheinlichkeit",
-    "regel": "So berechnest du eine ⟦Laplace-Wahrscheinlichkeit⟧: ⟦P(E) = Anzahl der günstigen Ergebnisse : Anzahl aller Ergebnisse⟧. Das geht nur, wenn alle Ergebnisse gleich wahrscheinlich sind.",
+    "regel": "⟦P = günstige : alle Ergebnisse⟧. Das gilt nur, wenn alle gleich wahrscheinlich sind.",
     "schritte": [
-     "In der Trommel sind 3 rote, 5 blaue und 2 grüne Kugeln; eine wird gezogen.",
-     "Günstig für „rot“ sind die 3 roten Kugeln.",
-     "Möglich sind alle 3 + 5 + 2 = 10 Kugeln. Also ist ⟦P(rot) = 3/10 = 0,3⟧."
+     {
+      "text": "Günstig für „rot“ sind die 3 roten Kugeln."
+     },
+     {
+      "text": "Möglich sind alle 3 + 5 + 2 = 10 Kugeln."
+     },
+     {
+      "text": "Also ist ⟦P(rot) = 3/10 = 0,3⟧."
+     }
     ],
-    "fehler": "P(rot) ist nicht 3/7 (rot zu nicht-rot). Im Nenner steht die Anzahl ⟦aller⟧ Kugeln: 3/10.",
-    "einstieg": "Auf dem Schulfest gibt es eine Lostrommel mit 3 roten, 5 blauen und 2 grünen Kugeln. Alle Kugeln sind gleich groß und gut gemischt, also hat jede dieselbe Chance. Dann kann man die Chance für „rot“ ausrechnen. Diese Zahl heißt ⟦Wahrscheinlichkeit⟧.",
+    "fehler": "P(rot) ist nicht 3/7, also rot zu nicht-rot. Im Nenner stehen ⟦alle⟧ 10 Kugeln: 3/10.",
+    "einstieg": "In der Lostrommel liegen 3 rote, 5 blaue und 2 grüne Kugeln, gut gemischt. Jede Kugel hat dieselbe Chance. Dann kannst du die ⟦Wahrscheinlichkeit⟧ für „rot“ ausrechnen.",
     "woerter": [
      [
-      "Wahrscheinlichkeit P",
-      "eine Zahl zwischen 0 und 1, die angibt, wie wahrscheinlich ein Ereignis ist"
+      "Wahrscheinlichkeit",
+      "wie groß die Chance ist, als Zahl von 0 bis 1"
+     ],
+     [
+      "günstig",
+      "passend zum Ereignis, hier: rot"
      ],
      [
       "P(rot)",
-      "die Wahrscheinlichkeit für das Ereignis „rot“"
-     ],
-     [
-      "Laplace-Experiment",
-      "ein Zufallsexperiment, bei dem alle Ergebnisse gleich wahrscheinlich sind"
-     ],
-     [
-      "günstige Ergebnisse",
-      "die Ergebnisse, bei denen das Ereignis eintritt"
-     ],
-     [
-      "Urne",
-      "ein Gefäß mit Kugeln, aus dem man zufällig zieht"
+      "die Wahrscheinlichkeit für „rot“"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "saeulen",
+     "einheit": "Kugeln",
+     "werte": [
+      {
+       "name": "rot",
+       "wert": 3
+      },
+      {
+       "name": "blau",
+       "wert": 5
+      },
+      {
+       "name": "grün",
+       "wert": 2
+      }
+     ],
+     "zahlen": true
+    }
    },
    {
     "lernziel": "laplace_pruefen",
     "titel": "Ist es ein Laplace-Experiment?",
-    "regel": "So prüfst du: Haben ⟦alle Ergebnisse dieselbe Chance⟧? Nur dann ist es ein ⟦Laplace-Experiment⟧. Sind Felder unterschiedlich groß, ist es keines.",
+    "regel": "Laplace heißt: ⟦alle Ergebnisse gleich wahrscheinlich⟧. Unterschiedlich große Felder sind kein Laplace-Experiment.",
     "schritte": [
-     "Glücksrad: Feld A hat 180°, Feld B 90°, Feld C 90°.",
-     "A ist doppelt so groß wie B und auch doppelt so groß wie C. Also bleibt der Zeiger öfter auf A stehen.",
-     "Die Felder sind nicht gleich wahrscheinlich: ⟦kein⟧ Laplace-Experiment. Richtig ist P(A) = 180°/360° = 1/2, nicht 1/3."
+     {
+      "text": "Feld A hat 180°, B und C haben je 90°."
+     },
+     {
+      "text": "A ist doppelt so groß wie B. Der Zeiger bleibt öfter auf A stehen."
+     },
+     {
+      "text": "Also ⟦kein Laplace-Experiment⟧: P(A) = 180/360 = 1/2."
+     }
     ],
-    "fehler": "Drei mögliche Ergebnisse bedeuten nicht automatisch P = 1/3 für jedes. Das gilt nur, wenn sie ⟦gleich wahrscheinlich⟧ sind.",
+    "fehler": "Drei Felder bedeuten nicht automatisch je 1/3. Das gilt nur bei ⟦gleich großen⟧ Feldern wie hier.",
     "bild": {
      "typ": "kreisdiagramm",
      "einheit": "°",
@@ -195,77 +284,149 @@
      ],
      "zahlen": true
     },
-    "einstieg": "Auf dem Schulfest steht auch ein Glücksrad. Das Feld A ist halb so groß wie das ganze Rad, B und C sind kleiner. Es gibt drei Felder – aber hat jedes die Chance 1/3? Nur wenn alle Ergebnisse gleich wahrscheinlich sind, ist es ein ⟦Laplace-Experiment⟧.",
+    "einstieg": "Ein Glücksrad hat drei Felder, aber Feld A ist halb so groß wie das ganze Rad. Hat trotzdem jedes Feld die Chance 1/3? Nur bei gleichen Chancen ist es ein ⟦Laplace-Experiment⟧.",
     "woerter": [
      [
       "Laplace-Experiment",
-      "alle Ergebnisse haben dieselbe Wahrscheinlichkeit"
-     ],
-     [
-      "Mittelpunktswinkel",
-      "der Winkel eines Feldes an der Mitte des Rades"
-     ],
-     [
-      "Reißzwecke",
-      "ein Pin; er landet auf dem Kopf oder auf der Seite – nicht gleich oft"
+      "alle Ergebnisse haben dieselbe Chance"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "werte": [
+      {
+       "name": "A",
+       "wert": 120
+      },
+      {
+       "name": "B",
+       "wert": 120
+      },
+      {
+       "name": "C",
+       "wert": 120
+      }
+     ]
+    }
    },
    {
     "lernziel": "gegenereignis",
     "titel": "Das Gegenereignis",
-    "regel": "So nutzt du das ⟦Gegenereignis⟧: Ist „nicht E“ leichter zu berechnen, rechne ⟦P(Ē) = 1 − P(E)⟧.",
+    "regel": "⟦P(Ē) = 1 − P(E)⟧. Nutze das, wenn „nicht E“ leichter zu zählen ist.",
     "schritte": [
-     "E heißt „Sechs würfeln“. Die Wahrscheinlichkeit ist P(E) = 1/6.",
-     "Das Gegenereignis Ē heißt „keine Sechs“.",
-     "Beide zusammen ergeben immer 1. Also ist ⟦P(Ē) = 1 − 1/6 = 5/6⟧."
+     {
+      "text": "E heißt „Sechs würfeln“, also P(E) = 1/6."
+     },
+     {
+      "text": "Das Gegenereignis Ē heißt „keine Sechs“.",
+      "bild": {
+       "zeilen": [
+        [
+         "E: Sechs",
+         "–",
+         "–",
+         "–",
+         "–",
+         "–",
+         "✓"
+        ],
+        [
+         "Ē: keine",
+         "✓",
+         "✓",
+         "✓",
+         "✓",
+         "✓",
+         "–"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Zusammen ergeben beide 1: ⟦P(Ē) = 1 − 1/6 = 5/6⟧."
+     }
     ],
-    "fehler": "Das Gegenereignis zu „mindestens eine Sechs“ ist nicht „höchstens eine Sechs“, sondern ⟦„keine Sechs“⟧.",
-    "einstieg": "Lena braucht beim Spiel keine Sechs, sonst muss sie zurück. Statt die Fälle „1, 2, 3, 4 oder 5“ zu zählen, kann sie rechnen: alles außer der Sechs. Das Ereignis „nicht E“ heißt ⟦Gegenereignis⟧.",
+    "fehler": "Das Gegenteil von „mindestens eine Sechs“ ist nicht „höchstens eine“, sondern ⟦„keine Sechs“⟧.",
+    "einstieg": "Lena darf keine Sechs würfeln, sonst muss sie zurück. Statt „1, 2, 3, 4 oder 5“ zu zählen, rechnet sie: alles außer der Sechs. Das heißt ⟦Gegenereignis⟧.",
     "woerter": [
      [
       "Gegenereignis Ē",
-      "tritt genau dann ein, wenn E nicht eintritt; gesprochen „E quer“"
+      "„nicht E“: alle Ergebnisse, die nicht zu E gehören"
      ],
      [
-      "1 − P(E)",
-      "der Rest bis 1, also bis zu 100 %"
-     ],
-     [
-      "mindestens eine",
-      "eine oder mehr"
-     ],
-     [
-      "keine",
-      "gar keine – das Gegenteil von „mindestens eine“"
+      "P(E)",
+      "die Wahrscheinlichkeit von E"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Augenzahl",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "zeilen": [
+      [
+       "E: Sechs",
+       "–",
+       "–",
+       "–",
+       "–",
+       "–",
+       "✓"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "grosse_zahlen",
     "titel": "Gesetz der großen Zahlen",
-    "regel": "So schätzt du: Bei n Versuchen erwartest du etwa ⟦n · P(E)⟧ Treffer. Je ⟦mehr⟧ Versuche, desto näher liegt die relative Häufigkeit meist an der ⟦Wahrscheinlichkeit⟧. Genau vorhersagen kann man es nie.",
+    "regel": "Bei n Versuchen erwartest du ⟦etwa n · P⟧ Treffer. Genau vorhersagen kann man es nie.",
     "schritte": [
-     "Eine Münze wird 1000-mal geworfen. P(Wappen) = 0,5.",
-     "Man erwartet 1000 · 0,5 = ⟦etwa 500-mal Wappen⟧.",
-     "Tatsächlich kommt z. B. 488 oder 513 heraus. Der Zufall bleibt – nur der Anteil liegt nahe bei 0,5."
+     {
+      "text": "Eine Münze wird 1000-mal geworfen. P(Wappen) = 0,5."
+     },
+     {
+      "text": "Du erwartest 1000 · 0,5 = ⟦etwa 500-mal Wappen⟧."
+     },
+     {
+      "text": "Es kommt zum Beispiel 488-mal. Der Anteil 0,488 liegt nahe 0,5."
+     }
     ],
-    "fehler": "Kam fünfmal keine Sechs, ist die Sechs beim nächsten Wurf ⟦nicht⟧ wahrscheinlicher. Der Würfel hat kein Gedächtnis: P bleibt 1/6.",
-    "einstieg": "Wirft man eine Münze nur 10-mal, kommt vielleicht 7-mal Wappen. Wirft man sie 1000-mal, liegt der Anteil fast immer nahe bei der Hälfte. Je öfter man wiederholt, desto näher rückt die relative Häufigkeit an die Wahrscheinlichkeit. Das ist das ⟦Gesetz der großen Zahlen⟧.",
+    "fehler": "Nach fünfmal keiner Sechs ist die Sechs ⟦nicht⟧ wahrscheinlicher. Der Würfel hat kein Gedächtnis: P bleibt 1/6.",
+    "einstieg": "Wirfst du eine Münze 10-mal, kommt vielleicht 7-mal Wappen. Bei 1000 Würfen liegt der Anteil fast immer nahe der Hälfte. Das ist das ⟦Gesetz der großen Zahlen⟧.",
     "woerter": [
      [
       "Gesetz der großen Zahlen",
-      "bei vielen Versuchen liegt die relative Häufigkeit meist nahe der Wahrscheinlichkeit"
+      "bei vielen Versuchen liegt der Anteil nahe der Wahrscheinlichkeit"
      ],
      [
-      "n · P(E)",
-      "erwartete Anzahl der Treffer bei n Versuchen"
-     ],
-     [
-      "erwarten",
-      "ungefähr damit rechnen – es ist keine sichere Vorhersage"
+      "erwartest",
+      "du schätzt vorher, was ungefähr herauskommt"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "saeulen",
+     "einheit": "Anteil",
+     "werte": [
+      {
+       "name": "n = 10",
+       "wert": 0.7
+      },
+      {
+       "name": "n = 100",
+       "wert": 0.47
+      },
+      {
+       "name": "n = 1000",
+       "wert": 0.488
+      }
+     ],
+     "zahlen": true
+    }
    }
   ],
   "teilfaehigkeiten": [

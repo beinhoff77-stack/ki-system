@@ -395,6 +395,76 @@ def g_laplace_pruefen(R, st):
 GEN = {'begriffe': g_begriffe, 'rel_haeufigkeit': g_rel_haeufigkeit, 'laplace': g_laplace, 'gegenereignis': g_gegenereignis,
        'grosse_zahlen': g_grosse_zahlen, 'laplace_pruefen': g_laplace_pruefen}
 
+
+# ---------- UMBAU: neues Muster (Achte Runde, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl8.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl8 import mit_umbau  # noqa: E402
+
+_AUG = ['Augenzahl', '1', '2', '3', '4', '5', '6']
+_MUENZ = {"typ": "baum", "aeste": [{"text": "W", "p": "1/2", "aeste": [{"text": "WW", "p": "1/2"}, {"text": "WZ", "p": "1/2"}]},
+                                   {"text": "Z", "p": "1/2", "aeste": [{"text": "ZW", "p": "1/2"}, {"text": "ZZ", "p": "1/2"}]}]}
+UMBAU = {
+ 'begriffe': {
+  'einstieg': 'Beim Spieleabend würfelt Lena. Sie weiß vorher nicht, welche Zahl kommt, aber möglich sind 1 bis 6. So ein Vorgang heißt ⟦Zufallsexperiment⟧.',
+  'woerter': [['Zufallsexperiment', 'ein Vorgang, dessen Ausgang man nicht vorhersagen kann'], ['Ergebnisraum Ω', 'alle möglichen Ergebnisse, hier 1 bis 6'], ['Ereignis', 'eine Auswahl von Ergebnissen, z. B. „mehr als 4“']],
+  'bild': {'typ': 'tabelle', 'kopf': _AUG, 'zeilen': [['mehr als 4?', '?', '?', '?', '?', '?', '?']]},
+  'schritte': [{'text': 'Möglich sind 1 bis 6: Ergebnisraum Ω = {1; 2; 3; 4; 5; 6}.'},
+               {'text': 'Lena gewinnt bei mehr als 4 Augen. Das ist das Ereignis E.'},
+               {'text': 'Mehr als 4 sind nur 5 und 6: ⟦E = {5; 6}⟧.', 'bild': {'zeilen': [['mehr als 4?', 'nein', 'nein', 'nein', 'nein', 'ja', 'ja']]}}],
+  'fehler': 'Zwei Münzwürfe haben nicht 3 Ergebnisse. WZ und ZW sind verschieden – der Baum zeigt ⟦vier⟧ Wege.',
+  'fehler_bild': _MUENZ,
+  'regel': 'Erst alle ⟦Ergebnisse⟧ in Ω aufschreiben. Dann für das Ereignis die passenden heraussuchen.'},
+ 'rel_haeufigkeit': {
+  'einstieg': 'Lena hat 50-mal gewürfelt und 12-mal eine Sechs bekommen. Ist das viel? Das zeigt erst der Anteil an allen Würfen, die ⟦relative Häufigkeit⟧.',
+  'woerter': [['absolute Häufigkeit', 'wie oft etwas vorkam, hier 12'], ['relative Häufigkeit', 'der Anteil: absolute Häufigkeit : Anzahl der Versuche']],
+  'bild': {'typ': 'saeulen', 'einheit': 'Würfe', 'werte': [{'name': 'Sechs', 'wert': 12}, {'name': 'andere', 'wert': 38}], 'zahlen': True},
+  'schritte': [{'text': '12 Sechsen: Das ist die absolute Häufigkeit.'},
+               {'text': 'Für den Anteil teilst du durch alle Würfe: 12 : 50.'},
+               {'text': 'Die relative Häufigkeit ist ⟦0,24 = 24 %⟧.', 'bild': {'typ': 'kreisdiagramm', 'einheit': ' %', 'werte': [{'name': 'Sechs', 'wert': 24}, {'name': 'andere', 'wert': 76}], 'zahlen': True}}],
+  'fehler': 'Die relative Häufigkeit ist nicht 12. Das ist die ⟦absolute⟧ Häufigkeit; relativ heißt im Vergleich zu allen 50 Würfen.',
+  'regel': 'Relative Häufigkeit = ⟦absolute Häufigkeit : Anzahl der Versuche⟧. Sie liegt immer zwischen 0 und 1.'},
+ 'laplace': {
+  'einstieg': 'In der Lostrommel liegen 3 rote, 5 blaue und 2 grüne Kugeln, gut gemischt. Jede Kugel hat dieselbe Chance. Dann kannst du die ⟦Wahrscheinlichkeit⟧ für „rot“ ausrechnen.',
+  'woerter': [['Wahrscheinlichkeit', 'wie groß die Chance ist, als Zahl von 0 bis 1'], ['günstig', 'passend zum Ereignis, hier: rot'], ['P(rot)', 'die Wahrscheinlichkeit für „rot“']],
+  'bild': {'typ': 'saeulen', 'einheit': 'Kugeln', 'werte': [{'name': 'rot', 'wert': 3}, {'name': 'blau', 'wert': 5}, {'name': 'grün', 'wert': 2}], 'zahlen': True},
+  'schritte': [{'text': 'Günstig für „rot“ sind die 3 roten Kugeln.'},
+               {'text': 'Möglich sind alle 3 + 5 + 2 = 10 Kugeln.'},
+               {'text': 'Also ist ⟦P(rot) = 3/10 = 0,3⟧.'}],
+  'fehler': 'P(rot) ist nicht 3/7, also rot zu nicht-rot. Im Nenner stehen ⟦alle⟧ 10 Kugeln: 3/10.',
+  'regel': '⟦P = günstige : alle Ergebnisse⟧. Das gilt nur, wenn alle gleich wahrscheinlich sind.'},
+ 'laplace_pruefen': {
+  'einstieg': 'Ein Glücksrad hat drei Felder, aber Feld A ist halb so groß wie das ganze Rad. Hat trotzdem jedes Feld die Chance 1/3? Nur bei gleichen Chancen ist es ein ⟦Laplace-Experiment⟧.',
+  'woerter': [['Laplace-Experiment', 'alle Ergebnisse haben dieselbe Chance']],
+  'bild': {"typ": "kreisdiagramm", "einheit": "°", "werte": [{"name": "A", "wert": 180}, {"name": "B", "wert": 90}, {"name": "C", "wert": 90}], "zahlen": True},
+  'schritte': [{'text': 'Feld A hat 180°, B und C haben je 90°.'},
+               {'text': 'A ist doppelt so groß wie B. Der Zeiger bleibt öfter auf A stehen.'},
+               {'text': 'Also ⟦kein Laplace-Experiment⟧: P(A) = 180/360 = 1/2.'}],
+  'fehler': 'Drei Felder bedeuten nicht automatisch je 1/3. Das gilt nur bei ⟦gleich großen⟧ Feldern wie hier.',
+  'fehler_bild': {"werte": [{"name": "A", "wert": 120}, {"name": "B", "wert": 120}, {"name": "C", "wert": 120}]},
+  'regel': 'Laplace heißt: ⟦alle Ergebnisse gleich wahrscheinlich⟧. Unterschiedlich große Felder sind kein Laplace-Experiment.'},
+ 'gegenereignis': {
+  'einstieg': 'Lena darf keine Sechs würfeln, sonst muss sie zurück. Statt „1, 2, 3, 4 oder 5“ zu zählen, rechnet sie: alles außer der Sechs. Das heißt ⟦Gegenereignis⟧.',
+  'woerter': [['Gegenereignis Ē', '„nicht E“: alle Ergebnisse, die nicht zu E gehören'], ['P(E)', 'die Wahrscheinlichkeit von E']],
+  'bild': {'typ': 'tabelle', 'kopf': _AUG, 'zeilen': [['E: Sechs', '–', '–', '–', '–', '–', '✓']]},
+  'schritte': [{'text': 'E heißt „Sechs würfeln“, also P(E) = 1/6.'},
+               {'text': 'Das Gegenereignis Ē heißt „keine Sechs“.', 'bild': {'zeilen': [['E: Sechs', '–', '–', '–', '–', '–', '✓'], ['Ē: keine', '✓', '✓', '✓', '✓', '✓', '–']]}},
+               {'text': 'Zusammen ergeben beide 1: ⟦P(Ē) = 1 − 1/6 = 5/6⟧.'}],
+  'fehler': 'Das Gegenteil von „mindestens eine Sechs“ ist nicht „höchstens eine“, sondern ⟦„keine Sechs“⟧.',
+  'regel': '⟦P(Ē) = 1 − P(E)⟧. Nutze das, wenn „nicht E“ leichter zu zählen ist.'},
+ 'grosse_zahlen': {
+  'einstieg': 'Wirfst du eine Münze 10-mal, kommt vielleicht 7-mal Wappen. Bei 1000 Würfen liegt der Anteil fast immer nahe der Hälfte. Das ist das ⟦Gesetz der großen Zahlen⟧.',
+  'woerter': [['Gesetz der großen Zahlen', 'bei vielen Versuchen liegt der Anteil nahe der Wahrscheinlichkeit'], ['erwartest', 'du schätzt vorher, was ungefähr herauskommt']],
+  'bild': {'typ': 'saeulen', 'einheit': 'Anteil', 'werte': [{'name': 'n = 10', 'wert': 0.7}, {'name': 'n = 100', 'wert': 0.47}, {'name': 'n = 1000', 'wert': 0.488}], 'zahlen': True},
+  'schritte': [{'text': 'Eine Münze wird 1000-mal geworfen. P(Wappen) = 0,5.'},
+               {'text': 'Du erwartest 1000 · 0,5 = ⟦etwa 500-mal Wappen⟧.'},
+               {'text': 'Es kommt zum Beispiel 488-mal. Der Anteil 0,488 liegt nahe 0,5.'}],
+  'fehler': 'Nach fünfmal keiner Sechs ist die Sechs ⟦nicht⟧ wahrscheinlicher. Der Würfel hat kein Gedächtnis: P bleibt 1/6.',
+  'regel': 'Bei n Versuchen erwartest du ⟦etwa n · P⟧ Treffer. Genau vorhersagen kann man es nie.'},
+}
+UMBAU_OFFEN = []
+baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Grundbegriffe', ['begriffe', 'rel_haeufigkeit']), ('Wahrscheinlichkeiten', ['laplace', 'laplace_pruefen', 'gegenereignis']), ('Zufall auf Dauer', ['grosse_zahlen'])],

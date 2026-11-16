@@ -2,6 +2,10 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 03:05 – STATUS
+stochastik.grundbegriffe umgebaut (6 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_kl8.py).
+Aufgaben-Vergleich gegen `git show lernen-app:inhalte/themen/stochastik.grundbegriffe.json`: alle wörtlich gleich. inhalt_pruefen: 0 Fehler, 0 Hinweise. Ohne fehler_bild: rel_haeufigkeit, laplace, gegenereignis, grosse_zahlen. Säulenwerte bei grosse_zahlen sind ein erfundenes, aber typisches Wurfergebnis (im Text als Beispiel gekennzeichnet).
+
 ## 2026-11-16 03:04 – STATUS
 messen.kreisberechnung umgebaut (7 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_kl8.py).
 Aufgaben-Vergleich gegen `git show lernen-app:inhalte/themen/messen.kreisberechnung.json`: alle wörtlich gleich. inhalt_pruefen: 0 Fehler, 0 Hinweise. Ohne fehler_bild: alle 7 (Fehler sind Formel- bzw. Rechenfehler; Zahlen in den Schritten nachgerechnet).

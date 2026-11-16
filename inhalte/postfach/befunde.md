@@ -2,6 +2,11 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 05:36 – STATUS
+zahlen.potenzen_basis fertig: umgestuft 5 / berichtigt 0 / ersetzt 1 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Welche Zahl ist eine Quadratzahl?“
+
 ## 2026-11-16 05:35 – STATUS
 zahlen.rechengesetze fertig: umgestuft 5 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
 

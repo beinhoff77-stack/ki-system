@@ -1,0 +1,234 @@
+{
+ "r1": {
+  "aufgabe": "Das Parkhaus hat Stockwerke unter der Erde. Ein Auto steht 5 Stockwerke unter dem Erdgeschoss (Stockwerk 0). Welche Stockwerk-Zahl ist das?",
+  "eingabe": 5,
+  "log": [
+   {
+    "id": 1000,
+    "frage": "Das Parkhaus hat Stockwerke unter der Erde. Ein Auto steht 5 Stockwerk",
+    "antwort": {
+     "wert": "5"
+    },
+    "richtig": false,
+    "grund": null,
+    "hilfe": 0,
+    "serie": 0,
+    "sitzt": false
+   }
+  ],
+  "rueck": "FAST – KURSKORREKTUR\n\nE\nDU\n5\nZIEL\n−\n5\nRichtig ist: -5\n\n„Unter null“, „Schulden“ und „unter“ bedeuten negativ. Also steht ein Minus davor: −5.\n\nIST DIR DAS PASSIERT?\n\nDas Minus weglassen: 3 °C und −3 °C sind sehr verschieden. Bei 3 °C taut der Schnee, bei −3 °C friert die Pfütze zu. Das Minus sagt unter null – ohne Minus stimmt die Zahl nicht mehr."
+ },
+ "r2": {
+  "folge": [
+   1054,
+   1055,
+   1056,
+   1057,
+   1054
+  ],
+  "gleicheAufgabeAnStelle": 4,
+  "log": [
+   {
+    "id": 1054,
+    "frage": "Wie heißt die Gegenzahl von 56?",
+    "antwort": {
+     "wert": "999"
+    },
+    "richtig": false,
+    "grund": null,
+    "hilfe": 0,
+    "serie": 0,
+    "sitzt": false
+   },
+   {
+    "id": 1055,
+    "frage": "Wie groß ist der Betrag von 14?",
+    "antwort": {
+     "wert": "14"
+    },
+    "richtig": true,
+    "grund": null,
+    "hilfe": 0,
+    "serie": 1,
+    "sitzt": false
+   },
+   {
+    "id": 1056,
+    "frage": "Wie groß ist der Betrag von −33?",
+    "antwort": {
+     "wert": "33"
+    },
+    "richtig": true,
+    "grund": null,
+    "hilfe": 0,
+    "serie": 2,
+    "sitzt": false
+   },
+   {
+    "id": 1057,
+    "frage": "Wie groß ist der Betrag von 58?",
+    "antwort": {
+     "wert": "58"
+    },
+    "richtig": true,
+    "grund": null,
+    "hilfe": 0,
+    "serie": 3,
+    "sitzt": false
+   },
+   {
+    "id": 1054,
+    "frage": "Wie heißt die Gegenzahl von 56?",
+    "antwort": {
+     "wert": "-56"
+    },
+    "richtig": true,
+    "grund": null,
+    "hilfe": 0,
+    "serie": 4,
+    "sitzt": true
+   }
+  ]
+ },
+ "r3": {
+  "log": [
+   {
+    "id": 1000,
+    "frage": "Wie viel Prozent sind 3/4?",
+    "antwort": {
+     "wert": "75 €"
+    },
+    "richtig": false,
+    "grund": "falsche_einheit",
+    "hilfe": 0,
+    "serie": 0,
+    "sitzt": false
+   },
+   {
+    "id": 1001,
+    "frage": "Das Hunderterfeld hat 100 Kästchen. Wie viel Prozent sind gefärbt?",
+    "antwort": {
+     "wert": "0,24"
+    },
+    "richtig": false,
+    "grund": null,
+    "hilfe": 0,
+    "serie": 0,
+    "sitzt": false
+   }
+  ],
+  "einheit": "FAST – KURSKORREKTUR\n\nRichtig ist: 75 %\n\nAuf Hundertstel erweitern: 3/4 = 75/100 = 75 %.\n\nIST DIR DAS PASSIERT?\n\n0,5 = 5 % ist falsch: Ein halb voller Akku zeigt nicht 5 %, sondern 50 %. 0,5 = 50/100 – beim Umwandeln wandert das Komma zwei Stellen.",
+  "dezimal": "FAST – KURSKORREKTUR\n\nDU\n0\n,\n2\n4\nZIEL\n2\n4\n,\nRichtig ist: 24 %\n\nVolle Spalten zählen (je 10 Kästchen), dann den Rest: 24 von 100 Kästchen = 24/100 = 24 %.\n\nIST DIR DAS PASSIERT?\n\n0,5 = 5 % ist falsch: Ein halb voller Akku zeigt nicht 5 %, sondern 50 %. 0,5 = 50/100 – beim Umwandeln wandert das Komma zwei Stellen."
+ },
+ "r4": {
+  "log": [
+   {
+    "id": 1000,
+    "frage": "Wie heißt die Gegenzahl von 56?",
+    "antwort": {
+     "wert": "-56"
+    },
+    "richtig": true,
+    "grund": null,
+    "hilfe": 1,
+    "serie": 0,
+    "sitzt": false
+   }
+  ],
+  "punkte": "0 von 4 richtig hintereinander"
+ },
+ "r5": {
+  "log": [
+   {
+    "id": 1000,
+    "frage": "Eine Gerade hat die Steigung 2 und schneidet die y-Achse bei 0. Gib de",
+    "antwort": {
+     "werte": [
+      "0",
+      "2"
+     ]
+    },
+    "richtig": false,
+    "grund": null,
+    "hilfe": 0,
+    "serie": 0,
+    "sitzt": false
+   },
+   {
+    "id": 1001,
+    "frage": "Eine Gerade hat die Steigung −3 und schneidet die y-Achse bei −1. Gib ",
+    "antwort": {
+     "werte": [
+      "−1",
+      "−3"
+     ]
+    },
+    "richtig": false,
+    "grund": null,
+    "hilfe": 0,
+    "serie": 0,
+    "sitzt": false
+   }
+  ],
+  "rueck1": "Eine Gerade hat die Steigung 2 und schneidet die y-Achse bei 0. Gib den Funktionsterm an.",
+  "rueck2": "FAST – KURSKORREKTUR\n\nRichtig ist: −3x + −1\n\nm = −3, t = −1: y = −3x − 1.\n\nIST DIR DAS PASSIERT?\n\nBei P(2 | 1) setzt man x = 2 und y = 1 ein – nicht umgekehrt. 2 = 3 · 1 + t führt zu t = −1 und einer falschen Geraden."
+ },
+ "r6": {
+  "log": [
+   {
+    "id": 1000,
+    "frage": "Wie liegen die Geraden g: y = −4x + 3 und h: y = 4x − 4 zueinander?",
+    "antwort": {
+     "index": 2
+    },
+    "richtig": false,
+    "grund": null,
+    "hilfe": 0,
+    "serie": 0,
+    "sitzt": false
+   }
+  ],
+  "optionen": [
+   "senkrecht zueinander",
+   "schneiden sich, aber nicht senkrecht",
+   "parallel",
+   "identisch (dieselbe Gerade)"
+  ],
+  "gewaehlt": "parallel",
+  "rueck": "FAST – KURSKORREKTUR\n\nRichtig ist: schneiden sich, aber nicht senkrecht\n\nVerschiedene Steigungen, und −4 · 4 = −16 ≠ −1.\n\nIST DIR DAS PASSIERT?\n\ny = 2x + 1 und y = −2x + 1 stehen nicht senkrecht: 2 · (−2) = −4 ≠ −1. Für senkrecht braucht man den negativen Kehrwert: −1/2."
+ },
+ "r7": {
+  "log": [
+   {
+    "id": 1000,
+    "frage": "Das Parkhaus hat Stockwerke unter der Erde. Ein Auto steht 5 Stockwerk",
+    "antwort": {
+     "wert": "999"
+    },
+    "richtig": false,
+    "grund": null,
+    "hilfe": 0,
+    "serie": 0,
+    "sitzt": false
+   }
+  ],
+  "ende": "WIEDERHOLT\n\n0 von 1 richtig\n\nWas nicht geklappt hat, kommt bald nochmal dran. Die Erklärung findest du im Merkheft."
+ },
+ "r8": {
+  "rueckOben": 438,
+  "rueckUnten": 806,
+  "fenster": 1180
+ },
+ "r9": {
+  "tag": {
+   "fill": "rgb(255, 210, 63)",
+   "opacity": "0.12",
+   "hintergrund": "rgb(255, 255, 255)"
+  },
+  "nacht": {
+   "fill": "rgb(255, 210, 63)",
+   "opacity": "0.12",
+   "hintergrund": "rgb(21, 27, 36)"
+  }
+ }
+}

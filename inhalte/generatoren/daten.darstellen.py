@@ -575,5 +575,143 @@ KARTEN = {
 umbau(DATEI, KARTEN)
 
 
+
+# ---------- SCHWER (Zehnte Runde, Zweig schwer-kl6): je Lernkarte 2 Übungen Stufe 2 + 4 Übungen Stufe 3 ----------
+# Läuft nach allen bisherigen Aufgaben mit eigenem Zufallsstart; die bisherigen Aufgaben bleiben unverändert.
+# Prüfungsvorbilder: Jahrgangsstufentest Realschule Jgst. 6 (ISB) 2014 Nr. 2 (Rangfolge aus Aussagen dem Diagramm zuordnen),
+# 2019 Nr. 14 (Achse beginnt nicht bei 0 – fehlende Information), 2024 Nr. 19 (Gesamtzahl aus einem Diagrammteil), 2025 (Säulen ergänzen);
+# Bayerischer Mathematik-Test Jgst. 8 (ISB) 2014 Gruppe B Aufg. 3 (relative Häufigkeit eines Buchstabens), 2021 Aufg. 6a (Rückgang wirkt
+# dramatischer), 2022 Aufg. 5 (Kreisdiagramm in Prozent auswerten), 2023 Aufg. 5 (Tabelle mit Anteilen und Beträgen), 2024 Aufg. 3
+# (Säulen in Prozent, „doppelt so groß“ prüfen, Gesamtzahl aus Prozentsatz), 2025 Aufg. 6a (Anteil einer Säule mit einem Drittel vergleichen).
+from _schwer_kl6 import ergaenzen, zahl, wahl, anteil  # noqa: E402
+
+_SATZ = 'ANNA NENNT NEUN NAMEN'
+_BUCHST = _SATZ.replace(' ', '')
+_T6 = tabelle(['Schulweg', '6a', '6b'], [['Bus', 12, 9], ['Rad', 7, 15], ['zu Fuß', 6, 6]])
+_VF = tabelle(['', 'Haustier', 'kein Haustier'], [['Mädchen', 9, 5], ['Jungen', 6, 9]])
+
+
+def _dd():
+    return {
+        'absolute_haeufigkeit': [
+            (2, lambda R: zahl('Würfelergebnisse: 3, 5, 2, 5, 6, 1, 5, 3, 2, 5, 4, 3. Welche Augenzahl kam am häufigsten?', 5, '5',
+                               'Zähle für jede Augenzahl, wie oft sie vorkommt.', '1: 1-mal, 2: 2-mal, 3: 3-mal, 4: 1-mal, 5: 4-mal, 6: 1-mal. Am häufigsten: 5.')),
+            (2, lambda R: zahl('Die Strichliste zeigt eine Umfrage zum Schulweg. Wie viele Kinder kommen nicht mit dem Bus?', 23, '9 + 11 + 3',
+                               'Zähle alle Striche außer bei „Bus“. Ein Bündel sind 5 Striche.', 'Rad 9, zu Fuß 11, Auto 3. Zusammen 23 Kinder.',
+                               grafik=tabelle(['Schulweg', 'Strichliste'], [['Bus', '||||| ||'], ['Rad', '||||| ||||'], ['zu Fuß', '||||| ||||| |'], ['Auto', '|||']]))),
+            (3, lambda R: wahl(R, 'Bei einer Wahl bekommt Pia mehr Stimmen als Ben. Lea bekommt weniger Stimmen als Tom, aber mehr als Pia. Wer hat die zweitmeisten Stimmen?',
+                               'Lea', ['Tom', 'Pia', 'Ben'], 'Ordne Schritt für Schritt: Wer steht über wem?',
+                               'Pia > Ben. Lea > Pia und Tom > Lea. Reihenfolge: Tom, Lea, Pia, Ben. Zweiter Platz: Lea.')),
+            (3, lambda R: zahl('In einer Strichliste mit vier Farben stehen zusammen 30 Striche. „Rot“ hat doppelt so viele wie „Blau“, „Grün“ hat 3 mehr als „Blau“ '
+                               'und „Gelb“ hat 3. Wie viele Striche hat „Rot“?', 12, '2 * ((30 - 3 - 3) // 4)',
+                               'Rot und Grün hängen von Blau ab. Probiere Zahlen für Blau aus.',
+                               'Ohne Gelb und ohne die 3 Extra-Striche von Grün bleiben 30 − 3 − 3 = 24 für 4 gleiche Teile (Blau, Rot = 2 Teile, Grün). '
+                               'Blau 6, Rot 12, Grün 9, Gelb 3. Probe: 6 + 12 + 9 + 3 = 30.')),
+            (3, lambda R: zahl('Ein Würfel wird 20-mal geworfen. Die Summe aller Augenzahlen ist 20. Wie oft fiel die 1?', 20, '20',
+                               'Was ist die kleinste mögliche Augenzahl bei einem Wurf?', 'Jeder Wurf zählt mindestens 1. Bei 20 Würfen ist die Summe nur 20, wenn jeder Wurf eine 1 war.')),
+            (3, lambda R: zahl('Bei 50 Würfen fiel die 6 genau 7-mal und die 1 doppelt so oft wie die 6. Wie oft fielen die Augenzahlen 2, 3, 4 und 5 zusammen?', 29,
+                               '50 - 7 - 2 * 7', 'Rechne zuerst aus, wie oft die 1 fiel.', 'Die 1 fiel 14-mal. 50 − 7 − 14 = 29.')),
+        ],
+        'relative_haeufigkeit': [
+            (2, lambda R: zahl('Von 80 Losen sind 12 Gewinne. Gib die relative Häufigkeit der Gewinne in Prozent an.', 15, '12 / 80 * 100', 'Anzahl durch Gesamtzahl.',
+                               '12/80 = 3/20 = 15/100 = 15 %.', einheit='%')),
+            (2, lambda R: anteil('18 von 45 Kindern spielen Fußball. Gib die relative Häufigkeit als vollständig gekürzten Bruch an.', 18, 45, 'Anzahl durch Gesamtzahl, dann kürzen.',
+                                 '18/45, durch 9 gekürzt: 2/5.')),
+            (3, lambda R: wahl(R, 'Das Diagramm zeigt, wie viele Runden die Kinder beim Spendenlauf geschafft haben. Haben mehr als ein Drittel aller Kinder genau 10 Runden geschafft?',
+                               'Nein, es ist genau ein Drittel.', ['Ja, 50 ist die höchste Säule.', 'Nein, es ist weniger als ein Viertel.', 'Ja, es sind 50 %.'],
+                               'Bilde zuerst die Summe aller Kinder.', '24 + 50 + 40 + 36 = 150 Kinder. 50 von 150 = 1/3 – genau ein Drittel, nicht mehr.',
+                               grafik=saeulen([('5', 24), ('10', 50), ('15', 40), ('20', 36)], einheit='Kinder'))),
+            (3, lambda R: anteil(f'Wie groß ist die relative Häufigkeit des Buchstabens N im Satz „{_SATZ}“? Zähle nur Buchstaben, keine Leerzeichen. Gib einen gekürzten Bruch an.',
+                                 _BUCHST.count('N'), len(_BUCHST), 'Zähle zuerst alle Buchstaben, dann alle N.',
+                                 f'Der Satz hat {len(_BUCHST)} Buchstaben, davon {_BUCHST.count("N")}-mal N. {_BUCHST.count("N")}/{len(_BUCHST)} = 1/2.')),
+            (3, lambda R: zahl('In einer Klasse trägt 1/4 der Kinder eine Brille. Zwei neue Kinder mit Brille kommen dazu. Jetzt trägt 1/3 der Kinder eine Brille. '
+                               'Wie viele Kinder sind jetzt in der Klasse?', 18, '16 + 2',
+                               'Probiere: Die alte Klassengröße muss durch 4 teilbar sein, die neue durch 3.',
+                               'Alt 16 Kinder, 4 mit Brille. Neu 18 Kinder, 6 mit Brille: 6/18 = 1/3. Es passt.')),
+            (3, lambda R: zahl('Bei 24 Würfen gab es 6 Treffer. Ein Kind rechnet die relative Häufigkeit als 6/18 aus (Treffer durch Nicht-Treffer). '
+                               'Wie groß ist sie richtig in Prozent?', 25, '6 / 24 * 100', 'Durch die Gesamtzahl aller Würfe teilen.', '6/24 = 1/4 = 25 %.', einheit='%')),
+        ],
+        'tabelle_auswerten': [
+            (2, lambda R: zahl('Die Tabelle zeigt, wie viele Kinder einer Klasse ein Haustier haben. Wie viele Kinder haben ein Haustier?', 15, '9 + 6',
+                               'Addiere die Spalte „Haustier“.', 'Mädchen 9, Jungen 6. Zusammen 15.', grafik=_VF)),
+            (2, lambda R: zahl('Die Tabelle zeigt, wie viele Kinder einer Klasse ein Haustier haben. Wie viel Prozent der Jungen haben ein Haustier?', 40, '6 / (6 + 9) * 100',
+                               'Ganzes sind nur die Jungen.', 'Jungen: 6 + 9 = 15. 6 von 15 = 2/5 = 40 %.', einheit='%', grafik=_VF)),
+            (3, lambda R: zahl('Eine Schule hat 400 Kinder. Jedes Kind zahlt Kopiergeld: Die Tabelle zeigt, welcher Anteil der Kinder wie viel zahlt. Wie viel Euro kommen insgesamt zusammen?', 3640,
+                               '400 * 60 / 100 * 8 + 400 / 4 * 10 + (400 - 240 - 100) * 12',
+                               'Rechne für jede Gruppe die Zahl der Kinder aus. Der Rest ist das, was zu 100 % fehlt.',
+                               '60 % von 400 = 240 Kinder · 8 € = 1 920 €. 1/4 = 100 Kinder · 10 € = 1 000 €. Rest 60 Kinder · 12 € = 720 €. Zusammen 3 640 €.',
+                               einheit='€', grafik=tabelle(['Jahrgang', '5 bis 7', '8 bis 10', '11 bis 13'], [['Anteil', '60 %', '1/4', 'Rest'], ['Betrag', '8 €', '10 €', '12 €']]))),
+            (3, lambda R: zahl('In der Tabelle fehlen Werte. Wie viele Kinder tragen insgesamt eine Brille?', 12, '5 + (16 - 9)',
+                               'Rechne zuerst die fehlende Zahl bei den Jungen aus.', 'Jungen mit Brille: 16 − 9 = 7. Zusammen mit den 5 Mädchen: 12 Kinder.',
+                               grafik=tabelle(['', 'Brille', 'keine Brille', 'Summe'], [['Mädchen', '5', '?', '14'], ['Jungen', '?', '9', '16']]))),
+            (3, lambda R: wahl(R, 'Die Tabelle zeigt den Schulweg in zwei Klassen. Welche Aussage stimmt?', 'In der 6b fährt ein größerer Anteil Rad als in der 6a.',
+                               ['Die Hälfte der 6a fährt Bus.', 'In der 6a fahren mehr Kinder Rad als Bus.', 'In der 6a fährt ein größerer Anteil Rad als in der 6b.'],
+                               'Bilde für jede Klasse die Summe. Vergleiche Anteile, nicht nur Anzahlen.',
+                               '6a: 25 Kinder, Rad 7/25 = 28 %, Bus 12/25 = 48 %. 6b: 30 Kinder, Rad 15/30 = 50 %. Nur die erste Aussage stimmt.', grafik=_T6)),
+            (3, lambda R: zahl('Die Tabelle zeigt den Schulweg in zwei Klassen. Wie viel Prozent aller Kinder beider Klassen fahren Rad?', 40, '(7 + 15) / (25 + 30) * 100',
+                               'Addiere alle Radfahrer und alle Kinder.', 'Rad: 7 + 15 = 22. Alle: 25 + 30 = 55. 22/55 = 2/5 = 40 %.', einheit='%', grafik=_T6)),
+        ],
+        'saeulendiagramm': [
+            (2, lambda R: zahl('Das Säulendiagramm zeigt verkaufte Kugeln Eis. Um wie viele Kugeln ist die höchste Säule größer als die niedrigste?', 30, '55 - 25',
+                               'Suche die höchste und die niedrigste Säule.', 'Höchste Säule 55 (Mi), niedrigste 25 (Di). 55 − 25 = 30.',
+                               grafik=saeulen([('Mo', 40), ('Di', 25), ('Mi', 55), ('Do', 30), ('Fr', 50)], einheit='Kugeln'))),
+            (2, lambda R: zahl('Maßstab im Säulendiagramm: 1 cm steht für 25 Kinder. Eine Säule ist 6,4 cm hoch. Für wie viele Kinder steht sie?', 160, '6.4 * 25',
+                               'Rechne Höhe mal Maßstab.', '6,4 · 25 = 160 Kinder.')),
+            (3, lambda R: zahl('Das Diagramm zeigt die Noten 1 bis 5 einer Klasse mit 28 Kindern. Die Säule für Note 6 fehlt. Wie viele Kinder haben Note 6?', 1, '28 - (3 + 7 + 10 + 5 + 2)',
+                               'Addiere alle gezeichneten Säulen und vergleiche mit 28.', '3 + 7 + 10 + 5 + 2 = 27. 28 − 27 = 1 Kind hat Note 6.',
+                               grafik=saeulen([('1', 3), ('2', 7), ('3', 10), ('4', 5), ('5', 2)], einheit='Kinder'))),
+            (3, lambda R: zahl('Das Diagramm zeigt in Prozent, wie Kinder zur Schule kommen. Die Säule „Rad“ steht für 63 Kinder. Wie viele Kinder wurden befragt?', 180, '63 / 35 * 100',
+                               '63 Kinder sind 35 %. Rechne über 5 % auf 100 %.', '35 % = 63 Kinder, 5 % = 9 Kinder, 100 % = 180 Kinder.',
+                               grafik=saeulen([('Bus', 45), ('Rad', 35), ('zu Fuß', 20)], einheit='%'))),
+            (3, lambda R: zahl('Ein Kind zeichnet Säulen für 12, 30 und 45 Kinder. Die kleinste Säule ist 2 cm hoch. Wie hoch wird die größte Säule?', Fr('7.5'), '45 / 12 * 2',
+                               'Wie viele Kinder stehen für 1 cm?', '2 cm für 12 Kinder: 1 cm für 6 Kinder. 45 : 6 = 7,5 cm.', einheit='cm')),
+            (3, lambda R: zahl('Das Säulendiagramm zeigt verkaufte Kugeln Eis. Wie viel Prozent aller Kugeln der Woche wurden am Mittwoch verkauft?', Fr('27.5'),
+                               '55 / (40 + 25 + 55 + 30 + 50) * 100', 'Bilde zuerst die Summe der Woche.', 'Woche: 40 + 25 + 55 + 30 + 50 = 200. 55 von 200 = 27,5 %.', einheit='%',
+                               grafik=saeulen([('Mo', 40), ('Di', 25), ('Mi', 55), ('Do', 30), ('Fr', 50)], einheit='Kugeln'))),
+        ],
+        'kreisdiagramm': [
+            (2, lambda R: zahl('Wie groß ist der Winkel für den Anteil 3/8 im Kreisdiagramm?', 135, '360 * 3 / 8', 'Anteil mal 360°.', '360° : 8 = 45°. 45° · 3 = 135°.', einheit='°')),
+            (2, lambda R: zahl('Es wurden 40 Personen befragt. Wie groß ist im Kreisdiagramm der Winkel für eine einzige Person?', 9, '360 / 40', 'Die 360° werden auf 40 Personen verteilt.',
+                               '360° : 40 = 9°.', einheit='°')),
+            (3, lambda R: zahl('Im Kreisdiagramm hat „Schwimmen“ einen Winkel von 72°. Das sind 56 Kinder. Wie viele Kinder wurden befragt?', 280, '56 * 360 / 72',
+                               'Welcher Anteil des Kreises sind 72°?', '72° von 360° = 1/5. 56 Kinder sind 1/5, also 5 · 56 = 280 Kinder.')),
+            (3, lambda R: zahl('Das Kreisdiagramm zeigt, welche Schulnote sich 1 200 Erwachsene in Mathematik selbst geben. Wie viele gaben sich Note 2 oder besser?', 564,
+                               '1200 * (12 + 35) / 100', 'Addiere die Prozente für Note 1 und Note 2.', '12 % + 35 % = 47 %. 47 % von 1 200 = 564.',
+                               grafik=kreisdiagramm([('Note 1', 12), ('Note 2', 35), ('Note 3', 28), ('Note 4', 15), ('Note 5', 7), ('Note 6', 3)], einheit=' %'))),
+            (3, lambda R: zahl('Ein Kreisdiagramm hat drei Teile. Teil A ist doppelt so groß wie Teil B. Teil C ist so groß wie A und B zusammen. Wie groß ist der Winkel von A?', 120,
+                               '2 * 360 / 6', 'Wenn B ein Stück ist, wie viele Stücke sind A und C?', 'B = 1 Stück, A = 2 Stücke, C = 3 Stücke: 6 Stücke = 360°, 1 Stück = 60°. A = 120°.',
+                               einheit='°')),
+            (3, lambda R: zahl('Ein Kind zeichnet 25 % als Kreisausschnitt mit 25°. Wie groß muss der Winkel richtig sein?', 90, '360 * 25 / 100',
+                               'Der ganze Kreis hat 360°, nicht 100°.', '25 % = 1/4. 360° : 4 = 90°.', einheit='°')),
+        ],
+        'irrefuehrend': [
+            (2, lambda R: wahl(R, 'An der Hochachse eines Säulendiagramms stehen keine Zahlen. Was kann man dann nicht ablesen?', 'die genauen Anzahlen',
+                               ['welche Säule am höchsten ist', 'welche Säule am niedrigsten ist', 'wie viele Säulen es gibt'],
+                               'Was zeigt eine Achse mit Zahlen?', 'Ohne Zahlen sieht man nur die Reihenfolge der Säulen, aber nicht die Werte.')),
+            (2, lambda R: zahl('Ein Diagramm zeigt 200 und 210 Besucher. Die Hochachse beginnt bei 190, deshalb wirkt die zweite Säule doppelt so hoch. '
+                               'Um wie viel Prozent sind es wirklich mehr Besucher?', 5, '(210 - 200) / 200 * 100', 'Rechne mit den echten Zahlen, nicht mit den Säulenhöhen.',
+                               '10 mehr von 200 = 5 %. Nur wegen der abgeschnittenen Achse wirkt es wie das Doppelte.', einheit='%',
+                               grafik=saeulen([('Tag 1', 200), ('Tag 2', 210)], einheit='Besucher', y_start=190))),
+            (3, lambda R: wahl(R, 'Ein Säulendiagramm über Haarfarben in einer Klasse beginnt bei 6 Kindern. Bei „rot“ ist keine Säule zu sehen. Was kann man sagen?',
+                               'Es könnten 0 bis 6 rothaarige Kinder sein – genau ablesen kann man es nicht.',
+                               ['Es gibt keine rothaarigen Kinder.', 'Es gibt genau 6 rothaarige Kinder.', 'Das Diagramm ist falsch gezeichnet.'],
+                               'Was passiert mit Werten, die kleiner sind als der Anfang der Achse?', 'Werte bis 6 sind unsichtbar. Es fehlt die Information, wie viele es genau sind.')),
+            (3, lambda R: zahl('Ein Diagramm zeigt die Zahl der Vereinsmitglieder: 1 000 im ersten Jahr, 950 im zweiten. Die Achse beginnt bei 900, die zweite Säule wirkt halb so hoch. '
+                               'Um wie viel Prozent ist die Zahl wirklich gesunken?', 5, '(1000 - 950) / 1000 * 100', 'Grundwert ist das erste Jahr.',
+                               '50 weniger von 1 000 = 5 %. Die Säule wirkt halbiert, weil die Achse erst bei 900 beginnt.', einheit='%',
+                               grafik=saeulen([('Jahr 1', 1000), ('Jahr 2', 950)], einheit='Mitglieder', y_start=900))),
+            (3, lambda R: wahl(R, 'Der Anteil der Kinder ohne Fahrradhelm stieg von 12 % auf 20 %. In einer Zeitung steht: „Der Anteil hat sich verdoppelt.“ Stimmt das?',
+                               'Nein: Verdoppelt wären 24 %. 20 % ist weniger als das Doppelte.',
+                               ['Ja, er ist um 8 Prozentpunkte gestiegen.', 'Ja, 20 ist fast 24.', 'Nein, er hat sich verdreifacht.'],
+                               'Was wäre das Doppelte von 12 %?', '2 · 12 % = 24 %. 20 % ist etwa das 1,7-Fache. „Verdoppelt“ übertreibt.')),
+            (3, lambda R: zahl('Ein Bild-Diagramm zeigt den doppelten Wert durch einen Würfel mit doppelter Kantenlänge. Wie viel Mal so groß ist das Volumen des großen Würfels?', 8, '2 ** 3',
+                               'Länge, Breite und Höhe werden jeweils verdoppelt.', '2 · 2 · 2 = 8. Der Würfel wirkt 8-mal so groß, obwohl der Wert nur doppelt so groß ist.')),
+        ],
+    }
+
+
+ergaenzen(DATEI, _dd(), seed=6057)
+
+
 if __name__ == '__main__':
     schreibe(DATEI)

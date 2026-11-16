@@ -654,6 +654,162 @@ UMBAU_OFFEN = []
 baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
 
 
+# ---------- Zehnte Runde (schwer-kl7): schwerere Übungen nach Prüfungsvorbild ----------
+# Vorbilder (nur Typ und Niveau, eigene Zahlen und Einkleidung): Bayerischer Mathematik-Test 8 (ISB) 2023 A3 (Symmetrieachsen der Raute,
+# Gegenbeispiel), 2025 A7 (Parallelogramm im Koordinatensystem); Jahrgangsstufentests Realschule 8 (ISB): 2014 I (kleinster Drehwinkel),
+# 2019 I (Gerade bei Drehung um 180°), 2019 II (Drehwinkel eines Schildes), 2025 II Nr. 4, 7, 8 (Verschiebungspfeil, Mittelpunkt);
+# ISB-Leistungsaufgaben Realschule 8 I (Drehwinkel in einem Bereich); Vergleichsarbeit Jgst. 8 (Innenwinkel im n-Eck, nach Uni Bayreuth SMART);
+# Känguru der Mathematik 2023, Klassenstufen 7/8 (Parkett, als Knobelvorbild). Eigener Zufallsstart, alte Aufgaben bleiben gleich.
+from _schwer_kl7 import Neu, anhaengen  # noqa: E402
+
+
+def schwer():
+    N = Neu(7046)
+    P = 'pruefung'
+    K = 'knobel'
+    HP = 'Trage die x- und die y-Koordinate ein.'
+    HV = 'Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.'
+    # achsenspiegelung
+    N.L('achsenspiegelung', 2, 'Spiegle P(3 | −2) an der Geraden x = −1 (senkrecht zur x-Achse).', "P'(□ | □)", [-5, -2], ['-1 - (3 - (-1))', '-2'],
+        'P ist 4 rechts von der Achse x = −1. P\' liegt 4 links davon: x = −5. y bleibt −2.', 'Wie weit ist P von der Achse entfernt? Genauso weit auf die andere Seite.', HP,
+        grafik=ksys([(3, -2, 'P')], senkrecht=[-1]))
+    N.L('achsenspiegelung', 2, 'Spiegle P(0 | 5) an der Winkelhalbierenden y = x.', "P'(□ | □)", [5, 0], ['5', '0'],
+        'Bei der Spiegelung an y = x tauschen x und y die Plätze: P\'(5 | 0).', 'An y = x werden die Koordinaten vertauscht.', HP,
+        grafik=ksys([(0, 5, 'P')], graphen=[{'art': 'linear', 'm': 1, 't': 0, 'name': 'y = x'}]))
+    N.L('achsenspiegelung', 3, 'Die Raute ABCD mit A(−3 | 1), B(1 | −1), C(5 | 1) und D(1 | 3) ist achsensymmetrisch. Eine Symmetrieachse ist parallel zur y-Achse. Gib sie an.', 'x = □', [1], ['(-3 + 5) // 2'],
+        'Die Achse halbiert die Diagonale [AC]: Mitte von −3 und 5 ist 1. Sie geht durch B und D (beide x = 1). Achse: x = 1.',
+        'Eine Symmetrieachse der Raute ist eine Diagonale. Welche Diagonale ist senkrecht?', 'Trage die Zahl ein.', art=P,
+        grafik=ksys([(-3, 1, 'A'), (1, -1, 'B'), (5, 1, 'C'), (1, 3, 'D')], strecken=[(-3, 1, 1, -1), (1, -1, 5, 1), (5, 1, 1, 3), (1, 3, -3, 1)]))
+    N.L('achsenspiegelung', 3, 'Bei einer Achsenspiegelung wird A(−2 | 3) auf A\'(4 | 3) abgebildet. Wohin wird B(−1 | 0) bei derselben Spiegelung abgebildet?', "B'(□ | □)", [3, 0], ['1 + (1 - (-1))', '0'],
+        'Die Achse ist die Mittelsenkrechte von [AA\']: x = (−2 + 4) : 2 = 1. B ist 2 links von x = 1, B\' liegt 2 rechts: B\'(3 | 0).',
+        'Bestimme zuerst die Achse: Sie liegt genau in der Mitte zwischen A und A\'.', HP, art=P, grafik=ksys([(-2, 3, 'A'), (4, 3, "A'"), (-1, 0, 'B')]))
+    N.A('achsenspiegelung', 3, 'P(4 | −3) wird erst an der x-Achse und danach an der y-Achse gespiegelt. Welche einzelne Abbildung hat dieselbe Wirkung?', 'Punktspiegelung am Ursprung O',
+        ['Achsenspiegelung an der Geraden y = x', 'Verschiebung mit v = (−8 | 6)', 'Drehung um O um 90°'],
+        'x-Achse: (4 | −3) → (4 | 3). y-Achse: → (−4 | 3). Beide Vorzeichen sind umgedreht: Das ist die Punktspiegelung an O (Drehung um 180°) – für jeden Punkt.',
+        'Verfolge den Punkt durch beide Spiegelungen. Was passiert mit den Vorzeichen?', art=K)
+    N.Z('achsenspiegelung', 3, 'Ein Punkt P(x | 2) wird an der Geraden x = 4 gespiegelt und landet bei P\'(−1 | 2). Wie groß ist x?', 9, '4 + (4 - (-1))',
+        'P\' liegt 5 links von der Achse (−1 bis 4). P liegt 5 rechts davon: x = 9.', 'Rückwärts denken: Wie weit ist P\' von der Achse entfernt?')
+    # punktspiegelung
+    N.L('punktspiegelung', 2, 'Spiegle P(3 | −5) am Punkt Z(0 | −2).', "P'(□ | □)", [-3, 1], ['2 * 0 - 3', '2 * (-2) - (-5)'],
+        'Von P nach Z: 3 nach links, 3 nach oben. Denselben Weg weiter: P\'(−3 | 1).', 'Geh von P zu Z und dann denselben Weg noch einmal.', HP,
+        grafik=ksys([(3, -5, 'P'), (0, -2, 'Z')]))
+    N.L('punktspiegelung', 2, 'Spiegle P(−1 | 4) am Punkt Z(2 | 2).', "P'(□ | □)", [5, 0], ['2 * 2 - (-1)', '2 * 2 - 4'],
+        'Von P nach Z: 3 nach rechts, 2 nach unten. Denselben Weg weiter: P\'(5 | 0).', 'Geh von P zu Z und dann denselben Weg noch einmal.', HP,
+        grafik=ksys([(-1, 4, 'P'), (2, 2, 'Z')]))
+    N.L('punktspiegelung', 3, 'Bei einer Punktspiegelung wird P(−3 | 5) auf Q(7 | −1) abgebildet. Gib das Zentrum Z an.', 'Z(□ | □)', [2, 2], ['(-3 + 7) // 2', '(5 + (-1)) // 2'],
+        'Z ist der Mittelpunkt von [PQ]: x = (−3 + 7) : 2 = 2, y = (5 + (−1)) : 2 = 2. Z(2 | 2).', 'Das Zentrum liegt genau in der Mitte zwischen Punkt und Bildpunkt.', HP, art=P,
+        grafik=ksys([(-3, 5, 'P'), (7, -1, 'Q')]))
+    N.L('punktspiegelung', 3, 'Das Parallelogramm ABCD hat die Ecken A(−2 | −1), B(4 | −1) und C(6 | 3). Ein Parallelogramm ist punktsymmetrisch. Gib die vierte Ecke D an.', 'D(□ | □)', [0, 3],
+        ['-2 + 6 - 4', '-1 + 3 - (-1)'],
+        'Von B nach C geht es 2 nach rechts und 4 nach oben. Von A aus denselben Weg: D(0 | 3). Probe: Die Diagonalen [AC] und [BD] haben dieselbe Mitte (2 | 1).',
+        '[AD] ist parallel und gleich lang wie [BC].', HP, art=P, grafik=ksys([(-2, -1, 'A'), (4, -1, 'B'), (6, 3, 'C')], strecken=[(-2, -1, 4, -1), (4, -1, 6, 3)]))
+    N.L('punktspiegelung', 3, 'Das Parallelogramm ABCD hat die Ecken A(−2 | −1), B(4 | −1), C(6 | 3) und D(0 | 3). Gib sein Symmetriezentrum Z an.', 'Z(□ | □)', [2, 1],
+        ['(-2 + 6) // 2', '(-1 + 3) // 2'],
+        'Z ist der Schnittpunkt der Diagonalen, also die Mitte von [AC]: ((−2 + 6) : 2 | (−1 + 3) : 2) = (2 | 1).', 'Das Zentrum halbiert beide Diagonalen.', HP, art=P,
+        grafik=ksys([(-2, -1, 'A'), (4, -1, 'B'), (6, 3, 'C'), (0, 3, 'D')], strecken=[(-2, -1, 4, -1), (4, -1, 6, 3), (6, 3, 0, 3), (0, 3, -2, -1)]))
+    N.L('punktspiegelung', 3, 'Ein Punkt wird erst am Ursprung O(0 | 0) und danach am Punkt Z(3 | 1) gespiegelt. Welcher Verschiebungspfeil ersetzt beide Spiegelungen (für jeden Punkt)?', 'v = (□ | □)', [6, 2],
+        ['2 * 3', '2 * 1'],
+        'Beispiel P(1 | 2): an O → (−1 | −2), an Z → (7 | 4). Verschiebung von P nach P\'\': (6 | 2). Allgemein: doppelter Weg von O nach Z.',
+        'Probiere es mit einem Punkt aus und vergleiche Anfang und Ende.', HV, art=K)
+    # verschiebung
+    N.L('verschiebung', 2, 'Das Dreieck A(1 | 1), B(4 | 1), C(2 | 3) wird mit v = (−3 | 2) verschoben. Wo liegt C\'?', "C'(□ | □)", [-1, 5], ['2 + (-3)', '3 + 2'],
+        'C(2 | 3) + (−3 | 2) = C\'(−1 | 5).', 'Zur x-Koordinate −3, zur y-Koordinate +2.', HP)
+    N.L('verschiebung', 2, 'Eine Verschiebung bildet A(2 | −3) auf A\'(−1 | 1) ab. Wohin wird B(5 | 0) abgebildet?', "B'(□ | □)", [2, 4], ['5 + (-1 - 2)', '0 + (1 - (-3))'],
+        'Pfeil: v = (−1 − 2 | 1 − (−3)) = (−3 | 4). B\' = (5 − 3 | 0 + 4) = (2 | 4).', 'Bestimme zuerst den Pfeil aus A und A\'.', HP)
+    N.A('verschiebung', 3, 'Der Verschiebungspfeil v führt von A(1 | 1) nach A\'(4 | 3). Welcher Pfeil gehört NICHT zu derselben Verschiebung?', 'von (4 | 3) nach (1 | 1)',
+        ['von (0 | 0) nach (3 | 2)', 'von (2 | 5) nach (5 | 7)', 'von (−1 | −2) nach (2 | 0)'],
+        'v = (3 | 2). Die Pfeile (0 | 0)→(3 | 2), (2 | 5)→(5 | 7), (−1 | −2)→(2 | 0) haben alle (3 | 2). Der Pfeil (4 | 3)→(1 | 1) ist (−3 | −2): gleich lang, aber entgegengesetzt.',
+        'Berechne bei jedem Pfeil „Ende minus Anfang“. Auch die Richtung muss stimmen.', art=P)
+    N.L('verschiebung', 3, 'Der Verschiebungspfeil v führt von P(−2 | 1) nach P\'(1 | −1). Ein anderer Pfeil derselben Verschiebung beginnt bei Q(3 | 4). Wo endet er?', "Q'(□ | □)", [6, 2],
+        ['3 + (1 - (-2))', '4 + (-1 - 1)'],
+        'v = (1 − (−2) | −1 − 1) = (3 | −2). Q\' = (3 + 3 | 4 − 2) = (6 | 2).', 'Alle Pfeile einer Verschiebung sind gleich lang, parallel und gleich gerichtet.', HP, art=P,
+        grafik=ksys([(-2, 1, 'P'), (1, -1, "P'"), (3, 4, 'Q')], strecken=[(-2, 1, 1, -1)]))
+    N.L('verschiebung', 3, 'P(1 | 1) wird erst mit einem unbekannten Pfeil v und danach mit (2 | −5) verschoben. Am Ende liegt P bei (0 | 0). Wie heißt v?', 'v = (□ | □)', [-3, 4],
+        ['0 - 1 - 2', '0 - 1 - (-5)'],
+        'Insgesamt: von (1 | 1) nach (0 | 0), also (−1 | −1). Davon kommt (2 | −5) vom zweiten Pfeil. v = (−1 − 2 | −1 + 5) = (−3 | 4).',
+        'Rechne die Gesamtverschiebung aus und ziehe den bekannten Pfeil ab.', HV, art=K)
+    N.L('verschiebung', 3, 'Das Quadrat A(0 | 0), B(2 | 0), C(2 | 2), D(0 | 2) wird so verschoben, dass C auf den Ursprung fällt. Wo liegt dann A?', "A'(□ | □)", [-2, -2], ['0 - 2', '0 - 2'],
+        'Damit C(2 | 2) nach (0 | 0) kommt, ist v = (−2 | −2). A\' = (0 − 2 | 0 − 2) = (−2 | −2).', 'Bestimme den Pfeil, der C in den Ursprung bringt.', HP)
+    # drehung
+    N.L('drehung', 2, 'Drehe P(2 | 5) um O(0 | 0) um 180°.', "P'(□ | □)", [-2, -5], ['-2', '-5'],
+        'Drehung um 180° um O: Beide Vorzeichen drehen sich um. P\'(−2 | −5).', 'Eine halbe Drehung um O: Was passiert mit den Vorzeichen?', HP, grafik=ksys([(2, 5, 'P')]))
+    N.L('drehung', 2, 'Drehe P(0 | 4) um O(0 | 0) um 90° IM Uhrzeigersinn.', "P'(□ | □)", [4, 0], ['4', '0'],
+        'P liegt oben auf der y-Achse. Eine Vierteldrehung im Uhrzeigersinn bringt ihn nach rechts auf die x-Achse: P\'(4 | 0).', 'Achte auf die Richtung: im Uhrzeigersinn, also wie die Zeiger einer Uhr.', HP,
+        grafik=ksys([(0, 4, 'P')]))
+    N.A('drehung', 3, 'Eine Gerade g geht nicht durch den Punkt Z. Sie wird um Z um 180° gedreht. Was gilt für die Bildgerade g\'?', 'g\' ist parallel zu g.',
+        ['g\' fällt auf g.', 'g\' steht senkrecht auf g.', 'g\' geht durch Z.'],
+        'Bei einer Drehung um 180° dreht sich jede Richtung um. Eine umgedrehte Richtung ist wieder dieselbe Gerade-Richtung: g\' ∥ g. Weil g nicht durch Z geht, liegt g\' auf der anderen Seite von Z.',
+        'Denke an eine waagrechte Gerade über Z. Wo liegt sie nach einer halben Drehung?', art=P)
+    N.A('drehung', 3, 'A(4 | 0) soll um O um 90° GEGEN den Uhrzeigersinn gedreht werden. Jemand gibt A\'(0 | −4) an. Was stimmt?', 'Falsch: Er hat im Uhrzeigersinn gedreht. Richtig ist A\'(0 | 4).',
+        ['Richtig, der Abstand zu O ist 4.', 'Falsch: Richtig ist A\'(−4 | 0).', 'Falsch: Richtig ist A\'(4 | 4).'],
+        'Gegen den Uhrzeigersinn geht A von rechts (x-Achse) nach oben (y-Achse): A\'(0 | 4). (0 | −4) liegt unten – das wäre im Uhrzeigersinn. Der Abstand allein reicht nicht.',
+        'Gegen den Uhrzeigersinn: von rechts nach oben.', art=P)
+    N.L('drehung', 3, 'Nach einer Drehung um O um 90° gegen den Uhrzeigersinn liegt der Bildpunkt bei P\'(−2 | 5). Wo lag P?', 'P(□ | □)', [5, 2], ['5', '-(-2)'],
+        'Rückwärts: um 90° im Uhrzeigersinn drehen. (x | y) → (y | −x): (−2 | 5) → (5 | 2). Probe: (5 | 2) gegen den Uhrzeigersinn → (−2 | 5) ✓.',
+        'Mache die Drehung rückgängig: in die andere Richtung drehen.', HP)
+    N.L('drehung', 3, 'P(3 | 1) wird zweimal hintereinander um O um 90° gegen den Uhrzeigersinn gedreht und danach am Ursprung gespiegelt. Wo landet P?', "P'(□ | □)", [3, 1], ['3', '1'],
+        'Zweimal 90° sind 180°. Die Punktspiegelung an O ist noch einmal eine Drehung um 180°. Zusammen 360°: P bleibt bei (3 | 1).',
+        'Zähle alle Drehwinkel zusammen. Eine Punktspiegelung ist eine Drehung um 180°.', HP, art=K)
+    # symmetrie
+    N.Z('symmetrie', 2, 'Um welchen kleinsten Winkel (größer als 0°) muss man ein regelmäßiges Zehneck um seinen Mittelpunkt drehen, damit es auf sich selbst fällt?', 36, '360 / 10',
+        '360° : 10 = 36°.', 'Eine volle Drehung (360°) gleichmäßig auf die Ecken verteilen.', einheit='°')
+    N.Z('symmetrie', 2, 'Wie viele Symmetrieachsen hat ein Parallelogramm, das weder Rechteck noch Raute ist?', 0, '0',
+        'Faltet man es entlang einer Diagonale oder einer Mittellinie, passen die Hälften nicht aufeinander. Es hat 0 Achsen, ist aber punktsymmetrisch.',
+        'Probiere in Gedanken alle Faltlinien: Diagonalen und Mittellinien.', grafik=figur({'A': [0, 0], 'B': [4, 0], 'C': [5, 2], 'D': [1, 2]}, linien=[['A', 'B'], ['B', 'C'], ['C', 'D'], ['D', 'A']], flaeche=['A', 'B', 'C', 'D']))
+    N.A('symmetrie', 3, 'Zwei Vierecke haben jeweils vier Seiten von 5 cm Länge. Sind die beiden Vierecke sicher deckungsgleich?', 'Nein: Ein Quadrat und eine Raute mit anderen Winkeln haben beide vier 5-cm-Seiten.',
+        ['Ja: Gleiche Seiten bedeuten gleiche Vierecke.', 'Ja: Es sind beides Quadrate.', 'Nein: Nur Dreiecke können deckungsgleich sein.'],
+        'Ein Gegenbeispiel genügt: Quadrat (alle Winkel 90°) und Raute mit 60° und 120°. Bei Vierecken legen die Seiten die Form nicht fest.',
+        'Suche ein Gegenbeispiel: Kann man ein Viereck aus vier gleichen Stäben „zusammendrücken“?', art=P)
+    N.A('symmetrie', 3, 'Ein Logo ist drehsymmetrisch. Der kleinste Drehwinkel, der es auf sich selbst abbildet, ist 72°. Welcher Winkel bildet es NICHT auf sich selbst ab?', '180°',
+        ['144°', '216°', '288°'], 'Möglich sind nur Vielfache von 72°: 72°, 144°, 216°, 288°, 360°. 180° ist kein Vielfaches von 72°.',
+        'Welche Winkel erhält man, wenn man mehrmals um 72° dreht?', art=P)
+    N.Z('symmetrie', 3, 'Ein Verkehrsschild ist ein regelmäßiges Achteck. Gib den kleinsten Drehwinkel über 100° an, der das Schild auf sich selbst abbildet.', 135, '3 * 360 / 8',
+        'Kleinster Drehwinkel: 360° : 8 = 45°. Vielfache: 45°, 90°, 135° … Der erste über 100° ist 135°.', 'Bestimme erst den kleinsten Drehwinkel, dann seine Vielfachen.', einheit='°', art=P)
+    N.Z('symmetrie', 3, 'Zwei gleich große Quadrate berühren sich nur an einer Ecke; ihre Diagonalen liegen auf einer Geraden (siehe Bild). Wie viele Symmetrieachsen hat die ganze Figur?', 2, '2',
+        'Achse 1: die Gerade durch beide Diagonalen. Achse 2: die Senkrechte dazu durch den Berührpunkt. Waagrecht oder senkrecht passt es nicht.',
+        'Prüfe die Gerade durch die Diagonalen und die Gerade senkrecht dazu durch die gemeinsame Ecke.', art=K,
+        grafik=figur({'A': [0, 0], 'B': [2, 0], 'C': [2, 2], 'D': [0, 2], 'E': [4, 2], 'F': [4, 4], 'G': [2, 4]},
+                     linien=[['A', 'B'], ['B', 'C'], ['C', 'D'], ['D', 'A'], ['C', 'E'], ['E', 'F'], ['F', 'G'], ['G', 'C']]))
+    # parkett
+    N.Z('parkett', 2, 'Ein regelmäßiges Achteck hat Innenwinkel von 135°. Man legt 2 Achtecke an eine Ecke. Wie groß ist die Lücke?', 90, '360 - 2 * 135',
+        '360° − 2 · 135° = 90°. Die Lücke ist genau ein Quadrat-Winkel.', 'Eine volle Ecke hat 360°.', einheit='°')
+    N.A('parkett', 2, 'Mit welchen regelmäßigen Vielecken (nur eine Sorte) kann man die Ebene lückenlos auslegen?', 'Dreiecke, Quadrate und Sechsecke',
+        ['Dreiecke, Quadrate und Fünfecke', 'Quadrate, Fünfecke und Sechsecke', 'nur Quadrate'],
+        'Der Innenwinkel muss 360° teilen: 60° (3-Eck), 90° (4-Eck), 120° (6-Eck) passen. 108° (5-Eck) nicht: 360 : 108 ist keine ganze Zahl.', 'Prüfe, ob 360° durch den Innenwinkel teilbar ist.')
+    N.Z('parkett', 3, 'In einem regelmäßigen Vieleck ist jeder Innenwinkel 140° groß. Wie viele Ecken hat es?', 9, '360 / (180 - 140)',
+        'Winkelsumme (n − 2) · 180° = n · 140°. Also 180n − 360 = 140n, 40n = 360 und n = 9.',
+        'Die Winkelsumme im n-Eck ist (n − 2) · 180°. Stelle eine Gleichung auf.', art=P)
+    N.Z('parkett', 3, 'Zwei regelmäßige Zwölfecke liegen an einer Ecke. Welches regelmäßige Vieleck schließt die Lücke genau? Gib die Zahl seiner Ecken an.', 3, '3',
+        'Innenwinkel Zwölfeck: (12 − 2) · 180° : 12 = 150°. Lücke: 360° − 300° = 60°. 60° hat das gleichseitige Dreieck: 3 Ecken.',
+        'Berechne zuerst den Innenwinkel des Zwölfecks mit (n − 2) · 180° : n.', art=P)
+    assert (12 - 2) * 180 // 12 == 150 and 360 - 300 == 60
+    N.A('parkett', 3, 'An einer Ecke treffen ein Quadrat, ein regelmäßiges Sechseck und ein regelmäßiges Zwölfeck zusammen. Passt das lückenlos?', 'Ja: 90° + 120° + 150° = 360°.',
+        ['Nein: Verschiedene Vielecke passen nie zusammen.', 'Nein: 90° + 120° + 150° = 330°.', 'Ja, weil es drei Vielecke sind.'],
+        'Innenwinkel: Quadrat 90°, Sechseck 120°, Zwölfeck 150°. Summe 360°: Die Ecke ist genau voll.', 'Bestimme alle drei Innenwinkel und addiere.', art=K)
+    N.A('parkett', 3, 'Warum kann man mit regelmäßigen Fünfecken allein die Ebene nicht lückenlos auslegen?', 'Weil 360° : 108° keine ganze Zahl ist.',
+        ['Weil Fünfecke keine rechten Winkel haben.', 'Weil 5 eine ungerade Zahl ist.', 'Weil Fünfecke zu viele Ecken haben.'],
+        'Der Innenwinkel ist 108°. 3 Fünfecke: 324° (Lücke), 4 Fünfecke: 432° (Überlappung). 360 : 108 ≈ 3,33.', 'Was muss für die Winkel an einer Ecke gelten?')
+    # eigenschaften
+    N.A('eigenschaften', 2, 'Was kann sich bei einer Kongruenzabbildung ändern?', 'die Lage der Figur', ['die Seitenlängen', 'die Winkelgrößen', 'der Flächeninhalt'],
+        'Kongruenzabbildungen erhalten Längen, Winkel und Flächen. Nur die Lage (und beim Spiegeln der Umlaufsinn) ändert sich.', 'Was bedeutet „deckungsgleich“?')
+    N.Z('eigenschaften', 2, 'Ein Dreieck hat einen Flächeninhalt von 12 cm². Es wird gedreht und danach verschoben. Wie groß ist der Flächeninhalt des Bilddreiecks?', 12, '12',
+        'Drehung und Verschiebung sind Kongruenzabbildungen. Das Bild ist deckungsgleich, also wieder 12 cm².', 'Ändert sich die Größe beim Drehen oder Verschieben?', einheit='cm²')
+    N.A('eigenschaften', 3, 'Ein Dreieck ABC soll auf ein deckungsgleiches Dreieck mit ENTGEGENGESETZTEM Umlaufsinn abgebildet werden. Welche Abbildung leistet das?', 'eine Achsenspiegelung',
+        ['eine Verschiebung', 'eine Drehung', 'eine Punktspiegelung'],
+        'Nur die Achsenspiegelung kehrt den Umlaufsinn um. Verschiebung, Drehung und Punktspiegelung (Drehung um 180°) erhalten ihn.', 'Welche Abbildung macht aus „links herum“ „rechts herum“?', art=P)
+    N.A('eigenschaften', 3, 'Eine Gerade g schneidet die Spiegelachse a im Punkt S. Wo schneidet die Bildgerade g\' die Achse a?', 'ebenfalls in S',
+        ['nirgends, g\' ist parallel zu a', 'im Spiegelpunkt von S', 'auf der anderen Seite von S'],
+        'Punkte auf der Achse bleiben bei der Spiegelung liegen (Fixpunkte). S liegt auf g und auf a, also liegt S auch auf g\'.', 'Was passiert mit Punkten, die auf der Achse liegen?', art=P)
+    N.A('eigenschaften', 3, 'Eine Figur wird an zwei Achsen gespiegelt, die sich in S unter 30° schneiden. Welche einzelne Abbildung hat dieselbe Wirkung?', 'eine Drehung um S um 60°',
+        ['eine Drehung um S um 30°', 'eine Verschiebung', 'eine Achsenspiegelung'],
+        'Zwei Spiegelungen erhalten den Umlaufsinn (zweimal umgedreht). Bei sich schneidenden Achsen entsteht eine Drehung um S um den doppelten Schnittwinkel: 2 · 30° = 60°.',
+        'Wie bei parallelen Achsen die Verschiebung um den doppelten Abstand: Was wird hier verdoppelt?', art=K)
+    N.A('eigenschaften', 3, 'Ein Dreieck wird erst an der x-Achse gespiegelt und dann um O um 180° gedreht. Welche einzelne Abbildung hat dieselbe Wirkung?', 'Spiegelung an der y-Achse',
+        ['Spiegelung an der x-Achse', 'Drehung um O um 180°', 'Verschiebung'],
+        '(x | y) → (x | −y) → (−x | y). Nur das Vorzeichen von x ist am Ende anders: Spiegelung an der y-Achse.', 'Verfolge einen Punkt wie (2 | 3) durch beide Abbildungen.')
+    return N
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Spiegeln', ['achsenspiegelung', 'punktspiegelung']), ('Verschieben und Drehen', ['verschiebung', 'drehung']), ('Symmetrie und Eigenschaften', ['symmetrie', 'parkett', 'eigenschaften'])],
@@ -666,3 +822,4 @@ if __name__ == '__main__':
                 'Annahme der Prüfung, nicht umgesetzt: Drehungen würden in Klasse 7 vor allem konstruierend behandelt. Die Koordinatenregeln bleiben, werden aber über das Mitdrehen des Weges (rechts/oben) begründet; Konstruieren durch das Kind kann die App nicht.',
                 'lehrplan_gym ist für dieses Thema in themenliste.json leer (Hinweis der Prüfung); themenliste.json gehört nicht zu diesem Paket und bleibt unverändert.',
                 'Drehungen nur um Vielfache von 90°, weil andere Winkel im Koordinatensystem ohne Trigonometrie nicht exakt berechenbar sind.'])
+    anhaengen(META['thema_schluessel'], schwer())

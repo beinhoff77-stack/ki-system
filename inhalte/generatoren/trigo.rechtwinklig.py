@@ -531,8 +531,123 @@ def g_anwendung(s):
 GEN = {'seiten': g_seiten, 'verhaeltnisse': g_verhaeltnisse, 'seite': g_seite, 'winkel': g_winkel,
        'beziehungen': g_beziehungen, 'anwendung': g_anwendung}
 
+# ---------- Zehnte Runde (schwer-kl9): schwerere Übungen nach Prüfungsvorbild ----------
+# Eigener Abschnitt mit eigenem festen Zufallsstart (anhaengen(..., 9911, ...)), läuft erst nach bauen():
+# alle bisherigen Aufgaben bleiben unverändert. Vorbilder: Bayerischer Mathematik-Test 10 (ISB; 2023: Sinuswert aus
+# einer Abbildung ablesen, begründen, dass in einem Dreieck kein Winkel 30° ist; 2024: Wert eines trigonometrischen
+# Terms im Zylinder über ein rechtwinkliges Teildreieck; 2025: Flächeninhalt eines Parallelogramms als Term mit sin α),
+# Abschlussprüfung Realschule Bayern Mathematik I 2023–2025 (Winkel im Quader und in Dreiecken mit tan, Strecken mit
+# sin/cos, Neigungswinkel). Zahlen und Wortlaut eigen.
+from _schwer_kl9 import anhaengen  # noqa: E402
+from _kl9 import K as _K  # noqa: E402
+
+
+def schwer():
+    P, Kn, O = 'pruefung', 'knobel', ''
+    r1 = lambda x: round(x, 1)
+    c1 = lambda x: f'round({_K(x)}, 1)'
+    sinbild = {'typ': 'koordinaten', 'x': [0, 90], 'y': [0, 1.1], 'grad': True, 'schritt_x': 10, 'schritt_y': 0.2,
+               'graphen': [{'art': 'sin', 'a': 1, 'b': 1, 'c': 0, 'd': 0}], 'waagrecht': [0.8]}
+    return [
+        # seiten
+        ('seiten', 3, P, auswahl('Ein Zylinder hat 3 cm Radius und 8 cm Höhe. M ist der Mittelpunkt der Grundfläche, R der Mittelpunkt der Deckfläche, Q ein Punkt auf dem Rand der Grundfläche. Im Dreieck QMR: Welche Strecke ist die Gegenkathete des Winkels bei R?',
+                                 'QM (der Radius, 3 cm)', ['MR (die Höhe, 8 cm)', 'QR', 'Keine – das Dreieck ist nicht rechtwinklig.'],
+                                 'Die Höhe MR steht senkrecht auf der Grundfläche, also ist bei M ein rechter Winkel. QR ist die Hypotenuse. Gegenüber dem Winkel bei R liegt QM.',
+                                 'Suche zuerst den rechten Winkel: Die Höhe steht senkrecht auf jedem Radius der Grundfläche.')),
+        ('seiten', 3, P, auswahl('Im Quader ABCDEFGH (Grundfläche ABCD, darüber EFGH, G über C) betrachtet man das Dreieck ACG. Wo liegt der rechte Winkel?', 'bei C',
+                                 ['bei A', 'bei G', 'Das Dreieck hat keinen rechten Winkel.'],
+                                 'Die Kante CG steht senkrecht auf der Grundfläche und damit auf der Diagonale AC. Der rechte Winkel liegt bei C, AG ist die Hypotenuse.',
+                                 'Welche Kante steht senkrecht auf der Grundfläche?')),
+        ('seiten', 3, Kn, auswahl('In einem rechtwinkligen Dreieck mit den spitzen Winkeln α und β: Was ist die Gegenkathete von α für den Winkel β?', 'die Ankathete von β',
+                                  ['die Gegenkathete von β', 'die Hypotenuse', 'Das hängt vom Dreieck ab.'],
+                                  'Die Seite gegenüber α liegt am Winkel β an (sie bildet mit der Hypotenuse den Winkel β). Darum gilt sin α = cos β.',
+                                  'Zeichne ein rechtwinkliges Dreieck und markiere die Seite gegenüber α. Wo liegt sie von β aus?')),
+        ('seiten', 3, O, auswahl('Im Dreieck XYZ liegt der rechte Winkel bei Y. Welches Verhältnis ist der Kosinus des Winkels bei Z?', 'YZ : XZ', ['XY : XZ', 'XY : YZ', 'XZ : YZ'],
+                                 'Hypotenuse XZ (gegenüber Y). Am Winkel bei Z liegt YZ an: cos = Ankathete : Hypotenuse = YZ : XZ.', 'Erst die Hypotenuse, dann die Ankathete am Winkel bei Z.')),
+        ('seiten', 2, O, auswahl('Im Dreieck ABC liegt der rechte Winkel bei C. Welche Seite ist die Hypotenuse?', 'AB', ['BC', 'AC'],
+                                 'Die Hypotenuse liegt dem rechten Winkel gegenüber: Seite AB (= c).', 'Gegenüber dem rechten Winkel.')),
+        ('seiten', 2, O, auswahl('Was gilt in jedem rechtwinkligen Dreieck für die Hypotenuse?', 'Sie ist die längste Seite.', ['Sie ist die kürzeste Seite.', 'Sie liegt immer am Winkel α.', 'Sie ist so lang wie beide Katheten zusammen.'],
+                                 'Aus c² = a² + b² folgt c > a und c > b. Aber c < a + b (Dreiecksungleichung).', 'Denke an den Satz des Pythagoras.')),
+        # verhaeltnisse
+        ('verhaeltnisse', 3, P, auswahl('Ein rechtwinkliges Dreieck hat die Seiten 7 cm, 24 cm und 25 cm. Kann einer seiner spitzen Winkel 30° groß sein? (sin 30° = 0,5)',
+                                        'Nein: Die Sinuswerte sind 7/25 = 0,28 und 24/25 = 0,96, keiner ist 0,5.',
+                                        ['Ja, der kleinere spitze Winkel.', 'Ja, weil 7 + 24 > 25.', 'Das kann man ohne Winkelmesser nicht entscheiden.'],
+                                        'Für die spitzen Winkel gilt sin = Gegenkathete : Hypotenuse = 7/25 bzw. 24/25. Ein 30°-Winkel bräuchte eine Gegenkathete von 12,5 cm.',
+                                        'Berechne für beide spitzen Winkel den Sinus und vergleiche mit 0,5.')),
+        ('verhaeltnisse', 3, P, luecken('Ein Zylinder hat 3 cm Radius und 8 cm Höhe. Die Höhe MR, ein Radius MQ der Grundfläche und die Strecke QR bilden ein Dreieck; φ ist der Winkel bei R. Gib tan φ als Bruch an.',
+                                        '□/□', 'Zähler und Nenner eintragen', [3, 8], 'Rechter Winkel bei M. Von R aus: Gegenkathete MQ = 3 cm, Ankathete MR = 8 cm. tan φ = 3/8.',
+                                        'tan = Gegenkathete : Ankathete. Welche Seite liegt φ gegenüber?', ['3', '8'])),
+        ('verhaeltnisse', 3, Kn, zahl('Für einen spitzen Winkel α gilt tan α = 0,75. Berechne sin α.', 'tan α = 3/4: Zeichne ein Dreieck mit Gegenkathete 3 und Ankathete 4. Hypotenuse √(9 + 16) = 5. sin α = 3/5 = 0,6.',
+                                      'Baue dir ein passendes rechtwinkliges Dreieck mit einfachen Zahlen.', 0.6, '3 / 5')),
+        ('verhaeltnisse', 3, O, zahl('Im Dreieck ABC ist γ = 90°, c = 25 cm und a = 7 cm. Berechne cos α als Dezimalzahl.', 'b = √(625 − 49) = 24 cm. cos α = b : c = 24 : 25 = 0,96.',
+                                     'Für cos α brauchst du die Ankathete b – erst mit Pythagoras.', 0.96, '24 / 25')),
+        ('verhaeltnisse', 2, O, zahl('Im Dreieck ABC ist γ = 90°, a = 6 cm und c = 10 cm. Berechne sin α.', 'sin α = a : c = 6 : 10 = 0,6.', 'Gegenkathete durch Hypotenuse.', 0.6, '6 / 10')),
+        ('verhaeltnisse', 2, O, luecken('Im Dreieck ABC ist γ = 90°, a = 5 cm, b = 12 cm, c = 13 cm. Gib tan β als Bruch an.', '□/□', 'Zähler und Nenner eintragen', [12, 5],
+                                        'Für β: Gegenkathete b = 12, Ankathete a = 5. tan β = 12/5.', 'Vom Winkel β aus schauen.', ['12', '5'])),
+        # seite
+        ('seite', 3, P, auswahl('Ein Parallelogramm hat die Seiten 6 cm und 3 cm; sie schließen den Winkel α ein. Welcher Term gibt den Flächeninhalt (in cm²) an?', '18 · sin α',
+                                ['18 · cos α', '9 · sin α', '18 · tan α'],
+                                'Höhe auf die 6-cm-Seite: h = 3 · sin α. Fläche = Grundseite · Höhe = 6 · 3 · sin α = 18 · sin α.', 'Zeichne die Höhe ein. Sie ist Gegenkathete von α.')),
+        ('seite', 3, P, zahl('Im Dreieck ABC ist γ = 90°, c = 8 cm und β = 60°. Berechne a ohne Taschenrechner (cos 60° = 0,5).', 'a ist Ankathete von β: a = c · cos β = 8 · 0,5 = 4 cm.',
+                             'Welche Seite liegt an β an?', 4, '8 * 0.5', einheit='cm')),
+        ('seite', 3, Kn, zahl('In einem rechtwinkligen Dreieck ist eine Kathete genau halb so lang wie die Hypotenuse. Wie groß ist der Winkel, der dieser Kathete gegenüberliegt?',
+                              'sin α = Gegenkathete : Hypotenuse = 1/2 = 0,5. Der Winkel mit sin α = 0,5 ist 30°.', 'Bilde das Verhältnis – die Längen selbst brauchst du nicht.', 30, '180 / 6',
+                              einheit='°')),
+        ('seite', 3, O, zahl('Im Dreieck ABC ist γ = 90°, α = 35° und b = 9 cm. Berechne c (auf eine Nachkommastelle).', 'b ist Ankathete von α: cos α = b/c ⇒ c = 9 : cos 35° ≈ 11,0 cm.',
+                             'Ankathete und Hypotenuse: Kosinus. Dann nach c umstellen.', r1(9 / cos(35)), c1(9 / cos(35)), einheit='cm')),
+        ('seite', 2, O, zahl('Im Dreieck ABC ist γ = 90°, α = 40° und c = 12 cm. Berechne a (auf eine Nachkommastelle).', 'a = c · sin α = 12 · sin 40° ≈ 7,7 cm.', 'Gegenkathete und Hypotenuse: Sinus.',
+                             r1(12 * sin(40)), c1(12 * sin(40)), einheit='cm')),
+        ('seite', 2, O, zahl('Im Dreieck ABC ist γ = 90°, α = 25° und b = 20 cm. Berechne a (auf eine Nachkommastelle).', 'a = b · tan α = 20 · tan 25° ≈ 9,3 cm.', 'Gegenkathete und Ankathete: Tangens.',
+                             r1(20 * tan(25)), c1(20 * tan(25)), einheit='cm')),
+        # winkel
+        ('winkel', 3, P, zahl('Ein Quader hat die Grundfläche 6 cm × 8 cm und die Höhe 5 cm. Unter welchem Winkel ist die Raumdiagonale gegen die Grundfläche geneigt? Runde auf eine Nachkommastelle.',
+                              'Bodendiagonale √(36 + 64) = 10 cm. Mit der Höhe: tan φ = 5 : 10 = 0,5, φ ≈ 26,6°.', 'Das Dreieck aus Bodendiagonale, Kante und Raumdiagonale hat bei der Kante einen rechten Winkel.',
+                              r1(atan(0.5)), c1(atan(0.5)), einheit='°')),
+        ('winkel', 3, P, bild(auswahl('Die Abbildung zeigt den Graphen von y = sin x für 0° ≤ x ≤ 90° und die Linie y = 0,8. Für welchen Winkel ist sin x ungefähr 0,8?', 'etwa 53°',
+                                      ['etwa 80°', 'etwa 37°', 'etwa 0,8°'],
+                                      'Die Linie y = 0,8 schneidet den Graphen bei x ≈ 53°. Kontrolle: sin 53° ≈ 0,799.', 'Lies am Schnittpunkt den x-Wert ab.'), sinbild)),
+        ('winkel', 3, Kn, zahl('In einem rechtwinkligen Dreieck ist eine Kathete doppelt so lang wie die andere. Wie groß ist der kleinere spitze Winkel? Runde auf eine Nachkommastelle.',
+                               'Katheten k und 2k: tan α = k : 2k = 0,5, α ≈ 26,6°. Die Länge k spielt keine Rolle.', 'Gegenüber dem kleineren Winkel liegt die kürzere Kathete.',
+                               r1(atan(0.5)), c1(atan(0.5)), einheit='°')),
+        ('winkel', 3, O, zahl('Eine 12 m lange Rampe führt 1 m in die Höhe. Unter welchem Winkel steigt sie an? Runde auf eine Nachkommastelle.', 'Die Rampe ist die Hypotenuse: sin α = 1 : 12, α ≈ 4,8°.',
+                              'Ist 12 m die waagrechte Strecke oder die Rampe selbst?', r1(asin(1 / 12)), c1(asin(1 / 12)), einheit='°')),
+        ('winkel', 2, O, zahl('Im Dreieck ABC ist γ = 90° und a = b = 5 cm. Wie groß ist α?', 'tan α = 5 : 5 = 1, also α = 45° (gleichschenklig-rechtwinklig).', 'tan α = a : b.', 45, '90 / 2', einheit='°')),
+        ('winkel', 2, O, zahl('Im Dreieck ABC ist γ = 90°, b = 4 cm und c = 8 cm. Wie groß ist α?', 'cos α = 4 : 8 = 0,5, also α = 60°.', 'Ankathete b und Hypotenuse c.', 60, '180 / 3', einheit='°')),
+        # beziehungen
+        ('beziehungen', 3, P, auswahl('Für einen spitzen Winkel α gilt sin α = 0,6. Welchen Wert hat cos(90° − α)?', '0,6', ['0,8', '0,4', '0,36'],
+                                      'Im rechtwinkligen Dreieck ist 90° − α der andere spitze Winkel. Die Gegenkathete von α ist seine Ankathete: cos(90° − α) = sin α = 0,6.',
+                                      'Zeichne beide spitzen Winkel in ein Dreieck.')),
+        ('beziehungen', 3, P, zahl('Für einen spitzen Winkel α gilt sin α = 0,6. Berechne tan α ohne Taschenrechner.', 'cos α = √(1 − 0,36) = √0,64 = 0,8. tan α = 0,6 : 0,8 = 0,75.',
+                                   'Erst cos α mit sin² α + cos² α = 1, dann tan α = sin α : cos α.', 0.75, '0.6 / 0.8')),
+        ('beziehungen', 3, Kn, luecken('Ein gleichseitiges Dreieck hat die Seitenlänge 2. Die Höhe teilt es in zwei rechtwinklige Dreiecke mit den Winkeln 30°, 60° und 90°. Gib cos 30° exakt an.', '√□/□',
+                                       'Zahl unter der Wurzel, dann Nenner', [3, 2],
+                                       'Halbe Seite 1, Hypotenuse 2, Höhe √(4 − 1) = √3. Am 30°-Winkel (oben) liegt die Höhe an: cos 30° = √3/2.',
+                                       'Berechne die Höhe mit Pythagoras. Welche Seite liegt am 30°-Winkel an?', ['4 - 1', '2'])),
+        ('beziehungen', 3, O, zahl('Für einen spitzen Winkel gilt tan α = 1. Berechne sin² α.', 'tan α = 1 heißt sin α = cos α. Mit sin² α + cos² α = 1: 2 sin² α = 1, sin² α = 0,5.',
+                                   'Was folgt aus tan α = 1 für sin α und cos α?', 0.5, '1 / 2')),
+        ('beziehungen', 2, O, zahl('Berechne sin² 37° + cos² 37°.', 'Für jeden Winkel gilt sin² α + cos² α = 1.', 'Du brauchst keinen Taschenrechner.', 1, '0.5 + 0.5')),
+        ('beziehungen', 2, O, zahl('Für einen spitzen Winkel gilt cos α = 0,8. Berechne sin α.', 'sin² α = 1 − 0,64 = 0,36, sin α = 0,6.', 'sin² α + cos² α = 1.', 0.6, '(1 - 0.64) / 0.6')),
+        # anwendung
+        ('anwendung', 3, P, zahl('Ein 6 m langes Brett wird als Rampe an eine 1,5 m hohe Ladekante gelegt. Unter welchem Winkel steigt die Rampe an? Runde auf eine Nachkommastelle.',
+                                 'Brett = Hypotenuse, Höhe = Gegenkathete: sin α = 1,5 : 6 = 0,25, α ≈ 14,5°.', 'Skizze: Wo ist der rechte Winkel, welche Seite ist das Brett?',
+                                 r1(asin(0.25)), c1(asin(0.25)), einheit='°')),
+        ('anwendung', 3, P, zahl('Ein Flugzeug steigt nach dem Start unter 12° geradlinig auf und legt dabei 5 km Flugstrecke zurück. In welcher Höhe ist es dann? Runde auf ganze Meter.',
+                                 'Flugstrecke = Hypotenuse: h = 5 000 m · sin 12° ≈ 1 040 m.', 'Rechne in Metern. Gegenkathete gesucht, Hypotenuse bekannt.', round(5000 * sin(12)),
+                                 f'round({_K(5000 * sin(12))}, 0)', einheit='m')),
+        ('anwendung', 3, Kn, zahl('Ein gleichschenkliges Dreieck hat zwei 10 cm lange Schenkel, die den Winkel 40° einschließen. Wie lang ist die Basis? Runde auf eine Nachkommastelle.',
+                                  'Die Höhe auf die Basis halbiert den 40°-Winkel und die Basis: halbe Basis = 10 · sin 20° ≈ 3,42 cm, Basis ≈ 6,8 cm.',
+                                  'Es gibt keinen rechten Winkel – erzeuge ihn mit der Höhe auf die Basis.', r1(20 * sin(20)), c1(20 * sin(20)), einheit='cm')),
+        ('anwendung', 3, O, zahl('Ein Drachen hängt an einer 50 m langen, straff gespannten Schnur, die mit dem Boden 55° einschließt. Die Hand ist 1,2 m über dem Boden. Wie hoch fliegt der Drachen? Runde auf eine Nachkommastelle.',
+                                 'Höhe über der Hand: 50 · sin 55° ≈ 40,96 m. Dazu 1,2 m: ≈ 42,2 m.', 'Vergiss die Höhe der Hand nicht.', r1(50 * sin(55) + 1.2), c1(50 * sin(55) + 1.2), einheit='m')),
+        ('anwendung', 2, O, zahl('Eine Straße hat 15 % Steigung. Welchem Steigungswinkel entspricht das? Runde auf eine Nachkommastelle.', 'tan α = 0,15, α ≈ 8,5°.', '15 % heißt tan α = 0,15.',
+                                 r1(atan(0.15)), c1(atan(0.15)), einheit='°')),
+        ('anwendung', 2, O, zahl('Ein Baum wirft bei 40° Sonnenhöhe einen 18 m langen Schatten. Wie hoch ist der Baum? Runde auf eine Nachkommastelle.', 'h = 18 · tan 40° ≈ 15,1 m.',
+                                 'Schatten = Ankathete, Baum = Gegenkathete.', r1(18 * tan(40)), c1(18 * tan(40)), einheit='m')),
+    ]
+
+
 if __name__ == '__main__':
-    bauen('trigo.rechtwinklig',
+    d = bauen('trigo.rechtwinklig',
           'Sinus, Kosinus und Tangens als Seitenverhältnisse im rechtwinkligen Dreieck nutzen, um Seiten und Winkel zu berechnen.',
           ['sin α = Gegenkathete : Hypotenuse; cos α = Ankathete : Hypotenuse; tan α = Gegenkathete : Ankathete.',
            'Seite gesucht: Gleichung nach der Seite umstellen. Winkel gesucht: Umkehrtaste (DEG).', 'sin² α + cos² α = 1; tan α = sin α : cos α; sin α = cos(90° − α).',
@@ -543,3 +658,4 @@ if __name__ == '__main__':
                   'beziehungen': ['sin α = 0,28'], 'anwendung': ['8 % Steigung']},
           offen=['Skizzen: Lernkarten haben jetzt Bilder; Aufgaben mit Figur gibt es bei „seiten“ (Stufe 2). Die übrigen Aufgaben nennen das Dreieck weiter in Worten („Dreieck ABC mit γ = 90°“).',
                  'Rechenausdruck c: sin/cos/tan-Werte stehen als 12-stellige Konstanten, weil das Prüfskript keine Winkelfunktionen kennt. Werte nahe an Rundungsgrenzen werden vom Generator verworfen.'])
+    anhaengen(d, 9911, schwer)

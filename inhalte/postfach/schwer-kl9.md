@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 04:58 – STATUS
+trigo.rechtwinklig fertig: 36 neue Übungen, inhalt_pruefen OK, Unverändert-Nachweis OK.
+
 ## 2026-11-16 04:56 – STATUS
 trigo.pythagoras fertig: 36 neue Übungen, inhalt_pruefen OK, Unverändert-Nachweis OK.
 

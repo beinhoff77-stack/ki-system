@@ -113,3 +113,16 @@ Migration supabase/migrations/20261116_w150_d2_teil2_lineare_gleichungen.sql, ei
 ## 16.11. – Zwölfte Runde eingespielt (zahlen.natuerlich, Rom)
 Zweig schwer-natuerlich zusammengeführt (Stand a1558f6), inhalt_pruefen OK. Lernkarten in Datei und Datenbank identisch. Eingespielt mit einheit_abgleichen(…, 'lassen'):
 334 neue Aufgaben, 2 vorhandene mit gleicher Frage angeglichen. Je Lernkarte jetzt 20 freigegebene Übungen, davon 8–10 Stufe 3 (vorher 2 freigegebene Übungen je Karte, der Rest war gesperrt).
+
+## 16.11. (nachmittags) – E-1, Dreizehnte und Vierzehnte Runde zusammengeführt und eingespielt
+Zweige bau-eltern, befunde, daten-klassen-2 nach lernen-app zusammengeführt (Stand 8eaab9c). App 0.74.1, nicht live. tests/lernen.test.cjs: 18 von 18. inhalt_pruefen: 92 von 92 OK.
+- **Phase 1 (E-1) fertig:** Flugplan speichert sofort mit „Rückgängig“ und „Neu laden“ bei Versionskonflikt; Info-Seite „So funktioniert’s“ (#/info) mit der aktuellen Regel
+  „sitzt nach 6 Punkten und einer schweren Bordkarte“; Reisewörter in allen Eltern-/Lehrertexten. Bericht: inhalte/postfach/bau-eltern.md. Keine Datenbank-Änderung.
+- **Dreizehnte Runde (Befundlisten):** 63 Themen mit einheit_abgleichen(…, 'sperren') eingespielt: 317 Aufgaben angeglichen (296 umgestuft, 21 berichtigt), 99 neu (95 Ersatz + 4),
+  die 95 ersetzten alten Fassungen gesperrt. Jede Etappe hat weiter mindestens 3 freie Übungen je Stufe. 42 Befunde nicht umgesetzt (begründet), Liste „für Sebastian“ in inhalte/postfach/befunde.md.
+- **Vierzehnte Runde:** Vertiefungen gekennzeichnet (geometrie.winkel: kreuzung; abbildungen.kongruenz: verschiebung, drehung, parkett; raum.schraegbilder: lage, koordinaten).
+  Neuer Flug „Winkelsätze“ (Thema 98, Einheit 92, Addis Abeba, 8 Etappen, 224 Aufgaben) als ENTWURF importiert – Freigabe durch Sebastian offen.
+  inhalte/themenliste.json: 4 Themen ergänzt, lehrplan_gym gefüllt, neues Feld reihenfolge (nur Gymnasium).
+- **Korrektur zu D2:** Die Zuordnung Thema ↔ Ort steht zusätzlich in schule.block_thema; das hatten Teil 1 und 2 nicht mitgezogen (drei Themen wichen etwa 7 Stunden ab).
+  Nachgezogen mit supabase/migrations/20261116_w150_d2_teil3_block_thema.sql; Prüfung danach: 0 Abweichungen. Dazu 20261116_w150_d2_thema_winkelsaetze.sql (Themen-Eintrag 98).
+- Bau-Auftrag Phase 2 und 3 kann starten (Schritt A = N1–N8).

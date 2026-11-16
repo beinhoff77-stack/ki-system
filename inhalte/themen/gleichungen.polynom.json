@@ -3121,7 +3121,7 @@
    "l": "vielfachheit",
    "t": "vielfachheit",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "f(x) = (x + 2)² · (x − 2)³. Wechselt f bei x = 2 das Vorzeichen?"
@@ -3790,7 +3790,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Jemand löst x³ = 4x, indem er durch x teilt, und erhält x = ±2. Was stimmt?"

@@ -510,6 +510,18 @@ def schwer():
     return N
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('gleichungen.polynom', 13_10_2)
+# a) gleicher Typ wie Stufe 2
+BF.stufe('verstehen', 'Jemand löst x³ = 4x, indem er durch x teilt, und erhält x = ±2. Was stimmt?', 2)
+BF.stufe('vielfachheit', 'f(x) = (x + 2)² · (x − 2)³. Wechselt f bei x = 2 das Vorzeichen?', 2)
+BF.nicht_umgesetzt('vielfachheit: Ablenker „Nein, die Nullstelle ist 3-fach (ungerade)“ in sich widersprüchlich', 'Laut Befund kein Fehler; als Ablenker zulässig (prüft, ob man „ungerade ⇒ Wechsel“ kennt).')
+BF.nicht_umgesetzt('Lückenaufgaben „x₁ = □; x₂ = □ …“ verraten die Zahl der Lösungen', 'Steht bereits unter „offen“; Runde 10 fragt die Anzahl teils als Zahl ab. Ein Umbau aller Lückenaufgaben wäre keine Einzelkorrektur.')
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     datei = bauen('gleichungen.polynom',
           'Gleichungen höheren Grades durch Ausklammern, Satz vom Nullprodukt oder Substitution lösen und Nullstellen mit Vielfachheit deuten.',
@@ -524,3 +536,4 @@ if __name__ == '__main__':
                  'Rechenausdruck c bei Lücken: „x + f(x)“ – ergibt nur dann x, wenn f(x) = 0, prüft also jede Lösung durch Einsetzen.',
                  'Prüfung eingearbeitet (Runde 3): Substitution mit nicht ganzzahligen Lösungen (zahl, Toleranz 0,01), Vorzeichenwechsel in Stufe 3/Korrektur/Sicherung ohne Grafik und Ja/Nein ausgewogen, Sachaufgaben (Quader, Schachtel aus Karton) in „verstehen“ Stufe 3.'])
     ergaenzen(datei, schwer())
+    befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

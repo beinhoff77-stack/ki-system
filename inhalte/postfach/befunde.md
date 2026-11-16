@@ -2,6 +2,12 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 05:53 – STATUS
+gleichungen.polynom fertig: umgestuft 2 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 2. Prüfskript OK, Nachweis OK.
+- nicht umgesetzt:
+  - vielfachheit: Ablenker „Nein, die Nullstelle ist 3-fach (ungerade)“ in sich widersprüchlich – Laut Befund kein Fehler; als Ablenker zulässig (prüft, ob man „ungerade ⇒ Wechsel“ kennt).
+  - Lückenaufgaben „x₁ = □; x₂ = □ …“ verraten die Zahl der Lösungen – Steht bereits unter „offen“; Runde 10 fragt die Anzahl teils als Zahl ab. Ein Umbau aller Lückenaufgaben wäre keine Einzelkorrektur.
+
 ## 2026-11-16 05:52 – STATUS
 gleichungen.exponential fertig: umgestuft 8 / berichtigt 0 / ersetzt 4 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):

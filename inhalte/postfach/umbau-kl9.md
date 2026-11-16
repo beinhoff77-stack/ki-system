@@ -28,7 +28,7 @@ Neueste Meldung oben.
 - Gerendert mit `lernErklaerung` aus lernen.js (Playwright, 820 px): alle 87 Karten ohne JS-Fehler, Stichproben angesehen. Kein fehlendes Kartenbild, darum kein Eintrag unter „offen“.
 - Ohne fehler_bild bleiben Karten, deren Fehler ein Rechen-, Vorzeichen- oder Deutungsfehler ist, den ein Bild nicht zeigt (Einzelheiten in den STATUS-Meldungen).
 - Situationen je Thema: Teppich/Würfel, Beete, Bakterien, Fliesen/Gemüsebeet, Zahlenautomat, Kiosk/Bonbons, Skaterbahn/Springbrunnen, Rechenmaschine, Schattenspiel/Foto, Beet/Leiter/Schachtel, Rampe, Uhrzeiger/Wanderung, Riesenrad, Schulfest. Alle Zahlen nachgerechnet.
-- Annahmen: Sätze ≤ 15 Wörter, weil das Prüfskript die kleinste Klassenstufe aus `klasse` nimmt (bei diesen Themen ≤ 6). Beispiele der Karten teils angepasst, damit Bild und Beispiel zusammenpassen (z. B. ∛8 statt ∛64, Einheitskreis-Schritte); die Aufgaben sind davon nicht berührt.
+- Annahmen: Sätze ≤ 15 Wörter, weil das Prüfskript den kleinsten Wert aus `klasse` nimmt – hier die IB-MYP-Stufe 3 oder 4, nicht Klasse 9. Vermutlich unbeabsichtigt (App-Wunsch: gym_by maßgeblich machen); kürzere Sätze schaden aber nicht. Beispiele der Karten teils angepasst, damit Bild und Beispiel zusammenpassen (z. B. ∛8 statt ∛64, Einheitskreis-Schritte); die Aufgaben sind davon nicht berührt.
 - Hinweis: Laut AUFTRAEGE.md sollte U9 erst nach dem Test mit den Kindern starten; Sebastian hat das Paket direkt beauftragt.
 - Offene Fragen: keine. Kein Merge.
 

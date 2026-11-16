@@ -7,6 +7,9 @@ Prüfung je Thema: Generator neu ausgeführt, Aufgaben mit einem Vergleichsskrip
 
 ## Status
 
+## 2026-11-16 03:40 – STATUS
+geometrie.kreis fertig: 6 Karten (Freilichtbühne mit Halbkreis-Plätzen für Thales, Geodreieck zwischen zwei Nägeln für die Umkehrung, Messen mit Geometrieprogramm vs. Beweis, Ball an der Pfütze für Passante/Tangente/Sekante, Fahrrad auf der Straße für den Berührradius, Treffpunkt dreier Freunde für den Umkreis). Aufgaben: 144, 0 Unterschiede. inhalt_pruefen: OK.
+
 ## 2026-11-16 03:20 – STATUS
 geometrie.konstruktion fertig: 7 Karten (Stadtplan mit parallelen Straßen, Giebel eines Gartenhauses, Dreiecke aus Holzleisten am Telefon, Drachen/Scherengitter, Regen und nasse Straße). Fachlich präzisiert: Drachenviereck – gleich sind die beiden Winkel, die nicht auf der Symmetrieachse liegen (vorher missverständlich „neben der Symmetrieachse“). Aufgaben: 168, 0 Unterschiede. inhalt_pruefen: OK.
 

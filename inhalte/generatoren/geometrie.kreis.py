@@ -348,6 +348,82 @@ def g_beweis(R, st):
 
 GEN = {'thales': g_thales, 'umkehrung': g_umkehrung, 'tangente': g_tangente, 'umkreis_inkreis': g_umkreis_inkreis, 'lage': g_lage, 'beweis': g_beweis}
 
+# Verständliche Fassung (Runde 7, Maßstab inhalte/README.md „Verständliche Erklärungen“):
+# Alltagssituation zuerst (einstieg), jedes neue Wort erklärt (woerter), Beispiel in kleinen Schritten, Merksatz am Ende (regel).
+# Situationen: Freilichtbühne, Geodreieck zwischen zwei Nägeln, Messen mit einem Geometrieprogramm, Ball und Pfütze, Fahrrad auf der Straße, Treffpunkt dreier Freunde.
+KLAR = {
+ 'thales': {
+  'einstieg': 'Eine Freilichtbühne hat vorne eine gerade Bühnenkante. Die Zuschauerplätze stehen auf einem Halbkreis, dessen Durchmesser genau diese Kante ist. Von jedem dieser Plätze aus sieht man die beiden Enden der Bühne unter demselben Winkel: genau 90°. Der Überlieferung nach kannte das schon der griechische Mathematiker Thales – darum heißt es ⟦Satz des Thales⟧.',
+  'woerter': [['Kreis mit Mittelpunkt M', 'alle Punkte, die vom Mittelpunkt M gleich weit entfernt sind'], ['Radius r', 'der Abstand vom Mittelpunkt bis zum Kreisrand'],
+              ['Durchmesser', 'Strecke durch den Mittelpunkt von Rand zu Rand; doppelt so lang wie der Radius'],
+              ['Sehne', 'Strecke zwischen zwei Punkten auf dem Kreis; der Durchmesser ist die längste Sehne'],
+              ['rechter Winkel', 'ein Winkel von 90°, wie eine Zimmerecke'], ['Thaleskreis', 'der Kreis über einer Strecke [AB], bei dem [AB] der Durchmesser ist']],
+  'schritte': ['[AB] ist ein Durchmesser des Kreises, C liegt auf dem Kreis. Bei A ist α = 35°.',
+               'Nach dem Satz des Thales hat das Dreieck bei C einen rechten Winkel: γ = 90°.',
+               'Die drei Winkel ergeben zusammen 180°. Also ist β = 180° − 90° − 35°.',
+               'Ausrechnen: ⟦β = 55°⟧.'],
+  'regel': 'So nutzt du den ⟦Satz des Thales⟧: Liegt C auf einem Kreis und ist [AB] ein ⟦Durchmesser⟧, dann hat das Dreieck ABC bei C einen ⟦rechten Winkel⟧. Den Kreis nennt man ⟦Thaleskreis⟧.',
+  'fehler': 'Ist [AB] nur eine Sehne und ⟦kein Durchmesser⟧, gilt der Satz nicht – γ ist dann im Allgemeinen kein rechter Winkel. Bei der Bühne hieße das: Die Plätze stehen auf einem Bogen, dessen Durchmesser nicht die Bühnenkante ist, und man sieht die Bühne unter einem anderen Winkel.'},
+ 'umkehrung': {
+  'einstieg': 'Leg ein Geodreieck mit der rechtwinkligen Ecke nach oben so zwischen zwei Nägel, dass jede der beiden kurzen Kanten an einem Nagel anliegt. Schiebst du es hin und her, wandert die Ecke auf einem Halbkreis. Dass ein Punkt mit rechtem Winkel immer auf so einem Kreis liegt, ist die ⟦Umkehrung des Satzes des Thales⟧.',
+  'woerter': [['Umkehrung', 'der Satz andersherum: aus dem rechten Winkel folgt, dass C auf dem Kreis liegt'], ['∠ACB', 'der Winkel bei C zwischen den Seiten zu A und zu B'],
+              ['Hypotenuse', 'im rechtwinkligen Dreieck die längste Seite; sie liegt dem rechten Winkel gegenüber'], ['A(−2 | 1)', 'Punkt A mit x-Koordinate −2 und y-Koordinate 1']],
+  'schritte': ['Gegeben sind A(−2 | 1) und B(6 | 1), und bei C ist ein rechter Winkel: ∠ACB = 90°.',
+               'Nach der Umkehrung liegt C auf dem Kreis mit dem Durchmesser [AB]. Sein Mittelpunkt ist die Mitte von [AB].',
+               'Die Mitte findest du, indem du die beiden x-Werte addierst und halbierst: (−2 + 6) : 2 = 2. Der y-Wert bleibt 1, also M(2 | 1).',
+               '[AB] reicht von x = −2 bis x = 6 und ist damit 8 lang. Der Radius ist die Hälfte: ⟦r = 4⟧.'],
+  'regel': 'So findest du den Kreis zu einem rechten Winkel: Hat das Dreieck ABC bei C einen ⟦rechten Winkel⟧, dann liegt C auf dem Kreis mit dem ⟦Durchmesser [AB]⟧. Der Mittelpunkt ist die ⟦Mitte von [AB]⟧, der Radius die halbe Länge von [AB].',
+  'fehler': 'Der Mittelpunkt des Thaleskreises ist nicht C, sondern die ⟦Mitte der Hypotenuse⟧ [AB]. Beim Geodreieck zwischen den Nägeln sieht man es: Die Ecke wandert, der Mittelpunkt bleibt fest genau zwischen den beiden Nägeln.'},
+ 'beweis': {
+  'einstieg': 'Miss mit einem Geometrieprogramm zehn verschiedene Dreiecke auf dem Halbkreis: Jedes Mal zeigt es bei C 90°. Das ist ein guter Hinweis, aber noch keine Sicherheit – vielleicht gibt es ein Dreieck, das du nicht gemessen hast. Eine Begründung, die für alle Fälle gleichzeitig gilt, heißt ⟦Beweis⟧.',
+  'woerter': [['Vermutung', 'eine Aussage, die nach Beispielen stimmt, aber noch nicht begründet ist'], ['Beweis', 'eine Begründung aus bekannten Regeln, die für alle Fälle gilt'],
+              ['gleichschenkliges Dreieck', 'Dreieck mit zwei gleich langen Seiten; die Winkel an der dritten Seite sind gleich groß'],
+              ['MA = MC', 'die Strecken von M nach A und von M nach C sind gleich lang (beides Radien)'], ['Winkelsumme', 'die drei Winkel eines Dreiecks ergeben zusammen 180°'], ['∠ACM', 'der Winkel bei C zwischen den Strecken zu A und zu M']],
+  'schritte': ['M ist der Mittelpunkt des Kreises. MA, MB und MC sind Radien, also gleich lang.',
+               'Darum ist das Dreieck AMC gleichschenklig: Der Winkel ∠ACM ist so groß wie α. Genauso ist im Dreieck BMC der Winkel ∠BCM so groß wie β.',
+               'Der ganze Winkel bei C besteht aus diesen beiden Teilen: γ = α + β.',
+               'Winkelsumme im Dreieck ABC: α + β + γ = 180°, also γ + γ = 180°. Damit ist ⟦γ = 90°⟧.'],
+  'regel': 'So unterscheidest du: Messungen führen zu ⟦Vermutungen⟧. Ein ⟦Beweis⟧ zeigt mit Begründungen, dass eine Aussage ⟦immer⟧ gilt. Beim Thalessatz liefern die gleich langen Radien zwei ⟦gleichschenklige Dreiecke⟧ – daraus folgt γ = 90°.',
+  'fehler': 'Hundert gemessene Beispiele mit 90° sind ⟦kein Beweis⟧. Sie zeigen nur, dass die Aussage für diese hundert Dreiecke stimmt – so wie hundert weiße Schwäne nicht beweisen, dass alle Schwäne weiß sind.'},
+ 'lage': {
+  'einstieg': 'Ein Ball rollt geradeaus an einer runden Pfütze vorbei. Er kann sie verfehlen, sie gerade so am Rand streifen oder mitten hindurchrollen. Bei einem Kreis und einer Geraden gibt es genau diese drei Möglichkeiten. Sie heißen ⟦Passante⟧, ⟦Tangente⟧ und ⟦Sekante⟧.',
+  'woerter': [['Abstand d', 'die kürzeste Entfernung vom Mittelpunkt M zur Geraden, senkrecht gemessen'], ['Passante', 'Gerade, die am Kreis vorbeigeht (kein gemeinsamer Punkt)'],
+              ['Tangente', 'Gerade, die den Kreis in genau einem Punkt berührt'], ['Sekante', 'Gerade, die den Kreis in zwei Punkten schneidet'],
+              ['d > r, d = r, d < r', 'd größer als r, d gleich r, d kleiner als r']],
+  'schritte': ['Der Kreis hat den Radius r = 4 cm. Die Gerade ist vom Mittelpunkt d = 3 cm entfernt.',
+               'Vergleiche d mit r: 3 cm ist kleiner als 4 cm.',
+               'Die Gerade kommt dem Mittelpunkt also näher als der Kreisrand. Sie muss durch den Kreis hindurchgehen.',
+               'Sie schneidet den Kreis zweimal und ist eine ⟦Sekante⟧.'],
+  'regel': 'So bestimmst du die Lage: Vergleiche den Abstand d der Geraden vom Mittelpunkt mit dem Radius r. ⟦d > r⟧: Passante (kein Punkt). ⟦d = r⟧: Tangente (ein Punkt). ⟦d < r⟧: Sekante (zwei Punkte).',
+  'fehler': 'Eine Gerade mit d = r schneidet den Kreis nicht zweimal. Sie ⟦berührt⟧ ihn nur in einem Punkt – wie der Ball, der die Pfütze gerade so am Rand streift.'},
+ 'tangente': {
+  'einstieg': 'Ein Fahrrad steht auf der Straße. Das Rad ist ein Kreis, die Straße eine Gerade, die es genau an einer Stelle berührt. Die Speiche, die von der Nabe senkrecht nach unten zu dieser Stelle zeigt, steht im rechten Winkel auf der Straße. So eine Berührgerade heißt ⟦Tangente⟧.',
+  'woerter': [['Berührpunkt B', 'die einzige Stelle, an der Tangente und Kreis sich treffen'], ['Berührradius [MB]', 'der Radius vom Mittelpunkt zum Berührpunkt – wie die senkrechte Speiche'],
+              ['φ', 'Phi, griechischer Buchstabe als Name für einen Winkel'], ["B'", 'ein zweiter Berührpunkt']],
+  'schritte': ["Von einem Punkt P außerhalb des Kreises gehen zwei Tangenten aus. Sie berühren den Kreis in B und B' und bilden bei P den Winkel φ = 50°.",
+               "Betrachte das Viereck MBPB'. Bei B und bei B' steht die Tangente senkrecht auf dem Radius: Das sind zwei rechte Winkel.",
+               'Die Winkel im Viereck ergeben zusammen 360°. Für den Winkel bei M bleibt: 360° − 90° − 90° − 50°.',
+               "Ausrechnen: ∠BMB' = ⟦130°⟧."],
+  'regel': 'So nutzt du Tangenten: Eine ⟦Tangente⟧ berührt den Kreis in genau einem Punkt B und steht ⟦senkrecht⟧ auf dem Berührradius [MB]. Von einem Punkt P außerhalb gibt es ⟦zwei⟧ Tangenten; von P bis zu den Berührpunkten sind sie gleich lang.',
+  'fehler': 'Der Winkel zwischen Tangente und Berührradius ist nicht irgendein spitzer Winkel: Er ist ⟦immer 90°⟧ – genau wie bei der Speiche, die senkrecht auf die Straße zeigt.'},
+ 'umkreis_inkreis': {
+  'einstieg': 'Drei Freunde wohnen an drei verschiedenen Orten und suchen einen Treffpunkt, der von allen drei Häusern gleich weit entfernt ist. Zeichnet man um diesen Treffpunkt einen Kreis, geht er durch alle drei Häuser. Der Kreis durch die drei Ecken eines Dreiecks heißt ⟦Umkreis⟧.',
+  'woerter': [['Umkreis', 'Kreis, der durch alle drei Ecken des Dreiecks geht'],
+              ['Mittelsenkrechte', 'Gerade, die eine Seite in ihrer Mitte senkrecht schneidet; jeder ihrer Punkte ist von beiden Enden der Seite gleich weit weg'],
+              ['Inkreis', 'Kreis innen im Dreieck, der alle drei Seiten berührt'],
+              ['Winkelhalbierende', 'Gerade, die einen Winkel in zwei gleich große Hälften teilt; jeder ihrer Punkte ist von beiden Schenkeln gleich weit weg'],
+              ['Schnittpunkt', 'der Punkt, in dem sich Linien treffen']],
+  'schritte': ['Das Dreieck hat bei C einen rechten Winkel: γ = 90°.',
+               'Nach dem Satz des Thales liegt C dann auf dem Kreis mit dem Durchmesser [AB]. A und B liegen ohnehin darauf.',
+               'Dieser Kreis geht also durch alle drei Ecken: Er ist der Umkreis.',
+               'Sein Mittelpunkt ist die ⟦Mitte der Seite [AB]⟧. Mittelsenkrechten muss man hier nicht zeichnen.'],
+  'regel': 'So findest du die Mittelpunkte: Den ⟦Umkreismittelpunkt⟧ liefert der Schnittpunkt der ⟦Mittelsenkrechten⟧ – er ist von allen Ecken gleich weit weg. Den ⟦Inkreismittelpunkt⟧ liefert der Schnittpunkt der ⟦Winkelhalbierenden⟧ – er ist von allen Seiten gleich weit weg.',
+  'fehler': 'Der Inkreismittelpunkt entsteht nicht aus den Mittelsenkrechten. Er muss von den ⟦Seiten⟧ gleich weit weg sein, nicht von den Ecken – dafür braucht man die ⟦Winkelhalbierenden⟧. Beim Treffpunkt der Freunde zählen die Häuser (Ecken), beim Inkreis wären es drei gerade Zäune (Seiten).'},
+}
+for _e in ETAPPEN:
+    _e.update(KLAR.get(_e['lernziel'], {}))
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Satz des Thales', ['thales', 'umkehrung', 'beweis']), ('Tangenten', ['lage', 'tangente']), ('Besondere Kreise', ['umkreis_inkreis'])],

@@ -178,7 +178,7 @@ UMBAU = {
   'bild': {'typ': 'koordinaten', 'x': [-2, 2], 'y': [-3, 3], 'graphen': [_G(2, 'y = x²'), _G(3, 'y = x³')]},
   'schritte': [{'text': 'Gerader Exponent: von links oben nach rechts oben, wie y = x².'},
                {'text': 'Ungerader Exponent: von links unten nach rechts oben, wie y = x³.'},
-               {'text': 'Bei y = −x⁵ wird y = x⁵ an der x-Achse spiegeln.',
+               {'text': 'Das Minus in y = −x⁵ heißt: y = x⁵ an der x-Achse spiegeln.',
                 'bild': {'graphen': [_G(5, 'y = x⁵'), _G(5, 'y = −x⁵', -1)]}},
                {'text': 'Also verläuft y = −x⁵ ⟦von links oben nach rechts unten⟧.'}],
   'fehler': 'Nicht alle y = xⁿ gehen durch (−1 | 1). Bei ungeradem n ist (−1)ⁿ = −1.',

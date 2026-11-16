@@ -534,8 +534,121 @@ def g_anwendung(s):
 GEN = {'hypotenuse': g_hypotenuse, 'kathete': g_kathete, 'umkehrung': g_umkehrung, 'koordinaten': g_koordinaten,
        'raum': g_raum, 'anwendung': g_anwendung}
 
+# ---------- Zehnte Runde (schwer-kl9): schwerere Übungen nach Prüfungsvorbild ----------
+# Eigener Abschnitt mit eigenem festen Zufallsstart (anhaengen(..., 9910, ...)), läuft erst nach bauen():
+# alle bisherigen Aufgaben bleiben unverändert. Vorbilder: Bayerischer Mathematik-Test 10 2009 (Strecke der Länge √n
+# mit Pythagoras), Illustrierende Aufgaben Realschule 9 (I) (Tangentenabschnitt am Kreis, Drahtmodell einer Pyramide,
+# Punkte mit Abstand 5 vom Ursprung), Abschlussprüfung Realschule Bayern Mathematik II 2024 (rechnerisch zeigen, dass ein
+# Dreieck rechtwinklig ist, und den rechten Winkel angeben), MSA Berlin/Brandenburg 2011 (Fähre). Zahlen und Wortlaut eigen.
+from _schwer_kl9 import anhaengen  # noqa: E402
+from _kl9 import K as _K  # noqa: E402
+
+
+def schwer():
+    P, Kn, O = 'pruefung', 'knobel', ''
+    zoll = (80 ** 2 + 45 ** 2) ** 0.5 / 2.54
+    return [
+        # hypotenuse
+        ('hypotenuse', 3, P, luecken('Ein rechtwinkliges Dreieck mit ganzzahligen Katheten (in cm) soll eine Hypotenuse der Länge √13 cm haben. Welche Katheten passen?', '□ cm und □ cm',
+                                     'kleinere Kathete zuerst', [2, 3], 'c² = 13 = 4 + 9 = 2² + 3². Also Katheten 2 cm und 3 cm.',
+                                     'Zerlege 13 in eine Summe von zwei Quadratzahlen.', ['2', '3'])),
+        ('hypotenuse', 3, P, zahl('Ein Fernseher hat ein 80 cm breites und 45 cm hohes Bild. Die Größe wird als Bilddiagonale in Zoll angegeben (1 Zoll = 2,54 cm). Wie viele Zoll sind es? Runde auf ganze Zoll.',
+                                  'd = √(80² + 45²) = √8 425 ≈ 91,8 cm. 91,8 : 2,54 ≈ 36 Zoll.', 'Erst die Diagonale in cm, dann in Zoll umrechnen.', round(zoll), f'round({_K(zoll)}, 0)',
+                                  einheit='Zoll')),
+        ('hypotenuse', 3, Kn, zahl('In einem rechtwinkligen Dreieck stehen die Katheten im Verhältnis 3 : 4. Die Hypotenuse ist 35 cm lang. Wie lang ist die kürzere Kathete?',
+                                   'Katheten 3k und 4k: (3k)² + (4k)² = 25k², Hypotenuse 5k = 35 ⇒ k = 7. Kürzere Kathete 3 · 7 = 21 cm.',
+                                   'Setze die Katheten als 3k und 4k an. Was ergibt sich für die Hypotenuse?', 21, '3 * 35 / 5', einheit='cm')),
+        ('hypotenuse', 3, O, zahl('Ein Rechteck hat 34 cm Umfang, eine Seite ist 5 cm lang. Wie lang ist die Diagonale?', 'Andere Seite: 34 : 2 − 5 = 12 cm. d = √(25 + 144) = √169 = 13 cm.',
+                                  'Bestimme zuerst die zweite Seite aus dem Umfang.', 13, '(5 ** 2 + 12 ** 2) / 13', einheit='cm')),
+        ('hypotenuse', 2, O, zahl('Ein rechtwinkliges Dreieck hat die Katheten 0,9 m und 1,2 m. Wie lang ist die Hypotenuse?', 'c² = 0,81 + 1,44 = 2,25, c = 1,5 m.',
+                                  'Quadriere die Kommazahlen sorgfältig.', 1.5, '(0.81 + 1.44) / 1.5', einheit='m')),
+        ('hypotenuse', 2, O, zahl('Ein rechtwinkliges Dreieck hat die Katheten 33 cm und 56 cm. Wie lang ist die Hypotenuse?', 'c² = 1 089 + 3 136 = 4 225, c = 65 cm.',
+                                  'Quadrate addieren, dann Wurzel ziehen.', 65, '(33 ** 2 + 56 ** 2) / 65', einheit='cm')),
+        # kathete
+        ('kathete', 3, P, zahl('Ein Punkt P ist 25 cm vom Mittelpunkt M eines Kreises mit r = 7 cm entfernt. Von P aus verläuft eine Tangente, die den Kreis in B berührt. Wie lang ist PB?',
+                               'Der Radius MB steht senkrecht auf der Tangente. Im Dreieck MBP ist PM die Hypotenuse: PB² = 25² − 7² = 576, PB = 24 cm.',
+                               'Wo ist der rechte Winkel? Der Radius zum Berührpunkt steht senkrecht auf der Tangente.', 24, '(25 ** 2 - 7 ** 2) / 24', einheit='cm')),
+        ('kathete', 3, P, zahl('Ein gleichschenkliges Dreieck hat die Basis 16 cm und zwei Schenkel von je 17 cm. Wie groß ist sein Flächeninhalt?',
+                               'Die Höhe halbiert die Basis: h² = 17² − 8² = 289 − 64 = 225, h = 15 cm. A = 16 · 15 : 2 = 120 cm².',
+                               'Zeichne die Höhe ein: Sie teilt das Dreieck in zwei rechtwinklige Dreiecke.', 120, '16 * 15 / 2', einheit='cm²')),
+        ('kathete', 3, Kn, zahl('Eine 2,5 m lange Leiter lehnt an einer Wand; ihr Fuß steht 0,7 m von der Wand. Der Fuß rutscht 0,8 m weiter weg. Um wie viele Meter sinkt die Oberkante?',
+                                'Vorher: h² = 6,25 − 0,49 = 5,76, h = 2,4 m. Nachher (Fuß 1,5 m): h² = 6,25 − 2,25 = 4, h = 2 m. Die Oberkante sinkt um 0,4 m.',
+                                'Rechne die Höhe vorher und nachher aus.', 0.4, '(5.76 / 2.4) - (4 / 2)', einheit='m')),
+        ('kathete', 3, O, zahl('Ein Rechteck hat eine 26 cm lange Diagonale und eine 10 cm lange Seite. Wie groß ist sein Flächeninhalt?', 'Andere Seite: √(676 − 100) = √576 = 24 cm. A = 10 · 24 = 240 cm².',
+                               'Die Diagonale ist die Hypotenuse.', 240, '10 * ((26 ** 2 - 10 ** 2) / 24)', einheit='cm²')),
+        ('kathete', 2, O, zahl('Hypotenuse 6,5 cm, eine Kathete 2,5 cm. Wie lang ist die andere Kathete?', 'a² = 42,25 − 6,25 = 36, a = 6 cm.', 'Bei der Kathete wird subtrahiert.', 6,
+                               '(6.5 ** 2 - 2.5 ** 2) / 6', einheit='cm')),
+        ('kathete', 2, O, zahl('Hypotenuse 41 cm, eine Kathete 9 cm. Wie lang ist die andere Kathete?', 'a² = 1 681 − 81 = 1 600, a = 40 cm.', 'c² − b², dann Wurzel.', 40,
+                               '(41 ** 2 - 9 ** 2) / 40', einheit='cm')),
+        # umkehrung
+        ('umkehrung', 3, P, auswahl('Gegeben ist das Dreieck mit A(0 | 0), B(6 | 2) und C(4 | 8). Ist es rechtwinklig? Wenn ja: Wo liegt der rechte Winkel?', 'Ja, bei B.',
+                                    ['Ja, bei A.', 'Ja, bei C.', 'Nein.'],
+                                    'AB² = 36 + 4 = 40, BC² = 4 + 36 = 40, AC² = 16 + 64 = 80. 40 + 40 = 80: rechtwinklig, der rechte Winkel liegt gegenüber der längsten Seite AC, also bei B.',
+                                    'Berechne die drei Seitenquadrate mit Δx und Δy.')),
+        ('umkehrung', 3, P, auswahl('Ein Dreieck hat die Seiten 15 cm, 36 cm und 39 cm. Welche Begründung zeigt, dass es rechtwinklig ist?', '15² + 36² = 225 + 1 296 = 1 521 = 39²',
+                                    ['15 + 36 > 39', 'Alle drei Zahlen sind durch 3 teilbar.', '39 − 36 = 15 − 12'],
+                                    'Nach der Umkehrung des Satzes von Pythagoras genügt: Die Quadrate der beiden kürzeren Seiten ergeben zusammen das Quadrat der längsten.',
+                                    'Welche Bedingung prüft man mit der Umkehrung des Pythagoras?')),
+        ('umkehrung', 3, Kn, zahl('Wie viele rechtwinklige Dreiecke mit ganzzahligen Seiten gibt es, bei denen eine Kathete genau 5 cm lang ist?',
+                                  'Mit der zweiten Kathete b und Hypotenuse c: 25 = c² − b² = (c − b)(c + b). Nur 1 · 25 passt (c > b): c − b = 1, c + b = 25 ⇒ b = 12, c = 13. Genau ein Dreieck (5, 12, 13).',
+                                  'Schreibe 5² = c² − b² als Produkt (c − b)(c + b) und probiere die Teiler von 25.', 1, '(25 - 1) // 24')),
+        ('umkehrung', 3, O, auswahl('Ist das Dreieck mit den Seiten 2,5 cm, 6 cm und 6,5 cm rechtwinklig?', 'Ja, der rechte Winkel liegt gegenüber der 6,5-cm-Seite.',
+                                    ['Nein, 2,5² + 6² ≠ 6,5².', 'Ja, der rechte Winkel liegt gegenüber der 6-cm-Seite.', 'Das kann man nur durch Messen entscheiden.'],
+                                    '2,5² + 6² = 6,25 + 36 = 42,25 = 6,5². Der rechte Winkel liegt gegenüber der längsten Seite.', 'Rechne die Quadrate mit Kommazahlen aus.')),
+        ('umkehrung', 2, O, auswahl('Ist ein Dreieck mit den Seiten 8 cm, 15 cm und 17 cm rechtwinklig?', 'Ja, denn 8² + 15² = 289 = 17².', ['Nein, denn 8 + 15 ≠ 17.', 'Nein, denn 8² + 17² ≠ 15².'],
+                                    '64 + 225 = 289 = 17².', 'Vergleiche mit dem Quadrat der längsten Seite.')),
+        ('umkehrung', 2, O, auswahl('Ist ein Dreieck mit den Seiten 6 cm, 7 cm und 9 cm rechtwinklig?', 'Nein, denn 6² + 7² = 85 ≠ 81 = 9².', ['Ja, denn 6 + 7 > 9.', 'Ja, denn 6² + 9² = 117 > 49.'],
+                                    '36 + 49 = 85 ≠ 81. Also nicht rechtwinklig.', 'Längste Seite ist 9 cm.')),
+        # koordinaten
+        ('koordinaten', 3, P, auswahl('Welcher Punkt hat vom Ursprung O(0 | 0) genau den Abstand 5?', '(3 | −4)', ['(2 | 3)', '(4 | 4)', '(5 | 5)'],
+                                      '3² + (−4)² = 9 + 16 = 25, also Abstand 5. (2 | 3): √13; (4 | 4): √32; (5 | 5): √50.', 'Rechne x² + y² und vergleiche mit 25.')),
+        ('koordinaten', 3, P, zahl('Ein Dreieck hat die Ecken A(−2 | 1), B(4 | 1) und C(1 | 5). Welchen Umfang hat es (Einheit 1 cm)?',
+                                   'AB = 6 (waagrecht). AC = √(3² + 4²) = 5, BC = √(3² + 4²) = 5. Umfang 6 + 5 + 5 = 16 cm.', 'Jede Seite einzeln mit Δx und Δy berechnen.', 16, '6 + 5 + 5',
+                                   einheit='cm')),
+        ('koordinaten', 3, Kn, zahl('Wie viele Punkte mit ganzzahligen Koordinaten haben vom Ursprung genau den Abstand 5?',
+                                    'x² + y² = 25: (±5 | 0), (0 | ±5) sind 4 Punkte; (±3 | ±4) und (±4 | ±3) sind 8 Punkte. Zusammen 12.',
+                                    'Zerlege 25 in zwei Quadratzahlen und denke an alle Vorzeichen.', 12, '4 + 8')),
+        ('koordinaten', 3, O, zahl('Der Punkt P(2 | y) ist 10 Einheiten von Q(−4 | 3) entfernt, und y > 3. Bestimme y.', 'Δx = 6. Δy² = 100 − 36 = 64, Δy = 8. y = 3 + 8 = 11.',
+                                   'Stelle die Abstandsformel mit Δy als Unbekannter auf.', 11, '3 + 8')),
+        ('koordinaten', 2, O, zahl('Berechne den Abstand von A(−1 | −1) und B(5 | 7).', 'Δx = 6, Δy = 8, d = √(36 + 64) = 10.', 'Δx und Δy, dann Pythagoras.', 10, '(36 + 64) / 10')),
+        ('koordinaten', 2, O, zahl('Berechne den Abstand von O(0 | 0) und Q(5 | 12).', 'd = √(25 + 144) = √169 = 13.', 'Pythagoras mit den Koordinaten als Katheten.', 13, '(25 + 144) / 13')),
+        # raum
+        ('raum', 3, P, auswahl('Aus Draht soll ein Kantenmodell einer quadratischen Pyramide gebaut werden: Grundkante 6 cm, Höhe 4 cm. Reichen 45 cm Draht?', 'Nein, man braucht etwa 47,3 cm.',
+                               ['Ja, man braucht nur 40 cm (4 · 6 + 4 · 4).', 'Ja, man braucht etwa 44 cm.', 'Nein, man braucht etwa 58 cm.'],
+                               'Halbe Grunddiagonale: √(3² + 3²) = √18. Seitenkante: √(18 + 16) = √34 ≈ 5,83 cm. Draht: 4 · 6 + 4 · 5,83 ≈ 47,3 cm > 45 cm. Falle: Die Höhe ist keine Kante.',
+                               'Die Seitenkanten sind länger als die Höhe. Finde ein rechtwinkliges Dreieck mit Höhe und halber Diagonale.')),
+        ('raum', 3, P, zahl('Ein Quader ist 12 cm lang, 4 cm breit und 3 cm hoch. Wie lang ist seine Raumdiagonale?', 'd² = 144 + 16 + 9 = 169, d = 13 cm.',
+                            'Erst die Bodendiagonale, dann mit der Höhe.', 13, '(144 + 16 + 9) / 13', einheit='cm')),
+        ('raum', 3, Kn, zahl('Eine Ameise läuft auf der Oberfläche eines Würfels (Kante 10 cm) von einer Ecke zur gegenüberliegenden Ecke. Wie lang ist der kürzeste Weg? Runde auf eine Nachkommastelle.',
+                             'Klappe zwei Seitenflächen in eine Ebene: Es entsteht ein Rechteck 20 cm × 10 cm. Kürzester Weg = Diagonale: √(400 + 100) = √500 ≈ 22,4 cm (kürzer als 10 + 14,1 über die Kante).',
+                             'Denke dir den Würfel aufgeklappt (Netz). Die Ameise läuft dann geradeaus.', round(500 ** 0.5, 1), f'round({_K(500 ** 0.5)}, 1)', einheit='cm')),
+        ('raum', 3, O, zahl('Ein zylinderförmiger Becher hat innen 6 cm Durchmesser und ist 8 cm hoch. Wie lang darf ein Strohhalm höchstens sein, damit er ganz im Becher liegt?',
+                            'Längste Strecke: vom Rand unten schräg zum gegenüberliegenden Rand oben: √(6² + 8²) = 10 cm.', 'Schneide den Becher in Gedanken senkrecht durch die Mitte.', 10,
+                            '(36 + 64) / 10', einheit='cm')),
+        ('raum', 2, O, zahl('Wie lang ist die Raumdiagonale eines Quaders mit 1 cm, 4 cm und 8 cm Kantenlänge?', 'd² = 1 + 16 + 64 = 81, d = 9 cm.', 'd² = a² + b² + c².', 9, '81 / 9',
+                            einheit='cm')),
+        ('raum', 2, O, zahl('Wie lang ist die Diagonale einer Würfelfläche bei 5 cm Kantenlänge? Runde auf zwei Nachkommastellen.', 'd = √(25 + 25) = √50 ≈ 7,07 cm.', 'Die Fläche ist ein Quadrat.',
+                            round(50 ** 0.5, 2), f'round({_K(50 ** 0.5)}, 2)', einheit='cm')),
+        # anwendung
+        ('anwendung', 3, P, zahl('Eine Fähre fährt quer über einen 300 m breiten Fluss und wird dabei 400 m flussabwärts getrieben. Wie lang ist ihr Weg (als gerade Strecke)?',
+                                 'Flussbreite und Abdrift stehen senkrecht: s = √(300² + 400²) = 500 m.', 'Skizze: Wo ist der rechte Winkel?', 500, '(300 ** 2 + 400 ** 2) / 500', einheit='m')),
+        ('anwendung', 3, P, zahl('In einem Kreis mit Radius 13 cm ist eine Sehne 24 cm lang. Wie weit ist sie vom Mittelpunkt entfernt?',
+                                 'Das Lot vom Mittelpunkt halbiert die Sehne: d² = 13² − 12² = 25, d = 5 cm.', 'Verbinde M mit einem Sehnenende. Halbe Sehne, Abstand und Radius bilden ein rechtwinkliges Dreieck.',
+                                 5, '(169 - 144) / 5', einheit='cm')),
+        ('anwendung', 3, Kn, zahl('Ein 10 m hoher Baum knickt bei einem Sturm. Die Spitze berührt 4 m vom Stamm entfernt den Boden; der stehende Teil ist senkrecht. In welcher Höhe ist der Baum geknickt?',
+                                  'Höhe h, abgeknickter Teil 10 − h: h² + 4² = (10 − h)² ⇒ 16 = 100 − 20h ⇒ h = 4,2 m.', 'Der umgeknickte Teil ist die Hypotenuse. Er ist 10 − h lang.', 4.2,
+                                  '(100 - 16) / 20', einheit='m')),
+        ('anwendung', 3, O, zahl('Eine Raute hat die Diagonalen 12 cm und 16 cm. Wie lang ist eine Seite?', 'Die Diagonalen halbieren sich senkrecht: s = √(6² + 8²) = 10 cm.',
+                                 'In der Raute stehen die Diagonalen senkrecht aufeinander und halbieren sich.', 10, '(36 + 64) / 10', einheit='cm')),
+        ('anwendung', 2, O, zahl('Eine 6,5 m lange Leiter steht unten 2,5 m von der Wand entfernt. Wie hoch reicht sie?', 'h² = 42,25 − 6,25 = 36, h = 6 m.', 'Die Leiter ist die Hypotenuse.', 6,
+                                 '(6.5 ** 2 - 2.5 ** 2) / 6', einheit='m')),
+        ('anwendung', 2, O, zahl('Ein Quadrat hat eine 10 cm lange Diagonale. Wie groß ist sein Flächeninhalt?', 'a² + a² = 100 ⇒ a² = 50. Der Flächeninhalt ist a² = 50 cm².',
+                                 'Du brauchst a² – nicht a selbst.', 50, '10 ** 2 / 2', einheit='cm²')),
+    ]
+
+
 if __name__ == '__main__':
-    bauen('trigo.pythagoras',
+    d = bauen('trigo.pythagoras',
           'Den Satz des Pythagoras und seine Umkehrung anwenden: Längen in der Ebene, im Raum und im Koordinatensystem berechnen.',
           ['Im rechtwinkligen Dreieck: a² + b² = c² (c = Hypotenuse, gegenüber dem rechten Winkel).', 'Kathete gesucht: a² = c² − b².',
            'Umkehrung: a² + b² = c² für die längste Seite ⇒ rechtwinklig.', 'Abstand: d = √(Δx² + Δy²); Raumdiagonale: √(a² + b² + c²).'],
@@ -547,3 +660,4 @@ if __name__ == '__main__':
                   'anwendung': ['5 m lange Leiter', 'Fuß steht 1,4 m']},
           offen=['Lernkarte „raum“: Das Bild ist ein mit „figur“ nachgebautes Schrägbild (echte Schrägbilder kann die App noch nicht); in den Aufgaben stehen die Quadermaße weiter in Worten.',
                  'Gerundete Ergebnisse: Der Wurzelwert steht als 12-stellige Konstante im Rechenausdruck c, weil das Prüfskript keine Wurzeln kennt.'])
+    anhaengen(d, 9910, schwer)

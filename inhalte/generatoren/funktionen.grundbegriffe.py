@@ -627,6 +627,181 @@ UMBAU_OFFEN = []
 baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
 
 
+# ---- SCHWER (Zehnte Runde: schwerere Aufgaben nach Prüfungsvorbild, siehe _schwer_kl8.py) ----
+# Vorbilder (Typ und Niveau, nicht Wortlaut/Zahlen): BMT8 2022/2025 (Tabellenkalkulations-Formel, Punkt vor Strich),
+# BMT8 2024 (Rückwärts: Zahl ersetzen, damit eine vorgegebene Lösung herauskommt), Schulaufgaben-Typ „Zuordnung begründen,
+# D und W im Sachzusammenhang, Achsenschnittpunkte, Punkt oberhalb/unterhalb“, Grundwissen 8 (Funktion ja/nein im Sachkontext).
+from _schwer_kl8 import Neu, mit_schwer  # noqa: E402
+
+N = Neu(10_8_1)
+_g = lambda **k: {'typ': 'koordinaten', **k}
+
+# eindeutig
+N.a('eindeutig', 2, 'Jeder natürlichen Zahl wird ihre Quersumme zugeordnet. Und umgekehrt: Jeder Quersumme wird eine Zahl mit dieser Quersumme zugeordnet. Welche Zuordnungen sind Funktionen?',
+    'Die erste ist eine Funktion, die zweite nicht.', ['Beide sind Funktionen.', 'Die zweite ist eine Funktion, die erste nicht.', 'Keine ist eine Funktion.'],
+    'Jede Zahl hat genau eine Quersumme (z. B. 23 ↦ 5). Zur Quersumme 5 passen aber 5, 14, 23, 50, … – also mehrere Zahlen. Nur die erste ist eine Funktion.',
+    'Suche für die Rückrichtung ein Beispiel: Gibt es zwei Zahlen mit derselben Quersumme?')
+N.a('eindeutig', 2, 'Die Tabelle zeigt die Temperatur an einem Tag. Zuordnung A: Uhrzeit ↦ Temperatur. Zuordnung B: Temperatur ↦ Uhrzeit. Welche ist eine Funktion?',
+    'nur A', ['nur B', 'beide', 'keine'],
+    'Zu jeder Uhrzeit gehört genau eine Temperatur: A ist eine Funktion. Die Temperatur 15 °C kommt um 10 Uhr und um 14 Uhr vor – B ordnet ihr zwei Uhrzeiten zu, B ist keine Funktion.',
+    'Prüfe bei B: Kommt eine Temperatur zweimal vor?',
+    grafik={'typ': 'tabelle', 'kopf': ['Uhrzeit', '8 Uhr', '10 Uhr', '12 Uhr', '14 Uhr'], 'zeilen': [['Temp.', '12 °C', '15 °C', '18 °C', '15 °C']]})
+N.a('eindeutig', 3, 'Ein Rennwagen fährt 3 Runden auf einem Rundkurs. Zuordnung A: Zeit seit dem Start ↦ Ort auf der Strecke. Zuordnung B: Ort auf der Strecke ↦ Geschwindigkeit. Welche Zuordnung ist sicher eine Funktion?',
+    'nur A', ['nur B', 'beide', 'keine'],
+    'Zu jedem Zeitpunkt ist der Wagen an genau einem Ort: A ist eine Funktion. An jedem Ort kommt er dreimal vorbei, meist mit verschiedener Geschwindigkeit – ein Ort hätte dann mehrere Werte. B ist nicht sicher eine Funktion.',
+    'Denke an einen festen Ort, z. B. die Startlinie: Wie oft fährt der Wagen dort vorbei?', art='P')
+N.a('eindeutig', 3, 'Mia behauptet: „Die Zuordnung x ↦ y mit y² = x ist eine Funktion. Denn zu x = 0 gehört nur y = 0.“ Was stimmt?',
+    'Falsch: Zu x = 4 gehören y = 2 und y = −2.', ['Richtig: Ein passendes Beispiel beweist die Aussage.', 'Richtig: Zu jedem y gehört genau ein x.',
+                                                    'Falsch: Eine Funktion darf nie den Wert 0 haben.'],
+    'Ein einziges Beispiel beweist nichts. Ein Gegenbeispiel widerlegt: 2² = 4 und (−2)² = 4. Also gehören zu x = 4 zwei Werte y. Die Zuordnung ist keine Funktion.',
+    'Suche ein x, zu dem zwei verschiedene y passen. Denke an negative Zahlen.', art='P')
+N.z('eindeutig', 3, 'Die Zuordnung besteht aus den Paaren (1 | 4), (3 | 7), (5 | 7) und (a | 2). Für wie viele der Zahlen a = 1, 2, 3, 4, 5 ist sie KEINE Funktion?',
+    3, '1 + 1 + 1',
+    'Keine Funktion, wenn a schon als x vorkommt und dort nicht 2 steht: a = 1 (4 und 2), a = 3 (7 und 2), a = 5 (7 und 2). Das sind 3 Werte. Dass zweimal 7 vorkommt, ist erlaubt.',
+    'Probiere jedes a: Kommt a schon als x-Wert vor? Gleiche y-Werte bei verschiedenen x stören nicht.', art='K')
+N.a('eindeutig', 3, 'Ist der gezeichnete Kreis der Graph einer Funktion?',
+    'Nein: Die senkrechte Linie x = 0 trifft ihn bei y = 3 und bei y = −3.', ['Ja: Der Kreis ist eine geschlossene Linie.', 'Ja: Zu jedem y gibt es höchstens zwei x.',
+                                                                            'Nein: Ein Graph muss immer eine Gerade sein.'],
+    'Prüfe mit senkrechten Linien. Die y-Achse (x = 0) schneidet den Kreis in (0 | 3) und (0 | −3). Zu x = 0 gehören also zwei Werte – keine Funktion.',
+    'Lege in Gedanken ein senkrechtes Lineal an. Wie oft trifft es den Kreis?', art='K',
+    grafik=_g(x=[-4, 4], y=[-4, 4], kreise=[{'m': [0, 0], 'r': 3}]))
+
+# mengen
+N.a('mengen', 2, 'Gib die maximale Definitionsmenge von f(x) = 6/(2x − 5) an.', 'D = ℚ \\ {2,5}', ['D = ℚ \\ {5}', 'D = ℚ \\ {−2,5}', 'D = ℚ \\ {0}'],
+    'Der Nenner darf nicht 0 sein: 2x − 5 = 0 ⇔ 2x = 5 ⇔ x = 2,5. Also D = ℚ \\ {2,5}.', 'Setze den Nenner gleich 0 und löse nach x auf.')
+N.a('mengen', 2, 'f(x) = 4 − x² mit D = ℚ. Welche Zahl ist KEIN Funktionswert von f?', '5', ['4', '0', '−5'],
+    'x² ist nie negativ. Also ist 4 − x² höchstens 4 (bei x = 0). 0 kommt bei x = 2 vor, −5 bei x = 3. Nur 5 ist zu groß.',
+    'Wie groß kann 4 − x² höchstens werden?')
+N.a('mengen', 3, 'Ein Becken mit 60 m³ wird von n gleich starken Pumpen gefüllt. Es dauert t(n) = 60/n Stunden. Es gibt höchstens 4 Pumpen. Welche Definitionsmenge ist hier sinnvoll?',
+    'D = {1; 2; 3; 4}', ['D = ℚ \\ {0}', 'D = {0; 1; 2; 3; 4}', 'D = ℚ⁺'],
+    'n zählt Pumpen: nur ganze Zahlen. Mit 0 Pumpen füllt sich nichts (und durch 0 teilt man nicht). Mehr als 4 gibt es nicht. Also D = {1; 2; 3; 4}.',
+    'Was kann n in der Wirklichkeit sein? Halbe Pumpen? Null Pumpen?', art='P')
+N.a('mengen', 3, 'Becken mit 60 m³, n Pumpen, Füllzeit t(n) = 60/n Stunden, D = {1; 2; 3; 4}. Gib die Wertemenge an.',
+    'W = {15; 20; 30; 60}', ['W = {1; 2; 3; 4}', 'W = {60; 120; 180; 240}', 'W = {0; 15; 20; 30; 60}'],
+    't(1) = 60, t(2) = 30, t(3) = 20, t(4) = 15. Die Wertemenge enthält alle Ergebnisse: W = {15; 20; 30; 60}.',
+    'Setze jede Zahl aus D ein. Teile, nicht malnehmen.', art='P')
+N.a('mengen', 3, 'Gib die maximale Definitionsmenge von f(x) = (x + 3)/(x² + 1) an.', 'D = ℚ', ['D = ℚ \\ {−3}', 'D = ℚ \\ {−1}', 'D = ℚ \\ {−1; 1}'],
+    'Nur der Nenner zählt. x² ist nie negativ, also ist x² + 1 immer mindestens 1 und nie 0. Man darf alles einsetzen: D = ℚ. Der Zähler darf 0 werden.',
+    'Kann x² + 1 überhaupt 0 werden? Der Zähler spielt für D keine Rolle.', art='K')
+N.z('mengen', 3, 'Die Funktion f(x) = 5/(x − a) hat die Definitionsmenge D = ℚ \\ {−4}. Bestimme a.', -4, '-4',
+    'Ausgeschlossen ist die Zahl, für die x − a = 0 ist, also x = a. Da −4 ausgeschlossen ist, gilt a = −4. Probe: Nenner x − (−4) = x + 4 wird bei x = −4 null.',
+    'Für welches x wird der Nenner x − a null? Rückwärts denken.', art='K')
+
+# funktionswert
+N.z('funktionswert', 2, 'Berechne f(−1,5) für f(x) = 2x² − x.', 6, '2 * (-1.5)**2 - (-1.5)',
+    'f(−1,5) = 2 · (−1,5)² − (−1,5) = 2 · 2,25 + 1,5 = 4,5 + 1,5 = 6.', 'Erst das Quadrat, dann mal 2. Minus eine negative Zahl wird plus.')
+N.z('funktionswert', 2, 'Berechne f(0,5) für f(x) = 4/x − 2x.', 7, '4 / 0.5 - 2 * 0.5',
+    'f(0,5) = 4 : 0,5 − 2 · 0,5 = 8 − 1 = 7.', 'Durch 0,5 teilen heißt verdoppeln.')
+N.z('funktionswert', 3, 'In einer Tabellenkalkulation steht in Zelle A1 die Zahl 3 und in A2 die Zahl −2. In B1 steht die Formel =A1*(A2+4)-A2. Welchen Wert zeigt B1?',
+    8, '3 * ((-2) + 4) - (-2)',
+    'Einsetzen: 3 · ((−2) + 4) − (−2) = 3 · 2 + 2 = 8. Erst die Klammer, dann mal, dann minus der negativen Zahl.',
+    'Ersetze A1 und A2 durch ihre Zahlen. Achte auf Klammern und auf „minus minus“.', art='P')
+N.a('funktionswert', 3, 'Eine Tabellenkalkulation soll f(x) = (x + 6) : 2 berechnen. x steht in Zelle A2. Welche Formel ist richtig?',
+    '=(A2+6)/2', ['=A2+6/2', '=A2+(6/2)', '=(A2+6)*2'],
+    'Punkt vor Strich: =A2+6/2 rechnet A2 + 3. Erst die Summe, dann teilen geht nur mit Klammer: =(A2+6)/2. Beispiel x = 4: (4 + 6) : 2 = 5, aber 4 + 6 : 2 = 7.',
+    'Teste mit einer Zahl, z. B. x = 4. Was rechnet der Computer zuerst?', art='P')
+N.z('funktionswert', 3, 'Für f(x) = x² − 3x gilt f(a) = f(a + 1). Bestimme a.', 1, '(3 - 1) / 2',
+    'f(a + 1) = (a + 1)² − 3(a + 1) = a² + 2a + 1 − 3a − 3 = a² − a − 2. Gleichsetzen mit a² − 3a: −3a = −a − 2, also −2a = −2 und a = 1. Probe: f(1) = −2 und f(2) = −2.',
+    'Setze a + 1 für x ein und multipliziere aus. Dann fällt a² weg.', art='K')
+N.z('funktionswert', 3, 'f(x) = −x² + 4. Berechne f(2) − f(−3).', 5, '(-(2**2) + 4) - (-((-3)**2) + 4)',
+    'f(2) = −4 + 4 = 0. f(−3) = −(−3)² + 4 = −9 + 4 = −5. Differenz: 0 − (−5) = 5.',
+    'Bei −x² wird erst quadriert, dann kommt das Minus davor: −(−3)² = −9.')
+
+# stelle
+N.z('stelle', 2, 'Für welches x gilt f(x) = 0,5, wenn f(x) = 3/x?', 6, '3 / 0.5', '3/x = 0,5 ⇔ 3 = 0,5 · x ⇔ x = 3 : 0,5 = 6.', 'Multipliziere beide Seiten mit x.')
+N.z('stelle', 2, 'Für welches x gilt f(x) = −7, wenn f(x) = 5 − 4x?', 3, '(5 - (-7)) / 4', '5 − 4x = −7 ⇔ −4x = −12 ⇔ x = 3.', 'Bringe die 5 auf die andere Seite.')
+N.z('stelle', 3, 'Gegeben ist f(x) = 3(x − 2) + c. Welche Zahl muss c sein, damit f(5) = 4 gilt?', -5, '4 - 3 * (5 - 2)',
+    'f(5) = 3 · (5 − 2) + c = 9 + c. Aus 9 + c = 4 folgt c = −5.', 'Setze x = 5 ein. Dann bleibt eine Gleichung für c.', art='P')
+N.z('stelle', 3, 'Ein Handwerker berechnet K(t) = 45 + 52 · t (t in Stunden, K in €). Die Rechnung lautet über 279 €. Wie viele Stunden hat er gearbeitet?', 4.5, '(279 - 45) / 52',
+    '45 + 52t = 279 ⇔ 52t = 234 ⇔ t = 4,5. Er hat 4,5 Stunden gearbeitet.', 'Ziehe zuerst die Anfahrt (45 €) ab.', einheit='h', art='P')
+N.z('stelle', 3, 'Für welches x gilt f(x) = 2, wenn f(x) = (x + 3)/(x − 1)?', 5, '(3 + 2) / (2 - 1)',
+    '(x + 3)/(x − 1) = 2 ⇔ x + 3 = 2(x − 1) = 2x − 2 ⇔ x = 5. x = 5 ist erlaubt (Nenner 4). Probe: 8/4 = 2.',
+    'Multipliziere mit dem Nenner (x − 1). Prüfe am Ende, ob der Nenner 0 wird.')
+N.l('stelle', 3, 'Für welche x gilt f(x) = 9, wenn f(x) = x² − 7? Gib beide Stellen an, die kleinere zuerst.', 'x₁ = □; x₂ = □', [-4, 4], ['-4', '4'],
+    'x² − 7 = 9 ⇔ x² = 16. Das gilt für x = 4 und für x = −4, denn (−4)² = 16.', 'Welche Zahlen ergeben quadriert 16? Es gibt zwei.',
+    'Je Lücke eine ganze Zahl, die kleinere zuerst.', art='K')
+
+# wertetabelle
+_schnee = {'typ': 'tabelle', 'kopf': ['Zeit (h)', '0', '2', '4', '6'], 'zeilen': [['Schnee (cm)', '12', '17', '22', '27']]}
+N.z('wertetabelle', 2, 'Die Tabelle gehört zu f(x) = 2x − 3. Für welches x ist f(x) = 0?', 1.5, '3 / 2', '2x − 3 = 0 ⇔ 2x = 3 ⇔ x = 1,5.',
+    'Setze den Term gleich 0.', grafik={'typ': 'tabelle', 'kopf': ['x', '0', '1', '?', '2'], 'zeilen': [['f(x)', '−3', '−1', '0', '1']]})
+N.z('wertetabelle', 2, 'Die Tabelle gehört zu f(x) = −x² + 2x. Welcher Wert gehört an die Stelle „?“?', -3, '-((-1)**2) + 2 * (-1)', 'f(−1) = −(−1)² + 2 · (−1) = −1 − 2 = −3.',
+    'Erst quadrieren, dann das Minus davor.', grafik={'typ': 'tabelle', 'kopf': ['x', '−1', '0', '3'], 'zeilen': [['f(x)', '?', '0', '−3']]})
+N.a('wertetabelle', 3, 'Während eines Schneefalls wird die Schneehöhe gemessen (Tabelle). Welcher Term beschreibt die Höhe h(t) in cm nach t Stunden?',
+    'h(t) = 12 + 2,5t', ['h(t) = 12 + 5t', 'h(t) = 2,5t', 'h(t) = 17 + 2,5t'],
+    'Bei t = 0 liegen schon 12 cm. In 2 Stunden kommen 5 cm dazu, also 2,5 cm pro Stunde: h(t) = 12 + 2,5t. Probe: h(6) = 12 + 15 = 27.',
+    'Was gilt bei t = 0? Wie viel kommt in einer Stunde dazu?', grafik=_schnee, art='P')
+N.z('wertetabelle', 3, 'Die Schneehöhe wächst weiter wie in der Tabelle. Nach wie vielen Stunden (ab Beginn der Messung) liegen 42 cm Schnee?', 12, '(42 - 12) / 2.5',
+    'h(t) = 12 + 2,5t = 42 ⇔ 2,5t = 30 ⇔ t = 12. Nach 12 Stunden.', 'Stelle zuerst den Term auf. Dann löse h(t) = 42.', einheit='h', grafik=_schnee, art='P')
+N.z('wertetabelle', 3, 'In der Wertetabelle von f(x) = a · x² steht das Paar (2 | 12). Welcher Wert gehört zu x = −3?', 27, '(12 / 2**2) * (-3)**2',
+    'Aus a · 2² = 12 folgt a = 3. Dann f(−3) = 3 · (−3)² = 3 · 9 = 27. Das Quadrat ist positiv.',
+    'Bestimme zuerst a aus dem bekannten Paar.', art='K')
+N.a('wertetabelle', 3, 'Welcher Term passt zur Wertetabelle?', 'f(x) = x² + 3', ['f(x) = −x² + 3', 'f(x) = 3x + 3', 'f(x) = x² + 3x'],
+    'Die Werte sind zu 0 symmetrisch (f(−2) = f(2) = 7): typisch für x². f(0) = 3, f(1) = 1 + 3 = 4, f(2) = 4 + 3 = 7. Also f(x) = x² + 3.',
+    'Vergleiche f(−1) und f(1). Teste jeden Term an allen Spalten.',
+    grafik={'typ': 'tabelle', 'kopf': ['x', '−2', '−1', '0', '1', '2'], 'zeilen': [['f(x)', '7', '4', '3', '4', '7']]}, art='K')
+
+# graph_lesen
+_par = _g(x=[-4, 4], y=[-3, 7], graphen=[{'art': 'poly', 'k': [-2, 0, 0.5], 'name': 'f'}])
+_wanne = _g(x=[0, 40], y=[0, 50], schritt_x=5, schritt_y=10, name_x='t in min', name_y='h in cm',
+            graphen=[{'art': 'linear', 'm': 4, 't': 0, 'bereich': [0, 10]}, {'art': 'linear', 'm': 0, 't': 40, 'bereich': [10, 25]},
+                     {'art': 'linear', 'm': -4, 't': 140, 'bereich': [25, 35]}])
+N.z('graph_lesen', 2, 'Lies am Graphen der Parabel ab: Welchen Wert hat f(4)?', 6, '0.5 * 4**2 - 2', 'Bei x = 4 senkrecht zum Graphen, dann waagrecht zur y-Achse: f(4) = 6.',
+    'Gehe von x = 4 senkrecht nach oben bis zur Kurve.', grafik=_par)
+N.z('graph_lesen', 2, 'Der Graph zeigt den Wasserstand in einer Badewanne. Wie hoch steht das Wasser nach 5 Minuten?', 20, '4 * 5',
+    'Bei t = 5 senkrecht nach oben zum Graphen, dann waagrecht zur Achse: 20 cm.', 'Eine Kästchenbreite sind 5 Minuten.', einheit='cm', grafik=_wanne)
+N.a('graph_lesen', 3, 'Für welche x liegt der Graph von f unterhalb der x-Achse?', 'für −2 < x < 2', ['für x < −2 und x > 2', 'für −2 ≤ x ≤ 2', 'für x < 0'],
+    'Der Graph schneidet die x-Achse bei −2 und bei 2. Dazwischen liegt er unter der Achse. An den Stellen −2 und 2 selbst ist f(x) = 0, also nicht darunter.',
+    'Lies zuerst die Nullstellen ab. Liegt der Graph dazwischen oben oder unten?', grafik=_par, art='P')
+N.z('graph_lesen', 3, 'Badewanne (Graph): Wie viele Minuten lang bleibt der Wasserstand gleich?', 15, '25 - 10',
+    'Der Graph ist von t = 10 bis t = 25 waagrecht. Das sind 25 − 10 = 15 Minuten.', 'Wo verläuft der Graph waagrecht? Lies Anfang und Ende ab.',
+    einheit='min', grafik=_wanne, art='P')
+N.l('graph_lesen', 3, 'Badewanne (Graph): Zu welchen Zeitpunkten steht das Wasser 20 cm hoch? Gib beide an, den früheren zuerst.', 't₁ = □; t₂ = □ (in min)', [5, 30],
+    ['20 / 4', '(140 - 20) / 4'],
+    'Waagrechte Linie bei 20 cm: Sie trifft den Graphen beim Einlaufen (t = 5) und beim Ablaufen (t = 30).',
+    'Ziehe eine waagrechte Linie bei h = 20. Wo trifft sie den Graphen?', 'Je Lücke eine ganze Zahl (Minuten).', grafik=_wanne, art='K')
+N.z('graph_lesen', 3, 'Für welche Zahl c hat die Gleichung f(x) = c genau eine Lösung? Lies am Graphen ab.', -2, '0.5 * 0**2 - 2',
+    'Eine waagrechte Linie y = c trifft die Parabel meist zweimal oder gar nicht. Nur durch den tiefsten Punkt (0 | −2) trifft sie genau einmal: c = −2.',
+    'Denke an waagrechte Linien in verschiedener Höhe. Wann gibt es genau einen Treffpunkt?', grafik=_par, art='K')
+
+# nullstellen
+N.z('nullstellen', 2, 'Eine Kerze ist 18 cm hoch und brennt pro Stunde 1,5 cm ab: h(t) = 18 − 1,5t. Berechne die Nullstelle von h.', 12, '18 / 1.5',
+    '18 − 1,5t = 0 ⇔ 1,5t = 18 ⇔ t = 12. Nach 12 Stunden ist die Kerze abgebrannt.', 'Setze h(t) = 0.', einheit='h')
+N.z('nullstellen', 2, 'Berechne die Nullstelle von f(x) = −0,5x + 4.', 8, '4 / 0.5', '−0,5x + 4 = 0 ⇔ 0,5x = 4 ⇔ x = 8.', 'Setze f(x) = 0 und löse nach x auf.')
+N.l('nullstellen', 3, 'Der Graph von f(x) = (2x − 6)/(x + 1) schneidet die x-Achse im Punkt N und die y-Achse im Punkt S. Gib beide Punkte an.',
+    'N(□ | 0); S(0 | □)', [3, -6], ['6 / 2', '(2 * 0 - 6) / (0 + 1)'],
+    'x-Achse: Zähler 0 setzen: 2x − 6 = 0 ⇔ x = 3 (Nenner 4, erlaubt). y-Achse: x = 0 einsetzen: f(0) = −6/1 = −6.',
+    'Für die x-Achse ist y = 0, für die y-Achse ist x = 0.', 'Je Lücke eine ganze Zahl.', art='P')
+N.a('nullstellen', 3, 'Welche Nullstellen hat f(x) = (x² − 9)/(x − 3)?', 'nur x = −3', ['x = −3 und x = 3', 'nur x = 3', 'keine'],
+    'Der Zähler ist 0 für x = 3 und x = −3. Aber x = 3 macht den Nenner 0 und gehört nicht zur Definitionsmenge. Bleibt nur x = −3.',
+    'Bestimme erst die Definitionsmenge. Eine Nullstelle muss erlaubt sein.', art='K')
+N.z('nullstellen', 3, 'Für welchen Wert von b hat f(x) = 4x + b die Nullstelle x = −2,5?', 10, '-4 * (-2.5)',
+    'f(−2,5) = 0 ⇔ 4 · (−2,5) + b = 0 ⇔ −10 + b = 0 ⇔ b = 10.', 'Setze die Nullstelle ein. f muss dort 0 ergeben.', art='P')
+N.z('nullstellen', 3, 'f(x) = x(x − 3)(x + 5). Berechne die Summe aller Nullstellen von f.', -2, '0 + 3 + (-5)',
+    'Ein Produkt ist 0, wenn ein Faktor 0 ist: x = 0, x = 3 oder x = −5. Summe: 0 + 3 + (−5) = −2.',
+    'Jeder der drei Faktoren kann 0 sein. Vergiss den Faktor x nicht.', art='K')
+
+# punkt_graph
+N.a('punkt_graph', 2, 'Liegt der Punkt Q(−1 | 4) oberhalb, unterhalb oder auf dem Graphen von f(x) = x² + 2?', 'oberhalb', ['unterhalb', 'auf dem Graphen'],
+    'f(−1) = 1 + 2 = 3. Der Punkt hat y = 4 > 3. Er liegt oberhalb des Graphen.', 'Berechne f(−1) und vergleiche mit der y-Koordinate.')
+N.a('punkt_graph', 2, 'Welcher Punkt liegt auf dem Graphen von f(x) = 6/x?', 'P(−2 | −3)', ['P(−2 | 3)', 'P(3 | −2)', 'P(0 | 6)'],
+    'f(−2) = 6 : (−2) = −3. Also liegt P(−2 | −3) auf dem Graphen. Für x = 0 ist f nicht definiert.', 'Setze die x-Koordinate ein. Achte auf das Vorzeichen.')
+N.a('punkt_graph', 3, 'Liegt der Punkt P(3 | 5) oberhalb, unterhalb oder auf dem Graphen von f(x) = 2x − 0,5?', 'unterhalb', ['oberhalb', 'auf dem Graphen'],
+    'f(3) = 6 − 0,5 = 5,5. Der Punkt hat y = 5 < 5,5. Er liegt unterhalb des Graphen.', 'Berechne den Funktionswert an der Stelle 3.', art='P')
+N.l('punkt_graph', 3, 'Die Punkte A(1 | 3) und B(3 | 7) liegen auf dem Graphen von f(x) = m · x + t. Bestimme m und t.', 'm = □; t = □', [2, 1], ['(7 - 3) / (3 - 1)', '3 - 2 * 1'],
+    'Von A nach B: x wächst um 2, y um 4. Also m = 4 : 2 = 2. Einsetzen von A: 3 = 2 · 1 + t ⇔ t = 1. f(x) = 2x + 1.',
+    'Bestimme zuerst die Steigung aus beiden Punkten, dann t mit einem Punkt.', 'Je Lücke eine ganze Zahl.', art='P')
+N.z('punkt_graph', 3, 'Der Punkt P(a | a) hat zwei gleiche Koordinaten und liegt auf dem Graphen von f(x) = 3x − 8. Bestimme a.', 4, '8 / 2',
+    'Einsetzen: a = 3a − 8 ⇔ 8 = 2a ⇔ a = 4. Probe: f(4) = 12 − 8 = 4.', 'Setze für x und für y dieselbe Zahl a ein.', art='K')
+N.a('punkt_graph', 3, 'Liegt P(2 | 1) auf dem Graphen von f(x) = 4/(x − 2) + 1?', 'Nein: x = 2 gehört nicht zur Definitionsmenge.',
+    ['Ja: Für x = 2 ergibt sich 1.', 'Nein: f(2) = 3.', 'Ja: Jeder Punkt mit y = 1 liegt darauf.'],
+    'Für x = 2 wird der Nenner x − 2 null. f(2) gibt es nicht. Also gibt es auf dem Graphen keinen Punkt mit x = 2.',
+    'Prüfe zuerst: Darf man x = 2 überhaupt einsetzen?', art='K')
+
+baue = mit_schwer(baue, N)
+# ---- SCHWER ENDE ----
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Was ist eine Funktion?', ['eindeutig', 'mengen']), ('Mit dem Term rechnen', ['funktionswert', 'stelle', 'wertetabelle', 'graph_lesen']),

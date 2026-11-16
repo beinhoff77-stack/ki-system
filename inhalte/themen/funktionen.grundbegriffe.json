@@ -1509,6 +1509,166 @@
    "w": "Eine senkrechte Linie darf höchstens einen Punkt treffen. Bei x = −3 trifft sie zwei."
   },
   {
+   "l": "eindeutig",
+   "t": "eindeutig",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jeder natürlichen Zahl wird ihre Quersumme zugeordnet. Und umgekehrt: Jeder Quersumme wird eine Zahl mit dieser Quersumme zugeordnet. Welche Zuordnungen sind Funktionen?"
+   },
+   "a": [
+    "Die erste ist eine Funktion, die zweite nicht.",
+    "Beide sind Funktionen.",
+    "Keine ist eine Funktion.",
+    "Die zweite ist eine Funktion, die erste nicht."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Jede Zahl hat genau eine Quersumme (z. B. 23 ↦ 5). Zur Quersumme 5 passen aber 5, 14, 23, 50, … – also mehrere Zahlen. Nur die erste ist eine Funktion.",
+   "h": "Suche für die Rückrichtung ein Beispiel: Gibt es zwei Zahlen mit derselben Quersumme?"
+  },
+  {
+   "l": "eindeutig",
+   "t": "eindeutig",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Tabelle zeigt die Temperatur an einem Tag. Zuordnung A: Uhrzeit ↦ Temperatur. Zuordnung B: Temperatur ↦ Uhrzeit. Welche ist eine Funktion?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Uhrzeit",
+      "8 Uhr",
+      "10 Uhr",
+      "12 Uhr",
+      "14 Uhr"
+     ],
+     "zeilen": [
+      [
+       "Temp.",
+       "12 °C",
+       "15 °C",
+       "18 °C",
+       "15 °C"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "beide",
+    "nur B",
+    "nur A",
+    "keine"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Zu jeder Uhrzeit gehört genau eine Temperatur: A ist eine Funktion. Die Temperatur 15 °C kommt um 10 Uhr und um 14 Uhr vor – B ordnet ihr zwei Uhrzeiten zu, B ist keine Funktion.",
+   "h": "Prüfe bei B: Kommt eine Temperatur zweimal vor?"
+  },
+  {
+   "l": "eindeutig",
+   "t": "eindeutig",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Rennwagen fährt 3 Runden auf einem Rundkurs. Zuordnung A: Zeit seit dem Start ↦ Ort auf der Strecke. Zuordnung B: Ort auf der Strecke ↦ Geschwindigkeit. Welche Zuordnung ist sicher eine Funktion?"
+   },
+   "a": [
+    "nur B",
+    "beide",
+    "keine",
+    "nur A"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Zu jedem Zeitpunkt ist der Wagen an genau einem Ort: A ist eine Funktion. An jedem Ort kommt er dreimal vorbei, meist mit verschiedener Geschwindigkeit – ein Ort hätte dann mehrere Werte. B ist nicht sicher eine Funktion.",
+   "h": "Denke an einen festen Ort, z. B. die Startlinie: Wie oft fährt der Wagen dort vorbei?"
+  },
+  {
+   "l": "eindeutig",
+   "t": "eindeutig",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Mia behauptet: „Die Zuordnung x ↦ y mit y² = x ist eine Funktion. Denn zu x = 0 gehört nur y = 0.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig: Zu jedem y gehört genau ein x.",
+    "Falsch: Zu x = 4 gehören y = 2 und y = −2.",
+    "Falsch: Eine Funktion darf nie den Wert 0 haben.",
+    "Richtig: Ein passendes Beispiel beweist die Aussage."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ein einziges Beispiel beweist nichts. Ein Gegenbeispiel widerlegt: 2² = 4 und (−2)² = 4. Also gehören zu x = 4 zwei Werte y. Die Zuordnung ist keine Funktion.",
+   "h": "Suche ein x, zu dem zwei verschiedene y passen. Denke an negative Zahlen."
+  },
+  {
+   "l": "eindeutig",
+   "t": "eindeutig",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zuordnung besteht aus den Paaren (1 | 4), (3 | 7), (5 | 7) und (a | 2). Für wie viele der Zahlen a = 1, 2, 3, 4, 5 ist sie KEINE Funktion?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "1 + 1 + 1",
+   "w": "Keine Funktion, wenn a schon als x vorkommt und dort nicht 2 steht: a = 1 (4 und 2), a = 3 (7 und 2), a = 5 (7 und 2). Das sind 3 Werte. Dass zweimal 7 vorkommt, ist erlaubt.",
+   "h": "Probiere jedes a: Kommt a schon als x-Wert vor? Gleiche y-Werte bei verschiedenen x stören nicht."
+  },
+  {
+   "l": "eindeutig",
+   "t": "eindeutig",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist der gezeichnete Kreis der Graph einer Funktion?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "kreise": [
+      {
+       "m": [
+        0,
+        0
+       ],
+       "r": 3
+      }
+     ]
+    }
+   },
+   "a": [
+    "Nein: Ein Graph muss immer eine Gerade sein.",
+    "Nein: Die senkrechte Linie x = 0 trifft ihn bei y = 3 und bei y = −3.",
+    "Ja: Zu jedem y gibt es höchstens zwei x.",
+    "Ja: Der Kreis ist eine geschlossene Linie."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Prüfe mit senkrechten Linien. Die y-Achse (x = 0) schneidet den Kreis in (0 | 3) und (0 | −3). Zu x = 0 gehören also zwei Werte – keine Funktion.",
+   "h": "Lege in Gedanken ein senkrechtes Lineal an. Wie oft trifft es den Kreis?"
+  },
+  {
    "l": "mengen",
    "t": "mengen",
    "p": "uebung",
@@ -2003,6 +2163,127 @@
    "w": "Funktionswerte: f(−3) = −43, f(1) = −7, f(2) = −13, f(3) = −25. W = {−43; −25; −13; −7}."
   },
   {
+   "l": "mengen",
+   "t": "mengen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die maximale Definitionsmenge von f(x) = 6/(2x − 5) an."
+   },
+   "a": [
+    "D = ℚ \\ {5}",
+    "D = ℚ \\ {−2,5}",
+    "D = ℚ \\ {2,5}",
+    "D = ℚ \\ {0}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Nenner darf nicht 0 sein: 2x − 5 = 0 ⇔ 2x = 5 ⇔ x = 2,5. Also D = ℚ \\ {2,5}.",
+   "h": "Setze den Nenner gleich 0 und löse nach x auf."
+  },
+  {
+   "l": "mengen",
+   "t": "mengen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = 4 − x² mit D = ℚ. Welche Zahl ist KEIN Funktionswert von f?"
+   },
+   "a": [
+    "5",
+    "−5",
+    "0",
+    "4"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "x² ist nie negativ. Also ist 4 − x² höchstens 4 (bei x = 0). 0 kommt bei x = 2 vor, −5 bei x = 3. Nur 5 ist zu groß.",
+   "h": "Wie groß kann 4 − x² höchstens werden?"
+  },
+  {
+   "l": "mengen",
+   "t": "mengen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Becken mit 60 m³ wird von n gleich starken Pumpen gefüllt. Es dauert t(n) = 60/n Stunden. Es gibt höchstens 4 Pumpen. Welche Definitionsmenge ist hier sinnvoll?"
+   },
+   "a": [
+    "D = ℚ \\ {0}",
+    "D = ℚ⁺",
+    "D = {0; 1; 2; 3; 4}",
+    "D = {1; 2; 3; 4}"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "n zählt Pumpen: nur ganze Zahlen. Mit 0 Pumpen füllt sich nichts (und durch 0 teilt man nicht). Mehr als 4 gibt es nicht. Also D = {1; 2; 3; 4}.",
+   "h": "Was kann n in der Wirklichkeit sein? Halbe Pumpen? Null Pumpen?"
+  },
+  {
+   "l": "mengen",
+   "t": "mengen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Becken mit 60 m³, n Pumpen, Füllzeit t(n) = 60/n Stunden, D = {1; 2; 3; 4}. Gib die Wertemenge an."
+   },
+   "a": [
+    "W = {15; 20; 30; 60}",
+    "W = {0; 15; 20; 30; 60}",
+    "W = {60; 120; 180; 240}",
+    "W = {1; 2; 3; 4}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "t(1) = 60, t(2) = 30, t(3) = 20, t(4) = 15. Die Wertemenge enthält alle Ergebnisse: W = {15; 20; 30; 60}.",
+   "h": "Setze jede Zahl aus D ein. Teile, nicht malnehmen."
+  },
+  {
+   "l": "mengen",
+   "t": "mengen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die maximale Definitionsmenge von f(x) = (x + 3)/(x² + 1) an."
+   },
+   "a": [
+    "D = ℚ \\ {−1}",
+    "D = ℚ \\ {−1; 1}",
+    "D = ℚ",
+    "D = ℚ \\ {−3}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nur der Nenner zählt. x² ist nie negativ, also ist x² + 1 immer mindestens 1 und nie 0. Man darf alles einsetzen: D = ℚ. Der Zähler darf 0 werden.",
+   "h": "Kann x² + 1 überhaupt 0 werden? Der Zähler spielt für D keine Rolle."
+  },
+  {
+   "l": "mengen",
+   "t": "mengen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Funktion f(x) = 5/(x − a) hat die Definitionsmenge D = ℚ \\ {−4}. Bestimme a."
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "-4",
+   "w": "Ausgeschlossen ist die Zahl, für die x − a = 0 ist, also x = a. Da −4 ausgeschlossen ist, gilt a = −4. Probe: Nenner x − (−4) = x + 4 wird bei x = −4 null.",
+   "h": "Für welches x wird der Nenner x − a null? Rückwärts denken."
+  },
+  {
    "l": "funktionswert",
    "t": "funktionswert",
    "p": "uebung",
@@ -2375,6 +2656,107 @@
    },
    "c": "(1) * (-1)**2 + (3) * (-1) + (-1)",
    "w": "x = −1 einsetzen: f(−1) = (−1)² + 3 · (−1) − 1 = −3."
+  },
+  {
+   "l": "funktionswert",
+   "t": "funktionswert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne f(−1,5) für f(x) = 2x² − x."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "2 * (-1.5)**2 - (-1.5)",
+   "w": "f(−1,5) = 2 · (−1,5)² − (−1,5) = 2 · 2,25 + 1,5 = 4,5 + 1,5 = 6.",
+   "h": "Erst das Quadrat, dann mal 2. Minus eine negative Zahl wird plus."
+  },
+  {
+   "l": "funktionswert",
+   "t": "funktionswert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne f(0,5) für f(x) = 4/x − 2x."
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "4 / 0.5 - 2 * 0.5",
+   "w": "f(0,5) = 4 : 0,5 − 2 · 0,5 = 8 − 1 = 7.",
+   "h": "Durch 0,5 teilen heißt verdoppeln."
+  },
+  {
+   "l": "funktionswert",
+   "t": "funktionswert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Tabellenkalkulation steht in Zelle A1 die Zahl 3 und in A2 die Zahl −2. In B1 steht die Formel =A1*(A2+4)-A2. Welchen Wert zeigt B1?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "3 * ((-2) + 4) - (-2)",
+   "w": "Einsetzen: 3 · ((−2) + 4) − (−2) = 3 · 2 + 2 = 8. Erst die Klammer, dann mal, dann minus der negativen Zahl.",
+   "h": "Ersetze A1 und A2 durch ihre Zahlen. Achte auf Klammern und auf „minus minus“."
+  },
+  {
+   "l": "funktionswert",
+   "t": "funktionswert",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Tabellenkalkulation soll f(x) = (x + 6) : 2 berechnen. x steht in Zelle A2. Welche Formel ist richtig?"
+   },
+   "a": [
+    "=A2+6/2",
+    "=(A2+6)*2",
+    "=A2+(6/2)",
+    "=(A2+6)/2"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Punkt vor Strich: =A2+6/2 rechnet A2 + 3. Erst die Summe, dann teilen geht nur mit Klammer: =(A2+6)/2. Beispiel x = 4: (4 + 6) : 2 = 5, aber 4 + 6 : 2 = 7.",
+   "h": "Teste mit einer Zahl, z. B. x = 4. Was rechnet der Computer zuerst?"
+  },
+  {
+   "l": "funktionswert",
+   "t": "funktionswert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für f(x) = x² − 3x gilt f(a) = f(a + 1). Bestimme a."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(3 - 1) / 2",
+   "w": "f(a + 1) = (a + 1)² − 3(a + 1) = a² + 2a + 1 − 3a − 3 = a² − a − 2. Gleichsetzen mit a² − 3a: −3a = −a − 2, also −2a = −2 und a = 1. Probe: f(1) = −2 und f(2) = −2.",
+   "h": "Setze a + 1 für x ein und multipliziere aus. Dann fällt a² weg."
+  },
+  {
+   "l": "funktionswert",
+   "t": "funktionswert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = −x² + 4. Berechne f(2) − f(−3)."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(-(2**2) + 4) - (-((-3)**2) + 4)",
+   "w": "f(2) = −4 + 4 = 0. f(−3) = −(−3)² + 4 = −9 + 4 = −5. Differenz: 0 − (−5) = 5.",
+   "h": "Bei −x² wird erst quadriert, dann kommt das Minus davor: −(−3)² = −9."
   },
   {
    "l": "stelle",
@@ -2773,6 +3155,111 @@
    },
    "c": "5 / (5) + (-5)",
    "w": "5(x + 5) = 5 | : 5 → x + 5 = 1 → x = −4."
+  },
+  {
+   "l": "stelle",
+   "t": "stelle",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für welches x gilt f(x) = 0,5, wenn f(x) = 3/x?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "3 / 0.5",
+   "w": "3/x = 0,5 ⇔ 3 = 0,5 · x ⇔ x = 3 : 0,5 = 6.",
+   "h": "Multipliziere beide Seiten mit x."
+  },
+  {
+   "l": "stelle",
+   "t": "stelle",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für welches x gilt f(x) = −7, wenn f(x) = 5 − 4x?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(5 - (-7)) / 4",
+   "w": "5 − 4x = −7 ⇔ −4x = −12 ⇔ x = 3.",
+   "h": "Bringe die 5 auf die andere Seite."
+  },
+  {
+   "l": "stelle",
+   "t": "stelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Gegeben ist f(x) = 3(x − 2) + c. Welche Zahl muss c sein, damit f(5) = 4 gilt?"
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "4 - 3 * (5 - 2)",
+   "w": "f(5) = 3 · (5 − 2) + c = 9 + c. Aus 9 + c = 4 folgt c = −5.",
+   "h": "Setze x = 5 ein. Dann bleibt eine Gleichung für c."
+  },
+  {
+   "l": "stelle",
+   "t": "stelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Handwerker berechnet K(t) = 45 + 52 · t (t in Stunden, K in €). Die Rechnung lautet über 279 €. Wie viele Stunden hat er gearbeitet?"
+   },
+   "o": {
+    "wert": 4.5,
+    "einheit": "h"
+   },
+   "c": "(279 - 45) / 52",
+   "w": "45 + 52t = 279 ⇔ 52t = 234 ⇔ t = 4,5. Er hat 4,5 Stunden gearbeitet.",
+   "h": "Ziehe zuerst die Anfahrt (45 €) ab."
+  },
+  {
+   "l": "stelle",
+   "t": "stelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welches x gilt f(x) = 2, wenn f(x) = (x + 3)/(x − 1)?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(3 + 2) / (2 - 1)",
+   "w": "(x + 3)/(x − 1) = 2 ⇔ x + 3 = 2(x − 1) = 2x − 2 ⇔ x = 5. x = 5 ist erlaubt (Nenner 4). Probe: 8/4 = 2.",
+   "h": "Multipliziere mit dem Nenner (x − 1). Prüfe am Ende, ob der Nenner 0 wird."
+  },
+  {
+   "l": "stelle",
+   "t": "stelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Für welche x gilt f(x) = 9, wenn f(x) = x² − 7? Gib beide Stellen an, die kleinere zuerst.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Je Lücke eine ganze Zahl, die kleinere zuerst."
+   },
+   "o": {
+    "werte": [
+     -4,
+     4
+    ]
+   },
+   "c": [
+    "-4",
+    "4"
+   ],
+   "w": "x² − 7 = 9 ⇔ x² = 16. Das gilt für x = 4 und für x = −4, denn (−4)² = 16.",
+   "h": "Welche Zahlen ergeben quadriert 16? Es gibt zwei."
   },
   {
    "l": "wertetabelle",
@@ -3376,6 +3863,208 @@
    },
    "c": "(5) * (-1) + (3)",
    "w": "x = −1 einsetzen: f(−1) = 5 · (−1) + 3 = −2."
+  },
+  {
+   "l": "wertetabelle",
+   "t": "wertetabelle",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle gehört zu f(x) = 2x − 3. Für welches x ist f(x) = 0?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "0",
+      "1",
+      "?",
+      "2"
+     ],
+     "zeilen": [
+      [
+       "f(x)",
+       "−3",
+       "−1",
+       "0",
+       "1"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1.5
+   },
+   "c": "3 / 2",
+   "w": "2x − 3 = 0 ⇔ 2x = 3 ⇔ x = 1,5.",
+   "h": "Setze den Term gleich 0."
+  },
+  {
+   "l": "wertetabelle",
+   "t": "wertetabelle",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle gehört zu f(x) = −x² + 2x. Welcher Wert gehört an die Stelle „?“?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "−1",
+      "0",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "f(x)",
+       "?",
+       "0",
+       "−3"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "-((-1)**2) + 2 * (-1)",
+   "w": "f(−1) = −(−1)² + 2 · (−1) = −1 − 2 = −3.",
+   "h": "Erst quadrieren, dann das Minus davor."
+  },
+  {
+   "l": "wertetabelle",
+   "t": "wertetabelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Während eines Schneefalls wird die Schneehöhe gemessen (Tabelle). Welcher Term beschreibt die Höhe h(t) in cm nach t Stunden?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Zeit (h)",
+      "0",
+      "2",
+      "4",
+      "6"
+     ],
+     "zeilen": [
+      [
+       "Schnee (cm)",
+       "12",
+       "17",
+       "22",
+       "27"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "h(t) = 17 + 2,5t",
+    "h(t) = 12 + 2,5t",
+    "h(t) = 12 + 5t",
+    "h(t) = 2,5t"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Bei t = 0 liegen schon 12 cm. In 2 Stunden kommen 5 cm dazu, also 2,5 cm pro Stunde: h(t) = 12 + 2,5t. Probe: h(6) = 12 + 15 = 27.",
+   "h": "Was gilt bei t = 0? Wie viel kommt in einer Stunde dazu?"
+  },
+  {
+   "l": "wertetabelle",
+   "t": "wertetabelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Schneehöhe wächst weiter wie in der Tabelle. Nach wie vielen Stunden (ab Beginn der Messung) liegen 42 cm Schnee?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Zeit (h)",
+      "0",
+      "2",
+      "4",
+      "6"
+     ],
+     "zeilen": [
+      [
+       "Schnee (cm)",
+       "12",
+       "17",
+       "22",
+       "27"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "h"
+   },
+   "c": "(42 - 12) / 2.5",
+   "w": "h(t) = 12 + 2,5t = 42 ⇔ 2,5t = 30 ⇔ t = 12. Nach 12 Stunden.",
+   "h": "Stelle zuerst den Term auf. Dann löse h(t) = 42."
+  },
+  {
+   "l": "wertetabelle",
+   "t": "wertetabelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In der Wertetabelle von f(x) = a · x² steht das Paar (2 | 12). Welcher Wert gehört zu x = −3?"
+   },
+   "o": {
+    "wert": 27
+   },
+   "c": "(12 / 2**2) * (-3)**2",
+   "w": "Aus a · 2² = 12 folgt a = 3. Dann f(−3) = 3 · (−3)² = 3 · 9 = 27. Das Quadrat ist positiv.",
+   "h": "Bestimme zuerst a aus dem bekannten Paar."
+  },
+  {
+   "l": "wertetabelle",
+   "t": "wertetabelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term passt zur Wertetabelle?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "−2",
+      "−1",
+      "0",
+      "1",
+      "2"
+     ],
+     "zeilen": [
+      [
+       "f(x)",
+       "7",
+       "4",
+       "3",
+       "4",
+       "7"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "f(x) = −x² + 3",
+    "f(x) = 3x + 3",
+    "f(x) = x² + 3x",
+    "f(x) = x² + 3"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Werte sind zu 0 symmetrisch (f(−2) = f(2) = 7): typisch für x². f(0) = 3, f(1) = 1 + 3 = 4, f(2) = 4 + 3 = 7. Also f(x) = x² + 3.",
+   "h": "Vergleiche f(−1) und f(1). Teste jeden Term an allen Spalten."
   },
   {
    "l": "graph_lesen",
@@ -4333,6 +5022,315 @@
    "w": "Bei y = −1 waagrecht zum Graphen, dann senkrecht zur x-Achse: x = −2. Punkt P(−2 | −1). Probe: f(−2) = 0,5 · (−2) = −1."
   },
   {
+   "l": "graph_lesen",
+   "t": "graph_lesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Lies am Graphen der Parabel ab: Welchen Wert hat f(4)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -3,
+      7
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -2,
+        0,
+        0.5
+       ],
+       "name": "f"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "0.5 * 4**2 - 2",
+   "w": "Bei x = 4 senkrecht zum Graphen, dann waagrecht zur y-Achse: f(4) = 6.",
+   "h": "Gehe von x = 4 senkrecht nach oben bis zur Kurve."
+  },
+  {
+   "l": "graph_lesen",
+   "t": "graph_lesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt den Wasserstand in einer Badewanne. Wie hoch steht das Wasser nach 5 Minuten?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      40
+     ],
+     "y": [
+      0,
+      50
+     ],
+     "schritt_x": 5,
+     "schritt_y": 10,
+     "name_x": "t in min",
+     "name_y": "h in cm",
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 4,
+       "t": 0,
+       "bereich": [
+        0,
+        10
+       ]
+      },
+      {
+       "art": "linear",
+       "m": 0,
+       "t": 40,
+       "bereich": [
+        10,
+        25
+       ]
+      },
+      {
+       "art": "linear",
+       "m": -4,
+       "t": 140,
+       "bereich": [
+        25,
+        35
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "cm"
+   },
+   "c": "4 * 5",
+   "w": "Bei t = 5 senkrecht nach oben zum Graphen, dann waagrecht zur Achse: 20 cm.",
+   "h": "Eine Kästchenbreite sind 5 Minuten."
+  },
+  {
+   "l": "graph_lesen",
+   "t": "graph_lesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche x liegt der Graph von f unterhalb der x-Achse?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -3,
+      7
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -2,
+        0,
+        0.5
+       ],
+       "name": "f"
+      }
+     ]
+    }
+   },
+   "a": [
+    "für x < 0",
+    "für −2 ≤ x ≤ 2",
+    "für −2 < x < 2",
+    "für x < −2 und x > 2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Graph schneidet die x-Achse bei −2 und bei 2. Dazwischen liegt er unter der Achse. An den Stellen −2 und 2 selbst ist f(x) = 0, also nicht darunter.",
+   "h": "Lies zuerst die Nullstellen ab. Liegt der Graph dazwischen oben oder unten?"
+  },
+  {
+   "l": "graph_lesen",
+   "t": "graph_lesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Badewanne (Graph): Wie viele Minuten lang bleibt der Wasserstand gleich?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      40
+     ],
+     "y": [
+      0,
+      50
+     ],
+     "schritt_x": 5,
+     "schritt_y": 10,
+     "name_x": "t in min",
+     "name_y": "h in cm",
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 4,
+       "t": 0,
+       "bereich": [
+        0,
+        10
+       ]
+      },
+      {
+       "art": "linear",
+       "m": 0,
+       "t": 40,
+       "bereich": [
+        10,
+        25
+       ]
+      },
+      {
+       "art": "linear",
+       "m": -4,
+       "t": 140,
+       "bereich": [
+        25,
+        35
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "min"
+   },
+   "c": "25 - 10",
+   "w": "Der Graph ist von t = 10 bis t = 25 waagrecht. Das sind 25 − 10 = 15 Minuten.",
+   "h": "Wo verläuft der Graph waagrecht? Lies Anfang und Ende ab."
+  },
+  {
+   "l": "graph_lesen",
+   "t": "graph_lesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Badewanne (Graph): Zu welchen Zeitpunkten steht das Wasser 20 cm hoch? Gib beide an, den früheren zuerst.",
+    "schablone": "t₁ = □; t₂ = □ (in min)",
+    "hinweis": "Je Lücke eine ganze Zahl (Minuten).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      40
+     ],
+     "y": [
+      0,
+      50
+     ],
+     "schritt_x": 5,
+     "schritt_y": 10,
+     "name_x": "t in min",
+     "name_y": "h in cm",
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 4,
+       "t": 0,
+       "bereich": [
+        0,
+        10
+       ]
+      },
+      {
+       "art": "linear",
+       "m": 0,
+       "t": 40,
+       "bereich": [
+        10,
+        25
+       ]
+      },
+      {
+       "art": "linear",
+       "m": -4,
+       "t": 140,
+       "bereich": [
+        25,
+        35
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     5,
+     30
+    ]
+   },
+   "c": [
+    "20 / 4",
+    "(140 - 20) / 4"
+   ],
+   "w": "Waagrechte Linie bei 20 cm: Sie trifft den Graphen beim Einlaufen (t = 5) und beim Ablaufen (t = 30).",
+   "h": "Ziehe eine waagrechte Linie bei h = 20. Wo trifft sie den Graphen?"
+  },
+  {
+   "l": "graph_lesen",
+   "t": "graph_lesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl c hat die Gleichung f(x) = c genau eine Lösung? Lies am Graphen ab.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -3,
+      7
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -2,
+        0,
+        0.5
+       ],
+       "name": "f"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "0.5 * 0**2 - 2",
+   "w": "Eine waagrechte Linie y = c trifft die Parabel meist zweimal oder gar nicht. Nur durch den tiefsten Punkt (0 | −2) trifft sie genau einmal: c = −2.",
+   "h": "Denke an waagrechte Linien in verschiedener Höhe. Wann gibt es genau einen Treffpunkt?"
+  },
+  {
    "l": "nullstellen",
    "t": "nullstellen",
    "p": "uebung",
@@ -4749,6 +5747,116 @@
     "index": 0
    },
    "w": "Ein Produkt ist 0, wenn ein Faktor 0 ist: x − 1 = 0 → x = 1; x − 3 = 0 → x = 3."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kerze ist 18 cm hoch und brennt pro Stunde 1,5 cm ab: h(t) = 18 − 1,5t. Berechne die Nullstelle von h."
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "h"
+   },
+   "c": "18 / 1.5",
+   "w": "18 − 1,5t = 0 ⇔ 1,5t = 18 ⇔ t = 12. Nach 12 Stunden ist die Kerze abgebrannt.",
+   "h": "Setze h(t) = 0."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = −0,5x + 4."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "4 / 0.5",
+   "w": "−0,5x + 4 = 0 ⇔ 0,5x = 4 ⇔ x = 8.",
+   "h": "Setze f(x) = 0 und löse nach x auf."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Der Graph von f(x) = (2x − 6)/(x + 1) schneidet die x-Achse im Punkt N und die y-Achse im Punkt S. Gib beide Punkte an.",
+    "schablone": "N(□ | 0); S(0 | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     3,
+     -6
+    ]
+   },
+   "c": [
+    "6 / 2",
+    "(2 * 0 - 6) / (0 + 1)"
+   ],
+   "w": "x-Achse: Zähler 0 setzen: 2x − 6 = 0 ⇔ x = 3 (Nenner 4, erlaubt). y-Achse: x = 0 einsetzen: f(0) = −6/1 = −6.",
+   "h": "Für die x-Achse ist y = 0, für die y-Achse ist x = 0."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Nullstellen hat f(x) = (x² − 9)/(x − 3)?"
+   },
+   "a": [
+    "nur x = −3",
+    "nur x = 3",
+    "keine",
+    "x = −3 und x = 3"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der Zähler ist 0 für x = 3 und x = −3. Aber x = 3 macht den Nenner 0 und gehört nicht zur Definitionsmenge. Bleibt nur x = −3.",
+   "h": "Bestimme erst die Definitionsmenge. Eine Nullstelle muss erlaubt sein."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welchen Wert von b hat f(x) = 4x + b die Nullstelle x = −2,5?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "-4 * (-2.5)",
+   "w": "f(−2,5) = 0 ⇔ 4 · (−2,5) + b = 0 ⇔ −10 + b = 0 ⇔ b = 10.",
+   "h": "Setze die Nullstelle ein. f muss dort 0 ergeben."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = x(x − 3)(x + 5). Berechne die Summe aller Nullstellen von f."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "0 + 3 + (-5)",
+   "w": "Ein Produkt ist 0, wenn ein Faktor 0 ist: x = 0, x = 3 oder x = −5. Summe: 0 + 3 + (−5) = −2.",
+   "h": "Jeder der drei Faktoren kann 0 sein. Vergiss den Faktor x nicht."
   },
   {
    "l": "punkt_graph",
@@ -5293,6 +6401,128 @@
     "index": 2
    },
    "w": "f(2) = −10, also liegt P(2 | −10) auf dem Graphen."
+  },
+  {
+   "l": "punkt_graph",
+   "t": "punkt_graph",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Liegt der Punkt Q(−1 | 4) oberhalb, unterhalb oder auf dem Graphen von f(x) = x² + 2?"
+   },
+   "a": [
+    "oberhalb",
+    "unterhalb",
+    "auf dem Graphen"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "f(−1) = 1 + 2 = 3. Der Punkt hat y = 4 > 3. Er liegt oberhalb des Graphen.",
+   "h": "Berechne f(−1) und vergleiche mit der y-Koordinate."
+  },
+  {
+   "l": "punkt_graph",
+   "t": "punkt_graph",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = 6/x?"
+   },
+   "a": [
+    "P(−2 | 3)",
+    "P(−2 | −3)",
+    "P(3 | −2)",
+    "P(0 | 6)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "f(−2) = 6 : (−2) = −3. Also liegt P(−2 | −3) auf dem Graphen. Für x = 0 ist f nicht definiert.",
+   "h": "Setze die x-Koordinate ein. Achte auf das Vorzeichen."
+  },
+  {
+   "l": "punkt_graph",
+   "t": "punkt_graph",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Liegt der Punkt P(3 | 5) oberhalb, unterhalb oder auf dem Graphen von f(x) = 2x − 0,5?"
+   },
+   "a": [
+    "oberhalb",
+    "unterhalb",
+    "auf dem Graphen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "f(3) = 6 − 0,5 = 5,5. Der Punkt hat y = 5 < 5,5. Er liegt unterhalb des Graphen.",
+   "h": "Berechne den Funktionswert an der Stelle 3."
+  },
+  {
+   "l": "punkt_graph",
+   "t": "punkt_graph",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Punkte A(1 | 3) und B(3 | 7) liegen auf dem Graphen von f(x) = m · x + t. Bestimme m und t.",
+    "schablone": "m = □; t = □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     2,
+     1
+    ]
+   },
+   "c": [
+    "(7 - 3) / (3 - 1)",
+    "3 - 2 * 1"
+   ],
+   "w": "Von A nach B: x wächst um 2, y um 4. Also m = 4 : 2 = 2. Einsetzen von A: 3 = 2 · 1 + t ⇔ t = 1. f(x) = 2x + 1.",
+   "h": "Bestimme zuerst die Steigung aus beiden Punkten, dann t mit einem Punkt."
+  },
+  {
+   "l": "punkt_graph",
+   "t": "punkt_graph",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Punkt P(a | a) hat zwei gleiche Koordinaten und liegt auf dem Graphen von f(x) = 3x − 8. Bestimme a."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "8 / 2",
+   "w": "Einsetzen: a = 3a − 8 ⇔ 8 = 2a ⇔ a = 4. Probe: f(4) = 12 − 8 = 4.",
+   "h": "Setze für x und für y dieselbe Zahl a ein."
+  },
+  {
+   "l": "punkt_graph",
+   "t": "punkt_graph",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Liegt P(2 | 1) auf dem Graphen von f(x) = 4/(x − 2) + 1?"
+   },
+   "a": [
+    "Nein: x = 2 gehört nicht zur Definitionsmenge.",
+    "Nein: f(2) = 3.",
+    "Ja: Für x = 2 ergibt sich 1.",
+    "Ja: Jeder Punkt mit y = 1 liegt darauf."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für x = 2 wird der Nenner x − 2 null. f(2) gibt es nicht. Also gibt es auf dem Graphen keinen Punkt mit x = 2.",
+   "h": "Prüfe zuerst: Darf man x = 2 überhaupt einsetzen?"
   }
  ],
  "offen": [

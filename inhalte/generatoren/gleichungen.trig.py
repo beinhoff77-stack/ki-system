@@ -156,6 +156,89 @@ KLAR = {
 }
 klar(ETAPPEN, KLAR)
 # ---- KLAR ENDE ----
+# ---- UMBAU (neues Muster, Runde 8, Vorgabe 16.11.) ----
+def _k(art, **z):
+    b = {'typ': 'koordinaten', 'x': [0, 360], 'y': [-1.5, 1.5], 'grad': True, 'schritt_x': 30,
+         'graphen': [{'art': art, 'a': 1, 'b': 1, 'c': 0, 'd': 0, 'name': f'{art} x'}]}
+    b.update(z); return b
+P = lambda x, y, n, offen=False: {'x': x, 'y': y, 'name': n, **({'offen': True} if offen else {})}
+UMBAU = {
+ 'sinus': {
+  'einstieg': 'Eine Riesenradgondel dreht sich. Ihre Höhe über der Achse ist der Sinus des Drehwinkels. Wann ist sie 0,5 über der Achse? Das fragt eine ⟦trigonometrische Gleichung⟧.',
+  'woerter': [['trigonometrische Gleichung', 'eine Gleichung mit sin x, cos x oder tan x'],
+              ['sin⁻¹', 'die Umkehrtaste: Sie macht aus einem Sinuswert einen Winkel']],
+  'bild': _k('sin', waagrecht=[0.5]),
+  'schritte': [{'text': 'Die Gleichung heißt sin x = 0,5.'},
+               {'text': 'sin⁻¹(0,5) liefert x₁ = 30°: Die Gondel fährt aufwärts.', 'bild': {'punkte': [P(30, 0.5, '30°')]}},
+               {'text': 'Abwärts ist sie gleich hoch bei x₂ = 180° − 30° = 150°.', 'bild': {'punkte': [P(30, 0.5, '30°'), P(150, 0.5, '150°')]}},
+               {'text': 'Also ⟦x₁ = 30°, x₂ = 150°⟧.'}],
+  'fehler': 'Nur 30° ist unvollständig. Die Gondel ist zweimal auf dieser Höhe, auch bei 150°.',
+  'fehler_bild': {'punkte': [P(30, 0.5, '30°'), P(150, 0.5, '150° vergessen', True)]},
+  'regel': 'sin x = v hat ⟦zwei Lösungen⟧: x₁ und 180° − x₁. Den Winkel x₁ liefert sin⁻¹(v).'},
+ 'kosinus': {
+  'einstieg': 'Der seitliche Abstand der Gondel von der Achse ist der Kosinus: rechts plus, links minus. Wann ist sie 0,5 links? Das fragt eine ⟦Kosinus-Gleichung⟧.',
+  'woerter': [['cos⁻¹', 'die Umkehrtaste zum Kosinus; sie liefert Winkel bis 180°'],
+              ['360° − x₁', 'der an der x-Achse gespiegelte Winkel']],
+  'bild': _k('cos', waagrecht=[-0.5]),
+  'schritte': [{'text': 'Die Gleichung heißt cos x = −0,5.'},
+               {'text': 'cos⁻¹(−0,5) liefert x₁ = 120°: Die Gondel ist links oben.', 'bild': {'punkte': [P(120, -0.5, '120°')]}},
+               {'text': 'Links unten ist sie gleich weit weg: x₂ = 360° − x₁ = 240°.',
+                'bild': {'punkte': [P(120, -0.5, '120°'), P(240, -0.5, '240°')]}},
+               {'text': 'Also ⟦x₁ = 120°, x₂ = 240°⟧.'}],
+  'fehler': 'x₂ = 180° − 120° = 60° ist falsch. Bei 60° ist die Gondel rechts: cos 60° = +0,5.',
+  'fehler_bild': {'punkte': [P(120, -0.5, '120°'), P(240, -0.5, '240°'), P(60, 0.5, '60°?', True)]},
+  'regel': 'cos x = v: ⟦x₂ = 360° − x₁⟧. Den Winkel x₁ liefert cos⁻¹(v).'},
+ 'tangens': {
+  'einstieg': 'Von der Radmitte zeigt jede Speiche schräg nach außen. Gegenüberliegende Speichen haben dieselbe Steigung. Deshalb wiederholt sich der ⟦Tangens⟧ alle 180°.',
+  'woerter': [['tan x', 'sin x : cos x, die Steigung der Speiche'],
+              ['tan⁻¹', 'die Umkehrtaste zum Tangens']],
+  'bild': _k('tan', y=[-3, 3], schritt_x=45, waagrecht=[1], senkrecht=[90, 270]),
+  'schritte': [{'text': 'Die Gleichung heißt tan x = 1.'},
+               {'text': 'tan⁻¹(1) liefert x₁ = 45°.', 'bild': {'punkte': [P(45, 1, '45°')]}},
+               {'text': 'Die Gegenspeiche eine halbe Drehung weiter: x₂ = 45° + 180° = 225°.',
+                'bild': {'punkte': [P(45, 1, '45°'), P(225, 1, '225°')]}},
+               {'text': 'Also ⟦x₁ = 45°, x₂ = 225°⟧.'}],
+  'fehler': 'Bei tan x = −1 liegt −45° nicht zwischen 0° und 360°. Plus 180° ergibt 135°, dann 315°.',
+  'regel': 'tan x = v: ⟦x₂ = x₁ + 180°⟧. Bei 90° und 270° gibt es keinen Tangens.'},
+ 'anzahl': {
+  'einstieg': 'Die Gondel ist höchstens 1 über der Achse und höchstens 1 daneben. Ganz links ist sie nur einen Moment. Darum klärst du zuerst die ⟦Anzahl der Lösungen⟧.',
+  'woerter': [['v = ±1', 'v ist genau 1 oder genau −1'],
+              ['|v| > 1', 'v ist größer als 1 oder kleiner als −1']],
+  'bild': _k('cos', y=[-1.5, 2.5]),
+  'schritte': [{'text': 'Die Gleichung heißt cos x = −1. Gesucht ist die Stellung ganz links.'},
+               {'text': 'Die Linie y = −1 berührt die Kurve nur einmal.', 'bild': {'waagrecht': [-1], 'punkte': [P(180, -1, '180°')]}},
+               {'text': 'Bei v = ±1 gibt es genau eine Lösung: ⟦x = 180°⟧.'},
+               {'text': 'Bei |v| > 1 gibt es keine Lösung, etwa bei cos x = 2.', 'bild': {'waagrecht': [-1, 2]}}],
+  'fehler': 'sin x = 1,2 hat keine Lösung. So hoch kommt die Gondel nie, der Taschenrechner meldet einen Fehler.',
+  'fehler_bild': {'graphen': [{'art': 'sin', 'a': 1, 'b': 1, 'c': 0, 'd': 0, 'name': 'sin x'}], 'waagrecht': [1.2], 'punkte': []},
+  'regel': '|v| > 1: keine, v = ±1: ⟦eine⟧, sonst zwei Lösungen. tan x = v hat immer zwei.'},
+ 'umformen': {
+  'einstieg': 'Die Gondel hängt an einem Turm: Viermal ihre Höhe plus 1 ergibt 3. Erst holst du den Sinus heraus, dann löst du. Das heißt ⟦umformen⟧.',
+  'woerter': [['umformen', 'auf beiden Seiten dasselbe rechnen'],
+              ['Faktor', 'eine Zahl, mit der malgenommen wird, hier die 4']],
+  'bild': _k('sin'),
+  'schritte': [{'text': 'Die Gleichung heißt 4 sin x + 1 = 3.'},
+               {'text': 'Minus 1 auf beiden Seiten: 4 sin x = 2.'},
+               {'text': 'Die 4 ist ein Faktor. Durch 4 teilen: sin x = 0,5.', 'bild': {'waagrecht': [0.5]}},
+               {'text': 'Wie beim Riesenrad: ⟦L = {30°; 150°}⟧.', 'bild': {'punkte': [P(30, 0.5, '30°'), P(150, 0.5, '150°')]}}],
+  'fehler': '4 sin x = 2 heißt nicht sin x = 2 − 4. Die 4 ist ein Faktor, also teilen: sin x = 0,5.',
+  'regel': 'Forme um, bis ⟦sin x allein⟧ steht. Dann löst du wie gewohnt.'},
+ 'anwendung': {
+  'einstieg': 'In einer Dreiecksaufgabe kommt sin β = 0,5 heraus. Zwei Winkel passen dazu. Aber im Dreieck ist nur Platz für 180°: Du ⟦prüfst die Lösungen⟧.',
+  'woerter': [['Winkelsumme', 'die drei Winkel im Dreieck ergeben zusammen 180°'],
+              ['Sachzusammenhang', 'die Situation, zu der die Lösung passen muss']],
+  'bild': {'typ': 'tabelle', 'kopf': ['β', 'α + β', 'passt?'], 'zeilen': [['30°', '?', '?'], ['150°', '?', '?']]},
+  'schritte': [{'text': 'Im Dreieck ist α = 40° und sin β = 0,5.'},
+               {'text': 'Mögliche Winkel: β = 30° oder β = 150°.'},
+               {'text': 'Winkelsumme: 40° + 150° = 190°, das ist zu viel.',
+                'bild': {'zeilen': [['30°', '70°', '?'], ['150°', '190°', 'nein']]}},
+               {'text': 'Im Sachzusammenhang passt nur ⟦β = 30°⟧. Dann ist γ = 110°.',
+                'bild': {'zeilen': [['30°', '70°', 'ja'], ['150°', '190°', 'nein']]}}],
+  'fehler': 'Beide Winkel ungeprüft anzugeben ist falsch. Die Winkelsumme 180° entscheidet, welcher passt.',
+  'regel': 'Alle Lösungen bestimmen, dann ⟦im Sachzusammenhang prüfen⟧.'},
+}
+umbau(ETAPPEN, UMBAU)
+# ---- UMBAU ENDE ----
 
 
 def g_exakt(f, s):

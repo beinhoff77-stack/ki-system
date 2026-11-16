@@ -42,14 +42,44 @@
    {
     "lernziel": "sinus",
     "titel": "Gleichungen sin x = v",
-    "regel": "So löst du sin x = v: sin x ist die ⟦y-Koordinate⟧ am Einheitskreis. Für −1 < v < 1 gibt es zwei Lösungen: x₁ = sin⁻¹(v) und ⟦x₂ = 180° − x₁⟧. Ist v negativ, rechnest du die Winkel in den Bereich 0° bis 360° um.",
+    "regel": "sin x = v hat ⟦zwei Lösungen⟧: x₁ und 180° − x₁. Den Winkel x₁ liefert sin⁻¹(v).",
     "schritte": [
-     "Die Gleichung heißt sin x = 0,5.",
-     "Der Taschenrechner liefert mit sin⁻¹ den ersten Winkel: x₁ = 30°. Die Gondel fährt dort aufwärts.",
-     "Auf dem Rückweg nach unten erreicht sie dieselbe Höhe noch einmal, spiegelbildlich: x₂ = 180° − 30° = 150°.",
-     "Also ⟦x₁ = 30°, x₂ = 150°⟧."
+     {
+      "text": "Die Gleichung heißt sin x = 0,5."
+     },
+     {
+      "text": "sin⁻¹(0,5) liefert x₁ = 30°: Die Gondel fährt aufwärts.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 30,
+         "y": 0.5,
+         "name": "30°"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Abwärts ist sie gleich hoch bei x₂ = 180° − 30° = 150°.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 30,
+         "y": 0.5,
+         "name": "30°"
+        },
+        {
+         "x": 150,
+         "y": 0.5,
+         "name": "150°"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Also ⟦x₁ = 30°, x₂ = 150°⟧."
+     }
     ],
-    "probe": "sin 150° = sin 30° = 0,5 ✓",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -69,61 +99,82 @@
        "b": 1,
        "c": 0,
        "d": 0,
-       "name": "Höhe y = sin x"
+       "name": "sin x"
       }
      ],
      "waagrecht": [
       0.5
+     ]
+    },
+    "fehler": "Nur 30° ist unvollständig. Die Gondel ist zweimal auf dieser Höhe, auch bei 150°.",
+    "einstieg": "Eine Riesenradgondel dreht sich. Ihre Höhe über der Achse ist der Sinus des Drehwinkels. Wann ist sie 0,5 über der Achse? Das fragt eine ⟦trigonometrische Gleichung⟧.",
+    "woerter": [
+     [
+      "trigonometrische Gleichung",
+      "eine Gleichung mit sin x, cos x oder tan x"
      ],
+     [
+      "sin⁻¹",
+      "die Umkehrtaste: Sie macht aus einem Sinuswert einen Winkel"
+     ]
+    ],
+    "fehler_bild": {
      "punkte": [
       {
        "x": 30,
        "y": 0.5,
-       "name": "x₁ = 30° (aufwärts)"
+       "name": "30°"
       },
       {
        "x": 150,
        "y": 0.5,
-       "name": "x₂ = 150° (abwärts)"
+       "name": "150° vergessen",
+       "offen": true
       }
      ]
-    },
-    "fehler": "Nur x = 30° anzugeben ist unvollständig: Die Gondel ist zweimal auf dieser Höhe. Die Gerade y = 0,5 schneidet die Kurve ⟦zweimal⟧, auch bei 150°.",
-    "einstieg": "Ein Riesenrad hat den Radius 1 (in Zehnermetern). Eine Gondel startet rechts auf Höhe der Radmitte und dreht sich gegen den Uhrzeigersinn. Ihre Höhe über der Mitte ist der Sinus des Drehwinkels. Wann ist sie 0,5 über der Mitte? Das fragt eine ⟦trigonometrische Gleichung⟧.",
-    "woerter": [
-     [
-      "trigonometrische Gleichung",
-      "eine Gleichung, in der x in sin x, cos x oder tan x steckt"
-     ],
-     [
-      "x",
-      "hier ein Winkel in Grad zwischen 0° und 360°"
-     ],
-     [
-      "sin⁻¹",
-      "die Umkehrtaste: Sie liefert aus einem Sinuswert einen Winkel"
-     ],
-     [
-      "x₁, x₂",
-      "die erste und die zweite Lösung"
-     ],
-     [
-      "v",
-      "der vorgegebene Wert, hier 0,5"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "kosinus",
     "titel": "Gleichungen cos x = v",
-    "regel": "So löst du cos x = v: cos x ist die ⟦x-Koordinate⟧ am Einheitskreis. Für −1 < v < 1 liegt x₁ = cos⁻¹(v) zwischen 0° und 180°, die zweite Lösung ist ⟦x₂ = 360° − x₁⟧.",
+    "regel": "cos x = v: ⟦x₂ = 360° − x₁⟧. Den Winkel x₁ liefert cos⁻¹(v).",
     "schritte": [
-     "Die Gleichung heißt cos x = −0,5.",
-     "Der Taschenrechner liefert mit cos⁻¹ den ersten Winkel: x₁ = 120°. Die Gondel ist dort oben links.",
-     "Unten links hat sie denselben Abstand, gespiegelt an der x-Achse: x₂ = 360° − 120° = 240°.",
-     "Also ⟦x₁ = 120°, x₂ = 240°⟧."
+     {
+      "text": "Die Gleichung heißt cos x = −0,5."
+     },
+     {
+      "text": "cos⁻¹(−0,5) liefert x₁ = 120°: Die Gondel ist links oben.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 120,
+         "y": -0.5,
+         "name": "120°"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Links unten ist sie gleich weit weg: x₂ = 360° − x₁ = 240°.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 120,
+         "y": -0.5,
+         "name": "120°"
+        },
+        {
+         "x": 240,
+         "y": -0.5,
+         "name": "240°"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Also ⟦x₁ = 120°, x₂ = 240°⟧."
+     }
     ],
-    "probe": "cos 240° = −0,5 ✓",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -143,58 +194,89 @@
        "b": 1,
        "c": 0,
        "d": 0,
-       "name": "Abstand y = cos x"
+       "name": "cos x"
       }
      ],
      "waagrecht": [
       -0.5
-     ],
-     "senkrecht": [
-      180
-     ],
-     "punkte": [
-      {
-       "x": 120,
-       "y": -0.5,
-       "name": "x₁ = 120° (oben links)"
-      },
-      {
-       "x": 240,
-       "y": -0.5,
-       "name": "x₂ = 240° (unten links)"
-      }
      ]
     },
-    "fehler": "x₂ = 180° − 120° = 60° ist falsch: Bei 60° ist die Gondel rechts, cos 60° = +0,5. Beim Kosinus spiegelt man an der ⟦x-Achse⟧: x₂ = 360° − x₁.",
-    "einstieg": "Jetzt interessiert der seitliche Abstand der Gondel von der Radachse: rechts positiv, links negativ. Dieser Abstand ist der Kosinus des Drehwinkels. Wann ist die Gondel 0,5 links von der Achse? Das fragt eine ⟦Kosinus-Gleichung⟧.",
+    "fehler": "x₂ = 180° − 120° = 60° ist falsch. Bei 60° ist die Gondel rechts: cos 60° = +0,5.",
+    "einstieg": "Der seitliche Abstand der Gondel von der Achse ist der Kosinus: rechts plus, links minus. Wann ist sie 0,5 links? Das fragt eine ⟦Kosinus-Gleichung⟧.",
     "woerter": [
      [
-      "cos x",
-      "der waagrechte Abstand der Gondel von der Achse (x-Koordinate)"
-     ],
-     [
       "cos⁻¹",
-      "die Umkehrtaste zum Kosinus; sie liefert Winkel zwischen 0° und 180°"
+      "die Umkehrtaste zum Kosinus; sie liefert Winkel bis 180°"
      ],
      [
       "360° − x₁",
       "der an der x-Achse gespiegelte Winkel"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "punkte": [
+      {
+       "x": 120,
+       "y": -0.5,
+       "name": "120°"
+      },
+      {
+       "x": 240,
+       "y": -0.5,
+       "name": "240°"
+      },
+      {
+       "x": 60,
+       "y": 0.5,
+       "name": "60°?",
+       "offen": true
+      }
+     ]
+    }
    },
    {
     "lernziel": "tangens",
     "titel": "Gleichungen tan x = v",
-    "regel": "So löst du tan x = v: Der Tangens wiederholt sich alle ⟦180°⟧. Zu jedem Wert v gibt es im Bereich 0° bis 360° ⟦genau zwei⟧ Lösungen: x₁ und ⟦x₂ = x₁ + 180°⟧. Die Winkel 90° und 270° sind ausgeschlossen.",
+    "regel": "tan x = v: ⟦x₂ = x₁ + 180°⟧. Bei 90° und 270° gibt es keinen Tangens.",
     "schritte": [
-     "Die Gleichung heißt tan x = 1.",
-     "Der Taschenrechner liefert mit tan⁻¹ den ersten Winkel: x₁ = 45°.",
-     "Eine halbe Drehung weiter liegt die gegenüberliegende Speiche mit derselben Steigung: x₂ = 45° + 180° = 225°.",
-     "Also ⟦x₁ = 45°, x₂ = 225°⟧."
+     {
+      "text": "Die Gleichung heißt tan x = 1."
+     },
+     {
+      "text": "tan⁻¹(1) liefert x₁ = 45°.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 45,
+         "y": 1,
+         "name": "45°"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Die Gegenspeiche eine halbe Drehung weiter: x₂ = 45° + 180° = 225°.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 45,
+         "y": 1,
+         "name": "45°"
+        },
+        {
+         "x": 225,
+         "y": 1,
+         "name": "225°"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Also ⟦x₁ = 45°, x₂ = 225°⟧."
+     }
     ],
-    "probe": "tan 225° = sin 225° : cos 225° = (−0,707) : (−0,707) = 1 ✓",
-    "fehler": "Bei tan x = −1 die Lösung −45° anzugeben liegt nicht im Bereich 0° bis 360°: Erst +180° rechnen: ⟦135°⟧, dann noch einmal: 315°.",
-    "einstieg": "Vom Mittelpunkt des Rads aus gesehen: Wie steil zeigt die Speiche zur Gondel? Diese Steigung ist der Tangens des Drehwinkels. Eine Speiche nach rechts oben und die gegenüberliegende nach links unten liegen auf einer Linie, haben also dieselbe Steigung. Das zeigt jede ⟦Tangens-Gleichung⟧.",
+    "fehler": "Bei tan x = −1 liegt −45° nicht zwischen 0° und 360°. Plus 180° ergibt 135°, dann 315°.",
+    "einstieg": "Von der Radmitte zeigt jede Speiche schräg nach außen. Gegenüberliegende Speichen haben dieselbe Steigung. Deshalb wiederholt sich der ⟦Tangens⟧ alle 180°.",
     "woerter": [
      [
       "tan x",
@@ -202,29 +284,76 @@
      ],
      [
       "tan⁻¹",
-      "die Umkehrtaste zum Tangens; sie liefert Winkel zwischen −90° und 90°"
-     ],
-     [
-      "x₁ + 180°",
-      "die gegenüberliegende Speiche, eine halbe Drehung weiter"
-     ],
-     [
-      "ausgeschlossen",
-      "bei 90° und 270° ist cos x = 0, der Tangens existiert dort nicht"
+      "die Umkehrtaste zum Tangens"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -3,
+      3
+     ],
+     "grad": true,
+     "schritt_x": 45,
+     "graphen": [
+      {
+       "art": "tan",
+       "a": 1,
+       "b": 1,
+       "c": 0,
+       "d": 0,
+       "name": "tan x"
+      }
+     ],
+     "waagrecht": [
+      1
+     ],
+     "senkrecht": [
+      90,
+      270
+     ]
+    }
    },
    {
     "lernziel": "anzahl",
     "titel": "Wie viele Lösungen gibt es?",
-    "regel": "So bestimmst du die Anzahl: sin x und cos x liegen immer zwischen ⟦−1 und 1⟧. Für |v| > 1 gibt es ⟦keine⟧ Lösung, für v = ±1 genau ⟦eine⟧ im Bereich 0° bis 360°, sonst zwei. tan x = v hat dort immer zwei Lösungen.",
+    "regel": "|v| > 1: keine, v = ±1: ⟦eine⟧, sonst zwei Lösungen. tan x = v hat immer zwei.",
     "schritte": [
-     "Die Gleichung heißt cos x = −1. Gesucht ist die Stellung ganz links.",
-     "Am Einheitskreis hat nur der Punkt (−1 | 0) die x-Koordinate −1.",
-     "Im Bild berührt die Linie y = −1 die Kurve nur an ihrem tiefsten Punkt.",
-     "Also genau eine Lösung: ⟦x = 180°⟧."
+     {
+      "text": "Die Gleichung heißt cos x = −1. Gesucht ist die Stellung ganz links."
+     },
+     {
+      "text": "Die Linie y = −1 berührt die Kurve nur einmal.",
+      "bild": {
+       "waagrecht": [
+        -1
+       ],
+       "punkte": [
+        {
+         "x": 180,
+         "y": -1,
+         "name": "180°"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Bei v = ±1 gibt es genau eine Lösung: ⟦x = 180°⟧."
+     },
+     {
+      "text": "Bei |v| > 1 gibt es keine Lösung, etwa bei cos x = 2.",
+      "bild": {
+       "waagrecht": [
+        -1,
+        2
+       ]
+      }
+     }
     ],
-    "probe": "cos 180° = −1 ✓",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -244,97 +373,190 @@
        "b": 1,
        "c": 0,
        "d": 0,
-       "name": "y = cos x"
-      }
-     ],
-     "waagrecht": [
-      -1,
-      2
-     ],
-     "punkte": [
-      {
-       "x": 180,
-       "y": -1,
-       "name": "nur x = 180°"
+       "name": "cos x"
       }
      ]
     },
-    "fehler": "„sin x = 1,2 hat die Lösung sin⁻¹(1,2)“ ist falsch: So hoch kommt die Gondel nie, der Taschenrechner meldet einen Fehler. ⟦sin x ist nie größer als 1⟧, es gibt keine Lösung.",
-    "einstieg": "Die Gondel kommt nie höher als 1 über die Mitte und nie weiter als 1 zur Seite. Ganz links ist sie nur in einem einzigen Moment. Bevor man rechnet, lohnt deshalb die Frage nach der ⟦Anzahl der Lösungen⟧.",
+    "fehler": "sin x = 1,2 hat keine Lösung. So hoch kommt die Gondel nie, der Taschenrechner meldet einen Fehler.",
+    "einstieg": "Die Gondel ist höchstens 1 über der Achse und höchstens 1 daneben. Ganz links ist sie nur einen Moment. Darum klärst du zuerst die ⟦Anzahl der Lösungen⟧.",
     "woerter": [
-     [
-      "|v| > 1",
-      "v ist größer als 1 oder kleiner als −1"
-     ],
      [
       "v = ±1",
       "v ist genau 1 oder genau −1"
      ],
      [
-      "Bereich 0°–360°",
-      "eine volle Umdrehung"
+      "|v| > 1",
+      "v ist größer als 1 oder kleiner als −1"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 1,
+       "b": 1,
+       "c": 0,
+       "d": 0,
+       "name": "sin x"
+      }
+     ],
+     "waagrecht": [
+      1.2
+     ],
+     "punkte": []
+    }
    },
    {
     "lernziel": "umformen",
     "titel": "Erst umformen, dann lösen",
-    "regel": "So gehst du vor: Forme wie bei linearen Gleichungen um, bis ⟦sin x, cos x oder tan x allein⟧ steht. Dann wie gewohnt lösen. Gilt sin x = cos x, teilst du durch cos x und erhältst ⟦tan x = 1⟧.",
+    "regel": "Forme um, bis ⟦sin x allein⟧ steht. Dann löst du wie gewohnt.",
     "schritte": [
-     "Die Gleichung heißt 4 sin x + 1 = 3.",
-     "Auf beiden Seiten 1 abziehen: 4 sin x = 2.",
-     "Beide Seiten durch 4 teilen: sin x = 0,5.",
-     "Wie beim Riesenrad: x₁ = 30°, x₂ = 150°. Also ⟦L = {30°; 150°}⟧."
+     {
+      "text": "Die Gleichung heißt 4 sin x + 1 = 3."
+     },
+     {
+      "text": "Minus 1 auf beiden Seiten: 4 sin x = 2."
+     },
+     {
+      "text": "Die 4 ist ein Faktor. Durch 4 teilen: sin x = 0,5.",
+      "bild": {
+       "waagrecht": [
+        0.5
+       ]
+      }
+     },
+     {
+      "text": "Wie beim Riesenrad: ⟦L = {30°; 150°}⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 30,
+         "y": 0.5,
+         "name": "30°"
+        },
+        {
+         "x": 150,
+         "y": 0.5,
+         "name": "150°"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "4 · 0,5 + 1 = 3 ✓",
-    "fehler": "4 sin x = 2 ⇒ sin x = 2 − 4 ist falsch: 4 ist ein ⟦Faktor⟧, also teilen: sin x = 0,5.",
-    "einstieg": "Manchmal steckt der Sinus in einer längeren Rechnung, zum Beispiel bei einer Gondel auf einem Turm: viermal die Höhe plus 1 ergibt 3. Dann holt man zuerst den Sinus allein heraus und löst erst danach. Das heißt ⟦erst umformen, dann lösen⟧.",
+    "fehler": "4 sin x = 2 heißt nicht sin x = 2 − 4. Die 4 ist ein Faktor, also teilen: sin x = 0,5.",
+    "einstieg": "Die Gondel hängt an einem Turm: Viermal ihre Höhe plus 1 ergibt 3. Erst holst du den Sinus heraus, dann löst du. Das heißt ⟦umformen⟧.",
     "woerter": [
      [
       "umformen",
-      "auf beiden Seiten dasselbe rechnen, damit die Gleichung wahr bleibt"
+      "auf beiden Seiten dasselbe rechnen"
      ],
      [
       "Faktor",
-      "eine Zahl, mit der malgenommen wird, z. B. die 4 in 4 sin x"
-     ],
-     [
-      "⇔",
-      "„ist gleichwertig mit“: beide Gleichungen haben dieselben Lösungen"
-     ],
-     [
-      "L = {30°; 150°}",
-      "die Lösungsmenge"
+      "eine Zahl, mit der malgenommen wird, hier die 4"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -1.5,
+      1.5
+     ],
+     "grad": true,
+     "schritt_x": 30,
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 1,
+       "b": 1,
+       "c": 0,
+       "d": 0,
+       "name": "sin x"
+      }
+     ]
+    }
    },
    {
     "lernziel": "anwendung",
     "titel": "Trigonometrische Gleichungen anwenden",
-    "regel": "So wendest du sie an: Gleichung aufstellen, ⟦alle⟧ Lösungen bestimmen und jede im ⟦Sachzusammenhang⟧ prüfen – im Dreieck etwa, ob die Winkelsumme unter 180° bleibt.",
+    "regel": "Alle Lösungen bestimmen, dann ⟦im Sachzusammenhang prüfen⟧.",
     "schritte": [
-     "Im Dreieck ist α = 40° und sin β = 0,5.",
-     "Die Gleichung sin β = 0,5 hat zwei Lösungen: β = 30° oder β = 150°.",
-     "Prüfen mit der Winkelsumme: 40° + 150° = 190°. Das ist schon mehr als 180°, für γ bleibt nichts.",
-     "Also passt nur ⟦β = 30°⟧. Dann ist γ = 180° − 40° − 30° = 110°."
+     {
+      "text": "Im Dreieck ist α = 40° und sin β = 0,5."
+     },
+     {
+      "text": "Mögliche Winkel: β = 30° oder β = 150°."
+     },
+     {
+      "text": "Winkelsumme: 40° + 150° = 190°, das ist zu viel.",
+      "bild": {
+       "zeilen": [
+        [
+         "30°",
+         "70°",
+         "?"
+        ],
+        [
+         "150°",
+         "190°",
+         "nein"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Im Sachzusammenhang passt nur ⟦β = 30°⟧. Dann ist γ = 110°.",
+      "bild": {
+       "zeilen": [
+        [
+         "30°",
+         "70°",
+         "ja"
+        ],
+        [
+         "150°",
+         "190°",
+         "nein"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "40° + 30° + 110° = 180° ✓",
-    "fehler": "Bei sin β = 0,5 im Dreieck beide Winkel 30° und 150° ungeprüft anzugeben ist falsch: Die ⟦Winkelsumme⟧ entscheidet, welcher passt.",
-    "einstieg": "In einer Dreiecksaufgabe kommt sin β = 0,5 heraus. Die Gleichung hat zwei Lösungen, aber ein Dreieck hat nur Platz für Winkel, die zusammen 180° ergeben. Also muss man jede Lösung an der Situation prüfen. So wendet man ⟦trigonometrische Gleichungen⟧ an.",
+    "fehler": "Beide Winkel ungeprüft anzugeben ist falsch. Die Winkelsumme 180° entscheidet, welcher passt.",
+    "einstieg": "In einer Dreiecksaufgabe kommt sin β = 0,5 heraus. Zwei Winkel passen dazu. Aber im Dreieck ist nur Platz für 180°: Du ⟦prüfst die Lösungen⟧.",
     "woerter": [
      [
       "Winkelsumme",
-      "alle drei Winkel im Dreieck ergeben zusammen 180°"
+      "die drei Winkel im Dreieck ergeben zusammen 180°"
      ],
      [
       "Sachzusammenhang",
       "die Situation, zu der die Lösung passen muss"
-     ],
-     [
-      "α, β, γ",
-      "die drei Winkel des Dreiecks"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "β",
+      "α + β",
+      "passt?"
+     ],
+     "zeilen": [
+      [
+       "30°",
+       "?",
+       "?"
+      ],
+      [
+       "150°",
+       "?",
+       "?"
+      ]
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [

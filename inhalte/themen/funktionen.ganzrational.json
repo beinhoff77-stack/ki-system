@@ -43,95 +43,246 @@
    {
     "lernziel": "grad",
     "titel": "Grad, Leitkoeffizient, Absolutglied",
-    "regel": "So liest du eine ⟦ganzrationale Funktion⟧: Die höchste Hochzahl ist der ⟦Grad⟧, die Zahl davor der ⟦Leitkoeffizient⟧, die Zahl ohne x das ⟦Absolutglied⟧ (= f(0)). Die Reihenfolge der Glieder spielt keine Rolle.",
+    "regel": "Die höchste Hochzahl ist der Grad. Die Zahl davor heißt ⟦Leitkoeffizient⟧, die Zahl ohne x Absolutglied.",
     "schritte": [
-     "Gegeben ist f(x) = −2x³ + 5x − 7. Die Posten sind −2x³, 5x und −7.",
-     "Die höchste Hochzahl ist 3 (bei x³). Also ist der Grad ⟦3⟧.",
-     "Vor x³ steht −2. Der Leitkoeffizient ist ⟦−2⟧ – das Minuszeichen gehört dazu.",
-     "Der Posten ohne x ist −7. Das Absolutglied ist ⟦−7⟧, und tatsächlich ist f(0) = −7."
+     {
+      "text": "f(x) = −2x³ + 5x − 7 hat drei Posten."
+     },
+     {
+      "text": "Die Hochzahlen sind 3, 1 und 0. Der Grad ist ⟦3⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "Hochzahl",
+         "3",
+         "1",
+         "0"
+        ],
+        [
+         "Zahl davor",
+         "?",
+         "?",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Vor x³ steht −2: Das ist der Leitkoeffizient.",
+      "bild": {
+       "zeilen": [
+        [
+         "Hochzahl",
+         "3",
+         "1",
+         "0"
+        ],
+        [
+         "Zahl davor",
+         "−2",
+         "5",
+         "−7"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Der Posten ohne x ist das Absolutglied. Es ist ⟦f(0) = −7⟧."
+     }
     ],
-    "probe": "f(0) = −7 ✓",
-    "fehler": "Bei f(x) = 4 + x² − 3x³ den Leitkoeffizienten 4 zu nennen ist falsch: Er gehört zur ⟦höchsten⟧ Potenz, nicht zum ersten Posten auf dem Bon. Hier ist das x³, also −3.",
-    "einstieg": "Ein Kassenbon besteht aus einzelnen Posten, die zusammengezählt werden. Manche Funktionen sind genauso gebaut: Sie sind eine Summe aus Posten wie 5x, −2x³ oder −7. Jeder Posten ist eine Zahl mal eine Potenz von x oder eine Zahl allein. So eine Summe heißt ⟦ganzrationale Funktion⟧ (auch Polynom).",
+    "fehler": "Bei 4 + x² − 3x³ ist der Leitkoeffizient nicht 4. Er gehört zur ⟦höchsten Potenz⟧, nicht zum ersten Posten: −3.",
+    "einstieg": "Ein Kassenbon besteht aus Posten, die zusammengezählt werden. Manche Funktionen sind genauso gebaut, mit Posten wie 5x, −2x³ und −7. So eine Summe heißt ⟦ganzrationale Funktion⟧.",
     "woerter": [
      [
-      "Potenz von x",
-      "x, x², x³ …: x so oft mit sich malgenommen, wie die Hochzahl sagt"
-     ],
-     [
-      "Hochzahl",
-      "die kleine hochgestellte Zahl, z. B. 3 bei x³"
-     ],
-     [
-      "Glied",
-      "ein Posten der Summe, z. B. −2x³"
-     ],
-     [
       "Grad",
-      "die höchste Hochzahl, die vorkommt"
+      "die höchste Hochzahl von x"
      ],
      [
       "Leitkoeffizient",
-      "die Zahl vor der höchsten Potenz (mit Vorzeichen)"
+      "die Zahl vor der höchsten Potenz, mit Vorzeichen"
      ],
      [
       "Absolutglied",
-      "der Posten ohne x"
-     ],
-     [
-      "f(0)",
-      "der Wert der Funktion, wenn man x = 0 einsetzt; er ist gleich dem Absolutglied"
+      "der Posten ohne x; er ist gleich f(0)"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Posten",
+      "−2x³",
+      "5x",
+      "−7"
+     ],
+     "zeilen": [
+      [
+       "Hochzahl",
+       "?",
+       "?",
+       "?"
+      ],
+      [
+       "Zahl davor",
+       "?",
+       "?",
+       "?"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Posten",
+      "4",
+      "x²",
+      "−3x³"
+     ],
+     "zeilen": [
+      [
+       "Hochzahl",
+       "0",
+       "2",
+       "3: höchste"
+      ],
+      [
+       "Zahl davor",
+       "4",
+       "1",
+       "−3"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "ausmultiplizieren",
     "titel": "Produktform ausmultiplizieren",
-    "regel": "So gehst du vor: Aus der ⟦Produktform⟧ entsteht durch ⟦Ausmultiplizieren⟧ die Summenform. Immer ⟦jedes Glied mit jedem⟧ malnehmen. Bei drei Klammern: erst zwei, dann das Ergebnis mit der dritten.",
+    "regel": "Multipliziere jedes Glied mit jedem. Danach ⟦gleiche Potenzen zusammenfassen⟧. Bei drei Klammern erst zwei, dann die dritte.",
     "schritte": [
-     "Zuerst die ersten beiden Klammern, jedes Glied mit jedem: (x − 1)(x + 2) = x · x + x · 2 − 1 · x − 1 · 2.",
-     "Zusammenfassen: x² + 2x − x − 2 = x² + x − 2.",
-     "Jetzt mit der dritten Klammer malnehmen, wieder jedes Glied mit jedem: (x² + x − 2)(x − 3) = x³ − 3x² + x² − 3x − 2x + 6.",
-     "Gleiche Potenzen zusammenfassen: ⟦x³ − 2x² − 5x + 6⟧."
+     {
+      "text": "Die Produktform (x − 1)(x + 2) wird ausgerechnet: jedes Glied mit jedem."
+     },
+     {
+      "text": "Erste Zeile: x · x = x² und x · 2 = 2x.",
+      "bild": {
+       "zeilen": [
+        [
+         "x",
+         "x²",
+         "2x"
+        ],
+        [
+         "− 1",
+         "?",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Zweite Zeile: −1 · x = −x und −1 · 2 = −2.",
+      "bild": {
+       "zeilen": [
+        [
+         "x",
+         "x²",
+         "2x"
+        ],
+        [
+         "− 1",
+         "−x",
+         "−2"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Gemischte Glieder zusammenfassen: 2x − x = x. Ergebnis ⟦x² + x − 2⟧."
+     }
     ],
-    "probe": "x = 1 eingesetzt: 1 − 2 − 5 + 6 = 0 ✓ (1 ist Nullstelle)",
-    "fehler": "(x − 1)(x + 2) = x² − 2 ist falsch: Die ⟦gemischten Glieder⟧ 2x und −x fehlen. Probe mit x = 3: (3 − 1)(3 + 2) = 10, aber 3² − 2 = 7. Jedes Glied mit jedem multiplizieren.",
-    "einstieg": "Ein Beet ist rechteckig. Es ist 1 m kürzer und 2 m breiter als ein Quadrat mit x Metern Seitenlänge, also (x − 1) m lang und (x + 2) m breit. Für die Fläche kann man die Malaufgabe stehen lassen – das ist die Produktform. Rechnet man sie aus, bekommt man eine Summe. Dieses Ausrechnen heißt ⟦Ausmultiplizieren⟧.",
+    "fehler": "(x − 1)(x + 2) = x² − 2 ist falsch. Die ⟦gemischten Glieder⟧ 2x und −x fehlen. Probe x = 3: 2 · 5 = 10, nicht 7.",
+    "einstieg": "Ein rechteckiges Beet wird geplant. Es ist (x − 1) m lang und (x + 2) m breit. Rechnet man die Fläche als Summe aus, heißt das ⟦Ausmultiplizieren⟧.",
     "woerter": [
      [
       "Produktform",
-      "Klammern, die miteinander malgenommen werden, z. B. (x − 1)(x + 2)"
+      "Klammern, die miteinander malgenommen werden"
      ],
      [
-      "Summenform",
-      "die ausgerechnete Form, in der Glieder zusammengezählt werden, z. B. x² + x − 2"
-     ],
-     [
-      "ausmultiplizieren",
-      "jedes Glied der einen Klammer mit jedem Glied der anderen malnehmen und dann zusammenfassen"
+      "Ausmultiplizieren",
+      "jedes Glied mit jedem malnehmen, dann zusammenfassen"
      ],
      [
       "gemischte Glieder",
-      "die Produkte „außen mal innen“, hier x · 2 und (−1) · x"
-     ],
-     [
-      "zusammenfassen",
-      "Glieder mit derselben Potenz addieren, z. B. 2x − x = x"
+      "die Produkte „außen mal innen“, hier 2x und −x"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "·",
+      "x",
+      "+ 2"
+     ],
+     "zeilen": [
+      [
+       "x",
+       "?",
+       "?"
+      ],
+      [
+       "− 1",
+       "?",
+       "?"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "zeilen": [
+      [
+       "x",
+       "x²",
+       "2x fehlt"
+      ],
+      [
+       "− 1",
+       "−x fehlt",
+       "−2"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "randverhalten",
     "titel": "Verhalten für große |x|",
-    "regel": "So bestimmst du das Randverhalten: Schau nur auf das ⟦Glied mit der höchsten Potenz⟧. Gerader Grad: beide Enden auf derselben Seite. Ungerader Grad: Enden auf verschiedenen Seiten. Ein negativer Leitkoeffizient spiegelt alles an der x-Achse.",
+    "regel": "Am Rand zählt nur die höchste Potenz. Gerader Grad: beide Enden auf einer Seite. Negativer ⟦Leitkoeffizient⟧ spiegelt an der x-Achse.",
     "schritte": [
-     "Gegeben ist f(x) = −x⁴ + 10x³ − 2. Das Glied mit der höchsten Potenz ist −x⁴.",
-     "Der Grad 4 ist gerade: x⁴ ist für große positive und große negative x positiv. Beide Enden zeigen also in dieselbe Richtung.",
-     "Der Leitkoeffizient −1 ist negativ und dreht das Vorzeichen um: Beide Enden gehen nach unten.",
-     "Der Graph verläuft also ⟦von links unten nach rechts unten⟧. Probe: f(100) = −100 000 000 + 10 000 000 − 2 ist negativ."
+     {
+      "text": "f(x) = −x⁴ + 10x³ − 2: Die höchste Potenz ist −x⁴."
+     },
+     {
+      "text": "Grad 4 ist gerade: Beide Enden zeigen in dieselbe Richtung."
+     },
+     {
+      "text": "Der Leitkoeffizient −1 ist negativ: Beide Enden gehen nach unten."
+     },
+     {
+      "text": "Also verläuft der Graph ⟦von links unten nach rechts unten⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": -2.5,
+         "y": -197,
+         "name": "links: unten"
+        },
+        {
+         "x": 10.8,
+         "y": -1010,
+         "name": "rechts: unten"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "f(100) = −100 000 000 + 10 000 000 − 2 < 0 ✓",
-    "fehler": "„Wegen +10x³ geht der Graph rechts nach oben“ ist falsch: Für große x ⟦gewinnt die höchste Potenz⟧ −x⁴ – wie das Pferd beim Tauziehen. Bei x = 100 ist x⁴ schon zehnmal so groß wie 10x³.",
+    "fehler": "Wegen +10x³ geht der Graph rechts nicht nach oben. Für große x ⟦gewinnt die höchste Potenz⟧. Bei x = 100 ist x⁴ zehnmal so groß wie 10x³.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -157,46 +308,51 @@
      ],
      "schritt_y": 500
     },
-    "einstieg": "Beim Tauziehen ziehen auf der einen Seite drei Kinder, auf der anderen ein Pferd. Am Anfang wackelt es vielleicht hin und her, aber wenn alle richtig ziehen, gewinnt das Pferd. Bei ganzrationalen Funktionen ist das Glied mit der höchsten Potenz das Pferd: Weit links und weit rechts bestimmt allein dieses Glied, wohin der Graph geht. Das heißt ⟦Randverhalten⟧.",
+    "einstieg": "Beim Tauziehen stehen drei Kinder gegen ein Pferd. Wenn alle richtig ziehen, gewinnt das Pferd. Bei Funktionen ist die höchste Potenz das Pferd. Sie bestimmt das ⟦Randverhalten⟧.",
     "woerter": [
-     [
-      "sehr große x",
-      "x weit rechts, z. B. 100, 1 000, 1 000 000"
-     ],
-     [
-      "sehr kleine x",
-      "x weit links, z. B. −100, −1 000"
-     ],
-     [
-      "|x|",
-      "Betrag von x: x ohne Minuszeichen; „große |x|“ heißt weit links oder weit rechts"
-     ],
      [
       "Randverhalten",
       "wohin der Graph ganz links und ganz rechts geht"
      ],
      [
-      "von links unten nach rechts unten",
-      "links kommt der Graph von ganz unten, rechts geht er nach ganz unten"
-     ],
-     [
-      "gerader / ungerader Grad",
-      "die höchste Hochzahl ist 2, 4, 6 … bzw. 1, 3, 5 …"
+      "Leitkoeffizient",
+      "die Zahl vor der höchsten Potenz"
      ]
     ]
    },
    {
     "lernziel": "symmetrie",
     "titel": "Symmetrie erkennen",
-    "regel": "So erkennst du Symmetrie: Nur ⟦gerade⟧ Hochzahlen (das Absolutglied zählt als x⁰): ⟦achsensymmetrisch⟧ zur y-Achse. Nur ⟦ungerade⟧ Hochzahlen: ⟦punktsymmetrisch⟧ zum Ursprung. Gemischt: keine dieser beiden Symmetrien.",
+    "regel": "Nur gerade Hochzahlen: ⟦achsensymmetrisch⟧. Nur ungerade: punktsymmetrisch zum Ursprung. Gemischt: keine von beiden.",
     "schritte": [
-     "Gegeben ist f(x) = 2x⁴ − x² + 3. Die Hochzahlen sind 4, 2 und 0 (die 3 zählt als 3 · x⁰).",
-     "Alle Hochzahlen sind gerade. Bei geraden Hochzahlen ist es egal, ob man x oder −x einsetzt: (−x)⁴ = x⁴ und (−x)² = x².",
-     "Deshalb ist f(−x) = f(x): Der Graph ist ⟦achsensymmetrisch zur y-Achse⟧.",
-     "Probe: f(1) = 2 − 1 + 3 = 4 und f(−1) = 2 − 1 + 3 = 4."
+     {
+      "text": "f(x) = 2x⁴ − x² + 3 hat die Hochzahlen 4, 2 und 0."
+     },
+     {
+      "text": "Die 3 zählt als 3 · x⁰. Alle Hochzahlen sind gerade."
+     },
+     {
+      "text": "Dann ist f(−x) = f(x). Probe: f(1) = 4 und f(−1) = 4.",
+      "bild": {
+       "punkte": [
+        {
+         "x": -1,
+         "y": 4,
+         "name": "f(−1) = 4"
+        },
+        {
+         "x": 1,
+         "y": 4,
+         "name": "f(1) = 4"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Also ⟦achsensymmetrisch zur y-Achse⟧. Nur ungerade Hochzahlen hieße punktsymmetrisch."
+     }
     ],
-    "probe": "f(−1) = 2 − 1 + 3 = 4 = f(1) ✓",
-    "fehler": "f(x) = x³ + 1 als punktsymmetrisch zu bezeichnen ist falsch: Das Absolutglied 1 zählt als ⟦gerade⟧ Hochzahl (x⁰). Probe: f(−1) = 0, aber −f(1) = −2. Die „+ 1“ hebt den ganzen Graphen an, die halbe Drehung um (0 | 0) passt nicht mehr.",
+    "fehler": "x³ + 1 ist nicht punktsymmetrisch. Die 1 zählt als ⟦gerade⟧ Hochzahl (x⁰). Probe: f(−1) = 0, aber −f(1) = −2.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -219,54 +375,101 @@
        ],
        "name": "f"
       }
+     ]
+    },
+    "einstieg": "Ein Schmetterling sieht links und rechts gleich aus. Der Buchstabe S sieht nach einer halben Drehung wieder gleich aus. Auch Graphen können eine solche ⟦Symmetrie⟧ haben.",
+    "woerter": [
+     [
+      "achsensymmetrisch",
+      "an der y-Achse gespiegelt gleich: f(−x) = f(x)"
+     ],
+     [
+      "punktsymmetrisch",
+      "um (0 | 0) halb gedreht gleich"
+     ],
+     [
+      "x⁰",
+      "x hoch 0 ist 1; die Zahl ohne x zählt als Hochzahl 0"
+     ]
+    ],
+    "fehler_bild": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      2
+     ],
+     "y": [
+      -4,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        1,
+        0,
+        0,
+        1
+       ],
+       "name": "x³ + 1"
+      }
      ],
      "punkte": [
       {
        "x": -1,
-       "y": 4
+       "y": 0,
+       "name": "f(−1) = 0"
       },
       {
        "x": 1,
-       "y": 4
+       "y": 2,
+       "name": "f(1) = 2"
       }
      ]
-    },
-    "einstieg": "Ein Schmetterling sieht links und rechts gleich aus: Man könnte ihn in der Mitte falten. Der Buchstabe S sieht nach einer halben Drehung wieder genauso aus. Auch Graphen können so gebaut sein, und man kann es an den Hochzahlen ablesen, ohne zu zeichnen. Diese Eigenschaft heißt ⟦Symmetrie⟧.",
-    "woerter": [
-     [
-      "achsensymmetrisch zur y-Achse",
-      "spiegelt man den Graphen an der y-Achse, sieht er gleich aus: f(−x) = f(x)"
-     ],
-     [
-      "punktsymmetrisch zum Ursprung",
-      "dreht man den Graphen um (0 | 0) eine halbe Drehung, sieht er gleich aus: f(−x) = −f(x)"
-     ],
-     [
-      "Ursprung",
-      "der Punkt (0 | 0)"
-     ],
-     [
-      "x⁰",
-      "x hoch 0 ist 1; das Absolutglied zählt deshalb als Glied mit der Hochzahl 0"
-     ],
-     [
-      "f(−x)",
-      "der Wert, wenn man statt x die Gegenzahl −x einsetzt"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "nullstellen",
     "titel": "Nullstellen und Vielfachheit",
-    "regel": "So findest du Nullstellen: ⟦f(x) = 0⟧ lösen (Produktform lesen, Ausklammern oder Substitution). ⟦Ungerade⟧ Vielfachheit: Der Graph ⟦schneidet⟧ die x-Achse. ⟦Gerade⟧ Vielfachheit: Er ⟦berührt⟧ sie.",
+    "regel": "Löse f(x) = 0. Ungerade Vielfachheit: Der Graph schneidet. Gerade: Er ⟦berührt⟧ die x-Achse nur.",
     "schritte": [
-     "Gegeben ist f(x) = x³ − 4x² + 4x. Zuerst x ausklammern: f(x) = x(x² − 4x + 4).",
-     "Die Klammer ist eine binomische Formel: x² − 4x + 4 = (x − 2)². Also ist f(x) = x(x − 2)².",
-     "Der Faktor x kommt einmal vor: ⟦x = 0⟧ ist eine einfache Nullstelle, dort schneidet der Graph die x-Achse.",
-     "Der Faktor (x − 2) kommt zweimal vor: ⟦x = 2⟧ ist eine doppelte Nullstelle, dort berührt der Graph die x-Achse nur."
+     {
+      "text": "f(x) = x³ − 4x² + 4x. Zuerst x ausklammern: x(x² − 4x + 4)."
+     },
+     {
+      "text": "Die Klammer ist eine binomische Formel: (x − 2)²."
+     },
+     {
+      "text": "Der Faktor x kommt einmal vor: Bei 0 schneidet der Graph die x-Achse.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 0,
+         "y": 0,
+         "name": "Schnitt"
+        }
+       ]
+      }
+     },
+     {
+      "text": "2 ist eine doppelte Nullstelle: Dort ⟦berührt⟧ der Graph die x-Achse.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 0,
+         "y": 0,
+         "name": "Schnitt"
+        },
+        {
+         "x": 2,
+         "y": 0,
+         "name": "Berührung"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "f(2) = 8 − 16 + 8 = 0 ✓",
-    "fehler": "Aus (x − 2)² die Nullstellen 2 und −2 abzulesen ist falsch: (−2 − 2)² = 16 und nicht 0. Es gibt nur ⟦x = 2⟧, und zwar doppelt – dort kommt der Weg nur kurz ans Wasser.",
+    "fehler": "(x − 2)² hat nicht die Nullstellen 2 und −2. Denn (−2 − 2)² = 16. Es gibt nur ⟦x = 2⟧, doppelt.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -288,64 +491,89 @@
        ],
        "name": "f"
       }
+     ]
+    },
+    "einstieg": "Ein Wanderweg führt am See entlang. An einer Stelle führt er durchs flache Wasser. An einer anderen berührt er nur das Ufer. Diese Stellen sind ⟦Nullstellen⟧.",
+    "woerter": [
+     [
+      "Nullstelle",
+      "eine Stelle x mit f(x) = 0: der Weg auf Höhe des Wassers"
      ],
+     [
+      "binomische Formel",
+      "(a − b)² = a² − 2ab + b²"
+     ],
+     [
+      "doppelte Nullstelle",
+      "der Faktor kommt zweimal vor; der Graph berührt nur"
+     ]
+    ],
+    "fehler_bild": {
      "punkte": [
       {
        "x": 0,
-       "y": 0,
-       "name": "Schnitt"
+       "y": 0
       },
       {
        "x": 2,
        "y": 0,
-       "name": "Berührung"
+       "name": "nur 2, doppelt"
       }
      ]
-    },
-    "einstieg": "Ein Wanderweg führt an einem See entlang. An einer Stelle geht er durch eine seichte Furt: vorher im Wasser, danach das Ufer hinauf. An einer anderen Stelle kommt er nur kurz ans Wasser und steigt gleich wieder an. Die Stellen, an denen der Weg genau auf Höhe des Wasserspiegels ist, heißen ⟦Nullstellen⟧.",
-    "woerter": [
-     [
-      "Nullstelle",
-      "eine Stelle x mit f(x) = 0 (der Weg auf Höhe des Wassers)"
-     ],
-     [
-      "binomische Formel",
-      "(a − b)² = a² − 2ab + b², hier x² − 4x + 4 = (x − 2)²"
-     ],
-     [
-      "x(x − 2)²",
-      "x mal (x − 2) mal (x − 2)"
-     ],
-     [
-      "Vielfachheit",
-      "wie oft der Faktor einer Nullstelle vorkommt"
-     ],
-     [
-      "einfach, doppelt",
-      "der Faktor kommt einmal bzw. zweimal vor"
-     ],
-     [
-      "schneiden",
-      "der Graph geht durch die x-Achse hindurch (wie der Weg durch die Furt)"
-     ],
-     [
-      "berühren",
-      "der Graph setzt auf der x-Achse auf und kehrt um"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "graph_term",
     "titel": "Graph und Term zuordnen",
-    "regel": "So ordnest du zu: Vergleiche das ⟦Randverhalten⟧ (Grad, Vorzeichen des Leitkoeffizienten), die ⟦Nullstellen⟧ mit Schnitt oder Berührung und den ⟦y-Achsenabschnitt⟧ f(0). Erst wenn alles passt, gehört der Term zum Graphen.",
+    "regel": "Vergleiche Randverhalten, Nullstellen und f(0). Erst wenn ⟦alles passt⟧, gehört der Term zum Graphen.",
     "schritte": [
-     "Der Graph kommt von links unten und geht nach rechts oben. Das passt zu ungeradem Grad mit positivem Leitkoeffizienten.",
-     "Bei −1 schneidet er die x-Achse, bei 2 berührt er sie. Also kommt (x + 1) einmal und (x − 2) zweimal vor.",
-     "Zusammen ergibt das f(x) = (x + 1)(x − 2)², mit Grad 3 und Leitkoeffizient 1.",
-     "Probe mit dem y-Achsenabschnitt: f(0) = 1 · 4 = 4, und der Graph schneidet die y-Achse tatsächlich bei 4. Passend ist ⟦f(x) = (x + 1)(x − 2)²⟧."
+     {
+      "text": "Von links unten nach rechts oben: ungerader Grad, Leitkoeffizient positiv."
+     },
+     {
+      "text": "Schnitt bei −1, Berührung bei 2: (x + 1) einmal, (x − 2) zweimal.",
+      "bild": {
+       "punkte": [
+        {
+         "x": -1,
+         "y": 0,
+         "name": "Schnitt"
+        },
+        {
+         "x": 2,
+         "y": 0,
+         "name": "Berührung"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Probe mit dem y-Achsenabschnitt: f(0) = 1 · 4 = 4. Das passt.",
+      "bild": {
+       "punkte": [
+        {
+         "x": -1,
+         "y": 0,
+         "name": "Schnitt"
+        },
+        {
+         "x": 2,
+         "y": 0,
+         "name": "Berührung"
+        },
+        {
+         "x": 0,
+         "y": 4,
+         "name": "(0 | 4)"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Der Funktionsterm ist ⟦f(x) = (x + 1)(x − 2)²⟧."
+     }
     ],
-    "probe": "f(0) = 1 · 4 = 4: Der Graph schneidet die y-Achse bei 4 ✓",
-    "fehler": "f(x) = (x − 1)(x + 2)² passt nicht: Die Nullstellen haben die ⟦falschen Vorzeichen⟧. (x − 1) gehört zur Nullstelle 1, nicht zu −1. In der Klammer steht immer die Gegenzahl der Nullstelle.",
+    "fehler": "(x − 1)(x + 2)² passt nicht. Die Klammer (x − 1) gehört zur Nullstelle ⟦1⟧, nicht zu −1. In der Klammer steht die Gegenzahl.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -366,50 +594,87 @@
         1
        ]
       }
-     ],
-     "punkte": [
-      {
-       "x": -1,
-       "y": 0
-      },
-      {
-       "x": 2,
-       "y": 0
-      }
      ]
     },
-    "einstieg": "Auf einer Wanderkarte ist das Höhenprofil eines Weges gezeichnet, aber die Beschriftung fehlt. Drei Rechenvorschriften stehen zur Auswahl. Welche passt? Man vergleicht Merkmale: Wohin laufen die Enden? Wo kommt der Weg ans Wasser? Wie hoch ist er am Start? Die Rechenvorschrift heißt ⟦Funktionsterm⟧.",
+    "einstieg": "Auf einer Wanderkarte ist ein Höhenprofil gezeichnet, aber die Beschriftung fehlt. Drei Rechenvorschriften stehen zur Wahl. Man vergleicht Merkmale, um den passenden ⟦Funktionsterm⟧ zu finden.",
     "woerter": [
      [
       "Funktionsterm",
       "die Rechenvorschrift, z. B. (x + 1)(x − 2)²"
      ],
      [
-      "Randverhalten",
-      "wohin der Graph ganz links und ganz rechts geht"
-     ],
-     [
       "y-Achsenabschnitt",
-      "die Stelle, an der der Graph die y-Achse schneidet; sie ist f(0)"
-     ],
-     [
-      "(x + 1)",
-      "gehört zur Nullstelle −1, denn −1 + 1 = 0"
+      "wo der Graph die y-Achse schneidet: f(0)"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "punkte": [
+      {
+       "x": 1,
+       "y": 0,
+       "name": "1?"
+      },
+      {
+       "x": -2,
+       "y": 0,
+       "name": "−2?"
+      }
+     ]
+    }
    },
    {
     "lernziel": "term_bestimmen",
     "titel": "Funktionsterm aus Nullstellen",
-    "regel": "So bestimmst du den Term: Kennst du alle Nullstellen mit Vielfachheit, setze ⟦f(x) = a · (x − x₁)(x − x₂)…⟧ an. Dann bestimmst du a, indem du ⟦einen weiteren Punkt⟧ einsetzt.",
+    "regel": "Setze f(x) = a(x − x₁)(x − x₂)… an. Bestimme a mit ⟦einem weiteren Punkt⟧.",
     "schritte": [
-     "Die Nullstellen sind −1, 1 und 3, jede mit der Vielfachheit 1. Ansatz: f(x) = a(x + 1)(x − 1)(x − 3).",
-     "Der Punkt (0 | 6) sagt: Für x = 0 kommt 6 heraus. Setze 0 ein: f(0) = a · (0 + 1)(0 − 1)(0 − 3).",
-     "Die Klammern ausrechnen: 1 · (−1) · (−3) = 3. Also ist f(0) = 3a.",
-     "Aus 3a = 6 folgt ⟦a = 2⟧, also f(x) = 2(x + 1)(x − 1)(x − 3)."
+     {
+      "text": "Nullstellen −1, 1 und 3. Ansatz: f(x) = a(x + 1)(x − 1)(x − 3).",
+      "bild": {
+       "punkte": [
+        {
+         "x": -1,
+         "y": 0
+        },
+        {
+         "x": 1,
+         "y": 0
+        },
+        {
+         "x": 3,
+         "y": 0
+        }
+       ]
+      }
+     },
+     {
+      "text": "Am Start: f(0) = 6. Einsetzen: a · 1 · (−1) · (−3) = 3a.",
+      "bild": {
+       "punkte": [
+        {
+         "x": -1,
+         "y": 0
+        },
+        {
+         "x": 1,
+         "y": 0
+        },
+        {
+         "x": 3,
+         "y": 0
+        },
+        {
+         "x": 0,
+         "y": 6,
+         "name": "(0 | 6)"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Aus 3a = 6 folgt ⟦a = 2⟧."
+     }
     ],
-    "probe": "f(0) = 2 · 3 = 6 ✓",
-    "fehler": "Den Punkt (0 | 6) als a = 6 zu deuten ist falsch: f(0) ist das ganze Produkt ⟦a · (0 + 1)(0 − 1)(0 − 3)⟧ = 3a. Erst daraus folgt a = 2.",
+    "fehler": "Aus f(0) = 6 folgt nicht a = 6. f(0) ist das ganze Produkt ⟦3a⟧. Erst daraus folgt a = 2.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -430,44 +695,17 @@
         2
        ]
       }
-     ],
-     "punkte": [
-      {
-       "x": -1,
-       "y": 0
-      },
-      {
-       "x": 1,
-       "y": 0
-      },
-      {
-       "x": 3,
-       "y": 0
-      },
-      {
-       "x": 0,
-       "y": 6,
-       "name": "(0 | 6)"
-      }
      ]
     },
-    "einstieg": "Von einem Weg kennt man nur die Stellen, an denen er ans Wasser kommt, und eine einzige Höhe, zum Beispiel am Startpunkt. Das reicht schon für die ganze Rechenvorschrift: Die Nullstellen legen die Klammern fest, die eine Höhe bestimmt, wie stark alles gestreckt ist. So kommt man zum ⟦Funktionsterm aus Nullstellen⟧.",
+    "einstieg": "Von einem Weg kennt man nur die Stellen am Wasser und die Höhe am Start. Das reicht für die ganze Rechenvorschrift. So findet man den ⟦Funktionsterm aus Nullstellen⟧.",
     "woerter": [
      [
-      "x₁, x₂, x₃",
-      "die bekannten Nullstellen"
+      "Ansatz",
+      "die Form, in die man das Bekannte einsetzt"
      ],
      [
       "a",
-      "der Streckfaktor: macht den Graphen steiler oder flacher, ohne die Nullstellen zu ändern"
-     ],
-     [
-      "Ansatz",
-      "die Form, in die man das Bekannte einsetzt: f(x) = a(x − x₁)(x − x₂)(x − x₃)"
-     ],
-     [
-      "(0 | 6)",
-      "der Punkt mit x = 0 und y = 6, also f(0) = 6"
+      "der Streckfaktor: macht den Graphen steiler oder flacher"
      ]
     ]
    }

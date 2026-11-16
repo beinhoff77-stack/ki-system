@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 07:10 – STATUS
+Thema 5/8 fertig: **terme.potenzgesetze** – 42 neue Übungen (je Lernkarte 2 × S2, 4 × S3). Prüfskript OK, Unverändert-Nachweis JA.
+
 ## 2026-11-16 06:50 – STATUS
 Thema 4/8 fertig: **bruch.rechnen** – 60 neue Übungen (je Lernkarte 2 × S2, 4 × S3). Prüfskript OK, Unverändert-Nachweis JA.
 

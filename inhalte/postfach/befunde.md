@@ -3,6 +3,16 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:33 – STATUS
+stochastik.grundbegriffe fertig: umgestuft 4 / berichtigt 0 / ersetzt 4 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „In einer Urne liegen 9 rote, 3 blaue und 1 grüne Kugeln. Eine wird zufällig gezogen. Wie groß ist P(grün)?“
+  - „Ein Kronkorken landete bei 500 Würfen 225-mal mit der Öffnung nach oben. Schätze die Wahrscheinlichkeit dafür auf zwei Nachkommastellen.“
+  - „Ein fairer Würfel hat die Zahlen 1 bis 10. Wie groß ist die Wahrscheinlichkeit, KEINE Zahl kleiner oder gleich 1 zu werfen? Gib sie als Dezimalzahl an.“
+  - „Ein fairer Würfel hat die Zahlen 1 bis 6. Wie groß ist die Wahrscheinlichkeit, KEINE Zahl kleiner oder gleich 3 zu werfen? Gib sie als Dezimalzahl an.“
+- nicht umgesetzt:
+  - gegenereignis S3 „3 Würfe, P(mindestens eine Sechs) = 91/216“ – Lösung richtig; Weg über das Gegenereignis (5/6)³ ist echte Stufe 3. Ob die Produktregel in Kl. 8 eingeführt ist, betrifft den Plan.
+
+## 2026-11-16 05:33 – STATUS
 raum.schraegbilder fertig: umgestuft 6 / berichtigt 0 / ersetzt 0 / neu 1 / nicht umgesetzt 2. Prüfskript OK, Nachweis OK.
 - nicht umgesetzt:
   - koordinaten S2 „Gib die z-Koordinate von C an“ (3× gleicher Typ) – Laut Befund in Ordnung; Lösungen richtig.

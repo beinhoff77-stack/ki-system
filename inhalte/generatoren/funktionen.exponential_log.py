@@ -5,6 +5,8 @@ from math import log
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _kl10 import *  # noqa: E402,F403
+from _schwer_kl10 import ergaenzen  # noqa: E402
+import math  # noqa: E402
 
 start(1003)
 TIEF = str.maketrans('0123456789', '₀₁₂₃₄₅₆₇₈₉')
@@ -453,8 +455,149 @@ KLAR = {
 
 GEN = schoen({'werte': g_werte, 'faktor': g_faktor, 'modell': g_modell, 'graph': g_graph, 'logfunktion': g_logfunktion, 'zeitpunkt': g_zeitpunkt})
 
+# ---------- Zehnte Runde (Zweig schwer-kl10): schwerere Übungen nach Prüfungsvorbild ----------
+# Eigener Zufallsstart (nur zum Mischen der Antworten); wird erst NACH bauen(...) aufgerufen, alte Aufgaben bleiben gleich.
+# Vorbilder (Typ und Niveau, eigene Zahlen und Einkleidung): Bayerischer Mathematik-Test 10 (2025, Aufgabe 5: Funktionswert berechnen
+# und im Sachzusammenhang deuten), Realschul-Abschlussprüfung Bayern Mathematik I (2021 A 1: Prozent pro Zeiteinheit, zwei Vorgänge
+# gleichsetzen; 2022 A 1: Rate aus zwei Werten, erstes Jahr über einer Grenze; 2022 B 1 / 2008 A 1: Logarithmusfunktion –
+# Definitionsmenge, Asymptote, Spiegeln an der x-Achse und Verschieben; 2024 A 3.3: Verschiebung, die eine Nullstelle erzeugt).
+def schwer():
+    start(10012)
+    N = []
+
+    def neu(l, s, a):
+        a['l'], a['s'] = l, s
+        N.append(a)
+
+    def rz(wahr, nd):
+        return gerundet(wahr, nd), f'round({K(wahr)}, {nd})'
+
+    # --- werte ---
+    neu('werte', 2, zahl('Berechne f(−2) für f(x) = 64 · 0,5^x.', 'f(−2) = 64 · 0,5^(−2) = 64 · (1/0,5)² = 64 · 4 = 256.',
+                         'Ein negativer Exponent bildet den Kehrwert: 0,5^(−1) = 2.', 256, '64 * 2 ** 2'))
+    neu('werte', 2, auswahl('f(x) = 3 · 2^x. Wie ändert sich der Funktionswert, wenn x um 3 größer wird?', 'Er wird verachtfacht.',
+                            ['Er wird um 8 größer.', 'Er wird verdreifacht.', 'Er wird um 24 größer.'],
+                            'f(x + 3) = 3 · 2^(x + 3) = 3 · 2^x · 2³ = 8 · f(x). Bei Exponentialfunktionen wird multipliziert, nicht addiert.',
+                            'Schreibe 2^(x + 3) als 2^x · 2³.'))
+    neu('werte', 3, auswahl('Die Zahl der Abonnenten eines Kanals wird durch f(t) = 1 200 · 1,25^t beschrieben (t in Monaten seit Beobachtungsbeginn). Berechne f(−1) und deute das Ergebnis.',
+                            'f(−1) = 960: Einen Monat vor Beobachtungsbeginn hatte der Kanal etwa 960 Abonnenten.',
+                            ['f(−1) = 960: Nach einem Monat hat der Kanal 960 Abonnenten.', 'f(−1) = 960: Im ersten Monat kündigen 960 Abonnenten.',
+                             'f(−1) hat keine Bedeutung, weil die Zeit nicht negativ sein kann.'],
+                            'f(−1) = 1 200 : 1,25 = 960. t = −1 heißt: ein Monat vor dem Zeitpunkt t = 0 (Beobachtungsbeginn), sofern das Modell auch davor galt.',
+                            'Was bedeutet t = 0, was t = −1?'))
+    neu('werte', 3, zahl('Für f(x) = a · 2^x gilt f(3) − f(1) = 36. Bestimme a.', 'f(3) − f(1) = 8a − 2a = 6a = 36, also a = 6.',
+                         'Setze 3 und 1 ein und klammere a aus.', 6, '36 / (2 ** 3 - 2)'))
+    neu('werte', 3, zahl('f(x) = 5 · 3^x. Für welches x ist f(x) = 5/9?', '5 · 3^x = 5/9 ⇒ 3^x = 1/9 = 3^(−2) ⇒ x = −2.',
+                         'Teile durch 5 und schreibe 1/9 als Potenz von 3.', -2, '-2 + (5 * 3 ** (-2) - 5 / 9)'))
+    neu('werte', 3, zahl('f(x) = 2^x und g(x) = 2^(x + 3). Um welchen Faktor ist g(x) größer als f(x) – für jedes x?',
+                         'g(x) = 2^x · 2³ = 8 · f(x). Die Verschiebung um 3 nach links wirkt wie eine Streckung mit dem Faktor 8.',
+                         'Wende das Potenzgesetz 2^(x + 3) = 2^x · 2³ an.', 8, '2 ** 3'))
+
+    # --- faktor ---
+    neu('faktor', 2, zahl('Ein Bestand wächst in 2 Jahren insgesamt um 21 %, jedes Jahr um denselben Prozentsatz. Um wie viel Prozent pro Jahr?',
+                          'b² = 1,21 ⇒ b = 1,1 ⇒ 10 % pro Jahr (nicht 10,5 %).', 'Zwei gleiche Faktoren b ergeben zusammen 1,21.', 10, '(11 - 10) * 10', einheit='%'))
+    neu('faktor', 2, zahl('Ein Preis steigt um 20 % und sinkt danach um 20 %. Mit welchem Faktor wurde der ursprüngliche Preis insgesamt multipliziert?',
+                          '1,2 · 0,8 = 0,96. Der Preis ist also um 4 % gesunken, nicht gleich geblieben.', 'Multipliziere die beiden Faktoren.', 0.96, '1.2 * 0.8'))
+    w, c = rz((1 - 0.5 ** 0.25) * 100, 1)
+    neu('faktor', 3, zahl('Ein Bestand wird durch f(t) = 80 · 0,5^(t/4) beschrieben (t in Stunden). Um wie viel Prozent nimmt er pro Stunde ab? Runde auf eine Nachkommastelle.',
+                          f'Faktor pro Stunde: 0,5^(1/4) ≈ 0,8409. Abnahme: 1 − 0,8409 ≈ 0,1591, also etwa {dz(w)} % pro Stunde.',
+                          'Setze t = 1 in 0,5^(t/4) ein. Das ist der Faktor pro Stunde.', w, c, einheit='%', tol=0.1))
+    w, c = rz((1.05 ** 10 - 1) * 100, 1)
+    neu('faktor', 3, zahl('Ein Bestand wächst jedes Jahr um 5 %. Um wie viel Prozent ist er nach 10 Jahren insgesamt gewachsen? Runde auf eine Nachkommastelle.',
+                          f'1,05¹⁰ ≈ 1,6289. Das ist ein Zuwachs um etwa {dz(w)} % – mehr als 10 · 5 % = 50 %, weil auch der Zuwachs mitwächst.',
+                          'Rechne den Faktor für 10 Jahre aus, nicht 10 · 5 %.', w, c, einheit='%', tol=0.1))
+    neu('faktor', 3, auswahl('Angebot A: 4 % Zinsen pro Jahr. Angebot B: 2 % Zinsen pro Halbjahr (Zinseszins). Welches Angebot bringt nach einem Jahr mehr?',
+                             'B, denn 1,02² = 1,0404 > 1,04.', ['A, denn 4 % sind mehr als 2 %.', 'Beide gleich viel, denn 2 · 2 % = 4 %.', 'A, denn 1,04 > 1,02².'],
+                             'Bei B wird zweimal mit 1,02 multipliziert: 1,02² = 1,0404, also 4,04 % pro Jahr. Die Zinsen des ersten Halbjahrs werden mitverzinst.',
+                             'Rechne den Faktor für ein ganzes Jahr bei B aus.'))
+    w = gerundet((1 - 0.97 ** 10) * 100, 1)
+    neu('faktor', 3, auswahl('Jemand sagt: „Nimmt ein Bestand jedes Jahr um 3 % ab, ist er nach 10 Jahren um 30 % kleiner.“ Was stimmt?',
+                             f'Falsch: Er ist um etwa {dz(w)} % kleiner.', ['Richtig.', f'Falsch: Er ist um etwa {dz(gerundet(100 * 0.97 ** 10, 1))} % kleiner.', 'Falsch: Er ist um 3 % kleiner.'],
+                             f'0,97¹⁰ ≈ 0,737. Es bleiben etwa 73,7 % übrig, die Abnahme beträgt also etwa {dz(w)} %. Jedes Jahr fehlen 3 % vom kleiner gewordenen Bestand.',
+                             'Rechne 0,97 hoch 10.'))
+
+    # --- modell ---
+    neu('modell', 2, zahl('Für f(x) = a · b^x gilt f(2) = 18 und f(3) = 54. Bestimme a.', 'b = f(3) : f(2) = 54 : 18 = 3. Dann a = f(2) : b² = 18 : 9 = 2.',
+                          'Erst b aus zwei benachbarten Werten, dann zurück bis x = 0 rechnen.', 2, '18 / (54 / 18) ** 2'))
+    neu('modell', 2, zahl('Ein Stoff hat eine Halbwertszeit von 5 Tagen. Anfangs sind 80 g da: f(t) = 80 · 0,5^(t/5). Wie viel ist nach 15 Tagen übrig?',
+                          'f(15) = 80 · 0,5³ = 80 · 0,125 = 10 g.', 'Wie viele Halbwertszeiten sind 15 Tage?', 10, '80 * 0.5 ** 3', einheit='g'))
+    neu('modell', 3, zahl('Ein Auto ist 2 Jahre nach dem Kauf noch 19 200 € wert, nach 4 Jahren noch 12 288 €. Der Wert nimmt exponentiell ab. Wie hoch war der Neupreis?',
+                          'b² = 12 288 : 19 200 = 0,64 ⇒ b = 0,8. Neupreis a = 19 200 : 0,8² = 19 200 : 0,64 = 30 000 €.',
+                          'Zwischen den Werten liegen 2 Jahre: b² = Quotient. Danach 2 Jahre zurückrechnen.', 30000, '19200 / (12288 / 19200)', einheit='€'))
+    neu('modell', 3, zahl('Bestand A wird durch 1 000 · 1,2^t beschrieben. Bestand B wächst jedes Jahr um 50 % und ist nach 2 Jahren genauso groß wie A. Wie groß war B am Anfang?',
+                          'A nach 2 Jahren: 1 000 · 1,44 = 1 440. B: a · 1,5² = 1 440 ⇒ a = 1 440 : 2,25 = 640.',
+                          'Berechne A nach 2 Jahren und setze B nach 2 Jahren gleich.', 640, '1000 * 1.2 ** 2 / 1.5 ** 2'))
+    neu('modell', 3, zahl('Ein Algenteppich verdoppelt seine Fläche jeden Tag. Nach 20 Tagen bedeckt er den ganzen Teich. Nach wie vielen Tagen bedeckte er ein Viertel des Teichs?',
+                          'Rückwärts: Am Tag 19 war es die Hälfte, am Tag 18 ein Viertel.', 'Denke vom Ende her: Was war einen Tag vorher?', 18, '20 - 2'))
+    neu('modell', 3, zahl('Der Graph von f(x) = a · b^x geht durch (0 | 3) und (2 | 0,75). Berechne f(−1).',
+                          'a = 3. b² = 0,75 : 3 = 0,25 ⇒ b = 0,5. f(−1) = 3 · 0,5^(−1) = 3 · 2 = 6.',
+                          'Bestimme erst a und b, dann setze x = −1 ein.', 6, '3 / 0.5'))
+
+    # --- graph ---
+    neu('graph', 2, auswahl('Welche Wertemenge hat f(x) = 2^x − 3?', 'alle y > −3', ['alle y ≥ −3', 'alle y > 0', 'alle reellen Zahlen'],
+                            '2^x nimmt alle Werte größer als 0 an, aber nie 0. Um 3 nach unten verschoben: alle Werte größer als −3. Asymptote y = −3.',
+                            'Welche Werte nimmt 2^x an? Was macht „− 3“?'))
+    neu('graph', 2, auswahl('Welche der Funktionen fällt (wird mit wachsendem x kleiner)?', 'f(x) = 2^(−x)', ['f(x) = −2^(−x)', 'f(x) = 0,5^(−x)', 'f(x) = 3 · 1,1^x'],
+                            '2^(−x) = 0,5^x fällt. 0,5^(−x) = 2^x steigt. −2^(−x) = −0,5^x steigt (vom Negativen her gegen 0). 3 · 1,1^x steigt.',
+                            'Schreibe jeden Term als a · b^x und schau auf b und das Vorzeichen von a.'))
+    neu('graph', 3, auswahl('Der Graph von f(x) = 2^x wird an der x-Achse gespiegelt und danach um 4 nach oben verschoben. Welche Gleichung hat der neue Graph?',
+                            'g(x) = −2^x + 4', ['g(x) = 2^(−x) + 4', 'g(x) = −2^(x + 4)', 'g(x) = −2^x − 4'],
+                            'Spiegeln an der x-Achse ändert das Vorzeichen des Funktionswerts: −2^x. Verschieben nach oben addiert 4: −2^x + 4. (2^(−x) wäre die Spiegelung an der y-Achse.)',
+                            'An der x-Achse spiegeln heißt: y wird zu −y.'))
+    neu('graph', 3, luecken('Der Graph von g(x) = −2^x + 4 entsteht aus 2^x durch Spiegeln an der x-Achse und Verschieben. Wo schneidet er die x-Achse?', 'N(□ | □)',
+                            'Koordinaten', [2, 0], '−2^x + 4 = 0 ⇒ 2^x = 4 = 2² ⇒ x = 2. Nullstelle N(2 | 0).', 'Setze g(x) = 0.', c=['2 + (-(2 ** 2) + 4)', '0']))
+    neu('graph', 3, auswahl('Der Graph von f(x) = 3 · 2^x wird nach unten verschoben. Wie weit mindestens, damit er die x-Achse schneidet?',
+                            'Jede Verschiebung um eine positive Zahl reicht.', ['Um mindestens 3.', 'Um mindestens 6.', 'Es geht nie, die x-Achse bleibt Asymptote.'],
+                            'f nimmt alle Werte größer als 0 an, auch beliebig kleine. Verschiebt man um d > 0 nach unten, wird 3 · 2^x − d = 0 für 2^x = d/3 – das hat immer eine Lösung.',
+                            'Welche Werte nimmt 3 · 2^x an? Wie nah kommt der Graph der x-Achse?'))
+    neu('graph', 3, zahl('Die Graphen von f(x) = 2^x und g(x) = 8 · 0,5^x schneiden sich. Bestimme die x-Koordinate des Schnittpunkts.',
+                         '0,5^x = 2^(−x). 2^x = 8 · 2^(−x) ⇒ 2^(2x) = 8 = 2³ ⇒ 2x = 3 ⇒ x = 1,5.',
+                         'Schreibe 0,5^x als Potenz von 2 und bringe alles auf eine Seite.', 1.5, '3 / 2'))
+
+    # --- logfunktion ---
+    neu('logfunktion', 2, auswahl('Für welche x ist f(x) = log₂(x + 4) definiert?', 'x > −4', ['x > 4', 'x > 0', 'x ≥ −4'],
+                                  'Das Argument muss positiv sein: x + 4 > 0 ⇒ x > −4.', 'Was muss für die Zahl in der Klammer gelten?'))
+    neu('logfunktion', 2, zahl('Berechne f(3) für f(x) = log₃(x + 6) − 1.', 'f(3) = log₃(9) − 1 = 2 − 1 = 1.', 'Erst die Klammer, dann den Logarithmus.', 1, '2 - 1'))
+    neu('logfunktion', 3, zahl('Bestimme die Nullstelle von f(x) = log₂(x − 1) − 3.', 'log₂(x − 1) = 3 ⇒ x − 1 = 2³ = 8 ⇒ x = 9.',
+                               'Setze f(x) = 0 und schreibe die Gleichung als Potenz.', 9, '2 ** 3 + 1'))
+    neu('logfunktion', 3, auswahl('Welche Gerade ist Asymptote des Graphen von f(x) = 2 · log₃(x + 5) − 1?', 'x = −5', ['y = −1', 'x = 5', 'y = −5'],
+                                  'log₃(…) gibt es nur für x + 5 > 0. Nähert sich x der −5, fällt der Graph ohne Grenze: senkrechte Asymptote x = −5. Eine waagrechte gibt es nicht.',
+                                  'Wo beginnt die Definitionsmenge? Dort liegt die Asymptote.'))
+    neu('logfunktion', 3, auswahl('Welche Funktion ist die Umkehrfunktion von f(x) = 2^x + 1?', 'g(x) = log₂(x − 1)', ['g(x) = log₂(x) − 1', 'g(x) = log₂(x + 1)', 'g(x) = 1 : (2^x + 1)'],
+                                  'y = 2^x + 1 ⇒ 2^x = y − 1 ⇒ x = log₂(y − 1). Variablen tauschen: g(x) = log₂(x − 1). Probe: f(2) = 5, g(5) = log₂(4) = 2.',
+                                  'Löse y = 2^x + 1 nach x auf und tausche dann x und y.'))
+    neu('logfunktion', 3, luecken('Welcher Punkt liegt auf dem Graphen von f(x) = log₂(x) und zugleich auf dem Graphen von g(x) = log₄(x)?', 'P(□ | □)', 'Koordinaten',
+                                  [1, 0], 'log₂(x) = log₄(x) gilt nur, wenn beide 0 sind: x = 1. Für x ≠ 1 ist log₂(x) = 2 · log₄(x) ≠ log₄(x). Also P(1 | 0).',
+                                  'Für welches x haben alle Logarithmusfunktionen denselben Wert?', c=['1', '0']))
+
+    # --- zeitpunkt ---
+    t = lg(10) / lg(1.2)
+    neu('zeitpunkt', 2, zahl('f(t) = 50 · 1,2^t. Ab welchem ganzzahligen t ist f(t) erstmals größer als 500?',
+                             f'1,2^t > 10 ⇒ t > lg 10 : lg 1,2 ≈ {dz(round(t, 2))}. Erste ganze Zahl: 13.', 'Teile durch 50, logarithmiere, runde auf.', math.floor(t) + 1, '13'))
+    w, c = rz(30 * lg(0.1) / lg(0.5), 1)
+    neu('zeitpunkt', 2, zahl('Ein Stoff hat eine Halbwertszeit von 30 Jahren. Nach wie vielen Jahren sind nur noch 10 % übrig? Runde auf eine Nachkommastelle.',
+                             f'0,5^(t/30) = 0,1 ⇒ t = 30 · lg 0,1 : lg 0,5 ≈ {dz(w)} Jahre.', 'Ansatz 0,5^(t/30) = 0,1.', w, c, einheit='Jahre', tol=0.1))
+    t = 5 * lg(400 / 240) / lg(1.25)
+    neu('zeitpunkt', 3, zahl('Ein Grundstück kostete 2018 genau 240 000 € und 2023 genau 300 000 €. Der Preis steigt exponentiell. In welchem Jahr kostet es bei gleicher Entwicklung erstmals mehr als 400 000 €?',
+                             f'b⁵ = 300 000 : 240 000 = 1,25. 240 000 · b^t > 400 000 ⇔ b^t > 5/3 ⇔ t > 5 · lg(5/3) : lg 1,25 ≈ {dz(round(t, 2))}. Also t = 12, das Jahr 2030.',
+                             'Zähle t ab 2018. Aus 5 Jahren folgt b⁵ = 1,25.', 2018 + math.floor(t) + 1, '2018 + 12'))
+    w, c = rz(lg(5 / 3) / lg(1.03 / 0.98), 1)
+    neu('zeitpunkt', 3, zahl('Ort A hat 50 000 Einwohner und schrumpft jedes Jahr um 2 %. Ort B hat 30 000 Einwohner und wächst jedes Jahr um 3 %. Nach wie vielen Jahren sind es gleich viele? Runde auf eine Nachkommastelle.',
+                             f'30 000 · 1,03^t = 50 000 · 0,98^t ⇒ (1,03 : 0,98)^t = 5/3 ⇒ t = lg(5/3) : lg(1,03 : 0,98) ≈ {dz(w)} Jahre.',
+                             'Setze beide Terme gleich und bringe alle Potenzen mit t auf eine Seite.', w, c, einheit='Jahre', tol=0.1))
+    w, c = rz(10 * lg(2) / lg(3), 1)
+    neu('zeitpunkt', 3, zahl('Ein Bestand verdreifacht sich in 10 Jahren (exponentielles Wachstum). Wie lange dauert es, bis er sich verdoppelt? Runde auf eine Nachkommastelle.',
+                             f'b¹⁰ = 3 ⇒ lg b = lg 3 : 10. Verdopplung: b^T = 2 ⇒ T = lg 2 : lg b = 10 · lg 2 : lg 3 ≈ {dz(w)} Jahre.',
+                             'Du brauchst b nicht auszurechnen: Nutze lg b = lg 3 : 10.', w, c, einheit='Jahre', tol=0.1))
+    neu('zeitpunkt', 3, auswahl('Jemand löst 80 · 1,04^t = 240 so: „t = 240 : 80 : 1,04 ≈ 2,9“. Was stimmt?', 'Falsch: 1,04^t = 3, also t = lg 3 : lg 1,04 ≈ 28,0.',
+                                ['Richtig.', 'Falsch: t = 240 : 80 · 1,04 ≈ 3,1.', 'Falsch: t = (240 − 80) : 4 = 40.'],
+                                't steht im Exponenten. Nach dem Teilen durch 80 bleibt 1,04^t = 3; man muss logarithmieren: t = lg 3 : lg 1,04 ≈ 28,0.',
+                                'Wo steht t? Durch welche Rechnung holt man es dort heraus?'))
+    return N
+
+
 if __name__ == '__main__':
-    bauen('funktionen.exponential_log',
+    datei = bauen('funktionen.exponential_log',
           'Exponentielles Wachstum und Zerfall mit f(x) = a · b^x beschreiben, Graphen deuten, Logarithmusfunktion als Umkehrung nutzen und Zeitpunkte berechnen.',
           ['f(x) = a · b^x: a = f(0) Anfangswert, b Wachstumsfaktor (b > 1 Wachstum, 0 < b < 1 Zerfall).', 'p % Zunahme: b = 1 + p/100; Abnahme: b = 1 − p/100.',
            'Graph: durch (0 | a), x-Achse als Asymptote, keine Nullstelle.', 'log_b(x) ist Umkehrfunktion von b^x, nur für x > 0; durch (1 | 0).'],
@@ -466,3 +609,4 @@ if __name__ == '__main__':
                  'Nicht übernommen: Vorschlag (Meinung) der Prüfung, in „zeitpunkt“ die Faustregel „Verdopplungszeit ≈ 70 : p“ zu ergänzen. Die Karte ist als „ok“ bewertet; eine Näherungsregel neben der exakten Rechnung lädt dazu ein, sie auch bei großen p (wo sie ungenau wird) zu verwenden. Kann als Zusatz in einer späteren Runde kommen.',
                  'Zeichnungen: Jede Lernkarte hat ein Koordinatensystem (Exponential- und Logarithmuskurve, Spiegelung an y = x, Zielwert als waagrechte Linie). Aufgaben „Welcher Term passt zum Graphen?“ und y-Achsenabschnitt zeigen den Graphen.',
                  'Gerundete Ergebnisse mit Toleranz 0,1 bzw. 0,01; Logarithmuswerte als 12-stellige Konstanten in c.'])
+    ergaenzen(datei, schwer())

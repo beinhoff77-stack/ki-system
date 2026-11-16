@@ -4103,6 +4103,671 @@
    },
    "c": "round(3.106283719505, 1)",
    "w": "b = 0,8; T½ = lg 0,5 : lg 0,8 ≈ 3,1 Jahre."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne f(−2) für f(x) = 64 · 0,5^x."
+   },
+   "o": {
+    "wert": 256
+   },
+   "c": "64 * 2 ** 2",
+   "w": "f(−2) = 64 · 0,5^(−2) = 64 · (1/0,5)² = 64 · 4 = 256.",
+   "h": "Ein negativer Exponent bildet den Kehrwert: 0,5^(−1) = 2."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = 3 · 2^x. Wie ändert sich der Funktionswert, wenn x um 3 größer wird?"
+   },
+   "a": [
+    "Er wird um 24 größer.",
+    "Er wird um 8 größer.",
+    "Er wird verdreifacht.",
+    "Er wird verachtfacht."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "f(x + 3) = 3 · 2^(x + 3) = 3 · 2^x · 2³ = 8 · f(x). Bei Exponentialfunktionen wird multipliziert, nicht addiert.",
+   "h": "Schreibe 2^(x + 3) als 2^x · 2³."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Zahl der Abonnenten eines Kanals wird durch f(t) = 1 200 · 1,25^t beschrieben (t in Monaten seit Beobachtungsbeginn). Berechne f(−1) und deute das Ergebnis."
+   },
+   "a": [
+    "f(−1) = 960: Im ersten Monat kündigen 960 Abonnenten.",
+    "f(−1) = 960: Einen Monat vor Beobachtungsbeginn hatte der Kanal etwa 960 Abonnenten.",
+    "f(−1) hat keine Bedeutung, weil die Zeit nicht negativ sein kann.",
+    "f(−1) = 960: Nach einem Monat hat der Kanal 960 Abonnenten."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "f(−1) = 1 200 : 1,25 = 960. t = −1 heißt: ein Monat vor dem Zeitpunkt t = 0 (Beobachtungsbeginn), sofern das Modell auch davor galt.",
+   "h": "Was bedeutet t = 0, was t = −1?"
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für f(x) = a · 2^x gilt f(3) − f(1) = 36. Bestimme a."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "36 / (2 ** 3 - 2)",
+   "w": "f(3) − f(1) = 8a − 2a = 6a = 36, also a = 6.",
+   "h": "Setze 3 und 1 ein und klammere a aus."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = 5 · 3^x. Für welches x ist f(x) = 5/9?"
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-2 + (5 * 3 ** (-2) - 5 / 9)",
+   "w": "5 · 3^x = 5/9 ⇒ 3^x = 1/9 = 3^(−2) ⇒ x = −2.",
+   "h": "Teile durch 5 und schreibe 1/9 als Potenz von 3."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = 2^x und g(x) = 2^(x + 3). Um welchen Faktor ist g(x) größer als f(x) – für jedes x?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "2 ** 3",
+   "w": "g(x) = 2^x · 2³ = 8 · f(x). Die Verschiebung um 3 nach links wirkt wie eine Streckung mit dem Faktor 8.",
+   "h": "Wende das Potenzgesetz 2^(x + 3) = 2^x · 2³ an."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bestand wächst in 2 Jahren insgesamt um 21 %, jedes Jahr um denselben Prozentsatz. Um wie viel Prozent pro Jahr?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "%"
+   },
+   "c": "(11 - 10) * 10",
+   "w": "b² = 1,21 ⇒ b = 1,1 ⇒ 10 % pro Jahr (nicht 10,5 %).",
+   "h": "Zwei gleiche Faktoren b ergeben zusammen 1,21."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Preis steigt um 20 % und sinkt danach um 20 %. Mit welchem Faktor wurde der ursprüngliche Preis insgesamt multipliziert?"
+   },
+   "o": {
+    "wert": 0.96
+   },
+   "c": "1.2 * 0.8",
+   "w": "1,2 · 0,8 = 0,96. Der Preis ist also um 4 % gesunken, nicht gleich geblieben.",
+   "h": "Multipliziere die beiden Faktoren."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bestand wird durch f(t) = 80 · 0,5^(t/4) beschrieben (t in Stunden). Um wie viel Prozent nimmt er pro Stunde ab? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 15.9,
+    "einheit": "%",
+    "toleranz": 0.1
+   },
+   "c": "round(15.910358474629, 1)",
+   "w": "Faktor pro Stunde: 0,5^(1/4) ≈ 0,8409. Abnahme: 1 − 0,8409 ≈ 0,1591, also etwa 15,9 % pro Stunde.",
+   "h": "Setze t = 1 in 0,5^(t/4) ein. Das ist der Faktor pro Stunde."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bestand wächst jedes Jahr um 5 %. Um wie viel Prozent ist er nach 10 Jahren insgesamt gewachsen? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 62.9,
+    "einheit": "%",
+    "toleranz": 0.1
+   },
+   "c": "round(62.889462677744, 1)",
+   "w": "1,05¹⁰ ≈ 1,6289. Das ist ein Zuwachs um etwa 62,9 % – mehr als 10 · 5 % = 50 %, weil auch der Zuwachs mitwächst.",
+   "h": "Rechne den Faktor für 10 Jahre aus, nicht 10 · 5 %."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Angebot A: 4 % Zinsen pro Jahr. Angebot B: 2 % Zinsen pro Halbjahr (Zinseszins). Welches Angebot bringt nach einem Jahr mehr?"
+   },
+   "a": [
+    "A, denn 1,04 > 1,02².",
+    "B, denn 1,02² = 1,0404 > 1,04.",
+    "Beide gleich viel, denn 2 · 2 % = 4 %.",
+    "A, denn 4 % sind mehr als 2 %."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Bei B wird zweimal mit 1,02 multipliziert: 1,02² = 1,0404, also 4,04 % pro Jahr. Die Zinsen des ersten Halbjahrs werden mitverzinst.",
+   "h": "Rechne den Faktor für ein ganzes Jahr bei B aus."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „Nimmt ein Bestand jedes Jahr um 3 % ab, ist er nach 10 Jahren um 30 % kleiner.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: Er ist um 3 % kleiner.",
+    "Falsch: Er ist um etwa 26,3 % kleiner.",
+    "Falsch: Er ist um etwa 73,7 % kleiner."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "0,97¹⁰ ≈ 0,737. Es bleiben etwa 73,7 % übrig, die Abnahme beträgt also etwa 26,3 %. Jedes Jahr fehlen 3 % vom kleiner gewordenen Bestand.",
+   "h": "Rechne 0,97 hoch 10."
+  },
+  {
+   "l": "modell",
+   "t": "modell",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für f(x) = a · b^x gilt f(2) = 18 und f(3) = 54. Bestimme a."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "18 / (54 / 18) ** 2",
+   "w": "b = f(3) : f(2) = 54 : 18 = 3. Dann a = f(2) : b² = 18 : 9 = 2.",
+   "h": "Erst b aus zwei benachbarten Werten, dann zurück bis x = 0 rechnen."
+  },
+  {
+   "l": "modell",
+   "t": "modell",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Stoff hat eine Halbwertszeit von 5 Tagen. Anfangs sind 80 g da: f(t) = 80 · 0,5^(t/5). Wie viel ist nach 15 Tagen übrig?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "g"
+   },
+   "c": "80 * 0.5 ** 3",
+   "w": "f(15) = 80 · 0,5³ = 80 · 0,125 = 10 g.",
+   "h": "Wie viele Halbwertszeiten sind 15 Tage?"
+  },
+  {
+   "l": "modell",
+   "t": "modell",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Auto ist 2 Jahre nach dem Kauf noch 19 200 € wert, nach 4 Jahren noch 12 288 €. Der Wert nimmt exponentiell ab. Wie hoch war der Neupreis?"
+   },
+   "o": {
+    "wert": 30000,
+    "einheit": "€"
+   },
+   "c": "19200 / (12288 / 19200)",
+   "w": "b² = 12 288 : 19 200 = 0,64 ⇒ b = 0,8. Neupreis a = 19 200 : 0,8² = 19 200 : 0,64 = 30 000 €.",
+   "h": "Zwischen den Werten liegen 2 Jahre: b² = Quotient. Danach 2 Jahre zurückrechnen."
+  },
+  {
+   "l": "modell",
+   "t": "modell",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bestand A wird durch 1 000 · 1,2^t beschrieben. Bestand B wächst jedes Jahr um 50 % und ist nach 2 Jahren genauso groß wie A. Wie groß war B am Anfang?"
+   },
+   "o": {
+    "wert": 640
+   },
+   "c": "1000 * 1.2 ** 2 / 1.5 ** 2",
+   "w": "A nach 2 Jahren: 1 000 · 1,44 = 1 440. B: a · 1,5² = 1 440 ⇒ a = 1 440 : 2,25 = 640.",
+   "h": "Berechne A nach 2 Jahren und setze B nach 2 Jahren gleich."
+  },
+  {
+   "l": "modell",
+   "t": "modell",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Algenteppich verdoppelt seine Fläche jeden Tag. Nach 20 Tagen bedeckt er den ganzen Teich. Nach wie vielen Tagen bedeckte er ein Viertel des Teichs?"
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "20 - 2",
+   "w": "Rückwärts: Am Tag 19 war es die Hälfte, am Tag 18 ein Viertel.",
+   "h": "Denke vom Ende her: Was war einen Tag vorher?"
+  },
+  {
+   "l": "modell",
+   "t": "modell",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph von f(x) = a · b^x geht durch (0 | 3) und (2 | 0,75). Berechne f(−1)."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "3 / 0.5",
+   "w": "a = 3. b² = 0,75 : 3 = 0,25 ⇒ b = 0,5. f(−1) = 3 · 0,5^(−1) = 3 · 2 = 6.",
+   "h": "Bestimme erst a und b, dann setze x = −1 ein."
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Wertemenge hat f(x) = 2^x − 3?"
+   },
+   "a": [
+    "alle y > −3",
+    "alle y ≥ −3",
+    "alle y > 0",
+    "alle reellen Zahlen"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "2^x nimmt alle Werte größer als 0 an, aber nie 0. Um 3 nach unten verschoben: alle Werte größer als −3. Asymptote y = −3.",
+   "h": "Welche Werte nimmt 2^x an? Was macht „− 3“?"
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche der Funktionen fällt (wird mit wachsendem x kleiner)?"
+   },
+   "a": [
+    "f(x) = 2^(−x)",
+    "f(x) = 3 · 1,1^x",
+    "f(x) = −2^(−x)",
+    "f(x) = 0,5^(−x)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "2^(−x) = 0,5^x fällt. 0,5^(−x) = 2^x steigt. −2^(−x) = −0,5^x steigt (vom Negativen her gegen 0). 3 · 1,1^x steigt.",
+   "h": "Schreibe jeden Term als a · b^x und schau auf b und das Vorzeichen von a."
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph von f(x) = 2^x wird an der x-Achse gespiegelt und danach um 4 nach oben verschoben. Welche Gleichung hat der neue Graph?"
+   },
+   "a": [
+    "g(x) = 2^(−x) + 4",
+    "g(x) = −2^x − 4",
+    "g(x) = −2^x + 4",
+    "g(x) = −2^(x + 4)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Spiegeln an der x-Achse ändert das Vorzeichen des Funktionswerts: −2^x. Verschieben nach oben addiert 4: −2^x + 4. (2^(−x) wäre die Spiegelung an der y-Achse.)",
+   "h": "An der x-Achse spiegeln heißt: y wird zu −y."
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Der Graph von g(x) = −2^x + 4 entsteht aus 2^x durch Spiegeln an der x-Achse und Verschieben. Wo schneidet er die x-Achse?",
+    "schablone": "N(□ | □)",
+    "hinweis": "Koordinaten"
+   },
+   "o": {
+    "werte": [
+     2,
+     0
+    ]
+   },
+   "w": "−2^x + 4 = 0 ⇒ 2^x = 4 = 2² ⇒ x = 2. Nullstelle N(2 | 0).",
+   "h": "Setze g(x) = 0.",
+   "c": [
+    "2 + (-(2 ** 2) + 4)",
+    "0"
+   ]
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph von f(x) = 3 · 2^x wird nach unten verschoben. Wie weit mindestens, damit er die x-Achse schneidet?"
+   },
+   "a": [
+    "Um mindestens 3.",
+    "Jede Verschiebung um eine positive Zahl reicht.",
+    "Um mindestens 6.",
+    "Es geht nie, die x-Achse bleibt Asymptote."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "f nimmt alle Werte größer als 0 an, auch beliebig kleine. Verschiebt man um d > 0 nach unten, wird 3 · 2^x − d = 0 für 2^x = d/3 – das hat immer eine Lösung.",
+   "h": "Welche Werte nimmt 3 · 2^x an? Wie nah kommt der Graph der x-Achse?"
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Graphen von f(x) = 2^x und g(x) = 8 · 0,5^x schneiden sich. Bestimme die x-Koordinate des Schnittpunkts."
+   },
+   "o": {
+    "wert": 1.5
+   },
+   "c": "3 / 2",
+   "w": "0,5^x = 2^(−x). 2^x = 8 · 2^(−x) ⇒ 2^(2x) = 8 = 2³ ⇒ 2x = 3 ⇒ x = 1,5.",
+   "h": "Schreibe 0,5^x als Potenz von 2 und bringe alles auf eine Seite."
+  },
+  {
+   "l": "logfunktion",
+   "t": "logfunktion",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche x ist f(x) = log₂(x + 4) definiert?"
+   },
+   "a": [
+    "x > 4",
+    "x > 0",
+    "x > −4",
+    "x ≥ −4"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Das Argument muss positiv sein: x + 4 > 0 ⇒ x > −4.",
+   "h": "Was muss für die Zahl in der Klammer gelten?"
+  },
+  {
+   "l": "logfunktion",
+   "t": "logfunktion",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne f(3) für f(x) = log₃(x + 6) − 1."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "2 - 1",
+   "w": "f(3) = log₃(9) − 1 = 2 − 1 = 1.",
+   "h": "Erst die Klammer, dann den Logarithmus."
+  },
+  {
+   "l": "logfunktion",
+   "t": "logfunktion",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme die Nullstelle von f(x) = log₂(x − 1) − 3."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "2 ** 3 + 1",
+   "w": "log₂(x − 1) = 3 ⇒ x − 1 = 2³ = 8 ⇒ x = 9.",
+   "h": "Setze f(x) = 0 und schreibe die Gleichung als Potenz."
+  },
+  {
+   "l": "logfunktion",
+   "t": "logfunktion",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gerade ist Asymptote des Graphen von f(x) = 2 · log₃(x + 5) − 1?"
+   },
+   "a": [
+    "y = −1",
+    "y = −5",
+    "x = 5",
+    "x = −5"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "log₃(…) gibt es nur für x + 5 > 0. Nähert sich x der −5, fällt der Graph ohne Grenze: senkrechte Asymptote x = −5. Eine waagrechte gibt es nicht.",
+   "h": "Wo beginnt die Definitionsmenge? Dort liegt die Asymptote."
+  },
+  {
+   "l": "logfunktion",
+   "t": "logfunktion",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Funktion ist die Umkehrfunktion von f(x) = 2^x + 1?"
+   },
+   "a": [
+    "g(x) = 1 : (2^x + 1)",
+    "g(x) = log₂(x + 1)",
+    "g(x) = log₂(x − 1)",
+    "g(x) = log₂(x) − 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "y = 2^x + 1 ⇒ 2^x = y − 1 ⇒ x = log₂(y − 1). Variablen tauschen: g(x) = log₂(x − 1). Probe: f(2) = 5, g(5) = log₂(4) = 2.",
+   "h": "Löse y = 2^x + 1 nach x auf und tausche dann x und y."
+  },
+  {
+   "l": "logfunktion",
+   "t": "logfunktion",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = log₂(x) und zugleich auf dem Graphen von g(x) = log₄(x)?",
+    "schablone": "P(□ | □)",
+    "hinweis": "Koordinaten"
+   },
+   "o": {
+    "werte": [
+     1,
+     0
+    ]
+   },
+   "w": "log₂(x) = log₄(x) gilt nur, wenn beide 0 sind: x = 1. Für x ≠ 1 ist log₂(x) = 2 · log₄(x) ≠ log₄(x). Also P(1 | 0).",
+   "h": "Für welches x haben alle Logarithmusfunktionen denselben Wert?",
+   "c": [
+    "1",
+    "0"
+   ]
+  },
+  {
+   "l": "zeitpunkt",
+   "t": "zeitpunkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(t) = 50 · 1,2^t. Ab welchem ganzzahligen t ist f(t) erstmals größer als 500?"
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "13",
+   "w": "1,2^t > 10 ⇒ t > lg 10 : lg 1,2 ≈ 12,63. Erste ganze Zahl: 13.",
+   "h": "Teile durch 50, logarithmiere, runde auf."
+  },
+  {
+   "l": "zeitpunkt",
+   "t": "zeitpunkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Stoff hat eine Halbwertszeit von 30 Jahren. Nach wie vielen Jahren sind nur noch 10 % übrig? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 99.7,
+    "einheit": "Jahre",
+    "toleranz": 0.1
+   },
+   "c": "round(99.657842846621, 1)",
+   "w": "0,5^(t/30) = 0,1 ⇒ t = 30 · lg 0,1 : lg 0,5 ≈ 99,7 Jahre.",
+   "h": "Ansatz 0,5^(t/30) = 0,1."
+  },
+  {
+   "l": "zeitpunkt",
+   "t": "zeitpunkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Grundstück kostete 2018 genau 240 000 € und 2023 genau 300 000 €. Der Preis steigt exponentiell. In welchem Jahr kostet es bei gleicher Entwicklung erstmals mehr als 400 000 €?"
+   },
+   "o": {
+    "wert": 2030
+   },
+   "c": "2018 + 12",
+   "w": "b⁵ = 300 000 : 240 000 = 1,25. 240 000 · b^t > 400 000 ⇔ b^t > 5/3 ⇔ t > 5 · lg(5/3) : lg 1,25 ≈ 11,45. Also t = 12, das Jahr 2030.",
+   "h": "Zähle t ab 2018. Aus 5 Jahren folgt b⁵ = 1,25."
+  },
+  {
+   "l": "zeitpunkt",
+   "t": "zeitpunkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ort A hat 50 000 Einwohner und schrumpft jedes Jahr um 2 %. Ort B hat 30 000 Einwohner und wächst jedes Jahr um 3 %. Nach wie vielen Jahren sind es gleich viele? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 10.3,
+    "einheit": "Jahre",
+    "toleranz": 0.1
+   },
+   "c": "round(10.265476837267, 1)",
+   "w": "30 000 · 1,03^t = 50 000 · 0,98^t ⇒ (1,03 : 0,98)^t = 5/3 ⇒ t = lg(5/3) : lg(1,03 : 0,98) ≈ 10,3 Jahre.",
+   "h": "Setze beide Terme gleich und bringe alle Potenzen mit t auf eine Seite."
+  },
+  {
+   "l": "zeitpunkt",
+   "t": "zeitpunkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bestand verdreifacht sich in 10 Jahren (exponentielles Wachstum). Wie lange dauert es, bis er sich verdoppelt? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 6.3,
+    "einheit": "Jahre",
+    "toleranz": 0.1
+   },
+   "c": "round(6.309297535715, 1)",
+   "w": "b¹⁰ = 3 ⇒ lg b = lg 3 : 10. Verdopplung: b^T = 2 ⇒ T = lg 2 : lg b = 10 · lg 2 : lg 3 ≈ 6,3 Jahre.",
+   "h": "Du brauchst b nicht auszurechnen: Nutze lg b = lg 3 : 10."
+  },
+  {
+   "l": "zeitpunkt",
+   "t": "zeitpunkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst 80 · 1,04^t = 240 so: „t = 240 : 80 : 1,04 ≈ 2,9“. Was stimmt?"
+   },
+   "a": [
+    "Falsch: t = (240 − 80) : 4 = 40.",
+    "Falsch: 1,04^t = 3, also t = lg 3 : lg 1,04 ≈ 28,0.",
+    "Falsch: t = 240 : 80 · 1,04 ≈ 3,1.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "t steht im Exponenten. Nach dem Teilen durch 80 bleibt 1,04^t = 3; man muss logarithmieren: t = lg 3 : lg 1,04 ≈ 28,0.",
+   "h": "Wo steht t? Durch welche Rechnung holt man es dort heraus?"
   }
  ],
  "offen": [

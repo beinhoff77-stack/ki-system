@@ -78,8 +78,9 @@ class Neu:
         neu = collections.defaultdict(list)
         for lz, s, art, a in self.liste:
             assert lz in lz_alle, f'Lernkarte {lz} gibt es nicht'
-            assert a['f']['text'] not in texte, f'Text schon vorhanden: {a["f"]["text"]}'
-            assert a['f']['text'] not in beispiele and schl(a) not in gesehen
+            # gleicher Text nur bei Auswahl-Aufgaben mit anderen Antworten (wie im Bestand üblich)
+            assert a['y'] == 'auswahl' or a['f']['text'] not in texte, f'Text schon vorhanden: {a["f"]["text"]}'
+            assert a['f']['text'] not in beispiele and schl(a) not in gesehen, f'doppelt: {a["f"]["text"]}'
             texte.add(a['f']['text']); gesehen.add(schl(a))
             neu[lz].append({'l': lz, 't': lz, 'p': 'uebung', 's': s, **a})
         out = []

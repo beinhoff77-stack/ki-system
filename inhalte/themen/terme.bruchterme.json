@@ -931,6 +931,122 @@
    "w": "4x + 6 = 0 → 4x = −6 → x = −1,5."
   },
   {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl ist der Term 6/(9 − 3x) nicht definiert?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "9 / 3",
+   "w": "9 − 3x = 0 ⇔ 3x = 9 ⇔ x = 3.",
+   "h": "Setze den Nenner gleich 0."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die Definitionsmenge von 1/x + 1/(x + 1) an."
+   },
+   "a": [
+    "ℚ \\ {1}",
+    "ℚ \\ {0}",
+    "ℚ \\ {0; 1}",
+    "ℚ \\ {−1; 0}"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Beide Nenner dürfen nicht 0 werden: x ≠ 0 und x + 1 ≠ 0, also x ≠ −1.",
+   "h": "Prüfe jeden Nenner einzeln."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die Definitionsmenge von (x + 2)/(x² − 4x) an."
+   },
+   "a": [
+    "ℚ \\ {0; 4}",
+    "ℚ \\ {4}",
+    "ℚ \\ {−4; 0}",
+    "ℚ \\ {−2; 0; 4}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nenner ausklammern: x² − 4x = x(x − 4). Ein Produkt ist 0, wenn ein Faktor 0 ist: x = 0 oder x = 4. Der Zähler spielt keine Rolle.",
+   "h": "Klammere im Nenner x aus. Wann wird das Produkt 0?"
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Term hat die Definitionsmenge ℚ \\ {−2; 0}. Welcher kann es sein?"
+   },
+   "a": [
+    "(x + 2)/x",
+    "3/(x² + 2x)",
+    "3/(x² − 2x)",
+    "3/(x + 2) + x"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "x² + 2x = x(x + 2) ist 0 für x = 0 und x = −2. Bei x² − 2x wären es 0 und 2. (x + 2)/x schließt nur 0 aus, 3/(x + 2) + x nur −2.",
+   "h": "Klammere in jedem Nenner aus und bestimme die verbotenen Zahlen."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die Definitionsmenge von x/(2x + 1) : (x − 3)/x an."
+   },
+   "a": [
+    "ℚ \\ {−0,5; 0}",
+    "ℚ \\ {−0,5; 3}",
+    "ℚ \\ {−0,5; 0; 3}",
+    "ℚ \\ {0; 0,5; 3}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nenner 2x + 1 ≠ 0 (x ≠ −0,5) und x ≠ 0. Außerdem teilt man durch (x − 3)/x – dieser Bruch darf nicht 0 sein: x ≠ 3.",
+   "h": "Beim Teilen darf auch der ganze zweite Bruch nicht 0 sein."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welchen Wert von a hat der Term 5/(x² + a) die Definitionsmenge ℚ \\ {−3; 3}?"
+   },
+   "o": {
+    "wert": -9
+   },
+   "c": "-(3**2)",
+   "w": "Ausgeschlossen sind 3 und −3: Dort muss x² + a = 0 sein. 9 + a = 0 ⇔ a = −9. Probe: x² − 9 = 0 für x = ±3.",
+   "h": "Setze x = 3 in den Nenner ein. Er muss 0 werden."
+  },
+  {
    "l": "termwert",
    "t": "termwert",
    "p": "uebung",
@@ -1364,6 +1480,107 @@
    },
    "c": "4 / (2) - (1)",
    "w": "4/(x + 1) = 2 → x + 1 = 4 : 2 = 2 → x = 1. Probe: 4 : 2 = 2."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne T(−3) für T(x) = (x² − 1)/(x + 2)."
+   },
+   "o": {
+    "wert": -8
+   },
+   "c": "((-3)**2 - 1) / (-3 + 2)",
+   "w": "Zähler: 9 − 1 = 8. Nenner: −3 + 2 = −1. T(−3) = 8 : (−1) = −8.",
+   "h": "Rechne Zähler und Nenner getrennt. (−3)² ist positiv."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne T(0,5) für T(x) = (2x + 3)/(4x)."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(2 * 0.5 + 3) / (4 * 0.5)",
+   "w": "Zähler: 1 + 3 = 4. Nenner: 2. T(0,5) = 4 : 2 = 2.",
+   "h": "Zähler und Nenner getrennt."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Term T(x) = (a · x + 4)/(x − 2) hat an der Stelle x = 3 den Wert 10. Bestimme a."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(10 * (3 - 2) - 4) / 3",
+   "w": "T(3) = (3a + 4)/(3 − 2) = 3a + 4. Aus 3a + 4 = 10 folgt a = 2.",
+   "h": "Setze x = 3 ein. Dann bleibt eine Gleichung für a."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In Zelle A1 steht 4. In B1 steht =(A1+2)/(A1-1)/2. Welchen Wert zeigt B1? (Der Computer rechnet gleichrangige Rechenarten von links nach rechts.)"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "((4 + 2) / (4 - 1)) / 2",
+   "w": "Klammern zuerst: 6 und 3. Dann von links: 6 / 3 = 2, danach 2 / 2 = 1. Nicht 6 : (3 : 2) = 4.",
+   "h": "Rechne die beiden Klammern aus. Dann teile von links nach rechts."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welches x hat T(x) = (x + 1)/(x − 1) den Wert −1?"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "x + 1 = −(x − 1) = −x + 1 ⇔ 2x = 0 ⇔ x = 0. Probe: 1/(−1) = −1.",
+   "h": "Multipliziere mit dem Nenner. Achte auf das Minus vor der Klammer."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welchen Wert kann T(x) = (2x + 1)/x für kein x annehmen?"
+   },
+   "a": [
+    "0",
+    "1",
+    "2",
+    "3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Aufteilen: (2x + 1)/x = 2 + 1/x. Der Bruch 1/x ist nie 0, also ist T(x) nie 2. 0 gibt es bei x = −0,5, 1 bei x = −1, 3 bei x = 1.",
+   "h": "Teile den Bruch in 2x/x + 1/x auf."
   },
   {
    "l": "kuerzen",
@@ -1858,6 +2075,127 @@
     "index": 1
    },
    "w": "Ausklammern: 6(x + 7)/(5(x + 7)). (x + 7) kürzen: 6/5."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Kürze vollständig: 12x²y/(18xy²)"
+   },
+   "a": [
+    "2x/(3y)",
+    "6x/(9y)",
+    "2/3",
+    "2xy/3"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "12 : 6 = 2, 18 : 6 = 3. x²/x = x, y/y² = 1/y. Ergebnis 2x/(3y).",
+   "h": "Kürze Zahlen und jede Variable einzeln."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Kürze vollständig: (6x + 4)/(9x + 6)"
+   },
+   "a": [
+    "(6x + 2)/(9x + 3)",
+    "2/3",
+    "4/6",
+    "(2x + 4)/(3x + 6)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ausklammern: 6x + 4 = 2(3x + 2) und 9x + 6 = 3(3x + 2). Der gleiche Faktor (3x + 2) kürzt sich: 2/3.",
+   "h": "Klammere im Zähler 2 und im Nenner 3 aus."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Kürze vollständig: (3x² + 9x)/(6x)"
+   },
+   "a": [
+    "(x² + 3x)/2",
+    "(x + 9)/2",
+    "x + 3/2",
+    "(x + 3)/2"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Zähler ausklammern: 3x² + 9x = 3x(x + 3). Dann 3x(x + 3)/(6x) = (x + 3)/2. Man darf nicht nur 3x² kürzen.",
+   "h": "Klammere im Zähler 3x aus."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Kürze vollständig: (x − 4)/(4 − x)"
+   },
+   "a": [
+    "nicht kürzbar",
+    "1",
+    "0",
+    "−1"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "4 − x = −(x − 4). Also (x − 4)/(−(x − 4)) = −1 (für x ≠ 4). Probe mit x = 6: 2/(−2) = −1.",
+   "h": "Klammere im Nenner −1 aus."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Kürze vollständig: (x² + 6x + 9)/(2x + 6)"
+   },
+   "a": [
+    "(x + 3)/2",
+    "(x² + 3)/2",
+    "x/2 + 9/6",
+    "(x + 9)/2"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Zähler: binomische Formel x² + 6x + 9 = (x + 3)². Nenner: 2(x + 3). Kürzen mit (x + 3): (x + 3)/2.",
+   "h": "Erkennst du im Zähler eine binomische Formel?"
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welchen Wert von a lässt sich (x + a)/(3x + 12) vollständig zu 1/3 kürzen?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "12 / 3",
+   "w": "3x + 12 = 3(x + 4). Damit 1/3 übrig bleibt, muss der Zähler x + 4 sein: a = 4.",
+   "h": "Klammere im Nenner 3 aus."
   },
   {
    "l": "erweitern",
@@ -2398,6 +2736,134 @@
    "w": "15 : 5 = 3. Zähler: 3 · (x + 6) = 3x + 18."
   },
   {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Erweitere 3/(x + 2) auf den Nenner x² + 2x. Gib den neuen Zähler ein.",
+    "schablone": "□x",
+    "hinweis": "Tippe den Term ein, z. B. 3x."
+   },
+   "o": {
+    "werte": [
+     3
+    ]
+   },
+   "c": [
+    "3"
+   ],
+   "w": "x² + 2x = x(x + 2). Also mit x erweitern: neuer Zähler 3x.",
+   "h": "Wie entsteht x² + 2x aus x + 2?"
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Mit welchem Term wurde (x + 1)/3 erweitert, wenn der neue Nenner 6x ist?",
+    "schablone": "□x",
+    "hinweis": "Tippe den Term ein, z. B. 2x."
+   },
+   "o": {
+    "werte": [
+     2
+    ]
+   },
+   "c": [
+    "6 / 3"
+   ],
+   "w": "6x : 3 = 2x. Erweitert wurde mit 2x.",
+   "h": "Neuer Nenner : alter Nenner."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Hauptnenner von 1/(4x) und 5/(6x²) an.",
+    "schablone": "□x²",
+    "hinweis": "Tippe den Term ein, z. B. 12x²."
+   },
+   "o": {
+    "werte": [
+     12
+    ]
+   },
+   "c": [
+    "12"
+   ],
+   "w": "Zahlen: kleinstes gemeinsames Vielfaches von 4 und 6 ist 12. Variablen: x² enthält x. Hauptnenner 12x² (nicht 24x³).",
+   "h": "kgV der Zahlen, höchste Potenz von x."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Hauptnenner von 2/(x + 1) und 3/(x² + x) an.",
+    "schablone": "□x² + □x",
+    "hinweis": "Tippe den Term ein, z. B. x² + x."
+   },
+   "o": {
+    "werte": [
+     1,
+     1
+    ]
+   },
+   "c": [
+    "1",
+    "1"
+   ],
+   "w": "x² + x = x(x + 1) enthält schon x + 1. Hauptnenner ist x(x + 1) = x² + x.",
+   "h": "Klammere im zweiten Nenner aus."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Erweitere 2/(x − 1) auf den Nenner 1 − x. Wie heißt der neue Zähler?"
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "2 * (-1)",
+   "w": "1 − x = (−1) · (x − 1). Erweitert wird also mit −1: neuer Zähler 2 · (−1) = −2. 2/(x − 1) = −2/(1 − x).",
+   "h": "Mit welcher Zahl wird x − 1 zu 1 − x?"
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Der Bruch (x + 3)/(2x) wurde erweitert. Er heißt jetzt (x² + 3x)/(□x²). Ergänze den Nenner.",
+    "schablone": "□x²",
+    "hinweis": "Tippe den Term ein, z. B. 2x²."
+   },
+   "o": {
+    "werte": [
+     2
+    ]
+   },
+   "c": [
+    "2"
+   ],
+   "w": "Der Zähler x + 3 wurde zu x² + 3x = x(x + 3). Erweitert wurde mit x, also wird der Nenner 2x · x = 2x².",
+   "h": "Womit wurde der Zähler multipliziert?"
+  },
+  {
    "l": "addieren",
    "t": "addieren",
    "p": "uebung",
@@ -2890,6 +3356,127 @@
     "index": 2
    },
    "w": "Hauptnenner x²: 6/x = 6x/x². Ergebnis: (6x − 9)/x²."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Fasse zusammen: 3/(2x) + 1/(4x)"
+   },
+   "a": [
+    "4/(6x)",
+    "7/(4x)",
+    "4/(4x)",
+    "7/(8x²)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Hauptnenner 4x: 3/(2x) = 6/(4x). 6/(4x) + 1/(4x) = 7/(4x).",
+   "h": "Erweitere den ersten Bruch auf 4x."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Fasse zu einem Bruch zusammen: 1 + 2/x"
+   },
+   "a": [
+    "2/(x + 1)",
+    "(1 + 2)/x",
+    "(x + 2)/x",
+    "3/x"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "1 = x/x. Also x/x + 2/x = (x + 2)/x.",
+   "h": "Schreibe 1 als Bruch mit Nenner x."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Fasse zusammen und vereinfache: (x + 2)/x² − 1/x"
+   },
+   "a": [
+    "(x + 2)/x",
+    "(2 − x)/x²",
+    "(x + 1)/x²",
+    "2/x²"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Hauptnenner x²: 1/x = x/x². (x + 2 − x)/x² = 2/x².",
+   "h": "Erweitere 1/x auf x². Achte beim Abziehen auf alle Glieder."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Fasse zu einem Bruch zusammen: 3x/(x − 2) − 1"
+   },
+   "a": [
+    "(3x − 1)/(x − 2)",
+    "(2x + 2)/(x − 2)",
+    "3x/(x − 3)",
+    "(2x − 2)/(x − 2)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "1 = (x − 2)/(x − 2). 3x − (x − 2) = 3x − x + 2 = 2x + 2. Ergebnis (2x + 2)/(x − 2).",
+   "h": "Schreibe 1 mit dem Nenner x − 2. Das Minus gilt für den ganzen Zähler."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Fasse zusammen: 1/(x − 2) + 1/(2 − x)"
+   },
+   "a": [
+    "2/(x² − 4)",
+    "2/(x − 2)",
+    "0",
+    "1/(2x − 4)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "2 − x = −(x − 2), also 1/(2 − x) = −1/(x − 2). Dann 1/(x − 2) − 1/(x − 2) = 0.",
+   "h": "Vergleiche die Nenner genau. Was ist 2 − x im Vergleich zu x − 2?"
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt a/x + 3/(x + 1) = (5x + 2)/(x(x + 1)). Bestimme a."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "a/x + 3/(x + 1) = (a(x + 1) + 3x)/(x(x + 1)) = ((a + 3)x + a)/(x(x + 1)). Vergleich mit 5x + 2: a = 2 (und a + 3 = 5 passt).",
+   "h": "Bringe die linke Seite auf den Hauptnenner und vergleiche die Zähler."
   },
   {
    "l": "multiplizieren",
@@ -3401,6 +3988,127 @@
    "w": "Mit dem Kehrbruch von 6x³/7 multiplizieren: 5/(7x²) · 7/(6x³). Zähler: 5 · 7 = 35. Nenner: 7x² · 6x³ = 42x⁵. 35/(42x⁵) mit 7 kürzen: 5/(6x⁵)."
   },
   {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Berechne und kürze: (2x/3) · (9/(4x²))"
+   },
+   "a": [
+    "3/(2x)",
+    "2/(3x)",
+    "18x/(12x²)",
+    "3x/2"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "2x · 9 = 18x, 3 · 4x² = 12x². 18x/(12x²) = 3/(2x).",
+   "h": "Zähler mal Zähler, Nenner mal Nenner, dann kürzen."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Berechne und kürze: (x + 1)/x : (x + 1)/x²"
+   },
+   "a": [
+    "(x + 1)²/x³",
+    "x",
+    "1",
+    "1/x"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Mit dem Kehrbruch malnehmen: (x + 1)/x · x²/(x + 1) = x²/x = x.",
+   "h": "Teilen heißt: mit dem Kehrbruch malnehmen."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Berechne und kürze: 2x : (4/x)"
+   },
+   "a": [
+    "8/x",
+    "8x²",
+    "x²/2",
+    "1/(2x²)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "2x · x/4 = 2x²/4 = x²/2.",
+   "h": "Schreibe 2x als 2x/1 und nimm mit dem Kehrbruch mal."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Berechne und kürze: (x² − 9)/(2x) · 4x/(x + 3)"
+   },
+   "a": [
+    "2x − 9",
+    "2(x + 3)",
+    "4(x − 3)/2x",
+    "2(x − 3)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "x² − 9 = (x + 3)(x − 3). Dann (x + 3)(x − 3) · 4x/(2x(x + 3)) = 2(x − 3).",
+   "h": "Zerlege x² − 9 mit der binomischen Formel, dann kürzen."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Das Ergebnis von (3x − 6)/(x + 1) : (x − 2)/(2x + 2) ist eine Zahl. Welche?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "3 * 2",
+   "w": "3x − 6 = 3(x − 2) und 2x + 2 = 2(x + 1). Kehrbruch: 3(x − 2)/(x + 1) · 2(x + 1)/(x − 2) = 3 · 2 = 6.",
+   "h": "Klammere zuerst aus. Dann kürzt sich alles mit x weg."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit welchem Bruchterm muss man x/(x + 1) multiplizieren, um 1 zu erhalten?"
+   },
+   "a": [
+    "(x + 1)/x",
+    "(x − 1)/x",
+    "1/(x + 1)",
+    "x/(x + 1)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein Bruch mal sein Kehrbruch ergibt 1: x/(x + 1) · (x + 1)/x = 1.",
+   "h": "Was ergibt 2/3 · 3/2?"
+  },
+  {
    "l": "fehler_finden",
    "t": "fehler_finden",
    "p": "uebung",
@@ -3893,6 +4601,127 @@
     "index": 2
    },
    "w": "Teste x = 1: 9 + 8 = 17, aber 17/2 = 8,5. Richtig ist 17/x."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Umformung ist richtig (für alle x aus D)?"
+   },
+   "a": [
+    "(x + 4)/x = 4",
+    "x/(x + 4) = 1/4",
+    "(2x + 4)/2 = x + 4",
+    "(2x + 4)/2 = x + 2"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "(2x + 4)/2 = 2(x + 2)/2 = x + 2. Die anderen kürzen Summanden statt Faktoren.",
+   "h": "Kürzen geht nur mit gemeinsamen Faktoren."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Umformung ist FALSCH (für alle x aus D)?"
+   },
+   "a": [
+    "(x − 3)/(3 − x) = −1",
+    "(x + 2)²/(x + 2) = x + 2",
+    "(x² + 4)/(x + 2) = x + 2",
+    "x/(2x) = 1/2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "x² + 4 ist keine binomische Formel; (x + 2)² wäre x² + 4x + 4. Gegenbeispiel x = 1: 5/3 ≠ 3.",
+   "h": "Setze eine Zahl ein, z. B. x = 1."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Tim rechnet: 2/x − (x − 1)/x = (2 − x − 1)/x = (1 − x)/x. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Das Minus gilt für den ganzen Zähler. Richtig ist (3 − x)/x.",
+    "Falsch: Richtig ist (1 − x)/(2x).",
+    "Falsch: Man darf nur gleiche Nenner subtrahieren.",
+    "Richtig gerechnet."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Vor (x − 1) steht ein Minus: 2 − (x − 1) = 2 − x + 1 = 3 − x. Tim hat die Klammer weggelassen.",
+   "h": "Setze den zweiten Zähler in Klammern."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Lena prüft (x² + x)/x = x + 1 mit x = 0 und sagt: „Stimmt nicht.“ Was stimmt?"
+   },
+   "a": [
+    "Die Umformung stimmt nur für x = 1.",
+    "Lenas Probe zählt nicht: x = 0 gehört nicht zu D. Für alle x ≠ 0 stimmt die Umformung.",
+    "Lena hat recht: Kürzen mit x ist verboten.",
+    "Lena hat recht: Ein Gegenbeispiel genügt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Für x = 0 ist der linke Term gar nicht definiert. (x² + x)/x = x(x + 1)/x = x + 1 gilt für jedes x aus D = ℚ \\ {0}.",
+   "h": "Darf man x = 0 überhaupt einsetzen?"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Umformung (x + 6)/(x + 2) = 6/2 ist falsch. Für welches x ergibt sie trotzdem eine wahre Aussage?"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "(x + 6)/(x + 2) = 3 ⇔ x + 6 = 3x + 6 ⇔ x = 0. Nur bei x = 0 stimmt es zufällig: 6/2 = 3.",
+   "h": "Löse (x + 6)/(x + 2) = 3."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit welcher Zahl kannst du zeigen, dass 1/x + 1/2 = 2/(x + 2) falsch ist?"
+   },
+   "a": [
+    "mit keiner, die Umformung stimmt",
+    "x = 0",
+    "x = 2",
+    "x = −2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "x = 2: links 1/2 + 1/2 = 1, rechts 2/4 = 0,5. Ungleich – Gegenbeispiel. x = 0 und x = −2 darf man nicht einsetzen.",
+   "h": "Ein Gegenbeispiel muss erlaubt sein (in D liegen)."
   }
  ],
  "offen": [

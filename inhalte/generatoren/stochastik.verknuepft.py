@@ -184,6 +184,84 @@ KLAR = {
 }
 klar(ETAPPEN, KLAR)
 # ---- KLAR ENDE ----
+# ---- UMBAU (neues Muster, Runde 8, Vorgabe 16.11.) ----
+_KR = [{'m': '_M1', 'r': 3.5}, {'m': '_M2', 'r': 3.5}]
+_V = lambda a, b, s=None: {'_M1': [0, 0], '_M2': [4, 0], a: [-2.6, 2.6], b: [6.6, 2.6], **({s: [2, 0]} if s else {})}
+_KOPF = ['', 'B (gespielt)', 'nicht B', 'Summe']
+UMBAU = {
+ 'verknuepfen': {
+  'einstieg': 'Beim Schulfest ziehst du ein Los von 1 bis 20. Gerade Zahlen gewinnen einen Preis, durch 3 teilbare einen Sonderpreis. Wer gewinnt beides? Dafür ⟦verknüpfst⟧ du Ereignisse.',
+  'woerter': [['A ∩ B', '„A und B“: beide Ereignisse treten ein'],
+              ['A ∪ B', '„A oder B“: mindestens eines tritt ein'],
+              ['Ereignisse', 'Mengen von Ergebnissen, z. B. A = gerade Zahl']],
+  'bild': {'typ': 'figur', 'punkte': _V('A: gerade', 'B: durch 3'), 'kreise': _KR},
+  'schritte': [{'text': 'A: Die Zahl ist gerade. B: Die Zahl ist durch 3 teilbar.'},
+               {'text': 'Beide Preise heißt A ∩ B: die Lose 6, 12 und 18.',
+                'bild': {'punkte': _V('A: gerade', 'B: durch 3', 'A ∩ B: 6, 12, 18')}},
+               {'text': 'Das sind 3 von 20 Losen: P(A ∩ B) = ⟦0,15⟧.'},
+               {'text': 'Mindestens ein Preis hieße dagegen A ∪ B.'}],
+  'fehler': 'A ∪ B heißt nicht „beide“. Für A ∪ B reicht schon ein Preis. ∩ heißt und, ∪ heißt oder.',
+  'regel': '∩ heißt ⟦und⟧, ∪ heißt ⟦oder⟧ (mindestens eins). P = günstige : mögliche Ergebnisse.'},
+ 'additionssatz': {
+  'einstieg': 'Wie wahrscheinlich ist mindestens ein Preis? Zählst du die Gewinner von A und B zusammen, zählst du die Doppelgewinner zweimal. Das korrigiert der ⟦Additionssatz⟧.',
+  'woerter': [['Additionssatz', 'P(A ∪ B) = P(A) + P(B) − P(A ∩ B)'],
+              ['Schnittmenge', 'der Teil, der zu A und zu B gehört']],
+  'bild': {'typ': 'figur', 'punkte': _V('A: 0,5', 'B: 0,3', 'beide: 0,1'), 'kreise': _KR},
+  'schritte': [{'text': 'P(A) = 0,5 und P(B) = 0,3. Die Schnittmenge hat P(A ∩ B) = 0,1.'},
+               {'text': '0,5 + 0,3 = 0,8 zählt die Schnittmenge doppelt.'},
+               {'text': 'Einmal abziehen: P(A ∪ B) = 0,8 − 0,1 = ⟦0,7⟧.'}],
+  'fehler': 'P(A ∪ B) = 0,5 + 0,3 = 0,8 ist falsch. Die Doppelgewinner wurden zweimal gezählt.',
+  'regel': '⟦P(A ∪ B) = P(A) + P(B) − P(A ∩ B)⟧. Ohne gemeinsame Ergebnisse fällt der letzte Teil weg.'},
+ 'vierfeld': {
+  'einstieg': 'Nach dem Fest werden 200 Gäste befragt: gegessen oder nicht, gespielt oder nicht. Jeder Gast passt in genau ein Feld der ⟦Vierfeldertafel⟧.',
+  'woerter': [['Vierfeldertafel', 'eine Tabelle mit zwei Merkmalen, je ja oder nein'],
+              ['Zeilensumme', 'die Summe einer Zeile, ganz rechts']],
+  'bild': {'typ': 'tabelle', 'kopf': _KOPF, 'zeilen': [['A (gegessen)', '30', '?', '80'], ['nicht A', '', '', '?'], ['Summe', '', '', '200']]},
+  'schritte': [{'text': '200 Gäste, 80 haben gegessen, davon 30 auch gespielt.'},
+               {'text': 'Die Zeilensumme von A ist 80. Rest: 80 − 30 = ⟦50⟧.',
+                'bild': {'zeilen': [['A (gegessen)', '30', '50', '80'], ['nicht A', '', '', '?'], ['Summe', '', '', '200']]}},
+               {'text': 'Nicht gegessen haben 200 − 80 = 120 Gäste.',
+                'bild': {'zeilen': [['A (gegessen)', '30', '50', '80'], ['nicht A', '', '', '120'], ['Summe', '', '', '200']]}}],
+  'fehler': '„A und nicht B“ ist nicht 200 − 30. Dann hätten mehr gegessen als die 80 in der Zeile.',
+  'fehler_bild': {'zeilen': [['A (gegessen)', '30', '170?', '80'], ['nicht A', '', '', '?'], ['Summe', '', '', '200']]},
+  'regel': 'Jede Zeile und Spalte muss ihre ⟦Summe⟧ ergeben. Fehlendes ist Summe minus Bekanntes.'},
+ 'tafel_wkeit': {
+  'einstieg': 'Aus Anzahlen werden Anteile. Teilst du jedes Feld durch die Gesamtzahl, liest du ⟦Wahrscheinlichkeiten⟧ ab.',
+  'woerter': [['Gesamtzahl', 'alle Befragten, unten rechts'],
+              ['Randsumme', 'die Summe einer Zeile oder Spalte']],
+  'bild': {'typ': 'tabelle', 'kopf': _KOPF, 'zeilen': [['A (gegessen)', '60', '100', '160'], ['Summe', '', '', '400']]},
+  'schritte': [{'text': '400 Gäste: 60 haben gegessen und gespielt, 100 nur gegessen.'},
+               {'text': 'Durch die Gesamtzahl teilen: 60 : 400 = 0,15 und 100 : 400 = 0,25.',
+                'bild': {'zeilen': [['A (gegessen)', '60 → 0,15', '100 → 0,25', '160'], ['Summe', '', '', '400 → 1']]}},
+               {'text': 'Randsumme der Zeile: 160 : 400 = ⟦0,4⟧ = P(A).',
+                'bild': {'zeilen': [['A (gegessen)', '60 → 0,15', '100 → 0,25', '160 → 0,4'], ['Summe', '', '', '400 → 1']]}}],
+  'fehler': 'P(A ∩ B) ist nicht 60 : 160. Gefragt ist unter allen Gästen, also durch 400 teilen.',
+  'regel': 'Teile jedes Feld durch die ⟦Gesamtzahl⟧. P(A) ist dann die Randsumme der Zeile.'},
+ 'bedingt': {
+  'einstieg': 'Ein Gast erzählt, dass er gespielt hat. Wie wahrscheinlich hat er auch gegessen? Jetzt zählen nur die Spieler. Das ist eine ⟦bedingte Wahrscheinlichkeit⟧.',
+  'woerter': [['bedingte Wahrscheinlichkeit', 'eine Wahrscheinlichkeit, wenn schon etwas bekannt ist'],
+              ['P_B(A)', 'Wahrscheinlichkeit von A, wenn B schon eingetreten ist']],
+  'bild': {'typ': 'tabelle', 'kopf': _KOPF, 'zeilen': [['A (gegessen)', '20', '60', '80'], ['nicht A', '30', '90', '120'], ['Summe', '50', '150', '200']]},
+  'schritte': [{'text': 'Bekannt: Der Gast hat gespielt. Es zählt nur die Spalte B.',
+                'bild': {'kopf': ['', 'B: nur diese Spalte', 'nicht B', 'Summe']}},
+               {'text': 'In Spalte B sind 50 Gäste, davon haben 20 gegessen.'},
+               {'text': 'P_B(A) = 20 : 50 = ⟦0,4⟧.'}],
+  'fehler': 'P_B(A) und P_A(B) nicht verwechseln. 20 : 80 = 0,25 gilt unter allen, die gegessen haben.',
+  'regel': 'Bei ⟦P_B(A)⟧ nur in der Gruppe B zählen. Es gilt P_B(A) = P(A ∩ B) : P(B).'},
+ 'verstehen': {
+  'einstieg': 'Jemand sagt: 70 % haben gegessen, 60 % gespielt, und das waren verschiedene Leute. Kann das stimmen? Mit Zahlen ⟦prüfst du solche Aussagen⟧.',
+  'woerter': [['unvereinbar', 'A und B haben kein gemeinsames Ergebnis']],
+  'bild': {'typ': 'zahlenstrahl', 'start': 0, 'ende': 1.4, 'abschnitte': 7, 'beschriftet': 'anfang_ende'},
+  'schritte': [{'text': 'Behauptung: P(A) = 0,7, P(B) = 0,6, A und B sind unvereinbar.'},
+               {'text': 'Unvereinbar hieße: P(A ∪ B) = 0,7 + 0,6 = 1,3.',
+                'bild': {'boegen': [{'von': 0, 'bis': 0.7, 'name': 'gegessen'}, {'von': 0.7, 'bis': 1.3, 'name': 'gespielt'}]}},
+               {'text': 'Mehr als alle Gäste gibt es nicht: 1,3 ist größer als 1.', 'bild': {'punkte': [{'wert': 1, 'name': 'alle'}]}},
+               {'text': 'Also ⟦überschneiden sich A und B⟧. Die Behauptung ist falsch.'}],
+  'fehler': 'Das Gegenteil von „mindestens ein Treffer“ ist nicht „mindestens ein Fehlschuss“, sondern „kein Treffer“.',
+  'regel': 'Wahrscheinlichkeiten liegen ⟦zwischen 0 und 1⟧. Unvereinbar heißt: keine gemeinsamen Ergebnisse.'},
+}
+umbau(ETAPPEN, UMBAU)
+# ---- UMBAU ENDE ----
 
 
 def g_verknuepfen(s):

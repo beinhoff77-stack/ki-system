@@ -44,7 +44,7 @@
    {
     "lernziel": "scheitel",
     "titel": "Scheitelpunkt ablesen",
-    "regel": "So liest du den Scheitel ab: Bring die Gleichung in die ⟦Scheitelform⟧ y = a(x − d)² + e. Der Scheitel liegt bei ⟦S(d | e)⟧, denn bei ⟦x = d⟧ wird die Klammer null. Achtung: Bei (x + 3)² ist d = −3.",
+    "regel": "Der Scheitel von a(x − d)² + e ist ⟦S(d | e)⟧. Achtung: Bei (x + 3)² ist d = −3.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -63,42 +63,48 @@
         12,
         2
        ],
-       "name": "Bahn y = 2(x + 3)² − 5"
-      }
-     ],
-     "punkte": [
-      {
-       "x": -3,
-       "y": -5,
-       "name": "tiefster Punkt S(−3 | −5)"
+       "name": "Bahn"
       }
      ]
     },
     "schritte": [
-     "Die Funktion heißt y = 2(x + 3)² − 5.",
-     "Die Klammer (x + 3)² ist nie negativ. Am kleinsten, nämlich 0, wird sie bei x = −3.",
-     "Dort ist y = 2 · 0 − 5 = −5. Das ist der kleinste y-Wert.",
-     "Also liegt der Scheitel bei ⟦S(−3 | −5)⟧."
+     {
+      "text": "Die Bahn heißt y = 2(x + 3)² − 5. Das ist die Scheitelform."
+     },
+     {
+      "text": "(x + 3)² ist nie negativ und wird 0 bei x = −3.",
+      "bild": {
+       "senkrecht": [
+        -3
+       ]
+      }
+     },
+     {
+      "text": "Dort ist y = 2 · 0 − 5 = −5, der kleinste Wert."
+     },
+     {
+      "text": "Der Scheitelpunkt ist ⟦S(−3 | −5)⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": -3,
+         "y": -5,
+         "name": "S(−3 | −5)"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "x = −3 eingesetzt: 2 · 0² − 5 = −5 ✓",
-    "fehler": "Bei y = (x + 3)² − 5 den Scheitel S(3 | −5) abzulesen ist falsch: x + 3 = x − (−3), also ⟦d = −3⟧. Probe: Bei x = 3 ist die Klammer 36, nicht 0 – dort ist die Bahn nicht am tiefsten.",
-    "einstieg": "Eine Skaterbahn ist im Querschnitt wie ein U geformt. Am wichtigsten ist der tiefste Punkt: Dort ist der Skater am schnellsten. Bei einer Parabel heißt dieser Umkehrpunkt ⟦Scheitelpunkt S⟧. In einer bestimmten Schreibweise kann man ihn direkt ablesen.",
+    "fehler": "Bei (x + 3)² − 5 ist der Scheitel nicht S(3 | −5). Bei x = 3 ist die Klammer 36, nicht 0.",
+    "einstieg": "Eine Skaterbahn ist im Querschnitt wie ein U geformt. Am tiefsten Punkt ist der Skater am schnellsten. Bei einer Parabel heißt dieser Punkt ⟦Scheitelpunkt⟧.",
     "woerter": [
      [
-      "Parabel",
-      "die U-förmige Kurve einer quadratischen Funktion"
-     ],
-     [
-      "Scheitelpunkt S(d | e)",
-      "der tiefste (oder höchste) Punkt der Parabel, bei x = d und y = e"
+      "Scheitelpunkt",
+      "der tiefste oder höchste Punkt der Parabel, geschrieben S(d | e)"
      ],
      [
       "Scheitelform",
       "y = a(x − d)² + e"
-     ],
-     [
-      "d, e",
-      "die Koordinaten des Scheitels: d nach rechts, e nach oben"
      ],
      [
       "(x + 3)",
@@ -109,14 +115,52 @@
    {
     "lernziel": "parameter",
     "titel": "Was bewirken a, d und e?",
-    "regel": "So liest du die Parameter: Das Vorzeichen von a sagt die Öffnung (⟦a > 0⟧ nach oben, ⟦a < 0⟧ nach unten). Der Betrag sagt die Breite (⟦|a| > 1⟧ gestreckt, ⟦|a| < 1⟧ gestaucht). d verschiebt nach rechts oder links, e nach oben oder unten.",
+    "regel": "a < 0 öffnet nach unten, |a| < 1 macht ⟦breiter⟧. d und e verschieben den Scheitel nach rechts und oben.",
     "schritte": [
-     "Die Funktion heißt y = −0,5(x − 1)² + 4. Abgelesen: a = −0,5, d = 1, e = 4.",
-     "a ist negativ. Also ist die Parabel nach unten geöffnet, wie ein Wasserstrahl.",
-     "|a| = 0,5 ist kleiner als 1. Also ist die Parabel breiter als y = x², sie ist gestaucht.",
-     "d und e geben den höchsten Punkt an. Ergebnis: ⟦nach unten geöffnet, gestaucht, S(1 | 4)⟧."
+     {
+      "text": "Abgelesen aus der Gleichung: a = −0,5, d = 1, e = 4."
+     },
+     {
+      "text": "a ist negativ: Die Parabel ist nach unten geöffnet."
+     },
+     {
+      "text": "|a| = 0,5 ist kleiner als 1: breiter als y = x², also gestaucht.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "poly",
+         "k": [
+          3.5,
+          1,
+          -0.5
+         ],
+         "name": "Wasser"
+        },
+        {
+         "art": "poly",
+         "k": [
+          0,
+          0,
+          1
+         ],
+         "name": "y = x²"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Der höchste Punkt ist ⟦S(1 | 4)⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 1,
+         "y": 4,
+         "name": "S(1 | 4)"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "Der Scheitel ist hier der höchste Punkt ✓",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -131,98 +175,167 @@
       {
        "art": "poly",
        "k": [
-        0,
-        0,
-        1
-       ],
-       "name": "Normalparabel y = x²"
-      },
-      {
-       "art": "poly",
-       "k": [
         3.5,
         1,
         -0.5
        ],
-       "name": "Wasserstrahl"
-      }
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 4,
-       "name": "höchster Punkt S(1 | 4)"
+       "name": "y = −0,5(x − 1)² + 4"
       }
      ]
     },
-    "fehler": "„y = −3x² ist gestaucht, weil −3 < 1“ ist falsch: Für die Breite zählt der ⟦Betrag⟧. |−3| = 3 > 1, der Strahl ist also schmaler, die Parabel gestreckt.",
-    "einstieg": "Ein Springbrunnen spritzt einen Wasserstrahl im Bogen. Dreht man am Ventil, wird der Bogen höher, breiter oder wandert zur Seite. In der Scheitelform hat jede Zahl so eine Aufgabe. Diese einstellbaren Zahlen a, d und e heißen ⟦Parameter⟧.",
+    "fehler": "y = −3x² ist nicht gestaucht, weil −3 < 1. Für die Breite zählt |−3| = 3 > 1: gestreckt, also schmaler.",
+    "einstieg": "Dreht man am Ventil eines Springbrunnens, wird der Wasserbogen höher, breiter oder wandert zur Seite. In der Scheitelform haben die Zahlen solche Aufgaben: Sie heißen ⟦Parameter⟧.",
     "woerter": [
      [
       "Parameter",
-      "eine Zahl in der Funktionsgleichung, die die Form oder Lage bestimmt"
-     ],
-     [
-      "|a|",
-      "der Betrag: a ohne Vorzeichen"
-     ],
-     [
-      "gestreckt",
-      "schmaler als die Normalparabel y = x²"
+      "eine Zahl in der Gleichung, die Form oder Lage bestimmt"
      ],
      [
       "gestaucht",
-      "breiter als die Normalparabel"
+      "breiter als die Normalparabel y = x²"
      ],
      [
       "nach unten geöffnet",
-      "wie ein umgedrehtes U; der Scheitel ist der höchste Punkt"
+      "wie ein umgedrehtes U"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        0,
+        1
+       ],
+       "name": "y = x²"
+      },
+      {
+       "art": "poly",
+       "k": [
+        0,
+        0,
+        -3
+       ],
+       "name": "y = −3x²"
+      }
+     ],
+     "punkte": []
+    }
    },
    {
     "lernziel": "umformen",
     "titel": "Von der allgemeinen zur Scheitelform",
-    "regel": "So formst du um: Bei y = x² + bx + c ⟦(b/2)² dazuzählen und wieder abziehen⟧. Dann die ersten drei Teile als Quadrat schreiben. Steht vor x² eine Zahl a, ⟦a zuerst ausklammern⟧. Kurz gilt: ⟦d = −b/(2a)⟧ und e = y(d).",
+    "regel": "Ergänze ⟦(b/2)²⟧ und ziehe es wieder ab. Steht vor x² eine Zahl, klammerst du sie zuerst aus.",
     "schritte": [
-     "Die Funktion heißt y = x² − 6x + 5. Die Hälfte von 6 ist 3, und 3² = 9.",
-     "9 dazuzählen und gleich wieder abziehen: y = x² − 6x + 9 − 9 + 5.",
-     "Die ersten drei Teile sind ein volles Quadrat: x² − 6x + 9 = (x − 3)². Der Rest: −9 + 5 = −4.",
-     "Also y = (x − 3)² − 4 mit dem Scheitel ⟦S(3 | −4)⟧."
+     {
+      "text": "Die Hälfte von 6 ist 3, und 3² = 9."
+     },
+     {
+      "text": "Plus 9 minus 9: y = x² − 6x + 9 − 9 + 5."
+     },
+     {
+      "text": "Zusammengefasst: y = (x − 3)² − 4."
+     },
+     {
+      "text": "Der Scheitel ist ⟦S(3 | −4)⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 3,
+         "y": -4,
+         "name": "S(3 | −4)"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "Mitte der Nullstellen: x² − 6x + 5 = (x − 1)(x − 5), Nullstellen 1 und 5. Die Mitte ist 3, und y(3) = 9 − 18 + 5 = −4. Also S(3 | −4) ✓",
-    "fehler": "y = x² − 6x + 5 = (x − 6)² + 5 ist falsch: In die Klammer gehört die ⟦Hälfte⟧ von 6, und die Ergänzung 9 muss wieder ⟦abgezogen⟧ werden. Probe: (x − 6)² + 5 hat bei x = 0 den Wert 41, nicht 5.",
-    "einstieg": "Oft steht eine Funktion „ausmultipliziert“ da, etwa y = x² − 6x + 5. Den Scheitel sieht man so nicht. Mit dem Trick der fehlenden Ecke aus dem Quadrat bringt man sie in die Scheitelform. Dieser Trick heißt ⟦quadratische Ergänzung⟧.",
+    "fehler": "y = (x − 6)² + 5 ist falsch. In die Klammer gehört die Hälfte von 6, und die 9 muss wieder weg.",
+    "einstieg": "Manchmal ist eine Parabel ausmultipliziert gegeben. Dann sieht man den Scheitel nicht. Mit der fehlenden Ecke wie beim Quadrat bekommst du die Scheitelform: ⟦quadratische Ergänzung⟧.",
     "woerter": [
      [
-      "allgemeine Form",
-      "y = ax² + bx + c"
+      "ausmultipliziert",
+      "ohne Klammer geschrieben, z. B. x² − 6x + 5"
      ],
      [
       "quadratische Ergänzung",
-      "eine Zahl dazuzählen und gleich wieder abziehen, damit ein volles Quadrat entsteht"
-     ],
-     [
-      "b/2",
-      "die Hälfte der Zahl vor x"
-     ],
-     [
-      "y(3)",
-      "der y-Wert bei x = 3"
+      "eine Zahl dazuzählen und wieder abziehen, damit ein volles Quadrat entsteht"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      7
+     ],
+     "y": [
+      -5,
+      8
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        5,
+        -6,
+        1
+       ],
+       "name": "y = x² − 6x + 5"
+      }
+     ]
+    },
+    "fehler_bild": {
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        5,
+        -6,
+        1
+       ],
+       "name": "richtig"
+      },
+      {
+       "art": "poly",
+       "k": [
+        41,
+        -12,
+        1
+       ],
+       "name": "falsch"
+      }
+     ]
+    }
    },
    {
     "lernziel": "nullstellen",
     "titel": "Nullstellen bestimmen",
-    "regel": "So findest du Nullstellen: ⟦y = 0 setzen⟧ und die quadratische Gleichung lösen. Wie ⟦viele⟧ es gibt, zeigt die Diskriminante – oder ein Blick auf Scheitel und Öffnung.",
+    "regel": "Setze ⟦y = 0⟧ und löse die quadratische Gleichung. Die Diskriminante zeigt, wie viele Nullstellen es gibt.",
     "schritte": [
-     "Die Funktion heißt y = x² − 2x − 8. Für die Nullstellen y = 0 setzen: x² − 2x − 8 = 0.",
-     "Ablesen: a = 1, b = −2, c = −8. D = (−2)² − 4 · 1 · (−8) = 4 + 32 = 36, und √36 = 6.",
-     "Lösungsformel: x₁,₂ = (2 ± 6) / 2.",
-     "Einmal minus, einmal plus: ⟦x₁ = −2, x₂ = 4⟧."
+     {
+      "text": "Für die Nullstellen y = 0 setzen: x² − 2x − 8 = 0."
+     },
+     {
+      "text": "D = (−2)² − 4 · 1 · (−8) = 36, also √D = 6."
+     },
+     {
+      "text": "x₁,₂ = (2 ± 6) : 2, also ⟦x₁ = −2, x₂ = 4⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": -2,
+         "y": 0,
+         "name": "−2"
+        },
+        {
+         "x": 4,
+         "y": 0,
+         "name": "4"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "(−2)² − 2 · (−2) − 8 = 4 + 4 − 8 = 0 ✓",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -243,114 +356,205 @@
        ],
        "name": "y = x² − 2x − 8"
       }
-     ],
-     "punkte": [
-      {
-       "x": -2,
-       "y": 0,
-       "name": "Nullstelle (−2 | 0)"
-      },
-      {
-       "x": 4,
-       "y": 0,
-       "name": "Nullstelle (4 | 0)"
-      }
      ]
     },
-    "fehler": "„S(2 | 3), nach oben geöffnet, hat zwei Nullstellen“ ist falsch: Der tiefste Punkt liegt schon ⟦über⟧ der x-Achse, die Parabel kommt nie herunter. Es gibt ⟦keine⟧ Nullstelle.",
-    "einstieg": "Ein Wasserstrahl startet am Boden und landet wieder am Boden. Wo er den Boden berührt, ist seine Höhe 0. Bei einer Parabel sind das die Stellen, an denen sie die x-Achse trifft. Sie heißen ⟦Nullstellen⟧.",
+    "fehler": "S(2 | 3) und nach oben geöffnet heißt: keine Nullstelle. Der tiefste Punkt liegt schon über der x-Achse.",
+    "einstieg": "Wo trifft eine Parabel die x-Achse? Dort ist die Höhe 0, wie beim Wasserstrahl am Boden. Diese Stellen heißen ⟦Nullstellen⟧.",
     "woerter": [
      [
-      "Nullstelle",
-      "ein x-Wert, an dem y = 0 ist"
+      "Nullstellen",
+      "die x-Werte, bei denen y = 0 ist"
      ],
      [
       "x-Achse",
-      "die waagrechte Achse, auf der y = 0 gilt"
-     ],
-     [
-      "Diskriminante D",
-      "D = b² − 4ac; sie zeigt, wie viele Lösungen es gibt"
-     ],
-     [
-      "x₁,₂",
-      "beide Lösungen auf einmal"
+      "die waagrechte Achse; auf ihr ist y = 0"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        7,
+        -4,
+        1
+       ],
+       "name": "S(2 | 3)"
+      }
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 3,
+       "name": "S"
+      }
+     ]
+    }
    },
    {
     "lernziel": "punkte",
     "titel": "Funktionswerte und Punktprobe",
-    "regel": "So machst du die ⟦Punktprobe⟧: Setze das x von P in die Funktion ein und berechne den ⟦Funktionswert⟧. Ist er gleich dem y von P, liegt der Punkt auf dem Graphen, sonst nicht.",
+    "regel": "Setze x ein und ⟦rechne f(x) aus⟧. Ist f(u) = v, liegt P(u | v) auf dem Graphen.",
     "schritte": [
-     "Die Funktion heißt f(x) = −x² + 4x + 1. Der Punkt ist P(3 | 4).",
-     "x = 3 einsetzen, Klammer setzen: f(3) = −(3)² + 4 · 3 + 1.",
-     "Ausrechnen: −9 + 12 + 1 = 4.",
-     "Der Funktionswert 4 ist gleich dem y-Wert von P. Also ⟦liegt P auf dem Graphen⟧."
+     {
+      "text": "Die Bahn heißt f(x) = −x² + 4x + 1."
+     },
+     {
+      "text": "x = 3 einsetzen: f(3) = −(3)² + 4 · 3 + 1."
+     },
+     {
+      "text": "Ausrechnen: −9 + 12 + 1 = 4."
+     },
+     {
+      "text": "Punktprobe: f(3) = 4 ist der y-Wert von P. ⟦P liegt auf der Bahn⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 3,
+         "y": 4,
+         "name": "P(3 | 4)"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "Klammern beim Einsetzen: −(3)² = −9 ✓",
-    "fehler": "Bei f(x) = −x² ist f(−3) = 9 falsch: Erst quadrieren, dann das Minus davor: ⟦−(−3)² = −9⟧. Ein Ball nach dieser Regel ist nie über dem Boden.",
-    "einstieg": "Ein Ball fliegt nach der Regel f(x) = −x² + 4x + 1. Liegt der Punkt P(3 | 4) auf seiner Bahn? Dafür rechnet man aus, wie hoch der Ball bei x = 3 ist. Diese berechnete Höhe heißt ⟦Funktionswert⟧.",
+    "fehler": "Bei f(x) = −x² ist f(−3) nicht 9. Erst quadrieren, dann das Minus davor: −(−3)² = −9.",
+    "einstieg": "Ein Ball fliegt auf einer Parabelbahn. Liegt der Punkt P(3 | 4) auf dieser Bahn? Du prüfst es mit dem ⟦Funktionswert⟧.",
     "woerter": [
-     [
-      "f(x)",
-      "die Funktion f; f(3) ist ihr Wert bei x = 3"
-     ],
      [
       "Funktionswert",
       "das Ergebnis, wenn man ein x einsetzt"
      ],
      [
+      "f(3)",
+      "der Funktionswert bei x = 3"
+     ],
+     [
       "Punktprobe",
       "prüfen, ob ein Punkt auf dem Graphen liegt"
-     ],
-     [
-      "P(u | v)",
-      "ein Punkt mit x = u und y = v"
-     ],
-     [
-      "−(3)²",
-      "erst 3 · 3 = 9, dann das Minus: −9"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -3,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        1,
+        4,
+        -1
+       ],
+       "name": "Bahn"
+      }
+     ]
+    }
    },
    {
     "lernziel": "bestimmen",
     "titel": "Funktionsterm bestimmen",
-    "regel": "So bestimmst du den Term: Ist der Scheitel bekannt, setze ⟦y = a(x − d)² + e⟧ an. Sind die Nullstellen bekannt, setze ⟦y = a(x − x₁)(x − x₂)⟧ an. Einen weiteren Punkt einsetzen und a ausrechnen. Bei drei beliebigen Punkten hilft ein Gleichungssystem.",
+    "regel": "Scheitel bekannt: ⟦y = a(x − d)² + e⟧ ansetzen. Mit einem weiteren Punkt rechnest du a aus.",
     "schritte": [
-     "Gegeben: Scheitel S(1 | −2) und Punkt P(3 | 6). Ansatz in Scheitelform: y = a(x − 1)² − 2.",
-     "P einsetzen: 6 = a · (3 − 1)² − 2. Die Klammer ist 2, quadriert 4: 6 = 4a − 2.",
-     "2 addieren: 8 = 4a. Durch 4 teilen: ⟦a = 2⟧.",
-     "Der Funktionsterm lautet y = 2(x − 1)² − 2."
+     {
+      "text": "Ansetzen mit S(1 | −2): y = a(x − 1)² − 2."
+     },
+     {
+      "text": "P(3 | 6) einsetzen: 6 = a · 2² − 2 = 4a − 2."
+     },
+     {
+      "text": "Also 4a = 8 und ⟦a = 2⟧."
+     },
+     {
+      "text": "Der Funktionsterm: y = 2(x − 1)² − 2.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "poly",
+         "k": [
+          0,
+          -4,
+          2
+         ],
+         "name": "Rutsche"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "x = 3: 2 · 4 − 2 = 6 ✓",
-    "fehler": "6 = a(3 − 1)² − 2 ⇒ 6 = 2a − 2 ist falsch: Die Klammer wird ⟦quadriert⟧: (3 − 1)² = 4, also 6 = 4a − 2.",
-    "einstieg": "Eine Rutsche soll im Profil eine Parabel sein. Ihr tiefster Punkt und ein weiterer Punkt sind vorgegeben. Wie lautet die Gleichung? Man setzt die bekannten Werte ein und rechnet die fehlende Zahl aus. Das heißt ⟦Funktionsterm bestimmen⟧.",
+    "fehler": "6 = a(3 − 1)² − 2 heißt nicht 6 = 2a − 2. Die Klammer wird quadriert: (3 − 1)² = 4.",
+    "einstieg": "Eine Rutsche soll ein Parabelprofil haben. Der tiefste Punkt und ein weiterer Punkt sind vorgegeben. Daraus berechnest du die Gleichung: den ⟦Funktionsterm⟧.",
     "woerter": [
      [
       "Funktionsterm",
       "der Rechenausdruck der Funktion, z. B. 2(x − 1)² − 2"
      ],
      [
-      "ansetzen",
-      "die passende Form hinschreiben und bekannte Zahlen eintragen"
-     ],
-     [
-      "Nullstellenform",
-      "y = a(x − x₁)(x − x₂), wenn die Nullstellen x₁ und x₂ bekannt sind"
+      "Ansetzen",
+      "die passende Form hinschreiben und Bekanntes eintragen"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -3,
+      8
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": -2,
+       "name": "S(1 | −2)"
+      },
+      {
+       "x": 3,
+       "y": 6,
+       "name": "P(3 | 6)"
+      }
+     ]
+    }
    },
    {
     "lernziel": "extremwert",
     "titel": "Extremwertprobleme lösen",
-    "regel": "So löst du ein Extremwertproblem: Schreibe die Größe, die am größten oder kleinsten werden soll, als ⟦quadratische Funktion⟧ einer Variablen. Der ⟦Scheitel⟧ liefert das Maximum bzw. Minimum.",
+    "regel": "Schreibe die Größe als ⟦quadratische Funktion⟧. Der Scheitel liefert den größten oder kleinsten Wert.",
     "schritte": [
-     "Eine Seite heißt x. Zwei Seiten zusammen sind der halbe Zaun, 10 m. Die andere Seite ist also 10 − x.",
-     "Die Fläche ist Seite mal Seite: A(x) = x · (10 − x). Das ist eine nach unten geöffnete Parabel.",
-     "A(x) ist null bei x = 0 und bei x = 10. Die Parabel ist symmetrisch, ihr Scheitel liegt genau in der Mitte: ⟦x = 5⟧.",
-     "A(5) = 5 · 5 = ⟦25 m²⟧. Das größte Gehege ist ein Quadrat mit 5 m Seite."
+     {
+      "text": "Zwei Seiten sind zusammen der halbe Umfang: x und 10 − x."
+     },
+     {
+      "text": "Die Fläche ist A(x) = x · (10 − x)."
+     },
+     {
+      "text": "Nullstellen 0 und 10, der Scheitel liegt genau mittig: x = 5.",
+      "bild": {
+       "senkrecht": [
+        5
+       ]
+      }
+     },
+     {
+      "text": "A(5) = 25: ⟦ein Quadrat mit 25 m²⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 5,
+         "y": 25,
+         "name": "S(5 | 25)"
+        }
+       ]
+      }
+     }
     ],
     "bild": {
      "typ": "koordinaten",
@@ -370,38 +574,26 @@
         10,
         -1
        ],
-       "name": "Fläche A"
+       "name": "Fläche"
       }
      ],
-     "punkte": [
-      {
-       "x": 5,
-       "y": 25,
-       "name": "größte Fläche S(5 | 25)"
-      }
-     ],
-     "name_x": "Seite x in m",
-     "name_y": "Fläche A in m²"
+     "name_x": "x in m",
+     "name_y": "A in m²"
     },
-    "probe": "x = 4: A = 24 < 25 ✓",
-    "fehler": "Beim Umfang 20 m die zweite Seite 20 − x zu nennen ist falsch: Der Zaun läuft um ⟦jede Seite zweimal⟧, also 2x + 2y = 20 ⇒ y = 10 − x.",
-    "einstieg": "Mit 20 m Zaun soll ein rechteckiges Gehege möglichst groß werden. Ein langes schmales Gehege ist klein, ein ganz kurzes auch. Irgendwo dazwischen liegt das beste. Wo eine Größe am größten oder kleinsten ist, nennt man ⟦Extremwert⟧ – bei einer Parabel ist das der Scheitel.",
+    "fehler": "Die zweite Seite ist nicht 20 − x. Der Zaun läuft um jede Seite zweimal: 2x + 2y = 20.",
+    "einstieg": "Mit 20 m Zaun soll ein rechteckiges Gehege möglichst groß werden. Lang und schmal ist schlecht, kurz und breit auch. Das Beste liegt dazwischen: ein ⟦Extremwert⟧.",
     "woerter": [
      [
       "Extremwert",
-      "der größte (Maximum) oder kleinste (Minimum) Wert"
+      "der größte oder kleinste Wert"
      ],
      [
       "Umfang",
-      "die Länge des Zauns rundherum: jede Seite zählt zweimal"
+      "die Zaunlänge rundherum; jede Seite zählt zweimal"
      ],
      [
       "A(x)",
       "die Fläche, abhängig von der Seite x"
-     ],
-     [
-      "symmetrisch",
-      "links und rechts vom Scheitel spiegelgleich"
      ]
     ]
    }

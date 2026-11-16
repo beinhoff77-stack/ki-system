@@ -158,6 +158,119 @@ KLAR = {
 }
 klar(ETAPPEN, KLAR)
 # ---- KLAR ENDE ----
+# ---- UMBAU (neues Muster, Runde 8, Vorgabe 16.11.) ----
+_FL_P = {'_a0': [0, 0], '_a1': [5, 0], '_a2': [10, 0], '_a3': [15, 0], '_b0': [0, 5], '_b1': [5, 5], '_b2': [10, 5], '_b3': [15, 5]}
+def _fliesen(unten, oben='zusammen 75 dm²'):
+    return [['_a0', '_a1', unten], ['_a1', '_a2', ''], ['_a2', '_a3', ''], ['_b0', '_b3', oben],
+            ['_a0', '_b0', ''], ['_a1', '_b1', ''], ['_a2', '_b2', ''], ['_a3', '_b3', '']]
+_R = {'_O': [0, 0], '_P': [4, 0], '_Q': [4, 4], '_R': [0, 4], '_S': [7, 0], '_T': [7, 4], '_U': [0, 7], '_V': [4, 7], '_W': [7, 7]}
+_REC = {'_A': [0, 0], '_B': [9, 0], '_C': [9, 5], '_D': [0, 5]}
+UMBAU = {
+ 'reinquadratisch': {
+  'einstieg': 'Drei gleich große quadratische Fliesen bedecken zusammen 75 dm². Wie lang ist eine Seite? Das führt auf eine ⟦quadratische Gleichung⟧: 3x² = 75.',
+  'woerter': [['quadratische Gleichung', 'eine Gleichung mit x², aber ohne höhere Hochzahl'],
+              ['x²', 'x · x, hier die Fläche einer Fliese'],
+              ['Lösungsmenge', 'alle Lösungen in einer Mengenklammer, z. B. {−5; 5}']],
+  'bild': {'typ': 'figur', 'punkte': _FL_P, 'flaeche': ['_a0', '_a3', '_b3', '_b0'], 'linien': _fliesen('Seite = ?')},
+  'schritte': [{'text': '3x² − 75 = 0. Auf beiden Seiten 75 addieren: 3x² = 75.'},
+               {'text': 'Durch 3 teilen: x² = 25. Eine Fliese hat 25 dm².',
+                'bild': {'linien': _fliesen('Seite = ?', 'je 25 dm²')}},
+               {'text': 'x · x = 25 gilt für 5 und für −5. Lösungsmenge: ⟦{−5; 5}⟧.'},
+               {'text': 'Eine Seite ist nie negativ. Die Fliese hat ⟦5 dm⟧ Seite.',
+                'bild': {'linien': _fliesen('Seite = 5 dm', 'je 25 dm²')}}],
+  'fehler': 'x² = 25 ⇒ x = 5 ist unvollständig: Auch (−5) · (−5) = 25. Erst die Fliese schließt die −5 aus.',
+  'regel': 'Bring ⟦x² allein⟧ auf eine Seite, dann ziehst du die Wurzel. Bei x² = d > 0 gibt es zwei Lösungen: √d und −√d.'},
+ 'ausklammern': {
+  'einstieg': 'Rätsel: Meine Zahl mal sich selbst, das Doppelte davon, ist zwölfmal meine Zahl. Die 6 passt, aber auch die 0. Damit keine Lösung verloren geht, hilft ⟦Ausklammern⟧.',
+  'woerter': [['Ausklammern', 'einen gemeinsamen Teil vor eine Klammer ziehen: 2x² − 12x = x · (2x − 12)'],
+              ['Faktor', 'ein Teil, der malgenommen wird'],
+              ['Satz vom Nullprodukt', 'ein Produkt ist 0, wenn mindestens ein Faktor 0 ist']],
+  'bild': {'typ': 'koordinaten', 'x': [-2, 8], 'y': [-20, 10], 'schritt_y': 5,
+           'graphen': [{'art': 'poly', 'k': [0, -12, 2], 'name': 'y = 2x² − 12x'}]},
+  'schritte': [{'text': 'Die Gleichung heißt 2x² − 12x = 0. Beide Teile enthalten x.'},
+               {'text': 'Ausklammern: x · (2x − 12) = 0. Das ist ein Produkt aus zwei Faktoren.'},
+               {'text': 'Satz vom Nullprodukt: x = 0 oder 2x − 12 = 0.'},
+               {'text': '2x = 12 ergibt x = 6. Also ⟦x = 0 oder x = 6⟧.',
+                'bild': {'punkte': [{'x': 0, 'y': 0, 'name': '0'}, {'x': 6, 'y': 0, 'name': '6'}]}}],
+  'fehler': 'Durch x teilen ist falsch: 2x = 12 liefert nur die 6. Die Lösung 0 geht verloren – im Rätsel passt sie aber.',
+  'fehler_bild': {'punkte': [{'x': 6, 'y': 0, 'name': '6'}, {'x': 0, 'y': 0, 'name': '0 vergessen', 'offen': True}]},
+  'regel': '⟦x ausklammern⟧, dann jeden Faktor null setzen. Eine Lösung ist dann immer x = 0.'},
+ 'faktorisieren': {
+  'einstieg': 'Hast du 0 € bezahlt, war der Preis oder die Menge 0. Ein Produkt ist nur 0, wenn ein Faktor 0 ist. Darum lohnt sich ⟦Faktorisieren⟧.',
+  'woerter': [['Faktorisieren', 'eine Summe als Produkt schreiben'],
+              ['(x + 9)(x − 1)', '(x + 9) mal (x − 1); der Malpunkt fehlt']],
+  'bild': {'typ': 'koordinaten', 'x': [-11, 3], 'y': [-30, 10], 'schritt_y': 10, 'schritt_x': 2,
+           'graphen': [{'art': 'poly', 'k': [-9, 8, 1], 'name': 'y = x² + 8x − 9'}]},
+  'schritte': [{'text': 'Gesucht: zwei Zahlen mit Produkt −9 und Summe 8.'},
+               {'text': '9 und −1 passen: 9 · (−1) = −9 und 9 + (−1) = 8.'},
+               {'text': 'Faktorisieren ergibt: (x + 9)(x − 1) = 0.'},
+               {'text': 'Ein Faktor muss 0 sein: ⟦x = −9 oder x = 1⟧.',
+                'bild': {'punkte': [{'x': -9, 'y': 0, 'name': '−9'}, {'x': 1, 'y': 0, 'name': '1'}]}}],
+  'fehler': '(x + 3)(x − 2) = 0 hat nicht die Lösungen 3 und −2. Die Vorzeichen drehen sich um: x = −3 oder x = 2.',
+  'regel': 'Steht da Produkt = 0, setzt du ⟦jeden Faktor null⟧. (x − p)(x − q) = 0 heißt x = p oder x = q.'},
+ 'ergaenzung': {
+  'einstieg': 'Ein Rasen besteht aus einem Quadrat mit Seite x und zwei Streifen der Breite 3. Zum vollen Quadrat fehlt nur die Ecke 3 · 3 = 9. Das heißt ⟦quadratische Ergänzung⟧.',
+  'woerter': [['quadratische Ergänzung', 'die fehlende Ecke dazulegen, damit ein volles Quadrat entsteht'],
+              ['(x + 3)²', 'ein Quadrat mit Seite x + 3'],
+              ['±4', 'plus 4 oder minus 4']],
+  'bild': {'typ': 'figur', 'punkte': _R, 'flaeche': ['_O', '_S', '_T', '_Q', '_V', '_U'],
+           'linien': [['_O', '_P', 'x'], ['_P', '_S', '3'], ['_S', '_T', ''], ['_T', '_Q', ''], ['_Q', '_V', ''], ['_V', '_U', ''], ['_U', '_O', ''],
+                      ['_P', '_Q', '', 'gestrichelt'], ['_R', '_Q', '', 'gestrichelt'], ['_T', '_W', 'Ecke 9', 'gestrichelt'], ['_W', '_V', '', 'gestrichelt']]},
+  'schritte': [{'text': 'Aus x² + 6x − 7 = 0 wird x² + 6x = 7.'},
+               {'text': 'Die Ecke 9 auf beiden Seiten dazu: x² + 6x + 9 = 16.',
+                'bild': {'flaeche': ['_O', '_S', '_W', '_U'],
+                         'linien': [['_O', '_P', 'x'], ['_P', '_S', '3'], ['_S', '_W', 'x + 3'], ['_W', '_U', ''], ['_U', '_O', ''],
+                                    ['_P', '_Q', '', 'gestrichelt'], ['_R', '_Q', '', 'gestrichelt'], ['_T', '_Q', '', 'gestrichelt'], ['_V', '_Q', '', 'gestrichelt']]}},
+               {'text': 'Links steht ein volles Quadrat: (x + 3)² = 16.'},
+               {'text': 'Wurzel ziehen: x + 3 = ±4. Also ⟦x₁ = 1, x₂ = −7⟧.'}],
+  'fehler': '(x + 6)² = 7 ist falsch. In die Klammer gehört die Hälfte von 6. Die Ecke 9 muss auf beide Seiten.',
+  'regel': 'Ergänze auf beiden Seiten ⟦(b/2)²⟧. Dann steht links (x + b/2)². Wurzel ziehen und an beide Vorzeichen denken.'},
+ 'loesungsformel': {
+  'einstieg': 'Faktorisieren und Ergänzen klappen nicht immer bequem. Die ⟦Lösungsformel⟧ ist wie ein Rezept: drei Zahlen einsetzen, fertig. Man nennt sie auch Mitternachtsformel.',
+  'woerter': [['a, b und c', 'die Zahlen in ax² + bx + c = 0: vor x², vor x und ohne x'],
+              ['Diskriminante D', 'die Zahl unter der Wurzel: D = b² − 4ac'],
+              ['x₁,₂', 'beide Lösungen auf einmal']],
+  'bild': {'typ': 'tabelle', 'kopf': ['a', 'b', 'c', 'D', 'x₁', 'x₂'], 'zeilen': [['?', '?', '?', '?', '?', '?']]},
+  'schritte': [{'text': 'Die Gleichung heißt 2x² − 5x − 3 = 0.'},
+               {'text': 'Abgelesen: a, b und c sind 2, −5 und −3.',
+                'bild': {'zeilen': [['2', '−5', '−3', '?', '?', '?']]}},
+               {'text': 'Diskriminante D = (−5)² − 4 · 2 · (−3) = 49.',
+                'bild': {'zeilen': [['2', '−5', '−3', '49', '?', '?']]}},
+               {'text': 'Zum Einsetzen: −b = 5, 2a = 4 und √49 = 7.'},
+               {'text': 'x₁,₂ = (5 ± 7) : 4, also ⟦x₁ = −0,5⟧ und ⟦x₂ = 3⟧.',
+                'bild': {'zeilen': [['2', '−5', '−3', '49', '−0,5', '3']]}}],
+  'fehler': 'Bei b = −5 ist −b nicht −5. Ein Minus vor einer negativen Zahl macht sie positiv: −b = 5.',
+  'regel': 'Setze a, b und c in die ⟦Lösungsformel⟧ ein. x₁,₂ = (−b ± √(b² − 4ac)) : (2a).'},
+ 'diskriminante': {
+  'einstieg': 'Ein Blick unter die Wurzel der Lösungsformel spart Arbeit. Ist die Zahl dort negativ, gibt es keine Lösung. Diese Zahl heißt ⟦Diskriminante⟧.',
+  'woerter': [['Diskriminante', 'D = b² − 4ac, die Zahl unter der Wurzel'],
+              ['Parabel', 'die Kurve zu y = ax² + bx + c; Lösungen sind ihre Treffer mit der x-Achse']],
+  'bild': {'typ': 'koordinaten', 'x': [-1, 5], 'y': [-2, 10], 'graphen': [{'art': 'poly', 'k': [7, -4, 1], 'name': 'y = x² − 4x + 7'}]},
+  'schritte': [{'text': 'Die Gleichung heißt x² − 4x + 7 = 0.'},
+               {'text': 'D = (−4)² − 4 · 1 · 7 = 16 − 28 = −12.'},
+               {'text': 'Aus −12 gibt es keine Wurzel. Die Diskriminante sagt: ⟦keine Lösung⟧.'},
+               {'text': 'Im Bild bleibt die Parabel ganz über der x-Achse.',
+                'bild': {'punkte': [{'x': 2, 'y': 3, 'name': 'tiefster Punkt'}]}}],
+  'fehler': 'D = −12 heißt nicht zwei Lösungen wegen ±. Das ± hilft nichts, wenn es die Wurzel gar nicht gibt.',
+  'regel': 'D = b² − 4ac entscheidet über die Anzahl. ⟦D > 0⟧ zwei Lösungen, D = 0 eine, D < 0 keine.'},
+ 'sachaufgabe': {
+  'einstieg': 'Ein Gemüsebeet soll 45 m² groß sein und 4 m länger als breit. Wie breit wird es? So eine Alltagsfrage heißt ⟦Sachaufgabe⟧.',
+  'woerter': [['Sachaufgabe', 'eine Rechenaufgabe aus dem Alltag'],
+              ['Variable', 'ein Buchstabe für die gesuchte Zahl, hier x'],
+              ['Sachzusammenhang', 'die Situation, zu der die Lösung passen muss']],
+  'bild': {'typ': 'figur', 'punkte': _REC, 'flaeche': ['_A', '_B', '_C', '_D'],
+           'linien': [['_A', '_B', 'x + 4'], ['_B', '_C', 'x'], ['_C', '_D', '45 m²'], ['_D', '_A', '']], 'rechter_winkel': [['_A', '_B', '_D']]},
+  'schritte': [{'text': 'Variable festlegen: x ist die Breite, x + 4 die Länge.'},
+               {'text': 'Fläche: x(x + 4) = 45, also x² + 4x − 45 = 0.'},
+               {'text': 'Mit der Lösungsformel: x = 5 oder x = −9.'},
+               {'text': 'Sachzusammenhang: Eine Breite ist nie negativ. Also ⟦5 m breit, 9 m lang⟧.',
+                'bild': {'linien': [['_A', '_B', '9 m'], ['_B', '_C', '5 m'], ['_C', '_D', '45 m²'], ['_D', '_A', '']]}}],
+  'fehler': 'x = −9 als Breite ist falsch. Ein Beet kann nicht −9 m breit sein. Diese Lösung fällt weg.',
+  'fehler_bild': {'linien': [['_A', '_B', 'x + 4'], ['_B', '_C', '−9 m?'], ['_C', '_D', '45 m²'], ['_D', '_A', '']]},
+  'regel': 'Variable festlegen, Gleichung aufstellen, lösen, ⟦prüfen⟧. Lösungen, die nicht zum Sachzusammenhang passen, fallen weg.'},
+}
+umbau(ETAPPEN, UMBAU)
+# ---- UMBAU ENDE ----
 
 
 def g_reinquadratisch(s):

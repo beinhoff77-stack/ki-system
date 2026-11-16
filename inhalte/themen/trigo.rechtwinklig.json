@@ -43,14 +43,78 @@
    {
     "lernziel": "seiten",
     "titel": "Ankathete, Gegenkathete, Hypotenuse",
-    "regel": "So benennst du die Seiten: Zuerst die ⟦Hypotenuse⟧ suchen, sie liegt dem rechten Winkel gegenüber. Dann vom gewählten spitzen Winkel aus: Die Kathete gegenüber ist die ⟦Gegenkathete⟧, die anliegende Kathete die ⟦Ankathete⟧. Wechselt der Winkel, tauschen die beiden Namen.",
+    "regel": "Erst die ⟦Hypotenuse⟧ suchen, dann vom Winkel aus benennen. Gegenüber liegt die Gegenkathete, daneben die Ankathete.",
     "schritte": [
-     "Im Dreieck ABC ist der Winkel bei C ein rechter: γ = 90°.",
-     "Dem rechten Winkel liegt c gegenüber. Also ist c die Hypotenuse.",
-     "Vom Winkel α bei A aus gesehen liegt a gegenüber. Also ist ⟦a die Gegenkathete⟧.",
-     "Die Kathete b bildet den Winkel α mit. Also ist ⟦b die Ankathete⟧."
+     {
+      "text": "Dem rechten Winkel liegt die Rampe c gegenüber: die Hypotenuse.",
+      "bild": {
+       "linien": [
+        [
+         "A",
+         "C",
+         "b"
+        ],
+        [
+         "C",
+         "B",
+         "a"
+        ],
+        [
+         "A",
+         "B",
+         "c: Hypotenuse"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Vom Winkel α aus liegt a gegenüber: die Gegenkathete.",
+      "bild": {
+       "linien": [
+        [
+         "A",
+         "C",
+         "b"
+        ],
+        [
+         "C",
+         "B",
+         "a: Gegenk."
+        ],
+        [
+         "A",
+         "B",
+         "c: Hypotenuse"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "b bildet den Winkel α mit: ⟦b ist die Ankathete⟧.",
+      "bild": {
+       "linien": [
+        [
+         "A",
+         "C",
+         "b: Ankathete"
+        ],
+        [
+         "C",
+         "B",
+         "a: Gegenk."
+        ],
+        [
+         "A",
+         "B",
+         "c: Hypotenuse"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Für den anderen spitzen Winkel β tauschen die beiden Namen."
+     }
     ],
-    "probe": "Für β tauschen An- und Gegenkathete: Gegenkathete b, Ankathete a ✓",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -76,17 +140,17 @@
       [
        "A",
        "C",
-       "Ankathete b (Boden)"
+       "b"
       ],
       [
        "C",
        "B",
-       "Gegenkathete a (Bühnenkante)"
+       "a"
       ],
       [
        "A",
        "B",
-       "Hypotenuse c (Rampe)"
+       "c"
       ]
      ],
      "rechter_winkel": [
@@ -105,35 +169,46 @@
       ]
      ]
     },
-    "fehler": "„Die Ankathete von α ist c, weil c an A anliegt“ ist falsch: c liegt zwar an A, ist aber die ⟦Hypotenuse⟧ (die Rampe). Ankathete ist nur eine ⟦Kathete⟧.",
-    "einstieg": "Eine Rampe führt schräg auf eine Bühne. Von unten gesehen gibt es den Boden, die senkrechte Bühnenkante und die schräge Rampe selbst. Damit man über diese drei Seiten reden kann, bekommen sie Namen – je nachdem, von welchem Winkel aus man schaut. Die Namen ⟦Ankathete, Gegenkathete, Hypotenuse⟧ helfen dabei.",
+    "fehler": "c ist nicht die Ankathete, nur weil c am Winkel α liegt. c ist die Hypotenuse, die Rampe.",
+    "einstieg": "Eine Rampe führt schräg auf eine Bühne. Boden, Bühnenkante und Rampe bilden ein rechtwinkliges Dreieck. Vom Winkel unten aus bekommen die Seiten Namen: ⟦Ankathete, Gegenkathete, Hypotenuse⟧.",
     "woerter": [
      [
       "Hypotenuse",
-      "die längste Seite, gegenüber dem rechten Winkel – hier die Rampe"
+      "die längste Seite, gegenüber dem rechten Winkel"
      ],
      [
-      "Gegenkathete von α",
-      "die Kathete, die dem Winkel α gegenüberliegt – hier die Bühnenkante"
+      "Gegenkathete",
+      "die Kathete, die dem Winkel gegenüberliegt"
      ],
      [
-      "Ankathete von α",
-      "die Kathete, die den Winkel α mitbildet – hier der Boden"
-     ],
-     [
-      "α, β, γ",
-      "griechische Buchstaben für die Winkel bei A, B und C"
-     ],
-     [
-      "spitzer Winkel",
-      "ein Winkel kleiner als 90°"
+      "Ankathete",
+      "die Kathete, die den Winkel mitbildet"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "linien": [
+      [
+       "A",
+       "C",
+       "b"
+      ],
+      [
+       "C",
+       "B",
+       "a"
+      ],
+      [
+       "A",
+       "B",
+       "c: Ankathete? nein"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "verhaeltnisse",
     "titel": "Sinus, Kosinus, Tangens als Verhältnis",
-    "regel": "So bildest du die drei Verhältnisse: ⟦sin α = Gegenkathete : Hypotenuse⟧, ⟦cos α = Ankathete : Hypotenuse⟧, ⟦tan α = Gegenkathete : Ankathete⟧. Sie hängen ⟦nur vom Winkel⟧ ab, weil alle rechtwinkligen Dreiecke mit demselben α ⟦ähnlich⟧ sind: Beim Vergrößern bleiben die Seitenverhältnisse gleich.",
+    "regel": "sin = ⟦Gegenkathete : Hypotenuse⟧, cos = Ankathete : Hypotenuse. tan = Gegenkathete : Ankathete.",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -159,17 +234,17 @@
       [
        "A",
        "C",
-       "Ankathete b = 15 cm"
+       "b = 15"
       ],
       [
        "C",
        "B",
-       "Gegenkathete a = 8 cm"
+       "a = 8"
       ],
       [
        "A",
        "B",
-       "Hypotenuse c = 17 cm"
+       "c = 17"
       ]
      ],
      "rechter_winkel": [
@@ -189,132 +264,85 @@
      ]
     },
     "schritte": [
-     "Im Dreieck ist γ = 90°, a = 8 cm, b = 15 cm und c = 17 cm.",
-     "Von α aus: Gegenkathete a = 8, Ankathete b = 15, Hypotenuse c = 17.",
-     "sin α = Gegenkathete : Hypotenuse = 8/17; cos α = Ankathete : Hypotenuse = 15/17.",
-     "tan α = Gegenkathete : Ankathete = ⟦8/15⟧."
+     {
+      "text": "Von α aus: Gegenkathete 8, Ankathete 15, Hypotenuse 17."
+     },
+     {
+      "text": "sin α = Gegenkathete : Hypotenuse = 8/17."
+     },
+     {
+      "text": "cos α = Ankathete : Hypotenuse = 15/17."
+     },
+     {
+      "text": "tan α = Gegenkathete : Ankathete = ⟦8/15⟧."
+     }
     ],
-    "probe": "sin α und cos α sind kleiner als 1 (Hypotenuse ist am längsten) ✓",
-    "fehler": "sin α = b/c ist falsch, wenn γ = 90°: b ist der Boden, also die ⟦Ankathete⟧ von α. Richtig: sin α = a/c.",
-    "einstieg": "Zwei Rampen haben dieselbe Neigung, aber eine ist doppelt so lang. Dann ist auch ihre Höhe doppelt so groß – das Verhältnis Höhe zu Länge bleibt gleich. Es hängt also nur vom Winkel ab. Diese Verhältnisse heißen ⟦Sinus, Kosinus und Tangens⟧.",
+    "fehler": "sin α ist nicht b/c. b ist der Boden, also die Ankathete von α. Richtig ist sin α = a/c.",
+    "einstieg": "Zwei Rampen haben dieselbe Neigung, eine ist doppelt so lang. Dann ist sie auch doppelt so hoch. Das Verhältnis hängt nur vom Winkel ab: ⟦Sinus, Kosinus, Tangens⟧.",
     "woerter": [
      [
-      "sin α („Sinus“)",
-      "Gegenkathete geteilt durch Hypotenuse"
+      "sin α",
+      "Sinus: Gegenkathete geteilt durch Hypotenuse"
      ],
      [
-      "cos α („Kosinus“)",
-      "Ankathete geteilt durch Hypotenuse"
+      "cos α",
+      "Kosinus: Ankathete geteilt durch Hypotenuse"
      ],
      [
-      "tan α („Tangens“)",
-      "Gegenkathete geteilt durch Ankathete"
-     ],
-     [
-      "8/17",
-      "der Bruch 8 geteilt durch 17"
-     ],
-     [
-      "ähnlich",
-      "gleiche Form, nur vergrößert oder verkleinert"
+      "tan α",
+      "Tangens: Gegenkathete geteilt durch Ankathete"
      ]
     ]
    },
    {
     "lernziel": "seite",
     "titel": "Seitenlängen berechnen",
-    "regel": "So berechnest du eine Seite: Wähle die Funktion, in der die ⟦gesuchte und die bekannte Seite⟧ vorkommen. Stelle um, z. B. ⟦a = c · sin α⟧ oder ⟦c = a : sin α⟧.",
+    "regel": "Wähle die Funktion mit ⟦gesuchter und bekannter Seite⟧. Dann umstellen, z. B. a = c · sin α.",
     "schritte": [
-     "Gegeben: γ = 90°, α = 35°, Hypotenuse c = 10 m. Gesucht ist die Höhe a, die Gegenkathete von α.",
-     "Gegenkathete und Hypotenuse kommen im Sinus vor: sin 35° = a / 10.",
-     "Mit 10 malnehmen: a = 10 · sin 35°.",
-     "Taschenrechner: a ≈ 10 · 0,5736 ≈ ⟦5,7⟧. Die Rampe endet etwa 5,7 m hoch."
+     {
+      "text": "Gegeben: Hypotenuse 10 m und α = 35°. Gesucht: Gegenkathete a."
+     },
+     {
+      "text": "Im Sinus stehen beide: sin 35° = a : 10."
+     },
+     {
+      "text": "Umstellen: a = 10 · sin 35° ≈ 10 · 0,574."
+     },
+     {
+      "text": "Also ⟦a ≈ 5,7 m⟧.",
+      "bild": {
+       "linien": [
+        [
+         "A",
+         "C",
+         "Boden"
+        ],
+        [
+         "C",
+         "B",
+         "a = 5,7 m"
+        ],
+        [
+         "A",
+         "B",
+         "Rampe 10 m"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "a < c ✓",
-    "fehler": "a = 10 : sin 35° ≈ 17,4 ist falsch: Die Höhe wäre größer als die Rampe lang ist. Aus sin α = a/c folgt a = ⟦c · sin α⟧.",
-    "einstieg": "Eine 10 m lange Rampe steigt mit 35° an. Wie hoch kommt man oben an? Winkel und schräge Länge sind bekannt, gesucht ist die Höhe. Mit dem passenden Verhältnis und dem Taschenrechner lassen sich ⟦Seitenlängen berechnen⟧.",
+    "fehler": "a = 10 : sin 35° ≈ 17,4 m ist falsch. Die Höhe wäre länger als die ganze Rampe.",
+    "einstieg": "Eine 10 m lange Rampe steigt mit 35° an. Wie hoch kommt man oben an? Mit dem Sinus kannst du ⟦Seitenlängen berechnen⟧.",
     "woerter": [
      [
       "sin 35°",
-      "der Sinuswert von 35°, aus dem Taschenrechner: etwa 0,5736"
+      "der Sinuswert von 35°, etwa 0,574 (Taschenrechner)"
      ],
      [
       "umstellen",
-      "die Gleichung so umformen, dass die gesuchte Seite allein steht"
-     ],
-     [
-      "≈",
-      "„ungefähr gleich“ – nach dem Runden"
+      "die Gleichung so umformen, dass das Gesuchte allein steht"
      ]
-    ]
-   },
-   {
-    "lernziel": "winkel",
-    "titel": "Winkel berechnen",
-    "regel": "So berechnest du einen Winkel: Bilde aus zwei bekannten Seiten das passende Verhältnis. Dann die ⟦Umkehrtaste⟧ benutzen: α = sin⁻¹(…), cos⁻¹(…) oder tan⁻¹(…). Der Taschenrechner muss auf ⟦DEG⟧ stehen.",
-    "schritte": [
-     "Gegeben: γ = 90°, Gegenkathete a = 4 m, Ankathete b = 7 m. Gesucht ist α.",
-     "Gegenkathete und Ankathete kommen im Tangens vor: tan α = 4/7 ≈ 0,5714.",
-     "Den Taschenrechner auf DEG stellen und die Umkehrtaste nutzen: α = tan⁻¹(4/7).",
-     "Ergebnis: α ≈ ⟦29,7°⟧."
     ],
-    "probe": "β = 90° − 29,7° = 60,3°; tan 60,3° ≈ 1,75 = 7/4 ✓",
-    "fehler": "α = 4/7 ≈ 0,57° ist falsch: Eine Rampe von 4 m Höhe auf 7 m wäre dann fast flach. 4/7 ist der ⟦Tangenswert⟧, nicht der Winkel. Erst tan⁻¹ liefert den Winkel.",
-    "einstieg": "Eine Rampe ist 7 m lang am Boden und 4 m hoch. Ist sie zu steil? Dafür braucht man ihren Winkel. Bekannt ist das Verhältnis 4 : 7, gesucht der passende Winkel. Diesen Rückweg vom Verhältnis zum Winkel macht die ⟦Umkehrtaste⟧ des Taschenrechners.",
-    "woerter": [
-     [
-      "tan⁻¹ („Arkustangens“)",
-      "die Umkehrtaste: Sie macht aus einem Tangenswert den Winkel"
-     ],
-     [
-      "sin⁻¹, cos⁻¹",
-      "die Umkehrtasten zu Sinus und Kosinus"
-     ],
-     [
-      "DEG",
-      "Einstellung des Taschenrechners für Winkel in Grad"
-     ]
-    ]
-   },
-   {
-    "lernziel": "beziehungen",
-    "titel": "Beziehungen zwischen sin, cos, tan",
-    "regel": "So nutzt du die Beziehungen für spitze Winkel: ⟦sin² α + cos² α = 1⟧ – das ist Pythagoras a² + b² = c², geteilt durch c². Außerdem gilt ⟦tan α = sin α : cos α⟧ und ⟦sin α = cos(90° − α)⟧. Besondere Werte: sin 30° = cos 60° = 0,5; tan 45° = 1.",
-    "schritte": [
-     "Bekannt ist sin α = 0,28, α ist spitz. Gesucht sind cos α und tan α.",
-     "Aus sin² α + cos² α = 1 folgt cos² α = 1 − 0,28² = 1 − 0,0784 = 0,9216.",
-     "Die Wurzel ziehen: cos α = ⟦0,96⟧ (positiv, weil α spitz ist).",
-     "tan α = sin α : cos α = 0,28 : 0,96 = 7/24."
-    ],
-    "probe": "0,28² + 0,96² = 0,0784 + 0,9216 = 1 ✓",
-    "fehler": "cos α = 1 − sin α = 0,72 ist falsch: Es gilt sin² α + cos² α = 1 – mit den ⟦Quadraten⟧. Probe: 0,28² + 0,72² ≈ 0,60, nicht 1.",
-    "einstieg": "Sinus, Kosinus und Tangens hängen eng zusammen. Kennt man einen davon, kann man die anderen ausrechnen, ohne das Dreieck zu messen. Der Grund ist der Satz des Pythagoras. Diese Zusammenhänge heißen ⟦Beziehungen zwischen sin, cos und tan⟧.",
-    "woerter": [
-     [
-      "sin² α",
-      "(sin α)², also sin α mal sin α"
-     ],
-     [
-      "sin² α + cos² α = 1",
-      "Pythagoras, geteilt durch c²"
-     ],
-     [
-      "90° − α",
-      "der andere spitze Winkel im rechtwinkligen Dreieck"
-     ]
-    ]
-   },
-   {
-    "lernziel": "anwendung",
-    "titel": "Trigonometrie anwenden",
-    "regel": "So wendest du Trigonometrie an: ⟦Skizze⟧ zeichnen, das ⟦rechtwinklige Dreieck⟧ finden, Winkel und Seiten zuordnen. Es gilt ⟦Steigung in %⟧ = tan(Steigungswinkel) · 100. Der ⟦Höhenwinkel⟧ wird von der Waagrechten aus gemessen.",
-    "schritte": [
-     "Die Straße steigt mit 8 %: 8 m Höhe auf 100 m waagrecht.",
-     "Höhe ist die Gegenkathete, der waagrechte Weg die Ankathete: tan α = 8 : 100 = 0,08.",
-     "Umkehrtaste: α = tan⁻¹(0,08).",
-     "Ergebnis: α ≈ ⟦4,6°⟧."
-    ],
-    "probe": "8 m Höhe auf 100 m waagrecht ✓",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -322,73 +350,351 @@
        0,
        0
       ],
-      "_C": [
-       100,
-       0
+      "B": [
+       8.19,
+       5.74
       ],
-      "_B": [
-       100,
-       8
+      "C": [
+       8.19,
+       0
       ]
      },
      "flaeche": [
       "A",
-      "_C",
-      "_B"
+      "B",
+      "C"
      ],
      "linien": [
       [
        "A",
-       "_C",
-       "100 m waagrecht"
+       "C",
+       "Boden"
       ],
       [
-       "_C",
-       "_B",
-       "8 m hoch"
+       "C",
+       "B",
+       "a = ?"
       ],
       [
        "A",
-       "_B",
-       "Straße"
+       "B",
+       "Rampe 10 m"
       ]
      ],
      "rechter_winkel": [
       [
-       "_C",
+       "C",
        "A",
-       "_B"
+       "B"
       ]
      ],
      "winkel": [
       [
        "A",
-       "_C",
-       "_B",
-       "α"
+       "C",
+       "B",
+       "35°"
       ]
      ]
     },
-    "fehler": "8 % Steigung als Winkel 8° anzugeben ist falsch: 8 % bedeutet ⟦tan α = 0,08⟧, also etwa 4,6°. Prozent und Grad sind verschiedene Maße.",
-    "einstieg": "Ein Verkehrsschild zeigt „8 %“ an einer Bergstraße. Das bedeutet: Auf 100 m waagrecht geht es 8 m nach oben. Wie steil ist das als Winkel? Höhe und waagrechter Weg bilden ein rechtwinkliges Dreieck. So kann man ⟦Trigonometrie anwenden⟧.",
+    "fehler_bild": {
+     "linien": [
+      [
+       "A",
+       "C",
+       "Boden"
+      ],
+      [
+       "C",
+       "B",
+       "a = 17,4?"
+      ],
+      [
+       "A",
+       "B",
+       "Rampe 10 m"
+      ]
+     ]
+    }
+   },
+   {
+    "lernziel": "winkel",
+    "titel": "Winkel berechnen",
+    "regel": "Verhältnis bilden, dann die ⟦Umkehrtaste⟧ sin⁻¹, cos⁻¹ oder tan⁻¹. Der Rechner muss auf DEG stehen.",
+    "schritte": [
+     {
+      "text": "Gegenkathete 4 m, Ankathete 7 m: tan α = 4 : 7 ≈ 0,571."
+     },
+     {
+      "text": "Taschenrechner auf DEG, dann tan⁻¹(4 : 7)."
+     },
+     {
+      "text": "Ergebnis: ⟦α ≈ 29,7°⟧.",
+      "bild": {
+       "winkel": [
+        [
+         "A",
+         "C",
+         "B",
+         "29,7°"
+        ]
+       ]
+      }
+     }
+    ],
+    "fehler": "α ist nicht 0,57°. 4/7 ist der Tangenswert. Erst tan⁻¹ macht daraus den Winkel.",
+    "einstieg": "Eine Rampe ist am Boden 7 m lang und 4 m hoch. Wie steil ist sie? Vom Verhältnis zum Winkel kommst du mit der ⟦Umkehrtaste⟧.",
+    "woerter": [
+     [
+      "tan⁻¹",
+      "die Umkehrtaste: Sie macht aus einem Tangenswert den Winkel"
+     ],
+     [
+      "DEG",
+      "Einstellung des Taschenrechners für Grad"
+     ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       7,
+       4
+      ],
+      "C": [
+       7,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "C",
+       "7 m"
+      ],
+      [
+       "C",
+       "B",
+       "4 m"
+      ],
+      [
+       "A",
+       "B",
+       "Rampe"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "C",
+       "B",
+       "α = ?"
+      ]
+     ]
+    }
+   },
+   {
+    "lernziel": "beziehungen",
+    "titel": "Beziehungen zwischen sin, cos, tan",
+    "regel": "Es gilt ⟦sin² α + cos² α = 1⟧. Außerdem ist tan α = sin α : cos α.",
+    "schritte": [
+     {
+      "text": "Bekannt ist sin α = 0,28. Im Bild: 7 : 25 = 0,28."
+     },
+     {
+      "text": "Pythagoras geteilt durch c²: sin² α + cos² α = 1."
+     },
+     {
+      "text": "cos² α = 1 − 0,0784 = 0,9216, also ⟦cos α = 0,96⟧."
+     },
+     {
+      "text": "tan α = 0,28 : 0,96 = 7/24."
+     }
+    ],
+    "fehler": "cos α ist nicht 1 − 0,28 = 0,72. Die Formel gilt mit den Quadraten: sin² α + cos² α = 1.",
+    "einstieg": "Sinus, Kosinus und Tangens hängen zusammen. Kennst du einen, rechnest du die anderen aus. Der Grund ist der Satz des Pythagoras: Das sind die ⟦Beziehungen⟧.",
+    "woerter": [
+     [
+      "sin² α",
+      "(sin α)², also sin α mal sin α"
+     ],
+     [
+      "Beziehungen",
+      "Formeln, die sin, cos und tan verbinden"
+     ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       24,
+       7
+      ],
+      "C": [
+       24,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "C",
+       "b = 24"
+      ],
+      [
+       "C",
+       "B",
+       "a = 7"
+      ],
+      [
+       "A",
+       "B",
+       "c = 25"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "C",
+       "B",
+       "α"
+      ]
+     ]
+    }
+   },
+   {
+    "lernziel": "anwendung",
+    "titel": "Trigonometrie anwenden",
+    "regel": "Steigung in % = ⟦tan α · 100⟧. Mach eine Skizze und finde das rechtwinklige Dreieck.",
+    "schritte": [
+     {
+      "text": "Die Steigung in % sagt: Gegenkathete 8 m, Ankathete 100 m."
+     },
+     {
+      "text": "tan α = 8 : 100 = 0,08."
+     },
+     {
+      "text": "α = tan⁻¹(0,08) ≈ ⟦4,6°⟧.",
+      "bild": {
+       "winkel": [
+        [
+         "A",
+         "C",
+         "B",
+         "4,6°"
+        ]
+       ]
+      }
+     }
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       100,
+       8
+      ],
+      "C": [
+       100,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "C",
+       "100 m waagrecht"
+      ],
+      [
+       "C",
+       "B",
+       "8 m"
+      ],
+      [
+       "A",
+       "B",
+       "Straße"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "C",
+       "B",
+       "α = ?"
+      ]
+     ]
+    },
+    "fehler": "8 % sind nicht 8°. 8 % heißt tan α = 0,08, also etwa 4,6°.",
+    "einstieg": "Ein Schild zeigt 8 % an einer Bergstraße. Auf 100 m waagrecht geht es 8 m hoch. Wie steil ist das in Grad? Hier hilft ⟦Trigonometrie⟧.",
     "woerter": [
      [
       "Steigung in %",
-      "Höhenunterschied pro 100 m waagrecht"
-     ],
-     [
-      "Steigungswinkel",
-      "der Winkel zwischen Straße und Waagrechter"
-     ],
-     [
-      "Höhenwinkel",
-      "der Winkel, unter dem man nach oben schaut, gemessen von der Waagrechten"
+      "Höhenunterschied auf 100 m waagrecht"
      ],
      [
       "Trigonometrie",
-      "das Rechnen mit Winkeln und Seiten im Dreieck"
+      "Rechnen mit Winkeln und Seiten im Dreieck"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "winkel": [
+      [
+       "A",
+       "C",
+       "B",
+       "8°? nein"
+      ]
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [

@@ -167,6 +167,98 @@ KLAR = {
 }
 klar(ETAPPEN, KLAR)
 # ---- KLAR ENDE ----
+# ---- UMBAU (neues Muster, Runde 8, Vorgabe 16.11.) ----
+_H = {"C": [0, 0], "A": [12, 0], "B": [0, 9], "_a1": [-9, 0], "_a2": [-9, 9], "_b1": [0, -12], "_b2": [12, -12], "_c1": [21, 12], "_c2": [9, 21]}
+def _drei(c): return [["A", "B", c], ["B", "C", "a = 9"], ["C", "A", "b = 12"]]
+_QA = [["C", "_a1"], ["_a1", "_a2", "a² = 81"], ["_a2", "B"], ["C", "_b1"], ["_b1", "_b2", "b² = 144"], ["_b2", "A"]]
+_QC = [["A", "_c1"], ["_c1", "_c2", "c² = 225"], ["_c2", "B"]]
+_K = {'_C': [0, 0], '_A': [5, 0], '_B': [0, 12]}
+def _kist(a): return [['_C', '_A', 'Boden 5'], ['_C', '_B', a], ['_A', '_B', 'Brett 13']]
+_U = {'_C': [0, 0], '_A': [21, 0], '_B': [0, 20]}
+_UL = [['_C', '_A', '21 cm'], ['_C', '_B', '20 cm'], ['_A', '_B', '29 cm']]
+_Q = {'A': [0, 0], 'B': [3, 0], 'C': [3.71, 0.71], 'D': [0.71, 0.71], 'E': [0, 6], 'F': [3, 6], 'G': [3.71, 6.71], 'H': [0.71, 6.71]}
+_QL = [['A', 'B', '3 cm'], ['B', 'F', '6 cm'], ['F', 'E'], ['E', 'A'], ['B', 'C', '2 cm'], ['C', 'G'], ['G', 'F'], ['E', 'H'], ['H', 'G'],
+       ['A', 'D', '', 'gestrichelt'], ['D', 'C', '', 'gestrichelt'], ['D', 'H', '', 'gestrichelt']]
+_L = {'_F': [0, 0], 'W': [0, 4.8], 'B': [1.4, 0]}
+def _leiter(h): return [['_F', 'B', '1,4 m'], ['_F', 'W', h], ['W', 'B', 'Leiter 5 m']]
+UMBAU = {
+ 'hypotenuse': {
+  'einstieg': 'Ein dreieckiges Beet hat eine rechte Ecke. Die Seiten daran sind 9 m und 12 m lang. Wie lang ist die schräge Seite? Das sagt der ⟦Satz des Pythagoras⟧.',
+  'woerter': [['Hypotenuse', 'die längste Seite, gegenüber dem rechten Winkel'],
+              ['Katheten', 'die beiden Seiten am rechten Winkel'],
+              ['a²', 'a · a, im Bild die Fläche des Quadrats über a']],
+  'bild': {'typ': 'figur', 'punkte': _H, 'flaeche': ['A', 'B', 'C'], 'linien': _drei('c = ?'), 'rechter_winkel': [['C', 'A', 'B']]},
+  'schritte': [{'text': 'Die Katheten sind 9 m und 12 m. Gesucht ist die Hypotenuse c.'},
+               {'text': 'Quadrate über den Katheten: a² = 81 und b² = 144.', 'bild': {'linien': _drei('c = ?') + _QA}},
+               {'text': 'Zusammen ergeben sie das Quadrat über c: c² = 225.', 'bild': {'linien': _drei('c = ?') + _QA + _QC}},
+               {'text': 'Wurzel ziehen: c = √225 = ⟦15 m⟧.', 'bild': {'linien': _drei('c = 15') + _QA + _QC}}],
+  'fehler': 'c ist nicht 9 + 12 = 21 m. Der Umweg über zwei Seiten ist immer länger als der direkte Weg.',
+  'regel': 'Im rechtwinkligen Dreieck gilt ⟦a² + b² = c²⟧. c ist die Hypotenuse, gegenüber dem rechten Winkel.'},
+ 'kathete': {
+  'einstieg': 'Ein 13 dm langes Brett lehnt schräg an einer Kiste. Unten steht es 5 dm von ihr weg. Wie hoch reicht es? Jetzt suchst du eine ⟦Kathete⟧.',
+  'woerter': [['Kathete', 'eine der beiden Seiten am rechten Winkel'],
+              ['umstellen', 'die Gleichung so umformen, dass das Gesuchte allein steht']],
+  'bild': {'typ': 'figur', 'punkte': _K, 'flaeche': ['_C', '_A', '_B'], 'linien': _kist('a = ?'), 'rechter_winkel': [['_C', '_A', '_B']]},
+  'schritte': [{'text': 'Hypotenuse 13 dm, eine Kathete 5 dm. Gesucht ist die Höhe a.'},
+               {'text': 'Umstellen: a² = 13² − 5² = 169 − 25 = 144.'},
+               {'text': 'Wurzel ziehen: a = √144 = ⟦12 dm⟧.', 'bild': {'linien': _kist('a = 12')}}],
+  'fehler': 'a² = 13² + 5² ist falsch. Dann wäre die Höhe größer als das Brett lang ist. Bei einer Kathete wird abgezogen.',
+  'fehler_bild': {'linien': _kist('a = 13,9?')},
+  'regel': 'Für eine Kathete gilt ⟦a² = c² − b²⟧. Die Kathete ist immer kürzer als die Hypotenuse.'},
+ 'umkehrung': {
+  'einstieg': 'Ein Gärtner spannt eine Schnur zum Dreieck mit 3 m, 4 m und 5 m. Weil 3² + 4² = 5², entsteht ein rechter Winkel. Das ist die ⟦Umkehrung⟧.',
+  'woerter': [['Umkehrung', 'der Satz rückwärts: aus a² + b² = c² folgt der rechte Winkel'],
+              ['längste Seite', 'sie übernimmt die Rolle von c']],
+  'bild': {'typ': 'figur', 'punkte': _U, 'flaeche': ['_C', '_A', '_B'], 'linien': _UL},
+  'schritte': [{'text': 'Seiten 20 cm, 21 cm und 29 cm. Die längste Seite: 29 cm.'},
+               {'text': '20² + 21² = 400 + 441 = 841.'},
+               {'text': '29² = 841. Beide Zahlen sind gleich.'},
+               {'text': 'Also ist das Dreieck ⟦rechtwinklig⟧, gegenüber von 29 cm.', 'bild': {'rechter_winkel': [['_C', '_A', '_B']]}}],
+  'fehler': 'Bei 6, 8 und 10 cm nicht 6² + 10² mit 8² vergleichen. Die längste Seite 10 ist c: 36 + 64 = 100.',
+  'regel': 'Gilt a² + b² = c² für die längste Seite c: ⟦rechtwinklig⟧. Der rechte Winkel liegt gegenüber von c.'},
+ 'koordinaten': {
+  'einstieg': 'Auf dem Stadtplan liegt der Spielplatz bei P(1 | 2). Der Eisstand ist bei Q(7 | 10). Wie weit ist es Luftlinie? Das ist der ⟦Abstand⟧ der Punkte.',
+  'woerter': [['Abstand', 'die Länge der geraden Verbindung zweier Punkte'],
+              ['Δx', 'der Unterschied der x-Werte'],
+              ['Δy', 'der Unterschied der y-Werte']],
+  'bild': {'typ': 'koordinaten', 'x': [0, 8], 'y': [0, 11],
+           'punkte': [{'x': 1, 'y': 2, 'name': 'P Spielplatz'}, {'x': 7, 'y': 10, 'name': 'Q Eis'}]},
+  'schritte': [{'text': 'Waagrecht: Δx = 7 − 1 = 6 Kästchen.', 'bild': {'strecken': [[1, 2, 7, 2, 'gestrichelt']]}},
+               {'text': 'Senkrecht: Δy = 10 − 2 = 8 Kästchen.', 'bild': {'strecken': [[1, 2, 7, 2, 'gestrichelt'], [7, 2, 7, 10, 'gestrichelt']]}},
+               {'text': 'Pythagoras: d² = 6² + 8² = 36 + 64 = 100.',
+                'bild': {'strecken': [[1, 2, 7, 2, 'gestrichelt'], [7, 2, 7, 10, 'gestrichelt'], [1, 2, 7, 10]]}},
+               {'text': 'Also ⟦d = 10⟧ Kästchen Luftlinie.'}],
+  'fehler': 'd = √(7² + 10²) ist falsch. Das wäre der Weg vom Nullpunkt zum Eisstand. Man braucht die Unterschiede.',
+  'fehler_bild': {'strecken': [[0, 0, 7, 10, 'gestrichelt']]},
+  'regel': 'Bilde ⟦Δx und Δy⟧, dann Pythagoras. d = √((x₂ − x₁)² + (y₂ − y₁)²).'},
+ 'raum': {
+  'einstieg': 'Eine Schachtel ist 2 cm × 3 cm × 6 cm groß. Passt ein 7 cm langer Stift schräg hinein? Die längste Strecke ist die ⟦Raumdiagonale⟧.',
+  'woerter': [['Raumdiagonale', 'die Strecke quer durch den Körper, von Ecke zu Ecke'],
+              ['Bodendiagonale', 'die schräge Strecke über den Boden'],
+              ['Quader', 'ein Körper wie eine Schachtel']],
+  'bild': {'typ': 'figur', 'punkte': _Q, 'linien': _QL},
+  'schritte': [{'text': 'Erst die Bodendiagonale: Ihr Quadrat ist 2² + 3² = 13.',
+                'bild': {'linien': _QL + [['A', 'C', '√13', 'gestrichelt']]}},
+               {'text': 'Bodendiagonale und Höhe 6 cm bilden einen rechten Winkel.'},
+               {'text': 'd² = 13 + 6² = 49, also ⟦d = 7 cm⟧.',
+                'bild': {'linien': _QL + [['A', 'C', '√13', 'gestrichelt'], ['A', 'G', 'd = 7']]}},
+               {'text': 'Der Stift passt genau schräg in den Quader.'}],
+  'fehler': '√(2² + 3²) ist nur die Bodendiagonale. Sie liegt flach am Boden. Die Höhe 6 cm fehlt noch.',
+  'regel': 'Raumdiagonale: ⟦√(a² + b² + c²)⟧. Suche dafür ein rechtwinkliges Dreieck im Körper.'},
+ 'anwendung': {
+  'einstieg': 'Zum Obstpflücken lehnt eine 5 m lange Leiter an der Hauswand. Ihr Fuß steht 1,4 m von der Wand weg. Wie hoch reicht sie? Das ist ⟦Pythagoras im Alltag⟧.',
+  'woerter': [['Skizze', 'eine schnelle Zeichnung mit allen bekannten Längen'],
+              ['h', 'die gesuchte Höhe an der Wand']],
+  'bild': {'typ': 'figur', 'punkte': _L, 'linien': _leiter('h = ?'), 'rechter_winkel': [['_F', 'B', 'W']]},
+  'schritte': [{'text': 'Skizze: Wand und Boden bilden den rechten Winkel. Die Leiter ist die Hypotenuse.'},
+               {'text': 'h² = 5² − 1,4² = 25 − 1,96 = 23,04.'},
+               {'text': 'h = √23,04 = ⟦4,8 m⟧.', 'bild': {'linien': _leiter('h = 4,8 m')}}],
+  'fehler': 'h² = 5² + 1,4² ist falsch. Dann wäre die Höhe größer als die Leiter lang ist.',
+  'fehler_bild': {'linien': _leiter('h = 5,2?')},
+  'regel': 'Erst die ⟦Hypotenuse⟧ finden, dann passend umstellen. Am Ende sinnvoll runden.'},
+}
+umbau(ETAPPEN, UMBAU)
+# ---- UMBAU ENDE ----
 
 
 def g_hypotenuse(s):

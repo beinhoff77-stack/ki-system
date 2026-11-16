@@ -132,6 +132,90 @@ KLAR = {
 }
 klar(ETAPPEN, KLAR)
 # ---- KLAR ENDE ----
+# ---- UMBAU (neues Muster, Runde 8, Vorgabe 16.11.) ----
+def _dr(punkte, a, b, c, w='α'):
+    return {'typ': 'figur', 'punkte': punkte, 'flaeche': ['A', 'B', 'C'],
+            'linien': [['A', 'C', b], ['C', 'B', a], ['A', 'B', c]], 'rechter_winkel': [['C', 'A', 'B']], 'winkel': [['A', 'C', 'B', w]]}
+_P1 = {'A': [0, 0], 'B': [5, 3], 'C': [5, 0]}
+_P2 = {'A': [0, 0], 'B': [15, 8], 'C': [15, 0]}
+_P3 = {'A': [0, 0], 'B': [8.19, 5.74], 'C': [8.19, 0]}
+_P4 = {'A': [0, 0], 'B': [7, 4], 'C': [7, 0]}
+_P5 = {'A': [0, 0], 'B': [24, 7], 'C': [24, 0]}
+_P6 = {'A': [0, 0], 'B': [100, 8], 'C': [100, 0]}
+L = lambda a, b, c: {'linien': [['A', 'C', b], ['C', 'B', a], ['A', 'B', c]]}
+UMBAU = {
+ 'seiten': {
+  'einstieg': 'Eine Rampe führt schräg auf eine Bühne. Boden, Bühnenkante und Rampe bilden ein rechtwinkliges Dreieck. Vom Winkel unten aus bekommen die Seiten Namen: ⟦Ankathete, Gegenkathete, Hypotenuse⟧.',
+  'woerter': [['Hypotenuse', 'die längste Seite, gegenüber dem rechten Winkel'],
+              ['Gegenkathete', 'die Kathete, die dem Winkel gegenüberliegt'],
+              ['Ankathete', 'die Kathete, die den Winkel mitbildet']],
+  'bild': _dr(_P1, 'a', 'b', 'c'),
+  'schritte': [{'text': 'Dem rechten Winkel liegt die Rampe c gegenüber: die Hypotenuse.', 'bild': L('a', 'b', 'c: Hypotenuse')},
+               {'text': 'Vom Winkel α aus liegt a gegenüber: die Gegenkathete.', 'bild': L('a: Gegenk.', 'b', 'c: Hypotenuse')},
+               {'text': 'b bildet den Winkel α mit: ⟦b ist die Ankathete⟧.', 'bild': L('a: Gegenk.', 'b: Ankathete', 'c: Hypotenuse')},
+               {'text': 'Für den anderen spitzen Winkel β tauschen die beiden Namen.'}],
+  'fehler': 'c ist nicht die Ankathete, nur weil c am Winkel α liegt. c ist die Hypotenuse, die Rampe.',
+  'fehler_bild': L('a', 'b', 'c: Ankathete? nein'),
+  'regel': 'Erst die ⟦Hypotenuse⟧ suchen, dann vom Winkel aus benennen. Gegenüber liegt die Gegenkathete, daneben die Ankathete.'},
+ 'verhaeltnisse': {
+  'einstieg': 'Zwei Rampen haben dieselbe Neigung, eine ist doppelt so lang. Dann ist sie auch doppelt so hoch. Das Verhältnis hängt nur vom Winkel ab: ⟦Sinus, Kosinus, Tangens⟧.',
+  'woerter': [['sin α', 'Sinus: Gegenkathete geteilt durch Hypotenuse'],
+              ['cos α', 'Kosinus: Ankathete geteilt durch Hypotenuse'],
+              ['tan α', 'Tangens: Gegenkathete geteilt durch Ankathete']],
+  'bild': _dr(_P2, 'a = 8', 'b = 15', 'c = 17'),
+  'schritte': [{'text': 'Von α aus: Gegenkathete 8, Ankathete 15, Hypotenuse 17.'},
+               {'text': 'sin α = Gegenkathete : Hypotenuse = 8/17.'},
+               {'text': 'cos α = Ankathete : Hypotenuse = 15/17.'},
+               {'text': 'tan α = Gegenkathete : Ankathete = ⟦8/15⟧.'}],
+  'fehler': 'sin α ist nicht b/c. b ist der Boden, also die Ankathete von α. Richtig ist sin α = a/c.',
+  'regel': 'sin = ⟦Gegenkathete : Hypotenuse⟧, cos = Ankathete : Hypotenuse. tan = Gegenkathete : Ankathete.'},
+ 'seite': {
+  'einstieg': 'Eine 10 m lange Rampe steigt mit 35° an. Wie hoch kommt man oben an? Mit dem Sinus kannst du ⟦Seitenlängen berechnen⟧.',
+  'woerter': [['sin 35°', 'der Sinuswert von 35°, etwa 0,574 (Taschenrechner)'],
+              ['umstellen', 'die Gleichung so umformen, dass das Gesuchte allein steht']],
+  'bild': _dr(_P3, 'a = ?', 'Boden', 'Rampe 10 m', '35°'),
+  'schritte': [{'text': 'Gegeben: Hypotenuse 10 m und α = 35°. Gesucht: Gegenkathete a.'},
+               {'text': 'Im Sinus stehen beide: sin 35° = a : 10.'},
+               {'text': 'Umstellen: a = 10 · sin 35° ≈ 10 · 0,574.'},
+               {'text': 'Also ⟦a ≈ 5,7 m⟧.', 'bild': L('a = 5,7 m', 'Boden', 'Rampe 10 m')}],
+  'fehler': 'a = 10 : sin 35° ≈ 17,4 m ist falsch. Die Höhe wäre länger als die ganze Rampe.',
+  'fehler_bild': L('a = 17,4?', 'Boden', 'Rampe 10 m'),
+  'regel': 'Wähle die Funktion mit ⟦gesuchter und bekannter Seite⟧. Dann umstellen, z. B. a = c · sin α.'},
+ 'winkel': {
+  'einstieg': 'Eine Rampe ist am Boden 7 m lang und 4 m hoch. Wie steil ist sie? Vom Verhältnis zum Winkel kommst du mit der ⟦Umkehrtaste⟧.',
+  'woerter': [['tan⁻¹', 'die Umkehrtaste: Sie macht aus einem Tangenswert den Winkel'],
+              ['DEG', 'Einstellung des Taschenrechners für Grad']],
+  'bild': _dr(_P4, '4 m', '7 m', 'Rampe', 'α = ?'),
+  'schritte': [{'text': 'Gegenkathete 4 m, Ankathete 7 m: tan α = 4 : 7 ≈ 0,571.'},
+               {'text': 'Taschenrechner auf DEG, dann tan⁻¹(4 : 7).'},
+               {'text': 'Ergebnis: ⟦α ≈ 29,7°⟧.', 'bild': {'winkel': [['A', 'C', 'B', '29,7°']]}}],
+  'fehler': 'α ist nicht 0,57°. 4/7 ist der Tangenswert. Erst tan⁻¹ macht daraus den Winkel.',
+  'regel': 'Verhältnis bilden, dann die ⟦Umkehrtaste⟧ sin⁻¹, cos⁻¹ oder tan⁻¹. Der Rechner muss auf DEG stehen.'},
+ 'beziehungen': {
+  'einstieg': 'Sinus, Kosinus und Tangens hängen zusammen. Kennst du einen, rechnest du die anderen aus. Der Grund ist der Satz des Pythagoras: Das sind die ⟦Beziehungen⟧.',
+  'woerter': [['sin² α', '(sin α)², also sin α mal sin α'],
+              ['Beziehungen', 'Formeln, die sin, cos und tan verbinden']],
+  'bild': _dr(_P5, 'a = 7', 'b = 24', 'c = 25'),
+  'schritte': [{'text': 'Bekannt ist sin α = 0,28. Im Bild: 7 : 25 = 0,28.'},
+               {'text': 'Pythagoras geteilt durch c²: sin² α + cos² α = 1.'},
+               {'text': 'cos² α = 1 − 0,0784 = 0,9216, also ⟦cos α = 0,96⟧.'},
+               {'text': 'tan α = 0,28 : 0,96 = 7/24.'}],
+  'fehler': 'cos α ist nicht 1 − 0,28 = 0,72. Die Formel gilt mit den Quadraten: sin² α + cos² α = 1.',
+  'regel': 'Es gilt ⟦sin² α + cos² α = 1⟧. Außerdem ist tan α = sin α : cos α.'},
+ 'anwendung': {
+  'einstieg': 'Ein Schild zeigt 8 % an einer Bergstraße. Auf 100 m waagrecht geht es 8 m hoch. Wie steil ist das in Grad? Hier hilft ⟦Trigonometrie⟧.',
+  'woerter': [['Steigung in %', 'Höhenunterschied auf 100 m waagrecht'],
+              ['Trigonometrie', 'Rechnen mit Winkeln und Seiten im Dreieck']],
+  'bild': _dr(_P6, '8 m', '100 m waagrecht', 'Straße', 'α = ?'),
+  'schritte': [{'text': 'Die Steigung in % sagt: Gegenkathete 8 m, Ankathete 100 m.'},
+               {'text': 'tan α = 8 : 100 = 0,08.'},
+               {'text': 'α = tan⁻¹(0,08) ≈ ⟦4,6°⟧.', 'bild': {'winkel': [['A', 'C', 'B', '4,6°']]}}],
+  'fehler': '8 % sind nicht 8°. 8 % heißt tan α = 0,08, also etwa 4,6°.',
+  'fehler_bild': {'winkel': [['A', 'C', 'B', '8°? nein']]},
+  'regel': 'Steigung in % = ⟦tan α · 100⟧. Mach eine Skizze und finde das rechtwinklige Dreieck.'},
+}
+umbau(ETAPPEN, UMBAU)
+# ---- UMBAU ENDE ----
 
 
 def g_seiten(s):

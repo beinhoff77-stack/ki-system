@@ -43,65 +43,126 @@
    {
     "lernziel": "zahlarten",
     "titel": "Rational oder irrational?",
-    "regel": "So entscheidest du: Lässt sich die Zahl als ⟦Bruch⟧ schreiben (die Dezimalzahl endet oder wiederholt sich), ist sie ⟦rational⟧. Geht das nicht (unendlich viele Stellen ohne Wiederholung, z. B. √2 oder π), ist sie ⟦irrational⟧. Beide zusammen bilden die ⟦reellen Zahlen ℝ⟧.",
+    "regel": "Geht die Zahl als ⟦Bruch⟧, ist sie rational, sonst irrational. Beide zusammen bilden die reellen Zahlen ℝ.",
     "schritte": [
-     "Prüfe √49: 7 · 7 = 49, also ist √49 = 7. Das ist eine ganze Zahl und damit ⟦rational⟧, denn 7 = 7/1.",
-     "Prüfe √50: 50 ist keine Quadratzahl, denn 7 · 7 = 49 und 8 · 8 = 64.",
-     "Die Wurzel aus einer natürlichen Zahl, die keine Quadratzahl ist, geht nie glatt auf – auch nicht als Bruch.",
-     "Also ist √50 ⟦irrational⟧: unendlich viele Nachkommastellen ohne Wiederholung."
+     {
+      "text": "Ein Beet mit 49 m² hat die Seite √49 = 7 m.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 7,
+         "name": "√49"
+        }
+       ]
+      }
+     },
+     {
+      "text": "7 = 7/1 ist ein Bruch. Also ist √49 ⟦rational⟧."
+     },
+     {
+      "text": "50 ist keine Quadratzahl, denn 7² = 49 und 8² = 64.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 7,
+         "name": "√49"
+        },
+        {
+         "wert": 7.07,
+         "name": "√50"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Darum geht √50 nie glatt auf, auch nicht als Bruch: ⟦irrational⟧."
+     }
     ],
-    "probe": "Faustregel: √n (n natürlich) ist nur rational, wenn n eine Quadratzahl ist.",
-    "fehler": "„0,333… ist irrational, weil es unendlich viele Stellen hat“ ist falsch: Die 3 wiederholt sich immer (Periode). 0,333… = ⟦1/3⟧ – ein Drittel, wie bei einer Pizza für drei. Das ist rational.",
-    "einstieg": "Ein quadratisches Beet soll genau 2 m² groß werden. Seine Seite ist dann √2 m. Der Taschenrechner zeigt 1,41421356… – und egal wie viele Stellen man ausrechnet, es kommen immer neue Ziffern ohne Muster. So eine Zahl kann man nicht als Bruch schreiben; sie heißt ⟦irrational⟧.",
+    "fehler": "0,333… ist nicht irrational. Die 3 wiederholt sich immer: 0,333… = 1/3, ein Drittel. Das ist rational.",
+    "einstieg": "Ein quadratisches Beet hat 50 m². Seine Seite √50 m hat unendlich viele Nachkommastellen ohne Muster. So eine Zahl heißt ⟦irrational⟧.",
     "woerter": [
      [
-      "Bruch",
-      "eine ganze Zahl geteilt durch eine ganze Zahl, z. B. 3/4"
-     ],
-     [
       "rational",
-      "als Bruch schreibbar: 7 = 7/1, 0,5 = 1/2, 0,333… = 1/3"
-     ],
-     [
-      "…",
-      "die Ziffern gehen immer weiter"
-     ],
-     [
-      "periodisch",
-      "die Ziffern wiederholen sich immer gleich, z. B. 0,333…; der wiederholte Teil heißt Periode"
+      "als Bruch schreibbar, z. B. 7 = 7/1 oder 0,5 = 1/2"
      ],
      [
       "irrational",
-      "nicht als Bruch schreibbar: unendlich viele Nachkommastellen ohne Wiederholung, z. B. √2, π"
-     ],
-     [
-      "reelle Zahlen ℝ",
-      "alle rationalen und irrationalen Zahlen zusammen"
-     ],
-     [
-      "natürliche Zahl",
-      "eine der Zahlen 1, 2, 3, …"
+      "nicht als Bruch schreibbar: unendlich viele Stellen ohne Wiederholung"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 6,
+     "ende": 8,
+     "abschnitte": 4,
+     "beschriftet": "anfang_ende"
+    },
+    "fehler_bild": {
+     "typ": "bruchstreifen",
+     "teile": 3,
+     "gefaerbt": 1,
+     "teil_text": "1/3 = 0,333…"
+    }
    },
    {
     "lernziel": "eingrenzen",
     "titel": "Wurzeln genauer eingrenzen",
-    "regel": "So grenzt du √a genauer ein: Zahlen mit einer, dann mit zwei Nachkommastellen ⟦quadrieren⟧ und mit a vergleichen. Die größte Zahl, deren Quadrat noch unter a liegt, ist die ⟦untere Grenze⟧; die nächste ist die ⟦obere Grenze⟧.",
+    "regel": "⟦Quadriere⟧ Kommazahlen und vergleiche mit a. Die Grenzen sind die Zahlen direkt unter und über √a.",
     "schritte": [
-     "Gesucht ist √30, die Seite des Beets. Zuerst ganze Zahlen: 5 · 5 = 25 ist zu klein, 6 · 6 = 36 ist zu groß. Also liegt √30 zwischen 5 und 6.",
-     "Jetzt Zehntel probieren: 5,4 · 5,4 = 29,16. Das ist noch kleiner als 30.",
-     "Die nächste Zahl: 5,5 · 5,5 = 30,25. Das ist schon größer als 30.",
-     "Also gilt ⟦5,4 < √30 < 5,5⟧: Die Seite ist etwas länger als 5,4 m."
+     {
+      "text": "√30 liegt zwischen 5 und 6, denn 5² = 25 und 6² = 36.",
+      "bild": {
+       "bereich": {
+        "von": 5,
+        "bis": 6
+       }
+      }
+     },
+     {
+      "text": "Zehntel quadrieren: 5,4² = 29,16 ist noch kleiner als 30.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 5.4,
+         "name": "5,4"
+        }
+       ]
+      }
+     },
+     {
+      "text": "5,5² = 30,25 ist schon größer als 30.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 5.4,
+         "name": "5,4"
+        },
+        {
+         "wert": 5.5,
+         "name": "5,5"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Das Intervall wird enger: ⟦5,4 < √30 < 5,5⟧.",
+      "bild": {
+       "bereich": {
+        "von": 5.4,
+        "bis": 5.5
+       },
+       "punkte": [
+        {
+         "wert": 5.477,
+         "name": "√30"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "5,48² ≈ 30,03 – passt in das Intervall.",
-    "fehler": "„√30 liegt zwischen 5,0 und 5,1, weil 30 näher an 25 liegt“ ist falsch: 5,1 · 5,1 = 26,01 ist noch viel kleiner als 30. Ein Zaun nach dieser Schätzung wäre zu kurz. Du musst ⟦quadrieren und vergleichen⟧, nicht nach Gefühl schätzen.",
-    "einstieg": "Ein anderes quadratisches Beet hat 30 m². Für den Zaun willst du die Seite genauer wissen als nur „zwischen 5 und 6 Meter“. Also probierst du Kommazahlen: Ist 5,4 m noch zu kurz oder schon zu lang? Mit jedem Schritt wird der Bereich enger. Das heißt ⟦Intervallschachtelung⟧.",
+    "fehler": "√30 liegt nicht zwischen 5,0 und 5,1. Denn 5,1² = 26,01 ist viel kleiner als 30. Der Zaun wäre zu kurz.",
+    "einstieg": "Ein Beet hat 30 m². Seine Seite liegt zwischen 5 m und 6 m. Für den Zaun willst du es genauer: Du machst eine ⟦Intervallschachtelung⟧.",
     "woerter": [
-     [
-      "quadrieren",
-      "eine Zahl mit sich selbst malnehmen: 5,4² = 5,4 · 5,4"
-     ],
      [
       "Intervall",
       "der Bereich zwischen zwei Zahlen, z. B. von 5,4 bis 5,5"
@@ -111,65 +172,202 @@
       "den Bereich Schritt für Schritt enger machen"
      ],
      [
-      "≈",
-      "„ungefähr gleich“"
+      "quadrieren",
+      "eine Zahl mit sich selbst malnehmen"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 5,
+     "ende": 6,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    },
+    "fehler_bild": {
+     "bereich": {
+      "von": 5.0,
+      "bis": 5.1
+     },
+     "punkte": [
+      {
+       "wert": 5.477,
+       "name": "√30"
+      }
+     ]
+    }
    },
    {
     "lernziel": "wurzel_mal",
     "titel": "Wurzeln multiplizieren und dividieren",
-    "regel": "So rechnest du: Beim ⟦Malnehmen⟧ und ⟦Teilen⟧ darfst du zwei Wurzeln zu einer zusammenziehen: ⟦√a · √b = √(a · b)⟧ und ⟦√a : √b = √(a : b)⟧ (für a, b ≥ 0, beim Teilen b > 0). Beim ⟦Zusammenzählen⟧ gilt das nicht.",
+    "regel": "Beim ⟦Malnehmen⟧ und Teilen darfst du Wurzeln zusammenziehen. √a · √b = √(a · b), √a : √b = √(a : b). Bei Plus nicht.",
     "schritte": [
-     "Gesucht ist √3 · √27, die Fläche des Beets in m².",
-     "Beide Wurzeln unter eine Wurzel ziehen: √3 · √27 = √(3 · 27).",
-     "Unter der Wurzel rechnen: 3 · 27 = 81.",
-     "√81 = ⟦9⟧, denn 9 · 9 = 81. Das Beet hat also 9 m²."
+     {
+      "text": "Die Fläche ist Breite mal Länge: √3 · √27."
+     },
+     {
+      "text": "Regel √a · √b = √(a · b): √3 · √27 = √(3 · 27)."
+     },
+     {
+      "text": "Unter der Wurzel steht das Produkt 3 · 27 = 81."
+     },
+     {
+      "text": "√81 = ⟦9⟧. Das Beet hat also 9 m².",
+      "bild": {
+       "linien": [
+        [
+         "_A",
+         "_B",
+         "√27 m"
+        ],
+        [
+         "_B",
+         "_C",
+         "√3 m"
+        ],
+        [
+         "_C",
+         "_D",
+         "Fläche = 9 m²"
+        ],
+        [
+         "_D",
+         "_A",
+         ""
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "Quadriere das Ergebnis: 9² = 81, und 3 · 27 = 81 ✓",
-    "fehler": "√16 + √9 = √25 ist falsch: Bei einer ⟦Summe⟧ darf man nicht zusammenziehen. √16 + √9 = 4 + 3 = 7, aber √25 = 5. Zwei Bretter mit 4 m und 3 m sind zusammen 7 m lang, nicht 5 m.",
-    "einstieg": "Zwei krumme Zahlen können zusammen eine glatte ergeben. Ein Beet ist √3 m breit und √27 m lang – beide Längen haben unendlich viele Nachkommastellen. Trotzdem ist seine Fläche genau 9 m². Der Trick: Beim Malnehmen darf man zwei Wurzeln ⟦unter eine Wurzel⟧ ziehen.",
+    "fehler": "√16 + √9 ist nicht √25. Bei Plus darfst du nicht zusammenziehen. 4 m und 3 m Zaun sind 7 m, nicht 5 m.",
+    "einstieg": "Ein Beet ist √3 m breit und √27 m lang. Beide Längen sind krumm, die Fläche ist aber genau 9 m². Beim Malnehmen darfst du Wurzeln ⟦zusammenziehen⟧.",
     "woerter": [
      [
-      "Produkt",
-      "das Ergebnis beim Malnehmen"
-     ],
-     [
-      "Quotient",
-      "das Ergebnis beim Teilen"
-     ],
-     [
-      "Summe",
-      "das Ergebnis beim Zusammenzählen"
+      "zusammenziehen",
+      "zwei Wurzeln als eine Wurzel schreiben"
      ],
      [
       "√a · √b = √(a · b)",
-      "zwei Wurzeln malnehmen = eine Wurzel aus dem Produkt"
+      "zwei Wurzeln malnehmen ist eine Wurzel aus dem Produkt"
      ],
      [
-      "a, b ≥ 0",
-      "a und b sind nicht negativ"
+      "Produkt",
+      "das Ergebnis beim Malnehmen"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       5.196,
+       0
+      ],
+      "_C": [
+       5.196,
+       1.732
+      ],
+      "_D": [
+       0,
+       1.732
+      ]
+     },
+     "flaeche": [
+      "_A",
+      "_B",
+      "_C",
+      "_D"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       "√27 m"
+      ],
+      [
+       "_B",
+       "_C",
+       "√3 m"
+      ],
+      [
+       "_C",
+       "_D",
+       "Fläche = ?"
+      ],
+      [
+       "_D",
+       "_A",
+       ""
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "_A",
+       "_B",
+       "_D"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 8,
+     "abschnitte": 8,
+     "beschriftet": "anfang_ende",
+     "boegen": [
+      {
+       "von": 0,
+       "bis": 4,
+       "name": "√16"
+      },
+      {
+       "von": 4,
+       "bis": 7,
+       "name": "√9"
+      }
+     ],
+     "punkte": [
+      {
+       "wert": 5,
+       "name": "√25?"
+      }
+     ]
+    }
    },
    {
     "lernziel": "teilweise",
     "titel": "Teilweise die Wurzel ziehen",
-    "regel": "So ziehst du teilweise die Wurzel: Zerlege den ⟦Radikanden⟧ in ⟦größte Quadratzahl mal Rest⟧. Aus der Quadratzahl ziehst du die Wurzel, der Rest bleibt darunter: √(k² · m) = ⟦k√m⟧.",
+    "regel": "Zerlege den Radikanden in ⟦größte Quadratzahl mal Rest⟧. Aus der Quadratzahl ziehst du die Wurzel: √(k² · m) = k√m.",
     "schritte": [
-     "Gesucht ist eine kürzere Schreibweise für √72.",
-     "Suche die größte Quadratzahl, die in 72 steckt: 36, denn 72 = 36 · 2.",
-     "Schreibe die Wurzel als Produkt: √72 = √(36 · 2) = √36 · √2.",
-     "Ziehe die glatte Wurzel: √36 = 6. Also ist √72 = ⟦6√2⟧."
+     {
+      "text": "Suche die größte Quadratzahl, die im Radikanden 72 steckt."
+     },
+     {
+      "text": "72 = 36 · 2. Die 49 passt nicht, also ist 36 die größte.",
+      "bild": {
+       "zeilen": [
+        [
+         "steckt in 72?",
+         "ja: 4 · 18",
+         "ja: 9 · 8",
+         "ja: 36 · 2",
+         "nein"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Also √72 = √36 · √2 = 6 · √2."
+     },
+     {
+      "text": "Kurz geschrieben: √72 = ⟦6√2⟧."
+     }
     ],
-    "probe": "(6√2)² = 36 · 2 = 72 ✓",
-    "fehler": "√72 = √(4 · 18) = 2√18 ist nicht fertig: In 18 steckt noch die Quadratzahl 9 – wie ein Bruch, den man nur halb gekürzt hat. Mit der ⟦größten⟧ Quadratzahl 36 erhält man 6√2.",
-    "einstieg": "Manche Wurzeln lassen sich ein Stück weit kürzer schreiben – ähnlich wie man einen Bruch kürzt. In 72 steckt zum Beispiel die Quadratzahl 36, denn 72 = 36 · 2. Aus der 36 lässt sich die Wurzel glatt ziehen, nur die 2 bleibt unter der Wurzel. Das nennt man ⟦teilweise die Wurzel ziehen⟧.",
+    "fehler": "2√18 ist noch nicht fertig: In 18 steckt noch die 9. Das ist wie ein halb gekürzter Bruch. Nimm gleich 36.",
+    "einstieg": "Wie einen Bruch kann man auch √72 kürzer schreiben. In 72 steckt die Quadratzahl 36. Aus ihr ziehst du die Wurzel: ⟦teilweise die Wurzel ziehen⟧.",
     "woerter": [
-     [
-      "radizieren",
-      "die Wurzel ziehen"
-     ],
      [
       "Radikand",
       "die Zahl unter dem Wurzelzeichen"
@@ -179,60 +377,223 @@
       "kurz für 6 · √2; der Malpunkt wird weggelassen"
      ],
      [
-      "k² · m",
-      "eine Quadratzahl mal einen Rest"
+      "teilweise die Wurzel ziehen",
+      "nur aus einem Teil des Radikanden die Wurzel ziehen"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Quadratzahl",
+      "4",
+      "9",
+      "36",
+      "49"
+     ],
+     "zeilen": [
+      [
+       "steckt in 72?",
+       "?",
+       "?",
+       "?",
+       "?"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "zeilen": [
+      [
+       "steckt in 72?",
+       "nur halb: 4 · 18",
+       "ja: 9 · 8",
+       "am besten: 36 · 2",
+       "nein"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "zusammenfassen",
     "titel": "Wurzelterme zusammenfassen",
-    "regel": "So fasst du zusammen: Erst teilweise die Wurzel ziehen. Dann nur Wurzeln mit ⟦gleichem Radikanden⟧ zusammenzählen, wie bei 3x + 5x = 8x: ⟦3√2 + 5√2 = 8√2⟧. Verschiedene Radikanden wie bei ⟦2√3 + 4√5⟧ bleiben stehen.",
+    "regel": "Zähle nur Wurzeln mit ⟦gleichem Radikanden⟧ zusammen. Vorher teilweise die Wurzel ziehen: 3√2 + 5√2 = 8√2.",
     "schritte": [
-     "Gesucht ist √18 + √50. So, wie es dasteht, sind die Zahlen unter den Wurzeln verschieden.",
-     "Erst teilweise die Wurzel ziehen: √18 = √(9 · 2) = 3√2.",
-     "Genauso: √50 = √(25 · 2) = 5√2.",
-     "Jetzt sind es gleiche Wurzeln, wie 3 Äpfel und 5 Äpfel: 3√2 + 5√2 = ⟦8√2⟧."
+     {
+      "text": "Gesucht ist √18 + √50. Die Radikanden 18 und 50 sind verschieden."
+     },
+     {
+      "text": "Teilweise die Wurzel ziehen: √18 = √(9 · 2) = 3√2.",
+      "bild": {
+       "zeilen": [
+        [
+         "√18",
+         "3√2"
+        ],
+        [
+         "√50",
+         "?"
+        ],
+        [
+         "Summe",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Genauso: √50 = √(25 · 2) = 5√2. Jetzt gibt es gleiche Radikanden.",
+      "bild": {
+       "zeilen": [
+        [
+         "√18",
+         "3√2"
+        ],
+        [
+         "√50",
+         "5√2"
+        ],
+        [
+         "Summe",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Wie 3 Äpfel plus 5 Äpfel: 3√2 + 5√2 = ⟦8√2⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "√18",
+         "3√2"
+        ],
+        [
+         "√50",
+         "5√2"
+        ],
+        [
+         "Summe",
+         "8√2"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "√18 ≈ 4,24, √50 ≈ 7,07, Summe ≈ 11,31; 8√2 ≈ 11,31 ✓",
-    "fehler": "2√3 + 4√5 = 6√8 ist falsch: Die Radikanden sind ⟦verschieden⟧ – wie 2 Äpfel und 4 Birnen, aus denen keine „6 Apfelbirnen“ werden. Der Term bleibt so stehen.",
-    "einstieg": "Äpfel und Birnen: 3 Äpfel plus 5 Äpfel sind 8 Äpfel. Aber 2 Äpfel plus 4 Birnen kann man nicht zu einer einzigen Sorte machen. Mit Wurzeln ist es genauso: Gleiche Wurzeln lassen sich zusammenzählen, verschiedene nicht. Das heißt ⟦zusammenfassen⟧.",
+    "fehler": "2√3 + 4√5 ist nicht 6√8. Die Radikanden sind verschieden, wie 2 Äpfel und 4 Birnen. Der Term bleibt stehen.",
+    "einstieg": "3 Äpfel plus 5 Äpfel sind 8 Äpfel. Äpfel und Birnen zählt man nicht zusammen. Bei Wurzeln ist es genauso: Gleiche Wurzeln kannst du ⟦zusammenfassen⟧.",
     "woerter": [
+     [
+      "zusammenfassen",
+      "gleichartige Teile zusammenzählen"
+     ],
      [
       "3√2",
       "3 · √2, also dreimal die Zahl √2"
      ],
      [
-      "gleicher Radikand",
+      "gleiche Radikanden",
       "dieselbe Zahl unter der Wurzel"
-     ],
-     [
-      "Variable",
-      "ein Buchstabe wie x, der für eine Zahl steht"
-     ],
-     [
-      "zusammenfassen",
-      "gleichartige Teile zusammenzählen"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Term",
+      "mit √2"
+     ],
+     "zeilen": [
+      [
+       "√18",
+       "?"
+      ],
+      [
+       "√50",
+       "?"
+      ],
+      [
+       "Summe",
+       "?"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "nenner_rational",
     "titel": "Nenner rational machen",
-    "regel": "So machst du den ⟦Nenner rational⟧: ⟦Erweitere⟧ mit der Wurzel aus dem Nenner: a/√m = a√m / m. Steht unten √m − n, erweiterst du mit √m + n (⟦3. binomische Formel⟧).",
+    "regel": "⟦Erweitere⟧ mit der Wurzel aus dem Nenner: a/√m = a√m/m. Steht unten √m − n, erweiterst du mit √m + n.",
     "schritte": [
-     "Gesucht ist 12/√3 ohne Wurzel im Nenner.",
-     "Erweitere mit √3, also oben und unten mal √3: 12√3 / (√3 · √3).",
-     "Unten wird die Wurzel glatt: √3 · √3 = 3. Jetzt steht da 12√3 / 3.",
-     "12 : 3 = 4, also ist ⟦12/√3 = 4√3⟧."
+     {
+      "text": "Erweitern mit √3: Zähler und Nenner mal √3.",
+      "bild": {
+       "zeilen": [
+        [
+         "vorher",
+         "12",
+         "√3"
+        ],
+        [
+         "erweitert",
+         "12√3",
+         "√3 · √3"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Unten gilt √3 · √3 = 3. Jetzt steht da 12√3/3.",
+      "bild": {
+       "zeilen": [
+        [
+         "vorher",
+         "12",
+         "√3"
+        ],
+        [
+         "erweitert",
+         "12√3",
+         "√3 · √3"
+        ],
+        [
+         "ausgerechnet",
+         "12√3",
+         "3"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "12 : 3 = 4, also ⟦12/√3 = 4√3⟧. Unten steht keine Wurzel mehr.",
+      "bild": {
+       "zeilen": [
+        [
+         "vorher",
+         "12",
+         "√3"
+        ],
+        [
+         "erweitert",
+         "12√3",
+         "√3 · √3"
+        ],
+        [
+         "ausgerechnet",
+         "12√3",
+         "3"
+        ],
+        [
+         "gekürzt",
+         "4√3",
+         "1"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "4√3 · √3 = 4 · 3 = 12 ✓",
-    "fehler": "12/√3 = 4 ist falsch: Man darf √3 nicht wie 3 behandeln. Probe: 12 : 1,732 ≈ 6,93, nicht 4. Nach dem Erweitern steht ⟦√3 im Zähler⟧: 4√3 ≈ 6,93.",
-    "einstieg": "Durch eine krumme Zahl zu teilen ist unbequem: 12 geteilt durch 1,732… rechnet niemand gern im Kopf. Deshalb schreibt man solche Brüche so um, dass unten keine Wurzel mehr steht. Der Wert bleibt dabei gleich – wie beim Erweitern von 1/2 zu 2/4. Das heißt ⟦Nenner rational machen⟧.",
+    "fehler": "12/√3 ist nicht 4, denn √3 ist nicht 3. Probe: 12 : 1,732 ≈ 6,93, und 4√3 ≈ 6,93 stimmt.",
+    "einstieg": "12 durch 1,732… teilt niemand gern im Kopf. Darum schreibt man 12/√3 so um, dass unten keine Wurzel steht. Das heißt ⟦Nenner rational machen⟧.",
     "woerter": [
      [
-      "Zähler / Nenner",
-      "die Zahl über / unter dem Bruchstrich"
+      "Nenner",
+      "die Zahl unter dem Bruchstrich"
      ],
      [
       "erweitern",
@@ -241,12 +602,23 @@
      [
       "√3 · √3 = 3",
       "eine Wurzel mal sich selbst ergibt die Zahl darunter"
-     ],
-     [
-      "3. binomische Formel",
-      "(a + b) · (a − b) = a² − b²"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Zähler",
+      "Nenner"
+     ],
+     "zeilen": [
+      [
+       "vorher",
+       "12",
+       "√3"
+      ]
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [

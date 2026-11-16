@@ -156,6 +156,109 @@ KLAR = {
 }
 klar(ETAPPEN, KLAR)
 # ---- KLAR ENDE ----
+# ---- UMBAU (neues Muster, Runde 8, Vorgabe 16.11.) ----
+_EK = {'M': [0, 0], '_x1': [-1.3, 0], '_x2': [1.3, 0], '_y1': [0, -1.3], '_y2': [0, 1.3], 'P': [-0.5, 0.866], '_F': [-0.5, 0], '_Q': [0.5, 0.866]}
+_EKL = [['_x1', '_x2'], ['_y1', '_y2'], ['M', 'P', '1']]
+_FL = {'C': [0, 0], 'A': [9, 0], 'B': [5.196, 3], '_H': [5.196, 0]}
+def _fl(*extra): return [['C', 'A', 'b = 9 m'], ['C', 'B', 'a = 6 m'], ['A', 'B']] + list(extra)
+_S = {'A': [0, 0], 'B': [11.28, 0], 'C': [9.21, 7.73]}
+def _s(b): return [['A', 'B', 'c'], ['B', 'C', 'a = 8 km'], ['C', 'A', b]]
+_W = {'A': [0, 0], 'B': [12.94, 0], 'C': [4.5, 5.36]}
+_K1 = {'C': [0, 0], 'A': [8, 0], 'B': [2.5, 4.33]}
+def _k1(c): return [['C', 'A', 'b = 8 km'], ['C', 'B', 'a = 5 km'], ['A', 'B', c]]
+_K2 = {'C': [0, 0], 'A': [5, 0], 'B': [-1.5, 2.598]}
+UMBAU = {
+ 'einheitskreis': {
+  'einstieg': 'Ein 1 dm langer Uhrzeiger dreht sich um die Mitte. Wie weit ist die Spitze rechts oder links, oben oder unten? Das zeigt der ⟦Einheitskreis⟧.',
+  'woerter': [['Einheitskreis', 'ein Kreis um (0 | 0) mit dem Radius 1'],
+              ['(cos α | sin α)', 'die Koordinaten der Zeigerspitze beim Winkel α']],
+  'bild': {'typ': 'figur', 'punkte': _EK, 'kreise': [{'m': 'M', 'r': 1}], 'linien': _EKL, 'winkel': [['M', '_x2', 'P', '120°']]},
+  'schritte': [{'text': 'Die Spitze beim Winkel α hat die Koordinaten (cos α | sin α).'},
+               {'text': 'Gesucht ist cos 120°. Der Zeiger steht links oben.'},
+               {'text': '120° = 180° − 60°: das Spiegelbild der 60°-Stellung.',
+                'bild': {'linien': _EKL + [['M', '_Q', '60°', 'gestrichelt']]}},
+               {'text': 'Bei 60° ist der Abstand nach rechts 0,5. Links kommt ein Minus dazu.'},
+               {'text': 'Also cos 120° = ⟦−0,5⟧.',
+                'bild': {'linien': [['_x1', '_x2'], ['_y1', '_y2'], ['M', 'P', ''], ['P', '_F', 'sin 120°', 'gestrichelt'], ['_F', 'M', '−0,5']]}}],
+  'fehler': 'cos 120° ist nicht 0,5. Bei 120° steht der Zeiger links von der Mitte. Dort ist der Kosinus negativ.',
+  'regel': 'Der Punkt zum Winkel α ist ⟦(cos α | sin α)⟧. Dazu: sin(180° − α) = sin α, cos(180° − α) = −cos α.'},
+ 'flaeche': {
+  'einstieg': 'Ein Feld ist dreieckig. Zwei Zäune sind 6 m und 9 m lang und treffen sich unter 30°. Mit dem Sinus findest du die Höhe und den ⟦Flächeninhalt⟧.',
+  'woerter': [['eingeschlossener Winkel', 'der Winkel zwischen den beiden bekannten Seiten'],
+              ['Höhe h', 'der senkrechte Abstand der Spitze von der Grundseite']],
+  'bild': {'typ': 'figur', 'punkte': _FL, 'flaeche': ['A', 'B', 'C'], 'linien': _fl(), 'winkel': [['C', 'A', 'B', '30°']]},
+  'schritte': [{'text': 'Zäune a = 6 m und b = 9 m, eingeschlossener Winkel 30°.'},
+               {'text': 'Höhe h auf b: h = 6 · sin 30° = 3 m.',
+                'bild': {'linien': _fl(['B', '_H', 'h = 3 m', 'gestrichelt']), 'rechter_winkel': [['_H', 'A', 'B']]}},
+               {'text': 'Fläche: A = 1/2 · 9 · 3 = ⟦13,5 m²⟧.'}],
+  'fehler': 'A = 1/2 · 6 · 9 = 27 m² stimmt nur bei 90°. Hier steht der Zaun schräg, die Höhe ist nur 3 m.',
+  'regel': 'Es gilt ⟦A = 1/2 · a · b · sin γ⟧. Dabei ist γ der Winkel zwischen a und b.'},
+ 'sinussatz_seite': {
+  'einstieg': 'Zwei Wanderer an den Enden eines Sees peilen dieselbe Insel an. Sie messen Winkel, aber nicht alle Entfernungen. Im Dreieck hilft der ⟦Sinussatz⟧.',
+  'woerter': [['Sinussatz', 'a : sin α = b : sin β = c : sin γ'],
+              ['gegenüberliegende Winkel', 'der Winkel an der Ecke gegenüber einer Seite; zu a gehört α']],
+  'bild': {'typ': 'figur', 'punkte': _S, 'flaeche': ['A', 'B', 'C'], 'linien': _s('b = ?'),
+           'winkel': [['A', 'B', 'C', '40°'], ['B', 'C', 'A', '75°']]},
+  'schritte': [{'text': 'Gegeben: α = 40°, β = 75°, a = 8 km. Gesucht ist b.'},
+               {'text': 'Zu a gehört der gegenüberliegende Winkel α, zu b gehört β.'},
+               {'text': 'Sinussatz: b : sin 75° = 8 : sin 40°.'},
+               {'text': 'b = 8 · sin 75° : sin 40° ≈ ⟦12,0 km⟧.', 'bild': {'linien': _s('b = 12,0 km')}}],
+  'fehler': 'b = 8 · sin 40° : sin 75° vertauscht die Winkel. Zu b gehört β. Größerer Winkel heißt längere Seite.',
+  'fehler_bild': {'linien': _s('b = 5,3?')},
+  'regel': 'Es gilt ⟦a : sin α = b : sin β⟧. Zu jeder Seite gehört der gegenüberliegende Winkel.'},
+ 'sinussatz_winkel': {
+  'einstieg': 'Jetzt kennst du zwei Entfernungen und einen Winkel. Der Sinussatz liefert einen Sinuswert. Dazu passen zwei Winkel: Du wählst den ⟦passenden Winkel⟧.',
+  'woerter': [['sin⁻¹', 'die Umkehrtaste: Sie macht aus einem Sinuswert einen Winkel bis 90°'],
+              ['180° − β', 'der zweite Winkel mit demselben Sinuswert']],
+  'bild': {'typ': 'figur', 'punkte': _W, 'flaeche': ['A', 'B', 'C'],
+           'linien': [['A', 'B', 'c'], ['B', 'C', 'a = 10 km'], ['C', 'A', 'b = 7 km']], 'winkel': [['A', 'B', 'C', '50°'], ['B', 'C', 'A', 'β = ?']]},
+  'schritte': [{'text': 'Gegeben: a = 10 km, b = 7 km, α = 50°. Gesucht: β.'},
+               {'text': 'sin β = 7 · sin 50° : 10 ≈ 0,536.'},
+               {'text': 'sin⁻¹ liefert 32,4°. Auch 180° − β = 147,6° hat diesen Sinus.'},
+               {'text': 'b ist kürzer als a, also β < 50°: ⟦β ≈ 32,4°⟧.',
+                'bild': {'winkel': [['A', 'B', 'C', '50°'], ['B', 'C', 'A', '32,4°']]}}],
+  'fehler': 'Nicht immer nur den spitzen Winkel nehmen. Ist b > a, kann auch 180° − β passen. Dann gibt es zwei Dreiecke.',
+  'regel': 'sin β ausrechnen, dann ⟦180° − β prüfen⟧. Ist a ≥ b, ist β spitz.'},
+ 'kosinussatz_seite': {
+  'einstieg': 'Von einer Hütte führen zwei Wege, 5 km und 8 km lang. Sie bilden einen Winkel von 60°. Wie weit liegen die Enden auseinander? Hier hilft der ⟦Kosinussatz⟧.',
+  'woerter': [['Kosinussatz', 'c² = a² + b² − 2ab · cos γ'],
+              ['eingeschlossener Winkel γ', 'der Winkel zwischen a und b']],
+  'bild': {'typ': 'figur', 'punkte': _K1, 'flaeche': ['A', 'B', 'C'], 'linien': _k1('c = ?'), 'winkel': [['C', 'A', 'B', '60°']]},
+  'schritte': [{'text': 'a = 5 km, b = 8 km, eingeschlossener Winkel γ = 60°.'},
+               {'text': 'Kosinussatz: c² = 5² + 8² − 2 · 5 · 8 · cos 60°.'},
+               {'text': 'Mit cos 60° = 0,5: c² = 25 + 64 − 40 = 49.'},
+               {'text': 'Also ⟦c = 7 km⟧.', 'bild': {'linien': _k1('c = 7 km')}}],
+  'fehler': 'c² = 25 + 64 − 80 = 9 ist falsch. Der Faktor cos 60° = 0,5 fehlt.',
+  'fehler_bild': {'linien': _k1('c = 3? zu kurz')},
+  'regel': 'Es gilt ⟦c² = a² + b² − 2ab · cos γ⟧. Bei γ = 90° ist das Pythagoras.'},
+ 'kosinussatz_winkel': {
+  'einstieg': 'Drei Stangen von 3 m, 5 m und 7 m werden zum Dreieck gesteckt. Welchen Winkel bilden die kurzen Stangen? Du stellst um und ⟦berechnest den Winkel⟧.',
+  'woerter': [['stumpf', 'größer als 90°'],
+              ['cos⁻¹', 'die Umkehrtaste zum Kosinus; sie liefert Winkel bis 180°']],
+  'bild': {'typ': 'figur', 'punkte': _K2, 'flaeche': ['A', 'B', 'C'],
+           'linien': [['C', 'A', 'b = 5 m'], ['C', 'B', 'a = 3 m'], ['A', 'B', 'c = 7 m']], 'winkel': [['C', 'A', 'B', 'γ = ?']]},
+  'schritte': [{'text': 'a = 3, b = 5, c = 7. Gesucht ist γ gegenüber von c.'},
+               {'text': 'cos γ = (9 + 25 − 49) : 30.'},
+               {'text': 'Also cos γ = −15 : 30 = −0,5.'},
+               {'text': 'cos⁻¹(−0,5) = ⟦120°⟧, ein stumpfer Winkel.', 'bild': {'winkel': [['C', 'A', 'B', '120°']]}}],
+  'fehler': 'Das c² wird nicht addiert. Mit + 49 käme cos γ größer als 1 heraus, und das gibt es nicht.',
+  'regel': 'Drei Seiten: ⟦cos γ = (a² + b² − c²) : 2ab⟧. Ist cos γ negativ, ist γ stumpf.'},
+ 'satz_waehlen': {
+  'einstieg': 'Vor jeder Vermessung fragst du: Was weiß ich schon? Je nach bekannten Seiten und Winkeln hilft ein anderer Satz. Kürzel helfen beim ⟦Wählen⟧.',
+  'woerter': [['SSS', 'drei Seiten bekannt'],
+              ['SWS', 'zwei Seiten und der Winkel dazwischen bekannt'],
+              ['SsW', 'zwei Seiten und der Winkel gegenüber der größeren bekannt']],
+  'bild': {'typ': 'tabelle', 'kopf': ['gegeben', 'Satz'], 'zeilen': [['SSS', '?'], ['SWS', '?'], ['SsW, WSW', '?']]},
+  'schritte': [{'text': 'SSS oder SWS: Hier hilft der Kosinussatz.',
+                'bild': {'zeilen': [['SSS', 'Kosinussatz'], ['SWS', 'Kosinussatz'], ['SsW, WSW', '?']]}},
+               {'text': 'Ist eine Seite mit Gegenwinkel bekannt, etwa bei SsW: Sinussatz.',
+                'bild': {'zeilen': [['SSS', 'Kosinussatz'], ['SWS', 'Kosinussatz'], ['SsW, WSW', 'Sinussatz']]}},
+               {'text': 'Gegeben a, b und γ zwischen ihnen: SWS, also ⟦Kosinussatz⟧.'}],
+  'fehler': 'Bei SWS geht der Sinussatz nicht. Zu keiner gegebenen Seite ist der Gegenwinkel bekannt.',
+  'regel': 'SSS und SWS: ⟦Kosinussatz⟧. Ist eine Seite mit Gegenwinkel bekannt: Sinussatz.'},
+}
+umbau(ETAPPEN, UMBAU)
+# ---- UMBAU ENDE ----
 
 
 def ekreis(w):

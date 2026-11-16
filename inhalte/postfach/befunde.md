@@ -3,6 +3,13 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:44 – STATUS
+bruch.brueche fertig: umgestuft 6 / berichtigt 0 / ersetzt 1 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Um wie viel ist 5/6 größer als 4/7?“
+- nicht umgesetzt:
+  - zahlenstrahl: Markierungen mit Dritteln/Sechsteln ohne Feld „zahl“ – Von Hand geprüft und richtig (laut Befund); kein Mangel.
+
+## 2026-11-16 05:44 – STATUS
 zahlen.potenzen_zehner fertig: umgestuft 7 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
 
 ## 2026-11-16 05:43 – STATUS

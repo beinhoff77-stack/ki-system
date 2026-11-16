@@ -6,6 +6,10 @@ erst NACH dem Erzeugen der Aufgaben – so bleiben die Aufgaben wörtlich gleich
 (Werte im Zahlenstrahl-Bereich, Thermometer-Stand, Figur-Punkte, Tabellenbreite). `probe` entfällt bei umgebauten Karten (kommt im neuen Muster nicht vor).
 Vergleich je Thema: `aufgaben` und alle Felder außer `inhalt.etappen` und `offen` gegen den Ausgangsstand bc7a754 (lernen-app).
 
+## 2026-11-16 02:55 – STATUS
+groessen.proportional (7 Karten) umgebaut. Alle Bilder sind Tabellen, die sich Schritt für Schritt füllen (Brötchen, Äpfel, Hefte, Karten, Nudeln); fehler_bild zeigt jeweils die falsche oder die Gegen-Tabelle (Taxi mit Grundgebühr, Rabatt, Kochzeit).
+inhalt_pruefen: OK, keine Hinweise. Vergleich: 175 Aufgaben wörtlich gleich, Rest gleich.
+
 ## 2026-11-16 02:53 – STATUS
 groessen.einheiten (8 Karten) umgebaut. Bilder: Raum mit Tür als Figur (schaetzen), Einheitentafeln (laenge, masse, kommaschreibweise), Zeitspannen-Tabelle (zeit), Zahlenstrahl mit Bögen (rechnen, massstab), Säulen (verstehen).
 inhalt_pruefen: OK, keine Hinweise. Vergleich: 224 Aufgaben wörtlich gleich, Rest gleich.

@@ -7,6 +7,9 @@ Prüfung je Thema: Generator neu ausgeführt, Aufgaben mit einem Vergleichsskrip
 
 ## Status
 
+## 2026-11-16 03:00 – STATUS
+abbildungen.kongruenz fertig: 7 Karten, durchgehend Klecksbild (Achsenspiegelung), Pfosten auf dem Schulhof (Punktspiegelung), Pauspapier (Verschiebung, Drehung mit Reißzwecke, Eigenschaften), Fliesen (Parkett). Bild symmetrie: Achsen als „Symmetrieachse“ beschriftet. Aufgaben: 168, 0 Unterschiede. inhalt_pruefen: OK.
+
 ## 2026-11-16 02:40 – STATUS
 terme.aufstellen fertig: 6 Karten, durchgehende Situation Fahrradverleih am See (Termart, Termwert, Übersetzen, Preistafel als Term, Streichholzmuster, Handytarif deuten). Aufgaben: 144, 0 Unterschiede. inhalt_pruefen: OK.
 

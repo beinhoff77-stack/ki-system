@@ -448,6 +448,90 @@ GEN = {'achsenspiegelung': mit_koordinaten(g_achsenspiegelung), 'punktspiegelung
        'verschiebung': mit_koordinaten(g_verschiebung), 'drehung': mit_koordinaten(g_drehung),
        'symmetrie': g_symmetrie, 'parkett': g_parkett, 'eigenschaften': g_eigenschaften}
 
+# Verständliche Fassung (Runde 7, Maßstab inhalte/README.md „Verständliche Erklärungen“):
+# Alltagssituation zuerst (einstieg), jedes neue Wort erklärt (woerter), Beispiel in kleinen Schritten, Merksatz am Ende (regel).
+# Durchgehende Situation: eine Figur auf Pauspapier, die geklappt, geschoben und gedreht wird.
+KLAR = {
+ 'achsenspiegelung': {
+  'einstieg': 'Mal einen nassen Farbklecks auf ein Blatt, falte es in der Mitte und klapp es wieder auf. Der Klecks ist jetzt auch auf der anderen Seite – genau gegenüber und gleich weit vom Knick entfernt. Der Knick ist die Achse, der neue Klecks ist das Spiegelbild. Das heißt ⟦Achsenspiegelung⟧.',
+  'woerter': [['Achse', 'die Gerade, an der gespiegelt wird – wie der Knick im Papier'], ['Koordinaten', 'die zwei Zahlen, die die Lage eines Punktes angeben: erst nach rechts (x), dann nach oben (y)'], ['P(4 | 3)', 'Punkt P mit x-Koordinate 4 (4 nach rechts) und y-Koordinate 3 (3 nach oben)'],
+              ["P'", 'gelesen „P Strich“: der Bildpunkt, also die Stelle, an die P beim Spiegeln kommt'], ['x = 1', 'die senkrechte Gerade, auf der alle Punkte die x-Koordinate 1 haben'],
+              ['senkrecht', 'im rechten Winkel (90°) zueinander'], ['Vorzeichen', 'das Plus oder Minus vor einer Zahl'], ['x-Achse / y-Achse', 'die waagrechte / die senkrechte Achse im Koordinatensystem']],
+  'schritte': ['Der Punkt P(4 | 3) soll an der senkrechten Geraden x = 1 gespiegelt werden.',
+               'Wie weit ist P von der Achse entfernt? Von x = 1 bis x = 4 sind es 3 Einheiten nach rechts.',
+               'Der Bildpunkt liegt auf der anderen Seite, genauso weit weg: 3 Einheiten links von der Achse, also bei x = 1 − 3 = −2.',
+               "Die Höhe ändert sich beim Spiegeln an einer senkrechten Achse nicht, y bleibt 3: ⟦P'(−2 | 3)⟧."],
+  'regel': "So spiegelst du an einer Achse: Miss, wie weit P von der Achse weg ist, und geh auf der ⟦anderen Seite gleich weit⟧. Die Verbindung PP' steht ⟦senkrecht⟧ auf der Achse. An der x-Achse ändert sich das Vorzeichen von y, an der y-Achse das von x.",
+  'fehler': "Spiegelt man P(4 | 3) an der x-Achse, ist das Bild nicht (−4 | 3). Die x-Achse liegt waagrecht wie eine Wasseroberfläche: Das Spiegelbild liegt darunter, nicht daneben. Es ändert sich die ⟦y-Koordinate⟧, also P'(4 | −3)."},
+ 'punktspiegelung': {
+  'einstieg': 'Auf dem Schulhof steht in der Mitte ein Pfosten. Du gehst geradewegs auf ihn zu und zählst deine Schritte. Am Pfosten gehst du in derselben Richtung weiter, genauso viele Schritte. Wo du dann stehst, ist dein Bild bei der ⟦Punktspiegelung⟧ am Pfosten.',
+  'woerter': [['Zentrum Z', 'der Punkt, an dem gespiegelt wird – wie der Pfosten'], ["Strecke PP'", "die gerade Verbindung von P zu seinem Bildpunkt P'"],
+              ['Mittelpunkt', 'der Punkt genau in der Mitte einer Strecke']],
+  'schritte': ['P(1 | 5) soll am Zentrum Z(3 | 2) gespiegelt werden.',
+               'Bestimme den Weg von P nach Z: von x = 1 nach x = 3 sind es 2 nach rechts, von y = 5 nach y = 2 sind es 3 nach unten.',
+               'Geh von Z aus denselben Weg noch einmal: 2 nach rechts und 3 nach unten. Also x = 3 + 2 = 5 und y = 2 − 3 = −1.',
+               "Der Bildpunkt ist ⟦P'(5 | −1)⟧."],
+  'regel': "So spiegelst du an einem Punkt Z: Geh von P zu Z und von dort ⟦denselben Weg noch einmal⟧ weiter. Z ist dann der ⟦Mittelpunkt⟧ der Strecke PP'.",
+  'fehler': "Bei der Spiegelung an Z(3 | 2) bleibt man nicht am Pfosten stehen: P'(3 | 2) wäre Z selbst. Man geht ⟦doppelt so weit⟧ – bis Z und dann noch einmal genauso weit."},
+ 'verschiebung': {
+  'einstieg': 'Du zeichnest eine Figur auf Pauspapier ab und schiebst das Papier über den Tisch, ohne es zu drehen: 3 Kästchen nach links und 4 nach oben. Jeder Punkt der Figur wandert dabei genau gleich weit in dieselbe Richtung. Das heißt ⟦Verschiebung⟧.',
+  'woerter': [['Pauspapier', 'durchsichtiges Papier, auf dem man eine Figur abzeichnen und dann bewegen kann'], ['Bildpunkt', "wo ein Punkt nach dem Bewegen liegt, zum Beispiel A'"],
+              ['Verschiebungspfeil v', 'gibt an, wie weit und wohin verschoben wird'], ['v = (−3 | 4)', '3 nach links (Minus heißt links) und 4 nach oben (Plus heißt oben)']],
+  'schritte': ['A(2 | −1) soll mit dem Pfeil v = (−3 | 4) verschoben werden.',
+               'Die erste Zahl des Pfeils gehört zur x-Koordinate: 2 + (−3) = −1. Das heißt 3 nach links.',
+               'Die zweite Zahl gehört zur y-Koordinate: −1 + 4 = 3. Das heißt 4 nach oben.',
+               "Der Bildpunkt ist ⟦A'(−1 | 3)⟧."],
+  'regel': 'So verschiebst du mit v = (a | b): Zähle a zur ⟦x-Koordinate⟧ und b zur ⟦y-Koordinate⟧ dazu. Negative Zahlen bedeuten links bzw. unten. Jeder Punkt der Figur wandert gleich weit.',
+  'fehler': 'Bei v = (−3 | 4) zählt man −3 zur ⟦x⟧- und 4 zur ⟦y⟧-Koordinate – nicht umgekehrt. Sonst würde man das Pauspapier 4 nach links und 3 nach oben schieben, also an eine ganz andere Stelle.'},
+ 'drehung': {
+  'einstieg': 'Steck eine Reißzwecke durch das Pauspapier und dreh das Papier um sie herum. Jeder Punkt der Figur bewegt sich dabei auf einem Kreis um die Reißzwecke und bleibt gleich weit von ihr entfernt. Das heißt ⟦Drehung⟧.',
+  'woerter': [['Drehzentrum', 'der Punkt, um den gedreht wird – die Reißzwecke'], ['Ursprung O', 'der Punkt (0 | 0), an dem sich die beiden Achsen kreuzen'],
+              ['90°', 'eine Vierteldrehung'], ['180°', 'eine halbe Drehung'], ['gegen den Uhrzeigersinn', 'andersherum, als sich die Zeiger einer Uhr drehen'],
+              ['(x | y) → (−y | x)', 'Kurzschreibweise für die Regel: aus (4 | 1) wird (−1 | 4)']],
+  'schritte': ['P(4 | 1) soll um den Ursprung O um 90° gegen den Uhrzeigersinn gedreht werden.',
+               'Beschreibe den Weg von O zu P: 4 nach rechts, dann 1 nach oben.',
+               'Dreh diesen Weg eine Vierteldrehung nach links mit: Aus „4 nach rechts“ wird „4 nach oben“, aus „1 nach oben“ wird „1 nach links“.',
+               "Der neue Weg von O geht 1 nach links und 4 nach oben. Der Bildpunkt ist ⟦P'(−1 | 4)⟧."],
+  'regel': 'So drehst du um O um 90° gegen den Uhrzeigersinn: Beschreibe den Weg von O zu P und dreh ihn eine Vierteldrehung mit. Als Regel: ⟦(x | y) → (−y | x)⟧. Um 180°: (x | y) → (−x | −y). Der ⟦Abstand zum Drehzentrum⟧ bleibt immer gleich.',
+  'fehler': 'Bei 90° ändert man nicht bloß beide Vorzeichen: (4 | 1) → (−4 | −1) wäre eine ⟦halbe Drehung (180°)⟧ – als hätte man das Pauspapier ganz auf den Kopf gestellt statt nur eine Vierteldrehung gemacht.'},
+ 'symmetrie': {
+  'einstieg': 'Viele Dinge sehen auf beiden Seiten gleich aus: ein Schmetterling, ein Fenster, ein Herz. Stellst du einen Spiegel genau in die Mitte, ergänzt er die eine Hälfte zur ganzen Figur. Eine Figur, die so aus zwei Spiegelhälften besteht, heißt ⟦achsensymmetrisch⟧.',
+  'woerter': [['Symmetrieachse', 'Gerade, an der man die Figur falten kann, sodass beide Hälften genau aufeinanderliegen'], ['achsensymmetrisch', 'hat mindestens eine Symmetrieachse'],
+              ['punktsymmetrisch', 'sieht nach einer halben Drehung (180°) um ihren Mittelpunkt genauso aus wie vorher'],
+              ['regelmäßiges n-Eck', 'Vieleck mit n Ecken, bei dem alle Seiten und alle Winkel gleich groß sind'], ['Diagonale', 'Verbindungsstrecke zweier gegenüberliegender Ecken']],
+  'schritte': ['Untersucht wird ein Rechteck, das kein Quadrat ist.',
+               'Falte es in Gedanken senkrecht durch die Mitte: Die Hälften passen genau aufeinander. Waagrecht durch die Mitte geht es auch.',
+               'Das sind ⟦2 Symmetrieachsen⟧. Beide gehen durch die Mitten gegenüberliegender Seiten.',
+               'Dreh das Rechteck um seinen Mittelpunkt eine halbe Drehung: Es liegt wieder genau auf seinem alten Platz. Es ist also auch ⟦punktsymmetrisch⟧.'],
+  'regel': 'So prüfst du Symmetrie: ⟦Achsensymmetrisch⟧ ist eine Figur, wenn du sie so falten kannst, dass beide Hälften aufeinanderfallen. ⟦Punktsymmetrisch⟧ ist sie, wenn sie nach einer halben Drehung (180°) genauso daliegt. Ein regelmäßiges n-Eck hat ⟦n Symmetrieachsen⟧.',
+  'fehler': 'Die Diagonalen eines Rechtecks sind ⟦keine⟧ Symmetrieachsen (außer beim Quadrat). Faltet man ein rechteckiges Blatt entlang der Diagonale, stehen Zipfel über – die Ecken fallen nicht aufeinander.',
+  'bild': {'typ': 'figur', 'punkte': {'A': [0, 0], 'B': [6, 0], 'C': [6, 3], 'D': [0, 3], '_1': [3, -0.7], '_2': [3, 3.7], '_3': [-0.7, 1.5], '_4': [6.7, 1.5]}, 'flaeche': ['A', 'B', 'C', 'D'],
+           'linien': [['A', 'B'], ['B', 'C'], ['C', 'D'], ['D', 'A'], ['_1', '_2', 'Symmetrieachse', 'gestrichelt'], ['_3', '_4', 'Symmetrieachse', 'gestrichelt']]}},
+ 'parkett': {
+  'einstieg': 'Im Badezimmer liegen Fliesen dicht an dicht, ohne Lücke und ohne dass sich zwei überlappen. Mit quadratischen Fliesen geht das, mit sechseckigen auch – wie bei Bienenwaben. Mit fünfeckigen Fliesen klappt es nicht. Eine Fläche so lückenlos mit gleichen Vielecken auszulegen heißt ⟦Parkett⟧.',
+  'woerter': [['Parkett', 'lückenlose Auslegung einer Fläche ohne Überlappung'], ['Innenwinkel', 'der Winkel innen an einer Ecke des Vielecks'],
+              ['360°', 'eine volle Umdrehung – so viel Platz ist rund um eine Ecke'], ['gleichseitiges Dreieck', 'Dreieck mit drei gleich langen Seiten; jeder seiner Winkel ist 60°']],
+  'schritte': ['An jeder Ecke des Parketts stoßen mehrere Fliesen zusammen. Ihre Winkel müssen zusammen genau 360° ergeben, sonst bleibt eine Lücke oder es wird zu eng.',
+               'Gleichseitiges Dreieck: Innenwinkel 60°. 360° : 60° = 6, also passen genau sechs Dreiecke um eine Ecke. ✓',
+               'Quadrat: 360° : 90° = 4 ✓. Regelmäßiges Sechseck: 360° : 120° = 3 ✓ – wie bei Bienenwaben.',
+               'Regelmäßiges Fünfeck: Innenwinkel 108°. 360° : 108° = 3,33…, das geht nicht glatt auf: ⟦kein Parkett⟧.'],
+  'regel': 'So prüfst du, ob gleiche regelmäßige Vielecke ein ⟦Parkett⟧ ergeben: Teile 360° durch den ⟦Innenwinkel⟧. Kommt eine ganze Zahl heraus, passen die Ecken lückenlos zusammen.',
+  'fehler': '„Jedes regelmäßige Vieleck ergibt ein Parkett.“ Falsch: Von fünfeckigen Fliesen passen drei an eine Ecke (324°), und es bleibt ein Spalt von 36°; vier wären 432°, sie würden sich überlappen. Nur bei ⟦Dreieck, Quadrat und Sechseck⟧ geht 360° glatt auf.'},
+ 'eigenschaften': {
+  'einstieg': 'Ob du das Pauspapier umklappst, verschiebst oder drehst – die abgezeichnete Figur bleibt dieselbe: gleich groß, gleiche Seiten, gleiche Winkel. Nur ihre Lage ändert sich. Bewegungen, bei denen die Figur so deckungsgleich bleibt, heißen ⟦Kongruenzabbildungen⟧.',
+  'woerter': [['kongruent / deckungsgleich', 'passt genau aufeinander, wenn man es übereinanderlegt'], ['Urbild / Bild', 'die Figur vorher / nachher'],
+              ['Umlaufsinn', 'die Reihenfolge der Ecken A → B → C: im oder gegen den Uhrzeigersinn'], ['parallel', 'überall gleich weit voneinander entfernt, wie Schienen']],
+  'schritte': ['Eine Figur wird erst an einer Achse gespiegelt und dann an einer zweiten Achse, die parallel dazu im Abstand 3 cm liegt.',
+               'Bei jeder Spiegelung kehrt sich der Umlaufsinn um. Nach zwei Spiegelungen ist er wieder wie am Anfang.',
+               'Die Figur ist danach nicht gedreht, sondern nur zur Seite gerückt: Es ist eine Verschiebung.',
+               'Sie ist um den doppelten Abstand verschoben, senkrecht zu den Achsen: ⟦2 · 3 cm = 6 cm⟧.'],
+  'regel': 'So erkennst du ⟦Kongruenzabbildungen⟧: Sie erhalten ⟦Längen, Winkel und Flächeninhalte⟧. Nur die Achsenspiegelung kehrt den ⟦Umlaufsinn⟧ um. Zwei Spiegelungen nacheinander ergeben eine Verschiebung (parallele Achsen) oder eine Drehung (sich schneidende Achsen).',
+  'fehler': 'Eine Drehung macht die Figur nicht größer oder kleiner. Das Pauspapier wird nur gedreht, nicht gedehnt – Seitenlängen und Winkel ⟦bleiben gleich⟧.'},
+}
+for _e in ETAPPEN:
+    _e.update(KLAR.get(_e['lernziel'], {}))
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Spiegeln', ['achsenspiegelung', 'punktspiegelung']), ('Verschieben und Drehen', ['verschiebung', 'drehung']), ('Symmetrie und Eigenschaften', ['symmetrie', 'parkett', 'eigenschaften'])],

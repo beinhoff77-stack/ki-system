@@ -86,6 +86,88 @@ ETAPPEN = [
      'fehler': 'h² = 5² + 1,4² ist falsch: Die ⟦Leiter⟧ liegt gegenüber dem rechten Winkel zwischen Wand und Boden, sie ist die Hypotenuse.'},
 ]
 
+# ---- KLAR (verständliche Erklärungen, Runde 7) ----
+KLAR = {
+ 'hypotenuse': {
+  'einstieg': 'Ein Gärtner legt ein Beet als Dreieck an: 9 m an der Hauswand entlang, 12 m am Zaun entlang, Hauswand und Zaun stehen im rechten Winkel. Wie lang wird die dritte, schräge Seite? Messen ist mühsam, rechnen geht schneller. Die Regel dafür heißt ⟦Satz des Pythagoras⟧.',
+  'woerter': [['rechtwinkliges Dreieck', 'ein Dreieck mit einem 90°-Winkel'],
+              ['Hypotenuse c', 'die längste Seite, sie liegt dem rechten Winkel gegenüber'],
+              ['Katheten a, b', 'die beiden Seiten, die den rechten Winkel bilden'],
+              ['a²', 'a · a, im Bild die Fläche des Quadrats über a'],
+              ['√225', 'die Zahl, die mit sich selbst malgenommen 225 ergibt']],
+  'schritte': ['Die Katheten sind 9 m und 12 m lang. Gesucht ist die Hypotenuse c.',
+               'Beide Katheten quadrieren: 9² = 81 und 12² = 144.',
+               'Die Quadrate addieren: c² = 81 + 144 = 225.',
+               'Die Wurzel ziehen: c = √225 = ⟦15⟧. Die schräge Seite ist 15 m lang.'],
+  'probe': '15 ist länger als beide Katheten ✓',
+  'regel': 'So berechnest du die ⟦Hypotenuse⟧: Im ⟦rechtwinkligen⟧ Dreieck gilt ⟦a² + b² = c²⟧. Quadriere die ⟦Katheten⟧, addiere und zieh die Wurzel. Im Bild: Die beiden Quadrate über den Katheten haben ⟦zusammen genau so viel Fläche⟧ wie das Quadrat über der Hypotenuse.',
+  'fehler': 'c = 9 + 12 = 21 ist falsch: Ein Umweg über zwei Seiten ist immer länger als der direkte Weg. Man addiert die ⟦Quadrate⟧ und zieht dann die Wurzel: √(81 + 144) = 15.'},
+ 'kathete': {
+  'einstieg': 'Ein Brett von 13 dm Länge lehnt schräg an einer Kiste und ist am Boden 5 dm von ihr entfernt. Wie hoch reicht es an der Kiste? Jetzt ist die lange, schräge Seite bekannt und eine kurze gesucht. Man stellt den Satz des Pythagoras um und berechnet eine ⟦Kathete⟧.',
+  'woerter': [['Kathete', 'eine der beiden Seiten am rechten Winkel'],
+              ['umstellen', 'die Gleichung so umformen, dass das Gesuchte allein steht'],
+              ['a² = c² − b²', 'Hypotenuse quadriert minus die bekannte Kathete quadriert']],
+  'schritte': ['Die Hypotenuse ist 13 dm lang, eine Kathete 5 dm. Gesucht ist die andere Kathete a.',
+               'Umstellen: a² = 13² − 5².',
+               'Ausrechnen: a² = 169 − 25 = 144.',
+               'Die Wurzel ziehen: a = √144 = ⟦12⟧. Das Brett reicht 12 dm hoch.'],
+  'probe': '5² + 12² = 25 + 144 = 169 = 13² ✓',
+  'regel': 'So berechnest du eine ⟦Kathete⟧: Ist die Hypotenuse bekannt, stellst du um: ⟦a² = c² − b²⟧. Die Kathete ist immer ⟦kürzer⟧ als die Hypotenuse.',
+  'fehler': 'a² = 13² + 5² = 194 ist falsch: Dann wäre die Höhe länger als das Brett selbst. Gesucht ist eine ⟦Kathete⟧, also wird ⟦subtrahiert⟧. Das Ergebnis muss kleiner als 13 sein.'},
+ 'umkehrung': {
+  'einstieg': 'Für ein Beet mit genauer Ecke spannt der Gärtner eine Schnur zu einem Dreieck mit 3 m, 4 m und 5 m. Weil 3² + 4² = 5² gilt, entsteht ein rechter Winkel. Der Satz des Pythagoras funktioniert also auch rückwärts. Das nennt man ⟦Umkehrung⟧.',
+  'woerter': [['Umkehrung', 'der Satz rückwärts: Aus a² + b² = c² folgt der rechte Winkel'],
+              ['längste Seite', 'sie muss die Rolle von c übernehmen'],
+              ['gegenüber', 'auf der anderen Seite des Dreiecks']],
+  'schritte': ['Ein Dreieck hat die Seiten 20 cm, 21 cm und 29 cm. Die längste Seite ist 29 cm, sie spielt die Rolle von c.',
+               'Die kürzeren Seiten quadrieren und addieren: 20² + 21² = 400 + 441 = 841.',
+               'Die längste Seite quadrieren: 29² = 841.',
+               'Beide Zahlen sind gleich. Also ist das Dreieck ⟦rechtwinklig⟧; der rechte Winkel liegt gegenüber der 29-cm-Seite.'],
+  'regel': 'So prüfst du mit der ⟦Umkehrung⟧: Nimm die ⟦längste⟧ Seite als c. Gilt a² + b² = c², ist das Dreieck rechtwinklig, und der rechte Winkel liegt ⟦gegenüber von c⟧.',
+  'fehler': '6² + 10² = 136 ≠ 8² ⇒ „nicht rechtwinklig“ ist ein Fehlschluss: Man muss die ⟦längste⟧ Seite (10) als c nehmen: 6² + 8² = 100 = 10².'},
+ 'koordinaten': {
+  'einstieg': 'Auf einem Stadtplan mit Kästchen liegt der Spielplatz bei P(1 | 2) und der Eisstand bei Q(7 | 10). Wie weit ist es Luftlinie? Man geht in Gedanken 6 Kästchen nach rechts und 8 nach oben – das ist ein rechtwinkliges Dreieck. Die Luftlinie ist der ⟦Abstand⟧ der beiden Punkte.',
+  'woerter': [['Abstand d', 'die Länge der geraden Verbindung zwischen zwei Punkten'],
+              ['Δx („Delta x“)', 'der Unterschied der x-Werte: x₂ − x₁'],
+              ['Δy', 'der Unterschied der y-Werte: y₂ − y₁'],
+              ['Steigungsdreieck', 'das rechtwinklige Dreieck aus waagrechtem und senkrechtem Weg']],
+  'bild': {'typ': 'koordinaten', 'x': [0, 8], 'y': [0, 11], 'punkte': [{'x': 1, 'y': 2, 'name': 'Spielplatz P(1 | 2)'}, {'x': 7, 'y': 10, 'name': 'Eisstand Q(7 | 10)'}], 'strecken': [[1, 2, 7, 10], [1, 2, 7, 2, 'gestrichelt'], [7, 2, 7, 10, 'gestrichelt']]},
+  'schritte': ['Gegeben: P(1 | 2) und Q(7 | 10).',
+               'Waagrechter Weg: Δx = 7 − 1 = 6. Senkrechter Weg: Δy = 10 − 2 = 8. Das sind die Katheten.',
+               'Pythagoras: d² = 6² + 8² = 36 + 64 = 100.',
+               'Die Wurzel ziehen: d = √100 = ⟦10⟧ Kästchen.'],
+  'regel': 'So berechnest du den ⟦Abstand⟧ von P(x₁ | y₁) und Q(x₂ | y₂): Bilde die Unterschiede Δx und Δy; sie sind die Katheten. Dann ⟦d = √((x₂ − x₁)² + (y₂ − y₁)²)⟧.',
+  'fehler': 'd = √(7² + 10²) mit den Koordinaten von Q ist falsch: Das wäre der Weg vom Ursprung (0 | 0) zum Eisstand. Man braucht die ⟦Unterschiede⟧ der Koordinaten.'},
+ 'raum': {
+  'einstieg': 'Passt ein 7 cm langer Stift schräg in eine Schachtel von 2 cm × 3 cm × 6 cm? Die längste Strecke geht von einer unteren Ecke zur gegenüberliegenden oberen Ecke quer durch den Raum. Sie heißt ⟦Raumdiagonale⟧ und lässt sich mit zweimal Pythagoras berechnen.',
+  'woerter': [['Quader', 'ein Körper wie eine Schachtel mit rechteckigen Seiten'],
+              ['Kanten a, b, c', 'Länge, Breite und Höhe'],
+              ['Flächendiagonale', 'die schräge Linie über eine Seitenfläche, hier über den Boden'],
+              ['Raumdiagonale', 'die Linie quer durch den Körper von Ecke zu gegenüberliegender Ecke']],
+  'bild': {'typ': 'figur', 'punkte': {'A': [0, 0], 'B': [3, 0], 'C': [3.71, 0.71], 'D': [0.71, 0.71], 'E': [0, 6], 'F': [3, 6], 'G': [3.71, 6.71], 'H': [0.71, 6.71]}, 'linien': [['A', 'B', '3 cm'], ['B', 'F', '6 cm'], ['F', 'E'], ['E', 'A'], ['B', 'C', '2 cm'], ['C', 'G'], ['G', 'F'], ['E', 'H'], ['H', 'G'], ['A', 'D', '', 'gestrichelt'], ['D', 'C', '', 'gestrichelt'], ['D', 'H', '', 'gestrichelt'], ['A', 'G', 'Raumdiagonale d = ?'], ['A', 'C', 'Bodendiagonale √13', 'gestrichelt']]},
+  'schritte': ['Die Schachtel ist 2 cm × 3 cm × 6 cm groß.',
+               'Erst die Bodendiagonale: Ihr Quadrat ist 2² + 3² = 4 + 9 = 13.',
+               'Bodendiagonale und Höhe bilden einen rechten Winkel: d² = 13 + 6² = 13 + 36 = 49.',
+               'Die Wurzel ziehen: d = √49 = ⟦7 cm⟧. Der Stift passt genau.'],
+  'probe': '2² + 3² + 6² = 4 + 9 + 36 = 49 = 7² ✓',
+  'regel': 'So rechnest du im Quader mit Kanten a, b, c: Suche ein ⟦rechtwinkliges Dreieck⟧ im Körper. Die Flächendiagonale ist ⟦√(a² + b²)⟧, die Raumdiagonale ⟦√(a² + b² + c²)⟧.',
+  'fehler': 'Raumdiagonale = √(2² + 3²) ist nur die ⟦Bodendiagonale⟧ – sie liegt flach am Boden. Die Höhe 6 cm muss auch quadriert und dazugezählt werden.'},
+ 'anwendung': {
+  'einstieg': 'Zum Obstpflücken lehnt eine 5 m lange Leiter an der Hauswand, ihr Fuß steht 1,4 m von der Wand weg. Wie hoch reicht sie? Wand und Boden bilden einen rechten Winkel, die Leiter ist die schräge Seite. So hilft ⟦Pythagoras im Alltag⟧.',
+  'woerter': [['Skizze', 'eine schnelle Zeichnung mit allen bekannten Längen'],
+              ['h', 'die gesuchte Höhe an der Wand'],
+              ['sinnvoll runden', 'so viele Stellen angeben, wie man im Alltag messen kann']],
+  'schritte': ['Skizze: Wand und Boden bilden den rechten Winkel. Die Leiter (5 m) liegt ihm gegenüber, sie ist die Hypotenuse.',
+               'Gesucht ist die Kathete h an der Wand: h² = 5² − 1,4².',
+               'Ausrechnen: h² = 25 − 1,96 = 23,04.',
+               'Die Wurzel ziehen: h = √23,04 = ⟦4,8 m⟧. So hoch reicht das obere Ende.'],
+  'probe': '1,4² + 4,8² = 1,96 + 23,04 = 25 ✓',
+  'regel': 'So gehst du im Alltag vor: ⟦Skizze⟧ machen, den ⟦rechten Winkel⟧ suchen, die Hypotenuse bestimmen (gegenüber vom rechten Winkel), dann a² + b² = c² passend umstellen. Am Ende ⟦sinnvoll runden⟧.',
+  'fehler': 'h² = 5² + 1,4² ist falsch: Dann wäre die Höhe größer als die Leiter lang ist. Die ⟦Leiter⟧ liegt gegenüber dem rechten Winkel zwischen Wand und Boden, sie ist die Hypotenuse.'},
+}
+klar(ETAPPEN, KLAR)
+# ---- KLAR ENDE ----
+
 
 def g_hypotenuse(s):
     a, b, c = trip(s)

@@ -15,3 +15,4 @@ Neueste Meldung oben.
   - funktionen.quadratisch: 196 Aufgaben, 0 Unterschiede, inhalt_pruefen OK
   - funktionen.potenz: 168 Aufgaben, 0 Unterschiede, inhalt_pruefen OK
   - abbildungen.aehnlichkeit: 168 Aufgaben, 0 Unterschiede, inhalt_pruefen OK
+  - trigo.pythagoras: 168 Aufgaben, 0 Unterschiede, inhalt_pruefen OK

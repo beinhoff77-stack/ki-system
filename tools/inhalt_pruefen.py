@@ -22,7 +22,7 @@ TYPEN = ('zahl', 'auswahl', 'text', 'luecken', 'markierung')
 MIN = {'uebung': 12, 'test': 1, 'korrektur': 3, 'sicherung': 6}
 MIN_JE_STUFE = 3            # Übungen: mindestens 3 je Stufe 1, 2, 3
 SLUG = re.compile(r'^[a-z][a-z0-9_]{1,30}$')
-BILDER = ('zahlenstrahl', 'stellentafel', 'koordinaten', 'figur', 'saeulen', 'kreisdiagramm', 'tabelle', 'boxplot', 'baum')
+BILDER = ('zahlenstrahl', 'stellentafel', 'koordinaten', 'figur', 'saeulen', 'kreisdiagramm', 'tabelle', 'boxplot', 'baum', 'thermometer', 'bruchstreifen')
 
 # ---------- exakter Rechner für das Feld "c" ----------
 OPS = {ast.Add: operator.add, ast.Sub: operator.sub, ast.Mult: operator.mul, ast.Div: operator.truediv,
@@ -89,6 +89,48 @@ def pruefe(pfad):
             F(f'Karte {n}: "woerter" muss eine Liste aus [Wort, Erklärung] sein')
         if e.get('schritte') is not None and (not isinstance(e['schritte'], list) or len(e['schritte']) < 2):
             F(f'Karte {n}: "schritte" braucht mindestens 2 Schritte (vorgerechnetes Beispiel)')
+        # Vorgabe 16.11. (inhalte/README.md „Verständliche Erklärungen“): Schritte als Text oder {text, bild}; falsches Format = Fehler, zu lang = Warnung.
+        sch = e.get('schritte') if isinstance(e.get('schritte'), list) else []
+        neu = any(isinstance(x, dict) for x in sch)
+        for i, x in enumerate(sch):
+            if isinstance(x, dict):
+                if not isinstance(x.get('text'), str) or not x['text'].strip(): F(f'Karte {n}: Schritt {i + 1} braucht "text"')
+                if set(x) - {'text', 'bild'}: F(f'Karte {n}: Schritt {i + 1} hat unbekannte Felder {sorted(set(x) - {"text", "bild"})}')
+                if x.get('bild') is not None:
+                    if not isinstance(x['bild'], dict): F(f'Karte {n}: Schritt {i + 1}: "bild" muss ein Objekt sein')
+                    elif x['bild'].get('typ') is not None and x['bild']['typ'] not in BILDER: F(f'Karte {n}: Schritt {i + 1}: bild.typ "{x["bild"]["typ"]}" gibt es nicht')
+                    elif x['bild'].get('typ') is None and not e.get('bild'): F(f'Karte {n}: Schritt {i + 1} ergänzt ein Kartenbild, aber die Karte hat kein "bild"')
+            elif not isinstance(x, str) or not x.strip(): F(f'Karte {n}: Schritt {i + 1} muss Text oder {{text, bild}} sein')
+        fb = e.get('fehler_bild')
+        if fb is not None:
+            if not isinstance(fb, dict): F(f'Karte {n}: "fehler_bild" muss ein Objekt sein')
+            elif fb.get('typ') is not None and fb['typ'] not in BILDER: F(f'Karte {n}: fehler_bild.typ "{fb["typ"]}" gibt es nicht')
+            elif fb.get('typ') is None and not e.get('bild'): F(f'Karte {n}: fehler_bild ergänzt ein Kartenbild, aber die Karte hat kein "bild"')
+        if neu:
+            wz = lambda t: len(re.findall(r'\S+', re.sub(r'[⟦⟧]', '', str(t or ''))))
+            saetze = lambda t: [x for x in re.split(r'(?<=[.!?])\s+', re.sub(r'[⟦⟧]', '', str(t or ''))) if x.strip()]
+            kl = min([v for v in (d.get('klasse') or {}).values() if isinstance(v, (int, float))] or [5]); smax = 15 if kl <= 6 else 20
+            if not e.get('einstieg'): W(f'Karte {n}: "einstieg" fehlt')
+            elif wz(e['einstieg']) > 35: W(f'Karte {n}: einstieg hat {wz(e["einstieg"])} Wörter (höchstens 35)')
+            if not e.get('bild'): W(f'Karte {n}: Kartenbild fehlt (oder unter "offen" begründen)')
+            if len(e.get('woerter') or []) > 3: W(f'Karte {n}: {len(e["woerter"])} neue Wörter (höchstens 3)')
+            texte = ' '.join([str(e.get('einstieg') or '')] + [x['text'] if isinstance(x, dict) else str(x) for x in sch]).lower()
+            for w in e.get('woerter') or []:
+                kern = str(w[0]).split(' (')[0].strip().lower()
+                if kern and kern not in texte: W(f'Karte {n}: Wort "{w[0]}" kommt in einstieg und schritten nicht vor')
+            if len(sch) > 5: W(f'Karte {n}: {len(sch)} Schritte (höchstens 5)')
+            for i, x in enumerate(sch):
+                t = x['text'] if isinstance(x, dict) else x
+                if wz(t) > 15: W(f'Karte {n}: Schritt {i + 1} hat {wz(t)} Wörter (höchstens 15)')
+            if wz(e.get('fehler')) > 30: W(f'Karte {n}: fehler hat {wz(e.get("fehler"))} Wörter (höchstens 30)')
+            if wz(e.get('regel')) > 25: W(f'Karte {n}: regel hat {wz(e.get("regel"))} Wörter (höchstens 25)')
+            rs = saetze(e.get('regel'))
+            if rs and wz(rs[0]) > 12: W(f'Karte {n}: erster Satz der regel hat {wz(rs[0])} Wörter (als „Kurz gesagt“ höchstens 12)')
+            for k in ('einstieg', 'fehler', 'regel'):
+                for sa in saetze(e.get(k)):
+                    if wz(sa) > smax: W(f'Karte {n}: Satz in "{k}" hat {wz(sa)} Wörter (höchstens {smax}): {sa[:50]}…')
+                if str(e.get(k) or '').count('⟦') > 2: W(f'Karte {n}: mehr als 2 Markierungen ⟦…⟧ in "{k}"')
+            if re.search('[¼½¾⅓⅔⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞]', json.dumps(e, ensure_ascii=False)): W(f'Karte {n}: Unicode-Bruchzeichen – bitte a/b schreiben')
         if len(e.get('titel', '')) > 40: W(f'Karte {n}: Titel über 40 Zeichen')
         for k in ('regel', 'fehler', 'probe'):
             if str(e.get(k, '')).count('⟦') != str(e.get(k, '')).count('⟧'): F(f'Karte {n}: ⟦ ⟧ in "{k}" nicht paarig')
@@ -107,7 +149,7 @@ def pruefe(pfad):
     zaehl = {(l, p): 0 for l in lz for p in POOLS}
     stufen = {(l, s): 0 for l in lz for s in (1, 2, 3)}
     gesehen = set()
-    beispiele = {re.sub(r'\s+', ' ', s) for e in et for s in e.get('schritte', [])}
+    beispiele = {re.sub(r'\s+', ' ', s['text'] if isinstance(s, dict) else s) for e in et for s in e.get('schritte', []) if isinstance(s, (str, dict)) and (not isinstance(s, dict) or isinstance(s.get('text'), str))}
     for i, a in enumerate(auf):
         wo = f'Aufgabe {i + 1} ({a.get("l")}/{a.get("p")})'
         for k in ('l', 't', 'p', 's', 'y', 'f', 'o', 'w'):

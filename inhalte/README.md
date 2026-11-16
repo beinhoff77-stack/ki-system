@@ -101,6 +101,12 @@ Die App zeichnet jetzt selbst. Dasselbe Objekt geht als `bild` in einer Lernkart
 - **Koordinatensystem** `{"typ": "koordinaten", "x": [-4, 4], "y": [-3, 5], "graphen": [...], "punkte": [{"x": 1, "y": 3, "name": "P"}], "strecken": [[0, 1, 1, 1, "gestrichelt"]], "senkrecht": [-1], "waagrecht": [1]}`
   - Graphen: `{"art": "linear", "m": 2, "t": 1}` · `{"art": "poly", "k": [c0, c1, c2, …]}` · `{"art": "hyperbel", "a": 2, "b": 1, "c": 1}` (a/(x+b)+c) · `{"art": "potenz", "a": 1, "n": 3}` · `{"art": "wurzel"}` · `{"art": "sin"|"cos", "a", "b", "c", "d"}` (x in Grad; mit `"bogen": true` im Bogenmaß) · `{"art": "exp", "a": 1, "b": 2}` · `{"art": "log", "b": 10}`. Optional je Graph `"name": "g"`, `"bereich": [x0, x1]`.
   - Optional: `"schritt_x"`, `"schritt_y"`, `"grad": true` (x-Achse in °), `"name_x"`, `"name_y"`, `"streckung"`, Punkte mit `"offen": true` (hohler Punkt).
+- **Neu seit 16.11. (für die Bildergeschichte, auch als `f.grafik` in Aufgaben):**
+  - Zahlenstrahl mit Zusätzen: `{"typ": "zahlenstrahl", "start": -10, "ende": 10, "abschnitte": 20, "punkte": [{"wert": -7, "name": "Taucher"}], "boegen": [{"von": -7, "bis": 0, "name": "7"}], "bereich": {"von": -3, "bis": 3}, "beschriftet": "alle"}`
+    – Punkte mit Namen, Sprünge als Bogen mit Pfeil (von → bis), schattierter Bereich. Anfang, Ende, die 0 und die Werte der Punkte werden beschriftet, soweit Platz ist.
+  - Thermometer: `{"typ": "thermometer", "start": -10, "ende": 30, "schritt": 10, "stand": -4, "bereich_unter_null": true, "einheit": "°C"}`
+  - Bruchstreifen: `{"typ": "bruchstreifen", "teile": 4, "gefaerbt": 3, "ganzes": "20 €", "teil_text": "15 €", "zeilen": [{"teile": 8, "gefaerbt": 6}]}` (zeilen = weitere Streifen darunter, z. B. zum Erweitern)
+  - Schrift in allen Zeichnungen ist jetzt mindestens 16 px groß. Beschriftungen kurz halten (Achsen- und Säulennamen möglichst ≤ 8 Zeichen); was nicht passt, lässt die App weg oder setzt es versetzt.
 - **Koordinatensystem, Ergänzungen seit 15.11.:** Graph-Arten zusätzlich `tan` (wie sin/cos: a, b, c, d, bogen), `betrag` (a·|x − b| + c), `glocke` (a, mu, sigma);
   `"pi": true` beschriftet die x-Achse in Vielfachen von π (Bogenmaß, Standard-Schritt π/2); `"kreise": [{"m": [1, 2], "r": 3, "name": "k"}]` (ohne Graphen gleicher Maßstab → echter Kreis);
   `"pfeile": [[0, 0, 3, 2, "a"]]` Vektorpfeile mit Spitze; `"flaechen": [{"punkte": [[0, 0], [4, 0], [0, 3]]}]` gefüllter Bereich (z. B. zulässiger Bereich, Halbebene als Vieleck bis zum Rand).
@@ -142,5 +148,37 @@ Dazu gelten für die bestehenden Felder:
 - `fehler`: den Fehler in der Alltagssituation deuten („wie eine Taste, die mal Cola und mal Wasser gibt“).
 - Verboten in `einstieg` und `schritte`: Fachwörter, die nicht in `woerter` dieser oder einer früheren Karte desselben Themas stehen; Schachtelsätze; „offensichtlich“, „einfach“, „trivial“.
 
-Die Anzeige mit `einstieg`: WORUM GEHT’S? → NEUE WÖRTER → Bild → BEISPIEL – SCHRITT FÜR SCHRITT → Probe → MERKE → typischer Fehler. Ohne `einstieg` bleibt die alte Anzeige.
-Aufgaben werden bei dieser Überarbeitung nicht geändert (Aufgabentexte bleiben wörtlich gleich, damit bearbeitete Aufgaben erhalten bleiben).
+**Vorgabe seit 16.11.** (Sebastians Auswahl; Herleitung in inhalte/pruefung/erklaerungen/darstellung/umsetzung.md und bericht.md). Wo sie den Regeln weiter oben in diesem Abschnitt widerspricht (Längen, Zahl der Wörter und Schritte), gilt diese Vorgabe.
+
+Die Anzeige (alle Klassen gleich): Übersicht (Titel + Merksatz als „Kurz gesagt“) → eine Karte:
+WORUM GEHT’S? → Bild → Beispiel als Bildergeschichte (jeder Schritt mit Bild) → „Pass auf!“ (fehler + fehler_bild) → MERKE.
+Neue Wörter werden im Text antippbar; die App macht das selbst aus `woerter`.
+
+Längen und Form:
+- einstieg ≤ 35 Wörter, 2–3 Sätze. Dieselbe Situation wie Bild und Beispiel.
+- höchstens 3 neue Wörter je Karte; jedes muss im einstieg oder in den schritten vorkommen.
+- schritte: 2–4 Schritte (höchstens 5), je ≤ 15 Wörter, je Schritt ein Gedanke. Jeder Schritt, in dem sich im Bild etwas ändert, hat ein eigenes `bild`.
+- fehler ≤ 30 Wörter, in der Situation gedeutet; `fehler_bild`, wenn der Fehler sichtbar gemacht werden kann.
+- regel ≤ 25 Wörter, der erste Satz taugt allein als „Kurz gesagt“ (≤ 12 Wörter).
+- Sätze ≤ 15 Wörter (Kl. 5/6), ≤ 20 Wörter (Kl. 7–10).
+- ⟦…⟧ nur für das Ergebnis eines Schritts und das Kernwort im Merksatz, höchstens 2 je Absatz.
+- Brüche als a/b schreiben (die App stapelt sie), nicht als Unicode-Bruchzeichen.
+- Jede Karte hat ein Kartenbild. Gibt es keine passende Zeichnungsart: in "offen" notieren, nicht erfinden.
+Aufgaben werden beim Umbau nicht geändert (Texte wörtlich gleich, damit Fortschritt erhalten bleibt).
+
+Schritte mit Bild (neues Format; reine Text-Schritte bleiben erlaubt):
+
+```json
+"bild": {"typ": "zahlenstrahl", "start": -10, "ende": 10, "abschnitte": 20, "beschriftet": "anfang_ende"},
+"schritte": [
+  {"text": "Der Taucher ist bei −7 m, der Vogel bei 7 m.", "bild": {"punkte": [{"wert": -7, "name": "Taucher"}, {"wert": 7, "name": "Vogel"}]}},
+  {"text": "Von −7 bis 0 sind es 7 Schritte. Also ist ⟦|−7| = 7⟧.", "bild": {"boegen": [{"von": -7, "bis": 0, "name": "7"}]}},
+  {"text": "Der Vogel ist genauso weit weg: |7| = 7."}
+],
+"fehler": "Den Betrag negativ schreiben: |−7| ist nicht −7. Ein Abstand ist nie kleiner als null.",
+"fehler_bild": {"boegen": [{"von": -7, "bis": 0, "name": "7, nicht −7"}]}
+```
+
+- Das `bild` im Schritt ergänzt oder überschreibt Felder des Kartenbildes; ein anderes `typ` ersetzt das Bild ganz.
+- Ein Schritt ohne `bild` zeigt den Bildzustand des vorigen Schritts (nur wenn die Karte überhaupt Schrittbilder hat). `fehler_bild` funktioniert genauso.
+- Felder je Karte (Pflicht für neue und umgebaute Karten): `titel`, `einstieg`, `woerter`, `bild`, `schritte` (Objekte), `fehler`, `fehler_bild` (wenn sich der Fehler zeigen lässt), `regel`.

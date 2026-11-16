@@ -681,3 +681,55 @@ Wie in „Siebte Runde“: Abschnitt KLAR im Generator, Aufgaben müssen wörtli
 Ein Thema = ein Commit, Push auf klar-rest. Verboten: Datenbank, Serverfunktionen, App-Code, Tests, Dateien unter inhalte/pruefung/, Merge nach main.
 Meldungen (Status nach jedem Thema, Fragen, Abschlussbericht) in inhalte/postfach/klar-rest.md ablegen und pushen. Arbeite ohne Rückfragen durch.
 ```
+
+
+---
+
+# Achte Runde: Umbau der Lernkarten auf das neue Muster (Vorgabe 16.11.)
+
+Grundlage: inhalte/pruefung/erklaerungen/darstellung/umsetzung.md (Sebastians Auswahl). Die App kann das neue Format seit Version 0.73.0
+(Übersicht → eine Karte, Bildergeschichte, „Pass auf!“, antippbare Wörter, gestapelte Brüche, neue Zeichnungsarten, Prüfregeln).
+Aufgaben bleiben unverändert.
+
+| Paket | Zweig | Klasse | Themen | Hinweis |
+|---|---|---|---|---|
+| U5 | `umbau-kl5` | 5 | 14 | zuerst (Kind A); Thermometer, Zahlenstrahl mit Bögen, Bruchstreifen |
+| U8 | `umbau-kl8` | 8 | 15 | Kind B; meist Koordinatensystem mit Schritt-Zuständen |
+| U6 | `umbau-kl6` | 6 | 9 | erst nach dem Test mit den Kindern starten |
+| U7 | `umbau-kl7` | 7 | 9 | erst nach dem Test mit den Kindern starten |
+| U9 | `umbau-kl9` | 9 | 14 | erst nach dem Test mit den Kindern starten |
+| U10 | `umbau-kl10` | 10 | 7 | erst nach dem Test mit den Kindern starten |
+| UR | `umbau-rest` | ohne gym_by | 24 | Realschule/IB; zuletzt |
+
+Reihenfolge: U5 → U8 → (Test je einer umgebauten Karte mit beiden Kindern, Sebastian gibt frei) → U6 → U7 → U9 → U10 → UR.
+
+Auftragstext je Paket (`<zweig>` und `<klasse>` ersetzen; bei UR statt „mit "gym_by": <klasse>“: „ohne gym_by“):
+
+```text
+Du baust die Lernkarten (Erklärungen) eines Pakets der Lern-App auf das neue Muster um.
+Repository: beinhoff77-stack/ki-system (lernen-app ist ein Zweig darin), Ausgangszweig lernen-app. Lege den Zweig <zweig> an und arbeite nur dort.
+
+Lies zuerst vollständig: inhalte/README.md (besonders „Verständliche Erklärungen“ mit der Vorgabe seit 16.11. und den Längenregeln, sowie „Zeichnungen“),
+inhalte/pruefung/erklaerungen/darstellung/umsetzung.md (Abschnitte 1, 3, 4, 5), inhalte/postfach/README.md und als Muster die Karte
+zahlen.ganz/betrag in inhalte/pruefung/erklaerungen/darstellung/entwurf.html.
+
+Aufgabe: Für jedes Thema mit "gym_by": <klasse> in inhalte/themenliste.json die Lernkarten so umbauen, dass jede dem Muster entspricht:
+einstieg (≤ 35 Wörter), woerter (≤ 3), Kartenbild, schritte als Objekte {text, bild} mit Bild je Bildänderung, fehler + fehler_bild, regel (erster Satz = Kurz gesagt, ≤ 12 Wörter).
+- Themen mit Generator: im Generator inhalte/generatoren/<thema>.py ändern (dort gibt es schon einen Abschnitt KLAR bzw. eine Hilfsdatei _klar_*.py, die die Erklärfelder
+  nach dem Erzeugen der Aufgaben überlagert – dort weiterarbeiten), nicht von Hand in der JSON-Datei.
+- Themen ohne Generator (zahlen.natuerlich, zahlen.teilbarkeit, terme.umformen, finanzen.zinsen): die Überlagerung inhalte/klar/<thema>.json umbauen.
+  Dort sind jetzt zusätzlich die Felder bild (ersetzt das Kartenbild), schritte als Objekte und fehler_bild erlaubt. Die bisherigen Kartenbilder stehen in inhalte/klar/quelle.md.
+
+Regeln:
+- Aufgaben nicht ändern (Texte wörtlich gleich; Vergleich gegen `git show HEAD:inhalte/themen/<thema>.json` und Ergebnis im Postfach nennen). titel und lernziel nicht ändern.
+- Nur Zeichnungsarten aus inhalte/README.md benutzen (neu: zahlenstrahl mit punkte/boegen/bereich, thermometer, bruchstreifen). Fehlt eine: im Feld "offen" notieren, nicht erfinden.
+- Ein Thema ist fertig, wenn `python3 -I tools/inhalt_pruefen.py inhalte/themen/<datei>.json` ohne Fehler durchläuft, die Hinweise zu Längen abgearbeitet sind
+  (bewusst stehen gelassene Hinweise im Postfach begründen) und du jede Karte einmal laut gelesen hast: Versteht ein Kind der Klasse sie beim ersten Lesen?
+- Fachlich darf nichts falsch werden. Alle Zahlen der Situationen nachrechnen. Bild, einstieg und Beispiel erzählen dieselbe Situation.
+- Ein Thema = ein Commit + Push auf <zweig>. Status nach jedem Thema in inhalte/postfach/<zweig>.md, am Ende ein Abschlussbericht.
+- Keine Datenbank, keine Serverfunktionen, kein App-Code, keine Tests, kein Merge nach main.
+Arbeite ohne Rückfragen durch; Unklares unter "offen" notieren.
+```
+
+Abnahme je Paket: Der Haupt-Chat prüft (Prüfskript, Aufgaben gleich, Zeichnungen rendern, drei Karten lesen) und spielt die Erklärungen ein.
+Danach liest das Kind eine Karte und löst die erste Aufgabe ohne Hilfe.

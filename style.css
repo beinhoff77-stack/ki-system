@@ -3827,3 +3827,70 @@ body:has(.lr-abflug) header.top h1 { font-size: 1.15rem; font-weight: 600; }
 .lr-rein-rechts { animation: lr-rein-rechts .18s ease-out; } .lr-rein-links { animation: lr-rein-links .18s ease-out; }
 @media (prefers-reduced-motion: reduce) { .lr-rein-rechts, .lr-rein-links { animation: none; } }
 @media (min-width: 900px) { .lr-abflug .lr-jgstand, .lr-abflug .lr-mehr, .lr-abflug .lr-start-info { max-width: 720px; width: 100%; margin-left: auto; margin-right: auto; box-sizing: border-box; } }
+
+/* ===== W150 Erklärungen, Vorgabe 16.11. (inhalte/pruefung/erklaerungen/darstellung/umsetzung.md): A1–A9 ===== */
+/* A6: eine Markierung – gelber Textmarker, dunkle Schrift (Kontrast 14:1), in jedem Design */
+.lr mark, .lr-erklaert mark, .lp-erkl mark { background: #FFE58A; color: #11161D; border-radius: 4px; padding: 0 3px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.lr mark .lr-wort, .lr-erklaert mark .lr-wort { color: inherit; }
+/* A7: gestapelte Brüche im Fließtext */
+.lern-bruch-text { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; line-height: 1.05; font-size: .82em; margin: 0 .12em; font-variant-numeric: tabular-nums; }
+.lern-bruch-text > span:first-child { border-bottom: .09em solid currentColor; padding: 0 .22em .04em; }
+.lern-bruch-text > span:last-child { padding: .04em .22em 0; }
+/* A5: neue Wörter antippen */
+.lr-wort { all: unset; cursor: pointer; text-decoration: underline dotted; text-decoration-thickness: 2px; text-underline-offset: 4px; font: inherit; color: inherit; }
+.lr-wort:focus-visible { outline: 3px solid var(--lr-akzent, #FFD23F); outline-offset: 2px; border-radius: 4px; }
+.lr-wort[aria-expanded="true"] { text-decoration-style: solid; }
+.lr-wort-box { display: block; margin: 8px 0 4px; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--lr-linie, #d9d9d9); background: var(--lr-bg, #f6f6f6); color: var(--lr-text, inherit); font-size: 16px; font-weight: 500; line-height: 1.4; }
+details.lr-woerter > summary { cursor: pointer; font-weight: 700; min-height: 44px; display: flex; align-items: center; color: var(--lr-leise, inherit); }
+details.lr-woerter > summary::before { content: "▸ "; white-space: pre; } details.lr-woerter[open] > summary::before { content: "▾ "; }
+details.lr-woerter > summary::-webkit-details-marker { display: none; }
+/* A2–A4: eine Karte – Bildergeschichte, Pass auf!, Merke */
+.lr-kurzgesagt { margin: 0; padding: 10px 12px; border-radius: 10px; background: var(--lr-bg, #f6f6f6); border: 1px solid var(--lr-linie, #d9d9d9); font-size: 17px; line-height: 1.4; }
+.lr-erklaert .lr-sogehts ol { display: flex; flex-direction: column; gap: 12px; }
+.lr-schritt.mit-bild { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; }
+.lr-schritt.mit-bild > .lr-bild, .lr-schritt.mit-bild > .lern-zeichnung, .lr-passauf.mit-bild > .lr-bild { margin: 0; }
+.lr-passauf { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
+.lr-passauf p { margin: 0; }
+@media (min-width: 760px) {
+  .lr-schritt.mit-bild, .lr-passauf.mit-bild { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 16px; }
+}
+/* A1: Übersicht aus Kacheln */
+.lr-kacheln { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 10px; }
+.lr-kachel { display: flex; flex-direction: column; gap: 6px; text-align: left; cursor: pointer; font: inherit; color: var(--lr-text); padding: 14px; min-height: 64px; }
+.lr-kachel.jetzt { border-color: var(--lr-akzent); box-shadow: inset 4px 0 0 var(--lr-akzent); }
+.lr-kachel:focus-visible { outline: 3px solid var(--lr-akzent); outline-offset: 2px; }
+.lr-kachel-kopf { display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; }
+.lr-kachel-kopf b { font-size: 18px; line-height: 1.25; overflow-wrap: anywhere; }
+.lr-kachel-kurz { font-size: 15px; line-height: 1.35; color: var(--lr-leise); display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+.lr-kachel-kurz small { font-weight: 700; }
+.lr-zur-uebersicht { all: unset; cursor: pointer; font: inherit; font-weight: 700; min-height: 44px; display: inline-flex; align-items: center; color: var(--lr-text); text-decoration: underline; text-underline-offset: 4px; }
+.lr-zur-uebersicht:focus-visible, .lr-erkl-link:focus-visible { outline: 3px solid var(--lr-akzent); outline-offset: 2px; border-radius: 6px; }
+.lr-naechste-karte { width: 100%; box-sizing: border-box; cursor: pointer; }
+.lr-lernkarte .lr-dazu.lr-knopf { width: 100%; box-sizing: border-box; border: 0; cursor: pointer; }
+/* A9: Üben – nur die Aufgabe, darüber der Link zur Erklärung */
+.lr-erkl-link { all: unset; cursor: pointer; font: inherit; font-weight: 700; font-size: 17px; min-height: 44px; display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; color: var(--lr-text); text-decoration: underline; text-underline-offset: 4px; }
+.lr-erkl-link::before { content: "?"; display: inline-flex; width: 26px; height: 26px; border-radius: 50%; align-items: center; justify-content: center; background: var(--lr-akzent); color: var(--lr-auf-akzent, #11161D); font-weight: 800; text-decoration: none; }
+.lr-schalter { display: flex; gap: 10px; align-items: center; min-height: 44px; margin-top: 10px; font-size: 16px; }
+.lr-schalter input { width: 22px; height: 22px; }
+/* A8: Schrift in Zeichnungen mindestens 16 px, auch bei 390 px Breite (Zeichenfläche 340 Einheiten ≈ 330 px) */
+.lern-zeichnung .zahl, .lern-zeichnung text { font-size: 18px; }
+.lern-zeichnung .zahl.klein { font-size: 17.5px; }
+.lern-strahl .zahl, .lern-strahl text { font-size: 18px; }
+.lr-stellentafel th { font-size: 16px; }
+.lr-erklaert .lr-tafel, .lr-stellentafel { font-size: max(1.2rem, 16px); }
+
+/* A10: Zahlenstrahl mit Punkten/Bögen/Bereich, Thermometer, Bruchstreifen */
+.lern-strahl .punkt { fill: var(--lr-text, var(--text)); }
+.lern-strahl .bogen { fill: none; stroke: var(--lr-gut, #0E7C86); stroke-width: 2.6; stroke-linecap: round; }
+.lern-strahl .bogen-spitze { fill: var(--lr-gut, #0E7C86); }
+.lern-strahl .bereich { fill: #FFE58A; fill-opacity: .55; }
+.lern-strahl .zahl.fett { font-weight: 800; }
+.lern-thermo { max-width: 220px; }
+.lern-thermo .rohr { fill: var(--lr-flaeche, #fff); stroke: var(--lr-text, #111); stroke-width: 2; }
+.lern-thermo .kugel, .lern-thermo .saeule-rot { fill: #D64545; }
+.lern-thermo .kalt { fill: #8EC5F0; fill-opacity: .35; }
+.lern-thermo .strich { stroke: var(--lr-text, #111); stroke-width: 1.4; }
+.lern-thermo .pfeil { fill: var(--lr-text, #111); }
+.lern-zeichnung .streifen { fill: var(--lr-flaeche, #fff); stroke: var(--lr-text, #111); stroke-width: 2; }
+.lern-zeichnung .streifen.voll { fill: #FFE58A; }
+.lern-zeichnung .klammer { fill: none; stroke: var(--lr-text, #111); stroke-width: 1.6; }

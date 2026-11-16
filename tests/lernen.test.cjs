@@ -239,13 +239,25 @@ test('Lernen: Thema – Erklären | Üben | Typische Fehler, Punkte bis „sitzt
   assert.equal(await page.locator('#title').textContent(), 'Rom');
   assert.equal(await page.getByRole('tab', { name: 'Erklären' }).getAttribute('aria-selected'), 'true');
   const sichtbar = page.locator('.lr-panel:not([hidden])');
-  // Erklären: alle Lernkarten untereinander, ohne Klick nachlesbar.
+  // Erklären (Vorgabe 16.11.): Übersicht aus Kacheln mit „Kurz gesagt“ → genau eine Karte, Zurück und Weiter.
+  assert.equal(await sichtbar.locator('.lr-kachel').count(), 3);
+  await sichtbar.locator('.lr-kachel-kurz').first().waitFor();
+  assert.equal(await sichtbar.locator('.lr-lernkarte').count(), 0);
+  fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
+  await page.screenshot({ path: path.join(root, 'test-results/lernen-uebersicht-390.png'), fullPage: true });
+  await sichtbar.locator('.lr-kachel').first().click();
+  await page.waitForURL(/#\/lerneinheit\/1-1-erklaeren-1$/);
+  assert.equal(await sichtbar.locator('.lr-lernkarte').count(), 1);
   await sichtbar.locator('.lr-stellentafel').first().waitFor();
   await sichtbar.locator('mark', { hasText: '10-mal' }).first().waitFor();
-  await sichtbar.getByText('100 : 10 = 10').waitFor();
-  fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
   await page.screenshot({ path: path.join(root, 'test-results/lernen-erklaeren-390.png'), fullPage: true });
-  await sichtbar.getByRole('button', { name: 'Dazu üben ▸' }).first().click();
+  await sichtbar.getByRole('button', { name: /Nächste Karte: Zahlenstrahl/ }).click();
+  await sichtbar.getByText('100 : 10 = 10').waitFor();
+  await page.goBack(); await sichtbar.locator('.lr-stellentafel').first().waitFor(); // Zurück-Taste: vorige Karte
+  await sichtbar.getByRole('button', { name: '‹ Übersicht' }).click();
+  assert.equal(await sichtbar.locator('.lr-kachel').count(), 3);
+  await sichtbar.locator('.lr-kachel').first().click();
+  await sichtbar.getByRole('button', { name: 'Jetzt du ›' }).click();
   await page.waitForURL(/#\/lerneinheit\/1-1-ueben-1$/);
   { const k = await page.getByRole('button', { name: 'Prüfen' }).boundingBox(); assert.ok(k.y + k.height < 844 - 80, 'Prüfen ist beim Öffnen sichtbar: ' + Math.round(k.y)); }
   await page.getByRole('textbox', { name: 'Antwort' }).fill('2.000');
@@ -270,8 +282,11 @@ test('Lernen: Thema – Erklären | Üben | Typische Fehler, Punkte bis „sitzt
   await page.getByRole('button', { name: 'Markierung 3' }).click();
   await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('Richtig ist: 20 000 (der 4. Strich nach dem Anfang)').waitFor();
-  // Bei einem Fehler klappt die Erklärung direkt an der Aufgabe auf.
+  // Üben zeigt nur die Aufgabe; die Erklärung öffnet der Link darüber.
+  assert.equal(await sichtbar.locator('.lr-nochmal').isVisible(), false);
+  await sichtbar.getByRole('button', { name: 'Erklärung ansehen' }).click();
   await sichtbar.locator('.lr-nochmal').getByText('100 : 10 = 10').waitFor();
+  await sichtbar.getByRole('button', { name: 'Erklärung schließen' }).click();
   await page.screenshot({ path: path.join(root, 'test-results/lernen-probieren-390.png'), fullPage: true });
   await page.getByRole('tab', { name: 'Fehler' }).click();
   await sichtbar.locator('.lr-fehlerkarte').first().waitFor();
@@ -283,7 +298,8 @@ test('Lernen: Thema – Erklären | Üben | Typische Fehler, Punkte bis „sitzt
   await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('Richtig!').waitFor();
   await page.goto(origin + '/#/lerneinheit/1-1-3');
-  await page.getByRole('button', { name: 'Verstanden – los' }).waitFor(); // neue Karte direkt geöffnet: Erklärung steht über der Aufgabe
+  await page.getByRole('button', { name: 'Erklärung ansehen' }).waitFor(); // neue Karte direkt geöffnet: nur die Aufgabe, Link zur Erklärung darüber
+  assert.equal(await page.locator('.lr-panel:not([hidden]) .lr-nochmal').isVisible(), false);
   const term = page.getByRole('textbox', { name: 'Dein Term' });
   await term.fill('x²+x+x+1');
   await page.getByRole('button', { name: 'Prüfen' }).click();

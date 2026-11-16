@@ -496,7 +496,9 @@ async function viewReisepass(arg) {
       el('div', { class: 'lr-chips', role: 'group', 'aria-label': 'Gestaltung' }, ...[['nacht', 'Abflug dunkel'], ['tag', 'Abflug hell'], ['alt', 'Bisheriges Design']].map(([g, t]) =>
         el('button', { type: 'button', class: lernGestaltung(kind) === g ? 'on' : '', 'aria-pressed': String(lernGestaltung(kind) === g),
           onclick: () => { try { localStorage.setItem('lern.gestaltung.' + kind.id, g); } catch { /* egal */ } render(); } }, t))),
-      lernNeu(kind) ? null : look),
+      lernNeu(kind) ? null : look,
+      kind.klasse >= 7 ? el('label', { class: 'lr-schalter' }, el('input', { type: 'checkbox', ...(lernKurzOben(kind) ? { checked: '' } : {}),
+        onchange: (ev) => { try { localStorage.setItem('lern.kurzoben.' + kind.id, ev.target.checked ? '1' : '0'); } catch { /* egal */ } } }), ' „Kurz gesagt“ oben in jeder Lernkarte zeigen') : null),
     typeof LERN_SEITE !== 'undefined' && document.getElementById('btn-abmelden') ? el('section', { class: 'lr-karte-box lr-abmelden' },
       el('p', { class: 'lr-leise' }, 'Nur abmelden, wenn du das Gerät abgibst. Danach brauchst du deinen Lern-Code wieder.'),
       el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => document.getElementById('btn-abmelden').click() }, 'Abmelden')) : null));
@@ -513,10 +515,14 @@ const lernZielName = (k) => lernTitel.get(k) || String(k).replace(/_/g, ' ').rep
 // ---------- Aufgaben-Darstellung ----------
 // Zahlenstrahl: Markierungen 0..abschnitte; bei antworttyp markierung antippbar; pfeil zeigt auf eine Markierung.
 function lernZahlenstrahl(g, waehlbar, onWahl) {
-  const ns = 'http://www.w3.org/2000/svg', B = 340, L = 30, R = B - 40, Y = 44, n = Math.max(1, Number(g.abschnitte) || 1);
+  // Seit 16.11. zusätzlich: punkte [{wert, name}], boegen [{von, bis, name}] (Sprung mit Pfeil), bereich {von, bis} oder Liste davon (schattiert), beschriftet: 'alle'.
+  const punkte = g.punkte || [], boegen = g.boegen || [], bereiche = g.bereich ? (Array.isArray(g.bereich) ? g.bereich : [g.bereich]) : [];
+  const oben = boegen.length ? 62 : punkte.some((q) => q.name) ? 30 : 0;
+  const ns = 'http://www.w3.org/2000/svg', B = 340, L = 30, R = B - 40, Y = 44 + oben, n = Math.max(1, Number(g.abschnitte) || 1);
   const x = (i) => L + (R - L) * i / n;
+  const xv = (v) => L + (R - L) * (v - g.start) / ((g.ende - g.start) || 1);
   const svg = document.createElementNS(ns, 'svg');
-  svg.setAttribute('viewBox', `0 0 ${B} 84`); svg.setAttribute('class', 'lern-strahl'); svg.setAttribute('role', waehlbar ? 'group' : 'img');
+  svg.setAttribute('viewBox', `0 0 ${B} ${84 + oben}`); svg.setAttribute('class', 'lern-strahl'); svg.setAttribute('role', waehlbar ? 'group' : 'img');
   svg.setAttribute('aria-label', `Zahlenstrahl von ${lernZahl(g.start)} bis ${lernZahl(g.ende)} mit ${n} gleichen Abschnitten`);
   const mk = (tag, a, txt) => { const e = document.createElementNS(ns, tag); for (const [k, v] of Object.entries(a)) e.setAttribute(k, v); if (txt !== undefined) e.textContent = txt; svg.append(e); return e; };
   mk('line', { x1: L - 6, y1: Y, x2: R + 14, y2: Y, class: 'achse' });
@@ -534,8 +540,31 @@ function lernZahlenstrahl(g, waehlbar, onWahl) {
       knoepfe.push(marke);
     }
   }
-  mk('text', { x: x(0), y: Y + 28, class: 'zahl' }, lernZahl(g.start));
-  mk('text', { x: x(n), y: Y + 28, class: 'zahl' }, lernZahl(g.ende));
+  for (const r of bereiche) { const e = document.createElementNS(ns, 'rect'); const xa = Math.min(xv(r.von), xv(r.bis));
+    for (const [k, v] of Object.entries({ x: xa, y: Y - 12, width: Math.abs(xv(r.bis) - xv(r.von)), height: 24, class: 'bereich' })) e.setAttribute(k, v); svg.insertBefore(e, svg.firstChild); }
+  { // Zahlen unter dem Strahl: Anfang und Ende immer; die 0 und (bei beschriftet: 'alle') weitere, soweit Platz ist
+    const text = (v) => lernZahl(v).replace('-', '−'); const belegt = [];
+    const setze = (v) => { const t = text(v), w = lernBreite(t), px0 = xv(v); if (belegt.some(([a, b]) => px0 - w / 2 < b + 4 && px0 + w / 2 > a - 4)) return; belegt.push([px0 - w / 2, px0 + w / 2]); mk('text', { x: px0, y: Y + 30, class: 'zahl' }, t); };
+    setze(g.start); setze(g.ende);
+    if (g.start < 0 && g.ende > 0) setze(0);
+    for (const q of punkte) if (q.zahl !== false) setze(q.wert);
+    if (g.beschriftet === 'alle') for (let i = 1; i < n; i++) setze(g.start + (g.ende - g.start) * i / n);
+  }
+  boegen.forEach((bo, j) => { // Sprung von → bis als Bogen mit Pfeilspitze
+    const a = xv(bo.von), z = xv(bo.bis), h = Math.min(40, 14 + Math.abs(z - a) * 0.28) + (j % 2 ? 0 : 0), my = Y - 10 - h;
+    mk('path', { d: `M${a.toFixed(1)} ${Y - 10} Q${((a + z) / 2).toFixed(1)} ${(my - h * 0.55).toFixed(1)} ${z.toFixed(1)} ${Y - 10}`, class: 'bogen' });
+    const r = z >= a ? 1 : -1; mk('path', { d: `M${z.toFixed(1)} ${Y - 9} l${(-r * 9).toFixed(1)} -3 l${(r * 4).toFixed(1)} -7 z`, class: 'bogen-spitze' });
+    if (bo.name) mk('text', { x: Math.min(B - lernBreite(bo.name) / 2 - 2, Math.max(lernBreite(bo.name) / 2 + 2, (a + z) / 2)), y: Math.max(16, my - h * 0.2 - 4), class: 'zahl fett' }, bo.name);
+  });
+  { // Punkte mit Namen: ohne Bögen über dem Strahl, mit Bögen darunter (zweite Zeile); Namen, die sich berühren würden, rücken eine Zeile weiter
+    const unten = boegen.length > 0; const belegt = [];
+    punkte.forEach((q) => { mk('circle', { cx: xv(q.wert), cy: Y, r: 6, class: 'punkt' }); if (!q.name) return;
+      const w = lernBreite(q.name), m = Math.min(B - w / 2 - 2, Math.max(w / 2 + 2, xv(q.wert))); let z = 0;
+      while (belegt.some(([a0, b0, z0]) => z0 === z && m - w / 2 < b0 + 4 && m + w / 2 > a0 - 4)) z++;
+      belegt.push([m - w / 2, m + w / 2, z]); mk('text', { x: m, y: unten ? Y + 52 + z * 20 : Y - 14 - z * 20, class: 'zahl' }, q.name); });
+    const zeilen = belegt.reduce((mx, r) => Math.max(mx, r[2] + 1), 0);
+    if (unten && zeilen) svg.setAttribute('viewBox', `0 0 ${B} ${84 + oben + zeilen * 20 + 4}`);
+  }
   if (g.pfeil !== undefined && g.pfeil !== null) mk('path', { d: `M${x(g.pfeil)} ${Y - 12} l-6 -12 h12 z`, class: 'pfeil' });
   return svg;
 }
@@ -777,9 +806,87 @@ function lernAntwortText(a, w) {
 // Eine Etappe ist ein Lernziel; geschafft, wenn ihre Übungsaufgaben einmal richtig gelöst sind (Datenbank: schule.etappen_stand).
 
 // Text mit ⟦markierten⟧ Stellen als Knoten (markierte Teile hervorgehoben).
-function lernMarkiert(t) {
+// Zusätzlich (Vorgabe Erklärungen 16.11.): Brüche a/b gestapelt; mit wctx werden neue Wörter beim ersten Vorkommen antippbar.
+const LERN_BUCHST = 'A-Za-zÄÖÜäöüß';
+function lernBruchKnoten(s) {
+  const out = []; let last = 0; let m;
+  const re = new RegExp(`(?<![\\d/.,:${LERN_BUCHST}])(\\d{1,3})/(\\d{1,3})(?![\\d/${LERN_BUCHST}]|[.,:]\\d)`, 'g'); // nicht: Daten, Uhrzeiten, km/h, Adressen
+  while ((m = re.exec(s))) {
+    if (m.index > last) out.push(lernText(s.slice(last, m.index)));
+    out.push(el('span', { class: 'lern-bruch-text', role: 'img', 'aria-label': `${m[1]} durch ${m[2]}` }, el('span', {}, m[1]), el('span', {}, m[2])));
+    last = re.lastIndex;
+  }
+  if (last < s.length) out.push(lernText(s.slice(last)));
+  return out;
+}
+function lernWortListe(woerter) {
+  const esc = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return (woerter || []).filter((w) => Array.isArray(w) && w[0] && w[1]).map(([wort, text]) => {
+    const kern = wort.split(' (')[0].trim();
+    const nurWort = new RegExp(`^[${LERN_BUCHST}-]+( [${LERN_BUCHST}-]+)*$`).test(kern);
+    // Beugungen: Wortanfang plus bis zu 3 Buchstaben („Zuordnung“ trifft auch „Zuordnungen“); Zeichenfolgen wie „(1 | 5)“ nur wörtlich.
+    const re = nurWort ? new RegExp(`(?<![${LERN_BUCHST}])${esc(kern)}[a-zäöüß]{0,3}(?![${LERN_BUCHST}])`, 'i') : new RegExp(esc(wort));
+    return { wort, text, re };
+  });
+}
+function lernWortKnoten(s, wctx) {
+  if (!wctx?.liste?.length) return lernBruchKnoten(s);
+  let best = null;
+  for (const w of wctx.liste) { if (wctx.gesehen.has(w.wort)) continue; const m = w.re.exec(s); if (m && (!best || m.index < best.m.index)) best = { w, m }; }
+  if (!best) return lernBruchKnoten(s);
+  wctx.gesehen.add(best.w.wort);
+  const i = best.m.index, t = best.m[0];
+  const knopf = el('button', { type: 'button', class: 'lr-wort', 'aria-expanded': 'false', onclick: () => {
+    const block = knopf.closest('li, p, dd, div'); if (!block) return;
+    const alt = block.querySelector(':scope > .lr-wort-box');
+    block.querySelectorAll(':scope .lr-wort').forEach((k) => k.setAttribute('aria-expanded', 'false'));
+    if (alt) { const selbe = alt.dataset.wort === best.w.wort; alt.remove(); if (selbe) return; }
+    knopf.setAttribute('aria-expanded', 'true');
+    const box = el('span', { class: 'lr-wort-box', role: 'note' }, el('b', {}, ...lernBruchKnoten(best.w.wort)), ' – ', ...lernBruchKnoten(best.w.text)); box.dataset.wort = best.w.wort;
+    lernAnhaengen(block, box);
+  } }, ...lernBruchKnoten(t));
+  return [...lernBruchKnoten(s.slice(0, i)), knopf, ...lernWortKnoten(s.slice(i + t.length), wctx)];
+}
+function lernMarkiert(t, wctx) {
   const teile = String(t ?? '').split(/⟦|⟧/);
-  return teile.map((s, i) => (i % 2 ? el('mark', {}, lernText(s)) : lernText(s)));
+  return teile.flatMap((s, i) => (i % 2 ? [el('mark', {}, ...lernWortKnoten(s, wctx))] : lernWortKnoten(s, wctx)));
+}
+// „Kurz gesagt“: der erste Satz des Merksatzes (ohne Markierung).
+function lernKurzGesagt(regel) {
+  const t = String(regel ?? '').replace(/⟦|⟧/g, '').trim();
+  const m = t.match(/^.*?[.!?](?=\s|$)/); let k = (m ? m[0] : t).trim();
+  if (k.length > 110) k = k.slice(0, 107).replace(/\s+\S*$/, '') + ' …';
+  return k;
+}
+// Kl. 7–10: „Kurz gesagt“ zusätzlich als erste Zeile in der Karte (Schalter je Kind und Gerät, Standard aus – Entscheidung von Sebastian offen).
+function lernKurzOben(kind) {
+  if (!kind?.klasse || kind.klasse < 7) return false;
+  try { return localStorage.getItem('lern.kurzoben.' + kind.id) === '1'; } catch { return false; }
+}
+// Thermometer (senkrechter Zahlenstrahl): start, ende, schritt (Beschriftung), stand, bereich_unter_null, einheit, name
+function lernThermometer(b) {
+  const lo = b.start ?? -10, hi = b.ende ?? 10, B = 200, H = 300, O = 26, U = 56, X = 86;
+  const py = (v) => H - U - (H - U - O) * (v - lo) / ((hi - lo) || 1);
+  const { svg, mk } = lernSvg(B, H, b.label || `Thermometer von ${lo} bis ${hi}${b.stand !== undefined ? ', Stand ' + b.stand : ''}`);
+  svg.classList.add('lern-thermo');
+  if (b.bereich_unter_null && lo < 0) mk('rect', { x: X - 34, y: py(0), width: 120, height: py(lo) - py(0), class: 'kalt' });
+  mk('rect', { x: X - 9, y: O - 10, width: 18, height: H - U - O + 22, rx: 9, class: 'rohr' });
+  mk('circle', { cx: X, cy: H - U + 22, r: 17, class: 'kugel' });
+  if (b.stand !== undefined && b.stand !== null) mk('rect', { x: X - 5, y: py(b.stand), width: 10, height: H - U + 14 - py(b.stand), class: 'saeule-rot' });
+  const roh = (hi - lo) / 8; const p = 10 ** Math.floor(Math.log10(roh)); const sy = b.schritt || [1, 2, 5, 10].map((m) => m * p).find((m) => m >= roh);
+  for (let v = Math.ceil(lo / sy) * sy; v <= hi + 1e-9; v += sy) { mk('line', { x1: X + 9, y1: py(v), x2: X + (v === 0 ? 30 : 20), y2: py(v), class: v === 0 ? 'achse' : 'strich' }); mk('text', { x: X + 34, y: py(v) + 6, class: 'zahl links' + (v === 0 ? ' fett' : '') }, lernZahlText(v) + (b.einheit ? ' ' + b.einheit : '')); }
+  if (b.stand !== undefined && b.stand !== null) { mk('path', { d: `M${X - 12} ${py(b.stand)} l-12 -6 v12 z`, class: 'pfeil' }); mk('text', { x: X - 28, y: py(b.stand) + 6, class: 'zahl rechts fett' }, b.name || lernZahlText(b.stand) + (b.einheit ? ' ' + b.einheit : '')); }
+  return svg;
+}
+// Bruchstreifen: teile, gefaerbt, ganzes (Text unter dem ganzen Streifen), teil_text (Text über dem gefärbten Teil), zeilen: weitere Streifen [{teile, gefaerbt, teil_text}]
+function lernBruchstreifen(b) {
+  const zeilen = [b, ...(b.zeilen || [])]; const B = 340, L = 14, zh = 78, H = zeilen.length * zh + (b.ganzes ? 30 : 4);
+  const { svg, mk } = lernSvg(B, H, b.label || zeilen.map((z) => `Streifen mit ${z.teile} gleichen Teilen, ${z.gefaerbt ?? 0} gefärbt`).join('; '));
+  zeilen.forEach((z, k) => { const n = Math.max(1, z.teile || 1), g = Math.min(n, z.gefaerbt ?? 0), w = (B - 2 * L) / n, y = k * zh + 30;
+    for (let i = 0; i < n; i++) mk('rect', { x: L + i * w, y, width: w, height: 40, class: 'streifen' + (i < g ? ' voll' : '') });
+    if (z.teil_text && g) { const m = L + g * w / 2; mk('text', { x: Math.min(B - lernBreite(z.teil_text) / 2 - 2, Math.max(lernBreite(z.teil_text) / 2 + 2, m)), y: y - 9, class: 'zahl fett' }, z.teil_text); } });
+  if (b.ganzes) { const y = zeilen.length * zh + 2; mk('path', { d: `M${L} ${y - 6} v6 h${B - 2 * L} v-6`, class: 'klammer' }); mk('text', { x: B / 2, y: y + 22, class: 'zahl' }, b.ganzes); }
+  return svg;
 }
 function lernStellentafel(b) {
   return el('table', { class: 'lr-stellentafel', 'aria-label': 'Stellenwerttafel' },
@@ -797,11 +904,15 @@ function lernBild(b) {
   if (b.typ === 'tabelle') return el('div', { class: 'lr-bild lr-bild-tabelle' }, lernTabelle(b));
   if (b.typ === 'boxplot') return el('div', { class: 'lr-bild' }, lernBoxplot(b));
   if (b.typ === 'baum') return el('div', { class: 'lr-bild' }, lernBaum(b));
+  if (b.typ === 'thermometer') return el('div', { class: 'lr-bild' }, lernThermometer(b));
+  if (b.typ === 'bruchstreifen') return el('div', { class: 'lr-bild' }, lernBruchstreifen(b));
   return null;
 }
 
 // ---------- Zeichnungen (W150): Koordinatensystem mit Graphen, Figuren, Diagramme, Tabellen ----------
 const LERN_SVG = 'http://www.w3.org/2000/svg';
+// Schrift in Zeichnungen ist seit 16.11. mindestens 16 px groß – Beschriftungen brauchen Platz. Geschätzte Breite eines Textes in Zeichen-Einheiten:
+const lernBreite = (t) => String(t ?? '').length * 9.6 + 4;
 function lernSvg(b, h, label) {
   const svg = document.createElementNS(LERN_SVG, 'svg');
   svg.setAttribute('viewBox', `0 0 ${b} ${h}`); svg.setAttribute('class', 'lern-zeichnung'); svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', label);
@@ -835,7 +946,7 @@ function lernKoordinaten(b) {
     if (v > 1 && v <= 4) { const m = (x0 + x1) / 2, h = (y1 - y0) / 2; x0 = m - h; x1 = m + h; }
     else if (v < 1 && v >= 0.25) { const m = (y0 + y1) / 2, h = (x1 - x0) / 2; y0 = m - h; y1 = m + h; }
   }
-  const B = 340, R = 32; const geo = !(b.graphen || []).length && !b.streckung;
+  const B = 340, R = 38; const geo = !(b.graphen || []).length && !b.streckung;
   // Reine Geometrie: gleiche Pixel je Einheit auf beiden Achsen (Kreise bleiben rund).
   const H = geo ? Math.round(Math.min(420, Math.max(150, 2 * R + (B - 2 * R) * (y1 - y0) / (x1 - x0)))) : Math.round(Math.min(340, Math.max(170, 300 * (y1 - y0) / (x1 - x0) * (b.streckung || 1))));
   const px = (x) => R + (B - 2 * R) * (x - x0) / (x1 - x0), py = (y) => H - R - (H - 2 * R) * (y - y0) / (y1 - y0);
@@ -851,11 +962,14 @@ function lernKoordinaten(b) {
   const ax = Math.min(Math.max(0, y0), y1), ay = Math.min(Math.max(0, x0), x1); // Achsen am Rand, wenn 0 außerhalb liegt
   mk('line', { x1: px(x0) - 6, y1: py(ax), x2: px(x1) + 10, y2: py(ax), class: 'achse' }); mk('path', { d: `M${px(x1) + 14} ${py(ax)} l-8 -4 v8 z`, class: 'spitze' });
   mk('line', { x1: px(ay), y1: py(y0) + 6, x2: px(ay), y2: py(y1) - 10, class: 'achse' }); mk('path', { d: `M${px(ay)} ${py(y1) - 14} l-4 8 h8 z`, class: 'spitze' });
-  mk('text', { x: px(x1) + 12, y: py(ax) + 15, class: 'zahl kursiv' }, b.name_x || 'x'); mk('text', { x: px(ay) + 11, y: py(y1) - 8, class: 'zahl kursiv' }, b.name_y || 'y');
+  mk('text', { x: px(x1) + 14, y: py(ax) + 19, class: 'zahl kursiv' }, b.name_x || 'x'); mk('text', { x: px(ay) + 13, y: py(y1) - 8, class: 'zahl kursiv' }, b.name_y || 'y');
   const jeder = (n) => Math.max(1, Math.ceil(n / 8));
   const nx = jeder((x1 - x0) / sx), ny = jeder((y1 - y0) / sy);
-  for (let i = Math.ceil(x0 / sx); i * sx <= x1 + 1e-9; i++) if (i !== 0 && i % nx === 0) mk('text', { x: px(i * sx), y: py(ax) + 14, class: 'zahl' }, b.pi ? piText(i * sx) : zahl(i * sx) + (b.grad ? '°' : ''));
-  for (let i = Math.ceil(y0 / sy); i * sy <= y1 + 1e-9; i++) if (i !== 0 && i % ny === 0) mk('text', { x: px(ay) - 5, y: py(i * sy) + 4, class: 'zahl rechts' }, zahl(i * sy));
+  { let rechts = -1e9; const ende = px(x1) - 2; // x-Beschriftung: überspringen, was in die vorige oder in den Achsennamen ragt
+    for (let i = Math.ceil(x0 / sx); i * sx <= x1 + 1e-9; i++) { if (i === 0 || i % nx) continue; const t = b.pi ? piText(i * sx) : zahl(i * sx) + (b.grad ? '°' : ''); const w = lernBreite(t), x = px(i * sx);
+      if (x - w / 2 < rechts + 3 || x + w / 2 > ende) continue; mk('text', { x, y: py(ax) + 19, class: 'zahl' }, t); rechts = x + w / 2; } }
+  { let unten = 1e9; // y-Beschriftung: mindestens eine Schrifthöhe Abstand
+    for (let i = Math.ceil(y0 / sy); i * sy <= y1 + 1e-9; i++) { if (i === 0 || i % ny) continue; const y = py(i * sy); if (unten - y < 19 || y < py(y1) + 12) continue; mk('text', { x: px(ay) - 6, y: y + 6, class: 'zahl rechts' }, zahl(i * sy)); unten = y; } }
   for (const v of b.senkrecht || []) mk('line', { x1: px(v), y1: py(y0), x2: px(v), y2: py(y1), class: 'hilfslinie' });
   for (const v of b.waagrecht || []) mk('line', { x1: px(x0), y1: py(v), x2: px(x1), y2: py(v), class: 'hilfslinie' });
   (b.graphen || []).forEach((g, gi) => {
@@ -927,21 +1041,21 @@ function lernFigur(b) {
   return svg;
 }
 function lernSaeulen(b) {
-  const w = b.werte || []; const B = 340, H = 236, L = 38, U = 44;
+  const w = b.werte || []; const B = 340, L = 44; const zweizeilig = w.some((x) => lernBreite(x.name) > (B - L - 16) / Math.max(w.length, 1)); const U = zweizeilig ? 64 : 46, H = zweizeilig ? 256 : 238;
   const y0 = b.y_start ?? 0, max = b.y_max ?? Math.max(...w.map((x) => x.wert), 1);
   const roh = (max - y0) / 5; const p = 10 ** Math.floor(Math.log10(roh)); const sy = b.schritt || [1, 2, 5, 10].map((m) => m * p).find((m) => m >= roh);
   const oben = Math.ceil(max / sy) * sy; const py = (v) => H - U - (H - U - 34) * (v - y0) / (oben - y0);
   const { svg, mk } = lernSvg(B, H, b.label || `Säulendiagramm: ${w.map((x) => `${x.name} ${x.wert}`).join(', ')}`);
-  for (let v = y0; v <= oben + 1e-9; v += sy) { mk('line', { x1: L, y1: py(v), x2: B - 8, y2: py(v), class: 'gitter' }); mk('text', { x: L - 5, y: py(v) + 4, class: 'zahl rechts' }, lernZahlText(v)); }
+  for (let v = y0; v <= oben + 1e-9; v += sy) { mk('line', { x1: L, y1: py(v), x2: B - 8, y2: py(v), class: 'gitter' }); mk('text', { x: L - 5, y: py(v) + 6, class: 'zahl rechts' }, lernZahlText(v)); }
   const bw = (B - L - 16) / Math.max(w.length, 1);
   w.forEach((x, i) => {
     mk('rect', { x: L + 8 + i * bw + bw * 0.15, y: py(x.wert), width: bw * 0.7, height: py(y0) - py(x.wert), class: 'saeule saeule' + (i % 4) });
-    mk('text', { x: L + 8 + i * bw + bw / 2, y: H - U + 16, class: 'zahl' }, x.name);
+    mk('text', { x: L + 8 + i * bw + bw / 2, y: H - U + 20 + (zweizeilig && i % 2 ? 20 : 0), class: 'zahl' }, x.name);
     if (b.zahlen !== false) mk('text', { x: L + 8 + i * bw + bw / 2, y: py(x.wert) - 4, class: 'zahl fett' }, lernZahlText(x.wert));
   });
   mk('line', { x1: L, y1: py(y0), x2: B - 8, y2: py(y0), class: 'achse' });
   if (y0 > 0) mk('path', { d: `M${L - 6} ${py(y0) - 10} l12 -5 l-12 -5 l12 -5`, class: 'winkel' }); // Achse ist abgeschnitten
-  if (b.einheit) mk('text', { x: 4, y: 13, class: 'zahl links' }, b.einheit);
+  if (b.einheit) mk('text', { x: 4, y: 15, class: 'zahl links' }, b.einheit);
   return svg;
 }
 function lernKreisdiagramm(b) {
@@ -959,18 +1073,19 @@ function lernKreisdiagramm(b) {
 }
 // Boxplot: reihen [{name, min, q1, median, q3, max}] über einer gemeinsamen Achse [lo, hi]
 function lernBoxplot(b) {
-  const reihen = b.reihen || [b]; const B = 340, L = reihen.some((r) => r.name) ? 64 : 18, R = 18, zh = 46, H = reihen.length * zh + 44;
+  const reihen = b.reihen || [b]; const B = 340, L = reihen.some((r) => r.name) ? Math.min(120, Math.max(64, ...reihen.map((r) => lernBreite(r.name) + 8))) : 22, R = 22, zh = 46, H = reihen.length * zh + 50;
   const lo = b.achse?.[0] ?? Math.min(...reihen.map((r) => r.min)), hi = b.achse?.[1] ?? Math.max(...reihen.map((r) => r.max));
   const px = (v) => L + (B - L - R) * (v - lo) / (hi - lo);
   const { svg, mk } = lernSvg(B, H, b.label || 'Boxplot: ' + reihen.map((r) => `${r.name || ''} Minimum ${r.min}, unteres Quartil ${r.q1}, Median ${r.median}, oberes Quartil ${r.q3}, Maximum ${r.max}`).join('; '));
   const roh = (hi - lo) / 8; const p = 10 ** Math.floor(Math.log10(roh)); const sx = b.schritt || [1, 2, 5, 10].map((m) => m * p).find((m) => m >= roh);
-  const ya = H - 26;
+  const ya = H - 30;
   mk('line', { x1: L - 6, y1: ya, x2: B - R + 6, y2: ya, class: 'achse' });
-  for (let v = Math.ceil(lo / sx) * sx; v <= hi + 1e-9; v += sx) { mk('line', { x1: px(v), y1: ya - 4, x2: px(v), y2: ya + 4, class: 'achse' }); mk('text', { x: px(v), y: ya + 18, class: 'zahl' }, lernZahlText(v)); }
-  if (b.einheit) mk('text', { x: 4, y: ya + 18, class: 'zahl links' }, b.einheit);
+  { let rechts = b.einheit ? 4 + lernBreite(b.einheit) : -1e9;
+    for (let v = Math.ceil(lo / sx) * sx; v <= hi + 1e-9; v += sx) { mk('line', { x1: px(v), y1: ya - 4, x2: px(v), y2: ya + 4, class: 'achse' }); const t = lernZahlText(v), w = lernBreite(t); if (px(v) - w / 2 < rechts + 3) continue; mk('text', { x: px(v), y: ya + 22, class: 'zahl' }, t); rechts = px(v) + w / 2; } }
+  if (b.einheit) mk('text', { x: 4, y: ya + 22, class: 'zahl links' }, b.einheit);
   reihen.forEach((r, i) => {
     const y = 10 + i * zh, h = 26, m = y + h / 2;
-    if (r.name) mk('text', { x: 4, y: m + 4, class: 'zahl links' }, r.name);
+    if (r.name) mk('text', { x: 4, y: m + 6, class: 'zahl links' }, r.name);
     mk('line', { x1: px(r.min), y1: m, x2: px(r.q1), y2: m, class: 'strecke' }); mk('line', { x1: px(r.q3), y1: m, x2: px(r.max), y2: m, class: 'strecke' });
     mk('line', { x1: px(r.min), y1: m - 8, x2: px(r.min), y2: m + 8, class: 'strecke' }); mk('line', { x1: px(r.max), y1: m - 8, x2: px(r.max), y2: m + 8, class: 'strecke' });
     mk('rect', { x: px(r.q1), y, width: px(r.q3) - px(r.q1), height: h, class: 'box box' + (i % 3) });
@@ -983,14 +1098,16 @@ function lernBaum(b) {
   const blaetter = []; let tiefe = 0;
   const lauf = (k, t) => { tiefe = Math.max(tiefe, t); if (!(k.aeste || []).length) { k._x = blaetter.length; blaetter.push(k); } else { k.aeste.forEach((c) => lauf(c, t + 1)); k._x = (k.aeste[0]._x + k.aeste[k.aeste.length - 1]._x) / 2; } k._t = t; };
   const wurzel = { aeste: JSON.parse(JSON.stringify(b.aeste || [])) }; lauf(wurzel, 0);
-  const B = 340, n = Math.max(blaetter.length, 1), sh = tiefe > 2 ? 62 : 74, H = 26 + tiefe * sh + 18;
-  const px = (x) => 20 + (B - 40) * (n === 1 ? 0.5 : x / (n - 1)), py = (t) => 14 + t * sh;
+  const B = 340, n = Math.max(blaetter.length, 1), sh = tiefe > 2 ? 66 : 78, H = 26 + tiefe * sh + 40;
+  const rand = Math.min(70, Math.max(24, ...blaetter.map((k) => lernBreite(k.text) / 2 + 2)));
+  const eng = n > 1 && blaetter.some((k) => lernBreite(k.text) > (B - 2 * rand) / (n - 1) - 4); // Blatt-Beschriftungen abwechselnd tiefer setzen
+  const px = (x) => rand + (B - 2 * rand) * (n === 1 ? 0.5 : x / (n - 1)), py = (t) => 14 + t * sh;
   const { svg, mk } = lernSvg(B, H, b.label || 'Baumdiagramm');
   const zeichne = (k) => {
     for (const c of k.aeste || []) {
       mk('line', { x1: px(k._x), y1: py(k._t) + (k._t ? 8 : 0), x2: px(c._x), y2: py(c._t) - 14, class: 'strecke duenn' });
       if (c.p) { const links = c._x <= k._x; mk('text', { x: (px(k._x) + px(c._x)) / 2 + (links ? -5 : 5), y: (py(k._t) + py(c._t)) / 2 + 1, class: 'zahl klein ' + (links ? 'rechts' : 'links') }, c.p); }
-      mk('text', { x: px(c._x), y: py(c._t) + 4, class: 'zahl fett' }, c.text || '');
+      mk('text', { x: px(c._x), y: py(c._t) + 6 + (eng && !(c.aeste || []).length && blaetter.indexOf(c) % 2 ? 20 : 0), class: 'zahl fett' }, c.text || '');
       zeichne(c);
     }
   };
@@ -1004,25 +1121,36 @@ function lernTabelle(b) {
     el('tbody', {}, ...(b.zeilen || []).map((z) => el('tr', {}, ...z.map((c, i) => el(i === 0 && b.erste_spalte_kopf !== false ? 'th' : 'td', {}, lernText(c)))))));
 }
 // Erklärung einer Etappe: Regel, vorgerechnetes Beispiel Schritt für Schritt, Probe, typischer Fehler.
-function lernErklaerung(e, { kurz = false } = {}) {
-  // Verständliche Fassung (Lernkarte mit „einstieg“): erst die Alltagssituation, dann neue Wörter, Bild, Beispiel in Schritten, Merksatz zuletzt.
-  if (e.einstieg) return el('div', { class: 'lr-erklaert lr-erklaert-klar' },
-    el('div', { class: 'lr-einstieg' }, el('p', { class: 'lr-ueber' }, 'WORUM GEHT’S?'), el('p', {}, ...lernMarkiert(e.einstieg))),
-    e.woerter?.length ? el('div', { class: 'lr-woerter' }, el('p', { class: 'lr-ueber' }, 'NEUE WÖRTER'),
-      el('dl', {}, ...e.woerter.flatMap(([w, t]) => [el('dt', {}, lernText(w)), el('dd', {}, lernText(t))]))) : null,
-    lernBild(e.bild),
-    e.schritte?.length ? el('div', { class: 'lr-sogehts' }, el('p', { class: 'lr-ueber' }, 'BEISPIEL – SCHRITT FÜR SCHRITT'),
-      el('ol', {}, ...e.schritte.map((x) => el('li', {}, el('span', {}, ...lernMarkiert(x)))))) : null,
-    e.probe ? el('p', { class: 'lr-probe' }, 'Probe: ', ...lernMarkiert(e.probe)) : null,
-    el('div', { class: 'lr-merke' }, el('p', { class: 'lr-ueber' }, 'MERKE'), el('p', { class: 'lr-regel' }, ...lernMarkiert(e.regel))),
-    e.fehler && !kurz ? el('div', { class: 'lr-fehler' }, el('p', { class: 'lr-ueber' }, 'ACHTUNG, TYPISCHER FEHLER'), el('p', {}, ...lernMarkiert(e.fehler))) : null);
-  return el('div', { class: 'lr-erklaert' },
-    lernBild(e.bild),
-    el('p', { class: 'lr-regel' }, ...lernMarkiert(e.regel)),
-    e.schritte?.length ? el('div', { class: 'lr-sogehts' }, el('p', { class: 'lr-ueber' }, 'SO GEHT’S'),
-      el('ol', {}, ...e.schritte.map((s) => el('li', {}, el('span', {}, ...lernMarkiert(s)))))) : null,
-    e.probe ? el('p', { class: 'lr-probe' }, 'Probe: ', ...lernMarkiert(e.probe)) : null,
-    e.fehler && !kurz ? el('div', { class: 'lr-fehler' }, el('p', { class: 'lr-ueber' }, 'ACHTUNG, TYPISCHER FEHLER'), el('p', {}, ...lernMarkiert(e.fehler))) : null);
+function lernSchrittBild(zustand, b) {
+  if (!b) return zustand;
+  if (!zustand || (b.typ && b.typ !== zustand.typ)) return b;
+  return { ...zustand, ...b };
+}
+// Eine Anzeige für alle Karten (Vorgabe 16.11.): [Kurz gesagt] → Worum geht's? → Bild → Beispiel als Bildergeschichte → „Pass auf!“ → MERKE → Wörterliste.
+// Karten ohne einstieg beginnen beim Bild. Schritte sind Texte oder {text, bild}; ein Schrittbild ergänzt das Kartenbild.
+function lernErklaerung(e, { kurz = false, kurzGesagt = false } = {}) {
+  const wctx = { liste: lernWortListe(e.woerter), gesehen: new Set() };
+  const M = (t) => lernMarkiert(t, wctx);
+  const einstieg = e.einstieg ? el('div', { class: 'lr-einstieg' }, el('p', { class: 'lr-ueber' }, 'WORUM GEHT’S?'), el('p', {}, ...M(e.einstieg))) : null;
+  const schritte = (e.schritte || []).map((x) => (typeof x === 'string' ? { text: x } : x || {}));
+  const mitBildern = schritte.some((x) => x.bild);
+  let zustand = e.bild || null;
+  const li = schritte.map((x) => {
+    if (mitBildern) zustand = lernSchrittBild(zustand, x.bild);
+    return el('li', { class: 'lr-schritt' + (mitBildern ? ' mit-bild' : '') }, mitBildern && zustand ? lernBild(zustand) : null, el('span', { class: 'lr-schritt-text' }, ...M(x.text)));
+  });
+  const passauf = e.fehler && !kurz ? el('div', { class: 'lr-fehler lr-passauf' + (e.fehler_bild ? ' mit-bild' : '') },
+    e.fehler_bild ? lernBild(lernSchrittBild(zustand, e.fehler_bild)) : null,
+    el('p', { class: 'lr-schritt-text' }, el('b', {}, 'Pass auf! '), ...M(e.fehler))) : null;
+  const probe = e.probe ? el('p', { class: 'lr-probe' }, 'Probe: ', ...M(e.probe)) : null;
+  const merke = e.regel ? el('div', { class: 'lr-merke' }, el('p', { class: 'lr-ueber' }, 'MERKE'), el('p', { class: 'lr-regel' }, ...M(e.regel))) : null;
+  return el('div', { class: 'lr-erklaert lr-erklaert-klar' },
+    kurzGesagt && e.regel ? el('p', { class: 'lr-kurzgesagt' }, el('b', {}, 'Kurz gesagt: '), lernText(lernKurzGesagt(e.regel))) : null,
+    einstieg, lernBild(e.bild),
+    li.length ? el('div', { class: 'lr-sogehts' }, el('p', { class: 'lr-ueber' }, 'BEISPIEL – SCHRITT FÜR SCHRITT'), el('ol', {}, ...li)) : null,
+    probe, passauf, merke,
+    wctx.liste.length && !kurz ? el('details', { class: 'lr-woerter' }, el('summary', {}, `Neue Wörter (${wctx.liste.length})`),
+      el('dl', {}, ...wctx.liste.flatMap((w) => [el('dt', {}, ...lernBruchKnoten(w.wort)), el('dd', {}, ...lernBruchKnoten(w.text))]))) : null);
 }
 
 // Etappen einer Einheit (Fallback ohne gepflegte Etappen: je Lernziel eine Etappe ohne Erklärung).
@@ -1119,26 +1247,39 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
   const zeige = (k, opts = {}) => {
     for (const x of Object.keys(tabs)) { tabs[x].setAttribute('aria-selected', String(x === k)); panels[x].hidden = x !== k; }
     if (k === 'ueben') uebenOeffnen(opts.karte);
-    try { history.replaceState(null, '', `${ctx.basis}-${k}${k === 'ueben' && aktKarte ? '-' + aktKarte.nr : ''}`); } catch { /* egal */ }
+    try { history.replaceState(null, '', `${ctx.basis}-${k}${k === 'ueben' && aktKarte ? '-' + aktKarte.nr : k === 'erklaeren' && offeneKarte ? '-' + offeneKarte.nr : ''}`); } catch { /* egal */ }
     if (opts.scrollZu) opts.scrollZu.scrollIntoView({ block: 'start' }); else window.scrollTo(0, 0);
   };
 
-  // --- Erklären: alle Lernkarten untereinander, nach Bereichen
-  const kartenBox = new Map();
+  // --- Erklären (Vorgabe 16.11.): Übersicht aus Kacheln (Titel, Status, „Kurz gesagt“) → genau eine Karte mit Zurück und Weiter
   const bereiche = lernBereiche(etappen);
-  lernAnhaengen(panels.erklaeren, ...bereiche.map((b) => el('section', { class: 'lr-bereich' },
-    bereiche.length > 1 ? el('h2', { class: 'lr-abschnitt' }, b.titel.toUpperCase()) : null,
-    ...b.karten.map((e) => {
-      const box = el('article', { class: 'lr-karte-box lr-lernkarte' + (e === empfohlen() ? ' jetzt' : '') },
+  let offeneKarte = start === 'erklaeren' && karteNr ? etappen[karteNr - 1] || null : null;
+  const kurzOben = lernKurzOben(kind);
+  const adresse = (e, push) => { try { history[push ? 'pushState' : 'replaceState'](null, '', `${ctx.basis}-erklaeren${e ? '-' + e.nr : ''}`); } catch { /* egal */ } };
+  const zeichneErklaeren = () => {
+    const e = offeneKarte;
+    if (!e) {
+      lernErsetze(panels.erklaeren, ...bereiche.map((b) => el('section', { class: 'lr-bereich' },
+        bereiche.length > 1 ? el('h2', { class: 'lr-abschnitt' }, b.titel.toUpperCase()) : null,
+        el('div', { class: 'lr-kacheln' }, ...b.karten.map((k) => el('button', { type: 'button', class: 'lr-karte-box lr-kachel' + (k === empfohlen() ? ' jetzt' : ''),
+          onclick: () => { offeneKarte = k; adresse(k, true); zeichneErklaeren(); window.scrollTo(0, 0); } },
+          el('span', { class: 'lr-kachel-kopf' }, el('b', {}, `${k.nr} · ${k.titel}`), el('span', { class: 'lr-lk-status' }, lernPunkte(k), el('small', {}, lernKartenStatus(k)))),
+          k.regel ? el('span', { class: 'lr-kachel-kurz' }, el('small', {}, 'Kurz gesagt: '), lernText(lernKurzGesagt(k.regel))) : null))))),
+        lernTestTeil(ctx, etappen),
+        ctx.leitung ? lernAnmerkung({ einheit_id: ctx.einheit, lernender_id: ctx.kind }, 'Anmerkung zu diesem Thema') : null);
+      return;
+    }
+    const naechste = etappen[etappen.indexOf(e) + 1] || null;
+    lernErsetze(panels.erklaeren,
+      el('button', { type: 'button', class: 'lr-textlink lr-zur-uebersicht', onclick: () => { offeneKarte = null; adresse(null, false); zeichneErklaeren(); window.scrollTo(0, 0); } }, '‹ Übersicht'),
+      el('article', { class: 'lr-karte-box lr-lernkarte' },
         el('div', { class: 'lr-lernkarte-kopf' }, el('h3', {}, `${e.nr} · ${e.titel}`), el('span', { class: 'lr-lk-status' }, lernPunkte(e), el('small', {}, lernKartenStatus(e)))),
-        e.regel ? lernErklaerung(e) : el('p', { class: 'lr-leise' }, 'Für diese Karte gibt es noch keine Erklärung.'),
-        e.aufgaben.length ? el('button', { type: 'button', class: 'lr-knopf-zweit lr-dazu', onclick: () => { erklGesehen.add(e.lernziel); zeige('ueben', { karte: e }); } }, 'Dazu üben ▸') : null,
-        ctx.leitung ? lernAnmerkung({ einheit_id: ctx.einheit, lernziel: e.lernziel, lernender_id: ctx.kind }, 'Anmerkung zu dieser Erklärung') : null);
-      kartenBox.set(e.lernziel, box);
-      return box;
-    }))),
-  lernTestTeil(ctx, etappen),
-  ctx.leitung ? lernAnmerkung({ einheit_id: ctx.einheit, lernender_id: ctx.kind }, 'Anmerkung zu diesem Thema') : null);
+        e.regel ? lernErklaerung(e, { kurzGesagt: kurzOben }) : el('p', { class: 'lr-leise' }, 'Für diese Karte gibt es noch keine Erklärung.'),
+        e.aufgaben.length ? el('button', { type: 'button', class: 'lr-knopf lr-dazu', onclick: () => { erklGesehen.add(e.lernziel); zeige('ueben', { karte: e }); } }, 'Jetzt du ›') : null,
+        ctx.leitung ? lernAnmerkung({ einheit_id: ctx.einheit, lernziel: e.lernziel, lernender_id: ctx.kind }, 'Anmerkung zu dieser Erklärung') : null),
+      naechste ? el('button', { type: 'button', class: 'lr-knopf-zweit lr-naechste-karte', onclick: () => { offeneKarte = naechste; adresse(naechste, true); zeichneErklaeren(); window.scrollTo(0, 0); } }, `Nächste Karte: ${naechste.titel} ›`) : null);
+  };
+  zeichneErklaeren();
 
   // --- Typische Fehler
   const versucht = etappen.flatMap((e) => e.aufgaben.filter((a) => a.versuche && !a.geloest).map((a) => ({ e, a })));
@@ -1146,7 +1287,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
     el('p', { class: 'lr-leise' }, 'Die Stellen, an denen es oft schiefgeht.'),
     ...(fehlerKarten.length ? fehlerKarten.map((e) => el('article', { class: 'lr-karte-box lr-fehlerkarte' },
       el('h3', {}, `${e.nr} · ${e.titel}`), el('div', { class: 'lr-fehler' }, el('b', {}, 'Achtung: '), ...lernMarkiert(e.fehler)),
-      el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => zeige('erklaeren', { scrollZu: kartenBox.get(e.lernziel) }) }, 'Erklärung ansehen'))) : [el('p', { class: 'lr-leise' }, 'Für dieses Thema sind noch keine typischen Fehler eingetragen.')]),
+      el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { offeneKarte = e; zeichneErklaeren(); zeige('erklaeren'); adresse(e, false); } }, 'Erklärung ansehen'))) : [el('p', { class: 'lr-leise' }, 'Für dieses Thema sind noch keine typischen Fehler eingetragen.')]),
     versucht.length ? el('section', { class: 'lr-karte-box' }, el('h3', {}, `Hat bei dir noch nicht geklappt (${versucht.length})`),
       el('ul', { class: 'lr-meinefehler' }, ...versucht.slice(0, 8).map(({ e, a }) => el('li', {}, el('span', {}, lernText(a.frage?.text || '')),
         el('button', { type: 'button', class: 'lr-knopf-zweit lr-knopf-klein', onclick: () => zeige('ueben', { karte: e }) }, 'Üben'))))) : null);
@@ -1188,18 +1329,17 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
       const meldung = el('div', { role: 'status', 'aria-live': 'polite' });
       const hilfeBox = el('div', { class: 'lr-hilfebox' });
       const tipp = a.tipp ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { hilfe = 1; tipp.remove(); lernAnhaengen(hilfeBox, el('p', { class: 'lr-tipp' }, el('b', {}, 'Tipp: '), lernText(a.tipp), el('small', {}, ' (zählt nicht für die Punkte)'))); } }, 'Tipp') : null;
-      const erkl = e.regel ? el('button', { type: 'button', class: 'lr-knopf-zweit', 'aria-expanded': 'false', onclick: () => {
+      // Vorgabe 16.11.: Beim Üben steht nur die Aufgabe. Darüber ein gut sichtbarer Link „Erklärung ansehen“ (am Rechner klappt sie links daneben auf).
+      const breit = neu && !!e.regel && !!window.matchMedia?.('(min-width: 900px)').matches;
+      const erkl = e.regel ? el('button', { type: 'button', class: 'lr-erkl-link', 'aria-expanded': 'false', onclick: () => {
         const offen = erkl.getAttribute('aria-expanded') === 'true';
-        erkl.setAttribute('aria-expanded', String(!offen)); erklBox.hidden = offen;
-      } }, 'Erklärung') : null;
-      const neuHier = nr === 1 && !!e.regel && !e.fertig && !e.serie && !e.aufgaben.some((x) => x.versuche) && !erklGesehen.has(e.lernziel);
+        erkl.setAttribute('aria-expanded', String(!offen)); erklBox.hidden = offen; erkl.firstChild.textContent = offen ? 'Erklärung ansehen' : 'Erklärung schließen';
+        flaeche.classList.toggle('lr-zweispaltig', breit && !offen);
+      } }, 'Erklärung ansehen') : null;
+      const neuHier = false;
       erklGesehen.add(e.lernziel);
-      const erklBox = el('div', { class: 'lr-karte-box lr-nochmal', hidden: !neuHier }, e.regel ? lernErklaerung(e, { kurz: true }) : null,
-        neuHier ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { erklBox.hidden = true; erkl?.setAttribute('aria-expanded', 'false'); auf.node.querySelector('input')?.focus(); } }, 'Verstanden – los') : null);
-      if (neuHier) erkl?.setAttribute('aria-expanded', 'true');
-      const breit = neu && !!e.regel && !!window.matchMedia?.('(min-width: 900px)').matches; // Tablet/Rechner: Erklärung links, Bordkarte rechts
-      if (breit) { erklBox.hidden = false; erklBox.classList.add('lr-seite-links'); erklBox.querySelector(':scope > button')?.remove(); erkl.hidden = true; }
-      flaeche.classList.toggle('lr-zweispaltig', breit);
+      const erklBox = el('div', { class: 'lr-karte-box lr-nochmal' + (breit ? ' lr-seite-links' : ''), hidden: true }, e.regel ? lernErklaerung(e, { kurz: true }) : null);
+      flaeche.classList.remove('lr-zweispaltig');
       const pruefen = el('button', { type: 'button', class: 'lr-knopf' }, 'Prüfen');
       auf.node.addEventListener('input', () => { if (!pruefen.disabled && pruefen.isConnected) lernErsetze(meldung); });
       pruefen.addEventListener('click', async () => {
@@ -1221,7 +1361,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
           const weiter = el('button', { type: 'button', class: 'lr-knopf lr-weiter', onclick: () => { zeigeAufgabe(); window.scrollTo(0, 0); } }, neu ? 'Neue Bordkarte ›' : 'Nächste Aufgabe');
           if (neu) lernErsetze(dock, weiter); else { pruefen.remove(); meldung.after(weiter); }
           weiter.focus({ preventScroll: true });
-          if (!neu && !r.richtig && erkl && erklBox.hidden) { erklBox.hidden = false; erkl.setAttribute('aria-expanded', 'true'); }
+          if (!neu && !r.richtig && erkl && erklBox.hidden && false) { erklBox.hidden = false; erkl.setAttribute('aria-expanded', 'true'); }
           lernErsetze(meldung, r.richtig
             ? el('div', { class: 'lr-rueck lr-rueck-ok' }, el('b', {}, neu ? '✓ An Bord' + (sterne > sterneVor ? ' · +10 Sterne' : '') : 'Richtig!'), r.loesungsweg ? el('p', {}, lernText(r.loesungsweg)) : null)
             : neu ? el('div', { class: 'lr-rueck lr-rueck-falsch lr-kursbox' }, el('p', { class: 'lr-ueber' }, 'FAST – KURSKORREKTUR'), lernKurs(a, w),
@@ -1263,19 +1403,19 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
       auf.node.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' && ev.target.tagName === 'INPUT') { ev.preventDefault(); if (pruefen.isConnected) pruefen.click(); } });
       if (neu) {
         lernErsetze(dock, auf.tasten ? lernTastenfeld(auf.tasten, pruefen) : pruefen);
-        lernErsetze(flaeche, neuHier || breit ? erklBox : null,
+        lernErsetze(flaeche, erkl, erklBox,
           el('section', { class: 'lr-karte-box lr-aufgabe lr-bordkarte' },
             el('div', { class: 'lr-bord-kopf' }, el('span', {}, `BORDKARTE ${nr} · ${ortCode}`), el('span', {}, a.stufe ? ['', 'LEICHT', 'MITTEL', 'SCHWER'][a.stufe] || '' : '')),
             auf.node, el('div', { class: 'lr-perforation', 'aria-hidden': 'true' }),
-            el('div', { class: 'lr-knopfzeile' }, tipp, erkl)),
-          hilfeBox, neuHier || breit ? null : erklBox, meldung,
+            tipp ? el('div', { class: 'lr-knopfzeile' }, tipp) : null),
+          hilfeBox, meldung,
           ctx.leitung ? lernAnmerkung({ einheit_id: ctx.einheit, lernziel: e.lernziel, aufgabe_id: a.id, lernender_id: ctx.kind }, 'Anmerkung zu dieser Aufgabe') : null, dock);
       } else lernErsetze(flaeche,
-        neuHier ? erklBox : null,
+        erkl, erklBox,
         el('section', { class: 'lr-karte-box lr-aufgabe' },
           el('p', { class: 'lr-ueber' }, `AUFGABE ${nr}` + (a.stufe ? ` · ${['', 'LEICHT', 'MITTEL', 'SCHWER'][a.stufe] || ''}` : '')), auf.node,
-          pruefen, el('div', { class: 'lr-knopfzeile' }, tipp, erkl)),
-        hilfeBox, neuHier ? null : erklBox, meldung,
+          pruefen, tipp ? el('div', { class: 'lr-knopfzeile' }, tipp) : null),
+        hilfeBox, meldung,
         ctx.leitung ? lernAnmerkung({ einheit_id: ctx.einheit, lernziel: e.lernziel, aufgabe_id: a.id, lernender_id: ctx.kind }, 'Anmerkung zu dieser Aufgabe') : null);
       if (fein && (!neuHier || breit)) auf.node.querySelector('input')?.focus({ preventScroll: true });
     };
@@ -1409,7 +1549,7 @@ async function viewMerkheft(arg) {
   const norm = (s) => String(s || '').toLowerCase();
   const zeichne = () => {
     const q = norm(suche.value.trim());
-    const treffer = eintraege.filter(({ m, e }) => !q || [e.titel, e.regel, ...(e.schritte || []), e.fehler, m.stadt, m.ort_titel].some((t) => norm(t).includes(q)));
+    const treffer = eintraege.filter(({ m, e }) => !q || [e.titel, e.regel, ...(e.schritte || []).map((x) => (typeof x === 'string' ? x : x?.text)), e.fehler, m.stadt, m.ort_titel].some((t) => norm(t).includes(q)));
     if (!eintraege.length) { lernErsetze(liste, el('p', { class: 'lr-leise' }, 'Noch leer.')); return; }
     if (!treffer.length) { lernErsetze(liste, el('p', { class: 'lr-leise' }, 'Nichts gefunden.')); return; }
     const gruppen = new Map();

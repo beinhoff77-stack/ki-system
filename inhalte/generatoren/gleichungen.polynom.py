@@ -301,6 +301,102 @@ def g_verstehen(s):
     return None
 
 
+
+# ---------- KLAR: verständliche Fassung der Lernkarten (Runde 7) ----------
+# Wird erst nach dem Bauen der Aufgaben eingesetzt (bauen(..., klar=KLAR)), die Aufgaben bleiben wörtlich gleich.
+KLAR = {
+ 'ausklammern': {
+  'einstieg': 'Ein Rechenmodell beschreibt die Höhe einer Achterbahnstrecke über dem Boden. An manchen Stellen fährt die Bahn genau auf Bodenhöhe, '
+              'dazwischen geht es auf einen Hügel oder hinunter in einen Graben. Gesucht sind die Stellen, an denen die Höhe 0 ist. '
+              'Weil in jedem Teil der Rechnung derselbe Faktor steckt, kann man ihn nach vorn ziehen – das heißt ⟦Ausklammern⟧.',
+  'woerter': [['x', 'die Stelle entlang der Strecke'],
+              ['x³ und x²', 'x · x · x und x · x'],
+              ['Zahlglied', 'ein Teil ohne x, also eine reine Zahl; in x³ − 5x² + 6x fehlt es'],
+              ['ausklammern', 'einen gemeinsamen Faktor vor eine Klammer ziehen: x³ − 5x² + 6x = x · (x² − 5x + 6)'],
+              ['Satz vom Nullprodukt', 'ein Produkt ist 0, wenn mindestens einer der Faktoren 0 ist'],
+              ['quadratische Gleichung', 'eine Gleichung mit x² als höchster Potenz; lösbar mit der Lösungsformel'],
+              ['x₁, x₂, x₃', 'die erste, zweite und dritte Lösung']],
+  'bild': {'typ': 'koordinaten', 'x': [-1, 4], 'y': [-4, 4], 'graphen': [{'art': 'poly', 'k': [0, 6, -5, 1], 'name': 'Höhe'}],
+           'punkte': [{'x': 0, 'y': 0}, {'x': 2, 'y': 0}, {'x': 3, 'y': 0}], 'name_x': 'Stelle x', 'name_y': 'Höhe'},
+  'schritte': ['Die Höhe ist 0, wenn x³ − 5x² + 6x = 0 gilt. In allen drei Teilen steckt mindestens ein x.',
+               'Ein x ausklammern: x · (x² − 5x + 6) = 0.',
+               'Ein Produkt ist 0, wenn ein Faktor 0 ist. Also ist x = 0 oder x² − 5x + 6 = 0.',
+               'Die quadratische Gleichung hat die Lösungen 2 und 3, denn x² − 5x + 6 = (x − 2)(x − 3). Zusammen: ⟦x₁ = 0, x₂ = 2, x₃ = 3⟧.'],
+  'regel': 'So löst du eine Gleichung ohne Zahlglied: die ⟦höchste gemeinsame Potenz von x ausklammern⟧. Dann nach dem ⟦Satz vom Nullprodukt⟧ '
+           'jeden Faktor einzeln gleich 0 setzen und lösen.',
+  'fehler': 'x³ − 5x² + 6x = 0 durch x zu teilen ist falsch: Dabei geht die Lösung ⟦x = 0⟧ verloren – dabei startet die Bahn genau dort auf Bodenhöhe. '
+            'Durch x darf man nicht teilen, wenn x auch 0 sein kann. Ausklammern statt teilen.'},
+ 'nullprodukt': {
+  'einstieg': 'Beim Einkaufen gilt: Anzahl mal Preis ergibt den Betrag. Der Betrag ist nur dann 0 €, wenn man nichts kauft oder wenn die Ware nichts kostet. '
+              'Allgemein ist ein Produkt genau dann 0, wenn einer der Faktoren 0 ist. Steht eine Gleichung schon als Malaufgabe aus Klammern da, '
+              'liest man ihre Lösungen deshalb Klammer für Klammer ab. Diese Schreibweise heißt ⟦Produktform⟧.',
+  'woerter': [['Produktform', 'die linke Seite ist als Malaufgabe aus Klammern geschrieben, z. B. (x + 2)(x² − 9)'],
+              ['Faktor', 'eine der Klammern, die miteinander malgenommen werden'],
+              ['(x + 2)(x² − 9)', 'zwei Klammern direkt nebeneinander bedeuten: malnehmen'],
+              ['±3', '„plus oder minus 3“: beide Zahlen 3 und −3'],
+              ['L = {−3; −2; 3}', 'die Lösungsmenge: alle Lösungen in geschweiften Klammern']],
+  'schritte': ['Gegeben ist (x + 2)(x² − 9)(x² + 1) = 0. Hier werden drei Faktoren malgenommen.',
+               'Erster Faktor: x + 2 = 0 ergibt x = −2.',
+               'Zweiter Faktor: x² − 9 = 0 heißt x² = 9. Das gilt für x = 3 und für x = −3, denn auch (−3)² = 9.',
+               'Dritter Faktor: x² + 1 = 0 würde x² = −1 verlangen. Ein Quadrat ist nie negativ, also kommt hier nichts dazu. Zusammen: ⟦L = {−3; −2; 3}⟧.'],
+  'regel': 'So liest du die Produktform: ⟦jeden Faktor einzeln gleich 0 setzen⟧ und lösen. Ein Faktor wie x² + 1 ist immer mindestens 1 '
+           'und liefert ⟦keine Lösung⟧.',
+  'fehler': 'Aus x² + 1 = 0 die Lösung x = −1 abzulesen ist falsch: (−1)² + 1 = 1 + 1 = 2 und nicht 0. Ein ⟦Quadrat plus eine positive Zahl⟧ ist nie 0 – '
+            'wie eine Bestellung mit Versandkosten, die nie 0 € kostet.'},
+ 'substitution': {
+  'einstieg': 'In der Klasse sagt niemand „Maximilian Alexander“, alle sagen kurz „Max“ – gemeint ist trotzdem dieselbe Person. '
+              'Bei Gleichungen geht das genauso. In x⁴ − 10x² + 9 = 0 kommt x nur als x² und als x⁴ = (x²)² vor. '
+              'Gibt man x² den Kurznamen z, wird daraus eine quadratische Gleichung. Dieses Umbenennen heißt ⟦Substitution⟧.',
+  'woerter': [['x⁴', 'x · x · x · x, also (x²)²'],
+              ['biquadratische Gleichung', 'eine Gleichung der Form ax⁴ + bx² + c = 0: nur x⁴, x² und eine Zahl'],
+              ['a, b, c', 'Platzhalter für feste Zahlen'],
+              ['Substitution', 'einen Teil durch einen neuen Buchstaben ersetzen, hier z = x²'],
+              ['z₁, z₂', 'die beiden Lösungen der Gleichung mit z'],
+              ['Rücksubstitution', 'am Ende wieder x² statt z schreiben und nach x lösen'],
+              ['z ≥ 0', 'z ist größer oder gleich 0']],
+  'schritte': ['Gegeben ist x⁴ − 10x² + 9 = 0. Setze z = x², dann ist x⁴ = z².',
+               'Die Gleichung heißt jetzt z² − 10z + 9 = 0. Sie hat die Lösungen z₁ = 1 und z₂ = 9, denn z² − 10z + 9 = (z − 1)(z − 9).',
+               'Rücksubstitution: Aus x² = 1 folgt x = 1 oder x = −1. Aus x² = 9 folgt x = 3 oder x = −3.',
+               'Alle vier Lösungen zusammen: ⟦L = {−3; −1; 1; 3}⟧.'],
+  'regel': 'So löst du ⟦ax⁴ + bx² + c = 0⟧: ⟦z = x² setzen⟧ und az² + bz + c = 0 lösen. Dann ⟦rücksubstituieren⟧: x² = z₁ und x² = z₂ lösen. '
+           'Nur ein z ≥ 0 liefert Lösungen für x.',
+  'fehler': 'Mit z₁ = 1 und z₂ = 9 aufzuhören ist unvollständig. Gefragt ist nach x, nicht nach dem Kurznamen z – wie wenn im Zeugnis nur „Max“ stünde. '
+            'Erst die ⟦Rücksubstitution⟧ liefert die vier Lösungen.'},
+ 'vielfachheit': {
+  'einstieg': 'Zurück zur Achterbahn. An manchen Stellen auf Bodenhöhe fährt die Bahn durch und taucht auf der anderen Seite in einen Graben ab. '
+              'An anderen Stellen setzt sie nur kurz auf und steigt wieder. Ob sie hindurchfährt oder nur aufsetzt, verrät die ⟦Vielfachheit⟧ der Nullstelle.',
+  'woerter': [['Nullstelle', 'eine Stelle x, an der der Wert 0 ist (Bahn auf Bodenhöhe)'],
+              ['f(x)', 'der Wert der Funktion f an der Stelle x (hier: die Höhe)'],
+              ['(x − 1)²', 'der Faktor (x − 1) kommt zweimal vor'],
+              ['k-fache Nullstelle', 'der Faktor kommt k-mal vor: doppelt heißt 2-mal, dreifach 3-mal'],
+              ['Vorzeichenwechsel', 'die Werte wechseln von positiv zu negativ oder umgekehrt (die Bahn fährt durch den Boden)'],
+              ['berühren', 'der Graph setzt auf der x-Achse auf und kehrt um, ohne sie zu kreuzen'],
+              ['gerade, ungerade', '2, 4, 6 … sind gerade Zahlen; 1, 3, 5 … ungerade']],
+  'schritte': ['Gegeben ist f(x) = (x − 1)²(x + 2)³. Die Nullstellen sind 1 und −2.',
+               'Der Faktor (x − 1) steht zweimal da, also ist 1 eine doppelte Nullstelle. Der Faktor (x + 2) steht dreimal da, also ist −2 eine dreifache Nullstelle.',
+               'Bei x = 1: (x − 1)² ist links und rechts von 1 positiv. Das Vorzeichen von f ändert sich nicht, der Graph ⟦berührt⟧ die x-Achse nur.',
+               'Bei x = −2: (x + 2)³ ist links von −2 negativ und rechts davon positiv. Dort gibt es einen ⟦Vorzeichenwechsel⟧, der Graph schneidet die x-Achse.'],
+  'regel': 'So liest du die Vielfachheit: Kommt der Faktor (x − a) ⟦k-mal⟧ vor, ist a eine ⟦k-fache Nullstelle⟧. Ungerades k: ⟦Vorzeichenwechsel⟧, '
+           'der Graph schneidet. Gerades k: kein Wechsel, der Graph berührt die x-Achse nur.',
+  'fehler': '„(x − 1)² hat die Nullstellen 1 und −1“ ist falsch: Für x = −1 ist (−1 − 1)² = 4 und nicht 0. (x − 1)² ist nur für x = 1 gleich 0 – '
+            'das ist ⟦eine doppelte⟧ Nullstelle, an der die Bahn nur aufsetzt.'},
+ 'verstehen': {
+  'einstieg': 'Wie oft kann die Achterbahn auf Bodenhöhe sein? Das hängt von der höchsten Potenz in ihrer Gleichung ab. '
+              'Eine Gleichung mit x⁴ hat höchstens vier Lösungen – es können aber auch weniger sein oder gar keine. Diese höchste Potenz heißt ⟦Grad⟧.',
+  'woerter': [['Grad', 'die höchste Hochzahl von x in der Gleichung; bei x⁴ + 3x² + 2 ist er 4'],
+              ['n-ten Grades', 'mit dem Grad n; n steht für eine Zahl'],
+              ['höchstens', 'diese Anzahl oder weniger'],
+              ['≥', '„größer oder gleich“']],
+  'schritte': ['Behauptung: x⁴ + 3x² + 2 = 0 hat vier Lösungen, weil der Grad 4 ist.',
+               'x⁴ und x² sind Quadrate (x⁴ = (x²)²), also nie negativ: x⁴ ≥ 0 und 3x² ≥ 0.',
+               'Deshalb ist die linke Seite immer mindestens 0 + 0 + 2 = 2. Sie kann nie 0 werden.',
+               'Die Gleichung hat ⟦keine Lösung⟧. Der Grad 4 sagt nur: höchstens vier Lösungen.'],
+  'regel': 'So schätzt du die Zahl der Lösungen ab: Eine Gleichung n-ten Grades hat ⟦höchstens n⟧ Lösungen. Bei geradem Grad kann es ⟦keine⟧ geben, '
+           'bei ungeradem Grad gibt es ⟦mindestens eine⟧.',
+  'fehler': '„Grad 4 heißt genau 4 Lösungen“ ist falsch. Der Grad nennt nur die ⟦Höchstzahl⟧ – wie ein Aufzug „für höchstens 4 Personen“, '
+            'der auch mit einer Person oder leer fährt.'},
+}
+
 GEN = schoen({'ausklammern': g_ausklammern, 'nullprodukt': g_nullprodukt, 'substitution': g_substitution, 'vielfachheit': g_vielfachheit,
               'verstehen': g_verstehen})
 
@@ -310,7 +406,7 @@ if __name__ == '__main__':
           ['Kein Zahlglied: höchste gemeinsame x-Potenz ausklammern (nie durch x teilen).', 'Produkt = 0: jeden Faktor null setzen.',
            'Biquadratisch: z = x², quadratisch lösen, rücksubstituieren (nur z ≥ 0).', 'k-fache Nullstelle: ungerade k mit, gerade k ohne Vorzeichenwechsel.'],
           [('Lösungsverfahren', ['ausklammern', 'nullprodukt', 'substitution']), ('Nullstellen deuten', ['vielfachheit', 'verstehen'])],
-          ETAPPEN, GEN,
+          ETAPPEN, GEN, klar=KLAR,
           meiden={'ausklammern': ['x³ − 5x² + 6x = 0'], 'substitution': ['x⁴ − 10x² + 9 = 0'], 'verstehen': ['x⁴ + 3x² + 2 = 0', 'x⁴ − 10x² + 9 = 0']},
           offen=['Zeichnungen: Graphen in den Lernkarten „ausklammern“, „substitution“, „vielfachheit“, „verstehen“; Aufgaben zum Vorzeichenwechsel und „Welcher Term passt zum Graphen?“ zeigen den Graphen. Selbst skizzieren kann das Kind in der App noch nicht (Lehrplan: „Graph skizzieren“).',
                  'Polynomdivision ist nicht enthalten (lehrplan_gym nennt nur Ausklammern und Substitution).',

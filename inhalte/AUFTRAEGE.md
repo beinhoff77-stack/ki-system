@@ -910,3 +910,50 @@ Abschlussbericht mit den Listen „ersetzt“ (alte Fragetexte je Thema), „nic
 ```
 
 Einspielen (Haupt-Chat): einheit_abgleichen(…, 'lassen') übernimmt geänderte Stufen, Lösungen, Tipps und Lösungswege und fügt Ersatz-Aufgaben ein; die alten Fassungen aus „ersetzt“ danach sperren (freigegeben = false).
+
+# Bau-Auftrag E-1 (App): Eltern-/Lehrerseite – Sofort-Speichern, Info-Seite, Reisewörter
+
+Erster Auftrag an einen eigenen Bau-Chat für App-Code. Regel: Es baut immer nur EIN Chat am App-Code. Solange der Bau-Chat arbeitet, ändert der Haupt-Chat
+lernen.js, style.css und tests/ nicht; er führt den Zweig danach zusammen und spielt Datenbank-Änderungen ein.
+
+```text
+Du baust an der Lern-App „Lernen Schule“ (Mathe, Kinder und Eltern/Lehrer). Du bist der Bau-Chat für App-Code.
+Repository: beinhoff77-stack/ki-system (lernen-app ist ein Zweig darin). Hole den aktuellen Stand des Zweigs lernen-app, lege davon den Zweig bau-eltern an und arbeite nur dort.
+
+Lies zuerst: AGENTS.md, inhalte/postfach/README.md und in inhalte/postfach/antworten.md die Einträge vom 16.11. (aktueller Stand der App und der Lernregeln).
+Nur lesen, nicht mergen (mit git show):
+- origin/pruefung-kinderansicht:inhalte/pruefung/UMBAU-AUFTRAG.md (Gesamtauftrag, Phasen, Wörter)
+- origin/pruefung-eltern:inhalte/pruefung/eltern/umsetzung.md (Pakete E-1 bis E-4 mit Prüfpunkten)
+- origin/pruefung-eltern:inhalte/pruefung/eltern/info-seite.md (Text der Info-Seite)
+- origin/pruefung-eltern:inhalte/pruefung/eltern/bericht.md und rundgang.test.cjs (Befunde und Nachprüf-Skript)
+Der App-Code der Lern-App steht in lernen.js (alle Ansichten), style.css, lernen/index.html, lernen/schule.js; Tests in tests/lernen.test.cjs.
+Eltern-/Lehrer-Ansichten in lernen.js: viewLernen (Startseite), lernElternBereich, viewPlan (Themenplan), viewLernstand, viewInhalte, viewLehrplan, viewRueckmeldungen, viewZugaenge.
+
+Auftrag jetzt (Paket E-1, Phase 1):
+1. Themenplan (viewPlan): Jede Änderung (verschieben, hinzufügen, entfernen, „kann schon“) wird sofort gespeichert (Aktion schule_plan_setzen mit revision). Der Knopf „Plan speichern“
+   entfällt. Nach jeder Änderung erscheint kurz „Gespeichert · Rückgängig“; „Rückgängig“ stellt den Zustand vor der letzten Änderung wieder her. Bei Versionskonflikt
+   (jemand anderes hat den Plan geändert) eine klare Meldung mit Knopf „Neu laden“; nichts überschreiben.
+2. Info-Seite „So funktioniert’s“ mit den Teilen „Erste Schritte“ und „Fragen“. Text aus info-seite.md, in Reisewörtern. Erreichbar mit einem Tipp oben rechts auf der Startseite
+   der Eltern/Lehrer und im Themenplan. Prüfe jeden Satz der Info-Seite gegen den Code und die Einträge vom 16.11. in antworten.md; gilt eine Regel inzwischen anders, schreibe den
+   aktuellen Stand. Aktuell gilt u. a.: Eine neue Etappe zeigt zuerst die Erklärung. Eine Etappe sitzt nach 6 Punkten (richtig im ersten Versuch ohne Hilfe +1, Fehler −2) und mindestens
+   einer schweren Bordkarte im ersten Versuch. Bei einem Fehler gibt es zuerst einen zweiten Versuch. Wiederholungen kommen nach 1, 3, 7, 14, 30 Lerntagen, höchstens 6 vor einem Flug.
+3. Reisewörter jetzt auch in ALLEN Texten für Eltern und Lehrer: Thema → Flug, Lernkarte → Etappe, Aufgabe → Bordkarte, Gebiet → Kontinent, Stadt → Ort
+   (auch „Themenplan“ → „Flugplan“, „Lernziel“ → „Etappe“). Auf Geschlecht und Fall achten („dieses Thema“ → „dieser Flug“). Intern (Code, Datenbank, inhalte/README.md)
+   bleiben die bisherigen Namen. In den Kinderansichten ist das schon umgesetzt – dort nichts zurückändern.
+
+Arbeitsweise:
+- Tests: cd in das Repository, dann `node --test tests/lernen.test.cjs` (Playwright mit Chromium; ist kein Browser vorinstalliert, den Pfad über PW_TEST_EXECUTABLE setzen).
+  Danach `git checkout -q -- docs/previews`. Alle Tests müssen durchlaufen; passe Erwartungen an neue Texte an und ergänze Tests für Sofort-Speichern, Rückgängig, Versionskonflikt
+  und Info-Seite. tests/search.test.cjs hat 10 bekannte alte Fehler, die nicht zu diesem Auftrag gehören.
+- Stelle zusätzlich das Nachprüf-Skript der Eltern-Runde nach (rundgang.test.cjs aus origin/pruefung-eltern vorübergehend an seinen Ort kopieren, laufen lassen, danach wieder entfernen –
+  nicht committen).
+- Version: aktuelle Nummer in sw.js suchen und überall erhöhen (sw.js, app.js, index.html, lernen/schule.js, lernen/index.html, tests/search.test.cjs), dazu den Cache-Namen 'vNNN'
+  in sw.js und tests/search.test.cjs um 1 erhöhen.
+- Datenbank und Serverfunktionen rührst du nicht an. Braucht ein Punkt eine Datenbank-Änderung, lege sie als Datei unter supabase/migrations/ ab (nicht ausführen) und melde es;
+  der Haupt-Chat spielt sie nach den Werkstatt-Regeln ein. E-1 sollte ohne Datenbank-Änderung auskommen.
+- Keine Schlüssel, Tokens, Zugangscodes oder Daten echter Kinder in Code, Commits oder Nachrichten. Kein Merge nach main und nicht nach lernen-app. Kleine, klare Commits; pushen auf bau-eltern.
+Meldung: inhalte/postfach/bau-eltern.md – am Ende ein Bericht: was gebaut ist, je Prüfpunkt aus umsetzung.md „erfüllt/nicht erfüllt“, was nicht geprüft werden konnte, offene Fragen.
+Arbeite ohne Rückfragen durch. Die Pakete E-2 bis E-4 NICHT beginnen – dafür kommt ein eigener Auftrag.
+```
+
+Danach (Haupt-Chat): Zweig bau-eltern prüfen, nach lernen-app zusammenführen, Meldung „Phase 1 (E-1)“ ins Postfach.

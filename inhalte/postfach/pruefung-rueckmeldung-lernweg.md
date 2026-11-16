@@ -1,5 +1,12 @@
 # Postfach pruefung-rueckmeldung-lernweg (Rückmeldung nach Fehlern und Lernweg)
 
+## 2026-11-16 03:55 – FERTIG
+Aufteilung „wer macht was“: `inhalte/pruefung/rueckmeldung/umsetzung.md`.
+- Haupt-Chat: R1 sofort (V1 Flächen, V5 gemerkte Lösung, V6 Wiederholungsfehler – DB, V7 Meldungen, V10, V11), dann R2 (V3 Fehlermuster – DB, V2 zweiter Versuch, V8), dann R3 (V9 Lerntage, V12).
+- R2 nach A9 aus dem Erklärungs-Umbau (gleiche Stelle `zeichneUeben`), beides in einer Hand.
+- Inhalts-Chats: R4 Fehlbilder `fb` – erst nach R2 und nach Auswertung echter Fehler.
+- Sebastian: Freigabe Datenauswertung, Ausprobieren nach R1, Zahl bei V9.
+
 ## 2026-11-16 03:40 – FERTIG
 Bericht: `inhalte/pruefung/rueckmeldung/bericht.md`, Nachstellung `…/rueckmeldung/nachstellen.test.cjs` (+ `protokoll.json`, `bilder/`).
 Nichts an App, Tests, Datenbank oder Inhalten geändert; Datenbankfunktionen nur gelesen.

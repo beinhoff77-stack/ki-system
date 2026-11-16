@@ -3969,6 +3969,768 @@
     "text": "Welche Zahl ist am kleinsten? 5,5 · 10⁻² | 1,5 · 10⁻⁸ | 5,9 · 10⁻⁶ | 8,3 · 10⁻³"
    },
    "w": "Bei negativen Exponenten gilt: je kleiner der Exponent (hier −8 < −2), desto kleiner die Zahl. Am kleinsten: 1,5 · 10⁻⁸."
+  },
+  {
+   "l": "zehnerpotenz",
+   "t": "zehnerpotenz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zehnerpotenz 10ⁿ hat ausgeschrieben 9 Stellen. Wie groß ist n?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "9 - 1",
+   "h": "Die 1 ist auch eine Stelle. Wie viele Nullen bleiben?",
+   "w": "9 Stellen: eine 1 und 8 Nullen. Also 10⁸ und n = 8."
+  },
+  {
+   "l": "zehnerpotenz",
+   "t": "zehnerpotenz",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl liegt zwischen 10⁴ und 10⁵?"
+   },
+   "a": [
+    "3 500 000",
+    "3 500",
+    "350 000",
+    "35 000"
+   ],
+   "o": {
+    "index": 3
+   },
+   "h": "Schreibe 10⁴ und 10⁵ aus und vergleiche die Stellenzahl.",
+   "w": "10⁴ = 10 000 und 10⁵ = 100 000. Dazwischen liegt 35 000."
+  },
+  {
+   "l": "zehnerpotenz",
+   "t": "zehnerpotenz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Kiste liegen 10 Schachteln, in jeder Schachtel 10 Päckchen, in jedem Päckchen 1 000 Perlen. Wie viele Perlen sind in 100 Kisten? Gib das Ergebnis als 10ⁿ an. Wie groß ist n?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "2 + 1 + 1 + 3",
+   "h": "Schreibe jede Anzahl als Zehnerpotenz und zähle alle Nullen zusammen.",
+   "w": "100 · 10 · 10 · 1 000 = 10 000 000 = 10⁷. Die Nullen: 2 + 1 + 1 + 3 = 7, also n = 7."
+  },
+  {
+   "l": "zehnerpotenz",
+   "t": "zehnerpotenz",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Lena rechnet: 10³ = 30, denn 10 · 3 = 30. Was stimmt?"
+   },
+   "a": [
+    "Richtig, 10³ = 30.",
+    "Falsch: 10³ = 3 · 3 · 3 · … = 300.",
+    "Falsch: 10³ = 10 + 10 + 10 = 30.",
+    "Falsch: 10³ = 10 · 10 · 10 = 1 000."
+   ],
+   "o": {
+    "index": 3
+   },
+   "h": "Der Exponent sagt, wie oft die 10 als Faktor vorkommt.",
+   "w": "10³ heißt: dreimal die 10 als Faktor, 10 · 10 · 10 = 1 000. Lena hat 10 mit 3 malgenommen."
+  },
+  {
+   "l": "zehnerpotenz",
+   "t": "zehnerpotenz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zehnerpotenz 10ⁿ ist größer als eine Million, aber kleiner als eine Milliarde. Wie viele verschiedene Zahlen n sind möglich?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(9 - 6) - 1",
+   "h": "Eine Million ist 10⁶, eine Milliarde ist 10⁹. Welche Exponenten liegen echt dazwischen?",
+   "w": "Million = 10⁶, Milliarde = 10⁹. Echt dazwischen liegen nur 10⁷ und 10⁸. Also 2 Möglichkeiten."
+  },
+  {
+   "l": "zehnerpotenz",
+   "t": "zehnerpotenz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zahlenschloss hat 6 Rädchen mit den Ziffern 0 bis 9. Wie viele verschiedene Codes gibt es? Schreibe das Ergebnis als 10ⁿ. Wie groß ist n?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "h": "Für jedes Rädchen gibt es 10 Möglichkeiten. Wie oft nimmst du 10 mal?",
+   "w": "Jedes der 6 Rädchen hat 10 Ziffern: 10 · 10 · 10 · 10 · 10 · 10 = 10⁶ = 1 000 000 Codes, also n = 6."
+  },
+  {
+   "l": "gross_wissenschaftlich",
+   "t": "gross_wissenschaftlich",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Alle vier Angaben haben denselben Wert. Welche ist in wissenschaftlicher Schreibweise?"
+   },
+   "a": [
+    "12,5 · 10³",
+    "0,125 · 10⁵",
+    "125 · 10²",
+    "1,25 · 10⁴"
+   ],
+   "o": {
+    "index": 3
+   },
+   "h": "Vor dem Komma muss genau eine Ziffer von 1 bis 9 stehen.",
+   "w": "Nur bei 1,25 · 10⁴ steht vor dem Komma genau eine Ziffer (1). Alle anderen haben 0 oder zwei oder drei Ziffern vor dem Komma."
+  },
+  {
+   "l": "gross_wissenschaftlich",
+   "t": "gross_wissenschaftlich",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Sonne ist etwa 150 Millionen km von der Erde entfernt. Schreibe die Zahl als a · 10ⁿ km. Wie groß ist n?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "6 + 2",
+   "h": "Schreibe 150 Millionen zuerst ganz aus: 150 000 000.",
+   "w": "150 Millionen = 150 000 000 = 1,5 · 10⁸. Das Komma wandert 8 Stellen, also n = 8 (nicht 6)."
+  },
+  {
+   "l": "gross_wissenschaftlich",
+   "t": "gross_wissenschaftlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Papierstapel hat 2,5 Millionen Blätter. Jedes Blatt ist 0,1 mm dick. Wie hoch ist der Stapel in Metern?"
+   },
+   "o": {
+    "wert": 250,
+    "einheit": "m"
+   },
+   "c": "2500000 * 0.1 / 1000",
+   "h": "Rechne zuerst die Höhe in mm aus, dann in m um (1 m = 1 000 mm).",
+   "w": "2 500 000 · 0,1 mm = 250 000 mm. 250 000 mm : 1 000 = 250 m."
+  },
+  {
+   "l": "gross_wissenschaftlich",
+   "t": "gross_wissenschaftlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Becken sind 3 · 10⁹ Keime. Eine Anlage entfernt so viele, dass nur ein Hundertstel übrig bleibt. Wie viele Keime bleiben? Schreibe das Ergebnis als a · 10ⁿ. Wie groß ist n?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "9 - 2",
+   "h": "Ein Hundertstel heißt: durch 100 teilen. Wie ändert sich der Exponent?",
+   "w": "3 · 10⁹ : 100 = 3 · 10⁹ : 10² = 3 · 10⁷. Es bleiben 30 Millionen Keime, n = 7."
+  },
+  {
+   "l": "gross_wissenschaftlich",
+   "t": "gross_wissenschaftlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahl 4,5 · 10ⁿ hat ausgeschrieben genau 11 Stellen. Wie groß ist n?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "11 - 1",
+   "h": "Probiere klein: 4,5 · 10¹ = 45 hat 2 Stellen. Wie hängen Stellen und n zusammen?",
+   "w": "4,5 · 10ⁿ hat immer n + 1 Stellen (45 hat 2 Stellen bei n = 1). 11 Stellen heißt n = 10."
+  },
+  {
+   "l": "gross_wissenschaftlich",
+   "t": "gross_wissenschaftlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Tom rechnet: 3 · 10⁴ + 5 · 10⁴ = 8 · 10⁸. Was ist richtig?"
+   },
+   "a": [
+    "Tom hat recht: 8 · 10⁸.",
+    "15 · 10⁴, denn 3 · 5 = 15.",
+    "8 · 10¹⁶, denn 4 · 4 = 16.",
+    "8 · 10⁴, denn 3 Zehntausender und 5 Zehntausender sind 8 Zehntausender."
+   ],
+   "o": {
+    "index": 3
+   },
+   "h": "Schreibe beide Zahlen aus: 30 000 + 50 000.",
+   "w": "30 000 + 50 000 = 80 000 = 8 · 10⁴. Beim Addieren bleibt die Zehnerpotenz gleich."
+  },
+  {
+   "l": "vorsilben_gross",
+   "t": "vorsilben_gross",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 0,45 GW = ? MW"
+   },
+   "o": {
+    "wert": 450,
+    "einheit": "MW"
+   },
+   "c": "0.45 * 1000",
+   "h": "Giga ist 10⁹, Mega ist 10⁶. Ein GW sind also 1 000 MW.",
+   "w": "0,45 GW = 0,45 · 1 000 MW = 450 MW."
+  },
+  {
+   "l": "vorsilben_gross",
+   "t": "vorsilben_gross",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Leistung ist am größten?"
+   },
+   "a": [
+    "3 500 kW",
+    "2 000 000 W",
+    "0,3 GW",
+    "45 MW"
+   ],
+   "o": {
+    "index": 2
+   },
+   "h": "Rechne alle Angaben in MW um.",
+   "w": "0,3 GW = 300 MW; 3 500 kW = 3,5 MW; 45 MW; 2 000 000 W = 2 MW. Am größten ist 0,3 GW."
+  },
+  {
+   "l": "vorsilben_gross",
+   "t": "vorsilben_gross",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Spiel ist 60 GB groß. Der Download schafft 25 MB pro Sekunde. Wie viele Minuten dauert der Download? (1 GB = 1 000 MB)"
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "min"
+   },
+   "c": "60 * 1000 / 25 / 60",
+   "h": "Rechne GB in MB um, teile durch 25 MB pro Sekunde und rechne die Sekunden in Minuten um.",
+   "w": "60 GB = 60 000 MB. 60 000 : 25 = 2 400 s. 2 400 s : 60 = 40 min."
+  },
+  {
+   "l": "vorsilben_gross",
+   "t": "vorsilben_gross",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Solaranlage liefert im Jahr 8 MWh Strom. Ein Haushalt braucht im Jahr 3 200 kWh. Für wie viele Haushalte reicht der Strom vollständig?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(8 * 1000) // 3200",
+   "h": "Rechne MWh in kWh um. Achtung: Nur ganze Haushalte zählen.",
+   "w": "8 MWh = 8 000 kWh. 8 000 : 3 200 = 2,5. Für den dritten Haushalt reicht es nicht, also 2 Haushalte."
+  },
+  {
+   "l": "vorsilben_gross",
+   "t": "vorsilben_gross",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Kilobyte (kB) sind ein Terabyte (TB)? Schreibe das Ergebnis als 10ⁿ. Wie groß ist n?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "12 - 3",
+   "h": "Tera = 10¹², Kilo = 10³. Wie oft passt 10³ in 10¹²?",
+   "w": "1 TB = 10¹² B, 1 kB = 10³ B. 10¹² : 10³ = 10⁹, also n = 9."
+  },
+  {
+   "l": "vorsilben_gross",
+   "t": "vorsilben_gross",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Mia rechnet: 2,5 MW = 2 500 W. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: Man muss teilen, 2,5 MW = 0,0025 W.",
+    "Falsch: Mega heißt 10⁹, also 2 500 000 000 W.",
+    "Falsch: Mega heißt 10⁶, also 2,5 MW = 2 500 000 W."
+   ],
+   "o": {
+    "index": 3
+   },
+   "h": "Welche Zehnerpotenz steht für M? Mia hat mit Kilo gerechnet.",
+   "w": "M = 10⁶. 2,5 · 1 000 000 W = 2 500 000 W. Mia hat nur mit 1 000 (Kilo) malgenommen."
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zehnerpotenz ist gleich dem Bruch 1/1 000?"
+   },
+   "a": [
+    "10⁻³",
+    "10³",
+    "−10³",
+    "10⁻⁴"
+   ],
+   "o": {
+    "index": 0
+   },
+   "h": "1/1 000 = 0,001. Wie viele Stellen nach dem Komma?",
+   "w": "1/1 000 = 0,001 = 10⁻³ (die 1 steht an der 3. Stelle nach dem Komma)."
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl liegt zwischen 10⁻³ und 10⁻²?"
+   },
+   "a": [
+    "0,05",
+    "0,005",
+    "0,5",
+    "0,0005"
+   ],
+   "o": {
+    "index": 1
+   },
+   "h": "Schreibe 10⁻³ und 10⁻² als Dezimalzahl.",
+   "w": "10⁻³ = 0,001 und 10⁻² = 0,01. Dazwischen liegt 0,005."
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Mal so groß ist 10² wie 10⁻²?"
+   },
+   "o": {
+    "wert": 10000
+   },
+   "c": "100 / (1/100)",
+   "h": "Schreibe beide Zahlen aus: 100 und 0,01.",
+   "w": "10² = 100, 10⁻² = 0,01. 100 : 0,01 = 10 000. 100 ist 10 000-mal so groß."
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahl 10⁻ⁿ hat nach dem Komma genau 6 Nullen und dann die 1. Wie groß ist n?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "6 + 1",
+   "h": "Probiere klein: 10⁻² = 0,01 hat eine Null nach dem Komma.",
+   "w": "0,0000001: Die 1 steht an der 7. Stelle nach dem Komma. Also 10⁻⁷, n = 7 (nicht 6)."
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ben sagt: „10⁻⁴ ist größer als 10⁻², weil 4 größer ist als 2.“ Was stimmt?"
+   },
+   "a": [
+    "Ben hat recht.",
+    "Falsch: Beide Zahlen sind gleich groß.",
+    "Falsch: 10⁻⁴ ist eine negative Zahl.",
+    "Falsch: 10⁻⁴ = 0,0001 ist kleiner als 10⁻² = 0,01."
+   ],
+   "o": {
+    "index": 3
+   },
+   "h": "Schreibe beide Zahlen als Dezimalzahl.",
+   "w": "10⁻⁴ = 0,0001 und 10⁻² = 0,01. Je weiter rechts die 1 steht, desto kleiner die Zahl. Ben irrt."
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen Exponenten n musst du einsetzen, damit 0,01 · 10ⁿ = 1 000 gilt?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "2 + 3",
+   "h": "Mit welcher Zahl musst du 0,01 malnehmen, um 1 000 zu erhalten?",
+   "w": "0,01 · 100 = 1 und 1 · 1 000 = 1 000. Zusammen 100 · 1 000 = 100 000 = 10⁵, also n = 5."
+  },
+  {
+   "l": "klein_wissenschaftlich",
+   "t": "klein_wissenschaftlich",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 0,000307 in wissenschaftlicher Schreibweise a · 10ⁿ. Wie groß ist a?"
+   },
+   "o": {
+    "wert": 3.07
+   },
+   "c": "307 / 100",
+   "h": "Verschiebe das Komma, bis genau eine Ziffer von 1 bis 9 davor steht.",
+   "w": "0,000307 = 3,07 · 10⁻⁴. Also a = 3,07."
+  },
+  {
+   "l": "klein_wissenschaftlich",
+   "t": "klein_wissenschaftlich",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Nullen stehen direkt nach dem Komma, wenn du 4,2 · 10⁻⁶ ausschreibst?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "6 - 1",
+   "h": "Die erste Ziffer 4 steht an der 6. Stelle nach dem Komma.",
+   "w": "4,2 · 10⁻⁶ = 0,0000042. Vor der 4 stehen 5 Nullen nach dem Komma."
+  },
+  {
+   "l": "klein_wissenschaftlich",
+   "t": "klein_wissenschaftlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Alufolie ist 1,5 · 10⁻⁵ m dick. Wie viele Lagen übereinander ergeben 3 mm?"
+   },
+   "o": {
+    "wert": 200
+   },
+   "c": "(3/1000) / (15/1000000)",
+   "h": "Rechne beide Längen in dieselbe Einheit um: 1,5 · 10⁻⁵ m = 0,015 mm.",
+   "w": "1,5 · 10⁻⁵ m = 0,000015 m = 0,015 mm. 3 mm : 0,015 mm = 200 Lagen."
+  },
+  {
+   "l": "klein_wissenschaftlich",
+   "t": "klein_wissenschaftlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Plastiktüte ist 0,02 mm dick. Wie hoch wäre ein Stapel aus 5 Millionen Tüten? Gib das Ergebnis in Metern an."
+   },
+   "o": {
+    "wert": 100,
+    "einheit": "m"
+   },
+   "c": "5000000 * 0.02 / 1000",
+   "h": "Höhe = Anzahl · Dicke. Danach mm in m umrechnen.",
+   "w": "5 000 000 · 0,02 mm = 100 000 mm = 100 m."
+  },
+  {
+   "l": "klein_wissenschaftlich",
+   "t": "klein_wissenschaftlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kind schreibt: 0,00058 = 5,8 · 10⁻³. Was stimmt?"
+   },
+   "a": [
+    "Falsch: richtig ist 58 · 10⁻⁵.",
+    "Alles ist richtig.",
+    "Falsch: Der Exponent muss positiv sein.",
+    "Falsch: richtig ist 5,8 · 10⁻⁴."
+   ],
+   "o": {
+    "index": 3
+   },
+   "h": "Zähle, um wie viele Stellen das Komma nach rechts wandert, bis 5,8 dasteht.",
+   "w": "Von 0,00058 bis 5,8 wandert das Komma 4 Stellen nach rechts. Also 5,8 · 10⁻⁴. 58 · 10⁻⁵ hat den gleichen Wert, ist aber nicht wissenschaftlich."
+  },
+  {
+   "l": "klein_wissenschaftlich",
+   "t": "klein_wissenschaftlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "7 · 10⁻⁴ wird durch 1 000 geteilt. Das Ergebnis ist 7 · 10ⁿ. Wie groß ist n?"
+   },
+   "o": {
+    "wert": -7
+   },
+   "c": "-4 - 3",
+   "h": "Durch 1 000 teilen heißt: Komma 3 Stellen nach links. Was passiert mit dem Exponenten?",
+   "w": "7 · 10⁻⁴ = 0,0007. 0,0007 : 1 000 = 0,0000007 = 7 · 10⁻⁷. Also n = −7."
+  },
+  {
+   "l": "vorsilben_klein",
+   "t": "vorsilben_klein",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 0,35 mm = ? µm"
+   },
+   "o": {
+    "wert": 350,
+    "einheit": "µm"
+   },
+   "c": "0.35 * 1000",
+   "h": "1 mm = 1 000 µm.",
+   "w": "0,35 mm = 0,35 · 1 000 µm = 350 µm."
+  },
+  {
+   "l": "vorsilben_klein",
+   "t": "vorsilben_klein",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Länge ist am kleinsten?"
+   },
+   "a": [
+    "2 · 10⁻⁶ m",
+    "0,5 µm",
+    "0,001 mm",
+    "400 nm"
+   ],
+   "o": {
+    "index": 3
+   },
+   "h": "Rechne alle Längen in nm um (1 µm = 1 000 nm).",
+   "w": "0,5 µm = 500 nm; 0,001 mm = 1 µm = 1 000 nm; 2 · 10⁻⁶ m = 2 µm = 2 000 nm. Am kleinsten: 400 nm."
+  },
+  {
+   "l": "vorsilben_klein",
+   "t": "vorsilben_klein",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rotes Blutkörperchen ist etwa 7,5 µm breit. Wie viele liegen nebeneinander auf einer Strecke von 3 mm?"
+   },
+   "o": {
+    "wert": 400
+   },
+   "c": "3 * 1000 / 7.5",
+   "h": "Rechne 3 mm in µm um. Dann teilen.",
+   "w": "3 mm = 3 000 µm. 3 000 : 7,5 = 400."
+  },
+  {
+   "l": "vorsilben_klein",
+   "t": "vorsilben_klein",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kamera braucht für ein Bild 4 ms. Wie viele Bilder schafft sie höchstens in 1,2 s?"
+   },
+   "o": {
+    "wert": 300
+   },
+   "c": "1.2 * 1000 / 4",
+   "h": "Rechne 1,2 s in ms um (1 s = 1 000 ms).",
+   "w": "1,2 s = 1 200 ms. 1 200 : 4 = 300 Bilder."
+  },
+  {
+   "l": "vorsilben_klein",
+   "t": "vorsilben_klein",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Nanometer sind ein Millimeter? Schreibe das Ergebnis als 10ⁿ. Wie groß ist n?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "9 - 3",
+   "h": "Milli = 10⁻³, Nano = 10⁻⁹. Wie oft passt 10⁻⁹ in 10⁻³?",
+   "w": "1 mm = 10⁻³ m, 1 nm = 10⁻⁹ m. 10⁻³ : 10⁻⁹ = 10⁶. Also 1 mm = 1 000 000 nm, n = 6."
+  },
+  {
+   "l": "vorsilben_klein",
+   "t": "vorsilben_klein",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jonas schreibt: 250 µm = 0,25 m. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: 250 µm = 0,25 mm = 0,00025 m.",
+    "Falsch: 250 µm = 250 000 m.",
+    "Falsch: 250 µm = 2,5 m."
+   ],
+   "o": {
+    "index": 1
+   },
+   "h": "1 000 µm sind 1 mm. Wie viele mm sind 250 µm? Und wie viele m?",
+   "w": "250 µm : 1 000 = 0,25 mm. 0,25 mm : 1 000 = 0,00025 m. Jonas hat nur einmal durch 1 000 geteilt."
+  },
+  {
+   "l": "vergleichen_pruefen",
+   "t": "vergleichen_pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist am größten?"
+   },
+   "a": [
+    "9,9 · 10⁴",
+    "0,8 · 10⁵",
+    "1,1 · 10⁵",
+    "99 000"
+   ],
+   "o": {
+    "index": 2
+   },
+   "h": "Schreibe alle Zahlen aus.",
+   "w": "1,1 · 10⁵ = 110 000; 9,9 · 10⁴ = 99 000; 0,8 · 10⁵ = 80 000. Am größten: 1,1 · 10⁵."
+  },
+  {
+   "l": "vergleichen_pruefen",
+   "t": "vergleichen_pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ordne der Größe nach, mit der kleinsten Zahl zuerst: 3 · 10⁻², 4 · 10⁻³, 2 · 10⁻¹, 5 · 10⁻⁴. Welche Zahl steht an zweiter Stelle?"
+   },
+   "a": [
+    "3 · 10⁻²",
+    "4 · 10⁻³",
+    "2 · 10⁻¹",
+    "5 · 10⁻⁴"
+   ],
+   "o": {
+    "index": 1
+   },
+   "h": "Je kleiner der Exponent, desto kleiner die Zahl.",
+   "w": "Exponenten: −4 < −3 < −2 < −1. Reihenfolge: 5 · 10⁻⁴, 4 · 10⁻³, 3 · 10⁻², 2 · 10⁻¹. An zweiter Stelle: 4 · 10⁻³."
+  },
+  {
+   "l": "vergleichen_pruefen",
+   "t": "vergleichen_pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „2 · 10⁶ ist doppelt so groß wie 10³.“"
+   },
+   "a": [
+    "Nein, 2 · 10⁶ ist 6-mal so groß.",
+    "Nein, 2 · 10⁶ ist 2 000-mal so groß wie 10³.",
+    "Ja, wegen der 2 vor der Zehnerpotenz.",
+    "Nein, 2 · 10⁶ ist 2-mal so klein."
+   ],
+   "o": {
+    "index": 1
+   },
+   "h": "Schreibe beide Zahlen aus und teile die größere durch die kleinere.",
+   "w": "2 · 10⁶ = 2 000 000 und 10³ = 1 000. 2 000 000 : 1 000 = 2 000."
+  },
+  {
+   "l": "vergleichen_pruefen",
+   "t": "vergleichen_pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Virus ist etwa 1 · 10⁻⁷ m lang, ein Bakterium etwa 2 · 10⁻⁶ m. Wie viel Mal so lang ist das Bakterium?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "(2/1000000) / (1/10000000)",
+   "h": "Schreibe beide Längen aus und teile.",
+   "w": "2 · 10⁻⁶ m = 0,000002 m; 1 · 10⁻⁷ m = 0,0000001 m. 0,000002 : 0,0000001 = 20."
+  },
+  {
+   "l": "vergleichen_pruefen",
+   "t": "vergleichen_pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche ganzen Zahlen n ist 3 · 10ⁿ größer als 0,02 und kleiner als 0,5?"
+   },
+   "a": [
+    "nur n = −2",
+    "nur n = −1",
+    "n = −1 und n = −2",
+    "n = −2 und n = −3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "h": "Probiere n = 0, −1, −2, −3 aus und schreibe 3 · 10ⁿ jeweils aus.",
+   "w": "n = 0: 3 (zu groß). n = −1: 0,3 passt. n = −2: 0,03 passt (größer als 0,02). n = −3: 0,003 (zu klein)."
+  },
+  {
+   "l": "vergleichen_pruefen",
+   "t": "vergleichen_pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kind sagt: „8 · 10⁻⁵ ist größer als 2 · 10⁻⁴, weil 8 größer ist als 2.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: 2 · 10⁻⁴ = 0,0002 ist größer als 8 · 10⁻⁵ = 0,00008.",
+    "Falsch: Beide Zahlen sind gleich groß.",
+    "Falsch: 8 · 10⁻⁵ ist negativ.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "h": "Vergleiche zuerst die Exponenten: −4 oder −5, was ist größer?",
+   "w": "−4 ist größer als −5, also ist 2 · 10⁻⁴ größer. Ausgeschrieben: 0,0002 > 0,00008."
   }
  ],
  "offen": [

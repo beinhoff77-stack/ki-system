@@ -695,6 +695,22 @@ def schwer():
     return N
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('terme.aufstellen', 13_7_2)
+# a) lineare Zwei-Variablen-Terme sind leichter als die Stufe-2-Terme mit x² → Stufe 2
+for _t in ['Berechne den Wert von 5a + 3b für a = 1 und b = −2.', 'Berechne den Wert von −a + 2b für a = −5 und b = 1.',
+           'Berechne den Wert von −a + 5b für a = 6 und b = −6.']:
+    BF.stufe('termwert', _t, 2)
+# a) Stufe 2 gleich schwer wie Stufe 1 („(Klammer) : Zahl“)
+BF.stufe('struktur', 'Welche Termart hat der Term (9y − 1) : 6?', 1)
+BF.stufe('struktur', 'Welche Termart hat der Term (5y − 2) : 3?', 1)
+BF.nicht_umgesetzt('sachsituation S3 „Kletterhalle … Bei wie vielen Besuchen kosten beide gleich viel?“', 'Lösung 8 richtig und durch Probieren mit dem Term lösbar; passt als Stufe 3.')
+BF.nicht_umgesetzt('deuten S3 „Jemand übersetzt … in den Term … Stimmt das?“ prüft Übersetzen statt Deuten', 'Aufgaben richtig; Deuten von Teiltermen wurde in Runde 10 ergänzt. Die Karte bleibt unverändert.')
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Terme lesen', ['struktur', 'termwert']), ('Terme aufstellen', ['uebersetzen', 'sachsituation', 'muster']), ('Terme deuten', ['deuten'])],
@@ -704,3 +720,4 @@ if __name__ == '__main__':
          offen=['Lernkarte „muster“: Streichholzfolgen (Quadrate, Dreiecke, Sechsecke) sind gezeichnet. L-Form und Beet mit Randplatten als Kästchenbild (Beet grau). Tischreihe und neutrale Plättchenfolgen stehen weiter als Wertetabelle: Sitzplätze bräuchten Symbole, die die App nicht hat.',
                 'Äquivalenzumformungen von Termen (Ausmultiplizieren, Zusammenfassen als eigenes Thema) sind nicht Teil dieses Themas; nur einfaches Zusammenfassen kommt in Stufe 3 vor.'])
     anhaengen(META['thema_schluessel'], schwer())
+    befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

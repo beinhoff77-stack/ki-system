@@ -2,6 +2,12 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 05:42 – STATUS
+terme.aufstellen fertig: umgestuft 5 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 2. Prüfskript OK, Nachweis OK.
+- nicht umgesetzt:
+  - sachsituation S3 „Kletterhalle … Bei wie vielen Besuchen kosten beide gleich viel?“ – Lösung 8 richtig und durch Probieren mit dem Term lösbar; passt als Stufe 3.
+  - deuten S3 „Jemand übersetzt … in den Term … Stimmt das?“ prüft Übersetzen statt Deuten – Aufgaben richtig; Deuten von Teiltermen wurde in Runde 10 ergänzt. Die Karte bleibt unverändert.
+
 ## 2026-11-16 05:41 – STATUS
 bruch.prozent_grundwert fertig: umgestuft 11 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
 - nicht umgesetzt:

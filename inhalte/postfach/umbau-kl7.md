@@ -9,6 +9,10 @@ Prüfung je Thema: Aufgaben Feld für Feld gegen `git show origin/lernen-app:inh
 
 ## Status
 
+## 2026-11-16 05:00 – STATUS
+daten.boxplot umgebaut (6 Karten): Zahlenstrahl mit Punkten und Bereich (neu seit 16.11.) für Median (Werte → mittlerer Bereich 5–7 → Median 6), Ausreißer (Mittelwert 30 und Median 12 als Punkte), Quartile (Median → untere/obere Hälfte als Bereich → Boxplot). Säulen (Kennwerte), Boxplot (ablesen), zwei Boxplots (vergleichen). Ohne fehler_bild: alle sechs Fehler sind Lese-/Rechenfehler, die im Bild der Karte schon sichtbar sind.
+Aufgaben: 144, 0 Unterschiede. inhalt_pruefen: 0 Fehler, 0 Hinweise.
+
 ## 2026-11-16 04:45 – STATUS
 geometrie.kreis umgebaut (6 Karten): Thaleskreis (35° → rechter Winkel bei C → β = 55°), Koordinatenbild zur Umkehrung (A, B, C → M → Kreis mit r = 4), Beweisfigur (Radius MC → Winkel α, β bei C), Kreis und Gerade mit Abstand d (→ Schnittpunkte), Tangentenfigur (50° → rechte Winkel → 130°), Umkreis über die Mittelsenkrechten von [AB] und [AC] (→ M(3 | 1) → Kreis). fehler_bild bei thales ([AB] kein Durchmesser), lage (d = r berührt nur).
 Aufgaben: 144, 0 Unterschiede. inhalt_pruefen: 0 Fehler, 0 Hinweise.

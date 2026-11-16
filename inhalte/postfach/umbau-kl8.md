@@ -25,7 +25,7 @@ Achte Runde, Paket U8 (Klasse 8) abgeschlossen: 15 Themen, 97 Lernkarten auf das
 
 Technik:
 - Neue Hilfsdatei inhalte/generatoren/_umbau_kl8.py; je Generator ein Abschnitt UMBAU, der NACH dem Erzeugen der Aufgaben eingesetzt wird. KLAR (Runde 7) bleibt stehen, weil die Generatoren dessen Beispieltexte zum Vermeiden von Dopplungen nutzen – so bleiben alle Aufgaben wörtlich gleich. Die alte „probe“ entfällt (Kontrolle steht, wo nötig, als Schritt).
-- Aufgabenvergleich je Thema gegen `git show lernen-app:inhalte/themen/<thema>.json`: alle 2 534 Aufgaben wörtlich gleich.
+- Aufgabenvergleich je Thema gegen `git show lernen-app:inhalte/themen/<thema>.json`: alle 2 349 Aufgaben wörtlich gleich.
 - Darstellung geprüft: Alle 97 Karten mit lernErklaerung() aus lernen.js in Chromium (390 px) aufgebaut – keine Fehler, kein NaN/undefined in den Zeichnungen. Stichproben als Bild angesehen (graph_lesen, umdrehen, schraegbild, laengen); dabei überlappende Beschriftungen im Schrägbild behoben.
 - Alle Zahlen der Situationen nachgerechnet (u. a. Monte-Carlo: 31 von 40 Punkten im Viertelkreis nachgezählt).
 

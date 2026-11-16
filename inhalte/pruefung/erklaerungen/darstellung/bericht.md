@@ -170,3 +170,24 @@ Heutiger Zustand: `<thema>-handy-erklaeren-ganz.png` (ganze Seite, halbe Auflös
 - **Schritt-Bilder als Inhaltsarbeit:** Sie verlangen je Karte Arbeit an den Inhalten (V9/3.1). Ohne sie bringen V1, V3–V8 schon den größten Teil des Gewinns.
 - **Grobe Zählungen:** Die Zahlen zu Satzlänge und „Einstieg ≠ Beispiel“ sind grobe automatische Zählungen; die Einzelfälle sind genannt, die Gesamtzahlen sind Richtwerte.
 - **Messwerte:** Gemessen mit lokalem Chrome unter Linux; die Schrift der App kann auf Apple-Geräten etwas schmaler laufen. Die Seitenhöhen ändern sich dadurch nur wenig (Annahme).
+
+## 6. Auswahl Sebastian (2026-11-16)
+
+Gewählt auf der Vergleichsseite (Heute / Vorschlag A / B). **Wo die Auswahl von Abschnitt 2 abweicht, gilt die Auswahl.**
+
+| Punkt | Gewählt | Folge für die Vorschläge |
+|---|---|---|
+| 1 Lernkarten | **B – erst Übersicht, dann eine Karte** | ersetzt den Blätterkopf aus V1: Erklären öffnet mit einer Übersicht aller Karten (nach Bereichen, Status, empfohlene Karte hervorgehoben); Antippen öffnet genau eine Karte, „‹ Übersicht“ führt zurück. |
+| 2 Kartenanfang (Kl. 5) | **A – kurzer Text, dann Bild** | wie V4 (Worum geht’s kurz → Bild/Beispiel). |
+| 3 Beispiel | **B – Bildergeschichte** | ersetzt das Durchtippen aus V2: alle Schritte untereinander, jeder mit eigenem kleinen Bild. Das Format „Bild je Schritt“ (3.1) wird dadurch Pflicht für Karten mit Beispiel, nicht nur Option. Keine Weiter/Zurück-Knöpfe nötig. |
+| 4 Neue Wörter | **A – im Text antippen** | wie V3. |
+| 5 Hervorhebung | **A – überall gelber Textmarker** | wie V6. |
+| 6 Brüche | **A – übereinander** | wie V7. |
+| 7 Bildschrift | **A – größer** | wie V8. |
+| 8 Typischer Fehler | **B – letzter Schritt „Pass auf!“** | ersetzt das eingeklappte „Vorsicht, Falle ▸“ aus V4: die Falle ist das letzte Bild der Bildergeschichte (mit eigenem Bild). Der Reiter „Fehler“ bleibt. |
+| 9 Üben beim ersten Mal | **B – nur die Aufgabe** | ersetzt V5: über der Aufgabe nur ein gut sichtbarer Link „Erklärung ansehen“, kein Merksatz. |
+| 10 Klasse 8 | **offen** | Empfehlung siehe unten. |
+
+**Punkt 10 – Empfehlung (Meinung):** B (Alltag zuerst, wie Klasse 5), und der „Kurz gesagt“-Satz steht zusätzlich auf der Übersichtskachel der Karte (Punkt 1B). Begründung: Zum Nachschlagen reicht die Übersicht; die Karte selbst bleibt in allen Klassen gleich aufgebaut, also eine Darstellung statt zwei (passt zu V11). Gegenargument: Wer die Regel schon kennt, muss bei B erst über den Alltag scrollen. Entscheiden lässt sich das am besten, wenn das Kind in Klasse 8 eine Karte in beiden Fassungen liest.
+
+**Entwurf:** `entwurf.html` zeigt noch die frühere Fassung (Blättern, Durchtippen, Falle eingeklappt, Merksatz über der Aufgabe). Bei 1, 3, 8 und 9 weicht er damit von der Auswahl ab; maßgeblich ist diese Tabelle.

@@ -1,5 +1,11 @@
 # Postfach pruefung-erklaerung-darstellung (Erklärungen: Darstellung und Verständlichkeit)
 
+## 2026-11-16 02:25 – FERTIG
+Sebastians Auswahl eingetragen: `bericht.md`, Abschnitt 6. Sie gilt vor Abschnitt 2.
+- Gewählt: Übersicht zuerst, dann eine Karte · Kl. 5 kurzer Text vor Bild · Beispiel als Bildergeschichte (Bild je Schritt) · Wörter im Text antippen · gelber Textmarker · Brüche übereinander · Bildschrift größer · Falle als letzter Schritt „Pass auf!“ · Üben beim ersten Mal nur die Aufgabe.
+- Offen: Klasse 8 Regel oder Alltag zuerst (Empfehlung: Alltag, „Kurz gesagt“ auf der Übersichtskachel).
+- Folge: Format „Bild je Schritt“ wird für Karten mit Beispiel nötig. `entwurf.html` zeigt noch die alte Fassung.
+
 ## 2026-11-16 02:00 – FERTIG
 Bericht: `inhalte/pruefung/erklaerungen/darstellung/bericht.md`, klickbarer Entwurf `…/darstellung/entwurf.html`, Bilder in `…/darstellung/bilder/`.
 Nichts an App, Inhalten oder Tests geändert.

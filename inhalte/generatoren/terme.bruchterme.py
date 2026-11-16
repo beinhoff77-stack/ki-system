@@ -525,6 +525,88 @@ def g_fehler_finden(R, st):
 GEN = {'definitionsmenge': g_definitionsmenge, 'termwert': g_termwert, 'kuerzen': g_kuerzen, 'erweitern': g_erweitern,
        'addieren': g_addieren, 'multiplizieren': g_multiplizieren, 'fehler_finden': g_fehler_finden}
 
+
+# ---------- UMBAU: neues Muster (Achte Runde, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl8.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl8 import mit_umbau  # noqa: E402
+
+UMBAU = {
+ 'definitionsmenge': {
+  'einstieg': 'Ein Bus kostet 600 €, die 2 Lehrkräfte zahlen nichts. Bei x Mitfahrenden zahlt jedes Kind 600/(x − 2) Euro. So ein Term mit x im Nenner heißt ⟦Bruchterm⟧.',
+  'woerter': [['Bruchterm', 'ein Bruch mit x im Nenner'], ['Definitionsmenge D', 'alle Zahlen, die man für x einsetzen darf'], ['ℚ \\ {2}', 'alle Bruchzahlen außer der 2']],
+  'bild': {'typ': 'koordinaten', 'x': [0, 12], 'y': [0, 700], 'graphen': [{'art': 'hyperbel', 'a': 600, 'b': -2, 'c': 0, 'name': 'Preis', 'bereich': [2.9, 12]}], 'schritt_y': 100, 'name_x': 'Personen', 'name_y': '€'},
+  'schritte': [{'text': 'Der Nenner ist x − 2. Durch 0 kann man nicht teilen.'},
+               {'text': 'x − 2 wird 0, wenn x = 2 ist.', 'bild': {'senkrecht': [2]}},
+               {'text': 'Bei 2 Mitfahrenden zahlt kein Kind. ⟦x = 2 ist verboten.⟧'},
+               {'text': 'Die Definitionsmenge D ist ⟦D = ℚ \\ {2}⟧: alle Zahlen außer 2.'}],
+  'fehler': 'Bei (x − 2)/(x + 4) darf die 2 eingesetzt werden: Oben eine 0 ist kein Problem. Nur x = −4 macht den ⟦Nenner⟧ 0.',
+  'regel': 'Setze ⟦jeden Nenner gleich 0⟧ und streiche diese Zahlen. Der Rest bildet die Definitionsmenge D.'},
+ 'termwert': {
+  'einstieg': 'Fahren 26 Personen mit, zahlen 24 Kinder: 600 : 24 = 25 € pro Kind. So rechnest du für jede Anzahl einen Betrag aus, den ⟦Termwert⟧.',
+  'woerter': [['Termwert', 'was herauskommt, wenn man für x eine Zahl einsetzt'], ['T(26)', 'der Termwert für x = 26'], ['nicht definiert', 'es gibt keinen Wert, weil man durch 0 teilen müsste']],
+  'bild': {'typ': 'tabelle', 'kopf': ['x (Personen)', '10', '26', '2'], 'zeilen': [['600/(x − 2)', '?', '?', '?']]},
+  'schritte': [{'text': 'Gesucht ist T(26). Erst den Nenner ausrechnen: 26 − 2 = 24.'},
+               {'text': 'Dann teilen: T(26) = 600 : 24 = ⟦25⟧ Euro pro Kind.', 'bild': {'zeilen': [['600/(x − 2)', '?', '25', '?']]}},
+               {'text': 'Genauso bei 10 Personen: 600 : 8 = 75 €.', 'bild': {'zeilen': [['600/(x − 2)', '75', '25', '?']]}},
+               {'text': 'Bei x = 2 wäre der Nenner 0: T(2) ist ⟦nicht definiert⟧.', 'bild': {'zeilen': [['600/(x − 2)', '75', '25', '–']]}}],
+  'fehler': 'T(2) ist nicht 0. 600 € auf 0 zahlende Kinder verteilt ergibt keinen Preis. Der Wert ist ⟦nicht definiert⟧.',
+  'regel': 'Zahl einsetzen, ⟦Zähler und Nenner getrennt⟧ ausrechnen, dann teilen. Ist der Nenner 0, ist der Term dort nicht definiert.'},
+ 'kuerzen': {
+  'einstieg': 'Bei 6/10 teilst du oben und unten durch 2 und erhältst 3/5 – derselbe Anteil. Das geht auch mit Termen, aber nur mit Faktoren. Dieses Vereinfachen heißt ⟦Kürzen⟧.',
+  'woerter': [['Faktor', 'etwas, das malgenommen wird, z. B. die 3 in 3(x + 2)'], ['ausklammern', 'eine gemeinsame Zahl vor die Klammer ziehen: 3x + 6 = 3(x + 2)'], ['Kürzen', 'oben und unten durch denselben Faktor teilen']],
+  'bild': {'typ': 'bruchstreifen', 'teile': 10, 'gefaerbt': 6, 'teil_text': '6/10', 'zeilen': [{'teile': 5, 'gefaerbt': 3}]},
+  'schritte': [{'text': 'Kürze (3x + 6)/(5x + 10). Oben ausklammern: 3x + 6 = 3(x + 2).'},
+               {'text': 'Unten ausklammern: 5x + 10 = 5(x + 2).'},
+               {'text': 'Der Faktor (x + 2) steht oben und unten. Er fällt weg.'},
+               {'text': 'Übrig bleibt ⟦3/5⟧ – für alle x außer −2.'}],
+  'fehler': '(x + 6)/3 ist nicht x + 2. Die 6 ist nur dazugezählt, kein Faktor. Erst (3x + 6)/3 ergibt ⟦x + 2⟧.',
+  'regel': 'Kürzen darfst du nur ⟦gleiche Faktoren⟧, nie Teile einer Summe. Darum zuerst ausklammern.'},
+ 'erweitern': {
+  'einstieg': 'Schneidest du eine halbe Pizza in kleinere Stücke, hast du statt 1/2 nun 4/8. Oben und unten wurde mit 4 malgenommen, der Anteil blieb gleich. Das heißt ⟦Erweitern⟧.',
+  'woerter': [['Erweitern', 'Zähler und Nenner mit derselben Zahl oder demselben Term malnehmen']],
+  'bild': {'typ': 'bruchstreifen', 'teile': 2, 'gefaerbt': 1, 'teil_text': '1/2', 'zeilen': [{'teile': 8, 'gefaerbt': 4}]},
+  'schritte': [{'text': '3/(2x) soll den Nenner 8x² bekommen.'},
+               {'text': '8x² : (2x) = 4x. Mit 4x musst du erweitern.'},
+               {'text': 'Auch den Zähler mal 4x: 3 · 4x = 12x.'},
+               {'text': 'Ergebnis: ⟦12x/(8x²)⟧ – der Wert ist gleich geblieben.'}],
+  'fehler': 'Nur den Nenner ändern ist falsch: 3/(8x²) ist viel weniger. Das wären kleinere Pizzastücke, aber trotzdem nur ⟦3 davon⟧.',
+  'fehler_bild': {'zeilen': [{'teile': 8, 'gefaerbt': 1}]},
+  'regel': 'Erweitern heißt: ⟦Zähler und Nenner mit demselben Term⟧ malnehmen. Den Term findest du mit neuer Nenner : alter Nenner.'},
+ 'addieren': {
+  'einstieg': '2/7 Kuchen plus 3/7 Kuchen sind 5/7 Kuchen – gleich große Stücke zählst du zusammen. Sind die Stücke verschieden, schneidest du erst gleich große. Der gemeinsame Nenner heißt ⟦Hauptnenner⟧.',
+  'woerter': [['Hauptnenner', 'ein gemeinsamer Nenner für alle Brüche']],
+  'bild': {'typ': 'bruchstreifen', 'teile': 7, 'gefaerbt': 5, 'teil_text': '2/7 + 3/7'},
+  'schritte': [{'text': 'Aufgabe 2/x + 3/(4x). Der Hauptnenner ist 4x.'},
+               {'text': 'Den ersten Bruch mit 4 erweitern: 2/x = 8/(4x).'},
+               {'text': 'Jetzt die Zähler addieren, der Nenner bleibt: ⟦11/(4x)⟧.'}],
+  'fehler': '2/x + 3/x ist nicht 5/(2x). Aus 2 Siebteln und 3 Siebteln werden 5 Siebtel, keine Vierzehntel. Die Nenner ⟦nicht addieren⟧.',
+  'fehler_bild': {'zeilen': [{'teile': 14, 'gefaerbt': 5}]},
+  'regel': 'Bei gleichen Nennern nur die ⟦Zähler addieren⟧. Sonst zuerst auf den Hauptnenner erweitern.'},
+ 'multiplizieren': {
+  'einstieg': 'Die Hälfte von einem Drittel Pizza ist ein Sechstel: 1/2 · 1/3 = 1/6. Beim Teilen nimmst du mit dem umgedrehten Bruch mal, dem ⟦Kehrbruch⟧.',
+  'woerter': [['Kehrbruch', 'der umgedrehte Bruch: aus 3/x² wird x²/3']],
+  'bild': {'typ': 'bruchstreifen', 'teile': 3, 'gefaerbt': 1, 'teil_text': '1/3', 'zeilen': [{'teile': 6, 'gefaerbt': 1}]},
+  'schritte': [{'text': 'Aufgabe (4x/9) · (3/x²). Oben mal oben, unten mal unten: 12x/(9x²).'},
+               {'text': 'Kürzen: 12 und 9 durch 3, x und x² durch x.'},
+               {'text': 'Übrig bleibt ⟦4/(3x)⟧.'},
+               {'text': 'Beim Teilen durch 3/x² nimmst du stattdessen mit x²/3 mal.'}],
+  'fehler': 'Bei (2/x) : (4/x²) wird der ⟦zweite⟧ Bruch umgedreht, nicht der erste: (2/x) · (x²/4) = x/2.',
+  'regel': 'Malnehmen: ⟦Zähler mal Zähler, Nenner mal Nenner⟧. Teilen: mit dem Kehrbruch des zweiten Bruchs malnehmen.'},
+ 'fehler_finden': {
+  'einstieg': 'Ein Mitschüler behauptet, zwei Terme seien gleich. Ob es stimmt, prüfst du mit einer eingesetzten Zahl. Kommt Verschiedenes heraus, hast du ein ⟦Gegenbeispiel⟧.',
+  'woerter': [['Gegenbeispiel', 'eine Zahl, bei der die Behauptung nicht stimmt'], ['≠', '„ist nicht gleich“']],
+  'bild': {'typ': 'tabelle', 'kopf': ['x', '(x + 4)/4', 'x + 1'], 'zeilen': [['4', '?', '?']]},
+  'schritte': [{'text': 'Behauptung: (x + 4)/4 = x + 1. Setze x = 4 ein.'},
+               {'text': 'Links: (4 + 4)/4 = 8/4 = 2. Rechts: 4 + 1 = 5.', 'bild': {'zeilen': [['4', '2', '5']]}},
+               {'text': '2 ≠ 5. Das ist ein Gegenbeispiel, die Umformung ist ⟦falsch⟧.'}],
+  'fehler': 'Mit x = 0 kommt zufällig beide Male 1 heraus. Ein passendes Beispiel beweist nichts – ein ⟦Gegenbeispiel⟧ widerlegt.',
+  'fehler_bild': {'zeilen': [['4', '2', '5'], ['0', '1', '1']]},
+  'regel': 'Eine Umformung prüfst du durch ⟦Einsetzen⟧. Ein einziges Gegenbeispiel zeigt, dass sie falsch ist.'},
+}
+UMBAU_OFFEN = []
+baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Grundlagen', ['definitionsmenge', 'termwert']), ('Kürzen und Erweitern', ['kuerzen', 'erweitern']),

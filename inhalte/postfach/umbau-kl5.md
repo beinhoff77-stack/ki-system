@@ -6,6 +6,11 @@ erst NACH dem Erzeugen der Aufgaben – so bleiben die Aufgaben wörtlich gleich
 (Werte im Zahlenstrahl-Bereich, Thermometer-Stand, Figur-Punkte, Tabellenbreite). `probe` entfällt bei umgebauten Karten (kommt im neuen Muster nicht vor).
 Vergleich je Thema: `aufgaben` und alle Felder außer `inhalt.etappen` und `offen` gegen den Ausgangsstand bc7a754 (lernen-app).
 
+## 2026-11-16 02:59 – STATUS
+geometrie.ortslinien (6 Karten) umgebaut. Figuren und Koordinatensysteme bauen sich Schritt für Schritt auf: Napf im Leinen-Kreis, Parallelen oben und unten, zwei Kreise mit Schnittpunkten S₁ und S₂ (nachgerechnet: x = 73/16, y ≈ ±2,05), Schatz mit Kreis und Parallelen, Sprenger mit Beet; sachsituationen und verstehen haben jetzt ein Bild.
+inhalt_pruefen: OK, keine Hinweise. Vergleich: 168 Aufgaben wörtlich gleich, Rest gleich.
+zwei_kreise: Merksatz nennt „meist zwei, bei Berührung einer“; der Fall „gar keiner“ steht im Fehler mit Bild (B 10 km entfernt). Der Fall „ein Kreis ganz im anderen“ passt nicht mehr in die 25 Wörter – er steht in den Lösungswegen der betreffenden Aufgaben.
+
 ## 2026-11-16 02:58 – STATUS
 geometrie.winkel (7 Karten) umgebaut. Die vorhandenen Figuren bleiben Kartenbild; die Schritte tragen die ausgerechneten Winkel nach und nach ein (β = 130°, Kreuzung, Torte, Uhr 120°, Windrose 45° → 135°, Rechteck 55°). verstehen hat jetzt ein Bild (zwei stumpfe Winkel nebeneinander).
 inhalt_pruefen: OK, keine Hinweise. Vergleich: 196 Aufgaben wörtlich gleich, Rest gleich.

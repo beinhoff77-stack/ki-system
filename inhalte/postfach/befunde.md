@@ -2,6 +2,11 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 05:54 – STATUS
+funktionen.ganzrational fertig: umgestuft 2 / berichtigt 6 / ersetzt 0 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
+- nicht umgesetzt:
+  - randverhalten S1 mit Polynom 7. Grades und 8 Gliedern – Laut Befund inhaltlich richtig; nur das höchste Glied zählt, das ist der Lerninhalt der Karte.
+
 ## 2026-11-16 05:53 – STATUS
 funktionen.trig fertig: umgestuft 4 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
 - nicht umgesetzt:

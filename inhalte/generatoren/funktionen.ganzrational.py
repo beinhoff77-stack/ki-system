@@ -639,6 +639,24 @@ def schwer():
     return N
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('funktionen.ganzrational', 13_10_5)
+# b) Lösungsweg: Kleinschreibung „zur y-achse“ / „zum ursprung“ (alle Pools)
+BF.loesung('symmetrie', 'Für f(x) = −x⁶ + 4x⁴ + 3x² + 4 gilt f(3) = −374. Bestimme f(−3) mithilfe der Symmetrie.', pools=('uebung',), w='Achsensymmetrisch zur y-Achse: f(−x) = f(x), also f(−3) = −374.')
+BF.loesung('symmetrie', 'Für f(x) = −x⁵ − 5x³ − 6x gilt f(3) = −396. Bestimme f(−3) mithilfe der Symmetrie.', pools=('uebung',), w='Punktsymmetrisch zum Ursprung: f(−x) = −f(x), also f(−3) = 396.')
+BF.loesung('symmetrie', 'Für f(x) = −6x⁴ + 5x² − 3 gilt f(2) = −79. Bestimme f(−2) mithilfe der Symmetrie.', pools=('uebung',), w='Achsensymmetrisch zur y-Achse: f(−x) = f(x), also f(−2) = −79.')
+BF.loesung('symmetrie', 'Für f(x) = 4x⁶ + 2x⁴ + 3x² + 2 gilt f(3) = 3 107. Bestimme f(−3) mithilfe der Symmetrie.', pools=('uebung',), w='Achsensymmetrisch zur y-Achse: f(−x) = f(x), also f(−3) = 3 107.')
+BF.loesung('symmetrie', 'Für f(x) = 4x³ + 6x gilt f(1) = 10. Bestimme f(−1) mithilfe der Symmetrie.', pools=('uebung',), w='Punktsymmetrisch zum Ursprung: f(−x) = −f(x), also f(−1) = −10.')
+BF.loesung('symmetrie', 'Für f(x) = −5x⁴ − 5x² − 4 gilt f(2) = −104. Bestimme f(−2) mithilfe der Symmetrie.', pools=('uebung',), w='Achsensymmetrisch zur y-Achse: f(−x) = f(x), also f(−2) = −104.')
+# a) Grad 2 mit zwei einfachen Nullstellen ist leichter als die Stufe-2-Aufgaben (Grad 3/4 mit Berührung) – derselbe Typ wie Stufe 1
+BF.stufe('graph_term', 'Welcher Funktionsterm gehört zum gezeichneten Graphen?', 1, enthaelt='f(x) = 2 · (x − 1)² · (x − 3)')
+BF.stufe('graph_term', 'Welcher Funktionsterm gehört zum gezeichneten Graphen?', 1, enthaelt='f(x) = (x + 1)² · x')
+BF.nicht_umgesetzt('randverhalten S1 mit Polynom 7. Grades und 8 Gliedern', 'Laut Befund inhaltlich richtig; nur das höchste Glied zählt, das ist der Lerninhalt der Karte.')
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     datei = bauen('funktionen.ganzrational',
           'Ganzrationale Funktionen beschreiben: Grad und Koeffizienten, Randverhalten, Symmetrie, Nullstellen mit Vielfachheit; Graph und Term zuordnen und Terme aus Nullstellen bestimmen.',
@@ -653,3 +671,4 @@ if __name__ == '__main__':
                  'Lückenaufgaben „Ausmultiplizieren“ nutzen die Term-Vorlage (z. B. „x³ + □x² + □x + □“): Das Kind tippt den Term frei ein; Koeffizienten können negativ sein.',
                  'Extrempunkte (Ableitung) sind nicht enthalten – das ist Stoff der Oberstufe.'])
     ergaenzen(datei, schwer())
+    befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

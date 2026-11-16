@@ -3132,7 +3132,7 @@
     "wert": -374
    },
    "c": "(-1) * (-3) ** 6 + (0) * (-3) ** 5 + (4) * (-3) ** 4 + (0) * (-3) ** 3 + (3) * (-3) ** 2 + (0) * (-3) ** 1 + (4) * (-3) ** 0",
-   "w": "Achsensymmetrisch zur y-achse: f(−x) = f(x), also f(−3) = −374.",
+   "w": "Achsensymmetrisch zur y-Achse: f(−x) = f(x), also f(−3) = −374.",
    "h": "Welche Symmetrie hat der Graph?"
   },
   {
@@ -3148,7 +3148,7 @@
     "wert": 396
    },
    "c": "(-1) * (-3) ** 5 + (0) * (-3) ** 4 + (-5) * (-3) ** 3 + (0) * (-3) ** 2 + (-6) * (-3) ** 1 + (0) * (-3) ** 0",
-   "w": "Punktsymmetrisch zum ursprung: f(−x) = −f(x), also f(−3) = 396.",
+   "w": "Punktsymmetrisch zum Ursprung: f(−x) = −f(x), also f(−3) = 396.",
    "h": "Welche Symmetrie hat der Graph?"
   },
   {
@@ -3164,7 +3164,7 @@
     "wert": -79
    },
    "c": "(-6) * (-2) ** 4 + (0) * (-2) ** 3 + (5) * (-2) ** 2 + (0) * (-2) ** 1 + (-3) * (-2) ** 0",
-   "w": "Achsensymmetrisch zur y-achse: f(−x) = f(x), also f(−2) = −79.",
+   "w": "Achsensymmetrisch zur y-Achse: f(−x) = f(x), also f(−2) = −79.",
    "h": "Welche Symmetrie hat der Graph?"
   },
   {
@@ -3180,7 +3180,7 @@
     "wert": 3107
    },
    "c": "(4) * (-3) ** 6 + (0) * (-3) ** 5 + (2) * (-3) ** 4 + (0) * (-3) ** 3 + (3) * (-3) ** 2 + (0) * (-3) ** 1 + (2) * (-3) ** 0",
-   "w": "Achsensymmetrisch zur y-achse: f(−x) = f(x), also f(−3) = 3 107.",
+   "w": "Achsensymmetrisch zur y-Achse: f(−x) = f(x), also f(−3) = 3 107.",
    "h": "Welche Symmetrie hat der Graph?"
   },
   {
@@ -3196,7 +3196,7 @@
     "wert": -10
    },
    "c": "(4) * (-1) ** 3 + (0) * (-1) ** 2 + (6) * (-1) ** 1 + (0) * (-1) ** 0",
-   "w": "Punktsymmetrisch zum ursprung: f(−x) = −f(x), also f(−1) = −10.",
+   "w": "Punktsymmetrisch zum Ursprung: f(−x) = −f(x), also f(−1) = −10.",
    "h": "Welche Symmetrie hat der Graph?"
   },
   {
@@ -3212,7 +3212,7 @@
     "wert": -104
    },
    "c": "(-5) * (-2) ** 4 + (0) * (-2) ** 3 + (-5) * (-2) ** 2 + (0) * (-2) ** 1 + (-4) * (-2) ** 0",
-   "w": "Achsensymmetrisch zur y-achse: f(−x) = f(x), also f(−2) = −104.",
+   "w": "Achsensymmetrisch zur y-Achse: f(−x) = f(x), also f(−2) = −104.",
    "h": "Welche Symmetrie hat der Graph?"
   },
   {
@@ -5385,7 +5385,7 @@
    "l": "graph_term",
    "t": "graph_term",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
@@ -5437,7 +5437,7 @@
    "l": "graph_term",
    "t": "graph_term",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",

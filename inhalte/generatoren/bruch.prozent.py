@@ -493,5 +493,99 @@ DATEI = datei(E, 'Prozentangaben verstehen, Prozentwert, Prozentsatz und Grundwe
               offen=['Lehrplan Kl. 6 verlangt nur „einfache Prozentaufgaben (Rabatt, Zins)“. Nach der Prüfung entfernt: vermehrter/verminderter Grundwert rückwärts (Preis nach Rabatt → alter Preis, 200 % des alten Werts) und Doppelrabatt als Rechenaufgabe – das ist Stoff von bruch.prozent_grundwert (Kl. 7). Doppelrabatt bleibt nur als Verstehens-Aussage („zweimal 10 % ≠ 20 %“). Zinsen für Monate bleiben als Stufe 3, Zinseszins weggelassen.',
                      'Prozentangaben im Text mit Leerzeichen vor % (25 %), wie in deutschen Schulbüchern üblich. Eingabe der Prozentzahl ohne %-Zeichen (Einheit „%“ ist hinterlegt).'])
 
+# ---------- KLAR: verständliche Erklärungen (Siebte Runde, Pflicht seit 15.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _klar_kl6.py) – die Aufgaben bleiben wörtlich gleich.
+from _klar_kl6 import klar  # noqa: E402
+
+KLAR = {
+ 'prozent_bedeutung': {
+  'einstieg': 'Dein Handy-Akku zeigt 75 % an. Das heißt: Denkt man sich den vollen Akku in 100 gleich große Teile geteilt, sind noch 75 davon da – drei Viertel. „Von hundert“ heißt auf Lateinisch „pro centum“. Daher kommt das Wort ⟦Prozent⟧.',
+  'woerter': [['Prozent', 'Hundertstel; „pro centum“ heißt „von hundert“'],
+              ['%', 'das Zeichen für Prozent: 75 % = 75/100'],
+              ['100 %', 'das Ganze – hier der volle Akku'],
+              ['Hunderterfeld', 'ein Quadrat aus 10 · 10 = 100 Kästchen; jedes Kästchen ist 1 %']],
+  'schritte': ['Gesucht ist 3/4 in Prozent. Prozent heißt Hundertstel, darum brauchst du den Nenner 100.',
+               'Erweitere mit 25, denn 4 · 25 = 100: 3/4 = 75/100.',
+               'Im Hunderterfeld sind das 75 von 100 Kästchen. Jedes Kästchen ist 1 %.',
+               'Also ist 3/4 = ⟦75 %⟧ = 0,75 – genau die Akku-Anzeige.'],
+  'regel': 'So wandelst du um: ⟦Prozent heißt Hundertstel⟧, also 35 % = 35/100 = 0,35. Einen Bruch erweiterst du auf den Nenner 100. Eine Dezimalzahl nimmst du ⟦mal 100⟧, dann hast du die Prozentzahl.',
+  'fehler': '0,5 = 5 % ist falsch: Ein halb voller Akku zeigt nicht 5 %, sondern ⟦50 %⟧. 0,5 = 50/100 – beim Umwandeln wandert das Komma ⟦zwei⟧ Stellen.'},
+ 'prozentwert': {
+  'einstieg': 'Du willst ein Fahrrad für 240 € kaufen. Der Laden möchte, dass du 15 % davon gleich anzahlst. Wie viel Euro sind das? Gesucht ist ein Teil des Preises, der in Prozent angegeben ist. Dieser Teil heißt ⟦Prozentwert⟧.',
+  'woerter': [['anzahlen', 'einen Teil des Preises sofort bezahlen, den Rest später'],
+              ['Grundwert G', 'das Ganze, also 100 % – hier der Preis von 240 €'],
+              ['Prozentsatz p %', 'wie viele Hundertstel genommen werden – hier 15 %'],
+              ['Prozentwert W', 'der Teil in Euro (oder kg, Stück …), der zum Prozentsatz gehört'],
+              ['W = G · p %', 'Prozentwert = Grundwert mal Prozentsatz; dabei ist 15 % = 0,15']],
+  'schritte': ['Der Grundwert ist der ganze Preis: 240 €. Der Prozentsatz ist 15 %.',
+               'Rechne zuerst 1 % aus, also ein Hundertstel: 240 € : 100 = 2,40 €.',
+               '15 % sind 15-mal so viel: 15 · 2,40 € = 36 €.',
+               'Die Anzahlung beträgt ⟦36 €⟧. Im Kopf geht es auch: 10 % sind 24 €, 5 % die Hälfte davon, 12 € – zusammen 36 €.'],
+  'regel': 'So berechnest du den Prozentwert: Rechne ⟦1 % = G : 100⟧ aus und nimm das ⟦mal die Prozentzahl⟧. Kurz: ⟦W = G · p %⟧.',
+  'fehler': '240 : 15 = 16 € zu rechnen ist falsch: Das wäre ein Fünfzehntel des Preises, nicht 15 Hundertstel. 15 % heißt ⟦15 von 100⟧: 240 · 15 : 100 = 36 €.'},
+ 'prozentsatz': {
+  'einstieg': 'In der Mathe-Probe hast du 21 von 25 Aufgaben richtig. Deine Freundin hatte 40 Aufgaben und davon 34 richtig. Wer war besser? Mit Prozent kannst du das vergleichen, weil dann beide Ergebnisse „von 100“ angegeben sind. Gesucht ist der ⟦Prozentsatz⟧.',
+  'woerter': [['Prozentsatz', 'der Anteil in Prozent – hier: wie viel Prozent der Aufgaben richtig sind'],
+              ['Anteil', 'Teil durch Ganzes, als Bruch oder Dezimalzahl'],
+              ['p % = W : G', 'Prozentsatz = Prozentwert (Teil) geteilt durch Grundwert (Ganzes)']],
+  'schritte': ['Der Teil sind die 21 richtigen Aufgaben (W). Das Ganze sind alle 25 Aufgaben (G).',
+               'Teile den Teil durch das Ganze: 21 : 25 = 0,84.',
+               'Eine Dezimalzahl mal 100 ergibt die Prozentzahl: 0,84 · 100 = 84.',
+               'Du hast ⟦84 %⟧ richtig. Deine Freundin hat 34 : 40 = 0,85, also 85 % – sie war knapp besser.'],
+  'regel': 'So berechnest du den Prozentsatz: Rechne ⟦Teil durch Ganzes⟧ (p % = W : G). Nimm das Ergebnis ⟦mal 100⟧ – das ist die Prozentzahl.',
+  'fehler': '25 : 21 zu rechnen ist falsch: Heraus kämen etwa 119 % – mehr richtige Aufgaben, als es überhaupt gibt. Es heißt ⟦Teil durch Ganzes⟧, also 21 : 25.'},
+ 'grundwert': {
+  'einstieg': 'Auf dem Schulacker habt ihr bisher 12 kg Kartoffeln geerntet. Der Hausmeister sagt: „Das sind erst 30 % der ganzen Ernte.“ Wie viel wird die ganze Ernte wiegen? Du kennst einen Teil und seinen Prozentsatz und suchst das Ganze. Das Ganze heißt ⟦Grundwert⟧.',
+  'woerter': [['kg', 'Kilogramm'],
+              ['Grundwert G', 'das Ganze, also 100 % – hier die ganze Ernte'],
+              ['G = W : p %', 'Grundwert = Prozentwert geteilt durch Prozentsatz; dabei ist 30 % = 0,3']],
+  'schritte': ['Bekannt sind der Prozentwert 12 kg und der Prozentsatz 30 %. Gesucht ist das Ganze, also 100 %.',
+               'Rechne zuerst 1 % aus: 12 kg : 30 = 0,4 kg.',
+               'Das Ganze sind 100 %, also 100-mal so viel: 0,4 kg · 100 = 40 kg.',
+               'Die ganze Ernte wiegt ⟦40 kg⟧.'],
+  'regel': 'So findest du den Grundwert: Teile den Prozentwert ⟦durch die Prozentzahl⟧ – das ist 1 %. Nimm das ⟦mal 100⟧. Kurz: ⟦G = W : p %⟧. Ist p kleiner als 100, muss das Ganze größer sein als der Teil.',
+  'fehler': '12 kg · 0,3 = 3,6 kg ist falsch: Das wären 30 % ⟦von⟧ den 12 kg – weniger, als schon geerntet ist. Gesucht ist die ganze Ernte, sie muss ⟦größer⟧ als 12 kg sein.'},
+ 'rabatt_aufschlag': {
+  'einstieg': 'Im Schlussverkauf hängt an einer Jacke für 80 € ein Schild: „25 % Rabatt“. Du zahlst also nicht den vollen Preis, sondern nur den Teil, der übrig bleibt. Ein Preisnachlass in Prozent heißt ⟦Rabatt⟧, eine Preiserhöhung in Prozent heißt ⟦Aufschlag⟧.',
+  'woerter': [['Schlussverkauf', 'eine Zeit, in der Läden Waren billiger verkaufen'],
+              ['Rabatt', 'Preisnachlass – der Preis wird um einige Prozent kleiner'],
+              ['Aufschlag', 'Preiserhöhung – der Preis wird um einige Prozent größer'],
+              ['alter Preis', 'der Preis vor Rabatt oder Aufschlag; er ist der Grundwert (100 %)']],
+  'schritte': ['Der alte Preis ist 80 €, das sind 100 %. Der Rabatt beträgt 25 %.',
+               'Du zahlst noch 100 % − 25 % = 75 % des alten Preises.',
+               'Rechne 75 % von 80 €: 1 % sind 0,80 €, mal 75 ergibt 60 €.',
+               'Die Jacke kostet jetzt ⟦60 €⟧. Du sparst 20 €.'],
+  'regel': 'So rechnest du mit Rabatt und Aufschlag: Bei ⟦Rabatt⟧ zahlst du noch ⟦100 % − p %⟧ des alten Preises, bei einem ⟦Aufschlag⟧ ⟦100 % + p %⟧. Der alte Preis ist immer der Grundwert.',
+  'fehler': '80 € − 25 € = 55 € ist falsch: Auf dem Schild stehen 25 ⟦Prozent⟧, nicht 25 Euro. Abgezogen werden ⟦25 % von 80 €⟧ = 20 €.'},
+ 'zinsen': {
+  'einstieg': 'Du bringst 500 € Erspartes zur Bank und lässt es dort ein Jahr lang liegen. Die Bank darf mit dem Geld arbeiten und gibt dir dafür etwas dazu: nach einem Jahr 3 %. Das Geld, das die Bank dir dafür zahlt, heißt ⟦Zinsen⟧.',
+  'woerter': [['anlegen', 'Geld für eine Zeit bei der Bank lassen'],
+              ['Kapital K', 'das angelegte Geld – hier 500 €'],
+              ['Zinssatz p %', 'wie viel Prozent die Bank in einem Jahr dazugibt'],
+              ['Zinsen Z', 'das Geld, das die Bank nach einem Jahr dazugibt'],
+              ['Z = K · p %', 'Zinsen = Kapital mal Zinssatz – wie Prozentwert = Grundwert mal Prozentsatz'],
+              ['Guthaben', 'das Geld, das dir auf dem Konto gehört']],
+  'schritte': ['Das Kapital ist 500 €, der Zinssatz 3 % für ein Jahr.',
+               '1 % von 500 € sind 500 € : 100 = 5 €.',
+               '3 % sind 3 · 5 € = 15 €. Das sind die Zinsen für ein Jahr.',
+               'Nach einem Jahr hast du 500 € + 15 € = ⟦515 €⟧ Guthaben.'],
+  'regel': 'So berechnest du Jahreszinsen: Die Zinsen sind der Prozentwert, das Kapital ist der Grundwert. Also ⟦Z = K · p %⟧. Das neue Guthaben ist ⟦Kapital + Zinsen⟧.',
+  'fehler': 'Bei 3 % auf 500 € nur 3 € Zinsen zu erwarten ist falsch: 3 % heißt ⟦3 € für je 100 €⟧. In 500 € stecken 5-mal 100 €, also gibt es 5 · 3 € = 15 €.'},
+ 'verstehen': {
+  'einstieg': 'Ein Laden senkt den Preis eines Spiels um 10 %. Eine Woche später erhöht er ihn wieder um 10 %. Kostet das Spiel jetzt wieder so viel wie am Anfang? Viele sagen ja – doch die zweiten 10 % werden von einem anderen Preis berechnet. Bei Prozenten musst du immer fragen: Prozent wovon? Gemeint ist der ⟦Grundwert⟧.',
+  'woerter': [['Aussage', 'ein Satz, der wahr oder falsch sein kann'],
+              ['testen', 'mit konkreten Zahlen nachrechnen, z. B. mit einem Preis von 100 €'],
+              ['Gegenbeispiel', 'ein Beispiel, bei dem die Aussage nicht stimmt; eines genügt']],
+  'schritte': ['Die Aussage lautet: „Erst 10 % billiger, dann 10 % teurer – der Preis ist wieder gleich.“ Teste sie mit 100 €.',
+               '10 % von 100 € sind 10 €. Nach der Senkung kostet das Spiel 90 €.',
+               'Jetzt ist der Grundwert 90 €. 10 % von 90 € sind nur 9 €, also kostet das Spiel danach 99 €.',
+               '99 € sind nicht 100 €. Die Aussage ist ⟦falsch⟧.'],
+  'regel': 'So prüfst du Prozentaussagen: Frage bei jedem Prozentsatz ⟦„Prozent wovon?“⟧ – also nach dem ⟦Grundwert⟧. Rechne mit ⟦konkreten Zahlen⟧ nach, am besten mit 100.',
+  'fehler': 'Prozente einfach zu addieren oder abzuziehen ist oft falsch: −10 % und +10 % heben sich nicht auf, weil die zweiten 10 % von einem ⟦anderen Grundwert⟧ (90 € statt 100 €) berechnet werden.'},
+}
+
+klar(DATEI, KLAR)
+
+
 if __name__ == '__main__':
     schreibe(DATEI)

@@ -4488,7 +4488,7 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Die Abbildung zeigt die Parabel y = x² und die waagrechte Linie y = 3,5. Welcher Wert liegt am nächsten an √3,5?",
+    "text": "Die Abbildung zeigt die Parabel y = x² und die waagrechte Linie y = 3,2. Welcher Wert liegt am nächsten an √3,2?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -4511,22 +4511,22 @@
       }
      ],
      "waagrecht": [
-      3.5
+      3.2
      ],
      "schritt_x": 0.5
     }
    },
    "a": [
-    "1,75",
-    "12,25",
+    "1,6",
+    "10,24",
     "1,2",
-    "1,9"
+    "1,8"
    ],
    "o": {
     "index": 3
    },
-   "w": "Die Linie schneidet die Parabel bei x ≈ 1,9. Kontrolle: 1,9² = 3,61 liegt nahe an 3,5. 1,75 ist nur die Hälfte von 3,5; 12,25 = 3,5².",
-   "h": "Lies ab, bei welchem x die Parabel die Höhe 3,5 erreicht. Prüfe mit Quadrieren."
+   "w": "Die Linie schneidet die Parabel bei x ≈ 1,8. Kontrolle: 1,8² = 3,24 liegt nahe an 3,2. 1,6 ist nur die Hälfte von 3,2; 10,24 = 3,2².",
+   "h": "Lies ab, bei welchem x die Parabel die Höhe 3,2 erreicht. Prüfe mit Quadrieren."
   },
   {
    "l": "abschaetzen",

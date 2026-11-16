@@ -2,113 +2,236 @@
  "thema_schluessel": "finanzen.zinsen",
  "karten": {
   "begriffe": {
-   "einstieg": "Deine Oma bringt 2 000 € für dich zur Bank. Die Bank darf das Geld ein Jahr lang benutzen, zum Beispiel um es an andere zu verleihen. Als Gegenleistung legt sie nach einem Jahr 60 € dazu. Dieses zusätzliche Geld heißt ⟦Zinsen⟧.",
+   "einstieg": "Oma bringt 2 000 € für dich zur Bank. Die Bank darf das Geld ein Jahr benutzen und legt dafür 60 € dazu. Dieses Geld heißt ⟦Zinsen⟧.",
    "woerter": [
     [
-     "anlegen",
-     "Geld zu einer Bank bringen, damit es dort liegt und Zinsen bringt"
+     "Kapital",
+     "das angelegte oder geliehene Geld, kurz K"
     ],
     [
-     "Kapital K",
-     "das angelegte oder geliehene Geld, hier 2 000 €"
+     "Jahreszinssatz",
+     "wie viel Prozent des Kapitals es für ein Jahr als Zinsen gibt, kurz p %"
     ],
     [
-     "Zinsen Z",
-     "der Betrag in Euro, den man für das Benutzen von Geld bezahlt oder bekommt"
-    ],
-    [
-     "Jahreszinssatz p %",
-     "wie viel Prozent des Kapitals für ein Jahr als Zinsen berechnet werden"
-    ],
-    [
-     "Prozentzahl p",
-     "die Zahl vor dem %-Zeichen: Bei 3 % ist p = 3"
+     "Zinsen",
+     "der Betrag in Euro, kurz Z"
     ]
    ],
+   "bild": {
+    "typ": "saeulen",
+    "einheit": "€",
+    "werte": [
+     {
+      "name": "Start",
+      "wert": 2000
+     }
+    ],
+    "zahlen": true
+   },
    "schritte": [
-    "Das Geld, das bei der Bank liegt, ist das Kapital: K = ⟦2 000 €⟧.",
-    "Die Bank verspricht 3 % für ein Jahr. Das ist der Jahreszinssatz: p % = ⟦3 %⟧, die Prozentzahl ist p = 3.",
-    "Nach einem Jahr kommen 60 € dazu. Das sind die Zinsen: Z = ⟦60 €⟧.",
-    "Kontrolle: 1 % von 2 000 € sind 20 €, also sind 3 % genau 60 € ✓."
+    {
+     "text": "Das Geld auf der Bank ist das Kapital: K = ⟦2 000 €⟧."
+    },
+    {
+     "text": "Die Bank verspricht 3 %. Das ist der Jahreszinssatz."
+    },
+    {
+     "text": "Nach einem Jahr kommen Z = ⟦60 €⟧ dazu.",
+     "bild": {
+      "werte": [
+       {
+        "name": "Start",
+        "wert": 2000
+       },
+       {
+        "name": "1 Jahr",
+        "wert": 2060
+       }
+      ]
+     }
+    }
    ],
-   "regel": "So unterscheidest du die drei Größen: Das ⟦Kapital K⟧ ist das angelegte oder geliehene Geld. Der ⟦Jahreszinssatz p %⟧ ist ein Prozentsatz für ein Jahr. Die ⟦Zinsen Z⟧ sind ein Betrag in Euro.",
-   "fehler": "„Die Zinsen sind 3 %“ ist falsch: 3 % ist der ⟦Jahreszinssatz⟧. Die Zinsen sind ein ⟦Betrag in Euro⟧, hier 60 €. Bei 100 € Kapital wären es beim selben Zinssatz nur 3 €."
+   "fehler": "„Die Zinsen sind 3 %“ ist falsch. 3 % ist der Zinssatz, die Zinsen sind 60 €.",
+   "regel": "Kapital ist Geld, der ⟦Zinssatz⟧ ist ein Prozentsatz. Die Zinsen sind ein Betrag in Euro."
   },
   "rollen": {
-   "einstieg": "Bei Zinsen gibt es immer zwei Seiten: Einer gibt sein Geld her, der andere darf es benutzen. Wer das Geld eines anderen benutzt, zahlt dafür. Das gilt für dein Sparkonto genauso wie für einen ⟦Kredit⟧.",
+   "einstieg": "Bei Zinsen gibt es zwei Seiten: Einer gibt Geld her, der andere benutzt es. Wer fremdes Geld benutzt, zahlt dafür. So ist es auch beim ⟦Kredit⟧.",
    "woerter": [
     [
      "Kredit",
-     "Geld, das man sich bei einer Bank leiht und später zurückzahlt"
+     "Geld, das man sich bei einer Bank leiht"
     ],
     [
      "Sparkonto",
-     "ein Konto, auf das man Geld legt und dafür Zinsen bekommt"
-    ],
-    [
-     "verzinst",
-     "mit vereinbarten Zinsen"
+     "ein Konto, auf dem dein Geld Zinsen bringt"
     ]
    ],
+   "bild": {
+    "typ": "tabelle",
+    "kopf": [
+     "Fall",
+     "benutzt Geld",
+     "Zinsen"
+    ],
+    "zeilen": [
+     [
+      "Kredit",
+      "",
+      ""
+     ],
+     [
+      "Sparkonto",
+      "",
+      ""
+     ],
+     [
+      "Spardose",
+      "",
+      ""
+     ]
+    ]
+   },
    "schritte": [
-    "Frag dich zuerst: Wer benutzt hier das Geld des anderen?",
-    "Kredit: Du leihst dir Geld von der Bank und benutzt es. Also ⟦zahlst⟧ du Zinsen.",
-    "Sparkonto: Die Bank benutzt dein Geld. Also ⟦bekommst⟧ du Zinsen.",
-    "Spardose: Niemand benutzt dein Geld. Sie bringt ⟦keine⟧ Zinsen."
+    {
+     "text": "Kredit: Du benutzt das Geld der Bank. Du ⟦zahlst⟧ Zinsen.",
+     "bild": {
+      "zeilen": [
+       [
+        "Kredit",
+        "du",
+        "zahlst du"
+       ],
+       [
+        "Sparkonto",
+        "",
+        ""
+       ],
+       [
+        "Spardose",
+        "",
+        ""
+       ]
+      ]
+     }
+    },
+    {
+     "text": "Sparkonto: Die Bank benutzt dein Geld. Du ⟦bekommst⟧ Zinsen.",
+     "bild": {
+      "zeilen": [
+       [
+        "Kredit",
+        "du",
+        "zahlst du"
+       ],
+       [
+        "Sparkonto",
+        "Bank",
+        "bekommst du"
+       ],
+       [
+        "Spardose",
+        "",
+        ""
+       ]
+      ]
+     }
+    },
+    {
+     "text": "Spardose: Niemand benutzt dein Geld. Es gibt keine Zinsen.",
+     "bild": {
+      "zeilen": [
+       [
+        "Kredit",
+        "du",
+        "zahlst du"
+       ],
+       [
+        "Sparkonto",
+        "Bank",
+        "bekommst du"
+       ],
+       [
+        "Spardose",
+        "niemand",
+        "keine"
+       ]
+      ]
+     }
+    }
    ],
-   "regel": "So entscheidest du: Wer sich Geld gegen Zinsen ⟦leiht⟧, ⟦zahlt⟧ Zinsen. Wer Geld verzinst ⟦anlegt⟧, ⟦bekommt⟧ Zinsen.",
-   "fehler": "Bei jedem Leihen Zinsen erwarten: Leiht dir deine Schwester 5 €, kostet das meist nichts. Zinsen gibt es nur, wenn sie ⟦vereinbart⟧ sind – und eine Spardose bringt keine."
+   "fehler": "Nicht jedes Leihen kostet Zinsen. Leiht dir deine Schwester 5 €, kostet das meist nichts.",
+   "regel": "Wer Geld ⟦leiht⟧, zahlt Zinsen. Wer Geld verzinst anlegt, bekommt Zinsen."
   },
   "jahreszinsen": {
-   "einstieg": "Tim hat 800 € auf seinem Sparkonto. Die Bank zahlt 4 % Jahreszinssatz. Wie viel Euro kommen nach genau einem Jahr dazu? Gesucht sind die ⟦Jahreszinsen⟧.",
+   "einstieg": "Tim hat 800 € auf dem Sparkonto, der Jahreszinssatz ist 4 %. Wie viel Euro kommen nach einem Jahr dazu? Das sind die ⟦Jahreszinsen⟧.",
    "woerter": [
     [
      "Jahreszinsen",
      "die Zinsen für genau ein Jahr"
     ],
     [
-     "p/100",
-     "die Prozentzahl als Bruch: 4 % = 4/100"
-    ],
-    [
      "Z = K · p/100",
-     "Formel: Zinsen = Kapital mal Prozentzahl durch 100"
+     "Zinsen = Kapital mal Prozentzahl durch 100"
     ]
    ],
+   "bild": {
+    "typ": "bruchstreifen",
+    "teile": 25,
+    "gefaerbt": 0,
+    "ganzes": "800 € = 100 %"
+   },
    "schritte": [
-    "Für ein Jahr gilt die Formel Z = K · p/100.",
-    "Setze ein: Z = 800 € · ⟦4/100⟧.",
-    "Rechne zuerst 800 € : 100 = 8 €. Das ist 1 % des Kapitals.",
-    "Dann mal 4: 8 € · 4 = ⟦32 €⟧. Tim bekommt 32 € Zinsen."
+    {
+     "text": "Für ein Jahr gilt: Z = K · p/100."
+    },
+    {
+     "text": "1 % von 800 € sind 800 € : 100 = 8 €."
+    },
+    {
+     "text": "4 % sind 8 € · 4 = ⟦32 €⟧.",
+     "bild": {
+      "gefaerbt": 1,
+      "teil_text": "4 % = 32 €"
+     }
+    }
    ],
-   "probe": "32 € : 800 € = 0,04 = 4 % ✓",
-   "regel": "So berechnest du Jahreszinsen: ⟦Z = K · p/100⟧. Am leichtesten rechnest du zuerst ⟦1 %⟧ des Kapitals aus (K : 100) und nimmst dann mit p mal.",
-   "fehler": "„4 % von 800 € sind 4 €“ ist falsch: Prozent heißt ⟦von hundert⟧. Auf je 100 € kommen 4 €, bei 800 € also 8 · 4 € = 32 €."
+   "fehler": "„4 % von 800 € sind 4 €“ ist falsch. 4 € gibt es für je 100 €, bei 800 € also 32 €.",
+   "regel": "Rechne erst ⟦1 %⟧ aus, dann mal die Prozentzahl. Als Formel: Z = K · p/100."
   },
   "jahreszinsen_komma": {
-   "einstieg": "Bei manchen Banken ist der Zinssatz keine ganze Zahl, zum Beispiel 2,5 %. Lea hat 1 800 € zu 2,5 % angelegt. Die Rechnung geht genauso wie vorher – nur ist die Prozentzahl eine ⟦Dezimalzahl⟧.",
+   "einstieg": "Lea hat 1 800 € zu 2,5 % angelegt. Die Prozentzahl hat ein Komma. Gerechnet wird wie immer, nur mit einer ⟦Dezimalzahl⟧.",
    "woerter": [
     [
      "Dezimalzahl",
      "eine Zahl mit Komma, z. B. 2,5"
-    ],
-    [
-     "2,5 %",
-     "gelesen „zweieinhalb Prozent“: 2,5 von 100"
     ]
    ],
+   "bild": {
+    "typ": "bruchstreifen",
+    "teile": 40,
+    "gefaerbt": 0,
+    "ganzes": "1 800 € = 100 %"
+   },
    "schritte": [
-    "Rechne 1 % des Kapitals aus: 1 800 € : 100 = ⟦18 €⟧.",
-    "Nimm das mit der Prozentzahl 2,5 mal: 18 € · 2,5.",
-    "Zerlege die Malaufgabe: 18 · 2 = 36 und 18 · 0,5 = 9, zusammen 36 + 9 = 45.",
-    "Lea bekommt ⟦45 €⟧ Zinsen im Jahr."
+    {
+     "text": "1 % von 1 800 € sind ⟦18 €⟧."
+    },
+    {
+     "text": "Nimm mit der Prozentzahl mal: 18 € · 2,5."
+    },
+    {
+     "text": "18 · 2 = 36 und 18 · 0,5 = 9, zusammen ⟦45 €⟧.",
+     "bild": {
+      "gefaerbt": 1,
+      "teil_text": "2,5 % = 45 €"
+     }
+    }
    ],
-   "probe": "1 800 € · 2,5/100 = 4 500 € : 100 = 45 € ✓",
-   "regel": "So rechnest du mit einem Zinssatz mit Komma: Wie immer zuerst ⟦1 % = K : 100⟧, dann ⟦mal die Prozentzahl⟧ – auch wenn sie ein Komma hat.",
-   "fehler": "Nach dem 1 %-Schritt mit 0,025 statt mit 2,5 malnehmen: 18 € · 0,025 = 0,45 € – viel zu wenig. Nach dem 1 %-Schritt nimmst du mit der ⟦Prozentzahl 2,5⟧ mal."
+   "fehler": "Nach dem 1-%-Schritt mit 0,025 malnehmen ergibt nur 0,45 €. Nimm mit der Prozentzahl 2,5 mal.",
+   "regel": "Auch mit Komma gilt: erst ⟦1 %⟧, dann mal die Prozentzahl."
   },
   "zinssatz": {
-   "einstieg": "Zwei Banken werben um Kunden. Bei Bank A bringen 600 € in einem Jahr 18 € Zinsen. Um die Banken vergleichen zu können, willst du wissen: Wie viel Prozent sind das? Gesucht ist der ⟦Zinssatz⟧.",
+   "einstieg": "Bei Bank A bringen 600 € in einem Jahr 18 € Zinsen. Wie viel Prozent sind das? Gesucht ist der ⟦Zinssatz⟧.",
    "woerter": [
     [
      "Zinssatz",
@@ -116,88 +239,140 @@
     ],
     [
      "Anteil",
-     "Teil durch Ganzes: hier Zinsen durch Kapital"
-    ],
-    [
-     "p = (Z : K) · 100",
-     "Formel: Prozentzahl = Zinsen geteilt durch Kapital, mal 100"
+     "Teil durch Ganzes"
     ]
    ],
+   "bild": {
+    "typ": "bruchstreifen",
+    "teile": 100,
+    "gefaerbt": 0,
+    "ganzes": "600 € = 100 %"
+   },
    "schritte": [
-    "Welchen Anteil vom Kapital machen die Zinsen aus? Teile: 18 : 600 = ⟦0,03⟧.",
-    "Aus einem Anteil wird eine Prozentzahl, wenn du mit 100 malnimmst: 0,03 · 100 = 3.",
-    "Der Zinssatz ist ⟦3 %⟧."
+    {
+     "text": "Der Anteil der Zinsen am Kapital: 18 : 600 = 0,03."
+    },
+    {
+     "text": "Mal 100 ergibt die Prozentzahl: ⟦3 %⟧.",
+     "bild": {
+      "gefaerbt": 3,
+      "teil_text": "3 % = 18 €"
+     }
+    }
    ],
-   "probe": "600 € · 3/100 = 18 € ✓",
-   "regel": "So findest du den Zinssatz: Teile die ⟦Zinsen durch das Kapital⟧ und nimm mit 100 mal: ⟦p = (Z : K) · 100⟧.",
-   "fehler": "Falsch herum teilen: 600 : 18 ≈ 33 – ein Zinssatz von 33 % wäre viel zu hoch. Die ⟦Zinsen⟧ werden durch das ⟦Kapital⟧ geteilt: 18 : 600 = 0,03."
+   "fehler": "600 : 18 ≈ 33 ist falsch herum gerechnet. 33 % Zinsen zahlt keine Bank.",
+   "regel": "Zinssatz ist ⟦Zinsen durch Kapital⟧, mal 100. Die Zinsen stehen vorne."
   },
   "kapital": {
-   "einstieg": "Dein Opa erzählt: „Mein Sparbuch hat mir letztes Jahr 36 € Zinsen gebracht, bei 4 %.“ Wie viel Geld liegt auf dem Sparbuch? Du rechnest vom Ergebnis zurück. Gesucht ist das ⟦Kapital⟧.",
+   "einstieg": "Opa sagt: „Mein Sparbuch brachte 36 € Zinsen, bei 4 %“. Wie viel Geld liegt darauf? Gesucht ist das ⟦Kapital⟧.",
    "woerter": [
     [
-     "100 %",
-     "das ganze Kapital"
-    ],
-    [
-     "K = (Z · 100) : p",
-     "Formel: Kapital = Zinsen mal 100, geteilt durch die Prozentzahl"
+     "Kapital",
+     "das Geld, das auf dem Sparbuch liegt"
     ]
    ],
+   "bild": {
+    "typ": "bruchstreifen",
+    "teile": 25,
+    "gefaerbt": 1,
+    "teil_text": "4 % = 36 €",
+    "ganzes": "100 % = ? €"
+   },
    "schritte": [
-    "4 % des Kapitals sind 36 €.",
-    "Dann ist 1 % ein Viertel davon: 36 € : 4 = ⟦9 €⟧.",
-    "Das ganze Kapital sind 100 %: 9 € · 100 = ⟦900 €⟧."
+    {
+     "text": "4 % sind 36 €. Dann ist 1 % ein Viertel davon: ⟦9 €⟧."
+    },
+    {
+     "text": "100 % sind 9 € · 100 = ⟦900 €⟧.",
+     "bild": {
+      "gefaerbt": 25,
+      "teil_text": "",
+      "ganzes": "100 % = 900 €"
+     }
+    }
    ],
-   "probe": "900 € · 4/100 = 36 € ✓",
-   "regel": "So findest du das Kapital: Rechne über ⟦1 %⟧: Zinsen geteilt durch p, dann mal 100. Als Formel: ⟦K = (Z · 100) : p⟧.",
-   "fehler": "Die Zinsen mit 4 malnehmen: 36 € · 4 = 144 €. Dann hätte das Sparbuch nur 4 % von 144 € = 5,76 € Zinsen gebracht, nicht 36 €. Geh über ⟦1 %⟧: 36 € : 4 = 9 €, dann mal 100."
+   "fehler": "36 € · 4 = 144 € ist falsch. 4 % von 144 € wären nur 5,76 €, nicht 36 €.",
+   "regel": "Rechne über ⟦1 %⟧: Zinsen durch p, dann mal 100."
   },
   "monatszinsen": {
-   "einstieg": "Nicht jedes Geld bleibt ein ganzes Jahr auf der Bank. Jonas legt 2 400 € nur für 3 Monate an, zu 5 % Jahreszinssatz. Für ein Vierteljahr bekommt er auch nur einen Teil der Jahreszinsen. Das sind ⟦Zinsen für Monate⟧.",
+   "einstieg": "Jonas legt 2 400 € zu 5 % an, aber nur für 3 Monate. Dafür gibt es nur einen Teil der Jahreszinsen. Das sind ⟦Zinsen für Monate⟧.",
    "woerter": [
     [
-     "m Monate",
-     "eine Anzahl von Monaten; ein Jahr hat 12 Monate"
+     "Zinsen für Monate",
+     "der passende Teil der Jahreszinsen"
     ],
     [
      "m/12",
-     "der Anteil am Jahr: 3 Monate sind 3/12 = 1/4 des Jahres"
-    ],
-    [
-     "Modell",
-     "unsere vereinfachte Annahme: fester Jahreszinssatz, gleichbleibendes Kapital, keine Zwischenzahlungen, keine Zinsen auf Zinsen"
+     "der Anteil von m Monaten am Jahr: 3 Monate sind 3/12"
     ]
    ],
+   "bild": {
+    "typ": "bruchstreifen",
+    "teile": 12,
+    "gefaerbt": 0,
+    "ganzes": "1 Jahr = 120 €"
+   },
    "schritte": [
-    "Rechne zuerst die Jahreszinsen aus: 1 % von 2 400 € sind 24 €, 5 % sind 24 € · 5 = ⟦120 €⟧.",
-    "3 Monate sind 3/12 = 1/4 des Jahres.",
-    "Also gibt es ein Viertel der Jahreszinsen: 120 € : 4 = ⟦30 €⟧."
+    {
+     "text": "Jahreszinsen: 1 % sind 24 €, 5 % sind ⟦120 €⟧."
+    },
+    {
+     "text": "3 Monate sind 3/12 = 1/4 des Jahres. Das ist m/12.",
+     "bild": {
+      "gefaerbt": 3,
+      "teil_text": "3 Monate"
+     }
+    },
+    {
+     "text": "Ein Viertel der Jahreszinsen: 120 € : 4 = ⟦30 €⟧.",
+     "bild": {
+      "teil_text": "30 €"
+     }
+    }
    ],
-   "probe": "Z = 2 400 € · 5/100 · 3/12 = 120 € · 1/4 = 30 € ✓",
-   "regel": "So berechnest du Zinsen für m Monate: Rechne zuerst die ⟦Jahreszinsen⟧ aus und nimm davon den ⟦Anteil m/12⟧: Z = K · p/100 · m/12. Das gilt in unserem ⟦Modell⟧.",
-   "fehler": "Den Jahreszinssatz pro Monat rechnen: 3 · 120 € = 360 € wären die Zinsen für ⟦3 Jahre⟧. Die 5 % gelten für ein ⟦Jahr⟧; für 3 Monate gibt es nur ein Viertel davon: 30 €."
+   "fehler": "3 · 120 € = 360 € wären die Zinsen für 3 Jahre. Die 5 % gelten für ein ganzes Jahr.",
+   "regel": "Zinsen für m Monate sind ⟦Jahreszinsen · m/12⟧. Kapital und Zinssatz bleiben dabei gleich."
   },
   "zeitanteil": {
-   "einstieg": "Lea legt 1 600 € für ein halbes Jahr an, zu 3 % Jahreszinssatz. Ein halbes Jahr ist die Hälfte der Zeit – also bekommt sie auch die Hälfte der Jahreszinsen. Mit diesem ⟦Zeitanteil⟧ rechnest du ohne Monate.",
+   "einstieg": "Lea legt 1 600 € zu 3 % für ein halbes Jahr an. Die halbe Zeit bringt die halben Jahreszinsen. Das ist der ⟦Zeitanteil⟧.",
    "woerter": [
     [
      "Zeitanteil",
-     "welcher Teil eines Jahres: ein halbes Jahr ist 1/2, ein Vierteljahr 1/4"
+     "welcher Teil eines Jahres: ein halbes Jahr ist 1/2"
     ],
     [
      "Vierteljahr",
-     "3 Monate"
+     "3 Monate, also 1/4 Jahr"
     ]
    ],
+   "bild": {
+    "typ": "bruchstreifen",
+    "teile": 2,
+    "gefaerbt": 0,
+    "ganzes": "1 Jahr = 48 €"
+   },
    "schritte": [
-    "Rechne die Jahreszinsen aus: 1 % von 1 600 € sind 16 €, 3 % sind ⟦48 €⟧.",
-    "Ein halbes Jahr ist 1/2 des Jahres.",
-    "Also gibt es die Hälfte der Jahreszinsen: 48 € : 2 = ⟦24 €⟧.",
-    "Für ein Vierteljahr wären es ein Viertel: 48 € : 4 = 12 €."
+    {
+     "text": "Jahreszinsen: 1 % sind 16 €, 3 % sind 48 €."
+    },
+    {
+     "text": "Halbes Jahr, halbe Zinsen: 48 € : 2 = ⟦24 €⟧.",
+     "bild": {
+      "gefaerbt": 1,
+      "teil_text": "24 €"
+     }
+    },
+    {
+     "text": "Ein Vierteljahr bringt ein Viertel: 48 € : 4 = 12 €.",
+     "bild": {
+      "teile": 4,
+      "gefaerbt": 1,
+      "teil_text": "12 €"
+     }
+    }
    ],
-   "regel": "So rechnest du mit Zeitanteilen: Für ein ⟦halbes Jahr⟧ gibt es die ⟦Hälfte⟧ der Jahreszinsen, für ein ⟦Vierteljahr⟧ ein ⟦Viertel⟧. Es gilt dasselbe Modell wie bei den Zinsen für Monate.",
-   "fehler": "Das halbe Jahr als 6 Monate nehmen und mit 6 malnehmen: 48 € · 6 = 288 € ist viel zu viel. Ein halbes Jahr sind 6 von 12 Monaten, also 6/12 = ⟦1/2⟧ der Jahreszinsen: 24 €."
+   "fehler": "48 € · 6 = 288 € ist viel zu viel. Ein halbes Jahr sind 6 von 12 Monaten, also die Hälfte.",
+   "regel": "Ein halbes Jahr bringt die ⟦Hälfte⟧ der Jahreszinsen. Ein Vierteljahr bringt ein Viertel."
   }
  }
 }

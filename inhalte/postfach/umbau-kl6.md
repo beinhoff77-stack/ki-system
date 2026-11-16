@@ -1,0 +1,81 @@
+# Postfach umbau-kl6 (Achte Runde: Umbau der Lernkarten auf das neue Muster, Paket U6, Klasse 6)
+
+Technik: je Generator ein Abschnitt KARTEN (ersetzt den Abschnitt KLAR der Runde 7), eingesetzt über `inhalte/generatoren/_umbau_kl6.py` (dieselben strengen Regeln wie `_umbau_kl5.py` aus Paket U5) erst NACH dem Erzeugen der Aufgaben – die Aufgaben bleiben wörtlich gleich. `probe` entfällt bei umgebauten Karten. finanzen.zinsen (ohne Generator): Überlagerung `inhalte/klar/finanzen.zinsen.json`, mit denselben Regeln geprüft.
+Vergleich je Thema: `aufgaben`, titel/lernziel und alle Felder außer `inhalt.etappen` und `offen` gegen den Ausgangsstand bc7a754 (lernen-app).
+
+## 2026-11-16 03:07 – FERTIG – Abschlussbericht umbau-kl6 (Paket U6, Klasse 6)
+Alle 9 Themen (8 mit "gym_by": 6 plus finanzen.zinsen ohne Generator) auf das neue Muster umgebaut: einstieg ≤ 35 Wörter, woerter ≤ 3 (jedes im Text), Kartenbild, schritte als {text, bild} mit Bild je Bildänderung, fehler ≤ 30 Wörter (+ fehler_bild, wo sichtbar), regel mit Kurz-gesagt-Satz ≤ 12 Wörter, Sätze ≤ 15 Wörter, höchstens 2 Markierungen je Absatz, Brüche als a/b. probe entfällt.
+
+| Thema | Karten | Aufgaben (wörtlich gleich zu bc7a754) | inhalt_pruefen | Hinweise | fehler_bild |
+|---|---|---|---|---|---|
+| bruch.brueche | 8 | 224 ✓ | OK | 0 | 4 |
+| bruch.dezimal | 7 | 196 ✓ | OK | 0 | 3 |
+| bruch.prozent | 7 | 196 ✓ | OK | 0 | 1 |
+| bruch.rechnen | 10 | 280 ✓ | OK | 0 | 2 |
+| daten.darstellen | 6 | 168 ✓ | OK | 0 | 0 |
+| daten.kennwerte | 6 | 168 ✓ | OK | 0 | 0 |
+| terme.potenzgesetze | 7 | 196 ✓ | OK | 0 | 1 |
+| zahlen.potenzen_zehner | 7 | 196 ✓ | OK | 0 | 0 |
+| finanzen.zinsen (Überlagerung) | 8 | nur in der DB, unberührt | – (Regeln per _umbau_kl6.pruefe_karte) | 0 | 0 |
+
+Gesamt: 66 Karten, 1 624 Aufgaben wörtlich gleich; titel, lernziel und alle übrigen Felder (außer inhalt.etappen) unverändert, kein neuer offen-Eintrag.
+Technik: inhalte/generatoren/_umbau_kl6.py (Kopie der Prüfregeln aus _umbau_kl5.py); je Generator ersetzt ein Abschnitt KARTEN den Abschnitt KLAR der Runde 7 und wird erst nach dem Erzeugen der Aufgaben eingesetzt.
+Zeichnungen: nur vorhandene Arten (bruchstreifen, zahlenstrahl mit punkte/boegen/bereich, thermometer, stellentafel, tabelle, saeulen, kreisdiagramm, figur). Gezeichnete Raster/Hunderterfeld (figur) in bruch.brueche, bruch.prozent und bruch.rechnen durch Bruchstreifen ersetzt. Für Potenzen gibt es keine eigene Zeichnungsart; dort tragen Tabellen die Bildergeschichte.
+Bitte beim Abnehmen prüfen: (1) Tabelle mit 8 Spalten in terme.potenzgesetze/negativer_exponent auf dem Handy; (2) Bruchstreifen mit 100 Teilen (bruch.prozent/prozent_bedeutung, finanzen.zinsen/zinssatz) und 30 Teilen (bruch.brueche/anteil_bestimmen) auf Lesbarkeit; (3) beim Einspielen von finanzen.zinsen probe der DB-Karten leeren.
+Jede Karte einmal laut gelesen; alle Zahlen der Situationen nachgerechnet.
+Nicht angefasst: Datenbank, Serverfunktionen, App-Code, Tests, main. Merge offen – wartet auf Freigabe.
+
+## 2026-11-16 03:06 – STATUS
+finanzen.zinsen (8 Karten, ohne Generator) umgebaut: Überlagerung inhalte/klar/finanzen.zinsen.json jetzt mit bild, schritte als Objekte {text, bild}, Pass-auf-Text, Kurz-gesagt-Merksatz. Geprüft mit _umbau_kl6.pruefe_karte (dieselben strengen Regeln wie die Generator-Themen) und gegen die Lernziele/Reihenfolge aus inhalte/klar/quelle.md. inhalt_pruefen gilt nur für Themen-Dateien und lässt sich hier nicht anwenden.
+Kartenbilder (alle neu, quelle.md nennt für dieses Thema keine): Säulen 2 000 € → 2 060 €, Tabelle Kredit/Sparkonto/Spardose, Bruchstreifen in Prozent-Teilen (4 % von 800 €, 2,5 % von 1 800 €, 3 % von 600 €, 4 % = 36 € → 900 €, 3 von 12 Monaten, halbes Jahr/Vierteljahr).
+Kein fehler_bild (Begriffs- und Rechenfehler).
+FRAGE/Hinweis fürs Einspielen: Die Überlagerung enthält kein Feld probe mehr (im neuen Muster entfällt es, wie in U5). Falls der Import nur vorhandene Felder überschreibt, bitte probe der Datenbank-Karten dieses Themas leeren. Aufgaben liegen nur in der Datenbank und sind unberührt.
+
+## 2026-11-16 03:05 – STATUS
+zahlen.potenzen_zehner (7 Karten) umgebaut. Kartenbilder: Stellentafel, in der die 1 bei jedem Mal-10 eine Stelle nach links rückt (zehnerpotenz), Tabellen normal ↔ wissenschaftlich (Sonnenabstand, Sandkorn), Tabellen der Vorsilben (k, M, G, T; m, µ, n), Potenzreihe 10¹ bis 10⁻⁴, Einwohnertabelle → Säulen 90 000 / 200 000.
+Neu: Kartenbilder für alle Karten außer zehnerpotenz (bisher ohne Bild).
+Kein fehler_bild (Lese- und Umrechnungsfehler).
+inhalt_pruefen: OK, keine Hinweise. Vergleich gegen bc7a754: 196 Aufgaben wörtlich gleich, Rest gleich, titel/lernziel gleich.
+
+## 2026-11-16 03:04 – STATUS
+terme.potenzgesetze (7 Karten) umgebaut. Alle Karten bekommen erstmals ein Kartenbild, durchweg Tabellen, die sich Schritt für Schritt füllen (Papierfalten: Faltungen → Lagen; Potenzreihe 2³ bis 2⁻³; Faktoren zählen; 10⁶ und 10⁴; Paare 2 · 5; Zahlen als Potenzen; Zahlenprobe 3² · 3³ gegen 3⁶ und 3⁵). Für Potenzen gibt es keine passendere Zeichnungsart.
+fehler_bild nur bei potenz_begriff (2 · 4 = 8 statt 16 Lagen).
+Hinweis: Die Tabelle bei negativer_exponent hat 8 Spalten – auf dem Handy bitte prüfen, ob sie lesbar bleibt (sonst auf 2¹ … 2⁻³ kürzen).
+inhalt_pruefen: OK, keine Hinweise. Vergleich gegen bc7a754: 196 Aufgaben wörtlich gleich, Rest gleich, titel/lernziel gleich.
+
+## 2026-11-16 03:02 – STATUS
+daten.kennwerte (6 Karten) umgebaut. Kartenbilder: Säulen (Punkte 7, 9, 4, 8 → alle 7; drei Tests mit fehlendem Ergebnis → 7; Schuhgrößen als Häufigkeiten; Taschengeld mit Ausreißer), Notenspiegel-Tabelle mit Zeile „Note · Anzahl“, Zahlenstrahl 0–20 mit den geordneten Schulweg-Zeiten und markiertem Median.
+Neu: Kartenbilder für mittel_rueckwaerts, modal_spannweite, median, verstehen (bisher ohne Bild).
+Kein fehler_bild (Rechen- und Lesefehler).
+inhalt_pruefen: OK, keine Hinweise. Vergleich gegen bc7a754: 168 Aufgaben wörtlich gleich, Rest gleich, titel/lernziel gleich.
+
+## 2026-11-16 03:01 – STATUS
+daten.darstellen (6 Karten) umgebaut. Kartenbilder: Strichliste als sich füllende Tabelle (Würfeln), Bruchstreifen Lena 7/25 gegen Tom 11/50 → Säulen 28 % / 22 %, Häufigkeitstabelle Schulweg mit Summe und Anteilen, Säulen Lieblingssport, Kreisdiagramm Schulweg, Säulen Freibad (Achse ab 960 → im letzten Schritt ab 0).
+Neu: Kartenbilder für absolute_haeufigkeit und relative_haeufigkeit (bisher ohne Bild).
+Kein fehler_bild in diesem Thema (Lese- und Rechenfehler; das irreführende Bild selbst ist schon das Kartenbild).
+inhalt_pruefen: OK, keine Hinweise. Vergleich gegen bc7a754: 168 Aufgaben wörtlich gleich, Rest gleich, titel/lernziel gleich.
+
+## 2026-11-16 03:00 – STATUS
+bruch.rechnen (10 Karten) umgebaut. Kartenbilder: Bruchstreifen (Wanderung 3/4 + 1/6 → Zwölftel, Schulgarten 3/4 → 9/12 → 6/12, 25-Cent-Münzen, Pizza Punkt vor Strich), Tabellen (Bäcker Komma unter Komma mit Übertrag, Aufkleber in € und Cent, Obstwaage mit Überschlag), Thermometer (−2,5 °C → −1,3 °C), Zahlenstrahl in Sechsteln mit Saft-Bereich und Becher-Bögen (Teilen durch 2/3), Figur Klebeband 0,3 m × 0,04 m.
+fehler_bild: brueche_plus_minus (4/10 kleiner als 3/4), dezimal_geteilt (Komma nur beim Preis verschoben). Übrige Fehler sind Rechenregel-Fehler.
+Das Raster-Bild (figur 4 × 3) bei brueche_mal ist durch zwei Bruchstreifen ersetzt.
+inhalt_pruefen: OK, keine Hinweise. Vergleich gegen bc7a754: 280 Aufgaben wörtlich gleich, Rest gleich, titel/lernziel gleich.
+
+## 2026-11-16 02:58 – STATUS
+bruch.prozent (7 Karten) umgebaut. Kartenbilder: Bruchstreifen (Akku 3/4 → 75/100, Fahrrad in 20 Teilen zu 5 %, Probe 21/25 gegen 34/40, Kartoffelernte in Zehnteln, Jacke in Vierteln), Säulen (Sparbuch 500 € → 515 €, Spielpreis 100 → 90 → 99 €); prozentsatz wechselt im letzten Schritt zu Säulen 84 % / 85 %.
+fehler_bild nur bei prozent_bedeutung (0,5 = 50 %, nicht 5 %); die übrigen Fehler sind Rechenweg-Fehler.
+Das Hunderterfeld (figur) der Karte prozent_bedeutung ist durch einen Bruchstreifen mit 100 Teilen ersetzt (Bildergeschichte 3/4 → 75/100).
+inhalt_pruefen: OK, keine Hinweise. Vergleich gegen bc7a754: 196 Aufgaben wörtlich gleich, Rest gleich, titel/lernziel gleich.
+
+## 2026-11-16 02:57 – STATUS
+bruch.dezimal (7 Karten) umgebaut. Kartenbilder: Stellentafel mit wanderndem Markierer (stellenwerte, dezimal_zu_bruch → wechselt im letzten Schritt zum Bruchstreifen 7/20), Zahlenstrahl-Ausschnitte mit Punkten/Bereich (vergleichen_ordnen 0,4–0,5; runden 4,3–4,4; bruch_zu_dezimal 0–1 in Achteln; verstehen 0,1–0,2), Tabelle der schriftlichen Division mit wiederkehrendem Rest (periodisch).
+fehler_bild: runden (2,349 liegt in der unteren Hälfte), bruch_zu_dezimal (3,8 weit hinter 3/8), verstehen (3,14 vor 3,2). Kein fehler_bild bei stellenwerte, vergleichen_ordnen, dezimal_zu_bruch, periodisch (Lese-/Stellenfehler).
+periodisch: Das Kriterium „Nenner mit anderen Primfaktoren als 2 und 5“ steht jetzt nur noch im Merksatz (Schritte hätten die Länge gesprengt).
+inhalt_pruefen: OK, keine Hinweise. Vergleich gegen bc7a754: 196 Aufgaben wörtlich gleich, Rest gleich, titel/lernziel gleich.
+
+## 2026-11-16 02:55 – STATUS
+bruch.brueche (8 Karten) umgebaut. Kartenbilder: Bruchstreifen (ersetzen die gezeichneten Raster/Streifen aus figur) für bruchteil_von, anteil_bestimmen, ganzes_bestimmen, erweitern, kuerzen, vergleichen, verstehen; Zahlenstrahl mit Bögen und Punkt für zahlenstrahl. Durchgehende Situation: Klassenfest (Kasse, Band, Schokolade, Muffins, Kuchen, Weg zur Festwiese, Pizza).
+inhalt_pruefen: OK, keine Hinweise. Vergleich gegen bc7a754: 224 Aufgaben wörtlich gleich, Rest gleich, titel/lernziel gleich.
+Kein fehler_bild bei bruchteil_von, anteil_bestimmen, ganzes_bestimmen, verstehen (Rechenweg-Fehler: falsche Reihenfolge Zähler/Nenner bzw. Beweis durch ein Beispiel – im Streifen nicht sinnvoll zu zeigen). Jede Karte laut gelesen.
+
+## Ende

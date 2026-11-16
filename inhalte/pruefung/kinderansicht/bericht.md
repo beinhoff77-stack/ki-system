@@ -152,3 +152,22 @@ Das Flug-Bild darf bleiben: „Einsteigen“, „Gelandet“ sind gute Zustände
 - Die Reisepläne der Testkinder sind erfunden. Echte Pläne mit weniger Orten machen B5/B14 kleiner, B1–B4 bleiben.
 - Zwei ältere Themen (Natürliche Zahlen, Teilbarkeit) stehen nicht in `inhalte/themenliste.json`. Ihre Lernkarten sind im Rundgang durch Nachbarthemen ersetzt (nur Merkheft-Inhalt betroffen).
 - Nicht mit den Kindern ausprobiert. Vorschlag: beiden Kindern drei Fragen stellen und zusehen, wohin sie tippen: „Wie weit bist du in Klasse X?“, „Was kommt nach diesem Thema?“, „Wo findest du nochmal, wie Punkt vor Strich ging?“.
+
+---
+
+## 7. Auswahl Sebastian (2026-11-16)
+
+| Punkt | Gewählt |
+|---|---|
+| 1 Navigation | **Heute lassen** (Menü ≡) |
+| 2 Startseite | offen – Wunsch: Stand je Schulart (Gymnasium, Realschule, IB) und Klasse sichtbar machen, für Kinder, Eltern und Lehrer |
+| 3 Fortschritt | offen – wie 2 |
+| 4 Mein Weg | **B – nach Gebieten** (Kontinenten) |
+| 5 Weltkarte | **A – Ansicht in „Mein Weg“** (nur eigene Klasse, Antarktis von oben) |
+| 6 Stempel | **A – Ort = eine Klasse, Stempel je Ort** (13 Orte umziehen, siehe B8) |
+| 7 Merkheft | **A – Gebiet → Thema → Lernkarte**, nur Geschafftes |
+| 8 Wörter | **B – Reisewörter durchgehend** (Flug = Thema, Etappe = Lernkarte, Bordkarte = Aufgabe, Kontinent = Gebiet) |
+| 9 Andere Klassen | Heute lassen (noch unentschieden) |
+| 10 Rückreise | **A – eigene Karte „Kurz zurück“** mit Grund |
+
+Zu 2/3: Entwürfe „Stand über Schularten“ (Linienplan, Bordkarten, Höhenmesser; Startseiten-Zeile; Eltern: Lehrplan-Landkarte, Schulwechsel-Check, beide Kinder auf einen Blick) liegen Sebastian zur Auswahl vor. Grundlage ist die Zuordnung Thema → Klasse je Schulart in `inhalte/themenliste.json` (`klasse.gym_by/rs_by/ib_myp`).

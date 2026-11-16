@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 04:54 – STATUS
+abbildungen.aehnlichkeit fertig: 36 neue Übungen, inhalt_pruefen OK, Unverändert-Nachweis OK.
+
 ## 2026-11-16 04:52 – STATUS
 funktionen.potenz fertig: 36 neue Übungen, inhalt_pruefen OK, Unverändert-Nachweis OK.
 

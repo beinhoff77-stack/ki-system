@@ -490,6 +490,30 @@ SW.a('beurteilen', 3, 'Mit einer Urne aus 6 roten und 4 blauen Kugeln (mit Zurü
 baue = mit_schwer(baue, SW)
 # ---- SCHWER ENDE ----
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, mit_befunden  # noqa: E402
+
+BF = Befunde('stochastik.simulation', 13_8_14)
+# b) „etwa zu erwarten“ mit Kommazahl als exakte Lösung → ganze Zahlen 712 und 713 zulassen
+BF.loesung('auswerten', 'Eine Simulation mit 400 Durchgängen ergab 57-mal „Gewinn beim Losen“. Wie oft ist das Ereignis bei 5000 echten Durchgängen etwa zu erwarten?',
+           o={'wert': 712.5, 'toleranz': 0.5},
+           w='P ≈ 57 : 400 = 0,1425. Erwartet: 0,1425 · 5000 = 712,5, also etwa 712- bis 713-mal.')
+# c) Beinahe-Dublette (zweimal p = 5/6 mit Urne 7 von 10) → neue Prüfaufgabe
+BF.ersetze('beurteilen', 'Ein Bauteil ist fehlerhaft mit p = 5/6. Simuliert wird mit einer Urne mit 7 roten von 10 Kugeln (mit Zurücklegen). Ist das geeignet?', BF.A(
+    'Ein Bauteil ist mit p = 0,15 fehlerhaft. Simuliert wird mit Zufallszahlen von 00 bis 99; Treffer sind die Zahlen 00 bis 15. Ist das geeignet?',
+    'Nein: 00 bis 15 sind 16 Zahlen, das Gerät hat also p = 0,16.',
+    ['Ja, das Gerät hat genau p = 0,15.', 'Ja, jedes Zufallsgerät ist geeignet.', 'Nein, mit Zufallszahlen kann man nie Wahrscheinlichkeiten simulieren.'],
+    'Von 00 bis 15 sind es 16 Zahlen (die 00 mitzählen!), also p = 16/100 = 0,16 ≠ 0,15. Richtig wären die Treffer 00 bis 14.',
+    'Zähle die Treffer-Zahlen genau (die 00 mitzählen) und vergleiche die Wahrscheinlichkeit.'))
+# a) einschrittig p · 360° → Stufe 2
+for _p in ['0,35', '0,45', '0,6', '0,8']:
+    BF.stufe('zufallsgeraet', f'Ein Glücksrad soll einen Treffer mit p = {_p} simulieren. Wie groß muss der Mittelpunktswinkel des Trefferfeldes sein (in Grad)?', 2)
+BF.nicht_umgesetzt('auswerten S3 „Gruppe A 100 / B 50 Durchgänge – wessen Schätzwert …“ (3×)', 'Kein Fehler; Übungsreihe zum selben Gedanken mit verschiedenen Zahlen.')
+BF.fuer_sebastian('stochastik.simulation: lehrplan_gym leer; Simulation steht im LehrplanPLUS Gym Kl. 8 nicht als eigener Inhalt – als Vertiefung zu Laplace/relative Häufigkeit führen? Karten-Texte nicht geändert.')
+
+baue = mit_befunden(baue, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Simulieren', ['zufallsgeraet', 'regel', 'zufallsziffern']), ('Auswerten', ['auswerten', 'monte_carlo']), ('Verstehen', ['beurteilen'])],

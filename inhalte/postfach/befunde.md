@@ -2,6 +2,15 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 05:34 – STATUS
+stochastik.simulation fertig: umgestuft 4 / berichtigt 1 / ersetzt 1 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Ein Bauteil ist fehlerhaft mit p = 5/6. Simuliert wird mit einer Urne mit 7 roten von 10 Kugeln (mit Zurücklegen). Ist das geeignet?“
+- nicht umgesetzt:
+  - auswerten S3 „Gruppe A 100 / B 50 Durchgänge – wessen Schätzwert …“ (3×) – Kein Fehler; Übungsreihe zum selben Gedanken mit verschiedenen Zahlen.
+- für Sebastian:
+  - stochastik.simulation: lehrplan_gym leer; Simulation steht im LehrplanPLUS Gym Kl. 8 nicht als eigener Inhalt – als Vertiefung zu Laplace/relative Häufigkeit führen? Karten-Texte nicht geändert.
+
 ## 2026-11-16 05:33 – STATUS
 stochastik.grundbegriffe fertig: umgestuft 4 / berichtigt 0 / ersetzt 4 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):

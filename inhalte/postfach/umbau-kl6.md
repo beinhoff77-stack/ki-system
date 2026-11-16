@@ -3,6 +3,12 @@
 Technik: je Generator ein Abschnitt KARTEN (ersetzt den Abschnitt KLAR der Runde 7), eingesetzt über `inhalte/generatoren/_umbau_kl6.py` (dieselben strengen Regeln wie `_umbau_kl5.py` aus Paket U5) erst NACH dem Erzeugen der Aufgaben – die Aufgaben bleiben wörtlich gleich. `probe` entfällt bei umgebauten Karten. finanzen.zinsen (ohne Generator): Überlagerung `inhalte/klar/finanzen.zinsen.json`, mit denselben Regeln geprüft.
 Vergleich je Thema: `aufgaben`, titel/lernziel und alle Felder außer `inhalt.etappen` und `offen` gegen den Ausgangsstand bc7a754 (lernen-app).
 
+## 2026-11-16 03:06 – STATUS
+finanzen.zinsen (8 Karten, ohne Generator) umgebaut: Überlagerung inhalte/klar/finanzen.zinsen.json jetzt mit bild, schritte als Objekte {text, bild}, Pass-auf-Text, Kurz-gesagt-Merksatz. Geprüft mit _umbau_kl6.pruefe_karte (dieselben strengen Regeln wie die Generator-Themen) und gegen die Lernziele/Reihenfolge aus inhalte/klar/quelle.md. inhalt_pruefen gilt nur für Themen-Dateien und lässt sich hier nicht anwenden.
+Kartenbilder (alle neu, quelle.md nennt für dieses Thema keine): Säulen 2 000 € → 2 060 €, Tabelle Kredit/Sparkonto/Spardose, Bruchstreifen in Prozent-Teilen (4 % von 800 €, 2,5 % von 1 800 €, 3 % von 600 €, 4 % = 36 € → 900 €, 3 von 12 Monaten, halbes Jahr/Vierteljahr).
+Kein fehler_bild (Begriffs- und Rechenfehler).
+FRAGE/Hinweis fürs Einspielen: Die Überlagerung enthält kein Feld probe mehr (im neuen Muster entfällt es, wie in U5). Falls der Import nur vorhandene Felder überschreibt, bitte probe der Datenbank-Karten dieses Themas leeren. Aufgaben liegen nur in der Datenbank und sind unberührt.
+
 ## 2026-11-16 03:05 – STATUS
 zahlen.potenzen_zehner (7 Karten) umgebaut. Kartenbilder: Stellentafel, in der die 1 bei jedem Mal-10 eine Stelle nach links rückt (zehnerpotenz), Tabellen normal ↔ wissenschaftlich (Sonnenabstand, Sandkorn), Tabellen der Vorsilben (k, M, G, T; m, µ, n), Potenzreihe 10¹ bis 10⁻⁴, Einwohnertabelle → Säulen 90 000 / 200 000.
 Neu: Kartenbilder für alle Karten außer zehnerpotenz (bisher ohne Bild).

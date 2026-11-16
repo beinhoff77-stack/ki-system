@@ -1707,7 +1707,7 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Durch welche der Zahlen 2, 5 und 10 ist 9909 teilbar?"
+    "text": "Durch welche der Zahlen 2, 5 und 10 ist 9 909 teilbar?"
    },
    "a": [
     "nur durch 2",
@@ -1728,7 +1728,7 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Durch welche der Zahlen 2, 5 und 10 ist 4893 teilbar?"
+    "text": "Durch welche der Zahlen 2, 5 und 10 ist 4 893 teilbar?"
    },
    "a": [
     "nur durch 2",
@@ -1749,7 +1749,7 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Durch welche der Zahlen 2, 5 und 10 ist 9180 teilbar?"
+    "text": "Durch welche der Zahlen 2, 5 und 10 ist 9 180 teilbar?"
    },
    "a": [
     "nur durch 2",
@@ -1770,7 +1770,7 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Durch welche der Zahlen 2, 5 und 10 ist 3057 teilbar?"
+    "text": "Durch welche der Zahlen 2, 5 und 10 ist 3 057 teilbar?"
    },
    "a": [
     "nur durch 5",
@@ -1794,15 +1794,15 @@
     "text": "Welche Zahl ist durch 5, aber nicht durch 10 teilbar?"
    },
    "a": [
-    "2835",
-    "2832",
-    "2830",
-    "2838"
+    "2 835",
+    "2 832",
+    "2 830",
+    "2 838"
    ],
    "o": {
     "index": 0
    },
-   "w": "2835 endet auf 5: durch 5, aber nicht durch 10. 2830 endet auf 0 und ist auch durch 10 teilbar.",
+   "w": "2 835 endet auf 5: durch 5, aber nicht durch 10. 2 830 endet auf 0 und ist auch durch 10 teilbar.",
    "h": "Durch 10 heißt Endziffer 0, durch 5 heißt Endziffer 0 oder 5."
   },
   {
@@ -1815,15 +1815,15 @@
     "text": "Welche Zahl ist durch 5, aber nicht durch 10 teilbar?"
    },
    "a": [
-    "7048",
-    "7042",
-    "7045",
-    "7040"
+    "7 048",
+    "7 042",
+    "7 045",
+    "7 040"
    ],
    "o": {
     "index": 2
    },
-   "w": "7045 endet auf 5: durch 5, aber nicht durch 10. 7040 endet auf 0 und ist auch durch 10 teilbar.",
+   "w": "7 045 endet auf 5: durch 5, aber nicht durch 10. 7 040 endet auf 0 und ist auch durch 10 teilbar.",
    "h": "Durch 10 heißt Endziffer 0, durch 5 heißt Endziffer 0 oder 5."
   },
   {
@@ -1836,15 +1836,15 @@
     "text": "Welche Zahl ist durch 5, aber nicht durch 10 teilbar?"
    },
    "a": [
-    "5142",
-    "5145",
-    "5148",
-    "5140"
+    "5 142",
+    "5 145",
+    "5 148",
+    "5 140"
    ],
    "o": {
     "index": 1
    },
-   "w": "5145 endet auf 5: durch 5, aber nicht durch 10. 5140 endet auf 0 und ist auch durch 10 teilbar.",
+   "w": "5 145 endet auf 5: durch 5, aber nicht durch 10. 5 140 endet auf 0 und ist auch durch 10 teilbar.",
    "h": "Durch 10 heißt Endziffer 0, durch 5 heißt Endziffer 0 oder 5."
   },
   {
@@ -1873,15 +1873,15 @@
     "text": "Welche Zahl ist durch 5, aber nicht durch 10 teilbar?"
    },
    "a": [
-    "6100",
-    "6108",
-    "6102",
-    "6105"
+    "6 100",
+    "6 108",
+    "6 102",
+    "6 105"
    ],
    "o": {
     "index": 3
    },
-   "w": "6105 endet auf 5: durch 5, aber nicht durch 10. 6100 endet auf 0 und ist auch durch 10 teilbar.",
+   "w": "6 105 endet auf 5: durch 5, aber nicht durch 10. 6 100 endet auf 0 und ist auch durch 10 teilbar.",
    "h": "Durch 10 heißt Endziffer 0, durch 5 heißt Endziffer 0 oder 5."
   },
   {
@@ -1891,7 +1891,7 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand sagt: „8323 beginnt mit 8, also ist die Zahl durch 2 teilbar.“ Stimmt das?"
+    "text": "Jemand sagt: „8 323 beginnt mit 8, also ist die Zahl durch 2 teilbar.“ Stimmt das?"
    },
    "a": [
     "Nein. Die Endziffer 3 ist ungerade.",
@@ -1902,7 +1902,7 @@
    "o": {
     "index": 0
    },
-   "w": "Für die Teilbarkeit durch 2 zählt nur die letzte Ziffer. 3 ist ungerade, also ist 8323 nicht durch 2 teilbar.",
+   "w": "Für die Teilbarkeit durch 2 zählt nur die letzte Ziffer. 3 ist ungerade, also ist 8 323 nicht durch 2 teilbar.",
    "h": "Welche Ziffer ist entscheidend?"
   },
   {
@@ -1934,7 +1934,7 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand sagt: „4761 beginnt mit 4, also ist die Zahl durch 2 teilbar.“ Stimmt das?"
+    "text": "Jemand sagt: „4 761 beginnt mit 4, also ist die Zahl durch 2 teilbar.“ Stimmt das?"
    },
    "a": [
     "Das kann man nicht prüfen.",
@@ -1945,7 +1945,7 @@
    "o": {
     "index": 2
    },
-   "w": "Für die Teilbarkeit durch 2 zählt nur die letzte Ziffer. 1 ist ungerade, also ist 4761 nicht durch 2 teilbar.",
+   "w": "Für die Teilbarkeit durch 2 zählt nur die letzte Ziffer. 1 ist ungerade, also ist 4 761 nicht durch 2 teilbar.",
    "h": "Welche Ziffer ist entscheidend?"
   },
   {
@@ -1955,7 +1955,7 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand sagt: „2877 beginnt mit 2, also ist die Zahl durch 2 teilbar.“ Stimmt das?"
+    "text": "Jemand sagt: „2 877 beginnt mit 2, also ist die Zahl durch 2 teilbar.“ Stimmt das?"
    },
    "a": [
     "Ja, die erste Ziffer ist gerade.",
@@ -1966,7 +1966,7 @@
    "o": {
     "index": 1
    },
-   "w": "Für die Teilbarkeit durch 2 zählt nur die letzte Ziffer. 7 ist ungerade, also ist 2877 nicht durch 2 teilbar.",
+   "w": "Für die Teilbarkeit durch 2 zählt nur die letzte Ziffer. 7 ist ungerade, also ist 2 877 nicht durch 2 teilbar.",
    "h": "Welche Ziffer ist entscheidend?"
   },
   {
@@ -2009,15 +2009,15 @@
     "text": "Welche Zahl ist durch 5, aber nicht durch 10 teilbar?"
    },
    "a": [
-    "8505",
-    "8502",
-    "8500",
-    "8508"
+    "8 505",
+    "8 502",
+    "8 500",
+    "8 508"
    ],
    "o": {
     "index": 0
    },
-   "w": "8505 endet auf 5: durch 5, aber nicht durch 10. 8500 endet auf 0 und ist auch durch 10 teilbar."
+   "w": "8 505 endet auf 5: durch 5, aber nicht durch 10. 8 500 endet auf 0 und ist auch durch 10 teilbar."
   },
   {
    "l": "endziffer",
@@ -2029,15 +2029,15 @@
     "text": "Welche Zahl ist durch 5, aber nicht durch 10 teilbar?"
    },
    "a": [
-    "3528",
-    "3520",
-    "3525",
-    "3522"
+    "3 528",
+    "3 520",
+    "3 525",
+    "3 522"
    ],
    "o": {
     "index": 2
    },
-   "w": "3525 endet auf 5: durch 5, aber nicht durch 10. 3520 endet auf 0 und ist auch durch 10 teilbar."
+   "w": "3 525 endet auf 5: durch 5, aber nicht durch 10. 3 520 endet auf 0 und ist auch durch 10 teilbar."
   },
   {
    "l": "endziffer",
@@ -2049,15 +2049,15 @@
     "text": "Welche Zahl ist durch 5, aber nicht durch 10 teilbar?"
    },
    "a": [
-    "2560",
-    "2562",
-    "2568",
-    "2565"
+    "2 560",
+    "2 562",
+    "2 568",
+    "2 565"
    ],
    "o": {
     "index": 3
    },
-   "w": "2565 endet auf 5: durch 5, aber nicht durch 10. 2560 endet auf 0 und ist auch durch 10 teilbar."
+   "w": "2 565 endet auf 5: durch 5, aber nicht durch 10. 2 560 endet auf 0 und ist auch durch 10 teilbar."
   },
   {
    "l": "endziffer",
@@ -2069,15 +2069,15 @@
     "text": "Welche Zahl ist durch 5, aber nicht durch 10 teilbar?"
    },
    "a": [
-    "8772",
-    "8770",
-    "8778",
-    "8775"
+    "8 772",
+    "8 770",
+    "8 778",
+    "8 775"
    ],
    "o": {
     "index": 3
    },
-   "w": "8775 endet auf 5: durch 5, aber nicht durch 10. 8770 endet auf 0 und ist auch durch 10 teilbar."
+   "w": "8 775 endet auf 5: durch 5, aber nicht durch 10. 8 770 endet auf 0 und ist auch durch 10 teilbar."
   },
   {
    "l": "endziffer",
@@ -2089,15 +2089,15 @@
     "text": "Welche Zahl ist durch 5, aber nicht durch 10 teilbar?"
    },
    "a": [
-    "5425",
-    "5420",
-    "5422",
-    "5428"
+    "5 425",
+    "5 420",
+    "5 422",
+    "5 428"
    ],
    "o": {
     "index": 0
    },
-   "w": "5425 endet auf 5: durch 5, aber nicht durch 10. 5420 endet auf 0 und ist auch durch 10 teilbar."
+   "w": "5 425 endet auf 5: durch 5, aber nicht durch 10. 5 420 endet auf 0 und ist auch durch 10 teilbar."
   },
   {
    "l": "endziffer",
@@ -2124,15 +2124,15 @@
     "text": "Welche Zahl ist durch 5, aber nicht durch 10 teilbar?"
    },
    "a": [
-    "6892",
-    "6895",
-    "6890",
-    "6898"
+    "6 892",
+    "6 895",
+    "6 890",
+    "6 898"
    ],
    "o": {
     "index": 1
    },
-   "w": "6895 endet auf 5: durch 5, aber nicht durch 10. 6890 endet auf 0 und ist auch durch 10 teilbar."
+   "w": "6 895 endet auf 5: durch 5, aber nicht durch 10. 6 890 endet auf 0 und ist auch durch 10 teilbar."
   },
   {
    "l": "endziffer",
@@ -2144,15 +2144,15 @@
     "text": "Welche Zahl ist durch 5, aber nicht durch 10 teilbar?"
    },
    "a": [
-    "3140",
-    "3148",
-    "3145",
-    "3142"
+    "3 140",
+    "3 148",
+    "3 145",
+    "3 142"
    ],
    "o": {
     "index": 2
    },
-   "w": "3145 endet auf 5: durch 5, aber nicht durch 10. 3140 endet auf 0 und ist auch durch 10 teilbar."
+   "w": "3 145 endet auf 5: durch 5, aber nicht durch 10. 3 140 endet auf 0 und ist auch durch 10 teilbar."
   },
   {
    "l": "quersumme",
@@ -2288,7 +2288,7 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ist 4671 durch 3 oder durch 9 teilbar?"
+    "text": "Ist 4 671 durch 3 oder durch 9 teilbar?"
    },
    "a": [
     "weder durch 3 noch durch 9",
@@ -2416,7 +2416,7 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ist 7650 durch 3 oder durch 9 teilbar?"
+    "text": "Ist 7 650 durch 3 oder durch 9 teilbar?"
    },
    "a": [
     "durch 3, aber nicht durch 9",

@@ -37,6 +37,18 @@ def etappen_aus_klar(thema, titel):
     return et
 
 
+def g4(x):
+    """Zahl wie auf den Lernkarten dieser Themen: schon ab 1 000 mit Leerzeichen gegliedert (3 470, 2 000 €)."""
+    t = zt(x) if not isinstance(x, str) else x
+    vz, t = ('−', t[1:]) if t.startswith('−') else ('', t)
+    ganz, *rest = t.replace(' ', '').split(',')
+    if len(ganz) >= 4:
+        g = ''
+        while len(ganz) > 3: g, ganz = ' ' + ganz[-3:] + g, ganz[:-3]
+        ganz += g
+    return vz + ganz + (',' + rest[0] if rest else '')
+
+
 def term(glieder):
     """Glieder [(Koeffizient, 'x²'), (k, 'x'), (k, '')] als Text: 3x² − x + 5. Nullglieder fallen weg."""
     s = ''

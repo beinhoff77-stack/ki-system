@@ -2,6 +2,43 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 03:09 – FERTIG
+Achte Runde, Paket U8 (Klasse 8) abgeschlossen: 15 Themen, 97 Lernkarten auf das neue Muster umgebaut (einstieg ≤ 35 Wörter, woerter ≤ 3, Kartenbild, Schritte als {text, bild}, fehler + fehler_bild wo sinnvoll, regel mit „Kurz gesagt“ ≤ 12 Wörter).
+
+| Thema | Karten | Aufgaben | gleich wie lernen-app | Prüfskript |
+|---|---|---|---|---|
+| funktionen.grundbegriffe | 8 | 192 | ja | 0 Fehler, 0 Hinweise |
+| gleichungen.ungleichungen | 7 | 168 | ja | 0 / 0 |
+| zahlen.intervalle | 4 | 96 | ja | 0 / 0 |
+| terme.bruchterme | 7 | 168 | ja | 0 / 0 |
+| gleichungen.formeln | 5 | 120 | ja | 0 / 0 |
+| gleichungen.bruch | 7 | 168 | ja | 0 / 0 |
+| gleichungen.lgs2 | 8 | 192 | ja | 0 / 0 |
+| funktionen.linear | 7 | 168 | ja | 0 / 0 |
+| funktionen.gebrochen | 6 | 144 | ja | 0 / 0 |
+| messen.koerper_darstellung | 6 | 144 | ja | 0 / 0 |
+| raum.schraegbilder | 6 | 144 | ja | 0 / 0 |
+| messen.kreisberechnung | 7 | 168 | ja | 0 / 0 |
+| stochastik.grundbegriffe | 6 | 144 | ja | 0 / 0 |
+| stochastik.simulation | 6 | 144 | ja | 0 / 0 |
+| groessen.indirekt | 7 | 189 | ja | 0 / 0 |
+
+Technik:
+- Neue Hilfsdatei inhalte/generatoren/_umbau_kl8.py; je Generator ein Abschnitt UMBAU, der NACH dem Erzeugen der Aufgaben eingesetzt wird. KLAR (Runde 7) bleibt stehen, weil die Generatoren dessen Beispieltexte zum Vermeiden von Dopplungen nutzen – so bleiben alle Aufgaben wörtlich gleich. Die alte „probe“ entfällt (Kontrolle steht, wo nötig, als Schritt).
+- Aufgabenvergleich je Thema gegen `git show lernen-app:inhalte/themen/<thema>.json`: alle 2 534 Aufgaben wörtlich gleich.
+- Darstellung geprüft: Alle 97 Karten mit lernErklaerung() aus lernen.js in Chromium (390 px) aufgebaut – keine Fehler, kein NaN/undefined in den Zeichnungen. Stichproben als Bild angesehen (graph_lesen, umdrehen, schraegbild, laengen); dabei überlappende Beschriftungen im Schrägbild behoben.
+- Alle Zahlen der Situationen nachgerechnet (u. a. Monte-Carlo: 31 von 40 Punkten im Viertelkreis nachgezählt).
+
+Bewusste Entscheidungen / offen:
+- fehler_bild fehlt bei Karten, deren Fehler ein reiner Rechen- oder Formelfehler ist (z. B. kreisberechnung, mehrere Gleichungs-Karten). Dort gäbe es kein Bild, das den Fehler zeigt.
+- Bei rein algebraischen Karten (z. B. Klammern, Kürzen, Verfahren wählen) ist das Beispiel allgemein, die Situation steht im Einstieg und im Pass auf!. Eine durchgehende Alltagssituation hätte die Rechnung verfälscht.
+- Schrägbilder, Netze und Pyramiden sind mit der Zeichnungsart figur gebaut (Hilfspunkte mit _).
+- App-Wünsche (unter "offen" in den Dateien): Zahlenstrahl-Bereich mit offenen/geschlossenen Endpunkten und Pfeil bis ∞ (zahlen.intervalle); Urne als Zeichnung (stochastik.simulation, behelfsweise Bruchstreifen).
+- Beobachtung zur App: Ein Schrittbild ergänzt den vorigen Zustand nur flach. Wer bei figur Punkte austauscht, muss flaeche/kreise mit leeren, die auf fehlende Punkte zeigen. Sonst wirft lernFigur einen TypeError. Vorschlag: lernFigur überspringt unbekannte Punkte.
+- Sätze in raum.schraegbilder und messen.koerper_darstellung sind ≤ 15 Wörter, weil das Prüfskript dort wegen rs_by 5/6 die Grenze für Klasse 5/6 anlegt.
+- Noch nicht mit dem Kind getestet.
+- Nicht gemergt.
+
 ## 2026-11-16 03:07 – STATUS
 groessen.indirekt umgebaut (7 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_kl8.py).
 Aufgaben-Vergleich gegen `git show lernen-app:inhalte/themen/groessen.indirekt.json`: alle wörtlich gleich. inhalt_pruefen: 0 Fehler, 0 Hinweise. Generator heißt groessen_indirekt.py (UMBAU nach dem vorhandenen mit_klar eingesetzt). Ohne fehler_bild: graph, unterscheiden, sach.

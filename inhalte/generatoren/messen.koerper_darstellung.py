@@ -434,7 +434,7 @@ _NETZ = {"_a": [0, 0], "_b": [5, 0], "_c": [8, 0], "_d": [13, 0], "_e": [16, 0],
 _NETZ_L = [["_a", "_b"], ["_b", "_c", "3 cm"], ["_c", "_d", "5 cm"], ["_d", "_e", "3 cm"], ["_e", "_f", "4 cm"], ["_f", "_g"], ["_g", "_h"], ["_h", "_i"], ["_i", "_j"],
            ["_j", "_a"], ["_b", "_i"], ["_c", "_h"], ["_d", "_g"], ["_j", "_k"], ["_k", "_l", "5 cm"], ["_l", "_i"], ["_a", "_m"], ["_m", "_n"], ["_n", "_b", "3 cm"]]
 _Q = {"A": [0, 0], "B": [6, 0], "C": [8.83, 2.83], "D": [2.83, 2.83], "E": [0, 4], "F": [6, 4], "G": [8.83, 6.83], "H": [2.83, 6.83], "_X": [8.5, 0]}
-_Q_L = [["A", "B", "6 cm"], ["B", "F", "4 cm"], ["F", "E"], ["E", "A"], ["B", "C", "4 cm"], ["C", "G"], ["G", "F"], ["E", "H"], ["H", "G"],
+_Q_L = [["A", "B", "6 cm"], ["B", "F", "4 cm"], ["F", "E"], ["E", "A"], ["B", "C", "4 cm (45°)"], ["C", "G"], ["G", "F"], ["E", "H"], ["H", "G"],
         ["A", "D", "", "gestrichelt"], ["D", "C", "", "gestrichelt"], ["D", "H", "", "gestrichelt"], ["B", "_X", "", "gestrichelt"]]
 _W = {'_A': [0, 0], '_B': [3, 0], '_C': [4.5, 1.5], '_D': [1.5, 1.5], '_E': [0, 3], '_F': [3, 3], '_G': [4.5, 4.5], '_H': [1.5, 4.5]}
 _W_L = [['_A', '_B'], ['_B', '_F'], ['_F', '_E'], ['_E', '_A'], ['_B', '_C'], ['_C', '_G'], ['_G', '_F'], ['_E', '_H'], ['_H', '_G'],
@@ -476,14 +476,14 @@ UMBAU = {
  'schraegbild': {
   'einstieg': 'Eine Schachtel ist räumlich, dein Heft aber flach. Damit die Zeichnung räumlich wirkt, zeichnest du Kanten nach hinten schräg und kürzer. Das ist ein ⟦Schrägbild⟧.',
   'woerter': [['Schrägbild', 'räumlich wirkende Zeichnung eines Körpers'], ['wahrer Größe', 'genau so lang wie in echt'], ['gestrichelt', 'mit kurzen Strichen: Diese Kante ist verdeckt']],
-  'bild': {'typ': 'figur', 'punkte': _Q, 'linien': _Q_L, 'winkel': [["B", "_X", "C", "45°"]]},
+  'bild': {'typ': 'figur', 'punkte': _Q, 'linien': _Q_L},
   'schritte': [{'text': 'Der Quader ist 6 cm breit, 4 cm hoch und 8 cm tief.'},
-               {'text': 'Die Vorderfläche zeichnest du in wahrer Größe: 6 cm × 4 cm.', 'bild': {'linien': _Q_L[:4], 'winkel': []}},
-               {'text': 'Nach hinten: unter 45° und halb so lang, also ⟦4 cm⟧.', 'bild': {'linien': _Q_L[:9] + [_Q_L[12]], 'winkel': [["B", "_X", "C", "45°"]]}},
+               {'text': 'Die Vorderfläche zeichnest du in wahrer Größe: 6 cm × 4 cm.', 'bild': {'punkte': {k: _Q[k] for k in 'ABFE'}, 'linien': _Q_L[:4]}},
+               {'text': 'Nach hinten: unter 45° und halb so lang, also ⟦4 cm⟧.', 'bild': {'punkte': _Q, 'linien': _Q_L[:9] + [_Q_L[12]]}},
                {'text': 'Verdeckte Kanten zeichnest du gestrichelt.', 'bild': {'linien': _Q_L}}],
   'fehler': 'Die Kante nach hinten voll lang zeichnen ist falsch. Mit 8 statt 4 cm wirkt der Quader viel zu tief. Nur Kanten ⟦nach hinten⟧ werden verkürzt.',
   'fehler_bild': {'punkte': {**_Q, "C": [11.66, 5.66], "D": [5.66, 5.66], "G": [11.66, 9.66], "H": [5.66, 9.66]},
-                  'linien': [l if l[:2] != ["B", "C"] else ["B", "C", "8 cm?"] for l in _Q_L], 'winkel': []},
+                  'linien': [["B", "C", "8 cm?"] if l[:2] == ["B", "C"] else (["B", "F"] if l[:2] == ["B", "F"] else l) for l in _Q_L]},
   'regel': 'Vorne ⟦wahre Größe⟧, nach hinten 45° und halb so lang. Verdeckte Kanten zeichnest du gestrichelt.'},
  'ansichten': {
   'einstieg': 'Wer ein Haus plant, zeichnet es flach von vorn, von der Seite und von oben. So erkennt man die Form genau. Diese Zeichnungen heißen ⟦Ansichten⟧.',
@@ -492,10 +492,10 @@ UMBAU = {
            'linien': [['_a', '_b', 'vorn'], ['_b', '_c'], ['_c', '_d'], ['_d', '_a']], 'kreise': [{'m': '_M', 'r': 2}]},
   'schritte': [{'text': 'Eine Dose steht auf ihrem Boden.'},
                {'text': 'Von vorn siehst du Höhe und Breite: Die Vorderansicht ist ein ⟦Rechteck⟧.',
-                'bild': {'typ': 'figur', 'punkte': {'_a': [0, 0], '_b': [4, 0], '_c': [4, 6], '_d': [0, 6]}, 'flaeche': ['_a', '_b', '_c', '_d'], 'linien': [['_a', '_b', '8 cm'], ['_b', '_c', '12 cm'], ['_c', '_d'], ['_d', '_a']]}},
+                'bild': {'typ': 'figur', 'punkte': {'_a': [0, 0], '_b': [4, 0], '_c': [4, 6], '_d': [0, 6]}, 'flaeche': ['_a', '_b', '_c', '_d'], 'kreise': [], 'linien': [['_a', '_b', '8 cm'], ['_b', '_c', '12 cm'], ['_c', '_d'], ['_d', '_a']]}},
                {'text': 'Von der Seite sieht sie genauso aus.'},
                {'text': 'Von oben siehst du den Deckel: Die Draufsicht ist ein ⟦Kreis⟧.',
-                'bild': {'typ': 'figur', 'punkte': {'_M': [0, 0], '_R': [2, 0]}, 'linien': [['_M', '_R', 'r = 4 cm']], 'kreise': [{'m': '_M', 'r': 2}]}}],
+                'bild': {'typ': 'figur', 'punkte': {'_M': [0, 0], '_R': [2, 0]}, 'flaeche': [], 'linien': [['_M', '_R', 'r = 4 cm']], 'kreise': [{'m': '_M', 'r': 2}]}}],
   'fehler': 'Die Draufsicht einer stehenden Dose ist kein Rechteck. Von oben siehst du nur den ⟦Deckel⟧, einen Kreis.',
   'regel': 'Ansichten sind ⟦flache Figuren⟧. Jede zeigt den Körper aus einer Richtung: vorn, Seite, oben.'},
  'beurteilen': {

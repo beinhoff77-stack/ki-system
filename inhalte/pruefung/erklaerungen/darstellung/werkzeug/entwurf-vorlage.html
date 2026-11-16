@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Entwurf: Erklärungen klarer darstellen</title>
+<!-- Prüfrunde Erklär-Darstellung. Kein App-Code. Eine Datei ohne fremde Abhängigkeiten.
+     Texte sind die echten Lernkarten aus inhalte/themen (eingesetzt von bauen.py); nur wo „gekürzt (Vorschlag)“ steht, ist der Text ein Kürzungsvorschlag.
+     Optik bewusst wie die App (Look „Ozean“), damit nur Aufbau und Verständlichkeit verglichen werden. -->
+<style>
+:root { --bg: #E8F7F9; --flaeche: #fff; --text: #0B3B52; --leise: #3F6B7D; --akzent: #D9482A; --akzent-tief: #A93A1D; --gut: #0E7C86; --linie: #BFDDE3;
+  --marker: #FFE58A; --falle: #FDECE6; --falle-text: #8A2E14; --blau: #2F7FC1; --kalt: #D6ECFA;
+  font-family: ui-rounded, "SF Pro Rounded", "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif; }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--text); font-size: 18px; line-height: 1.45; font-variant-numeric: tabular-nums; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--akzent); outline-offset: 2px; }
+.steuer { background: #12303f; color: #fff; font-size: 16px; padding: 6px 12px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.steuer b { font-weight: 600; opacity: .85; }
+#steuer { display: flex; gap: 6px; flex-wrap: nowrap; overflow-x: auto; }
+.steuer button { min-height: 36px; padding: 0 12px; border-radius: 99px; border: 1px solid #ffffff55; background: none; color: #fff; }
+.steuer button.an { background: #fff; color: #12303f; }
+.app { max-width: 1100px; margin: 0 auto; padding: 0 0 40px; }
+.kopf { display: flex; align-items: center; gap: 10px; padding: 12px 16px 4px; }
+.kopf .zurueck { width: 44px; height: 44px; border-radius: 14px; border: 0; background: var(--flaeche); font-size: 22px; font-weight: 800; }
+.kopf h1 { margin: 0; font-size: 22px; line-height: 1.15; }
+.kopf small { display: block; font-size: 16px; color: var(--leise); font-weight: 600; }
+.reiter { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; background: var(--flaeche); border-radius: 99px; padding: 4px; margin: 10px 16px; border: 1px solid var(--linie); }
+.reiter button { min-height: 44px; border: 0; border-radius: 99px; background: none; font-weight: 700; }
+.reiter button.an { background: var(--akzent); color: #fff; }
+/* Kartenwahl statt aller Karten untereinander */
+.kartenwahl { display: flex; align-items: center; gap: 8px; margin: 4px 16px 10px; }
+.kartenwahl .pfeil { width: 48px; height: 48px; flex: none; border-radius: 50%; border: 2px solid var(--linie); background: var(--flaeche); font-size: 22px; font-weight: 800; }
+.kartenwahl .pfeil[disabled] { opacity: .35; cursor: default; }
+.kartenwahl .mitte { flex: 1; min-height: 48px; border: 0; background: none; text-align: center; font-weight: 700; font-size: 16px; color: var(--leise); }
+.kartenwahl .mitte span { display: block; color: var(--text); font-size: 17px; }
+.liste { margin: 0 16px 12px; background: var(--flaeche); border-radius: 18px; padding: 8px; border: 1px solid var(--linie); }
+.liste h3 { font-size: 16px; letter-spacing: .06em; color: var(--leise); margin: 10px 8px 4px; text-transform: uppercase; }
+.liste button { display: flex; width: 100%; align-items: center; gap: 12px; min-height: 52px; border: 0; background: none; text-align: left; border-radius: 12px; padding: 4px 8px; }
+.liste button.an { background: var(--bg); font-weight: 700; }
+.liste .nr { width: 32px; height: 32px; flex: none; border-radius: 50%; border: 2px solid var(--linie); display: grid; place-items: center; font-size: 16px; font-weight: 700; }
+/* Die eine Lernkarte */
+.karte { background: var(--flaeche); border-radius: 22px; margin: 0 16px; padding: 18px 18px 20px; box-shadow: 0 4px 0 var(--linie); }
+.karte h2 { margin: 0 0 4px; font-size: 24px; line-height: 1.2; }
+.karte .status { font-size: 16px; color: var(--leise); margin: 0 0 12px; }
+.raster { display: block; }
+.bildfeld { display: grid; place-items: center; background: #F4FAFB; border-radius: 16px; padding: 10px 6px; margin: 4px 0 12px; min-height: 120px; }
+.bildfeld svg { width: 100%; max-width: 420px; height: auto; display: block; overflow: visible; }
+.situation { font-size: 19px; margin: 0 0 12px; }
+.ueber { font-size: 16px; font-weight: 800; letter-spacing: .06em; color: var(--gut); text-transform: uppercase; margin: 0 0 6px; }
+.schritte-weg { list-style: none; margin: 0 0 8px; padding: 0; }
+.schritte-weg li { display: flex; gap: 10px; font-size: 16px; color: var(--leise); padding: 4px 0; }
+.schritte-weg li::before { content: "✓"; color: var(--gut); font-weight: 800; }
+.schritt { border: 2px solid var(--text); border-radius: 16px; padding: 12px 14px; font-size: 20px; line-height: 1.4; margin: 0 0 12px; animation: rein .25s ease-out; }
+.schritt .n { display: block; font-size: 16px; font-weight: 800; color: var(--gut); margin-bottom: 2px; }
+@keyframes rein { from { transform: translateY(8px); opacity: 0; } }
+.punkte { display: flex; gap: 6px; justify-content: center; margin: 0 0 12px; }
+.punkte i { width: 28px; height: 6px; border-radius: 3px; background: var(--linie); } .punkte i.an { background: var(--text); }
+.knoepfe { display: flex; gap: 10px; }
+.haupt { flex: 1; min-height: 60px; border: 0; border-radius: 16px; background: var(--akzent); color: #fff; font-size: 20px; font-weight: 800; box-shadow: 0 4px 0 var(--akzent-tief); }
+.zweit { min-height: 60px; min-width: 60px; padding: 0 16px; border-radius: 16px; border: 2px solid var(--linie); background: var(--flaeche); font-size: 18px; font-weight: 700; }
+.merke { border-left: 6px solid var(--akzent); background: #FFF7F3; border-radius: 4px 14px 14px 4px; padding: 12px 14px; margin: 0 0 14px; }
+.merke p { margin: 0; font-size: 20px; font-weight: 700; line-height: 1.4; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.links button { min-height: 44px; padding: 0 14px; border-radius: 99px; border: 2px solid var(--linie); background: var(--flaeche); font-size: 16px; font-weight: 700; }
+.falle { background: var(--falle); border-radius: 14px; padding: 12px 14px; margin-top: 10px; font-size: 18px; }
+.falle b { color: var(--falle-text); }
+.woerterliste { margin-top: 10px; border-top: 1px solid var(--linie); }
+.woerterliste div { padding: 8px 0; border-bottom: 1px solid var(--linie); font-size: 17px; } .woerterliste dt, .woerterliste b { font-weight: 800; }
+mark { background: var(--marker); color: inherit; border-radius: 4px; padding: 0 3px; font-weight: 700; }
+.wort { border: 0; background: none; padding: 0; font: inherit; color: inherit; text-decoration: underline dotted 2px; text-underline-offset: 4px; cursor: help; min-height: 0; }
+.wort.offen { background: #E3F2F5; border-radius: 4px; }
+.erklwort { display: block; margin: 6px 0 10px; padding: 10px 12px; border-radius: 12px; background: #E3F2F5; font-size: 17px; animation: rein .2s ease-out; }
+.erklwort b { display: block; }
+.bruch { display: inline-flex; flex-direction: column; vertical-align: middle; text-align: center; line-height: 1.05; font-size: 1em; margin: 0 2px; font-weight: inherit; }
+.bruch span:first-child { border-bottom: 2px solid currentColor; padding: 0 2px; }
+.gekuerzt { display: inline-block; font-size: 16px; color: #7A4B00; background: #FFF1C2; border-radius: 6px; padding: 0 6px; margin-left: 6px; }
+/* Üben: Spickzettel oben, Aufgabe sofort sichtbar */
+.spick { background: var(--flaeche); border-radius: 16px; margin: 0 16px 10px; padding: 10px 14px; border: 2px dashed var(--linie); display: flex; gap: 12px; align-items: center; }
+.spick p { margin: 0; font-size: 17px; flex: 1; } .spick button { min-height: 44px; border: 0; background: none; text-decoration: underline; font-weight: 700; font-size: 16px; }
+.aufgabe { background: var(--flaeche); border-radius: 22px; margin: 0 16px; padding: 18px; box-shadow: 0 4px 0 var(--linie); }
+.aufgabe .frage { font-size: 22px; font-weight: 700; margin: 0 0 14px; line-height: 1.3; }
+.aufgabe input { width: 100%; font: inherit; font-size: 28px; font-weight: 800; text-align: center; min-height: 64px; border-radius: 14px; border: 3px solid var(--linie); }
+.aufgabe .wahl { display: grid; gap: 8px; } .aufgabe .wahl button { min-height: 52px; border-radius: 12px; border: 2px solid var(--linie); background: var(--flaeche); text-align: left; padding: 8px 12px; }
+.aufgabe .wahl button.an { border-color: var(--text); background: var(--bg); }
+.rm { border-radius: 14px; padding: 12px 14px; margin-top: 12px; font-size: 18px; } .rm.ok { background: #E0F4EE; color: #0B6B4E; font-weight: 700; } .rm.nein { background: var(--falle); }
+/* Zeichnungen: Schrift mindestens 16 px */
+.z-linie { stroke: var(--text); stroke-width: 3; stroke-linecap: round; fill: none; }
+.z-duenn { stroke: #9BC3CD; stroke-width: 1.5; }
+.z-text { font: 700 20px ui-rounded, system-ui, sans-serif; fill: var(--text); }
+.z-text.klein { font-size: 19px; font-weight: 600; }
+.z-text.gross { font-size: 26px; font-weight: 800; }
+.z-akzent { stroke: var(--akzent); fill: none; stroke-width: 4; stroke-linecap: round; }
+.z-akzent-f { fill: var(--akzent); }
+.z-blau { fill: var(--blau); } .z-kalt { fill: var(--kalt); }
+.z-gut { stroke: var(--gut); fill: none; stroke-width: 4; stroke-linecap: round; }
+.z-marker { fill: var(--marker); }
+.neu-im-bild { animation: blitz .5s ease-out; } @keyframes blitz { from { opacity: 0; } }
+@media (max-width: 819px) {
+  .karte .knoepfe, .aufgabe .knoepfe { position: fixed; left: 0; right: 0; bottom: 0; background: var(--flaeche); padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); z-index: 5; box-shadow: 0 -6px 18px #0b3b5222; margin: 0 !important; }
+  .app { padding-bottom: 100px; }
+  .raster { display: flex; flex-direction: column; } .raster .bildfeld { order: 2; margin-top: 4px; }
+  .schritte-weg { display: none; }
+  .karte .status { display: none; }
+  .kartenwahl { margin-bottom: 6px; } .kartenwahl .pfeil { width: 44px; height: 44px; }
+  .steuer { flex-wrap: nowrap; overflow-x: auto; } .steuer button { white-space: nowrap; }
+  .steuer { font-size: 16px; padding: 4px 8px; } .steuer b { display: none; }
+  .kopf { padding-top: 8px; } .reiter { margin: 6px 16px; } .karte { padding: 14px 16px 6px; } .karte h2 { font-size: 22px; } .karte .status { margin-bottom: 8px; }
+}
+@media (min-width: 820px) {
+  .karte { padding: 24px 28px; }
+  .raster { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+  .raster .bildfeld { position: sticky; top: 16px; margin: 0; min-height: 320px; }
+  .kartenwahl, .reiter, .karte, .liste, .spick, .aufgabe { margin-left: 24px; margin-right: 24px; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+</head>
+<body>
+<div class="steuer" role="region" aria-label="Entwurfssteuerung"><b>Entwurf – Ansicht:</b><span id="steuer"></span></div>
+<div class="app" id="app"></div>
+<script>
+'use strict';
+const DATEN = /*DATEN*/;
+const S = { thema: 'zahlen.ganz', karte: 0, phase: 0, teil: 'erklaeren', liste: false, wort: null, falle: false, woerter: false, eingabe: '', wahl: null, ergebnis: null, wozu: false };
+const $ = (s) => document.querySelector(s);
+const esc = (t) => String(t ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const thema = () => DATEN.themen[S.thema]; const karte = () => thema().etappen[S.karte];
+const klasse = () => thema().klasse; const gross = () => klasse() >= 7;
+// Text aufbereiten: ⟦…⟧ = Markierung (überall dieselbe Farbe), a/b = gestapelter Bruch, neue Wörter antippbar (nur erstes Vorkommen)
+function text(t, { woerter = true, gesehen = new Set() } = {}) {
+  let h = esc(t);
+  h = h.replace(/(^|[^\d/])(\d{1,3})\/(\d{1,3})(?![\d/])/g, (m, a, z, n) => `${a}<span class="bruch" aria-label="${z} von ${n}"><span>${z}</span><span>${n}</span></span>`);
+  if (woerter) for (const [w] of karte().woerter || []) {
+    if (gesehen.has(w)) continue; const e = esc(w).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const re = new RegExp(`(^|[^\\wäöüß])(${e}[a-zäöüß]{0,3})(?![\\wäöüß])`, 'i'); if (re.test(h) && !/[<>]/.test(w)) { h = h.replace(re, (m, a, b) => `${a}<button class="wort${S.wort === w ? ' offen' : ''}" data-wort="${esc(w)}">${b}</button>`); gesehen.add(w); }
+  }
+  return h.replace(/⟦/g, '<mark>').replace(/⟧/g, '</mark>');
+}
+const steuer = () => { $('#steuer').innerHTML = Object.entries(DATEN.themen).map(([k, t]) => `<button data-thema="${k}" class="${k === S.thema ? 'an' : ''}">Klasse ${t.klasse}: ${esc(t.titel)}</button>`).join(''); };
+
+// ---------- Zeichnungen je Schritt (Bildzustand wechselt mit dem Schritt) ----------
+const BILD = {};
+BILD.thermometer = (p) => { // zahlen.ganz/deuten
+  const y = (g) => 26 + (10 - g) * 12, X = 150; let o = `<svg viewBox="0 0 360 300" role="img" aria-label="Thermometer von −10 bis 10 Grad">`;
+  if (p >= 2) o += `<rect x="60" y="${y(0)}" width="250" height="${y(-10) - y(0)}" rx="8" class="z-kalt neu-im-bild"/><text x="300" y="${y(-6)}" text-anchor="end" class="z-text">unter null</text><text x="300" y="${y(6)}" text-anchor="end" class="z-text klein">über null</text>`;
+  o += `<rect x="${X - 12}" y="${y(10) - 10}" width="24" height="${y(-10) - y(10) + 20}" rx="12" fill="#fff" stroke="#0B3B52" stroke-width="3"/><circle cx="${X}" cy="${y(-10) + 26}" r="20" fill="#2F7FC1" stroke="#0B3B52" stroke-width="3"/>`;
+  const stand = p >= 1 ? -3 : 1; o += `<rect x="${X - 6}" y="${y(stand)}" width="12" height="${y(-10) + 14 - y(stand)}" class="z-blau"/>`;
+  for (let g = -10; g <= 10; g += 1) { const l = g % 5 === 0; o += `<line x1="${X + 14}" y1="${y(g)}" x2="${X + (l ? 34 : 24)}" y2="${y(g)}" class="z-linie" style="stroke-width:${l ? 3 : 2}"/>`; if (l) o += `<text x="${X - 22}" y="${y(g) + 6}" text-anchor="end" class="z-text">${g < 0 ? '−' + -g : g}</text>`; }
+  o += `<line x1="${X - 14}" y1="${y(0)}" x2="${X + 60}" y2="${y(0)}" class="z-linie" style="stroke-dasharray:4 5"/>`;
+  if (p >= 1) o += `<g class="neu-im-bild"><line x1="${X + 40}" y1="${y(-3)}" x2="${X + 70}" y2="${y(-3)}" class="z-akzent"/><text x="${X + 76}" y="${y(-3) + 7}" class="z-text ${p >= 3 ? 'gross' : ''}">${p >= 3 ? '−3 °C' : '3 unter 0'}</text></g>`;
+  return o + '</svg>';
+};
+function strahlRoh(von, bis, breite = 360) { const L = 20, R = breite - 20; return { x: (v) => L + (R - L) * (v - von) / (bis - von), L, R }; }
+BILD.betrag = (p) => { // zahlen.ganz/betrag: Taucher −7, Vogel 7
+  const { x } = strahlRoh(-10, 10); const Y = 120; let o = `<svg viewBox="0 0 360 200" role="img" aria-label="Zahlengerade von −10 bis 10 mit −7 und 7">`;
+  o += `<line x1="10" y1="${Y}" x2="350" y2="${Y}" class="z-linie"/>`;
+  for (let v = -10; v <= 10; v++) o += `<line x1="${x(v)}" y1="${Y - (v % 5 ? 6 : 11)}" x2="${x(v)}" y2="${Y + (v % 5 ? 6 : 11)}" class="z-linie" style="stroke-width:${v % 5 ? 2 : 3}"/>`;
+  for (const v of [-10, -7, 0, 7, 10]) o += `<text x="${x(v)}" y="${Y + 36}" text-anchor="middle" class="z-text">${v < 0 ? '−' + -v : v}</text>`;
+  o += `<circle cx="${x(-7)}" cy="${Y}" r="9" class="z-akzent-f"/><text x="${x(-7)}" y="${Y - 22}" text-anchor="middle" class="z-text klein">Taucher</text>`;
+  o += `<circle cx="${x(7)}" cy="${Y}" r="9" class="z-akzent-f"/><text x="${x(7)}" y="${Y - 22}" text-anchor="middle" class="z-text klein">Vogel</text>`;
+  if (p >= 2) o += `<path d="M${x(-7)} ${Y + 52} Q${(x(-7) + x(0)) / 2} ${Y + 80} ${x(0)} ${Y + 52}" class="z-gut neu-im-bild"/><text x="${(x(-7) + x(0)) / 2}" y="${Y + 76}" text-anchor="middle" class="z-text">7</text>`;
+  if (p >= 3) o += `<path d="M${x(0)} ${Y + 52} Q${(x(7) + x(0)) / 2} ${Y + 80} ${x(7)} ${Y + 52}" class="z-gut neu-im-bild"/><text x="${(x(7) + x(0)) / 2}" y="${Y + 76}" text-anchor="middle" class="z-text">7</text>`;
+  if (p >= 4) o += `<path d="M${x(-7)} ${Y - 40} Q${x(0)} ${Y - 100} ${x(7)} ${Y - 40}" class="z-akzent neu-im-bild" style="stroke-dasharray:6 6"/><text x="${x(0)}" y="${Y - 74}" text-anchor="middle" class="z-text">Gegenzahl</text>`;
+  return o + '</svg>';
+};
+BILD.gerade = (p) => { // funktionen.linear/ablesen: y = −2x + 5
+  const W = 360, H = 330, x0 = -1, x1 = 4, y0 = -2, y1 = 6; const X = (v) => 30 + (W - 50) * (v - x0) / (x1 - x0), Y = (v) => 14 + (H - 44) * (y1 - v) / (y1 - y0);
+  let o = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Gerade y = −2x + 5">`;
+  for (let v = x0; v <= x1; v++) o += `<line x1="${X(v)}" y1="${Y(y0)}" x2="${X(v)}" y2="${Y(y1)}" class="z-duenn"/>`;
+  for (let v = y0; v <= y1; v++) o += `<line x1="${X(x0)}" y1="${Y(v)}" x2="${X(x1)}" y2="${Y(v)}" class="z-duenn"/>`;
+  o += `<line x1="${X(x0)}" y1="${Y(0)}" x2="${X(x1)}" y2="${Y(0)}" class="z-linie"/><line x1="${X(0)}" y1="${Y(y0)}" x2="${X(0)}" y2="${Y(y1)}" class="z-linie"/>`;
+  for (const v of [1, 2, 3, 4]) o += `<text x="${X(v)}" y="${Y(0) + 24}" text-anchor="middle" class="z-text klein">${v}</text>`;
+  for (const v of [-2, 2, 4, 6]) o += `<text x="${X(0) - 10}" y="${Y(v) + 6}" text-anchor="end" class="z-text klein">${v < 0 ? '−' + -v : v}</text>`;
+  o += `<text x="${X(x1) - 4}" y="${Y(0) - 10}" text-anchor="end" class="z-text">x</text><text x="${X(0) + 10}" y="${Y(y1) + 14}" class="z-text">y</text>`;
+  o += `<line x1="${X(-0.5)}" y1="${Y(6)}" x2="${X(3.5)}" y2="${Y(-2)}" class="z-akzent" style="stroke:#0B3B52;stroke-width:4"/>`;
+  if (p >= 2) o += `<g class="neu-im-bild"><circle cx="${X(0)}" cy="${Y(5)}" r="10" class="z-akzent-f"/><rect x="${X(0) + 16}" y="${Y(5) - 18}" width="122" height="32" rx="8" class="z-marker"/><text x="${X(0) + 24}" y="${Y(5) + 5}" class="z-text">t = 5: (0 | 5)</text></g>`;
+  if (p >= 3) o += `<g class="neu-im-bild"><line x1="${X(1)}" y1="${Y(3)}" x2="${X(2)}" y2="${Y(3)}" class="z-gut"/><line x1="${X(2)}" y1="${Y(3)}" x2="${X(2)}" y2="${Y(1)}" class="z-gut"/>
+    <rect x="${X(2) + 8}" y="${Y(3) - 24}" width="132" height="32" rx="8" class="z-marker"/><text x="${X(2) + 16}" y="${Y(3) - 1}" class="z-text">1 nach rechts</text><rect x="${X(2) + 8}" y="${Y(1.6) - 18}" width="132" height="32" rx="8" class="z-marker"/><text x="${X(2) + 16}" y="${Y(1.6) + 5}" class="z-text">2 nach unten</text></g>`;
+  return o + '</svg>';
+};
+BILD.bruchteil = (p) => { // bruch.brueche/bruchteil_von: 3/4 von 20 €
+  let o = `<svg viewBox="0 0 360 170" role="img" aria-label="Streifen für 20 Euro in 4 Teilen">`; const L = 30, B = 300, Y = 50, H = 56;
+  if (p >= 2) for (let i = 0; i < 3; i++) o += `<rect x="${L + i * B / 4}" y="${Y}" width="${B / 4}" height="${H}" class="z-marker neu-im-bild"/>`;
+  o += `<rect x="${L}" y="${Y}" width="${B}" height="${H}" class="z-linie" rx="4"/>`;
+  if (p >= 1) for (let i = 1; i < 4; i++) o += `<line x1="${L + i * B / 4}" y1="${Y}" x2="${L + i * B / 4}" y2="${Y + H}" class="z-linie neu-im-bild"/>`;
+  if (p >= 1) for (let i = 0; i < 4; i++) o += `<text x="${L + (i + .5) * B / 4}" y="${Y + 36}" text-anchor="middle" class="z-text neu-im-bild">5 €</text>`;
+  o += `<text x="${L + B / 2}" y="${Y - 16}" text-anchor="middle" class="z-text">ganzer Streifen: 20 €</text>`;
+  if (p >= 2) o += `<path d="M${L} ${Y + H + 12} v10 h${B * 3 / 4} v-10" class="z-gut neu-im-bild"/><text x="${L + B * 3 / 8}" y="${Y + H + 48}" text-anchor="middle" class="z-text">3 Teile = 15 €</text>`;
+  return o + '</svg>';
+};
+// Allgemeiner Zahlenstrahl aus dem vorhandenen Bild-Format (für Karten ohne eigene Schritt-Zeichnung)
+BILD.strahl = (b) => { const { x } = strahlRoh(b.start, b.ende); const Y = 60, n = b.abschnitte || 10; let o = `<svg viewBox="0 0 360 110" role="img" aria-label="Zahlenstrahl">`;
+  o += `<line x1="10" y1="${Y}" x2="350" y2="${Y}" class="z-linie"/>`;
+  for (let i = 0; i <= n; i++) { const v = b.start + i * (b.ende - b.start) / n; o += `<line x1="${x(v)}" y1="${Y - 8}" x2="${x(v)}" y2="${Y + 8}" class="z-linie" style="stroke-width:2"/>`; if (i === 0 || i === n || (b.beschriftet === 'alle')) o += `<text x="${x(v)}" y="${Y + 32}" text-anchor="middle" class="z-text">${v < 0 ? '−' + -v : v}</text>`; }
+  if (b.pfeil != null) { const v = b.start + b.pfeil * (b.ende - b.start) / n; o += `<path d="M${x(v)} ${Y - 14} l-8 -14 h16 z" class="z-akzent-f"/>`; }
+  return o + '</svg>'; };
+function bildFuer(k, phase) {
+  const n = k.schritte.length; const p = Math.min(phase, n + 1);
+  if (k.zeichnung) return BILD[k.zeichnung](p);
+  if (k.bild?.typ === 'zahlenstrahl') return BILD.strahl(k.bild);
+  return k.bild ? `<p style="font-size:16px;color:var(--leise);text-align:center;padding:20px">(Zeichnung „${esc(k.bild.typ)}“ wie in der App – im Entwurf nicht nachgebaut)</p>` : '';
+}
+
+// ---------- Ansicht ----------
+function kopf() { const t = thema(); return `<header class="kopf"><button class="zurueck" aria-label="Zurück">‹</button><div><small>${esc(t.ort)} · Klasse ${t.klasse}</small><h1>${esc(t.titel)}</h1></div></header>
+  <nav class="reiter" role="tablist">${[['erklaeren', 'Erklären'], ['ueben', 'Üben'], ['fehler', 'Fehler']].map(([k, n]) => `<button role="tab" aria-selected="${S.teil === k}" class="${S.teil === k ? 'an' : ''}" data-teil="${k}">${n}</button>`).join('')}</nav>`; }
+function kartenwahl() {
+  const t = thema(), k = karte(), n = t.etappen.length;
+  let o = `<div class="kartenwahl"><button class="pfeil" data-karte="${S.karte - 1}" ${S.karte ? '' : 'disabled'} aria-label="Vorige Lernkarte">‹</button>
+    <button class="mitte" data-liste aria-expanded="${S.liste}">Karte ${S.karte + 1} von ${n} · alle ▾</button>
+    <button class="pfeil" data-karte="${S.karte + 1}" ${S.karte < n - 1 ? '' : 'disabled'} aria-label="Nächste Lernkarte">›</button></div>`;
+  if (S.liste) o += `<div class="liste">${(t.abschnitte || [{ titel: '', lernziele: t.etappen.map((e) => e.lernziel) }]).map((a) => `${a.titel ? `<h3>${esc(a.titel)}</h3>` : ''}${a.lernziele.map((lz) => { const i = t.etappen.findIndex((e) => e.lernziel === lz); if (i < 0) return ''; return `<button data-karte="${i}" class="${i === S.karte ? 'an' : ''}"><span class="nr">${i + 1}</span>${esc(t.etappen[i].titel)}</button>`; }).join('')}`).join('')}</div>`;
+  return o;
+}
+function erklaeren() {
+  const k = karte(), n = k.schritte.length; const g = new Set(); const T = (s) => text(s, { gesehen: g });
+  const bild = bildFuer(k, S.phase); const wortErkl = S.wort ? (k.woerter || []).find(([w]) => w === S.wort) : null;
+  const wortBox = wortErkl ? `<span class="erklwort" role="note"><b>${esc(wortErkl[0])}</b>${text(wortErkl[1], { woerter: false })}</span>` : '';
+  let rechts = '';
+  const einstieg = k.einstieg_kurz || k.einstieg;
+  if (S.phase === 0) {
+    rechts = gross()
+      ? `<p class="ueber">Kurz gesagt</p><div class="merke"><p>${T(k.regel)}</p></div>${wortBox}<div class="knoepfe"><button class="haupt" data-phase="1">Beispiel Schritt für Schritt ›</button></div>
+         <div class="links"><button data-wozu aria-expanded="${S.wozu}">Wozu brauche ich das? ▸</button></div>${S.wozu && einstieg ? `<p class="situation" style="margin-top:10px">${T(einstieg)}</p>` : ''}`
+      : `${einstieg ? `<p class="ueber">Worum geht’s?</p><p class="situation">${T(einstieg)}${k.einstieg_kurz ? '<span class="gekuerzt">gekürzt (Vorschlag)</span>' : ''}</p>` : `<div class="merke"><p>${T(k.regel)}</p></div>`}${wortBox}
+         <div class="knoepfe"><button class="haupt" data-phase="1">Zeig mir ein Beispiel ›</button></div>`;
+  } else if (S.phase <= n) {
+    const i = S.phase - 1;
+    rechts = `<p class="ueber">Beispiel</p>${i ? `<ol class="schritte-weg">${k.schritte.slice(0, i).map((s) => `<li><span>${text(s, { woerter: false })}</span></li>`).join('')}</ol>` : ''}
+      <div class="schritt" aria-live="polite"><span class="n">Schritt ${i + 1} von ${n}</span>${T(k.schritte[i])}</div>${wortBox}
+      <div class="punkte" aria-hidden="true">${k.schritte.map((_, j) => `<i class="${j <= i ? 'an' : ''}"></i>`).join('')}</div>
+      <div class="knoepfe"><button class="zweit" data-phase="${S.phase - 1}" aria-label="Zurück">‹</button><button class="haupt" data-phase="${S.phase + 1}">${i === n - 1 ? 'Und was merke ich mir? ›' : 'Weiter ›'}</button></div>`;
+  } else {
+    rechts = `<p class="ueber">Das merkst du dir</p><div class="merke"><p>${T(k.regel)}</p></div>${k.probe ? `<p style="font-size:17px;margin:-4px 0 12px">Probe: ${text(k.probe, { woerter: false })}</p>` : ''}${wortBox}
+      <div class="knoepfe"><button class="haupt" data-teil="ueben">Jetzt du: erste Aufgabe ›</button></div>
+      <div class="links"><button data-phase="1">Beispiel nochmal</button><button data-falle aria-expanded="${S.falle}">Vorsicht, Falle ▸</button>${(k.woerter || []).length ? `<button data-woerter aria-expanded="${S.woerter}">Wörter (${k.woerter.length}) ▸</button>` : ''}</div>
+      ${S.falle ? `<div class="falle"><b>Vorsicht:</b> ${text(k.fehler, { woerter: false })}</div>` : ''}
+      ${S.woerter ? `<dl class="woerterliste">${k.woerter.map(([w, d]) => `<div><b>${esc(w)}</b> – ${text(d, { woerter: false })}</div>`).join('')}</dl>` : ''}`;
+  }
+  return `${kartenwahl()}<article class="karte" aria-label="Lernkarte ${S.karte + 1}"><h2>${text(k.titel, { woerter: false })}</h2><p class="status">noch nicht geübt · 2 richtig hintereinander, dann sitzt sie</p>
+    <div class="raster${S.phase === 0 ? ' text-zuerst' : ''}">${bild ? `<div class="bildfeld">${bild}</div>` : ''}<div>${rechts}</div></div></article>`;
+}
+function ueben() {
+  const k = karte(), a = k.aufgabe;
+  const loes = a ? (a.y === 'auswahl' ? a.a?.[a.o.index] : a.o?.wert != null ? String(a.o.wert).replace('.', ',').replace('-', '−') : '') : '';
+  return `${kartenwahl()}<div class="spick"><p><b>Merke:</b> ${text(k.regel, { woerter: false })}</p><button data-teil="erklaeren">Erklärung</button></div>
+    ${a ? `<section class="aufgabe"><p class="frage">${text(a.f.text, { woerter: false })}</p>
+      ${a.y === 'auswahl' ? `<div class="wahl">${a.a.map((x, i) => `<button data-wahl="${i}" class="${S.wahl === i ? 'an' : ''}">${text(x, { woerter: false })}</button>`).join('')}</div>` : `<input id="ein" inputmode="text" aria-label="Antwort" value="${esc(S.eingabe)}" placeholder="Antwort">`}
+      <div class="knoepfe" style="margin-top:12px"><button class="haupt" data-pruefen>Prüfen</button></div>
+      ${S.ergebnis === 'ok' ? '<div class="rm ok">Richtig!</div>' : S.ergebnis === 'nein' ? `<div class="rm nein"><b>Noch nicht.</b> Richtig ist ${text(loes, { woerter: false })}.${a.w ? `<br>${text(a.w, { woerter: false })}` : ''}</div>` : ''}</section>`
+    : '<p class="karte">Für diese Karte ist im Entwurf keine Aufgabe hinterlegt.</p>'}`;
+}
+function fehler() {
+  return `<div style="margin:0 16px">${thema().etappen.map((e, i) => `<article class="karte" style="margin:0 0 12px"><h2 style="font-size:20px">${i + 1} · ${esc(e.titel)}</h2><div class="falle"><b>Vorsicht:</b> ${text(e.fehler, { woerter: false })}</div>
+    <div class="links"><button data-karte="${i}" data-teil="erklaeren">Erklärung ansehen</button></div></article>`).join('')}</div>`;
+}
+function zeichne() { steuer(); $('#app').innerHTML = kopf() + ({ erklaeren, ueben, fehler }[S.teil])(); }
+document.addEventListener('click', (e) => {
+  const t = e.target.closest('button'); if (!t) return; const d = t.dataset;
+  if (d.thema) { Object.assign(S, { thema: d.thema, karte: DATEN.themen[d.thema].start || 0, phase: 0, teil: 'erklaeren', liste: false, wort: null, falle: false, woerter: false, wozu: false, eingabe: '', wahl: null, ergebnis: null }); }
+  if (d.karte != null) { const n = Number(d.karte); if (n >= 0 && n < thema().etappen.length) Object.assign(S, { karte: n, phase: 0, liste: false, wort: null, falle: false, woerter: false, eingabe: '', wahl: null, ergebnis: null }); }
+  if (d.teil) { S.teil = d.teil; if (d.teil === 'erklaeren' && d.karte == null && S.phase === 0) S.phase = 0; }
+  if (d.phase != null) { S.phase = Math.max(0, Number(d.phase)); S.wort = null; }
+  if (d.liste != null) S.liste = !S.liste;
+  if (d.wort) S.wort = S.wort === d.wort ? null : d.wort;
+  if (d.falle != null) S.falle = !S.falle;
+  if (d.woerter != null) S.woerter = !S.woerter;
+  if (d.wozu != null) S.wozu = !S.wozu;
+  if (d.wahl != null) { S.wahl = Number(d.wahl); S.ergebnis = null; }
+  if (d.pruefen != null) { const a = karte().aufgabe; S.eingabe = $('#ein')?.value ?? S.eingabe;
+    if (a.y === 'auswahl') S.ergebnis = S.wahl === a.o.index ? 'ok' : 'nein';
+    else { const v = Number(S.eingabe.replace('−', '-').replace(',', '.').replace(/\s/g, '')); S.ergebnis = S.eingabe.trim() && v === Number(a.o.wert) ? 'ok' : 'nein'; } }
+  zeichne(); if (d.karte != null || d.thema || d.teil) scrollTo(0, 0);
+});
+document.addEventListener('keydown', (e) => { if (S.teil !== 'erklaeren' || e.target.matches('input')) return; const n = karte().schritte.length;
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); S.phase = Math.min(n + 1, S.phase + 1); zeichne(); }
+  if (e.key === 'ArrowLeft') { S.phase = Math.max(0, S.phase - 1); zeichne(); } });
+window.ENTWURF = { S, zeichne, setze(o) { Object.assign(S, o); zeichne(); scrollTo(0, 0); } };
+zeichne();
+</script>
+</body>
+</html>

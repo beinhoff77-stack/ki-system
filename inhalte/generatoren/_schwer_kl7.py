@@ -101,11 +101,12 @@ def anhaengen(schluessel, neu):
         d['aufgaben'].append({'l': l, 't': teil[l], 'p': 'uebung', 's': s, **a})
         zaehl[(l, s)] += 1
         zaehl[(l, art)] += 1
+        if s == 3: zaehl[(l, art, 3)] += 1
     for l in lz:
         assert zaehl[(l, 3)] >= 4 and zaehl[(l, 2)] >= 2, f'{l}: zu wenige neue Aufgaben ({zaehl[(l, 3)]}× Stufe 3, {zaehl[(l, 2)]}× Stufe 2)'
-        assert zaehl[(l, 'pruefung')] >= 2, f'{l}: weniger als 2 Aufgaben nach Prüfungsvorbild'
+        assert zaehl[(l, 'pruefung', 3)] >= 2, f'{l}: weniger als 2 Stufe-3-Aufgaben nach Prüfungsvorbild'
     neu_text = json.dumps(d, ensure_ascii=False, indent=1) + ('\n' if roh.endswith('\n') else '')
     pfad.write_text(neu_text, encoding='utf-8')
     print(f'{pfad.name}: +{len(neu.liste)} neue Übungen (schwer-kl7) → {len(d["aufgaben"])} Aufgaben')
     for l in lz:
-        print(f'  {l:18} Stufe 2: {zaehl[(l, 2)]}  Stufe 3: {zaehl[(l, 3)]}  (Prüfungsvorbild {zaehl[(l, "pruefung")]}, Knobel {zaehl[(l, "knobel")]})')
+        print(f'  {l:18} Stufe 2: {zaehl[(l, 2)]}  Stufe 3: {zaehl[(l, 3)]}  (Prüfungsvorbild {zaehl[(l, "pruefung")]}, davon Stufe 3: {zaehl[(l, "pruefung", 3)]}; Knobel {zaehl[(l, "knobel")]})')

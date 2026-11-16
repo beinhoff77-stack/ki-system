@@ -7508,6 +7508,862 @@
     "index": 0
    },
    "w": "Der Kehrsatz ist falsch, Gegenbeispiel: die Zahl 9. Die Zahl 9 erfüllt den Wenn-Teil des Kehrsatzes, aber nicht den Dann-Teil."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei parallele Geraden werden von einer dritten Geraden geschnitten. Einer der acht Winkel ist 38° groß. Wie viele der acht Winkel sind 142° groß?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "8 / 2",
+   "w": "An jeder Kreuzung: 2 Winkel mit 38° (Scheitelwinkel) und 2 mit 180° − 38° = 142°. Wegen der Parallelen ist es an beiden Kreuzungen gleich: 4 Winkel mit 142°.",
+   "h": "Überlege erst an einer Kreuzung, dann an der zweiten."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Gerade k schneidet die Geraden g und h. Welche Beobachtung beweist, dass g und h parallel sind?"
+   },
+   "a": [
+    "Zwei Scheitelwinkel sind gleich groß.",
+    "Ein Paar Wechselwinkel ist gleich groß.",
+    "Zwei Nebenwinkel ergeben 180°.",
+    "Zwei Stufenwinkel ergeben zusammen 180°."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Scheitel- und Nebenwinkel gelten an jeder Kreuzung, auch ohne Parallelen. Nur gleich große Wechsel- oder Stufenwinkel zeigen, dass g ∥ h.",
+   "h": "Welche Beziehung gilt nur, wenn die Geraden parallel sind?"
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Geraden g und h sind nicht parallel; ihr Schnittpunkt liegt außerhalb des Blattes. Eine dritte Gerade k schneidet g unter 70° und h unter 50° (beide Winkel liegen zwischen g und h auf der Seite des Schnittpunkts). Unter welchem Winkel schneiden sich g und h?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "180 - 70 - 50",
+   "w": "g, h und k bilden ein Dreieck. Zwei seiner Winkel sind 70° und 50°. Der dritte (am Schnittpunkt von g und h) ist 180° − 70° − 50° = 60°.",
+   "h": "Denke dir das Dreieck aus den drei Geraden."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "g ∥ h. Ein Dreieck hat eine Ecke C auf g und die beiden anderen Ecken auf h. Bei C bilden die Dreiecksseiten mit g die Winkel 50° (links) und 65° (rechts). Wie groß ist der Innenwinkel des Dreiecks bei C?"
+   },
+   "o": {
+    "wert": 65,
+    "einheit": "°"
+   },
+   "c": "180 - 50 - 65",
+   "w": "An C liegen auf der Geraden g drei Winkel nebeneinander: 50°, der Innenwinkel und 65°. Zusammen 180°: 180° − 50° − 65° = 65°.",
+   "h": "Auf einer Geraden ergeben die Winkel nebeneinander 180°."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "g ∥ h. Ein Weg führt von A auf g zu einem Punkt P zwischen den Geraden und von dort zu B auf h (siehe Bild, nicht maßstäblich). Bei A ist der Winkel 35°, bei B 40°. Wie groß ist der Winkel bei P?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_G1": [
+       -1,
+       4
+      ],
+      "_G2": [
+       6,
+       4
+      ],
+      "_H1": [
+       -1,
+       0
+      ],
+      "_H2": [
+       6,
+       0
+      ],
+      "A": [
+       0,
+       4
+      ],
+      "P": [
+       3,
+       2
+      ],
+      "B": [
+       0,
+       0
+      ]
+     },
+     "linien": [
+      [
+       "_G1",
+       "_G2",
+       "g"
+      ],
+      [
+       "_H1",
+       "_H2",
+       "h"
+      ],
+      [
+       "A",
+       "P"
+      ],
+      [
+       "P",
+       "B"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "P",
+       "_G2",
+       "35°"
+      ],
+      [
+       "B",
+       "_H2",
+       "P",
+       "40°"
+      ],
+      [
+       "P",
+       "A",
+       "B",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 75,
+    "einheit": "°"
+   },
+   "c": "35 + 40",
+   "w": "Zeichne durch P eine Parallele zu g. Sie teilt den Winkel bei P in zwei Wechselwinkel: 35° und 40°. Zusammen 75°.",
+   "h": "Hilfslinie: Zeichne durch P eine weitere Parallele."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "g ∥ h. Ein Stufenwinkelpaar hat die Größen (2x + 10)° und (5x − 35)°. Wie groß ist jeder der beiden Winkel?"
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "°"
+   },
+   "c": "2 * 15 + 10",
+   "w": "Stufenwinkel an Parallelen sind gleich: 2x + 10 = 5x − 35, also 45 = 3x und x = 15. Winkel: 2 · 15 + 10 = 40°.",
+   "h": "Setze beide Terme gleich und löse. Gefragt ist der Winkel, nicht x."
+  },
+  {
+   "l": "winkelsumme",
+   "t": "winkelsumme",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat einen rechten Winkel und zwei gleich große Winkel. Wie groß ist einer der beiden gleich großen Winkel?"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "°"
+   },
+   "c": "(180 - 90) / 2",
+   "w": "180° − 90° = 90° bleiben für die beiden gleichen Winkel: 90° : 2 = 45°.",
+   "h": "Was bleibt von 180° nach dem rechten Winkel?"
+  },
+  {
+   "l": "winkelsumme",
+   "t": "winkelsumme",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Außenwinkel bei A ist 130°, und β = 70°. Wie groß ist γ?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "180 - (180 - 130) - 70",
+   "w": "α ist der Nebenwinkel des Außenwinkels: 180° − 130° = 50°. γ = 180° − 50° − 70° = 60°.",
+   "h": "Bestimme zuerst α aus dem Außenwinkel."
+  },
+  {
+   "l": "winkelsumme",
+   "t": "winkelsumme",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann der größte Innenwinkel eines Dreiecks 55° groß sein?"
+   },
+   "a": [
+    "Ja: 55° ist ein spitzer Winkel.",
+    "Nein: Der größte Winkel muss immer stumpf sein.",
+    "Nein: Alle drei Winkel wären höchstens 55°, zusammen höchstens 165° < 180°.",
+    "Ja, zum Beispiel 55°, 55° und 70°."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ist 55° der größte Winkel, sind die anderen höchstens 55°. Dann ist die Summe höchstens 3 · 55° = 165°, aber sie muss 180° sein. (Der größte Winkel ist immer mindestens 60°.)",
+   "h": "Was ist die größtmögliche Winkelsumme, wenn kein Winkel größer als 55° ist?"
+  },
+  {
+   "l": "winkelsumme",
+   "t": "winkelsumme",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Dreieck ist γ genauso groß wie α und β zusammen. Wie groß ist γ?"
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "180 / 2",
+   "w": "α + β + γ = 180° und α + β = γ. Also γ + γ = 180° und γ = 90°. Das Dreieck ist rechtwinklig.",
+   "h": "Ersetze α + β in der Winkelsumme durch γ."
+  },
+  {
+   "l": "winkelsumme",
+   "t": "winkelsumme",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Winkel eines Dreiecks verhalten sich wie 2 : 3 : 4. Wie groß ist der größte Winkel?"
+   },
+   "o": {
+    "wert": 80,
+    "einheit": "°"
+   },
+   "c": "180 / 9 * 4",
+   "w": "2 + 3 + 4 = 9 Teile = 180°, ein Teil = 20°. Größter Winkel: 4 · 20° = 80°.",
+   "h": "Wie viele gleiche Teile sind es zusammen?"
+  },
+  {
+   "l": "winkelsumme",
+   "t": "winkelsumme",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein fünfzackiger Stern wird ohne Absetzen aus fünf Strecken gezeichnet (Pentagramm). Wie groß ist die Summe der fünf Winkel an den Spitzen?"
+   },
+   "o": {
+    "wert": 180,
+    "einheit": "°"
+   },
+   "c": "180",
+   "w": "Beim regelmäßigen Stern ist jede Spitze 36° groß: 5 · 36° = 180°. Man kann zeigen, dass die Summe bei jedem solchen Stern 180° ist (Außenwinkel-Überlegung im Dreieck).",
+   "h": "Rechne beim regelmäßigen Stern: Das innere Fünfeck hat Winkel von 108°, die Nebenwinkel sind 72°."
+  },
+  {
+   "l": "gleichschenklig",
+   "t": "gleichschenklig",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist ein Außenwinkel eines gleichseitigen Dreiecks?"
+   },
+   "o": {
+    "wert": 120,
+    "einheit": "°"
+   },
+   "c": "180 - 60",
+   "w": "Jeder Innenwinkel ist 60°. Der Außenwinkel ist sein Nebenwinkel: 180° − 60° = 120°.",
+   "h": "Gleichseitig: alle Innenwinkel gleich."
+  },
+  {
+   "l": "gleichschenklig",
+   "t": "gleichschenklig",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gleichschenkliges Dreieck ist rechtwinklig. Wie groß ist ein Basiswinkel?"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "°"
+   },
+   "c": "(180 - 90) / 2",
+   "w": "Der rechte Winkel ist der Spitzenwinkel. (180° − 90°) : 2 = 45°.",
+   "h": "Kann der rechte Winkel ein Basiswinkel sein?"
+  },
+  {
+   "l": "gleichschenklig",
+   "t": "gleichschenklig",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Kreis mit Mittelpunkt M ist [AB] ein Durchmesser; C liegt auf dem Kreis. Der Winkel ∠BAC ist 28°. Wie groß ist der Winkel ∠BMC?"
+   },
+   "o": {
+    "wert": 56,
+    "einheit": "°"
+   },
+   "c": "2 * 28",
+   "w": "MA = MC (Radien), also ist das Dreieck AMC gleichschenklig: ∠MCA = 28°. ∠AMC = 180° − 56° = 124°. ∠BMC ist sein Nebenwinkel: 56° = 2 · 28°.",
+   "h": "Welche Strecken im Dreieck AMC sind Radien?"
+  },
+  {
+   "l": "gleichschenklig",
+   "t": "gleichschenklig",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "M ist der Mittelpunkt der Strecke [AB]. Das Dreieck MBC ist gleichseitig, und es gilt MA = MC. Wie groß ist der Winkel ∠MAC?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "°"
+   },
+   "c": "(180 - (180 - 60)) / 2",
+   "w": "∠BMC = 60° (gleichseitig), also ∠AMC = 180° − 60° = 120°. Das Dreieck AMC ist gleichschenklig: ∠MAC = (180° − 120°) : 2 = 30°.",
+   "h": "Bestimme zuerst den Winkel bei M im Dreieck AMC."
+  },
+  {
+   "l": "gleichschenklig",
+   "t": "gleichschenklig",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem gleichschenkligen Dreieck ist jeder Basiswinkel doppelt so groß wie der Spitzenwinkel. Wie groß ist der Spitzenwinkel?"
+   },
+   "o": {
+    "wert": 36,
+    "einheit": "°"
+   },
+   "c": "180 / 5",
+   "w": "Spitzenwinkel x, Basiswinkel 2x: x + 2x + 2x = 180°, also 5x = 180° und x = 36°.",
+   "h": "Stelle eine Gleichung mit dem Spitzenwinkel x auf."
+  },
+  {
+   "l": "gleichschenklig",
+   "t": "gleichschenklig",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gleichschenkliges Dreieck hat einen Winkel von 50°. Wie groß kann der Spitzenwinkel sein? Gib den größeren der beiden möglichen Werte an."
+   },
+   "o": {
+    "wert": 80,
+    "einheit": "°"
+   },
+   "c": "180 - 2 * 50",
+   "w": "Fall 1: 50° ist der Spitzenwinkel. Fall 2: 50° ist ein Basiswinkel, dann ist der Spitzenwinkel 180° − 2 · 50° = 80°. Größerer Wert: 80°.",
+   "h": "Der 50°-Winkel kann Spitzenwinkel oder Basiswinkel sein."
+  },
+  {
+   "l": "kongruenzsatz",
+   "t": "kongruenzsatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: b = 4 cm, c = 6 cm, α = 50°. Welcher Kongruenzsatz garantiert ein eindeutiges Dreieck?"
+   },
+   "a": [
+    "SWS",
+    "SSS",
+    "SsW",
+    "WSW"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "α liegt bei A zwischen den Seiten b und c. Zwei Seiten und der eingeschlossene Winkel: SWS.",
+   "h": "Liegt der Winkel zwischen den beiden Seiten?"
+  },
+  {
+   "l": "kongruenzsatz",
+   "t": "kongruenzsatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: a = 5 cm, b = 7 cm, β = 80° (β liegt b gegenüber). Welcher Kongruenzsatz garantiert ein eindeutiges Dreieck?"
+   },
+   "a": [
+    "SWS",
+    "WSW",
+    "SSS",
+    "SsW"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "β liegt nicht zwischen a und c, sondern der Seite b gegenüber. b ist die größere der beiden Seiten: SsW.",
+   "h": "Welcher Seite liegt der Winkel gegenüber, und ist sie die größere?"
+  },
+  {
+   "l": "kongruenzsatz",
+   "t": "kongruenzsatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "In den Dreiecken ABC und DEF gilt: AB = DE = 5 cm, AC = DF = 7 cm und ∠ABC = ∠DEF = 75°. Sind die Dreiecke sicher kongruent?"
+   },
+   "a": [
+    "Ja, nach SWS.",
+    "Ja, nach SsW: Der Winkel liegt der längeren Seite (7 cm) gegenüber.",
+    "Nein, dafür bräuchte man drei Seiten.",
+    "Nein, der Winkel liegt nicht zwischen den Seiten."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der Winkel bei B liegt der Seite AC = 7 cm gegenüber. 7 cm > 5 cm: Das ist SsW, also kongruent.",
+   "h": "Welcher Seite liegt der Winkel bei B gegenüber?"
+  },
+  {
+   "l": "kongruenzsatz",
+   "t": "kongruenzsatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "In den Dreiecken ABC und DEF gilt: AB = DE = 7 cm, AC = DF = 5 cm und ∠ABC = ∠DEF = 40°. Sind die Dreiecke sicher kongruent?"
+   },
+   "a": [
+    "Ja, zwei Seiten und ein Winkel reichen immer.",
+    "Ja, nach SWS.",
+    "Ja, nach SsW.",
+    "Nein: Der Winkel liegt der kürzeren Seite gegenüber; es kann zwei verschiedene Dreiecke geben."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Der Winkel bei B liegt AC = 5 cm gegenüber, der kürzeren Seite. Das ist kein Kongruenzsatz (sSW): Der Kreis um A mit 5 cm kann den freien Schenkel zweimal schneiden.",
+   "h": "SsW gilt nur, wenn der Winkel der GRÖSSEREN Seite gegenüberliegt."
+  },
+  {
+   "l": "kongruenzsatz",
+   "t": "kongruenzsatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Dreiecke haben beide die Winkel 50°, 60° und 70°. Sind sie sicher kongruent?"
+   },
+   "a": [
+    "Nein: Ein Dreieck kann eine vergrößerte Kopie des anderen sein.",
+    "Nein, weil 50° + 60° + 70° nicht 180° ist.",
+    "Ja, nach WSW.",
+    "Ja, drei gleiche Winkel reichen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gleiche Winkel legen nur die Form fest, nicht die Größe. Ein Gegenbeispiel: dasselbe Dreieck doppelt so groß gezeichnet. „WWW“ ist kein Kongruenzsatz.",
+   "h": "Denke an ein Dreieck und seine Vergrößerung."
+  },
+  {
+   "l": "kongruenzsatz",
+   "t": "kongruenzsatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Viereck ABCD gilt AB = AD und CB = CD. Die Diagonale [AC] teilt es in die Dreiecke ABC und ADC. Warum sind diese kongruent?"
+   },
+   "a": [
+    "nach SWS, denn AB = AD",
+    "nach WSW, denn die Winkel bei A sind gleich",
+    "nach SSS, denn [AC] gehört zu beiden Dreiecken",
+    "gar nicht, man kennt keinen Winkel"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "AB = AD, CB = CD und die gemeinsame Seite AC: drei Paare gleich langer Seiten – SSS. (So beweist man, dass ein Drachenviereck achsensymmetrisch ist.)",
+   "h": "Welche Seite haben beide Dreiecke gemeinsam?"
+  },
+  {
+   "l": "konstruierbar",
+   "t": "konstruierbar",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann man ein Dreieck mit a = 4 cm, b = 4 cm und c = 8 cm konstruieren?"
+   },
+   "a": [
+    "Ja: 4 + 4 = 8, das passt genau.",
+    "Nein: 4 cm + 4 cm ist nicht länger als 8 cm.",
+    "Ja, es wird gleichschenklig.",
+    "Nein: Zwei Seiten dürfen nicht gleich lang sein."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Je zwei Seiten müssen zusammen LÄNGER sein als die dritte. 4 + 4 = 8 ist nur gleich: Die Ecke C läge auf [AB], das Dreieck wäre flach.",
+   "h": "Gleich lang reicht nicht – „länger“ ist verlangt."
+  },
+  {
+   "l": "konstruierbar",
+   "t": "konstruierbar",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann man ein Dreieck mit α = 90° und β = 95° konstruieren?"
+   },
+   "a": [
+    "Ja, wenn die Seite c lang genug ist.",
+    "Nein: Zwei Winkel dürfen nie zusammen über 90° sein.",
+    "Ja, mit WSW.",
+    "Nein: 90° + 95° = 185° ist mehr als 180°."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Winkelsumme ist 180°. Schon zwei Winkel ergeben 185°: Für γ bliebe ein negativer Wert.",
+   "h": "Was bliebe für γ übrig?"
+  },
+  {
+   "l": "konstruierbar",
+   "t": "konstruierbar",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Punkt C hat von einer Geraden g den Abstand 3 cm. Gesucht sind alle Punkte, die von g den Abstand 2 cm und von C den Abstand 3 cm haben. Wie viele solche Punkte gibt es?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Punkte mit 2 cm Abstand von g liegen auf zwei Parallelen zu g. Die auf der Seite von C ist 1 cm von C entfernt, der Kreis um C (r = 3 cm) schneidet sie zweimal. Die andere ist 5 cm entfernt: kein Schnitt. Also 2 Punkte.",
+   "h": "Ortslinien: zwei Parallelen zu g und ein Kreis um C. Wie weit ist jede Parallele von C entfernt?"
+  },
+  {
+   "l": "konstruierbar",
+   "t": "konstruierbar",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Brunnen soll von drei Häusern A, B und C gleich weit entfernt sein. Mit welchen Linien findest du die Stelle?"
+   },
+   "a": [
+    "mit den Mittelsenkrechten von [AB] und [BC]",
+    "mit den Winkelhalbierenden des Dreiecks ABC",
+    "mit einer Parallelen zu [AB] durch C",
+    "mit den Seitenhalbierenden des Dreiecks ABC"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Alle Punkte, die von A und B gleich weit weg sind, liegen auf der Mittelsenkrechten von [AB]. Ebenso für B und C. Der Schnittpunkt ist von allen drei gleich weit entfernt (Umkreismittelpunkt).",
+   "h": "Wo liegen alle Punkte, die von zwei Punkten gleich weit entfernt sind?"
+  },
+  {
+   "l": "konstruierbar",
+   "t": "konstruierbar",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat den Umfang 20 cm, alle Seiten sind ganzzahlig (in cm), und eine Seite ist 9 cm lang. Wie viele verschiedene solche Dreiecke gibt es? (Die Reihenfolge der beiden anderen Seiten zählt nicht.)"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Die anderen Seiten ergeben zusammen 11 cm: 1+10, 2+9, 3+8, 4+7, 5+6. Bei 1, 9, 10 gilt 1 + 9 = 10, nicht länger: kein Dreieck. Die anderen 4 gehen.",
+   "h": "Schreibe alle Zerlegungen von 11 auf und prüfe jeweils die Dreiecksungleichung."
+  },
+  {
+   "l": "konstruierbar",
+   "t": "konstruierbar",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gleichschenkliges Dreieck hat eine 7 cm und eine 3 cm lange Seite. Wie lang ist die dritte Seite?"
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "cm"
+   },
+   "c": "7",
+   "w": "Möglich wären 3 cm oder 7 cm. Bei 3, 3, 7 gilt 3 + 3 = 6 < 7: kein Dreieck. Also 7, 7, 3 – die dritte Seite ist 7 cm.",
+   "h": "Probiere beide Möglichkeiten mit der Dreiecksungleichung."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Raute ist ein Innenwinkel 64° groß. Welchen Winkel bildet die Diagonale durch diese Ecke mit einer Seite?"
+   },
+   "o": {
+    "wert": 32,
+    "einheit": "°"
+   },
+   "c": "64 / 2",
+   "w": "Die Diagonalen einer Raute sind Symmetrieachsen und halbieren die Winkel: 64° : 2 = 32°.",
+   "h": "Was macht eine Symmetrieachse mit dem Winkel an der Ecke?"
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Parallelogramm ist α um 40° größer als β. Wie groß ist α?"
+   },
+   "o": {
+    "wert": 110,
+    "einheit": "°"
+   },
+   "c": "(180 + 40) / 2",
+   "w": "α + β = 180° und α = β + 40°. Also 2β + 40° = 180°, β = 70° und α = 110°.",
+   "h": "Benachbarte Winkel im Parallelogramm ergeben 180°."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Seitenansicht eines Treppengeländers ist ein Parallelogramm: Der Handlauf ist um 32° gegen die Waagrechte geneigt, die Stäbe stehen senkrecht. Wie groß ist der stumpfe Innenwinkel zwischen Handlauf und Stab?"
+   },
+   "o": {
+    "wert": 122,
+    "einheit": "°"
+   },
+   "c": "180 - (90 - 32)",
+   "w": "Senkrechter Stab und Waagrechte bilden 90°. Der spitze Winkel zwischen Handlauf und Stab ist 90° − 32° = 58°. Der stumpfe Nachbarwinkel im Parallelogramm: 180° − 58° = 122°.",
+   "h": "Bestimme zuerst den spitzen Winkel zwischen Handlauf und Stab."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Diagonalen eines Vierecks halbieren sich gegenseitig und stehen senkrecht aufeinander. Welches Viereck ist es sicher (mindestens)?"
+   },
+   "a": [
+    "ein Drachenviereck, das keine Raute ist",
+    "ein gleichschenkliges Trapez",
+    "eine Raute",
+    "ein Rechteck"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Halbieren sich die Diagonalen, ist es ein Parallelogramm. Stehen sie zusätzlich senkrecht, sind alle Seiten gleich lang: eine Raute (ein Quadrat ist ein Sonderfall davon).",
+   "h": "Erst: Was folgt aus „halbieren sich“? Dann: Was kommt durch „senkrecht“ dazu?"
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Viereck ist jeder Winkel um 10° größer als der vorige (α < β < γ < δ). Wie groß ist δ?"
+   },
+   "o": {
+    "wert": 105,
+    "einheit": "°"
+   },
+   "c": "(360 - 60) / 4 + 30",
+   "w": "α + (α + 10°) + (α + 20°) + (α + 30°) = 360°, also 4α + 60° = 360°, α = 75°. δ = 75° + 30° = 105°.",
+   "h": "Schreibe alle Winkel mit α. Die Summe ist 360°."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem gleichschenkligen Trapez ABCD (AB ∥ CD) ist α dreimal so groß wie δ. Wie groß ist δ?"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "°"
+   },
+   "c": "180 / 4",
+   "w": "An der Seite [AD] gilt α + δ = 180° (Nachbarwinkel an Parallelen). Mit α = 3δ: 4δ = 180°, δ = 45°.",
+   "h": "Welche zwei Winkel ergeben im Trapez zusammen 180°?"
+  },
+  {
+   "l": "satz_kehrsatz",
+   "t": "satz_kehrsatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Satz: „Wenn zwei Winkel Scheitelwinkel sind, dann sind sie gleich groß.“ Ist der Kehrsatz wahr?"
+   },
+   "a": [
+    "Ja, gleich große Winkel sind immer Scheitelwinkel.",
+    "Ja, weil der Satz wahr ist.",
+    "Nein: Zwei gleich große Winkel können an ganz verschiedenen Stellen liegen.",
+    "Nein, weil der Satz falsch ist."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Kehrsatz: „Wenn zwei Winkel gleich groß sind, dann sind sie Scheitelwinkel.“ Gegenbeispiel: die beiden Basiswinkel eines gleichschenkligen Dreiecks.",
+   "h": "Formuliere den Kehrsatz und suche ein Gegenbeispiel."
+  },
+  {
+   "l": "satz_kehrsatz",
+   "t": "satz_kehrsatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Satz: „Wenn eine Zahl durch 10 teilbar ist, dann endet sie auf 0.“ Ist der Kehrsatz wahr?"
+   },
+   "a": [
+    "Nein, Kehrsätze sind nie wahr.",
+    "Ja, weil der Satz wahr ist.",
+    "Nein: 100 endet auf 0.",
+    "Ja: Jede Zahl, die auf 0 endet, ist durch 10 teilbar."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Kehrsatz: „Endet eine Zahl auf 0, ist sie durch 10 teilbar.“ Das stimmt. Wahr ist er aber nicht WEIL der Satz wahr ist – man muss ihn eigens begründen.",
+   "h": "Formuliere den Kehrsatz und prüfe Beispiele."
+  },
+  {
+   "l": "satz_kehrsatz",
+   "t": "satz_kehrsatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Satz des Thales: „Wenn C auf dem Kreis mit dem Durchmesser [AB] liegt, dann ist der Winkel bei C ein rechter Winkel.“ Wie lautet der Kehrsatz?"
+   },
+   "a": [
+    "Wenn C auf dem Kreis liegt, dann ist das Dreieck gleichschenklig.",
+    "Wenn der Winkel bei C ein rechter Winkel ist, dann liegt C auf dem Kreis mit dem Durchmesser [AB].",
+    "Wenn der Winkel bei C ein rechter Winkel ist, dann ist [AB] ein Radius.",
+    "Wenn C nicht auf dem Kreis liegt, dann ist der Winkel bei C kein rechter."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Beim Kehrsatz werden Voraussetzung („C auf dem Kreis“) und Folgerung („rechter Winkel bei C“) vertauscht. Dieser Kehrsatz ist sogar wahr.",
+   "h": "Vertausche Wenn-Teil und Dann-Teil."
+  },
+  {
+   "l": "satz_kehrsatz",
+   "t": "satz_kehrsatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Beweisschritte (M Mittelpunkt, A und C auf dem Kreis): (I) MA = MC, weil beide Radien sind. (II) Also ist das Dreieck AMC gleichschenklig. (III) Darum gilt ∠MAC = ∠MCA. In welcher Reihenfolge ist der Beweis richtig?"
+   },
+   "a": [
+    "I, II, III",
+    "II, I, III",
+    "III, II, I",
+    "I, III, II"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Erst die Begründung (Radien), dann die Folgerung „gleichschenklig“, daraus die gleichen Basiswinkel. Jeder Schritt braucht den vorigen.",
+   "h": "Welcher Schritt braucht keinen anderen? Welcher braucht welchen?"
+  },
+  {
+   "l": "satz_kehrsatz",
+   "t": "satz_kehrsatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Satz: „Wenn ein Viereck ein Quadrat ist, dann sind seine Diagonalen gleich lang und stehen senkrecht aufeinander.“ Ist der Kehrsatz wahr?"
+   },
+   "a": [
+    "Ja, weil der Satz wahr ist.",
+    "Nein: Ein Rechteck ist ein Gegenbeispiel.",
+    "Ja, nur Quadrate haben solche Diagonalen.",
+    "Nein: Ein Drachenviereck kann gleich lange, senkrechte Diagonalen haben, ohne Quadrat zu sein."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gegenbeispiel: Diagonale [AC] von (0 | 0) bis (4 | 0) und [BD] von (1 | −2) bis (1 | 2). Beide 4 lang und senkrecht, aber sie halbieren sich nicht: ein Drachenviereck, kein Quadrat. (Beim Rechteck stehen sie nicht senkrecht.)",
+   "h": "Die Diagonalen müssen sich nicht in der Mitte schneiden. Probiere eine Skizze."
+  },
+  {
+   "l": "satz_kehrsatz",
+   "t": "satz_kehrsatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand prüft eine Aussage über Dreiecke an 20 Beispielen, und sie stimmt jedes Mal. Was folgt daraus?"
+   },
+   "a": [
+    "Sie ist bewiesen, wenn die Dreiecke verschieden groß waren.",
+    "Sie ist bewiesen, 20 Beispiele genügen.",
+    "Sie ist damit noch nicht bewiesen; man braucht eine allgemeine Begründung.",
+    "Sie ist falsch, sonst bräuchte man keine Beispiele."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Beispiele können eine Vermutung stützen, aber nicht beweisen – das 21. Dreieck könnte ein Gegenbeispiel sein. Zum Widerlegen genügt dagegen ein einziges Gegenbeispiel.",
+   "h": "Was unterscheidet Vermutung und Beweis?"
   }
  ],
  "offen": [

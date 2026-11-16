@@ -89,6 +89,90 @@ ETAPPEN = [
      'fehler': 'h : 18 = 3 : 2 ist falsch zugeordnet: ⟦Höhe zu Höhe⟧ und ⟦Schatten zu Schatten⟧ (oder Höhe zu Schatten auf beiden Seiten gleich).'},
 ]
 
+# ---- KLAR (verständliche Erklärungen, Runde 7) ----
+KLAR = {
+ 'streckung': {
+  'einstieg': 'Beim Schattenspiel hält man eine Figur vor eine Lampe. An der Wand erscheint ein größerer Schatten. Jeder Punkt des Schattens liegt auf einem Lichtstrahl von der Lampe aus, nur weiter entfernt. Ist er überall doppelt so weit weg, ist der Schatten doppelt so groß. Diese Abbildung heißt ⟦zentrische Streckung⟧.',
+  'woerter': [['Zentrum Z', 'der feste Punkt, von dem aus gestreckt wird – hier die Lampe'],
+              ['Streckfaktor k', 'wie oft so weit vom Zentrum weg der Bildpunkt liegt'],
+              ["P'", '„P Strich“: der Bildpunkt von P'],
+              ['ZP', 'die Strecke von Z nach P bzw. ihre Länge'],
+              ['|k|', 'k ohne Vorzeichen'],
+              ['Vektor (3 | 1)', 'der Weg von Z nach P: 3 nach rechts, 1 nach oben']],
+  'bild': {'typ': 'koordinaten', 'x': [0, 9], 'y': [0, 7], 'punkte': [{'x': 1, 'y': 2, 'name': 'Zentrum Z'}, {'x': 4, 'y': 3, 'name': 'Original P'}, {'x': 7, 'y': 4, 'name': "Bild P'"}, {'x': 8, 'y': 6, 'name': '2 · P (falsch)', 'offen': True}], 'strecken': [[1, 2, 7, 4]]},
+  'schritte': ['Gegeben: Zentrum Z(1 | 2), Punkt P(4 | 3) und Streckfaktor k = 2.',
+               'Den Weg von Z nach P bestimmen: 4 − 1 = 3 nach rechts, 3 − 2 = 1 nach oben, also (3 | 1).',
+               'Diesen Weg mit k = 2 malnehmen: (6 | 2).',
+               "Von Z aus diesen Weg gehen: P' = (1 + 6 | 2 + 2) = ⟦P'(7 | 4)⟧."],
+  'regel': "So streckst du von einem ⟦Zentrum Z⟧ aus: Der Bildpunkt P' liegt auf dem Strahl von Z durch P, und es gilt ⟦ZP' = |k| · ZP⟧. Alle Strecken werden mit |k| malgenommen. Bei k < 0 liegt P' auf der ⟦anderen Seite⟧ von Z.",
+  'fehler': "P' = 2 · P = (8 | 6) ist falsch, wenn Z nicht der Ursprung ist: Man streckt den ⟦Abstand von Z⟧, nicht die Koordinaten von P. Der Schatten hängt davon ab, wo die Lampe steht."},
+ 'aehnlich': {
+  'einstieg': 'Ein Foto wird vergrößert. Damit niemand verzerrt aussieht, müssen Breite und Höhe mit derselben Zahl malgenommen werden, und alle Winkel bleiben gleich. Zwei Figuren, die so zusammenhängen, heißen ⟦ähnlich⟧.',
+  'woerter': [['ähnlich', 'gleiche Form, eventuell andere Größe: gleiche Winkel, Seiten im gleichen Verhältnis'],
+              ['entsprechende Seiten', 'Seiten, die in beiden Figuren an der gleichen Stelle liegen'],
+              ['Verhältnis k', 'die Zahl, mit der jede Seite malgenommen wird'],
+              ['10 : 4', '10 geteilt durch 4']],
+  'schritte': ['Dreieck 1 hat die Seiten 4 cm, 6 cm und 7 cm. Im ähnlichen Dreieck 2 misst die kürzeste Seite 10 cm.',
+               'Die kürzesten Seiten entsprechen sich. Der Faktor ist k = 10 : 4 = 2,5.',
+               'Jede andere Seite wird mit 2,5 malgenommen: 6 · 2,5 = ⟦15 cm⟧.',
+               'Ebenso 7 · 2,5 = ⟦17,5 cm⟧.'],
+  'regel': 'So prüfst du ⟦Ähnlichkeit⟧: Entsprechende Winkel müssen gleich sein und ⟦alle Seiten im gleichen Verhältnis k⟧ stehen. Bei Dreiecken genügen zwei gleiche Winkel.',
+  'fehler': 'Zu jeder Seite 6 cm zu addieren (4 → 10, 6 → 12) ist falsch: Das Foto wäre verzerrt. Bei Ähnlichkeit wird ⟦multipliziert⟧, nicht addiert.'},
+ 'strahlensatz1': {
+  'einstieg': 'Zwei Lichtstrahlen gehen von der Lampe S aus. Eine kleine und eine große Figur stehen parallel zueinander und werden von beiden Strahlen getroffen. Wird der Weg auf dem einen Strahl 2,5-mal so lang, dann auch auf dem anderen. Diese Regel heißt ⟦1. Strahlensatz⟧.',
+  'woerter': [['Scheitel S', 'der Punkt, von dem beide Strahlen ausgehen'],
+              ['Strahl', 'eine Linie, die in S beginnt und in eine Richtung weitergeht'],
+              ['parallel', 'überall gleich weit voneinander entfernt, sie schneiden sich nie'],
+              ["SA : SA'", "die Länge SA geteilt durch die Länge SA'"],
+              ['Abschnitt', 'ein Stück eines Strahls']],
+  'bild': {'typ': 'figur', 'punkte': {'S': [0, 0], 'A': [3, 0], "A'": [7.5, 0], 'B': [3.277, 2.294], "B'": [8.192, 5.736]}, 'linien': [['S', 'A', 'SA = 3'], ['A', "A'", "AA' = 4,5"], ['S', 'B', 'SB = 4'], ['B', "B'", '?'], ['A', 'B', ''], ["A'", "B'", '']]},
+  'schritte': ["Gegeben: SA = 3 cm, SA' = 7,5 cm und SB = 4 cm. Gesucht ist SB'.",
+               "Auf dem ersten Strahl: SA' : SA = 7,5 : 3 = 2,5. Der Weg ab S ist 2,5-mal so lang.",
+               "Auf dem zweiten Strahl gilt derselbe Faktor: SB' = 4 · 2,5.",
+               "Also ⟦SB' = 10 cm⟧. Das Stück BB' ist 10 − 4 = 6 cm lang."],
+  'regel': "So nutzt du den ⟦1. Strahlensatz⟧: Werden zwei Strahlen von Parallelen geschnitten, stehen die ⟦Abschnitte auf einem Strahl⟧ im gleichen Verhältnis wie die entsprechenden auf dem anderen: ⟦SA : SA' = SB : SB'⟧.",
+  'fehler': "SB' = SB + (SA' − SA) = 8,5 cm ist falsch: Die Strecken stehen im gleichen ⟦Verhältnis⟧, nicht im gleichen Abstand. Man muss malnehmen, nicht dazuzählen."},
+ 'strahlensatz2': {
+  'einstieg': 'Jetzt geht es um die Figuren selbst: Wie groß ist der Schatten an der Wand? Die Figur und ihr Schatten sind die parallelen Strecken zwischen den Strahlen. Sie wachsen im gleichen Verhältnis wie der Abstand zur Lampe. Diese Regel heißt ⟦2. Strahlensatz⟧.',
+  'woerter': [['Parallelstrecken', "die Strecken AB und A'B', die parallel liegen"],
+              ["SA' = SA + AA'", "die ganze Strecke ab S bis A'"],
+              ["AA'", 'das Stück zwischen den beiden Parallelen']],
+  'bild': {'typ': 'figur', 'punkte': {'S': [0, 0], 'A': [5, 0], "A'": [8, 0], 'B': [4.305, 3.939], "B'": [6.889, 6.303]}, 'linien': [['S', 'A', 'SA = 5'], ['A', "A'", "AA' = 3"], ['S', 'B', ''], ['B', "B'", ''], ['A', 'B', 'Figur AB = 4'], ["A'", "B'", 'Schatten ?']]},
+  'schritte': ["Gegeben: SA = 5 cm, AA' = 3 cm, Figur AB = 4 cm. Gesucht ist der Schatten A'B'.",
+               "Zuerst die ganze Strecke ab S: SA' = 5 + 3 = 8 cm.",
+               "Der Faktor ist SA' : SA = 8 : 5 = 1,6.",
+               "Der Schatten ist 1,6-mal so groß: A'B' = 4 · 1,6 = ⟦6,4 cm⟧."],
+  'regel': "So nutzt du den ⟦2. Strahlensatz⟧: Die ⟦Parallelstrecken⟧ verhalten sich wie die zugehörigen Abschnitte ⟦ab S⟧: ⟦AB : A'B' = SA : SA'⟧. Rechne nicht mit dem Stück AA' zwischen den Parallelen.",
+  'fehler': "A'B' : AB = AA' : SA zu rechnen ist falsch: Beim 2. Strahlensatz braucht man Strecken ⟦ab S⟧, also SA' = SA + AA'. Der Schatten hängt vom Abstand zur Lampe ab."},
+ 'flaeche_volumen': {
+  'einstieg': 'Ein Bastler baut ein Puppenhaus im Maßstab 1 : 20. Jede Länge im echten Haus ist 20-mal so lang. Der Boden ist aber nicht nur 20-mal so groß: Er wird in Länge und Breite gestreckt. Wie sich Fläche und Volumen beim Strecken ändern, beschreibt der ⟦Streckfaktor hoch 2 bzw. hoch 3⟧.',
+  'woerter': [['Maßstab 1 : 20', '1 cm im Modell sind 20 cm im Original'],
+              ['k²', 'k · k – gilt für Flächen'],
+              ['k³', 'k · k · k – gilt für Volumen'],
+              ['cm², m²', 'Flächeneinheiten; 1 m² = 10 000 cm²']],
+  'schritte': ['Das Modell hat 300 cm² Bodenfläche. Der Streckfaktor zum Original ist k = 20.',
+               'Eine Fläche wird in zwei Richtungen gestreckt, also mit k² = 20 · 20 = 400 malgenommen.',
+               'Original: 300 · 400 = ⟦120 000 cm²⟧.',
+               'Umgerechnet: 120 000 : 10 000 = 12, also 12 m².'],
+  'regel': 'So rechnest du Flächen und Volumen um: Werden alle Längen mit k malgenommen, wird der ⟦Flächeninhalt mit k²⟧ und das ⟦Volumen mit k³⟧ malgenommen. Im Bild: Bei doppelter Seite passen ⟦4 = 2²⟧ alte Quadrate hinein; bei einem Würfel passen 8 = 2³ alte Würfel in den doppelt so großen.',
+  'fehler': 'Bei doppelter Seitenlänge auch die doppelte Fläche anzunehmen ist falsch: Im Bild passen 4 kleine Quadrate in das große. Die Fläche wächst mit ⟦k² = 4⟧, das Volumen mit k³ = 8.'},
+ 'anwendung': {
+  'einstieg': 'Wie hoch ist ein Baum, auf den man nicht klettern kann? Man stellt einen Stab daneben und misst beide Schatten zur gleichen Zeit. Die Sonnenstrahlen fallen parallel ein, Stab und Baum stehen senkrecht. So entsteht eine Strahlensatz-Figur, mit der man ⟦Strahlensätze anwenden⟧ kann.',
+  'woerter': [['Skizze', 'eine schnelle Zeichnung mit allen bekannten Längen'],
+              ['h', 'die gesuchte Höhe des Baums'],
+              ['Bruchgleichung', 'eine Gleichung, in der die Unbekannte im Nenner eines Bruchs steht'],
+              ['h : 2', 'h geteilt durch 2']],
+  'bild': {'typ': 'figur', 'punkte': {'S': [0, 0], '_F1': [3, 0], '_T1': [3, 2], '_F2': [18, 0], '_T2': [18, 12]}, 'linien': [['S', '_F1', 'Schatten Stab 3 m'], ['_F1', '_F2'], ['_F1', '_T1', 'Stab 2 m'], ['_F2', '_T2', 'Baum h = ?'], ['S', '_T2', 'Sonnenstrahl', 'gestrichelt']], 'rechter_winkel': [['_F2', 'S', '_T2'], ['_F1', 'S', '_T1']]},
+  'schritte': ['Ein 2 m hoher Stab wirft 3 m Schatten, ein Baum zur gleichen Zeit 18 m.',
+               'In der Skizze ist S das Ende beider Schatten. Stab und Baum sind die Parallelen.',
+               'Höhe zu Schatten ist bei beiden gleich: h : 18 = 2 : 3. Der Baumschatten ist 18 : 3 = 6-mal so lang.',
+               'Also ist auch der Baum 6-mal so hoch: h = 2 · 6 = ⟦12 m⟧.'],
+  'regel': 'So wendest du die Strahlensätze an: ⟦Skizze⟧ zeichnen, ⟦Scheitel S und Parallelen⟧ erkennen, entsprechende Strecken zuordnen und eine Gleichung aufstellen. Steht die Unbekannte in einer Summe oder im Nenner, entsteht eine ⟦Bruchgleichung⟧: mit den Nennern malnehmen.',
+  'fehler': 'h : 18 = 3 : 2 ist falsch zugeordnet – dann wäre der Baum 27 m hoch. Richtig: ⟦Höhe zu Höhe⟧ und ⟦Schatten zu Schatten⟧, oder auf beiden Seiten Höhe zu Schatten.'},
+}
+klar(ETAPPEN, KLAR)
+# ---- KLAR ENDE ----
+
 
 def g_streckung(s):
     if s == 1:

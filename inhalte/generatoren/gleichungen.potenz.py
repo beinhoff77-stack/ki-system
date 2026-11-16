@@ -66,6 +66,84 @@ ETAPPEN = [
      'fehler': 'Bei a² = 49 für eine Seitenlänge a = −7 cm anzugeben ist falsch: Längen sind ⟦positiv⟧, nur a = 7 cm passt.'},
 ]
 
+# ---- KLAR (verständliche Erklärungen, Runde 7) ----
+KLAR = {
+ 'gerade': {
+  'einstieg': 'Ein Zahlenautomat nimmt jede eingegebene Zahl viermal mit sich selbst mal. Heraus kommt 16. Welche Zahl wurde eingegeben? 2 passt, denn 2 · 2 · 2 · 2 = 16. Aber auch −2 passt, weil sich vier Minuszeichen paarweise aufheben. Eine Gleichung wie x⁴ = 16 heißt ⟦Potenzgleichung⟧.',
+  'woerter': [['x⁴', 'x · x · x · x'],
+              ['Exponent n', 'die Hochzahl: wie oft malgenommen wird'],
+              ['gerade / ungerade', 'gerade: 2, 4, 6, …; ungerade: 1, 3, 5, …'],
+              ['ⁿ√c', 'die n-te Wurzel: die Zahl ohne Minus, die hoch n genau c ergibt'],
+              ['x₁, x₂', 'die erste und die zweite Lösung']],
+  'schritte': ['Die Gleichung heißt x⁴ = 16. Der Exponent 4 ist gerade.',
+               'Suche zuerst die Zahl ohne Minus: ⁴√16 = 2, denn 2 · 2 · 2 · 2 = 16.',
+               'Bei geradem Exponenten passt auch die Gegenzahl: (−2) · (−2) · (−2) · (−2) = 16, weil sich die Minuszeichen paarweise aufheben.',
+               'Also sind die Lösungen ⟦x₁ = −2 und x₂ = 2⟧.'],
+  'regel': 'So löst du xⁿ = c mit ⟦geradem⟧ n: Ist ⟦c > 0⟧, gibt es zwei Lösungen ⟦x = ⁿ√c und x = −ⁿ√c⟧. Ist c = 0, nur x = 0. Ist ⟦c < 0⟧, gibt es ⟦keine⟧ Lösung, denn gerade Potenzen sind nie negativ.',
+  'fehler': 'x⁴ = 16 ⇒ x = 2 ist unvollständig: Der Automat liefert auch für −2 die 16. Bei geradem Exponenten ist auch ⟦−2⟧ eine Lösung.'},
+ 'ungerade': {
+  'einstieg': 'Ein zweiter Automat nimmt jede Zahl dreimal mit sich selbst mal. Heraus kommt −125. Mit einer positiven Zahl geht das nicht. Aber (−5) · (−5) · (−5) = −125: Zwei Minuszeichen heben sich auf, das dritte bleibt. Bei ⟦ungeradem Exponenten⟧ gibt es deshalb immer genau eine Lösung – auch bei negativen Ergebnissen.',
+  'woerter': [['x³', 'x · x · x'],
+              ['|c|', 'der Betrag: c ohne Vorzeichen, z. B. |−125| = 125'],
+              ['−³√125', 'minus die dritte Wurzel aus 125, also −5']],
+  'schritte': ['Die Gleichung heißt x³ = −125. Der Exponent 3 ist ungerade, rechts steht eine negative Zahl.',
+               'Ohne das Minus gerechnet: ³√125 = 5, denn 5 · 5 · 5 = 125.',
+               'Das Minus bleibt erhalten: (−5) · (−5) · (−5) = 25 · (−5) = −125.',
+               'Also gibt es genau eine Lösung: ⟦x = −5⟧.'],
+  'regel': 'So löst du xⁿ = c mit ⟦ungeradem⟧ n: Es gibt ⟦genau eine Lösung⟧. Für c ≥ 0 ist x = ⁿ√c; für ⟦c < 0⟧ ist x = ⟦−ⁿ√|c|⟧, also negativ.',
+  'fehler': '„x³ = −125 hat keine Lösung“ ist falsch: Bei ⟦ungeradem⟧ Exponenten ergibt eine negative Zahl hoch n wieder etwas Negatives. Der Automat liefert −125 für x = −5.'},
+ 'anzahl': {
+  'einstieg': 'Wie viele Zahlen passen zu einem Ergebnis? Das zeigt ein Bild. Man zeichnet die Kurve des Automaten und eine waagrechte Linie in der Höhe des Ergebnisses. Jeder Treffpunkt ist eine Lösung. So lässt sich die ⟦Anzahl der Lösungen⟧ abzählen.',
+  'woerter': [['Graph von y = x⁴', 'die Kurve aller Punkte (x | x⁴)'],
+              ['waagrechte Gerade y = c', 'eine Linie auf der Höhe c'],
+              ['treffen / schneiden', 'Kurve und Linie haben dort einen gemeinsamen Punkt']],
+  'bild': {'typ': 'koordinaten', 'x': [-3, 3], 'y': [-4, 6], 'graphen': [{'art': 'potenz', 'a': 1, 'n': 4, 'name': 'y = x⁴'}, {'art': 'potenz', 'a': 1, 'n': 3, 'name': 'y = x³'}], 'waagrecht': [4, -2]},
+  'schritte': ['Die Gleichung heißt x⁶ = −1. Der Exponent 6 ist gerade.',
+               'Eine gerade Potenz ist nie negativ: Auch (−1)⁶ = 1, weil sich die Minuszeichen paarweise aufheben.',
+               'Im Bild heißt das: Die Kurve von y = x⁶ liegt nie unter der x-Achse, die Linie y = −1 aber schon.',
+               'Die Linie trifft die Kurve nie: ⟦keine Lösung⟧.'],
+  'regel': 'So bestimmst du die ⟦Anzahl der Lösungen⟧ von xⁿ = c: Achte auf ⟦n gerade oder ungerade⟧ und auf das ⟦Vorzeichen von c⟧. Im Bild zählst du, wie oft die Gerade y = c den Graphen trifft: bei geradem n und c > 0 ⟦zweimal⟧, bei c < 0 ⟦nie⟧, bei ungeradem n immer ⟦genau einmal⟧.',
+  'fehler': '„x⁵ = 32 hat zwei Lösungen 2 und −2“ ist falsch: (−2)⁵ = ⟦−32⟧, denn bei fünf Minuszeichen bleibt eines übrig. Bei ungeradem Exponenten gibt es nur eine Lösung.'},
+ 'umformen': {
+  'einstieg': 'Manchmal steckt die Potenz in einer längeren Rechnung: Der Automat nimmt die Zahl hoch 3, verdoppelt das Ergebnis und zählt 7 dazu. Heraus kommt 61. Um die Eingabe zu finden, geht man rückwärts: erst die 7 abziehen, dann halbieren, dann die dritte Wurzel ziehen. Das heißt ⟦umformen⟧.',
+  'woerter': [['umformen', 'auf beiden Seiten dasselbe rechnen, damit die Gleichung wahr bleibt'],
+              ['| − 7', 'Hinweis am Rand: auf beiden Seiten 7 abziehen'],
+              ['Faktor', 'eine Zahl, mit der malgenommen wird, z. B. die 2 in 2x³'],
+              ['(x − 1)³', 'die ganze Klammer hoch 3']],
+  'schritte': ['Die Gleichung heißt 2x³ + 7 = 61.',
+               'Auf beiden Seiten 7 abziehen: 2x³ = 54.',
+               'Beide Seiten durch 2 teilen: x³ = 27.',
+               'Die dritte Wurzel ziehen: x = ³√27 = ⟦3⟧, denn 3 · 3 · 3 = 27.'],
+  'regel': 'So gehst du vor: Bring die Gleichung auf die Form ⟦(…)ⁿ = c⟧ – erst Zahlen abziehen oder dazuzählen, dann durch den Faktor teilen. Steht eine Klammer hoch n da, löst du zuerst nach der ⟦Klammer⟧ auf.',
+  'fehler': '2x³ = 54 ⇒ x³ = 54 − 2 ist falsch: Die 2 ist ein ⟦Faktor⟧, also wird ⟦geteilt⟧: x³ = 27. Verdoppeln macht man durch Halbieren rückgängig, nicht durch Abziehen.'},
+ 'naeherung': {
+  'einstieg': 'Nicht immer kommt eine glatte Zahl heraus. Ein würfelförmiger Behälter soll 40 Liter fassen. Mit 3 dm Kante fasst er 27 Liter, mit 4 dm schon 64 Liter. Die passende Kante liegt dazwischen; der Taschenrechner liefert sie auf ein paar Stellen genau. Das Ergebnis wird dann ⟦gerundet⟧.',
+  'woerter': [['Liter', '1 Liter = 1 dm³, ein Würfel mit 10 cm Kante'],
+              ['runden', 'auf weniger Stellen kürzen, z. B. 3,419… auf zwei Nachkommastellen: 3,42'],
+              ['≈', '„ungefähr gleich“ – nach dem Runden'],
+              ['³√-Taste', 'die Taste für die dritte Wurzel auf dem Taschenrechner']],
+  'schritte': ['Die Gleichung heißt x³ = 40. Der Exponent ist ungerade, also gibt es genau eine Lösung: x = ³√40.',
+               'Grob schätzen: 3³ = 27 und 4³ = 64, also liegt x zwischen 3 und 4.',
+               'Taschenrechner: ³√40 = 3,419…',
+               'Auf zwei Nachkommastellen gerundet: ⟦x ≈ 3,42⟧. Die Kante ist also etwa 3,42 dm lang.'],
+  'regel': 'So gehst du vor, wenn es nicht glatt aufgeht: ⁿ√c mit dem ⟦Taschenrechner⟧ bestimmen und sinnvoll ⟦runden⟧. Die Vorzeichen-Regeln (gerade: zwei Lösungen ±, ungerade: eine Lösung) gelten wie sonst. Vorher grob schätzen hilft, Tippfehler zu erkennen.',
+  'fehler': 'x³ = 40 ⇒ x = 40 : 3 ≈ 13,33 ist falsch: Die Probe zeigt 13,33³ ≈ 2 370 – ein Behälter mit über 2 000 Litern. Man muss die ⟦dritte Wurzel⟧ ziehen.'},
+ 'sachaufgabe': {
+  'einstieg': 'Ein Geschenkkarton in Würfelform soll 216 cm³ fassen. Wie lang muss eine Kante sein? Das Volumen eines Würfels ist Kante mal Kante mal Kante. Gesucht ist also die Zahl, die hoch 3 genau 216 ergibt. Solche Fragen aus dem Alltag heißen ⟦Sachaufgaben⟧.',
+  'woerter': [['Volumen V', 'der Rauminhalt, hier in cm³'],
+              ['a³ = V', 'Kante hoch 3 ergibt das Volumen'],
+              ['Wachstumsfaktor q', 'die Zahl, mit der in jedem Jahr malgenommen wird'],
+              ['Sachzusammenhang', 'die Situation, zu der die Lösung passen muss']],
+  'schritte': ['Variable festlegen: a ist die Kante in cm.',
+               'Gleichung aufstellen: a · a · a = 216, also a³ = 216.',
+               'Lösen: a = ³√216 = 6, denn 6 · 6 · 6 = 216.',
+               'Prüfen: Eine Kante von ⟦6 cm⟧ ist positiv und passt zum Karton.'],
+  'regel': 'So löst du eine Sachaufgabe mit Potenzen: Stelle eine Gleichung der Form ⟦xⁿ = c⟧ auf (Würfel: a³ = V; Wachstum über zwei Jahre: q² = Gesamtfaktor) und prüfe, welche Lösung ⟦zum Sachzusammenhang⟧ passt.',
+  'fehler': 'Bei a² = 49 für eine Seitenlänge a = −7 cm anzugeben ist falsch: Längen sind ⟦positiv⟧, nur a = 7 cm passt.'},
+}
+klar(ETAPPEN, KLAR)
+# ---- KLAR ENDE ----
+
 
 def g_gerade(s):
     if s == 1:

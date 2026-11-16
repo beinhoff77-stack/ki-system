@@ -42,68 +42,202 @@
    {
     "lernziel": "nte_wurzel",
     "titel": "n-te Wurzeln berechnen",
-    "regel": "Für a ≥ 0 ist ⟦ⁿ√a⟧ die nicht-negative Zahl, deren n-te Potenz a ergibt. n heißt ⟦Wurzelexponent⟧, a heißt Radikand.",
+    "regel": "So findest du ⁿ√a (für a ≥ 0): Suche die Zahl ohne Minus, die ⟦n-mal mit sich selbst malgenommen⟧ a ergibt. Die kleine Zahl n heißt ⟦Wurzelexponent⟧, a heißt ⟦Radikand⟧.",
     "schritte": [
-     "⁴√625: Welche Zahl hoch 4 ergibt 625?",
-     "5⁴ = 25 · 25 = 625, also ⁴√625 = ⟦5⟧."
+     "Gesucht ist ⁴√625: Welche Zahl ergibt viermal mit sich selbst malgenommen 625?",
+     "Probiere die 5: 5 · 5 = 25, und 25 · 25 = 625. Das sind vier Fünfen.",
+     "Also ist 5⁴ = 625 und damit ⁴√625 = ⟦5⟧.",
+     "Für die Bakterien heißt das: Ihre Anzahl wird jede Stunde mit 5 malgenommen."
     ],
     "probe": "5 · 5 · 5 · 5 = 625 ✓",
-    "fehler": "⁴√625 = 625 : 4 ist falsch: Der Wurzelexponent sagt, ⟦wie oft⟧ eine Zahl mit sich selbst multipliziert wird – nicht, wodurch man teilt."
+    "fehler": "⁴√625 = 625 : 4 ≈ 156 ist falsch: Der Wurzelexponent sagt, ⟦wie oft⟧ eine Zahl mit sich selbst malgenommen wird – nicht, wodurch man teilt. Mit dem Faktor 156 pro Stunde gäbe es nach 4 Stunden fast 600 Millionen-mal so viele Bakterien.",
+    "einstieg": "In einer Schale wachsen Bakterien. In jeder Stunde wird ihre Anzahl mit derselben Zahl malgenommen. Nach 4 Stunden sind es 625-mal so viele wie am Anfang. Mit welcher Zahl wird pro Stunde malgenommen? Gesucht ist eine Zahl, die viermal mit sich selbst malgenommen 625 ergibt: die ⟦vierte Wurzel⟧ aus 625.",
+    "woerter": [
+     [
+      "Faktor",
+      "eine Zahl, mit der man malnimmt"
+     ],
+     [
+      "5⁴",
+      "gelesen „5 hoch 4“: 5 · 5 · 5 · 5"
+     ],
+     [
+      "⁴√625",
+      "gelesen „vierte Wurzel aus 625“: die Zahl, die hoch 4 genommen 625 ergibt"
+     ],
+     [
+      "Wurzelexponent n",
+      "die kleine Zahl links oben am Wurzelzeichen: wie oft malgenommen wird"
+     ],
+     [
+      "ⁿ√a",
+      "die n-te Wurzel aus a"
+     ],
+     [
+      "Radikand",
+      "die Zahl unter dem Wurzelzeichen"
+     ]
+    ]
    },
    {
     "lernziel": "potenz_wert",
     "titel": "Potenzen mit Bruch-Exponent berechnen",
-    "regel": "Warum ist 27^(1/3) die dritte Wurzel? Weil (27^(1/3))³ = 27^(1/3 · 3) = 27¹ = 27. Also gilt für a > 0: ⟦a^(m/n) = (ⁿ√a)^m⟧ – der ⟦Nenner⟧ ist die Wurzel, der ⟦Zähler⟧ die Potenz. Ein negativer Exponent bedeutet ⟦Kehrwert⟧: a^(−m/n) = 1 / a^(m/n).",
+    "regel": "So rechnest du a^(m/n) (für a > 0): Der ⟦Nenner⟧ n sagt, welche Wurzel du ziehst, der ⟦Zähler⟧ m, hoch wie viel du danach nimmst: ⟦a^(m/n) = (ⁿ√a)^m⟧. Ein Minus im Exponenten bedeutet ⟦Kehrwert⟧: a^(−m/n) = 1 / a^(m/n).",
     "schritte": [
-     "27^(2/3): Nenner 3 heißt dritte Wurzel: ³√27 = 3.",
-     "Zähler 2 heißt quadrieren: 3² = ⟦9⟧."
+     "Gesucht ist 27^(2/3). Der Nenner 3 bedeutet: die dritte Wurzel ziehen.",
+     "³√27 = 3, denn 3 · 3 · 3 = 27. Das ist der Faktor für einen Schritt.",
+     "Der Zähler 2 bedeutet: diesen Faktor zweimal nehmen, also 3² = 3 · 3 = 9.",
+     "Also ist 27^(2/3) = ⟦9⟧: Nach 2 Stunden gibt es 9-mal so viele Bakterien."
     ],
     "probe": "9³ = 729 = 27² ✓",
-    "fehler": "27^(2/3) = 27 · 2 : 3 = 18 ist falsch: Der Nenner bedeutet ⟦Wurzel⟧, der Zähler ⟦Potenz⟧ – man multipliziert nicht mit dem Bruch."
+    "fehler": "27^(2/3) = 27 · 2 : 3 = 18 ist falsch: Der Nenner bedeutet ⟦Wurzel⟧, der Zähler ⟦Potenz⟧ – man nimmt nicht mit dem Bruch mal. Probe mit den Bakterien: zwei Stunden mit Faktor 3 ergeben 3 · 3 = 9, nicht 18.",
+    "einstieg": "Andere Bakterien werden jede Stunde 3-mal so viele. In 3 Stunden sind es 27-mal so viele, denn 3 · 3 · 3 = 27. Und nach 2 der 3 Stunden? 9-mal so viele. Dafür schreibt man „27 hoch 2/3“: Die 3 unten teilt die 27 in drei gleiche Schritte auf, die 2 oben sagt, dass zwei davon gegangen werden. Das ist eine ⟦Potenz mit Bruch-Exponent⟧.",
+    "woerter": [
+     [
+      "Exponent",
+      "die hochgestellte Zahl einer Potenz"
+     ],
+     [
+      "27^(2/3)",
+      "gelesen „27 hoch zwei Drittel“"
+     ],
+     [
+      "Zähler / Nenner",
+      "die Zahl über / unter dem Bruchstrich; bei 2/3 ist 2 der Zähler, 3 der Nenner"
+     ],
+     [
+      "Kehrwert",
+      "der umgedrehte Bruch: von 5 ist es 1/5, von 2/3 ist es 3/2"
+     ],
+     [
+      "a^(−1/2)",
+      "ein Minus im Exponenten: der Kehrwert von a^(1/2)"
+     ]
+    ]
    },
    {
     "lernziel": "umwandeln",
     "titel": "Wurzeln als Potenzen schreiben",
-    "regel": "⟦ⁿ√(x^m) = x^(m/n)⟧ für x ≥ 0: Der Wurzelexponent wird zum ⟦Nenner⟧, der Exponent unter der Wurzel zum ⟦Zähler⟧. Den Bruch kürzen.",
+    "regel": "So schreibst du eine Wurzel als Potenz (für x ≥ 0): ⟦ⁿ√(x^m) = x^(m/n)⟧. Der Wurzelexponent kommt in den ⟦Nenner⟧, der Exponent unter der Wurzel in den ⟦Zähler⟧. Danach den Bruch kürzen.",
     "schritte": [
-     "⁶√(x⁴): Wurzelexponent 6 in den Nenner, Exponent 4 in den Zähler: x^(4/6).",
-     "Kürzen: ⟦x^(2/3)⟧."
+     "Gesucht ist ⁶√(x⁴), geschrieben als Potenz.",
+     "Die kleine 6 am Wurzelzeichen wird zum Nenner des Exponenten.",
+     "Die 4 unter der Wurzel wird zum Zähler. So entsteht x^(4/6).",
+     "Den Bruch kürzen: 4/6 = 2/3. Also ist ⁶√(x⁴) = ⟦x^(2/3)⟧."
     ],
     "probe": "(x^(2/3))³ = x² und (⁶√(x⁴))³ = √(x⁴) = x² ✓",
-    "fehler": "⁶√(x⁴) = x^(6/4) ist falsch: Zähler und Nenner sind ⟦vertauscht⟧. Der Wurzelexponent gehört in den Nenner."
+    "fehler": "⁶√(x⁴) = x^(6/4) ist falsch: Zähler und Nenner sind ⟦vertauscht⟧. Merkhilfe: Das Wurzelzeichen „teilt“ – sein Exponent gehört in den Nenner.",
+    "einstieg": "Für dieselbe Uhrzeit gibt es zwei Schreibweisen: „halb drei“ und „14:30“. Auch Wurzeln kann man anders schreiben, nämlich als Potenz mit einem Bruch im Exponenten. Die Quadratwurzel aus einer Zahl ist dieselbe Zahl hoch ein halb. Dieses ⟦Umschreiben⟧ lohnt sich, weil man mit Potenzen gut weiterrechnen kann.",
+    "woerter": [
+     [
+      "x^(1/2)",
+      "dasselbe wie √x"
+     ],
+     [
+      "⁶√(x⁴)",
+      "die sechste Wurzel aus x hoch 4"
+     ],
+     [
+      "kürzen",
+      "Zähler und Nenner durch dieselbe Zahl teilen: 4/6 = 2/3"
+     ],
+     [
+      "x ≥ 0",
+      "x ist nicht negativ"
+     ]
+    ]
    },
    {
     "lernziel": "zusammenfassen",
     "titel": "Potenzen und Wurzeln zusammenfassen",
-    "regel": "Die Potenzgesetze gelten auch für Bruch-Exponenten (Basis > 0): ⟦x^p · x^q = x^(p+q)⟧, ⟦x^p : x^q = x^(p−q)⟧, ⟦(x^p)^q = x^(p·q)⟧.",
+    "regel": "So fasst du zusammen (Basis > 0): Wurzeln zuerst als Potenzen schreiben. Dann gelten die ⟦Potenzgesetze⟧: beim Malnehmen Exponenten ⟦addieren⟧ (x^p · x^q = x^(p+q)), beim Teilen ⟦subtrahieren⟧ (x^p : x^q = x^(p−q)), bei einer Potenz einer Potenz ⟦malnehmen⟧ ((x^p)^q = x^(p·q)).",
     "schritte": [
-     "√x · ³√x = x^(1/2) · x^(1/3) = x^(1/2 + 1/3).",
-     "1/2 + 1/3 = 3/6 + 2/6 = 5/6, also ⟦x^(5/6) = ⁶√(x⁵)⟧."
+     "Gesucht ist √x · ³√x, zusammengefasst zu einer Potenz (x > 0).",
+     "Beide Wurzeln als Potenz schreiben: x^(1/2) · x^(1/3).",
+     "Gleiche Basis beim Malnehmen: Exponenten addieren. 1/2 + 1/3 = 3/6 + 2/6 = 5/6.",
+     "Ergebnis: ⟦x^(5/6) = ⁶√(x⁵)⟧."
     ],
     "probe": "(x^(5/6))⁶ = x⁵ ✓",
-    "fehler": "x^(1/2) · x^(1/3) = x^(1/6) ist falsch: Beim Multiplizieren werden die Exponenten ⟦addiert⟧, nicht multipliziert."
+    "fehler": "x^(1/2) · x^(1/3) = x^(1/6) ist falsch: Beim Malnehmen werden die Exponenten ⟦addiert⟧, nicht malgenommen. Eine halbe und eine Drittelstunde sind zusammen 5/6 Stunde, nicht 1/6.",
+    "einstieg": "Zurück zu den Bakterien. Erst wachsen sie eine halbe Stunde, dann noch eine Drittelstunde. Zusammen sind das 1/2 + 1/3 = 5/6 Stunde. Beim Rechnen heißt das: Bei gleicher Basis werden die Exponenten ⟦addiert⟧ – genau wie bei 2³ · 2² = 2⁵.",
+    "woerter": [
+     [
+      "Basis",
+      "die Zahl unten bei einer Potenz; bei x^(1/2) ist es x"
+     ],
+     [
+      "Potenzgesetze",
+      "Rechenregeln für Potenzen mit gleicher Basis"
+     ],
+     [
+      "(x^p)^q",
+      "eine Potenz noch einmal hoch q nehmen"
+     ],
+     [
+      "x^(p+q)",
+      "x hoch (p + q): die Exponenten wurden zusammengezählt"
+     ]
+    ]
    },
    {
     "lernziel": "gleichung_exp",
     "titel": "Gleichungen mit Bruch-Exponent (x > 0)",
-    "regel": "Bei x^(m/n) = c (x > 0) potenzierst du beide Seiten mit dem ⟦Kehrwert⟧ n/m: x = ⟦c^(n/m)⟧. Bei xⁿ = c ist die positive Lösung ⁿ√c.",
+    "regel": "So löst du x^(m/n) = c (für x > 0): Beide Seiten mit dem ⟦Kehrwert⟧ n/m potenzieren. Dann ist ⟦x = c^(n/m)⟧. Bei xⁿ = c ist die positive Lösung ⁿ√c.",
     "schritte": [
-     "x^(3/2) = 64 mit x > 0: beide Seiten hoch 2/3.",
-     "x = 64^(2/3) = (³√64)² = 4² = ⟦16⟧."
+     "Die Gleichung heißt x^(3/2) = 64, gesucht ist x > 0.",
+     "Nimm beide Seiten hoch 2/3, also hoch dem Kehrwert von 3/2. Links bleibt x übrig, weil 3/2 · 2/3 = 1 ist.",
+     "Rechts rechnen: 64^(2/3) = (³√64)² = 4² = 16.",
+     "Also ist ⟦x = 16⟧: Die Bakterien werden pro Stunde 16-mal so viele."
     ],
     "probe": "16^(3/2) = (√16)³ = 4³ = 64 ✓",
-    "fehler": "x^(3/2) = 64 ⇒ x = 64 · 2/3 ist falsch: Man ⟦potenziert⟧ mit dem Kehrwert des Exponenten, man multipliziert nicht."
+    "fehler": "x^(3/2) = 64 ⇒ x = 64 · 2/3 ≈ 42,7 ist falsch: Man ⟦potenziert⟧ mit dem Kehrwert, man nimmt nicht mal. Probe: 42,7 hoch 3/2 ist etwa 279, nicht 64.",
+    "einstieg": "Jetzt geht es rückwärts: Nach anderthalb Stunden sind es 64-mal so viele Bakterien. Mit welchem Faktor wachsen sie pro Stunde? Gesucht ist die Zahl, die hoch 3/2 genommen 64 ergibt. Man löst diese ⟦Gleichung⟧, indem man das Hochnehmen rückgängig macht.",
+    "woerter": [
+     [
+      "x",
+      "die gesuchte Zahl, hier der Faktor pro Stunde"
+     ],
+     [
+      "x^(3/2) = 64",
+      "die Frage: Welche Zahl x ergibt hoch 3/2 genau 64?"
+     ],
+     [
+      "Kehrwert",
+      "3/2 umgedreht ist 2/3"
+     ],
+     [
+      "x > 0",
+      "nur Lösungen größer als 0 sind gesucht"
+     ]
+    ]
    },
    {
     "lernziel": "verstehen",
     "titel": "Aussagen über Potenzen prüfen",
-    "regel": "Bruch-Exponenten sind nur für ⟦Basen ≥ 0⟧ (negative Exponenten: > 0) erklärt. Ein negativer Exponent macht das Ergebnis ⟦nicht negativ⟧, sondern zum Kehrwert.",
+    "regel": "So prüfst du Aussagen über Potenzen: Bruch-Exponenten sind nur für ⟦Basen ≥ 0⟧ erklärt (bei negativem Exponenten nur für Basen > 0). Ein Minus im Exponenten bedeutet ⟦Kehrwert⟧, nicht „Ergebnis negativ“. Hoch 1/2 bedeutet ⟦Quadratwurzel⟧.",
     "schritte": [
-     "Behauptung: 25^(−1/2) = −5.",
-     "25^(−1/2) = 1 / 25^(1/2) = 1/√25 = ⟦1/5⟧. Die Behauptung ist falsch."
+     "Behauptung: 25^(−1/2) = −5. Stimmt das?",
+     "Das Minus im Exponenten bedeutet Kehrwert: 25^(−1/2) = 1 / 25^(1/2).",
+     "25^(1/2) ist die Quadratwurzel: √25 = 5.",
+     "Also ist 25^(−1/2) = ⟦1/5⟧. Die Behauptung ist falsch."
     ],
     "probe": "(1/5)² = 1/25 = 25^(−1) ✓",
-    "fehler": "9^(1/2) = 4,5 ist falsch: Hoch 1/2 bedeutet ⟦Quadratwurzel⟧, nicht halbieren. 9^(1/2) = 3."
+    "fehler": "9^(1/2) = 4,5 ist falsch: Hoch 1/2 bedeutet ⟦Quadratwurzel⟧, nicht halbieren. 9^(1/2) = 3, denn 3 · 3 = 9.",
+    "einstieg": "Ein Minus im Exponenten heißt beim Wachstum: zurück in die Vergangenheit. Werden Bakterien pro Stunde 25-mal so viele, dann waren es eine halbe Stunde früher nur ein Fünftel so viele. Ein Minus im Exponenten macht also nichts negativ – es bildet den ⟦Kehrwert⟧.",
+    "woerter": [
+     [
+      "25^(−1/2)",
+      "25 hoch minus ein halb, also 1 / 25^(1/2)"
+     ],
+     [
+      "Behauptung",
+      "eine Aussage, die du prüfen sollst"
+     ],
+     [
+      "Kehrwert",
+      "der umgedrehte Bruch: von 5 ist es 1/5"
+     ]
+    ]
    }
   ],
   "teilfaehigkeiten": [

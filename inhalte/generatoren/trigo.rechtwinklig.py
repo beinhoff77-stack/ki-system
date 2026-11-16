@@ -52,6 +52,87 @@ ETAPPEN = [
      'fehler': '8 % Steigung als Winkel 8° anzugeben ist falsch: 8 % bedeutet ⟦tan α = 0,08⟧, also etwa 4,6°.'},
 ]
 
+# ---- KLAR (verständliche Erklärungen, Runde 7) ----
+KLAR = {
+ 'seiten': {
+  'einstieg': 'Eine Rampe führt schräg auf eine Bühne. Von unten gesehen gibt es den Boden, die senkrechte Bühnenkante und die schräge Rampe selbst. Damit man über diese drei Seiten reden kann, bekommen sie Namen – je nachdem, von welchem Winkel aus man schaut. Die Namen ⟦Ankathete, Gegenkathete, Hypotenuse⟧ helfen dabei.',
+  'woerter': [['Hypotenuse', 'die längste Seite, gegenüber dem rechten Winkel – hier die Rampe'],
+              ['Gegenkathete von α', 'die Kathete, die dem Winkel α gegenüberliegt – hier die Bühnenkante'],
+              ['Ankathete von α', 'die Kathete, die den Winkel α mitbildet – hier der Boden'],
+              ['α, β, γ', 'griechische Buchstaben für die Winkel bei A, B und C'],
+              ['spitzer Winkel', 'ein Winkel kleiner als 90°']],
+  'bild': {'typ': 'figur', 'punkte': {'A': [0, 0], 'B': [5, 3], 'C': [5, 0]}, 'flaeche': ['A', 'B', 'C'], 'linien': [['A', 'C', 'Ankathete b (Boden)'], ['C', 'B', 'Gegenkathete a (Bühnenkante)'], ['A', 'B', 'Hypotenuse c (Rampe)']], 'rechter_winkel': [['C', 'A', 'B']], 'winkel': [['A', 'C', 'B', 'α']]},
+  'schritte': ['Im Dreieck ABC ist der Winkel bei C ein rechter: γ = 90°.',
+               'Dem rechten Winkel liegt c gegenüber. Also ist c die Hypotenuse.',
+               'Vom Winkel α bei A aus gesehen liegt a gegenüber. Also ist ⟦a die Gegenkathete⟧.',
+               'Die Kathete b bildet den Winkel α mit. Also ist ⟦b die Ankathete⟧.'],
+  'regel': 'So benennst du die Seiten: Zuerst die ⟦Hypotenuse⟧ suchen, sie liegt dem rechten Winkel gegenüber. Dann vom gewählten spitzen Winkel aus: Die Kathete gegenüber ist die ⟦Gegenkathete⟧, die anliegende Kathete die ⟦Ankathete⟧. Wechselt der Winkel, tauschen die beiden Namen.',
+  'fehler': '„Die Ankathete von α ist c, weil c an A anliegt“ ist falsch: c liegt zwar an A, ist aber die ⟦Hypotenuse⟧ (die Rampe). Ankathete ist nur eine ⟦Kathete⟧.'},
+ 'verhaeltnisse': {
+  'einstieg': 'Zwei Rampen haben dieselbe Neigung, aber eine ist doppelt so lang. Dann ist auch ihre Höhe doppelt so groß – das Verhältnis Höhe zu Länge bleibt gleich. Es hängt also nur vom Winkel ab. Diese Verhältnisse heißen ⟦Sinus, Kosinus und Tangens⟧.',
+  'woerter': [['sin α („Sinus“)', 'Gegenkathete geteilt durch Hypotenuse'],
+              ['cos α („Kosinus“)', 'Ankathete geteilt durch Hypotenuse'],
+              ['tan α („Tangens“)', 'Gegenkathete geteilt durch Ankathete'],
+              ['8/17', 'der Bruch 8 geteilt durch 17'],
+              ['ähnlich', 'gleiche Form, nur vergrößert oder verkleinert']],
+  'bild': {'typ': 'figur', 'punkte': {'A': [0, 0], 'B': [15, 8], 'C': [15, 0]}, 'flaeche': ['A', 'B', 'C'], 'linien': [['A', 'C', 'Ankathete b = 15 cm'], ['C', 'B', 'Gegenkathete a = 8 cm'], ['A', 'B', 'Hypotenuse c = 17 cm']], 'rechter_winkel': [['C', 'A', 'B']], 'winkel': [['A', 'C', 'B', 'α']]},
+  'schritte': ['Im Dreieck ist γ = 90°, a = 8 cm, b = 15 cm und c = 17 cm.',
+               'Von α aus: Gegenkathete a = 8, Ankathete b = 15, Hypotenuse c = 17.',
+               'sin α = Gegenkathete : Hypotenuse = 8/17; cos α = Ankathete : Hypotenuse = 15/17.',
+               'tan α = Gegenkathete : Ankathete = ⟦8/15⟧.'],
+  'regel': 'So bildest du die drei Verhältnisse: ⟦sin α = Gegenkathete : Hypotenuse⟧, ⟦cos α = Ankathete : Hypotenuse⟧, ⟦tan α = Gegenkathete : Ankathete⟧. Sie hängen ⟦nur vom Winkel⟧ ab, weil alle rechtwinkligen Dreiecke mit demselben α ⟦ähnlich⟧ sind: Beim Vergrößern bleiben die Seitenverhältnisse gleich.',
+  'fehler': 'sin α = b/c ist falsch, wenn γ = 90°: b ist der Boden, also die ⟦Ankathete⟧ von α. Richtig: sin α = a/c.'},
+ 'seite': {
+  'einstieg': 'Eine 10 m lange Rampe steigt mit 35° an. Wie hoch kommt man oben an? Winkel und schräge Länge sind bekannt, gesucht ist die Höhe. Mit dem passenden Verhältnis und dem Taschenrechner lassen sich ⟦Seitenlängen berechnen⟧.',
+  'woerter': [['sin 35°', 'der Sinuswert von 35°, aus dem Taschenrechner: etwa 0,5736'],
+              ['umstellen', 'die Gleichung so umformen, dass die gesuchte Seite allein steht'],
+              ['≈', '„ungefähr gleich“ – nach dem Runden']],
+  'schritte': ['Gegeben: γ = 90°, α = 35°, Hypotenuse c = 10 m. Gesucht ist die Höhe a, die Gegenkathete von α.',
+               'Gegenkathete und Hypotenuse kommen im Sinus vor: sin 35° = a / 10.',
+               'Mit 10 malnehmen: a = 10 · sin 35°.',
+               'Taschenrechner: a ≈ 10 · 0,5736 ≈ ⟦5,7⟧. Die Rampe endet etwa 5,7 m hoch.'],
+  'probe': 'a < c ✓',
+  'regel': 'So berechnest du eine Seite: Wähle die Funktion, in der die ⟦gesuchte und die bekannte Seite⟧ vorkommen. Stelle um, z. B. ⟦a = c · sin α⟧ oder ⟦c = a : sin α⟧.',
+  'fehler': 'a = 10 : sin 35° ≈ 17,4 ist falsch: Die Höhe wäre größer als die Rampe lang ist. Aus sin α = a/c folgt a = ⟦c · sin α⟧.'},
+ 'winkel': {
+  'einstieg': 'Eine Rampe ist 7 m lang am Boden und 4 m hoch. Ist sie zu steil? Dafür braucht man ihren Winkel. Bekannt ist das Verhältnis 4 : 7, gesucht der passende Winkel. Diesen Rückweg vom Verhältnis zum Winkel macht die ⟦Umkehrtaste⟧ des Taschenrechners.',
+  'woerter': [['tan⁻¹ („Arkustangens“)', 'die Umkehrtaste: Sie macht aus einem Tangenswert den Winkel'],
+              ['sin⁻¹, cos⁻¹', 'die Umkehrtasten zu Sinus und Kosinus'],
+              ['DEG', 'Einstellung des Taschenrechners für Winkel in Grad']],
+  'schritte': ['Gegeben: γ = 90°, Gegenkathete a = 4 m, Ankathete b = 7 m. Gesucht ist α.',
+               'Gegenkathete und Ankathete kommen im Tangens vor: tan α = 4/7 ≈ 0,5714.',
+               'Den Taschenrechner auf DEG stellen und die Umkehrtaste nutzen: α = tan⁻¹(4/7).',
+               'Ergebnis: α ≈ ⟦29,7°⟧.'],
+  'regel': 'So berechnest du einen Winkel: Bilde aus zwei bekannten Seiten das passende Verhältnis. Dann die ⟦Umkehrtaste⟧ benutzen: α = sin⁻¹(…), cos⁻¹(…) oder tan⁻¹(…). Der Taschenrechner muss auf ⟦DEG⟧ stehen.',
+  'fehler': 'α = 4/7 ≈ 0,57° ist falsch: Eine Rampe von 4 m Höhe auf 7 m wäre dann fast flach. 4/7 ist der ⟦Tangenswert⟧, nicht der Winkel. Erst tan⁻¹ liefert den Winkel.'},
+ 'beziehungen': {
+  'einstieg': 'Sinus, Kosinus und Tangens hängen eng zusammen. Kennt man einen davon, kann man die anderen ausrechnen, ohne das Dreieck zu messen. Der Grund ist der Satz des Pythagoras. Diese Zusammenhänge heißen ⟦Beziehungen zwischen sin, cos und tan⟧.',
+  'woerter': [['sin² α', '(sin α)², also sin α mal sin α'],
+              ['sin² α + cos² α = 1', 'Pythagoras, geteilt durch c²'],
+              ['90° − α', 'der andere spitze Winkel im rechtwinkligen Dreieck']],
+  'schritte': ['Bekannt ist sin α = 0,28, α ist spitz. Gesucht sind cos α und tan α.',
+               'Aus sin² α + cos² α = 1 folgt cos² α = 1 − 0,28² = 1 − 0,0784 = 0,9216.',
+               'Die Wurzel ziehen: cos α = ⟦0,96⟧ (positiv, weil α spitz ist).',
+               'tan α = sin α : cos α = 0,28 : 0,96 = 7/24.'],
+  'regel': 'So nutzt du die Beziehungen für spitze Winkel: ⟦sin² α + cos² α = 1⟧ – das ist Pythagoras a² + b² = c², geteilt durch c². Außerdem gilt ⟦tan α = sin α : cos α⟧ und ⟦sin α = cos(90° − α)⟧. Besondere Werte: sin 30° = cos 60° = 0,5; tan 45° = 1.',
+  'fehler': 'cos α = 1 − sin α = 0,72 ist falsch: Es gilt sin² α + cos² α = 1 – mit den ⟦Quadraten⟧. Probe: 0,28² + 0,72² ≈ 0,60, nicht 1.'},
+ 'anwendung': {
+  'einstieg': 'Ein Verkehrsschild zeigt „8 %“ an einer Bergstraße. Das bedeutet: Auf 100 m waagrecht geht es 8 m nach oben. Wie steil ist das als Winkel? Höhe und waagrechter Weg bilden ein rechtwinkliges Dreieck. So kann man ⟦Trigonometrie anwenden⟧.',
+  'woerter': [['Steigung in %', 'Höhenunterschied pro 100 m waagrecht'],
+              ['Steigungswinkel', 'der Winkel zwischen Straße und Waagrechter'],
+              ['Höhenwinkel', 'der Winkel, unter dem man nach oben schaut, gemessen von der Waagrechten'],
+              ['Trigonometrie', 'das Rechnen mit Winkeln und Seiten im Dreieck']],
+  'bild': {'typ': 'figur', 'punkte': {'A': [0, 0], '_C': [100, 0], '_B': [100, 8]}, 'flaeche': ['A', '_C', '_B'], 'linien': [['A', '_C', '100 m waagrecht'], ['_C', '_B', '8 m hoch'], ['A', '_B', 'Straße']], 'rechter_winkel': [['_C', 'A', '_B']], 'winkel': [['A', '_C', '_B', 'α']]},
+  'schritte': ['Die Straße steigt mit 8 %: 8 m Höhe auf 100 m waagrecht.',
+               'Höhe ist die Gegenkathete, der waagrechte Weg die Ankathete: tan α = 8 : 100 = 0,08.',
+               'Umkehrtaste: α = tan⁻¹(0,08).',
+               'Ergebnis: α ≈ ⟦4,6°⟧.'],
+  'regel': 'So wendest du Trigonometrie an: ⟦Skizze⟧ zeichnen, das ⟦rechtwinklige Dreieck⟧ finden, Winkel und Seiten zuordnen. Es gilt ⟦Steigung in %⟧ = tan(Steigungswinkel) · 100. Der ⟦Höhenwinkel⟧ wird von der Waagrechten aus gemessen.',
+  'fehler': '8 % Steigung als Winkel 8° anzugeben ist falsch: 8 % bedeutet ⟦tan α = 0,08⟧, also etwa 4,6°. Prozent und Grad sind verschiedene Maße.'},
+}
+klar(ETAPPEN, KLAR)
+# ---- KLAR ENDE ----
+
 
 def g_seiten(s):
     if s <= 2 and R.random() < (0.5 if s == 2 else 0.35):

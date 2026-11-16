@@ -163,6 +163,19 @@ def _schluessel(a):
             + json.dumps(f.get('schablone'), ensure_ascii=False) + '|' + json.dumps(f.get('grafik'), sort_keys=True))
 
 
+ALT_SCHRITTE = {}
+
+
+def klar(etappen, felder):
+    """Runde 7: verständliche Erklärungen über die Lernkarten legen. Die alten Beispielschritte bleiben für den
+    Dopplungsabgleich in bauen() maßgeblich, damit sich keine Aufgabe ändert (wie _verbot im Muster)."""
+    for e in etappen:
+        k = felder.get(e['lernziel'])
+        if k:
+            ALT_SCHRITTE[e['lernziel']] = list(e['schritte'])
+            e.update(k)
+
+
 def bauen(thema, ziel, merke, abschnitte, etappen, gen, offen=(), vertiefung=(), plan=PLAN, meiden=None):
     """meiden: {lernziel: [Textstücke]} – Aufgaben mit den Zahlen des vorgerechneten Beispiels auslassen."""
     meiden = meiden or {}
@@ -172,7 +185,7 @@ def bauen(thema, ziel, merke, abschnitte, etappen, gen, offen=(), vertiefung=(),
         assert len(e['titel']) <= 40, e['titel']
     alle, gesehen = [], set()
     for e in etappen:
-        beispiele = set(e['schritte'])
+        beispiele = set(ALT_SCHRITTE.get(e['lernziel'], e['schritte']))
         for pool, stufe in plan:
             for _ in range(3000):
                 a = gen[e['lernziel']](stufe)

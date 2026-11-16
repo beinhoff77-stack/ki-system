@@ -49,10 +49,12 @@
    {
     "lernziel": "einheitskreis",
     "titel": "Sinus und Kosinus am Einheitskreis",
-    "regel": "Am ⟦Einheitskreis⟧ (Radius 1) hat der Punkt zum Winkel α die Koordinaten ⟦(cos α | sin α)⟧. So sind sin und cos für alle Winkel von 0° bis 360° erklärt. Es gilt ⟦sin(180° − α) = sin α⟧ und ⟦cos(180° − α) = −cos α⟧.",
+    "regel": "So liest du am ⟦Einheitskreis⟧ ab: Der Punkt zum Winkel α hat die Koordinaten ⟦(cos α | sin α)⟧. So sind sin und cos für alle Winkel von 0° bis 360° erklärt. Es gilt ⟦sin(180° − α) = sin α⟧ und ⟦cos(180° − α) = −cos α⟧.",
     "schritte": [
-     "cos 120°: 120° = 180° − 60°.",
-     "cos 120° = −cos 60° = ⟦−0,5⟧ (der Punkt liegt links der y-Achse)."
+     "Gesucht ist cos 120°. Der Zeiger ist um 120° gedreht, also über die y-Achse hinaus nach links.",
+     "120° = 180° − 60°. Der Punkt liegt gespiegelt zum Punkt bei 60°, nur auf der linken Seite.",
+     "Bei 60° ist der Abstand nach rechts cos 60° = 0,5. Links bekommt er ein Minus.",
+     "Also cos 120° = −cos 60° = ⟦−0,5⟧."
     ],
     "probe": "sin 120° = sin 60° > 0: Punkt liegt oberhalb der x-Achse ✓",
     "bild": {
@@ -78,7 +80,7 @@
        0,
        1.3
       ],
-      "P": [
+      "P(cos 120° | sin 120°)": [
        -0.5,
        0.866
       ],
@@ -104,13 +106,13 @@
       ],
       [
        "M",
-       "P",
-       "1"
+       "P(cos 120° | sin 120°)",
+       "Radius 1"
       ],
       [
-       "P",
+       "P(cos 120° | sin 120°)",
        "_F",
-       "sin 120°",
+       "sin 120° (Höhe)",
        "gestrichelt"
       ],
       [
@@ -123,17 +125,40 @@
       [
        "M",
        "_x2",
-       "P",
+       "P(cos 120° | sin 120°)",
        "120°"
       ]
      ]
     },
-    "fehler": "„cos 120° = 0,5, weil cos 60° = 0,5“ ist falsch: Für Winkel zwischen 90° und 180° ist der Kosinus ⟦negativ⟧."
+    "fehler": "„cos 120° = 0,5, weil cos 60° = 0,5“ ist falsch: Bei 120° steht der Zeiger links von der Mitte. Für Winkel zwischen 90° und 180° ist der Kosinus ⟦negativ⟧.",
+    "einstieg": "Der Zeiger einer Uhr ist 1 dm lang und dreht sich um die Mitte. Für jede Stellung kann man fragen: Wie weit ist die Zeigerspitze rechts oder links von der Mitte, wie weit oben oder unten? Diese beiden Abstände sind Kosinus und Sinus des Drehwinkels. Der Kreis mit Radius 1 heißt ⟦Einheitskreis⟧.",
+    "woerter": [
+     [
+      "Einheitskreis",
+      "ein Kreis um (0 | 0) mit dem Radius 1"
+     ],
+     [
+      "Radius",
+      "der Abstand von der Mitte zum Kreisrand"
+     ],
+     [
+      "(cos α | sin α)",
+      "die Koordinaten des Punkts auf dem Kreis zum Winkel α"
+     ],
+     [
+      "Drehwinkel α",
+      "gemessen ab der positiven x-Achse, gegen den Uhrzeigersinn"
+     ],
+     [
+      "180° − α",
+      "der Winkel, der α zu 180° ergänzt"
+     ]
+    ]
    },
    {
     "lernziel": "flaeche",
     "titel": "Flächeninhalt mit dem Sinus",
-    "regel": "Kennt man zwei Seiten und den ⟦eingeschlossenen⟧ Winkel, gilt ⟦A = ½ · a · b · sin γ⟧. Warum? Die Höhe auf b ist h = a · sin γ (rechtwinkliges Teildreieck), und A = ½ · b · h.",
+    "regel": "So berechnest du die Fläche: Kennst du zwei Seiten und den ⟦eingeschlossenen⟧ Winkel, gilt ⟦A = ½ · a · b · sin γ⟧. Der Grund: Die Höhe auf b ist h = a · sin γ, und A = ½ · b · h.",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -163,12 +188,12 @@
       [
        "C",
        "A",
-       "b = 9 cm"
+       "Zaun b = 9 m"
       ],
       [
        "C",
        "B",
-       "a = 6 cm"
+       "Zaun a = 6 m"
       ],
       [
        "A",
@@ -177,7 +202,7 @@
       [
        "B",
        "_H",
-       "h",
+       "Höhe h = a · sin 30°",
        "gestrichelt"
       ]
      ],
@@ -198,16 +223,37 @@
      ]
     },
     "schritte": [
-     "a = 6 cm, b = 9 cm, γ = 30°: A = ½ · 6 · 9 · sin 30°.",
-     "A = 27 · 0,5 = ⟦13,5 cm²⟧."
+     "Gegeben: a = 6 m, b = 9 m und der eingeschlossene Winkel γ = 30°.",
+     "Die Höhe auf b steckt in einem rechtwinkligen Teildreieck: h = a · sin 30° = 6 · 0,5 = 3.",
+     "Fläche = ½ · Grundseite · Höhe = ½ · 9 · 3.",
+     "Also A = ⟦13,5 m²⟧. Kurz: A = ½ · 6 · 9 · sin 30°."
     ],
-    "probe": "Höhe auf b: h = a · sin γ = 3 cm; A = ½ · 9 · 3 = 13,5 ✓",
-    "fehler": "A = ½ · a · b ohne sin γ gilt nur für γ = 90°. Sonst ist ⟦a · sin γ⟧ die Höhe, nicht a selbst."
+    "probe": "½ · 6 · 9 = 27, und 27 · 0,5 = 13,5 ✓",
+    "fehler": "A = ½ · a · b ohne sin γ gilt nur für γ = 90°. Sonst steht der Zaun a schräg, und ⟦a · sin γ⟧ ist die Höhe, nicht a selbst.",
+    "einstieg": "Ein Bauer hat ein dreieckiges Feld. Zwei Zäune sind 6 m und 9 m lang und treffen sich unter 30°. Wie groß ist das Feld? Für die Formel „½ · Grundseite · Höhe“ fehlt die Höhe. Mit dem Sinus lässt sie sich berechnen – so findet man den ⟦Flächeninhalt mit dem Sinus⟧.",
+    "woerter": [
+     [
+      "eingeschlossener Winkel",
+      "der Winkel zwischen den beiden bekannten Seiten"
+     ],
+     [
+      "Höhe h",
+      "der senkrechte Abstand von der Spitze zur Grundseite"
+     ],
+     [
+      "A",
+      "der Flächeninhalt"
+     ],
+     [
+      "½",
+      "ein halb, also 0,5"
+     ]
+    ]
    },
    {
     "lernziel": "sinussatz_seite",
     "titel": "Sinussatz: Seite berechnen",
-    "regel": "In jedem Dreieck gilt der ⟦Sinussatz⟧: ⟦a : sin α = b : sin β = c : sin γ⟧. Warum? Die Höhe h von C auf c lässt sich zweimal ausrechnen: h = b · sin α (links) und h = a · sin β (rechts). Also b · sin α = a · sin β, und daraus folgt a : sin α = b : sin β. Zu jeder Seite gehört der ⟦gegenüberliegende⟧ Winkel.",
+    "regel": "So nutzt du den ⟦Sinussatz⟧: In jedem Dreieck gilt ⟦a : sin α = b : sin β = c : sin γ⟧. Zu jeder Seite gehört der ⟦gegenüberliegende⟧ Winkel. Der Grund: Die Höhe h von C lässt sich zweimal berechnen, h = b · sin α und h = a · sin β.",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -242,17 +288,17 @@
       [
        "B",
        "C",
-       "a"
+       "a (gegenüber α)"
       ],
       [
        "C",
        "A",
-       "b"
+       "b (gegenüber β)"
       ],
       [
        "C",
        "_H",
-       "h",
+       "Höhe h",
        "gestrichelt"
       ]
      ],
@@ -285,55 +331,160 @@
      ]
     },
     "schritte": [
-     "α = 40°, β = 75°, a = 8 cm. Gesucht b.",
-     "b = a · sin β : sin α = 8 · sin 75° : sin 40° ≈ ⟦12,0 cm⟧."
+     "Gegeben: α = 40°, β = 75°, a = 8 km. Gesucht ist b.",
+     "Seite a gehört zu α, Seite b gehört zu β. Sinussatz: b : sin 75° = 8 : sin 40°.",
+     "Mit sin 75° malnehmen: b = 8 · sin 75° : sin 40°.",
+     "Taschenrechner: b ≈ 8 · 0,966 : 0,643 ≈ ⟦12,0⟧. Die Strecke b ist etwa 12,0 km lang."
     ],
     "probe": "Größerer Winkel β liegt gegenüber der größeren Seite b ✓",
-    "fehler": "b = 8 · sin 40° : sin 75° ist falsch: Zur Seite b gehört der ⟦gegenüberliegende⟧ Winkel β; er gehört in den Zähler."
+    "fehler": "b = 8 · sin 40° : sin 75° ist falsch: Zur Seite b gehört der ⟦gegenüberliegende⟧ Winkel β; er gehört in den Zähler. Sonst käme b kürzer als a heraus, obwohl β größer ist als α.",
+    "einstieg": "Zwei Wanderer stehen an den Enden eines Sees und peilen dieselbe Insel an. Sie messen ihre Winkel, aber nicht jede Entfernung. In jedem Dreieck – auch ohne rechten Winkel – passen Seiten und gegenüberliegende Winkel nach einer festen Regel zusammen. Sie heißt ⟦Sinussatz⟧.",
+    "woerter": [
+     [
+      "Sinussatz",
+      "a : sin α = b : sin β = c : sin γ"
+     ],
+     [
+      "gegenüberliegender Winkel",
+      "der Winkel an der Ecke, die einer Seite gegenüberliegt; zu a gehört α"
+     ],
+     [
+      "Höhe h",
+      "der senkrechte Abstand von C zur Seite c"
+     ],
+     [
+      "allgemeines Dreieck",
+      "ein Dreieck ohne rechten Winkel"
+     ]
+    ]
    },
    {
     "lernziel": "sinussatz_winkel",
     "titel": "Sinussatz: Winkel berechnen",
-    "regel": "Aus ⟦sin β = b · sin α : a⟧ folgt β. Achtung: Zu einem Sinuswert gibt es zwei Winkel β und ⟦180° − β⟧. Ist die gegebene Gegenseite a die ⟦größere⟧ (a ≥ b), ist β eindeutig spitz.",
+    "regel": "So berechnest du einen Winkel mit dem Sinussatz: ⟦sin β = b · sin α : a⟧, dann sin⁻¹. Prüfe auch ⟦180° − β⟧. Ist die Seite zum bekannten Winkel die ⟦größere⟧ (a ≥ b), ist β eindeutig spitz.",
     "schritte": [
-     "a = 10 cm, b = 7 cm, α = 50°: sin β = 7 · sin 50° : 10 ≈ 0,5362.",
-     "β ≈ 32,4° (180° − 32,4° = 147,6° ist zu groß, weil b < a): ⟦β ≈ 32,4°⟧."
+     "Gegeben: a = 10 km, b = 7 km, α = 50°. Gesucht ist β.",
+     "Sinussatz umstellen: sin β = b · sin α : a = 7 · sin 50° : 10 ≈ 0,5362.",
+     "Umkehrtaste: β ≈ 32,4°. Der zweite Kandidat wäre 180° − 32,4° = 147,6°.",
+     "b ist kürzer als a, also muss β kleiner sein als α = 50°. Es bleibt ⟦β ≈ 32,4°⟧."
     ],
     "probe": "50° + 32,4° < 180° ✓",
-    "fehler": "Immer nur den spitzen Winkel zu nehmen ist falsch: Ist b > a, kann auch ⟦180° − β⟧ passen – dann gibt es zwei Dreiecke."
+    "fehler": "Immer nur den spitzen Winkel zu nehmen ist falsch: Ist b > a, kann auch ⟦180° − β⟧ passen – dann gibt es zwei verschiedene Dreiecke.",
+    "einstieg": "Jetzt kennen die Wanderer zwei Entfernungen und einen Winkel und suchen einen anderen Winkel. Der Sinussatz liefert zuerst den Sinuswert. Aber zu einem Sinuswert gibt es zwei mögliche Winkel – wie zwei Zeigerstellungen auf gleicher Höhe. Man muss prüfen, welcher ⟦Winkel⟧ ins Dreieck passt.",
+    "woerter": [
+     [
+      "sin⁻¹",
+      "die Umkehrtaste: Sie macht aus einem Sinuswert einen Winkel zwischen 0° und 90°"
+     ],
+     [
+      "180° − β",
+      "der zweite Winkel mit demselben Sinuswert"
+     ],
+     [
+      "eindeutig",
+      "es gibt nur eine passende Lösung"
+     ],
+     [
+      "Winkelsumme",
+      "alle drei Winkel im Dreieck ergeben zusammen 180°"
+     ]
+    ]
    },
    {
     "lernziel": "kosinussatz_seite",
     "titel": "Kosinussatz: Seite berechnen",
-    "regel": "Kennt man zwei Seiten und den ⟦eingeschlossenen⟧ Winkel, gilt der ⟦Kosinussatz⟧: c² = a² + b² − 2ab · cos γ. Für γ = 90° ist das der Satz des Pythagoras.",
+    "regel": "So berechnest du eine Seite: Kennst du zwei Seiten und den ⟦eingeschlossenen⟧ Winkel, nutze den ⟦Kosinussatz⟧: c² = a² + b² − 2ab · cos γ. Für γ = 90° ist cos γ = 0 – dann bleibt der Satz des Pythagoras.",
     "schritte": [
-     "a = 5 cm, b = 8 cm, γ = 60°: c² = 25 + 64 − 2 · 5 · 8 · 0,5 = 49.",
-     "c = ⟦7 cm⟧."
+     "Gegeben: a = 5 km, b = 8 km und der eingeschlossene Winkel γ = 60°.",
+     "Kosinussatz: c² = 5² + 8² − 2 · 5 · 8 · cos 60°.",
+     "Ausrechnen: c² = 25 + 64 − 80 · 0,5 = 89 − 40 = 49.",
+     "Die Wurzel ziehen: c = ⟦7⟧. Die Wegenden liegen 7 km auseinander."
     ],
     "probe": "γ = 60° liegt zwischen den anderen Winkeln, c zwischen a und b ✓",
-    "fehler": "c² = 25 + 64 − 2 · 5 · 8 = 9 ist falsch: Der Faktor ⟦cos γ⟧ fehlt. Bei γ = 120° ist cos γ negativ, dann wird c² sogar größer."
+    "fehler": "c² = 25 + 64 − 2 · 5 · 8 = 9 ist falsch: Der Faktor ⟦cos γ⟧ fehlt. Bei γ = 120° ist cos γ negativ, dann wird c² sogar größer als a² + b².",
+    "einstieg": "Von einer Hütte gehen zwei Wege ab: einer 5 km, der andere 8 km lang, sie bilden einen Winkel von 60°. Wie weit liegen die beiden Wegenden auseinander? Pythagoras geht nicht, weil kein rechter Winkel da ist. Dafür gibt es eine erweiterte Regel, den ⟦Kosinussatz⟧.",
+    "woerter": [
+     [
+      "Kosinussatz",
+      "c² = a² + b² − 2ab · cos γ"
+     ],
+     [
+      "eingeschlossener Winkel γ",
+      "der Winkel zwischen den Seiten a und b"
+     ],
+     [
+      "2ab",
+      "2 · a · b"
+     ],
+     [
+      "cos 60°",
+      "der Kosinuswert von 60°, genau 0,5"
+     ]
+    ]
    },
    {
     "lernziel": "kosinussatz_winkel",
     "titel": "Kosinussatz: Winkel berechnen",
-    "regel": "Sind ⟦alle drei Seiten⟧ bekannt, stellst du um: ⟦cos γ = (a² + b² − c²) : (2ab)⟧. Ein negativer Wert bedeutet einen ⟦stumpfen⟧ Winkel – hier ist die Lösung eindeutig.",
+    "regel": "So berechnest du einen Winkel: Sind ⟦alle drei Seiten⟧ bekannt, stellst du um: ⟦cos γ = (a² + b² − c²) : (2ab)⟧. Ein negativer Wert bedeutet einen ⟦stumpfen⟧ Winkel. Die Lösung ist hier immer eindeutig.",
     "schritte": [
-     "a = 3 cm, b = 5 cm, c = 7 cm: cos γ = (9 + 25 − 49) : 30 = −0,5.",
-     "γ = ⟦120°⟧ (stumpf)."
+     "Gegeben: a = 3 m, b = 5 m, c = 7 m. Gesucht ist γ, der Winkel gegenüber von c.",
+     "Einsetzen: cos γ = (3² + 5² − 7²) : (2 · 3 · 5) = (9 + 25 − 49) : 30.",
+     "Ausrechnen: cos γ = −15 : 30 = −0,5.",
+     "Umkehrtaste: γ = cos⁻¹(−0,5) = ⟦120°⟧. Der Winkel ist stumpf."
     ],
     "probe": "c ist die längste Seite, γ der größte Winkel ✓",
-    "fehler": "cos γ = (a² + b² + c²) : (2ab) ist falsch: Das Quadrat der ⟦gegenüberliegenden⟧ Seite wird ⟦subtrahiert⟧."
+    "fehler": "cos γ = (a² + b² + c²) : (2ab) ist falsch: Das Quadrat der ⟦gegenüberliegenden⟧ Seite wird ⟦subtrahiert⟧. Sonst käme cos γ > 1 heraus, was unmöglich ist.",
+    "einstieg": "Drei Stangen von 3 m, 5 m und 7 m werden zu einem Dreieck zusammengesteckt. Welchen Winkel bilden die beiden kürzeren Stangen? Alle Seiten sind bekannt, kein Winkel. Man stellt den Kosinussatz nach dem Kosinus um und kann so den ⟦Winkel berechnen⟧.",
+    "woerter": [
+     [
+      "cos γ = (a² + b² − c²) : (2ab)",
+      "der umgestellte Kosinussatz"
+     ],
+     [
+      "stumpfer Winkel",
+      "ein Winkel zwischen 90° und 180°"
+     ],
+     [
+      "cos⁻¹",
+      "die Umkehrtaste zum Kosinus; sie liefert Winkel bis 180°"
+     ]
+    ]
    },
    {
     "lernziel": "satz_waehlen",
     "titel": "Welcher Satz passt?",
-    "regel": "Gegeben ⟦SSS⟧ oder ⟦SWS⟧: Kosinussatz. Gegeben ⟦WSW/SWW⟧ oder ⟦SsW⟧ (Seite und Gegenwinkel bekannt): Sinussatz. Fehlt ein Winkel, hilft die ⟦Winkelsumme 180°⟧.",
+    "regel": "So wählst du den Satz: Bei ⟦SSS⟧ oder ⟦SWS⟧ den Kosinussatz. Bei ⟦WSW/SWW⟧ oder ⟦SsW⟧ (ein Seite-Gegenwinkel-Paar ist bekannt) den Sinussatz. Fehlt ein Winkel, hilft die ⟦Winkelsumme 180°⟧.",
     "schritte": [
-     "Gegeben: a, b und γ (der Winkel zwischen a und b) – das ist SWS.",
-     "Erst c mit dem ⟦Kosinussatz⟧, danach die anderen Winkel."
+     "Gegeben sind a, b und γ. Der Winkel γ liegt zwischen a und b.",
+     "Das ist der Fall SWS: zwei Seiten und der Winkel dazwischen.",
+     "Für den Sinussatz fehlt ein Paar aus Seite und Gegenwinkel.",
+     "Also erst c mit dem ⟦Kosinussatz⟧, danach die anderen Winkel."
     ],
     "probe": "Für den Sinussatz bräuchte man ein Paar aus Seite und Gegenwinkel – das fehlt hier ✓",
-    "fehler": "Bei SWS den Sinussatz zu nehmen geht nicht: Zu keiner gegebenen Seite ist der ⟦gegenüberliegende⟧ Winkel bekannt."
+    "fehler": "Bei SWS den Sinussatz zu nehmen geht nicht: Zu keiner gegebenen Seite ist der ⟦gegenüberliegende⟧ Winkel bekannt – die Gleichung hätte zwei Unbekannte.",
+    "einstieg": "Vor jeder Vermessung steht die Frage: Was weiß ich schon? Je nachdem, welche Seiten und Winkel bekannt sind, hilft der eine oder der andere Satz. Mit ein paar Kürzeln lässt sich das schnell entscheiden. So findet man heraus, ⟦welcher Satz passt⟧.",
+    "woerter": [
+     [
+      "SSS",
+      "drei Seiten bekannt"
+     ],
+     [
+      "SWS",
+      "zwei Seiten und der Winkel dazwischen bekannt"
+     ],
+     [
+      "WSW / SWW",
+      "eine Seite und zwei Winkel bekannt"
+     ],
+     [
+      "SsW",
+      "zwei Seiten und der Winkel gegenüber der größeren Seite bekannt"
+     ],
+     [
+      "Seite-Gegenwinkel-Paar",
+      "eine Seite und der Winkel gegenüber, beide bekannt"
+     ]
+    ]
    }
   ],
   "teilfaehigkeiten": [

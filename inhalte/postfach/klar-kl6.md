@@ -5,6 +5,11 @@ Technik wie klar-kl5: je Generator ein Abschnitt KLAR, eingesetzt über `inhalte
 Vergleich je Thema: `aufgaben` und alle Felder außer `inhalt.etappen` gegen `git show HEAD:inhalte/themen/<thema>.json`.
 
 ## 2026-11-16 02:00 – STATUS
+zahlen.potenzen_zehner (7 Karten) fertig: einstieg + woerter neu, schritte/regel/fehler überarbeitet (Situationen: Stadion 100 000 Plätze,
+Sonnenabstand, Windrad 2,5 MW, Meter zerteilen, Sandkorn, Spinnenfaden 5 µm, Einwohnerzahlen). Bild Stellentafel unverändert.
+inhalt_pruefen: OK. Vergleich: 196 Aufgaben wörtlich gleich, übrige Datei gleich.
+
+## 2026-11-16 02:00 – STATUS
 terme.potenzgesetze (7 Karten) fertig: einstieg + woerter neu, schritte/regel/fehler überarbeitet (durchgehende Situation: Papier falten = Verdoppeln;
 Teilen über 1 000 000 € an 10 000 Menschen; 2-Cent-Münzen-Paare; Zahlenprobe gegen eine falsche Behauptung). Keine Bilder im Thema.
 inhalt_pruefen: OK. Vergleich: 196 Aufgaben wörtlich gleich, übrige Datei gleich.

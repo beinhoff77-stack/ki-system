@@ -475,5 +475,94 @@ DATEI = datei(E, 'Sehr große und sehr kleine Zahlen mit Zehnerpotenzen, wissens
               offen=['themenliste.json nennt für dieses Thema keinen lehrplan_gym-Wortlaut; Umfang nach „umfang“ gebaut. Negative Exponenten bei 10⁻ⁿ aufgenommen, weil terme.potenzgesetze (Kl. 6) sie ebenfalls verlangt.',
                      'Das Zeichen µ (Mikro) und hochgestellte Exponenten (⁻⁴) sind Unicode-Zeichen – Darstellung in der App auf dem Testgerät prüfen.'])
 
+# ---------- KLAR: verständliche Erklärungen (Siebte Runde, Pflicht seit 15.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _klar_kl6.py) – die Aufgaben bleiben wörtlich gleich.
+from _klar_kl6 import klar  # noqa: E402
+
+KLAR = {
+ 'zehnerpotenz': {
+  'einstieg': 'Die größten Stadien der Welt haben Platz für 100 000 Menschen. Beim Lesen musst du die Nullen zählen – da verzählt man sich leicht. Kürzer ist: 10 · 10 · 10 · 10 · 10, also fünfmal die 10 malgenommen. So geschrieben heißt die Zahl ⟦Zehnerpotenz⟧.',
+  'woerter': [['Zehnerpotenz', 'eine Zahl, bei der lauter Zehnen malgenommen werden, z. B. 10⁵'],
+              ['10⁵', 'gelesen „zehn hoch fünf“'],
+              ['Exponent', 'die kleine hochgestellte Zahl: wie oft die 10 malgenommen wird'],
+              ['Stellenwerttafel', 'Tabelle mit den Spalten E (Einer), Z (Zehner), H (Hunderter), T (Tausender), ZT (Zehntausender), HT (Hunderttausender)']],
+  'schritte': ['10⁵ heißt: fünfmal die 10 malnehmen, 10 · 10 · 10 · 10 · 10.',
+               'Jedes Malnehmen mit 10 hängt eine Null an: 10, 100, 1 000, 10 000, 100 000.',
+               'Nach fünf Schritten stehen 5 Nullen hinter der 1.',
+               'Also ist 10⁵ = ⟦100 000⟧. In der Stellenwerttafel steht die 1 bei den Hunderttausendern.'],
+  'regel': 'So schreibst du eine Zehnerpotenz aus: Der ⟦Exponent⟧ sagt, wie oft die 10 malgenommen wird – und wie viele ⟦Nullen⟧ hinter der 1 stehen.',
+  'fehler': '10⁵ = 50 ist falsch: Der Exponent heißt nicht „mal 5“, sondern ⟦5-mal die 10 malnehmen⟧. 10 · 5 = 50 Menschen passen in einen Reisebus, 10⁵ = 100 000 in ein Stadion.'},
+ 'gross_wissenschaftlich': {
+  'einstieg': 'Die Sonne ist rund 150 000 000 km von der Erde entfernt. Mit so vielen Nullen verzählt man sich leicht. Forscher schreiben solche Zahlen deshalb kurz: eine Zahl zwischen 1 und 10, mal eine Zehnerpotenz. Das heißt ⟦wissenschaftliche Schreibweise⟧.',
+  'woerter': [['wissenschaftliche Schreibweise', 'eine Zahl als a · 10ⁿ, wobei vor dem Komma von a genau eine Ziffer von 1 bis 9 steht'],
+              ['a · 10ⁿ', 'a ist die Zahl vor dem Malzeichen, n der Exponent der Zehnerpotenz'],
+              ['das Komma wandert', 'das Komma wird um Stellen verschoben; jede Stelle nach links macht die Zahl 10-mal kleiner']],
+  'schritte': ['Setze in 150 000 000 das Komma hinter die erste Ziffer: 1,5.',
+               'Zähle, um wie viele Stellen das Komma dabei nach links gewandert ist: Hinter der 1 stehen 8 Ziffern, also 8 Stellen.',
+               'Jede Stelle nach links macht die Zahl 10-mal kleiner. Damit der Wert gleich bleibt, nimmst du wieder mal 10⁸.',
+               'Also ist 150 000 000 km = ⟦1,5 · 10⁸ km⟧.'],
+  'regel': 'So schreibst du eine große Zahl wissenschaftlich: Setze das Komma hinter die ⟦erste Ziffer⟧. Zähle, um wie viele Stellen es nach links gewandert ist – das ist der ⟦Exponent⟧. Vor dem Komma steht ⟦genau eine Ziffer von 1 bis 9⟧.',
+  'fehler': '150 000 000 = 15 · 10⁷ ist zwar richtig gerechnet, aber ⟦nicht wissenschaftlich⟧: Vor dem Komma darf nur eine Ziffer von 1 bis 9 stehen. Richtig: 1,5 · 10⁸.'},
+ 'vorsilben_gross': {
+  'einstieg': 'Ein großes Windrad leistet etwa 2,5 Megawatt. „Mega“ bedeutet „mal eine Million“. Eine ähnliche Vorsilbe kennst du schon: Ein Kilometer sind 1 000 Meter, „Kilo“ heißt „mal tausend“. Solche Wortteile vor Einheiten stehen für Zehnerpotenzen und heißen ⟦Vorsilben⟧.',
+  'woerter': [['Vorsilbe', 'ein Wortteil vor der Einheit, der für eine Zehnerpotenz steht'],
+              ['W (Watt)', 'Einheit für Leistung, z. B. bei Lampen, Wasserkochern und Kraftwerken'],
+              ['Kilo (k)', '10³ = tausend'], ['Mega (M)', '10⁶ = eine Million'],
+              ['Giga (G)', '10⁹ = eine Milliarde'], ['Tera (T)', '10¹² = eine Billion']],
+  'schritte': ['Das Windrad leistet 2,5 MW. Mega bedeutet 10⁶, also 2,5 MW = 2,5 · 10⁶ W.',
+               '10⁶ ist eine Million: 1 000 000.',
+               'Mal eine Million heißt: Komma um 6 Stellen nach rechts. Aus 2,5 wird 2 500 000.',
+               'Das Windrad leistet ⟦2 500 000 W⟧.'],
+  'regel': 'So rechnest du Vorsilben um: Ersetze die Vorsilbe durch ihre Zehnerpotenz – ⟦Kilo (k) = 10³⟧, ⟦Mega (M) = 10⁶⟧, ⟦Giga (G) = 10⁹⟧, ⟦Tera (T) = 10¹²⟧ – und verschiebe das Komma um so viele Stellen nach rechts.',
+  'fehler': '3 GW = 3 000 W ist falsch: Das wäre die Leistung von ein bis zwei Wasserkochern, nicht von einem Kraftwerk. Giga heißt ⟦10⁹⟧, nicht 10³: 3 GW = 3 000 000 000 W.'},
+ 'negativer_exponent': {
+  'einstieg': 'Teilst du einen Meter in 10 gleiche Teile, ist jeder 0,1 m lang. Teilst du noch einmal durch 10, bist du bei 0,01 m, einem Zentimeter, dann bei 0,001 m, einem Millimeter. Jedes Teilen durch 10 macht den Exponenten um 1 kleiner. Unter null geht es mit ⟦negativen Exponenten⟧ weiter.',
+  'woerter': [['10⁰', 'gelesen „zehn hoch null“; das ergibt 1'],
+              ['negativer Exponent', 'eine Hochzahl mit Minus, z. B. 10⁻⁴'],
+              ['10⁻ⁿ = 1/10ⁿ', 'ein Minus im Exponenten bedeutet: 1 geteilt durch die Zehnerpotenz'],
+              ['cm, mm', 'Zentimeter (0,01 m) und Millimeter (0,001 m)']],
+  'schritte': ['Die Reihe nach unten: 10² = 100, 10¹ = 10, 10⁰ = 1. Bei jedem Schritt wird durch 10 geteilt.',
+               'Weiter geht es mit 10⁻¹ = 0,1, 10⁻² = 0,01 und 10⁻³ = 0,001.',
+               'Noch ein Schritt: 10⁻⁴ = 1/10 000. Die 1 steht an der 4. Stelle nach dem Komma.',
+               'Also ist 10⁻⁴ = ⟦0,0001⟧ – in Metern ist das ein Zehntel Millimeter.'],
+  'regel': 'So schreibst du 10⁻ⁿ als Dezimalzahl: Die 1 steht an der ⟦n-ten Stelle nach dem Komma⟧, davor stehen Nullen. Ein negativer Exponent macht die Zahl ⟦klein, nicht negativ⟧. Außerdem gilt 10⁰ = 1.',
+  'fehler': '10⁻³ = −1 000 ist falsch: Ein Millimeter ist ein winziges Stück, keine Zahl unter null. Ein negativer Exponent macht die Zahl ⟦nicht negativ⟧, sondern klein: 10⁻³ = 0,001.'},
+ 'klein_wissenschaftlich': {
+  'einstieg': 'Ein feines Sandkorn ist etwa 0,00047 m dick. Hier zählst du Nullen nach dem Komma – und verzählst dich leicht. Auch so kleine Zahlen schreibt man kurz als Zahl zwischen 1 und 10 mal einer Zehnerpotenz. Die Zehnerpotenz bekommt dann einen negativen Exponenten. Das ist die ⟦wissenschaftliche Schreibweise für kleine Zahlen⟧.',
+  'woerter': [['erste Ziffer ungleich 0', 'die erste Ziffer, die keine Null ist – bei 0,00047 die 4'],
+              ['Komma nach rechts', 'jede Stelle nach rechts macht die Zahl 10-mal größer']],
+  'schritte': ['Das Komma soll hinter die erste Ziffer, die keine Null ist. Das ist die 4: Aus 0,00047 wird 4,7.',
+               'Zähle die Stellen: Das Komma ist 4 Stellen nach rechts gewandert.',
+               'Dabei wurde die Zahl 10 000-mal größer. Damit der Wert gleich bleibt, nimmst du mal 10⁻⁴.',
+               'Also ist 0,00047 m = ⟦4,7 · 10⁻⁴ m⟧.'],
+  'regel': 'So schreibst du eine kleine Zahl wissenschaftlich: Setze das Komma hinter die ⟦erste Ziffer ungleich 0⟧. Wandert es dabei ⟦nach rechts⟧, ist der Exponent ⟦negativ⟧ – mit so vielen Stellen, wie das Komma gewandert ist.',
+  'fehler': '0,00047 = 4,7 · 10⁴ ist falsch: 4,7 · 10⁴ m = 47 000 m – ein Sandkorn so dick wie 47 km! Bei Zahlen kleiner als 1 ist der Exponent ⟦negativ⟧: 4,7 · 10⁻⁴.'},
+ 'vorsilben_klein': {
+  'einstieg': 'Ein Spinnenfaden ist nur etwa 5 µm dick. Das µ ist der griechische Buchstabe „mü“ und steht für „Mikro“, ein Millionstel. Eine ähnliche Vorsilbe kennst du vom Millimeter, einem Tausendstel Meter. Solche ⟦Vorsilben für kleine Größen⟧ stehen für Zehnerpotenzen mit negativem Exponenten.',
+  'woerter': [['Milli (m)', '10⁻³ = ein Tausendstel'], ['Mikro (µ)', '10⁻⁶ = ein Millionstel; µ ist der griechische Buchstabe „mü“'],
+              ['Nano (n)', '10⁻⁹ = ein Milliardstel'],
+              ['mm', 'Millimeter: das erste m steht für Milli, das zweite für Meter'],
+              ['µm', 'Mikrometer: ein Millionstel Meter']],
+  'schritte': ['Der Spinnenfaden ist 5 µm dick. Mikro bedeutet 10⁻⁶, also 5 µm = 5 · 10⁻⁶ m.',
+               '10⁻⁶ ist ein Millionstel: 0,000001.',
+               'Mal 10⁻⁶ heißt: Komma um 6 Stellen nach links. Aus 5 wird 0,000005.',
+               'Der Faden ist ⟦0,000005 m⟧ dick.'],
+  'regel': 'So rechnest du kleine Vorsilben um: Ersetze ⟦Milli (m) = 10⁻³⟧, ⟦Mikro (µ) = 10⁻⁶⟧ oder ⟦Nano (n) = 10⁻⁹⟧ und verschiebe das Komma so viele Stellen ⟦nach links⟧, wie der Exponent angibt.',
+  'fehler': '1 µm = 0,001 m ist falsch: Das wäre schon ein ganzer Millimeter – viel dicker als ein Spinnenfaden. Mikro heißt ⟦10⁻⁶⟧: 1 µm = 0,000001 m.'},
+ 'vergleichen_pruefen': {
+  'einstieg': 'Zwei Städte vergleichen ihre Einwohnerzahlen. Die eine hat 9 · 10⁴ Einwohner, die andere 2 · 10⁵. Wer nur auf 9 und 2 schaut, liegt falsch: Es sind 90 000 gegen 200 000. Zuerst zählt der Exponent. Darum geht es beim ⟦Vergleichen in wissenschaftlicher Schreibweise⟧.',
+  'woerter': [['Einwohner', 'Menschen, die in einem Ort wohnen'],
+              ['> und <', '„ist größer als“ und „ist kleiner als“']],
+  'schritte': ['Vergleiche 9 · 10⁴ und 2 · 10⁵. Schau zuerst auf die Exponenten: 4 und 5.',
+               'Der Exponent 5 ist größer. Darum hat 2 · 10⁵ ausgeschrieben eine Stelle mehr als 9 · 10⁴.',
+               'Zur Kontrolle: 9 · 10⁴ = 90 000 und 2 · 10⁵ = 200 000.',
+               'Also ist ⟦2 · 10⁵ größer⟧ – die zweite Stadt hat mehr Einwohner.'],
+  'regel': 'So vergleichst du Zahlen in wissenschaftlicher Schreibweise: Vergleiche zuerst die ⟦Exponenten⟧ – der größere Exponent gibt die größere Zahl. Nur bei ⟦gleichem Exponenten⟧ vergleichst du die Zahl vor dem Malzeichen.',
+  'fehler': '„9 · 10⁴ ist größer als 2 · 10⁵, weil 9 > 2“ ist falsch: Die erste Stadt hat 90 000, die zweite 200 000 Einwohner. Zuerst entscheidet der ⟦Exponent⟧.'},
+}
+
+klar(DATEI, KLAR)
+
+
 if __name__ == '__main__':
     schreibe(DATEI)

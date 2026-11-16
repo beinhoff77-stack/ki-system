@@ -3,6 +3,12 @@
 Technik: je Generator ein Abschnitt KARTEN (ersetzt den Abschnitt KLAR der Runde 7), eingesetzt über `inhalte/generatoren/_umbau_kl6.py` (dieselben strengen Regeln wie `_umbau_kl5.py` aus Paket U5) erst NACH dem Erzeugen der Aufgaben – die Aufgaben bleiben wörtlich gleich. `probe` entfällt bei umgebauten Karten. finanzen.zinsen (ohne Generator): Überlagerung `inhalte/klar/finanzen.zinsen.json`, mit denselben Regeln geprüft.
 Vergleich je Thema: `aufgaben`, titel/lernziel und alle Felder außer `inhalt.etappen` und `offen` gegen den Ausgangsstand bc7a754 (lernen-app).
 
+## 2026-11-16 03:02 – STATUS
+daten.kennwerte (6 Karten) umgebaut. Kartenbilder: Säulen (Punkte 7, 9, 4, 8 → alle 7; drei Tests mit fehlendem Ergebnis → 7; Schuhgrößen als Häufigkeiten; Taschengeld mit Ausreißer), Notenspiegel-Tabelle mit Zeile „Note · Anzahl“, Zahlenstrahl 0–20 mit den geordneten Schulweg-Zeiten und markiertem Median.
+Neu: Kartenbilder für mittel_rueckwaerts, modal_spannweite, median, verstehen (bisher ohne Bild).
+Kein fehler_bild (Rechen- und Lesefehler).
+inhalt_pruefen: OK, keine Hinweise. Vergleich gegen bc7a754: 168 Aufgaben wörtlich gleich, Rest gleich, titel/lernziel gleich.
+
 ## 2026-11-16 03:01 – STATUS
 daten.darstellen (6 Karten) umgebaut. Kartenbilder: Strichliste als sich füllende Tabelle (Würfeln), Bruchstreifen Lena 7/25 gegen Tom 11/50 → Säulen 28 % / 22 %, Häufigkeitstabelle Schulweg mit Summe und Anteilen, Säulen Lieblingssport, Kreisdiagramm Schulweg, Säulen Freibad (Achse ab 960 → im letzten Schritt ab 0).
 Neu: Kartenbilder für absolute_haeufigkeit und relative_haeufigkeit (bisher ohne Bild).

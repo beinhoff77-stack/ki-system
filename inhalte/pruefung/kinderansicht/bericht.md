@@ -171,3 +171,17 @@ Das Flug-Bild darf bleiben: „Einsteigen“, „Gelandet“ sind gute Zustände
 | 10 Rückreise | **A – eigene Karte „Kurz zurück“** mit Grund |
 
 Zu 2/3: Entwürfe „Stand über Schularten“ (Linienplan, Bordkarten, Höhenmesser; Startseiten-Zeile; Eltern: Lehrplan-Landkarte, Schulwechsel-Check, beide Kinder auf einen Blick) liegen Sebastian zur Auswahl vor. Grundlage ist die Zuordnung Thema → Klasse je Schulart in `inhalte/themenliste.json` (`klasse.gym_by/rs_by/ib_myp`).
+
+### 7.1 Stand über Schularten (Auswahl 2026-11-16)
+
+- **Startseite:** drei Mini-Linien oben (GYM · RS · IB MYP mit Klasse, Balken, gelandet/gesamt). Antippen öffnet den Stand.
+- **Kind: Kombination vom Überblick bis ins Detail:**
+  1. Ebene 1: die drei Mini-Linien und der Linienplan. Drei Linien, Haltestellen = Klassen, nach Alter ausgerichtet (MYP 1 ≈ Klasse 6), Ring je Haltestelle, „DU“ an der eigenen Stufe.
+  2. Ebene 2 (Haltestelle antippen): Bordkarte der Klasse mit Fortschritt je Kontinent; ‹ › blättert durch die Klassen.
+  3. Ebene 3 (Kontinent antippen): die Flüge, jeweils mit „zählt auch für …“.
+- **Eltern/Lehrer: Kombination aus Lehrplan-Landkarte und Schulwechsel-Check:**
+  1. Ebene 1: beide Kinder × drei Schularten.
+  2. Ebene 2: Landkarte (Kontinente × Klassen) mit Schalter „Einstieg prüfen: Klasse X“. Die Klassen ab dem Ziel werden ausgegraut; dazu kommen Ampel und Liste der fehlenden Flüge.
+  3. Ebene 3: die Flüge eines Feldes mit dem Stand der Etappen.
+- **Entwurf:** klickbare Seite „Wo stehe ich? – kombinierter Entwurf“ (Artifact). Die Rechenlogik dort: Für eine Schulart und Klasse gelten alle Themen mit `klasse.<schulart> = Klasse`. Ein Thema gilt als gelandet, wenn alle seine Lernkarten sitzen bzw. der Test bestanden ist.
+- **Voraussetzung:** Die Klassen-Zuordnung muss stimmen (B8, Nachtrag), sonst sind Stand und Einstiegs-Check falsch.

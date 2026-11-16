@@ -3,6 +3,9 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:43 – STATUS
+geometrie.kreis fertig: umgestuft 3 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
+
+## 2026-11-16 05:43 – STATUS
 geometrie.konstruktion fertig: umgestuft 6 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
 - nicht umgesetzt:
   - kongruenzsatz S3 SsW-Fälle „Wie viele Dreiecke gibt es?“: Hinweis „Zeichne es auf Papier“ ergänzen – Der Tipp sagt schon „Zeichne c und α. Schlage um B einen Kreis mit Radius a …“; Lösungen richtig. Ein Hinweis im Fragetext wäre eine Änderung der Frage.

@@ -894,6 +894,22 @@
   "datei": "inhalte/themen/abbildungen.kongruenz.json"
  },
  {
+  "thema_id": 98,
+  "thema_schluessel": "geometrie.winkelsaetze",
+  "block_id": 80,
+  "ort": "Addis Abeba",
+  "gebiet": "Geometrie",
+  "titel": "Winkelsätze",
+  "klasse": {
+   "gym_by": 7
+  },
+  "umfang": "Scheitel- und Nebenwinkel, Stufen- und Wechselwinkel an Parallelen, Parallelität prüfen, Innenwinkelsumme im Dreieck (Beweis), Außenwinkel, Winkelsumme im Vieleck, Winkel in Figuren berechnen und begründen.",
+  "lehrplan_gym": [
+   "M7 2.2 Winkelbetrachtungen an Figuren"
+  ],
+  "datei": "inhalte/themen/geometrie.winkelsaetze.json"
+ },
+ {
   "thema_id": 44,
   "thema_schluessel": "geometrie.konstruktion",
   "block_id": 80,

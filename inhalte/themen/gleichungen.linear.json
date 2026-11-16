@@ -1,0 +1,3285 @@
+{
+ "thema_schluessel": "gleichungen.linear",
+ "thema_id": 2,
+ "block_id": 61,
+ "klasse": {
+  "gym_by": 7,
+  "rs_by": 7,
+  "ib_myp": 2
+ },
+ "autor": "Claude (Nachbau Runde 5, Generator gleichungen_linear.py)",
+ "inhalt": {
+  "ziel": "Lineare Gleichungen mit Äquivalenzumformungen lösen – auch mit Klammern und x auf beiden Seiten –, die Probe machen, Sonderfälle erkennen und Sachaufgaben lösen.",
+  "merke": [
+   "Äquivalenzumformung: auf beiden Seiten dasselbe tun (mal/geteilt nie mit 0).",
+   "Erst Klammern auflösen, dann x-Glieder auf eine Seite, Zahlen auf die andere.",
+   "Minus vor der Klammer dreht alle Vorzeichen in der Klammer um.",
+   "x fällt weg: falsche Aussage → L = { }, wahre Aussage → L = ℚ.",
+   "Probe in der ursprünglichen Gleichung; Lösung im Sachzusammenhang deuten."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Umformen",
+    "lernziele": [
+     "waage",
+     "beide_seiten",
+     "klammern"
+    ]
+   },
+   {
+    "titel": "Prüfen und Sonderfälle",
+    "lernziele": [
+     "probe",
+     "sonderfaelle"
+    ]
+   },
+   {
+    "titel": "Anwenden",
+    "lernziele": [
+     "sach"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "waage",
+    "titel": "Äquivalenzumformungen an der Waage",
+    "regel": "Eine Gleichung ist wie eine Waage im Gleichgewicht. Sie bleibt im Gleichgewicht, wenn du auf ⟦beiden Seiten dasselbe⟧ tust: dieselbe Zahl addieren oder subtrahieren, mit derselben Zahl (nicht 0) multiplizieren oder durch sie dividieren. Das heißt ⟦Äquivalenzumformung⟧. Schreibe sie hinter einen Strich, z. B. | − 5.",
+    "schritte": [
+     "Ein Paket mit 3 gleichen Dosen (je x kg) und 5 kg Zusatzgewicht wiegt 20 kg: 3x + 5 = 20   | − 5",
+     "3x = 15   | : 3",
+     "⟦x = 5⟧. Eine Dose wiegt 5 kg."
+    ],
+    "probe": "3 · 5 + 5 = 20 ✓",
+    "fehler": "Nur auf einer Seite umformen: Aus 3x + 5 = 20 wird mit | − 5 nicht 3x = 25 und auch nicht 3x = 20. Die 5 verschwindet links, also muss sie auch rechts ⟦abgezogen⟧ werden: 3x = 15.",
+    "bild": {
+     "typ": "figur",
+     "label": "Waage im Gleichgewicht: links 3x + 5, rechts 20",
+     "punkte": {
+      "_A": [
+       1.5,
+       2
+      ],
+      "_B": [
+       8.5,
+       2
+      ],
+      "_S": [
+       5,
+       2
+      ],
+      "_F1": [
+       4,
+       0
+      ],
+      "_F2": [
+       6,
+       0
+      ],
+      "_L1": [
+       -0.5,
+       2.6
+      ],
+      "_L2": [
+       3.5,
+       2.6
+      ],
+      "_R1": [
+       6.5,
+       2.6
+      ],
+      "_R2": [
+       10.5,
+       2.6
+      ],
+      "_LA": [
+       1.5,
+       2.6
+      ],
+      "_RA": [
+       8.5,
+       2.6
+      ]
+     },
+     "flaeche": [
+      "_S",
+      "_F1",
+      "_F2"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B"
+      ],
+      [
+       "_A",
+       "_LA"
+      ],
+      [
+       "_B",
+       "_RA"
+      ],
+      [
+       "_L1",
+       "_L2",
+       "3x + 5"
+      ],
+      [
+       "_R1",
+       "_R2",
+       "20"
+      ]
+     ]
+    }
+   },
+   {
+    "lernziel": "beide_seiten",
+    "titel": "Die Variable auf beiden Seiten",
+    "regel": "Steht x auf beiden Seiten, bringst du zuerst alle ⟦x-Glieder auf eine Seite⟧ (am besten dorthin, wo mehr x stehen) und alle ⟦Zahlen auf die andere⟧. An der Waage: Auf beiden Seiten gleich viele Dosen wegnehmen.",
+    "schritte": [
+     "Links 5 Dosen und 3 kg, rechts 2 Dosen und 15 kg: 5x + 3 = 2x + 15   | − 2x",
+     "3x + 3 = 15   | − 3",
+     "3x = 12   | : 3  →  ⟦x = 4⟧"
+    ],
+    "probe": "links 5 · 4 + 3 = 23, rechts 2 · 4 + 15 = 23 ✓",
+    "fehler": "Das Vorzeichen beim Herüberbringen vergessen: Aus 5x + 3 = 2x + 15 wird mit | − 2x nicht 7x + 3 = 15. Rechts wird 2x ⟦weggenommen⟧, also links auch: 5x − 2x = 3x.",
+    "bild": {
+     "typ": "figur",
+     "label": "Waage im Gleichgewicht: links 5x + 3, rechts 2x + 15",
+     "punkte": {
+      "_A": [
+       1.5,
+       2
+      ],
+      "_B": [
+       8.5,
+       2
+      ],
+      "_S": [
+       5,
+       2
+      ],
+      "_F1": [
+       4,
+       0
+      ],
+      "_F2": [
+       6,
+       0
+      ],
+      "_L1": [
+       -0.5,
+       2.6
+      ],
+      "_L2": [
+       3.5,
+       2.6
+      ],
+      "_R1": [
+       6.5,
+       2.6
+      ],
+      "_R2": [
+       10.5,
+       2.6
+      ],
+      "_LA": [
+       1.5,
+       2.6
+      ],
+      "_RA": [
+       8.5,
+       2.6
+      ]
+     },
+     "flaeche": [
+      "_S",
+      "_F1",
+      "_F2"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B"
+      ],
+      [
+       "_A",
+       "_LA"
+      ],
+      [
+       "_B",
+       "_RA"
+      ],
+      [
+       "_L1",
+       "_L2",
+       "5x + 3"
+      ],
+      [
+       "_R1",
+       "_R2",
+       "2x + 15"
+      ]
+     ]
+    }
+   },
+   {
+    "lernziel": "klammern",
+    "titel": "Gleichungen mit Klammern",
+    "regel": "Löse zuerst die ⟦Klammern auf⟧: Der Faktor vor der Klammer wird mit ⟦jedem⟧ Summanden multipliziert. Ein ⟦Minus vor der Klammer⟧ dreht alle Vorzeichen in der Klammer um. Dann fasst du zusammen und löst wie gewohnt.",
+    "schritte": [
+     "Drei Tüten mit je x Äpfeln und 2 Birnen sind 3x + 6 Früchte – wie beim Rechteck: 3(x + 2) = 3x + 6.",
+     "3(x + 2) = 2x + 11  →  3x + 6 = 2x + 11   | − 2x − 6",
+     "⟦x = 5⟧"
+    ],
+    "probe": "3 · (5 + 2) = 21 und 2 · 5 + 11 = 21 ✓",
+    "fehler": "−(x + 3) ist nicht −x + 3. Das Minus gilt für die ⟦ganze⟧ Klammer: −(x + 3) = −x − 3. Ebenso ist 3(x + 2) nicht 3x + 2, sondern 3x + 6.",
+    "bild": {
+     "typ": "figur",
+     "label": "Rechteck mit Breite 3 und Länge x + 2, geteilt in die Flächen 3 · x und 3 · 2",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_E": [
+       4,
+       0
+      ],
+      "_B": [
+       6,
+       0
+      ],
+      "_C": [
+       6,
+       3
+      ],
+      "_F": [
+       4,
+       3
+      ],
+      "_D": [
+       0,
+       3
+      ]
+     },
+     "flaeche": [
+      "_A",
+      "_B",
+      "_C",
+      "_D"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_E",
+       "x"
+      ],
+      [
+       "_E",
+       "_B",
+       "2"
+      ],
+      [
+       "_B",
+       "_C"
+      ],
+      [
+       "_C",
+       "_F"
+      ],
+      [
+       "_F",
+       "_D"
+      ],
+      [
+       "_D",
+       "_A",
+       "3"
+      ],
+      [
+       "_E",
+       "_F",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   {
+    "lernziel": "probe",
+    "titel": "Probe machen und Fehler finden",
+    "regel": "Die ⟦Probe⟧ zeigt, ob eine Lösung stimmt: Setze sie in die ⟦ursprüngliche⟧ Gleichung ein und berechne beide Seiten ⟦getrennt⟧. Stimmen sie nicht überein, suchst du den Fehler Zeile für Zeile.",
+    "schritte": [
+     "Jemand löst 4x − 7 = x + 8 so: 3x − 7 = 8, dann 3x = 1, also x = 1/3.",
+     "Probe mit 1/3: links 4/3 − 7 ≈ −5,7, rechts 1/3 + 8 ≈ 8,3. Passt nicht.",
+     "Fehler in Zeile 2: | + 7 ergibt 3x = 15, also ⟦x = 5⟧. Probe: 13 = 13 ✓"
+    ],
+    "fehler": "Die Probe in einer umgeformten Zeile statt in der ursprünglichen Gleichung machen. Ist schon die Umformung falsch, passt die Probe dort trotzdem – der Fehler bleibt ⟦unentdeckt⟧."
+   },
+   {
+    "lernziel": "sonderfaelle",
+    "titel": "Keine oder unendlich viele Lösungen",
+    "regel": "Manchmal fällt x beim Umformen ganz weg. Bleibt eine ⟦falsche⟧ Aussage stehen (z. B. 3 = 5), gibt es ⟦keine Lösung⟧: L = { }. Bleibt eine ⟦wahre⟧ Aussage stehen (z. B. 6 = 6), ist ⟦jede Zahl⟧ eine Lösung: L = ℚ.",
+    "schritte": [
+     "Zwei Handytarife: beide 2 € pro GB, der eine mit 3 € Grundgebühr, der andere mit 5 €: 2x + 3 = 2x + 5   | − 2x",
+     "3 = 5 ist falsch. Die Tarife kosten ⟦nie⟧ gleich viel: L = { }.",
+     "Dagegen 2(x + 3) = 2x + 6 führt zu 6 = 6 – wahr für jedes x: ⟦L = ℚ⟧."
+    ],
+    "fehler": "Aus 3 = 5 auf „x = 0“ schließen oder aus 6 = 6 auf „x = 6“. Wenn x weg ist, entscheidet nur, ob die Aussage ⟦wahr oder falsch⟧ ist."
+   },
+   {
+    "lernziel": "sach",
+    "titel": "Sachaufgaben mit Gleichungen",
+    "regel": "So gehst du vor: ⟦1. Variable festlegen⟧ (x = …), ⟦2. Gleichung aufstellen⟧, ⟦3. lösen⟧, ⟦4. Antwort im Sachzusammenhang⟧ – und prüfen, ob die Lösung ⟦sinnvoll⟧ ist (keine halben Personen, keine negativen Längen).",
+    "schritte": [
+     "Tarif A: 10 € Grundgebühr und 2 € pro GB. Tarif B: 4 € pro GB. Ab wie vielen GB sind beide gleich teuer?",
+     "x = Anzahl GB. 10 + 2x = 4x   | − 2x  →  10 = 2x   | : 2  →  x = 5.",
+     "Bei ⟦5 GB⟧ kosten beide 20 €."
+    ],
+    "probe": "10 + 2 · 5 = 20 und 4 · 5 = 20 ✓",
+    "fehler": "„Zwei aufeinanderfolgende Zahlen ergeben zusammen 31“ ist nicht x + x = 31 (dann wäre x = 15,5 – keine ganze Zahl). Die zweite Zahl ist ⟦x + 1⟧: x + (x + 1) = 31, also x = 15 und 16."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "umformen",
+    "text": "Lineare Gleichungen durch Äquivalenzumformungen lösen",
+    "lernziele": [
+     "waage",
+     "beide_seiten",
+     "klammern"
+    ]
+   },
+   {
+    "k": "pruefen",
+    "text": "Lösungen prüfen, Fehler finden, Sonderfälle erkennen",
+    "lernziele": [
+     "probe",
+     "sonderfaelle"
+    ]
+   },
+   {
+    "k": "anwenden",
+    "text": "Gleichungen zu Sachsituationen aufstellen, lösen und deuten",
+    "lernziele": [
+     "sach"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "waage",
+    "beide_seiten",
+    "klammern",
+    "probe",
+    "sonderfaelle",
+    "sach"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1,
+   "hilfen_im_test": false
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude).",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Gymnasium)."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x − 16 = −28."
+   },
+   "o": {
+    "wert": -12
+   },
+   "c": "-28 - (-16)",
+   "w": "| + 16: x = −28 + 16 = −12. Probe: −12 − 16 = −28 ✓",
+   "h": "Welche Zahl musst du auf beiden Seiten addieren oder subtrahieren, damit x allein steht?"
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x + 10 = 4."
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "4 - (10)",
+   "w": "| − 10: x = 4 − 10 = −6. Probe: −6 + 10 = 4 ✓",
+   "h": "Welche Zahl musst du auf beiden Seiten addieren oder subtrahieren, damit x allein steht?"
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x − 5 = −14."
+   },
+   "o": {
+    "wert": -9
+   },
+   "c": "-14 - (-5)",
+   "w": "| + 5: x = −14 + 5 = −9. Probe: −9 − 5 = −14 ✓",
+   "h": "Welche Zahl musst du auf beiden Seiten addieren oder subtrahieren, damit x allein steht?"
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x + 2 = 17."
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "17 - (2)",
+   "w": "| − 2: x = 17 − 2 = 15. Probe: 15 + 2 = 17 ✓",
+   "h": "Welche Zahl musst du auf beiden Seiten addieren oder subtrahieren, damit x allein steht?"
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x − 13 = 2."
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "2 - (-13)",
+   "w": "| + 13: x = 2 + 13 = 15. Probe: 15 − 13 = 2 ✓",
+   "h": "Welche Zahl musst du auf beiden Seiten addieren oder subtrahieren, damit x allein steht?"
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −2x + 7 = 23."
+   },
+   "o": {
+    "wert": -8
+   },
+   "c": "(23 - (7)) / (-2)",
+   "w": "| − 7: −2x = 16. | : (−2): x = −8. Probe: −2 · (−8) + 7 = 23 ✓",
+   "h": "Erst die Zahl ohne x wegbringen, dann durch die Zahl vor dem x teilen. Achtung: Sie ist negativ."
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −8x − 15 = 25."
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "(25 - (-15)) / (-8)",
+   "w": "| + 15: −8x = 40. | : (−8): x = −5. Probe: −8 · (−5) − 15 = 25 ✓",
+   "h": "Erst die Zahl ohne x wegbringen, dann durch die Zahl vor dem x teilen. Achtung: Sie ist negativ."
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 9x − 20 = −119."
+   },
+   "o": {
+    "wert": -11
+   },
+   "c": "(-119 - (-20)) / (9)",
+   "w": "| + 20: 9x = −99. | : 9: x = −11. Probe: 9 · (−11) − 20 = −119 ✓",
+   "h": "Erst die Zahl ohne x wegbringen, dann durch die Zahl vor dem x teilen."
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gleichung entsteht aus 3x − 5 = −44 durch | + 5?"
+   },
+   "a": [
+    "3x = −39",
+    "3x = −49",
+    "3x − 5 = −39",
+    "x = −39"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Links fällt −5 weg, rechts rechnest du −44 + 5 = −39.",
+   "h": "Beide Seiten verändern sich."
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −9x + 6 = 141."
+   },
+   "o": {
+    "wert": -15
+   },
+   "c": "(141 - (6)) / (-9)",
+   "w": "| − 6: −9x = 135. | : (−9): x = −15. Probe: −9 · (−15) + 6 = 141 ✓",
+   "h": "Erst die Zahl ohne x wegbringen, dann durch die Zahl vor dem x teilen. Achtung: Sie ist negativ."
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −8x − 26 = −50."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(-50 - (-26)) / (-8)",
+   "w": "| + 26: −8x = −24. | : (−8): x = 3. Probe: −8 · 3 − 26 = −50 ✓",
+   "h": "Erst die Zahl ohne x wegbringen, dann durch die Zahl vor dem x teilen. Achtung: Sie ist negativ."
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gleichung entsteht aus 7x − 2 = −58 durch | + 2?"
+   },
+   "a": [
+    "7x − 2 = −56",
+    "7x = −60",
+    "7x = −56",
+    "x = −56"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Links fällt −2 weg, rechts rechnest du −58 + 2 = −56.",
+   "h": "Beide Seiten verändern sich."
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3/4 x − 10 = −13."
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "((-13) - (-10)) * 4 / 3",
+   "w": "| + 10: 3/4 x = −3. | · 4: 3x = −12. | : 3: x = −4.",
+   "h": "Multipliziere mit 4, um den Bruch loszuwerden."
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2/3 x + 8 = 0."
+   },
+   "o": {
+    "wert": -12
+   },
+   "c": "((0) - (8)) * 3 / 2",
+   "w": "| − 8: 2/3 x = −8. | · 3: 2x = −24. | : 2: x = −12.",
+   "h": "Multipliziere mit 3, um den Bruch loszuwerden."
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 1/3 x + 10 = 12."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "((12) - (10)) * 3 / 1",
+   "w": "| − 10: 1/3 x = 2. | · 3: x = 6.",
+   "h": "Multipliziere mit 3, um den Bruch loszuwerden."
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2,5x + 4 = 29."
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "((29) - (4)) / ((5/2))",
+   "w": "| − 4: 2,5x = 25. | : 2,5: x = 10.",
+   "h": "Dividieren durch eine Dezimalzahl: Erweitere so, dass du durch eine ganze Zahl teilst."
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −11 − x = 5."
+   },
+   "o": {
+    "wert": -16
+   },
+   "c": "-11 - (5)",
+   "w": "| + 11: −x = 16. | · (−1): x = −16. Probe: −11 − (−16) = 5 ✓",
+   "h": "Am Ende steht −x = … . Was ist dann x?"
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gleichung entsteht aus 3x − 4 = −49 durch | + 4?"
+   },
+   "a": [
+    "3x − 4 = −45",
+    "x = −45",
+    "3x = −53",
+    "3x = −45"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Links fällt −4 weg, rechts rechnest du −49 + 4 = −45."
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5x − 22 = 38."
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "(38 - (-22)) / (5)",
+   "w": "| + 22: 5x = 60. | : 5: x = 12. Probe: 5 · 12 − 22 = 38 ✓"
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −3x − 22 = −1."
+   },
+   "o": {
+    "wert": -7
+   },
+   "c": "(-1 - (-22)) / (-3)",
+   "w": "| + 22: −3x = 21. | : (−3): x = −7. Probe: −3 · (−7) − 22 = −1 ✓"
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 12x − 28 = 152."
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "(152 - (-28)) / (12)",
+   "w": "| + 28: 12x = 180. | : 12: x = 15. Probe: 12 · 15 − 28 = 152 ✓"
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gleichung entsteht aus 8x − 13 = −53 durch | + 13?"
+   },
+   "a": [
+    "8x = −66",
+    "8x = −40",
+    "x = −40",
+    "8x − 13 = −40"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Links fällt −13 weg, rechts rechnest du −53 + 13 = −40."
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −5x + 19 = 29."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "(29 - (19)) / (-5)",
+   "w": "| − 19: −5x = 10. | : (−5): x = −2. Probe: −5 · (−2) + 19 = 29 ✓"
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 9x + 12 = 156."
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "(156 - (12)) / (9)",
+   "w": "| − 12: 9x = 144. | : 9: x = 16. Probe: 9 · 16 + 12 = 156 ✓"
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −3x − 14 = 19."
+   },
+   "o": {
+    "wert": -11
+   },
+   "c": "(19 - (-14)) / (-3)",
+   "w": "| + 14: −3x = 33. | : (−3): x = −11. Probe: −3 · (−11) − 14 = 19 ✓"
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5x − 3 = 27."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(27 - (-3)) / (5)",
+   "w": "| + 3: 5x = 30. | : 5: x = 6. Probe: 5 · 6 − 3 = 27 ✓"
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 11x − 28 = 38."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(38 - (-28)) / (11)",
+   "w": "| + 28: 11x = 66. | : 11: x = 6. Probe: 11 · 6 − 28 = 38 ✓"
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 7x + 12 = 5x − 2."
+   },
+   "o": {
+    "wert": -7
+   },
+   "c": "((-2) - (12)) / (7 - 5)",
+   "w": "| − 5x: 2x + 12 = −2. | − 12: 2x = −14. | : 2: x = −7.",
+   "h": "Bringe zuerst die x-Glieder auf die Seite mit mehr x."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5x + 13 = 2x − 5."
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "((-5) - (13)) / (5 - 2)",
+   "w": "| − 2x: 3x + 13 = −5. | − 13: 3x = −18. | : 3: x = −6.",
+   "h": "Bringe zuerst die x-Glieder auf die Seite mit mehr x."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 6x + 23 = x + 43."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "((43) - (23)) / (6 - 1)",
+   "w": "| − x: 5x + 23 = 43. | − 23: 5x = 20. | : 5: x = 4.",
+   "h": "Bringe zuerst die x-Glieder auf die Seite mit mehr x."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 8x − 24 = 7x − 20."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "((-20) - (-24)) / (8 - 7)",
+   "w": "| − 7x: x − 24 = −20. | + 24: x = 4.",
+   "h": "Bringe zuerst die x-Glieder auf die Seite mit mehr x."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 8x + 2 = x + 16."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "((16) - (2)) / (8 - 1)",
+   "w": "| − x: 7x + 2 = 16. | − 2: 7x = 14. | : 7: x = 2.",
+   "h": "Bringe zuerst die x-Glieder auf die Seite mit mehr x."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3x + 14 = 2x + 24."
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "((24) - (14)) / ((3) - (2))",
+   "w": "| − 2x: x + 14 = 24. | − 14: x = 10.",
+   "h": "Alle x-Glieder auf eine Seite, alle Zahlen auf die andere."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 4x − 24 = −6x + 56."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "((56) - (-24)) / ((4) - (-6))",
+   "w": "| + 6x: 10x − 24 = 56. | + 24: 10x = 80. | : 10: x = 8.",
+   "h": "Alle x-Glieder auf eine Seite, alle Zahlen auf die andere."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −3x − 18 = −x − 6."
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "((-6) - (-18)) / ((-3) - (-1))",
+   "w": "| + x: −2x − 18 = −6. | + 18: −2x = 12. | : (−2): x = −6.",
+   "h": "Alle x-Glieder auf eine Seite, alle Zahlen auf die andere."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gleichung entsteht aus −5x + 24 = −12x + 38 durch | + 12x?"
+   },
+   "a": [
+    "7x + 24 = 12x + 38",
+    "−5x + 24 = 38",
+    "7x + 24 = 38",
+    "−17x + 24 = 38"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Rechts verschwindet −12x. Links: −5x + 12x = 7x. Ergebnis: 7x + 24 = 38.",
+   "h": "Auf beiden Seiten dasselbe abziehen bzw. addieren."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 7x + 14 = 6x + 13."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "((13) - (14)) / ((7) - (6))",
+   "w": "| − 6x: x + 14 = 13. | − 14: x = −1.",
+   "h": "Alle x-Glieder auf eine Seite, alle Zahlen auf die andere."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3x − 15 = −6x − 33."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "((-33) - (-15)) / ((3) - (-6))",
+   "w": "| + 6x: 9x − 15 = −33. | + 15: 9x = −18. | : 9: x = −2.",
+   "h": "Alle x-Glieder auf eine Seite, alle Zahlen auf die andere."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −7x − 10 = −10x + 17."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "((17) - (-10)) / ((-7) - (-10))",
+   "w": "| + 10x: 3x − 10 = 17. | + 10: 3x = 27. | : 3: x = 9.",
+   "h": "Alle x-Glieder auf eine Seite, alle Zahlen auf die andere."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2x − 14 + 5x = −6x − 70 + 4."
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "((-70) + (4) - (-14)) / ((2) + 5 - (-6))",
+   "w": "Erst jede Seite zusammenfassen: 7x − 14 = −6x − 66. Dann | + 6x: 13x − 14 = −66. | + 14: 13x = −52. | : 13: x = −4.",
+   "h": "Fasse zuerst auf jeder Seite für sich zusammen."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x + 7 = 9x − 6. Gib x als Bruch an.",
+    "schablone": "x = □/□",
+    "hinweis": "Trage Zähler und Nenner vollständig gekürzt ein; ein Minus gehört in den Zähler."
+   },
+   "o": {
+    "werte": [
+     13,
+     8
+    ]
+   },
+   "c": [
+    "13",
+    "8"
+   ],
+   "w": "| − 9x: −8x + 7 = −6. | − 7: −8x = −13. | : (−8): x = 13/8.",
+   "h": "Rechne wie immer. Am Ende teilst du durch eine Zahl, die nicht aufgeht."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3x − 21 + 6x = −4x − 92 + 6."
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "((-92) + (6) - (-21)) / ((3) + 6 - (-4))",
+   "w": "Erst jede Seite zusammenfassen: 9x − 21 = −4x − 86. Dann | + 4x: 13x − 21 = −86. | + 21: 13x = −65. | : 13: x = −5.",
+   "h": "Fasse zuerst auf jeder Seite für sich zusammen."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −8x + 5 + x = x − 1 − 2."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "((-1) + (-2) - (5)) / ((-8) + 1 - (1))",
+   "w": "Erst jede Seite zusammenfassen: −7x + 5 = x − 3. Dann | − x: −8x + 5 = −3. | − 5: −8x = −8. | : (−8): x = 1.",
+   "h": "Fasse zuerst auf jeder Seite für sich zusammen."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse −6x + 6 = 9x + 7. Gib x als Bruch an.",
+    "schablone": "x = □/□",
+    "hinweis": "Trage Zähler und Nenner vollständig gekürzt ein; ein Minus gehört in den Zähler."
+   },
+   "o": {
+    "werte": [
+     -1,
+     15
+    ]
+   },
+   "c": [
+    "-1",
+    "15"
+   ],
+   "w": "| − 9x: −15x + 6 = 7. | − 6: −15x = 1. | : (−15): x = −1/15.",
+   "h": "Rechne wie immer. Am Ende teilst du durch eine Zahl, die nicht aufgeht."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −12x + 4 = 2x − 24."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "((-24) - (4)) / ((-12) - (2))",
+   "w": "| − 2x: −14x + 4 = −24. | − 4: −14x = −28. | : (−14): x = 2."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 8x + 10 = x + 24."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "((24) - (10)) / ((8) - (1))",
+   "w": "| − x: 7x + 10 = 24. | − 10: 7x = 14. | : 7: x = 2."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −11x − 16 = −x − 26."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "((-26) - (-16)) / ((-11) - (-1))",
+   "w": "| + x: −10x − 16 = −26. | + 16: −10x = −10. | : (−10): x = 1."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gleichung entsteht aus 8x + 22 = 12x + 42 durch | − 12x?"
+   },
+   "a": [
+    "−4x + 22 = −12x + 42",
+    "−4x + 22 = 42",
+    "20x + 22 = 42",
+    "8x + 22 = 42"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Rechts verschwindet 12x. Links: 8x − 12x = −4x. Ergebnis: −4x + 22 = 42."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −2x + 24 = −11x − 39."
+   },
+   "o": {
+    "wert": -7
+   },
+   "c": "((-39) - (24)) / ((-2) - (-11))",
+   "w": "| + 11x: 9x + 24 = −39. | − 24: 9x = −63. | : 9: x = −7."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2x + 22 = 10x − 2."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "((-2) - (22)) / ((2) - (10))",
+   "w": "| − 10x: −8x + 22 = −2. | − 22: −8x = −24. | : (−8): x = 3."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 11x + 4 = −x + 16."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "((16) - (4)) / ((11) - (-1))",
+   "w": "| + x: 12x + 4 = 16. | − 4: 12x = 12. | : 12: x = 1."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gleichung entsteht aus −3x − 24 = −10x + 46 durch | + 10x?"
+   },
+   "a": [
+    "7x − 24 = 46",
+    "7x − 24 = 10x + 46",
+    "−3x − 24 = 46",
+    "−13x − 24 = 46"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Rechts verschwindet −10x. Links: −3x + 10x = 7x. Ergebnis: 7x − 24 = 46."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gleichung entsteht aus 12x − 23 = 3x + 22 durch | − 3x?"
+   },
+   "a": [
+    "15x − 23 = 22",
+    "9x − 23 = −3x + 22",
+    "12x − 23 = 22",
+    "9x − 23 = 22"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Rechts verschwindet 3x. Links: 12x − 3x = 9x. Ergebnis: 9x − 23 = 22."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −5x − 24 = x + 30."
+   },
+   "o": {
+    "wert": -9
+   },
+   "c": "((30) - (-24)) / ((-5) - (1))",
+   "w": "| − x: −6x − 24 = 30. | + 24: −6x = 54. | : (−6): x = −9."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie lautet 7(x + 10) ohne Klammer?"
+   },
+   "a": [
+    "7x − 70",
+    "7x + 70",
+    "7x + 10",
+    "x + 70"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die 7 wird mit jedem Summanden multipliziert: 7 · x + 7 · 10 = 7x + 70.",
+   "h": "Multipliziere den Faktor mit jedem Summanden in der Klammer."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie lautet 2(x + 1) ohne Klammer?"
+   },
+   "a": [
+    "x + 2",
+    "2x − 2",
+    "2x + 2",
+    "2x + 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die 2 wird mit jedem Summanden multipliziert: 2 · x + 2 · 1 = 2x + 2.",
+   "h": "Multipliziere den Faktor mit jedem Summanden in der Klammer."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 6(x + 3) = 36."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "36 / 6 - (3)",
+   "w": "Klammer auflösen: 6x + 18 = 36. | − 18: 6x = 18. | : 6: x = 3. (Oder gleich | : 6: x + 3 = 6.)",
+   "h": "Löse die Klammer auf – oder teile beide Seiten zuerst durch den Faktor vor der Klammer."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 6(x − 3) = −66."
+   },
+   "o": {
+    "wert": -8
+   },
+   "c": "-66 / 6 - (-3)",
+   "w": "Klammer auflösen: 6x − 18 = −66. | + 18: 6x = −48. | : 6: x = −8. (Oder gleich | : 6: x − 3 = −11.)",
+   "h": "Löse die Klammer auf – oder teile beide Seiten zuerst durch den Faktor vor der Klammer."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie lautet 5(x + 2) ohne Klammer?"
+   },
+   "a": [
+    "5x − 10",
+    "5x + 2",
+    "x + 10",
+    "5x + 10"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die 5 wird mit jedem Summanden multipliziert: 5 · x + 5 · 2 = 5x + 10.",
+   "h": "Multipliziere den Faktor mit jedem Summanden in der Klammer."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie lautet −6(x − 5) ohne Klammer?"
+   },
+   "a": [
+    "−6x + 30",
+    "−6x − 30",
+    "6x + 30",
+    "−6x − 5"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "−6 mal jeden Summanden: −6 · x = −6x und −6 · (−5) = 30. Zusammen: −6x + 30.",
+   "h": "Achte auf das Minus: Es wird mit beiden Summanden multipliziert."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie lautet −2(x − 3) ohne Klammer?"
+   },
+   "a": [
+    "2x + 6",
+    "−2x + 6",
+    "−2x − 6",
+    "−2x − 3"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "−2 mal jeden Summanden: −2 · x = −2x und −2 · (−3) = 6. Zusammen: −2x + 6.",
+   "h": "Achte auf das Minus: Es wird mit beiden Summanden multipliziert."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2(x − 3) = −4x + 30."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "((30) - 2 * (-3)) / (2 - (-4))",
+   "w": "Klammer auflösen: 2x − 6 = −4x + 30. | + 4x: 6x − 6 = 30. | + 6: 6x = 36. | : 6: x = 6.",
+   "h": "Erst die Klammer auflösen, dann x-Glieder und Zahlen sortieren."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 10 − (x + 2) = 3."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "10 - (2) - (3)",
+   "w": "Minus vor der Klammer dreht die Vorzeichen: 10 − x − 2 = 3, also −x + 8 = 3. | − 8: −x = −5. x = 5.",
+   "h": "Ein Minus vor der Klammer ändert alle Vorzeichen in der Klammer."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 21 − (x − 7) = 38."
+   },
+   "o": {
+    "wert": -10
+   },
+   "c": "21 - (-7) - (38)",
+   "w": "Minus vor der Klammer dreht die Vorzeichen: 21 − x + 7 = 38, also −x + 28 = 38. | − 28: −x = 10. x = −10.",
+   "h": "Ein Minus vor der Klammer ändert alle Vorzeichen in der Klammer."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie lautet −4(x + 9) ohne Klammer?"
+   },
+   "a": [
+    "4x − 36",
+    "−4x + 9",
+    "−4x − 36",
+    "−4x + 36"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "−4 mal jeden Summanden: −4 · x = −4x und −4 · 9 = −36. Zusammen: −4x − 36.",
+   "h": "Achte auf das Minus: Es wird mit beiden Summanden multipliziert."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3(x + 8) = 5x + 14."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "((14) - 3 * (8)) / (3 - (5))",
+   "w": "Klammer auflösen: 3x + 24 = 5x + 14. | − 5x: −2x + 24 = 14. | − 24: −2x = −10. | : (−2): x = 5.",
+   "h": "Erst die Klammer auflösen, dann x-Glieder und Zahlen sortieren."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2(x + 7) = 5(x + 9) − 55."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(5 * (9) + (-55) - 2 * (7)) / (2 - 5)",
+   "w": "Auflösen: 2x + 14 = 5x − 10. | − 5x: −3x + 14 = −10. | − 14: −3x = −24. | : (−3): x = 8.",
+   "h": "Beide Klammern auflösen, rechts zusammenfassen, dann sortieren."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 6(x − 7) − 5(x − 7) = −15."
+   },
+   "o": {
+    "wert": -8
+   },
+   "c": "((-15) - 6 * (-7) + 5 * (-7)) / (6 - 5)",
+   "w": "Auflösen: 6x − 42 − 5x + 35 = −15. Zusammenfassen: x − 7 = −15. Dann x = −8.",
+   "h": "Vorsicht beim Minus vor der zweiten Klammer: Beide Vorzeichen in ihr drehen sich um."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2(x − 2) − 4(x − 8) = 32."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "((32) - 2 * (-2) + 4 * (-8)) / (2 - 4)",
+   "w": "Auflösen: 2x − 4 − 4x + 32 = 32. Zusammenfassen: −2x + 28 = 32. Dann x = −2.",
+   "h": "Vorsicht beim Minus vor der zweiten Klammer: Beide Vorzeichen in ihr drehen sich um."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2(x − 5) − 5(x − 8) = 27."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "((27) - 2 * (-5) + 5 * (-8)) / (2 - 5)",
+   "w": "Auflösen: 2x − 10 − 5x + 40 = 27. Zusammenfassen: −3x + 30 = 27. Dann x = 1.",
+   "h": "Vorsicht beim Minus vor der zweiten Klammer: Beide Vorzeichen in ihr drehen sich um."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2(x + 1) = 5(x − 4) + 37."
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "(5 * (-4) + (37) - 2 * (1)) / (2 - 5)",
+   "w": "Auflösen: 2x + 2 = 5x + 17. | − 5x: −3x + 2 = 17. | − 2: −3x = 15. | : (−3): x = −5.",
+   "h": "Beide Klammern auflösen, rechts zusammenfassen, dann sortieren."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 4(x − 4) = 3x − 14."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "((-14) - 4 * (-4)) / (4 - (3))",
+   "w": "Klammer auflösen: 4x − 16 = 3x − 14. | − 3x: x − 16 = −14. | + 16: x = 2."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 21 − (x + 7) = 7."
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "21 - (7) - (7)",
+   "w": "Minus vor der Klammer dreht die Vorzeichen: 21 − x − 7 = 7, also −x + 14 = 7. | − 14: −x = −7. x = 7."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 27 − (x − 1) = 20."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "27 - (-1) - (20)",
+   "w": "Minus vor der Klammer dreht die Vorzeichen: 27 − x + 1 = 20, also −x + 28 = 20. | − 28: −x = −8. x = 8."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 6(x − 5) = 4x − 34."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "((-34) - 6 * (-5)) / (6 - (4))",
+   "w": "Klammer auflösen: 6x − 30 = 4x − 34. | − 4x: 2x − 30 = −34. | + 30: 2x = −4. | : 2: x = −2."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 30 − (x − 9) = 49."
+   },
+   "o": {
+    "wert": -10
+   },
+   "c": "30 - (-9) - (49)",
+   "w": "Minus vor der Klammer dreht die Vorzeichen: 30 − x + 9 = 49, also −x + 39 = 49. | − 39: −x = 10. x = −10."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 26 − (x − 6) = 33."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "26 - (-6) - (33)",
+   "w": "Minus vor der Klammer dreht die Vorzeichen: 26 − x + 6 = 33, also −x + 32 = 33. | − 32: −x = 1. x = −1."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie lautet −3(x − 9) ohne Klammer?"
+   },
+   "a": [
+    "−3x − 9",
+    "3x + 27",
+    "−3x − 27",
+    "−3x + 27"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "−3 mal jeden Summanden: −3 · x = −3x und −3 · (−9) = 27. Zusammen: −3x + 27."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 29 − (x + 1) = 26."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "29 - (1) - (26)",
+   "w": "Minus vor der Klammer dreht die Vorzeichen: 29 − x − 1 = 26, also −x + 28 = 26. | − 28: −x = −2. x = 2."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie lautet −6(x + 8) ohne Klammer?"
+   },
+   "a": [
+    "−6x + 48",
+    "−6x + 8",
+    "−6x − 48",
+    "6x − 48"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "−6 mal jeden Summanden: −6 · x = −6x und −6 · 8 = −48. Zusammen: −6x − 48."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie lautet −4(x − 2) ohne Klammer?"
+   },
+   "a": [
+    "4x + 8",
+    "−4x + 8",
+    "−4x − 2",
+    "−4x − 8"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "−4 mal jeden Summanden: −4 · x = −4x und −4 · (−2) = 8. Zusammen: −4x + 8."
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist x = −7 eine Lösung von 3x + 6 = x − 6?"
+   },
+   "a": [
+    "Ja: Beide Seiten ergeben −15.",
+    "Nein: links −15, rechts −13.",
+    "Ja: Beide Seiten ergeben −13."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Links: −15, rechts: −13. Verschieden, also keine Lösung. Die Lösung ist x = −6.",
+   "h": "Setze die Zahl links und rechts getrennt ein."
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist x = 2 eine Lösung von −6x + 19 = x − 2?"
+   },
+   "a": [
+    "Ja: Beide Seiten ergeben 0.",
+    "Ja: Beide Seiten ergeben 7.",
+    "Nein: links 7, rechts 0."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Links: 7, rechts: 0. Verschieden, also keine Lösung. Die Lösung ist x = 3.",
+   "h": "Setze die Zahl links und rechts getrennt ein."
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist x = −8 eine Lösung von 7x − 10 = 4x − 34?"
+   },
+   "a": [
+    "Ja: Beide Seiten ergeben −66.",
+    "Nein: links −66, rechts −62.",
+    "Nein: links −56, rechts −66."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Links: 7 · (−8) − 10 = −66. Rechts: 4 · (−8) − 34 = −66. Gleich ✓",
+   "h": "Setze die Zahl links und rechts getrennt ein."
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist x = −6 eine Lösung von −3x − 15 = −7x − 39?"
+   },
+   "a": [
+    "Ja: Beide Seiten ergeben 3.",
+    "Nein: links 3, rechts −4.",
+    "Nein: links 18, rechts 3."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Links: −3 · (−6) − 15 = 3. Rechts: −7 · (−6) − 39 = 3. Gleich ✓",
+   "h": "Setze die Zahl links und rechts getrennt ein."
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist x = −7 eine Lösung von −x + 12 = −7x − 36?"
+   },
+   "a": [
+    "Ja: Beide Seiten ergeben 13.",
+    "Ja: Beide Seiten ergeben 19.",
+    "Nein: links 19, rechts 13."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Links: 19, rechts: 13. Verschieden, also keine Lösung. Die Lösung ist x = −8.",
+   "h": "Setze die Zahl links und rechts getrennt ein."
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In dieser Rechnung zu −6x + 9 = −3x + 6 steckt ein Fehler: (1) −3x + 9 = 6 → (2) −3x = 15 → (3) x = −5. Wie heißt die richtige Lösung?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "((6) - (9)) / (-3)",
+   "w": "Zeile 2 ist falsch. | − 9 heißt rechts 6 − 9 = −3, nicht 15. Richtig: −3x + 9 = 6 → −3x = −3 → x = 1.",
+   "h": "Mache die Probe mit dem Ergebnis und prüfe jede Zeile."
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gleichung −3x + 14 = −5x + 24. Rechnung: (1) 2x + 14 = 24 → (2) 2x = 10 → (3) x = 20. In welcher Zeile steckt der Fehler?"
+   },
+   "a": [
+    "Zeile 2",
+    "Kein Fehler",
+    "Zeile 1",
+    "Zeile 3"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Bei 2x = 10 muss durch 2 geteilt werden, nicht mit 2 multipliziert. Richtig: 2x + 14 = 24 → 2x = 10 → x = 5.",
+   "h": "Prüfe jede Umformung einzeln. Was wurde auf beiden Seiten gemacht?"
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gleichung −6x − 13 = 3x + 59. Rechnung: (1) −9x − 13 = 59 → (2) −9x = 72 → (3) x = −648. In welcher Zeile steckt der Fehler?"
+   },
+   "a": [
+    "Zeile 2",
+    "Kein Fehler",
+    "Zeile 1",
+    "Zeile 3"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Bei −9x = 72 muss durch (−9) geteilt werden, nicht mit (−9) multipliziert. Richtig: −9x − 13 = 59 → −9x = 72 → x = −8.",
+   "h": "Prüfe jede Umformung einzeln. Was wurde auf beiden Seiten gemacht?"
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gleichung −x + 25 = 5x − 23. Rechnung: (1) 4x + 25 = −23 → (2) 4x = −48 → (3) x = −12. In welcher Zeile steckt der Fehler?"
+   },
+   "a": [
+    "Zeile 3",
+    "Kein Fehler",
+    "Zeile 1",
+    "Zeile 2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Statt −x − 5x = −6x wurde 4x gerechnet. Richtig: −6x + 25 = −23 → −6x = −48 → x = 8.",
+   "h": "Prüfe jede Umformung einzeln. Was wurde auf beiden Seiten gemacht?"
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gleichung −x + 24 = −8x − 4. Rechnung: (1) −9x + 24 = −4 → (2) −9x = −28 → (3) x = 28/9. In welcher Zeile steckt der Fehler?"
+   },
+   "a": [
+    "Zeile 1",
+    "Kein Fehler",
+    "Zeile 3",
+    "Zeile 2"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Statt −x + 8x = 7x wurde −9x gerechnet. Richtig: 7x + 24 = −4 → 7x = −28 → x = −4.",
+   "h": "Prüfe jede Umformung einzeln. Was wurde auf beiden Seiten gemacht?"
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gleichung −3x − 23 = −5x − 41. Rechnung: (1) −8x − 23 = −41 → (2) −8x = −18 → (3) x = 2,25. In welcher Zeile steckt der Fehler?"
+   },
+   "a": [
+    "Zeile 2",
+    "Zeile 1",
+    "Kein Fehler",
+    "Zeile 3"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Statt −3x + 5x = 2x wurde −8x gerechnet. Richtig: 2x − 23 = −41 → 2x = −18 → x = −9.",
+   "h": "Prüfe jede Umformung einzeln. Was wurde auf beiden Seiten gemacht?"
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gleichung 2x − 2 = −5x − 37. Rechnung: (1) −3x − 2 = −37 → (2) −3x = −35 → (3) x = 35/3. In welcher Zeile steckt der Fehler?"
+   },
+   "a": [
+    "Kein Fehler",
+    "Zeile 2",
+    "Zeile 1",
+    "Zeile 3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Statt 2x + 5x = 7x wurde −3x gerechnet. Richtig: 7x − 2 = −37 → 7x = −35 → x = −5.",
+   "h": "Prüfe jede Umformung einzeln. Was wurde auf beiden Seiten gemacht?"
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand multipliziert 6x + 6 = 21 auf beiden Seiten mit 0 und erhält 0 = 0. Er folgert: „Jede Zahl ist eine Lösung.“ Stimmt das?"
+   },
+   "a": [
+    "Nein: Es kommt 0 = c heraus.",
+    "Nein: Mal 0 ist keine Äquivalenzumformung.",
+    "Ja: 0 = 0 ist immer wahr.",
+    "Ja: Auf beiden Seiten dasselbe ist erlaubt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Mit 0 multiplizieren macht aus jeder Gleichung 0 = 0 – dabei geht die Information verloren. Darum ist nur Multiplizieren mit Zahlen ≠ 0 erlaubt. Die Gleichung hat genau eine Lösung: x = 2,5.",
+   "h": "Welche Zahl ist beim Multiplizieren und Dividieren ausgeschlossen – und warum?"
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Probe für x = −4 bei x − 6 = −5x − 30 wird so geschrieben: „x − 6 = −5x − 30 | x = −4 → −10 = −10 ✓“. Welche Aussage stimmt?"
+   },
+   "a": [
+    "Die Lösung stimmt, weil beide Seiten −10 ergeben.",
+    "Die Lösung ist −10.",
+    "Man darf bei der Probe nicht einsetzen.",
+    "Die Lösung stimmt nicht, weil −10 ≠ −4."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bei der Probe vergleicht man die Werte beider Seiten, nicht mit x. Beide Seiten ergeben −10 – also stimmt x = −4.",
+   "h": "Was wird bei der Probe miteinander verglichen?"
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet bei 7x + 4 = −3: „| : 7 → x + 4 = −3/7“. Was ist falsch?"
+   },
+   "a": [
+    "Man darf nie durch eine Zahl teilen.",
+    "Rechts muss mit 7 multipliziert werden.",
+    "Nichts, die Umformung stimmt.",
+    "Beim Teilen muss jeder Summand links geteilt werden, also auch 4."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "| : 7 gilt für die ganze linke Seite: x + 4/7 = … . Besser zuerst | − 4, dann | : 7: x = −1.",
+   "h": "Wird beim Teilen jeder Teil der linken Seite geteilt?"
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet bei 5x + 6 = −19: „| : 5 → x + 6 = −3,8“. Was ist falsch?"
+   },
+   "a": [
+    "Nichts, die Umformung stimmt.",
+    "Rechts muss mit 5 multipliziert werden.",
+    "Beim Teilen muss jeder Summand links geteilt werden, also auch 6.",
+    "Man darf nie durch eine Zahl teilen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "| : 5 gilt für die ganze linke Seite: x + 1,2 = … . Besser zuerst | − 6, dann | : 5: x = −5.",
+   "h": "Wird beim Teilen jeder Teil der linken Seite geteilt?"
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Probe für x = −8 bei −8x − 16 = −3x + 24 wird so geschrieben: „−8x − 16 = −3x + 24 | x = −8 → 48 = 48 ✓“. Welche Aussage stimmt?"
+   },
+   "a": [
+    "Man darf bei der Probe nicht einsetzen.",
+    "Die Lösung stimmt nicht, weil 48 ≠ −8.",
+    "Die Lösung ist 48.",
+    "Die Lösung stimmt, weil beide Seiten 48 ergeben."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Bei der Probe vergleicht man die Werte beider Seiten, nicht mit x. Beide Seiten ergeben 48 – also stimmt x = −8.",
+   "h": "Was wird bei der Probe miteinander verglichen?"
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gleichung −7x + 5 = −x − 31. Rechnung: (1) −6x + 5 = −31 → (2) −6x = −36 → (3) x = 216. In welcher Zeile steckt der Fehler?"
+   },
+   "a": [
+    "Zeile 3",
+    "Zeile 1",
+    "Kein Fehler",
+    "Zeile 2"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bei −6x = −36 muss durch (−6) geteilt werden, nicht mit (−6) multipliziert. Richtig: −6x + 5 = −31 → −6x = −36 → x = 6."
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gleichung 4x + 21 = 2x + 17. Rechnung: (1) 2x + 21 = 17 → (2) 2x = 38 → (3) x = 19. In welcher Zeile steckt der Fehler?"
+   },
+   "a": [
+    "Zeile 1",
+    "Zeile 2",
+    "Zeile 3",
+    "Kein Fehler"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "| − 21 heißt rechts 17 − 21 = −4, nicht 38. Richtig: 2x + 21 = 17 → 2x = −4 → x = −2."
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gleichung 6x + 14 = −x + 28. Rechnung: (1) 7x + 14 = 28 → (2) 7x = 14 → (3) x = 98. In welcher Zeile steckt der Fehler?"
+   },
+   "a": [
+    "Zeile 2",
+    "Zeile 1",
+    "Kein Fehler",
+    "Zeile 3"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Bei 7x = 14 muss durch 7 geteilt werden, nicht mit 7 multipliziert. Richtig: 7x + 14 = 28 → 7x = 14 → x = 2."
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gleichung 2x + 6 = −2x + 38. Rechnung: (1) 4x + 6 = 38 → (2) 4x = 44 → (3) x = 11. In welcher Zeile steckt der Fehler?"
+   },
+   "a": [
+    "Zeile 2",
+    "Zeile 3",
+    "Zeile 1",
+    "Kein Fehler"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "| − 6 heißt rechts 38 − 6 = 32, nicht 44. Richtig: 4x + 6 = 38 → 4x = 32 → x = 8."
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In dieser Rechnung zu 3x + 17 = −6x − 46 steckt ein Fehler: (1) 9x + 17 = −46 → (2) 9x = −63 → (3) x = −567. Wie heißt die richtige Lösung?"
+   },
+   "o": {
+    "wert": -7
+   },
+   "c": "((-46) - (17)) / (9)",
+   "w": "Zeile 3 ist falsch. Bei 9x = −63 muss durch 9 geteilt werden, nicht mit 9 multipliziert. Richtig: 9x + 17 = −46 → 9x = −63 → x = −7."
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gleichung −2x − 20 = −9x + 1. Rechnung: (1) 7x − 20 = 1 → (2) 7x = −19 → (3) x = −19/7. In welcher Zeile steckt der Fehler?"
+   },
+   "a": [
+    "Zeile 3",
+    "Zeile 2",
+    "Zeile 1",
+    "Kein Fehler"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "| + 20 heißt rechts 1 + 20 = 21, nicht −19. Richtig: 7x − 20 = 1 → 7x = 21 → x = 3."
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gleichung −9x − 20 = 3x − 8. Rechnung: (1) −6x − 20 = −8 → (2) −6x = 12 → (3) x = −2. In welcher Zeile steckt der Fehler?"
+   },
+   "a": [
+    "Zeile 3",
+    "Kein Fehler",
+    "Zeile 1",
+    "Zeile 2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Statt −9x − 3x = −12x wurde −6x gerechnet. Richtig: −12x − 20 = −8 → −12x = 12 → x = −1."
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gleichung −4x − 14 = −7x − 38. Rechnung: (1) 3x − 14 = −38 → (2) 3x = −52 → (3) x = −52/3. In welcher Zeile steckt der Fehler?"
+   },
+   "a": [
+    "Zeile 1",
+    "Kein Fehler",
+    "Zeile 2",
+    "Zeile 3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "| + 14 heißt rechts −38 + 14 = −24, nicht −52. Richtig: 3x − 14 = −38 → 3x = −24 → x = −8."
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gleichung 4x − 18 = −7x − 7. Rechnung: (1) −3x − 18 = −7 → (2) −3x = 11 → (3) x = −11/3. In welcher Zeile steckt der Fehler?"
+   },
+   "a": [
+    "Zeile 1",
+    "Zeile 2",
+    "Zeile 3",
+    "Kein Fehler"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Statt 4x + 7x = 11x wurde −3x gerechnet. Richtig: 11x − 18 = −7 → 11x = 11 → x = 1."
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In dieser Rechnung zu 7x − 22 = −3x − 12 steckt ein Fehler: (1) 4x − 22 = −12 → (2) 4x = 10 → (3) x = 2,5. Wie heißt die richtige Lösung?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "((-12) - (-22)) / (10)",
+   "w": "Zeile 1 ist falsch. Statt 7x + 3x = 10x wurde 4x gerechnet. Richtig: 10x − 22 = −12 → 10x = 10 → x = 1."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat 4(x + 13) = 4x + 52?"
+   },
+   "a": [
+    "genau eine Lösung",
+    "unendlich viele Lösungen",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Klammer auflösen: 4x + 52 = 4x + 52. | − 4x: 52 = 52 – wahr für jedes x. L = ℚ.",
+   "h": "Löse die Klammer auf und vergleiche beide Seiten."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat 2(x + 4) = 2x + 8?"
+   },
+   "a": [
+    "keine Lösung",
+    "genau eine Lösung",
+    "unendlich viele Lösungen"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Klammer auflösen: 2x + 8 = 2x + 8. | − 2x: 8 = 8 – wahr für jedes x. L = ℚ.",
+   "h": "Löse die Klammer auf und vergleiche beide Seiten."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat 9x + 14 = 7x − 10?"
+   },
+   "a": [
+    "genau eine Lösung",
+    "keine Lösung",
+    "unendlich viele Lösungen"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Faktoren vor x sind verschieden (9 und 7). Nach | − 7x bleibt 2x + 14 = −10 – genau eine Lösung: x = −12.",
+   "h": "Vergleiche die Zahlen vor dem x auf beiden Seiten."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat 8x + 5 = 8x − 7?"
+   },
+   "a": [
+    "genau eine Lösung",
+    "keine Lösung",
+    "unendlich viele Lösungen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "| − 8x: 5 = −7 – falsch. Also L = { }.",
+   "h": "Was passiert, wenn du die x-Glieder auf eine Seite bringst?"
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat 2(x + 13) = 2x + 26?"
+   },
+   "a": [
+    "unendlich viele Lösungen",
+    "keine Lösung",
+    "genau eine Lösung"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Klammer auflösen: 2x + 26 = 2x + 26. | − 2x: 26 = 26 – wahr für jedes x. L = ℚ.",
+   "h": "Löse die Klammer auf und vergleiche beide Seiten."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat x + 1 + 3x = 4x − 9?"
+   },
+   "a": [
+    "unendlich viele Lösungen",
+    "genau eine Lösung",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Links zusammenfassen: 4x + 1. Nach | − 4x: 1 = −9 – falsch, also L = { }.",
+   "h": "Fasse zuerst die linke Seite zusammen."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bestimme die Lösungsmenge von 4(x + 9) − x = 3x + 36."
+   },
+   "a": [
+    "L = {0}",
+    "L = {36}",
+    "L = { } (keine Lösung)",
+    "L = ℚ (jede Zahl)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Nach Auflösen und Zusammenfassen stehen links und rechts dieselben Terme. Übrig bleibt eine wahre Aussage – jede Zahl ist Lösung: L = ℚ.",
+   "h": "Fasse beide Seiten so weit wie möglich zusammen."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat 5x + 8 + 4x = 9x − 1?"
+   },
+   "a": [
+    "genau eine Lösung",
+    "keine Lösung",
+    "unendlich viele Lösungen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Links zusammenfassen: 9x + 8. Nach | − 9x: 8 = −1 – falsch, also L = { }.",
+   "h": "Fasse zuerst die linke Seite zusammen."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bestimme die Lösungsmenge von 2(x − 8) = 2x + 5."
+   },
+   "a": [
+    "L = ℚ (jede Zahl)",
+    "L = { } (keine Lösung)",
+    "L = {21}",
+    "L = {0}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "2x − 16 = 2x + 5. | − 2x: −16 = 5 – falsch. L = { }.",
+   "h": "Löse die Klammer auf und bringe die x-Glieder zusammen."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bestimme die Lösungsmenge von 2(x + 5) = 2x + 10."
+   },
+   "a": [
+    "L = {0}",
+    "L = ℚ (jede Zahl)",
+    "L = { } (keine Lösung)",
+    "L = {10}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nach Auflösen und Zusammenfassen stehen links und rechts dieselben Terme. Übrig bleibt eine wahre Aussage – jede Zahl ist Lösung: L = ℚ.",
+   "h": "Fasse beide Seiten so weit wie möglich zusammen."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat 3x − 1 + 2x = 5x − 1?"
+   },
+   "a": [
+    "unendlich viele Lösungen",
+    "keine Lösung",
+    "genau eine Lösung"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Links zusammenfassen: 5x − 1. Nach | − 5x: −1 = −1 – wahr, also L = ℚ.",
+   "h": "Fasse zuerst die linke Seite zusammen."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat 3x + 7 + 4x = 7x + 7?"
+   },
+   "a": [
+    "genau eine Lösung",
+    "unendlich viele Lösungen",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Links zusammenfassen: 7x + 7. Nach | − 7x: 7 = 7 – wahr, also L = ℚ.",
+   "h": "Fasse zuerst die linke Seite zusammen."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl muss für □ stehen, damit 5(x + 4) = 5x + □ unendlich viele Lösungen hat?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "5 * (4)",
+   "w": "Links aufgelöst: 5x + 20. Rechts muss dasselbe stehen, also □ = 20. Dann gilt die Gleichung für jedes x.",
+   "h": "Löse links die Klammer auf. Was muss rechts stehen, damit beide Seiten gleich sind?"
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl muss für □ stehen, damit 3(x + 3) = 3x + □ unendlich viele Lösungen hat?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "3 * (3)",
+   "w": "Links aufgelöst: 3x + 9. Rechts muss dasselbe stehen, also □ = 9. Dann gilt die Gleichung für jedes x.",
+   "h": "Löse links die Klammer auf. Was muss rechts stehen, damit beide Seiten gleich sind?"
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Tarif A: 3 € Grundgebühr und 2 € pro Stunde. Tarif B: 7 € Grundgebühr und 2 € pro Stunde. Die Gleichung 2x + 3 = 2x + 7 führt zu 3 = 7. Was bedeutet das?"
+   },
+   "a": [
+    "Nach 4 Stunden sind sie gleich teuer.",
+    "Die Tarife sind immer gleich teuer.",
+    "Die Tarife sind nach 0 Stunden gleich teuer.",
+    "Die Tarife sind nie gleich teuer; A ist immer billiger."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "3 = 7 ist falsch, also gibt es keine Lösung. Weil der Stundenpreis gleich ist, bleibt A immer um 4 € billiger.",
+   "h": "Ist die Aussage wahr oder falsch? Was heißt das für die Tarife?"
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl muss für □ stehen, damit 2(x − 6) = 2x + □ unendlich viele Lösungen hat?"
+   },
+   "o": {
+    "wert": -12
+   },
+   "c": "2 * (-6)",
+   "w": "Links aufgelöst: 2x − 12. Rechts muss dasselbe stehen, also □ = −12. Dann gilt die Gleichung für jedes x.",
+   "h": "Löse links die Klammer auf. Was muss rechts stehen, damit beide Seiten gleich sind?"
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl muss für □ stehen, damit 2x + 2 = □ · x + 1 keine Lösung hat?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Keine Lösung gibt es, wenn x beim Umformen wegfällt und eine falsche Aussage bleibt. x fällt weg, wenn rechts auch 2x steht: □ = 2. Dann bleibt 2 = 1 – falsch.",
+   "h": "Wann fällt x beim Umformen weg?"
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bestimme die Lösungsmenge von 3(x − 3) = 3x − 8."
+   },
+   "a": [
+    "L = {1}",
+    "L = ℚ (jede Zahl)",
+    "L = { } (keine Lösung)",
+    "L = {0}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "3x − 9 = 3x − 8. | − 3x: −9 = −8 – falsch. L = { }."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bestimme die Lösungsmenge von 4(x − 8) − 3x = x − 32."
+   },
+   "a": [
+    "L = {−32}",
+    "L = { } (keine Lösung)",
+    "L = ℚ (jede Zahl)",
+    "L = {0}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nach Auflösen und Zusammenfassen stehen links und rechts dieselben Terme. Übrig bleibt eine wahre Aussage – jede Zahl ist Lösung: L = ℚ."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat 5x − 6 + 5x = 10x + 9?"
+   },
+   "a": [
+    "unendlich viele Lösungen",
+    "genau eine Lösung",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Links zusammenfassen: 10x − 6. Nach | − 10x: −6 = 9 – falsch, also L = { }."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat 4x − 6 + 4x = 8x − 6?"
+   },
+   "a": [
+    "keine Lösung",
+    "genau eine Lösung",
+    "unendlich viele Lösungen"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Links zusammenfassen: 8x − 6. Nach | − 8x: −6 = −6 – wahr, also L = ℚ."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bestimme die Lösungsmenge von 3(x + 9) = 3x − 1."
+   },
+   "a": [
+    "L = { } (keine Lösung)",
+    "L = ℚ (jede Zahl)",
+    "L = {0}",
+    "L = {−28}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "3x + 27 = 3x − 1. | − 3x: 27 = −1 – falsch. L = { }."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bestimme die Lösungsmenge von 2(x + 9) = 2x + 8."
+   },
+   "a": [
+    "L = {0}",
+    "L = { } (keine Lösung)",
+    "L = {−10}",
+    "L = ℚ (jede Zahl)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "2x + 18 = 2x + 8. | − 2x: 18 = 8 – falsch. L = { }."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bestimme die Lösungsmenge von 2(x + 6) = 2x − 8."
+   },
+   "a": [
+    "L = ℚ (jede Zahl)",
+    "L = {−20}",
+    "L = {0}",
+    "L = { } (keine Lösung)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "2x + 12 = 2x − 8. | − 2x: 12 = −8 – falsch. L = { }."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bestimme die Lösungsmenge von 2(x + 2) = 2x + 4."
+   },
+   "a": [
+    "L = { } (keine Lösung)",
+    "L = {0}",
+    "L = {4}",
+    "L = ℚ (jede Zahl)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Nach Auflösen und Zusammenfassen stehen links und rechts dieselben Terme. Übrig bleibt eine wahre Aussage – jede Zahl ist Lösung: L = ℚ."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bestimme die Lösungsmenge von 6(x + 9) − 2x = 4x + 54."
+   },
+   "a": [
+    "L = {0}",
+    "L = {54}",
+    "L = ℚ (jede Zahl)",
+    "L = { } (keine Lösung)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nach Auflösen und Zusammenfassen stehen links und rechts dieselben Terme. Übrig bleibt eine wahre Aussage – jede Zahl ist Lösung: L = ℚ."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bestimme die Lösungsmenge von 5(x − 8) = 5x + 4."
+   },
+   "a": [
+    "L = { } (keine Lösung)",
+    "L = {44}",
+    "L = ℚ (jede Zahl)",
+    "L = {0}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "5x − 40 = 5x + 4. | − 5x: −40 = 4 – falsch. L = { }."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 9 cm länger als breit. Sein Umfang beträgt 70 cm. Wie breit ist es?"
+   },
+   "o": {
+    "wert": 13,
+    "einheit": "cm"
+   },
+   "c": "(70 - 2 * 9) // 4",
+   "w": "Breite x, Länge x + 9. 2x + 2(x + 9) = 70 → 4x + 18 = 70 → 4x = 52 → x = 13 cm.",
+   "h": "Breite x. Wie drückst du die Länge mit x aus?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Mutter ist 4 Jahre älter als das 3-Fache des Alters ihres Sohnes. Zusammen sind sie 44 Jahre alt. Wie alt ist der Sohn?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "Jahre"
+   },
+   "c": "(44 - 4) // 4",
+   "w": "Sohn x, Mutter 3x + 4. x + 3x + 4 = 44 → 4x + 4 = 44 → x = 10.",
+   "h": "Alter des Sohnes = x. Drücke das Alter der Mutter mit x aus."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 7 cm länger als breit. Sein Umfang beträgt 74 cm. Wie breit ist es?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "cm"
+   },
+   "c": "(74 - 2 * 7) // 4",
+   "w": "Breite x, Länge x + 7. 2x + 2(x + 7) = 74 → 4x + 14 = 74 → 4x = 60 → x = 15 cm.",
+   "h": "Breite x. Wie drückst du die Länge mit x aus?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "2 aufeinanderfolgende natürliche Zahlen ergeben zusammen 51. Wie heißt die kleinste?"
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "(51 - 1) // 2",
+   "w": "x + (x + 1) = 51 → 2x + 1 = 51 → x = 25.",
+   "h": "Nenne die kleinste Zahl x. Wie heißen dann die nächsten?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Fitnessstudio kostet 8 € Aufnahmegebühr und 4 € pro Woche. Nach wie vielen Wochen hat man insgesamt 56 € bezahlt? Welche Gleichung passt?"
+   },
+   "a": [
+    "8x + 4 = 56",
+    "4x + 8 = 56",
+    "4(x + 8) = 56",
+    "12x = 56"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Gebühr 8 € zahlt man einmal, die 4 € jede Woche: 4x + 8 = 56. Lösung: x = 12 Wochen.",
+   "h": "Was zahlt man einmal, was jede Woche?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Drei Kinder sammeln Pfandflaschen. Das zweite sammelt 6 mehr als das erste, das dritte doppelt so viele wie das erste. Zusammen sind es 158 Flaschen. Wie viele sammelt das erste?"
+   },
+   "o": {
+    "wert": 38
+   },
+   "c": "(158 - 6) // 4",
+   "w": "x + (x + 6) + 2x = 158 → 4x + 6 = 158 → 4x = 152 → x = 38.",
+   "h": "Das erste Kind sammelt x Flaschen. Drücke die anderen mit x aus."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Lena hat 37 € und spart jede Woche 4 € dazu. Tom hat 97 € und gibt jede Woche 1 € aus. Nach wie vielen Wochen haben beide gleich viel?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "Wochen"
+   },
+   "c": "(97 - 37) // (4 + 1)",
+   "w": "4x + 37 = 97 − x | + x − 37 → 5x = 60 → x = 12 Wochen. Beide haben dann 85 €.",
+   "h": "Lena: Startbetrag plus Sparen. Tom: Startbetrag minus Ausgaben."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Lena hat 54 € und spart jede Woche 6 € dazu. Tom hat 164 € und gibt jede Woche 5 € aus. Nach wie vielen Wochen haben beide gleich viel?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "Wochen"
+   },
+   "c": "(164 - 54) // (6 + 5)",
+   "w": "6x + 54 = 164 − 5x | + 5x − 54 → 11x = 110 → x = 10 Wochen. Beide haben dann 114 €.",
+   "h": "Lena: Startbetrag plus Sparen. Tom: Startbetrag minus Ausgaben."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Drei Kinder sammeln Pfandflaschen. Das zweite sammelt 15 mehr als das erste, das dritte doppelt so viele wie das erste. Zusammen sind es 71 Flaschen. Wie viele sammelt das erste?"
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "(71 - 15) // 4",
+   "w": "x + (x + 15) + 2x = 71 → 4x + 15 = 71 → 4x = 56 → x = 14.",
+   "h": "Das erste Kind sammelt x Flaschen. Drücke die anderen mit x aus."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Lena hat 38 € und spart jede Woche 2 € dazu. Tom hat 65 € und gibt jede Woche 1 € aus. Nach wie vielen Wochen haben beide gleich viel?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "Wochen"
+   },
+   "c": "(65 - 38) // (2 + 1)",
+   "w": "2x + 38 = 65 − x | + x − 38 → 3x = 27 → x = 9 Wochen. Beide haben dann 56 €.",
+   "h": "Lena: Startbetrag plus Sparen. Tom: Startbetrag minus Ausgaben."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Lena hat 48 € und spart jede Woche 5 € dazu. Tom hat 102 € und gibt jede Woche 1 € aus. Nach wie vielen Wochen haben beide gleich viel?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "Wochen"
+   },
+   "c": "(102 - 48) // (5 + 1)",
+   "w": "5x + 48 = 102 − x | + x − 48 → 6x = 54 → x = 9 Wochen. Beide haben dann 93 €.",
+   "h": "Lena: Startbetrag plus Sparen. Tom: Startbetrag minus Ausgaben."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Lena hat 42 € und spart jede Woche 6 € dazu. Tom hat 152 € und gibt jede Woche 4 € aus. Nach wie vielen Wochen haben beide gleich viel?"
+   },
+   "o": {
+    "wert": 11,
+    "einheit": "Wochen"
+   },
+   "c": "(152 - 42) // (6 + 4)",
+   "w": "6x + 42 = 152 − 4x | + 4x − 42 → 10x = 110 → x = 11 Wochen. Beide haben dann 108 €.",
+   "h": "Lena: Startbetrag plus Sparen. Tom: Startbetrag minus Ausgaben."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Jemand gibt die Hälfte des Geldes für ein Spiel aus und dann noch 17 € für Essen. Übrig bleiben 12 €. Wie viel Geld war es am Anfang?"
+   },
+   "o": {
+    "wert": 58,
+    "einheit": "€"
+   },
+   "c": "(12 + 17) * 2",
+   "w": "x − x/2 − 17 = 12 → x/2 − 17 = 12 → x/2 = 29 → x = 58 €.",
+   "h": "Startbetrag x. Was wird abgezogen?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "„Zwei aufeinanderfolgende natürliche Zahlen ergeben zusammen 110.“ Die Gleichung x + (x + 1) = 110 liefert x = 54,5. Was folgt daraus?"
+   },
+   "a": [
+    "Die Zahlen sind 54 und 55.",
+    "Es gibt keine solchen Zahlen, weil x keine natürliche Zahl ist.",
+    "Die Zahlen sind 54,5 und 55,5.",
+    "Man hat sich verrechnet."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Rechnung stimmt (54,5 + 55,5 = 110), aber 54,5 ist keine natürliche Zahl. Zwei aufeinanderfolgende natürliche Zahlen ergeben immer eine ungerade Summe – 110 ist gerade.",
+   "h": "Passt die Lösung zur Frage? Welche Zahlen sind erlaubt?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Tarif A: 23 € und 4 € pro Stunde. Tarif B: 8 € und 5 € pro Stunde. Die Gleichung ergibt x = 15. Welcher Tarif ist bei 18 Stunden günstiger?"
+   },
+   "a": [
+    "Tarif A",
+    "Tarif B",
+    "Beide gleich teuer"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bei 15 Stunden sind beide gleich teuer. Danach wächst B schneller (5 € statt 4 € pro Stunde). Bei 18 h: A 95 €, B 98 €.",
+   "h": "Was passiert nach dem Schnittpunkt? Welcher Tarif hat den höheren Stundenpreis?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "„Zwei aufeinanderfolgende natürliche Zahlen ergeben zusammen 66.“ Die Gleichung x + (x + 1) = 66 liefert x = 32,5. Was folgt daraus?"
+   },
+   "a": [
+    "Es gibt keine solchen Zahlen, weil x keine natürliche Zahl ist.",
+    "Die Zahlen sind 32,5 und 33,5.",
+    "Man hat sich verrechnet.",
+    "Die Zahlen sind 32 und 33."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Rechnung stimmt (32,5 + 33,5 = 66), aber 32,5 ist keine natürliche Zahl. Zwei aufeinanderfolgende natürliche Zahlen ergeben immer eine ungerade Summe – 66 ist gerade.",
+   "h": "Passt die Lösung zur Frage? Welche Zahlen sind erlaubt?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Tarif A: 28 € und 2 € pro Stunde. Tarif B: 0 € und 4 € pro Stunde. Die Gleichung ergibt x = 14. Welcher Tarif ist bei 17 Stunden günstiger?"
+   },
+   "a": [
+    "Beide gleich teuer",
+    "Tarif A",
+    "Tarif B"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Bei 14 Stunden sind beide gleich teuer. Danach wächst B schneller (4 € statt 2 € pro Stunde). Bei 17 h: A 62 €, B 68 €.",
+   "h": "Was passiert nach dem Schnittpunkt? Welcher Tarif hat den höheren Stundenpreis?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Drei Kinder sammeln Pfandflaschen. Das zweite sammelt 15 mehr als das erste, das dritte doppelt so viele wie das erste. Zusammen sind es 67 Flaschen. Wie viele sammelt das erste?"
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "(67 - 15) // 4",
+   "w": "x + (x + 15) + 2x = 67 → 4x + 15 = 67 → 4x = 52 → x = 13."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Lena hat 26 € und spart jede Woche 2 € dazu. Tom hat 70 € und gibt jede Woche 2 € aus. Nach wie vielen Wochen haben beide gleich viel?"
+   },
+   "o": {
+    "wert": 11,
+    "einheit": "Wochen"
+   },
+   "c": "(70 - 26) // (2 + 2)",
+   "w": "2x + 26 = 70 − 2x | + 2x − 26 → 4x = 44 → x = 11 Wochen. Beide haben dann 48 €."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Lena hat 33 € und spart jede Woche 5 € dazu. Tom hat 133 € und gibt jede Woche 5 € aus. Nach wie vielen Wochen haben beide gleich viel?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "Wochen"
+   },
+   "c": "(133 - 33) // (5 + 5)",
+   "w": "5x + 33 = 133 − 5x | + 5x − 33 → 10x = 100 → x = 10 Wochen. Beide haben dann 83 €."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Drei Kinder sammeln Pfandflaschen. Das zweite sammelt 8 mehr als das erste, das dritte doppelt so viele wie das erste. Zusammen sind es 140 Flaschen. Wie viele sammelt das erste?"
+   },
+   "o": {
+    "wert": 33
+   },
+   "c": "(140 - 8) // 4",
+   "w": "x + (x + 8) + 2x = 140 → 4x + 8 = 140 → 4x = 132 → x = 33."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Lena hat 30 € und spart jede Woche 4 € dazu. Tom hat 102 € und gibt jede Woche 2 € aus. Nach wie vielen Wochen haben beide gleich viel?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "Wochen"
+   },
+   "c": "(102 - 30) // (4 + 2)",
+   "w": "4x + 30 = 102 − 2x | + 2x − 30 → 6x = 72 → x = 12 Wochen. Beide haben dann 78 €."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Lena hat 53 € und spart jede Woche 5 € dazu. Tom hat 81 € und gibt jede Woche 2 € aus. Nach wie vielen Wochen haben beide gleich viel?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "Wochen"
+   },
+   "c": "(81 - 53) // (5 + 2)",
+   "w": "5x + 53 = 81 − 2x | + 2x − 53 → 7x = 28 → x = 4 Wochen. Beide haben dann 73 €."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Lena hat 33 € und spart jede Woche 3 € dazu. Tom hat 87 € und gibt jede Woche 3 € aus. Nach wie vielen Wochen haben beide gleich viel?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "Wochen"
+   },
+   "c": "(87 - 33) // (3 + 3)",
+   "w": "3x + 33 = 87 − 3x | + 3x − 33 → 6x = 54 → x = 9 Wochen. Beide haben dann 60 €."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Drei Kinder sammeln Pfandflaschen. Das zweite sammelt 7 mehr als das erste, das dritte doppelt so viele wie das erste. Zusammen sind es 47 Flaschen. Wie viele sammelt das erste?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "(47 - 7) // 4",
+   "w": "x + (x + 7) + 2x = 47 → 4x + 7 = 47 → 4x = 40 → x = 10."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Lena hat 15 € und spart jede Woche 6 € dazu. Tom hat 95 € und gibt jede Woche 2 € aus. Nach wie vielen Wochen haben beide gleich viel?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "Wochen"
+   },
+   "c": "(95 - 15) // (6 + 2)",
+   "w": "6x + 15 = 95 − 2x | + 2x − 15 → 8x = 80 → x = 10 Wochen. Beide haben dann 75 €."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Lena hat 47 € und spart jede Woche 4 € dazu. Tom hat 95 € und gibt jede Woche 4 € aus. Nach wie vielen Wochen haben beide gleich viel?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "Wochen"
+   },
+   "c": "(95 - 47) // (4 + 4)",
+   "w": "4x + 47 = 95 − 4x | + 4x − 47 → 8x = 48 → x = 6 Wochen. Beide haben dann 71 €."
+  }
+ ],
+ "offen": [
+  "Lehrplanbezug: lehrplan_gym ist leer; umgesetzt nach „umfang“. Grundmenge ℚ (Klasse 7); Brüche als Lösung über Lücken □/□.",
+  "Bruchgleichungen (x im Nenner) und Ungleichungen gehören zu gleichungen.bruch bzw. gleichungen.ungleichungen (Kl. 8) und sind weggelassen."
+ ]
+}

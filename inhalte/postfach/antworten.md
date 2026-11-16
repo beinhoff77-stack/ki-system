@@ -68,3 +68,19 @@ Noch nicht umgesetzt: Matrix-Darstellung, Intervall auf dem Zahlenstrahl, Körpe
 - Neue Lernkarte: erst Erklärung, dann Aufgaben (0.73.5). Karten, die schon sitzen, bleiben unverändert.
 - Migration: supabase/migrations/20261116_w150_sitzt_regel_6_mit_schwer.sql (eingespielt).
 - Zehnte Runde (Durchsicht je Jahrgang + schwerere Aufgaben nach Prüfungsvorbild) steht in inhalte/AUFTRAEGE.md; Zweige schwer-kl5 … schwer-kl10.
+
+## 16.11. – Gesamtauftrag Umbau, Phase 1 fertig (App 0.74.0, Zweig lernen-app, nicht live)
+Grundlage: inhalte/pruefung/UMBAU-AUFTRAG.md (Zweig pruefung-kinderansicht).
+- Erklärungen A2, A5–A9, A12 und Rückmeldung R1: waren schon umgesetzt (0.73.0–0.73.3, siehe Meldungen oben). Unverändert.
+- Kinderansicht K1:
+  - U1 Band bis zum Stempel zählt alle Etappen aller Flüge des Ortes („Noch 29 Etappen bis zum Stempel von Rom (5 Flüge)“); ab 15 Etappen als Balken.
+  - U2 Mein Weg und Merkheft zeigen den Flugnamen statt des Ortsnamens; „Etappe 4 von 8“.
+  - U3 „Kommt noch“ wie die Abflugtafel: eigene Klasse / „Aus früheren Klassen – zum Auffrischen“ / „Später – für höhere Klassen“; Orte ohne Klasse nur unter „Später“.
+  - U4 Menü markiert im Reisepass „Reisepass“.
+  - U5 Flug-Kopf zeigt nur die eigene Schulart („ROM · Gymnasium · Klasse 5“); Eltern/Lehrer sehen weiter alle drei.
+  - U8 Rückreise-Karte auf der Abflugtafel („KURZ ZURÜCK NACH …“, Grund, „Danach geht es weiter mit …“); bei Stoff aus früheren Klassen im Plan ein kurzer Hinweis.
+  - Reisewörter in allen Kindertexten (beide Gestaltungen): Flug, Etappe, Bordkarte, Kontinent/Ort. Eltern-/Lehrer-Ansichten und Code behalten die bisherigen Namen.
+- Zusätzlich seit der letzten Prüfung (Entscheidungen Sebastian 16.11.): neue Etappe zeigt zuerst die Erklärung (0.73.5); „sitzt“ erst nach 6 Punkten und einer schweren Bordkarte (0.73.6).
+- Nachgestellt: rundgang.test.cjs läuft durch (5 von 5); in den Kindertexten kein „Lernkarte“, „Aufgabe“, „Thema“, „Gebiet“ mehr (ein Treffer ist Inhalt: „Maßstab auf Karten und Plänen“).
+- D1 (Klassen-Zuordnung): Auftrag steht als „Elfte Runde“ in inhalte/AUFTRAEGE.md, Zweig daten-klassen. Noch nicht gestartet.
+- Phase 2 (K2 Mein Weg, A1/A3/A4 und R2 sind bereits umgesetzt) folgt nach der Nachprüfung.

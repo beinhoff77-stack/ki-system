@@ -195,7 +195,7 @@ test('Lernreise: Heute dran auf der echten Karte, Weltkarte und Reisepass', asyn
   assert.match(await start.getAttribute('href'), /#\/lerneinheit\/1-1-ueben$/);
   assert.equal(await page.locator('.notification-bell').isVisible(), false);
   await page.getByText('MEIN STAND · GYMNASIUM KLASSE 5').waitFor();
-  await page.getByText('1 von 14 Themen').waitFor();
+  await page.getByText('1 von 14 Flügen').waitFor();
   assert.equal(await page.locator('.lr.lr-ozean.lr-entdecker').count(), 1);
   assert.equal(await page.locator('#areas').isVisible(), false);
   await page.getByText('Du bist in Rom').waitFor();
@@ -227,7 +227,7 @@ test('Lernreise: Kind B (Studio, Nacht) – Rom geschafft als Stempel, Zinsen je
   await page.getByRole('heading', { name: 'Einfache Zinsen', exact: true }).waitFor();
   assert.equal(await page.locator('.lr.lr-nacht.lr-studio').count(), 1);
   await page.screenshot({ path: path.join(root, 'test-results/lernreise-leo-390.png'), fullPage: true });
-  await page.getByText('1 von 2 Lernkarten sitzen').waitFor();
+  await page.getByText('1 von 2 Etappen sitzen').waitFor();
   await page.getByRole('link', { name: 'Mein Weg' }).click();
   await page.locator('.lr-wegzeile', { hasText: 'Natürliche und ganze Zahlen' }).waitFor();
   await page.screenshot({ path: path.join(root, 'test-results/lernreise-leo-weg-390.png'), fullPage: true });
@@ -257,7 +257,7 @@ test('Lernen: Thema – Erklären | Üben | Typische Fehler, Punkte bis „sitzt
   await sichtbar.locator('.lr-stellentafel').first().waitFor();
   await sichtbar.locator('mark', { hasText: '10-mal' }).first().waitFor();
   await page.screenshot({ path: path.join(root, 'test-results/lernen-erklaeren-390.png'), fullPage: true });
-  await sichtbar.getByRole('button', { name: /Nächste Karte: Zahlenstrahl/ }).click();
+  await sichtbar.getByRole('button', { name: /Nächste Etappe: Zahlenstrahl/ }).click();
   await sichtbar.getByText('100 : 10 = 10').waitFor();
   await page.goBack(); await sichtbar.locator('.lr-stellentafel').first().waitFor(); // Zurück-Taste: vorige Karte
   await sichtbar.getByRole('button', { name: '‹ Übersicht' }).click();
@@ -278,13 +278,13 @@ test('Lernen: Thema – Erklären | Üben | Typische Fehler, Punkte bis „sitzt
   await sichtbar.locator('.lr-stellentafel').first().waitFor();
   await page.getByRole('tab', { name: 'Üben' }).click();
   await page.getByText('Richtig!').waitFor();
-  await page.getByRole('button', { name: 'Nächste Aufgabe' }).click();
+  await page.getByRole('button', { name: 'Nächste Bordkarte' }).click();
   await page.getByRole('textbox', { name: 'Antwort' }).fill('2000');
   await page.getByRole('button', { name: 'Prüfen' }).click();
-  await page.getByText('LERNKARTE SITZT').waitFor();
+  await page.getByText('ETAPPE SITZT').waitFor();
   await page.getByText('+10 Sterne').waitFor();
   await page.getByText('1 von 3 sitzen').waitFor();
-  await page.getByRole('button', { name: 'Nächste Karte: Zahlenstrahl' }).click();
+  await page.getByRole('button', { name: 'Nächste Etappe: Zahlenstrahl' }).click();
   // Neue Lernkarte: erst die Erklärung, dann die Aufgaben
   await page.getByRole('button', { name: 'Jetzt du ›' }).click();
   await page.getByRole('button', { name: 'Markierung 3' }).click();
@@ -304,12 +304,12 @@ test('Lernen: Thema – Erklären | Üben | Typische Fehler, Punkte bis „sitzt
   await page.screenshot({ path: path.join(root, 'test-results/lernen-fehler-390.png'), fullPage: true });
   await page.getByRole('tab', { name: 'Üben' }).click();
   await page.getByText('Richtig ist: 20 000').waitFor();
-  await page.getByRole('button', { name: 'Nächste Aufgabe' }).click();
+  await page.getByRole('button', { name: 'Nächste Bordkarte' }).click();
   await page.getByRole('button', { name: 'Markierung 4' }).click();
   await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('Richtig!').waitFor();
   await page.goto(origin + '/#/lerneinheit/1-1-3');
-  await page.getByRole('button', { name: 'Erklärung ansehen' }).waitFor(); // neue Karte direkt geöffnet: nur die Aufgabe, Link zur Erklärung darüber
+  await page.getByRole('button', { name: 'Erklärung ansehen' }).waitFor(); // neue Karte direkt geöffnet: nur die Bordkarte, Link zur Erklärung darüber
   assert.equal(await page.locator('.lr-panel:not([hidden]) .lr-nochmal').isVisible(), false);
   const term = page.getByRole('textbox', { name: 'Dein Term' });
   await term.fill('x²+x+x+1');
@@ -324,14 +324,14 @@ test('Lernen: Thema – Erklären | Üben | Typische Fehler, Punkte bis „sitzt
   await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('Richtig!').waitFor();
   // Allgemeine Lücken: Bruch als Zähler/Nenner, Zahlenpaar als zwei Felder.
-  await page.getByRole('button', { name: 'Nächste Aufgabe' }).click();
+  await page.getByRole('button', { name: 'Nächste Bordkarte' }).click();
   await page.getByRole('textbox', { name: 'Zähler' }).fill('3');
   await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('Bitte fülle alle Felder aus.').waitFor();
   await page.getByRole('textbox', { name: 'Nenner' }).fill('4');
   await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('Richtig!').waitFor();
-  await page.getByRole('button', { name: 'Nächste Aufgabe' }).click();
+  await page.getByRole('button', { name: 'Nächste Bordkarte' }).click();
   await page.getByRole('textbox', { name: 'Lücke 1' }).fill('2');
   await page.getByRole('textbox', { name: 'Lücke 2' }).fill('1');
   await page.screenshot({ path: path.join(root, 'test-results/lernen-luecken-390.png'), fullPage: true });

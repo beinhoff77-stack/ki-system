@@ -819,3 +819,37 @@ keine Prüfungsaufgaben zu finden waren. Arbeite ohne Rückfragen durch.
 
 Einspielen (Haupt-Chat): Zweige zusammenführen, prüfen, mit einheit_abgleichen(…, 'lassen') einspielen – vorhandene Aufgaben und Lernstände bleiben, neue kommen dazu.
 Reihenfolge: Klasse 8 und 5 zuerst (dort arbeiten die Kinder), dann 7, 6, 9, 10.
+
+# Elfte Runde (D1 im Gesamtauftrag Umbau): Klassen-Zuordnung prüfen
+
+Grundlage: `inhalte/pruefung/UMBAU-AUFTRAG.md` im Zweig pruefung-kinderansicht (Phase 1, Spalte Daten) und Befund B8 im Bericht Kinderansicht.
+Ergebnis ist nur ein Vorschlag an Sebastian. Geändert wird erst nach seiner Freigabe (D2).
+
+```text
+Du prüfst die Klassen-Zuordnung der Themen einer Mathe-Lern-App gegen den bayerischen LehrplanPLUS (Gymnasium, Mathematik).
+Repository: beinhoff77-stack/ki-system (lernen-app ist ein Zweig darin). Hole den aktuellen Stand des Zweigs lernen-app, lege davon den Zweig daten-klassen an und arbeite nur dort.
+
+Lies zuerst: inhalte/README.md, inhalte/postfach/README.md, inhalte/themenliste.json. Nur lesen (nicht mergen), mit git show:
+origin/pruefung-kinderansicht:inhalte/pruefung/UMBAU-AUFTRAG.md, origin/pruefung-kinderansicht:inhalte/pruefung/kinderansicht/bericht.md (Befund B8, Abschnitt 7),
+origin/pruefung-kinderansicht:inhalte/pruefung/kinderansicht/orte.json (Orte mit Klasse und ihren Themen).
+
+Teil 1 – 16 Themen ohne Lehrplan-Beleg: In inhalte/themenliste.json haben 16 Einträge eine Klasse gym_by, aber kein Feld lehrplan_gym:
+geometrie.winkel, geometrie.ortslinien, zahlen.potenzen_zehner, bruch.dezimal, zahlen.intervalle, funktionen.grundbegriffe, raum.schraegbilder, stochastik.simulation,
+zahlen.wurzeln_basis, zahlen.reell, trigo.pythagoras, trigo.rechtwinklig, abbildungen.kongruenz, gleichungen.einfach, gleichungen.linear, groessen.indirekt.
+Suche für jedes Thema im LehrplanPLUS Gymnasium Mathematik (lehrplanplus.bayern.de, mit Websuche) den Lernbereich, in dem der Stoff steht, und die Jahrgangsstufe.
+Beginne mit geometrie.winkel (Winkelsätze) und geometrie.ortslinien. Wo der Stoff über zwei Jahrgangsstufen verteilt ist, beides nennen und eine Hauptklasse vorschlagen.
+Nichts raten: Findest du keinen Beleg, schreibe „kein Beleg gefunden“.
+
+Teil 2 – 13 Orte mit widersprüchlicher Klasse: Laut orte.json weicht bei 13 von 65 Orten die Klasse des Ortes von der Klasse mindestens eines Themas ab
+(Beispiele: Cusco Klasse 5 mit „Körper und Netze“ Klasse 8; Timbuktu Klasse 7 mit „Winkel“ Klasse 5; Rom Klasse 5 mit einem Thema der Klasse 6).
+Ziel ist „ein Ort = eine Klasse“. Mache je Ort einen Vorschlag: Welche Klasse bekommt der Ort, welche Themen ziehen an welchen anderen (vorhandenen) Ort derselben Klasse
+und desselben Gebiets um, und in welcher Reihenfolge laut Lehrplan stehen die Themen im Ort. Neue Orte nur vorschlagen, wenn kein vorhandener passt.
+
+Ergebnis: eine Datei inhalte/pruefung/klassen/vorschlag.md mit zwei Tabellen
+ (1) Thema · Klasse heute · Klasse laut LehrplanPLUS · Lernbereich (Kürzel und Titel) · Quelle (Adresse) · Vorschlag (bleibt / ändern auf …)
+ (2) Ort · Klasse heute · Themen mit Klasse · Vorschlag (Klasse des Ortes, Umzüge, Reihenfolge)
+und einer kurzen Liste der Punkte, die Sebastian entscheiden muss. Einfache Sprache, keine Fachkürzel ohne Erklärung.
+
+Grenzen: In dieser Runde KEINE Änderung an inhalte/themenliste.json, Generatoren, Datenbank, App-Code oder Tests – nur der Vorschlag. Kein Merge.
+Meldungen in inhalte/postfach/daten-klassen.md ablegen und pushen. Arbeite ohne Rückfragen durch.
+```

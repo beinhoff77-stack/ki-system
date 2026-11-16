@@ -3680,6 +3680,12 @@ body[data-kindmodus] .lern-abmelden, body[data-kindmodus] .app-version { display
 .lr-band i.dran { border-color: var(--lr-text); box-shadow: 0 0 0 4px var(--lr-akzent); }
 .lr-band span { font-size: 22px; line-height: 1; margin-right: 10px; }
 .lr-band small { color: var(--lr-leise); font-size: 15px; }
+/* K1/U1: Band für Orte mit vielen Etappen (mehrere Flüge) – Balken statt Punkte */
+.lr-band-lang .lr-balken { flex: 1 1 140px; min-width: 120px; margin-right: 10px; }
+/* K1/U8: Rückreise erklären */
+.lr-rueckreise { border-left: 4px solid var(--lr-akzent); }
+.lr-rueckreise p { margin: 4px 0; }
+.lr-rueckreise-hinweis { margin: 0 4px 8px; }
 .lr-tafelchips { display: flex; flex-wrap: wrap; gap: 8px; }
 .lr-tafelchips > * { font-family: var(--lr-mono); font-size: 14px; color: var(--lr-text); border: 1px solid var(--lr-linie); border-radius: 999px; padding: 0 14px; min-height: 44px; display: inline-flex; align-items: center; text-decoration: none; background: var(--lr-flaeche); }
 .lr-dock { position: sticky; bottom: 0; margin-top: auto; padding: 10px 0 calc(10px + env(safe-area-inset-bottom)); background: linear-gradient(transparent, var(--lr-bg) 14px); z-index: 4; }

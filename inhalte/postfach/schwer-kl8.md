@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 10:35 – STATUS
+stochastik.simulation fertig: 36 neue Übungen. Prüfskript OK, Unverändert-Nachweis JA. Echte Prüfungsaufgaben zur Simulation nicht gefunden – Vorbilder übertragen (siehe Abschlussbericht).
+
 ## 2026-11-16 10:05 – STATUS
 stochastik.grundbegriffe fertig: 36 neue Übungen. Prüfskript OK, Unverändert-Nachweis JA.
 

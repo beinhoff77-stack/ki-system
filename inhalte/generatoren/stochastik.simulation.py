@@ -357,6 +357,139 @@ UMBAU_OFFEN = ['Umbau 16.11.: Karte zufallsgeraet zeigt die Urne behelfsweise al
 baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
 
 
+# ---- SCHWER (Zehnte Runde: schwerere Aufgaben nach Prüfungsvorbild, siehe _schwer_kl8.py) ----
+# Vorbilder (Typ und Niveau, nicht Wortlaut/Zahlen): Echte bayerische Prüfungsaufgaben zur Simulation wurden nicht gefunden. Übertragen wurden:
+# Materialaufgaben NRW (QUA-LiS, „Aufgabe zur Simulation“: Blatt einer Tabellenkalkulation mit Zufallszahlen deuten), BMT8 2022/2025 (Tabellenkalkulations-Formeln),
+# VERA-8 2026 (Glücksrad: Prognose vs. Auswertung, „Würfelgedächtnis“; See-Fläche aus Karte schätzen), Kreisberechnung Kl. 8 (Monte-Carlo mit Kreis).
+from _schwer_kl8 import Neu, mit_schwer  # noqa: E402
+
+SW = Neu(10_8_14)
+
+
+def _zif(s):
+    return [int(c) for c in s if c.isdigit()]
+
+
+def _gruppen(s):
+    return [[int(c) for c in g] for g in s.split()]
+
+
+# zufallsgeraet
+SW.a('zufallsgeraet', 2, 'Ein Ereignis tritt mit der Wahrscheinlichkeit 3/8 ein. Welches Zufallsgerät simuliert das richtig?', 'Ein Glücksrad mit 8 gleichen Feldern, 3 davon Treffer',
+     ['Ein Würfel (1 bis 3 = Treffer)', 'Eine Münze (Wappen = Treffer)', 'Eine Zufallsziffer (0 bis 2 = Treffer)'],
+     '3 von 8 gleich großen Feldern: p = 3/8. Der Würfel gibt 3/6 = 1/2, die Münze 1/2, die Ziffern 0–2 geben 3/10.', 'Welches Gerät hat genau 8 gleich wahrscheinliche Ausgänge?')
+SW.a('zufallsgeraet', 2, 'Mit einem Würfel soll ein Ereignis mit p = 1/2 simuliert werden. Welche Regel passt?', 'gerade Augenzahl = Treffer', ['Sechs = Treffer', 'Augenzahl 1 oder 2 = Treffer',
+     'Augenzahl größer als 4 = Treffer'], 'Gerade Zahlen: 2, 4, 6 – drei von sechs, also 1/2. „Größer als 4“ wären nur 5 und 6 (1/3).', 'Wie viele der sechs Zahlen brauchst du als Treffer?')
+SW.a('zufallsgeraet', 3, 'In einer Tabellenkalkulation liefert =ZUFALLSBEREICH(1;6) eine zufällige ganze Zahl von 1 bis 6. Welche Formel simuliert einen Münzwurf (1 = Wappen, 2 = Zahl)?', '=ZUFALLSBEREICH(1;2)',
+     ['=ZUFALLSBEREICH(1;6)/2', '=ZUFALLSBEREICH(2;2)', '=ZUFALLSBEREICH(1;3)'],
+     'ZUFALLSBEREICH(1;2) liefert 1 oder 2, jeweils mit p = 1/2. Geteilt durch 2 ergäben sich auch Kommazahlen, (2;2) liefert immer 2, (1;3) drei Ausgänge.', 'Welche Formel hat genau zwei gleich wahrscheinliche Ergebnisse?', art='P')
+SW.a('zufallsgeraet', 3, '=ZUFALLSBEREICH(1;10) liefert ganze Zahlen von 1 bis 10. Ein Treffer soll die Wahrscheinlichkeit 0,3 haben. Welche Bedingung passt?', 'Zahl ≤ 3', ['Zahl ≥ 3', 'Zahl < 3', 'Zahl = 3'],
+     '≤ 3 sind 1, 2, 3 – drei von zehn: 0,3. „≥ 3“ wären 8 Zahlen, „< 3“ nur 2, „= 3“ nur 1.', 'Wie viele der zehn Zahlen müssen Treffer sein?', art='P')
+SW.a('zufallsgeraet', 3, 'Eine Tennisspielerin gewinnt einen Punkt mit p = 0,55. Womit lässt sich das am einfachsten simulieren?', 'mit Zufallszahlen 00 bis 99, dabei 00 bis 54 = Treffer',
+     ['mit einem Würfel, 1 bis 3 = Treffer', 'mit einer Münze, Wappen = Treffer', 'mit Zufallsziffern 0 bis 9, dabei 0 bis 5 = Treffer'],
+     '0,55 = 55/100: Man braucht 100 gleich wahrscheinliche Ausgänge, davon 55 Treffer (00 bis 54). Würfel und Münze geben 0,5, Ziffern 0–5 geben 0,6.', 'Schreibe 0,55 als Bruch mit Nenner 100.', art='K')
+SW.a('zufallsgeraet', 3, 'Kann man mit einer fairen Münze ein Ereignis mit p = 1/4 simulieren?', 'Ja: zweimal werfen, Treffer nur bei „zweimal Wappen“.', ['Nein, eine Münze hat nur p = 1/2.',
+     'Ja: viermal werfen, Treffer bei einmal Wappen.', 'Nein, dafür braucht man ein Glücksrad.'],
+     'Zwei Würfe haben 4 gleich wahrscheinliche Ergebnisse (WW, WZ, ZW, ZZ). Nur WW ist Treffer: 1/4.', 'Wie viele gleich wahrscheinliche Ergebnisse haben zwei Münzwürfe?', art='K')
+
+# regel
+SW.a('regel', 2, 'Mit Zufallsziffern 0 bis 9 soll p = 0,7 simuliert werden. Welche Regel ist richtig?', 'Ziffern 0 bis 6 = Treffer', ['Ziffern 0 bis 7 = Treffer', 'Ziffern 1 bis 6 = Treffer',
+     'Ziffer 7 = Treffer'], '0 bis 6 sind 7 Ziffern von 10: p = 0,7. „0 bis 7“ wären 8 Ziffern.', 'Zähle die Ziffern – die 0 zählt mit.')
+SW.z('regel', 2, 'Mit zweistelligen Zufallszahlen 00 bis 99 soll p = 0,08 simuliert werden. Wie viele der 100 Zahlen müssen Treffer sein?', 8, '0.08 * 100', '0,08 = 8/100: 8 Zahlen, z. B. 00 bis 07.',
+     'Schreibe p als Bruch mit Nenner 100.')
+SW.a('regel', 3, 'Mit dreistelligen Zufallszahlen 000 bis 999 soll p = 0,125 simuliert werden. Welche Regel ist richtig?', '000 bis 124 = Treffer', ['000 bis 125 = Treffer', '001 bis 125 = Treffer',
+     '000 bis 12 = Treffer'], '0,125 = 125/1000. 000 bis 124 sind genau 125 Zahlen. 000 bis 125 wären 126.', 'Wie viele dreistellige Zahlen gibt es, und wie viele brauchst du?', art='P')
+SW.a('regel', 3, 'Ein Spieler trifft mit p = 0,6 und wirft dreimal. Wie stellt man einen Durchgang mit Zufallsziffern dar?', '3 Ziffern, jede Ziffer 0 bis 5 = Treffer',
+     ['1 Ziffer, 0 bis 5 = drei Treffer', '3 Ziffern, jede Ziffer 0 bis 6 = Treffer', '6 Ziffern, jede Ziffer 0 bis 2 = Treffer'],
+     'Jeder Wurf braucht eine eigene Ziffer. 0 bis 5 sind 6 von 10 Ziffern: p = 0,6. Drei Würfe – drei Ziffern.', 'Wie viele Ziffern braucht ein Durchgang?', art='P')
+SW.a('regel', 3, 'Kann man p = 0,35 mit Münzwürfen simulieren?', 'Nein: Mit Münzen erhält man nur Wahrscheinlichkeiten wie 1/2, 1/4, 3/8 …', ['Ja: 35 Münzen werfen.',
+     'Ja: zwei Münzen, Treffer bei mindestens einem Wappen.', 'Ja: drei Münzen, Treffer bei genau einem Wappen.'],
+     'Bei n Münzwürfen gibt es 2ⁿ gleich wahrscheinliche Ergebnisse – Nenner 2, 4, 8, 16, … 0,35 = 7/20 hat den Nenner 20, das passt nie. (Zwei Münzen, mind. ein Wappen: 3/4; drei Münzen, genau ein Wappen: 3/8.)',
+     'Welche Nenner entstehen bei Münzwürfen?', art='K')
+SW.a('regel', 3, 'Mit Zufallsziffern soll p = 3/7 simuliert werden. Welche Regel passt?', 'Nur Ziffern 0 bis 6 verwenden (7, 8, 9 überspringen); 0 bis 2 = Treffer',
+     ['Ziffern 0 bis 2 = Treffer, alle anderen kein Treffer', 'Ziffern 0 bis 6 = Treffer', 'Ziffern 3 bis 7 = Treffer'],
+     'Man braucht 7 gleich wahrscheinliche Ausgänge: die Ziffern 0 bis 6. Davon 3 als Treffer. Ohne Überspringen wäre p = 3/10.', 'Wie bekommt man genau 7 gleich wahrscheinliche Ziffern?', art='K')
+
+# zufallsziffern
+_f1 = '4719 0382 6650 1197 2843'
+_n1 = sum(1 for z in _zif(_f1) if z <= 5)
+SW.z('zufallsziffern', 2, f'Regel: Die Ziffern 0 bis 5 sind Treffer (p = 0,6). Zähle die Treffer in den 20 Zufallsziffern {_f1}.', _n1, str(_n1),
+     f'Treffer sind alle Ziffern 0 bis 5. Durchzählen ergibt {_n1} Treffer, also {_n1} von 20.', 'Gehe die Ziffern einzeln durch und mach eine Strichliste.')
+_f2 = '5208 9134 7726 0381 6495'
+_n2 = sum(1 for z in _zif(_f2) if z <= 2)
+SW.z('zufallsziffern', 2, f'Regel: Die Ziffern 0 bis 2 sind Treffer. Zufallsziffern (20 Stück): {_f2}. Gib die relative Häufigkeit der Treffer als Dezimalzahl an.', Fr(_n2, 20),
+     f'{_n2} / 20', f'Treffer (0, 1, 2): {_n2}. Relative Häufigkeit {_n2} : 20 = {zt(Fr(_n2, 20))}.', 'Zählen, dann durch 20 teilen.')
+_g3 = '307 581 924 116 853 470 692 238'
+_n3 = sum(1 for g in _gruppen(_g3) if sum(1 for z in g if z <= 4) >= 2)
+SW.z('zufallsziffern', 3, f'Simulation „mindestens zwei Treffer bei drei Versuchen“: Jede 3er-Gruppe ist ein Durchgang, die Ziffern 0 bis 4 sind Treffer. In wie vielen Durchgängen gab es mindestens zwei Treffer? Gruppen: {_g3}',
+     _n3, str(_n3), 'Zähle in jeder Gruppe die Ziffern 0 bis 4: 307 (2), 581 (1), 924 (2), 116 (2), 853 (1), 470 (2), 692 (1), 238 (2). Mindestens zwei: ' + str(_n3) + ' Durchgänge.',
+     'Zähle Gruppe für Gruppe die Treffer.', art='P')
+_g4 = '5183 7094 8812 3601'
+_n4 = sum(1 for g in _gruppen(_g4) if sum(1 for z in g if z <= 6) >= 3)
+SW.z('zufallsziffern', 3, f'Eine Fußballerin trifft mit p = 0,7 (Ziffern 0 bis 6 = Treffer). Ein Durchgang sind 4 Schüsse (4 Ziffern). In wie vielen Durchgängen trifft sie mindestens 3-mal? Durchgänge: {_g4}',
+     _n4, str(_n4), '5183: 3 Treffer. 7094: 2 (7 und 9 nicht). 8812: 2. 3601: 4. Mindestens 3 Treffer: ' + str(_n4) + ' Durchgänge.', 'Nicht-Treffer sind nur 7, 8 und 9.', art='P')
+_f5 = '3 8 5 0 6 2 9 1 6 4'
+_gueltig = [z for z in _zif(_f5) if 1 <= z <= 6]
+_n5 = _gueltig.index(6) + 1
+SW.z('zufallsziffern', 3, f'„Warten auf die erste Sechs“: Ziffern 1 bis 6 sind Würfe, 0, 7, 8, 9 werden übersprungen. Ziffernfolge: {_f5}. Beim wievielten gültigen Wurf kommt die erste Sechs?', _n5, str(_n5),
+     'Gültig: 3, (8 weg), 5, (0 weg), 6. Die Sechs ist der ' + str(_n5) + '. gültige Wurf.', 'Streiche zuerst alle Ziffern, die keine Würfelzahl sind.', art='K')
+_p6 = '37 82 15 64 90 28 73 46'
+_n6 = sum(1 for g in _gruppen(_p6) if all(z % 2 == 0 for z in g))
+SW.z('zufallsziffern', 3, f'Familien mit zwei Kindern werden simuliert: gerade Ziffer (auch 0) = Mädchen, ungerade = Junge. Paare: {_p6}. In wie vielen Familien sind beide Kinder Mädchen?', _n6, str(_n6),
+     'Beide Ziffern gerade: 82, 64, 28, 46. Bei 90 ist die 9 ungerade. Also ' + str(_n6) + ' Familien.', 'Prüfe in jedem Paar beide Ziffern.', art='K')
+
+# auswerten
+SW.z('auswerten', 2, 'Eine Simulation mit 300 Durchgängen ergab 84 Treffer. Gib den Schätzwert für die Wahrscheinlichkeit in Prozent an.', 28, '84 / 300 * 100', '84 : 300 = 0,28 = 28 %.',
+     'Treffer durch Durchgänge.', einheit='%')
+SW.z('auswerten', 2, 'Eine Simulation liefert für ein Ereignis den Schätzwert 0,32. Wie oft erwartest du es bei 250 echten Versuchen?', 80, '0.32 * 250', '0,32 · 250 = 80.',
+     'Schätzwert mal Anzahl der Versuche.')
+SW.z('auswerten', 3, 'Zwei Simulationen desselben Experiments: A ergab 30 Treffer in 50 Durchgängen, B 560 Treffer in 1 000. Fasse beide zusammen. Welcher Schätzwert ergibt sich? Runde auf zwei Nachkommastellen.',
+     0.56, '(30 + 560) / (50 + 1000)', 'Zusammen: 590 Treffer in 1 050 Durchgängen. 590 : 1 050 ≈ 0,56. (Nicht den Mittelwert von 0,6 und 0,56 bilden – B zählt viel mehr.)',
+     'Addiere alle Treffer und alle Durchgänge.', toleranz=0.01, art='P')
+SW.a('auswerten', 3, 'Eine Münze zeigt in einer Simulation mit 50 Würfen 24-mal Wappen (0,48). Ist sie gezinkt?', 'Nein, so kleine Abweichungen von 0,5 sind bei 50 Würfen normal.',
+     ['Ja, sonst wären es genau 25.', 'Ja, Wappen ist zu selten.', 'Das kann man nie entscheiden.'],
+     'Der Schätzwert schwankt um die Wahrscheinlichkeit. 24 statt 25 ist eine sehr kleine Abweichung. Erst große, wiederholte Abweichungen bei vielen Würfen wären verdächtig.',
+     'Wie groß ist die Abweichung von der Hälfte?', art='P')
+SW.z('auswerten', 3, 'Eine Simulation ergab den Schätzwert 0,15 mit genau 21 Treffern. Wie viele Durchgänge waren es?', 140, '21 / 0.15', 'Treffer : Durchgänge = 0,15 ⇔ Durchgänge = 21 : 0,15 = 140.',
+     'Rückwärts: Stelle Treffer : n = 0,15 nach n um.', art='K')
+SW.z('auswerten', 3, 'Eine Simulation von „mindestens eine Sechs bei vier Würfen“ ergab den Schätzwert 0,52. Wie oft erwartest du bei 500 Durchgängen „keine Sechs bei vier Würfen“?', 240, '(1 - 0.52) * 500',
+     'Gegenereignis: 1 − 0,52 = 0,48. Erwartet: 0,48 · 500 = 240.', '„Keine Sechs“ ist das Gegenteil von „mindestens eine Sechs“.', art='K')
+
+# monte_carlo
+SW.z('monte_carlo', 2, 'Ein Quadrat hat die Seitenlänge 6 cm. Von 400 Zufallspunkten liegen 100 in einer Figur. Schätze den Flächeninhalt der Figur.', 9, '100 / 400 * 36',
+     'Anteil 100 : 400 = 0,25. Fläche ≈ 0,25 · 36 cm² = 9 cm².', 'Anteil der Punkte mal Fläche des Quadrats.', einheit='cm²')
+SW.z('monte_carlo', 2, 'Ein Rechteck ist 10 cm lang und 5 cm breit. Von 250 Zufallspunkten darin liegen 140 in einer Figur. Schätze ihren Flächeninhalt.', 28, '140 / 250 * 50',
+     'Anteil 0,56. Rechteck 50 cm². Fläche ≈ 0,56 · 50 = 28 cm².', 'Es geht auch mit einem Rechteck statt eines Quadrats.', einheit='cm²')
+SW.z('monte_carlo', 3, 'In ein Quadrat mit 10 cm Seitenlänge wird ein Kreis mit Radius 5 cm gezeichnet. Wie viele von 400 Zufallspunkten liegen ungefähr im Kreis? (π ≈ 3,14)', 314, '3.14 * 25 / 100 * 400',
+     'Kreis: 3,14 · 25 = 78,5 cm², Quadrat 100 cm². Anteil 0,785. Erwartet: 0,785 · 400 = 314 Punkte.', 'Berechne den Flächenanteil des Kreises.', art='P')
+SW.z('monte_carlo', 3, 'Ein See liegt auf einer Karte in einem Quadrat, das 2 km × 2 km darstellt. Von 300 Zufallspunkten liegen 87 im See. Schätze die Fläche des Sees.', 1.16, '87 / 300 * 4',
+     'Anteil 87 : 300 = 0,29. Quadrat 4 km². Fläche ≈ 0,29 · 4 = 1,16 km².', 'Anteil der Punkte mal Fläche des Quadrats.', einheit='km²', art='P')
+SW.z('monte_carlo', 3, 'Viertelkreis (Radius 1) im Einheitsquadrat: Wie viele von 1 000 Zufallspunkten erwartest du im Viertelkreis? (π ≈ 3,14)', 785, '3.14 / 4 * 1000',
+     'Viertelkreis: π/4 ≈ 0,785, Quadrat 1. Erwartet ≈ 0,785 · 1 000 = 785 Punkte.', 'Welcher Anteil des Quadrats ist der Viertelkreis?', art='K')
+SW.z('monte_carlo', 3, 'Die Diagonale teilt ein Quadrat in zwei gleiche Dreiecke. Von 200 Zufallspunkten liegen 112 im unteren Dreieck. Um wie viele Prozentpunkte weicht der Anteil vom wahren Anteil ab?', 6,
+     '112 / 200 * 100 - 50', 'Wahrer Anteil: 50 %. Simuliert: 112 : 200 = 56 %. Abweichung: 6 Prozentpunkte.', 'Welcher Anteil wäre genau richtig?', einheit='%', art='K')
+
+# beurteilen
+SW.a('beurteilen', 2, 'Ein Ereignis hat p = 0,4. Simuliert wird mit einem Würfel, 1 und 2 sind Treffer. Ist das geeignet?', 'Nein, der Würfel hat p = 1/3.', ['Ja, das passt genau.',
+     'Ja, jedes Zufallsgerät ist geeignet.'], '2 von 6 Zahlen: p = 1/3 ≈ 0,33, nicht 0,4.', 'Rechne die Wahrscheinlichkeit des Geräts aus.')
+SW.a('beurteilen', 2, 'Ein Bus hat mit p = 0,25 Verspätung. Simuliert wird mit zwei Münzen: Treffer nur bei „zweimal Wappen“. Ist das geeignet?', 'Ja, das Gerät hat genau p = 1/4.',
+     ['Nein, zwei Münzen haben p = 1/2.', 'Nein, man braucht vier Münzen.'], 'Zwei Münzen: WW, WZ, ZW, ZZ. Nur WW ist Treffer: 1/4 = 0,25.', 'Wie viele Ergebnisse haben zwei Münzen?')
+SW.a('beurteilen', 3, 'Eine Elfmeterschützin trifft mit p = 0,8. Simuliert wird mit einem Würfel, 1 bis 5 = Treffer. Ist das geeignet?', 'Nein, der Würfel hat p = 5/6 ≈ 0,83 – das ist zu viel.',
+     ['Ja, das passt genau.', 'Ja, 5 Treffer von 6 sind 80 %.', 'Nein, der Würfel hat p = 0,5.'], '5/6 ≈ 0,833, nicht 0,8. Geeignet wären z. B. Zufallsziffern 0 bis 7.', 'Rechne 5 : 6 aus.', art='P')
+SW.a('beurteilen', 3, 'Ein Kind sagt: „Unsere Simulation mit 10 Durchgängen ergab 0,6. Also ist die Wahrscheinlichkeit genau 0,6.“ Was stimmt?', 'Das ist nur ein grober Schätzwert; mit viel mehr Durchgängen wird er verlässlicher.',
+     ['Richtig, Simulationen liefern den genauen Wert.', 'Falsch, Simulationen sagen nichts über Wahrscheinlichkeiten.', 'Richtig, wenn das Zufallsgerät passt.'],
+     'Bei 10 Durchgängen schwankt der Anteil stark. Er schätzt die Wahrscheinlichkeit nur grob. Nach dem Gesetz der großen Zahlen hilft eine größere Anzahl.', 'Was passiert bei wenigen Versuchen?', art='P')
+SW.a('beurteilen', 3, 'Aus einer Urne mit 2 roten und 3 blauen Kugeln werden zwei Kugeln OHNE Zurücklegen gezogen. Jemand simuliert beide Züge mit Zufallsziffern (0 bis 3 = rot). Ist das geeignet?',
+     'Nein: Beim zweiten Zug sind nur noch 4 Kugeln da, die Wahrscheinlichkeit ändert sich.', ['Ja, 0 bis 3 gibt p = 0,4 = 2/5.', 'Ja, Ziehen ohne Zurücklegen ist wie Würfeln.',
+     'Nein, man muss 0 bis 2 nehmen.'],
+     'Für den ersten Zug passt p = 0,4. Danach ist die Urne verändert (z. B. 1 rote von 4). Die feste Regel für beide Züge passt also nicht.', 'Bleibt die Urne nach dem ersten Zug gleich?', art='K')
+SW.a('beurteilen', 3, 'Mit einer Urne aus 6 roten und 4 blauen Kugeln (mit Zurücklegen) wird p = 0,6 simuliert. Welche Urne ist genauso geeignet?', '3 rote und 2 blaue Kugeln',
+     ['6 rote und 6 blaue Kugeln', '3 rote und 4 blaue Kugeln', '60 rote und 4 blaue Kugeln'],
+     'Es kommt nur auf den Anteil an: 3 von 5 = 0,6. Die anderen ergeben 0,5, 3/7 ≈ 0,43 und 60/64 ≈ 0,94.', 'Berechne bei jeder Urne den Anteil der roten Kugeln.', art='K')
+
+baue = mit_schwer(baue, SW)
+# ---- SCHWER ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Simulieren', ['zufallsgeraet', 'regel', 'zufallsziffern']), ('Auswerten', ['auswerten', 'monte_carlo']), ('Verstehen', ['beurteilen'])],

@@ -27,6 +27,26 @@ def pruefe_karte(name, k):
         assert not VERBOTEN.search(t), (name, t)
 
 
+def ersetze_ganz(k):
+    """Ein Schrittbild (oder fehler_bild) MIT „typ“ ist als vollständiges Bild gemeint. Die App führt Bilder gleichen Typs aber
+    zusammen ({...vorher, ...neu}). Damit keine alten Felder (z. B. Winkel zu Punkten, die es nicht mehr gibt) stehen bleiben,
+    werden Felder des vorigen Zustands, die im neuen Bild fehlen, auf null gesetzt."""
+    zustand = k['bild']
+    def neu(b):
+        nonlocal zustand
+        if not b:
+            return b
+        if b.get('typ') and b['typ'] == zustand.get('typ'):
+            b = dict(b, **{f: None for f in zustand if f not in b})
+        zustand = b if (b.get('typ') and b['typ'] != zustand.get('typ')) else {x: y for x, y in {**zustand, **b}.items() if y is not None}
+        return b
+    for st in k['schritte']:
+        if st.get('bild'):
+            st['bild'] = neu(st['bild'])
+    if k.get('fehler_bild'):
+        k['fehler_bild'] = neu(k['fehler_bild'])
+
+
 def umbau(d, felder, offen=()):
     et = d['inhalt']['etappen']
     namen = [e['lernziel'] for e in et]
@@ -34,6 +54,7 @@ def umbau(d, felder, offen=()):
     for e in et:
         k = felder[e['lernziel']]
         pruefe_karte(e['lernziel'], k)
+        ersetze_ganz(k)
         e.pop('probe', None)
         e.pop('fehler_bild', None)
         e.update(k)

@@ -9,6 +9,12 @@ Prüfung je Thema: Aufgaben Feld für Feld gegen `git show origin/lernen-app:inh
 
 ## Status
 
+## 2026-11-16 04:25 – STATUS
+geometrie.konstruktion umgebaut (7 Karten): Parallelenbild mit nacheinander markierten Stufen-/Wechselwinkeln, Giebel (γ gesucht → 55° → Begründung mit Parallele durch C), gleichschenkliger Giebel (? → 70°), Holzleisten für SWS (zwei Seiten → Winkel → dritte Seite), Zirkelbögen 3 cm/4 cm um die Enden von c = 8 cm, Parallelogramm mit nacheinander eingetragenen Winkeln, Tabelle Satz/Kehrsatz/Gegenbeispiel. fehler_bild bei parallelen (nicht parallele Geraden, 55° ≠ 65°), kongruenzsatz (zwei gleichseitige Dreiecke verschiedener Größe), konstruierbar (Bögen 3 cm/5 cm berühren sich nur).
+Karte vierecke: Merksatz nennt Parallelogramm und Drachenviereck; das gleichschenklige Trapez steht wegen der 25-Wörter-Grenze nicht mehr im Merksatz (Aufgaben dazu gibt es weiter; ggf. eigene Karte erwägen).
+Helfer _umbau_kl7.py ergänzt: Ein Schrittbild mit „typ“ gilt als vollständiger Ersatz – Felder des vorigen Zustands, die fehlen, werden auf null gesetzt (sonst blieben in der App z. B. Winkel zu nicht mehr vorhandenen Punkten stehen). Die drei schon fertigen Themen sind davon nicht betroffen (JSON unverändert).
+Aufgaben: 168, 0 Unterschiede. inhalt_pruefen: 0 Fehler, 0 Hinweise.
+
 ## 2026-11-16 04:00 – STATUS
 abbildungen.kongruenz umgebaut (7 Karten): Koordinatenbilder mit Schritt-Zuständen (Abstand zur Achse → Bildpunkt; Weg P→Z → doppelter Weg; Verschiebungsweg mit Pfeil v; Weg O→P und mitgedrehter Weg), Rechteck mit nacheinander eingezeichneten Symmetrieachsen, Dreiecke um eine Parkett-Ecke (1 → 6), zwei Spiegelungen an parallelen Achsen (Dreieck → Bild 1 → Bild 2). fehler_bild bei achsenspiegelung (Spiegeln an der x-Achse), drehung (180° statt 90°), symmetrie (Diagonale ist keine Achse).
 Aufgaben: 168, 0 Unterschiede. inhalt_pruefen: 0 Fehler, 0 Hinweise.

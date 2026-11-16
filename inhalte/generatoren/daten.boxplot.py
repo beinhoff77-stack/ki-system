@@ -483,6 +483,149 @@ UMBAU_OFFEN = []
 baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
 
 
+# ---------- Zehnte Runde (schwer-kl7): schwerere Übungen nach Prüfungsvorbild ----------
+# Vorbilder (nur Typ und Niveau, eigene Zahlen und Einkleidung): Bayerischer Mathematik-Test 8 (ISB) 2021 A7 (Median von 13 Werten, Boxplot),
+# 2022 A5c (Durchschnittsnote aus Anteilen), 2023 A5 (Median und Mittelwert aus Anteilen, Änderung des Mittelwerts), 2024 A3b (Aussagen zu einem Diagramm
+# beurteilen), 2025 A5 (Mittelwert per Tabellenkalkulation) und A6c/d (Median aus Säulendiagramm; Anteile ohne Gesamtzahl). Eigener Zufallsstart.
+from _schwer_kl7 import Neu, anhaengen  # noqa: E402
+
+
+def _med(w):
+    w = sorted(w)
+    n = len(w)
+    return Fr(w[n // 2]) if n % 2 else Fr(w[n // 2 - 1] + w[n // 2], 2)
+
+
+def _quart(w):
+    w = sorted(w)
+    n = len(w)
+    return _med(w[:n // 2]), _med(w), _med(w[(n + 1) // 2:])
+
+
+def _bp(achse, einheit, *reihen):
+    return {'typ': 'boxplot', 'achse': list(achse), 'einheit': einheit,
+            'reihen': [{'name': r[0], 'min': r[1], 'q1': r[2], 'median': r[3], 'q3': r[4], 'max': r[5]} for r in reihen]}
+
+
+def schwer():
+    N = Neu(7095)
+    P = 'pruefung'
+    K = 'knobel'
+    # median
+    N.Z('median', 2, 'In einer Klasse sind 25 Kinder; alle haben verschieden viele Punkte. Wie viele Kinder liegen unter dem Median?', 12, '(25 - 1) / 2',
+        'Bei 25 Werten ist der 13. Wert der Median. Davor liegen 12 Werte, dahinter auch 12.', 'Welcher Platz in der geordneten Liste ist die Mitte?')
+    N.Z('median', 2, 'Die geordnete Liste 4; 7; x; 12; 15 hat den Median 9. Wie groß ist x?', 9, '9',
+        'Bei 5 Werten ist der 3. Wert der Median. Der 3. Wert ist x, also x = 9.', 'Welcher Wert steht bei 5 Werten in der Mitte?')
+    buch = [('0', 12), ('1', 30), ('2', 25), ('3', 13)]
+    liste = [int(k) for k, n in buch for _ in range(n)]
+    N.Z('median', 3, 'Das Diagramm zeigt, wie viele Bücher 80 Kinder im letzten Monat gelesen haben. Bestimme den Median.', _med(liste), '1',
+        '80 Werte: Der Median liegt zwischen dem 40. und 41. Wert. 0 Bücher: Plätze 1–12, 1 Buch: Plätze 13–42. Beide mittleren Werte sind 1, also Median 1.',
+        'Zähle die Säulen von links zusammen, bis du über Platz 40 kommst.', art=P,
+        grafik={'typ': 'saeulen', 'einheit': 'Kinder', 'werte': [{'name': f'{k} Bücher' if k != '1' else '1 Buch', 'wert': n} for k, n in buch], 'zahlen': True})
+    N.Z('median', 3, 'An einer Schule zahlen 45 % der Kinder 6 € Kopiergeld, 30 % zahlen 9 € und der Rest 12 €. Alle Beträge werden der Größe nach geordnet. Wie groß ist der Median?', 9, '9',
+        'Bis 45 % stehen 6-€-Beträge, von 45 % bis 75 % die 9-€-Beträge. Die Mitte (50 %) liegt im 9-€-Bereich: Median 9 €.',
+        'Wo in der geordneten Liste liegt die Mitte, also 50 %?', einheit='€', art=P)
+    N.Z('median', 3, 'Sieben Zahlen haben den Median 20. Die größte Zahl wird durch 1 000 ersetzt. Wie groß ist der Median jetzt?', 20, '20',
+        'Der Median ist der 4. Wert der geordneten Liste. Die größte Zahl bleibt auch als 1 000 auf Platz 7; der 4. Wert ändert sich nicht: 20.',
+        'Ändert sich durch die neue größte Zahl die Mitte der Liste?', art=K)
+    N.Z('median', 3, 'Zu den Werten 3; 8; 8; 11; 14; 20 kommt ein siebter Wert dazu. Danach ist der Median 11. Wie groß muss der neue Wert mindestens sein?', 11, '11',
+        'Mit 7 Werten ist der 4. Wert der Median. Ist der neue Wert mindestens 11, bleibt 11 auf Platz 4. Ist er kleiner (z. B. 10), rutscht er auf Platz 4 und der Median wird kleiner als 11.',
+        'Probiere einen neuen Wert unter 11 und einen über 11.')
+    # kennwerte
+    N.Z('kennwerte', 2, 'Der Mittelwert von 5 Zahlen ist 12. Wie groß ist ihre Summe?', 60, '5 * 12', 'Mittelwert = Summe : Anzahl, also Summe = 12 · 5 = 60.', 'Rechne die Formel für den Mittelwert rückwärts.')
+    N.Z('kennwerte', 2, 'Daten: 4; 9; 9; 12; 16. Jeder Wert wird um 3 erhöht. Wie groß ist danach die Spannweite?', 12, '(16 + 3) - (4 + 3)',
+        'Größter und kleinster Wert steigen beide um 3: 19 − 7 = 12. Die Spannweite bleibt gleich.', 'Was passiert mit dem Abstand von größtem und kleinstem Wert?')
+    N.Z('kennwerte', 3, 'Bei einer Umfrage zur Mathenote gaben 10 % Note 1, 40 % Note 2, 30 % Note 3 und 20 % Note 4 an. Wie groß ist die Durchschnittsnote?', Fr('2.6'), '0.1 * 1 + 0.4 * 2 + 0.3 * 3 + 0.2 * 4',
+        'Jede Note mit ihrem Anteil malnehmen: 0,1 · 1 + 0,4 · 2 + 0,3 · 3 + 0,2 · 4 = 0,1 + 0,8 + 0,9 + 0,8 = 2,6.',
+        'Stell dir 100 Befragte vor: 10 mal die 1, 40 mal die 2 …', art=P)
+    N.Z('kennwerte', 3, 'In den Zellen A1 bis A4 einer Tabellenkalkulation stehen 12, 15, 9 und 20. Welchen Wert zeigt die Zelle mit der Formel =(A1+A2+A3+A4)/4?', 14, '(12 + 15 + 9 + 20) / 4',
+        'Die Klammer zuerst: 12 + 15 + 9 + 20 = 56. Dann geteilt durch 4: 14. Das ist der Mittelwert.', 'Erst die Klammer, dann teilen.', art=P)
+    N.Z('kennwerte', 3, 'In A1 bis A4 stehen 12, 15, 9 und 20. Jemand tippt für den Mittelwert =A1+A2+A3+A4/4 (ohne Klammer). Um wie viel ist das Ergebnis zu groß?', 27, '(12 + 15 + 9 + 20 / 4) - (12 + 15 + 9 + 20) / 4',
+        'Ohne Klammer wird nur A4 geteilt: 12 + 15 + 9 + 5 = 41. Richtig wäre 14. Unterschied: 41 − 14 = 27.', 'Punkt vor Strich: Was wird hier durch 4 geteilt?', art=P)
+    N.Z('kennwerte', 3, 'Nach 4 Tests hat jemand im Mittel 7 Punkte. Wie viele Punkte braucht er im 5. Test, damit der Mittelwert aller 5 Tests 8 ist?', 12, '5 * 8 - 4 * 7',
+        'Bisher: 4 · 7 = 28 Punkte. Für Mittelwert 8 bei 5 Tests braucht man 5 · 8 = 40 Punkte. Im 5. Test also 40 − 28 = 12.',
+        'Rechne mit Summen statt mit Mittelwerten.', art=K)
+    # mittel_median
+    N.Z('mittel_median', 2, 'Werte: 2; 3; 4; 5; 100. Um wie viel ist der Mittelwert größer als der Median?', Fr('18.8'), '(2 + 3 + 4 + 5 + 100) / 5 - 4',
+        'Mittelwert: 114 : 5 = 22,8. Median: 4. Unterschied: 18,8. Der Ausreißer 100 zieht den Mittelwert hoch.', 'Berechne beide Werte einzeln.')
+    N.A('mittel_median', 2, 'Der größte Wert einer Datenreihe wird noch größer. Welcher Kennwert ändert sich dadurch sicher NICHT?', 'der Median', ['der Mittelwert', 'die Spannweite', 'das Maximum'],
+        'Der Median hängt nur von der Mitte der geordneten Liste ab. Mittelwert, Spannweite und Maximum werden größer.', 'Welcher Kennwert schaut nur auf die Mitte?')
+    N.Z('mittel_median', 3, 'An einer Schule zahlen 45 % der Kinder 5 €, 35 % zahlen 7 € und 20 % zahlen 10 €. Um wie viel Euro ist der Mittelwert kleiner als der Median?', Fr('0.3'),
+        '7 - (0.45 * 5 + 0.35 * 7 + 0.2 * 10)',
+        'Median: 50 % liegt im 7-€-Bereich (45 % bis 80 %), also 7 €. Mittelwert: 0,45 · 5 + 0,35 · 7 + 0,2 · 10 = 2,25 + 2,45 + 2 = 6,70 €. Unterschied: 0,30 €.',
+        'Median: Wo liegt die 50-%-Marke? Mittelwert: jeden Betrag mit seinem Anteil malnehmen.', einheit='€', art=P)
+    N.A('mittel_median', 3, 'In einem Verein zahlen 60 % der Mitglieder 20 € und 40 % zahlen 30 €. Im nächsten Jahr zahlen je 50 % 20 € und 30 €. Wie ändert sich der durchschnittliche Beitrag?',
+        'Er steigt von 24 € auf 25 €.', ['Er bleibt gleich, weil die Beträge gleich bleiben.', 'Er sinkt von 25 € auf 24 €.', 'Er steigt von 25 € auf 30 €.'],
+        'Vorher: 0,6 · 20 € + 0,4 · 30 € = 24 €. Nachher: 0,5 · 20 € + 0,5 · 30 € = 25 €. Mehr Mitglieder zahlen den höheren Betrag.', 'Rechne den Durchschnitt für beide Jahre mit den Anteilen.', art=P)
+    N.Z('mittel_median', 3, 'Daten: 4; 6; 7; 9; 14. Der größte Wert wird so geändert, dass der Median gleich bleibt und der Mittelwert 12 wird. Welchen Wert bekommt er?', 34, '5 * 12 - (4 + 6 + 7 + 9)',
+        'Für Mittelwert 12 braucht man die Summe 60. Die anderen vier ergeben 26, also wird der größte Wert 34. Der Median (7) bleibt, weil sich die Mitte nicht ändert.',
+        'Welche Summe brauchen alle 5 Werte für den Mittelwert 12?', art=K)
+    N.Z('mittel_median', 3, 'Sechs Werte haben den Mittelwert 15. Der Ausreißer 40 wird entfernt. Wie groß ist der Mittelwert der restlichen fünf Werte?', 10, '(6 * 15 - 40) / 5',
+        'Summe vorher: 6 · 15 = 90. Ohne 40: 50. Neuer Mittelwert: 50 : 5 = 10.', 'Rechne mit der Summe aller Werte.')
+    # quartile
+    N.Z('quartile', 2, 'Werte: 2; 4; 6; 8; 10; 12; 14; 16. Bestimme das untere Quartil.', 5, '(4 + 6) / 2',
+        'Untere Hälfte: 2; 4; 6; 8. Ihr Median ist (4 + 6) : 2 = 5.', 'Teile die 8 Werte in zwei Hälften.')
+    N.Z('quartile', 2, 'Werte: 10; 20; 30; 40; 50; 60; 70. Bestimme den Quartilsabstand Q₃ − Q₁.', 40, '60 - 20',
+        'Median 40 (gehört zu keiner Hälfte). Untere Hälfte 10; 20; 30 → Q₁ = 20. Obere Hälfte 50; 60; 70 → Q₃ = 60. Q₃ − Q₁ = 40.', 'Bei 7 Werten bleibt der Median beim Teilen außen vor.')
+    d13 = [3, 5, 5, 6, 8, 9, 11, 12, 12, 14, 15, 18, 21]
+    q1, me, q3 = _quart(d13)
+    assert (q1, me, q3) == (Fr(11, 2), 11, Fr(29, 2))
+    N.Z('quartile', 3, '13 Kinder notieren ihre Bildschirmzeit am Wochenende (in Stunden): 3; 5; 5; 6; 8; 9; 11; 12; 12; 14; 15; 18; 21. Bestimme das obere Quartil.', q3, '(14 + 15) / 2',
+        'Median: 7. Wert = 11. Obere Hälfte (ohne Median): 12; 12; 14; 15; 18; 21. Ihr Median: (14 + 15) : 2 = 14,5.', 'Erst den Median finden, dann die obere Hälfte ohne ihn betrachten.', einheit='h', art=P)
+    N.Z('quartile', 3, 'Bildschirmzeiten (in Stunden): 3; 5; 5; 6; 8; 9; 11; 12; 12; 14; 15; 18; 21. Wie viele der 13 Werte liegen innerhalb der Box, also zwischen Q₁ und Q₃?', 7,
+        '7', 'Q₁ = (5 + 6) : 2 = 5,5 und Q₃ = 14,5. Dazwischen liegen 6; 8; 9; 11; 12; 12; 14 – das sind 7 Werte.', 'Bestimme Q₁ und Q₃ und zähle die Werte dazwischen.', art=P)
+    assert sum(1 for v in d13 if q1 < v < q3) == 7
+    N.Z('quartile', 3, 'Die geordnete Liste 4; 6; x; 10; 13; 15; 18; 20 hat das untere Quartil 7. Wie groß ist x?', 8, '2 * 7 - 6',
+        'Untere Hälfte: 4; 6; x; 10. Q₁ = (6 + x) : 2 = 7, also 6 + x = 14 und x = 8.', 'Welche beiden Werte bestimmen das untere Quartil?', art=K)
+    d12 = [1, 2, 4, 4, 5, 7, 8, 10, 11, 11, 15, 20]
+    a1, _, a3 = _quart(d12)
+    N.Z('quartile', 3, 'Werte: 1; 2; 4; 4; 5; 7; 8; 10; 11; 11; 15; 20. Bestimme den Quartilsabstand Q₃ − Q₁.', a3 - a1, '11 - 4',
+        'Untere Hälfte 1; 2; 4; 4; 5; 7 → Q₁ = (4 + 4) : 2 = 4. Obere Hälfte 8; 10; 11; 11; 15; 20 → Q₃ = (11 + 11) : 2 = 11. Q₃ − Q₁ = 7.', 'Teile in zwei Hälften zu je 6 Werten.')
+    # boxplot
+    B1 = _bp((0, 22), 'Punkte', ('Test', 2, 6, 9, 13, 20))
+    N.Z('boxplot', 2, 'Der Boxplot zeigt die Punkte in einem Test. Wie groß ist die Spannweite?', 18, '20 - 2', 'Maximum 20, Minimum 2: Spannweite 20 − 2 = 18 Punkte.', 'Spannweite = Maximum − Minimum.', grafik=B1)
+    N.Z('boxplot', 2, 'Der Boxplot zeigt die Punkte in einem Test. Etwa wie viel Prozent der Werte liegen zwischen 6 und 20 Punkten?', 75, '25 + 25 + 25',
+        'Von Q₁ (6) bis zum Maximum (20): Box (50 %) und rechte Antenne (25 %) zusammen 75 %.', 'Jeder Abschnitt des Boxplots enthält etwa ein Viertel.', einheit='%', grafik=B1)
+    B2 = _bp((0, 65), 'min', ('Schulweg', 2, 8, 15, 25, 60))
+    N.Z('boxplot', 3, '200 Kinder wurden nach ihrem Schulweg gefragt (in Minuten, siehe Boxplot). Etwa wie viele brauchen zwischen 8 und 15 Minuten?', 50, '200 / 4',
+        'Von Q₁ (8) bis zum Median (15) liegt etwa ein Viertel der Werte: 200 : 4 = 50 Kinder.', 'Welcher Teil des Boxplots ist das, und welcher Anteil gehört dazu?', einheit='Kinder', art=P, grafik=B2)
+    N.A('boxplot', 3, 'Welche Aussage passt NICHT zum Boxplot (Schulweg von 200 Kindern in Minuten)?', 'Die meisten Kinder brauchen 25 bis 60 Minuten, weil die rechte Antenne so lang ist.',
+        ['Die Hälfte der Kinder braucht höchstens 15 Minuten.', 'Etwa ein Viertel braucht mehr als 25 Minuten.', 'Mindestens drei Viertel brauchen 8 Minuten oder mehr.'],
+        'Die rechte Antenne enthält nur etwa ein Viertel der Werte – sie ist lang, weil diese Werte weit gestreut sind, nicht weil es viele sind.',
+        'Eine lange Antenne heißt: weit gestreut, nicht: viele Werte.', art=P, grafik=B2)
+    kand = {'1; 2; 4; 5; 5; 6; 8; 9': [1, 2, 4, 5, 5, 6, 8, 9], '1; 3; 3; 5; 6; 7; 7; 9': [1, 3, 3, 5, 6, 7, 7, 9],
+            '1; 2; 3; 5; 5; 7; 8; 9': [1, 2, 3, 5, 5, 7, 8, 9], '1; 3; 5; 5; 5; 5; 7; 9': [1, 3, 5, 5, 5, 5, 7, 9]}
+    ziel = (3, 5, 7)
+    passend = [k for k, v in kand.items() if _quart(v) == ziel and min(v) == 1 and max(v) == 9]
+    assert passend == ['1; 2; 4; 5; 5; 6; 8; 9']
+    N.A('boxplot', 3, 'Ein Boxplot zu 8 Werten zeigt: Minimum 1, Q₁ = 3, Median 5, Q₃ = 7, Maximum 9. Welche Datenreihe passt dazu?', passend[0], [k for k in kand if k != passend[0]],
+        '1; 2; 4; 5 | 5; 6; 8; 9: Q₁ = (2 + 4) : 2 = 3, Median (5 + 5) : 2 = 5, Q₃ = (6 + 8) : 2 = 7. Bei den anderen stimmt jeweils ein Kennwert nicht.',
+        'Prüfe bei jeder Reihe Q₁, Median und Q₃.', art=K, grafik=_bp((0, 10), '', ('Daten', 1, 3, 5, 7, 9)))
+    N.Z('boxplot', 3, 'Zu einem Boxplot gehören 40 Werte. Etwa wie viele Werte liegen auf der rechten Antenne (zwischen Q₃ und dem Maximum)?', 10, '40 / 4',
+        'Jede Antenne enthält etwa ein Viertel der Werte: 40 : 4 = 10.', 'Wie viel Prozent der Werte gehören zu einer Antenne?')
+    # vergleichen
+    V = _bp((0, 22), 'Punkte', ('7a', 4, 9, 12, 15, 19), ('7b', 2, 7, 13, 17, 20))
+    N.A('vergleichen', 2, 'Die Boxplots zeigen die Punkte zweier Klassen. In welcher Klasse hat mindestens die Hälfte der Kinder 13 Punkte oder mehr?', 'in der 7b',
+        ['in der 7a', 'in beiden Klassen', 'in keiner Klasse'],
+        'Median der 7b: 13 – mindestens die Hälfte hat 13 oder mehr. Median der 7a: 12 – dort hat höchstens die Hälfte mehr als 12.', 'Vergleiche die Mediane mit 13.', grafik=V)
+    N.A('vergleichen', 2, 'Welche Größe vergleicht man, um zu sagen, in welcher Gruppe die mittlere Hälfte der Werte enger beieinanderliegt?', 'den Quartilsabstand (Länge der Box)',
+        ['den Median', 'das Maximum', 'den Modalwert'], 'Die Box enthält die mittlere Hälfte. Je kürzer sie ist, desto enger liegen diese Werte zusammen.', 'Welcher Teil des Boxplots zeigt die mittlere Hälfte?')
+    N.A('vergleichen', 3, 'Welche Aussage zu den beiden Boxplots (Punkte der 7a und 7b) ist richtig?', 'In der 7b liegen die mittleren 50 % weiter auseinander als in der 7a.',
+        ['Die 7a hat den größeren Median.', 'In der 7a hat niemand mehr als 15 Punkte.', 'Die 7b hat weniger Kinder, weil ihre Box länger ist.'],
+        'Quartilsabstand 7a: 15 − 9 = 6, 7b: 17 − 7 = 10. Median 7a (12) < 7b (13). In der 7a gibt es Werte bis 19. Über die Anzahl der Kinder sagt ein Boxplot nichts.',
+        'Prüfe jede Aussage am Bild: Median, Box, Antennen.', art=P, grafik=V)
+    N.Z('vergleichen', 3, 'Die 7a hat 28 Kinder, die 7b 20 Kinder. Bei beiden liegt das obere Quartil bei 15 Punkten. Etwa wie viele Kinder beider Klassen zusammen haben mehr als 15 Punkte?', 12, '28 / 4 + 20 / 4',
+        'Über Q₃ liegt jeweils etwa ein Viertel: 28 : 4 = 7 und 20 : 4 = 5. Zusammen etwa 12 Kinder. Gleiche Anteile bedeuten bei verschieden großen Klassen verschiedene Anzahlen.',
+        'Rechne für jede Klasse ein Viertel aus.', einheit='Kinder', art=P)
+    N.A('vergleichen', 3, 'Zwei Klassen haben im Test denselben Median und dieselbe Spannweite. Folgt daraus, dass die Ergebnisse gleich verteilt sind?', 'Nein: Die Quartile und damit die Boxen können verschieden sein.',
+        ['Ja: Median und Spannweite legen alles fest.', 'Ja, wenn die Klassen gleich groß sind.', 'Nein: Die Klassen haben verschiedene Mittelwerte, also sind sie sicher verschieden.'],
+        'Beispiel: Min 0, Median 10, Max 20 bei beiden – aber Q₁/Q₃ = 8/12 in der einen und 3/17 in der anderen Klasse. Die Verteilung ist ganz anders.',
+        'Welche Kennwerte des Boxplots sind dann noch frei?', art=K)
+    N.Z('vergleichen', 3, 'Um wie viele Punkte ist der Quartilsabstand der 7b größer als der der 7a (siehe Boxplots)?', 4, '(17 - 7) - (15 - 9)',
+        '7a: 15 − 9 = 6. 7b: 17 − 7 = 10. Unterschied: 4 Punkte.', 'Quartilsabstand = Q₃ − Q₁ für jede Klasse.', grafik=V)
+    return N
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Kennwerte', ['median', 'kennwerte', 'mittel_median']), ('Quartile und Boxplot', ['quartile', 'boxplot']), ('Vergleichen', ['vergleichen'])],
@@ -490,3 +633,4 @@ if __name__ == '__main__':
          ['Median: Mitte der geordneten Liste.', 'Q₁ und Q₃: Mediane der unteren und oberen Hälfte.', 'Box: mittlere Hälfte der Daten; jede Antenne: ein Viertel.',
           'Bei Ausreißern ist der Median aussagekräftiger als der Mittelwert.'],
          offen=['Quartile werden als Median der unteren bzw. oberen Hälfte bestimmt (bei ungerader Anzahl ohne den Median). Schulbücher verwenden teils andere Verfahren; bitte mit dem Buch des Kindes abgleichen.'])
+    anhaengen(META['thema_schluessel'], schwer())

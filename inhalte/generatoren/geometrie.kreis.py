@@ -531,6 +531,139 @@ UMBAU_OFFEN = []
 baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
 
 
+# ---------- Zehnte Runde (schwer-kl7): schwerere Übungen nach Prüfungsvorbild ----------
+# Vorbilder (nur Typ und Niveau, eigene Zahlen und Einkleidung): Bayerischer Mathematik-Test 8 (ISB) 2019 B4b (Punkt gleich weit von drei Orten),
+# 2021 A8 (Beweisschritte ordnen), 2022 A1 (Abstand Punkt–Gerade, Punkte mit zwei Abstandsbedingungen), 2023 A7c (größte Höhe über [AB]),
+# 2024 A4b und A5 (Mittelsenkrechte; Thaleskreis, gleiche Flächen), 2025 A8 (Radien, Mittelpunktswinkel = 2α); Jahrgangsstufentest Realschule 8 2025 II
+# Nr. 10 (mit dem Thaleskreis rechtwinklig nachweisen). Eigener Zufallsstart, alte Aufgaben bleiben gleich.
+from _schwer_kl7 import Neu, anhaengen  # noqa: E402
+
+
+def schwer():
+    N = Neu(7045)
+    P = 'pruefung'
+    K = 'knobel'
+    HP = 'Trage die Zahl ein.'
+    # thales
+    N.Z('thales', 2, '[AB] ist ein Durchmesser des Kreises um M und 10 cm lang. C liegt auf dem Kreis. Wie lang ist [MC]?', 5, '10 / 2',
+        '[MC] ist ein Radius, also halb so lang wie der Durchmesser: 5 cm.', 'Welche Strecke ist [MC]?', einheit='cm')
+    N.A('thales', 2, 'Über [AB] mit A(−3 | 1) und B(5 | 1) wird der Thaleskreis gezeichnet. Liegt C(1 | 5) auf diesem Kreis?', 'Ja: M(1 | 1), Radius 4, und C ist 4 über M.',
+        ['Nein: C liegt nicht auf der Strecke [AB].', 'Nein: Der Radius ist 8.', 'Ja: Jeder Punkt über [AB] liegt darauf.'],
+        'M ist die Mitte von [AB]: (1 | 1). Radius = 8 : 2 = 4. C(1 | 5) liegt genau 4 Einheiten über M, also auf dem Kreis.', 'Bestimme Mittelpunkt und Radius des Thaleskreises.',
+        grafik=ksys([(-3, 1, 'A'), (5, 1, 'B'), (1, 5, 'C')]))
+    N.Z('thales', 3, 'Über einer 9 cm langen Strecke [AB] sollen Dreiecke ABC mit einem rechten Winkel bei C gezeichnet werden. Wie lang kann die Höhe von C auf [AB] höchstens sein?', Fr('4.5'), '9 / 2',
+        'C liegt auf dem Thaleskreis über [AB] (Radius 4,5 cm). Am höchsten ist C genau über M: Die Höhe ist dann der Radius, 4,5 cm.',
+        'Wo kann C liegen? Welcher Punkt des Kreises ist am weitesten von [AB] entfernt?', einheit='cm', art=P)
+    N.A('thales', 3, 'C liegt auf dem Thaleskreis über [AB], M ist die Mitte von [AB]. Warum haben die Dreiecke AMC und MBC den gleichen Flächeninhalt?',
+        'Sie haben gleich lange Grundseiten (AM = MB) und dieselbe Höhe (Abstand von C zu AB).',
+        ['Weil beide Dreiecke gleichschenklig sind.', 'Weil bei C ein rechter Winkel ist.', 'Weil sie kongruent sind.'],
+        'Fläche = Grundseite · Höhe : 2. AM = MB, und die Höhe ist für beide der Abstand von C zur Geraden AB. Kongruent sind sie meist nicht.',
+        'Denke an die Formel für den Flächeninhalt eines Dreiecks.', art=P)
+    N.Z('thales', 3, 'Ein Rechteck ist so gezeichnet, dass alle vier Ecken auf einem Kreis mit dem Radius 5 cm liegen. Wie lang ist eine Diagonale des Rechtecks?', 10, '2 * 5',
+        'Jede Ecke hat einen rechten Winkel. Nach der Umkehrung des Thalessatzes ist die Diagonale gegenüber ein Durchmesser: 2 · 5 cm = 10 cm.',
+        'Betrachte das Dreieck aus zwei Seiten und einer Diagonale. Wo ist der rechte Winkel?', einheit='cm', art=K)
+    N.Z('thales', 3, '[AB] ist Durchmesser, C liegt auf dem Kreis. β ist um 20° größer als α. Wie groß ist α?', 35, '(90 - 20) / 2',
+        'γ = 90°, also α + β = 90°. Mit β = α + 20°: 2α + 20° = 90°, α = 35°.', 'Was gilt für α + β, wenn γ = 90° ist?', einheit='°')
+    # umkehrung
+    N.Z('umkehrung', 2, 'Ein rechtwinkliges Dreieck hat eine 13 cm lange Hypotenuse (die Seite gegenüber dem rechten Winkel). Wie groß ist der Radius seines Umkreises?', Fr('6.5'), '13 / 2',
+        'Die Hypotenuse ist der Durchmesser des Thaleskreises, der zugleich Umkreis ist: r = 13 cm : 2 = 6,5 cm.', 'Wo liegt der Umkreismittelpunkt im rechtwinkligen Dreieck?', einheit='cm')
+    N.A('umkehrung', 2, 'Das Dreieck ABC mit A(1 | 2) und B(1 | 10) soll bei C einen rechten Winkel haben. Ist C(5 | 6) ein möglicher Punkt?', 'Ja: C ist 4 von M(1 | 6) entfernt, so weit wie A und B.',
+        ['Nein: C muss auf der Strecke [AB] liegen.', 'Nein: C ist 5 von M entfernt.', 'Ja: Jeder Punkt rechts von [AB] passt.'],
+        'M(1 | 6) ist die Mitte von [AB], Radius 4. C(5 | 6) liegt 4 rechts von M, also auf dem Thaleskreis: rechter Winkel bei C.', 'Liegt C auf dem Kreis über [AB]?',
+        grafik=ksys([(1, 2, 'A'), (1, 10, 'B'), (5, 6, 'C')]))
+    N.A('umkehrung', 3, 'A(−4 | 0), B(4 | 0) und C(0 | 4). Welche Begründung zeigt mit dem Thaleskreis, dass das Dreieck bei C rechtwinklig ist?',
+        'M(0 | 0) ist die Mitte von [AB], und MC = 4 = MA. Also liegt C auf dem Kreis über [AB].',
+        ['C liegt auf der y-Achse, also ist der Winkel 90°.', 'AB = 8 und AC = 8, also rechtwinklig.', 'Die Punkte haben ganze Koordinaten.'],
+        'Thaleskreis über [AB]: Mittelpunkt (0 | 0), Radius 4. C(0 | 4) hat von M den Abstand 4, liegt also darauf. Nach dem Satz des Thales ist γ = 90°.',
+        'Bestimme den Thaleskreis über [AB] und prüfe, ob C darauf liegt.', art=P, grafik=ksys([(-4, 0, 'A'), (4, 0, 'B'), (0, 4, 'C')]))
+    N.Z('umkehrung', 3, 'Im Dreieck ABC ist γ = 90° und [AB] 12 cm lang. M ist die Mitte von [AB]. Wie lang ist [MC]?', 6, '12 / 2',
+        'C liegt auf dem Thaleskreis über [AB] mit Mittelpunkt M. [MC] ist ein Radius: 12 cm : 2 = 6 cm.', 'Auf welchem Kreis liegt C?', einheit='cm', art=P)
+    N.A('umkehrung', 3, 'Der Punkt C liegt INNERHALB des Thaleskreises über [AB] (nicht auf [AB]). Was gilt für den Winkel γ bei C?', 'γ ist größer als 90° (stumpf).',
+        ['γ ist genau 90°.', 'γ ist kleiner als 90° (spitz).', 'Das hängt von der Länge von [AB] ab.'],
+        'Auf dem Kreis ist γ = 90°. Rückt C nach innen (näher an [AB]), öffnet sich der Winkel: γ > 90°. Außerhalb wird er spitz.',
+        'Stell dir vor, C rutscht vom Kreis aus Richtung Mitte M. Wird der Winkel größer oder kleiner?', art=K)
+    N.Z('umkehrung', 3, 'Ein Dreieck hat die Winkel α = 2x, β = 3x und γ = 90°. Wie groß ist α?', 36, '2 * 90 / 5',
+        'α + β = 90°: 5x = 90°, x = 18°. α = 2 · 18° = 36°.', 'α und β ergeben zusammen 90°.', einheit='°')
+    # beweis
+    N.A('beweis', 2, 'A und C liegen auf dem Kreis um M. Welche Aussage beweist, dass das Dreieck AMC gleichschenklig ist?', 'MA und MC sind Radien desselben Kreises.',
+        ['Man sieht es in der Zeichnung.', 'Die Winkel bei A und C sehen gleich aus.', 'Jedes Dreieck mit einer Ecke M ist gleichschenklig.'],
+        'Alle Radien eines Kreises sind gleich lang. MA = MC, also hat AMC zwei gleich lange Seiten.', 'Was haben alle Strecken vom Mittelpunkt zum Kreis gemeinsam?')
+    N.A('beweis', 2, 'Vermutung: „Die Summe zweier ungerader Zahlen ist immer gerade.“ Was ist ein Beweis?', '(2a + 1) + (2b + 1) = 2(a + b + 1), und das ist durch 2 teilbar.',
+        ['3 + 5 = 8 und 7 + 9 = 16 sind gerade.', 'Weil es so im Heft steht.', 'Weil ungerade plus ungerade nie ungerade sein kann.'],
+        'Beispiele zeigen nur Einzelfälle. Mit Variablen (ungerade Zahl = 2a + 1) gilt die Rechnung für alle ungeraden Zahlen.', 'Ein Beweis muss für alle Zahlen gelten, nicht nur für Beispiele.')
+    N.L('beweis', 3, 'Beweis, dass ∠BMC = 2 · ∠BAC ist ([AB] Durchmesser, C auf dem Kreis um M). Bringe in die richtige Reihenfolge. '
+        'Kärtchen 1: „∠AMC = 180° − 2α (Winkelsumme im Dreieck AMC)“ Kärtchen 2: „MA = MC, also ∠MCA = α (Basiswinkel)“ Kärtchen 3: „∠BMC = 180° − ∠AMC = 2α (Nebenwinkel)“',
+        '1. Schritt: □; 2. Schritt: □; 3. Schritt: □', [2, 1, 3], ['2', '1', '3'],
+        'Zuerst braucht man die gleichen Basiswinkel (2), dann die Winkelsumme im Dreieck AMC (1), dann den Nebenwinkel bei M (3).',
+        'Welcher Schritt braucht keinen anderen? Kärtchen 1 benutzt, dass beide Basiswinkel α sind.', 'Trage die Nummern der Kärtchen ein.', art=P)
+    N.A('beweis', 3, 'Im Kreis um M ist [AB] ein Durchmesser, C liegt auf dem Kreis. ∠BAC = α und ∠BMC = δ. Was gilt immer?', 'δ = 2α',
+        ['δ = α', 'δ = 90° − α', 'δ = 180° − α'],
+        'Das Dreieck AMC ist gleichschenklig (Radien), also ∠MCA = α und ∠AMC = 180° − 2α. δ ist der Nebenwinkel: 180° − (180° − 2α) = 2α.',
+        'Nutze das gleichschenklige Dreieck AMC und den Nebenwinkel bei M.', art=P)
+    N.A('beweis', 3, 'Jemand behauptet: „Jedes Viereck, dessen Ecken alle auf einem Kreis liegen, ist ein Rechteck.“ Wie widerlegst du das?',
+        'Mit einem Gegenbeispiel: ein gleichschenkliges Trapez mit allen Ecken auf dem Kreis.', ['Man misst ein Rechteck nach.', 'Man zeigt, dass jedes Rechteck einen Umkreis hat.', 'Gar nicht, die Behauptung stimmt.'],
+        'Ein einziges Gegenbeispiel genügt. Vier beliebige Punkte auf einem Kreis (z. B. ein gleichschenkliges Trapez) bilden meist kein Rechteck. Umgekehrt stimmt: Jedes Rechteck hat einen Umkreis.',
+        'Zeichne vier Punkte auf einen Kreis, die nicht zu einem Rechteck gehören.', art=K)
+    N.A('beweis', 3, 'Im Beweis des Thalessatzes steht: „α + β + (α + β) = 180°“. Woraus folgt diese Zeile?', 'aus der Winkelsumme im Dreieck ABC, weil γ = α + β ist',
+        ['aus der Winkelsumme im Dreieck AMC', 'weil Nebenwinkel 180° ergeben', 'weil man γ in der Zeichnung misst'],
+        'Im Dreieck ABC ist α + β + γ = 180°. Wegen der Basiswinkel ist γ = α + β. Eingesetzt ergibt sich α + β + (α + β) = 180°.', 'Welches Dreieck hat die Winkel α, β und γ?')
+    # lage
+    N.A('lage', 2, 'Ein Kreis hat den Radius 6 cm. Für welche Abstände d (vom Mittelpunkt) ist eine Gerade eine Sekante?', 'für 0 cm ≤ d < 6 cm', ['für d = 6 cm', 'für d > 6 cm', 'für d ≥ 6 cm'],
+        'Sekante: Abstand kleiner als der Radius. Auch d = 0 (durch den Mittelpunkt) ist eine Sekante.', 'Vergleiche Abstand und Radius.')
+    N.A('lage', 2, 'Ein Kreis hat den Mittelpunkt M(2 | 1) und den Radius 3. Welche Lage hat die Gerade y = 4?', 'Tangente', ['Sekante', 'Passante', 'Durchmesser'],
+        'Abstand von M zur Geraden y = 4: 4 − 1 = 3 = r. Also Tangente.', 'Bestimme den Abstand von M zur waagrechten Geraden.',
+        grafik={'typ': 'koordinaten', 'x': [-2, 6], 'y': [-3, 5], 'kreise': [{'m': [2, 1], 'r': 3}], 'punkte': [{'x': 2, 'y': 1, 'name': 'M'}], 'waagrecht': [4]})
+    N.A('lage', 3, 'Was ist der Abstand eines Punktes M von einer Geraden g?', 'die Länge des Lotes von M auf g (die kürzeste Strecke)',
+        ['die Länge irgendeiner Strecke von M zu g', 'die längste Strecke von M zu g', 'der Abstand von M zum Ursprung'],
+        'Abstand heißt immer kürzeste Entfernung. Die kürzeste Strecke von M zu g steht senkrecht auf g (Lot).', 'Unter welchem Winkel trifft die kürzeste Strecke auf g?', art=P)
+    N.Z('lage', 3, 'Ein Kreis hat den Radius 3 cm. Eine Gerade g hat vom Mittelpunkt M den Abstand 1 cm. Wie viele Punkte des Kreises haben von g den Abstand 2 cm?', 3, '1 + 2',
+        'Punkte mit 2 cm Abstand von g liegen auf zwei Parallelen zu g. Ihr Abstand von M: 1 + 2 = 3 cm (Tangente, 1 Punkt) und 2 − 1 = 1 cm (Sekante, 2 Punkte). Zusammen 3.',
+        'Zeichne die beiden Parallelen zu g im Abstand 2 cm. Wie weit ist jede von M entfernt?', art=P)
+    N.Z('lage', 3, 'Kreis 1 hat den Mittelpunkt (0 | 0) und den Radius 2, Kreis 2 den Mittelpunkt (6 | 0) und den Radius 3. Wie viele gemeinsame Punkte haben die Kreise?', 0, '0',
+        'Kreis 1 reicht bis x = 2, Kreis 2 beginnt bei x = 6 − 3 = 3. Die Mittelpunkte sind 6 auseinander, die Radien zusammen nur 5: kein gemeinsamer Punkt.',
+        'Vergleiche den Abstand der Mittelpunkte mit der Summe der Radien.', art=K,
+        grafik={'typ': 'koordinaten', 'x': [-3, 10], 'y': [-4, 4], 'kreise': [{'m': [0, 0], 'r': 2}, {'m': [6, 0], 'r': 3}]})
+    N.Z('lage', 3, 'Ein Kreis hat den Mittelpunkt M(−2 | 3) und den Radius 2. Wie viele der Geraden x = 0, y = 0, y = 5 und x = −5 sind Tangenten?', 2, '2',
+        'Abstände von M: x = 0 → 2 (Tangente), y = 0 → 3, y = 5 → 2 (Tangente), x = −5 → 3. Also 2 Tangenten.', 'Bestimme für jede Gerade den Abstand von M.')
+    # tangente
+    N.L('tangente', 2, 'Ein Kreis um M(0 | 0) berührt eine Tangente im Punkt B(0 | 3). Gib die Gleichung der Tangente an.', 'y = □', [3], ['3'],
+        'Der Berührradius [MB] liegt auf der y-Achse (senkrecht). Die Tangente steht senkrecht darauf, ist also waagrecht durch B: y = 3.',
+        'Die Tangente steht senkrecht auf dem Berührradius.', HP, grafik={'typ': 'koordinaten', 'x': [-4, 4], 'y': [-4, 5], 'kreise': [{'m': [0, 0], 'r': 3}], 'punkte': [{'x': 0, 'y': 3, 'name': 'B'}]})
+    N.Z('tangente', 2, 'Von P aus werden zwei Tangenten an den Kreis um M gelegt, Berührpunkte B und B\'. Es ist ∠BMB\' = 130°. Wie groß ist ∠BPB\'?', 50, '360 - 90 - 90 - 130',
+        'Im Viereck PBMB\' sind die Winkel bei B und B\' je 90°. 360° − 180° − 130° = 50°.', 'Welche Winkel im Viereck PBMB\' kennst du?', einheit='°')
+    N.A('tangente', 3, 'Konstruktion der Tangente von einem Punkt P außerhalb des Kreises um M: Warum liegt der Berührpunkt B auf dem Thaleskreis über [MP]?',
+        'Weil ∠MBP = 90° ist (Tangente ⊥ Berührradius) und nach der Umkehrung des Thalessatzes B dann auf dem Kreis über [MP] liegt.',
+        ['Weil B auf dem Kreis um M liegt.', 'Weil [MP] ein Radius ist.', 'Weil P außerhalb des Kreises liegt.'],
+        'Tangente und Berührradius bilden 90°. Ein Punkt, von dem aus [MP] unter 90° erscheint, liegt auf dem Thaleskreis über [MP].', 'Welcher Winkel ist bei B?', art=P)
+    N.Z('tangente', 3, 'Ein Kreis um M soll die Gerade g berühren. M hat von g den Abstand 2,5 cm. Welchen Radius muss der Kreis haben?', Fr('2.5'), '2.5',
+        'Berühren heißt: Abstand = Radius. Also r = 2,5 cm.', 'Wann ist eine Gerade Tangente?', einheit='cm', art=P)
+    N.Z('tangente', 3, 'Ein Treibriemen läuft straff um zwei gleich große Räder (Radius 10 cm). Die Mittelpunkte sind 50 cm voneinander entfernt. Wie lang ist ein gerades Riemenstück zwischen den beiden Berührpunkten?', 50, '50',
+        'Beide Radien zu den Berührpunkten stehen senkrecht auf dem Riemen und sind gleich lang. Mittelpunkte und Berührpunkte bilden ein Rechteck: Das Riemenstück ist so lang wie der Mittelpunktsabstand.',
+        'Zeichne die Berührradien ein. Welche Figur entsteht?', einheit='cm', art=K)
+    N.Z('tangente', 3, 'Von P aus werden zwei Tangenten an den Kreis um M gelegt, Berührpunkte B und B\'. Es ist ∠BPM = 32°. Wie groß ist ∠BMB\'?', 116, '2 * (90 - 32)',
+        'Im Dreieck PBM: ∠BMP = 180° − 90° − 32° = 58°. Aus Symmetrie ist ∠B\'MP auch 58°. ∠BMB\' = 116°.', 'Die Gerade PM ist Symmetrieachse der Figur.', einheit='°')
+    # umkreis_inkreis
+    N.A('umkreis_inkreis', 2, 'Fallen in einem gleichseitigen Dreieck Umkreismittelpunkt und Inkreismittelpunkt zusammen?', 'Ja, weil jede Mittelsenkrechte zugleich Winkelhalbierende ist.',
+        ['Nein, das ist bei keinem Dreieck so.', 'Ja, das ist bei jedem Dreieck so.', 'Nein, der Inkreismittelpunkt liegt immer tiefer.'],
+        'Im gleichseitigen Dreieck sind alle Seiten und Winkel gleich. Die Symmetrieachsen sind Mittelsenkrechten und Winkelhalbierende zugleich: Beide Mittelpunkte fallen zusammen.',
+        'Welche Linien sind im gleichseitigen Dreieck Symmetrieachsen?')
+    N.Z('umkreis_inkreis', 2, 'I ist der Inkreismittelpunkt des Dreiecks ABC. Es ist ∠BAI = 25°. Wie groß ist α?', 50, '2 * 25',
+        '[AI] liegt auf der Winkelhalbierenden von α. Also α = 2 · 25° = 50°.', 'Welche Linie geht von A durch I?', einheit='°')
+    N.A('umkreis_inkreis', 3, 'Ein Funkmast soll von drei Dörfern A, B und C gleich weit entfernt sein. Im Dreieck ABC ist der Winkel bei B 110° groß. Wo steht der Mast?', 'außerhalb des Dreiecks ABC',
+        ['innerhalb des Dreiecks ABC', 'genau auf der Seite [AC]', 'im Dorf B'],
+        'Gesucht ist der Umkreismittelpunkt (Schnitt der Mittelsenkrechten). Bei einem stumpfwinkligen Dreieck liegt er außerhalb.',
+        'Welcher besondere Punkt ist von den Ecken gleich weit entfernt? Wo liegt er bei einem stumpfen Winkel?', art=P)
+    N.A('umkreis_inkreis', 3, 'Ein Spielplatz soll am Weg g liegen und von den Häusern A und B gleich weit entfernt sein. Wie findest du die Stelle?', 'als Schnittpunkt von g mit der Mittelsenkrechten von [AB]',
+        ['als Mitte der Strecke [AB]', 'als Schnittpunkt von g mit der Winkelhalbierenden', 'als Lotfußpunkt von A auf g'],
+        'Alle Punkte, die von A und B gleich weit entfernt sind, liegen auf der Mittelsenkrechten von [AB]. Zusätzlich muss der Punkt auf g liegen: Schnittpunkt.',
+        'Zwei Bedingungen, zwei Linien – wo schneiden sie sich?', art=P)
+    N.Z('umkreis_inkreis', 3, 'Der Umkreismittelpunkt eines Dreiecks ABC liegt genau auf der Seite [AB]. Wie groß ist γ?', 90, '90',
+        'Dann ist [AB] ein Durchmesser des Umkreises, und C liegt auf ihm. Nach dem Satz des Thales ist γ = 90°.', 'Was ist [AB] dann für den Umkreis?', einheit='°', art=K)
+    N.Z('umkreis_inkreis', 3, 'I ist der Inkreismittelpunkt des Dreiecks ABC. Es ist ∠BIC = 120° und β = 70°. Wie groß ist γ?', 50, '2 * (180 - 120) - 70',
+        'Im Dreieck BIC: β/2 + γ/2 = 180° − 120° = 60°. Also β + γ = 120° und γ = 120° − 70° = 50°.', 'BI und CI halbieren die Winkel β und γ.', einheit='°')
+    return N
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Satz des Thales', ['thales', 'umkehrung', 'beweis']), ('Tangenten', ['lage', 'tangente']), ('Besondere Kreise', ['umkreis_inkreis'])],
@@ -540,3 +673,4 @@ if __name__ == '__main__':
          offen=['Die Konstruktion der Tangente von einem äußeren Punkt (Thaleskreis über [MP]) wird nur begründet (Lernkarte „beweis“), nicht vom Kind gezeichnet – Zeichnen durch das Kind kann die App nicht.',
                 'Experimentieren mit dynamischer Geometriesoftware (Lehrplan) ist in der App nicht möglich.',
                 'Kreiswinkel (Umfangs-/Mittelpunktswinkelsatz) aus dem Feld „umfang“ weggelassen: nicht im lehrplan_gym für Klasse 7; nur der Spezialfall am Thaleskreis kommt vor.'])
+    anhaengen(META['thema_schluessel'], schwer())

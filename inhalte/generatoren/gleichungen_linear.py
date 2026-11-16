@@ -705,6 +705,114 @@ UMBAU_OFFEN = []
 baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
 
 
+# ---------- Zehnte Runde (schwer-kl7): schwerere Übungen nach Prüfungsvorbild ----------
+# Vorbilder (nur Typ und Niveau, eigene Zahlen und Einkleidung): Bayerischer Mathematik-Test 8 (ISB) 2019 B2, 2021 A3, 2023 A2 (Sachaufgabe
+# mit Eintrittskarten), 2024 A1 (Klammer mit Minus; Zahl ersetzen, damit x = 2 Lösung ist); Jahrgangsstufentest Realschule 8 (2025, Nr. 12, 13, 15);
+# Schulaufgabe Klasse 7 Gymnasium (Lösungsmenge mit Grundmenge, Fehler in einer Rechnung finden). Eigener Zufallsstart, alte Aufgaben bleiben gleich.
+from _schwer_kl7 import Neu, anhaengen  # noqa: E402
+
+
+def schwer():
+    N = Neu(7002)
+    P = 'pruefung'
+    K = 'knobel'
+    BR = 'Zähler und Nenner eintragen; ein Minus gehört in den Zähler.'
+    LM = {'q': 'L = ℚ (jede Zahl)', 'l': 'L = { } (keine Lösung)'}
+    # waage
+    N.Z('waage', 2, 'Löse 0,4x − 1,2 = 2.', 8, '(2 + 1.2) / 0.4', 'Plus 1,2: 0,4x = 3,2. Geteilt durch 0,4: x = 8.', 'Erst die Zahl weg, dann durch 0,4 teilen.')
+    N.Z('waage', 2, 'Löse 12 − 3x = 0.', 4, '12 / 3', 'Plus 3x: 12 = 3x. Geteilt durch 3: x = 4.', 'Bring 3x auf die andere Seite, damit es positiv wird.')
+    N.Z('waage', 3, 'Löse x/3 + x/6 = 5.', 10, '5 * 6 / 3',
+        'Mal 6 (Hauptnenner): 2x + x = 30, also 3x = 30 und x = 10. Probe: 10/3 + 10/6 = 20/6 + 10/6 = 5 ✓.',
+        'Multipliziere beide Seiten mit dem Hauptnenner 6.', art=P)
+    N.Z('waage', 3, 'Welche Zahl muss im Kästchen stehen, damit die Gleichung 3x + □ = −5 die Lösungsmenge L = {−4} hat?', 7, '-5 - 3 * (-4)',
+        'x = −4 einsetzen: 3 · (−4) + □ = −5, also −12 + □ = −5 und □ = 7.', 'Setze die Lösung ein und rechne das Kästchen aus.', art=P)
+    N.Z('waage', 3, 'Löse −3/5 x + 2 = 8.', -10, '(8 - 2) / (-3/5)',
+        'Minus 2: −3/5 x = 6. Mal (−5/3): x = −10. Probe: −3/5 · (−10) + 2 = 6 + 2 = 8 ✓.',
+        'Teilen durch −3/5 ist dasselbe wie mal (−5/3). Achte auf das Vorzeichen.')
+    N.A('waage', 3, 'Jemand rechnet bei 5x = 3x: „Ich teile beide Seiten durch x und erhalte 5 = 3. Also gibt es keine Lösung.“ Was stimmt?',
+        'Falsch: x = 0 ist eine Lösung. Durch x darf man nicht teilen, weil x null sein kann.',
+        ['Richtig: 5 = 3 ist falsch, also L = { }.', 'Falsch: Jede Zahl ist eine Lösung.', 'Richtig, denn durch x teilen ist immer erlaubt.'],
+        'Probe mit x = 0: 5 · 0 = 3 · 0 ✓. Richtig umformen: minus 3x gibt 2x = 0, also x = 0. Teilen durch x wäre Teilen durch 0.',
+        'Setze x = 0 ein. Was passiert beim Teilen durch x, wenn x = 0 ist?', art=K)
+    # beide_seiten
+    N.Z('beide_seiten', 2, 'Löse 1,5x + 4 = 0,5x − 3.', -7, '(-3 - 4) / (1.5 - 0.5)', 'Minus 0,5x: x + 4 = −3. Minus 4: x = −7.', 'Bring die x-Glieder nach links.')
+    N.Z('beide_seiten', 2, 'Löse 9 − 4x = 2x − 15.', 4, '(9 + 15) / (2 + 4)', 'Plus 4x: 9 = 6x − 15. Plus 15: 24 = 6x. Also x = 4.', 'Bring die x-Glieder auf die Seite, auf der mehr x stehen.')
+    N.Z('beide_seiten', 3, 'Löse 2,5x − 6 = 4,5x + 10.', -8, '(10 + 6) / (2.5 - 4.5)',
+        'Minus 2,5x: −6 = 2x + 10. Minus 10: −16 = 2x. Also x = −8. Probe: −20 − 6 = −26 und −36 + 10 = −26 ✓.',
+        'Dezimalzahlen wie ganze Zahlen behandeln. Welche Seite hat mehr x?', art=P)
+    N.Z('beide_seiten', 3, 'In der Gleichung 4x − 3 = 2x + □ soll x = 5 die Lösung sein. Welche Zahl gehört in das Kästchen?', 7, '4 * 5 - 3 - 2 * 5',
+        'x = 5 einsetzen: 20 − 3 = 10 + □, also 17 = 10 + □ und □ = 7.', 'Setze x = 5 auf beiden Seiten ein.', art=P)
+    N.Z('beide_seiten', 3, 'Auf einer Waage liegen links 3 gleiche Kugeln und 4 Würfel, rechts 1 Kugel und 10 Würfel. Die Waage ist im Gleichgewicht. Ein Würfel wiegt 15 g. Wie schwer ist eine Kugel?', 45,
+        '(10 - 4) * 15 / (3 - 1)',
+        'Gleichung: 3k + 4 · 15 = k + 10 · 15, also 3k + 60 = k + 150. Minus k und minus 60: 2k = 90, k = 45 g.',
+        'Nimm auf beiden Seiten 1 Kugel und 4 Würfel weg. Was bleibt?', einheit='g', art=K)
+    N.L('beide_seiten', 3, 'Löse 4x − 7 = 10x + 2. Gib x als gekürzten Bruch an.', 'x = □/□', [-3, 2], ['-3', '2'],
+        'Minus 4x: −7 = 6x + 2. Minus 2: −9 = 6x. x = −9/6 = −3/2.', 'Am Ende kürzen. Das Minus steht im Zähler.', BR)
+    # klammern
+    N.Z('klammern', 2, 'Löse 3(2x − 1) = 4x + 9.', 6, '(9 + 3) / (6 - 4)', 'Klammer auflösen: 6x − 3 = 4x + 9. Minus 4x, plus 3: 2x = 12, x = 6.', 'Erst 3 mal jeden Teil der Klammer.')
+    N.Z('klammern', 2, 'Löse −(x − 4) = 2x + 1.', 1, '(4 - 1) / 3', 'Minus vor der Klammer: −x + 4 = 2x + 1. Plus x, minus 1: 3 = 3x, x = 1.', 'Das Minus vor der Klammer dreht beide Vorzeichen um.')
+    N.Z('klammern', 3, 'Löse 7x − (4x − 9) = 30.', 7, '(30 - 9) / 3',
+        'Klammer weg, Vorzeichen drehen: 7x − 4x + 9 = 30. Zusammenfassen: 3x + 9 = 30, also 3x = 21 und x = 7.',
+        'Achtung: −(4x − 9) = −4x + 9.', art=P)
+    N.Z('klammern', 3, 'Löse 3(x − 2) − 2(2x + 1) = 4.', -12, '(4 + 6 + 2) / (3 - 4)',
+        '3x − 6 − 4x − 2 = 4. Zusammenfassen: −x − 8 = 4. Also −x = 12 und x = −12.',
+        'Beide Klammern einzeln auflösen; vor der zweiten steht −2.', art=P)
+    N.Z('klammern', 3, 'Löse 0,5(4x − 6) = 3 − (x − 3).', 3, '(3 + 3 + 3) / (2 + 1)',
+        'Links: 2x − 3. Rechts: 3 − x + 3 = 6 − x. 2x − 3 = 6 − x, also 3x = 9 und x = 3.', 'Beide Seiten zuerst einzeln vereinfachen.')
+    N.L('klammern', 3, 'Löse (x + 3)(x − 1) = x(x + 4). Gib x als gekürzten Bruch an.', 'x = □/□', [-3, 2], ['-3', '2'],
+        'Links: x² − x + 3x − 3 = x² + 2x − 3. Rechts: x² + 4x. Minus x²: 2x − 3 = 4x, also −3 = 2x und x = −3/2.',
+        'Multipliziere jede Klammer aus. Was passiert mit dem x²?', BR, art=K)
+    # probe
+    N.A('probe', 2, 'Ist x = −2 eine Lösung von 3(x + 4) = 2 − 2x?', 'Ja: Beide Seiten ergeben 6.', ['Nein: links 6, rechts −2.', 'Nein: links 10, rechts 6.', 'Ja: Beide Seiten ergeben −2.'],
+        'Links: 3 · (−2 + 4) = 3 · 2 = 6. Rechts: 2 − 2 · (−2) = 2 + 4 = 6. Gleich, also Lösung.', 'Setze −2 in beide Seiten der ursprünglichen Gleichung ein.')
+    N.A('probe', 2, 'Welche der Zahlen erfüllt die Gleichung 2x − 3 = x − 1?', '2', ['−1', '0', '1'],
+        'Probe mit x = 2: 4 − 3 = 1 und 2 − 1 = 1 ✓. Bei −1, 0, 1 sind die Seiten verschieden.', 'Setze jede Zahl ein und vergleiche beide Seiten.')
+    N.Z('probe', 3, 'Die Gleichung 6x − 2(x + □) = 10 soll die Lösung x = 4 haben. Welche Zahl gehört in das Kästchen?', 3, '(6 * 4 - 2 * 4 - 10) / 2',
+        'x = 4: 24 − 2(4 + □) = 10. Also 2(4 + □) = 14, 4 + □ = 7 und □ = 3.', 'Setze x = 4 ein und rechne rückwärts.', art=P)
+    N.A('probe', 3, 'Rechnung zu 5 − 2(x − 3) = 1: (1) 5 − 2x − 6 = 1 → (2) −2x − 1 = 1 → (3) x = −1. In welcher Zeile steckt der erste Fehler?', 'Zeile 1',
+        ['Zeile 2', 'Zeile 3', 'Kein Fehler'],
+        '−2 · (−3) = +6, nicht −6. Richtig: 5 − 2x + 6 = 1. Zeilen 2 und 3 rechnen mit dem Fehler korrekt weiter.', 'Prüfe das Vorzeichen beim Auflösen der Klammer.', art=P)
+    N.Z('probe', 3, 'Rechnung zu 5 − 2(x − 3) = 1: (1) 5 − 2x − 6 = 1 → (2) −2x − 1 = 1 → (3) x = −1. Wie heißt die richtige Lösung?', 5, '(5 + 6 - 1) / 2',
+        'Richtig: 5 − 2x + 6 = 1, also 11 − 2x = 1, −2x = −10 und x = 5. Probe: 5 − 2 · 2 = 1 ✓.', 'Löse die Klammer mit dem richtigen Vorzeichen auf.', art=P)
+    N.A('probe', 3, 'Aus x = 3 folgt durch Quadrieren beider Seiten x² = 9. Haben x = 3 und x² = 9 dieselbe Lösungsmenge?', 'Nein: x² = 9 hat auch die Lösung −3.',
+        ['Ja: Quadrieren ist eine Äquivalenzumformung.', 'Ja: Beide haben nur die Lösung 3.', 'Nein: x² = 9 hat keine Lösung.'],
+        '(−3)² = 9, aber −3 ≠ 3. Quadrieren kann neue Lösungen dazubringen – es ist keine Äquivalenzumformung. Darum ist die Probe wichtig.',
+        'Probiere x = −3 in beiden Gleichungen.', art=K)
+    # sonderfaelle
+    N.A('sonderfaelle', 2, 'Bestimme die Lösungsmenge von 3(x − 2) + 6 = 3x.', LM['q'], [LM['l'], 'L = {0}', 'L = {6}'],
+        '3x − 6 + 6 = 3x, also 3x = 3x. Minus 3x: 0 = 0, immer wahr. Jede Zahl ist Lösung.', 'Löse die Klammer auf und fasse zusammen.')
+    N.A('sonderfaelle', 2, 'Bestimme die Lösungsmenge von 6x − 3(2x − 1) = 1.', LM['l'], [LM['q'], 'L = {1}', 'L = {0}'],
+        '6x − 6x + 3 = 1, also 3 = 1. Das ist falsch, egal welches x: keine Lösung.', 'Achtung: −3 · (−1) = +3.')
+    N.A('sonderfaelle', 3, 'Bestimme die Lösungsmenge von 2x + 5 = 8 für die Grundmenge G = ℕ (natürliche Zahlen).', 'L = { }',
+        ['L = {1,5}', 'L = {1}', 'L = ℕ'],
+        '2x = 3, also x = 1,5. 1,5 ist keine natürliche Zahl. In G = ℕ gibt es keine Lösung: L = { }.', 'Löse zuerst. Liegt die Lösung in der Grundmenge?', art=P)
+    N.A('sonderfaelle', 3, 'Bestimme die Lösungsmenge von 3(x + 2) = 3x + 6 − x.', 'L = {0}', [LM['q'], LM['l'], 'L = {6}'],
+        '3x + 6 = 2x + 6 (rechts zusammenfassen). Minus 2x, minus 6: x = 0. Wegen des −x ist es nicht 0 = 0.', 'Rechts erst zusammenfassen: 3x − x.', art=P)
+    N.Z('sonderfaelle', 3, 'Für welchen Wert von a hat die Gleichung (a − 2) · x = 6 keine Lösung?', 2, '2',
+        'Für a = 2 steht dort 0 · x = 6, also 0 = 6 – falsch für jedes x. Für jedes andere a gibt es genau eine Lösung x = 6 : (a − 2).',
+        'Wann verschwindet x? Dann bleibt eine Aussage ohne x.', art=K)
+    N.A('sonderfaelle', 3, 'Welche Gleichung hat KEINE Lösung?', '2(x + 1) = 2x + 1', ['2(x + 1) = 2x + 2', '2(x + 1) = x + 2', '2x = 0'],
+        '2(x + 1) = 2x + 1 wird zu 2 = 1: falsch, keine Lösung. 2(x + 1) = 2x + 2 hat L = ℚ; die anderen haben je die Lösung x = 0.', 'Löse jede Gleichung kurz.')
+    # sach
+    N.Z('sach', 2, 'Die Summe dreier aufeinanderfolgender ganzer Zahlen ist −27. Wie heißt die größte der drei Zahlen?', -8, '(-27 - 3) / 3 + 2',
+        'x + (x + 1) + (x + 2) = −27, also 3x + 3 = −27, 3x = −30, x = −10. Die Zahlen: −10, −9, −8. Größte: −8.', 'Nenne die kleinste Zahl x. Wie heißen die anderen?')
+    N.Z('sach', 2, 'Ein Seil von 12 m wird in zwei Teile geschnitten. Ein Teil ist 2,4 m länger als der andere. Wie lang ist das kürzere Teil?', Fr('4.8'), '(12 - 2.4) / 2',
+        'x + (x + 2,4) = 12, also 2x = 9,6 und x = 4,8 m. Probe: 4,8 + 7,2 = 12 ✓.', 'Kürzeres Teil x, längeres x + 2,4.', einheit='m')
+    N.A('sach', 3, 'Ein Theater hat 240 Plätze, alle sind verkauft. Kinder zahlen 6 €, Erwachsene 11 €. Die Einnahmen betragen 2 140 €. x ist die Zahl der Kinderkarten. Welche Gleichung passt?',
+        '6x + 11(240 − x) = 2 140', ['6x + 11x = 2 140', '6x + 11 · 240 = 2 140', '6(240 − x) + 11x = 2 140'],
+        'Kinder: x Karten zu 6 €. Erwachsene: der Rest, 240 − x Karten zu 11 €. Zusammen 2 140 €.', 'Wie viele Erwachsenenkarten sind es, wenn x Kinderkarten verkauft wurden?', art=P)
+    N.Z('sach', 3, 'Ein Theater hat 240 Plätze, alle sind verkauft. Kinder zahlen 6 €, Erwachsene 11 €. Die Einnahmen betragen 2 140 €. Wie viele Kinderkarten wurden verkauft?', 100, '(11 * 240 - 2140) / (11 - 6)',
+        '6x + 11(240 − x) = 2 140 → 6x + 2 640 − 11x = 2 140 → −5x = −500 → x = 100 Kinderkarten. Probe: 600 € + 140 · 11 € = 2 140 € ✓.',
+        'Stelle die Gleichung mit x Kinderkarten auf und löse die Klammer auf.', einheit='Karten', art=P)
+    N.Z('sach', 3, 'Ein rechteckiges Gehege wird an eine Mauer gebaut; die Mauer ersetzt eine lange Seite. Für die anderen drei Seiten gibt es 50 m Zaun. Die lange Seite ist doppelt so lang wie eine kurze. Wie lang ist eine kurze Seite?',
+        Fr('12.5'), '50 / 4',
+        'Kurze Seite x, lange 2x. Zaun: x + x + 2x = 50, also 4x = 50 und x = 12,5 m.', 'Welche Seiten brauchen Zaun? Mach eine Skizze.', einheit='m', art=P)
+    N.Z('sach', 3, 'Ein Vater ist heute dreimal so alt wie seine Tochter. In 12 Jahren ist er nur noch doppelt so alt wie sie. Wie alt ist die Tochter heute?', 12, '2 * 12 - 12',
+        'Tochter t, Vater 3t. In 12 Jahren: 3t + 12 = 2(t + 12) → 3t + 12 = 2t + 24 → t = 12. Probe: 36 + 12 = 48 = 2 · 24 ✓.',
+        'Beide werden 12 Jahre älter. Stelle die Gleichung für „in 12 Jahren“ auf.', einheit='Jahre', art=K)
+    return N
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Umformen', ['waage', 'beide_seiten', 'klammern']), ('Prüfen und Sonderfälle', ['probe', 'sonderfaelle']), ('Anwenden', ['sach'])],
@@ -715,3 +823,4 @@ if __name__ == '__main__':
          offen=['Lehrplanbezug: lehrplan_gym ist leer; umgesetzt nach „umfang“. Grundmenge ℚ (Klasse 7); Brüche als Lösung über Lücken □/□.',
                 'Bruchgleichungen (x im Nenner) und Ungleichungen gehören zu gleichungen.bruch bzw. gleichungen.ungleichungen (Kl. 8) und sind weggelassen.'],
          teil=TEIL)
+    anhaengen(META['thema_schluessel'], schwer())

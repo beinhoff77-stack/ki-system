@@ -4067,6 +4067,658 @@
    },
    "c": "(95 - 47) // (4 + 4)",
    "w": "4x + 47 = 95 − 4x | + 4x − 47 → 8x = 48 → x = 6 Wochen. Beide haben dann 71 €."
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 0,4x − 1,2 = 2."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(2 + 1.2) / 0.4",
+   "w": "Plus 1,2: 0,4x = 3,2. Geteilt durch 0,4: x = 8.",
+   "h": "Erst die Zahl weg, dann durch 0,4 teilen."
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 12 − 3x = 0."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "12 / 3",
+   "w": "Plus 3x: 12 = 3x. Geteilt durch 3: x = 4.",
+   "h": "Bring 3x auf die andere Seite, damit es positiv wird."
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x/3 + x/6 = 5."
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "5 * 6 / 3",
+   "w": "Mal 6 (Hauptnenner): 2x + x = 30, also 3x = 30 und x = 10. Probe: 10/3 + 10/6 = 20/6 + 10/6 = 5 ✓.",
+   "h": "Multipliziere beide Seiten mit dem Hauptnenner 6."
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl muss im Kästchen stehen, damit die Gleichung 3x + □ = −5 die Lösungsmenge L = {−4} hat?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "-5 - 3 * (-4)",
+   "w": "x = −4 einsetzen: 3 · (−4) + □ = −5, also −12 + □ = −5 und □ = 7.",
+   "h": "Setze die Lösung ein und rechne das Kästchen aus."
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −3/5 x + 2 = 8."
+   },
+   "o": {
+    "wert": -10
+   },
+   "c": "(8 - 2) / (-3/5)",
+   "w": "Minus 2: −3/5 x = 6. Mal (−5/3): x = −10. Probe: −3/5 · (−10) + 2 = 6 + 2 = 8 ✓.",
+   "h": "Teilen durch −3/5 ist dasselbe wie mal (−5/3). Achte auf das Vorzeichen."
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet bei 5x = 3x: „Ich teile beide Seiten durch x und erhalte 5 = 3. Also gibt es keine Lösung.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: x = 0 ist eine Lösung. Durch x darf man nicht teilen, weil x null sein kann.",
+    "Falsch: Jede Zahl ist eine Lösung.",
+    "Richtig: 5 = 3 ist falsch, also L = { }.",
+    "Richtig, denn durch x teilen ist immer erlaubt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Probe mit x = 0: 5 · 0 = 3 · 0 ✓. Richtig umformen: minus 3x gibt 2x = 0, also x = 0. Teilen durch x wäre Teilen durch 0.",
+   "h": "Setze x = 0 ein. Was passiert beim Teilen durch x, wenn x = 0 ist?"
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 1,5x + 4 = 0,5x − 3."
+   },
+   "o": {
+    "wert": -7
+   },
+   "c": "(-3 - 4) / (1.5 - 0.5)",
+   "w": "Minus 0,5x: x + 4 = −3. Minus 4: x = −7.",
+   "h": "Bring die x-Glieder nach links."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 9 − 4x = 2x − 15."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(9 + 15) / (2 + 4)",
+   "w": "Plus 4x: 9 = 6x − 15. Plus 15: 24 = 6x. Also x = 4.",
+   "h": "Bring die x-Glieder auf die Seite, auf der mehr x stehen."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2,5x − 6 = 4,5x + 10."
+   },
+   "o": {
+    "wert": -8
+   },
+   "c": "(10 + 6) / (2.5 - 4.5)",
+   "w": "Minus 2,5x: −6 = 2x + 10. Minus 10: −16 = 2x. Also x = −8. Probe: −20 − 6 = −26 und −36 + 10 = −26 ✓.",
+   "h": "Dezimalzahlen wie ganze Zahlen behandeln. Welche Seite hat mehr x?"
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In der Gleichung 4x − 3 = 2x + □ soll x = 5 die Lösung sein. Welche Zahl gehört in das Kästchen?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "4 * 5 - 3 - 2 * 5",
+   "w": "x = 5 einsetzen: 20 − 3 = 10 + □, also 17 = 10 + □ und □ = 7.",
+   "h": "Setze x = 5 auf beiden Seiten ein."
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einer Waage liegen links 3 gleiche Kugeln und 4 Würfel, rechts 1 Kugel und 10 Würfel. Die Waage ist im Gleichgewicht. Ein Würfel wiegt 15 g. Wie schwer ist eine Kugel?"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "g"
+   },
+   "c": "(10 - 4) * 15 / (3 - 1)",
+   "w": "Gleichung: 3k + 4 · 15 = k + 10 · 15, also 3k + 60 = k + 150. Minus k und minus 60: 2k = 90, k = 45 g.",
+   "h": "Nimm auf beiden Seiten 1 Kugel und 4 Würfel weg. Was bleibt?"
+  },
+  {
+   "l": "beide_seiten",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 4x − 7 = 10x + 2. Gib x als gekürzten Bruch an.",
+    "schablone": "x = □/□",
+    "hinweis": "Zähler und Nenner eintragen; ein Minus gehört in den Zähler."
+   },
+   "o": {
+    "werte": [
+     -3,
+     2
+    ]
+   },
+   "c": [
+    "-3",
+    "2"
+   ],
+   "w": "Minus 4x: −7 = 6x + 2. Minus 2: −9 = 6x. x = −9/6 = −3/2.",
+   "h": "Am Ende kürzen. Das Minus steht im Zähler."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3(2x − 1) = 4x + 9."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(9 + 3) / (6 - 4)",
+   "w": "Klammer auflösen: 6x − 3 = 4x + 9. Minus 4x, plus 3: 2x = 12, x = 6.",
+   "h": "Erst 3 mal jeden Teil der Klammer."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −(x − 4) = 2x + 1."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(4 - 1) / 3",
+   "w": "Minus vor der Klammer: −x + 4 = 2x + 1. Plus x, minus 1: 3 = 3x, x = 1.",
+   "h": "Das Minus vor der Klammer dreht beide Vorzeichen um."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 7x − (4x − 9) = 30."
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "(30 - 9) / 3",
+   "w": "Klammer weg, Vorzeichen drehen: 7x − 4x + 9 = 30. Zusammenfassen: 3x + 9 = 30, also 3x = 21 und x = 7.",
+   "h": "Achtung: −(4x − 9) = −4x + 9."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3(x − 2) − 2(2x + 1) = 4."
+   },
+   "o": {
+    "wert": -12
+   },
+   "c": "(4 + 6 + 2) / (3 - 4)",
+   "w": "3x − 6 − 4x − 2 = 4. Zusammenfassen: −x − 8 = 4. Also −x = 12 und x = −12.",
+   "h": "Beide Klammern einzeln auflösen; vor der zweiten steht −2."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 0,5(4x − 6) = 3 − (x − 3)."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(3 + 3 + 3) / (2 + 1)",
+   "w": "Links: 2x − 3. Rechts: 3 − x + 3 = 6 − x. 2x − 3 = 6 − x, also 3x = 9 und x = 3.",
+   "h": "Beide Seiten zuerst einzeln vereinfachen."
+  },
+  {
+   "l": "klammern",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x + 3)(x − 1) = x(x + 4). Gib x als gekürzten Bruch an.",
+    "schablone": "x = □/□",
+    "hinweis": "Zähler und Nenner eintragen; ein Minus gehört in den Zähler."
+   },
+   "o": {
+    "werte": [
+     -3,
+     2
+    ]
+   },
+   "c": [
+    "-3",
+    "2"
+   ],
+   "w": "Links: x² − x + 3x − 3 = x² + 2x − 3. Rechts: x² + 4x. Minus x²: 2x − 3 = 4x, also −3 = 2x und x = −3/2.",
+   "h": "Multipliziere jede Klammer aus. Was passiert mit dem x²?"
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist x = −2 eine Lösung von 3(x + 4) = 2 − 2x?"
+   },
+   "a": [
+    "Nein: links 6, rechts −2.",
+    "Nein: links 10, rechts 6.",
+    "Ja: Beide Seiten ergeben 6.",
+    "Ja: Beide Seiten ergeben −2."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Links: 3 · (−2 + 4) = 3 · 2 = 6. Rechts: 2 − 2 · (−2) = 2 + 4 = 6. Gleich, also Lösung.",
+   "h": "Setze −2 in beide Seiten der ursprünglichen Gleichung ein."
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche der Zahlen erfüllt die Gleichung 2x − 3 = x − 1?"
+   },
+   "a": [
+    "0",
+    "1",
+    "−1",
+    "2"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Probe mit x = 2: 4 − 3 = 1 und 2 − 1 = 1 ✓. Bei −1, 0, 1 sind die Seiten verschieden.",
+   "h": "Setze jede Zahl ein und vergleiche beide Seiten."
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gleichung 6x − 2(x + □) = 10 soll die Lösung x = 4 haben. Welche Zahl gehört in das Kästchen?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(6 * 4 - 2 * 4 - 10) / 2",
+   "w": "x = 4: 24 − 2(4 + □) = 10. Also 2(4 + □) = 14, 4 + □ = 7 und □ = 3.",
+   "h": "Setze x = 4 ein und rechne rückwärts."
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Rechnung zu 5 − 2(x − 3) = 1: (1) 5 − 2x − 6 = 1 → (2) −2x − 1 = 1 → (3) x = −1. In welcher Zeile steckt der erste Fehler?"
+   },
+   "a": [
+    "Kein Fehler",
+    "Zeile 1",
+    "Zeile 3",
+    "Zeile 2"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "−2 · (−3) = +6, nicht −6. Richtig: 5 − 2x + 6 = 1. Zeilen 2 und 3 rechnen mit dem Fehler korrekt weiter.",
+   "h": "Prüfe das Vorzeichen beim Auflösen der Klammer."
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechnung zu 5 − 2(x − 3) = 1: (1) 5 − 2x − 6 = 1 → (2) −2x − 1 = 1 → (3) x = −1. Wie heißt die richtige Lösung?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(5 + 6 - 1) / 2",
+   "w": "Richtig: 5 − 2x + 6 = 1, also 11 − 2x = 1, −2x = −10 und x = 5. Probe: 5 − 2 · 2 = 1 ✓.",
+   "h": "Löse die Klammer mit dem richtigen Vorzeichen auf."
+  },
+  {
+   "l": "probe",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Aus x = 3 folgt durch Quadrieren beider Seiten x² = 9. Haben x = 3 und x² = 9 dieselbe Lösungsmenge?"
+   },
+   "a": [
+    "Ja: Quadrieren ist eine Äquivalenzumformung.",
+    "Nein: x² = 9 hat keine Lösung.",
+    "Nein: x² = 9 hat auch die Lösung −3.",
+    "Ja: Beide haben nur die Lösung 3."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "(−3)² = 9, aber −3 ≠ 3. Quadrieren kann neue Lösungen dazubringen – es ist keine Äquivalenzumformung. Darum ist die Probe wichtig.",
+   "h": "Probiere x = −3 in beiden Gleichungen."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bestimme die Lösungsmenge von 3(x − 2) + 6 = 3x."
+   },
+   "a": [
+    "L = { } (keine Lösung)",
+    "L = ℚ (jede Zahl)",
+    "L = {6}",
+    "L = {0}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "3x − 6 + 6 = 3x, also 3x = 3x. Minus 3x: 0 = 0, immer wahr. Jede Zahl ist Lösung.",
+   "h": "Löse die Klammer auf und fasse zusammen."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bestimme die Lösungsmenge von 6x − 3(2x − 1) = 1."
+   },
+   "a": [
+    "L = {1}",
+    "L = {0}",
+    "L = ℚ (jede Zahl)",
+    "L = { } (keine Lösung)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "6x − 6x + 3 = 1, also 3 = 1. Das ist falsch, egal welches x: keine Lösung.",
+   "h": "Achtung: −3 · (−1) = +3."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bestimme die Lösungsmenge von 2x + 5 = 8 für die Grundmenge G = ℕ (natürliche Zahlen)."
+   },
+   "a": [
+    "L = { }",
+    "L = ℕ",
+    "L = {1,5}",
+    "L = {1}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "2x = 3, also x = 1,5. 1,5 ist keine natürliche Zahl. In G = ℕ gibt es keine Lösung: L = { }.",
+   "h": "Löse zuerst. Liegt die Lösung in der Grundmenge?"
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bestimme die Lösungsmenge von 3(x + 2) = 3x + 6 − x."
+   },
+   "a": [
+    "L = ℚ (jede Zahl)",
+    "L = {6}",
+    "L = {0}",
+    "L = { } (keine Lösung)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "3x + 6 = 2x + 6 (rechts zusammenfassen). Minus 2x, minus 6: x = 0. Wegen des −x ist es nicht 0 = 0.",
+   "h": "Rechts erst zusammenfassen: 3x − x."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welchen Wert von a hat die Gleichung (a − 2) · x = 6 keine Lösung?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Für a = 2 steht dort 0 · x = 6, also 0 = 6 – falsch für jedes x. Für jedes andere a gibt es genau eine Lösung x = 6 : (a − 2).",
+   "h": "Wann verschwindet x? Dann bleibt eine Aussage ohne x."
+  },
+  {
+   "l": "sonderfaelle",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gleichung hat KEINE Lösung?"
+   },
+   "a": [
+    "2(x + 1) = 2x + 2",
+    "2x = 0",
+    "2(x + 1) = x + 2",
+    "2(x + 1) = 2x + 1"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "2(x + 1) = 2x + 1 wird zu 2 = 1: falsch, keine Lösung. 2(x + 1) = 2x + 2 hat L = ℚ; die anderen haben je die Lösung x = 0.",
+   "h": "Löse jede Gleichung kurz."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Summe dreier aufeinanderfolgender ganzer Zahlen ist −27. Wie heißt die größte der drei Zahlen?"
+   },
+   "o": {
+    "wert": -8
+   },
+   "c": "(-27 - 3) / 3 + 2",
+   "w": "x + (x + 1) + (x + 2) = −27, also 3x + 3 = −27, 3x = −30, x = −10. Die Zahlen: −10, −9, −8. Größte: −8.",
+   "h": "Nenne die kleinste Zahl x. Wie heißen die anderen?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Seil von 12 m wird in zwei Teile geschnitten. Ein Teil ist 2,4 m länger als der andere. Wie lang ist das kürzere Teil?"
+   },
+   "o": {
+    "wert": 4.8,
+    "einheit": "m"
+   },
+   "c": "(12 - 2.4) / 2",
+   "w": "x + (x + 2,4) = 12, also 2x = 9,6 und x = 4,8 m. Probe: 4,8 + 7,2 = 12 ✓.",
+   "h": "Kürzeres Teil x, längeres x + 2,4."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Theater hat 240 Plätze, alle sind verkauft. Kinder zahlen 6 €, Erwachsene 11 €. Die Einnahmen betragen 2 140 €. x ist die Zahl der Kinderkarten. Welche Gleichung passt?"
+   },
+   "a": [
+    "6x + 11x = 2 140",
+    "6x + 11(240 − x) = 2 140",
+    "6x + 11 · 240 = 2 140",
+    "6(240 − x) + 11x = 2 140"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Kinder: x Karten zu 6 €. Erwachsene: der Rest, 240 − x Karten zu 11 €. Zusammen 2 140 €.",
+   "h": "Wie viele Erwachsenenkarten sind es, wenn x Kinderkarten verkauft wurden?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Theater hat 240 Plätze, alle sind verkauft. Kinder zahlen 6 €, Erwachsene 11 €. Die Einnahmen betragen 2 140 €. Wie viele Kinderkarten wurden verkauft?"
+   },
+   "o": {
+    "wert": 100,
+    "einheit": "Karten"
+   },
+   "c": "(11 * 240 - 2140) / (11 - 6)",
+   "w": "6x + 11(240 − x) = 2 140 → 6x + 2 640 − 11x = 2 140 → −5x = −500 → x = 100 Kinderkarten. Probe: 600 € + 140 · 11 € = 2 140 € ✓.",
+   "h": "Stelle die Gleichung mit x Kinderkarten auf und löse die Klammer auf."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechteckiges Gehege wird an eine Mauer gebaut; die Mauer ersetzt eine lange Seite. Für die anderen drei Seiten gibt es 50 m Zaun. Die lange Seite ist doppelt so lang wie eine kurze. Wie lang ist eine kurze Seite?"
+   },
+   "o": {
+    "wert": 12.5,
+    "einheit": "m"
+   },
+   "c": "50 / 4",
+   "w": "Kurze Seite x, lange 2x. Zaun: x + x + 2x = 50, also 4x = 50 und x = 12,5 m.",
+   "h": "Welche Seiten brauchen Zaun? Mach eine Skizze."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Vater ist heute dreimal so alt wie seine Tochter. In 12 Jahren ist er nur noch doppelt so alt wie sie. Wie alt ist die Tochter heute?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "Jahre"
+   },
+   "c": "2 * 12 - 12",
+   "w": "Tochter t, Vater 3t. In 12 Jahren: 3t + 12 = 2(t + 12) → 3t + 12 = 2t + 24 → t = 12. Probe: 36 + 12 = 48 = 2 · 24 ✓.",
+   "h": "Beide werden 12 Jahre älter. Stelle die Gleichung für „in 12 Jahren“ auf."
   }
  ],
  "offen": [

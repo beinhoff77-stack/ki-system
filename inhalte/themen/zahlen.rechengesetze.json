@@ -53,247 +53,785 @@
    {
     "lernziel": "punkt_strich",
     "titel": "Punkt vor Strich",
-    "regel": "So gehst du vor: ⟦Punktrechnung⟧ (mal, geteilt) zuerst, dann ⟦Strichrechnung⟧ (plus, minus). Was gleichrangig ist, rechnest du ⟦von links nach rechts⟧.",
+    "regel": "⟦Punktrechnung⟧ kommt vor Strichrechnung. Sonst rechnest du von links nach rechts.",
     "schritte": [
-     "Die Rechnung für den Kinobesuch heißt 3 + 4 · 5. Darin stehen ein Strich (+) und ein Punkt (·).",
-     "Zuerst kommt die Punktrechnung: 4 Karten zu je 5 € kosten 4 · 5 = 20 €.",
-     "Dann die Strichrechnung: 3 + 20 = ⟦23⟧. Der Kinobesuch kostet 23 €.",
-     "Stehen nur Striche oder nur Punkte da, rechnest du von links nach rechts: 20 − 5 + 2 = 15 + 2 = ⟦17⟧."
+     {
+      "text": "Die Rechnung für den Kinobesuch heißt 3 + 4 · 5."
+     },
+     {
+      "text": "Punktrechnung zuerst: 4 · 5 = 20. Die Karten kosten 20 €.",
+      "bild": {
+       "zeilen": [
+        [
+         "Karten",
+         "4 · 5",
+         "20"
+        ],
+        [
+         "Popcorn",
+         "3",
+         "3"
+        ],
+        [
+         "zusammen",
+         "3 + 4 · 5",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Dann die Strichrechnung: 3 + 20 = ⟦23⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "Karten",
+         "4 · 5",
+         "20"
+        ],
+        [
+         "Popcorn",
+         "3",
+         "3"
+        ],
+        [
+         "zusammen",
+         "3 + 20",
+         "23"
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "Stur von links nach rechts: 3 + 4 = 7 und 7 · 5 = 35 ist falsch. Das wären 7 Kinokarten – gekauft hast du aber nur 4. Erst ⟦4 · 5⟧, dann plus 3.",
-    "einstieg": "Du gehst mit drei Freunden ins Kino. Für alle vier kaufst du Karten zu je 5 €, dazu eine Tüte Popcorn für 3 €. Was kostet das zusammen? Zuerst rechnest du die Karten aus, dann kommt das Popcorn dazu. Diese feste Reihenfolge heißt ⟦Punkt vor Strich⟧.",
+    "fehler": "Stur von links rechnen: 3 + 4 = 7, dann 7 · 5 = 35. Das wären 7 Kinokarten – gekauft hast du nur 4.",
+    "einstieg": "Du kaufst 4 Kinokarten zu je 5 € und ein Popcorn für 3 €. Erst rechnest du die Karten aus, dann kommt das Popcorn dazu. Diese Reihenfolge heißt ⟦Punkt vor Strich⟧.",
+    "woerter": [
+     [
+      "·",
+      "das Malzeichen: 4 · 5 heißt „4 mal 5“"
+     ],
+     [
+      "Punktrechnung",
+      "mal (·) und geteilt (:)"
+     ],
+     [
+      "Strichrechnung",
+      "plus (+) und minus (−)"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Was",
+      "Rechnung",
+      "Euro"
+     ],
+     "zeilen": [
+      [
+       "Karten",
+       "4 · 5",
+       "?"
+      ],
+      [
+       "Popcorn",
+       "3",
+       "3"
+      ],
+      [
+       "zusammen",
+       "3 + 4 · 5",
+       "?"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "zeilen": [
+      [
+       "falsch",
+       "7 · 5",
+       "35"
+      ],
+      [
+       "richtig",
+       "3 + 20",
+       "23"
+      ]
+     ]
+    }
+   },
+   {
+    "lernziel": "klammern",
+    "titel": "Klammern zuerst",
+    "regel": "Klammern rechnest du ⟦zuerst⟧. Stecken Klammern ineinander, fängst du innen an. Danach gilt Punkt vor Strich.",
+    "schritte": [
+     {
+      "text": "Rechne (3 + 4) · 5. Klammer zuerst: 3 + 4 = 7.",
+      "bild": {
+       "zeilen": [
+        [
+         "1 Person",
+         "3 + 4",
+         "7"
+        ],
+        [
+         "5 Personen",
+         "(3 + 4) · 5",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Eine Person zahlt 7 €. Für 5 Personen: 7 · 5 = ⟦35⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "1 Person",
+         "3 + 4",
+         "7"
+        ],
+        [
+         "5 Personen",
+         "7 · 5",
+         "35"
+        ]
+       ]
+      }
+     }
+    ],
+    "fehler": "Die Klammer übersehen: 3 + 4 · 5 = 23. Das wären eine Karte und 5 Menüs statt 5-mal Karte und Menü.",
+    "einstieg": "Für jede Person kostet die Karte 3 € und das Menü 4 €. Ihr seid 5 Personen. Erst den Preis pro Person, dann mal 5: Das zeigen ⟦Klammern⟧.",
+    "woerter": [
+     [
+      "Klammern ( )",
+      "Was in der Klammer steht, rechnest du zuerst"
+     ],
+     [
+      "(3 + 4) · 5",
+      "gelesen „3 plus 4, das Ganze mal 5“"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Was",
+      "Rechnung",
+      "Euro"
+     ],
+     "zeilen": [
+      [
+       "1 Person",
+       "3 + 4",
+       "?"
+      ],
+      [
+       "5 Personen",
+       "(3 + 4) · 5",
+       "?"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "zeilen": [
+      [
+       "ohne Klammer",
+       "3 + 4 · 5",
+       "23"
+      ],
+      [
+       "mit Klammer",
+       "(3 + 4) · 5",
+       "35"
+      ]
+     ]
+    }
+   },
+   {
+    "lernziel": "termaufbau",
+    "titel": "Terme lesen und aufstellen",
+    "regel": "Der Name richtet sich nach der ⟦letzten Rechnung⟧. Plus: Summe, minus: Differenz, mal: Produkt, geteilt: Quotient.",
+    "schritte": [
+     {
+      "text": "Bei 3 + 4 · 5 rechnest du zuerst 4 · 5 = 20.",
+      "bild": {
+       "typ": "baum",
+       "aeste": [
+        {
+         "text": "+",
+         "aeste": [
+          {
+           "text": "3"
+          },
+          {
+           "text": "· zuerst",
+           "aeste": [
+            {
+             "text": "4"
+            },
+            {
+             "text": "5"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     },
+     {
+      "text": "Zuletzt kommt 3 + 20. Die letzte Rechnung ist ein Plus.",
+      "bild": {
+       "typ": "baum",
+       "aeste": [
+        {
+         "text": "+ zuletzt",
+         "aeste": [
+          {
+           "text": "3"
+          },
+          {
+           "text": "· zuerst",
+           "aeste": [
+            {
+             "text": "4"
+            },
+            {
+             "text": "5"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     },
+     {
+      "text": "Darum ist der Term eine ⟦Summe⟧: aus 3 und dem Produkt 4 · 5."
+     }
+    ],
+    "fehler": "Den Term „Produkt“ nennen, weil ein Malpunkt vorkommt, ist falsch. Am Ende kommt das Popcorn dazu: Die letzte Rechnung ist plus.",
+    "einstieg": "Beschreibst du die Kino-Rechnung, sagst du: Zu den Karten kommt das Popcorn dazu. Am Ende wird also addiert. Nach seiner letzten Rechnung bekommt jeder ⟦Term⟧ einen Namen.",
     "woerter": [
      [
       "Term",
       "eine Rechnung aus Zahlen und Rechenzeichen, zum Beispiel 3 + 4 · 5"
      ],
      [
-      "·",
-      "das Malzeichen: 4 · 5 heißt „4 mal 5“"
-     ],
-     [
-      ":",
-      "das Geteiltzeichen: 20 : 4 heißt „20 geteilt durch 4“"
-     ],
-     [
-      "Punktrechnung",
-      "mal (·) und geteilt (:) – ihre Zeichen sind Punkte"
-     ],
-     [
-      "Strichrechnung",
-      "plus (+) und minus (−) – ihre Zeichen sind Striche"
-     ],
-     [
-      "gleichrangig",
-      "gleich wichtig: zwei Punktrechnungen oder zwei Strichrechnungen"
-     ]
-    ]
-   },
-   {
-    "lernziel": "klammern",
-    "titel": "Klammern zuerst",
-    "regel": "So gehst du vor: ⟦Klammern zuerst⟧. Stehen Klammern ineinander, rechnest du ⟦von innen nach außen⟧. Danach gilt Punkt vor Strich.",
-    "schritte": [
-     "Rechne (3 + 4) · 5. Zuerst die Klammer: 3 + 4 = 7. Eine Person zahlt 7 €.",
-     "Dann mal 5 für fünf Personen: 7 · 5 = ⟦35⟧.",
-     "Klammer in Klammer: 2 · (10 − (3 + 4)). Beginne ganz innen: 3 + 4 = 7.",
-     "Dann die äußere Klammer: 10 − 7 = 3. Zum Schluss 2 · 3 = ⟦6⟧."
-    ],
-    "probe": "Ohne Klammer wäre 3 + 4 · 5 = 23. Die Klammer ändert das Ergebnis.",
-    "fehler": "Die Klammer übersehen und Punkt vor Strich rechnen: (3 + 4) · 5 = 3 + 20 = 23 ist falsch. Das wäre eine einzige Karte und 5 Menüs – gemeint war aber Karte und Menü für jede Person. Erst ⟦3 + 4⟧, dann mal 5. Richtig ist 35.",
-    "einstieg": "Diesmal kostet für jede Person die Karte 3 € und ein Popcorn-Menü 4 €, und ihr seid 5 Personen. Jetzt musst du zuerst ausrechnen, was eine Person zahlt (3 + 4), und erst dann mal 5 nehmen. Damit jeder sieht, was zuerst kommt, setzt man ⟦Klammern⟧: (3 + 4) · 5.",
-    "woerter": [
-     [
-      "( )",
-      "runde Klammern: Was darin steht, wird zuerst gerechnet"
-     ],
-     [
-      "[ ]",
-      "eckige Klammern: eine äußere Klammer, in der noch eine runde Klammer steht"
-     ],
-     [
-      "Klammer in Klammer",
-      "eine Klammer steht in einer anderen; die innere kommt zuerst dran"
-     ]
-    ]
-   },
-   {
-    "lernziel": "termaufbau",
-    "titel": "Terme lesen und aufstellen",
-    "regel": "So bestimmst du die Art eines Terms: Suche die Rechnung, die du ⟦zuletzt⟧ ausführst. Plus → ⟦Summe⟧, Minus → ⟦Differenz⟧, Mal → ⟦Produkt⟧, Geteilt → ⟦Quotient⟧.",
-    "schritte": [
-     "Sieh dir 3 + 4 · 5 an. Frage dich: Was rechnest du zuerst, was zuletzt?",
-     "Wegen Punkt vor Strich rechnest du zuerst 4 · 5 = 20 und zuletzt 3 + 20.",
-     "Die letzte Rechnung ist ein Plus. Darum ist der Term eine ⟦Summe⟧.",
-     "Genauer gesagt: Es ist die Summe aus 3 und dem ⟦Produkt⟧ von 4 und 5."
-    ],
-    "fehler": "3 + 4 · 5 ein Produkt nennen, weil ein Malpunkt vorkommt, ist falsch. Beim Kino kommt am Ende das Popcorn ⟦dazu⟧: Die letzte Rechnung ist das Plus, also ist es eine Summe.",
-    "einstieg": "Wenn du jemandem die Kino-Rechnung beschreibst, sagst du, was am Ende passiert: „Zu den Karten kommt noch das Popcorn dazu.“ Die letzte Rechnung ist hier ein Plus. Für jede Rechenart, die zuletzt kommt, hat Mathe einen eigenen Namen. Damit beschreibst du den ⟦Aufbau eines Terms⟧.",
-    "woerter": [
-     [
       "Summe",
-      "ein Term, bei dem zuletzt addiert (plus) wird"
-     ],
-     [
-      "Differenz",
-      "ein Term, bei dem zuletzt subtrahiert (minus) wird"
+      "ein Term, bei dem zuletzt plus gerechnet wird"
      ],
      [
       "Produkt",
-      "ein Term, bei dem zuletzt multipliziert (mal) wird"
-     ],
-     [
-      "Quotient",
-      "ein Term, bei dem zuletzt dividiert (geteilt) wird"
-     ],
-     [
-      "Faktor",
-      "eine Zahl in einer Malrechnung: Bei 4 · 5 sind 4 und 5 die Faktoren"
-     ],
-     [
-      "addieren, subtrahieren, multiplizieren, dividieren",
-      "plus, minus, mal und geteilt rechnen"
+      "ein Term, bei dem zuletzt mal gerechnet wird"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "+",
+       "aeste": [
+        {
+         "text": "3"
+        },
+        {
+         "text": "·",
+         "aeste": [
+          {
+           "text": "4"
+          },
+          {
+           "text": "5"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
    },
    {
     "lernziel": "vorteil",
     "titel": "Geschickt: tauschen und verbinden",
-    "regel": "So rechnest du geschickt: Bei ⟦Plus⟧ und bei ⟦Mal⟧ darfst du die Zahlen ⟦tauschen⟧ und ⟦beliebig zusammenfassen⟧. Suche Paare, die glatte Zahlen ergeben: 25 · 4 = 100, 37 + 63 = 100.",
+    "regel": "Bei plus und mal darfst du ⟦tauschen⟧ und zusammenfassen. Suche Paare mit glatten Ergebnissen: 25 · 4 = 100.",
     "schritte": [
-     "Rechne 25 · 7 · 4. Von links nach rechts wäre 25 · 7 mühsam.",
-     "Beim Malnehmen darfst du tauschen. Hol die 4 nach vorn zur 25: 25 · 4 · 7.",
-     "25 · 4 = 100 ist eine glatte Zahl.",
-     "Dann ist 100 · 7 = ⟦700⟧."
+     {
+      "text": "Rechne 25 · 7 · 4. Von links wäre 25 · 7 mühsam."
+     },
+     {
+      "text": "Tausche die 4 nach vorn. Dann 25 · 4 zusammenfassen."
+     },
+     {
+      "text": "25 · 4 = 100 ist eine glatte Zahl.",
+      "bild": {
+       "zeilen": [
+        [
+         "von links",
+         "25 · 7 · 4",
+         "mühsam"
+        ],
+        [
+         "getauscht",
+         "100 · 7",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "100 · 7 = ⟦700⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "von links",
+         "25 · 7 · 4",
+         "mühsam"
+        ],
+        [
+         "getauscht",
+         "100 · 7",
+         "700"
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "Auch bei Minus oder Geteilt tauschen: 10 − 3 = 7, aber 3 − 10 = −7. Wer 10 € hat und 3 € ausgibt, steht anders da als jemand mit 3 €, der 10 € ausgibt. Tauschen geht nur bei ⟦Plus und Mal⟧.",
-    "einstieg": "An der Kasse legst du deine Einkäufe in irgendeiner Reihenfolge auf das Band – der Preis am Ende ist trotzdem derselbe. Das kannst du beim Rechnen nutzen: Fasse Zahlen so zusammen, dass glatte Ergebnisse entstehen. Bei Plus und bei Mal ist das immer erlaubt. Diese Regeln heißen ⟦Rechengesetze⟧.",
+    "fehler": "Bei minus tauschen ist falsch. 10 − 3 = 7, aber 3 − 10 = −7. Tauschen geht nur bei plus und mal.",
+    "einstieg": "An der Kasse ist egal, in welcher Reihenfolge deine Sachen aufs Band kommen. Der Preis bleibt gleich. Bei plus und mal darfst du deshalb ⟦tauschen⟧.",
     "woerter": [
      [
-      "Rechengesetz",
-      "eine Regel, die immer gilt und dir das Rechnen leichter macht"
+      "tauschen",
+      "die Reihenfolge ändern; erlaubt bei plus und mal (Fachwort: Kommutativgesetz)"
      ],
      [
-      "a, b, c",
-      "Platzhalter für beliebige Zahlen"
-     ],
-     [
-      "Vertauschungsgesetz",
-      "a + b = b + a und a · b = b · a: Die Reihenfolge ist egal (Fachwort: Kommutativgesetz)"
-     ],
-     [
-      "Verbindungsgesetz",
-      "(a + b) + c = a + (b + c), ebenso bei Mal: Man darf anders zusammenfassen (Fachwort: Assoziativgesetz)"
+      "zusammenfassen",
+      "zwei Zahlen zuerst miteinander rechnen (Fachwort: Assoziativgesetz)"
      ],
      [
       "glatte Zahl",
-      "eine Zahl wie 10, 100 oder 1 000, mit der man leicht weiterrechnet"
+      "eine Zahl wie 10, 100 oder 1 000"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Weg",
+      "Rechnung",
+      "Ergebnis"
+     ],
+     "zeilen": [
+      [
+       "von links",
+       "25 · 7 · 4",
+       "mühsam"
+      ],
+      [
+       "getauscht",
+       "25 · 4 · 7",
+       "?"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "kopf": [
+      "Rechnung",
+      "Ergebnis"
+     ],
+     "zeilen": [
+      [
+       "10 − 3",
+       "7"
+      ],
+      [
+       "3 − 10",
+       "−7"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "differenz_summe",
     "titel": "Das Minus wandert mit",
-    "regel": "So tauschst du bei Plus und Minus: Jedes ⟦Rechenzeichen gehört zur Zahl dahinter⟧. Wenn du eine Zahl verschiebst, nimmst du ihr Zeichen ⟦mit⟧: 47 − 18 + 13 = 47 + 13 − 18.",
+    "regel": "Jedes Rechenzeichen gehört zur ⟦Zahl dahinter⟧. Beim Tauschen nimmt die Zahl ihr Zeichen mit.",
     "schritte": [
-     "Die Rechnung heißt 47 − 18 + 13. Das Minus gehört zur 18, das Plus zur 13.",
-     "Schreibe sie als Summe: 47 + (−18) + 13. Bei einer Summe darfst du tauschen.",
-     "Hol die 13 mit ihrem Plus nach vorn. Das Minus bleibt bei der 18: 47 + 13 − 18.",
-     "Jetzt geht es leicht: 47 + 13 = 60, und 60 − 18 = ⟦42⟧. Du hast 42 €."
+     {
+      "text": "Das Minus gehört zur 18, das Plus zur 13."
+     },
+     {
+      "text": "Hol + 13 mit seinem Zeichen nach vorn: 47 + 13 − 18.",
+      "bild": {
+       "zeilen": [
+        [
+         "wie es kam",
+         "47 − 18 + 13",
+         "?"
+        ],
+        [
+         "getauscht",
+         "47 + 13 − 18",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "47 + 13 = 60, dann 60 − 18 = ⟦42⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "wie es kam",
+         "47 − 18 + 13",
+         "42"
+        ],
+        [
+         "getauscht",
+         "60 − 18",
+         "42"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "Von links nach rechts: 47 − 18 = 29, 29 + 13 = 42 ✓",
-    "fehler": "47 − 18 + 13 = 47 − 31 = 16 ist falsch. Dabei ist die 13 mit unter das Minus geraten. Die 13 € bekommst du aber ⟦dazu⟧, du gibst sie nicht aus.",
-    "einstieg": "Du hast 47 € und kaufst ein Buch für 18 €. Danach schenkt dir deine Oma 13 €. Im Kopf rechnest du lieber zuerst 47 + 13 = 60 und ziehst dann die 18 ab. Das darfst du, wenn du beachtest: Das Minus gehört zur 18. Denn jede ⟦Differenz⟧ lässt sich als ⟦Summe⟧ schreiben.",
+    "fehler": "47 − 18 + 13 = 47 − 31 = 16 ist falsch. Die 13 € bekommst du dazu, du gibst sie nicht aus.",
+    "einstieg": "Du hast 47 €, kaufst ein Buch für 18 € und bekommst 13 € geschenkt. Lieber rechnest du zuerst 47 + 13 = 60. Das geht, wenn jedes ⟦Rechenzeichen⟧ mitwandert.",
     "woerter": [
      [
       "Rechenzeichen",
-      "das Zeichen +, −, · oder : zwischen zwei Zahlen"
+      "+, −, · oder : zwischen zwei Zahlen"
      ],
      [
-      "47 + (−18)",
-      "dasselbe wie 47 − 18: Die Zahl −18 wird dazugezählt"
-     ],
-     [
-      "Zeichen mitnehmen",
-      "Wenn du eine Zahl verschiebst, wandert das Zeichen davor mit ihr"
+      "mitwandert",
+      "Beim Tauschen nimmt jede Zahl das Zeichen vor ihr mit"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Reihenfolge",
+      "Rechnung",
+      "Euro"
+     ],
+     "zeilen": [
+      [
+       "wie es kam",
+       "47 − 18 + 13",
+       "?"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "zeilen": [
+      [
+       "falsch",
+       "47 − 31",
+       "16"
+      ],
+      [
+       "richtig",
+       "60 − 18",
+       "42"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "verteilen",
     "titel": "Geschickt: verteilen",
-    "regel": "So verteilst du: Eine Zahl mal eine Klammer – mit ⟦jedem Teil der Klammer⟧ malnehmen: 7 · (100 − 2) = 7 · 100 − 7 · 2. Rückwärts kannst du ⟦ausklammern⟧: 6 · 13 + 6 · 7 = 6 · (13 + 7) = 6 · 20 = 120.",
+    "regel": "Zahl mal Klammer: mit ⟦jedem Teil⟧ malnehmen. 7 · (100 − 2) = 7 · 100 − 7 · 2. Rückwärts heißt das ausklammern.",
     "schritte": [
-     "Schreibe 98 als 100 − 2. Dann heißt die Rechnung 7 · (100 − 2).",
-     "Stell dir vor, jede Tasche kostet 100 €: 7 · 100 = 700 €.",
-     "Das sind für jede der 7 Taschen 2 € zu viel, zusammen 7 · 2 = 14 €.",
-     "Ziehe sie ab: 700 − 14 = ⟦686⟧. Die Taschen kosten 686 €."
+     {
+      "text": "Schreibe 98 als 100 − 2. Die Rechnung heißt 7 · (100 − 2)."
+     },
+     {
+      "text": "So, als kostete jede Tasche 100 €: 7 · 100 = 700.",
+      "bild": {
+       "zeilen": [
+        [
+         "wie 100 €",
+         "7 · 100",
+         "700"
+        ],
+        [
+         "zu viel",
+         "7 · 2",
+         "?"
+        ],
+        [
+         "Preis",
+         "7 · 98",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Das ist für jede Tasche 2 € zu viel: 7 · 2 = 14.",
+      "bild": {
+       "zeilen": [
+        [
+         "wie 100 €",
+         "7 · 100",
+         "700"
+        ],
+        [
+         "zu viel",
+         "7 · 2",
+         "14"
+        ],
+        [
+         "Preis",
+         "7 · 98",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "700 − 14 = ⟦686⟧. Die Taschen kosten 686 €.",
+      "bild": {
+       "zeilen": [
+        [
+         "wie 100 €",
+         "7 · 100",
+         "700"
+        ],
+        [
+         "zu viel",
+         "7 · 2",
+         "14"
+        ],
+        [
+         "Preis",
+         "700 − 14",
+         "686"
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "Nur den ersten Teil malnehmen: 7 · (100 − 2) = 700 − 2 ist falsch. Jede der ⟦7⟧ Taschen ist 2 € billiger, also ziehst du 7 · 2 = 14 ab, nicht nur 2.",
-    "einstieg": "Ein Sportverein kauft 7 Taschen zu je 98 €. 7 · 98 im Kopf ist schwer. Aber 98 € sind 2 € weniger als 100 €. Also rechnest du so, als würde jede Tasche 100 € kosten, und ziehst danach für jede Tasche 2 € ab. Dieses Rechengesetz heißt ⟦Verteilungsgesetz⟧.",
+    "fehler": "7 · (100 − 2) = 700 − 2 ist falsch. Jede der 7 Taschen ist 2 € billiger, also ziehst du 14 € ab.",
+    "einstieg": "Ein Verein kauft 7 Taschen zu je 98 €. Rechne so, als kostete jede 100 €. Danach ziehst du für jede Tasche 2 € ab: Das ist das ⟦Verteilungsgesetz⟧.",
     "woerter": [
      [
       "Verteilungsgesetz",
-      "Eine Zahl mal eine Klammer heißt: mit jedem Teil der Klammer malnehmen (Fachwort: Distributivgesetz)"
-     ],
-     [
-      "ausklammern",
-      "rückwärts: eine Zahl, die in beiden Malrechnungen vorkommt, vor eine Klammer ziehen"
-     ],
-     [
-      "gemeinsamer Faktor",
-      "die Zahl, die in beiden Malrechnungen vorkommt, zum Beispiel die 6 in 6 · 13 + 6 · 7"
+      "Zahl mal Klammer: mit jedem Teil der Klammer malnehmen (Fachwort: Distributivgesetz)"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Teil",
+      "Rechnung",
+      "Euro"
+     ],
+     "zeilen": [
+      [
+       "wie 100 €",
+       "7 · 100",
+       "?"
+      ],
+      [
+       "zu viel",
+       "7 · 2",
+       "?"
+      ],
+      [
+       "Preis",
+       "7 · 98",
+       "?"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "zeilen": [
+      [
+       "wie 100 €",
+       "7 · 100",
+       "700"
+      ],
+      [
+       "falsch",
+       "nur 2",
+       "698"
+      ],
+      [
+       "richtig",
+       "7 · 2",
+       "14"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "mal_ganz",
     "titel": "Ganze Zahlen multiplizieren",
-    "regel": "So multiplizierst du ganze Zahlen: Erst die ⟦Beträge⟧ malnehmen. Dann das Vorzeichen: ⟦gleiche Vorzeichen ergeben Plus⟧, ⟦verschiedene Vorzeichen ergeben Minus⟧.",
+    "regel": "Erst die Zahlen ohne Vorzeichen malnehmen. ⟦Gleiche Vorzeichen⟧ ergeben plus, verschiedene ergeben minus.",
     "schritte": [
-     "4 · (−6) bedeutet: viermal −6 € abbuchen. Das ist (−6) + (−6) + (−6) + (−6) = ⟦−24⟧.",
-     "Warum ergibt Minus mal Minus Plus? Sieh dir diese Reihe an: (−6) · 2 = −12, (−6) · 1 = −6, (−6) · 0 = 0.",
-     "Mit jedem Schritt wird der zweite Faktor um 1 kleiner und das Ergebnis um 6 größer.",
-     "Die Reihe geht genauso weiter: (−6) · (−1) = ⟦6⟧ und (−6) · (−2) = ⟦12⟧."
+     {
+      "text": "4 · (−6) heißt: viermal 6 € abgebucht.",
+      "bild": {
+       "boegen": [
+        {
+         "von": 0,
+         "bis": -6
+        },
+        {
+         "von": -6,
+         "bis": -12
+        },
+        {
+         "von": -12,
+         "bis": -18
+        },
+        {
+         "von": -18,
+         "bis": -24
+        }
+       ]
+      }
+     },
+     {
+      "text": "Du landest bei ⟦−24⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": -24
+        }
+       ]
+      }
+     },
+     {
+      "text": "Und Minus mal Minus? (−6) · 1 = −6 und (−6) · 0 = 0.",
+      "bild": {
+       "start": -12,
+       "ende": 12,
+       "abschnitte": 12,
+       "boegen": [
+        {
+         "von": -6,
+         "bis": 0,
+         "name": "+6"
+        }
+       ],
+       "punkte": [
+        {
+         "wert": -6
+        },
+        {
+         "wert": 0
+        }
+       ]
+      }
+     },
+     {
+      "text": "Jeder Schritt bringt 6 mehr. Also ist (−6) · (−1) = ⟦6⟧.",
+      "bild": {
+       "boegen": [
+        {
+         "von": -6,
+         "bis": 0,
+         "name": "+6"
+        },
+        {
+         "von": 0,
+         "bis": 6,
+         "name": "+6"
+        }
+       ],
+       "punkte": [
+        {
+         "wert": -6
+        },
+        {
+         "wert": 0
+        },
+        {
+         "wert": 6
+        }
+       ]
+      }
+     },
+     {
+      "text": "Das ist die Vorzeichenregel: gleiche Vorzeichen ergeben plus."
+     }
     ],
-    "probe": "(−6) + (−6) + (−6) + (−6) = −24 ✓",
-    "fehler": "(−6) · (−4) = −24 ist falsch: Zwei gleiche Vorzeichen ergeben ⟦Plus⟧, also 24. Aber Achtung: Diese Regel gilt nur für mal und geteilt. Beim Addieren ist (−6) + (−4) = −10 – zweimal Schulden sind mehr Schulden.",
-    "einstieg": "Für ein Handy-Abo werden jeden Monat 6 € von deinem Konto abgebucht. Nach 4 Monaten fehlen 24 €. Mit negativen Zahlen: Viermal −6 € ergibt −24 €. Malnehmen ist hier schnelles Addieren: (−6) + (−6) + (−6) + (−6). So kannst du auch mit negativen Zahlen ⟦multiplizieren⟧.",
+    "fehler": "(−6) · (−4) = −24 ist falsch: Gleiche Vorzeichen ergeben plus, also 24. Beim Addieren gilt das nicht: (−6) + (−4) = −10.",
+    "einstieg": "Für ein Handy-Abo werden jeden Monat 6 € abgebucht. Nach 4 Monaten fehlen 24 €. Malnehmen mit negativen Zahlen heißt auch ⟦multiplizieren⟧.",
     "woerter": [
      [
       "multiplizieren",
       "malnehmen"
      ],
      [
-      "abbuchen",
-      "Geld wird vom Konto weggenommen"
-     ],
-     [
-      "Vorzeichen",
-      "das Plus oder Minus vor einer Zahl"
-     ],
-     [
-      "Betrag",
-      "die Zahl ohne Vorzeichen: Der Betrag von −6 ist 6"
+      "abgebucht",
+      "vom Konto weggenommen"
      ],
      [
       "Vorzeichenregel",
-      "gleiche Vorzeichen ergeben Plus, verschiedene Vorzeichen ergeben Minus"
+      "gleiche Vorzeichen ergeben plus, verschiedene ergeben minus"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": -30,
+     "ende": 0,
+     "abschnitte": 15,
+     "beschriftet": "anfang_ende"
+    }
    },
    {
     "lernziel": "geteilt_ganz",
     "titel": "Ganze Zahlen dividieren",
-    "regel": "So dividierst du ganze Zahlen: Erst die ⟦Beträge⟧ teilen, dann das Vorzeichen wie beim Malnehmen: ⟦gleiche → Plus⟧, ⟦verschiedene → Minus⟧. Prüfen kannst du mit der Umkehrung.",
+    "regel": "Teilen geht wie Malnehmen: ⟦gleiche Vorzeichen⟧ ergeben plus, verschiedene minus. Prüfe mit der Malrechnung rückwärts.",
     "schritte": [
-     "Rechne (−48) : 6. Zuerst teilst du die Beträge: 48 : 6 = 8.",
-     "Jetzt das Vorzeichen: −48 hat ein Minus, 6 hat ein Plus. Die Vorzeichen sind verschieden.",
-     "Verschiedene Vorzeichen ergeben Minus: ⟦(−48) : 6 = −8⟧."
+     {
+      "text": "(−48) : 6 heißt: −48 in 6 gleiche Teile teilen.",
+      "bild": {
+       "boegen": [
+        {
+         "von": 0,
+         "bis": -8
+        },
+        {
+         "von": -8,
+         "bis": -16
+        },
+        {
+         "von": -16,
+         "bis": -24
+        },
+        {
+         "von": -24,
+         "bis": -32
+        },
+        {
+         "von": -32,
+         "bis": -40
+        },
+        {
+         "von": -40,
+         "bis": -48
+        }
+       ]
+      }
+     },
+     {
+      "text": "Ohne Vorzeichen: 48 : 6 = 8. Jeder Teil ist 8 lang.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": -8,
+         "name": "1 Rate"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Verschiedene Vorzeichen ergeben minus: ⟦(−48) : 6 = −8⟧."
+     }
     ],
-    "probe": "(−8) · 6 = −48 ✓",
-    "fehler": "(−48) : (−6) = −8 ist falsch: Minus geteilt durch Minus ergibt ⟦Plus⟧, also 8. Probe mit der Umkehrung: 8 · (−6) = −48 ✓",
-    "einstieg": "Du hast 48 € Schulden und zahlst sie in 6 gleichen Raten ab. Jede Rate ist 8 €, und 6 Raten machen zusammen die 48 € Schulden aus: (−48) : 6 = −8. Teilen ist die Umkehrung des Malnehmens. Darum gelten beim ⟦Dividieren⟧ dieselben Vorzeichenregeln.",
+    "fehler": "(−48) : (−6) = −8 ist falsch: Minus durch Minus ergibt plus, also 8. Probe: 8 · (−6) = −48.",
+    "einstieg": "Du hast 48 € Schulden und zahlst sie in 6 gleichen Raten ab. Jede Rate ist 8 €. Teilen heißt ⟦dividieren⟧, und es gelten dieselben Vorzeichenregeln.",
     "woerter": [
      [
       "dividieren",
@@ -302,84 +840,204 @@
      [
       "Rate",
       "ein gleich großer Teil, in dem man Schulden abzahlt"
-     ],
-     [
-      "Umkehrung",
-      "die Rechnung rückwärts: (−8) · 6 = −48 passt zu (−48) : 6 = −8"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": -48,
+     "ende": 0,
+     "abschnitte": 6,
+     "beschriftet": "anfang_ende"
+    }
    },
    {
     "lernziel": "ueberschlag",
     "titel": "Überschlagen",
-    "regel": "So überschlägst du: ⟦Jede Zahl runden⟧, sodass du ⟦im Kopf⟧ rechnen kannst, dann ausrechnen. Liegt ein genaues Ergebnis weit weg vom Überschlag, hast du dich wahrscheinlich verrechnet.",
+    "regel": "Erst ⟦runden⟧, dann im Kopf rechnen. Liegt das genaue Ergebnis weit weg, hast du dich verrechnet.",
     "schritte": [
-     "Rechne ungefähr 487 · 21. Runde den ersten Faktor 487 auf Hunderter: 500.",
-     "Runde den zweiten Faktor 21 auf Zehner: 20.",
-     "Rechne im Kopf: 500 · 20 = ⟦10 000⟧. Es waren also ungefähr 10 000 Besucher.",
-     "Genau sind es 487 · 21 = 10 227. Das liegt nah am Überschlag – so kannst du ein Ergebnis prüfen."
+     {
+      "text": "487 liegt näher an 500 als an 400. Also ist 487 ≈ 500.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 487,
+         "name": "Plätze"
+        }
+       ],
+       "boegen": [
+        {
+         "von": 487,
+         "bis": 500,
+         "name": "runden"
+        }
+       ]
+      }
+     },
+     {
+      "text": "21 Abende runden wir auf 20.",
+      "bild": {
+       "start": 0,
+       "ende": 40,
+       "abschnitte": 4,
+       "punkte": [
+        {
+         "wert": 21,
+         "name": "Abende"
+        }
+       ],
+       "boegen": [
+        {
+         "von": 21,
+         "bis": 20,
+         "name": "runden"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Im Kopf: 500 · 20 = ⟦10 000⟧ Besucher."
+     },
+     {
+      "text": "Genau sind es 487 · 21 = 10 227. Das passt."
+     }
     ],
-    "fehler": "Ein Ergebnis wie 1 022 hinschreiben, ohne zu prüfen. Der Überschlag sagt: etwa 10 000 Besucher. Bei 1 022 ⟦fehlt eine Stelle⟧ – das Kino wäre an 21 ausverkauften Abenden fast leer gewesen.",
-    "einstieg": "Das Stadtkino hat 487 Plätze und war an 21 Abenden ausverkauft. Wie viele Besucher waren das ungefähr? Oft kommt es auf die genaue Zahl gar nicht an. Du rundest auf bequeme Zahlen und rechnest im Kopf: etwa 500 · 20 = 10 000. Das nennt man ⟦Überschlag⟧.",
+    "fehler": "1 022 hinschreiben, ohne zu prüfen. Der Überschlag sagt etwa 10 000. Bei 1 022 fehlt eine Stelle.",
+    "einstieg": "Das Kino hat 487 Plätze und war an 21 Abenden voll. Wie viele Besucher waren das ungefähr? Mit gerundeten Zahlen im Kopf rechnen heißt ⟦überschlagen⟧.",
     "woerter": [
-     [
-      "Überschlag",
-      "eine schnelle, ungefähre Rechnung mit gerundeten Zahlen"
-     ],
      [
       "runden",
       "eine Zahl durch eine nahe glatte Zahl ersetzen: 487 wird zu 500"
      ],
      [
-      "auf Hunderter runden",
-      "auf die nächste Zahl mit 00 am Ende: 487 → 500, aber 432 → 400"
-     ],
-     [
-      "auf Zehner runden",
-      "auf die nächste Zahl mit 0 am Ende: 21 → 20"
-     ],
-     [
       "≈",
-      "„ungefähr gleich“: 487 · 21 ≈ 10 000"
+      "„ungefähr gleich“"
+     ],
+     [
+      "überschlagen",
+      "schnell und ungefähr mit gerundeten Zahlen rechnen"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 400,
+     "ende": 600,
+     "abschnitte": 4,
+     "beschriftet": "alle"
+    }
    },
    {
     "lernziel": "schriftlich",
     "titel": "Schriftlich mal und geteilt",
-    "regel": "So rechnest du schriftlich mal: mit ⟦jeder Ziffer einzeln⟧ malnehmen, die Teilprodukte ⟦stellengerecht⟧ untereinanderschreiben und addieren. So rechnest du schriftlich geteilt: ⟦teilen, malnehmen, abziehen, nächste Ziffer herunterholen⟧ – bis keine Ziffer mehr übrig ist.",
+    "regel": "Schriftlich mal: mit ⟦jeder Ziffer⟧ malnehmen, stellengerecht addieren. Schriftlich geteilt: teilen, malnehmen, abziehen, nächste Ziffer herunterholen.",
     "schritte": [
-     "Mal: 347 · 26. Zerlege 26 in 20 und 6. Rechne 347 · 20 = 6 940 und 347 · 6 = 2 082.",
-     "Schreibe die Teilprodukte stellengerecht untereinander und addiere: 6 940 + 2 082 = ⟦9 022⟧. Überschlag: 350 · 25 = 8 750, das passt.",
-     "Geteilt: 1 476 : 6. Die 1 allein ist zu klein, also nimmst du 14 : 6 = 2, denn 2 · 6 = 12. Es bleibt der Rest 14 − 12 = 2.",
-     "Hole die 7 herunter und schreibe sie neben den Rest: 27 : 6 = 4, denn 4 · 6 = 24. Rest 3.",
-     "Hole die 6 herunter: 36 : 6 = 6, Rest 0. Ergebnis: ⟦1 476 : 6 = 246⟧."
+     {
+      "text": "Rechne 347 · 26. Zerlege 26 in 20 und 6."
+     },
+     {
+      "text": "Die Teilprodukte: 347 · 20 = 6 940 und 347 · 6 = 2 082.",
+      "bild": {
+       "zeilen": [
+        [
+         "347 · 20",
+         "6",
+         "9",
+         "4",
+         "0"
+        ],
+        [
+         "347 · 6",
+         "2",
+         "0",
+         "8",
+         "2"
+        ],
+        [
+         "zusammen",
+         "",
+         "",
+         "",
+         ""
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Stellengerecht untereinander und addieren: ⟦9 022⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "347 · 20",
+         "6",
+         "9",
+         "4",
+         "0"
+        ],
+        [
+         "347 · 6",
+         "2",
+         "0",
+         "8",
+         "2"
+        ],
+        [
+         "zusammen",
+         "9",
+         "0",
+         "2",
+         "2"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Überschlag: 350 · 25 = 8 750. Das passt."
+     }
     ],
-    "fehler": "Beim Malnehmen das Teilprodukt mit der Zehnerziffer nicht um eine Stelle versetzen: 347 · 2 Zehner sind ⟦6 940⟧, nicht 694. Beim Teilen eine Null im Ergebnis vergessen: 1 236 : 6 ist 206, nicht 26 – wenn die heruntergeholte Zahl nicht reicht, schreibst du ⟦0⟧ ins Ergebnis.",
-    "probe": "246 · 6 = 1 476 ✓",
-    "einstieg": "Ein Verein kauft 26 Fahrräder zu je 347 €. Das ist zu viel für den Kopf. Mit Stift und Papier zerlegst du die Rechnung in kleine Teile, die du im Kopf schaffst, und schreibst sie ordentlich untereinander. Das nennt man ⟦schriftlich rechnen⟧.",
+    "fehler": "Beim Teilen eine Null vergessen: 1 236 : 6 ist 206, nicht 26. Reicht die heruntergeholte Zahl nicht, schreibst du 0.",
+    "einstieg": "Ein Verein kauft 26 Fahrräder zu je 347 €. Das ist zu viel für den Kopf. Mit dem Stift zerlegst du die Rechnung in kleine Teile: ⟦schriftlich rechnen⟧.",
     "woerter": [
-     [
-      "schriftlich rechnen",
-      "eine große Rechnung in kleine Schritte zerlegen und untereinander aufschreiben"
-     ],
-     [
-      "stellengerecht",
-      "Einer unter Einer, Zehner unter Zehner, Hunderter unter Hunderter"
-     ],
      [
       "Teilprodukt",
       "das Ergebnis eines kleinen Malschritts, zum Beispiel 347 · 6"
      ],
      [
-      "Rest",
-      "was beim Teilen übrig bleibt"
-     ],
-     [
-      "herunterholen",
-      "die nächste Ziffer der Zahl neben den Rest schreiben"
+      "stellengerecht",
+      "Einer unter Einer, Zehner unter Zehner"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "T",
+      "H",
+      "Z",
+      "E"
+     ],
+     "zeilen": [
+      [
+       "347 · 20",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "347 · 6",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "zusammen",
+       "",
+       "",
+       "",
+       ""
+      ]
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [

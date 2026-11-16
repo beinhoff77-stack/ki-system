@@ -3,6 +3,13 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:37 – STATUS
+geometrie.winkel fertig: umgestuft 1 / berichtigt 0 / ersetzt 3 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Stimmt die Aussage? „Zwei stumpfe Winkel nebeneinander ergeben immer mehr als 180°.““
+  - „Ein Karussell hat 3 Gondeln in gleichen Abständen. Um wie viel Grad muss es sich drehen, damit die nächste Gondel an die Stelle der vorigen kommt?“
+  - „Ein Karussell hat 5 Gondeln in gleichen Abständen. Um wie viel Grad muss es sich drehen, damit die nächste Gondel an die Stelle der vorigen kommt?“
+
+## 2026-11-16 05:37 – STATUS
 geometrie.grundbegriffe fertig: umgestuft 2 / berichtigt 0 / ersetzt 2 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):
   - „g geht durch A(−6 | −3) und B(−6 | 0), h geht durch C(4 | −3) und D(8 | −3). Wie liegen g und h zueinander?“

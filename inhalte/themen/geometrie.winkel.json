@@ -1500,7 +1500,7 @@
    "l": "ergaenzen",
    "t": "ergaenzen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Winkel α = 241° wird durch einen zweiten Winkel β zum Vollwinkel ergänzt. Wie groß ist β?"
@@ -9325,15 +9325,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Karussell hat 3 Gondeln in gleichen Abständen. Um wie viel Grad muss es sich drehen, damit die nächste Gondel an die Stelle der vorigen kommt?"
+    "text": "Ein Karussell hat 8 Gondeln in gleichen Abständen. Es dreht sich um 135°. Um wie viele Gondelplätze ist es weitergerückt?"
    },
    "o": {
-    "wert": 120,
-    "einheit": "°"
+    "wert": 3
    },
-   "c": "360 / 3",
-   "w": "360° : 3 = 120°.",
-   "h": "Eine ganze Drehung wird in gleiche Teile geteilt."
+   "c": "135 / (360 / 8)",
+   "w": "Von Gondel zu Gondel sind es 360° : 8 = 45°. 135° : 45° = 3 Plätze.",
+   "h": "Wie viel Grad liegen zwischen zwei Gondeln?"
   },
   {
    "l": "drehungen",
@@ -9342,15 +9341,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Karussell hat 5 Gondeln in gleichen Abständen. Um wie viel Grad muss es sich drehen, damit die nächste Gondel an die Stelle der vorigen kommt?"
+    "text": "Bei einem Karussell mit Gondeln in gleichen Abständen kommt nach einer Drehung um 24° die nächste Gondel an die Stelle der vorigen. Wie viele Gondeln hat es?"
    },
    "o": {
-    "wert": 72,
-    "einheit": "°"
+    "wert": 15
    },
-   "c": "360 / 5",
-   "w": "360° : 5 = 72°.",
-   "h": "Eine ganze Drehung wird in gleiche Teile geteilt."
+   "c": "360 / 24",
+   "w": "Eine ganze Drehung (360°) besteht aus gleichen Schritten von 24°: 360° : 24° = 15 Gondeln.",
+   "h": "Wie oft passen 24° in eine ganze Drehung?"
   },
   {
    "l": "drehungen",
@@ -11778,18 +11776,18 @@
    "p": "uebung",
    "s": 3,
    "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Drei spitze Winkel nebeneinander ergeben immer weniger als 270°.“"
+   },
    "a": [
-    "Ja, jeder ist größer als 90°, zusammen also mehr als 180°.",
     "Nein, zusammen sind es immer genau 180°.",
-    "Nein, z. B. 100° + 70° = 170°."
+    "Ja, jeder ist kleiner als 90°, zusammen also weniger als 3 · 90° = 270°.",
+    "Nein, z. B. 80° + 80° + 80° = 240°."
    ],
    "o": {
-    "index": 0
+    "index": 1
    },
-   "f": {
-    "text": "Stimmt die Aussage? „Zwei stumpfe Winkel nebeneinander ergeben immer mehr als 180°.“"
-   },
-   "w": "Ja, jeder ist größer als 90°, zusammen also mehr als 180°.",
+   "w": "Jeder spitze Winkel ist kleiner als 90°. Drei davon sind zusammen kleiner als 90° + 90° + 90° = 270°. (240° ist kein Gegenbeispiel, sondern passt zur Aussage.)",
    "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze."
   },
   {

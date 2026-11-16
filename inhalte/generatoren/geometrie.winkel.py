@@ -637,5 +637,29 @@ def _schwer():
 
 ergaenze(DATEI, _schwer(), 1043)
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_anwenden  # noqa: E402
+
+BF = Befunde('geometrie.winkel', 13_5_7)
+# c) gleich dem vorgerechneten Beispiel der Lernkarte → andere Aussage mit demselben Gedanken
+BF.ersetze('verstehen', 'Stimmt die Aussage? „Zwei stumpfe Winkel nebeneinander ergeben immer mehr als 180°.“', BF.A(
+    'Stimmt die Aussage? „Drei spitze Winkel nebeneinander ergeben immer weniger als 270°.“',
+    'Ja, jeder ist kleiner als 90°, zusammen also weniger als 3 · 90° = 270°.',
+    ['Nein, zusammen sind es immer genau 180°.', 'Nein, z. B. 80° + 80° + 80° = 240°.'],
+    'Jeder spitze Winkel ist kleiner als 90°. Drei davon sind zusammen kleiner als 90° + 90° + 90° = 270°. (240° ist kein Gegenbeispiel, sondern passt zur Aussage.)',
+    'Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze.'))
+# c) viermal dieselbe Karussell-Aufgabe → zwei davon mit anderem Gedanken (rückwärts)
+BF.ersetze('drehungen', 'Ein Karussell hat 3 Gondeln in gleichen Abständen. Um wie viel Grad muss es sich drehen, damit die nächste Gondel an die Stelle der vorigen kommt?', BF.Z(
+    'Ein Karussell hat 8 Gondeln in gleichen Abständen. Es dreht sich um 135°. Um wie viele Gondelplätze ist es weitergerückt?', 3, '135 / (360 / 8)',
+    'Von Gondel zu Gondel sind es 360° : 8 = 45°. 135° : 45° = 3 Plätze.', 'Wie viel Grad liegen zwischen zwei Gondeln?'))
+BF.ersetze('drehungen', 'Ein Karussell hat 5 Gondeln in gleichen Abständen. Um wie viel Grad muss es sich drehen, damit die nächste Gondel an die Stelle der vorigen kommt?', BF.Z(
+    'Bei einem Karussell mit Gondeln in gleichen Abständen kommt nach einer Drehung um 24° die nächste Gondel an die Stelle der vorigen. Wie viele Gondeln hat es?', 15, '360 / 24',
+    'Eine ganze Drehung (360°) besteht aus gleichen Schritten von 24°: 360° : 24° = 15 Gondeln.', 'Wie oft passen 24° in eine ganze Drehung?'))
+# a) gleiches Muster wie Stufe 1
+BF.stufe('ergaenzen', 'Ein Winkel α = 241° wird durch einen zweiten Winkel β zum Vollwinkel ergänzt. Wie groß ist β?', 1)
+
+befunde_anwenden(DATEI, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI)

@@ -43,106 +43,350 @@
    {
     "lernziel": "quadratwurzel",
     "titel": "Quadratwurzeln von Quadratzahlen",
-    "regel": "So findest du √a: Suche die Zahl ⟦ohne Minus⟧, die ⟦mit sich selbst malgenommen⟧ a ergibt. Am Quadrat heißt das: √(Fläche) = ⟦Seitenlänge⟧.",
+    "regel": "√a ist die Zahl ohne Minus, die mal sich selbst a ergibt. Am Quadrat gilt: ⟦Seite = √Fläche⟧.",
     "schritte": [
-     "Gesucht ist die Seitenlänge des Teppichs, also √196: eine Zahl, die mal sich selbst 196 ergibt.",
-     "Grob eingrenzen: 10 · 10 = 100 ist zu klein, 15 · 15 = 225 ist zu groß. Die Zahl liegt also zwischen 10 und 15.",
-     "Auf die letzte Ziffer schauen: Eine 6 am Ende entsteht nur bei 4 · 4 = 16 oder 6 · 6 = 36. Zwischen 10 und 15 passt also nur die 14.",
-     "Nachrechnen: 14 · 14 = 196. Also ist √196 = ⟦14⟧, die Teppichseite ist 14 dm lang."
+     {
+      "text": "Gesucht ist √196: eine Zahl, die mal sich selbst 196 ergibt."
+     },
+     {
+      "text": "10 · 10 = 100 ist zu klein, 15 · 15 = 225 ist zu groß.",
+      "bild": {
+       "punkte": {
+        "_q1": [
+         0,
+         0
+        ],
+        "_q2": [
+         14,
+         0
+        ],
+        "_q3": [
+         14,
+         14
+        ],
+        "_q4": [
+         0,
+         14
+        ],
+        "_k1": [
+         0,
+         0
+        ],
+        "_k2": [
+         10,
+         0
+        ],
+        "_k3": [
+         10,
+         10
+        ],
+        "_k4": [
+         0,
+         10
+        ],
+        "_g1": [
+         0,
+         0
+        ],
+        "_g2": [
+         15,
+         0
+        ],
+        "_g3": [
+         15,
+         15
+        ],
+        "_g4": [
+         0,
+         15
+        ]
+       },
+       "linien": [
+        [
+         "_q1",
+         "_q2",
+         ""
+        ],
+        [
+         "_q2",
+         "_q3",
+         ""
+        ],
+        [
+         "_q3",
+         "_q4",
+         ""
+        ],
+        [
+         "_q4",
+         "_q1",
+         ""
+        ],
+        [
+         "_k2",
+         "_k3",
+         "100",
+         "gestrichelt"
+        ],
+        [
+         "_k3",
+         "_k4",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_g2",
+         "_g3",
+         "225",
+         "gestrichelt"
+        ],
+        [
+         "_g3",
+         "_g4",
+         "",
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Probiere 14: 14 · 14 = 196. Das passt genau.",
+      "bild": {
+       "punkte": {
+        "_q1": [
+         0,
+         0
+        ],
+        "_q2": [
+         14,
+         0
+        ],
+        "_q3": [
+         14,
+         14
+        ],
+        "_q4": [
+         0,
+         14
+        ]
+       },
+       "linien": [
+        [
+         "_q1",
+         "_q2",
+         "Seite = 14 dm"
+        ],
+        [
+         "_q2",
+         "_q3",
+         ""
+        ],
+        [
+         "_q3",
+         "_q4",
+         "196 dm²"
+        ],
+        [
+         "_q4",
+         "_q1",
+         ""
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Also ist √196 = ⟦14⟧. Die Teppichseite ist 14 dm lang."
+     }
     ],
-    "probe": "14² = 196 ✓",
-    "fehler": "√196 = 98 ist falsch: Das ist die Hälfte von 196. Ein Teppich mit 98 dm Seite hätte 98 · 98 = 9 604 dm² – viel zu groß. Wurzelziehen ist ⟦nicht halbieren⟧; richtig ist 14.",
+    "fehler": "√196 ist nicht 98, die Hälfte von 196. Ein Teppich mit 98 dm Seite hätte 9 604 dm² – viel zu groß.",
     "bild": {
      "typ": "figur",
      "punkte": {
-      "A": [
+      "_q1": [
        0,
        0
       ],
-      "B": [
+      "_q2": [
        14,
        0
       ],
-      "C": [
+      "_q3": [
        14,
        14
       ],
-      "D": [
+      "_q4": [
        0,
        14
       ]
      },
      "flaeche": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "_q1",
+      "_q2",
+      "_q3",
+      "_q4"
      ],
      "linien": [
       [
-       "A",
-       "B",
+       "_q1",
+       "_q2",
        "Seite = ?"
       ],
       [
-       "B",
-       "C"
+       "_q2",
+       "_q3",
+       ""
       ],
       [
-       "C",
-       "D",
-       "Fläche 196 dm²"
+       "_q3",
+       "_q4",
+       "196 dm²"
       ],
       [
-       "D",
-       "A"
+       "_q4",
+       "_q1",
+       ""
       ]
      ],
      "rechter_winkel": [
       [
-       "A",
-       "B",
-       "D"
+       "_q1",
+       "_q2",
+       "_q4"
       ]
      ]
     },
-    "einstieg": "Du willst einen quadratischen Teppich kaufen. Im Prospekt steht nur seine Fläche: 196 dm². Wie lang ist eine Seite? Gesucht ist eine Zahl, die mit sich selbst malgenommen 196 ergibt. Diese Zahl heißt ⟦Quadratwurzel⟧ von 196.",
+    "einstieg": "Ein quadratischer Teppich hat 196 dm² Fläche. Wie lang ist eine Seite? Gesucht ist eine Zahl, die mal sich selbst 196 ergibt: die ⟦Quadratwurzel⟧.",
     "woerter": [
      [
-      "Quadratzahl",
-      "eine Zahl mal sich selbst: 1, 4, 9, 16, 25, … (zum Beispiel 4 · 4 = 16)"
+      "Quadratwurzel",
+      "die Zahl ohne Minus, die mal sich selbst die Zahl unter der Wurzel ergibt"
      ],
      [
-      "14²",
-      "gelesen „14 hoch 2“: 14 · 14"
-     ],
-     [
-      "Quadratwurzel √196",
-      "gelesen „Wurzel aus 196“: die Zahl ohne Minus, die mal sich selbst 196 ergibt"
-     ],
-     [
-      "Radikand",
-      "die Zahl unter dem Wurzelzeichen, hier 196"
+      "√196",
+      "gelesen „Wurzel aus 196“"
      ],
      [
       "dm²",
-      "Quadratdezimeter: die Fläche eines Quadrats mit 1 dm = 10 cm Seitenlänge"
+      "Quadratdezimeter: ein Quadrat mit 10 cm Seite"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "punkte": {
+      "_q1": [
+       0,
+       0
+      ],
+      "_q2": [
+       14,
+       0
+      ],
+      "_q3": [
+       14,
+       14
+      ],
+      "_q4": [
+       0,
+       14
+      ],
+      "_f1": [
+       0,
+       0
+      ],
+      "_f2": [
+       98,
+       0
+      ],
+      "_f3": [
+       98,
+       98
+      ],
+      "_f4": [
+       0,
+       98
+      ]
+     },
+     "linien": [
+      [
+       "_q2",
+       "_q3",
+       "14 dm"
+      ],
+      [
+       "_q3",
+       "_q4",
+       ""
+      ],
+      [
+       "_f1",
+       "_f2",
+       "98 dm: 9 604 dm²",
+       "gestrichelt"
+      ],
+      [
+       "_f2",
+       "_f3",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_f3",
+       "_f4",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_f4",
+       "_f1",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "wurzel_dezimal",
     "titel": "Wurzeln aus Dezimalzahlen und Brüchen",
-    "regel": "So ziehst du die Wurzel aus einer ⟦Dezimalzahl⟧: ohne Komma die Wurzel ziehen, dann ⟦halb so viele Nachkommastellen⟧ setzen (aus 2 wird 1, aus 4 wird 2). Bei einer ungeraden Zahl von Nachkommastellen (wie 0,9) geht es nicht glatt auf. Bei einem Bruch: Wurzel aus ⟦Zähler und Nenner einzeln⟧.",
+    "regel": "Erst ohne Komma die Wurzel ziehen, dann ⟦halb so viele Nachkommastellen⟧ setzen. Bei Brüchen: Wurzel aus Zähler und Nenner einzeln.",
     "schritte": [
-     "Lass das Komma zuerst weg: √64 = 8, denn 8 · 8 = 64.",
-     "Zähle die Nachkommastellen: 0,64 hat zwei. Die Wurzel bekommt halb so viele, also eine.",
-     "Setze das Komma: √0,64 = ⟦0,8⟧. Probe: 0,8 · 0,8 = 0,64. Die Matte ist also 0,8 m = 80 cm breit.",
-     "Bei einem Bruch ziehst du oben und unten einzeln die Wurzel: √(4/81) = √4 / √81 = ⟦2/9⟧."
+     {
+      "text": "Lass das Komma zuerst weg: √64 = 8, denn 8 · 8 = 64."
+     },
+     {
+      "text": "0,64 hat zwei Nachkommastellen. Die Wurzel bekommt halb so viele, also eine."
+     },
+     {
+      "text": "Also ist √0,64 = ⟦0,8⟧. Die Matte ist 0,8 m = 80 cm breit.",
+      "bild": {
+       "linien": [
+        [
+         "_q1",
+         "_q2",
+         "Seite = 0,8 m"
+        ],
+        [
+         "_q2",
+         "_q3",
+         ""
+        ],
+        [
+         "_q3",
+         "_q4",
+         "0,64 m²"
+        ],
+        [
+         "_q4",
+         "_q1",
+         ""
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Bei einem Bruch ziehst du aus Zähler und Nenner einzeln die Wurzel: √(4/81) = ⟦2/9⟧."
+     }
     ],
-    "probe": "0,8² = 0,64 ✓",
-    "fehler": "√0,64 = 0,08 ist falsch: 0,08 · 0,08 = 0,0064. Eine Matte mit 8 cm Seite wäre winzig, keine 0,64 m². Richtig sind ⟦halb so viele⟧ Nachkommastellen, also 0,8.",
-    "einstieg": "Jetzt geht es um etwas Kleines: eine quadratische Fußmatte mit 0,64 m² Fläche. Wie lang ist eine Seite? Wieder suchst du eine Zahl, die mal sich selbst 0,64 ergibt – diesmal eine Kommazahl. Der Trick: erst ohne Komma rechnen, dann das Komma richtig setzen.",
+    "fehler": "√0,64 ist nicht 0,08, denn 0,08 · 0,08 = 0,0064. Die Matte hätte dann nur 8 cm Seite – winzig.",
+    "einstieg": "Eine quadratische Fußmatte hat 0,64 m² Fläche. Wie lang ist eine Seite? Jetzt suchst du die Wurzel aus einer ⟦Dezimalzahl⟧.",
     "woerter": [
      [
       "Dezimalzahl",
@@ -150,96 +394,394 @@
      ],
      [
       "Nachkommastellen",
-      "die Ziffern hinter dem Komma; 0,64 hat zwei, 0,8 hat eine"
+      "die Ziffern hinter dem Komma; 0,64 hat zwei"
      ],
      [
-      "Zähler / Nenner",
-      "die Zahl über / unter dem Bruchstrich; bei 4/81 ist 4 der Zähler, 81 der Nenner"
-     ],
-     [
-      "√(4/81)",
-      "die Wurzel aus dem ganzen Bruch 4/81"
+      "Zähler und Nenner",
+      "die Zahl über und die Zahl unter dem Bruchstrich"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_q1": [
+       0,
+       0
+      ],
+      "_q2": [
+       0.8,
+       0
+      ],
+      "_q3": [
+       0.8,
+       0.8
+      ],
+      "_q4": [
+       0,
+       0.8
+      ]
+     },
+     "flaeche": [
+      "_q1",
+      "_q2",
+      "_q3",
+      "_q4"
+     ],
+     "linien": [
+      [
+       "_q1",
+       "_q2",
+       "Seite = ?"
+      ],
+      [
+       "_q2",
+       "_q3",
+       ""
+      ],
+      [
+       "_q3",
+       "_q4",
+       "0,64 m²"
+      ],
+      [
+       "_q4",
+       "_q1",
+       ""
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "_q1",
+       "_q2",
+       "_q4"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "punkte": {
+      "_q1": [
+       0,
+       0
+      ],
+      "_q2": [
+       0.8,
+       0
+      ],
+      "_q3": [
+       0.8,
+       0.8
+      ],
+      "_q4": [
+       0,
+       0.8
+      ],
+      "_f1": [
+       0,
+       0
+      ],
+      "_f2": [
+       0.08,
+       0
+      ],
+      "_f3": [
+       0.08,
+       0.08
+      ],
+      "_f4": [
+       0,
+       0.08
+      ]
+     },
+     "linien": [
+      [
+       "_q1",
+       "_q2",
+       "0,8 m"
+      ],
+      [
+       "_q2",
+       "_q3",
+       ""
+      ],
+      [
+       "_q3",
+       "_q4",
+       ""
+      ],
+      [
+       "_q4",
+       "_q1",
+       ""
+      ],
+      [
+       "_f2",
+       "_f3",
+       "0,08 m?",
+       "gestrichelt"
+      ],
+      [
+       "_f3",
+       "_f4",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "kubikwurzel",
     "titel": "Dritte Wurzeln (Kubikwurzeln)",
-    "regel": "So findest du ∛a (für a ≥ 0): Suche die Zahl, die ⟦dreimal mit sich selbst malgenommen⟧ a ergibt. Die dritte Wurzel macht das ⟦Hoch-3-Nehmen⟧ rückgängig.",
+    "regel": "∛a ist die Zahl, die hoch 3 genau a ergibt. Die ⟦dritte Wurzel⟧ macht das Hoch-3-Nehmen rückgängig.",
     "schritte": [
-     "Gesucht ist ∛343: Welche Zahl ergibt mal sich selbst und dann noch einmal mal sich selbst 343?",
-     "Grob schätzen: 5 · 5 · 5 = 125 ist zu wenig, 10 · 10 · 10 = 1 000 ist zu viel. Die Zahl liegt zwischen 5 und 10.",
-     "Probiere die 7: Erst 7 · 7 = 49, dann 49 · 7 = 343. Das passt.",
-     "Also ist ∛343 = ⟦7⟧: An jeder Kante liegen 7 Würfel."
+     {
+      "text": "5 Würfel je Kante sind zu wenig: 5 · 5 · 5 = 125.",
+      "bild": {
+       "zeilen": [
+        [
+         "Würfel",
+         "125",
+         "?",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "10 Würfel je Kante sind zu viel: 10 · 10 · 10 = 1 000.",
+      "bild": {
+       "zeilen": [
+        [
+         "Würfel",
+         "125",
+         "?",
+         "1 000"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Probiere 7: 7 · 7 = 49 und 49 · 7 = 343. Also 7³ = 343.",
+      "bild": {
+       "zeilen": [
+        [
+         "Würfel",
+         "125",
+         "343",
+         "1 000"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Also ist ∛343 = ⟦7⟧. An jeder Kante liegen 7 Würfel."
+     }
     ],
-    "probe": "7³ = 343 ✓",
-    "fehler": "∛343 = 343 : 3 ≈ 114 ist falsch. Ein Würfel mit 114 Klötzchen an jeder Kante hätte über eine Million Klötzchen. Die dritte Wurzel ist ⟦nicht durch 3 teilen⟧; richtig ist 7, denn 7³ = 343.",
-    "einstieg": "Du hast 343 kleine Holzwürfel und willst daraus einen großen, vollen Würfel bauen. Wie viele kleine Würfel liegen dann an einer Kante? Gesucht ist eine Zahl, die dreimal mit sich selbst malgenommen 343 ergibt. Sie heißt ⟦dritte Wurzel⟧ oder Kubikwurzel.",
+    "fehler": "∛343 ist nicht 343 : 3 ≈ 114. Mit 114 Würfeln an jeder Kante bräuchtest du über eine Million Würfel.",
+    "einstieg": "Aus 343 kleinen Holzwürfeln soll ein großer, voller Würfel werden. Wie viele liegen an einer Kante? Gesucht ist die ⟦dritte Wurzel⟧ von 343.",
     "woerter": [
      [
-      "7³",
-      "gelesen „7 hoch 3“: 7 · 7 · 7"
-     ],
-     [
-      "∛343",
-      "gelesen „dritte Wurzel aus 343“: die Zahl, die hoch 3 genommen 343 ergibt"
-     ],
-     [
-      "Kubikzahl",
-      "eine Zahl hoch 3: 8, 27, 64, 125, …"
+      "dritte Wurzel",
+      "die Zahl, die dreimal mit sich selbst malgenommen die Zahl ergibt; Zeichen ∛"
      ],
      [
       "Kante",
       "eine Seite des Würfels"
+     ],
+     [
+      "7³",
+      "gelesen „7 hoch 3“: 7 · 7 · 7"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Kante",
+      "5",
+      "7",
+      "10"
+     ],
+     "zeilen": [
+      [
+       "Würfel",
+       "?",
+       "?",
+       "?"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "kopf": [
+      "Kante",
+      "7",
+      "114"
+     ],
+     "zeilen": [
+      [
+       "Würfel",
+       "343",
+       "1 481 544"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "abschaetzen",
     "titel": "Zwischen welchen Zahlen liegt √a?",
-    "regel": "So grenzt du √a ein: Suche die ⟦Quadratzahlen direkt unter und direkt über a⟧. Die Wurzel liegt zwischen deren Wurzeln.",
+    "regel": "Suche die ⟦Quadratzahlen⟧ direkt unter und über a. Die Wurzel liegt zwischen deren Wurzeln.",
     "schritte": [
-     "Gesucht ist, zwischen welchen ganzen Zahlen √90 liegt.",
-     "Suche die Quadratzahl direkt unter 90: Das ist 81, denn 9 · 9 = 81.",
-     "Suche die Quadratzahl direkt über 90: Das ist 100, denn 10 · 10 = 100.",
-     "90 liegt zwischen 81 und 100, also liegt die Wurzel zwischen 9 und 10: ⟦9 < √90 < 10⟧."
+     {
+      "text": "Gesucht: Zwischen welchen ganzen Zahlen liegt √90? Wir grenzen ein."
+     },
+     {
+      "text": "Die Quadratzahl direkt unter 90 ist 81 = 9 · 9.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 81,
+         "name": "9²"
+        },
+        {
+         "wert": 90,
+         "name": "90"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Die Quadratzahl direkt über 90 ist 100 = 10 · 10.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 81,
+         "name": "9²"
+        },
+        {
+         "wert": 90,
+         "name": "90"
+        },
+        {
+         "wert": 100,
+         "name": "10²"
+        }
+       ],
+       "bereich": {
+        "von": 81,
+        "bis": 100
+       }
+      }
+     },
+     {
+      "text": "Also liegt die Wurzel zwischen 9 und 10: ⟦9 < √90 < 10⟧.",
+      "bild": {
+       "typ": "zahlenstrahl",
+       "start": 8,
+       "ende": 11,
+       "abschnitte": 6,
+       "beschriftet": "anfang_ende",
+       "bereich": {
+        "von": 9,
+        "bis": 10
+       },
+       "punkte": [
+        {
+         "wert": 9.49,
+         "name": "√90"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "9² = 81 < 90 < 100 = 10² ✓",
-    "fehler": "„√90 liegt zwischen 45 und 46“ ist falsch – das ist die Hälfte von 90. Ein Beet mit 45 m Seite hätte über 2 000 m². Vergleiche mit ⟦Quadratzahlen⟧: 9² = 81, 10² = 100.",
-    "einstieg": "Nicht jede Fläche passt zu einer glatten Seitenlänge. Ein quadratisches Beet soll 90 m² groß sein. Mit 9 m Seite hätte es 81 m² – zu wenig. Mit 10 m Seite hätte es 100 m² – zu viel. Die Seite liegt also irgendwo zwischen 9 m und 10 m.",
+    "fehler": "√90 liegt nicht bei 45, der Hälfte von 90. Ein Beet mit 45 m Seite hätte 2 025 m².",
+    "einstieg": "Ein quadratisches Beet soll 90 m² groß sein. Mit 9 m Seite sind es 81 m², mit 10 m schon 100 m². Du ⟦grenzt die Seite ein⟧.",
     "woerter": [
-     [
-      "<",
-      "„kleiner als“: 9 < 10 heißt „9 ist kleiner als 10“"
-     ],
-     [
-      "9 < √90 < 10",
-      "√90 liegt zwischen 9 und 10"
-     ],
      [
       "eingrenzen",
       "eine Zahl darunter und eine Zahl darüber finden"
+     ],
+     [
+      "Quadratzahl",
+      "eine ganze Zahl mal sich selbst: 81 = 9 · 9"
+     ],
+     [
+      "9 < √90 < 10",
+      "√90 ist größer als 9 und kleiner als 10"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 70,
+     "ende": 110,
+     "abschnitte": 8,
+     "beschriftet": "anfang_ende",
+     "punkte": [
+      {
+       "wert": 90,
+       "name": "90"
+      }
+     ]
+    },
+    "fehler_bild": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 50,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende",
+     "punkte": [
+      {
+       "wert": 9.49,
+       "name": "√90"
+      },
+      {
+       "wert": 45,
+       "name": "45?"
+      }
+     ]
+    }
    },
    {
     "lernziel": "wurzel_deuten",
     "titel": "Wurzeln richtig deuten",
-    "regel": "√a ist ⟦nie negativ⟧ und nur für ⟦a ≥ 0⟧ erklärt. Die Gleichung x² = a (mit a > 0) hat dagegen ⟦zwei Lösungen⟧: √a und −√a. Steht unter der Wurzel eine Rechnung, rechnest du sie zuerst aus.",
+    "regel": "√a ist ⟦nie negativ⟧ und nur für a ≥ 0 erklärt. Die Gleichung x² = a mit a > 0 hat zwei Lösungen: √a und −√a.",
     "schritte": [
-     "Die Gleichung x² = 25 fragt: Welche Zahlen ergeben mal sich selbst 25?",
-     "5 · 5 = 25, also ist 5 eine Lösung.",
-     "(−5) · (−5) = 25, denn minus mal minus ergibt plus. Also ist auch −5 eine Lösung.",
-     "Die Gleichung hat die Lösungen ⟦5 und −5⟧. Das Zeichen √25 meint aber nur die Zahl ohne Minus: √25 = ⟦5⟧."
+     {
+      "text": "Die Gleichung x² = 25 fragt: Welche Zahlen ergeben mal sich selbst 25?"
+     },
+     {
+      "text": "5 · 5 = 25, also ist 5 eine Lösung.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 5,
+         "y": 25,
+         "name": "5"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Auch (−5)² = (−5) · (−5) = 25. Minus mal Minus ergibt Plus.",
+      "bild": {
+       "punkte": [
+        {
+         "x": -5,
+         "y": 25,
+         "name": "−5"
+        },
+        {
+         "x": 5,
+         "y": 25,
+         "name": "5"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Die Gleichung hat ⟦zwei Lösungen⟧: 5 und −5. Aber √25 meint nur ⟦5⟧."
+     }
     ],
-    "probe": "(−5)² = 25 ✓, 5² = 25 ✓",
-    "fehler": "√(9 + 16) = √9 + √16 = 7 ist falsch. Erst ausrechnen, was unter der Wurzel steht: 9 + 16 = 25, und √25 = ⟦5⟧. Probe: 7 · 7 = 49, nicht 25.",
-    "einstieg": "Ein Zahlenrätsel: „Ich denke mir eine Zahl und nehme sie mal sich selbst. Heraus kommt 25.“ Welche Zahl war es? 5 passt, denn 5 · 5 = 25. Aber auch −5 passt, denn minus mal minus ergibt plus. Das Wurzelzeichen meint dagegen immer nur die Zahl ⟦ohne Minus⟧.",
+    "fehler": "√(9 + 16) ist nicht √9 + √16 = 7. Erst unter der Wurzel rechnen: √25 = 5. Probe: 7 · 7 = 49, nicht 25.",
+    "einstieg": "Ein Rätsel: „Meine Zahl mal sich selbst ergibt 25.“ Das passt für 5 und für −5. Das Wurzelzeichen meint aber nur die Zahl ⟦ohne Minus⟧.",
     "woerter": [
-     [
-      "x",
-      "ein Platzhalter für die gesuchte Zahl"
-     ],
      [
       "x² = 25",
       "die Frage: Welche Zahl mal sich selbst ergibt 25?"
@@ -250,37 +792,174 @@
      ],
      [
       "(−5)²",
-      "(−5) · (−5) = 25 – die Klammer zeigt, dass das Minus mit malgenommen wird"
+      "(−5) · (−5); die Klammer zeigt, dass das Minus mitgerechnet wird"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      0,
+      30
+     ],
+     "schritt_y": 5,
+     "graphen": [
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": 2,
+       "name": "Zahl mal sich selbst"
+      }
+     ],
+     "waagrecht": [
+      25
+     ]
+    }
    },
    {
     "lernziel": "wurzel_sache",
     "titel": "Seitenlänge aus Fläche und Volumen",
-    "regel": "Quadrat: Seitenlänge a = ⟦√A⟧. Würfel: Kantenlänge a = ⟦∛V⟧. Bei den Einheiten wird aus cm² und aus cm³ wieder cm.",
+    "regel": "Seite = √Fläche, Kante = ∛Volumen. Aus ⟦cm² und cm³⟧ wird dabei wieder cm.",
     "schritte": [
-     "Das Glas ist ein Quadrat mit A = 169 cm². Für die Seite a gilt a · a = 169.",
-     "13 · 13 = 169, also ist a = √169 cm = ⟦13 cm⟧.",
-     "Der Karton ist ein Würfel mit V = 1 000 cm³. Für die Kante a gilt a · a · a = 1 000.",
-     "10 · 10 · 10 = 1 000, also ist a = ∛1 000 cm = ⟦10 cm⟧."
+     {
+      "text": "Das Glas hat den Flächeninhalt A = 169 cm²."
+     },
+     {
+      "text": "13 · 13 = 169, also ist a = √169 cm = ⟦13 cm⟧.",
+      "bild": {
+       "linien": [
+        [
+         "_q1",
+         "_q2",
+         "a = 13 cm"
+        ],
+        [
+         "_q2",
+         "_q3",
+         ""
+        ],
+        [
+         "_q3",
+         "_q4",
+         "Glas 169 cm²"
+        ],
+        [
+         "_q4",
+         "_q1",
+         ""
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Der Karton hat das Volumen V = 1 000 cm³.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Kante a",
+        "9 cm",
+        "10 cm",
+        "11 cm"
+       ],
+       "zeilen": [
+        [
+         "Volumen V",
+         "729 cm³",
+         "?",
+         "1 331 cm³"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "10 · 10 · 10 = 1 000, also ist a = ∛1 000 cm = ⟦10 cm⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "Volumen V",
+         "729 cm³",
+         "1 000 cm³",
+         "1 331 cm³"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "13 cm · 13 cm = 169 cm² ✓; 10 cm · 10 cm · 10 cm = 1 000 cm³ ✓",
-    "fehler": "Bei A = 169 cm² ist a = 169 : 4 falsch. Durch 4 teilt man den ⟦Umfang⟧, also die Länge ringsum – nicht die Fläche. Aus der Fläche zieht man die ⟦Wurzel⟧.",
-    "einstieg": "Zwei Aufgaben aus dem Bastelzimmer: Ein quadratisches Bilderglas soll 169 cm² groß sein, und ein würfelförmiger Karton soll 1 000 cm³ fassen. In beiden Fällen kennst du die Größe und suchst die Seitenlänge. Beim Quadrat hilft die Quadratwurzel, beim Würfel die dritte Wurzel.",
+    "fehler": "Bei A = 169 cm² ist die Seite nicht 169 : 4. Durch 4 teilt man den Umfang, nicht die Fläche.",
+    "einstieg": "Ein quadratisches Bilderglas soll 169 cm² groß sein, ein Würfelkarton 1 000 cm³ fassen. Du kennst die Größe und suchst die ⟦Seitenlänge⟧.",
     "woerter": [
      [
       "Flächeninhalt A",
-      "wie viel Fläche etwas bedeckt, z. B. in cm²"
+      "wie viel Fläche etwas bedeckt, in cm²"
      ],
      [
       "Volumen V",
-      "der Rauminhalt: wie viele 1-cm-Würfel hineinpassen, in cm³"
+      "der Rauminhalt: wie viele 1-cm-Würfel hineinpassen"
      ],
      [
-      "Umfang",
-      "die Länge einmal ringsherum"
+      "cm³",
+      "Kubikzentimeter: ein Würfel mit 1 cm Kante"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_q1": [
+       0,
+       0
+      ],
+      "_q2": [
+       13,
+       0
+      ],
+      "_q3": [
+       13,
+       13
+      ],
+      "_q4": [
+       0,
+       13
+      ]
+     },
+     "flaeche": [
+      "_q1",
+      "_q2",
+      "_q3",
+      "_q4"
+     ],
+     "linien": [
+      [
+       "_q1",
+       "_q2",
+       "a = ?"
+      ],
+      [
+       "_q2",
+       "_q3",
+       ""
+      ],
+      [
+       "_q3",
+       "_q4",
+       "Glas 169 cm²"
+      ],
+      [
+       "_q4",
+       "_q1",
+       ""
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "_q1",
+       "_q2",
+       "_q4"
+      ]
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [

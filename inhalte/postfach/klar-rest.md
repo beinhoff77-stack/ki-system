@@ -2,6 +2,11 @@
 
 Teil A (ohne Generator): Überlagerung inhalte/klar/<thema>.json. Teil B (mit Generator): Abschnitt KLAR, eingesetzt erst nach dem Erzeugen der Aufgaben (inhalte/generatoren/_klar_rest.py). Neueste Meldung oben.
 
+## 2026-11-16 02:14 – STATUS
+zahlen.teilbarkeit fertig: inhalte/klar/zahlen.teilbarkeit.json, alle 8 Lernziele (einstieg, woerter, schritte 3–4, regel „So …“, fehler; probe bei primfaktoren).
+Durchgehende Situation: Klassenfest – Muffins auf Teller verteilen (Teiler, Primzahl, ggT), Packungen beim Bäcker (Vielfache), Kasse in Münzen (Endziffer), Bonbons auf 3 Klassen (Quersumme), Lena und Tim laufen Runden (kgV). Beispielzahlen aus quelle.md beibehalten.
+Neu ergänzte fehler: endziffer, ggt. Prüfskript OK, Zahlen nachgerechnet (u. a. 4 251 : 3 = 1 417).
+
 ## 2026-11-16 02:12 – STATUS
 terme.umformen fertig: inhalte/klar/terme.umformen.json, alle 8 Lernziele (einstieg, woerter, schritte 4, regel „So …“, fehler; probe bei minusklammer, ausmultiplizieren, summe_mal_summe, ausklammern).
 Durchgehende Situation: Einkauf mit Heften (x) und Stiften (y), Ausflugstüten (Ausmultiplizieren/Ausklammern), Beet/Garten (Produkte, Summe mal Summe, binomische Formeln). Beispielterme aus quelle.md beibehalten.

@@ -778,6 +778,34 @@ def schwer():
     return N
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('raum.pyramide_kegel_kugel', 13_10_6)
+# a) nur große Zahlen, derselbe Gedanke wie Stufe 1 (V = 1/3 · G · h)
+BF.stufe('sachkontext', 'Eine quadratische Pyramide (als Modell eines Bauwerks) hat die Grundkante 230 m und die Höhe 146 m. Berechne das Volumen auf ganze m³.', 2)
+# c) dreimal dieselbe Aufgabe (12-/24-/100-Eck), Antwort immer gleich → zwei andere Stufe-1-Fragen
+BF.ersetze('verstehen', 'Eine Pyramide hat als Grundfläche ein regelmäßiges 100-Eck. Was passiert, wenn man die Eckenzahl immer weiter erhöht?', BF.Z(
+    'Wie viele Ecken hat eine Pyramide, deren Grundfläche ein regelmäßiges 12-Eck ist?', 13, '12 + 1',
+    'Die Grundfläche hat 12 Ecken, dazu kommt die Spitze: 12 + 1 = 13 Ecken.', 'Zähle die Ecken der Grundfläche und die Spitze.'))
+BF.ersetze('verstehen', 'Eine Pyramide hat als Grundfläche ein regelmäßiges 12-Eck. Was passiert, wenn man die Eckenzahl immer weiter erhöht?', BF.A(
+    'Welcher Körper hat genau eine Spitze und eine kreisförmige Grundfläche?', 'Kegel', ['Zylinder', 'Kugel', 'Pyramide'],
+    'Der Kegel hat eine Kreisfläche als Grundfläche und eine Spitze. Der Zylinder hat zwei Kreisflächen, die Pyramide ein Vieleck als Grundfläche, die Kugel weder Grundfläche noch Spitze.',
+    'Stell dir eine Eiswaffel vor.'))
+# a) gleicher Typ wie Stufe 2 („Radius ver-n-facht – wie ändert sich …?“)
+BF.stufe('verstehen', 'Der Radius einer Kugel wird verdreifacht. Wie ändert sich das Volumen?', 2)
+BF.stufe('verstehen', 'Der Radius einer Kugel wird vervierfacht. Wie ändert sich das Volumen?', 2)
+# b) Schreibweise „64/3π“ mehrdeutig → „64π/3“
+BF.loesung('kegel_volumen', 'Ein Kegel hat den Radius r = 2 cm und die Höhe h = 16 cm. Berechne sein Volumen auf eine Nachkommastelle.',
+           w='V = ⅓ · π · 2² · 16 = 64π/3 ≈ 67,0 cm³.')
+BF.loesung('kegel_volumen', 'Ein Kegel hat den Radius r = 11 cm und die Höhe h = 19 cm. Berechne sein Volumen auf eine Nachkommastelle.',
+           w='V = ⅓ · π · 11² · 19 = 2 299π/3 ≈ 2 407,5 cm³.')
+# b) zwei Nachkommastellen verlangt, Weg zeigt nur eine
+BF.loesung('kugel', 'Eine Kugel hat das Volumen 4 312 cm³. Berechne ihren Radius auf zwei Nachkommastellen.',
+           w='r³ = 3V : (4π) = 12 936 : (4π) ⇒ r = ∛(…) ≈ 10,10 cm.')
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     datei = bauen('raum.pyramide_kegel_kugel',
           'Volumen und Oberfläche von Pyramide, Kegel und Kugel berechnen, die Kegelformeln begründen und Körper in Sachzusammenhängen untersuchen.',
@@ -795,3 +823,4 @@ if __name__ == '__main__':
                  'Prinzip von Cavalieri und „Kegel als Grenzfall der Pyramide“ nur als Verstehensfragen (ohne Zeichnung). Extremwerte an Körpern (umfang) weggelassen – nicht im lehrplan_gym.',
                  'Gerundete Ergebnisse mit Toleranz (0,1 bzw. 0,01; bei ganzen Zahlen 1); π als 12-stellige Konstante in c.'])
     ergaenzen(datei, schwer())
+    befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

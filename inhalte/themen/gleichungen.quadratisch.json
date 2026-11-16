@@ -1921,7 +1921,7 @@
    "l": "ausklammern",
    "t": "ausklammern",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse 7x² = 14x.",
@@ -2014,7 +2014,7 @@
    "l": "ausklammern",
    "t": "ausklammern",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse 5x² = 30x.",
@@ -4413,7 +4413,7 @@
    "l": "diskriminante",
    "t": "diskriminante",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Für welche Zahl c hat x² − 14x + c = 0 genau eine Lösung?"
@@ -4466,7 +4466,7 @@
    "l": "diskriminante",
    "t": "diskriminante",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Für welche Zahl c hat x² + 4x + c = 0 genau eine Lösung?"

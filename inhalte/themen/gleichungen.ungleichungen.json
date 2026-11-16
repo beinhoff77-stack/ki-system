@@ -840,7 +840,7 @@
    "l": "umformen",
    "t": "umformen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse 8x + 1 > 4x + 13. Die Lösung hat die Form x > □. Gib die Zahl an."
@@ -856,7 +856,7 @@
    "l": "umformen",
    "t": "umformen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse 7x − 3 ≤ 4x + 9. Die Lösung hat die Form x ≤ □. Gib die Zahl an."
@@ -875,11 +875,11 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Löse 4x + 10 ≤ 4x + 3."
+    "text": "Löse die Ungleichung 4x + 10 ≤ 4x + 3."
    },
    "a": [
     "x ≤ −7",
-    "L = ℝ (jede Zahl)",
+    "L = ℚ (jede Zahl)",
     "x ≤ 0",
     "L = { } (keine Zahl)"
    ],
@@ -3443,7 +3443,7 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Für welche x liegt der Graph von y = x + 4 oberhalb der x-Achse?",
+    "text": "Für welche x liegt der Graph von y = x + 4 echt oberhalb der x-Achse (also nicht auf ihr)?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -3474,16 +3474,16 @@
     }
    },
    "a": [
-    "x ≥ −4",
-    "x ≥ 4",
-    "x ≤ −4",
-    "x ≤ 4"
+    "x > −4",
+    "x < −4",
+    "x > 4",
+    "x ≥ −4"
    ],
    "o": {
     "index": 0
    },
-   "w": "Die Geraden schneiden sich bei x = −4. Für x ≥ −4 liegt die erste oberhalb der zweiten (am Schnittpunkt sind beide gleich, er gehört bei ≥ dazu). Lösung: x ≥ −4.",
-   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die linke Gerade oberhalb der rechten?"
+   "w": "Die Gerade schneidet die x-Achse bei x = −4. Rechts davon liegt sie oberhalb. Am Schnittpunkt liegt sie genau auf der Achse, er gehört also nicht dazu. Lösung: x > −4.",
+   "h": "Suche den Schnittpunkt mit der x-Achse. Gehört er dazu, wenn die Gerade „echt oberhalb“ liegen soll?"
   },
   {
    "l": "grafisch",
@@ -3590,7 +3590,7 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Für welche x liegt der Graph von y = 2x − 4 unterhalb der x-Achse?",
+    "text": "Für welche x liegt der Graph von y = 2x − 4 echt unterhalb der x-Achse (also nicht auf ihr)?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -3621,16 +3621,16 @@
     }
    },
    "a": [
-    "x ≥ 2",
     "x ≤ 2",
-    "x ≤ −4",
-    "x ≤ −2"
+    "x < 2",
+    "x < −4",
+    "x > 2"
    ],
    "o": {
     "index": 1
    },
-   "w": "Die Geraden schneiden sich bei x = 2. Für x ≤ 2 liegt die erste unterhalb der zweiten (am Schnittpunkt sind beide gleich, er gehört bei ≤ dazu). Lösung: x ≤ 2.",
-   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die linke Gerade unterhalb der rechten?"
+   "w": "Die Gerade schneidet die x-Achse bei x = 2. Links davon liegt sie unterhalb. Am Schnittpunkt liegt sie genau auf der Achse, er gehört also nicht dazu. Lösung: x < 2.",
+   "h": "Suche den Schnittpunkt mit der x-Achse. Gehört er dazu, wenn die Gerade „echt unterhalb“ liegen soll?"
   },
   {
    "l": "grafisch",

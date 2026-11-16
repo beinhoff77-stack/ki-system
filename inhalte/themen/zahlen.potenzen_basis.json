@@ -1326,7 +1326,7 @@
    "l": "schreibweise",
    "t": "begriff",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Was bedeutet 2⁷?"
@@ -1347,7 +1347,7 @@
    "l": "schreibweise",
    "t": "begriff",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Was bedeutet 5⁴?"
@@ -1368,7 +1368,7 @@
    "l": "schreibweise",
    "t": "begriff",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Was bedeutet 10⁴?"
@@ -1405,7 +1405,7 @@
    "l": "schreibweise",
    "t": "begriff",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Was bedeutet 3²?"
@@ -2198,7 +2198,7 @@
    "l": "quadrat",
    "t": "berechnen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Zahl ist eine Quadratzahl?"
@@ -2221,18 +2221,19 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welche Zahl ist eine Quadratzahl?"
+    "text": "Welche Zahl liegt zwischen den Quadratzahlen 13² und 14²?"
    },
    "a": [
-    "124",
-    "121",
-    "22"
+    "150",
+    "180",
+    "200",
+    "160"
    ],
    "o": {
     "index": 1
    },
-   "w": "121 = 11 · 11 = 11². 22 wäre 11 · 2, nicht 11 · 11. 124 liegt neben 121, ist aber selbst kein Quadrat.",
-   "h": "Eine Quadratzahl ist eine Zahl mal sich selbst."
+   "w": "13² = 169 und 14² = 196. Nur 180 liegt dazwischen.",
+   "h": "Berechne zuerst 13 · 13 und 14 · 14."
   },
   {
    "l": "quadrat",

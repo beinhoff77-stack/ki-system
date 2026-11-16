@@ -1938,7 +1938,7 @@
    "l": "grafisch",
    "t": "grafisch",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Lies die Lösung des Gleichungssystems I: −2x + y = −3   II: y = x − 3 am Schnittpunkt ab.",
@@ -1987,7 +1987,7 @@
    "l": "grafisch",
    "t": "grafisch",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Lies die Lösung des Gleichungssystems I: y = x − 2   II: y = −x am Schnittpunkt ab.",
@@ -6174,7 +6174,7 @@
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Eintrittskarte kostet für Erwachsene 15 €, für Kinder 8 €. Eine Gruppe aus 45 Personen zahlt 563 €. Wie viele Kinder sind dabei?"
@@ -6193,7 +6193,7 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Händler mischt Erdnüsse zu 10 € pro kg mit Cashewkerne zu 16 € pro kg. Er erhält 13 kg Mischung im Wert von 178 €. Wie viel kg der billigeren Sorte verwendet er?"
+    "text": "Ein Händler mischt Erdnüsse zu 10 € pro kg mit Cashewkernen zu 16 € pro kg. Er erhält 13 kg Mischung im Wert von 178 €. Wie viel kg der billigeren Sorte verwendet er?"
    },
    "o": {
     "wert": 5,
@@ -6207,7 +6207,7 @@
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Eintrittskarte kostet für Erwachsene 8 €, für Kinder 4,50 €. Eine Gruppe aus 55 Personen zahlt 303,50 €. Wie viele Kinder sind dabei?"

@@ -640,5 +640,21 @@ def _schwer():
 
 ergaenze(DATEI, _schwer(), 1067)
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_anwenden  # noqa: E402
+
+BF = Befunde('zahlen.potenzen_basis', 13_5_3)
+# a) Grundform direkt nach der Erklärung
+for _t in ['Was bedeutet 2⁷?', 'Was bedeutet 5⁴?', 'Was bedeutet 10⁴?', 'Was bedeutet 3²?']:
+    BF.stufe('schreibweise', _t, 1)
+# a) leicht → Stufe 2; c) Beinahe-Dublette (gleiche Antwort 121) → neue Aufgabe
+BF.stufe('quadrat', 'Welche Zahl ist eine Quadratzahl?', 2, enthaelt='"122"')
+BF.ersetze('quadrat', 'Welche Zahl ist eine Quadratzahl?', BF.A(
+    'Welche Zahl liegt zwischen den Quadratzahlen 13² und 14²?', '180', ['160', '200', '150'],
+    '13² = 169 und 14² = 196. Nur 180 liegt dazwischen.', 'Berechne zuerst 13 · 13 und 14 · 14.'), enthaelt='"124"')
+
+befunde_anwenden(DATEI, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI, 'zahlen.potenzen_basis.json')

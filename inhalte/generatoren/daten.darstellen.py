@@ -713,5 +713,31 @@ def _dd():
 ergaenzen(DATEI, _dd(), seed=6057)
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+import re as _re  # noqa: E402
+
+from _befunde import Befunde, befunde_anwenden  # noqa: E402
+
+BF = Befunde('daten.darstellen', 13_6_7)
+# c) „Wie oft wurde „X“ häufiger genannt als „Y“?“ ist sprachlich missverständlich → „Wie viele Nennungen hat „X“ mehr als „Y“?“
+#    (alle Pools; Tabelle, Lösung und Weg bleiben gleich)
+_muster = _re.compile(r'Wie oft wurde „([^“]+)“ häufiger genannt als „([^“]+)“\?')
+for _a in [a for a in DATEI['aufgaben'] if _muster.search(a['f']['text'])]:
+    _alt = _a['f']['text']
+    _neu = BF.Z(_muster.sub(r'Wie viele Nennungen hat „\1“ mehr als „\2“?', _alt), _a['o']['wert'], _a['c'], _a['w'],
+                _a.get('h', 'Zähle beide Zeilen und bilde den Unterschied.'), grafik=_a['f'].get('grafik'))
+    BF.ersetze(_a['l'], _alt, _neu, pools=(_a['p'],))
+# a) Grundform → Stufe 1
+for _t in ['In einer Strichliste stehen bei „Hund“: 3 Fünferbündel. Wie oft wurde „Hund“ genannt?',
+           'In einer Strichliste stehen bei „Hund“: 2 Fünferbündel und 2 einzelne Striche. Wie oft wurde „Hund“ genannt?',
+           'In einer Strichliste stehen bei „Hund“: 4 Fünferbündel und 2 einzelne Striche. Wie oft wurde „Hund“ genannt?']:
+    BF.stufe('absolute_haeufigkeit', _t, 1)
+# a) Stufe 2
+BF.stufe('kreisdiagramm', 'Ein Kreisausschnitt hat einen Winkel von 36°. Wie viel Prozent stellt er dar?', 2)
+BF.stufe('relative_haeufigkeit', 'Bei 20 Münzwürfen lag die relative Häufigkeit für „Zahl“ bei 5 %. Wie oft fiel „Zahl“?', 2)
+
+befunde_anwenden(DATEI, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI)

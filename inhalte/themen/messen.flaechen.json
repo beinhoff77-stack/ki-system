@@ -1466,11 +1466,10 @@
     }
    },
    "o": {
-    "wert": 36,
-    "einheit": "cm²"
+    "wert": 36
    },
    "c": "9 * 4",
-   "w": "4 Reihen zu je 9 Quadraten: 4 · 9 = 36 cm².",
+   "w": "4 Reihen zu je 9 Quadraten: 4 · 9 = 36 Einheitsquadrate. Der Flächeninhalt ist also 36 cm².",
    "h": "Zähle die Quadrate in einer Reihe und die Anzahl der Reihen."
   },
   {
@@ -1642,11 +1641,10 @@
     }
    },
    "o": {
-    "wert": 21,
-    "einheit": "cm²"
+    "wert": 21
    },
    "c": "7 * 3",
-   "w": "3 Reihen zu je 7 Quadraten: 3 · 7 = 21 cm².",
+   "w": "3 Reihen zu je 7 Quadraten: 3 · 7 = 21 Einheitsquadrate. Der Flächeninhalt ist also 21 cm².",
    "h": "Zähle die Quadrate in einer Reihe und die Anzahl der Reihen."
   },
   {
@@ -1804,11 +1802,10 @@
     }
    },
    "o": {
-    "wert": 18,
-    "einheit": "cm²"
+    "wert": 18
    },
    "c": "3 * 6",
-   "w": "6 Reihen zu je 3 Quadraten: 6 · 3 = 18 cm².",
+   "w": "6 Reihen zu je 3 Quadraten: 6 · 3 = 18 Einheitsquadrate. Der Flächeninhalt ist also 18 cm².",
    "h": "Zähle die Quadrate in einer Reihe und die Anzahl der Reihen."
   },
   {
@@ -1924,11 +1921,10 @@
     }
    },
    "o": {
-    "wert": 9,
-    "einheit": "cm²"
+    "wert": 9
    },
    "c": "3 * 3",
-   "w": "3 Reihen zu je 3 Quadraten: 3 · 3 = 9 cm².",
+   "w": "3 Reihen zu je 3 Quadraten: 3 · 3 = 9 Einheitsquadrate. Der Flächeninhalt ist also 9 cm².",
    "h": "Zähle die Quadrate in einer Reihe und die Anzahl der Reihen."
   },
   {
@@ -2086,11 +2082,10 @@
     }
    },
    "o": {
-    "wert": 14,
-    "einheit": "cm²"
+    "wert": 14
    },
    "c": "7 * 2",
-   "w": "2 Reihen zu je 7 Quadraten: 2 · 7 = 14 cm².",
+   "w": "2 Reihen zu je 7 Quadraten: 2 · 7 = 14 Einheitsquadrate. Der Flächeninhalt ist also 14 cm².",
    "h": "Zähle die Quadrate in einer Reihe und die Anzahl der Reihen."
   },
   {
@@ -2276,11 +2271,10 @@
     }
    },
    "o": {
-    "wert": 28,
-    "einheit": "cm²"
+    "wert": 28
    },
    "c": "7 * 4",
-   "w": "4 Reihen zu je 7 Quadraten: 4 · 7 = 28 cm².",
+   "w": "4 Reihen zu je 7 Quadraten: 4 · 7 = 28 Einheitsquadrate. Der Flächeninhalt ist also 28 cm².",
    "h": "Zähle die Quadrate in einer Reihe und die Anzahl der Reihen."
   },
   {
@@ -2434,13 +2428,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Rechteck aus 6 · 5 Einheitsquadraten wird in beiden Richtungen doppelt so lang. Wie viele Einheitsquadrate passen jetzt hinein?"
+    "text": "Ein Rechteck aus 4 · 3 Einheitsquadraten wird doppelt so lang und dreimal so breit. Wie viele Einheitsquadrate passen jetzt hinein?"
    },
    "o": {
-    "wert": 120
+    "wert": 72
    },
-   "c": "(2 * 6) * (2 * 5)",
-   "w": "Neu: 12 · 10 = 120 Quadrate – viermal so viele wie 30.",
+   "c": "(2 * 4) * (3 * 3)",
+   "w": "Neu: 8 · 9 = 72 Quadrate – sechsmal so viele wie 12 (2 · 3 = 6).",
    "h": "Rechne die neuen Seitenlängen aus."
   },
   {
@@ -3174,7 +3168,7 @@
    "l": "rechteck",
    "t": "rechteck",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Rechteck ist 5 m lang und 50 cm breit. Wie groß ist der Flächeninhalt in dm²?"
@@ -3208,7 +3202,7 @@
    "l": "rechteck",
    "t": "rechteck",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Rechteck ist 3 m lang und 60 cm breit. Wie groß ist der Flächeninhalt in dm²?"

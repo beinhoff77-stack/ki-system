@@ -1924,7 +1924,7 @@
    "l": "thales",
    "t": "thales",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Halbkreisfenster hat 1,2 m Durchmesser. Zwei Streben verbinden die Enden des Durchmessers mit einem Punkt auf dem Bogen; eine Strebe bildet mit dem Durchmesser einen Winkel von 50°. Welchen Winkel bilden die beiden Streben an dem Punkt auf dem Bogen?"
@@ -5753,7 +5753,7 @@
    "l": "tangente",
    "t": "tangente",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Von P aus werden zwei Tangenten an einen Kreis gelegt. Der Abschnitt von P bis zum ersten Berührpunkt ist 9 cm lang. Wie lang ist der Abschnitt bis zum zweiten Berührpunkt?"
@@ -5936,7 +5936,7 @@
    "l": "tangente",
    "t": "tangente",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Von P aus werden zwei Tangenten an einen Kreis gelegt. Der Abschnitt von P bis zum ersten Berührpunkt ist 3 cm lang. Wie lang ist der Abschnitt bis zum zweiten Berührpunkt?"

@@ -1028,7 +1028,7 @@
    "l": "scheitel",
    "t": "scheitel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Gib den Scheitel der Parabel y = −3(x + 3)² an.",
@@ -1052,7 +1052,7 @@
    "l": "scheitel",
    "t": "scheitel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Gib den Scheitel der Parabel y = −0,5(x + 7)² an.",
@@ -1791,7 +1791,7 @@
    "l": "parameter",
    "t": "parameter",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ohne zu rechnen: Wie viele Nullstellen hat y = (x + 4)² + 3?"
@@ -1832,7 +1832,7 @@
    "l": "parameter",
    "t": "parameter",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ohne zu rechnen: Wie viele Nullstellen hat y = −(x + 2)² − 6?"
@@ -1852,7 +1852,7 @@
    "l": "parameter",
    "t": "parameter",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ohne zu rechnen: Wie viele Nullstellen hat y = −(x + 5)² + 8?"
@@ -4660,14 +4660,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Ball fliegt auf der Bahn h(x) = −0,05x² + 1x + 2 (x und h in m). Wie hoch fliegt er höchstens?"
+    "text": "Ein Ball fliegt auf der Bahn h(x) = −0,05x² + x + 2 (x und h in m). Wie hoch fliegt er höchstens?"
    },
    "o": {
     "wert": 7,
     "einheit": "m"
    },
    "c": "-0.05 * 10 ** 2 + 1.0 * 10 + 2.0",
-   "w": "Scheitel bei x = −1/(2 · (−0,05)) = 10; h(10) = −0,05 · 100 + 1 · 10 + 2 = 7 m.",
+   "w": "Scheitel bei x = −1/(2 · (−0,05)) = 10; h(10) = −0,05 · 100 + 10 + 2 = 7 m.",
    "h": "Die größte Höhe ist der y-Wert des Scheitels. Nutze x = −b/(2a)."
   },
   {

@@ -1614,7 +1614,7 @@
    "l": "laenge",
    "t": "laenge",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "6 km",
@@ -1996,7 +1996,7 @@
    "l": "masse",
    "t": "masse",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Rechne um: 32 t = ? kg"
@@ -2047,7 +2047,7 @@
    "l": "masse",
    "t": "masse",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "5 080 g",
@@ -2068,7 +2068,7 @@
    "l": "masse",
    "t": "masse",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "9 678 g",
@@ -2089,7 +2089,7 @@
    "l": "masse",
    "t": "masse",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "9 042 g",
@@ -2134,7 +2134,7 @@
    "l": "masse",
    "t": "masse",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "5 t",
@@ -4731,7 +4731,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "a": [
     "Nein, ein Kind wiegt etwa 40 kg.",

@@ -676,6 +676,28 @@ def schwer():
     ]
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('stochastik.verknuepft', 13_9_14)
+# c) FEHLER: Angaben unmöglich (P(A) + P(B) = 1,1 verlangt P(A ∩ B) ≥ 0,1), markierte Antwort P(A ∪ B) = 1,03 > 1
+#    → Aufgabe mit möglichen Angaben (P(A) + P(B) − 1 ≤ P(A ∩ B) ≤ min(P(A), P(B))); alle übrigen Aufgaben dieses Typs nachgeprüft: möglich
+BF.ersetze('verstehen', 'P(A) = 0,6, P(B) = 0,5, P(A ∩ B) = 0,07. Jemand rechnet P(A ∪ B) = 1,1. Was stimmt?', BF.A(
+    'P(A) = 0,6, P(B) = 0,5, P(A ∩ B) = 0,2. Jemand rechnet P(A ∪ B) = 1,1. Was stimmt?',
+    'Falsch: Die Schnittmenge wurde doppelt gezählt; P(A ∪ B) = 0,9.',
+    ['Falsch: P(A ∪ B) = 1,3.', 'Falsch: P(A ∪ B) = 0,2.', 'Richtig.'],
+    'Additionssatz: P(A ∪ B) = 0,6 + 0,5 − 0,2 = 0,9. Schon 1,1 > 1 zeigt den Fehler: Eine Wahrscheinlichkeit ist nie größer als 1.',
+    'Sind A und B unvereinbar?'))
+# a) sechsmal derselbe Typ bzw. Routine auf Stufe 3 → je drei davon Stufe 2
+BF.stufe('verknuepfen', 'Aus den Zahlen 1 bis 25 wird zufällig eine gezogen. A: „Die Zahl ist durch 3 teilbar.“ B: „Die Zahl ist eine Quadratzahl.“ Wie viele Zahlen liegen in A ∩ B̄?', 2)
+BF.stufe('verknuepfen', 'Aus den Zahlen 1 bis 50 wird zufällig eine gezogen. A: „Die Zahl ist durch 5 teilbar.“ B: „Die Zahl ist eine Primzahl.“ Wie viele Zahlen liegen in Ā ∩ B?', 2)
+BF.stufe('verknuepfen', 'Aus den Zahlen 1 bis 25 wird zufällig eine gezogen. A: „Die Zahl ist eine Primzahl.“ B: „Die Zahl ist durch 4 teilbar.“ Berechne P(A ∩ B̄ („A, aber nicht B“)) als Dezimalzahl.', 2)
+BF.stufe('tafel_wkeit', 'Die Tafel zeigt 250 Besucher eines Freibads. A: „ist Erwachsener“, B: „hat eine Jahreskarte“. Ein Besucher wird zufällig ausgewählt. Mit welcher Wahrscheinlichkeit gilt: mindestens eines von beiden? Gib das Ergebnis als Dezimalzahl an.', 2)
+BF.stufe('tafel_wkeit', 'Die Tafel zeigt 100 Kunden eines Online-Shops. A: „zahlt per Rechnung“, B: „bestellt zum ersten Mal“. Eine Kundin oder ein Kunde wird zufällig ausgewählt. Mit welcher Wahrscheinlichkeit gilt: „zahlt per Rechnung“ oder „bestellt zum ersten Mal“ (mindestens eines)? Gib das Ergebnis als Dezimalzahl an.', 2)
+BF.stufe('tafel_wkeit', 'Die Tafel zeigt 500 Kunden eines Online-Shops. A: „zahlt per Rechnung“, B: „bestellt zum ersten Mal“. Eine Kundin oder ein Kunde wird zufällig ausgewählt. Mit welcher Wahrscheinlichkeit gilt: „zahlt per Rechnung“ oder „bestellt zum ersten Mal“ (mindestens eines)? Gib das Ergebnis als Dezimalzahl an.', 2)
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     d = bauen('stochastik.verknuepft',
           'Ereignisse verknüpfen (und, oder, nicht), Vierfeldertafeln nutzen und Wahrscheinlichkeiten mit dem Additionssatz und als bedingte Wahrscheinlichkeit berechnen.',
@@ -689,3 +711,4 @@ if __name__ == '__main__':
                  'Bedingte Wahrscheinlichkeit P_B(A) ist im „umfang“ genannt, im LehrplanPLUS der 9. Klasse aber nicht ausdrücklich; Lernkarte „bedingt“ deshalb als Vertiefung (nicht Pflicht) markiert. Schreibweise P_B(A) im Text (Tiefstellung nicht möglich).',
                  'Ā und B̄ stehen jetzt auch in Aufgaben (Prüfvorschlag „Ereignis in Symbolen“); bitte in der App prüfen, ob der Strich über B (B̄) sauber dargestellt wird.'])
     anhaengen(d, 9914, schwer)
+    befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

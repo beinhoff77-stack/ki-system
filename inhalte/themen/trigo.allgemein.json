@@ -1117,7 +1117,7 @@
    "l": "einheitskreis",
    "t": "einheitskreis",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Es gilt sin 17° ≈ 0,2924. Wie groß ist sin 197° (vier Nachkommastellen)?"
@@ -1133,7 +1133,7 @@
    "l": "einheitskreis",
    "t": "einheitskreis",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Es gilt sin 85° ≈ 0,9962. Wie groß ist sin 265° (vier Nachkommastellen)?"
@@ -1149,7 +1149,7 @@
    "l": "einheitskreis",
    "t": "einheitskreis",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Es gilt sin 40° ≈ 0,6428. Wie groß ist sin 220° (vier Nachkommastellen)?"
@@ -1165,7 +1165,7 @@
    "l": "einheitskreis",
    "t": "einheitskreis",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Es gilt sin 5° ≈ 0,0872. Wie groß ist sin 185° (vier Nachkommastellen)?"
@@ -1181,7 +1181,7 @@
    "l": "einheitskreis",
    "t": "einheitskreis",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Es gilt sin 45° ≈ 0,7071. Wie groß ist sin 225° (vier Nachkommastellen)?"

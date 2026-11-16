@@ -4021,7 +4021,7 @@
    "l": "umkehr_mal",
    "t": "umkehren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse 9 : x = 3."
@@ -4053,7 +4053,7 @@
    "l": "umkehr_mal",
    "t": "umkehren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse 20 : x = 2."
@@ -5116,21 +5116,16 @@
    "t": "verstehen",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Bei 3 · x + 5 = 38 wird x = 12 getestet. Links kommt 41 heraus. Ist die Lösung größer oder kleiner als 12?"
+    "text": "Bei 3 · x + 5 = 38 ergibt die Probe mit x = 12 links 41 und mit x = 10 links 35. Die Lösung ist eine ganze Zahl. Welche?"
    },
-   "a": [
-    "Größer als 12",
-    "Kleiner als 12",
-    "Genau 12",
-    "Das kann man nicht sagen."
-   ],
    "o": {
-    "index": 1
+    "wert": 11
    },
-   "w": "Links kommt 41 heraus, rechts steht 38. Links ist zu viel, also muss x kleiner sein. Die Lösung ist x = 11.",
-   "h": "Ist links zu viel oder zu wenig? Was passiert, wenn x größer wird?"
+   "c": "(38 - 5) / 3",
+   "w": "41 ist zu viel, 35 zu wenig – die Lösung liegt zwischen 10 und 12. Probe mit 11: 3 · 11 + 5 = 38. Also x = 11.",
+   "h": "Mit 12 ist links zu viel, mit 10 zu wenig. Welche Zahl liegt dazwischen? Mach die Probe."
   },
   {
    "l": "probe",
@@ -5160,19 +5155,19 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Bei 5 · x + 9 = 29 wird x = 3 getestet. Links kommt 24 heraus. Ist die Lösung größer oder kleiner als 3?"
+    "text": "Welche der Zahlen 2, 4, 6 und 8 löst die Gleichung 5 · x + 9 = 29? Entscheide mit der Probe."
    },
    "a": [
-    "Genau 3",
-    "Kleiner als 3",
-    "Das kann man nicht sagen.",
-    "Größer als 3"
+    "4",
+    "8",
+    "6",
+    "2"
    ],
    "o": {
-    "index": 3
+    "index": 0
    },
-   "w": "Links kommt 24 heraus, rechts steht 29. Links ist zu wenig, also muss x größer sein. Die Lösung ist x = 4.",
-   "h": "Ist links zu viel oder zu wenig? Was passiert, wenn x größer wird?"
+   "w": "Probe: 5 · 2 + 9 = 19, 5 · 4 + 9 = 29 ✓, 5 · 6 + 9 = 39, 5 · 8 + 9 = 49. Nur x = 4 passt.",
+   "h": "Setze jede Zahl für x ein und rechne die linke Seite aus."
   },
   {
    "l": "probe",
@@ -5632,15 +5627,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Eine Mutter ist 3-mal so alt wie ihre Tochter. Zusammen sind sie 36 Jahre alt. Wie alt ist die Tochter?"
+    "text": "Ein Vater ist 28 Jahre älter als sein Sohn. Zusammen sind sie 46 Jahre alt. Wie alt ist der Sohn?"
    },
    "o": {
     "wert": 9,
     "einheit": "Jahre"
    },
-   "c": "36 // 4",
-   "w": "Tochter x, Mutter 3 · x. Zusammen: x + 3 · x = 36. Das sind 4 gleiche Teile wie 4 Dosen auf der Waage: x = 36 : 4 = 9 Jahre.",
-   "h": "Die Mutter zählt wie 3 Töchter. Wie viele „Töchter-Alter“ sind es zusammen?"
+   "c": "(46 - 28) / 2",
+   "w": "Sohn x, Vater x + 28. Zusammen: x + x + 28 = 46, also 2 · x = 18 und x = 9 Jahre. Probe: 9 + 37 = 46.",
+   "h": "Nimm die 28 Jahre Unterschied weg. Der Rest verteilt sich auf zwei gleich große Alter."
   },
   {
    "l": "aufstellen",
@@ -6115,21 +6110,16 @@
    "t": "loesbarkeit",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "0 · x = 14. Wie viele Lösungen hat diese Gleichung?"
+    "text": "Für welche Zahl a hat die Gleichung a · x = 7 keine Lösung?"
    },
-   "a": [
-    "Keine Lösung.",
-    "Genau eine: x = 0.",
-    "Jede Zahl ist eine Lösung.",
-    "Genau eine: x = 14."
-   ],
    "o": {
-    "index": 0
+    "wert": 0
    },
-   "w": "0 mal irgendeine Zahl ist immer 0, nie 14. Also gibt es keine Lösung.",
-   "h": "Probiere ein paar Zahlen für x aus."
+   "c": "0",
+   "w": "Für a = 0 steht da 0 · x = 7. 0 mal jede Zahl ist 0, nie 7: keine Lösung. Für jedes andere a gibt es x = 7 : a.",
+   "h": "Für welches a kommt links immer dasselbe heraus, egal was x ist?"
   },
   {
    "l": "ohne_loesung",

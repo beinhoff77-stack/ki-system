@@ -3500,15 +3500,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Würfel hat die Oberfläche 486 cm². Wie lang ist eine Kante?"
+    "text": "Ein Würfel hat die Oberfläche 216 cm². Wie groß ist sein Volumen?"
    },
    "o": {
-    "wert": 9,
-    "einheit": "cm"
+    "wert": 216,
+    "einheit": "cm³"
    },
-   "c": "9",
-   "w": "Eine Fläche: 486 : 6 = 81 cm². 9 · 9 = 81, also a = 9 cm.",
-   "h": "Teile durch 6 und überlege, welche Quadratzahl herauskommt."
+   "c": "6 * 6 * 6",
+   "w": "Eine Fläche: 216 : 6 = 36 cm². 6 · 6 = 36, also a = 6 cm. Volumen: 6 · 6 · 6 = 216 cm³.",
+   "h": "Bestimme zuerst die Kantenlänge, dann das Volumen."
   },
   {
    "l": "oberflaeche",
@@ -3517,15 +3517,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Würfel hat die Oberfläche 1014 cm². Wie lang ist eine Kante?"
+    "text": "Jede Kante eines Würfels wird doppelt so lang. Wie viel mal so groß wird seine Oberfläche?"
    },
    "o": {
-    "wert": 13,
-    "einheit": "cm"
+    "wert": 4
    },
-   "c": "13",
-   "w": "Eine Fläche: 1014 : 6 = 169 cm². 13 · 13 = 169, also a = 13 cm.",
-   "h": "Teile durch 6 und überlege, welche Quadratzahl herauskommt."
+   "c": "2 * 2",
+   "w": "Jede Seitenfläche ist doppelt so lang und doppelt so breit, also 2 · 2 = 4-mal so groß. Damit ist auch die ganze Oberfläche 4-mal so groß (z. B. a = 1 cm: 6 cm², a = 2 cm: 24 cm²).",
+   "h": "Probiere es mit a = 1 cm und a = 2 cm aus."
   },
   {
    "l": "oberflaeche",
@@ -3724,7 +3723,7 @@
    "l": "sachaufgaben",
    "t": "sachaufgaben",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Geschenkkarton ist 45 cm lang, 33 cm breit und 14 cm hoch. Wie viel cm² Papier braucht man mindestens, um ihn ganz zu bekleben?"
@@ -3741,7 +3740,7 @@
    "l": "sachaufgaben",
    "t": "sachaufgaben",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Geschenkkarton ist 36 cm lang, 32 cm breit und 13 cm hoch. Wie viel cm² Papier braucht man mindestens, um ihn ganz zu bekleben?"
@@ -3758,7 +3757,7 @@
    "l": "sachaufgaben",
    "t": "sachaufgaben",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Geschenkkarton ist 36 cm lang, 24 cm breit und 24 cm hoch. Wie viel cm² Papier braucht man mindestens, um ihn ganz zu bekleben?"
@@ -3775,7 +3774,7 @@
    "l": "sachaufgaben",
    "t": "sachaufgaben",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Geschenkkarton ist 44 cm lang, 34 cm breit und 18 cm hoch. Wie viel cm² Papier braucht man mindestens, um ihn ganz zu bekleben?"
@@ -3792,7 +3791,7 @@
    "l": "sachaufgaben",
    "t": "sachaufgaben",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Geschenkkarton ist 31 cm lang, 26 cm breit und 29 cm hoch. Wie viel cm² Papier braucht man mindestens, um ihn ganz zu bekleben?"
@@ -3809,7 +3808,7 @@
    "l": "sachaufgaben",
    "t": "sachaufgaben",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Geschenkkarton ist 40 cm lang, 39 cm breit und 15 cm hoch. Wie viel cm² Papier braucht man mindestens, um ihn ganz zu bekleben?"
@@ -4431,15 +4430,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Zwei gleiche Quader (7 cm lang, 3 cm breit und 5 cm hoch) werden mit den 3 cm × 5 cm großen Flächen aneinandergeklebt. Wie groß ist die Oberfläche des neuen Quaders?"
+    "text": "Drei gleiche Würfel mit 2 cm Kantenlänge werden in einer Reihe aneinandergeklebt. Wie groß ist die Oberfläche des neuen Körpers?"
    },
    "o": {
-    "wert": 254,
+    "wert": 56,
     "einheit": "cm²"
    },
-   "c": "2 * (2 * (7 * 3 + 7 * 5 + 3 * 5)) - 2 * 3 * 5",
-   "w": "Einzeln je 142 cm², zusammen 284 cm². Minus 2 · 15: 254 cm². (Probe: neuer Quader 14 × 3 × 5.)",
-   "h": "Die Klebefläche verschwindet auf beiden Quadern."
+   "c": "3 * 6 * 2 * 2 - 4 * 2 * 2",
+   "w": "Einzeln: 3 · 24 = 72 cm². Es gibt 2 Klebestellen, an jeder verschwinden 2 Flächen zu 4 cm²: 72 − 4 · 4 = 56 cm². (Probe: Quader 6 × 2 × 2.)",
+   "h": "Wie viele Flächen werden beim Kleben verdeckt?"
   },
   {
    "l": "zusammengesetzt",
@@ -4448,15 +4447,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Zwei gleiche Quader (4 cm lang, 7 cm breit und 4 cm hoch) werden mit den 7 cm × 4 cm großen Flächen aneinandergeklebt. Wie groß ist die Oberfläche des neuen Quaders?"
+    "text": "Zwei gleiche Quader (6 cm × 4 cm × 2 cm) werden einmal mit den 6 cm × 4 cm großen Flächen und einmal mit den 4 cm × 2 cm großen Flächen aneinandergeklebt. Um wie viele cm² ist die Oberfläche im zweiten Fall größer?"
    },
    "o": {
-    "wert": 232,
+    "wert": 32,
     "einheit": "cm²"
    },
-   "c": "2 * (2 * (4 * 7 + 4 * 4 + 7 * 4)) - 2 * 7 * 4",
-   "w": "Einzeln je 144 cm², zusammen 288 cm². Minus 2 · 28: 232 cm². (Probe: neuer Quader 8 × 7 × 4.)",
-   "h": "Die Klebefläche verschwindet auf beiden Quadern."
+   "c": "(2 * 2 * (6 * 4 + 6 * 2 + 4 * 2) - 2 * 4 * 2) - (2 * 2 * (6 * 4 + 6 * 2 + 4 * 2) - 2 * 6 * 4)",
+   "w": "Zusammen 2 · 88 = 176 cm². Fall 1: 176 − 2 · 24 = 128 cm². Fall 2: 176 − 2 · 8 = 160 cm². Unterschied: 32 cm².",
+   "h": "Je kleiner die Klebefläche, desto weniger Oberfläche verschwindet."
   },
   {
    "l": "zusammengesetzt",
@@ -5967,6 +5966,57 @@
    "c": "60 * 30",
    "w": "Der fehlende Deckel ist 60 cm · 30 cm = 1 800 cm² groß – genau so viel wurde zu viel gerechnet.",
    "h": "Welche Fläche gibt es gar nicht?"
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Schachtel ist 5 cm lang, 4 cm breit und 2 cm hoch. Wie viel cm² Papier braucht man, um sie ganz zu bekleben?"
+   },
+   "o": {
+    "wert": 76,
+    "einheit": "cm²"
+   },
+   "c": "2 * 5 * 4 + 2 * 5 * 2 + 2 * 4 * 2",
+   "w": "Oberfläche: 2 · 20 + 2 · 10 + 2 · 8 = 40 + 20 + 16 = 76 cm².",
+   "h": "Ganz bekleben heißt: alle 6 Flächen."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein würfelförmiges Geschenk hat 3 cm Kantenlänge. Wie viel cm² Papier braucht man, um es ganz zu bekleben?"
+   },
+   "o": {
+    "wert": 54,
+    "einheit": "cm²"
+   },
+   "c": "6 * 3 * 3",
+   "w": "Ein Würfel hat 6 gleiche Quadrate: 6 · 3 · 3 = 6 · 9 = 54 cm².",
+   "h": "Ganz bekleben heißt: alle 6 Flächen."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Karton mit Deckel ist 10 cm lang, 10 cm breit und 5 cm hoch. Wie viel cm² Pappe braucht man für ihn?"
+   },
+   "o": {
+    "wert": 400,
+    "einheit": "cm²"
+   },
+   "c": "2 * 10 * 10 + 2 * 10 * 5 + 2 * 10 * 5",
+   "w": "Oberfläche: 2 · 100 + 2 · 50 + 2 · 50 = 200 + 100 + 100 = 400 cm².",
+   "h": "Mit Deckel heißt: alle 6 Flächen."
   },
   {
    "l": "zusammengesetzt",

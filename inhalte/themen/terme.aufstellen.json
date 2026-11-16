@@ -915,7 +915,7 @@
    "l": "struktur",
    "t": "struktur",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welche Termart hat der Term (9y − 1) : 6?"
@@ -957,7 +957,7 @@
    "l": "struktur",
    "t": "struktur",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welche Termart hat der Term (5y − 2) : 3?"
@@ -1505,7 +1505,7 @@
    "l": "termwert",
    "t": "termwert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne den Wert von 5a + 3b für a = 1 und b = −2."
@@ -1521,7 +1521,7 @@
    "l": "termwert",
    "t": "termwert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne den Wert von −a + 2b für a = −5 und b = 1."
@@ -1537,7 +1537,7 @@
    "l": "termwert",
    "t": "termwert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne den Wert von −a + 5b für a = 6 und b = −6."

@@ -1428,7 +1428,7 @@
    "l": "werte",
    "t": "werte",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Berechne sin(2,7) (x im Bogenmaß) auf drei Nachkommastellen."
@@ -1445,7 +1445,7 @@
    "l": "werte",
    "t": "werte",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Berechne cos(4,4) (x im Bogenmaß) auf drei Nachkommastellen."
@@ -2149,7 +2149,7 @@
    "l": "periode",
    "t": "periode",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Sinusfunktion f(x) = sin(b · x) soll die Periode 90° haben. Bestimme b."
@@ -2165,7 +2165,7 @@
    "l": "periode",
    "t": "periode",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Jemand sagt: „f(x) = sin(0,5x) hat die Periode 180°.“ Was stimmt?"

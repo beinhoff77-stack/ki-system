@@ -872,5 +872,20 @@ def _schwer():
 
 ergaenze(DATEI, _schwer(), 1016)
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_anwenden  # noqa: E402
+
+BF = Befunde('zahlen.ganz', 13_5_1)
+# a) nur größere Zahlen, gleicher Gedanke wie Stufe 2
+for _t in ['Berechne 217 + (−285).', 'Berechne (−306) + 205.', 'Berechne (−210) + 355.', 'Berechne (−146) + (−191).']:
+    BF.stufe('addieren', _t, 2)
+for _t in ['Berechne 146 − (−41).', 'Berechne (−399) − 174.', 'Berechne (−234) − (−125).']:
+    BF.stufe('subtrahieren', _t, 2)
+for _t in ['Berechne geschickt: 25 − 56 + 56 − 38.', 'Berechne geschickt: 20 − 44 + 44 − 10.', 'Berechne geschickt: 56 − 53 + 53 − 35.']:
+    BF.stufe('ketten', _t, 2)
+
+befunde_anwenden(DATEI, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI, 'zahlen.ganz.json')

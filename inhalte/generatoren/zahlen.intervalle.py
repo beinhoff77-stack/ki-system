@@ -467,6 +467,26 @@ SW.a('beurteilen', 3, 'Welche Aussage über JEDES Intervall [a; b] mit a < b ist
 baue = mit_schwer(baue, SW)
 # ---- SCHWER ENDE ----
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, mit_befunden  # noqa: E402
+
+BF = Befunde('zahlen.intervalle', 13_8_8)
+# c) Beinahe-Dublette (Aquarium zweimal) → andere Grenzenart
+BF.ersetze('lesen', 'Ein Aquarium braucht Wasser von mindestens 24 °C bis höchstens 28 °C. Welches Intervall beschreibt die erlaubten Temperaturen (in °C)?', BF.A(
+    'Ein Impfstoff muss im Kühlschrank bei mehr als 2 °C, aber höchstens 8 °C gelagert werden. Welches Intervall beschreibt die erlaubten Temperaturen (in °C)?', ']2; 8]',
+    ['[2; 8]', ']2; 8[', '[2; 8['],
+    'In Zeichen: 2 < x ≤ 8. „mehr als“: Grenze gehört nicht dazu, Klammer nach außen. „höchstens“: Grenze gehört dazu, Klammer nach innen. Intervall: ]2; 8].',
+    'Übersetze jedes Wort an einer Grenze: gehört die Zahl dazu oder nicht?'))
+# a) reine Übersetzung ohne Zusatzschritt → Stufe 2
+BF.stufe('schreiben', 'Schreibe als Intervall: alle Zahlen zwischen −5 und −3, beide Grenzen eingeschlossen.', 2)
+BF.stufe('schreiben', 'Schreibe als Intervall: alle Zahlen zwischen −9 und −1, beide Grenzen eingeschlossen.', 2)
+BF.stufe('schreiben', 'Schreibe als Intervall: alle Zahlen zwischen −12 und 8, beide Grenzen ausgeschlossen.', 2)
+BF.nicht_umgesetzt('enthalten S1 „Welche Zahl liegt im Intervall [1; 7]?“ hat nur 3 Antworten', 'Zulässig und richtig; kein Fehler.')
+BF.fuer_sebastian('zahlen.intervalle: lehrplan_gym der Karten ist leer – das Thema hat keine eigene LehrplanPLUS-Zeile (Inhalt gehört zu Ungleichungen, Kl. 8). Karten-Text nicht geändert.')
+
+baue = mit_befunden(baue, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Schreibweise', ['lesen', 'schreiben']), ('Zahlen im Intervall', ['enthalten', 'beurteilen'])],

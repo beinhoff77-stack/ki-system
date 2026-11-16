@@ -705,6 +705,46 @@ N.a('deuten', 3, 'Taxi A: K = 2x + 3,5. Taxi B: K = 2x + 5 (x in km, K in €). 
 baue = mit_schwer(baue, N)
 # ---- SCHWER ENDE ----
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, mit_befunden  # noqa: E402
+
+BF = Befunde('funktionen.linear', 13_8_2)
+# c) Ablenker widerspricht sich selbst („Nein …, BC hat 1“) → Aufgabe mit typischem Fehler als Ablenker ersetzen
+BF.ersetze('zwei_punkte', 'Liegen A(−1 | −1), B(1 | 1) und C(3 | 3) auf einer Geraden?', BF.A(
+    'Liegen die Punkte A(−1 | −1), B(1 | 1) und C(3 | 3) auf einer gemeinsamen Geraden?', 'Ja, beide Steigungen sind 1.',
+    ['Nein, AB hat Steigung 1, BC hat Steigung 2.', 'Ja, alle Punkte haben verschiedene x-Werte.', 'Das kann man nur mit einer Zeichnung entscheiden.'],
+    'm(AB) = (1 − (−1)) : 2 = 1; m(BC) = (3 − 1) : 2 = 1. Gleich, also eine Gerade. (Wer bei BC nur 2 : 1 rechnet, vergisst die x-Differenz 2.)',
+    'Berechne die Steigung von A nach B und von B nach C.'))
+BF.ersetze('zwei_punkte', 'Liegen A(0 | 2), B(2 | 8) und C(4 | 14) auf einer Geraden?', BF.A(
+    'Liegen die Punkte A(0 | 2), B(2 | 8) und C(4 | 14) auf einer gemeinsamen Geraden?', 'Ja, beide Steigungen sind 3.',
+    ['Nein, AB hat Steigung 3, BC hat Steigung 6.', 'Ja, alle Punkte haben verschiedene x-Werte.', 'Das kann man nur mit einer Zeichnung entscheiden.'],
+    'm(AB) = (8 − 2) : 2 = 3; m(BC) = (14 − 8) : 2 = 3. Gleich, also eine Gerade. (6 entsteht, wenn man die x-Differenz 2 vergisst.)',
+    'Berechne die Steigung von A nach B und von B nach C.'), s=2)
+# c) Grammatik in der Frage („Wie viel kosten 1 m?“)
+BF.ersetze('proportional', '6 m Stoff kosten 48 €. Wie viel kosten 1 m?',
+           BF.Z('6 m Stoff kosten 48 €. Wie viel kostet 1 m?', 8, '48 / 6 * 1', 'k = 48 : 6 = 8 € pro m. y = 8 · 1 = 8 €.', 'Berechne zuerst den Preis für 1 Einheit (k).', einheit='€'))
+BF.ersetze('proportional', '2 l Saft kosten 3 €. Wie viel kosten 1 l?',
+           BF.Z('2 l Saft kosten 3 €. Wie viel kostet 1 l?', 1.5, '3 / 2 * 1', 'k = 3 : 2 = 1,50 € pro l. y = 1,5 · 1 = 1,50 €.', 'Berechne zuerst den Preis für 1 Einheit (k).', einheit='€'))
+# a) Standardprüfung y : x → Stufe 2
+for _t in ['Ist die Zuordnung (1 | 7), (2 | 14), (9 | 63) proportional?', 'Ist die Zuordnung (3 | 24), (5 | 40), (6 | 48) proportional?',
+           'Ist die Zuordnung (1 | 1), (2 | 4), (5 | 25) proportional?', 'Ist die Zuordnung (1 | 7), (6 | 32), (7 | 37) proportional?']:
+    BF.stufe('proportional', _t, 2)
+# a) Schnittpunkt zweier Geraden: gleicher Typ wie Stufe 2 → Stufe 2
+for _t in ['Berechne den Schnittpunkt von g: y = −3x − 3 und h: y = −2x − 2.', 'Berechne den Schnittpunkt von g: y = 2x − 5 und h: y = −x − 5.',
+           'Berechne den Schnittpunkt von g: y = −3x − 7 und h: y = 4x + 14.', 'Berechne den Schnittpunkt von g: y = 3x + 2 und h: y = −5x + 10.']:
+    BF.stufe('schnittpunkte', _t, 2)
+# a) lage: Stufe-1-Niveau bzw. Standard
+BF.stufe('lage', 'Gib die Steigung einer Geraden an, die parallel zu y = 4x + 6 ist.', 1)
+BF.stufe('lage', 'Gib die Steigung einer Geraden an, die parallel zu y = 2,5x ist.', 1)
+BF.stufe('lage', 'Wie liegen die Geraden g: y = x − 5 und h: y = 2x − 6 zueinander?', 1)
+BF.stufe('lage', 'Gib die Steigung einer Geraden an, die senkrecht auf y = −2x steht.', 2)
+# a) deuten: gleicher Typ wie Stufe 2
+BF.stufe('deuten', 'Eine Taxifahrt: P(x) = 1,8x + 4,5 (x in km, P in €). Wie weit ist man gefahren, wenn 31,50 € zu zahlen sind?', 2)
+BF.stufe('deuten', 'Ein Planschbecken wird befüllt: h(x) = 0,5x + 5 (x in Minuten, h in cm). Nach wie vielen Minuten steht das Wasser 30 cm hoch?', 2)
+
+baue = mit_befunden(baue, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Steigung und Achsenabschnitt', ['ablesen', 'zwei_punkte', 'proportional']), ('Geraden bestimmen', ['aufstellen', 'schnittpunkte', 'lage']),

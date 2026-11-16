@@ -753,7 +753,7 @@
    "l": "zehnerpotenz",
    "t": "zehnerpotenz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viele Tausender stecken in 10⁷?"
@@ -785,7 +785,7 @@
    "l": "zehnerpotenz",
    "t": "zehnerpotenz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viele Tausender stecken in 10¹¹?"
@@ -801,7 +801,7 @@
    "l": "zehnerpotenz",
    "t": "zehnerpotenz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viele Tausender stecken in 10¹²?"
@@ -1205,7 +1205,7 @@
    "l": "gross_wissenschaftlich",
    "t": "gross_wissenschaftlich",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Jahr hat etwa 3,15 · 10⁷ Sekunden. Schreibe die Zahl ohne Zehnerpotenz."
@@ -1285,7 +1285,7 @@
    "l": "gross_wissenschaftlich",
    "t": "gross_wissenschaftlich",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Licht legt in einer Sekunde etwa 300 000 km zurück. Schreibe die Zahl als a · 10ⁿ. Wie groß ist n?"
@@ -2718,7 +2718,7 @@
    "l": "klein_wissenschaftlich",
    "t": "klein_wissenschaftlich",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Kopfhaar ist etwa 7 · 10⁻⁵ m dick. Schreibe die Zahl als Dezimalzahl."
@@ -3733,7 +3733,7 @@
    "l": "vergleichen_pruefen",
    "t": "vergleichen_pruefen",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "a": [
     "5,3 · 10⁻²",

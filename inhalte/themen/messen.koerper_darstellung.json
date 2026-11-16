@@ -6557,18 +6557,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage ist richtig?"
+    "text": "Welche Aussage über Körper ist richtig?"
    },
    "a": [
     "Eine Pyramide ist ein Prisma.",
+    "Im Schrägbild werden Kanten nach hinten in wahrer Länge gezeichnet.",
     "Ein sechsseitiges Prisma hat 6 Flächen.",
-    "Ein Zylinder hat genau zwei Kanten.",
-    "Im Schrägbild werden Kanten nach hinten in wahrer Länge gezeichnet."
+    "Ein Zylinder hat keine Ecken."
    ],
    "o": {
-    "index": 2
+    "index": 3
    },
-   "w": "Richtig: Ein Zylinder hat genau zwei Kanten.",
+   "w": "Richtig: Ein Zylinder hat keine Ecken. Eine Pyramide hat keine zwei deckungsgleichen Grundflächen, ein sechsseitiges Prisma hat 6 + 2 = 8 Flächen, nach hinten laufende Kanten werden verkürzt gezeichnet.",
    "h": "Prüfe die Eigenschaften: zwei parallele, deckungsgleiche Grundflächen; Rechtecke als Seiten."
   },
   {
@@ -6578,18 +6578,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage ist FALSCH?"
+    "text": "Welche Aussage über Prismen und Pyramiden ist FALSCH?"
    },
    "a": [
-    "Der Mantel eines geraden siebenseitigen Prismas besteht aus 7 Rechtecken.",
-    "Eine Pyramide ist ein Prisma.",
     "Ein Zylinder hat keine Ecken.",
-    "Ein Zylinder hat genau zwei Kanten."
+    "Eine Pyramide ist ein Prisma.",
+    "Der Mantel eines geraden siebenseitigen Prismas besteht aus 7 Rechtecken.",
+    "Ein sechsseitiges Prisma hat 12 Ecken."
    ],
    "o": {
     "index": 1
    },
-   "w": "Falsch: Eine Pyramide ist ein Prisma.",
+   "w": "Falsch: Eine Pyramide ist ein Prisma. Eine Pyramide hat nur eine Grundfläche und läuft in einer Spitze zusammen. (Sechsseitiges Prisma: 2 · 6 = 12 Ecken – richtig.)",
    "h": "Suche ein Gegenbeispiel oder zähle nach."
   },
   {
@@ -6641,18 +6641,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage ist FALSCH?"
+    "text": "Welche Aussage über Zylinder und Prismen ist FALSCH?"
    },
    "a": [
-    "Das Mantelrechteck eines Zylinders ist so lang wie der Durchmesser des Grundkreises.",
     "Der Mantel eines geraden zwölfseitigen Prismas besteht aus 12 Rechtecken.",
     "Ein Zylinder hat keine Ecken.",
-    "Ein Zylinder hat genau zwei Kanten."
+    "Ein Zylinder hat zwei kreisförmige Grundflächen.",
+    "Das Mantelrechteck eines Zylinders ist so lang wie der Durchmesser des Grundkreises."
    ],
    "o": {
-    "index": 0
+    "index": 3
    },
-   "w": "Falsch: Das Mantelrechteck eines Zylinders ist so lang wie der Durchmesser des Grundkreises.",
+   "w": "Falsch: Das Mantelrechteck ist so lang wie der Umfang des Grundkreises (u = 2 · π · r), nicht wie der Durchmesser.",
    "h": "Suche ein Gegenbeispiel oder zähle nach."
   },
   {

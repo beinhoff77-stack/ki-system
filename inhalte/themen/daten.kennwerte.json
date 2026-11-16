@@ -1572,7 +1572,7 @@
    "l": "mittel_tabelle",
    "t": "mittel_tabelle",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Geschwister hat ein Kind im Mittel?",
@@ -1645,7 +1645,7 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Geschwister hat ein Kind im Mittel?",
+    "text": "Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Kinder mit 3 Geschwistern müssten noch dazukommen, damit der Mittelwert genau 2 ist?",
     "grafik": {
      "typ": "tabelle",
      "kopf": [
@@ -1667,11 +1667,11 @@
     }
    },
    "o": {
-    "wert": 1.5
+    "wert": 6
    },
-   "c": "(0 * 4 + 1 * 2 + 2 * 2 + 3 * 4) / (4 + 2 + 2 + 4)",
-   "w": "Summe: 0 · 4 + 1 · 2 + 2 · 2 + 3 · 4 = 18. Anzahl: 4 + 2 + 2 + 4 = 12. Mittelwert: 18 : 12 = 1,5.",
-   "h": "Wert mal Häufigkeit, alles addieren, durch die Gesamtzahl teilen."
+   "c": "(2 * 12 - 18) / (3 - 2)",
+   "w": "Bisher: Summe 0 · 4 + 1 · 2 + 2 · 2 + 3 · 4 = 18, Anzahl 12. Für Mittel 2 bräuchte man Summe 2 · Anzahl. Jedes neue Kind bringt 3, also 1 mehr als 2: Es fehlen 2 · 12 − 18 = 6, also 6 Kinder. Probe: 36 : 18 = 2.",
+   "h": "Wie groß müsste die Summe sein? Um wie viel erhöht jedes neue Kind die Summe mehr als nötig?"
   },
   {
    "l": "mittel_tabelle",
@@ -1680,7 +1680,7 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Geschwister hat ein Kind im Mittel?",
+    "text": "Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Jemand rechnet (0 + 1 + 2 + 3) : 4 = 1,5. Wie groß ist der Mittelwert richtig?",
     "grafik": {
      "typ": "tabelle",
      "kopf": [
@@ -1705,8 +1705,8 @@
     "wert": 1.2
    },
    "c": "(0 * 7 + 1 * 6 + 2 * 3 + 3 * 4) / (7 + 6 + 3 + 4)",
-   "w": "Summe: 0 · 7 + 1 · 6 + 2 · 3 + 3 · 4 = 24. Anzahl: 7 + 6 + 3 + 4 = 20. Mittelwert: 24 : 20 = 1,2.",
-   "h": "Wert mal Häufigkeit, alles addieren, durch die Gesamtzahl teilen."
+   "w": "Falsch ist, nur die vier Spaltenwerte zu mitteln. Jede Anzahl zählt so oft, wie Kinder sie haben: Summe 0 · 7 + 1 · 6 + 2 · 3 + 3 · 4 = 24, Anzahl 20. Mittelwert: 24 : 20 = 1,2.",
+   "h": "Wie viele Kinder wurden befragt? Jedes Kind zählt einmal."
   },
   {
    "l": "mittel_tabelle",
@@ -2738,7 +2738,7 @@
    "l": "modal_spannweite",
    "t": "modal_spannweite",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Bestimme die Spannweite von 7, 8, 7, 4, 7, 7, 10, 1, 2, −5, 8, −4."
@@ -2796,7 +2796,7 @@
    "l": "modal_spannweite",
    "t": "modal_spannweite",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Bestimme die Spannweite von −2, 0, 2, 6, 12, 7, 9, 7, −4, 0, 7, −5."
@@ -2812,7 +2812,7 @@
    "l": "modal_spannweite",
    "t": "modal_spannweite",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Temperaturen am Morgen in einer Woche (°C): −6, −2, −5, 1, −5, 5, 12. Wie groß ist die Spannweite?"
@@ -3743,20 +3743,17 @@
    "t": "verstehen",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Ja, der Median bleibt in der Mitte der geordneten Liste, der Ausreißer 77 € verändert ihn kaum.",
-    "Nein, der Mittelwert ist immer genauer.",
-    "Nein, die Aussage ist falsch."
-   ],
-   "o": {
-    "index": 0
-   },
+   "y": "zahl",
    "f": {
-    "text": "Stimmt die Aussage? „Taschengeld (€): 9, 8, 8, 9, 77. Der Median beschreibt ein typisches Kind besser als der Mittelwert.“"
+    "text": "Taschengeld (€): 9, 8, 8, 9, 77. Um wie viel € ist der Mittelwert größer als der Median?"
    },
-   "w": "Ja, der Median bleibt in der Mitte der geordneten Liste, der Ausreißer 77 € verändert ihn kaum.",
-   "h": "Rechne nach oder suche ein Gegenbeispiel."
+   "o": {
+    "wert": 13.2,
+    "einheit": "€"
+   },
+   "c": "(9 + 8 + 8 + 9 + 77) / 5 - 9",
+   "w": "Mittelwert: 111 : 5 = 22,2 €. Geordnet 8, 8, 9, 9, 77: Median 9 €. Unterschied: 22,2 − 9 = 13,2 €. Der Ausreißer 77 € zieht nur den Mittelwert nach oben.",
+   "h": "Berechne beide Werte. Für den Median zuerst ordnen."
   },
   {
    "l": "verstehen",
@@ -3764,19 +3761,19 @@
    "p": "uebung",
    "s": 3,
    "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Lässt man bei 7, 4, 11, 12, 82 den Wert 82 weg, ändert sich der Median nicht.“"
+   },
    "a": [
-    "Ja, der Median bleibt in der Mitte der geordneten Liste, der Ausreißer 82 € verändert ihn kaum.",
-    "Nein, die Aussage ist falsch.",
-    "Nein, der Mittelwert ist immer genauer."
+    "Nein: Vorher ist der Median 11, danach (4, 7, 11, 12) ist er (7 + 11) : 2 = 9.",
+    "Ja, der Median bleibt immer 11.",
+    "Ja, ein Ausreißer verändert den Median nie."
    ],
    "o": {
     "index": 0
    },
-   "f": {
-    "text": "Stimmt die Aussage? „Taschengeld (€): 7, 4, 11, 12, 82. Der Median beschreibt ein typisches Kind besser als der Mittelwert.“"
-   },
-   "w": "Ja, der Median bleibt in der Mitte der geordneten Liste, der Ausreißer 82 € verändert ihn kaum.",
-   "h": "Rechne nach oder suche ein Gegenbeispiel."
+   "w": "Geordnet 4, 7, 11, 12, 82: Median 11. Ohne 82 bleiben 4 Werte, der Median ist der Mittelwert der beiden mittleren: (7 + 11) : 2 = 9. Er ändert sich – aber viel weniger als der Mittelwert (23,2 → 8,5).",
+   "h": "Ordne die Werte und bestimme den Median vorher und nachher."
   },
   {
    "l": "verstehen",

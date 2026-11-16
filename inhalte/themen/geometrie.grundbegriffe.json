@@ -2985,18 +2985,18 @@
    "p": "uebung",
    "s": 3,
    "y": "auswahl",
+   "f": {
+    "text": "g geht durch A(−6 | −3) und B(−6 | 0), h geht durch C(4 | −3) und D(4 | 5). Wie liegen g und h zueinander?"
+   },
    "a": [
-    "g und h sind gleich",
     "g ⊥ h",
+    "g und h sind gleich",
     "g ∥ h"
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "f": {
-    "text": "g geht durch A(−6 | −3) und B(−6 | 0), h geht durch C(4 | −3) und D(8 | −3). Wie liegen g und h zueinander?"
-   },
-   "w": "g ist senkrecht (gleiches x), h ist waagrecht (gleiches y). Sie schneiden sich im rechten Winkel.",
+   "w": "g und h sind beide senkrecht (bei g ist x immer −6, bei h immer 4). Sie haben dieselbe Richtung und keinen gemeinsamen Punkt: g ∥ h.",
    "h": "Gleiche x-Koordinaten: senkrechte Linie. Gleiche y-Koordinaten: waagrechte Linie."
   },
   {
@@ -3710,14 +3710,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Zwei Kreise haben die Radien 7 cm und 4 cm. Ihre Mittelpunkte sind 3 cm voneinander entfernt. Wie viele gemeinsame Punkte haben sie?"
+    "text": "Ein Kreis um M(2 | 1) hat den Radius 4. Die waagrechte Gerade g geht durch alle Punkte mit y = −3. Wie viele gemeinsame Punkte haben Kreis und g?"
    },
    "o": {
     "wert": 1
    },
    "c": "1",
-   "w": "r₁ − r₂ = 3 cm. Der Abstand ist gleich dem Unterschied: Der kleine Kreis berührt den großen von innen (1 Punkt).",
-   "h": "Liegt ein Kreis im anderen? Vergleiche den Abstand der Mittelpunkte auch mit r₁ − r₂."
+   "w": "Abstand von M zu g: 1 − (−3) = 4. Das ist genau der Radius. g berührt den Kreis in einem Punkt (2 | −3): g ist eine Tangente.",
+   "h": "Berechne den Abstand des Mittelpunkts von der Geraden und vergleiche ihn mit dem Radius."
   },
   {
    "l": "kreis_lage",
@@ -6983,7 +6983,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Nein: Eine Tangente hat keinen gemeinsamen Punkt mit dem Kreis.",
@@ -7003,7 +7003,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Nein: 220° liegt zwischen 180° und 360°, also überstumpf.",

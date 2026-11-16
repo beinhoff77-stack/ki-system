@@ -550,5 +550,43 @@ def _schwer():
 
 ergaenze(DATEI, _schwer(), 1053)
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_anwenden  # noqa: E402
+
+BF = Befunde('messen.koerper_berechnung', 13_5_10)
+# a) vollständige Oberfläche mit großen Zahlen ist zu schwer für Stufe 1 → Stufe 2; dafür drei leichte Stufe-1-Aufgaben neu
+for _m in ['45 cm lang, 33 cm breit und 14 cm hoch', '36 cm lang, 32 cm breit und 13 cm hoch', '36 cm lang, 24 cm breit und 24 cm hoch',
+           '44 cm lang, 34 cm breit und 18 cm hoch', '31 cm lang, 26 cm breit und 29 cm hoch', '40 cm lang, 39 cm breit und 15 cm hoch']:
+    BF.stufe('sachaufgaben', f'Ein Geschenkkarton ist {_m}. Wie viel cm² Papier braucht man mindestens, um ihn ganz zu bekleben?', 2)
+_h1 = 'Ganz bekleben heißt: alle 6 Flächen.'
+BF.neu('sachaufgaben', 1, BF.Z('Eine Schachtel ist 5 cm lang, 4 cm breit und 2 cm hoch. Wie viel cm² Papier braucht man, um sie ganz zu bekleben?', 76,
+                               '2 * 5 * 4 + 2 * 5 * 2 + 2 * 4 * 2', 'Oberfläche: 2 · 20 + 2 · 10 + 2 · 8 = 40 + 20 + 16 = 76 cm².', _h1, einheit='cm²'))
+BF.neu('sachaufgaben', 1, BF.Z('Ein würfelförmiges Geschenk hat 3 cm Kantenlänge. Wie viel cm² Papier braucht man, um es ganz zu bekleben?', 54,
+                               '6 * 3 * 3', 'Ein Würfel hat 6 gleiche Quadrate: 6 · 3 · 3 = 6 · 9 = 54 cm².', _h1, einheit='cm²'))
+BF.neu('sachaufgaben', 1, BF.Z('Ein Karton mit Deckel ist 10 cm lang, 10 cm breit und 5 cm hoch. Wie viel cm² Pappe braucht man für ihn?', 400,
+                               '2 * 10 * 10 + 2 * 10 * 5 + 2 * 10 * 5', 'Oberfläche: 2 · 100 + 2 · 50 + 2 · 50 = 200 + 100 + 100 = 400 cm².', 'Mit Deckel heißt: alle 6 Flächen.', einheit='cm²'))
+# c) viermal „Oberfläche → Kante“ → zwei davon mit anderem Gedanken
+BF.ersetze('oberflaeche', 'Ein Würfel hat die Oberfläche 486 cm². Wie lang ist eine Kante?', BF.Z(
+    'Ein Würfel hat die Oberfläche 216 cm². Wie groß ist sein Volumen?', 216, '6 * 6 * 6',
+    'Eine Fläche: 216 : 6 = 36 cm². 6 · 6 = 36, also a = 6 cm. Volumen: 6 · 6 · 6 = 216 cm³.', 'Bestimme zuerst die Kantenlänge, dann das Volumen.', einheit='cm³'))
+BF.ersetze('oberflaeche', 'Ein Würfel hat die Oberfläche 1014 cm². Wie lang ist eine Kante?', BF.Z(
+    'Jede Kante eines Würfels wird doppelt so lang. Wie viel mal so groß wird seine Oberfläche?', 4, '2 * 2',
+    'Jede Seitenfläche ist doppelt so lang und doppelt so breit, also 2 · 2 = 4-mal so groß. Damit ist auch die ganze Oberfläche 4-mal so groß (z. B. a = 1 cm: 6 cm², a = 2 cm: 24 cm²).',
+    'Probiere es mit a = 1 cm und a = 2 cm aus.'))
+# c) viermal „zwei Quader aneinandergeklebt“ → zwei davon mit anderem Gedanken
+BF.ersetze('zusammengesetzt', 'Zwei gleiche Quader (7 cm lang, 3 cm breit und 5 cm hoch) werden mit den 3 cm × 5 cm großen Flächen aneinandergeklebt. Wie groß ist die Oberfläche des neuen Quaders?', BF.Z(
+    'Drei gleiche Würfel mit 2 cm Kantenlänge werden in einer Reihe aneinandergeklebt. Wie groß ist die Oberfläche des neuen Körpers?', 56, '3 * 6 * 2 * 2 - 4 * 2 * 2',
+    'Einzeln: 3 · 24 = 72 cm². Es gibt 2 Klebestellen, an jeder verschwinden 2 Flächen zu 4 cm²: 72 − 4 · 4 = 56 cm². (Probe: Quader 6 × 2 × 2.)',
+    'Wie viele Flächen werden beim Kleben verdeckt?', einheit='cm²'))
+BF.ersetze('zusammengesetzt', 'Zwei gleiche Quader (4 cm lang, 7 cm breit und 4 cm hoch) werden mit den 7 cm × 4 cm großen Flächen aneinandergeklebt. Wie groß ist die Oberfläche des neuen Quaders?', BF.Z(
+    'Zwei gleiche Quader (6 cm × 4 cm × 2 cm) werden einmal mit den 6 cm × 4 cm großen Flächen und einmal mit den 4 cm × 2 cm großen Flächen aneinandergeklebt. Um wie viele cm² ist die Oberfläche im zweiten Fall größer?',
+    32, '(2 * 2 * (6 * 4 + 6 * 2 + 4 * 2) - 2 * 4 * 2) - (2 * 2 * (6 * 4 + 6 * 2 + 4 * 2) - 2 * 6 * 4)',
+    'Zusammen 2 · 88 = 176 cm². Fall 1: 176 − 2 · 24 = 128 cm². Fall 2: 176 − 2 · 8 = 160 cm². Unterschied: 32 cm².',
+    'Je kleiner die Klebefläche, desto weniger Oberfläche verschwindet.', einheit='cm²'))
+BF.nicht_umgesetzt('sachaufgaben S2 Aquarium ohne Deckel „anspruchsvoller als manche Stufe-3-Aufgabe“', 'Passt auf Stufe 2 (fünf Flächen, ein Gedanke); Stufe 3 enthält Zusatzschritte (Abzüge, Fliesen, Umrechnung).')
+
+befunde_anwenden(DATEI, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI)

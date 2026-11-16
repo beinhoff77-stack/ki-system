@@ -729,6 +729,25 @@ def schwer():
     ]
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('funktionen.quadratisch', 13_9_7)
+# c) Formatierungsfehler „1x“ statt „x“
+BF.ersetze('extremwert', 'Ein Ball fliegt auf der Bahn h(x) = −0,05x² + 1x + 2 (x und h in m). Wie hoch fliegt er höchstens?', BF.Z(
+    'Ein Ball fliegt auf der Bahn h(x) = −0,05x² + x + 2 (x und h in m). Wie hoch fliegt er höchstens?', 7, '-0.05 * 10 ** 2 + 1.0 * 10 + 2.0',
+    'Scheitel bei x = −1/(2 · (−0,05)) = 10; h(10) = −0,05 · 100 + 10 + 2 = 7 m.',
+    'Die größte Höhe ist der y-Wert des Scheitels. Nutze x = −b/(2a).', einheit='m'))
+# a) reines Ablesen → Stufe 2
+BF.stufe('scheitel', 'Gib den Scheitel der Parabel y = −3(x + 3)² an.', 2)
+BF.stufe('scheitel', 'Gib den Scheitel der Parabel y = −0,5(x + 7)² an.', 2)
+# a) fünfmal derselbe Typ „Ohne zu rechnen: Wie viele Nullstellen …?“ auf Stufe 3 → drei davon Stufe 2
+for _f in ('(x + 4)² + 3', '−(x + 2)² − 6', '−(x + 5)² + 8'):
+    BF.stufe('parameter', f'Ohne zu rechnen: Wie viele Nullstellen hat y = {_f}?', 2)
+BF.nicht_umgesetzt('bestimmen S3 „Parabel durch drei Punkte“ überschneidet sich mit gleichungen.lgs3/parabel', 'Laut Befund kein Fehler; Überschneidung betrifft den Plan.')
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     d = bauen('funktionen.quadratisch',
           'Parabeln in Scheitelform und allgemeiner Form deuten, Nullstellen bestimmen, Terme aufstellen und Extremwertprobleme lösen.',
@@ -741,3 +760,4 @@ if __name__ == '__main__':
                   'bestimmen': ['S(1 | −2) und geht durch P(3 | 6)'], 'extremwert': ['mit 20 m Zaun']},
           offen=['Parabel durch drei Punkte kommt auch im Thema gleichungen.lgs3 vor (dort ausführlich), hier nur als Stufe-3-Variante.'])
     anhaengen(d, 9907, schwer)
+    befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

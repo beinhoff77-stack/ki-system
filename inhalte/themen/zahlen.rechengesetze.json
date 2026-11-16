@@ -1289,7 +1289,7 @@
    "l": "punkt_strich",
    "t": "vorrang",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 81 : 3 : 3 + 5 · 12."
@@ -3760,7 +3760,7 @@
    "l": "mal_ganz",
    "t": "ganz",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Berechne (−3) · 2."
@@ -3776,7 +3776,7 @@
    "l": "mal_ganz",
    "t": "ganz",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Berechne 4 · (−2)."
@@ -3792,7 +3792,7 @@
    "l": "mal_ganz",
    "t": "ganz",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Berechne (−3) · 9."
@@ -5072,7 +5072,7 @@
    "l": "schriftlich",
    "t": "verfahren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Rechne schriftlich: 865 · 47"

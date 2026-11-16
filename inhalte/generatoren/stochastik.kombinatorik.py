@@ -631,5 +631,24 @@ def _schwer():
 
 ergaenze(DATEI, _schwer(), 1060)
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_anwenden  # noqa: E402
+
+BF = Befunde('stochastik.kombinatorik', 13_5_11)
+# a) gleicher Gedanke wie die Handschlag-Aufgaben (Stufe 1); mit 3 Punkten sogar leichter
+_g = 'Wie viele Strecken kann man zwischen {} Punkten zeichnen, von denen keine drei auf einer Geraden liegen?'
+BF.stufe('grenzen', _g.format(3), 1)
+for _n in (6, 5, 7):
+    BF.stufe('grenzen', _g.format(_n), 2)
+# a) gleicher Typ und gleiches Ergebnis wie Stufe 2
+for _z in ('0, 1, 5, 6', '0, 3, 8, 9', '0, 4, 6, 7'):
+    BF.stufe('bedingungen', f'Aus den Ziffern {_z} werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele gibt es?', 2)
+# a) Zählprinzip-Grundform
+for _t in ('2 Sorten, 3 Soßen und 2 Streusel', '3 Sorten, 2 Soßen und 2 Streusel'):
+    BF.stufe('systematisch', f'Beim Eis gibt es {_t}. Ein Becher hat genau eine Sorte, eine Soße und einen Streusel. Wie viele verschiedene Becher gibt es?', 2)
+
+befunde_anwenden(DATEI, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI)

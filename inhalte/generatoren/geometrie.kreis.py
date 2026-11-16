@@ -664,6 +664,19 @@ def schwer():
     return N
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('geometrie.kreis', 13_7_6)
+# a) direkte Anwendung des Thalessatzes (die 50° sind nur Ablenkung)
+BF.stufe('thales', 'Ein Halbkreisfenster hat 1,2 m Durchmesser. Zwei Streben verbinden die Enden des Durchmessers mit einem Punkt auf dem Bogen; eine Strebe bildet mit dem Durchmesser einen Winkel von 50°. Welchen Winkel bilden die beiden Streben an dem Punkt auf dem Bogen?', 2)
+# a) reines Merkwissen (Tangentenabschnitte gleich lang)
+_t = 'Von P aus werden zwei Tangenten an einen Kreis gelegt. Der Abschnitt von P bis zum ersten Berührpunkt ist {} cm lang. Wie lang ist der Abschnitt bis zum zweiten Berührpunkt?'
+BF.stufe('tangente', _t.format(9), 1)
+BF.stufe('tangente', _t.format(3), 1)
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Satz des Thales', ['thales', 'umkehrung', 'beweis']), ('Tangenten', ['lage', 'tangente']), ('Besondere Kreise', ['umkreis_inkreis'])],
@@ -674,3 +687,4 @@ if __name__ == '__main__':
                 'Experimentieren mit dynamischer Geometriesoftware (Lehrplan) ist in der App nicht möglich.',
                 'Kreiswinkel (Umfangs-/Mittelpunktswinkelsatz) aus dem Feld „umfang“ weggelassen: nicht im lehrplan_gym für Klasse 7; nur der Spezialfall am Thaleskreis kommt vor.'])
     anhaengen(META['thema_schluessel'], schwer())
+    befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

@@ -1243,7 +1243,7 @@
    "l": "potenz_wert",
    "t": "potenz_wert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "27^(4/3): Weg A: erst ³√27 = 3, dann 3⁴ = 81. Weg B: erst 27⁴ = 531 441, dann ³√531 441 = 81. Was stimmt?"
@@ -1265,15 +1265,21 @@
    "t": "potenz_wert",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "luecken",
    "f": {
-    "text": "Berechne 64^(−3/2). Gib das Ergebnis als Dezimalzahl an."
+    "text": "Berechne 64^(−3/2). Gib das Ergebnis als Bruch an.",
+    "schablone": "1/□",
+    "hinweis": "Nenner"
    },
    "o": {
-    "wert": 0.001953125
+    "werte": [
+     512
+    ]
    },
-   "c": "1 / 8 ** 3",
-   "w": "64^(−3/2) = 1 / 64^(3/2) = 1 / (√64)³ = 1 / 8³ = 1/512 = 0,001953125.",
+   "c": [
+    "8 ** 3"
+   ],
+   "w": "64^(−3/2) = 1 / 64^(3/2) = 1 / (√64)³ = 1 / 8³ = 1/512.",
    "h": "Negativer Exponent: Kehrwert bilden. Dann Wurzel (Nenner) und Potenz (Zähler)."
   },
   {
@@ -3006,14 +3012,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Löse x⁵ = −243."
+    "text": "Löse x^(5/3) = 243 für x > 0."
    },
    "o": {
-    "wert": -3
+    "wert": 27
    },
-   "c": "-(243 / 3 ** 4)",
-   "w": "Ungerader Exponent: Es gibt genau eine Lösung, und sie ist negativ. (−3)⁵ = −243, also x = −3.",
-   "h": "Bei ungeradem Exponenten bleibt das Minuszeichen erhalten."
+   "c": "3 ** 3",
+   "w": "Beide Seiten hoch 3/5: x = 243^(3/5) = (⁵√243)³ = 3³ = 27. Probe: 27^(5/3) = (∛27)⁵ = 3⁵ = 243.",
+   "h": "Hoch den Kehrwert des Exponenten nehmen: (x^(5/3))^(3/5) = x."
   },
   {
    "l": "gleichung_exp",
@@ -3051,7 +3057,7 @@
    "l": "gleichung_exp",
    "t": "gleichung_exp",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse x^(1/2) = 6 für x > 0."
@@ -3490,7 +3496,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Aussage gilt für x ≥ 0?"

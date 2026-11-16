@@ -578,6 +578,40 @@ SW.z('grosse_zahlen', 3, 'Ein Reißnagel landete bei 400 Würfen 248-mal auf dem
 baue = mit_schwer(baue, SW)
 # ---- SCHWER ENDE ----
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, mit_befunden  # noqa: E402
+
+BF = Befunde('stochastik.grundbegriffe', 13_8_13)
+# c) Grammatik („1 grüne Kugeln“)
+BF.ersetze('laplace', 'In einer Urne liegen 9 rote, 3 blaue und 1 grüne Kugeln. Eine wird zufällig gezogen. Wie groß ist P(grün)?', BF.A(
+    'In einer Urne liegen 9 rote Kugeln, 3 blaue Kugeln und 1 grüne Kugel. Eine wird zufällig gezogen. Wie groß ist P(grün)?', '1/13',
+    ['12/13', '1/12', '1'], '1 günstige von 13 Kugeln: P(grün) = 1/13.', 'Im Nenner stehen alle Kugeln.'))
+# a) gleicher Typ wie Stufe 2
+for _t in ['Ein Glücksrad hat die Felder A 60°, B 60°, C 60°, D 120°, E 60°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?',
+           'Ein Glücksrad hat die Felder A 120°, B 180°, C 60°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?',
+           'Ein Glücksrad hat die Felder A 30°, B 60°, C 60°, D 150°, E 60°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?',
+           'Ein Glücksrad hat die Felder A 30°, B 30°, C 90°, D 180°, E 30°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?']:
+    BF.stufe('laplace_pruefen', _t, 2)
+# c) Beinahe-Dublette (Kronkorken 224/500 auf Stufe 2) → andere Stufe-3-Aufgabe (Schätzungen vergleichen)
+BF.ersetze('grosse_zahlen', 'Ein Kronkorken landete bei 500 Würfen 225-mal mit der Öffnung nach oben. Schätze die Wahrscheinlichkeit dafür auf zwei Nachkommastellen.', BF.A(
+    'Anna wirft einen Kronkorken 20-mal, er landet 12-mal mit der Öffnung nach oben. Ben wirft denselben Kronkorken 500-mal, er landet 225-mal so. Welche Schätzung für P(Öffnung oben) ist besser?',
+    'Bens Schätzung 0,45, weil sie auf viel mehr Würfen beruht.',
+    ['Annas Schätzung 0,6, weil sie größer ist.', 'Beide Schätzungen sind gleich gut.', 'Annas Schätzung, weil sie mit weniger Würfen schneller fertig war.'],
+    'Anna: 12 : 20 = 0,6. Ben: 225 : 500 = 0,45. Je mehr Versuche, desto näher liegt die relative Häufigkeit meist an der Wahrscheinlichkeit. Bens Schätzung ist zuverlässiger.',
+    'Berechne beide relativen Häufigkeiten. Welche beruht auf mehr Versuchen?'))
+# c) umständliche Formulierung („KEINE Zahl kleiner oder gleich …“) → klare Gegenereignis-Aufgaben
+BF.ersetze('gegenereignis', 'Ein fairer Würfel hat die Zahlen 1 bis 10. Wie groß ist die Wahrscheinlichkeit, KEINE Zahl kleiner oder gleich 1 zu werfen? Gib sie als Dezimalzahl an.', BF.Z(
+    'Ein Glücksrad hat 10 gleich große Felder mit den Zahlen 1 bis 10. Wie groß ist die Wahrscheinlichkeit, dass die Zahl NICHT durch 3 teilbar ist? Gib sie als Dezimalzahl an.',
+    0.7, '1 - 3 / 10', 'Durch 3 teilbar: 3, 6, 9 → P = 3/10. Gegenereignis: 1 − 3/10 = 0,7.', 'Berechne erst P(E) und nimm dann 1 − P(E).'))
+BF.ersetze('gegenereignis', 'Ein fairer Würfel hat die Zahlen 1 bis 6. Wie groß ist die Wahrscheinlichkeit, KEINE Zahl kleiner oder gleich 3 zu werfen? Gib sie als Dezimalzahl an.', BF.Z(
+    'Ein Spielwürfel wird einmal geworfen. Wie groß ist die Wahrscheinlichkeit, dass KEINE Primzahl fällt? Gib sie als Dezimalzahl an.',
+    0.5, '1 - 3 / 6', 'Primzahlen: 2, 3, 5 → P = 3/6. Gegenereignis: 1 − 3/6 = 0,5 (es fallen 1, 4 oder 6).', 'Berechne erst P(E) und nimm dann 1 − P(E).'))
+BF.nicht_umgesetzt('gegenereignis S3 „3 Würfe, P(mindestens eine Sechs) = 91/216“',
+                   'Lösung richtig; Weg über das Gegenereignis (5/6)³ ist echte Stufe 3. Ob die Produktregel in Kl. 8 eingeführt ist, betrifft den Plan.')
+
+baue = mit_befunden(baue, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Grundbegriffe', ['begriffe', 'rel_haeufigkeit']), ('Wahrscheinlichkeiten', ['laplace', 'laplace_pruefen', 'gegenereignis']), ('Zufall auf Dauer', ['grosse_zahlen'])],

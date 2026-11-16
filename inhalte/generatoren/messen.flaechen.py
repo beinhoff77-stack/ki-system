@@ -603,5 +603,25 @@ def _schwer():
 
 ergaenze(DATEI, _schwer(), 1050)
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_anwenden  # noqa: E402
+
+BF = Befunde('messen.flaechen', 13_5_9)
+# b) gefragt ist die ANZAHL der Einheitsquadrate, Lösung hatte die Einheit cm² → Anzahl ohne Einheit, Weg nennt beides
+for _c, _a, _b in [('9 * 4', 4, 9), ('7 * 3', 3, 7), ('3 * 6', 6, 3), ('3 * 3', 3, 3), ('7 * 2', 2, 7), ('7 * 4', 4, 7)]:
+    _n = _a * _b
+    BF.loesung('einheitsquadrate', 'Wie viele Einheitsquadrate (1 cm²) passen in das Rechteck?', enthaelt=f'"c": "{_c}"',
+               o={'wert': _n}, w=f'{_a} Reihen zu je {_b} Quadraten: {_a} · {_b} = {_n} Einheitsquadrate. Der Flächeninhalt ist also {_n} cm².')
+# c) Beinahe-Dublette (5 · 6 und 6 · 5) → andere Vergrößerung
+BF.ersetze('einheitsquadrate', 'Ein Rechteck aus 6 · 5 Einheitsquadraten wird in beiden Richtungen doppelt so lang. Wie viele Einheitsquadrate passen jetzt hinein?', BF.Z(
+    'Ein Rechteck aus 4 · 3 Einheitsquadraten wird doppelt so lang und dreimal so breit. Wie viele Einheitsquadrate passen jetzt hinein?', 72, '(2 * 4) * (3 * 3)',
+    'Neu: 8 · 9 = 72 Quadrate – sechsmal so viele wie 12 (2 · 3 = 6).', 'Rechne die neuen Seitenlängen aus.'))
+# a) dreimal derselbe Gedanke auf Stufe 3 (m und cm → dm²) → zwei davon Stufe 2
+BF.stufe('rechteck', 'Ein Rechteck ist 5 m lang und 50 cm breit. Wie groß ist der Flächeninhalt in dm²?', 2)
+BF.stufe('rechteck', 'Ein Rechteck ist 3 m lang und 60 cm breit. Wie groß ist der Flächeninhalt in dm²?', 2)
+
+befunde_anwenden(DATEI, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI)

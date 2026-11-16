@@ -1431,7 +1431,7 @@
    "l": "waage",
    "t": "umformen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse 2,5x + 4 = 29."
@@ -1447,7 +1447,7 @@
    "l": "waage",
    "t": "umformen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse −11 − x = 5."
@@ -2793,13 +2793,13 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand multipliziert 6x + 6 = 21 auf beiden Seiten mit 0 und erhält 0 = 0. Er folgert: „Jede Zahl ist eine Lösung.“ Stimmt das?"
+    "text": "Jemand multipliziert die Gleichung 6x + 6 = 21 auf beiden Seiten mit 0 und erhält 0 = 0. Er folgert: „Jede Zahl ist eine Lösung.“ Hat er recht?"
    },
    "a": [
-    "Nein: Es kommt 0 = c heraus.",
-    "Nein: Mal 0 ist keine Äquivalenzumformung.",
     "Ja: 0 = 0 ist immer wahr.",
-    "Ja: Auf beiden Seiten dasselbe ist erlaubt."
+    "Nein: Mal 0 ist keine Äquivalenzumformung.",
+    "Ja: Auf beiden Seiten dasselbe ist erlaubt.",
+    "Nein: Es kommt 6 = 21 heraus."
    ],
    "o": {
     "index": 1
@@ -2811,7 +2811,7 @@
    "l": "probe",
    "t": "pruefen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Die Probe für x = −4 bei x − 6 = −5x − 30 wird so geschrieben: „x − 6 = −5x − 30 | x = −4 → −10 = −10 ✓“. Welche Aussage stimmt?"
@@ -3628,7 +3628,7 @@
    "l": "sach",
    "t": "anwenden",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Mutter ist 4 Jahre älter als das 3-Fache des Alters ihres Sohnes. Zusammen sind sie 44 Jahre alt. Wie alt ist der Sohn?"

@@ -2637,16 +2637,16 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Kapital von 5 000 € wird mit 6 % pro Jahr verzinst (Zinseszins). Wie groß ist es nach 5 Jahren? Runde auf Cent."
+    "text": "Ein Kapital von 5 000 € wird mit 6 % pro Jahr verzinst (Zinseszins). Löse 5 000 · 1,06^t = 7 000, um zu sehen, wann es auf 7 000 € angewachsen ist. Runde auf eine Nachkommastelle."
    },
    "o": {
-    "wert": 6691.13,
-    "einheit": "€",
-    "toleranz": 0.01
+    "wert": 5.8,
+    "einheit": "Jahre",
+    "toleranz": 0.1
    },
-   "c": "round(5000 * 1.06 ** 5, 2)",
-   "w": "K = 5 000 · 1,06⁵ ≈ 6 691,13 €.",
-   "h": "Wachstumsfaktor 1 + p/100, so oft multiplizieren wie Jahre vergehen."
+   "c": "round(5.774472998624, 1)",
+   "w": "t = lg(7 000 : 5 000) : lg 1,06 = lg 1,4 : lg 1,06 ≈ 5,8 Jahre.",
+   "h": "Teile zuerst durch den Anfangswert. Dann logarithmieren: t = lg(rechte Seite) : lg(Basis)."
   },
   {
    "l": "wachstum",
@@ -2673,16 +2673,16 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Kapital von 2 000 € wird mit 2 % pro Jahr verzinst (Zinseszins). Wie groß ist es nach 2 Jahren? Runde auf Cent."
+    "text": "Ein Kapital von 2 000 € wird mit 2 % pro Jahr verzinst (Zinseszins). Löse 2 000 · 1,02^t = 2 500, um zu sehen, wann es auf 2 500 € angewachsen ist. Runde auf eine Nachkommastelle."
    },
    "o": {
-    "wert": 2080.8,
-    "einheit": "€",
-    "toleranz": 0.01
+    "wert": 11.3,
+    "einheit": "Jahre",
+    "toleranz": 0.1
    },
-   "c": "round(2000 * 1.02 ** 2, 2)",
-   "w": "K = 2 000 · 1,02² ≈ 2 080,80 €.",
-   "h": "Wachstumsfaktor 1 + p/100, so oft multiplizieren wie Jahre vergehen."
+   "c": "round(11.268381108059, 1)",
+   "w": "t = lg(2 500 : 2 000) : lg 1,02 = lg 1,25 : lg 1,02 ≈ 11,3 Jahre.",
+   "h": "Teile zuerst durch den Anfangswert. Dann logarithmieren: t = lg(rechte Seite) : lg(Basis)."
   },
   {
    "l": "wachstum",
@@ -2709,16 +2709,16 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Kapital von 1 000 € wird mit 6 % pro Jahr verzinst (Zinseszins). Wie groß ist es nach 2 Jahren? Runde auf Cent."
+    "text": "Ein Kapital von 1 000 € wird mit 6 % pro Jahr verzinst (Zinseszins). Löse 1 000 · 1,06^t = 2 000, um zu sehen, wann es auf 2 000 € angewachsen ist. Runde auf eine Nachkommastelle."
    },
    "o": {
-    "wert": 1123.6,
-    "einheit": "€",
-    "toleranz": 0.01
+    "wert": 11.9,
+    "einheit": "Jahre",
+    "toleranz": 0.1
    },
-   "c": "round(1000 * 1.06 ** 2, 2)",
-   "w": "K = 1 000 · 1,06² ≈ 1 123,60 €.",
-   "h": "Wachstumsfaktor 1 + p/100, so oft multiplizieren wie Jahre vergehen."
+   "c": "round(11.895661045942, 1)",
+   "w": "t = lg(2 000 : 1 000) : lg 1,06 = lg 2 : lg 1,06 ≈ 11,9 Jahre.",
+   "h": "Teile zuerst durch den Anfangswert. Dann logarithmieren: t = lg(rechte Seite) : lg(Basis)."
   },
   {
    "l": "wachstum",
@@ -3088,15 +3088,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Kapital von 2 000 € wird mit 2 % pro Jahr verzinst (Zinseszins). Wie groß ist es nach 3 Jahren? Runde auf Cent."
+    "text": "Ein Kapital von 2 000 € wird mit 2 % pro Jahr verzinst (Zinseszins). Löse 2 000 · 1,02^t = 3 000, um zu sehen, wann es auf 3 000 € angewachsen ist. Runde auf eine Nachkommastelle."
    },
    "o": {
-    "wert": 2122.42,
-    "einheit": "€",
-    "toleranz": 0.01
+    "wert": 20.5,
+    "einheit": "Jahre",
+    "toleranz": 0.1
    },
-   "c": "round(2000 * 1.02 ** 3, 2)",
-   "w": "K = 2 000 · 1,02³ ≈ 2 122,42 €."
+   "c": "round(20.475318857634, 1)",
+   "w": "t = lg(3 000 : 2 000) : lg 1,02 = lg 1,5 : lg 1,02 ≈ 20,5 Jahre."
   },
   {
    "l": "verstehen",
@@ -3291,7 +3291,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welche Lösung hat 3^x = −81? Die Zeichnung zeigt y = 3^x und y = −81.",
@@ -3417,7 +3417,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welche Lösung hat 3^x = −9? Die Zeichnung zeigt y = 3^x und y = −9.",
@@ -3459,7 +3459,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Jemand formt 2 · 2^x = 76 um zu 4^x = 76. Was stimmt?"
@@ -3480,7 +3480,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Aussage ist falsch?"
@@ -3501,7 +3501,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Aussage ist falsch?"
@@ -3522,7 +3522,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Jemand formt 4 · 5^x = 24 um zu 20^x = 24. Was stimmt?"
@@ -3543,7 +3543,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Aussage ist falsch?"
@@ -3564,7 +3564,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Aussage ist falsch?"

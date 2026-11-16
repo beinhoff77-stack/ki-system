@@ -772,5 +772,30 @@ def _schwer():
 
 ergaenze(DATEI, _schwer(), 1026)
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_anwenden  # noqa: E402
+
+BF = Befunde('groessen.proportional', 13_5_5)
+# a) Lied-Falle stand auf Stufe 1, Eier-Falle zweimal auf Stufe 3 (gleicher Gedanke wie Stufe 2) → einheitlich Stufe 2
+BF.stufe('sach', 'Ein Lied dauert 4 Minuten, wenn 4 Kinder es singen. Wie viele Minuten dauert es, wenn 9 Kinder singen?', 2)
+BF.stufe('sach', '2 Eier kochen 10 Minuten. Wie viele Minuten kochen 8 Eier im selben Topf?', 2)
+BF.stufe('sach', '3 Eier kochen 9 Minuten. Wie viele Minuten kochen 5 Eier im selben Topf?', 2)
+# c) „etwa 200 Liter“ wirkt falsch, weil 240 l leicht genau zu rechnen ist → genaue Antwort
+BF.ersetze('sach', 'Ein Hahn füllt in 4 Minuten einen Eimer mit 48 Litern. Ungefähr wie viele Liter laufen in 20 Minuten?', BF.A(
+    'Aus einem Hahn laufen in 4 Minuten 48 Liter Wasser, jede Minute gleich viel. Wie viele Liter laufen in 20 Minuten?', '240 Liter',
+    ['68 Liter', '960 Liter', '2 400 Liter'],
+    'In 1 Minute sind es 48 : 4 = 12 Liter. In 20 Minuten: 12 · 20 = 240 Liter. Nur dazuzählen (48 + 20 = 68) ist falsch.',
+    'Wie viel ist es in 1 Minute? Wie oft so viel brauchst du?'))
+BF.ersetze('sach', 'Ein Hahn füllt in 2 Minuten einen Eimer mit 24 Litern. Ungefähr wie viele Liter laufen in 20 Minuten?', BF.A(
+    'Aus einem Hahn laufen in 2 Minuten 24 Liter Wasser, jede Minute gleich viel. Wie viele Liter laufen in 20 Minuten?', '240 Liter',
+    ['44 Liter', '480 Liter', '2 400 Liter'],
+    'In 1 Minute sind es 24 : 2 = 12 Liter. In 20 Minuten: 12 · 20 = 240 Liter. Nur dazuzählen (24 + 20 = 44) ist falsch.',
+    'Wie viel ist es in 1 Minute? Wie oft so viel brauchst du?'))
+# a) Standard-Dreisatz → Stufe 2
+BF.stufe('dreisatz', '20 Hefte kosten 80 €. 11 Hefte kosten wie viel €?', 2)
+
+befunde_anwenden(DATEI, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI, 'groessen.proportional.json')

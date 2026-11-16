@@ -742,6 +742,20 @@ def schwer():
     ]
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('abbildungen.aehnlichkeit', 13_9_9)
+# a) „Strecke P mit Z und k“ ist Routine → Stufe 2 (Stufe 3 bleibt „Zentrum aus P und P' bestimmen“ u. a.)
+for _p, _z, _k in [('P(−8 | −6)', 'Z(−2 | −4)', '−3'), ('P(−4 | 0)', 'Z(2 | 2)', '−0,5'), ('P(−6 | −2)', 'Z(−4 | 0)', '1,5'),
+                   ('P(−2 | 2)', 'Z(4 | 2)', '−0,5'), ('P(−3 | 0)', 'Z(1 | −4)', '1,5')]:
+    BF.stufe('streckung', f'Strecke den Punkt {_p} zentrisch mit dem Zentrum {_z} und k = {_k}. Gib den Bildpunkt P\' an.', 2)
+# a) sechsmal derselbe Typ (Modell → Original) auf Stufe 3 → drei davon Stufe 2
+for _m, _g in [('1 : 20', '8'), ('1 : 100', '3'), ('1 : 50', '4')]:
+    BF.stufe('flaeche_volumen', f'Ein Modell im Maßstab {_m} hat eine Grundfläche von {_g} cm². Wie groß ist die Grundfläche des Originals in m²?', 2)
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     d = bauen('abbildungen.aehnlichkeit',
           'Zentrische Streckung und Ähnlichkeit verstehen, Strahlensätze anwenden und die Wirkung auf Fläche und Volumen berechnen.',
@@ -754,3 +768,4 @@ if __name__ == '__main__':
                   'strahlensatz2': ['SA = 5 cm, AA\' = 3 cm, AB = 4 cm'], 'anwendung': ['2 m langer Stab wirft einen 3 m langen Schatten. Zur gleichen Zeit wirft ein Baum einen 18']},
           offen=['Strahlensatzaufgaben zeigen die Figur jetzt als Zeichnung (f.grafik); der Fragetext nennt nur noch die Maße. Bitte in der App prüfen, ob die Beschriftungen bei spitzen Winkeln gut lesbar sind.'])
     anhaengen(d, 9909, schwer)
+    befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

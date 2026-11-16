@@ -1070,7 +1070,7 @@
    "l": "eindeutig",
    "t": "eindeutig",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Zuordnung ist KEINE Funktion?"
@@ -1091,7 +1091,7 @@
    "l": "eindeutig",
    "t": "eindeutig",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Zuordnung ist KEINE Funktion?"
@@ -2479,7 +2479,7 @@
    "l": "funktionswert",
    "t": "funktionswert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne f(6) für f(x) = 2/(x − 5)."
@@ -2797,14 +2797,14 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Für welches x gilt f(x) = −3, wenn f(x) = −1(x + 1)?"
+    "text": "Für welches x gilt f(x) = −3, wenn f(x) = −(x + 1)?"
    },
    "o": {
     "wert": 2
    },
    "c": "-3 / (-1) + (-1)",
-   "w": "−1(x + 1) = −3 | : (−1) → x + 1 = 3 → x = 2.",
-   "h": "Teile zuerst durch die Zahl vor der Klammer."
+   "w": "−(x + 1) = −3 | : (−1) → x + 1 = 3 → x = 2.",
+   "h": "Das Minus vor der Klammer bedeutet „mal (−1)“. Teile zuerst durch −1."
   },
   {
    "l": "stelle",
@@ -2829,14 +2829,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Für welches x gilt f(x) = −2, wenn f(x) = −1(x + 4)?"
+    "text": "Für welches x gilt f(x) = −2, wenn f(x) = −(x + 4)?"
    },
    "o": {
     "wert": -2
    },
    "c": "-2 / (-1) + (-4)",
-   "w": "−1(x + 4) = −2 | : (−1) → x + 4 = 2 → x = −2.",
-   "h": "Teile zuerst durch die Zahl vor der Klammer."
+   "w": "−(x + 4) = −2 | : (−1) → x + 4 = 2 → x = −2.",
+   "h": "Das Minus vor der Klammer bedeutet „mal (−1)“. Teile zuerst durch −1."
   },
   {
    "l": "stelle",
@@ -2845,14 +2845,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Für welches x gilt f(x) = −4, wenn f(x) = −1(x + 4)?"
+    "text": "Für welches x gilt f(x) = −4, wenn f(x) = −(x + 4)?"
    },
    "o": {
     "wert": 0
    },
    "c": "-4 / (-1) + (-4)",
-   "w": "−1(x + 4) = −4 | : (−1) → x + 4 = 4 → x = 0.",
-   "h": "Teile zuerst durch die Zahl vor der Klammer."
+   "w": "−(x + 4) = −4 | : (−1) → x + 4 = 4 → x = 0.",
+   "h": "Das Minus vor der Klammer bedeutet „mal (−1)“. Teile zuerst durch −1."
   },
   {
    "l": "stelle",

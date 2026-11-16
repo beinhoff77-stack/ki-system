@@ -802,7 +802,7 @@
    "l": "stellenwerte",
    "t": "stellenwerte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Schreibe als Dezimalzahl: 5 + 9/100 + 7/1 000"
@@ -834,7 +834,7 @@
    "l": "stellenwerte",
    "t": "stellenwerte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Schreibe als Dezimalzahl: 6 + 7/100 + 1/1 000"
@@ -850,7 +850,7 @@
    "l": "stellenwerte",
    "t": "stellenwerte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Schreibe als Dezimalzahl: 9 + 9/100 + 7/1 000"
@@ -866,7 +866,7 @@
    "l": "stellenwerte",
    "t": "stellenwerte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Schreibe als Dezimalzahl: 9 + 7/100 + 2/1 000"
@@ -2364,13 +2364,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne 1 + 0,5 und gib das Ergebnis als Dezimalzahl an."
+    "text": "Berechne 3/4 + 0,5 und gib das Ergebnis als Dezimalzahl an."
    },
    "o": {
-    "wert": 1.5
+    "wert": 1.25
    },
-   "c": "1/1 + 0.5",
-   "w": "1 = 1. 1 + 0,5 = 1,5.",
+   "c": "3/4 + 0.5",
+   "w": "3/4 = 0,75. 0,75 + 0,5 = 1,25.",
    "h": "Wandle den Bruch zuerst in eine Dezimalzahl um."
   },
   {
@@ -2396,13 +2396,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne 1 + 0,4 und gib das Ergebnis als Dezimalzahl an."
+    "text": "Berechne 2/5 + 1,4 und gib das Ergebnis als Dezimalzahl an."
    },
    "o": {
-    "wert": 1.4
+    "wert": 1.8
    },
-   "c": "1/1 + 0.4",
-   "w": "1 = 1. 1 + 0,4 = 1,4.",
+   "c": "2/5 + 1.4",
+   "w": "2/5 = 4/10 = 0,4. 0,4 + 1,4 = 1,8.",
    "h": "Wandle den Bruch zuerst in eine Dezimalzahl um."
   },
   {
@@ -3253,7 +3253,7 @@
    "l": "periodisch",
    "t": "periodisch",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "0,36",
@@ -4063,18 +4063,18 @@
    "p": "uebung",
    "s": 3,
    "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Eine Zahl mit drei Nachkommastellen ist immer größer als eine mit einer, z. B. 0,375 > 0,8.“"
+   },
    "a": [
-    "Nein, man vergleicht Stelle für Stelle. Schon bei den Zehnteln ist die zweite Zahl größer.",
+    "Ja, die Aussage stimmt.",
     "Das kann man nicht entscheiden.",
-    "Ja, die Aussage stimmt."
+    "Nein, man vergleicht Stelle für Stelle. Schon bei den Zehnteln ist die zweite Zahl größer."
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "f": {
-    "text": "Stimmt die Aussage? „Eine Zahl mit drei Nachkommastellen ist immer größer als eine mit einer, z. B. 0,37 > 0,8.“"
-   },
-   "w": "Nein, man vergleicht Stelle für Stelle. Schon bei den Zehnteln ist die zweite Zahl größer.",
+   "w": "Nein. 0,375 hat 3 Zehntel, 0,8 hat 8 Zehntel: 0,375 < 0,8. Die Zahl der Nachkommastellen sagt nichts über die Größe.",
    "h": "Prüfe mit der Stellenwerttafel oder suche ein Gegenbeispiel."
   },
   {

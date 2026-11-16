@@ -722,7 +722,7 @@
    "o": {
     "index": 2
    },
-   "w": "π hat unendlich viele Nachkommastellen ohne Periode. 22/7, 3,14 und 3,1416 sind nur Näherungen und als Bruch schreibbar; 3,1414… ist periodisch.",
+   "w": "π hat unendlich viele Nachkommastellen ohne Periode. 22/7, 3,14 und 3,1416 sind nur Näherungen für π und lassen sich als Bruch schreiben.",
    "h": "Welche Zahl lässt sich nicht als Bruch schreiben?"
   },
   {
@@ -939,7 +939,7 @@
    "l": "zahlarten",
    "t": "zahlarten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche der Zahlen ist irrational?"
@@ -995,7 +995,7 @@
    "o": {
     "index": 1
    },
-   "w": "π hat unendlich viele Nachkommastellen ohne Periode. 22/7, 3,14 und 3,1416 sind nur Näherungen und als Bruch schreibbar; 3,1414… ist periodisch.",
+   "w": "π hat unendlich viele Nachkommastellen ohne Periode. 22/7 und 3,14 sind nur Näherungen und als Bruch schreibbar; 3,141414… ist periodisch, also auch ein Bruch.",
    "h": "Welche Zahl lässt sich nicht als Bruch schreiben?"
   },
   {
@@ -2010,7 +2010,7 @@
    "l": "wurzel_mal",
    "t": "wurzel_mal",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne √375 : √15."

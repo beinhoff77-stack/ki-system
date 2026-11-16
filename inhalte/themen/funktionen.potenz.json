@@ -849,7 +849,7 @@
    "l": "werte",
    "t": "werte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne f(−2) für f(x) = −2x³."
@@ -865,22 +865,21 @@
    "l": "werte",
    "t": "werte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Berechne f(−2) für f(x) = −2x³."
+    "text": "Welches Vorzeichen hat f(−5) für f(x) = −2x³? Entscheide, ohne den Wert auszurechnen."
    },
    "a": [
-    "−16",
-    "64",
-    "12",
-    "16"
+    "negativ",
+    "positiv",
+    "null"
    ],
    "o": {
-    "index": 3
+    "index": 1
    },
-   "w": "(−2)³ = −8; f(−2) = −2 · (−8) = 16.",
-   "h": "Potenz vor Punkt: Erst (−x)³, dann mit a multiplizieren."
+   "w": "(−5)³ ist negativ (ungerader Exponent). Mal −2 wird daraus eine positive Zahl: f(−5) = −2 · (−125) = 250 > 0.",
+   "h": "Ungerader Exponent: Das Vorzeichen bleibt. Was macht dann der Faktor −2?"
   },
   {
    "l": "werte",
@@ -1998,7 +1997,7 @@
    "l": "verlauf",
    "t": "verlauf",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welcher Graph liegt für 0 < x < 1 weiter oben: y = x² oder y = x⁷?"
@@ -2019,7 +2018,7 @@
    "l": "verlauf",
    "t": "verlauf",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welcher Graph liegt für x > 1 weiter oben: y = x⁷ oder y = x²?"
@@ -3116,7 +3115,7 @@
    "l": "negativ",
    "t": "negativ",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Für welche x ist f(x) = x⁻³ definiert?"

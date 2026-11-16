@@ -6966,7 +6966,7 @@
     "toleranz": 0.1
    },
    "c": "round(2 ** 2 * 16 * 3.141592653590 / 3, 1)",
-   "w": "V = ⅓ · π · 2² · 16 = 64/3π ≈ 67 cm³.",
+   "w": "V = ⅓ · π · 2² · 16 = 64π/3 ≈ 67,0 cm³.",
    "h": "V = ⅓ · π · r² · h; den Radius quadrieren."
   },
   {
@@ -7206,7 +7206,7 @@
     "toleranz": 0.1
    },
    "c": "round(11 ** 2 * 19 * 3.141592653590 / 3, 1)",
-   "w": "V = ⅓ · π · 11² · 19 = 2299/3π ≈ 2 407,5 cm³.",
+   "w": "V = ⅓ · π · 11² · 19 = 2 299π/3 ≈ 2 407,5 cm³.",
    "h": "V = ⅓ · π · r² · h; den Radius quadrieren."
   },
   {
@@ -10308,7 +10308,7 @@
     "toleranz": 0.01
    },
    "c": "round(10.097101321282, 2)",
-   "w": "r³ = 3V : (4π) = 12 936 : (4π) ⇒ r = ∛(…) ≈ 10,1 cm.",
+   "w": "r³ = 3V : (4π) = 12 936 : (4π) ⇒ r = ∛(…) ≈ 10,10 cm.",
    "h": "Stelle V = ⁴⁄₃πr³ nach r³ um und ziehe die dritte Wurzel."
   },
   {
@@ -11225,7 +11225,7 @@
    "l": "sachkontext",
    "t": "sachkontext",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine quadratische Pyramide (als Modell eines Bauwerks) hat die Grundkante 230 m und die Höhe 146 m. Berechne das Volumen auf ganze m³."
@@ -11773,21 +11773,16 @@
    "t": "verstehen",
    "p": "uebung",
    "s": 1,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Eine Pyramide hat als Grundfläche ein regelmäßiges 100-Eck. Was passiert, wenn man die Eckenzahl immer weiter erhöht?"
+    "text": "Wie viele Ecken hat eine Pyramide, deren Grundfläche ein regelmäßiges 12-Eck ist?"
    },
-   "a": [
-    "Ihr Volumen wird unendlich groß.",
-    "Sie nähert sich einer Kugel.",
-    "Sie nähert sich einem Zylinder.",
-    "Sie nähert sich einem Kegel; V = ⅓ · G · h gilt weiterhin."
-   ],
    "o": {
-    "index": 3
+    "wert": 13
    },
-   "w": "Die Grundfläche nähert sich einem Kreis – der Kegel ist der Grenzfall der Pyramide. Darum gilt auch für ihn V = ⅓ · G · h.",
-   "h": "Welche Form nimmt die Grundfläche an?"
+   "c": "12 + 1",
+   "w": "Die Grundfläche hat 12 Ecken, dazu kommt die Spitze: 12 + 1 = 13 Ecken.",
+   "h": "Zähle die Ecken der Grundfläche und die Spitze."
   },
   {
    "l": "verstehen",
@@ -11796,19 +11791,19 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Eine Pyramide hat als Grundfläche ein regelmäßiges 12-Eck. Was passiert, wenn man die Eckenzahl immer weiter erhöht?"
+    "text": "Welcher Körper hat genau eine Spitze und eine kreisförmige Grundfläche?"
    },
    "a": [
-    "Sie nähert sich einem Zylinder.",
-    "Ihr Volumen wird unendlich groß.",
-    "Sie nähert sich einer Kugel.",
-    "Sie nähert sich einem Kegel; V = ⅓ · G · h gilt weiterhin."
+    "Kugel",
+    "Zylinder",
+    "Pyramide",
+    "Kegel"
    ],
    "o": {
     "index": 3
    },
-   "w": "Die Grundfläche nähert sich einem Kreis – der Kegel ist der Grenzfall der Pyramide. Darum gilt auch für ihn V = ⅓ · G · h.",
-   "h": "Welche Form nimmt die Grundfläche an?"
+   "w": "Der Kegel hat eine Kreisfläche als Grundfläche und eine Spitze. Der Zylinder hat zwei Kreisflächen, die Pyramide ein Vieleck als Grundfläche, die Kugel weder Grundfläche noch Spitze.",
+   "h": "Stell dir eine Eiswaffel vor."
   },
   {
    "l": "verstehen",
@@ -12024,7 +12019,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Der Radius einer Kugel wird verdreifacht. Wie ändert sich das Volumen?"
@@ -12066,7 +12061,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Der Radius einer Kugel wird vervierfacht. Wie ändert sich das Volumen?"

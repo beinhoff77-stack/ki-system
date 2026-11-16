@@ -798,5 +798,28 @@ def _schwer():
 
 ergaenze(DATEI, _schwer(), 1042)
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_anwenden  # noqa: E402
+
+BF = Befunde('geometrie.grundbegriffe', 13_5_6)
+# a) reine Begriffsabfrage wie Stufe 1 → Stufe 2
+BF.stufe('verstehen', 'Stimmt die Aussage? „Ein Winkel von 220° ist stumpf.“', 2)
+BF.stufe('verstehen', 'Stimmt die Aussage? „Eine Tangente schneidet den Kreis in zwei Punkten.“', 2)
+# c) Beinahe-Dublette (zweimal „g ⊥ h“ mit gleichem Aufbau) → einmal parallel
+BF.ersetze('lagebeziehungen', 'g geht durch A(−6 | −3) und B(−6 | 0), h geht durch C(4 | −3) und D(8 | −3). Wie liegen g und h zueinander?', BF.A(
+    'g geht durch A(−6 | −3) und B(−6 | 0), h geht durch C(4 | −3) und D(4 | 5). Wie liegen g und h zueinander?', 'g ∥ h',
+    ['g und h sind gleich', 'g ⊥ h'],
+    'g und h sind beide senkrecht (bei g ist x immer −6, bei h immer 4). Sie haben dieselbe Richtung und keinen gemeinsamen Punkt: g ∥ h.',
+    'Gleiche x-Koordinaten: senkrechte Linie. Gleiche y-Koordinaten: waagrechte Linie.'))
+# d) Lage zweier Kreise „Kreis im Kreis“ wird in der Lernkarte nicht erklärt → Aufgabe zu Kreis und Gerade
+BF.ersetze('kreis_lage', 'Zwei Kreise haben die Radien 7 cm und 4 cm. Ihre Mittelpunkte sind 3 cm voneinander entfernt. Wie viele gemeinsame Punkte haben sie?', BF.Z(
+    'Ein Kreis um M(2 | 1) hat den Radius 4. Die waagrechte Gerade g geht durch alle Punkte mit y = −3. Wie viele gemeinsame Punkte haben Kreis und g?', 1, '1',
+    'Abstand von M zu g: 1 − (−3) = 4. Das ist genau der Radius. g berührt den Kreis in einem Punkt (2 | −3): g ist eine Tangente.',
+    'Berechne den Abstand des Mittelpunkts von der Geraden und vergleiche ihn mit dem Radius.'))
+BF.fuer_sebastian('geometrie.grundbegriffe/kreis_lage: Die Lernkarte erklärt nur Kreis und Gerade; die übrigen Stufe-3-Aufgaben zu zwei Kreisen (von außen berühren, getrennt) setzen r₁ + r₂ voraus. Erklärung ergänzen oder Aufgaben belassen? Karten-Text nicht geändert.')
+
+befunde_anwenden(DATEI, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI)

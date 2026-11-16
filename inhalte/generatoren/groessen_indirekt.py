@@ -946,6 +946,26 @@ SW.z('sach', 3, 'Ein Läufer braucht für eine Runde 80 Sekunden. Wie lange brau
 baue = mit_schwer(baue, SW)
 # ---- SCHWER ENDE ----
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, mit_befunden  # noqa: E402
+
+BF = Befunde('groessen.indirekt', 13_8_15)
+# c) Beinahe-Dublette (Freizeitpark dreimal mit gleichem Aufbau) → anderer Sachkontext, gleicher Gedanke
+BF.ersetze('sach', 'Ein Freizeitpark: Eintritt 3 €, jede Fahrt 4 €. 3 Fahrten kosten mit Eintritt 15 €. Jemand rechnet für 6 Fahrten: 15 · 2 = 30 €. Stimmt das?', BF.A(
+    'Eine Handwerkerin berechnet 40 € Anfahrt und 50 € je Arbeitsstunde. 2 Stunden kosten zusammen 140 €. Jemand rechnet für 4 Stunden: 140 · 2 = 280 €. Stimmt das?',
+    'Nein: Die Anfahrt wird nur einmal bezahlt, es sind 240 €.',
+    ['Ja, doppelt so viele Stunden kosten doppelt so viel.', 'Nein: Es sind 70 €, weil es indirekt proportional ist.'],
+    'Die Zuordnung ist weder noch, weil die Anfahrt fest ist: 40 + 4 · 50 = 240 €.',
+    'Wird jeder Betrag bei mehr Stunden mehrfach bezahlt?'))
+BF.nicht_umgesetzt('erkennen S3 „… Je mehr, desto weniger, also indirekt proportional.“ (4×)', 'Kein Fehler; Übungsreihe zum selben Fehlschluss mit verschiedenen Beispielen.')
+BF.nicht_umgesetzt('unterscheiden S1/S2 „Welche Art von Zuordnung zeigt die Tabelle?“ (11×)', 'Kein Fehler; Stufe 2 hat den zusätzlichen Ablenker „nicht zu entscheiden“ und andere Tabellen.')
+BF.nicht_umgesetzt('sach S2 „Taxi … Was kosten 6 km?“ (weder noch)', 'Laut Befund gut als Abgrenzung; Lösung richtig.')
+BF.nicht_umgesetzt('Überschneidung mit funktionen.gebrochen/„indirekt“', 'Reihenfolge im Plan (Haupt-Chat), keine einzelne Aufgabe.')
+BF.fuer_sebastian('groessen.indirekt: lehrplan_gym leer und Überschneidung mit funktionen.gebrochen/„indirekt“ – Reihenfolge im Plan klären. Karten-Texte nicht geändert.')
+
+baue = mit_befunden(baue, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Erkennen', ['erkennen', 'vervielfachen', 'produkt']), ('Rechnen', ['dreisatz']),

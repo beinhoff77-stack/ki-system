@@ -664,6 +664,26 @@ def schwer():
     ]
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('gleichungen.trig', 13_9_13)
+# c) praktisch Dublette (sin x = −0,7 und −0,69 haben dieselbe gerundete Lösung) → anderer Wert
+BF.ersetze('sinus', 'Löse sin x = −0,69 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.', BF.L(
+    'Löse sin x = −0,9 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.', 'x₁ ≈ □°; x₂ ≈ □°', [244, 296],
+    ['round(244.158067236833, 0)', 'round(295.841932763167, 0)'],
+    'sin⁻¹(−0,9) ≈ −64,2° liegt nicht im Bereich. 180° + 64,2° ≈ 244° und 360° − 64,2° ≈ 296°.',
+    'Negativer Sinus: Der Punkt liegt unterhalb der x-Achse (3. und 4. Quadrant).', hinweis='kleinere Lösung zuerst'))
+# a) Routine „Löse … = −0,xx, runde auf ganze Grad“ → Stufe 2
+for _w in ('−0,7', '−0,72', '−0,46', '−0,31'):
+    BF.stufe('sinus', f'Löse sin x = {_w} im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.', 2)
+for _w in ('−0,57', '−0,61', '−0,68', '−0,46', '−0,2'):
+    BF.stufe('kosinus', f'Löse cos x = {_w} im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.', 2)
+BF.nicht_umgesetzt('tangens S3 Rampe/„22 % Steigung“ gehören inhaltlich zu trigo.rechtwinklig',
+                   'Lösungen richtig; tan x = Wert mit spitzem Winkel ist ein Sonderfall der Gleichung. Die Zuordnung zum Thema betrifft den Plan.')
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     d = bauen('gleichungen.trig',
           'Winkel zu einem gegebenen Sinus-, Kosinus- oder Tangenswert bestimmen und die Mehrdeutigkeit im Bereich 0° bis 360° beachten.',
@@ -676,3 +696,4 @@ if __name__ == '__main__':
           offen=['Lernkarten „sinus“, „kosinus“, „anzahl“ zeigen jetzt die Graphen mit der Geraden y = v; Aufgaben mit Graph gibt es bei „anzahl“. Für den Tangens gibt es noch keinen Graphentyp (Vorschlag der Prüfung: „tan“ ergänzen).',
                  'Lösungsbereich durchgängig 0° ≤ x < 360°; Bogenmaß ist nicht enthalten (gehört nicht zur 9. Klasse).'])
     anhaengen(d, 9913, schwer)
+    befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

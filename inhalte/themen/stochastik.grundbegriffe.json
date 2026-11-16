@@ -1748,16 +1748,16 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "In einer Urne liegen 9 rote, 3 blaue und 1 grüne Kugeln. Eine wird zufällig gezogen. Wie groß ist P(grün)?"
+    "text": "In einer Urne liegen 9 rote Kugeln, 3 blaue Kugeln und 1 grüne Kugel. Eine wird zufällig gezogen. Wie groß ist P(grün)?"
    },
    "a": [
     "12/13",
+    "1",
     "1/12",
-    "1/13",
-    "1"
+    "1/13"
    ],
    "o": {
-    "index": 2
+    "index": 3
    },
    "w": "1 günstige von 13 Kugeln: P(grün) = 1/13.",
    "h": "Im Nenner stehen alle Kugeln."
@@ -2636,7 +2636,7 @@
    "l": "laplace_pruefen",
    "t": "laplace_pruefen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ein Glücksrad hat die Felder A 60°, B 60°, C 60°, D 120°, E 60°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?",
@@ -2684,7 +2684,7 @@
    "l": "laplace_pruefen",
    "t": "laplace_pruefen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ein Glücksrad hat die Felder A 120°, B 180°, C 60°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?",
@@ -2724,7 +2724,7 @@
    "l": "laplace_pruefen",
    "t": "laplace_pruefen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ein Glücksrad hat die Felder A 30°, B 60°, C 60°, D 150°, E 60°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?",
@@ -2772,7 +2772,7 @@
    "l": "laplace_pruefen",
    "t": "laplace_pruefen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ein Glücksrad hat die Felder A 30°, B 30°, C 90°, D 180°, E 30°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?",
@@ -3504,13 +3504,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein fairer Würfel hat die Zahlen 1 bis 10. Wie groß ist die Wahrscheinlichkeit, KEINE Zahl kleiner oder gleich 1 zu werfen? Gib sie als Dezimalzahl an."
+    "text": "Ein Glücksrad hat 10 gleich große Felder mit den Zahlen 1 bis 10. Wie groß ist die Wahrscheinlichkeit, dass die Zahl NICHT durch 3 teilbar ist? Gib sie als Dezimalzahl an."
    },
    "o": {
-    "wert": 0.9
+    "wert": 0.7
    },
-   "c": "1 - 1 / 10",
-   "w": "P(Zahl ≤ 1) = 1/10. Gegenereignis: 1 − 1/10 = 0,9.",
+   "c": "1 - 3 / 10",
+   "w": "Durch 3 teilbar: 3, 6, 9 → P = 3/10. Gegenereignis: 1 − 3/10 = 0,7.",
    "h": "Berechne erst P(E) und nimm dann 1 − P(E)."
   },
   {
@@ -3536,13 +3536,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein fairer Würfel hat die Zahlen 1 bis 6. Wie groß ist die Wahrscheinlichkeit, KEINE Zahl kleiner oder gleich 3 zu werfen? Gib sie als Dezimalzahl an."
+    "text": "Ein Spielwürfel wird einmal geworfen. Wie groß ist die Wahrscheinlichkeit, dass KEINE Primzahl fällt? Gib sie als Dezimalzahl an."
    },
    "o": {
     "wert": 0.5
    },
    "c": "1 - 3 / 6",
-   "w": "P(Zahl ≤ 3) = 3/6. Gegenereignis: 1 − 3/6 = 0,5.",
+   "w": "Primzahlen: 2, 3, 5 → P = 3/6. Gegenereignis: 1 − 3/6 = 0,5 (es fallen 1, 4 oder 6).",
    "h": "Berechne erst P(E) und nimm dann 1 − P(E)."
   },
   {
@@ -4043,17 +4043,21 @@
    "t": "grosse_zahlen",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Ein Kronkorken landete bei 500 Würfen 225-mal mit der Öffnung nach oben. Schätze die Wahrscheinlichkeit dafür auf zwei Nachkommastellen."
+    "text": "Anna wirft einen Kronkorken 20-mal, er landet 12-mal mit der Öffnung nach oben. Ben wirft denselben Kronkorken 500-mal, er landet 225-mal so. Welche Schätzung für P(Öffnung oben) ist besser?"
    },
+   "a": [
+    "Bens Schätzung 0,45, weil sie auf viel mehr Würfen beruht.",
+    "Annas Schätzung, weil sie mit weniger Würfen schneller fertig war.",
+    "Beide Schätzungen sind gleich gut.",
+    "Annas Schätzung 0,6, weil sie größer ist."
+   ],
    "o": {
-    "wert": 0.45,
-    "toleranz": 0.01
+    "index": 0
    },
-   "c": "round(225 / 500, 2)",
-   "w": "Bei vielen Würfen ist die relative Häufigkeit eine gute Schätzung: 225 : 500 = 0,45 ≈ 0,45.",
-   "h": "Relative Häufigkeit bei vielen Versuchen = Schätzwert für die Wahrscheinlichkeit."
+   "w": "Anna: 12 : 20 = 0,6. Ben: 225 : 500 = 0,45. Je mehr Versuche, desto näher liegt die relative Häufigkeit meist an der Wahrscheinlichkeit. Bens Schätzung ist zuverlässiger.",
+   "h": "Berechne beide relativen Häufigkeiten. Welche beruht auf mehr Versuchen?"
   },
   {
    "l": "grosse_zahlen",

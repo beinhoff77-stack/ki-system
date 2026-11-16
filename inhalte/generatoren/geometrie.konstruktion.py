@@ -822,6 +822,23 @@ def schwer():
     return N
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('geometrie.konstruktion', 13_7_5)
+# a) nur „360° minus Summe“, ein Schritt
+for _w in ['α = 76°, β = 69° und γ = 76°', 'α = 111°, β = 117° und γ = 90°', 'α = 68°, β = 96° und γ = 72°', 'α = 117°, β = 70° und γ = 76°']:
+    BF.stufe('vierecke', f'In einem Viereck ist {_w}. Berechne δ.', 2)
+# a) gleicher Typ und gleiche Antwort wie Stufe 2
+_s = 'Ein Schüler sagt: „Der Satz ‚{}‘ ist wahr, also ist auch der Kehrsatz wahr.“ Ist die Begründung richtig?'
+BF.stufe('satz_kehrsatz', _s.format('Wenn ein Dreieck gleichschenklig ist, dann hat es zwei gleich große Winkel.'), 2)
+BF.stufe('satz_kehrsatz', _s.format('Wenn ein Dreieck einen rechten Winkel hat, dann sind die beiden anderen Winkel zusammen 90°.'), 2)
+BF.nicht_umgesetzt('kongruenzsatz S3 SsW-Fälle „Wie viele Dreiecke gibt es?“: Hinweis „Zeichne es auf Papier“ ergänzen',
+                   'Der Tipp sagt schon „Zeichne c und α. Schlage um B einen Kreis mit Radius a …“; Lösungen richtig. Ein Hinweis im Fragetext wäre eine Änderung der Frage.')
+BF.fuer_sebastian('geometrie.konstruktion/kongruenzsatz: SsW-Fälle (Stufe 3) sind ohne Zeichnung kaum zu entscheiden (Rechnung bräuchte den Sinus) – als Vertiefung kennzeichnen? Karten-Text nicht geändert.')
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Winkel', ['parallelen', 'winkelsumme', 'gleichschenklig', 'vierecke']), ('Kongruenz und Konstruktion', ['kongruenzsatz', 'konstruierbar']), ('Beweisen', ['satz_kehrsatz'])],
@@ -832,3 +849,4 @@ if __name__ == '__main__':
                 'Gebaut wurden Winkelberechnungen mit Zeichnung, Kongruenzsätze, Konstruierbarkeit und Satz/Kehrsatz.',
                 'Mittelsenkrechte und Winkelhalbierende als Ortslinien sind Stoff von geometrie.ortslinien (Klasse 5) und hier nicht wiederholt.'])
     anhaengen(META['thema_schluessel'], schwer())
+    befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

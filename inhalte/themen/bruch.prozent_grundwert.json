@@ -1298,7 +1298,7 @@
    "l": "vermehrt",
    "t": "vermehrt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Nettopreis beträgt 60 €. Dazu kommen 19 % Mehrwertsteuer. Wie hoch ist der Preis mit Mehrwertsteuer?"
@@ -1349,7 +1349,7 @@
    "l": "vermehrt",
    "t": "vermehrt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Fahrrad kostet 720 €. Der Preis steigt um 2,5 %. Wie hoch ist der neue Preis?"
@@ -2094,7 +2094,7 @@
    "l": "zurueck",
    "t": "zurueck",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Nach einer Erhöhung um 2 % kostet eine Ware 61,20 €. Wie viel kostete sie vorher?"
@@ -2145,7 +2145,7 @@
    "l": "zurueck",
    "t": "zurueck",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Nach 3 % Rabatt kostet eine Ware 300,70 €. Wie viel kostete sie ursprünglich?"
@@ -3128,7 +3128,7 @@
    "l": "argumente",
    "t": "argumente",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Aussage ist mathematisch richtig begründet?"
@@ -3149,7 +3149,7 @@
    "l": "argumente",
    "t": "argumente",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Aussage ist mathematisch richtig begründet?"
@@ -3170,7 +3170,7 @@
    "l": "argumente",
    "t": "argumente",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Aussage ist mathematisch richtig begründet?"
@@ -3191,7 +3191,7 @@
    "l": "argumente",
    "t": "argumente",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Aussage ist mathematisch richtig begründet?"
@@ -3233,7 +3233,7 @@
    "l": "argumente",
    "t": "argumente",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Ein Preis von 60 € sinkt um 40 % auf 36 €. Welche Begründung zeigt das mathematisch?"
@@ -3275,7 +3275,7 @@
    "l": "argumente",
    "t": "argumente",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Ein Preis von 150 € sinkt um 25 % auf 112,50 €. Welche Begründung zeigt das mathematisch?"
@@ -3317,7 +3317,7 @@
    "l": "argumente",
    "t": "argumente",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Ein Preis von 80 € sinkt um 10 % auf 72 €. Welche Begründung zeigt das mathematisch?"

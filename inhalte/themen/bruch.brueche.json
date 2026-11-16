@@ -806,7 +806,7 @@
    "l": "bruchteil_von",
    "t": "bruchteil_von",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viele g sind 3/8 kg?"
@@ -823,7 +823,7 @@
    "l": "bruchteil_von",
    "t": "bruchteil_von",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viele Minuten sind 3/4 Stunde?"
@@ -5157,7 +5157,7 @@
    "l": "erweitern",
    "t": "erweitern",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Erweitere 1/10 auf den Nenner 100.",
@@ -6272,24 +6272,20 @@
    "t": "vergleichen",
    "p": "uebung",
    "s": 3,
-   "y": "luecken",
+   "y": "auswahl",
    "f": {
-    "text": "Um wie viel ist 5/6 größer als 4/7?",
-    "schablone": "□/□",
-    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+    "text": "Welcher Bruch liegt näher an 1: 5/6 oder 6/7?"
    },
-   "o": {
-    "werte": [
-     11,
-     42
-    ]
-   },
-   "c": [
-    "(5/6 - 4/7) * 42",
-    "42"
+   "a": [
+    "Beide liegen gleich nah an 1.",
+    "5/6",
+    "6/7"
    ],
-   "w": "Hauptnenner 42: 35/42 − 24/42 = 11/42.",
-   "h": "Bringe beide auf den Hauptnenner und vergleiche die Zähler."
+   "o": {
+    "index": 2
+   },
+   "w": "Bis 1 fehlen bei 5/6 noch 1/6, bei 6/7 nur 1/7. 1/7 ist kleiner als 1/6, also liegt 6/7 näher an 1. (Probe mit Hauptnenner 42: 35/42 < 36/42.)",
+   "h": "Wie viel fehlt jeweils bis zum Ganzen? Vergleiche die fehlenden Stücke."
   },
   {
    "l": "vergleichen",
@@ -7242,7 +7238,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Das kann man nicht entscheiden.",
@@ -7562,7 +7558,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "a": [
     "Nein, die Aussage ist falsch.",
@@ -7582,7 +7578,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "a": [
     "Ja. Hauptnenner 10: 1/2 ist größer als 1/5.",

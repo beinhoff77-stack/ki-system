@@ -593,6 +593,21 @@ def schwer():
     ]
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('zahlen.reell', 13_9_2)
+# b) Lösungsweg nennt Zahlen, die in der Auswahl nicht vorkommen
+BF.loesung('zahlarten', 'Welche Zahl ist irrational?', enthaelt='"3,1416"', pools=('uebung',),
+           w='π hat unendlich viele Nachkommastellen ohne Periode. 22/7, 3,14 und 3,1416 sind nur Näherungen für π und lassen sich als Bruch schreiben.')
+BF.loesung('zahlarten', 'Welche Zahl ist irrational?', enthaelt='3,141414…', pools=('uebung',),
+           w='π hat unendlich viele Nachkommastellen ohne Periode. 22/7 und 3,14 sind nur Näherungen und als Bruch schreibbar; 3,141414… ist periodisch, also auch ein Bruch.')
+# a) gleicher Typ wie Stufe 2 bzw. Standard
+BF.stufe('zahlarten', 'Welche der Zahlen ist irrational?', 2, enthaelt='"√107"')
+BF.stufe('wurzel_mal', 'Berechne √375 : √15.', 2)
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     d = bauen('zahlen.reell',
           'Irrationale Zahlen erkennen, Wurzeln eingrenzen, Wurzelterme vereinfachen und Nenner rational machen.',
@@ -605,3 +620,4 @@ if __name__ == '__main__':
                   'zusammenfassen': ['√18 + √50.'], 'nenner_rational': ['12/√3.']},
           offen=['Lückentext „□√□“: Die App zeigt das Wurzelzeichen nur als Text in der Schablone; bitte prüfen, ob die Darstellung im Eingabefeld gut lesbar ist.'])
     anhaengen(d, 9902, schwer)
+    befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

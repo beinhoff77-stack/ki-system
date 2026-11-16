@@ -711,5 +711,29 @@ def _pz():
 ergaenzen(DATEI, _pz(), seed=6024)
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_anwenden  # noqa: E402
+
+BF = Befunde('bruch.prozent', 13_6_6)
+_h = 'Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen.'
+# a) drei fast gleiche Zins-Aufgaben, einfache Rechnung → Stufe 2
+for _g in ('800 € in einem Jahr 24 €', '2 000 € in einem Jahr 60 €', '5 000 € in einem Jahr 150 €'):
+    BF.stufe('verstehen', f'Stimmt die Aussage? „Bei 3 % Zinsen bekommt man für {_g} Zinsen.“', 2)
+# c) Schreibweise „1000 €“ statt „1 000 €“ (wie sonst im Bausatz)
+BF.ersetze('verstehen', 'Stimmt die Aussage? „Sinkt ein Preis von 1000 € auf 500 €, ist er um 100 % gesunken.“', BF.A(
+    'Stimmt die Aussage? „Sinkt ein Preis von 1 000 € auf 500 €, ist er um 100 % gesunken.“', 'Nein, die Senkung ist 500 € von 1 000 € = 50 %.',
+    ['Ja, weil Verdoppeln + 100 % ist, ist Halbieren − 100 %.', 'Ja, die Aussage stimmt.'],
+    'Nein. Gesunken ist der Preis um 500 €. Grundwert ist der alte Preis 1 000 €: 500 : 1 000 = 0,5 = 50 %. Um 100 % gesunken hieße: Der Preis ist 0 €.', _h))
+BF.ersetze('verstehen', 'Stimmt die Aussage? „10 % von 500 € ist mehr als 10 % von 1000 €.“', BF.A(
+    'Stimmt die Aussage? „10 % von 500 € ist mehr als 10 % von 1 000 €.“', 'Nein, gleicher Prozentsatz, aber kleinerer Grundwert: 50 € < 100 €.',
+    ['Ja, die Aussage stimmt.', 'Ja, weil 500 € weniger Geld ist und man davon mehr Prozent bekommt.'],
+    'Nein, gleicher Prozentsatz, aber kleinerer Grundwert: 10 % von 500 € sind 50 €, 10 % von 1 000 € sind 100 €.', _h))
+# a) Stufe 1–2 bzw. Grundform mit Komma
+BF.stufe('prozentsatz', 'Wie viel Prozent einer Stunde sind 30 Minuten?', 2)
+BF.stufe('prozentwert', 'Berechne 2,5 % von 320 €.', 2)
+
+befunde_anwenden(DATEI, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI)

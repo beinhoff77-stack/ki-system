@@ -588,6 +588,28 @@ def schwer():
     ]
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('zahlen.rationale_exponenten', 13_9_3)
+# a) „Weg A / Weg B“ steht im selben Typ auf Stufe 2
+BF.stufe('potenz_wert', '27^(4/3): Weg A: erst ³√27 = 3, dann 3⁴ = 81. Weg B: erst 27⁴ = 531 441, dann ³√531 441 = 81. Was stimmt?', 2)
+# c) Lösung mit 9 Nachkommastellen: Eingabe unzumutbar → Lücke 1/□ wie bei 81^(−5/2)
+BF.ersetze('potenz_wert', 'Berechne 64^(−3/2). Gib das Ergebnis als Dezimalzahl an.', BF.L(
+    'Berechne 64^(−3/2). Gib das Ergebnis als Bruch an.', '1/□', [512], ['8 ** 3'],
+    '64^(−3/2) = 1 / 64^(3/2) = 1 / (√64)³ = 1 / 8³ = 1/512.',
+    'Negativer Exponent: Kehrwert bilden. Dann Wurzel (Nenner) und Potenz (Zähler).', hinweis='Nenner'))
+# d) negative Lösung passt nicht zur Lernkarte „Gleichungen mit Bruch-Exponent (x > 0)“ → Gleichung mit Bruch-Exponent
+BF.ersetze('gleichung_exp', 'Löse x⁵ = −243.', BF.Z(
+    'Löse x^(5/3) = 243 für x > 0.', 27, '3 ** 3',
+    'Beide Seiten hoch 3/5: x = 243^(3/5) = (⁵√243)³ = 3³ = 27. Probe: 27^(5/3) = (∛27)⁵ = 3⁵ = 243.',
+    'Hoch den Kehrwert des Exponenten nehmen: (x^(5/3))^(3/5) = x.'))
+# a) Grundaufgabe bzw. gleicher Typ wie Stufe 2
+BF.stufe('gleichung_exp', 'Löse x^(1/2) = 6 für x > 0.', 2)
+BF.stufe('verstehen', 'Welche Aussage gilt für x ≥ 0?', 2, enthaelt='x^(3/9) = x^(1/3)')
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     d = bauen('zahlen.rationale_exponenten',
           'n-te Wurzeln berechnen, Wurzeln und Potenzen mit rationalen Exponenten ineinander umwandeln und zusammenfassen.',
@@ -601,3 +623,4 @@ if __name__ == '__main__':
           offen=['Exponenten werden als Text „x^(2/3)“ geschrieben, weil die App keine Hochstellung von Brüchen kann. Falls eine Formel-Darstellung kommt, Texte umstellen.',
                  'Gleichungen xⁿ = c: Lösungsanzahl und negative Lösungen stehen ausführlich im Thema gleichungen.potenz; hier nur als Stufe-3-Aufgabe mit ungeradem n (Prüfvorschlag x³ = −125).'])
     anhaengen(d, 9903, schwer)
+    befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

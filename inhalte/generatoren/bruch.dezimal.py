@@ -756,5 +756,34 @@ def _dz():
 ergaenzen(DATEI, _dz(), seed=6022)
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_anwenden  # noqa: E402
+
+BF = Befunde('bruch.dezimal', 13_6_3)
+# c) Textfehler: 0,37 hat nur zwei Nachkommastellen (Beispiel passt nicht zur Aussage)
+BF.ersetze('verstehen', 'Stimmt die Aussage? „Eine Zahl mit drei Nachkommastellen ist immer größer als eine mit einer, z. B. 0,37 > 0,8.“', BF.A(
+    'Stimmt die Aussage? „Eine Zahl mit drei Nachkommastellen ist immer größer als eine mit einer, z. B. 0,375 > 0,8.“',
+    'Nein, man vergleicht Stelle für Stelle. Schon bei den Zehnteln ist die zweite Zahl größer.',
+    ['Das kann man nicht entscheiden.', 'Ja, die Aussage stimmt.'],
+    'Nein. 0,375 hat 3 Zehntel, 0,8 hat 8 Zehntel: 0,375 < 0,8. Die Zahl der Nachkommastellen sagt nichts über die Größe.',
+    'Prüfe mit der Stellenwerttafel oder suche ein Gegenbeispiel.'))
+# d) enthält keinen Bruch, passt nicht zur Lernkarte „Bruch → Dezimalzahl“
+BF.ersetze('bruch_zu_dezimal', 'Berechne 1 + 0,5 und gib das Ergebnis als Dezimalzahl an.', BF.Z(
+    'Berechne 3/4 + 0,5 und gib das Ergebnis als Dezimalzahl an.', 1.25, '3/4 + 0.5', '3/4 = 0,75. 0,75 + 0,5 = 1,25.',
+    'Wandle den Bruch zuerst in eine Dezimalzahl um.'))
+BF.ersetze('bruch_zu_dezimal', 'Berechne 1 + 0,4 und gib das Ergebnis als Dezimalzahl an.', BF.Z(
+    'Berechne 2/5 + 1,4 und gib das Ergebnis als Dezimalzahl an.', 1.8, '2/5 + 1.4', '2/5 = 4/10 = 0,4. 0,4 + 1,4 = 1,8.',
+    'Wandle den Bruch zuerst in eine Dezimalzahl um.'))
+# a) schriftliche Division mit Periode → Stufe 2
+BF.stufe('periodisch', 'Welche Dezimalzahl ist gleich 4/11?', 2)
+# a) Standardform → Stufe 2
+for _t in ['5 + 9/100 + 7/1 000', '6 + 7/100 + 1/1 000', '9 + 9/100 + 7/1 000', '9 + 7/100 + 2/1 000']:
+    BF.stufe('stellenwerte', f'Schreibe als Dezimalzahl: {_t}', 2)
+BF.nicht_umgesetzt('runden „Runde 2,596 auf Hundertstel“ (Test 30,096): Lösung als 2,6 bzw. 30,1 gespeichert',
+                   'Die App wertet 2,60 = 2,6; der Lösungsweg nennt die Endnull bereits („2,596 ≈ 2,60. Die Null am Ende bleibt stehen …“).')
+
+befunde_anwenden(DATEI, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI)

@@ -726,5 +726,22 @@ def _zp():
 ergaenzen(DATEI, _zp(), seed=6019)
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_anwenden  # noqa: E402
+
+BF = Befunde('zahlen.potenzen_zehner', 13_6_1)
+# a) gleiche Rechnung wie Stufe 2, nur größere Zahl
+for _e in ('10⁷', '10¹¹', '10¹²'):
+    BF.stufe('zehnerpotenz', f'Wie viele Tausender stecken in {_e}?', 2)
+# a) Grundform → Stufe 2
+BF.stufe('gross_wissenschaftlich', 'Ein Jahr hat etwa 3,15 · 10⁷ Sekunden. Schreibe die Zahl ohne Zehnerpotenz.', 2)
+BF.stufe('gross_wissenschaftlich', 'Licht legt in einer Sekunde etwa 300 000 km zurück. Schreibe die Zahl als a · 10ⁿ. Wie groß ist n?', 2)
+BF.stufe('klein_wissenschaftlich', 'Ein Kopfhaar ist etwa 7 · 10⁻⁵ m dick. Schreibe die Zahl als Dezimalzahl.', 2)
+# a) gleicher Exponent → Stufe 1
+BF.stufe('vergleichen_pruefen', 'Welche Zahl ist größer: 1,9 · 10⁻² oder 5,3 · 10⁻²?', 1)
+
+befunde_anwenden(DATEI, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI)

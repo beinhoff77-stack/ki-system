@@ -544,5 +544,45 @@ def _kw():
 ergaenzen(DATEI, _kw(), seed=6058)
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_anwenden  # noqa: E402
+
+BF = Befunde('daten.kennwerte', 13_6_8)
+# a) Grundform mit negativen Zahlen → Stufe 2
+BF.stufe('modal_spannweite', 'Bestimme die Spannweite von 7, 8, 7, 4, 7, 7, 10, 1, 2, −5, 8, −4.', 2)
+BF.stufe('modal_spannweite', 'Bestimme die Spannweite von −2, 0, 2, 6, 12, 7, 9, 7, −4, 0, 7, −5.', 2)
+BF.stufe('modal_spannweite', 'Temperaturen am Morgen in einer Woche (°C): −6, −2, −5, 1, −5, 5, 12. Wie groß ist die Spannweite?', 2)
+# a)/c) sechs Aufgaben mit wörtlich gleichem Text auf Stufe 2 und 3: eine Stufe-3-Aufgabe (Mittel 1) → Stufe 2,
+#        zwei Stufe-3-Aufgaben → andere Frage zur selben Tabelle
+_q = 'Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Geschwister hat ein Kind im Mittel?'
+BF.stufe('mittel_tabelle', _q, 2, enthaelt='"4", "6", "2", "1"')
+_t1 = {"typ": "tabelle", "kopf": ["Geschwister", "0", "1", "2", "3"], "zeilen": [["Anzahl Kinder", "4", "2", "2", "4"]]}
+_t2 = {"typ": "tabelle", "kopf": ["Geschwister", "0", "1", "2", "3"], "zeilen": [["Anzahl Kinder", "7", "6", "3", "4"]]}
+BF.ersetze('mittel_tabelle', _q, BF.Z(
+    'Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Kinder mit 3 Geschwistern müssten noch dazukommen, damit der Mittelwert genau 2 ist?',
+    6, '(2 * 12 - 18) / (3 - 2)',
+    'Bisher: Summe 0 · 4 + 1 · 2 + 2 · 2 + 3 · 4 = 18, Anzahl 12. Für Mittel 2 bräuchte man Summe 2 · Anzahl. Jedes neue Kind bringt 3, also 1 mehr als 2: Es fehlen 2 · 12 − 18 = 6, also 6 Kinder. Probe: 36 : 18 = 2.',
+    'Wie groß müsste die Summe sein? Um wie viel erhöht jedes neue Kind die Summe mehr als nötig?', grafik=_t1), enthaelt='"4", "2", "2", "4"')
+BF.ersetze('mittel_tabelle', _q, BF.Z(
+    'Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Jemand rechnet (0 + 1 + 2 + 3) : 4 = 1,5. Wie groß ist der Mittelwert richtig?',
+    1.2, '(0 * 7 + 1 * 6 + 2 * 3 + 3 * 4) / (7 + 6 + 3 + 4)',
+    'Falsch ist, nur die vier Spaltenwerte zu mitteln. Jede Anzahl zählt so oft, wie Kinder sie haben: Summe 0 · 7 + 1 · 6 + 2 · 3 + 3 · 4 = 24, Anzahl 20. Mittelwert: 24 : 20 = 1,2.',
+    'Wie viele Kinder wurden befragt? Jedes Kind zählt einmal.', grafik=_t2), enthaelt='"7", "6", "3", "4"')
+# c) vierfach dieselbe Taschengeld-Aufgabe → zwei mit anderem Gedanken
+BF.ersetze('verstehen', 'Stimmt die Aussage? „Taschengeld (€): 9, 8, 8, 9, 77. Der Median beschreibt ein typisches Kind besser als der Mittelwert.“', BF.Z(
+    'Taschengeld (€): 9, 8, 8, 9, 77. Um wie viel € ist der Mittelwert größer als der Median?', 13.2, '(9 + 8 + 8 + 9 + 77) / 5 - 9',
+    'Mittelwert: 111 : 5 = 22,2 €. Geordnet 8, 8, 9, 9, 77: Median 9 €. Unterschied: 22,2 − 9 = 13,2 €. Der Ausreißer 77 € zieht nur den Mittelwert nach oben.',
+    'Berechne beide Werte. Für den Median zuerst ordnen.', einheit='€'))
+BF.ersetze('verstehen', 'Stimmt die Aussage? „Taschengeld (€): 7, 4, 11, 12, 82. Der Median beschreibt ein typisches Kind besser als der Mittelwert.“', BF.A(
+    'Stimmt die Aussage? „Lässt man bei 7, 4, 11, 12, 82 den Wert 82 weg, ändert sich der Median nicht.“',
+    'Nein: Vorher ist der Median 11, danach (4, 7, 11, 12) ist er (7 + 11) : 2 = 9.',
+    ['Ja, ein Ausreißer verändert den Median nie.', 'Ja, der Median bleibt immer 11.'],
+    'Geordnet 4, 7, 11, 12, 82: Median 11. Ohne 82 bleiben 4 Werte, der Median ist der Mittelwert der beiden mittleren: (7 + 11) : 2 = 9. Er ändert sich – aber viel weniger als der Mittelwert (23,2 → 8,5).',
+    'Ordne die Werte und bestimme den Median vorher und nachher.'))
+BF.fuer_sebastian('daten.kennwerte: laut themenliste lehrplan_gym ist für Kl. 6 nur „Arithmetisches Mittel bestimmen“ vorgesehen; die Karten modal_spannweite und median gehen darüber hinaus (BMT8-Stoff bis Kl. 7). Als Vertiefung führen? Karten nicht geändert.')
+
+befunde_anwenden(DATEI, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI)

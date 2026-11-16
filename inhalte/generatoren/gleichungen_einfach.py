@@ -738,6 +738,37 @@ def _mit_schwer(baue_alt):
 
 baue = _mit_schwer(baue)
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, mit_befunden  # noqa: E402
+
+BF = Befunde('gleichungen.einfach', 13_5_12)
+# a) „Zahl : x“ mit Ergebnis im Kopf sofort sichtbar → Stufe 2
+BF.stufe('umkehr_mal', 'Löse 9 : x = 3.', 2)
+BF.stufe('umkehr_mal', 'Löse 20 : x = 2.', 2)
+# c) fünfmal „größer oder kleiner?“ (Antwort erratbar) → zwei davon mit anderem Gedanken
+BF.ersetze('probe', 'Bei 3 · x + 5 = 38 wird x = 12 getestet. Links kommt 41 heraus. Ist die Lösung größer oder kleiner als 12?', BF.Z(
+    'Bei 3 · x + 5 = 38 ergibt die Probe mit x = 12 links 41 und mit x = 10 links 35. Die Lösung ist eine ganze Zahl. Welche?', 11, '(38 - 5) / 3',
+    '41 ist zu viel, 35 zu wenig – die Lösung liegt zwischen 10 und 12. Probe mit 11: 3 · 11 + 5 = 38. Also x = 11.',
+    'Mit 12 ist links zu viel, mit 10 zu wenig. Welche Zahl liegt dazwischen? Mach die Probe.'))
+BF.ersetze('probe', 'Bei 5 · x + 9 = 29 wird x = 3 getestet. Links kommt 24 heraus. Ist die Lösung größer oder kleiner als 3?', BF.A(
+    'Welche der Zahlen 2, 4, 6 und 8 löst die Gleichung 5 · x + 9 = 29? Entscheide mit der Probe.', '4', ['2', '6', '8'],
+    'Probe: 5 · 2 + 9 = 19, 5 · 4 + 9 = 29 ✓, 5 · 6 + 9 = 39, 5 · 8 + 9 = 49. Nur x = 4 passt.',
+    'Setze jede Zahl für x ein und rechne die linke Seite aus.'))
+# c) zweimal dieselbe Alters-Aufgabe → anderer Aufbau
+BF.ersetze('aufstellen', 'Eine Mutter ist 3-mal so alt wie ihre Tochter. Zusammen sind sie 36 Jahre alt. Wie alt ist die Tochter?', BF.Z(
+    'Ein Vater ist 28 Jahre älter als sein Sohn. Zusammen sind sie 46 Jahre alt. Wie alt ist der Sohn?', 9, '(46 - 28) / 2',
+    'Sohn x, Vater x + 28. Zusammen: x + x + 28 = 46, also 2 · x = 18 und x = 9 Jahre. Probe: 9 + 37 = 46.',
+    'Nimm die 28 Jahre Unterschied weg. Der Rest verteilt sich auf zwei gleich große Alter.', einheit='Jahre'))
+# c) zweimal derselbe Gedanke (0 · x = Zahl ≠ 0) → umgekehrt gefragt
+BF.ersetze('ohne_loesung', '0 · x = 14. Wie viele Lösungen hat diese Gleichung?', BF.Z(
+    'Für welche Zahl a hat die Gleichung a · x = 7 keine Lösung?', 0, '0',
+    'Für a = 0 steht da 0 · x = 7. 0 mal jede Zahl ist 0, nie 7: keine Lösung. Für jedes andere a gibt es x = 7 : a.',
+    'Für welches a kommt links immer dasselbe heraus, egal was x ist?'))
+BF.nicht_umgesetzt('probe S3 „Für welche der Zahlen 3, 4, 5, 6 gilt 2 · x + 7 = 4 · x − 3?“', 'Hinweis aus der Liste, kein Mangel: Die Aufgabe passt zur Lernkarte „Probe machen“.')
+
+baue = mit_befunden(baue, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Was ist eine Gleichung?', ['waage']), ('Rückwärts rechnen', ['umkehr_plus', 'umkehr_mal', 'zwei_schritte']),

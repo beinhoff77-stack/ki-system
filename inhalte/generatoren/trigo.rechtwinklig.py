@@ -646,6 +646,21 @@ def schwer():
     ]
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('trigo.rechtwinklig', 13_9_11)
+# a) Grundaufgabe mit anderen Buchstaben bzw. Routine → Stufe 2
+for _d, _r, _w in [('DFM', 'F', 'M'), ('ELR', 'R', 'E'), ('DMR', 'R', 'D'), ('DKQ', 'Q', 'K'), ('KMQ', 'K', 'Q'), ('DEK', 'K', 'D')]:
+    BF.stufe('seiten', f'Im Dreieck {_d} ist der Winkel bei {_r} ein rechter. Welche Strecke ist die Ankathete des Winkels bei {_w}?', 2)
+for _a, _c in [('3', '21'), ('13', '17'), ('6', '22'), ('5', '13'), ('2', '22'), ('14', '20')]:
+    BF.stufe('winkel', f'Im Dreieck ABC ist γ = 90°, a = {_a} cm und c = {_c} cm. Berechne β (in Grad, auf eine Nachkommastelle).', 2)
+for _t in ['α = 53° und a = 14 cm. Berechne c', 'α = 38° und a = 12 cm. Berechne b', 'β = 55° und a = 7 cm. Berechne c',
+           'α = 20° und a = 15 cm. Berechne b', 'β = 51° und a = 8 cm. Berechne c', 'β = 57° und a = 6 cm. Berechne c']:
+    BF.stufe('seite', f'Im Dreieck ABC ist γ = 90°, {_t} (auf eine Nachkommastelle).', 2)
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     d = bauen('trigo.rechtwinklig',
           'Sinus, Kosinus und Tangens als Seitenverhältnisse im rechtwinkligen Dreieck nutzen, um Seiten und Winkel zu berechnen.',
@@ -659,3 +674,4 @@ if __name__ == '__main__':
           offen=['Skizzen: Lernkarten haben jetzt Bilder; Aufgaben mit Figur gibt es bei „seiten“ (Stufe 2). Die übrigen Aufgaben nennen das Dreieck weiter in Worten („Dreieck ABC mit γ = 90°“).',
                  'Rechenausdruck c: sin/cos/tan-Werte stehen als 12-stellige Konstanten, weil das Prüfskript keine Winkelfunktionen kennt. Werte nahe an Rundungsgrenzen werden vom Generator verworfen.'])
     anhaengen(d, 9911, schwer)
+    befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

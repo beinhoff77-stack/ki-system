@@ -2097,7 +2097,7 @@
    "l": "pfad_add",
    "t": "pfad_add",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Glücksrad zeigt mit der Wahrscheinlichkeit 0,7 „Gewinn“. Es wird dreimal gedreht. Wie groß ist P(genau zweimal Gewinn)?"
@@ -2113,7 +2113,7 @@
    "l": "pfad_add",
    "t": "pfad_add",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Glücksrad zeigt mit der Wahrscheinlichkeit 0,6 „Gewinn“. Es wird dreimal gedreht. Wie groß ist P(genau zweimal Gewinn)?"
@@ -2129,7 +2129,7 @@
    "l": "pfad_add",
    "t": "pfad_add",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Glücksrad zeigt mit der Wahrscheinlichkeit 0,2 „Gewinn“. Es wird dreimal gedreht. Wie groß ist P(genau zweimal Gewinn)?"
@@ -3664,22 +3664,22 @@
    "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Ein Würfel wird 2-mal geworfen. Wie groß ist P(mindestens eine Eins)?",
+    "text": "Eine Münze wird 3-mal geworfen. Wie groß ist P(mindestens einmal Zahl)?",
     "schablone": "□/□",
     "hinweis": "Zähler und Nenner (gekürzt)"
    },
    "o": {
     "werte": [
-     11,
-     36
+     7,
+     8
     ]
    },
-   "w": "P(keinmal) = (5/6)² = 25/36; 1 − 25/36 = 11/36.",
-   "h": "Rechne über das Gegenereignis „keinmal“.",
    "c": [
-    "11",
-    "36"
-   ]
+    "7",
+    "8"
+   ],
+   "w": "P(keinmal Zahl) = (1/2)³ = 1/8; 1 − 1/8 = 7/8.",
+   "h": "Rechne über das Gegenereignis „keinmal“."
   },
   {
    "l": "gegenereignis",
@@ -4236,7 +4236,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "In einem zweistufigen Baumdiagramm ist P(A) = 0,5 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,45. Welche Wahrscheinlichkeit steht am Ast von A nach B?",
+    "text": "In einem zweistufigen Baumdiagramm ist P(A) = 0,5 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,3. Welche Wahrscheinlichkeit steht am Ast von A nach B?",
     "grafik": {
      "typ": "baum",
      "aeste": [
@@ -4261,10 +4261,10 @@
     }
    },
    "o": {
-    "wert": 0.9
+    "wert": 0.6
    },
-   "c": "0.45 / 0.5",
-   "w": "P(A) · x = 0,45 ⇒ x = 0,45 : 0,5 = 0,9.",
+   "c": "0.3 / 0.5",
+   "w": "P(A) · x = 0,3 ⇒ x = 0,3 : 0,5 = 0,6.",
    "h": "Pfadwahrscheinlichkeit = Produkt der Äste; teile."
   },
   {
@@ -4274,7 +4274,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "In einem zweistufigen Baumdiagramm ist P(A) = 0,2 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,18. Welche Wahrscheinlichkeit steht am Ast von A nach B?",
+    "text": "In einem zweistufigen Baumdiagramm ist P(A) = 0,2 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,1. Welche Wahrscheinlichkeit steht am Ast von A nach B?",
     "grafik": {
      "typ": "baum",
      "aeste": [
@@ -4299,10 +4299,10 @@
     }
    },
    "o": {
-    "wert": 0.9
+    "wert": 0.5
    },
-   "c": "0.18 / 0.2",
-   "w": "P(A) · x = 0,18 ⇒ x = 0,18 : 0,2 = 0,9.",
+   "c": "0.1 / 0.2",
+   "w": "P(A) · x = 0,1 ⇒ x = 0,1 : 0,2 = 0,5.",
    "h": "Pfadwahrscheinlichkeit = Produkt der Äste; teile."
   },
   {
@@ -5909,16 +5909,16 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Jemand sagt: „Bei 5 Würfen ist P(mindestens eine Sechs) = 5 · 1/6 = 5/6.“ Was stimmt?"
+    "text": "Jemand behauptet: „Bei 5 Würfen ist P(mindestens eine Sechs) = 5 · 1/6 = 5/6.“ Was stimmt?"
    },
    "a": [
-    "Richtig.",
-    "Falsch: richtig ist 1 − 1/6 · 5.",
+    "Falsch: richtig ist 1 − (5/6)⁵ ≈ 0,598.",
     "Falsch: richtig ist (1/6)⁵.",
-    "Falsch: richtig ist 1 − (5/6)⁵ ≈ 0,598."
+    "Falsch: richtig ist 1 − 5/6.",
+    "Richtig."
    ],
    "o": {
-    "index": 3
+    "index": 0
    },
    "w": "Pfade mit zwei oder mehr Sechsen würden mehrfach gezählt; deshalb über das Gegenereignis rechnen.",
    "h": "Was wäre bei 6 Würfen? Kann P = 1 sein?"
@@ -5930,16 +5930,16 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Jemand sagt: „Bei 2 Würfen ist P(mindestens eine Sechs) = 2 · 1/6 = 1/3.“ Was stimmt?"
+    "text": "Jemand behauptet: „Bei 2 Würfen ist P(mindestens eine Sechs) = 2 · 1/6 = 1/3.“ Was stimmt?"
    },
    "a": [
-    "Falsch: richtig ist 1 − (5/6)² ≈ 0,306.",
-    "Falsch: richtig ist (1/6)².",
     "Richtig.",
-    "Falsch: richtig ist 1 − 1/6 · 2."
+    "Falsch: richtig ist (1/6)².",
+    "Falsch: richtig ist 1 − (5/6)² ≈ 0,306.",
+    "Falsch: richtig ist 1 − 2/6."
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
    "w": "Pfade mit zwei oder mehr Sechsen würden mehrfach gezählt; deshalb über das Gegenereignis rechnen.",
    "h": "Was wäre bei 6 Würfen? Kann P = 1 sein?"
@@ -6032,19 +6032,19 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Jemand sagt: „Bei 4 Würfen ist P(mindestens eine Sechs) = 4 · 1/6 = 2/3.“ Was stimmt?"
+    "text": "Jemand behauptet: „Bei 4 Würfen ist P(mindestens eine Sechs) = 4 · 1/6 = 2/3.“ Was stimmt?"
    },
    "a": [
     "Richtig.",
-    "Falsch: richtig ist 1 − (5/6)⁴ ≈ 0,518.",
-    "Falsch: richtig ist 1 − 1/6 · 4.",
-    "Falsch: richtig ist (1/6)⁴."
+    "Falsch: richtig ist (1/6)⁴.",
+    "Falsch: richtig ist 1 − 4/6.",
+    "Falsch: richtig ist 1 − (5/6)⁴ ≈ 0,518."
    ],
    "o": {
-    "index": 1
+    "index": 3
    },
    "w": "Pfade mit zwei oder mehr Sechsen würden mehrfach gezählt; deshalb über das Gegenereignis rechnen.",
    "h": "Was wäre bei 6 Würfen? Kann P = 1 sein?"

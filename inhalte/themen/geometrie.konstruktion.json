@@ -6794,7 +6794,7 @@
    "l": "vierecke",
    "t": "vierecke",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "In einem Viereck ist α = 76°, β = 69° und γ = 76°. Berechne δ."
@@ -6811,7 +6811,7 @@
    "l": "vierecke",
    "t": "vierecke",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "In einem Viereck ist α = 111°, β = 117° und γ = 90°. Berechne δ."
@@ -6828,7 +6828,7 @@
    "l": "vierecke",
    "t": "vierecke",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "In einem Viereck ist α = 68°, β = 96° und γ = 72°. Berechne δ."
@@ -6845,7 +6845,7 @@
    "l": "vierecke",
    "t": "vierecke",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "In einem Viereck ist α = 117°, β = 70° und γ = 76°. Berechne δ."
@@ -7231,7 +7231,7 @@
    "l": "satz_kehrsatz",
    "t": "satz_kehrsatz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ein Schüler sagt: „Der Satz ‚Wenn ein Dreieck gleichschenklig ist, dann hat es zwei gleich große Winkel.‘ ist wahr, also ist auch der Kehrsatz wahr.“ Ist die Begründung richtig?"
@@ -7292,7 +7292,7 @@
    "l": "satz_kehrsatz",
    "t": "satz_kehrsatz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ein Schüler sagt: „Der Satz ‚Wenn ein Dreieck einen rechten Winkel hat, dann sind die beiden anderen Winkel zusammen 90°.‘ ist wahr, also ist auch der Kehrsatz wahr.“ Ist die Begründung richtig?"

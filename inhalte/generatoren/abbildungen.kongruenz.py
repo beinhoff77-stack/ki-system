@@ -810,6 +810,30 @@ def schwer():
     return N
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('abbildungen.kongruenz', 13_7_4)
+# c) Beinahe-Dublette (gleiche Frage, Antwort N zweimal) → andere Eigenschaft
+BF.ersetze('symmetrie', 'Welcher Großbuchstabe (Blockschrift) ist punktsymmetrisch, hat aber keine Symmetrieachse?', BF.A(
+    'Welcher Großbuchstabe (Blockschrift) ist punktsymmetrisch und hat genau zwei Symmetrieachsen?', 'H', ['N', 'A', 'E'],
+    'H: eine senkrechte und eine waagrechte Symmetrieachse, und um 180° gedreht sieht es gleich aus. N ist nur punktsymmetrisch, A und E haben je eine Achse und sind nicht punktsymmetrisch.',
+    'Prüfe bei jedem Buchstaben: falten? um 180° drehen?'), enthaelt='"X"')
+# c) Ablenker widersprechen sich selbst („= 360° ≠ 360°“, „Ja: … = 330°“) → Aufgaben mit sinnvollen Ablenkern
+_hp = 'Addiere alle Winkel an der Ecke und vergleiche mit 360°.'
+BF.ersetze('parkett', 'Passen 4 gleichseitige Dreiecke und ein Quadrat lückenlos um eine Ecke?', BF.A(
+    'Lässt sich eine Ecke lückenlos mit 4 gleichseitigen Dreiecken und einem Quadrat auslegen?', 'Nein: 4 · 60° + 90° = 330°, es bleibt eine Lücke von 30°.',
+    ['Ja: 4 · 60° + 90° = 360°.', 'Nein: Verschiedene Vielecke kann man an einer Ecke nie kombinieren.', 'Ja: Dreiecke und Quadrate passen immer zusammen.'],
+    '4 · 60° + 90° = 240° + 90° = 330°. Bis 360° fehlen 30°, die Ecke ist nicht lückenlos.', _hp))
+BF.ersetze('parkett', 'Passen 3 gleichseitige Dreiecke und 2 Quadrate lückenlos um eine Ecke?', BF.A(
+    'Lässt sich eine Ecke lückenlos mit 3 gleichseitigen Dreiecken und 2 Quadraten auslegen?', 'Ja: 3 · 60° + 2 · 90° = 360°.',
+    ['Nein: 3 · 60° + 2 · 90° = 330°.', 'Nein: Verschiedene Vielecke kann man an einer Ecke nie kombinieren.', 'Nein: Es müssen immer gleich viele von jeder Sorte sein.'],
+    '3 · 60° + 2 · 90° = 180° + 180° = 360°. Die Ecke ist genau voll – das Muster kommt in echten Parketten vor.', _hp))
+# a) Verkettung zweier Spiegelungen ist für Stufe 1 anspruchsvoll
+BF.stufe('eigenschaften', 'Welche Aussage über Kongruenzabbildungen ist richtig?', 2, enthaelt='"o": {"index": 1}, "w": "Richtig: Zwei Achsenspiegelungen an parallelen Achsen')
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Spiegeln', ['achsenspiegelung', 'punktspiegelung']), ('Verschieben und Drehen', ['verschiebung', 'drehung']), ('Symmetrie und Eigenschaften', ['symmetrie', 'parkett', 'eigenschaften'])],
@@ -824,3 +848,4 @@ if __name__ == '__main__':
                 'lehrplan_gym ist für dieses Thema in themenliste.json leer (Hinweis der Prüfung); themenliste.json gehört nicht zu diesem Paket und bleibt unverändert.',
                 'Drehungen nur um Vielfache von 90°, weil andere Winkel im Koordinatensystem ohne Trigonometrie nicht exakt berechenbar sind.'])
     anhaengen(META['thema_schluessel'], schwer())
+    befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

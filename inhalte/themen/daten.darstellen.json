@@ -646,7 +646,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Die Strichliste zeigt eine Umfrage zum Thema Lieblingsfach. Wie oft wurde „Kunst“ häufiger genannt als „Deutsch“?",
+    "text": "Die Strichliste zeigt eine Umfrage zum Thema Lieblingsfach. Wie viele Nennungen hat „Kunst“ mehr als „Deutsch“?",
     "grafik": {
      "typ": "tabelle",
      "kopf": [
@@ -707,7 +707,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Die Strichliste zeigt eine Umfrage zum Thema Lieblingssport. Wie oft wurde „Fußball“ häufiger genannt als „Tanzen“?",
+    "text": "Die Strichliste zeigt eine Umfrage zum Thema Lieblingssport. Wie viele Nennungen hat „Fußball“ mehr als „Tanzen“?",
     "grafik": {
      "typ": "tabelle",
      "kopf": [
@@ -830,7 +830,7 @@
    "l": "absolute_haeufigkeit",
    "t": "absolute_haeufigkeit",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "In einer Strichliste stehen bei „Hund“: 3 Fünferbündel. Wie oft wurde „Hund“ genannt?"
@@ -846,7 +846,7 @@
    "l": "absolute_haeufigkeit",
    "t": "absolute_haeufigkeit",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "In einer Strichliste stehen bei „Hund“: 2 Fünferbündel und 2 einzelne Striche. Wie oft wurde „Hund“ genannt?"
@@ -862,7 +862,7 @@
    "l": "absolute_haeufigkeit",
    "t": "absolute_haeufigkeit",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "In einer Strichliste stehen bei „Hund“: 4 Fünferbündel und 2 einzelne Striche. Wie oft wurde „Hund“ genannt?"
@@ -881,7 +881,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Die Strichliste zeigt eine Umfrage zum Thema Haustier. Wie oft wurde „Katze“ häufiger genannt als „Fisch“?",
+    "text": "Die Strichliste zeigt eine Umfrage zum Thema Haustier. Wie viele Nennungen hat „Katze“ mehr als „Fisch“?",
     "grafik": {
      "typ": "tabelle",
      "kopf": [
@@ -991,7 +991,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Die Strichliste zeigt eine Umfrage zum Thema Haustier. Wie oft wurde „Katze“ häufiger genannt als „Hund“?",
+    "text": "Die Strichliste zeigt eine Umfrage zum Thema Haustier. Wie viele Nennungen hat „Katze“ mehr als „Hund“?",
     "grafik": {
      "typ": "tabelle",
      "kopf": [
@@ -1072,7 +1072,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Die Strichliste zeigt eine Umfrage zum Thema Lieblingssport. Wie oft wurde „Tanzen“ häufiger genannt als „Basketball“?",
+    "text": "Die Strichliste zeigt eine Umfrage zum Thema Lieblingssport. Wie viele Nennungen hat „Tanzen“ mehr als „Basketball“?",
     "grafik": {
      "typ": "tabelle",
      "kopf": [
@@ -1486,7 +1486,7 @@
    "l": "relative_haeufigkeit",
    "t": "relative_haeufigkeit",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Bei 20 Münzwürfen lag die relative Häufigkeit für „Zahl“ bei 5 %. Wie oft fiel „Zahl“?"
@@ -3887,7 +3887,7 @@
    "l": "kreisdiagramm",
    "t": "kreisdiagramm",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Kreisausschnitt hat einen Winkel von 36°. Wie viel Prozent stellt er dar?"

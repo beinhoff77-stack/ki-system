@@ -627,6 +627,24 @@ def schwer():
     ]
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('zahlen.wurzeln_basis', 13_9_1)
+# c) Ergebnis ist eine ganze Zahl, „gekürzter Bruch“ mit Nenner 1 verwirrt → Zahl-Aufgabe
+BF.ersetze('wurzel_dezimal', 'Berechne 4 · √(25/4). Gib das Ergebnis als gekürzten Bruch an.', BF.Z(
+    'Berechne 4 · √(25/4).', 10, '4 * 5 / 2', '√(25/4) = √25 : √4 = 5/2. 4 · 5/2 = 20/2 = 10.',
+    'Ziehe die Wurzel aus Zähler und Nenner einzeln.'))
+# a) Grundaufgaben
+BF.stufe('wurzel_dezimal', 'Was ergibt √0,49?', 1)
+BF.stufe('kubikwurzel', 'Berechne ∛8 · √4.', 2)
+BF.stufe('kubikwurzel', 'Berechne ∛27 · √9.', 2)
+# a) gleicher Typ wie Stufe 1, nur größere Zahlen
+for _z in ('√1 605', '√788', '√1 291'):
+    BF.stufe('abschaetzen', f'Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt {_z}?', 2)
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     d = bauen('zahlen.wurzeln_basis',
           'Quadratwurzeln und dritte Wurzeln als Umkehrung des Quadrierens bzw. Hoch-3-Nehmens bestimmen, abschätzen und anwenden.',
@@ -640,3 +658,4 @@ if __name__ == '__main__':
           offen=['Kubikwurzel aus negativen Zahlen (Prüfvorschlag ∛(−8) = −2) nicht umgesetzt: Die Lernkarte definiert ∛a wie der LehrplanPLUS nur für a ≥ 0; eine Aufgabe mit −2 als richtiger Antwort widerspräche der Erklärung.',
                  'Rechenausdruck c bei Wurzeln: Das Prüfskript kann keine Wurzeln rechnen. c prüft deshalb die Umkehrung (z. B. 196 / 14 = 14 bzw. 343 / (7 · 7) = 7).'])
     anhaengen(d, 9901, schwer)
+    befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

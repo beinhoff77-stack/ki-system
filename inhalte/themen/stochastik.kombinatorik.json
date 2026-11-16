@@ -1207,7 +1207,7 @@
    "l": "systematisch",
    "t": "systematisch",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Beim Eis gibt es 2 Sorten, 3 Soßen und 2 Streusel. Ein Becher hat genau eine Sorte, eine Soße und einen Streusel. Wie viele verschiedene Becher gibt es?"
@@ -1223,7 +1223,7 @@
    "l": "systematisch",
    "t": "systematisch",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Beim Eis gibt es 3 Sorten, 2 Soßen und 2 Streusel. Ein Becher hat genau eine Sorte, eine Soße und einen Streusel. Wie viele verschiedene Becher gibt es?"
@@ -3276,7 +3276,7 @@
    "l": "bedingungen",
    "t": "bedingungen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Aus den Ziffern 0, 1, 5, 6 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele gibt es?"
@@ -3324,7 +3324,7 @@
    "l": "bedingungen",
    "t": "bedingungen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Aus den Ziffern 0, 3, 8, 9 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele gibt es?"
@@ -3356,7 +3356,7 @@
    "l": "bedingungen",
    "t": "bedingungen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Aus den Ziffern 0, 4, 6, 7 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele gibt es?"
@@ -3726,7 +3726,7 @@
    "l": "grenzen",
    "t": "grenzen",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Wie viele Strecken kann man zwischen 3 Punkten zeichnen, von denen keine drei auf einer Geraden liegen?"
@@ -3742,7 +3742,7 @@
    "l": "grenzen",
    "t": "grenzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viele Strecken kann man zwischen 6 Punkten zeichnen, von denen keine drei auf einer Geraden liegen?"
@@ -3758,7 +3758,7 @@
    "l": "grenzen",
    "t": "grenzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viele Strecken kann man zwischen 5 Punkten zeichnen, von denen keine drei auf einer Geraden liegen?"
@@ -3774,7 +3774,7 @@
    "l": "grenzen",
    "t": "grenzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viele Strecken kann man zwischen 7 Punkten zeichnen, von denen keine drei auf einer Geraden liegen?"

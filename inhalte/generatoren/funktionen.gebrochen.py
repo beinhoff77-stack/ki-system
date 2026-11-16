@@ -536,6 +536,22 @@ N.a('beurteilen', 3, 'Welcher Punkt kann auf KEINEM Graphen einer Funktion f(x) 
 baue = mit_schwer(baue, N)
 # ---- SCHWER ENDE ----
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, mit_befunden  # noqa: E402
+
+BF = Befunde('funktionen.gebrochen', 13_8_3)
+# a) direkt ablesen → Stufe 1
+BF.stufe('asymptoten', 'Gib die waagrechte Asymptote von f(x) = −9/(x − 8) + 2 an. y = □', 1)
+BF.stufe('asymptoten', 'Gib die waagrechte Asymptote von f(x) = 1/(x + 5) − 3 an. y = □', 1)
+# a) gleicher Typ wie Stufe 2
+BF.stufe('achsenpunkte', 'Welche Nullstelle hat f(x) = 3/(x − 4)?', 2)
+BF.stufe('achsenpunkte', 'Welche Nullstelle hat f(x) = −7/(x + 3)?', 2)
+BF.stufe('parameter', 'Wie unterscheidet sich der Graph von f(x) = −3/x vom Graphen von g(x) = 3/x?', 2)
+BF.nicht_umgesetzt('indirekt: Überschneidung mit groessen.indirekt', 'Kein Mangel an einer Aufgabe; betrifft die Reihenfolge im Plan (Haupt-Chat).')
+
+baue = mit_befunden(baue, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Indirekte Proportionalität', ['indirekt']), ('Hyperbeln untersuchen', ['definitionsmenge', 'asymptoten', 'achsenpunkte']),

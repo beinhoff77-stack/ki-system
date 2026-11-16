@@ -1965,7 +1965,7 @@
    "l": "asymptoten",
    "t": "asymptoten",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Gib die waagrechte Asymptote von f(x) = −9/(x − 8) + 2 an. y = □"
@@ -1981,7 +1981,7 @@
    "l": "asymptoten",
    "t": "asymptoten",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Gib die waagrechte Asymptote von f(x) = 1/(x + 5) − 3 an. y = □"
@@ -2610,7 +2610,7 @@
    "l": "achsenpunkte",
    "t": "achsenpunkte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Nullstelle hat f(x) = 3/(x − 4)?"
@@ -2631,7 +2631,7 @@
    "l": "achsenpunkte",
    "t": "achsenpunkte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Nullstelle hat f(x) = −7/(x + 3)?"
@@ -3169,7 +3169,7 @@
    "l": "parameter",
    "t": "parameter",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Wie unterscheidet sich der Graph von f(x) = −3/x vom Graphen von g(x) = 3/x?",

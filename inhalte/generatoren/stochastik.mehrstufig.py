@@ -587,6 +587,30 @@ def schwer():
     return N
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('stochastik.mehrstufig', 13_10_7)
+_bt = 'In einem zweistufigen Baumdiagramm ist P(A) = {} und die Wahrscheinlichkeit des Pfades „A, dann B“ = {}. Welche Wahrscheinlichkeit steht am Ast von A nach B?'
+# c) alle drei Stufe-2-Übungen hatten die Lösung 0,9 (ratbar) → zwei davon mit anderen Zahlen
+BF.ersetze('baum_ergaenzen', 'In einem zweistufigen Baumdiagramm ist P(A) = 0,5 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,45. Welche Wahrscheinlichkeit steht am Ast von A nach B?', BF.Z(_bt.format('0,5', '0,3'), 0.6, '0.3 / 0.5', 'P(A) · x = 0,3 ⇒ x = 0,3 : 0,5 = 0,6.', 'Pfadwahrscheinlichkeit = Produkt der Äste; teile.', grafik={'typ': 'baum', 'aeste': [{'text': 'A', 'p': '0,5', 'aeste': [{'text': 'B', 'p': '?'}, {'text': 'nicht B'}]}, {'text': 'nicht A', 'p': '0,5'}]}))
+BF.ersetze('baum_ergaenzen', 'In einem zweistufigen Baumdiagramm ist P(A) = 0,2 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,18. Welche Wahrscheinlichkeit steht am Ast von A nach B?', BF.Z(_bt.format('0,2', '0,1'), 0.5, '0.1 / 0.2', 'P(A) · x = 0,1 ⇒ x = 0,1 : 0,2 = 0,5.', 'Pfadwahrscheinlichkeit = Produkt der Äste; teile.', grafik={'typ': 'baum', 'aeste': [{'text': 'A', 'p': '0,2', 'aeste': [{'text': 'B', 'p': '?'}, {'text': 'nicht B'}]}, {'text': 'nicht A', 'p': '0,8'}]}))
+# c) inhaltlich dieselbe Aufgabe wie „mindestens eine Sechs“ (gleiche Lösung 11/36)
+BF.ersetze('gegenereignis', 'Ein Würfel wird 2-mal geworfen. Wie groß ist P(mindestens eine Eins)?', BF.L(
+    'Eine Münze wird 3-mal geworfen. Wie groß ist P(mindestens einmal Zahl)?', '□/□', [7, 8], ['7', '8'],
+    'P(keinmal Zahl) = (1/2)³ = 1/8; 1 − 1/8 = 7/8.', 'Rechne über das Gegenereignis „keinmal“.', hinweis='Zähler und Nenner (gekürzt)'))
+# a) sechsmal dasselbe Schema auf Stufe 3 → drei davon Stufe 2
+_gl = 'Ein Glücksrad zeigt mit der Wahrscheinlichkeit {} „Gewinn“. Es wird dreimal gedreht. Wie groß ist P(genau zweimal Gewinn)?'
+for _p in ('0,7', '0,6', '0,2'):
+    BF.stufe('pfad_add', _gl.format(_p), 2)
+# c) Ablenker „Falsch: richtig ist 1 − 1/6 · n“ unklar formuliert → „1 − n/6“; die Stufe-3-Aufgabe (4 Würfe) ist derselbe Typ wie Stufe 2 → Stufe 2
+BF.ersetze('verstehen', 'Jemand sagt: „Bei 5 Würfen ist P(mindestens eine Sechs) = 5 · 1/6 = 5/6.“ Was stimmt?', BF.A('Jemand behauptet: „Bei 5 Würfen ist P(mindestens eine Sechs) = 5 · 1/6 = 5/6.“ Was stimmt?', 'Falsch: richtig ist 1 − (5/6)⁵ ≈ 0,598.', ['Richtig.', 'Falsch: richtig ist 1 − 5/6.', 'Falsch: richtig ist (1/6)⁵.'], 'Pfade mit zwei oder mehr Sechsen würden mehrfach gezählt; deshalb über das Gegenereignis rechnen.', 'Was wäre bei 6 Würfen? Kann P = 1 sein?'), s=2)
+BF.ersetze('verstehen', 'Jemand sagt: „Bei 2 Würfen ist P(mindestens eine Sechs) = 2 · 1/6 = 1/3.“ Was stimmt?', BF.A('Jemand behauptet: „Bei 2 Würfen ist P(mindestens eine Sechs) = 2 · 1/6 = 1/3.“ Was stimmt?', 'Falsch: richtig ist 1 − (5/6)² ≈ 0,306.', ['Falsch: richtig ist (1/6)².', 'Richtig.', 'Falsch: richtig ist 1 − 2/6.'], 'Pfade mit zwei oder mehr Sechsen würden mehrfach gezählt; deshalb über das Gegenereignis rechnen.', 'Was wäre bei 6 Würfen? Kann P = 1 sein?'), s=2)
+BF.ersetze('verstehen', 'Jemand sagt: „Bei 4 Würfen ist P(mindestens eine Sechs) = 4 · 1/6 = 2/3.“ Was stimmt?', BF.A('Jemand behauptet: „Bei 4 Würfen ist P(mindestens eine Sechs) = 4 · 1/6 = 2/3.“ Was stimmt?', 'Falsch: richtig ist 1 − (5/6)⁴ ≈ 0,518.', ['Richtig.', 'Falsch: richtig ist 1 − 4/6.', 'Falsch: richtig ist (1/6)⁴.'], 'Pfade mit zwei oder mehr Sechsen würden mehrfach gezählt; deshalb über das Gegenereignis rechnen.', 'Was wäre bei 6 Würfen? Kann P = 1 sein?'), s=2)
+BF.nicht_umgesetzt('simulation S2 „Simulation 500-mal … relative Häufigkeit“ (reines Ablesen)', 'Lösungen richtig; die eigentliche Simulation (Zufallszahlen zuordnen) wurde in Runde 10 ergänzt.')
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     datei = bauen('stochastik.mehrstufig',
           'Mehrstufige Zufallsexperimente mit Pfadregeln berechnen (mit und ohne Zurücklegen), über das Gegenereignis rechnen und Simulationen deuten.',
@@ -600,3 +624,4 @@ if __name__ == '__main__':
                  'Simulation: nur Auswertung (relative Häufigkeit, erwartete Anzahl, Gesetz der großen Zahlen). Selbst simulieren (Zufallszahlen erzeugen) kann das Kind in der App nicht.',
                  'Brüche als Antwort über Lücken „□/□“ (gekürzt).'])
     ergaenzen(datei, schwer())
+    befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

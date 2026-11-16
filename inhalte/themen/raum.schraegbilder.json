@@ -1983,7 +1983,7 @@
    "l": "laengen",
    "t": "laengen",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Eine Kante führt 2 cm nach hinten. Wie lang wird sie im Schrägbild mit q = 1/2 gezeichnet?"
@@ -2000,7 +2000,7 @@
    "l": "laengen",
    "t": "laengen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Kante führt 6 cm nach hinten. Wie lang wird sie im Schrägbild mit q = 1/3 gezeichnet?"
@@ -2017,7 +2017,7 @@
    "l": "laengen",
    "t": "laengen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Kante führt 15 cm nach hinten. Wie lang wird sie im Schrägbild mit q = 2/3 gezeichnet?"
@@ -2034,7 +2034,7 @@
    "l": "laengen",
    "t": "laengen",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Eine Kante führt 8 cm nach hinten. Wie lang wird sie im Schrägbild mit q = 1/2 gezeichnet?"
@@ -2317,7 +2317,7 @@
    "l": "lage",
    "t": "lage",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden BF und GH zueinander?",
@@ -2431,7 +2431,7 @@
    "l": "lage",
    "t": "lage",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden BF und DA zueinander?",
@@ -5712,6 +5712,120 @@
    },
    "w": "AC liegt in der Grundfläche, BG trifft die Grundfläche nur in B (nicht auf AC). Sie sind nicht parallel: windschief. AC und EG sind parallel.",
    "h": "Nimm eine Diagonale unten und eine in einer Seitenfläche."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden AB und DC zueinander?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "parallel",
+    "windschief",
+    "schneiden sich",
+    "identisch"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "AB und DC sind gegenüberliegende Kanten der Grundfläche ABCD: gleiche Richtung, kein gemeinsamer Punkt. Also parallel.",
+   "h": "Stell dir den Quader vor (z. B. eine Schachtel). Haben die Geraden dieselbe Richtung? Gibt es einen gemeinsamen Punkt?"
   },
   {
    "l": "koordinaten",

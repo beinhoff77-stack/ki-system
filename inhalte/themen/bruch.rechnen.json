@@ -1171,7 +1171,7 @@
    "l": "brueche_plus_minus",
    "t": "brueche_plus_minus",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Berechne 1/2 + 1/2 − 2/5.",
@@ -2187,19 +2187,19 @@
    "p": "uebung",
    "s": 3,
    "y": "auswahl",
+   "f": {
+    "text": "Berechne (−1/8) + 1/5 und gib das Ergebnis vollständig gekürzt an."
+   },
    "a": [
-    "3/40",
+    "0",
+    "−13/40",
     "−3/40",
-    "0/13",
-    "−13/40"
+    "3/40"
    ],
    "o": {
-    "index": 0
+    "index": 3
    },
-   "f": {
-    "text": "Berechne (−1/8) + 1/5."
-   },
-   "w": "Hauptnenner 40: −5/40 + 8/40 = 3/40.",
+   "w": "Hauptnenner 40: −5/40 + 8/40 = 3/40. (Zähler und Nenner einzeln addieren ergäbe 0/13 = 0 – das ist falsch.)",
    "h": "Gleichnamig machen, dann wie bei ganzen Zahlen rechnen."
   },
   {
@@ -3999,14 +3999,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Kilogramm Äpfel kostet 0,28 €. Was kosten 5,2 kg? Runde auf Cent."
+    "text": "Ein Kilogramm Äpfel kostet 2,79 €. Was kosten 1,6 kg? Runde auf Cent."
    },
    "o": {
-    "wert": 1.46,
+    "wert": 4.46,
     "einheit": "€"
    },
-   "c": "((0.28) * (5.2) * 100 + 1/2) // 1 / 100",
-   "w": "0,28 · 5,2 = 1,456 €, gerundet 1,46 €.",
+   "c": "((2.79) * (1.6) * 100 + 1/2) // 1 / 100",
+   "w": "2,79 · 1,6 = 4,464 €, gerundet 4,46 €.",
    "h": "Preis pro kg mal Anzahl kg. Am Ende auf zwei Nachkommastellen runden."
   },
   {

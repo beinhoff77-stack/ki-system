@@ -3040,7 +3040,7 @@
    "l": "addieren",
    "t": "addieren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 217 + (−285)."
@@ -3056,7 +3056,7 @@
    "l": "addieren",
    "t": "addieren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne (−306) + 205."
@@ -3072,7 +3072,7 @@
    "l": "addieren",
    "t": "addieren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne (−210) + 355."
@@ -3108,7 +3108,7 @@
    "l": "addieren",
    "t": "addieren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne (−146) + (−191)."
@@ -3474,7 +3474,7 @@
    "l": "subtrahieren",
    "t": "subtrahieren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 146 − (−41)."
@@ -3490,7 +3490,7 @@
    "l": "subtrahieren",
    "t": "subtrahieren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne (−399) − 174."
@@ -3558,7 +3558,7 @@
    "l": "subtrahieren",
    "t": "subtrahieren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne (−234) − (−125)."
@@ -3932,7 +3932,7 @@
    "l": "ketten",
    "t": "verbinden",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne geschickt: 25 − 56 + 56 − 38."
@@ -3964,7 +3964,7 @@
    "l": "ketten",
    "t": "verbinden",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne geschickt: 20 − 44 + 44 − 10."
@@ -3980,7 +3980,7 @@
    "l": "ketten",
    "t": "verbinden",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne geschickt: 56 − 53 + 53 − 35."

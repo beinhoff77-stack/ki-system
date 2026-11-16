@@ -709,6 +709,35 @@ def schwer():
 
 GEN = schoen(GEN)
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('gleichungen.exponential', 13_10_1)
+# a) gleicher Aufgabentyp wie Stufe 2 („a · b^x = c“ falsch umgeformt; „Welche Aussage ist falsch? lg(a + b) …“)
+BF.stufe('verstehen', 'Jemand formt 2 · 2^x = 76 um zu 4^x = 76. Was stimmt?', 2)
+BF.stufe('verstehen', 'Jemand formt 4 · 5^x = 24 um zu 20^x = 24. Was stimmt?', 2)
+for _s in ('lg(6 + 3)', 'lg(3 + 2)', 'lg(6 + 2)', 'lg(9 + 4)'):
+    BF.stufe('verstehen', 'Welche Aussage ist falsch?', 2, enthaelt=_s)
+# a) „Welche Lösung hat b^x = −…?“ auf Stufe 1 und 2 → einheitlich Stufe 1
+BF.stufe('verstehen', 'Welche Lösung hat 3^x = −81? Die Zeichnung zeigt y = 3^x und y = −81.', 1)
+BF.stufe('verstehen', 'Welche Lösung hat 3^x = −9? Die Zeichnung zeigt y = 3^x und y = −9.', 1)
+# d) Karte „Wachstum und Zerfall: Wann?“ – die Zinseszins-Aufgaben fragten nach dem Betrag, nicht nach dem Zeitpunkt
+_h = 'Teile zuerst durch den Anfangswert. Dann logarithmieren: t = lg(rechte Seite) : lg(Basis).'
+for _k, _p, _n, _ziel, _t, _w in [
+        ('5 000', '6', '5', '7 000', 5.8, 't = lg(7 000 : 5 000) : lg 1,06 = lg 1,4 : lg 1,06 ≈ 5,8 Jahre.'),
+        ('2 000', '2', '2', '2 500', 11.3, 't = lg(2 500 : 2 000) : lg 1,02 = lg 1,25 : lg 1,02 ≈ 11,3 Jahre.'),
+        ('1 000', '6', '2', '2 000', 11.9, 't = lg(2 000 : 1 000) : lg 1,06 = lg 2 : lg 1,06 ≈ 11,9 Jahre.')]:
+    _f = f'1,0{_p}'
+    _c = {5.8: 'round(5.774472998624, 1)', 11.3: 'round(11.268381108059, 1)', 11.9: 'round(11.895661045942, 1)'}[_t]
+    BF.ersetze('wachstum', f'Ein Kapital von {_k} € wird mit {_p} % pro Jahr verzinst (Zinseszins). Wie groß ist es nach {_n} Jahren? Runde auf Cent.', BF.Z(
+        f'Ein Kapital von {_k} € wird mit {_p} % pro Jahr verzinst (Zinseszins). Löse {_k} · {_f}^t = {_ziel}, um zu sehen, wann es auf {_ziel} € angewachsen ist. Runde auf eine Nachkommastelle.',
+        _t, _c, _w, _h, einheit='Jahre', toleranz=0.1))
+
+BF.ersetze('wachstum', 'Ein Kapital von 2 000 € wird mit 2 % pro Jahr verzinst (Zinseszins). Wie groß ist es nach 3 Jahren? Runde auf Cent.', BF.Z(
+    'Ein Kapital von 2 000 € wird mit 2 % pro Jahr verzinst (Zinseszins). Löse 2 000 · 1,02^t = 3 000, um zu sehen, wann es auf 3 000 € angewachsen ist. Runde auf eine Nachkommastelle.',
+    20.5, 'round(20.475318857634, 1)', 't = lg(3 000 : 2 000) : lg 1,02 = lg 1,5 : lg 1,02 ≈ 20,5 Jahre.', _h, einheit='Jahre', toleranz=0.1), pools=('sicherung',))
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     datei = bauen('gleichungen.exponential',
           'Logarithmen verstehen und Exponentialgleichungen lösen – mit gleicher Basis oder durch Logarithmieren mit der Potenzregel, auch bei Wachstum und Zerfall.',
@@ -725,3 +754,4 @@ if __name__ == '__main__':
                  'Schreibweise: Exponenten mit Unbekannten als „2^x“ bzw. „3^(x − 1)“, Logarithmus als „log₂(32)“ und „lg“.',
                  'Prüfung eingearbeitet (Runde 3): Potenzregel begründet; neue Aufgabentypen Basis/Argument bestimmen, Kehrwert-Exponenten, gemeinsame Basis mit Verschiebung, Halbwertszeit und Wachstumsrate bestimmen. „wachstum“: in jedem Pool mindestens die Hälfte Zeitfragen; Geldbeträge auf Cent mit Toleranz 0,01.'])
     ergaenzen(datei, schwer())
+    befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

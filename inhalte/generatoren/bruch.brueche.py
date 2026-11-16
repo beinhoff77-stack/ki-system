@@ -833,5 +833,28 @@ def _br():
 ergaenzen(DATEI, _br(), seed=6021)
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_anwenden  # noqa: E402
+
+BF = Befunde('bruch.brueche', 13_6_2)
+# a) Standardumrechnung → Stufe 2
+BF.stufe('bruchteil_von', 'Wie viele Minuten sind 3/4 Stunde?', 2)
+BF.stufe('bruchteil_von', 'Wie viele g sind 3/8 kg?', 2)
+# a) Grundform → Stufe 1
+BF.stufe('erweitern', 'Erweitere 1/10 auf den Nenner 100.', 1)
+BF.stufe('verstehen', 'Stimmt die Aussage? „1/2 ist größer als 1/3.“', 1)
+BF.stufe('verstehen', 'Stimmt die Aussage? „1/2 ist größer als 1/5.“', 1)
+# a) Hauptnenner 36 nötig → Stufe 2
+BF.stufe('verstehen', 'Stimmt die Aussage? „1/9 und 4/12 sind gleich groß.“', 2)
+# d) verlangt Subtraktion ungleichnamiger Brüche (Stoff von bruch.rechnen, die Lernkarte erklärt nur Vergleichen) → Vergleichsaufgabe
+BF.ersetze('vergleichen', 'Um wie viel ist 5/6 größer als 4/7?', BF.A(
+    'Welcher Bruch liegt näher an 1: 5/6 oder 6/7?', '6/7', ['5/6', 'Beide liegen gleich nah an 1.'],
+    'Bis 1 fehlen bei 5/6 noch 1/6, bei 6/7 nur 1/7. 1/7 ist kleiner als 1/6, also liegt 6/7 näher an 1. (Probe mit Hauptnenner 42: 35/42 < 36/42.)',
+    'Wie viel fehlt jeweils bis zum Ganzen? Vergleiche die fehlenden Stücke.'))
+BF.nicht_umgesetzt('zahlenstrahl: Markierungen mit Dritteln/Sechsteln ohne Feld „zahl“', 'Von Hand geprüft und richtig (laut Befund); kein Mangel.')
+
+befunde_anwenden(DATEI, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI)

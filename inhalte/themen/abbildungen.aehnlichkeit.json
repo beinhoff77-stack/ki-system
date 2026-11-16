@@ -1256,7 +1256,7 @@
    "l": "streckung",
    "t": "streckung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Strecke den Punkt P(−8 | −6) zentrisch mit dem Zentrum Z(−2 | −4) und k = −3. Gib den Bildpunkt P' an.",
@@ -1280,7 +1280,7 @@
    "l": "streckung",
    "t": "streckung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Strecke den Punkt P(−4 | 0) zentrisch mit dem Zentrum Z(2 | 2) und k = −0,5. Gib den Bildpunkt P' an.",
@@ -1304,7 +1304,7 @@
    "l": "streckung",
    "t": "streckung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Strecke den Punkt P(−6 | −2) zentrisch mit dem Zentrum Z(−4 | 0) und k = 1,5. Gib den Bildpunkt P' an.",
@@ -1328,7 +1328,7 @@
    "l": "streckung",
    "t": "streckung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Strecke den Punkt P(−2 | 2) zentrisch mit dem Zentrum Z(4 | 2) und k = −0,5. Gib den Bildpunkt P' an.",
@@ -1352,7 +1352,7 @@
    "l": "streckung",
    "t": "streckung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Strecke den Punkt P(−3 | 0) zentrisch mit dem Zentrum Z(1 | −4) und k = 1,5. Gib den Bildpunkt P' an.",
@@ -6676,7 +6676,7 @@
    "l": "flaeche_volumen",
    "t": "flaeche_volumen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Modell im Maßstab 1 : 20 hat eine Grundfläche von 8 cm². Wie groß ist die Grundfläche des Originals in m²?"
@@ -6710,7 +6710,7 @@
    "l": "flaeche_volumen",
    "t": "flaeche_volumen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Modell im Maßstab 1 : 100 hat eine Grundfläche von 3 cm². Wie groß ist die Grundfläche des Originals in m²?"
@@ -6744,7 +6744,7 @@
    "l": "flaeche_volumen",
    "t": "flaeche_volumen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Modell im Maßstab 1 : 50 hat eine Grundfläche von 4 cm². Wie groß ist die Grundfläche des Originals in m²?"

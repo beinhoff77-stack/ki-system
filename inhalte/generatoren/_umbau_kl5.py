@@ -90,6 +90,9 @@ def umbau(datei, karten, offen=()):
     namen = [e['lernziel'] for e in etappen]
     assert sorted(karten) == sorted(namen), ('KARTEN passt nicht zu den Lernkarten', sorted(set(namen) ^ set(karten)))
     fehler = []
+    for e in etappen:  # bild 'BEHALTEN': das bisherige Kartenbild bleibt (z. B. vom Generator berechnete Figuren)
+        if karten[e['lernziel']].get('bild') == 'BEHALTEN':
+            karten[e['lernziel']]['bild'] = e['bild']
     for e in etappen:
         pruefe_karte(e['lernziel'], karten[e['lernziel']], fehler)
     assert not fehler, 'Regeln verletzt:\n' + '\n'.join(fehler)

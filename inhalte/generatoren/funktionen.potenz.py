@@ -142,6 +142,88 @@ KLAR = {
 }
 klar(ETAPPEN, KLAR)
 # ---- KLAR ENDE ----
+# ---- UMBAU (neues Muster, Runde 8, Vorgabe 16.11.) ----
+_G = lambda n, name, a=1: {'art': 'potenz', 'a': a, 'n': n, 'name': name}
+UMBAU = {
+ 'werte': {
+  'einstieg': 'Eine Rechenmaschine nimmt eine Zahl hoch 3 und dann mal −2. Was kommt bei −3 heraus? So eine Maschine heißt ⟦Potenzfunktion⟧.',
+  'woerter': [['Potenzfunktion', 'eine Funktion der Form f(x) = a · xⁿ'],
+              ['f(−3)', 'das Ergebnis der Maschine bei der Eingabe −3'],
+              ['Potenz vor Punkt', 'erst hoch rechnen, dann malnehmen']],
+  'bild': {'typ': 'koordinaten', 'x': [-4, 4], 'y': [-60, 60], 'schritt_y': 20, 'graphen': [_G(3, 'y = −2x³', -2)]},
+  'schritte': [{'text': 'Die Maschine heißt f(x) = −2x³. Die Eingabe ist x = −3.'},
+               {'text': 'Potenz vor Punkt: zuerst (−3)³ = −27.'},
+               {'text': 'Dann mal −2: f(−3) = −2 · (−27) = ⟦54⟧.', 'bild': {'punkte': [{'x': -3, 'y': 54, 'name': '(−3 | 54)'}]}}],
+  'fehler': 'Erst −2 · (−3) = 6 und dann 6³ = 216 ist falsch. Die Maschine potenziert zuerst, dann nimmt sie mal.',
+  'regel': 'Erst ⟦potenzieren⟧, dann mit a malnehmen. Negative Zahlen setzt du in Klammern ein.'},
+ 'symmetrie': {
+  'einstieg': 'Manche Graphen sehen aus wie Schmetterlingsflügel. Die linke Hälfte ist das Spiegelbild der rechten. Diese Eigenschaft heißt ⟦Symmetrie⟧.',
+  'woerter': [['achsensymmetrisch', 'links und rechts der y-Achse spiegelgleich: f(−x) = f(x)'],
+              ['punktsymmetrisch', 'nach einer halben Drehung um (0 | 0) gleich: f(−x) = −f(x)'],
+              ['f(−x)', 'das Ergebnis bei der Gegenzahl von x']],
+  'bild': {'typ': 'koordinaten', 'x': [-3, 3], 'y': [-2, 10], 'graphen': [_G(4, 'y = 0,5x⁴', 0.5)]},
+  'schritte': [{'text': 'f(x) = 0,5x⁴ hat den geraden Exponenten 4.'},
+               {'text': '(−x)⁴ = x⁴, also f(−x) = f(x): achsensymmetrisch zur y-Achse.'},
+               {'text': 'f(2) = 0,5 · 16 = 8, also ohne Rechnen ⟦f(−2) = 8⟧.',
+                'bild': {'punkte': [{'x': 2, 'y': 8, 'name': 'f(2) = 8'}, {'x': -2, 'y': 8, 'name': 'f(−2) = 8'}]}},
+               {'text': 'Bei ungeradem Exponenten wäre der Graph punktsymmetrisch zum Ursprung.'}],
+  'fehler': 'y = x³ ist nicht achsensymmetrisch. 2³ = 8, aber (−2)³ = −8: Die Spiegelpunkte sind verschieden hoch.',
+  'fehler_bild': {'y': [-10, 10], 'graphen': [_G(3, 'y = x³')],
+                  'punkte': [{'x': 2, 'y': 8, 'name': '(2 | 8)'}, {'x': -2, 'y': -8, 'name': '(−2 | −8)'}]},
+  'regel': 'Gerader Exponent: ⟦achsensymmetrisch⟧ zur y-Achse. Ungerader Exponent: punktsymmetrisch zum Ursprung.'},
+ 'verlauf': {
+  'einstieg': 'Fahre einen Graphen mit dem Finger von links nach rechts nach. Kommst du von oben oder von unten? Wohin gehst du? Das beschreibt den ⟦Verlauf⟧.',
+  'woerter': [['Verlauf', 'woher der Graph links kommt und wohin er rechts geht'],
+              ['an der x-Achse spiegeln', 'oben und unten vertauschen']],
+  'bild': {'typ': 'koordinaten', 'x': [-2, 2], 'y': [-3, 3], 'graphen': [_G(2, 'y = x²'), _G(3, 'y = x³')]},
+  'schritte': [{'text': 'Gerader Exponent: von links oben nach rechts oben, wie y = x².'},
+               {'text': 'Ungerader Exponent: von links unten nach rechts oben, wie y = x³.'},
+               {'text': 'Bei y = −x⁵ wird y = x⁵ an der x-Achse spiegeln.',
+                'bild': {'graphen': [_G(5, 'y = x⁵'), _G(5, 'y = −x⁵', -1)]}},
+               {'text': 'Also verläuft y = −x⁵ ⟦von links oben nach rechts unten⟧.'}],
+  'fehler': 'Nicht alle y = xⁿ gehen durch (−1 | 1). Bei ungeradem n ist (−1)ⁿ = −1.',
+  'fehler_bild': {'graphen': [_G(2, 'y = x²'), _G(3, 'y = x³')],
+                  'punkte': [{'x': -1, 'y': 1, 'name': '(−1 | 1)'}, {'x': -1, 'y': -1, 'name': '(−1 | −1)'}]},
+  'regel': 'Gerades n: beide Enden oben. Ungerades n: links unten, rechts oben. ⟦a < 0⟧ spiegelt an der x-Achse.'},
+ 'parameter': {
+  'einstieg': 'Von einer Maschine a · x³ fehlt nur die Zahl a. Bekannt ist: Aus 2 wird −24. Daraus rechnest du den ⟦Parameter⟧ a zurück.',
+  'woerter': [['Parameter', 'eine Zahl in der Funktion, die man bestimmen kann'],
+              ['P(2 | −24)', 'Eingabe 2, Ergebnis −24']],
+  'bild': {'typ': 'koordinaten', 'x': [-3, 3], 'y': [-30, 30], 'schritt_y': 10, 'punkte': [{'x': 2, 'y': -24, 'name': 'P(2 | −24)'}]},
+  'schritte': [{'text': 'P(2 | −24) einsetzen: −24 = a · 2³.'},
+               {'text': '2³ = 2 · 2 · 2 = 8, also −24 = a · 8.'},
+               {'text': 'Durch 8 teilen: ⟦a = −3⟧. Die Funktion heißt y = −3x³.', 'bild': {'graphen': [_G(3, 'y = −3x³', -3)]}}],
+  'fehler': '2³ ist nicht 2 · 3 = 6. Hoch 3 heißt dreimal mit sich selbst malnehmen: 2³ = 8.',
+  'regel': 'Punkt einsetzen: ⟦v = a · uⁿ⟧, dann nach a auflösen.'},
+ 'negativ': {
+  'einstieg': 'Teilen sich immer mehr Kinder 1 kg Gummibärchen, bekommt jedes immer weniger, aber nie null. Solche Maschinen haben einen ⟦negativen Exponenten⟧.',
+  'woerter': [['x⁻²', '1 geteilt durch x², also 1/x²'],
+              ['Kehrwert', '1 geteilt durch die Zahl'],
+              ['Asymptoten', 'Linien, denen der Graph immer näher kommt, ohne sie zu erreichen']],
+  'bild': {'typ': 'koordinaten', 'x': [-4, 4], 'y': [-1, 4], 'graphen': [_G(-2, 'y = x⁻²')]},
+  'schritte': [{'text': 'x⁻² ist der Kehrwert von x². Also f(4) = 1 : 4².'},
+               {'text': '4² = 16, also ⟦f(4) = 1/16 = 0,0625⟧.', 'bild': {'punkte': [{'x': 4, 'y': 0.0625, 'name': 'f(4)'}]}},
+               {'text': 'Die Achsen sind Asymptoten: Der Graph kommt ihnen nahe, berührt sie aber nie.'}],
+  'fehler': '4⁻² ist nicht −16. Ein Minus im Exponenten heißt Kehrwert, nicht negativ: 4⁻² = 1/16.',
+  'regel': 'x⁻ⁿ ist der ⟦Kehrwert⟧ 1/xⁿ. Für x = 0 gibt es keinen Wert.'},
+ 'wurzelfunktion': {
+  'einstieg': 'Eine Maschine rechnet hoch 3: Aus 2 wird 8. Liegt nur die 8 vor, rechnet eine zweite Maschine rückwärts. Sie heißt ⟦Umkehrfunktion⟧.',
+  'woerter': [['Umkehrfunktion', 'die Funktion, die eine andere rückgängig macht'],
+              ['∛x', 'die dritte Wurzel, gleich x^(1/3)'],
+              ['x ≥ 0', 'nur Zahlen ohne Minus sind erlaubt']],
+  'bild': {'typ': 'koordinaten', 'x': [0, 8], 'y': [0, 8], 'graphen': [_G(3, 'y = x³', 1) | {'bereich': [0, 2]}],
+           'strecken': [[0, 0, 8, 8, 'gestrichelt']]},
+  'schritte': [{'text': 'f(x) = x³ für x ≥ 0. Gesucht ist x mit x³ = 8.'},
+               {'text': 'Rückwärts gedacht: Welche Zahl hoch 3 ergibt 8?'},
+               {'text': 'Das macht die Umkehrfunktion ∛x: ∛8 = ⟦2⟧, denn 2³ = 8.',
+                'bild': {'graphen': [_G(3, 'y = x³', 1) | {'bereich': [0, 2]}, _G(1 / 3, 'y = ∛x')],
+                         'punkte': [{'x': 2, 'y': 8, 'name': '2 → 8'}, {'x': 8, 'y': 2, 'name': '8 → 2'}]}},
+               {'text': 'Im Bild: ∛x ist x³, gespiegelt an der Linie y = x.'}],
+  'fehler': '„√x gibt es für alle x“ ist falsch. √(−4) gibt es nicht, denn keine Zahl mal sich selbst ergibt −4.',
+  'regel': 'Die ⟦Umkehrfunktion⟧ rechnet von y zurück auf x. √x und ∛x kehren x² und x³ für x ≥ 0 um.'},
+}
+umbau(ETAPPEN, UMBAU)
+# ---- UMBAU ENDE ----
 
 
 def kos(graphen, x=(-3, 3), y=(-4, 4), **extra):

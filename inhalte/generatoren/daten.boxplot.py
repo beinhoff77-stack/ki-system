@@ -626,6 +626,22 @@ def schwer():
     return N
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('daten.boxplot', 13_7_7)
+# a) nur längere Rechnung mit mehr Zahlen, kein anderer Gedanke
+for _t in ['Minuten Hausaufgaben von 8 Kindern: 3; 24; 20; 13; 15; 1; 6; 24. Berechne das arithmetische Mittel.',
+           'Gelesene Bücher im Jahr von 6 Kindern: 5; 19; 2; 2; 13; 25. Berechne das arithmetische Mittel.',
+           'Tore in der Saison von 10 Kindern: 14; 3; 20; 13; 16; 21; 7; 24; 22; 7. Berechne das arithmetische Mittel.']:
+    BF.stufe('kennwerte', _t, 2)
+# a) Lösung „beide fast gleich“ – eher Stufe 2
+BF.stufe('mittel_median', 'Wartezeiten an einer Kasse (min): 10; 10; 8; 9; 7; 10. Welcher Wert beschreibt die typische Mitte besser?', 2)
+BF.nicht_umgesetzt('vergleichen: Stufe 1 und 2 gleich gebaut („Welche Aussage ist richtig?“ zu zwei Boxplots)',
+                   'Lösungen richtig; Stufe 2 fragt zusätzlich nach Streuung und Gesamtvergleich. Ein einzelner falsch eingestufter Fall ist nicht benannt.')
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Kennwerte', ['median', 'kennwerte', 'mittel_median']), ('Quartile und Boxplot', ['quartile', 'boxplot']), ('Vergleichen', ['vergleichen'])],
@@ -634,3 +650,4 @@ if __name__ == '__main__':
           'Bei Ausreißern ist der Median aussagekräftiger als der Mittelwert.'],
          offen=['Quartile werden als Median der unteren bzw. oberen Hälfte bestimmt (bei ungerader Anzahl ohne den Median). Schulbücher verwenden teils andere Verfahren; bitte mit dem Buch des Kindes abgleichen.'])
     anhaengen(META['thema_schluessel'], schwer())
+    befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

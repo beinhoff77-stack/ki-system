@@ -1150,7 +1150,7 @@
    "l": "kennwerte",
    "t": "kennwerte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Minuten Hausaufgaben von 8 Kindern: 3; 24; 20; 13; 15; 1; 6; 24. Berechne das arithmetische Mittel."
@@ -1166,7 +1166,7 @@
    "l": "kennwerte",
    "t": "kennwerte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Gelesene Bücher im Jahr von 6 Kindern: 5; 19; 2; 2; 13; 25. Berechne das arithmetische Mittel."
@@ -1198,7 +1198,7 @@
    "l": "kennwerte",
    "t": "kennwerte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Tore in der Saison von 10 Kindern: 14; 3; 20; 13; 16; 21; 7; 24; 22; 7. Berechne das arithmetische Mittel."
@@ -1545,7 +1545,7 @@
    "l": "mittel_median",
    "t": "mittel_median",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Wartezeiten an einer Kasse (min): 10; 10; 8; 9; 7; 10. Welcher Wert beschreibt die typische Mitte besser?"

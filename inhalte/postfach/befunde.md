@@ -3,6 +3,11 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:43 – STATUS
+daten.boxplot fertig: umgestuft 4 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
+- nicht umgesetzt:
+  - vergleichen: Stufe 1 und 2 gleich gebaut („Welche Aussage ist richtig?“ zu zwei Boxplots) – Lösungen richtig; Stufe 2 fragt zusätzlich nach Streuung und Gesamtvergleich. Ein einzelner falsch eingestufter Fall ist nicht benannt.
+
+## 2026-11-16 05:43 – STATUS
 geometrie.kreis fertig: umgestuft 3 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
 
 ## 2026-11-16 05:43 – STATUS

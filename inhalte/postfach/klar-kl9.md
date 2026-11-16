@@ -17,3 +17,4 @@ Neueste Meldung oben.
   - abbildungen.aehnlichkeit: 168 Aufgaben, 0 Unterschiede, inhalt_pruefen OK
   - trigo.pythagoras: 168 Aufgaben, 0 Unterschiede, inhalt_pruefen OK
   - trigo.rechtwinklig: 168 Aufgaben, 0 Unterschiede, inhalt_pruefen OK
+  - trigo.allgemein: 196 Aufgaben, 0 Unterschiede, inhalt_pruefen OK

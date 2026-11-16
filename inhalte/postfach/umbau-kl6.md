@@ -3,6 +3,28 @@
 Technik: je Generator ein Abschnitt KARTEN (ersetzt den Abschnitt KLAR der Runde 7), eingesetzt über `inhalte/generatoren/_umbau_kl6.py` (dieselben strengen Regeln wie `_umbau_kl5.py` aus Paket U5) erst NACH dem Erzeugen der Aufgaben – die Aufgaben bleiben wörtlich gleich. `probe` entfällt bei umgebauten Karten. finanzen.zinsen (ohne Generator): Überlagerung `inhalte/klar/finanzen.zinsen.json`, mit denselben Regeln geprüft.
 Vergleich je Thema: `aufgaben`, titel/lernziel und alle Felder außer `inhalt.etappen` und `offen` gegen den Ausgangsstand bc7a754 (lernen-app).
 
+## 2026-11-16 03:07 – FERTIG – Abschlussbericht umbau-kl6 (Paket U6, Klasse 6)
+Alle 9 Themen (8 mit "gym_by": 6 plus finanzen.zinsen ohne Generator) auf das neue Muster umgebaut: einstieg ≤ 35 Wörter, woerter ≤ 3 (jedes im Text), Kartenbild, schritte als {text, bild} mit Bild je Bildänderung, fehler ≤ 30 Wörter (+ fehler_bild, wo sichtbar), regel mit Kurz-gesagt-Satz ≤ 12 Wörter, Sätze ≤ 15 Wörter, höchstens 2 Markierungen je Absatz, Brüche als a/b. probe entfällt.
+
+| Thema | Karten | Aufgaben (wörtlich gleich zu bc7a754) | inhalt_pruefen | Hinweise | fehler_bild |
+|---|---|---|---|---|---|
+| bruch.brueche | 8 | 224 ✓ | OK | 0 | 4 |
+| bruch.dezimal | 7 | 196 ✓ | OK | 0 | 3 |
+| bruch.prozent | 7 | 196 ✓ | OK | 0 | 1 |
+| bruch.rechnen | 10 | 280 ✓ | OK | 0 | 2 |
+| daten.darstellen | 6 | 168 ✓ | OK | 0 | 0 |
+| daten.kennwerte | 6 | 168 ✓ | OK | 0 | 0 |
+| terme.potenzgesetze | 7 | 196 ✓ | OK | 0 | 1 |
+| zahlen.potenzen_zehner | 7 | 196 ✓ | OK | 0 | 0 |
+| finanzen.zinsen (Überlagerung) | 8 | nur in der DB, unberührt | – (Regeln per _umbau_kl6.pruefe_karte) | 0 | 0 |
+
+Gesamt: 66 Karten, 1 624 Aufgaben wörtlich gleich; titel, lernziel und alle übrigen Felder (außer inhalt.etappen) unverändert, kein neuer offen-Eintrag.
+Technik: inhalte/generatoren/_umbau_kl6.py (Kopie der Prüfregeln aus _umbau_kl5.py); je Generator ersetzt ein Abschnitt KARTEN den Abschnitt KLAR der Runde 7 und wird erst nach dem Erzeugen der Aufgaben eingesetzt.
+Zeichnungen: nur vorhandene Arten (bruchstreifen, zahlenstrahl mit punkte/boegen/bereich, thermometer, stellentafel, tabelle, saeulen, kreisdiagramm, figur). Gezeichnete Raster/Hunderterfeld (figur) in bruch.brueche, bruch.prozent und bruch.rechnen durch Bruchstreifen ersetzt. Für Potenzen gibt es keine eigene Zeichnungsart; dort tragen Tabellen die Bildergeschichte.
+Bitte beim Abnehmen prüfen: (1) Tabelle mit 8 Spalten in terme.potenzgesetze/negativer_exponent auf dem Handy; (2) Bruchstreifen mit 100 Teilen (bruch.prozent/prozent_bedeutung, finanzen.zinsen/zinssatz) und 30 Teilen (bruch.brueche/anteil_bestimmen) auf Lesbarkeit; (3) beim Einspielen von finanzen.zinsen probe der DB-Karten leeren.
+Jede Karte einmal laut gelesen; alle Zahlen der Situationen nachgerechnet.
+Nicht angefasst: Datenbank, Serverfunktionen, App-Code, Tests, main. Merge offen – wartet auf Freigabe.
+
 ## 2026-11-16 03:06 – STATUS
 finanzen.zinsen (8 Karten, ohne Generator) umgebaut: Überlagerung inhalte/klar/finanzen.zinsen.json jetzt mit bild, schritte als Objekte {text, bild}, Pass-auf-Text, Kurz-gesagt-Merksatz. Geprüft mit _umbau_kl6.pruefe_karte (dieselben strengen Regeln wie die Generator-Themen) und gegen die Lernziele/Reihenfolge aus inhalte/klar/quelle.md. inhalt_pruefen gilt nur für Themen-Dateien und lässt sich hier nicht anwenden.
 Kartenbilder (alle neu, quelle.md nennt für dieses Thema keine): Säulen 2 000 € → 2 060 €, Tabelle Kredit/Sparkonto/Spardose, Bruchstreifen in Prozent-Teilen (4 % von 800 €, 2,5 % von 1 800 €, 3 % von 600 €, 4 % = 36 € → 900 €, 3 von 12 Monaten, halbes Jahr/Vierteljahr).

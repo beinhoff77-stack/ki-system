@@ -1,0 +1,5246 @@
+{
+ "thema_schluessel": "terme.umformen",
+ "thema_id": 29,
+ "block_id": 62,
+ "klasse": {
+  "gym_by": 7
+ },
+ "autor": "Claude (Runde 9, Generator terme_umformen.py)",
+ "inhalt": {
+  "ziel": "Terme vereinfachen: gleichartige Glieder zusammenfassen, Produkte vereinfachen, Klammern auflösen und ausmultiplizieren, ausklammern, Äquivalenz prüfen und die binomischen Formeln anwenden.",
+  "merke": [
+   "Nur gleichartige Glieder zusammenfassen.",
+   "Minus vor der Klammer: jedes Vorzeichen darin wechselt.",
+   "Ausmultiplizieren: Der Faktor kommt zu jedem Glied.",
+   "Summe mal Summe: jedes Glied mal jedes Glied.",
+   "(a + b)² = a² + 2ab + b², (a − b)² = a² − 2ab + b², (a + b)(a − b) = a² − b²."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Zusammenfassen und multiplizieren",
+    "lernziele": [
+     "zusammenfassen",
+     "produkte"
+    ]
+   },
+   {
+    "titel": "Klammern auflösen",
+    "lernziele": [
+     "minusklammer",
+     "ausmultiplizieren",
+     "summe_mal_summe"
+    ]
+   },
+   {
+    "titel": "Ausklammern und vergleichen",
+    "lernziele": [
+     "ausklammern",
+     "aequivalenz",
+     "binomisch"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "zusammenfassen",
+    "titel": "Gleichartige Glieder zusammenfassen",
+    "einstieg": "Im Korb liegen 3 Hefte und 5 Stifte. Du legst 1 Heft zurück und nimmst 2 Stifte dazu. Jetzt sind es 2 Hefte und 7 Stifte. Man zählt ⟦gleichartige Glieder⟧ zusammen.",
+    "woerter": [
+     [
+      "Term",
+      "Rechenausdruck mit Zahlen und Variablen, z. B. 3x + 5y"
+     ],
+     [
+      "Glied",
+      "ein Teil des Terms mit seinem Vorzeichen, z. B. −x"
+     ],
+     [
+      "gleichartige Glieder",
+      "Glieder mit demselben Buchstabenteil, z. B. 3x und −x"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Hefte (x)",
+      "Stifte (y)"
+     ],
+     "zeilen": [
+      [
+       "Glieder",
+       "?",
+       "?"
+      ]
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Der Term 3x + 5y − x + 2y hat vier Glieder."
+     },
+     {
+      "text": "Sortieren: ⟦3x − x⟧ + 5y + 2y. Jedes Vorzeichen wandert mit.",
+      "bild": {
+       "zeilen": [
+        [
+         "Glieder",
+         "3x und −x",
+         "+5y und +2y"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "−x heißt −1x. Also 3x − 1x = 2x und 5y + 2y = 7y.",
+      "bild": {
+       "zeilen": [
+        [
+         "Glieder",
+         "3x und −x",
+         "+5y und +2y"
+        ],
+        [
+         "zusammen",
+         "2x",
+         "7y"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Ergebnis: ⟦2x + 7y⟧."
+     }
+    ],
+    "fehler": "3x + 5y ist nicht 8xy. 3 Hefte und 5 Stifte sind keine 8 „Heftstifte“. x und y sind ⟦verschieden⟧, der Term bleibt so.",
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "x = 2, y = 1",
+      "3x + 5y",
+      "8xy"
+     ],
+     "zeilen": [
+      [
+       "Wert",
+       "11",
+       "16"
+      ]
+     ]
+    },
+    "regel": "Nur ⟦gleichartige Glieder⟧ zusammenfassen. Die Zahlen davor werden addiert, der Buchstabenteil bleibt."
+   },
+   {
+    "lernziel": "produkte",
+    "titel": "Produkte vereinfachen",
+    "einstieg": "Ein Beet ist 3 Steine lang und 2 Steine breit. Ein Stein ist a Meter lang. Die Fläche ist 3a · 2a. So eine Malrechnung heißt ⟦Produkt⟧.",
+    "woerter": [
+     [
+      "Produkt",
+      "eine Malaufgabe oder ihr Ergebnis"
+     ],
+     [
+      "a²",
+      "kurz für a · a, gelesen „a Quadrat“"
+     ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "label": "Beet 3a lang und 2a breit",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       6,
+       0
+      ],
+      "_C": [
+       6,
+       4
+      ],
+      "_D": [
+       0,
+       4
+      ],
+      "_E": [
+       2,
+       0
+      ],
+      "_F": [
+       4,
+       0
+      ],
+      "_G": [
+       2,
+       4
+      ],
+      "_H": [
+       4,
+       4
+      ],
+      "_I": [
+       0,
+       2
+      ],
+      "_J": [
+       6,
+       2
+      ]
+     },
+     "flaeche": [
+      "_A",
+      "_B",
+      "_C",
+      "_D"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       "3a"
+      ],
+      [
+       "_B",
+       "_C"
+      ],
+      [
+       "_C",
+       "_D"
+      ],
+      [
+       "_D",
+       "_A",
+       "2a"
+      ]
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Ordnen: ⟦3 · 2⟧ · a · a. Beim Malnehmen darf man tauschen."
+     },
+     {
+      "text": "3 · 2 = 6 und a · a = a²: zusammen 6a².",
+      "bild": {
+       "label": "Beet 3a lang und 2a breit, geteilt in 6 Quadrate mit je a²",
+       "linien": [
+        [
+         "_A",
+         "_B",
+         "3a"
+        ],
+        [
+         "_B",
+         "_C"
+        ],
+        [
+         "_C",
+         "_D"
+        ],
+        [
+         "_D",
+         "_A",
+         "2a"
+        ],
+        [
+         "_E",
+         "_G",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_F",
+         "_H",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_I",
+         "_J",
+         "",
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Mit Minus: 3a · (−2a). Plus mal minus ergibt minus."
+     },
+     {
+      "text": "Also 3a · (−2a) = ⟦−6a²⟧."
+     }
+    ],
+    "fehler": "3a · 2a ist nicht 6a. Das a kommt zweimal als Faktor vor: a · a = ⟦a²⟧. Eine Fläche ist keine Länge.",
+    "regel": "Zahlen malnehmen, gleiche Variablen werden zur ⟦Potenz⟧. Plus mal minus ist minus, minus mal minus ist plus."
+   },
+   {
+    "lernziel": "minusklammer",
+    "titel": "Minus vor der Klammer",
+    "einstieg": "Auf deinem Konto sind 5x €. Eine Rechnung kostet 2x €, abzüglich 3 € Rabatt. Abgebucht werden also (2x − 3) €. Es bleiben 5x − (2x − 3) €: eine ⟦Minusklammer⟧.",
+    "woerter": [
+     [
+      "Minusklammer",
+      "eine Klammer mit einem Minus direkt davor"
+     ],
+     [
+      "Vorzeichen",
+      "das + oder − vor einem Glied"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Glied in der Klammer",
+      "nach dem Auflösen"
+     ],
+     "zeilen": [
+      [
+       "+2x",
+       "?"
+      ],
+      [
+       "−3",
+       "?"
+      ]
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Vor der Klammer steht ein Minus. Die ganze Klammer wird abgezogen."
+     },
+     {
+      "text": "Jedes Vorzeichen in der Klammer wechselt: 5x ⟦− 2x + 3⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "+2x",
+         "−2x"
+        ],
+        [
+         "−3",
+         "+3"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Zusammenfassen: 5x − 2x = 3x. Ergebnis: ⟦3x + 3⟧."
+     }
+    ],
+    "fehler": "Nur das erste Vorzeichen wechseln ist falsch: 5x − 2x − 3. Der Rabatt bleibt dir, also kommen 3 € ⟦dazu⟧.",
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "x = 1",
+      "5x − (2x − 3)",
+      "3x − 3",
+      "3x + 3"
+     ],
+     "zeilen": [
+      [
+       "Wert",
+       "6",
+       "0",
+       "6"
+      ]
+     ]
+    },
+    "regel": "Minus vor der Klammer: ⟦jedes Vorzeichen wechselt⟧. Dann Klammer weglassen und zusammenfassen."
+   },
+   {
+    "lernziel": "ausmultiplizieren",
+    "titel": "Ausmultiplizieren",
+    "einstieg": "Du packst 3 gleiche Tüten. In jede kommen ein Brötchen für x € und ein Getränk für 2 €. Zusammen kostet das 3(x + 2) = 3x + 6. Das heißt ⟦ausmultiplizieren⟧.",
+    "woerter": [
+     [
+      "Faktor",
+      "Zahl oder Term, mit dem malgenommen wird"
+     ],
+     [
+      "ausmultiplizieren",
+      "den Faktor vor der Klammer mit jedem Glied darin malnehmen"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "·",
+      "x",
+      "+2"
+     ],
+     "zeilen": [
+      [
+       "3",
+       "3x",
+       "+6"
+      ]
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Bei −2(3x − 4) ist −2 der Faktor vor der Klammer.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "·",
+        "3x",
+        "−4"
+       ],
+       "zeilen": [
+        [
+         "−2",
+         "?",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Erstes Glied: (−2) · 3x = −6x.",
+      "bild": {
+       "zeilen": [
+        [
+         "−2",
+         "−6x",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Zweites Glied: (−2) · (−4) = ⟦+8⟧. Minus mal minus ergibt plus.",
+      "bild": {
+       "zeilen": [
+        [
+         "−2",
+         "−6x",
+         "+8"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Ergebnis: −2(3x − 4) = ⟦−6x + 8⟧."
+     }
+    ],
+    "fehler": "3(x + 2) ist nicht 3x + 2. Sonst hätten 3 Tüten zusammen nur ein Getränk. Richtig ist ⟦3x + 6⟧.",
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "x = 1",
+      "3(x + 2)",
+      "3x + 2",
+      "3x + 6"
+     ],
+     "zeilen": [
+      [
+       "Wert",
+       "9",
+       "5",
+       "9"
+      ]
+     ]
+    },
+    "regel": "Faktor ⟦mit jedem Glied⟧ malnehmen, samt Vorzeichen. Danach zusammenfassen, wenn möglich."
+   },
+   {
+    "lernziel": "summe_mal_summe",
+    "titel": "Summe mal Summe",
+    "einstieg": "Ein quadratischer Garten hat x Meter Seitenlänge. Er wird 3 m länger und 2 m schmaler. Die neue Fläche ist (x + 3)(x − 2). Das ist ⟦Summe mal Summe⟧.",
+    "woerter": [
+     [
+      "Summe",
+      "Plusaufgabe; auch x − 2 ist eine, denn x − 2 = x + (−2)"
+     ],
+     [
+      "x²",
+      "kurz für x · x"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "·",
+      "x",
+      "−2"
+     ],
+     "zeilen": [
+      [
+       "x",
+       "?",
+       "?"
+      ],
+      [
+       "+3",
+       "?",
+       "?"
+      ]
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Jedes Glied der ersten Klammer mal jedes Glied der zweiten."
+     },
+     {
+      "text": "Erste Zeile: x · x = x² und x · (−2) = −2x.",
+      "bild": {
+       "zeilen": [
+        [
+         "x",
+         "x²",
+         "−2x"
+        ],
+        [
+         "+3",
+         "?",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Zweite Zeile: 3 · x = 3x und 3 · (−2) = −6.",
+      "bild": {
+       "zeilen": [
+        [
+         "x",
+         "x²",
+         "−2x"
+        ],
+        [
+         "+3",
+         "+3x",
+         "−6"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Zusammen: x² ⟦− 2x + 3x⟧ − 6 = ⟦x² + x − 6⟧."
+     }
+    ],
+    "fehler": "(x + 3)(x − 2) ist nicht x² − 6. Für x = 4 ist der Garten 7 m mal 2 m: 14 m². x² − 6 ergibt nur ⟦10⟧.",
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "x = 4",
+      "(x + 3)(x − 2)",
+      "x² − 6",
+      "x² + x − 6"
+     ],
+     "zeilen": [
+      [
+       "Wert",
+       "14",
+       "10",
+       "14"
+      ]
+     ]
+    },
+    "regel": "⟦Jedes Glied mal jedes Glied⟧, dann zusammenfassen. Bei 2 und 2 Gliedern sind das 4 Produkte."
+   },
+   {
+    "lernziel": "ausklammern",
+    "titel": "Gemeinsamen Faktor ausklammern",
+    "einstieg": "Auf einem Kassenzettel steht 6x + 12. Das können 6 Tüten sein. Jede hat ein Brötchen (x €) und ein Getränk (2 €): 6(x + 2). Das ist ⟦ausklammern⟧: Ausmultiplizieren rückwärts.",
+    "woerter": [
+     [
+      "gemeinsamer Faktor",
+      "ein Faktor, der in jedem Glied steckt"
+     ],
+     [
+      "ausklammern",
+      "den gemeinsamen Faktor vor die Klammer holen"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "·",
+      "?",
+      "?"
+     ],
+     "zeilen": [
+      [
+       "?",
+       "12x²",
+       "+4x"
+      ]
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Zerlegen: 12x² = 4x · 3x und 4x = 4x · 1."
+     },
+     {
+      "text": "Gemeinsamer Faktor in beiden Gliedern: ⟦4x⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "·",
+        "3x",
+        "+1"
+       ],
+       "zeilen": [
+        [
+         "4x",
+         "12x²",
+         "+4x"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Ergebnis: 12x² + 4x = ⟦4x(3x + 1)⟧."
+     }
+    ],
+    "fehler": "Bleibt von einem Glied nichts übrig, steht in der Klammer ⟦1⟧. Denn 4x · 1 = 4x, aber 4x · 0 = 0. 2x(6x + 2) ist nicht vollständig ausgeklammert.",
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "x = 1",
+      "12x² + 4x",
+      "4x(3x + 0)",
+      "4x(3x + 1)"
+     ],
+     "zeilen": [
+      [
+       "Wert",
+       "16",
+       "12",
+       "16"
+      ]
+     ]
+    },
+    "regel": "Den ⟦größten gemeinsamen Faktor⟧ vor die Klammer holen. Prüfe durch Ausmultiplizieren."
+   },
+   {
+    "lernziel": "aequivalenz",
+    "titel": "Äquivalente Terme",
+    "einstieg": "Zwei Tüten mit Brötchen (x €) und Getränk (3 €) kosten 2(x + 3). Kasse A tippt 2x + 6, Kasse B 2x + 3. Welche Kasse ist bei jedem Preis richtig, also ⟦äquivalent⟧?",
+    "woerter": [
+     [
+      "äquivalent",
+      "für jede eingesetzte Zahl gleich viel"
+     ],
+     [
+      "Gegenbeispiel",
+      "eine Zahl, bei der es nicht passt"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "2(x + 3)",
+      "2x + 6",
+      "2x + 3"
+     ],
+     "zeilen": [
+      [
+       "0",
+       "?",
+       "?",
+       "?"
+      ]
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Ausmultipliziert ist 2(x + 3) = 2x + 6. Kasse A stimmt immer."
+     },
+     {
+      "text": "Für Kasse B setze x = 0 ein."
+     },
+     {
+      "text": "2 · (0 + 3) = ⟦6⟧, aber 2 · 0 + 3 = ⟦3⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "0",
+         "6",
+         "6",
+         "3"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "x = 0 ist ein Gegenbeispiel: 2x + 3 ist ⟦nicht äquivalent⟧."
+     }
+    ],
+    "fehler": "Eine passende Zahl beweist nichts. Bei x = 2 ergeben 2x und x + 2 beide 4. Bei x = 3 aber 6 und 5. Ein ⟦Gegenbeispiel⟧ widerlegt.",
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "2x",
+      "x + 2"
+     ],
+     "zeilen": [
+      [
+       "2",
+       "4",
+       "4"
+      ],
+      [
+       "3",
+       "6",
+       "5"
+      ]
+     ]
+    },
+    "regel": "⟦Äquivalent⟧ heißt: bei jeder Zahl gleich. Für „nicht äquivalent“ reicht ein Gegenbeispiel."
+   },
+   {
+    "lernziel": "binomisch",
+    "titel": "Binomische Formeln",
+    "einstieg": "Ein quadratisches Beet mit Seite x wird auf zwei Seiten um 4 m verlängert. Die neue Fläche ist (x + 4)². Dafür gibt es Abkürzungen: die ⟦binomischen Formeln⟧.",
+    "woerter": [
+     [
+      "(x + 4)²",
+      "kurz für (x + 4) · (x + 4)"
+     ],
+     [
+      "Mittelglied",
+      "das Glied in der Mitte, z. B. 8x"
+     ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "label": "Quadrat mit Seite x + 4, geteilt in x², zwei Streifen mit je 4x und ein kleines Quadrat 16",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_E": [
+       4,
+       0
+      ],
+      "_B": [
+       6,
+       0
+      ],
+      "_H": [
+       6,
+       4
+      ],
+      "_C": [
+       6,
+       6
+      ],
+      "_F": [
+       4,
+       6
+      ],
+      "_D": [
+       0,
+       6
+      ],
+      "_G": [
+       0,
+       4
+      ]
+     },
+     "flaeche": [
+      "_A",
+      "_B",
+      "_C",
+      "_D"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_E",
+       "x"
+      ],
+      [
+       "_E",
+       "_B",
+       "4"
+      ],
+      [
+       "_B",
+       "_H"
+      ],
+      [
+       "_H",
+       "_C"
+      ],
+      [
+       "_C",
+       "_F"
+      ],
+      [
+       "_F",
+       "_D"
+      ],
+      [
+       "_D",
+       "_G",
+       "4"
+      ],
+      [
+       "_G",
+       "_A",
+       "x"
+      ],
+      [
+       "_E",
+       "_F",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_G",
+       "_H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Die Fläche besteht aus x², zwei Streifen mit je 4x und 16."
+     },
+     {
+      "text": "Also (x + 4)² = x² + ⟦8x⟧ + 16. 8x ist das Mittelglied."
+     },
+     {
+      "text": "Genauso: (x − 3)² = x² ⟦− 6x⟧ + 9.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "·",
+        "x",
+        "−3"
+       ],
+       "zeilen": [
+        [
+         "x",
+         "x²",
+         "−3x"
+        ],
+        [
+         "−3",
+         "−3x",
+         "+9"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "(x + 6)(x − 6) = x² − 36: Das Mittelglied ⟦fällt weg⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "·",
+        "x",
+        "−6"
+       ],
+       "zeilen": [
+        [
+         "x",
+         "x²",
+         "−6x"
+        ],
+        [
+         "+6",
+         "+6x",
+         "−36"
+        ]
+       ]
+      }
+     }
+    ],
+    "fehler": "(x + 4)² ist nicht x² + 16: Die ⟦zwei Streifen⟧ fehlen. Mit x = 1: (1 + 4)² = 25, aber 1 + 16 = 17.",
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "x = 1",
+      "(x + 4)²",
+      "x² + 16",
+      "x² + 8x + 16"
+     ],
+     "zeilen": [
+      [
+       "Wert",
+       "25",
+       "17",
+       "25"
+      ]
+     ]
+    },
+    "regel": "Das ⟦Mittelglied 2ab⟧ nie vergessen. (a + b)² = a² + 2ab + b². (a + b)(a − b) = a² − b²."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "zusammenfassen",
+    "text": "Gleichartige Glieder zusammenfassen",
+    "lernziele": [
+     "zusammenfassen"
+    ]
+   },
+   {
+    "k": "produkte",
+    "text": "Produkte vereinfachen",
+    "lernziele": [
+     "produkte"
+    ]
+   },
+   {
+    "k": "minusklammer",
+    "text": "Minus vor der Klammer",
+    "lernziele": [
+     "minusklammer"
+    ]
+   },
+   {
+    "k": "ausmultiplizieren",
+    "text": "Ausmultiplizieren",
+    "lernziele": [
+     "ausmultiplizieren"
+    ]
+   },
+   {
+    "k": "summe_mal_summe",
+    "text": "Summe mal Summe",
+    "lernziele": [
+     "summe_mal_summe"
+    ]
+   },
+   {
+    "k": "ausklammern",
+    "text": "Gemeinsamen Faktor ausklammern",
+    "lernziele": [
+     "ausklammern"
+    ]
+   },
+   {
+    "k": "aequivalenz",
+    "text": "Äquivalente Terme",
+    "lernziele": [
+     "aequivalenz"
+    ]
+   },
+   {
+    "k": "binomisch",
+    "text": "Binomische Formeln",
+    "lernziele": [
+     "binomisch"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "zusammenfassen",
+    "produkte",
+    "minusklammer",
+    "ausmultiplizieren",
+    "summe_mal_summe",
+    "ausklammern",
+    "aequivalenz",
+    "binomisch"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Überlagerung inhalte/klar (Runde 7b/8), unverändert übernommen.",
+   "aufgaben": "Vom Generator erzeugt und berechnet (Runde 9).",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Gymnasium)."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: 9x + 7y − 6x − 6y",
+    "schablone": "□x + □y",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 2y."
+   },
+   "o": {
+    "werte": [
+     3,
+     1
+    ]
+   },
+   "c": [
+    "9 + (-6)",
+    "7 + (-6)"
+   ],
+   "w": "x-Glieder: 9x − 6x = 3x. y-Glieder: 7y − 6y = y. Ergebnis: 3x + y.",
+   "h": "Sortiere zuerst: alle x-Glieder zusammen, alle y-Glieder zusammen. Das Vorzeichen gehört zum Glied."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: 7x + 6y + 6x + 2y",
+    "schablone": "□x + □y",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 2y."
+   },
+   "o": {
+    "werte": [
+     13,
+     8
+    ]
+   },
+   "c": [
+    "7 + (6)",
+    "6 + (2)"
+   ],
+   "w": "x-Glieder: 7x + 6x = 13x. y-Glieder: 6y + 2y = 8y. Ergebnis: 13x + 8y.",
+   "h": "Sortiere zuerst: alle x-Glieder zusammen, alle y-Glieder zusammen. Das Vorzeichen gehört zum Glied."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: 5x + 3y − 6x − y",
+    "schablone": "□x + □y",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 2y."
+   },
+   "o": {
+    "werte": [
+     -1,
+     2
+    ]
+   },
+   "c": [
+    "5 + (-6)",
+    "3 + (-1)"
+   ],
+   "w": "x-Glieder: 5x − 6x = −x. y-Glieder: 3y − y = 2y. Ergebnis: −x + 2y.",
+   "h": "Sortiere zuerst: alle x-Glieder zusammen, alle y-Glieder zusammen. Das Vorzeichen gehört zum Glied."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: 9x + 4y − 3x + 4y",
+    "schablone": "□x + □y",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 2y."
+   },
+   "o": {
+    "werte": [
+     6,
+     8
+    ]
+   },
+   "c": [
+    "9 + (-3)",
+    "4 + (4)"
+   ],
+   "w": "x-Glieder: 9x − 3x = 6x. y-Glieder: 4y + 4y = 8y. Ergebnis: 6x + 8y.",
+   "h": "Sortiere zuerst: alle x-Glieder zusammen, alle y-Glieder zusammen. Das Vorzeichen gehört zum Glied."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: 3x² + 3x + 3x² + 8 − 5x",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 2y."
+   },
+   "o": {
+    "werte": [
+     6,
+     -2,
+     8
+    ]
+   },
+   "c": [
+    "3 + (3)",
+    "3 + (-5)",
+    "8"
+   ],
+   "w": "x² und x sind verschieden. x²-Glieder: 6x², x-Glieder: −2x, Zahl: 8. Ergebnis: 6x² − 2x + 8.",
+   "h": "x² und x sind nicht gleichartig. Ordne nach x², x und Zahlen."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: 3x² − 2x − 5x² − 7 − x",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 2y."
+   },
+   "o": {
+    "werte": [
+     -2,
+     -3,
+     -7
+    ]
+   },
+   "c": [
+    "3 + (-5)",
+    "-2 + (-1)",
+    "-7"
+   ],
+   "w": "x² und x sind verschieden. x²-Glieder: −2x², x-Glieder: −3x, Zahl: −7. Ergebnis: −2x² − 3x − 7.",
+   "h": "x² und x sind nicht gleichartig. Ordne nach x², x und Zahlen."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: 9a − 6 + 3a + 10",
+    "schablone": "□a + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3a − 2."
+   },
+   "o": {
+    "werte": [
+     12,
+     4
+    ]
+   },
+   "c": [
+    "9 + (3)",
+    "-6 + (10)"
+   ],
+   "w": "a-Glieder: 12a. Zahlen: −6 + 10 = 4. Ergebnis: 12a + 4.",
+   "h": "Zahlen ohne Buchstaben sind untereinander gleichartig. Fasse sie extra zusammen."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: −2x² − x − x² + 8 + 3x",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 2y."
+   },
+   "o": {
+    "werte": [
+     -3,
+     2,
+     8
+    ]
+   },
+   "c": [
+    "-2 + (-1)",
+    "-1 + (3)",
+    "8"
+   ],
+   "w": "x² und x sind verschieden. x²-Glieder: −3x², x-Glieder: 2x, Zahl: 8. Ergebnis: −3x² + 2x + 8.",
+   "h": "x² und x sind nicht gleichartig. Ordne nach x², x und Zahlen."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: 6a + 7 − 5a + 2",
+    "schablone": "□a + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3a − 2."
+   },
+   "o": {
+    "werte": [
+     1,
+     9
+    ]
+   },
+   "c": [
+    "6 + (-5)",
+    "7 + (2)"
+   ],
+   "w": "a-Glieder: a. Zahlen: 7 + 2 = 9. Ergebnis: a + 9.",
+   "h": "Zahlen ohne Buchstaben sind untereinander gleichartig. Fasse sie extra zusammen."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term ist gleichwertig zu 7x − 5x + 8?"
+   },
+   "a": [
+    "12x + 8",
+    "2x + 8",
+    "10x",
+    "2x − 8"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Das Minus gehört zu 5x: 7x − 5x = 2x. Die Zahl 8 bleibt einzeln stehen: 2x + 8.",
+   "h": "Das Vorzeichen vor einem Glied wandert mit ihm."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet: 3x + 9y = 12xy. Was stimmt?"
+   },
+   "a": [
+    "Richtig: 3 + 9 = 12.",
+    "Falsch: Es muss 27xy heißen.",
+    "Falsch: Es muss 12x heißen.",
+    "Falsch: x und y sind verschieden, 3x + 9y bleibt stehen."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Nur gleichartige Glieder darf man zusammenfassen. 3x und 9y haben verschiedene Buchstaben. Probe mit x = 1, y = 1: 12 gegen 12, aber x = 2, y = 1: 15 gegen 24.",
+   "h": "Haben beide Glieder denselben Buchstabenteil?"
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Rechteck ist 3x lang und 9y breit. Gib den Umfang als Term an.",
+    "schablone": "□x + □y",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 2y."
+   },
+   "o": {
+    "werte": [
+     6,
+     18
+    ]
+   },
+   "c": [
+    "2 * 3",
+    "2 * 9"
+   ],
+   "w": "Umfang = 3x + 9y + 3x + 9y = 6x + 18y. x und y bleiben getrennt.",
+   "h": "Der Umfang ist die Länge rundherum: jede Seite zweimal."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet: 6x + 9y = 15xy. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Es muss 54xy heißen.",
+    "Richtig: 6 + 9 = 15.",
+    "Falsch: x und y sind verschieden, 6x + 9y bleibt stehen.",
+    "Falsch: Es muss 15x heißen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nur gleichartige Glieder darf man zusammenfassen. 6x und 9y haben verschiedene Buchstaben. Probe mit x = 1, y = 1: 15 gegen 15, aber x = 2, y = 1: 21 gegen 30.",
+   "h": "Haben beide Glieder denselben Buchstabenteil?"
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: 3a + 7 − 7a − 6",
+    "schablone": "□a + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3a − 2."
+   },
+   "o": {
+    "werte": [
+     -4,
+     1
+    ]
+   },
+   "c": [
+    "3 + (-7)",
+    "7 + (-6)"
+   ],
+   "w": "a-Glieder: −4a. Zahlen: 7 − 6 = 1. Ergebnis: −4a + 1."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: −x² − x − x² + 8 − 3x",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 2y."
+   },
+   "o": {
+    "werte": [
+     -2,
+     -4,
+     8
+    ]
+   },
+   "c": [
+    "-1 + (-1)",
+    "-1 + (-3)",
+    "8"
+   ],
+   "w": "x² und x sind verschieden. x²-Glieder: −2x², x-Glieder: −4x, Zahl: 8. Ergebnis: −2x² − 4x + 8."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: 2x² + 7x − 5x² − 7 + 2x",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 2y."
+   },
+   "o": {
+    "werte": [
+     -3,
+     9,
+     -7
+    ]
+   },
+   "c": [
+    "2 + (-5)",
+    "7 + (2)",
+    "-7"
+   ],
+   "w": "x² und x sind verschieden. x²-Glieder: −3x², x-Glieder: 9x, Zahl: −7. Ergebnis: −3x² + 9x − 7."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: −3x² + 7x − 5x² + 4 − 5x",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 2y."
+   },
+   "o": {
+    "werte": [
+     -8,
+     2,
+     4
+    ]
+   },
+   "c": [
+    "-3 + (-5)",
+    "7 + (-5)",
+    "4"
+   ],
+   "w": "x² und x sind verschieden. x²-Glieder: −8x², x-Glieder: 2x, Zahl: 4. Ergebnis: −8x² + 2x + 4."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: 4x² − 7x − 6x² − 2 + 6x",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 2y."
+   },
+   "o": {
+    "werte": [
+     -2,
+     -1,
+     -2
+    ]
+   },
+   "c": [
+    "4 + (-6)",
+    "-7 + (6)",
+    "-2"
+   ],
+   "w": "x² und x sind verschieden. x²-Glieder: −2x², x-Glieder: −x, Zahl: −2. Ergebnis: −2x² − x − 2."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: 5a − 2 − 8a + 11",
+    "schablone": "□a + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3a − 2."
+   },
+   "o": {
+    "werte": [
+     -3,
+     9
+    ]
+   },
+   "c": [
+    "5 + (-8)",
+    "-2 + (11)"
+   ],
+   "w": "a-Glieder: −3a. Zahlen: −2 + 11 = 9. Ergebnis: −3a + 9."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: 10a − 8 − 7a + 3",
+    "schablone": "□a + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3a − 2."
+   },
+   "o": {
+    "werte": [
+     3,
+     -5
+    ]
+   },
+   "c": [
+    "10 + (-7)",
+    "-8 + (3)"
+   ],
+   "w": "a-Glieder: 3a. Zahlen: −8 + 3 = −5. Ergebnis: 3a − 5."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: −4x² + 7x + 2x² + 6 + x",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 2y."
+   },
+   "o": {
+    "werte": [
+     -2,
+     8,
+     6
+    ]
+   },
+   "c": [
+    "-4 + (2)",
+    "7 + (1)",
+    "6"
+   ],
+   "w": "x² und x sind verschieden. x²-Glieder: −2x², x-Glieder: 8x, Zahl: 6. Ergebnis: −2x² + 8x + 6."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: 6x² + 6x + 4x² + 3 + 5x",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 2y."
+   },
+   "o": {
+    "werte": [
+     10,
+     11,
+     3
+    ]
+   },
+   "c": [
+    "6 + (4)",
+    "6 + (5)",
+    "3"
+   ],
+   "w": "x² und x sind verschieden. x²-Glieder: 10x², x-Glieder: 11x, Zahl: 3. Ergebnis: 10x² + 11x + 3."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: 3a + 12 − 9a − 14",
+    "schablone": "□a + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3a − 2."
+   },
+   "o": {
+    "werte": [
+     -6,
+     -2
+    ]
+   },
+   "c": [
+    "3 + (-9)",
+    "12 + (-14)"
+   ],
+   "w": "a-Glieder: −6a. Zahlen: 12 − 14 = −2. Ergebnis: −6a − 2."
+  },
+  {
+   "l": "produkte",
+   "t": "produkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Vereinfache: 2x · 5y",
+    "schablone": "□xy",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 12xy."
+   },
+   "o": {
+    "werte": [
+     10
+    ]
+   },
+   "c": [
+    "2 * 5"
+   ],
+   "w": "Zahlen malnehmen: 2 · 5 = 10. Buchstaben dahinter: xy. Ergebnis: 10xy.",
+   "h": "Erst die Zahlen malnehmen, dann die Buchstaben dahinterschreiben."
+  },
+  {
+   "l": "produkte",
+   "t": "produkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Vereinfache: 7x · 9y",
+    "schablone": "□xy",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 12xy."
+   },
+   "o": {
+    "werte": [
+     63
+    ]
+   },
+   "c": [
+    "7 * 9"
+   ],
+   "w": "Zahlen malnehmen: 7 · 9 = 63. Buchstaben dahinter: xy. Ergebnis: 63xy.",
+   "h": "Erst die Zahlen malnehmen, dann die Buchstaben dahinterschreiben."
+  },
+  {
+   "l": "produkte",
+   "t": "produkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Vereinfache: 9x · 9y",
+    "schablone": "□xy",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 12xy."
+   },
+   "o": {
+    "werte": [
+     81
+    ]
+   },
+   "c": [
+    "9 * 9"
+   ],
+   "w": "Zahlen malnehmen: 9 · 9 = 81. Buchstaben dahinter: xy. Ergebnis: 81xy.",
+   "h": "Erst die Zahlen malnehmen, dann die Buchstaben dahinterschreiben."
+  },
+  {
+   "l": "produkte",
+   "t": "produkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Vereinfache: 8a · 3a",
+    "schablone": "□a²",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 6a²."
+   },
+   "o": {
+    "werte": [
+     24
+    ]
+   },
+   "c": [
+    "8 * 3"
+   ],
+   "w": "8 · 3 = 24 und a · a = a². Ergebnis: 24a².",
+   "h": "Gleiche Buchstaben werden zur Potenz: a · a = a²."
+  },
+  {
+   "l": "produkte",
+   "t": "produkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Vereinfache: 2x · (−3x)",
+    "schablone": "□x²",
+    "hinweis": "Tippe den ganzen Term ein, z. B. −6x²."
+   },
+   "o": {
+    "werte": [
+     -6
+    ]
+   },
+   "c": [
+    "(2) * (-3)"
+   ],
+   "w": "2 · (−3) = −6, x · x = x². Plus mal minus ergibt minus. Ergebnis: −6x².",
+   "h": "Bestimme zuerst das Vorzeichen, dann die Zahl, dann den Buchstabenteil."
+  },
+  {
+   "l": "produkte",
+   "t": "produkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Vereinfache: (−9x) · 8x",
+    "schablone": "□x²",
+    "hinweis": "Tippe den ganzen Term ein, z. B. −6x²."
+   },
+   "o": {
+    "werte": [
+     -72
+    ]
+   },
+   "c": [
+    "(-9) * (8)"
+   ],
+   "w": "(−9) · 8 = −72, x · x = x². Plus mal minus ergibt minus. Ergebnis: −72x².",
+   "h": "Bestimme zuerst das Vorzeichen, dann die Zahl, dann den Buchstabenteil."
+  },
+  {
+   "l": "produkte",
+   "t": "produkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Vereinfache: 2x · (−4x)",
+    "schablone": "□x²",
+    "hinweis": "Tippe den ganzen Term ein, z. B. −6x²."
+   },
+   "o": {
+    "werte": [
+     -8
+    ]
+   },
+   "c": [
+    "(2) * (-4)"
+   ],
+   "w": "2 · (−4) = −8, x · x = x². Plus mal minus ergibt minus. Ergebnis: −8x².",
+   "h": "Bestimme zuerst das Vorzeichen, dann die Zahl, dann den Buchstabenteil."
+  },
+  {
+   "l": "produkte",
+   "t": "produkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Vereinfache: 6a · (−3) · (−4b)",
+    "schablone": "□ab",
+    "hinweis": "Tippe den ganzen Term ein, z. B. −24ab."
+   },
+   "o": {
+    "werte": [
+     72
+    ]
+   },
+   "c": [
+    "(6) * (-3) * (-4)"
+   ],
+   "w": "Zahlen: 6 · (−3) · (−4) = 72. Buchstaben: ab. Ergebnis: 72ab.",
+   "h": "Zähle die Minuszeichen: gerade Anzahl ergibt plus, ungerade minus."
+  },
+  {
+   "l": "produkte",
+   "t": "produkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Vereinfache: (−3a) · 3 · 4b",
+    "schablone": "□ab",
+    "hinweis": "Tippe den ganzen Term ein, z. B. −24ab."
+   },
+   "o": {
+    "werte": [
+     -36
+    ]
+   },
+   "c": [
+    "(-3) * (3) * (4)"
+   ],
+   "w": "Zahlen: (−3) · 3 · 4 = −36. Buchstaben: ab. Ergebnis: −36ab.",
+   "h": "Zähle die Minuszeichen: gerade Anzahl ergibt plus, ungerade minus."
+  },
+  {
+   "l": "produkte",
+   "t": "produkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Rechteck ist 6a lang und 5a breit. Gib den Flächeninhalt als Term an.",
+    "schablone": "□a²",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 6a²."
+   },
+   "o": {
+    "werte": [
+     30
+    ]
+   },
+   "c": [
+    "6 * 5"
+   ],
+   "w": "Fläche = Länge · Breite = 6a · 5a = 30a². Eine Fläche hat zwei Längen als Faktoren.",
+   "h": "Fläche ist Länge mal Breite. Wie oft steckt a darin?"
+  },
+  {
+   "l": "produkte",
+   "t": "produkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet: 9x · 2x = 18x. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Es muss 18x² heißen.",
+    "Richtig: 9 · 2 = 18.",
+    "Falsch: Es muss 11x² heißen.",
+    "Falsch: Es muss 11x heißen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "x kommt zweimal als Faktor vor: x · x = x². Also 9x · 2x = 18x². Probe mit x = 2: 18 · 4 = 72, und 18 · 4 = 72 ✓",
+   "h": "Wie oft steht x als Faktor da?"
+  },
+  {
+   "l": "produkte",
+   "t": "produkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet: 5x · 4x = 20x. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Es muss 20x² heißen.",
+    "Falsch: Es muss 9x heißen.",
+    "Richtig: 5 · 4 = 20.",
+    "Falsch: Es muss 9x² heißen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "x kommt zweimal als Faktor vor: x · x = x². Also 5x · 4x = 20x². Probe mit x = 2: 10 · 8 = 80, und 20 · 4 = 80 ✓",
+   "h": "Wie oft steht x als Faktor da?"
+  },
+  {
+   "l": "produkte",
+   "t": "produkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet: 8x · 8x = 64x. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Es muss 16x² heißen.",
+    "Falsch: Es muss 64x² heißen.",
+    "Falsch: Es muss 16x heißen.",
+    "Richtig: 8 · 8 = 64."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "x kommt zweimal als Faktor vor: x · x = x². Also 8x · 8x = 64x². Probe mit x = 2: 16 · 16 = 256, und 64 · 4 = 256 ✓",
+   "h": "Wie oft steht x als Faktor da?"
+  },
+  {
+   "l": "produkte",
+   "t": "produkte",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Vereinfache: (−3x) · (−6x)",
+    "schablone": "□x²",
+    "hinweis": "Tippe den ganzen Term ein, z. B. −6x²."
+   },
+   "o": {
+    "werte": [
+     18
+    ]
+   },
+   "c": [
+    "(-3) * (-6)"
+   ],
+   "w": "(−3) · (−6) = 18, x · x = x². Minus mal minus ergibt plus. Ergebnis: 18x²."
+  },
+  {
+   "l": "produkte",
+   "t": "produkte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Vereinfache: (−9a) · 3 · 6b",
+    "schablone": "□ab",
+    "hinweis": "Tippe den ganzen Term ein, z. B. −24ab."
+   },
+   "o": {
+    "werte": [
+     -162
+    ]
+   },
+   "c": [
+    "(-9) * (3) * (6)"
+   ],
+   "w": "Zahlen: (−9) · 3 · 6 = −162. Buchstaben: ab. Ergebnis: −162ab."
+  },
+  {
+   "l": "produkte",
+   "t": "produkte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Vereinfache: (−5x) · (−3x)",
+    "schablone": "□x²",
+    "hinweis": "Tippe den ganzen Term ein, z. B. −6x²."
+   },
+   "o": {
+    "werte": [
+     15
+    ]
+   },
+   "c": [
+    "(-5) * (-3)"
+   ],
+   "w": "(−5) · (−3) = 15, x · x = x². Minus mal minus ergibt plus. Ergebnis: 15x²."
+  },
+  {
+   "l": "produkte",
+   "t": "produkte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Vereinfache: 3x · (−4x)",
+    "schablone": "□x²",
+    "hinweis": "Tippe den ganzen Term ein, z. B. −6x²."
+   },
+   "o": {
+    "werte": [
+     -12
+    ]
+   },
+   "c": [
+    "(3) * (-4)"
+   ],
+   "w": "3 · (−4) = −12, x · x = x². Plus mal minus ergibt minus. Ergebnis: −12x²."
+  },
+  {
+   "l": "produkte",
+   "t": "produkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Vereinfache: (−7x) · 5x",
+    "schablone": "□x²",
+    "hinweis": "Tippe den ganzen Term ein, z. B. −6x²."
+   },
+   "o": {
+    "werte": [
+     -35
+    ]
+   },
+   "c": [
+    "(-7) * (5)"
+   ],
+   "w": "(−7) · 5 = −35, x · x = x². Plus mal minus ergibt minus. Ergebnis: −35x²."
+  },
+  {
+   "l": "produkte",
+   "t": "produkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Vereinfache: (−8x) · 2x",
+    "schablone": "□x²",
+    "hinweis": "Tippe den ganzen Term ein, z. B. −6x²."
+   },
+   "o": {
+    "werte": [
+     -16
+    ]
+   },
+   "c": [
+    "(-8) * (2)"
+   ],
+   "w": "(−8) · 2 = −16, x · x = x². Plus mal minus ergibt minus. Ergebnis: −16x²."
+  },
+  {
+   "l": "produkte",
+   "t": "produkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Vereinfache: 7x · (−4x)",
+    "schablone": "□x²",
+    "hinweis": "Tippe den ganzen Term ein, z. B. −6x²."
+   },
+   "o": {
+    "werte": [
+     -28
+    ]
+   },
+   "c": [
+    "(7) * (-4)"
+   ],
+   "w": "7 · (−4) = −28, x · x = x². Plus mal minus ergibt minus. Ergebnis: −28x²."
+  },
+  {
+   "l": "produkte",
+   "t": "produkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Vereinfache: (−2a) · 3 · 5b",
+    "schablone": "□ab",
+    "hinweis": "Tippe den ganzen Term ein, z. B. −24ab."
+   },
+   "o": {
+    "werte": [
+     -30
+    ]
+   },
+   "c": [
+    "(-2) * (3) * (5)"
+   ],
+   "w": "Zahlen: (−2) · 3 · 5 = −30. Buchstaben: ab. Ergebnis: −30ab."
+  },
+  {
+   "l": "produkte",
+   "t": "produkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Vereinfache: (−5x) · 9x",
+    "schablone": "□x²",
+    "hinweis": "Tippe den ganzen Term ein, z. B. −6x²."
+   },
+   "o": {
+    "werte": [
+     -45
+    ]
+   },
+   "c": [
+    "(-5) * (9)"
+   ],
+   "w": "(−5) · 9 = −45, x · x = x². Plus mal minus ergibt minus. Ergebnis: −45x²."
+  },
+  {
+   "l": "produkte",
+   "t": "produkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Vereinfache: (−5a) · (−4) · (−8b)",
+    "schablone": "□ab",
+    "hinweis": "Tippe den ganzen Term ein, z. B. −24ab."
+   },
+   "o": {
+    "werte": [
+     -160
+    ]
+   },
+   "c": [
+    "(-5) * (-4) * (-8)"
+   ],
+   "w": "Zahlen: (−5) · (−4) · (−8) = −160. Buchstaben: ab. Ergebnis: −160ab."
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse die Klammer auf und fasse zusammen: 9x − (4x − 1)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x + 3."
+   },
+   "o": {
+    "werte": [
+     5,
+     1
+    ]
+   },
+   "c": [
+    "9 - 4",
+    "1"
+   ],
+   "w": "Minus vor der Klammer: Jedes Vorzeichen wechselt: 9x − 4x + 1. Ergebnis: 5x + 1.",
+   "h": "Lass die Klammer weg und dreh jedes Vorzeichen darin um."
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse die Klammer auf und fasse zusammen: 9x − (x + 8)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x + 3."
+   },
+   "o": {
+    "werte": [
+     8,
+     -8
+    ]
+   },
+   "c": [
+    "9 - 1",
+    "-(8)"
+   ],
+   "w": "Minus vor der Klammer: Jedes Vorzeichen wechselt: 9x − x − 8. Ergebnis: 8x − 8.",
+   "h": "Lass die Klammer weg und dreh jedes Vorzeichen darin um."
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse die Klammer auf und fasse zusammen: 8x − (x + 3)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x + 3."
+   },
+   "o": {
+    "werte": [
+     7,
+     -3
+    ]
+   },
+   "c": [
+    "8 - 1",
+    "-(3)"
+   ],
+   "w": "Minus vor der Klammer: Jedes Vorzeichen wechselt: 8x − x − 3. Ergebnis: 7x − 3.",
+   "h": "Lass die Klammer weg und dreh jedes Vorzeichen darin um."
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse die Klammer auf und fasse zusammen: 5x − (3x + 2)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x + 3."
+   },
+   "o": {
+    "werte": [
+     2,
+     -2
+    ]
+   },
+   "c": [
+    "5 - 3",
+    "-(2)"
+   ],
+   "w": "Minus vor der Klammer: Jedes Vorzeichen wechselt: 5x − 3x − 2. Ergebnis: 2x − 2.",
+   "h": "Lass die Klammer weg und dreh jedes Vorzeichen darin um."
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse die Klammern auf und fasse zusammen: (9x − 8) − (6x − 5)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 4."
+   },
+   "o": {
+    "werte": [
+     3,
+     -3
+    ]
+   },
+   "c": [
+    "9 - 6",
+    "(-8) - (-5)"
+   ],
+   "w": "Die erste Klammer fällt weg. Bei der zweiten wechseln die Vorzeichen: 9x − 8 − 6x + 5 = 3x − 3.",
+   "h": "Nur vor der zweiten Klammer steht ein Minus. Dort wechselt jedes Vorzeichen."
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse die Klammern auf und fasse zusammen: (8x − 1) − (2x + 8)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 4."
+   },
+   "o": {
+    "werte": [
+     6,
+     -9
+    ]
+   },
+   "c": [
+    "8 - 2",
+    "(-1) - (8)"
+   ],
+   "w": "Die erste Klammer fällt weg. Bei der zweiten wechseln die Vorzeichen: 8x − 1 − 2x − 8 = 6x − 9.",
+   "h": "Nur vor der zweiten Klammer steht ein Minus. Dort wechselt jedes Vorzeichen."
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse die Klammern auf und fasse zusammen: (3x + 1) − (5x + 6)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 4."
+   },
+   "o": {
+    "werte": [
+     -2,
+     -5
+    ]
+   },
+   "c": [
+    "3 - 5",
+    "(1) - (6)"
+   ],
+   "w": "Die erste Klammer fällt weg. Bei der zweiten wechseln die Vorzeichen: 3x + 1 − 5x − 6 = −2x − 5.",
+   "h": "Nur vor der zweiten Klammer steht ein Minus. Dort wechselt jedes Vorzeichen."
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse die Klammern auf und fasse zusammen: (6x − 9) − (4x + 5)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 4."
+   },
+   "o": {
+    "werte": [
+     2,
+     -14
+    ]
+   },
+   "c": [
+    "6 - 4",
+    "(-9) - (5)"
+   ],
+   "w": "Die erste Klammer fällt weg. Bei der zweiten wechseln die Vorzeichen: 6x − 9 − 4x − 5 = 2x − 14.",
+   "h": "Nur vor der zweiten Klammer steht ein Minus. Dort wechselt jedes Vorzeichen."
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse die Klammern auf und fasse zusammen: (3x + 5) − (9x + 8)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 4."
+   },
+   "o": {
+    "werte": [
+     -6,
+     -3
+    ]
+   },
+   "c": [
+    "3 - 9",
+    "(5) - (8)"
+   ],
+   "w": "Die erste Klammer fällt weg. Bei der zweiten wechseln die Vorzeichen: 3x + 5 − 9x − 8 = −6x − 3.",
+   "h": "Nur vor der zweiten Klammer steht ein Minus. Dort wechselt jedes Vorzeichen."
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Umformung von 12x − (2x − 4) ist richtig?"
+   },
+   "a": [
+    "12x − 2x",
+    "12x + 2x − 4",
+    "12x − 2x − 4",
+    "12x − 2x + 4"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Vor der Klammer steht ein Minus, also wechselt jedes Vorzeichen darin: −2x bleibt −2x, −4 wird +4. Ergebnis: 10x + 4.",
+   "h": "Jedes Vorzeichen in der Klammer wechselt, nicht nur das erste."
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse die Klammer auf: −4(7x + 1)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. −2x − 6."
+   },
+   "o": {
+    "werte": [
+     -28,
+     -4
+    ]
+   },
+   "c": [
+    "-4 * 7",
+    "-4 * 1"
+   ],
+   "w": "Hier steht noch eine Zahl vor der Klammer: (−4) · 7x = −28x und (−4) · 1 = −4. Ergebnis: −28x − 4.",
+   "h": "Minus und Zahl vor der Klammer: jedes Glied mit der ganzen Zahl samt Minus malnehmen."
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse die Klammer auf: −5(4x + 2)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. −2x − 6."
+   },
+   "o": {
+    "werte": [
+     -20,
+     -10
+    ]
+   },
+   "c": [
+    "-5 * 4",
+    "-5 * 2"
+   ],
+   "w": "Hier steht noch eine Zahl vor der Klammer: (−5) · 4x = −20x und (−5) · 2 = −10. Ergebnis: −20x − 10.",
+   "h": "Minus und Zahl vor der Klammer: jedes Glied mit der ganzen Zahl samt Minus malnehmen."
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Umformung von 10x − (1x − 6) ist richtig?"
+   },
+   "a": [
+    "10x + 1x − 6",
+    "10x − 1x − 6",
+    "10x − 1x + 6",
+    "10x − 1x"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Vor der Klammer steht ein Minus, also wechselt jedes Vorzeichen darin: −1x bleibt −1x, −6 wird +6. Ergebnis: 9x + 6.",
+   "h": "Jedes Vorzeichen in der Klammer wechselt, nicht nur das erste."
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse die Klammern auf und fasse zusammen: (6x + 3) − (2x + 8)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 4."
+   },
+   "o": {
+    "werte": [
+     4,
+     -5
+    ]
+   },
+   "c": [
+    "6 - 2",
+    "(3) - (8)"
+   ],
+   "w": "Die erste Klammer fällt weg. Bei der zweiten wechseln die Vorzeichen: 6x + 3 − 2x − 8 = 4x − 5."
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse die Klammern auf und fasse zusammen: (8x + 6) − (6x + 4)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 4."
+   },
+   "o": {
+    "werte": [
+     2,
+     2
+    ]
+   },
+   "c": [
+    "8 - 6",
+    "(6) - (4)"
+   ],
+   "w": "Die erste Klammer fällt weg. Bei der zweiten wechseln die Vorzeichen: 8x + 6 − 6x − 4 = 2x + 2."
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse die Klammern auf und fasse zusammen: (4x + 7) − (8x − 4)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 4."
+   },
+   "o": {
+    "werte": [
+     -4,
+     11
+    ]
+   },
+   "c": [
+    "4 - 8",
+    "(7) - (-4)"
+   ],
+   "w": "Die erste Klammer fällt weg. Bei der zweiten wechseln die Vorzeichen: 4x + 7 − 8x + 4 = −4x + 11."
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse die Klammern auf und fasse zusammen: (5x + 7) − (2x − 9)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 4."
+   },
+   "o": {
+    "werte": [
+     3,
+     16
+    ]
+   },
+   "c": [
+    "5 - 2",
+    "(7) - (-9)"
+   ],
+   "w": "Die erste Klammer fällt weg. Bei der zweiten wechseln die Vorzeichen: 5x + 7 − 2x + 9 = 3x + 16."
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse die Klammern auf und fasse zusammen: (3x − 6) − (6x − 9)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 4."
+   },
+   "o": {
+    "werte": [
+     -3,
+     3
+    ]
+   },
+   "c": [
+    "3 - 6",
+    "(-6) - (-9)"
+   ],
+   "w": "Die erste Klammer fällt weg. Bei der zweiten wechseln die Vorzeichen: 3x − 6 − 6x + 9 = −3x + 3."
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse die Klammern auf und fasse zusammen: (5x + 4) − (8x − 3)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 4."
+   },
+   "o": {
+    "werte": [
+     -3,
+     7
+    ]
+   },
+   "c": [
+    "5 - 8",
+    "(4) - (-3)"
+   ],
+   "w": "Die erste Klammer fällt weg. Bei der zweiten wechseln die Vorzeichen: 5x + 4 − 8x + 3 = −3x + 7."
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse die Klammern auf und fasse zusammen: (5x − 1) − (7x + 4)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 4."
+   },
+   "o": {
+    "werte": [
+     -2,
+     -5
+    ]
+   },
+   "c": [
+    "5 - 7",
+    "(-1) - (4)"
+   ],
+   "w": "Die erste Klammer fällt weg. Bei der zweiten wechseln die Vorzeichen: 5x − 1 − 7x − 4 = −2x − 5."
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse die Klammern auf und fasse zusammen: (9x − 8) − (7x + 4)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 4."
+   },
+   "o": {
+    "werte": [
+     2,
+     -12
+    ]
+   },
+   "c": [
+    "9 - 7",
+    "(-8) - (4)"
+   ],
+   "w": "Die erste Klammer fällt weg. Bei der zweiten wechseln die Vorzeichen: 9x − 8 − 7x − 4 = 2x − 12."
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse die Klammern auf und fasse zusammen: (6x + 9) − (9x − 9)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 4."
+   },
+   "o": {
+    "werte": [
+     -3,
+     18
+    ]
+   },
+   "c": [
+    "6 - 9",
+    "(9) - (-9)"
+   ],
+   "w": "Die erste Klammer fällt weg. Bei der zweiten wechseln die Vorzeichen: 6x + 9 − 9x + 9 = −3x + 18."
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse die Klammern auf und fasse zusammen: (8x + 2) − (9x + 4)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 4."
+   },
+   "o": {
+    "werte": [
+     -1,
+     -2
+    ]
+   },
+   "c": [
+    "8 - 9",
+    "(2) - (4)"
+   ],
+   "w": "Die erste Klammer fällt weg. Bei der zweiten wechseln die Vorzeichen: 8x + 2 − 9x − 4 = −x − 2."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: 7(2x + 9)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x + 6."
+   },
+   "o": {
+    "werte": [
+     14,
+     63
+    ]
+   },
+   "c": [
+    "7 * 2",
+    "7 * (9)"
+   ],
+   "w": "7 · 2x = 14x und 7 · 9 = 63. Ergebnis: 14x + 63.",
+   "h": "Der Faktor vor der Klammer wird mit jedem Glied malgenommen."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: 8(6x + 3)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x + 6."
+   },
+   "o": {
+    "werte": [
+     48,
+     24
+    ]
+   },
+   "c": [
+    "8 * 6",
+    "8 * (3)"
+   ],
+   "w": "8 · 6x = 48x und 8 · 3 = 24. Ergebnis: 48x + 24.",
+   "h": "Der Faktor vor der Klammer wird mit jedem Glied malgenommen."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: 8(5x + 9)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x + 6."
+   },
+   "o": {
+    "werte": [
+     40,
+     72
+    ]
+   },
+   "c": [
+    "8 * 5",
+    "8 * (9)"
+   ],
+   "w": "8 · 5x = 40x und 8 · 9 = 72. Ergebnis: 40x + 72.",
+   "h": "Der Faktor vor der Klammer wird mit jedem Glied malgenommen."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: 7(7x + 5)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x + 6."
+   },
+   "o": {
+    "werte": [
+     49,
+     35
+    ]
+   },
+   "c": [
+    "7 * 7",
+    "7 * (5)"
+   ],
+   "w": "7 · 7x = 49x und 7 · 5 = 35. Ergebnis: 49x + 35.",
+   "h": "Der Faktor vor der Klammer wird mit jedem Glied malgenommen."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: 2x(9x − 3)",
+    "schablone": "□x² + □x",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 2x² − 6x."
+   },
+   "o": {
+    "werte": [
+     18,
+     -6
+    ]
+   },
+   "c": [
+    "(2) * 9",
+    "(2) * (-3)"
+   ],
+   "w": "2x · 9x = 18x² und 2x · (−3) = −6x. Ergebnis: 18x² − 6x.",
+   "h": "x · x = x². Jedes Glied in der Klammer bekommt den Faktor."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: −2(2x + 10)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. −6x + 8."
+   },
+   "o": {
+    "werte": [
+     -4,
+     -20
+    ]
+   },
+   "c": [
+    "(-2) * (2)",
+    "(-2) * (10)"
+   ],
+   "w": "(−2) · 2x = −4x und (−2) · 10 = −20. Ergebnis: −4x − 20.",
+   "h": "Achte auf die Vorzeichen: Minus mal Minus ergibt Plus."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: 3x(2x + 12)",
+    "schablone": "□x² + □x",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 2x² − 6x."
+   },
+   "o": {
+    "werte": [
+     6,
+     36
+    ]
+   },
+   "c": [
+    "(3) * 2",
+    "(3) * (12)"
+   ],
+   "w": "3x · 2x = 6x² und 3x · 12 = 36x. Ergebnis: 6x² + 36x.",
+   "h": "x · x = x². Jedes Glied in der Klammer bekommt den Faktor."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: −5x(3x − 2)",
+    "schablone": "□x² + □x",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 2x² − 6x."
+   },
+   "o": {
+    "werte": [
+     -15,
+     10
+    ]
+   },
+   "c": [
+    "(-5) * 3",
+    "(-5) * (-2)"
+   ],
+   "w": "(−5x) · 3x = −15x² und (−5x) · (−2) = 10x. Ergebnis: −15x² + 10x.",
+   "h": "x · x = x². Jedes Glied in der Klammer bekommt den Faktor."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: −4(6x + 8)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. −6x + 8."
+   },
+   "o": {
+    "werte": [
+     -24,
+     -32
+    ]
+   },
+   "c": [
+    "(-4) * (6)",
+    "(-4) * (8)"
+   ],
+   "w": "(−4) · 6x = −24x und (−4) · 8 = −32. Ergebnis: −24x − 32.",
+   "h": "Achte auf die Vorzeichen: Minus mal Minus ergibt Plus."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Für 9 Geschenke kauft jemand je ein Buch für x € und eine Karte für 1 €. Die Kosten sind 9(x + 1). Multipliziere aus.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 4x + 8."
+   },
+   "o": {
+    "werte": [
+     9,
+     9
+    ]
+   },
+   "c": [
+    "9",
+    "9 * 1"
+   ],
+   "w": "9 Bücher kosten 9x, 9 Karten kosten 9 · 1 = 9 €. Ergebnis: 9x + 9.",
+   "h": "Jedes Geschenk hat ein Buch und eine Karte. Wie viele Karten sind es?"
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Vereinfache: 2(x + 6) − 4(x + 5)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 2x + 5."
+   },
+   "o": {
+    "werte": [
+     -2,
+     -8
+    ]
+   },
+   "c": [
+    "2 - 4",
+    "2 * (6) - 4 * (5)"
+   ],
+   "w": "Erst ausmultiplizieren: 2x + 12 − 4x − 20. Dann zusammenfassen: −2x − 8.",
+   "h": "Vor der zweiten Klammer steht −4. Nimm jedes Glied mit −4 mal."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Vereinfache: 5(x − 2) − 6(x − 3)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 2x + 5."
+   },
+   "o": {
+    "werte": [
+     -1,
+     8
+    ]
+   },
+   "c": [
+    "5 - 6",
+    "5 * (-2) - 6 * (-3)"
+   ],
+   "w": "Erst ausmultiplizieren: 5x − 10 − 6x + 18. Dann zusammenfassen: −x + 8.",
+   "h": "Vor der zweiten Klammer steht −6. Nimm jedes Glied mit −6 mal."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Vereinfache: 2(x + 2) − 6(x − 3)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 2x + 5."
+   },
+   "o": {
+    "werte": [
+     -4,
+     22
+    ]
+   },
+   "c": [
+    "2 - 6",
+    "2 * (2) - 6 * (-3)"
+   ],
+   "w": "Erst ausmultiplizieren: 2x + 4 − 6x + 18. Dann zusammenfassen: −4x + 22.",
+   "h": "Vor der zweiten Klammer steht −6. Nimm jedes Glied mit −6 mal."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: −5x(7x − 3)",
+    "schablone": "□x² + □x",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 2x² − 6x."
+   },
+   "o": {
+    "werte": [
+     -35,
+     15
+    ]
+   },
+   "c": [
+    "(-5) * 7",
+    "(-5) * (-3)"
+   ],
+   "w": "(−5x) · 7x = −35x² und (−5x) · (−3) = 15x. Ergebnis: −35x² + 15x."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: −6x(2x − 7)",
+    "schablone": "□x² + □x",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 2x² − 6x."
+   },
+   "o": {
+    "werte": [
+     -12,
+     42
+    ]
+   },
+   "c": [
+    "(-6) * 2",
+    "(-6) * (-7)"
+   ],
+   "w": "(−6x) · 2x = −12x² und (−6x) · (−7) = 42x. Ergebnis: −12x² + 42x."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: 3x(8x + 1)",
+    "schablone": "□x² + □x",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 2x² − 6x."
+   },
+   "o": {
+    "werte": [
+     24,
+     3
+    ]
+   },
+   "c": [
+    "(3) * 8",
+    "(3) * (1)"
+   ],
+   "w": "3x · 8x = 24x² und 3x · 1 = 3x. Ergebnis: 24x² + 3x."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: −3(7x + 8)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. −6x + 8."
+   },
+   "o": {
+    "werte": [
+     -21,
+     -24
+    ]
+   },
+   "c": [
+    "(-3) * (7)",
+    "(-3) * (8)"
+   ],
+   "w": "(−3) · 7x = −21x und (−3) · 8 = −24. Ergebnis: −21x − 24."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: −5x(9x − 4)",
+    "schablone": "□x² + □x",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 2x² − 6x."
+   },
+   "o": {
+    "werte": [
+     -45,
+     20
+    ]
+   },
+   "c": [
+    "(-5) * 9",
+    "(-5) * (-4)"
+   ],
+   "w": "(−5x) · 9x = −45x² und (−5x) · (−4) = 20x. Ergebnis: −45x² + 20x."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: −6x(5x − 12)",
+    "schablone": "□x² + □x",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 2x² − 6x."
+   },
+   "o": {
+    "werte": [
+     -30,
+     72
+    ]
+   },
+   "c": [
+    "(-6) * 5",
+    "(-6) * (-12)"
+   ],
+   "w": "(−6x) · 5x = −30x² und (−6x) · (−12) = 72x. Ergebnis: −30x² + 72x."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: 5x(5x + 3)",
+    "schablone": "□x² + □x",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 2x² − 6x."
+   },
+   "o": {
+    "werte": [
+     25,
+     15
+    ]
+   },
+   "c": [
+    "(5) * 5",
+    "(5) * (3)"
+   ],
+   "w": "5x · 5x = 25x² und 5x · 3 = 15x. Ergebnis: 25x² + 15x."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: −4(−x + 12)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. −6x + 8."
+   },
+   "o": {
+    "werte": [
+     4,
+     -48
+    ]
+   },
+   "c": [
+    "(-4) * (-1)",
+    "(-4) * (12)"
+   ],
+   "w": "(−4) · (−x) = 4x und (−4) · 12 = −48. Ergebnis: 4x − 48."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: −3x(6x − 9)",
+    "schablone": "□x² + □x",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 2x² − 6x."
+   },
+   "o": {
+    "werte": [
+     -18,
+     27
+    ]
+   },
+   "c": [
+    "(-3) * 6",
+    "(-3) * (-9)"
+   ],
+   "w": "(−3x) · 6x = −18x² und (−3x) · (−9) = 27x. Ergebnis: −18x² + 27x."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: −8(−8x + 3)",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. −6x + 8."
+   },
+   "o": {
+    "werte": [
+     64,
+     -24
+    ]
+   },
+   "c": [
+    "(-8) * (-8)",
+    "(-8) * (3)"
+   ],
+   "w": "(−8) · (−8x) = 64x und (−8) · 3 = −24. Ergebnis: 64x − 24."
+  },
+  {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: (x + 8)(x + 5)",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² + 5x + 6."
+   },
+   "o": {
+    "werte": [
+     1,
+     13,
+     40
+    ]
+   },
+   "c": [
+    "1",
+    "8 + 5",
+    "8 * 5"
+   ],
+   "w": "x · x = x², x · 5 = 5x, 8 · x = 8x, 8 · 5 = 40. Zusammen: x² + 13x + 40.",
+   "h": "Vier Produkte: jedes Glied der ersten Klammer mal jedes der zweiten."
+  },
+  {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: (x + 7)(x + 5)",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² + 5x + 6."
+   },
+   "o": {
+    "werte": [
+     1,
+     12,
+     35
+    ]
+   },
+   "c": [
+    "1",
+    "7 + 5",
+    "7 * 5"
+   ],
+   "w": "x · x = x², x · 5 = 5x, 7 · x = 7x, 7 · 5 = 35. Zusammen: x² + 12x + 35.",
+   "h": "Vier Produkte: jedes Glied der ersten Klammer mal jedes der zweiten."
+  },
+  {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: (x + 4)(x + 2)",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² + 5x + 6."
+   },
+   "o": {
+    "werte": [
+     1,
+     6,
+     8
+    ]
+   },
+   "c": [
+    "1",
+    "4 + 2",
+    "4 * 2"
+   ],
+   "w": "x · x = x², x · 2 = 2x, 4 · x = 4x, 4 · 2 = 8. Zusammen: x² + 6x + 8.",
+   "h": "Vier Produkte: jedes Glied der ersten Klammer mal jedes der zweiten."
+  },
+  {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: (x + 4)(x + 4)",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² + 5x + 6."
+   },
+   "o": {
+    "werte": [
+     1,
+     8,
+     16
+    ]
+   },
+   "c": [
+    "1",
+    "4 + 4",
+    "4 * 4"
+   ],
+   "w": "x · x = x², x · 4 = 4x, 4 · x = 4x, 4 · 4 = 16. Zusammen: x² + 8x + 16.",
+   "h": "Vier Produkte: jedes Glied der ersten Klammer mal jedes der zweiten."
+  },
+  {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: (x − 3)(x − 7)",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² + x − 6."
+   },
+   "o": {
+    "werte": [
+     1,
+     -10,
+     21
+    ]
+   },
+   "c": [
+    "1",
+    "1 * (-7) + (-3)",
+    "(-3) * (-7)"
+   ],
+   "w": "x · x = x², x · (−7) = −7x, (−3) · x = −3x, (−3) · (−7) = 21. Zusammen: x² − 10x + 21.",
+   "h": "Schreib alle vier Produkte mit Vorzeichen auf und fasse dann die x-Glieder zusammen."
+  },
+  {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: (2x + 8)(x − 1)",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² + x − 6."
+   },
+   "o": {
+    "werte": [
+     2,
+     6,
+     -8
+    ]
+   },
+   "c": [
+    "2",
+    "2 * (-1) + (8)",
+    "(8) * (-1)"
+   ],
+   "w": "2x · x = 2x², 2x · (−1) = −2x, 8 · x = 8x, 8 · (−1) = −8. Zusammen: 2x² + 6x − 8.",
+   "h": "Schreib alle vier Produkte mit Vorzeichen auf und fasse dann die x-Glieder zusammen."
+  },
+  {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: (3x − 9)(x + 1)",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² + x − 6."
+   },
+   "o": {
+    "werte": [
+     3,
+     -6,
+     -9
+    ]
+   },
+   "c": [
+    "3",
+    "3 * (1) + (-9)",
+    "(-9) * (1)"
+   ],
+   "w": "3x · x = 3x², 3x · 1 = 3x, (−9) · x = −9x, (−9) · 1 = −9. Zusammen: 3x² − 6x − 9.",
+   "h": "Schreib alle vier Produkte mit Vorzeichen auf und fasse dann die x-Glieder zusammen."
+  },
+  {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: (x + 4)(x − 6)",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² + x − 6."
+   },
+   "o": {
+    "werte": [
+     1,
+     -2,
+     -24
+    ]
+   },
+   "c": [
+    "1",
+    "1 * (-6) + (4)",
+    "(4) * (-6)"
+   ],
+   "w": "x · x = x², x · (−6) = −6x, 4 · x = 4x, 4 · (−6) = −24. Zusammen: x² − 2x − 24.",
+   "h": "Schreib alle vier Produkte mit Vorzeichen auf und fasse dann die x-Glieder zusammen."
+  },
+  {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: (3x − 9)(x − 7)",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² + x − 6."
+   },
+   "o": {
+    "werte": [
+     3,
+     -30,
+     63
+    ]
+   },
+   "c": [
+    "3",
+    "3 * (-7) + (-9)",
+    "(-9) * (-7)"
+   ],
+   "w": "3x · x = 3x², 3x · (−7) = −21x, (−9) · x = −9x, (−9) · (−7) = 63. Zusammen: 3x² − 30x + 63.",
+   "h": "Schreib alle vier Produkte mit Vorzeichen auf und fasse dann die x-Glieder zusammen."
+  },
+  {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein quadratischer Garten mit Seite x m wird 2 m länger und 5 m breiter. Gib die neue Fläche (x + 2)(x + 5) ohne Klammern an.",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² + 5x + 6."
+   },
+   "o": {
+    "werte": [
+     1,
+     7,
+     10
+    ]
+   },
+   "c": [
+    "1",
+    "2 + 5",
+    "2 * 5"
+   ],
+   "w": "(x + 2)(x + 5) = x² + 5x + 2x + 10 = x² + 7x + 10. Die Fläche wächst um 7x + 10 m².",
+   "h": "Die neue Fläche ist neue Länge mal neue Breite."
+  },
+  {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein quadratischer Garten mit Seite x m wird 6 m länger und 1 m breiter. Gib die neue Fläche (x + 6)(x + 1) ohne Klammern an.",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² + 5x + 6."
+   },
+   "o": {
+    "werte": [
+     1,
+     7,
+     6
+    ]
+   },
+   "c": [
+    "1",
+    "6 + 1",
+    "6 * 1"
+   ],
+   "w": "(x + 6)(x + 1) = x² + x + 6x + 6 = x² + 7x + 6. Die Fläche wächst um 7x + 6 m².",
+   "h": "Die neue Fläche ist neue Länge mal neue Breite."
+  },
+  {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein quadratischer Garten mit Seite x m wird 2 m länger und 2 m breiter. Gib die neue Fläche (x + 2)(x + 2) ohne Klammern an.",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² + 5x + 6."
+   },
+   "o": {
+    "werte": [
+     1,
+     4,
+     4
+    ]
+   },
+   "c": [
+    "1",
+    "2 + 2",
+    "2 * 2"
+   ],
+   "w": "(x + 2)(x + 2) = x² + 2x + 2x + 4 = x² + 4x + 4. Die Fläche wächst um 4x + 4 m².",
+   "h": "Die neue Fläche ist neue Länge mal neue Breite."
+  },
+  {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet: (x + 7)(x + 2) = x² + 14. Was fehlt?"
+   },
+   "a": [
+    "Nichts, das Ergebnis stimmt.",
+    "Nur das Glied 9.",
+    "Die Glieder 2x und 7x, zusammen 9x.",
+    "Das Glied 14x²."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Zwei Glieder mal zwei Glieder ergibt vier Produkte: x², 2x, 7x und 14. Richtig: x² + 9x + 14. Probe mit x = 1: 24 gegen 15.",
+   "h": "Zähle die Produkte: Wie viele müssen es sein?"
+  },
+  {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: (2x − 4)(x − 8)",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² + x − 6."
+   },
+   "o": {
+    "werte": [
+     2,
+     -20,
+     32
+    ]
+   },
+   "c": [
+    "2",
+    "2 * (-8) + (-4)",
+    "(-4) * (-8)"
+   ],
+   "w": "2x · x = 2x², 2x · (−8) = −16x, (−4) · x = −4x, (−4) · (−8) = 32. Zusammen: 2x² − 20x + 32."
+  },
+  {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: (3x − 5)(x − 7)",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² + x − 6."
+   },
+   "o": {
+    "werte": [
+     3,
+     -26,
+     35
+    ]
+   },
+   "c": [
+    "3",
+    "3 * (-7) + (-5)",
+    "(-5) * (-7)"
+   ],
+   "w": "3x · x = 3x², 3x · (−7) = −21x, (−5) · x = −5x, (−5) · (−7) = 35. Zusammen: 3x² − 26x + 35."
+  },
+  {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: (x − 4)(x + 8)",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² + x − 6."
+   },
+   "o": {
+    "werte": [
+     1,
+     4,
+     -32
+    ]
+   },
+   "c": [
+    "1",
+    "1 * (8) + (-4)",
+    "(-4) * (8)"
+   ],
+   "w": "x · x = x², x · 8 = 8x, (−4) · x = −4x, (−4) · 8 = −32. Zusammen: x² + 4x − 32."
+  },
+  {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: (x + 9)(x − 2)",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² + x − 6."
+   },
+   "o": {
+    "werte": [
+     1,
+     7,
+     -18
+    ]
+   },
+   "c": [
+    "1",
+    "1 * (-2) + (9)",
+    "(9) * (-2)"
+   ],
+   "w": "x · x = x², x · (−2) = −2x, 9 · x = 9x, 9 · (−2) = −18. Zusammen: x² + 7x − 18."
+  },
+  {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: (x + 5)(x − 2)",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² + x − 6."
+   },
+   "o": {
+    "werte": [
+     1,
+     3,
+     -10
+    ]
+   },
+   "c": [
+    "1",
+    "1 * (-2) + (5)",
+    "(5) * (-2)"
+   ],
+   "w": "x · x = x², x · (−2) = −2x, 5 · x = 5x, 5 · (−2) = −10. Zusammen: x² + 3x − 10."
+  },
+  {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: (2x + 1)(x − 7)",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² + x − 6."
+   },
+   "o": {
+    "werte": [
+     2,
+     -13,
+     -7
+    ]
+   },
+   "c": [
+    "2",
+    "2 * (-7) + (1)",
+    "(1) * (-7)"
+   ],
+   "w": "2x · x = 2x², 2x · (−7) = −14x, 1 · x = x, 1 · (−7) = −7. Zusammen: 2x² − 13x − 7."
+  },
+  {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: (x + 2)(x − 7)",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² + x − 6."
+   },
+   "o": {
+    "werte": [
+     1,
+     -5,
+     -14
+    ]
+   },
+   "c": [
+    "1",
+    "1 * (-7) + (2)",
+    "(2) * (-7)"
+   ],
+   "w": "x · x = x², x · (−7) = −7x, 2 · x = 2x, 2 · (−7) = −14. Zusammen: x² − 5x − 14."
+  },
+  {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: (2x − 8)(x + 3)",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² + x − 6."
+   },
+   "o": {
+    "werte": [
+     2,
+     -2,
+     -24
+    ]
+   },
+   "c": [
+    "2",
+    "2 * (3) + (-8)",
+    "(-8) * (3)"
+   ],
+   "w": "2x · x = 2x², 2x · 3 = 6x, (−8) · x = −8x, (−8) · 3 = −24. Zusammen: 2x² − 2x − 24."
+  },
+  {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: (2x − 7)(x − 8)",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² + x − 6."
+   },
+   "o": {
+    "werte": [
+     2,
+     -23,
+     56
+    ]
+   },
+   "c": [
+    "2",
+    "2 * (-8) + (-7)",
+    "(-7) * (-8)"
+   ],
+   "w": "2x · x = 2x², 2x · (−8) = −16x, (−7) · x = −7x, (−7) · (−8) = 56. Zusammen: 2x² − 23x + 56."
+  },
+  {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: (3x + 7)(x − 5)",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² + x − 6."
+   },
+   "o": {
+    "werte": [
+     3,
+     -8,
+     -35
+    ]
+   },
+   "c": [
+    "3",
+    "3 * (-5) + (7)",
+    "(7) * (-5)"
+   ],
+   "w": "3x · x = 3x², 3x · (−5) = −15x, 7 · x = 7x, 7 · (−5) = −35. Zusammen: 3x² − 8x − 35."
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Klammere den größten gemeinsamen Faktor aus: 10x + 25",
+    "schablone": "□(□x + □)",
+    "hinweis": "Tippe den ganzen Term mit Klammer ein, z. B. 4(3x + 1)."
+   },
+   "o": {
+    "werte": [
+     5,
+     2,
+     5
+    ]
+   },
+   "c": [
+    "5",
+    "10 // 5",
+    "25 // 5"
+   ],
+   "w": "10 und 25 haben den größten gemeinsamen Teiler 5. 10x = 5 · 2x, 25 = 5 · 5. Ergebnis: 5(2x + 5).",
+   "h": "Welche größte Zahl steckt in beiden Gliedern?"
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Klammere den größten gemeinsamen Faktor aus: 6x + 42",
+    "schablone": "□(□x + □)",
+    "hinweis": "Tippe den ganzen Term mit Klammer ein, z. B. 4(3x + 1)."
+   },
+   "o": {
+    "werte": [
+     6,
+     1,
+     7
+    ]
+   },
+   "c": [
+    "6",
+    "6 // 6",
+    "42 // 6"
+   ],
+   "w": "6 und 42 haben den größten gemeinsamen Teiler 6. 6x = 6 · x, 42 = 6 · 7. Ergebnis: 6(x + 7).",
+   "h": "Welche größte Zahl steckt in beiden Gliedern?"
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Klammere den größten gemeinsamen Faktor aus: 4x + 16",
+    "schablone": "□(□x + □)",
+    "hinweis": "Tippe den ganzen Term mit Klammer ein, z. B. 4(3x + 1)."
+   },
+   "o": {
+    "werte": [
+     4,
+     1,
+     4
+    ]
+   },
+   "c": [
+    "4",
+    "4 // 4",
+    "16 // 4"
+   ],
+   "w": "4 und 16 haben den größten gemeinsamen Teiler 4. 4x = 4 · x, 16 = 4 · 4. Ergebnis: 4(x + 4).",
+   "h": "Welche größte Zahl steckt in beiden Gliedern?"
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Klammere den größten gemeinsamen Faktor aus: 30x + 36",
+    "schablone": "□(□x + □)",
+    "hinweis": "Tippe den ganzen Term mit Klammer ein, z. B. 4(3x + 1)."
+   },
+   "o": {
+    "werte": [
+     6,
+     5,
+     6
+    ]
+   },
+   "c": [
+    "6",
+    "30 // 6",
+    "36 // 6"
+   ],
+   "w": "30 und 36 haben den größten gemeinsamen Teiler 6. 30x = 6 · 5x, 36 = 6 · 6. Ergebnis: 6(5x + 6).",
+   "h": "Welche größte Zahl steckt in beiden Gliedern?"
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Klammere den größten gemeinsamen Faktor aus: 8x² + 36x",
+    "schablone": "□x(□x + □)",
+    "hinweis": "Tippe den ganzen Term mit Klammer ein, z. B. 4x(3x + 1)."
+   },
+   "o": {
+    "werte": [
+     4,
+     2,
+     9
+    ]
+   },
+   "c": [
+    "4",
+    "8 // 4",
+    "(36) // 4"
+   ],
+   "w": "In beiden Gliedern steckt 4x. 8x² = 4x · 2x, 36x = 4x · 9. Ergebnis: 4x(2x + 9).",
+   "h": "Suche die größte Zahl und das x, die in beiden Gliedern stecken."
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Klammere den größten gemeinsamen Faktor aus: 4x² + 32x",
+    "schablone": "□x(□x + □)",
+    "hinweis": "Tippe den ganzen Term mit Klammer ein, z. B. 4x(3x + 1)."
+   },
+   "o": {
+    "werte": [
+     4,
+     1,
+     8
+    ]
+   },
+   "c": [
+    "4",
+    "4 // 4",
+    "(32) // 4"
+   ],
+   "w": "In beiden Gliedern steckt 4x. 4x² = 4x · x, 32x = 4x · 8. Ergebnis: 4x(x + 8).",
+   "h": "Suche die größte Zahl und das x, die in beiden Gliedern stecken."
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Klammere den größten gemeinsamen Faktor aus: 2x² − 8x",
+    "schablone": "□x(□x + □)",
+    "hinweis": "Tippe den ganzen Term mit Klammer ein, z. B. 4x(3x + 1)."
+   },
+   "o": {
+    "werte": [
+     2,
+     1,
+     -4
+    ]
+   },
+   "c": [
+    "2",
+    "2 // 2",
+    "(-8) // 2"
+   ],
+   "w": "In beiden Gliedern steckt 2x. 2x² = 2x · x, −8x = 2x · (−4). Ergebnis: 2x(x − 4).",
+   "h": "Suche die größte Zahl und das x, die in beiden Gliedern stecken."
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Klammere den größten gemeinsamen Faktor aus: 8x² − 18x",
+    "schablone": "□x(□x + □)",
+    "hinweis": "Tippe den ganzen Term mit Klammer ein, z. B. 4x(3x + 1)."
+   },
+   "o": {
+    "werte": [
+     2,
+     4,
+     -9
+    ]
+   },
+   "c": [
+    "2",
+    "8 // 2",
+    "(-18) // 2"
+   ],
+   "w": "In beiden Gliedern steckt 2x. 8x² = 2x · 4x, −18x = 2x · (−9). Ergebnis: 2x(4x − 9).",
+   "h": "Suche die größte Zahl und das x, die in beiden Gliedern stecken."
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Klammere den größten gemeinsamen Faktor aus: 20x² + 16x",
+    "schablone": "□x(□x + □)",
+    "hinweis": "Tippe den ganzen Term mit Klammer ein, z. B. 4x(3x + 1)."
+   },
+   "o": {
+    "werte": [
+     4,
+     5,
+     4
+    ]
+   },
+   "c": [
+    "4",
+    "20 // 4",
+    "(16) // 4"
+   ],
+   "w": "In beiden Gliedern steckt 4x. 20x² = 4x · 5x, 16x = 4x · 4. Ergebnis: 4x(5x + 4).",
+   "h": "Suche die größte Zahl und das x, die in beiden Gliedern stecken."
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand klammert aus: 40x + 32 = 2(20x + 16). Was stimmt?"
+   },
+   "a": [
+    "Richtig und vollständig ausgeklammert.",
+    "Vollständig wäre 40(x + 4).",
+    "Falsch: Die Terme haben verschiedene Werte.",
+    "Gleichwertig, aber nicht vollständig: Der größte Faktor ist 8."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "In 20 und 16 steckt noch der Faktor 4. Vollständig: 8(5x + 4). Ausmultipliziert ergibt beides 40x + 32.",
+   "h": "Haben die Zahlen in der Klammer noch einen gemeinsamen Teiler?"
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand klammert aus: 12x + 20 = 2(6x + 10). Was stimmt?"
+   },
+   "a": [
+    "Gleichwertig, aber nicht vollständig: Der größte Faktor ist 4.",
+    "Falsch: Die Terme haben verschiedene Werte.",
+    "Richtig und vollständig ausgeklammert.",
+    "Vollständig wäre 12(x + 5)."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "In 6 und 10 steckt noch der Faktor 2. Vollständig: 4(3x + 5). Ausmultipliziert ergibt beides 12x + 20.",
+   "h": "Haben die Zahlen in der Klammer noch einen gemeinsamen Teiler?"
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Klammere den größten gemeinsamen Faktor aus: 4x² + 2x",
+    "schablone": "□x(□x + □)",
+    "hinweis": "Tippe den ganzen Term mit Klammer ein, z. B. 4x(3x + 1)."
+   },
+   "o": {
+    "werte": [
+     2,
+     2,
+     1
+    ]
+   },
+   "c": [
+    "2",
+    "4 // 2",
+    "2 // 2"
+   ],
+   "w": "Das zweite Glied 2x ist genau der Faktor 2x. In der Klammer bleibt 1, denn 2x · 1 = 2x. Ergebnis: 2x(2x + 1).",
+   "h": "Was bleibt in der Klammer, wenn ein Glied genau der Faktor ist?"
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand klammert aus: 30x + 10 = 2(15x + 5). Was stimmt?"
+   },
+   "a": [
+    "Richtig und vollständig ausgeklammert.",
+    "Gleichwertig, aber nicht vollständig: Der größte Faktor ist 10.",
+    "Falsch: Die Terme haben verschiedene Werte.",
+    "Vollständig wäre 30(x + 1)."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "In 15 und 5 steckt noch der Faktor 5. Vollständig: 10(3x + 1). Ausmultipliziert ergibt beides 30x + 10.",
+   "h": "Haben die Zahlen in der Klammer noch einen gemeinsamen Teiler?"
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Klammere den größten gemeinsamen Faktor aus: 30x² − 24x",
+    "schablone": "□x(□x + □)",
+    "hinweis": "Tippe den ganzen Term mit Klammer ein, z. B. 4x(3x + 1)."
+   },
+   "o": {
+    "werte": [
+     6,
+     5,
+     -4
+    ]
+   },
+   "c": [
+    "6",
+    "30 // 6",
+    "(-24) // 6"
+   ],
+   "w": "In beiden Gliedern steckt 6x. 30x² = 6x · 5x, −24x = 6x · (−4). Ergebnis: 6x(5x − 4)."
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Klammere den größten gemeinsamen Faktor aus: 10x² − 15x",
+    "schablone": "□x(□x + □)",
+    "hinweis": "Tippe den ganzen Term mit Klammer ein, z. B. 4x(3x + 1)."
+   },
+   "o": {
+    "werte": [
+     5,
+     2,
+     -3
+    ]
+   },
+   "c": [
+    "5",
+    "10 // 5",
+    "(-15) // 5"
+   ],
+   "w": "In beiden Gliedern steckt 5x. 10x² = 5x · 2x, −15x = 5x · (−3). Ergebnis: 5x(2x − 3)."
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Klammere den größten gemeinsamen Faktor aus: 12x² − 15x",
+    "schablone": "□x(□x + □)",
+    "hinweis": "Tippe den ganzen Term mit Klammer ein, z. B. 4x(3x + 1)."
+   },
+   "o": {
+    "werte": [
+     3,
+     4,
+     -5
+    ]
+   },
+   "c": [
+    "3",
+    "12 // 3",
+    "(-15) // 3"
+   ],
+   "w": "In beiden Gliedern steckt 3x. 12x² = 3x · 4x, −15x = 3x · (−5). Ergebnis: 3x(4x − 5)."
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Klammere den größten gemeinsamen Faktor aus: 24x² − 6x",
+    "schablone": "□x(□x + □)",
+    "hinweis": "Tippe den ganzen Term mit Klammer ein, z. B. 4x(3x + 1)."
+   },
+   "o": {
+    "werte": [
+     6,
+     4,
+     -1
+    ]
+   },
+   "c": [
+    "6",
+    "24 // 6",
+    "(-6) // 6"
+   ],
+   "w": "In beiden Gliedern steckt 6x. 24x² = 6x · 4x, −6x = 6x · (−1). Ergebnis: 6x(4x − 1)."
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Klammere den größten gemeinsamen Faktor aus: 12x² + 10x",
+    "schablone": "□x(□x + □)",
+    "hinweis": "Tippe den ganzen Term mit Klammer ein, z. B. 4x(3x + 1)."
+   },
+   "o": {
+    "werte": [
+     2,
+     6,
+     5
+    ]
+   },
+   "c": [
+    "2",
+    "12 // 2",
+    "(10) // 2"
+   ],
+   "w": "In beiden Gliedern steckt 2x. 12x² = 2x · 6x, 10x = 2x · 5. Ergebnis: 2x(6x + 5)."
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Klammere den größten gemeinsamen Faktor aus: 5x² + 9x",
+    "schablone": "□x(□x + □)",
+    "hinweis": "Tippe den ganzen Term mit Klammer ein, z. B. 4x(3x + 1)."
+   },
+   "o": {
+    "werte": [
+     1,
+     5,
+     9
+    ]
+   },
+   "c": [
+    "1",
+    "5 // 1",
+    "(9) // 1"
+   ],
+   "w": "In beiden Gliedern steckt x. 5x² = x · 5x, 9x = x · 9. Ergebnis: x(5x + 9)."
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Klammere den größten gemeinsamen Faktor aus: 30x² − 12x",
+    "schablone": "□x(□x + □)",
+    "hinweis": "Tippe den ganzen Term mit Klammer ein, z. B. 4x(3x + 1)."
+   },
+   "o": {
+    "werte": [
+     6,
+     5,
+     -2
+    ]
+   },
+   "c": [
+    "6",
+    "30 // 6",
+    "(-12) // 6"
+   ],
+   "w": "In beiden Gliedern steckt 6x. 30x² = 6x · 5x, −12x = 6x · (−2). Ergebnis: 6x(5x − 2)."
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Klammere den größten gemeinsamen Faktor aus: x² − 2x",
+    "schablone": "□x(□x + □)",
+    "hinweis": "Tippe den ganzen Term mit Klammer ein, z. B. 4x(3x + 1)."
+   },
+   "o": {
+    "werte": [
+     1,
+     1,
+     -2
+    ]
+   },
+   "c": [
+    "1",
+    "1 // 1",
+    "(-2) // 1"
+   ],
+   "w": "In beiden Gliedern steckt x. x² = x · x, −2x = x · (−2). Ergebnis: x(x − 2)."
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Klammere den größten gemeinsamen Faktor aus: 2x² − 6x",
+    "schablone": "□x(□x + □)",
+    "hinweis": "Tippe den ganzen Term mit Klammer ein, z. B. 4x(3x + 1)."
+   },
+   "o": {
+    "werte": [
+     2,
+     1,
+     -3
+    ]
+   },
+   "c": [
+    "2",
+    "2 // 2",
+    "(-6) // 2"
+   ],
+   "w": "In beiden Gliedern steckt 2x. 2x² = 2x · x, −6x = 2x · (−3). Ergebnis: 2x(x − 3)."
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Klammere den größten gemeinsamen Faktor aus: 9x² + 24x",
+    "schablone": "□x(□x + □)",
+    "hinweis": "Tippe den ganzen Term mit Klammer ein, z. B. 4x(3x + 1)."
+   },
+   "o": {
+    "werte": [
+     3,
+     3,
+     8
+    ]
+   },
+   "c": [
+    "3",
+    "9 // 3",
+    "(24) // 3"
+   ],
+   "w": "In beiden Gliedern steckt 3x. 9x² = 3x · 3x, 24x = 3x · 8. Ergebnis: 3x(3x + 8)."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert des Terms 4(x + 6) für x = 5."
+   },
+   "o": {
+    "wert": 44
+   },
+   "c": "4 * (5 + 6)",
+   "w": "Einsetzen: 4 · (5 + 6) = 4 · 11 = 44.",
+   "h": "Setze die Zahl für x ein. Klammer zuerst."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert des Terms 5x + 7 für x = 5."
+   },
+   "o": {
+    "wert": 32
+   },
+   "c": "5 * 5 + 7",
+   "w": "Einsetzen: 5 · 5 + 7 = 25 + 7 = 32.",
+   "h": "Setze die Zahl für x ein. Punkt vor Strich."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert des Terms 5(x + 5) für x = 5."
+   },
+   "o": {
+    "wert": 50
+   },
+   "c": "5 * (5 + 5)",
+   "w": "Einsetzen: 5 · (5 + 5) = 5 · 10 = 50.",
+   "h": "Setze die Zahl für x ein. Klammer zuerst."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert des Terms 2(x + 7) für x = 3."
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "2 * (3 + 7)",
+   "w": "Einsetzen: 2 · (3 + 7) = 2 · 10 = 20.",
+   "h": "Setze die Zahl für x ein. Klammer zuerst."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term ist äquivalent zu 4(x + 9)?"
+   },
+   "a": [
+    "4x + 9",
+    "4x + 36",
+    "x + 36",
+    "4x + 13"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ausmultiplizieren: 4 · x + 4 · 9 = 4x + 36. Für jede Zahl x haben beide Terme denselben Wert.",
+   "h": "Multipliziere die Klammer aus und vergleiche."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term ist äquivalent zu 7(x + 4)?"
+   },
+   "a": [
+    "7x + 4",
+    "7x + 11",
+    "7x + 28",
+    "x + 28"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ausmultiplizieren: 7 · x + 7 · 4 = 7x + 28. Für jede Zahl x haben beide Terme denselben Wert.",
+   "h": "Multipliziere die Klammer aus und vergleiche."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term ist äquivalent zu 5(x + 2)?"
+   },
+   "a": [
+    "5x + 10",
+    "x + 10",
+    "5x + 7",
+    "5x + 2"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ausmultiplizieren: 5 · x + 5 · 2 = 5x + 10. Für jede Zahl x haben beide Terme denselben Wert.",
+   "h": "Multipliziere die Klammer aus und vergleiche."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term ist äquivalent zu 4(x + 2)?"
+   },
+   "a": [
+    "4x + 6",
+    "x + 8",
+    "4x + 2",
+    "4x + 8"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ausmultiplizieren: 4 · x + 4 · 2 = 4x + 8. Für jede Zahl x haben beide Terme denselben Wert.",
+   "h": "Multipliziere die Klammer aus und vergleiche."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term ist äquivalent zu 2(x + 2)?"
+   },
+   "a": [
+    "2x + 2",
+    "2x + 4",
+    "x + 4"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ausmultiplizieren: 2 · x + 2 · 2 = 2x + 4. Für jede Zahl x haben beide Terme denselben Wert.",
+   "h": "Multipliziere die Klammer aus und vergleiche."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Sind (x + 2)² und x² + 4 äquivalent?"
+   },
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, man quadriert einfach beide Glieder.",
+    "Ja, für x = 0 ergibt sich bei beiden 4.",
+    "Nein, für x = 1 ergibt sich 9 und 5."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "x = 0 passt zufällig (4 und 4), beweist aber nichts. x = 1 ist ein Gegenbeispiel: (1 + 2)² = 9, aber 1 + 4 = 5.",
+   "h": "Eine passende Zahl beweist nichts. Suche ein Gegenbeispiel."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "x + x und x · x sind nicht äquivalent. Welche Zahl ist ein Gegenbeispiel?"
+   },
+   "a": [
+    "4",
+    "0",
+    "2"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bei x = 0 ergeben beide 0, bei x = 2 beide 4 – das sind keine Gegenbeispiele. Bei jeder anderen Zahl unterscheiden sich die Werte, z. B. x = 3: 6 und 9.",
+   "h": "Setze jede Antwort in beide Terme ein. Ein Gegenbeispiel liefert verschiedene Werte."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Setze x = 4 in 3(x + 2) und in 3x + 2 ein. Um wie viel ist der erste Wert größer?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "3 * (4 + 2) - (3 * 4 + 2)",
+   "w": "3(x + 2) = 18, 3x + 2 = 14. Unterschied: 4. Die Terme sind nicht äquivalent.",
+   "h": "Berechne beide Werte und ziehe sie voneinander ab."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Sind (x + 3)² und x² + 9 äquivalent?"
+   },
+   "a": [
+    "Nein, für x = 1 ergibt sich 16 und 10.",
+    "Ja, man quadriert einfach beide Glieder.",
+    "Das kann man nicht entscheiden.",
+    "Ja, für x = 0 ergibt sich bei beiden 9."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "x = 0 passt zufällig (9 und 9), beweist aber nichts. x = 1 ist ein Gegenbeispiel: (1 + 3)² = 16, aber 1 + 9 = 10.",
+   "h": "Eine passende Zahl beweist nichts. Suche ein Gegenbeispiel."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term ist äquivalent zu 3(x + 8)?"
+   },
+   "a": [
+    "3x + 11",
+    "x + 24",
+    "3x + 24",
+    "3x + 8"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ausmultiplizieren: 3 · x + 3 · 8 = 3x + 24. Für jede Zahl x haben beide Terme denselben Wert."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term ist äquivalent zu 3(x + 2)?"
+   },
+   "a": [
+    "x + 6",
+    "3x + 6",
+    "3x + 2",
+    "3x + 5"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ausmultiplizieren: 3 · x + 3 · 2 = 3x + 6. Für jede Zahl x haben beide Terme denselben Wert."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term ist äquivalent zu 6(x + 5)?"
+   },
+   "a": [
+    "6x + 5",
+    "6x + 11",
+    "x + 30",
+    "6x + 30"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ausmultiplizieren: 6 · x + 6 · 5 = 6x + 30. Für jede Zahl x haben beide Terme denselben Wert."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term ist äquivalent zu 7(x + 8)?"
+   },
+   "a": [
+    "7x + 56",
+    "7x + 8",
+    "x + 56",
+    "7x + 15"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ausmultiplizieren: 7 · x + 7 · 8 = 7x + 56. Für jede Zahl x haben beide Terme denselben Wert."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term ist äquivalent zu 7(x + 9)?"
+   },
+   "a": [
+    "7x + 16",
+    "7x + 9",
+    "7x + 63",
+    "x + 63"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ausmultiplizieren: 7 · x + 7 · 9 = 7x + 63. Für jede Zahl x haben beide Terme denselben Wert."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term ist äquivalent zu 7(x + 6)?"
+   },
+   "a": [
+    "x + 42",
+    "7x + 42",
+    "7x + 13",
+    "7x + 6"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ausmultiplizieren: 7 · x + 7 · 6 = 7x + 42. Für jede Zahl x haben beide Terme denselben Wert."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term ist äquivalent zu 5(x + 5)?"
+   },
+   "a": [
+    "5x + 5",
+    "5x + 25",
+    "5x + 10",
+    "x + 25"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ausmultiplizieren: 5 · x + 5 · 5 = 5x + 25. Für jede Zahl x haben beide Terme denselben Wert."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term ist äquivalent zu 3(x + 6)?"
+   },
+   "a": [
+    "x + 18",
+    "3x + 6",
+    "3x + 9",
+    "3x + 18"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ausmultiplizieren: 3 · x + 3 · 6 = 3x + 18. Für jede Zahl x haben beide Terme denselben Wert."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term ist äquivalent zu 5(x + 3)?"
+   },
+   "a": [
+    "5x + 3",
+    "x + 15",
+    "5x + 15",
+    "5x + 8"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ausmultiplizieren: 5 · x + 5 · 3 = 5x + 15. Für jede Zahl x haben beide Terme denselben Wert."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term ist äquivalent zu 3(x + 4)?"
+   },
+   "a": [
+    "3x + 4",
+    "x + 12",
+    "3x + 7",
+    "3x + 12"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ausmultiplizieren: 3 · x + 3 · 4 = 3x + 12. Für jede Zahl x haben beide Terme denselben Wert."
+  },
+  {
+   "l": "binomisch",
+   "t": "binomisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Wende die 1. binomische Formel an: (x + 3)²",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² + 8x + 16."
+   },
+   "o": {
+    "werte": [
+     1,
+     6,
+     9
+    ]
+   },
+   "c": [
+    "1",
+    "2 * 3",
+    "3 * 3"
+   ],
+   "w": "(x + 3)² = x² + 2 · x · 3 + 3² = x² + 6x + 9.",
+   "h": "a² + 2ab + b²: Das Mittelglied ist 2 · x · 3."
+  },
+  {
+   "l": "binomisch",
+   "t": "binomisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Wende die 1. binomische Formel an: (x + 10)²",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² + 8x + 16."
+   },
+   "o": {
+    "werte": [
+     1,
+     20,
+     100
+    ]
+   },
+   "c": [
+    "1",
+    "2 * 10",
+    "10 * 10"
+   ],
+   "w": "(x + 10)² = x² + 2 · x · 10 + 10² = x² + 20x + 100.",
+   "h": "a² + 2ab + b²: Das Mittelglied ist 2 · x · 10."
+  },
+  {
+   "l": "binomisch",
+   "t": "binomisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Wende die 2. binomische Formel an: (x − 10)²",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² − 6x + 9."
+   },
+   "o": {
+    "werte": [
+     1,
+     -20,
+     100
+    ]
+   },
+   "c": [
+    "1",
+    "-2 * 10",
+    "10 * 10"
+   ],
+   "w": "(x − 10)² = x² − 2 · x · 10 + 10² = x² − 20x + 100.",
+   "h": "a² − 2ab + b²: Das Mittelglied hat ein Minus, das letzte Glied nicht."
+  },
+  {
+   "l": "binomisch",
+   "t": "binomisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Wende die 1. binomische Formel an: (x + 6)²",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² + 8x + 16."
+   },
+   "o": {
+    "werte": [
+     1,
+     12,
+     36
+    ]
+   },
+   "c": [
+    "1",
+    "2 * 6",
+    "6 * 6"
+   ],
+   "w": "(x + 6)² = x² + 2 · x · 6 + 6² = x² + 12x + 36.",
+   "h": "a² + 2ab + b²: Das Mittelglied ist 2 · x · 6."
+  },
+  {
+   "l": "binomisch",
+   "t": "binomisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Wende die 3. binomische Formel an: (x + 8)(x − 8)",
+    "schablone": "□x² + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² − 36."
+   },
+   "o": {
+    "werte": [
+     1,
+     -64
+    ]
+   },
+   "c": [
+    "1",
+    "-8 * 8"
+   ],
+   "w": "(x + 8)(x − 8) = x² − 8² = x² − 64. Die Glieder +8x und −8x heben sich auf.",
+   "h": "Bei (a + b)(a − b) fällt das Mittelglied weg."
+  },
+  {
+   "l": "binomisch",
+   "t": "binomisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere mit einer binomischen Formel aus: (5x + 4)²",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 9x² + 12x + 4."
+   },
+   "o": {
+    "werte": [
+     25,
+     40,
+     16
+    ]
+   },
+   "c": [
+    "5 * 5",
+    "2 * 5 * (4)",
+    "(4) * (4)"
+   ],
+   "w": "(5x)² = 25x², 2 · 5x · 4 = 40x, 4² = 16. Ergebnis: 25x² + 40x + 16.",
+   "h": "Auch die Zahl vor dem x wird quadriert: (3x)² = 9x²."
+  },
+  {
+   "l": "binomisch",
+   "t": "binomisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere mit einer binomischen Formel aus: (3x + 5)²",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 9x² + 12x + 4."
+   },
+   "o": {
+    "werte": [
+     9,
+     30,
+     25
+    ]
+   },
+   "c": [
+    "3 * 3",
+    "2 * 3 * (5)",
+    "(5) * (5)"
+   ],
+   "w": "(3x)² = 9x², 2 · 3x · 5 = 30x, 5² = 25. Ergebnis: 9x² + 30x + 25.",
+   "h": "Auch die Zahl vor dem x wird quadriert: (3x)² = 9x²."
+  },
+  {
+   "l": "binomisch",
+   "t": "binomisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere mit einer binomischen Formel aus: (2x − 2)²",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 9x² + 12x + 4."
+   },
+   "o": {
+    "werte": [
+     4,
+     -8,
+     4
+    ]
+   },
+   "c": [
+    "2 * 2",
+    "2 * 2 * (-2)",
+    "(-2) * (-2)"
+   ],
+   "w": "(2x)² = 4x², 2 · 2x · (−2) = −8x, (−2)² = 4. Ergebnis: 4x² − 8x + 4.",
+   "h": "Auch die Zahl vor dem x wird quadriert: (3x)² = 9x²."
+  },
+  {
+   "l": "binomisch",
+   "t": "binomisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere mit einer binomischen Formel aus: (2x + 4)²",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 9x² + 12x + 4."
+   },
+   "o": {
+    "werte": [
+     4,
+     16,
+     16
+    ]
+   },
+   "c": [
+    "2 * 2",
+    "2 * 2 * (4)",
+    "(4) * (4)"
+   ],
+   "w": "(2x)² = 4x², 2 · 2x · 4 = 16x, 4² = 16. Ergebnis: 4x² + 16x + 16.",
+   "h": "Auch die Zahl vor dem x wird quadriert: (3x)² = 9x²."
+  },
+  {
+   "l": "binomisch",
+   "t": "binomisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt mit einer binomischen Formel: 51² = (50 + 1)²"
+   },
+   "o": {
+    "wert": 2601
+   },
+   "c": "51 ** 2",
+   "w": "(50 + 1)² = 50² + 2 · 50 · 1 + 1 = 2500 + 100 + 1 = 2601.",
+   "h": "Nutze (a + b)² oder (a − b)² mit einer glatten Zehnerzahl."
+  },
+  {
+   "l": "binomisch",
+   "t": "binomisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet: (x + 6)² = x² + 36. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Es muss x² + 36x heißen.",
+    "Richtig: Man quadriert beide Glieder.",
+    "Falsch: Das Mittelglied 12x fehlt.",
+    "Falsch: Es muss x² + 12 heißen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "(x + 6)² = (x + 6)(x + 6) = x² + 6x + 6x + 36 = x² + 12x + 36. Probe mit x = 1: 49 gegen 37.",
+   "h": "Schreib das Quadrat als Summe mal Summe."
+  },
+  {
+   "l": "binomisch",
+   "t": "binomisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze so, dass eine binomische Formel entsteht: x² + 12x + □ = (x + □)²",
+    "schablone": "x² + 12x + □ = (x + □)²",
+    "hinweis": "Trage in jedes Feld eine Zahl ein."
+   },
+   "o": {
+    "werte": [
+     36,
+     6
+    ]
+   },
+   "c": [
+    "(12 // 2) ** 2",
+    "12 // 2"
+   ],
+   "w": "Das Mittelglied 12x ist 2 · x · 6. Also ist b = 6 und b² = 36: x² + 12x + 36 = (x + 6)².",
+   "h": "Das Mittelglied ist 2 · x · b. Wie groß ist b?"
+  },
+  {
+   "l": "binomisch",
+   "t": "binomisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze so, dass eine binomische Formel entsteht: x² + 14x + □ = (x + □)²",
+    "schablone": "x² + 14x + □ = (x + □)²",
+    "hinweis": "Trage in jedes Feld eine Zahl ein."
+   },
+   "o": {
+    "werte": [
+     49,
+     7
+    ]
+   },
+   "c": [
+    "(14 // 2) ** 2",
+    "14 // 2"
+   ],
+   "w": "Das Mittelglied 14x ist 2 · x · 7. Also ist b = 7 und b² = 49: x² + 14x + 49 = (x + 7)².",
+   "h": "Das Mittelglied ist 2 · x · b. Wie groß ist b?"
+  },
+  {
+   "l": "binomisch",
+   "t": "binomisch",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere mit einer binomischen Formel aus: (5x − 4)²",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 9x² + 12x + 4."
+   },
+   "o": {
+    "werte": [
+     25,
+     -40,
+     16
+    ]
+   },
+   "c": [
+    "5 * 5",
+    "2 * 5 * (-4)",
+    "(-4) * (-4)"
+   ],
+   "w": "(5x)² = 25x², 2 · 5x · (−4) = −40x, (−4)² = 16. Ergebnis: 25x² − 40x + 16."
+  },
+  {
+   "l": "binomisch",
+   "t": "binomisch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere mit einer binomischen Formel aus: (3x − 5)²",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 9x² + 12x + 4."
+   },
+   "o": {
+    "werte": [
+     9,
+     -30,
+     25
+    ]
+   },
+   "c": [
+    "3 * 3",
+    "2 * 3 * (-5)",
+    "(-5) * (-5)"
+   ],
+   "w": "(3x)² = 9x², 2 · 3x · (−5) = −30x, (−5)² = 25. Ergebnis: 9x² − 30x + 25."
+  },
+  {
+   "l": "binomisch",
+   "t": "binomisch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Wende die 3. binomische Formel an: (x + 5)(x − 5)",
+    "schablone": "□x² + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² − 36."
+   },
+   "o": {
+    "werte": [
+     1,
+     -25
+    ]
+   },
+   "c": [
+    "1",
+    "-5 * 5"
+   ],
+   "w": "(x + 5)(x − 5) = x² − 5² = x² − 25. Die Glieder +5x und −5x heben sich auf."
+  },
+  {
+   "l": "binomisch",
+   "t": "binomisch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere mit einer binomischen Formel aus: (4x − 5)²",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 9x² + 12x + 4."
+   },
+   "o": {
+    "werte": [
+     16,
+     -40,
+     25
+    ]
+   },
+   "c": [
+    "4 * 4",
+    "2 * 4 * (-5)",
+    "(-5) * (-5)"
+   ],
+   "w": "(4x)² = 16x², 2 · 4x · (−5) = −40x, (−5)² = 25. Ergebnis: 16x² − 40x + 25."
+  },
+  {
+   "l": "binomisch",
+   "t": "binomisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Wende die 3. binomische Formel an: (x + 4)(x − 4)",
+    "schablone": "□x² + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² − 36."
+   },
+   "o": {
+    "werte": [
+     1,
+     -16
+    ]
+   },
+   "c": [
+    "1",
+    "-4 * 4"
+   ],
+   "w": "(x + 4)(x − 4) = x² − 4² = x² − 16. Die Glieder +4x und −4x heben sich auf."
+  },
+  {
+   "l": "binomisch",
+   "t": "binomisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere mit einer binomischen Formel aus: (4x + 2)²",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 9x² + 12x + 4."
+   },
+   "o": {
+    "werte": [
+     16,
+     16,
+     4
+    ]
+   },
+   "c": [
+    "4 * 4",
+    "2 * 4 * (2)",
+    "(2) * (2)"
+   ],
+   "w": "(4x)² = 16x², 2 · 4x · 2 = 16x, 2² = 4. Ergebnis: 16x² + 16x + 4."
+  },
+  {
+   "l": "binomisch",
+   "t": "binomisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere mit einer binomischen Formel aus: (3x + 4)²",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 9x² + 12x + 4."
+   },
+   "o": {
+    "werte": [
+     9,
+     24,
+     16
+    ]
+   },
+   "c": [
+    "3 * 3",
+    "2 * 3 * (4)",
+    "(4) * (4)"
+   ],
+   "w": "(3x)² = 9x², 2 · 3x · 4 = 24x, 4² = 16. Ergebnis: 9x² + 24x + 16."
+  },
+  {
+   "l": "binomisch",
+   "t": "binomisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Wende die 3. binomische Formel an: (x + 9)(x − 9)",
+    "schablone": "□x² + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² − 36."
+   },
+   "o": {
+    "werte": [
+     1,
+     -81
+    ]
+   },
+   "c": [
+    "1",
+    "-9 * 9"
+   ],
+   "w": "(x + 9)(x − 9) = x² − 9² = x² − 81. Die Glieder +9x und −9x heben sich auf."
+  },
+  {
+   "l": "binomisch",
+   "t": "binomisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere mit einer binomischen Formel aus: (4x + 6)²",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 9x² + 12x + 4."
+   },
+   "o": {
+    "werte": [
+     16,
+     48,
+     36
+    ]
+   },
+   "c": [
+    "4 * 4",
+    "2 * 4 * (6)",
+    "(6) * (6)"
+   ],
+   "w": "(4x)² = 16x², 2 · 4x · 6 = 48x, 6² = 36. Ergebnis: 16x² + 48x + 36."
+  },
+  {
+   "l": "binomisch",
+   "t": "binomisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere mit einer binomischen Formel aus: (2x + 2)²",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 9x² + 12x + 4."
+   },
+   "o": {
+    "werte": [
+     4,
+     8,
+     4
+    ]
+   },
+   "c": [
+    "2 * 2",
+    "2 * 2 * (2)",
+    "(2) * (2)"
+   ],
+   "w": "(2x)² = 4x², 2 · 2x · 2 = 8x, 2² = 4. Ergebnis: 4x² + 8x + 4."
+  }
+ ],
+ "offen": [
+  "Runde 9: Thema stammt aus der Zeit vor dem Bausatz; die bisherigen Aufgaben liegen nur in der Datenbank. Dieser Generator erzeugt neue Aufgaben, die beim Einspielen mit einheit_abgleichen(…, 'lassen') dazukommen. Dubletten zu den alten Aufgaben ließen sich hier nicht prüfen, weil diese nicht im Repository liegen."
+ ]
+}

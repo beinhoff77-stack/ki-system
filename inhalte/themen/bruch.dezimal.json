@@ -45,12 +45,14 @@
    {
     "lernziel": "stellenwerte",
     "titel": "Stellenwerte nach dem Komma",
-    "regel": "Nach dem Komma kommen die Stellen ⟦Zehntel (z)⟧, ⟦Hundertstel (h)⟧ und ⟦Tausendstel (t)⟧. In 3,472 steht die 4 für 4 Zehntel, die 7 für 7 Hundertstel und die 2 für 2 Tausendstel.",
+    "regel": "So liest du eine Dezimalzahl: Nach dem Komma kommen der Reihe nach ⟦Zehntel (z)⟧, ⟦Hundertstel (h)⟧ und ⟦Tausendstel (t)⟧. Der Platz einer Ziffer bestimmt ihren Wert: In 3,472 ist die 4 vier Zehntel, die 7 sieben Hundertstel und die 2 zwei Tausendstel.",
     "schritte": [
-     "3,472 in der Stellenwerttafel: E = 3, z = 4, h = 7, t = 2.",
-     "Die 7 steht bei den Hundertsteln. Ihr Wert ist ⟦7/100 = 0,07⟧."
+     "Trage 3,472 in die Stellenwerttafel ein: E = 3, z = 4, h = 7, t = 2.",
+     "Gesucht ist der Wert der Ziffer 7. Sie steht in der zweiten Spalte nach dem Komma, also bei den Hundertsteln.",
+     "7 Hundertstel Kilogramm sind 7 · 10 g = 70 g.",
+     "Die 7 hat also den Wert ⟦7/100 = 0,07⟧ – und nicht 7."
     ],
-    "fehler": "Zu sagen, die 7 in 3,472 hat den Wert 7, ist falsch: Sie steht an der ⟦Hundertstelstelle⟧ und bedeutet 7 Hundertstel = 0,07.",
+    "fehler": "Zu sagen, die 7 in 3,472 hat den Wert 7, ist falsch: Dann lägen 7 kg zusätzliche Äpfel auf der Waage statt 70 g. Sie steht an der ⟦Hundertstelstelle⟧ und bedeutet 7 Hundertstel = 0,07.",
     "bild": {
      "typ": "stellentafel",
      "stellen": [
@@ -66,18 +68,54 @@
       2
      ],
      "markiert": 2
-    }
+    },
+    "einstieg": "Auf dem Markt legst du Äpfel auf eine Waage. Die Anzeige zeigt 3,472 kg. Vor dem Komma stehen die ganzen Kilogramm, hinter dem Komma die Teile eines Kilogramms – hier 472 Gramm. Jede Ziffer hinter dem Komma hat ihren eigenen Platz und Wert. Diese Plätze heißen ⟦Stellenwerte⟧.",
+    "woerter": [
+     [
+      "Dezimalzahl",
+      "eine Zahl mit Komma wie 3,472"
+     ],
+     [
+      "Nachkommastelle",
+      "ein Platz hinter dem Komma"
+     ],
+     [
+      "Stellenwert",
+      "was eine Ziffer an ihrem Platz wert ist"
+     ],
+     [
+      "E (Einer)",
+      "die Stelle direkt vor dem Komma: ganze Kilogramm"
+     ],
+     [
+      "z (Zehntel)",
+      "1. Stelle nach dem Komma: 1/10, also 0,1 – bei der Waage 100 g"
+     ],
+     [
+      "h (Hundertstel)",
+      "2. Stelle nach dem Komma: 1/100, also 0,01 – bei der Waage 10 g"
+     ],
+     [
+      "t (Tausendstel)",
+      "3. Stelle nach dem Komma: 1/1 000, also 0,001 – bei der Waage 1 g"
+     ],
+     [
+      "Stellenwerttafel",
+      "eine Tabelle, in der jede Ziffer in die Spalte ihres Stellenwerts kommt"
+     ]
+    ]
    },
    {
     "lernziel": "vergleichen_ordnen",
     "titel": "Dezimalzahlen vergleichen",
-    "regel": "Dezimalzahlen vergleichst du ⟦Stelle für Stelle von links⟧: erst die Ganzen, dann die Zehntel, dann die Hundertstel. Tipp: ⟦Hänge Nullen an⟧, bis beide gleich viele Nachkommastellen haben – das ändert den Wert nicht.",
+    "regel": "So vergleichst du Dezimalzahlen: ⟦Hänge Endnullen an⟧, bis beide gleich viele Nachkommastellen haben. Vergleiche dann ⟦Stelle für Stelle von links⟧: erst die Ganzen, dann die Zehntel, dann die Hundertstel.",
     "schritte": [
-     "Vergleiche 0,45 und 0,5. Denk an Geld: 0,45 € sind 45 Cent.",
-     "0,5 € sind 50 Cent – hänge eine Null an: 0,5 = 0,50.",
-     "45 Cent sind weniger als 50 Cent, also ⟦0,45 < 0,5⟧."
+     "Vergleiche 0,45 und 0,5. Die beiden Zahlen haben verschieden viele Nachkommastellen.",
+     "Hänge an 0,5 eine Endnull an: 0,5 = 0,50. Das sind 50 Cent, und 0,45 sind 45 Cent.",
+     "Jetzt vergleichst du Stelle für Stelle: Bei den Zehnteln steht 4 gegen 5.",
+     "Weil 4 kleiner als 5 ist, gilt ⟦0,45 < 0,5⟧ – der Apfel ist billiger. Am Zahlenstrahl liegt 0,45 links von 0,5."
     ],
-    "fehler": "„0,45 ist größer als 0,5, weil 45 > 5“ ist falsch: Die 5 in 0,5 sind 5 ⟦Zehntel⟧ = 50 Hundertstel. Mehr Ziffern heißt ⟦nicht⟧ größer.",
+    "fehler": "„0,45 ist größer als 0,5, weil 45 > 5“ ist falsch: Die 5 in 0,5 sind 5 ⟦Zehntel⟧, also 50 Cent – mehr als 45 Cent. Mehr Ziffern heißt ⟦nicht⟧ größer.",
     "bild": {
      "typ": "zahlenstrahl",
      "start": 0.4,
@@ -85,59 +123,187 @@
      "abschnitte": 10,
      "beschriftet": "anfang_ende",
      "pfeil": 5
-    }
+    },
+    "einstieg": "Am Marktstand kostet ein Apfel 0,45 €, eine Birne 0,5 €. Was ist billiger? Mit Cent ist es leicht: 45 Cent gegen 50 Cent. Genauso ordnest du Zahlen mit Komma: Du vergleichst Stelle für Stelle. Das heißt ⟦Dezimalzahlen vergleichen⟧.",
+    "woerter": [
+     [
+      "Cent",
+      "ein Hundertstel Euro: 0,01 €"
+     ],
+     [
+      "Endnull",
+      "eine Null ganz hinten nach dem Komma; sie ändert den Wert nicht: 0,5 = 0,50"
+     ],
+     [
+      "< und >",
+      "„ist kleiner als“ und „ist größer als“; die Spitze zeigt auf die kleinere Zahl"
+     ],
+     [
+      "Zahlenstrahl",
+      "eine Linie, auf der die Zahlen der Größe nach von links nach rechts liegen"
+     ]
+    ]
    },
    {
     "lernziel": "runden",
     "titel": "Dezimalzahlen runden",
-    "regel": "Beim ⟦Runden⟧ schaust du nur auf die Ziffer ⟦direkt rechts neben der Rundungsstelle⟧. Ist sie 0, 1, 2, 3 oder 4, wird ⟦abgerundet⟧. Ist sie 5, 6, 7, 8 oder 9, wird ⟦aufgerundet⟧.",
+    "regel": "So rundest du: Markiere die ⟦Rundungsstelle⟧. Schau nur auf die Ziffer ⟦direkt rechts daneben⟧. Bei 0, 1, 2, 3 oder 4 wird ⟦abgerundet⟧, bei 5, 6, 7, 8 oder 9 wird ⟦aufgerundet⟧.",
     "schritte": [
-     "Runde 4,368 auf Zehntel. Die Zehntelstelle ist die 3, rechts daneben steht die 6.",
-     "6 ist 5 oder mehr, also aufrunden: 4,368 ≈ ⟦4,4⟧."
+     "Runde 4,368 auf Zehntel. Die Zehntelstelle ist die 3 – sie ist die Rundungsstelle.",
+     "Schau nur auf die Ziffer direkt rechts daneben: Das ist die 6.",
+     "6 ist 5 oder mehr, also rundest du auf: Aus der 3 wird eine 4. Alles dahinter fällt weg.",
+     "Ergebnis: 4,368 kg ≈ ⟦4,4 kg⟧."
     ],
-    "fehler": "2,349 auf Zehntel: erst 2,35, dann 2,4 – das ist falsch (Kettenrunden). Es zählt nur die Ziffer ⟦direkt rechts⟧ neben der Zehntelstelle, also die 4: ⟦2,3⟧."
+    "fehler": "2,349 auf Zehntel erst zu 2,35 und dann zu 2,4 zu runden ist falsch: Das Ergebnis rückt dabei Schritt für Schritt vom echten Wert weg. Es zählt nur die Ziffer ⟦direkt rechts⟧ neben der Zehntelstelle, also die 4: ⟦2,3⟧.",
+    "einstieg": "Die Waage zeigt 4,368 kg Kartoffeln. So genau will das niemand aufschreiben, „etwa 4,4 kg“ genügt. Du kürzt die Zahl auf weniger Stellen ab und bleibst dabei so nah wie möglich am echten Wert. Das heißt ⟦Runden⟧.",
+    "woerter": [
+     [
+      "runden",
+      "eine Zahl auf weniger Stellen kürzen, sodass sie fast gleich bleibt"
+     ],
+     [
+      "Rundungsstelle",
+      "die letzte Stelle, die stehen bleiben soll – „auf Zehntel“ heißt: die Zehntelstelle"
+     ],
+     [
+      "≈",
+      "bedeutet „ungefähr gleich“"
+     ],
+     [
+      "abrunden",
+      "die Rundungsstelle bleibt, alles dahinter fällt weg"
+     ],
+     [
+      "aufrunden",
+      "die Rundungsstelle wird um 1 größer, alles dahinter fällt weg"
+     ]
+    ]
    },
    {
     "lernziel": "bruch_zu_dezimal",
     "titel": "Bruch in Dezimalzahl umwandeln",
-    "regel": "Einen Bruch wandelst du in eine Dezimalzahl um, indem du ihn auf den Nenner ⟦10, 100 oder 1 000 erweiterst⟧. Geht das nicht, ⟦teilst du den Zähler durch den Nenner⟧.",
+    "regel": "So wandelst du einen Bruch um: ⟦Erweitere auf den Nenner 10, 100 oder 1 000⟧ und schreibe die Zahl mit Komma. Geht das nicht, ⟦teile den Zähler durch den Nenner⟧.",
     "schritte": [
-     "3/8: Erweitere mit 125, denn 8 · 125 = 1 000.",
-     "3/8 = 375/1 000 = ⟦0,375⟧."
+     "Du willst 3/8 als Zehnerbruch schreiben. Suche dafür eine Zahl, mit der 8 malgenommen 1 000 ergibt: 8 · 125 = 1 000.",
+     "Erweitere Zähler und Nenner mit 125: 3 · 125 = 375, also 3/8 = 375/1 000.",
+     "375 Tausendstel schreibt man mit drei Nachkommastellen: 0,375.",
+     "Im Rezept bedeutet das ⟦0,375 l⟧ Milch – also etwas mehr als 0,25 l und weniger als 0,5 l."
     ],
     "probe": "0,375 · 8 = 3 ✓",
-    "fehler": "3/8 = 3,8 ist falsch: Der Bruchstrich ist kein Komma. 3/8 heißt ⟦3 : 8⟧ = 0,375."
+    "fehler": "3/8 = 3,8 ist falsch: Dann bräuchtest du fast 4 Liter Milch für einen Kuchen. Der Bruchstrich ist kein Komma, 3/8 heißt ⟦3 : 8⟧ = 0,375.",
+    "einstieg": "In Omas Kuchenrezept steht „3/8 Liter Milch“. Dein Messbecher zeigt aber nur Kommazahlen wie 0,25 l oder 0,5 l an. Du musst also den Bruch in eine Zahl mit Komma übersetzen. Das heißt ⟦einen Bruch in eine Dezimalzahl umwandeln⟧.",
+    "woerter": [
+     [
+      "umwandeln",
+      "dieselbe Zahl anders schreiben – ihr Wert bleibt gleich"
+     ],
+     [
+      "Zehnerbruch",
+      "ein Bruch mit dem Nenner 10, 100 oder 1 000; er lässt sich sofort mit Komma schreiben"
+     ],
+     [
+      "erweitern",
+      "Zähler und Nenner mit derselben Zahl malnehmen"
+     ],
+     [
+      "l",
+      "Liter"
+     ]
+    ]
    },
    {
     "lernziel": "dezimal_zu_bruch",
     "titel": "Dezimalzahl als Bruch schreiben",
-    "regel": "Eine endliche Dezimalzahl schreibst du als ⟦Zehnerbruch⟧: Der Nenner hat so viele Nullen, wie die Zahl ⟦Nachkommastellen⟧ hat. Danach ⟦kürzen⟧.",
+    "regel": "So schreibst du eine endliche Dezimalzahl als Bruch: Der Nenner bekommt ⟦so viele Nullen, wie die Zahl Nachkommastellen hat⟧ (10, 100, 1 000 …). Danach ⟦kürzen⟧.",
     "schritte": [
-     "0,35 hat 2 Nachkommastellen, also Hundertstel: 0,35 = 35/100.",
-     "Kürzen mit 5: 35/100 = ⟦7/20⟧."
+     "0,35 hat 2 Nachkommastellen. Die letzte Ziffer steht bei den Hundertsteln.",
+     "Darum kommt 100 in den Nenner: 0,35 = 35/100 – 35 Cent von 100 Cent.",
+     "35 und 100 lassen sich beide durch 5 teilen: 35 : 5 = 7 und 100 : 5 = 20.",
+     "Vollständig gekürzt ist 0,35 = ⟦7/20⟧."
     ],
     "probe": "7 : 20 = 0,35 ✓",
-    "fehler": "0,35 = 35/10 ist falsch: Zwei Nachkommastellen bedeuten ⟦Hundertstel⟧, also Nenner 100."
+    "fehler": "0,35 = 35/10 ist falsch: Das wären 35 Zehntel Euro, also 3,50 € – zehnmal so viel Wechselgeld. Zwei Nachkommastellen bedeuten ⟦Hundertstel⟧, also Nenner 100.",
+    "einstieg": "An der Kasse bekommst du 0,35 € Wechselgeld, also 35 Cent. Ein Euro hat 100 Cent. Das Wechselgeld ist demnach 35 von 100 Teilen eines Euros. So schreibst du eine Zahl mit Komma ⟦als Bruch⟧.",
+    "woerter": [
+     [
+      "endliche Dezimalzahl",
+      "eine Zahl mit Komma, deren Ziffern irgendwann aufhören, z. B. 0,35"
+     ],
+     [
+      "kürzen",
+      "Zähler und Nenner durch dieselbe Zahl teilen; der Wert bleibt gleich"
+     ],
+     [
+      "vollständig gekürzt",
+      "Zähler und Nenner haben keinen gemeinsamen Teiler außer 1 mehr"
+     ]
+    ]
    },
    {
     "lernziel": "periodisch",
     "titel": "Periodische Dezimalzahlen",
-    "regel": "Manche Brüche ergeben eine ⟦periodische Dezimalzahl⟧: Die Ziffern wiederholen sich ohne Ende, z. B. 1/3 = 0,333… Man setzt einen ⟦Strich über die Periode⟧: 0,3̅. Ein vollständig gekürzter Bruch ist genau dann ⟦endlich⟧, wenn sein Nenner nur die Primfaktoren ⟦2 und 5⟧ hat. Warum? 10 = 2 · 5. Nur dann kannst du auf 10, 100 oder 1 000 erweitern. Auf 3 oder 6 geht das nie.",
+    "regel": "So erkennst du periodische Dezimalzahlen: Kürze den Bruch vollständig und zerlege den Nenner in ⟦Primfaktoren⟧. Kommen ⟦nur 2 und 5⟧ vor, ist die Dezimalzahl endlich – denn 10 = 2 · 5, man kann auf 10, 100, 1 000 erweitern. Kommt ein ⟦anderer Primfaktor⟧ vor (z. B. 3), ist sie ⟦periodisch⟧. Die Periode bekommt einen ⟦Strich⟧: 0,3̅.",
     "schritte": [
-     "5/6: Rechne 5 : 6 schriftlich: 0,8333…",
-     "Ab der zweiten Nachkommastelle wiederholt sich die 3: 5/6 = ⟦0,83̅⟧."
+     "Rechne 5 : 6 schriftlich. Es ergibt 0,8 und es bleibt ein Rest.",
+     "Ab jetzt bleibt bei jedem Schritt derselbe Rest, darum kommt immer wieder eine 3: 0,8333…",
+     "Die 8 kommt nur einmal, ab der zweiten Nachkommastelle wiederholt sich die 3. Die Periode ist also 3.",
+     "Mit Periodenstrich: 5/6 = ⟦0,83̅⟧. Jedes Kind bekommt etwa 0,83 €, ein paar Cent bleiben übrig."
     ],
-    "fehler": "1/3 = 0,3 ist falsch: 0,3 = 3/10, und 3 · 0,3 = 0,9, nicht 1. Richtig ist 1/3 = ⟦0,3̅⟧ – die 3 wiederholt sich ohne Ende."
+    "fehler": "1/3 = 0,3 ist falsch: Drei Kinder mit je 0,30 € hätten zusammen nur 0,90 € statt 1 €. Richtig ist 1/3 = ⟦0,3̅⟧ – die 3 wiederholt sich ohne Ende.",
+    "einstieg": "Sechs Kinder wollen 5 € gerecht teilen. Rechnest du 5 : 6, hört die Rechnung nie auf: 0,8333… Die 3 kommt immer wieder, so lange du auch weiterrechnest. Eine Zahl mit Komma, deren Ziffern sich so ohne Ende wiederholen, heißt ⟦periodische Dezimalzahl⟧.",
+    "woerter": [
+     [
+      "…",
+      "die Ziffern gehen immer weiter"
+     ],
+     [
+      "Periode",
+      "die Ziffer oder Ziffernfolge, die sich ohne Ende wiederholt"
+     ],
+     [
+      "Periodenstrich",
+      "der Strich über der Periode: 0,83̅ heißt 0,8333…"
+     ],
+     [
+      "Primfaktor",
+      "eine Primzahl, die in einer Zahl als Faktor steckt: 6 = 2 · 3, also sind 2 und 3 die Primfaktoren von 6"
+     ],
+     [
+      "endlich",
+      "die Ziffern nach dem Komma hören irgendwann auf"
+     ]
+    ]
    },
    {
     "lernziel": "verstehen",
     "titel": "Aussagen über Dezimalzahlen prüfen",
-    "regel": "Prüfe Aussagen über Dezimalzahlen mit der ⟦Stellenwerttafel⟧ oder mit einem ⟦Gegenbeispiel⟧. Endnullen nach dem Komma ändern den Wert nicht: 4,7 = 4,70.",
+    "regel": "So prüfst du Aussagen über Dezimalzahlen: Schreibe die Zahlen in die ⟦Stellenwerttafel⟧ oder hänge Endnullen an und vergleiche Stelle für Stelle. Suche ein ⟦Gegenbeispiel⟧ – eines genügt, um eine Aussage zu widerlegen.",
     "schritte": [
-     "Aussage: „Zwischen 0,1 und 0,2 gibt es keine Zahl.“ Hänge eine Null an: 0,10 und 0,20.",
-     "Dazwischen liegt z. B. 0,15. Die Aussage ist ⟦falsch⟧."
+     "Die Aussage lautet: „Zwischen 0,1 und 0,2 gibt es keine Zahl.“",
+     "Hänge an beide Zahlen eine Endnull an: 0,10 und 0,20. Der Wert bleibt gleich.",
+     "Jetzt siehst du Hundertstel dazwischen: 0,11, 0,12, … 0,15 … 0,19.",
+     "0,15 ist ein Gegenbeispiel, die Aussage ist ⟦falsch⟧."
     ],
-    "fehler": "„3,14 ist größer als 3,2, weil 14 > 2“ ist falsch: Man vergleicht ⟦Stelle für Stelle⟧. Zehntel: 1 < 2, also 3,14 < 3,2."
+    "fehler": "„3,14 ist größer als 3,2, weil 14 > 2“ ist falsch: Ein Weitsprung von 3,14 m ist kürzer als einer von 3,2 m = 3,20 m. Man vergleicht ⟦Stelle für Stelle⟧: Zehntel 1 < 2, also 3,14 < 3,2.",
+    "einstieg": "Beim Sportfest misst eine Stoppuhr Zehntel- und Hundertstelsekunden. Jemand behauptet: „Zwischen 0,1 s und 0,2 s kann es keine Zeit geben.“ Doch die Uhr zeigt auch 0,15 s an. Ein einziges solches Beispiel genügt, um die Behauptung zu widerlegen. Es heißt ⟦Gegenbeispiel⟧.",
+    "woerter": [
+     [
+      "s",
+      "Sekunde"
+     ],
+     [
+      "Aussage",
+      "ein Satz, der wahr oder falsch sein kann"
+     ],
+     [
+      "Gegenbeispiel",
+      "ein Beispiel, bei dem eine Aussage nicht stimmt; eines genügt"
+     ],
+     [
+      "widerlegen",
+      "zeigen, dass etwas falsch ist"
+     ]
+    ]
    }
   ],
   "teilfaehigkeiten": [

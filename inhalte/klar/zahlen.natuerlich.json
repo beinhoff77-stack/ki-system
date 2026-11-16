@@ -1,0 +1,308 @@
+{
+ "thema_schluessel": "zahlen.natuerlich",
+ "karten": {
+  "stellenwert": {
+   "einstieg": "Eure Klasse sammelt Kronkorken. Am Ende habt ihr 4 volle Kartons mit je 1 000 Stück, keinen Beutel mit 100, 5 Streifen mit je 10 und 2 einzelne Kronkorken. Aufgeschrieben ist das die Zahl 4 052. Jede Ziffer sagt, wie viele Kartons, Beutel, Streifen oder Einzelne es sind – je nachdem, an welcher Stelle sie steht. Das heißt ⟦Stellenwert⟧.",
+   "woerter": [
+    [
+     "Ziffer",
+     "eines der Zeichen 0, 1, 2, 3, 4, 5, 6, 7, 8, 9; aus Ziffern baut man Zahlen"
+    ],
+    [
+     "Stelle",
+     "der Platz einer Ziffer in der Zahl"
+    ],
+    [
+     "Einer (E), Zehner (Z), Hunderter (H), Tausender (T)",
+     "die Stellen von rechts nach links: 1, 10, 100, 1 000"
+    ],
+    [
+     "Stellenwerttafel",
+     "eine Tabelle mit den Spalten T, H, Z, E; jede Ziffer bekommt ihre Spalte"
+    ],
+    [
+     "Stellenwert",
+     "wie viel eine Ziffer an ihrer Stelle wert ist"
+    ]
+   ],
+   "schritte": [
+    "Trag 4 052 in die Stellenwerttafel ein: die 4 bei T, die 0 bei H, die 5 bei Z und die 2 bei E.",
+    "Die 4 steht in der Spalte T, also an der Tausenderstelle.",
+    "Jede Stelle ist zehnmal so viel wert wie die Stelle rechts daneben: E ist 1, Z ist 10, H ist 100, T ist 1 000.",
+    "Darum ist die 4 hier ⟦4 000⟧ wert – das sind die 4 Kartons mit je 1 000 Kronkorken."
+   ],
+   "regel": "So bestimmst du den Wert einer Ziffer: Schau, an welcher ⟦Stelle⟧ sie steht, und nimm sie mit dem Wert dieser Stelle mal: 4 an der Tausenderstelle ist 4 000. Jede Stelle ist ⟦zehnmal so viel⟧ wert wie die Stelle rechts daneben.",
+   "fehler": "Die 0 weglassen: 4 052 ist nicht 452. Die 0 sagt „kein Beutel mit 100“, aber sie ⟦hält die Stelle frei⟧. Ohne sie rutscht die 4 zu den Hundertern – aus 4 Kartons würden 4 Beutel."
+  },
+  "zahlwort_zu_ziffern": {
+   "einstieg": "In den Nachrichten heißt es: „Die Stadt gibt zwölf Millionen achttausend Euro für ein neues Schwimmbad aus.“ Du sollst den Betrag mit Ziffern aufschreiben. Bei so großen Zahlen hilft ein Trick: Man schreibt die Ziffern in Päckchen zu je drei. Diese Päckchen heißen ⟦Dreiergruppen⟧.",
+   "woerter": [
+    [
+     "Zahlwort",
+     "eine Zahl in Buchstaben, z. B. „achttausend“"
+    ],
+    [
+     "Million",
+     "tausend mal tausend: 1 000 000"
+    ],
+    [
+     "Milliarde",
+     "tausend Millionen: 1 000 000 000"
+    ],
+    [
+     "Dreiergruppe",
+     "drei Ziffern, die zusammengehören; Gruppen von rechts: Einer, Tausender, Millionen, Milliarden"
+    ],
+    [
+     "Gruppenwort",
+     "das Wort, das zu einer Gruppe gehört: Milliarden, Millionen, tausend"
+    ]
+   ],
+   "schritte": [
+    "Zeichne drei Kästchen für die Gruppen: Millionen | Tausender | Einer.",
+    "„zwölf Millionen“: In das Kästchen Millionen kommt 12.",
+    "„achttausend“: In das Kästchen Tausender kommt die 8. Jede Gruppe nach der ersten braucht genau drei Ziffern, also schreibst du ⟦008⟧.",
+    "Für die Einer wurde nichts gesagt. Das Kästchen bekommt drei Nullen: ⟦000⟧.",
+    "Zusammen ergibt das ⟦12 008 000⟧."
+   ],
+   "regel": "So schreibst du ein Zahlwort mit Ziffern: Teile es in ⟦Dreiergruppen⟧ auf: Milliarden | Millionen | Tausender | Einer. Jede Gruppe nach der ersten hat ⟦genau drei Ziffern⟧. Fehlende Stellen füllst du mit ⟦Nullen⟧.",
+   "fehler": "128 000 statt 12 008 000 schreiben: Ohne die Nullen rutscht die 8 an die falsche Stelle. Aus zwölf Millionen Euro würden hundertachtundzwanzigtausend – das Schwimmbad bekäme fast hundertmal weniger Geld. Die Nullen ⟦halten die Stellen frei⟧."
+  },
+  "ziffern_zu_zahlwort": {
+   "einstieg": "Auf dem Taschenrechner steht 3040500 – ganz ohne Lücken. Du sollst die Zahl laut vorlesen. Damit das klappt, setzt du zuerst die Lücken zwischen die Dreiergruppen. Dann liest du jede Gruppe mit ihrem Gruppenwort. So entsteht das ⟦Zahlwort⟧.",
+   "woerter": [
+    [
+     "von rechts teilen",
+     "beim Einteilen in Dreiergruppen bei der letzten Ziffer anfangen"
+    ],
+    [
+     "von links lesen",
+     "beim Vorlesen mit der vordersten Gruppe anfangen"
+    ]
+   ],
+   "schritte": [
+    "Setz von rechts nach je drei Ziffern eine Lücke: 3 | 040 | 500.",
+    "Lies die erste Gruppe mit ihrem Gruppenwort: „drei ⟦Millionen⟧“.",
+    "Die zweite Gruppe 040 ist vierzig, dazu kommt das Gruppenwort: „vierzig⟦tausend⟧“.",
+    "Die letzte Gruppe 500 hat kein Gruppenwort: „fünfhundert“.",
+    "Zusammen liest du ⟦drei Millionen vierzigtausendfünfhundert⟧."
+   ],
+   "regel": "So liest du eine große Zahl: Teile sie ⟦von rechts⟧ in Dreiergruppen. Lies die Gruppen ⟦von links⟧ und sag das Gruppenwort dazu: Milliarden, Millionen, tausend. Die letzte Gruppe hat kein Gruppenwort. Gruppen mit ⟦000⟧ überspringst du.",
+   "fehler": "Die Gruppe 000 mitlesen: 1 000 007 heißt nicht „eine Million null tausend sieben“, sondern ⟦eine Million sieben⟧. Eine Gruppe aus lauter Nullen hält nur die Stellen frei – vorgelesen wird sie nicht."
+  },
+  "strahl_ablesen": {
+   "einstieg": "In der Schule hängt ein Spendenbarometer: ein langer Streifen von 0 € bis 100 €. Nur Anfang und Ende sind beschriftet, dazwischen sind Striche in gleichen Abständen. Ein Pfeil zeigt, wie viel Geld schon gesammelt ist. So ein Streifen mit Zahlen heißt ⟦Zahlenstrahl⟧.",
+   "woerter": [
+    [
+     "Zahlenstrahl",
+     "eine Linie, auf der Zahlen der Reihe nach in gleichen Abständen liegen"
+    ],
+    [
+     "Anfangszahl, Endzahl",
+     "die Zahl am ersten und am letzten beschrifteten Strich"
+    ],
+    [
+     "Abschnitt",
+     "das Stück zwischen zwei Strichen nebeneinander"
+    ],
+    [
+     "Abschnittswert",
+     "um wie viel die Zahl von einem Strich zum nächsten wächst"
+    ]
+   ],
+   "schritte": [
+    "Der Strahl geht von 0 bis 100. Der ganze Abstand ist 100 − 0 = 100.",
+    "Er ist in 10 gleich große Abschnitte geteilt: 100 : 10 = ⟦10⟧. Jeder Abschnitt ist 10 € wert.",
+    "Zähle die Abschnitte vom Anfang bis zum Pfeil: Es sind 3.",
+    "Rechne 0 + 3 · 10 = ⟦30⟧. Es sind 30 € gesammelt."
+   ],
+   "regel": "So liest du am Zahlenstrahl ab: Rechne zuerst den ⟦Abschnittswert⟧ aus: (Endzahl − Anfangszahl) : Anzahl der Abschnitte. Zähle dann die Abschnitte bis zum Pfeil: ⟦Anfangszahl + Abschnitte · Abschnittswert⟧.",
+   "fehler": "Die Anfangszahl vergessen: Geht ein Barometer von 500 € bis 1 000 € mit 10 Abschnitten, ist jeder Abschnitt 50 € wert. Steht der Pfeil 2 Abschnitte nach dem Anfang, sind es nicht 100 €, sondern ⟦500 + 2 · 50 = 600⟧ €."
+  },
+  "strahl_eintragen": {
+   "einstieg": "Eine Woche später sind 70 € gesammelt. Jetzt sollst du den Pfeil am Spendenbarometer neu setzen. Dafür rechnest du aus, wie viele Abschnitte du vom Anfang aus weitergehen musst. Das heißt, eine Zahl am Zahlenstrahl ⟦eintragen⟧.",
+   "woerter": [
+    [
+     "eintragen",
+     "die Stelle für eine Zahl auf dem Zahlenstrahl finden und markieren"
+    ]
+   ],
+   "schritte": [
+    "Der Strahl geht von 0 bis 100 und hat 10 Abschnitte. Der Abschnittswert ist 100 : 10 = 10.",
+    "Zieh die Anfangszahl von deiner Zahl ab: 70 − 0 = 70.",
+    "Teile durch den Abschnittswert: 70 : 10 = ⟦7⟧.",
+    "Geh vom Anfangsstrich aus 7 Abschnitte weiter. Dort kommt der Pfeil hin."
+   ],
+   "regel": "So trägst du eine Zahl ein: Rechne ⟦Zahl − Anfangszahl⟧ und teile das Ergebnis ⟦durch den Abschnittswert⟧. So viele Abschnitte gehst du vom Anfang aus.",
+   "fehler": "Striche statt Abschnitte zählen: Wer schon beim Anfangsstrich „1“ sagt, landet beim 7. Strich – das ist erst bei 60 €. Der Anfangsstrich ⟦zählt nicht mit⟧. Du zählst die Stücke zwischen den Strichen."
+  },
+  "vergleichen": {
+   "einstieg": "Bei zwei Fußballspielen waren 90 909 und 90 990 Zuschauer im Stadion. Die Zahlen sehen fast gleich aus. Welches Spiel hatte mehr Zuschauer? Um das herauszufinden, gehst du Ziffer für Ziffer vor. Das heißt, Zahlen zu ⟦vergleichen⟧.",
+   "woerter": [
+    [
+     "natürliche Zahlen",
+     "die Zahlen zum Zählen: 0, 1, 2, 3, …"
+    ],
+    [
+     "<",
+     "„ist kleiner als“: 3 < 5"
+    ],
+    [
+     ">",
+     "„ist größer als“: 5 > 3; die Spitze zeigt immer zur kleineren Zahl"
+    ]
+   ],
+   "schritte": [
+    "Zähle die Ziffern: Beide Zahlen haben 5 Ziffern. Die Länge entscheidet hier also nicht.",
+    "Vergleiche von links: 9 und 9 sind gleich, 0 und 0 auch, 9 und 9 auch.",
+    "An der vierten Stelle stehen ⟦0⟧ und ⟦9⟧. 0 ist kleiner als 9.",
+    "Also gilt ⟦90 909 < 90 990⟧. Beim zweiten Spiel waren mehr Zuschauer."
+   ],
+   "regel": "So vergleichst du natürliche Zahlen: Die Zahl mit ⟦mehr Ziffern⟧ ist größer. Haben beide gleich viele Ziffern, vergleichst du ⟦von links⟧, Ziffer für Ziffer. Die erste Stelle, an der sie sich unterscheiden, entscheidet.",
+   "fehler": "Auf die letzte Ziffer schauen: 90 909 endet auf 9, 90 990 auf 0 – trotzdem ist 90 909 kleiner. Es entscheidet die ⟦erste Stelle von links⟧, an der sich die Zahlen unterscheiden: bei den Zehnern 0 gegen 9."
+  },
+  "runden_regel": {
+   "einstieg": "Zum Schulfest kamen 3 472 Besucher. In der Schülerzeitung soll eine glatte Zahl stehen, die man sich leicht merkt: „etwa 3 500 Besucher“. Eine Zahl so zu einer glatten Zahl in der Nähe zu machen, heißt ⟦runden⟧.",
+   "woerter": [
+    [
+     "runden",
+     "eine Zahl durch eine glatte Zahl in der Nähe ersetzen"
+    ],
+    [
+     "≈",
+     "„ist ungefähr gleich“: 3 472 ≈ 3 500"
+    ],
+    [
+     "Rundungsstelle",
+     "die Stelle, auf die gerundet wird, z. B. die Hunderterstelle"
+    ],
+    [
+     "abrunden, aufrunden",
+     "die Ziffer an der Rundungsstelle bleibt gleich oder wird um 1 größer"
+    ]
+   ],
+   "schritte": [
+    "Du rundest auf Hunderter. An der Hunderterstelle steht die ⟦4⟧.",
+    "Schau rechts daneben: An der Zehnerstelle steht die ⟦7⟧.",
+    "Die 7 liegt zwischen 5 und 9, also rundest du auf: Aus 4 Hundertern werden 5 Hunderter.",
+    "Alle Stellen dahinter werden 0. Also ist ⟦3 472 ≈ 3 500⟧."
+   ],
+   "regel": "So rundest du: Schau auf die Ziffer ⟦rechts neben der Rundungsstelle⟧. Bei 0, 1, 2, 3 oder 4 rundest du ⟦ab⟧, bei 5, 6, 7, 8 oder 9 rundest du ⟦auf⟧. Alle Stellen hinter der Rundungsstelle werden 0.",
+   "fehler": "Nur die Rundungsstelle ändern und den Rest stehen lassen: 3 572 ist keine glatte Zahl und sogar 100 zu viel. Hinter der Rundungsstelle wird ⟦alles zu 0⟧: 3 500."
+  },
+  "runden_uebertrag": {
+   "einstieg": "Beim Kilometerzähler eines Autos siehst du es gut: Springt er von 99 auf 100, drehen sich auf einmal zwei Rädchen auf 0 und vorn erscheint eine 1. Das Gleiche passiert beim Runden, wenn eine 9 aufgerundet wird. Die 1, die dabei nach links weiterwandert, heißt ⟦Übertrag⟧.",
+   "woerter": [
+    [
+     "Übertrag",
+     "eine 1, die zur nächsten Stelle links weitergegeben wird, wenn an einer Stelle 10 herauskommt"
+    ]
+   ],
+   "schritte": [
+    "Das Spendenbarometer zeigt 2 995 €. Du rundest auf Zehner: An der Zehnerstelle steht die ⟦9⟧, rechts daneben die 5. Also rundest du auf.",
+    "Aus 9 Zehnern würden 10 Zehner. 10 Zehner passen nicht an eine Stelle – sie sind 1 Hunderter.",
+    "Anders gesagt: 2 995 enthält 299 Zehner. Aufgerundet sind es 299 + 1 = ⟦300 Zehner⟧.",
+    "300 Zehner sind 3 000. Also ist ⟦2 995 ≈ 3 000⟧."
+   ],
+   "regel": "So rundest du mit einer 9: Wird beim Aufrunden aus einer ⟦9 eine 10⟧, schreibst du an dieser Stelle 0 und gibst ⟦1 nach links⟧ weiter – wie der Kilometerzähler von 99 auf 100.",
+   "fehler": "Den Übertrag verlieren: Wer bei 2 995 die 9 zu 0 macht und 2 900 schreibt, liegt fast 100 € daneben. Die 1 muss ⟦nach links weiter⟧: 2 995 ≈ 3 000."
+  },
+  "runden_sinnvoll": {
+   "einstieg": "Im Radio hört man: „Im Stadion waren etwa 45 000 Zuschauer.“ Das stört niemanden. Würde aber jemand deine Telefonnummer runden, könnte dich keiner mehr anrufen. Ob man runden darf, hängt also davon ab, wofür die Zahl gebraucht wird. Darum geht es bei ⟦sinnvollem Runden⟧.",
+   "woerter": [
+    [
+     "sinnvoll",
+     "passend, es ergibt Sinn"
+    ],
+    [
+     "✓ und ✗",
+     "✓ heißt: hier ist Runden sinnvoll; ✗ heißt: hier nicht"
+    ],
+    [
+     "PIN",
+     "eine geheime Zahl, z. B. für die Bankkarte"
+    ]
+   ],
+   "schritte": [
+    "Frag dich zuerst: Muss die Zahl genau stimmen, oder reicht ungefähr?",
+    "Zuschauer im Stadion: Ungefähr reicht. ✓ ⟦≈ 45 000⟧ ist sinnvoll.",
+    "Telefonnummer: Schon eine falsche Ziffer, und es klingelt bei jemand anderem. ✗ Hier ⟦rundet man nicht⟧.",
+    "Genauso bei PIN und Sitzplatznummer: Sie müssen genau stimmen. ✗"
+   ],
+   "regel": "So entscheidest du: Runden passt, wenn es ⟦nur ungefähr⟧ sein muss, z. B. bei Zuschauern oder Einwohnern. Muss es ⟦genau stimmen⟧, wie bei Telefonnummer, PIN oder Sitzplatz, rundest du nicht.",
+   "fehler": "Eine Nummer runden: Wer die PIN 4 386 als 4 400 eintippt, kommt nicht an sein Geld. Eine Nummer ist wie ein ⟦Name aus Ziffern⟧, keine Anzahl – sie wird nie gerundet."
+  },
+  "unendlich": {
+   "einstieg": "Zwei Kinder spielen: Wer die größere Zahl sagt, gewinnt. „Eine Million!“ – „Eine Million und eins!“ – „Eine Milliarde!“ – „Eine Milliarde und eins!“ Das Spiel kann nie enden, denn es geht immer noch eins mehr. Die natürlichen Zahlen hören nie auf: Es gibt ⟦unendlich viele⟧.",
+   "woerter": [
+    [
+     "unendlich",
+     "ohne Ende; es hört nie auf"
+    ],
+    [
+     "Nachfolger",
+     "die Zahl, die um 1 größer ist: Der Nachfolger von 9 ist 10"
+    ]
+   ],
+   "schritte": [
+    "Nimm eine sehr große Zahl, zum Beispiel 999 999 999.",
+    "Zähl 1 dazu: 999 999 999 + 1 = ⟦1 000 000 000⟧. Das ist eine Milliarde.",
+    "Auch zu dieser Zahl kannst du wieder 1 dazuzählen – und dann wieder, immer weiter.",
+    "Darum gibt es ⟦keine größte⟧ natürliche Zahl."
+   ],
+   "regel": "So begründest du es: Zu ⟦jeder⟧ natürlichen Zahl kannst du 1 dazuzählen und bekommst ihren ⟦Nachfolger⟧, eine größere Zahl. Darum gibt es unendlich viele natürliche Zahlen und keine größte.",
+   "fehler": "„Die größte Zahl ist eine Milliarde“ – eine Milliarde und eins ist größer. Auch „unendlich“ ist ⟦keine Zahl⟧, die man aufschreiben kann. Es bedeutet nur: Das Zählen hört nie auf."
+  },
+  "roemisch_schreiben": {
+   "einstieg": "Auf alten Uhren steht oben XII statt 12, und auf Kirchen oder Denkmälern findet man Jahreszahlen wie MDCCC. So haben die Römer vor 2 000 Jahren Zahlen geschrieben – mit Buchstaben statt Ziffern. Man nennt sie ⟦römische Zahlen⟧.",
+   "woerter": [
+    [
+     "römische Zeichen",
+     "I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1 000"
+    ],
+    [
+     "zusammenzählen",
+     "die Werte der Zeichen addieren: XXI = 10 + 10 + 1 = 21"
+    ],
+    [
+     "Paar zum Abziehen",
+     "ein kleines Zeichen vor einem größeren wird abgezogen; erlaubt sind nur IV, IX, XL, XC, CD, CM"
+    ]
+   ],
+   "schritte": [
+    "Zerlege 39 in Zehner und Einer: 39 = 30 + 9.",
+    "30 sind drei Zehner, also XXX.",
+    "9 ist eins weniger als 10. Dafür gibt es das Paar ⟦IX⟧: I vor X heißt 10 − 1.",
+    "Schreib beides hintereinander: 39 = ⟦XXXIX⟧."
+   ],
+   "probe": "XXXIX = 10 + 10 + 10 + (10 − 1) = 39 ✓",
+   "regel": "So schreibst du römisch: Zerlege die Zahl in Tausender, Hunderter, Zehner und Einer und schreibe jeden Teil mit ⟦I, V, X, L, C, D, M⟧. Die Zeichen werden ⟦zusammengezählt⟧. Abziehen gibt es nur bei ⟦IV, IX, XL, XC, CD, CM⟧.",
+   "fehler": "490 als XD schreiben (500 − 10): Dieses Paar ⟦gibt es nicht⟧. Zerlege stattdessen: 490 = 400 + 90 = CD + XC = ⟦CDXC⟧."
+  },
+  "roemisch_system": {
+   "einstieg": "In der Zahl 333 steht dreimal die gleiche Ziffer – und trotzdem ist jede 3 anders viel wert. Bei den Römern ist das anders: Ein X ist immer 10, egal wo es steht. Unsere Schreibweise, bei der die Stelle den Wert bestimmt, heißt ⟦Stellenwertsystem⟧.",
+   "woerter": [
+    [
+     "Stellenwertsystem",
+     "eine Schreibweise, in der der Wert einer Ziffer von ihrer Stelle abhängt"
+    ],
+    [
+     "Grundwert",
+     "der feste Wert eines römischen Zeichens: X ist immer 10"
+    ],
+    [
+     "Platzhalter",
+     "eine 0, die eine leere Stelle freihält, wie in 4 052"
+    ]
+   ],
+   "schritte": [
+    "In 333 steht die erste 3 an der Hunderterstelle. Sie ist ⟦300⟧ wert.",
+    "Die zweite 3 steht an der Zehnerstelle und ist ⟦30⟧ wert, die dritte steht an der Einerstelle und ist ⟦3⟧ wert.",
+    "Römisch ist XXX = 10 + 10 + 10 = 30. Jedes X ist 10 wert, egal an welcher Position es steht.",
+    "Darum brauchen die Römer ⟦keine 0⟧: Es gibt keine Stellen, die man freihalten muss."
+   ],
+   "regel": "So unterscheidest du: Bei unseren Zahlen hängt der Wert einer Ziffer von ihrer ⟦Stelle⟧ ab. Ein römisches Zeichen behält seinen ⟦Grundwert⟧. Die Anordnung entscheidet nur, ob es dazugezählt oder in einem erlaubten Paar abgezogen wird. Deshalb braucht man römisch keine 0 als ⟦Platzhalter⟧.",
+   "fehler": "„Bei römischen Zahlen bestimmt die Stelle den Wert, wie bei uns“ stimmt nicht: In XI und IX ist das X beide Male ⟦10⟧ wert. Es ändert sich nur, ob das I dazugezählt oder abgezogen wird – 11 und 9."
+  }
+ }
+}

@@ -646,6 +646,99 @@ TEIL = {'erkennen': 'erkennen', 'vervielfachen': 'erkennen', 'produkt': 'erkenne
                    ('rechnen', 'Mit Dreisatz und Produkt rechnen, Sachaufgaben lösen'),
                    ('darstellen', 'Hyperbel deuten und Zuordnungsarten unterscheiden')]}
 
+# ---------- KLAR: verständliche Erklärungen (Runde 7b, Pflicht seit 15.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _klar_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _klar_rest import mit_klar  # noqa: E402
+
+KLAR = {
+ 'erkennen': {
+  'einstieg': 'Ihr wollt ein Zimmer streichen. Zu zweit braucht ihr 6 Stunden. Kommen zwei Freunde dazu, seid ihr doppelt so viele – und braucht nur halb so lange. Gehört zum Doppelten der einen Größe immer genau die Hälfte der anderen, nennt man das ⟦indirekt proportional⟧.',
+  'woerter': [['Größe', 'etwas, das man zählen oder messen kann: Personen, Zeit, Preis'],
+              ['Zuordnung', 'jedem Wert der einen Größe gehört ein Wert der anderen: 2 Personen → 6 h'],
+              ['h', 'Abkürzung für Stunden'],
+              ['das Doppelte, das Dreifache', '2-mal so viel, 3-mal so viel'],
+              ['indirekt proportional', 'zum Doppelten gehört die Hälfte, zum Dreifachen ein Drittel usw.']],
+  'schritte': ['2 Personen brauchen 6 h. Von diesem Paar gehst du aus.',
+               'Doppelt so viele Personen (4) brauchen halb so lange: 6 h : 2 = ⟦3 h⟧.',
+               'Dreimal so viele Personen (6) brauchen ein Drittel der Zeit: 6 h : 3 = ⟦2 h⟧.',
+               'Zum Doppelten gehört die Hälfte, zum Dreifachen ein Drittel – die Zuordnung ist indirekt proportional.'],
+  'regel': 'So erkennst du eine indirekte Proportionalität: Gehört zum ⟦Doppelten⟧ der einen Größe die ⟦Hälfte⟧ der anderen, zum Dreifachen ein ⟦Drittel⟧ usw.? „Je mehr, desto weniger“ allein reicht dafür ⟦nicht⟧ – es muss genau im umgekehrten Verhältnis weniger werden.',
+  'fehler': '„Je älter ein Auto, desto weniger ist es wert“ – trotzdem nicht indirekt proportional: Ein 1 Jahr altes Auto ist z. B. 20 000 € wert, ein 2 Jahre altes 17 000 €. Doppeltes Alter, aber ⟦nicht halber Wert⟧ (das wären 10 000 €).'},
+ 'vervielfachen': {
+  'einstieg': 'Ein Bauer hat Futter für seine 6 Pferde, es reicht 20 Tage. Dann verkauft er 3 Pferde. Jetzt fressen nur noch halb so viele Pferde – das Futter reicht doppelt so lange. Was du mit der einen Größe machst, machst du mit der anderen umgekehrt. Das siehst du gut in einer Tabelle mit ⟦Wertepaaren⟧.',
+  'woerter': [['Wertepaar', 'zwei zusammengehörige Werte, z. B. 6 Pferde und 20 Tage'],
+              ['Tabelle', 'Wertepaare übersichtlich untereinander oder nebeneinander'],
+              ['umgekehrt rechnen', 'aus Mal wird Geteilt, aus Geteilt wird Mal']],
+  'schritte': ['In der Tabelle stehen 6 Pferde und 20 Tage. Gesucht sind die Tage für 3 Pferde.',
+               'Von 6 auf 3 Pferde wird durch 2 geteilt: Es sind halb so viele.',
+               'Die Tage rechnest du umgekehrt, also mal 2: 20 · 2 = 40.',
+               'Das Futter reicht ⟦40 Tage⟧.'],
+  'regel': 'So rechnest du in der Tabelle: Multiplizierst du die eine Größe mit einer Zahl, ⟦teilst⟧ du die andere durch ⟦dieselbe Zahl⟧. Teilst du die eine, ⟦multiplizierst⟧ du die andere.',
+  'fehler': 'Wie bei „je mehr, desto mehr“ auf beiden Seiten dasselbe rechnen: 3 Pferde → 20 : 2 = 10 Tage ist falsch. Weniger Pferde fressen weniger, das Futter reicht also ⟦länger⟧: 40 Tage.'},
+ 'produkt': {
+  'einstieg': 'Eine Tippgemeinschaft gewinnt 120 € und teilt gerecht. Spielen 2 Personen mit, bekommt jede 60 €, bei 3 Personen sind es 40 €. Egal wie viele mitspielen: Personen mal Betrag ergibt immer die 120 €. Diese Eigenschaft heißt ⟦Produktgleichheit⟧.',
+  'woerter': [['x und y', 'die beiden Größen: x = Anzahl der Personen, y = Euro pro Person'],
+              ['Produkt', 'das Ergebnis einer Malaufgabe, hier x · y'],
+              ['Produktgleichheit', 'x · y ergibt bei allen Wertepaaren dieselbe Zahl'],
+              ['Gesamtmenge', 'das, was verteilt wird – hier der Gewinn']],
+  'schritte': ['Rechne für jedes Wertepaar das Produkt aus: 2 · 60 = 120, 3 · 40 = 120 und 5 · 24 = 120.',
+               'Alle Produkte sind gleich. Das gemeinsame Produkt ist der Gewinn: ⟦120 €⟧. Die Zuordnung ist indirekt proportional.',
+               'Für 8 Personen teilst du das Produkt durch 8: 120 € : 8 = ⟦15 €⟧ pro Person.'],
+  'probe': '8 · 15 = 120 ✓',
+  'regel': 'So prüfst du mit der ⟦Produktgleichheit⟧: Rechne für ⟦jedes⟧ Wertepaar x · y aus. Sind alle Produkte ⟦gleich⟧, ist die Zuordnung indirekt proportional. Fehlende Werte findest du mit y = ⟦Produkt : x⟧.',
+  'fehler': 'Nur zwei Paare prüfen: 2 · 60 = 120 und 4 · 30 = 120, aber 6 · 25 = 150. Dann würde mehr Geld verteilt, als gewonnen wurde. Ein einziges abweichendes Produkt genügt – die Zuordnung ist ⟦nicht⟧ indirekt proportional. Prüfe ⟦alle⟧ Paare.'},
+ 'dreisatz': {
+  'einstieg': 'Ein Schwimmbecken soll geleert werden. 6 gleiche Pumpen schaffen das in 10 Stunden, aber 2 Pumpen fallen aus. Wie lange brauchen die übrigen 4? Du rechnest in drei Sätzen: von 6 Pumpen auf 1 Pumpe und dann auf 4 Pumpen. Dieser Rechenweg heißt ⟦Dreisatz⟧.',
+  'woerter': [['Dreisatz', 'ein Rechenweg in drei Schritten: gegebener Wert → eine Einheit → gesuchter Wert'],
+              ['Einheit', 'hier: eine einzige Pumpe']],
+  'schritte': ['Gegeben: 6 Pumpen brauchen 10 h.',
+               'Auf eine Einheit: Eine Pumpe allein braucht 6-mal so lange, 10 h · 6 = 60 h.',
+               'Auf den gesuchten Wert: 4 Pumpen schaffen es in einem Viertel der Zeit, 60 h : 4 = ⟦15 h⟧.'],
+  'probe': '6 · 10 = 60 und 4 · 15 = 60 ✓',
+  'regel': 'So rechnest du den Dreisatz bei indirekter Proportionalität: ⟦gegebener Wert⟧ → ⟦eine Einheit⟧ → ⟦gesuchter Wert⟧. Beim Schritt zur Einheit wird ⟦multipliziert⟧, nicht geteilt – eine Pumpe braucht ja länger als sechs.',
+  'fehler': 'Wie bei direkter Proportionalität rechnen: 10 h : 6 · 4 ≈ 6,7 h. Weniger Pumpen können aber nicht schneller sein! Frage dich vorher: ⟦Mehr oder weniger?⟧ Weniger Pumpen → ⟦mehr⟧ Zeit.'},
+ 'graph': {
+  'einstieg': 'Ein Etikett soll 12 cm² groß sein. Es kann 1 cm breit und 12 cm lang sein, 2 cm breit und 6 cm lang oder 3 cm breit und 4 cm lang. Trägst du alle Möglichkeiten in ein Koordinatensystem ein, liegen die Punkte auf einer gebogenen Kurve. Sie heißt ⟦Hyperbel⟧.',
+  'woerter': [['cm²', 'Quadratzentimeter, eine Einheit für Flächen'],
+              ['Koordinatensystem', 'zwei Achsen: nach rechts die Breite x, nach oben die Länge y'],
+              ['(2 | 6)', 'der Punkt mit x = 2 und y = 6'],
+              ['Ursprung', 'der Punkt (0 | 0), wo sich die Achsen kreuzen'],
+              ['k', 'das Produkt, das immer gleich bleibt – hier 12'],
+              ['Hyperbel', 'die gebogene Kurve einer indirekten Proportionalität, y = k : x']],
+  'schritte': ['Breite mal Länge muss 12 ergeben: x · y = 12. Also ist y = 12 : x.',
+               'Rechne Wertepaare aus: (1 | 12), (2 | 6), (3 | 4), (4 | 3) und (6 | 2).',
+               'Trag die Punkte ins Koordinatensystem ein und verbinde sie mit einer gebogenen Linie, nicht mit geraden Strecken.',
+               'Es entsteht eine ⟦Hyperbel⟧: Sie fällt erst steil und dann flach und kommt den Achsen immer näher.'],
+  'regel': 'So erkennst du den Graphen: Die Punkte (x | y) einer indirekten Proportionalität liegen auf einer ⟦Hyperbel⟧ mit y = k : x, wobei k das gleichbleibende Produkt ist. Der Graph geht ⟦nicht durch den Ursprung⟧ und kommt den Achsen immer näher, ohne sie zu berühren.',
+  'fehler': 'Die Punkte mit geraden Strecken verbinden oder die Kurve bis zur Achse zeichnen. Bei x = 0 gäbe es kein Etikett mit 12 cm² – die Kurve ⟦berührt die Achsen nie⟧.'},
+ 'unterscheiden': {
+  'einstieg': 'Eine Taxifahrt kostet 4 € Grundgebühr und 2 € pro Kilometer. 2 km kosten 8 €, 4 km 12 € und 6 km 16 €. Mehr Kilometer kosten mehr Geld – aber doppelt so weit kostet nicht doppelt so viel. Solche Zuordnungen sind ⟦weder direkt noch indirekt proportional⟧.',
+  'woerter': [['Grundgebühr', 'ein fester Betrag, den man immer zahlt, egal wie weit man fährt'],
+              ['direkt proportional', 'zum Doppelten gehört das Doppelte; y : x ist immer gleich'],
+              ['Quotient', 'das Ergebnis einer Geteiltaufgabe, hier y : x'],
+              ['weder noch', 'keins von beiden']],
+  'schritte': ['Prüfe die Quotienten y : x: 8 : 2 = 4 und 12 : 4 = 3. Sie sind nicht gleich, also ist die Zuordnung nicht direkt proportional.',
+               'Prüfe die Produkte x · y: 2 · 8 = 16 und 4 · 12 = 48. Sie sind auch nicht gleich, also ist sie nicht indirekt proportional.',
+               'Die Zuordnung ist ⟦weder noch⟧: Die Grundgebühr verhindert die Proportionalität.'],
+  'regel': 'So prüfst du mit der Tabelle: Ist der ⟦Quotient y : x⟧ immer gleich, ist die Zuordnung ⟦direkt⟧ proportional. Ist das ⟦Produkt x · y⟧ immer gleich, ist sie ⟦indirekt⟧ proportional. Ist beides nicht so, ist sie ⟦weder noch⟧ – dann hilft kein Dreisatz.',
+  'fehler': '„Der Preis wird größer, also direkt proportional“ – beim Taxi wird der Preis größer, aber die doppelte Strecke kostet nicht das Doppelte (4 km: 12 € statt 16 €). Entscheide ⟦mit Rechnung⟧, nicht mit „je mehr, desto mehr“.'},
+ 'sach': {
+  'einstieg': 'Eine Familie fährt in den Urlaub. Bei 80 km/h dauert die Fahrt 3 Stunden. Wie lange dauert sie bei 120 km/h? Bevor du rechnest, überlegst du: Schneller fahren heißt weniger Zeit. So gehst du jede ⟦Sachaufgabe⟧ an.',
+  'woerter': [['Sachaufgabe', 'eine Aufgabe mit einer Situation aus dem Alltag'],
+              ['km/h', 'Kilometer pro Stunde: wie weit man in einer Stunde fährt'],
+              ['sinnvoll', 'passt zur Situation']],
+  'schritte': ['Welche Größen hängen zusammen? Geschwindigkeit und Fahrzeit. Doppelt so schnell heißt halb so lange – indirekt proportional.',
+               'Das Produkt bleibt gleich: 80 · 3 = 240. Das ist die Strecke in km.',
+               'Teile durch die neue Geschwindigkeit: 240 : 120 = ⟦2 h⟧.',
+               'Prüfe, ob das sinnvoll ist: schneller gefahren, also weniger Zeit ✓.'],
+  'probe': '120 km/h · 2 h = 240 km ✓',
+  'regel': 'So löst du eine Sachaufgabe: Lies genau, welche zwei Größen zusammenhängen. Frage dich: ⟦Doppelt so viel – doppelt oder halb?⟧ Erst dann wählst du den Rechenweg. Prüfe am Ende, ob das Ergebnis ⟦sinnvoll⟧ ist.',
+  'fehler': 'Bei Aufgaben mit festem Grundbetrag (Eintritt plus Fahrten, Taxi) den Dreisatz verwenden. Kostet 1 Fahrt mit Eintritt 7 €, kosten 3 Fahrten nicht 21 €, wenn der Eintritt nur ⟦einmal⟧ bezahlt wird.'},
+}
+
+baue = mit_klar(baue, KLAR)
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Erkennen', ['erkennen', 'vervielfachen', 'produkt']), ('Rechnen', ['dreisatz']),

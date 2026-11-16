@@ -791,6 +791,22 @@ def schwer():
     return N
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('funktionen.trig', 13_10_4)
+# a) Einschritt-Aufgabe bzw. gleicher Typ wie Stufe 1 → Stufe 2
+BF.stufe('periode', 'Eine Sinusfunktion f(x) = sin(b · x) soll die Periode 90° haben. Bestimme b.', 2)
+BF.stufe('periode', 'Jemand sagt: „f(x) = sin(0,5x) hat die Periode 180°.“ Was stimmt?', 2)
+# a) reine Taschenrechner-Aufgaben stehen gleich auf Stufe 1 und 2 → Stufe 1
+BF.stufe('werte', 'Berechne sin(2,7) (x im Bogenmaß) auf drei Nachkommastellen.', 1)
+BF.stufe('werte', 'Berechne cos(4,4) (x im Bogenmaß) auf drei Nachkommastellen.', 1)
+BF.nicht_umgesetzt('periode, parameter, zuordnen, eigenschaften, anwendung: fast nur Gradmaß statt Bogenmaß (LehrplanPLUS M10 3, Abitur)',
+                   'Kein Fehler in einzelnen Aufgaben; ein Umstellen aller alten Aufgaben auf Bogenmaß wäre ein Umbau der Karten. Runde 10 hat Bogenmaß-Aufgaben ergänzt (siehe „für Sebastian“).')
+BF.fuer_sebastian('funktionen.trig: Die alten Aufgaben arbeiten fast nur im Gradmaß; LehrplanPLUS M10 3 und Abitur nutzen das Bogenmaß. Die Begründung unter „offen“ (keine π-Beschriftung) ist seit 15.11. überholt. Karten/alte Aufgaben auf Bogenmaß umstellen?')
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     datei = bauen('funktionen.trig',
           'Sinus- und Kosinusfunktion mit Grad- und Bogenmaß beschreiben, Periode, Amplitude und Verschiebung deuten, Graph und Term zuordnen und periodische Vorgänge modellieren.',
@@ -806,3 +822,4 @@ if __name__ == '__main__':
                  'Vorschlag der Prüfung an den Haupt-Chat (App, nicht Inhalt): x-Achse in Vielfachen von π beschriften (π/2, π, 3π/2) – würde „bogenmass“ und „werte“ anschaulicher machen. Bis dahin Gradbeschriftung.',
                  'Rechenausdruck c: Sinus/Kosinus-Werte als 12-stellige Konstanten mit Toleranz.'])
     ergaenzen(datei, schwer())
+    befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

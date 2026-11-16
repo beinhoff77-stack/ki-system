@@ -285,6 +285,78 @@ def g_beurteilen(R, st):
 
 GEN = {'zufallsgeraet': g_zufallsgeraet, 'zufallsziffern': g_zufallsziffern, 'regel': g_regel, 'auswerten': g_auswerten, 'monte_carlo': g_monte_carlo, 'beurteilen': g_beurteilen}
 
+
+# ---------- UMBAU: neues Muster (Achte Runde, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl8.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl8 import mit_umbau  # noqa: E402
+
+# Bild der Monte-Carlo-Karte: unverändert aus ETAPPEN (40 Zufallspunkte, 31 im Viertelkreis – nachgezählt).
+_ZIFF = ['Ziffer', '7', '1', '4', '0', '9', '2', '5', '8', '3', '6']
+UMBAU = {
+ 'zufallsgeraet': {
+  'einstieg': 'Tim trifft beim Basketball-Freiwurf in 3 von 10 Fällen. Statt in die Halle zu gehen, lässt er ein Zufallsgerät mit derselben Trefferchance „werfen“. Das nennt man ⟦simulieren⟧.',
+  'woerter': [['simulieren', 'einen echten Vorgang mit einem Zufallsgerät nachspielen'], ['Zufallsgerät', 'Münze, Würfel, Urne oder Glücksrad'], ['mit Zurücklegen', 'die gezogene Kugel kommt zurück in die Urne']],
+  'bild': {'typ': 'bruchstreifen', 'teile': 10, 'gefaerbt': 3, 'ganzes': '10 Kugeln', 'teil_text': '3 rote'},
+  'schritte': [{'text': 'Tim trifft mit der Wahrscheinlichkeit p = 0,3.'},
+               {'text': 'Eine Urne mit 3 roten und 7 weißen Kugeln passt: rot heißt Treffer.'},
+               {'text': 'Ziehen ⟦mit Zurücklegen⟧: So bleibt p bei jedem Wurf 0,3.'}],
+  'fehler': 'Eine Münze passt nicht: Sie trifft immer mit ⟦p = 0,5⟧. Das Gerät braucht genau die echte Wahrscheinlichkeit.',
+  'fehler_bild': {'teile': 2, 'gefaerbt': 1, 'ganzes': 'Münze', 'teil_text': '1/2'},
+  'regel': 'Das Zufallsgerät braucht ⟦dieselbe Wahrscheinlichkeit⟧. Münze 1/2, Würfel 1/6, Urne oder Glücksrad: beliebige Anteile.'},
+ 'regel': {
+  'einstieg': 'Bevor Tim simuliert, legt er fest, was als Treffer zählt. Bei p = 0,35 reichen die Ziffern 0 bis 9 nicht. Zweistellige Zahlen helfen; die Festlegung heißt ⟦Simulationsregel⟧.',
+  'woerter': [['Simulationsregel', 'die Festlegung, welche Zahlen ein Treffer sind'], ['00 bis 99', 'alle 100 zweistelligen Zufallszahlen']],
+  'bild': {'typ': 'zahlenstrahl', 'start': 0, 'ende': 100, 'abschnitte': 10, 'beschriftet': 'anfang_ende'},
+  'schritte': [{'text': 'p = 0,35 = 35/100. Nimm die Zahlen 00 bis 99.'},
+               {'text': 'Das sind 100 gleich wahrscheinliche Zahlen. 35 davon sollen Treffer sein.'},
+               {'text': 'Regel: ⟦00–34 = Treffer⟧, 35–99 = kein Treffer.', 'bild': {'bereich': {'von': 0, 'bis': 35}, 'punkte': [{'wert': 35, 'name': 'ab 35 kein Treffer'}]}}],
+  'fehler': '„00–35 = Treffer“ ist falsch: Von 00 bis 35 sind es ⟦36⟧ Zahlen.',
+  'regel': 'Schreibe p mit ⟦Nenner 10 oder 100⟧. Dann so viele Ziffern oder Zahlen als Treffer festlegen und nachzählen.'},
+ 'zufallsziffern': {
+  'einstieg': 'Statt einer Urne nimmt Tim eine Liste mit Zufallsziffern, etwa vom Taschenrechner. Jede Ziffer von 0 bis 9 kommt gleich oft vor. Mit einer Regel wird daraus ein ⟦Treffer⟧ oder keiner.',
+  'woerter': [['Zufallsziffern', 'zufällig erzeugte Ziffern von 0 bis 9'], ['Treffer', 'ein Versuch, der zählt – hier ein getroffener Wurf']],
+  'bild': {'typ': 'tabelle', 'kopf': _ZIFF, 'zeilen': [['Treffer?'] + ['?'] * 10]},
+  'schritte': [{'text': 'Regel: 0, 1, 2 = Treffer. Das sind 3 von 10 Ziffern, p = 0,3.'},
+               {'text': 'Die Liste lautet: 7 1 4 0 9 2 5 8 3 6.'},
+               {'text': 'Treffer sind 1, 0 und 2: ⟦3 Treffer⟧ in 10 Versuchen.',
+                'bild': {'zeilen': [['Treffer?', '–', 'ja', '–', 'ja', '–', 'ja', '–', '–', '–', '–']]}}],
+  'fehler': 'Bei „0–2 = Treffer“ zählt die 2 mit. Das sind ⟦drei⟧ Ziffern, also p = 3/10.',
+  'regel': 'Lege fest, welche Ziffern ⟦Treffer⟧ sind. Dann die Liste durchgehen und zählen.'},
+ 'auswerten': {
+  'einstieg': 'Tim hat 200-mal simuliert, ob mindestens zwei Sechsen fallen. 46-mal war es so. Jetzt wird die Simulation ⟦ausgewertet⟧.',
+  'woerter': [['ausgewertet', 'aus den Ergebnissen eine Aussage gewonnen'], ['Schätzwert', 'ein ungefährer Wert, kein genauer']],
+  'bild': {'typ': 'saeulen', 'einheit': 'Durchgänge', 'werte': [{'name': 'ja', 'wert': 46}, {'name': 'nein', 'wert': 154}], 'zahlen': True},
+  'schritte': [{'text': 'In 200 Durchgängen kam es 46-mal vor.'},
+               {'text': 'Relative Häufigkeit: 46 : 200 = 0,23.', 'bild': {'typ': 'kreisdiagramm', 'einheit': ' %', 'werte': [{'name': 'ja', 'wert': 23}, {'name': 'nein', 'wert': 77}], 'zahlen': True}},
+               {'text': 'Das ist ein Schätzwert: ⟦P ≈ 0,23⟧.'}],
+  'fehler': '0,23 ist kein genauer Wert, sondern eine ⟦Schätzung⟧. Eine neue Simulation ergibt meist eine etwas andere Zahl.',
+  'regel': 'Schätzwert = ⟦Treffer : Durchgänge⟧. Mehr Durchgänge machen ihn zuverlässiger.'},
+ 'monte_carlo': {
+  'einstieg': 'Regentropfen fallen zufällig auf ein quadratisches Blatt mit einem Viertelkreis. Landen drei Viertel im Viertelkreis, bedeckt er etwa drei Viertel des Blatts. Das ist die ⟦Monte-Carlo-Methode⟧.',
+  'woerter': [['Monte-Carlo-Methode', 'eine Fläche mit zufälligen Punkten schätzen'], ['Anteil', 'Teil geteilt durch Ganzes']],
+  'bild': None,  # wird unten aus dem bisherigen Kartenbild übernommen
+  'schritte': [{'text': 'Das Quadrat hat 100 cm², darin liegt ein Viertelkreis.'},
+               {'text': '31 von 40 Zufallspunkten liegen im Viertelkreis: Anteil 0,775.'},
+               {'text': 'Fläche ≈ 0,775 · 100 cm² = ⟦77,5 cm²⟧.'}],
+  'fehler': 'Nicht die Punktzahl als Fläche nehmen: 31 Punkte sind nicht 31 cm². Man braucht den ⟦Anteil⟧ der Punkte mal 100 cm².',
+  'regel': 'Anteil der Punkte ≈ ⟦Anteil der Fläche⟧. Mal die Quadratfläche ergibt die Fläche der Figur.'},
+ 'beurteilen': {
+  'einstieg': 'Ein Elfmeterschütze trifft in 3 von 4 Fällen. Jemand simuliert das mit einem Würfel: 1 bis 4 heißt Treffer. Nur bei gleicher Wahrscheinlichkeit ist die Simulation ⟦geeignet⟧.',
+  'woerter': [['geeignet', 'passend: gleiche Wahrscheinlichkeit wie in echt'], ['≈', '„ungefähr gleich“']],
+  'bild': {'typ': 'kreisdiagramm', 'einheit': ' %', 'werte': [{'name': 'Treffer', 'wert': 75}, {'name': 'kein', 'wert': 25}], 'zahlen': True},
+  'schritte': [{'text': 'Der Schütze trifft mit 3/4 = 75 %.'},
+               {'text': 'Würfel, 1 bis 4: 4/6 ≈ 67 %.', 'bild': {'werte': [{'name': 'Treffer', 'wert': 67}, {'name': 'kein', 'wert': 33}]}},
+               {'text': '67 % ist nicht 75 %: ⟦nicht geeignet⟧.'},
+               {'text': 'Ein Glücksrad mit 270°-Trefferfeld passt: 270/360 = 3/4.', 'bild': {'einheit': '°', 'werte': [{'name': 'Treffer', 'wert': 270}, {'name': 'kein', 'wert': 90}]}}],
+  'fehler': 'Eine Urne ohne Zurücklegen ändert sich bei jedem Zug. Für gleichbleibende Wahrscheinlichkeit musst du ⟦zurücklegen⟧.',
+  'regel': 'Das Zufallsgerät braucht ⟦genau die richtige Wahrscheinlichkeit⟧. Und jeder Durchgang muss ablaufen wie in Wirklichkeit.'},
+}
+_mc_alt = next(e for e in ETAPPEN if e['lernziel'] == 'monte_carlo').get('bild')
+UMBAU['monte_carlo']['bild'] = _mc_alt
+UMBAU_OFFEN = ['Umbau 16.11.: Karte zufallsgeraet zeigt die Urne behelfsweise als Bruchstreifen (10 Kugeln, 3 rot). App-Wunsch Urne steht schon auf der Liste.']
+baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Simulieren', ['zufallsgeraet', 'regel', 'zufallsziffern']), ('Auswerten', ['auswerten', 'monte_carlo']), ('Verstehen', ['beurteilen'])],

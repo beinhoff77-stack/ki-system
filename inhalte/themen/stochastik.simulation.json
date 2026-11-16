@@ -41,14 +41,20 @@
    {
     "lernziel": "zufallsgeraet",
     "titel": "Ein passendes Zufallsgerät wählen",
-    "regel": "So wählst du ein ⟦Zufallsgerät⟧: Es muss ⟦dieselbe Wahrscheinlichkeit⟧ haben wie der echte Vorgang. Münze: 1/2, Würfel: 1/6, Urne oder Glücksrad: beliebige Anteile.",
+    "regel": "Das Zufallsgerät braucht ⟦dieselbe Wahrscheinlichkeit⟧. Münze 1/2, Würfel 1/6, Urne oder Glücksrad: beliebige Anteile.",
     "schritte": [
-     "Tim trifft mit der Wahrscheinlichkeit p = 0,3.",
-     "Eine Urne mit 10 Kugeln passt: 3 rote bedeuten Treffer, 7 weiße bedeuten kein Treffer.",
-     "Nach jedem Zug kommt die Kugel zurück, damit beim nächsten Wurf wieder p = 0,3 gilt. Ein Zug ⟦mit Zurücklegen⟧ simuliert also einen Wurf."
+     {
+      "text": "Tim trifft mit der Wahrscheinlichkeit p = 0,3."
+     },
+     {
+      "text": "Eine Urne mit 3 roten und 7 weißen Kugeln passt: rot heißt Treffer."
+     },
+     {
+      "text": "Ziehen ⟦mit Zurücklegen⟧: So bleibt p bei jedem Wurf 0,3."
+     }
     ],
-    "fehler": "Eine Münze passt nicht für p = 0,3: Sie liefert immer ⟦p = 0,5⟧. Das Zufallsgerät muss genau die gesuchte Wahrscheinlichkeit haben.",
-    "einstieg": "Tim trifft beim Basketball-Freiwurf in 3 von 10 Fällen. Um zu sehen, wie ein Spiel mit 20 Würfen ausgehen könnte, muss er nicht in die Halle. Er lässt ein Zufallsgerät für sich „werfen“, das genauso oft trifft. Das nennt man ⟦simulieren⟧.",
+    "fehler": "Eine Münze passt nicht: Sie trifft immer mit ⟦p = 0,5⟧. Das Gerät braucht genau die echte Wahrscheinlichkeit.",
+    "einstieg": "Tim trifft beim Basketball-Freiwurf in 3 von 10 Fällen. Statt in die Halle zu gehen, lässt er ein Zufallsgerät mit derselben Trefferchance „werfen“. Das nennt man ⟦simulieren⟧.",
     "woerter": [
      [
       "simulieren",
@@ -56,102 +62,223 @@
      ],
      [
       "Zufallsgerät",
-      "Münze, Würfel, Urne, Glücksrad oder Zufallsziffern"
-     ],
-     [
-      "p",
-      "die Wahrscheinlichkeit für einen Treffer, z. B. p = 0,3"
+      "Münze, Würfel, Urne oder Glücksrad"
      ],
      [
       "mit Zurücklegen",
-      "die gezogene Kugel kommt wieder in die Urne"
+      "die gezogene Kugel kommt zurück in die Urne"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "bruchstreifen",
+     "teile": 10,
+     "gefaerbt": 3,
+     "ganzes": "10 Kugeln",
+     "teil_text": "3 rote"
+    },
+    "fehler_bild": {
+     "teile": 2,
+     "gefaerbt": 1,
+     "ganzes": "Münze",
+     "teil_text": "1/2"
+    }
    },
    {
     "lernziel": "regel",
     "titel": "Eine Simulationsregel festlegen",
-    "regel": "So legst du die ⟦Regel⟧ fest: p als Bruch mit Nenner 10 oder 100 schreiben. Bei p = 0,4 zählen ⟦4 von 10⟧ Ziffern, bei p = 0,35 zählen 35 der ⟦Zahlen 00 bis 99⟧. Zähle zur Kontrolle nach, wie viele es sind.",
+    "regel": "Schreibe p mit ⟦Nenner 10 oder 100⟧. Dann so viele Ziffern oder Zahlen als Treffer festlegen und nachzählen.",
     "schritte": [
-     "Gesucht ist eine Regel für p = 0,35 = 35/100.",
-     "Man nimmt zweistellige Zufallszahlen von 00 bis 99. Das sind 100 gleich wahrscheinliche Zahlen.",
-     "35 davon sollen Treffer sein. Also gilt die Regel: ⟦00–34 = Treffer⟧, 35–99 = kein Treffer."
+     {
+      "text": "p = 0,35 = 35/100. Nimm die Zahlen 00 bis 99."
+     },
+     {
+      "text": "Das sind 100 gleich wahrscheinliche Zahlen. 35 davon sollen Treffer sein."
+     },
+     {
+      "text": "Regel: ⟦00–34 = Treffer⟧, 35–99 = kein Treffer.",
+      "bild": {
+       "bereich": {
+        "von": 0,
+        "bis": 35
+       },
+       "punkte": [
+        {
+         "wert": 35,
+         "name": "ab 35 kein Treffer"
+        }
+       ]
+      }
+     }
     ],
-    "fehler": "Die Regel „00–35 = Treffer“ ist für p = 0,35 falsch: Von 00 bis 35 sind es ⟦36⟧ Zahlen.",
-    "einstieg": "Bevor Tim simuliert, legt er fest, was als Treffer zählt. Bei p = 0,35 reichen die Ziffern 0 bis 9 nicht, denn 3,5 Ziffern gibt es nicht. Mit zweistelligen Zahlen von 00 bis 99 klappt es. Diese Festlegung heißt ⟦Simulationsregel⟧.",
+    "fehler": "„00–35 = Treffer“ ist falsch: Von 00 bis 35 sind es ⟦36⟧ Zahlen.",
+    "einstieg": "Bevor Tim simuliert, legt er fest, was als Treffer zählt. Bei p = 0,35 reichen die Ziffern 0 bis 9 nicht. Zweistellige Zahlen helfen; die Festlegung heißt ⟦Simulationsregel⟧.",
     "woerter": [
      [
       "Simulationsregel",
-      "die Festlegung, welche Zahlen als Treffer zählen"
+      "die Festlegung, welche Zahlen ein Treffer sind"
      ],
      [
-      "00–99",
-      "alle zweistelligen Zahlen von 00 bis 99, zusammen 100 Stück"
-     ],
-     [
-      "00–34",
-      "die Zahlen von 00 bis einschließlich 34, das sind 35 Stück"
+      "00 bis 99",
+      "alle 100 zweistelligen Zufallszahlen"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 100,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    }
    },
    {
     "lernziel": "zufallsziffern",
     "titel": "Mit Zufallsziffern simulieren",
-    "regel": "So simulierst du mit ⟦Zufallsziffern⟧: Regel festlegen, welche Ziffern ⟦Treffer⟧ sind. Dann die Liste Ziffer für Ziffer durchgehen und die Treffer zählen.",
+    "regel": "Lege fest, welche Ziffern ⟦Treffer⟧ sind. Dann die Liste durchgehen und zählen.",
     "schritte": [
-     "Die Regel lautet: 0, 1, 2 = Treffer. Das sind 3 von 10 Ziffern, also p = 0,3.",
-     "Die Liste lautet: 7 1 4 0 9 2 5 8 3 6.",
-     "Treffer sind die 1, die 0 und die 2. Das sind ⟦3 Treffer⟧ in 10 Versuchen."
+     {
+      "text": "Regel: 0, 1, 2 = Treffer. Das sind 3 von 10 Ziffern, p = 0,3."
+     },
+     {
+      "text": "Die Liste lautet: 7 1 4 0 9 2 5 8 3 6."
+     },
+     {
+      "text": "Treffer sind 1, 0 und 2: ⟦3 Treffer⟧ in 10 Versuchen.",
+      "bild": {
+       "zeilen": [
+        [
+         "Treffer?",
+         "–",
+         "ja",
+         "–",
+         "ja",
+         "–",
+         "ja",
+         "–",
+         "–",
+         "–",
+         "–"
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "Bei der Regel „0–2 = Treffer“ zählt die 2 mit. 0, 1 und 2 sind ⟦drei⟧ Ziffern, also p = 3/10.",
-    "einstieg": "Statt eine Urne zu benutzen, kann Tim eine Liste mit Zufallsziffern nehmen, zum Beispiel vom Taschenrechner. Jede Ziffer von 0 bis 9 kommt dort gleich oft vor. Mit einer Regel wird aus jeder Ziffer ein Treffer oder kein Treffer. Das heißt: ⟦mit Zufallsziffern simulieren⟧.",
+    "fehler": "Bei „0–2 = Treffer“ zählt die 2 mit. Das sind ⟦drei⟧ Ziffern, also p = 3/10.",
+    "einstieg": "Statt einer Urne nimmt Tim eine Liste mit Zufallsziffern, etwa vom Taschenrechner. Jede Ziffer von 0 bis 9 kommt gleich oft vor. Mit einer Regel wird daraus ein ⟦Treffer⟧ oder keiner.",
     "woerter": [
      [
       "Zufallsziffern",
-      "eine Folge von Ziffern 0–9, die zufällig entsteht; jede hat die Chance 1/10"
+      "zufällig erzeugte Ziffern von 0 bis 9"
      ],
      [
-      "0–2",
-      "die Ziffern 0, 1 und 2 – drei Stück"
+      "Treffer",
+      "ein Versuch, der zählt – hier ein getroffener Wurf"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Ziffer",
+      "7",
+      "1",
+      "4",
+      "0",
+      "9",
+      "2",
+      "5",
+      "8",
+      "3",
+      "6"
+     ],
+     "zeilen": [
+      [
+       "Treffer?",
+       "?",
+       "?",
+       "?",
+       "?",
+       "?",
+       "?",
+       "?",
+       "?",
+       "?",
+       "?"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "auswerten",
     "titel": "Simulationen auswerten",
-    "regel": "So wertest du aus: ⟦Anzahl der Treffer : Anzahl der Durchgänge⟧ rechnen. Das Ergebnis ist ein ⟦Schätzwert⟧ für die Wahrscheinlichkeit. Mehr Durchgänge machen ihn zuverlässiger.",
+    "regel": "Schätzwert = ⟦Treffer : Durchgänge⟧. Mehr Durchgänge machen ihn zuverlässiger.",
     "schritte": [
-     "In 200 Durchgängen kam 46-mal „mindestens zwei Sechsen“ vor.",
-     "Die relative Häufigkeit ist 46 : 200 = 0,23.",
-     "Sie ist ein Schätzwert für die Wahrscheinlichkeit: ⟦P ≈ 0,23⟧."
+     {
+      "text": "In 200 Durchgängen kam es 46-mal vor."
+     },
+     {
+      "text": "Relative Häufigkeit: 46 : 200 = 0,23.",
+      "bild": {
+       "typ": "kreisdiagramm",
+       "einheit": " %",
+       "werte": [
+        {
+         "name": "ja",
+         "wert": 23
+        },
+        {
+         "name": "nein",
+         "wert": 77
+        }
+       ],
+       "zahlen": true
+      }
+     },
+     {
+      "text": "Das ist ein Schätzwert: ⟦P ≈ 0,23⟧."
+     }
     ],
-    "fehler": "Die Simulation liefert keinen genauen Wert. 0,23 ist eine ⟦Schätzung⟧ – eine neue Simulation ergibt meist eine etwas andere Zahl.",
-    "einstieg": "Tim hat 200-mal simuliert, ob in einem Spiel mindestens zwei Sechsen fallen. 46-mal war es so. Daraus kann er abschätzen, wie wahrscheinlich das ist. Die Simulation wird ⟦ausgewertet⟧.",
+    "fehler": "0,23 ist kein genauer Wert, sondern eine ⟦Schätzung⟧. Eine neue Simulation ergibt meist eine etwas andere Zahl.",
+    "einstieg": "Tim hat 200-mal simuliert, ob mindestens zwei Sechsen fallen. 46-mal war es so. Jetzt wird die Simulation ⟦ausgewertet⟧.",
     "woerter": [
      [
-      "Durchgang",
-      "eine vollständige Wiederholung der Simulation"
+      "ausgewertet",
+      "aus den Ergebnissen eine Aussage gewonnen"
      ],
      [
       "Schätzwert",
       "ein ungefährer Wert, kein genauer"
-     ],
-     [
-      "≈",
-      "ungefähr gleich"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "saeulen",
+     "einheit": "Durchgänge",
+     "werte": [
+      {
+       "name": "ja",
+       "wert": 46
+      },
+      {
+       "name": "nein",
+       "wert": 154
+      }
+     ],
+     "zahlen": true
+    }
    },
    {
     "lernziel": "monte_carlo",
     "titel": "Monte-Carlo-Methode",
-    "regel": "Bei der ⟦Monte-Carlo-Methode⟧ setzt man zufällig viele Punkte in ein Quadrat. Der ⟦Anteil der Punkte⟧ in einer Figur schätzt den ⟦Anteil der Fläche⟧: A(Figur) ≈ (Punkte in der Figur : alle Punkte) · A(Quadrat).",
+    "regel": "Anteil der Punkte ≈ ⟦Anteil der Fläche⟧. Mal die Quadratfläche ergibt die Fläche der Figur.",
     "schritte": [
-     "Das Quadrat ist 10 cm × 10 cm groß, also 100 cm². Darin liegt ein Viertelkreis mit r = 10 cm. Im Bild sind 40 Zufallspunkte.",
-     "31 der 40 Punkte liegen im Viertelkreis. Der Anteil ist 31 : 40 = 0,775.",
-     "Die Fläche hat etwa denselben Anteil am Quadrat: A ≈ 0,775 · 100 cm² = ⟦77,5 cm²⟧."
+     {
+      "text": "Das Quadrat hat 100 cm², darin liegt ein Viertelkreis."
+     },
+     {
+      "text": "31 von 40 Zufallspunkten liegen im Viertelkreis: Anteil 0,775."
+     },
+     {
+      "text": "Fläche ≈ 0,775 · 100 cm² = ⟦77,5 cm²⟧."
+     }
     ],
-    "probe": "Genau gerechnet: π · 10² : 4 ≈ 78,5 cm². Die Schätzung liegt nah dran – mit mehr Punkten meist noch näher.",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -528,48 +655,89 @@
       }
      ]
     },
-    "fehler": "A ≈ 152 cm² ist falsch: Die Anzahl der Punkte ist keine Fläche. Man braucht den ⟦Anteil⟧ der Punkte mal die Quadratfläche.",
-    "einstieg": "Auf ein quadratisches Blatt mit einem Kreisbogen fallen Regentropfen ganz zufällig. Fallen drei Viertel der Tropfen in die Kreisfigur, bedeckt sie etwa drei Viertel des Blatts. So kann man eine Fläche mit Zufallspunkten schätzen. Das ist die ⟦Monte-Carlo-Methode⟧.",
+    "fehler": "Nicht die Punktzahl als Fläche nehmen: 31 Punkte sind nicht 31 cm². Man braucht den ⟦Anteil⟧ der Punkte mal 100 cm².",
+    "einstieg": "Regentropfen fallen zufällig auf ein quadratisches Blatt mit einem Viertelkreis. Landen drei Viertel im Viertelkreis, bedeckt er etwa drei Viertel des Blatts. Das ist die ⟦Monte-Carlo-Methode⟧.",
     "woerter": [
      [
       "Monte-Carlo-Methode",
-      "Flächen mit vielen zufälligen Punkten schätzen; benannt nach einem Ort mit Spielkasino"
+      "eine Fläche mit zufälligen Punkten schätzen"
      ],
      [
-      "Zufallspunkt",
-      "ein Punkt an einer zufälligen Stelle im Quadrat"
-     ],
-     [
-      "Viertelkreis",
-      "ein Viertel eines Kreises"
+      "Anteil",
+      "Teil geteilt durch Ganzes"
      ]
     ]
    },
    {
     "lernziel": "beurteilen",
     "titel": "Ist die Simulation geeignet?",
-    "regel": "So prüfst du eine Simulation: Hat das Zufallsgerät für jeden Teilvorgang ⟦genau die richtige Wahrscheinlichkeit⟧? Und läuft jeder Durchgang ab wie in Wirklichkeit? Nur dann ist sie ⟦geeignet⟧.",
+    "regel": "Das Zufallsgerät braucht ⟦genau die richtige Wahrscheinlichkeit⟧. Und jeder Durchgang muss ablaufen wie in Wirklichkeit.",
     "schritte": [
-     "Der Schütze trifft mit 75 % = 3/4.",
-     "Beim Würfel zählen 1 bis 4 als Treffer: 4 von 6, also p = 4/6 ≈ 67 %.",
-     "67 % ist nicht 75 %. Die Simulation ist ⟦nicht geeignet⟧. Ein Glücksrad mit einem 270°-Trefferfeld würde passen, denn 270° von 360° sind 3/4."
+     {
+      "text": "Der Schütze trifft mit 3/4 = 75 %."
+     },
+     {
+      "text": "Würfel, 1 bis 4: 4/6 ≈ 67 %.",
+      "bild": {
+       "werte": [
+        {
+         "name": "Treffer",
+         "wert": 67
+        },
+        {
+         "name": "kein",
+         "wert": 33
+        }
+       ]
+      }
+     },
+     {
+      "text": "67 % ist nicht 75 %: ⟦nicht geeignet⟧."
+     },
+     {
+      "text": "Ein Glücksrad mit 270°-Trefferfeld passt: 270/360 = 3/4.",
+      "bild": {
+       "einheit": "°",
+       "werte": [
+        {
+         "name": "Treffer",
+         "wert": 270
+        },
+        {
+         "name": "kein",
+         "wert": 90
+        }
+       ]
+      }
+     }
     ],
-    "fehler": "Eine Urne ohne Zurücklegen verändert sich bei jedem Zug. Soll jeder Versuch dieselbe Wahrscheinlichkeit haben, muss man ⟦zurücklegen⟧.",
-    "einstieg": "Ein Elfmeterschütze trifft in 3 von 4 Fällen. Jemand simuliert das mit einem Würfel: 1 bis 4 heißt Treffer. Passt das? Man prüft, ob das Zufallsgerät dieselbe Wahrscheinlichkeit hat. Dann ist die Simulation ⟦geeignet⟧.",
+    "fehler": "Eine Urne ohne Zurücklegen ändert sich bei jedem Zug. Für gleichbleibende Wahrscheinlichkeit musst du ⟦zurücklegen⟧.",
+    "einstieg": "Ein Elfmeterschütze trifft in 3 von 4 Fällen. Jemand simuliert das mit einem Würfel: 1 bis 4 heißt Treffer. Nur bei gleicher Wahrscheinlichkeit ist die Simulation ⟦geeignet⟧.",
     "woerter": [
      [
       "geeignet",
-      "die Simulation spielt den echten Vorgang richtig nach"
+      "passend: gleiche Wahrscheinlichkeit wie in echt"
      ],
      [
-      "75 %",
-      "75 von 100, also 3/4"
-     ],
-     [
-      "Trefferfeld",
-      "das Feld auf dem Glücksrad, das als Treffer zählt"
+      "≈",
+      "„ungefähr gleich“"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "kreisdiagramm",
+     "einheit": " %",
+     "werte": [
+      {
+       "name": "Treffer",
+       "wert": 75
+      },
+      {
+       "name": "kein",
+       "wert": 25
+      }
+     ],
+     "zahlen": true
+    }
    }
   ],
   "teilfaehigkeiten": [
@@ -4693,6 +4861,7 @@
  "offen": [
   "Echte Simulationen (Würfeln, Ziehen, Zufallszahlen am Rechner) sind in der App nicht möglich; die Zufallsziffern werden fest vorgegeben. Eine kleine Simulationsfunktion in der App (Knopf „100-mal würfeln“) würde das Thema stark verbessern.",
   "Lehrplan: lehrplan_gym ist für dieses Thema leer – bitte im Aufbau klären.",
-  "Monte-Carlo-Bild: Quadrat mit Viertelkreis und 40 Punkten (Behelf mit kleinen Kreisen); bei den Flächen-Aufgaben ohne bekannte Figur gibt es kein Bild."
+  "Monte-Carlo-Bild: Quadrat mit Viertelkreis und 40 Punkten (Behelf mit kleinen Kreisen); bei den Flächen-Aufgaben ohne bekannte Figur gibt es kein Bild.",
+  "Umbau 16.11.: Karte zufallsgeraet zeigt die Urne behelfsweise als Bruchstreifen (10 Kugeln, 3 rot). App-Wunsch Urne steht schon auf der Liste."
  ]
 }

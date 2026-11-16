@@ -42,14 +42,147 @@
    {
     "lernziel": "thales",
     "titel": "Satz des Thales anwenden",
-    "regel": "So nutzt du den ⟦Satz des Thales⟧: Liegt C auf einem Kreis und ist [AB] ein ⟦Durchmesser⟧, dann hat das Dreieck ABC bei C einen ⟦rechten Winkel⟧. Den Kreis nennt man ⟦Thaleskreis⟧.",
+    "regel": "C auf dem Thaleskreis über [AB]: Bei C ist ein ⟦rechter Winkel⟧. [AB] muss ein Durchmesser sein.",
     "schritte": [
-     "[AB] ist ein Durchmesser des Kreises, C liegt auf dem Kreis. Bei A ist α = 35°.",
-     "Nach dem Satz des Thales hat das Dreieck bei C einen rechten Winkel: γ = 90°.",
-     "Die drei Winkel ergeben zusammen 180°. Also ist β = 180° − 90° − 35°.",
-     "Ausrechnen: ⟦β = 55°⟧."
+     {
+      "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Bei A sind es 35°."
+     },
+     {
+      "text": "C liegt auf dem Thaleskreis. Darum ist bei C ein rechter Winkel.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "A": [
+         -3,
+         0
+        ],
+        "B": [
+         3,
+         0
+        ],
+        "C": [
+         1.03,
+         2.82
+        ],
+        "M": [
+         0,
+         0
+        ]
+       },
+       "flaeche": [
+        "A",
+        "B",
+        "C"
+       ],
+       "linien": [
+        [
+         "A",
+         "B"
+        ],
+        [
+         "B",
+         "C"
+        ],
+        [
+         "C",
+         "A"
+        ]
+       ],
+       "rechter_winkel": [
+        [
+         "C",
+         "A",
+         "B"
+        ]
+       ],
+       "winkel": [
+        [
+         "A",
+         "B",
+         "C",
+         "35°"
+        ]
+       ],
+       "kreise": [
+        {
+         "m": "M",
+         "r": 3
+        }
+       ]
+      }
+     },
+     {
+      "text": "Also ist β = 180° − 90° − 35° = ⟦55°⟧.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "A": [
+         -3,
+         0
+        ],
+        "B": [
+         3,
+         0
+        ],
+        "C": [
+         1.03,
+         2.82
+        ],
+        "M": [
+         0,
+         0
+        ]
+       },
+       "flaeche": [
+        "A",
+        "B",
+        "C"
+       ],
+       "linien": [
+        [
+         "A",
+         "B"
+        ],
+        [
+         "B",
+         "C"
+        ],
+        [
+         "C",
+         "A"
+        ]
+       ],
+       "rechter_winkel": [
+        [
+         "C",
+         "A",
+         "B"
+        ]
+       ],
+       "winkel": [
+        [
+         "A",
+         "B",
+         "C",
+         "35°"
+        ],
+        [
+         "B",
+         "C",
+         "A",
+         "55°"
+        ]
+       ],
+       "kreise": [
+        {
+         "m": "M",
+         "r": 3
+        }
+       ]
+      }
+     }
     ],
-    "fehler": "Ist [AB] nur eine Sehne und ⟦kein Durchmesser⟧, gilt der Satz nicht – γ ist dann im Allgemeinen kein rechter Winkel. Bei der Bühne hieße das: Die Plätze stehen auf einem Bogen, dessen Durchmesser nicht die Bühnenkante ist, und man sieht die Bühne unter einem anderen Winkel.",
+    "fehler": "Geht [AB] nicht durch den Mittelpunkt, gilt der Satz nicht. Der Winkel bei C ist dann meist ⟦kein rechter⟧.",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -89,25 +222,12 @@
        "A"
       ]
      ],
-     "rechter_winkel": [
-      [
-       "C",
-       "A",
-       "B"
-      ]
-     ],
      "winkel": [
       [
        "A",
        "B",
        "C",
        "35°"
-      ],
-      [
-       "B",
-       "C",
-       "A",
-       "β"
       ]
      ],
      "kreise": [
@@ -117,45 +237,127 @@
       }
      ]
     },
-    "einstieg": "Eine Freilichtbühne hat vorne eine gerade Bühnenkante. Die Zuschauerplätze stehen auf einem Halbkreis, dessen Durchmesser genau diese Kante ist. Von jedem dieser Plätze aus sieht man die beiden Enden der Bühne unter demselben Winkel: genau 90°. Der Überlieferung nach kannte das schon der griechische Mathematiker Thales – darum heißt es ⟦Satz des Thales⟧.",
+    "einstieg": "Auf einer Freilichtbühne stehen die Plätze auf einem Halbkreis vor der Bühnenkante. Von jedem Platz sieht man die Kante unter genau 90°. Das ist der ⟦Satz des Thales⟧.",
     "woerter": [
      [
-      "Kreis mit Mittelpunkt M",
-      "alle Punkte, die vom Mittelpunkt M gleich weit entfernt sind"
-     ],
-     [
-      "Radius r",
-      "der Abstand vom Mittelpunkt bis zum Kreisrand"
-     ],
-     [
       "Durchmesser",
-      "Strecke durch den Mittelpunkt von Rand zu Rand; doppelt so lang wie der Radius"
-     ],
-     [
-      "Sehne",
-      "Strecke zwischen zwei Punkten auf dem Kreis; der Durchmesser ist die längste Sehne"
+      "Strecke durch den Mittelpunkt von Rand zu Rand"
      ],
      [
       "rechter Winkel",
-      "ein Winkel von 90°, wie eine Zimmerecke"
+      "90°, wie eine Zimmerecke"
      ],
      [
       "Thaleskreis",
-      "der Kreis über einer Strecke [AB], bei dem [AB] der Durchmesser ist"
+      "Kreis, bei dem [AB] der Durchmesser ist"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -2.82,
+       -1.03
+      ],
+      "B": [
+       2.82,
+       -1.03
+      ],
+      "C": [
+       0,
+       3
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "winkel": [
+      [
+       "C",
+       "A",
+       "B",
+       "?"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ],
+     "flaeche": null,
+     "rechter_winkel": null
+    }
    },
    {
     "lernziel": "umkehrung",
     "titel": "Umkehrung: Wo liegt der Thaleskreis?",
-    "regel": "So findest du den Kreis zu einem rechten Winkel: Hat das Dreieck ABC bei C einen ⟦rechten Winkel⟧, dann liegt C auf dem Kreis mit dem ⟦Durchmesser [AB]⟧. Der Mittelpunkt ist die ⟦Mitte von [AB]⟧, der Radius die halbe Länge von [AB].",
+    "regel": "Rechter Winkel bei C: C liegt auf dem ⟦Kreis über [AB]⟧. Sein Mittelpunkt ist die Mitte von [AB].",
     "schritte": [
-     "Gegeben sind A(−2 | 1) und B(6 | 1), und bei C ist ein rechter Winkel: ∠ACB = 90°.",
-     "Nach der Umkehrung liegt C auf dem Kreis mit dem Durchmesser [AB]. Sein Mittelpunkt ist die Mitte von [AB].",
-     "Die Mitte findest du, indem du die beiden x-Werte addierst und halbierst: (−2 + 6) : 2 = 2. Der y-Wert bleibt 1, also M(2 | 1).",
-     "[AB] reicht von x = −2 bis x = 6 und ist damit 8 lang. Der Radius ist die Hälfte: ⟦r = 4⟧."
+     {
+      "text": "Gegeben sind A(−2 | 1) und B(6 | 1). Bei C ist ein rechter Winkel."
+     },
+     {
+      "text": "Der Mittelpunkt M ist die Mitte von [AB]: M(2 | 1).",
+      "bild": {
+       "punkte": [
+        {
+         "x": -2,
+         "y": 1,
+         "name": "A"
+        },
+        {
+         "x": 6,
+         "y": 1,
+         "name": "B"
+        },
+        {
+         "x": 2,
+         "y": 5,
+         "name": "C"
+        },
+        {
+         "x": 2,
+         "y": 1,
+         "name": "M"
+        }
+       ]
+      }
+     },
+     {
+      "text": "[AB] ist 8 lang, also ist der Radius r = ⟦4⟧.",
+      "bild": {
+       "kreise": [
+        {
+         "m": [
+          2,
+          1
+         ],
+         "r": 4
+        }
+       ]
+      }
+     },
+     {
+      "text": "C liegt genau auf diesem Kreis."
+     }
     ],
-    "fehler": "Der Mittelpunkt des Thaleskreises ist nicht C, sondern die ⟦Mitte der Hypotenuse⟧ [AB]. Beim Geodreieck zwischen den Nägeln sieht man es: Die Ecke wandert, der Mittelpunkt bleibt fest genau zwischen den beiden Nägeln.",
+    "fehler": "Der Mittelpunkt ist nicht C, sondern die ⟦Mitte von [AB]⟧. Beim Geodreieck wandert die Ecke, die Mitte zwischen den Nägeln bleibt.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -163,7 +365,7 @@
       7
      ],
      "y": [
-      -1,
+      -4,
       6
      ],
      "punkte": [
@@ -176,11 +378,6 @@
        "x": 6,
        "y": 1,
        "name": "B"
-      },
-      {
-       "x": 2,
-       "y": 1,
-       "name": "M"
       },
       {
        "x": 2,
@@ -209,37 +406,164 @@
       ]
      ]
     },
-    "einstieg": "Leg ein Geodreieck mit der rechtwinkligen Ecke nach oben so zwischen zwei Nägel, dass jede der beiden kurzen Kanten an einem Nagel anliegt. Schiebst du es hin und her, wandert die Ecke auf einem Halbkreis. Dass ein Punkt mit rechtem Winkel immer auf so einem Kreis liegt, ist die ⟦Umkehrung des Satzes des Thales⟧.",
+    "einstieg": "Leg ein Geodreieck zwischen zwei Nägel. Jede kurze Kante berührt einen Nagel. Schiebst du es, wandert die rechtwinklige Ecke auf einem Halbkreis. Das ist die ⟦Umkehrung⟧ des Thalessatzes.",
     "woerter": [
      [
       "Umkehrung",
-      "der Satz andersherum: aus dem rechten Winkel folgt, dass C auf dem Kreis liegt"
+      "der Satz andersherum: rechter Winkel bei C, also liegt C auf dem Kreis"
      ],
      [
-      "∠ACB",
-      "der Winkel bei C zwischen den Seiten zu A und zu B"
+      "Mittelpunkt M",
+      "die Mitte von [AB]"
      ],
      [
-      "Hypotenuse",
-      "im rechtwinkligen Dreieck die längste Seite; sie liegt dem rechten Winkel gegenüber"
-     ],
-     [
-      "A(−2 | 1)",
-      "Punkt A mit x-Koordinate −2 und y-Koordinate 1"
+      "Radius r",
+      "Abstand vom Mittelpunkt zum Kreis"
      ]
     ]
    },
    {
     "lernziel": "beweis",
     "titel": "Vermuten und Beweisen",
-    "regel": "So unterscheidest du: Messungen führen zu ⟦Vermutungen⟧. Ein ⟦Beweis⟧ zeigt mit Begründungen, dass eine Aussage ⟦immer⟧ gilt. Beim Thalessatz liefern die gleich langen Radien zwei ⟦gleichschenklige Dreiecke⟧ – daraus folgt γ = 90°.",
+    "regel": "Messen liefert eine Vermutung, erst der ⟦Beweis⟧ zeigt: immer. Beim Thalessatz helfen die gleich langen Radien.",
     "schritte": [
-     "M ist der Mittelpunkt des Kreises. MA, MB und MC sind Radien, also gleich lang.",
-     "Darum ist das Dreieck AMC gleichschenklig: Der Winkel ∠ACM ist so groß wie α. Genauso ist im Dreieck BMC der Winkel ∠BCM so groß wie β.",
-     "Der ganze Winkel bei C besteht aus diesen beiden Teilen: γ = α + β.",
-     "Winkelsumme im Dreieck ABC: α + β + γ = 180°, also γ + γ = 180°. Damit ist ⟦γ = 90°⟧."
+     {
+      "text": "MA, MB und MC sind jeweils ein Radius, also gleich lang.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "A": [
+         -3,
+         0
+        ],
+        "B": [
+         3,
+         0
+        ],
+        "C": [
+         1.03,
+         2.82
+        ],
+        "M": [
+         0,
+         0
+        ]
+       },
+       "linien": [
+        [
+         "A",
+         "B"
+        ],
+        [
+         "B",
+         "C"
+        ],
+        [
+         "C",
+         "A"
+        ],
+        [
+         "M",
+         "C",
+         "Radius",
+         "gestrichelt"
+        ]
+       ],
+       "kreise": [
+        {
+         "m": "M",
+         "r": 3
+        }
+       ]
+      }
+     },
+     {
+      "text": "Die Dreiecke AMC und BMC sind gleichschenklig. Bei C stecken α und β.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "A": [
+         -3,
+         0
+        ],
+        "B": [
+         3,
+         0
+        ],
+        "C": [
+         1.03,
+         2.82
+        ],
+        "M": [
+         0,
+         0
+        ]
+       },
+       "linien": [
+        [
+         "A",
+         "B"
+        ],
+        [
+         "B",
+         "C"
+        ],
+        [
+         "C",
+         "A"
+        ],
+        [
+         "M",
+         "C",
+         "Radius",
+         "gestrichelt"
+        ]
+       ],
+       "winkel": [
+        [
+         "A",
+         "B",
+         "C",
+         "α"
+        ],
+        [
+         "C",
+         "A",
+         "M",
+         "α"
+        ],
+        [
+         "B",
+         "C",
+         "A",
+         "β"
+        ],
+        [
+         "C",
+         "M",
+         "B",
+         "β"
+        ]
+       ],
+       "kreise": [
+        {
+         "m": "M",
+         "r": 3
+        }
+       ]
+      }
+     },
+     {
+      "text": "Der ganze Winkel bei C ist also α + β."
+     },
+     {
+      "text": "Winkelsumme im Dreieck ABC: α + β + (α + β) = 180°."
+     },
+     {
+      "text": "Also 2 · (α + β) = 180° und ⟦α + β = 90°⟧."
+     }
     ],
-    "fehler": "Hundert gemessene Beispiele mit 90° sind ⟦kein Beweis⟧. Sie zeigen nur, dass die Aussage für diese hundert Dreiecke stimmt – so wie hundert weiße Schwäne nicht beweisen, dass alle Schwäne weiß sind.",
+    "fehler": "Hundert gemessene Beispiele sind ⟦kein Beweis⟧. Sie zeigen nur, dass es für diese hundert Dreiecke stimmt.",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -272,38 +596,6 @@
       [
        "C",
        "A"
-      ],
-      [
-       "M",
-       "C",
-       "r",
-       "gestrichelt"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "B",
-       "C",
-       "α"
-      ],
-      [
-       "C",
-       "A",
-       "M",
-       "α"
-      ],
-      [
-       "B",
-       "C",
-       "A",
-       "β"
-      ],
-      [
-       "C",
-       "M",
-       "B",
-       "β"
       ]
      ],
      "kreise": [
@@ -313,45 +605,126 @@
       }
      ]
     },
-    "einstieg": "Miss mit einem Geometrieprogramm zehn verschiedene Dreiecke auf dem Halbkreis: Jedes Mal zeigt es bei C 90°. Das ist ein guter Hinweis, aber noch keine Sicherheit – vielleicht gibt es ein Dreieck, das du nicht gemessen hast. Eine Begründung, die für alle Fälle gleichzeitig gilt, heißt ⟦Beweis⟧.",
+    "einstieg": "Ein Geometrieprogramm misst bei zehn Dreiecken auf dem Halbkreis jedes Mal 90°. Aber gilt das wirklich immer? Eine Begründung für alle Fälle heißt ⟦Beweis⟧.",
     "woerter": [
      [
-      "Vermutung",
-      "eine Aussage, die nach Beispielen stimmt, aber noch nicht begründet ist"
-     ],
-     [
       "Beweis",
-      "eine Begründung aus bekannten Regeln, die für alle Fälle gilt"
+      "Begründung aus bekannten Regeln, die für alle Fälle gilt"
      ],
      [
-      "gleichschenkliges Dreieck",
-      "Dreieck mit zwei gleich langen Seiten; die Winkel an der dritten Seite sind gleich groß"
+      "Radius",
+      "Strecke vom Mittelpunkt zum Kreis; alle Radien sind gleich lang"
      ],
      [
-      "MA = MC",
-      "die Strecken von M nach A und von M nach C sind gleich lang (beides Radien)"
-     ],
-     [
-      "Winkelsumme",
-      "die drei Winkel eines Dreiecks ergeben zusammen 180°"
-     ],
-     [
-      "∠ACM",
-      "der Winkel bei C zwischen den Strecken zu A und zu M"
+      "gleichschenklig",
+      "zwei gleich lange Seiten, deshalb zwei gleich große Winkel"
      ]
     ]
    },
    {
     "lernziel": "lage",
     "titel": "Passante, Tangente oder Sekante?",
-    "regel": "So bestimmst du die Lage: Vergleiche den Abstand d der Geraden vom Mittelpunkt mit dem Radius r. ⟦d > r⟧: Passante (kein Punkt). ⟦d = r⟧: Tangente (ein Punkt). ⟦d < r⟧: Sekante (zwei Punkte).",
+    "regel": "Vergleiche den ⟦Abstand mit dem Radius⟧. Größer: Passante, gleich: Tangente, kleiner: Sekante.",
     "schritte": [
-     "Der Kreis hat den Radius r = 4 cm. Die Gerade ist vom Mittelpunkt d = 3 cm entfernt.",
-     "Vergleiche d mit r: 3 cm ist kleiner als 4 cm.",
-     "Die Gerade kommt dem Mittelpunkt also näher als der Kreisrand. Sie muss durch den Kreis hindurchgehen.",
-     "Sie schneidet den Kreis zweimal und ist eine ⟦Sekante⟧."
+     {
+      "text": "Der Radius ist 4 cm, der Abstand der Geraden von M ist 3 cm.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "M": [
+         0,
+         0
+        ],
+        "_1": [
+         -5,
+         3
+        ],
+        "_2": [
+         5,
+         3
+        ],
+        "_F": [
+         0,
+         3
+        ]
+       },
+       "linien": [
+        [
+         "_1",
+         "_2",
+         "g"
+        ],
+        [
+         "M",
+         "_F",
+         "d = 3",
+         "gestrichelt"
+        ]
+       ],
+       "kreise": [
+        {
+         "m": "M",
+         "r": 4
+        }
+       ]
+      }
+     },
+     {
+      "text": "3 cm ist kleiner als 4 cm. Die Gerade kommt näher als der Rand."
+     },
+     {
+      "text": "Sie schneidet den Kreis zweimal: ⟦Sekante⟧.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "M": [
+         0,
+         0
+        ],
+        "_1": [
+         -5,
+         3
+        ],
+        "_2": [
+         5,
+         3
+        ],
+        "_F": [
+         0,
+         3
+        ],
+        "P": [
+         -2.65,
+         3
+        ],
+        "Q": [
+         2.65,
+         3
+        ]
+       },
+       "linien": [
+        [
+         "_1",
+         "_2",
+         "g"
+        ],
+        [
+         "M",
+         "_F",
+         "d = 3",
+         "gestrichelt"
+        ]
+       ],
+       "kreise": [
+        {
+         "m": "M",
+         "r": 4
+        }
+       ]
+      }
+     }
     ],
-    "fehler": "Eine Gerade mit d = r schneidet den Kreis nicht zweimal. Sie ⟦berührt⟧ ihn nur in einem Punkt – wie der Ball, der die Pfütze gerade so am Rand streift.",
+    "fehler": "Ist der Abstand gleich dem Radius, schneidet die Gerade nicht zweimal. Sie ⟦berührt⟧ nur – wie ein Ball am Pfützenrand.",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -377,19 +750,6 @@
        "_1",
        "_2",
        "g"
-      ],
-      [
-       "M",
-       "_F",
-       "d = 3",
-       "gestrichelt"
-      ]
-     ],
-     "rechter_winkel": [
-      [
-       "_F",
-       "M",
-       "_2"
       ]
      ],
      "kreise": [
@@ -399,41 +759,230 @@
       }
      ]
     },
-    "einstieg": "Ein Ball rollt geradeaus an einer runden Pfütze vorbei. Er kann sie verfehlen, sie gerade so am Rand streifen oder mitten hindurchrollen. Bei einem Kreis und einer Geraden gibt es genau diese drei Möglichkeiten. Sie heißen ⟦Passante⟧, ⟦Tangente⟧ und ⟦Sekante⟧.",
+    "einstieg": "Ein Ball rollt geradeaus an einer runden Pfütze vorbei. Er kann sie verfehlen, am Rand streifen oder durchrollen. Die drei Fälle heißen Passante, Tangente und ⟦Sekante⟧.",
     "woerter": [
      [
-      "Abstand d",
-      "die kürzeste Entfernung vom Mittelpunkt M zur Geraden, senkrecht gemessen"
-     ],
-     [
       "Passante",
-      "Gerade, die am Kreis vorbeigeht (kein gemeinsamer Punkt)"
+      "geht vorbei, kein gemeinsamer Punkt"
      ],
      [
       "Tangente",
-      "Gerade, die den Kreis in genau einem Punkt berührt"
+      "berührt den Kreis in genau einem Punkt"
      ],
      [
       "Sekante",
-      "Gerade, die den Kreis in zwei Punkten schneidet"
-     ],
-     [
-      "d > r, d = r, d < r",
-      "d größer als r, d gleich r, d kleiner als r"
+      "schneidet den Kreis in zwei Punkten"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_1": [
+       -5,
+       4
+      ],
+      "_2": [
+       5,
+       4
+      ],
+      "_F": [
+       0,
+       4
+      ]
+     },
+     "linien": [
+      [
+       "_1",
+       "_2",
+       "g"
+      ],
+      [
+       "M",
+       "_F",
+       "d = 4",
+       "gestrichelt"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 4
+      }
+     ]
+    }
    },
    {
     "lernziel": "tangente",
     "titel": "Tangenten und Berührradius",
-    "regel": "So nutzt du Tangenten: Eine ⟦Tangente⟧ berührt den Kreis in genau einem Punkt B und steht ⟦senkrecht⟧ auf dem Berührradius [MB]. Von einem Punkt P außerhalb gibt es ⟦zwei⟧ Tangenten; von P bis zu den Berührpunkten sind sie gleich lang.",
+    "regel": "Tangente und Berührradius bilden ⟦immer 90°⟧. Von einem Punkt außen gibt es zwei Tangenten.",
     "schritte": [
-     "Von einem Punkt P außerhalb des Kreises gehen zwei Tangenten aus. Sie berühren den Kreis in B und B' und bilden bei P den Winkel φ = 50°.",
-     "Betrachte das Viereck MBPB'. Bei B und bei B' steht die Tangente senkrecht auf dem Radius: Das sind zwei rechte Winkel.",
-     "Die Winkel im Viereck ergeben zusammen 360°. Für den Winkel bei M bleibt: 360° − 90° − 90° − 50°.",
-     "Ausrechnen: ∠BMB' = ⟦130°⟧."
+     {
+      "text": "Von P gehen zwei Tangenten aus. Bei P ist der Winkel 50°."
+     },
+     {
+      "text": "In jedem Berührpunkt steht der Berührradius senkrecht: zweimal 90°.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "M": [
+         0,
+         0
+        ],
+        "P": [
+         4.73,
+         0
+        ],
+        "B": [
+         0.85,
+         1.81
+        ],
+        "B'": [
+         0.85,
+         -1.81
+        ]
+       },
+       "linien": [
+        [
+         "P",
+         "B"
+        ],
+        [
+         "P",
+         "B'"
+        ],
+        [
+         "M",
+         "B",
+         "r"
+        ],
+        [
+         "M",
+         "B'",
+         "r"
+        ],
+        [
+         "M",
+         "P",
+         "",
+         "gestrichelt"
+        ]
+       ],
+       "rechter_winkel": [
+        [
+         "B",
+         "M",
+         "P"
+        ],
+        [
+         "B'",
+         "M",
+         "P"
+        ]
+       ],
+       "winkel": [
+        [
+         "P",
+         "B",
+         "B'",
+         "50°"
+        ]
+       ],
+       "kreise": [
+        {
+         "m": "M",
+         "r": 2
+        }
+       ]
+      }
+     },
+     {
+      "text": "Im Viereck sind es zusammen 360°: 360° − 90° − 90° − 50° = ⟦130°⟧.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "M": [
+         0,
+         0
+        ],
+        "P": [
+         4.73,
+         0
+        ],
+        "B": [
+         0.85,
+         1.81
+        ],
+        "B'": [
+         0.85,
+         -1.81
+        ]
+       },
+       "linien": [
+        [
+         "P",
+         "B"
+        ],
+        [
+         "P",
+         "B'"
+        ],
+        [
+         "M",
+         "B",
+         "r"
+        ],
+        [
+         "M",
+         "B'",
+         "r"
+        ],
+        [
+         "M",
+         "P",
+         "",
+         "gestrichelt"
+        ]
+       ],
+       "rechter_winkel": [
+        [
+         "B",
+         "M",
+         "P"
+        ],
+        [
+         "B'",
+         "M",
+         "P"
+        ]
+       ],
+       "winkel": [
+        [
+         "P",
+         "B",
+         "B'",
+         "50°"
+        ],
+        [
+         "M",
+         "B'",
+         "B",
+         "130°"
+        ]
+       ],
+       "kreise": [
+        {
+         "m": "M",
+         "r": 2
+        }
+       ]
+      }
+     }
     ],
-    "fehler": "Der Winkel zwischen Tangente und Berührradius ist nicht irgendein spitzer Winkel: Er ist ⟦immer 90°⟧ – genau wie bei der Speiche, die senkrecht auf die Straße zeigt.",
+    "fehler": "Der Winkel zwischen Tangente und Berührradius ist nicht irgendein Winkel. Er ist ⟦immer 90°⟧, wie bei der senkrechten Speiche.",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -480,30 +1029,12 @@
        "gestrichelt"
       ]
      ],
-     "rechter_winkel": [
-      [
-       "B",
-       "M",
-       "P"
-      ],
-      [
-       "B'",
-       "M",
-       "P"
-      ]
-     ],
      "winkel": [
       [
        "P",
        "B",
        "B'",
        "50°"
-      ],
-      [
-       "M",
-       "B'",
-       "B",
-       "?"
       ]
      ],
      "kreise": [
@@ -513,116 +1044,192 @@
       }
      ]
     },
-    "einstieg": "Ein Fahrrad steht auf der Straße. Das Rad ist ein Kreis, die Straße eine Gerade, die es genau an einer Stelle berührt. Die Speiche, die von der Nabe senkrecht nach unten zu dieser Stelle zeigt, steht im rechten Winkel auf der Straße. So eine Berührgerade heißt ⟦Tangente⟧.",
+    "einstieg": "Ein Fahrrad steht auf der Straße. Das Rad berührt sie an genau einer Stelle. Die Speiche zu dieser Stelle steht senkrecht auf der Straße. Die Straße ist eine ⟦Tangente⟧.",
     "woerter": [
      [
-      "Berührpunkt B",
-      "die einzige Stelle, an der Tangente und Kreis sich treffen"
+      "Berührpunkt",
+      "die eine Stelle, an der Tangente und Kreis sich treffen"
      ],
      [
-      "Berührradius [MB]",
-      "der Radius vom Mittelpunkt zum Berührpunkt – wie die senkrechte Speiche"
-     ],
-     [
-      "φ",
-      "Phi, griechischer Buchstabe als Name für einen Winkel"
-     ],
-     [
-      "B'",
-      "ein zweiter Berührpunkt"
+      "Berührradius",
+      "der Radius zum Berührpunkt – wie die Speiche"
      ]
     ]
    },
    {
     "lernziel": "umkreis_inkreis",
     "titel": "Umkreis und Inkreis",
-    "regel": "So findest du die Mittelpunkte: Den ⟦Umkreismittelpunkt⟧ liefert der Schnittpunkt der ⟦Mittelsenkrechten⟧ – er ist von allen Ecken gleich weit weg. Den ⟦Inkreismittelpunkt⟧ liefert der Schnittpunkt der ⟦Winkelhalbierenden⟧ – er ist von allen Seiten gleich weit weg.",
+    "regel": "Umkreismittelpunkt: Schnitt der ⟦Mittelsenkrechten⟧. Inkreismittelpunkt: Schnitt der Winkelhalbierenden.",
     "schritte": [
-     "Das Dreieck hat bei C einen rechten Winkel: γ = 90°.",
-     "Nach dem Satz des Thales liegt C dann auf dem Kreis mit dem Durchmesser [AB]. A und B liegen ohnehin darauf.",
-     "Dieser Kreis geht also durch alle drei Ecken: Er ist der Umkreis.",
-     "Sein Mittelpunkt ist die ⟦Mitte der Seite [AB]⟧. Mittelsenkrechten muss man hier nicht zeichnen."
+     {
+      "text": "Die Häuser sind A, B und C. Gesucht ist ein Punkt, gleich weit von allen."
+     },
+     {
+      "text": "Auf der Mittelsenkrechten von [AB] ist man A und B gleich nah.",
+      "bild": {
+       "strecken": [
+        [
+         0,
+         0,
+         6,
+         0
+        ],
+        [
+         6,
+         0,
+         2,
+         4
+        ],
+        [
+         2,
+         4,
+         0,
+         0
+        ],
+        [
+         3,
+         -2.5,
+         3,
+         4.5,
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Die Mittelsenkrechte von [AC] trifft sie im Punkt ⟦M(3 | 1)⟧.",
+      "bild": {
+       "strecken": [
+        [
+         0,
+         0,
+         6,
+         0
+        ],
+        [
+         6,
+         0,
+         2,
+         4
+        ],
+        [
+         2,
+         4,
+         0,
+         0
+        ],
+        [
+         3,
+         -2.5,
+         3,
+         4.5,
+         "gestrichelt"
+        ],
+        [
+         -1,
+         3,
+         5,
+         0,
+         "gestrichelt"
+        ]
+       ],
+       "punkte": [
+        {
+         "x": 0,
+         "y": 0,
+         "name": "A"
+        },
+        {
+         "x": 6,
+         "y": 0,
+         "name": "B"
+        },
+        {
+         "x": 2,
+         "y": 4,
+         "name": "C"
+        },
+        {
+         "x": 3,
+         "y": 1,
+         "name": "M"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Der Kreis um M durch A geht auch durch B und C: der Umkreis.",
+      "bild": {
+       "kreise": [
+        {
+         "m": [
+          3,
+          1
+         ],
+         "r": 3.162
+        }
+       ]
+      }
+     }
     ],
-    "fehler": "Der Inkreismittelpunkt entsteht nicht aus den Mittelsenkrechten. Er muss von den ⟦Seiten⟧ gleich weit weg sein, nicht von den Ecken – dafür braucht man die ⟦Winkelhalbierenden⟧. Beim Treffpunkt der Freunde zählen die Häuser (Ecken), beim Inkreis wären es drei gerade Zäune (Seiten).",
+    "fehler": "Der Inkreis (Kreis innen, berührt alle Seiten) braucht gleichen Abstand zu den Seiten. Dafür nimmt man die ⟦Winkelhalbierenden⟧, nicht die Mittelsenkrechten.",
     "bild": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      7
+     ],
+     "y": [
+      -3,
+      5
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "A"
+      },
+      {
+       "x": 6,
+       "y": 0,
+       "name": "B"
+      },
+      {
+       "x": 2,
+       "y": 4,
+       "name": "C"
+      }
+     ],
+     "strecken": [
+      [
        0,
-       0
-      ],
-      "B": [
+       0,
        6,
        0
       ],
-      "C": [
+      [
+       6,
+       0,
        2,
        4
       ],
-      "M": [
-       3,
-       1
+      [
+       2,
+       4,
+       0,
+       0
       ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ],
-      [
-       "M",
-       "A",
-       "r",
-       "gestrichelt"
-      ],
-      [
-       "M",
-       "C",
-       "r",
-       "gestrichelt"
-      ]
-     ],
-     "kreise": [
-      {
-       "m": "M",
-       "r": 3.162
-      }
      ]
     },
-    "einstieg": "Drei Freunde wohnen an drei verschiedenen Orten und suchen einen Treffpunkt, der von allen drei Häusern gleich weit entfernt ist. Zeichnet man um diesen Treffpunkt einen Kreis, geht er durch alle drei Häuser. Der Kreis durch die drei Ecken eines Dreiecks heißt ⟦Umkreis⟧.",
+    "einstieg": "Drei Freunde suchen einen Treffpunkt, der von allen drei Häusern gleich weit weg ist. Ein Kreis um diesen Punkt geht durch alle drei Häuser. Er heißt ⟦Umkreis⟧.",
     "woerter": [
      [
       "Umkreis",
-      "Kreis, der durch alle drei Ecken des Dreiecks geht"
+      "Kreis durch alle drei Ecken"
      ],
      [
       "Mittelsenkrechte",
-      "Gerade, die eine Seite in ihrer Mitte senkrecht schneidet; jeder ihrer Punkte ist von beiden Enden der Seite gleich weit weg"
-     ],
-     [
-      "Inkreis",
-      "Kreis innen im Dreieck, der alle drei Seiten berührt"
-     ],
-     [
-      "Winkelhalbierende",
-      "Gerade, die einen Winkel in zwei gleich große Hälften teilt; jeder ihrer Punkte ist von beiden Schenkeln gleich weit weg"
-     ],
-     [
-      "Schnittpunkt",
-      "der Punkt, in dem sich Linien treffen"
+      "Gerade, die eine Seite in der Mitte senkrecht schneidet"
      ]
     ]
    }

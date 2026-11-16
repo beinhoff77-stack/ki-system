@@ -9,6 +9,10 @@ Prüfung je Thema: Aufgaben Feld für Feld gegen `git show origin/lernen-app:inh
 
 ## Status
 
+## 2026-11-16 04:45 – STATUS
+geometrie.kreis umgebaut (6 Karten): Thaleskreis (35° → rechter Winkel bei C → β = 55°), Koordinatenbild zur Umkehrung (A, B, C → M → Kreis mit r = 4), Beweisfigur (Radius MC → Winkel α, β bei C), Kreis und Gerade mit Abstand d (→ Schnittpunkte), Tangentenfigur (50° → rechte Winkel → 130°), Umkreis über die Mittelsenkrechten von [AB] und [AC] (→ M(3 | 1) → Kreis). fehler_bild bei thales ([AB] kein Durchmesser), lage (d = r berührt nur).
+Aufgaben: 144, 0 Unterschiede. inhalt_pruefen: 0 Fehler, 0 Hinweise.
+
 ## 2026-11-16 04:25 – STATUS
 geometrie.konstruktion umgebaut (7 Karten): Parallelenbild mit nacheinander markierten Stufen-/Wechselwinkeln, Giebel (γ gesucht → 55° → Begründung mit Parallele durch C), gleichschenkliger Giebel (? → 70°), Holzleisten für SWS (zwei Seiten → Winkel → dritte Seite), Zirkelbögen 3 cm/4 cm um die Enden von c = 8 cm, Parallelogramm mit nacheinander eingetragenen Winkeln, Tabelle Satz/Kehrsatz/Gegenbeispiel. fehler_bild bei parallelen (nicht parallele Geraden, 55° ≠ 65°), kongruenzsatz (zwei gleichseitige Dreiecke verschiedener Größe), konstruierbar (Bögen 3 cm/5 cm berühren sich nur).
 Karte vierecke: Merksatz nennt Parallelogramm und Drachenviereck; das gleichschenklige Trapez steht wegen der 25-Wörter-Grenze nicht mehr im Merksatz (Aufgaben dazu gibt es weiter; ggf. eigene Karte erwägen).

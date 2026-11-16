@@ -424,6 +424,113 @@ for _e in ETAPPEN:
     _e.update(KLAR.get(_e['lernziel'], {}))
 
 
+# ---------- UMBAU: neues Muster (Achte Runde, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl7.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl7 import mit_umbau  # noqa: E402
+
+_TH = {'A': [-3, 0], 'B': [3, 0], 'C': [1.03, 2.82], 'M': [0, 0]}
+
+
+def _beweis(mc=False, winkel=False):
+    li = [['A', 'B'], ['B', 'C'], ['C', 'A']] + ([['M', 'C', 'Radius', 'gestrichelt']] if mc else [])
+    w = [['A', 'B', 'C', 'α'], ['C', 'A', 'M', 'α'], ['B', 'C', 'A', 'β'], ['C', 'M', 'B', 'β']] if winkel else None
+    return figur(_TH, linien=li, winkel=w, kreise=[{'m': 'M', 'r': 3}])
+
+
+def _lage(abstand=None, punkte=False, hoehe=3):
+    pk = {'M': [0, 0], '_1': [-5, hoehe], '_2': [5, hoehe], '_F': [0, hoehe]}
+    li = [['_1', '_2', 'g']]
+    if abstand: li.append(['M', '_F', abstand, 'gestrichelt'])
+    if punkte: pk.update({'P': [-2.65, 3], 'Q': [2.65, 3]})
+    return figur(pk, linien=li, kreise=[{'m': 'M', 'r': 4}])
+
+
+_TG = {'M': [0, 0], 'P': [4.73, 0], 'B': [0.85, 1.81], "B'": [0.85, -1.81]}
+
+
+def _tangente(rechte=False, m=False):
+    return figur(_TG, linien=[['P', 'B'], ['P', "B'"], ['M', 'B', 'r'], ['M', "B'", 'r'], ['M', 'P', '', 'gestrichelt']],
+                 rechter_winkel=[['B', 'M', 'P'], ["B'", 'M', 'P']] if rechte else None,
+                 winkel=[['P', 'B', "B'", '50°']] + ([['M', "B'", 'B', '130°']] if m else []), kreise=[{'m': 'M', 'r': 2}])
+
+
+def _pt(x, y, n): return {'x': x, 'y': y, 'name': n}
+
+
+_ABC = [_pt(0, 0, 'A'), _pt(6, 0, 'B'), _pt(2, 4, 'C')]
+_ABC_S = [[0, 0, 6, 0], [6, 0, 2, 4], [2, 4, 0, 0]]
+
+UMBAU = {
+ 'thales': {
+  'einstieg': 'Auf einer Freilichtbühne stehen die Plätze auf einem Halbkreis vor der Bühnenkante. Von jedem Platz sieht man die Kante unter genau 90°. Das ist der ⟦Satz des Thales⟧.',
+  'woerter': [['Durchmesser', 'Strecke durch den Mittelpunkt von Rand zu Rand'], ['rechter Winkel', '90°, wie eine Zimmerecke'],
+              ['Thaleskreis', 'Kreis, bei dem [AB] der Durchmesser ist']],
+  'bild': thales_bild(35, ('35°', '', '')),
+  'schritte': [{'text': '[AB] ist ein Durchmesser, C liegt auf dem Kreis. Bei A sind es 35°.'},
+               {'text': 'C liegt auf dem Thaleskreis. Darum ist bei C ein rechter Winkel.', 'bild': thales_bild(35, ('35°', '', '90°'))},
+               {'text': 'Also ist β = 180° − 90° − 35° = ⟦55°⟧.', 'bild': thales_bild(35, ('35°', '55°', '90°'))}],
+  'fehler': 'Geht [AB] nicht durch den Mittelpunkt, gilt der Satz nicht. Der Winkel bei C ist dann meist ⟦kein rechter⟧.',
+  'fehler_bild': figur({'A': [-2.82, -1.03], 'B': [2.82, -1.03], 'C': [0, 3], 'M': [0, 0]}, linien=[['A', 'B'], ['B', 'C'], ['C', 'A']],
+                       winkel=[['C', 'A', 'B', '?']], kreise=[{'m': 'M', 'r': 3}]),
+  'regel': 'C auf dem Thaleskreis über [AB]: Bei C ist ein ⟦rechter Winkel⟧. [AB] muss ein Durchmesser sein.'},
+ 'umkehrung': {
+  'einstieg': 'Leg ein Geodreieck zwischen zwei Nägel. Jede kurze Kante berührt einen Nagel. Schiebst du es, wandert die rechtwinklige Ecke auf einem Halbkreis. Das ist die ⟦Umkehrung⟧ des Thalessatzes.',
+  'woerter': [['Umkehrung', 'der Satz andersherum: rechter Winkel bei C, also liegt C auf dem Kreis'], ['Mittelpunkt M', 'die Mitte von [AB]'],
+              ['Radius r', 'Abstand vom Mittelpunkt zum Kreis']],
+  'bild': {'typ': 'koordinaten', 'x': [-3, 7], 'y': [-4, 6], 'punkte': [_pt(-2, 1, 'A'), _pt(6, 1, 'B'), _pt(2, 5, 'C')], 'strecken': [[-2, 1, 6, 1], [-2, 1, 2, 5], [6, 1, 2, 5]]},
+  'schritte': [{'text': 'Gegeben sind A(−2 | 1) und B(6 | 1). Bei C ist ein rechter Winkel.'},
+               {'text': 'Der Mittelpunkt M ist die Mitte von [AB]: M(2 | 1).', 'bild': {'punkte': [_pt(-2, 1, 'A'), _pt(6, 1, 'B'), _pt(2, 5, 'C'), _pt(2, 1, 'M')]}},
+               {'text': '[AB] ist 8 lang, also ist der Radius r = ⟦4⟧.', 'bild': {'kreise': [{'m': [2, 1], 'r': 4}]}},
+               {'text': 'C liegt genau auf diesem Kreis.'}],
+  'fehler': 'Der Mittelpunkt ist nicht C, sondern die ⟦Mitte von [AB]⟧. Beim Geodreieck wandert die Ecke, die Mitte zwischen den Nägeln bleibt.',
+  'regel': 'Rechter Winkel bei C: C liegt auf dem ⟦Kreis über [AB]⟧. Sein Mittelpunkt ist die Mitte von [AB].'},
+ 'beweis': {
+  'einstieg': 'Ein Geometrieprogramm misst bei zehn Dreiecken auf dem Halbkreis jedes Mal 90°. Aber gilt das wirklich immer? Eine Begründung für alle Fälle heißt ⟦Beweis⟧.',
+  'woerter': [['Beweis', 'Begründung aus bekannten Regeln, die für alle Fälle gilt'], ['Radius', 'Strecke vom Mittelpunkt zum Kreis; alle Radien sind gleich lang'],
+              ['gleichschenklig', 'zwei gleich lange Seiten, deshalb zwei gleich große Winkel']],
+  'bild': _beweis(),
+  'schritte': [{'text': 'MA, MB und MC sind jeweils ein Radius, also gleich lang.', 'bild': _beweis(mc=True)},
+               {'text': 'Die Dreiecke AMC und BMC sind gleichschenklig. Bei C stecken α und β.', 'bild': _beweis(mc=True, winkel=True)},
+               {'text': 'Der ganze Winkel bei C ist also α + β.'},
+               {'text': 'Winkelsumme im Dreieck ABC: α + β + (α + β) = 180°.'},
+               {'text': 'Also 2 · (α + β) = 180° und ⟦α + β = 90°⟧.'}],
+  'fehler': 'Hundert gemessene Beispiele sind ⟦kein Beweis⟧. Sie zeigen nur, dass es für diese hundert Dreiecke stimmt.',
+  'regel': 'Messen liefert eine Vermutung, erst der ⟦Beweis⟧ zeigt: immer. Beim Thalessatz helfen die gleich langen Radien.'},
+ 'lage': {
+  'einstieg': 'Ein Ball rollt geradeaus an einer runden Pfütze vorbei. Er kann sie verfehlen, am Rand streifen oder durchrollen. Die drei Fälle heißen Passante, Tangente und ⟦Sekante⟧.',
+  'woerter': [['Passante', 'geht vorbei, kein gemeinsamer Punkt'], ['Tangente', 'berührt den Kreis in genau einem Punkt'], ['Sekante', 'schneidet den Kreis in zwei Punkten']],
+  'bild': _lage(),
+  'schritte': [{'text': 'Der Radius ist 4 cm, der Abstand der Geraden von M ist 3 cm.', 'bild': _lage('d = 3')},
+               {'text': '3 cm ist kleiner als 4 cm. Die Gerade kommt näher als der Rand.'},
+               {'text': 'Sie schneidet den Kreis zweimal: ⟦Sekante⟧.', 'bild': _lage('d = 3', punkte=True)}],
+  'fehler': 'Ist der Abstand gleich dem Radius, schneidet die Gerade nicht zweimal. Sie ⟦berührt⟧ nur – wie ein Ball am Pfützenrand.',
+  'fehler_bild': _lage('d = 4', hoehe=4),
+  'regel': 'Vergleiche den ⟦Abstand mit dem Radius⟧. Größer: Passante, gleich: Tangente, kleiner: Sekante.'},
+ 'tangente': {
+  'einstieg': 'Ein Fahrrad steht auf der Straße. Das Rad berührt sie an genau einer Stelle. Die Speiche zu dieser Stelle steht senkrecht auf der Straße. Die Straße ist eine ⟦Tangente⟧.',
+  'woerter': [['Berührpunkt', 'die eine Stelle, an der Tangente und Kreis sich treffen'], ['Berührradius', 'der Radius zum Berührpunkt – wie die Speiche']],
+  'bild': _tangente(),
+  'schritte': [{'text': 'Von P gehen zwei Tangenten aus. Bei P ist der Winkel 50°.'},
+               {'text': "In jedem Berührpunkt steht der Berührradius senkrecht: zweimal 90°.", 'bild': _tangente(rechte=True)},
+               {'text': 'Im Viereck sind es zusammen 360°: 360° − 90° − 90° − 50° = ⟦130°⟧.', 'bild': _tangente(rechte=True, m=True)}],
+  'fehler': 'Der Winkel zwischen Tangente und Berührradius ist nicht irgendein Winkel. Er ist ⟦immer 90°⟧, wie bei der senkrechten Speiche.',
+  'regel': 'Tangente und Berührradius bilden ⟦immer 90°⟧. Von einem Punkt außen gibt es zwei Tangenten.'},
+ 'umkreis_inkreis': {
+  'einstieg': 'Drei Freunde suchen einen Treffpunkt, der von allen drei Häusern gleich weit weg ist. Ein Kreis um diesen Punkt geht durch alle drei Häuser. Er heißt ⟦Umkreis⟧.',
+  'woerter': [['Umkreis', 'Kreis durch alle drei Ecken'], ['Mittelsenkrechte', 'Gerade, die eine Seite in der Mitte senkrecht schneidet']],
+  'bild': {'typ': 'koordinaten', 'x': [-2, 7], 'y': [-3, 5], 'punkte': _ABC, 'strecken': _ABC_S},
+  'schritte': [{'text': 'Die Häuser sind A, B und C. Gesucht ist ein Punkt, gleich weit von allen.'},
+               {'text': 'Auf der Mittelsenkrechten von [AB] ist man A und B gleich nah.', 'bild': {'strecken': _ABC_S + [[3, -2.5, 3, 4.5, 'gestrichelt']]}},
+               {'text': 'Die Mittelsenkrechte von [AC] trifft sie im Punkt ⟦M(3 | 1)⟧.',
+                'bild': {'strecken': _ABC_S + [[3, -2.5, 3, 4.5, 'gestrichelt'], [-1, 3, 5, 0, 'gestrichelt']], 'punkte': _ABC + [_pt(3, 1, 'M')]}},
+               {'text': 'Der Kreis um M durch A geht auch durch B und C: der Umkreis.', 'bild': {'kreise': [{'m': [3, 1], 'r': 3.162}]}}],
+  'fehler': 'Der Inkreis (Kreis innen, berührt alle Seiten) braucht gleichen Abstand zu den Seiten. Dafür nimmt man die ⟦Winkelhalbierenden⟧, nicht die Mittelsenkrechten.',
+  'regel': 'Umkreismittelpunkt: Schnitt der ⟦Mittelsenkrechten⟧. Inkreismittelpunkt: Schnitt der Winkelhalbierenden.'},
+}
+UMBAU_OFFEN = []
+baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Satz des Thales', ['thales', 'umkehrung', 'beweis']), ('Tangenten', ['lage', 'tangente']), ('Besondere Kreise', ['umkreis_inkreis'])],

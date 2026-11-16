@@ -6353,6 +6353,869 @@
     "index": 0
    },
    "w": "Ohne Zurücklegen ändern sich Zähler und Nenner: 2/6 · 1/5 = 1/15."
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei verschiedene Glücksräder werden je einmal gedreht. Das erste zeigt „rot“ mit 0,4, das zweite mit 0,25. Wie groß ist P(beide rot)?"
+   },
+   "o": {
+    "wert": 0.1
+   },
+   "c": "0.4 * 0.25",
+   "w": "Ein Pfad: 0,4 · 0,25 = 0,1.",
+   "h": "Entlang des Pfades multiplizieren."
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Würfel wird dreimal geworfen. Wie groß ist die Wahrscheinlichkeit, dass drei verschiedene Augenzahlen fallen?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     5,
+     9
+    ]
+   },
+   "w": "Der erste Wurf ist beliebig (6/6), der zweite muss anders sein (5/6), der dritte anders als beide (4/6): 1 · 5/6 · 4/6 = 20/36 = 5/9.",
+   "h": "Wie viele „erlaubte“ Augenzahlen hat jeder Wurf noch?",
+   "c": [
+    "5",
+    "9"
+   ]
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Glücksrad hat 4 gleich große Felder, eines davon blau. Es wird 6-mal gedreht. Welches Ereignis hat die Wahrscheinlichkeit (3/4)⁶?"
+   },
+   "a": [
+    "Blau erscheint bei jeder Drehung.",
+    "Blau erscheint genau einmal.",
+    "Blau erscheint mindestens einmal.",
+    "Blau erscheint kein einziges Mal."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "3/4 ist die Wahrscheinlichkeit für „nicht blau“. Sechsmal hintereinander „nicht blau“: (3/4)⁶.",
+   "h": "Wofür steht 3/4 bei einer Drehung?"
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Glücksrad mit den Ziffern 1, 2, 3, 4 (gleich große Felder) wird 6-mal gedreht; die Ziffern ergeben eine sechsstellige Zahl. Wie wahrscheinlich ist genau die Zahl 123 412?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     4096
+    ]
+   },
+   "w": "Ein einziger Pfad mit sechs Ästen zu je 1/4: (1/4)⁶ = 1/4 096. Es gibt 4⁶ = 4 096 gleich wahrscheinliche Zahlen.",
+   "h": "Jede Stelle ist eine eigene Stufe.",
+   "c": [
+    "1",
+    "4 ** 6"
+   ]
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Münze wird mehrmals geworfen. Wie oft muss man sie mindestens werfen, damit die Wahrscheinlichkeit für „jedes Mal Zahl“ kleiner als 1 % ist?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "0,5ⁿ < 0,01: 0,5⁶ ≈ 0,0156, 0,5⁷ ≈ 0,0078. Also mindestens 7 Würfe.",
+   "h": "Probiere 0,5⁵, 0,5⁶, 0,5⁷ …"
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind zwei unabhängige Stufen eines Zufallsexperiments. Es gilt P(A) = 0,3 und P(A, dann B) = 0,12. Wie groß ist P(B)?"
+   },
+   "o": {
+    "wert": 0.4
+   },
+   "c": "0.12 / 0.3",
+   "w": "Pfadregel rückwärts: 0,3 · P(B) = 0,12 ⇒ P(B) = 0,4.",
+   "h": "Die Pfadwahrscheinlichkeit ist ein Produkt. Welcher Faktor fehlt?"
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Zwei Würfel werden geworfen. Wie groß ist die Wahrscheinlichkeit für die Augensumme 4?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     12
+    ]
+   },
+   "w": "Pfade (1, 3), (2, 2), (3, 1): 3 · 1/36 = 3/36 = 1/12.",
+   "h": "Schreibe alle Paare mit der Summe 4 auf.",
+   "c": [
+    "1",
+    "12"
+   ]
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer Torwand trifft ein Kind oben mit 30 %, unten mit 60 %. Es schießt einmal oben und einmal unten. Wie groß ist P(genau ein Treffer)?"
+   },
+   "o": {
+    "wert": 0.54
+   },
+   "c": "0.3 * 0.4 + 0.7 * 0.6",
+   "w": "Treffer oben, unten nicht: 0,3 · 0,4 = 0,12. Oben nicht, unten Treffer: 0,7 · 0,6 = 0,42. Zusammen 0,54.",
+   "h": "Genau ein Treffer: zwei Pfade. Jeden multiplizieren, dann addieren."
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Zwei Würfel werden geworfen und die Augenzahlen multipliziert. Wie groß ist P(Produkt = 12)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     9
+    ]
+   },
+   "w": "Pfade (2, 6), (6, 2), (3, 4), (4, 3): 4 · 1/36 = 1/9.",
+   "h": "Zerlege 12 in zwei Faktoren zwischen 1 und 6 – auf beide Reihenfolgen achten.",
+   "c": [
+    "1",
+    "9"
+   ]
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Würfel werden geworfen, X ist das Produkt der Augenzahlen. Warum gilt P(X = 10) = P(X = 15)?"
+   },
+   "a": [
+    "Weil 15 − 10 = 5 eine Augenzahl ist.",
+    "Weil jedes Produkt gleich wahrscheinlich ist.",
+    "Zu beiden gehören genau zwei Pfade: (2, 5), (5, 2) bzw. (3, 5), (5, 3).",
+    "Weil 10 und 15 beide durch 5 teilbar sind."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Alle 36 Pfade sind gleich wahrscheinlich. Gleich viele Pfade bedeuten gleiche Wahrscheinlichkeit: je 2/36. (Nicht jedes Produkt ist gleich wahrscheinlich: X = 12 hat 4 Pfade.)",
+   "h": "Zähle für beide Produkte die passenden Würfelpaare."
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Drei Würfel werden geworfen. Wie groß ist die Wahrscheinlichkeit, dass die Augensumme mindestens 17 ist?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     54
+    ]
+   },
+   "w": "Summe 18: nur (6, 6, 6). Summe 17: (5, 6, 6), (6, 5, 6), (6, 6, 5). Vier Pfade von 216: 4/216 = 1/54.",
+   "h": "Welche Würfe ergeben 18, welche 17? Achte auf die Reihenfolge.",
+   "c": [
+    "1",
+    "54"
+   ]
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Münze wird viermal geworfen. Wie groß ist P(genau zweimal Kopf)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     3,
+     8
+    ]
+   },
+   "w": "Pfade mit genau zwei K: KKZZ, KZKZ, KZZK, ZKKZ, ZKZK, ZZKK – das sind 6, je (1/2)⁴ = 1/16. Also 6/16 = 3/8.",
+   "h": "Zähle systematisch, an welchen zwei Stellen das K stehen kann.",
+   "c": [
+    "3",
+    "8"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 4 rote und 6 grüne Kugeln. Zwei werden ohne Zurücklegen gezogen. Wie groß ist P(zuerst rot, dann grün)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     4,
+     15
+    ]
+   },
+   "w": "4/10 · 6/9 = 24/90 = 4/15. Nach einer roten Kugel sind noch 9 Kugeln da, alle 6 grünen.",
+   "h": "Beim zweiten Zug ist eine Kugel weniger in der Urne.",
+   "c": [
+    "4",
+    "15"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Lostrommel sind 10 Lose, davon 3 Gewinne. Du ziehst 2 Lose. Wie groß ist P(genau ein Gewinn)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     7,
+     15
+    ]
+   },
+   "w": "Gewinn, Niete: 3/10 · 7/9 = 21/90. Niete, Gewinn: 7/10 · 3/9 = 21/90. Zusammen 42/90 = 7/15.",
+   "h": "Zwei Pfade: G N und N G.",
+   "c": [
+    "7",
+    "15"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 5 rote und 3 blaue Kugeln. Zwei werden ohne Zurücklegen gezogen. Wie groß ist die Wahrscheinlichkeit, dass die zweite Kugel rot ist?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     5,
+     8
+    ]
+   },
+   "w": "Rot, rot: 5/8 · 4/7 = 20/56. Blau, rot: 3/8 · 5/7 = 15/56. Zusammen 35/56 = 5/8 – genauso groß wie beim ersten Zug.",
+   "h": "Die erste Kugel ist unbekannt: Rechne beide Pfade, die mit „rot“ enden.",
+   "c": [
+    "5",
+    "8"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 2 blaue und 6 weiße Kugeln. Man zieht ohne Zurücklegen, bis eine blaue Kugel kommt. Wie groß ist die Wahrscheinlichkeit, dass man genau nach dem 2. Zug aufhört?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     3,
+     14
+    ]
+   },
+   "w": "Erst weiß, dann blau: 6/8 · 2/7 = 12/56 = 3/14.",
+   "h": "Aufhören nach dem 2. Zug heißt: Der erste war nicht blau, der zweite schon.",
+   "c": [
+    "3",
+    "14"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Urne liegen 4 blaue und 11 weiße Kugeln. Man zieht ohne Zurücklegen. Bei welchem Zug hat man spätestens sicher eine blaue Kugel gezogen?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "11 + 1",
+   "w": "Im ungünstigsten Fall kommen zuerst alle 11 weißen. Der 12. Zug ist dann sicher blau.",
+   "h": "Denk an den ungünstigsten Fall."
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Urne liegen n Kugeln, genau 2 davon sind rot. Zieht man 2 Kugeln ohne Zurücklegen, sind beide mit der Wahrscheinlichkeit 1/15 rot. Wie groß ist n?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6 + (6 * 5 - 30)",
+   "w": "2/n · 1/(n − 1) = 1/15 ⇒ n · (n − 1) = 30 ⇒ n = 6 (6 · 5 = 30).",
+   "h": "Stelle die Pfadwahrscheinlichkeit mit n auf und probiere."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Würfel wird dreimal geworfen. Wie groß ist P(mindestens eine gerade Zahl)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     7,
+     8
+    ]
+   },
+   "w": "Gegenereignis „nur ungerade“: (1/2)³ = 1/8. Also 1 − 1/8 = 7/8.",
+   "h": "Was ist das Gegenteil von „mindestens eine gerade Zahl“?",
+   "c": [
+    "7",
+    "8"
+   ]
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Zwei Würfel werden geworfen. Wie groß ist die Wahrscheinlichkeit, dass die Augenzahlen verschieden sind?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     5,
+     6
+    ]
+   },
+   "w": "Gegenereignis „Pasch“: 6 von 36 = 1/6. Also 1 − 1/6 = 5/6.",
+   "h": "Rechne zuerst die Wahrscheinlichkeit für zwei gleiche Augenzahlen.",
+   "c": [
+    "5",
+    "6"
+   ]
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kind trifft die Torwand mit der Wahrscheinlichkeit 0,25 und schießt 10-mal. Welcher Term gibt P(mindestens ein Treffer) an?"
+   },
+   "a": [
+    "1 − 0,25¹⁰",
+    "1 − 0,75¹⁰",
+    "0,75¹⁰",
+    "10 · 0,25"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegenereignis: kein Treffer, also 10-mal daneben: 0,75¹⁰. Davon das Gegenteil: 1 − 0,75¹⁰. (10 · 0,25 = 2,5 ist gar keine Wahrscheinlichkeit.)",
+   "h": "Wie lautet das Gegenereignis, und wie wahrscheinlich ist ein Fehlschuss?"
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß muss die Trefferwahrscheinlichkeit p mindestens sein, damit man bei 2 Versuchen mit mindestens 91 % Wahrscheinlichkeit wenigstens einmal trifft?"
+   },
+   "o": {
+    "wert": 0.7
+   },
+   "c": "1 - 0.3",
+   "w": "1 − (1 − p)² ≥ 0,91 ⇔ (1 − p)² ≤ 0,09 ⇔ 1 − p ≤ 0,3 ⇔ p ≥ 0,7.",
+   "h": "Rechne rückwärts über das Gegenereignis „zweimal daneben“."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Jede Birne einer Lichterkette fällt im ersten Jahr mit 4 % Wahrscheinlichkeit aus (unabhängig). Die Kette hat 20 Birnen. Wie groß ist P(mindestens eine fällt aus)? Runde auf drei Nachkommastellen."
+   },
+   "o": {
+    "wert": 0.558,
+    "toleranz": 0.001
+   },
+   "c": "round(0.557997566121, 3)",
+   "w": "P(keine fällt aus) = 0,96²⁰ ≈ 0,442. Also 1 − 0,442 ≈ 0,558.",
+   "h": "Gegenereignis: Alle 20 Birnen halten."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet: „Bei 3 Würfen ist P(mindestens eine Sechs) = 1 − (1/6)³.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: richtig ist 3 · 1/6.",
+    "Falsch: richtig ist 1 − (5/6)³.",
+    "Falsch: richtig ist (5/6)³.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Das Gegenereignis ist „keine Sechs“, nicht „nur Sechsen“. P(keine Sechs) = (5/6)³, also 1 − (5/6)³ ≈ 0,42.",
+   "h": "Was genau ist das Gegenteil von „mindestens eine Sechs“?"
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Baumdiagramm ist P(A) = 0,7 und die Pfadwahrscheinlichkeit „A, dann nicht B“ = 0,21. Welche Wahrscheinlichkeit steht am Ast von A nach B?"
+   },
+   "o": {
+    "wert": 0.7
+   },
+   "c": "1 - 0.21 / 0.7",
+   "w": "Ast A → nicht B: 0,21 : 0,7 = 0,3. Die Äste nach A ergeben zusammen 1: A → B = 1 − 0,3 = 0,7.",
+   "h": "Erst den Ast zu „nicht B“ durch Teilen finden, dann die Ergänzung zu 1."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Klasse sind 40 % Mädchen. Von den Mädchen tragen 25 % eine Brille. Welcher Anteil der ganzen Klasse sind Mädchen mit Brille?"
+   },
+   "o": {
+    "wert": 0.1
+   },
+   "c": "0.4 * 0.25",
+   "w": "Pfad „Mädchen, Brille“: 0,4 · 0,25 = 0,1, also 10 % der Klasse – das gehört in die Vierfeldertafel in das Feld „Mädchen und Brille“.",
+   "h": "Ein Pfad im Baumdiagramm – multiplizieren."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Baumdiagramm fehlen zwei Äste. Bekannt ist: Insgesamt tritt B mit der Wahrscheinlichkeit 0,46 ein. Welche Wahrscheinlichkeit steht am Ast von „nicht A“ nach B?",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "A",
+       "p": "0,6",
+       "aeste": [
+        {
+         "text": "B",
+         "p": "0,5"
+        },
+        {
+         "text": "nicht B",
+         "p": "0,5"
+        }
+       ]
+      },
+      {
+       "text": "nicht A",
+       "p": "0,4",
+       "aeste": [
+        {
+         "text": "B",
+         "p": "?"
+        },
+        {
+         "text": "nicht B",
+         "p": "?"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.4
+   },
+   "c": "(0.46 - 0.6 * 0.5) / 0.4",
+   "w": "P(B) = 0,6 · 0,5 + 0,4 · x = 0,46 ⇒ 0,3 + 0,4x = 0,46 ⇒ x = 0,16 : 0,4 = 0,4.",
+   "h": "B wird über zwei Pfade erreicht. Stelle eine Gleichung für P(B) auf."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus einer Urne mit roten und blauen Kugeln werden zwei ohne Zurücklegen gezogen. Im Baumdiagramm steht am ersten Ast „rot“ 2/5 und am Ast „rot → rot“ 1/4. Wie viele Kugeln sind in der Urne?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "Mit 5 Kugeln, davon 2 rot: erster Zug 2/5, nach einer roten noch 1 rote von 4: 1/4 ✓. (Mit 10 Kugeln, 4 rot, wäre es 3/9 = 1/3.)",
+   "h": "Probiere die kleinste Urne mit dem Anteil 2/5 und prüfe den zweiten Ast."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Experiment hat zwei gleiche, unabhängige Stufen mit den Ergebnissen A und nicht A. Es gilt P(A, A) = 0,49. Wie groß ist P(A, nicht A)?"
+   },
+   "o": {
+    "wert": 0.21
+   },
+   "c": "0.7 * 0.3",
+   "w": "P(A)² = 0,49 ⇒ P(A) = 0,7, P(nicht A) = 0,3. Also P(A, nicht A) = 0,7 · 0,3 = 0,21.",
+   "h": "Welche Zahl mal sich selbst ergibt 0,49?"
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "25 % der Kinder einer Schule tragen eine Brille. Von den Brillenträgern sind 60 % Mädchen, von den anderen Kindern 40 %. Welcher Anteil aller Kinder sind Mädchen?"
+   },
+   "o": {
+    "wert": 0.45
+   },
+   "c": "0.25 * 0.6 + 0.75 * 0.4",
+   "w": "Zwei Pfade zu „Mädchen“: 0,25 · 0,6 + 0,75 · 0,4 = 0,15 + 0,3 = 0,45.",
+   "h": "Zeichne den Baum: erste Stufe Brille ja/nein, zweite Stufe Mädchen/Junge."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Computer erzeugt zufällige ganze Zahlen von 1 bis 100. Damit soll ein Ereignis mit der Wahrscheinlichkeit 0,35 simuliert werden. Welche Zahlen zählen als „Treffer“?"
+   },
+   "a": [
+    "die Zahlen 1 bis 34",
+    "die Zahlen 35 bis 100",
+    "die Zahlen 1 bis 35",
+    "die Zahlen 0 bis 35"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "1 bis 35 sind genau 35 von 100 Zahlen, also Anteil 0,35. (35 bis 100 wären 66 Zahlen, 0 kommt nicht vor.)",
+   "h": "Zähle, wie viele Zahlen jede Auswahl enthält."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Würfel werden 360-mal geworfen. Wie oft erwartet man einen Pasch (zwei gleiche Augenzahlen)?"
+   },
+   "o": {
+    "wert": 60
+   },
+   "c": "360 * 6 / 36",
+   "w": "P(Pasch) = 6/36 = 1/6. Erwartet: 360 · 1/6 = 60.",
+   "h": "Erst die Wahrscheinlichkeit für einen Pasch, dann n · p."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In ein Quadrat mit der Seitenlänge 2 ist ein Kreis mit Radius 1 gezeichnet. 1 000 zufällige Punkte im Quadrat: 785 liegen im Kreis. Welchen Näherungswert für π liefert das?"
+   },
+   "o": {
+    "wert": 3.14
+   },
+   "c": "4 * 785 / 1000",
+   "w": "Anteil im Kreis ≈ Kreisfläche : Quadratfläche = π · 1² : 4. Also π/4 ≈ 0,785 ⇒ π ≈ 3,14.",
+   "h": "Vergleiche den Anteil der Treffer mit dem Flächenverhältnis."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Quadrat mit der Seitenlänge 2 liegt ein Kreis mit Radius 1. Wie viele von 2 000 zufälligen Punkten im Quadrat erwartet man im Kreis? Runde auf eine ganze Zahl."
+   },
+   "o": {
+    "wert": 1571,
+    "toleranz": 1
+   },
+   "c": "round(1570.796326794896, 0)",
+   "w": "p = Kreisfläche : Quadratfläche = π : 4 ≈ 0,785. Erwartet: 2 000 · π/4 ≈ 1 571.",
+   "h": "Die Trefferwahrscheinlichkeit ist ein Flächenverhältnis."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Nach 200 Würfen beträgt die relative Häufigkeit der Sechs 0,15. Wie viele Sechsen müssen bei den nächsten 100 Würfen fallen, damit die relative Häufigkeit nach 300 Würfen genau 1/6 ist?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "300 / 6 - 0.15 * 200",
+   "w": "Bisher 0,15 · 200 = 30 Sechsen. Nach 300 Würfen sollen es 300 : 6 = 50 sein. Also 50 − 30 = 20.",
+   "h": "Rechne mit absoluten Häufigkeiten: wie viele bisher, wie viele am Ende?"
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei 10 Würfen kam 4-mal die Sechs (relative Häufigkeit 0,4). Jemand folgert: „Der Würfel ist gezinkt.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig, denn 0,4 ist mehr als doppelt so groß wie 1/6.",
+    "Richtig, bei einem fairen Würfel wäre die Sechs genau 1- bis 2-mal gefallen.",
+    "Nicht zwingend: Bei nur 10 Würfen schwankt die relative Häufigkeit stark um 1/6.",
+    "Falsch, denn der Würfel ist sicher fair."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Erst bei sehr vielen Würfen nähert sich die relative Häufigkeit der Wahrscheinlichkeit (empirisches Gesetz der großen Zahlen). 4 Sechsen in 10 Würfen kommen auch bei fairen Würfeln vor.",
+   "h": "Wie stark schwankt eine relative Häufigkeit bei wenigen Versuchen?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über ein Baumdiagramm ist falsch?"
+   },
+   "a": [
+    "An jeder Verzweigung ergeben die Äste zusammen 1.",
+    "Ein Pfad kann wahrscheinlicher sein als sein erster Ast.",
+    "Die Summe aller Pfadwahrscheinlichkeiten ist 1.",
+    "Jede Pfadwahrscheinlichkeit liegt zwischen 0 und 1."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Entlang eines Pfades wird mit Zahlen ≤ 1 multipliziert – das Produkt wird nie größer als der erste Ast.",
+   "h": "Was passiert, wenn man mit einer Zahl ≤ 1 multipliziert?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wann unterscheiden sich „mit Zurücklegen“ und „ohne Zurücklegen“ beim Ziehen von zwei Kugeln kaum?"
+   },
+   "a": [
+    "wenn nur wenige Kugeln in der Urne liegen",
+    "wenn sehr viele Kugeln in der Urne liegen",
+    "wenn genau zwei Farben vorkommen",
+    "nie, der Unterschied ist immer groß"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Bei 1 000 Kugeln ändert eine gezogene Kugel die Anteile kaum (z. B. 500/1 000 und 499/999).",
+   "h": "Rechne ein Beispiel mit 10 und mit 1 000 Kugeln."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Urne mit 3 roten und 2 blauen Kugeln, zwei Züge ohne Zurücklegen. Welches Ereignis hat die Wahrscheinlichkeit 3/5 · 2/4 + 2/5 · 3/4?"
+   },
+   "a": [
+    "Zuerst rot, dann blau.",
+    "Die beiden Kugeln haben verschiedene Farben.",
+    "Mindestens eine Kugel ist rot.",
+    "Beide Kugeln haben dieselbe Farbe."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Zwei Pfade werden addiert: rot → blau (3/5 · 2/4) und blau → rot (2/5 · 3/4). Das sind genau die Pfade mit zwei verschiedenen Farben.",
+   "h": "Welche zwei Pfade stehen in der Summe?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Würfel wird n-mal geworfen. Welcher Term gibt die Wahrscheinlichkeit an, dass jedes Mal eine gerade Zahl fällt?"
+   },
+   "a": [
+    "(1/2)ⁿ",
+    "(1/6)ⁿ",
+    "n · 1/2",
+    "1 − (1/2)ⁿ"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Pro Wurf ist P(gerade) = 3/6 = 1/2. n Würfe nacheinander: n-mal den Faktor 1/2. 1 − (1/2)ⁿ wäre „mindestens einmal ungerade“.",
+   "h": "Wie groß ist P(gerade) bei einem Wurf? Wie viele Stufen hat der Pfad?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Was ist wahrscheinlicher: mit 4 Würfen eines Würfels mindestens eine Sechs – oder mit 24 Würfen von zwei Würfeln mindestens einmal zwei Sechsen?"
+   },
+   "a": [
+    "mindestens eine Sechs bei 4 Würfen",
+    "beide gleich wahrscheinlich, denn 4 : 6 = 24 : 36",
+    "Das lässt sich nicht berechnen.",
+    "mindestens ein Sechserpasch bei 24 Doppelwürfen"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "1 − (5/6)⁴ ≈ 0,518 und 1 − (35/36)²⁴ ≈ 0,491. Die erste Wahrscheinlichkeit ist größer, obwohl das Verhältnis 4 : 6 = 24 : 36 gleich ist.",
+   "h": "Rechne beide über das Gegenereignis."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „Beim Lotto 6 aus 49 ist die Zahlenreihe 1, 2, 3, 4, 5, 6 unwahrscheinlicher als eine gemischte Reihe wie 3, 17, 22, 30, 41, 48.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig, Zahlen hintereinander kommen seltener.",
+    "Falsch: Jede bestimmte Sechserkombination ist gleich wahrscheinlich.",
+    "Falsch: 1, 2, 3, 4, 5, 6 ist wahrscheinlicher.",
+    "Richtig, weil kleine Zahlen seltener gezogen werden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Jede bestimmte Kombination ist ein einziger Pfad mit derselben Wahrscheinlichkeit (6/49 · 5/48 · … · 1/44). „Gemischt“ wirkt nur häufiger, weil es sehr viele gemischte Reihen gibt.",
+   "h": "Berechne die Wahrscheinlichkeit für eine ganz bestimmte Reihe. Hängt sie von den Zahlen ab?"
   }
  ],
  "offen": [

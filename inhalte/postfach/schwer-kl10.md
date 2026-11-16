@@ -1,5 +1,8 @@
 # Postfach schwer-kl10 (Zehnte Runde, Klasse 10)
 
+## 2026-11-16 07:55 – STATUS
+stochastik.mehrstufig fertig: 42 neue Übungen (7 Lernkarten), Prüfskript OK, Nachweis OK. Alle 7 Themen erledigt, Abschlussbericht folgt.
+
 ## 2026-11-16 07:30 – STATUS
 raum.pyramide_kegel_kugel fertig: 42 neue Übungen (7 Lernkarten), Prüfskript OK, Nachweis OK.
 

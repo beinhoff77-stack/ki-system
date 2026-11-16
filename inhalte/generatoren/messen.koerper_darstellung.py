@@ -421,6 +421,100 @@ def g_beurteilen(R, st):
 
 GEN = {'prisma': g_prisma, 'netz': g_netz, 'zylinder': g_zylinder, 'schraegbild': g_schraegbild, 'ansichten': g_ansichten, 'beurteilen': g_beurteilen}
 
+
+# ---------- UMBAU: neues Muster (Achte Runde, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl8.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl8 import mit_umbau  # noqa: E402
+
+_TRI = {'_A': [0, 0], '_B': [4, 0], '_C': [2, 3], '_D': [3, 2], '_E': [7, 2], '_F': [5, 5]}
+_TRI_L = [['_A', '_B'], ['_B', '_C'], ['_C', '_A'], ['_B', '_E'], ['_C', '_F'], ['_E', '_F'],
+          ['_A', '_D', '', 'gestrichelt'], ['_D', '_E', '', 'gestrichelt'], ['_D', '_F', '', 'gestrichelt']]
+_NETZ = {"_a": [0, 0], "_b": [5, 0], "_c": [8, 0], "_d": [13, 0], "_e": [16, 0], "_f": [16, 4], "_g": [13, 4], "_h": [8, 4], "_i": [5, 4], "_j": [0, 4],
+         "_k": [0, 7], "_l": [5, 7], "_m": [0, -3], "_n": [5, -3]}
+_NETZ_L = [["_a", "_b"], ["_b", "_c", "3 cm"], ["_c", "_d", "5 cm"], ["_d", "_e", "3 cm"], ["_e", "_f", "4 cm"], ["_f", "_g"], ["_g", "_h"], ["_h", "_i"], ["_i", "_j"],
+           ["_j", "_a"], ["_b", "_i"], ["_c", "_h"], ["_d", "_g"], ["_j", "_k"], ["_k", "_l", "5 cm"], ["_l", "_i"], ["_a", "_m"], ["_m", "_n"], ["_n", "_b", "3 cm"]]
+_Q = {"A": [0, 0], "B": [6, 0], "C": [8.83, 2.83], "D": [2.83, 2.83], "E": [0, 4], "F": [6, 4], "G": [8.83, 6.83], "H": [2.83, 6.83], "_X": [8.5, 0]}
+_Q_L = [["A", "B", "6 cm"], ["B", "F", "4 cm"], ["F", "E"], ["E", "A"], ["B", "C", "4 cm"], ["C", "G"], ["G", "F"], ["E", "H"], ["H", "G"],
+        ["A", "D", "", "gestrichelt"], ["D", "C", "", "gestrichelt"], ["D", "H", "", "gestrichelt"], ["B", "_X", "", "gestrichelt"]]
+_W = {'_A': [0, 0], '_B': [3, 0], '_C': [4.5, 1.5], '_D': [1.5, 1.5], '_E': [0, 3], '_F': [3, 3], '_G': [4.5, 4.5], '_H': [1.5, 4.5]}
+_W_L = [['_A', '_B'], ['_B', '_F'], ['_F', '_E'], ['_E', '_A'], ['_B', '_C'], ['_C', '_G'], ['_G', '_F'], ['_E', '_H'], ['_H', '_G'],
+        ['_A', '_D', '', 'gestrichelt'], ['_D', '_C', '', 'gestrichelt'], ['_D', '_H', '', 'gestrichelt']]
+UMBAU = {
+ 'prisma': {
+  'einstieg': 'Eine dreieckige Schokopackung, ein Bleistift ohne Spitze, ein Schuhkarton. Vorne und hinten haben sie dieselbe Form, die Seiten sind Rechtecke. Solche Körper heißen ⟦Prismen⟧.',
+  'woerter': [['Prisma', 'Körper mit zwei gleichen, parallelen Grundflächen und Rechtecken als Seiten'], ['Grundfläche', 'die Form vorne und hinten, hier ein Dreieck'], ['n', 'die Anzahl der Ecken der Grundfläche']],
+  'bild': {'typ': 'figur', 'punkte': _TRI, 'linien': _TRI_L},
+  'schritte': [{'text': 'Die Schokopackung ist ein Prisma. Die Grundfläche ist ein Dreieck, also n = 3.', 'bild': {'flaeche': ['_A', '_B', '_C']}},
+               {'text': 'Ecken: 3 vorn und 3 hinten, also 6.'},
+               {'text': 'Kanten: 3 vorn, 3 hinten und 3 dazwischen, also 9.'},
+               {'text': 'Flächen: 3 Rechtecke und 2 Dreiecke, zusammen ⟦5⟧.'}],
+  'fehler': 'Ein Bleistift ohne Spitze hat nicht 6 Flächen. Zu den 6 Rechtecken kommen ⟦2 Grundflächen⟧, also 8.',
+  'regel': 'n-Eck-Prisma: ⟦2n Ecken, 3n Kanten, n + 2 Flächen⟧. Die 2 steht für die beiden Grundflächen.'},
+ 'netz': {
+  'einstieg': 'Schneide eine leere Müslischachtel an einigen Kanten auf und klappe sie flach. Die flache Figur heißt ⟦Netz⟧. Ihre Fläche zeigt, wie viel Pappe du brauchst.',
+  'woerter': [['Netz', 'der aufgeklappte, flache Körper'], ['Oberfläche', 'alle Flächen des Körpers zusammen']],
+  'bild': {'typ': 'figur', 'punkte': _NETZ, 'linien': _NETZ_L},
+  'schritte': [{'text': 'Die Schachtel ist 5 cm lang, 3 cm breit und 4 cm hoch.'},
+               {'text': 'Boden und Deckel: je 5 · 3 = 15 cm², zusammen 30 cm².', 'bild': {'flaeche': ['_m', '_n', '_b', '_a']}},
+               {'text': 'Die vier Seiten bilden einen Streifen: 16 cm lang, 4 cm hoch: 64 cm².', 'bild': {'flaeche': ['_a', '_e', '_f', '_j']}},
+               {'text': 'Oberfläche: 30 + 64 = ⟦94 cm²⟧.'}],
+  'fehler': '5 · 3 · 4 = 60 ist das ⟦Volumen⟧, nicht die Netzfläche. Für das Netz addierst du die sechs Rechtecke.',
+  'regel': 'Das ⟦Netz⟧ besteht aus 2 Grundflächen und einem Streifen. Der Streifen ist so lang wie der Umfang der Grundfläche.'},
+ 'zylinder': {
+  'einstieg': 'Eine Konservendose hat oben und unten einen Kreis. Ziehst du das Etikett ab und legst es flach hin, ist es ein Rechteck. Der Körper heißt ⟦Zylinder⟧, das Etikett ist sein Mantel.',
+  'woerter': [['Zylinder', 'Körper mit zwei Kreisen als Grundflächen'], ['Mantel', 'die gebogene Seitenfläche – flach ist sie ein Rechteck'], ['u', 'der Umfang des Kreises: einmal ringsum']],
+  'bild': {"typ": "figur", "punkte": {"_a": [0, 0], "_b": [18.8, 0], "_c": [18.8, 10], "_d": [0, 10], "_M": [3, 13], "_N": [3, -3]},
+           "linien": [["_a", "_b", "u ≈ 18,8 cm"], ["_b", "_c", "h = 10 cm"], ["_c", "_d"], ["_d", "_a"]], "kreise": [{"m": "_M", "r": 3}, {"m": "_N", "r": 3}]},
+  'schritte': [{'text': 'Die Dose hat u = 18,8 cm Umfang und h = 10 cm Höhe.'},
+               {'text': 'Das Etikett reicht einmal herum: Es ist 18,8 cm lang.'},
+               {'text': 'Es ist so hoch wie die Dose: 10 cm.'},
+               {'text': 'Mantelfläche: 18,8 cm · 10 cm = ⟦188 cm²⟧.', 'bild': {'flaeche': ['_a', '_b', '_c', '_d']}}],
+  'fehler': 'Den ⟦Durchmesser⟧ statt des Umfangs nehmen ist falsch. Dann reicht das Etikett nur etwa ein Drittel herum.',
+  'fehler_bild': {"punkte": {"_a": [0, 0], "_b": [6, 0], "_c": [6, 10], "_d": [0, 10], "_M": [3, 13], "_N": [3, -3]},
+                  "linien": [["_a", "_b", "6 cm?"], ["_b", "_c", "h = 10 cm"], ["_c", "_d"], ["_d", "_a"]]},
+  'regel': 'Der ⟦Mantel⟧ ist ein Rechteck aus Umfang mal Höhe. Dazu kommen zwei Kreise als Grundflächen.'},
+ 'schraegbild': {
+  'einstieg': 'Eine Schachtel ist räumlich, dein Heft aber flach. Damit die Zeichnung räumlich wirkt, zeichnest du Kanten nach hinten schräg und kürzer. Das ist ein ⟦Schrägbild⟧.',
+  'woerter': [['Schrägbild', 'räumlich wirkende Zeichnung eines Körpers'], ['wahrer Größe', 'genau so lang wie in echt'], ['gestrichelt', 'mit kurzen Strichen: Diese Kante ist verdeckt']],
+  'bild': {'typ': 'figur', 'punkte': _Q, 'linien': _Q_L, 'winkel': [["B", "_X", "C", "45°"]]},
+  'schritte': [{'text': 'Der Quader ist 6 cm breit, 4 cm hoch und 8 cm tief.'},
+               {'text': 'Die Vorderfläche zeichnest du in wahrer Größe: 6 cm × 4 cm.', 'bild': {'linien': _Q_L[:4], 'winkel': []}},
+               {'text': 'Nach hinten: unter 45° und halb so lang, also ⟦4 cm⟧.', 'bild': {'linien': _Q_L[:9] + [_Q_L[12]], 'winkel': [["B", "_X", "C", "45°"]]}},
+               {'text': 'Verdeckte Kanten zeichnest du gestrichelt.', 'bild': {'linien': _Q_L}}],
+  'fehler': 'Die Kante nach hinten voll lang zeichnen ist falsch. Mit 8 statt 4 cm wirkt der Quader viel zu tief. Nur Kanten ⟦nach hinten⟧ werden verkürzt.',
+  'fehler_bild': {'punkte': {**_Q, "C": [11.66, 5.66], "D": [5.66, 5.66], "G": [11.66, 9.66], "H": [5.66, 9.66]},
+                  'linien': [l if l[:2] != ["B", "C"] else ["B", "C", "8 cm?"] for l in _Q_L], 'winkel': []},
+  'regel': 'Vorne ⟦wahre Größe⟧, nach hinten 45° und halb so lang. Verdeckte Kanten zeichnest du gestrichelt.'},
+ 'ansichten': {
+  'einstieg': 'Wer ein Haus plant, zeichnet es flach von vorn, von der Seite und von oben. So erkennt man die Form genau. Diese Zeichnungen heißen ⟦Ansichten⟧.',
+  'woerter': [['Ansicht', 'eine flache Zeichnung aus einer Blickrichtung'], ['Vorderansicht', 'die Ansicht von vorn'], ['Draufsicht', 'die Ansicht von oben']],
+  'bild': {'typ': 'figur', 'punkte': {'_a': [0, 0], '_b': [4, 0], '_c': [4, 6], '_d': [0, 6], '_M': [8, 3]},
+           'linien': [['_a', '_b', 'vorn'], ['_b', '_c'], ['_c', '_d'], ['_d', '_a']], 'kreise': [{'m': '_M', 'r': 2}]},
+  'schritte': [{'text': 'Eine Dose steht auf ihrem Boden.'},
+               {'text': 'Von vorn siehst du Höhe und Breite: Die Vorderansicht ist ein ⟦Rechteck⟧.',
+                'bild': {'typ': 'figur', 'punkte': {'_a': [0, 0], '_b': [4, 0], '_c': [4, 6], '_d': [0, 6]}, 'flaeche': ['_a', '_b', '_c', '_d'], 'linien': [['_a', '_b', '8 cm'], ['_b', '_c', '12 cm'], ['_c', '_d'], ['_d', '_a']]}},
+               {'text': 'Von der Seite sieht sie genauso aus.'},
+               {'text': 'Von oben siehst du den Deckel: Die Draufsicht ist ein ⟦Kreis⟧.',
+                'bild': {'typ': 'figur', 'punkte': {'_M': [0, 0], '_R': [2, 0]}, 'linien': [['_M', '_R', 'r = 4 cm']], 'kreise': [{'m': '_M', 'r': 2}]}}],
+  'fehler': 'Die Draufsicht einer stehenden Dose ist kein Rechteck. Von oben siehst du nur den ⟦Deckel⟧, einen Kreis.',
+  'regel': 'Ansichten sind ⟦flache Figuren⟧. Jede zeigt den Körper aus einer Richtung: vorn, Seite, oben.'},
+ 'beurteilen': {
+  'einstieg': 'Ist ein Würfel ein Prisma? Dafür vergleichst du ihn mit den Merkmalen eines Prismas. Fehlt ein Merkmal, ist der Körper ein ⟦Gegenbeispiel⟧.',
+  'woerter': [['Merkmal', 'eine Eigenschaft, die erfüllt sein muss'], ['Gegenbeispiel', 'ein Fall, bei dem die Aussage nicht stimmt']],
+  'bild': {'typ': 'figur', 'punkte': _W, 'linien': _W_L},
+  'schritte': [{'text': 'Aussage: „Ein Würfel ist ein Prisma.“'},
+               {'text': 'Merkmal 1: Boden und Deckel sind gleiche, parallele Quadrate. Erfüllt.', 'bild': {'flaeche': ['_E', '_F', '_G', '_H']}},
+               {'text': 'Merkmal 2: Die Seiten sind Quadrate, also besondere Rechtecke. Erfüllt.', 'bild': {'flaeche': ['_A', '_B', '_F', '_E']}},
+               {'text': 'Kein Merkmal fehlt. Die Aussage ist ⟦richtig⟧.'}],
+  'fehler': 'Eine Pyramide ist kein Prisma, obwohl sie eine Grundfläche hat. Ihr fehlt die ⟦zweite⟧, parallele Grundfläche.',
+  'fehler_bild': {'punkte': {'_A': [0, 0], '_B': [3, 0], '_C': [4.5, 1.5], '_D': [1.5, 1.5], '_S': [2.25, 4.5]}, 'flaeche': ['_A', '_B', '_C', '_D'],
+                  'linien': [['_A', '_B'], ['_B', '_C'], ['_A', '_D', '', 'gestrichelt'], ['_D', '_C', '', 'gestrichelt'], ['_A', '_S'], ['_B', '_S'], ['_C', '_S'], ['_D', '_S', '', 'gestrichelt']]},
+  'regel': 'Ein Prisma braucht ⟦zwei gleiche, parallele Grundflächen⟧. Die Seiten sind Rechtecke; Pyramide, Kegel und Kugel sind keine Prismen.'},
+}
+UMBAU_OFFEN = []
+baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Körper und Netze', ['prisma', 'netz', 'zylinder']), ('Darstellen', ['schraegbild', 'ansichten']), ('Verstehen', ['beurteilen'])],

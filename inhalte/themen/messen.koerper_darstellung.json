@@ -41,16 +41,30 @@
    {
     "lernziel": "prisma",
     "titel": "Prismen: Ecken, Kanten, Flächen",
-    "regel": "Ein ⟦Prisma⟧ hat zwei deckungsgleiche, parallele ⟦Grundflächen⟧ (n-Ecke) und n Rechtecke als ⟦Mantel⟧. Zählen statt auswendig lernen: Ecken – n unten und n oben, also ⟦2n⟧. Kanten – n unten, n oben, n senkrecht, also ⟦3n⟧. Flächen – n Rechtecke und 2 Grundflächen, also ⟦n + 2⟧.",
+    "regel": "n-Eck-Prisma: ⟦2n Ecken, 3n Kanten, n + 2 Flächen⟧. Die 2 steht für die beiden Grundflächen.",
     "schritte": [
-     "Ein Bleistift ohne Spitze ist ein sechsseitiges Prisma: Die Grundfläche ist ein Sechseck, also n = 6.",
-     "Ecken: 6 unten und 6 oben, also 12.",
-     "Kanten: 6 unten, 6 oben und 6 senkrechte, also 18.",
-     "Flächen: 6 Rechtecke und 2 Sechsecke, zusammen ⟦8⟧."
+     {
+      "text": "Die Schokopackung ist ein Prisma. Die Grundfläche ist ein Dreieck, also n = 3.",
+      "bild": {
+       "flaeche": [
+        "_A",
+        "_B",
+        "_C"
+       ]
+      }
+     },
+     {
+      "text": "Ecken: 3 vorn und 3 hinten, also 6."
+     },
+     {
+      "text": "Kanten: 3 vorn, 3 hinten und 3 dazwischen, also 9."
+     },
+     {
+      "text": "Flächen: 3 Rechtecke und 2 Dreiecke, zusammen ⟦5⟧."
+     }
     ],
-    "probe": "Eulerscher Polyedersatz: E + F − K = 12 + 8 − 18 = 2 ✓",
-    "fehler": "Ein dreiseitiges Prisma hat nicht 3 Flächen: Zu den 3 Rechtecken kommen die ⟦2 Grundflächen⟧ dazu, also 5.",
-    "einstieg": "Ein Bleistift ohne Spitze, eine dreieckige Schokoladenpackung, ein Schuhkarton: Alle haben oben und unten dieselbe Form, und ihre Seiten sind Rechtecke. Solche Körper heißen ⟦Prismen⟧. Wie viele Ecken, Kanten und Flächen sie haben, kann man zählen – oder geschickt ausrechnen.",
+    "fehler": "Ein Bleistift ohne Spitze hat nicht 6 Flächen. Zu den 6 Rechtecken kommen ⟦2 Grundflächen⟧, also 8.",
+    "einstieg": "Eine dreieckige Schokopackung, ein Bleistift ohne Spitze, ein Schuhkarton. Vorne und hinten haben sie dieselbe Form, die Seiten sind Rechtecke. Solche Körper heißen ⟦Prismen⟧.",
     "woerter": [
      [
       "Prisma",
@@ -58,37 +72,122 @@
      ],
      [
       "Grundfläche",
-      "die Fläche unten (die gleiche liegt oben)"
+      "die Form vorne und hinten, hier ein Dreieck"
      ],
      [
-      "n-Eck",
-      "Vieleck mit n Ecken, z. B. Sechseck: n = 6"
-     ],
-     [
-      "Mantel",
-      "alle Seitenrechtecke zusammen"
-     ],
-     [
-      "Kante",
-      "Linie, an der zwei Flächen zusammenstoßen"
-     ],
-     [
-      "Eulerscher Polyedersatz",
-      "Ecken + Flächen − Kanten = 2; gilt für solche Körper ohne Rundungen"
+      "n",
+      "die Anzahl der Ecken der Grundfläche"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       4,
+       0
+      ],
+      "_C": [
+       2,
+       3
+      ],
+      "_D": [
+       3,
+       2
+      ],
+      "_E": [
+       7,
+       2
+      ],
+      "_F": [
+       5,
+       5
+      ]
+     },
+     "linien": [
+      [
+       "_A",
+       "_B"
+      ],
+      [
+       "_B",
+       "_C"
+      ],
+      [
+       "_C",
+       "_A"
+      ],
+      [
+       "_B",
+       "_E"
+      ],
+      [
+       "_C",
+       "_F"
+      ],
+      [
+       "_E",
+       "_F"
+      ],
+      [
+       "_A",
+       "_D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_D",
+       "_E",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_D",
+       "_F",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "netz",
     "titel": "Netze von Prismen",
-    "regel": "Schneidest du eine Schachtel an einigen Kanten auf und klappst sie flach auf den Tisch, entsteht ein ⟦Netz⟧: 2 Grundflächen und n Rechtecke. Die Rechtecke sind so hoch wie das Prisma; nebeneinander sind sie so breit wie der ⟦Umfang der Grundfläche⟧.",
+    "regel": "Das ⟦Netz⟧ besteht aus 2 Grundflächen und einem Streifen. Der Streifen ist so lang wie der Umfang der Grundfläche.",
     "schritte": [
-     "Schachtel (Quader): 5 cm lang, 3 cm breit, 4 cm hoch.",
-     "Boden und Deckel sind je 5 · 3 = 15 cm² groß, zusammen 30 cm².",
-     "Die vier Seiten bilden einen Streifen: 5 + 3 + 5 + 3 = 16 cm lang und 4 cm hoch, also 64 cm².",
-     "Fläche des Netzes = Oberfläche = 30 + 64 = ⟦94 cm²⟧."
+     {
+      "text": "Die Schachtel ist 5 cm lang, 3 cm breit und 4 cm hoch."
+     },
+     {
+      "text": "Boden und Deckel: je 5 · 3 = 15 cm², zusammen 30 cm².",
+      "bild": {
+       "flaeche": [
+        "_m",
+        "_n",
+        "_b",
+        "_a"
+       ]
+      }
+     },
+     {
+      "text": "Die vier Seiten bilden einen Streifen: 16 cm lang, 4 cm hoch: 64 cm².",
+      "bild": {
+       "flaeche": [
+        "_a",
+        "_e",
+        "_f",
+        "_j"
+       ]
+      }
+     },
+     {
+      "text": "Oberfläche: 30 + 64 = ⟦94 cm²⟧."
+     }
     ],
-    "fehler": "Die Netzfläche eines Quaders ist nicht 5 · 3 · 4 = 60. Das wäre das ⟦Volumen⟧. Für das Netz werden die Flächen der 6 Rechtecke ⟦addiert⟧.",
+    "fehler": "5 · 3 · 4 = 60 ist das ⟦Volumen⟧, nicht die Netzfläche. Für das Netz addierst du die sechs Rechtecke.",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -234,37 +333,45 @@
       ]
      ]
     },
-    "einstieg": "Schneide eine leere Müslischachtel an einigen Kanten auf und klappe sie flach auf den Tisch. Die flache Figur, die dabei entsteht, heißt ⟦Netz⟧. Ihre Fläche zeigt, wie viel Pappe man für die Schachtel braucht.",
+    "einstieg": "Schneide eine leere Müslischachtel an einigen Kanten auf und klappe sie flach. Die flache Figur heißt ⟦Netz⟧. Ihre Fläche zeigt, wie viel Pappe du brauchst.",
     "woerter": [
      [
       "Netz",
-      "die flach ausgebreitete Hülle eines Körpers"
+      "der aufgeklappte, flache Körper"
      ],
      [
       "Oberfläche",
-      "die Fläche aller Seiten zusammen – gleich der Fläche des Netzes"
-     ],
-     [
-      "Quader",
-      "ein Prisma mit Rechtecken als Grundflächen, z. B. eine Schachtel"
-     ],
-     [
-      "cm²",
-      "Quadratzentimeter, Einheit für Flächen"
+      "alle Flächen des Körpers zusammen"
      ]
     ]
    },
    {
     "lernziel": "zylinder",
     "titel": "Zylinder und sein Netz",
-    "regel": "Ein ⟦Zylinder⟧ hat zwei Kreise als Grundflächen. Ziehst du das Etikett einer Konservendose ab, siehst du den ⟦Mantel⟧: ein Rechteck, so hoch wie die Dose und so lang wie der ⟦Umfang⟧ des Grundkreises.",
+    "regel": "Der ⟦Mantel⟧ ist ein Rechteck aus Umfang mal Höhe. Dazu kommen zwei Kreise als Grundflächen.",
     "schritte": [
-     "Dose: Umfang des Grundkreises u = 18,8 cm, Höhe h = 10 cm.",
-     "Das Etikett reicht einmal um die Dose: Es ist so lang wie der Umfang, also 18,8 cm.",
-     "Es ist so hoch wie die Dose, also 10 cm.",
-     "Mantelfläche: 18,8 cm · 10 cm = ⟦188 cm²⟧."
+     {
+      "text": "Die Dose hat u = 18,8 cm Umfang und h = 10 cm Höhe."
+     },
+     {
+      "text": "Das Etikett reicht einmal herum: Es ist 18,8 cm lang."
+     },
+     {
+      "text": "Es ist so hoch wie die Dose: 10 cm."
+     },
+     {
+      "text": "Mantelfläche: 18,8 cm · 10 cm = ⟦188 cm²⟧.",
+      "bild": {
+       "flaeche": [
+        "_a",
+        "_b",
+        "_c",
+        "_d"
+       ]
+      }
+     }
     ],
-    "fehler": "Das Mantelrechteck so lang wie den ⟦Durchmesser⟧ nehmen. Das Etikett muss aber einmal ganz um die Dose herum reichen – also so lang wie der ⟦Umfang⟧. Der Umfang ist gut dreimal so lang wie der Durchmesser.",
+    "fehler": "Den ⟦Durchmesser⟧ statt des Umfangs nehmen ist falsch. Dann reicht das Etikett nur etwa ein Drittel herum.",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -284,11 +391,11 @@
        0,
        10
       ],
-      "M": [
+      "_M": [
        3,
        13
       ],
-      "N": [
+      "_N": [
        3,
        -3
       ]
@@ -315,46 +422,245 @@
      ],
      "kreise": [
       {
-       "m": "M",
+       "m": "_M",
        "r": 3
       },
       {
-       "m": "N",
+       "m": "_N",
        "r": 3
       }
      ]
     },
-    "einstieg": "Eine Konservendose hat oben und unten einen Kreis. Ziehst du das Papier-Etikett ab und legst es flach hin, ist es ein Rechteck. So ein Körper heißt ⟦Zylinder⟧, das Etikett zeigt seinen ⟦Mantel⟧.",
+    "einstieg": "Eine Konservendose hat oben und unten einen Kreis. Ziehst du das Etikett ab und legst es flach hin, ist es ein Rechteck. Der Körper heißt ⟦Zylinder⟧, das Etikett ist sein Mantel.",
     "woerter": [
      [
       "Zylinder",
-      "Körper mit zwei gleichen Kreisen als Grund- und Deckfläche"
+      "Körper mit zwei Kreisen als Grundflächen"
      ],
      [
-      "Umfang u",
-      "die Länge einmal um den Kreis herum"
+      "Mantel",
+      "die gebogene Seitenfläche – flach ist sie ein Rechteck"
      ],
      [
-      "Durchmesser",
-      "die Strecke quer durch den Kreis, durch die Mitte"
-     ],
-     [
-      "Mantelfläche",
-      "die Fläche des abgewickelten Rechtecks"
+      "u",
+      "der Umfang des Kreises: einmal ringsum"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "punkte": {
+      "_a": [
+       0,
+       0
+      ],
+      "_b": [
+       6,
+       0
+      ],
+      "_c": [
+       6,
+       10
+      ],
+      "_d": [
+       0,
+       10
+      ],
+      "_M": [
+       3,
+       13
+      ],
+      "_N": [
+       3,
+       -3
+      ]
+     },
+     "linien": [
+      [
+       "_a",
+       "_b",
+       "6 cm?"
+      ],
+      [
+       "_b",
+       "_c",
+       "h = 10 cm"
+      ],
+      [
+       "_c",
+       "_d"
+      ],
+      [
+       "_d",
+       "_a"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "schraegbild",
     "titel": "Schrägbilder: Längen nach hinten",
-    "regel": "Im ⟦Schrägbild⟧ zeichnet man die Vorderfläche in ⟦wahrer Größe⟧. Kanten, die nach hinten gehen, zeichnet man unter dem ⟦Winkel 45°⟧ und ⟦verkürzt⟧, meist auf die Hälfte (Verkürzungsfaktor q = 1/2).",
+    "regel": "Vorne ⟦wahre Größe⟧, nach hinten 45° und halb so lang. Verdeckte Kanten zeichnest du gestrichelt.",
     "schritte": [
-     "Quader: 6 cm breit, 4 cm hoch, 8 cm tief.",
-     "Vorderfläche in wahrer Größe: Rechteck 6 cm × 4 cm.",
-     "Kanten nach hinten: unter 45° und halb so lang: 8 cm · 1/2 = ⟦4 cm⟧.",
-     "Unsichtbare Kanten (hinten links unten) zeichnest du ⟦gestrichelt⟧."
+     {
+      "text": "Der Quader ist 6 cm breit, 4 cm hoch und 8 cm tief."
+     },
+     {
+      "text": "Die Vorderfläche zeichnest du in wahrer Größe: 6 cm × 4 cm.",
+      "bild": {
+       "linien": [
+        [
+         "A",
+         "B",
+         "6 cm"
+        ],
+        [
+         "B",
+         "F",
+         "4 cm"
+        ],
+        [
+         "F",
+         "E"
+        ],
+        [
+         "E",
+         "A"
+        ]
+       ],
+       "winkel": []
+      }
+     },
+     {
+      "text": "Nach hinten: unter 45° und halb so lang, also ⟦4 cm⟧.",
+      "bild": {
+       "linien": [
+        [
+         "A",
+         "B",
+         "6 cm"
+        ],
+        [
+         "B",
+         "F",
+         "4 cm"
+        ],
+        [
+         "F",
+         "E"
+        ],
+        [
+         "E",
+         "A"
+        ],
+        [
+         "B",
+         "C",
+         "4 cm"
+        ],
+        [
+         "C",
+         "G"
+        ],
+        [
+         "G",
+         "F"
+        ],
+        [
+         "E",
+         "H"
+        ],
+        [
+         "H",
+         "G"
+        ],
+        [
+         "B",
+         "_X",
+         "",
+         "gestrichelt"
+        ]
+       ],
+       "winkel": [
+        [
+         "B",
+         "_X",
+         "C",
+         "45°"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Verdeckte Kanten zeichnest du gestrichelt.",
+      "bild": {
+       "linien": [
+        [
+         "A",
+         "B",
+         "6 cm"
+        ],
+        [
+         "B",
+         "F",
+         "4 cm"
+        ],
+        [
+         "F",
+         "E"
+        ],
+        [
+         "E",
+         "A"
+        ],
+        [
+         "B",
+         "C",
+         "4 cm"
+        ],
+        [
+         "C",
+         "G"
+        ],
+        [
+         "G",
+         "F"
+        ],
+        [
+         "E",
+         "H"
+        ],
+        [
+         "H",
+         "G"
+        ],
+        [
+         "A",
+         "D",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "D",
+         "C",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "D",
+         "H",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "B",
+         "_X",
+         "",
+         "gestrichelt"
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "Die Kante nach hinten in voller Länge zeichnen: 8 cm statt 4 cm. Dann wirkt der Quader viel zu tief. Verkürzt werden ⟦nur⟧ die Kanten nach hinten – Breite und Höhe bleiben in wahrer Größe.",
+    "fehler": "Die Kante nach hinten voll lang zeichnen ist falsch. Mit 8 statt 4 cm wirkt der Quader viel zu tief. Nur Kanten ⟦nach hinten⟧ werden verkürzt.",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -469,95 +775,495 @@
       ]
      ]
     },
-    "einstieg": "Eine Schachtel ist ein räumlicher Körper, dein Heft aber ist flach. Damit die Zeichnung trotzdem räumlich wirkt, zeichnet man Kanten, die nach hinten gehen, schräg und kürzer. So eine Zeichnung heißt ⟦Schrägbild⟧.",
+    "einstieg": "Eine Schachtel ist räumlich, dein Heft aber flach. Damit die Zeichnung räumlich wirkt, zeichnest du Kanten nach hinten schräg und kürzer. Das ist ein ⟦Schrägbild⟧.",
     "woerter": [
      [
       "Schrägbild",
-      "räumlich wirkende Zeichnung eines Körpers auf Papier"
+      "räumlich wirkende Zeichnung eines Körpers"
      ],
      [
-      "wahre Größe",
-      "in der echten Länge gezeichnet"
-     ],
-     [
-      "Verkürzungsfaktor q",
-      "damit werden Kanten nach hinten verkürzt; q = 1/2 heißt: halb so lang"
-     ],
-     [
-      "45°",
-      "ein halber rechter Winkel – die Richtung „schräg nach hinten“"
+      "wahrer Größe",
+      "genau so lang wie in echt"
      ],
      [
       "gestrichelt",
-      "mit kurzen Strichen: diese Kante sieht man von vorn nicht"
+      "mit kurzen Strichen: Diese Kante ist verdeckt"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       6,
+       0
+      ],
+      "C": [
+       11.66,
+       5.66
+      ],
+      "D": [
+       5.66,
+       5.66
+      ],
+      "E": [
+       0,
+       4
+      ],
+      "F": [
+       6,
+       4
+      ],
+      "G": [
+       11.66,
+       9.66
+      ],
+      "H": [
+       5.66,
+       9.66
+      ],
+      "_X": [
+       8.5,
+       0
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "6 cm"
+      ],
+      [
+       "B",
+       "F",
+       "4 cm"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C",
+       "8 cm?"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "B",
+       "_X",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": []
+    }
    },
    {
     "lernziel": "ansichten",
     "titel": "Ansichten von Körpern",
-    "regel": "Die ⟦Vorderansicht⟧ zeigt den Körper von vorn, die ⟦Seitenansicht⟧ von der Seite und die ⟦Draufsicht⟧ von oben. Jede Ansicht ist eine ebene Figur.",
+    "regel": "Ansichten sind ⟦flache Figuren⟧. Jede zeigt den Körper aus einer Richtung: vorn, Seite, oben.",
     "schritte": [
-     "Eine Dose (Zylinder) steht auf ihrem Boden.",
-     "Von vorn siehst du ihre Höhe und ihre Breite: ein ⟦Rechteck⟧.",
-     "Von der Seite sieht sie genauso aus: wieder ein Rechteck.",
-     "Von oben siehst du nur den Deckel: einen ⟦Kreis⟧."
+     {
+      "text": "Eine Dose steht auf ihrem Boden."
+     },
+     {
+      "text": "Von vorn siehst du Höhe und Breite: Die Vorderansicht ist ein ⟦Rechteck⟧.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "_a": [
+         0,
+         0
+        ],
+        "_b": [
+         4,
+         0
+        ],
+        "_c": [
+         4,
+         6
+        ],
+        "_d": [
+         0,
+         6
+        ]
+       },
+       "flaeche": [
+        "_a",
+        "_b",
+        "_c",
+        "_d"
+       ],
+       "linien": [
+        [
+         "_a",
+         "_b",
+         "8 cm"
+        ],
+        [
+         "_b",
+         "_c",
+         "12 cm"
+        ],
+        [
+         "_c",
+         "_d"
+        ],
+        [
+         "_d",
+         "_a"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Von der Seite sieht sie genauso aus."
+     },
+     {
+      "text": "Von oben siehst du den Deckel: Die Draufsicht ist ein ⟦Kreis⟧.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "_M": [
+         0,
+         0
+        ],
+        "_R": [
+         2,
+         0
+        ]
+       },
+       "linien": [
+        [
+         "_M",
+         "_R",
+         "r = 4 cm"
+        ]
+       ],
+       "kreise": [
+        {
+         "m": "_M",
+         "r": 2
+        }
+       ]
+      }
+     }
     ],
-    "fehler": "Die Draufsicht eines stehenden Zylinders ist kein Rechteck. Von oben sieht man nur die ⟦Deckfläche⟧, einen Kreis.",
-    "einstieg": "Wer ein Haus plant, zeichnet es dreimal flach: von vorn, von der Seite und von oben. Aus diesen drei Blickrichtungen erkennt man die Form genau. Die drei Zeichnungen heißen ⟦Ansichten⟧.",
+    "fehler": "Die Draufsicht einer stehenden Dose ist kein Rechteck. Von oben siehst du nur den ⟦Deckel⟧, einen Kreis.",
+    "einstieg": "Wer ein Haus plant, zeichnet es flach von vorn, von der Seite und von oben. So erkennt man die Form genau. Diese Zeichnungen heißen ⟦Ansichten⟧.",
     "woerter": [
      [
-      "Vorderansicht",
-      "was man von vorn sieht"
+      "Ansicht",
+      "eine flache Zeichnung aus einer Blickrichtung"
      ],
      [
-      "Seitenansicht",
-      "was man von der Seite sieht"
+      "Vorderansicht",
+      "die Ansicht von vorn"
      ],
      [
       "Draufsicht",
-      "was man von oben sieht"
-     ],
-     [
-      "ebene Figur",
-      "eine flache Form wie Rechteck oder Kreis"
+      "die Ansicht von oben"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_a": [
+       0,
+       0
+      ],
+      "_b": [
+       4,
+       0
+      ],
+      "_c": [
+       4,
+       6
+      ],
+      "_d": [
+       0,
+       6
+      ],
+      "_M": [
+       8,
+       3
+      ]
+     },
+     "linien": [
+      [
+       "_a",
+       "_b",
+       "vorn"
+      ],
+      [
+       "_b",
+       "_c"
+      ],
+      [
+       "_c",
+       "_d"
+      ],
+      [
+       "_d",
+       "_a"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "_M",
+       "r": 2
+      }
+     ]
+    }
    },
    {
     "lernziel": "beurteilen",
     "titel": "Aussagen über Körper prüfen",
-    "regel": "Prüfe Aussagen mit den Eigenschaften: Ein Prisma braucht ⟦zwei deckungsgleiche parallele Grundflächen⟧ und Rechtecke als Seitenflächen. Pyramide, Kegel und Kugel sind ⟦keine⟧ Prismen.",
+    "regel": "Ein Prisma braucht ⟦zwei gleiche, parallele Grundflächen⟧. Die Seiten sind Rechtecke; Pyramide, Kegel und Kugel sind keine Prismen.",
     "schritte": [
-     "Aussage: „Ein Würfel ist ein Prisma.“",
-     "Merkmal 1: zwei gleiche, parallele Grundflächen. Beim Würfel sind Boden und Deckel gleich große Quadrate – erfüllt.",
-     "Merkmal 2: Die Seiten sind Rechtecke. Beim Würfel sind es Quadrate, und Quadrate sind besondere Rechtecke – erfüllt.",
-     "Die Aussage ist ⟦richtig⟧."
+     {
+      "text": "Aussage: „Ein Würfel ist ein Prisma.“"
+     },
+     {
+      "text": "Merkmal 1: Boden und Deckel sind gleiche, parallele Quadrate. Erfüllt.",
+      "bild": {
+       "flaeche": [
+        "_E",
+        "_F",
+        "_G",
+        "_H"
+       ]
+      }
+     },
+     {
+      "text": "Merkmal 2: Die Seiten sind Quadrate, also besondere Rechtecke. Erfüllt.",
+      "bild": {
+       "flaeche": [
+        "_A",
+        "_B",
+        "_F",
+        "_E"
+       ]
+      }
+     },
+     {
+      "text": "Kein Merkmal fehlt. Die Aussage ist ⟦richtig⟧."
+     }
     ],
-    "fehler": "Eine Pyramide ist kein Prisma, obwohl sie eine Grundfläche hat: Ihr fehlt die ⟦zweite⟧, parallele Grundfläche.",
-    "einstieg": "Ist ein Würfel ein Prisma? Und eine Pyramide? Um das zu entscheiden, vergleichst du den Körper mit den Merkmalen eines Prismas. Fehlt auch nur ein Merkmal, ist er kein Prisma – der Körper ist dann ein ⟦Gegenbeispiel⟧ zur Behauptung.",
+    "fehler": "Eine Pyramide ist kein Prisma, obwohl sie eine Grundfläche hat. Ihr fehlt die ⟦zweite⟧, parallele Grundfläche.",
+    "einstieg": "Ist ein Würfel ein Prisma? Dafür vergleichst du ihn mit den Merkmalen eines Prismas. Fehlt ein Merkmal, ist der Körper ein ⟦Gegenbeispiel⟧.",
     "woerter": [
      [
       "Merkmal",
       "eine Eigenschaft, die erfüllt sein muss"
      ],
      [
-      "deckungsgleich",
-      "genau gleich groß und gleich geformt"
-     ],
-     [
-      "Pyramide",
-      "Körper mit einer Grundfläche und einer Spitze"
-     ],
-     [
-      "Kegel",
-      "wie eine Pyramide, aber mit einem Kreis als Grundfläche"
-     ],
-     [
       "Gegenbeispiel",
-      "ein Fall, für den die Behauptung nicht stimmt"
+      "ein Fall, bei dem die Aussage nicht stimmt"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       3,
+       0
+      ],
+      "_C": [
+       4.5,
+       1.5
+      ],
+      "_D": [
+       1.5,
+       1.5
+      ],
+      "_E": [
+       0,
+       3
+      ],
+      "_F": [
+       3,
+       3
+      ],
+      "_G": [
+       4.5,
+       4.5
+      ],
+      "_H": [
+       1.5,
+       4.5
+      ]
+     },
+     "linien": [
+      [
+       "_A",
+       "_B"
+      ],
+      [
+       "_B",
+       "_F"
+      ],
+      [
+       "_F",
+       "_E"
+      ],
+      [
+       "_E",
+       "_A"
+      ],
+      [
+       "_B",
+       "_C"
+      ],
+      [
+       "_C",
+       "_G"
+      ],
+      [
+       "_G",
+       "_F"
+      ],
+      [
+       "_E",
+       "_H"
+      ],
+      [
+       "_H",
+       "_G"
+      ],
+      [
+       "_A",
+       "_D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_D",
+       "_C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_D",
+       "_H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       3,
+       0
+      ],
+      "_C": [
+       4.5,
+       1.5
+      ],
+      "_D": [
+       1.5,
+       1.5
+      ],
+      "_S": [
+       2.25,
+       4.5
+      ]
+     },
+     "flaeche": [
+      "_A",
+      "_B",
+      "_C",
+      "_D"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B"
+      ],
+      [
+       "_B",
+       "_C"
+      ],
+      [
+       "_A",
+       "_D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_D",
+       "_C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_A",
+       "_S"
+      ],
+      [
+       "_B",
+       "_S"
+      ],
+      [
+       "_C",
+       "_S"
+      ],
+      [
+       "_D",
+       "_S",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [

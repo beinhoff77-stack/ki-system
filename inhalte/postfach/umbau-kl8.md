@@ -2,6 +2,10 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 03:01 – STATUS
+messen.koerper_darstellung umgebaut (6 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_kl8.py).
+Aufgaben-Vergleich gegen `git show lernen-app:inhalte/themen/messen.koerper_darstellung.json`: alle wörtlich gleich. inhalt_pruefen: 0 Fehler, 0 Hinweise. Ohne fehler_bild: prisma, netz, ansichten. Schrägbilder und Netze sind mit der Zeichnungsart figur gezeichnet (Hilfspunkte mit _). Sätze hier ≤ 15 Wörter, weil das Thema auch rs_by 6 hat.
+
 ## 2026-11-16 02:59 – STATUS
 funktionen.gebrochen umgebaut (6 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_kl8.py).
 Aufgaben-Vergleich gegen `git show lernen-app:inhalte/themen/funktionen.gebrochen.json`: alle wörtlich gleich. inhalt_pruefen: 0 Fehler, 0 Hinweise. Ohne fehler_bild: beurteilen.

@@ -1117,5 +1117,26 @@ def _rr():
 ergaenzen(DATEI, _rr(), seed=6023)
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_anwenden  # noqa: E402
+
+BF = Befunde('bruch.rechnen', 13_6_4)
+# a) Stufe 1–2
+BF.stufe('brueche_plus_minus', 'Berechne 1/2 + 1/2 − 2/5.', 2)
+# c) Ablenker „0/13“ ist kein üblich geschriebener Bruch → „0“
+BF.ersetze('vorzeichen', 'Berechne (−1/8) + 1/5.', BF.A(
+    'Berechne (−1/8) + 1/5 und gib das Ergebnis vollständig gekürzt an.', '3/40', ['−3/40', '0', '−13/40'],
+    'Hauptnenner 40: −5/40 + 8/40 = 3/40. (Zähler und Nenner einzeln addieren ergäbe 0/13 = 0 – das ist falsch.)',
+    'Gleichnamig machen, dann wie bei ganzen Zahlen rechnen.'))
+# c) Preis unrealistisch niedrig (0,28 € je kg Äpfel)
+BF.ersetze('dezimal_mal', 'Ein Kilogramm Äpfel kostet 0,28 €. Was kosten 5,2 kg? Runde auf Cent.', BF.Z(
+    'Ein Kilogramm Äpfel kostet 2,79 €. Was kosten 1,6 kg? Runde auf Cent.', 4.46, '((2.79) * (1.6) * 100 + 1/2) // 1 / 100',
+    '2,79 · 1,6 = 4,464 €, gerundet 4,46 €.', 'Preis pro kg mal Anzahl kg. Am Ende auf zwei Nachkommastellen runden.', einheit='€'))
+BF.nicht_umgesetzt('brueche_plus_minus S2 „Ergänze: 1/2 − □/□ = 1/4“ nicht eindeutig (2/8, 3/12 …)', 'Der Hinweis „Vollständig gekürzt“ steht bereits in der Aufgabe; damit ist nur 1/4 richtig.')
+BF.nicht_umgesetzt('gemischt S3 „3/2 · 2/5 − 1/4 · 5/2 …“ mit negativem Ergebnis', 'Laut Befund in Ordnung (Vorzeichen-Karte kommt vorher).')
+
+befunde_anwenden(DATEI, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI)

@@ -2,6 +2,15 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 05:45 – STATUS
+bruch.rechnen fertig: umgestuft 1 / berichtigt 0 / ersetzt 2 / neu 0 / nicht umgesetzt 2. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Berechne (−1/8) + 1/5.“
+  - „Ein Kilogramm Äpfel kostet 0,28 €. Was kosten 5,2 kg? Runde auf Cent.“
+- nicht umgesetzt:
+  - brueche_plus_minus S2 „Ergänze: 1/2 − □/□ = 1/4“ nicht eindeutig (2/8, 3/12 …) – Der Hinweis „Vollständig gekürzt“ steht bereits in der Aufgabe; damit ist nur 1/4 richtig.
+  - gemischt S3 „3/2 · 2/5 − 1/4 · 5/2 …“ mit negativem Ergebnis – Laut Befund in Ordnung (Vorzeichen-Karte kommt vorher).
+
 ## 2026-11-16 05:44 – STATUS
 bruch.dezimal fertig: umgestuft 5 / berichtigt 0 / ersetzt 3 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):

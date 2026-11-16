@@ -684,5 +684,22 @@ def _schwer():
 
 ergaenze(DATEI, _schwer(), 1025)
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_anwenden  # noqa: E402
+
+BF = Befunde('groessen.einheiten', 13_5_4)
+# a) richtige Antwort ist jedes Mal die „runde“ Zahl mit der größeren Einheit – ohne Umrechnen lösbar → Stufe 2
+BF.stufe('laenge', 'Welche Größe ist am größten: 6 km, 5 887 m, 5 km, 4 113 m?', 2)
+for _t in ['Welche Größe ist am größten: 7 kg, 6 920 g, 6 kg, 5 080 g?', 'Welche Größe ist am größten: 11 kg, 10 322 g, 10 kg, 9 678 g?',
+           'Welche Größe ist am größten: 10 kg, 9 042 g, 9 kg, 8 958 g?', 'Welche Größe ist am größten: 5 t, 4 055 kg, 4 t, 3 945 kg?']:
+    BF.stufe('masse', _t, 2)
+# a) offensichtlich → Stufe 1
+BF.stufe('verstehen', 'Stimmt das? „Ein Kind wiegt etwa 40 t.“', 1)
+# a) gleicher Typ wie Stufe 1 (t → kg, Nullen anhängen)
+BF.stufe('masse', 'Rechne um: 32 t = ? kg', 1)
+
+befunde_anwenden(DATEI, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI)

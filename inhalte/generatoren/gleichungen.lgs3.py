@@ -633,6 +633,28 @@ def schwer():
     ]
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('gleichungen.lgs3', 13_9_6)
+# a) Einsetzen wie Stufe 2
+for _t in ['(−8 | 5 | 3) Lösung des Systems (I) −x − y + 2z = 9; (II) −2x + 2y − z = 9; (III) −x − 3y + z = −4',
+           '(2 | 1 | 4) Lösung des Systems (I) −x + 2y + 3z = 17; (II) y + z = 5; (III) x − y + 3z = 13',
+           '(1 | −2 | −1) Lösung des Systems (I) −x + 3y − 2z = −5; (II) −x − 3z = 2; (III) −3x + y + 3z = −8',
+           '(−7 | 4 | 3) Lösung des Systems (I) −x + y − 2z = 5; (II) −3x − y + 2z = 3; (III) 3x + y + 3z = −8',
+           '(−2 | 0 | −2) Lösung des Systems (I) −y − 2z = 9; (II) y − 3z = 6; (III) −2x + y − z = 6',
+           '(3 | 10 | 5) Lösung des Systems (I) −3x + y − z = −4; (II) −2x + z = −1; (III) −2x + 3y − z = 8']:
+    BF.stufe('pruefen', f'Ist {_t}?', 2)
+# c) Schablone „□y + □z = □“ mit Lösung 0y + 1z = 0 ist eine ungewöhnliche Schreibweise → nach z fragen
+BF.ersetze('eliminieren', 'Gegeben: (I) −x − 2y − z = −10; (III) −2x − 4y − z = −20. Berechne (III) − 2 · (I).', BF.Z(
+    'Gegeben: (I) −x − 2y − z = −10; (III) −2x − 4y − z = −20. Berechne (III) − 2 · (I). Welchen Wert hat z?', 0, '(-20) - (2) * (-10)',
+    '(III) − 2 · (I): −2x − (−2x) = 0, −4y − (−4y) = 0, −z − (−2z) = z; rechts −20 − (−20) = 0. Es bleibt z = 0 – hier fallen x und y zugleich weg.',
+    'Rechne Glied für Glied, auch auf der rechten Seite.'))
+BF.nicht_umgesetzt('loesen S3 „Wie viele Lösungen hat das System …?“ (unendlich viele)', 'Lösungen richtig; als Vertiefung vertretbar. Die Lernkarte bleibt unverändert (siehe „für Sebastian“).')
+BF.fuer_sebastian('gleichungen.lgs3/loesen: Stufe-3-Aufgaben „Wie viele Lösungen hat das System …?“ (keine/unendlich viele) gehen über den LehrplanPLUS-Text hinaus und werden auf der Lernkarte nicht erklärt – Erklärung ergänzen oder als Vertiefung kennzeichnen?')
+
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     d = bauen('gleichungen.lgs3',
           'Lineare Gleichungssysteme mit drei Unbekannten aufstellen und systematisch lösen, z. B. Parabel durch drei Punkte.',
@@ -645,3 +667,4 @@ if __name__ == '__main__':
           offen=['Gleichungssysteme stehen im Fragetext in einer Zeile; bei „stufenform“ und „loesen“ zusätzlich untereinander als Tabelle (f.grafik). Bei den übrigen Karten noch einzeilig.',
                  'Sonderfälle (keine oder unendlich viele Lösungen) nur als Erkennen-Aufgabe in Stufe 3 von „loesen“ (Prüfvorschlag); die Erklärung der Karte nennt sie nicht ausdrücklich.'])
     anhaengen(d, 9906, schwer)
+    befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden

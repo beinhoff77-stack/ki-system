@@ -1034,7 +1034,7 @@
    "l": "pruefen",
    "t": "pruefen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ist (−8 | 5 | 3) Lösung des Systems (I) −x − y + 2z = 9; (II) −2x + 2y − z = 9; (III) −x − 3y + z = −4?"
@@ -1055,7 +1055,7 @@
    "l": "pruefen",
    "t": "pruefen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ist (2 | 1 | 4) Lösung des Systems (I) −x + 2y + 3z = 17; (II) y + z = 5; (III) x − y + 3z = 13?"
@@ -1076,7 +1076,7 @@
    "l": "pruefen",
    "t": "pruefen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ist (1 | −2 | −1) Lösung des Systems (I) −x + 3y − 2z = −5; (II) −x − 3z = 2; (III) −3x + y + 3z = −8?"
@@ -1097,7 +1097,7 @@
    "l": "pruefen",
    "t": "pruefen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ist (−7 | 4 | 3) Lösung des Systems (I) −x + y − 2z = 5; (II) −3x − y + 2z = 3; (III) 3x + y + 3z = −8?"
@@ -1118,7 +1118,7 @@
    "l": "pruefen",
    "t": "pruefen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ist (−2 | 0 | −2) Lösung des Systems (I) −y − 2z = 9; (II) y − 3z = 6; (III) −2x + y − z = 6?"
@@ -1139,7 +1139,7 @@
    "l": "pruefen",
    "t": "pruefen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ist (3 | 10 | 5) Lösung des Systems (I) −3x + y − z = −4; (II) −2x + z = −1; (III) −2x + 3y − z = 8?"
@@ -2921,26 +2921,16 @@
    "t": "eliminieren",
    "p": "uebung",
    "s": 3,
-   "y": "luecken",
+   "y": "zahl",
    "f": {
-    "text": "Gegeben: (I) −x − 2y − z = −10; (III) −2x − 4y − z = −20. Berechne (III) − 2 · (I).",
-    "schablone": "□y + □z = □",
-    "hinweis": "Koeffizient von y, von z, rechte Seite (mit Vorzeichen)"
+    "text": "Gegeben: (I) −x − 2y − z = −10; (III) −2x − 4y − z = −20. Berechne (III) − 2 · (I). Welchen Wert hat z?"
    },
    "o": {
-    "werte": [
-     0,
-     1,
-     0
-    ]
+    "wert": 0
    },
-   "w": "(III) − 2 · (I): x fällt weg, es bleibt z = 0.",
-   "h": "Rechne Glied für Glied, auch auf der rechten Seite.",
-   "c": [
-    "(-4) - (2) * (-2)",
-    "(-1) - (2) * (-1)",
-    "(-20) - (2) * (-10)"
-   ]
+   "c": "(-20) - (2) * (-10)",
+   "w": "(III) − 2 · (I): −2x − (−2x) = 0, −4y − (−4y) = 0, −z − (−2z) = z; rechts −20 − (−20) = 0. Es bleibt z = 0 – hier fallen x und y zugleich weg.",
+   "h": "Rechne Glied für Glied, auch auf der rechten Seite."
   },
   {
    "l": "eliminieren",

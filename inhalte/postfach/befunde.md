@@ -3,6 +3,15 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:49 – STATUS
+gleichungen.lgs3 fertig: umgestuft 6 / berichtigt 0 / ersetzt 1 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Gegeben: (I) −x − 2y − z = −10; (III) −2x − 4y − z = −20. Berechne (III) − 2 · (I).“
+- nicht umgesetzt:
+  - loesen S3 „Wie viele Lösungen hat das System …?“ (unendlich viele) – Lösungen richtig; als Vertiefung vertretbar. Die Lernkarte bleibt unverändert (siehe „für Sebastian“).
+- für Sebastian:
+  - gleichungen.lgs3/loesen: Stufe-3-Aufgaben „Wie viele Lösungen hat das System …?“ (keine/unendlich viele) gehen über den LehrplanPLUS-Text hinaus und werden auf der Lernkarte nicht erklärt – Erklärung ergänzen oder als Vertiefung kennzeichnen?
+
+## 2026-11-16 05:49 – STATUS
 gleichungen.potenz fertig: umgestuft 3 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
 - nicht umgesetzt:
   - sachaufgabe S2 Zinseszins („Guthaben wächst in 2 Jahren …“) – Aufgaben richtig; mathematisch nur (1 + p)² = q, also eine Potenzgleichung. Ob der Sachkontext in Kl. 9 passt, ist eine Plan-Frage (siehe „für Sebastian“).

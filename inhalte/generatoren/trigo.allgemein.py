@@ -179,7 +179,7 @@ UMBAU = {
                 'bild': {'linien': _EKL + [['M', '_Q', '60°', 'gestrichelt']]}},
                {'text': 'Bei 60° ist der Abstand nach rechts 0,5. Links kommt ein Minus dazu.'},
                {'text': 'Also cos 120° = ⟦−0,5⟧.',
-                'bild': {'linien': _EKL + [['P', '_F', 'sin 120°', 'gestrichelt'], ['_F', 'M', '−0,5']]}}],
+                'bild': {'linien': [['_x1', '_x2'], ['_y1', '_y2'], ['M', 'P', ''], ['P', '_F', 'sin 120°', 'gestrichelt'], ['_F', 'M', '−0,5']]}}],
   'fehler': 'cos 120° ist nicht 0,5. Bei 120° steht der Zeiger links von der Mitte. Dort ist der Kosinus negativ.',
   'regel': 'Der Punkt zum Winkel α ist ⟦(cos α | sin α)⟧. Dazu: sin(180° − α) = sin α, cos(180° − α) = −cos α.'},
  'flaeche': {

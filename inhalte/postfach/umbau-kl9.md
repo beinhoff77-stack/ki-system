@@ -2,6 +2,36 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 03:15 – FERTIG: Paket U9 (Zweig umbau-kl9, nicht gemergt)
+
+| Thema | Karten | mit fehler_bild | Aufgaben | Unterschiede zu lernen-app | inhalt_pruefen Fehler / Hinweise |
+|---|---|---|---|---|---|
+| zahlen.wurzeln_basis | 6 | 4 | 168 | 0 | 0 / 0 |
+| zahlen.reell | 6 | 4 | 168 | 0 | 0 / 0 |
+| zahlen.rationale_exponenten | 6 | 5 | 168 | 0 | 0 / 0 |
+| gleichungen.quadratisch | 7 | 2 | 196 | 0 | 0 / 0 |
+| gleichungen.potenz | 6 | 4 | 168 | 0 | 0 / 0 |
+| gleichungen.lgs3 | 6 | 4 | 168 | 0 | 0 / 0 |
+| funktionen.quadratisch | 7 | 3 | 196 | 0 | 0 / 0 |
+| funktionen.potenz | 6 | 2 | 168 | 0 | 0 / 0 |
+| abbildungen.aehnlichkeit | 6 | 5 | 168 | 0 | 0 / 0 |
+| trigo.pythagoras | 6 | 3 | 168 | 0 | 0 / 0 |
+| trigo.rechtwinklig | 6 | 3 | 168 | 0 | 0 / 0 |
+| trigo.allgemein | 7 | 2 | 196 | 0 | 0 / 0 |
+| gleichungen.trig | 6 | 3 | 168 | 0 | 0 / 0 |
+| stochastik.verknuepft | 6 | 1 | 168 | 0 | 0 / 0 |
+| **Summe** | **87** | **45** | **2436** | **0** | **0 / 0** |
+
+- Jede Karte hat einstieg (≤ 35 Wörter), woerter (≤ 3, jedes kommt in einstieg oder schritten vor), Kartenbild, 2–5 Schritte als {text, bild} mit Bild je Bildänderung, fehler, regel (erster Satz ≤ 12 Wörter als „Kurz gesagt“). Die alte probe ist weg.
+- Technik: UMBAU-Abschnitt je Generator hinter KLAR; `umbau()` in `_kl9.py`. Für den Dopplungsabgleich gelten weiter die alten Beispielschritte, darum sind alle Aufgaben wörtlich gleich (Vergleich jeder Aufgabe als JSON gegen `origin/lernen-app`). Titel und Lernziele unverändert.
+- Nur vorhandene Zeichnungsarten (koordinaten, figur, tabelle, zahlenstrahl mit punkte/boegen/bereich, bruchstreifen). Neu benutzt: Graph `potenz` mit n = 1/3 für ∛x (rechnet die App mit x ** n, für x ≥ 0 korrekt).
+- Gerendert mit `lernErklaerung` aus lernen.js (Playwright, 820 px): alle 87 Karten ohne JS-Fehler, Stichproben angesehen. Kein fehlendes Kartenbild, darum kein Eintrag unter „offen“.
+- Ohne fehler_bild bleiben Karten, deren Fehler ein Rechen-, Vorzeichen- oder Deutungsfehler ist, den ein Bild nicht zeigt (Einzelheiten in den STATUS-Meldungen).
+- Situationen je Thema: Teppich/Würfel, Beete, Bakterien, Fliesen/Gemüsebeet, Zahlenautomat, Kiosk/Bonbons, Skaterbahn/Springbrunnen, Rechenmaschine, Schattenspiel/Foto, Beet/Leiter/Schachtel, Rampe, Uhrzeiger/Wanderung, Riesenrad, Schulfest. Alle Zahlen nachgerechnet.
+- Annahmen: Sätze ≤ 15 Wörter, weil das Prüfskript die kleinste Klassenstufe aus `klasse` nimmt (bei diesen Themen ≤ 6). Beispiele der Karten teils angepasst, damit Bild und Beispiel zusammenpassen (z. B. ∛8 statt ∛64, Einheitskreis-Schritte); die Aufgaben sind davon nicht berührt.
+- Hinweis: Laut AUFTRAEGE.md sollte U9 erst nach dem Test mit den Kindern starten; Sebastian hat das Paket direkt beauftragt.
+- Offene Fragen: keine. Kein Merge.
+
 ## 2026-11-16 03:14 – STATUS
 stochastik.verknuepft umgebaut (6 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator (umbau() in _kl9.py).
 Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/stochastik.verknuepft.json`: 168 Aufgaben, alle wörtlich gleich. inhalt_pruefen: 0 Fehler, 0 Hinweise. Ohne fehler_bild: verknuepfen, additionssatz, tafel_wkeit, bedingt, verstehen (Deutungsfehler, im Bild nicht sinnvoll zu zeigen).

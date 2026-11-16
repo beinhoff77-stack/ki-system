@@ -43,71 +43,113 @@
    {
     "lernziel": "eindeutig",
     "titel": "Ist die Zuordnung eine Funktion?",
-    "regel": "Eine ⟦Funktion⟧ ist eine Zuordnung, bei der zu ⟦jeder Eingabe x genau eine Ausgabe y⟧ gehört. So prüfst du: Kommt ein x zweimal mit verschiedenen y vor? Dann ist es keine Funktion.",
+    "regel": "Bei einer ⟦Funktion⟧ hat jede Eingabe genau eine Ausgabe. Kommt eine Eingabe mit zwei verschiedenen Ausgaben vor, ist es keine.",
     "schritte": [
-     "In der Tabelle steht oben die Eingabe x, unten die Ausgabe y: Zu 1 gehört 5, zu 2 gehört 7, zu 3 gehört 5.",
-     "Frage: Steht eine Eingabe ⟦doppelt⟧ da – mit zwei verschiedenen Ausgaben? Nein. 1, 2 und 3 kommen oben je einmal vor.",
-     "Die 5 steht unten zweimal. Das ist erlaubt – wie beim Automaten, bei dem zwei Tasten Cola geben.",
-     "Also: ⟦Es ist eine Funktion.⟧"
+     {
+      "text": "Oben stehen die Eingaben 1, 2 und 3 – jede nur einmal."
+     },
+     {
+      "text": "Die Ausgabe 5 steht zweimal. Das ist erlaubt, wie zwei Tasten für Cola."
+     },
+     {
+      "text": "Keine Eingabe hat zwei Ausgaben. Also ⟦ist es eine Funktion⟧."
+     }
     ],
-    "fehler": "(2 | 4) und (2 | 6) zusammen: Die Eingabe 2 hätte zwei Ausgaben, 4 und 6 – wie eine Taste, die mal Cola und mal Wasser gibt. Das ist ⟦keine⟧ Funktion. Aber (2 | 4) und (3 | 4) ist in Ordnung: Zwei Eingaben dürfen dieselbe Ausgabe haben.",
+    "fehler": "Gehören zur Eingabe 2 die Ausgaben 4 und 6, ist es ⟦keine⟧ Funktion. Das wäre eine Taste, die mal Cola und mal Wasser gibt.",
     "bild": {
      "typ": "tabelle",
      "kopf": [
-      "x (Eingabe)",
+      "Eingabe x",
       "1",
       "2",
       "3"
      ],
      "zeilen": [
       [
-       "y (Ausgabe)",
+       "Ausgabe y",
        "5",
        "7",
        "5"
       ]
      ]
     },
-    "einstieg": "Stell dir einen Getränkeautomaten vor. Du drückst eine Taste und es kommt ein Getränk heraus. Taste 1 gibt immer Cola, Taste 2 immer Wasser, Taste 3 auch Cola. Egal wie oft du drückst: Dieselbe Taste liefert immer dasselbe Getränk. So ein verlässlicher Automat heißt in Mathe ⟦Funktion⟧.",
+    "einstieg": "Am Getränkeautomaten gibt Taste 1 immer Cola, Taste 2 immer Wasser und Taste 3 auch Cola. Dieselbe Taste liefert immer dasselbe Getränk. So eine verlässliche Zuordnung heißt ⟦Funktion⟧.",
     "woerter": [
      [
-      "Zuordnung",
-      "Zu jeder Eingabe gehört eine Ausgabe – wie Taste → Getränk."
+      "Funktion",
+      "zu jeder Eingabe gehört genau eine Ausgabe"
      ],
      [
-      "x-Wert",
-      "die Eingabe (beim Automaten: die Taste)"
+      "Eingabe",
+      "was man hineingibt – beim Automaten die Taste, in Mathe x"
      ],
      [
-      "y-Wert",
-      "die Ausgabe (beim Automaten: das Getränk)"
-     ],
-     [
-      "(1 | 5)",
-      "kurz für: Eingabe 1 ergibt Ausgabe 5"
+      "Ausgabe",
+      "was herauskommt – beim Automaten das Getränk, in Mathe y"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Eingabe x",
+      "2",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Ausgabe y",
+       "4",
+       "6",
+       "4"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "mengen",
     "titel": "Definitionsmenge und Wertemenge",
-    "regel": "⟦Definitionsmenge D⟧: alles, was man einsetzen darf. ⟦Wertemenge W⟧: alles, was herauskommt. Nicht einsetzen darf man Zahlen, bei denen man ⟦durch 0 teilen⟧ müsste.",
+    "regel": "Die ⟦Definitionsmenge⟧ ist alles, was man einsetzen darf. Die ⟦Wertemenge⟧ ist alles, was herauskommt. Teilen durch 0 ist nie erlaubt.",
     "schritte": [
-     "Die Rechenvorschrift ist f(x) = 2x + 1. Erlaubt sind nur die Eingaben 0, 1 und 3, also D = {0; 1; 3}.",
-     "Rechne jede Eingabe durch. 0 ergibt 2 · 0 + 1 = 1.",
-     "1 ergibt 2 · 1 + 1 = 3. Und 3 ergibt 2 · 3 + 1 = 7.",
-     "Herausgekommen sind 1, 3 und 7: ⟦W = {1; 3; 7}⟧"
+     {
+      "text": "Die Vorschrift ist 2x + 1, die Definitionsmenge D = {0; 1; 3}."
+     },
+     {
+      "text": "Taste 0 ergibt 2 · 0 + 1 = 1.",
+      "bild": {
+       "zeilen": [
+        [
+         "2x + 1",
+         "1",
+         "?",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Taste 1 ergibt 3, Taste 3 ergibt 2 · 3 + 1 = 7.",
+      "bild": {
+       "zeilen": [
+        [
+         "2x + 1",
+         "1",
+         "3",
+         "7"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Heraus kommen 1, 3 und 7, die Wertemenge W: ⟦W = {1; 3; 7}⟧."
+     }
     ],
-    "fehler": "Bei f(x) = 1/(x − 2) darf unter dem Bruchstrich keine 0 stehen. x − 2 wird 0, wenn x = 2 ist. Verboten ist also die ⟦2⟧ und nicht die −2: D = ℚ \\ {2}. Probe mit −2: 1/(−2 − 2) = 1/(−4), das geht.",
-    "einstieg": "Bleiben wir beim Automaten. Er hat nur bestimmte Tasten – nur die kannst du drücken. Und er hat nur bestimmte Getränke – nur die können herauskommen. Bei Funktionen ist es genauso: Es gibt Zahlen, die man hineingeben darf, und Zahlen, die herauskommen können.",
+    "fehler": "Bei 1/(x − 2) ist die 2 verboten, nicht die −2. Mit x = 2 stünde unten eine 0, und durch 0 kann man nicht teilen.",
+    "einstieg": "Der Automat hat nur die Tasten 0, 1 und 3. Nur diese Zahlen darfst du hineingeben. Alles Erlaubte heißt ⟦Definitionsmenge⟧, alles, was herauskommt, ⟦Wertemenge⟧.",
     "woerter": [
      [
-      "f(x) = 2x + 1",
-      "die Rechenvorschrift: Nimm die Eingabe x mal 2 und zähle 1 dazu."
-     ],
-     [
       "Definitionsmenge D",
-      "alle Zahlen, die man für x einsetzen darf (alle Tasten)"
+      "alle Zahlen, die man einsetzen darf (alle Tasten)"
      ],
      [
       "Wertemenge W",
@@ -115,188 +157,464 @@
      ],
      [
       "{0; 1; 3}",
-      "Mengenklammer: nur die Zahlen 0, 1 und 3"
-     ],
-     [
-      "ℚ \\ {2}",
-      "alle Bruchzahlen außer der 2"
+      "Mengenklammer: genau die Zahlen 0, 1 und 3"
      ]
-    ]
-   },
-   {
-    "lernziel": "funktionswert",
-    "titel": "Funktionswerte berechnen",
-    "regel": "f(3) berechnen heißt: im Funktionsterm ⟦jedes x durch 3 ersetzen⟧ und ausrechnen. Negative Zahlen dabei ⟦in Klammern⟧ setzen.",
-    "schritte": [
-     "Das Taxi als Funktion: t(x) = 2x + 3. Gesucht ist t(5), der Preis für 5 km.",
-     "Schreibe überall, wo x steht, eine 5 hin: t(5) = 2 · 5 + 3.",
-     "Ausrechnen: 10 + 3 = 13. Also ⟦t(5) = 13⟧.",
-     "Mit einer negativen Zahl: g(x) = 2x² − 3, gesucht g(−2). Setze −2 in Klammern ein: 2 · (−2)² − 3 = 2 · 4 − 3 = ⟦5⟧."
     ],
-    "fehler": "f(−2) bei f(x) = 2x² − 3 ist nicht 2 · (−4) − 3 = −11: (−2)² = ⟦+4⟧. Negative Zahlen beim Einsetzen immer in Klammern setzen.",
-    "einstieg": "Eine Funktion ist wie eine Maschine mit fester Rechenvorschrift: Vorne gibst du eine Zahl hinein, hinten kommt das Ergebnis heraus. Beispiel Taxi: 3 € Grundpreis und 2 € für jeden Kilometer. Für 5 km zahlst du 2 · 5 + 3 = 13 €.",
-    "woerter": [
-     [
-      "f(x)",
-      "gelesen „f von x“: das Ergebnis der Maschine f, wenn man x hineingibt"
-     ],
-     [
-      "Funktionsterm",
-      "die Rechenvorschrift, zum Beispiel 2x + 3"
-     ],
-     [
-      "f(5)",
-      "das Ergebnis, wenn man 5 hineingibt"
-     ],
-     [
-      "Funktionswert",
-      "das Ergebnis, also der y-Wert"
-     ]
-    ]
-   },
-   {
-    "lernziel": "stelle",
-    "titel": "Zu einem y-Wert das x finden",
-    "regel": "Ist das Ergebnis y gegeben und x gesucht: ⟦f(x) = y⟧ als Gleichung hinschreiben und ⟦nach x auflösen⟧.",
-    "schritte": [
-     "f(x) = 3x − 4. Für welches x kommt 11 heraus?",
-     "Schreibe die Rechenvorschrift hin und setze sie gleich 11: 3x − 4 = 11.",
-     "Auf beiden Seiten 4 dazuzählen: 3x = 15.",
-     "Beide Seiten durch 3 teilen: ⟦x = 5⟧"
-    ],
-    "probe": "f(5) = 15 − 4 = 11 ✓",
-    "fehler": "Bei „f(x) = 11“ nicht die 11 einsetzen! Die 11 ist das ⟦Ergebnis⟧ (y). Gesucht ist die Eingabe x.",
-    "einstieg": "Jetzt geht es rückwärts. Beim Taxi kennst du diesmal den Preis und willst wissen, wie weit du gefahren bist: 13 € bezahlt – wie viele Kilometer waren das? Du kennst also das Ergebnis und suchst die Eingabe.",
-    "woerter": [
-     [
-      "Stelle",
-      "der x-Wert, also die Eingabe"
-     ],
-     [
-      "f(x) = 11",
-      "die Frage: Für welche Eingabe x kommt 11 heraus?"
-     ]
-    ]
-   },
-   {
-    "lernziel": "wertetabelle",
-    "titel": "Wertetabellen lesen und ergänzen",
-    "regel": "In der ⟦Wertetabelle⟧ steht oben x, unten f(x). Fehlt ein Wert, rechnest du ihn mit dem Term aus. Fehlt der Term, suchst du eine ⟦Regel, die zu allen Spalten passt⟧.",
-    "schritte": [
-     "f(x) = 4 − x². Fülle die Tabelle für x = −1, 0 und 3.",
-     "x = −1: 4 − (−1)² = 4 − 1 = 3.",
-     "x = 0: 4 − 0 = 4.",
-     "x = 3: 4 − 3² = 4 − 9 = ⟦−5⟧"
-    ],
-    "fehler": "Einen Term nur an zwei Paaren prüfen. Tabelle (1 | 2), (2 | 4), (3 | 8): f(x) = 2x passt bei x = 1 und x = 2. Aber f(3) = 2 · 3 = 6, nicht 8. Ein Term passt nur, wenn er für ⟦alle⟧ Paare stimmt.",
     "bild": {
      "typ": "tabelle",
      "kopf": [
-      "x",
-      "−1",
+      "Eingabe x",
       "0",
+      "1",
       "3"
      ],
      "zeilen": [
       [
-       "f(x) = 4 − x²",
-       "3",
-       "4",
-       "−5"
+       "2x + 1",
+       "?",
+       "?",
+       "?"
       ]
      ]
     },
-    "einstieg": "Eine Wertetabelle ist wie eine Preisliste: Oben stehen die Eingaben, darunter die Ergebnisse. Beim Taxi: 1 km kostet 5 €, 2 km kosten 7 €, 3 km kosten 9 €. So siehst du viele Werte auf einen Blick.",
+    "fehler_bild": {
+     "kopf": [
+      "Eingabe x",
+      "−2",
+      "2"
+     ],
+     "zeilen": [
+      [
+       "1/(x − 2)",
+       "−1/4",
+       "geht nicht"
+      ]
+     ]
+    }
+   },
+   {
+    "lernziel": "funktionswert",
+    "titel": "Funktionswerte berechnen",
+    "regel": "Für t(5) ersetzt du ⟦jedes x durch 5⟧. Negative Zahlen setzt du dabei in Klammern: (−2)² = 4.",
+    "schritte": [
+     {
+      "text": "Die Taxi-Maschine heißt t(x) = 2x + 3. Gesucht ist t(5)."
+     },
+     {
+      "text": "Überall, wo x steht, eine 5 einsetzen: t(5) = 2 · 5 + 3.",
+      "bild": {
+       "senkrecht": [
+        5
+       ]
+      }
+     },
+     {
+      "text": "Ausrechnen: 10 + 3 = 13. Also ⟦t(5) = 13⟧, die Fahrt kostet 13 €.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 5,
+         "y": 13,
+         "name": "(5 | 13)"
+        }
+       ],
+       "waagrecht": [
+        13
+       ]
+      }
+     }
+    ],
+    "fehler": "t(5) ist nicht (2 + 3) · 5 = 25. Die 3 € Grundpreis zahlst du nur einmal, nicht für jeden Kilometer.",
+    "einstieg": "Ein Taxi kostet 3 € Grundpreis und 2 € pro Kilometer. Die Rechenvorschrift ist wie eine Maschine: Kilometer hinein, Preis heraus. Was herauskommt, heißt ⟦Funktionswert⟧.",
+    "woerter": [
+     [
+      "t(x)",
+      "gelesen „t von x“: der Preis für x Kilometer"
+     ],
+     [
+      "t(5)",
+      "der Preis für 5 Kilometer"
+     ],
+     [
+      "Funktionswert",
+      "das Ergebnis der Maschine, also der y-Wert"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      6
+     ],
+     "y": [
+      0,
+      16
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 3,
+       "name": "Preis",
+       "bereich": [
+        0,
+        6
+       ]
+      }
+     ],
+     "name_x": "km",
+     "name_y": "€",
+     "schritt_y": 2
+    },
+    "fehler_bild": {
+     "y": [
+      0,
+      26
+     ],
+     "punkte": [
+      {
+       "x": 5,
+       "y": 13,
+       "name": "richtig"
+      },
+      {
+       "x": 5,
+       "y": 25,
+       "name": "25?",
+       "offen": true
+      }
+     ],
+     "waagrecht": []
+    }
+   },
+   {
+    "lernziel": "stelle",
+    "titel": "Zu einem y-Wert das x finden",
+    "regel": "Ist das Ergebnis gegeben, löst du ⟦f(x) = Ergebnis⟧ nach x auf. Das Ergebnis selbst setzt du nicht für x ein.",
+    "schritte": [
+     {
+      "text": "Die Frage t(x) = 15 wird zur Gleichung: 2x + 3 = 15.",
+      "bild": {
+       "waagrecht": [
+        15
+       ]
+      }
+     },
+     {
+      "text": "Auf beiden Seiten 3 abziehen: 2x = 12."
+     },
+     {
+      "text": "Beide Seiten durch 2 teilen: ⟦x = 6⟧. Die Fahrt war 6 km lang.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 6,
+         "y": 15,
+         "name": "(6 | 15)"
+        }
+       ],
+       "senkrecht": [
+        6
+       ]
+      }
+     }
+    ],
+    "fehler": "Nicht die 15 für x einsetzen! t(15) wäre der Preis für 15 km, also 33 €. Die 15 ist hier das ⟦Ergebnis⟧.",
+    "einstieg": "Diesmal kennst du den Preis: Die Taxifahrt hat 15 € gekostet. Wie viele Kilometer waren das? Du kennst das Ergebnis und suchst die Eingabe, die ⟦Stelle⟧.",
+    "woerter": [
+     [
+      "Stelle",
+      "die Eingabe x, die zu einem Ergebnis gehört"
+     ],
+     [
+      "t(x) = 15",
+      "die Frage: Für welches x kommt 15 heraus?"
+     ],
+     [
+      "Gleichung",
+      "zwei Seiten, die gleich groß sein sollen"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      8
+     ],
+     "y": [
+      0,
+      20
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 3,
+       "name": "Preis",
+       "bereich": [
+        0,
+        8
+       ]
+      }
+     ],
+     "name_x": "km",
+     "name_y": "€",
+     "schritt_y": 2
+    },
+    "fehler_bild": {
+     "x": [
+      0,
+      16
+     ],
+     "y": [
+      0,
+      36
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 3,
+       "name": "Preis",
+       "bereich": [
+        0,
+        16
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 6,
+       "y": 15,
+       "name": "richtig"
+      },
+      {
+       "x": 15,
+       "y": 33,
+       "name": "t(15)",
+       "offen": true
+      }
+     ],
+     "senkrecht": [],
+     "waagrecht": []
+    }
+   },
+   {
+    "lernziel": "wertetabelle",
+    "titel": "Wertetabellen lesen und ergänzen",
+    "regel": "In der ⟦Wertetabelle⟧ steht oben x, darunter f(x). Fehlende Werte rechnest du mit dem Term aus. Ein gesuchter Term muss zu allen Spalten passen.",
+    "schritte": [
+     {
+      "text": "Bei 3 km fehlt der Preis. Der Term ist 2x + 3."
+     },
+     {
+      "text": "Setze 3 ein: 2 · 3 + 3 = ⟦9⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "Preis (€)",
+         "5",
+         "7",
+         "9",
+         "11"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Kontrolle: Pro Kilometer kommen immer 2 € dazu. 5, 7, 9, 11 passt."
+     }
+    ],
+    "fehler": "Ein Term muss zu ⟦allen⟧ Spalten passen. 4x + 1 passt bei 1 km, aber bei 2 km gäbe es 9 € statt 7 €.",
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "x (km)",
+      "1",
+      "2",
+      "3",
+      "4"
+     ],
+     "zeilen": [
+      [
+       "Preis (€)",
+       "5",
+       "7",
+       "?",
+       "11"
+      ]
+     ]
+    },
+    "einstieg": "Der Taxifahrer hat eine Preisliste: oben die Kilometer, darunter der Preis. So siehst du viele Werte auf einen Blick. So eine Liste heißt ⟦Wertetabelle⟧.",
     "woerter": [
      [
       "Wertetabelle",
-      "Tabelle mit x oben und dem Ergebnis f(x) darunter"
+      "oben die Eingaben x, darunter die Ergebnisse f(x)"
      ],
      [
-      "(3 | −5)",
-      "zu x = 3 gehört das Ergebnis −5"
+      "Term",
+      "die Rechenvorschrift, hier 2x + 3"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "zeilen": [
+      [
+       "Preis (€)",
+       "5",
+       "7",
+       "9",
+       "11"
+      ],
+      [
+       "4x + 1",
+       "5",
+       "9",
+       "13",
+       "17"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "graph_lesen",
     "titel": "Werte am Graphen ablesen",
-    "regel": "f(a) ablesen: bei x = a ⟦senkrecht⟧ zur Kurve, dann ⟦waagrecht⟧ zur y-Achse. Zu einem y-Wert die x-Werte finden: waagrecht durchgehen – es kann ⟦mehrere⟧ Treffer geben.",
+    "regel": "Ablesen: ⟦senkrecht⟧ zur Kurve, dann ⟦waagrecht⟧ zur Achse. Zu einem y-Wert kann es mehrere x-Werte geben.",
     "schritte": [
-     "Gesucht ist f(4). Suche auf der x-Achse die 4.",
-     "Gehe von dort ⟦senkrecht⟧ nach oben, bis du die Kurve triffst.",
-     "Gehe von diesem Punkt ⟦waagrecht⟧ nach links zur y-Achse. Dort steht 6, also ⟦f(4) = 6⟧.",
-     "Rückwärts: Wo ist f(x) = 6? Gehe bei y = 6 waagrecht durch das ganze Bild. Du triffst die Kurve ⟦zweimal⟧: bei x = 4 und bei x = −4."
+     {
+      "text": "Wie hoch ist der Ball nach 1 Sekunde? Suche die 1 auf der x-Achse.",
+      "bild": {
+       "senkrecht": [
+        1
+       ]
+      }
+     },
+     {
+      "text": "Senkrecht hoch zur Kurve, dann waagrecht zur y-Achse: ⟦f(1) = 3⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 1,
+         "y": 3,
+         "name": "(1 | 3)"
+        }
+       ],
+       "waagrecht": [
+        3
+       ]
+      }
+     },
+     {
+      "text": "Rückwärts: Wann ist er 3 m hoch? Die waagrechte Linie trifft zweimal.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 1,
+         "y": 3,
+         "name": "(1 | 3)"
+        },
+        {
+         "x": 3,
+         "y": 3,
+         "name": "(3 | 3)"
+        }
+       ],
+       "senkrecht": [
+        1,
+        3
+       ]
+      }
+     },
+     {
+      "text": "Also nach ⟦1 s und nach 3 s⟧ – einmal steigend, einmal fallend."
+     }
     ],
-    "probe": "f(4) = 0,5 · 16 − 2 = 6 ✓ und f(−4) = 0,5 · 16 − 2 = 6 ✓",
-    "fehler": "Bei „Wo ist f(x) = 6?“ nur x = 4 angeben. Die waagrechte Linie bei y = 6 trifft die Parabel ⟦zweimal⟧. Suche immer die ganze Linie entlang.",
+    "fehler": "Bei „Wann ist er 3 m hoch?“ nur 1 s angeben. Auf dem Weg nach unten ist der Ball noch einmal 3 m hoch: nach 3 s.",
     "bild": {
      "typ": "koordinaten",
      "x": [
-      -5,
+      -1,
       5
      ],
      "y": [
-      -3,
-      7
+      -1,
+      5
      ],
      "graphen": [
       {
        "art": "poly",
        "k": [
-        -2,
         0,
-        0.5
+        4,
+        -1
        ],
-       "name": "f"
+       "name": "Höhe",
+       "bereich": [
+        0,
+        4
+       ]
       }
      ],
-     "senkrecht": [
-      4
-     ],
-     "waagrecht": [
-      6
-     ],
-     "punkte": [
-      {
-       "x": 4,
-       "y": 6,
-       "name": "(4 | 6)"
-      },
-      {
-       "x": -4,
-       "y": 6,
-       "name": "(−4 | 6)"
-      }
-     ]
+     "name_x": "s",
+     "name_y": "m"
     },
-    "einstieg": "Ein Graph ist das Bild einer Funktion. Du kennst das von der Wetter-App: Unten steht die Uhrzeit, links die Temperatur. Willst du wissen, wie warm es um 14 Uhr ist, gehst du bei 14 Uhr nach oben bis zur Kurve und dann nach links zur Temperatur.",
+    "einstieg": "Ein Ball wird hochgeworfen. Das Bild zeigt, wie hoch er nach jeder Sekunde ist: unten die Zeit, links die Höhe. So ein Bild einer Funktion heißt ⟦Graph⟧.",
     "woerter": [
      [
       "Graph",
-      "die Linie im Koordinatensystem; sie zeigt alle Paare (x | y) der Funktion"
+      "die Linie, die alle Paare (x | y) einer Funktion zeigt"
      ],
      [
       "x-Achse",
-      "die waagrechte Achse (Eingaben)"
+      "die waagrechte Achse, hier die Zeit in Sekunden"
      ],
      [
       "y-Achse",
-      "die senkrechte Achse (Ergebnisse)"
+      "die senkrechte Achse, hier die Höhe in Metern"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "punkte": [
+      {
+       "x": 1,
+       "y": 3,
+       "name": "1 s"
+      },
+      {
+       "x": 3,
+       "y": 3,
+       "name": "auch 3 s"
+      }
+     ]
+    }
    },
    {
     "lernziel": "nullstellen",
     "titel": "Nullstellen berechnen",
-    "regel": "⟦Nullstelle⟧ berechnen: ⟦f(x) = 0⟧ hinschreiben und nach x auflösen. Im Bild ist das der Punkt, an dem der Graph die ⟦x-Achse⟧ schneidet.",
+    "regel": "Für die ⟦Nullstelle⟧ setzt du f(x) = 0. Dort schneidet der Graph die x-Achse.",
     "schritte": [
-     "f(x) = 2x − 7. Für welches x kommt 0 heraus?",
-     "Setze den Term gleich 0: 2x − 7 = 0.",
-     "Auf beiden Seiten 7 dazuzählen: 2x = 7.",
-     "Durch 2 teilen: ⟦x = 3,5⟧. Nach dreieinhalb Wochen bist du schuldenfrei."
+     {
+      "text": "Gesucht ist das x mit f(x) = 0. Also 2x − 7 = 0."
+     },
+     {
+      "text": "Auf beiden Seiten 7 dazuzählen: 2x = 7."
+     },
+     {
+      "text": "Durch 2 teilen: ⟦x = 3,5⟧. Nach 3,5 Wochen bist du schuldenfrei.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 3.5,
+         "y": 0,
+         "name": "(3,5 | 0)"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Im Bild trifft die Gerade genau dort die x-Achse."
+     }
     ],
-    "fehler": "Die Nullstelle von f(x) = 2x − 7 ist nicht −7: f(0) = −7 ist der ⟦y-Achsenabschnitt⟧. Für die Nullstelle muss ⟦y = 0⟧ sein.",
+    "fehler": "Die Nullstelle ist nicht −7. f(0) = −7 ist dein Start: am Anfang 7 € Schulden. Für die Nullstelle muss ⟦f(x) = 0⟧ sein.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -315,89 +633,150 @@
        "name": "f"
       }
      ],
-     "punkte": [
-      {
-       "x": 3.5,
-       "y": 0,
-       "name": "N(3,5 | 0)"
-      },
-      {
-       "x": 0,
-       "y": -7,
-       "name": "(0 | −7)"
-      }
-     ]
+     "name_x": "Wochen",
+     "name_y": "€"
     },
-    "einstieg": "Du hast 7 € Schulden bei deiner Schwester und zahlst jede Woche 2 € zurück. Nach wie vielen Wochen stehst du genau bei 0 €? Dein Kontostand nach x Wochen ist f(x) = 2x − 7. Die Stelle, an der 0 herauskommt, heißt ⟦Nullstelle⟧.",
+    "einstieg": "Du hast 7 € Schulden und zahlst jede Woche 2 € zurück. Nach x Wochen ist dein Kontostand 2x − 7 Euro. Die Stelle, an der er genau 0 ist, heißt ⟦Nullstelle⟧.",
     "woerter": [
      [
       "Nullstelle",
-      "ein x-Wert, bei dem 0 herauskommt: f(x) = 0"
+      "ein x, bei dem 0 herauskommt"
      ],
      [
-      "im Bild",
-      "dort schneidet der Graph die x-Achse"
+      "Kontostand",
+      "wie viel Geld du hast; Schulden sind negativ"
      ]
     ],
-    "probe": "f(3,5) = 2 · 3,5 − 7 = 0 ✓"
+    "fehler_bild": {
+     "punkte": [
+      {
+       "x": 0,
+       "y": -7,
+       "name": "Start"
+      },
+      {
+       "x": 3.5,
+       "y": 0,
+       "name": "Nullstelle"
+      }
+     ]
+    }
    },
    {
     "lernziel": "punkt_graph",
     "titel": "Liegt der Punkt auf dem Graphen?",
-    "regel": "Punkt P(a | b) prüfen: ⟦a in den Term einsetzen⟧. Kommt ⟦genau b⟧ heraus, liegt P auf dem Graphen – sonst nicht.",
+    "regel": "Setze ⟦x in den Term ein⟧ und vergleiche mit y. Kommt genau y heraus, liegt der Punkt auf dem Graphen.",
     "schritte": [
-     "f(x) = x² − 2x. Liegt P(3 | 3) auf dem Graphen?",
-     "Die erste Zahl ist x. Setze 3 ein: f(3) = 3² − 2 · 3 = 9 − 6 = 3.",
-     "Vergleiche mit der zweiten Zahl von P: auch 3. Passt, also ⟦P liegt auf dem Graphen.⟧",
-     "Q(3 | 1): f(3) ist 3 und nicht 1. ⟦Q liegt nicht auf dem Graphen.⟧"
+     {
+      "text": "Der Zettel als Punkt: P(4 | 11), mit den Koordinaten 4 und 11.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 4,
+         "y": 11,
+         "name": "P"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Setze x = 4 in den Tarif ein: 2 · 4 + 3 = 11."
+     },
+     {
+      "text": "Es kommt genau 11 heraus. Also ⟦liegt P auf dem Graphen⟧."
+     },
+     {
+      "text": "Q(4 | 10) passt nicht, denn 11 ≠ 10. ⟦Q liegt daneben.⟧",
+      "bild": {
+       "punkte": [
+        {
+         "x": 4,
+         "y": 11,
+         "name": "P"
+        },
+        {
+         "x": 4,
+         "y": 10,
+         "name": "Q",
+         "offen": true
+        }
+       ]
+      }
+     }
     ],
-    "fehler": "Bei P(3 | 1) setzt man nicht die 1 für x ein. Die ⟦erste⟧ Koordinate ist x, die ⟦zweite⟧ ist y.",
+    "fehler": "Bei P(4 | 11) nicht die 11 für x einsetzen. Die ⟦erste⟧ Zahl ist immer x, hier die Kilometer.",
     "bild": {
      "typ": "koordinaten",
      "x": [
-      -2,
-      4
+      0,
+      6
      ],
      "y": [
-      -2,
-      5
+      0,
+      14
      ],
      "graphen": [
       {
-       "art": "poly",
-       "k": [
+       "art": "linear",
+       "m": 2,
+       "t": 3,
+       "name": "Preis",
+       "bereich": [
         0,
-        -2,
-        1
-       ],
-       "name": "f"
+        6
+       ]
       }
      ],
-     "punkte": [
-      {
-       "x": 3,
-       "y": 3,
-       "name": "P"
-      },
-      {
-       "x": 3,
-       "y": 1,
-       "name": "Q",
-       "offen": true
-      }
-     ]
+     "name_x": "km",
+     "name_y": "€",
+     "schritt_y": 2
     },
-    "einstieg": "Der Graph besteht aus lauter Punkten, die zur Funktion passen. Ob ein bestimmter Punkt dazugehört, musst du nicht zeichnen – du kannst es ausrechnen. Wie bei einer Preisliste: Passt „3 km kosten 9 €“ zum Tarif? Rechne nach.",
+    "einstieg": "Auf einem Zettel steht: „4 km kosten 11 €.“ Passt das zum Taxi-Tarif? Du musst nicht zeichnen, du kannst es ausrechnen: Liegt der ⟦Punkt⟧ auf dem Graphen?",
     "woerter": [
      [
-      "P(3 | 3)",
-      "Punkt mit x = 3 (erste Zahl) und y = 3 (zweite Zahl)"
+      "P(4 | 11)",
+      "Punkt mit x = 4 (erste Zahl) und y = 11 (zweite Zahl)"
      ],
      [
       "Koordinaten",
       "die beiden Zahlen eines Punktes: erst x, dann y"
+     ],
+     [
+      "≠",
+      "„ist nicht gleich“"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "x": [
+      0,
+      12
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 3,
+       "name": "Preis",
+       "bereich": [
+        0,
+        6
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 4,
+       "y": 11,
+       "name": "P(4 | 11)"
+      },
+      {
+       "x": 11,
+       "y": 4,
+       "name": "(11 | 4)?",
+       "offen": true
+      }
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [

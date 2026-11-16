@@ -8,3 +8,4 @@ Neueste Meldung oben.
 - Vergleich der Aufgaben gegen `lernen-app` (Skript: jede Aufgabe als JSON-Objekt verglichen):
   - zahlen.wurzeln_basis: 168 Aufgaben, 0 Unterschiede, inhalt_pruefen OK
   - zahlen.reell: 168 Aufgaben, 0 Unterschiede, inhalt_pruefen OK
+  - zahlen.rationale_exponenten: 168 Aufgaben, 0 Unterschiede, inhalt_pruefen OK

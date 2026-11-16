@@ -2,6 +2,16 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 05:32 – STATUS
+messen.koerper_darstellung fertig: umgestuft 0 / berichtigt 0 / ersetzt 3 / neu 0 / nicht umgesetzt 3. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Welche Aussage ist richtig?“
+  - „Welche Aussage ist FALSCH?“
+- nicht umgesetzt:
+  - zylinder S2 Mantelfläche aus Umfang · Höhe (6×) – Kein Fehler; Übungsreihe mit verschiedenen Zahlen.
+  - netz S3 „Netz 442 cm², Grundfläche 7 × 8 cm, Höhe?“ (3×) – Kein Fehler; Übungsreihe (Rückwärtsrechnen) mit verschiedenen Zahlen.
+  - Überschneidung der Karten „schraegbild“ mit raum.schraegbilder – Betrifft den Plan (Haupt-Chat), keine einzelne Aufgabe.
+
 ## 2026-11-16 05:31 – STATUS
 messen.kreisberechnung fertig: umgestuft 4 / berichtigt 1 / ersetzt 0 / neu 0 / nicht umgesetzt 2. Prüfskript OK, Nachweis OK.
 - nicht umgesetzt:

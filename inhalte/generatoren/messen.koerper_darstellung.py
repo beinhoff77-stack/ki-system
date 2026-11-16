@@ -637,6 +637,33 @@ SW.a('beurteilen', 3, 'Welche Aussage über Prismen ist FALSCH?', 'Ein Prisma mi
 baue = mit_schwer(baue, SW)
 # ---- SCHWER ENDE ----
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, mit_befunden  # noqa: E402
+
+BF = Befunde('messen.koerper_darstellung', 13_8_11)
+# c) „Ein Zylinder hat genau zwei Kanten“ ist fachlich umstritten (Schulbücher: zwei gekrümmte Kanten oder keine) → Aussage vermeiden
+BF.ersetze('beurteilen', 'Welche Aussage ist richtig?', BF.A(
+    'Welche Aussage über Körper ist richtig?', 'Ein Zylinder hat keine Ecken.',
+    ['Eine Pyramide ist ein Prisma.', 'Ein sechsseitiges Prisma hat 6 Flächen.', 'Im Schrägbild werden Kanten nach hinten in wahrer Länge gezeichnet.'],
+    'Richtig: Ein Zylinder hat keine Ecken. Eine Pyramide hat keine zwei deckungsgleichen Grundflächen, ein sechsseitiges Prisma hat 6 + 2 = 8 Flächen, nach hinten laufende Kanten werden verkürzt gezeichnet.',
+    'Prüfe die Eigenschaften: zwei parallele, deckungsgleiche Grundflächen; Rechtecke als Seiten.'), enthaelt='Zylinder hat genau zwei Kanten')
+BF.ersetze('beurteilen', 'Welche Aussage ist FALSCH?', BF.A(
+    'Welche Aussage über Prismen und Pyramiden ist FALSCH?', 'Eine Pyramide ist ein Prisma.',
+    ['Der Mantel eines geraden siebenseitigen Prismas besteht aus 7 Rechtecken.', 'Ein Zylinder hat keine Ecken.', 'Ein sechsseitiges Prisma hat 12 Ecken.'],
+    'Falsch: Eine Pyramide ist ein Prisma. Eine Pyramide hat nur eine Grundfläche und läuft in einer Spitze zusammen. (Sechsseitiges Prisma: 2 · 6 = 12 Ecken – richtig.)',
+    'Suche ein Gegenbeispiel oder zähle nach.'), enthaelt='7 Rechtecken.", "Eine Pyramide ist ein Prisma.", "Ein Zylinder hat keine Ecken.", "Ein Zylinder hat genau zwei Kanten')
+BF.ersetze('beurteilen', 'Welche Aussage ist FALSCH?', BF.A(
+    'Welche Aussage über Zylinder und Prismen ist FALSCH?', 'Das Mantelrechteck eines Zylinders ist so lang wie der Durchmesser des Grundkreises.',
+    ['Der Mantel eines geraden zwölfseitigen Prismas besteht aus 12 Rechtecken.', 'Ein Zylinder hat keine Ecken.', 'Ein Zylinder hat zwei kreisförmige Grundflächen.'],
+    'Falsch: Das Mantelrechteck ist so lang wie der Umfang des Grundkreises (u = 2 · π · r), nicht wie der Durchmesser.',
+    'Suche ein Gegenbeispiel oder zähle nach.'), enthaelt='12 Rechtecken.", "Ein Zylinder hat keine Ecken.", "Ein Zylinder hat genau zwei Kanten')
+BF.nicht_umgesetzt('zylinder S2 Mantelfläche aus Umfang · Höhe (6×)', 'Kein Fehler; Übungsreihe mit verschiedenen Zahlen.')
+BF.nicht_umgesetzt('netz S3 „Netz 442 cm², Grundfläche 7 × 8 cm, Höhe?“ (3×)', 'Kein Fehler; Übungsreihe (Rückwärtsrechnen) mit verschiedenen Zahlen.')
+BF.nicht_umgesetzt('Überschneidung der Karten „schraegbild“ mit raum.schraegbilder', 'Betrifft den Plan (Haupt-Chat), keine einzelne Aufgabe.')
+
+baue = mit_befunden(baue, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Körper und Netze', ['prisma', 'netz', 'zylinder']), ('Darstellen', ['schraegbild', 'ansichten']), ('Verstehen', ['beurteilen'])],

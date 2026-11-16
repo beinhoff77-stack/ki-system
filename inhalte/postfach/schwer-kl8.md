@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 10:05 – STATUS
+stochastik.grundbegriffe fertig: 36 neue Übungen. Prüfskript OK, Unverändert-Nachweis JA.
+
 ## 2026-11-16 09:40 – STATUS
 raum.schraegbilder fertig: 36 neue Übungen. Prüfskript OK, Unverändert-Nachweis JA. Hinweis: Raumkoordinaten/windschief liegen über dem Gym-Lehrplan Kl. 8 (siehe Befundliste).
 

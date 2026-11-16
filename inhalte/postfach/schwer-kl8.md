@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 09:40 – STATUS
+raum.schraegbilder fertig: 36 neue Übungen. Prüfskript OK, Unverändert-Nachweis JA. Hinweis: Raumkoordinaten/windschief liegen über dem Gym-Lehrplan Kl. 8 (siehe Befundliste).
+
 ## 2026-11-16 09:15 – STATUS
 messen.koerper_darstellung fertig: 36 neue Übungen. Prüfskript OK, Unverändert-Nachweis JA.
 

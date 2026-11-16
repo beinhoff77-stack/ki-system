@@ -139,3 +139,11 @@ def M(s, text, start, ende, abschnitte, ziel, w, h, beschriftet='anfang_ende'):
     assert idx.denominator == 1 and 0 <= idx <= abschnitte, idx
     g = {'typ': 'zahlenstrahl', 'start': start, 'ende': ende, 'abschnitte': abschnitte, 'beschriftet': beschriftet}
     return {'s': s, 'y': 'markierung', 'f': {'text': text, 'grafik': g}, 'o': {'index': int(idx)}, 'zahl': ziel, 'w': w, 'h': h}
+
+
+def rw(term):
+    """Wert eines deutsch geschriebenen Terms (·, :, −, eckige Klammern, Leerzeichen-Tausender) – zum Bestimmen der richtigen Auswahl."""
+    t = term.replace('·', '*').replace(':', '/').replace('−', '-').replace('[', '(').replace(']', ')').replace(' ', '')
+    import re
+    t = re.sub(r'(?<=\d) (?=\d{3}\b)', '', t)
+    return rechne(t)

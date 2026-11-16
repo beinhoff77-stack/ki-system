@@ -304,6 +304,127 @@ def g_verstehen(s):
                    'Erst bei vielen Durchführungen nähert sich die relative Häufigkeit der Wahrscheinlichkeit (Gesetz der großen Zahlen).', 'Wie zuverlässig sind 20 Versuche?')
 
 
+
+# ---------- KLAR: verständliche Fassung der Lernkarten (Runde 7) ----------
+# Wird erst nach dem Bauen der Aufgaben eingesetzt (bauen(..., klar=KLAR)), die Aufgaben bleiben wörtlich gleich.
+KLAR = {
+ 'pfad_mult': {
+  'einstieg': 'Beim Schulfest steht ein Säckchen mit 3 roten und 2 blauen Kugeln. Du ziehst ohne hinzusehen eine Kugel, merkst dir die Farbe '
+              'und legst sie zurück. Dann ziehst du ein zweites Mal. Einen Preis gibt es nur für zweimal Rot. '
+              'Den Ablauf zeichnet man als ⟦Baumdiagramm⟧: Jede Ziehung ist eine Stufe, jede mögliche Farbe ein Ast.',
+  'woerter': [['Wahrscheinlichkeit P', 'wie wahrscheinlich ein Ergebnis ist, als Zahl von 0 (nie) bis 1 (sicher)'],
+              ['P(rot) = 3/5', '3 von 5 Kugeln sind rot'],
+              ['P(rot, rot)', 'die Wahrscheinlichkeit, erst Rot und dann wieder Rot zu ziehen'],
+              ['mehrstufiges Zufallsexperiment', 'mehrere Zufallsschritte nacheinander, hier zweimal ziehen'],
+              ['Baumdiagramm', 'eine Zeichnung, in der sich Äste verzweigen; an jedem Ast steht seine Wahrscheinlichkeit'],
+              ['Pfad', 'ein Weg durch den Baum vom Anfang bis zum Ende, z. B. rot – rot'],
+              ['mit Zurücklegen', 'die Kugel kommt wieder ins Säckchen; die Wahrscheinlichkeiten bleiben gleich']],
+  'schritte': ['Beim ersten Ziehen sind 3 von 5 Kugeln rot: P(rot) = 3/5.',
+               'Die Kugel wird zurückgelegt. Beim zweiten Ziehen ist P(rot) deshalb wieder 3/5.',
+               'Im Baum führt der Pfad rot – rot über zwei Äste mit je 3/5. Zuerst ist in 3/5 der Fälle Rot dabei, und davon in 3/5 der Fälle noch einmal.',
+               'Deshalb wird entlang des Pfades malgenommen: P(rot, rot) = 3/5 · 3/5 = ⟦9/25⟧.'],
+  'regel': 'So berechnest du einen Pfad (1. Pfadregel): Die Wahrscheinlichkeit eines Pfades ist das ⟦Produkt der Wahrscheinlichkeiten entlang des Pfades⟧.',
+  'fehler': 'P(rot, rot) = 3/5 + 3/5 = 6/5 ist falsch: Eine Wahrscheinlichkeit über 1 gibt es nicht. Zweimal Rot ist seltener als einmal Rot, '
+            'deshalb wird entlang eines Pfades ⟦multipliziert⟧, nicht addiert.'},
+ 'pfad_add': {
+  'einstieg': 'Zwei Freunde werfen eine Münze zweimal. Wer auf „genau einmal Kopf“ tippt, gewinnt. Das kann auf zwei Wegen passieren: '
+              'erst Kopf, dann Zahl – oder erst Zahl, dann Kopf. Weil beide Wege zählen, werden ihre Wahrscheinlichkeiten zusammengezählt. '
+              'Das ist die ⟦2. Pfadregel⟧.',
+  'woerter': [['K, Z', 'Kopf und Zahl'],
+              ['Ereignis', 'eine Beschreibung, zu der mehrere Ergebnisse gehören können, z. B. „genau einmal Kopf“'],
+              ['(K, Z)', 'der Pfad: erster Wurf Kopf, zweiter Wurf Zahl'],
+              ['½, ¼', 'ein Halb und ein Viertel'],
+              ['2. Pfadregel', 'gehören mehrere Pfade zu einem Ereignis, addiert man ihre Wahrscheinlichkeiten']],
+  'schritte': ['Zum Ereignis „genau einmal Kopf“ gehören zwei Pfade: (K, Z) und (Z, K).',
+               'Pfad (K, Z): ½ · ½ = ¼. Pfad (Z, K): ebenfalls ½ · ½ = ¼.',
+               'Beide Pfade führen zum Gewinn, deshalb werden sie addiert: ¼ + ¼.',
+               'Ergebnis: P(genau einmal Kopf) = ⟦½⟧.'],
+  'regel': 'So berechnest du ein Ereignis (2. Pfadregel): Alle ⟦Pfade suchen⟧, die dazugehören, jeden Pfad wie gewohnt multiplizieren und die Ergebnisse ⟦addieren⟧.',
+  'fehler': 'Bei „genau einmal Kopf“ nur den Pfad (K, Z) zu zählen ist falsch: Auch ⟦(Z, K)⟧ gehört dazu – für den Tipp ist die Reihenfolge egal.'},
+ 'ohne_zuruecklegen': {
+  'einstieg': 'In einer Tüte sind 3 rote und 2 blaue Bonbons. Du nimmst eins, isst es auf und nimmst dann noch eins. '
+              'Beim zweiten Mal sind nur noch 4 Bonbons in der Tüte – und wenn das erste rot war, nur noch 2 rote. '
+              'Dieses Vorgehen heißt ⟦Ziehen ohne Zurücklegen⟧.',
+  'woerter': [['ohne Zurücklegen', 'was gezogen ist, kommt nicht zurück; beim nächsten Ziehen sind es weniger'],
+              ['erste und zweite Stufe', 'das erste und das zweite Ziehen im Baum'],
+              ['Zähler, Nenner', 'die Zahl über und die Zahl unter dem Bruchstrich'],
+              ['2/4', 'nach einem roten Bonbon: noch 2 rote von 4 Bonbons']],
+  'schritte': ['Beim ersten Griff sind 3 von 5 Bonbons rot: P(rot) = 3/5.',
+               'Das rote Bonbon ist gegessen. Jetzt sind noch 4 Bonbons da, davon 2 rote: Der zweite Ast hat 2/4.',
+               'Entlang des Pfades malnehmen: P(rot, rot) = 3/5 · 2/4 = 6/20.',
+               'Kürzen ergibt ⟦3/10⟧.'],
+  'regel': 'So rechnest du ohne Zurücklegen: Auf der zweiten Stufe ⟦ändern sich die Wahrscheinlichkeiten⟧. Im Nenner steht eins weniger, '
+           'und ist dieselbe Sorte gemeint, auch im Zähler eins weniger.',
+  'fehler': 'P(rot, rot) = 3/5 · 3/5 gilt nur ⟦mit⟧ Zurücklegen. Das erste rote Bonbon ist aber schon gegessen: Es bleiben 2 rote von 4.'},
+ 'gegenereignis': {
+  'einstieg': 'Bei einem Brettspiel darfst du erst losziehen, wenn du eine Sechs würfelst, und du hast drei Versuche. Wie wahrscheinlich ist mindestens eine Sechs? '
+              'Dazu gehören viele Pfade: Sechs im ersten Wurf, im zweiten, im dritten, zweimal … Viel kürzer ist die Gegenfrage: '
+              'Wie wahrscheinlich ist gar keine Sechs? Diese Gegenfrage heißt ⟦Gegenereignis⟧.',
+  'woerter': [['mindestens einmal', 'einmal oder öfter'],
+              ['Gegenereignis', 'genau das Gegenteil, hier „keinmal eine Sechs“'],
+              ['P(keinmal)', 'die Wahrscheinlichkeit, dass es nie eintritt'],
+              ['(5/6)³', '5/6 · 5/6 · 5/6: dreimal keine Sechs'],
+              ['1 − P', 'Ereignis und Gegenereignis ergeben zusammen 1, denn eines von beiden tritt sicher ein'],
+              ['≈', '„ungefähr gleich“']],
+  'schritte': ['Bei einem Wurf kommt mit der Wahrscheinlichkeit 5/6 keine Sechs.',
+               'Dreimal keine Sechs ist ein einziger Pfad: (5/6)³ = 125/216.',
+               '„Mindestens eine Sechs“ ist alles andere. Zusammen ergeben beide 1.',
+               'Also ist P(mindestens eine Sechs) = 1 − 125/216 = ⟦91/216⟧ ≈ 0,42.'],
+  'regel': 'So rechnest du bei „⟦mindestens einmal⟧“: über das ⟦Gegenereignis „keinmal“⟧. P(mindestens einmal) = 1 − P(keinmal).',
+  'fehler': 'P(mindestens eine Sechs) = 3 · 1/6 = ½ ist falsch: So werden Pfade mit mehreren Sechsen ⟦mehrfach gezählt⟧. '
+            'Bei sechs Würfen käme sogar 1 heraus – als wäre eine Sechs dann sicher. Über das Gegenereignis rechnen.'},
+ 'baum_ergaenzen': {
+  'einstieg': 'In einer Stadt regnet es an 40 % aller Tage. An 10 % aller Tage regnet es und es gibt zugleich Stau. '
+              'An welchem Anteil der Regentage gibt es also Stau? Diese Zahl gehört an einen Ast, der im Baum noch leer ist. '
+              'Fehlende Zahlen findet man beim ⟦Baumdiagramm vervollständigen⟧.',
+  'woerter': [['A, B', 'Namen für Ereignisse, hier A: Regen, B: Stau'],
+              ['nicht A', 'das Gegenereignis: kein Regen'],
+              ['Verzweigungspunkt', 'eine Stelle im Baum, an der sich Äste teilen'],
+              ['P(A und B)', 'die Wahrscheinlichkeit des Pfades „A, dann B“'],
+              ['Gegenast', 'der andere Ast an derselben Verzweigung'],
+              ['0,4', '40 % als Dezimalzahl']],
+  'schritte': ['Bekannt sind der erste Ast P(A) = 0,4 und der Pfad P(A und B) = 0,1.',
+               'Für den Pfad gilt: 0,4 mal der zweite Ast ergibt 0,1.',
+               'Also ist der zweite Ast 0,1 : 0,4 = ⟦0,25⟧. An einem Viertel der Regentage gibt es Stau.',
+               'Die Äste an einer Verzweigung ergeben zusammen 1: Der Gegenast „nicht B“ hat 1 − 0,25 = 0,75, der Ast „nicht A“ hat 1 − 0,4 = 0,6.'],
+  'regel': 'So vervollständigst du: Die Äste von ⟦einem Verzweigungspunkt⟧ ergeben zusammen ⟦1⟧. Kennst du einen Pfad und seinen ersten Ast, '
+           'findest du den zweiten Ast durch ⟦Teilen⟧.',
+  'fehler': 'Den zweiten Ast als 0,1 − 0,4 oder 0,1 + 0,4 zu berechnen ist falsch: Der Pfad ist das Produkt der Äste, also muss man ⟦teilen⟧: 0,1 : 0,4 = 0,25.'},
+ 'simulation': {
+  'einstieg': 'Wirfst du zwei Würfel, zeigen sie manchmal dieselbe Zahl – das heißt Pasch. Von 36 möglichen Ergebnissen sind 6 ein Pasch, also ein Sechstel. '
+              'Würfelst du 600-mal, erwartest du etwa 100 Pasche, aber selten genau 100. Wie oft etwas tatsächlich vorkam, '
+              'geteilt durch die Zahl aller Versuche, heißt ⟦relative Häufigkeit⟧.',
+  'woerter': [['Pasch', 'beide Würfel zeigen dieselbe Zahl'],
+              ['n', 'die Anzahl der Durchführungen, hier 600'],
+              ['p', 'die Wahrscheinlichkeit für einen Treffer, hier 1/6'],
+              ['n · p', 'die erwartete Anzahl der Treffer'],
+              ['relative Häufigkeit', 'Treffer geteilt durch alle Versuche'],
+              ['Simulation', 'den Zufallsversuch nachspielen, z. B. mit Würfeln oder am Computer']],
+  'bild': {'typ': 'saeulen', 'einheit': 'Anzahl in 600 Würfen', 'werte': [{'name': 'Pasch', 'wert': 94}, {'name': 'kein Pasch', 'wert': 506}], 'zahlen': True},
+  'schritte': ['Bei zwei Würfeln gibt es 6 · 6 = 36 Ergebnisse, davon sind 6 ein Pasch (1-1, 2-2, …, 6-6). Also ist p = 6/36 = 1/6.',
+               'Es wird n = 600-mal gewürfelt.',
+               'Erwartet werden n · p = 600 · 1/6 = ⟦100⟧ Pasche.',
+               'Eine Simulation ergab 94 Pasche. Die relative Häufigkeit 94 : 600 ≈ 0,157 liegt nah bei 1/6 ≈ 0,167.'],
+  'regel': 'So schätzt du ab: Bei n Durchführungen erwartest du etwa ⟦n · p⟧ Treffer. Die ⟦relative Häufigkeit⟧ schwankt, '
+           'nähert sich aber bei vielen Durchführungen der Wahrscheinlichkeit.',
+  'fehler': '„Nach 5 Würfen ohne Sechs kommt die Sechs jetzt wahrscheinlicher“ ist falsch: Der Würfel weiß nicht, was vorher kam – er hat ⟦kein Gedächtnis⟧. P bleibt 1/6.'},
+ 'verstehen': {
+  'einstieg': 'Jemand sagt: „Wenn ich zweimal eine Münze werfe, kommt sicher zweimal Kopf – ein Halb plus ein Halb ist ja 1.“ Stimmt das? '
+              'Bei Wahrscheinlichkeiten hilft eine Prüfliste: Wird richtig malgenommen und zusammengezählt? Bleiben die Zahlen zwischen 0 und 1? '
+              'Mit ihr kann man ⟦Aussagen prüfen⟧.',
+  'woerter': [['entlang eines Pfades', 'auf einem Weg durch den Baum: malnehmen'],
+              ['zwischen Pfaden', 'mehrere Wege zum selben Ereignis: addieren'],
+              ['P = 1', 'das Ereignis ist sicher'],
+              ['Prüfliste', 'die Fragen aus dem Merksatz unten']],
+  'schritte': ['Behauptung: Bei zweimal Münzwurf ist P(zweimal Kopf) = ½ + ½ = 1.',
+               'Zweimal Kopf ist ein einziger Pfad: erst Kopf, dann Kopf.',
+               'Entlang eines Pfades wird malgenommen: ½ · ½ = ¼.',
+               'Die Behauptung ist ⟦falsch⟧. P = 1 hieße „sicher“, aber zweimal Kopf ist nicht sicher.'],
+  'regel': 'So prüfst du: Wird ⟦entlang⟧ eines Pfades multipliziert und ⟦zwischen⟧ Pfaden addiert? Ändern sich die Wahrscheinlichkeiten ⟦ohne Zurücklegen⟧? '
+           'Ergeben die Äste an jeder Verzweigung 1?',
+  'fehler': 'Wahrscheinlichkeiten über 1 gibt es nicht. Sie sind immer ein Hinweis auf einen ⟦Rechenfehler⟧ – meistens wurde addiert statt multipliziert.'},
+}
+
 GEN = schoen({'pfad_mult': g_pfad_mult, 'pfad_add': g_pfad_add, 'ohne_zuruecklegen': g_ohne_zuruecklegen, 'gegenereignis': g_gegenereignis,
               'baum_ergaenzen': g_baum_ergaenzen, 'simulation': g_simulation, 'verstehen': g_verstehen})
 
@@ -313,7 +434,7 @@ if __name__ == '__main__':
           ['1. Pfadregel: entlang eines Pfades multiplizieren.', '2. Pfadregel: Pfade eines Ereignisses addieren.',
            'Ohne Zurücklegen ändern sich die Wahrscheinlichkeiten der zweiten Stufe.', 'P(mindestens einmal) = 1 − P(keinmal); erwartete Anzahl = n · p.'],
           [('Pfadregeln', ['pfad_mult', 'pfad_add', 'ohne_zuruecklegen']), ('Strategien', ['gegenereignis', 'baum_ergaenzen']), ('Simulation und Verstehen', ['simulation', 'verstehen'])],
-          ETAPPEN, GEN,
+          ETAPPEN, GEN, klar=KLAR,
           meiden={'pfad_mult': ['3 rote und 2 blaue Kugeln. Es wird zweimal mit Zurücklegen'], 'ohne_zuruecklegen': ['3 rote und 2 blaue Kugeln. Es werden zwei'],
                   'gegenereignis': ['3-mal geworfen'], 'simulation': ['Pasch']},
           offen=['Prüfung eingearbeitet (Runde 3): Baumdiagramme (Bildtyp „baum“) in den Lernkarten pfad_mult, pfad_add, ohne_zuruecklegen, gegenereignis, baum_ergaenzen sowie in Aufgaben (Pfadregel Stufe 1, ohne Zurücklegen mit „?“ auf der 2. Stufe, Baum ergänzen, Test bei Tieren); die Pfad-Tabellen entfallen. Neu: „mindestens ein Gewinn“ ohne Zurücklegen; Freiwurfquoten 0,6–0,9; keine Ablenker über 1; Ast-Paare nicht nur vertauscht; Simulationsergebnisse nahe am Erwartungswert.',

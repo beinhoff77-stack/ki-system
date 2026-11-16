@@ -561,8 +561,134 @@ def g_sachaufgabe(s):
 GEN = {'reinquadratisch': g_reinquadratisch, 'ausklammern': g_ausklammern, 'faktorisieren': g_faktorisieren,
        'ergaenzung': g_ergaenzung, 'loesungsformel': g_loesungsformel, 'diskriminante': g_diskriminante, 'sachaufgabe': g_sachaufgabe}
 
+# ---------- Zehnte Runde (schwer-kl9): schwerere Übungen nach Prüfungsvorbild ----------
+# Eigener Abschnitt mit eigenem festen Zufallsstart (anhaengen(..., 9904, ...)), läuft erst nach bauen():
+# alle bisherigen Aufgaben bleiben unverändert. Vorbilder: Bayerischer Mathematik-Test 10 (ISB; quadratische
+# Gleichung lösen, Gleichung ohne Lösung angeben, Anhalteweg mit Faktor), Illustrierende Aufgaben Realschule 9 (I)
+# (Gehege an der Hauswand, Bremsweg), MSA Berlin/Brandenburg (Nullstellen einer Parabel). Zahlen und Wortlaut eigen.
+from _schwer_kl9 import anhaengen  # noqa: E402
+from _kl9 import K as _K  # noqa: E402
+
+
+def schwer():
+    P, K, O = 'pruefung', 'knobel', ''
+    L2 = 'x₁ = □; x₂ = □'
+    H = 'kleinere Lösung zuerst'
+    return [
+        # reinquadratisch
+        ('reinquadratisch', 3, P, auswahl('Welche Gleichung hat keine reelle Lösung?', '3x² + 12 = 0', ['3x² − 12 = 0', '−3x² + 12 = 0', '3x² = 0'],
+                                          '3x² + 12 = 0 ⇔ x² = −4: Ein Quadrat ist nie negativ. Die anderen: x² = 4 (zwei Lösungen), x² = 4 (zwei), x² = 0 (eine).',
+                                          'Stelle jeweils x² allein und schau auf das Vorzeichen.')),
+        ('reinquadratisch', 3, P, zahl('Für den Bremsweg eines Autos gilt näherungsweise s = v²/100 (s in m, v in km/h). Bei welcher Geschwindigkeit ist der Bremsweg 36 m lang?',
+                                       '36 = v²/100 ⇔ v² = 3 600 ⇔ v = 60 (die Lösung −60 passt nicht zu einer Geschwindigkeit).',
+                                       'Setze s = 36 ein und stelle v² allein.', 60, '(36 * 100) / 60', einheit='km/h')),
+        ('reinquadratisch', 3, K, zahl('Die Gleichung x² = d hat die Lösungen −0,3 und 0,3. Wie groß ist d?', 'd = 0,3² = 0,09. Probe: (−0,3)² = 0,09 auch.',
+                                       'Rückwärts denken: Setze eine Lösung ein.', 0.09, '0.3 ** 2')),
+        ('reinquadratisch', 3, O, luecken('Löse (2x − 3)² = 49.', L2, H, [-2, 5],
+                                          '2x − 3 = 7 oder 2x − 3 = −7. Also 2x = 10, x = 5, oder 2x = −4, x = −2.',
+                                          'Die Klammer ist 7 oder −7. Löse dann beide linearen Gleichungen.', ['(3 - 7) // 2', '(3 + 7) // 2'])),
+        ('reinquadratisch', 2, O, luecken('Löse 0,5x² = 8.', L2, H, [-4, 4], 'x² = 16, also x = −4 oder x = 4.', 'Erst mal 2 nehmen.', ['-4', '4'])),
+        ('reinquadratisch', 2, O, auswahl('Welche Lösungsmenge hat x² + 9 = 9?', 'L = {0}', ['L = {−3; 3}', 'L = { }', 'L = {9}'],
+                                          'x² = 0, also nur x = 0.', 'Subtrahiere 9 auf beiden Seiten.')),
+        # ausklammern
+        ('ausklammern', 3, P, zahl('Löse 3x² = 7,5x. Gib die Lösung an, die nicht 0 ist.', '3x² − 7,5x = 0 ⇔ x(3x − 7,5) = 0. Also x = 0 oder x = 7,5 : 3 = 2,5.',
+                                   'Alles auf eine Seite bringen und x ausklammern – nicht durch x teilen.', 2.5, '7.5 / 3')),
+        ('ausklammern', 3, P, luecken('Löse x³ − 9x = 0.', 'x₁ = □; x₂ = □; x₃ = □', 'der Größe nach', [-3, 0, 3],
+                                      'x(x² − 9) = 0. Also x = 0 oder x² = 9, d. h. x = −3 oder x = 3.', 'Klammere x aus. Der Rest ist eine reinquadratische Gleichung.', ['-3', '0', '3'])),
+        ('ausklammern', 3, K, zahl('Für welche Zahl b hat die Gleichung x² + bx = 0 die Lösungen 0 und 6?', 'x(x + b) = 0 hat die Lösungen 0 und −b. Also −b = 6, b = −6. Probe: x² − 6x = x(x − 6).',
+                                   'Klammere aus und vergleiche die zweite Lösung mit 6.', -6, '0 - 6')),
+        ('ausklammern', 3, O, luecken('Löse x(x − 5) = 3x.', L2, H, [0, 8], 'x² − 5x = 3x ⇔ x² − 8x = 0 ⇔ x(x − 8) = 0. Also x = 0 oder x = 8.',
+                                      'Ausmultiplizieren, alles nach links bringen, dann x ausklammern.', ['0', '5 + 3'])),
+        ('ausklammern', 2, O, luecken('Löse −x² + 6x = 0.', L2, H, [0, 6], 'x(−x + 6) = 0, also x = 0 oder x = 6.', 'Klammere x aus.', ['0', '6'])),
+        ('ausklammern', 2, O, zahl('Löse 4x² + 10x = 0. Gib die negative Lösung an.', 'x(4x + 10) = 0, also x = 0 oder 4x = −10, x = −2,5.',
+                                   'Klammere x aus und setze beide Faktoren null.', -2.5, '-10 / 4')),
+        # faktorisieren
+        ('faktorisieren', 3, P, luecken('Die Funktion f mit f(x) = x² − 10x + 21 hat zwei Nullstellen. Bestimme sie durch Faktorisieren.', L2, H, [3, 7],
+                                        'Zwei Zahlen mit Produkt 21 und Summe 10: 3 und 7. f(x) = (x − 3)(x − 7), Nullstellen 3 und 7.',
+                                        'Nullstellen: f(x) = 0 setzen. Suche zwei Zahlen mit Produkt 21 und Summe 10.', ['3', '7'])),
+        ('faktorisieren', 3, P, luecken('Gib eine Gleichung der Form x² + bx + c = 0 an, die genau die Lösungen −2 und 5 hat.', 'x² + □x + □ = 0', 'b und c eintragen (auch negativ)', [-3, -10],
+                                        '(x + 2)(x − 5) = 0 ausmultiplizieren: x² − 5x + 2x − 10 = x² − 3x − 10. Also b = −3, c = −10.',
+                                        'Schreibe zuerst die Produktform mit den Lösungen und multipliziere aus.', ['2 - 5', '2 * (-5)'])),
+        ('faktorisieren', 3, K, zahl('Für wie viele ganze Zahlen b hat x² + bx + 6 = 0 zwei verschiedene ganzzahlige Lösungen?',
+                                     'Die Lösungen p, q müssen Produkt 6 haben: (1; 6), (2; 3), (−1; −6), (−2; −3). Dann ist b = −(p + q) = −7, −5, 7 oder 5. Also 4 Werte.',
+                                     'Aus (x − p)(x − q) folgt p · q = 6. Liste alle ganzzahligen Paare auf.', 4, '2 * 2')),
+        ('faktorisieren', 3, O, luecken('Löse (x − 3)(x + 4) = 8.', L2, H, [-5, 4],
+                                        'Rechts steht nicht 0! Ausmultiplizieren: x² + x − 12 = 8 ⇔ x² + x − 20 = 0 ⇔ (x + 5)(x − 4) = 0. Also −5 und 4.',
+                                        'Der Satz vom Nullprodukt gilt nur, wenn rechts 0 steht. Erst umformen.', ['-5', '4'])),
+        ('faktorisieren', 2, O, luecken('Löse x² − x − 12 = 0 durch Faktorisieren.', L2, H, [-3, 4], 'Produkt −12, Summe 1: −3 und 4. (x + 3)(x − 4) = 0.',
+                                        'Suche zwei Zahlen mit Produkt −12.', ['-3', '4'])),
+        ('faktorisieren', 2, O, luecken('Löse (2x − 6)(x + 5) = 0.', L2, H, [-5, 3], '2x − 6 = 0 ⇔ x = 3; x + 5 = 0 ⇔ x = −5.', 'Setze jeden Faktor null.', ['-5', '6 // 2'])),
+        # ergaenzung
+        ('ergaenzung', 3, P, luecken('Löse x² + 3x − 10 = 0 mit quadratischer Ergänzung.', L2, H, [-5, 2],
+                                     'x² + 3x = 10. Ergänze 1,5² = 2,25: (x + 1,5)² = 12,25. x + 1,5 = ±3,5, also x = 2 oder x = −5.',
+                                     'Die Hälfte von 3 ist 1,5. Ergänze 1,5² auf beiden Seiten.', ['-1.5 - 3.5', '-1.5 + 3.5'])),
+        ('ergaenzung', 3, P, luecken('Bringe 2x² − 12x + 10 = 0 mit quadratischer Ergänzung auf die Form (x − …)² = ….', '(x − □)² = □', 'Zahlen eintragen', [3, 4],
+                                     'Erst durch 2 teilen: x² − 6x + 5 = 0. Ergänze 9: x² − 6x + 9 = −5 + 9, also (x − 3)² = 4.',
+                                     'Vor dem Ergänzen muss vor x² eine 1 stehen.', ['6 // 2', '9 - 5'])),
+        ('ergaenzung', 3, K, zahl('Bei x² + 8x + c = 0 führt die quadratische Ergänzung auf (x + 4)² = 9. Wie groß ist c?',
+                                  'x² + 8x = −c, ergänzt: (x + 4)² = 16 − c. Also 16 − c = 9 und c = 7. Probe: x² + 8x + 7 = 0.',
+                                  'Rechne die Ergänzung rückwärts: Was steht rechts, wenn du 16 ergänzt?', 7, '16 - 9')),
+        ('ergaenzung', 3, O, luecken('Löse x² − 8x + 13 = 0 mit quadratischer Ergänzung. Die Lösungen haben die Form 4 ± √d.', 'x = 4 ± √□', 'd eintragen', [3],
+                                     'x² − 8x = −13. Ergänze 16: (x − 4)² = 3. Also x − 4 = ±√3 und x = 4 ± √3.', 'Ergänze (8/2)² = 16.', ['16 - 13'])),
+        ('ergaenzung', 2, O, zahl('Welche Zahl musst du zu x² + 18x addieren, damit ein vollständiges Quadrat entsteht?', 'Hälfte von 18 ist 9, ergänze 9² = 81: x² + 18x + 81 = (x + 9)².',
+                                  'Halbiere die Zahl vor x und quadriere.', 81, '(18 / 2) ** 2')),
+        ('ergaenzung', 2, O, luecken('Bringe x² − 2x − 8 = 0 auf die Form (x − …)² = ….', '(x − □)² = □', 'Zahlen eintragen', [1, 9],
+                                     'x² − 2x = 8, ergänze 1: (x − 1)² = 9.', 'Hälfte von 2 ist 1, ergänze 1² = 1.', ['2 // 2', '8 + 1'])),
+        # loesungsformel
+        ('loesungsformel', 3, P, luecken('Löse 3x² + x − 2 = 0.', 'x₁ = □; x₂ = □/□', 'erst die ganze Zahl, dann den Bruch', [-1, 2, 3],
+                                         'a = 3, b = 1, c = −2. D = 1 + 24 = 25, √D = 5. x = (−1 ± 5)/6: x₁ = −6/6 = −1, x₂ = 4/6 = 2/3.',
+                                         'Lösungsformel mit a = 3, b = 1, c = −2. Kürze am Ende.', ['(-1 - 5) // 6', '2', '3'])),
+        ('loesungsformel', 3, P, zahl('Löse ohne Taschenrechner 0,5x² − x − 4 = 0. Gib die positive Lösung an.',
+                                      'Mal 2: x² − 2x − 8 = 0. D = 4 + 32 = 36, x = (2 ± 6)/2: 4 oder −2. Positive Lösung: 4.',
+                                      'Multipliziere zuerst mit 2, dann wird es einfacher.', 4, '(2 + 6) / 2')),
+        ('loesungsformel', 3, K, zahl('Die Gleichung x² + bx − 12 = 0 hat die Lösung x = 2. Wie heißt die andere Lösung?',
+                                      'Einsetzen: 4 + 2b − 12 = 0, also b = 4. x² + 4x − 12 = (x − 2)(x + 6) = 0. Die andere Lösung ist −6. (Kurz: Produkt der Lösungen = −12.)',
+                                      'Setze x = 2 ein und bestimme zuerst b.', -6, '-12 / 2')),
+        ('loesungsformel', 3, O, luecken('Löse (2x + 1)² = 3x + 4.', 'x₁ = □; x₂ = □/□', 'erst die ganze Zahl, dann den Bruch', [-1, 3, 4],
+                                         '4x² + 4x + 1 = 3x + 4 ⇔ 4x² + x − 3 = 0. D = 1 + 48 = 49. x = (−1 ± 7)/8: −1 oder 3/4.',
+                                         'Ausmultiplizieren, alles nach links, dann Lösungsformel.', ['(-1 - 7) // 8', '3', '4'])),
+        ('loesungsformel', 2, O, zahl('Löse x² + 2x − 15 = 0 mit der Lösungsformel. Gib die größere Lösung an.', 'D = 4 + 60 = 64, x = (−2 ± 8)/2: 3 oder −5. Größere: 3.',
+                                      'a = 1, b = 2, c = −15.', 3, '(-2 + 8) / 2')),
+        ('loesungsformel', 2, O, zahl('Berechne die Diskriminante von 5x² − 2x − 3 = 0.', 'D = (−2)² − 4 · 5 · (−3) = 4 + 60 = 64.', 'D = b² − 4ac. Achte auf die Vorzeichen.',
+                                      64, '(-2)**2 - 4*5*(-3)')),
+        # diskriminante
+        ('diskriminante', 3, P, auswahl('Für welchen Term f(x) hat die Gleichung f(x) = 0 keine reelle Lösung?', 'x² − 2x + 3', ['x² − 2x − 3', 'x² − 2x + 1', '−x² − 2x + 3'],
+                                        'x² − 2x + 3: D = 4 − 12 = −8 < 0. Die anderen: D = 16, D = 0, D = 16.', 'Berechne für jeden Term die Diskriminante.')),
+        ('diskriminante', 3, P, auswahl('Für welche Zahlen c hat x² + 6x + c = 0 zwei Lösungen?', 'c < 9', ['c > 9', 'c = 9', 'c < 3'],
+                                        'D = 36 − 4c > 0 ⇔ 4c < 36 ⇔ c < 9.', 'Zwei Lösungen bei D > 0. Stelle die Ungleichung für c auf.')),
+        ('diskriminante', 3, K, auswahl('In ax² + bx + c = 0 ist a positiv und c negativ. Wie viele Lösungen hat die Gleichung?', 'immer zwei',
+                                        ['immer keine', 'immer genau eine', 'Das hängt von b ab.'],
+                                        'D = b² − 4ac. Weil a und c verschiedene Vorzeichen haben, ist −4ac > 0. b² ist nie negativ, also D > 0: immer zwei Lösungen.',
+                                        'Welches Vorzeichen hat −4ac, wenn a > 0 und c < 0?')),
+        ('diskriminante', 3, O, zahl('Für welche Zahl a hat ax² − 12x + 4 = 0 genau eine Lösung?', 'D = 144 − 16a = 0 ⇔ a = 9. Probe: 9x² − 12x + 4 = (3x − 2)².',
+                                     'Genau eine Lösung bei D = 0.', 9, '144 / 16')),
+        ('diskriminante', 2, O, auswahl('Wie viele Lösungen hat 4x² − 12x + 9 = 0?', 'genau eine Lösung', ['zwei Lösungen', 'keine Lösung'],
+                                        'D = 144 − 144 = 0, also genau eine Lösung (x = 1,5).', 'Berechne D = b² − 4ac.')),
+        ('diskriminante', 2, O, auswahl('Wie viele Lösungen hat −x² + 4x − 5 = 0?', 'keine Lösung', ['zwei Lösungen', 'genau eine Lösung'],
+                                        'D = 16 − 4 · (−1) · (−5) = 16 − 20 = −4 < 0, also keine Lösung.', 'Achte auf a = −1 und c = −5.')),
+        # sachaufgabe
+        ('sachaufgabe', 3, P, zahl('Mit 20 m Zaun wird an einer Hauswand ein rechteckiges Gehege abgegrenzt; die Hauswand bildet die vierte Seite. Das Gehege soll 48 m² groß sein, die Seite entlang der Wand länger als 10 m. Wie lang ist eine Seite senkrecht zur Wand?',
+                                   'Senkrechte Seite x, Seite an der Wand 20 − 2x. x(20 − 2x) = 48 ⇔ x² − 10x + 24 = 0: x = 4 oder x = 6. Bei x = 6 wäre die Wandseite nur 8 m, also x = 4 m (Wandseite 12 m).',
+                                   'Der Zaun bildet nur drei Seiten: zweimal x und einmal die Seite an der Wand.', 4, '(10 - 2) / 2', einheit='m')),
+        ('sachaufgabe', 3, P, zahl('Der Anhalteweg eines Autos ist Reaktionsweg plus Bremsweg: 0,3 · v + 0,01 · v² (v in km/h, Weg in m). Bei welcher Geschwindigkeit ist der Anhalteweg 40 m lang?',
+                                   '0,01v² + 0,3v = 40 ⇔ v² + 30v − 4 000 = 0. D = 900 + 16 000 = 16 900, √D = 130. v = (−30 + 130)/2 = 50 (die negative Lösung fällt weg).',
+                                   'Gleichung aufstellen, mit 100 malnehmen, Lösungsformel.', 50, '(-30 + 130) / 2', einheit='km/h')),
+        ('sachaufgabe', 3, K, zahl('Eine Zahl plus ihr Kehrwert ergibt 2,5. Wie heißt die größere der beiden möglichen Zahlen?',
+                                   'x + 1/x = 2,5 ⇔ x² − 2,5x + 1 = 0 ⇔ 2x² − 5x + 2 = 0. D = 9, x = (5 ± 3)/4: 2 oder 0,5. Größere: 2 (Probe: 2 + 0,5 = 2,5).',
+                                   'Mit x malnehmen, dann entsteht eine quadratische Gleichung.', 2, '(5 + 3) / 4')),
+        ('sachaufgabe', 3, O, zahl('Ein Ball wird geworfen. Seine Höhe ist h(t) = 2 + 15t − 5t² (t in s, h in m). Nach wie vielen Sekunden landet er auf dem Boden? Runde auf eine Nachkommastelle.',
+                                   'h(t) = 0 ⇔ 5t² − 15t − 2 = 0. D = 225 + 40 = 265, √265 ≈ 16,28. t = (15 + 16,28)/10 ≈ 3,1 s (die negative Lösung fällt weg).',
+                                   'Am Boden ist die Höhe 0.', round((15 + math.sqrt(265)) / 10, 1), f'round({_K((15 + math.sqrt(265)) / 10)}, 1)', einheit='s')),
+        ('sachaufgabe', 2, O, zahl('Das Quadrat einer positiven Zahl ist um 30 größer als die Zahl selbst. Wie heißt die Zahl?', 'x² = x + 30 ⇔ x² − x − 30 = 0: x = 6 oder x = −5. Positiv: 6.',
+                                   'Stelle die Gleichung x² = x + 30 auf.', 6, '(1 + 11) / 2')),
+        ('sachaufgabe', 2, O, zahl('Ein Rechteck hat 26 cm Umfang und 40 cm² Flächeninhalt. Wie lang ist die längere Seite?',
+                                   'Seiten x und 13 − x. x(13 − x) = 40 ⇔ x² − 13x + 40 = 0: x = 5 oder 8. Längere Seite 8 cm.',
+                                   'Die Hälfte des Umfangs ist die Summe der beiden Seiten.', 8, '(13 + 3) / 2', einheit='cm')),
+    ]
+
+
 if __name__ == '__main__':
-    bauen('gleichungen.quadratisch',
+    d = bauen('gleichungen.quadratisch',
           'Quadratische Gleichungen mit der passenden Methode lösen und die Anzahl der Lösungen mit der Diskriminante begründen.',
           ['Ohne x-Glied: nach x² umstellen, ± Wurzel. Ohne Zahlglied: x ausklammern.', 'Produkt = 0: Satz vom Nullprodukt.',
            'Lösungsformel: x₁,₂ = (−b ± √(b² − 4ac)) / (2a).', 'D > 0: zwei, D = 0: eine, D < 0: keine Lösung.'],
@@ -574,3 +700,4 @@ if __name__ == '__main__':
                   'sachaufgabe': ['4 cm länger als breit und hat einen Flächeninhalt von 45']},
           offen=['Lösungen werden als Lücken „x₁ = □; x₂ = □“ (kleinere zuerst) abgefragt; Lösungen mit Wurzeln (irrational) sind bewusst ausgelassen, weil Lücken nur ganze Zahlen erlauben. Im Unterricht kommen sie vor – ggf. Antworttyp „Wurzelterm“ nachrüsten.',
                  'Grafische Deutung (Nullstellen der Parabel) steht im Thema funktionen.quadratisch.'])
+    anhaengen(d, 9904, schwer)

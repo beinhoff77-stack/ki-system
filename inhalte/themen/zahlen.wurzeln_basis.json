@@ -4169,6 +4169,718 @@
    },
    "c": "8 / (2 * 2)",
    "w": "a = ∛8 cm = 2 cm, denn 2³ = 8."
+  },
+  {
+   "l": "quadratwurzel",
+   "t": "quadratwurzel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne ohne Taschenrechner √(13² − 12²)."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(13**2 - 12**2) / 5",
+   "w": "Erst unter der Wurzel rechnen: 13² − 12² = 169 − 144 = 25. Dann √25 = 5. Falle: 13 − 12 = 1 ist falsch.",
+   "h": "Rechne zuerst aus, was unter der Wurzel steht. Die Wurzel wirkt nicht auf jede Zahl einzeln."
+  },
+  {
+   "l": "quadratwurzel",
+   "t": "quadratwurzel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne ohne Taschenrechner √(25² − 7²)."
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "(25**2 - 7**2) / 24",
+   "w": "Erst unter der Wurzel: 625 − 49 = 576. Dann √576 = 24, denn 24 · 24 = 576. Falle: 25 − 7 = 18 ist falsch.",
+   "h": "Erst die beiden Quadrate ausrechnen und subtrahieren, dann die Wurzel ziehen."
+  },
+  {
+   "l": "quadratwurzel",
+   "t": "quadratwurzel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele natürliche Zahlen n gibt es, für die 10 < √n < 11 gilt?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "11**2 - 10**2 - 1",
+   "w": "10 < √n < 11 bedeutet 10² < n < 11², also 100 < n < 121. Das sind die Zahlen 101 bis 120: 20 Stück.",
+   "h": "Quadriere die beiden Grenzen. Zwischen welchen Zahlen muss n dann liegen?"
+  },
+  {
+   "l": "quadratwurzel",
+   "t": "quadratwurzel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl x gilt √x = √36 + √64?"
+   },
+   "o": {
+    "wert": 196
+   },
+   "c": "(6 + 8) ** 2",
+   "w": "Rechte Seite: √36 + √64 = 6 + 8 = 14. Also √x = 14 und x = 14² = 196. Falle: 36 + 64 = 100 ist falsch, denn √100 = 10.",
+   "h": "Rechne zuerst die rechte Seite aus. Dann rückwärts: Welche Zahl hat diese Wurzel?"
+  },
+  {
+   "l": "quadratwurzel",
+   "t": "quadratwurzel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √(2 · 98)."
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "(2 * 98) / 14",
+   "w": "2 · 98 = 196 und 14 · 14 = 196, also √(2 · 98) = 14.",
+   "h": "Rechne erst das Produkt unter der Wurzel aus."
+  },
+  {
+   "l": "quadratwurzel",
+   "t": "quadratwurzel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √900 − √9."
+   },
+   "o": {
+    "wert": 27
+   },
+   "c": "900 / 30 - 9 / 3",
+   "w": "√900 = 30 und √9 = 3, also 30 − 3 = 27.",
+   "h": "Ziehe beide Wurzeln einzeln, dann subtrahiere."
+  },
+  {
+   "l": "wurzel_dezimal",
+   "t": "wurzel_dezimal",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratisches Solarmodul hat einen Flächeninhalt von 2,56 m². Wie lang ist eine Seite in Zentimetern?"
+   },
+   "o": {
+    "wert": 160,
+    "einheit": "cm"
+   },
+   "c": "(2.56 / 1.6) * 100",
+   "w": "√2,56 = 1,6, denn 1,6 · 1,6 = 2,56. Die Seite ist 1,6 m = 160 cm lang.",
+   "h": "Zuerst die Seite in Metern bestimmen (halb so viele Nachkommastellen), dann in cm umrechnen."
+  },
+  {
+   "l": "wurzel_dezimal",
+   "t": "wurzel_dezimal",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne ohne Taschenrechner √(1 − 0,36)."
+   },
+   "o": {
+    "wert": 0.8
+   },
+   "c": "(1 - 0.36) / 0.8",
+   "w": "Erst unter der Wurzel: 1 − 0,36 = 0,64. Dann √0,64 = 0,8. Falle: 1 − √0,36 = 1 − 0,6 = 0,4 ist etwas anderes.",
+   "h": "Erst die Differenz unter der Wurzel ausrechnen, dann die Wurzel ziehen."
+  },
+  {
+   "l": "wurzel_dezimal",
+   "t": "wurzel_dezimal",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei welcher Zahl hat die Quadratwurzel genau eine Nachkommastelle?"
+   },
+   "a": [
+    "0,004",
+    "0,04",
+    "0,0004",
+    "0,4"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "√0,04 = 0,2. Bei 0,0004 kommt 0,02 heraus (zwei Nachkommastellen). 0,4 und 0,004 haben eine ungerade Zahl von Nachkommastellen – ihre Wurzeln gehen nicht auf (√0,4 ≈ 0,632).",
+   "h": "Die Wurzel hat halb so viele Nachkommastellen wie die Zahl. Das klappt nur bei einer geraden Anzahl."
+  },
+  {
+   "l": "wurzel_dezimal",
+   "t": "wurzel_dezimal",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √(49/100) + √0,81. Gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 1.6
+   },
+   "c": "7 / 10 + 0.81 / 0.9",
+   "w": "√(49/100) = 7/10 = 0,7 und √0,81 = 0,9. Zusammen 0,7 + 0,9 = 1,6.",
+   "h": "Ziehe beide Wurzeln einzeln und schreibe den Bruch als Dezimalzahl."
+  },
+  {
+   "l": "wurzel_dezimal",
+   "t": "wurzel_dezimal",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl x gilt √x = 0,03?"
+   },
+   "o": {
+    "wert": 0.0009
+   },
+   "c": "0.03 ** 2",
+   "w": "Quadrieren: x = 0,03 · 0,03 = 0,0009 (doppelt so viele Nachkommastellen).",
+   "h": "Rückwärts: Quadriere 0,03. Achte auf die Nachkommastellen."
+  },
+  {
+   "l": "wurzel_dezimal",
+   "t": "wurzel_dezimal",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne √(144/25).",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner eintragen"
+   },
+   "o": {
+    "werte": [
+     12,
+     5
+    ]
+   },
+   "w": "√144 = 12 und √25 = 5, also √(144/25) = 12/5.",
+   "h": "Ziehe aus Zähler und Nenner einzeln die Wurzel.",
+   "c": [
+    "144 / 12",
+    "25 / 5"
+   ]
+  },
+  {
+   "l": "kubikwurzel",
+   "t": "kubikwurzel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel hat das Volumen 64 cm³. Ein zweiter Würfel hat das 8-fache Volumen. Wie lang ist eine Kante des zweiten Würfels?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "cm"
+   },
+   "c": "(8 * 64) / 8 ** 2",
+   "w": "Volumen des zweiten Würfels: 8 · 64 cm³ = 512 cm³. Kante: ∛512 cm = 8 cm, denn 8³ = 512. Falle: 8 · 4 cm = 32 cm.",
+   "h": "Berechne zuerst das neue Volumen, dann die dritte Wurzel."
+  },
+  {
+   "l": "kubikwurzel",
+   "t": "kubikwurzel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne ohne Taschenrechner ∛1 000 − ∛0,125."
+   },
+   "o": {
+    "wert": 9.5
+   },
+   "c": "1000 / 100 - 0.125 / 0.25",
+   "w": "∛1 000 = 10, denn 10³ = 1 000. ∛0,125 = 0,5, denn 0,5³ = 0,125. Also 10 − 0,5 = 9,5.",
+   "h": "Ziehe beide dritten Wurzeln einzeln. Tipp: 5³ = 125."
+  },
+  {
+   "l": "kubikwurzel",
+   "t": "kubikwurzel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "125 gleich große Würfelchen werden zu einem großen Würfel zusammengesetzt. Dann wird der große Würfel außen rot angemalt. Wie viele Würfelchen haben gar keine rote Fläche?"
+   },
+   "o": {
+    "wert": 27
+   },
+   "c": "(5 - 2) ** 3",
+   "w": "Kante: ∛125 = 5 Würfelchen. Unbemalt bleibt der innere Würfel mit 5 − 2 = 3 Würfelchen je Kante: 3³ = 27.",
+   "h": "Wie viele Würfelchen liegen an einer Kante? Innen fehlt an jeder Seite eine Schicht."
+  },
+  {
+   "l": "kubikwurzel",
+   "t": "kubikwurzel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl x gilt ∛x = 1,5?"
+   },
+   "o": {
+    "wert": 3.375
+   },
+   "c": "1.5 ** 3",
+   "w": "Rückwärts: x = 1,5³ = 1,5 · 1,5 · 1,5 = 2,25 · 1,5 = 3,375.",
+   "h": "Die dritte Wurzel machst du mit „hoch 3“ rückgängig."
+  },
+  {
+   "l": "kubikwurzel",
+   "t": "kubikwurzel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne ∛(8/125).",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner eintragen"
+   },
+   "o": {
+    "werte": [
+     2,
+     5
+    ]
+   },
+   "w": "∛8 = 2 und ∛125 = 5, also ∛(8/125) = 2/5.",
+   "h": "Ziehe aus Zähler und Nenner einzeln die dritte Wurzel.",
+   "c": [
+    "8 / 4",
+    "125 / 25"
+   ]
+  },
+  {
+   "l": "kubikwurzel",
+   "t": "kubikwurzel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne ∛8 000."
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "8000 / 400",
+   "w": "20³ = 20 · 20 · 20 = 8 000, also ∛8 000 = 20.",
+   "h": "Denke an 2³ = 8 und 10³ = 1 000."
+  },
+  {
+   "l": "abschaetzen",
+   "t": "abschaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Abbildung zeigt die Parabel y = x² und die waagrechte Linie y = 3,2. Welcher Wert liegt am nächsten an √3,2?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      3
+     ],
+     "y": [
+      0,
+      7
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        0,
+        1
+       ],
+       "name": "y = x²"
+      }
+     ],
+     "waagrecht": [
+      3.2
+     ],
+     "schritt_x": 0.5
+    }
+   },
+   "a": [
+    "1,6",
+    "10,24",
+    "1,2",
+    "1,8"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Linie schneidet die Parabel bei x ≈ 1,8. Kontrolle: 1,8² = 3,24 liegt nahe an 3,2. 1,6 ist nur die Hälfte von 3,2; 10,24 = 3,2².",
+   "h": "Lies ab, bei welchem x die Parabel die Höhe 3,2 erreicht. Prüfe mit Quadrieren."
+  },
+  {
+   "l": "abschaetzen",
+   "t": "abschaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Abbildung zeigt die Parabel y = x² und die waagrechte Linie y = 5,5. Welcher Wert liegt am nächsten an √5,5?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      3
+     ],
+     "y": [
+      0,
+      7
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        0,
+        1
+       ],
+       "name": "y = x²"
+      }
+     ],
+     "waagrecht": [
+      5.5
+     ],
+     "schritt_x": 0.5
+    }
+   },
+   "a": [
+    "2,75",
+    "2,3",
+    "1,5",
+    "30,25"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Linie schneidet die Parabel bei x ≈ 2,3. Kontrolle: 2,3² = 5,29 liegt nahe an 5,5. 2,75 ist die Hälfte, 30,25 = 5,5².",
+   "h": "Lies ab, bei welchem x die Parabel die Höhe 5,5 erreicht. Prüfe mit Quadrieren."
+  },
+  {
+   "l": "abschaetzen",
+   "t": "abschaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche natürliche Zahl liegt am nächsten an √156?"
+   },
+   "a": [
+    "13",
+    "12,5",
+    "12",
+    "78"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "12² = 144 und 13² = 169. Die Mitte 12,5 hat 12,5² = 156,25 > 156. Also ist √156 kleiner als 12,5 und liegt näher an 12.",
+   "h": "Grenze zuerst zwischen zwei Quadratzahlen ein. Dann quadriere die Mitte 12,5."
+  },
+  {
+   "l": "abschaetzen",
+   "t": "abschaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt ∛100?",
+    "schablone": "□ < ∛100 < □",
+    "hinweis": "die beiden Zahlen eintragen"
+   },
+   "o": {
+    "werte": [
+     4,
+     5
+    ]
+   },
+   "w": "4³ = 64 < 100 < 125 = 5³, also 4 < ∛100 < 5.",
+   "h": "Suche Kubikzahlen (Zahlen hoch 3) unter und über 100.",
+   "c": [
+    "64 / 16",
+    "125 / 25"
+   ]
+  },
+  {
+   "l": "abschaetzen",
+   "t": "abschaetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zehnteln liegt √0,5?"
+   },
+   "a": [
+    "0,07 und 0,08",
+    "0,2 und 0,3",
+    "0,4 und 0,5",
+    "0,7 und 0,8"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "0,7² = 0,49 < 0,5 < 0,64 = 0,8², also 0,7 < √0,5 < 0,8.",
+   "h": "Quadriere Zehntel wie 0,7 und 0,8 und vergleiche mit 0,5. Die Wurzel aus einer Zahl unter 1 ist größer als die Zahl."
+  },
+  {
+   "l": "abschaetzen",
+   "t": "abschaetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √200?",
+    "schablone": "□ < √200 < □",
+    "hinweis": "die beiden Zahlen eintragen"
+   },
+   "o": {
+    "werte": [
+     14,
+     15
+    ]
+   },
+   "w": "14² = 196 < 200 < 225 = 15², also 14 < √200 < 15.",
+   "h": "Welche Quadratzahlen liegen direkt unter und über 200?",
+   "c": [
+    "196 / 14",
+    "225 / 15"
+   ]
+  },
+  {
+   "l": "wurzel_deuten",
+   "t": "wurzel_deuten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Satz verwendet die Fachbegriffe richtig?"
+   },
+   "a": [
+    "Beim Quadrieren von 49 erhält man 7.",
+    "Der Radikand von √49 ist 7.",
+    "Beim Radizieren von 49 erhält man 7 und −7.",
+    "Beim Radizieren von 49 erhält man 7; die Zahl 49 heißt Radikand."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Radizieren heißt Wurzelziehen: √49 = 7. Die Zahl unter der Wurzel (49) ist der Radikand. Quadrieren wäre 49² = 2 401. Die Wurzel ist nie negativ.",
+   "h": "Radizieren = Wurzel ziehen, Radikand = Zahl unter der Wurzel."
+  },
+  {
+   "l": "wurzel_deuten",
+   "t": "wurzel_deuten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Lösungen haben die drei Gleichungen x² = 16, x² = 0 und x² = −16 zusammen?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "2 + 1 + 0",
+   "w": "x² = 16: zwei Lösungen (4 und −4). x² = 0: nur x = 0. x² = −16: keine, denn ein Quadrat ist nie negativ. Zusammen 2 + 1 + 0 = 3.",
+   "h": "Untersuche jede Gleichung einzeln. Kann ein Quadrat negativ sein?"
+  },
+  {
+   "l": "wurzel_deuten",
+   "t": "wurzel_deuten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche Zahlen a gilt √a = a?"
+   },
+   "a": [
+    "für keine Zahl",
+    "für jede Zahl a ≥ 0",
+    "nur für a = 1",
+    "für a = 0 und a = 1"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "√0 = 0 und √1 = 1. Für andere Zahlen nicht: √4 = 2 ≠ 4 und √0,25 = 0,5 ≠ 0,25.",
+   "h": "Quadriere beide Seiten: a = a². Welche Zahlen ändern sich beim Quadrieren nicht?"
+  },
+  {
+   "l": "wurzel_deuten",
+   "t": "wurzel_deuten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand behauptet: „√(a²) = a gilt für jede Zahl a.“ Prüfe mit a = −3."
+   },
+   "a": [
+    "Richtig: √((−3)²) = −3.",
+    "Falsch: √((−3)²) ist nicht definiert.",
+    "Falsch: √((−3)²) = √9 = 3, nicht −3.",
+    "Richtig: Wurzel und Quadrat heben sich immer auf."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "(−3)² = 9 und √9 = 3. Die Wurzel ist nie negativ, darum kommt 3 heraus und nicht −3.",
+   "h": "Rechne von innen nach außen: erst (−3)², dann die Wurzel."
+  },
+  {
+   "l": "wurzel_deuten",
+   "t": "wurzel_deuten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahlen lösen die Gleichung x² = 0,25?"
+   },
+   "a": [
+    "0,125 und −0,125",
+    "nur 0,5",
+    "0,05 und −0,05",
+    "0,5 und −0,5"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "0,5² = 0,25 und (−0,5)² = 0,25. Beide Zahlen lösen die Gleichung.",
+   "h": "Welche Zahl ergibt mal sich selbst 0,25? Denke auch an Minus."
+  },
+  {
+   "l": "wurzel_deuten",
+   "t": "wurzel_deuten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (√5)² + (√11)²."
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "5 + 11",
+   "w": "(√5)² = 5 und (√11)² = 11, also 5 + 11 = 16.",
+   "h": "Quadrieren hebt die Wurzel auf."
+  },
+  {
+   "l": "wurzel_sache",
+   "t": "wurzel_sache",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein würfelförmiger Wassertank fasst 8 000 Liter. Wie lang ist eine Innenkante in Metern?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "m"
+   },
+   "c": "8 / (2 * 2)",
+   "w": "8 000 Liter = 8 000 dm³ = 8 m³. Kante: ∛8 m = 2 m, denn 2³ = 8. Falle: ∛8 000 = 20 wären Dezimeter.",
+   "h": "Rechne zuerst in m³ um: 1 m³ = 1 000 Liter."
+  },
+  {
+   "l": "wurzel_sache",
+   "t": "wurzel_sache",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratisches Grundstück hat 1 600 m² Fläche. Es bekommt ringsum einen Zaun, nur eine 4 m breite Einfahrt bleibt frei. Wie viele Meter Zaun braucht man?"
+   },
+   "o": {
+    "wert": 156,
+    "einheit": "m"
+   },
+   "c": "4 * (1600 / 40) - 4",
+   "w": "Seite: √1 600 m = 40 m. Umfang: 4 · 40 m = 160 m. Ohne Einfahrt: 160 m − 4 m = 156 m.",
+   "h": "Erst die Seitenlänge, dann den Umfang. Denke an die Einfahrt."
+  },
+  {
+   "l": "wurzel_sache",
+   "t": "wurzel_sache",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat wird vergrößert, bis seine Fläche 9-mal so groß ist. Wie viel Mal so lang ist dann seine Seite?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "9 / 3",
+   "w": "Fläche = Seite · Seite. Wird die Seite k-mal so lang, wird die Fläche k²-mal so groß. k² = 9, also k = 3. Beispiel: 1 cm → 3 cm, 1 cm² → 9 cm².",
+   "h": "Probiere mit einem Quadrat der Seite 1 cm. Welche Seite hat ein Quadrat mit 9 cm²?"
+  },
+  {
+   "l": "wurzel_sache",
+   "t": "wurzel_sache",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel hat eine Oberfläche von 150 cm². Wie groß ist sein Volumen?"
+   },
+   "o": {
+    "wert": 125,
+    "einheit": "cm³"
+   },
+   "c": "(150 / 6 / 5) ** 3",
+   "w": "Eine Seitenfläche: 150 : 6 = 25 cm². Kante: √25 cm = 5 cm. Volumen: 5³ cm³ = 125 cm³.",
+   "h": "Oberfläche → eine Seitenfläche → Kante → Volumen."
+  },
+  {
+   "l": "wurzel_sache",
+   "t": "wurzel_sache",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratischer Bilderrahmen hat innen 0,49 m² Fläche. Wie lang ist eine Innenseite in Zentimetern?"
+   },
+   "o": {
+    "wert": 70,
+    "einheit": "cm"
+   },
+   "c": "(0.49 / 0.7) * 100",
+   "w": "√0,49 = 0,7, also 0,7 m = 70 cm.",
+   "h": "Erst die Seite in m, dann in cm umrechnen."
+  },
+  {
+   "l": "wurzel_sache",
+   "t": "wurzel_sache",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel hat ein Volumen von 1 331 cm³. Wie lang ist eine Kante?"
+   },
+   "o": {
+    "wert": 11,
+    "einheit": "cm"
+   },
+   "c": "1331 / 121",
+   "w": "11³ = 11 · 11 · 11 = 1 331, also ist die Kante 11 cm lang.",
+   "h": "Probiere Zahlen hoch 3. Die Endziffer 1 hilft."
   }
  ],
  "offen": [

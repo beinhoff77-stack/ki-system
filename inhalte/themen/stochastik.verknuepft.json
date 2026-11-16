@@ -5450,6 +5450,773 @@
     "index": 1
    },
    "w": "Bei unvereinbaren Ereignissen addieren sich die Wahrscheinlichkeiten: 0,6 + 0,7 = 1,3 > 1 ist unmöglich."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 50 Kugeln mit den Nummern 1 bis 50 wird eine gezogen. A: „Die Nummer ist durch 4 teilbar.“ B: „Die Nummer ist einstellig.“ Wie viele Nummern gehören zu A ∪ B?"
+   },
+   "o": {
+    "wert": 19
+   },
+   "c": "12 + 9 - 2",
+   "w": "A: 4, 8, …, 48 (12 Nummern). B: 1 bis 9 (9 Nummern). A ∩ B: 4 und 8 (2 Nummern). A ∪ B: 12 + 9 − 2 = 19.",
+   "h": "Zähle A und B einzeln. Welche Nummern hast du dabei doppelt gezählt?"
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "S: „Ein Kind spielt Schach.“ M: „Ein Kind macht Musik.“ Welche Beschreibung passt zu (S ∩ M̄) ∪ (S̄ ∩ M)?"
+   },
+   "a": [
+    "Das Kind macht genau eines von beidem.",
+    "Das Kind macht beides.",
+    "Das Kind macht keines von beidem.",
+    "Das Kind macht mindestens eines von beidem."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "S ∩ M̄: Schach, aber keine Musik. S̄ ∩ M: Musik, aber kein Schach. Die Vereinigung: genau eines von beiden.",
+   "h": "Übersetze die beiden Klammern einzeln in Worte."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Beim Würfeln ist A = {2; 4; 6} und B = {4; 5; 6}. Wie viele Ergebnisse gehören zu Ā ∪ B̄?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "6 - 2",
+   "w": "Ā ∪ B̄ heißt „nicht A oder nicht B“ – das ist das Gegenteil von „A und B“. A ∩ B = {4; 6}, also Ā ∪ B̄ = {1; 2; 3; 5}: 4 Ergebnisse.",
+   "h": "Was ist das Gegenteil von „beide treten ein“?"
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "In zwei verschiedenen Spielen gilt: A: „Team Rot gewinnt.“ B: „Team Blau gewinnt.“ Was bedeutet Ā ∩ B̄?"
+   },
+   "a": [
+    "Weder Team Rot noch Team Blau gewinnt.",
+    "Genau ein Team gewinnt.",
+    "Nicht beide Teams gewinnen.",
+    "Mindestens ein Team verliert."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ā ∩ B̄: A tritt nicht ein und B tritt nicht ein. „Mindestens ein Team verliert“ wäre Ā ∪ B̄.",
+   "h": "∩ heißt „und“, der Strich heißt „nicht“."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Beim Würfeln ist A: „gerade Zahl“ und B: „Zahl größer als 3“. Berechne P(A ∩ B) als gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner eintragen"
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "w": "A ∩ B = {4; 6}: 2 von 6 Ergebnissen, also 2/6 = 1/3.",
+   "h": "Welche Zahlen sind gerade und größer als 3?",
+   "c": [
+    "2 // 2",
+    "6 // 2"
+   ]
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 20 wird eine gezogen. A: „durch 2 teilbar“, B: „durch 5 teilbar“. Wie viele Zahlen liegen in A ∩ B?",
+    "schablone": "Anzahl: □",
+    "hinweis": "Anzahl eintragen"
+   },
+   "o": {
+    "werte": [
+     2
+    ]
+   },
+   "w": "Durch 2 und durch 5 teilbar heißt durch 10 teilbar: 10 und 20.",
+   "h": "Welche Zahlen sind durch 2 und durch 5 teilbar?",
+   "c": [
+    "20 // 10"
+   ]
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Von 800 geprüften Fahrrädern haben 120 einen Mangel an der Bremse, 200 einen Mangel am Licht und 60 beide Mängel. Mit welcher Wahrscheinlichkeit hat ein zufällig gewähltes Rad mindestens einen dieser Mängel? Gib sie in Prozent an."
+   },
+   "o": {
+    "wert": 32.5,
+    "einheit": "%"
+   },
+   "c": "(120 + 200 - 60) / 800 * 100",
+   "w": "P(B ∪ L) = (120 + 200 − 60) : 800 = 260 : 800 = 0,325 = 32,5 %.",
+   "h": "„Mindestens einer“ heißt ∪. Die 60 sind in beiden Zahlen enthalten."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,45, P(A ∪ B) = 0,7 und P(A ∩ B) = 0,15. Berechne P(B)."
+   },
+   "o": {
+    "wert": 0.4
+   },
+   "c": "0.7 - 0.45 + 0.15",
+   "w": "Additionssatz: 0,7 = 0,45 + P(B) − 0,15 ⇒ P(B) = 0,7 − 0,45 + 0,15 = 0,4.",
+   "h": "Setze in den Additionssatz ein und löse nach P(B) auf."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,6 und P(B) = 0,7. Wie groß ist P(A ∩ B) mindestens?"
+   },
+   "o": {
+    "wert": 0.3
+   },
+   "c": "0.6 + 0.7 - 1",
+   "w": "P(A ∪ B) ≤ 1, also P(A ∩ B) = P(A) + P(B) − P(A ∪ B) ≥ 0,6 + 0,7 − 1 = 0,3.",
+   "h": "P(A ∪ B) kann höchstens 1 sein. Setze das in den Additionssatz ein."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind unvereinbar, P(A) = 0,35 und P(B) = 0,25. Berechne P(Ā ∩ B̄)."
+   },
+   "o": {
+    "wert": 0.4
+   },
+   "c": "1 - (0.35 + 0.25)",
+   "w": "P(A ∪ B) = 0,35 + 0,25 = 0,6 (keine Schnittmenge). „Weder noch“ ist das Gegenteil: 1 − 0,6 = 0,4.",
+   "h": "Ā ∩ B̄ ist das Gegenereignis von A ∪ B."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,4, P(B) = 0,35 und P(A ∩ B) = 0,15. Berechne P(A ∪ B)."
+   },
+   "o": {
+    "wert": 0.6
+   },
+   "c": "0.4 + 0.35 - 0.15",
+   "w": "P(A ∪ B) = 0,4 + 0,35 − 0,15 = 0,6.",
+   "h": "Additionssatz."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Beim Würfeln ist A: „1 oder 2“ und B: „gerade Zahl“. Berechne P(A ∪ B) als gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner eintragen"
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "w": "A ∪ B = {1; 2; 4; 6}: 4 von 6, also 2/3. Mit dem Additionssatz: 2/6 + 3/6 − 1/6 = 4/6.",
+   "h": "Die 2 gehört zu beiden Ereignissen.",
+   "c": [
+    "4 // 2",
+    "6 // 2"
+   ]
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 800 gebrauchte Handys. A: „Akku ist schwach“, B: „Display ist beschädigt“. Ergänze das Feld „?“ (weder schwacher Akku noch beschädigtes Display).",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "B",
+      "B̄",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "A",
+       "60",
+       "",
+       "100"
+      ],
+      [
+       "Ā",
+       "",
+       "?",
+       ""
+      ],
+      [
+       "Summe",
+       "150",
+       "",
+       "800"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 610
+   },
+   "c": "800 - 100 - 150 + 60",
+   "w": "Nur A: 100 − 60 = 40. Nur B: 150 − 60 = 90. Weder noch: 800 − 60 − 40 − 90 = 610.",
+   "h": "Fülle zuerst die Felder, die direkt über Summen folgen."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Von 400 Befragten sind 35 % Kinder. Von den Kindern essen 60 % gern Fisch, von den Erwachsenen 40 %. Wie viele Befragte essen gern Fisch?"
+   },
+   "o": {
+    "wert": 188
+   },
+   "c": "140 * 0.6 + 260 * 0.4",
+   "w": "Kinder: 140, davon 84 mit Fisch. Erwachsene: 260, davon 104. Zusammen 84 + 104 = 188.",
+   "h": "Erst die Randsummen (Kinder/Erwachsene), dann die Prozente innerhalb jeder Gruppe."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Vierfeldertafel mit 100 Personen haben 40 das Merkmal A und 30 das Merkmal B. A ∩ B ist doppelt so groß wie Ā ∩ B. Wie groß ist Ā ∩ B̄?"
+   },
+   "o": {
+    "wert": 50
+   },
+   "c": "60 - 10",
+   "w": "Spalte B: (A ∩ B) + (Ā ∩ B) = 30 und A ∩ B = 2 · (Ā ∩ B) ⇒ Ā ∩ B = 10, A ∩ B = 20. Ā hat 60, also Ā ∩ B̄ = 60 − 10 = 50.",
+   "h": "Teile die Spalte B im Verhältnis 2 : 1 auf."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "120 Jugendliche wurden befragt. 45 % haben ein Haustier (A). 50 Jugendliche fahren mit dem Rad (B), 20 davon haben ein Haustier. Wie viele haben weder ein Haustier noch fahren sie Rad?"
+   },
+   "o": {
+    "wert": 36
+   },
+   "c": "120 - 54 - 30",
+   "w": "A: 54, Ā: 66. Ā ∩ B = 50 − 20 = 30. Ā ∩ B̄ = 66 − 30 = 36.",
+   "h": "Rechne 45 % von 120 aus und fülle die Tafel Schritt für Schritt."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Vierfeldertafel ist die Gesamtzahl 200; A hat 80, B hat 70 und A ∩ B hat 30. Wie groß ist Ā ∩ B̄?"
+   },
+   "o": {
+    "wert": 80
+   },
+   "c": "200 - (80 + 70 - 30)",
+   "w": "A ∪ B = 80 + 70 − 30 = 120, also Ā ∩ B̄ = 200 − 120 = 80.",
+   "h": "Erst A ∪ B, dann der Rest."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Vierfeldertafel ist A ∩ B = 12 und A ∩ B̄ = 8. Wie groß ist die Randsumme von A?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "12 + 8",
+   "w": "Zeile A: 12 + 8 = 20.",
+   "h": "Die Zeile A besteht aus A ∩ B und A ∩ B̄."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tafel zeigt 250 Jugendliche. A: „hat einen Hund“, B: „reitet“. Mit welcher Wahrscheinlichkeit hat eine zufällig gewählte Person einen Hund oder reitet? Gib sie in Prozent an.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "B",
+      "B̄",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "A",
+       "20",
+       "55",
+       "75"
+      ],
+      [
+       "Ā",
+       "25",
+       "150",
+       "175"
+      ],
+      [
+       "Summe",
+       "45",
+       "205",
+       "250"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "%"
+   },
+   "c": "(20 + 55 + 25) / 250 * 100",
+   "w": "A ∪ B: 20 + 55 + 25 = 100 von 250 = 0,4 = 40 %.",
+   "h": "Zähle alle Felder, in denen A oder B (oder beides) vorkommt."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tafel zeigt 200 Jugendliche. A: „hat einen Hund“, B: „reitet“. Eine Person wird zufällig gewählt. Mit welcher Wahrscheinlichkeit hat sie keinen Hund und reitet nicht?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "B",
+      "B̄",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "A",
+       "12",
+       "48",
+       "60"
+      ],
+      [
+       "Ā",
+       "36",
+       "104",
+       "140"
+      ],
+      [
+       "Summe",
+       "48",
+       "152",
+       "200"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.52
+   },
+   "c": "104 / 200",
+   "w": "Ā ∩ B̄: 104 von 200 = 0,52. Kontrolle über das Gegenereignis: 1 − (12 + 48 + 36) : 200 = 0,52.",
+   "h": "Gesucht ist ein Innenfeld geteilt durch die Gesamtzahl."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,4, P(B) = 0,5 und P(Ā ∩ B̄) = 0,3. Berechne P(A ∩ B)."
+   },
+   "o": {
+    "wert": 0.2
+   },
+   "c": "0.4 + 0.5 - (1 - 0.3)",
+   "w": "P(A ∪ B) = 1 − 0,3 = 0,7. Additionssatz rückwärts: P(A ∩ B) = 0,4 + 0,5 − 0,7 = 0,2.",
+   "h": "„Weder noch“ ist das Gegenteil von „mindestens eins“."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Tafel mit relativen Häufigkeiten gilt P(A ∩ B) = 0,12, P(A) = 0,3 und P(B̄) = 0,6. Berechne P(Ā ∩ B̄)."
+   },
+   "o": {
+    "wert": 0.42
+   },
+   "c": "0.6 - (0.3 - 0.12)",
+   "w": "P(A ∩ B̄) = 0,3 − 0,12 = 0,18. Spalte B̄: P(Ā ∩ B̄) = 0,6 − 0,18 = 0,42.",
+   "h": "Arbeite mit Zeilen- und Spaltensummen wie bei Anzahlen."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von 250 Personen gehören 75 zu A ∩ B. Wie groß ist P(A ∩ B)?"
+   },
+   "o": {
+    "wert": 0.3
+   },
+   "c": "75 / 250",
+   "w": "P(A ∩ B) = 75 : 250 = 0,3.",
+   "h": "Durch die Gesamtzahl teilen."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Tafel gilt P(A ∩ B) = 0,1 und P(A ∩ B̄) = 0,25. Berechne P(A)."
+   },
+   "o": {
+    "wert": 0.35
+   },
+   "c": "0.1 + 0.25",
+   "w": "P(A) = 0,1 + 0,25 = 0,35 (Zeilensumme).",
+   "h": "Die Zeile A addieren."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Test erkennt eine Krankheit bei 90 % der Kranken. Bei Gesunden zeigt er in 5 % der Fälle fälschlich „positiv“. 2 % der Bevölkerung sind krank. Wie groß ist die Wahrscheinlichkeit, dass eine positiv getestete Person wirklich krank ist? Gib sie in Prozent auf eine Nachkommastelle an."
+   },
+   "o": {
+    "wert": 26.9,
+    "einheit": "%",
+    "toleranz": 0.1
+   },
+   "c": "round(26.865671641791, 1)",
+   "w": "P(krank ∩ pos) = 0,02 · 0,9 = 0,018. P(pos) = 0,018 + 0,98 · 0,05 = 0,067. P_pos(krank) = 0,018 : 0,067 ≈ 26,9 % – viel weniger als 90 %.",
+   "h": "Denke an 10 000 Personen: Wie viele sind krank und positiv, wie viele gesund und positiv?"
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne mit dem Baumdiagramm P(B).",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "A",
+       "p": "0,4",
+       "aeste": [
+        {
+         "text": "B",
+         "p": "0,5"
+        },
+        {
+         "text": "B̄",
+         "p": "0,5"
+        }
+       ]
+      },
+      {
+       "text": "Ā",
+       "p": "0,6",
+       "aeste": [
+        {
+         "text": "B",
+         "p": "0,25"
+        },
+        {
+         "text": "B̄",
+         "p": "0,75"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.35
+   },
+   "c": "0.4 * 0.5 + 0.6 * 0.25",
+   "w": "Pfadregeln: P(B) = 0,4 · 0,5 + 0,6 · 0,25 = 0,2 + 0,15 = 0,35.",
+   "h": "Multipliziere entlang der Pfade zu B und addiere die Pfade."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A ∩ B) = 0,12 und P_B(A) = 0,4. Wie groß ist P(B)?"
+   },
+   "o": {
+    "wert": 0.3
+   },
+   "c": "0.12 / 0.4",
+   "w": "P_B(A) = P(A ∩ B) : P(B) ⇒ P(B) = 0,12 : 0,4 = 0,3.",
+   "h": "Stelle die Formel für P_B(A) nach P(B) um."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Lostrommel sind 40 Lose, 10 davon gewinnen; 4 der Gewinne sind Hauptgewinne. Du hast schon gesehen, dass dein Los gewinnt. Mit welcher Wahrscheinlichkeit ist es ein Hauptgewinn?"
+   },
+   "o": {
+    "wert": 0.4
+   },
+   "c": "4 / 10",
+   "w": "Bedingung „Gewinn“: Es zählen nur die 10 Gewinnlose, 4 davon Hauptgewinne: 4 : 10 = 0,4.",
+   "h": "Die Bedingung verkleinert die Grundmenge."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In der Spalte B einer Vierfeldertafel stehen 60 Personen, 15 davon gehören auch zu A. Berechne P_B(A)."
+   },
+   "o": {
+    "wert": 0.25
+   },
+   "c": "15 / 60",
+   "w": "P_B(A) = 15 : 60 = 0,25.",
+   "h": "Nur in der Spalte B zählen."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Was bedeutet P_B(A)?"
+   },
+   "a": [
+    "die Wahrscheinlichkeit, dass A und B eintreten",
+    "die Wahrscheinlichkeit für A, wenn man schon weiß, dass B eingetreten ist",
+    "die Wahrscheinlichkeit für A oder B",
+    "die Wahrscheinlichkeit für B, wenn A eingetreten ist"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Das tiefgestellte B ist die Bedingung: Man zählt nur in der Gruppe B.",
+   "h": "Wofür steht der kleine Buchstabe unten?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Glücksrad hat die Felder 1, 2, 3 und 4. Welche zusätzliche Angabe sichert, dass P(1) = 1/4 gilt?"
+   },
+   "a": [
+    "Das Rad wird sehr oft gedreht.",
+    "Die Felder sind fortlaufend nummeriert.",
+    "Die 1 ist schon einmal gekommen.",
+    "Alle vier Felder sind gleich groß."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "P = günstige : mögliche Ergebnisse gilt nur, wenn alle Ergebnisse gleich wahrscheinlich sind (Laplace-Experiment) – beim Glücksrad: gleich große Felder.",
+   "h": "Wann darf man „1 von 4“ rechnen?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Urne liegen 2 rote und 3 blaue Kugeln. Jemand sagt: „Bei 10 Ziehungen mit Zurücklegen ziehe ich bestimmt genau 4-mal Rot.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Es kommt bestimmt 5-mal Rot.",
+    "Falsch: 4-mal Rot ist nur der Erwartungswert; es kann auch öfter oder seltener kommen.",
+    "Richtig, denn 2/5 von 10 sind 4.",
+    "Richtig, wenn man gut mischt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "10 · 2/5 = 4 ist ein Durchschnittswert für viele Versuchsreihen. Einzelne Reihen weichen ab; erst bei sehr vielen Ziehungen nähert sich der Anteil 0,4.",
+   "h": "Unterscheide zwischen „zu erwarten“ und „sicher“."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,6 und P(B) = 0,5. Welche Aussage ist sicher richtig?"
+   },
+   "a": [
+    "P(A ∩ B) = 0,3",
+    "P(A ∪ B) = 1,1",
+    "A und B haben gemeinsame Ergebnisse.",
+    "A und B sind unvereinbar."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Wären A und B unvereinbar, wäre P(A ∪ B) = 1,1 > 1 – unmöglich. Also gilt P(A ∩ B) ≥ 0,1. Wie groß genau, weiß man nicht.",
+   "h": "Was wäre bei unvereinbaren Ereignissen mit P(A ∪ B)?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Angaben sind unmöglich?"
+   },
+   "a": [
+    "P(A) = 0,3; P(B) = 0,4; P(A ∩ B) = 0,1",
+    "P(A) = 0,5; P(B) = 0,5; P(A ∩ B) = 0",
+    "P(A) = 0,8; P(B) = 0,7; P(A ∩ B) = 0,6",
+    "P(A) = 0,3; P(B) = 0,4; P(A ∩ B) = 0,5"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "A ∩ B ist ein Teil von A, also P(A ∩ B) ≤ P(A) = 0,3. 0,5 ist zu groß. Bei 0,8/0,7/0,6 ist P(A ∪ B) = 0,9 – möglich.",
+   "h": "Die Schnittmenge kann nicht größer sein als jedes der beiden Ereignisse."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Was ist das Gegenereignis zu „mindestens eine Sechs bei zwei Würfen“?"
+   },
+   "a": [
+    "zwei Sechsen",
+    "keine Sechs",
+    "höchstens eine Sechs",
+    "genau eine Sechs"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Das Gegenteil von „mindestens eine“ ist „keine“.",
+   "h": "Was bleibt übrig, wenn „mindestens eine“ nicht eintritt?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Wert kann keine Wahrscheinlichkeit sein?"
+   },
+   "a": [
+    "0",
+    "0,05",
+    "1,2",
+    "1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Wahrscheinlichkeiten liegen zwischen 0 und 1 (einschließlich).",
+   "h": "Grenzen 0 und 1."
   }
  ],
  "offen": [

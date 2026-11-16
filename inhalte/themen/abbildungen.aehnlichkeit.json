@@ -7827,6 +7827,660 @@
    },
    "c": "25 * 65 / 6.5",
    "w": "Entfernung : Sprung = Armlänge : Augenabstand ⇒ e = 25 · 65 : 6,5 = 250 m."
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck wird zentrisch gestreckt. Aus der Seite AB = 4 cm wird A'B' = 6 cm, und das Bilddreieck liegt auf der anderen Seite des Zentrums (es steht auf dem Kopf). Wie groß ist der Streckfaktor k?"
+   },
+   "o": {
+    "wert": -1.5
+   },
+   "c": "-6 / 4",
+   "w": "|k| = 6 : 4 = 1,5. Liegt das Bild auf der anderen Seite des Zentrums, ist k negativ: k = −1,5.",
+   "h": "Der Betrag kommt aus dem Längenverhältnis, das Vorzeichen aus der Lage zum Zentrum."
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bei einer zentrischen Streckung mit Zentrum Z(0 | 0) wird A(2 | 1) auf A'(6 | 3) abgebildet. Wohin wird B(−1 | 4) abgebildet?",
+    "schablone": "B'(□ | □)",
+    "hinweis": "Koordinaten eintragen (auch negativ)"
+   },
+   "o": {
+    "werte": [
+     -3,
+     12
+    ]
+   },
+   "w": "Aus A → A' folgt k = 3. Mit Zentrum im Ursprung werden die Koordinaten mal 3 genommen: B'(−3 | 12).",
+   "h": "Bestimme zuerst k aus A und A'.",
+   "c": [
+    "3 * (-1)",
+    "3 * 4"
+   ]
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Figur wird mit demselben Zentrum Z zuerst mit k = −2 und dann mit k = −0,5 gestreckt. Was ist insgesamt passiert?"
+   },
+   "a": [
+    "Die Figur ist doppelt so groß (k = 2).",
+    "Die Figur ist halb so groß (k = −2,5).",
+    "Jeder Punkt liegt wieder an seiner alten Stelle (insgesamt k = 1).",
+    "Die Figur ist an Z gespiegelt (k = −1)."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Hintereinander ausführen heißt Faktoren malnehmen: (−2) · (−0,5) = 1. Mit k = 1 bleibt alles, wie es war.",
+   "h": "Was passiert mit dem Abstand zu Z bei beiden Schritten zusammen?"
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Strecke P(1 | 2) zentrisch mit dem Zentrum Z(3 | 0) und k = −2.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Koordinaten eintragen (auch negativ)"
+   },
+   "o": {
+    "werte": [
+     7,
+     -4
+    ]
+   },
+   "w": "Von Z nach P: (−2 | 2). Mal −2: (4 | −4). Von Z aus abtragen: P'(3 + 4 | 0 − 4) = P'(7 | −4).",
+   "h": "Erst den Weg von Z nach P bestimmen, dann mit k malnehmen, dann von Z aus abtragen.",
+   "c": [
+    "3 + 4",
+    "0 - 4"
+   ]
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Strecke P(8 | −6) mit Zentrum Z(0 | 0) und k = 0,5.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Koordinaten eintragen (auch negativ)"
+   },
+   "o": {
+    "werte": [
+     4,
+     -3
+    ]
+   },
+   "w": "Zentrum im Ursprung: Koordinaten mal 0,5: P'(4 | −3).",
+   "h": "Bei Z im Ursprung werden beide Koordinaten mit k malgenommen.",
+   "c": [
+    "8 // 2",
+    "-6 // 2"
+   ]
+  },
+  {
+   "l": "streckung",
+   "t": "streckung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer zentrischen Streckung wird eine 5 cm lange Strecke auf 2 cm abgebildet. Wie groß ist |k|?"
+   },
+   "o": {
+    "wert": 0.4
+   },
+   "c": "2 / 5",
+   "w": "|k| = 2 : 5 = 0,4.",
+   "h": "Bildlänge geteilt durch Originallänge."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Papierformate wie DIN A4 sind so gebaut, dass Länge : Breite = √2 gilt; deshalb ist ein halbiertes Blatt ähnlich zum ganzen. Ein Blatt ist 21 cm breit. Wie lang ist es? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 29.7,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(29.698484809835, 1)",
+   "w": "Länge = 21 cm · √2 ≈ 21 · 1,4142 ≈ 29,7 cm.",
+   "h": "Länge = Breite · √2."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche zwei Figuren sind auf jeden Fall zueinander ähnlich?"
+   },
+   "a": [
+    "zwei Rechtecke, die jeweils 2 cm länger als breit sind",
+    "zwei Rechtecke mit gleichem Flächeninhalt",
+    "zwei Rechtecke mit gleichem Umfang",
+    "zwei Quadrate"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Bei zwei Quadraten passt immer ein Faktor k für alle Seiten. Gegenbeispiel Rechtecke: 1 cm × 3 cm und 2 cm × 4 cm sind beide 2 cm länger als breit, aber 3 : 1 ≠ 4 : 2.",
+   "h": "Suche zu jeder Aussage ein Gegenbeispiel."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Bild (20 cm × 30 cm) bekommt ringsum einen 5 cm breiten Rand. Ist das äußere Rechteck ähnlich zum Bild?"
+   },
+   "a": [
+    "Nein, weil das äußere Rechteck größer ist.",
+    "Ja, weil alle Winkel 90° sind.",
+    "Nein, denn 30 : 20 ≠ 40 : 30.",
+    "Ja, weil überall gleich viel dazukommt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Außen: 30 cm × 40 cm. Verhältnisse: 30 : 20 = 1,5 und 40 : 30 ≈ 1,33. Ähnlich heißt gleicher Faktor für alle Seiten – gleicher Zuwachs reicht nicht.",
+   "h": "Berechne die Maße des äußeren Rechtecks und vergleiche die Faktoren."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Dreiecke sind ähnlich. Das kleine hat 18 cm Umfang, das große 45 cm. Die kürzeste Seite des großen ist 10 cm lang. Wie lang ist die kürzeste Seite des kleinen?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "10 / (45 / 18)",
+   "w": "Auch der Umfang wächst mit k: k = 45 : 18 = 2,5. Kürzeste Seite klein: 10 : 2,5 = 4 cm.",
+   "h": "Der Umfang wird mit demselben Faktor k malgenommen wie jede Seite."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Dreieck 1 hat die Seiten 3 cm, 4 cm und 5 cm. Dreieck 2 ist ähnlich mit k = 1,5. Welchen Umfang hat Dreieck 2?"
+   },
+   "o": {
+    "wert": 18,
+    "einheit": "cm"
+   },
+   "c": "(3 + 4 + 5) * 1.5",
+   "w": "Umfang 1: 12 cm. Umfang 2: 12 · 1,5 = 18 cm.",
+   "h": "Alle Seiten mal 1,5 – also auch der Umfang."
+  },
+  {
+   "l": "aehnlich",
+   "t": "aehnlich",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat die Winkel 40° und 60°. Welches Dreieck ist dazu ähnlich?"
+   },
+   "a": [
+    "eines mit den Winkeln 60° und 90°",
+    "eines mit den Winkeln 80° und 40°",
+    "eines mit den Winkeln 30° und 60°",
+    "eines mit den Winkeln 40° und 70°"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der dritte Winkel des ersten ist 80°. 80° und 40° gehören also zum selben Winkelsatz (40°, 60°, 80°).",
+   "h": "Berechne zuerst jeweils den dritten Winkel."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Dachschräge beginnt am Boden. 1 m von dieser Kante entfernt ist sie 60 cm hoch. Wie hoch ist sie 2,5 m von der Kante entfernt?"
+   },
+   "o": {
+    "wert": 150,
+    "einheit": "cm"
+   },
+   "c": "60 * 2.5 / 1",
+   "w": "Die Höhe wächst im gleichen Verhältnis wie der Abstand: 2,5 m : 1 m = 2,5. Höhe 60 cm · 2,5 = 150 cm.",
+   "h": "Die Kante ist der Scheitel S. Abstand und Höhe wachsen mit demselben Faktor."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt AB ∥ A'B'. SA = x, AA' = 4 cm, SB = 6 cm und BB' = 8 cm. Berechne x."
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm"
+   },
+   "c": "4 * 6 / 8",
+   "w": "1. Strahlensatz: SA : AA' = SB : BB' ⇒ x : 4 = 6 : 8 ⇒ x = 3 cm. Probe: SA' = 7, SB' = 14, 3 : 7 = 6 : 14.",
+   "h": "Stelle eine Verhältnisgleichung mit x auf und löse sie."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Strahlen mit Scheitel S werden von drei Parallelen geschnitten. Auf dem ersten Strahl sind die Abschnitte (von S aus) 2 cm, 3 cm und 5 cm lang. Auf dem zweiten Strahl ist der erste Abschnitt 3 cm lang. Wie lang ist der zweite Strahl von S bis zur dritten Parallele?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "cm"
+   },
+   "c": "(2 + 3 + 5) * 1.5",
+   "w": "Faktor 3 : 2 = 1,5 gilt für alle Abschnitte. Erster Strahl bis zur 3. Parallele: 2 + 3 + 5 = 10 cm. Zweiter Strahl: 10 · 1,5 = 15 cm.",
+   "h": "Alle Abschnitte des zweiten Strahls sind 1,5-mal so lang."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "SA = 4 cm, AA' = 6 cm, SB = 5 cm. Wie lang muss BB' sein, damit AB und A'B' parallel sind?"
+   },
+   "o": {
+    "wert": 7.5,
+    "einheit": "cm"
+   },
+   "c": "6 * 5 / 4",
+   "w": "Es muss SA : AA' = SB : BB' gelten: 4 : 6 = 5 : BB' ⇒ BB' = 7,5 cm.",
+   "h": "Umkehrung des Strahlensatzes: Die Verhältnisse müssen gleich sein."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt AB ∥ A'B'. SA = 3 cm, SA' = 9 cm, SB = 4 cm. Berechne SB'."
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "cm"
+   },
+   "c": "4 * 9 / 3",
+   "w": "Faktor 9 : 3 = 3, also SB' = 12 cm.",
+   "h": "Gleicher Faktor auf beiden Strahlen."
+  },
+  {
+   "l": "strahlensatz1",
+   "t": "strahlensatz1",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt AB ∥ A'B'. SA = 2,5 cm, AA' = 5 cm, SB = 3 cm. Berechne BB'."
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "5 * 3 / 2.5",
+   "w": "AA' : SA = 2, also BB' = 2 · 3 = 6 cm.",
+   "h": "Auch die Abschnitte zwischen den Parallelen stehen im gleichen Verhältnis."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Münze mit 2 cm Durchmesser verdeckt in 2 m Entfernung vom Auge genau den Vollmond. Der Mond hat etwa 3 500 km Durchmesser. Wie weit ist er ungefähr entfernt (in km)?"
+   },
+   "o": {
+    "wert": 350000,
+    "einheit": "km"
+   },
+   "c": "3500 * 200 / 2",
+   "w": "Durchmesser : Entfernung gleich: 2 cm : 200 cm = 3 500 km : d ⇒ d = 3 500 · 100 = 350 000 km.",
+   "h": "Auge = Scheitel. Rechne beide Längen der Münze in cm."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein 1,8 m großer Mensch steht 3 m von einer Straßenlaterne entfernt. Sein Schatten ist 2 m lang. Wie hoch ist die Laterne?"
+   },
+   "o": {
+    "wert": 4.5,
+    "einheit": "m"
+   },
+   "c": "1.8 * 5 / 2",
+   "w": "Scheitel = Schattenspitze. Abstand zur Laterne 3 + 2 = 5 m. h : 1,8 = 5 : 2 ⇒ h = 4,5 m.",
+   "h": "Der ganze Abstand von der Schattenspitze zur Laterne zählt, nicht nur 3 m."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Trapez ABCD ist AB ∥ CD, AB = 12 cm und CD = 4 cm. Die Verlängerungen von AD und BC schneiden sich in S, und SD = 3 cm. Wie lang ist SA?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "cm"
+   },
+   "c": "3 * 12 / 4",
+   "w": "Mit S als Scheitel ist das eine Strahlensatzfigur: SD : SA = CD : AB = 4 : 12 ⇒ SA = 3 · 3 = 9 cm.",
+   "h": "Verlängere die Schenkel in Gedanken: Wo ist der Scheitel, wo sind die Parallelen?"
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt AB ∥ A'B'. SA = 5 cm, AB = 4 cm, A'B' = 7 cm. Berechne AA'."
+   },
+   "o": {
+    "wert": 3.75,
+    "einheit": "cm"
+   },
+   "c": "5 * 7 / 4 - 5",
+   "w": "SA' = 5 · 7 : 4 = 8,75 cm. AA' = 8,75 − 5 = 3,75 cm.",
+   "h": "Erst SA' mit dem 2. Strahlensatz, dann die Differenz."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt AB ∥ A'B'. SA = 4 cm, SA' = 10 cm, AB = 3 cm. Berechne A'B'."
+   },
+   "o": {
+    "wert": 7.5,
+    "einheit": "cm"
+   },
+   "c": "3 * 10 / 4",
+   "w": "Faktor 10 : 4 = 2,5. A'B' = 3 · 2,5 = 7,5 cm.",
+   "h": "AB : A'B' = SA : SA'."
+  },
+  {
+   "l": "strahlensatz2",
+   "t": "strahlensatz2",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Es gilt AB ∥ A'B' mit Scheitel S. Welche Gleichung ist richtig?"
+   },
+   "a": [
+    "AB : SA = A'B' : AA'",
+    "AB : A'B' = SA : SA'",
+    "AB : A'B' = AA' : SA'",
+    "AB : A'B' = SA : AA'"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Beim 2. Strahlensatz gehören zu den Parallelen immer die ganzen Strecken ab S.",
+   "h": "Parallelstrecken passen zu Strecken, die bei S beginnen."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kreis wird mit k = 3 zentrisch gestreckt. Welche Aussage stimmt?"
+   },
+   "a": [
+    "Umfang und Fläche werden 9-mal so groß.",
+    "Umfang und Fläche werden 3-mal so groß.",
+    "Der Umfang wird 6-mal, die Fläche 9-mal so groß.",
+    "Der Umfang wird 3-mal, die Fläche 9-mal so groß."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Der Umfang ist eine Länge (u = 2πr): mal k = 3. Die Fläche (A = πr²): mal k² = 9.",
+   "h": "Länge oder Fläche? Längen mal k, Flächen mal k²."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Foto (10 cm × 15 cm) wird auf 25 cm × 37,5 cm vergrößert. Wie viel Mal so groß ist die Fläche?"
+   },
+   "o": {
+    "wert": 6.25
+   },
+   "c": "2.5 ** 2",
+   "w": "k = 25 : 10 = 2,5. Fläche mal k² = 6,25.",
+   "h": "Bestimme zuerst k, dann quadriere."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Holzwürfel wiegt 64 g. Ein Würfel aus demselben Holz hat halb so lange Kanten. Wie schwer ist er?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "g"
+   },
+   "c": "64 / 2 ** 3",
+   "w": "k = 0,5, Volumen mal 0,5³ = 1/8: 64 g : 8 = 8 g.",
+   "h": "Das Gewicht hängt am Volumen."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Flaschen sind ähnlich. Die große ist 1,5-mal so hoch und fasst 1,35 Liter. Wie viel fasst die kleine?"
+   },
+   "o": {
+    "wert": 0.4,
+    "einheit": "l"
+   },
+   "c": "1.35 / 1.5 ** 3",
+   "w": "Volumen mal 1,5³ = 3,375. Klein: 1,35 : 3,375 = 0,4 Liter.",
+   "h": "Volumen wächst mit k³."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat mit 9 cm² wird mit k = 4 gestreckt. Welchen Flächeninhalt hat das Bild?"
+   },
+   "o": {
+    "wert": 144,
+    "einheit": "cm²"
+   },
+   "c": "9 * 4 ** 2",
+   "w": "9 · 4² = 144 cm².",
+   "h": "Fläche mal k²."
+  },
+  {
+   "l": "flaeche_volumen",
+   "t": "flaeche_volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer Streckung wird die Fläche einer Figur 25-mal so groß. Wie groß ist k (k > 0)?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "25 / 5",
+   "w": "k² = 25, also k = 5.",
+   "h": "Rückwärts: k² ist der Flächenfaktor."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Verkehrsschild zeigt 12 % Steigung: Auf 100 m waagrechter Strecke steigt die Straße um 12 m. Um wie viele Meter steigt sie auf 350 m waagrechter Strecke?"
+   },
+   "o": {
+    "wert": 42,
+    "einheit": "m"
+   },
+   "c": "12 * 350 / 100",
+   "w": "Strahlensatz (Steigungsdreiecke sind ähnlich): 12 : 100 = h : 350 ⇒ h = 42 m.",
+   "h": "Höhe zu waagrechter Strecke ist überall gleich."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein 10 cm langes Lineal wird senkrecht 60 cm vor das Auge gehalten und verdeckt genau einen Turm, der 90 m entfernt ist. Wie hoch ist der Turm? (Die Augenhöhe wird vernachlässigt.)"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "m"
+   },
+   "c": "10 * 90 / 60",
+   "w": "10 cm : 60 cm = h : 90 m ⇒ h = 90 · 10 : 60 = 15 m.",
+   "h": "Auge = Scheitel. Lineal und Turm sind die Parallelen."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine 2 m hohe Stange und ein 17 m hoher Turm stehen 30 m auseinander; die Spitzen ihrer Schatten treffen sich in einem Punkt hinter der Stange. Wie lang ist der Schatten der Stange?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "m"
+   },
+   "c": "60 / 15",
+   "w": "Schatten der Stange x: 2 : x = 17 : (x + 30) ⇒ 2x + 60 = 17x ⇒ x = 4 m.",
+   "h": "Die Unbekannte steht im Nenner. Multipliziere über Kreuz."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind (Augenhöhe 1,6 m) steht 2 m vor einem Spiegel, der auf dem Boden liegt. Darin sieht es genau die Turmspitze. Der Spiegel ist 30 m vom Turm entfernt. Wie hoch ist der Turm?"
+   },
+   "o": {
+    "wert": 24,
+    "einheit": "m"
+   },
+   "c": "1.6 * 30 / 2",
+   "w": "Die beiden Dreiecke (Kind–Spiegel, Turm–Spiegel) sind ähnlich: 1,6 : 2 = h : 30 ⇒ h = 24 m.",
+   "h": "Höhe zu Abstand vom Spiegel ist auf beiden Seiten gleich."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein 1,2 m hoher Pfosten wirft 1,5 m Schatten. Zur selben Zeit wirft ein Haus 12 m Schatten. Wie hoch ist das Haus?"
+   },
+   "o": {
+    "wert": 9.6,
+    "einheit": "m"
+   },
+   "c": "1.2 * 12 / 1.5",
+   "w": "1,2 : 1,5 = h : 12 ⇒ h = 9,6 m.",
+   "h": "Höhe zu Schatten ist gleich."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einer Karte im Maßstab 1 : 25 000 sind zwei Orte 8 cm voneinander entfernt. Wie weit ist das in Wirklichkeit (in km)?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "km"
+   },
+   "c": "8 * 25000 / 100000",
+   "w": "8 cm · 25 000 = 200 000 cm = 2 km.",
+   "h": "1 km = 100 000 cm."
   }
  ],
  "offen": [

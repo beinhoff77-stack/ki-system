@@ -5153,6 +5153,849 @@
    },
    "c": "(-(4) + 26) / (2 * 1)",
    "w": "x(x + 4) = 165 ⇔ x² + 4x − 165 = 0. Lösungen −15 und 11; Breite 11 cm."
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gleichung hat keine reelle Lösung?"
+   },
+   "a": [
+    "−3x² + 12 = 0",
+    "3x² − 12 = 0",
+    "3x² = 0",
+    "3x² + 12 = 0"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "3x² + 12 = 0 ⇔ x² = −4: Ein Quadrat ist nie negativ. Die anderen: x² = 4 (zwei Lösungen), x² = 4 (zwei), x² = 0 (eine).",
+   "h": "Stelle jeweils x² allein und schau auf das Vorzeichen."
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für den Bremsweg eines Autos gilt näherungsweise s = v²/100 (s in m, v in km/h). Bei welcher Geschwindigkeit ist der Bremsweg 36 m lang?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "km/h"
+   },
+   "c": "(36 * 100) / 60",
+   "w": "36 = v²/100 ⇔ v² = 3 600 ⇔ v = 60 (die Lösung −60 passt nicht zu einer Geschwindigkeit).",
+   "h": "Setze s = 36 ein und stelle v² allein."
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gleichung x² = d hat die Lösungen −0,3 und 0,3. Wie groß ist d?"
+   },
+   "o": {
+    "wert": 0.09
+   },
+   "c": "0.3 ** 2",
+   "w": "d = 0,3² = 0,09. Probe: (−0,3)² = 0,09 auch.",
+   "h": "Rückwärts denken: Setze eine Lösung ein."
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (2x − 3)² = 49.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -2,
+     5
+    ]
+   },
+   "w": "2x − 3 = 7 oder 2x − 3 = −7. Also 2x = 10, x = 5, oder 2x = −4, x = −2.",
+   "h": "Die Klammer ist 7 oder −7. Löse dann beide linearen Gleichungen.",
+   "c": [
+    "(3 - 7) // 2",
+    "(3 + 7) // 2"
+   ]
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 0,5x² = 8.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -4,
+     4
+    ]
+   },
+   "w": "x² = 16, also x = −4 oder x = 4.",
+   "h": "Erst mal 2 nehmen.",
+   "c": [
+    "-4",
+    "4"
+   ]
+  },
+  {
+   "l": "reinquadratisch",
+   "t": "reinquadratisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat x² + 9 = 9?"
+   },
+   "a": [
+    "L = { }",
+    "L = {9}",
+    "L = {−3; 3}",
+    "L = {0}"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "x² = 0, also nur x = 0.",
+   "h": "Subtrahiere 9 auf beiden Seiten."
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3x² = 7,5x. Gib die Lösung an, die nicht 0 ist."
+   },
+   "o": {
+    "wert": 2.5
+   },
+   "c": "7.5 / 3",
+   "w": "3x² − 7,5x = 0 ⇔ x(3x − 7,5) = 0. Also x = 0 oder x = 7,5 : 3 = 2,5.",
+   "h": "Alles auf eine Seite bringen und x ausklammern – nicht durch x teilen."
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x³ − 9x = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "der Größe nach"
+   },
+   "o": {
+    "werte": [
+     -3,
+     0,
+     3
+    ]
+   },
+   "w": "x(x² − 9) = 0. Also x = 0 oder x² = 9, d. h. x = −3 oder x = 3.",
+   "h": "Klammere x aus. Der Rest ist eine reinquadratische Gleichung.",
+   "c": [
+    "-3",
+    "0",
+    "3"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl b hat die Gleichung x² + bx = 0 die Lösungen 0 und 6?"
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "0 - 6",
+   "w": "x(x + b) = 0 hat die Lösungen 0 und −b. Also −b = 6, b = −6. Probe: x² − 6x = x(x − 6).",
+   "h": "Klammere aus und vergleiche die zweite Lösung mit 6."
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x(x − 5) = 3x.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     8
+    ]
+   },
+   "w": "x² − 5x = 3x ⇔ x² − 8x = 0 ⇔ x(x − 8) = 0. Also x = 0 oder x = 8.",
+   "h": "Ausmultiplizieren, alles nach links bringen, dann x ausklammern.",
+   "c": [
+    "0",
+    "5 + 3"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse −x² + 6x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     6
+    ]
+   },
+   "w": "x(−x + 6) = 0, also x = 0 oder x = 6.",
+   "h": "Klammere x aus.",
+   "c": [
+    "0",
+    "6"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 4x² + 10x = 0. Gib die negative Lösung an."
+   },
+   "o": {
+    "wert": -2.5
+   },
+   "c": "-10 / 4",
+   "w": "x(4x + 10) = 0, also x = 0 oder 4x = −10, x = −2,5.",
+   "h": "Klammere x aus und setze beide Faktoren null."
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Funktion f mit f(x) = x² − 10x + 21 hat zwei Nullstellen. Bestimme sie durch Faktorisieren.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     3,
+     7
+    ]
+   },
+   "w": "Zwei Zahlen mit Produkt 21 und Summe 10: 3 und 7. f(x) = (x − 3)(x − 7), Nullstellen 3 und 7.",
+   "h": "Nullstellen: f(x) = 0 setzen. Suche zwei Zahlen mit Produkt 21 und Summe 10.",
+   "c": [
+    "3",
+    "7"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gib eine Gleichung der Form x² + bx + c = 0 an, die genau die Lösungen −2 und 5 hat.",
+    "schablone": "x² + □x + □ = 0",
+    "hinweis": "b und c eintragen (auch negativ)"
+   },
+   "o": {
+    "werte": [
+     -3,
+     -10
+    ]
+   },
+   "w": "(x + 2)(x − 5) = 0 ausmultiplizieren: x² − 5x + 2x − 10 = x² − 3x − 10. Also b = −3, c = −10.",
+   "h": "Schreibe zuerst die Produktform mit den Lösungen und multipliziere aus.",
+   "c": [
+    "2 - 5",
+    "2 * (-5)"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für wie viele ganze Zahlen b hat x² + bx + 6 = 0 zwei verschiedene ganzzahlige Lösungen?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "2 * 2",
+   "w": "Die Lösungen p, q müssen Produkt 6 haben: (1; 6), (2; 3), (−1; −6), (−2; −3). Dann ist b = −(p + q) = −7, −5, 7 oder 5. Also 4 Werte.",
+   "h": "Aus (x − p)(x − q) folgt p · q = 6. Liste alle ganzzahligen Paare auf."
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x − 3)(x + 4) = 8.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -5,
+     4
+    ]
+   },
+   "w": "Rechts steht nicht 0! Ausmultiplizieren: x² + x − 12 = 8 ⇔ x² + x − 20 = 0 ⇔ (x + 5)(x − 4) = 0. Also −5 und 4.",
+   "h": "Der Satz vom Nullprodukt gilt nur, wenn rechts 0 steht. Erst umformen.",
+   "c": [
+    "-5",
+    "4"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − x − 12 = 0 durch Faktorisieren.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -3,
+     4
+    ]
+   },
+   "w": "Produkt −12, Summe 1: −3 und 4. (x + 3)(x − 4) = 0.",
+   "h": "Suche zwei Zahlen mit Produkt −12.",
+   "c": [
+    "-3",
+    "4"
+   ]
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (2x − 6)(x + 5) = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -5,
+     3
+    ]
+   },
+   "w": "2x − 6 = 0 ⇔ x = 3; x + 5 = 0 ⇔ x = −5.",
+   "h": "Setze jeden Faktor null.",
+   "c": [
+    "-5",
+    "6 // 2"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² + 3x − 10 = 0 mit quadratischer Ergänzung.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -5,
+     2
+    ]
+   },
+   "w": "x² + 3x = 10. Ergänze 1,5² = 2,25: (x + 1,5)² = 12,25. x + 1,5 = ±3,5, also x = 2 oder x = −5.",
+   "h": "Die Hälfte von 3 ist 1,5. Ergänze 1,5² auf beiden Seiten.",
+   "c": [
+    "-1.5 - 3.5",
+    "-1.5 + 3.5"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe 2x² − 12x + 10 = 0 mit quadratischer Ergänzung auf die Form (x − …)² = ….",
+    "schablone": "(x − □)² = □",
+    "hinweis": "Zahlen eintragen"
+   },
+   "o": {
+    "werte": [
+     3,
+     4
+    ]
+   },
+   "w": "Erst durch 2 teilen: x² − 6x + 5 = 0. Ergänze 9: x² − 6x + 9 = −5 + 9, also (x − 3)² = 4.",
+   "h": "Vor dem Ergänzen muss vor x² eine 1 stehen.",
+   "c": [
+    "6 // 2",
+    "9 - 5"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bei x² + 8x + c = 0 führt die quadratische Ergänzung auf (x + 4)² = 9. Wie groß ist c?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "16 - 9",
+   "w": "x² + 8x = −c, ergänzt: (x + 4)² = 16 − c. Also 16 − c = 9 und c = 7. Probe: x² + 8x + 7 = 0.",
+   "h": "Rechne die Ergänzung rückwärts: Was steht rechts, wenn du 16 ergänzt?"
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 8x + 13 = 0 mit quadratischer Ergänzung. Die Lösungen haben die Form 4 ± √d.",
+    "schablone": "x = 4 ± √□",
+    "hinweis": "d eintragen"
+   },
+   "o": {
+    "werte": [
+     3
+    ]
+   },
+   "w": "x² − 8x = −13. Ergänze 16: (x − 4)² = 3. Also x − 4 = ±√3 und x = 4 ± √3.",
+   "h": "Ergänze (8/2)² = 16.",
+   "c": [
+    "16 - 13"
+   ]
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl musst du zu x² + 18x addieren, damit ein vollständiges Quadrat entsteht?"
+   },
+   "o": {
+    "wert": 81
+   },
+   "c": "(18 / 2) ** 2",
+   "w": "Hälfte von 18 ist 9, ergänze 9² = 81: x² + 18x + 81 = (x + 9)².",
+   "h": "Halbiere die Zahl vor x und quadriere."
+  },
+  {
+   "l": "ergaenzung",
+   "t": "ergaenzung",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe x² − 2x − 8 = 0 auf die Form (x − …)² = ….",
+    "schablone": "(x − □)² = □",
+    "hinweis": "Zahlen eintragen"
+   },
+   "o": {
+    "werte": [
+     1,
+     9
+    ]
+   },
+   "w": "x² − 2x = 8, ergänze 1: (x − 1)² = 9.",
+   "h": "Hälfte von 2 ist 1, ergänze 1² = 1.",
+   "c": [
+    "2 // 2",
+    "8 + 1"
+   ]
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3x² + x − 2 = 0.",
+    "schablone": "x₁ = □; x₂ = □/□",
+    "hinweis": "erst die ganze Zahl, dann den Bruch"
+   },
+   "o": {
+    "werte": [
+     -1,
+     2,
+     3
+    ]
+   },
+   "w": "a = 3, b = 1, c = −2. D = 1 + 24 = 25, √D = 5. x = (−1 ± 5)/6: x₁ = −6/6 = −1, x₂ = 4/6 = 2/3.",
+   "h": "Lösungsformel mit a = 3, b = 1, c = −2. Kürze am Ende.",
+   "c": [
+    "(-1 - 5) // 6",
+    "2",
+    "3"
+   ]
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse ohne Taschenrechner 0,5x² − x − 4 = 0. Gib die positive Lösung an."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(2 + 6) / 2",
+   "w": "Mal 2: x² − 2x − 8 = 0. D = 4 + 32 = 36, x = (2 ± 6)/2: 4 oder −2. Positive Lösung: 4.",
+   "h": "Multipliziere zuerst mit 2, dann wird es einfacher."
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gleichung x² + bx − 12 = 0 hat die Lösung x = 2. Wie heißt die andere Lösung?"
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "-12 / 2",
+   "w": "Einsetzen: 4 + 2b − 12 = 0, also b = 4. x² + 4x − 12 = (x − 2)(x + 6) = 0. Die andere Lösung ist −6. (Kurz: Produkt der Lösungen = −12.)",
+   "h": "Setze x = 2 ein und bestimme zuerst b."
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (2x + 1)² = 3x + 4.",
+    "schablone": "x₁ = □; x₂ = □/□",
+    "hinweis": "erst die ganze Zahl, dann den Bruch"
+   },
+   "o": {
+    "werte": [
+     -1,
+     3,
+     4
+    ]
+   },
+   "w": "4x² + 4x + 1 = 3x + 4 ⇔ 4x² + x − 3 = 0. D = 1 + 48 = 49. x = (−1 ± 7)/8: −1 oder 3/4.",
+   "h": "Ausmultiplizieren, alles nach links, dann Lösungsformel.",
+   "c": [
+    "(-1 - 7) // 8",
+    "3",
+    "4"
+   ]
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x² + 2x − 15 = 0 mit der Lösungsformel. Gib die größere Lösung an."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(-2 + 8) / 2",
+   "w": "D = 4 + 60 = 64, x = (−2 ± 8)/2: 3 oder −5. Größere: 3.",
+   "h": "a = 1, b = 2, c = −15."
+  },
+  {
+   "l": "loesungsformel",
+   "t": "loesungsformel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Diskriminante von 5x² − 2x − 3 = 0."
+   },
+   "o": {
+    "wert": 64
+   },
+   "c": "(-2)**2 - 4*5*(-3)",
+   "w": "D = (−2)² − 4 · 5 · (−3) = 4 + 60 = 64.",
+   "h": "D = b² − 4ac. Achte auf die Vorzeichen."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welchen Term f(x) hat die Gleichung f(x) = 0 keine reelle Lösung?"
+   },
+   "a": [
+    "x² − 2x + 3",
+    "x² − 2x + 1",
+    "−x² − 2x + 3",
+    "x² − 2x − 3"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "x² − 2x + 3: D = 4 − 12 = −8 < 0. Die anderen: D = 16, D = 0, D = 16.",
+   "h": "Berechne für jeden Term die Diskriminante."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche Zahlen c hat x² + 6x + c = 0 zwei Lösungen?"
+   },
+   "a": [
+    "c < 9",
+    "c < 3",
+    "c > 9",
+    "c = 9"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "D = 36 − 4c > 0 ⇔ 4c < 36 ⇔ c < 9.",
+   "h": "Zwei Lösungen bei D > 0. Stelle die Ungleichung für c auf."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "In ax² + bx + c = 0 ist a positiv und c negativ. Wie viele Lösungen hat die Gleichung?"
+   },
+   "a": [
+    "immer zwei",
+    "Das hängt von b ab.",
+    "immer genau eine",
+    "immer keine"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "D = b² − 4ac. Weil a und c verschiedene Vorzeichen haben, ist −4ac > 0. b² ist nie negativ, also D > 0: immer zwei Lösungen.",
+   "h": "Welches Vorzeichen hat −4ac, wenn a > 0 und c < 0?"
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl a hat ax² − 12x + 4 = 0 genau eine Lösung?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "144 / 16",
+   "w": "D = 144 − 16a = 0 ⇔ a = 9. Probe: 9x² − 12x + 4 = (3x − 2)².",
+   "h": "Genau eine Lösung bei D = 0."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat 4x² − 12x + 9 = 0?"
+   },
+   "a": [
+    "genau eine Lösung",
+    "zwei Lösungen",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "D = 144 − 144 = 0, also genau eine Lösung (x = 1,5).",
+   "h": "Berechne D = b² − 4ac."
+  },
+  {
+   "l": "diskriminante",
+   "t": "diskriminante",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat −x² + 4x − 5 = 0?"
+   },
+   "a": [
+    "zwei Lösungen",
+    "genau eine Lösung",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "D = 16 − 4 · (−1) · (−5) = 16 − 20 = −4 < 0, also keine Lösung.",
+   "h": "Achte auf a = −1 und c = −5."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Mit 20 m Zaun wird an einer Hauswand ein rechteckiges Gehege abgegrenzt; die Hauswand bildet die vierte Seite. Das Gehege soll 48 m² groß sein, die Seite entlang der Wand länger als 10 m. Wie lang ist eine Seite senkrecht zur Wand?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "m"
+   },
+   "c": "(10 - 2) / 2",
+   "w": "Senkrechte Seite x, Seite an der Wand 20 − 2x. x(20 − 2x) = 48 ⇔ x² − 10x + 24 = 0: x = 4 oder x = 6. Bei x = 6 wäre die Wandseite nur 8 m, also x = 4 m (Wandseite 12 m).",
+   "h": "Der Zaun bildet nur drei Seiten: zweimal x und einmal die Seite an der Wand."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Anhalteweg eines Autos ist Reaktionsweg plus Bremsweg: 0,3 · v + 0,01 · v² (v in km/h, Weg in m). Bei welcher Geschwindigkeit ist der Anhalteweg 40 m lang?"
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "km/h"
+   },
+   "c": "(-30 + 130) / 2",
+   "w": "0,01v² + 0,3v = 40 ⇔ v² + 30v − 4 000 = 0. D = 900 + 16 000 = 16 900, √D = 130. v = (−30 + 130)/2 = 50 (die negative Lösung fällt weg).",
+   "h": "Gleichung aufstellen, mit 100 malnehmen, Lösungsformel."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl plus ihr Kehrwert ergibt 2,5. Wie heißt die größere der beiden möglichen Zahlen?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(5 + 3) / 4",
+   "w": "x + 1/x = 2,5 ⇔ x² − 2,5x + 1 = 0 ⇔ 2x² − 5x + 2 = 0. D = 9, x = (5 ± 3)/4: 2 oder 0,5. Größere: 2 (Probe: 2 + 0,5 = 2,5).",
+   "h": "Mit x malnehmen, dann entsteht eine quadratische Gleichung."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Ball wird geworfen. Seine Höhe ist h(t) = 2 + 15t − 5t² (t in s, h in m). Nach wie vielen Sekunden landet er auf dem Boden? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 3.1,
+    "einheit": "s",
+    "toleranz": 0.1
+   },
+   "c": "round(3.127882059610, 1)",
+   "w": "h(t) = 0 ⇔ 5t² − 15t − 2 = 0. D = 225 + 40 = 265, √265 ≈ 16,28. t = (15 + 16,28)/10 ≈ 3,1 s (die negative Lösung fällt weg).",
+   "h": "Am Boden ist die Höhe 0."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Quadrat einer positiven Zahl ist um 30 größer als die Zahl selbst. Wie heißt die Zahl?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(1 + 11) / 2",
+   "w": "x² = x + 30 ⇔ x² − x − 30 = 0: x = 6 oder x = −5. Positiv: 6.",
+   "h": "Stelle die Gleichung x² = x + 30 auf."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck hat 26 cm Umfang und 40 cm² Flächeninhalt. Wie lang ist die längere Seite?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "cm"
+   },
+   "c": "(13 + 3) / 2",
+   "w": "Seiten x und 13 − x. x(13 − x) = 40 ⇔ x² − 13x + 40 = 0: x = 5 oder 8. Längere Seite 8 cm.",
+   "h": "Die Hälfte des Umfangs ist die Summe der beiden Seiten."
   }
  ],
  "offen": [

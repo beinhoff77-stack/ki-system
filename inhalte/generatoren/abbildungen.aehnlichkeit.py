@@ -628,8 +628,122 @@ def g_anwendung(s):
 GEN = {'streckung': g_streckung, 'aehnlich': g_aehnlich, 'strahlensatz1': g_strahlensatz1, 'strahlensatz2': g_strahlensatz2,
        'flaeche_volumen': g_flaeche_volumen, 'anwendung': g_anwendung}
 
+# ---------- Zehnte Runde (schwer-kl9): schwerere Übungen nach Prüfungsvorbild ----------
+# Eigener Abschnitt mit eigenem festen Zufallsstart (anhaengen(..., 9909, ...)), läuft erst nach bauen():
+# alle bisherigen Aufgaben bleiben unverändert. Vorbilder: Bayerischer Mathematik-Test 10 (ISB; 2009: Entfernung
+# des Mondes mit einer Perle vor dem Auge schätzen; 2023: Ähnlichkeit bei DIN-Formaten; 2025: Strahlensatz führt auf
+# eine Gleichung, deren Lösung zu zeigen ist), Illustrierende Aufgaben Realschule 9 (I) (zentrische Streckung: Z und k
+# bestimmen, k = 1 als Falle; Schränke unter der Dachschräge; Kreisbogen bei doppeltem Radius), Musterschulaufgaben
+# Kl. 9 (Straßensteigung mit Strahlensatz, ähnliche Figuren ja/nein). Zahlen und Wortlaut eigen.
+from _schwer_kl9 import anhaengen  # noqa: E402
+from _kl9 import K as _K  # noqa: E402
+
+
+def schwer():
+    P, Kn, O = 'pruefung', 'knobel', ''
+    PT = 'Koordinaten eintragen (auch negativ)'
+    return [
+        # streckung
+        ('streckung', 3, P, zahl('Ein Dreieck wird zentrisch gestreckt. Aus der Seite AB = 4 cm wird A\'B\' = 6 cm, und das Bilddreieck liegt auf der anderen Seite des Zentrums (es steht auf dem Kopf). Wie groß ist der Streckfaktor k?',
+                                 '|k| = 6 : 4 = 1,5. Liegt das Bild auf der anderen Seite des Zentrums, ist k negativ: k = −1,5.',
+                                 'Der Betrag kommt aus dem Längenverhältnis, das Vorzeichen aus der Lage zum Zentrum.', -1.5, '-6 / 4')),
+        ('streckung', 3, P, luecken('Bei einer zentrischen Streckung mit Zentrum Z(0 | 0) wird A(2 | 1) auf A\'(6 | 3) abgebildet. Wohin wird B(−1 | 4) abgebildet?', "B'(□ | □)", PT, [-3, 12],
+                                    'Aus A → A\' folgt k = 3. Mit Zentrum im Ursprung werden die Koordinaten mal 3 genommen: B\'(−3 | 12).',
+                                    'Bestimme zuerst k aus A und A\'.', ['3 * (-1)', '3 * 4'])),
+        ('streckung', 3, Kn, auswahl('Eine Figur wird mit demselben Zentrum Z zuerst mit k = −2 und dann mit k = −0,5 gestreckt. Was ist insgesamt passiert?',
+                                     'Jeder Punkt liegt wieder an seiner alten Stelle (insgesamt k = 1).',
+                                     ['Die Figur ist an Z gespiegelt (k = −1).', 'Die Figur ist doppelt so groß (k = 2).', 'Die Figur ist halb so groß (k = −2,5).'],
+                                     'Hintereinander ausführen heißt Faktoren malnehmen: (−2) · (−0,5) = 1. Mit k = 1 bleibt alles, wie es war.',
+                                     'Was passiert mit dem Abstand zu Z bei beiden Schritten zusammen?')),
+        ('streckung', 3, O, luecken('Strecke P(1 | 2) zentrisch mit dem Zentrum Z(3 | 0) und k = −2.', "P'(□ | □)", PT, [7, -4],
+                                    'Von Z nach P: (−2 | 2). Mal −2: (4 | −4). Von Z aus abtragen: P\'(3 + 4 | 0 − 4) = P\'(7 | −4).',
+                                    'Erst den Weg von Z nach P bestimmen, dann mit k malnehmen, dann von Z aus abtragen.', ['3 + 4', '0 - 4'])),
+        ('streckung', 2, O, luecken('Strecke P(8 | −6) mit Zentrum Z(0 | 0) und k = 0,5.', "P'(□ | □)", PT, [4, -3], 'Zentrum im Ursprung: Koordinaten mal 0,5: P\'(4 | −3).',
+                                    'Bei Z im Ursprung werden beide Koordinaten mit k malgenommen.', ['8 // 2', '-6 // 2'])),
+        ('streckung', 2, O, zahl('Bei einer zentrischen Streckung wird eine 5 cm lange Strecke auf 2 cm abgebildet. Wie groß ist |k|?', '|k| = 2 : 5 = 0,4.',
+                                 'Bildlänge geteilt durch Originallänge.', 0.4, '2 / 5')),
+        # aehnlich
+        ('aehnlich', 3, P, zahl('Papierformate wie DIN A4 sind so gebaut, dass Länge : Breite = √2 gilt; deshalb ist ein halbiertes Blatt ähnlich zum ganzen. Ein Blatt ist 21 cm breit. Wie lang ist es? Runde auf eine Nachkommastelle.',
+                                'Länge = 21 cm · √2 ≈ 21 · 1,4142 ≈ 29,7 cm.', 'Länge = Breite · √2.', round(21 * 2 ** 0.5, 1), f'round({_K(21 * 2 ** 0.5)}, 1)', einheit='cm')),
+        ('aehnlich', 3, P, auswahl('Welche zwei Figuren sind auf jeden Fall zueinander ähnlich?', 'zwei Quadrate',
+                                   ['zwei Rechtecke mit gleichem Umfang', 'zwei Rechtecke mit gleichem Flächeninhalt', 'zwei Rechtecke, die jeweils 2 cm länger als breit sind'],
+                                   'Bei zwei Quadraten passt immer ein Faktor k für alle Seiten. Gegenbeispiel Rechtecke: 1 cm × 3 cm und 2 cm × 4 cm sind beide 2 cm länger als breit, aber 3 : 1 ≠ 4 : 2.',
+                                   'Suche zu jeder Aussage ein Gegenbeispiel.')),
+        ('aehnlich', 3, Kn, auswahl('Ein Bild (20 cm × 30 cm) bekommt ringsum einen 5 cm breiten Rand. Ist das äußere Rechteck ähnlich zum Bild?', 'Nein, denn 30 : 20 ≠ 40 : 30.',
+                                    ['Ja, weil überall gleich viel dazukommt.', 'Ja, weil alle Winkel 90° sind.', 'Nein, weil das äußere Rechteck größer ist.'],
+                                    'Außen: 30 cm × 40 cm. Verhältnisse: 30 : 20 = 1,5 und 40 : 30 ≈ 1,33. Ähnlich heißt gleicher Faktor für alle Seiten – gleicher Zuwachs reicht nicht.',
+                                    'Berechne die Maße des äußeren Rechtecks und vergleiche die Faktoren.')),
+        ('aehnlich', 3, O, zahl('Zwei Dreiecke sind ähnlich. Das kleine hat 18 cm Umfang, das große 45 cm. Die kürzeste Seite des großen ist 10 cm lang. Wie lang ist die kürzeste Seite des kleinen?',
+                                'Auch der Umfang wächst mit k: k = 45 : 18 = 2,5. Kürzeste Seite klein: 10 : 2,5 = 4 cm.', 'Der Umfang wird mit demselben Faktor k malgenommen wie jede Seite.',
+                                4, '10 / (45 / 18)', einheit='cm')),
+        ('aehnlich', 2, O, zahl('Dreieck 1 hat die Seiten 3 cm, 4 cm und 5 cm. Dreieck 2 ist ähnlich mit k = 1,5. Welchen Umfang hat Dreieck 2?', 'Umfang 1: 12 cm. Umfang 2: 12 · 1,5 = 18 cm.',
+                                'Alle Seiten mal 1,5 – also auch der Umfang.', 18, '(3 + 4 + 5) * 1.5', einheit='cm')),
+        ('aehnlich', 2, O, auswahl('Ein Dreieck hat die Winkel 40° und 60°. Welches Dreieck ist dazu ähnlich?', 'eines mit den Winkeln 80° und 40°',
+                                   ['eines mit den Winkeln 40° und 70°', 'eines mit den Winkeln 60° und 90°', 'eines mit den Winkeln 30° und 60°'],
+                                   'Der dritte Winkel des ersten ist 80°. 80° und 40° gehören also zum selben Winkelsatz (40°, 60°, 80°).', 'Berechne zuerst jeweils den dritten Winkel.')),
+        # strahlensatz1
+        ('strahlensatz1', 3, P, zahl('Eine Dachschräge beginnt am Boden. 1 m von dieser Kante entfernt ist sie 60 cm hoch. Wie hoch ist sie 2,5 m von der Kante entfernt?',
+                                     'Die Höhe wächst im gleichen Verhältnis wie der Abstand: 2,5 m : 1 m = 2,5. Höhe 60 cm · 2,5 = 150 cm.',
+                                     'Die Kante ist der Scheitel S. Abstand und Höhe wachsen mit demselben Faktor.', 150, '60 * 2.5 / 1', einheit='cm')),
+        ('strahlensatz1', 3, P, zahl('Es gilt AB ∥ A\'B\'. SA = x, AA\' = 4 cm, SB = 6 cm und BB\' = 8 cm. Berechne x.',
+                                     '1. Strahlensatz: SA : AA\' = SB : BB\' ⇒ x : 4 = 6 : 8 ⇒ x = 3 cm. Probe: SA\' = 7, SB\' = 14, 3 : 7 = 6 : 14.',
+                                     'Stelle eine Verhältnisgleichung mit x auf und löse sie.', 3, '4 * 6 / 8', einheit='cm')),
+        ('strahlensatz1', 3, Kn, zahl('Zwei Strahlen mit Scheitel S werden von drei Parallelen geschnitten. Auf dem ersten Strahl sind die Abschnitte (von S aus) 2 cm, 3 cm und 5 cm lang. Auf dem zweiten Strahl ist der erste Abschnitt 3 cm lang. Wie lang ist der zweite Strahl von S bis zur dritten Parallele?',
+                                      'Faktor 3 : 2 = 1,5 gilt für alle Abschnitte. Erster Strahl bis zur 3. Parallele: 2 + 3 + 5 = 10 cm. Zweiter Strahl: 10 · 1,5 = 15 cm.',
+                                      'Alle Abschnitte des zweiten Strahls sind 1,5-mal so lang.', 15, '(2 + 3 + 5) * 1.5', einheit='cm')),
+        ('strahlensatz1', 3, O, zahl('SA = 4 cm, AA\' = 6 cm, SB = 5 cm. Wie lang muss BB\' sein, damit AB und A\'B\' parallel sind?', 'Es muss SA : AA\' = SB : BB\' gelten: 4 : 6 = 5 : BB\' ⇒ BB\' = 7,5 cm.',
+                                     'Umkehrung des Strahlensatzes: Die Verhältnisse müssen gleich sein.', 7.5, '6 * 5 / 4', einheit='cm')),
+        ('strahlensatz1', 2, O, zahl('Es gilt AB ∥ A\'B\'. SA = 3 cm, SA\' = 9 cm, SB = 4 cm. Berechne SB\'.', 'Faktor 9 : 3 = 3, also SB\' = 12 cm.', 'Gleicher Faktor auf beiden Strahlen.', 12,
+                                     '4 * 9 / 3', einheit='cm')),
+        ('strahlensatz1', 2, O, zahl('Es gilt AB ∥ A\'B\'. SA = 2,5 cm, AA\' = 5 cm, SB = 3 cm. Berechne BB\'.', 'AA\' : SA = 2, also BB\' = 2 · 3 = 6 cm.', 'Auch die Abschnitte zwischen den Parallelen stehen im gleichen Verhältnis.',
+                                     6, '5 * 3 / 2.5', einheit='cm')),
+        # strahlensatz2
+        ('strahlensatz2', 3, P, zahl('Eine Münze mit 2 cm Durchmesser verdeckt in 2 m Entfernung vom Auge genau den Vollmond. Der Mond hat etwa 3 500 km Durchmesser. Wie weit ist er ungefähr entfernt (in km)?',
+                                     'Durchmesser : Entfernung gleich: 2 cm : 200 cm = 3 500 km : d ⇒ d = 3 500 · 100 = 350 000 km.',
+                                     'Auge = Scheitel. Rechne beide Längen der Münze in cm.', 350000, '3500 * 200 / 2', einheit='km')),
+        ('strahlensatz2', 3, P, zahl('Ein 1,8 m großer Mensch steht 3 m von einer Straßenlaterne entfernt. Sein Schatten ist 2 m lang. Wie hoch ist die Laterne?',
+                                     'Scheitel = Schattenspitze. Abstand zur Laterne 3 + 2 = 5 m. h : 1,8 = 5 : 2 ⇒ h = 4,5 m.',
+                                     'Der ganze Abstand von der Schattenspitze zur Laterne zählt, nicht nur 3 m.', 4.5, '1.8 * 5 / 2', einheit='m')),
+        ('strahlensatz2', 3, Kn, zahl('Im Trapez ABCD ist AB ∥ CD, AB = 12 cm und CD = 4 cm. Die Verlängerungen von AD und BC schneiden sich in S, und SD = 3 cm. Wie lang ist SA?',
+                                      'Mit S als Scheitel ist das eine Strahlensatzfigur: SD : SA = CD : AB = 4 : 12 ⇒ SA = 3 · 3 = 9 cm.',
+                                      'Verlängere die Schenkel in Gedanken: Wo ist der Scheitel, wo sind die Parallelen?', 9, '3 * 12 / 4', einheit='cm')),
+        ('strahlensatz2', 3, O, zahl('Es gilt AB ∥ A\'B\'. SA = 5 cm, AB = 4 cm, A\'B\' = 7 cm. Berechne AA\'.', 'SA\' = 5 · 7 : 4 = 8,75 cm. AA\' = 8,75 − 5 = 3,75 cm.',
+                                     'Erst SA\' mit dem 2. Strahlensatz, dann die Differenz.', 3.75, '5 * 7 / 4 - 5', einheit='cm')),
+        ('strahlensatz2', 2, O, zahl('Es gilt AB ∥ A\'B\'. SA = 4 cm, SA\' = 10 cm, AB = 3 cm. Berechne A\'B\'.', 'Faktor 10 : 4 = 2,5. A\'B\' = 3 · 2,5 = 7,5 cm.', 'AB : A\'B\' = SA : SA\'.',
+                                     7.5, '3 * 10 / 4', einheit='cm')),
+        ('strahlensatz2', 2, O, auswahl('Es gilt AB ∥ A\'B\' mit Scheitel S. Welche Gleichung ist richtig?', "AB : A'B' = SA : SA'", ["AB : A'B' = SA : AA'", "AB : A'B' = AA' : SA'", "AB : SA = A'B' : AA'"],
+                                        'Beim 2. Strahlensatz gehören zu den Parallelen immer die ganzen Strecken ab S.', 'Parallelstrecken passen zu Strecken, die bei S beginnen.')),
+        # flaeche_volumen
+        ('flaeche_volumen', 3, P, auswahl('Ein Kreis wird mit k = 3 zentrisch gestreckt. Welche Aussage stimmt?', 'Der Umfang wird 3-mal, die Fläche 9-mal so groß.',
+                                          ['Umfang und Fläche werden 3-mal so groß.', 'Umfang und Fläche werden 9-mal so groß.', 'Der Umfang wird 6-mal, die Fläche 9-mal so groß.'],
+                                          'Der Umfang ist eine Länge (u = 2πr): mal k = 3. Die Fläche (A = πr²): mal k² = 9.', 'Länge oder Fläche? Längen mal k, Flächen mal k².')),
+        ('flaeche_volumen', 3, P, zahl('Ein Foto (10 cm × 15 cm) wird auf 25 cm × 37,5 cm vergrößert. Wie viel Mal so groß ist die Fläche?', 'k = 25 : 10 = 2,5. Fläche mal k² = 6,25.',
+                                       'Bestimme zuerst k, dann quadriere.', 6.25, '2.5 ** 2')),
+        ('flaeche_volumen', 3, Kn, zahl('Ein Holzwürfel wiegt 64 g. Ein Würfel aus demselben Holz hat halb so lange Kanten. Wie schwer ist er?', 'k = 0,5, Volumen mal 0,5³ = 1/8: 64 g : 8 = 8 g.',
+                                        'Das Gewicht hängt am Volumen.', 8, '64 / 2 ** 3', einheit='g')),
+        ('flaeche_volumen', 3, O, zahl('Zwei Flaschen sind ähnlich. Die große ist 1,5-mal so hoch und fasst 1,35 Liter. Wie viel fasst die kleine?', 'Volumen mal 1,5³ = 3,375. Klein: 1,35 : 3,375 = 0,4 Liter.',
+                                       'Volumen wächst mit k³.', 0.4, '1.35 / 1.5 ** 3', einheit='l')),
+        ('flaeche_volumen', 2, O, zahl('Ein Quadrat mit 9 cm² wird mit k = 4 gestreckt. Welchen Flächeninhalt hat das Bild?', '9 · 4² = 144 cm².', 'Fläche mal k².', 144, '9 * 4 ** 2', einheit='cm²')),
+        ('flaeche_volumen', 2, O, zahl('Bei einer Streckung wird die Fläche einer Figur 25-mal so groß. Wie groß ist k (k > 0)?', 'k² = 25, also k = 5.', 'Rückwärts: k² ist der Flächenfaktor.', 5, '25 / 5')),
+        # anwendung
+        ('anwendung', 3, P, zahl('Ein Verkehrsschild zeigt 12 % Steigung: Auf 100 m waagrechter Strecke steigt die Straße um 12 m. Um wie viele Meter steigt sie auf 350 m waagrechter Strecke?',
+                                 'Strahlensatz (Steigungsdreiecke sind ähnlich): 12 : 100 = h : 350 ⇒ h = 42 m.', 'Höhe zu waagrechter Strecke ist überall gleich.', 42, '12 * 350 / 100', einheit='m')),
+        ('anwendung', 3, P, zahl('Ein 10 cm langes Lineal wird senkrecht 60 cm vor das Auge gehalten und verdeckt genau einen Turm, der 90 m entfernt ist. Wie hoch ist der Turm? (Die Augenhöhe wird vernachlässigt.)',
+                                 '10 cm : 60 cm = h : 90 m ⇒ h = 90 · 10 : 60 = 15 m.', 'Auge = Scheitel. Lineal und Turm sind die Parallelen.', 15, '10 * 90 / 60', einheit='m')),
+        ('anwendung', 3, Kn, zahl('Eine 2 m hohe Stange und ein 17 m hoher Turm stehen 30 m auseinander; die Spitzen ihrer Schatten treffen sich in einem Punkt hinter der Stange. Wie lang ist der Schatten der Stange?',
+                                  'Schatten der Stange x: 2 : x = 17 : (x + 30) ⇒ 2x + 60 = 17x ⇒ x = 4 m.', 'Die Unbekannte steht im Nenner. Multipliziere über Kreuz.', 4, '60 / 15', einheit='m')),
+        ('anwendung', 3, O, zahl('Ein Kind (Augenhöhe 1,6 m) steht 2 m vor einem Spiegel, der auf dem Boden liegt. Darin sieht es genau die Turmspitze. Der Spiegel ist 30 m vom Turm entfernt. Wie hoch ist der Turm?',
+                                 'Die beiden Dreiecke (Kind–Spiegel, Turm–Spiegel) sind ähnlich: 1,6 : 2 = h : 30 ⇒ h = 24 m.', 'Höhe zu Abstand vom Spiegel ist auf beiden Seiten gleich.', 24,
+                                 '1.6 * 30 / 2', einheit='m')),
+        ('anwendung', 2, O, zahl('Ein 1,2 m hoher Pfosten wirft 1,5 m Schatten. Zur selben Zeit wirft ein Haus 12 m Schatten. Wie hoch ist das Haus?', '1,2 : 1,5 = h : 12 ⇒ h = 9,6 m.',
+                                 'Höhe zu Schatten ist gleich.', 9.6, '1.2 * 12 / 1.5', einheit='m')),
+        ('anwendung', 2, O, zahl('Auf einer Karte im Maßstab 1 : 25 000 sind zwei Orte 8 cm voneinander entfernt. Wie weit ist das in Wirklichkeit (in km)?', '8 cm · 25 000 = 200 000 cm = 2 km.',
+                                 '1 km = 100 000 cm.', 2, '8 * 25000 / 100000', einheit='km')),
+    ]
+
+
 if __name__ == '__main__':
-    bauen('abbildungen.aehnlichkeit',
+    d = bauen('abbildungen.aehnlichkeit',
           'Zentrische Streckung und Ähnlichkeit verstehen, Strahlensätze anwenden und die Wirkung auf Fläche und Volumen berechnen.',
           ['Zentrische Streckung: Längen · |k|, Flächen · k², Volumina · |k|³.', 'Ähnlich: gleiche Winkel, alle Seiten im gleichen Verhältnis.',
            '1. Strahlensatz: SA : SA\' = SB : SB\'.', '2. Strahlensatz: AB : A\'B\' = SA : SA\' (Strecken ab S!).'],
@@ -639,3 +753,4 @@ if __name__ == '__main__':
           meiden={'streckung': ['P(4 | 3) zentrisch an Z(1 | 2) mit k = 2.'], 'strahlensatz1': ['SA = 3 cm, SA\' = 7,5 cm, SB = 4 cm'],
                   'strahlensatz2': ['SA = 5 cm, AA\' = 3 cm, AB = 4 cm'], 'anwendung': ['2 m langer Stab wirft einen 3 m langen Schatten. Zur gleichen Zeit wirft ein Baum einen 18']},
           offen=['Strahlensatzaufgaben zeigen die Figur jetzt als Zeichnung (f.grafik); der Fragetext nennt nur noch die Maße. Bitte in der App prüfen, ob die Beschriftungen bei spitzen Winkeln gut lesbar sind.'])
+    anhaengen(d, 9909, schwer)

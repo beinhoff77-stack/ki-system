@@ -478,8 +478,123 @@ def g_nenner_rational(s):
 GEN = {'zahlarten': g_zahlarten, 'eingrenzen': g_eingrenzen, 'wurzel_mal': g_wurzel_mal, 'teilweise': g_teilweise,
        'zusammenfassen': g_zusammenfassen, 'nenner_rational': g_nenner_rational}
 
+# ---------- Zehnte Runde (schwer-kl9): schwerere Übungen nach Prüfungsvorbild ----------
+# Eigener Abschnitt mit eigenem festen Zufallsstart (anhaengen(..., 9902, ...)), läuft erst nach bauen():
+# alle bisherigen Aufgaben bleiben unverändert. Vorbilder: Illustrierende Aufgaben Realschule Jgst. 9 (I), ISB
+# (Fachbegriffe rational/irrational/reell, Behauptung zum Rationalmachen beurteilen, Lückentexte mit Wurzeln),
+# Bayerischer Mathematik-Test 10 (Terme ohne Taschenrechner, Näherungswerte). Zahlen und Wortlaut eigen.
+from _schwer_kl9 import anhaengen  # noqa: E402
+
+
+def schwer():
+    P, K, O = 'pruefung', 'knobel', ''
+    L = 'Zahlen in die Felder eintragen'
+    return [
+        # zahlarten
+        ('zahlarten', 3, P, auswahl('Welche Aussage ist wahr?', 'Jede rationale Zahl ist auch eine reelle Zahl.',
+                                    ['Jede reelle Zahl ist rational.', '√2 ist rational, weil der Taschenrechner 1,414213562 anzeigt.', 'Jede Wurzel ist irrational.'],
+                                    'ℚ ist ein Teil von ℝ. Umgekehrt nicht: √2 ist reell, aber irrational – der Taschenrechner zeigt nur eine Näherung. √9 = 3 ist eine rationale Wurzel.',
+                                    'Prüfe jede Aussage mit einem Gegenbeispiel wie √9 oder √2.')),
+        ('zahlarten', 3, P, auswahl('Welche der Zahlen ist rational?', '√0,09', ['√0,9', '√90', 'π/2'],
+                                    '√0,09 = 0,3, denn 0,3² = 0,09. 0,9 und 90 sind keine Quadrate rationaler Zahlen, π/2 ist irrational.',
+                                    'Achte auf die Nachkommastellen: Bei welcher Zahl geht die Wurzel glatt auf?')),
+        ('zahlarten', 3, K, zahl('Wie viele der 50 Zahlen √1, √2, √3, …, √50 sind rational?',
+                                 'Rational sind nur die Wurzeln aus Quadratzahlen: 1, 4, 9, 16, 25, 36, 49. Das sind 7 Zahlen.',
+                                 'Eine Wurzel aus einer natürlichen Zahl ist nur rational, wenn die Zahl eine Quadratzahl ist.', 7, '1 + 1 + 1 + 1 + 1 + 1 + 1')),
+        ('zahlarten', 3, O, auswahl('Ist √2 · √8 rational oder irrational?', 'rational, denn √2 · √8 = √16 = 4',
+                                    ['irrational, weil beide Faktoren irrational sind', 'irrational, denn √2 · √8 = √10', 'rational, denn 2 · 8 = 16 ist gerade'],
+                                    '√2 · √8 = √(2 · 8) = √16 = 4. Das Produkt zweier irrationaler Zahlen kann rational sein.',
+                                    'Fasse zu einer Wurzel zusammen und rechne aus.')),
+        ('zahlarten', 2, O, auswahl('Welche Zahl ist irrational?', '√12', ['√(4/9)', '0,555… (die 5 wiederholt sich)', '−√16'],
+                                    '12 ist keine Quadratzahl, also ist √12 irrational. √(4/9) = 2/3, 0,555… = 5/9, −√16 = −4.',
+                                    'Prüfe, welche Zahl sich als Bruch schreiben lässt.')),
+        ('zahlarten', 2, O, auswahl('Zu welcher kleinsten Zahlenmenge gehört −√25?', 'ℤ (ganze Zahlen)',
+                                    ['ℕ (natürliche Zahlen)', 'ℚ (rationale Zahlen)', 'ℝ (reelle Zahlen)'],
+                                    '−√25 = −5 ist eine negative ganze Zahl, also nicht in ℕ, aber in ℤ.', 'Rechne zuerst aus und achte auf das Minus.')),
+        # eingrenzen
+        ('eingrenzen', 3, P, auswahl('Ein quadratischer Tisch soll mindestens 2 m² Fläche haben. Reicht eine Seitenlänge von 1,41 m?',
+                                     'Nein, knapp nicht: 1,41² = 1,9881 < 2.', ['Ja, denn 1,41² = 2,82.', 'Ja, denn √2 ist genau 1,41.', 'Nein, man bräuchte mindestens 1,5 m.'],
+                                     '1,41 · 1,41 = 1,9881 m², das ist etwas weniger als 2 m². √2 ≈ 1,4142 ist irrational, 1,41 ist nur eine Näherung. 1,42² = 2,0164 würde reichen.',
+                                     'Quadriere 1,41 und vergleiche mit 2.')),
+        ('eingrenzen', 3, P, auswahl('Welche Zahl liegt zwischen √5 und √6?', '2,3', ['2,5', '2,2', '5,5'],
+                                     '2,3² = 5,29 liegt zwischen 5 und 6, also √5 < 2,3 < √6. 2,5² = 6,25 ist zu groß, 2,2² = 4,84 zu klein. 5,5 liegt zwischen 5 und 6, aber nicht zwischen den Wurzeln.',
+                                     'Quadriere die Kandidaten und vergleiche mit 5 und 6.')),
+        ('eingrenzen', 3, K, zahl('Wie viele ganze Zahlen liegen zwischen −√10 und √30?',
+                                  '−√10 ≈ −3,16 und √30 ≈ 5,48. Dazwischen liegen die ganzen Zahlen −3, −2, …, 5: das sind 5 − (−3) + 1 = 9 Zahlen.',
+                                  'Grenze beide Wurzeln zwischen ganzen Zahlen ein (3² = 9, 4² = 16, 5² = 25, 6² = 36). Vergiss die 0 nicht.', 9, '5 - (-3) + 1')),
+        ('eingrenzen', 3, O, auswahl('Zwischen welchen Zahlen mit einer Nachkommastelle liegt √0,9?', '0,9 und 1,0',
+                                     ['0,3 und 0,4', '0,4 und 0,5', '0,09 und 0,1'],
+                                     '0,9² = 0,81 < 0,9 < 1 = 1,0². Also 0,9 < √0,9 < 1,0. Falle: 0,3² = 0,09 – das wäre √0,09.',
+                                     'Bei Zahlen zwischen 0 und 1 ist die Wurzel größer als die Zahl. Quadriere 0,9 und 1,0.')),
+        ('eingrenzen', 2, O, auswahl('Zwischen welchen Zahlen mit einer Nachkommastelle liegt √20?', '4,4 und 4,5', ['4,5 und 4,6', '10,0 und 10,1', '4,3 und 4,4'],
+                                     '4,4² = 19,36 < 20 < 20,25 = 4,5², also 4,4 < √20 < 4,5.', 'Quadriere Zahlen wie 4,4 und 4,5.')),
+        ('eingrenzen', 2, O, auswahl('Welche Zahl ist größer: √50 oder 7,1?', '7,1', ['√50', 'Beide sind gleich groß.'],
+                                     '7,1² = 50,41 > 50, also ist 7,1 > √50.', 'Quadriere beide Zahlen und vergleiche.')),
+        # wurzel_mal
+        ('wurzel_mal', 3, P, zahl('Berechne ohne Taschenrechner √0,5 · √50.', '√0,5 · √50 = √(0,5 · 50) = √25 = 5.',
+                                  'Fasse zu einer Wurzel zusammen.', 5, '(0.5 * 50) / 5')),
+        ('wurzel_mal', 3, P, zahl('Berechne ohne Taschenrechner √(2/3) · √(27/2).', '√(2/3 · 27/2) = √(54/6) = √9 = 3.',
+                                  'Fasse zu einer Wurzel zusammen und kürze den Bruch unter der Wurzel.', 3, '(2 / 3) * (27 / 2) / 3')),
+        ('wurzel_mal', 3, K, zahl('Welche kleinste natürliche Zahl n > 0 macht √(12 · n) zu einer natürlichen Zahl?',
+                                  '12 = 4 · 3. Damit 12 · n eine Quadratzahl wird, fehlt noch eine 3: 12 · 3 = 36 = 6². Also n = 3.',
+                                  'Zerlege 12 in Faktoren. Welcher Faktor fehlt zur Quadratzahl?', 3, '36 / 12')),
+        ('wurzel_mal', 3, O, auswahl('Vereinfache √(18a) · √(2a) für a ≥ 0.', '6a', ['36a²', '6a²', '√(20a)'],
+                                     '√(18a · 2a) = √(36a²) = 6a (a ≥ 0). 36a² ist der Radikand, √(20a) entsteht durch falsches Addieren.',
+                                     'Fasse zu einer Wurzel zusammen. Welche Zahl ergibt quadriert 36a²?')),
+        ('wurzel_mal', 2, O, zahl('Berechne √72 : √2.', '√72 : √2 = √(72 : 2) = √36 = 6.', 'Fasse zu einer Wurzel zusammen.', 6, '(72 / 2) / 6')),
+        ('wurzel_mal', 2, O, zahl('Berechne √3 · √12.', '√3 · √12 = √36 = 6.', 'Fasse zu einer Wurzel zusammen.', 6, '(3 * 12) / 6')),
+        # teilweise
+        ('teilweise', 3, P, luecken('Ergänze die Lücke: √□ = 5√3.', '√□', 'die Zahl unter der Wurzel eintragen', [75],
+                                    '5√3 = √25 · √3 = √(25 · 3) = √75.', 'Bringe die 5 als √25 unter die Wurzel.', ['25 * 3'])),
+        ('teilweise', 3, P, luecken('Ein Quadrat hat den Flächeninhalt 98 cm². Gib die Seitenlänge exakt an (teilweise Wurzel ziehen).', '□√□ cm', L, [7, 2],
+                                    'a = √98 cm = √(49 · 2) cm = 7√2 cm.', 'Seite = √Fläche. Suche die größte Quadratzahl in 98.', ['49 // 7', '98 // 49'])),
+        ('teilweise', 3, K, auswahl('Welche Zahl ist am größten?', '5√2', ['3√5', '2√11', '4√3'],
+                                    'Unter eine Wurzel bringen: 3√5 = √45, 2√11 = √44, 4√3 = √48, 5√2 = √50. Am größten ist √50 = 5√2.',
+                                    'Bringe jeweils den Faktor als Quadrat unter die Wurzel und vergleiche die Radikanden.')),
+        ('teilweise', 3, O, luecken('Ziehe teilweise die Wurzel, so weit wie möglich: √(50x³) für x ≥ 0.', '□x√(□x)', L, [5, 2],
+                                    '√(50x³) = √(25 · 2 · x² · x) = 5x√(2x).', 'Zerlege 50 = 25 · 2 und x³ = x² · x. Aus den Quadraten ziehst du die Wurzel.', ['25 // 5', '50 // 25'])),
+        ('teilweise', 2, O, luecken('Ziehe teilweise die Wurzel, so weit wie möglich: √180.', '□√□', L, [6, 5],
+                                    '√180 = √(36 · 5) = 6√5.', 'Suche die größte Quadratzahl, die in 180 steckt.', ['36 // 6', '180 // 36'])),
+        ('teilweise', 2, O, luecken('Schreibe 3√7 als eine einzige Wurzel.', '√□', 'die Zahl unter der Wurzel eintragen', [63],
+                                    '3√7 = √9 · √7 = √63.', 'Schreibe 3 als √9.', ['9 * 7'])),
+        # zusammenfassen
+        ('zusammenfassen', 3, P, luecken('Fasse zusammen: √12 + √27 − √48.', '□√□', L, [1, 3],
+                                         '√12 = 2√3, √27 = 3√3, √48 = 4√3. Zusammen (2 + 3 − 4)√3 = 1√3 = √3.',
+                                         'Ziehe bei jedem Summanden teilweise die Wurzel. Alle haben dann den Radikanden 3.', ['2 + 3 - 4', '3'])),
+        ('zusammenfassen', 3, P, zahl('Berechne (√6 + √2) · (√6 − √2).', '3. binomische Formel: (√6)² − (√2)² = 6 − 2 = 4.',
+                                      'Erkenne die Form (a + b)(a − b).', 4, '6 - 2')),
+        ('zusammenfassen', 3, K, luecken('Berechne geschickt: (√3 + 1)² − (√3 − 1)².', '□√□', L, [4, 3],
+                                         'Ausmultiplizieren: (3 + 2√3 + 1) − (3 − 2√3 + 1) = 4√3. Kürzer: (a + b)² − (a − b)² = 4ab = 4 · √3 · 1.',
+                                         'Multipliziere beide Klammern aus. Was fällt beim Subtrahieren weg?', ['2 + 2', '3'])),
+        ('zusammenfassen', 3, O, zahl('Multipliziere aus und vereinfache: √2 · (√8 + √18).', '√2 · √8 + √2 · √18 = √16 + √36 = 4 + 6 = 10.',
+                                      'Jeden Summanden in der Klammer mit √2 malnehmen.', 10, '4 + 6')),
+        ('zusammenfassen', 2, O, luecken('Fasse zusammen: 3√5 + √20.', '□√□', L, [5, 5], '√20 = 2√5, also 3√5 + 2√5 = 5√5.',
+                                         'Ziehe bei √20 teilweise die Wurzel.', ['3 + 2', '5'])),
+        ('zusammenfassen', 2, O, luecken('Fasse zusammen: √27 − √3.', '□√□', L, [2, 3], '√27 = 3√3, also 3√3 − √3 = 2√3.',
+                                         'Ziehe bei √27 teilweise die Wurzel.', ['3 - 1', '3'])),
+        # nenner_rational
+        ('nenner_rational', 3, P, auswahl('Ein Schüler sagt: „Bei 5/√7 mache ich den Nenner rational, indem ich nur den Nenner mit √7 malnehme. Dann steht da 5/7.“ Was stimmt?',
+                                          'Falsch: Er muss auch den Zähler mit √7 malnehmen (erweitern): 5√7/7.',
+                                          ['Richtig, denn √7 · √7 = 7.', 'Falsch: Er muss mit 7 erweitern.', 'Richtig, der Wert bleibt so gleich.'],
+                                          'Nimmt man nur den Nenner mal √7, ändert sich der Wert (5/√7 ≈ 1,89, aber 5/7 ≈ 0,71). Erweitern heißt Zähler und Nenner mit derselben Zahl malnehmen.',
+                                          'Vergleiche die Werte vorher und nachher mit dem Taschenrechner.')),
+        ('nenner_rational', 3, P, luecken('Mache den Nenner rational: 2/(√7 + √5).', '√□ − √□', 'die Radikanden eintragen', [7, 5],
+                                          'Mit √7 − √5 erweitern: Nenner (√7)² − (√5)² = 7 − 5 = 2. Also 2(√7 − √5)/2 = √7 − √5.',
+                                          'Erweitere mit √7 − √5 (3. binomische Formel).', ['7', '5'])),
+        ('nenner_rational', 3, K, zahl('Berechne 1/(√2 − 1) − 1/(√2 + 1).',
+                                       '1/(√2 − 1) = √2 + 1 und 1/(√2 + 1) = √2 − 1 (jeweils erweitern, Nenner 2 − 1 = 1). Differenz: (√2 + 1) − (√2 − 1) = 2.',
+                                       'Mache bei beiden Brüchen den Nenner rational. Der Nenner wird jeweils 1.', 2, '(1) - (-1)')),
+        ('nenner_rational', 3, O, luecken('Mache den Nenner rational: 6/(3 + √3).', '□ − √□', L, [3, 3],
+                                          'Mit 3 − √3 erweitern: Nenner 9 − 3 = 6. Also 6(3 − √3)/6 = 3 − √3.', 'Erweitere mit 3 − √3.', ['6 // 2', '3'])),
+        ('nenner_rational', 2, O, luecken('Mache den Nenner rational und vereinfache: √3/√6.', '√□/□', L, [2, 2],
+                                          '√3/√6 = √(3/6) = √(1/2) = 1/√2 = √2/2.', 'Fasse erst zu einer Wurzel zusammen und kürze.', ['2', '2'])),
+        ('nenner_rational', 2, O, luecken('Mache den Nenner rational: 15/√5.', '□√□', L, [3, 5], '15/√5 = 15√5/5 = 3√5.',
+                                          'Erweitere mit √5.', ['15 // 5', '5'])),
+    ]
+
+
 if __name__ == '__main__':
-    bauen('zahlen.reell',
+    d = bauen('zahlen.reell',
           'Irrationale Zahlen erkennen, Wurzeln eingrenzen, Wurzelterme vereinfachen und Nenner rational machen.',
           ['ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ. Irrational: unendlich, nicht periodisch (z. B. √2).', '√a · √b = √(ab), √a : √b = √(a : b) – aber nicht für Summen.',
            'Teilweise radizieren: √(k²m) = k√m.', 'Wurzel im Nenner: erweitern (bei √m ± n mit der 3. binomischen Formel).'],
@@ -489,3 +604,4 @@ if __name__ == '__main__':
           meiden={'zahlarten': ['√50?'], 'eingrenzen': ['√30?'], 'wurzel_mal': ['√3 · √27.'], 'teilweise': ['√72.'],
                   'zusammenfassen': ['√18 + √50.'], 'nenner_rational': ['12/√3.']},
           offen=['Lückentext „□√□“: Die App zeigt das Wurzelzeichen nur als Text in der Schablone; bitte prüfen, ob die Darstellung im Eingabefeld gut lesbar ist.'])
+    anhaengen(d, 9902, schwer)

@@ -1,5 +1,8 @@
 # Postfach schwer-kl10 (Zehnte Runde, Klasse 10)
 
+## 2026-11-16 06:40 – STATUS
+funktionen.trig fertig: 42 neue Übungen (7 Lernkarten), Prüfskript OK, Nachweis OK. Neue Aufgaben auch im Bogenmaß, eine mit π-beschrifteter Achse.
+
 ## 2026-11-16 06:10 – STATUS
 funktionen.exponential_log fertig: 36 neue Übungen, Prüfskript OK, Nachweis OK. Befund mit Fehler im Lösungsweg (faktor, „pro Jahr“ statt „pro Stunde“) steht im Abschlussbericht.
 

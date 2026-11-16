@@ -462,6 +462,94 @@ def g_graphisch(R, st):
 GEN = {'definitionsmenge': g_definitionsmenge, 'ein_bruch': g_ein_bruch, 'ueber_kreuz': g_ueber_kreuz, 'hauptnenner': g_hauptnenner,
        'scheinloesung': g_scheinloesung, 'verhaeltnis': g_verhaeltnis, 'graphisch': g_graphisch}
 
+
+# ---------- UMBAU: neues Muster (Achte Runde, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl8.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl8 import mit_umbau  # noqa: E402
+
+def _hn(a, b, c):
+    return {'typ': 'tabelle', 'kopf': ['Glied', 'mal', 'ergibt'], 'zeilen': [['5/x', '2x', a], ['1/(2x)', '2x', b], ['2', '2x', c]]}
+
+
+def _pf(m):
+    return {'typ': 'tabelle', 'kopf': ['', 'Rezept', 'du'], 'zeilen': [['Eier', '4', '6'], ['Mehl (EL)', '10', m]]}
+
+
+UMBAU = {
+ 'definitionsmenge': {
+  'einstieg': 'Bei einer Bruchgleichung steht x im Nenner, etwa 2/(x − 1) = 3/(x + 4). Ein Nenner darf nie 0 werden. Darum streichst du zuerst verbotene Zahlen aus der ⟦Definitionsmenge⟧.',
+  'woerter': [['Bruchgleichung', 'eine Gleichung mit x im Nenner'], ['Definitionsmenge', 'alle Zahlen, die man für x einsetzen darf'], ['ℚ \\ {−4; 1}', 'alle Bruchzahlen außer −4 und 1']],
+  'bild': {'typ': 'zahlenstrahl', 'start': -6, 'ende': 4, 'abschnitte': 10, 'beschriftet': 'alle'},
+  'schritte': [{'text': 'Linker Nenner: x − 1 = 0 bei x = 1. Die 1 ist verboten.', 'bild': {'punkte': [{'wert': 1, 'name': '1 verboten'}]}},
+               {'text': 'Rechter Nenner: x + 4 = 0 bei x = −4. Auch verboten.', 'bild': {'punkte': [{'wert': -4, 'name': '−4 verboten'}, {'wert': 1, 'name': '1 verboten'}]}},
+               {'text': 'Also ⟦D = ℚ \\ {−4; 1}⟧.'}],
+  'fehler': 'Nur x = 1 auszuschließen reicht nicht. ⟦Jeder⟧ Nenner zählt, auch der auf der rechten Seite.',
+  'fehler_bild': {'punkte': [{'wert': -4, 'name': 'vergessen!'}, {'wert': 1, 'name': '1 verboten'}]},
+  'regel': 'Setze ⟦jeden Nenner gleich 0⟧ und streiche diese Zahlen. Das machst du, bevor du rechnest.'},
+ 'ein_bruch': {
+  'einstieg': 'Ein Bus kostet 600 €, jedes Kind zahlt 25 €. Wie viele Kinder fahren mit? Die Gleichung heißt 600/x = 25. Dafür musst du den Nenner ⟦wegmultiplizieren⟧.',
+  'woerter': [['wegmultiplizieren', 'beide Seiten mit dem Nenner malnehmen – dann ist der Bruch weg']],
+  'bild': {'typ': 'koordinaten', 'x': [0, 40], 'y': [0, 100], 'graphen': [{'art': 'hyperbel', 'a': 600, 'b': 0, 'c': 0, 'name': '600/x', 'bereich': [6, 40]}], 'schritt_x': 5, 'schritt_y': 25, 'name_x': 'Kinder', 'name_y': '€'},
+  'schritte': [{'text': 'Zuerst D: x darf nicht 0 sein.'},
+               {'text': 'Beide Seiten mal x: 600 = 25 · x. Der Bruch ist weg.', 'bild': {'waagrecht': [25]}},
+               {'text': 'Durch 25 teilen: ⟦x = 24⟧. 24 Kinder fahren mit.', 'bild': {'punkte': [{'x': 24, 'y': 25, 'name': '(24 | 25)'}], 'senkrecht': [24]}},
+               {'text': 'Kontrolle: 600 : 24 = 25. Und 24 liegt in D.'}],
+  'fehler': 'Aus 12/(x − 2) = 3 wird nicht 12 = 3x − 2. Der ganze Nenner wird malgenommen: 3 · (x − 2) = ⟦3x − 6⟧.',
+  'regel': 'Beide Seiten ⟦mit dem Nenner malnehmen⟧, dann weiter wie gewohnt lösen. Zum Schluss prüfen, ob die Lösung in D liegt.'},
+ 'ueber_kreuz': {
+  'einstieg': '2/3 und 4/6 sind gleich groß, denn 2 · 6 und 3 · 4 ergeben beide 12. Dieses Malnehmen geht auch mit x im Nenner. Es heißt ⟦über Kreuz multiplizieren⟧.',
+  'woerter': [['über Kreuz multiplizieren', 'Zähler links mal Nenner rechts = Zähler rechts mal Nenner links'], ['ausmultiplizieren', 'die Klammer auflösen: 4(x − 3) = 4x − 12']],
+  'bild': {'typ': 'bruchstreifen', 'teile': 3, 'gefaerbt': 2, 'teil_text': '2/3', 'zeilen': [{'teile': 6, 'gefaerbt': 4}]},
+  'schritte': [{'text': 'Aufgabe: 4/(x + 1) = 2/(x − 3). Verboten sind −1 und 3.'},
+               {'text': 'Über Kreuz: 4 · (x − 3) = 2 · (x + 1).'},
+               {'text': 'Ausmultiplizieren: 4x − 12 = 2x + 2.'},
+               {'text': '2x abziehen, 12 dazuzählen: 2x = 14, also ⟦x = 7⟧.'}],
+  'fehler': 'Jeden Zähler mit dem ⟦eigenen⟧ Nenner malnehmen ist falsch. Über Kreuz heißt: Zähler links mal Nenner rechts.',
+  'regel': 'Steht je Seite ein Bruch: ⟦über Kreuz multiplizieren⟧. Aus a/b = c/d wird a · d = c · b. Bei Summen geht das nicht.'},
+ 'hauptnenner': {
+  'einstieg': 'Stehen mehrere Brüche in einer Gleichung, nimmst du alles mit einem Term mal, in den jeder Nenner passt. Dann verschwinden alle Brüche auf einmal. Dieser Term ist der ⟦Hauptnenner⟧.',
+  'woerter': [['Hauptnenner', 'ein Term, in den alle Nenner hineinpassen'], ['Glied', 'ein Teil der Gleichung, abgetrennt durch + oder −']],
+  'bild': _hn('?', '?', '?'),
+  'schritte': [{'text': 'Aufgabe 5/x + 1/(2x) = 2. Beide Nenner passen in 2x.'},
+               {'text': 'Jedes Glied mal 2x: 10 + 1 = 4x.', 'bild': _hn('10', '1', '4x')},
+               {'text': 'Also 11 = 4x. Durch 4 teilen: ⟦x = 2,75⟧.'}],
+  'fehler': 'Die 2 rechts wird auch mit 2x malgenommen. Wer sie vergisst, erhält 10 + 1 = 2 – ganz ohne x, also ⟦Unsinn⟧.',
+  'fehler_bild': _hn('10', '1', '2 ?'),
+  'regel': '⟦Jedes Glied⟧ auf beiden Seiten mit dem Hauptnenner malnehmen. Danach steht kein Bruch mehr da.'},
+ 'scheinloesung': {
+  'einstieg': 'Ergibt eine Rechnung „0 Kinder fahren mit“, müsste jedes 600/0 € zahlen – Unsinn. Auch Bruchgleichungen liefern manchmal eine verbotene Zahl. Sie heißt ⟦Scheinlösung⟧.',
+  'woerter': [['Scheinlösung', 'eine errechnete Zahl, die nicht in D liegt'], ['L = { }', 'leere Lösungsmenge: Es gibt keine Lösung']],
+  'bild': {'typ': 'zahlenstrahl', 'start': 0, 'ende': 6, 'abschnitte': 6, 'beschriftet': 'alle', 'punkte': [{'wert': 3, 'name': '3 verboten'}]},
+  'schritte': [{'text': 'Aufgabe (x + 1)/(x − 3) = 4/(x − 3). x darf nicht 3 sein.'},
+               {'text': 'Beide Seiten mal (x − 3): x + 1 = 4, also x = 3.', 'bild': {'punkte': [{'wert': 3, 'name': 'x = 3?'}]}},
+               {'text': 'Die 3 ist verboten, also eine Scheinlösung. Es gilt ⟦L = { }⟧.'}],
+  'fehler': 'L = {3} ist falsch: Für x = 3 wird der Nenner 0. Darum bestimmst du D ⟦zuerst⟧.',
+  'regel': 'Eine Zahl ist nur Lösung, wenn sie ⟦in D liegt⟧. Sonst ist sie eine Scheinlösung.'},
+ 'verhaeltnis': {
+  'einstieg': 'Für Pfannkuchen nimmst du auf 4 Eier 10 Esslöffel Mehl. Du hast 6 Eier, das Verhältnis soll gleich bleiben. Das ergibt eine ⟦Verhältnisgleichung⟧.',
+  'woerter': [['Verhältnisgleichung', 'zwei gleiche Verhältnisse: a : b = c : d'], ['Außenglieder', 'die äußeren Zahlen: x und 4 in x : 6 = 10 : 4'], ['Innenglieder', 'die inneren Zahlen: 6 und 10']],
+  'bild': _pf('?'),
+  'schritte': [{'text': 'Mehl zu Eiern bleibt gleich: x : 6 = 10 : 4.'},
+               {'text': 'Außenglieder mal, Innenglieder mal: 4 · x = 6 · 10 = 60.'},
+               {'text': 'Durch 4 teilen: ⟦x = 15⟧ Esslöffel Mehl.', 'bild': _pf('15')}],
+  'fehler': 'x = 6 · 4 : 10 = 2,4 ist falsch – mehr Eier brauchen nicht weniger Mehl. Die Außenglieder gehören ⟦zusammen⟧.',
+  'fehler_bild': _pf('2,4 ?'),
+  'regel': 'Rechne ⟦Außenglieder mal Außenglieder = Innenglieder mal Innenglieder⟧. Aus a : b = c : d wird a · d = b · c.'},
+ 'graphisch': {
+  'einstieg': 'Du kannst beide Seiten einer Gleichung zeichnen. Wo sich die Linien treffen, haben beide Seiten denselben Wert. Diese Stellen heißen ⟦Schnittpunkte⟧.',
+  'woerter': [['Hyperbel', 'der Graph von y = 6/x, zwei geschwungene Äste'], ['Schnittpunkt', 'ein Punkt, der auf beiden Graphen liegt']],
+  'bild': {'typ': 'koordinaten', 'x': [-6, 6], 'y': [-6, 6], 'graphen': [{'art': 'hyperbel', 'a': 6, 'b': 0, 'c': 0, 'name': '6/x'}, {'art': 'linear', 'm': 1, 't': -1, 'name': 'x − 1'}]},
+  'schritte': [{'text': 'Aufgabe 6/x = x − 1. Links zeichnest du die Hyperbel, rechts die Gerade.'},
+               {'text': 'Die Graphen schneiden sich in (3 | 2) und (−2 | −3).', 'bild': {'punkte': [{'x': 3, 'y': 2, 'name': '(3 | 2)'}, {'x': -2, 'y': -3, 'name': '(−2 | −3)'}]}},
+               {'text': 'Gesucht ist x. Die Lösungen sind ⟦x = 3 und x = −2⟧.', 'bild': {'senkrecht': [3, -2]}}],
+  'fehler': 'Nicht die y-Werte angeben: L = {2; −3} ist falsch. Gesucht sind die ⟦x-Werte⟧ der Schnittpunkte.',
+  'fehler_bild': {'senkrecht': [], 'waagrecht': [2, -3]},
+  'regel': 'Wo sich die Graphen ⟦schneiden⟧, sind beide Seiten gleich. Die x-Werte der Schnittpunkte sind die Lösungen.'},
+}
+UMBAU_OFFEN = []
+baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Bruchgleichungen lösen', ['definitionsmenge', 'ein_bruch', 'ueber_kreuz', 'hauptnenner']), ('Prüfen', ['scheinloesung']), ('Verhältnisse und Graphen', ['verhaeltnis', 'graphisch'])],

@@ -450,6 +450,81 @@ def g_pruefen(R, st):
 
 GEN = {'ein_schritt': g_ein_schritt, 'zwei_schritte': g_zwei_schritte, 'einsetzen': g_einsetzen, 'geometrie': g_geometrie, 'pruefen': g_pruefen}
 
+
+# ---------- UMBAU: neues Muster (Achte Runde, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl8.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl8 import mit_umbau  # noqa: E402
+
+def _tab(*zeilen):
+    return {'typ': 'tabelle', 'kopf': ['Größe', 'Zeichen', 'Wert'], 'zeilen': [list(z) for z in zeilen]}
+
+
+_OBST = [('Preis', 'P', '5 €'), ('Kilopreis', 'k', '2 €/kg')]
+_TAXI = [('Kosten', 'K', '20 €'), ('Grundgebühr', 'G', '4 €'), ('Preis je km', 'p', '2 €')]
+_RAD = [('Strecke', 's', '45 km'), ('Geschwindigkeit', 'v', '18 km/h')]
+_DREI = {'A': [0, 0], 'B': [8, 0], 'C': [3, 6], '_H': [3, 0]}
+UMBAU = {
+ 'ein_schritt': {
+  'einstieg': 'An der Obsttheke gilt Preis = Kilopreis · Menge. Bei 2 € pro kg willst du wissen, wie viel du für 5 € bekommst. Dafür musst du die Formel ⟦umstellen⟧.',
+  'woerter': [['Formel', 'eine Rechenvorschrift mit Buchstaben, z. B. P = k · m'], ['umstellen', 'so umschreiben, dass das Gesuchte allein steht'], ['Umkehrrechnung', 'die Rechnung, die etwas rückgängig macht: mal ↔ geteilt']],
+  'bild': _tab(*_OBST, ('Menge', 'm', '?')),
+  'schritte': [{'text': 'Die Formel ist P = k · m. Gesucht ist die Menge m.'},
+               {'text': 'm wird mit k malgenommen. Die Umkehrrechnung ist: durch k teilen.'},
+               {'text': 'Beide Seiten durch k teilen: ⟦m = P : k⟧.'},
+               {'text': 'Mit Zahlen: m = 5 : 2 = 2,5. Du bekommst 2,5 kg.', 'bild': _tab(*_OBST, ('Menge', 'm', '2,5 kg'))}],
+  'fehler': 'm = P · k wäre 5 · 2 = 10 kg für 5 € – viel zu viel. Was ⟦malgenommen⟧ wird, wird beim Umstellen geteilt.',
+  'fehler_bild': _tab(*_OBST, ('Menge', 'm', '10 kg?')),
+  'regel': 'Mach die Rechnung mit der ⟦Umkehrrechnung⟧ rückgängig. Mal wird zu geteilt, plus wird zu minus – auf beiden Seiten.'},
+ 'zwei_schritte': {
+  'einstieg': 'Ein Taxi kostet 4 € Grundgebühr und 2 € pro Kilometer. Du hast 20 € bezahlt – wie weit bist du gefahren? Dafür machst du zwei Rechenschritte ⟦rückwärts⟧.',
+  'woerter': [['Grundgebühr', 'Betrag, den man immer zahlt, auch für 0 km'], ['rückwärts', 'was zuletzt gerechnet wurde, machst du zuerst rückgängig']],
+  'bild': _tab(*_TAXI, ('Strecke', 's', '?')),
+  'schritte': [{'text': 'Die Formel ist K = G + p · s. Gesucht ist die Strecke s.'},
+               {'text': '+ G kam zuletzt dazu, also zuerst abziehen: K − G = p · s.'},
+               {'text': 'Dann beide Seiten durch p teilen: ⟦s = (K − G) : p⟧.'},
+               {'text': 'Mit Zahlen: (20 − 4) : 2 = 8. Du bist 8 km gefahren.', 'bild': _tab(*_TAXI, ('Strecke', 's', '8 km'))}],
+  'fehler': 's = K : p − G ist falsch: 20 : 2 − 4 = 6 km statt 8 km. Die Grundgebühr muss ⟦zuerst⟧ weg.',
+  'fehler_bild': _tab(*_TAXI, ('Strecke', 's', '6 km?')),
+  'regel': 'Gehe ⟦rückwärts⟧ vor: Was zuletzt gerechnet wurde, kommt zuerst weg. Meist erst plus oder minus, dann mal oder geteilt.'},
+ 'pruefen': {
+  'einstieg': 'Ein quadratisches Beet bekommt einen Zaun: Umfang = 4 · Seitenlänge. Jemand stellt die Formel um und ist unsicher. Er probiert es aus – das ist die ⟦Probe mit Zahlen⟧.',
+  'woerter': [['Umfang', 'die Länge einmal um die Figur herum'], ['Probe mit Zahlen', 'erfundene Werte einsetzen und vergleichen']],
+  'bild': {'typ': 'figur', 'punkte': {'A': [0, 0], 'B': [3, 0], 'C': [3, 3], 'D': [0, 3]}, 'flaeche': ['A', 'B', 'C', 'D'],
+           'linien': [['A', 'B', 'a'], ['B', 'C', 'a'], ['C', 'D', 'a'], ['D', 'A', 'a']]},
+  'schritte': [{'text': 'Behauptung: Aus u = 4 · a folgt a = u − 4.'},
+               {'text': 'Erfinde a = 3 m. Dann ist u = 4 · 3 = 12 m.',
+                'bild': {'linien': [['A', 'B', '3 m'], ['B', 'C', '3 m'], ['C', 'D', '3 m'], ['D', 'A', '3 m']]}},
+               {'text': 'In die Umstellung: 12 − 4 = 8. Herauskommen müsste aber 3.'},
+               {'text': 'Also ist die Umstellung ⟦falsch⟧. Richtig ist a = u : 4.'}],
+  'fehler': 'Ein Beispiel kann zufällig passen: a = u − 12 klappt bei a = 4. Mit a = 5 aber nicht mehr. Teste ⟦zwei verschiedene⟧ Zahlen.',
+  'regel': 'Prüfe mit ⟦zwei erfundenen Zahlen⟧. Original und Umstellung müssen dasselbe ergeben. Nimm keine 0 und keine 1.'},
+ 'einsetzen': {
+  'einstieg': 'Deine Radtour ist 45 km lang, du fährst im Schnitt 18 km pro Stunde. Wie lange bist du unterwegs? Erst umstellen, dann die Zahlen mit ⟦Einheiten⟧ einsetzen.',
+  'woerter': [['Einheit', 'was hinter der Zahl steht: km, h, km/h'], ['v = s : t', 'Geschwindigkeit = Strecke : Zeit'], ['h', 'Abkürzung für Stunde']],
+  'bild': _tab(*_RAD, ('Zeit', 't', '?')),
+  'schritte': [{'text': 'Die Formel ist v = s : t. Gesucht ist die Zeit t.'},
+               {'text': 'Mal t, dann durch v teilen: t = s : v.'},
+               {'text': 'Einsetzen: t = 45 km : 18 km/h = ⟦2,5 h⟧.', 'bild': _tab(*_RAD, ('Zeit', 't', '2,5 h'))},
+               {'text': 'km geteilt durch km/h ergibt h, also eine Zeit. Das passt.'}],
+  'fehler': 't = v : s ergibt 0,4 h. Das ist falsch: 45 km in 24 Minuten schafft niemand. Die ⟦Einheit⟧ wäre auch keine Zeit.',
+  'fehler_bild': _tab(*_RAD, ('Zeit', 't', '0,4 h?')),
+  'regel': 'Erst ⟦nach der gesuchten Größe umstellen⟧, dann einsetzen. Die Einheit des Ergebnisses zeigt, ob es stimmt.'},
+ 'geometrie': {
+  'einstieg': 'Ein dreieckiges Beet soll 24 m² groß werden, die Seite am Zaun ist 8 m lang. Wie weit reicht es in den Garten? Dafür stellst du die ⟦Flächenformel⟧ um.',
+  'woerter': [['Flächenformel', 'A = g · h : 2 für das Dreieck'], ['Höhe', 'Abstand der Spitze von der Grundseite, senkrecht gemessen'], ['Grundseite g', 'die Seite, auf der die Höhe steht – hier am Zaun']],
+  'bild': {'typ': 'figur', 'punkte': _DREI, 'flaeche': ['A', 'B', 'C'], 'linien': [['A', 'B', 'g = 8 m'], ['C', '_H', 'h = ?', 'gestrichelt']], 'rechter_winkel': [['_H', 'B', 'C']]},
+  'schritte': [{'text': 'Die Flächenformel ist A = g · h : 2. Grundseite g, Höhe h.'},
+               {'text': 'Erst „: 2“ rückgängig machen: 2 · A = g · h.'},
+               {'text': 'Dann durch g teilen: h = 2 · A : g.'},
+               {'text': 'Einsetzen: h = 48 : 8 = ⟦6 m⟧.', 'bild': {'linien': [['A', 'B', 'g = 8 m'], ['C', '_H', 'h = 6 m', 'gestrichelt']]}}],
+  'fehler': 'h = A : g = 3 m ist falsch: Das „: 2“ der Formel wurde vergessen. Ein so flaches Beet hätte nur ⟦12 m²⟧.',
+  'fehler_bild': {'punkte': {**_DREI, 'C': [3, 3]}, 'linien': [['A', 'B', 'g = 8 m'], ['C', '_H', 'h = 3 m?', 'gestrichelt']]},
+  'regel': 'Formel aufschreiben, ⟦nach der fehlenden Länge umstellen⟧, einsetzen. Bei Dreiecken das „: 2“ nicht vergessen.'},
+}
+UMBAU_OFFEN = []
+baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Umstellen', ['ein_schritt', 'zwei_schritte', 'pruefen']), ('Anwenden', ['einsetzen', 'geometrie'])],

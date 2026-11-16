@@ -315,6 +315,89 @@ def g_koordinaten(R, st):
 
 GEN = {'pyramide': g_pyramide, 'laengen': g_laengen, 'lage': g_lage, 'rotation': g_rotation, 'axialschnitt': g_axialschnitt, 'koordinaten': g_koordinaten}
 
+
+# ---------- UMBAU: neues Muster (Achte Runde, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl8.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl8 import mit_umbau  # noqa: E402
+
+_P = {"A": [0, 0], "B": [6, 0], "C": [8.12, 2.12], "D": [2.12, 2.12], "F": [4.06, 1.06], "S": [4.06, 9.06]}
+_P_BASIS = [["A", "B", "6 cm"], ["B", "C", "3 cm"], ["A", "D", "", "gestrichelt"], ["D", "C", "", "gestrichelt"]]
+_P_DIAG = [["A", "C", "", "gestrichelt"], ["B", "D", "", "gestrichelt"]]
+_P_ALLE = _P_BASIS + [["S", "A"], ["S", "B"], ["S", "C"], ["S", "D", "", "gestrichelt"], ["F", "S", "h = 8 cm", "gestrichelt"]] + _P_DIAG
+_PU = {'_A': [0, 0], '_B': [6, 0], '_C': [8.12, 2.12], '_D': [2.12, 2.12], '_S': [4.06, 9.06]}
+_PU_L = [['_A', '_B'], ['_B', '_C'], ['_A', '_D', '', 'gestrichelt'], ['_D', '_C', '', 'gestrichelt'], ['_S', '_A'], ['_S', '_B'], ['_S', '_C'], ['_S', '_D', '', 'gestrichelt']]
+_Q = {"A": [0, 0], "B": [5, 0], "C": [6.06, 1.06], "D": [1.06, 1.06], "E": [0, 2], "F": [5, 2], "G": [6.06, 3.06], "H": [1.06, 3.06]}
+_Q_L = [["A", "B"], ["B", "F"], ["F", "E"], ["E", "A"], ["B", "C"], ["C", "G"], ["G", "F"], ["E", "H"], ["H", "G"], ["A", "D", "", "gestrichelt"], ["D", "C", "", "gestrichelt"], ["D", "H", "", "gestrichelt"]]
+_AX = {'_a': [0, 0], '_b': [6, 0], '_c': [6, 10], '_d': [0, 10], '_m': [3, 0], '_o': [3, -1], '_p': [3, 11]}
+UMBAU = {
+ 'pyramide': {
+  'einstieg': 'Die Pyramiden in Ägypten haben einen quadratischen Boden. Nach oben laufen sie in einer Spitze zusammen. So ein Körper heißt ⟦Pyramide⟧.',
+  'woerter': [['Pyramide', 'Körper mit einem Vieleck als Boden und einer Spitze'], ['Spitze', 'der oberste Punkt, in dem sich die Seitenkanten treffen'], ['Seitenkante', 'eine Kante vom Boden zur Spitze']],
+  'bild': {'typ': 'figur', 'punkte': _PU, 'linien': _PU_L},
+  'schritte': [{'text': 'Die Grundfläche ist ein Quadrat, also n = 4.', 'bild': {'flaeche': ['_A', '_B', '_C', '_D']}},
+               {'text': 'Ecken: 4 unten und die Spitze, also 5.'},
+               {'text': 'Kanten: 4 am Boden und 4 Seitenkanten zur Spitze, also 8.'},
+               {'text': 'Flächen: 4 Dreiecke und das Quadrat, zusammen ⟦5⟧.', 'bild': {'flaeche': ['_A', '_B', '_S']}}],
+  'fehler': 'Eine sechsseitige Pyramide hat nicht 6 Flächen. Zu den 6 Dreiecken kommt die ⟦Grundfläche⟧ dazu, also 7.',
+  'regel': 'n-Eck-Pyramide: ⟦n + 1 Ecken, 2n Kanten, n + 1 Flächen⟧. Die 1 ist die Spitze bzw. die Grundfläche.'},
+ 'laengen': {
+  'einstieg': 'Ein Zelt soll räumlich ins Heft. Vorne echte Größe, nach hinten schräg und kürzer, die Stange senkrecht. So entsteht ein ⟦Schrägbild⟧.',
+  'woerter': [['q', 'der Verkürzungsfaktor: Kanten nach hinten werden mal q gezeichnet, meist 1/2'], ['Fußpunkt F', 'dort steht die Höhe auf der Grundfläche'], ['Diagonale', 'Strecke zwischen gegenüberliegenden Ecken']],
+  'bild': {'typ': 'figur', 'punkte': _P, 'linien': _P_ALLE},
+  'schritte': [{'text': 'Die Pyramide hat Grundkante 6 cm, Höhe 8 cm und q = 1/2.'},
+               {'text': 'Vorne 6 cm, nach hinten 6 · 1/2 = 3 cm unter 45°.', 'bild': {'punkte': {k: _P[k] for k in 'ABCD'}, 'linien': _P_BASIS}},
+               {'text': 'Die Diagonalen schneiden sich im Fußpunkt F.', 'bild': {'punkte': {k: _P[k] for k in 'ABCDF'}, 'linien': _P_BASIS + _P_DIAG}},
+               {'text': 'Von F ⟦8 cm⟧ senkrecht hoch zur Spitze S.', 'bild': {'punkte': _P, 'linien': _P_ALLE}}],
+  'fehler': 'Die Höhe wird nicht verkürzt. Sie steht ⟦senkrecht⟧ und bleibt in wahrer Länge: 8 cm.',
+  'fehler_bild': {'punkte': {**_P, 'S': [4.06, 5.06]}, 'linien': _P_ALLE[:-3] + [["F", "S", "4 cm?", "gestrichelt"]] + _P_DIAG},
+  'regel': 'Nur Kanten ⟦nach hinten⟧ werden verkürzt, meist auf die Hälfte. Breite und Höhe bleiben in wahrer Länge.'},
+ 'lage': {
+  'einstieg': 'Unten eine Autobahn, oben eine Brücke quer darüber. Die Straßen haben verschiedene Richtungen und treffen sich nie. Solche Geraden heißen ⟦windschief⟧.',
+  'woerter': [['windschief', 'nicht parallel und ohne Schnittpunkt – das geht nur im Raum'], ['parallel', 'gleiche Richtung, ohne Schnittpunkt']],
+  'bild': {'typ': 'figur', 'punkte': _Q, 'linien': _Q_L},
+  'schritte': [{'text': 'Im Quader läuft AB unten vorne nach rechts.', 'bild': {'linien': [["A", "B", "AB"]] + _Q_L[1:]}},
+               {'text': 'CG läuft hinten rechts senkrecht nach oben.', 'bild': {'linien': [["A", "B", "AB"]] + _Q_L[1:5] + [["C", "G", "CG"]] + _Q_L[6:]}},
+               {'text': 'Verschiedene Richtungen: nicht parallel. Sie treffen sich auch nicht.'},
+               {'text': 'Also sind AB und CG ⟦windschief⟧.'}],
+  'fehler': 'Ohne Schnittpunkt heißt im Raum nicht automatisch parallel. Parallel verlangt die ⟦gleiche Richtung⟧.',
+  'regel': 'Gleiche Richtung: ⟦parallel⟧. Gemeinsamer Punkt: ⟦schneidend⟧. Sonst sind sie windschief.'},
+ 'koordinaten': {
+  'einstieg': 'In einem großen Gebäude findest du einen Raum mit drei Angaben: Gang, Seite, Stockwerk. Einen Punkt im Raum beschreibst du genauso mit drei Zahlen, den ⟦Koordinaten⟧.',
+  'woerter': [['(5 | 3 | 2)', 'x = 5 nach rechts, y = 3 nach hinten, z = 2 nach oben'], ['Ursprung', 'der Punkt (0 | 0 | 0)']],
+  'bild': {'typ': 'figur', 'punkte': _Q, 'linien': [["A", "B", "5"]] + _Q_L[1:9] + [["A", "D", "3", "gestrichelt"]] + _Q_L[10:]},
+  'schritte': [{'text': 'A liegt im Ursprung. Der Quader ist 5 lang, 3 breit, 2 hoch.'},
+               {'text': 'Also B(5 | 0 | 0), C(5 | 3 | 0).'},
+               {'text': 'E liegt 2 über A: E(0 | 0 | 2).'},
+               {'text': 'G liegt 2 über C: ⟦G(5 | 3 | 2)⟧.'}],
+  'fehler': 'H ist nicht (0 | 0 | 2) – das ist E. H liegt über D: ⟦H(0 | 3 | 2)⟧.',
+  'regel': 'Ein Punkt im Raum hat ⟦drei Koordinaten⟧ (x | y | z). Die Kantenlängen sagen, wie weit du in jede Richtung gehst.'},
+ 'rotation': {
+  'einstieg': 'Drehst du ein Fähnchen schnell an seinem Stab, siehst du einen runden Körper. Aus einem Rechteck wird so etwas wie eine Dose. So entsteht ein ⟦Rotationskörper⟧.',
+  'woerter': [['Rotationskörper', 'Körper, der durch Drehen einer flachen Figur entsteht'], ['Achse', 'die Linie, um die gedreht wird – hier der Stab'], ['Radius r', 'Abstand von der Achse zum Rand']],
+  'bild': {"typ": "figur", "punkte": {"_a": [0, -1], "_b": [0, 8], "A": [0, 0], "B": [4, 0], "C": [4, 7], "D": [0, 7], "_l": [-4, 0], "_m": [-4, 7]}, "flaeche": ["A", "B", "C", "D"],
+           "linien": [["_a", "_b", "", "gestrichelt"], ["A", "B", "4 cm"], ["B", "C"], ["C", "D"], ["D", "A", "7 cm"], ["_l", "A", "", "gestrichelt"], ["_l", "_m", "", "gestrichelt"], ["_m", "D", "", "gestrichelt"]]},
+  'schritte': [{'text': 'Ein Rechteck 4 cm × 7 cm dreht sich um die 7-cm-Seite.'},
+               {'text': 'Die Seite auf der Achse wird zur Höhe: h = 7 cm.'},
+               {'text': 'Die 4-cm-Seite dreht sich im Kreis: Radius r = 4 cm.'},
+               {'text': 'Es entsteht ein ⟦Zylinder⟧ mit r = 4 cm und h = 7 cm.'}],
+  'fehler': 'Der Radius ist nicht 7 cm. Die Seite ⟦auf der Achse⟧ wird zur Höhe, die andere zum Radius.',
+  'regel': 'Rechteck um eine Seite: ⟦Zylinder⟧. Dreieck um eine Kathete: Kegel. Halbkreis um den Durchmesser: Kugel.'},
+ 'axialschnitt': {
+  'einstieg': 'Schneidest du eine Möhre der Länge nach durch die Mitte, siehst du eine Schnittfläche. Bei einer Dose ist sie ein Rechteck. Dieser Schnitt heißt ⟦Axialschnitt⟧.',
+  'woerter': [['Axialschnitt', 'ein Schnitt genau entlang der Drehachse'], ['Durchmesser', '2 · r: einmal quer durch die Mitte']],
+  'bild': {'typ': 'figur', 'punkte': _AX, 'linien': [['_o', '_p', '', 'gestrichelt'], ['_m', '_b', 'r = 3 cm'], ['_b', '_c', 'h = 10 cm'], ['_c', '_d'], ['_d', '_a'], ['_a', '_m']]},
+  'schritte': [{'text': 'Ein Zylinder hat r = 3 cm und h = 10 cm.'},
+               {'text': 'Der Schnitt erfasst den ganzen Durchmesser: 2 · 3 cm = 6 cm.', 'bild': {'linien': [['_o', '_p', '', 'gestrichelt'], ['_a', '_b', '6 cm'], ['_b', '_c', 'h = 10 cm'], ['_c', '_d'], ['_d', '_a']]}},
+               {'text': 'Er ist 10 cm hoch. Das Rechteck misst 6 cm × 10 cm.'},
+               {'text': 'Fläche: 6 · 10 = ⟦60 cm²⟧.', 'bild': {'flaeche': ['_a', '_b', '_c', '_d']}}],
+  'fehler': 'Der Schnitt ist nicht r breit, sondern ⟦2r⟧. Er geht durch die Mitte und erfasst den Durchmesser.',
+  'fehler_bild': {'flaeche': ['_m', '_b', '_c', '_d'], 'punkte': {**_AX, '_d': [3, 10]}, 'linien': [['_o', '_p', '', 'gestrichelt'], ['_m', '_b', '3 cm?'], ['_b', '_c', 'h = 10 cm'], ['_c', '_d'], ['_d', '_m']]},
+  'regel': 'Ein ⟦Axialschnitt⟧ geht durch die Achse. Zylinder: Rechteck 2r × h. Kegel: Dreieck. Kugel: Kreis.'},
+}
+UMBAU_OFFEN = []
+baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Prismen und Pyramiden', ['pyramide', 'laengen']), ('Lage im Raum', ['lage', 'koordinaten']), ('Rotationskörper', ['rotation', 'axialschnitt'])],

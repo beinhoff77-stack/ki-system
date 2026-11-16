@@ -336,6 +336,82 @@ def g_beurteilen(R, st):
 GEN = {'indirekt': g_indirekt, 'definitionsmenge': g_definitionsmenge, 'asymptoten': g_asymptoten, 'achsenpunkte': g_achsenpunkte,
        'parameter': g_parameter, 'beurteilen': g_beurteilen}
 
+
+# ---------- UMBAU: neues Muster (Achte Runde, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl8.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl8 import mit_umbau  # noqa: E402
+
+_KO = lambda **k: {'typ': 'koordinaten', **k}
+_H = lambda a, b, c, name=None, **k: {'art': 'hyperbel', 'a': a, 'b': b, 'c': c, **({'name': name} if name else {}), **k}
+UMBAU = {
+ 'indirekt': {
+  'einstieg': 'Ein Teich soll leer gepumpt werden. 4 Pumpen brauchen 6 Stunden, doppelt so viele Pumpen brauchen halb so lange. So eine Zuordnung heißt ⟦indirekt proportional⟧.',
+  'woerter': [['indirekt proportional', 'doppelt so viel → halb so viel'], ['Hyperbel', 'der gebogene Graph von y = k/x'], ['Produkt', 'das Ergebnis einer Malrechnung']],
+  'bild': _KO(x=[0, 12], y=[0, 12], graphen=[_H(24, 0, 0, bereich=[2, 12])], name_x='Pumpen', name_y='h'),
+  'schritte': [{'text': '4 Pumpen brauchen 6 h. Wie lange brauchen 3 Pumpen?', 'bild': {'punkte': [{'x': 4, 'y': 6, 'name': '(4 | 6)'}]}},
+               {'text': 'Die Arbeit ist 4 · 6 = 24 Pumpen-Stunden. Dieses Produkt bleibt gleich.'},
+               {'text': '3 Pumpen brauchen 24 : 3 = ⟦8 Stunden⟧.', 'bild': {'punkte': [{'x': 4, 'y': 6, 'name': '(4 | 6)'}, {'x': 3, 'y': 8, 'name': '(3 | 8)'}]}},
+               {'text': 'Alle Paare liegen auf der Hyperbel y = 24/x.'}],
+  'fehler': '6 : 4 · 3 = 4,5 h ist falsch: Mit weniger Pumpen wäre der Teich schneller leer. Hier bleibt das ⟦Produkt⟧ gleich.',
+  'fehler_bild': {'punkte': [{'x': 4, 'y': 6, 'name': '(4 | 6)'}, {'x': 3, 'y': 4.5, 'name': '4,5 h?', 'offen': True}]},
+  'regel': 'Bei indirekter Proportionalität bleibt ⟦x · y gleich⟧. Der Graph ist eine Hyperbel y = k/x.'},
+ 'definitionsmenge': {
+  'einstieg': 'Eine Pizza für 12 € teilen sich x Freunde, dazu zahlt jeder 2 € für Getränke: 12/x + 2 Euro. So eine Funktion mit x im Nenner heißt ⟦gebrochen-rational⟧.',
+  'woerter': [['gebrochen-rational', 'eine Funktion mit x im Nenner'], ['D', 'die Definitionsmenge: alle erlaubten x'], ['ℚ \\ {2}', 'alle Bruchzahlen außer 2']],
+  'bild': _KO(x=[-4, 8], y=[-5, 7], graphen=[_H(3, -2, 1, 'f')]),
+  'schritte': [{'text': 'f(x) = 3/(x − 2) + 1. Welches x ist verboten?'},
+               {'text': 'Der Nenner x − 2 wird 0, wenn x = 2 ist.', 'bild': {'senkrecht': [2]}},
+               {'text': 'Durch 0 teilt man nicht: ⟦D = ℚ \\ {2}⟧.'}],
+  'fehler': 'Nicht −2 streichen: Der Nenner x − 2 wird bei ⟦x = +2⟧ null. Das Vorzeichen dreht sich um.',
+  'fehler_bild': {'senkrecht': [-2], 'punkte': [{'x': -2, 'y': -3, 'name': '−2?', 'offen': True}]},
+  'regel': 'Setze ⟦den Nenner gleich 0⟧ und streiche dieses x. Bei a/(x + b) + c ist das x = −b.'},
+ 'asymptoten': {
+  'einstieg': 'Je mehr Freunde sich die 12-€-Pizza teilen, desto weniger zahlt jeder. Bei 1200 Freunden ist es 1 Cent, aber nie ganz 0 €. Eine Linie, der sich ein Graph so nähert, heißt ⟦Asymptote⟧.',
+  'woerter': [['Asymptote', 'eine Linie, der sich der Graph immer mehr nähert, ohne sie zu erreichen'], ['senkrecht', 'von oben nach unten, wie eine Hauswand'], ['waagrecht', 'von links nach rechts, wie der Horizont']],
+  'bild': _KO(x=[-10, 4], y=[-8, 3], graphen=[_H(2, 4, -3, 'f')]),
+  'schritte': [{'text': 'f(x) = 2/(x + 4) − 3.'},
+               {'text': 'Der Nenner wird 0 bei x = −4: senkrechte Asymptote ⟦x = −4⟧.', 'bild': {'senkrecht': [-4]}},
+               {'text': 'Für große x ist 2/(x + 4) fast 0. Waagrecht bleibt ⟦y = −3⟧.', 'bild': {'waagrecht': [-3]}}],
+  'fehler': 'Die waagrechte Asymptote ist nicht y = 2. Nicht der Zähler zählt, sondern die ⟦Verschiebung −3⟧ am Ende.',
+  'fehler_bild': {'waagrecht': [-3, 2], 'punkte': [{'x': 1, 'y': 2, 'name': 'y = 2?'}]},
+  'regel': 'Asymptoten: ⟦x = −b⟧ und ⟦y = c⟧. Das gilt für f(x) = a/(x + b) + c.'},
+ 'achsenpunkte': {
+  'einstieg': 'Wo ein Graph die Achsen trifft, steckt oft das Wichtigste. Dort liest du den Startwert ab und die Stelle, an der der Wert 0 wird. Diese Punkte heißen ⟦Achsenschnittpunkte⟧.',
+  'woerter': [['Achsenschnittpunkt', 'ein Punkt, an dem der Graph eine Achse trifft'], ['Nullstelle', 'ein x-Wert, bei dem f(x) = 0 ist']],
+  'bild': _KO(x=[-6, 6], y=[-8, 8], graphen=[_H(6, 1, -2, 'f')], senkrecht=[-1], waagrecht=[-2]),
+  'schritte': [{'text': 'f(x) = 6/(x + 1) − 2.'},
+               {'text': 'y-Achse: f(0) = 6/1 − 2 = 4. Punkt (0 | 4).', 'bild': {'punkte': [{'x': 0, 'y': 4, 'name': '(0 | 4)'}]}},
+               {'text': 'Nullstelle: 6/(x + 1) − 2 = 0, also 6/(x + 1) = 2.'},
+               {'text': 'Das gilt für x + 1 = 3, also ⟦x = 2⟧.', 'bild': {'punkte': [{'x': 0, 'y': 4, 'name': '(0 | 4)'}, {'x': 2, 'y': 0, 'name': '(2 | 0)'}]}}],
+  'fehler': 'f(0) = 4 ist nicht die Nullstelle, sondern der Schnitt mit der ⟦y-Achse⟧. Die Nullstelle liegt dort, wo y = 0 ist.',
+  'fehler_bild': {'punkte': [{'x': 0, 'y': 4, 'name': 'y-Achse'}, {'x': 2, 'y': 0, 'name': 'Nullstelle'}]},
+  'regel': 'y-Achse: ⟦x = 0 einsetzen⟧. Nullstelle: f(x) = 0 lösen. Ist c = 0, gibt es keine Nullstelle.'},
+ 'parameter': {
+  'einstieg': 'Ein Bild an der Wand kannst du nach rechts oder nach oben rücken – es bleibt dasselbe Bild. Graphen kann man genauso ⟦verschieben⟧.',
+  'woerter': [['verschieben', 'den ganzen Graphen rücken, ohne ihn zu verändern'], ['Lücke', 'die Stelle, an der der Graph nicht definiert ist']],
+  'bild': _KO(x=[-4, 8], y=[-4, 6], graphen=[_H(1, 0, 0, 'g')]),
+  'schritte': [{'text': 'Aus g(x) = 1/x soll f(x) = 1/(x − 3) + 2 werden.'},
+               {'text': 'Die Lücke liegt jetzt bei x = 3: 3 nach rechts.', 'bild': {'graphen': [_H(1, 0, 0, 'g'), _H(1, -3, 0)], 'senkrecht': [3]}},
+               {'text': '+ 2 hebt jeden Punkt um 2 an.', 'bild': {'graphen': [_H(1, 0, 0, 'g'), _H(1, -3, 2, 'f')], 'waagrecht': [2]}},
+               {'text': 'Die Asymptoten sind ⟦x = 3 und y = 2⟧.'}],
+  'fehler': 'Bei 1/(x − 3) geht es nicht nach links. Die Lücke liegt bei ⟦x = 3⟧, also rechts.',
+  'fehler_bild': {'graphen': [_H(1, 0, 0, 'g'), _H(1, 3, 2, 'links?')], 'senkrecht': [-3]},
+  'regel': 'Die Lücke liegt bei ⟦x = −b⟧. +c schiebt nach oben, −c nach unten.'},
+ 'beurteilen': {
+  'einstieg': 'Jemand behauptet: „Bei genug Freunden zahlt jeder 0 € für die Pizza.“ Der Betrag wird kleiner, aber nie 0. Solche Aussagen prüfst du mit den ⟦Asymptoten⟧.',
+  'woerter': [['Asymptote', 'eine Linie, der sich der Graph nähert, ohne sie zu erreichen']],
+  'bild': _KO(x=[-6, 6], y=[-4, 6], graphen=[_H(4, 0, 1, 'f')], waagrecht=[1]),
+  'schritte': [{'text': 'Aussage: „4/x + 1 nimmt den Wert 1 an.“'},
+               {'text': 'Dann müsste 4/x = 0 sein.'},
+               {'text': '4 geteilt durch eine Zahl ist nie 0. Die Aussage ist ⟦falsch⟧.'},
+               {'text': 'y = 1 ist die Asymptote. Der Graph erreicht sie nie.'}],
+  'fehler': 'Nah heran heißt nicht erreichen. a/(x + b) wird ⟦nie genau 0⟧ – wie der Pizzapreis pro Person.',
+  'regel': 'Der Graph ⟦berührt keine Asymptote⟧. Prüfe Aussagen mit D, Asymptoten und Funktionswerten.'},
+}
+UMBAU_OFFEN = []
+baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Indirekte Proportionalität', ['indirekt']), ('Hyperbeln untersuchen', ['definitionsmenge', 'asymptoten', 'achsenpunkte']),

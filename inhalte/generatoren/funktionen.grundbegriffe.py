@@ -530,6 +530,103 @@ def g_graph_lesen(R, st):
 GEN = {'graph_lesen': g_graph_lesen, 'eindeutig': g_eindeutig, 'funktionswert': g_funktionswert, 'stelle': g_stelle, 'wertetabelle': g_wertetabelle,
        'mengen': g_mengen, 'nullstellen': g_nullstellen, 'punkt_graph': g_punkt_graph}
 
+
+# ---------- UMBAU: neues Muster (Achte Runde, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl8.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl8 import mit_umbau  # noqa: E402
+
+_TAB = {'typ': 'tabelle', 'kopf': ['Eingabe x', '1', '2', '3'], 'zeilen': [['Ausgabe y', '5', '7', '5']]}
+_TAXI = {'typ': 'koordinaten', 'x': [0, 6], 'y': [0, 16], 'graphen': [{'art': 'linear', 'm': 2, 't': 3, 'name': 'Preis', 'bereich': [0, 6]}], 'name_x': 'km', 'name_y': '€', 'schritt_y': 2}
+UMBAU = {
+ 'eindeutig': {
+  'einstieg': 'Am Getränkeautomaten gibt Taste 1 immer Cola, Taste 2 immer Wasser und Taste 3 auch Cola. Dieselbe Taste liefert immer dasselbe Getränk. So eine verlässliche Zuordnung heißt ⟦Funktion⟧.',
+  'woerter': [['Funktion', 'zu jeder Eingabe gehört genau eine Ausgabe'], ['Eingabe', 'was man hineingibt – beim Automaten die Taste, in Mathe x'], ['Ausgabe', 'was herauskommt – beim Automaten das Getränk, in Mathe y']],
+  'bild': _TAB,
+  'schritte': [{'text': 'Oben stehen die Eingaben 1, 2 und 3 – jede nur einmal.'},
+               {'text': 'Die Ausgabe 5 steht zweimal. Das ist erlaubt, wie zwei Tasten für Cola.'},
+               {'text': 'Keine Eingabe hat zwei Ausgaben. Also ⟦ist es eine Funktion⟧.'}],
+  'fehler': 'Gehören zur Eingabe 2 die Ausgaben 4 und 6, ist es ⟦keine⟧ Funktion. Das wäre eine Taste, die mal Cola und mal Wasser gibt.',
+  'fehler_bild': {'typ': 'tabelle', 'kopf': ['Eingabe x', '2', '2', '3'], 'zeilen': [['Ausgabe y', '4', '6', '4']]},
+  'regel': 'Bei einer ⟦Funktion⟧ hat jede Eingabe genau eine Ausgabe. Kommt eine Eingabe mit zwei verschiedenen Ausgaben vor, ist es keine.'},
+ 'mengen': {
+  'einstieg': 'Der Automat hat nur die Tasten 0, 1 und 3. Nur diese Zahlen darfst du hineingeben. Alles Erlaubte heißt ⟦Definitionsmenge⟧, alles, was herauskommt, ⟦Wertemenge⟧.',
+  'woerter': [['Definitionsmenge D', 'alle Zahlen, die man einsetzen darf (alle Tasten)'], ['Wertemenge W', 'alle Zahlen, die herauskommen (alle Getränke)'], ['{0; 1; 3}', 'Mengenklammer: genau die Zahlen 0, 1 und 3']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Eingabe x', '0', '1', '3'], 'zeilen': [['2x + 1', '?', '?', '?']]},
+  'schritte': [{'text': 'Die Vorschrift ist 2x + 1, die Definitionsmenge D = {0; 1; 3}.'},
+               {'text': 'Taste 0 ergibt 2 · 0 + 1 = 1.', 'bild': {'zeilen': [['2x + 1', '1', '?', '?']]}},
+               {'text': 'Taste 1 ergibt 3, Taste 3 ergibt 2 · 3 + 1 = 7.', 'bild': {'zeilen': [['2x + 1', '1', '3', '7']]}},
+               {'text': 'Heraus kommen 1, 3 und 7, die Wertemenge W: ⟦W = {1; 3; 7}⟧.'}],
+  'fehler': 'Bei 1/(x − 2) ist die 2 verboten, nicht die −2. Mit x = 2 stünde unten eine 0, und durch 0 kann man nicht teilen.',
+  'fehler_bild': {'kopf': ['Eingabe x', '−2', '2'], 'zeilen': [['1/(x − 2)', '−1/4', 'geht nicht']]},
+  'regel': 'Die ⟦Definitionsmenge⟧ ist alles, was man einsetzen darf. Die ⟦Wertemenge⟧ ist alles, was herauskommt. Teilen durch 0 ist nie erlaubt.'},
+ 'funktionswert': {
+  'einstieg': 'Ein Taxi kostet 3 € Grundpreis und 2 € pro Kilometer. Die Rechenvorschrift ist wie eine Maschine: Kilometer hinein, Preis heraus. Was herauskommt, heißt ⟦Funktionswert⟧.',
+  'woerter': [['t(x)', 'gelesen „t von x“: der Preis für x Kilometer'], ['t(5)', 'der Preis für 5 Kilometer'], ['Funktionswert', 'das Ergebnis der Maschine, also der y-Wert']],
+  'bild': _TAXI,
+  'schritte': [{'text': 'Die Taxi-Maschine heißt t(x) = 2x + 3. Gesucht ist t(5).'},
+               {'text': 'Überall, wo x steht, eine 5 einsetzen: t(5) = 2 · 5 + 3.', 'bild': {'senkrecht': [5]}},
+               {'text': 'Ausrechnen: 10 + 3 = 13. Also ⟦t(5) = 13⟧, die Fahrt kostet 13 €.', 'bild': {'punkte': [{'x': 5, 'y': 13, 'name': '(5 | 13)'}], 'waagrecht': [13]}}],
+  'fehler': 't(5) ist nicht (2 + 3) · 5 = 25. Die 3 € Grundpreis zahlst du nur einmal, nicht für jeden Kilometer.',
+  'fehler_bild': {'y': [0, 26], 'punkte': [{'x': 5, 'y': 13, 'name': 'richtig'}, {'x': 5, 'y': 25, 'name': '25?', 'offen': True}], 'waagrecht': []},
+  'regel': 'Für t(5) ersetzt du ⟦jedes x durch 5⟧. Negative Zahlen setzt du dabei in Klammern: (−2)² = 4.'},
+ 'stelle': {
+  'einstieg': 'Diesmal kennst du den Preis: Die Taxifahrt hat 15 € gekostet. Wie viele Kilometer waren das? Du kennst das Ergebnis und suchst die Eingabe, die ⟦Stelle⟧.',
+  'woerter': [['Stelle', 'die Eingabe x, die zu einem Ergebnis gehört'], ['t(x) = 15', 'die Frage: Für welches x kommt 15 heraus?'], ['Gleichung', 'zwei Seiten, die gleich groß sein sollen']],
+  'bild': {**_TAXI, 'x': [0, 8], 'y': [0, 20], 'graphen': [{'art': 'linear', 'm': 2, 't': 3, 'name': 'Preis', 'bereich': [0, 8]}]},
+  'schritte': [{'text': 'Die Frage t(x) = 15 wird zur Gleichung: 2x + 3 = 15.', 'bild': {'waagrecht': [15]}},
+               {'text': 'Auf beiden Seiten 3 abziehen: 2x = 12.'},
+               {'text': 'Beide Seiten durch 2 teilen: ⟦x = 6⟧. Die Fahrt war 6 km lang.', 'bild': {'punkte': [{'x': 6, 'y': 15, 'name': '(6 | 15)'}], 'senkrecht': [6]}}],
+  'fehler': 'Nicht die 15 für x einsetzen! t(15) wäre der Preis für 15 km, also 33 €. Die 15 ist hier das ⟦Ergebnis⟧.',
+  'fehler_bild': {'x': [0, 16], 'y': [0, 36], 'graphen': [{'art': 'linear', 'm': 2, 't': 3, 'name': 'Preis', 'bereich': [0, 16]}], 'punkte': [{'x': 6, 'y': 15, 'name': 'richtig'}, {'x': 15, 'y': 33, 'name': 't(15)', 'offen': True}], 'senkrecht': [], 'waagrecht': []},
+  'regel': 'Ist das Ergebnis gegeben, löst du ⟦f(x) = Ergebnis⟧ nach x auf. Das Ergebnis selbst setzt du nicht für x ein.'},
+ 'wertetabelle': {
+  'einstieg': 'Der Taxifahrer hat eine Preisliste: oben die Kilometer, darunter der Preis. So siehst du viele Werte auf einen Blick. So eine Liste heißt ⟦Wertetabelle⟧.',
+  'woerter': [['Wertetabelle', 'oben die Eingaben x, darunter die Ergebnisse f(x)'], ['Term', 'die Rechenvorschrift, hier 2x + 3']],
+  'bild': {'typ': 'tabelle', 'kopf': ['x (km)', '1', '2', '3', '4'], 'zeilen': [['Preis (€)', '5', '7', '?', '11']]},
+  'schritte': [{'text': 'Bei 3 km fehlt der Preis. Der Term ist 2x + 3.'},
+               {'text': 'Setze 3 ein: 2 · 3 + 3 = ⟦9⟧.', 'bild': {'zeilen': [['Preis (€)', '5', '7', '9', '11']]}},
+               {'text': 'Kontrolle: Pro Kilometer kommen immer 2 € dazu. 5, 7, 9, 11 passt.'}],
+  'fehler': 'Ein Term muss zu ⟦allen⟧ Spalten passen. 4x + 1 passt bei 1 km, aber bei 2 km gäbe es 9 € statt 7 €.',
+  'fehler_bild': {'zeilen': [['Preis (€)', '5', '7', '9', '11'], ['4x + 1', '5', '9', '13', '17']]},
+  'regel': 'In der ⟦Wertetabelle⟧ steht oben x, darunter f(x). Fehlende Werte rechnest du mit dem Term aus. Ein gesuchter Term muss zu allen Spalten passen.'},
+ 'graph_lesen': {
+  'einstieg': 'Ein Ball wird hochgeworfen. Das Bild zeigt, wie hoch er nach jeder Sekunde ist: unten die Zeit, links die Höhe. So ein Bild einer Funktion heißt ⟦Graph⟧.',
+  'woerter': [['Graph', 'die Linie, die alle Paare (x | y) einer Funktion zeigt'], ['x-Achse', 'die waagrechte Achse, hier die Zeit in Sekunden'], ['y-Achse', 'die senkrechte Achse, hier die Höhe in Metern']],
+  'bild': {'typ': 'koordinaten', 'x': [-1, 5], 'y': [-1, 5], 'graphen': [{'art': 'poly', 'k': [0, 4, -1], 'name': 'Höhe', 'bereich': [0, 4]}], 'name_x': 's', 'name_y': 'm'},
+  'schritte': [{'text': 'Wie hoch ist der Ball nach 1 Sekunde? Suche die 1 auf der x-Achse.', 'bild': {'senkrecht': [1]}},
+               {'text': 'Senkrecht hoch zur Kurve, dann waagrecht zur y-Achse: ⟦f(1) = 3⟧.', 'bild': {'punkte': [{'x': 1, 'y': 3, 'name': '(1 | 3)'}], 'waagrecht': [3]}},
+               {'text': 'Rückwärts: Wann ist er 3 m hoch? Die waagrechte Linie trifft zweimal.', 'bild': {'punkte': [{'x': 1, 'y': 3, 'name': '(1 | 3)'}, {'x': 3, 'y': 3, 'name': '(3 | 3)'}], 'senkrecht': [1, 3]}},
+               {'text': 'Also nach ⟦1 s und nach 3 s⟧ – einmal steigend, einmal fallend.'}],
+  'fehler': 'Bei „Wann ist er 3 m hoch?“ nur 1 s angeben. Auf dem Weg nach unten ist der Ball noch einmal 3 m hoch: nach 3 s.',
+  'fehler_bild': {'punkte': [{'x': 1, 'y': 3, 'name': '1 s'}, {'x': 3, 'y': 3, 'name': 'auch 3 s'}]},
+  'regel': 'Ablesen: ⟦senkrecht⟧ zur Kurve, dann ⟦waagrecht⟧ zur Achse. Zu einem y-Wert kann es mehrere x-Werte geben.'},
+ 'nullstellen': {
+  'einstieg': 'Du hast 7 € Schulden und zahlst jede Woche 2 € zurück. Nach x Wochen ist dein Kontostand 2x − 7 Euro. Die Stelle, an der er genau 0 ist, heißt ⟦Nullstelle⟧.',
+  'woerter': [['Nullstelle', 'ein x, bei dem 0 herauskommt'], ['Kontostand', 'wie viel Geld du hast; Schulden sind negativ']],
+  'bild': {'typ': 'koordinaten', 'x': [-1, 5], 'y': [-8, 3], 'graphen': [{'art': 'linear', 'm': 2, 't': -7, 'name': 'f'}], 'name_x': 'Wochen', 'name_y': '€'},
+  'schritte': [{'text': 'Gesucht ist das x mit f(x) = 0. Also 2x − 7 = 0.'},
+               {'text': 'Auf beiden Seiten 7 dazuzählen: 2x = 7.'},
+               {'text': 'Durch 2 teilen: ⟦x = 3,5⟧. Nach 3,5 Wochen bist du schuldenfrei.', 'bild': {'punkte': [{'x': 3.5, 'y': 0, 'name': '(3,5 | 0)'}]}},
+               {'text': 'Im Bild trifft die Gerade genau dort die x-Achse.'}],
+  'fehler': 'Die Nullstelle ist nicht −7. f(0) = −7 ist dein Start: am Anfang 7 € Schulden. Für die Nullstelle muss ⟦f(x) = 0⟧ sein.',
+  'fehler_bild': {'punkte': [{'x': 0, 'y': -7, 'name': 'Start'}, {'x': 3.5, 'y': 0, 'name': 'Nullstelle'}]},
+  'regel': 'Für die ⟦Nullstelle⟧ setzt du f(x) = 0. Dort schneidet der Graph die x-Achse.'},
+ 'punkt_graph': {
+  'einstieg': 'Auf einem Zettel steht: „4 km kosten 11 €.“ Passt das zum Taxi-Tarif? Du musst nicht zeichnen, du kannst es ausrechnen: Liegt der ⟦Punkt⟧ auf dem Graphen?',
+  'woerter': [['P(4 | 11)', 'Punkt mit x = 4 (erste Zahl) und y = 11 (zweite Zahl)'], ['Koordinaten', 'die beiden Zahlen eines Punktes: erst x, dann y'], ['≠', '„ist nicht gleich“']],
+  'bild': {**_TAXI, 'y': [0, 14], 'schritt_y': 2},
+  'schritte': [{'text': 'Der Zettel als Punkt: P(4 | 11), mit den Koordinaten 4 und 11.', 'bild': {'punkte': [{'x': 4, 'y': 11, 'name': 'P'}]}},
+               {'text': 'Setze x = 4 in den Tarif ein: 2 · 4 + 3 = 11.'},
+               {'text': 'Es kommt genau 11 heraus. Also ⟦liegt P auf dem Graphen⟧.'},
+               {'text': 'Q(4 | 10) passt nicht, denn 11 ≠ 10. ⟦Q liegt daneben.⟧', 'bild': {'punkte': [{'x': 4, 'y': 11, 'name': 'P'}, {'x': 4, 'y': 10, 'name': 'Q', 'offen': True}]}}],
+  'fehler': 'Bei P(4 | 11) nicht die 11 für x einsetzen. Die ⟦erste⟧ Zahl ist immer x, hier die Kilometer.',
+  'fehler_bild': {'x': [0, 12], 'graphen': [{'art': 'linear', 'm': 2, 't': 3, 'name': 'Preis', 'bereich': [0, 6]}], 'punkte': [{'x': 4, 'y': 11, 'name': 'P(4 | 11)'}, {'x': 11, 'y': 4, 'name': '(11 | 4)?', 'offen': True}]},
+  'regel': 'Setze ⟦x in den Term ein⟧ und vergleiche mit y. Kommt genau y heraus, liegt der Punkt auf dem Graphen.'},
+}
+UMBAU_OFFEN = []
+baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Was ist eine Funktion?', ['eindeutig', 'mengen']), ('Mit dem Term rechnen', ['funktionswert', 'stelle', 'wertetabelle', 'graph_lesen']),

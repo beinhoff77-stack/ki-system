@@ -42,50 +42,329 @@
    {
     "lernziel": "pyramide",
     "titel": "Pyramiden: Ecken, Kanten, Flächen",
-    "regel": "So zählst du bei einer ⟦Pyramide⟧ mit n-Eck als Grundfläche: n + 1 Ecken, ⟦2n Kanten⟧ (n unten, n zur ⟦Spitze⟧) und n + 1 Flächen (n Dreiecke und die Grundfläche).",
+    "regel": "n-Eck-Pyramide: ⟦n + 1 Ecken, 2n Kanten, n + 1 Flächen⟧. Die 1 ist die Spitze bzw. die Grundfläche.",
     "schritte": [
-     "Eine sechsseitige Pyramide hat als Grundfläche ein Sechseck: n = 6.",
-     "Ecken: 6 Ecken unten und die Spitze, also 7.",
-     "Kanten: 6 Kanten am Boden und 6 Seitenkanten zur Spitze, also 12.",
-     "Flächen: 6 Dreiecke und das Sechseck unten, zusammen ⟦7⟧."
+     {
+      "text": "Die Grundfläche ist ein Quadrat, also n = 4.",
+      "bild": {
+       "flaeche": [
+        "_A",
+        "_B",
+        "_C",
+        "_D"
+       ]
+      }
+     },
+     {
+      "text": "Ecken: 4 unten und die Spitze, also 5."
+     },
+     {
+      "text": "Kanten: 4 am Boden und 4 Seitenkanten zur Spitze, also 8."
+     },
+     {
+      "text": "Flächen: 4 Dreiecke und das Quadrat, zusammen ⟦5⟧.",
+      "bild": {
+       "flaeche": [
+        "_A",
+        "_B",
+        "_S"
+       ]
+      }
+     }
     ],
-    "probe": "E + F − K = 7 + 7 − 12 = 2 ✓",
-    "fehler": "Eine vierseitige Pyramide hat nicht 4 Flächen: Zu den 4 Dreiecken kommt die ⟦quadratische Grundfläche⟧ dazu, also 5.",
-    "einstieg": "Die berühmten Pyramiden in Ägypten haben einen quadratischen Boden und laufen nach oben in einer Spitze zusammen. Auch manche Kirchturmspitzen sehen so aus. Ein Körper mit einem Vieleck als Boden und einer Spitze heißt ⟦Pyramide⟧.",
+    "fehler": "Eine sechsseitige Pyramide hat nicht 6 Flächen. Zu den 6 Dreiecken kommt die ⟦Grundfläche⟧ dazu, also 7.",
+    "einstieg": "Die Pyramiden in Ägypten haben einen quadratischen Boden. Nach oben laufen sie in einer Spitze zusammen. So ein Körper heißt ⟦Pyramide⟧.",
     "woerter": [
      [
       "Pyramide",
-      "Körper mit einem n-Eck als Grundfläche und Dreiecken, die in einer Spitze zusammenlaufen"
+      "Körper mit einem Vieleck als Boden und einer Spitze"
      ],
      [
       "Spitze",
-      "die oberste Ecke, in der alle Seitenkanten zusammenlaufen"
-     ],
-     [
-      "n",
-      "Anzahl der Ecken der Grundfläche"
+      "der oberste Punkt, in dem sich die Seitenkanten treffen"
      ],
      [
       "Seitenkante",
-      "Kante von einer Ecke der Grundfläche zur Spitze"
-     ],
-     [
-      "E + F − K = 2",
-      "Ecken + Flächen − Kanten = 2 (Eulerscher Polyedersatz) – eine Kontrolle fürs Zählen"
+      "eine Kante vom Boden zur Spitze"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       6,
+       0
+      ],
+      "_C": [
+       8.12,
+       2.12
+      ],
+      "_D": [
+       2.12,
+       2.12
+      ],
+      "_S": [
+       4.06,
+       9.06
+      ]
+     },
+     "linien": [
+      [
+       "_A",
+       "_B"
+      ],
+      [
+       "_B",
+       "_C"
+      ],
+      [
+       "_A",
+       "_D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_D",
+       "_C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_S",
+       "_A"
+      ],
+      [
+       "_S",
+       "_B"
+      ],
+      [
+       "_S",
+       "_C"
+      ],
+      [
+       "_S",
+       "_D",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "laengen",
     "titel": "Schrägbilder von Prismen und Pyramiden",
-    "regel": "Schrägbild: Strecken ⟦parallel zur Zeichenebene⟧ (Breite, Höhe) in wahrer Länge; Strecken ⟦nach hinten⟧ unter dem Winkel ω (meist 45°) mit dem ⟦Verkürzungsfaktor q⟧ (meist 1/2). Die Höhe einer Pyramide zeichnest du senkrecht in wahrer Länge über dem Fußpunkt.",
+    "regel": "Nur Kanten ⟦nach hinten⟧ werden verkürzt, meist auf die Hälfte. Breite und Höhe bleiben in wahrer Länge.",
     "schritte": [
-     "Quadratische Pyramide: Grundkante 6 cm, Höhe 8 cm, q = 1/2.",
-     "Grundfläche: vordere Kante 6 cm in wahrer Länge, Kanten nach hinten 6 · 1/2 = 3 cm unter 45°.",
-     "Diagonalen der Grundfläche zeichnen. Ihr Schnittpunkt F ist der Fußpunkt der Höhe.",
-     "Von F aus ⟦8 cm⟧ senkrecht nach oben zur Spitze S. Verdeckte Kanten gestrichelt."
+     {
+      "text": "Die Pyramide hat Grundkante 6 cm, Höhe 8 cm und q = 1/2."
+     },
+     {
+      "text": "Vorne 6 cm, nach hinten 6 · 1/2 = 3 cm unter 45°.",
+      "bild": {
+       "punkte": {
+        "A": [
+         0,
+         0
+        ],
+        "B": [
+         6,
+         0
+        ],
+        "C": [
+         8.12,
+         2.12
+        ],
+        "D": [
+         2.12,
+         2.12
+        ]
+       },
+       "linien": [
+        [
+         "A",
+         "B",
+         "6 cm"
+        ],
+        [
+         "B",
+         "C",
+         "3 cm"
+        ],
+        [
+         "A",
+         "D",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "D",
+         "C",
+         "",
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Die Diagonalen schneiden sich im Fußpunkt F.",
+      "bild": {
+       "punkte": {
+        "A": [
+         0,
+         0
+        ],
+        "B": [
+         6,
+         0
+        ],
+        "C": [
+         8.12,
+         2.12
+        ],
+        "D": [
+         2.12,
+         2.12
+        ],
+        "F": [
+         4.06,
+         1.06
+        ]
+       },
+       "linien": [
+        [
+         "A",
+         "B",
+         "6 cm"
+        ],
+        [
+         "B",
+         "C",
+         "3 cm"
+        ],
+        [
+         "A",
+         "D",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "D",
+         "C",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "A",
+         "C",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "B",
+         "D",
+         "",
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Von F ⟦8 cm⟧ senkrecht hoch zur Spitze S.",
+      "bild": {
+       "punkte": {
+        "A": [
+         0,
+         0
+        ],
+        "B": [
+         6,
+         0
+        ],
+        "C": [
+         8.12,
+         2.12
+        ],
+        "D": [
+         2.12,
+         2.12
+        ],
+        "F": [
+         4.06,
+         1.06
+        ],
+        "S": [
+         4.06,
+         9.06
+        ]
+       },
+       "linien": [
+        [
+         "A",
+         "B",
+         "6 cm"
+        ],
+        [
+         "B",
+         "C",
+         "3 cm"
+        ],
+        [
+         "A",
+         "D",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "D",
+         "C",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "S",
+         "A"
+        ],
+        [
+         "S",
+         "B"
+        ],
+        [
+         "S",
+         "C"
+        ],
+        [
+         "S",
+         "D",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "F",
+         "S",
+         "h = 8 cm",
+         "gestrichelt"
+        ],
+        [
+         "A",
+         "C",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "B",
+         "D",
+         "",
+         "gestrichelt"
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "Die Höhe einer Pyramide wird nicht verkürzt: Sie steht ⟦senkrecht⟧ und liegt damit parallel zur Zeichenebene.",
+    "fehler": "Die Höhe wird nicht verkürzt. Sie steht ⟦senkrecht⟧ und bleibt in wahrer Länge: 8 cm.",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -175,45 +454,248 @@
       ]
      ]
     },
-    "einstieg": "Wie zeichnet man ein Zelt so ins Heft, dass es räumlich aussieht? Die Front zeichnest du in echter Größe. Was nach hinten geht, zeichnest du schräg und kürzer. Die Zeltstange in der Mitte steht senkrecht – die zeichnest du in voller Länge. So entsteht das ⟦Schrägbild⟧ einer Pyramide.",
+    "einstieg": "Ein Zelt soll räumlich ins Heft. Vorne echte Größe, nach hinten schräg und kürzer, die Stange senkrecht. So entsteht ein ⟦Schrägbild⟧.",
     "woerter": [
      [
-      "Zeichenebene",
-      "die Fläche deines Hefts"
-     ],
-     [
-      "parallel zur Zeichenebene",
-      "die Strecke liegt „flach“ vor dir und geht nicht nach hinten"
-     ],
-     [
-      "ω (Omega)",
-      "griechischer Buchstabe für den Winkel der Kanten nach hinten, meist 45°"
-     ],
-     [
-      "q (Verkürzungsfaktor)",
-      "Kanten nach hinten werden mit q malgenommen, meist q = 1/2"
+      "q",
+      "der Verkürzungsfaktor: Kanten nach hinten werden mal q gezeichnet, meist 1/2"
      ],
      [
       "Fußpunkt F",
-      "der Punkt unter der Spitze, hier die Mitte der Grundfläche"
+      "dort steht die Höhe auf der Grundfläche"
      ],
      [
-      "Höhe",
-      "der senkrechte Abstand von der Spitze zur Grundfläche"
+      "Diagonale",
+      "Strecke zwischen gegenüberliegenden Ecken"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       6,
+       0
+      ],
+      "C": [
+       8.12,
+       2.12
+      ],
+      "D": [
+       2.12,
+       2.12
+      ],
+      "F": [
+       4.06,
+       1.06
+      ],
+      "S": [
+       4.06,
+       5.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "6 cm"
+      ],
+      [
+       "B",
+       "C",
+       "3 cm"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "S",
+       "A"
+      ],
+      [
+       "S",
+       "B"
+      ],
+      [
+       "S",
+       "C"
+      ],
+      [
+       "S",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "F",
+       "S",
+       "4 cm?",
+       "gestrichelt"
+      ],
+      [
+       "A",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "B",
+       "D",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "lage",
     "titel": "Parallel, schneidend oder windschief?",
-    "regel": "So entscheidest du: gleiche Richtung → ⟦parallel⟧. Ein gemeinsamer Punkt → ⟦schneiden sich⟧. Weder das eine noch das andere → ⟦windschief⟧.",
+    "regel": "Gleiche Richtung: ⟦parallel⟧. Gemeinsamer Punkt: ⟦schneidend⟧. Sonst sind sie windschief.",
     "schritte": [
-     "Quader ABCDEFGH wie im Bild.",
-     "AB läuft unten vorne nach rechts. CG läuft hinten rechts senkrecht nach oben.",
-     "Die Richtungen sind verschieden, also sind sie nicht parallel.",
-     "Sie treffen sich auch nirgends: AB und CG sind ⟦windschief⟧."
+     {
+      "text": "Im Quader läuft AB unten vorne nach rechts.",
+      "bild": {
+       "linien": [
+        [
+         "A",
+         "B",
+         "AB"
+        ],
+        [
+         "B",
+         "F"
+        ],
+        [
+         "F",
+         "E"
+        ],
+        [
+         "E",
+         "A"
+        ],
+        [
+         "B",
+         "C"
+        ],
+        [
+         "C",
+         "G"
+        ],
+        [
+         "G",
+         "F"
+        ],
+        [
+         "E",
+         "H"
+        ],
+        [
+         "H",
+         "G"
+        ],
+        [
+         "A",
+         "D",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "D",
+         "C",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "D",
+         "H",
+         "",
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "CG läuft hinten rechts senkrecht nach oben.",
+      "bild": {
+       "linien": [
+        [
+         "A",
+         "B",
+         "AB"
+        ],
+        [
+         "B",
+         "F"
+        ],
+        [
+         "F",
+         "E"
+        ],
+        [
+         "E",
+         "A"
+        ],
+        [
+         "B",
+         "C"
+        ],
+        [
+         "C",
+         "G",
+         "CG"
+        ],
+        [
+         "G",
+         "F"
+        ],
+        [
+         "E",
+         "H"
+        ],
+        [
+         "H",
+         "G"
+        ],
+        [
+         "A",
+         "D",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "D",
+         "C",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "D",
+         "H",
+         "",
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Verschiedene Richtungen: nicht parallel. Sie treffen sich auch nicht."
+     },
+     {
+      "text": "Also sind AB und CG ⟦windschief⟧."
+     }
     ],
-    "fehler": "Geraden ohne Schnittpunkt sind im Raum nicht automatisch parallel. Parallel heißt ⟦gleiche Richtung⟧ – sonst sind sie windschief.",
+    "fehler": "Ohne Schnittpunkt heißt im Raum nicht automatisch parallel. Parallel verlangt die ⟦gleiche Richtung⟧.",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -307,41 +789,37 @@
       ]
      ]
     },
-    "einstieg": "Unten eine Autobahn, oben eine Straße, die auf einer Brücke quer darüber führt: Die beiden laufen nicht in dieselbe Richtung und treffen sich trotzdem nie. So etwas gibt es nur im Raum, nicht auf einem flachen Blatt. Solche Geraden heißen ⟦windschief⟧.",
+    "einstieg": "Unten eine Autobahn, oben eine Brücke quer darüber. Die Straßen haben verschiedene Richtungen und treffen sich nie. Solche Geraden heißen ⟦windschief⟧.",
     "woerter": [
      [
-      "Quader ABCDEFGH",
-      "A, B, C, D sind die Ecken unten; E liegt über A, F über B, G über C, H über D"
-     ],
-     [
-      "AB",
-      "die Gerade durch die Punkte A und B"
+      "windschief",
+      "nicht parallel und ohne Schnittpunkt – das geht nur im Raum"
      ],
      [
       "parallel",
-      "gleiche Richtung, kein gemeinsamer Punkt"
-     ],
-     [
-      "schneiden sich",
-      "genau ein gemeinsamer Punkt"
-     ],
-     [
-      "windschief",
-      "nicht parallel und trotzdem ohne gemeinsamen Punkt"
+      "gleiche Richtung, ohne Schnittpunkt"
      ]
     ]
    },
    {
     "lernziel": "koordinaten",
     "titel": "Punkte im Raum mit Koordinaten",
-    "regel": "Im Raum hat ein Punkt ⟦drei Koordinaten⟧ P(x | y | z). Liegt ein Quader mit A im ⟦Ursprung⟧ so, dass AB auf der x-Achse, AD auf der y-Achse und AE auf der z-Achse (nach oben) liegt, liest du die Koordinaten aus den ⟦Kantenlängen⟧ ab.",
+    "regel": "Ein Punkt im Raum hat ⟦drei Koordinaten⟧ (x | y | z). Die Kantenlängen sagen, wie weit du in jede Richtung gehst.",
     "schritte": [
-     "Quader: A liegt im Ursprung (0 | 0 | 0). Er ist 5 lang (x-Richtung), 3 breit (y-Richtung) und 2 hoch (z-Richtung).",
-     "B liegt 5 weit in x-Richtung: B(5 | 0 | 0). C liegt zusätzlich 3 weit in y-Richtung: C(5 | 3 | 0).",
-     "E liegt 2 über A: E(0 | 0 | 2).",
-     "G liegt 2 über C, also ⟦G(5 | 3 | 2)⟧."
+     {
+      "text": "A liegt im Ursprung. Der Quader ist 5 lang, 3 breit, 2 hoch."
+     },
+     {
+      "text": "Also B(5 | 0 | 0), C(5 | 3 | 0)."
+     },
+     {
+      "text": "E liegt 2 über A: E(0 | 0 | 2)."
+     },
+     {
+      "text": "G liegt 2 über C: ⟦G(5 | 3 | 2)⟧."
+     }
     ],
-    "fehler": "H liegt nicht bei (0 | 0 | 2) – das ist E. H liegt über D, also H(0 | 3 | 2). Achte darauf, ⟦welche Ecke über welcher⟧ liegt.",
+    "fehler": "H ist nicht (0 | 0 | 2) – das ist E. H liegt über D: ⟦H(0 | 3 | 2)⟧.",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -436,33 +914,37 @@
       ]
      ]
     },
-    "einstieg": "In einem großen Gebäude findest du einen Raum mit drei Angaben: wie weit den Gang entlang, wie weit nach rechts und in welchem Stockwerk. Genauso beschreibt man einen Punkt im Raum mit drei Zahlen. Sie heißen ⟦Koordinaten im Raum⟧.",
+    "einstieg": "In einem großen Gebäude findest du einen Raum mit drei Angaben: Gang, Seite, Stockwerk. Einen Punkt im Raum beschreibst du genauso mit drei Zahlen, den ⟦Koordinaten⟧.",
     "woerter": [
      [
-      "P(x | y | z)",
-      "ein Punkt mit drei Koordinaten: x, y und z"
-     ],
-     [
-      "x-, y-, z-Achse",
-      "die drei Richtungen: hier entlang AB, entlang AD und nach oben"
+      "(5 | 3 | 2)",
+      "x = 5 nach rechts, y = 3 nach hinten, z = 2 nach oben"
      ],
      [
       "Ursprung",
-      "der Punkt (0 | 0 | 0), hier die Ecke A"
+      "der Punkt (0 | 0 | 0)"
      ]
     ]
    },
    {
     "lernziel": "rotation",
     "titel": "Rotationskörper",
-    "regel": "Dreht man eine ebene Figur um eine ⟦Achse⟧, entsteht ein ⟦Rotationskörper⟧. Rechteck um eine Seite → ⟦Zylinder⟧; rechtwinkliges Dreieck um eine Kathete → ⟦Kegel⟧; Halbkreis um den Durchmesser → ⟦Kugel⟧.",
+    "regel": "Rechteck um eine Seite: ⟦Zylinder⟧. Dreieck um eine Kathete: Kegel. Halbkreis um den Durchmesser: Kugel.",
     "schritte": [
-     "Ein Rechteck 4 cm × 7 cm dreht sich um seine 7-cm-Seite.",
-     "Diese Seite liegt auf der Achse. Sie wird zur Höhe: h = 7 cm.",
-     "Die 4-cm-Seite dreht sich im Kreis um die Achse. Sie wird zum Radius: r = 4 cm.",
-     "Es entsteht ein ⟦Zylinder mit r = 4 cm und h = 7 cm⟧."
+     {
+      "text": "Ein Rechteck 4 cm × 7 cm dreht sich um die 7-cm-Seite."
+     },
+     {
+      "text": "Die Seite auf der Achse wird zur Höhe: h = 7 cm."
+     },
+     {
+      "text": "Die 4-cm-Seite dreht sich im Kreis: Radius r = 4 cm."
+     },
+     {
+      "text": "Es entsteht ein ⟦Zylinder⟧ mit r = 4 cm und h = 7 cm."
+     }
     ],
-    "fehler": "Dreht sich das Rechteck 4 cm × 7 cm um die 7-cm-Seite, ist der Radius nicht 7 cm. Die Seite ⟦auf der Achse⟧ wird zur Höhe, die andere zum Radius.",
+    "fehler": "Der Radius ist nicht 7 cm. Die Seite ⟦auf der Achse⟧ wird zur Höhe, die andere zum Radius.",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -528,7 +1010,7 @@
       [
        "D",
        "A",
-       "7 cm (Achse)"
+       "7 cm"
       ],
       [
        "_l",
@@ -550,52 +1032,215 @@
       ]
      ]
     },
-    "einstieg": "Drehst du ein Fähnchen an seinem Stab schnell zwischen den Händen, siehst du plötzlich einen runden Körper. Aus einem rechteckigen Fähnchen wird so etwas wie eine Dose. Ein Körper, der durch Drehen einer flachen Figur entsteht, heißt ⟦Rotationskörper⟧.",
+    "einstieg": "Drehst du ein Fähnchen schnell an seinem Stab, siehst du einen runden Körper. Aus einem Rechteck wird so etwas wie eine Dose. So entsteht ein ⟦Rotationskörper⟧.",
     "woerter": [
      [
-      "Achse",
-      "die Linie, um die gedreht wird (der Stab)"
-     ],
-     [
       "Rotationskörper",
-      "ein Körper, der durch Drehen einer Figur um eine Achse entsteht"
+      "Körper, der durch Drehen einer flachen Figur entsteht"
      ],
      [
-      "Kathete",
-      "eine der beiden Seiten am rechten Winkel eines Dreiecks"
+      "Achse",
+      "die Linie, um die gedreht wird – hier der Stab"
      ],
      [
       "Radius r",
-      "Abstand vom Mittelpunkt bis zum Rand des Kreises"
+      "Abstand von der Achse zum Rand"
      ]
     ]
    },
    {
     "lernziel": "axialschnitt",
     "titel": "Axialschnitte berechnen",
-    "regel": "Ein ⟦Axialschnitt⟧ schneidet einen Rotationskörper ⟦entlang der Achse⟧. Beim Zylinder entsteht ein Rechteck (2r breit, h hoch), beim Kegel ein gleichschenkliges Dreieck (Grundseite 2r, Höhe h), bei der Kugel ein Kreis.",
+    "regel": "Ein ⟦Axialschnitt⟧ geht durch die Achse. Zylinder: Rechteck 2r × h. Kegel: Dreieck. Kugel: Kreis.",
     "schritte": [
-     "Ein Zylinder hat r = 3 cm und h = 10 cm.",
-     "Der Schnitt geht durch die Mitte und erfasst den ganzen Durchmesser: 2 · 3 cm = 6 cm breit.",
-     "Er ist so hoch wie der Zylinder, also 10 cm. Der Axialschnitt ist ein Rechteck 6 cm × 10 cm.",
-     "Flächeninhalt: 6 cm · 10 cm = ⟦60 cm²⟧."
+     {
+      "text": "Ein Zylinder hat r = 3 cm und h = 10 cm."
+     },
+     {
+      "text": "Der Schnitt erfasst den ganzen Durchmesser: 2 · 3 cm = 6 cm.",
+      "bild": {
+       "linien": [
+        [
+         "_o",
+         "_p",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_a",
+         "_b",
+         "6 cm"
+        ],
+        [
+         "_b",
+         "_c",
+         "h = 10 cm"
+        ],
+        [
+         "_c",
+         "_d"
+        ],
+        [
+         "_d",
+         "_a"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Er ist 10 cm hoch. Das Rechteck misst 6 cm × 10 cm."
+     },
+     {
+      "text": "Fläche: 6 · 10 = ⟦60 cm²⟧.",
+      "bild": {
+       "flaeche": [
+        "_a",
+        "_b",
+        "_c",
+        "_d"
+       ]
+      }
+     }
     ],
-    "fehler": "Der Axialschnitt eines Zylinders ist nicht r breit, sondern ⟦2r⟧: Der Schnitt geht durch die Mitte und erfasst den ganzen Durchmesser.",
-    "einstieg": "Schneidest du eine Möhre der Länge nach genau durch die Mitte, siehst du eine Schnittfläche. Bei einer Dose wäre sie ein Rechteck, bei einer Eistüte ein Dreieck. Ein Schnitt genau entlang der Drehachse heißt ⟦Axialschnitt⟧.",
+    "fehler": "Der Schnitt ist nicht r breit, sondern ⟦2r⟧. Er geht durch die Mitte und erfasst den Durchmesser.",
+    "einstieg": "Schneidest du eine Möhre der Länge nach durch die Mitte, siehst du eine Schnittfläche. Bei einer Dose ist sie ein Rechteck. Dieser Schnitt heißt ⟦Axialschnitt⟧.",
     "woerter": [
      [
       "Axialschnitt",
-      "Schnitt durch einen Rotationskörper genau entlang der Achse"
+      "ein Schnitt genau entlang der Drehachse"
      ],
      [
-      "2r",
-      "der Durchmesser: zweimal der Radius"
-     ],
-     [
-      "gleichschenklig",
-      "ein Dreieck mit zwei gleich langen Seiten"
+      "Durchmesser",
+      "2 · r: einmal quer durch die Mitte"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_a": [
+       0,
+       0
+      ],
+      "_b": [
+       6,
+       0
+      ],
+      "_c": [
+       6,
+       10
+      ],
+      "_d": [
+       0,
+       10
+      ],
+      "_m": [
+       3,
+       0
+      ],
+      "_o": [
+       3,
+       -1
+      ],
+      "_p": [
+       3,
+       11
+      ]
+     },
+     "linien": [
+      [
+       "_o",
+       "_p",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_m",
+       "_b",
+       "r = 3 cm"
+      ],
+      [
+       "_b",
+       "_c",
+       "h = 10 cm"
+      ],
+      [
+       "_c",
+       "_d"
+      ],
+      [
+       "_d",
+       "_a"
+      ],
+      [
+       "_a",
+       "_m"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "flaeche": [
+      "_m",
+      "_b",
+      "_c",
+      "_d"
+     ],
+     "punkte": {
+      "_a": [
+       0,
+       0
+      ],
+      "_b": [
+       6,
+       0
+      ],
+      "_c": [
+       6,
+       10
+      ],
+      "_d": [
+       3,
+       10
+      ],
+      "_m": [
+       3,
+       0
+      ],
+      "_o": [
+       3,
+       -1
+      ],
+      "_p": [
+       3,
+       11
+      ]
+     },
+     "linien": [
+      [
+       "_o",
+       "_p",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_m",
+       "_b",
+       "3 cm?"
+      ],
+      [
+       "_b",
+       "_c",
+       "h = 10 cm"
+      ],
+      [
+       "_c",
+       "_d"
+      ],
+      [
+       "_d",
+       "_m"
+      ]
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [

@@ -34,169 +34,275 @@
    {
     "lernziel": "lesen",
     "titel": "Intervalle lesen",
-    "regel": "So liest du ein ⟦Intervall⟧: Schau jede ⟦Klammer⟧ einzeln an. Zeigt sie zur Zahl hin, gehört die Grenze dazu (≤). Zeigt sie von ihr weg, gehört sie nicht dazu (<).",
+    "regel": "Zeigt die Klammer ⟦zur Zahl hin⟧, gehört die Grenze dazu. Zeigt sie weg, gehört sie nicht dazu.",
     "schritte": [
-     "Gegeben ist das Intervall [−2; 5[.",
-     "Links zeigt die Klammer zur −2 hin. Also gehört −2 dazu (gefüllter Punkt).",
-     "Rechts zeigt die Klammer von der 5 weg. Also gehört 5 nicht dazu (leerer Kreis).",
-     "In Zeichen heißt das ⟦−2 ≤ x < 5⟧: alle Zahlen von −2 bis knapp unter 5."
-    ],
-    "fehler": "]1; 4] heißt nicht 1 ≤ x ≤ 4. Die linke Klammer zeigt ⟦nach außen⟧, also gehört 1 nicht dazu: 1 < x ≤ 4. Wie bei „über 1 Jahr bis 4 Jahre“: Wer genau 1 Jahr alt ist, ist noch nicht dabei.",
-    "bild": {
-     "typ": "figur",
-     "punkte": {
-      "_l": [
-       -3.5,
-       0
-      ],
-      "_r": [
-       6.5,
-       0
-      ],
-      "−2": [
-       -2,
-       0
-      ],
-      "_e": [
-       5,
-       0
-      ]
-     },
-     "linien": [
-      [
-       "_l",
-       "_r",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "−2",
-       "_e"
-      ]
-     ],
-     "kreise": [
-      {
-       "m": [
-        5,
-        0
-       ],
-       "r": 0.2,
-       "name": "5"
+     {
+      "text": "Die linke Klammer zeigt zur 3 hin: Die Grenze 3 gehört dazu.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 3,
+         "name": "3 dabei"
+        }
+       ]
       }
-     ]
+     },
+     {
+      "text": "Die rechte Klammer zeigt von der 6 weg: 6 gehört nicht dazu.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 3,
+         "name": "3 dabei"
+        },
+        {
+         "wert": 6,
+         "name": "6 nicht"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Dazwischen ist alles dabei: ⟦3 ≤ x < 6⟧.",
+      "bild": {
+       "bereich": {
+        "von": 3,
+        "bis": 6
+       }
+      }
+     }
+    ],
+    "fehler": "]3; 6[ ist etwas anderes: Ein Kind, das genau 3 ist, wäre dann nicht dabei. Die Klammer bei der 3 zeigt dort ⟦nach außen⟧.",
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 8,
+     "abschnitte": 8,
+     "beschriftet": "alle"
     },
-    "einstieg": "Auf einem Spielzeug steht: „für Kinder von 3 bis unter 6 Jahren“. Erlaubt sind also 3-Jährige, 4-Jährige, 5-Jährige – und jedes Alter dazwischen, etwa 5 Jahre und 11 Monate. Wer schon 6 ist, gehört nicht mehr dazu. Für so einen lückenlosen Bereich gibt es in Mathe eine Kurzschrift: das ⟦Intervall⟧ [3; 6[.",
+    "einstieg": "Auf einem Spielzeug steht: „für Kinder von 3 bis unter 6 Jahren“. Jedes Alter dazwischen passt, wer 6 ist, nicht mehr. Kurz schreibt man das als ⟦Intervall⟧ [3; 6[.",
     "woerter": [
      [
       "Intervall",
       "ein lückenloser Zahlenbereich zwischen zwei Grenzen"
      ],
      [
+      "[3; 6[",
+      "alle Zahlen von 3 bis knapp unter 6"
+     ],
+     [
       "Grenze",
-      "die Zahl am Anfang oder am Ende des Bereichs"
-     ],
-     [
-      "[ … ] nach innen",
-      "die eckige Klammer zeigt zur Zahl hin: die Grenze gehört dazu"
-     ],
-     [
-      "] … [ nach außen",
-      "die Klammer zeigt von der Zahl weg: die Grenze gehört nicht dazu"
-     ],
-     [
-      "−2 ≤ x < 5",
-      "alle Zahlen x von −2 (mit −2) bis 5 (ohne 5)"
-     ],
-     [
-      "Punkt / Kreis im Bild",
-      "gefüllter Punkt: Grenze gehört dazu; leerer Kreis: gehört nicht dazu"
+      "die Zahl am Rand des Bereichs"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "punkte": [
+      {
+       "wert": 3,
+       "name": "3 nicht"
+      },
+      {
+       "wert": 6,
+       "name": "6 nicht"
+      }
+     ]
+    }
    },
    {
     "lernziel": "schreiben",
     "titel": "Zahlenbereiche als Intervall schreiben",
-    "regel": "So schreibst du ein Intervall: Bei ≤ und ≥ zeigt die Klammer ⟦nach innen⟧, bei < und > ⟦nach außen⟧. Ist der Bereich auf einer Seite ⟦unbegrenzt⟧, schreibst du −∞ oder ∞ – immer mit Klammer nach außen.",
+    "regel": "Bei ≤ und ≥ zeigt die Klammer ⟦nach innen⟧, sonst nach außen. Bei ∞ und −∞ zeigt sie immer nach außen.",
     "schritte": [
-     "Mitfahren darf, wer mindestens 140 cm groß ist. In Zeichen: x ≥ 140.",
-     "Die 140 gehört dazu, also zeigt die Klammer zur 140 hin: [140; …",
-     "Nach oben gibt es keine Grenze. Dort steht ∞, und bei ∞ zeigt die Klammer immer nach außen.",
-     "Das Intervall heißt ⟦[140; ∞[⟧."
+     {
+      "text": "Mindestens 140 cm heißt: x ≥ 140.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 140,
+         "name": "140"
+        }
+       ],
+       "bereich": {
+        "von": 140,
+        "bis": 200
+       }
+      }
+     },
+     {
+      "text": "Die 140 gehört dazu, die Klammer zeigt zu ihr hin: [140."
+     },
+     {
+      "text": "Nach oben steht ∞, mit Klammer nach außen: ⟦[140; ∞[⟧."
+     }
     ],
-    "fehler": "x > 3 ist nicht [3; ∞]. Die 3 gehört nicht dazu, also ]3; … . Und ∞ ist keine Zahl, die man je erreicht – deshalb zeigt die Klammer dort ⟦immer⟧ nach außen: ]3; ∞[.",
-    "einstieg": "An der Achterbahn steht: „Mitfahren ab 140 cm.“ Eine obere Grenze gibt es nicht – auch sehr große Menschen dürfen mitfahren. Für „ohne Ende nach oben“ benutzt man das Zeichen ∞, gesprochen ⟦unendlich⟧.",
+    "fehler": "]140; ∞[ wäre falsch: Wer genau 140 cm misst, dürfte dann nicht mitfahren. Bei ∞ zeigt die Klammer ⟦immer⟧ nach außen.",
+    "einstieg": "An der Achterbahn steht: „Mitfahren ab 140 cm.“ Nach oben gibt es keine Grenze. Für „ohne Ende“ schreibt man ∞, gesprochen ⟦unendlich⟧.",
     "woerter": [
      [
-      "≥ und ≤",
-      "„größer oder gleich“ bzw. „kleiner oder gleich“: die Grenze gehört dazu"
-     ],
-     [
-      "> und <",
-      "„größer als“ bzw. „kleiner als“: die Grenze gehört nicht dazu"
-     ],
-     [
       "∞",
-      "unendlich: der Bereich hört nach oben nie auf"
+      "„unendlich“: Der Bereich hört nie auf"
      ],
      [
-      "−∞",
-      "minus unendlich: der Bereich hört nach unten nie auf"
-     ],
-     [
-      "unbegrenzt",
-      "auf dieser Seite gibt es keine Grenze"
+      "x ≥ 140",
+      "x ist 140 oder mehr"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 100,
+     "ende": 200,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    },
+    "fehler_bild": {
+     "punkte": [
+      {
+       "wert": 140,
+       "name": "140 nicht?"
+      }
+     ]
+    }
    },
    {
     "lernziel": "enthalten",
     "titel": "Welche Zahlen liegen im Intervall?",
-    "regel": "So prüfst du eine Zahl: Liegt sie ⟦zwischen den Grenzen⟧, gehört sie dazu. Ist sie genau eine Grenze, entscheidet die ⟦Klammer⟧.",
+    "regel": "Eine Zahl gehört dazu, wenn sie ⟦zwischen den Grenzen⟧ liegt. Liegt sie genau auf einer Grenze, entscheidet die Klammer.",
     "schritte": [
-     "Frage: Welche ganzen Zahlen liegen in ]−1; 3]?",
-     "Links zeigt die Klammer von der −1 weg. Also gehört −1 nicht dazu.",
-     "Dann kommen 0, 1 und 2. Rechts zeigt die Klammer zur 3 hin, also gehört auch 3 dazu.",
-     "Gezählt: 0, 1, 2, 3 – das sind ⟦4⟧ ganze Zahlen."
+     {
+      "text": "Die 1 gehört nicht dazu, die Klammer zeigt weg.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 1,
+         "name": "1 nicht"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Die 3 gehört dazu, die Klammer zeigt zu ihr hin.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 1,
+         "name": "1 nicht"
+        },
+        {
+         "wert": 3,
+         "name": "3 dabei"
+        }
+       ],
+       "bereich": {
+        "von": 1,
+        "bis": 3
+       }
+      }
+     },
+     {
+      "text": "Ganze Zahlen darin sind 2 und 3. Das sind ⟦2 ganze Zahlen⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 1,
+         "name": "1 nicht"
+        },
+        {
+         "wert": 2,
+         "name": "2"
+        },
+        {
+         "wert": 3,
+         "name": "3 dabei"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Dazu kommen alle Zahlen dazwischen, etwa 2,5. Das sind ⟦unendlich viele⟧."
+     }
     ],
-    "fehler": "In ]−1; 3] liegen nicht nur 0, 1, 2 und 3. Auch 0,5 oder 2,99 gehören dazu – wie ein Kind mit 2 Jahren und 4 Monaten. Ein Intervall enthält ⟦unendlich viele⟧ Zahlen.",
-    "einstieg": "Ein Spiel ist „für Kinder über 1 bis einschließlich 3 Jahre“. Wer genau 1 Jahr alt ist, gehört nicht dazu, wer genau 3 ist, schon. Dazwischen passt jedes Alter, auch 2 Jahre und 4 Monate. Ein Intervall enthält also nicht nur ganze Zahlen, sondern ⟦unendlich viele⟧ Zahlen.",
+    "fehler": "Ein Intervall enthält nicht nur ganze Zahlen. Ein Kind mit 2 Jahren und 6 Monaten passt auch – das ist 2,5.",
+    "einstieg": "Ein Spiel ist „für Kinder über 1 bis einschließlich 3 Jahre“. Wer genau 1 ist, gehört nicht dazu, wer genau 3 ist, schon. Das Intervall dazu ist ⟦]1; 3]⟧.",
     "woerter": [
      [
-      "ganze Zahlen",
-      "…, −2, −1, 0, 1, 2, … – Zahlen ohne Komma"
+      "]1; 3]",
+      "alle Zahlen über 1 bis einschließlich 3"
      ],
      [
-      "enthalten",
-      "die Zahl liegt im Bereich"
-     ],
-     [
-      "unendlich viele",
-      "man kann sie nie fertig aufzählen, z. B. 0,5; 0,51; 0,501; …"
+      "einschließlich",
+      "mit dabei"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 5,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    },
+    "fehler_bild": {
+     "punkte": [
+      {
+       "wert": 1,
+       "name": "1 nicht"
+      },
+      {
+       "wert": 2.5,
+       "name": "2,5 auch"
+      },
+      {
+       "wert": 3,
+       "name": "3 dabei"
+      }
+     ]
+    }
    },
    {
     "lernziel": "beurteilen",
     "titel": "Aussagen über Intervalle prüfen",
-    "regel": "So prüfst du eine Aussage über ein Intervall: ⟦Grenzen⟧ und ⟦Klammern⟧ genau lesen. Ein einziges ⟦Gegenbeispiel⟧ genügt, um eine Aussage zu widerlegen.",
+    "regel": "Lies ⟦Grenzen und Klammern⟧ genau. Ein einziges Gegenbeispiel genügt, um eine Aussage zu widerlegen.",
     "schritte": [
-     "Aussage: „4 liegt in [0; 4[.“",
-     "Schau auf die rechte Grenze 4: Dort zeigt die Klammer von der 4 weg.",
-     "Also gehört 4 nicht zum Intervall – wie beim Bruder an seinem 4. Geburtstag.",
-     "Die Aussage ist ⟦falsch⟧."
+     {
+      "text": "Aussage: „4 liegt in [0; 4[.“ Dann hätte der Bruder freien Eintritt."
+     },
+     {
+      "text": "Die Klammer bei der 4 zeigt weg. Die 4 gehört nicht dazu.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 4,
+         "name": "4 nicht"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Die 4 ist ein Gegenbeispiel. Die Aussage ist ⟦falsch⟧ – er zahlt."
+     }
     ],
-    "fehler": "„[2; 5] und ]2; 5[ sind gleich“ ist falsch: Sie unterscheiden sich in den ⟦Grenzen⟧ 2 und 5.",
-    "einstieg": "Im Schwimmbad steht: „Eintritt frei für Kinder unter 4 Jahren.“ Dein Bruder hat heute seinen 4. Geburtstag. Muss er zahlen? Ja – „unter 4“ heißt: Die 4 gehört nicht dazu. Um so etwas sicher zu entscheiden, liest du Grenzen und Klammern genau und suchst notfalls ein ⟦Gegenbeispiel⟧.",
+    "fehler": "[2; 5] und ]2; 5[ sind nicht gleich. Sie unterscheiden sich an den ⟦Grenzen⟧: Die 2 und die 5 gehören nur zum ersten.",
+    "einstieg": "Im Schwimmbad steht: „Eintritt frei unter 4 Jahren.“ Dein Bruder wird heute 4 – muss er zahlen? Solche Aussagen prüfst du an Grenzen und Klammern, oft mit einem ⟦Gegenbeispiel⟧.",
     "woerter": [
      [
-      "Aussage",
-      "ein Satz, der entweder wahr oder falsch ist"
+      "Gegenbeispiel",
+      "ein Fall, bei dem die Aussage nicht stimmt"
      ],
      [
-      "Gegenbeispiel",
-      "ein einziger Fall, in dem die Aussage nicht stimmt – dann ist sie falsch"
+      "[0; 4[",
+      "alle Zahlen von 0 bis knapp unter 4"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 6,
+     "abschnitte": 6,
+     "beschriftet": "alle",
+     "bereich": {
+      "von": 0,
+      "bis": 4
+     }
+    }
    }
   ],
   "teilfaehigkeiten": [
@@ -2618,6 +2724,7 @@
  "offen": [
   "Intervall am Zahlenstrahl ist mit dem Bildtyp „figur“ nachgebaut (Behelf): gefüllter Punkt = Grenze gehört dazu, leerer Kreis = gehört nicht dazu, Strecke bis zum Rand = unbegrenzt. Ein eigener Bildtyp „intervall“ (Zahlenstrahl mit Endpunkten und Pfeil) wäre klarer – Vorschlag für den Haupt-Chat.",
   "Prüf-Vorschlag „FALSCH fett anzeigen“ nicht umgesetzt: Aufgabentexte werden ohne Hervorhebung angezeigt; das wäre App-Code. FALSCH steht weiter in Großbuchstaben.",
-  "Lehrplanbezug: Intervalle werden in gleichungen.ungleichungen gebraucht; dieses Thema sollte im Plan davor stehen (Reihenfolge legt der Haupt-Chat fest)."
+  "Lehrplanbezug: Intervalle werden in gleichungen.ungleichungen gebraucht; dieses Thema sollte im Plan davor stehen (Reihenfolge legt der Haupt-Chat fest).",
+  "Umbau 16.11.: Die Lernkarten zeigen Intervalle jetzt auf dem Zahlenstrahl mit „bereich“ und benannten Punkten („3 dabei“, „6 nicht“). App-Wunsch: Endpunkte des Bereichs als gefüllter bzw. leerer Kreis (z. B. \"bereich\": {\"von\": 3, \"bis\": 6, \"links\": \"zu\", \"rechts\": \"offen\"}) und ein Pfeil für „bis ∞“."
  ]
 }

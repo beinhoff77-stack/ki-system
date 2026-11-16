@@ -343,6 +343,58 @@ def g_beurteilen(R, st):
 
 GEN = {'lesen': g_lesen, 'schreiben': g_schreiben, 'enthalten': g_enthalten, 'beurteilen': g_beurteilen}
 
+
+# ---------- UMBAU: neues Muster (Achte Runde, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl8.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl8 import mit_umbau  # noqa: E402
+
+UMBAU = {
+ 'lesen': {
+  'einstieg': 'Auf einem Spielzeug steht: „für Kinder von 3 bis unter 6 Jahren“. Jedes Alter dazwischen passt, wer 6 ist, nicht mehr. Kurz schreibt man das als ⟦Intervall⟧ [3; 6[.',
+  'woerter': [['Intervall', 'ein lückenloser Zahlenbereich zwischen zwei Grenzen'], ['[3; 6[', 'alle Zahlen von 3 bis knapp unter 6'], ['Grenze', 'die Zahl am Rand des Bereichs']],
+  'bild': {'typ': 'zahlenstrahl', 'start': 0, 'ende': 8, 'abschnitte': 8, 'beschriftet': 'alle'},
+  'schritte': [{'text': 'Die linke Klammer zeigt zur 3 hin: Die Grenze 3 gehört dazu.', 'bild': {'punkte': [{'wert': 3, 'name': '3 dabei'}]}},
+               {'text': 'Die rechte Klammer zeigt von der 6 weg: 6 gehört nicht dazu.', 'bild': {'punkte': [{'wert': 3, 'name': '3 dabei'}, {'wert': 6, 'name': '6 nicht'}]}},
+               {'text': 'Dazwischen ist alles dabei: ⟦3 ≤ x < 6⟧.', 'bild': {'bereich': {'von': 3, 'bis': 6}}}],
+  'fehler': ']3; 6[ ist etwas anderes: Ein Kind, das genau 3 ist, wäre dann nicht dabei. Die Klammer bei der 3 zeigt dort ⟦nach außen⟧.',
+  'fehler_bild': {'punkte': [{'wert': 3, 'name': '3 nicht'}, {'wert': 6, 'name': '6 nicht'}]},
+  'regel': 'Zeigt die Klammer ⟦zur Zahl hin⟧, gehört die Grenze dazu. Zeigt sie weg, gehört sie nicht dazu.'},
+ 'schreiben': {
+  'einstieg': 'An der Achterbahn steht: „Mitfahren ab 140 cm.“ Nach oben gibt es keine Grenze. Für „ohne Ende“ schreibt man ∞, gesprochen ⟦unendlich⟧.',
+  'woerter': [['∞', '„unendlich“: Der Bereich hört nie auf'], ['x ≥ 140', 'x ist 140 oder mehr']],
+  'bild': {'typ': 'zahlenstrahl', 'start': 100, 'ende': 200, 'abschnitte': 10, 'beschriftet': 'anfang_ende'},
+  'schritte': [{'text': 'Mindestens 140 cm heißt: x ≥ 140.', 'bild': {'punkte': [{'wert': 140, 'name': '140'}], 'bereich': {'von': 140, 'bis': 200}}},
+               {'text': 'Die 140 gehört dazu, die Klammer zeigt zu ihr hin: [140.'},
+               {'text': 'Nach oben steht ∞, mit Klammer nach außen: ⟦[140; ∞[⟧.'}],
+  'fehler': ']140; ∞[ wäre falsch: Wer genau 140 cm misst, dürfte dann nicht mitfahren. Bei ∞ zeigt die Klammer ⟦immer⟧ nach außen.',
+  'fehler_bild': {'punkte': [{'wert': 140, 'name': '140 nicht?'}]},
+  'regel': 'Bei ≤ und ≥ zeigt die Klammer ⟦nach innen⟧, sonst nach außen. Bei ∞ und −∞ zeigt sie immer nach außen.'},
+ 'enthalten': {
+  'einstieg': 'Ein Spiel ist „für Kinder über 1 bis einschließlich 3 Jahre“. Wer genau 1 ist, gehört nicht dazu, wer genau 3 ist, schon. Das Intervall dazu ist ⟦]1; 3]⟧.',
+  'woerter': [[']1; 3]', 'alle Zahlen über 1 bis einschließlich 3'], ['einschließlich', 'mit dabei']],
+  'bild': {'typ': 'zahlenstrahl', 'start': 0, 'ende': 5, 'abschnitte': 10, 'beschriftet': 'anfang_ende'},
+  'schritte': [{'text': 'Die 1 gehört nicht dazu, die Klammer zeigt weg.', 'bild': {'punkte': [{'wert': 1, 'name': '1 nicht'}]}},
+               {'text': 'Die 3 gehört dazu, die Klammer zeigt zu ihr hin.', 'bild': {'punkte': [{'wert': 1, 'name': '1 nicht'}, {'wert': 3, 'name': '3 dabei'}], 'bereich': {'von': 1, 'bis': 3}}},
+               {'text': 'Ganze Zahlen darin sind 2 und 3. Das sind ⟦2 ganze Zahlen⟧.', 'bild': {'punkte': [{'wert': 1, 'name': '1 nicht'}, {'wert': 2, 'name': '2'}, {'wert': 3, 'name': '3 dabei'}]}},
+               {'text': 'Dazu kommen alle Zahlen dazwischen, etwa 2,5. Das sind ⟦unendlich viele⟧.'}],
+  'fehler': 'Ein Intervall enthält nicht nur ganze Zahlen. Ein Kind mit 2 Jahren und 6 Monaten passt auch – das ist 2,5.',
+  'fehler_bild': {'punkte': [{'wert': 1, 'name': '1 nicht'}, {'wert': 2.5, 'name': '2,5 auch'}, {'wert': 3, 'name': '3 dabei'}]},
+  'regel': 'Eine Zahl gehört dazu, wenn sie ⟦zwischen den Grenzen⟧ liegt. Liegt sie genau auf einer Grenze, entscheidet die Klammer.'},
+ 'beurteilen': {
+  'einstieg': 'Im Schwimmbad steht: „Eintritt frei unter 4 Jahren.“ Dein Bruder wird heute 4 – muss er zahlen? Solche Aussagen prüfst du an Grenzen und Klammern, oft mit einem ⟦Gegenbeispiel⟧.',
+  'woerter': [['Gegenbeispiel', 'ein Fall, bei dem die Aussage nicht stimmt'], ['[0; 4[', 'alle Zahlen von 0 bis knapp unter 4']],
+  'bild': {'typ': 'zahlenstrahl', 'start': 0, 'ende': 6, 'abschnitte': 6, 'beschriftet': 'alle', 'bereich': {'von': 0, 'bis': 4}},
+  'schritte': [{'text': 'Aussage: „4 liegt in [0; 4[.“ Dann hätte der Bruder freien Eintritt.'},
+               {'text': 'Die Klammer bei der 4 zeigt weg. Die 4 gehört nicht dazu.', 'bild': {'punkte': [{'wert': 4, 'name': '4 nicht'}]}},
+               {'text': 'Die 4 ist ein Gegenbeispiel. Die Aussage ist ⟦falsch⟧ – er zahlt.'}],
+  'fehler': '[2; 5] und ]2; 5[ sind nicht gleich. Sie unterscheiden sich an den ⟦Grenzen⟧: Die 2 und die 5 gehören nur zum ersten.',
+  'regel': 'Lies ⟦Grenzen und Klammern⟧ genau. Ein einziges Gegenbeispiel genügt, um eine Aussage zu widerlegen.'},
+}
+UMBAU_OFFEN = ['Umbau 16.11.: Die Lernkarten zeigen Intervalle jetzt auf dem Zahlenstrahl mit „bereich“ und benannten Punkten („3 dabei“, „6 nicht“). '
+               'App-Wunsch: Endpunkte des Bereichs als gefüllter bzw. leerer Kreis (z. B. "bereich": {"von": 3, "bis": 6, "links": "zu", "rechts": "offen"}) und ein Pfeil für „bis ∞“.']
+baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Schreibweise', ['lesen', 'schreiben']), ('Zahlen im Intervall', ['enthalten', 'beurteilen'])],

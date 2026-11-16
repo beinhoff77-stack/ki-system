@@ -386,6 +386,89 @@ def g_verstehen(R, st):
 
 GEN = {'umfang': g_umfang, 'flaeche': g_flaeche, 'exakt': g_exakt, 'sektor': g_sektor, 'zusammengesetzt': g_zusammengesetzt, 'zylinder': g_zylinder, 'verstehen': g_verstehen}
 
+
+# ---------- UMBAU: neues Muster (Achte Runde, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl8.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl8 import mit_umbau  # noqa: E402
+
+_K = lambda r, linien, **k: {'typ': 'figur', 'punkte': {'M': [0, 0], '_P': [r, 0], '_Q': [-r, 0]}, 'linien': linien, 'kreise': [{'m': 'M', 'r': r}], **k}
+_SEK = {"M": [0, 0], "_s0": [6.0, 0.0], "_s1": [5.64, 2.05], "_s2": [4.6, 3.86], "_s3": [3.0, 5.2], "_s4": [1.04, 5.91], "_s5": [-1.04, 5.91], "_s6": [-3.0, 5.2]}
+_ZY = {'_a': [0, 0], '_b': [12.57, 0], '_c': [12.57, 10], '_d': [0, 10], '_M': [2, 12], '_N': [2, -2]}
+UMBAU = {
+ 'umfang': {
+  'einstieg': 'Für eine Dose soll ein Etikett einmal herumreichen. Um eine Rundung misst du schlecht mit dem Lineal, aber du kannst rechnen. Die Länge einmal herum heißt ⟦Umfang⟧.',
+  'woerter': [['Umfang', 'die Länge einmal um den Kreis'], ['Durchmesser', 'einmal quer durch die Mitte: d = 2r'], ['π', 'die Kreiszahl, etwa 3,14']],
+  'bild': _K(4, [['M', '_P', 'r = 4 cm']]),
+  'schritte': [{'text': 'Die Dose hat den Radius r = 4 cm.'},
+               {'text': 'Der Durchmesser ist doppelt so lang: d = 8 cm.', 'bild': {'linien': [['_Q', '_P', 'd = 8 cm']]}},
+               {'text': 'Der Umfang ist π-mal der Durchmesser: u = π · 8 cm.'},
+               {'text': 'Mit π ≈ 3,14 gerechnet: u ≈ ⟦25,1 cm⟧.'}],
+  'fehler': 'u = π · r ist falsch. Dann reicht das Etikett nur halb herum: 12,6 cm statt 25,1 cm. Man braucht den ⟦Durchmesser⟧.',
+  'regel': 'Umfang: ⟦u = π · d = 2 · π · r⟧. Hast du den Radius, verdopple ihn zuerst.'},
+ 'flaeche': {
+  'einstieg': 'Eine Pizzeria bietet Pizzen mit 30 cm Durchmesser an. Wie viel Pizza ist das? Gemeint ist die Fläche auf dem Teller, der ⟦Flächeninhalt⟧ des Kreises.',
+  'woerter': [['Flächeninhalt', 'wie viel Platz eine Figur bedeckt'], ['r²', 'r mal r, gelesen „r Quadrat“'], ['≈', '„ungefähr gleich“']],
+  'bild': _K(15, [['_Q', '_P', 'd = 30 cm']]),
+  'schritte': [{'text': 'Durchmesser 30 cm, also Radius r = 15 cm.', 'bild': {'linien': [['M', '_P', 'r = 15 cm']]}},
+               {'text': 'Zuerst quadrieren: r² = 15 · 15 = 225 cm².'},
+               {'text': 'Dann mal π: A = π · 225 cm² ≈ ⟦706,9 cm²⟧.'}],
+  'fehler': 'A = π · d² ist falsch: Das wären 2 827 cm², viermal zu viel. In die Formel gehört der ⟦Radius⟧.',
+  'regel': 'Kreisfläche: ⟦A = π · r²⟧. Hast du den Durchmesser, halbiere ihn zuerst.'},
+ 'exakt': {
+  'einstieg': 'π hat unendlich viele Nachkommastellen, jedes Runden macht ungenau. Lässt man π als Zeichen stehen, bleibt das Ergebnis genau, etwa 9π cm². So ein Ergebnis heißt ⟦exakt⟧.',
+  'woerter': [['exakt', 'ganz genau, ohne Runden'], ['6π', '6 mal π – π bleibt als Zeichen stehen']],
+  'bild': _K(3, [['M', '_P', 'r = 3 cm']]),
+  'schritte': [{'text': 'Ein Kreis hat den Radius r = 3 cm.'},
+               {'text': 'Umfang: 2 · π · 3 cm. Nur die Zahlen rechnen: ⟦u = 6π cm⟧.'},
+               {'text': 'Fläche: π · 3² cm². Es ist 3² = 9, also ⟦A = 9π cm²⟧.'}],
+  'fehler': 'A = 6π ist falsch: Da wurde 2 · 3 statt ⟦3²⟧ gerechnet. Das ist der Umfang, nicht die Fläche.',
+  'regel': 'Exakt heißt: ⟦π als Zeichen stehen lassen⟧. Nur wenn eine Kommazahl gefragt ist, mit π ≈ 3,14 rechnen.'},
+ 'verstehen': {
+  'einstieg': 'Gleicher Preis: eine große Pizza mit 30 cm Durchmesser oder zwei kleine mit je 20 cm. Zwei kleine klingt nach mehr. Entscheidend ist aber der ⟦Flächeninhalt⟧.',
+  'woerter': [['Flächeninhalt', 'wie viel Pizza auf dem Teller liegt'], ['225π', '225 mal π']],
+  'bild': {'typ': 'figur', 'punkte': {'_A': [0, 0], '_a': [15, 0], '_B': [28, 6], '_b': [38, 6], '_C': [28, -14], '_c': [38, -14]},
+           'linien': [['_A', '_a', 'r = 15'], ['_B', '_b', 'r = 10'], ['_C', '_c', 'r = 10']], 'kreise': [{'m': '_A', 'r': 15}, {'m': '_B', 'r': 10}, {'m': '_C', 'r': 10}]},
+  'schritte': [{'text': 'Groß: r = 15 cm, Fläche π · 15² = 225π cm².'},
+               {'text': 'Klein: r = 10 cm, Fläche π · 10² = 100π cm².'},
+               {'text': 'Zwei kleine zusammen: 2 · 100π = 200π cm².'},
+               {'text': '225π ist mehr: ⟦Die große Pizza ist größer.⟧'}],
+  'fehler': 'Doppelter Radius heißt nicht doppelte Fläche, sondern ⟦vierfache⟧: π · (2r)² = 4 · π · r².',
+  'regel': 'Die Fläche wächst ⟦mit r²⟧. Doppelter Radius: doppelter Umfang, aber vierfache Fläche.'},
+ 'sektor': {
+  'einstieg': 'Ein Tortenstück hat eine Spitze in der Mitte und einen gebogenen Rand. Wie viel Torte es ist, hängt vom Winkel an der Spitze ab. So ein Stück heißt ⟦Kreisausschnitt⟧.',
+  'woerter': [['Kreisausschnitt', 'ein Tortenstück aus dem Kreis'], ['Mittelpunktswinkel α', 'der Winkel an der Spitze in der Mitte'], ['Bogen b', 'der gebogene Rand außen']],
+  'bild': {"typ": "figur", "punkte": _SEK, "flaeche": list(_SEK), "linien": [["M", "_s0", "r = 6 cm"], ["M", "_s6"]], "winkel": [["M", "_s0", "_s6", "120°"]], "kreise": [{"m": "M", "r": 6}]},
+  'schritte': [{'text': 'Tortenstück: r = 6 cm, Mittelpunktswinkel α = 120°.'},
+               {'text': '120° von 360° ist 1/3 der Torte.'},
+               {'text': 'Bogen b = 1/3 · 2π · 6 cm = 4π cm.'},
+               {'text': 'Fläche: 1/3 · π · 6² = ⟦12π cm²⟧ ≈ 37,7 cm².'}],
+  'fehler': 'Der Anteil von 90° ist nicht 90/100. Ein ganzer Kreis hat ⟦360°⟧, also 90/360 = 1/4.',
+  'regel': 'Ausschnitt = ⟦α/360° vom ganzen Kreis⟧. Das gilt für den Bogen und für die Fläche.'},
+ 'zusammengesetzt': {
+  'einstieg': 'Ein Donut ist ein großer Kreis, aus dem in der Mitte ein kleiner fehlt. Seine Fläche ist also groß minus klein. So eine Form heißt ⟦Kreisring⟧.',
+  'woerter': [['Kreisring', 'großer Kreis ohne den kleinen Kreis in der Mitte'], ['R', 'der äußere Radius; r ist der innere']],
+  'bild': {"typ": "figur", "punkte": {"M": [0, 0], "_P": [5, 0], "_Q": [0, 3]}, "linien": [["M", "_P", "R = 5 cm"], ["M", "_Q", "r = 3 cm"]], "kreise": [{"m": "M", "r": 5}, {"m": "M", "r": 3}]},
+  'schritte': [{'text': 'Der Ring hat außen R = 5 cm und innen r = 3 cm.'},
+               {'text': 'Groß: π · 5² = 25π cm². Klein: π · 3² = 9π cm².'},
+               {'text': 'Abziehen: 25π − 9π = 16π cm² ≈ ⟦50,3 cm²⟧.'}],
+  'fehler': 'π · (5 − 3)² = 4π ist falsch. Erst ⟦jeden⟧ Radius quadrieren, dann abziehen: π · (25 − 9).',
+  'regel': 'Kreisring: ⟦großer Kreis minus kleiner Kreis⟧. Ein Kreisabschnitt bei 90° ist Viertelkreis minus Dreieck.'},
+ 'zylinder': {
+  'einstieg': 'Wie viel passt in eine Dose, und wie viel Blech braucht sie? Die Dose ist wie ein Stapel dünner Kreisscheiben: Bodenfläche mal Höhe. Das ist ihr ⟦Volumen⟧.',
+  'woerter': [['Volumen', 'der Rauminhalt: wie viel hineinpasst'], ['Oberfläche', 'Boden, Deckel und Mantel zusammen'], ['Mantel', 'die gebogene Seite – flach ist sie ein Rechteck']],
+  'bild': {'typ': 'figur', 'punkte': _ZY, 'linien': [['_a', '_b', 'u ≈ 12,6 cm'], ['_b', '_c', 'h = 10 cm'], ['_c', '_d'], ['_d', '_a']], 'kreise': [{'m': '_M', 'r': 2}, {'m': '_N', 'r': 2}]},
+  'schritte': [{'text': 'Eine Dose hat r = 2 cm und h = 10 cm.'},
+               {'text': 'Volumen: π · 2² · 10 = 40π cm³ ≈ 125,7 cm³.'},
+               {'text': 'Boden und Deckel: 2 · π · 2² = 8π cm².'},
+               {'text': 'Mantel: 2 · π · 2 · 10 = 40π cm².', 'bild': {'flaeche': ['_a', '_b', '_c', '_d']}},
+               {'text': 'Oberfläche: 8π + 40π = 48π cm² ≈ ⟦150,8 cm²⟧.'}],
+  'fehler': 'Die Oberfläche ist nicht nur der Mantel. Es fehlen ⟦Boden und Deckel⟧, zusammen 2 · π · r².',
+  'regel': 'Zylinder: ⟦V = π · r² · h⟧. Die Oberfläche ist O = 2πr² + 2πrh.'},
+}
+UMBAU_OFFEN = []
+baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Kreis', ['umfang', 'flaeche', 'exakt', 'verstehen']), ('Teile von Kreisen', ['sektor', 'zusammengesetzt']), ('Zylinder', ['zylinder'])],

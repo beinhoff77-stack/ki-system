@@ -802,6 +802,29 @@ baue = mit_schwer(baue, N)
 # ---- SCHWER ENDE ----
 
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, mit_befunden  # noqa: E402
+
+BF = Befunde('funktionen.grundbegriffe', 13_8_1)
+# a) gleicher Gedanke wie Stufe 1/2 (Paarliste prüfen) → Stufe 2
+BF.stufe('eindeutig', 'Welche Zuordnung ist KEINE Funktion?', 2, anzahl=2)
+# a) einschrittiges Einsetzen → Stufe 2
+BF.stufe('funktionswert', 'Berechne f(6) für f(x) = 2/(x − 5).', 2)
+# c) unübliche Schreibweise −1(x + 1) → −(x + 1)
+_H = 'Das Minus vor der Klammer bedeutet „mal (−1)“. Teile zuerst durch −1.'
+BF.ersetze('stelle', 'Für welches x gilt f(x) = −3, wenn f(x) = −1(x + 1)?',
+           BF.Z('Für welches x gilt f(x) = −3, wenn f(x) = −(x + 1)?', 2, '-3 / (-1) + (-1)', '−(x + 1) = −3 | : (−1) → x + 1 = 3 → x = 2.', _H))
+BF.ersetze('stelle', 'Für welches x gilt f(x) = −2, wenn f(x) = −1(x + 4)?',
+           BF.Z('Für welches x gilt f(x) = −2, wenn f(x) = −(x + 4)?', -2, '-2 / (-1) + (-4)', '−(x + 4) = −2 | : (−1) → x + 4 = 2 → x = −2.', _H))
+BF.ersetze('stelle', 'Für welches x gilt f(x) = −4, wenn f(x) = −1(x + 4)?',
+           BF.Z('Für welches x gilt f(x) = −4, wenn f(x) = −(x + 4)?', 0, '-4 / (-1) + (-4)', '−(x + 4) = −4 | : (−1) → x + 4 = 4 → x = 0.', _H))
+BF.nicht_umgesetzt('punkt_graph S2 „Lies am Graphen ab: f(4) = ?“ (gehört eher zu graph_lesen)',
+                   'Bei erneuter Prüfung passend: Den Punkt (4 | f(4)) am Graphen ablesen gehört zu „Liegt der Punkt auf dem Graphen?“. Lösung richtig, kein Mangel.')
+BF.fuer_sebastian('funktionen.grundbegriffe: Der Eintrag in „offen“ („Kreis kann die App nicht zeichnen“) ist veraltet – die App zeichnet Kreise (koordinaten.kreise). Nur der Haupt-Chat ändert „offen“.')
+
+baue = mit_befunden(baue, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Was ist eine Funktion?', ['eindeutig', 'mengen']), ('Mit dem Term rechnen', ['funktionswert', 'stelle', 'wertetabelle', 'graph_lesen']),

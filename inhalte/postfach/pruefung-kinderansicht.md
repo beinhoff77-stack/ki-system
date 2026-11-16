@@ -1,5 +1,11 @@
 # Postfach pruefung-kinderansicht (Aufbau der Kinderansicht)
 
+## 2026-11-16 05:40 – NACHPRÜFUNG
+lernen-app 0.74.0 nachgeprüft: `inhalte/pruefung/NACHPRUEFUNG-2026-11-16.md`.
+Umgesetzt und nachgestellt: Erklärungen A1–A12, Rückmeldung R1–R3, Kinderansicht K1 (inkl. Reisewörter, Rückreise-Karte).
+Offen laut Plan: K2–K4, E-1–E-4. Neue Befunde N1–N5, wichtigster N1: Bildergeschichte wiederholt gleiche Bilder (Etappe 3 057 px).
+Hinweis: neue Regel „sitzt nach 6 Punkten + schwere Bordkarte“ muss in die Info-Seite (E-1).
+
 ## 2026-11-16 04:35 – AUFTRAG
 Sebastian beauftragt den Umbau aller drei Prüfrunden (Erklärungen, Rückmeldung & Lernweg, Kinderansicht & Stand).
 Gesamtauftrag mit Reihenfolge: `inhalte/pruefung/UMBAU-AUFTRAG.md` (Zweig pruefung-kinderansicht).

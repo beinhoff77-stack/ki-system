@@ -3,6 +3,15 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:46 – STATUS
+daten.darstellen fertig: umgestuft 5 / berichtigt 0 / ersetzt 5 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Die Strichliste zeigt eine Umfrage zum Thema Lieblingsfach. Wie oft wurde „Kunst“ häufiger genannt als „Deutsch“?“
+  - „Die Strichliste zeigt eine Umfrage zum Thema Lieblingssport. Wie oft wurde „Fußball“ häufiger genannt als „Tanzen“?“
+  - „Die Strichliste zeigt eine Umfrage zum Thema Haustier. Wie oft wurde „Katze“ häufiger genannt als „Fisch“?“
+  - „Die Strichliste zeigt eine Umfrage zum Thema Haustier. Wie oft wurde „Katze“ häufiger genannt als „Hund“?“
+  - „Die Strichliste zeigt eine Umfrage zum Thema Lieblingssport. Wie oft wurde „Tanzen“ häufiger genannt als „Basketball“?“
+
+## 2026-11-16 05:46 – STATUS
 bruch.prozent fertig: umgestuft 5 / berichtigt 0 / ersetzt 2 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):
   - „Stimmt die Aussage? „Sinkt ein Preis von 1000 € auf 500 €, ist er um 100 % gesunken.““

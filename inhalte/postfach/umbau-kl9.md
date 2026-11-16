@@ -2,6 +2,10 @@
 
 Neueste Meldung oben.
 
+## 2026-11-16 03:12 – STATUS
+trigo.allgemein umgebaut (7 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator (umbau() in _kl9.py).
+Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/trigo.allgemein.json`: 196 Aufgaben, alle wörtlich gleich. inhalt_pruefen: 0 Fehler, 0 Hinweise. Ohne fehler_bild: einheitskreis, flaeche, sinussatz_winkel, kosinussatz_winkel, satz_waehlen (Vorzeichen- bzw. Auswahlfehler, im Bild nicht sinnvoll zu zeigen).
+
 ## 2026-11-16 03:11 – STATUS
 trigo.rechtwinklig umgebaut (6 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator (umbau() in _kl9.py).
 Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/trigo.rechtwinklig.json`: 168 Aufgaben, alle wörtlich gleich. inhalt_pruefen: 0 Fehler, 0 Hinweise. Ohne fehler_bild: verhaeltnisse, winkel, beziehungen (Rechenfehler, im Bild nicht sinnvoll zu zeigen).

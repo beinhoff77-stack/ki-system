@@ -3,6 +3,12 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:46 – STATUS
+bruch.prozent fertig: umgestuft 5 / berichtigt 0 / ersetzt 2 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Stimmt die Aussage? „Sinkt ein Preis von 1000 € auf 500 €, ist er um 100 % gesunken.““
+  - „Stimmt die Aussage? „10 % von 500 € ist mehr als 10 % von 1000 €.““
+
+## 2026-11-16 05:46 – STATUS
 terme.potenzgesetze fertig: umgestuft 8 / berichtigt 0 / ersetzt 5 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):
   - „Ein Kind rechnet: 4³ · 4² = 16⁵. Was ist falsch?“

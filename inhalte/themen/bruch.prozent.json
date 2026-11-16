@@ -2978,7 +2978,7 @@
    "l": "prozentwert",
    "t": "prozentwert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 2,5 % von 320 €."
@@ -3485,7 +3485,7 @@
    "l": "prozentsatz",
    "t": "prozentsatz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viel Prozent einer Stunde sind 30 Minuten?"
@@ -5158,18 +5158,18 @@
    "p": "uebung",
    "s": 1,
    "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „10 % von 500 € ist mehr als 10 % von 1 000 €.“"
+   },
    "a": [
-    "Nein, gleicher Prozentsatz, aber kleinerer Grundwert: 50 € < 100 €.",
     "Ja, die Aussage stimmt.",
-    "Ja, weil 500 € weniger Geld ist und man davon mehr Prozent bekommt."
+    "Ja, weil 500 € weniger Geld ist und man davon mehr Prozent bekommt.",
+    "Nein, gleicher Prozentsatz, aber kleinerer Grundwert: 50 € < 100 €."
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "f": {
-    "text": "Stimmt die Aussage? „10 % von 500 € ist mehr als 10 % von 1000 €.“"
-   },
-   "w": "Nein, gleicher Prozentsatz, aber kleinerer Grundwert: 50 € < 100 €.",
+   "w": "Nein, gleicher Prozentsatz, aber kleinerer Grundwert: 10 % von 500 € sind 50 €, 10 % von 1 000 € sind 100 €.",
    "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen."
   },
   {
@@ -5356,7 +5356,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Nein, die Aussage ist falsch.",
@@ -5396,7 +5396,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Nein, bei 3 % bekommt man 3 € Zinsen.",
@@ -5416,7 +5416,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Ja: 5 000 · 0,03 = 150 €.",
@@ -5438,18 +5438,18 @@
    "p": "uebung",
    "s": 3,
    "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Sinkt ein Preis von 1 000 € auf 500 €, ist er um 100 % gesunken.“"
+   },
    "a": [
-    "Nein, die Senkung ist 500 € von 1000 € = 50 %.",
+    "Ja, die Aussage stimmt.",
     "Ja, weil Verdoppeln + 100 % ist, ist Halbieren − 100 %.",
-    "Ja, die Aussage stimmt."
+    "Nein, die Senkung ist 500 € von 1 000 € = 50 %."
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "f": {
-    "text": "Stimmt die Aussage? „Sinkt ein Preis von 1000 € auf 500 €, ist er um 100 % gesunken.“"
-   },
-   "w": "Nein, die Senkung ist 500 € von 1000 € = 50 %.",
+   "w": "Nein. Gesunken ist der Preis um 500 €. Grundwert ist der alte Preis 1 000 €: 500 : 1 000 = 0,5 = 50 %. Um 100 % gesunken hieße: Der Preis ist 0 €.",
    "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen."
   },
   {

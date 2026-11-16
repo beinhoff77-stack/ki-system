@@ -650,3 +650,34 @@ ein Abschnitt KLAR im Generator des Themas, der die Felder der Lernkarten übers
 Verboten: Datenbank, Serverfunktionen, App-Code, Tests, Dateien unter inhalte/pruefung/, Merge nach main.
 Meldungen (Status nach jedem Thema, Fragen, Abschlussbericht) in inhalte/postfach/klar-klN.md ablegen und pushen. Arbeite ohne Rückfragen durch.
 ```
+
+
+---
+
+# Runde 7b: Erklärungen verständlich machen – die letzten sechs Themen
+
+Vier Themen liegen nur in der Datenbank (kein Generator): zahlen.natuerlich, zahlen.teilbarkeit, terme.umformen, finanzen.zinsen. Zwei sind nachgebaut, aber noch ohne
+einstieg/woerter: gleichungen.einfach, groessen.indirekt. Ein Chat für alle sechs.
+
+```text
+Du machst die Erklärungen einer Mathe-Lern-App verständlich (Gymnasium Bayern).
+Repository: beinhoff77-stack/ki-system (lernen-app ist ein Zweig darin). Hole den aktuellen Stand des Zweigs lernen-app, lege davon den Zweig klar-rest an und arbeite nur dort.
+
+Lies vollständig: inhalte/README.md – vor allem den Abschnitt „Verständliche Erklärungen (Pflicht seit 15.11.)“ –, inhalte/postfach/README.md und inhalte/klar/quelle.md.
+Muster für Ton und Tiefe: inhalte/themen/funktionen.grundbegriffe.json, inhalte/themen/zahlen.ganz.json, inhalte/themen/bruch.brueche.json (Felder einstieg, woerter, schritte, regel, fehler).
+
+Teil A – vier Themen ohne Generator (zahlen.natuerlich zuerst, dann terme.umformen, zahlen.teilbarkeit, finanzen.zinsen):
+Schreibe je Thema eine Überlagerungs-Datei inhalte/klar/<thema_schluessel>.json in dieser Form:
+  {"thema_schluessel": "zahlen.natuerlich", "karten": {"<lernziel>": {"einstieg": "…", "woerter": [["Wort", "Erklärung"], …], "schritte": ["…", …], "regel": "…", "fehler": "…", "probe": "…"}}}
+- Für JEDES Lernziel aus inhalte/klar/quelle.md ein Eintrag mit einstieg, woerter, schritte (3–5 ganze Sätze, Ergebnis in ⟦…⟧) und regel. fehler immer (auch wo bisher keiner stand:
+  dann einen typischen Fehler mit Zahlen ergänzen). probe nur, wo sie passt. Kein Feld bild (die Bilder bleiben, wie sie sind – Beispielzahlen der Karten mit Bild deshalb beibehalten).
+- Zeichen ⟦…⟧ für Hervorhebungen wie in den Mustern. Zahlen deutsch schreiben (Komma, Tausender mit Leerzeichen, Minus als −).
+- Prüfe jede Datei mit einem kleinen Skript: gültiges JSON, alle Lernziele aus quelle.md vorhanden und keine zusätzlichen, woerter als Liste aus [Wort, Erklärung],
+  3–5 Schritte, einstieg mindestens 60 Zeichen, keine Wörter „einfach/offensichtlich/trivial“ in einstieg und schritte. Alle Zahlen nachrechnen.
+
+Teil B – zwei Themen mit Generator (gleichungen.einfach: inhalte/generatoren/gleichungen_einfach.py; groessen.indirekt: inhalte/generatoren/groessen_indirekt.py):
+Wie in „Siebte Runde“: Abschnitt KLAR im Generator, Aufgaben müssen wörtlich gleich bleiben (Vergleich gegen git show HEAD:…), `python3 -I tools/inhalt_pruefen.py` muss OK melden.
+
+Ein Thema = ein Commit, Push auf klar-rest. Verboten: Datenbank, Serverfunktionen, App-Code, Tests, Dateien unter inhalte/pruefung/, Merge nach main.
+Meldungen (Status nach jedem Thema, Fragen, Abschlussbericht) in inhalte/postfach/klar-rest.md ablegen und pushen. Arbeite ohne Rückfragen durch.
+```

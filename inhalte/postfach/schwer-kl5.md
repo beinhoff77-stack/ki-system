@@ -1,5 +1,9 @@
 # Postfach schwer-kl5 (Zehnte Runde: Durchsicht Klasse 5 + schwerere Aufgaben nach Prüfungsvorbild)
 
+## 2026-11-16 07:50 – STATUS
+Thema 8/12 fertig: **geometrie.ortslinien** – 36 neue Übungen (je Lernkarte 2 × Stufe 2, 4 × Stufe 3), danach je Lernkarte 10 Stufe-3-Übungen. Prüfskript OK, Unverändert-Nachweis JA.
+FRAGE (Annahme getroffen, weitergearbeitet): Das Thema hat gym_by 5, aber lehrplan_gym ist leer – Ortslinien stehen im LehrplanPLUS Gymnasium erst in Jgst. 7. Ich habe die neuen Aufgaben ohne Mittelsenkrechte/Pythagoras gehalten (nur Abstände längs einer Linie). Bitte Klassenzuordnung prüfen.
+
 ## 2026-11-16 07:30 – STATUS
 Thema 7/12 fertig: **geometrie.winkel** – 42 neue Übungen (je Lernkarte 2 × Stufe 2, 4 × Stufe 3), danach je Lernkarte 10 Stufe-3-Übungen. Prüfskript OK, Unverändert-Nachweis JA.
 

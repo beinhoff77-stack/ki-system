@@ -5955,6 +5955,673 @@
     "text": "Stimmt die Aussage? „Zwei Kreise mit r = 2 cm, deren Mittelpunkte 5 cm auseinander liegen, schneiden sich.“"
    },
    "w": "Nein, 5 cm > 2 cm + 2 cm: kein gemeinsamer Punkt."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Kreis um M(2 | 1) mit r = 3. Welcher Punkt liegt außerhalb des Kreises?"
+   },
+   "a": [
+    "(5 | 1)",
+    "(2 | −3)",
+    "(−1 | 1)",
+    "(2 | 3)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "(2 | −3) liegt 4 unter M: 4 > 3, also außerhalb. (5 | 1) und (−1 | 1) liegen genau 3 neben M (auf der Kreislinie), (2 | 3) liegt 2 über M (innen).",
+   "h": "Gehe von M aus waagrecht oder senkrecht und zähle die Einheiten."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Kreis um M(0 | 0) mit r = 5. Welcher Punkt liegt sicher auf der Kreislinie?"
+   },
+   "a": [
+    "(5 | 5)",
+    "(0 | −5)",
+    "(−4 | 0)",
+    "(2 | 3)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "(0 | −5) liegt genau 5 Einheiten unter M. (−4 | 0) ist nur 4 entfernt, (2 | 3) liegt innen, (5 | 5) liegt schräg weiter weg als 5.",
+   "h": "Suche einen Punkt, der genau 5 Einheiten waagrecht oder senkrecht von M entfernt ist."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis um M hat den Radius 4 cm. P liegt auf der Kreislinie. Q liegt genau in der Mitte der Strecke [MP]. Wie weit ist Q von der Kreislinie entfernt (kürzester Weg)?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "cm"
+   },
+   "c": "4 - 4 / 2",
+   "w": "Q ist 2 cm von M entfernt. Bis zur Kreislinie fehlen 4 cm − 2 cm = 2 cm.",
+   "h": "Wie weit ist Q von M entfernt?"
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "A und B liegen beide auf einem Kreis mit dem Radius 5 cm. Wie weit können A und B höchstens voneinander entfernt sein?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "cm"
+   },
+   "c": "2 * 5",
+   "w": "Am weitesten auseinander liegen sie, wenn [AB] durch M geht: dann ist [AB] ein Durchmesser, 2 · 5 cm = 10 cm.",
+   "h": "Welche Strecke im Kreis ist die längste?"
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Ziege ist mit einer 6 m langen Leine an einem Pflock angebunden. Ein Busch steht 9 m vom Pflock entfernt. Um wie viele Meter muss die Leine mindestens länger werden, damit die Ziege den Busch erreicht?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "m"
+   },
+   "c": "9 - 6",
+   "w": "Die Ziege erreicht alles bis 6 m. Zum Busch fehlen 9 m − 6 m = 3 m.",
+   "h": "Die Leine ist der Radius des erreichbaren Kreises."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „P ist 6 cm von M entfernt. Der Kreis um M hat den Durchmesser 10 cm. Also liegt P innerhalb.“ Stimmt das?"
+   },
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, P liegt auf der Kreislinie.",
+    "Ja, 6 cm < 10 cm.",
+    "Nein: Der Radius ist 5 cm. 6 cm > 5 cm, P liegt außerhalb."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Verglichen wird mit dem Radius, nicht mit dem Durchmesser: r = 10 cm : 2 = 5 cm.",
+   "h": "Womit musst du den Abstand vergleichen: Radius oder Durchmesser?"
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie breit ist der Streifen aller Punkte, die von der Geraden g höchstens 2,5 cm entfernt sind?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "cm"
+   },
+   "c": "2 * 2.5",
+   "w": "2,5 cm auf jeder Seite von g: 2 · 2,5 cm = 5 cm.",
+   "h": "Der Streifen reicht auf beide Seiten von g."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "g ist die waagrechte Gerade y = 1. Der Streifen enthält alle Punkte mit höchstens 3 Abstand zu g. Welcher Punkt liegt außerhalb?"
+   },
+   "a": [
+    "(−4 | 0)",
+    "(2 | −2)",
+    "(5 | −3)",
+    "(0 | 4)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Streifen reicht von y = −2 bis y = 4. (5 | −3) liegt darunter, also außerhalb. (0 | 4) und (2 | −2) liegen auf dem Rand.",
+   "h": "Bestimme zuerst die beiden Randlinien des Streifens."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "g ist die Gerade y = −5, h ist die Gerade y = 3. P liegt auf der y-Achse und ist von g und h gleich weit entfernt. Welche Koordinaten hat P?",
+    "schablone": "P(□ | □)",
+    "hinweis": "Trage x- und y-Koordinate ein."
+   },
+   "o": {
+    "werte": [
+     0,
+     -1
+    ]
+   },
+   "c": [
+    "0",
+    "(-5 + 3) // 2"
+   ],
+   "w": "Gleich weit von g und h: die Mittelparallele in der Mitte zwischen −5 und 3, also y = −1. Auf der y-Achse ist x = 0: P(0 | −1).",
+   "h": "Wo liegt die Mitte zwischen y = −5 und y = 3?"
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Punkte haben von der x-Achse den Abstand 2 und von der y-Achse den Abstand 3?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Abstand 2 zur x-Achse: y = 2 oder y = −2. Abstand 3 zur y-Achse: x = 3 oder x = −3. Jede Kombination passt: 4 Punkte.",
+   "h": "Jede Bedingung ergibt zwei Parallelen. Wie oft schneiden sie sich?"
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die parallelen Geraden g und h haben den Abstand 6 cm. Wie viele Geraden gibt es, die zu beiden parallel sind und von g den Abstand 2 cm und von h den Abstand 4 cm haben?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "Zwischen g und h, 2 cm von g: Dann ist sie 4 cm von h entfernt – passt. Außerhalb, 2 cm von g, wäre sie 8 cm von h entfernt. Genau 1 Gerade.",
+   "h": "Zeichne g und h. Prüfe die beiden Parallelen zu g im Abstand 2 cm."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "g ist die Gerade y = 2, h die Gerade y = 8. Welche Punkte der y-Achse sind von g doppelt so weit entfernt wie von h? Gib die y-Werte an (kleinerer zuerst).",
+    "schablone": "y = □ und y = □",
+    "hinweis": "Trage beide y-Werte ein."
+   },
+   "o": {
+    "werte": [
+     6,
+     14
+    ]
+   },
+   "c": [
+    "6",
+    "14"
+   ],
+   "w": "Zwischen g und h: bei y = 6 ist der Abstand zu g 4, zu h 2. Oberhalb von h: bei y = 14 ist der Abstand zu g 12, zu h 6. Zwei Lösungen.",
+   "h": "Denk auch an Punkte oberhalb von h. Probiere y-Werte aus."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind 10 cm voneinander entfernt. Wie viele Punkte sind von A und von B jeweils genau 5 cm entfernt?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "5 cm + 5 cm = 10 cm: Die beiden Kreise berühren sich genau in der Mitte von [AB]. 1 Punkt.",
+   "h": "Zeichne die Kreise um A und B mit r = 5 cm."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind 6 cm voneinander entfernt. Wie viele Punkte sind von A und von B jeweils genau 4 cm entfernt?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "4 cm + 4 cm = 8 cm ist mehr als 6 cm: Die Kreise schneiden sich, oberhalb und unterhalb von [AB]. 2 Punkte.",
+   "h": "Vergleiche r₁ + r₂ mit dem Abstand von A und B."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis um A mit r = 4 cm und ein Kreis um B mit r = 7 cm sollen sich von außen in genau einem Punkt berühren. Wie weit sind A und B voneinander entfernt?"
+   },
+   "o": {
+    "wert": 11,
+    "einheit": "cm"
+   },
+   "c": "4 + 7",
+   "w": "Berühren von außen: Der Berührpunkt liegt auf [AB], also [AB] = 4 cm + 7 cm = 11 cm.",
+   "h": "Zeichne die Kreise so, dass sie sich gerade noch berühren."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kreis um A mit r = 4 cm und ein Kreis um B mit r = 7 cm sollen sich in zwei Punkten schneiden. Welcher Abstand [AB] ist möglich?"
+   },
+   "a": [
+    "3 cm",
+    "11 cm",
+    "2 cm",
+    "8 cm"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Zwei Schnittpunkte gibt es, wenn [AB] zwischen 7 − 4 = 3 cm und 7 + 4 = 11 cm liegt (ohne die Grenzen). Nur 8 cm passt.",
+   "h": "Bei 11 cm berühren sie sich außen, bei 3 cm innen. Was liegt dazwischen?"
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Welcher Punkt hat von A(−3 | 0) und von B(5 | 0) jeweils genau den Abstand 4?",
+    "schablone": "P(□ | □)",
+    "hinweis": "Trage x- und y-Koordinate ein."
+   },
+   "o": {
+    "werte": [
+     1,
+     0
+    ]
+   },
+   "c": [
+    "(-3 + 5) // 2",
+    "0"
+   ],
+   "w": "[AB] = 8 = 4 + 4. Die Kreise berühren sich nur in der Mitte von [AB]: P(1 | 0).",
+   "h": "Wie lang ist [AB]? Vergleiche mit 4 + 4."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „Kreise mit r = 3 cm und r = 5 cm, deren Mittelpunkte 1 cm auseinander liegen, schneiden sich, weil 1 cm < 3 cm + 5 cm.“ Stimmt das?"
+   },
+   "a": [
+    "Ja, das stimmt.",
+    "Ja, in vier Punkten.",
+    "Nein: Der kleine Kreis liegt ganz im großen, weil 1 cm < 5 cm − 3 cm.",
+    "Nein, sie berühren sich in einem Punkt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Unterschied der Radien ist 2 cm. Ist der Abstand kleiner als 2 cm, liegt der kleine Kreis innen und trifft den großen nicht.",
+   "h": "Zeichne beide Kreise mit fast gleichem Mittelpunkt."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "M hat von der Geraden g den Abstand 5 cm. Wie viele Punkte von g haben von M genau den Abstand 5 cm?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "Abstand gleich Radius: g ist Tangente des Kreises um M mit r = 5 cm. Genau 1 Punkt.",
+   "h": "Vergleiche den Abstand mit dem Radius."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Kreis um M mit r = 2 cm. M hat von g den Abstand 6 cm. Wie viele Punkte von g haben von M höchstens 2 cm Abstand?"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "Der nächste Punkt von g ist 6 cm von M entfernt, mehr als 2 cm. Kein Punkt.",
+   "h": "Wie nah kommt g an M heran?"
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "P hat von der Geraden g den Abstand 2 cm. Wie viele Punkte haben von g den Abstand 3 cm und von P den Abstand 4 cm?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Die Parallele auf der Seite von P ist 1 cm von P entfernt: Der Kreis (r = 4 cm) schneidet sie zweimal. Die andere ist 5 cm entfernt: kein Schnitt. Zusammen 2.",
+   "h": "Zeichne beide Parallelen zu g im Abstand 3 cm. Wie weit ist jede von P entfernt?"
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "M liegt auf der Geraden g. Wie viele Punkte haben von M den Abstand 3 cm und von g den Abstand 3 cm?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Die beiden Parallelen sind je 3 cm von M entfernt, genau r: Jede berührt den Kreis einmal. Zusammen 2 Punkte.",
+   "h": "Wie weit sind die beiden Parallelen von M entfernt?"
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "M hat von g den Abstand 3 cm. Die beiden Parallelen zu g im Abstand 1 cm und der Kreis um M sollen genau 3 gemeinsame Punkte haben. Wie groß ist der Radius in cm?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "4",
+   "w": "Die Parallelen sind 2 cm und 4 cm von M entfernt. Bei r = 4 cm schneidet der Kreis die nahe zweimal und berührt die ferne einmal: 3 Punkte.",
+   "h": "Eine Parallele muss Tangente sein, die andere Sekante."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Baum steht 4 m von einem geraden Zaun entfernt. Eine Bank soll genau 3 m vom Baum und genau 1 m vom Zaun entfernt stehen. Wie viele Plätze gibt es?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "Die Linie 1 m vor dem Zaun (Baumseite) ist 3 m vom Baum entfernt: Sie berührt den Kreis einmal. Hinter dem Zaun wären es 5 m: kein Punkt. Genau 1 Platz.",
+   "h": "Zeichne den Kreis um den Baum und die beiden Linien 1 m neben dem Zaun."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rasensprenger reicht 6 m weit in jede Richtung. Wie breit ist die nasse Fläche an der breitesten Stelle?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "m"
+   },
+   "c": "2 * 6",
+   "w": "Die breiteste Stelle ist der Durchmesser: 2 · 6 m = 12 m.",
+   "h": "Die nasse Fläche ist ein Kreis."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Spielplatz muss mindestens 20 m von einer geraden Straße entfernt sein. Ein Grundstück reicht von der Straße 35 m nach hinten. Wie tief ist der erlaubte Bereich?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "m"
+   },
+   "c": "35 - 20",
+   "w": "Die ersten 20 m sind gesperrt. Erlaubt: 35 m − 20 m = 15 m.",
+   "h": "Zeichne die Straße und die Parallele im Abstand 20 m."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Rasensprenger stehen 10 m auseinander, jeder reicht 7 m weit. Wie lang ist auf der Verbindungslinie das Stück, das von beiden bewässert wird?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "m"
+   },
+   "c": "7 + 7 - 10",
+   "w": "Der erste reicht bis 7 m, der zweite ab 10 m − 7 m = 3 m. Doppelt nass von 3 m bis 7 m: 4 m.",
+   "h": "Zeichne eine Linie von 10 m und markiere, wie weit jeder Sprenger reicht."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Schatz liegt genau 4 m von einem geraden Bach und genau 5 m von einer Eiche entfernt. Die Eiche steht 2 m vom Bach entfernt. Wie viele mögliche Orte gibt es?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Die Linie 4 m vom Bach auf der Eichenseite ist 2 m von der Eiche entfernt: 2 Schnittpunkte. Die andere ist 6 m entfernt: keiner. Zusammen 2.",
+   "h": "Zeichne die beiden Linien im Abstand 4 m vom Bach und den Kreis um die Eiche."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Sender reicht 30 km weit. Wie weit darf eine gerade Autobahn höchstens vom Sender entfernt verlaufen, damit sie noch an mindestens einer Stelle Empfang hat?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "km"
+   },
+   "c": "30",
+   "w": "Ist die Autobahn genau 30 km entfernt, berührt sie den Empfangskreis in einem Punkt. Weiter weg gibt es keinen Empfang. Also höchstens 30 km.",
+   "h": "Wann ist die Autobahn eine Tangente an den Empfangskreis?"
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Hund hat eine 5 m lange Leine. Der Pflock steht 3 m vor einem Zaun. Jemand sagt: „Der Hund erreicht den Zaun nicht, weil 5 m mehr ist als 3 m.“ Stimmt das?"
+   },
+   "a": [
+    "Nein, er erreicht den Zaun nur bei 8 m Leine.",
+    "Ja, das stimmt.",
+    "Nein, nur wenn die Leine genau 3 m lang ist.",
+    "Nein: Gerade weil die Leine länger als 3 m ist, erreicht er den Zaun."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Der Zaun ist 3 m vom Pflock entfernt, die Leine 5 m lang. 3 m < 5 m: Der Zaun liegt in Reichweite.",
+   "h": "Vergleiche den Abstand zum Zaun mit der Leinenlänge."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Alle Punkte mit höchstens 3 cm Abstand von M bilden eine Kreisfläche.“"
+   },
+   "a": [
+    "Nein: nur eine Kreislinie.",
+    "Ja: die Kreislinie mit r = 3 cm und alles darin.",
+    "Nein: einen Streifen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "„Höchstens“ heißt: 3 cm oder weniger. Dazu gehören die Kreislinie und das ganze Innere.",
+   "h": "Achte auf das Wort „höchstens“."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Die Punkte mit genau 2 cm Abstand von g bilden einen Streifen.“"
+   },
+   "a": [
+    "Ja, einen Streifen der Breite 2 cm.",
+    "Nein: Sie bilden zwei Parallelen. Der Streifen gehört zu „höchstens 2 cm“.",
+    "Ja, einen Streifen der Breite 4 cm."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "„Genau 2 cm“ ergibt nur die zwei Randlinien. Alle Punkte dazwischen sind näher als 2 cm.",
+   "h": "Was ist der Unterschied zwischen „genau“ und „höchstens“?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "g und h sind parallel. Welche Ortslinie besteht aus allen Punkten, die von g und h gleich weit entfernt sind?"
+   },
+   "a": [
+    "die Mittelparallele",
+    "ein Streifen",
+    "zwei Parallelen außerhalb",
+    "ein Kreis"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Alle diese Punkte liegen auf der Parallelen genau in der Mitte zwischen g und h.",
+   "h": "Zeichne g und h und markiere einige Punkte mit gleichem Abstand."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Punkte haben von M den Abstand 3 cm und gleichzeitig von M den Abstand 5 cm?"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "Ein Punkt hat nur einen Abstand zu M. Er kann nicht gleichzeitig 3 cm und 5 cm entfernt sein: Die beiden Kreise um M haben keinen gemeinsamen Punkt.",
+   "h": "Zeichne die beiden Kreise um M. Schneiden sie sich?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Die Punkte mit mindestens 2 cm und höchstens 4 cm Abstand von M bilden einen Ring.“"
+   },
+   "a": [
+    "Nein: zwei Kreislinien.",
+    "Nein: einen Streifen.",
+    "Ja: zwischen dem Kreis mit r = 2 cm und dem mit r = 4 cm.",
+    "Nein: eine Kreisfläche mit r = 4 cm."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "„Mindestens 2 cm“ schneidet die innere Kreisfläche heraus, „höchstens 4 cm“ begrenzt nach außen: Es bleibt ein Ring.",
+   "h": "Male erst „höchstens 4 cm“ aus und radiere dann „weniger als 2 cm“ weg."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Kreis kann eine Gerade in drei Punkten schneiden.“"
+   },
+   "a": [
+    "Ja, wenn die Gerade durch M geht.",
+    "Ja, wenn der Kreis groß ist.",
+    "Nein: höchstens in zwei Punkten."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Sekante: 2 Punkte, Tangente: 1, Passante: 0. Mehr gibt es nicht – auch nicht durch M.",
+   "h": "Zeichne einen Kreis und probiere verschiedene Geraden."
   }
  ],
  "offen": [

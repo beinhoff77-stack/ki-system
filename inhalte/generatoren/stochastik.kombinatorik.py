@@ -493,5 +493,143 @@ KARTEN = {
 umbau(DATEI, KARTEN)
 
 
+# ---------- SCHWER (Zehnte Runde, Zweig schwer-kl5) ----------
+# Neue Übungen nach Prüfungsvorbild (Jahrgangsstufentest 6 Bayern: vierstellige Zahlen aus 4 Ziffern, Melodien aus Tönen, Outfits aus
+# Hosen/Gürteln/Shirts, Teilbarkeit 789□□; Mathematik-Olympiade Kl. 5: Reihenfolgen von Stationen; Känguru 5/6: Türme, Färben). Alle Anzahlen
+# werden hier durch vollständiges Aufzählen berechnet. Eigene Zahlen und Einkleidung.
+from itertools import combinations as _komb, permutations as _perm, product as _prod  # noqa: E402
+from _schwer_kl5 import A, L, Z, de, einzig, ergaenze, wahl  # noqa: E402
+
+
+def _schwer():
+    N = {}
+    zahlen246 = sorted((int(''.join(p)) for p in _perm('246')), reverse=True)
+    N['systematisch'] = [
+        Z(2, 'Aus den Ziffern 2, 4 und 6 werden alle dreistelligen Zahlen ohne doppelte Ziffer gebildet. Welche ist die drittgrößte?', str(zahlen246[2]),
+          'Von groß nach klein: 642, 624, 462, 426, 264, 246. Die drittgrößte ist 462.', 'Schreibe alle Zahlen systematisch auf, mit der größten Hunderterziffer zuerst.'),
+        Z(2, 'Drei Stationen A, B und C werden nacheinander besucht, jede genau einmal. Wie viele Reihenfolgen beginnen mit B?', str(sum(1 for p in _perm('ABC') if p[0] == 'B')),
+          'B steht vorne fest. Danach A, C oder C, A: 2 Reihenfolgen (BAC, BCA).', 'Halte B fest und ordne den Rest.'),
+        Z(3, 'Mit den Ziffernkarten 2, 4, 7 und 9 werden vierstellige Zahlen gelegt, jede Karte genau einmal. Wie viele dieser Zahlen sind größer als 7 000?',
+          str(sum(1 for p in _perm('2479') if int(''.join(p)) > 7000)), 'Vorne muss 7 oder 9 stehen: 2 Möglichkeiten. Die übrigen 3 Karten: 3 · 2 · 1 = 6. Zusammen 12.',
+          'Welche Karte darf vorne liegen? Wie viele Möglichkeiten gibt es danach jeweils?'),
+        Z(3, 'Vier Stationen A, B, C und D werden nacheinander besucht, jede genau einmal. A muss direkt vor B kommen. Wie viele Reihenfolgen gibt es?',
+          str(sum(1 for p in _perm('ABCD') if p.index('B') == p.index('A') + 1)), 'Fasse „AB“ zu einem Block zusammen. Dann sind 3 Teile zu ordnen: 3 · 2 · 1 = 6.',
+          'Klebe A und B zusammen.'),
+        Z(3, 'Aus 5 verschieden großen Scheiben werden Türme aus 3 Scheiben gebaut. Jede Scheibe muss kleiner sein als die darunter. Wie viele verschiedene Türme gibt es?',
+          str(len(list(_komb(range(5), 3)))), 'Die Reihenfolge ist durch die Größe festgelegt – es zählt nur, welche 3 Scheiben man nimmt. Auflisten ergibt 10 Auswahlen.',
+          'Liste auf, welche 3 Scheiben (1 bis 5) man nehmen kann: 123, 124, …'),
+        Z(3, 'Wie viele dreistellige Zahlen haben die Quersumme 3?', str(sum(1 for n in range(100, 1000) if sum(map(int, str(n))) == 3)),
+          'Systematisch: 102, 111, 120, 201, 210, 300. Das sind 6.', 'Beginne mit der Hunderterziffer 1, dann 2, dann 3.'),
+    ]
+    gruen = sum(1 for h, g, s in _prod(['grün', 'blau'], ['G1', 'G2', 'G3', 'ohne'], range(5)) if (h == 'grün') == (g == 'ohne'))
+    faerb = sum(1 for f in _prod('rgb', repeat=3) if f[0] != f[1] and f[1] != f[2])
+    menue = einzig([v for v in range(1, 20) if v * 15 * v == 60])
+    N['zaehlprinzip'] = [
+        Z(2, 'Für eine Reise packt jemand 2 Hosen, 3 Gürtel und 5 Shirts ein. Wie viele Outfits aus je einer Hose, einem Gürtel und einem Shirt sind möglich?', '2 * 3 * 5',
+          'Zählprinzip: 2 · 3 · 5 = 30.', 'Nacheinander wählen heißt malnehmen.'),
+        Z(2, 'Ein Kennwort besteht aus 2 Buchstaben (A, B oder C, auch doppelt) und danach 1 Ziffer (0 bis 9). Wie viele Kennwörter gibt es?', '3 * 3 * 10',
+          '3 · 3 · 10 = 90.', 'Wie viele Möglichkeiten gibt es für jede Stelle?'),
+        Z(3, 'Es gibt eine grüne und eine blaue Hose, 3 Gürtel und 5 Shirts. Die grüne Hose wird immer ohne Gürtel getragen, die blaue immer mit Gürtel. Wie viele Outfits gibt es?', str(gruen),
+          'Grüne Hose: nur Shirts wählen, 5 Outfits. Blaue Hose: 3 · 5 = 15 Outfits. Zusammen 20.', 'Zähle die beiden Hosen getrennt und addiere.'),
+        Z(3, 'Drei Felder liegen in einer Reihe. Jedes wird rot, gelb oder blau gefärbt. Nebeneinanderliegende Felder dürfen nicht dieselbe Farbe haben. Wie viele Färbungen gibt es?', str(faerb),
+          'Erstes Feld: 3 Farben. Zweites: nicht wie das erste, 2 Farben. Drittes: nicht wie das zweite, 2 Farben. 3 · 2 · 2 = 12.', 'Wie viele Farben bleiben für jedes Feld übrig?'),
+        Z(3, 'Ein Schloss hat 3 Rädchen mit den Ziffern 0 bis 9. Man weiß: Die drei Ziffern sind verschieden, und die erste ist eine 7. Wie viele Codes kommen noch infrage?',
+          str(sum(1 for c in _prod(range(10), repeat=3) if c[0] == 7 and len(set(c)) == 3)), 'Erste Ziffer fest. Zweite: 9 Möglichkeiten (nicht 7). Dritte: 8. 9 · 8 = 72.',
+          'Wie viele Ziffern bleiben für das zweite und dritte Rädchen?'),
+        Z(3, 'Ein Menü aus Vor-, Haupt- und Nachspeise hat 60 Möglichkeiten. Es gibt gleich viele Vor- wie Nachspeisen und 15 Hauptspeisen. Wie viele Vorspeisen gibt es?', str(menue),
+          '60 : 15 = 4 Möglichkeiten für Vor- und Nachspeise zusammen. Gleich viele: 2 · 2 = 4. Also 2 Vorspeisen.', 'Teile zuerst durch die Zahl der Hauptspeisen.'),
+    ]
+    gerade = sum(1 for p in _perm('2357') if int(p[-1]) % 2 == 0)
+    nicht_neben = sum(1 for p in _perm('ABCDE') if abs(p.index('A') - p.index('B')) != 1)
+    otto = len(set(_perm('OTTO')))
+    foto = sum(1 for p in _perm('abcXY') if {p[0], p[-1]} == {'X', 'Y'})
+    N['reihenfolgen'] = [
+        Z(2, 'Aus den vier Tönen c, d, e und f wird eine Melodie gespielt, jeder Ton genau einmal. Wie viele verschiedene Melodien gibt es?', '4 * 3 * 2 * 1',
+          'Erster Ton: 4, zweiter: 3, dritter: 2, vierter: 1. 4 · 3 · 2 · 1 = 24.', 'Bei jedem Ton ist einer weniger übrig.'),
+        Z(2, 'Bei einem Wettlauf starten 8 Kinder. Wie viele Möglichkeiten gibt es für die Plätze 1, 2 und 3?', '8 * 7 * 6', '8 · 7 · 6 = 336.', 'Platz 1: 8 Kinder, Platz 2: …'),
+        Z(3, 'Mit den Ziffern 2, 3, 5 und 7 werden vierstellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?', str(gerade),
+          'Gerade heißt: Die letzte Ziffer ist 2. Die anderen drei Ziffern davor: 3 · 2 · 1 = 6.', 'Welche Ziffer muss hinten stehen?'),
+        Z(3, '5 Kinder stellen sich in eine Reihe. Zwei bestimmte Kinder wollen nicht nebeneinander stehen. Wie viele Reihenfolgen gibt es?', str(nicht_neben),
+          'Alle: 5 · 4 · 3 · 2 · 1 = 120. Nebeneinander (als Block, zwei Richtungen): 2 · 24 = 48. Nicht nebeneinander: 120 − 48 = 72.',
+          'Zähle zuerst alle Reihenfolgen und ziehe die ab, bei denen die beiden nebeneinander stehen.'),
+        Z(3, 'Wie viele verschiedene „Wörter“ (auch sinnlose) kann man aus den Buchstaben O, T, T, O bilden, wenn alle vier verwendet werden?', str(otto),
+          'Auflisten: OOTT, OTOT, OTTO, TOOT, TOTO, TTOO. Das sind 6. (4 · 3 · 2 · 1 = 24 zählt gleiche Buchstaben mehrfach.)', 'Gleiche Buchstaben zu vertauschen ergibt kein neues Wort. Liste auf.'),
+        Z(3, 'Für ein Foto stellen sich 3 Kinder und 2 Erwachsene in eine Reihe. Die Erwachsenen stehen ganz außen. Wie viele Aufstellungen gibt es?', str(foto),
+          'Die Erwachsenen außen: 2 Möglichkeiten (wer links steht). Die Kinder in der Mitte: 3 · 2 · 1 = 6. Zusammen 2 · 6 = 12.', 'Ordne zuerst die Erwachsenen, dann die Kinder.'),
+    ]
+    rad = sum(1 for a, b in _prod(range(1, 4), repeat=2) if b > a)
+    kein_kk = sum(1 for f in _prod('KZ', repeat=4) if 'KK' not in ''.join(f))
+    prod12 = sum(1 for a, b in _prod(range(1, 7), repeat=2) if a * b == 12)
+    baum = {'typ': 'baum', 'aeste': [{'text': 'K', 'aeste': [{'text': 'K'}, {'text': 'Z'}]}, {'text': 'Z', 'aeste': [{'text': 'K'}, {'text': 'Z'}]}]}
+    N['baumdiagramm'] = [
+        Z(2, 'Eine Münze wird 4-mal geworfen. Wie viele Pfade hat das Baumdiagramm?', '2 ** 4', 'Jede Stufe verdoppelt die Pfade: 2 · 2 · 2 · 2 = 16.', 'Wie viele Äste gehen bei jedem Wurf weiter?'),
+        Z(2, 'Ein Glücksrad hat die Felder 1, 2 und 3. Es wird zweimal gedreht. Bei wie vielen Pfaden ist die zweite Zahl größer als die erste?', str(rad),
+          'Passend: (1, 2), (1, 3), (2, 3). Das sind 3 Pfade.', 'Schreibe alle 9 Pfade auf und markiere die passenden.'),
+        Z(3, 'In einer Dose liegen eine rote, eine blaue und eine grüne Kugel. Es wird zweimal OHNE Zurücklegen gezogen. Wie viele Pfade hat das Baumdiagramm?', str(len(list(_perm('rbg', 2)))),
+          'Erste Stufe: 3 Äste. Zweite Stufe: nur noch 2 Kugeln, also 2 Äste. 3 · 2 = 6 Pfade.', 'Wie viele Kugeln sind beim zweiten Zug noch in der Dose?'),
+        Z(3, 'Das Baumdiagramm zeigt zwei Münzwürfe (K = Kopf, Z = Zahl). Bei wie vielen Pfaden kommt mindestens einmal Z vor?', str(sum(1 for f in _prod('KZ', repeat=2) if 'Z' in f)),
+          'Alle Pfade: KK, KZ, ZK, ZZ. Mindestens einmal Z: KZ, ZK, ZZ – also 3.', '„Mindestens einmal“ heißt: einmal oder öfter.', grafik=baum),
+        Z(3, 'Eine Münze wird 4-mal geworfen. Bei wie vielen Pfaden kommt nie zweimal hintereinander Kopf?', str(kein_kk),
+          'Systematisch aufzählen: ZZZZ, KZZZ, ZKZZ, ZZKZ, ZZZK, KZKZ, KZZK, ZKZK. Das sind 8.', 'Ordne nach der Zahl der Köpfe: 0, 1 oder 2 Köpfe.'),
+        Z(3, 'Zwei Würfel werden nacheinander geworfen. Bei wie vielen der 36 Pfade ist das Produkt der Augenzahlen 12?', str(prod12),
+          '12 = 2 · 6 = 3 · 4 = 4 · 3 = 6 · 2. Das sind 4 Pfade.', 'Zerlege 12 in zwei Faktoren von 1 bis 6. Die Reihenfolge zählt.'),
+    ]
+    teilbar = sum(1 for e in range(100) if (5200 + e) % 25 == 0)
+    qs6 = sum(1 for n in range(100, 1000) if len(set(str(n))) == 3 and sum(map(int, str(n))) == 6)
+    sieben = sum(1 for n in range(100, 1000) if '7' in str(n))
+    code = sum(1 for c in _prod(range(10), repeat=3) if c[0] % 2 == 0 and c[2] % 2 == 1)
+    N['bedingungen'] = [
+        Z(2, 'Wie viele zweistellige Zahlen bestehen aus zwei gleichen Ziffern?', str(sum(1 for n in range(10, 100) if n % 11 == 0)), 'Das sind 11, 22, …, 99: 9 Zahlen.', 'Die erste Ziffer darf nicht 0 sein.'),
+        Z(2, 'Wie viele dreistellige Zahlen enden mit einer 0?', '9 * 10 * 1', 'Hunderter: 9 (nicht 0), Zehner: 10, Einer: nur 0. 9 · 10 · 1 = 90.', 'Welche Stelle ist festgelegt?'),
+        Z(3, 'Die Zahl 52□□ soll durch 25 teilbar sein. Wie viele Möglichkeiten gibt es für die beiden letzten Ziffern?', str(teilbar),
+          'Durch 25 teilbar sind Zahlen, die auf 00, 25, 50 oder 75 enden: 4 Möglichkeiten (5 200, 5 225, 5 250, 5 275).', 'Auf welche Endungen enden Vielfache von 25?'),
+        Z(3, 'Wie viele dreistellige Zahlen mit lauter verschiedenen Ziffern haben die Quersumme 6?', str(qs6),
+          'Ziffern-Sätze: {1, 2, 3}: 6 Zahlen. {0, 1, 5} und {0, 2, 4}: je 4 (die 0 darf nicht vorne stehen). Zusammen 14.',
+          'Suche zuerst drei verschiedene Ziffern mit der Summe 6. Zähle dann die Anordnungen.'),
+        Z(3, 'Wie viele dreistellige Zahlen enthalten mindestens eine 7?', str(sieben),
+          'Ohne 7: 8 · 9 · 9 = 648 (vorne nicht 0 und nicht 7). Alle: 900. Mindestens eine 7: 900 − 648 = 252.', 'Zähle das Gegenteil: Wie viele Zahlen haben gar keine 7?'),
+        Z(3, 'Ein Code hat 3 Ziffern (0 bis 9, Wiederholung erlaubt). Die erste Ziffer ist gerade, die letzte ungerade. Wie viele Codes gibt es?', str(code),
+          'Erste: 0, 2, 4, 6, 8 (5). Mitte: 10. Letzte: 1, 3, 5, 7, 9 (5). 5 · 10 · 5 = 250.', 'Achtung: Bei einem Code darf vorne auch 0 stehen.'),
+    ]
+    turnier = einzig([n for n in range(2, 30) if n * (n - 1) // 2 == 28])
+    karten = einzig([n for n in range(2, 30) if n * (n - 1) == 30])
+    N['grenzen'] = [
+        Z(2, '10 Kinder geben sich gegenseitig einmal die Hand. Wie viele Handschläge gibt es?', '10 * 9 // 2', '10 · 9 = 90 zählt jeden Handschlag doppelt: 90 : 2 = 45.', 'Erst das Zählprinzip, dann durch 2.'),
+        Z(2, 'Aus 5 Kindern werden 2 für den Tafeldienst ausgewählt (beide machen dasselbe). Wie viele Möglichkeiten gibt es?', '5 * 4 // 2', '5 · 4 = 20, aber „A und B“ ist dasselbe wie „B und A“: 20 : 2 = 10.',
+          'Ist die Reihenfolge wichtig?'),
+        Z(3, 'Bei einem Turnier spielt jede Mannschaft genau einmal gegen jede andere. Es finden 28 Spiele statt. Wie viele Mannschaften nehmen teil?', str(turnier),
+          'Probieren: Bei 8 Mannschaften gibt es 8 · 7 : 2 = 28 Spiele.', 'Rechne für 6, 7, 8 Mannschaften die Zahl der Spiele aus.'),
+        Z(3, 'Wie viele Diagonalen hat ein Sechseck?', f'{len(list(_komb(range(6), 2)))} - 6',
+          'Verbindungen zwischen 6 Ecken: 6 · 5 : 2 = 15. Davon sind 6 die Seiten. Diagonalen: 15 − 6 = 9.', 'Zähle alle Verbindungslinien und ziehe die Seiten ab.'),
+        wahl(3, 'Bei welcher Frage muss man nach dem Zählprinzip noch durch 2 teilen?', ['Wie viele Handschläge gibt es bei 6 Personen?', 'Wie viele Möglichkeiten gibt es für Platz 1 und 2 bei 6 Läufern?',
+                                                                                      'Wie viele Outfits gibt es aus 6 Hosen und 2 Shirts?', 'Wie viele zweistellige Zahlen kann man aus 6 Ziffern bilden?'],
+             lambda o: o.startswith('Wie viele Handschläge'), 'Nur beim Handschlag ist die Reihenfolge egal (A–B = B–A). Bei Plätzen und Zahlen ist sie wichtig, bei Outfits gibt es keine Doppelzählung.',
+             'Wo würde man ein Paar doppelt zählen?'),
+        Z(3, 'In einer Gruppe schreibt jedes Kind jedem anderen Kind eine Karte. Es werden 30 Karten geschrieben. Wie viele Kinder sind in der Gruppe?', str(karten),
+          'Hier zählt die Richtung: Karte von A an B und von B an A sind zwei Karten. n · (n − 1) = 30 gilt für n = 6.', 'Muss man hier durch 2 teilen? Probiere kleine Gruppen.'),
+    ]
+    wege = sum(1 for p in set(_perm('RROO')))
+    N['verstehen'] = [
+        wahl(2, 'Stimmt die Aussage? „Mit 3 Hemden und 0 Hosen gibt es 0 Outfits aus Hemd und Hose.“', ['Ja: 3 · 0 = 0.', 'Nein: 3 Outfits.', 'Nein: 3 + 0 = 3 Outfits.'],
+             lambda o: o.startswith('Ja'), 'Ohne Hose kann man kein Outfit aus Hemd und Hose bilden: 3 · 0 = 0.', 'Was passiert beim Malnehmen mit 0?'),
+        wahl(2, 'Stimmt die Aussage? „Bei 4 Läufern gibt es 24 mögliche Zieleinläufe (ohne gleiche Plätze).“', ['Ja: 4 · 3 · 2 · 1 = 24.', 'Nein: 4 · 4 = 16.', 'Nein: 4 + 3 + 2 + 1 = 10.'],
+             lambda o: o.startswith('Ja'), '4 · 3 · 2 · 1 = 24.', 'Wie viele Läufer kommen für jeden Platz noch infrage?'),
+        A(3, 'Jemand sagt: „Aus den Ziffern 1, 1 und 2 lassen sich 6 dreistellige Zahlen bilden, weil 3 · 2 · 1 = 6.“ Stimmt das?',
+          'Nein: Die beiden Einsen sind gleich. Es gibt nur 112, 121 und 211.', ['Ja, das stimmt.', 'Nein, es sind 9 Zahlen.', 'Nein, es sind 2 Zahlen.'],
+          f'Vertauscht man die beiden Einsen, entsteht dieselbe Zahl. Es bleiben {len(set(_perm("112")))} Zahlen.', 'Liste alle Zahlen auf.'),
+        wahl(3, '3 von 5 Büchern sollen nacheinander auf 3 Plätze ins Regal gestellt werden. Welche Rechnung passt?', ['5 · 4 · 3', '5 · 5 · 5', '5 + 4 + 3', '3 · 2 · 1'],
+             lambda o: o == '5 · 4 · 3', 'Platz 1: 5 Bücher, Platz 2: noch 4, Platz 3: noch 3. 5 · 4 · 3 = 60.', 'Wie viele Bücher stehen für jeden Platz noch zur Wahl?'),
+        wahl(3, 'Zwei Würfel werden geworfen. Stimmt die Aussage: „Augensumme 7 ist genauso oft möglich wie Augensumme 12.“?',
+             ['Nein: Summe 7 hat 6 Pfade, Summe 12 nur einen (6 und 6).', 'Ja, jede Summe ist gleich oft möglich.', 'Nein: Summe 12 ist öfter möglich.', 'Ja, beide je 6-mal.'],
+             lambda o: o.startswith('Nein: Summe 7'), f'Summe 7: 1+6, 2+5, 3+4, 4+3, 5+2, 6+1 = {sum(1 for a, b in _prod(range(1, 7), repeat=2) if a + b == 7)} Pfade. Summe 12: nur 6+6.',
+             'Zähle die Pfade für beide Summen.'),
+        Z(3, 'In einem Gitter läufst du von der Ecke unten links zur Ecke oben rechts: genau 2 Schritte nach rechts und 2 Schritte nach oben, in beliebiger Reihenfolge. Wie viele Wege gibt es?', str(wege),
+          'Auflisten (R = rechts, O = oben): RROO, RORO, ROOR, ORRO, OROR, OORR. Das sind 6.', 'Schreibe die Wege als Wörter aus 2 R und 2 O.'),
+    ]
+    return N
+
+
+ergaenze(DATEI, _schwer(), 1060)
+
 if __name__ == '__main__':
     schreibe(DATEI)

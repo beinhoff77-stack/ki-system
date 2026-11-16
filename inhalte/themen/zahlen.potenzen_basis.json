@@ -4125,6 +4125,731 @@
    },
    "c": "17**2",
    "w": "17 Reihen mit je 17 Platten: 17² = 289."
+  },
+  {
+   "l": "schreibweise",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe mit zwei Potenzen: 7 · 7 · 7 · 2 · 2"
+   },
+   "a": [
+    "7³ + 2²",
+    "14⁵",
+    "7² · 2³",
+    "7³ · 2²"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die 7 steht 3-mal da, die 2 steht 2-mal da: 7³ · 2².",
+   "h": "Zähle für jede Basis, wie oft sie vorkommt."
+  },
+  {
+   "l": "schreibweise",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Potenz hat den Exponenten 3 und den Wert 1 000. Wie heißt die Basis?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "10",
+   "w": "10 · 10 · 10 = 1 000. Die Basis ist 10.",
+   "h": "Welche Zahl dreimal mit sich selbst malgenommen ergibt 1 000?"
+  },
+  {
+   "l": "schreibweise",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlenfolge 3, 9, 27, 81, … geht immer nach derselben Regel weiter. Welche Zahl steht an der 6. Stelle?"
+   },
+   "o": {
+    "wert": 729
+   },
+   "c": "3 ** 6",
+   "w": "Jede Zahl ist das Dreifache der vorigen: 3¹, 3², 3³, 3⁴ … An 6. Stelle steht 3⁶ = 729.",
+   "h": "Wie kommt man von einer Zahl zur nächsten? Schreibe die Zahlen als Potenzen von 3."
+  },
+  {
+   "l": "schreibweise",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Was ist größer: 2¹⁰ oder 1 000?"
+   },
+   "a": [
+    "beide gleich groß",
+    "1 000",
+    "2¹⁰"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "2¹⁰ = 1 024. Das ist etwas mehr als 1 000.",
+   "h": "Verdopple 10-mal: 2, 4, 8, 16, …"
+  },
+  {
+   "l": "schreibweise",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Möglichkeiten gibt es, 64 als Potenz zu schreiben? Basis und Exponent sollen natürliche Zahlen größer als 1 sein."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "64 = 2⁶ = 4³ = 8². Das sind 3 Möglichkeiten.",
+   "h": "Probiere die Basen 2, 4 und 8."
+  },
+  {
+   "l": "schreibweise",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand schreibt 5 + 5 + 5 = 5³. Was ist falsch?"
+   },
+   "a": [
+    "Dreimal 5 addieren ist 3 · 5 = 15. 5³ heißt 5 · 5 · 5 = 125.",
+    "Richtig wäre 5² + 5.",
+    "Nichts, das stimmt.",
+    "Richtig wäre 3⁵."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Eine Potenz steht für wiederholtes Malnehmen, nicht für wiederholtes Addieren.",
+   "h": "Was bedeutet der Exponent: wie oft addieren oder wie oft malnehmen?"
+  },
+  {
+   "l": "berechnen",
+   "t": "berechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 2⁴ + 3²."
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "2**4 + 3**2",
+   "w": "2⁴ = 16 und 3² = 9. 16 + 9 = 25.",
+   "h": "Rechne zuerst beide Potenzen aus."
+  },
+  {
+   "l": "berechnen",
+   "t": "berechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 3 · 2³."
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "3 * 2**3",
+   "w": "Potenz zuerst: 2³ = 8. Dann 3 · 8 = 24.",
+   "h": "Potenzen rechnest du vor dem Malnehmen."
+  },
+  {
+   "l": "berechnen",
+   "t": "berechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 5 + 2 · 3³."
+   },
+   "o": {
+    "wert": 59
+   },
+   "c": "5 + 2 * 3**3",
+   "w": "Potenz vor Punkt vor Strich: 3³ = 27, 2 · 27 = 54, 5 + 54 = 59.",
+   "h": "Reihenfolge: erst Potenz, dann mal, dann plus."
+  },
+  {
+   "l": "berechnen",
+   "t": "berechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet 2 · 5² = 10² = 100. Was ist falsch?"
+   },
+   "a": [
+    "Richtig ist 2 · 5 · 2 = 20.",
+    "Die Potenz kommt zuerst: 5² = 25, dann 2 · 25 = 50.",
+    "Richtig ist 2² · 5² = 100, also stimmt es.",
+    "Nichts, 100 stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der Exponent 2 gehört nur zur 5. Erst 5² = 25, dann mal 2: 50.",
+   "h": "Zu welcher Zahl gehört der Exponent?"
+  },
+  {
+   "l": "berechnen",
+   "t": "berechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist am größten?"
+   },
+   "a": [
+    "3⁴",
+    "4³",
+    "2⁶",
+    "8²"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "2⁶ = 64, 4³ = 64, 8² = 64, aber 3⁴ = 81. Am größten ist 3⁴.",
+   "h": "Rechne alle vier aus."
+  },
+  {
+   "l": "berechnen",
+   "t": "berechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (2 + 3)² − (2² + 3²)."
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "(2 + 3)**2 - (2**2 + 3**2)",
+   "w": "(2 + 3)² = 5² = 25. 2² + 3² = 4 + 9 = 13. 25 − 13 = 12.",
+   "h": "Bei (2 + 3)² zuerst die Klammer. Achtung: (2 + 3)² ist nicht 2² + 3²."
+  },
+  {
+   "l": "quadrat",
+   "t": "berechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 15² − 14²."
+   },
+   "o": {
+    "wert": 29
+   },
+   "c": "15**2 - 14**2",
+   "w": "15² = 225 und 14² = 196. 225 − 196 = 29.",
+   "h": "Rechne beide Quadratzahlen aus."
+  },
+  {
+   "l": "quadrat",
+   "t": "berechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Quadratzahl liegt zwischen 280 und 300?"
+   },
+   "o": {
+    "wert": 289
+   },
+   "c": "289",
+   "w": "16² = 256 ist zu klein, 17² = 289 passt, 18² = 324 ist zu groß.",
+   "h": "Probiere 16², 17², 18²."
+  },
+  {
+   "l": "quadrat",
+   "t": "berechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Folge 100, 121, 144, 169, … besteht aus Quadratzahlen. Welche Zahl kommt als nächste?"
+   },
+   "o": {
+    "wert": 196
+   },
+   "c": "14**2",
+   "w": "100 = 10², 121 = 11², 144 = 12², 169 = 13². Als nächste kommt 14² = 196.",
+   "h": "Welche Zahlen werden hier quadriert?"
+  },
+  {
+   "l": "quadrat",
+   "t": "berechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 13² + 31."
+   },
+   "o": {
+    "wert": 200
+   },
+   "c": "13**2 + 31",
+   "w": "Potenz zuerst: 13² = 169. Dann 169 + 31 = 200.",
+   "h": "Zuerst 13 · 13 ausrechnen."
+  },
+  {
+   "l": "quadrat",
+   "t": "berechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat ist aus Fliesen gelegt, 15 Fliesen je Seite. Wie viele Fliesen liegen am Rand?"
+   },
+   "o": {
+    "wert": 56
+   },
+   "c": "15**2 - 13**2",
+   "w": "Alle Fliesen: 15² = 225. Innen bleibt ein Quadrat mit 13 · 13 = 169. Am Rand: 225 − 169 = 56.",
+   "h": "Zieh von allen Fliesen die inneren ab. Wie viele Fliesen hat das innere Quadrat je Seite?"
+  },
+  {
+   "l": "quadrat",
+   "t": "berechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Zwei Quadratzahlen, die direkt aufeinander folgen, unterscheiden sich um 31. Welche sind es?",
+    "schablone": "kleinere: □; größere: □",
+    "hinweis": "Trage beide Quadratzahlen ein."
+   },
+   "o": {
+    "werte": [
+     225,
+     256
+    ]
+   },
+   "c": [
+    "15**2",
+    "16**2"
+   ],
+   "w": "15² = 225 und 16² = 256. Der Unterschied ist 31.",
+   "h": "Schau dir die Unterschiede an: 4 − 1 = 3, 9 − 4 = 5, 16 − 9 = 7 … Wie geht es weiter?"
+  },
+  {
+   "l": "vertauschen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche der Potenzen 2⁵, 5² und 3³ ist am kleinsten?"
+   },
+   "a": [
+    "5²",
+    "2⁵",
+    "3³"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "2⁵ = 32, 5² = 25, 3³ = 27. Am kleinsten ist 5².",
+   "h": "Rechne alle drei aus."
+  },
+  {
+   "l": "vertauschen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 2⁵ − 5²."
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "2**5 - 5**2",
+   "w": "2⁵ = 32 und 5² = 25. 32 − 25 = 7.",
+   "h": "Erst beide Potenzen ausrechnen."
+  },
+  {
+   "l": "vertauschen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welches Zahlenpaar gilt aᵇ = bᵃ, obwohl a und b verschieden sind?"
+   },
+   "a": [
+    "a = 2, b = 3",
+    "a = 1, b = 2",
+    "a = 3, b = 4",
+    "a = 2, b = 4"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "2⁴ = 16 und 4² = 16. Bei den anderen Paaren: 2³ = 8 ≠ 9 = 3², 3⁴ = 81 ≠ 64 = 4³, 1² = 1 ≠ 2 = 2¹.",
+   "h": "Rechne für jedes Paar beide Potenzen aus."
+  },
+  {
+   "l": "vertauschen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel größer ist 3⁴ als 4³?"
+   },
+   "o": {
+    "wert": 17
+   },
+   "c": "3**4 - 4**3",
+   "w": "3⁴ = 81 und 4³ = 64. Unterschied: 17.",
+   "h": "Rechne beide Potenzen aus."
+  },
+  {
+   "l": "vertauschen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand behauptet: 10² = 2¹⁰, weil in beiden eine 10 und eine 2 vorkommen. Stimmt das?"
+   },
+   "a": [
+    "Ja, Basis und Exponent darf man tauschen.",
+    "Nein: 10² = 100, aber 2¹⁰ = 1 024.",
+    "Nein: 10² = 20 und 2¹⁰ = 20, also doch gleich.",
+    "Ja, beide ergeben 100."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "10² = 10 · 10 = 100. 2¹⁰ ist zehnmal die 2 malgenommen: 1 024.",
+   "h": "Rechne beide Potenzen aus."
+  },
+  {
+   "l": "vertauschen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie heißt der kleinste Exponent n, für den 2ⁿ größer ist als 5²?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "5² = 25. 2⁴ = 16 ist zu klein, 2⁵ = 32 ist größer. Also n = 5.",
+   "h": "Verdopple so lange, bis du über 25 kommst."
+  },
+  {
+   "l": "zehner",
+   "t": "zehner",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 3 · 10⁵ + 4 · 10³ als Zahl."
+   },
+   "o": {
+    "wert": 304000
+   },
+   "c": "3 * 10**5 + 4 * 10**3",
+   "w": "3 · 10⁵ = 300 000 und 4 · 10³ = 4 000. Zusammen 304 000.",
+   "h": "Schreibe beide Teile als Zahl und addiere."
+  },
+  {
+   "l": "zehner",
+   "t": "zehner",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Jahr hat rund 3 · 10⁷ Sekunden. Schreibe die Zahl aus."
+   },
+   "o": {
+    "wert": 30000000
+   },
+   "c": "3 * 10**7",
+   "w": "10⁷ ist eine 1 mit 7 Nullen. 3 · 10⁷ = 30 000 000.",
+   "h": "Hänge an die 3 so viele Nullen an, wie der Exponent sagt."
+  },
+  {
+   "l": "zehner",
+   "t": "zehner",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe als Zahl: 2 · 10⁶ + 7 · 10⁴ + 5 · 10"
+   },
+   "o": {
+    "wert": 2070050
+   },
+   "c": "2 * 10**6 + 7 * 10**4 + 5 * 10",
+   "w": "Millionen: 2, Zehntausender: 7, Zehner: 5. Alle anderen Stellen sind 0: 2 070 050.",
+   "h": "Trage die Ziffern in eine Stellenwerttafel ein. Leere Stellen bekommen eine 0."
+  },
+  {
+   "l": "zehner",
+   "t": "zehner",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Nullen hat die Zahl 50 · 10⁴, wenn man sie ausschreibt?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "50 · 10⁴ = 500 000. Die 50 bringt schon eine Null mit, dazu kommen 4 Nullen: 5 Nullen.",
+   "h": "Schreibe die Zahl aus. Achte auf die Null in der 50."
+  },
+  {
+   "l": "zehner",
+   "t": "zehner",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie oft passt 10³ in 10⁷?"
+   },
+   "o": {
+    "wert": 10000
+   },
+   "c": "10**7 // 10**3",
+   "w": "10⁷ = 10 000 000, 10³ = 1 000. 10 000 000 : 1 000 = 10 000 = 10⁴.",
+   "h": "Teile: Wie viele Nullen fallen weg?"
+  },
+  {
+   "l": "zehner",
+   "t": "zehner",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Tresor liegen 4 · 10³ Geldscheine zu je 50 €. Wie viel Euro sind das?"
+   },
+   "o": {
+    "wert": 200000,
+    "einheit": "€"
+   },
+   "c": "4 * 10**3 * 50",
+   "w": "4 · 10³ = 4 000 Scheine. 4 000 · 50 € = 200 000 €.",
+   "h": "Schreibe zuerst die Anzahl der Scheine aus."
+  },
+  {
+   "l": "negativ",
+   "t": "negativ",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−2)⁵."
+   },
+   "o": {
+    "wert": -32
+   },
+   "c": "(-2)**5",
+   "w": "2⁵ = 32. Ungerader Exponent bei negativer Basis: −32.",
+   "h": "Zähle die Minuszeichen: gerade oder ungerade?"
+  },
+  {
+   "l": "negativ",
+   "t": "negativ",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−10)⁴."
+   },
+   "o": {
+    "wert": 10000
+   },
+   "c": "(-10)**4",
+   "w": "10⁴ = 10 000. Gerader Exponent: positiv, also 10 000.",
+   "h": "Gerader Exponent bei negativer Basis ergibt plus."
+  },
+  {
+   "l": "negativ",
+   "t": "negativ",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−2)³ − (−3)²."
+   },
+   "o": {
+    "wert": -17
+   },
+   "c": "(-2)**3 - (-3)**2",
+   "w": "(−2)³ = −8 und (−3)² = 9. −8 − 9 = −17.",
+   "h": "Rechne beide Potenzen mit Vorzeichen aus."
+  },
+  {
+   "l": "negativ",
+   "t": "negativ",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist am kleinsten?"
+   },
+   "a": [
+    "(−2)³",
+    "−(−2)³",
+    "(−2)⁴",
+    "−2⁴"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "(−2)⁴ = 16, −2⁴ = −16 (nur die 2 wird potenziert), (−2)³ = −8, −(−2)³ = 8. Am kleinsten ist −2⁴.",
+   "h": "Achte genau auf die Klammern."
+  },
+  {
+   "l": "negativ",
+   "t": "negativ",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für wie viele Exponenten n von 1 bis 10 gilt (−1)ⁿ = 1?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "Bei geraden Exponenten ist (−1)ⁿ = 1: n = 2, 4, 6, 8, 10. Das sind 5.",
+   "h": "Wann ist eine Potenz mit negativer Basis positiv?"
+  },
+  {
+   "l": "negativ",
+   "t": "negativ",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "(−3)ⁿ ist negativ und größer als −100. Der Exponent n ist größer als 1. Wie heißt n?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Negativ nur bei ungeradem n: (−3)³ = −27 liegt über −100, (−3)⁵ = −243 liegt darunter. Also n = 3.",
+   "h": "Probiere die ungeraden Exponenten 3, 5, …"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Karton enthält 10 Packungen. In jeder Packung sind 10 Beutel mit je 10 Bonbons. Wie viele Bonbons sind im Karton?"
+   },
+   "o": {
+    "wert": 1000
+   },
+   "c": "10**3",
+   "w": "10 · 10 · 10 = 10³ = 1 000 Bonbons.",
+   "h": "Dreimal „je 10“: Welche Potenz ist das?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratisches Beet hat eine Fläche von 64 m². Wie lang ist eine Seite?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "m"
+   },
+   "c": "8",
+   "w": "8 · 8 = 64. Eine Seite ist 8 m lang.",
+   "h": "Welche Zahl mal sich selbst ergibt 64?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Teich leben 300 Algenzellen. Alle 3 Stunden verdoppelt sich ihre Anzahl. Wie viele sind es nach 12 Stunden?"
+   },
+   "o": {
+    "wert": 4800
+   },
+   "c": "300 * 2**(12 // 3)",
+   "w": "12 Stunden sind 4-mal 3 Stunden, also 4 Verdopplungen: 300 · 2⁴ = 300 · 16 = 4 800.",
+   "h": "Wie oft wird in 12 Stunden verdoppelt?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Seerose verdoppelt jede Woche ihre Fläche. Nach 10 Wochen ist der Teich ganz bedeckt. Nach wie vielen Wochen war er zur Hälfte bedeckt?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "10 - 1",
+   "w": "Von halb voll zu ganz voll ist genau eine Verdopplung, also eine Woche. Nach 9 Wochen war er halb bedeckt.",
+   "h": "Denk rückwärts: Was war eine Woche vor dem vollen Teich?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein großer Würfel ist aus 4 · 4 · 4 kleinen Würfeln gebaut. Wie viele kleine Würfel liegen ganz innen und berühren keine Außenfläche?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(4 - 2)**3",
+   "w": "Innen bleibt ein Würfel mit 2 · 2 · 2 = 2³ = 8 kleinen Würfeln.",
+   "h": "Nimm von jeder Seite eine Schicht weg. Wie groß ist der Würfel innen?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl wird dreimal hintereinander verdoppelt. Das Ergebnis ist 200. Wie hieß die Zahl am Anfang?"
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "200 // 2**3",
+   "w": "Dreimal verdoppeln heißt mal 2³ = 8. Rückwärts: 200 : 8 = 25.",
+   "h": "Dreimal verdoppeln heißt mal wie viel?"
   }
  ]
 }

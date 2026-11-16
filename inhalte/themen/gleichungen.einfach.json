@@ -6322,6 +6322,739 @@
    },
    "c": "19 - 30",
    "w": "Rückwärts: x = 19 − 30 = −11. Probe: (−11) + 30 = 19 ✓"
+  },
+  {
+   "l": "waage",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Waage ist im Gleichgewicht: links x + x + 6, rechts 20. Welche Zahl ist x?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "(20 - 6) / 2",
+   "w": "Auf beiden Seiten 6 wegnehmen: x + x = 14. Also x = 7.",
+   "h": "Nimm zuerst auf beiden Seiten 6 weg."
+  },
+  {
+   "l": "waage",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Links liegen 3 gleiche Dosen, rechts 1 solche Dose und 12 Murmeln. Die Waage ist im Gleichgewicht. Wie viele Murmeln sind in einer Dose?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "12 / 2",
+   "w": "Auf beiden Seiten 1 Dose wegnehmen: 2 Dosen = 12 Murmeln. Eine Dose: 6 Murmeln.",
+   "h": "Nimm auf beiden Seiten dieselbe Dose weg."
+  },
+  {
+   "l": "waage",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 4 · 3 + 5 · x = 47."
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "(47 - 4 * 3) / 5",
+   "w": "4 · 3 = 12. 12 + 5 · x = 47, also 5 · x = 35 und x = 7. Probe: 12 + 35 = 47.",
+   "h": "Rechne zuerst 4 · 3 aus. Was bleibt für 5 · x?"
+  },
+  {
+   "l": "waage",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einer Waage gilt: 2 Äpfel wiegen so viel wie 3 Birnen. Eine Birne wiegt 120 g. Wie viel wiegt ein Apfel?"
+   },
+   "o": {
+    "wert": 180,
+    "einheit": "g"
+   },
+   "c": "3 * 120 / 2",
+   "w": "3 Birnen: 360 g. Das wiegen auch 2 Äpfel. Ein Apfel: 360 g : 2 = 180 g.",
+   "h": "Was wiegen 3 Birnen zusammen?"
+  },
+  {
+   "l": "waage",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Waage ist im Gleichgewicht: links 5 gleiche Würfel, rechts 2 solche Würfel und ein 60-g-Gewicht. Wie schwer ist ein Würfel?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "g"
+   },
+   "c": "60 / 3",
+   "w": "Auf beiden Seiten 2 Würfel wegnehmen: 3 Würfel = 60 g. Ein Würfel: 20 g.",
+   "h": "Nimm auf beiden Seiten gleich viele Würfel weg."
+  },
+  {
+   "l": "waage",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei x + 7 = 15 nimmt jemand nur links 7 weg und schreibt x = 15. Was ist falsch?"
+   },
+   "a": [
+    "Nichts, x = 15 stimmt.",
+    "Man muss rechts 7 dazulegen: x = 22.",
+    "Man muss durch 7 teilen.",
+    "Die 7 muss auch rechts weg: x = 15 − 7 = 8."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Nur links wegnehmen bringt die Waage aus dem Gleichgewicht. Beide Seiten minus 7: x = 8. Probe: 8 + 7 = 15.",
+   "h": "Was passiert mit der Waage, wenn nur eine Seite leichter wird?"
+  },
+  {
+   "l": "umkehr_plus",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 63 = x − 28."
+   },
+   "o": {
+    "wert": 91
+   },
+   "c": "63 + 28",
+   "w": "Umkehrung von minus ist plus: x = 63 + 28 = 91. Probe: 91 − 28 = 63.",
+   "h": "Es ist egal, auf welcher Seite x steht."
+  },
+  {
+   "l": "umkehr_plus",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 250 − x = 175."
+   },
+   "o": {
+    "wert": 75
+   },
+   "c": "250 - 175",
+   "w": "Von 250 muss man so viel abziehen, dass 175 bleibt: x = 250 − 175 = 75.",
+   "h": "Achtung: x wird abgezogen. Wie groß ist der Unterschied zwischen 250 und 175?"
+  },
+  {
+   "l": "umkehr_plus",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −23 + x = −12."
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "-12 - (-23)",
+   "w": "Umkehrung: x = −12 − (−23) = −12 + 23 = 11. Probe: −23 + 11 = −12.",
+   "h": "Von −23 bis −12: wie viele Schritte nach rechts?"
+  },
+  {
+   "l": "umkehr_plus",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl muss man von 1 000 subtrahieren, um 2 026 zu erhalten?"
+   },
+   "o": {
+    "wert": -1026
+   },
+   "c": "1000 - 2026",
+   "w": "1 000 − x = 2 026. Das Ergebnis ist größer, also ist x negativ: x = 1 000 − 2 026 = −1 026. Probe: 1 000 − (−1 026) = 2 026.",
+   "h": "Schreibe die Gleichung 1 000 − x = 2 026 auf. Was muss x sein, damit das Ergebnis größer wird?"
+  },
+  {
+   "l": "umkehr_plus",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ich denke mir eine Zahl, ziehe 45 ab und addiere dann 17. Ich erhalte 30. Welche Zahl habe ich mir gedacht?"
+   },
+   "o": {
+    "wert": 58
+   },
+   "c": "30 - 17 + 45",
+   "w": "Rückwärts: 30 − 17 = 13, dann 13 + 45 = 58. Probe: 58 − 45 + 17 = 30.",
+   "h": "Kehre den letzten Schritt zuerst um."
+  },
+  {
+   "l": "umkehr_plus",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst x − 15 = 40 so: x = 40 − 15 = 25. Was ist falsch?"
+   },
+   "a": [
+    "Richtig ist x = 15 − 40.",
+    "Nichts, x = 25 stimmt.",
+    "Die Umkehrung von minus ist plus: x = 40 + 15 = 55.",
+    "Richtig ist x = 40 : 15."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Probe mit 25: 25 − 15 = 10, nicht 40. Mit 55: 55 − 15 = 40.",
+   "h": "Mach die Probe mit x = 25."
+  },
+  {
+   "l": "umkehr_mal",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 7 · x = 0."
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0 / 7",
+   "w": "Ein Produkt ist 0, wenn ein Faktor 0 ist: x = 0 : 7 = 0. Probe: 7 · 0 = 0.",
+   "h": "Welche Zahl mal 7 ergibt 0?"
+  },
+  {
+   "l": "umkehr_mal",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x : 12 = 15."
+   },
+   "o": {
+    "wert": 180
+   },
+   "c": "15 * 12",
+   "w": "Umkehrung von geteilt ist mal: x = 15 · 12 = 180.",
+   "h": "Rückwärts mit Malnehmen."
+  },
+  {
+   "l": "umkehr_mal",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x : (−4) = 15."
+   },
+   "o": {
+    "wert": -60
+   },
+   "c": "15 * (-4)",
+   "w": "Umkehrung: x = 15 · (−4) = −60. Probe: (−60) : (−4) = 15.",
+   "h": "Rechne rückwärts mit Malnehmen. Achte auf das Vorzeichen."
+  },
+  {
+   "l": "umkehr_mal",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst 96 : x = 8 mit x = 96 · 8 = 768. Was ist falsch?"
+   },
+   "a": [
+    "x ist der Teiler: x = 96 : 8 = 12.",
+    "Nichts, x = 768 stimmt.",
+    "Richtig ist x = 96 − 8 = 88.",
+    "Richtig ist x = 8 : 96."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Probe: 96 : 768 ist nicht 8. Richtig: 96 : 12 = 8.",
+   "h": "Mach die Probe. Durch welche Zahl muss man 96 teilen, damit 8 herauskommt?"
+  },
+  {
+   "l": "umkehr_mal",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Das Fünffache einer Zahl ist um 48 größer als die Zahl selbst. Wie heißt die Zahl?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "12",
+   "w": "5 · x − x = 4 · x. Also 4 · x = 48 und x = 12. Probe: 60 ist um 48 größer als 12.",
+   "h": "Wie viel mal die Zahl ist der Unterschied?"
+  },
+  {
+   "l": "umkehr_mal",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Seil wird ohne Rest in 12 gleich lange Stücke von 35 cm geschnitten. Wie lang war das Seil in m?"
+   },
+   "o": {
+    "wert": 4.2,
+    "einheit": "m"
+   },
+   "c": "12 * 35 / 100",
+   "w": "Gleichung: x : 35 = 12, also x = 12 · 35 = 420 cm = 4,2 m.",
+   "h": "Rechne zuerst in cm, dann in m."
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 7 · x − 12 = 51."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(51 + 12) / 7",
+   "w": "Erst + 12: 7 · x = 63. Dann : 7: x = 9.",
+   "h": "Den letzten Schritt (− 12) zuerst umkehren."
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x : 5 − 3 = 9."
+   },
+   "o": {
+    "wert": 60
+   },
+   "c": "(9 + 3) * 5",
+   "w": "Erst + 3: x : 5 = 12. Dann · 5: x = 60.",
+   "h": "Den letzten Schritt zuerst umkehren."
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze die Lücke: 6 · (□ − 12) = 42",
+    "schablone": "6 · (□ − 12) = 42",
+    "hinweis": "Trage die fehlende Zahl ein."
+   },
+   "o": {
+    "werte": [
+     19
+    ]
+   },
+   "c": [
+    "42 // 6 + 12"
+   ],
+   "w": "Die Klammer muss 42 : 6 = 7 ergeben. □ − 12 = 7, also □ = 19. Probe: 6 · 7 = 42.",
+   "h": "Was muss in der Klammer herauskommen?"
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x + 7) : 3 = 11."
+   },
+   "o": {
+    "wert": 26
+   },
+   "c": "11 * 3 - 7",
+   "w": "Erst · 3: x + 7 = 33. Dann − 7: x = 26. Probe: 33 : 3 = 11.",
+   "h": "Die Klammer wird zuletzt geteilt – kehre das zuerst um."
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ich denke mir eine Zahl, verdopple sie, addiere 9 und teile das Ergebnis durch 5. Ich erhalte 7. Welche Zahl habe ich mir gedacht?"
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "(7 * 5 - 9) / 2",
+   "w": "Rückwärts: 7 · 5 = 35, 35 − 9 = 26, 26 : 2 = 13. Probe: 13 · 2 + 9 = 35, 35 : 5 = 7.",
+   "h": "Drei Schritte rückwärts: den letzten zuerst."
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst 4 · x + 8 = 40 so: zuerst 40 : 4 = 10, dann 10 − 8 = 2. Was ist falsch?"
+   },
+   "a": [
+    "Richtig ist x = 40 − 8 − 4 = 28.",
+    "Die Reihenfolge: zuerst − 8 (letzter Schritt), dann : 4. Richtig ist x = 8.",
+    "Man muss 40 · 4 rechnen.",
+    "Nichts, x = 2 stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Probe mit 2: 4 · 2 + 8 = 16. Richtig: 40 − 8 = 32, 32 : 4 = 8.",
+   "h": "Mach die Probe mit x = 2."
+  },
+  {
+   "l": "probe",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist x = 7 eine Lösung von 3 · (x − 2) = 15?"
+   },
+   "a": [
+    "Nein: 3 · (7 − 2) = 21.",
+    "Nein: 3 · 7 − 2 = 19.",
+    "Ja: 3 · (7 − 2) = 3 · 5 = 15."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Einsetzen: 3 · (7 − 2) = 3 · 5 = 15. Beide Seiten sind gleich.",
+   "h": "Rechne zuerst die Klammer aus."
+  },
+  {
+   "l": "probe",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Mache die Probe für x = 4 bei 50 − 6 · x = 26. Welche Zahl kommt links heraus?"
+   },
+   "o": {
+    "wert": 26
+   },
+   "c": "50 - 6 * 4",
+   "w": "50 − 6 · 4 = 50 − 24 = 26. Links steht auch 26: Die Lösung stimmt.",
+   "h": "Punkt vor Strich."
+  },
+  {
+   "l": "probe",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche der Zahlen 3, 4, 5 und 6 gilt 2 · x + 7 = 4 · x − 3?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "Probe mit 5: links 2 · 5 + 7 = 17, rechts 4 · 5 − 3 = 17. Gleich! (Bei 3, 4, 6 sind die Seiten verschieden.)",
+   "h": "Setze jede Zahl links und rechts ein."
+  },
+  {
+   "l": "probe",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Kinder lösen 5 · x − 20 = 30. Eins erhält x = 2, das andere x = 10. Wer hat recht?"
+   },
+   "a": [
+    "Keins von beiden.",
+    "Das Kind mit x = 10.",
+    "Beide.",
+    "Das Kind mit x = 2."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Probe: 5 · 10 − 20 = 30 stimmt. 5 · 2 − 20 = −10 stimmt nicht.",
+   "h": "Mach mit beiden Zahlen die Probe."
+  },
+  {
+   "l": "probe",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bei 7 · x − 4 = 59 wird x = 10 getestet. Links kommt 66 heraus – zu viel. Wie heißt die richtige Lösung?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(59 + 4) / 7",
+   "w": "66 ist 7 zu viel, also ist x um 1 zu groß: x = 9. Probe: 63 − 4 = 59.",
+   "h": "Um wie viel ändert sich die linke Seite, wenn x um 1 kleiner wird?"
+  },
+  {
+   "l": "probe",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bei 4 · x + 1 = 33 wird x = 7 getestet. Links kommt 29 heraus. Um wie viel muss x noch größer werden?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(33 - 1) / 4 - 7",
+   "w": "Es fehlen 33 − 29 = 4. Jede 1 bei x bringt links 4 mehr. Also x um 1 größer: x = 8.",
+   "h": "Um wie viel wächst die linke Seite, wenn x um 1 größer wird?"
+  },
+  {
+   "l": "aufstellen",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind ist 4 Jahre älter als sein Bruder. Zusammen sind sie 22 Jahre alt. Wie alt ist der Bruder?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "Jahre"
+   },
+   "c": "(22 - 4) / 2",
+   "w": "x + (x + 4) = 22, also 2 · x = 18 und x = 9. Der Bruder ist 9, das Kind 13.",
+   "h": "Nimm zuerst die 4 Jahre Unterschied weg."
+  },
+  {
+   "l": "aufstellen",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "„Die Hälfte einer Zahl, vermehrt um 8, ergibt 20.“ Welche Gleichung passt?"
+   },
+   "a": [
+    "(x + 8) : 2 = 20",
+    "x : 2 − 8 = 20",
+    "x · 2 + 8 = 20",
+    "x : 2 + 8 = 20"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Erst die Hälfte (x : 2), dann vermehrt um 8 (+ 8): x : 2 + 8 = 20.",
+   "h": "Was passiert zuerst mit der Zahl?"
+  },
+  {
+   "l": "aufstellen",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "26 Kinder schlafen in 8 Zimmern. In jedem Zimmer schlafen 3 oder 4 Kinder. Wie viele Viererzimmer gibt es?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Wären alle 8 Zimmer Dreierzimmer, schliefen dort 24 Kinder. 2 Kinder fehlen – jedes Viererzimmer bringt 1 mehr: 2 Viererzimmer. Probe: 2 · 4 + 6 · 3 = 26.",
+   "h": "Stell dir zuerst vor, alle Zimmer wären Dreierzimmer."
+  },
+  {
+   "l": "aufstellen",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Subtrahiert man von 100 das Dreifache einer Zahl, erhält man 37. Wie heißt die Zahl?"
+   },
+   "o": {
+    "wert": 21
+   },
+   "c": "(100 - 37) / 3",
+   "w": "100 − 3 · x = 37. Also 3 · x = 63 und x = 21. Probe: 100 − 63 = 37.",
+   "h": "Schreibe die Gleichung auf: 100 − 3 · x = 37."
+  },
+  {
+   "l": "aufstellen",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Drei aufeinanderfolgende natürliche Zahlen haben die Summe 72. Wie heißt die kleinste?"
+   },
+   "o": {
+    "wert": 23
+   },
+   "c": "23",
+   "w": "x + (x + 1) + (x + 2) = 72, also 3 · x + 3 = 72, 3 · x = 69, x = 23. Probe: 23 + 24 + 25 = 72.",
+   "h": "Die mittlere Zahl ist ein Drittel der Summe."
+  },
+  {
+   "l": "aufstellen",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Vater ist heute 40 Jahre alt, sein Sohn 10. In wie vielen Jahren ist der Vater doppelt so alt wie der Sohn?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "Jahre"
+   },
+   "c": "20",
+   "w": "40 + t = 2 · (10 + t). Probieren: In 20 Jahren ist der Vater 60, der Sohn 30 – doppelt so alt.",
+   "h": "Der Altersunterschied bleibt immer 30 Jahre."
+  },
+  {
+   "l": "ohne_loesung",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gleichung hat eine Lösung in ℕ?"
+   },
+   "a": [
+    "7 · x = 50",
+    "7 · x = 56",
+    "x + 12 = 5",
+    "20 − x = 25"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "7 · 8 = 56. Bei 50 bleibt beim Teilen ein Rest, bei den anderen müsste x negativ sein.",
+   "h": "Prüfe jede Gleichung mit Rückwärtsrechnen."
+  },
+  {
+   "l": "ohne_loesung",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit ganzen Zahlen: x + 12 = 5."
+   },
+   "o": {
+    "wert": -7
+   },
+   "c": "5 - 12",
+   "w": "x = 5 − 12 = −7. Probe: −7 + 12 = 5. In ℕ gäbe es keine Lösung.",
+   "h": "Rechne rückwärts – das Ergebnis darf negativ sein."
+  },
+  {
+   "l": "ohne_loesung",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein 368 cm langes Band soll in Stücke von 15 cm geschnitten werden. Ohne Rest geht das nicht (15 · x = 368 hat keine Lösung in ℕ). Wie viele cm bleiben übrig, wenn man möglichst viele Stücke schneidet?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "cm"
+   },
+   "c": "368 % 15",
+   "w": "368 : 15 = 24 Rest 8. Es bleiben 8 cm übrig.",
+   "h": "Teile mit Rest."
+  },
+  {
+   "l": "ohne_loesung",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche Zahl rechts hat 4 · x = □ eine Lösung in ℕ?"
+   },
+   "a": [
+    "33",
+    "31",
+    "30",
+    "32"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Nur 32 ist durch 4 teilbar: x = 8. 30, 31 und 33 lassen beim Teilen durch 4 einen Rest.",
+   "h": "Welche Zahl ist durch 4 teilbar?"
+  },
+  {
+   "l": "ohne_loesung",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele der Gleichungen 6 · x = 1, 6 · x = 2, 6 · x = 3, … , 6 · x = 50 haben eine Lösung in ℕ?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "8",
+   "w": "Eine Lösung gibt es, wenn rechts ein Vielfaches von 6 steht: 6, 12, 18, 24, 30, 36, 42, 48. Das sind 8.",
+   "h": "Welche Zahlen bis 50 sind durch 6 teilbar?"
+  },
+  {
+   "l": "ohne_loesung",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gleichung hat jede Zahl als Lösung?"
+   },
+   "a": [
+    "1 · x = 0",
+    "0 · x = 5",
+    "x + 0 = 5",
+    "0 · x = 0"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "0 mal jede Zahl ist 0. Also stimmt 0 · x = 0 für jedes x. 0 · x = 5 hat keine Lösung, die anderen genau eine.",
+   "h": "Setze verschiedene Zahlen ein."
   }
  ],
  "offen": [

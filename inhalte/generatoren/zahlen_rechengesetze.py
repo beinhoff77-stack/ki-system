@@ -793,5 +793,159 @@ KARTEN = {
 umbau(DATEI, KARTEN)
 
 
+# ---------- SCHWER (Zehnte Runde, Zweig schwer-kl5) ----------
+# Neue Übungen nach Prüfungsvorbild (Jahrgangsstufentest 6 Bayern, Bayerischer Mathematik-Test, Känguru 5/6); eigene Zahlen und Einkleidung.
+from itertools import permutations  # noqa: E402
+from _schwer_kl5 import A, L, Z, de, einzig, ergaenze, rw, wahl  # noqa: E402
+
+
+def _schwer():
+    N = {}
+    groesst = ['2 · 3 + 4 · 5', '2 + 3 · 4 + 5', '2 · 3 · 4 + 5', '2 + 3 + 4 · 5']
+    zeichen = {'+': 12 + 4 + 8, '−': 12 - 4 + 8, '·': 12 * 4 + 8, ':': 12 // 4 + 8}
+    N['punkt_strich'] = [
+        Z(2, 'Berechne 7 · 8 − 36 : 4 + 2.', '7 * 8 - 36 / 4 + 2', 'Punkt zuerst: 7 · 8 = 56 und 36 : 4 = 9. Dann 56 − 9 + 2 = 49.', 'Erst alle Mal- und Geteilt-Rechnungen, dann von links nach rechts.'),
+        Z(2, 'Berechne 150 − 6 · 15 : 3.', '150 - 6 * 15 / 3', 'Punktrechnung von links: 6 · 15 = 90, 90 : 3 = 30. Dann 150 − 30 = 120.', 'Mal und geteilt hintereinander: von links nach rechts.'),
+        L(3, 'Ergänze die Lücke: 60 − □ · 7 = 4', '60 − □ · 7 = 4', 'Trage die fehlende Zahl ein.', ['(60 - 4) // 7'],
+          '□ · 7 muss 60 − 4 = 56 sein. 56 : 7 = 8. Probe: 60 − 8 · 7 = 60 − 56 = 4.', 'Was muss von 60 abgezogen werden, damit 4 übrig bleibt?'),
+        wahl(3, 'Welche Rechnung hat das größte Ergebnis?', groesst, lambda o: rw(o) == max(rw(x) for x in groesst),
+             'Ergebnisse: 6 + 20 = 26, 2 + 12 + 5 = 19, 24 + 5 = 29, 5 + 20 = 25. Am größten ist 2 · 3 · 4 + 5.', 'Rechne jede Zeile mit Punkt vor Strich aus.'),
+        wahl(3, 'Welches Rechenzeichen gehört in die Lücke? 12 □ 4 + 8 = 11', list(zeichen), lambda o: zeichen[o] == 11,
+             'Mit „:“: 12 : 4 = 3, 3 + 8 = 11. Die anderen ergeben 24, 16 und 56.', 'Probiere alle vier Zeichen aus. Denk an Punkt vor Strich.'),
+        A(3, 'Jemand rechnet 5 + 3 · 4 = 32. Was ist falsch?', 'Punkt vor Strich: 3 · 4 = 12, dann 5 + 12 = 17.',
+          ['Nichts, 32 stimmt.', '3 · 4 ist falsch ausgerechnet. Richtig ist 27.', 'Man muss von rechts rechnen: 4 · 3 + 5 = 17, also stimmt 32.'],
+          'Gerechnet wurde (5 + 3) · 4 = 32. Ohne Klammer gilt aber Punkt vor Strich: 5 + 12 = 17.', 'Was wurde hier zuerst gerechnet? Was hätte zuerst gerechnet werden müssen?'),
+    ]
+    setzen = ['48 : (4 + 4) · 2', '48 : (4 + 4 · 2)', '(48 : 4 + 4) · 2', '48 : 4 + (4 · 2)']
+    werte = set()
+    for a, b, c in permutations([2, 3, 4]):
+        werte |= {(a + b) * c, a + b * c, a * b + c, a * (b + c)}
+    N['klammern'] = [
+        Z(2, 'Berechne (45 − 17) : (2 + 5).', '(45 - 17) / (2 + 5)', 'Beide Klammern zuerst: 28 und 7. Dann 28 : 7 = 4.', 'Rechne zuerst jede Klammer für sich aus.'),
+        Z(2, 'Berechne 3 · (40 − 8 · 4).', '3 * (40 - 8 * 4)', 'In der Klammer Punkt vor Strich: 8 · 4 = 32, 40 − 32 = 8. Dann 3 · 8 = 24.', 'Auch in der Klammer gilt Punkt vor Strich.'),
+        wahl(3, 'Wo müssen die Klammern stehen, damit das Ergebnis 12 ist?', setzen, lambda o: rw(o) == 12,
+             '48 : (4 + 4) · 2 = 48 : 8 · 2 = 6 · 2 = 12. Die anderen ergeben 4, 32 und 20.', 'Rechne jede Möglichkeit aus. Die Klammer immer zuerst.'),
+        Z(3, 'Berechne: Dividiere die Summe aus 96 und 48 durch die Differenz von 20 und 8.', '(96 + 48) / (20 - 8)',
+          'Summe: 96 + 48 = 144. Differenz: 20 − 8 = 12. 144 : 12 = 12.', 'Schreibe zuerst den Term mit Klammern auf: (… + …) : (… − …).'),
+        L(3, 'Ergänze die Lücke: 4 · (□ − 9) = 28', '4 · (□ − 9) = 28', 'Trage die fehlende Zahl ein.', ['28 // 4 + 9'],
+          'Die Klammer muss 28 : 4 = 7 ergeben. □ − 9 = 7, also □ = 16. Probe: 4 · (16 − 9) = 28.', 'Was muss in der Klammer herauskommen, damit 4 · Klammer = 28 ist?'),
+        Z(3, 'Verwende die Zahlen 2, 3 und 4 je genau einmal, dazu einmal „+“ und einmal „·“. Klammern sind erlaubt. Wie groß ist das größte mögliche Ergebnis?',
+          str(max(werte)), f'Am meisten bringt es, die Summe der beiden kleineren Zahlen mit der größten malzunehmen: (2 + 3) · 4 = {max(werte)}.',
+          'Probiere systematisch: Was passiert, wenn die Summe in eine Klammer kommt?'),
+    ]
+    ausflug = ['(24 · 7 − 120) : 4', '24 · 7 − 120 : 4', '24 · (7 − 120) : 4', '(24 · 7 − 120) · 4']
+    produkt = ['(4 + 5) · 7', '4 + 5 · 7', '4 · (5 + 7)', '4 · 5 + 7']
+    N['termaufbau'] = [
+        Z(2, 'Berechne das Produkt aus 12 und der Summe von 5 und 3.', '12 * (5 + 3)', 'Term: 12 · (5 + 3) = 12 · 8 = 96.', 'Die Summe kommt in Klammern, weil sie ein Faktor ist.'),
+        wahl(2, 'Welche Art von Term ist (60 − 12) : (3 + 5)?', ['Quotient', 'Differenz', 'Summe', 'Produkt'], lambda o: o == 'Quotient',
+             'Zuletzt wird 48 durch 8 geteilt. Die letzte Rechnung ist geteilt, also ein Quotient.', 'Welche Rechnung kommt ganz zum Schluss?'),
+        wahl(3, '24 Kinder zahlen je 7 € für einen Ausflug. Der Bus kostet 120 €. Der Rest wird gleich auf 4 Gruppen verteilt. Welcher Term gibt den Betrag für eine Gruppe an?',
+             ausflug, lambda o: o == '(24 · 7 − 120) : 4',
+             'Eingenommen: 24 · 7. Rest nach dem Bus: 24 · 7 − 120. Dieser ganze Rest wird durch 4 geteilt, also braucht er eine Klammer: (24 · 7 − 120) : 4 = 12 €.',
+             'Was wird zuerst ausgerechnet? Was wird am Schluss durch 4 geteilt?'),
+        Z(3, 'Berechne: Subtrahiere vom Produkt aus 15 und 8 den Quotienten aus 72 und 9.', '15 * 8 - 72 / 9',
+          'Term: 15 · 8 − 72 : 9 = 120 − 8 = 112.', 'Achtung bei „subtrahiere A von B“: Es heißt B − A.'),
+        Z(3, 'Ein Term ist eine Differenz. Der erste Teil ist das Produkt aus 9 und einer unbekannten Zahl, der zweite Teil ist 13. Der Term hat den Wert 50. Wie heißt die unbekannte Zahl?',
+          '(50 + 13) // 9', 'Term: 9 · □ − 13 = 50. Rückwärts: 9 · □ = 63, □ = 7.', 'Schreibe den Term mit □ auf und rechne rückwärts.'),
+        wahl(3, 'Welcher Term ist ein Produkt, dessen erster Faktor eine Summe ist?', produkt, lambda o: o == '(4 + 5) · 7',
+             'Bei (4 + 5) · 7 wird zuletzt malgenommen (Produkt), und der erste Faktor ist die Summe 4 + 5.', 'Bestimme bei jedem Term die letzte Rechnung.'),
+    ]
+    N['vorteil'] = [
+        Z(2, 'Rechne geschickt: 4 · 13 · 25', '4 * 13 * 25', '4 · 25 = 100, dann 100 · 13 = 1 300.', 'Welche zwei Zahlen ergeben zusammen eine glatte Zahl?'),
+        Z(2, 'Rechne geschickt: 198 + 467 + 2', '198 + 467 + 2', '198 + 2 = 200, dann 200 + 467 = 667.', 'Tausche so, dass zuerst eine glatte Zahl entsteht.'),
+        Z(3, 'Rechne geschickt: 8 · 23 · 125', '8 * 23 * 125', '8 · 125 = 1 000, dann 1 000 · 23 = 23 000.', 'Kennst du ein Paar, das 1 000 ergibt?'),
+        A(3, 'Jemand rechnet 80 : 8 : 2 = 80 : 4 = 20. Was ist falsch?', 'Beim Teilen darf man nicht so zusammenfassen. Richtig: 80 : 8 : 2 = 10 : 2 = 5.',
+          ['Nichts, 20 stimmt.', '8 : 2 ist nicht 4. Richtig ist 80 : 6.', 'Man muss von rechts rechnen: 8 : 2 = 4, also stimmt 20.'],
+          'Tauschen und Verbinden gelten nur bei plus und mal. Von links: 80 : 8 = 10, dann 10 : 2 = 5.', 'Rechne einfach von links nach rechts und vergleiche.'),
+        Z(3, 'Rechne geschickt: 1 + 2 + 3 + … + 19 + 20', ' + '.join(str(i) for i in range(1, 21)),
+          'Paare bilden: 1 + 20, 2 + 19, … , 10 + 11. Das sind 10 Paare mit je 21: 10 · 21 = 210.', 'Addiere die erste und die letzte Zahl, dann die zweite und die vorletzte …'),
+        Z(3, 'Rechne geschickt: 25 · 25 · 4 · 4', '25 * 25 * 4 * 4', '(25 · 4) · (25 · 4) = 100 · 100 = 10 000.', 'Bilde zwei Paare.'),
+    ]
+    nicht = ['80 + 15 − 25 − 10', '80 − 10 + 15 − 25', '80 − (25 + 10) + 15', '80 − (25 + 15) − 10']
+    N['differenz_summe'] = [
+        Z(2, 'Rechne geschickt: 93 − 47 + 7', '93 - 47 + 7', 'Tauschen: 93 + 7 − 47 = 100 − 47 = 53.', 'Hol die + 7 mit ihrem Zeichen nach vorn.'),
+        Z(2, 'Rechne geschickt: 250 − 38 − 62', '250 - 38 - 62', 'Beide Zahlen werden abgezogen: 38 + 62 = 100. 250 − 100 = 150.', 'Was wird insgesamt abgezogen?'),
+        A(3, 'Jemand rechnet 64 − 19 + 36 − 11 = 64 + 36 − 19 + 11 = 92. Was ist falsch?', 'Die 11 hat ihr Minus verloren. Richtig ist 70.',
+          ['Nichts, 92 stimmt.', 'Die 36 hätte ein Minus bekommen müssen. Richtig ist −2.', 'Die 19 hat ihr Minus verloren. Richtig ist 130.'],
+          'Jede Zahl nimmt ihr Zeichen mit: 64 + 36 − 19 − 11 = 100 − 30 = 70.', 'Prüfe bei jeder Zahl, ob das Zeichen davor mitgewandert ist.'),
+        Z(3, 'Welche Zahl musst du zu 128 − 45 addieren, damit 100 herauskommt?', '100 - (128 - 45)', '128 − 45 = 83. Bis 100 fehlen 17.', 'Rechne zuerst 128 − 45 aus.'),
+        Z(3, 'Rechne geschickt: 100 − 99 + 98 − 97 + … + 4 − 3 + 2 − 1', ' + '.join(f'({i} - {i - 1})' for i in range(100, 0, -2)),
+          'Paare bilden: (100 − 99) + (98 − 97) + … + (2 − 1). Das sind 50 Paare mit je 1: Ergebnis 50.', 'Fasse immer eine Plus- und die folgende Minus-Zahl zusammen.'),
+        wahl(3, 'Welcher Term hat NICHT denselben Wert wie 80 − 25 + 15 − 10?', nicht, lambda o: rw(o) != rw('80 − 25 + 15 − 10'),
+             '80 − 25 + 15 − 10 = 60. In 80 − (25 + 15) − 10 wird die 15 abgezogen statt addiert: 30.', 'Achte darauf, welches Zeichen jede Zahl am Ende hat.'),
+    ]
+    N['verteilen'] = [
+        Z(2, 'Rechne geschickt: 9 · 102', '9 * 102', '9 · (100 + 2) = 900 + 18 = 918.', 'Zerlege 102 in 100 + 2.'),
+        Z(2, 'Rechne geschickt: 14 · 7 + 14 · 3', '14 * 7 + 14 * 3', 'Ausklammern: 14 · (7 + 3) = 14 · 10 = 140.', 'Welcher Faktor kommt in beiden Produkten vor?'),
+        Z(3, 'Ein Kino verkauft am Samstag 37 und am Sonntag 63 Karten zu je 9 €. Wie viel Geld nimmt es an beiden Tagen zusammen ein?', '37 * 9 + 63 * 9',
+          '37 · 9 + 63 · 9 = (37 + 63) · 9 = 100 · 9 = 900 €.', 'Zähle zuerst alle Karten zusammen.', einheit='€'),
+        Z(3, 'Rechne geschickt: 17 · 99 + 17', '17 * 99 + 17', '17 ist 17 · 1. Also 17 · (99 + 1) = 17 · 100 = 1 700.', 'Schreibe die einzelne 17 als 17 · 1.'),
+        Z(3, 'Rechne geschickt: 36 · 25', '36 * 25', '36 · 25 = (40 − 4) · 25 = 1 000 − 100 = 900.', 'Schreibe 36 als 40 − 4.'),
+        A(3, 'Jemand rechnet 6 · (20 + 4) = 6 · 20 + 4 = 124. Was ist falsch?', 'Auch die 4 muss mit 6 malgenommen werden. Richtig ist 144.',
+          ['Nichts, 124 stimmt.', 'Man darf nicht verteilen. Richtig ist 6 · 20 = 120.', 'Richtig ist 6 + 20 + 4 = 30.'],
+          '6 · (20 + 4) = 6 · 20 + 6 · 4 = 120 + 24 = 144.', 'Jeder Teil in der Klammer wird malgenommen.'),
+    ]
+    trip = [s for a in range(-3, 4) for b in range(a + 1, 4) for c in range(b + 1, 4) if a * b * c == -6 for s in [a + b + c]]
+    N['mal_ganz'] = [
+        Z(2, 'Berechne (−12) · (−5).', '(-12) * (-5)', '12 · 5 = 60. Gleiche Vorzeichen: plus. Ergebnis 60.', 'Erst ohne Vorzeichen rechnen, dann das Vorzeichen bestimmen.'),
+        Z(2, 'Berechne (−4) · 25 · (−3).', '(-4) * 25 * (-3)', '(−4) · 25 = −100, dann (−100) · (−3) = 300.', 'Zwei Minuszeichen: Das Ergebnis ist positiv.'),
+        Z(3, 'Berechne geschickt: (−25) · 7 · (−4) · (−1)', '(-25) * 7 * (-4) * (-1)',
+          '(−25) · (−4) = 100. 100 · 7 = 700. 700 · (−1) = −700. Drei Minuszeichen: negativ.', 'Zähle die Minuszeichen. Suche ein Paar mit glattem Ergebnis.'),
+        L(3, 'Ergänze die Lücke: (−6) · □ = 54', '(−6) · □ = 54', 'Trage die fehlende Zahl ein (mit Minus, falls negativ).', ['54 // (-6)'],
+          '6 · 9 = 54. Damit das Ergebnis positiv wird, braucht −6 einen negativen Partner: □ = −9.', 'Das Ergebnis ist positiv, −6 ist negativ. Welches Vorzeichen braucht □?'),
+        Z(3, 'Drei verschiedene ganze Zahlen von −3 bis 3 haben das Produkt −6. Wie groß kann ihre Summe höchstens sein?', str(max(trip)),
+          'Möglich sind −1, 2, 3 (Summe 4), 1, −2, 3 (Summe 2), 1, 2, −3 (Summe 0) und −1, −2, −3 (Summe −6). Höchstens 4.',
+          'Zerlege 6 in drei Faktoren und verteile die Minuszeichen.'),
+        Z(3, 'Berechne (−1) · (−1) · (−1) · … mit genau 15 Faktoren (−1).', '(-1) ** 15',
+          'Je zwei Faktoren (−1) ergeben 1. 14 Faktoren ergeben 1, der 15. macht daraus −1.', 'Ist die Zahl der Minuszeichen gerade oder ungerade?'),
+    ]
+    N['geteilt_ganz'] = [
+        Z(2, 'Berechne (−144) : 12.', '(-144) / 12', '144 : 12 = 12. Verschiedene Vorzeichen: −12.', 'Erst ohne Vorzeichen teilen.'),
+        Z(2, 'Berechne 0 : (−7).', '0 / (-7)', '0 geteilt durch eine Zahl (nicht 0) ist 0: 0 · (−7) = 0.', 'Prüfe rückwärts mit der Malrechnung.'),
+        L(3, 'Ergänze die Lücke: □ : (−8) = 9', '□ : (−8) = 9', 'Trage die fehlende Zahl ein (mit Minus, falls negativ).', ['9 * (-8)'],
+          'Rückwärts: □ = 9 · (−8) = −72. Probe: (−72) : (−8) = 9.', 'Rechne rückwärts mit Malnehmen.'),
+        Z(3, 'Berechne (−56) : 7 − 18 : (−3).', '(-56) / 7 - 18 / (-3)', 'Punkt zuerst: (−56) : 7 = −8 und 18 : (−3) = −6. Dann −8 − (−6) = −2.',
+          'Erst beide Divisionen, dann das Minus dazwischen.'),
+        Z(3, 'Eine Zahl wird durch −4 geteilt. Dann wird 5 addiert. Das Ergebnis ist −3. Wie heißt die Zahl?', '(-3 - 5) * (-4)',
+          'Rückwärts: −3 − 5 = −8. Dann −8 · (−4) = 32. Probe: 32 : (−4) + 5 = −8 + 5 = −3.', 'Gehe die Schritte rückwärts und kehre jede Rechnung um.'),
+        Z(3, 'Die Temperatur fiel in 6 Stunden gleichmäßig von 4 °C auf −14 °C. Um wie viel Grad fiel sie pro Stunde?', '(4 - (-14)) / 6',
+          'Insgesamt: 4 − (−14) = 18 Grad. 18 : 6 = 3 Grad pro Stunde.', 'Wie viele Grad sind es von 4 bis −14?'),
+    ]
+    rund = ['344 999', '345 000', '355 000', '335 500']
+    stadion = {'3-mal': 3, '30-mal': 30, '300-mal': 300, '3 000-mal': 3000}
+    kleinste = min(n for n in range(0, 1000) if (n + 50) // 100 * 100 == 800)
+    N['ueberschlag'] = [
+        Z(2, 'Überschlage 4 812 : 6. Runde dazu 4 812 auf eine Zahl, die sich gut durch 6 teilen lässt.', '4800 / 6', '4 812 ≈ 4 800, und 4 800 : 6 = 800.', 'Welche glatte Zahl in der Nähe ist durch 6 teilbar?'),
+        Z(2, 'Überschlage 61 · 39. Runde dazu beide Zahlen auf Zehner.', '60 * 40', '61 ≈ 60, 39 ≈ 40. 60 · 40 = 2 400.', 'Erst runden, dann im Kopf malnehmen.'),
+        wahl(3, 'Welche Zahl ergibt auf Zehntausender gerundet 350 000?', rund, lambda o: (int(rw(o)) + 5000) // 10000 * 10000 == 350000,
+             '345 000: Die Tausenderstelle ist 5, also aufrunden auf 350 000. 344 999 wird zu 340 000, 355 000 zu 360 000, 335 500 zu 340 000.',
+             'Schau auf die Tausenderstelle: ab 5 aufrunden.'),
+        wahl(3, 'Ein Stadion hat 18 900 Plätze. Wie oft passt eine Schule mit 612 Kindern ungefähr hinein?', list(stadion),
+             lambda o: stadion[o] == min(stadion.values(), key=lambda v: abs(v - 18900 / 612)),
+             '18 900 ≈ 18 000 und 612 ≈ 600. 18 000 : 600 = 30. Also etwa 30-mal.', 'Runde beide Zahlen und teile dann.'),
+        Z(3, 'Eine natürliche Zahl ergibt auf Hunderter gerundet 800. Wie heißt die kleinste Zahl, für die das gilt?', str(kleinste),
+          '749 wird zu 700 abgerundet, 750 wird zu 800 aufgerundet. Die kleinste Zahl ist 750.', 'Ab welcher Zehnerstelle rundet man auf?'),
+        wahl(3, 'Nur ein Ergebnis kann stimmen. Entscheide mit einem Überschlag: 3 912 : 8 = ?', ['489', '48', '4 890', '4 809'], lambda o: rw(o) == rw('3 912 : 8'),
+             'Überschlag: 4 000 : 8 = 500. Nur 489 liegt in der Nähe.', 'Runde 3 912 auf Tausender und teile durch 8.'),
+    ]
+    zif = einzig([d for d in range(10) if (300 + 10 * d + 7) * 4 == 1468])
+    N['schriftlich'] = [
+        Z(2, 'Rechne schriftlich: 6 048 : 12', '6048 / 12', '60 : 12 = 5, Rest 0. 4 : 12 = 0 (die 0 aufschreiben!). 48 : 12 = 4. Ergebnis 504.', 'Wenn eine Stelle nicht reicht, schreibst du eine 0 ins Ergebnis.'),
+        Z(2, 'Rechne schriftlich: 305 · 48', '305 * 48', '305 · 40 = 12 200, 305 · 8 = 2 440. Zusammen 14 640.', 'Zerlege 48 in 40 und 8.'),
+        L(3, 'Ergänze die fehlende Ziffer: 3□7 · 4 = 1 468', '3□7 · 4 = 1 468', 'Trage die fehlende Ziffer ein.', [str(zif)],
+          f'1 468 : 4 = 367. Die fehlende Ziffer ist {zif}.', 'Rechne rückwärts: 1 468 : 4.'),
+        Z(3, 'Eine Klasse hat 250 € für Bastelmaterial. Ein Paket kostet 18 €. Wie viele Pakete kann sie höchstens kaufen?', '250 // 18',
+          '250 : 18 = 13 Rest 16. Für ein 14. Paket reichen die 16 € nicht. Also 13 Pakete.', 'Teile schriftlich. Was bedeutet der Rest?'),
+        Z(3, 'Bei einer Division ist der Teiler 24, das Ergebnis 37 und der Rest 5. Welche Zahl wurde geteilt?', '24 * 37 + 5',
+          'Probe der Division rückwärts: 24 · 37 = 888, dazu der Rest 5: 893.', 'Rückwärts: Ergebnis mal Teiler, dann den Rest dazu.'),
+        A(3, 'Jemand rechnet schriftlich 4 236 : 6 = 76. Was ist falsch?', 'Die 0 im Ergebnis fehlt. Richtig ist 706.',
+          ['Nichts, 76 stimmt.', 'Richtig ist 7 060.', 'Der Rest wurde vergessen. Richtig ist 76 Rest 0.'],
+          '42 : 6 = 7, dann 3 : 6 = 0 (0 aufschreiben), dann 36 : 6 = 6. Ergebnis 706. Überschlag: 4 200 : 6 = 700.', 'Mach einen Überschlag: 4 200 : 6.'),
+    ]
+    return N
+
+
+ergaenze(DATEI, _schwer(), 1018)
+
 if __name__ == '__main__':
     schreibe(DATEI, 'zahlen.rechengesetze.json')

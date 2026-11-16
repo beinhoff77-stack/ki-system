@@ -93,3 +93,13 @@ Grundlage: inhalte/pruefung/UMBAU-AUFTRAG.md (Zweig pruefung-kinderansicht).
 - Stand danach (67 freigegebene Gymnasium-Themen, 455 Lernkarten): 9 940 Übungen, im Schnitt 21,8 je Karte (vorher 15,6); 4 035 Stufe-3-Übungen (vorher 2 262).
   Unter 12 Übungen oder unter 4 Stufe-3-Übungen liegen nur noch die Karten von zahlen.natuerlich (Einheit 1, kein Generator) → Auftrag „Zwölfte Runde“ in AUFTRAEGE.md.
 - Die Befundlisten der Klassen-Chats (falsch eingestufte oder fehlerhafte alte Aufgaben) sind noch nicht abgearbeitet.
+
+## 16.11. – D2 (Klassen-Zuordnung) umgesetzt, bis auf einen Umzug
+Freigabe Sebastian: alles wie im Vorschlag (inhalte/pruefung/klassen/vorschlag.md, Zweig daten-klassen). Migration supabase/migrations/20261116_w150_d2_klassen_zuordnung.sql, eingespielt.
+- Ortsklassen: Vancouver 8, Cusco 8, Teheran 7, Marrakesch 7, Timbuktu 5, Rio 5, Brasília 10, Santiago 10, Adelaide 6, New York 6; Alexandria heißt „Kreis“.
+- Umzüge: Zehnerpotenzen Rom → Paris, Ortslinien Alexandria → Kairo. Schrägbilder und Simulation gelten am Gymnasium als Klasse 10 (neues Feld thema.klasse_fest).
+- geometrie.winkel heißt „Mit Winkeln rechnen“. inhalte/themenliste.json angeglichen.
+- Folge im Plan des Kindes der Klasse 5: Alexandria (jetzt nur Klasse-7-Stoff) aus dem Plan genommen; Ortslinien liegen in Kairo, das im Plan steht.
+- OFFEN: Umzug „Lineare Gleichungen“ Delhi → Samarkand und damit Delhi → Klasse 8. Grund: Ein Kind hat Samarkand schon abgeschlossen; der Flug würde dort als erledigt gelten. Wartet auf Sebastian.
+- Folgeaufträge: „Vierzehnte Runde“ (neuer Flug Winkelsätze Klasse 7 in Addis Abeba, Vertiefungen, Lehrplan-Reihenfolge) und „Bau-Auftrag Phase 2 und 3“ in inhalte/AUFTRAEGE.md.
+- Nachprüfung Phase 1 (NACHPRUEFUNG-2026-11-16.md) gelesen: K1 bestätigt; neue Befunde N1–N5 stehen im Bau-Auftrag Phase 2 (Schritt A).

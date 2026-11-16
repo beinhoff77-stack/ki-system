@@ -957,3 +957,70 @@ Arbeite ohne Rückfragen durch. Die Pakete E-2 bis E-4 NICHT beginnen – dafür
 ```
 
 Danach (Haupt-Chat): Zweig bau-eltern prüfen, nach lernen-app zusammenführen, Meldung „Phase 1 (E-1)“ ins Postfach.
+
+# Bau-Auftrag Phase 2 und 3 (App): Kinderansicht K2–K4, Eltern E-2–E-4, Befunde N1–N5
+
+Entscheidung Sebastian 16.11.: Der Bau-Chat übernimmt den ganzen App-Umbau der Phasen 2 und 3. Voraussetzung: Bau-Auftrag E-1 ist fertig und nach lernen-app zusammengeführt.
+Es baut immer nur EIN Chat am App-Code.
+
+```text
+Du bist der Bau-Chat für den App-Code der Lern-App „Lernen Schule“ und setzt den Umbau fort.
+Repository: beinhoff77-stack/ki-system. Hole den aktuellen Stand des Zweigs lernen-app und lege davon den Zweig bau-phase2 an (gibt es ihn schon: dort weiterarbeiten, vorher lernen-app hineinführen).
+Lies zuerst: AGENTS.md, in inhalte/AUFTRAEGE.md den Abschnitt „Bau-Auftrag E-1“ (dort stehen Arbeitsweise, Tests, Version, Grenzen – sie gelten unverändert) und in
+inhalte/postfach/antworten.md die Einträge vom 16.11. Nur lesen, nicht mergen (git show):
+- origin/pruefung-kinderansicht:inhalte/pruefung/UMBAU-AUFTRAG.md (Gesamtauftrag) und inhalte/pruefung/NACHPRUEFUNG-2026-11-16.md (neue Befunde N1–N5)
+- origin/pruefung-kinderansicht:inhalte/pruefung/kinderansicht/umsetzung.md und bericht.md (K2–K4, Rechenregel „Stand“, Entwürfe)
+- origin/pruefung-eltern:inhalte/pruefung/eltern/umsetzung.md, bericht.md, info-seite.md (E-2 bis E-4)
+
+Reihenfolge – nach jedem Schritt Tests grün, Version erhöhen, Commit + Push, Meldung in inhalte/postfach/bau-phase2.md:
+Schritt A (klein, zuerst): Befunde N1–N4 aus der Nachprüfung.
+  N1 Bildergeschichte: ein Schrittbild nur zeigen, wenn es sich gegenüber dem vorigen Schritt ändert; N2 „Kurz gesagt“ in der Übersicht nicht abschneiden;
+  N3 Kurs-Grafik ohne loses Komma; N4 Startknopf „Erst 1 Wiederholung ›“, danach „Weiter nach <Ort> ›“. N5 (Fehler-Detektiv): den Detektiv-Kasten nur zeigen, wenn kein Fehlermuster
+  erkannt wurde und der Flug in Klasse 5/6 liegt.
+Schritt B (Phase 2, Kinder): K2 – Mein Weg mit den Reitern Stand · Kontinente · Karte; Weltkarte aus dem Menü in „Mein Weg“ (Menü: Abflugtafel · Mein Weg · Merkheft · Reisepass);
+  Karte nur mit Orten der eigenen Klasse, Antarktis als Polarkarte von oben; Merkheft nur Geschafftes, gegliedert Kontinent → Flug → Etappe, Suche oben.
+  Dazu: Die Flüge innerhalb eines Ortes nach dem Feld „reihenfolge“ der Übersicht ordnen, sobald es geliefert wird (sonst wie bisher).
+Schritt C (Phase 2, Eltern): E-2 – Startseite je Kind ein Bereich; Flugplan in zwei Spalten mit Ziehen (Maus und Finger) und ↑ ↓; Flüge innerhalb eines Ortes abwählbar.
+  E-3 – ein Knopf „Ändern lassen“ an Erklärung, Etappe, Bordkarte, Flug und Plan; „Meine Aufträge“ mit Status und Antwort (ersetzt Rückmeldungen, Anmerkung, „Bauen lassen“).
+Schritt D (Phase 3): K3 – Mini-Linien GYM · RS · IB auf der Abflugtafel, „Stand“ mit 3 Ebenen, Feld stufen je Kind. K4 – Eltern-Ansicht mit 3 Ebenen und Einstiegs-Check
+  (Hinweis „Orientierung, keine Einstufung durch eine Schule“). E-4 – neuer Plan aus Lehrplan-Vorlage (Schulart, Klasse, Stufen).
+Jeder Schritt richtet sich nach den Prüfpunkten („fertig, wenn …“) in den umsetzung.md-Dateien.
+
+Datenbank: Du führst nichts aus. Für abwählbare Flüge (E-2), neue Auftragsarten (E-3) und das Feld stufen (K3/E-4) schreibst du je eine Migration als Datei unter supabase/migrations/
+(Namensmuster wie die vorhandenen 20261116_w150_*.sql; bestehende Funktionen nur mit create or replace bzw. per gezieltem Ersetzen wie in 20261116_w150_r3_*.sql; kein DROP, kein DELETE)
+und beschreibst im Postfach, welche neuen Felder die App-Aktionen liefern oder annehmen müssen. Baue die App so, dass sie ohne die Migration weiterläuft (Feld fehlt → bisheriges Verhalten).
+Der Haupt-Chat spielt die Migration ein; danach prüfst du den Schritt gegen die echte Antwortform. Mache nach Schritt C und nach Schritt D eine Pause mit der Meldung
+„wartet auf Migration“, wenn eine nötig ist.
+Wörter: In ALLEN Texten (Kinder, Eltern, Lehrer) Flug, Etappe, Bordkarte, Kontinent, Ort. Ändert sich eine Lernregel, die Info-Seite im selben Schritt anpassen.
+Grenzen wie im Bau-Auftrag E-1: keine Schlüssel oder Kinderdaten, kein Merge nach main oder lernen-app. Arbeite ohne Rückfragen durch.
+```
+
+# Vierzehnte Runde (D2-Folge, Inhalte): neuer Flug „Winkelsätze“ (Klasse 7), Vertiefungen kennzeichnen, Lehrplan-Reihenfolge
+
+Entscheidungen Sebastian 16.11. zum Vorschlag inhalte/pruefung/klassen/vorschlag.md (Zweig daten-klassen): alles wie empfohlen. In der Datenbank schon umgesetzt:
+Ortsklassen, Umzüge Zehnerpotenzen → Paris und Ortslinien → Kairo, Schrägbilder und Simulation am Gymnasium Klasse 10, Titel „Mit Winkeln rechnen“.
+
+```text
+Du ergänzt Inhalte einer Mathe-Lern-App (bayerisches Gymnasium).
+Repository: beinhoff77-stack/ki-system (lernen-app ist ein Zweig darin). Hole den aktuellen Stand des Zweigs lernen-app, lege davon den Zweig daten-klassen-2 an und arbeite nur dort.
+Lies zuerst vollständig: inhalte/README.md (Format, Regeln, „Verständliche Erklärungen“ mit „Vorgabe seit 16.11.“, „Zeichnungen“), inhalte/postfach/README.md, inhalte/vorlage_generator.py,
+in inhalte/AUFTRAEGE.md die Abschnitte „Zehnte Runde“ und „Elfte Runde“, und mit git show origin/daten-klassen:inhalte/pruefung/klassen/vorschlag.md den Vorschlag samt Quellen.
+
+Teil 1 – Neuer Flug „Winkelsätze“ (thema_schluessel geometrie.winkelsaetze, thema_id 98, block_id 80 = Addis Abeba, klasse {"gym_by": 7}):
+LehrplanPLUS Gymnasium M7 2.2 „Winkelbetrachtungen an Figuren“: Scheitel- und Nebenwinkel, Stufen- und Wechselwinkel an Parallelen, Innenwinkelsumme im Dreieck, Winkelsumme im Viereck
+und Vieleck, Außenwinkel, Winkel berechnen und begründen in Figuren. Lies den Lehrplantext selbst nach (Websuche, lehrplanplus.bayern.de) und lege 6–8 Lernkarten fest.
+Als Muster: inhalte/generatoren/geometrie.winkel.py (Klasse 5, Zeichnungsart figur) – dessen Inhalte nicht wiederholen, sondern darauf aufbauen.
+Generator inhalte/generatoren/geometrie.winkelsaetze.py schreibt inhalte/themen/geometrie.winkelsaetze.json. Lernkarten im neuen Muster (einstieg, woerter, Schritte als Bildergeschichte mit
+Zeichnungen, fehler mit fehler_bild, regel, probe). Je Lernkarte 18 Übungen (Stufe 1: 4, Stufe 2: 6, Stufe 3: 8; davon mindestens 2 nach Prüfungsvorbild und 1 Knobelaufgabe –
+Regeln der Zehnten Runde, Urheberrecht beachten), 1 Test, 3 Korrektur, 6 Sicherung. Eintrag in inhalte/themenliste.json ergänzen (mit lehrplan_gym „M7 2.2“).
+Teil 2 – Vertiefungen kennzeichnen (nicht Pflicht, also nicht testrelevant): in den Generatoren
+ geometrie.winkel („Winkel an einer Geradenkreuzung“), abbildungen.kongruenz (Verschiebung, Drehung, Parkett), raum.schraegbilder (windschief, Punkte im Raum mit Koordinaten)
+ die betroffenen Lernkarten aus bewertung.lernziele_pflicht nehmen (siehe README, „Vertiefung“). Bei geometrie.winkel außerdem Titel „Mit Winkeln rechnen“ und umfang auf Klasse-5-Stoff kürzen.
+ Sonst nichts an diesen Themen ändern (Nachweis per Skript: Aufgaben und Lernkarten-Texte unverändert).
+Teil 3 – inhalte/themenliste.json: (a) die vier fehlenden Themen aufnehmen (zahlen.natuerlich, zahlen.teilbarkeit, terme.umformen, finanzen.zinsen; Angaben aus inhalte/klar/quelle.md und den
+ Generatoren), (b) für JEDES Thema mit gym_by das Feld lehrplan_gym füllen, soweit im Vorschlag belegt, (c) neues Feld reihenfolge je Thema, z. B. {"gym_by": 3}: laufende Nummer in
+ Lehrplan-Reihenfolge innerhalb der Klasse und Schulart. Gymnasium nach den Lernbereichs-Nummern des LehrplanPLUS; für rs_by und ib_myp nur setzen, wenn du die Reihenfolge belegen kannst,
+ sonst weglassen und im Postfach nennen.
+Fertig, wenn `python3 -I tools/inhalt_pruefen.py` für alle geänderten Themendateien OK meldet. Je Teil ein Commit + Push auf daten-klassen-2.
+Grenzen: Keine Datenbank, kein App-Code, keine Tests, kein Merge. Meldungen in inhalte/postfach/daten-klassen-2.md. Arbeite ohne Rückfragen durch.
+```

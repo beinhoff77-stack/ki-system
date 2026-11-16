@@ -1,5 +1,8 @@
 # Postfach schwer-kl10 (Zehnte Runde, Klasse 10)
 
+## 2026-11-16 07:05 – STATUS
+funktionen.ganzrational fertig: 42 neue Übungen (7 Lernkarten), Prüfskript OK, Nachweis OK.
+
 ## 2026-11-16 06:40 – STATUS
 funktionen.trig fertig: 42 neue Übungen (7 Lernkarten), Prüfskript OK, Nachweis OK. Neue Aufgaben auch im Bogenmaß, eine mit π-beschrifteter Achse.
 

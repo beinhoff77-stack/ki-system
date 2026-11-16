@@ -740,6 +740,38 @@ SW.z('sachaufgabe', 3, 'Kerze A ist 30 cm lang und brennt pro Stunde 2 cm ab, Ke
 baue = mit_schwer(baue, SW)
 # ---- SCHWER ENDE ----
 
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, mit_befunden  # noqa: E402
+
+BF = Befunde('gleichungen.ungleichungen', 13_8_7)
+_g1 = {"typ": "koordinaten", "x": [-9, 1], "y": [-6, 6], "graphen": [{"art": "linear", "m": 1, "t": 4, "name": "y = x + 4"}, {"art": "linear", "m": 0, "t": 0, "name": "y = 0"}], "senkrecht": [-4]}
+_g2 = {"typ": "koordinaten", "x": [-3, 7], "y": [-11, 11], "graphen": [{"art": "linear", "m": 2, "t": -4, "name": "y = 2x − 4"}, {"art": "linear", "m": 0, "t": 0, "name": "y = 0"}], "senkrecht": [2]}
+# c) „oberhalb/unterhalb“ schließt den Schnittpunkt aus; richtige Antwort (> bzw. <) fehlte unter den Antworten
+BF.ersetze('grafisch', 'Für welche x liegt der Graph von y = x + 4 oberhalb der x-Achse?', BF.A(
+    'Für welche x liegt der Graph von y = x + 4 echt oberhalb der x-Achse (also nicht auf ihr)?', 'x > −4',
+    ['x ≥ −4', 'x > 4', 'x < −4'],
+    'Die Gerade schneidet die x-Achse bei x = −4. Rechts davon liegt sie oberhalb. Am Schnittpunkt liegt sie genau auf der Achse, er gehört also nicht dazu. Lösung: x > −4.',
+    'Suche den Schnittpunkt mit der x-Achse. Gehört er dazu, wenn die Gerade „echt oberhalb“ liegen soll?', grafik=_g1))
+BF.ersetze('grafisch', 'Für welche x liegt der Graph von y = 2x − 4 unterhalb der x-Achse?', BF.A(
+    'Für welche x liegt der Graph von y = 2x − 4 echt unterhalb der x-Achse (also nicht auf ihr)?', 'x < 2',
+    ['x ≤ 2', 'x > 2', 'x < −4'],
+    'Die Gerade schneidet die x-Achse bei x = 2. Links davon liegt sie unterhalb. Am Schnittpunkt liegt sie genau auf der Achse, er gehört also nicht dazu. Lösung: x < 2.',
+    'Suche den Schnittpunkt mit der x-Achse. Gehört er dazu, wenn die Gerade „echt unterhalb“ liegen soll?', grafik=_g2))
+# c) Zahlbereich Kl. 8 ist ℚ (ℝ erst Kl. 9)
+BF.ersetze('umformen', 'Löse 4x + 10 ≤ 4x + 3.', BF.A(
+    'Löse die Ungleichung 4x + 10 ≤ 4x + 3.', 'L = { } (keine Zahl)',
+    ['x ≤ −7', 'L = ℚ (jede Zahl)', 'x ≤ 0'],
+    '| − 4x: 10 ≤ 3. Das x ist weggefallen; die Aussage ist immer falsch, also gibt es keine Lösung.',
+    'Bringe die x-Glieder auf eine Seite. Was bleibt übrig?'))
+# a) gleicher Typ wie Stufe 2
+BF.stufe('umformen', 'Löse 8x + 1 > 4x + 13. Die Lösung hat die Form x > □. Gib die Zahl an.', 2)
+BF.stufe('umformen', 'Löse 7x − 3 ≤ 4x + 9. Die Lösung hat die Form x ≤ □. Gib die Zahl an.', 2)
+BF.nicht_umgesetzt('sachaufgabe: Stufen 1 und 2 (Aufzug/Handytarif) inhaltlich gleich',
+                   'Die Aufgaben sind richtig; Stufe 1 und 2 unterscheiden sich in den Zahlen (Kommazahlen, „angefangene“ km auf Stufe 2). Kein einzelner Fehler; neue Stufe-3-Typen kamen in Runde 10 dazu.')
+
+baue = mit_befunden(baue, BF)
+# ---- BEFUNDE ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Ungleichungen lösen', ['umformen', 'umdrehen', 'klammern']), ('Lösungsmenge', ['intervall', 'pruefen', 'grafisch']), ('Anwenden', ['sachaufgabe'])],

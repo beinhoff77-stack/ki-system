@@ -3,6 +3,15 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:30 – STATUS
+gleichungen.ungleichungen fertig: umgestuft 2 / berichtigt 0 / ersetzt 3 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Für welche x liegt der Graph von y = x + 4 oberhalb der x-Achse?“
+  - „Für welche x liegt der Graph von y = 2x − 4 unterhalb der x-Achse?“
+  - „Löse 4x + 10 ≤ 4x + 3.“
+- nicht umgesetzt:
+  - sachaufgabe: Stufen 1 und 2 (Aufzug/Handytarif) inhaltlich gleich – Die Aufgaben sind richtig; Stufe 1 und 2 unterscheiden sich in den Zahlen (Kommazahlen, „angefangene“ km auf Stufe 2). Kein einzelner Fehler; neue Stufe-3-Typen kamen in Runde 10 dazu.
+
+## 2026-11-16 05:30 – STATUS
 gleichungen.lgs2 fertig: umgestuft 4 / berichtigt 0 / ersetzt 1 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
 - ersetzt (alte Fragetexte, bitte sperren):
   - „Ein Händler mischt Erdnüsse zu 10 € pro kg mit Cashewkerne zu 16 € pro kg. Er erhält 13 kg Mischung im Wert von 178 €. Wie viel kg der billigeren Sorte verwendet er?“

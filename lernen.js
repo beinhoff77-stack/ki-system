@@ -1200,14 +1200,14 @@ function lernEtappen(daten) {
   return liste.map((e, i) => {
     const k = st[e.lernziel] || {};
     return { ...e, nr: i + 1, fertig: !!k.fertig, extra: pflicht.get(e.lernziel) === false, abschnitt: abschnitt.get(e.lernziel) || null,
-      serie: Number(k.serie || 0), ziel: Number(k.ziel || 4), sitzt: !!k.sitzt, faellig: !!k.faellig, nachgewiesen: !!k.fertig && !k.sitzt,
+      serie: Number(k.serie || 0), ziel: Number(k.ziel || 4), sitzt: !!k.sitzt, schwerOk: !!k.schwer_ok, schwerNoetig: !!k.schwer_noetig, faellig: !!k.faellig, nachgewiesen: !!k.fertig && !k.sitzt,
       aufgaben: (daten.uebungen || []).filter((a) => a.lernziel === e.lernziel) };
   });
 }
 // Punkte für die Serie: ●●○○ (gefüllt = richtig in Folge), bei „sitzt“ alle gefüllt.
 function lernPunkte(e, { gross = false } = {}) {
   const n = Math.max(1, e.ziel || 4), voll = e.sitzt || e.fertig ? n : Math.min(n, e.serie || 0);
-  return el('span', { class: 'lr-punkte' + (gross ? ' gross' : ''), role: 'img', 'aria-label': e.sitzt || e.fertig ? 'sitzt' : `${voll} von ${n} richtig in Folge` },
+  return el('span', { class: 'lr-punkte' + (gross ? ' gross' : ''), role: 'img', 'aria-label': e.sitzt || e.fertig ? 'sitzt' : `${voll} von ${n} Punkten` },
     ...Array.from({ length: n }, (_, i) => el('i', { class: i < voll ? 'voll' : '' })));
 }
 const lernKartenStatus = (e) => e.faellig ? 'Wiederholen' : e.sitzt || e.fertig ? 'sitzt' : e.serie ? 'am Üben' : 'noch nicht geübt';
@@ -1351,7 +1351,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
         .map(([n, t]) => el('button', { type: 'button', class: stufe === n ? 'on' : '', 'aria-pressed': String(stufe === n), onclick: () => { stufe = n; zeichneUeben(); } }, t))) : null;
     const punkte = el('div', { class: 'lr-lk-punkte' });
     const zeichnePunkte = () => lernErsetze(punkte, lernPunkte(e, { gross: true }),
-      el('small', {}, e.sitzt || e.fertig ? (e.faellig ? 'Sitzt – heute wiederholen' : 'Sitzt! Du kannst trotzdem weiterüben.') : `${Math.min(e.serie, e.ziel)} von ${e.ziel} richtig hintereinander`));
+      el('small', {}, e.sitzt || e.fertig ? (e.faellig ? 'Sitzt – heute wiederholen' : 'Sitzt! Du kannst trotzdem weiterüben.') : e.serie >= e.ziel && e.schwerNoetig && !e.schwerOk ? 'Fast geschafft: noch eine schwere Aufgabe richtig' : `${Math.min(e.serie, e.ziel)} von ${e.ziel} Punkten`));
     zeichnePunkte();
     const flaeche = el('div', { class: 'lr-ueben-flaeche' });
     lernErsetze(panels.ueben, el('div', { class: 'lr-karte-box lr-lk-kopf' }, wechsel(-1),
@@ -1362,8 +1362,22 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
     const warte = [...pool].sort((a, b) => (a.geloest === b.geloest ? 0 : a.geloest ? 1 : -1) || (a.versuche || 0) - (b.versuche || 0) || (a.stufe || 2) - (b.stufe || 2));
     let sterne = 0, nr = 0, fehlFolge = 0; // fehlFolge: falsche Aufgaben hintereinander auf dieser Karte (V8)
     const naechsteKarte = etappen.slice(e.nr).find((x) => !x.fertig && x.aufgaben.length) || etappen.find((x) => x !== e && !x.fertig && x.aufgaben.length);
-    const zeigeAufgabe = () => {
-      const a = warte[0];
+    // Regel „sitzt“ (16.11.): Die Stufe steigt mit den Punkten – erst leicht, dann mittel, dann schwer. Ein Fehler kostet 2 Punkte, also geht es eine Stufe zurück.
+    let letzte = null;
+    const waehleStufe = () => {
+      if (stufe || e.sitzt || e.fertig) return;
+      const ziel = e.ziel || 6, p = e.serie || 0, soll = p >= ziel ? 3 : Math.min(3, 1 + Math.floor(p * 3 / ziel));
+      const vor = (j) => { if (j > 0) warte.unshift(...warte.splice(j, 1)); return j >= 0; };
+      // Punkte voll, aber die schwere Aufgabe fehlt noch: dann kommt auf jeden Fall eine schwere
+      if (p >= ziel && e.schwerNoetig && !e.schwerOk && vor(warte.findIndex((x) => x.stufe === 3 && x !== letzte && !x.geloest))) return;
+      if (p >= ziel && e.schwerNoetig && !e.schwerOk && vor(warte.findIndex((x) => x.stufe === 3 && x !== letzte))) return;
+      for (const ok of [(x) => !x.geloest && !x.falschHeute, (x) => !x.geloest, (x) => x !== letzte])
+        for (const st of soll === 3 ? [3, 2, 1] : soll === 2 ? [2, 3, 1] : [1, 2, 3])
+          if (vor(warte.findIndex((x) => (x.stufe || 2) === st && ok(x)))) return;
+    };
+    const zeigeAufgabe = (fest) => {
+      if (fest !== true) waehleStufe();
+      const a = warte[0]; letzte = a || null;
       if (!a) { lernErsetze(flaeche, el('p', { class: 'lr-leise' }, 'Für diese Auswahl gibt es keine Aufgaben.')); return; }
       nr++;
       const auf = lernAufgabe(a, null, { tasten: neu, stellen: neu && kind.klasse && kind.klasse <= 6 }); let hilfe = 0; const dock = el('div', { class: 'lr-dock' }); let cid = lernCid();
@@ -1412,7 +1426,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
           }
           auf.zeigeLoesung(r.loesung); fehlFolge = r.richtig ? 0 : fehlFolge + 1;
           const warSitzt = e.sitzt;
-          if (r.karte) { e.serie = r.karte.serie; e.ziel = r.karte.ziel; e.sitzt = r.karte.sitzt; e.fertig = e.fertig || r.karte.sitzt; if (warSitzt && r.karte.sitzt) e.faellig = false; }
+          if (r.karte) { e.serie = r.karte.serie; e.ziel = r.karte.ziel; e.sitzt = r.karte.sitzt; e.schwerOk = !!r.karte.schwer_ok; e.schwerNoetig = !!r.karte.schwer_noetig; e.fertig = e.fertig || r.karte.sitzt; if (warSitzt && r.karte.sitzt) e.faellig = false; }
           zeichnePunkte(); zeichneFortschritt();
           const jetztSitzt = !!r.karte?.neu_sitzt || (!warSitzt && e.sitzt);
           const weiter = el('button', { type: 'button', class: 'lr-knopf lr-weiter', onclick: () => { zeigeAufgabe(); window.scrollTo(0, 0); } }, neu ? 'Neue Bordkarte ›' : 'Nächste Aufgabe');
@@ -1432,14 +1446,14 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
                 ? el('p', {}, 'Dein Term ist gleichwertig, aber noch nicht vollständig ausgeklammert: Vor die Klammer gehört der größte gemeinsame Faktor.') : null,
               r.loesungsweg ? el('p', {}, el('b', {}, 'So geht’s: '), lernText(r.loesungsweg)) : null,
               e.fehler ? el('div', { class: 'lr-fehler lr-detektiv' }, el('p', { class: 'lr-ueber' }, 'FEHLER-DETEKTIV: IST DIR DAS PASSIERT?'), el('p', {}, ...lernMarkiert(e.fehler))) : null,
-              el('p', { class: 'lr-leise' }, 'Die Punkte fangen wieder bei 0 an. Die Erklärung steht aufgeklappt bei der Aufgabe.')));
+              el('p', { class: 'lr-leise' }, 'Ein Fehler kostet 2 Punkte. Die Erklärung findest du über der Aufgabe.')));
           if (!r.richtig) {
             if (LERN_GRUND[r.grund]) meldung.firstElementChild?.prepend(el('p', { class: 'lr-grund' }, LERN_GRUND[r.grund])); // V3
             if (fehlFolge >= 2) { // V8: nach 2 Fehlern in Folge ein anderer Weg, nach 3 der Hinweis auf die Eltern
               const leichter = (a.stufe || 2) > 1 ? warte.find((x) => !x.geloest && !x.falschHeute && (x.stufe || 2) < (a.stufe || 2)) : null;
               lernAnhaengen(meldung.firstElementChild, el('div', { class: 'lr-andererweg' }, el('p', {}, el('b', {}, 'Das hakt gerade. '), 'Probier einen anderen Weg:'),
                 el('div', { class: 'lr-knopfzeile' },
-                  leichter ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { warte.splice(warte.indexOf(leichter), 1); warte.unshift(leichter); zeigeAufgabe(); window.scrollTo(0, 0); } }, 'Leichtere Aufgabe') : null,
+                  leichter ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { warte.splice(warte.indexOf(leichter), 1); warte.unshift(leichter); zeigeAufgabe(true); window.scrollTo(0, 0); } }, 'Leichtere Aufgabe') : null,
                   erkl ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { if (erkl.getAttribute('aria-expanded') !== 'true') erkl.click(); erklBox.scrollIntoView?.({ block: 'start', behavior: 'smooth' }); } }, 'Beispiel ansehen') : null),
                 fehlFolge >= 3 ? el('p', { class: 'lr-leise' }, 'Frag Mama oder Papa – sie sehen im Lernstand, wo es hakt.') : null));
             }
@@ -1448,7 +1462,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
             lernErsetze(flaeche, el('section', { class: 'lr-gelandet' },
               el('p', { class: 'lr-ueber' }, `KARTE ${pos + 1} VON ${mitAufg.length}`),
               el('div', { class: 'lr-landestempel', 'aria-hidden': 'true' }, el('b', {}, 'GELANDET'), el('small', {}, ortCode)),
-              el('h2', {}, e.titel, ' ✓'), el('p', {}, `${e.ziel || 2}-mal hintereinander richtig.`),
+              el('h2', {}, e.titel, ' ✓'), el('p', {}, `${e.ziel || 6} Punkte gesammelt` + (e.schwerNoetig ? ' – auch eine schwere Aufgabe war dabei.' : '.')),
               sterne ? el('p', { class: 'lr-sterne-neu' }, lernIcon(LI.stern, 20), ` +${sterne} Sterne`) : null,
               el('p', { class: 'lr-leise' }, 'Die Karte kommt in ein paar Tagen zum Wiederholen.'),
               naechsteKarte ? el('button', { type: 'button', class: 'lr-knopf', onclick: () => { if (neuKarte(naechsteKarte)) { erstErklaeren(naechsteKarte); return; } aktKarte = naechsteKarte; stufe = 0; zeichneUeben(); window.scrollTo(0, 0); } }, `Anschlussflug: ${naechsteKarte.titel} ›`) : null,

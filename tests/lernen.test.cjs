@@ -148,7 +148,7 @@ async function setup(t, opt = {}) {
         if (Math.abs(v) === Math.abs(w)) grund = 'vorzeichen'; else if ([10, 100, 1000, 0.1, 0.01, 0.001].includes(v / w)) grund = 'komma'; }
       if (r.format_ok && !r.richtig && d.anlauf === 1) e = { ok: true, format_ok: true, richtig: false, nochmal: true, ...(grund ? { grund } : {}) };
       else {
-        if (r.format_ok) { if (r.richtig && !d.hilfe && d.anlauf !== 2) k.serie++; else if (!r.richtig) k.serie = 0; if (!k.sitzt && k.serie >= k.ziel) { k.sitzt = true; neu = true; } }
+        if (r.format_ok) { if (r.richtig && !d.hilfe && d.anlauf !== 2) k.serie++; else if (!r.richtig) k.serie = Math.max(0, k.serie - 2); if (!k.sitzt && k.serie >= k.ziel) { k.sitzt = true; neu = true; } }
         e = { ok: true, ...r, ...(grund ? { grund } : {}), loesung: a.loesung, loesungsweg: 'Weg zur Lösung.', karte: { ...k, neu_sitzt: neu } };
       }
     }
@@ -272,7 +272,7 @@ test('Lernen: Thema – Erklären | Üben | Typische Fehler, Punkte bis „sitzt
   await page.getByRole('textbox', { name: 'Antwort' }).fill('2 000');
   await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('Richtig!').waitFor();
-  await page.getByText('1 von 2 richtig hintereinander').waitFor();
+  await page.getByText('1 von 2 Punkten').waitFor();
   // Zur Erklärung und zurück: Aufgabe und Rückmeldung bleiben stehen.
   await page.getByRole('tab', { name: 'Erklären' }).click();
   await sichtbar.locator('.lr-stellentafel').first().waitFor();

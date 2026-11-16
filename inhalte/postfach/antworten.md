@@ -60,3 +60,11 @@ Noch nicht umgesetzt: Matrix-Darstellung, Intervall auf dem Zahlenstrahl, Körpe
 - Freigabe Datenauswertung (für R4): Ja. Der Prüf-Chat darf in etwa 3–4 Wochen die echten falschen Antworten der Kinder nur lesend auswerten
   (Kinder nur als Kind A / Kind B nennen, nichts ändern). R4 startet erst danach.
 - R1–R3 sind seit 16.11. live (App 0.73.3).
+
+## 16.11. – Neue Regel „Lernkarte sitzt“ (Entscheidung Sebastian) – App 0.73.6
+- 6 Punkte statt 2–4 (bei weniger Übungen entsprechend weniger, mindestens 2). Richtig im ersten Versuch ohne Hilfe: +1; Fehler: −2 (nicht mehr zurück auf 0).
+- Zusätzlich muss mindestens eine Stufe-3-Übung im ersten Versuch ohne Hilfe richtig sein (falls die Karte Stufe-3-Übungen hat).
+- Die App wählt die Stufe nach Punktestand: erstes Drittel leicht, zweites mittel, drittes schwer. Wiederholungen bevorzugen Stufe 2/3.
+- Neue Lernkarte: erst Erklärung, dann Aufgaben (0.73.5). Karten, die schon sitzen, bleiben unverändert.
+- Migration: supabase/migrations/20261116_w150_sitzt_regel_6_mit_schwer.sql (eingespielt).
+- Zehnte Runde (Durchsicht je Jahrgang + schwerere Aufgaben nach Prüfungsvorbild) steht in inhalte/AUFTRAEGE.md; Zweige schwer-kl5 … schwer-kl10.

@@ -3,6 +3,16 @@
 Neueste Meldung oben.
 
 ## 2026-11-16 05:40 – STATUS
+gleichungen.einfach fertig: umgestuft 2 / berichtigt 0 / ersetzt 4 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
+- ersetzt (alte Fragetexte, bitte sperren):
+  - „Bei 3 · x + 5 = 38 wird x = 12 getestet. Links kommt 41 heraus. Ist die Lösung größer oder kleiner als 12?“
+  - „Bei 5 · x + 9 = 29 wird x = 3 getestet. Links kommt 24 heraus. Ist die Lösung größer oder kleiner als 3?“
+  - „Eine Mutter ist 3-mal so alt wie ihre Tochter. Zusammen sind sie 36 Jahre alt. Wie alt ist die Tochter?“
+  - „0 · x = 14. Wie viele Lösungen hat diese Gleichung?“
+- nicht umgesetzt:
+  - probe S3 „Für welche der Zahlen 3, 4, 5, 6 gilt 2 · x + 7 = 4 · x − 3?“ – Hinweis aus der Liste, kein Mangel: Die Aufgabe passt zur Lernkarte „Probe machen“.
+
+## 2026-11-16 05:40 – STATUS
 stochastik.kombinatorik fertig: umgestuft 9 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 0. Prüfskript OK, Nachweis OK.
 
 ## 2026-11-16 05:39 – STATUS

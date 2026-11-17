@@ -823,7 +823,7 @@ KARTE_AN = {
     'bild': None,  # wird unten berechnet
     'schritte': [{'text': 'Planfigur: Standlinie c = 200 m, Winkel 70° bei A und 60° bei B.'},
                  {'text': 'Winkel beim Baum: 180° − 70° − 60° = ⟦50°⟧.'},
-                 {'text': 'Gesucht ist b = AC. Gegenüber von b liegt der Winkel 60°.'},
+                 {'text': 'Gesucht ist b, der Abstand von A zum Baum. Gegenüber liegt der Winkel 60°.'},
                  {'text': 'Sinussatz: b = 200 m · sin 60° : sin 50° ≈ ⟦226 m⟧.'}],
     'fehler': 'Nicht 200 m · sin 70° : sin 50° rechnen. Der Winkel 70° liegt bei A, gegenüber von a. Zu b gehört der Winkel 60° bei B.',
     'regel': 'Erst eine Planfigur zeichnen, dann den Satz wählen. Paar aus Seite und Gegenwinkel bekannt: ⟦Sinussatz⟧; sonst Kosinussatz.',

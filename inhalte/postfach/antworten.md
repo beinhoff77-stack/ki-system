@@ -223,3 +223,18 @@ Eigene Gegenprüfung über alle 23 geänderten Themen: keine alte Aufgabe fehlt,
   in den Themendateien stochastik.simulation und raum.schraegbilder steht noch gym_by 8 (Datenbank und Themenliste: 10); veraltete „offen“-Einträge in bruch.rechnen, bruch.dezimal, geometrie.konstruktion;
   Frage, ob die neuen Pflichtkarten der Klasse 9 auch für Realschule/IB Pflicht sind; gleichungen.trig nach Klasse 10?
 - Teil A (drei neue Flüge, Zweig luecken-neu) ist noch nicht gestartet bzw. hat noch nichts hochgeladen.
+
+## 17.11. – Prüfung der Achtzehnten Runde Teil B (Prüf-Chat, von Sebastian weitergegeben) – Ergebnis und Folgen
+Geprüft: 26 neue und 8 erweiterte Etappen (Stand e32f315), je neue Etappe Erklärung und etwa 13 Bordkarten von Hand, alle Koordinaten-Grafiken der 799 neuen Aufgaben per Skript. **Keine falsche Lösung gefunden.**
+Befunde des Prüf-Chats (Nummern = Position in der Aufgabenliste, ab 0 gezählt):
+- MUSS – abbildungen.kongruenz / winkelhalbierende: Gerade h (x = −3 bzw. −2) und ein Auswahlpunkt liegen außerhalb des Bildausschnitts.
+  → behoben (Haupt-Chat): Generator erweitert den Ausschnitt auf g, h und alle Auswahlpunkte; 5 Aufgaben (3 Übung, 2 Sicherung) haben nur ein neues Bild, alles andere gleich; eingespielt, alte Fassungen gesperrt.
+- SOLLTE – Klasse 7 (abbildungen.kongruenz mittelsenkrechte/winkelhalbierende, geometrie.konstruktion planfigur): Aufgabentexte, Lückenformen und Lösungswege nutzen Geradengleichungen
+  (y = −2, x = 4, y = x, „x + y = 10“); die kommen am Gymnasium erst in Klasse 8. Vorschlag: „die waagrechte Linie durch (0 | −2)“ bzw. Punkte statt Gleichungen.
+- Annahme, zu prüfen: dieselben Karten gelten für Realschule Klasse 6, nutzen aber negative Koordinaten.
+- abbildungen.kongruenz / vierecke_ordnen: Lösungsweg „ein Quadrat (oder ein Spezialfall davon)“ – Klammer streichen; Fehler-Satz „Wie bei Fliesen zählt die Richtung des Satzes“ unklar.
+- zahlen.rechengesetze / umkehraufgabe_mal: Bild zu Schritt 2 zeigt schon die 6 Sprünge bis −8 und verrät die Lösung – Bögen erst in Schritt 3.
+- zahlen.rechengesetze / sach: drei Aufgaben nach derselben Vorlage („Fest, Eintritt, Getränke“) direkt hintereinander auf Stufe 2.
+- gleichungen.quadratisch / bruchgleichung: Die Scheinlösung (Lösung nicht in D) kommt nur in einer Übung vor – in Bildergeschichte und in mindestens einer Sicherungsaufgabe ergänzen.
+- Prüfskript: einige Rechenausdrücke „c“ liefern die richtige Zahl, rechnen die Aufgabe aber nicht nach (zahlen.reell, zahlen.rationale_exponenten) – Lösungen von Hand geprüft: richtig.
+Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Klasse 5, 7 und 9; in inhalte/AUFTRAEGE.md ergänzt).

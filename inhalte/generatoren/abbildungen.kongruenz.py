@@ -1225,7 +1225,7 @@ def _wh_karte():
         return B_.A(f'Gegeben sind die Geraden g: y = {zf(c)} und h: x = {zf(e0)}. Welcher Punkt ist von g und h gleich weit entfernt?', nm(r), [nm(p) for p in f],
                     f'Abstand zu g: |y − ({zf(c)})|, Abstand zu h: |x − ({zf(e0)})|. Bei {nm(r)} sind beide {k}.',
                     'Zähle die Kästchen senkrecht bis g und waagrecht bis h.', pruef=lambda t: t == nm(r),
-                    grafik=koord([], x=[e0 + 2 * k + 1], y=[c + k + 2], waagrecht=[c], senkrecht=[e0]))
+                    grafik=koord([], x=[e0, e0 + 2 * k + 1] + [p[0] for p in [r] + f], y=[c, c + k + 2] + [p[1] for p in [r] + f], waagrecht=[c], senkrecht=[e0]))  # g, h und alle Auswahlpunkte sichtbar (Prüfung 17.11.)
 
     def w_brunnen(R, B_):
         k = R.choice([2, 3, 4, 6, 7])
@@ -1241,7 +1241,7 @@ def _wh_karte():
                     'P(□ | □)', [e0 + m, c + m], [f'{e0} + {m}', f'{c} + {m}'],
                     f'Auf y = {zf(c + m)} ist der Abstand zu g gleich {m}. Also ist auch der Abstand zu h gleich {m}: x = {zf(e0)} + {m} = {zf(e0 + m)}.',
                     'Bestimme zuerst den Abstand zu g; derselbe Abstand gilt für h.', _HP,
-                    grafik=koord([], x=[e0 + m + 1], y=[c + m + 1], waagrecht=[c, c + m], senkrecht=[e0]))
+                    grafik=koord([], x=[e0, e0 + m + 1], y=[c, c + m + 1], waagrecht=[c, c + m], senkrecht=[e0]))  # g und h sichtbar (Prüfung 17.11.)
 
     def w_aussen(R, B_):
         h = R.randint(20, 80)

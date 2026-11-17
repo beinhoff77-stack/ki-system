@@ -10,3 +10,4 @@
 - terme.bruchterme: umgestuft 6, ersetzt 2, Lernkarten unverändert. `inhalt_pruefen` OK, Nachweis OK. Insgesamt gut gestuft. Mangel: Stufe 3 in termwert und fehler_finden teils wie Stufe 2; in kuerzen viermal dieselbe binomische Formel.
 - gleichungen.bruch: umgestuft 11, Lernkarten unverändert. `inhalt_pruefen` OK, Nachweis OK. Mangel: Stufe 3 in ein_bruch, ueber_kreuz und scheinloesung war meist die Stufe-2-Aufgabe mit mehr Rechenschritten.
 - gleichungen.formeln: umgestuft 19, neu 2, Lernkarten unverändert. `inhalt_pruefen` OK, Nachweis OK. Mangel: Stufe 1 und 2 in ein_schritt gleich; Stufe 3 mehrfach Einsetzen/Prüfen wie Stufe 2.
+- stochastik.grundbegriffe: umgestuft 11, ersetzt 3, Lernkarten unverändert. `inhalt_pruefen` OK, Nachweis OK. Mangel: Stufe 1 und 2 gleich in gegenereignis, laplace_pruefen, grosse_zahlen; wiederholte Stufe-3-Aufgaben (zwei Gruppen, zweimal dieselbe Roulette-Aussage).

@@ -299,7 +299,9 @@ function lernKnobelDesTages(d) {
 }
 // Auswahl der nächsten Bordkarte (stellt sie an den Anfang von warte). Regel „sitzt“ (16.11.): Die Stufe steigt mit den Punkten.
 function lernWaehleBordkarte(warte, e, letzte, gesehenTyp = new Set()) {
-  const ziel = e.ziel || 6, p = e.serie || 0, soll = p >= ziel ? 3 : Math.min(3, 1 + Math.floor(p * 3 / ziel));
+  // W176: Stufe nach eigenen Lösungen (anteilig), nach je 2 Fehlern in Folge eine Stufe leichter (stufe_senkung vom Server)
+  const ziel = e.ziel || 6, p = e.neueRegel ? e.eigene : e.serie || 0;
+  const soll = Math.max(1, (p >= ziel ? 3 : Math.min(3, 1 + Math.floor(p * 3 / ziel))) - (e.neueRegel ? e.stufeSenkung || 0 : 0));
   const vor = (j) => { if (j > 0) warte.unshift(...warte.splice(j, 1)); return j >= 0; };
   // Punkte voll, aber die schwere Aufgabe fehlt noch: dann kommt auf jeden Fall eine schwere
   // F: Abwechslung – nie zweimal hintereinander derselbe Typ (ohne Typ: derselbe Fragetext ohne Zahlen); Typen bevorzugen, die in dieser Etappe noch nicht dran waren
@@ -1495,17 +1497,40 @@ function lernEtappen(daten) {
     const k = st[e.lernziel] || {};
     return { ...e, nr: i + 1, fertig: !!k.fertig, extra: pflicht.get(e.lernziel) === false, abschnitt: abschnitt.get(e.lernziel) || null,
       serie: Number(k.serie || 0), ziel: Number(k.ziel || 4), sitzt: !!k.sitzt, schwerOk: !!k.schwer_ok, schwerNoetig: !!k.schwer_noetig, faellig: !!k.faellig, nachgewiesen: !!k.fertig && !k.sitzt,
+      ...lernRegelFelder(k),
       aufgaben: (daten.uebungen || []).filter((a) => a.lernziel === e.lernziel && !a.bonus),
       bonus: (daten.bonus || []).filter((a) => a.lernziel === e.lernziel) }; // F: Knobel-Bordkarten (freiwillig)
   });
 }
+// W176 Teil 1: Regel „gelandet“ ohne Minuspunkte (Migration 20261118_w176_t1_*). Fehlen die Felder, gilt die alte Anzeige mit Punkten.
+function lernRegelFelder(k) {
+  if (k?.eigene_loesungen === undefined) return { neueRegel: false };
+  return { neueRegel: true, eigene: Number(k.eigene_loesungen || 0), folge: Number(k.folge || 0), folgeZiel: Number(k.folge_ziel || 3), typenAnzahl: Number(k.typen_anzahl || 0),
+    typenNoetig: Number(k.typen_noetig || 0), fehlerFolge: Number(k.fehler_folge || 0), stufeSenkung: Number(k.stufe_senkung || 0), sicher: !!k.sicher };
+}
+// Checkliste je Etappe: „Eigene Lösungen 4/6 · 2 Aufgabentypen ✓ · schwere ✓ · 3 in Folge: 1/3“ – nichts fällt sichtbar zurück außer „in Folge“
+function lernCheckliste(e) {
+  const z = e.ziel || 6;
+  const teile = [
+    [`Eigene Lösungen ${Math.min(e.eigene, z)}/${z}`, e.eigene >= z],
+    e.typenNoetig > 1 ? [`${e.typenNoetig} Aufgabentypen`, e.typenAnzahl >= e.typenNoetig, `${Math.min(e.typenAnzahl, e.typenNoetig)}/${e.typenNoetig}`] : null,
+    e.schwerNoetig ? ['schwere', e.schwerOk] : null,
+    [`${e.folgeZiel} in Folge`, e.folge >= e.folgeZiel, `${Math.min(e.folge, e.folgeZiel)}/${e.folgeZiel}`],
+  ].filter(Boolean);
+  return el('ul', { class: 'lr-checkliste', 'aria-label': 'Bis „gelandet“' }, ...teile.map(([t, ok, stand]) =>
+    el('li', { class: ok ? 'ok' : '' }, el('span', { 'aria-hidden': 'true' }, ok ? '✓' : '○'), ` ${t}`, !ok && stand && !t.includes('/') ? `: ${stand}` : '')));
+}
+// Aktivität heute (nur Zähler, ohne Bezug zur Schwelle): selbst gelöste Bordkarten dieses Kindes an diesem Tag, auf diesem Gerät
+const lernHeuteSchl = (kind) => `lern.heute.${kind}.${new Date().toISOString().slice(0, 10)}`;
+const lernHeute = (kind) => { try { return Number(localStorage.getItem(lernHeuteSchl(kind)) || 0); } catch { return 0; } };
+const lernHeutePlus = (kind) => { try { localStorage.setItem(lernHeuteSchl(kind), String(lernHeute(kind) + 1)); } catch { /* egal */ } };
 // Punkte für die Serie: ●●○○ (gefüllt = richtig in Folge), bei „sitzt“ alle gefüllt.
 function lernPunkte(e, { gross = false } = {}) {
   const n = Math.max(1, e.ziel || 4), voll = e.sitzt || e.fertig ? n : Math.min(n, e.serie || 0);
   return el('span', { class: 'lr-punkte' + (gross ? ' gross' : ''), role: 'img', 'aria-label': e.sitzt || e.fertig ? 'sitzt' : `${voll} von ${n} Punkten` },
     ...Array.from({ length: n }, (_, i) => el('i', { class: i < voll ? 'voll' : '' })));
 }
-const lernKartenStatus = (e) => e.faellig ? 'Wiederholen' : e.sitzt || e.fertig ? 'sitzt' : e.serie ? 'am Üben' : 'noch nicht geübt';
+const lernKartenStatus = (e) => e.faellig ? 'Wiederholen' : e.sicher ? 'sicher' : e.sitzt || e.fertig ? (e.neueRegel ? 'gelandet' : 'sitzt') : (e.neueRegel ? e.eigene : e.serie) ? 'am Üben' : 'noch nicht geübt';
 // Bereiche: aus inhalt.abschnitte, sonst ein Bereich mit allen Karten.
 function lernBereiche(etappen) {
   const map = new Map();
@@ -1646,8 +1671,12 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
       ...[[0, 'alle'], [1, 'leicht'], [2, 'mittel'], [3, 'schwer']].filter(([n]) => !n || stufenDa.includes(n))
         .map(([n, t]) => el('button', { type: 'button', class: stufe === n ? 'on' : '', 'aria-pressed': String(stufe === n), onclick: () => { stufe = n; zeichneUeben(); } }, t))) : null;
     const punkte = el('div', { class: 'lr-lk-punkte' });
-    const zeichnePunkte = () => lernErsetze(punkte, lernPunkte(e, { gross: true }),
-      el('small', {}, e.sitzt || e.fertig ? (e.faellig ? 'Sitzt – heute wiederholen' : 'Sitzt! Du kannst trotzdem weiterüben.') : e.serie >= e.ziel && e.schwerNoetig && !e.schwerOk ? 'Fast geschafft: noch eine schwere Bordkarte richtig' : `${Math.min(e.serie, e.ziel)} von ${e.ziel} Punkten`));
+    const zeichnePunkte = () => e.neueRegel
+      // W176: Checkliste statt Punkten; daneben der Zähler „heute selbst gelöst“
+      ? lernErsetze(punkte, e.sitzt || e.fertig ? el('small', {}, e.faellig ? 'Gelandet – heute wiederholen' : e.sicher ? 'Sicher! Du kannst trotzdem weiterüben.' : 'Gelandet! Du kannst trotzdem weiterüben.') : lernCheckliste(e),
+        el('small', { class: 'lr-heute' }, `heute ${lernHeute(ctx.kind)} ${lernHeute(ctx.kind) === 1 ? 'Aufgabe' : 'Aufgaben'} selbst gelöst`))
+      : lernErsetze(punkte, lernPunkte(e, { gross: true }),
+        el('small', {}, e.sitzt || e.fertig ? (e.faellig ? 'Sitzt – heute wiederholen' : 'Sitzt! Du kannst trotzdem weiterüben.') : e.serie >= e.ziel && e.schwerNoetig && !e.schwerOk ? 'Fast geschafft: noch eine schwere Bordkarte richtig' : `${Math.min(e.serie, e.ziel)} von ${e.ziel} Punkten`));
     zeichnePunkte();
     const flaeche = el('div', { class: 'lr-ueben-flaeche' });
     lernErsetze(panels.ueben, el('div', { class: 'lr-karte-box lr-lk-kopf' }, wechsel(-1),
@@ -1658,7 +1687,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
     const warte = [...pool].sort((a, b) => (a.geloest === b.geloest ? 0 : a.geloest ? 1 : -1) || (a.versuche || 0) - (b.versuche || 0) || (a.stufe || 2) - (b.stufe || 2));
     let sterne = 0, nr = 0, fehlFolge = 0; // fehlFolge: falsche Bordkarten hintereinander auf dieser Karte (V8)
     const naechsteKarte = etappen.slice(e.nr).find((x) => !x.fertig && x.aufgaben.length) || etappen.find((x) => x !== e && !x.fertig && x.aufgaben.length);
-    // Regel „sitzt“ (16.11.): Die Stufe steigt mit den Punkten – erst leicht, dann mittel, dann schwer. Ein Fehler kostet 2 Punkte, also geht es eine Stufe zurück.
+    // Regel „gelandet“ (W176): Die Stufe steigt mit den eigenen Lösungen – erst leicht, dann mittel, dann schwer – und fällt erst nach 2 Fehlern in Folge um 1.
     let letzte = null;
     const gesehenTyp = (lernTypGesehen[e.lernziel] ||= new Set()); // F: Typen, die in dieser Etappe schon dran waren
     const waehleStufe = () => { if (!stufe && !e.sitzt && !e.fertig) lernWaehleBordkarte(warte, e, letzte, gesehenTyp); };
@@ -1713,7 +1742,8 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
           }
           auf.zeigeLoesung(r.loesung); fehlFolge = r.richtig ? 0 : fehlFolge + 1;
           const warSitzt = e.sitzt;
-          if (r.karte) { e.serie = r.karte.serie; e.ziel = r.karte.ziel; e.sitzt = r.karte.sitzt; e.schwerOk = !!r.karte.schwer_ok; e.schwerNoetig = !!r.karte.schwer_noetig; e.fertig = e.fertig || r.karte.sitzt; if (warSitzt && r.karte.sitzt) e.faellig = false; }
+          if (r.richtig && !hilfe && anlauf !== 2) lernHeutePlus(ctx.kind);
+          if (r.karte) { if (r.karte.eigene_loesungen !== undefined) Object.assign(e, lernRegelFelder(r.karte)); e.serie = r.karte.serie; e.ziel = r.karte.ziel; e.sitzt = r.karte.sitzt; e.schwerOk = !!r.karte.schwer_ok; e.schwerNoetig = !!r.karte.schwer_noetig; e.fertig = e.fertig || r.karte.sitzt; if (warSitzt && r.karte.sitzt) e.faellig = false; }
           zeichnePunkte(); zeichneFortschritt();
           const jetztSitzt = !!r.karte?.neu_sitzt || (!warSitzt && e.sitzt);
           const weiter = el('button', { type: 'button', class: 'lr-knopf lr-weiter', onclick: () => { zeigeAufgabe(); window.scrollTo(0, 0); } }, neu ? 'Neue Bordkarte ›' : 'Nächste Bordkarte');
@@ -1727,13 +1757,14 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
               a.antworttyp === 'luecken' && lernIstTermVorlage(a.frage?.schablone) && lernGleichwertigAusgeklammert(a.frage?.schablone, w.werte, r.loesung?.werte)
                 ? el('p', {}, 'Dein Term ist gleichwertig, aber noch nicht vollständig ausgeklammert: Vor die Klammer gehört der größte gemeinsame Faktor.') : null,
               r.loesungsweg ? el('p', {}, lernText(r.loesungsweg)) : null,
-              lernDetektiv(a, e, r, 'IST DIR DAS PASSIERT?'))
+              lernDetektiv(a, e, r, 'IST DIR DAS PASSIERT?'),
+              el('p', { class: 'lr-leise lr-naechste-voll' }, 'Die nächste zählt wieder voll.'))
             : el('div', { class: 'lr-rueck lr-rueck-falsch' }, el('b', {}, 'Noch nicht. Richtig ist: ' + lernLoesungText(a)),
               a.antworttyp === 'luecken' && lernIstTermVorlage(a.frage?.schablone) && lernGleichwertigAusgeklammert(a.frage?.schablone, w.werte, r.loesung?.werte)
                 ? el('p', {}, 'Dein Term ist gleichwertig, aber noch nicht vollständig ausgeklammert: Vor die Klammer gehört der größte gemeinsame Faktor.') : null,
               r.loesungsweg ? el('p', {}, el('b', {}, 'So geht’s: '), lernText(r.loesungsweg)) : null,
               lernDetektiv(a, e, r, 'FEHLER-DETEKTIV: IST DIR DAS PASSIERT?'),
-              el('p', { class: 'lr-leise' }, 'Ein Fehler kostet 2 Punkte. Die Erklärung findest du über der Bordkarte.')));
+              el('p', { class: 'lr-leise' }, 'Die nächste zählt wieder voll. Die Erklärung findest du über der Bordkarte.')));
           if (!r.richtig) {
             if (LERN_GRUND[r.grund]) meldung.firstElementChild?.prepend(el('p', { class: 'lr-grund' }, LERN_GRUND[r.grund])); // V3
             if (fehlFolge >= 2) { // V8: nach 2 Fehlern in Folge ein anderer Weg, nach 3 der Hinweis auf die Eltern
@@ -1749,9 +1780,10 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
             lernErsetze(flaeche, el('section', { class: 'lr-gelandet' },
               el('p', { class: 'lr-ueber' }, `ETAPPE ${pos + 1} VON ${mitAufg.length}`),
               el('div', { class: 'lr-landestempel', 'aria-hidden': 'true' }, el('b', {}, 'GELANDET'), el('small', {}, ortCode)),
-              el('h2', {}, e.titel, ' ✓'), el('p', {}, `${e.ziel || 6} Punkte gesammelt` + (e.schwerNoetig ? ' – auch eine schwere Bordkarte war dabei.' : '.')),
+              el('h2', {}, e.titel, ' ✓'), el('p', {}, e.neueRegel ? `${e.eigene} Bordkarten selbst gelöst, die letzten ${e.folgeZiel} in Folge` + (e.schwerNoetig ? ' – auch eine schwere war dabei.' : '.')
+                : `${e.ziel || 6} Punkte gesammelt` + (e.schwerNoetig ? ' – auch eine schwere Bordkarte war dabei.' : '.')),
               sterne ? el('p', { class: 'lr-sterne-neu' }, lernIcon(LI.stern, 20), ` +${sterne} Sterne`) : null,
-              el('p', { class: 'lr-leise' }, 'Die Etappe kommt in ein paar Tagen zum Wiederholen.'),
+              el('p', { class: 'lr-leise' }, 'Sicher wird die Etappe, wenn du sie in ein paar Tagen wieder kannst.'),
               lernKnobelAngebot(e, (k) => lernKnobel(flaeche, k, ctx, { ortCode, zurueck: () => { stufe = 0; zeichneUeben(); window.scrollTo(0, 0); } })),
               naechsteKarte ? el('button', { type: 'button', class: 'lr-knopf', onclick: () => { if (neuKarte(naechsteKarte)) { erstErklaeren(naechsteKarte); return; } aktKarte = naechsteKarte; stufe = 0; zeichneUeben(); window.scrollTo(0, 0); } }, `Anschlussflug: ${naechsteKarte.titel} ›`) : null,
               !naechsteKarte && !pflicht.some((x) => !x.fertig) ? lernTestTeil(ctx, etappen) : null,
@@ -1765,7 +1797,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
             el('div', { class: 'lr-geschafft-haken' }, lernIcon(LI.haken, 48)),
             el('p', { class: 'lr-ueber' }, 'ETAPPE SITZT'), el('h2', {}, e.titel),
             sterne ? el('p', { class: 'lr-sterne-neu' }, lernIcon(LI.stern, 20), ` +${sterne} Sterne`) : null,
-            el('p', { class: 'lr-leise' }, 'Sie kommt in ein paar Tagen zum Wiederholen.'),
+            el('p', { class: 'lr-leise' }, 'Sicher wird die Etappe, wenn du sie in ein paar Tagen wieder kannst.'),
             lernKnobelAngebot(e, (k) => lernKnobel(flaeche, k, ctx, { ortCode, zurueck: () => { stufe = 0; zeichneUeben(); window.scrollTo(0, 0); } })),
             naechsteKarte ? el('button', { type: 'button', class: 'lr-knopf', onclick: () => { if (neuKarte(naechsteKarte)) { erstErklaeren(naechsteKarte); return; } aktKarte = naechsteKarte; stufe = 0; zeichneUeben(); window.scrollTo(0, 0); } }, `Nächste Etappe: ${naechsteKarte.titel}`)
               : el('button', { type: 'button', class: 'lr-knopf', onclick: () => zeige('erklaeren') }, 'Zur Übersicht der Etappen')));
@@ -2721,12 +2753,14 @@ async function viewSchulstand(arg, alsLernstand = false) {
 }
 // K4: Stand einer Etappe in Worten – mit der Zahl der Bordkarten bis „sitzt“ (schule_lernstand.bis_sitzt, Migration D)
 function lernEtappeStandText(x) {
-  if (x.sitzt) return x.bis_sitzt ? `sitzt – nach ${x.bis_sitzt} ${x.bis_sitzt === 1 ? 'Bordkarte' : 'Bordkarten'}` : 'sitzt';
+  const neu = x.eigene_loesungen !== undefined; const wort = x.sicher ? 'sicher' : neu ? 'gelandet' : 'sitzt'; // W176
+  if (x.sitzt) return x.bis_sitzt ? `${wort} – nach ${x.bis_sitzt} ${x.bis_sitzt === 1 ? 'Bordkarte' : 'Bordkarten'}` : wort;
   if (!x.richtig && !x.falsch) return 'noch nicht geübt';
+  if (neu) return `${x.eigene_loesungen} eigene Lösungen · ${x.folge || 0} in Folge · ${x.richtig} richtig, ${x.falsch} falsch`;
   return `${x.serie || 0} von ${x.ziel || 6} Punkten · ${x.richtig} richtig, ${x.falsch} falsch`;
 }
 
-// ---------- Eltern/Lehrer: Info-Seite „So funktioniert’s“ (E-1). Text aus inhalte/pruefung/eltern/info-seite.md, gegen den Code geprüft (Stand 0.75.1). ----------
+// ---------- Eltern/Lehrer: Info-Seite „So funktioniert’s“ (E-1). Text aus inhalte/pruefung/eltern/info-seite.md, gegen den Code geprüft (Stand 0.76.0). ----------
 // Ändert sich eine Regel aus „Wie wird gelernt?“ (Etappe sitzt, Wiederholung, Tests), diesen Text im selben Schritt anpassen.
 const LERN_INFO_FRAGEN = [
   ['Worauf baut die App auf?', [
@@ -2745,8 +2779,9 @@ const LERN_INFO_FRAGEN = [
   ['Wie wird gelernt?', [
     ['Neue Etappe:', ' Zuerst kommt die Erklärung, danach die Bordkarten.'],
     ['Zweiter Versuch:', ' Bei einem Fehler gibt es zuerst einen zweiten Versuch, ohne Lösung (nicht bei Auswahl-Bordkarten mit nur zwei Antworten). Erst wenn auch er falsch ist, zeigt die App Lösung und Lösungsweg.'],
-    ['Etappe sitzt:', ' nach 6 Punkten. Richtig im ersten Versuch ohne Tipp: +1 Punkt; Fehler: −2 Punkte; richtig im zweiten Versuch oder mit Tipp: kein Punkt. Zusätzlich muss mindestens eine schwere Bordkarte im ersten Versuch richtig sein (falls die Etappe schwere hat). Hat eine Etappe nur wenige Bordkarten, reichen entsprechend weniger Punkte, mindestens 2. Mit den Punkten steigt die Stufe: erst leicht, dann mittel, dann schwer.'],
-    ['Wiederholung:', ' Sitzt eine Etappe, kommt sie nach 1, 3, 7, 14 und 30 Lerntagen wieder, jeweils mit einer Bordkarte. Ein Lerntag ist ein Tag, an dem das Kind Mathe übt; Reisetage ohne Mathe zählen nicht. Vor einem Flug kommen höchstens 6 Wiederholungen, weitere werden nur angeboten. Ein Fehler: Die Etappe kommt am nächsten Lerntag wieder. Zwei Fehler hintereinander: Das Kind übt sie noch einmal.'],
+    ['Etappe gelandet:', ' wenn alles zusammenkommt: 6 eigene Lösungen (richtig im ersten Versuch ohne Tipp; bei Etappen mit wenigen Bordkarten entsprechend weniger, mindestens 2), darunter mindestens 2 verschiedene Arten von Bordkarten und eine schwere Bordkarte (falls die Etappe welche hat), und die letzten 3 Bordkarten in Folge richtig. Es gibt keine Minuspunkte: Ein Fehler setzt nur „in Folge“ auf 0, eigene Lösungen bleiben. Richtig mit Tipp oder im zweiten Versuch zählt nicht, unterbricht aber die Folge nicht. Die Stufe steigt mit den eigenen Lösungen – erst leicht, dann mittel, dann schwer – und wird erst nach 2 Fehlern in Folge eine Stufe leichter. Das Kind sieht dazu eine Checkliste und, getrennt davon, wie viele Bordkarten es heute selbst gelöst hat.'],
+    ['Etappe sicher:', ' gelandet, die Wiederholung nach 14 Lerntagen bestanden und der Nachtest des Flugs bestanden.'],
+    ['Wiederholung:', ' Ist eine Etappe gelandet, kommt sie nach 1, 3, 7, 14 und 30 Lerntagen wieder, jeweils mit einer Bordkarte. Ein Lerntag ist ein Tag, an dem das Kind Mathe übt; Reisetage ohne Mathe zählen nicht. Vor einem Flug kommen höchstens 6 Wiederholungen, weitere werden nur angeboten. Ein Fehler: Die Etappe kommt am nächsten Lerntag wieder. Zwei Fehler hintereinander: Das Kind übt sie noch einmal – eigene Lösungen bleiben, es braucht wieder 3 richtige in Folge.'],
     ['Flug-Test:', ' wenn alle Etappen sitzen; eine Bordkarte je Etappe, ohne Tipps. Etappen mit Fehlern werden danach verbessert („Verbessern“).'],
     ['Nachtests:', ' später, nach Lerntagen gezählt (nach 10, 25 und 60 Lerntagen); alle Etappen des Flugs, ohne Tipps. Ab 80 %: bestanden. 60–79 %: wiederholen. Unter 60 %: automatische Rückreise im Flugplan.'],
     ['Belohnungen:', ' 10 Sterne für jede Bordkarte, die zum ersten Mal richtig ist, 20 Sterne für jede richtige Bordkarte im Test, 30 Sterne für eine Knobel-Bordkarte beim ersten Versuch, 100 Sterne und ein Stempel für jeden geschafften Ort. Welche Belohnungen es gibt, legen die Eltern fest, und sie bestätigen jede Einlösung.'],
@@ -2995,7 +3030,7 @@ async function viewWackelt(arg) { // Zusatz 1 zu F: frühere Seite „Lernstand�
   if (!live()) return;
   $('#title').textContent = 'Was wackelt? · ' + d.kind.name;
   const tag = (t) => new Date(t).toLocaleDateString('de-DE', { day: 'numeric', month: 'numeric' });
-  const zustand = (k) => k.faellig ? ['wiederholen', 'wdh'] : k.sitzt ? ['sitzt', 'ok']
+  const zustand = (k) => k.faellig ? ['wiederholen', 'wdh'] : k.sicher ? ['sicher', 'ok'] : k.sitzt ? [k.eigene_loesungen !== undefined ? 'gelandet' : 'sitzt', 'ok']
     : k.falsch >= 3 && k.falsch > k.richtig ? ['wackelt', 'wackelt'] : k.richtig + k.falsch ? ['am Üben', 'ueben'] : ['noch nicht geübt', 'neu'];
   const karte = (k) => {
     const [text, kl] = zustand(k);
@@ -3003,7 +3038,8 @@ async function viewWackelt(arg) { // Zusatz 1 zu F: frühere Seite „Lernstand�
       el('div', { class: 'ls-kopf' }, el('b', {}, k.titel), el('span', { class: 'ls-zustand' }, text)),
       k.richtig + k.falsch ? el('small', { class: 'muted' }, `${k.richtig} richtig · ${k.falsch} falsch` + (k.mit_tipp ? ` · ${k.mit_tipp}-mal Tipp` : '') + (k.zuletzt ? ` · zuletzt ${tag(k.zuletzt)}` : '')) : null,
       // K4: wie viele Bordkarten bis „sitzt“ gebraucht wurden (zeigt, ob „6 Punkte und eine schwere Bordkarte“ zu lang ist)
-      k.sitzt && k.bis_sitzt ? el('small', { class: 'muted ls-bis-sitzt' }, `sitzt nach ${k.bis_sitzt} ${k.bis_sitzt === 1 ? 'Bordkarte' : 'Bordkarten'}`) : null,
+      k.sitzt && k.bis_sitzt ? el('small', { class: 'muted ls-bis-sitzt' }, `${k.eigene_loesungen !== undefined ? 'gelandet' : 'sitzt'} nach ${k.bis_sitzt} ${k.bis_sitzt === 1 ? 'Bordkarte' : 'Bordkarten'}`) : null,
+      !k.sitzt && k.eigene_loesungen !== undefined && k.richtig + k.falsch ? el('small', { class: 'muted ls-regel' }, `${k.eigene_loesungen} eigene Lösungen · ${k.folge || 0} in Folge · ${k.typen_anzahl || 0} ${k.typen_anzahl === 1 ? 'Art' : 'Arten'} von Bordkarten`) : null, // W176
       k.knobel_gesamt ? el('small', { class: 'muted ls-knobel' }, `Knobel: ${k.knobel_geloest || 0} von ${k.knobel_gesamt}`) : null, // F
       (k.fehler || []).length ? el('details', { class: 'ls-fehler' }, el('summary', {}, `Letzte falsche Antworten (${k.fehler.length})`),
         ...k.fehler.map((f) => { const a = { antworttyp: f.antworttyp, antworten: f.antworten, loesung: f.loesung, frage: { text: f.frage, schablone: f.schablone, grafik: f.grafik } };

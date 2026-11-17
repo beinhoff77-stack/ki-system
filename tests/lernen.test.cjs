@@ -736,7 +736,7 @@ test('Info-Seite „So funktioniert’s“: ein Tipp von der Startseite und vom 
   assert.deepEqual(await page.locator('.lern-info-schritt h3').allInnerTexts(), ['Flugplan prüfen', 'Lernstand lesen', 'Inhalte ansehen', 'Ändern lassen']);
   assert.equal(await page.locator('details.lern-info-frage').count(), 7);
   await page.getByText('Wie wird gelernt?').click();
-  await page.getByText('nach 6 Punkten', { exact: false }).waitFor();
+  await page.getByText('6 eigene Lösungen (richtig im ersten Versuch ohne Tipp', { exact: false }).waitFor();
   await page.getByText('nach 1, 3, 7, 14 und 30 Lerntagen', { exact: false }).waitFor();
   await page.getByText('höchstens 6 Wiederholungen', { exact: false }).waitFor();
   await page.getByText('Zuerst kommt die Erklärung', { exact: false }).waitFor();
@@ -1520,4 +1520,59 @@ test('Zusatz 1 zu F: Knopf „Lernstand“ zeigt mit einem Klick die Tabelle des
   await page.getByRole('link', { name: /Alle Kinder im Vergleich/ }).click();
   await page.locator('main h2', { hasText: 'Alle Kinder im Vergleich' }).waitFor();
   await page.screenshot({ path: path.join(root, 'test-results/f-lernstand-390.png'), fullPage: true });
+});
+
+// ---------- Bau-Auftrag G (W176) Teil 1: „gelandet“ ohne Minuspunkte ----------
+const neueRegel = (felder) => (aktion, e) => {
+  if (aktion !== 'schule_einheit_lesen') return null;
+  const x = structuredClone(e);
+  for (const lz of Object.keys(x.etappen_stand)) Object.assign(x.etappen_stand[lz], { eigene_loesungen: 0, folge: 0, folge_ziel: 2, typen_anzahl: 0, typen_noetig: 1, fehler_folge: 0, stufe_senkung: 0, sicher: false }, felder?.[lz] || {});
+  return x;
+};
+
+test('W176 T1: Checkliste statt Punkten, „heute selbst gelöst“, nach Fehler „Die nächste zählt wieder voll.“', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: neueRegel({ stellenwert: { eigene_loesungen: 1, folge: 1 } }) });
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText(/BORDKARTE 1 · ROM/).waitFor();
+  const liste = page.locator('.lr-checkliste');
+  await liste.waitFor();
+  assert.deepEqual((await liste.locator('li').allInnerTexts()).map((x) => x.trim()), ['○ Eigene Lösungen 1/2', '○ 2 in Folge: 1/2']);
+  assert.match(await page.locator('.lr-heute').innerText(), /heute 0 Aufgaben selbst gelöst/);
+  // falsch: Zahl tippen, die nicht stimmt – zweiter Versuch, dann Lösung; kein Abzug-Text
+  for (const runde of [0, 1]) {
+    for (const z of ['5']) await page.getByRole('group', { name: 'Tastenfeld' }).getByRole('button', { name: z, exact: true }).click();
+    await page.getByRole('group', { name: 'Tastenfeld' }).getByRole('button', { name: 'Prüfen' }).click();
+    if (runde === 0) { await page.getByText(/Noch ein Versuch|Versuch/).first().waitFor(); const loesch = page.getByRole('group', { name: 'Tastenfeld' }).getByRole('button', { name: /Löschen|⌫/ }); if (await loesch.count()) await loesch.first().click(); }
+  }
+  await page.getByText('Die nächste zählt wieder voll.').waitFor();
+  assert.equal(await page.getByText(/kostet 2 Punkte|−2|Punkte verlier/).count(), 0);
+});
+
+test('W176 T1: Stufe fällt erst nach 2 Fehlern in Folge (stufe_senkung), keine Minuspunkt-Texte in der App', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' });
+  await page.goto(origin + '/#/reise/1'); await page.getByRole('heading', { name: /Abflüge/ }).waitFor();
+  const r = await page.evaluate(() => {
+    const k = (id, stufe, typ) => ({ id, stufe, typ, frage: { text: `Aufgabe ${id}` } });
+    const w = () => [k(1, 1, 'direkt'), k(2, 2, 'mehrschritt'), k(3, 3, 'begruenden')];
+    const wahl = (e) => { const x = w(); lernWaehleBordkarte(x, e, null, new Set()); return x[0].stufe; };
+    const basis = { ziel: 6, neueRegel: true, eigene: 4 }; // 4 von 6 → Stufe 3
+    return [wahl({ ...basis, stufeSenkung: 0 }), wahl({ ...basis, stufeSenkung: 1 }), wahl({ ...basis, stufeSenkung: 2 }), wahl({ ziel: 6, serie: 4 })];
+  });
+  assert.deepEqual(r, [3, 2, 1, 3]);
+  const quelle = fs.readFileSync(path.join(root, 'lernen.js'), 'utf8');
+  assert.doesNotMatch(quelle, /kostet 2 Punkte|−2 Punkte|Punkte verlier/);
+  await page.goto(origin + '/#/info'); await page.getByText('Wie wird gelernt?').click();
+  assert.doesNotMatch(await page.locator('#main').innerText(), /−2|Minuspunkt(?!e:)/);
+});
+
+test('W176 T1: gelandet und sicher – Kind sieht „Gelandet“/„Sicher“, Eltern sehen eigene Lösungen und „sicher“', async (t) => {
+  const ls = (aktion, e) => { const x = neueRegel({ stellenwert: { eigene_loesungen: 6, folge: 3, sitzt: true, sicher: true }, strahl: { eigene_loesungen: 3, folge: 1 } })(aktion, e);
+    if (x) return x;
+    if (aktion !== 'schule_lernstand') return null; const y = structuredClone(e);
+    Object.assign(y.einheiten[0].karten[0], { eigene_loesungen: 6, folge: 3, typen_anzahl: 2, sicher: true });
+    Object.assign(y.einheiten[0].karten[1], { eigene_loesungen: 2, folge: 0, typen_anzahl: 1, sicher: false }); return y; };
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: ls });
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText(/Sicher! Du kannst trotzdem weiterüben./).waitFor();
+  await page.goto(origin + '/#/wackelt/1');
+  await page.locator('.ls-karte', { hasText: 'Welchen Wert hat eine Ziffer?' }).getByText('sicher', { exact: true }).waitFor();
+  await page.locator('.ls-karte', { hasText: 'Runden' }).getByText('2 eigene Lösungen · 0 in Folge · 1 Art von Bordkarten').waitFor();
 });

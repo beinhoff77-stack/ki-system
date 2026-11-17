@@ -1137,6 +1137,19 @@ def datei():
     }, anz
 
 
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Klasse 7, siehe _durchsicht_kl7.py) ----
+from _durchsicht_kl7 import Durchsicht, durchsicht_datei  # noqa: E402
+
+DS = Durchsicht('geometrie.winkelsaetze', 19_7_4)
+# stufen_wechsel: „Nebenwinkel + Stufenwinkel“ ist in Stufe 2 schon da; dreimal derselbe Typ in Stufe 3 → Stufe 2
+for _grad in (135, 124, 154):
+    DS.stufe('stufen_wechsel', f'g ∥ h. Bei S ist der Winkel links oberhalb {_grad}° groß. Wie groß ist der Winkel bei T rechts oberhalb?', 2)
+# parallel_pruefen: dreimal „a ∥ b ∥ c, Winkel bei c“ in Stufe 3 → zwei davon Stufe 2 (eine bleibt als Stufe-3-Aufgabe)
+for _grad in (128, 64):
+    DS.stufe('parallel_pruefen', f'Es gilt a ∥ b und b ∥ c. Eine Gerade k schneidet a, b und c. Bei a ist der Winkel rechts oberhalb {_grad}°. Wie groß ist bei c der Winkel links oberhalb?', 2)
+# ---- DURCHSICHT ENDE ----
+
+
 if __name__ == '__main__':
     d, anz = datei()
     ZIEL.write_text(json.dumps(d, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
@@ -1144,3 +1157,4 @@ if __name__ == '__main__':
     for e in d['inhalt']['etappen']:
         l = e['lernziel']
         print(f'  {l:18} Prüfungsvorbild: {anz[(l, P)]}  Knobel: {anz[(l, K)]}')
+    durchsicht_datei(META['thema_schluessel'], DS)  # Neunzehnte Runde: zuletzt

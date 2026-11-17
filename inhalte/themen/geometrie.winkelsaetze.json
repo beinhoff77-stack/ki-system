@@ -4861,7 +4861,7 @@
    "l": "stufen_wechsel",
    "t": "stufen_wechsel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "g ∥ h. Bei S ist der Winkel links oberhalb 135° groß. Wie groß ist der Winkel bei T rechts oberhalb?",
@@ -4978,7 +4978,7 @@
    "l": "stufen_wechsel",
    "t": "stufen_wechsel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "g ∥ h. Bei S ist der Winkel links oberhalb 124° groß. Wie groß ist der Winkel bei T rechts oberhalb?",
@@ -5218,7 +5218,7 @@
    "l": "stufen_wechsel",
    "t": "stufen_wechsel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "g ∥ h. Bei S ist der Winkel links oberhalb 154° groß. Wie groß ist der Winkel bei T rechts oberhalb?",
@@ -7415,7 +7415,7 @@
    "l": "parallel_pruefen",
    "t": "parallel_pruefen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Es gilt a ∥ b und b ∥ c. Eine Gerade k schneidet a, b und c. Bei a ist der Winkel rechts oberhalb 128°. Wie groß ist bei c der Winkel links oberhalb?"
@@ -7432,7 +7432,7 @@
    "l": "parallel_pruefen",
    "t": "parallel_pruefen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Es gilt a ∥ b und b ∥ c. Eine Gerade k schneidet a, b und c. Bei a ist der Winkel rechts oberhalb 64°. Wie groß ist bei c der Winkel links oberhalb?"

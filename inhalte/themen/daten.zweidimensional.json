@@ -677,10 +677,10 @@
    "l": "ablesen",
    "t": "ablesen",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Das Streudiagramm zeigt Alter des Autos und Wert; jeder Punkt steht für ein Auto. Wie viele wurden erfasst?",
+    "text": "Das Streudiagramm zeigt Lernzeit und Punkte im Test. Um wie viel unterscheiden sich etwa die y-Werte der Punkte bei x = 3 und x = 4?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -688,46 +688,52 @@
       10
      ],
      "y": [
-      11,
-      22
+      40,
+      90
      ],
      "punkte": [
       {
        "x": 1,
-       "y": 19
+       "y": 49
       },
       {
        "x": 2,
-       "y": 16
+       "y": 45
+      },
+      {
+       "x": 3,
+       "y": 54
       },
       {
        "x": 4,
-       "y": 20
+       "y": 65
       },
       {
-       "x": 5,
-       "y": 12
+       "x": 6,
+       "y": 75
       },
       {
-       "x": 7,
-       "y": 15
+       "x": 8,
+       "y": 80
       },
       {
        "x": 9,
-       "y": 14
+       "y": 81
       }
      ],
-     "name_x": "Alter des Autos in Jahren",
-     "name_y": "Wert in Tausend €",
-     "schritt_y": 1
+     "name_x": "Lernzeit in h",
+     "name_y": "Punkte im Test in Punkte",
+     "schritt_y": 5
     }
    },
    "o": {
-    "wert": 6
+    "wert": 11,
+    "toleranz": 5
    },
-   "c": "6",
-   "w": "Jeder Punkt ist ein Objekt: 6 Punkte.",
-   "h": "Ein Punkt = ein Objekt mit zwei Werten."
+   "c": "abs(65 - 54)",
+   "w": "y-Werte: etwa 54 und 65. Unterschied: 11 (Ablesen auf ±5 genau genügt).",
+   "h": "Lies beide y-Werte ab und ziehe den kleineren vom größeren ab.",
+   "g": "mehrschritt"
   },
   {
    "l": "ablesen",
@@ -788,7 +794,311 @@
    },
    "c": "21",
    "w": "Bei x = 5 nach oben gehen: Der Punkt liegt bei y = 21 (Ablesen auf ±1 genau genügt).",
-   "h": "Gehe auf der x-Achse zum Wert und dann senkrecht nach oben bis zum Punkt."
+   "h": "Gehe auf der x-Achse zum Wert und dann senkrecht nach oben bis zum Punkt.",
+   "g": "direkt"
+  },
+  {
+   "l": "ablesen",
+   "t": "ablesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Streudiagramm zeigt Trainingsstunden pro Woche und 1000-m-Zeit. Um wie viel unterscheiden sich etwa die y-Werte der Punkte bei x = 1 und x = 9?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      10
+     ],
+     "y": [
+      210,
+      320
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 274
+      },
+      {
+       "x": 3,
+       "y": 305
+      },
+      {
+       "x": 4,
+       "y": 293
+      },
+      {
+       "x": 5,
+       "y": 254
+      },
+      {
+       "x": 6,
+       "y": 252
+      },
+      {
+       "x": 8,
+       "y": 266
+      },
+      {
+       "x": 9,
+       "y": 228
+      }
+     ],
+     "name_x": "Trainingsstunden pro Woche in h",
+     "name_y": "1000-m-Zeit in s",
+     "schritt_y": 10
+    }
+   },
+   "o": {
+    "wert": 46,
+    "toleranz": 10
+   },
+   "c": "abs(228 - 274)",
+   "w": "y-Werte: etwa 274 und 228. Unterschied: 46 (Ablesen auf ±10 genau genügt).",
+   "h": "Lies beide y-Werte ab und ziehe den kleineren vom größeren ab.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "ablesen",
+   "t": "ablesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Das Streudiagramm zeigt Lernzeit und Punkte im Test. Berechne den Mittelwert der x-Werte aller Punkte, deren y-Wert größer als 70 ist.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      1,
+      11
+     ],
+     "y": [
+      30,
+      110
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 47
+      },
+      {
+       "x": 3,
+       "y": 53
+      },
+      {
+       "x": 4,
+       "y": 61
+      },
+      {
+       "x": 6,
+       "y": 75
+      },
+      {
+       "x": 7,
+       "y": 76
+      },
+      {
+       "x": 9,
+       "y": 85
+      },
+      {
+       "x": 10,
+       "y": 94
+      }
+     ],
+     "name_x": "Lernzeit in h",
+     "name_y": "Punkte im Test in Punkte",
+     "schritt_y": 10
+    }
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(6 + 7 + 9 + 10) / 4",
+   "w": "Über der Höhe 70 liegen 4 Punkte mit den x-Werten 6, 7, 9, 10. Mittelwert: 32 : 4 = 8.",
+   "h": "Erst die Punkte über der Höhe finden, dann ihre x-Werte addieren und durch ihre Anzahl teilen.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "ablesen",
+   "t": "ablesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Streudiagramm zeigt Lernzeit und Punkte im Test. Um wie viel unterscheiden sich etwa die y-Werte der Punkte bei x = 4 und x = 7?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      1,
+      11
+     ],
+     "y": [
+      35,
+      90
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 44
+      },
+      {
+       "x": 3,
+       "y": 57
+      },
+      {
+       "x": 4,
+       "y": 59
+      },
+      {
+       "x": 5,
+       "y": 60
+      },
+      {
+       "x": 6,
+       "y": 68
+      },
+      {
+       "x": 7,
+       "y": 71
+      },
+      {
+       "x": 8,
+       "y": 78
+      },
+      {
+       "x": 10,
+       "y": 84
+      }
+     ],
+     "name_x": "Lernzeit in h",
+     "name_y": "Punkte im Test in Punkte",
+     "schritt_y": 5
+    }
+   },
+   "o": {
+    "wert": 12,
+    "toleranz": 5
+   },
+   "c": "abs(71 - 59)",
+   "w": "y-Werte: etwa 59 und 71. Unterschied: 12 (Ablesen auf ±5 genau genügt).",
+   "h": "Lies beide y-Werte ab und ziehe den kleineren vom größeren ab.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "ablesen",
+   "t": "ablesen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Das Streudiagramm zeigt Alter des Autos und Wert; jeder Punkt steht für ein Auto. Wie viele wurden erfasst?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      10
+     ],
+     "y": [
+      11,
+      22
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 19
+      },
+      {
+       "x": 2,
+       "y": 16
+      },
+      {
+       "x": 4,
+       "y": 20
+      },
+      {
+       "x": 5,
+       "y": 12
+      },
+      {
+       "x": 7,
+       "y": 15
+      },
+      {
+       "x": 9,
+       "y": 14
+      }
+     ],
+     "name_x": "Alter des Autos in Jahren",
+     "name_y": "Wert in Tausend €",
+     "schritt_y": 1
+    }
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "Jeder Punkt ist ein Objekt: 6 Punkte.",
+   "h": "Ein Punkt = ein Objekt mit zwei Werten.",
+   "g": "erkennen"
+  },
+  {
+   "l": "ablesen",
+   "t": "ablesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Streudiagramm zeigt Alter des Autos und Wert. Bei wie vielen Punkten ist der x-Wert größer als 3 und zugleich der y-Wert kleiner als 16?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      1,
+      10
+     ],
+     "y": [
+      6,
+      24
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 21
+      },
+      {
+       "x": 4,
+       "y": 20
+      },
+      {
+       "x": 5,
+       "y": 17
+      },
+      {
+       "x": 6,
+       "y": 14
+      },
+      {
+       "x": 8,
+       "y": 11
+      },
+      {
+       "x": 9,
+       "y": 8
+      }
+     ],
+     "name_x": "Alter des Autos in Jahren",
+     "name_y": "Wert in Tausend €",
+     "schritt_y": 2
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Rechts von x = 3 liegen 5 Punkte. Davon liegen 3 unter der Höhe 16.",
+   "h": "Denke dir eine senkrechte Linie bei x = 3 und eine waagrechte bei y = 16. Zähle nur im passenden Viertel.",
+   "g": "mehrschritt"
   },
   {
    "l": "ablesen",
@@ -845,7 +1155,250 @@
    },
    "c": "74",
    "w": "Bei x = 7 nach oben gehen: Der Punkt liegt bei y = 74 (Ablesen auf ±2,5 genau genügt).",
-   "h": "Gehe auf der x-Achse zum Wert und dann senkrecht nach oben bis zum Punkt."
+   "h": "Gehe auf der x-Achse zum Wert und dann senkrecht nach oben bis zum Punkt.",
+   "g": "direkt"
+  },
+  {
+   "l": "ablesen",
+   "t": "ablesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Streudiagramm zeigt Lernzeit und Punkte im Test. Bei wie vielen Punkten ist der y-Wert größer als 70?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      10
+     ],
+     "y": [
+      40,
+      90
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 45
+      },
+      {
+       "x": 2,
+       "y": 46
+      },
+      {
+       "x": 3,
+       "y": 57
+      },
+      {
+       "x": 6,
+       "y": 73
+      },
+      {
+       "x": 8,
+       "y": 79
+      },
+      {
+       "x": 9,
+       "y": 81
+      }
+     ],
+     "name_x": "Lernzeit in h",
+     "name_y": "Punkte im Test in Punkte",
+     "schritt_y": 5
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Über der Höhe 70 liegen 3 Punkte.",
+   "h": "Denke dir eine waagrechte Linie bei y = 70 und zähle die Punkte darüber.",
+   "g": "darstellung"
+  },
+  {
+   "l": "ablesen",
+   "t": "ablesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Streudiagramm zeigt das Alter von Autos und ihren Wert in Tausend €. Wie viel Euro ist das Auto wert, das 5 Jahre alt ist? Gib den Betrag in € an.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      11
+     ],
+     "y": [
+      0,
+      30
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 22
+      },
+      {
+       "x": 3,
+       "y": 21
+      },
+      {
+       "x": 4,
+       "y": 13
+      },
+      {
+       "x": 5,
+       "y": 18
+      },
+      {
+       "x": 7,
+       "y": 8
+      },
+      {
+       "x": 8,
+       "y": 5
+      },
+      {
+       "x": 9,
+       "y": 14
+      },
+      {
+       "x": 10,
+       "y": 12
+      }
+     ],
+     "name_x": "Alter des Autos in Jahren",
+     "name_y": "Wert in Tausend €",
+     "schritt_y": 5
+    }
+   },
+   "o": {
+    "wert": 18000,
+    "einheit": "€",
+    "toleranz": 2500.0
+   },
+   "c": "18 * 1000",
+   "w": "Bei x = 5 liegt der Punkt bei y = 18. Die Achse zählt in Tausend €: 18 · 1000 € = 18 000 €.",
+   "h": "Lies den y-Wert ab und achte auf die Einheit an der y-Achse.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "ablesen",
+   "t": "ablesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Streudiagramm zeigt Trainingsstunden pro Woche und 1000-m-Zeit. Bei wie vielen Punkten ist der x-Wert größer als 5 und zugleich der y-Wert größer als 260?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      10
+     ],
+     "y": [
+      230,
+      340
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 320
+      },
+      {
+       "x": 2,
+       "y": 285
+      },
+      {
+       "x": 3,
+       "y": 270
+      },
+      {
+       "x": 6,
+       "y": 243
+      },
+      {
+       "x": 7,
+       "y": 244
+      },
+      {
+       "x": 8,
+       "y": 269
+      },
+      {
+       "x": 9,
+       "y": 265
+      }
+     ],
+     "name_x": "Trainingsstunden pro Woche in h",
+     "name_y": "1000-m-Zeit in s",
+     "schritt_y": 10
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Rechts von x = 5 liegen 4 Punkte. Davon liegen 2 über der Höhe 260.",
+   "h": "Denke dir eine senkrechte Linie bei x = 5 und eine waagrechte bei y = 260. Zähle nur im passenden Viertel.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "ablesen",
+   "t": "ablesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Das Streudiagramm zeigt Lernzeit und Punkte im Test. Berechne den Mittelwert der x-Werte aller Punkte, deren y-Wert größer als 70 ist.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      11
+     ],
+     "y": [
+      20,
+      100
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 37
+      },
+      {
+       "x": 4,
+       "y": 52
+      },
+      {
+       "x": 5,
+       "y": 76
+      },
+      {
+       "x": 6,
+       "y": 85
+      },
+      {
+       "x": 8,
+       "y": 63
+      },
+      {
+       "x": 10,
+       "y": 81
+      }
+     ],
+     "name_x": "Lernzeit in h",
+     "name_y": "Punkte im Test in Punkte",
+     "schritt_y": 10
+    }
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "(5 + 6 + 10) / 3",
+   "w": "Über der Höhe 70 liegen 3 Punkte mit den x-Werten 5, 6, 10. Mittelwert: 21 : 3 = 7.",
+   "h": "Erst die Punkte über der Höhe finden, dann ihre x-Werte addieren und durch ihre Anzahl teilen.",
+   "g": "verknuepfen"
   },
   {
    "l": "ablesen",
@@ -906,7 +1459,8 @@
    },
    "c": "15",
    "w": "Bei x = 5 nach oben gehen: Der Punkt liegt bei y = 15 (Ablesen auf ±1 genau genügt).",
-   "h": "Gehe auf der x-Achse zum Wert und dann senkrecht nach oben bis zum Punkt."
+   "h": "Gehe auf der x-Achse zum Wert und dann senkrecht nach oben bis zum Punkt.",
+   "g": "direkt"
   },
   {
    "l": "ablesen",
@@ -962,7 +1516,8 @@
    },
    "c": "6",
    "w": "Jeder Punkt ist ein Objekt: 6 Punkte.",
-   "h": "Ein Punkt = ein Objekt mit zwei Werten."
+   "h": "Ein Punkt = ein Objekt mit zwei Werten.",
+   "g": "erkennen"
   },
   {
    "l": "ablesen",
@@ -1032,184 +1587,6 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Das Streudiagramm zeigt Lernzeit und Punkte im Test. Um wie viel unterscheiden sich etwa die y-Werte der Punkte bei x = 3 und x = 4?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      10
-     ],
-     "y": [
-      40,
-      90
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 49
-      },
-      {
-       "x": 2,
-       "y": 45
-      },
-      {
-       "x": 3,
-       "y": 54
-      },
-      {
-       "x": 4,
-       "y": 65
-      },
-      {
-       "x": 6,
-       "y": 75
-      },
-      {
-       "x": 8,
-       "y": 80
-      },
-      {
-       "x": 9,
-       "y": 81
-      }
-     ],
-     "name_x": "Lernzeit in h",
-     "name_y": "Punkte im Test in Punkte",
-     "schritt_y": 5
-    }
-   },
-   "o": {
-    "wert": 11,
-    "toleranz": 5
-   },
-   "c": "abs(65 - 54)",
-   "w": "y-Werte: etwa 54 und 65. Unterschied: 11 (Ablesen auf ±5 genau genügt).",
-   "h": "Lies beide y-Werte ab und ziehe den kleineren vom größeren ab."
-  },
-  {
-   "l": "ablesen",
-   "t": "ablesen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Das Streudiagramm zeigt Trainingsstunden pro Woche und 1000-m-Zeit. Um wie viel unterscheiden sich etwa die y-Werte der Punkte bei x = 1 und x = 9?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      10
-     ],
-     "y": [
-      210,
-      320
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 274
-      },
-      {
-       "x": 3,
-       "y": 305
-      },
-      {
-       "x": 4,
-       "y": 293
-      },
-      {
-       "x": 5,
-       "y": 254
-      },
-      {
-       "x": 6,
-       "y": 252
-      },
-      {
-       "x": 8,
-       "y": 266
-      },
-      {
-       "x": 9,
-       "y": 228
-      }
-     ],
-     "name_x": "Trainingsstunden pro Woche in h",
-     "name_y": "1000-m-Zeit in s",
-     "schritt_y": 10
-    }
-   },
-   "o": {
-    "wert": 46,
-    "toleranz": 10
-   },
-   "c": "abs(228 - 274)",
-   "w": "y-Werte: etwa 274 und 228. Unterschied: 46 (Ablesen auf ±10 genau genügt).",
-   "h": "Lies beide y-Werte ab und ziehe den kleineren vom größeren ab."
-  },
-  {
-   "l": "ablesen",
-   "t": "ablesen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Das Streudiagramm zeigt Lernzeit und Punkte im Test. Bei wie vielen Punkten ist der y-Wert größer als 70?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      10
-     ],
-     "y": [
-      40,
-      90
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 45
-      },
-      {
-       "x": 2,
-       "y": 46
-      },
-      {
-       "x": 3,
-       "y": 57
-      },
-      {
-       "x": 6,
-       "y": 73
-      },
-      {
-       "x": 8,
-       "y": 79
-      },
-      {
-       "x": 9,
-       "y": 81
-      }
-     ],
-     "name_x": "Lernzeit in h",
-     "name_y": "Punkte im Test in Punkte",
-     "schritt_y": 5
-    }
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "3",
-   "w": "Über der Höhe 70 liegen 3 Punkte.",
-   "h": "Denke dir eine waagrechte Linie bei y = 70 und zähle die Punkte darüber."
-  },
-  {
-   "l": "ablesen",
-   "t": "ablesen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
     "text": "Das Streudiagramm zeigt Trainingsstunden pro Woche und 1000-m-Zeit. Bei wie vielen Punkten ist der y-Wert größer als 260?",
     "grafik": {
      "typ": "koordinaten",
@@ -1261,72 +1638,8 @@
    },
    "c": "4",
    "w": "Über der Höhe 260 liegen 4 Punkte.",
-   "h": "Denke dir eine waagrechte Linie bei y = 260 und zähle die Punkte darüber."
-  },
-  {
-   "l": "ablesen",
-   "t": "ablesen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Das Streudiagramm zeigt Lernzeit und Punkte im Test. Um wie viel unterscheiden sich etwa die y-Werte der Punkte bei x = 4 und x = 7?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      1,
-      11
-     ],
-     "y": [
-      35,
-      90
-     ],
-     "punkte": [
-      {
-       "x": 2,
-       "y": 44
-      },
-      {
-       "x": 3,
-       "y": 57
-      },
-      {
-       "x": 4,
-       "y": 59
-      },
-      {
-       "x": 5,
-       "y": 60
-      },
-      {
-       "x": 6,
-       "y": 68
-      },
-      {
-       "x": 7,
-       "y": 71
-      },
-      {
-       "x": 8,
-       "y": 78
-      },
-      {
-       "x": 10,
-       "y": 84
-      }
-     ],
-     "name_x": "Lernzeit in h",
-     "name_y": "Punkte im Test in Punkte",
-     "schritt_y": 5
-    }
-   },
-   "o": {
-    "wert": 12,
-    "toleranz": 5
-   },
-   "c": "abs(71 - 59)",
-   "w": "y-Werte: etwa 59 und 71. Unterschied: 12 (Ablesen auf ±5 genau genügt).",
-   "h": "Lies beide y-Werte ab und ziehe den kleineren vom größeren ab."
+   "h": "Denke dir eine waagrechte Linie bei y = 260 und zähle die Punkte darüber.",
+   "g": "darstellung"
   },
   {
    "l": "ablesen",
@@ -1382,255 +1695,14 @@
    },
    "c": "10",
    "w": "Der höchste Punkt liegt bei y = 80, sein x-Wert ist 10.",
-   "h": "Suche den höchsten Punkt und lies dann seinen x-Wert ab."
+   "h": "Suche den höchsten Punkt und lies dann seinen x-Wert ab.",
+   "g": "umkehr"
   },
   {
    "l": "ablesen",
    "t": "ablesen",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Das Streudiagramm zeigt Alter des Autos und Wert. Bei wie vielen Punkten ist der x-Wert größer als 3 und zugleich der y-Wert kleiner als 16?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      1,
-      10
-     ],
-     "y": [
-      6,
-      24
-     ],
-     "punkte": [
-      {
-       "x": 2,
-       "y": 21
-      },
-      {
-       "x": 4,
-       "y": 20
-      },
-      {
-       "x": 5,
-       "y": 17
-      },
-      {
-       "x": 6,
-       "y": 14
-      },
-      {
-       "x": 8,
-       "y": 11
-      },
-      {
-       "x": 9,
-       "y": 8
-      }
-     ],
-     "name_x": "Alter des Autos in Jahren",
-     "name_y": "Wert in Tausend €",
-     "schritt_y": 2
-    }
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "3",
-   "w": "Rechts von x = 3 liegen 5 Punkte. Davon liegen 3 unter der Höhe 16.",
-   "h": "Denke dir eine senkrechte Linie bei x = 3 und eine waagrechte bei y = 16. Zähle nur im passenden Viertel."
-  },
-  {
-   "l": "ablesen",
-   "t": "ablesen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Das Streudiagramm zeigt das Alter von Autos und ihren Wert in Tausend €. Wie viel Euro ist das Auto wert, das 5 Jahre alt ist? Gib den Betrag in € an.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      11
-     ],
-     "y": [
-      0,
-      30
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 22
-      },
-      {
-       "x": 3,
-       "y": 21
-      },
-      {
-       "x": 4,
-       "y": 13
-      },
-      {
-       "x": 5,
-       "y": 18
-      },
-      {
-       "x": 7,
-       "y": 8
-      },
-      {
-       "x": 8,
-       "y": 5
-      },
-      {
-       "x": 9,
-       "y": 14
-      },
-      {
-       "x": 10,
-       "y": 12
-      }
-     ],
-     "name_x": "Alter des Autos in Jahren",
-     "name_y": "Wert in Tausend €",
-     "schritt_y": 5
-    }
-   },
-   "o": {
-    "wert": 18000,
-    "einheit": "€",
-    "toleranz": 2500.0
-   },
-   "c": "18 * 1000",
-   "w": "Bei x = 5 liegt der Punkt bei y = 18. Die Achse zählt in Tausend €: 18 · 1000 € = 18 000 €.",
-   "h": "Lies den y-Wert ab und achte auf die Einheit an der y-Achse."
-  },
-  {
-   "l": "ablesen",
-   "t": "ablesen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Das Streudiagramm zeigt Lernzeit und Punkte im Test. Berechne den Mittelwert der x-Werte aller Punkte, deren y-Wert größer als 70 ist.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      1,
-      11
-     ],
-     "y": [
-      30,
-      110
-     ],
-     "punkte": [
-      {
-       "x": 2,
-       "y": 47
-      },
-      {
-       "x": 3,
-       "y": 53
-      },
-      {
-       "x": 4,
-       "y": 61
-      },
-      {
-       "x": 6,
-       "y": 75
-      },
-      {
-       "x": 7,
-       "y": 76
-      },
-      {
-       "x": 9,
-       "y": 85
-      },
-      {
-       "x": 10,
-       "y": 94
-      }
-     ],
-     "name_x": "Lernzeit in h",
-     "name_y": "Punkte im Test in Punkte",
-     "schritt_y": 10
-    }
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "(6 + 7 + 9 + 10) / 4",
-   "w": "Über der Höhe 70 liegen 4 Punkte mit den x-Werten 6, 7, 9, 10. Mittelwert: 32 : 4 = 8.",
-   "h": "Erst die Punkte über der Höhe finden, dann ihre x-Werte addieren und durch ihre Anzahl teilen."
-  },
-  {
-   "l": "ablesen",
-   "t": "ablesen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Das Streudiagramm zeigt Trainingsstunden pro Woche und 1000-m-Zeit. Bei wie vielen Punkten ist der x-Wert größer als 5 und zugleich der y-Wert größer als 260?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      10
-     ],
-     "y": [
-      230,
-      340
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 320
-      },
-      {
-       "x": 2,
-       "y": 285
-      },
-      {
-       "x": 3,
-       "y": 270
-      },
-      {
-       "x": 6,
-       "y": 243
-      },
-      {
-       "x": 7,
-       "y": 244
-      },
-      {
-       "x": 8,
-       "y": 269
-      },
-      {
-       "x": 9,
-       "y": 265
-      }
-     ],
-     "name_x": "Trainingsstunden pro Woche in h",
-     "name_y": "1000-m-Zeit in s",
-     "schritt_y": 10
-    }
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "2",
-   "w": "Rechts von x = 5 liegen 4 Punkte. Davon liegen 2 über der Höhe 260.",
-   "h": "Denke dir eine senkrechte Linie bei x = 5 und eine waagrechte bei y = 260. Zähle nur im passenden Viertel."
-  },
-  {
-   "l": "ablesen",
-   "t": "ablesen",
-   "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Das Streudiagramm zeigt das Alter von Autos und ihren Wert in Tausend €. Wie viel Euro ist das Auto wert, das 1 Jahre alt ist? Gib den Betrag in € an.",
@@ -1686,63 +1758,65 @@
    },
    "c": "26 * 1000",
    "w": "Bei x = 1 liegt der Punkt bei y = 26. Die Achse zählt in Tausend €: 26 · 1000 € = 26 000 €.",
-   "h": "Lies den y-Wert ab und achte auf die Einheit an der y-Achse."
+   "h": "Lies den y-Wert ab und achte auf die Einheit an der y-Achse.",
+   "g": "einkleidung"
   },
   {
    "l": "ablesen",
    "t": "ablesen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Das Streudiagramm zeigt Lernzeit und Punkte im Test. Berechne den Mittelwert der x-Werte aller Punkte, deren y-Wert größer als 70 ist.",
+    "text": "Das Streudiagramm zeigt Alter des Autos und Wert. Bei wie vielen Punkten ist der x-Wert größer als 4 und zugleich der y-Wert größer als 16?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
-      0,
+      1,
       11
      ],
      "y": [
-      20,
-      100
+      4,
+      24
      ],
      "punkte": [
       {
-       "x": 1,
-       "y": 37
+       "x": 2,
+       "y": 20
       },
       {
-       "x": 4,
-       "y": 52
+       "x": 3,
+       "y": 19
       },
       {
        "x": 5,
-       "y": 76
+       "y": 17
       },
       {
-       "x": 6,
-       "y": 85
+       "x": 7,
+       "y": 10
       },
       {
        "x": 8,
-       "y": 63
+       "y": 11
       },
       {
        "x": 10,
-       "y": 81
+       "y": 6
       }
      ],
-     "name_x": "Lernzeit in h",
-     "name_y": "Punkte im Test in Punkte",
-     "schritt_y": 10
+     "name_x": "Alter des Autos in Jahren",
+     "name_y": "Wert in Tausend €",
+     "schritt_y": 2
     }
    },
    "o": {
-    "wert": 7
+    "wert": 1
    },
-   "c": "(5 + 6 + 10) / 3",
-   "w": "Über der Höhe 70 liegen 3 Punkte mit den x-Werten 5, 6, 10. Mittelwert: 21 : 3 = 7.",
-   "h": "Erst die Punkte über der Höhe finden, dann ihre x-Werte addieren und durch ihre Anzahl teilen."
+   "c": "1",
+   "w": "Rechts von x = 4 liegen 4 Punkte. Davon liegen 1 über der Höhe 16.",
+   "h": "Denke dir eine senkrechte Linie bei x = 4 und eine waagrechte bei y = 16. Zähle nur im passenden Viertel.",
+   "g": "mehrschritt"
   },
   {
    "l": "ablesen",
@@ -1807,63 +1881,8 @@
    },
    "c": "5 / 8 * 100",
    "w": "5 von 8 Punkten liegen über der Höhe 270: 5 : 8 = 0,625 = 62,5 %.",
-   "h": "Zähle die Punkte über der Höhe und teile durch die Zahl aller Punkte."
-  },
-  {
-   "l": "ablesen",
-   "t": "ablesen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Das Streudiagramm zeigt Alter des Autos und Wert. Bei wie vielen Punkten ist der x-Wert größer als 4 und zugleich der y-Wert größer als 16?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      1,
-      11
-     ],
-     "y": [
-      4,
-      24
-     ],
-     "punkte": [
-      {
-       "x": 2,
-       "y": 20
-      },
-      {
-       "x": 3,
-       "y": 19
-      },
-      {
-       "x": 5,
-       "y": 17
-      },
-      {
-       "x": 7,
-       "y": 10
-      },
-      {
-       "x": 8,
-       "y": 11
-      },
-      {
-       "x": 10,
-       "y": 6
-      }
-     ],
-     "name_x": "Alter des Autos in Jahren",
-     "name_y": "Wert in Tausend €",
-     "schritt_y": 2
-    }
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "1",
-   "w": "Rechts von x = 4 liegen 4 Punkte. Davon liegen 1 über der Höhe 16.",
-   "h": "Denke dir eine senkrechte Linie bei x = 4 und eine waagrechte bei y = 16. Zähle nur im passenden Viertel."
+   "h": "Zähle die Punkte über der Höhe und teile durch die Zahl aller Punkte.",
+   "g": "verknuepfen"
   },
   {
    "l": "ablesen",
@@ -2451,6 +2470,368 @@
    "w": "Auf Höhe 82 liegt der Punkt bei x = 8."
   },
   {
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt: In einem Streudiagramm kann zu einem x-Wert immer nur ein Punkt gehören?"
+   },
+   "a": [
+    "Ja, sonst wäre es kein Streudiagramm.",
+    "Nein: Zwei Kinder können gleich lange lernen und verschiedene Punkte haben.",
+    "Nein, aber dann müssen die y-Werte gleich sein.",
+    "Ja, jeder x-Wert kommt nur einmal vor."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Jeder Punkt ist ein Kind (ein Auto …). Zwei Kinder mit 4 Stunden Lernzeit ergeben zwei Punkte übereinander, z. B. (4 | 55) und (4 | 70).",
+   "h": "Denk an zwei Kinder mit gleicher Lernzeit.",
+   "l": "ablesen",
+   "t": "ablesen",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Im Streudiagramm Lernzeit (x, in h) – Punkte (y) liegt ein Punkt bei (4 | 60). Jemand sagt: „Dieses Kind hat 60 Stunden gelernt und 4 Punkte bekommen.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: 40 Stunden und 6 Punkte.",
+    "Richtig.",
+    "Falsch: 4 Stunden und 6 Punkte.",
+    "Falsch: x und y sind vertauscht – 4 Stunden, 60 Punkte."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die erste Zahl ist x (nach rechts, Lernzeit), die zweite y (nach oben, Punkte): 4 Stunden, 60 Punkte.",
+   "h": "Welche Zahl gehört zur Achse nach rechts?",
+   "l": "ablesen",
+   "t": "ablesen",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein Streudiagramm hat 5 Punkte: (1 | 40), (2 | 50), (3 | ?), (4 | 65), (5 | 80). Der Mittelwert der y-Werte ist 58. Welcher y-Wert gehört zum Punkt bei x = 3?"
+   },
+   "o": {
+    "wert": 55
+   },
+   "c": "5*58 - (40 + 50 + 65 + 80)",
+   "w": "Summe aller y-Werte: 5 · 58 = 290. Die bekannten ergeben 40 + 50 + 65 + 80 = 235. Fehlt 290 − 235 = 55.",
+   "h": "Wie groß ist die Summe aller fünf y-Werte?",
+   "l": "ablesen",
+   "t": "ablesen",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Ein Streudiagramm zeigt Alter eines Autos (x, in Jahren) und seinen Wert (y, in Tausend €). Ein Auto liegt bei (3 | 18). Ein Jahr später ist es 2 000 € weniger wert. Wo liegt sein neuer Punkt?",
+    "schablone": "(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     4,
+     16
+    ]
+   },
+   "c": [
+    "3 + 1",
+    "18 - 2"
+   ],
+   "w": "Ein Jahr älter: x = 4. 2 000 € = 2 Tausend € weniger: y = 16. Der Punkt wandert nach rechts unten.",
+   "h": "Achte auf die Einheit „Tausend €“.",
+   "l": "ablesen",
+   "t": "ablesen",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Messwerte (x: Lernzeit in h, y: Punkte): (1 | 45), (2 | 50), (3 | 62), (4 | 70), (5 | 73). a) Wie viele Punkte liegen über y = 60? b) Mittelwert der y-Werte? c) Wie viel Prozent haben mehr als 2 h gelernt?",
+    "schablone": "a) □; b) □; c) □ %",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     3,
+     60,
+     60
+    ]
+   },
+   "c": [
+    "3",
+    "(45 + 50 + 62 + 70 + 73)/5",
+    "3/5*100"
+   ],
+   "w": "a) 62, 70, 73: drei. b) 300 : 5 = 60. c) x = 3, 4, 5: drei von fünf = 60 %.",
+   "h": "Arbeite die Teile nacheinander ab.",
+   "l": "ablesen",
+   "t": "ablesen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "In einem Streudiagramm liegen 10 Punkte. 6 haben einen x-Wert über 5, 7 einen y-Wert über 50, und 2 Punkte haben keines von beidem. Wie viele Punkte haben beides?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "6 + 7 - (10 - 2)",
+   "w": "Mindestens eine Bedingung erfüllen 10 − 2 = 8 Punkte. Zählt man 6 + 7 = 13, werden die Punkte mit beidem doppelt gezählt: 13 − 8 = 5.",
+   "h": "Wie viele Punkte erfüllen mindestens eine der beiden Bedingungen?",
+   "l": "ablesen",
+   "t": "ablesen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Fünf Punkte haben den Mittelwert der y-Werte 20. Ein sechster Punkt kommt dazu, danach ist der Mittelwert 22. Welchen y-Wert hat der neue Punkt?"
+   },
+   "o": {
+    "wert": 32
+   },
+   "c": "6*22 - 5*20",
+   "w": "Vorher Summe 5 · 20 = 100, nachher 6 · 22 = 132. Der neue Punkt bringt 132 − 100 = 32. Er hebt jeden der sechs um 2 an: 20 + 6 · 2 = 32.",
+   "h": "Rechne mit Summen statt mit Mittelwerten.",
+   "l": "ablesen",
+   "t": "ablesen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "l": "zusammenhang",
+   "t": "zusammenhang",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Zusammenhang erwartest du? „Je älter ein Kind (bis 12 Jahre), desto größer ist es meistens.“"
+   },
+   "a": [
+    "negativer Zusammenhang",
+    "positiver Zusammenhang",
+    "kein Zusammenhang"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Wächst die eine Größe, wächst auch die andere: positiv.",
+   "h": "Frage dich: Wenn die erste Größe wächst – was passiert mit der zweiten?",
+   "g": "einkleidung"
+  },
+  {
+   "l": "zusammenhang",
+   "t": "zusammenhang",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Zusammenhang zeigt das Streudiagramm?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      10
+     ],
+     "y": [
+      230,
+      310
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 276
+      },
+      {
+       "x": 2,
+       "y": 263
+      },
+      {
+       "x": 3,
+       "y": 273
+      },
+      {
+       "x": 4,
+       "y": 275
+      },
+      {
+       "x": 5,
+       "y": 249
+      },
+      {
+       "x": 6,
+       "y": 268
+      },
+      {
+       "x": 7,
+       "y": 290
+      },
+      {
+       "x": 8,
+       "y": 269
+      },
+      {
+       "x": 9,
+       "y": 259
+      }
+     ],
+     "name_x": "Trainingsstunden pro Woche in h",
+     "name_y": "1000-m-Zeit in s",
+     "schritt_y": 10
+    }
+   },
+   "a": [
+    "positiv",
+    "kein Zusammenhang",
+    "negativ"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Punkte bilden eine Wolke ohne Richtung: kein Zusammenhang.",
+   "h": "Fahre mit dem Finger von links nach rechts: Geht es mit den Punkten nach oben, nach unten oder gar nicht?",
+   "g": "darstellung"
+  },
+  {
+   "l": "zusammenhang",
+   "t": "zusammenhang",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Zusammenhang erwartest du? „Je länger man ein Handy benutzt, desto leerer wird der Akku.“"
+   },
+   "a": [
+    "negativer Zusammenhang",
+    "kein Zusammenhang",
+    "positiver Zusammenhang"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Wächst die eine Größe, wird die andere kleiner: negativ.",
+   "h": "Frage dich: Wenn die erste Größe wächst – was passiert mit der zweiten?",
+   "g": "einkleidung"
+  },
+  {
+   "l": "zusammenhang",
+   "t": "zusammenhang",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Das Streudiagramm zeigt Tagestemperatur (x) und verkaufte Eiskugeln (y). Welche Aussage beschreibt es richtig?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      15,
+      32
+     ],
+     "y": [
+      0,
+      400
+     ],
+     "punkte": [
+      {
+       "x": 16,
+       "y": 138
+      },
+      {
+       "x": 18,
+       "y": 67
+      },
+      {
+       "x": 20,
+       "y": 239
+      },
+      {
+       "x": 21,
+       "y": 130
+      },
+      {
+       "x": 22,
+       "y": 212
+      },
+      {
+       "x": 24,
+       "y": 255
+      },
+      {
+       "x": 26,
+       "y": 313
+      },
+      {
+       "x": 27,
+       "y": 320
+      },
+      {
+       "x": 30,
+       "y": 202
+      },
+      {
+       "x": 31,
+       "y": 268
+      }
+     ],
+     "name_x": "Tagestemperatur in °C",
+     "name_y": "verkaufte Eiskugeln in Kugeln",
+     "schritt_y": 50,
+     "schritt_x": 2
+    }
+   },
+   "a": [
+    "An wärmeren Tagen werden meistens mehr Eiskugeln verkauft.",
+    "Man kann keinen Zusammenhang erkennen.",
+    "An wärmeren Tagen werden meistens weniger Eiskugeln verkauft.",
+    "An wärmeren Tagen werden immer mehr Eiskugeln verkauft."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Punkte steigen, streuen aber: Es ist eine Tendenz („meistens“). Einzelne Punkte passen nicht – darum ist „immer“ falsch.",
+   "h": "Erst die Richtung bestimmen. Dann prüfen: Gilt sie für jeden einzelnen Punkt oder nur meistens?",
+   "g": "begruenden"
+  },
+  {
+   "l": "zusammenhang",
+   "t": "zusammenhang",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Zusammenhang erwartest du? „Der Geburtsmonat und die Note in Mathe“"
+   },
+   "a": [
+    "positiver Zusammenhang",
+    "kein Zusammenhang",
+    "negativer Zusammenhang"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die beiden Größen haben nichts miteinander zu tun: kein Zusammenhang.",
+   "h": "Frage dich: Wenn die erste Größe wächst – was passiert mit der zweiten?",
+   "g": "einkleidung"
+  },
+  {
    "l": "zusammenhang",
    "t": "zusammenhang",
    "p": "uebung",
@@ -2516,7 +2897,261 @@
     "index": 2
    },
    "w": "Die Punkte bilden eine Wolke ohne Richtung: kein Zusammenhang.",
+   "h": "Fahre mit dem Finger von links nach rechts: Geht es mit den Punkten nach oben, nach unten oder gar nicht?",
+   "g": "erkennen"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Die Punkte steigen von links unten nach rechts oben und liegen eng an einer gedachten Linie. Welcher Zusammenhang ist das?"
+   },
+   "a": [
+    "kein Zusammenhang",
+    "stark negativ",
+    "stark positiv",
+    "schwach positiv"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Steigend heißt positiv, eng an einer Linie heißt stark.",
+   "h": "Steigen oder fallen die Punkte? Wie eng liegen sie?",
+   "l": "zusammenhang",
+   "t": "zusammenhang",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt"
+  },
+  {
+   "l": "zusammenhang",
+   "t": "zusammenhang",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Zusammenhang erwartest du? „Je schneller ein Auto fährt, desto länger ist sein Bremsweg.“"
+   },
+   "a": [
+    "positiver Zusammenhang",
+    "kein Zusammenhang",
+    "negativer Zusammenhang"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Wächst die eine Größe, wächst auch die andere: positiv.",
+   "h": "Frage dich: Wenn die erste Größe wächst – was passiert mit der zweiten?",
+   "g": "einkleidung"
+  },
+  {
+   "l": "zusammenhang",
+   "t": "zusammenhang",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Beschreibe den Zusammenhang im Streudiagramm möglichst genau.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      10
+     ],
+     "y": [
+      0,
+      35
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 17
+      },
+      {
+       "x": 2,
+       "y": 15
+      },
+      {
+       "x": 3,
+       "y": 26
+      },
+      {
+       "x": 4,
+       "y": 24
+      },
+      {
+       "x": 5,
+       "y": 21
+      },
+      {
+       "x": 7,
+       "y": 9
+      },
+      {
+       "x": 8,
+       "y": 16
+      },
+      {
+       "x": 9,
+       "y": 5
+      }
+     ],
+     "name_x": "Alter des Autos in Jahren",
+     "name_y": "Wert in Tausend €",
+     "schritt_y": 5
+    }
+   },
+   "a": [
+    "schwach negativ",
+    "schwach positiv",
+    "stark positiv",
+    "stark negativ"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Richtung: fallend. Die Punkte streuen deutlich um eine gedachte Gerade: schwach.",
+   "h": "Erst die Richtung (steigend/fallend), dann die Stärke (eng an einer Linie oder breit gestreut).",
+   "g": "darstellung"
+  },
+  {
+   "l": "zusammenhang",
+   "t": "zusammenhang",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Zusammenhang zeigt das Streudiagramm?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      10
+     ],
+     "y": [
+      245,
+      300
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 261
+      },
+      {
+       "x": 2,
+       "y": 253
+      },
+      {
+       "x": 3,
+       "y": 293
+      },
+      {
+       "x": 4,
+       "y": 278
+      },
+      {
+       "x": 5,
+       "y": 281
+      },
+      {
+       "x": 6,
+       "y": 257
+      },
+      {
+       "x": 7,
+       "y": 277
+      },
+      {
+       "x": 9,
+       "y": 272
+      }
+     ],
+     "name_x": "Trainingsstunden pro Woche in h",
+     "name_y": "1000-m-Zeit in s",
+     "schritt_y": 5
+    }
+   },
+   "a": [
+    "kein Zusammenhang",
+    "negativ",
+    "positiv"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Punkte bilden eine Wolke ohne Richtung: kein Zusammenhang.",
    "h": "Fahre mit dem Finger von links nach rechts: Geht es mit den Punkten nach oben, nach unten oder gar nicht?"
+  },
+  {
+   "l": "zusammenhang",
+   "t": "zusammenhang",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Zusammenhang im Streudiagramm ist negativ. A hat den kleineren x-Wert, aber den kleineren y-Wert. Was folgt daraus?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      11
+     ],
+     "y": [
+      0,
+      30
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 17
+      },
+      {
+       "x": 3,
+       "y": 20
+      },
+      {
+       "x": 4,
+       "y": 11
+      },
+      {
+       "x": 5,
+       "y": 22
+      },
+      {
+       "x": 6,
+       "y": 14
+      },
+      {
+       "x": 8,
+       "y": 4,
+       "name": "A"
+      },
+      {
+       "x": 9,
+       "y": 11,
+       "name": "B"
+      },
+      {
+       "x": 10,
+       "y": 6
+      }
+     ],
+     "name_x": "Alter des Autos in Jahren",
+     "name_y": "Wert in Tausend €",
+     "schritt_y": 5
+    }
+   },
+   "a": [
+    "A oder B muss ein Messfehler sein.",
+    "Der Zusammenhang kann doch nicht negativ sein.",
+    "Der Zusammenhang ist positiv.",
+    "Nichts Besonderes: Ein Zusammenhang ist eine Tendenz, nicht eine Regel für jedes Paar."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Richtung beschreibt, was meistens passiert. Bei einem schwachen Zusammenhang gibt es viele Paare, die „gegen“ die Richtung laufen.",
+   "h": "Beschreibt ein Zusammenhang jedes einzelne Paar oder die ganze Punktwolke?",
+   "g": "begruenden"
   },
   {
    "l": "zusammenhang",
@@ -2592,7 +3227,98 @@
     "index": 0
    },
    "w": "Die Punkte bilden eine Wolke ohne Richtung: kein Zusammenhang.",
+   "h": "Fahre mit dem Finger von links nach rechts: Geht es mit den Punkten nach oben, nach unten oder gar nicht?",
+   "g": "erkennen"
+  },
+  {
+   "l": "zusammenhang",
+   "t": "zusammenhang",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Zusammenhang zeigt das Streudiagramm?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      1,
+      11
+     ],
+     "y": [
+      4,
+      26
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 22
+      },
+      {
+       "x": 3,
+       "y": 19
+      },
+      {
+       "x": 4,
+       "y": 20
+      },
+      {
+       "x": 5,
+       "y": 17
+      },
+      {
+       "x": 7,
+       "y": 14
+      },
+      {
+       "x": 8,
+       "y": 9
+      },
+      {
+       "x": 9,
+       "y": 9
+      },
+      {
+       "x": 10,
+       "y": 6
+      }
+     ],
+     "name_x": "Alter des Autos in Jahren",
+     "name_y": "Wert in Tausend €",
+     "schritt_y": 2
+    }
+   },
+   "a": [
+    "positiv",
+    "negativ",
+    "kein Zusammenhang"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Punkte fallen von links nach rechts: negativer Zusammenhang.",
    "h": "Fahre mit dem Finger von links nach rechts: Geht es mit den Punkten nach oben, nach unten oder gar nicht?"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Die Punkte bilden eine runde Wolke ohne erkennbare Richtung. Welcher Zusammenhang ist das?"
+   },
+   "a": [
+    "schwach positiv",
+    "stark positiv",
+    "stark negativ",
+    "kein Zusammenhang"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ohne Richtung steigt y weder mit x noch fällt es: kein Zusammenhang.",
+   "h": "Kannst du eine Richtung erkennen?",
+   "l": "zusammenhang",
+   "t": "zusammenhang",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt"
   },
   {
    "l": "zusammenhang",
@@ -2739,294 +3465,6 @@
    "l": "zusammenhang",
    "t": "zusammenhang",
    "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Zusammenhang zeigt das Streudiagramm?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      1,
-      11
-     ],
-     "y": [
-      4,
-      26
-     ],
-     "punkte": [
-      {
-       "x": 2,
-       "y": 22
-      },
-      {
-       "x": 3,
-       "y": 19
-      },
-      {
-       "x": 4,
-       "y": 20
-      },
-      {
-       "x": 5,
-       "y": 17
-      },
-      {
-       "x": 7,
-       "y": 14
-      },
-      {
-       "x": 8,
-       "y": 9
-      },
-      {
-       "x": 9,
-       "y": 9
-      },
-      {
-       "x": 10,
-       "y": 6
-      }
-     ],
-     "name_x": "Alter des Autos in Jahren",
-     "name_y": "Wert in Tausend €",
-     "schritt_y": 2
-    }
-   },
-   "a": [
-    "positiv",
-    "negativ",
-    "kein Zusammenhang"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Die Punkte fallen von links nach rechts: negativer Zusammenhang.",
-   "h": "Fahre mit dem Finger von links nach rechts: Geht es mit den Punkten nach oben, nach unten oder gar nicht?"
-  },
-  {
-   "l": "zusammenhang",
-   "t": "zusammenhang",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Zusammenhang zeigt das Streudiagramm?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      10
-     ],
-     "y": [
-      245,
-      300
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 261
-      },
-      {
-       "x": 2,
-       "y": 253
-      },
-      {
-       "x": 3,
-       "y": 293
-      },
-      {
-       "x": 4,
-       "y": 278
-      },
-      {
-       "x": 5,
-       "y": 281
-      },
-      {
-       "x": 6,
-       "y": 257
-      },
-      {
-       "x": 7,
-       "y": 277
-      },
-      {
-       "x": 9,
-       "y": 272
-      }
-     ],
-     "name_x": "Trainingsstunden pro Woche in h",
-     "name_y": "1000-m-Zeit in s",
-     "schritt_y": 5
-    }
-   },
-   "a": [
-    "kein Zusammenhang",
-    "negativ",
-    "positiv"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Die Punkte bilden eine Wolke ohne Richtung: kein Zusammenhang.",
-   "h": "Fahre mit dem Finger von links nach rechts: Geht es mit den Punkten nach oben, nach unten oder gar nicht?"
-  },
-  {
-   "l": "zusammenhang",
-   "t": "zusammenhang",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Zusammenhang erwartest du? „Je älter ein Kind (bis 12 Jahre), desto größer ist es meistens.“"
-   },
-   "a": [
-    "negativer Zusammenhang",
-    "positiver Zusammenhang",
-    "kein Zusammenhang"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Wächst die eine Größe, wächst auch die andere: positiv.",
-   "h": "Frage dich: Wenn die erste Größe wächst – was passiert mit der zweiten?"
-  },
-  {
-   "l": "zusammenhang",
-   "t": "zusammenhang",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Zusammenhang erwartest du? „Je länger man ein Handy benutzt, desto leerer wird der Akku.“"
-   },
-   "a": [
-    "negativer Zusammenhang",
-    "kein Zusammenhang",
-    "positiver Zusammenhang"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Wächst die eine Größe, wird die andere kleiner: negativ.",
-   "h": "Frage dich: Wenn die erste Größe wächst – was passiert mit der zweiten?"
-  },
-  {
-   "l": "zusammenhang",
-   "t": "zusammenhang",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Zusammenhang erwartest du? „Der Geburtsmonat und die Note in Mathe“"
-   },
-   "a": [
-    "positiver Zusammenhang",
-    "kein Zusammenhang",
-    "negativer Zusammenhang"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Die beiden Größen haben nichts miteinander zu tun: kein Zusammenhang.",
-   "h": "Frage dich: Wenn die erste Größe wächst – was passiert mit der zweiten?"
-  },
-  {
-   "l": "zusammenhang",
-   "t": "zusammenhang",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Zusammenhang erwartest du? „Je schneller ein Auto fährt, desto länger ist sein Bremsweg.“"
-   },
-   "a": [
-    "positiver Zusammenhang",
-    "kein Zusammenhang",
-    "negativer Zusammenhang"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Wächst die eine Größe, wächst auch die andere: positiv.",
-   "h": "Frage dich: Wenn die erste Größe wächst – was passiert mit der zweiten?"
-  },
-  {
-   "l": "zusammenhang",
-   "t": "zusammenhang",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Zusammenhang zeigt das Streudiagramm?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      10
-     ],
-     "y": [
-      230,
-      310
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 276
-      },
-      {
-       "x": 2,
-       "y": 263
-      },
-      {
-       "x": 3,
-       "y": 273
-      },
-      {
-       "x": 4,
-       "y": 275
-      },
-      {
-       "x": 5,
-       "y": 249
-      },
-      {
-       "x": 6,
-       "y": 268
-      },
-      {
-       "x": 7,
-       "y": 290
-      },
-      {
-       "x": 8,
-       "y": 269
-      },
-      {
-       "x": 9,
-       "y": 259
-      }
-     ],
-     "name_x": "Trainingsstunden pro Woche in h",
-     "name_y": "1000-m-Zeit in s",
-     "schritt_y": 10
-    }
-   },
-   "a": [
-    "positiv",
-    "kein Zusammenhang",
-    "negativ"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Die Punkte bilden eine Wolke ohne Richtung: kein Zusammenhang.",
-   "h": "Fahre mit dem Finger von links nach rechts: Geht es mit den Punkten nach oben, nach unten oder gar nicht?"
-  },
-  {
-   "l": "zusammenhang",
-   "t": "zusammenhang",
-   "p": "uebung",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -3041,231 +3479,14 @@
     "index": 1
    },
    "w": "Wächst die eine Größe, wird die andere kleiner: negativ.",
-   "h": "Frage dich: Wenn die erste Größe wächst – was passiert mit der zweiten?"
+   "h": "Frage dich: Wenn die erste Größe wächst – was passiert mit der zweiten?",
+   "g": "einkleidung"
   },
   {
    "l": "zusammenhang",
    "t": "zusammenhang",
    "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Beschreibe den Zusammenhang im Streudiagramm möglichst genau.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      10
-     ],
-     "y": [
-      0,
-      35
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 17
-      },
-      {
-       "x": 2,
-       "y": 15
-      },
-      {
-       "x": 3,
-       "y": 26
-      },
-      {
-       "x": 4,
-       "y": 24
-      },
-      {
-       "x": 5,
-       "y": 21
-      },
-      {
-       "x": 7,
-       "y": 9
-      },
-      {
-       "x": 8,
-       "y": 16
-      },
-      {
-       "x": 9,
-       "y": 5
-      }
-     ],
-     "name_x": "Alter des Autos in Jahren",
-     "name_y": "Wert in Tausend €",
-     "schritt_y": 5
-    }
-   },
-   "a": [
-    "schwach negativ",
-    "schwach positiv",
-    "stark positiv",
-    "stark negativ"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Richtung: fallend. Die Punkte streuen deutlich um eine gedachte Gerade: schwach.",
-   "h": "Erst die Richtung (steigend/fallend), dann die Stärke (eng an einer Linie oder breit gestreut)."
-  },
-  {
-   "l": "zusammenhang",
-   "t": "zusammenhang",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Das Streudiagramm zeigt Tagestemperatur (x) und verkaufte Eiskugeln (y). Welche Aussage beschreibt es richtig?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      15,
-      32
-     ],
-     "y": [
-      0,
-      400
-     ],
-     "punkte": [
-      {
-       "x": 16,
-       "y": 138
-      },
-      {
-       "x": 18,
-       "y": 67
-      },
-      {
-       "x": 20,
-       "y": 239
-      },
-      {
-       "x": 21,
-       "y": 130
-      },
-      {
-       "x": 22,
-       "y": 212
-      },
-      {
-       "x": 24,
-       "y": 255
-      },
-      {
-       "x": 26,
-       "y": 313
-      },
-      {
-       "x": 27,
-       "y": 320
-      },
-      {
-       "x": 30,
-       "y": 202
-      },
-      {
-       "x": 31,
-       "y": 268
-      }
-     ],
-     "name_x": "Tagestemperatur in °C",
-     "name_y": "verkaufte Eiskugeln in Kugeln",
-     "schritt_y": 50,
-     "schritt_x": 2
-    }
-   },
-   "a": [
-    "An wärmeren Tagen werden meistens mehr Eiskugeln verkauft.",
-    "Man kann keinen Zusammenhang erkennen.",
-    "An wärmeren Tagen werden meistens weniger Eiskugeln verkauft.",
-    "An wärmeren Tagen werden immer mehr Eiskugeln verkauft."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Die Punkte steigen, streuen aber: Es ist eine Tendenz („meistens“). Einzelne Punkte passen nicht – darum ist „immer“ falsch.",
-   "h": "Erst die Richtung bestimmen. Dann prüfen: Gilt sie für jeden einzelnen Punkt oder nur meistens?"
-  },
-  {
-   "l": "zusammenhang",
-   "t": "zusammenhang",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Der Zusammenhang im Streudiagramm ist negativ. A hat den kleineren x-Wert, aber den kleineren y-Wert. Was folgt daraus?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      11
-     ],
-     "y": [
-      0,
-      30
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 17
-      },
-      {
-       "x": 3,
-       "y": 20
-      },
-      {
-       "x": 4,
-       "y": 11
-      },
-      {
-       "x": 5,
-       "y": 22
-      },
-      {
-       "x": 6,
-       "y": 14
-      },
-      {
-       "x": 8,
-       "y": 4,
-       "name": "A"
-      },
-      {
-       "x": 9,
-       "y": 11,
-       "name": "B"
-      },
-      {
-       "x": 10,
-       "y": 6
-      }
-     ],
-     "name_x": "Alter des Autos in Jahren",
-     "name_y": "Wert in Tausend €",
-     "schritt_y": 5
-    }
-   },
-   "a": [
-    "A oder B muss ein Messfehler sein.",
-    "Der Zusammenhang kann doch nicht negativ sein.",
-    "Der Zusammenhang ist positiv.",
-    "Nichts Besonderes: Ein Zusammenhang ist eine Tendenz, nicht eine Regel für jedes Paar."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Die Richtung beschreibt, was meistens passiert. Bei einem schwachen Zusammenhang gibt es viele Paare, die „gegen“ die Richtung laufen.",
-   "h": "Beschreibt ein Zusammenhang jedes einzelne Paar oder die ganze Punktwolke?"
-  },
-  {
-   "l": "zusammenhang",
-   "t": "zusammenhang",
-   "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Beschreibe den Zusammenhang im Streudiagramm möglichst genau.",
@@ -3332,7 +3553,30 @@
     "index": 0
    },
    "w": "Richtung: fallend. Die Punkte liegen eng an einer gedachten Geraden: stark.",
-   "h": "Erst die Richtung (steigend/fallend), dann die Stärke (eng an einer Linie oder breit gestreut)."
+   "h": "Erst die Richtung (steigend/fallend), dann die Stärke (eng an einer Linie oder breit gestreut).",
+   "g": "darstellung"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen zwei Größen besteht ein stark negativer Zusammenhang. Wie sieht das Streudiagramm aus?"
+   },
+   "a": [
+    "Die Punkte fallen, liegen aber weit verstreut.",
+    "Die Punkte fallen von links oben nach rechts unten und liegen eng beieinander.",
+    "Die Punkte liegen auf einer waagrechten Linie.",
+    "Die Punkte steigen und liegen weit verstreut."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Negativ: fallend. Stark: eng an einer Linie.",
+   "h": "Übersetze „negativ“ und „stark“ einzeln.",
+   "l": "zusammenhang",
+   "t": "zusammenhang",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr"
   },
   {
    "l": "zusammenhang",
@@ -3431,228 +3675,8 @@
     "index": 2
    },
    "w": "Die Punkte von Gruppe 2 liegen enger an einer Geraden (Korrelation r ≈ −0,99 gegenüber r ≈ −0,71).",
-   "h": "Schau, welche Punktart enger an einer gedachten Geraden liegt."
-  },
-  {
-   "l": "zusammenhang",
-   "t": "zusammenhang",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Das Streudiagramm zeigt Alter des Autos (x) und Wert (y). Welche Aussage beschreibt es richtig?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      1,
-      11
-     ],
-     "y": [
-      0,
-      30
-     ],
-     "punkte": [
-      {
-       "x": 2,
-       "y": 16
-      },
-      {
-       "x": 4,
-       "y": 23
-      },
-      {
-       "x": 5,
-       "y": 19
-      },
-      {
-       "x": 6,
-       "y": 7
-      },
-      {
-       "x": 7,
-       "y": 10
-      },
-      {
-       "x": 8,
-       "y": 4
-      },
-      {
-       "x": 9,
-       "y": 8
-      },
-      {
-       "x": 10,
-       "y": 12
-      }
-     ],
-     "name_x": "Alter des Autos in Jahren",
-     "name_y": "Wert in Tausend €",
-     "schritt_y": 5
-    }
-   },
-   "a": [
-    "Man kann keinen Zusammenhang erkennen.",
-    "Ältere Autos sind meistens weniger wert.",
-    "Ältere Autos sind meistens mehr wert.",
-    "Ältere Autos sind immer weniger wert."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Die Punkte fallen, streuen aber: Es ist eine Tendenz („meistens“). Einzelne Punkte passen nicht – darum ist „immer“ falsch.",
-   "h": "Erst die Richtung bestimmen. Dann prüfen: Gilt sie für jeden einzelnen Punkt oder nur meistens?"
-  },
-  {
-   "l": "zusammenhang",
-   "t": "zusammenhang",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Die Achsen des Streudiagramms sind nicht beschriftet. Zu welchem Größenpaar passt es am besten?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      11
-     ],
-     "y": [
-      28,
-      44
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 36
-      },
-      {
-       "x": 2,
-       "y": 37
-      },
-      {
-       "x": 3,
-       "y": 33
-      },
-      {
-       "x": 4,
-       "y": 31
-      },
-      {
-       "x": 5,
-       "y": 41
-      },
-      {
-       "x": 7,
-       "y": 40
-      },
-      {
-       "x": 8,
-       "y": 34
-      },
-      {
-       "x": 9,
-       "y": 34
-      },
-      {
-       "x": 10,
-       "y": 36
-      }
-     ],
-     "name_x": "x",
-     "name_y": "y",
-     "schritt_y": 2
-    }
-   },
-   "a": [
-    "Schuhgröße (x) und Lieblingszahl (y)",
-    "Fahrstrecke (x) und Taxipreis (y)",
-    "Alter eines Autos (x) und sein Wert (y)",
-    "Körpergröße (x) und Schuhgröße (y)"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Die Punkte bilden eine Wolke ohne Richtung. Das passt zu Schuhgröße (x) und Lieblingszahl (y): die beiden Größen haben nichts miteinander zu tun.",
-   "h": "Bestimme zuerst die Art des Zusammenhangs. Überlege dann bei jedem Paar, welche Art du erwartest."
-  },
-  {
-   "l": "zusammenhang",
-   "t": "zusammenhang",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Der Zusammenhang im Streudiagramm ist positiv. A hat den kleineren x-Wert, aber den größeren y-Wert. Was folgt daraus?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      11
-     ],
-     "y": [
-      20,
-      100
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 59
-      },
-      {
-       "x": 2,
-       "y": 38
-      },
-      {
-       "x": 3,
-       "y": 54
-      },
-      {
-       "x": 4,
-       "y": 66
-      },
-      {
-       "x": 5,
-       "y": 50
-      },
-      {
-       "x": 6,
-       "y": 83
-      },
-      {
-       "x": 7,
-       "y": 67
-      },
-      {
-       "x": 8,
-       "y": 77
-      },
-      {
-       "x": 9,
-       "y": 89,
-       "name": "A"
-      },
-      {
-       "x": 10,
-       "y": 71,
-       "name": "B"
-      }
-     ],
-     "name_x": "Lernzeit in h",
-     "name_y": "Punkte im Test in Punkte",
-     "schritt_y": 10
-    }
-   },
-   "a": [
-    "A oder B muss ein Messfehler sein.",
-    "Der Zusammenhang ist negativ.",
-    "Der Zusammenhang kann doch nicht positiv sein.",
-    "Nichts Besonderes: Ein Zusammenhang ist eine Tendenz, nicht eine Regel für jedes Paar."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Die Richtung beschreibt, was meistens passiert. Bei einem schwachen Zusammenhang gibt es viele Paare, die „gegen“ die Richtung laufen.",
-   "h": "Beschreibt ein Zusammenhang jedes einzelne Paar oder die ganze Punktwolke?"
+   "h": "Schau, welche Punktart enger an einer gedachten Geraden liegt.",
+   "g": "transfer"
   },
   {
    "l": "zusammenhang",
@@ -4125,6 +4149,411 @@
    "w": "Die beiden Größen haben nichts miteinander zu tun: kein Zusammenhang."
   },
   {
+   "l": "zusammenhang",
+   "t": "zusammenhang",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Das Streudiagramm zeigt Alter des Autos (x) und Wert (y). Welche Aussage beschreibt es richtig?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      1,
+      11
+     ],
+     "y": [
+      0,
+      30
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 16
+      },
+      {
+       "x": 4,
+       "y": 23
+      },
+      {
+       "x": 5,
+       "y": 19
+      },
+      {
+       "x": 6,
+       "y": 7
+      },
+      {
+       "x": 7,
+       "y": 10
+      },
+      {
+       "x": 8,
+       "y": 4
+      },
+      {
+       "x": 9,
+       "y": 8
+      },
+      {
+       "x": 10,
+       "y": 12
+      }
+     ],
+     "name_x": "Alter des Autos in Jahren",
+     "name_y": "Wert in Tausend €",
+     "schritt_y": 5
+    }
+   },
+   "a": [
+    "Man kann keinen Zusammenhang erkennen.",
+    "Ältere Autos sind meistens weniger wert.",
+    "Ältere Autos sind meistens mehr wert.",
+    "Ältere Autos sind immer weniger wert."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Punkte fallen, streuen aber: Es ist eine Tendenz („meistens“). Einzelne Punkte passen nicht – darum ist „immer“ falsch.",
+   "h": "Erst die Richtung bestimmen. Dann prüfen: Gilt sie für jeden einzelnen Punkt oder nur meistens?",
+   "g": "begruenden"
+  },
+  {
+   "l": "zusammenhang",
+   "t": "zusammenhang",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Achsen des Streudiagramms sind nicht beschriftet. Zu welchem Größenpaar passt es am besten?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      11
+     ],
+     "y": [
+      28,
+      44
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 36
+      },
+      {
+       "x": 2,
+       "y": 37
+      },
+      {
+       "x": 3,
+       "y": 33
+      },
+      {
+       "x": 4,
+       "y": 31
+      },
+      {
+       "x": 5,
+       "y": 41
+      },
+      {
+       "x": 7,
+       "y": 40
+      },
+      {
+       "x": 8,
+       "y": 34
+      },
+      {
+       "x": 9,
+       "y": 34
+      },
+      {
+       "x": 10,
+       "y": 36
+      }
+     ],
+     "name_x": "x",
+     "name_y": "y",
+     "schritt_y": 2
+    }
+   },
+   "a": [
+    "Schuhgröße (x) und Lieblingszahl (y)",
+    "Fahrstrecke (x) und Taxipreis (y)",
+    "Alter eines Autos (x) und sein Wert (y)",
+    "Körpergröße (x) und Schuhgröße (y)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Punkte bilden eine Wolke ohne Richtung. Das passt zu Schuhgröße (x) und Lieblingszahl (y): die beiden Größen haben nichts miteinander zu tun.",
+   "h": "Bestimme zuerst die Art des Zusammenhangs. Überlege dann bei jedem Paar, welche Art du erwartest.",
+   "g": "rueckwaerts"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt über ein Streudiagramm: „Die Punkte fallen von links nach rechts, also gibt es keinen Zusammenhang.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Fallende Punkte zeigen einen positiven Zusammenhang.",
+    "Falsch: Man kann es ohne Zahlen nicht sagen.",
+    "Falsch: Fallende Punkte zeigen einen negativen Zusammenhang.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Kein Zusammenhang heißt: keine Richtung. Fallen die Punkte, wird y mit größerem x kleiner – ein negativer Zusammenhang.",
+   "h": "Was bedeutet „kein Zusammenhang“ im Bild?",
+   "l": "zusammenhang",
+   "t": "zusammenhang",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Bei 8 Punkten gilt: Wird x um 1 größer, wird y immer um genau 3 kleiner. Welcher Zusammenhang liegt vor?"
+   },
+   "a": [
+    "perfekt negativ: alle Punkte liegen auf einer fallenden Geraden",
+    "kein Zusammenhang",
+    "stark positiv",
+    "schwach negativ"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Immer genau −3 pro Schritt heißt: Die Punkte liegen auf einer Geraden mit Steigung −3. Enger geht es nicht.",
+   "h": "Denk an eine lineare Funktion mit Steigung −3.",
+   "l": "zusammenhang",
+   "t": "zusammenhang",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Händler notiert Alter (x, in Jahren) und Verkaufspreis (y, in €) von Fahrrädern: (1 | 300), (2 | 260), (4 | 190), (5 | 160), (7 | 90). Welche Aussage trifft zu?"
+   },
+   "a": [
+    "Schwach negativer Zusammenhang, weil ein Rad 90 € kostet.",
+    "Kein Zusammenhang, weil die Abstände ungleich sind.",
+    "Stark negativer Zusammenhang: Ältere Räder bringen deutlich weniger.",
+    "Stark positiver Zusammenhang."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Mit jedem Jahr sinkt der Preis um etwa 35 €, ohne Ausnahme: fallend und eng an einer Linie.",
+   "h": "Trage die Punkte in Gedanken ein: steigt oder fällt y, und wie gleichmäßig?",
+   "l": "zusammenhang",
+   "t": "zusammenhang",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "l": "zusammenhang",
+   "t": "zusammenhang",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Zusammenhang im Streudiagramm ist positiv. A hat den kleineren x-Wert, aber den größeren y-Wert. Was folgt daraus?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      11
+     ],
+     "y": [
+      20,
+      100
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 59
+      },
+      {
+       "x": 2,
+       "y": 38
+      },
+      {
+       "x": 3,
+       "y": 54
+      },
+      {
+       "x": 4,
+       "y": 66
+      },
+      {
+       "x": 5,
+       "y": 50
+      },
+      {
+       "x": 6,
+       "y": 83
+      },
+      {
+       "x": 7,
+       "y": 67
+      },
+      {
+       "x": 8,
+       "y": 77
+      },
+      {
+       "x": 9,
+       "y": 89,
+       "name": "A"
+      },
+      {
+       "x": 10,
+       "y": 71,
+       "name": "B"
+      }
+     ],
+     "name_x": "Lernzeit in h",
+     "name_y": "Punkte im Test in Punkte",
+     "schritt_y": 10
+    }
+   },
+   "a": [
+    "A oder B muss ein Messfehler sein.",
+    "Der Zusammenhang ist negativ.",
+    "Der Zusammenhang kann doch nicht positiv sein.",
+    "Nichts Besonderes: Ein Zusammenhang ist eine Tendenz, nicht eine Regel für jedes Paar."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Richtung beschreibt, was meistens passiert. Bei einem schwachen Zusammenhang gibt es viele Paare, die „gegen“ die Richtung laufen.",
+   "h": "Beschreibt ein Zusammenhang jedes einzelne Paar oder die ganze Punktwolke?"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Streudiagramm zeigt Körpergröße in cm (x) und Schuhgröße (y) von 20 Kindern, stark positiv. Man schreibt die Größen in Metern statt in Zentimetern. Was passiert mit dem Zusammenhang?"
+   },
+   "a": [
+    "Er wird schwächer.",
+    "Er wird negativ.",
+    "Nichts: Er bleibt stark positiv.",
+    "Er verschwindet."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Alle x-Werte werden durch 100 geteilt. Das Bild wird nur waagrecht zusammengeschoben; die Reihenfolge der Punkte und ihre Lage zueinander bleiben gleich. Die Art des Zusammenhangs hängt nicht von der Einheit ab.",
+   "h": "Was ändert sich an der Reihenfolge der Punkte?",
+   "l": "zusammenhang",
+   "t": "zusammenhang",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Die Punkte (1 | 5), (2 | 4) und (3 | 3) liegen auf einer fallenden Geraden. Ein vierter Punkt hat x = 7. Welchen y-Wert muss er haben, damit alle vier genau auf dieser Geraden liegen?"
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "5 - (7 - 1)",
+   "w": "Pro Schritt nach rechts sinkt y um 1: y = 6 − x. Bei x = 7: y = 6 − 7 = −1.",
+   "h": "Wie viel sinkt y je Schritt nach rechts?",
+   "l": "zusammenhang",
+   "t": "zusammenhang",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "x: Werbeausgaben in Tausend €, y: Verkäufe. Die Ausgleichsgerade hat die Gleichung y = 6x + 30. Was bedeutet die Zahl 6?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      12
+     ],
+     "y": [
+      0,
+      112
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 37
+      },
+      {
+       "x": 3,
+       "y": 46
+      },
+      {
+       "x": 4,
+       "y": 56
+      },
+      {
+       "x": 6,
+       "y": 64
+      },
+      {
+       "x": 8,
+       "y": 79
+      },
+      {
+       "x": 9,
+       "y": 86
+      },
+      {
+       "x": 10,
+       "y": 93
+      }
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 6,
+       "t": 30,
+       "bereich": [
+        0,
+        12
+       ]
+      }
+     ],
+     "name_x": "Werbeausgaben in Tausend €",
+     "name_y": "Verkäufe in Stück",
+     "schritt_y": 10
+    }
+   },
+   "a": [
+    "Pro 1000 € mehr Werbung steigt der Wert „Verkäufe“ um etwa 6.",
+    "Pro 1000 € mehr Werbung sinkt der Wert „Verkäufe“ um etwa 6.",
+    "Bei x = 0 ist der Wert „Verkäufe“ gleich 6.",
+    "Es wurden 6 Werte gemessen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Steigung 6 sagt, wie sich y ändert, wenn x um 1 wächst. Der Achsenabschnitt 30 ist der Wert bei x = 0.",
+   "h": "Welche Zahl in y = m · x + t gibt die Änderung pro Schritt an?",
+   "g": "einkleidung"
+  },
+  {
    "l": "gerade",
    "t": "gerade",
    "p": "uebung",
@@ -4193,7 +4622,85 @@
    },
    "c": "4 * 9 + 40",
    "w": "y = 4 · 9 + 40 = 76.",
-   "h": "Setze den x-Wert in die Gleichung ein."
+   "h": "Setze den x-Wert in die Gleichung ein.",
+   "g": "direkt"
+  },
+  {
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "x: Alter des Geräts in Jahre, y: Wert. Die Ausgleichsgerade hat die Gleichung y = −4x + 70. Was bedeutet die Zahl −4?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      12
+     ],
+     "y": [
+      0,
+      77
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 67
+      },
+      {
+       "x": 4,
+       "y": 51
+      },
+      {
+       "x": 5,
+       "y": 48
+      },
+      {
+       "x": 7,
+       "y": 44
+      },
+      {
+       "x": 8,
+       "y": 35
+      },
+      {
+       "x": 9,
+       "y": 31
+      },
+      {
+       "x": 10,
+       "y": 27
+      }
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -4,
+       "t": 70,
+       "bereich": [
+        0,
+        12
+       ]
+      }
+     ],
+     "name_x": "Alter des Geräts in Jahre",
+     "name_y": "Wert in €",
+     "schritt_y": 10
+    }
+   },
+   "a": [
+    "Bei x = 0 ist der Wert „Wert“ gleich 4.",
+    "Pro Jahr mehr Alter steigt der Wert „Wert“ um etwa 4.",
+    "Es wurden 4 Werte gemessen.",
+    "Pro Jahr mehr Alter sinkt der Wert „Wert“ um etwa 4."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Steigung -4 sagt, wie sich y ändert, wenn x um 1 wächst. Der Achsenabschnitt 70 ist der Wert bei x = 0.",
+   "h": "Welche Zahl in y = m · x + t gibt die Änderung pro Schritt an?",
+   "g": "einkleidung"
   },
   {
    "l": "gerade",
@@ -4265,7 +4772,213 @@
    },
    "c": "2 * 2 + 30",
    "w": "Bei x = 2 trifft man die Gerade bei y = 34 (Gleichung y = 2x + 30).",
-   "h": "Gehe von x senkrecht nach oben bis zur Geraden, dann waagrecht zur y-Achse."
+   "h": "Gehe von x senkrecht nach oben bis zur Geraden, dann waagrecht zur y-Achse.",
+   "g": "erkennen"
+  },
+  {
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "x: Übungszeit in h, y: Punkte. Die Ausgleichsgerade hat die Gleichung y = 4x + 40. Was bedeutet die Zahl 4?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      12
+     ],
+     "y": [
+      0,
+      98
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 41
+      },
+      {
+       "x": 2,
+       "y": 49
+      },
+      {
+       "x": 4,
+       "y": 59
+      },
+      {
+       "x": 5,
+       "y": 58
+      },
+      {
+       "x": 6,
+       "y": 63
+      },
+      {
+       "x": 8,
+       "y": 70
+      },
+      {
+       "x": 9,
+       "y": 79
+      }
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 4,
+       "t": 40,
+       "bereich": [
+        0,
+        12
+       ]
+      }
+     ],
+     "name_x": "Übungszeit in h",
+     "name_y": "Punkte",
+     "schritt_y": 10
+    }
+   },
+   "a": [
+    "Es wurden 4 Werte gemessen.",
+    "Bei x = 0 ist der Wert „Punkte“ gleich 4.",
+    "Pro Stunde mehr Übungszeit sinkt der Wert „Punkte“ um etwa 4.",
+    "Pro Stunde mehr Übungszeit steigt der Wert „Punkte“ um etwa 4."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Steigung 4 sagt, wie sich y ändert, wenn x um 1 wächst. Der Achsenabschnitt 40 ist der Wert bei x = 0.",
+   "h": "Welche Zahl in y = m · x + t gibt die Änderung pro Schritt an?",
+   "g": "einkleidung"
+  },
+  {
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Ausgleichsgerade y = 5x + 40 schätzt die Testpunkte (y) aus der Lernzeit in Stunden (x). Ein Schüler hat 7 Stunden gelernt und 66 Punkte erreicht. Um wie viele Punkte liegt er unter der Schätzung?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "abs(66 - (5 * 7 + 40))",
+   "w": "Schätzung: 5 · 7 + 40 = 75. Unterschied: 75 − 66 = 9.",
+   "h": "Berechne zuerst, was die Gerade für diese Lernzeit vorhersagt.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Ausgleichsgerade geht durch die Punkte (5 | 40) und (8 | 58). Schätze mit ihr den y-Wert für x = 6."
+   },
+   "o": {
+    "wert": 46
+   },
+   "c": "40 + (58 - 40) / (8 - 5) * (6 - 5)",
+   "w": "Steigung: (58 − 40) : (8 − 5) = 18 : 3 = 6. Von x = 5 nach x = 6: y = 40 + 6 = 46.",
+   "h": "Bestimme zuerst, um wie viel y pro Schritt in x wächst oder fällt.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Ausgleichsgerade y = −6x + 90 schätzt den Akkustand in % (y) aus der Nutzungsdauer in Stunden (x). Ab welcher ganzen Stundenzahl sagt sie einen Akkustand unter 0 % voraus?"
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "90 // 6 + 1",
+   "w": "−6x + 90 < 0 ⇒ 6x > 90 ⇒ x > 15. Die kleinste ganze Zahl ist 16. Ein Akku unter 0 % ist unmöglich: Die Gerade gilt dort nicht mehr.",
+   "h": "Stelle die Ungleichung „Schätzung < 0“ auf und löse sie nach x.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gemessen wurde nur für x zwischen 1 und 10. Die Ausgleichsgerade y = −3x + 80 liefert für x = 25 den Wert y = 5. Ist diese Schätzung verlässlich?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      12
+     ],
+     "y": [
+      0,
+      85
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 74
+      },
+      {
+       "x": 2,
+       "y": 75
+      },
+      {
+       "x": 5,
+       "y": 64
+      },
+      {
+       "x": 6,
+       "y": 61
+      },
+      {
+       "x": 7,
+       "y": 62
+      },
+      {
+       "x": 9,
+       "y": 51
+      },
+      {
+       "x": 10,
+       "y": 49
+      }
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -3,
+       "t": 80,
+       "bereich": [
+        0,
+        12
+       ]
+      }
+     ],
+     "name_x": "Nutzungsdauer in h",
+     "name_y": "Akkustand in %",
+     "schritt_y": 10
+    }
+   },
+   "a": [
+    "Ja – die Gleichung gilt immer.",
+    "Ja – weil die Gerade durch viele Punkte geht.",
+    "Nein – das liegt weit außerhalb der Messwerte (Extrapolation).",
+    "Nein – man darf nie mit einer Ausgleichsgeraden rechnen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "x = 25 liegt weit außerhalb von 1 bis 10. Ob der Zusammenhang dort noch gilt, weiß niemand.",
+   "h": "Liegt der x-Wert innerhalb oder außerhalb der gemessenen Daten?",
+   "g": "begruenden"
   },
   {
    "l": "gerade",
@@ -4336,7 +5049,81 @@
    },
    "c": "3 * 10 + 30",
    "w": "y = 3 · 10 + 30 = 60.",
-   "h": "Setze den x-Wert in die Gleichung ein."
+   "h": "Setze den x-Wert in die Gleichung ein.",
+   "g": "direkt"
+  },
+  {
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Lies an der Ausgleichsgeraden ab: Welcher y-Wert gehört zu x = 6?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      12
+     ],
+     "y": [
+      0,
+      54
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 26
+      },
+      {
+       "x": 4,
+       "y": 26
+      },
+      {
+       "x": 5,
+       "y": 32
+      },
+      {
+       "x": 7,
+       "y": 35
+      },
+      {
+       "x": 8,
+       "y": 37
+      },
+      {
+       "x": 9,
+       "y": 37
+      },
+      {
+       "x": 10,
+       "y": 41
+      }
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 20,
+       "bereich": [
+        0,
+        12
+       ]
+      }
+     ],
+     "name_x": "Übungszeit in h",
+     "name_y": "Punkte",
+     "schritt_y": 10
+    }
+   },
+   "o": {
+    "wert": 32,
+    "toleranz": 5
+   },
+   "c": "2 * 6 + 20",
+   "w": "Bei x = 6 trifft man die Gerade bei y = 32 (Gleichung y = 2x + 20).",
+   "h": "Gehe von x senkrecht nach oben bis zur Geraden, dann waagrecht zur y-Achse.",
+   "g": "erkennen"
   },
   {
    "l": "gerade",
@@ -4416,78 +5203,6 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Lies an der Ausgleichsgeraden ab: Welcher y-Wert gehört zu x = 6?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      12
-     ],
-     "y": [
-      0,
-      54
-     ],
-     "punkte": [
-      {
-       "x": 2,
-       "y": 26
-      },
-      {
-       "x": 4,
-       "y": 26
-      },
-      {
-       "x": 5,
-       "y": 32
-      },
-      {
-       "x": 7,
-       "y": 35
-      },
-      {
-       "x": 8,
-       "y": 37
-      },
-      {
-       "x": 9,
-       "y": 37
-      },
-      {
-       "x": 10,
-       "y": 41
-      }
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": 2,
-       "t": 20,
-       "bereich": [
-        0,
-        12
-       ]
-      }
-     ],
-     "name_x": "Übungszeit in h",
-     "name_y": "Punkte",
-     "schritt_y": 10
-    }
-   },
-   "o": {
-    "wert": 32,
-    "toleranz": 5
-   },
-   "c": "2 * 6 + 20",
-   "w": "Bei x = 6 trifft man die Gerade bei y = 32 (Gleichung y = 2x + 20).",
-   "h": "Gehe von x senkrecht nach oben bis zur Geraden, dann waagrecht zur y-Achse."
-  },
-  {
-   "l": "gerade",
-   "t": "gerade",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
     "text": "Die Ausgleichsgerade hat die Gleichung y = 2x + 20. Schätze y für x = 9.",
     "grafik": {
      "typ": "koordinaten",
@@ -4551,306 +5266,6 @@
    "c": "2 * 9 + 20",
    "w": "y = 2 · 9 + 20 = 38.",
    "h": "Setze den x-Wert in die Gleichung ein."
-  },
-  {
-   "l": "gerade",
-   "t": "gerade",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "x: Werbeausgaben in Tausend €, y: Verkäufe. Die Ausgleichsgerade hat die Gleichung y = 6x + 30. Was bedeutet die Zahl 6?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      12
-     ],
-     "y": [
-      0,
-      112
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 37
-      },
-      {
-       "x": 3,
-       "y": 46
-      },
-      {
-       "x": 4,
-       "y": 56
-      },
-      {
-       "x": 6,
-       "y": 64
-      },
-      {
-       "x": 8,
-       "y": 79
-      },
-      {
-       "x": 9,
-       "y": 86
-      },
-      {
-       "x": 10,
-       "y": 93
-      }
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": 6,
-       "t": 30,
-       "bereich": [
-        0,
-        12
-       ]
-      }
-     ],
-     "name_x": "Werbeausgaben in Tausend €",
-     "name_y": "Verkäufe in Stück",
-     "schritt_y": 10
-    }
-   },
-   "a": [
-    "Pro 1000 € mehr Werbung steigt der Wert „Verkäufe“ um etwa 6.",
-    "Pro 1000 € mehr Werbung sinkt der Wert „Verkäufe“ um etwa 6.",
-    "Bei x = 0 ist der Wert „Verkäufe“ gleich 6.",
-    "Es wurden 6 Werte gemessen."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Die Steigung 6 sagt, wie sich y ändert, wenn x um 1 wächst. Der Achsenabschnitt 30 ist der Wert bei x = 0.",
-   "h": "Welche Zahl in y = m · x + t gibt die Änderung pro Schritt an?"
-  },
-  {
-   "l": "gerade",
-   "t": "gerade",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "x: Alter des Geräts in Jahre, y: Wert. Die Ausgleichsgerade hat die Gleichung y = −4x + 70. Was bedeutet die Zahl −4?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      12
-     ],
-     "y": [
-      0,
-      77
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 67
-      },
-      {
-       "x": 4,
-       "y": 51
-      },
-      {
-       "x": 5,
-       "y": 48
-      },
-      {
-       "x": 7,
-       "y": 44
-      },
-      {
-       "x": 8,
-       "y": 35
-      },
-      {
-       "x": 9,
-       "y": 31
-      },
-      {
-       "x": 10,
-       "y": 27
-      }
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": -4,
-       "t": 70,
-       "bereich": [
-        0,
-        12
-       ]
-      }
-     ],
-     "name_x": "Alter des Geräts in Jahre",
-     "name_y": "Wert in €",
-     "schritt_y": 10
-    }
-   },
-   "a": [
-    "Bei x = 0 ist der Wert „Wert“ gleich 4.",
-    "Pro Jahr mehr Alter steigt der Wert „Wert“ um etwa 4.",
-    "Es wurden 4 Werte gemessen.",
-    "Pro Jahr mehr Alter sinkt der Wert „Wert“ um etwa 4."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Die Steigung -4 sagt, wie sich y ändert, wenn x um 1 wächst. Der Achsenabschnitt 70 ist der Wert bei x = 0.",
-   "h": "Welche Zahl in y = m · x + t gibt die Änderung pro Schritt an?"
-  },
-  {
-   "l": "gerade",
-   "t": "gerade",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Lies an der Ausgleichsgeraden ab: Welcher y-Wert gehört zu x = 6?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      12
-     ],
-     "y": [
-      0,
-      92
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 18
-      },
-      {
-       "x": 2,
-       "y": 25
-      },
-      {
-       "x": 3,
-       "y": 30
-      },
-      {
-       "x": 4,
-       "y": 35
-      },
-      {
-       "x": 7,
-       "y": 49
-      },
-      {
-       "x": 8,
-       "y": 56
-      },
-      {
-       "x": 9,
-       "y": 66
-      }
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": 6,
-       "t": 10,
-       "bereich": [
-        0,
-        12
-       ]
-      }
-     ],
-     "name_x": "Übungszeit in h",
-     "name_y": "Punkte",
-     "schritt_y": 10
-    }
-   },
-   "o": {
-    "wert": 46,
-    "toleranz": 5
-   },
-   "c": "6 * 6 + 10",
-   "w": "Bei x = 6 trifft man die Gerade bei y = 46 (Gleichung y = 6x + 10).",
-   "h": "Gehe von x senkrecht nach oben bis zur Geraden, dann waagrecht zur y-Achse."
-  },
-  {
-   "l": "gerade",
-   "t": "gerade",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "x: Übungszeit in h, y: Punkte. Die Ausgleichsgerade hat die Gleichung y = 4x + 40. Was bedeutet die Zahl 4?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      12
-     ],
-     "y": [
-      0,
-      98
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 41
-      },
-      {
-       "x": 2,
-       "y": 49
-      },
-      {
-       "x": 4,
-       "y": 59
-      },
-      {
-       "x": 5,
-       "y": 58
-      },
-      {
-       "x": 6,
-       "y": 63
-      },
-      {
-       "x": 8,
-       "y": 70
-      },
-      {
-       "x": 9,
-       "y": 79
-      }
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": 4,
-       "t": 40,
-       "bereich": [
-        0,
-        12
-       ]
-      }
-     ],
-     "name_x": "Übungszeit in h",
-     "name_y": "Punkte",
-     "schritt_y": 10
-    }
-   },
-   "a": [
-    "Es wurden 4 Werte gemessen.",
-    "Bei x = 0 ist der Wert „Punkte“ gleich 4.",
-    "Pro Stunde mehr Übungszeit sinkt der Wert „Punkte“ um etwa 4.",
-    "Pro Stunde mehr Übungszeit steigt der Wert „Punkte“ um etwa 4."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Die Steigung 4 sagt, wie sich y ändert, wenn x um 1 wächst. Der Achsenabschnitt 40 ist der Wert bei x = 0.",
-   "h": "Welche Zahl in y = m · x + t gibt die Änderung pro Schritt an?"
   },
   {
    "l": "gerade",
@@ -4926,7 +5341,116 @@
     "index": 0
    },
    "w": "Die Steigung -2 sagt, wie sich y ändert, wenn x um 1 wächst. Der Achsenabschnitt 60 ist der Wert bei x = 0.",
-   "h": "Welche Zahl in y = m · x + t gibt die Änderung pro Schritt an?"
+   "h": "Welche Zahl in y = m · x + t gibt die Änderung pro Schritt an?",
+   "g": "einkleidung"
+  },
+  {
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Lies an der Ausgleichsgeraden ab: Welcher y-Wert gehört zu x = 6?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      12
+     ],
+     "y": [
+      0,
+      92
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 18
+      },
+      {
+       "x": 2,
+       "y": 25
+      },
+      {
+       "x": 3,
+       "y": 30
+      },
+      {
+       "x": 4,
+       "y": 35
+      },
+      {
+       "x": 7,
+       "y": 49
+      },
+      {
+       "x": 8,
+       "y": 56
+      },
+      {
+       "x": 9,
+       "y": 66
+      }
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 6,
+       "t": 10,
+       "bereich": [
+        0,
+        12
+       ]
+      }
+     ],
+     "name_x": "Übungszeit in h",
+     "name_y": "Punkte",
+     "schritt_y": 10
+    }
+   },
+   "o": {
+    "wert": 46,
+    "toleranz": 5
+   },
+   "c": "6 * 6 + 10",
+   "w": "Bei x = 6 trifft man die Gerade bei y = 46 (Gleichung y = 6x + 10).",
+   "h": "Gehe von x senkrecht nach oben bis zur Geraden, dann waagrecht zur y-Achse.",
+   "g": "darstellung"
+  },
+  {
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Ausgleichsgerade y = 5x + 40 schätzt die Testpunkte (y) aus der Lernzeit in Stunden (x). Ein Schüler hat 3 Stunden gelernt und 46 Punkte erreicht. Um wie viele Punkte liegt er unter der Schätzung?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "abs(46 - (5 * 3 + 40))",
+   "w": "Schätzung: 5 · 3 + 40 = 55. Unterschied: 55 − 46 = 9.",
+   "h": "Berechne zuerst, was die Gerade für diese Lernzeit vorhersagt.",
+   "g": "mehrschritt"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Die Ausgleichsgerade y = 5x + 40 schätzt Testpunkte (y) aus der Lernzeit in Stunden (x). Bei welcher Lernzeit schätzt sie 75 Punkte?"
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "h"
+   },
+   "c": "(75 - 40)/5",
+   "w": "5x + 40 = 75 ⇒ 5x = 35 ⇒ x = 7 Stunden.",
+   "h": "Setze y = 75 und löse nach x auf.",
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr"
   },
   {
    "l": "gerade",
@@ -5006,130 +5530,6 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Eine Ausgleichsgerade geht durch die Punkte (5 | 40) und (8 | 58). Schätze mit ihr den y-Wert für x = 6."
-   },
-   "o": {
-    "wert": 46
-   },
-   "c": "40 + (58 - 40) / (8 - 5) * (6 - 5)",
-   "w": "Steigung: (58 − 40) : (8 − 5) = 18 : 3 = 6. Von x = 5 nach x = 6: y = 40 + 6 = 46.",
-   "h": "Bestimme zuerst, um wie viel y pro Schritt in x wächst oder fällt."
-  },
-  {
-   "l": "gerade",
-   "t": "gerade",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Ausgleichsgerade y = 5x + 40 schätzt die Testpunkte (y) aus der Lernzeit in Stunden (x). Ein Schüler hat 7 Stunden gelernt und 66 Punkte erreicht. Um wie viele Punkte liegt er unter der Schätzung?"
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "abs(66 - (5 * 7 + 40))",
-   "w": "Schätzung: 5 · 7 + 40 = 75. Unterschied: 75 − 66 = 9.",
-   "h": "Berechne zuerst, was die Gerade für diese Lernzeit vorhersagt."
-  },
-  {
-   "l": "gerade",
-   "t": "gerade",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Ausgleichsgerade y = −6x + 90 schätzt den Akkustand in % (y) aus der Nutzungsdauer in Stunden (x). Ab welcher ganzen Stundenzahl sagt sie einen Akkustand unter 0 % voraus?"
-   },
-   "o": {
-    "wert": 16
-   },
-   "c": "90 // 6 + 1",
-   "w": "−6x + 90 < 0 ⇒ 6x > 90 ⇒ x > 15. Die kleinste ganze Zahl ist 16. Ein Akku unter 0 % ist unmöglich: Die Gerade gilt dort nicht mehr.",
-   "h": "Stelle die Ungleichung „Schätzung < 0“ auf und löse sie nach x."
-  },
-  {
-   "l": "gerade",
-   "t": "gerade",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Gemessen wurde nur für x zwischen 1 und 10. Die Ausgleichsgerade y = −3x + 80 liefert für x = 25 den Wert y = 5. Ist diese Schätzung verlässlich?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      12
-     ],
-     "y": [
-      0,
-      85
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 74
-      },
-      {
-       "x": 2,
-       "y": 75
-      },
-      {
-       "x": 5,
-       "y": 64
-      },
-      {
-       "x": 6,
-       "y": 61
-      },
-      {
-       "x": 7,
-       "y": 62
-      },
-      {
-       "x": 9,
-       "y": 51
-      },
-      {
-       "x": 10,
-       "y": 49
-      }
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": -3,
-       "t": 80,
-       "bereich": [
-        0,
-        12
-       ]
-      }
-     ],
-     "name_x": "Nutzungsdauer in h",
-     "name_y": "Akkustand in %",
-     "schritt_y": 10
-    }
-   },
-   "a": [
-    "Ja – die Gleichung gilt immer.",
-    "Ja – weil die Gerade durch viele Punkte geht.",
-    "Nein – das liegt weit außerhalb der Messwerte (Extrapolation).",
-    "Nein – man darf nie mit einer Ausgleichsgeraden rechnen."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "x = 25 liegt weit außerhalb von 1 bis 10. Ob der Zusammenhang dort noch gilt, weiß niemand.",
-   "h": "Liegt der x-Wert innerhalb oder außerhalb der gemessenen Daten?"
-  },
-  {
-   "l": "gerade",
-   "t": "gerade",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
     "text": "Eine Ausgleichsgerade geht durch die Punkte (3 | 68) und (8 | 48). Schätze mit ihr den y-Wert für x = 7."
    },
    "o": {
@@ -5137,23 +5537,8 @@
    },
    "c": "68 + (48 - 68) / (8 - 3) * (7 - 3)",
    "w": "Steigung: (48 − 68) : (8 − 3) = -20 : 5 = -4. Von x = 3 nach x = 7: y = 68 − 16 = 52.",
-   "h": "Bestimme zuerst, um wie viel y pro Schritt in x wächst oder fällt."
-  },
-  {
-   "l": "gerade",
-   "t": "gerade",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Ausgleichsgerade y = 5x + 40 schätzt die Testpunkte (y) aus der Lernzeit in Stunden (x). Ein Schüler hat 3 Stunden gelernt und 46 Punkte erreicht. Um wie viele Punkte liegt er unter der Schätzung?"
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "abs(46 - (5 * 3 + 40))",
-   "w": "Schätzung: 5 · 3 + 40 = 55. Unterschied: 55 − 46 = 9.",
-   "h": "Berechne zuerst, was die Gerade für diese Lernzeit vorhersagt."
+   "h": "Bestimme zuerst, um wie viel y pro Schritt in x wächst oder fällt.",
+   "g": "verknuepfen"
   },
   {
    "l": "gerade",
@@ -5169,83 +5554,8 @@
    },
    "c": "(75) // 8 + 1",
    "w": "8x + 25 > 100 ⇒ 8x > 75 ⇒ x > 9,38. Die kleinste ganze Zahl ist 10. Spätestens dort taugt die Gerade nicht mehr (Extrapolation).",
-   "h": "Stelle die Ungleichung „Schätzung > 100“ auf und löse sie nach x."
-  },
-  {
-   "l": "gerade",
-   "t": "gerade",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Gemessen wurde nur für x zwischen 1 und 10. Die Ausgleichsgerade y = 5x + 50 liefert für x = 40 den Wert y = 250. Ist diese Schätzung verlässlich?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      12
-     ],
-     "y": [
-      0,
-      120
-     ],
-     "punkte": [
-      {
-       "x": 2,
-       "y": 59
-      },
-      {
-       "x": 3,
-       "y": 64
-      },
-      {
-       "x": 4,
-       "y": 68
-      },
-      {
-       "x": 5,
-       "y": 73
-      },
-      {
-       "x": 8,
-       "y": 89
-      },
-      {
-       "x": 9,
-       "y": 98
-      },
-      {
-       "x": 10,
-       "y": 99
-      }
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": 5,
-       "t": 50,
-       "bereich": [
-        0,
-        12
-       ]
-      }
-     ],
-     "name_x": "Temperatur in °C",
-     "name_y": "Besucher",
-     "schritt_y": 10
-    }
-   },
-   "a": [
-    "Nein – das liegt weit außerhalb der Messwerte (Extrapolation).",
-    "Nein – man darf nie mit einer Ausgleichsgeraden rechnen.",
-    "Ja – die Gleichung gilt immer.",
-    "Ja – weil die Gerade durch viele Punkte geht."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "x = 40 liegt weit außerhalb von 1 bis 10. Ob der Zusammenhang dort noch gilt, weiß niemand.",
-   "h": "Liegt der x-Wert innerhalb oder außerhalb der gemessenen Daten?"
+   "h": "Stelle die Ungleichung „Schätzung > 100“ auf und löse sie nach x.",
+   "g": "rueckwaerts"
   },
   {
    "l": "gerade",
@@ -5969,6 +6279,220 @@
    "w": "y = 2 · 3 + 40 = 46."
   },
   {
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gemessen wurde nur für x zwischen 1 und 10. Die Ausgleichsgerade y = 5x + 50 liefert für x = 40 den Wert y = 250. Ist diese Schätzung verlässlich?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      12
+     ],
+     "y": [
+      0,
+      120
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 59
+      },
+      {
+       "x": 3,
+       "y": 64
+      },
+      {
+       "x": 4,
+       "y": 68
+      },
+      {
+       "x": 5,
+       "y": 73
+      },
+      {
+       "x": 8,
+       "y": 89
+      },
+      {
+       "x": 9,
+       "y": 98
+      },
+      {
+       "x": 10,
+       "y": 99
+      }
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 5,
+       "t": 50,
+       "bereich": [
+        0,
+        12
+       ]
+      }
+     ],
+     "name_x": "Temperatur in °C",
+     "name_y": "Besucher",
+     "schritt_y": 10
+    }
+   },
+   "a": [
+    "Nein – das liegt weit außerhalb der Messwerte (Extrapolation).",
+    "Nein – man darf nie mit einer Ausgleichsgeraden rechnen.",
+    "Ja – die Gleichung gilt immer.",
+    "Ja – weil die Gerade durch viele Punkte geht."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "x = 40 liegt weit außerhalb von 1 bis 10. Ob der Zusammenhang dort noch gilt, weiß niemand.",
+   "h": "Liegt der x-Wert innerhalb oder außerhalb der gemessenen Daten?",
+   "g": "begruenden"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand deutet y = 5x + 40 (x: Lernzeit in h, y: Punkte) so: „Ohne Lernen gibt es 5 Punkte, jede Stunde bringt 40 Punkte.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Ohne Lernen gibt es 0 Punkte.",
+    "Falsch: Ohne Lernen etwa 40 Punkte, jede Stunde etwa 5 Punkte mehr.",
+    "Richtig.",
+    "Falsch: Jede Stunde bringt 45 Punkte."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Zahl vor x ist die Steigung (pro Stunde +5), die Zahl allein ist der Wert bei x = 0 (40).",
+   "h": "Setze x = 0 und x = 1 ein.",
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Die Ausgleichsgerade y = m · x + 30 soll für x = 5 den Wert 55 schätzen. Wie groß muss m sein?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(55 - 30)/5",
+   "w": "m · 5 + 30 = 55 ⇒ 5m = 25 ⇒ m = 5.",
+   "h": "Setze x = 5 und y = 55 ein.",
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Für Jungen gilt die Ausgleichsgerade y = 4x + 30, für Mädchen y = 3x + 38 (x: Lernzeit in h, y: Punkte). Bei welcher Lernzeit sagen beide Geraden gleich viele Punkte voraus?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "h"
+   },
+   "c": "(38 - 30)/(4 - 3)",
+   "w": "Gleichsetzen: 4x + 30 = 3x + 38 ⇒ x = 8 Stunden (beide 62 Punkte). Davor liegen die Mädchen vorn, danach die Jungen, weil ihre Gerade steiler ist.",
+   "h": "Wo schneiden sich die beiden Geraden?",
+   "l": "gerade",
+   "t": "gerade",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Eine gute Ausgleichsgerade geht durch den Punkt (Mittelwert der x | Mittelwert der y). Messwerte: x = 2, 4, 6 und y = 50, 60, 76. Die Gerade hat die Steigung 6,5. Wie groß ist t in y = 6,5x + t?"
+   },
+   "o": {
+    "wert": 36
+   },
+   "c": "(50 + 60 + 76)/3 - 6.5*4",
+   "w": "Mittelwerte: x̄ = 4, ȳ = 186 : 3 = 62. Der Punkt (4 | 62) liegt auf der Geraden: 62 = 6,5 · 4 + t = 26 + t ⇒ t = 36.",
+   "h": "Berechne zuerst die beiden Mittelwerte.",
+   "l": "gerade",
+   "t": "gerade",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "l": "ausreisser",
+   "t": "ausreisser",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Punkt D ist ein Ausreißer. Die anderen Punkte liegen fast genau auf y = 4x + 20. Welcher y-Wert wäre bei x = 7 zu erwarten?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      11
+     ],
+     "y": [
+      15,
+      70
+     ],
+     "punkte": [
+      {
+       "x": 4,
+       "y": 37,
+       "name": "A"
+      },
+      {
+       "x": 5,
+       "y": 41,
+       "name": "B"
+      },
+      {
+       "x": 6,
+       "y": 43,
+       "name": "C"
+      },
+      {
+       "x": 7,
+       "y": 21,
+       "name": "D"
+      },
+      {
+       "x": 8,
+       "y": 54,
+       "name": "E"
+      },
+      {
+       "x": 10,
+       "y": 60,
+       "name": "F"
+      }
+     ],
+     "name_x": "x",
+     "name_y": "y",
+     "schritt_y": 5
+    }
+   },
+   "o": {
+    "wert": 48
+   },
+   "c": "4 * 7 + 20",
+   "w": "y = 4 · 7 + 20 = 48. Gemessen wurden aber 21.",
+   "h": "Setze den x-Wert des Ausreißers in die Gleichung ein.",
+   "g": "mehrschritt"
+  },
+  {
    "l": "ausreisser",
    "t": "ausreisser",
    "p": "uebung",
@@ -6043,7 +6567,525 @@
     "index": 3
    },
    "w": "Alle Punkte liegen auf einem gemeinsamen Muster, nur E liegt um etwa 35 weit daneben.",
+   "h": "Suche den Punkt, der nicht zum Muster der anderen passt.",
+   "g": "erkennen"
+  },
+  {
+   "l": "ausreisser",
+   "t": "ausreisser",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Punkt F ist ein Ausreißer. Die anderen Punkte liegen fast genau auf y = 4x + 20. Welcher y-Wert wäre bei x = 7 zu erwarten?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      11
+     ],
+     "y": [
+      10,
+      60
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 24,
+       "name": "A"
+      },
+      {
+       "x": 2,
+       "y": 27,
+       "name": "B"
+      },
+      {
+       "x": 4,
+       "y": 37,
+       "name": "C"
+      },
+      {
+       "x": 5,
+       "y": 38,
+       "name": "D"
+      },
+      {
+       "x": 6,
+       "y": 43,
+       "name": "E"
+      },
+      {
+       "x": 7,
+       "y": 15,
+       "name": "F"
+      },
+      {
+       "x": 8,
+       "y": 50,
+       "name": "G"
+      }
+     ],
+     "name_x": "x",
+     "name_y": "y",
+     "schritt_y": 5
+    }
+   },
+   "o": {
+    "wert": 48
+   },
+   "c": "4 * 7 + 20",
+   "w": "y = 4 · 7 + 20 = 48. Gemessen wurden aber 15.",
+   "h": "Setze den x-Wert des Ausreißers in die Gleichung ein.",
+   "g": "mehrschritt"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Fünf Punkte haben die x-Werte 1 bis 5 und die y-Werte 20, 24, 28, 75, 36. Bei welchem x-Wert liegt der Ausreißer?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Die y-Werte wachsen um je 4: 20, 24, 28, (32), 36. Bei x = 4 steht 75 statt etwa 32.",
+   "h": "Um wie viel wachsen die y-Werte sonst?",
+   "l": "ausreisser",
+   "t": "ausreisser",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt"
+  },
+  {
+   "l": "ausreisser",
+   "t": "ausreisser",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Punkt passt nicht zum Muster. Welcher?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      11
+     ],
+     "y": [
+      10,
+      90
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 77,
+       "name": "A"
+      },
+      {
+       "x": 3,
+       "y": 64,
+       "name": "B"
+      },
+      {
+       "x": 4,
+       "y": 58,
+       "name": "C"
+      },
+      {
+       "x": 5,
+       "y": 53,
+       "name": "D"
+      },
+      {
+       "x": 6,
+       "y": 51,
+       "name": "E"
+      },
+      {
+       "x": 7,
+       "y": 74,
+       "name": "F"
+      },
+      {
+       "x": 9,
+       "y": 34,
+       "name": "G"
+      },
+      {
+       "x": 10,
+       "y": 29,
+       "name": "H"
+      }
+     ],
+     "name_x": "x",
+     "name_y": "y",
+     "schritt_y": 10
+    }
+   },
+   "a": [
+    "Punkt H",
+    "Punkt B",
+    "Punkt F",
+    "Punkt A"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "F liegt bei (7 | 74); nach dem Muster der Nachbarn wären etwa 45 zu erwarten.",
+   "h": "Nicht der höchste oder tiefste Punkt ist gesucht, sondern der mit dem größten Abstand zum Muster.",
+   "g": "darstellung"
+  },
+  {
+   "l": "ausreisser",
+   "t": "ausreisser",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Punkte außer D liegen fast genau auf y = 4x + 20. Um wie viel liegt Punkt D unter dem Wert, den dieses Muster bei x = 8 erwarten lässt?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      11
+     ],
+     "y": [
+      20,
+      70
+     ],
+     "punkte": [
+      {
+       "x": 3,
+       "y": 30,
+       "name": "A"
+      },
+      {
+       "x": 6,
+       "y": 43,
+       "name": "B"
+      },
+      {
+       "x": 7,
+       "y": 47,
+       "name": "C"
+      },
+      {
+       "x": 8,
+       "y": 28,
+       "name": "D (8 | 28)"
+      },
+      {
+       "x": 9,
+       "y": 56,
+       "name": "E"
+      },
+      {
+       "x": 10,
+       "y": 60,
+       "name": "F"
+      }
+     ],
+     "name_x": "x",
+     "name_y": "y",
+     "schritt_y": 5
+    }
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "abs(28 - (4 * 8 + 20))",
+   "w": "Erwartet: 4 · 8 + 20 = 52. Abgelesen: 28. Unterschied: 24.",
+   "h": "Berechne zuerst den erwarteten y-Wert bei x = 8, dann den Abstand zum Punkt.",
+   "g": "mehrschritt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Waage zeigt bei fünf Messungen desselben Pakets 2,1 kg, 2,0 kg, 2,2 kg, 12,1 kg und 2,1 kg. Welcher Wert ist vermutlich ein Fehler?"
+   },
+   "a": [
+    "keiner",
+    "12,1 kg",
+    "2,0 kg",
+    "2,2 kg"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Vier Werte liegen bei etwa 2 kg. 12,1 kg passt nicht – vermutlich eine 1 zu viel getippt.",
+   "h": "Wo liegen die meisten Werte?",
+   "l": "ausreisser",
+   "t": "ausreisser",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung"
+  },
+  {
+   "l": "ausreisser",
+   "t": "ausreisser",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Punkt D ist ein Ausreißer. Was passiert mit der Ausgleichsgeraden, wenn man D beim Zeichnen mitnimmt?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      11
+     ],
+     "y": [
+      20,
+      75
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 26,
+       "name": "A"
+      },
+      {
+       "x": 2,
+       "y": 30,
+       "name": "B"
+      },
+      {
+       "x": 3,
+       "y": 32,
+       "name": "C"
+      },
+      {
+       "x": 5,
+       "y": 66,
+       "name": "D"
+      },
+      {
+       "x": 7,
+       "y": 46,
+       "name": "E"
+      },
+      {
+       "x": 8,
+       "y": 53,
+       "name": "F"
+      },
+      {
+       "x": 9,
+       "y": 58,
+       "name": "G"
+      }
+     ],
+     "name_x": "x",
+     "name_y": "y",
+     "schritt_y": 5
+    }
+   },
+   "a": [
+    "Sie wird in der Nähe von D nach oben gezogen.",
+    "Sie ändert sich überhaupt nicht.",
+    "Sie wird in der Nähe von D nach unten gezogen.",
+    "Sie muss genau durch Punkt D gehen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Gerade soll etwa gleich viele Punkte darüber und darunter haben. D liegt weit über dem Muster und zieht sie zu sich hin.",
+   "h": "Die Ausgleichsgerade liegt mitten zwischen allen Punkten, die man mitnimmt.",
+   "g": "begruenden"
+  },
+  {
+   "l": "ausreisser",
+   "t": "ausreisser",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt die y-Werte aller Punkte; D ist ein Ausreißer. Um wie viel sinkt der Mittelwert der y-Werte, wenn man D weglässt? Runde auf eine Stelle nach dem Komma.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Punkt",
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "zeilen": [
+      [
+       "y-Wert",
+       "28",
+       "45",
+       "49",
+       "79",
+       "73",
+       "78"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 4.1,
+    "toleranz": 0.1
+   },
+   "c": "round(abs(352 / 6 - 273 / 5), 1)",
+   "w": "Mit D: 352 : 6 ≈ 58,67. Ohne D: 273 : 5 ≈ 54,6. Unterschied ≈ 4,1.",
+   "h": "Rechne den Mittelwert zweimal: mit allen 6 Werten und ohne D.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "ausreisser",
+   "t": "ausreisser",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Punkt ist ein Ausreißer?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      11
+     ],
+     "y": [
+      10,
+      80
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 23,
+       "name": "A"
+      },
+      {
+       "x": 2,
+       "y": 28,
+       "name": "B"
+      },
+      {
+       "x": 4,
+       "y": 42,
+       "name": "C"
+      },
+      {
+       "x": 6,
+       "y": 50,
+       "name": "D"
+      },
+      {
+       "x": 7,
+       "y": 55,
+       "name": "E"
+      },
+      {
+       "x": 8,
+       "y": 60,
+       "name": "F"
+      },
+      {
+       "x": 9,
+       "y": 67,
+       "name": "G"
+      },
+      {
+       "x": 10,
+       "y": 41,
+       "name": "H"
+      }
+     ],
+     "name_x": "x",
+     "name_y": "y",
+     "schritt_y": 10
+    }
+   },
+   "a": [
+    "Punkt A",
+    "Punkt H",
+    "Punkt C",
+    "Punkt B"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Alle Punkte liegen auf einem gemeinsamen Muster, nur H liegt um etwa 30 weit daneben.",
    "h": "Suche den Punkt, der nicht zum Muster der anderen passt."
+  },
+  {
+   "l": "ausreisser",
+   "t": "ausreisser",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Punkt E ist ein Ausreißer. Was ist sinnvoll?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      11
+     ],
+     "y": [
+      10,
+      90
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 74,
+       "name": "A"
+      },
+      {
+       "x": 4,
+       "y": 64,
+       "name": "B"
+      },
+      {
+       "x": 5,
+       "y": 60,
+       "name": "C"
+      },
+      {
+       "x": 6,
+       "y": 57,
+       "name": "D"
+      },
+      {
+       "x": 7,
+       "y": 22,
+       "name": "E"
+      },
+      {
+       "x": 8,
+       "y": 50,
+       "name": "F"
+      },
+      {
+       "x": 9,
+       "y": 42,
+       "name": "G"
+      },
+      {
+       "x": 10,
+       "y": 38,
+       "name": "H"
+      }
+     ],
+     "name_x": "x",
+     "name_y": "y",
+     "schritt_y": 10
+    }
+   },
+   "a": [
+    "Daraus schließen, dass es keinen Zusammenhang gibt.",
+    "Die Ausgleichsgerade genau durch diesen Punkt legen.",
+    "Den Punkt einfach löschen, weil er stört.",
+    "Prüfen, ob ein Mess- oder Schreibfehler vorliegt, bevor man die Ausgleichsgerade zeichnet."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ein Ausreißer kann ein Fehler oder ein echter Sonderfall sein. Erst prüfen, dann entscheiden – und nie die Gerade nach ihm ausrichten.",
+   "h": "Was könnte der Grund für den Ausreißer sein?",
+   "g": "transfer"
   },
   {
    "l": "ausreisser",
@@ -6120,7 +7162,107 @@
     "index": 1
    },
    "w": "Alle Punkte liegen auf einem gemeinsamen Muster, nur E liegt um etwa 35 weit daneben.",
+   "h": "Suche den Punkt, der nicht zum Muster der anderen passt.",
+   "g": "erkennen"
+  },
+  {
+   "l": "ausreisser",
+   "t": "ausreisser",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Punkt ist ein Ausreißer?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      11
+     ],
+     "y": [
+      25,
+      70
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 48,
+       "name": "A"
+      },
+      {
+       "x": 2,
+       "y": 31,
+       "name": "B"
+      },
+      {
+       "x": 3,
+       "y": 35,
+       "name": "C"
+      },
+      {
+       "x": 4,
+       "y": 40,
+       "name": "D"
+      },
+      {
+       "x": 5,
+       "y": 46,
+       "name": "E"
+      },
+      {
+       "x": 6,
+       "y": 51,
+       "name": "F"
+      },
+      {
+       "x": 8,
+       "y": 62,
+       "name": "G"
+      },
+      {
+       "x": 9,
+       "y": 64,
+       "name": "H"
+      }
+     ],
+     "name_x": "x",
+     "name_y": "y",
+     "schritt_y": 5
+    }
+   },
+   "a": [
+    "Punkt D",
+    "Punkt B",
+    "Punkt A",
+    "Punkt C"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Alle Punkte liegen auf einem gemeinsamen Muster, nur A liegt um etwa 25 weit daneben.",
    "h": "Suche den Punkt, der nicht zum Muster der anderen passt."
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Messpunkte: (1 | 10), (2 | 12), (3 | 14), (4 | 3), (5 | 18). Welcher Punkt ist ein Ausreißer?"
+   },
+   "a": [
+    "(5 | 18)",
+    "(3 | 14)",
+    "(1 | 10)",
+    "(4 | 3)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Das Muster wächst um 2 je Schritt; bei x = 4 wären etwa 16 zu erwarten, nicht 3.",
+   "h": "Welches Muster haben die anderen Punkte?",
+   "l": "ausreisser",
+   "t": "ausreisser",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt"
   },
   {
    "l": "ausreisser",
@@ -6270,299 +7412,6 @@
    "l": "ausreisser",
    "t": "ausreisser",
    "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Punkt ist ein Ausreißer?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      11
-     ],
-     "y": [
-      25,
-      70
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 48,
-       "name": "A"
-      },
-      {
-       "x": 2,
-       "y": 31,
-       "name": "B"
-      },
-      {
-       "x": 3,
-       "y": 35,
-       "name": "C"
-      },
-      {
-       "x": 4,
-       "y": 40,
-       "name": "D"
-      },
-      {
-       "x": 5,
-       "y": 46,
-       "name": "E"
-      },
-      {
-       "x": 6,
-       "y": 51,
-       "name": "F"
-      },
-      {
-       "x": 8,
-       "y": 62,
-       "name": "G"
-      },
-      {
-       "x": 9,
-       "y": 64,
-       "name": "H"
-      }
-     ],
-     "name_x": "x",
-     "name_y": "y",
-     "schritt_y": 5
-    }
-   },
-   "a": [
-    "Punkt D",
-    "Punkt B",
-    "Punkt A",
-    "Punkt C"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Alle Punkte liegen auf einem gemeinsamen Muster, nur A liegt um etwa 25 weit daneben.",
-   "h": "Suche den Punkt, der nicht zum Muster der anderen passt."
-  },
-  {
-   "l": "ausreisser",
-   "t": "ausreisser",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Punkt ist ein Ausreißer?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      11
-     ],
-     "y": [
-      10,
-      80
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 23,
-       "name": "A"
-      },
-      {
-       "x": 2,
-       "y": 28,
-       "name": "B"
-      },
-      {
-       "x": 4,
-       "y": 42,
-       "name": "C"
-      },
-      {
-       "x": 6,
-       "y": 50,
-       "name": "D"
-      },
-      {
-       "x": 7,
-       "y": 55,
-       "name": "E"
-      },
-      {
-       "x": 8,
-       "y": 60,
-       "name": "F"
-      },
-      {
-       "x": 9,
-       "y": 67,
-       "name": "G"
-      },
-      {
-       "x": 10,
-       "y": 41,
-       "name": "H"
-      }
-     ],
-     "name_x": "x",
-     "name_y": "y",
-     "schritt_y": 10
-    }
-   },
-   "a": [
-    "Punkt A",
-    "Punkt H",
-    "Punkt C",
-    "Punkt B"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Alle Punkte liegen auf einem gemeinsamen Muster, nur H liegt um etwa 30 weit daneben.",
-   "h": "Suche den Punkt, der nicht zum Muster der anderen passt."
-  },
-  {
-   "l": "ausreisser",
-   "t": "ausreisser",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Punkt D ist ein Ausreißer. Die anderen Punkte liegen fast genau auf y = 4x + 20. Welcher y-Wert wäre bei x = 7 zu erwarten?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      11
-     ],
-     "y": [
-      15,
-      70
-     ],
-     "punkte": [
-      {
-       "x": 4,
-       "y": 37,
-       "name": "A"
-      },
-      {
-       "x": 5,
-       "y": 41,
-       "name": "B"
-      },
-      {
-       "x": 6,
-       "y": 43,
-       "name": "C"
-      },
-      {
-       "x": 7,
-       "y": 21,
-       "name": "D"
-      },
-      {
-       "x": 8,
-       "y": 54,
-       "name": "E"
-      },
-      {
-       "x": 10,
-       "y": 60,
-       "name": "F"
-      }
-     ],
-     "name_x": "x",
-     "name_y": "y",
-     "schritt_y": 5
-    }
-   },
-   "o": {
-    "wert": 48
-   },
-   "c": "4 * 7 + 20",
-   "w": "y = 4 · 7 + 20 = 48. Gemessen wurden aber 21.",
-   "h": "Setze den x-Wert des Ausreißers in die Gleichung ein."
-  },
-  {
-   "l": "ausreisser",
-   "t": "ausreisser",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Punkt passt nicht zum Muster. Welcher?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      11
-     ],
-     "y": [
-      10,
-      90
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 77,
-       "name": "A"
-      },
-      {
-       "x": 3,
-       "y": 64,
-       "name": "B"
-      },
-      {
-       "x": 4,
-       "y": 58,
-       "name": "C"
-      },
-      {
-       "x": 5,
-       "y": 53,
-       "name": "D"
-      },
-      {
-       "x": 6,
-       "y": 51,
-       "name": "E"
-      },
-      {
-       "x": 7,
-       "y": 74,
-       "name": "F"
-      },
-      {
-       "x": 9,
-       "y": 34,
-       "name": "G"
-      },
-      {
-       "x": 10,
-       "y": 29,
-       "name": "H"
-      }
-     ],
-     "name_x": "x",
-     "name_y": "y",
-     "schritt_y": 10
-    }
-   },
-   "a": [
-    "Punkt H",
-    "Punkt B",
-    "Punkt F",
-    "Punkt A"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "F liegt bei (7 | 74); nach dem Muster der Nachbarn wären etwa 45 zu erwarten.",
-   "h": "Nicht der höchste oder tiefste Punkt ist gesucht, sondern der mit dem größten Abstand zum Muster."
-  },
-  {
-   "l": "ausreisser",
-   "t": "ausreisser",
-   "p": "uebung",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -6634,7 +7483,93 @@
     "index": 0
    },
    "w": "G liegt bei (8 | 20); nach dem Muster der Nachbarn wären etwa 52 zu erwarten.",
-   "h": "Nicht der höchste oder tiefste Punkt ist gesucht, sondern der mit dem größten Abstand zum Muster."
+   "h": "Nicht der höchste oder tiefste Punkt ist gesucht, sondern der mit dem größten Abstand zum Muster.",
+   "g": "darstellung"
+  },
+  {
+   "l": "ausreisser",
+   "t": "ausreisser",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Punkte außer E liegen fast genau auf y = 5x + 20. Um wie viel liegt Punkt E unter dem Wert, den dieses Muster bei x = 6 erwarten lässt?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      11
+     ],
+     "y": [
+      15,
+      65
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 26,
+       "name": "A"
+      },
+      {
+       "x": 2,
+       "y": 32,
+       "name": "B"
+      },
+      {
+       "x": 3,
+       "y": 34,
+       "name": "C"
+      },
+      {
+       "x": 5,
+       "y": 44,
+       "name": "D"
+      },
+      {
+       "x": 6,
+       "y": 24,
+       "name": "E (6 | 24)"
+      },
+      {
+       "x": 8,
+       "y": 59,
+       "name": "F"
+      }
+     ],
+     "name_x": "x",
+     "name_y": "y",
+     "schritt_y": 5
+    }
+   },
+   "o": {
+    "wert": 26
+   },
+   "c": "abs(24 - (5 * 6 + 20))",
+   "w": "Erwartet: 5 · 6 + 20 = 50. Abgelesen: 24. Unterschied: 26.",
+   "h": "Berechne zuerst den erwarteten y-Wert bei x = 6, dann den Abstand zum Punkt.",
+   "g": "mehrschritt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Temperaturen um 12 Uhr an sechs Sommertagen: 18 °C, 19 °C, 21 °C, 20 °C, −19 °C, 22 °C. Was ist am wahrscheinlichsten passiert?"
+   },
+   "a": [
+    "Am fünften Tag hat es geschneit.",
+    "Der Wert 22 °C ist der Ausreißer.",
+    "Bei −19 °C wurde ein Minuszeichen falsch notiert.",
+    "Alle Werte sind gleich gut."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Im Sommer passen 18 bis 22 °C. −19 °C liegt weit weg; vermutlich war es +19 °C.",
+   "h": "Was passt nicht zur Jahreszeit?",
+   "l": "ausreisser",
+   "t": "ausreisser",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung"
   },
   {
    "l": "ausreisser",
@@ -6702,654 +7637,6 @@
    },
    "w": "D liegt bei (5 | 22); nach dem Muster der Nachbarn wären etwa 50 zu erwarten.",
    "h": "Nicht der höchste oder tiefste Punkt ist gesucht, sondern der mit dem größten Abstand zum Muster."
-  },
-  {
-   "l": "ausreisser",
-   "t": "ausreisser",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Punkt F ist ein Ausreißer. Die anderen Punkte liegen fast genau auf y = 4x + 20. Welcher y-Wert wäre bei x = 7 zu erwarten?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      11
-     ],
-     "y": [
-      10,
-      60
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 24,
-       "name": "A"
-      },
-      {
-       "x": 2,
-       "y": 27,
-       "name": "B"
-      },
-      {
-       "x": 4,
-       "y": 37,
-       "name": "C"
-      },
-      {
-       "x": 5,
-       "y": 38,
-       "name": "D"
-      },
-      {
-       "x": 6,
-       "y": 43,
-       "name": "E"
-      },
-      {
-       "x": 7,
-       "y": 15,
-       "name": "F"
-      },
-      {
-       "x": 8,
-       "y": 50,
-       "name": "G"
-      }
-     ],
-     "name_x": "x",
-     "name_y": "y",
-     "schritt_y": 5
-    }
-   },
-   "o": {
-    "wert": 48
-   },
-   "c": "4 * 7 + 20",
-   "w": "y = 4 · 7 + 20 = 48. Gemessen wurden aber 15.",
-   "h": "Setze den x-Wert des Ausreißers in die Gleichung ein."
-  },
-  {
-   "l": "ausreisser",
-   "t": "ausreisser",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Punkt passt nicht zum Muster. Welcher?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      11
-     ],
-     "y": [
-      0,
-      90
-     ],
-     "punkte": [
-      {
-       "x": 2,
-       "y": 33,
-       "name": "A"
-      },
-      {
-       "x": 3,
-       "y": 11,
-       "name": "B"
-      },
-      {
-       "x": 4,
-       "y": 46,
-       "name": "C"
-      },
-      {
-       "x": 5,
-       "y": 49,
-       "name": "D"
-      },
-      {
-       "x": 6,
-       "y": 56,
-       "name": "E"
-      },
-      {
-       "x": 7,
-       "y": 60,
-       "name": "F"
-      },
-      {
-       "x": 8,
-       "y": 67,
-       "name": "G"
-      },
-      {
-       "x": 9,
-       "y": 75,
-       "name": "H"
-      }
-     ],
-     "name_x": "x",
-     "name_y": "y",
-     "schritt_y": 10
-    }
-   },
-   "a": [
-    "Punkt C",
-    "Punkt B",
-    "Punkt H",
-    "Punkt A"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "B liegt bei (3 | 11); nach dem Muster der Nachbarn wären etwa 38 zu erwarten.",
-   "h": "Nicht der höchste oder tiefste Punkt ist gesucht, sondern der mit dem größten Abstand zum Muster."
-  },
-  {
-   "l": "ausreisser",
-   "t": "ausreisser",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Punkt D ist ein Ausreißer. Was passiert mit der Ausgleichsgeraden, wenn man D beim Zeichnen mitnimmt?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      11
-     ],
-     "y": [
-      20,
-      75
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 26,
-       "name": "A"
-      },
-      {
-       "x": 2,
-       "y": 30,
-       "name": "B"
-      },
-      {
-       "x": 3,
-       "y": 32,
-       "name": "C"
-      },
-      {
-       "x": 5,
-       "y": 66,
-       "name": "D"
-      },
-      {
-       "x": 7,
-       "y": 46,
-       "name": "E"
-      },
-      {
-       "x": 8,
-       "y": 53,
-       "name": "F"
-      },
-      {
-       "x": 9,
-       "y": 58,
-       "name": "G"
-      }
-     ],
-     "name_x": "x",
-     "name_y": "y",
-     "schritt_y": 5
-    }
-   },
-   "a": [
-    "Sie wird in der Nähe von D nach oben gezogen.",
-    "Sie ändert sich überhaupt nicht.",
-    "Sie wird in der Nähe von D nach unten gezogen.",
-    "Sie muss genau durch Punkt D gehen."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Die Gerade soll etwa gleich viele Punkte darüber und darunter haben. D liegt weit über dem Muster und zieht sie zu sich hin.",
-   "h": "Die Ausgleichsgerade liegt mitten zwischen allen Punkten, die man mitnimmt."
-  },
-  {
-   "l": "ausreisser",
-   "t": "ausreisser",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Punkte außer D liegen fast genau auf y = 4x + 20. Um wie viel liegt Punkt D unter dem Wert, den dieses Muster bei x = 8 erwarten lässt?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      11
-     ],
-     "y": [
-      20,
-      70
-     ],
-     "punkte": [
-      {
-       "x": 3,
-       "y": 30,
-       "name": "A"
-      },
-      {
-       "x": 6,
-       "y": 43,
-       "name": "B"
-      },
-      {
-       "x": 7,
-       "y": 47,
-       "name": "C"
-      },
-      {
-       "x": 8,
-       "y": 28,
-       "name": "D (8 | 28)"
-      },
-      {
-       "x": 9,
-       "y": 56,
-       "name": "E"
-      },
-      {
-       "x": 10,
-       "y": 60,
-       "name": "F"
-      }
-     ],
-     "name_x": "x",
-     "name_y": "y",
-     "schritt_y": 5
-    }
-   },
-   "o": {
-    "wert": 24
-   },
-   "c": "abs(28 - (4 * 8 + 20))",
-   "w": "Erwartet: 4 · 8 + 20 = 52. Abgelesen: 28. Unterschied: 24.",
-   "h": "Berechne zuerst den erwarteten y-Wert bei x = 8, dann den Abstand zum Punkt."
-  },
-  {
-   "l": "ausreisser",
-   "t": "ausreisser",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Tabelle zeigt die y-Werte aller Punkte; D ist ein Ausreißer. Um wie viel sinkt der Mittelwert der y-Werte, wenn man D weglässt? Runde auf eine Stelle nach dem Komma.",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Punkt",
-      "A",
-      "B",
-      "C",
-      "D",
-      "E",
-      "F"
-     ],
-     "zeilen": [
-      [
-       "y-Wert",
-       "28",
-       "45",
-       "49",
-       "79",
-       "73",
-       "78"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 4.1,
-    "toleranz": 0.1
-   },
-   "c": "round(abs(352 / 6 - 273 / 5), 1)",
-   "w": "Mit D: 352 : 6 ≈ 58,67. Ohne D: 273 : 5 ≈ 54,6. Unterschied ≈ 4,1.",
-   "h": "Rechne den Mittelwert zweimal: mit allen 6 Werten und ohne D."
-  },
-  {
-   "l": "ausreisser",
-   "t": "ausreisser",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Punkt E ist ein Ausreißer. Was ist sinnvoll?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      11
-     ],
-     "y": [
-      10,
-      90
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 74,
-       "name": "A"
-      },
-      {
-       "x": 4,
-       "y": 64,
-       "name": "B"
-      },
-      {
-       "x": 5,
-       "y": 60,
-       "name": "C"
-      },
-      {
-       "x": 6,
-       "y": 57,
-       "name": "D"
-      },
-      {
-       "x": 7,
-       "y": 22,
-       "name": "E"
-      },
-      {
-       "x": 8,
-       "y": 50,
-       "name": "F"
-      },
-      {
-       "x": 9,
-       "y": 42,
-       "name": "G"
-      },
-      {
-       "x": 10,
-       "y": 38,
-       "name": "H"
-      }
-     ],
-     "name_x": "x",
-     "name_y": "y",
-     "schritt_y": 10
-    }
-   },
-   "a": [
-    "Daraus schließen, dass es keinen Zusammenhang gibt.",
-    "Die Ausgleichsgerade genau durch diesen Punkt legen.",
-    "Den Punkt einfach löschen, weil er stört.",
-    "Prüfen, ob ein Mess- oder Schreibfehler vorliegt, bevor man die Ausgleichsgerade zeichnet."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Ein Ausreißer kann ein Fehler oder ein echter Sonderfall sein. Erst prüfen, dann entscheiden – und nie die Gerade nach ihm ausrichten.",
-   "h": "Was könnte der Grund für den Ausreißer sein?"
-  },
-  {
-   "l": "ausreisser",
-   "t": "ausreisser",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Punkt D ist ein Ausreißer. Was passiert mit der Ausgleichsgeraden, wenn man D beim Zeichnen mitnimmt?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      11
-     ],
-     "y": [
-      10,
-      90
-     ],
-     "punkte": [
-      {
-       "x": 2,
-       "y": 26,
-       "name": "A"
-      },
-      {
-       "x": 4,
-       "y": 36,
-       "name": "B"
-      },
-      {
-       "x": 5,
-       "y": 39,
-       "name": "C"
-      },
-      {
-       "x": 6,
-       "y": 76,
-       "name": "D"
-      },
-      {
-       "x": 8,
-       "y": 52,
-       "name": "E"
-      },
-      {
-       "x": 9,
-       "y": 57,
-       "name": "F"
-      },
-      {
-       "x": 10,
-       "y": 61,
-       "name": "G"
-      }
-     ],
-     "name_x": "x",
-     "name_y": "y",
-     "schritt_y": 10
-    }
-   },
-   "a": [
-    "Sie muss genau durch Punkt D gehen.",
-    "Sie wird in der Nähe von D nach unten gezogen.",
-    "Sie ändert sich überhaupt nicht.",
-    "Sie wird in der Nähe von D nach oben gezogen."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Die Gerade soll etwa gleich viele Punkte darüber und darunter haben. D liegt weit über dem Muster und zieht sie zu sich hin.",
-   "h": "Die Ausgleichsgerade liegt mitten zwischen allen Punkten, die man mitnimmt."
-  },
-  {
-   "l": "ausreisser",
-   "t": "ausreisser",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Punkte außer E liegen fast genau auf y = 5x + 20. Um wie viel liegt Punkt E unter dem Wert, den dieses Muster bei x = 6 erwarten lässt?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      11
-     ],
-     "y": [
-      15,
-      65
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 26,
-       "name": "A"
-      },
-      {
-       "x": 2,
-       "y": 32,
-       "name": "B"
-      },
-      {
-       "x": 3,
-       "y": 34,
-       "name": "C"
-      },
-      {
-       "x": 5,
-       "y": 44,
-       "name": "D"
-      },
-      {
-       "x": 6,
-       "y": 24,
-       "name": "E (6 | 24)"
-      },
-      {
-       "x": 8,
-       "y": 59,
-       "name": "F"
-      }
-     ],
-     "name_x": "x",
-     "name_y": "y",
-     "schritt_y": 5
-    }
-   },
-   "o": {
-    "wert": 26
-   },
-   "c": "abs(24 - (5 * 6 + 20))",
-   "w": "Erwartet: 5 · 6 + 20 = 50. Abgelesen: 24. Unterschied: 26.",
-   "h": "Berechne zuerst den erwarteten y-Wert bei x = 6, dann den Abstand zum Punkt."
-  },
-  {
-   "l": "ausreisser",
-   "t": "ausreisser",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Tabelle zeigt die y-Werte aller Punkte; F ist ein Ausreißer. Um wie viel sinkt der Mittelwert der y-Werte, wenn man F weglässt? Runde auf eine Stelle nach dem Komma.",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Punkt",
-      "A",
-      "B",
-      "C",
-      "D",
-      "E",
-      "F",
-      "G"
-     ],
-     "zeilen": [
-      [
-       "y-Wert",
-       "70",
-       "62",
-       "58",
-       "54",
-       "52",
-       "84",
-       "45"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 3.9,
-    "toleranz": 0.1
-   },
-   "c": "round(abs(425 / 7 - 341 / 6), 1)",
-   "w": "Mit F: 425 : 7 ≈ 60,71. Ohne F: 341 : 6 ≈ 56,83. Unterschied ≈ 3,9.",
-   "h": "Rechne den Mittelwert zweimal: mit allen 7 Werten und ohne F."
-  },
-  {
-   "l": "ausreisser",
-   "t": "ausreisser",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Punkt G ist ein Ausreißer. Was ist sinnvoll?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      11
-     ],
-     "y": [
-      30,
-      85
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 77,
-       "name": "A"
-      },
-      {
-       "x": 2,
-       "y": 70,
-       "name": "B"
-      },
-      {
-       "x": 3,
-       "y": 68,
-       "name": "C"
-      },
-      {
-       "x": 4,
-       "y": 66,
-       "name": "D"
-      },
-      {
-       "x": 7,
-       "y": 53,
-       "name": "E"
-      },
-      {
-       "x": 8,
-       "y": 49,
-       "name": "F"
-      },
-      {
-       "x": 9,
-       "y": 76,
-       "name": "G"
-      },
-      {
-       "x": 10,
-       "y": 39,
-       "name": "H"
-      }
-     ],
-     "name_x": "x",
-     "name_y": "y",
-     "schritt_y": 5
-    }
-   },
-   "a": [
-    "Daraus schließen, dass es keinen Zusammenhang gibt.",
-    "Die Ausgleichsgerade genau durch diesen Punkt legen.",
-    "Prüfen, ob ein Mess- oder Schreibfehler vorliegt, bevor man die Ausgleichsgerade zeichnet.",
-    "Den Punkt einfach löschen, weil er stört."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Ein Ausreißer kann ein Fehler oder ein echter Sonderfall sein. Erst prüfen, dann entscheiden – und nie die Gerade nach ihm ausrichten.",
-   "h": "Was könnte der Grund für den Ausreißer sein?"
   },
   {
    "l": "ausreisser",
@@ -8047,6 +8334,350 @@
    "w": "E liegt bei (8 | 33); nach dem Muster der Nachbarn wären etwa 68 zu erwarten."
   },
   {
+   "l": "ausreisser",
+   "t": "ausreisser",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Punkt passt nicht zum Muster. Welcher?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      11
+     ],
+     "y": [
+      0,
+      90
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 33,
+       "name": "A"
+      },
+      {
+       "x": 3,
+       "y": 11,
+       "name": "B"
+      },
+      {
+       "x": 4,
+       "y": 46,
+       "name": "C"
+      },
+      {
+       "x": 5,
+       "y": 49,
+       "name": "D"
+      },
+      {
+       "x": 6,
+       "y": 56,
+       "name": "E"
+      },
+      {
+       "x": 7,
+       "y": 60,
+       "name": "F"
+      },
+      {
+       "x": 8,
+       "y": 67,
+       "name": "G"
+      },
+      {
+       "x": 9,
+       "y": 75,
+       "name": "H"
+      }
+     ],
+     "name_x": "x",
+     "name_y": "y",
+     "schritt_y": 10
+    }
+   },
+   "a": [
+    "Punkt C",
+    "Punkt B",
+    "Punkt H",
+    "Punkt A"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "B liegt bei (3 | 11); nach dem Muster der Nachbarn wären etwa 38 zu erwarten.",
+   "h": "Nicht der höchste oder tiefste Punkt ist gesucht, sondern der mit dem größten Abstand zum Muster."
+  },
+  {
+   "l": "ausreisser",
+   "t": "ausreisser",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Punkt D ist ein Ausreißer. Was passiert mit der Ausgleichsgeraden, wenn man D beim Zeichnen mitnimmt?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      11
+     ],
+     "y": [
+      10,
+      90
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 26,
+       "name": "A"
+      },
+      {
+       "x": 4,
+       "y": 36,
+       "name": "B"
+      },
+      {
+       "x": 5,
+       "y": 39,
+       "name": "C"
+      },
+      {
+       "x": 6,
+       "y": 76,
+       "name": "D"
+      },
+      {
+       "x": 8,
+       "y": 52,
+       "name": "E"
+      },
+      {
+       "x": 9,
+       "y": 57,
+       "name": "F"
+      },
+      {
+       "x": 10,
+       "y": 61,
+       "name": "G"
+      }
+     ],
+     "name_x": "x",
+     "name_y": "y",
+     "schritt_y": 10
+    }
+   },
+   "a": [
+    "Sie muss genau durch Punkt D gehen.",
+    "Sie wird in der Nähe von D nach unten gezogen.",
+    "Sie ändert sich überhaupt nicht.",
+    "Sie wird in der Nähe von D nach oben gezogen."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Gerade soll etwa gleich viele Punkte darüber und darunter haben. D liegt weit über dem Muster und zieht sie zu sich hin.",
+   "h": "Die Ausgleichsgerade liegt mitten zwischen allen Punkten, die man mitnimmt.",
+   "g": "begruenden"
+  },
+  {
+   "l": "ausreisser",
+   "t": "ausreisser",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt die y-Werte aller Punkte; F ist ein Ausreißer. Um wie viel sinkt der Mittelwert der y-Werte, wenn man F weglässt? Runde auf eine Stelle nach dem Komma.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Punkt",
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G"
+     ],
+     "zeilen": [
+      [
+       "y-Wert",
+       "70",
+       "62",
+       "58",
+       "54",
+       "52",
+       "84",
+       "45"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 3.9,
+    "toleranz": 0.1
+   },
+   "c": "round(abs(425 / 7 - 341 / 6), 1)",
+   "w": "Mit F: 425 : 7 ≈ 60,71. Ohne F: 341 : 6 ≈ 56,83. Unterschied ≈ 3,9.",
+   "h": "Rechne den Mittelwert zweimal: mit allen 7 Werten und ohne F.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "ausreisser",
+   "t": "ausreisser",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Punkt G ist ein Ausreißer. Was ist sinnvoll?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      11
+     ],
+     "y": [
+      30,
+      85
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 77,
+       "name": "A"
+      },
+      {
+       "x": 2,
+       "y": 70,
+       "name": "B"
+      },
+      {
+       "x": 3,
+       "y": 68,
+       "name": "C"
+      },
+      {
+       "x": 4,
+       "y": 66,
+       "name": "D"
+      },
+      {
+       "x": 7,
+       "y": 53,
+       "name": "E"
+      },
+      {
+       "x": 8,
+       "y": 49,
+       "name": "F"
+      },
+      {
+       "x": 9,
+       "y": 76,
+       "name": "G"
+      },
+      {
+       "x": 10,
+       "y": 39,
+       "name": "H"
+      }
+     ],
+     "name_x": "x",
+     "name_y": "y",
+     "schritt_y": 5
+    }
+   },
+   "a": [
+    "Daraus schließen, dass es keinen Zusammenhang gibt.",
+    "Die Ausgleichsgerade genau durch diesen Punkt legen.",
+    "Prüfen, ob ein Mess- oder Schreibfehler vorliegt, bevor man die Ausgleichsgerade zeichnet.",
+    "Den Punkt einfach löschen, weil er stört."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ein Ausreißer kann ein Fehler oder ein echter Sonderfall sein. Erst prüfen, dann entscheiden – und nie die Gerade nach ihm ausrichten.",
+   "h": "Was könnte der Grund für den Ausreißer sein?",
+   "g": "transfer"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löscht in seiner Messreihe alle Punkte, die nicht zu seiner Vermutung passen, und nennt sie „Ausreißer“. Was ist daran falsch?"
+   },
+   "a": [
+    "Er schönt die Daten: Ausreißer darf man nur bei einem erkennbaren Fehler weglassen.",
+    "Er müsste auch die passenden Punkte löschen.",
+    "Er hätte die Punkte verdoppeln müssen.",
+    "Nichts, Ausreißer stören immer."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein Punkt ist kein Ausreißer, nur weil er nicht ins Wunschbild passt. Weglassen nur mit Grund (Messfehler, Schreibfehler) und mit Hinweis.",
+   "h": "Wann darf man einen Messwert weglassen?",
+   "l": "ausreisser",
+   "t": "ausreisser",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ohne den Ausreißer haben vier y-Werte den Mittelwert 30. Mit ihm haben die fünf Werte den Mittelwert 36. Welchen y-Wert hat der Ausreißer?"
+   },
+   "o": {
+    "wert": 60
+   },
+   "c": "5*36 - 4*30",
+   "w": "Summe mit Ausreißer 5 · 36 = 180, ohne 4 · 30 = 120. Ausreißer: 180 − 120 = 60.",
+   "h": "Rechne mit den Summen.",
+   "l": "ausreisser",
+   "t": "ausreisser",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Sechs Messwerte haben den Mittelwert 20. Ein Wert wurde falsch abgeschrieben: In der Liste steht 74 statt 14. Wie groß ist der richtige Mittelwert?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "(6*20 - 74 + 14)/6",
+   "w": "Falsche Summe 6 · 20 = 120. Richtig: 120 − 74 + 14 = 60. Mittelwert 60 : 6 = 10. Ein einziger Schreibfehler hat den Mittelwert verdoppelt.",
+   "h": "Was ändert sich an der Summe?",
+   "l": "ausreisser",
+   "t": "ausreisser",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Eine Messreihe hat 9 Werte, ihr Median ist 15. Der größte Wert (20) wird durch einen Ausreißer 1 000 ersetzt. Wie groß ist danach der Median?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "15",
+   "w": "Der Median ist der mittlere (5.) Wert der geordneten Liste. Der größte Wert bleibt der größte, die Reihenfolge der unteren Werte ändert sich nicht: Der Median bleibt 15. Der Mittelwert dagegen springt nach oben.",
+   "h": "Welcher Wert ist der Median, und rutscht er beim Ändern des größten Werts?",
+   "l": "ausreisser",
+   "t": "ausreisser",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
    "l": "kausal",
    "t": "kausal",
    "p": "uebung",
@@ -8065,112 +8696,8 @@
     "index": 3
    },
    "w": "In kalten Wochen braucht man Heizlüfter und erkältet sich häufiger. Die Korrelation allein beweist keine Ursache.",
-   "h": "Gibt es eine dritte Größe, die beide Werte beeinflusst?"
-  },
-  {
-   "l": "kausal",
-   "t": "kausal",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Beobachtung: „Schulen mit größeren Bibliotheken haben bessere Abschlussnoten.“ Welche Erklärung ist am vernünftigsten?"
-   },
-   "a": [
-    "Das ist ein Messfehler, es gibt keinen Zusammenhang.",
-    "Bücher im Regal verbessern automatisch die Noten.",
-    "Gute Noten lassen die Bibliothek wachsen.",
-    "Gut ausgestattete Schulen haben oft auch andere Vorteile, etwa kleinere Klassen."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Gut ausgestattete Schulen haben oft auch andere Vorteile, etwa kleinere Klassen. Die Korrelation allein beweist keine Ursache.",
-   "h": "Gibt es eine dritte Größe, die beide Werte beeinflusst?"
-  },
-  {
-   "l": "kausal",
-   "t": "kausal",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Beobachtung: „Spieler mit mehr Trainingseinheiten gewinnen öfter.“ Welche Erklärung ist am vernünftigsten?"
-   },
-   "a": [
-    "Training kann helfen, aber auch Talent und Motivation spielen mit – die Daten allein beweisen es nicht.",
-    "Wer gewinnt, muss nicht mehr trainieren.",
-    "Training ist sicher der einzige Grund.",
-    "Das ist ein Messfehler, es gibt keinen Zusammenhang."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Training kann helfen, aber auch Talent und Motivation spielen mit – die Daten allein beweisen es nicht. Die Korrelation allein beweist keine Ursache.",
-   "h": "Gibt es eine dritte Größe, die beide Werte beeinflusst?"
-  },
-  {
-   "l": "kausal",
-   "t": "kausal",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Beobachtung: „Länder mit mehr Smartphones haben eine höhere Lebenserwartung.“ Welche Erklärung ist am vernünftigsten?"
-   },
-   "a": [
-    "Reichere Länder haben mehr Smartphones und eine bessere Gesundheitsversorgung.",
-    "Smartphones verlängern das Leben.",
-    "Das ist ein Messfehler, es gibt keinen Zusammenhang.",
-    "Wer lange lebt, kauft mehr Smartphones."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Reichere Länder haben mehr Smartphones und eine bessere Gesundheitsversorgung. Die Korrelation allein beweist keine Ursache.",
-   "h": "Gibt es eine dritte Größe, die beide Werte beeinflusst?"
-  },
-  {
-   "l": "kausal",
-   "t": "kausal",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Beobachtung: „Wer mehr Fernsehen schaut, hat oft schlechtere Noten.“ Welche Erklärung ist am vernünftigsten?"
-   },
-   "a": [
-    "Das ist ein Messfehler, es gibt keinen Zusammenhang.",
-    "Schlechte Noten sind sicher die Ursache für mehr Fernsehen.",
-    "Fernsehen ist sicher die Ursache für schlechte Noten.",
-    "Das zeigt nur einen Zusammenhang; ob Fernsehen die Ursache ist, muss man erst genauer untersuchen."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Das zeigt nur einen Zusammenhang; ob Fernsehen die Ursache ist, muss man erst genauer untersuchen. Die Korrelation allein beweist keine Ursache.",
-   "h": "Gibt es eine dritte Größe, die beide Werte beeinflusst?"
-  },
-  {
-   "l": "kausal",
-   "t": "kausal",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Beobachtung: „Kinder mit größeren Schuhgrößen können besser rechnen.“ Welche Erklärung ist am vernünftigsten?"
-   },
-   "a": [
-    "Große Füße machen schlau.",
-    "Das ist ein Messfehler, es gibt keinen Zusammenhang.",
-    "Wer gut rechnet, bekommt größere Füße.",
-    "Ältere Kinder haben größere Füße und haben schon mehr Mathe gelernt."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Ältere Kinder haben größere Füße und haben schon mehr Mathe gelernt. Die Korrelation allein beweist keine Ursache.",
-   "h": "Gibt es eine dritte Größe, die beide Werte beeinflusst?"
+   "h": "Gibt es eine dritte Größe, die beide Werte beeinflusst?",
+   "g": "erkennen"
   },
   {
    "l": "kausal",
@@ -8191,7 +8718,30 @@
     "index": 0
    },
    "w": "die Größe des Restaurants beeinflusst beide beobachteten Größen. Deshalb hängen sie zusammen, ohne dass die eine die andere verursacht.",
-   "h": "Suche eine Größe, die beide Beobachtungen gleichzeitig beeinflusst."
+   "h": "Suche eine Größe, die beide Beobachtungen gleichzeitig beeinflusst.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "kausal",
+   "t": "kausal",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Beobachtung: „Schulen mit größeren Bibliotheken haben bessere Abschlussnoten.“ Welche Erklärung ist am vernünftigsten?"
+   },
+   "a": [
+    "Das ist ein Messfehler, es gibt keinen Zusammenhang.",
+    "Bücher im Regal verbessern automatisch die Noten.",
+    "Gute Noten lassen die Bibliothek wachsen.",
+    "Gut ausgestattete Schulen haben oft auch andere Vorteile, etwa kleinere Klassen."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gut ausgestattete Schulen haben oft auch andere Vorteile, etwa kleinere Klassen. Die Korrelation allein beweist keine Ursache.",
+   "h": "Gibt es eine dritte Größe, die beide Werte beeinflusst?",
+   "g": "erkennen"
   },
   {
    "l": "kausal",
@@ -8212,7 +8762,30 @@
     "index": 1
    },
    "w": "Die Daten zeigen nur, dass beides gemeinsam auftritt. Erklärung: Mehr Besucher bedeuten mehr hungrige Gäste – hier ist ein direkter Grund plausibel.",
-   "h": "Unterscheide „tritt gemeinsam auf“ und „ist die Ursache“."
+   "h": "Unterscheide „tritt gemeinsam auf“ und „ist die Ursache“.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "kausal",
+   "t": "kausal",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Beobachtung: „Spieler mit mehr Trainingseinheiten gewinnen öfter.“ Welche Erklärung ist am vernünftigsten?"
+   },
+   "a": [
+    "Training kann helfen, aber auch Talent und Motivation spielen mit – die Daten allein beweisen es nicht.",
+    "Wer gewinnt, muss nicht mehr trainieren.",
+    "Training ist sicher der einzige Grund.",
+    "Das ist ein Messfehler, es gibt keinen Zusammenhang."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Training kann helfen, aber auch Talent und Motivation spielen mit – die Daten allein beweisen es nicht. Die Korrelation allein beweist keine Ursache.",
+   "h": "Gibt es eine dritte Größe, die beide Werte beeinflusst?",
+   "g": "erkennen"
   },
   {
    "l": "kausal",
@@ -8233,7 +8806,30 @@
     "index": 2
    },
    "w": "Die Daten zeigen nur, dass beides gemeinsam auftritt. Erklärung: Kranke Menschen gehen ins Krankenhaus, weil sie krank sind – nicht umgekehrt.",
-   "h": "Unterscheide „tritt gemeinsam auf“ und „ist die Ursache“."
+   "h": "Unterscheide „tritt gemeinsam auf“ und „ist die Ursache“.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "kausal",
+   "t": "kausal",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Beobachtung: „Länder mit mehr Smartphones haben eine höhere Lebenserwartung.“ Welche Erklärung ist am vernünftigsten?"
+   },
+   "a": [
+    "Reichere Länder haben mehr Smartphones und eine bessere Gesundheitsversorgung.",
+    "Smartphones verlängern das Leben.",
+    "Das ist ein Messfehler, es gibt keinen Zusammenhang.",
+    "Wer lange lebt, kauft mehr Smartphones."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Reichere Länder haben mehr Smartphones und eine bessere Gesundheitsversorgung. Die Korrelation allein beweist keine Ursache.",
+   "h": "Gibt es eine dritte Größe, die beide Werte beeinflusst?",
+   "g": "erkennen"
   },
   {
    "l": "kausal",
@@ -8254,91 +8850,8 @@
     "index": 1
    },
    "w": "Die Daten zeigen nur, dass beides gemeinsam auftritt. Erklärung: Training kann helfen, aber auch Talent und Motivation spielen mit – die Daten allein beweisen es nicht.",
-   "h": "Unterscheide „tritt gemeinsam auf“ und „ist die Ursache“."
-  },
-  {
-   "l": "kausal",
-   "t": "kausal",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "„Länder mit mehr Smartphones haben eine höhere Lebenserwartung.“ Beweist das, dass das eine das andere verursacht?"
-   },
-   "a": [
-    "Ja, weil der Zusammenhang positiv ist.",
-    "Nein, weil es keinen Zusammenhang gibt.",
-    "Ja, wenn die Punkte eng an einer Geraden liegen.",
-    "Nein, eine Korrelation beweist keine Ursache."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Die Daten zeigen nur, dass beides gemeinsam auftritt. Erklärung: Reichere Länder haben mehr Smartphones und eine bessere Gesundheitsversorgung.",
-   "h": "Unterscheide „tritt gemeinsam auf“ und „ist die Ursache“."
-  },
-  {
-   "l": "kausal",
-   "t": "kausal",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "„An Tagen mit hohem Eisverkauf gibt es mehr Badeunfälle.“ Beweist das, dass das eine das andere verursacht?"
-   },
-   "a": [
-    "Nein, weil es keinen Zusammenhang gibt.",
-    "Ja, wenn die Punkte eng an einer Geraden liegen.",
-    "Ja, weil der Zusammenhang positiv ist.",
-    "Nein, eine Korrelation beweist keine Ursache."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Die Daten zeigen nur, dass beides gemeinsam auftritt. Erklärung: An heißen Tagen wird mehr Eis gegessen und mehr gebadet.",
-   "h": "Unterscheide „tritt gemeinsam auf“ und „ist die Ursache“."
-  },
-  {
-   "l": "kausal",
-   "t": "kausal",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Sportverein vermutet: „Dehnübungen vor dem Training verhindern Verletzungen.“ Wie kann man das am besten überprüfen?"
-   },
-   "a": [
-    "Alle Spieler dehnen; gibt es danach wenige Verletzungen, ist es bewiesen.",
-    "Ein Streudiagramm Dehnzeit gegen Verletzungen zeichnen – ein Zusammenhang beweist es.",
-    "Die Spieler fragen, ob sie sich nach dem Dehnen besser fühlen.",
-    "Zwei gleich zusammengesetzte Gruppen bilden; nur eine dehnt vorher. Nach einer Saison die Verletzungen vergleichen."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Nur ein Vergleich mit einer Gruppe, in der sonst alles gleich ist, zeigt eine Ursache.",
-   "h": "Wie kannst du andere Einflüsse ausschließen?"
-  },
-  {
-   "l": "kausal",
-   "t": "kausal",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Fröhliche Menschen lächeln öfter. Jemand folgert: „Lächeln macht fröhlich.“ Welcher Einwand ist berechtigt?"
-   },
-   "a": [
-    "Fröhlichkeit kann man nicht beobachten.",
-    "Es könnte auch umgekehrt sein: Wer fröhlich ist, lächelt deshalb öfter.",
-    "Die Korrelation ist negativ.",
-    "Lächeln und Fröhlichkeit haben nichts miteinander zu tun."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Aus den Daten sieht man nicht, was Ursache und was Folge ist. Vielleicht wirkt es umgekehrt.",
-   "h": "Könnte die Ursache auch in die andere Richtung wirken?"
+   "h": "Unterscheide „tritt gemeinsam auf“ und „ist die Ursache“.",
+   "g": "einkleidung"
   },
   {
    "l": "kausal",
@@ -8359,7 +8872,52 @@
     "index": 0
    },
    "w": "Ein Versuch zeigt eine Ursache nur, wenn sich die Gruppen allein in dem Punkt unterscheiden, den man prüft.",
-   "h": "Unterscheiden sich die Gruppen noch in etwas anderem?"
+   "h": "Unterscheiden sich die Gruppen noch in etwas anderem?",
+   "g": "begruenden"
+  },
+  {
+   "l": "kausal",
+   "t": "kausal",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Beobachtung: „Wer mehr Fernsehen schaut, hat oft schlechtere Noten.“ Welche Erklärung ist am vernünftigsten?"
+   },
+   "a": [
+    "Das ist ein Messfehler, es gibt keinen Zusammenhang.",
+    "Schlechte Noten sind sicher die Ursache für mehr Fernsehen.",
+    "Fernsehen ist sicher die Ursache für schlechte Noten.",
+    "Das zeigt nur einen Zusammenhang; ob Fernsehen die Ursache ist, muss man erst genauer untersuchen."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Das zeigt nur einen Zusammenhang; ob Fernsehen die Ursache ist, muss man erst genauer untersuchen. Die Korrelation allein beweist keine Ursache.",
+   "h": "Gibt es eine dritte Größe, die beide Werte beeinflusst?",
+   "g": "erkennen"
+  },
+  {
+   "l": "kausal",
+   "t": "kausal",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "„Länder mit mehr Smartphones haben eine höhere Lebenserwartung.“ Beweist das, dass das eine das andere verursacht?"
+   },
+   "a": [
+    "Ja, weil der Zusammenhang positiv ist.",
+    "Nein, weil es keinen Zusammenhang gibt.",
+    "Ja, wenn die Punkte eng an einer Geraden liegen.",
+    "Nein, eine Korrelation beweist keine Ursache."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Daten zeigen nur, dass beides gemeinsam auftritt. Erklärung: Reichere Länder haben mehr Smartphones und eine bessere Gesundheitsversorgung.",
+   "h": "Unterscheide „tritt gemeinsam auf“ und „ist die Ursache“.",
+   "g": "einkleidung"
   },
   {
    "l": "kausal",
@@ -8368,19 +8926,20 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Eine Gärtnerei vermutet: „Der neue Dünger lässt Tomaten schneller wachsen.“ Wie kann man das am besten überprüfen?"
+    "text": "Ein Sportverein vermutet: „Dehnübungen vor dem Training verhindern Verletzungen.“ Wie kann man das am besten überprüfen?"
    },
    "a": [
-    "Die größten Pflanzen düngen und sehen, ob sie weiter wachsen.",
-    "Alle Pflanzen düngen und messen, ob sie wachsen.",
-    "Nachlesen, wie viel Dünger andere Gärtner nehmen.",
-    "Gleiche Pflanzen unter gleichen Bedingungen in zwei Gruppen teilen; nur eine bekommt Dünger. Dann das Wachstum vergleichen."
+    "Alle Spieler dehnen; gibt es danach wenige Verletzungen, ist es bewiesen.",
+    "Ein Streudiagramm Dehnzeit gegen Verletzungen zeichnen – ein Zusammenhang beweist es.",
+    "Die Spieler fragen, ob sie sich nach dem Dehnen besser fühlen.",
+    "Zwei gleich zusammengesetzte Gruppen bilden; nur eine dehnt vorher. Nach einer Saison die Verletzungen vergleichen."
    ],
    "o": {
     "index": 3
    },
    "w": "Nur ein Vergleich mit einer Gruppe, in der sonst alles gleich ist, zeigt eine Ursache.",
-   "h": "Wie kannst du andere Einflüsse ausschließen?"
+   "h": "Wie kannst du andere Einflüsse ausschließen?",
+   "g": "transfer"
   },
   {
    "l": "kausal",
@@ -8389,19 +8948,20 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "In einer Umfrage treiben gesündere Menschen mehr Sport. Jemand folgert: „Sport macht gesund.“ Welcher Einwand ist berechtigt?"
+    "text": "Fröhliche Menschen lächeln öfter. Jemand folgert: „Lächeln macht fröhlich.“ Welcher Einwand ist berechtigt?"
    },
    "a": [
-    "Eine Umfrage kann keine Zahlen liefern.",
+    "Fröhlichkeit kann man nicht beobachten.",
+    "Es könnte auch umgekehrt sein: Wer fröhlich ist, lächelt deshalb öfter.",
     "Die Korrelation ist negativ.",
-    "Es könnte auch umgekehrt sein: Wer gesund ist, kann mehr Sport treiben.",
-    "Es gibt keinen Zusammenhang zwischen Sport und Gesundheit."
+    "Lächeln und Fröhlichkeit haben nichts miteinander zu tun."
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
    "w": "Aus den Daten sieht man nicht, was Ursache und was Folge ist. Vielleicht wirkt es umgekehrt.",
-   "h": "Könnte die Ursache auch in die andere Richtung wirken?"
+   "h": "Könnte die Ursache auch in die andere Richtung wirken?",
+   "g": "fehler"
   },
   {
    "l": "kausal",
@@ -8422,49 +8982,140 @@
     "index": 3
    },
    "w": "Ein Versuch zeigt eine Ursache nur, wenn sich die Gruppen allein in dem Punkt unterscheiden, den man prüft.",
-   "h": "Unterscheiden sich die Gruppen noch in etwas anderem?"
+   "h": "Unterscheiden sich die Gruppen noch in etwas anderem?",
+   "g": "begruenden"
   },
   {
    "l": "kausal",
    "t": "kausal",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "In einem Land stieg über Jahre der Käseverbrauch, gleichzeitig wurden mehr Fahrräder verkauft. Was ist die beste Deutung?"
+    "text": "Beobachtung: „Kinder mit größeren Schuhgrößen können besser rechnen.“ Welche Erklärung ist am vernünftigsten?"
    },
    "a": [
-    "Beide Zahlen steigen mit der Zeit; das kann Zufall sein oder an einer dritten Größe wie dem Einkommen liegen.",
-    "Käse macht sportlich.",
-    "Radfahrer essen mehr Käse, das ist bewiesen.",
-    "Es gibt keine Korrelation."
+    "Große Füße machen schlau.",
+    "Das ist ein Messfehler, es gibt keinen Zusammenhang.",
+    "Wer gut rechnet, bekommt größere Füße.",
+    "Ältere Kinder haben größere Füße und haben schon mehr Mathe gelernt."
    ],
    "o": {
-    "index": 0
+    "index": 3
    },
-   "w": "Zwei Zahlen, die beide mit der Zeit wachsen, korrelieren fast immer – auch ohne jede Ursache.",
-   "h": "Was ist beiden Zahlen gemeinsam, außer dass sie steigen?"
+   "w": "Ältere Kinder haben größere Füße und haben schon mehr Mathe gelernt. Die Korrelation allein beweist keine Ursache.",
+   "h": "Gibt es eine dritte Größe, die beide Werte beeinflusst?",
+   "g": "erkennen"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dezember werden mehr Lebkuchen und mehr Lichterketten verkauft. Welche dritte Größe erklärt beides?"
+   },
+   "a": [
+    "Lichterketten machen hungrig.",
+    "die Weihnachtszeit",
+    "Es gibt keinen Zusammenhang.",
+    "Lebkuchen machen Lust auf Lichterketten."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Beides steigt, weil Weihnachten naht – das eine verursacht das andere nicht.",
+   "h": "Was passiert im Dezember?",
+   "l": "kausal",
+   "t": "kausal",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt"
   },
   {
    "l": "kausal",
    "t": "kausal",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ein Streudiagramm zeigt einen sehr starken positiven Zusammenhang zwischen zwei Größen. Ist damit eine Ursache bewiesen?"
+    "text": "„An Tagen mit hohem Eisverkauf gibt es mehr Badeunfälle.“ Beweist das, dass das eine das andere verursacht?"
    },
    "a": [
-    "Ja, bei einem sehr starken Zusammenhang immer.",
-    "Ja, wenn mehr als 10 Punkte gemessen wurden.",
-    "Nein. Auch ein sehr starker Zusammenhang kann durch eine dritte Größe oder Zufall entstehen.",
-    "Nein, weil starke Zusammenhänge immer Zufall sind."
+    "Nein, weil es keinen Zusammenhang gibt.",
+    "Ja, wenn die Punkte eng an einer Geraden liegen.",
+    "Ja, weil der Zusammenhang positiv ist.",
+    "Nein, eine Korrelation beweist keine Ursache."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Daten zeigen nur, dass beides gemeinsam auftritt. Erklärung: An heißen Tagen wird mehr Eis gegessen und mehr gebadet.",
+   "h": "Unterscheide „tritt gemeinsam auf“ und „ist die Ursache“.",
+   "g": "einkleidung"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Beobachtung zeigt eine Korrelation, bei der KEINE Größe die andere verursacht?"
+   },
+   "a": [
+    "„Je stärker der Wind, desto schneller drehen sich Windräder.“",
+    "„Je mehr man übt, desto besser spielt man Klavier.“",
+    "„Je mehr man tankt, desto voller ist der Tank.“",
+    "„In Jahren mit mehr Störchen gab es mehr Geburten.“"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Störche bringen keine Kinder. Beides hing z. B. vom Leben auf dem Land ab. Bei den anderen ist eine Ursache klar.",
+   "h": "Bei welcher Beobachtung ist die Ursache unsinnig?",
+   "l": "kausal",
+   "t": "kausal",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Streudiagramm zeigt verkaufte Eiskugeln (x) und Sonnenbrand-Fälle (y) je Tag: stark positiv. Was zeigt es sicher?"
+   },
+   "a": [
+    "Eis verursacht Sonnenbrand.",
+    "Es gibt keinen Zusammenhang.",
+    "Die beiden Größen steigen meist gemeinsam.",
+    "Sonnenbrand macht Lust auf Eis."
    ],
    "o": {
     "index": 2
    },
-   "w": "Die Stärke sagt nur, wie eng die Punkte an einer Geraden liegen – nicht, warum.",
-   "h": "Was sagt die Stärke einer Korrelation aus – und was nicht?"
+   "w": "Ein Streudiagramm zeigt nur, dass Werte gemeinsam steigen (Korrelation). Die Ursache – hier das sonnige Wetter – steht nicht im Bild.",
+   "h": "Was kann ein Bild aus Punkten zeigen, was nicht?",
+   "l": "kausal",
+   "t": "kausal",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung"
+  },
+  {
+   "l": "kausal",
+   "t": "kausal",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Gärtnerei vermutet: „Der neue Dünger lässt Tomaten schneller wachsen.“ Wie kann man das am besten überprüfen?"
+   },
+   "a": [
+    "Die größten Pflanzen düngen und sehen, ob sie weiter wachsen.",
+    "Alle Pflanzen düngen und messen, ob sie wachsen.",
+    "Nachlesen, wie viel Dünger andere Gärtner nehmen.",
+    "Gleiche Pflanzen unter gleichen Bedingungen in zwei Gruppen teilen; nur eine bekommt Dünger. Dann das Wachstum vergleichen."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Nur ein Vergleich mit einer Gruppe, in der sonst alles gleich ist, zeigt eine Ursache.",
+   "h": "Wie kannst du andere Einflüsse ausschließen?",
+   "g": "transfer"
   },
   {
    "l": "kausal",
@@ -8665,6 +9316,137 @@
     "index": 2
    },
    "w": "das sonnige Wetter beeinflusst beide beobachteten Größen. Deshalb hängen sie zusammen, ohne dass die eine die andere verursacht."
+  },
+  {
+   "l": "kausal",
+   "t": "kausal",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Umfrage treiben gesündere Menschen mehr Sport. Jemand folgert: „Sport macht gesund.“ Welcher Einwand ist berechtigt?"
+   },
+   "a": [
+    "Eine Umfrage kann keine Zahlen liefern.",
+    "Die Korrelation ist negativ.",
+    "Es könnte auch umgekehrt sein: Wer gesund ist, kann mehr Sport treiben.",
+    "Es gibt keinen Zusammenhang zwischen Sport und Gesundheit."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Aus den Daten sieht man nicht, was Ursache und was Folge ist. Vielleicht wirkt es umgekehrt.",
+   "h": "Könnte die Ursache auch in die andere Richtung wirken?",
+   "g": "fehler"
+  },
+  {
+   "l": "kausal",
+   "t": "kausal",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "In einem Land stieg über Jahre der Käseverbrauch, gleichzeitig wurden mehr Fahrräder verkauft. Was ist die beste Deutung?"
+   },
+   "a": [
+    "Beide Zahlen steigen mit der Zeit; das kann Zufall sein oder an einer dritten Größe wie dem Einkommen liegen.",
+    "Käse macht sportlich.",
+    "Radfahrer essen mehr Käse, das ist bewiesen.",
+    "Es gibt keine Korrelation."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Zwei Zahlen, die beide mit der Zeit wachsen, korrelieren fast immer – auch ohne jede Ursache.",
+   "h": "Was ist beiden Zahlen gemeinsam, außer dass sie steigen?",
+   "g": "begruenden"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "200 Kinder werden per Los in zwei Gruppen geteilt: 100 lernen mit einer App, 100 ohne. Danach ist die App-Gruppe im Test 8 Punkte besser. Warum ist dieser Aufbau aussagekräftiger als eine Umfrage unter App-Nutzern?"
+   },
+   "a": [
+    "Durch das Los unterscheiden sich die Gruppen nur in der App.",
+    "Weil Umfragen verboten sind.",
+    "Weil 8 Punkte viel sind.",
+    "Weil 200 Kinder immer genügen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bei freiwilligen Nutzern könnten fleißigere Kinder die App wählen. Das Los verteilt Fleiß, Vorwissen usw. gleichmäßig; ein Unterschied geht dann vermutlich auf die App zurück.",
+   "h": "Wodurch könnten sich die Gruppen sonst noch unterscheiden?",
+   "l": "kausal",
+   "t": "kausal",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "l": "kausal",
+   "t": "kausal",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Streudiagramm zeigt einen sehr starken positiven Zusammenhang zwischen zwei Größen. Ist damit eine Ursache bewiesen?"
+   },
+   "a": [
+    "Ja, bei einem sehr starken Zusammenhang immer.",
+    "Ja, wenn mehr als 10 Punkte gemessen wurden.",
+    "Nein. Auch ein sehr starker Zusammenhang kann durch eine dritte Größe oder Zufall entstehen.",
+    "Nein, weil starke Zusammenhänge immer Zufall sind."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Stärke sagt nur, wie eng die Punkte an einer Geraden liegen – nicht, warum.",
+   "h": "Was sagt die Stärke einer Korrelation aus – und was nicht?"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Statistik einer Stadt: Je mehr Feuerwehrleute bei einem Brand im Einsatz sind, desto größer ist der Schaden. Welche Folgerung ist richtig?"
+   },
+   "a": [
+    "Feuerwehrleute verursachen Schäden.",
+    "Die Zahlen müssen falsch sein.",
+    "Man sollte weniger Feuerwehrleute schicken.",
+    "Große Brände sind die gemeinsame Ursache: Sie richten mehr Schaden an und brauchen mehr Feuerwehrleute."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die dritte Größe ist die Größe des Brandes. Sie erklärt beide Werte. Weniger Feuerwehrleute würden den Schaden sogar vergrößern.",
+   "h": "Woran liegt es, wie viele Feuerwehrleute ausrücken?",
+   "l": "kausal",
+   "t": "kausal",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Je stärker sich Windräder drehen, desto stärker weht der Wind. Jemand folgert: „Die Windräder machen den Wind.“ Welcher Denkfehler liegt vor?"
+   },
+   "a": [
+    "Die Stichprobe ist zu klein.",
+    "Ursache und Wirkung sind vertauscht.",
+    "Eine dritte Größe fehlt.",
+    "Es gibt gar keinen Zusammenhang."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der Zusammenhang ist echt, aber die Richtung falsch: Der Wind treibt die Windräder an, nicht umgekehrt. Eine Korrelation sagt nichts über die Richtung.",
+   "h": "Was war zuerst da?",
+   "l": "kausal",
+   "t": "kausal",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
   }
  ],
  "offen": [

@@ -263,7 +263,100 @@ def g_erkennen(s):
 
 GEN = schoen({'explizit': g_explizit, 'rekursiv': g_rekursiv, 'arithmetisch': g_arithmetisch, 'geometrisch': g_geometrisch, 'erkennen': g_erkennen})
 
-bauen('funktionen.folgen',
+# ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_rest import umbau_schreiben  # noqa: E402
+
+from _umbau_rest import tab  # noqa: E402
+
+
+def _s(werte, einheit='', namen=None):
+    namen = namen or [f'a{"₁₂₃₄₅₆₇₈₉"[i]}' for i in range(len(werte))]
+    return {'typ': 'saeulen', 'einheit': einheit, 'werte': [{'name': n, 'wert': w} for n, w in zip(namen, werte)], 'zahlen': True}
+
+
+_K = ['Glied', '2', '6', '18', '54']
+UMBAU = {
+    'explizit': {
+        'einstieg': 'Ein Muster aus Plättchen wächst. Bild 1 hat 1 Plättchen, Bild 2 hat 4, Bild 3 hat 7. '
+                    'Die Anzahlen bilden eine ⟦Folge⟧.',
+        'woerter': [['Folge', 'eine geordnete Liste von Zahlen a₁, a₂, a₃, …'],
+                    ['aₙ', 'das Glied an Platz n; n ist die Platznummer']],
+        'bild': _s([1, 4, 7], 'Plättchen'),
+        'schritte': [
+            {'text': 'Die Formel für die Anzahl lautet aₙ = 3n − 2.'},
+            {'text': 'Für a₅ setzt du die Platznummer n = 5 ein.'},
+            {'text': '3 · 5 − 2 = ⟦13⟧. Bild 5 hat 13 Plättchen.', 'bild': _s([1, 4, 7, 10, 13], 'Plättchen')},
+        ],
+        'fehler': 'n ist die ⟦Platznummer⟧, aₙ der Wert. a₅ heißt Platz 5, nicht Wert 5.',
+        'regel': 'Explizite Formel: für n die ⟦Platznummer⟧ einsetzen. Das Ergebnis ist das Glied aₙ.',
+    },
+    'rekursiv': {
+        'einstieg': 'Eine Regel sagt: Nimm die vorige Zahl, verdopple sie und zieh 1 ab. Start ist 5. '
+                    'So eine Vorschrift heißt ⟦rekursiv⟧.',
+        'woerter': [['rekursiv', 'jedes Glied wird aus dem vorigen berechnet'],
+                    ['Startwert', 'das erste Glied a₁'],
+                    ['aₙ₊₁', 'das Glied direkt nach aₙ']],
+        'bild': _s([5]),
+        'schritte': [
+            {'text': 'Startwert a₁ = 5, Regel aₙ₊₁ = 2 · aₙ − 1.'},
+            {'text': 'a₂ = 2 · 5 − 1 = 9.', 'bild': _s([5, 9])},
+            {'text': 'a₃ = 2 · 9 − 1 = 17.', 'bild': _s([5, 9, 17])},
+            {'text': 'a₄ = 2 · 17 − 1 = ⟦33⟧.', 'bild': _s([5, 9, 17, 33])},
+        ],
+        'fehler': 'a₄ = 2 · 4 − 1 = 7 ist falsch. Rekursiv setzt man ⟦das vorige Glied⟧ ein, nicht die Platznummer.',
+        'regel': 'Rekursiv: aus dem ⟦vorigen Glied⟧ das nächste berechnen. Dazu braucht man einen Startwert.',
+    },
+    'arithmetisch': {
+        'einstieg': 'Du hast 7 € im Sparschwein und legst jede Woche 4 € dazu. Es kommt immer gleich viel dazu. '
+                    'So eine Folge heißt ⟦arithmetisch⟧.',
+        'woerter': [['arithmetische Folge', 'immer dieselbe Zahl d kommt dazu'],
+                    ['d', 'die Differenz zweier Nachbarglieder']],
+        'bild': _s([7, 11, 15, 19], '€'),
+        'schritte': [
+            {'text': 'Arithmetische Folge 7; 11; 15; 19: d = 11 − 7 = 4.'},
+            {'text': 'Bis a₂₀ sind es 19 Schritte zu je 4.'},
+            {'text': 'a₂₀ = 7 + 19 · 4 = ⟦83⟧.', 'bild': _s([7, 11, 15, 19, 83], '€', ['a₁', 'a₂', 'a₃', 'a₄', 'a₂₀'])},
+        ],
+        'fehler': '7 + 20 · 4 = 87 ist falsch. Von a₁ bis a₂₀ sind es nur ⟦19 Schritte⟧.',
+        'regel': 'Arithmetisch: immer ⟦+ d⟧. Es gilt aₙ = a₁ + (n − 1) · d.',
+    },
+    'geometrisch': {
+        'einstieg': 'Am ersten Tag kennen 3 Leute ein Gerücht, jeden Tag verdoppelt sich die Zahl. '
+                    'Hier wird immer mit demselben Faktor malgenommen. Die Folge ist ⟦geometrisch⟧.',
+        'woerter': [['geometrische Folge', 'immer mit demselben Faktor q malnehmen'],
+                    ['q', 'der Faktor: q = a₂ : a₁']],
+        'bild': _s([3, 6, 12, 24], 'Leute'),
+        'schritte': [
+            {'text': 'Geometrische Folge 3; 6; 12; 24: q = 6 : 3 = 2.'},
+            {'text': 'Bis a₇ wird 6-mal mit 2 malgenommen.'},
+            {'text': 'a₇ = 3 · 2⁶ = 3 · 64 = ⟦192⟧.', 'bild': _s([3, 6, 12, 24, 48, 96, 192], 'Leute')},
+        ],
+        'fehler': '3 · 2⁷ = 384 ist falsch. Von a₁ bis a₇ wird nur ⟦6-mal⟧ malgenommen: q⁶.',
+        'regel': 'Geometrisch: immer ⟦mal q⟧. Es gilt aₙ = a₁ · qⁿ⁻¹.',
+    },
+    'erkennen': {
+        'einstieg': 'Ein Detektiv bekommt die Zahlen 2; 6; 18; 54. Wie geht es weiter? Er prüft zwei Spuren: '
+                    'gleicher Abstand oder gleicher Faktor? So ⟦erkennt⟧ er die Folge.',
+        'woerter': [['Differenz', 'Ergebnis von „Nachbar minus Glied“'],
+                    ['Quotient', 'Ergebnis von „Nachbar geteilt durch Glied“']],
+        'bild': tab(_K),
+        'schritte': [
+            {'text': 'Die Differenzen sind 4; 12; 36. Nicht gleich, also nicht arithmetisch.',
+             'bild': tab(_K, ['Differenz', '', '4', '12', '36'])},
+            {'text': 'Die Quotienten sind 3; 3; 3. Gleich!', 'bild': tab(_K, ['Differenz', '', '4', '12', '36'], ['Quotient', '', '3', '3', '3'])},
+            {'text': '⟦Geometrisch mit q = 3⟧, das nächste Glied ist 162.'},
+        ],
+        'fehler': 'Aus zwei Gliedern kann man nichts schließen. Bei 1; 4 passt d = 3 oder q = 4. Man braucht ⟦mindestens drei Glieder⟧.',
+        'regel': 'Differenzen gleich: arithmetisch. ⟦Quotienten gleich⟧: geometrisch. Sonst weder noch.',
+    },
+}
+UMBAU_OFFEN = []
+UMBAU_WEG = []
+# ---------- Ende UMBAU ----------
+
+
+d = bauen('funktionen.folgen',
       'Folgenglieder explizit und rekursiv berechnen, arithmetische und geometrische Folgen erkennen, beschreiben und in Sachaufgaben anwenden.',
       ['Folge (sequence): a₁, a₂, a₃, …; n ist die Platznummer.',
        'Rekursiv (recursive): nächstes Glied aus dem vorigen; braucht einen Startwert.',
@@ -274,3 +367,4 @@ bauen('funktionen.folgen',
       ETAPPEN, GEN,
       offen=['Reihen und Summenschreibweise (im Umfang von funktionen.folgen genannt) stehen im eigenen Thema funktionen.reihen, damit sich die beiden Themen nicht doppeln.',
              'Indizes werden mit tiefgestellten Unicode-Ziffern geschrieben (a₅, aₙ₊₁). Falls die Schrift der App sie nicht darstellt, bitte melden.'])
+umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

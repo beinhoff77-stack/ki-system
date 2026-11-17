@@ -538,7 +538,7 @@ UMBAU = {
  'graphisch': {
   'einstieg': 'Du kannst beide Seiten einer Gleichung zeichnen. Wo sich die Linien treffen, haben beide Seiten denselben Wert. Diese Stellen heißen ⟦Schnittpunkte⟧.',
   'woerter': [['Hyperbel', 'der Graph von y = 6/x, zwei geschwungene Äste'], ['Schnittpunkt', 'ein Punkt, der auf beiden Graphen liegt']],
-  'bild': {'typ': 'koordinaten', 'x': [-6, 6], 'y': [-6, 6], 'graphen': [{'art': 'hyperbel', 'a': 6, 'b': 0, 'c': 0, 'name': '6/x'}, {'art': 'linear', 'm': 1, 't': -1, 'name': 'x − 1'}]},
+  'bild': {'typ': 'koordinaten', 'x': [-6, 6], 'y': [-6, 6], 'graphen': [{'art': 'hyperbel', 'a': 6, 'b': 0, 'c': 0, 'name': '6/x', 'name_x': 1.5}, {'art': 'linear', 'm': 1, 't': -1, 'name': 'x − 1'}]},
   'schritte': [{'text': 'Aufgabe 6/x = x − 1. Links zeichnest du die Hyperbel, rechts die Gerade.'},
                {'text': 'Die Graphen schneiden sich in (3 | 2) und (−2 | −3).', 'bild': {'punkte': [{'x': 3, 'y': 2, 'name': '(3 | 2)'}, {'x': -2, 'y': -3, 'name': '(−2 | −3)'}]}},
                {'text': 'Gesucht ist x. Die Lösungen sind ⟦x = 3 und x = −2⟧.', 'bild': {'senkrecht': [3, -2]}}],

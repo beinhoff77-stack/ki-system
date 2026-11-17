@@ -27,7 +27,7 @@ Achtzehnte Runde, Teil B, Klasse 9 abgeschlossen (Zweig luecken-kl9, nicht gemer
 
 ### Offen geblieben
 - Die vier neuen Pflichtkarten gelten auch für die anderen Schularten dieser Themen (funktionen.quadratisch: RS 8, IB 4; gleichungen.quadratisch: RS 9, IB 4; zahlen.reell: RS 9, IB 3; trigo.allgemein: RS 10, IB 4). Ob Heron und Bruchgleichungen dort Pflicht sein sollen, habe ich nicht geprüft – Bitte um Entscheidung (sonst Vertiefung je Schulart, das kann die Datei heute nicht abbilden).
-- Pythagoras (M9 6) kommt im Jahr nach den quadratischen Funktionen; deshalb verlangt keine Aufgabe in „schnittpunkte“ den Satz des Pythagoras.
+- Pythagoras (M9 6) kommt im Schuljahr erst nach den quadratischen Funktionen (Reihenfolge 11 vs. 3); deshalb verlangt keine Aufgabe in „schnittpunkte“ den Satz des Pythagoras.
 - Die Sach-Lücke ist als Aufgabengruppe umgesetzt, nicht als eigene Karte „sach“ (laut „wohin“ beides möglich).
 
 ## 2026-11-17 13:06 – STATUS

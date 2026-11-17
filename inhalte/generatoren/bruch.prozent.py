@@ -937,3 +937,10 @@ SK(lz, SZ('knobel', 'In einer Schule sind 60 % der Kinder Mädchen. 50 % der Mä
 if __name__ == '__main__':
     schreibe(DATEI)
     stufen_datei('bruch.prozent', ST)
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('bruch.prozent')
+# ---- BEREINIGEN ENDE ----

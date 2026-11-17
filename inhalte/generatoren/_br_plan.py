@@ -222,3 +222,67 @@ PLAN['geometrie.winkel'] = [
 # A2: Der Begriff „proportional“ steht nicht in M5 (dort Schlussrechnung/Dreisatz); Gymnasium: Kl. 8 (Funktionen), Realschule: M6 LB 6.
 # Kein passendes Thema in Kl. 6/7 → Karte „erkennen“ wird Vertiefung.
 PLAN['groessen.proportional'] = [vertiefung('erkennen')]
+
+# ======================= Klasse 6 =======================
+# A1: negativer Exponent. Zehnerpotenzen mit negativem Exponenten stehen in zahlen.potenzen_zehner (zuerst, Reihenfolge 6).
+# terme.potenzgesetze/negativer_exponent behält nur die allgemeine Basis (M6 1.4: „negative ganzzahlige Exponenten als Bruch mit Zähler 1“)
+# und verweist auf die Zehnerpotenzen; Aufgaben mit Basis 10 entfallen dort.
+# A2: Potenzgesetze (M7 1.1: Produkte von Potenzen bei gleicher Basis oder gleichem Exponenten, Potenzen von Potenzen) → terme.umformen (Kl. 7).
+# Quotienten von Potenzen stehen in M7 nicht (erst Kl. 9, zahlen.rationale_exponenten) → dort Vertiefung, ebenso die gemischte Karte „anwenden“.
+# fehler_finden (Grundlagen aus M6 und Fehler bei Potenzgesetzen gemischt) bleibt in Kl. 6, aber als Vertiefung.
+PLAN['terme.potenzgesetze'] = [
+    weg('negativer_exponent', r'^(Was ergibt 10⁰\?|Schreibe 1/1 000 als Potenz mit der Basis 10\.|Schreibe 1/100 000 als Potenz mit der Basis 10\.)', 3),
+    pool('negativer_exponent', 'korrektur', T(Z('Schreibe 1/49 als Potenz mit der Basis 7. Wie heißt der Exponent?', -2, '-2 + 0 * 7**2',
+         '49 = 7², also 1/49 = 1/7² = 7⁻². Der Exponent ist −2.', '-'))),
+    pool('negativer_exponent', 'sicherung', T(Z('Schreibe 1/36 als Potenz mit der Basis 6. Wie heißt der Exponent?', -2, '-2 + 0 * 6**2',
+         '36 = 6², also 1/36 = 1/6² = 6⁻². Der Exponent ist −2.', '-'))),
+    karte('negativer_exponent', regel='Ein ⟦negativer Exponent⟧ bedeutet Kehrbruch: a⁻ⁿ = 1/aⁿ, wie bei 10⁻ⁿ. Außerdem gilt a⁰ = 1.'),
+    entfaellt('mal_gleiche_basis'), entfaellt('geteilt_gleiche_basis'), entfaellt('gleicher_exponent'), entfaellt('anwenden'),
+    vertiefung('fehler_finden'),
+    abschnitt('Anwenden und prüfen', 'Vertiefung: Fehler finden'),
+    inhalt(ziel='Potenzen mit natürlichen und ganzzahligen Exponenten verstehen und berechnen. Die Potenzgesetze folgen in Klasse 7 (Terme umformen).',
+           merke=['aⁿ = a · a · … · a (n Faktoren). a⁰ = 1, a⁻ⁿ = 1/aⁿ.', 'Negative Basis in Klammern: (−2)² = 4, aber −2² = −4.']),
+]
+PLAN['terme.umformen'] = [
+    karte_her('terme.potenzgesetze', 'mal_gleiche_basis', 'Potenzen zusammenfassen', nach='produkte'),
+    karte_her('terme.potenzgesetze', 'gleicher_exponent', 'Potenzen zusammenfassen', nach='mal_gleiche_basis'),
+    karte_her('terme.potenzgesetze', 'geteilt_gleiche_basis', 'Potenzen zusammenfassen', vertiefung=True, nach='gleicher_exponent'),
+    karte_her('terme.potenzgesetze', 'anwenden', 'Potenzen zusammenfassen', vertiefung=True, nach='geteilt_gleiche_basis'),
+    inhalt(ziel='Terme vereinfachen: gleichartige Glieder zusammenfassen, Produkte und Potenzen zusammenfassen, Klammern auflösen und ausmultiplizieren, ausklammern, Äquivalenz prüfen und die binomischen Formeln anwenden.',
+           merke=['Nur gleichartige Glieder zusammenfassen.', 'Gleiche Basis: aᵐ · aⁿ = aᵐ⁺ⁿ. Gleicher Exponent: aⁿ · bⁿ = (a · b)ⁿ.',
+                  'Minus vor der Klammer: jedes Vorzeichen darin wechselt.', 'Ausmultiplizieren: Der Faktor kommt zu jedem Glied.', 'Summe mal Summe: jedes Glied mal jedes Glied.',
+                  '(a + b)² = a² + 2ab + b², (a − b)² = a² − 2ab + b², (a + b)(a − b) = a² − b².']),
+]
+
+# A1: Zinsen. Der ganze Flug finanzen.zinsen (direkt nach bruch.prozent) behandelt Zinsen; die Karte bruch.prozent/zinsen entfällt,
+# ihre besten Aufgaben ziehen in die passenden Karten von finanzen.zinsen (nur, was die Grenzen der Zwanzigsten Runde einhält).
+PLAN['bruch.prozent'] = [
+    entfaellt('zinsen'),
+    inhalt(ziel='Prozentangaben verstehen, Prozentwert, Prozentsatz und Grundwert berechnen und einfache Aufgaben zu Rabatt und Aufschlag lösen. Zinsen folgen im nächsten Flug.',
+           merke=['p % = p/100. 50 % = 1/2, 25 % = 1/4, 20 % = 1/5, 10 % = 1/10.', 'W = G · p %   ·   p % = W : G   ·   G = W : p %.',
+                  'Rabatt p %: neuer Preis = G · (100 % − p %). Aufschlag: G · (100 % + p %).']),
+]
+PLAN['finanzen.zinsen'] = [
+    her('bruch.prozent', 'zinsen', 'jahreszinsen', r'^(Bank A zahlt 3 %, Bank B zahlt 1 %|Ein Kind rechnet: „4 % Zinsen auf 750|Stimmt die Aussage\? „Doppelt so viel Kapital|1 000 € liegen zwei Jahre)', 4, auto=True),
+    her('bruch.prozent', 'zinsen', 'jahreszinsen_komma', r'^(1 650 € werden ein Jahr lang zu 1,5 %|Konto A: 1 000 € zu 3 %)', 2, auto=True),
+    her('bruch.prozent', 'zinsen', 'zinssatz', r'^(Ein Guthaben wächst in einem Jahr durch Zinsen von 800|Bei welchem ganzzahligen Zinssatz p)', 2, auto=True),
+    her('bruch.prozent', 'zinsen', 'kapital', r'^(Bei einem Zinssatz von 2 % bekommt man|Nach einem Jahr mit 3 % Zinsen sind 1 545)', 2, auto=True),
+    her('bruch.prozent', 'zinsen', 'monatszinsen', r'^Ein Kredit über 600 € kostet 9 %', 1, auto=True),
+    her('bruch.prozent', 'zinsen', 'zeitanteil', r'^Eine Familie leiht sich 4 800 €', 1, auto=True),
+]
+
+# A1 + A2: Median, Modalwert, Spannweite sind nicht in M6 (dort: arithmetisches Mittel), aber in M7 (daten.boxplot: Median als weiterer Mittelwert).
+# daten.kennwerte behält die drei Mittelwert-Karten; modal_spannweite, median und verstehen (Mittelwert gegen Median) ziehen nach daten.boxplot.
+PLAN['daten.kennwerte'] = [
+    entfaellt('modal_spannweite'), entfaellt('median'), entfaellt('verstehen'),
+    inhalt(ziel='Das arithmetische Mittel bestimmen und deuten – auch aus Häufigkeitstabellen und rückwärts. Median, Modalwert und Spannweite folgen in Klasse 7.',
+           merke=['Mittelwert = Summe : Anzahl.', 'Häufigkeitstabelle: Wert · Häufigkeit addieren, durch Gesamtzahl teilen.', 'Summe = Mittelwert · Anzahl.']),
+]
+PLAN['daten.boxplot'] = [
+    her('daten.kennwerte', 'median', 'median', r'S3:.', auto=True),
+    her('daten.kennwerte', 'median', 'median', r'S2:^(Punkte von 13 Kindern|Eine Strichliste zeigt|Jemand sagt: „Der Median von 7, 9, 13, 17)', 3, auto=True),
+    her('daten.kennwerte', 'modal_spannweite', 'kennwerte', r'S2:^(Temperaturen am Morgen|Lieblingsfarben: rot|Eine Datenreihe hat die Spannweite 12|Bestimme die Spannweite von −2, 0, 2)', 4, auto=True),
+    her('daten.kennwerte', 'modal_spannweite', 'kennwerte', r'S3:.', auto=True),
+    her('daten.kennwerte', 'verstehen', 'mittel_median', r'S2:^(Stimmt die Aussage\? „(Taschengeld|Wenn ein sehr großer Wert|Der Mittelwert liegt immer|Verdoppelt man alle)|Ein Kind sagt: „Mein Mittelwert)', 6, auto=True),
+    her('daten.kennwerte', 'verstehen', 'mittel_median', r'S3:.', auto=True),
+]

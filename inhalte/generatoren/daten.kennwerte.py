@@ -731,3 +731,10 @@ SK(lz, SZ('knobel', 'Der Mittelwert von 6 Zahlen ist 10. Man addiert zu jeder Za
 if __name__ == '__main__':
     schreibe(DATEI)
     stufen_datei('daten.kennwerte', ST)
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('daten.kennwerte')
+# ---- BEREINIGEN ENDE ----

@@ -768,3 +768,10 @@ if __name__ == '__main__':
                 'die beim Einspielen mit einheit_abgleichen(…, \'lassen\') dazukommen. Dubletten zu den alten Aufgaben ließen sich hier nicht prüfen, weil diese nicht im Repository liegen.'])
     durchsicht_datei(META['thema_schluessel'], DS)  # Neunzehnte Runde: zuletzt
     stufen_datei(META['thema_schluessel'], ST)  # Zwanzigste Runde: zuletzt
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('terme.umformen')
+# ---- BEREINIGEN ENDE ----

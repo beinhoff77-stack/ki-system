@@ -558,3 +558,10 @@ if __name__ == '__main__':
                 'die beim Einspielen mit einheit_abgleichen(…, \'lassen\') dazukommen. Dubletten zu den alten Aufgaben ließen sich hier nicht prüfen, weil diese nicht im Repository liegen.',
                 'Modell wie auf den Karten: fester Jahreszinssatz, gleichbleibendes Kapital, keine Zinsen auf Zinsen (Zinseszins ist ein eigenes Thema).'])
     stufen_datei('finanzen.zinsen', ST)
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('finanzen.zinsen')
+# ---- BEREINIGEN ENDE ----

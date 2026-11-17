@@ -49,7 +49,7 @@ MIN_TYP = {1: 2, 2: 3, 3: 4}
 # ---------- Schritte (Datenform) ----------
 def entfaellt(lz): return ('entfaellt', lz)
 def weg(lz, muster, n=None): return ('weg', lz, muster, n)
-def her(quelle, lz_q, lz, muster, n=None): return ('her', quelle, lz_q, lz, muster, n)
+def her(quelle, lz_q, lz, muster, n=None, auto=False): return ('her', quelle, lz_q, lz, muster, n, auto)  # auto: nur übernehmen, was die Grenzen einhält
 def karte_her(quelle, lz_q, abschnitt, vertiefung=False, nach=None, vor=None): return ('karte_her', quelle, lz_q, abschnitt, vertiefung, nach, vor)
 def innen(lz_q, lz, muster, n=None): return ('innen', lz_q, lz, muster, n)             # Aufgaben (alle Pools) in eine andere Karte desselben Themas
 def karte_neu(lz, abschnitt, etappe, tf_text, nach=None, vertiefung=False): return ('karte_neu', lz, abschnitt, etappe, tf_text, nach, vertiefung)
@@ -160,7 +160,7 @@ def anwenden(d, thema, plan):
             b['weg'] += [{'lz': lz, 'p': a['p'], 's': a['s'], 'g': a.get('g'), 'text': a['f']['text']} for a in xs]
             geaendert.add(lz)
         elif art == 'her':
-            _, quelle, lz_q, lz, muster, n = op
+            _, quelle, lz_q, lz, muster, n, auto = op
             q = roh(quelle)
             xs = [a for a in q['aufgaben'] if a['l'] == lz_q and a['p'] in ('uebung', 'bonus') and passt(muster, a)]
             assert xs and (n is None or len(xs) == n), f'{thema}/{lz} her {quelle}/{lz_q} „{muster}“: {len(xs)} Treffer, erwartet {n}'
@@ -174,6 +174,15 @@ def anwenden(d, thema, plan):
                     b['verworfen'].append({'lz': lz, 'quelle': f'{quelle}/{lz_q}', 'text': a['f']['text'], 'grund': 'Fragetext schon im Thema'}); continue
                 if a['p'] == 'uebung' and not a.get('g'):
                     b['verworfen'].append({'lz': lz, 'quelle': f'{quelle}/{lz_q}', 'text': a['f']['text'], 'grund': 'überzählig (ohne Typ)'}); continue
+                if auto:
+                    ziel = [x for x in d['aufgaben'] if x['l'] == lz] + neu_
+                    zue = [x for x in ziel if x['p'] == 'uebung' and x.get('g')]
+                    grund = None
+                    if a['p'] == 'bonus' and sum(1 for x in ziel if x['p'] == 'bonus') >= 3: grund = 'schon 3 Knobel-Bordkarten'
+                    elif a['p'] == 'uebung' and a['s'] == 3 and sum(1 for x in zue if x['s'] == 3 and x['g'] == a['g']) >= 3: grund = f'Stufe 3 hat schon 3 × „{a["g"]}“'
+                    elif a['p'] == 'uebung' and sum(1 for x in zue if x['s'] == a['s'] and x['g'] == a['g'] and bauplan(x) == bauplan(a)) >= 2: grund = 'schon 2 gleich gebaute Übungen dieses Typs'
+                    if grund:
+                        b['verworfen'].append({'lz': lz, 'quelle': f'{quelle}/{lz_q}', 'text': a['f']['text'], 'grund': grund}); continue
                 a = copy.deepcopy(a); a['l'] = lz; a['t'] = tf
                 neu_.append(a); vorhanden.add(a['f']['text'])
                 b['her'].append({'lz': lz, 'quelle': f'{quelle}/{lz_q}', 'p': a['p'], 's': a['s'], 'g': a.get('g'), 'text': a['f']['text']})

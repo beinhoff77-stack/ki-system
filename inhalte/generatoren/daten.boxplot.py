@@ -905,3 +905,10 @@ if __name__ == '__main__':
     befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
     durchsicht_datei(META['thema_schluessel'], DS)  # Neunzehnte Runde: zuletzt
     stufen_datei(META['thema_schluessel'], ST)  # Zwanzigste Runde: zuletzt
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('daten.boxplot')
+# ---- BEREINIGEN ENDE ----

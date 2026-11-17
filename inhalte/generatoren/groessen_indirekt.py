@@ -1037,6 +1037,137 @@ DSX.fuer_sebastian('groessen.indirekt überschneidet sich stark mit funktionen.g
 baue = mit_durchsicht(baue, DSX)
 # ---- DURCHSICHT ENDE ----
 
+# ---- STUFEN (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, siehe _stufen_kl8.py) ----
+from _stufen_kl8 import Stufen, mit_stufen  # noqa: E402
+
+ST = Stufen('groessen.indirekt', 20_8_14)
+SA, SZ, SL = ST.A, ST.Z, ST.L
+def T(lz, *regeln):
+    for m, g in regeln: ST.typ(lz, m, g)
+
+# --- erkennen ---
+ST.leiter('erkennen', 'an einer Situation entscheiden, ob „doppelt → halb“ gilt',
+          'passende Situation auswählen, Wertepaare mit dem Produkt prüfen, Gegenbeispiele (Quadrat, fester Umfang)',
+          '„Je mehr, desto weniger“ als Fehlschluss, Bedingungen begründen, Prozentänderung, y = 2/x, Messwerte wie in einer Prüfung')
+T('erkennen', (r'Seitenlänge eines Quadrats|Umfang 20 cm|Kann das indirekt proportional sein', 'mehrschritt'), (r'^Ist diese Zuordnung indirekt', 'erkennen'),
+  (r'^Welche Zuordnung ist indirekt', 'einkleidung'), (r'Stimmt die Begründung|Was muss gleich bleiben', 'begruenden'), (r'Was kann man sicher sagen|y = 2/x', 'transfer'),
+  (r'2 Maschinen|^Messwerte', 'pruefung'), (r'Welche Begründung', 'verknuepfen'), (r'50 %', 'parameter'))
+ST.neu('erkennen', 'direkt', SZ('x und y sind indirekt proportional. Zu x = 3 gehört y = 8. Welcher y-Wert gehört zu x = 6?', 4, '3 * 8 / 6', 'Doppeltes x → halbes y: 8 : 2 = 4.', 'Doppelt so viel → halb so viel.'))
+ST.neu('erkennen', 'darstellung', SA('Welche Wertetabelle kann zu einer indirekten Proportionalität gehören?', 'x: 1, 2, 4 → y: 12, 6, 3', ['x: 1, 2, 4 → y: 3, 6, 12', 'x: 1, 2, 4 → y: 12, 10, 8', 'x: 1, 2, 4 → y: 12, 6, 2'],
+    'Nur dort ist x · y immer 12. Bei 12, 10, 8 nimmt y zwar ab, aber das Produkt ändert sich; bei 12, 6, 2 ist das letzte Produkt 8.', 'Bilde für jede Tabelle alle Produkte x · y.'))
+ST.knobel('erkennen', SZ('x und y sind indirekt proportional. Vergrößert man x um 3, wird y halbiert. Wie groß ist x?', 3, '3',
+    'Das Produkt bleibt gleich: x · y = (x + 3) · y/2 ⇒ 2x = x + 3 ⇒ x = 3. Probe: aus x = 3 wird 6 – das ist das Doppelte, also halbiert sich y.', 'Halbes y heißt: Das neue x muss das Doppelte des alten sein.'))
+ST.knobel('erkennen', SA('Zu einer Zuordnung gehören die Paare (2 | 12), (3 | 8) und (6 | 5). Was stimmt?', 'Sie ist nicht indirekt proportional; schon ein Paar mit anderem Produkt genügt als Gegenbeispiel.',
+    ['Sie ist indirekt proportional, weil zwei Paare das Produkt 24 haben.', 'Sie ist direkt proportional.', 'Man kann es erst mit mehr Paaren entscheiden.'],
+    '2 · 12 = 24, 3 · 8 = 24, aber 6 · 5 = 30. Für eine indirekte Proportionalität müssten ALLE Produkte gleich sein – ein abweichendes Paar widerlegt sie.', 'Prüfe wirklich jedes Paar.'))
+
+# --- vervielfachen ---
+ST.leiter('vervielfachen', 'fehlenden Wert mit „doppelt → halb“ ergänzen',
+          'nicht ganzzahlige Faktoren, x-Wert gesucht, Sachpaare (Pferde, Pumpen), Faktor 0,5',
+          'Zwischenschritt verknüpfen, Busse als Transfer, zwei Lücken, rückwärts zum alten y, Parameter a, Fehler „mal statt geteilt“, begründen, Prüfungsauswahl')
+T('vervielfachen', (r'Zwischenschritt|beiden fehlenden', 'verknuepfen'), (r'Welcher x-Wert fehlt', 'umkehr'), (r'Pferde|2 Pumpen brauchen|^Indirekt proportional: \d+ Pumpen', 'einkleidung'), (r'2,5', 'mehrschritt'),
+  (r'Bussen', 'transfer'), (r'1,5 multipliziert', 'rueckwaerts'), (r'\(2 \| a\)', 'parameter'))
+ST.typ('vervielfachen@1', r'Ergänze den fehlenden Wert\.$', 'direkt')
+ST.typ('vervielfachen@2', r'Ergänze den fehlenden Wert\.$', 'mehrschritt')
+ST.neu('vervielfachen', 'erkennen', SA('x und y sind indirekt proportional. x wird mit 4 multipliziert. Was passiert mit y?', 'y wird durch 4 geteilt.', ['y wird mit 4 multipliziert.', 'y wird um 4 kleiner.', 'y bleibt gleich.'],
+    'Das Produkt x · y bleibt gleich: Was x vervielfacht, muss y ausgleichen.', 'Was bleibt bei einer indirekten Proportionalität gleich?'))
+ST.neu('vervielfachen', 'fehler', SA('Indirekt proportional: 4 Personen brauchen 6 Stunden. Jemand rechnet für 8 Personen: 6 · 2 = 12 Stunden. Was stimmt?', 'Falsch: Doppelt so viele Personen brauchen halb so lange, also 3 Stunden.',
+    ['Richtig.', 'Falsch: Es sind 6 + 4 = 10 Stunden.', 'Falsch: Es sind 6 − 2 = 4 Stunden.'], 'Er hat wie bei einer direkten Proportionalität gerechnet. Probe: 4 · 6 = 24 = 8 · 3.', 'Prüfe mit dem Produkt.'))
+ST.neu('vervielfachen', 'begruenden', SA('Warum darf man bei einer indirekten Proportionalität aus (6 | 10) direkt auf (2 | 30) schließen?', 'Weil x durch 3 geteilt wird und y deshalb mit 3 multipliziert werden muss – das Produkt bleibt 60.',
+    ['Weil 6 − 4 = 2 und 10 + 20 = 30.', 'Weil man immer mit 3 multipliziert.', 'Weil 2 und 30 beide gerade sind.'], 'Der Faktor bei x und der Faktor bei y sind Kehrwerte: : 3 und · 3.', 'Mit welchem Faktor wird x verändert?'))
+ST.neu('vervielfachen', 'pruefung', SZ('Ein Vorrat reicht 12 Tieren 15 Tage. Nach 5 Tagen kommen 3 Tiere dazu. Wie viele Tage reicht der Rest dann noch?', 8, '12 * 10 / 15',
+    'Nach 5 Tagen reicht der Rest für 12 Tiere noch 10 Tage. Mit 15 Tieren: 12 · 10 : 15 = 8 Tage.', 'Rechne zuerst, wie lange der Rest für die alten Tiere gereicht hätte.', einheit='Tage'))
+ST.knobel('vervielfachen', SZ('x und y sind indirekt proportional. Wird x um 2 vergrößert, wird y um 2 kleiner; vorher war y = 6. Wie groß war x?', 4, '4',
+    'Mit k = x · y gilt x · 6 = (x + 2) · 4 ⇒ 6x = 4x + 8 ⇒ x = 4. Probe: 4 · 6 = 24 = 6 · 4.', 'Setze die beiden Produkte gleich.'))
+ST.knobel('vervielfachen', SZ('x und y sind indirekt proportional. Erst wird x verdoppelt, dann wird das neue x noch einmal um 50 % vergrößert. Auf welchen Bruchteil des Anfangswerts sinkt y? Gib ihn als Dezimalzahl auf drei Stellen an.', 0.333, 'round(1/3, 3)',
+    'x wird insgesamt mit 2 · 1,5 = 3 multipliziert. y wird also durch 3 geteilt: 1/3 ≈ 0,333.', 'Fasse beide Veränderungen von x zu einem Faktor zusammen.', toleranz=0.001))
+
+# --- produkt ---
+ST.leiter('produkt', 'konstantes Produkt bilden und damit einen y-Wert ergänzen',
+          'Tabelle auf gleiche Produkte prüfen, Dezimalwerte ergänzen, unpassendes Paar finden',
+          'Fehler in der Tabelle finden, Preisgeld rückwärts, Wippe und Tabellenkalkulation, Rechteck verknüpfen, x = y als Parameter')
+T('produkt', (r'Ergänze den fehlenden y-Wert', 'direkt'), (r'konstante Produkt', 'erkennen'), (r'Ist die Zuordnung in der Tabelle', 'darstellung'), (r'4,5', 'mehrschritt'), (r'NICHT', 'umkehr'),
+  (r'Fehler eingeschlichen', 'fehler'), (r'Preisgeld', 'rueckwaerts'), (r'Wippe|Tabellenkalkulation', 'transfer'), (r'Rechteck', 'verknuepfen'), (r'gleich groß', 'parameter'))
+ST.typ('produkt@2', r'Ergänze den fehlenden Wert\.$', 'mehrschritt')
+ST.typ('produkt@3', r'Ergänze den fehlenden Wert\.$', 'verknuepfen')
+ST.knobel('produkt', SZ('In einer Tabelle einer indirekten Proportionalität stehen die Paare (x | 18) und (x + 3 | 12). Wie groß ist x?', 6, '3 * 12 / (18 - 12)',
+    'x · 18 = (x + 3) · 12 ⇒ 18x = 12x + 36 ⇒ x = 6. Probe: 6 · 18 = 108 = 9 · 12.', 'Beide Paare haben dasselbe Produkt.'))
+ST.knobel('produkt', SZ('Bei einer indirekten Proportionalität ist das Produkt 36. Wie viele Paare aus zwei natürlichen Zahlen (x | y) gehören dazu?', 9, '9',
+    'x muss ein Teiler von 36 sein: 1, 2, 3, 4, 6, 9, 12, 18, 36 – neun Teiler, also neun Paare (1 | 36), (2 | 18), …, (36 | 1).', 'Welche x sind möglich, wenn y eine natürliche Zahl sein soll?'))
+
+# --- dreisatz ---
+ST.leiter('dreisatz', 'Dreisatz: auf eine Einheit (mal), dann auf den gesuchten Wert (geteilt)',
+          'krumme Ergebnisse, passende Rechnung erkennen, Tiere aus Tagen rückwärts',
+          'Fehler „geteilt statt mal“, Anzahl für eine Frist rückwärts, Ausfall nach Tagen verknüpfen, Geschwindigkeit, Hühner-Rätsel wie im Wettbewerb, Mindestzahl')
+T('dreisatz', (r'allein\?$', 'direkt'), (r'Jemand rechnet', 'fehler'), (r'höchstens|verkaufen|nur 18 Tage', 'rueckwaerts'), (r'fallen', 'verknuepfen'), (r'km/h|Rohr', 'transfer'), (r'Hühner', 'pruefung'),
+  (r'Mit welcher Rechnung', 'darstellung'), (r'Für wie viele Tiere', 'umkehr'))
+ST.typ('dreisatz@1', r'Wie lange brauchen', 'direkt')
+ST.typ('dreisatz@2', r'Wie lange brauchen \d+ \w+\?$', 'mehrschritt')
+ST.neu('dreisatz', 'erkennen', SA('5 Helfer brauchen 12 Minuten. Was ist beim Dreisatz der erste Schritt?', 'Ein Helfer braucht 5 · 12 = 60 Minuten.', ['Ein Helfer braucht 12 : 5 = 2,4 Minuten.', 'Ein Helfer braucht 12 Minuten.', 'Ein Helfer braucht 12 − 5 = 7 Minuten.'],
+    'Weniger Helfer brauchen länger: Für einen Helfer wird multipliziert.', 'Braucht ein Helfer allein länger oder kürzer?'))
+ST.knobel('dreisatz', SZ('Pumpe A leert ein Becken allein in 6 Stunden, Pumpe B allein in 3 Stunden. Wie viele Stunden brauchen beide zusammen?', 2, '1 / (1/6 + 1/3)',
+    'In einer Stunde schafft A 1/6, B 1/3 = 2/6 des Beckens; zusammen 3/6 = 1/2. Das ganze Becken dauert also 2 Stunden.', 'Welchen Teil des Beckens schafft jede Pumpe in einer Stunde?', einheit='h'))
+ST.knobel('dreisatz', SZ('6 Arbeiter wollen eine Arbeit in 10 Tagen schaffen. Nach 4 Tagen soll sie 2 Tage früher fertig werden als geplant. Wie viele Arbeiter müssen insgesamt arbeiten?', 9, '6 * 6 / 4',
+    'Rest: 6 Tage für 6 Arbeiter = 36 Arbeitertage. Neu bleiben nur 10 − 2 − 4 = 4 Tage: 36 : 4 = 9 Arbeiter.', 'Rechne den Rest in „Arbeitertagen“.'))
+
+# --- graph ---
+ST.leiter('graph', 'Punkte auf y = k : x ablesen bzw. k bestimmen',
+          'Punkt auf der Hyperbel prüfen, Graph auswählen, Punkt im Sachzusammenhang deuten, y aus einem Punkt',
+          'zwei Hyperbeln verknüpfen, Rechtecke begründen, Schnitt mit y = x, oberhalb einer Geraden, falsche Graphen-Aussage, k rückwärts aus Fläche, Tabelle zu Graph')
+T('graph', (r'y = x schneiden', 'parameter'), (r'Welche Aussage über den Graphen', 'erkennen'), (r'Welchen y-Wert hat er bei', 'direkt'), (r'Bestimme k\.$', 'direkt'), (r'^Liegt der Punkt', 'darstellung'), (r'Welcher Graph', 'darstellung'),
+  (r'Welchen y-Wert hat die Hyperbel|geht durch P\(4', 'mehrschritt'), (r'Rechtecke mit', 'einkleidung'), (r'Rechteck$|Rechteck\b', 'begruenden'), (r'y = 6 : x und|oberhalb', 'verknuepfen'),
+  (r'außerdem', 'pruefung'), (r'y = x schneiden', 'parameter'))
+ST.neu('graph', 'fehler', SA('Jemand sagt: „Der Graph von y = 12 : x schneidet die x-Achse bei x = 12.“ Was stimmt?', 'Falsch: y = 12 : x wird nie 0, der Graph erreicht die x-Achse nicht.',
+    ['Richtig.', 'Falsch: Er schneidet sie bei x = 1.', 'Falsch: Er schneidet sie bei x = 0.'], 'Bei x = 12 ist y = 1, nicht 0. Ein Quotient 12 : x ist nie 0 – die Hyperbel kommt der Achse nur immer näher.', 'Berechne y bei x = 12.'))
+ST.neu('graph', 'rueckwaerts', SZ('Ein Punkt P der Hyperbel y = k : x (x > 0) bildet mit dem Ursprung und den Achsen ein Rechteck mit 18 cm² Flächeninhalt (1 LE = 1 cm). Wie groß ist k?', 18, '18',
+    'Das Rechteck hat die Seiten x und y, also den Flächeninhalt x · y = k = 18.', 'Wie lang sind die Seiten des Rechtecks?'))
+ST.neu('graph', 'transfer', SA('Eine Wertetabelle enthält (1 | 20), (2 | 10), (4 | 5), (5 | 4). Wie sieht der Graph aus?', 'eine Kurve, die von links oben nach rechts unten fällt und immer flacher wird',
+    ['eine fallende Gerade', 'eine steigende Gerade durch den Ursprung', 'eine Kurve, die die x-Achse bei x = 20 trifft'],
+    'Alle Produkte sind 20: Hyperbel y = 20 : x. Sie fällt erst steil (von 20 auf 10), dann immer flacher (von 5 auf 4).', 'Prüfe die Produkte und wie stark y jeweils fällt.'))
+ST.knobel('graph', SZ('Die Hyperbeln y = 8 : x und y = 2 · x schneiden sich für x > 0 in einem Punkt. Welche x-Koordinate hat er?', 2, '2',
+    '8 : x = 2x ⇒ 2x² = 8 ⇒ x² = 4 ⇒ x = 2 (x > 0). Probe: 8 : 2 = 4 = 2 · 2.', 'Setze beide Terme gleich und multipliziere mit x.'))
+ST.knobel('graph', SZ('Auf der Hyperbel y = 24 : x liegen A(2 | 12) und B(6 | 4). Wie groß ist die Fläche des Dreiecks aus A, B und dem Punkt C(6 | 12)?', 16, '(6 - 2) * (12 - 4) / 2',
+    'Bei C ist ein rechter Winkel: AC ist waagrecht (Länge 6 − 2 = 4), BC senkrecht (Länge 12 − 4 = 8). Fläche 4 · 8 : 2 = 16.', 'Zeichne die drei Punkte ein.', einheit='FE'))
+
+# --- unterscheiden ---
+ST.leiter('unterscheiden', 'an einer Tabelle direkt, indirekt oder weder noch erkennen',
+          'Terme zuordnen, fehlenden Wert passend ergänzen, Art ausschließen',
+          'Begründung mit „kleiner werdend“ prüfen, lineare Funktion, zwei Zuordnungen verknüpfen, Tabellenkalkulation, Kehrwert begründen, aus Paar rückwärts')
+T('unterscheiden', (r'Ergänze den fehlenden Wert', 'mehrschritt'), (r'y = 15 : x', 'darstellung'), (r'soll direkt proportional', 'mehrschritt'), (r'NICHT', 'umkehr'),
+  (r'weil die y-Werte', 'fehler'), (r'20 − 3|Tabellenkalkulation', 'transfer'), (r'6 Liter', 'verknuepfen'), (r'Welche Gleichung', 'pruefung'), (r'1/y', 'begruenden'))
+ST.typ('unterscheiden@1', r'^Welche Art von Zuordnung zeigt', 'erkennen')
+ST.typ('unterscheiden@2', r'^Welche Art von Zuordnung zeigt', 'darstellung')
+ST.neu('unterscheiden', 'direkt', SZ('Eine Zuordnung ist direkt proportional mit dem Paar (3 | 12). Welcher y-Wert gehört zu x = 5?', 20, '12 / 3 * 5', 'Quotient y : x = 4. Zu x = 5 gehört 20.', 'Bei direkter Proportionalität ist y : x gleich.'))
+ST.neu('unterscheiden', 'direkt', SZ('x und y sind indirekt proportional, (4 | 15) gehört dazu. Welcher y-Wert gehört zu x = 10?', 6, '4 * 15 / 10', 'Produkt 60. 60 : 10 = 6.', 'Bei indirekter Proportionalität ist x · y gleich.'))
+ST.neu('unterscheiden', 'rueckwaerts', SA('Zu einer Zuordnung gehört y = 4 bei x = 6. Bei x = 3 ist y = 8. Welche Art kann sie sein?', 'indirekt proportional (oder weder noch), aber nicht direkt proportional',
+    ['nur direkt proportional', 'sicher indirekt proportional', 'direkt oder indirekt proportional'], 'Beide Produkte sind 24, also passt indirekt. Direkt ginge nicht (4 : 6 ≠ 8 : 3). Zwei Paare reichen aber nicht, um „weder noch“ auszuschließen.',
+    'Prüfe Produkt und Quotient – und überlege, was zwei Paare sicher zeigen.'))
+ST.knobel('unterscheiden', SZ('Eine direkt proportionale und eine indirekt proportionale Zuordnung gehen beide durch (2 | 6). Die indirekte hat bei x = 4 den y-Wert a, die direkte bei x = 4 den y-Wert b. Wie groß ist b − a?', 9, '3*4 - 12/4',
+    'Direkt: y = 3x, bei x = 4 also b = 12. Indirekt: x · y = 12, bei x = 4 also a = 3. b − a = 9.', 'Bestimme zuerst den Quotienten bzw. das Produkt aus (2 | 6).'))
+ST.knobel('unterscheiden', SA('Bei einer Zuordnung ist y : x für alle Paare gleich UND x · y für alle Paare gleich. Wie viele verschiedene Paare (mit x > 0) kann sie höchstens haben?', 'nur eines',
+    ['zwei', 'unendlich viele', 'keines'], 'Aus y = q · x und x · y = k folgt q · x² = k: Für x > 0 gibt es nur ein x. Eine Zuordnung kann also nicht zugleich direkt und indirekt proportional sein, außer mit einem einzigen Paar.',
+    'Setze y = q · x in x · y = k ein.'))
+
+# --- sach ---
+ST.leiter('sach', 'einfache Sachaufgaben (Vorrat, Gewinn, Fahrzeit) mit indirekter Proportionalität',
+          'Fliesen, Müsli, Fahrzeit, Gläser, Schritte; direkt oder indirekt? Werte rückwärts',
+          'Fehler bei Grundgebühr, Wippe und Zahnrad übertragen, Bus mieten rückwärts, Prozent verknüpfen, Prüfungsaufgabe mit Zwischenstand')
+T('sach', (r'Grundgebühr|Taxifahrt', 'mehrschritt'), (r'Jemand rechnet', 'fehler'), (r'Wippe|Zahnrad', 'transfer'), (r'gemietet', 'rueckwaerts'), (r'25 %', 'verknuepfen'),
+  (r'Fliesen', 'mehrschritt'), (r'Müsli|Fahrrad|Minuten dauert sie|Maler|Schrittl|Saft', 'einkleidung'))
+ST.typ('sach', r'Heuvorrat|Gewinn wird|Bei 50 km/h|Schullandheim', 'direkt')
+ST.neu('sach', 'erkennen', SA('Ein Heuvorrat soll für mehr Pferde reichen. Wie ändert sich die Zahl der Tage?', 'Sie wird kleiner: doppelt so viele Pferde → halb so viele Tage.', ['Sie wird größer.', 'Sie bleibt gleich.', 'Sie wird um die Zahl der neuen Pferde kleiner.'],
+    'Mehr Fresser leeren den Vorrat schneller; Pferde · Tage bleibt gleich.', 'Was bleibt gleich: der Vorrat oder die Tage?'))
+ST.neu('sach', 'umkehr', SZ('Ein Weg wird mit 4 km/h in 45 Minuten zurückgelegt. Wie schnell muss man gehen, um nur 30 Minuten zu brauchen?', 6, '4 * 45 / 30', 'km/h · Minuten bleibt gleich: 4 · 45 = 180. 180 : 30 = 6 km/h.', 'Welches Produkt bleibt gleich?', einheit='km/h'))
+ST.neu('sach', 'pruefung', SZ('Eine Klasse möchte für die Abschlussfahrt einen Bus für 540 € mieten; die Kosten werden gleich aufgeteilt. Erst sagen 18 Kinder zu, später kommen 9 dazu. Um wie viel Euro sinkt der Anteil für jedes Kind?', 10, '540 / 18 - 540 / 27',
+    'Vorher 540 : 18 = 30 €, nachher 540 : 27 = 20 €. Er sinkt um 10 €.', 'Berechne beide Anteile.', einheit='€'))
+ST.knobel('sach', SZ('Ein Vorrat reicht 10 Hühnern 30 Tage. Nach 6 Tagen werden 2 Hühner verschenkt, nach weiteren 10 Tagen kommen 8 Hühner dazu. Wie viele Tage reicht der Vorrat ab diesem Zeitpunkt noch?', 10, '(10*30 - 10*6 - 8*10) / 16',
+    'Vorrat = 10 · 30 = 300 Hühnertage. Verbraucht: 10 · 6 = 60 und 8 · 10 = 80. Rest 160 Hühnertage für 8 + 8 = 16 Hühner: 160 : 16 = 10 Tage.',
+    'Rechne mit „Hühnertagen“ statt mit Tagen.', einheit='Tage'))
+ST.knobel('sach', SZ('Zahnrad A (36 Zähne) treibt Zahnrad B (24 Zähne), B treibt C (12 Zähne). A dreht sich 10-mal pro Minute. Wie oft dreht sich C pro Minute?', 30, '36 * 10 / 12',
+    'Pro Minute greifen bei A 360 Zähne ein, also auch bei B und C. C: 360 : 12 = 30 Umdrehungen. Das mittlere Rad ändert daran nichts.', 'Wie viele Zähne laufen pro Minute an jedem Rad vorbei?', einheit='Umdrehungen'))
+baue = mit_stufen(baue, ST)
+# ---- STUFEN ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Erkennen', ['erkennen', 'vervielfachen', 'produkt']), ('Rechnen', ['dreisatz']),

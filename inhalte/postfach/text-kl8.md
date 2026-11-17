@@ -2,6 +2,32 @@
 
 Neueste Meldung oben.
 
+## 2026-11-18 02:16 – STATUS stochastik.grundbegriffe
+
+### stochastik.grundbegriffe
+
+Anteil Textaufgaben an den Übungen mit g: vorher 13% (nur einkleidung/transfer) bzw. 23% (mit anerkannten Sachaufgaben anderer Typen) → nachher **40%**.
+
+| Lernkarte | vorher S1/S2/S3 (Lehrer) | vorher S1/S2/S3 (mit anderen Typen) | nachher S1/S2/S3 | neu Übung | neu Sicherung/Korrektur | überzählig | Sicherung/Korrektur Text nachher |
+|---|---|---|---|---|---|---|---|
+| begriffe | 0/1/2 | 2/1/2 | 2/3/4 = 9 | 4 | 2/1 | 3 | 2/1 |
+| rel_haeufigkeit | 0/1/0 | 0/2/1 | 1/3/4 = 8 | 5 | 2/0 | 5 | 2/1 |
+| laplace | 0/2/2 | 0/2/2 | 1/3/4 = 8 | 4 | 0/0 | 4 | 2/1 |
+| laplace_pruefen | 0/1/1 | 1/1/2 | 1/3/4 = 8 | 4 | 1/1 | 5 | 2/1 |
+| gegenereignis | 0/1/3 | 4/1/3 | 4/3/5 = 12 | 4 | 2/0 | 0 | 2/2 |
+| grosse_zahlen | 0/1/2 | 0/2/3 | 1/3/5 = 9 | 4 | 2/1 | 0 | 2/1 |
+
+Beispiele (je Stufe eine neue Textaufgabe, Wortlaut):
+
+- Stufe 1 (rel_haeufigkeit): „Bei einer Verkehrszählung fuhren in einer Stunde 80 Fahrzeuge vorbei, 20 davon waren Lkw. Wie groß ist die relative Häufigkeit der Lkw?“
+- Stufe 2 (laplace_pruefen): „Ein Kind wirft eine Reißzwecke und sagt: „Sie landet auf dem Kopf oder auf der Seite, also jeweils mit der Wahrscheinlichkeit 1/2.“ Was stimmt?“
+- Stufe 3 (grosse_zahlen): „Ein Hersteller weiß: 2 % seiner Glühbirnen sind defekt. Ein Laden bestellt 1 250 Stück und will für die defekten Ersatz bereithalten; Ersatz gibt es nur in Packungen zu 10 Stück. Wie viele Packungen sollte er bereithalten?“
+
+Überzählig (g entfernt, Aufgabe bleibt): 17 – laplace_pruefen S1 erkennen (Anteil 40 %); rel_haeufigkeit S2 darstellung (Anteil 40 %); laplace_pruefen S1 erkennen (Anteil 40 %); laplace S2 mehrschritt (Anteil 40 %); rel_haeufigkeit S3 rueckwaerts (Anteil 40 %); laplace_pruefen S1 erkennen (Anteil 40 %); laplace S1 direkt (Anteil 40 %); rel_haeufigkeit S1 direkt (Anteil 40 %); begriffe S2 darstellung (Anteil 40 %); laplace S2 mehrschritt (Anteil 40 %); laplace_pruefen S3 begruenden (Anteil 40 %); rel_haeufigkeit S2 umkehr (Anteil 40 %) …
+Als Sachaufgabe anerkannte alte Aufgaben anderer Typen: 14 Übungen, 7 Sicherung/Korrektur.
+Streng gezählt: Würfel, Münze, Urne und Glücksrad allein gelten nicht als Sachsituation. Neue Aufgaben mit Tombola, Umfragen, Verkehrszählung, Sport, Wetter und Schulfest. Für 40 % verlieren 17 alte Modellaufgaben ihr g.
+
+
 ## 2026-11-18 02:14 – STATUS messen.koerper_darstellung
 
 ### messen.koerper_darstellung

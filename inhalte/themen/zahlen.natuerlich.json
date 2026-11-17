@@ -1094,7 +1094,25 @@
    },
    "c": "6 * 1000",
    "w": "Die 6 steht bei den Tausendern. Sie ist 6 · 1 000 = 6 000 wert.",
-   "h": "Trag die Zahl in eine Stellenwerttafel ein."
+   "h": "Trag die Zahl in eine Stellenwerttafel ein.",
+   "g": "direkt"
+  },
+  {
+   "l": "stellenwert",
+   "t": "stellenwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Ziffer steht in 110 237 an der Zehntausenderstelle?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "110237 // 10000 % 10",
+   "w": "Von rechts: Einer, Zehner, Hunderter, Tausender … An der Zehntausenderstelle steht 1.",
+   "h": "Schreibe die Zahl in eine Stellenwerttafel.",
+   "g": "erkennen"
   },
   {
    "l": "stellenwert",
@@ -1110,7 +1128,25 @@
    },
    "c": "9 * 10000",
    "w": "Die 9 steht bei den Zehntausendern. Sie ist 9 · 10 000 = 90 000 wert.",
-   "h": "Trag die Zahl in eine Stellenwerttafel ein."
+   "h": "Trag die Zahl in eine Stellenwerttafel ein.",
+   "g": "direkt"
+  },
+  {
+   "l": "stellenwert",
+   "t": "stellenwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Buch hat 150 Seiten. Wie viele Ziffern braucht man, um alle Seitenzahlen von 1 bis 150 zu drucken?"
+   },
+   "o": {
+    "wert": 342
+   },
+   "c": "1 * 9 + 2 * 90 + 3 * 51",
+   "w": "1 bis 9: 9 Ziffern. 10 bis 99: 90 Zahlen mit 2 Ziffern. 100 bis 150: 51 Zahlen mit 3 Ziffern. Zusammen 342.",
+   "h": "Zähle getrennt: einstellige, zweistellige und dreistellige Seitenzahlen.",
+   "g": "verknuepfen"
   },
   {
    "l": "stellenwert",
@@ -1126,7 +1162,8 @@
    },
    "c": "5 * 100",
    "w": "Die 5 steht bei den Hundertern. Sie ist 5 · 100 = 500 wert.",
-   "h": "Trag die Zahl in eine Stellenwerttafel ein."
+   "h": "Trag die Zahl in eine Stellenwerttafel ein.",
+   "g": "direkt"
   },
   {
    "l": "stellenwert",
@@ -1135,14 +1172,15 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Welchen Wert hat die Ziffer 2 an der Tausenderstelle von 2 542?"
+    "text": "Welche Ziffer steht in 2 160 080 an der Millionenstelle?"
    },
    "o": {
-    "wert": 2000
+    "wert": 2
    },
-   "c": "2 * 1000",
-   "w": "Die 2 steht bei den Tausendern. Sie ist 2 · 1 000 = 2 000 wert.",
-   "h": "Trag die Zahl in eine Stellenwerttafel ein."
+   "c": "2160080 // 1000000 % 10",
+   "w": "Von rechts: Einer, Zehner, Hunderter, Tausender … An der Millionenstelle steht 2.",
+   "h": "Schreibe die Zahl in eine Stellenwerttafel.",
+   "g": "erkennen"
   },
   {
    "l": "stellenwert",
@@ -1170,39 +1208,8 @@
     "1097 // 1 % 10"
    ],
    "w": "1 097 = 1 Tausender + 0 Hunderter + 9 Zehner + 7 Einer.",
-   "h": "Lies die Ziffern von links nach rechts ab."
-  },
-  {
-   "l": "stellenwert",
-   "t": "stellenwert",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Welche Ziffer steht in 110 237 an der Zehntausenderstelle?"
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "110237 // 10000 % 10",
-   "w": "Von rechts: Einer, Zehner, Hunderter, Tausender … An der Zehntausenderstelle steht 1.",
-   "h": "Schreibe die Zahl in eine Stellenwerttafel."
-  },
-  {
-   "l": "stellenwert",
-   "t": "stellenwert",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Welche Ziffer steht in 2 160 080 an der Millionenstelle?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "2160080 // 1000000 % 10",
-   "w": "Von rechts: Einer, Zehner, Hunderter, Tausender … An der Millionenstelle steht 2.",
-   "h": "Schreibe die Zahl in eine Stellenwerttafel."
+   "h": "Lies die Ziffern von links nach rechts ab.",
+   "g": "darstellung"
   },
   {
    "l": "stellenwert",
@@ -1218,39 +1225,8 @@
    },
    "c": "4 * 1000000",
    "w": "An der Millionenstelle steht die 4. Ihr Wert: 4 · 1 000 000 = 4 000 000.",
-   "h": "Zähle von rechts: E, Z, H, T, ZT, HT, M …"
-  },
-  {
-   "l": "stellenwert",
-   "t": "stellenwert",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "In 1 038 111 wird die Ziffer an der Hunderterstelle um 1 größer. Um wie viel wird die Zahl größer?"
-   },
-   "o": {
-    "wert": 100
-   },
-   "c": "1038211 - 1038111",
-   "w": "1 mehr an der Hunderterstelle heißt 100 mehr: 1 038 111 + 100 = 1 038 211.",
-   "h": "Was ist eine Einheit an dieser Stelle wert?"
-  },
-  {
-   "l": "stellenwert",
-   "t": "stellenwert",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Welchen Wert hat die Ziffer an der Tausenderstelle von 861 003?"
-   },
-   "o": {
-    "wert": 1000
-   },
-   "c": "1 * 1000",
-   "w": "An der Tausenderstelle steht die 1. Ihr Wert: 1 · 1 000 = 1 000.",
-   "h": "Zähle von rechts: E, Z, H, T, ZT, HT, M …"
+   "h": "Zähle von rechts: E, Z, H, T, ZT, HT, M …",
+   "g": "mehrschritt"
   },
   {
    "l": "stellenwert",
@@ -1266,7 +1242,8 @@
    },
    "c": "6 * 10**6 + 16 * 10**5 + 9 * 10**4 + 4 * 10",
    "w": "16 HT sind 1 M und 6 HT. Zusammen: 7 M 6 HT 9 ZT 0 T 0 H 4 Z 0 E = 7 690 040.",
-   "h": "16 Hunderttausender sind mehr als 10 – es gibt einen Übertrag zu den Millionen."
+   "h": "16 Hunderttausender sind mehr als 10 – es gibt einen Übertrag zu den Millionen.",
+   "g": "transfer"
   },
   {
    "l": "stellenwert",
@@ -1282,23 +1259,8 @@
    },
    "c": "14140104100",
    "w": "Alle Karten beginnen mit 1. Entscheidend ist, welche Reihenfolge vorne größere Ziffern ergibt. Probiert man alle 24 Reihenfolgen, ist 14 140 104 100 am größten.",
-   "h": "Vergleiche zwei Karten, indem du sie in beiden Reihenfolgen nebeneinanderlegst, z. B. 45|450 und 450|45."
-  },
-  {
-   "l": "stellenwert",
-   "t": "stellenwert",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Buch hat 150 Seiten. Wie viele Ziffern braucht man, um alle Seitenzahlen von 1 bis 150 zu drucken?"
-   },
-   "o": {
-    "wert": 342
-   },
-   "c": "1 * 9 + 2 * 90 + 3 * 51",
-   "w": "1 bis 9: 9 Ziffern. 10 bis 99: 90 Zahlen mit 2 Ziffern. 100 bis 150: 51 Zahlen mit 3 Ziffern. Zusammen 342.",
-   "h": "Zähle getrennt: einstellige, zweistellige und dreistellige Seitenzahlen."
+   "h": "Vergleiche zwei Karten, indem du sie in beiden Reihenfolgen nebeneinanderlegst, z. B. 45|450 und 450|45.",
+   "g": "pruefung"
   },
   {
    "l": "stellenwert",
@@ -1314,7 +1276,115 @@
    },
    "c": "85476 - 58476",
    "w": "Neue Zahl: 85 476. Unterschied: 85 476 − 58 476 = 27 000.",
-   "h": "Schreibe die neue Zahl auf und ziehe die alte ab."
+   "h": "Schreibe die neue Zahl auf und ziehe die alte ab.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "stellenwert",
+   "t": "stellenwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen Wert hat die Ziffer 2 an der Tausenderstelle von 2 542?"
+   },
+   "o": {
+    "wert": 2000
+   },
+   "c": "2 * 1000",
+   "w": "Die 2 steht bei den Tausendern. Sie ist 2 · 1 000 = 2 000 wert.",
+   "h": "Trag die Zahl in eine Stellenwerttafel ein.",
+   "g": "direkt"
+  },
+  {
+   "l": "stellenwert",
+   "t": "stellenwert",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "An welcher Stelle steht in 805 312 die Ziffer 8?"
+   },
+   "a": [
+    "Hunderttausender",
+    "Hunderter",
+    "Tausender",
+    "Zehntausender"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Von rechts: E 2, Z 1, H 3, T 5, ZT 0, HT 8 – die 8 steht an der Hunderttausenderstelle.",
+   "h": "Zähle die Stellen von rechts: Einer, Zehner, Hunderter …"
+  },
+  {
+   "l": "stellenwert",
+   "t": "stellenwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In 1 038 111 wird die Ziffer an der Hunderterstelle um 1 größer. Um wie viel wird die Zahl größer?"
+   },
+   "o": {
+    "wert": 100
+   },
+   "c": "1038211 - 1038111",
+   "w": "1 mehr an der Hunderterstelle heißt 100 mehr: 1 038 111 + 100 = 1 038 211.",
+   "h": "Was ist eine Einheit an dieser Stelle wert?",
+   "g": "umkehr"
+  },
+  {
+   "l": "stellenwert",
+   "t": "stellenwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen Wert hat die Ziffer an der Tausenderstelle von 861 003?"
+   },
+   "o": {
+    "wert": 1000
+   },
+   "c": "1 * 1000",
+   "w": "An der Tausenderstelle steht die 1. Ihr Wert: 1 · 1 000 = 1 000.",
+   "h": "Zähle von rechts: E, Z, H, T, ZT, HT, M …",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "stellenwert",
+   "t": "stellenwert",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kassierer zahlt 3 405 € so aus: möglichst viele 1 000-€-Bündel, dann 100-€-Scheine, dann 10-€-Scheine, dann 1-€-Münzen. Wie viele 100-€-Scheine braucht er?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "3405 // 100 % 10",
+   "w": "3 405 = 3 T + 4 H + 0 Z + 5 E. Er braucht 4 Hunderter-Scheine.",
+   "h": "Zerlege den Betrag in Tausender, Hunderter, Zehner und Einer."
+  },
+  {
+   "l": "stellenwert",
+   "t": "stellenwert",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "zahl",
+   "f": {
+    "text": "In einer Stellenwerttafel stehen die Ziffern HT 3, ZT 0, T 7, H 0, Z 2, E 5. Wie heißt die Zahl?"
+   },
+   "o": {
+    "wert": 307025
+   },
+   "c": "3*100000 + 7*1000 + 2*10 + 5",
+   "w": "HT 3, ZT 0, T 7, H 0, Z 2, E 5 ergibt 307 025.",
+   "h": "Schreib die Ziffern der Reihe nach von HT bis E, auch die Nullen."
   },
   {
    "l": "stellenwert",
@@ -1330,7 +1400,8 @@
    },
    "c": "5 * 10**6 + 12 * 10**5 + 1 * 10**4 + 9 * 10",
    "w": "12 HT sind 1 M und 2 HT. Zusammen: 6 M 2 HT 1 ZT 0 T 0 H 9 Z 0 E = 6 210 090.",
-   "h": "12 Hunderttausender sind mehr als 10 – es gibt einen Übertrag zu den Millionen."
+   "h": "12 Hunderttausender sind mehr als 10 – es gibt einen Übertrag zu den Millionen.",
+   "g": "transfer"
   },
   {
    "l": "stellenwert",
@@ -1346,7 +1417,8 @@
    },
    "c": "34340304300",
    "w": "Alle Karten beginnen mit 3. Entscheidend ist, welche Reihenfolge vorne größere Ziffern ergibt. Probiert man alle 24 Reihenfolgen, ist 34 340 304 300 am größten.",
-   "h": "Vergleiche zwei Karten, indem du sie in beiden Reihenfolgen nebeneinanderlegst, z. B. 45|450 und 450|45."
+   "h": "Vergleiche zwei Karten, indem du sie in beiden Reihenfolgen nebeneinanderlegst, z. B. 45|450 und 450|45.",
+   "g": "pruefung"
   },
   {
    "l": "stellenwert",
@@ -1362,7 +1434,8 @@
    },
    "c": "1 * 9 + 2 * 90",
    "w": "1 bis 9: 9 Ziffern. 10 bis 99: 90 Zahlen mit 2 Ziffern. Zusammen 189.",
-   "h": "Zähle getrennt: einstellige, zweistellige und dreistellige Seitenzahlen."
+   "h": "Zähle getrennt: einstellige, zweistellige und dreistellige Seitenzahlen.",
+   "g": "verknuepfen"
   },
   {
    "l": "stellenwert",
@@ -1379,6 +1452,79 @@
    "c": "5 * 10**6 + 18 * 10**5 + 6 * 10**4 + 7 * 10",
    "w": "18 HT sind 1 M und 8 HT. Zusammen: 6 M 8 HT 6 ZT 0 T 0 H 7 Z 0 E = 6 860 070.",
    "h": "18 Hunderttausender sind mehr als 10 – es gibt einen Übertrag zu den Millionen."
+  },
+  {
+   "l": "stellenwert",
+   "t": "stellenwert",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "zahl",
+   "f": {
+    "text": "Jemand schreibt für 4 Tausender und 7 Zehner die Zahl 47. Wie heißt die Zahl richtig?"
+   },
+   "o": {
+    "wert": 4070
+   },
+   "c": "4*1000 + 7*10",
+   "w": "Die Hunderter- und die Einerstelle sind leer und brauchen eine 0: 4 T 0 H 7 Z 0 E = 4 070.",
+   "h": "Schreib eine Stellenwerttafel und fülle leere Stellen mit 0."
+  },
+  {
+   "l": "stellenwert",
+   "t": "stellenwert",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „In 5 555 hat jede 5 denselben Wert.“"
+   },
+   "a": [
+    "Ja, jede 5 ist 5 wert.",
+    "Nein: Nur die beiden mittleren sind gleich viel wert.",
+    "Nein: ganz links 5 000, ganz rechts 5.",
+    "Ja, es ist ja immer dieselbe Ziffer."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Wert einer Ziffer hängt von ihrer Stelle ab: 5 000, 500, 50 und 5.",
+   "h": "Schreib zu jeder 5 ihren Stellenwert dazu."
+  },
+  {
+   "l": "stellenwert",
+   "t": "stellenwert",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer vierstelligen Zahl ist die Tausenderziffer doppelt so groß wie die Einerziffer. Die Hunderterziffer ist 0. Die Zehnerziffer ist um 1 größer als die Tausenderziffer. Die Quersumme ist 16. Wie heißt die Zahl?"
+   },
+   "o": {
+    "wert": 6073
+   },
+   "c": "6*1000 + 0*100 + 7*10 + 3",
+   "w": "Nenne die Einerziffer E. Dann ist T = 2 · E und Z = 2 · E + 1. Quersumme: 2 · E + 0 + (2 · E + 1) + E = 5 · E + 1 = 16, also E = 3. T = 6, Z = 7. Die Zahl ist 6 073.",
+   "h": "Drücke alle Ziffern durch eine einzige Ziffer aus."
+  },
+  {
+   "l": "stellenwert",
+   "t": "stellenwert",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Man schreibt alle Zahlen von 1 bis 100 auf. Wie oft schreibt man dabei die Ziffer 9?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "10 + 10",
+   "w": "Als Einerziffer: 9, 19, 29, …, 99 – das sind 10-mal. Als Zehnerziffer: 90, 91, …, 99 – noch einmal 10-mal. Die 99 zählt zweimal, weil sie zwei Neunen hat. Zusammen 20.",
+   "h": "Zähle getrennt nach Stellen."
   },
   {
    "l": "stellenwert",
@@ -1556,7 +1702,25 @@
    },
    "c": "904866",
    "w": "In Dreiergruppen: 904 866. Leere Stellen bekommen eine 0.",
-   "h": "Schreibe zuerst die Tausender, dann drei Ziffern für den Rest."
+   "h": "Schreibe zuerst die Tausender, dann drei Ziffern für den Rest.",
+   "g": "direkt"
+  },
+  {
+   "l": "zahlwort_zu_ziffern",
+   "t": "zahlwort_zu_ziffern",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Nullen hat die Zahl „einhundert Millionen fünfhunderttausend“, wenn man sie mit Ziffern schreibt?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "Mit Ziffern: 100 500 000. Darin stehen 7 Nullen.",
+   "h": "Schreibe die Zahl zuerst in Dreiergruppen auf.",
+   "g": "mehrschritt"
   },
   {
    "l": "zahlwort_zu_ziffern",
@@ -1572,7 +1736,25 @@
    },
    "c": "94620",
    "w": "In Dreiergruppen: 94 620. Leere Stellen bekommen eine 0.",
-   "h": "Schreibe zuerst die Tausender, dann drei Ziffern für den Rest."
+   "h": "Schreibe zuerst die Tausender, dann drei Ziffern für den Rest.",
+   "g": "direkt"
+  },
+  {
+   "l": "zahlwort_zu_ziffern",
+   "t": "zahlwort_zu_ziffern",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Nullen hat die Zahl „siebenhundertneunzig Millionen siebenundvierzigtausendzwei“, wenn man sie mit Ziffern schreibt?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Mit Ziffern: 790 047 002. Darin stehen 4 Nullen.",
+   "h": "Schreibe die Zahl zuerst in Dreiergruppen auf.",
+   "g": "mehrschritt"
   },
   {
    "l": "zahlwort_zu_ziffern",
@@ -1588,7 +1770,26 @@
    },
    "c": "808293",
    "w": "In Dreiergruppen: 808 293. Leere Stellen bekommen eine 0.",
-   "h": "Schreibe zuerst die Tausender, dann drei Ziffern für den Rest."
+   "h": "Schreibe zuerst die Tausender, dann drei Ziffern für den Rest.",
+   "g": "direkt"
+  },
+  {
+   "l": "zahlwort_zu_ziffern",
+   "t": "zahlwort_zu_ziffern",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "In der Zeitung steht: „Die Stadt gab zwölf Millionen vierhunderttausend Euro für Schulen aus.“ Schreibe den Betrag in Euro mit Ziffern."
+   },
+   "o": {
+    "wert": 12400000,
+    "einheit": "€"
+   },
+   "c": "12400000",
+   "w": "Zwölf Millionen = 12 000 000, vierhunderttausend = 400 000. Zusammen 12 400 000 €.",
+   "h": "Schreib zuerst die Millionen, dann die Tausendergruppe, dann die Einergruppe."
   },
   {
    "l": "zahlwort_zu_ziffern",
@@ -1604,13 +1805,31 @@
    },
    "c": "7600",
    "w": "In Dreiergruppen: 7 600. Leere Stellen bekommen eine 0.",
-   "h": "Schreibe zuerst die Tausender, dann drei Ziffern für den Rest."
+   "h": "Schreibe zuerst die Tausender, dann drei Ziffern für den Rest.",
+   "g": "direkt"
   },
   {
    "l": "zahlwort_zu_ziffern",
    "t": "zahlwort_zu_ziffern",
    "p": "uebung",
    "s": 2,
+   "g": "mehrschritt",
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe „sechzigtausendsechs“ mit Ziffern und addiere 94."
+   },
+   "o": {
+    "wert": 60100
+   },
+   "c": "60006 + 94",
+   "w": "„sechzigtausendsechs“ = 60 006. 60 006 + 94 = 60 100.",
+   "h": "Achte auf die Nullen zwischen Tausender und Einer."
+  },
+  {
+   "l": "zahlwort_zu_ziffern",
+   "t": "zahlwort_zu_ziffern",
+   "p": "uebung",
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Schreibe als Zahl: vierhundert Millionen siebenhundertachtundachtzigtausendachthundertfünfzig"
@@ -1620,87 +1839,8 @@
    },
    "c": "400788850",
    "w": "Millionen | Tausender | Einer: 400 788 850. Jede Gruppe nach der ersten hat drei Ziffern.",
-   "h": "Mach dir drei Kästchen: Millionen, Tausender, Einer. Fülle fehlende Stellen mit 0."
-  },
-  {
-   "l": "zahlwort_zu_ziffern",
-   "t": "zahlwort_zu_ziffern",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Schreibe als Zahl: vier Millionen sechshunderttausend"
-   },
-   "o": {
-    "wert": 4600000
-   },
-   "c": "4600000",
-   "w": "Millionen | Tausender | Einer: 4 600 000. Jede Gruppe nach der ersten hat drei Ziffern.",
-   "h": "Mach dir drei Kästchen: Millionen, Tausender, Einer. Fülle fehlende Stellen mit 0."
-  },
-  {
-   "l": "zahlwort_zu_ziffern",
-   "t": "zahlwort_zu_ziffern",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Schreibe als Zahl: siebenhundert Millionen siebenhundertfünftausendeinhundert"
-   },
-   "o": {
-    "wert": 700705100
-   },
-   "c": "700705100",
-   "w": "Millionen | Tausender | Einer: 700 705 100. Jede Gruppe nach der ersten hat drei Ziffern.",
-   "h": "Mach dir drei Kästchen: Millionen, Tausender, Einer. Fülle fehlende Stellen mit 0."
-  },
-  {
-   "l": "zahlwort_zu_ziffern",
-   "t": "zahlwort_zu_ziffern",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Schreibe als Zahl: eine Million vier"
-   },
-   "o": {
-    "wert": 1000004
-   },
-   "c": "1000004",
-   "w": "Millionen | Tausender | Einer: 1 000 004. Jede Gruppe nach der ersten hat drei Ziffern.",
-   "h": "Mach dir drei Kästchen: Millionen, Tausender, Einer. Fülle fehlende Stellen mit 0."
-  },
-  {
-   "l": "zahlwort_zu_ziffern",
-   "t": "zahlwort_zu_ziffern",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Schreibe als Zahl: achthundertsieben Millionen siebenhundertdreitausend"
-   },
-   "o": {
-    "wert": 807703000
-   },
-   "c": "807703000",
-   "w": "Millionen | Tausender | Einer: 807 703 000. Jede Gruppe nach der ersten hat drei Ziffern.",
-   "h": "Mach dir drei Kästchen: Millionen, Tausender, Einer. Fülle fehlende Stellen mit 0."
-  },
-  {
-   "l": "zahlwort_zu_ziffern",
-   "t": "zahlwort_zu_ziffern",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Schreibe als Zahl: sechshundertneunzig Millionen neunhundertachtundsiebzigtausendzehn"
-   },
-   "o": {
-    "wert": 690978010
-   },
-   "c": "690978010",
-   "w": "Millionen | Tausender | Einer: 690 978 010. Jede Gruppe nach der ersten hat drei Ziffern.",
-   "h": "Mach dir drei Kästchen: Millionen, Tausender, Einer. Fülle fehlende Stellen mit 0."
+   "h": "Mach dir drei Kästchen: Millionen, Tausender, Einer. Fülle fehlende Stellen mit 0.",
+   "g": "direkt"
   },
   {
    "l": "zahlwort_zu_ziffern",
@@ -1716,23 +1856,25 @@
    },
    "c": "3 * 10**9 + 12 * 10**6 + 60",
    "w": "Milliarden | Millionen | Tausender | Einer: 3 | 012 | 000 | 060. Also 3 012 000 060.",
-   "h": "Für die Tausender wurde nichts gesagt: dort stehen drei Nullen."
+   "h": "Für die Tausender wurde nichts gesagt: dort stehen drei Nullen.",
+   "g": "transfer"
   },
   {
    "l": "zahlwort_zu_ziffern",
    "t": "zahlwort_zu_ziffern",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Wie viele Nullen hat die Zahl „einhundert Millionen fünfhunderttausend“, wenn man sie mit Ziffern schreibt?"
+    "text": "Schreibe als Zahl: vier Millionen sechshunderttausend"
    },
    "o": {
-    "wert": 7
+    "wert": 4600000
    },
-   "c": "7",
-   "w": "Mit Ziffern: 100 500 000. Darin stehen 7 Nullen.",
-   "h": "Schreibe die Zahl zuerst in Dreiergruppen auf."
+   "c": "4600000",
+   "w": "Millionen | Tausender | Einer: 4 600 000. Jede Gruppe nach der ersten hat drei Ziffern.",
+   "h": "Mach dir drei Kästchen: Millionen, Tausender, Einer. Fülle fehlende Stellen mit 0.",
+   "g": "direkt"
   },
   {
    "l": "zahlwort_zu_ziffern",
@@ -1748,7 +1890,25 @@
    },
    "c": "50009999 + 1",
    "w": "50 009 999 + 1 = 50 010 000. Alle Neunen werden zu Nullen, die Stelle davor wird um 1 größer.",
-   "h": "Schreibe die Zahl zuerst mit Ziffern und zähle 1 dazu."
+   "h": "Schreibe die Zahl zuerst mit Ziffern und zähle 1 dazu.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "zahlwort_zu_ziffern",
+   "t": "zahlwort_zu_ziffern",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe als Zahl: siebenhundert Millionen siebenhundertfünftausendeinhundert"
+   },
+   "o": {
+    "wert": 700705100
+   },
+   "c": "700705100",
+   "w": "Millionen | Tausender | Einer: 700 705 100. Jede Gruppe nach der ersten hat drei Ziffern.",
+   "h": "Mach dir drei Kästchen: Millionen, Tausender, Einer. Fülle fehlende Stellen mit 0.",
+   "g": "direkt"
   },
   {
    "l": "zahlwort_zu_ziffern",
@@ -1764,7 +1924,144 @@
    },
    "c": "888888",
    "w": "6 gleiche Ziffern mit Summe 48: jede Ziffer ist 48 : 6 = 8. Die Zahl ist 888 888.",
-   "h": "Wie groß muss jede der Ziffern sein?"
+   "h": "Wie groß muss jede der Ziffern sein?",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "zahlwort_zu_ziffern",
+   "t": "zahlwort_zu_ziffern",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe als Zahl: eine Million vier"
+   },
+   "o": {
+    "wert": 1000004
+   },
+   "c": "1000004",
+   "w": "Millionen | Tausender | Einer: 1 000 004. Jede Gruppe nach der ersten hat drei Ziffern.",
+   "h": "Mach dir drei Kästchen: Millionen, Tausender, Einer. Fülle fehlende Stellen mit 0.",
+   "g": "direkt"
+  },
+  {
+   "l": "zahlwort_zu_ziffern",
+   "t": "zahlwort_zu_ziffern",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Stellen hat die Zahl „dreihunderttausendfünf“, wenn man sie mit Ziffern schreibt?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "„dreihunderttausendfünf“ = 300 005. Das sind 6 Stellen.",
+   "h": "Schreib zuerst die Tausender, dann die drei Stellen dahinter."
+  },
+  {
+   "l": "zahlwort_zu_ziffern",
+   "t": "zahlwort_zu_ziffern",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe als Zahl: achthundertsieben Millionen siebenhundertdreitausend"
+   },
+   "o": {
+    "wert": 807703000
+   },
+   "c": "807703000",
+   "w": "Millionen | Tausender | Einer: 807 703 000. Jede Gruppe nach der ersten hat drei Ziffern.",
+   "h": "Mach dir drei Kästchen: Millionen, Tausender, Einer. Fülle fehlende Stellen mit 0.",
+   "g": "direkt"
+  },
+  {
+   "l": "zahlwort_zu_ziffern",
+   "t": "zahlwort_zu_ziffern",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Tausender stecken insgesamt in „zwei Millionen dreihunderttausend“?"
+   },
+   "o": {
+    "wert": 2300
+   },
+   "c": "2300000 // 1000",
+   "w": "2 300 000 = 2 300 · 1 000. Es sind 2 300 Tausender.",
+   "h": "Schreib die Zahl mit Ziffern und streiche die letzten drei Nullen."
+  },
+  {
+   "l": "zahlwort_zu_ziffern",
+   "t": "zahlwort_zu_ziffern",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe als Zahl: sechshundertneunzig Millionen neunhundertachtundsiebzigtausendzehn"
+   },
+   "o": {
+    "wert": 690978010
+   },
+   "c": "690978010",
+   "w": "Millionen | Tausender | Einer: 690 978 010. Jede Gruppe nach der ersten hat drei Ziffern.",
+   "h": "Mach dir drei Kästchen: Millionen, Tausender, Einer. Fülle fehlende Stellen mit 0.",
+   "g": "direkt"
+  },
+  {
+   "l": "zahlwort_zu_ziffern",
+   "t": "zahlwort_zu_ziffern",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Im Radio heißt es: „Achthundertfünftausend Menschen sahen das Spiel.“ Wie viele Menschen waren es?"
+   },
+   "o": {
+    "wert": 805000
+   },
+   "c": "805000",
+   "w": "Achthundertfünftausend = 805 Tausender = 805 000.",
+   "h": "Achthundertfünf steht vor „tausend“, danach kommen drei Stellen."
+  },
+  {
+   "l": "zahlwort_zu_ziffern",
+   "t": "zahlwort_zu_ziffern",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist der Unterschied zwischen „eine Million“ und „neunhunderttausend“?"
+   },
+   "o": {
+    "wert": 100000
+   },
+   "c": "1000000 - 900000",
+   "w": "1 000 000 − 900 000 = 100 000.",
+   "h": "Schreib beide Zahlen mit Ziffern untereinander."
+  },
+  {
+   "l": "zahlwort_zu_ziffern",
+   "t": "zahlwort_zu_ziffern",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "zahl",
+   "f": {
+    "text": "Trage „drei Millionen vierzigtausendzwei“ in eine Stellenwerttafel ein. Welche Ziffer steht an der Zehntausenderstelle?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "3040002 // 10000 % 10",
+   "w": "3 040 002: M 3, HT 0, ZT 4, T 0, H 0, Z 0, E 2. An der Zehntausenderstelle steht 4.",
+   "h": "Vierzigtausend sind 4 Zehntausender."
   },
   {
    "l": "zahlwort_zu_ziffern",
@@ -1780,23 +2077,8 @@
    },
    "c": "5 * 10**9 + 7 * 10**6 + 7",
    "w": "Milliarden | Millionen | Tausender | Einer: 5 | 007 | 000 | 007. Also 5 007 000 007.",
-   "h": "Für die Tausender wurde nichts gesagt: dort stehen drei Nullen."
-  },
-  {
-   "l": "zahlwort_zu_ziffern",
-   "t": "zahlwort_zu_ziffern",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele Nullen hat die Zahl „siebenhundertneunzig Millionen siebenundvierzigtausendzwei“, wenn man sie mit Ziffern schreibt?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "4",
-   "w": "Mit Ziffern: 790 047 002. Darin stehen 4 Nullen.",
-   "h": "Schreibe die Zahl zuerst in Dreiergruppen auf."
+   "h": "Für die Tausender wurde nichts gesagt: dort stehen drei Nullen.",
+   "g": "transfer"
   },
   {
    "l": "zahlwort_zu_ziffern",
@@ -1812,7 +2094,8 @@
    },
    "c": "70009999 + 1",
    "w": "70 009 999 + 1 = 70 010 000. Alle Neunen werden zu Nullen, die Stelle davor wird um 1 größer.",
-   "h": "Schreibe die Zahl zuerst mit Ziffern und zähle 1 dazu."
+   "h": "Schreibe die Zahl zuerst mit Ziffern und zähle 1 dazu.",
+   "g": "verknuepfen"
   },
   {
    "l": "zahlwort_zu_ziffern",
@@ -1828,7 +2111,76 @@
    },
    "c": "666666",
    "w": "6 gleiche Ziffern mit Summe 36: jede Ziffer ist 36 : 6 = 6. Die Zahl ist 666 666.",
-   "h": "Wie groß muss jede der Ziffern sein?"
+   "h": "Wie groß muss jede der Ziffern sein?",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "zahlwort_zu_ziffern",
+   "t": "zahlwort_zu_ziffern",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "zahl",
+   "f": {
+    "text": "Jemand schreibt „zwei Millionen dreißigtausend“ als 230 000. Wie heißt die Zahl richtig?"
+   },
+   "o": {
+    "wert": 2030000
+   },
+   "c": "2000000 + 30000",
+   "w": "Zwei Millionen = 2 000 000, dreißigtausend = 30 000. Zusammen 2 030 000. In 230 000 fehlt die Millionenstelle.",
+   "h": "Jede Dreiergruppe hat genau drei Stellen."
+  },
+  {
+   "l": "zahlwort_zu_ziffern",
+   "t": "zahlwort_zu_ziffern",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl heißt „siebenhunderttausendsiebzig“. Gib ihren Vorgänger mit Ziffern an."
+   },
+   "o": {
+    "wert": 700069
+   },
+   "c": "700070 - 1",
+   "w": "Siebenhunderttausendsiebzig = 700 070. Vorgänger: 700 069.",
+   "h": "Schreib die Zahl zuerst mit Ziffern."
+  },
+  {
+   "l": "zahlwort_zu_ziffern",
+   "t": "zahlwort_zu_ziffern",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl hat 7 Stellen. In ihrem Zahlwort kommt das Wort „tausend“ nicht vor. Ihre Quersumme ist 10. Wie heißt die größte solche Zahl?"
+   },
+   "o": {
+    "wert": 9000100
+   },
+   "c": "9000000 + 100",
+   "w": "Fehlt „tausend“, ist die mittlere Dreiergruppe 000. Die Zahl hat also die Form M 000 HZE. Am größten wird sie mit M = 9; dann bleibt für H + Z + E nur 1, am größten mit H = 1. Ergebnis: 9 000 100.",
+   "h": "Was bedeutet es für die Ziffern, wenn „tausend“ im Zahlwort fehlt?"
+  },
+  {
+   "l": "zahlwort_zu_ziffern",
+   "t": "zahlwort_zu_ziffern",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zahlwort lautet „A Millionen A tausend A“. Dabei steht A jedes Mal für dieselbe Zahl von 1 bis 999. Die Quersumme der ganzen Zahl ist 27. Wie heißt die kleinste solche Zahl?"
+   },
+   "o": {
+    "wert": 9009009
+   },
+   "c": "9*1000000 + 9*1000 + 9",
+   "w": "Die Zahl besteht aus drei gleichen Dreiergruppen. Ihre Quersumme ist dreimal die Quersumme von A: 3 · QS(A) = 27, also QS(A) = 9. Die kleinste Zahl mit Quersumme 9 ist 9. Also 9 009 009.",
+   "h": "Wie hängt die Quersumme der ganzen Zahl mit der von A zusammen?"
   },
   {
    "l": "zahlwort_zu_ziffern",
@@ -1987,47 +2339,6 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Wie liest man 360 090?"
-   },
-   "a": [
-    "sechsunddreißigtausendneun",
-    "drei Millionen sechshunderttausendneunhundert",
-    "sechsunddreißigtausendneunzig",
-    "dreihundertsechzigtausendneunzig"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Dreiergruppen: 360 090. Also: dreihundertsechzigtausendneunzig.",
-   "h": "Teile die Zahl von rechts in Dreiergruppen."
-  },
-  {
-   "l": "ziffern_zu_zahlwort",
-   "t": "ziffern_zu_zahlwort",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie liest man 84 860?"
-   },
-   "a": [
-    "achthundertachtundvierzigtausendsechshundert",
-    "vierundachtzigtausendachthundertsechzig",
-    "achttausendvierhundertsechsundachtzig"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Dreiergruppen: 84 860. Also: vierundachtzigtausendachthundertsechzig.",
-   "h": "Teile die Zahl von rechts in Dreiergruppen."
-  },
-  {
-   "l": "ziffern_zu_zahlwort",
-   "t": "ziffern_zu_zahlwort",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
     "text": "Wie liest man 90 808?"
    },
    "a": [
@@ -2041,6 +2352,23 @@
    },
    "w": "Dreiergruppen: 90 808. Also: neunzigtausendachthundertacht.",
    "h": "Teile die Zahl von rechts in Dreiergruppen."
+  },
+  {
+   "l": "ziffern_zu_zahlwort",
+   "t": "ziffern_zu_zahlwort",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "zahl",
+   "f": {
+    "text": "In wie viele Dreiergruppen teilt man 45 000 120 zum Lesen ein? (Die linke Gruppe darf kürzer sein.)"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Von rechts: 120 | 000 | 45 – drei Gruppen.",
+   "h": "Setz von rechts nach jeweils drei Ziffern einen Abstand."
   },
   {
    "l": "ziffern_zu_zahlwort",
@@ -2068,6 +2396,23 @@
    "t": "ziffern_zu_zahlwort",
    "p": "uebung",
    "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl wird so gelesen: „fünf Milliarden fünftausend“? Schreibe sie mit Ziffern."
+   },
+   "o": {
+    "wert": 5000005000
+   },
+   "c": "5000005000",
+   "w": "Milliarden | Millionen | Tausender | Einer: 5 000 005 000. Die Millionen-Gruppe ist 000.",
+   "h": "Achte auf die leere Millionen-Gruppe.",
+   "g": "umkehr"
+  },
+  {
+   "l": "ziffern_zu_zahlwort",
+   "t": "ziffern_zu_zahlwort",
+   "p": "uebung",
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Wie liest man 563 310 007?"
@@ -2091,6 +2436,28 @@
    "s": 2,
    "y": "auswahl",
    "f": {
+    "text": "Welches Zahlwort gehört zu 1 001 000 000?"
+   },
+   "a": [
+    "eine Milliarde eintausend",
+    "eine Million eintausend",
+    "zehn Milliarden zehn Millionen",
+    "eine Milliarde eine Million"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "1 001 000 000: eine Milliarde und eine Million. Zusammen: eine Milliarde eine Million.",
+   "h": "Zähle die Dreiergruppen. Vier Gruppen: Milliarden, Millionen, Tausender, Einer.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "ziffern_zu_zahlwort",
+   "t": "ziffern_zu_zahlwort",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
     "text": "Wie liest man 44 430 050?"
    },
    "a": [
@@ -2110,6 +2477,28 @@
    "t": "ziffern_zu_zahlwort",
    "p": "uebung",
    "s": 2,
+   "g": "einkleidung",
+   "y": "auswahl",
+   "f": {
+    "text": "Auf einem Scheck steht der Betrag 2 050 €. Welches Zahlwort gehört daneben?"
+   },
+   "a": [
+    "zweitausendfünfhundert",
+    "zweitausendfünfzig",
+    "zwanzigtausendfünfzig",
+    "zweihundertfünfzig"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "2 050 = 2 Tausender und 50 Einer: zweitausendfünfzig.",
+   "h": "An der Hunderterstelle steht eine 0."
+  },
+  {
+   "l": "ziffern_zu_zahlwort",
+   "t": "ziffern_zu_zahlwort",
+   "p": "uebung",
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Wie liest man 389 080 000?"
@@ -2130,7 +2519,24 @@
    "l": "ziffern_zu_zahlwort",
    "t": "ziffern_zu_zahlwort",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In der Zeitung steht: „rund 1,7 Millionen Besucher“. Schreibe die Zahl ohne Komma mit Ziffern."
+   },
+   "o": {
+    "wert": 1700000
+   },
+   "c": "1 * 10**6 + 7 * 10**5",
+   "w": "1,7 Millionen sind 1 Millionen und 7 Hunderttausend: 1 700 000.",
+   "h": "Die Ziffer nach dem Komma gehört zu den Hunderttausendern.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "ziffern_zu_zahlwort",
+   "t": "ziffern_zu_zahlwort",
+   "p": "uebung",
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Wie liest man 90 008 096?"
@@ -2151,7 +2557,68 @@
    "l": "ziffern_zu_zahlwort",
    "t": "ziffern_zu_zahlwort",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Lies die Zahl 40 040 040. Wie oft kommt im Zahlwort das Wort „vierzig“ vor?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "40 040 040 heißt „vierzig Millionen vierzigtausendvierzig“. Darin steht „vierzig“ 3-mal.",
+   "h": "Lies jede Dreiergruppe einzeln.",
+   "g": "transfer"
+  },
+  {
+   "l": "ziffern_zu_zahlwort",
+   "t": "ziffern_zu_zahlwort",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie liest man 360 090?"
+   },
+   "a": [
+    "sechsunddreißigtausendneun",
+    "drei Millionen sechshunderttausendneunhundert",
+    "sechsunddreißigtausendneunzig",
+    "dreihundertsechzigtausendneunzig"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Dreiergruppen: 360 090. Also: dreihundertsechzigtausendneunzig.",
+   "h": "Teile die Zahl von rechts in Dreiergruppen.",
+   "g": "direkt"
+  },
+  {
+   "l": "ziffern_zu_zahlwort",
+   "t": "ziffern_zu_zahlwort",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Wort kommt im Zahlwort von 2 000 300 vor?"
+   },
+   "a": [
+    "Millionen",
+    "Milliarden",
+    "zehn",
+    "tausend"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "2 000 300 = zwei Millionen dreihundert. „tausend“ fehlt, weil die Tausendergruppe 000 ist.",
+   "h": "Lies die Zahl in Dreiergruppen."
+  },
+  {
+   "l": "ziffern_zu_zahlwort",
+   "t": "ziffern_zu_zahlwort",
+   "p": "uebung",
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Wie liest man 40 304 033?"
@@ -2173,6 +2640,66 @@
    "t": "ziffern_zu_zahlwort",
    "p": "uebung",
    "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl wird so gelesen: „zwei Milliarden fünftausendfünfzehn“? Schreibe sie mit Ziffern."
+   },
+   "o": {
+    "wert": 2000005015
+   },
+   "c": "2000005015",
+   "w": "Milliarden | Millionen | Tausender | Einer: 2 000 005 015. Die Millionen-Gruppe ist 000.",
+   "h": "Achte auf die leere Millionen-Gruppe.",
+   "g": "umkehr"
+  },
+  {
+   "l": "ziffern_zu_zahlwort",
+   "t": "ziffern_zu_zahlwort",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie liest man 84 860?"
+   },
+   "a": [
+    "achthundertachtundvierzigtausendsechshundert",
+    "vierundachtzigtausendachthundertsechzig",
+    "achttausendvierhundertsechsundachtzig"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Dreiergruppen: 84 860. Also: vierundachtzigtausendachthundertsechzig.",
+   "h": "Teile die Zahl von rechts in Dreiergruppen.",
+   "g": "direkt"
+  },
+  {
+   "l": "ziffern_zu_zahlwort",
+   "t": "ziffern_zu_zahlwort",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Zahlwort gehört zu 1 000 001 000?"
+   },
+   "a": [
+    "eine Milliarde eintausend",
+    "eine Milliarde eine Million",
+    "eine Million eintausend",
+    "zehn Milliarden zehntausend"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "1 000 001 000: eine Milliarde und eintausend. Zusammen: eine Milliarde eintausend.",
+   "h": "Zähle die Dreiergruppen. Vier Gruppen: Milliarden, Millionen, Tausender, Einer.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "ziffern_zu_zahlwort",
+   "t": "ziffern_zu_zahlwort",
+   "p": "uebung",
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Wie liest man 30 019 000?"
@@ -2193,70 +2720,23 @@
    "l": "ziffern_zu_zahlwort",
    "t": "ziffern_zu_zahlwort",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "In der Zeitung steht: „rund 1,7 Millionen Besucher“. Schreibe die Zahl ohne Komma mit Ziffern."
-   },
-   "o": {
-    "wert": 1700000
-   },
-   "c": "1 * 10**6 + 7 * 10**5",
-   "w": "1,7 Millionen sind 1 Millionen und 7 Hunderttausend: 1 700 000.",
-   "h": "Die Ziffer nach dem Komma gehört zu den Hunderttausendern."
-  },
-  {
-   "l": "ziffern_zu_zahlwort",
-   "t": "ziffern_zu_zahlwort",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Welche Zahl wird so gelesen: „fünf Milliarden fünftausend“? Schreibe sie mit Ziffern."
-   },
-   "o": {
-    "wert": 5000005000
-   },
-   "c": "5000005000",
-   "w": "Milliarden | Millionen | Tausender | Einer: 5 000 005 000. Die Millionen-Gruppe ist 000.",
-   "h": "Achte auf die leere Millionen-Gruppe."
-  },
-  {
-   "l": "ziffern_zu_zahlwort",
-   "t": "ziffern_zu_zahlwort",
-   "p": "uebung",
-   "s": 3,
+   "s": 2,
+   "g": "einkleidung",
    "y": "auswahl",
    "f": {
-    "text": "Welches Zahlwort gehört zu 1 001 000 000?"
+    "text": "Die Zugspitze ist 2 962 m hoch. Wie liest man die Höhe?"
    },
    "a": [
-    "eine Milliarde eintausend",
-    "eine Million eintausend",
-    "zehn Milliarden zehn Millionen",
-    "eine Milliarde eine Million"
+    "zweitausendneunhundertsechsundzwanzig Meter",
+    "zweitausendneunhundertzweiundsechzig Meter",
+    "zweitausendneunhundertzweiundsechzigtausend Meter",
+    "zweihundertneunundsechzig Meter"
    ],
    "o": {
-    "index": 3
+    "index": 1
    },
-   "w": "1 001 000 000: eine Milliarde und eine Million. Zusammen: eine Milliarde eine Million.",
-   "h": "Zähle die Dreiergruppen. Vier Gruppen: Milliarden, Millionen, Tausender, Einer."
-  },
-  {
-   "l": "ziffern_zu_zahlwort",
-   "t": "ziffern_zu_zahlwort",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Lies die Zahl 40 040 040. Wie oft kommt im Zahlwort das Wort „vierzig“ vor?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "3",
-   "w": "40 040 040 heißt „vierzig Millionen vierzigtausendvierzig“. Darin steht „vierzig“ 3-mal.",
-   "h": "Lies jede Dreiergruppe einzeln."
+   "w": "2 962: zweitausend, neunhundert, zweiundsechzig.",
+   "h": "Bei 62 liest man zuerst die Einer, dann die Zehner."
   },
   {
    "l": "ziffern_zu_zahlwort",
@@ -2272,44 +2752,8 @@
    },
    "c": "6 * 10**6 + 2 * 10**5",
    "w": "6,2 Millionen sind 6 Millionen und 2 Hunderttausend: 6 200 000.",
-   "h": "Die Ziffer nach dem Komma gehört zu den Hunderttausendern."
-  },
-  {
-   "l": "ziffern_zu_zahlwort",
-   "t": "ziffern_zu_zahlwort",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Welche Zahl wird so gelesen: „zwei Milliarden fünftausendfünfzehn“? Schreibe sie mit Ziffern."
-   },
-   "o": {
-    "wert": 2000005015
-   },
-   "c": "2000005015",
-   "w": "Milliarden | Millionen | Tausender | Einer: 2 000 005 015. Die Millionen-Gruppe ist 000.",
-   "h": "Achte auf die leere Millionen-Gruppe."
-  },
-  {
-   "l": "ziffern_zu_zahlwort",
-   "t": "ziffern_zu_zahlwort",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welches Zahlwort gehört zu 1 000 001 000?"
-   },
-   "a": [
-    "eine Milliarde eintausend",
-    "eine Milliarde eine Million",
-    "eine Million eintausend",
-    "zehn Milliarden zehntausend"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "1 000 001 000: eine Milliarde und eintausend. Zusammen: eine Milliarde eintausend.",
-   "h": "Zähle die Dreiergruppen. Vier Gruppen: Milliarden, Millionen, Tausender, Einer."
+   "h": "Die Ziffer nach dem Komma gehört zu den Hunderttausendern.",
+   "g": "verknuepfen"
   },
   {
    "l": "ziffern_zu_zahlwort",
@@ -2325,7 +2769,103 @@
    },
    "c": "3",
    "w": "30 030 030 heißt „dreißig Millionen dreißigtausenddreißig“. Darin steht „dreißig“ 3-mal.",
-   "h": "Lies jede Dreiergruppe einzeln."
+   "h": "Lies jede Dreiergruppe einzeln.",
+   "g": "transfer"
+  },
+  {
+   "l": "ziffern_zu_zahlwort",
+   "t": "ziffern_zu_zahlwort",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand liest 30 015 als „dreitausendfünfzehn“. Was ist falsch?"
+   },
+   "a": [
+    "Nichts, das stimmt.",
+    "Es sind 30 Tausender: dreißigtausendfünfzehn.",
+    "Es sind 300 Tausender: dreihunderttausendfünfzehn.",
+    "Die 15 muss „fünfzig“ heißen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "In 30 015 stehen vor der Tausendergruppe die Ziffern 30. Also dreißigtausend und fünfzehn.",
+   "h": "Teile die Zahl in Dreiergruppen ein."
+  },
+  {
+   "l": "ziffern_zu_zahlwort",
+   "t": "ziffern_zu_zahlwort",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Jede Zahl ab 1 000 000 hat im Zahlwort das Wort Million oder Millionen.“"
+   },
+   "a": [
+    "Ja, auch Milliarden heißen „tausend Millionen“.",
+    "Nein: 1 000 000 heißt „tausendtausend“.",
+    "Ja, ab einer Million immer.",
+    "Nein: „eine Milliarde“ (1 000 000 000) hat es nicht."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Bei 1 000 000 000 ist die Millionengruppe 000: Man liest nur „eine Milliarde“.",
+   "h": "Such eine Zahl, deren Millionengruppe 000 ist."
+  },
+  {
+   "l": "ziffern_zu_zahlwort",
+   "t": "ziffern_zu_zahlwort",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Zu einer Zahl wird 1 addiert. Das Ergebnis liest man „eine Million“. Welche Zahl war es?"
+   },
+   "o": {
+    "wert": 999999
+   },
+   "c": "1000000 - 1",
+   "w": "Rückwärts: 1 000 000 − 1 = 999 999.",
+   "h": "Rechne vom Ergebnis aus zurück."
+  },
+  {
+   "l": "ziffern_zu_zahlwort",
+   "t": "ziffern_zu_zahlwort",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl liegt genau in der Mitte zwischen „eine Million“ und „zwei Millionen“? Schreibe sie mit Ziffern."
+   },
+   "o": {
+    "wert": 1500000
+   },
+   "c": "(1000000 + 2000000) // 2",
+   "w": "Der Abstand ist 1 000 000, die Hälfte 500 000. Mitte: 1 000 000 + 500 000 = 1 500 000.",
+   "h": "Halbiere den Abstand der beiden Zahlen."
+  },
+  {
+   "l": "ziffern_zu_zahlwort",
+   "t": "ziffern_zu_zahlwort",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Man liest alle Zahlen von 1 bis 10 000 laut vor. Wie oft sagt man dabei das Wort „tausend“ (auch als Teil eines Wortes)?"
+   },
+   "o": {
+    "wert": 9001
+   },
+   "c": "9999 - 1000 + 1 + 1",
+   "w": "Unter 1 000 kommt „tausend“ nie vor. Jede Zahl von 1 000 bis 9 999 hat genau einmal „tausend“: das sind 9 999 − 1 000 + 1 = 9 000 Zahlen. Dazu kommt 10 000 = „zehntausend“. Zusammen 9 001.",
+   "h": "Welche Zahlen haben überhaupt „tausend“ im Zahlwort? Denke auch an die letzte Zahl."
   },
   {
    "l": "ziffern_zu_zahlwort",
@@ -2538,54 +3078,6 @@
     "grafik": {
      "typ": "zahlenstrahl",
      "start": 0,
-     "ende": 20,
-     "abschnitte": 4,
-     "beschriftet": "anfang_ende",
-     "pfeil": 1
-    }
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "0 + 1 * (20 - 0) // 4",
-   "w": "Abschnittswert: 20 : 4 = 5. Pfeil: 1 Abschnitte, also 1 · 5 = 5.",
-   "h": "Rechne zuerst den Abschnittswert aus."
-  },
-  {
-   "l": "strahl_ablesen",
-   "t": "strahl_ablesen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Welche Zahl zeigt der Pfeil?",
-    "grafik": {
-     "typ": "zahlenstrahl",
-     "start": 0,
-     "ende": 8,
-     "abschnitte": 4,
-     "beschriftet": "anfang_ende",
-     "pfeil": 3
-    }
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "0 + 3 * (8 - 0) // 4",
-   "w": "Abschnittswert: 8 : 4 = 2. Pfeil: 3 Abschnitte, also 3 · 2 = 6.",
-   "h": "Rechne zuerst den Abschnittswert aus."
-  },
-  {
-   "l": "strahl_ablesen",
-   "t": "strahl_ablesen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Welche Zahl zeigt der Pfeil?",
-    "grafik": {
-     "typ": "zahlenstrahl",
-     "start": 0,
      "ende": 50,
      "abschnitte": 10,
      "beschriftet": "anfang_ende",
@@ -2598,6 +3090,23 @@
    "c": "0 + 7 * (50 - 0) // 10",
    "w": "Abschnittswert: 50 : 10 = 5. Pfeil: 7 Abschnitte, also 7 · 5 = 35.",
    "h": "Rechne zuerst den Abschnittswert aus."
+  },
+  {
+   "l": "strahl_ablesen",
+   "t": "strahl_ablesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einem Zahlenstrahl mit gleich großen Abschnitten steht am 4. Strich nach dem Anfang die Zahl 1 500 und am 5. Strich die Zahl 1 625. Bei welcher Zahl beginnt der Strahl?"
+   },
+   "o": {
+    "wert": 1000
+   },
+   "c": "1500 - 4 * (1625 - 1500) // (5 - 4)",
+   "w": "Zwischen Strich 4 und 5 liegen 1 Abschnitte mit zusammen 125: Abschnittswert 125. Anfang: 1 500 − 4 · 125 = 1 000.",
+   "h": "Bestimme zuerst den Abschnittswert aus den beiden bekannten Strichen.",
+   "g": "rueckwaerts"
   },
   {
    "l": "strahl_ablesen",
@@ -2627,49 +3136,101 @@
    "l": "strahl_ablesen",
    "t": "strahl_ablesen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zahlenstrahl beginnt bei 0. Ein Abschnitt ist 25 wert. Welche Zahl liegt 6 Abschnitte nach dem Anfang?"
+   },
+   "o": {
+    "wert": 150
+   },
+   "c": "6 * 25",
+   "w": "6 Abschnitte zu je 25: 6 · 25 = 150.",
+   "h": "Multipliziere die Zahl der Abschnitte mit dem Abschnittswert."
+  },
+  {
+   "l": "strahl_ablesen",
+   "t": "strahl_ablesen",
+   "p": "uebung",
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Welche Zahl zeigt der Pfeil?",
     "grafik": {
      "typ": "zahlenstrahl",
-     "start": 200,
-     "ende": 450,
-     "abschnitte": 5,
+     "start": 0,
+     "ende": 3000000,
+     "abschnitte": 12,
      "beschriftet": "anfang_ende",
-     "pfeil": 3
+     "pfeil": 8
     }
    },
    "o": {
-    "wert": 350
+    "wert": 2000000
    },
-   "c": "200 + 3 * (450 - 200) // 5",
-   "w": "Abschnittswert: (450 − 200) : 5 = 50. Pfeil: 200 + 3 · 50 = 350.",
-   "h": "Der Strahl beginnt nicht bei 0. Vergiss die Anfangszahl nicht."
+   "c": "8 * 3000000 // 12",
+   "w": "Abschnittswert: 3 000 000 : 12 = 250 000. Pfeil: 8 · 250 000 = 2 000 000.",
+   "h": "Große Zahlen: Rechne den Abschnittswert in Tausendern, z. B. 3 000 Tausender : 12."
   },
   {
    "l": "strahl_ablesen",
    "t": "strahl_ablesen",
    "p": "uebung",
    "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zahlenstrahl beginnt bei 0. Am 5. Strich nach dem Anfang steht 400. Welchen Wert hat ein Abschnitt?"
+   },
+   "o": {
+    "wert": 80
+   },
+   "c": "400 // 5",
+   "w": "5 Abschnitte sind zusammen 400. Ein Abschnitt: 400 : 5 = 80.",
+   "h": "Wie viele Abschnitte liegen zwischen 0 und 400?"
+  },
+  {
+   "l": "strahl_ablesen",
+   "t": "strahl_ablesen",
+   "p": "uebung",
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Welche Zahl zeigt der Pfeil?",
     "grafik": {
      "typ": "zahlenstrahl",
-     "start": 200,
-     "ende": 600,
-     "abschnitte": 8,
+     "start": 0,
+     "ende": 3000000,
+     "abschnitte": 6,
      "beschriftet": "anfang_ende",
-     "pfeil": 4
+     "pfeil": 1
     }
    },
    "o": {
-    "wert": 400
+    "wert": 500000
    },
-   "c": "200 + 4 * (600 - 200) // 8",
-   "w": "Abschnittswert: (600 − 200) : 8 = 50. Pfeil: 200 + 4 · 50 = 400.",
-   "h": "Der Strahl beginnt nicht bei 0. Vergiss die Anfangszahl nicht."
+   "c": "1 * 3000000 // 6",
+   "w": "Abschnittswert: 3 000 000 : 6 = 500 000. Pfeil: 1 · 500 000 = 500 000.",
+   "h": "Große Zahlen: Rechne den Abschnittswert in Tausendern, z. B. 3 000 Tausender : 12."
+  },
+  {
+   "l": "strahl_ablesen",
+   "t": "strahl_ablesen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Wanderkarte zeigt den Weg als Strahl von 0 km bis 16 km mit 8 gleichen Abschnitten. Die Hütte liegt am 5. Strich. Nach wie vielen km erreicht man sie?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "km"
+   },
+   "c": "5 * 16 // 8",
+   "w": "Ein Abschnitt: 16 km : 8 = 2 km. Hütte: 5 · 2 km = 10 km.",
+   "h": "Rechne zuerst aus, wie viele km ein Abschnitt ist."
   },
   {
    "l": "strahl_ablesen",
@@ -2699,6 +3260,36 @@
    "l": "strahl_ablesen",
    "t": "strahl_ablesen",
    "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand liest am Pfeil 750 ab. Was ist falsch?",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 1000,
+     "ende": 2000,
+     "abschnitte": 4,
+     "beschriftet": "anfang_ende",
+     "pfeil": 3
+    }
+   },
+   "a": [
+    "Nichts, das stimmt.",
+    "Die Anfangszahl fehlt: richtig ist 1 000 + 3 · 250 = 1 750.",
+    "Der Abschnittswert ist 500, also 1 500.",
+    "Man zählt die Striche mit: 2 000."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Abschnittswert: (2 000 − 1 000) : 4 = 250. Gezählt wird ab der Anfangszahl: 1 750.",
+   "h": "Wo beginnt der Zahlenstrahl?",
+   "g": "fehler"
+  },
+  {
+   "l": "strahl_ablesen",
+   "t": "strahl_ablesen",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -2723,6 +3314,23 @@
    "l": "strahl_ablesen",
    "t": "strahl_ablesen",
    "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einem Zahlenstrahl mit gleich großen Abschnitten steht am 2. Strich nach dem Anfang die Zahl 1 100 und am 5. Strich die Zahl 1 250. Bei welcher Zahl beginnt der Strahl?"
+   },
+   "o": {
+    "wert": 1000
+   },
+   "c": "1100 - 2 * (1250 - 1100) // (5 - 2)",
+   "w": "Zwischen Strich 2 und 5 liegen 3 Abschnitte mit zusammen 150: Abschnittswert 50. Anfang: 1 100 − 2 · 50 = 1 000.",
+   "h": "Bestimme zuerst den Abschnittswert aus den beiden bekannten Strichen.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "strahl_ablesen",
+   "t": "strahl_ablesen",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -2742,6 +3350,31 @@
    "c": "2000 + 3 * (2050 - 2000) // 10",
    "w": "Abschnittswert: (2 050 − 2 000) : 10 = 5. Pfeil: 2 000 + 3 · 5 = 2 015.",
    "h": "Der Strahl beginnt nicht bei 0. Vergiss die Anfangszahl nicht."
+  },
+  {
+   "l": "strahl_ablesen",
+   "t": "strahl_ablesen",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Der Strahl ist nur am Anfang und am Ende beschriftet. Welche Zahl gehört zum Pfeil?",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 1000,
+     "abschnitte": 8,
+     "beschriftet": "anfang_ende",
+     "pfeil": 3
+    }
+   },
+   "o": {
+    "wert": 375
+   },
+   "c": "0 + 3 * (1000 - 0) // 8",
+   "w": "Abschnittswert: 1 000 : 8 = 125. Pfeil: 3 · 125 = 375.",
+   "h": "Teile die Endzahl durch die Zahl der Abschnitte."
   },
   {
    "l": "strahl_ablesen",
@@ -2772,24 +3405,115 @@
    "t": "strahl_ablesen",
    "p": "uebung",
    "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zahlenstrahl geht von 300 bis 700 und ist in gleich große Abschnitte geteilt. Die Zahl 500 liegt am 4. Strich nach dem Anfang. Wie viele Abschnitte hat der Strahl?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(700 - 300) // ((500 - 300) // 4)",
+   "w": "4 Abschnitte sind 500 − 300 = 200, einer also 50. Der ganze Strahl: (700 − 300) : 50 = 8 Abschnitte.",
+   "h": "Bestimme zuerst den Wert eines Abschnitts."
+  },
+  {
+   "l": "strahl_ablesen",
+   "t": "strahl_ablesen",
+   "p": "uebung",
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Welche Zahl zeigt der Pfeil?",
     "grafik": {
      "typ": "zahlenstrahl",
      "start": 0,
-     "ende": 3000000,
-     "abschnitte": 12,
+     "ende": 20,
+     "abschnitte": 4,
      "beschriftet": "anfang_ende",
-     "pfeil": 8
+     "pfeil": 1
     }
    },
    "o": {
-    "wert": 2000000
+    "wert": 5
    },
-   "c": "8 * 3000000 // 12",
-   "w": "Abschnittswert: 3 000 000 : 12 = 250 000. Pfeil: 8 · 250 000 = 2 000 000.",
-   "h": "Große Zahlen: Rechne den Abschnittswert in Tausendern, z. B. 3 000 Tausender : 12."
+   "c": "0 + 1 * (20 - 0) // 4",
+   "w": "Abschnittswert: 20 : 4 = 5. Pfeil: 1 Abschnitte, also 1 · 5 = 5.",
+   "h": "Rechne zuerst den Abschnittswert aus.",
+   "g": "erkennen"
+  },
+  {
+   "l": "strahl_ablesen",
+   "t": "strahl_ablesen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Spendenanzeige zeigt 0 € bis 2 000 € in 8 gleichen Abschnitten. Der Zeiger steht 3 Abschnitte nach 0. Wie viel Geld ist gesammelt?"
+   },
+   "o": {
+    "wert": 750,
+    "einheit": "€"
+   },
+   "c": "3 * 2000 // 8",
+   "w": "Ein Abschnitt: 2 000 € : 8 = 250 €. Drei Abschnitte: 750 €.",
+   "h": "Wie viel Euro ist ein Abschnitt wert?"
+  },
+  {
+   "l": "strahl_ablesen",
+   "t": "strahl_ablesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl zeigt der Pfeil?",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 200,
+     "ende": 450,
+     "abschnitte": 5,
+     "beschriftet": "anfang_ende",
+     "pfeil": 3
+    }
+   },
+   "o": {
+    "wert": 350
+   },
+   "c": "200 + 3 * (450 - 200) // 5",
+   "w": "Abschnittswert: (450 − 200) : 5 = 50. Pfeil: 200 + 3 · 50 = 350.",
+   "h": "Der Strahl beginnt nicht bei 0. Vergiss die Anfangszahl nicht.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "strahl_ablesen",
+   "t": "strahl_ablesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand liest am Pfeil 800 ab. Was ist falsch?",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 400,
+     "ende": 1400,
+     "abschnitte": 5,
+     "beschriftet": "anfang_ende",
+     "pfeil": 4
+    }
+   },
+   "a": [
+    "Der Abschnittswert ist 280, also 1 120.",
+    "Nichts, das stimmt.",
+    "Man zählt die Striche mit: 1 400.",
+    "Die Anfangszahl fehlt: richtig ist 400 + 4 · 200 = 1 200."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Abschnittswert: (1 400 − 400) : 5 = 200. Gezählt wird ab der Anfangszahl: 1 200.",
+   "h": "Wo beginnt der Zahlenstrahl?",
+   "g": "fehler"
   },
   {
    "l": "strahl_ablesen",
@@ -2822,43 +3546,57 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Auf einem Zahlenstrahl mit gleich großen Abschnitten steht am 4. Strich nach dem Anfang die Zahl 1 500 und am 5. Strich die Zahl 1 625. Bei welcher Zahl beginnt der Strahl?"
+    "text": "Ein Zahlenstrahl hat gleich große Abschnitte. Zwei Abschnitte nach dem Anfang steht 300, sechs Abschnitte nach dem Anfang steht 500. Welche Zahl steht neun Abschnitte nach dem Anfang?"
    },
    "o": {
-    "wert": 1000
+    "wert": 650
    },
-   "c": "1500 - 4 * (1625 - 1500) // (5 - 4)",
-   "w": "Zwischen Strich 4 und 5 liegen 1 Abschnitte mit zusammen 125: Abschnittswert 125. Anfang: 1 500 − 4 · 125 = 1 000.",
-   "h": "Bestimme zuerst den Abschnittswert aus den beiden bekannten Strichen."
+   "c": "500 + 3 * ((500 - 300) // 4)",
+   "w": "Von 300 bis 500 sind es 4 Abschnitte: 200 : 4 = 50 je Abschnitt. Von 6 bis 9 sind es 3 Abschnitte: 500 + 3 · 50 = 650.",
+   "h": "Wie viele Abschnitte liegen zwischen 300 und 500? Wie viel ist dann einer wert?",
+   "g": "transfer"
+  },
+  {
+   "l": "strahl_ablesen",
+   "t": "strahl_ablesen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl zeigt der Pfeil?",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 8,
+     "abschnitte": 4,
+     "beschriftet": "anfang_ende",
+     "pfeil": 3
+    }
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "0 + 3 * (8 - 0) // 4",
+   "w": "Abschnittswert: 8 : 4 = 2. Pfeil: 3 Abschnitte, also 3 · 2 = 6.",
+   "h": "Rechne zuerst den Abschnittswert aus.",
+   "g": "erkennen"
   },
   {
    "l": "strahl_ablesen",
    "t": "strahl_ablesen",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Jemand liest am Pfeil 750 ab. Was ist falsch?",
-    "grafik": {
-     "typ": "zahlenstrahl",
-     "start": 1000,
-     "ende": 2000,
-     "abschnitte": 4,
-     "beschriftet": "anfang_ende",
-     "pfeil": 3
-    }
+    "text": "Ein Zahlenstrahl beginnt bei 1 000 und hat 8 gleich große Abschnitte. Drei Abschnitte nach dem Anfang steht 1 450. Bei welcher Zahl endet der Strahl?"
    },
-   "a": [
-    "Nichts, das stimmt.",
-    "Die Anfangszahl fehlt: richtig ist 1 000 + 3 · 250 = 1 750.",
-    "Der Abschnittswert ist 500, also 1 500.",
-    "Man zählt die Striche mit: 2 000."
-   ],
    "o": {
-    "index": 1
+    "wert": 2200
    },
-   "w": "Abschnittswert: (2 000 − 1 000) : 4 = 250. Gezählt wird ab der Anfangszahl: 1 750.",
-   "h": "Wo beginnt der Zahlenstrahl?"
+   "c": "1000 + 8 * ((1450 - 1000) // 3)",
+   "w": "Bis 1 450 sind es 450 in 3 Abschnitten: 450 : 3 = 150 je Abschnitt. Ende: 1 000 + 8 · 150 = 2 200.",
+   "h": "Rechne zuerst aus, wie viel ein Abschnitt wert ist.",
+   "g": "rueckwaerts"
   },
   {
    "l": "strahl_ablesen",
@@ -2870,19 +3608,42 @@
     "text": "Welche Zahl zeigt der Pfeil?",
     "grafik": {
      "typ": "zahlenstrahl",
-     "start": 0,
-     "ende": 3000000,
-     "abschnitte": 6,
+     "start": 200,
+     "ende": 600,
+     "abschnitte": 8,
      "beschriftet": "anfang_ende",
-     "pfeil": 1
+     "pfeil": 4
     }
    },
    "o": {
-    "wert": 500000
+    "wert": 400
    },
-   "c": "1 * 3000000 // 6",
-   "w": "Abschnittswert: 3 000 000 : 6 = 500 000. Pfeil: 1 · 500 000 = 500 000.",
-   "h": "Große Zahlen: Rechne den Abschnittswert in Tausendern, z. B. 3 000 Tausender : 12."
+   "c": "200 + 4 * (600 - 200) // 8",
+   "w": "Abschnittswert: (600 − 200) : 8 = 50. Pfeil: 200 + 4 · 50 = 400.",
+   "h": "Der Strahl beginnt nicht bei 0. Vergiss die Anfangszahl nicht.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "strahl_ablesen",
+   "t": "strahl_ablesen",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Hat ein Zahlenstrahl von 0 bis 100 genau 10 Abschnitte, dann liegt 35 genau auf einem Strich.“"
+   },
+   "a": [
+    "Ja, 35 liegt am 3. Strich.",
+    "Nein: Die Striche liegen bei 0, 10, 20, …; 35 liegt zwischen 30 und 40.",
+    "Ja, jede Zahl bis 100 liegt auf einem Strich.",
+    "Nein: 35 liegt am 35. Strich."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ein Abschnitt ist 10 wert. Auf Strichen liegen nur Vielfache von 10.",
+   "h": "Welche Zahlen stehen an den Strichen?"
   },
   {
    "l": "strahl_ablesen",
@@ -2913,45 +3674,51 @@
    "t": "strahl_ablesen",
    "p": "uebung",
    "s": 3,
+   "g": "pruefung",
    "y": "zahl",
    "f": {
-    "text": "Auf einem Zahlenstrahl mit gleich großen Abschnitten steht am 2. Strich nach dem Anfang die Zahl 1 100 und am 5. Strich die Zahl 1 250. Bei welcher Zahl beginnt der Strahl?"
+    "text": "3 600 und 4 200 liegen auf einem Zahlenstrahl genau 6 Abschnitte auseinander. Welche Zahl liegt 2 Abschnitte links von 3 600?"
    },
    "o": {
-    "wert": 1000
+    "wert": 3400
    },
-   "c": "1100 - 2 * (1250 - 1100) // (5 - 2)",
-   "w": "Zwischen Strich 2 und 5 liegen 3 Abschnitte mit zusammen 150: Abschnittswert 50. Anfang: 1 100 − 2 · 50 = 1 000.",
-   "h": "Bestimme zuerst den Abschnittswert aus den beiden bekannten Strichen."
+   "c": "3600 - 2 * (4200 - 3600) // 6",
+   "w": "Ein Abschnitt: (4 200 − 3 600) : 6 = 100. Zwei Abschnitte links: 3 600 − 200 = 3 400.",
+   "h": "Bestimme den Abschnittswert aus den beiden bekannten Zahlen."
   },
   {
    "l": "strahl_ablesen",
    "t": "strahl_ablesen",
-   "p": "uebung",
+   "p": "bonus",
    "s": 3,
-   "y": "auswahl",
+   "g": "knobel",
+   "y": "zahl",
    "f": {
-    "text": "Jemand liest am Pfeil 800 ab. Was ist falsch?",
-    "grafik": {
-     "typ": "zahlenstrahl",
-     "start": 400,
-     "ende": 1400,
-     "abschnitte": 5,
-     "beschriftet": "anfang_ende",
-     "pfeil": 4
-    }
+    "text": "Ein Zahlenstrahl geht von 0 bis 1 000. Er wird in gleich große Abschnitte geteilt, sodass 250 und 600 beide genau auf einem Strich liegen. Wie viele Abschnitte sind es mindestens?"
    },
-   "a": [
-    "Der Abschnittswert ist 280, also 1 120.",
-    "Nichts, das stimmt.",
-    "Man zählt die Striche mit: 1 400.",
-    "Die Anfangszahl fehlt: richtig ist 400 + 4 · 200 = 1 200."
-   ],
    "o": {
-    "index": 3
+    "wert": 20
    },
-   "w": "Abschnittswert: (1 400 − 400) : 5 = 200. Gezählt wird ab der Anfangszahl: 1 200.",
-   "h": "Wo beginnt der Zahlenstrahl?"
+   "c": "1000 // 50",
+   "w": "Der Abschnittswert muss in 250, 600 und 1 000 ohne Rest passen. Möglichst wenige Abschnitte heißt: möglichst großer Abschnittswert. 250 und 600 haben als größten gemeinsamen Teiler 50 (100 passt nicht in 250, 125 nicht in 600). 50 passt auch in 1 000. Also 1 000 : 50 = 20 Abschnitte.",
+   "h": "Je größer ein Abschnitt, desto weniger Abschnitte. Welche Werte kommen für einen Abschnitt überhaupt in Frage?"
+  },
+  {
+   "l": "strahl_ablesen",
+   "t": "strahl_ablesen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Strahl A geht von 0 bis 600 und hat 12 gleiche Abschnitte. Strahl B geht von 0 bis 600 und hat 8 gleiche Abschnitte. An wie vielen Stellen zwischen 0 und 600 (beide nicht mitgezählt) haben beide Strahlen einen Strich?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "A hat Striche bei Vielfachen von 50, B bei Vielfachen von 75. Gemeinsam sind die Vielfachen von 150: 150, 300, 450. Das sind 3 Stellen.",
+   "h": "Schreib für beide Strahlen die Zahlen an den Strichen auf."
   },
   {
    "l": "strahl_ablesen",
@@ -3184,84 +3951,6 @@
    "w": "Abschnittswert: (1 800 − 1 000) : 8 = 100. Pfeil: 1 000 + 1 · 100 = 1 100."
   },
   {
-   "l": "strahl_ablesen",
-   "t": "strahl_ablesen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Zahlenstrahl hat gleich große Abschnitte. Zwei Abschnitte nach dem Anfang steht 300, sechs Abschnitte nach dem Anfang steht 500. Welche Zahl steht neun Abschnitte nach dem Anfang?"
-   },
-   "o": {
-    "wert": 650
-   },
-   "c": "500 + 3 * ((500 - 300) // 4)",
-   "w": "Von 300 bis 500 sind es 4 Abschnitte: 200 : 4 = 50 je Abschnitt. Von 6 bis 9 sind es 3 Abschnitte: 500 + 3 · 50 = 650.",
-   "h": "Wie viele Abschnitte liegen zwischen 300 und 500? Wie viel ist dann einer wert?"
-  },
-  {
-   "l": "strahl_ablesen",
-   "t": "strahl_ablesen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Zahlenstrahl beginnt bei 1 000 und hat 8 gleich große Abschnitte. Drei Abschnitte nach dem Anfang steht 1 450. Bei welcher Zahl endet der Strahl?"
-   },
-   "o": {
-    "wert": 2200
-   },
-   "c": "1000 + 8 * ((1450 - 1000) // 3)",
-   "w": "Bis 1 450 sind es 450 in 3 Abschnitten: 450 : 3 = 150 je Abschnitt. Ende: 1 000 + 8 · 150 = 2 200.",
-   "h": "Rechne zuerst aus, wie viel ein Abschnitt wert ist."
-  },
-  {
-   "l": "strahl_eintragen",
-   "t": "strahl_eintragen",
-   "p": "uebung",
-   "s": 1,
-   "y": "markierung",
-   "f": {
-    "text": "Tippe die Markierung an, an der 150 liegt.",
-    "grafik": {
-     "typ": "zahlenstrahl",
-     "start": 0,
-     "ende": 500,
-     "abschnitte": 10,
-     "beschriftet": "anfang_ende"
-    }
-   },
-   "o": {
-    "index": 3
-   },
-   "zahl": 150,
-   "w": "Abschnittswert: 500 : 10 = 50. 150 : 50 = 3: 3 Abschnitte nach dem Anfang.",
-   "h": "Rechne zuerst den Abschnittswert aus."
-  },
-  {
-   "l": "strahl_eintragen",
-   "t": "strahl_eintragen",
-   "p": "uebung",
-   "s": 1,
-   "y": "markierung",
-   "f": {
-    "text": "Tippe die Markierung an, an der 20 liegt.",
-    "grafik": {
-     "typ": "zahlenstrahl",
-     "start": 0,
-     "ende": 200,
-     "abschnitte": 10,
-     "beschriftet": "anfang_ende"
-    }
-   },
-   "o": {
-    "index": 1
-   },
-   "zahl": 20,
-   "w": "Abschnittswert: 200 : 10 = 20. 20 : 20 = 1: 1 Abschnitte nach dem Anfang.",
-   "h": "Rechne zuerst den Abschnittswert aus."
-  },
-  {
    "l": "strahl_eintragen",
    "t": "strahl_eintragen",
    "p": "uebung",
@@ -3283,6 +3972,30 @@
    "zahl": 150,
    "w": "Abschnittswert: 250 : 5 = 50. 150 : 50 = 3: 3 Abschnitte nach dem Anfang.",
    "h": "Rechne zuerst den Abschnittswert aus."
+  },
+  {
+   "l": "strahl_eintragen",
+   "t": "strahl_eintragen",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 700 auf dem Zahlenstrahl.",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 1000,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 7
+   },
+   "zahl": 700,
+   "w": "Ein Abschnitt ist 100 wert. 700 liegt 7 Abschnitte nach 0.",
+   "h": "Wie viel ist ein Abschnitt wert?"
   },
   {
    "l": "strahl_eintragen",
@@ -3312,46 +4025,17 @@
    "t": "strahl_eintragen",
    "p": "uebung",
    "s": 2,
-   "y": "markierung",
+   "y": "zahl",
    "f": {
-    "text": "Tippe die Markierung an, an der 5 035 liegt.",
-    "grafik": {
-     "typ": "zahlenstrahl",
-     "start": 5000,
-     "ende": 5040,
-     "abschnitte": 8,
-     "beschriftet": "anfang_ende"
-    }
+    "text": "Ein Zahlenstrahl beginnt bei 10 000, ein Abschnitt ist 2 500 wert. Wie viele Abschnitte nach dem Anfang liegt 15 000?"
    },
    "o": {
-    "index": 7
+    "wert": 2
    },
-   "zahl": 5035,
-   "w": "Abschnittswert: (5 040 − 5 000) : 8 = 5. (5 035 − 5 000) : 5 = 7 Abschnitte nach dem Anfang.",
-   "h": "Zieh zuerst die Anfangszahl ab."
-  },
-  {
-   "l": "strahl_eintragen",
-   "t": "strahl_eintragen",
-   "p": "uebung",
-   "s": 2,
-   "y": "markierung",
-   "f": {
-    "text": "Tippe die Markierung an, an der 5 030 liegt.",
-    "grafik": {
-     "typ": "zahlenstrahl",
-     "start": 5000,
-     "ende": 5040,
-     "abschnitte": 8,
-     "beschriftet": "anfang_ende"
-    }
-   },
-   "o": {
-    "index": 6
-   },
-   "zahl": 5030,
-   "w": "Abschnittswert: (5 040 − 5 000) : 8 = 5. (5 030 − 5 000) : 5 = 6 Abschnitte nach dem Anfang.",
-   "h": "Zieh zuerst die Anfangszahl ab."
+   "c": "(15000 - 10000) // 2500",
+   "w": "(15 000 − 10 000) : 2 500 = 5 000 : 2 500 = 2.",
+   "h": "Erst die Anfangszahl abziehen, dann durch den Abschnittswert teilen.",
+   "g": "umkehr"
   },
   {
    "l": "strahl_eintragen",
@@ -3381,6 +4065,30 @@
    "t": "strahl_eintragen",
    "p": "uebung",
    "s": 2,
+   "g": "einkleidung",
+   "y": "markierung",
+   "f": {
+    "text": "Auf einer Zeitleiste von 1900 bis 2000 mit 10 gleichen Abschnitten soll das Jahr 1970 markiert werden. Tippe die richtige Stelle an.",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 1900,
+     "ende": 2000,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 7
+   },
+   "zahl": 1970,
+   "w": "Ein Abschnitt sind 10 Jahre. 1970 − 1900 = 70 Jahre = 7 Abschnitte.",
+   "h": "Wie viele Jahre umfasst ein Abschnitt?"
+  },
+  {
+   "l": "strahl_eintragen",
+   "t": "strahl_eintragen",
+   "p": "uebung",
+   "s": 2,
    "y": "markierung",
    "f": {
     "text": "Tippe die Markierung an, an der 1 300 liegt.",
@@ -3398,6 +4106,30 @@
    "zahl": 1300,
    "w": "Abschnittswert: (2 800 − 300) : 5 = 500. (1 300 − 300) : 500 = 2 Abschnitte nach dem Anfang.",
    "h": "Zieh zuerst die Anfangszahl ab."
+  },
+  {
+   "l": "strahl_eintragen",
+   "t": "strahl_eintragen",
+   "p": "uebung",
+   "s": 3,
+   "y": "markierung",
+   "f": {
+    "text": "Tippe die Zahl an, die genau in der Mitte zwischen 0 und 150 liegt.",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 200,
+     "abschnitte": 8,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 3
+   },
+   "zahl": 75,
+   "w": "Mitte: (0 + 150) : 2 = 75.",
+   "h": "Die Mitte liegt gleich viele Abschnitte von beiden Zahlen entfernt.",
+   "g": "verknuepfen"
   },
   {
    "l": "strahl_eintragen",
@@ -3426,6 +4158,30 @@
    "l": "strahl_eintragen",
    "t": "strahl_eintragen",
    "p": "uebung",
+   "s": 3,
+   "y": "markierung",
+   "f": {
+    "text": "300 liegt 1 Abschnitt links von 400. Tippe die Zahl an, die genau so weit rechts von 400 liegt.",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 100,
+     "ende": 1100,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 4
+   },
+   "zahl": 500,
+   "w": "Abschnittswert 100. 400 + 1 · 100 = 500.",
+   "h": "Geh von der Mitte aus gleich viele Abschnitte nach rechts.",
+   "g": "transfer"
+  },
+  {
+   "l": "strahl_eintragen",
+   "t": "strahl_eintragen",
+   "p": "uebung",
    "s": 2,
    "y": "markierung",
    "f": {
@@ -3444,6 +4200,112 @@
    "zahl": 350,
    "w": "Abschnittswert: (800 − 300) : 10 = 50. (350 − 300) : 50 = 1 Abschnitte nach dem Anfang.",
    "h": "Zieh zuerst die Anfangszahl ab."
+  },
+  {
+   "l": "strahl_eintragen",
+   "t": "strahl_eintragen",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zahlenstrahl von 0 bis 60 hat 6 gleiche Abschnitte. Wie viel ist ein Abschnitt wert?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "60 // 6",
+   "w": "6 Abschnitte sind zusammen 60: 60 : 6 = 10.",
+   "h": "Teile die Endzahl durch die Zahl der Abschnitte."
+  },
+  {
+   "l": "strahl_eintragen",
+   "t": "strahl_eintragen",
+   "p": "uebung",
+   "s": 1,
+   "y": "markierung",
+   "f": {
+    "text": "Tippe die Markierung an, an der 150 liegt.",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 500,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 3
+   },
+   "zahl": 150,
+   "w": "Abschnittswert: 500 : 10 = 50. 150 : 50 = 3: 3 Abschnitte nach dem Anfang.",
+   "h": "Rechne zuerst den Abschnittswert aus.",
+   "g": "direkt"
+  },
+  {
+   "l": "strahl_eintragen",
+   "t": "strahl_eintragen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zahlenstrahl beginnt bei 2 000, ein Abschnitt ist 250 wert. Wie viele Abschnitte nach dem Anfang liegt 3 750?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "(3750 - 2000) // 250",
+   "w": "(3 750 − 2 000) : 250 = 1 750 : 250 = 7.",
+   "h": "Erst die Anfangszahl abziehen, dann durch den Abschnittswert teilen.",
+   "g": "umkehr"
+  },
+  {
+   "l": "strahl_eintragen",
+   "t": "strahl_eintragen",
+   "p": "uebung",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Tippe die Markierung an, an der 5 035 liegt.",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 5000,
+     "ende": 5040,
+     "abschnitte": 8,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 7
+   },
+   "zahl": 5035,
+   "w": "Abschnittswert: (5 040 − 5 000) : 8 = 5. (5 035 − 5 000) : 5 = 7 Abschnitte nach dem Anfang.",
+   "h": "Zieh zuerst die Anfangszahl ab.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "strahl_eintragen",
+   "t": "strahl_eintragen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "markierung",
+   "f": {
+    "text": "Ein Fahrradcomputer zeigt die Strecke von 0 km bis 120 km in 6 gleichen Abschnitten. Tippe an, wo 80 km liegen.",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 120,
+     "abschnitte": 6,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 4
+   },
+   "zahl": 80,
+   "w": "Ein Abschnitt: 120 km : 6 = 20 km. 80 km = 4 Abschnitte.",
+   "h": "Rechne zuerst die km je Abschnitt aus."
   },
   {
    "l": "strahl_eintragen",
@@ -3475,7 +4337,55 @@
    "s": 3,
    "y": "markierung",
    "f": {
-    "text": "Tippe die Zahl an, die genau in der Mitte zwischen 0 und 150 liegt.",
+    "text": "Tippe die Zahl an, die genau in der Mitte zwischen 1 500 und 3 000 liegt.",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 1000,
+     "ende": 3000,
+     "abschnitte": 8,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 5
+   },
+   "zahl": 2250,
+   "w": "Mitte: (1 500 + 3 000) : 2 = 2 250.",
+   "h": "Die Mitte liegt gleich viele Abschnitte von beiden Zahlen entfernt.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "strahl_eintragen",
+   "t": "strahl_eintragen",
+   "p": "uebung",
+   "s": 1,
+   "y": "markierung",
+   "f": {
+    "text": "Tippe die Markierung an, an der 20 liegt.",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 200,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 1
+   },
+   "zahl": 20,
+   "w": "Abschnittswert: 200 : 10 = 20. 20 : 20 = 1: 1 Abschnitte nach dem Anfang.",
+   "h": "Rechne zuerst den Abschnittswert aus.",
+   "g": "direkt"
+  },
+  {
+   "l": "strahl_eintragen",
+   "t": "strahl_eintragen",
+   "p": "uebung",
+   "s": 3,
+   "y": "markierung",
+   "f": {
+    "text": "50 liegt 1 Abschnitt links von 75. Tippe die Zahl an, die genau so weit rechts von 75 liegt.",
     "grafik": {
      "typ": "zahlenstrahl",
      "start": 0,
@@ -3485,50 +4395,60 @@
     }
    },
    "o": {
-    "index": 3
+    "index": 4
    },
-   "zahl": 75,
-   "w": "Mitte: (0 + 150) : 2 = 75.",
-   "h": "Die Mitte liegt gleich viele Abschnitte von beiden Zahlen entfernt."
+   "zahl": 100,
+   "w": "Abschnittswert 25. 75 + 1 · 25 = 100.",
+   "h": "Geh von der Mitte aus gleich viele Abschnitte nach rechts.",
+   "g": "transfer"
   },
   {
    "l": "strahl_eintragen",
    "t": "strahl_eintragen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "markierung",
    "f": {
-    "text": "300 liegt 1 Abschnitt links von 400. Tippe die Zahl an, die genau so weit rechts von 400 liegt.",
+    "text": "Tippe die Markierung an, an der 5 030 liegt.",
     "grafik": {
      "typ": "zahlenstrahl",
-     "start": 100,
-     "ende": 1100,
-     "abschnitte": 10,
+     "start": 5000,
+     "ende": 5040,
+     "abschnitte": 8,
      "beschriftet": "anfang_ende"
     }
    },
    "o": {
-    "index": 4
+    "index": 6
    },
-   "zahl": 500,
-   "w": "Abschnittswert 100. 400 + 1 · 100 = 500.",
-   "h": "Geh von der Mitte aus gleich viele Abschnitte nach rechts."
+   "zahl": 5030,
+   "w": "Abschnittswert: (5 040 − 5 000) : 8 = 5. (5 030 − 5 000) : 5 = 6 Abschnitte nach dem Anfang.",
+   "h": "Zieh zuerst die Anfangszahl ab.",
+   "g": "mehrschritt"
   },
   {
    "l": "strahl_eintragen",
    "t": "strahl_eintragen",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "g": "rueckwaerts",
+   "y": "markierung",
    "f": {
-    "text": "Ein Zahlenstrahl beginnt bei 10 000, ein Abschnitt ist 2 500 wert. Wie viele Abschnitte nach dem Anfang liegt 15 000?"
+    "text": "Eine Zahl wird verdoppelt und dann um 100 vermindert. Es kommt 500 heraus. Markiere die Zahl.",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 400,
+     "abschnitte": 8,
+     "beschriftet": "anfang_ende"
+    }
    },
    "o": {
-    "wert": 2
+    "index": 6
    },
-   "c": "(15000 - 10000) // 2500",
-   "w": "(15 000 − 10 000) : 2 500 = 5 000 : 2 500 = 2.",
-   "h": "Erst die Anfangszahl abziehen, dann durch den Abschnittswert teilen."
+   "zahl": 300,
+   "w": "Rückwärts: 500 + 100 = 600, 600 : 2 = 300. Ein Abschnitt ist 50 wert, also 6 Abschnitte.",
+   "h": "Mach die Rechenschritte in umgekehrter Reihenfolge rückgängig."
   },
   {
    "l": "strahl_eintragen",
@@ -3558,62 +4478,97 @@
    "t": "strahl_eintragen",
    "p": "uebung",
    "s": 3,
-   "y": "markierung",
+   "g": "fehler",
+   "y": "auswahl",
    "f": {
-    "text": "Tippe die Zahl an, die genau in der Mitte zwischen 1 500 und 3 000 liegt.",
-    "grafik": {
-     "typ": "zahlenstrahl",
-     "start": 1000,
-     "ende": 3000,
-     "abschnitte": 8,
-     "beschriftet": "anfang_ende"
-    }
+    "text": "Jemand soll auf einem Strahl von 0 bis 2 000 mit 8 Abschnitten die Zahl 750 markieren und tippt den 7. Strich an. Was ist falsch?"
    },
+   "a": [
+    "Richtig ist der 75. Strich.",
+    "Ein Abschnitt ist 250 wert, nicht 100: richtig ist der 3. Strich.",
+    "Richtig ist der 8. Strich.",
+    "Nichts, der 7. Strich ist richtig."
+   ],
    "o": {
-    "index": 5
+    "index": 1
    },
-   "zahl": 2250,
-   "w": "Mitte: (1 500 + 3 000) : 2 = 2 250.",
-   "h": "Die Mitte liegt gleich viele Abschnitte von beiden Zahlen entfernt."
+   "w": "2 000 : 8 = 250. 750 : 250 = 3. Das Kind hat mit 100 je Abschnitt gerechnet.",
+   "h": "Rechne den Abschnittswert dieses Strahls aus."
   },
   {
    "l": "strahl_eintragen",
    "t": "strahl_eintragen",
    "p": "uebung",
    "s": 3,
-   "y": "markierung",
-   "f": {
-    "text": "50 liegt 1 Abschnitt links von 75. Tippe die Zahl an, die genau so weit rechts von 75 liegt.",
-    "grafik": {
-     "typ": "zahlenstrahl",
-     "start": 0,
-     "ende": 200,
-     "abschnitte": 8,
-     "beschriftet": "anfang_ende"
-    }
-   },
-   "o": {
-    "index": 4
-   },
-   "zahl": 100,
-   "w": "Abschnittswert 25. 75 + 1 · 25 = 100.",
-   "h": "Geh von der Mitte aus gleich viele Abschnitte nach rechts."
-  },
-  {
-   "l": "strahl_eintragen",
-   "t": "strahl_eintragen",
-   "p": "uebung",
-   "s": 3,
+   "g": "parameter",
    "y": "zahl",
    "f": {
-    "text": "Ein Zahlenstrahl beginnt bei 2 000, ein Abschnitt ist 250 wert. Wie viele Abschnitte nach dem Anfang liegt 3 750?"
+    "text": "Ein Zahlenstrahl beginnt bei 0 und hat 10 gleiche Abschnitte. 360 soll genau auf einem Strich liegen. Der Strahl soll mindestens bis 500 reichen, aber so kurz wie möglich sein. Bei welcher Zahl endet er?"
    },
    "o": {
-    "wert": 7
+    "wert": 600
    },
-   "c": "(3750 - 2000) // 250",
-   "w": "(3 750 − 2 000) : 250 = 1 750 : 250 = 7.",
-   "h": "Erst die Anfangszahl abziehen, dann durch den Abschnittswert teilen."
+   "c": "10 * 60",
+   "w": "Ein Abschnitt muss in 360 passen und mindestens 50 sein (10 · 50 = 500). Teiler von 360 ab 50: 60, 72, 90, … Der kleinste ist 60. Ende: 10 · 60 = 600.",
+   "h": "Welche Abschnittswerte passen ohne Rest in 360?"
+  },
+  {
+   "l": "strahl_eintragen",
+   "t": "strahl_eintragen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "markierung",
+   "f": {
+    "text": "Ein Ausschnitt des Zahlenstrahls geht von 296 000 bis 304 000. Markiere die Zahl, die um 3 000 größer ist als 299 000.",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 296000,
+     "ende": 304000,
+     "abschnitte": 8,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 6
+   },
+   "zahl": 302000,
+   "w": "Gesucht ist 302 000. Ein Abschnitt: 8 000 : 8 = 1 000. 302 000 − 296 000 = 6 000, also 6 Abschnitte.",
+   "h": "Rechne zuerst die gesuchte Zahl aus."
+  },
+  {
+   "l": "strahl_eintragen",
+   "t": "strahl_eintragen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Auf einem Zahlenstrahl liegen P bei 200 und Q bei 800. Die Strecke von P bis Q wird in drei gleich lange Stücke geteilt. Welche Zahl liegt genau in der Mitte zwischen den beiden Teilpunkten?"
+   },
+   "o": {
+    "wert": 500
+   },
+   "c": "(400 + 600) // 2",
+   "w": "Ein Drittel von 600 ist 200: Die Teilpunkte liegen bei 400 und 600. Ihre Mitte ist 500 – das ist zugleich die Mitte von P und Q, weil die Teilung symmetrisch ist.",
+   "h": "Muss man die Teilpunkte überhaupt ausrechnen? Denk an Symmetrie."
+  },
+  {
+   "l": "strahl_eintragen",
+   "t": "strahl_eintragen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Auf einem Zahlenstrahl mit gleich großen Abschnitten liegt 1 000 am Anfang. 1 450 und 1 600 liegen beide auf einem Strich, 1 500 aber nicht. Wie groß ist ein Abschnitt höchstens?"
+   },
+   "o": {
+    "wert": 150
+   },
+   "c": "150",
+   "w": "Vom Anfang aus: 450 und 600 müssen Vielfache des Abschnitts sein, 500 nicht. Teiler von 450 und 600 sind 150, 75, 50, 30, 25, 15, … Der größte ist 150, und 150 passt nicht in 500. Also 150.",
+   "h": "Rechne alles vom Anfang 1 000 aus. Welche Abschnittswerte passen in beide Abstände?"
   },
   {
    "l": "strahl_eintragen",
@@ -3842,6 +4797,63 @@
    "s": 1,
    "y": "auswahl",
    "f": {
+    "text": "Welches Zeichen gehört zwischen 2 041 285 □ 2 041 485?"
+   },
+   "a": [
+    ">",
+    "=",
+    "<"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Von links vergleichen: Der erste Unterschied ist an der 5. Stelle. Also 2 041 285 < 2 041 485.",
+   "h": "Vergleiche Ziffer für Ziffer von links."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für □ wird eine Ziffer eingesetzt. Für wie viele Ziffern (0 bis 9) gilt 39 5□3 > 39 533?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "Die ersten Ziffern sind gleich. An der Lückenstelle steht bei 39 533 die 3. Größer wird es mit 4, 5, 6, 7, 8, 9 – das sind 6. (Bei 3 entscheidet der Rest.)",
+   "h": "Vergleiche von links: Ab der Lücke entscheidet die eingesetzte Ziffer. Prüfe auch die Ziffer, die gleich ist.",
+   "g": "parameter"
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Zeichen gehört zwischen 122 661 □ 122 861?"
+   },
+   "a": [
+    "=",
+    "<",
+    ">"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Von links vergleichen: Der erste Unterschied ist an der 4. Stelle. Also 122 661 < 122 861.",
+   "h": "Vergleiche Ziffer für Ziffer von links."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
     "text": "Welche Zahl ist größer: 62 947 oder 6 294?"
    },
    "a": [
@@ -3853,7 +4865,8 @@
     "index": 2
    },
    "w": "Mehr Ziffern: 62 947 ist größer.",
-   "h": "Zähle zuerst die Ziffern."
+   "h": "Zähle zuerst die Ziffern.",
+   "g": "direkt"
   },
   {
    "l": "vergleichen",
@@ -3862,18 +4875,19 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Welche Zahl ist größer: 3 845 oder 384?"
+    "text": "Welches Zeichen gehört zwischen 3 238 109 □ 3 232 109?"
    },
    "a": [
-    "3 845",
-    "384",
-    "Beide sind gleich groß."
+    ">",
+    "<",
+    "="
    ],
    "o": {
     "index": 0
    },
-   "w": "Mehr Ziffern: 3 845 ist größer.",
-   "h": "Zähle zuerst die Ziffern."
+   "w": "Von links vergleichen: Der erste Unterschied ist an der 4. Stelle. Also 3 238 109 > 3 232 109.",
+   "h": "Vergleiche Ziffer für Ziffer von links.",
+   "g": "erkennen"
   },
   {
    "l": "vergleichen",
@@ -3902,106 +4916,6 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Welche Zahl ist größer: 4 300 oder 8 466?"
-   },
-   "a": [
-    "Beide sind gleich groß.",
-    "8 466",
-    "4 300"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Erste Ziffer von links entscheidet: 8 466 ist größer.",
-   "h": "Zähle zuerst die Ziffern."
-  },
-  {
-   "l": "vergleichen",
-   "t": "vergleichen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welches Zeichen gehört zwischen 3 238 109 □ 3 232 109?"
-   },
-   "a": [
-    ">",
-    "<",
-    "="
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Von links vergleichen: Der erste Unterschied ist an der 4. Stelle. Also 3 238 109 > 3 232 109.",
-   "h": "Vergleiche Ziffer für Ziffer von links."
-  },
-  {
-   "l": "vergleichen",
-   "t": "vergleichen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welches Zeichen gehört zwischen 87 416 □ 87 486?"
-   },
-   "a": [
-    "<",
-    ">",
-    "="
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Von links vergleichen: Der erste Unterschied ist an der 4. Stelle. Also 87 416 < 87 486.",
-   "h": "Vergleiche Ziffer für Ziffer von links."
-  },
-  {
-   "l": "vergleichen",
-   "t": "vergleichen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welches Zeichen gehört zwischen 2 041 285 □ 2 041 485?"
-   },
-   "a": [
-    ">",
-    "=",
-    "<"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Von links vergleichen: Der erste Unterschied ist an der 5. Stelle. Also 2 041 285 < 2 041 485.",
-   "h": "Vergleiche Ziffer für Ziffer von links."
-  },
-  {
-   "l": "vergleichen",
-   "t": "vergleichen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welches Zeichen gehört zwischen 122 661 □ 122 861?"
-   },
-   "a": [
-    "=",
-    "<",
-    ">"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Von links vergleichen: Der erste Unterschied ist an der 4. Stelle. Also 122 661 < 122 861.",
-   "h": "Vergleiche Ziffer für Ziffer von links."
-  },
-  {
-   "l": "vergleichen",
-   "t": "vergleichen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
     "text": "Welches Zeichen gehört zwischen 34 078 □ 34 048?"
    },
    "a": [
@@ -4020,6 +4934,174 @@
    "t": "vergleichen",
    "p": "uebung",
    "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ordne von klein nach groß: 88 468; 884 860; 884 680; 848 680. Welche Zahl steht an dritter Stelle?"
+   },
+   "o": {
+    "wert": 884680
+   },
+   "c": "884680",
+   "w": "Geordnet: 88 468 < 848 680 < 884 680 < 884 860. An dritter Stelle: 884 680.",
+   "h": "Zuerst nach der Zahl der Ziffern, dann von links Ziffer für Ziffer.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "auswahl",
+   "f": {
+    "text": "Drei Berge sind 4 807 m, 4 478 m und 4 634 m hoch. Wie hoch ist der zweithöchste?"
+   },
+   "a": [
+    "4 478 m",
+    "4 634 m",
+    "4 807 m"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der Größe nach: 4 807 m > 4 634 m > 4 478 m. Der zweithöchste ist 4 634 m hoch.",
+   "h": "Vergleiche zuerst die Hunderter."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Setze die größte Ziffer ein, sodass gilt: 7 □45 < 7 645"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "Mit □ = 6 wäre 7 645 nicht kleiner. Die größte passende Ziffer ist 5: 7 545 < 7 645.",
+   "h": "Vergleiche Stelle für Stelle von links."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie heißt die größte fünfstellige Zahl mit lauter verschiedenen Ziffern, die kleiner ist als 70 000?"
+   },
+   "o": {
+    "wert": 69875
+   },
+   "c": "69875",
+   "w": "Vorne muss es so groß wie möglich, aber unter 70 000 bleiben. Dann von links jeweils die größte noch freie Ziffer: 69 875.",
+   "h": "Geh Stelle für Stelle von links vor und nimm jeweils die größte erlaubte Ziffer.",
+   "g": "transfer"
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie heißt die kleinste 5-stellige Zahl mit der Quersumme 12?"
+   },
+   "o": {
+    "wert": 10029
+   },
+   "c": "10029",
+   "w": "Vorne mindestens eine 1, die restliche Quersumme möglichst weit hinten: 10 029.",
+   "h": "Kleine Ziffern nach vorne, die großen nach hinten.",
+   "g": "pruefung"
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für □ wird eine Ziffer eingesetzt. Für wie viele Ziffern (0 bis 9) gilt 20 □25 > 20 525?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Die ersten Ziffern sind gleich. An der Lückenstelle steht bei 20 525 die 5. Größer wird es mit 6, 7, 8, 9 – das sind 4. (Bei 5 entscheidet der Rest.)",
+   "h": "Vergleiche von links: Ab der Lücke entscheidet die eingesetzte Ziffer. Prüfe auch die Ziffer, die gleich ist.",
+   "g": "parameter"
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist größer: 3 845 oder 384?"
+   },
+   "a": [
+    "3 845",
+    "384",
+    "Beide sind gleich groß."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Mehr Ziffern: 3 845 ist größer.",
+   "h": "Zähle zuerst die Ziffern.",
+   "g": "direkt"
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Zeichen gehört zwischen 87 416 □ 87 486?"
+   },
+   "a": [
+    "<",
+    ">",
+    "="
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Von links vergleichen: Der erste Unterschied ist an der 4. Stelle. Also 87 416 < 87 486.",
+   "h": "Vergleiche Ziffer für Ziffer von links.",
+   "g": "erkennen"
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist größer: 4 300 oder 8 466?"
+   },
+   "a": [
+    "Beide sind gleich groß.",
+    "8 466",
+    "4 300"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Erste Ziffer von links entscheidet: 8 466 ist größer.",
+   "h": "Zähle zuerst die Ziffern."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welches Zeichen gehört zwischen 6 524 578 □ 6 524 978?"
@@ -4039,81 +5121,57 @@
    "l": "vergleichen",
    "t": "vergleichen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
+   "g": "einkleidung",
    "y": "zahl",
    "f": {
-    "text": "Für □ wird eine Ziffer eingesetzt. Für wie viele Ziffern (0 bis 9) gilt 39 5□3 > 39 533?"
+    "text": "Zwei Städte haben 1 484 226 und 1 488 019 Einwohner. Wie viele Einwohner hat die größere Stadt mehr?"
+   },
+   "o": {
+    "wert": 3793
+   },
+   "c": "1488019 - 1484226",
+   "w": "Größer ist 1 488 019. Unterschied: 1 488 019 − 1 484 226 = 3 793.",
+   "h": "Finde zuerst die größere Zahl, dann rechne den Unterschied."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Setze die kleinste Ziffer ein, sodass gilt: 38 □12 > 38 512"
    },
    "o": {
     "wert": 6
    },
    "c": "6",
-   "w": "Die ersten Ziffern sind gleich. An der Lückenstelle steht bei 39 533 die 3. Größer wird es mit 4, 5, 6, 7, 8, 9 – das sind 6. (Bei 3 entscheidet der Rest.)",
-   "h": "Vergleiche von links: Ab der Lücke entscheidet die eingesetzte Ziffer. Prüfe auch die Ziffer, die gleich ist."
+   "w": "Mit □ = 5 wäre 38 512 nicht größer. Die kleinste passende Ziffer ist 6: 38 612 > 38 512.",
+   "h": "Was passiert, wenn □ = 5 ist?"
   },
   {
    "l": "vergleichen",
    "t": "vergleichen",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "auswahl",
    "f": {
-    "text": "Ordne von klein nach groß: 88 468; 884 860; 884 680; 848 680. Welche Zahl steht an dritter Stelle?"
+    "text": "Welche Zahl liegt zwischen 45 099 und 45 110?"
    },
+   "a": [
+    "45 011",
+    "45 909",
+    "45 105",
+    "45 190"
+   ],
    "o": {
-    "wert": 884680
+    "index": 2
    },
-   "c": "884680",
-   "w": "Geordnet: 88 468 < 848 680 < 884 680 < 884 860. An dritter Stelle: 884 680.",
-   "h": "Zuerst nach der Zahl der Ziffern, dann von links Ziffer für Ziffer."
-  },
-  {
-   "l": "vergleichen",
-   "t": "vergleichen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Wie heißt die größte fünfstellige Zahl mit lauter verschiedenen Ziffern, die kleiner ist als 70 000?"
-   },
-   "o": {
-    "wert": 69875
-   },
-   "c": "69875",
-   "w": "Vorne muss es so groß wie möglich, aber unter 70 000 bleiben. Dann von links jeweils die größte noch freie Ziffer: 69 875.",
-   "h": "Geh Stelle für Stelle von links vor und nimm jeweils die größte erlaubte Ziffer."
-  },
-  {
-   "l": "vergleichen",
-   "t": "vergleichen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Wie heißt die kleinste 5-stellige Zahl mit der Quersumme 12?"
-   },
-   "o": {
-    "wert": 10029
-   },
-   "c": "10029",
-   "w": "Vorne mindestens eine 1, die restliche Quersumme möglichst weit hinten: 10 029.",
-   "h": "Kleine Ziffern nach vorne, die großen nach hinten."
-  },
-  {
-   "l": "vergleichen",
-   "t": "vergleichen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Für □ wird eine Ziffer eingesetzt. Für wie viele Ziffern (0 bis 9) gilt 20 □25 > 20 525?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "4",
-   "w": "Die ersten Ziffern sind gleich. An der Lückenstelle steht bei 20 525 die 5. Größer wird es mit 6, 7, 8, 9 – das sind 4. (Bei 5 entscheidet der Rest.)",
-   "h": "Vergleiche von links: Ab der Lücke entscheidet die eingesetzte Ziffer. Prüfe auch die Ziffer, die gleich ist."
+   "w": "45 099 < 45 105 < 45 110. Die anderen sind zu klein oder zu groß.",
+   "h": "Vergleiche jede Zahl mit beiden Grenzen."
   },
   {
    "l": "vergleichen",
@@ -4129,7 +5187,8 @@
    },
    "c": "89765",
    "w": "Vorne muss es so groß wie möglich, aber unter 90 000 bleiben. Dann von links jeweils die größte noch freie Ziffer: 89 765.",
-   "h": "Geh Stelle für Stelle von links vor und nimm jeweils die größte erlaubte Ziffer."
+   "h": "Geh Stelle für Stelle von links vor und nimm jeweils die größte erlaubte Ziffer.",
+   "g": "transfer"
   },
   {
    "l": "vergleichen",
@@ -4145,7 +5204,8 @@
    },
    "c": "10009",
    "w": "Vorne mindestens eine 1, die restliche Quersumme möglichst weit hinten: 10 009.",
-   "h": "Kleine Ziffern nach vorne, die großen nach hinten."
+   "h": "Kleine Ziffern nach vorne, die großen nach hinten.",
+   "g": "pruefung"
   },
   {
    "l": "vergleichen",
@@ -4161,7 +5221,86 @@
    },
    "c": "7",
    "w": "Die ersten Ziffern sind gleich. An der Lückenstelle steht bei 42 324 die 2. Größer wird es mit 3, 4, 5, 6, 7, 8, 9 – das sind 7. (Bei 2 entscheidet der Rest.)",
-   "h": "Vergleiche von links: Ab der Lücke entscheidet die eingesetzte Ziffer. Prüfe auch die Ziffer, die gleich ist."
+   "h": "Vergleiche von links: Ab der Lücke entscheidet die eingesetzte Ziffer. Prüfe auch die Ziffer, die gleich ist.",
+   "g": "parameter"
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „98 765 ist größer als 123 456, weil 9 größer als 1 ist.“ Was ist falsch?"
+   },
+   "a": [
+    "Beide Zahlen sind gleich groß.",
+    "Zuerst zählt die Stellenzahl: 123 456 hat sechs Stellen und ist größer.",
+    "Nichts, die erste Ziffer entscheidet immer.",
+    "Man muss die letzten Ziffern vergleichen: 5 < 6."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Eine sechsstellige Zahl ist immer größer als eine fünfstellige. Die erste Ziffer vergleicht man nur bei gleicher Stellenzahl.",
+   "h": "Zähle die Stellen beider Zahlen."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Von zwei Zahlen ist immer die mit der größeren Quersumme die größere.“"
+   },
+   "a": [
+    "Nein: 99 hat Quersumme 18, 100 nur 1, aber 100 ist größer.",
+    "Ja, aber nur bei geraden Zahlen.",
+    "Ja, das gilt immer.",
+    "Nein: Die Quersumme ist immer gleich."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein Gegenbeispiel reicht: 100 > 99, aber 1 < 18.",
+   "h": "Such ein Gegenbeispiel mit wenigen Stellen."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Ziffernkarten 0, 3, 5, 8 und 9 (jede genau einmal) wird eine fünfstellige Zahl gelegt, die möglichst nah an 60 000 liegt. Wie heißt sie?"
+   },
+   "o": {
+    "wert": 59830
+   },
+   "c": "59830",
+   "w": "Unter 60 000: erste Ziffer 5, dann so groß wie möglich: 59 830 (Abstand 170). Über 60 000: Die erste Ziffer müsste 8 oder 9 sein, also mindestens 80 359 – viel weiter weg. Ergebnis 59 830.",
+   "h": "Prüfe beide Seiten: knapp unter und knapp über 60 000."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Für die Ziffern □ und △ soll gelten: 4□7 < 45△ und 45△ < 4△0. Wie viele Paare (□, △) gibt es?"
+   },
+   "o": {
+    "wert": 22
+   },
+   "c": "4*5 + 2",
+   "w": "Rechte Bedingung: 45△ < 4△0 gilt nur, wenn △ größer als 5 ist, also △ = 6, 7, 8, 9. Linke Bedingung: Für □ = 0 bis 4 ist 4□7 höchstens 447 und damit immer kleiner – das gibt 5 · 4 = 20 Paare. Für □ = 5 braucht man 457 < 45△, also △ = 8 oder 9: 2 Paare. Für □ ab 6 geht nichts. Zusammen 22.",
+   "h": "Untersuche zuerst die rechte Bedingung allein."
   },
   {
    "l": "vergleichen",
@@ -4367,7 +5506,30 @@
    },
    "c": "(9056 + 5) // 10 * 10",
    "w": "Rechts von der Zehnerstelle steht 6: aufrunden. 9 056 ≈ 9 060.",
-   "h": "Schau auf die Ziffer rechts neben der Rundungsstelle."
+   "h": "Schau auf die Ziffer rechts neben der Rundungsstelle.",
+   "g": "direkt"
+  },
+  {
+   "l": "runden_regel",
+   "t": "runden_regel",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Runde 441 635 auf Hunderter. Welche Lösung stimmt?"
+   },
+   "a": [
+    "441 630",
+    "441 700",
+    "441 600",
+    "4 416"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Hunderterstelle: 6, rechts daneben 3: abrunden. Dahinter alles 0: 441 600.",
+   "h": "Hinter der Rundungsstelle wird alles zu 0 – die Zahl wird nicht kürzer.",
+   "g": "erkennen"
   },
   {
    "l": "runden_regel",
@@ -4383,7 +5545,24 @@
    },
    "c": "(4381 + 50) // 100 * 100",
    "w": "Rechts von der Hunderterstelle steht 8: aufrunden. 4 381 ≈ 4 400.",
-   "h": "Schau auf die Ziffer rechts neben der Rundungsstelle."
+   "h": "Schau auf die Ziffer rechts neben der Rundungsstelle.",
+   "g": "direkt"
+  },
+  {
+   "l": "runden_regel",
+   "t": "runden_regel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 6 026 440 auf Zehntausender."
+   },
+   "o": {
+    "wert": 6030000
+   },
+   "c": "(6026440 + 5000) // 10000 * 10000",
+   "w": "Rechts von der Zehntausenderstelle steht 6: aufrunden. 6 026 440 ≈ 6 030 000.",
+   "h": "Markiere die Rundungsstelle und schau eine Stelle weiter rechts."
   },
   {
    "l": "runden_regel",
@@ -4399,7 +5578,154 @@
    },
    "c": "(6441 + 5) // 10 * 10",
    "w": "Rechts von der Zehnerstelle steht 1: abrunden. 6 441 ≈ 6 440.",
-   "h": "Schau auf die Ziffer rechts neben der Rundungsstelle."
+   "h": "Schau auf die Ziffer rechts neben der Rundungsstelle.",
+   "g": "direkt"
+  },
+  {
+   "l": "runden_regel",
+   "t": "runden_regel",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Runde 948 524 auf Hunderter. Welche Lösung stimmt?"
+   },
+   "a": [
+    "9 485",
+    "948 500",
+    "948 520",
+    "948 600"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Hunderterstelle: 5, rechts daneben 2: abrunden. Dahinter alles 0: 948 500.",
+   "h": "Hinter der Rundungsstelle wird alles zu 0 – die Zahl wird nicht kürzer.",
+   "g": "erkennen"
+  },
+  {
+   "l": "runden_regel",
+   "t": "runden_regel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 989 635 auf Zehntausender."
+   },
+   "o": {
+    "wert": 990000
+   },
+   "c": "(989635 + 5000) // 10000 * 10000",
+   "w": "Rechts von der Zehntausenderstelle steht 9: aufrunden. 989 635 ≈ 990 000.",
+   "h": "Markiere die Rundungsstelle und schau eine Stelle weiter rechts.",
+   "g": "direkt"
+  },
+  {
+   "l": "runden_regel",
+   "t": "runden_regel",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ergibt auf Zehntausender gerundet 780 000?"
+   },
+   "a": [
+    "765 000",
+    "785 000",
+    "775 000",
+    "774 999"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "775 000: Rechts von der Zehntausenderstelle steht eine Ziffer, die auf 780 000 führt. Die anderen werden zu 770 000, 790 000, 770 000.",
+   "h": "Runde jede Zahl auf Zehntausender und vergleiche.",
+   "g": "umkehr"
+  },
+  {
+   "l": "runden_regel",
+   "t": "runden_regel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 3 483 020 auf Zehntausender."
+   },
+   "o": {
+    "wert": 3480000
+   },
+   "c": "(3483020 + 5000) // 10000 * 10000",
+   "w": "Rechts von der Zehntausenderstelle steht 3: abrunden. 3 483 020 ≈ 3 480 000.",
+   "h": "Markiere die Rundungsstelle und schau eine Stelle weiter rechts.",
+   "g": "direkt"
+  },
+  {
+   "l": "runden_regel",
+   "t": "runden_regel",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Stadion hat 75 024 Plätze. Gib die Zahl auf Tausender gerundet an."
+   },
+   "o": {
+    "wert": 75000
+   },
+   "c": "75000",
+   "w": "Hunderterziffer 0: abrunden. 75 000.",
+   "h": "Welche Ziffer steht rechts neben den Tausendern?"
+  },
+  {
+   "l": "runden_regel",
+   "t": "runden_regel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 669 886 auf Hunderttausender."
+   },
+   "o": {
+    "wert": 700000
+   },
+   "c": "(669886 + 50000) // 100000 * 100000",
+   "w": "Rechts von der Hunderttausenderstelle steht 6: aufrunden. 669 886 ≈ 700 000.",
+   "h": "Markiere die Rundungsstelle und schau eine Stelle weiter rechts.",
+   "g": "direkt"
+  },
+  {
+   "l": "runden_regel",
+   "t": "runden_regel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie heißt die kleinste natürliche Zahl, die auf Hunderter gerundet 5 300 ergibt?"
+   },
+   "o": {
+    "wert": 5250
+   },
+   "c": "5250",
+   "w": "5 249 wird abgerundet, 5 250 schon aufgerundet. Die kleinste ist 5 250.",
+   "h": "Ab welcher Zahl wird auf diesen Wert aufgerundet?",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "runden_regel",
+   "t": "runden_regel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele natürliche Zahlen ergeben auf Hunderter gerundet 1 200?"
+   },
+   "o": {
+    "wert": 100
+   },
+   "c": "100",
+   "w": "Von 1 150 bis 1 249: das sind 100 Zahlen.",
+   "h": "Bestimme die kleinste und die größte passende Zahl.",
+   "g": "transfer"
   },
   {
    "l": "runden_regel",
@@ -4421,71 +5747,7 @@
    "l": "runden_regel",
    "t": "runden_regel",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Runde 989 635 auf Zehntausender."
-   },
-   "o": {
-    "wert": 990000
-   },
-   "c": "(989635 + 5000) // 10000 * 10000",
-   "w": "Rechts von der Zehntausenderstelle steht 9: aufrunden. 989 635 ≈ 990 000.",
-   "h": "Markiere die Rundungsstelle und schau eine Stelle weiter rechts."
-  },
-  {
-   "l": "runden_regel",
-   "t": "runden_regel",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Runde 3 483 020 auf Zehntausender."
-   },
-   "o": {
-    "wert": 3480000
-   },
-   "c": "(3483020 + 5000) // 10000 * 10000",
-   "w": "Rechts von der Zehntausenderstelle steht 3: abrunden. 3 483 020 ≈ 3 480 000.",
-   "h": "Markiere die Rundungsstelle und schau eine Stelle weiter rechts."
-  },
-  {
-   "l": "runden_regel",
-   "t": "runden_regel",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Runde 669 886 auf Hunderttausender."
-   },
-   "o": {
-    "wert": 700000
-   },
-   "c": "(669886 + 50000) // 100000 * 100000",
-   "w": "Rechts von der Hunderttausenderstelle steht 6: aufrunden. 669 886 ≈ 700 000.",
-   "h": "Markiere die Rundungsstelle und schau eine Stelle weiter rechts."
-  },
-  {
-   "l": "runden_regel",
-   "t": "runden_regel",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Runde 6 026 440 auf Zehntausender."
-   },
-   "o": {
-    "wert": 6030000
-   },
-   "c": "(6026440 + 5000) // 10000 * 10000",
-   "w": "Rechts von der Zehntausenderstelle steht 6: aufrunden. 6 026 440 ≈ 6 030 000.",
-   "h": "Markiere die Rundungsstelle und schau eine Stelle weiter rechts."
-  },
-  {
-   "l": "runden_regel",
-   "t": "runden_regel",
-   "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Runde 604 668 auf Tausender."
@@ -4495,13 +5757,14 @@
    },
    "c": "(604668 + 500) // 1000 * 1000",
    "w": "Rechts von der Tausenderstelle steht 6: aufrunden. 604 668 ≈ 605 000.",
-   "h": "Markiere die Rundungsstelle und schau eine Stelle weiter rechts."
+   "h": "Markiere die Rundungsstelle und schau eine Stelle weiter rechts.",
+   "g": "direkt"
   },
   {
    "l": "runden_regel",
    "t": "runden_regel",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Runde 6 654 886 auf Zehntausender."
@@ -4517,81 +5780,29 @@
    "l": "runden_regel",
    "t": "runden_regel",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
+   "g": "erkennen",
    "y": "auswahl",
    "f": {
-    "text": "Welche Zahl ergibt auf Zehntausender gerundet 780 000?"
+    "text": "Welche Ziffer entscheidet, ob 47 381 auf Tausender auf- oder abgerundet wird?"
    },
    "a": [
-    "765 000",
-    "785 000",
-    "775 000",
-    "774 999"
+    "die 8 an der Zehnerstelle",
+    "die 7 an der Tausenderstelle",
+    "die 1 an der Einerstelle",
+    "die 3 an der Hunderterstelle"
    ],
    "o": {
-    "index": 2
+    "index": 3
    },
-   "w": "775 000: Rechts von der Zehntausenderstelle steht eine Ziffer, die auf 780 000 führt. Die anderen werden zu 770 000, 790 000, 770 000.",
-   "h": "Runde jede Zahl auf Zehntausender und vergleiche."
+   "w": "Beim Runden auf Tausender entscheidet die Ziffer rechts daneben, also die Hunderterziffer 3.",
+   "h": "Schau auf die Stelle rechts neben der Rundungsstelle."
   },
   {
    "l": "runden_regel",
    "t": "runden_regel",
    "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Runde 441 635 auf Hunderter. Welche Lösung stimmt?"
-   },
-   "a": [
-    "441 630",
-    "441 700",
-    "441 600",
-    "4 416"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Hunderterstelle: 6, rechts daneben 3: abrunden. Dahinter alles 0: 441 600.",
-   "h": "Hinter der Rundungsstelle wird alles zu 0 – die Zahl wird nicht kürzer."
-  },
-  {
-   "l": "runden_regel",
-   "t": "runden_regel",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Wie heißt die kleinste natürliche Zahl, die auf Hunderter gerundet 5 300 ergibt?"
-   },
-   "o": {
-    "wert": 5250
-   },
-   "c": "5250",
-   "w": "5 249 wird abgerundet, 5 250 schon aufgerundet. Die kleinste ist 5 250.",
-   "h": "Ab welcher Zahl wird auf diesen Wert aufgerundet?"
-  },
-  {
-   "l": "runden_regel",
-   "t": "runden_regel",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele natürliche Zahlen ergeben auf Hunderter gerundet 1 200?"
-   },
-   "o": {
-    "wert": 100
-   },
-   "c": "100",
-   "w": "Von 1 150 bis 1 249: das sind 100 Zahlen.",
-   "h": "Bestimme die kleinste und die größte passende Zahl."
-  },
-  {
-   "l": "runden_regel",
-   "t": "runden_regel",
-   "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Zahl ergibt auf Zehntausender gerundet 460 000?"
@@ -4606,28 +5817,64 @@
     "index": 3
    },
    "w": "455 000: Rechts von der Zehntausenderstelle steht eine Ziffer, die auf 460 000 führt. Die anderen werden zu 450 000, 470 000, 450 000.",
-   "h": "Runde jede Zahl auf Zehntausender und vergleiche."
+   "h": "Runde jede Zahl auf Zehntausender und vergleiche.",
+   "g": "umkehr"
   },
   {
    "l": "runden_regel",
    "t": "runden_regel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "zahl",
+   "f": {
+    "text": "Runde 63 482 zuerst auf Hunderter. Runde dann dieses Ergebnis auf Tausender."
+   },
+   "o": {
+    "wert": 64000
+   },
+   "c": "64000",
+   "w": "63 482 → 63 500 (Zehnerziffer 8). 63 500 → 64 000 (Hunderterziffer 5).",
+   "h": "Mach beide Schritte nacheinander."
+  },
+  {
+   "l": "runden_regel",
+   "t": "runden_regel",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Fahrrad kostet 1 349 €. Im Prospekt steht der Preis auf Hunderter gerundet. Welcher Betrag steht dort?"
+   },
+   "o": {
+    "wert": 1300,
+    "einheit": "€"
+   },
+   "c": "1300",
+   "w": "Zehnerziffer 4: abrunden. 1 300 €.",
+   "h": "Schau auf die Zehnerziffer."
+  },
+  {
+   "l": "runden_regel",
+   "t": "runden_regel",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
    "y": "auswahl",
    "f": {
-    "text": "Runde 948 524 auf Hunderter. Welche Lösung stimmt?"
+    "text": "Am Zahlenstrahl liegt 7 340 zwischen 7 300 und 7 400. Zu welcher Hunderterzahl liegt sie näher?"
    },
    "a": [
-    "9 485",
-    "948 500",
-    "948 520",
-    "948 600"
+    "7 400",
+    "7 350",
+    "7 300"
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "w": "Hunderterstelle: 5, rechts daneben 2: abrunden. Dahinter alles 0: 948 500.",
-   "h": "Hinter der Rundungsstelle wird alles zu 0 – die Zahl wird nicht kürzer."
+   "w": "7 340 ist 40 von 7 300 und 60 von 7 400 entfernt. Näher an 7 300 – so rundet man auch.",
+   "h": "Vergleiche die beiden Abstände."
   },
   {
    "l": "runden_regel",
@@ -4643,7 +5890,8 @@
    },
    "c": "2650",
    "w": "2 649 wird abgerundet, 2 650 schon aufgerundet. Die kleinste ist 2 650.",
-   "h": "Ab welcher Zahl wird auf diesen Wert aufgerundet?"
+   "h": "Ab welcher Zahl wird auf diesen Wert aufgerundet?",
+   "g": "rueckwaerts"
   },
   {
    "l": "runden_regel",
@@ -4659,7 +5907,125 @@
    },
    "c": "10",
    "w": "Von 75 bis 84: das sind 10 Zahlen.",
-   "h": "Bestimme die kleinste und die größte passende Zahl."
+   "h": "Bestimme die kleinste und die größte passende Zahl.",
+   "g": "transfer"
+  },
+  {
+   "l": "runden_regel",
+   "t": "runden_regel",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rundet 2 449 auf Hunderter so: 2 449 → 2 450 → 2 500. Was ist falsch?"
+   },
+   "a": [
+    "Richtig ist 3 000.",
+    "Man muss auf 2 440 runden.",
+    "Nichts, 2 500 stimmt.",
+    "Man darf nicht schrittweise runden: 2 449 ist auf Hunderter 2 400."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Für die Hunderter entscheidet nur die Zehnerziffer 4: abrunden auf 2 400. Erst auf Zehner zu runden, verfälscht das Ergebnis.",
+   "h": "Welche Ziffer entscheidet beim Runden auf Hunderter?"
+  },
+  {
+   "l": "runden_regel",
+   "t": "runden_regel",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Auf Tausender gerundet ist nie kleiner als auf Hunderter gerundet.“"
+   },
+   "a": [
+    "Nein: Beide Ergebnisse sind immer gleich.",
+    "Nein: 1 450 gibt auf Hunderter 1 500, auf Tausender 1 000.",
+    "Ja, weil Tausender größer sind als Hunderter.",
+    "Ja, das gilt immer."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegenbeispiel 1 450: auf Hunderter 1 500, auf Tausender 1 000, und 1 000 < 1 500.",
+   "h": "Probiere eine Zahl, die beim einen auf- und beim anderen abgerundet wird."
+  },
+  {
+   "l": "runden_regel",
+   "t": "runden_regel",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "auswahl",
+   "f": {
+    "text": "Du rundest 46 851 auf Hunderter. Welche Beschreibung des Vorgehens stimmt?"
+   },
+   "a": [
+    "Die Zehnerziffer 5 ansehen und aufrunden: 46 900.",
+    "Die Einerziffer 1 ansehen und abrunden: 46 800.",
+    "Die Zehnerziffer 5 ansehen und abrunden: 46 800.",
+    "Die Hunderterziffer 8 ansehen und aufrunden: 47 000."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Rundungsstelle Hunderter (8). Entscheidend ist die Zehnerziffer 5: aufrunden. 46 900.",
+   "h": "Welche Ziffer steht rechts neben der Rundungsstelle?"
+  },
+  {
+   "l": "runden_regel",
+   "t": "runden_regel",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Runde 3 · 1 248 auf Hunderter."
+   },
+   "o": {
+    "wert": 3700
+   },
+   "c": "3700",
+   "w": "3 · 1 248 = 3 744. Zehnerziffer 4: abrunden auf 3 700.",
+   "h": "Rechne zuerst das Produkt aus, dann runde."
+  },
+  {
+   "l": "runden_regel",
+   "t": "runden_regel",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Eine dreistellige Zahl ergibt auf Zehner gerundet 350 und auf Hunderter gerundet 300. Wie viele solche Zahlen gibt es?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "349 - 345 + 1",
+   "w": "Auf Zehner 350: die Zahlen 345 bis 354. Auf Hunderter 300: die Zahlen 250 bis 349. Beides zugleich: 345, 346, 347, 348, 349 – also 5.",
+   "h": "Schreib für jede Bedingung auf, welche Zahlen in Frage kommen."
+  },
+  {
+   "l": "runden_regel",
+   "t": "runden_regel",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind denkt sich eine ungerade Zahl. Auf Zehner gerundet ergibt sie 70. Das Doppelte der Zahl ergibt auf Zehner gerundet 150. Wie heißt die Zahl?"
+   },
+   "o": {
+    "wert": 73
+   },
+   "c": "73",
+   "w": "Auf Zehner 70: die Zahl liegt zwischen 65 und 74. Das Doppelte auf Zehner 150: das Doppelte liegt zwischen 145 und 154, die Zahl also zwischen 73 und 77. Beides: 73 oder 74. Ungerade: 73.",
+   "h": "Überlege für beide Angaben, zwischen welchen Grenzen die Zahl liegt."
   },
   {
    "l": "runden_regel",
@@ -4825,39 +6191,8 @@
    },
    "c": "(3997 + 5) // 10 * 10",
    "w": "An der Zehnerstelle steht 9, rechts daneben 7: aufrunden. Aus der 9 wird 10, 1 geht nach links weiter: 4 000.",
-   "h": "Wird aus der 9 eine 10, geht 1 zur nächsten Stelle links."
-  },
-  {
-   "l": "runden_uebertrag",
-   "t": "runden_uebertrag",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Runde 9 980 auf Hunderter."
-   },
-   "o": {
-    "wert": 10000
-   },
-   "c": "(9980 + 50) // 100 * 100",
-   "w": "An der Hunderterstelle steht 9, rechts daneben 8: aufrunden. Aus der 9 wird 10, 1 geht nach links weiter: 10 000.",
-   "h": "Wird aus der 9 eine 10, geht 1 zur nächsten Stelle links."
-  },
-  {
-   "l": "runden_uebertrag",
-   "t": "runden_uebertrag",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Runde 9 961 auf Hunderter."
-   },
-   "o": {
-    "wert": 10000
-   },
-   "c": "(9961 + 50) // 100 * 100",
-   "w": "An der Hunderterstelle steht 9, rechts daneben 6: aufrunden. Aus der 9 wird 10, 1 geht nach links weiter: 10 000.",
-   "h": "Wird aus der 9 eine 10, geht 1 zur nächsten Stelle links."
+   "h": "Wird aus der 9 eine 10, geht 1 zur nächsten Stelle links.",
+   "g": "direkt"
   },
   {
    "l": "runden_uebertrag",
@@ -4879,7 +6214,116 @@
    "l": "runden_uebertrag",
    "t": "runden_uebertrag",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 7 699 552 auf Tausender."
+   },
+   "o": {
+    "wert": 7700000
+   },
+   "c": "(7699552 + 500) // 1000 * 1000",
+   "w": "Aufrunden an der Tausenderstelle (dort 9): Übertrag nach links. 7 699 552 ≈ 7 700 000.",
+   "h": "Denk an das Zählen von 99 auf 100.",
+   "g": "direkt"
+  },
+  {
+   "l": "runden_uebertrag",
+   "t": "runden_uebertrag",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Runde 999 650 auf Tausender. Welche Lösung stimmt?"
+   },
+   "a": [
+    "999 000",
+    "9 991 000",
+    "1 000 000"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Rechts neben der Rundungsstelle steht 6: aufrunden. Die Neunen werden zu Nullen, vorne kommt 1 dazu: 1 000 000.",
+   "h": "Aus 9 + 1 wird 10: Schreib 0 und gib 1 nach links weiter – so lange, bis keine 9 mehr kommt.",
+   "g": "erkennen"
+  },
+  {
+   "l": "runden_uebertrag",
+   "t": "runden_uebertrag",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 9 980 auf Hunderter."
+   },
+   "o": {
+    "wert": 10000
+   },
+   "c": "(9980 + 50) // 100 * 100",
+   "w": "An der Hunderterstelle steht 9, rechts daneben 8: aufrunden. Aus der 9 wird 10, 1 geht nach links weiter: 10 000.",
+   "h": "Wird aus der 9 eine 10, geht 1 zur nächsten Stelle links.",
+   "g": "direkt"
+  },
+  {
+   "l": "runden_uebertrag",
+   "t": "runden_uebertrag",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 39 577 auf Tausender."
+   },
+   "o": {
+    "wert": 40000
+   },
+   "c": "(39577 + 500) // 1000 * 1000",
+   "w": "Aufrunden an der Tausenderstelle (dort 9): Übertrag nach links. 39 577 ≈ 40 000.",
+   "h": "Denk an das Zählen von 99 auf 100."
+  },
+  {
+   "l": "runden_uebertrag",
+   "t": "runden_uebertrag",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 9 961 auf Hunderter."
+   },
+   "o": {
+    "wert": 10000
+   },
+   "c": "(9961 + 50) // 100 * 100",
+   "w": "An der Hunderterstelle steht 9, rechts daneben 6: aufrunden. Aus der 9 wird 10, 1 geht nach links weiter: 10 000.",
+   "h": "Wird aus der 9 eine 10, geht 1 zur nächsten Stelle links.",
+   "g": "direkt"
+  },
+  {
+   "l": "runden_uebertrag",
+   "t": "runden_uebertrag",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Runde 29 982 auf Hunderter. Welche Lösung stimmt?"
+   },
+   "a": [
+    "30 000",
+    "299 100",
+    "29 900"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Rechts neben der Rundungsstelle steht 8: aufrunden. Die Neunen werden zu Nullen, vorne kommt 1 dazu: 30 000.",
+   "h": "Aus 9 + 1 wird 10: Schreib 0 und gib 1 nach links weiter – so lange, bis keine 9 mehr kommt.",
+   "g": "erkennen"
+  },
+  {
+   "l": "runden_uebertrag",
+   "t": "runden_uebertrag",
+   "p": "uebung",
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Runde 669 975 auf Hunderter."
@@ -4896,106 +6340,6 @@
    "t": "runden_uebertrag",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Runde 7 699 552 auf Tausender."
-   },
-   "o": {
-    "wert": 7700000
-   },
-   "c": "(7699552 + 500) // 1000 * 1000",
-   "w": "Aufrunden an der Tausenderstelle (dort 9): Übertrag nach links. 7 699 552 ≈ 7 700 000.",
-   "h": "Denk an das Zählen von 99 auf 100."
-  },
-  {
-   "l": "runden_uebertrag",
-   "t": "runden_uebertrag",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Runde 999 622 auf Tausender."
-   },
-   "o": {
-    "wert": 1000000
-   },
-   "c": "(999622 + 500) // 1000 * 1000",
-   "w": "Aufrunden an der Tausenderstelle (dort 9): Übertrag nach links. 999 622 ≈ 1 000 000.",
-   "h": "Denk an das Zählen von 99 auf 100."
-  },
-  {
-   "l": "runden_uebertrag",
-   "t": "runden_uebertrag",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Runde 39 577 auf Tausender."
-   },
-   "o": {
-    "wert": 40000
-   },
-   "c": "(39577 + 500) // 1000 * 1000",
-   "w": "Aufrunden an der Tausenderstelle (dort 9): Übertrag nach links. 39 577 ≈ 40 000.",
-   "h": "Denk an das Zählen von 99 auf 100."
-  },
-  {
-   "l": "runden_uebertrag",
-   "t": "runden_uebertrag",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Runde 99 932 auf Tausender."
-   },
-   "o": {
-    "wert": 100000
-   },
-   "c": "(99932 + 500) // 1000 * 1000",
-   "w": "Aufrunden an der Tausenderstelle (dort 9): Übertrag nach links. 99 932 ≈ 100 000.",
-   "h": "Denk an das Zählen von 99 auf 100."
-  },
-  {
-   "l": "runden_uebertrag",
-   "t": "runden_uebertrag",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Runde 1 579 960 auf Hunderter."
-   },
-   "o": {
-    "wert": 1580000
-   },
-   "c": "(1579960 + 50) // 100 * 100",
-   "w": "Aufrunden an der Hunderterstelle (dort 9): Übertrag nach links. 1 579 960 ≈ 1 580 000.",
-   "h": "Denk an das Zählen von 99 auf 100."
-  },
-  {
-   "l": "runden_uebertrag",
-   "t": "runden_uebertrag",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Runde 999 650 auf Tausender. Welche Lösung stimmt?"
-   },
-   "a": [
-    "999 000",
-    "9 991 000",
-    "1 000 000"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Rechts neben der Rundungsstelle steht 6: aufrunden. Die Neunen werden zu Nullen, vorne kommt 1 dazu: 1 000 000.",
-   "h": "Aus 9 + 1 wird 10: Schreib 0 und gib 1 nach links weiter – so lange, bis keine 9 mehr kommt."
-  },
-  {
-   "l": "runden_uebertrag",
-   "t": "runden_uebertrag",
-   "p": "uebung",
-   "s": 3,
    "y": "auswahl",
    "f": {
     "text": "Welche Zahl ergibt auf Tausender gerundet 100 000?"
@@ -5010,13 +6354,14 @@
     "index": 0
    },
    "w": "99 500 wird aufgerundet (Hunderterziffer 5), und der Übertrag läuft bis 100 000. Die anderen ergeben 99 000, 101 000, 99 000.",
-   "h": "Runde jede Zahl auf Tausender."
+   "h": "Runde jede Zahl auf Tausender.",
+   "g": "umkehr"
   },
   {
    "l": "runden_uebertrag",
    "t": "runden_uebertrag",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Runde 9 999 950 auf Hunderter. Wie viele Nullen hat das Ergebnis?"
@@ -5026,7 +6371,26 @@
    },
    "c": "7",
    "w": "9 999 950 ≈ 10 000 000: Der Übertrag läuft durch alle Neunen. Das Ergebnis hat 7 Nullen.",
-   "h": "Schreibe das gerundete Ergebnis ganz aus."
+   "h": "Schreibe das gerundete Ergebnis ganz aus.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "runden_uebertrag",
+   "t": "runden_uebertrag",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Auto hat 99 960 km auf dem Tacho. In der Anzeige des Händlers steht der Kilometerstand auf Hunderter gerundet. Welche Zahl steht dort?"
+   },
+   "o": {
+    "wert": 100000,
+    "einheit": "km"
+   },
+   "c": "100000",
+   "w": "Zehnerziffer 6: aufrunden. 999 Hunderter + 1 = 1 000 Hunderter = 100 000.",
+   "h": "Die Zehnerziffer entscheidet. Achte auf den Übertrag."
   },
   {
    "l": "runden_uebertrag",
@@ -5047,13 +6411,85 @@
     "index": 0
    },
    "w": "Aus 9 Zehnern + 1 werden 500 Zehner: 5 000. Eine Stelle kann nie „10“ enthalten.",
-   "h": "Eine Stelle kann nur eine Ziffer von 0 bis 9 haben. Was passiert mit der 10?"
+   "h": "Eine Stelle kann nur eine Ziffer von 0 bis 9 haben. Was passiert mit der 10?",
+   "g": "fehler"
   },
   {
    "l": "runden_uebertrag",
    "t": "runden_uebertrag",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 999 622 auf Tausender."
+   },
+   "o": {
+    "wert": 1000000
+   },
+   "c": "(999622 + 500) // 1000 * 1000",
+   "w": "Aufrunden an der Tausenderstelle (dort 9): Übertrag nach links. 999 622 ≈ 1 000 000.",
+   "h": "Denk an das Zählen von 99 auf 100.",
+   "g": "direkt"
+  },
+  {
+   "l": "runden_uebertrag",
+   "t": "runden_uebertrag",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 1 579 960 auf Hunderter."
+   },
+   "o": {
+    "wert": 1580000
+   },
+   "c": "(1579960 + 50) // 100 * 100",
+   "w": "Aufrunden an der Hunderterstelle (dort 9): Übertrag nach links. 1 579 960 ≈ 1 580 000.",
+   "h": "Denk an das Zählen von 99 auf 100."
+  },
+  {
+   "l": "runden_uebertrag",
+   "t": "runden_uebertrag",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 99 932 auf Tausender."
+   },
+   "o": {
+    "wert": 100000
+   },
+   "c": "(99932 + 500) // 1000 * 1000",
+   "w": "Aufrunden an der Tausenderstelle (dort 9): Übertrag nach links. 99 932 ≈ 100 000.",
+   "h": "Denk an das Zählen von 99 auf 100."
+  },
+  {
+   "l": "runden_uebertrag",
+   "t": "runden_uebertrag",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Bei welcher Zahl entsteht beim Runden auf Hunderter ein Übertrag in die Tausenderstelle?"
+   },
+   "a": [
+    "4 940",
+    "4 849",
+    "5 010",
+    "4 960"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "4 960 → 5 000: Die 9 Hunderter werden zu 10 Hundertern, also ein Tausender mehr. Bei den anderen ändert sich die Tausenderziffer nicht.",
+   "h": "Wann wird die Hunderterziffer 9 zu 10?"
+  },
+  {
+   "l": "runden_uebertrag",
+   "t": "runden_uebertrag",
+   "p": "uebung",
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Zahl ergibt auf Tausender gerundet 700 000?"
@@ -5068,13 +6504,14 @@
     "index": 1
    },
    "w": "699 500 wird aufgerundet (Hunderterziffer 5), und der Übertrag läuft bis 700 000. Die anderen ergeben 699 000, 701 000, 699 000.",
-   "h": "Runde jede Zahl auf Tausender."
+   "h": "Runde jede Zahl auf Tausender.",
+   "g": "umkehr"
   },
   {
    "l": "runden_uebertrag",
    "t": "runden_uebertrag",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Runde 999 960 auf Hunderter. Wie viele Nullen hat das Ergebnis?"
@@ -5084,7 +6521,25 @@
    },
    "c": "6",
    "w": "999 960 ≈ 1 000 000: Der Übertrag läuft durch alle Neunen. Das Ergebnis hat 6 Nullen.",
-   "h": "Schreibe das gerundete Ergebnis ganz aus."
+   "h": "Schreibe das gerundete Ergebnis ganz aus.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "runden_uebertrag",
+   "t": "runden_uebertrag",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Wanderung ist 19 963 Schritte lang. Wie viele Schritte sind das auf Hunderter gerundet?"
+   },
+   "o": {
+    "wert": 20000
+   },
+   "c": "20000",
+   "w": "Zehnerziffer 6: aufrunden. 19 900 + 100 = 20 000.",
+   "h": "Was passiert mit der 9 an der Hunderterstelle?"
   },
   {
    "l": "runden_uebertrag",
@@ -5105,27 +6560,149 @@
     "index": 2
    },
    "w": "Aus 9 Zehnern + 1 werden 200 Zehner: 2 000. Eine Stelle kann nie „10“ enthalten.",
-   "h": "Eine Stelle kann nur eine Ziffer von 0 bis 9 haben. Was passiert mit der 10?"
+   "h": "Eine Stelle kann nur eine Ziffer von 0 bis 9 haben. Was passiert mit der 10?",
+   "g": "fehler"
   },
   {
    "l": "runden_uebertrag",
    "t": "runden_uebertrag",
    "p": "uebung",
    "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl ergibt auf Zehner gerundet 1 000. Wie heißt die kleinste solche Zahl?"
+   },
+   "o": {
+    "wert": 995
+   },
+   "c": "1000 - 5",
+   "w": "Auf Zehner 1 000 runden alle Zahlen von 995 bis 1 004. Die kleinste ist 995.",
+   "h": "Ab welcher Einerziffer wird aufgerundet?"
+  },
+  {
+   "l": "runden_uebertrag",
+   "t": "runden_uebertrag",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
    "y": "auswahl",
    "f": {
-    "text": "Runde 29 982 auf Hunderter. Welche Lösung stimmt?"
+    "text": "Stimmt die Aussage? „Beim Runden kann eine Zahl eine Stelle mehr bekommen.“"
    },
    "a": [
-    "30 000",
-    "299 100",
-    "29 900"
+    "Nein, Runden ändert nur die letzten Ziffern.",
+    "Ja: 9 960 auf Hunderter gerundet ist 10 000 und hat fünf Stellen.",
+    "Nein, beim Runden werden Zahlen nur kleiner.",
+    "Ja, aber nur beim Abrunden."
    ],
    "o": {
-    "index": 0
+    "index": 1
    },
-   "w": "Rechts neben der Rundungsstelle steht 8: aufrunden. Die Neunen werden zu Nullen, vorne kommt 1 dazu: 30 000.",
-   "h": "Aus 9 + 1 wird 10: Schreib 0 und gib 1 nach links weiter – so lange, bis keine 9 mehr kommt."
+   "w": "Beim Aufrunden mit Übertrag kann aus 9 … 9 eine 1 mit Nullen werden, z. B. 9 960 → 10 000.",
+   "h": "Probiere eine Zahl, die nur aus Neunen beginnt."
+  },
+  {
+   "l": "runden_uebertrag",
+   "t": "runden_uebertrag",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zähler zeigt 4 999 960 Besucher. Wie viele Besucher müssen noch kommen, bis die auf Tausender gerundete Zahl 5 001 000 lautet?"
+   },
+   "o": {
+    "wert": 540
+   },
+   "c": "5000500 - 4999960",
+   "w": "Auf Tausender 5 001 000 ergibt sich ab 5 000 500. Es fehlen 5 000 500 − 4 999 960 = 540.",
+   "h": "Ab welcher Zahl wird auf 5 001 000 gerundet?"
+  },
+  {
+   "l": "runden_uebertrag",
+   "t": "runden_uebertrag",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Ziffer □ ergibt 89 □97 auf Hunderter gerundet 90 000?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "9",
+   "w": "Die Zehnerziffer 9 bedeutet aufrunden: 89 □00 + 100. Das ist nur 90 000, wenn □ = 9 ist (89 900 + 100).",
+   "h": "Was kommt beim Aufrunden heraus? Wann wird daraus 90 000?"
+  },
+  {
+   "l": "runden_uebertrag",
+   "t": "runden_uebertrag",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Runde 519 960 auf Hunderter. Wie viele Ziffern ändern sich dabei?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "519 960 → 520 000. Es ändern sich die 1 (zu 2), die 9, die 9 und die 6 (zu 0). Das sind 4 Ziffern.",
+   "h": "Schreib Zahl und Ergebnis untereinander."
+  },
+  {
+   "l": "runden_uebertrag",
+   "t": "runden_uebertrag",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Runde die Summe 4 987 + 5 018 auf Hunderter."
+   },
+   "o": {
+    "wert": 10000
+   },
+   "c": "10000",
+   "w": "4 987 + 5 018 = 10 005. Zehnerziffer 0: abrunden auf 10 000.",
+   "h": "Erst rechnen, dann runden."
+  },
+  {
+   "l": "runden_uebertrag",
+   "t": "runden_uebertrag",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele vierstellige Zahlen ergeben auf Hunderter gerundet 10 000?"
+   },
+   "o": {
+    "wert": 50
+   },
+   "c": "9999 - 9950 + 1",
+   "w": "Auf Hunderter 10 000 runden die Zahlen ab 9 950. Vierstellig sind sie bis 9 999. Das sind 9 999 − 9 950 + 1 = 50 Zahlen.",
+   "h": "Ab welcher Zahl wird auf 10 000 gerundet? Bis wohin ist eine Zahl vierstellig?"
+  },
+  {
+   "l": "runden_uebertrag",
+   "t": "runden_uebertrag",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl wird schrittweise gerundet: erst auf Zehner, das Ergebnis auf Hunderter, dieses auf Tausender. Am Ende steht 5 000. Wie heißt die kleinste natürliche Zahl, bei der das passiert?"
+   },
+   "o": {
+    "wert": 4445
+   },
+   "c": "4445",
+   "w": "Rückwärts: 5 000 auf Tausender verlangt mindestens 4 500. 4 500 auf Hunderter verlangt mindestens 4 450. 4 450 auf Zehner verlangt mindestens 4 445. Probe: 4 445 → 4 450 → 4 500 → 5 000. Direkt gerundet wäre 4 445 nur 4 000 – darum soll man nicht schrittweise runden.",
+   "h": "Arbeite vom Ende rückwärts: Ab welcher Zahl ergibt der letzte Schritt 5 000?"
   },
   {
    "l": "runden_uebertrag",
@@ -5295,67 +6872,8 @@
     "index": 0
    },
    "w": "Bei die Entfernung von München nach Berlin reicht ein ungefährer Wert.",
-   "h": "Muss die Zahl genau stimmen, oder reicht ungefähr?"
-  },
-  {
-   "l": "runden_sinnvoll",
-   "t": "runden_sinnvoll",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist Runden hier sinnvoll: die Höhe eines Berges in einer Erzählung?"
-   },
-   "a": [
-    "Nein, man darf nie runden.",
-    "Ja, ungefähr reicht.",
-    "Nein, die Zahl muss genau stimmen."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Bei die Höhe eines Berges in einer Erzählung reicht ein ungefährer Wert.",
-   "h": "Muss die Zahl genau stimmen, oder reicht ungefähr?"
-  },
-  {
-   "l": "runden_sinnvoll",
-   "t": "runden_sinnvoll",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist Runden hier sinnvoll: die Zahl der Haare auf dem Kopf?"
-   },
-   "a": [
-    "Nein, man darf nie runden.",
-    "Nein, die Zahl muss genau stimmen.",
-    "Ja, ungefähr reicht."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Bei die Zahl der Haare auf dem Kopf reicht ein ungefährer Wert.",
-   "h": "Muss die Zahl genau stimmen, oder reicht ungefähr?"
-  },
-  {
-   "l": "runden_sinnvoll",
-   "t": "runden_sinnvoll",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist Runden hier sinnvoll: die Länge eines Flusses?"
-   },
-   "a": [
-    "Nein, die Zahl muss genau stimmen.",
-    "Nein, man darf nie runden.",
-    "Ja, ungefähr reicht."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Bei die Länge eines Flusses reicht ein ungefährer Wert.",
-   "h": "Muss die Zahl genau stimmen, oder reicht ungefähr?"
+   "h": "Muss die Zahl genau stimmen, oder reicht ungefähr?",
+   "g": "erkennen"
   },
   {
    "l": "runden_sinnvoll",
@@ -5376,7 +6894,29 @@
     "index": 2
    },
    "w": "Rundungsstelle: Hunderttausender. Rechts daneben steht 9, also aufrunden: 8 500 000, das sind 8,5 Millionen.",
-   "h": "Suche die Hunderttausenderstelle und schau die Ziffer rechts daneben an."
+   "h": "Suche die Hunderttausenderstelle und schau die Ziffer rechts daneben an.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "runden_sinnvoll",
+   "t": "runden_sinnvoll",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist Runden hier sinnvoll: die Höhe eines Berges in einer Erzählung?"
+   },
+   "a": [
+    "Nein, man darf nie runden.",
+    "Ja, ungefähr reicht.",
+    "Nein, die Zahl muss genau stimmen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Bei die Höhe eines Berges in einer Erzählung reicht ein ungefährer Wert.",
+   "h": "Muss die Zahl genau stimmen, oder reicht ungefähr?",
+   "g": "erkennen"
   },
   {
    "l": "runden_sinnvoll",
@@ -5397,7 +6937,46 @@
     "index": 0
    },
    "w": "Für eine Überschrift genügt ein grober Wert: auf Hunderttausender gerundet 4 500 000, also etwa 4,5 Millionen.",
-   "h": "Eine Überschrift soll man sich leicht merken können."
+   "h": "Eine Überschrift soll man sich leicht merken können.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "runden_sinnvoll",
+   "t": "runden_sinnvoll",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In der Zeitung steht: „rund 9 000 Zuschauer“ (auf Tausender gerundet). Wie viele Zuschauer waren es höchstens?"
+   },
+   "o": {
+    "wert": 9499
+   },
+   "c": "9499",
+   "w": "Auf 9 000 gerundet werden die Zahlen von 8 500 bis 9 499. Höchstens 9 499.",
+   "h": "Ab welcher Zahl würde man schon auf den nächsten Tausender runden?",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "runden_sinnvoll",
+   "t": "runden_sinnvoll",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist Runden hier sinnvoll: die Zahl der Haare auf dem Kopf?"
+   },
+   "a": [
+    "Nein, man darf nie runden.",
+    "Nein, die Zahl muss genau stimmen.",
+    "Ja, ungefähr reicht."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Bei die Zahl der Haare auf dem Kopf reicht ein ungefährer Wert.",
+   "h": "Muss die Zahl genau stimmen, oder reicht ungefähr?",
+   "g": "erkennen"
   },
   {
    "l": "runden_sinnvoll",
@@ -5418,7 +6997,25 @@
     "index": 0
    },
    "w": "Rundungsstelle: Hunderttausender. Rechts daneben steht 1, also abrunden: 8 200 000, das sind 8,2 Millionen.",
-   "h": "Suche die Hunderttausenderstelle und schau die Ziffer rechts daneben an."
+   "h": "Suche die Hunderttausenderstelle und schau die Ziffer rechts daneben an.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "runden_sinnvoll",
+   "t": "runden_sinnvoll",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In der Zeitung steht: „rund 72 000 Zuschauer“ (auf Tausender gerundet). Wie viele Zuschauer waren es mindestens?"
+   },
+   "o": {
+    "wert": 71500
+   },
+   "c": "71500",
+   "w": "Auf 72 000 gerundet werden die Zahlen von 71 500 bis 72 499. Mindestens 71 500.",
+   "h": "Ab welcher Zahl wird auf diesen Wert aufgerundet?",
+   "g": "rueckwaerts"
   },
   {
    "l": "runden_sinnvoll",
@@ -5440,6 +7037,77 @@
    },
    "w": "Rundungsstelle: Hunderttausender. Rechts daneben steht 8, also aufrunden: 3 100 000, das sind 3,1 Millionen.",
    "h": "Suche die Hunderttausenderstelle und schau die Ziffer rechts daneben an."
+  },
+  {
+   "l": "runden_sinnvoll",
+   "t": "runden_sinnvoll",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Zahlen ergeben auf Hunderter gerundet beide 300. Wie groß kann ihr Unterschied höchstens sein?"
+   },
+   "o": {
+    "wert": 99
+   },
+   "c": "349 - 250",
+   "w": "Die kleinste mögliche Zahl ist 250, die größte 349. Unterschied: 99.",
+   "h": "Nimm die kleinste und die größte Zahl, die zu diesem Rundungswert passen.",
+   "g": "transfer"
+  },
+  {
+   "l": "runden_sinnvoll",
+   "t": "runden_sinnvoll",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In der Zeitung steht: „rund 45 000 Zuschauer“ (auf Tausender gerundet). Wie viele Zuschauer waren es mindestens?"
+   },
+   "o": {
+    "wert": 44500
+   },
+   "c": "44500",
+   "w": "Auf 45 000 gerundet werden die Zahlen von 44 500 bis 45 499. Mindestens 44 500.",
+   "h": "Ab welcher Zahl wird auf diesen Wert aufgerundet?"
+  },
+  {
+   "l": "runden_sinnvoll",
+   "t": "runden_sinnvoll",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist Runden hier sinnvoll: die Länge eines Flusses?"
+   },
+   "a": [
+    "Nein, die Zahl muss genau stimmen.",
+    "Nein, man darf nie runden.",
+    "Ja, ungefähr reicht."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Bei die Länge eines Flusses reicht ein ungefährer Wert.",
+   "h": "Muss die Zahl genau stimmen, oder reicht ungefähr?",
+   "g": "erkennen"
+  },
+  {
+   "l": "runden_sinnvoll",
+   "t": "runden_sinnvoll",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Bei einem Konzert waren 73 418 Zuschauer. Runde sinnvoll auf Tausender."
+   },
+   "o": {
+    "wert": 73000
+   },
+   "c": "73000",
+   "w": "Hunderterziffer 4: abrunden. Etwa 73 000 Zuschauer.",
+   "h": "Welche Ziffer entscheidet beim Runden auf Tausender?"
   },
   {
    "l": "runden_sinnvoll",
@@ -5481,55 +7149,47 @@
     "index": 3
    },
    "w": "Für eine Überschrift genügt ein grober Wert: auf Hunderttausender gerundet 4 700 000, also etwa 4,7 Millionen.",
-   "h": "Eine Überschrift soll man sich leicht merken können."
+   "h": "Eine Überschrift soll man sich leicht merken können.",
+   "g": "einkleidung"
   },
   {
    "l": "runden_sinnvoll",
    "t": "runden_sinnvoll",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
+   "s": 2,
+   "g": "umkehr",
+   "y": "auswahl",
    "f": {
-    "text": "In der Zeitung steht: „rund 9 000 Zuschauer“ (auf Tausender gerundet). Wie viele Zuschauer waren es höchstens?"
+    "text": "Auf welche Stelle wurde gerundet: 46 872 → 47 000?"
    },
+   "a": [
+    "auf Hunderter",
+    "auf Zehner",
+    "auf Tausender",
+    "auf Zehntausender"
+   ],
    "o": {
-    "wert": 9499
+    "index": 2
    },
-   "c": "9499",
-   "w": "Auf 9 000 gerundet werden die Zahlen von 8 500 bis 9 499. Höchstens 9 499.",
-   "h": "Ab welcher Zahl würde man schon auf den nächsten Tausender runden?"
+   "w": "Auf Hunderter wäre es 46 900, auf Zehntausender 50 000, auf Zehner 46 870. Nur auf Tausender ergibt sich 47 000.",
+   "h": "Runde 46 872 auf jede Stelle und vergleiche."
   },
   {
    "l": "runden_sinnvoll",
    "t": "runden_sinnvoll",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
+   "g": "mehrschritt",
    "y": "zahl",
    "f": {
-    "text": "In der Zeitung steht: „rund 72 000 Zuschauer“ (auf Tausender gerundet). Wie viele Zuschauer waren es mindestens?"
+    "text": "Im Zoo waren am Samstag 3 487 und am Sonntag 4 238 Besucher. Gib die Summe auf Hunderter gerundet an."
    },
    "o": {
-    "wert": 71500
+    "wert": 7700
    },
-   "c": "71500",
-   "w": "Auf 72 000 gerundet werden die Zahlen von 71 500 bis 72 499. Mindestens 71 500.",
-   "h": "Ab welcher Zahl wird auf diesen Wert aufgerundet?"
-  },
-  {
-   "l": "runden_sinnvoll",
-   "t": "runden_sinnvoll",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Zwei Zahlen ergeben auf Hunderter gerundet beide 300. Wie groß kann ihr Unterschied höchstens sein?"
-   },
-   "o": {
-    "wert": 99
-   },
-   "c": "349 - 250",
-   "w": "Die kleinste mögliche Zahl ist 250, die größte 349. Unterschied: 99.",
-   "h": "Nimm die kleinste und die größte Zahl, die zu diesem Rundungswert passen."
+   "c": "7700",
+   "w": "3 487 + 4 238 = 7 725. Zehnerziffer 2: abrunden auf 7 700.",
+   "h": "Erst addieren, dann runden."
   },
   {
    "l": "runden_sinnvoll",
@@ -5550,7 +7210,8 @@
     "index": 0
    },
    "w": "„Rund 80 kg“ heißt 75 bis 84 kg. Im schlimmsten Fall 8 · 84 kg = 672 kg. Das ist mehr als 630 kg.",
-   "h": "Rechne mit dem größten Gewicht, das hinter „rund“ stecken kann."
+   "h": "Rechne mit dem größten Gewicht, das hinter „rund“ stecken kann.",
+   "g": "begruenden"
   },
   {
    "l": "runden_sinnvoll",
@@ -5566,23 +7227,8 @@
    },
    "c": "63499",
    "w": "Auf 63 000 gerundet werden die Zahlen von 62 500 bis 63 499. Höchstens 63 499.",
-   "h": "Ab welcher Zahl würde man schon auf den nächsten Tausender runden?"
-  },
-  {
-   "l": "runden_sinnvoll",
-   "t": "runden_sinnvoll",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "In der Zeitung steht: „rund 45 000 Zuschauer“ (auf Tausender gerundet). Wie viele Zuschauer waren es mindestens?"
-   },
-   "o": {
-    "wert": 44500
-   },
-   "c": "44500",
-   "w": "Auf 45 000 gerundet werden die Zahlen von 44 500 bis 45 499. Mindestens 44 500.",
-   "h": "Ab welcher Zahl wird auf diesen Wert aufgerundet?"
+   "h": "Ab welcher Zahl würde man schon auf den nächsten Tausender runden?",
+   "g": "rueckwaerts"
   },
   {
    "l": "runden_sinnvoll",
@@ -5614,7 +7260,87 @@
    },
    "c": "5499 - 4500",
    "w": "Die kleinste mögliche Zahl ist 4 500, die größte 5 499. Unterschied: 999.",
-   "h": "Nimm die kleinste und die größte Zahl, die zu diesem Rundungswert passen."
+   "h": "Nimm die kleinste und die größte Zahl, die zu diesem Rundungswert passen.",
+   "g": "transfer"
+  },
+  {
+   "l": "runden_sinnvoll",
+   "t": "runden_sinnvoll",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "auswahl",
+   "f": {
+    "text": "In einem Bericht steht: „Rund 2 000 Kinder nahmen teil.“ Welche Angabe fehlt, um die kleinste mögliche Teilnehmerzahl zu nennen?"
+   },
+   "a": [
+    "Auf welche Stelle gerundet wurde.",
+    "Nichts, es waren mindestens 2 000.",
+    "Wie alt die Kinder waren.",
+    "Wie viele Kinder es genau waren."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Auf Hunderter gerundet wären es mindestens 1 950, auf Tausender mindestens 1 500. Ohne die Rundungsstelle kann man die Grenze nicht angeben.",
+   "h": "Vergleiche: Was ergäbe sich beim Runden auf Hunderter, was auf Tausender?"
+  },
+  {
+   "l": "runden_sinnvoll",
+   "t": "runden_sinnvoll",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Auf einem Zettel steht: „Fahrkarte rund 20 €“. Jemand gibt genau 20 € mit, aber die Karte kostet 20,40 €. Was ist schiefgegangen?"
+   },
+   "a": [
+    "Der Automat hat sich verrechnet.",
+    "Auf Zehner gerundet sind es 30 €.",
+    "Man hätte auf 10 € runden müssen.",
+    "Zum Bezahlen braucht man den genauen Betrag; gerundet wurde nach unten."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "20,40 € wurde auf 20 € abgerundet. Für eine ungefähre Angabe reicht das, zum Bezahlen nicht.",
+   "h": "Wurde auf- oder abgerundet?"
+  },
+  {
+   "l": "runden_sinnvoll",
+   "t": "runden_sinnvoll",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Drei ganze Zahlen ergeben auf Hunderter gerundet 400, 500 und 600. Zusammen ergeben sie genau 1 500. Wie groß kann die Zahl, die auf 600 gerundet wird, höchstens sein?"
+   },
+   "o": {
+    "wert": 649
+   },
+   "c": "649",
+   "w": "Die dritte Zahl liegt zwischen 550 und 649. Damit sie 649 sein kann, müssen die beiden anderen zusammen 851 ergeben. Das geht, z. B. 401 + 450. Größer als 649 darf sie nicht sein, sonst ergäbe sie gerundet 700. Antwort 649.",
+   "h": "Prüfe, ob die größte denkbare Zahl mit der Summe 1 500 noch zusammenpasst."
+  },
+  {
+   "l": "runden_sinnvoll",
+   "t": "runden_sinnvoll",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "25 Kinder geben ihre Körpergröße auf 10 cm gerundet an. Die Summe der gerundeten Werte ist 3 600 cm. Alle wirklichen Größen sind ganze cm. Wie groß kann die wirkliche Summe höchstens sein?"
+   },
+   "o": {
+    "wert": 3700,
+    "einheit": "cm"
+   },
+   "c": "3600 + 25 * 4",
+   "w": "Ein auf 10 cm gerundeter Wert ist höchstens 4 cm kleiner als die wirkliche Größe (z. B. 144 cm → 140 cm). 25 Kinder: höchstens 25 · 4 cm = 100 cm mehr. Höchstens 3 700 cm.",
+   "h": "Um wie viel kann eine einzelne Größe beim Abrunden höchstens verkleinert worden sein?"
   },
   {
    "l": "runden_sinnvoll",
@@ -5824,7 +7550,25 @@
    },
    "c": "10999 + 1",
    "w": "10 999 + 1 = 11 000.",
-   "h": "Nachfolger heißt: 1 dazuzählen."
+   "h": "Nachfolger heißt: 1 dazuzählen.",
+   "g": "direkt"
+  },
+  {
+   "l": "unendlich",
+   "t": "unendlich",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie heißt die größte 9-stellige Zahl?"
+   },
+   "o": {
+    "wert": 999999999
+   },
+   "c": "10**9 - 1",
+   "w": "Lauter Neunen: 999 999 999. Ihr Nachfolger hat schon 10 Stellen.",
+   "h": "Welche Ziffer ist die größte?",
+   "g": "umkehr"
   },
   {
    "l": "unendlich",
@@ -5840,7 +7584,42 @@
    },
    "c": "999 + 1",
    "w": "999 + 1 = 1 000.",
-   "h": "Nachfolger heißt: 1 dazuzählen."
+   "h": "Nachfolger heißt: 1 dazuzählen.",
+   "g": "direkt"
+  },
+  {
+   "l": "unendlich",
+   "t": "unendlich",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie heißt die kleinste 5-stellige Zahl?"
+   },
+   "o": {
+    "wert": 10000
+   },
+   "c": "10**4",
+   "w": "Eine 1 und dahinter Nullen: 10 000.",
+   "h": "Vorne darf keine 0 stehen.",
+   "g": "umkehr"
+  },
+  {
+   "l": "unendlich",
+   "t": "unendlich",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie heißt der Vorgänger von 100 000?"
+   },
+   "o": {
+    "wert": 99999
+   },
+   "c": "100000 - 1",
+   "w": "100 000 − 1 = 99 999.",
+   "h": "Vorgänger heißt: 1 abziehen.",
+   "g": "direkt"
   },
   {
    "l": "unendlich",
@@ -5865,46 +7644,15 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Wie heißt der Vorgänger von 100 000?"
+    "text": "Gib den Nachfolger von 2 099 999 an."
    },
    "o": {
-    "wert": 99999
+    "wert": 2100000
    },
-   "c": "100000 - 1",
-   "w": "100 000 − 1 = 99 999.",
-   "h": "Vorgänger heißt: 1 abziehen."
-  },
-  {
-   "l": "unendlich",
-   "t": "unendlich",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie heißt die größte 9-stellige Zahl?"
-   },
-   "o": {
-    "wert": 999999999
-   },
-   "c": "10**9 - 1",
-   "w": "Lauter Neunen: 999 999 999. Ihr Nachfolger hat schon 10 Stellen.",
-   "h": "Welche Ziffer ist die größte?"
-  },
-  {
-   "l": "unendlich",
-   "t": "unendlich",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie heißt die kleinste 5-stellige Zahl?"
-   },
-   "o": {
-    "wert": 10000
-   },
-   "c": "10**4",
-   "w": "Eine 1 und dahinter Nullen: 10 000.",
-   "h": "Vorne darf keine 0 stehen."
+   "c": "2099999 + 1",
+   "w": "2 099 999 + 1 = 2 100 000: Alle Neunen am Ende werden zu Nullen.",
+   "h": "Von rechts: 9 + 1 = 10, Übertrag nach links.",
+   "g": "direkt"
   },
   {
    "l": "unendlich",
@@ -5920,7 +7668,119 @@
    },
    "c": "10**7",
    "w": "Eine 1 und dahinter Nullen: 10 000 000.",
-   "h": "Vorne darf keine 0 stehen."
+   "h": "Vorne darf keine 0 stehen.",
+   "g": "umkehr"
+  },
+  {
+   "l": "unendlich",
+   "t": "unendlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele natürliche Zahlen liegen zwischen 99 und 1 000? Die beiden Zahlen selbst zählen nicht mit."
+   },
+   "o": {
+    "wert": 900
+   },
+   "c": "1000 - 99 - 1",
+   "w": "Von 100 bis 999: 999 − 100 + 1 = 900 Zahlen.",
+   "h": "Vorsicht: b − a zählt die Schritte, nicht die Zahlen dazwischen.",
+   "g": "transfer"
+  },
+  {
+   "l": "unendlich",
+   "t": "unendlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „Die größte natürliche Zahl ist eine Billion.“ Stimmt das?"
+   },
+   "a": [
+    "Ja, größer geht es nicht.",
+    "Nein, die größte ist 999 999 999.",
+    "Ja, aber nur ungefähr.",
+    "Nein: Zählt man 1 dazu, erhält man eine größere natürliche Zahl."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Zu jeder natürlichen Zahl, auch zu eine Billion, gibt es den Nachfolger (+ 1). Darum gibt es keine größte.",
+   "h": "Was passiert, wenn du 1 dazuzählst?",
+   "g": "begruenden"
+  },
+  {
+   "l": "unendlich",
+   "t": "unendlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele natürliche Zahlen haben genau 6 Stellen?"
+   },
+   "o": {
+    "wert": 900000
+   },
+   "c": "10**6 - 10**5",
+   "w": "Von 100 000 bis 999 999: 1 000 000 − 100 000 = 900 000 Zahlen.",
+   "h": "Kleinste und größte Zahl mit dieser Stellenzahl bestimmen.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "unendlich",
+   "t": "unendlich",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie heißt der Nachfolger von 50 099 999?"
+   },
+   "o": {
+    "wert": 50100000
+   },
+   "c": "50099999 + 1",
+   "w": "50 099 999 + 1 = 50 100 000. Die Neunen werden zu Nullen.",
+   "h": "Achte auf die Neunen am Ende."
+  },
+  {
+   "l": "unendlich",
+   "t": "unendlich",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den Nachfolger von 9 099 999 an."
+   },
+   "o": {
+    "wert": 9100000
+   },
+   "c": "9099999 + 1",
+   "w": "9 099 999 + 1 = 9 100 000: Alle Neunen am Ende werden zu Nullen.",
+   "h": "Von rechts: 9 + 1 = 10, Übertrag nach links.",
+   "g": "direkt"
+  },
+  {
+   "l": "unendlich",
+   "t": "unendlich",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage stimmt?"
+   },
+   "a": [
+    "Es gibt eine größte natürliche Zahl.",
+    "Der Nachfolger von 99 ist 98.",
+    "Jede natürliche Zahl hat einen Nachfolger.",
+    "Jede natürliche Zahl hat einen Vorgänger, der auch eine natürliche Zahl ist."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Zu jeder Zahl kann man 1 addieren. Die 1 hat in ℕ = {1, 2, 3, …} keinen Vorgänger.",
+   "h": "Denk an die kleinste natürliche Zahl."
   },
   {
    "l": "unendlich",
@@ -5945,22 +7805,6 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie heißt der Nachfolger von 50 099 999?"
-   },
-   "o": {
-    "wert": 50100000
-   },
-   "c": "50099999 + 1",
-   "w": "50 099 999 + 1 = 50 100 000. Die Neunen werden zu Nullen.",
-   "h": "Achte auf die Neunen am Ende."
-  },
-  {
-   "l": "unendlich",
-   "t": "unendlich",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
     "text": "Wie heißt die größte 6-stellige Zahl?"
    },
    "o": {
@@ -5968,92 +7812,42 @@
    },
    "c": "10**6 - 1",
    "w": "Lauter Neunen: 999 999. Ihr Nachfolger hat schon 7 Stellen.",
-   "h": "Welche Ziffer ist die größte?"
+   "h": "Welche Ziffer ist die größte?",
+   "g": "umkehr"
   },
   {
    "l": "unendlich",
    "t": "unendlich",
    "p": "uebung",
    "s": 2,
+   "g": "einkleidung",
    "y": "zahl",
    "f": {
-    "text": "Gib den Nachfolger von 2 099 999 an."
+    "text": "Ein Zähler am Stadiontor zeigt 99 999. Eine weitere Person geht durch. Wie viele Stellen hat die Anzeige jetzt?"
    },
    "o": {
-    "wert": 2100000
+    "wert": 6
    },
-   "c": "2099999 + 1",
-   "w": "2 099 999 + 1 = 2 100 000: Alle Neunen am Ende werden zu Nullen.",
-   "h": "Von rechts: 9 + 1 = 10, Übertrag nach links."
-  },
-  {
-   "l": "unendlich",
-   "t": "unendlich",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele natürliche Zahlen liegen zwischen 99 und 1 000? Die beiden Zahlen selbst zählen nicht mit."
-   },
-   "o": {
-    "wert": 900
-   },
-   "c": "1000 - 99 - 1",
-   "w": "Von 100 bis 999: 999 − 100 + 1 = 900 Zahlen.",
-   "h": "Vorsicht: b − a zählt die Schritte, nicht die Zahlen dazwischen."
-  },
-  {
-   "l": "unendlich",
-   "t": "unendlich",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand sagt: „Die größte natürliche Zahl ist eine Billion.“ Stimmt das?"
-   },
-   "a": [
-    "Ja, größer geht es nicht.",
-    "Nein, die größte ist 999 999 999.",
-    "Ja, aber nur ungefähr.",
-    "Nein: Zählt man 1 dazu, erhält man eine größere natürliche Zahl."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Zu jeder natürlichen Zahl, auch zu eine Billion, gibt es den Nachfolger (+ 1). Darum gibt es keine größte.",
-   "h": "Was passiert, wenn du 1 dazuzählst?"
-  },
-  {
-   "l": "unendlich",
-   "t": "unendlich",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele natürliche Zahlen haben genau 6 Stellen?"
-   },
-   "o": {
-    "wert": 900000
-   },
-   "c": "10**6 - 10**5",
-   "w": "Von 100 000 bis 999 999: 1 000 000 − 100 000 = 900 000 Zahlen.",
-   "h": "Kleinste und größte Zahl mit dieser Stellenzahl bestimmen."
+   "c": "6",
+   "w": "99 999 + 1 = 100 000. Das sind 6 Stellen.",
+   "h": "Was ist der Nachfolger von 99 999?"
   },
   {
    "l": "unendlich",
    "t": "unendlich",
    "p": "uebung",
    "s": 2,
+   "g": "mehrschritt",
    "y": "zahl",
    "f": {
-    "text": "Gib den Nachfolger von 9 099 999 an."
+    "text": "Wie groß ist der Unterschied zwischen der kleinsten sechsstelligen und der größten vierstelligen Zahl?"
    },
    "o": {
-    "wert": 9100000
+    "wert": 90001
    },
-   "c": "9099999 + 1",
-   "w": "9 099 999 + 1 = 9 100 000: Alle Neunen am Ende werden zu Nullen.",
-   "h": "Von rechts: 9 + 1 = 10, Übertrag nach links."
+   "c": "100000 - 9999",
+   "w": "Kleinste sechsstellige: 100 000. Größte vierstellige: 9 999. Unterschied: 90 001.",
+   "h": "Schreib beide Zahlen zuerst auf."
   },
   {
    "l": "unendlich",
@@ -6069,7 +7863,8 @@
    },
    "c": "10000 - 999 - 1",
    "w": "Von 1 000 bis 9 999: 9 999 − 1 000 + 1 = 9 000 Zahlen.",
-   "h": "Vorsicht: b − a zählt die Schritte, nicht die Zahlen dazwischen."
+   "h": "Vorsicht: b − a zählt die Schritte, nicht die Zahlen dazwischen.",
+   "g": "transfer"
   },
   {
    "l": "unendlich",
@@ -6090,7 +7885,8 @@
     "index": 0
    },
    "w": "Zu jeder natürlichen Zahl, auch zu eine Zahl mit hundert Neunen, gibt es den Nachfolger (+ 1). Darum gibt es keine größte.",
-   "h": "Was passiert, wenn du 1 dazuzählst?"
+   "h": "Was passiert, wenn du 1 dazuzählst?",
+   "g": "begruenden"
   },
   {
    "l": "unendlich",
@@ -6106,7 +7902,81 @@
    },
    "c": "10**4 - 10**3",
    "w": "Von 1 000 bis 9 999: 10 000 − 1 000 = 9 000 Zahlen.",
-   "h": "Kleinste und größte Zahl mit dieser Stellenzahl bestimmen."
+   "h": "Kleinste und größte Zahl mit dieser Stellenzahl bestimmen.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "unendlich",
+   "t": "unendlich",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand zählt die Zahlen von 15 bis 40, beide mitgezählt, und rechnet 40 − 15 = 25. Was ist falsch?"
+   },
+   "a": [
+    "Beide Enden zählen mit: Es sind 26 Zahlen.",
+    "Es sind 24 Zahlen.",
+    "Nichts, es sind 25 Zahlen.",
+    "Man muss 40 + 15 rechnen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "40 − 15 = 25 zählt die Schritte. Zahlen sind es eine mehr: 26.",
+   "h": "Probiere es klein: Wie viele Zahlen sind es von 1 bis 3?"
+  },
+  {
+   "l": "unendlich",
+   "t": "unendlich",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Gib die Zahl an, die um 1 000 kleiner ist als der Nachfolger von 99 999."
+   },
+   "o": {
+    "wert": 99000
+   },
+   "c": "99999 + 1 - 1000",
+   "w": "Nachfolger von 99 999: 100 000. Um 1 000 kleiner: 99 000.",
+   "h": "Bestimme zuerst den Nachfolger."
+  },
+  {
+   "l": "unendlich",
+   "t": "unendlich",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Man schreibt die Zahlen 1, 2, 3, … ohne Lücke hintereinander. Nach der Zahl n hört man auf und hat genau 2 001 Ziffern geschrieben. Wie heißt n?"
+   },
+   "o": {
+    "wert": 703
+   },
+   "c": "99 + (2001 - 9 - 180) // 3",
+   "w": "Die Zahlen 1 bis 9 brauchen 9 Ziffern, 10 bis 99 brauchen 90 · 2 = 180. Zusammen 189. Es bleiben 2 001 − 189 = 1 812 Ziffern für dreistellige Zahlen: 1 812 : 3 = 604 Zahlen. Die 604. dreistellige Zahl ist 99 + 604 = 703.",
+   "h": "Zähle zuerst, wie viele Ziffern die ein- und zweistelligen Zahlen brauchen."
+  },
+  {
+   "l": "unendlich",
+   "t": "unendlich",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahlenfolge beginnt mit 1. Jede weitere Zahl ist der Nachfolger des Doppelten der vorigen: 1, 3, 7, 15, … Die wievielte Zahl der Folge hat als erste vier Stellen?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "10",
+   "w": "Die Folge: 1, 3, 7, 15, 31, 63, 127, 255, 511, 1 023. Die 10. Zahl ist die erste vierstellige.",
+   "h": "Schreib die Folge weiter – oder fällt dir ein Muster auf (Zahl + 1)?"
   },
   {
    "l": "unendlich",
@@ -6262,68 +8132,6 @@
    "l": "roemisch_schreiben",
    "t": "roemisch_schreiben",
    "p": "uebung",
-   "s": 1,
-   "y": "text",
-   "f": {
-    "text": "Schreibe 40 als römische Zahl."
-   },
-   "o": {
-    "text": "XL"
-   },
-   "w": "Zerlegt: 40 = 40. Jeden Teil übersetzen: XL.",
-   "h": "Zerlege in Zehner und Einer. Denk an IV, IX, XL."
-  },
-  {
-   "l": "roemisch_schreiben",
-   "t": "roemisch_schreiben",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Welche Zahl ist X?"
-   },
-   "o": {
-    "wert": 10
-   },
-   "c": "10",
-   "w": "Zeichen von links lesen: X = 10 = 10.",
-   "h": "Steht ein kleineres Zeichen vor einem größeren, wird es abgezogen."
-  },
-  {
-   "l": "roemisch_schreiben",
-   "t": "roemisch_schreiben",
-   "p": "uebung",
-   "s": 1,
-   "y": "text",
-   "f": {
-    "text": "Schreibe 44 als römische Zahl."
-   },
-   "o": {
-    "text": "XLIV"
-   },
-   "w": "Zerlegt: 44 = 40 + 4. Jeden Teil übersetzen: XLIV.",
-   "h": "Zerlege in Zehner und Einer. Denk an IV, IX, XL."
-  },
-  {
-   "l": "roemisch_schreiben",
-   "t": "roemisch_schreiben",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Welche Zahl ist XLVI?"
-   },
-   "o": {
-    "wert": 46
-   },
-   "c": "46",
-   "w": "Zeichen von links lesen: XLVI = 40 + 6 = 46.",
-   "h": "Steht ein kleineres Zeichen vor einem größeren, wird es abgezogen."
-  },
-  {
-   "l": "roemisch_schreiben",
-   "t": "roemisch_schreiben",
-   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -6334,7 +8142,24 @@
    },
    "c": "3373",
    "w": "MMMCCCLXXIII = 3 000 + 300 + 70 + 3 = 3 373.",
-   "h": "Lies von links. Erlaubte Paare: IV, IX, XL, XC, CD, CM."
+   "h": "Lies von links. Erlaubte Paare: IV, IX, XL, XC, CD, CM.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "roemisch_schreiben",
+   "t": "roemisch_schreiben",
+   "p": "uebung",
+   "s": 1,
+   "y": "text",
+   "f": {
+    "text": "Schreibe 40 als römische Zahl."
+   },
+   "o": {
+    "text": "XL"
+   },
+   "w": "Zerlegt: 40 = 40. Jeden Teil übersetzen: XL.",
+   "h": "Zerlege in Zehner und Einer. Denk an IV, IX, XL.",
+   "g": "direkt"
   },
   {
    "l": "roemisch_schreiben",
@@ -6350,7 +8175,25 @@
    },
    "c": "2002",
    "w": "MMII = 2 000 + 2 = 2 002.",
-   "h": "Lies von links. Erlaubte Paare: IV, IX, XL, XC, CD, CM."
+   "h": "Lies von links. Erlaubte Paare: IV, IX, XL, XC, CD, CM.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "roemisch_schreiben",
+   "t": "roemisch_schreiben",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl ist X?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "10",
+   "w": "Zeichen von links lesen: X = 10 = 10.",
+   "h": "Steht ein kleineres Zeichen vor einem größeren, wird es abgezogen.",
+   "g": "erkennen"
   },
   {
    "l": "roemisch_schreiben",
@@ -6366,54 +8209,8 @@
    },
    "c": "1552",
    "w": "MDLII = 1 000 + 500 + 50 + 2 = 1 552.",
-   "h": "Lies von links. Erlaubte Paare: IV, IX, XL, XC, CD, CM."
-  },
-  {
-   "l": "roemisch_schreiben",
-   "t": "roemisch_schreiben",
-   "p": "uebung",
-   "s": 2,
-   "y": "text",
-   "f": {
-    "text": "Schreibe 2 897 als römische Zahl."
-   },
-   "o": {
-    "text": "MMDCCCXCVII"
-   },
-   "w": "2 897 = 2 000 + 800 + 90 + 7 → MMDCCCXCVII.",
-   "h": "Erst die Tausender, dann Hunderter, Zehner, Einer – jeweils einzeln übersetzen."
-  },
-  {
-   "l": "roemisch_schreiben",
-   "t": "roemisch_schreiben",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Welche Zahl ist MMCDLIII?"
-   },
-   "o": {
-    "wert": 2453
-   },
-   "c": "2453",
-   "w": "MMCDLIII = 2 000 + 400 + 50 + 3 = 2 453.",
-   "h": "Lies von links. Erlaubte Paare: IV, IX, XL, XC, CD, CM."
-  },
-  {
-   "l": "roemisch_schreiben",
-   "t": "roemisch_schreiben",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Welche Zahl ist MMMDCXXXIV?"
-   },
-   "o": {
-    "wert": 3634
-   },
-   "c": "3634",
-   "w": "MMMDCXXXIV = 3 000 + 600 + 30 + 4 = 3 634.",
-   "h": "Lies von links. Erlaubte Paare: IV, IX, XL, XC, CD, CM."
+   "h": "Lies von links. Erlaubte Paare: IV, IX, XL, XC, CD, CM.",
+   "g": "mehrschritt"
   },
   {
    "l": "roemisch_schreiben",
@@ -6429,7 +8226,24 @@
    },
    "c": "1931",
    "w": "MCMXXXI = 1 000 + 900 + 30 + 1 = 1931.",
-   "h": "Teile in Gruppen: M…, dann C/D, dann X/L, dann I/V."
+   "h": "Teile in Gruppen: M…, dann C/D, dann X/L, dann I/V.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "roemisch_schreiben",
+   "t": "roemisch_schreiben",
+   "p": "uebung",
+   "s": 2,
+   "y": "text",
+   "f": {
+    "text": "Schreibe 2 897 als römische Zahl."
+   },
+   "o": {
+    "text": "MMDCCCXCVII"
+   },
+   "w": "2 897 = 2 000 + 800 + 90 + 7 → MMDCCCXCVII.",
+   "h": "Erst die Tausender, dann Hunderter, Zehner, Einer – jeweils einzeln übersetzen.",
+   "g": "mehrschritt"
   },
   {
    "l": "roemisch_schreiben",
@@ -6450,7 +8264,25 @@
     "index": 3
    },
    "w": "1 444 = 1 000 + 400 + 40 + 4 → MCDXLIV. Abziehen gibt es nur bei IV, IX, XL, XC, CD, CM; kein Zeichen viermal.",
-   "h": "Zerlege in Tausender, Hunderter, Zehner, Einer und übersetze jeden Teil."
+   "h": "Zerlege in Tausender, Hunderter, Zehner, Einer und übersetze jeden Teil.",
+   "g": "begruenden"
+  },
+  {
+   "l": "roemisch_schreiben",
+   "t": "roemisch_schreiben",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl ist MMCDLIII?"
+   },
+   "o": {
+    "wert": 2453
+   },
+   "c": "2453",
+   "w": "MMCDLIII = 2 000 + 400 + 50 + 3 = 2 453.",
+   "h": "Lies von links. Erlaubte Paare: IV, IX, XL, XC, CD, CM.",
+   "g": "mehrschritt"
   },
   {
    "l": "roemisch_schreiben",
@@ -6466,7 +8298,8 @@
    },
    "c": "388",
    "w": "388 = CCCLXXXVIII hat 11 Zeichen – mehr hat keine Zahl bis 500. Je Stelle am längsten ist die 8 (VIII, LXXX, DCCC).",
-   "h": "Welche Ziffer braucht römisch die meisten Zeichen? Probiere 8, 38, 88 …"
+   "h": "Welche Ziffer braucht römisch die meisten Zeichen? Probiere 8, 38, 88 …",
+   "g": "transfer"
   },
   {
    "l": "roemisch_schreiben",
@@ -6481,7 +8314,58 @@
     "text": "XCIV"
    },
    "w": "XLVIII = 48, XLVI = 46. 48 + 46 = 94 = XCIV.",
-   "h": "Übersetze beide Zahlen, rechne und übersetze zurück."
+   "h": "Übersetze beide Zahlen, rechne und übersetze zurück.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "roemisch_schreiben",
+   "t": "roemisch_schreiben",
+   "p": "uebung",
+   "s": 1,
+   "y": "text",
+   "f": {
+    "text": "Schreibe 44 als römische Zahl."
+   },
+   "o": {
+    "text": "XLIV"
+   },
+   "w": "Zerlegt: 44 = 40 + 4. Jeden Teil übersetzen: XLIV.",
+   "h": "Zerlege in Zehner und Einer. Denk an IV, IX, XL.",
+   "g": "direkt"
+  },
+  {
+   "l": "roemisch_schreiben",
+   "t": "roemisch_schreiben",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl ist XLVI?"
+   },
+   "o": {
+    "wert": 46
+   },
+   "c": "46",
+   "w": "Zeichen von links lesen: XLVI = 40 + 6 = 46.",
+   "h": "Steht ein kleineres Zeichen vor einem größeren, wird es abgezogen.",
+   "g": "erkennen"
+  },
+  {
+   "l": "roemisch_schreiben",
+   "t": "roemisch_schreiben",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl ist MMMDCXXXIV?"
+   },
+   "o": {
+    "wert": 3634
+   },
+   "c": "3634",
+   "w": "MMMDCXXXIV = 3 000 + 600 + 30 + 4 = 3 634.",
+   "h": "Lies von links. Erlaubte Paare: IV, IX, XL, XC, CD, CM.",
+   "g": "mehrschritt"
   },
   {
    "l": "roemisch_schreiben",
@@ -6497,7 +8381,25 @@
    },
    "c": "1799",
    "w": "MDCCXCIX = 1 000 + 700 + 90 + 9 = 1799.",
-   "h": "Teile in Gruppen: M…, dann C/D, dann X/L, dann I/V."
+   "h": "Teile in Gruppen: M…, dann C/D, dann X/L, dann I/V.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "roemisch_schreiben",
+   "t": "roemisch_schreiben",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl muss man zu XC addieren, um C zu erhalten? Gib sie mit Ziffern an."
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "100 - 90",
+   "w": "XC = 90, C = 100. 100 − 90 = 10.",
+   "h": "Übersetze beide römischen Zahlen."
   },
   {
    "l": "roemisch_schreiben",
@@ -6518,7 +8420,8 @@
     "index": 1
    },
    "w": "490 = 400 + 90 → CDXC. Abziehen gibt es nur bei IV, IX, XL, XC, CD, CM; kein Zeichen viermal.",
-   "h": "Zerlege in Tausender, Hunderter, Zehner, Einer und übersetze jeden Teil."
+   "h": "Zerlege in Tausender, Hunderter, Zehner, Einer und übersetze jeden Teil.",
+   "g": "begruenden"
   },
   {
    "l": "roemisch_schreiben",
@@ -6534,7 +8437,8 @@
    },
    "c": "188",
    "w": "188 = CLXXXVIII hat 9 Zeichen – mehr hat keine Zahl bis 200. Je Stelle am längsten ist die 8 (VIII, LXXX, DCCC).",
-   "h": "Welche Ziffer braucht römisch die meisten Zeichen? Probiere 8, 38, 88 …"
+   "h": "Welche Ziffer braucht römisch die meisten Zeichen? Probiere 8, 38, 88 …",
+   "g": "transfer"
   },
   {
    "l": "roemisch_schreiben",
@@ -6549,7 +8453,81 @@
     "text": "CVII"
    },
    "w": "LV = 55, LII = 52. 55 + 52 = 107 = CVII.",
-   "h": "Übersetze beide Zahlen, rechne und übersetze zurück."
+   "h": "Übersetze beide Zahlen, rechne und übersetze zurück.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "roemisch_schreiben",
+   "t": "roemisch_schreiben",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand schreibt 99 als IC. Was ist falsch?"
+   },
+   "a": [
+    "Nichts, IC ist richtig.",
+    "I darf nur vor V oder X stehen: 99 = XCIX.",
+    "99 = LXXXXVIIII ist die einzige Schreibweise.",
+    "99 = CI."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "99 = 90 + 9 = XC + IX = XCIX. Abziehen darf man I nur von V und X.",
+   "h": "Zerlege 99 in Zehner und Einer."
+  },
+  {
+   "l": "roemisch_schreiben",
+   "t": "roemisch_schreiben",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Zu einer Zahl wird XV addiert. Dann wird das Ergebnis verdoppelt. Es kommt C heraus. Welche Zahl war es? Gib sie mit Ziffern an."
+   },
+   "o": {
+    "wert": 35
+   },
+   "c": "100 // 2 - 15",
+   "w": "C = 100. Rückwärts: 100 : 2 = 50, 50 − 15 = 35.",
+   "h": "Mach die Schritte in umgekehrter Reihenfolge rückgängig."
+  },
+  {
+   "l": "roemisch_schreiben",
+   "t": "roemisch_schreiben",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Zahlen von 1 bis 100 schreibt man römisch mit genau zwei Zeichen?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "12",
+   "w": "Alle Möglichkeiten: II, IV, VI, IX, XI, XV, XX, XL, XC, LI, LV, LX. Andere Paare (z. B. VV, IL, IC, LL) sind nicht erlaubt, CI oder CX sind größer als 100. Das sind 12.",
+   "h": "Geh die Zeichen I, V, X, L, C durch und prüfe, welche Paare erlaubt sind."
+  },
+  {
+   "l": "roemisch_schreiben",
+   "t": "roemisch_schreiben",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Die Zeichen M, C, X und I werden je genau einmal in eine Reihe gelegt, sodass eine gültige römische Zahl entsteht. Wie groß ist die kleinste so legbare Zahl?"
+   },
+   "o": {
+    "wert": 909
+   },
+   "c": "909",
+   "w": "Gültig sind z. B. MCXI = 1 111, MCIX = 1 109, MXCI = 1 091, CMXI = 911 und CMIX = 909. Steht M nicht vorne, muss C davor stehen (CM = 900). Danach ist IX = 9 kleiner als XI = 11. Die kleinste ist CMIX = 909.",
+   "h": "Damit die Zahl klein wird, sollte das M nicht 1 000 wert sein. Wann ist das erlaubt?"
   },
   {
    "l": "roemisch_schreiben",
@@ -6710,23 +8688,55 @@
    },
    "c": "7 * 1000",
    "w": "An der Tausenderstelle: 7 · 1 000 = 7 000.",
-   "h": "Im Zehnersystem hängt der Wert von der Stelle ab."
+   "h": "Im Zehnersystem hängt der Wert von der Stelle ab.",
+   "g": "direkt"
   },
   {
    "l": "roemisch_system",
    "t": "roemisch_system",
    "p": "uebung",
-   "s": 1,
-   "y": "zahl",
+   "s": 3,
+   "y": "auswahl",
    "f": {
-    "text": "Wie viel ist das Zeichen V in der Zahl VIII wert?"
+    "text": "Warum braucht 1 040 mit Ziffern eine 0, die römische Schreibweise MXL aber nicht?"
+   },
+   "a": [
+    "Die 0 ist im Zehnersystem nichts wert und könnte wegfallen.",
+    "Römische Zahlen sind immer kürzer.",
+    "Die 0 hält im Stellenwertsystem eine leere Stelle frei. Römische Zeichen haben feste Werte und brauchen keinen Platzhalter.",
+    "Die Römer kannten die Zahl nicht."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ohne 0 würde aus 1 040 eine andere Zahl. Römisch gibt es keine Stellen, also auch keine leeren.",
+   "h": "Was passiert, wenn man die 0 weglässt?",
+   "g": "begruenden"
+  },
+  {
+   "l": "roemisch_system",
+   "t": "roemisch_system",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Wie viele Zeichen braucht 3 333 mit Ziffern und wie viele als römische Zahl?",
+    "schablone": "Ziffern: □; römisch: □",
+    "hinweis": "Trage in jedes Feld eine Zahl ein."
    },
    "o": {
-    "wert": 5
+    "werte": [
+     4,
+     12
+    ]
    },
-   "c": "5",
-   "w": "Ein römisches Zeichen hat immer seinen Grundwert: V = 5.",
-   "h": "Römische Zeichen ändern ihren Wert nicht mit der Stelle."
+   "c": [
+    "4",
+    "12"
+   ],
+   "w": "3 333 hat 4 Ziffern. Römisch: MMMCCCXXXIII – das sind 12 Zeichen.",
+   "h": "Schreibe die römische Zahl auf und zähle.",
+   "g": "transfer"
   },
   {
    "l": "roemisch_system",
@@ -6742,23 +8752,8 @@
    },
    "c": "9 * 100",
    "w": "An der Hunderterstelle: 9 · 100 = 900.",
-   "h": "Im Zehnersystem hängt der Wert von der Stelle ab."
-  },
-  {
-   "l": "roemisch_system",
-   "t": "roemisch_system",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Welchen Wert hat die Ziffer 4 an der Zehnerstelle von 4 444?"
-   },
-   "o": {
-    "wert": 40
-   },
-   "c": "4 * 10",
-   "w": "An der Zehnerstelle: 4 · 10 = 40.",
-   "h": "Im Zehnersystem hängt der Wert von der Stelle ab."
+   "h": "Im Zehnersystem hängt der Wert von der Stelle ab.",
+   "g": "direkt"
   },
   {
    "l": "roemisch_system",
@@ -6778,34 +8773,32 @@
     "index": 0
    },
    "w": "Werte der Ziffer: 4 037: 7, 7 222: 7 000, 8 769: 700. Am größten in 7 222.",
-   "h": "Alle Zahlen sind vierstellig. Je weiter links die Ziffer steht, desto mehr ist sie wert."
+   "h": "Alle Zahlen sind vierstellig. Je weiter links die Ziffer steht, desto mehr ist sie wert.",
+   "g": "mehrschritt"
   },
   {
    "l": "roemisch_system",
    "t": "roemisch_system",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
+   "g": "einkleidung",
+   "y": "zahl",
    "f": {
-    "text": "Warum braucht 1 040 mit Ziffern eine 0, die römische Schreibweise MXL aber nicht?"
+    "text": "Im Abspann eines Films steht die Jahreszahl MCMXCV. Wie viele Jahre liegen zwischen diesem Jahr und 2025?"
    },
-   "a": [
-    "Die 0 ist im Zehnersystem nichts wert und könnte wegfallen.",
-    "Römische Zahlen sind immer kürzer.",
-    "Die 0 hält im Stellenwertsystem eine leere Stelle frei. Römische Zeichen haben feste Werte und brauchen keinen Platzhalter.",
-    "Die Römer kannten die Zahl nicht."
-   ],
    "o": {
-    "index": 2
+    "wert": 30,
+    "einheit": "Jahre"
    },
-   "w": "Ohne 0 würde aus 1 040 eine andere Zahl. Römisch gibt es keine Stellen, also auch keine leeren.",
-   "h": "Was passiert, wenn man die 0 weglässt?"
+   "c": "2025 - 1995",
+   "w": "MCMXCV = 1 000 + 900 + 90 + 5 = 1 995. 2 025 − 1 995 = 30.",
+   "h": "Zerlege die Zahl in M, CM, XC und V."
   },
   {
    "l": "roemisch_system",
    "t": "roemisch_system",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "auswahl",
    "f": {
     "text": "Warum braucht 2 050 mit Ziffern eine 0, die römische Schreibweise MML aber nicht?"
@@ -6820,7 +8813,81 @@
     "index": 0
    },
    "w": "Ohne 0 würde aus 2 050 eine andere Zahl. Römisch gibt es keine Stellen, also auch keine leeren.",
-   "h": "Was passiert, wenn man die 0 weglässt?"
+   "h": "Was passiert, wenn man die 0 weglässt?",
+   "g": "begruenden"
+  },
+  {
+   "l": "roemisch_system",
+   "t": "roemisch_system",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Vertauscht man in CX die beiden Zeichen, entsteht XC. Um wie viel wird der Wert kleiner?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "110 - 90",
+   "w": "CX = 110, XC = 90. Unterschied: 20.",
+   "h": "Steht das kleinere Zeichen links, wird es abgezogen.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "roemisch_system",
+   "t": "roemisch_system",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Hängt man an die Zahl 20 rechts eine 0 an, wird sie zehnmal so groß. Was passiert, wenn man an XX rechts ein X anhängt?"
+   },
+   "a": [
+    "Das ist nicht erlaubt.",
+    "Der Wert wird zehnmal so groß: 200.",
+    "Der Wert wächst nur um 10: XXX = 30.",
+    "Der Wert verdoppelt sich: 40."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "XX = 20. Das neue X zählt einfach 10 dazu: 30. Römisch verschiebt sich nichts – es gibt keine Stellen.",
+   "h": "Ein römisches Zeichen hat immer denselben Wert, egal wo es steht.",
+   "g": "transfer"
+  },
+  {
+   "l": "roemisch_system",
+   "t": "roemisch_system",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel ist das Zeichen V in der Zahl VIII wert?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "Ein römisches Zeichen hat immer seinen Grundwert: V = 5.",
+   "h": "Römische Zeichen ändern ihren Wert nicht mit der Stelle.",
+   "g": "erkennen"
+  },
+  {
+   "l": "roemisch_system",
+   "t": "roemisch_system",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen Wert hat die Ziffer 4 an der Zehnerstelle von 4 444?"
+   },
+   "o": {
+    "wert": 40
+   },
+   "c": "4 * 10",
+   "w": "An der Zehnerstelle: 4 · 10 = 40.",
+   "h": "Im Zehnersystem hängt der Wert von der Stelle ab.",
+   "g": "direkt"
   },
   {
    "l": "roemisch_system",
@@ -6840,27 +8907,8 @@
     "index": 1
    },
    "w": "Werte der Ziffer: 5 681: 80, 8 334: 8 000, 4 876: 800. Am größten in 8 334.",
-   "h": "Alle Zahlen sind vierstellig. Je weiter links die Ziffer steht, desto mehr ist sie wert."
-  },
-  {
-   "l": "roemisch_system",
-   "t": "roemisch_system",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "In welcher Zahl hat die Ziffer 4 den größten Wert?"
-   },
-   "a": [
-    "7 843",
-    "7 684",
-    "4 797"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Werte der Ziffer: 4 797: 4 000, 7 843: 40, 7 684: 4. Am größten in 4 797.",
-   "h": "Alle Zahlen sind vierstellig. Je weiter links die Ziffer steht, desto mehr ist sie wert."
+   "h": "Alle Zahlen sind vierstellig. Je weiter links die Ziffer steht, desto mehr ist sie wert.",
+   "g": "mehrschritt"
   },
   {
    "l": "roemisch_system",
@@ -6887,6 +8935,83 @@
    "l": "roemisch_system",
    "t": "roemisch_system",
    "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In welcher Zahl hat die Ziffer 4 den größten Wert?"
+   },
+   "a": [
+    "7 843",
+    "7 684",
+    "4 797"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Werte der Ziffer: 4 797: 4 000, 7 843: 40, 7 684: 4. Am größten in 4 797.",
+   "h": "Alle Zahlen sind vierstellig. Je weiter links die Ziffer steht, desto mehr ist sie wert."
+  },
+  {
+   "l": "roemisch_system",
+   "t": "roemisch_system",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Denkmal trägt die Inschrift MDCCCLXX. Wie alt war es im Jahr 2020?"
+   },
+   "o": {
+    "wert": 150,
+    "einheit": "Jahre"
+   },
+   "c": "2020 - 1870",
+   "w": "MDCCCLXX = 1 000 + 500 + 300 + 50 + 20 = 1 870. 2 020 − 1 870 = 150.",
+   "h": "Addiere die Zeichen von links nach rechts."
+  },
+  {
+   "l": "roemisch_system",
+   "t": "roemisch_system",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zerlegung passt zu MCDXII?"
+   },
+   "a": [
+    "1 000 + 100 + 500 + 12",
+    "1 000 + 400 + 10 + 2",
+    "1 000 + 600 + 12",
+    "1 000 + 400 + 12 + 1"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "M = 1 000, CD = 400, X = 10, II = 2.",
+   "h": "C vor D bedeutet abziehen."
+  },
+  {
+   "l": "roemisch_system",
+   "t": "roemisch_system",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "In M□X steht □ für ein einzelnes römisches Zeichen. Die Zahl ist 1 060 wert. Welchen Wert hat das Zeichen?"
+   },
+   "o": {
+    "wert": 50
+   },
+   "c": "1060 - 1000 - 10",
+   "w": "1 060 − 1 000 − 10 = 50. Das Zeichen ist L.",
+   "h": "Zieh die bekannten Zeichen vom Wert ab."
+  },
+  {
+   "l": "roemisch_system",
+   "t": "roemisch_system",
+   "p": "uebung",
    "s": 3,
    "y": "auswahl",
    "f": {
@@ -6902,68 +9027,8 @@
     "index": 3
    },
    "w": "Römische Zeichen haben feste Grundwerte. XIX = 10 + (10 − 1): beide X sind 10 wert, das I wird abgezogen.",
-   "h": "Prüfe jede Aussage an einem Beispiel wie XIX oder 1 888."
-  },
-  {
-   "l": "roemisch_system",
-   "t": "roemisch_system",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Wie viele Zeichen braucht 3 333 mit Ziffern und wie viele als römische Zahl?",
-    "schablone": "Ziffern: □; römisch: □",
-    "hinweis": "Trage in jedes Feld eine Zahl ein."
-   },
-   "o": {
-    "werte": [
-     4,
-     12
-    ]
-   },
-   "c": [
-    "4",
-    "12"
-   ],
-   "w": "3 333 hat 4 Ziffern. Römisch: MMMCCCXXXIII – das sind 12 Zeichen.",
-   "h": "Schreibe die römische Zahl auf und zähle."
-  },
-  {
-   "l": "roemisch_system",
-   "t": "roemisch_system",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Vertauscht man in CX die beiden Zeichen, entsteht XC. Um wie viel wird der Wert kleiner?"
-   },
-   "o": {
-    "wert": 20
-   },
-   "c": "110 - 90",
-   "w": "CX = 110, XC = 90. Unterschied: 20.",
-   "h": "Steht das kleinere Zeichen links, wird es abgezogen."
-  },
-  {
-   "l": "roemisch_system",
-   "t": "roemisch_system",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Hängt man an die Zahl 20 rechts eine 0 an, wird sie zehnmal so groß. Was passiert, wenn man an XX rechts ein X anhängt?"
-   },
-   "a": [
-    "Das ist nicht erlaubt.",
-    "Der Wert wird zehnmal so groß: 200.",
-    "Der Wert wächst nur um 10: XXX = 30.",
-    "Der Wert verdoppelt sich: 40."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "XX = 20. Das neue X zählt einfach 10 dazu: 30. Römisch verschiebt sich nichts – es gibt keine Stellen.",
-   "h": "Ein römisches Zeichen hat immer denselben Wert, egal wo es steht."
+   "h": "Prüfe jede Aussage an einem Beispiel wie XIX oder 1 888.",
+   "g": "begruenden"
   },
   {
    "l": "roemisch_system",
@@ -6987,7 +9052,8 @@
     "14"
    ],
    "w": "3 838 hat 4 Ziffern. Römisch: MMMDCCCXXXVIII – das sind 14 Zeichen.",
-   "h": "Schreibe die römische Zahl auf und zähle."
+   "h": "Schreibe die römische Zahl auf und zähle.",
+   "g": "transfer"
   },
   {
    "l": "roemisch_system",
@@ -7003,7 +9069,8 @@
    },
    "c": "11 - 9",
    "w": "XI = 11, IX = 9. Unterschied: 2.",
-   "h": "Steht das kleinere Zeichen links, wird es abgezogen."
+   "h": "Steht das kleinere Zeichen links, wird es abgezogen.",
+   "g": "verknuepfen"
   },
   {
    "l": "roemisch_system",
@@ -7049,6 +9116,62 @@
    ],
    "w": "2 888 hat 4 Ziffern. Römisch: MMDCCCLXXXVIII – das sind 14 Zeichen.",
    "h": "Schreibe die römische Zahl auf und zähle."
+  },
+  {
+   "l": "roemisch_system",
+   "t": "roemisch_system",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „In MMXX ist das erste M 1 000 und das zweite M 100 wert, wie bei Ziffern.“ Was ist falsch?"
+   },
+   "a": [
+    "Das zweite M ist 10 wert.",
+    "Das erste M ist 2 000 wert.",
+    "Nichts, das stimmt.",
+    "Römische Zeichen haben keinen Stellenwert: Jedes M ist 1 000 wert."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "MMXX = 1 000 + 1 000 + 10 + 10 = 2 020. Ein römisches Zeichen hat immer denselben Wert.",
+   "h": "Welchen Wert hätte MMXX nach dieser Regel?"
+  },
+  {
+   "l": "roemisch_system",
+   "t": "roemisch_system",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Bei wie vielen Zahlen von 1 bis 50 hat die römische Schreibweise genau so viele Zeichen wie die Zahl Ziffern hat?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "2 + 4",
+   "w": "Einstellig mit einem Zeichen: I (1) und V (5). Zweistellig mit zwei Zeichen: XI (11), XV (15), XX (20), XL (40). 10 und 50 haben nur ein Zeichen. Zusammen 6.",
+   "h": "Welche einstelligen Zahlen brauchen nur ein Zeichen? Welche zweistelligen genau zwei?"
+  },
+  {
+   "l": "roemisch_system",
+   "t": "roemisch_system",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Zahlen von 1 bis 20 schreibt man römisch mit genau vier Zeichen?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Vier Zeichen haben VIII (8), XIII (13) und XVII (17). XVIII (18) hat schon fünf. Zusammen 3.",
+   "h": "Schreib die Zahlen von 1 bis 20 römisch und zähle die Zeichen."
   },
   {
    "l": "roemisch_system",

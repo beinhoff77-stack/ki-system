@@ -2146,7 +2146,7 @@
    "l": "pfad_mult",
    "t": "pfad_mult",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "In einer Urne liegen 3 blaue und 2 gelbe Kugeln. Es wird dreimal mit Zurücklegen gezogen. Berechne P(blau, blau, gelb) in dieser Reihenfolge.",
@@ -2170,7 +2170,7 @@
    "l": "pfad_mult",
    "t": "pfad_mult",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "In einer Urne liegen 4 blaue und 4 rote Kugeln. Es wird dreimal mit Zurücklegen gezogen. Berechne P(blau, blau, rot) in dieser Reihenfolge.",
@@ -2194,7 +2194,7 @@
    "l": "pfad_mult",
    "t": "pfad_mult",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "In einer Urne liegen 3 grüne und 6 rote Kugeln. Es wird dreimal mit Zurücklegen gezogen. Berechne P(grün, grün, rot) in dieser Reihenfolge.",
@@ -2218,7 +2218,7 @@
    "l": "pfad_mult",
    "t": "pfad_mult",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "In einer Urne liegen 7 blaue und 6 grüne Kugeln. Es wird dreimal mit Zurücklegen gezogen. Berechne P(blau, blau, grün) in dieser Reihenfolge.",
@@ -2242,7 +2242,7 @@
    "l": "pfad_mult",
    "t": "pfad_mult",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "In einer Urne liegen 8 gelbe und 6 blaue Kugeln. Es wird dreimal mit Zurücklegen gezogen. Berechne P(gelb, gelb, blau) in dieser Reihenfolge.",
@@ -2266,7 +2266,7 @@
    "l": "pfad_mult",
    "t": "pfad_mult",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "In einer Urne liegen 8 grüne und 8 rote Kugeln. Es wird dreimal mit Zurücklegen gezogen. Berechne P(grün, grün, rot) in dieser Reihenfolge.",
@@ -2840,7 +2840,7 @@
    "l": "pfad_add",
    "t": "pfad_add",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Glücksrad zeigt mit der Wahrscheinlichkeit 0,3 „Gewinn“. Es wird dreimal gedreht. Wie groß ist P(genau zweimal Gewinn)?"
@@ -2856,7 +2856,7 @@
    "l": "pfad_add",
    "t": "pfad_add",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Glücksrad zeigt mit der Wahrscheinlichkeit 0,4 „Gewinn“. Es wird dreimal gedreht. Wie groß ist P(genau zweimal Gewinn)?"
@@ -2872,7 +2872,7 @@
    "l": "pfad_add",
    "t": "pfad_add",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Glücksrad zeigt mit der Wahrscheinlichkeit 0,8 „Gewinn“. Es wird dreimal gedreht. Wie groß ist P(genau zweimal Gewinn)?"
@@ -3628,7 +3628,7 @@
    "l": "ohne_zuruecklegen",
    "t": "ohne_zuruecklegen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "In einer Lostrommel sind 26 Lose, davon 7 Gewinne. Jemand zieht drei Lose (ohne Zurücklegen). Wie groß ist P(drei Gewinne)?",
@@ -3652,7 +3652,7 @@
    "l": "ohne_zuruecklegen",
    "t": "ohne_zuruecklegen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "In einer Lostrommel sind 17 Lose, davon 4 Gewinne. Jemand zieht drei Lose (ohne Zurücklegen). Wie groß ist P(drei Gewinne)?",
@@ -3676,7 +3676,7 @@
    "l": "ohne_zuruecklegen",
    "t": "ohne_zuruecklegen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "In einer Lostrommel sind 22 Lose, davon 6 Gewinne. Jemand zieht drei Lose (ohne Zurücklegen). Wie groß ist P(drei Gewinne)?",
@@ -3700,7 +3700,7 @@
    "l": "ohne_zuruecklegen",
    "t": "ohne_zuruecklegen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "In einer Lostrommel sind 21 Lose, davon 7 Gewinne. Jemand zieht drei Lose (ohne Zurücklegen). Wie groß ist P(drei Gewinne)?",
@@ -3724,7 +3724,7 @@
    "l": "ohne_zuruecklegen",
    "t": "ohne_zuruecklegen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "In einer Lostrommel sind 21 Lose, davon 5 Gewinne. Jemand zieht drei Lose (ohne Zurücklegen). Wie groß ist P(drei Gewinne)?",
@@ -4581,16 +4581,24 @@
    "t": "gegenereignis",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "luecken",
    "f": {
-    "text": "Ein Spiel wird mit der Wahrscheinlichkeit 0,1 gewonnen. Wie oft muss man mindestens spielen, um mit einer Wahrscheinlichkeit von mindestens 95 % wenigstens einmal zu gewinnen?"
+    "text": "Ein Würfel wird zweimal geworfen. Um wie viel ist P(mindestens eine Sechs) größer als P(genau eine Sechs)? Gib die Differenz als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
    },
    "o": {
-    "wert": 29
+    "werte": [
+     1,
+     36
+    ]
    },
-   "c": "-(-28.433158805743 // 1)",
-   "w": "1 − 0,9ⁿ ≥ 0,95 ⇔ 0,9ⁿ ≤ 0,05. Probieren oder logarithmieren: n = 29 (0,9²⁹ ≈ 0,0471).",
-   "h": "Stelle die Ungleichung über das Gegenereignis auf; n muss ganzzahlig sein."
+   "c": [
+    "1",
+    "36"
+   ],
+   "w": "P(mindestens eine) = 1 − 25/36 = 11/36, P(genau eine) = 2 · 1/6 · 5/6 = 10/36. Der Unterschied ist der Pfad „zwei Sechsen“: 1/36.",
+   "h": "Welche Pfade gehören zu „mindestens eine“, aber nicht zu „genau eine“?"
   },
   {
    "l": "gegenereignis",
@@ -4615,14 +4623,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Spiel wird mit der Wahrscheinlichkeit 0,2 gewonnen. Wie oft muss man mindestens spielen, um mit einer Wahrscheinlichkeit von mindestens 95 % wenigstens einmal zu gewinnen?"
+    "text": "Lea trifft beim Basketball mit 60 %, Tom mit 50 %. Jeder wirft einmal (unabhängig). Wie groß ist die Wahrscheinlichkeit, dass mindestens einer trifft?"
    },
    "o": {
-    "wert": 14
+    "wert": 0.8
    },
-   "c": "-(-13.425134878022 // 1)",
-   "w": "1 − 0,8ⁿ ≥ 0,95 ⇔ 0,8ⁿ ≤ 0,05. Probieren oder logarithmieren: n = 14 (0,8¹⁴ ≈ 0,044).",
-   "h": "Stelle die Ungleichung über das Gegenereignis auf; n muss ganzzahlig sein."
+   "c": "1 - 0.4 * 0.5",
+   "w": "Gegenereignis „keiner trifft“: 0,4 · 0,5 = 0,2. Also P(mindestens einer) = 1 − 0,2 = 0,8.",
+   "h": "Rechne über das Gegenereignis: Beide verfehlen – mit unterschiedlichen Wahrscheinlichkeiten."
   },
   {
    "l": "gegenereignis",
@@ -5118,7 +5126,7 @@
    "l": "baum_ergaenzen",
    "t": "baum_ergaenzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Krankheit ist bei 5 % der getesteten Tiere vorhanden. Ein Test zeigt bei kranken Tieren mit 98 % „positiv“, bei gesunden mit 2 %. Wie groß ist die Wahrscheinlichkeit für einen positiven Test?",
@@ -5167,7 +5175,7 @@
    "l": "baum_ergaenzen",
    "t": "baum_ergaenzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Krankheit ist bei 20 % der getesteten Tiere vorhanden. Ein Test zeigt bei kranken Tieren mit 98 % „positiv“, bei gesunden mit 10 %. Wie groß ist die Wahrscheinlichkeit für einen positiven Test?",
@@ -5216,7 +5224,7 @@
    "l": "baum_ergaenzen",
    "t": "baum_ergaenzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Krankheit ist bei 5 % der getesteten Tiere vorhanden. Ein Test zeigt bei kranken Tieren mit 95 % „positiv“, bei gesunden mit 10 %. Wie groß ist die Wahrscheinlichkeit für einen positiven Test?",
@@ -5265,7 +5273,7 @@
    "l": "baum_ergaenzen",
    "t": "baum_ergaenzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Krankheit ist bei 10 % der getesteten Tiere vorhanden. Ein Test zeigt bei kranken Tieren mit 98 % „positiv“, bei gesunden mit 5 %. Wie groß ist die Wahrscheinlichkeit für einen positiven Test?",
@@ -5314,7 +5322,7 @@
    "l": "baum_ergaenzen",
    "t": "baum_ergaenzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Krankheit ist bei 20 % der getesteten Tiere vorhanden. Ein Test zeigt bei kranken Tieren mit 95 % „positiv“, bei gesunden mit 5 %. Wie groß ist die Wahrscheinlichkeit für einen positiven Test?",
@@ -5363,7 +5371,7 @@
    "l": "baum_ergaenzen",
    "t": "baum_ergaenzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Krankheit ist bei 5 % der getesteten Tiere vorhanden. Ein Test zeigt bei kranken Tieren mit 95 % „positiv“, bei gesunden mit 5 %. Wie groß ist die Wahrscheinlichkeit für einen positiven Test?",
@@ -5878,7 +5886,7 @@
    "l": "simulation",
    "t": "simulation",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Eine Simulation wurde 500-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.",
@@ -5909,7 +5917,7 @@
    "l": "simulation",
    "t": "simulation",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Eine Simulation wurde 500-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.",
@@ -5940,7 +5948,7 @@
    "l": "simulation",
    "t": "simulation",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Eine Simulation wurde 200-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.",
@@ -5971,7 +5979,7 @@
    "l": "simulation",
    "t": "simulation",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Eine Simulation wurde 500-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.",
@@ -6002,7 +6010,7 @@
    "l": "simulation",
    "t": "simulation",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Eine Simulation wurde 250-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.",
@@ -6033,7 +6041,7 @@
    "l": "simulation",
    "t": "simulation",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Eine Simulation wurde 1 000-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.",
@@ -6064,7 +6072,7 @@
    "l": "simulation",
    "t": "simulation",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Zufallsgerät liefert mit der Wahrscheinlichkeit 0,3 einen Treffer. Es wird immer zweimal hintereinander gestartet; das wird 100-mal wiederholt. Wie oft erwartet man „zwei Treffer“?"
@@ -6080,7 +6088,7 @@
    "l": "simulation",
    "t": "simulation",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Zufallsgerät liefert mit der Wahrscheinlichkeit 0,3 einen Treffer. Es wird immer zweimal hintereinander gestartet; das wird 200-mal wiederholt. Wie oft erwartet man „zwei Treffer“?"
@@ -6117,7 +6125,7 @@
    "l": "simulation",
    "t": "simulation",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Zufallsgerät liefert mit der Wahrscheinlichkeit 0,3 einen Treffer. Es wird immer zweimal hintereinander gestartet; das wird 500-mal wiederholt. Wie oft erwartet man „zwei Treffer“?"
@@ -6133,7 +6141,7 @@
    "l": "simulation",
    "t": "simulation",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Bei einem Würfel kam 3-mal hintereinander keine Sechs. Was gilt für den nächsten Wurf?"
@@ -6154,7 +6162,7 @@
    "l": "simulation",
    "t": "simulation",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Bei einem Würfel kam 7-mal hintereinander keine Sechs. Was gilt für den nächsten Wurf?"
@@ -6646,19 +6654,19 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "An einer Verzweigung stehen die Äste 0,1 und 0,8 (nur diese zwei). Was stimmt?"
+    "text": "Jemand sagt: „Ohne Zurücklegen sind P(rot, blau) und P(blau, rot) verschieden, weil sich beim zweiten Zug der Nenner ändert.“ Was stimmt?"
    },
    "a": [
-    "Das ist falsch, die Äste müssen zusammen 1 ergeben (0,9 ≠ 1).",
-    "Das ist nur ohne Zurücklegen möglich.",
-    "Das ist möglich.",
-    "Das ist nur mit Zurücklegen möglich."
+    "Falsch: Sie sind nur mit Zurücklegen verschieden.",
+    "Falsch: P(rot, blau) ist immer doppelt so groß.",
+    "Falsch: Beide Pfade ergeben dasselbe Produkt, z. B. 3/5 · 2/4 = 2/5 · 3/4.",
+    "Richtig."
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "w": "Von jedem Verzweigungspunkt aus ergeben die Äste zusammen 1 – eines der Ergebnisse tritt sicher ein.",
-   "h": "Was ergibt die Summe aller Äste einer Verzweigung?"
+   "w": "Bei r roten und b blauen Kugeln (n zusammen): r/n · b/(n − 1) und b/n · r/(n − 1) – dieselben Faktoren in anderer Reihenfolge.",
+   "h": "Rechne beide Pfade für 3 rote und 2 blaue Kugeln aus."
   },
   {
    "l": "verstehen",
@@ -6667,25 +6675,25 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "An einer Verzweigung stehen die Äste 0,3 und 0,2 (nur diese zwei). Was stimmt?"
+    "text": "Jemand sagt: „Bei zwei Münzwürfen gilt P(zweimal Kopf) + P(zweimal Zahl) = 1.“ Was stimmt?"
    },
    "a": [
-    "Das ist nur mit Zurücklegen möglich.",
-    "Das ist nur ohne Zurücklegen möglich.",
-    "Das ist falsch, die Äste müssen zusammen 1 ergeben (0,5 ≠ 1).",
-    "Das ist möglich."
+    "Falsch: Das ergibt 2.",
+    "Falsch: Das ergibt 1/4.",
+    "Falsch: Das ergibt 1/4 + 1/4 = 1/2; es fehlen die Pfade (K, Z) und (Z, K).",
+    "Richtig."
    ],
    "o": {
     "index": 2
    },
-   "w": "Von jedem Verzweigungspunkt aus ergeben die Äste zusammen 1 – eines der Ergebnisse tritt sicher ein.",
-   "h": "Was ergibt die Summe aller Äste einer Verzweigung?"
+   "w": "Der Baum hat vier Pfade mit je 1/4. „Zweimal gleich“ sind nur zwei davon: 1/2. Erst alle vier zusammen ergeben 1.",
+   "h": "Zeichne alle Pfade des Baums. Welche fehlen?"
   },
   {
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "In einer Urne liegen 2 weiße und 3 rote Kugeln; es wird zweimal mit Zurücklegen gezogen. Jemand rechnet P(weiß, weiß) = 2/5 + 2/5. Was stimmt?"
@@ -6748,7 +6756,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "3 rote und 5 weiße Kugeln, zwei Kugeln ohne Zurücklegen. Jemand rechnet P(rot, rot) = 3/8 · 3/8. Was stimmt?"
@@ -6769,7 +6777,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "3 weiße und 2 grüne Kugeln, zwei Kugeln ohne Zurücklegen. Jemand rechnet P(weiß, weiß) = 3/5 · 3/5. Was stimmt?"
@@ -6790,7 +6798,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "3 gelbe und 2 schwarze Kugeln, zwei Kugeln ohne Zurücklegen. Jemand rechnet P(gelb, gelb) = 3/5 · 3/5. Was stimmt?"

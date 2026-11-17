@@ -540,59 +540,6 @@ BF.fuer_sebastian('raum.schraegbilder: lehrplan_gym leer; Raumkoordinaten und wi
 baue = mit_befunden(baue, BF)
 # ---- BEFUNDE ENDE ----
 
-# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Kl. 8, siehe _durchsicht_kl8.py) ----
-from _durchsicht_kl8 import Durchsicht, mit_durchsicht  # noqa: E402
-
-DSX = Durchsicht('raum.schraegbilder', 19_8_14)
-# Gleiche Aufgabenart wie die Stufe darunter → umgestuft
-DSX.stufe('pyramide', 'Wie viele Kanten haben ein fünfseitiges Prisma und eine dreiseitige Pyramide zusammen?', 2)
-DSX.stufe('lage', 'Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden CD und DA zueinander?', 1)
-DSX.stufe('lage', 'Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden AE und HE zueinander?', 1)
-DSX.stufe('lage', 'Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden CD und CG zueinander?', 1)
-DSX.stufe('koordinaten', 'Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(6 | 0 | 0), D(0 | 6 | 0) und E(0 | 0 | 2) sind. Gib die x-Koordinate von C an.', 1)
-DSX.stufe('koordinaten', 'Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(5 | 0 | 0), D(0 | 3 | 0) und E(0 | 0 | 2) sind. Gib die z-Koordinate von C an.', 1)
-DSX.stufe('koordinaten', 'Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(5 | 0 | 0), D(0 | 6 | 0) und E(0 | 0 | 3) sind. Gib die z-Koordinate von F an.', 1)
-DSX.stufe('koordinaten', 'Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(9 | 0 | 0), D(0 | 9 | 0) und E(0 | 0 | 2) sind. Gib die z-Koordinate von C an.', 1)
-DSX.stufe('koordinaten', 'Ein Quader ABCDEFGH hat A(0 | 0 | 0), B(4 | 0 | 0), D(0 | 6 | 0) und E(0 | 0 | 3). Welche Koordinaten hat C?', 1)
-DSX.stufe('rotation', 'Ein Halbkreis mit dem Durchmesser 26 cm dreht sich um seinen Durchmesser. Welchen Radius hat die entstehende Kugel?', 2)
-DSX.stufe('rotation', 'Ein Halbkreis mit dem Durchmesser 18 cm dreht sich um seinen Durchmesser. Welchen Radius hat die entstehende Kugel?', 2)
-DSX.stufe('axialschnitt', 'Ein Zylinder hat r = 9 cm und h = 12 cm. Welchen Umfang hat sein Axialschnitt?', 2)
-DSX.stufe('axialschnitt', 'Ein Zylinder hat r = 10 cm und h = 8 cm. Welchen Umfang hat sein Axialschnitt?', 2)
-DSX.stufe('axialschnitt', 'Ein Zylinder hat r = 8 cm und h = 2 cm. Welchen Umfang hat sein Axialschnitt?', 2)
-# Wiederholungen und Stufe-1-Aufgaben auf Stufe 2 ersetzt
-DSX.ersetze('laengen', 'Im Schrägbild (q = 1/2, ω = 45°) eines Prismas ist die nach hinten laufende Kante 5 cm lang. Wie tief ist das Prisma wirklich?', DSX.A(
-    'Im Schrägbild (q = 1/2) einer quadratischen Pyramide ist die Höhe 6 cm und eine nach hinten führende Grundkante 4 cm lang gezeichnet. Wie groß ist die Pyramide wirklich?',
-    'Grundkante 8 cm, Höhe 6 cm', ['Grundkante 8 cm, Höhe 12 cm', 'Grundkante 4 cm, Höhe 6 cm', 'Grundkante 4 cm, Höhe 3 cm'],
-    'Nur die Kante nach hinten ist auf die Hälfte verkürzt: 4 cm · 2 = 8 cm. Die Höhe steht senkrecht und ist in wahrer Länge gezeichnet: 6 cm.',
-    'Welche Strecke ist verkürzt, welche nicht?'))
-DSX.ersetze('koordinaten', 'Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(7 | 0 | 0), D(0 | 8 | 0) und E(0 | 0 | 5) sind. Gib die x-Koordinate von F an.', DSX.Z(
-    'Ein Quader ABCDEFGH hat A(0 | 0 | 0) und G(5 | 3 | 4). Wie lang ist die Kante AD?', 3, '3',
-    'G liegt A genau gegenüber. Seine Koordinaten sind Länge, Breite und Höhe: 5, 3 und 4. AD läuft in y-Richtung, also 3.',
-    'Lies die Kantenlängen an G ab. In welche Richtung läuft AD?'))
-DSX.ersetze('koordinaten', 'Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(2 | 0 | 0), D(0 | 5 | 0) und E(0 | 0 | 9) sind. Gib die z-Koordinate von F an.', DSX.A(
-    'Ein Quader ABCDEFGH hat A(0 | 0 | 0), B(4 | 0 | 0), D(0 | 6 | 0) und E(0 | 0 | 3). Auf welcher Fläche liegt der Punkt P(2 | 0 | 1)?',
-    'auf der Fläche ABFE', ['auf der Grundfläche ABCD', 'auf der Deckfläche EFGH', 'auf der Fläche BCGF'],
-    'Die Fläche ABFE ist die Fläche mit y = 0. P hat y = 0, x zwischen 0 und 4, z zwischen 0 und 3.',
-    'Welche Koordinate ist bei P gleich 0?'))
-DSX.ersetze('koordinaten', 'Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(9 | 0 | 0), D(0 | 9 | 0) und E(0 | 0 | 8) sind. M ist der Mittelpunkt der Strecke DF. Gib die z-Koordinate von M an.', DSX.A(
-    'Lea sagt: „Bei A(0 | 0 | 0), B(5 | 0 | 0), D(0 | 2 | 0) und E(0 | 0 | 3) ist G(5 | 3 | 2).“ Was stimmt?',
-    'Falsch: G(5 | 2 | 3) – y kommt von D, z von E.', ['Richtig.', 'Falsch: G(2 | 5 | 3).', 'Falsch: G(5 | 0 | 3).'],
-    'x = 5 aus B, y = 2 aus D, z = 3 aus E. Lea hat y und z vertauscht.', 'Ordne jeder Richtung die passende Kante zu.'))
-DSX.ersetze('koordinaten', 'Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(8 | 0 | 0), D(0 | 4 | 0) und E(0 | 0 | 6) sind. M ist der Mittelpunkt der Strecke CE. Gib die x-Koordinate von M an.', DSX.Z(
-    'Ein Würfel ABCDEFGH hat A(0 | 0 | 0) und das Volumen 64. Gib die z-Koordinate von G an.', 4, '4',
-    'Kante k mit k · k · k = 64, also k = 4. G liegt oben, z = 4.', 'Bestimme zuerst die Kantenlänge aus dem Volumen.'))
-DSX.neu('koordinaten', 2, DSX.Z(
-    'Ein Quader ABCDEFGH hat A(0 | 0 | 0), C(6 | 4 | 0) und H(0 | 4 | 7). Wie groß ist sein Volumen?', 168, '6 * 4 * 7',
-    'Aus C: Länge 6 und Breite 4. Aus H: Höhe 7. Volumen 6 · 4 · 7 = 168.', 'Lies aus C und H die drei Kantenlängen ab.'))
-DSX.stufen('pyramide', 'S3 enthielt eine reine Zählaufgabe', 'S1 Anzahl berechnen; S2 rückwärts auf n, Körper erkennen, Prisma und Pyramide zählen; S3 Kantenlängen, Euler, Draht, aufgeklebte Pyramiden, n aus der Summe')
-DSX.stufen('laengen', 'S2 viermal „Wie tief wirklich?“', 'S1 eine Länge zeichnen; S2 rückwärts, andere q, Kantensumme, verkürzt oder nicht; S3 Volumen aus dem Bild, ausgeschnittener Würfel, Oberfläche begründen')
-DSX.stufen('lage', 'S1 und S2 teils dieselbe Frage (Nachbarkanten)', 'S1 Nachbarkanten und parallele Kanten; S2 windschiefe Kanten erkennen; S3 Diagonalen, Kanten zählen, Stab im Zimmer')
-DSX.stufen('koordinaten', 'S1 und S2 dieselbe Ablese-Aufgabe; S3 viermal Mittelpunkt in Folge', 'S1 Eckpunkt angeben; S2 Kantenlänge aus G, Punkt auf Fläche, Volumen aus Koordinaten; S3 Mittelpunkt, Fehler finden, rückwärts aus Volumen, Punkt nicht auf Kante')
-DSX.stufen('rotation', 'S3 zweimal Halbkreis-Radius', 'S1 Körper benennen; S2 Radius und Höhe zuordnen, Kugelradius; S3 Mittellinie, Trapez, Hohlzylinder, Doppelkegel')
-DSX.stufen('axialschnitt', 'S3 dreimal Umfang des Axialschnitts', 'S1 Form und Breite; S2 Fläche und Umfang des Schnitts; S3 rückwärts zum Radius, Spielfigur, gleichseitiges Dreieck, Volumen aus Quadrat')
-baue = mit_durchsicht(baue, DSX)
-# ---- DURCHSICHT ENDE ----
-
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Prismen und Pyramiden', ['pyramide', 'laengen']), ('Lage im Raum', ['lage', 'koordinaten']), ('Rotationskörper', ['rotation', 'axialschnitt'])],
@@ -606,3 +553,40 @@ if __name__ == '__main__':
                 'Prüfvorschlag „x-Achse schräg nach vorn, y nach rechts“ (Karte koordinaten) nicht umgesetzt: Er lohnt sich nur, wenn die Karte nach der Lehrplan-Klärung bleibt; '
                 'das Bild der Prüfung zeigt selbst x nach rechts. Entscheidung beim Haupt-Chat.',
                 'Überschneidung mit messen.koerper_darstellung: Schrägbild-Regeln für Prismen stehen dort, hier liegt der Schwerpunkt auf Pyramiden.'])
+
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl10) ----------
+# Gesamtdurchsicht (seit D2 Klasse 10): jede Lernkarte und jede Aufgabe gelesen und nachgerechnet. Läuft ganz am Ende auf der fertigen Datei.
+# Stufe 1 = vorgerechnetes Beispiel mit anderen Zahlen, Stufe 2 = Abwandlung/Umkehrung, Stufe 3 = anderer Gedanke.
+def durchsicht():
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from _durchsicht_kl10 import Durchsicht
+    D = Durchsicht('raum.schraegbilder', 19080)
+    # pyramide: Kantensummen und Kantenzahl zweier Körper sind Anwendung der Kartenformel (Stufe 2)
+    D.stufe([10, 12], 2, 'Eine ')
+    D.stufe([11, 13], 2, 'Wie viele Kanten haben')
+    # lage: Stufe 1 hatte nur 3 Übungen; zwei Kanten mit gemeinsamer Ecke sind der einfachste Fall → Stufe 1;
+    # zwei Diagonalen durch dieselbe Ecke sind keine neue Idee → Stufe 2
+    D.stufe([64, 68, 69], 1, 'Quader ABCDEFGH')
+    D.stufe([70, 71], 2, 'Quader ABCDEFGH')
+    # koordinaten: eine Koordinate ablesen ist leichter als Stufe 1 → Stufe 1; Mittelpunkt (Mittelwert der Koordinaten) → Stufe 2
+    D.stufe(range(95, 101), 1, 'Ein Quader ABCDEFGH liegt so')
+    D.stufe(range(101, 105), 2, 'Ein Quader ABCDEFGH liegt so')
+    # rotation: Radius/Höhe aus dem Rechteck bzw. Dreieck ist das vorgerechnete Beispiel → Stufe 1;
+    # Halbkreis-Radius und Durchmesser-Unterschied sind kleine Abwandlungen → Stufe 2
+    D.stufe(range(125, 131), 1, 'Ein ')
+    D.stufe(132, 2, 'Ein Rechteck 4 cm × 8 cm')
+    D.stufe([133, 134], 2, 'Ein Halbkreis')
+    # axialschnitt: Fläche beim Zylinder = Beispiel der Karte → Stufe 1; Umfang und Radius rückwärts = Abwandlung/Umkehrung → Stufe 2
+    D.stufe([155, 157, 158], 1, 'Ein Zylinder hat')
+    D.stufe([161, 162, 164], 2, 'Ein Zylinder hat')
+    D.stufe(163, 2, 'Der Axialschnitt eines Zylinders')
+    D.fuer_sebastian('raum.schraegbilder (seit D2 Klasse 10): Ecken/Kanten zählen, Schrägbild-Längen und Axialschnitte sind Klasse-5-bis-8-Niveau; '
+                     'M10 5 verlangt Schrägbilder und Netze von Pyramide und Kegel (Kegel kann die App nicht zeichnen). In der Themendatei steht weiter klasse gym_by 8. '
+                     'Überschneidung: Schrägbild der Pyramide auch in raum.pyramide_kegel_kugel/pyr_volumen.')
+    D.anwenden()
+
+
+if __name__ == '__main__':
+    durchsicht()  # Neunzehnte Runde (durchsicht-kl10) – ganz am Ende

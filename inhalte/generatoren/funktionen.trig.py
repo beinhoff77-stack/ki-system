@@ -1404,3 +1404,38 @@ if __name__ == '__main__':
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
     nacharbeit_anhaengen('funktionen.trig', nacharbeit())  # Fünfzehnte Runde: Bogenmaß-Übungen, ganz am Ende
     luecken_einbauen()  # Achtzehnte Runde (luecken-kl10): neue Karte verschiebung_x, zuordnen und periode erweitert – ganz am Ende
+
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl10) ----------
+# Gesamtdurchsicht: jede Lernkarte und jede Aufgabe gelesen und nachgerechnet. Läuft ganz am Ende auf der fertigen Datei.
+def durchsicht():
+    from _durchsicht_kl10 import Durchsicht
+    D = Durchsicht('funktionen.trig', 19050)
+    # bogenmass: Umrechnen mit Rundung ist die Stufe-1/2-Rechnung, kein anderer Gedanke
+    D.stufe([12, 17], 2, 'Rechne ')
+    D.stufe(15, 2, 'Ein Winkel hat im Bogenmaß die Größe 4,9')
+    # werte: exakte Werte mit Wurzel stehen schon auf Stufe 2
+    D.stufe([40, 42], 2, 'Welchen exakten Wert hat')
+    # periode: „Jemand sagt …“ und „b aus der Periode“ stehen gleich auf Stufe 2
+    D.stufe([70, 71], 2, 'Jemand sagt')
+    D.stufe([72, 73], 2, 'Eine Sinusfunktion f(x) = sin(b · x) soll')
+    # parameter: Wertemenge und größter Wert = Stufe-2-Typ
+    D.stufe([96, 97], 2, 'Gib die Wertemenge')
+    D.stufe(101, 2, 'Welchen größten Wert')
+    # zuordnen: Graph mit drei Parametern ablesen (ohne Verschiebung) = Stufe-2-Gedanke
+    D.stufe([125, 127, 129], 2, 'Welcher Funktionsterm gehört')
+    # eigenschaften: erste Nullstelle von sin(bx)/cos(bx) und Anzahl der Nullstellen stehen gleich auf Stufe 2
+    D.stufe([152, 155, 156, 157], 2, 'Bestimme die kleinste positive Nullstelle')
+    D.stufe([153, 154], 2, 'Wie viele Nullstellen')
+    # anwendung: h(t) = Mittelhöhe (cos = 0) ist eine Umkehrung; Werte mit dem Rechner einsetzen ist Stufe 2
+    D.stufe([180, 182], 2, 'Die Höhe einer Riesenradgondel')
+    D.stufe([181, 184], 2, 'h(t) = ')
+    D.stufe(185, 2, 'Die Tageslänge an einem Ort')
+    D.stufe(291, 2, 'Die Höhe einer Gondel ist h(t) = 25')
+    # Lernkarte bogenmass: Aufgaben fragen Bogenlängen beim Radius r, die Karte zeigte nur den Einheitskreis
+    D.karte('bogenmass', regel='360° entsprechen 2π, also 180° = π. Umrechnen: ⟦Bogenmaß = Grad · π : 180°⟧. Beim Radius r ist der Bogen r-mal so lang.')
+    D.anwenden()
+
+
+if __name__ == '__main__':
+    durchsicht()  # Neunzehnte Runde (durchsicht-kl10) – ganz am Ende

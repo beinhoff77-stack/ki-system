@@ -802,3 +802,55 @@ if __name__ == '__main__':
     ergaenzen(datei, schwer())
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
     luecken_einbauen()  # Achtzehnte Runde (luecken-kl10): neue Karte pi_schaetzen – ganz am Ende
+
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl10) ----------
+# Gesamtdurchsicht: jede Lernkarte und jede Aufgabe gelesen und nachgerechnet. Läuft ganz am Ende auf der fertigen Datei.
+def durchsicht():
+    from _durchsicht_kl10 import Durchsicht
+    D = Durchsicht('stochastik.mehrstufig', 19030)
+    # pfad_mult: dreistufiger Pfad in fester Reihenfolge = Stufe-2-Rechnung mit einer Stufe mehr
+    D.stufe(range(12, 18), 2, 'In einer Urne liegen')
+    # pfad_add: „genau zweimal Gewinn“ steht gleich auf Stufe 2 und 3
+    D.stufe([43, 44, 45], 2, 'Ein Glücksrad zeigt mit der Wahrscheinlichkeit')
+    # ohne_zuruecklegen: „drei Gewinne“ = Stufe-1-Pfad mit einer Stufe mehr
+    D.stufe(range(69, 74), 2, 'In einer Lostrommel sind')
+    # gegenereignis: sechsmal „Wie oft muss man mindestens spielen?“ – zwei davon durch andere Stufe-3-Gedanken ersetzt
+    D.ersetze(98, 'Ein Spiel wird mit der Wahrscheinlichkeit 0,1 gewonnen. Wie oft muss man mindestens spielen, um mit einer Wahrscheinlichkeit von mindestens 95 %',
+              D.L('Ein Würfel wird zweimal geworfen. Um wie viel ist P(mindestens eine Sechs) größer als P(genau eine Sechs)? Gib die Differenz als gekürzten Bruch an.',
+                  '□/□', [1, 36], ['1', '36'],
+                  'P(mindestens eine) = 1 − 25/36 = 11/36, P(genau eine) = 2 · 1/6 · 5/6 = 10/36. Der Unterschied ist der Pfad „zwei Sechsen“: 1/36.',
+                  'Welche Pfade gehören zu „mindestens eine“, aber nicht zu „genau eine“?', hinweis='Zähler und Nenner (gekürzt)'))
+    D.ersetze(100, 'Ein Spiel wird mit der Wahrscheinlichkeit 0,2 gewonnen. Wie oft muss man mindestens spielen, um mit einer Wahrscheinlichkeit von mindestens 95 %',
+              D.Z('Lea trifft beim Basketball mit 60 %, Tom mit 50 %. Jeder wirft einmal (unabhängig). Wie groß ist die Wahrscheinlichkeit, dass mindestens einer trifft?',
+                  0.8, '1 - 0.4 * 0.5', 'Gegenereignis „keiner trifft“: 0,4 · 0,5 = 0,2. Also P(mindestens einer) = 1 − 0,2 = 0,8.',
+                  'Rechne über das Gegenereignis: Beide verfehlen – mit unterschiedlichen Wahrscheinlichkeiten.'))
+    # baum_ergaenzen: Gesamtwahrscheinlichkeit „positiver Test“ (zwei Pfade addieren) = 2. Pfadregel in Einkleidung → Stufe 2
+    D.stufe(range(124, 130), 2, 'Eine Krankheit ist bei')
+    # simulation: relative Häufigkeit ablesen ist eine Division (Stufe 1); „zwei Treffer“ erwarten = Pfad · n (Stufe 2); „kein Gedächtnis“ dreimal gleich
+    D.stufe(range(146, 152), 1, 'Eine Simulation wurde')
+    D.stufe([152, 153, 155], 2, 'Ein Zufallsgerät liefert')
+    D.stufe([156, 157], 2, 'Bei einem Würfel kam')
+    # verstehen: „Addieren statt multiplizieren“ gehört zu Stufe 1, „ohne Zurücklegen falsch“ steht schon auf Stufe 2;
+    # zweimal „Äste ergeben nicht 1“ auf Stufe 2 = Stufe 1 → durch andere Prüf-Aufgaben ersetzt
+    D.stufe(178, 1, 'In einer Urne liegen 2 weiße')
+    D.stufe([181, 182, 183], 2, '')
+    D.ersetze(176, 'An einer Verzweigung stehen die Äste 0,1 und 0,8',
+              D.A('Jemand sagt: „Ohne Zurücklegen sind P(rot, blau) und P(blau, rot) verschieden, weil sich beim zweiten Zug der Nenner ändert.“ Was stimmt?',
+                  'Falsch: Beide Pfade ergeben dasselbe Produkt, z. B. 3/5 · 2/4 = 2/5 · 3/4.',
+                  ['Richtig.', 'Falsch: Sie sind nur mit Zurücklegen verschieden.', 'Falsch: P(rot, blau) ist immer doppelt so groß.'],
+                  'Bei r roten und b blauen Kugeln (n zusammen): r/n · b/(n − 1) und b/n · r/(n − 1) – dieselben Faktoren in anderer Reihenfolge.',
+                  'Rechne beide Pfade für 3 rote und 2 blaue Kugeln aus.'))
+    D.ersetze(177, 'An einer Verzweigung stehen die Äste 0,3 und 0,2',
+              D.A('Jemand sagt: „Bei zwei Münzwürfen gilt P(zweimal Kopf) + P(zweimal Zahl) = 1.“ Was stimmt?',
+                  'Falsch: Das ergibt 1/4 + 1/4 = 1/2; es fehlen die Pfade (K, Z) und (Z, K).',
+                  ['Richtig.', 'Falsch: Das ergibt 1/4.', 'Falsch: Das ergibt 2.'],
+                  'Der Baum hat vier Pfade mit je 1/4. „Zweimal gleich“ sind nur zwei davon: 1/2. Erst alle vier zusammen ergeben 1.',
+                  'Zeichne alle Pfade des Baums. Welche fehlen?'))
+    D.fuer_sebastian('stochastik.mehrstufig/simulation (Übungen Stufe 3, π aus Zufallspunkten im Kreis) überschneidet sich mit der neuen Karte pi_schaetzen (Runde 18) '
+                     'und mit stochastik.simulation/monte_carlo – alle drei im Block Darwin. Die beiden π-Übungen in simulation könnten dort entfallen (Sperren ist Sache des Haupt-Chats).')
+    D.anwenden()
+
+
+if __name__ == '__main__':
+    durchsicht()  # Neunzehnte Runde (durchsicht-kl10) – ganz am Ende

@@ -1480,7 +1480,7 @@
    "l": "pyramide",
    "t": "pyramide",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine zwölfseitige Pyramide hat als Grundfläche ein regelmäßiges 12-Eck mit Seitenlänge 3 cm, jede Seitenkante ist 16 cm lang. Wie lang sind alle Kanten zusammen?"
@@ -1497,7 +1497,7 @@
    "l": "pyramide",
    "t": "pyramide",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viele Kanten haben ein zehnseitiges Prisma und eine dreiseitige Pyramide zusammen?"
@@ -1513,7 +1513,7 @@
    "l": "pyramide",
    "t": "pyramide",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine sechsseitige Pyramide hat als Grundfläche ein regelmäßiges 6-Eck mit Seitenlänge 7 cm, jede Seitenkante ist 6 cm lang. Wie lang sind alle Kanten zusammen?"
@@ -1967,21 +1967,17 @@
    "t": "laengen",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Im Schrägbild (q = 1/2) einer quadratischen Pyramide ist die Höhe 6 cm und eine nach hinten führende Grundkante 4 cm lang gezeichnet. Wie groß ist die Pyramide wirklich?"
+    "text": "Im Schrägbild (q = 1/2, ω = 45°) eines Prismas ist die nach hinten laufende Kante 5 cm lang. Wie tief ist das Prisma wirklich?"
    },
-   "a": [
-    "Grundkante 4 cm, Höhe 3 cm",
-    "Grundkante 4 cm, Höhe 6 cm",
-    "Grundkante 8 cm, Höhe 6 cm",
-    "Grundkante 8 cm, Höhe 12 cm"
-   ],
    "o": {
-    "index": 2
+    "wert": 10,
+    "einheit": "cm"
    },
-   "w": "Nur die Kante nach hinten ist auf die Hälfte verkürzt: 4 cm · 2 = 8 cm. Die Höhe steht senkrecht und ist in wahrer Länge gezeichnet: 6 cm.",
-   "h": "Welche Strecke ist verkürzt, welche nicht?"
+   "c": "5 * 2",
+   "w": "wahr = gezeichnet : q = 5 : 1/2 = 10 cm.",
+   "h": "Rechne rückwärts: durch q teilen."
   },
   {
    "l": "laengen",
@@ -3461,7 +3457,7 @@
    "l": "lage",
    "t": "lage",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden BH und BC zueinander?",
@@ -3575,7 +3571,7 @@
    "l": "lage",
    "t": "lage",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden AC und AH zueinander?",
@@ -5935,17 +5931,17 @@
    "l": "koordinaten",
    "t": "koordinaten",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Quader ABCDEFGH hat A(0 | 0 | 0) und G(5 | 3 | 4). Wie lang ist die Kante AD?"
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(7 | 0 | 0), D(0 | 8 | 0) und E(0 | 0 | 5) sind. Gib die x-Koordinate von F an."
    },
    "o": {
-    "wert": 3
+    "wert": 7
    },
-   "c": "3",
-   "w": "G liegt A genau gegenüber. Seine Koordinaten sind Länge, Breite und Höhe: 5, 3 und 4. AD läuft in y-Richtung, also 3.",
-   "h": "Lies die Kantenlängen an G ab. In welche Richtung läuft AD?"
+   "c": "7",
+   "w": "F(7 | 0 | 5), also x = 7.",
+   "h": "Bestimme erst alle drei Koordinaten des Punktes."
   },
   {
    "l": "koordinaten",
@@ -5983,22 +5979,17 @@
    "l": "koordinaten",
    "t": "koordinaten",
    "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
+   "s": 1,
+   "y": "zahl",
    "f": {
-    "text": "Ein Quader ABCDEFGH hat A(0 | 0 | 0), B(4 | 0 | 0), D(0 | 6 | 0) und E(0 | 0 | 3). Auf welcher Fläche liegt der Punkt P(2 | 0 | 1)?"
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(2 | 0 | 0), D(0 | 5 | 0) und E(0 | 0 | 9) sind. Gib die z-Koordinate von F an."
    },
-   "a": [
-    "auf der Grundfläche ABCD",
-    "auf der Fläche BCGF",
-    "auf der Deckfläche EFGH",
-    "auf der Fläche ABFE"
-   ],
    "o": {
-    "index": 3
+    "wert": 9
    },
-   "w": "Die Fläche ABFE ist die Fläche mit y = 0. P hat y = 0, x zwischen 0 und 4, z zwischen 0 und 3.",
-   "h": "Welche Koordinate ist bei P gleich 0?"
+   "c": "9",
+   "w": "F(2 | 0 | 9), also z = 9.",
+   "h": "Bestimme erst alle drei Koordinaten des Punktes."
   },
   {
    "l": "koordinaten",
@@ -6020,7 +6011,7 @@
    "l": "koordinaten",
    "t": "koordinaten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(9 | 0 | 0), D(0 | 9 | 0) und E(0 | 0 | 9) sind. M ist der Mittelpunkt der Strecke AC. Gib die z-Koordinate von M an."
@@ -6036,7 +6027,7 @@
    "l": "koordinaten",
    "t": "koordinaten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(9 | 0 | 0), D(0 | 7 | 0) und E(0 | 0 | 3) sind. M ist der Mittelpunkt der Strecke CE. Gib die z-Koordinate von M an."
@@ -6052,38 +6043,33 @@
    "l": "koordinaten",
    "t": "koordinaten",
    "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
+   "s": 2,
+   "y": "zahl",
    "f": {
-    "text": "Lea sagt: „Bei A(0 | 0 | 0), B(5 | 0 | 0), D(0 | 2 | 0) und E(0 | 0 | 3) ist G(5 | 3 | 2).“ Was stimmt?"
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(9 | 0 | 0), D(0 | 9 | 0) und E(0 | 0 | 8) sind. M ist der Mittelpunkt der Strecke DF. Gib die z-Koordinate von M an."
    },
-   "a": [
-    "Falsch: G(5 | 2 | 3) – y kommt von D, z von E.",
-    "Falsch: G(2 | 5 | 3).",
-    "Richtig.",
-    "Falsch: G(5 | 0 | 3)."
-   ],
    "o": {
-    "index": 0
+    "wert": 4
    },
-   "w": "x = 5 aus B, y = 2 aus D, z = 3 aus E. Lea hat y und z vertauscht.",
-   "h": "Ordne jeder Richtung die passende Kante zu."
+   "c": "(0 + 8) / 2",
+   "w": "D(0 | 9 | 0), F(9 | 0 | 8). Mittelwert der z-Koordinaten: (0 + 8) : 2 = 4.",
+   "h": "Der Mittelpunkt hat in jeder Koordinate den Mittelwert der beiden Endpunkte."
   },
   {
    "l": "koordinaten",
    "t": "koordinaten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Würfel ABCDEFGH hat A(0 | 0 | 0) und das Volumen 64. Gib die z-Koordinate von G an."
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(8 | 0 | 0), D(0 | 4 | 0) und E(0 | 0 | 6) sind. M ist der Mittelpunkt der Strecke CE. Gib die x-Koordinate von M an."
    },
    "o": {
     "wert": 4
    },
-   "c": "4",
-   "w": "Kante k mit k · k · k = 64, also k = 4. G liegt oben, z = 4.",
-   "h": "Bestimme zuerst die Kantenlänge aus dem Volumen."
+   "c": "(8 + 0) / 2",
+   "w": "C(8 | 4 | 0), E(0 | 0 | 6). Mittelwert der x-Koordinaten: (8 + 0) : 2 = 4.",
+   "h": "Der Mittelpunkt hat in jeder Koordinate den Mittelwert der beiden Endpunkte."
   },
   {
    "l": "koordinaten",
@@ -6239,7 +6225,7 @@
    "l": "koordinaten",
    "t": "koordinaten",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ein Quader ABCDEFGH hat A(0 | 0 | 0), B(4 | 0 | 0), D(0 | 6 | 0) und E(0 | 0 | 3). Welche Koordinaten hat C?"
@@ -6434,7 +6420,7 @@
    "l": "rotation",
    "t": "rotation",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Rechteck mit den Seiten 3 cm und 4 cm dreht sich um die 3-cm-Seite. Wie groß ist der Radius des entstehenden Zylinders?"
@@ -6451,7 +6437,7 @@
    "l": "rotation",
    "t": "rotation",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein rechtwinkliges Dreieck mit den Katheten 11 cm und 9 cm dreht sich um die 11-cm-Kathete. Wie hoch ist der entstehende Kegel?"
@@ -6468,7 +6454,7 @@
    "l": "rotation",
    "t": "rotation",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein rechtwinkliges Dreieck mit den Katheten 14 cm und 2 cm dreht sich um die 14-cm-Kathete. Wie hoch ist der entstehende Kegel?"
@@ -6485,7 +6471,7 @@
    "l": "rotation",
    "t": "rotation",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Rechteck mit den Seiten 14 cm und 10 cm dreht sich um die 14-cm-Seite. Wie groß ist der Radius des entstehenden Zylinders?"
@@ -6502,7 +6488,7 @@
    "l": "rotation",
    "t": "rotation",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Rechteck mit den Seiten 11 cm und 7 cm dreht sich um die 11-cm-Seite. Wie groß ist der Radius des entstehenden Zylinders?"
@@ -6519,7 +6505,7 @@
    "l": "rotation",
    "t": "rotation",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein rechtwinkliges Dreieck mit den Katheten 4 cm und 6 cm dreht sich um die 4-cm-Kathete. Wie hoch ist der entstehende Kegel?"
@@ -6557,7 +6543,7 @@
    "l": "rotation",
    "t": "rotation",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Rechteck 4 cm × 8 cm dreht sich einmal um die 4-cm-Seite, einmal um die 8-cm-Seite. Um wie viel cm unterscheiden sich die Durchmesser der beiden Zylinder?"
@@ -7036,7 +7022,7 @@
    "l": "axialschnitt",
    "t": "axialschnitt",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Zylinder hat r = 9 cm und h = 14 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
@@ -7070,7 +7056,7 @@
    "l": "axialschnitt",
    "t": "axialschnitt",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Zylinder hat r = 5 cm und h = 13 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
@@ -7087,7 +7073,7 @@
    "l": "axialschnitt",
    "t": "axialschnitt",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Zylinder hat r = 2 cm und h = 8 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
@@ -7172,7 +7158,7 @@
    "l": "axialschnitt",
    "t": "axialschnitt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Der Axialschnitt eines Zylinders ist ein Rechteck mit 36 cm² Flächeninhalt. Der Zylinder ist 6 cm hoch. Wie groß ist sein Radius?"
@@ -7587,22 +7573,6 @@
    "c": "3.14 * 3**2 * 6",
    "w": "Quadratseite 6 cm: Durchmesser 6 cm (r = 3 cm) und Höhe 6 cm. V = 3,14 · 9 · 6 = 169,56 cm³.",
    "h": "Was bedeuten die Quadratseiten für den Zylinder?"
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ABCDEFGH hat A(0 | 0 | 0), C(6 | 4 | 0) und H(0 | 4 | 7). Wie groß ist sein Volumen?"
-   },
-   "o": {
-    "wert": 168
-   },
-   "c": "6 * 4 * 7",
-   "w": "Aus C: Länge 6 und Breite 4. Aus H: Höhe 7. Volumen 6 · 4 · 7 = 168.",
-   "h": "Lies aus C und H die drei Kantenlängen ab."
   }
  ],
  "offen": [

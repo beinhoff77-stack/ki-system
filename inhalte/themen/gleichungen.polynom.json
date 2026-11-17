@@ -883,7 +883,7 @@
    "l": "ausklammern",
    "t": "ausklammern",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse x⁴ − 25x² = 0.",
@@ -909,7 +909,7 @@
    "l": "ausklammern",
    "t": "ausklammern",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse x⁴ + x³ − 12x² = 0.",
@@ -935,7 +935,7 @@
    "l": "ausklammern",
    "t": "ausklammern",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse x⁴ − x³ − 20x² = 0.",
@@ -961,7 +961,7 @@
    "l": "ausklammern",
    "t": "ausklammern",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse x⁴ − 9x² = 0.",
@@ -987,7 +987,7 @@
    "l": "ausklammern",
    "t": "ausklammern",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse 3x⁴ − 12x² = 0.",
@@ -1013,7 +1013,7 @@
    "l": "ausklammern",
    "t": "ausklammern",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse x⁴ − 4x² = 0.",
@@ -1601,7 +1601,7 @@
    "l": "nullprodukt",
    "t": "nullprodukt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse (x − 2)²(x² + 8) = 0.",
@@ -1623,7 +1623,7 @@
    "l": "nullprodukt",
    "t": "nullprodukt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse (x − 8)²(x² + 6) = 0.",
@@ -1645,7 +1645,7 @@
    "l": "nullprodukt",
    "t": "nullprodukt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse (x + 6)²(x² + 3) = 0.",
@@ -1667,7 +1667,7 @@
    "l": "nullprodukt",
    "t": "nullprodukt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse (x + 5)(x² − 4)(x² + 6) = 0.",
@@ -1693,7 +1693,7 @@
    "l": "nullprodukt",
    "t": "nullprodukt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse (x − 1)²(x² + 1) = 0.",
@@ -1715,7 +1715,7 @@
    "l": "nullprodukt",
    "t": "nullprodukt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse (x − 6)²(x² + 5) = 0.",
@@ -2320,7 +2320,7 @@
    "l": "substitution",
    "t": "substitution",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Lösungsmenge hat x⁴ + 12x² + 35 = 0?"
@@ -2341,7 +2341,7 @@
    "l": "substitution",
    "t": "substitution",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse x⁴ − 6x² + 5 = 0. Gib die größte positive Lösung auf zwei Nachkommastellen an."
@@ -2358,7 +2358,7 @@
    "l": "substitution",
    "t": "substitution",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Lösungsmenge hat x⁴ + 13x² + 36 = 0?"
@@ -2403,7 +2403,7 @@
    "l": "substitution",
    "t": "substitution",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse x⁴ − 11x² + 10 = 0. Gib die größte positive Lösung auf zwei Nachkommastellen an."
@@ -3190,7 +3190,7 @@
    "l": "vielfachheit",
    "t": "vielfachheit",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "f(x) = (x + 4)³ · (x − 3)⁴. Wechselt f bei x = 3 das Vorzeichen?"
@@ -3235,7 +3235,7 @@
    "l": "vielfachheit",
    "t": "vielfachheit",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "f(x) = (x − 4)³ · (x + 4)⁴. Welchen Grad hat f, wenn man ausmultipliziert?"
@@ -3707,21 +3707,16 @@
    "t": "verstehen",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Jemand löst x³ = 36x, indem er durch x teilt, und erhält x = ±6. Was stimmt?"
+    "text": "Wie viele reelle Lösungen hat die Gleichung x⁴ − 16 = 0?"
    },
-   "a": [
-    "Falsch: x = 36.",
-    "Falsch: Nur x = 6 ist Lösung.",
-    "Richtig, mehr Lösungen gibt es nicht.",
-    "Unvollständig: Auch x = 0 ist Lösung."
-   ],
    "o": {
-    "index": 3
+    "wert": 2
    },
-   "w": "x³ − 36x = x(x² − 36) = 0 ⇒ x = 0 oder x = ±6. Beim Teilen durch x geht x = 0 verloren.",
-   "h": "Was passiert beim Teilen mit x = 0?"
+   "c": "2",
+   "w": "x⁴ − 16 = (x² − 4)(x² + 4) = 0. x² = 4 ergibt x = ±2; x² = −4 hat keine Lösung. Also 2 Lösungen.",
+   "h": "Zerlege mit der dritten binomischen Formel in zwei Faktoren."
   },
   {
    "l": "verstehen",
@@ -3793,19 +3788,19 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Jemand löst x³ = 4x, indem er durch x teilt, und erhält x = ±2. Was stimmt?"
+    "text": "Jemand sagt: „x⁴ = 81 hat nur die Lösung x = 3.“ Was stimmt?"
    },
    "a": [
-    "Richtig, mehr Lösungen gibt es nicht.",
-    "Falsch: Nur x = 2 ist Lösung.",
-    "Falsch: x = 4.",
-    "Unvollständig: Auch x = 0 ist Lösung."
+    "Falsch: x = 81 : 4.",
+    "Falsch: Die Lösungen sind 3 und 9.",
+    "Falsch: Auch x = −3 ist Lösung, denn (−3)⁴ = 81.",
+    "Richtig."
    ],
    "o": {
-    "index": 3
+    "index": 2
    },
-   "w": "x³ − 4x = x(x² − 4) = 0 ⇒ x = 0 oder x = ±2. Beim Teilen durch x geht x = 0 verloren.",
-   "h": "Was passiert beim Teilen mit x = 0?"
+   "w": "Bei geradem Exponenten gibt es zwei Lösungen mit entgegengesetztem Vorzeichen: x = ±3. Probe: (−3)⁴ = 81.",
+   "h": "Was ergibt (−3)⁴?"
   },
   {
    "l": "verstehen",
@@ -3845,7 +3840,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welcher Funktionsterm passt zum gezeichneten Graphen?",
@@ -3899,7 +3894,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Bei x⁴ − 61x² + 900 = 0 gibt jemand als Lösung „z = 25 und z = 36“ an. Was fehlt?"

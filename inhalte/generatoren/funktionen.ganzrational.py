@@ -672,3 +672,39 @@ if __name__ == '__main__':
                  'Extrempunkte (Ableitung) sind nicht enthalten – das ist Stoff der Oberstufe.'])
     ergaenzen(datei, schwer())
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl10) ----------
+# Gesamtdurchsicht: jede Lernkarte und jede Aufgabe gelesen und nachgerechnet. Läuft ganz am Ende auf der fertigen Datei.
+def durchsicht():
+    from _durchsicht_kl10 import Durchsicht
+    D = Durchsicht('funktionen.ganzrational', 19060)
+    # ausmultiplizieren: a · (x − p)² · (x − q) ist die Stufe-2-Rechnung mit einer Klammer mehr
+    D.stufe([40, 41, 43, 44, 45], 2, 'Multipliziere aus')
+    # randverhalten: ungeordnetes quadratisches Polynom = Stufe 2, ausmultipliziertes Polynom 6. Grades = Stufe 1
+    D.stufe(70, 2, 'Wie verläuft der Graph von f(x) = 20x')
+    D.stufe(73, 1, 'Wie verläuft der Graph von f(x) = 2x⁶')
+    # „Was gilt für a?“: die Antwort „a < 1“ ist ebenfalls richtig (aus a < 0 folgt a < 1) → ersetzt
+    D.ersetze(211, 'Der Graph von f(x) = a · x⁴ + x³ verläuft',
+              D.A('Der Graph von f(x) = a · x⁴ + x³ (a ≠ 0) verläuft von links unten nach rechts unten. Welches Vorzeichen hat a?', 'a ist negativ.',
+                  ['a ist positiv.', 'Das hängt vom Glied x³ ab.', 'Das Vorzeichen lässt sich nicht bestimmen.'],
+                  'Am Rand zählt nur a · x⁴ (gerader Grad). Beide Enden unten heißt: Leitkoeffizient negativ, also a < 0. x³ spielt am Rand keine Rolle.',
+                  'Welches Glied bestimmt das Verhalten am Rand?'))
+    # symmetrie: Stufe 2 wiederholte Stufe 1 (Symmetrie am Term erkennen) → Stufe 1; f(−a) aus f(a) ist eine kleine Anwendung → Stufe 2
+    D.stufe(range(90, 96), 1, 'Welche Symmetrie hat')
+    D.stufe(range(96, 102), 2, 'Für f(x) = ')
+    # nullstellen: Berührstelle am Graphen ablesen und „x² ausklammern“ stehen schon auf Stufe 2
+    D.stufe([124, 127], 2, 'f(x) = ')
+    D.stufe([126, 129], 2, 'Bestimme alle Nullstellen')
+    # graph_term: Vielfachheiten mit Vorzeichen ablesen (ohne y-Achsenabschnitt) = Stufe-2-Gedanke
+    D.stufe([152, 155, 156, 157], 2, 'Welcher Funktionsterm gehört')
+    # term_bestimmen: a über einen anderen Punkt statt f(0) = gleiche Rechnung wie Stufe 2
+    D.stufe([180, 181, 183, 184, 185], 2, 'Der Graph einer Funktion 3. Grades')
+    D.stufe(182, 2, 'Der gezeichnete Graph hat die einfachen Nullstellen −1, 1, 2')
+    D.fuer_sebastian('funktionen.ganzrational/nullstellen: zwei Stufe-3-Übungen (x⁴ − 29x² + 100, x⁴ − 17x² − 200) brauchen die Substitution. Sie wird erst in '
+                     'gleichungen.polynom/substitution erklärt, das in der Reihenfolge danach kommt (beides LehrplanPLUS M10 4). Reihenfolge tauschen oder die Übungen dort führen?')
+    D.anwenden()
+
+
+if __name__ == '__main__':
+    durchsicht()  # Neunzehnte Runde (durchsicht-kl10) – ganz am Ende

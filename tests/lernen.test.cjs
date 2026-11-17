@@ -815,7 +815,8 @@ test('N1 und N8: Kerze (Kl. 8) – keine zwei gleichen Bilder, neue Punkte kräf
   assert.equal(await graph.evaluate((x) => getComputedStyle(x).opacity), '1');
   assert.equal(await graph.evaluate((x) => getComputedStyle(x).stroke), 'rgb(154, 163, 178)');
   const dreieck = await page.locator('.lr-sogehts line.hilfslinie.neu').first().evaluate((l) => Number(l.getAttribute('x2')) - Number(l.getAttribute('x1')));
-  assert.ok(dreieck > 15 && dreieck < 22, 'eine Einheit breit (≈ 17,6 px): ' + dreieck);
+  // Siebzehnte Runde: Das Dreieck steht im Inhalt jetzt 2 Einheiten breit (Text: „In 2 Stunden … 3 cm“); die App zeichnet es so, wie es im Inhalt steht.
+  assert.ok(dreieck > 30 && dreieck < 44, 'zwei Einheiten breit wie im Inhalt (≈ 35 px): ' + dreieck);
   assert.equal(await page.evaluate(() => typeof lernDreieckGross), 'undefined');
   for (const li of await page.locator('.lr-sogehts li.mit-bild').all()) {
     const b = await li.locator('.lr-bild').boundingBox(), x = await li.locator('.lr-schritt-text').boundingBox();

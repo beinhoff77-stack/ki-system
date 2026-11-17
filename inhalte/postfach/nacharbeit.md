@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 01:51 – STATUS
+inhalte/README.md: Abschnitt „Vertiefung“ ergänzt (lernziele_pflicht/lernziele_vertiefung; nicht testrelevant, zählt nicht für den Stempel).
+
 ## 2026-11-17 01:50 – STATUS
 funktionen.grundbegriffe fertig: offen-Eintrag „Kreis kann die App nicht zeichnen“ berichtigt (Kreis zeichenbar; Kreis-Gegenbeispiel als mögliche Ergänzung offen). Sonst nichts geändert; inhalt_pruefen OK, Nachweis OK (nur „offen“).
 

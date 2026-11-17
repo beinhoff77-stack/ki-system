@@ -85,6 +85,15 @@ Die App kann bisher nur Zahlenstrahl und Stellenwerttafel zeichnen. Für Geometr
 - Mindestens eine Lernkarte je Thema prüft **Verstehen** (begründen, Fehler finden, Aussage beurteilen) statt nur Rechnen.
 - Sachaufgaben mit realistischen Zahlen; keine Namen realer Personen.
 
+## Vertiefung
+
+`inhalt.bewertung` teilt die Lernkarten eines Themas auf: `lernziele_pflicht` (Grundstoff) und `lernziele_vertiefung` (Zusatzstoff, z. B. Vorgriff auf eine höhere Klasse).
+Zusammen enthalten beide Listen jede Lernkarte genau einmal.
+
+- Vertiefung heißt: nicht testrelevant und zählt nicht für den Stempel. Das Kind kann die Etappe trotzdem lernen und üben.
+- In den Generatoren meist über den Parameter `vertiefung=(…)` gesetzt (Beispiel: geometrie.winkel, Lernkarte kreuzung).
+- Wer eine Lernkarte zur Vertiefung macht, begründet das unter `offen` oder im Postfach; Aufgaben und Lernkarten-Texte bleiben dabei unverändert.
+
 ## Erfahrungen aus der ersten Runde (bitte beachten)
 
 - **Brüche, Zahlenpaare, Punkte als Antwort**: als `luecken` mit Schablone `□/□`, `x = □; y = □`, `S(□ | □)` – die App zeigt je Lücke ein Zahlenfeld (negative ganze Zahlen sind erlaubt). Nicht mehr auf Auswahl ausweichen.

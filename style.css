@@ -4002,3 +4002,60 @@ details.lr-woerter > summary::-webkit-details-marker { display: none; }
 .lr-kontinent-kopf .lr-ueber { margin: 0; }
 /* A2/N1: geänderte Zelle in Tabelle und Stellentafel */
 .lr-tafel .neu, .lr-stellentafel td.neu { background: var(--lr-neu-bg, #FFF1C2); color: #11161D; font-weight: 800; box-shadow: inset 0 0 0 2px var(--lr-neu, var(--lr-akzent, #B45309)); }
+
+/* E-2: Startseite je Kind ein Bereich */
+.lern-kindbereiche { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); margin-bottom: 18px; }
+.lern-kindbereich { display: flex; flex-direction: column; gap: 8px; }
+.lern-kindbereich p { margin: 0; }
+.lern-kindbereich-kopf { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.lern-kindbereich-kopf h3 { margin: 0; }
+.lern-mini-linien { display: grid; gap: 4px; }
+.lern-mini-linie { display: grid; grid-template-columns: 4.6em 1fr 3.4em; align-items: center; gap: 8px; font-size: 13px; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.lern-mini-linie.eigen { color: var(--text); font-weight: 700; }
+.lern-mini-balken { height: 8px; border-radius: 99px; background: var(--border, #ddd); overflow: hidden; }
+.lern-mini-balken i { display: block; height: 100%; background: var(--accent); border-radius: 99px; }
+.lern-mini-zahl { text-align: right; }
+.lern-kindbereich-knoepfe { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.lern-kindbereich-knoepfe .btn { min-height: 44px; display: inline-flex; align-items: center; padding: 0 14px; border-radius: 10px; border: 1px solid var(--border, #ccc); background: var(--surface, #fff); color: var(--text); font-weight: 700; text-decoration: none; }
+.lern-kindbereich-knoepfe .btn:hover { background: var(--info-bg); }
+
+/* E-2: Flugplan – Kopfzeile mit Rückgängig, zwei Spalten, kompakte Zeilen zum Ziehen */
+.lern-plan-kopf { position: sticky; top: 0; z-index: 4; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; padding: 8px 12px; margin: 0 0 8px;
+  border-radius: 14px; background: var(--surface, #fff); border: 1px solid var(--border, #ddd); box-shadow: 0 4px 14px rgba(0, 0, 0, .06); }
+.lern-plan-kopf-text { flex: 1 1 12em; display: flex; flex-direction: column; }
+.lern-plan-stand { font-size: 13px; color: var(--text-muted); }
+.lern-plan-kopf .lern-plan-rueck { min-height: 44px; padding: 0 14px; border-radius: 10px; border: 1px solid var(--border, #ccc); background: transparent; color: var(--text); font-weight: 700; cursor: pointer; }
+.lern-plan-kopf .lern-plan-rueck:disabled { opacity: .45; cursor: default; }
+.lern-plan-meldung { flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 10px; background: var(--warn-bg, #fff4e5); }
+.lern-plan-meldung[hidden] { display: none; }
+.lern-plan-hilfe { margin: 0 0 10px; }
+.lern-plan-spalten { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; align-items: start; margin-bottom: 14px; }
+@media (min-width: 1000px) { .lern-plan-spalten { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); } .lern-plan-lehrplan { position: sticky; top: 84px; max-height: calc(100vh - 100px); overflow: auto; } }
+.lern-plan-kompakt { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.lern-plan-kompakt .lern-plan-zeile { display: grid; grid-template-columns: 36px 26px minmax(0, 1fr) auto; grid-template-areas: "griff nr ort pfeile" "detail detail detail detail";
+  align-items: center; gap: 0 6px; padding: 4px 6px; min-height: 56px; border-radius: 12px; background: var(--surface, #fff); border: 1px solid var(--border, #ddd); transition: transform .12s ease; }
+.lern-plan-kompakt.beim-ziehen .lern-plan-zeile { transition: transform .12s ease; }
+.lern-plan-kompakt .lern-plan-zeile.zieht { transition: none; z-index: 5; position: relative; box-shadow: 0 10px 24px rgba(0, 0, 0, .18); }
+.lern-plan-kompakt .lern-plan-zeile.fertig { border-left: 4px solid var(--ok, #2e7d32); }
+.lern-plan-griff { grid-area: griff; display: inline-grid; place-items: center; width: 36px; height: 44px; cursor: grab; touch-action: none; user-select: none; font-size: 20px; color: var(--text-muted); border-radius: 8px; }
+.lern-plan-griff:hover { background: var(--info-bg); }
+.lern-plan-kompakt .lern-plan-nr { grid-area: nr; font-weight: 800; color: var(--text-muted); text-align: right; }
+.lern-plan-ort { all: unset; grid-area: ort; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: column; min-width: 0; min-height: 44px; justify-content: center; }
+.lern-plan-ort b { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lern-plan-ort small { color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lern-plan-ort:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+.lern-plan-pfeile { grid-area: pfeile; display: flex; gap: 2px; }
+.lern-plan-pfeile .iconbtn { width: 40px; height: 44px; }
+.lern-plan-detail { grid-area: detail; padding: 6px 4px 6px 42px; display: flex; flex-direction: column; gap: 8px; }
+.lern-plan-im input { width: 22px; height: 22px; }
+.lern-plan-aus { opacity: .55; }
+.lern-plan-kompakt.ziel { outline: 3px dashed var(--accent); outline-offset: 4px; border-radius: 12px; }
+.lern-plan-vorrat { display: flex; flex-direction: column; gap: 4px; margin: 8px 0; }
+.lern-plan-vorrat-zeile > * { grid-area: auto; }
+.lern-plan-vorrat-zeile { display: grid; grid-template-columns: 36px minmax(0, 1fr) auto; align-items: center; gap: 6px; min-height: 52px; padding: 2px 4px; border-bottom: 1px solid var(--border, #eee); }
+.lern-plan-vorrat-zeile .lern-chip { min-width: 44px; min-height: 44px; font-size: 20px; }
+.lern-plan-lehrplan input[type=search] { width: 100%; margin-top: 8px; }
+.lern-plan-geist { position: fixed; left: 0; top: 0; z-index: 50; pointer-events: none; padding: 8px 12px; border-radius: 10px; background: var(--surface, #fff); border: 2px solid var(--accent); box-shadow: 0 10px 24px rgba(0, 0, 0, .2); font-weight: 700; }
+.lern-auftrag-bezug { margin: 0; }
+.lern-chip-leise { font-weight: 500; }
+.lern-chips-zeile { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }

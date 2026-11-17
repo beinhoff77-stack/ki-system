@@ -30,7 +30,7 @@ def vorlage(a):
     """Bauplan, bei dem auch Terme/Gleichungen zusammengefasst sind – erkennt „dieselbe Vorlage“."""
     out = []
     for tok in bauplan(a).split():
-        e = bool(re.search(r'[#=□]', tok)) or bool(re.fullmatch(r'[xyab()\[\]+−\-·:<>≤≥|²³/.,;∞]+', tok))
+        e = bool(re.search(r'[#=□]', tok)) or bool(re.fullmatch(r'[xyab()\[\]+−\-·:<>≤≥|²³/.,;∞]+|\(?[A-Za-zρΩπ][²³]?\)?[.,;:?]?', tok))
         tok = 'E' if e else tok
         if not (tok == 'E' and out and out[-1] == 'E'): out.append(tok)
     return ' '.join(out)

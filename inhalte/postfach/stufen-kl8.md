@@ -5,3 +5,4 @@ Annahme zu „überzählig“: Überzählige Übungen bleiben in der Datei (Stuf
 - gleichungen.ungleichungen: 38 neue Übungen, 14 Knobel-Bordkarten, 13 umgestuft, 31 überzählig. `inhalt_pruefen` OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
 - zahlen.intervalle: 25 neue Übungen, 8 Knobel-Bordkarten, 23 umgestuft, 27 überzählig. `inhalt_pruefen` OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
 - terme.bruchterme: 39 neue Übungen, 14 Knobel-Bordkarten, 19 umgestuft, 48 überzählig. `inhalt_pruefen` OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
+- gleichungen.formeln: 23 neue Übungen, 10 Knobel-Bordkarten, 11 umgestuft, 24 überzählig. `inhalt_pruefen` OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.

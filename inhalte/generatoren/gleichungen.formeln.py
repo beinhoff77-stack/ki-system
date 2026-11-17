@@ -672,6 +672,132 @@ DSX.stufen('geometrie', 'S1 Höhe aus A = g · h; S2 Dreieck, Prisma, Quader, Um
 baue = mit_durchsicht(baue, DSX)
 # ---- DURCHSICHT ENDE ----
 
+# ---- STUFEN (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, siehe _stufen_kl8.py) ----
+from _stufen_kl8 import Stufen, mit_stufen  # noqa: E402
+
+ST = Stufen('gleichungen.formeln', 20_8_4)
+SA, SZ, SL = ST.A, ST.Z, ST.L
+def T(lz, *regeln):
+    for m, g in regeln: ST.typ(lz, m, g)
+
+# --- ein_schritt ---
+ST.leiter('ein_schritt', 'eine Formel mit einer Rechenart nach einer Größe umstellen, nach einer Größe aufgelöste Formel erkennen',
+          'Umstellen am Zahlenbeispiel nachmachen, umstellen und einsetzen, Sachformel aus der Physik verwenden',
+          'Proben deuten, Veränderungen (verdoppeln, dritteln) begründen, Kehrwertformeln, abschätzen wie in einer Prüfung')
+T('ein_schritt', (r'^Stelle', 'direkt'), (r'^Aus \d', 'darstellung'), (r'Welche Probe', 'fehler'), (r'^Es gilt v = s : t\. Berechne', 'mehrschritt'),
+  (r'^Für einen elektrischen', 'einkleidung'), (r'^Für Linsen|Würfel sind gleich schwer', 'transfer'), (r'verdoppelt|verdreifacht', 'begruenden'),
+  (r'Wasserkocher', 'pruefung'))
+ST.neu('ein_schritt', 'erkennen', SA('Welche Formel ist nach t aufgelöst?', 't = s : v', ['v = s : t', 's = v · t', 't · v = s'],
+    'Aufgelöst heißt: t steht allein auf einer Seite, nur in t = s : v.', 'Steht die gesuchte Größe allein?'))
+ST.knobel('ein_schritt', SZ('In v = s : t wird die Strecke s um 20 % größer und die Zeit t um 20 % kleiner. Um wie viel Prozent ändert sich v?', 50, '(12/10) / (8/10) * 100 - 100',
+    'Neues v = (1,2 · s) : (0,8 · t) = (1,2 : 0,8) · s : t = 1,5 · v. Die Geschwindigkeit wird also um 50 % größer – nicht um 40 %.',
+    'Schreibe das neue s und das neue t mit Faktoren und setze ein.'))
+ST.knobel('ein_schritt', SZ('Für drei positive Größen gilt x = y : z und zugleich y = z : x. Welchen Wert hat x?', 1, '1',
+    'Setzt man y = z : x in die erste Formel ein: x = (z : x) : z = 1 : x. Also x · x = 1 und, weil x positiv ist, x = 1.',
+    'Setze die zweite Formel in die erste ein.'))
+
+# --- zwei_schritte ---
+ST.leiter('zwei_schritte', 'Formeln mit zwei Rechenschritten (Strich und Punkt) umstellen',
+          'Klammern, Brüche in Formeln, Sachformeln (Mittelwert, Fahrenheit) rückwärts nutzen',
+          'Trapezformel verknüpfen, Formel zur Umstellung finden, Parameter auf beiden Seiten, Klammerfehler deuten, Prüfungsaufgabe mit Kosten')
+T('zwei_schritte', (r'^Stelle K = G \+ n · p|^Stelle y = m · x \+ t nach t|^Stelle A = g · h : 2', 'direkt'), (r'Mittelwert|Fahrenheit', 'einkleidung'),
+  (r'^Es gilt y = m · x \+ t mit', 'umkehr'), (r'Trapez', 'verknuepfen'), (r'Bremsweg', 'transfer'), (r'^Welche Formel ergibt', 'rueckwaerts'),
+  (r'a · x \+ b = c · x', 'parameter'), (r'^Stelle', 'mehrschritt'))
+ST.neu('zwei_schritte', 'erkennen', SA('Welcher erste Schritt ist geschickt, um y = m · x + t nach x umzustellen?', 't auf beiden Seiten abziehen', ['mit x multiplizieren', 'm auf beiden Seiten abziehen', 'durch t teilen'],
+    'Zuerst den Summanden t wegschaffen: y − t = m · x. Danach durch m teilen.', 'Was steht „am weitesten außen“ bei x?'))
+ST.neu('zwei_schritte', 'fehler', SA('Jemand stellt K = G + n · p nach n um und schreibt n = K − G : p. Was stimmt?', 'Falsch: Es fehlt eine Klammer, richtig ist n = (K − G) : p.',
+    ['Richtig.', 'Falsch: richtig ist n = (K + G) : p.', 'Falsch: richtig ist n = p : (K − G).'],
+    'Ohne Klammer wird nur G durch p geteilt (Punkt vor Strich). Geteilt werden muss aber die ganze Differenz K − G.', 'Was wird bei K − G : p zuerst gerechnet?'))
+ST.neu('zwei_schritte', 'begruenden', SA('Kann man u = 2 · (a + b) nach a umstellen, ohne die Klammer aufzulösen?', 'Ja: erst durch 2 teilen (u : 2 = a + b), dann b abziehen.',
+    ['Nein, die Klammer muss immer zuerst aufgelöst werden.', 'Ja: erst b abziehen, dann durch 2 teilen.', 'Nein, a steht in einer Klammer und ist nicht erreichbar.'],
+    'Die ganze Klammer ist ein Faktor. Teilt man durch 2, steht a + b allein; dann a = u : 2 − b. Erst b abzuziehen wäre falsch, weil b noch mit 2 multipliziert wird.', 'Was ist die letzte Rechnung auf der rechten Seite?'))
+ST.neu('zwei_schritte', 'pruefung', SZ('Ein Handwerker berechnet die Kosten mit K = 40 + 35 · n (n Arbeitsstunden, K in €). Die Rechnung beträgt 197,50 €. Stelle nach n um und berechne n.', 4.5, '(1975/10 - 40) / 35',
+    'n = (K − 40) : 35 = (197,50 − 40) : 35 = 157,50 : 35 = 4,5 Stunden.', 'Zuerst die Anfahrt 40 € abziehen, dann durch den Stundenpreis teilen.', einheit='h'))
+ST.knobel('zwei_schritte', SZ('Es gilt F = 1,8 · C + 32. Um wie viel Grad Fahrenheit steigt die Anzeige, wenn es 5 °C wärmer wird – egal bei welcher Ausgangstemperatur?', 9, '18 * 5 / 10',
+    'Aus C wird C + 5: F_neu = 1,8 · (C + 5) + 32 = 1,8 · C + 32 + 9 = F + 9. Die 32 spielt für den Unterschied keine Rolle.', 'Vergleiche die Formel für C und für C + 5.'))
+ST.knobel('zwei_schritte', SA('Taxi A kostet K = 3,5 + 2 · s, Taxi B kostet K = 2 · (s + 2) (s in km, K in €). Ab wie vielen Kilometern ist B billiger?', 'Nie: B kostet immer 0,50 € mehr.',
+    ['Ab 2 km.', 'Ab 4 km.', 'Ab 0 km, B ist immer billiger.'],
+    'B: 2 · (s + 2) = 2s + 4. A: 2s + 3,5. Der Preis je km ist gleich, B hat 0,50 € mehr Grundpreis – B ist nie billiger.', 'Löse die Klammer bei B auf und vergleiche.'))
+
+# --- pruefen ---
+ST.leiter('pruefen', 'eine einfache Umstellung prüfen bzw. selbst ausführen',
+          'zweischrittige Umstellungen prüfen, Sachformel prüfen, Ausgangsformel zu einer Umstellung finden',
+          'Fehler mit Probezahlen aufdecken, wann eine Probe versagt, Prozentformel verknüpfen, Parameter (m ≠ 0), rückwärts, Prüfungsaufgabe')
+T('pruefen', (r'^Jemand stellt 1/f', 'fehler'), (r'^Lea', 'fehler'), (r'^Ist h = |Probezahl', 'begruenden'), (r'^Jemand stellt \S+ = \S+ [·:] \S+ nach', 'erkennen'),
+  (r'^Jemand stellt', 'mehrschritt'))
+ST.neu('pruefen', 'direkt', SA('Stelle F = m · a nach a um.', 'a = F : m', ['a = F · m', 'a = m : F', 'a = F − m'], 'Durch m teilen: F : m = a.', 'Welche Rechnung macht „· m“ rückgängig?'))
+ST.neu('pruefen', 'einkleidung', SA('Für eine Taxifahrt gilt K = 4 + 2 · s (K in €, s in km). Jemand will s aus K berechnen und schreibt s = K : 2 − 4. Stimmt das?', 'Nein: richtig ist s = (K − 4) : 2.',
+    ['Ja.', 'Nein: richtig ist s = 2 · K − 4.', 'Nein: richtig ist s = K − 4 · 2.'], 'Probe mit s = 3: K = 10. Die Formel s = K : 2 − 4 liefert 1 statt 3. Richtig: erst 4 abziehen, dann durch 2 teilen.', 'Mach eine Probe mit einer einfachen Strecke.'))
+ST.neu('pruefen', 'umkehr', SA('Welche Ausgangsformel passt zur Umstellung b = 2 · A : h − a?', 'A = (a + b) · h : 2', ['A = a · b : 2', 'A = (a − b) · h : 2', 'A = 2 · (a + b) · h'],
+    'Aus A = (a + b) · h : 2 folgt 2A = (a + b) · h, dann 2A : h = a + b und b = 2A : h − a.', 'Stelle jede Formel nach b um.'))
+ST.neu('pruefen', 'darstellung', SA('Eine Wertetabelle zu s = v · t enthält die Zeile v = 4, t = 3, s = 12. Jemand stellt nach t um und schreibt t = v : s. Was zeigt die Zeile?', 'Die Umstellung ist falsch: v : s = 4 : 12 ≈ 0,33, nicht 3.',
+    ['Die Umstellung ist richtig: 12 : 4 = 3.', 'Die Zeile passt nicht zur Formel.', 'Man kann mit einer Zeile nichts prüfen.'],
+    'Setzt man die Tabellenwerte in t = v : s ein, kommt 1/3 statt 3 heraus. Richtig ist t = s : v = 12 : 4 = 3.', 'Setze die Werte der Zeile in die umgestellte Formel ein.'))
+ST.neu('pruefen', 'verknuepfen', SA('Die Formel W = G · p : 100 wird nach p umgestellt: p = 100 · W : G. Stimmt das, und welches p ergibt sich für W = 18 und G = 240?', 'Ja; p = 7,5',
+    ['Ja; p = 0,075', 'Nein, p = W : (100 · G); p = 0,00075', 'Nein, p = G : W · 100; p = 1 333'],
+    'Mal 100, dann durch G: p = 100 · W : G. Mit den Zahlen: 1 800 : 240 = 7,5 (Prozent).', 'Prüfe mit der Probe: 240 · 7,5 : 100 = ?'))
+ST.neu('pruefen', 'parameter', SA('Für welche Werte von m ist die Umstellung x = (y − t) : m von y = m · x + t erlaubt?', 'für alle m ≠ 0', ['für alle m', 'nur für m > 0', 'nur für m = 1'],
+    'Durch 0 darf man nicht teilen. Für m = 0 ist y = t, und x lässt sich gar nicht bestimmen.', 'Durch welche Zahl darf man nie teilen?'))
+ST.neu('pruefen', 'rueckwaerts', SA('Eine Formel wurde nach a umgestellt und lautet jetzt a = (s − b) : 3. Wie hieß sie vorher, nach s aufgelöst?', 's = 3 · a + b', ['s = 3 · (a + b)', 's = a : 3 + b', 's = 3 · a − b'],
+    'Rückwärts: mal 3 ergibt 3a = s − b, dann b addieren: s = 3a + b.', 'Mache die Schritte rückgängig: erst · 3, dann + b.'))
+ST.neu('pruefen', 'pruefung', SZ('Die Druckkosten eines Plakats sind K = 15 + 0,8 · A (A Fläche in m², K in €). Für 63 € wurde gedruckt. Stelle nach A um und berechne die Fläche.', 60, '(63 - 15) / (8/10)',
+    'A = (K − 15) : 0,8 = 48 : 0,8 = 60 m².', 'Erst den Festbetrag abziehen, dann durch den Preis je m² teilen.', einheit='m²'))
+ST.knobel('pruefen', SZ('Bei welcher Temperatur in °C ist die Fahrenheit-Zahl doppelt so groß wie die Celsius-Zahl? (F = 1,8 · C + 32)', 160, '32 / (2 - 18/10)',
+    'Gesucht ist C mit F = 2 · C: 2C = 1,8C + 32 ⇒ 0,2C = 32 ⇒ C = 160. Probe: 1,8 · 160 + 32 = 320 = 2 · 160.',
+    'Setze F = 2 · C in die Formel ein.'))
+ST.knobel('pruefen', SA('Zwei Schüler stellen A = (a + c) · h : 2 nach c um. Der eine schreibt c = 2A : h − a, der andere c = (2A − a · h) : h. Was stimmt?', 'Beide sind richtig – es ist derselbe Term.',
+    ['Nur der erste ist richtig.', 'Nur der zweite ist richtig.', 'Beide sind falsch.'],
+    '(2A − a · h) : h = 2A : h − a · h : h = 2A : h − a. Beide Ausdrücke sind gleich. Probe mit A = 10, a = 2, h = 2: 10 − 2 = 8 und (20 − 4) : 2 = 8.',
+    'Teile im zweiten Term jeden Summanden durch h.'))
+
+# --- einsetzen ---
+ST.leiter('einsetzen', 'die passende Formel wählen und Werte einsetzen',
+          'erst umstellen, dann einsetzen; Einheiten umrechnen (dm³, Minuten); Tarifformeln',
+          'Einheiten verknüpfen, Fehler bei vertauschten Größen, Dichte begründen, rückwärts zur Dichte, Durchschnittsgeschwindigkeit wie in einer Prüfung')
+T('einsetzen', (r'^Ein Fahrzeug|^Glas hat|^Eisen hat', 'direkt'), (r'Tarif', 'einkleidung'), (r'Widerstand|Gold|Lampe', 'umkehr'),
+  (r'dm³|Zug fährt', 'mehrschritt'), (r'Regentonne|Läuferin', 'verknuepfen'), (r'Linsen|dieselbe Zahl', 'transfer'))
+ST.neu('einsetzen', 'erkennen', SA('Welche Formel braucht man für die Frage „Wie lange dauert die Fahrt?“', 't = s : v', ['v = s : t', 's = v · t', 't = v : s'],
+    'Gesucht ist die Zeit t, also die nach t aufgelöste Formel t = s : v.', 'Welche Größe ist gesucht?'))
+ST.neu('einsetzen', 'fehler', SA('Für 120 km bei 80 km/h rechnet jemand t = v : s = 80 : 120 ≈ 0,67 h. Was stimmt?', 'Falsch: t = s : v = 120 : 80 = 1,5 h.',
+    ['Richtig.', 'Falsch: t = s · v = 9 600 h.', 'Falsch: t = 120 − 80 = 40 h.'], 'Bei 80 km pro Stunde braucht man für 120 km mehr als eine Stunde – 0,67 h kann nicht stimmen. Richtig: 120 : 80 = 1,5 h.', 'Überschlage: Wie weit kommt man in einer Stunde?'))
+ST.neu('einsetzen', 'begruenden', SA('Ein Holzwürfel und ein Eisenwürfel haben dasselbe Volumen. Was folgt aus m = ρ · V?', 'Der Eisenwürfel ist schwerer, weil Eisen die größere Dichte hat.',
+    ['Beide sind gleich schwer, weil das Volumen gleich ist.', 'Der Holzwürfel ist schwerer.', 'Man kann es ohne Volumenangabe nicht sagen.'],
+    'Bei gleichem V hängt m nur von ρ ab: größere Dichte, größere Masse.', 'Was ist in m = ρ · V gleich, was verschieden?'))
+ST.neu('einsetzen', 'rueckwaerts', SZ('Ein Metallwürfel mit 2 cm Kantenlänge wiegt 62,4 g. Welche Dichte hat das Metall?', 7.8, '624/10 / 2**3',
+    'V = 2 · 2 · 2 = 8 cm³. ρ = m : V = 62,4 : 8 = 7,8 g/cm³ (z. B. Eisen).', 'Berechne zuerst das Volumen des Würfels.', einheit='g/cm³'))
+ST.neu('einsetzen', 'pruefung', SZ('Ein Auto fährt 1 Stunde mit 60 km/h und danach 2 Stunden mit 90 km/h. Wie groß ist die Durchschnittsgeschwindigkeit für die ganze Fahrt?', 80, '(60 + 2 * 90) / 3',
+    'Strecke: 60 + 180 = 240 km. Zeit: 3 h. v = 240 : 3 = 80 km/h – nicht 75, weil länger mit 90 km/h gefahren wurde.', 'Berechne die Gesamtstrecke und die Gesamtzeit.', einheit='km/h'))
+ST.knobel('einsetzen', SZ('Ein Radfahrer fährt 6 km bergauf mit 12 km/h und dieselben 6 km bergab mit 36 km/h. Wie groß ist seine Durchschnittsgeschwindigkeit insgesamt?', 18, '12 / (6/12 + 6/36)',
+    'Bergauf: 6 : 12 = 0,5 h = 30 min. Bergab: 6 : 36 = 1/6 h = 10 min. Zusammen 12 km in 40 min = 2/3 h. v = 12 : 2/3 = 18 km/h – nicht der Mittelwert 24 km/h.',
+    'Der Mittelwert der Geschwindigkeiten ist eine Falle – rechne mit Strecke und Zeit.', einheit='km/h'))
+ST.knobel('einsetzen', SZ('100 cm³ Wasser (ρ = 1 g/cm³) und 100 cm³ Alkohol (ρ = 0,8 g/cm³) werden gemischt; es entstehen nur 192 cm³. Welche Dichte hat das Gemisch? Runde auf zwei Nachkommastellen.', 0.94, '(100 + 80) / 192',
+    'Massen: 100 g + 80 g = 180 g (Masse geht nicht verloren). Volumen 192 cm³. ρ = 180 : 192 = 0,9375 ≈ 0,94 g/cm³ – mehr als der Mittelwert 0,9, weil das Volumen schrumpft.',
+    'Was bleibt beim Mischen erhalten: das Volumen oder die Masse?', einheit='g/cm³', toleranz=0.01))
+
+# --- geometrie ---
+ST.leiter('geometrie', 'aus Fläche und Grundseite die Höhe (bzw. aus dem Umfang die Seite) berechnen',
+          'Volumenformeln von Quader, Prisma, Pyramide nach der Höhe auflösen, Sachmaße (Liter)',
+          'zwei Bedingungen verknüpfen (doppelt so lang, gleiches Volumen), Halbierungsfehler beim Dreieck, begründen, Term mit Parameter, Zelt wie in einer Prüfung')
+T('geometrie', (r'^Ein Parallelogramm|^Ein Quadrat', 'direkt'), (r'Prisma|Pyramide', 'umkehr'), (r'Aquarium', 'einkleidung'),
+  (r'^Ein Trapez hat A|Würfel', 'verknuepfen'), (r'doppelt so', 'transfer'), (r'Dreieck|Quader|Rechteck', 'mehrschritt'))
+ST.neu('geometrie', 'erkennen', SA('Welche Formel gehört zum Flächeninhalt eines Parallelogramms?', 'A = g · h', ['A = g · h : 2', 'A = (a + c) · h : 2', 'A = 4 · a'],
+    'Ein Parallelogramm lässt sich in ein Rechteck mit derselben Grundseite und Höhe umlegen: A = g · h.', 'Denk an das Umlegen zu einem Rechteck.'))
+ST.neu('geometrie', 'fehler', SA('Ein Dreieck hat A = 24 cm² und g = 8 cm. Jemand rechnet h = A : g = 3 cm. Was stimmt?', 'Falsch: h = 2 · A : g = 6 cm, weil A = g · h : 2.',
+    ['Richtig.', 'Falsch: h = g : A = 1/3 cm.', 'Falsch: h = A − g = 16 cm.'], 'Probe: 8 · 3 : 2 = 12, nicht 24. Mit h = 6: 8 · 6 : 2 = 24.', 'Mach die Probe mit der Dreiecksformel.'))
+ST.neu('geometrie', 'begruenden', SA('Ein Rechteck und ein Parallelogramm haben dieselbe Grundseite und denselben Flächeninhalt. Was gilt für ihre Höhen?', 'Sie sind gleich, denn bei beiden ist h = A : g.',
+    ['Das Parallelogramm ist höher, weil es schief ist.', 'Das Rechteck ist höher.', 'Man kann es nicht sagen.'], 'Beide Flächen berechnet man mit A = g · h. Gleiche A und gleiche g ergeben dieselbe Höhe.', 'Welche Formel gilt für beide Figuren?'))
+ST.neu('geometrie', 'parameter', SA('Ein Quader hat das Volumen V und die Grundfläche 4 cm mal a cm. Welcher Term gibt seine Höhe an?', 'h = V : (4a)', ['h = V − 4a', 'h = 4a : V', 'h = V : 4 + a'],
+    'V = 4 · a · h ⇒ h = V : (4 · a).', 'Stelle V = Länge · Breite · Höhe nach h um.'))
+ST.neu('geometrie', 'pruefung', SZ('Ein Zelt ist ein dreiseitiges Prisma: Die dreieckige Vorderseite ist 2 m breit und 1,5 m hoch, das Zelt ist 3 m lang. Ein zweites Zelt soll dasselbe Volumen haben, ist aber 2,5 m breit und genauso lang. Wie hoch muss es sein?', 1.2, '2 * 15/10 / (25/10)',
+    'Erstes Zelt: V = (2 · 1,5 : 2) · 3 = 4,5 m³. Zweites: (2,5 · h : 2) · 3 = 4,5 ⇒ 2,5 · h = 3 ⇒ h = 1,2 m.', 'Berechne erst das Volumen des ersten Zelts.', einheit='m'))
+ST.knobel('geometrie', SZ('Ein Quader hat drei verschiedene Seitenflächen mit 12 cm², 15 cm² und 20 cm². Wie groß ist sein Volumen?', 60, '3 * 4 * 5',
+    'Mit den Kanten a, b, c: ab = 12, bc = 15, ac = 20. Multipliziert: (abc)² = 12 · 15 · 20 = 3 600, also abc = 60. (Kanten 3, 4 und 5 cm.)',
+    'Multipliziere die drei Flächen miteinander.', einheit='cm³'))
+ST.knobel('geometrie', SZ('Ein Rechteck mit ganzzahligen Seitenlängen hat den Umfang 20 cm. Welchen größten Flächeninhalt kann es haben?', 25, '5 * 5',
+    'a + b = 10. Mögliche Flächen: 1 · 9 = 9, 2 · 8 = 16, 3 · 7 = 21, 4 · 6 = 24, 5 · 5 = 25. Am größten ist das Quadrat.', 'Liste alle Paare von Seitenlängen auf.', einheit='cm²'))
+baue = mit_stufen(baue, ST)
+# ---- STUFEN ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Umstellen', ['ein_schritt', 'zwei_schritte', 'pruefen']), ('Anwenden', ['einsetzen', 'geometrie'])],

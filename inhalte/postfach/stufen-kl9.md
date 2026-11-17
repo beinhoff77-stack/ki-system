@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 14:55 – STATUS
+trigo.pythagoras fertig: 35 neue Übungen, 12 Knobel-Bordkarten, 57 überzählig (ohne Typ; viele gleich gebaute Vorlagen, z. B. 10× Kathete aus Hypotenuse). inhalt_pruefen OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
+
 ## 2026-11-17 14:51 – STATUS
 zahlen.rationale_exponenten fertig: 39 neue Übungen, 12 Knobel-Bordkarten, 37 überzählig (ohne Typ). inhalt_pruefen OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
 

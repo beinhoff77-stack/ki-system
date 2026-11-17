@@ -724,3 +724,182 @@ for _t in ('Wie hoch ist ein gleichseitiges Dreieck mit 14 cm Seitenlänge? Rund
 
 if __name__ == '__main__':
     durchsicht('trigo.pythagoras', DS)
+
+
+# ---- STUFEN (Zwanzigste Runde, Zweig stufen-kl9) ----
+from _stufen_kl9 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('trigo.pythagoras', 20_9_11)
+Z, A, L = ST.Z, ST.A, ST.L
+
+# hypotenuse
+ST.stufenleiter('hypotenuse', 'Aus zwei Katheten die Hypotenuse berechnen.',
+                'Runden, andere Bezeichnungen (α = 90°), Sportplatz-Diagonale, gleich lange Katheten, Umweg vergleichen.',
+                'Ganzzahlige Katheten zu √13 finden, Verhältnis 3 : 4, Zoll umrechnen, Fehler c = 100 cm, Ungleichung begründen, Bedingung für b, mehrteilige Aufgabe.')
+ST.typ('hypotenuse', '/^Ein rechtwinkliges Dreieck hat die Katheten .* (Berechne die Hypotenuse c\\.|Wie lang ist die Hypotenuse\\?)$/', 'direkt')
+ST.typ('hypotenuse', '/auf eine Nachkommastelle\\.$/', 'mehrschritt')
+ST.typ('hypotenuse', '/^Im Dreieck (PQR|ABC ist α)/', 'darstellung')
+ST.typ('hypotenuse', 'Ein rechtwinkliges Dreieck mit ganzzahligen', 'rueckwaerts')
+ST.typ('hypotenuse', 'Ein Fernseher', 'transfer')
+ST.typ('hypotenuse', '/^(In einem rechtwinkligen|Ein Rechteck hat)/', 'verknuepfen')
+ST.neu('hypotenuse', 'erkennen', A('Welche Seite ist im rechtwinkligen Dreieck die Hypotenuse?', 'die Seite gegenüber dem rechten Winkel', ['die kürzeste Seite', 'die Seite am rechten Winkel', 'die waagrechte Seite'],
+       'Die Hypotenuse liegt dem rechten Winkel gegenüber und ist die längste Seite.', 'Wo liegt der rechte Winkel?'))
+ST.neu('hypotenuse', 'einkleidung', Z('Ein Sportplatz ist 100 m lang und 60 m breit. Wie lang ist der Weg quer über die Diagonale? Runde auf eine Nachkommastelle.', 116.6, '116.61903789690601',
+       'd² = 100² + 60² = 13 600, d ≈ 116,6 m.', 'Die Seiten sind die Katheten.', einheit='m', toleranz=0.1))
+ST.neu('hypotenuse', 'umkehr', Z('In einem rechtwinkligen Dreieck sind beide Katheten gleich lang, die Hypotenuse ist 10 cm. Wie lang ist eine Kathete? Runde auf eine Nachkommastelle.', 7.1, '7.0710678118654755',
+       'a² + a² = 100 ⇒ a² = 50 ⇒ a ≈ 7,1 cm.', 'Beide Katheten heißen a.', einheit='cm', toleranz=0.1))
+ST.neu('hypotenuse', 'mehrschritt', Z('Die Katheten sind 5 cm und 12 cm. Um wie viel ist die Hypotenuse kürzer als der Weg über beide Katheten?', 4, '5 + 12 - 13',
+       'c² = 25 + 144 = 169, c = 13 cm. Umweg 5 + 12 = 17 cm, Unterschied 4 cm.', 'Erst c, dann vergleichen.', einheit='cm'))
+ST.neu('hypotenuse', 'fehler', A('Jemand rechnet bei Katheten 6 cm und 8 cm: c² = 36 + 64 = 100, also c = 100 cm. Was stimmt?', 'Falsch: Er hat die Wurzel vergessen; c = 10 cm.', ['Richtig.', 'Falsch: c = 14 cm.', 'Falsch: c = 50 cm.'],
+       '100 ist c², nicht c. √100 = 10 cm. Eine Hypotenuse von 100 cm wäre viel länger als beide Katheten zusammen.', 'Was steht links: c oder c²?'))
+ST.neu('hypotenuse', 'begruenden', A('Stimmt: Die Hypotenuse ist immer kürzer als die beiden Katheten zusammen?', 'Ja: (a + b)² = a² + 2ab + b² ist größer als a² + b² = c².', ['Nein, sie ist gleich lang.', 'Nein, sie ist länger.', 'Nur bei gleich langen Katheten.'],
+       'Der direkte Weg ist kürzer als der Umweg. Rechnerisch: (a + b)² > c², also a + b > c.', 'Vergleiche die Quadrate.'))
+ST.neu('hypotenuse', 'parameter', Z('Eine Kathete ist 8 cm. Für welche kleinste ganze Zahl b (in cm) ist die Hypotenuse ebenfalls eine ganze Zahl?', 6, '6',
+       'b = 6: 64 + 36 = 100, c = 10. Für b = 1 bis 5 ergeben 65, 68, 73, 80, 89 keine Quadratzahl.', 'Probiere b = 1, 2, 3, … und prüfe 64 + b².', einheit='cm'))
+ST.neu('hypotenuse', 'pruefung', L('Ein rechtwinkliges Dreieck hat die Katheten 9 cm und 12 cm. Berechne a) die Hypotenuse, b) den Umfang, c) den Flächeninhalt.', 'a) □ cm; b) □ cm; c) □ cm²', [15, 36, 54],
+       ['15', '9 + 12 + 15', '9 * 12 // 2'], 'a) c² = 81 + 144 = 225, c = 15. b) 9 + 12 + 15 = 36. c) 9 · 12 : 2 = 54.', 'Bei der Fläche: Katheten mal, durch 2.'))
+ST.knobel('hypotenuse', Z('Ein rechtwinkliges Dreieck hat den Umfang 30 cm und die Hypotenuse 13 cm. Wie groß ist sein Flächeninhalt?', 30, '(17 ** 2 - 169) // 4',
+          'a + b = 30 − 13 = 17 und a² + b² = 169. (a + b)² = a² + 2ab + b² ⇒ 289 = 169 + 2ab ⇒ ab = 60. Fläche ab : 2 = 30 cm² (Seiten 5 und 12).',
+          'Quadriere a + b.', einheit='cm²'))
+ST.knobel('hypotenuse', Z('Wie viele rechtwinklige Dreiecke mit ganzzahligen Seiten haben die Hypotenuse 25 cm?', 2, '2',
+          'Gesucht a < b mit a² + b² = 625. Durchprobieren der Quadrate: 7² + 24² = 49 + 576 und 15² + 20² = 225 + 400. Sonst passt nichts. Also 2 Dreiecke.',
+          'Ziehe Quadratzahlen von 625 ab und prüfe, ob wieder eine Quadratzahl übrig bleibt.'))
+
+# kathete
+ST.stufenleiter('kathete', 'Aus Hypotenuse und Kathete die andere Kathete berechnen.',
+                'Dezimalzahlen und Runden, Mast mit Seil, Punkt im Koordinatensystem.',
+                'Fehler „Längen abziehen“ oder „Quadrate addieren“, Tangente, gleichschenklige Fläche, rutschende Leiter, Bedingung für eine ganzzahlige Hypotenuse.')
+ST.typ('kathete', 'Ein rechtwinkliges Dreieck hat die Hypotenuse c =', 'direkt')
+ST.typ('kathete', '/Jemand rechnet/', 'fehler')
+ST.typ('kathete', '/^(Hypotenuse|Ein rechtwinkliges Dreieck hat die Hypotenuse [\\d,]+ m)/', 'mehrschritt')
+ST.typ('kathete', '/^(Ein Punkt P|Ein gleichschenkliges|Eine [\\d,]+ m lange Leiter)/', 'transfer')
+ST.typ('kathete', 'Ein Rechteck hat eine', 'verknuepfen')
+ST.neu('kathete', 'erkennen', A('Hypotenuse 13 cm, eine Kathete 5 cm. Welche Rechnung liefert die andere Kathete?', '√(13² − 5²)', ['√(13² + 5²)', '13 − 5', '(13 + 5) : 2'],
+       'a² = c² − b², also a = √(169 − 25) = 12 cm.', 'Bei einer Kathete wird subtrahiert.'))
+ST.neu('kathete', 'direkt', Z('Die Hypotenuse ist 10 cm, eine Kathete 6 cm. Berechne die andere Kathete.', 8, '(100 - 36) // 8',
+       'a² = 100 − 36 = 64, a = 8 cm.', 'Quadrate abziehen.', einheit='cm'))
+ST.neu('kathete', 'einkleidung', Z('Ein 5 m langes Seil ist von der Spitze eines Masts schräg zum Boden gespannt, 3 m vom Fuß des Masts entfernt. Wie hoch ist der Mast?', 4, '(25 - 9) // 4',
+       'Das Seil ist die Hypotenuse: h² = 25 − 9 = 16, h = 4 m.', 'Welche Seite ist die Hypotenuse?', einheit='m'))
+ST.neu('kathete', 'darstellung', Z('Der Punkt P(x | 6) mit x > 0 ist vom Ursprung 10 Einheiten entfernt. Bestimme x.', 8, '(100 - 36) // 8',
+       'x² + 6² = 10², also x² = 64, x = 8.', 'Abstand vom Ursprung ist die Hypotenuse.'))
+ST.neu('kathete', 'parameter', Z('Eine Kathete ist 20 cm lang. Welche kleinste ganzzahlige Hypotenuse (in cm) passt, wenn auch die andere Kathete ganzzahlig sein soll?', 25, '25',
+       '400 = c² − b² = (c − b)(c + b). Kleinstes c: c − b = 10, c + b = 40, also c = 25, b = 15. Probe: 15² + 20² = 625 = 25².', 'Zerlege 400 in zwei gleich gerade Faktoren.', einheit='cm'))
+ST.knobel('kathete', Z('Eine 5 m lange Leiter steht unten 3 m von der Wand entfernt. Oben rutscht sie 1 m an der Wand hinunter. Um wie viele Meter rutscht der Fuß dabei weiter weg?', 1, '4 - 3',
+          'Vorher: Höhe √(25 − 9) = 4 m. Nachher: Höhe 3 m, Fuß √(25 − 9) = 4 m von der Wand. Der Fuß rutscht 4 − 3 = 1 m weg – die Rollen von 3 und 4 tauschen.',
+          'Berechne Höhe vorher und Fußabstand nachher.', einheit='m'))
+ST.knobel('kathete', Z('Ein Seil ist oben an zwei 10 m hohen Masten befestigt, die 24 m auseinander stehen. In der Mitte hängt es (in zwei geraden Stücken) bis 5 m über dem Boden durch. Wie lang ist das Seil?', 26, '2 * 13',
+          'Jede Hälfte ist Hypotenuse mit den Katheten 12 m (waagrecht) und 10 − 5 = 5 m (senkrecht): √(144 + 25) = 13 m. Zusammen 26 m.',
+          'Zeichne nur eine Hälfte.', einheit='m'))
+
+# umkehrung
+ST.stufenleiter('umkehrung', 'Mit a² + b² = c² für die längste Seite prüfen, ob ein Dreieck rechtwinklig ist.',
+                'Den rechten Winkel benennen, Dezimalzahlen, Ecken in der Werkstatt prüfen, fehlende Seite ergänzen.',
+                'Stumpfe Winkel erkennen, Begründungen beurteilen, Koordinaten, Fehler mit falscher längster Seite, Knotenschnur, ganzzahlige Dreiecke, mehrteilige Aufgabe.')
+ST.typ('umkehrung', '/^(Ein Dreieck hat die Seiten [\\d,]+ cm, [\\d,]+ cm und [\\d,]+ cm\\. Ist es rechtwinklig|Ist ein Dreieck mit)/', 'erkennen')
+ST.typ('umkehrung', '/^(Im Dreieck ABC ist a =|Ist das Dreieck mit)/', 'mehrschritt')
+ST.typ('umkehrung', '/Welcher Winkel liegt der/', 'begruenden')
+ST.typ('umkehrung', 'Gegeben ist das Dreieck', 'verknuepfen')
+ST.typ('umkehrung', 'Ein Dreieck hat die Seiten 15 cm', 'begruenden')
+ST.typ('umkehrung', 'Wie viele rechtwinklige', 'parameter')
+ST.neu('umkehrung', 'direkt', L('Ein Dreieck hat die Seiten 7 cm, 24 cm und 25 cm. Berechne 7² + 24² und 25².', '□ und □', [625, 625], ['7 ** 2 + 24 ** 2', '25 ** 2'],
+       '49 + 576 = 625 und 25² = 625. Gleich, also rechtwinklig.', 'Die längste Seite ist 25 cm.'))
+ST.neu('umkehrung', 'einkleidung', A('Ein Tischler misst an einer Tischecke 60 cm und 80 cm entlang der Kanten und quer 1 m. Ist die Ecke rechtwinklig?', 'Ja, denn 60² + 80² = 100².', ['Nein.', 'Das kann man nur mit dem Geodreieck sehen.', 'Ja, weil 60 + 80 > 100.'],
+       '3 600 + 6 400 = 10 000 = 100². 1 m = 100 cm.', 'Rechne alles in cm.'))
+ST.neu('umkehrung', 'einkleidung', A('Ein Gärtner spannt Seile von 6 m, 8 m und 9,9 m zu einem Dreieck. Entsteht ein rechter Winkel?', 'Nein, 6² + 8² = 100, aber 9,9² = 98,01.', ['Ja.', 'Ja, ungefähr – das reicht.', 'Das hängt vom Boden ab.'],
+       'Rechtwinklig wäre es nur mit 10 m. Bei 9,9 m ist die längste Seite zu kurz: Der Winkel ist spitz.', 'Vergleiche mit 10 m.'))
+ST.neu('umkehrung', 'umkehr', Z('Wie lang muss die dritte Seite sein, damit ein Dreieck mit den Katheten 9 cm und 40 cm rechtwinklig ist?', 41, '41',
+       'c² = 81 + 1 600 = 1 681 = 41².', 'Berechne die Hypotenuse.', einheit='cm'))
+ST.neu('umkehrung', 'darstellung', A('Das Dreieck hat die Ecken A(0 | 0), B(4 | 0) und C(0 | 3). Wo liegt der rechte Winkel?', 'bei A', ['bei B', 'bei C', 'es gibt keinen'],
+       'AB liegt auf der x-Achse, AC auf der y-Achse: Sie stehen senkrecht. Probe: 4² + 3² = 25 = BC².', 'Welche Seiten liegen auf den Achsen?'))
+ST.neu('umkehrung', 'fehler', A('Jemand prüft das Dreieck 5 cm, 12 cm, 13 cm so: 5² + 13² = 194 ≠ 144 = 12². „Nicht rechtwinklig.“ Was stimmt?', 'Falsch: Man muss die längste Seite 13 nehmen: 5² + 12² = 169 = 13².',
+       ['Richtig.', 'Falsch: 12² + 13² = 5² muss gelten.', 'Falsch: Man darf nur ganzzahlige Seiten prüfen.'], 'Die längste Seite ist c. 25 + 144 = 169: rechtwinklig.', 'Welche Seite ist die längste?'))
+ST.neu('umkehrung', 'transfer', A('Mit einer Schnur aus 12 gleich langen Abschnitten (Knotenschnur) soll ein rechter Winkel gelegt werden. Welche Aufteilung der 12 Abschnitte klappt?', '3, 4 und 5', ['4, 4 und 4', '2, 5 und 5', '3, 3 und 6'],
+       '3² + 4² = 25 = 5² und 3 + 4 + 5 = 12. Die anderen sind nicht rechtwinklig (3, 3, 6 ist gar kein Dreieck).', 'Welche Seitenlängen erfüllen den Satz?'))
+ST.neu('umkehrung', 'pruefung', L('Gegeben ist das Dreieck A(1 | 1), B(5 | 1), C(5 | 4). Berechne AB², BC² und AC².', 'AB² = □; BC² = □; AC² = □', [16, 9, 25], ['4 ** 2', '3 ** 2', '4 ** 2 + 3 ** 2'],
+       'AB = 4 (waagrecht), BC = 3 (senkrecht), AC² = 16 + 9 = 25. Wegen 16 + 9 = 25 ist das Dreieck rechtwinklig mit dem rechten Winkel bei B.', 'Nutze Δx und Δy.'))
+ST.knobel('umkehrung', Z('Für welche natürliche Zahl n ist ein Dreieck mit den Seiten n, n + 7 und n + 8 rechtwinklig?', 5, '5',
+          'n² + (n + 7)² = (n + 8)² ⇒ n² + n² + 14n + 49 = n² + 16n + 64 ⇒ n² − 2n − 15 = 0 ⇒ (n − 5)(n + 3) = 0. Also n = 5: das Dreieck 5, 12, 13.',
+          'Die längste Seite ist n + 8.'))
+ST.knobel('umkehrung', A('Sind 2n, n² − 1 und n² + 1 für jede natürliche Zahl n ≥ 2 die Seiten eines rechtwinkligen Dreiecks?', 'Ja, immer.', ['Nur für gerade n.', 'Nur für n = 2.', 'Nein, nie.'],
+          '(2n)² + (n² − 1)² = 4n² + n⁴ − 2n² + 1 = n⁴ + 2n² + 1 = (n² + 1)². Beispiele: n = 2 gibt 4, 3, 5; n = 3 gibt 6, 8, 10; n = 4 gibt 8, 15, 17.',
+          'Rechne (2n)² + (n² − 1)² aus.'))
+
+# koordinaten
+ST.stufenleiter('koordinaten', 'Mit Δx und Δy den Abstand zweier Punkte berechnen.',
+                'Negative Koordinaten, Runden, Entfernungen auf dem Stadtplan, Punkt auf der x-Achse rückwärts.',
+                'Fehlende Koordinate aus dem Abstand, Umfänge, Gitterpunkte auf einem Kreis, Fehler „Koordinaten statt Differenzen“.')
+ST.typ('koordinaten', '/^Berechne den Abstand der Punkte P\\(\\d+ \\| −?\\d+\\) und Q\\(\\d+ \\| \\d+\\)/', 'direkt')
+ST.typ('koordinaten', 'Berechne den Abstand von O(0 | 0)', 'direkt')
+ST.typ('koordinaten', '/^Berechne den Abstand/', 'mehrschritt')
+ST.typ('koordinaten', '/^(Berechne den Umfang|Ein Dreieck hat die Ecken)/', 'transfer')
+ST.typ('koordinaten', '/^(P\\(−3|Der Punkt P\\(2)/', 'rueckwaerts')
+ST.typ('koordinaten', '/^(Welcher Punkt|Wie viele Punkte)/', 'verknuepfen')
+ST.neu('koordinaten', 'erkennen', Z('Wie groß ist Δx zwischen P(2 | 5) und Q(7 | 1)?', 5, '7 - 2',
+       'Δx = 7 − 2 = 5 (waagrechter Unterschied).', 'Nur die x-Koordinaten.'))
+ST.neu('koordinaten', 'erkennen', A('Welche Formel liefert den Abstand von P(x₁ | y₁) und Q(x₂ | y₂)?', '√((x₂ − x₁)² + (y₂ − y₁)²)', ['(x₂ − x₁) + (y₂ − y₁)', '√(x₂² + y₂²)', '(x₂ − x₁)² + (y₂ − y₁)²'],
+       'Δx und Δy sind die Katheten, der Abstand die Hypotenuse: Wurzel aus der Summe der Quadrate.', 'Denk an das Steigungsdreieck.'))
+ST.neu('koordinaten', 'einkleidung', Z('Auf einem Stadtplan (1 Kästchen = 100 m) liegt die Schule bei (2 | 3), das Freibad bei (8 | 11). Wie weit ist es Luftlinie in Metern?', 1000, '10 * 100',
+       'Δx = 6, Δy = 8, d = 10 Kästchen = 1 000 m.', 'Erst in Kästchen, dann in Meter.', einheit='m'))
+ST.neu('koordinaten', 'umkehr', Z('Ein Punkt Q auf der x-Achse ist 13 Einheiten von P(0 | 5) entfernt, und seine x-Koordinate ist positiv. Bestimme sie.', 12, '12',
+       'Q(x | 0): x² + 5² = 13², x² = 144, x = 12.', 'Δy ist 5.'))
+ST.neu('koordinaten', 'fehler', A('Jemand berechnet den Abstand von P(1 | 2) und Q(4 | 6) als √(4² + 6²). Was stimmt?', 'Falsch: Man braucht die Unterschiede 3 und 4; der Abstand ist 5.', ['Richtig.', 'Falsch: √(1² + 2²).', 'Falsch: 4 + 6 = 10.'],
+       'Δx = 4 − 1 = 3, Δy = 6 − 2 = 4, d = √(9 + 16) = 5. √(4² + 6²) wäre der Abstand von Q zum Ursprung.', 'Welche Strecke misst √(4² + 6²)?'))
+ST.knobel('koordinaten', Z('Welcher Punkt auf der y-Achse ist von A(4 | 0) und B(0 | 8) gleich weit entfernt? Gib seine y-Koordinate an.', 3, '(64 - 16) // 16',
+          'P(0 | y). Abstand zu A: √(16 + y²), zu B: |8 − y|. Gleich: 16 + y² = 64 − 16y + y² ⇒ 16y = 48 ⇒ y = 3. Probe: beide Abstände 5.',
+          'Setze die quadrierten Abstände gleich.'))
+ST.knobel('koordinaten', Z('Wie viele Punkte mit ganzzahligen Koordinaten haben vom Ursprung den Abstand √10?', 8, '8',
+          'x² + y² = 10: nur 1 + 9 passt. Also (±1 | ±3) und (±3 | ±1): 4 + 4 = 8 Punkte.', 'Zerlege 10 in zwei Quadratzahlen.'))
+
+# raum
+ST.stufenleiter('raum', 'Raumdiagonale eines Quaders über die Bodendiagonale berechnen.',
+                'Runden beim Würfel, Besenstiel im Karton, fehlende Höhe rückwärts, Diagonalen vergleichen, Dreieck im Würfel erkennen.',
+                'Pyramidenhöhe, Stab in der Kiste, Kantenmodell, kürzester Weg auf der Oberfläche, Becher, Fehler „Kanten addieren“.')
+ST.typ('raum', '/^(Ein Quader hat die Grundfläche|Ein Quader hat die Kanten|Ein Quader ist|Wie lang ist die Raumdiagonale eines Quaders|Wie lang ist die Diagonale einer Würfelfläche)/', 'direkt')
+ST.typ('raum', 'Wie lang ist die Raumdiagonale eines Würfels', 'mehrschritt')
+ST.typ('raum', 'Eine quadratische Pyramide', 'verknuepfen')
+ST.typ('raum', 'Eine Kiste ist innen', 'begruenden')
+ST.typ('raum', '/^(Aus Draht|Eine Ameise|Ein zylinderförmiger)/', 'transfer')
+ST.neu('raum', 'erkennen', A('Welche Strecke ist in einem Quader die längste?', 'die Raumdiagonale', ['die längste Kante', 'die Diagonale der größten Fläche', 'alle sind gleich lang'],
+       'Die Raumdiagonale ist die Hypotenuse eines Dreiecks, dessen Kathete schon eine Flächendiagonale ist.', 'Denk an das Dreieck aus Bodendiagonale und Höhe.'))
+ST.neu('raum', 'einkleidung', A('Ein Umzugskarton ist innen 60 cm × 40 cm × 45 cm groß. Passt ein 80 cm langer Besenstiel hinein?', 'Ja, die Raumdiagonale ist 85 cm.', ['Nein, keine Kante ist 80 cm lang.', 'Nein, die Raumdiagonale ist 72 cm.', 'Nur waagrecht auf dem Boden.'],
+       'd² = 3 600 + 1 600 + 2 025 = 7 225, d = 85 cm > 80 cm.', 'Berechne die Raumdiagonale.'))
+ST.neu('raum', 'umkehr', Z('Ein Quader hat die Grundfläche 4 cm × 3 cm und eine 13 cm lange Raumdiagonale. Wie hoch ist er?', 12, '12',
+       'Bodendiagonale² = 16 + 9 = 25. h² = 169 − 25 = 144, h = 12 cm.', 'Erst die Bodendiagonale.', einheit='cm'))
+ST.neu('raum', 'mehrschritt', Z('Ein Quader ist 3 cm × 4 cm × 12 cm groß. Um wie viel ist die Raumdiagonale länger als die Bodendiagonale (Grundfläche 3 cm × 4 cm)?', 8, '13 - 5',
+       'Bodendiagonale 5 cm, Raumdiagonale √(25 + 144) = 13 cm. Unterschied 8 cm.', 'Rechne beide Diagonalen.', einheit='cm'))
+ST.neu('raum', 'darstellung', A('Im Würfel ABCDEFGH (Grundfläche ABCD, G über C) betrachtet man das Dreieck ACG. Welche Seite ist die Hypotenuse?', 'AG', ['AC', 'CG', 'Es gibt keine.'],
+       'CG steht senkrecht auf der Grundfläche, also ist bei C ein rechter Winkel. Gegenüber liegt AG, die Raumdiagonale.', 'Wo ist der rechte Winkel?'))
+ST.neu('raum', 'fehler', A('Jemand rechnet die Raumdiagonale eines Quaders 2 cm × 3 cm × 6 cm als √(2 + 3 + 6) ≈ 3,3 cm. Was stimmt?', 'Falsch: Die Kanten müssen quadriert werden: √(4 + 9 + 36) = 7 cm.',
+       ['Richtig.', 'Falsch: 2 + 3 + 6 = 11 cm.', 'Falsch: √(2² + 3²) ≈ 3,6 cm.'], 'd = √(a² + b² + c²). Eine Raumdiagonale von 3,3 cm wäre kürzer als die 6-cm-Kante – unmöglich.', 'Vergleiche mit der längsten Kante.'))
+ST.knobel('raum', Z('In einem Zimmer (Boden 3 m × 4 m, 2 m hoch) sitzt eine Spinne in einer Bodenecke. Sie will zur gegenüberliegenden Deckenecke, nur über Boden und Wand. Wie lang ist der kürzeste Weg? Runde auf zwei Nachkommastellen.', 6.4, '6.4031242374328485',
+          'Klappe eine Wand in die Bodenebene. Mögliche Rechtecke: (3 + 2) × 4 ergibt √(25 + 16) ≈ 6,40 m; (4 + 2) × 3 ergibt √45 ≈ 6,71 m; (3 + 4) × 2 ergibt √53 ≈ 7,28 m. Am kürzesten: ≈ 6,40 m.',
+          'Falte den Raum auf. Es gibt mehrere Möglichkeiten.', einheit='m', toleranz=0.01))
+ST.knobel('raum', Z('Die Flächendiagonalen eines Quaders haben die Quadrate 13, 20 und 25 (in cm²). Wie groß ist sein Volumen?', 24, '2 * 3 * 4',
+          'a² + b² = 13, b² + c² = 20, a² + c² = 25. Addieren: 2(a² + b² + c²) = 58, also a² + b² + c² = 29. Daraus c² = 16, a² = 9, b² = 4: a = 3, b = 2, c = 4. V = 24 cm³.',
+          'Addiere alle drei Gleichungen.', einheit='cm³'))
+
+# anwendung
+ST.stufenleiter('anwendung', 'Bei einer Leiter an der Wand die Höhe berechnen.',
+                'Bildschirmdiagonalen, Dreieckshöhen, Rampen, Fläche eines Quadrats aus der Diagonale.',
+                'Abkürzung über den Platz, Fähre, Sehne im Kreis, geknickter Baum, Raute, Fehler bei der Höhe im gleichseitigen Dreieck, mehrteilige Aufgabe.')
+ST.typ('anwendung', '/^Eine [\\d,]+ m lange Leiter (lehnt|steht)/', 'direkt')
+ST.typ('anwendung', '/^(Ein Fernseher|Ein gleichschenkliges|Wie hoch ist ein gleichseitiges)/', 'einkleidung')
+ST.typ('anwendung', 'Eine Rampe', 'mehrschritt')
+ST.typ('anwendung', 'Ein Quadrat hat eine', 'umkehr')
+ST.typ('anwendung', '/^(Ein rechteckiger Platz|Eine Fähre)/', 'transfer')
+ST.typ('anwendung', '/^(In einem Kreis|Ein \\d+ m hoher Baum|Eine Raute)/', 'verknuepfen')
+ST.neu('anwendung', 'erkennen', A('Eine Leiter lehnt an einer senkrechten Wand. Welche Strecke ist die Hypotenuse?', 'die Leiter', ['die Wandhöhe', 'der Abstand des Fußes zur Wand', 'keine'],
+       'Wand und Boden bilden den rechten Winkel. Gegenüber liegt die Leiter.', 'Wo ist der rechte Winkel?'))
+ST.neu('anwendung', 'fehler', A('Jemand berechnet die Höhe eines gleichseitigen Dreiecks mit 10 cm Seite so: h² = 10² − 10² = 0. Was stimmt?', 'Falsch: Die Höhe halbiert die Seite: h² = 10² − 5² = 75, h ≈ 8,66 cm.',
+       ['Richtig, h = 0.', 'Falsch: h = 10 cm.', 'Falsch: h² = 10² + 5².'], 'Im Teildreieck sind Hypotenuse 10 cm und Kathete 5 cm (halbe Seite).', 'Welche Strecke halbiert die Höhe?'))
+ST.neu('anwendung', 'pruefung', L('Ein Zelt hat einen dreieckigen Giebel: unten 2,4 m breit, die beiden schrägen Seiten je 2 m lang. a) Wie hoch ist das Zelt in dm? b) Wie groß ist die Giebelfläche in dm²?', 'a) □ dm; b) □ dm²', [16, 192],
+       ['16', '24 * 16 // 2'], 'a) Halbe Breite 1,2 m: h² = 4 − 1,44 = 2,56, h = 1,6 m = 16 dm. b) 24 · 16 : 2 = 192 dm².', 'Die Höhe teilt den Giebel in zwei rechtwinklige Dreiecke.'))
+ST.knobel('anwendung', Z('Aus einem runden Baumstamm mit 50 cm Durchmesser soll ein Balken mit quadratischem Querschnitt geschnitten werden. Wie lang kann die Seite höchstens sein? Runde auf ganze cm.', 35, '35.35533905932737',
+          'Die Ecken des Quadrats liegen auf dem Kreis, die Diagonale ist der Durchmesser: s² + s² = 50², s² = 1 250, s ≈ 35,4 cm.',
+          'Was ist die Diagonale des größten Quadrats im Kreis?', einheit='cm', toleranz=1))
+ST.knobel('anwendung', Z('Eine Seerose ragt 1 dm aus dem Wasser. Zieht man sie zur Seite, taucht ihre Blüte 4 dm von der ursprünglichen Stelle entfernt unter (der Stängel bleibt gerade). Wie tief ist der Teich?', 7.5, '(16 - 1) / 2',
+          'Tiefe t, Stängel t + 1. Rechtwinkliges Dreieck: t² + 4² = (t + 1)² ⇒ 16 = 2t + 1 ⇒ t = 7,5 dm.',
+          'Der Stängel ist erst senkrecht, dann die Hypotenuse.', einheit='dm'))
+
+if __name__ == '__main__':
+    stufen('trigo.pythagoras', ST)

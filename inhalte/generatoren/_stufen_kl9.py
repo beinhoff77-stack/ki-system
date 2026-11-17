@@ -63,6 +63,7 @@ class Stufen:
 
     def neu(self, lz, g, aufgabe):
         assert g in STUFE_VON, g
+        assert len(aufgabe.get('w', '')) >= 15, ('Lösungsweg zu kurz', aufgabe['f']['text'])
         self.neue.append((lz, g, aufgabe))
 
     def knobel(self, lz, aufgabe):

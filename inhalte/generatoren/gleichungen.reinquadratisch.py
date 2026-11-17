@@ -273,11 +273,129 @@ def g_sachaufgabe(s):
 GEN = {'schaetzen': g_schaetzen, 'grundform': g_grundform, 'umformen': g_umformen, 'gerundet': g_gerundet,
        'klammer': g_klammer, 'sachaufgabe': g_sachaufgabe}
 
+# ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_rest import umbau_schreiben  # noqa: E402
+
+from _umbau_rest import tab  # noqa: E402
+
+
+def _zs(a, b, n, **kw):
+    return {'typ': 'zahlenstrahl', 'start': a, 'ende': b, 'abschnitte': n, 'beschriftet': kw.pop('beschriftet', 'anfang_ende'), **kw}
+
+
+def _pk(*w):
+    return [{'wert': x, 'name': n} for x, n in w]
+
+
+_UF = [['Start', '3x² + 20 = 95'], ['− 20', '3x² = 75'], [': 3', 'x² = 25'], ['Wurzel', 'x = −5 oder x = 5']]
+UMBAU = {
+    'schaetzen': {
+        'einstieg': 'Ein quadratischer Teppich hat 55 m² Fläche. Wie lang ist eine Seite? Gesucht ist die Zahl, '
+                    'die mit sich selbst malgenommen 55 ergibt. Sie heißt ⟦Wurzel⟧ aus 55.',
+        'woerter': [['Wurzel', '√55: die positive Zahl, die mal sich selbst 55 ergibt'],
+                    ['Quadratzahl', 'eine Zahl wie 49 = 7 · 7 oder 64 = 8 · 8']],
+        'bild': _zs(6, 9, 3, beschriftet='alle'),
+        'schritte': [
+            {'text': 'Quadratzahlen in der Nähe: 49 = 7 · 7 und 64 = 8 · 8.'},
+            {'text': '49 < 55 < 64, also ⟦7 < √55 < 8⟧.', 'bild': {'bereich': {'von': 7, 'bis': 8}}},
+            {'text': '55 liegt näher an 49, also ist √55 näher an 7: etwa 7,4.', 'bild': {'punkte': _pk((7.42, '√55'))}},
+        ],
+        'fehler': '√55 ≈ 27,5 ist falsch, die Wurzel ist ⟦nicht die Hälfte⟧. 27,5 · 27,5 wäre viel mehr als 55.',
+        'regel': 'Wurzel einschätzen: Quadratzahlen links und rechts suchen. Aus ⟦49 < 55 < 64⟧ folgt 7 < √55 < 8.',
+    },
+    'grundform': {
+        'einstieg': 'Eine quadratische Fliese hat 81 cm². Rechnerisch passen zwei Zahlen: 9 · 9 = 81 und (−9) · (−9) = 81. '
+                    'Die Gleichung x² = 81 hat deshalb ⟦zwei Lösungen⟧.',
+        'woerter': [['x₁ und x₂', 'erste und zweite Lösung; die kleine Zahl ist nur eine Nummer'],
+                    ['Lösungsmenge L', 'alle Lösungen in einer Mengenklammer, z. B. L = {−9; 9}']],
+        'bild': _zs(-10, 10, 20),
+        'schritte': [
+            {'text': '9² = 81 und auch (−9)² = 81.'},
+            {'text': 'Die Lösungen heißen x₁ und x₂: ⟦x₁ = −9; x₂ = 9⟧.',
+             'bild': {'punkte': _pk((-9, 'x₁'), (9, 'x₂')), 'boegen': [{'von': 0, 'bis': -9, 'name': '9'}, {'von': 0, 'bis': 9, 'name': '9'}]}},
+            {'text': 'Lösungsmenge L = {−9; 9}.'},
+            {'text': 'x² = 0: nur x = 0. x² = −4: ⟦keine Lösung⟧.', 'bild': {'punkte': _pk((0, 'x² = 0')), 'boegen': None}},
+        ],
+        'fehler': 'x² = 81, also x = 9, ist ⟦unvollständig⟧. Auch (−9)² = 81, die negative Lösung darf nicht fehlen.',
+        'fehler_bild': {'punkte': _pk((-9, 'fehlt'), (9, 'x = 9')), 'boegen': None},
+        'regel': 'Für a > 0 hat x² = a ⟦zwei Lösungen⟧. Sie heißen −√a und √a, für a < 0 gibt es keine.',
+    },
+    'umformen': {
+        'einstieg': 'Drei gleiche quadratische Fliesen und ein Reststück von 20 cm² bedecken zusammen 95 cm². '
+                    'Wie lang ist eine Fliese? Erst x² allein stellen, dann die ⟦Wurzel ziehen⟧.',
+        'woerter': [['x² allein', 'auf einer Seite steht nur noch x², sonst nichts'],
+                    ['Wurzel ziehen', 'aus x² = 25 wird x = −5 oder x = 5']],
+        'bild': tab(['', 'Gleichung'], _UF[0]),
+        'schritte': [
+            {'text': 'Minus 20 auf beiden Seiten: 3x² = 75.', 'bild': tab(['', 'Gleichung'], *_UF[:2])},
+            {'text': 'Durch 3 teilen: x² = 25. Jetzt steht x² allein.', 'bild': tab(['', 'Gleichung'], *_UF[:3])},
+            {'text': 'Wurzel ziehen: ⟦x₁ = −5; x₂ = 5⟧.', 'bild': tab(['', 'Gleichung'], *_UF)},
+            {'text': 'Eine Fliese ist also 5 cm lang.'},
+        ],
+        'fehler': 'Aus 3x² = 75 nicht sofort die Wurzel ziehen. Erst muss x² ⟦allein⟧ stehen: durch 3 teilen, x² = 25.',
+        'fehler_bild': tab(['', 'Gleichung'], _UF[1], ['falsch', 'x = ±√75'], ['richtig', 'x² = 25']),
+        'regel': 'Erst umformen, bis ⟦x² = Zahl⟧ dasteht. Dann die Wurzel ziehen, mit beiden Vorzeichen.',
+    },
+    'gerundet': {
+        'einstieg': 'Ein quadratisches Beet soll 30 m² groß werden. 30 ist keine Quadratzahl, √30 hat unendlich viele Nachkommastellen. '
+                    'Für den Zollstock reicht ein ⟦gerundeter⟧ Wert.',
+        'woerter': [['irrationale Zahl', 'eine Zahl mit unendlich vielen Nachkommastellen ohne Muster, z. B. √30'],
+                    ['±', 'plus oder minus: ±√30 steht für −√30 und √30']],
+        'bild': _zs(5, 6, 10),
+        'schritte': [
+            {'text': 'x² = 30, also x = ±√30, eine irrationale Zahl.'},
+            {'text': 'Taschenrechner: √30 = 5,4772…', 'bild': {'punkte': _pk((5.4772, '√30'))}},
+            {'text': 'Zwei Dezimalen: Die dritte ist 7, also aufrunden auf 5,48.'},
+            {'text': 'Lösungen: ⟦x₁ ≈ −5,48; x₂ ≈ 5,48⟧.'},
+        ],
+        'fehler': '√30 ≈ 5,47 ist falsch gerundet. Die dritte Dezimale ist 7, also wird ⟦aufgerundet⟧: 5,48.',
+        'fehler_bild': {'start': 5.4, 'ende': 5.5, 'abschnitte': 10, 'punkte': _pk((5.4772, '√30'))},
+        'regel': 'Ist a keine Quadratzahl, gibt es nur gerundete Werte. Exakt schreibst du ⟦±√a⟧.',
+    },
+    'klammer': {
+        'einstieg': 'Eine Spielfigur steht auf Feld 3. Sie zieht so weit, dass das Quadrat der Strecke 16 ist. '
+                    'Die Strecke ist also 4, nach links oder rechts. Das beschreibt ⟦(x − 3)² = 16⟧.',
+        'woerter': [['x − 3', 'wie weit x von Feld 3 entfernt ist (mit Richtung)']],
+        'bild': _zs(-2, 8, 10, beschriftet='alle', punkte=_pk((3, 'Start'))),
+        'schritte': [
+            {'text': 'Wurzel ziehen: x − 3 = −4 oder x − 3 = 4.'},
+            {'text': 'Erste Lösung: x₁ = 3 − 4 = ⟦−1⟧.',
+             'bild': {'punkte': _pk((3, 'Start'), (-1, 'x₁')), 'boegen': [{'von': 3, 'bis': -1, 'name': '4'}]}},
+            {'text': 'Zweite Lösung: x₂ = 3 + 4 = ⟦7⟧.',
+             'bild': {'punkte': _pk((3, 'Start'), (-1, 'x₁'), (7, 'x₂')),
+                      'boegen': [{'von': 3, 'bis': -1, 'name': '4'}, {'von': 3, 'bis': 7, 'name': '4'}]}},
+        ],
+        'fehler': '(x − 3)² ist nicht x² − 9. Ohne binomische Formel lieber direkt die ⟦Wurzel ziehen⟧.',
+        'regel': 'Bei (x − p)² = q direkt die Wurzel ziehen. Dann ist ⟦x = p − √q oder x = p + √q⟧.',
+    },
+    'sachaufgabe': {
+        'einstieg': 'Ein Stein fällt in einen 45 m tiefen Brunnen. Für den Fallweg gilt ungefähr s = 5 · t². '
+                    'Wie lange fällt er? Eine negative Zeit ergibt hier ⟦keinen Sinn⟧.',
+        'woerter': [['Fallweg', 's: wie viele Meter der Stein gefallen ist'],
+                    ['t', 'die Zeit in Sekunden seit dem Loslassen']],
+        'bild': tab(['t in s', '0', '1', '2', '?'], ['s in m', '0', '5', '20', '45']),
+        'schritte': [
+            {'text': '5 · t² = 45, durch 5 teilen: t² = 9.'},
+            {'text': 'Wurzel ziehen: t = −3 oder t = 3.'},
+            {'text': 'Eine Zeit ist nie negativ, also ⟦t = 3⟧: drei Sekunden.',
+             'bild': tab(['t in s', '0', '1', '2', '3'], ['s in m', '0', '5', '20', '45'])},
+        ],
+        'fehler': '„t = −3 s oder t = 3 s“ ist falsch. Eine Zeitdauer ist ⟦positiv⟧, die negative Lösung fällt weg.',
+        'regel': 'Nach dem Quadrat umstellen und die Wurzel ziehen. Im Sachzusammenhang zählt meist nur die ⟦positive Lösung⟧.',
+    },
+}
+UMBAU_OFFEN = []
+UMBAU_WEG = []
+# ---------- Ende UMBAU ----------
+
+
 if __name__ == '__main__':
-    bauen('gleichungen.reinquadratisch',
+    d = bauen('gleichungen.reinquadratisch',
           'Wurzeln einschätzen und reinquadratische Gleichungen x² = a lösen: zwei, eine oder keine Lösung, exakt oder gerundet.',
           ['x² = a: für a > 0 zwei Lösungen ±√a, für a = 0 eine (x = 0), für a < 0 keine.',
            'Erst nach x² auflösen, dann die Wurzel ziehen.', '(x − p)² = q ⇒ x = p ± √q.',
            'Im Sachzusammenhang zählt meist nur die positive Lösung.'],
           [('Wurzeln', ['schaetzen']), ('Gleichungen lösen', ['grundform', 'umformen', 'gerundet', 'klammer']), ('Anwenden', ['sachaufgabe'])],
           ETAPPEN, GEN)
+    umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

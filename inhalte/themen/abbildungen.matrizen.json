@@ -44,86 +44,644 @@
    {
     "lernziel": "bildpunkt",
     "titel": "Bildpunkte mit einer Matrix",
-    "regel": "Eine ⟦Matrix⟧ ist ein Zahlenschema mit Zeilen und Spalten. Hier schreiben wir sie ⟦zeilenweise⟧: M = (a  b; c  d). Die Abbildung P(x | y) ↦ P'(x' | y') rechnet ⟦Zeile mal Spalte⟧: ⟦x' = a · x + b · y⟧ und ⟦y' = c · x + d · y⟧.",
+    "regel": "Bildpunkt: ⟦Zeile mal Spalte⟧. Die erste Zeile ergibt x′, die zweite Zeile ergibt y′.",
     "bild": {
      "typ": "tabelle",
      "kopf": [
       "M",
-      "mal x",
-      "mal y"
+      "mal x = 5",
+      "mal y = 2",
+      "ergibt"
      ],
      "zeilen": [
       [
-       "Zeile 1 → x'",
+       "Zeile 1 → x′",
        "2",
-       "−1"
+       "−1",
+       "?"
       ],
       [
-       "Zeile 2 → y'",
+       "Zeile 2 → y′",
        "3",
-       "4"
+       "4",
+       "?"
       ]
      ]
     },
     "schritte": [
-     "M = (2  −1; 3  4), P(5 | 2). x' = 2 · 5 + (−1) · 2 = 8.",
-     "y' = 3 · 5 + 4 · 2 = 23. Also ⟦P'(8 | 23)⟧."
+     {
+      "text": "M = (2  −1; 3  4) bildet P(5 | 2) ab."
+     },
+     {
+      "text": "Zeile mal Spalte: x′ = 2 · 5 + (−1) · 2 = 8.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "M",
+        "mal x = 5",
+        "mal y = 2",
+        "ergibt"
+       ],
+       "zeilen": [
+        [
+         "Zeile 1 → x′",
+         "2",
+         "−1",
+         "8"
+        ],
+        [
+         "Zeile 2 → y′",
+         "3",
+         "4",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Mit Zeile 2: y′ = 3 · 5 + 4 · 2 = 23.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "M",
+        "mal x = 5",
+        "mal y = 2",
+        "ergibt"
+       ],
+       "zeilen": [
+        [
+         "Zeile 1 → x′",
+         "2",
+         "−1",
+         "8"
+        ],
+        [
+         "Zeile 2 → y′",
+         "3",
+         "4",
+         "23"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Also ⟦P′(8 | 23)⟧.",
+      "bild": {
+       "typ": "koordinaten",
+       "x": [
+        -1,
+        10
+       ],
+       "y": [
+        -2,
+        25
+       ],
+       "punkte": [
+        {
+         "x": 5,
+         "y": 2,
+         "name": "P"
+        },
+        {
+         "x": 8,
+         "y": 23,
+         "name": "P′"
+        }
+       ],
+       "schritt_x": 2,
+       "schritt_y": 5,
+       "pfeile": [
+        [
+         5,
+         2,
+         8,
+         23
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "Spaltenweise statt zeilenweise zu rechnen, also x' = 2 · 5 + 3 · 2 = 16, ist falsch: Für x' nimmst du die ⟦erste Zeile⟧ (2 und −1)."
+    "fehler": "Spaltenweise rechnen ist falsch: 2 · 5 + 3 · 2 = 16. Für x′ nimmst du die ⟦erste Zeile⟧, also 2 und −1.",
+    "einstieg": "Ein Grafikprogramm verschiebt, dreht und spiegelt Bilder. Dafür speichert es vier Zahlen in einem Schema mit zwei Zeilen. So ein Zahlenschema heißt ⟦Matrix⟧.",
+    "woerter": [
+     [
+      "Matrix",
+      "Zahlenschema mit Zeilen und Spalten; hier zeilenweise geschrieben: (a  b; c  d)"
+     ],
+     [
+      "Zeile mal Spalte",
+      "die Zahlen einer Zeile mit x und y malnehmen und addieren"
+     ]
+    ]
    },
    {
     "lernziel": "abbildungsmatrix",
     "titel": "Matrizen bekannter Abbildungen",
-    "regel": "Die Spalten der Matrix sind die ⟦Bilder der Einheitspunkte⟧ (1 | 0) und (0 | 1). Spiegelung an der x-Achse: ⟦(1  0; 0  −1)⟧. Drehung um O um 90°: ⟦(0  −1; 1  0)⟧. Zentrische Streckung mit Faktor k: ⟦(k  0; 0  k)⟧.",
+    "regel": "Die Spalten sind die ⟦Bilder der Einheitspunkte⟧. Erst (1 | 0) abbilden, dann (0 | 1), beides als Spalte eintragen.",
     "schritte": [
-     "Spiegelung an der y-Achse: (1 | 0) ↦ (−1 | 0), (0 | 1) ↦ (0 | 1).",
-     "Diese Bilder als Spalten: ⟦(−1  0; 0  1)⟧."
+     {
+      "text": "Spiegelung an der y-Achse: (1 | 0) geht nach (−1 | 0).",
+      "bild": {
+       "punkte": [
+        {
+         "x": 1,
+         "y": 0,
+         "name": "E₁"
+        },
+        {
+         "x": 0,
+         "y": 1,
+         "name": "E₂"
+        },
+        {
+         "x": -1,
+         "y": 0,
+         "name": "E₁′"
+        }
+       ],
+       "pfeile": [
+        [
+         1,
+         0,
+         -1,
+         0
+        ]
+       ]
+      }
+     },
+     {
+      "text": "(0 | 1) liegt auf der Achse und bleibt, wo er ist."
+     },
+     {
+      "text": "Bilder als Spalten: ⟦(−1  0; 0  1)⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "Spalte 1",
+        "Spalte 2"
+       ],
+       "zeilen": [
+        [
+         "Zeile 1",
+         "−1",
+         "0"
+        ],
+        [
+         "Zeile 2",
+         "0",
+         "1"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "P(3 | 2): x' = −3, y' = 2 – gespiegelt an der y-Achse ✓",
-    "fehler": "Für die Drehung um 90° die Matrix (0  1; −1  0) zu nehmen ist falsch: Das dreht um ⟦−90°⟧ (im Uhrzeigersinn). (1 | 0) muss auf ⟦(0 | 1)⟧ gehen."
+    "fehler": "(0  1; −1  0) dreht nicht um 90°, sondern um ⟦−90°⟧. Bei +90° muss (1 | 0) nach (0 | 1) gehen.",
+    "einstieg": "Das Grafikprogramm muss nur wissen, wohin (1 | 0) und (0 | 1) gehen. Daraus baut es die ganze Matrix. Die beiden heißen ⟦Einheitspunkte⟧.",
+    "woerter": [
+     [
+      "Einheitspunkte",
+      "die Punkte (1 | 0) und (0 | 1)"
+     ],
+     [
+      "Spalte",
+      "die Zahlen, die in der Matrix untereinanderstehen"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      2
+     ],
+     "y": [
+      -2,
+      2
+     ],
+     "schritt_x": 1,
+     "schritt_y": 1,
+     "punkte": [
+      {
+       "x": 1,
+       "y": 0,
+       "name": "E₁"
+      },
+      {
+       "x": 0,
+       "y": 1,
+       "name": "E₂"
+      }
+     ]
+    },
+    "fehler_bild": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      2
+     ],
+     "y": [
+      -2,
+      2
+     ],
+     "schritt_x": 1,
+     "schritt_y": 1,
+     "punkte": [
+      {
+       "x": 1,
+       "y": 0,
+       "name": "E₁"
+      },
+      {
+       "x": 0,
+       "y": -1,
+       "name": "falsch"
+      }
+     ],
+     "pfeile": [
+      [
+       1,
+       0,
+       0,
+       -1,
+       "−90°"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "drehung",
     "titel": "Drehung um einen beliebigen Winkel",
-    "regel": "Die Drehung um O um den Winkel φ (gegen den Uhrzeigersinn) hat die Matrix ⟦(cos φ  −sin φ; sin φ  cos φ)⟧. Also ⟦x' = x · cos φ − y · sin φ⟧ und ⟦y' = x · sin φ + y · cos φ⟧.",
+    "regel": "Drehung um φ: ⟦(cos φ  −sin φ; sin φ  cos φ)⟧. Der Abstand zu O bleibt gleich.",
     "schritte": [
-     "P(4 | 0), φ = 30°: x' = 4 · cos 30° − 0 = 4 · 0,866… ≈ 3,46.",
-     "y' = 4 · sin 30° + 0 = 4 · 0,5 = 2. Also ⟦P'(3,46 | 2)⟧."
+     {
+      "text": "P(4 | 0) wird um φ = 30° gedreht."
+     },
+     {
+      "text": "x′ = 4 · cos 30° − 0 · sin 30° ≈ 3,46."
+     },
+     {
+      "text": "y′ = 4 · sin 30° + 0 · cos 30° = 2."
+     },
+     {
+      "text": "Also ⟦P′(3,46 | 2)⟧, wieder 4 von der Mitte entfernt.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 4,
+         "y": 0,
+         "name": "P"
+        },
+        {
+         "x": 0,
+         "y": 0,
+         "name": "O"
+        },
+        {
+         "x": 3.46,
+         "y": 2,
+         "name": "P′"
+        }
+       ],
+       "strecken": [
+        [
+         0,
+         0,
+         4,
+         0
+        ],
+        [
+         0,
+         0,
+         3.46,
+         2
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "Abstand zu O bleibt 4: 3,46² + 2² ≈ 16 ✓",
-    "fehler": "x' = x · cos φ + y · sin φ ist falsch: In der ersten Zeile steht ⟦−sin φ⟧. Sonst dreht man in die falsche Richtung."
+    "fehler": "x′ = x · cos φ + y · sin φ ist falsch. Oben rechts steht ⟦−sin φ⟧, sonst dreht es falsch herum.",
+    "einstieg": "Ein Riesenrad dreht eine Gondel um seine Mitte. Die Gondel bleibt gleich weit von der Mitte entfernt. Für jeden Winkel φ gibt es eine ⟦Drehmatrix⟧.",
+    "woerter": [
+     [
+      "φ",
+      "griechischer Buchstabe „phi“ für den Drehwinkel"
+     ],
+     [
+      "Drehmatrix",
+      "(cos φ  −sin φ; sin φ  cos φ); dreht um O gegen den Uhrzeigersinn"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "schritt_x": 1,
+     "schritt_y": 1,
+     "punkte": [
+      {
+       "x": 4,
+       "y": 0,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ],
+     "kreise": [
+      {
+       "m": [
+        0,
+        0
+       ],
+       "r": 4
+      }
+     ]
+    }
    },
    {
     "lernziel": "rechnen",
     "titel": "Mit Matrizen rechnen",
-    "regel": "Matrizen gleicher Größe ⟦addierst⟧ du Eintrag für Eintrag. Beim ⟦Vervielfachen⟧ wird jeder Eintrag mal die Zahl genommen. Beim ⟦Multiplizieren⟧ A · B rechnest du ⟦Zeile von A mal Spalte von B⟧. A · B beschreibt die Abbildung „erst B, dann A“.",
+    "regel": "A · B: ⟦Zeile von A mal Spalte von B⟧. Addieren und Vervielfachen gehen dagegen Eintrag für Eintrag.",
     "schritte": [
-     "A = (1  2; 0  3), B = (4  0; 1  −1). Oben links: Zeile 1 von A mal Spalte 1 von B: 1 · 4 + 2 · 1 = 6.",
-     "Ebenso die anderen Einträge: A · B = ⟦(6  −2; 3  −3)⟧."
+     {
+      "text": "A = (1  2; 0  3) und B = (4  0; 1  −1)."
+     },
+     {
+      "text": "Oben links in A · B: Zeile 1 von A mal Spalte 1 von B."
+     },
+     {
+      "text": "1 · 4 + 2 · 1 = 6.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "A · B",
+        "Spalte 1",
+        "Spalte 2"
+       ],
+       "zeilen": [
+        [
+         "Zeile 1",
+         "6",
+         "?"
+        ],
+        [
+         "Zeile 2",
+         "?",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Ebenso die anderen Einträge: A · B = ⟦(6  −2; 3  −3)⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "A · B",
+        "Spalte 1",
+        "Spalte 2"
+       ],
+       "zeilen": [
+        [
+         "Zeile 1",
+         "6",
+         "−2"
+        ],
+        [
+         "Zeile 2",
+         "3",
+         "−3"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "Oben rechts: 1 · 0 + 2 · (−1) = −2 ✓",
-    "fehler": "A · B Eintrag für Eintrag zu multiplizieren, also (4  0; 0  −3), ist falsch: Beim Matrizenprodukt gilt ⟦Zeile mal Spalte⟧. Außerdem ist meist ⟦A · B ≠ B · A⟧."
+    "fehler": "Eintrag für Eintrag malnehmen, also (4  0; 0  −3), ist falsch. Es gilt ⟦Zeile mal Spalte⟧, und meist ist A · B ≠ B · A.",
+    "einstieg": "Das Programm soll erst spiegeln und dann drehen. Statt zweimal zu rechnen, fasst es beide Matrizen zu einer zusammen. Das heißt ⟦Matrizen multiplizieren⟧.",
+    "woerter": [
+     [
+      "A · B",
+      "das Matrizenprodukt: erst B anwenden, dann A"
+     ],
+     [
+      "Einträge",
+      "die vier Zahlen einer Matrix"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "A · B",
+      "Spalte 1",
+      "Spalte 2"
+     ],
+     "zeilen": [
+      [
+       "Zeile 1",
+       "?",
+       "?"
+      ],
+      [
+       "Zeile 2",
+       "?",
+       "?"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "A · B",
+      "Spalte 1",
+      "Spalte 2"
+     ],
+     "zeilen": [
+      [
+       "Zeile 1",
+       "4 ✗",
+       "0 ✗"
+      ],
+      [
+       "Zeile 2",
+       "0 ✗",
+       "−3 ✗"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "inverse",
     "titel": "Determinante und Umkehrmatrix",
-    "regel": "Die ⟦Determinante⟧ von M = (a  b; c  d) ist ⟦a · d − b · c⟧. Ist sie ⟦nicht 0⟧, gibt es die ⟦inverse Matrix⟧ M⁻¹ = 1/(ad − bc) · (d  −b; −c  a). Sie macht die Abbildung rückgängig.",
+    "regel": "Inverse: a und d tauschen, b und c mit Minus. Dann ⟦durch die Determinante teilen⟧, die nicht 0 sein darf.",
     "schritte": [
-     "M = (3  1; 5  2): det M = 3 · 2 − 1 · 5 = 1.",
-     "M⁻¹ = (2  −1; −5  3) (Hauptdiagonale tauschen, Nebendiagonale Vorzeichen wechseln, durch 1 teilen)."
+     {
+      "text": "Determinante von M: 3 · 2 − 1 · 5 = 1."
+     },
+     {
+      "text": "Sie ist nicht 0, also gibt es die inverse Matrix."
+     },
+     {
+      "text": "a und d tauschen, b und c bekommen ein Minus.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "Spalte 1",
+        "Spalte 2"
+       ],
+       "zeilen": [
+        [
+         "M Zeile 1",
+         "3",
+         "1"
+        ],
+        [
+         "M Zeile 2",
+         "5",
+         "2"
+        ],
+        [
+         "M⁻¹ Zeile 1",
+         "2",
+         "−1"
+        ],
+        [
+         "M⁻¹ Zeile 2",
+         "−5",
+         "3"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Durch die Determinante 1 teilen: ⟦M⁻¹ = (2  −1; −5  3)⟧."
+     }
     ],
-    "probe": "M · M⁻¹: oben links 3 · 2 + 1 · (−5) = 1, oben rechts 3 · (−1) + 1 · 3 = 0 ✓",
-    "fehler": "Bei M⁻¹ auch b und c zu ⟦vertauschen⟧, also (2  −5; −1  3), ist falsch: Nur a und d tauschen die Plätze; b und c ⟦bleiben⟧, bekommen aber das andere Vorzeichen."
+    "fehler": "(2  −5; −1  3) ist falsch. b und c ⟦bleiben an ihrem Platz⟧ und wechseln nur das Vorzeichen.",
+    "einstieg": "Das Programm soll eine Drehung rückgängig machen. Dafür braucht es die umgekehrte Matrix. Sie heißt ⟦inverse Matrix⟧ und existiert nur, wenn die Determinante nicht 0 ist.",
+    "woerter": [
+     [
+      "Determinante",
+      "die Zahl a · d − b · c"
+     ],
+     [
+      "inverse Matrix",
+      "macht die Abbildung rückgängig; geschrieben M⁻¹"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Spalte 1",
+      "Spalte 2"
+     ],
+     "zeilen": [
+      [
+       "M Zeile 1",
+       "3",
+       "1"
+      ],
+      [
+       "M Zeile 2",
+       "5",
+       "2"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "skalarprodukt",
     "titel": "Skalarprodukt und Winkel",
-    "regel": "Das ⟦Skalarprodukt⟧ zweier Vektoren a = (a₁ | a₂) und b = (b₁ | b₂) ist die Zahl ⟦a₁ · b₁ + a₂ · b₂⟧. Ist es ⟦0⟧, stehen die Vektoren ⟦senkrecht⟧ aufeinander. Den Winkel liefert ⟦cos φ = (a · b) : (|a| · |b|)⟧.",
+    "regel": "Skalarprodukt: ⟦a₁ · b₁ + a₂ · b₂⟧. Ist es 0, stehen die Vektoren senkrecht aufeinander.",
     "schritte": [
-     "a = (3 | 4), b = (4 | −3): a · b = 12 − 12 = 0, also ⟦senkrecht⟧.",
-     "a = (3 | 4), c = (5 | 0): a · c = 15; |a| = 5, |c| = 5; cos φ = 15 : 25 = 0,6 ⇒ ⟦φ ≈ 53,1°⟧."
+     {
+      "text": "Skalarprodukt von a = (3 | 4) und b = (4 | −3):"
+     },
+     {
+      "text": "3 · 4 + 4 · (−3) = 0, also ⟦senkrecht⟧."
+     },
+     {
+      "text": "Mit c = (5 | 0) ist a · c = 15.",
+      "bild": {
+       "pfeile": [
+        [
+         0,
+         0,
+         3,
+         4,
+         "a"
+        ],
+        [
+         0,
+         0,
+         5,
+         0,
+         "c"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "|a| = |c| = 5, also cos φ = 15 : 25 = 0,6."
+     },
+     {
+      "text": "Der Winkel ist ⟦φ ≈ 53,1°⟧."
+     }
     ],
-    "fehler": "a · b = (3 · 4 | 4 · (−3)) = (12 | −12) ist falsch: Das Skalarprodukt ist ⟦eine Zahl⟧, kein Vektor. Die Produkte werden ⟦addiert⟧."
+    "fehler": "(12 | −12) als Ergebnis ist falsch. Das Skalarprodukt ist ⟦eine Zahl⟧: Die Produkte werden addiert.",
+    "einstieg": "Ein Zimmermann prüft, ob zwei Balken einen rechten Winkel bilden. Mit Vektoren geht das ohne Geodreieck: Er rechnet eine Zahl aus. Sie heißt ⟦Skalarprodukt⟧.",
+    "woerter": [
+     [
+      "Skalarprodukt",
+      "a₁ · b₁ + a₂ · b₂ – eine Zahl, kein Vektor"
+     ],
+     [
+      "senkrecht",
+      "im rechten Winkel"
+     ],
+     [
+      "|a|",
+      "die Länge des Vektors a"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      6
+     ],
+     "y": [
+      -4,
+      5
+     ],
+     "schritt_x": 1,
+     "schritt_y": 1,
+     "pfeile": [
+      [
+       0,
+       0,
+       3,
+       4,
+       "a"
+      ],
+      [
+       0,
+       0,
+       4,
+       -3,
+       "b"
+      ]
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [

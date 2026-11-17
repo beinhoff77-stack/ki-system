@@ -36,108 +36,473 @@
    {
     "lernziel": "abweichung",
     "titel": "Abweichungen vom Mittelwert",
-    "regel": "Der ⟦Mittelwert⟧ (mean) x̄ ist die Summe aller Werte geteilt durch ihre Anzahl. Die ⟦Abweichung⟧ (deviation) eines Wertes ist ⟦Wert − Mittelwert⟧. Sie ist positiv über und negativ unter dem Mittelwert. Alle Abweichungen zusammen ergeben immer ⟦0⟧.",
+    "regel": "Abweichung = ⟦Wert − Mittelwert⟧. Alle Abweichungen zusammen ergeben immer 0.",
     "schritte": [
-     "Werte: 4; 7; 10. Mittelwert: (4 + 7 + 10) : 3 = 7.",
-     "Abweichungen: 4 − 7 = −3, 7 − 7 = 0, 10 − 7 = ⟦3⟧."
+     {
+      "text": "Mittelwert: (4 + 7 + 10) : 3 = 7.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 4,
+         "name": "4"
+        },
+        {
+         "wert": 7,
+         "name": "x̄ = 7"
+        },
+        {
+         "wert": 10,
+         "name": "10"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Abweichung von 4: 4 − 7 = −3.",
+      "bild": {
+       "boegen": [
+        {
+         "von": 7,
+         "bis": 4,
+         "name": "−3"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Von 7: 0. Von 10: 10 − 7 = ⟦3⟧.",
+      "bild": {
+       "boegen": [
+        {
+         "von": 7,
+         "bis": 4,
+         "name": "−3"
+        },
+        {
+         "von": 7,
+         "bis": 10,
+         "name": "+3"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Zusammen: (−3) + 0 + 3 = 0."
+     }
     ],
-    "probe": "(−3) + 0 + 3 = 0 ✓",
     "bild": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      12
-     ],
-     "y": [
-      0,
-      2
-     ],
-     "schritt_y": 1,
-     "name_y": " ",
-     "senkrecht": [
-      7
-     ],
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 12,
+     "abschnitte": 12,
+     "beschriftet": "anfang_ende",
      "punkte": [
       {
-       "x": 4,
-       "y": 1,
-       "name": "4 (−3)"
+       "wert": 4,
+       "name": "4"
       },
       {
-       "x": 7,
-       "y": 1,
-       "name": "x̄ = 7"
+       "wert": 7,
+       "name": "7"
       },
       {
-       "x": 10,
-       "y": 1,
-       "name": "10 (+3)"
+       "wert": 10,
+       "name": "10"
       }
-     ],
-     "strecken": [
-      [
-       4,
-       0.6,
-       7,
-       0.6,
-       "gestrichelt"
-      ],
-      [
-       7,
-       0.6,
-       10,
-       0.6,
-       "gestrichelt"
-      ]
      ]
     },
-    "fehler": "Die Abweichungen einfach zu addieren, um die Streuung zu messen, geht nicht: (−3) + 0 + 3 = 0, obwohl die Werte streuen. ⟦Plus und Minus heben sich auf⟧ – deshalb quadriert man sie."
+    "fehler": "Abweichungen einfach addieren misst keine Streuung. Es kommt immer 0 heraus: ⟦Plus und Minus heben sich auf⟧.",
+    "einstieg": "Drei Kinder springen 4 m, 7 m und 10 m weit. Im Schnitt sind das 7 m. Wie weit liegt jeder Sprung daneben? Das ist die ⟦Abweichung⟧ vom Mittelwert.",
+    "woerter": [
+     [
+      "Mittelwert",
+      "x̄: Summe aller Werte geteilt durch ihre Anzahl"
+     ],
+     [
+      "Abweichung",
+      "Wert minus Mittelwert"
+     ]
+    ]
    },
    {
     "lernziel": "varianz",
     "titel": "Die Varianz berechnen",
-    "regel": "Die ⟦Varianz⟧ (variance) ist der ⟦Mittelwert der quadrierten Abweichungen⟧: jede Abweichung quadrieren, alles addieren, durch die ⟦Anzahl n⟧ teilen. Durch das Quadrieren werden alle Beiträge positiv.",
+    "regel": "Varianz: Abweichungen ⟦quadrieren⟧, addieren, durch n teilen. Sie ist nie negativ.",
     "schritte": [
-     "Werte: 2; 4; 6; 8. Mittelwert: 20 : 4 = 5.",
-     "Abweichungen: −3; −1; 1; 3. Quadrate: 9; 1; 1; 9.",
-     "Varianz: (9 + 1 + 1 + 9) : 4 = ⟦5⟧."
+     {
+      "text": "Werte 2; 4; 6; 8. Mittelwert: 20 : 4 = 5."
+     },
+     {
+      "text": "Abweichungen: −3; −1; 1; 3.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Wert",
+        "2",
+        "4",
+        "6",
+        "8"
+       ],
+       "zeilen": [
+        [
+         "Abweichung",
+         "−3",
+         "−1",
+         "1",
+         "3"
+        ],
+        [
+         "Quadrat",
+         "?",
+         "?",
+         "?",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Quadrieren: 9; 1; 1; 9.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Wert",
+        "2",
+        "4",
+        "6",
+        "8"
+       ],
+       "zeilen": [
+        [
+         "Abweichung",
+         "−3",
+         "−1",
+         "1",
+         "3"
+        ],
+        [
+         "Quadrat",
+         "9",
+         "1",
+         "1",
+         "9"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Varianz: (9 + 1 + 1 + 9) : 4 = ⟦5⟧."
+     }
     ],
-    "probe": "Alle Quadrate sind positiv, die Varianz kann nicht negativ sein ✓",
-    "fehler": "(−3)² = −9 ist falsch: Minus mal Minus ergibt Plus, ⟦(−3)² = 9⟧. Eine Varianz ist nie negativ."
+    "fehler": "(−3)² = −9 ist falsch. Minus mal Minus ergibt Plus: ⟦(−3)² = 9⟧.",
+    "einstieg": "Damit sich Plus und Minus nicht aufheben, quadriert man jede Abweichung. Dann sind alle Beiträge positiv. Ihr Mittelwert heißt ⟦Varianz⟧.",
+    "woerter": [
+     [
+      "Varianz",
+      "Mittelwert der quadrierten Abweichungen"
+     ],
+     [
+      "quadriert",
+      "mit sich selbst malgenommen: (−3)² = 9"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Wert",
+      "2",
+      "4",
+      "6",
+      "8"
+     ],
+     "zeilen": [
+      [
+       "Abweichung",
+       "?",
+       "?",
+       "?",
+       "?"
+      ],
+      [
+       "Quadrat",
+       "?",
+       "?",
+       "?",
+       "?"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Wert",
+      "2",
+      "4",
+      "6",
+      "8"
+     ],
+     "zeilen": [
+      [
+       "Abweichung",
+       "−3",
+       "−1",
+       "1",
+       "3"
+      ],
+      [
+       "Quadrat",
+       "−9 ✗",
+       "−1 ✗",
+       "1",
+       "9"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "sigma",
     "titel": "Die Standardabweichung σ",
-    "regel": "Die ⟦Standardabweichung⟧ (standard deviation) ⟦σ⟧ ist die ⟦Wurzel aus der Varianz⟧. Sie hat dieselbe Einheit wie die Daten und gibt an, wie weit die Werte ⟦typischerweise⟧ vom Mittelwert entfernt liegen.",
+    "regel": "σ ist die ⟦Wurzel aus der Varianz⟧. Sie hat dieselbe Einheit wie die Daten.",
     "schritte": [
-     "Werte: 3; 5; 7; 9; 11 (in cm). Mittelwert: 35 : 5 = 7.",
-     "Quadrate der Abweichungen: 16; 4; 0; 4; 16. Varianz: 40 : 5 = 8.",
-     "σ = √8 ≈ ⟦2,83 cm⟧."
+     {
+      "text": "Mittelwert: 35 : 5 = 7.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 3,
+         "name": "3"
+        },
+        {
+         "wert": 5,
+         "name": "5"
+        },
+        {
+         "wert": 7,
+         "name": "x̄"
+        },
+        {
+         "wert": 9,
+         "name": "9"
+        },
+        {
+         "wert": 11,
+         "name": "11"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Quadrierte Abweichungen: 16; 4; 0; 4; 16."
+     },
+     {
+      "text": "Varianz: 40 : 5 = 8."
+     },
+     {
+      "text": "Standardabweichung σ = √8 ≈ ⟦2,83 cm⟧.",
+      "bild": {
+       "bereich": {
+        "von": 4.17,
+        "bis": 9.83
+       }
+      }
+     }
     ],
-    "probe": "2,83² ≈ 8,0 ✓",
-    "fehler": "Die Varianz 8 als Standardabweichung anzugeben ist falsch: Die Varianz hat die Einheit cm². Erst die ⟦Wurzel⟧ ergibt σ in cm."
+    "fehler": "Die Varianz 8 ist nicht σ. Sie hat die Einheit cm². Erst die ⟦Wurzel⟧ ergibt σ in cm.",
+    "einstieg": "Fünf Bohnenpflanzen sind 3, 5, 7, 9 und 11 cm hoch. Die Varianz hat die Einheit cm², das passt nicht. Die Wurzel daraus ist die ⟦Standardabweichung⟧.",
+    "woerter": [
+     [
+      "Standardabweichung σ",
+      "Wurzel aus der Varianz; der typische Abstand zum Mittelwert"
+     ],
+     [
+      "σ",
+      "griechischer Buchstabe „sigma“"
+     ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 14,
+     "abschnitte": 14,
+     "beschriftet": "anfang_ende",
+     "punkte": [
+      {
+       "wert": 3,
+       "name": "3"
+      },
+      {
+       "wert": 5,
+       "name": "5"
+      },
+      {
+       "wert": 7,
+       "name": "7"
+      },
+      {
+       "wert": 9,
+       "name": "9"
+      },
+      {
+       "wert": 11,
+       "name": "11"
+      }
+     ]
+    }
    },
    {
     "lernziel": "eigenschaften",
     "titel": "Wie verändert sich σ?",
-    "regel": "Addiert man zu allen Werten ⟦dieselbe Zahl⟧, verschiebt sich nur der Mittelwert, ⟦σ bleibt gleich⟧. Multipliziert man alle Werte mit k, wird ⟦σ mit |k| multipliziert⟧. Sind alle Werte gleich, ist ⟦σ = 0⟧.",
+    "regel": "Plus eine Zahl: ⟦σ bleibt gleich⟧. Mal k: σ wird mal |k|. Alle Werte gleich: σ = 0.",
     "schritte": [
-     "Klassenarbeit: σ = 4 Punkte. Jeder bekommt 3 Bonuspunkte.",
-     "Alle Werte rücken um 3 nach oben, die Abstände bleiben: ⟦σ = 4⟧."
+     {
+      "text": "Punkte 8; 8; 16; 16: Mittelwert 12, σ = 4.",
+      "bild": {
+       "bereich": {
+        "von": 8,
+        "bis": 16
+       }
+      }
+     },
+     {
+      "text": "Mit 3 Bonuspunkten: 11; 11; 19; 19.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 8,
+         "name": ""
+        },
+        {
+         "wert": 16,
+         "name": ""
+        },
+        {
+         "wert": 11,
+         "name": "11"
+        },
+        {
+         "wert": 19,
+         "name": "19"
+        }
+       ],
+       "bereich": null,
+       "boegen": [
+        {
+         "von": 8,
+         "bis": 11,
+         "name": "+3"
+        },
+        {
+         "von": 16,
+         "bis": 19,
+         "name": "+3"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Alle Abstände zum neuen Mittelwert 15 bleiben 4: ⟦σ = 4⟧.",
+      "bild": {
+       "boegen": null,
+       "punkte": [
+        {
+         "wert": 11,
+         "name": "11"
+        },
+        {
+         "wert": 19,
+         "name": "19"
+        }
+       ],
+       "bereich": {
+        "von": 11,
+        "bis": 19
+       }
+      }
+     }
     ],
-    "probe": "Beispiel 1; 5 (σ = 2) → 4; 8 (σ = 2) ✓",
-    "fehler": "Bei 3 Bonuspunkten σ = 4 + 3 = 7 zu rechnen ist falsch: Die Werte ⟦verschieben sich gemeinsam⟧, der Abstand zum Mittelwert ändert sich nicht."
+    "fehler": "σ = 4 + 3 = 7 ist falsch. Die Werte ⟦verschieben sich gemeinsam⟧, ihre Abstände bleiben gleich.",
+    "einstieg": "Nach einer Klassenarbeit bekommt jedes Kind 3 Bonuspunkte. Alle rücken gleich weit nach oben. Ändert sich dadurch die ⟦Streuung⟧?",
+    "woerter": [
+     [
+      "Streuung",
+      "wie weit die Werte auseinanderliegen"
+     ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 20,
+     "abschnitte": 20,
+     "beschriftet": "anfang_ende",
+     "punkte": [
+      {
+       "wert": 8,
+       "name": "8"
+      },
+      {
+       "wert": 16,
+       "name": "16"
+      }
+     ]
+    }
    },
    {
     "lernziel": "deuten",
     "titel": "Streuung vergleichen und deuten",
-    "regel": "Bei ähnlichem Mittelwert gilt: ⟦kleines σ⟧ = Werte liegen ⟦eng beieinander⟧ (gleichmäßig), ⟦großes σ⟧ = Werte ⟦streuen stark⟧. Viele Werte liegen im Bereich ⟦x̄ − σ bis x̄ + σ⟧.",
+    "regel": "⟦Kleines σ⟧: Die Werte liegen eng beieinander. Großes σ: Die Werte streuen stark.",
     "schritte": [
-     "Klasse A: x̄ = 12 Punkte, σ = 2. Klasse B: x̄ = 12 Punkte, σ = 5.",
-     "Gleicher Durchschnitt, aber in A liegen die Ergebnisse ⟦enger beieinander⟧. Bereich in A: 10 bis 14 Punkte."
+     {
+      "text": "Klasse A: x̄ = 12, σ = 2."
+     },
+     {
+      "text": "Bereich um x̄: von 12 − 2 = 10 bis ⟦14⟧.",
+      "bild": {
+       "bereich": {
+        "von": 10,
+        "bis": 14
+       }
+      }
+     },
+     {
+      "text": "Klasse B: σ = 5, also etwa 7 bis 17.",
+      "bild": {
+       "bereich": {
+        "von": 7,
+        "bis": 17
+       }
+      }
+     },
+     {
+      "text": "In A liegen die Ergebnisse ⟦enger beieinander⟧.",
+      "bild": {
+       "bereich": {
+        "von": 10,
+        "bis": 14
+       }
+      }
+     }
     ],
-    "probe": "12 − 2 = 10 und 12 + 2 = 14 ✓",
-    "fehler": "„Klasse B ist besser, weil ihr σ größer ist“ ist falsch: σ sagt nichts darüber, ⟦wer besser⟧ ist, nur wie ⟦unterschiedlich⟧ die Ergebnisse sind."
+    "fehler": "„B ist besser, weil σ größer ist“ ist falsch. σ sagt nicht, ⟦wer besser⟧ ist, nur wie verschieden die Ergebnisse sind.",
+    "einstieg": "Zwei Klassen schreiben denselben Test, beide haben im Schnitt 12 Punkte. In A liegen alle nah beieinander, in B gibt es sehr gute und sehr schwache. σ zeigt den ⟦Unterschied⟧.",
+    "woerter": [
+     [
+      "Bereich um x̄",
+      "von x̄ − σ bis x̄ + σ; dort liegen viele Werte"
+     ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 24,
+     "abschnitte": 24,
+     "beschriftet": "anfang_ende",
+     "punkte": [
+      {
+       "wert": 12,
+       "name": "x̄ = 12"
+      }
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [

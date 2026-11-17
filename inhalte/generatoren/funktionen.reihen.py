@@ -258,7 +258,97 @@ def g_verstehen(s):
 
 GEN = schoen({'summenzeichen': g_summenzeichen, 'arith': g_arith, 'geom': g_geom, 'sach': g_sach, 'verstehen': g_verstehen})
 
-bauen('funktionen.reihen',
+# ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_rest import umbau_schreiben  # noqa: E402
+
+from _umbau_rest import tab  # noqa: E402
+
+
+def _s(werte, namen, einheit=''):
+    return {'typ': 'saeulen', 'einheit': einheit, 'werte': [{'name': n, 'wert': w} for n, w in zip(namen, werte)], 'zahlen': True}
+
+
+_KK = ['k', '1', '2', '3', '4']
+_W = [5, 7, 9, 11, 13, 15, 17, 19]
+UMBAU = {
+    'summenzeichen': {
+        'einstieg': 'Ein Muster hat in Bild 1 bis 4 nacheinander 2, 5, 8 und 11 Plättchen. Wie viele sind es zusammen? '
+                    'Die Summe von Folgengliedern heißt ⟦Reihe⟧.',
+        'woerter': [['Reihe', 'die Summe von Folgengliedern'],
+                    ['∑', 'Summenzeichen: für k alle Zahlen von unten bis oben einsetzen und addieren']],
+        'bild': tab(_KK, ['3k − 1', '?', '?', '?', '?']),
+        'schritte': [
+            {'text': '∑ₖ₌₁⁴ (3k − 1): k = 1, 2, 3, 4 einsetzen.'},
+            {'text': 'Die Glieder sind 2; 5; 8; 11.', 'bild': tab(_KK, ['3k − 1', '2', '5', '8', '11'])},
+            {'text': 'Alles addieren: 2 + 5 + 8 + 11 = ⟦26⟧.', 'bild': _s([2, 5, 8, 11, 26], ['k = 1', 'k = 2', 'k = 3', 'k = 4', 'Summe'])},
+        ],
+        'fehler': '3 · 4 − 1 = 11 ist nur das ⟦letzte Glied⟧. Das Summenzeichen verlangt, alle Glieder zu addieren.',
+        'regel': '∑: für k ⟦alle Zahlen von unten bis oben⟧ einsetzen. Dann die Ergebnisse addieren.',
+    },
+    'arith': {
+        'einstieg': 'Ein Lehrer lässt 1 + 2 + … + 100 rechnen. Ein Kind bildet Paare: 1 + 100 und 2 + 99 ergeben ⟦101⟧. '
+                    'Das ist der Trick der arithmetischen Reihe.',
+        'woerter': [['Sₙ', 'die Summe der ersten n Glieder'],
+                    ['Paar', 'erstes und letztes Glied, zweites und vorletztes …']],
+        'bild': tab(['Paar', '1 + 100'], ['Summe', '101']),
+        'schritte': [
+            {'text': 'Erstes und letztes Glied: 1 + 100 = 101.'},
+            {'text': 'Jedes Paar ergibt 101. 100 Zahlen bilden 50 Paare.',
+             'bild': tab(['Paar', '1 + 100', '2 + 99', '3 + 98', '…', '50 + 51'], ['Summe', '101', '101', '101', '…', '101'])},
+            {'text': 'S₁₀₀ = 50 · 101 = ⟦5 050⟧.'},
+            {'text': 'Als Formel: Sₙ = n · (a₁ + aₙ) : 2.'},
+        ],
+        'fehler': '100 · 101 = 10 100 ist falsch. So ist jedes Paar ⟦doppelt⟧ gezählt, man muss durch 2 teilen.',
+        'regel': 'Arithmetische Reihe: ⟦Sₙ = n · (a₁ + aₙ) : 2⟧. Erstes plus letztes Glied, mal Anzahl, halbieren.',
+    },
+    'geom': {
+        'einstieg': 'Ein Kettenbrief: Erst bekommen ihn 3 Leute, jede Runde doppelt so viele. Wie viele Briefe sind es nach 5 Runden zusammen? '
+                    'Das zählt die ⟦geometrische Reihe⟧.',
+        'woerter': [['geometrische Reihe', 'die Summe der Glieder einer geometrischen Folge']],
+        'bild': _s([3, 6, 12, 24, 48], ['R1', 'R2', 'R3', 'R4', 'R5'], 'Briefe'),
+        'schritte': [
+            {'text': 'Die Briefe pro Runde: 3; 6; 12; 24; 48.'},
+            {'text': 'Also a₁ = 3, q = 2 und n = 5 Glieder.'},
+            {'text': 'S₅ = 3 · (2⁵ − 1) : 1 = ⟦93⟧.', 'bild': _s([3, 6, 12, 24, 48, 93], ['R1', 'R2', 'R3', 'R4', 'R5', 'Summe'], 'Briefe')},
+            {'text': 'Probe: 3 + 6 + 12 + 24 + 48 = 93.'},
+        ],
+        'fehler': '3 · (2⁴ − 1) = 45 ist falsch. In der Summenformel steht ⟦qⁿ⟧ mit n = 5, der Anzahl der Glieder.',
+        'regel': 'Geometrische Reihe: Die Summenformel hat ⟦qⁿ⟧, nicht qⁿ⁻¹. Sie lautet Sₙ = a₁ · (qⁿ − 1) : (q − 1).',
+    },
+    'sach': {
+        'einstieg': 'Ein Läufer läuft in Woche 1 genau 5 km, jede Woche 2 km mehr. Wie viele km sind es in 8 Wochen zusammen? '
+                    'Gefragt ist die ⟦Summe⟧.',
+        'woerter': [['Gesamtstrecke', 'alle Wochen zusammengezählt']],
+        'bild': _s(_W[:3], ['W1', 'W2', 'W3'], 'km'),
+        'schritte': [
+            {'text': 'Immer 2 km mehr: arithmetisch mit a₁ = 5 und d = 2.'},
+            {'text': 'Woche 8: a₈ = 5 + 7 · 2 = 19.', 'bild': _s(_W, [f'W{i}' for i in range(1, 9)], 'km')},
+            {'text': 'Gesamtstrecke: S₈ = 8 · (5 + 19) : 2 = ⟦96 km⟧.'},
+        ],
+        'fehler': '19 km ist nur die ⟦8. Woche⟧. Gefragt ist die Summe aller Wochen: 96 km.',
+        'regel': 'Erst klären: ⟦gleich viel dazu⟧ oder gleicher Faktor? Dann a₁, d oder q und n bestimmen und die Summenformel nutzen.',
+    },
+    'verstehen': {
+        'einstieg': 'Von Meter 3 bis Meter 10 steht an jedem Meter ein Zaunpfosten. Viele rechnen 10 − 3 = 7 und liegen daneben. '
+                    'Du musst ⟦beide Enden⟧ mitzählen.',
+        'woerter': [['Summand', 'eine Zahl, die in einer Summe addiert wird']],
+        'bild': {'typ': 'zahlenstrahl', 'start': 0, 'ende': 12, 'abschnitte': 12, 'beschriftet': 'alle'},
+        'schritte': [
+            {'text': '∑ₖ₌₃¹⁰ k: Wie viele Summanden hat die Summe?'},
+            {'text': 'k = 3, 4, 5, 6, 7, 8, 9, 10.', 'bild': {'punkte': [{'wert': k, 'name': ''} for k in range(3, 11)]}},
+            {'text': 'Zählen: 10 − 3 + 1 = ⟦8 Summanden⟧.'},
+        ],
+        'fehler': '10 − 3 = 7 ist falsch. Von 3 bis 10 zählen ⟦beide Enden mit⟧: 10 − 3 + 1 = 8.',
+        'regel': 'Beim Zählen beide Enden mitnehmen. Von u bis o sind es ⟦o − u + 1⟧ Glieder.',
+    },
+}
+UMBAU_OFFEN = []
+UMBAU_WEG = []
+# ---------- Ende UMBAU ----------
+
+
+d = bauen('funktionen.reihen',
       'Reihen mit dem Summenzeichen schreiben und berechnen, Summenformeln für arithmetische und geometrische Reihen anwenden und Sachaufgaben lösen.',
       ['Reihe (series) = Summe von Folgengliedern; ∑ₖ₌₁ⁿ: k von 1 bis n einsetzen und addieren.',
        'Arithmetisch: Sₙ = n · (a₁ + aₙ) : 2.',
@@ -268,3 +358,4 @@ bauen('funktionen.reihen',
       ETAPPEN, GEN,
       offen=['Unendliche geometrische Reihen (Grenzwert a₁ : (1 − q)) sind nicht enthalten: Das ist IB MYP 5 Extended bzw. DP-Stoff. Annahme: MYP 4 endet bei endlichen Reihen.',
              'Summenzeichen mit Unicode-Indizes (∑ₖ₌₁⁵). Die Grenzen stehen dadurch neben, nicht unter/über dem ∑ – bei Bedarf App-Wunsch für eine Formeldarstellung.'])
+umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

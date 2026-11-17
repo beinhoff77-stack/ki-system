@@ -36,59 +36,203 @@
    {
     "lernziel": "einsetzen",
     "titel": "Einen Parameterwert einsetzen",
-    "regel": "In y = k · x + 2 ist k ein ⟦Parameter⟧: eine Zahl, die du frei wählen darfst. Jeder Wert von k liefert eine andere Gerade. Alle zusammen heißen ⟦Geradenschar⟧. Wie bei einem Rezept mit „k Löffeln Zucker“: Erst wenn du k festlegst, ist das Rezept eindeutig.",
+    "regel": "Parameter einsetzen: nur k ersetzen, alles andere bleibt. Jedes k gibt eine Gerade der ⟦Geradenschar⟧.",
     "schritte": [
-     "Schar g_k: y = k · x + 2. Für k = −3 erhältst du g₋₃: ⟦y = −3x + 2⟧.",
-     "Der Punkt dieser Geraden mit x = 4: y = −3 · 4 + 2 = ⟦−10⟧."
+     {
+      "text": "Der Tarif y = k · x + 2 ist eine Geradenschar."
+     },
+     {
+      "text": "Die Stadt legt k = 3 fest: ⟦y = 3x + 2⟧.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 3,
+         "t": 2,
+         "name": "k = 3"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Für 4 km: y = 3 · 4 + 2 = ⟦14⟧, also 14 €.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 4,
+         "y": 14,
+         "name": "(4|14)"
+        }
+       ]
+      }
+     }
     ],
-    "fehler": "Für k = −3 statt y = −3x + 2 die Gleichung y = −3x − 3 zu schreiben ist falsch: Der Parameter ersetzt ⟦nur das k⟧, die 2 bleibt."
+    "fehler": "Für k = 3 nicht y = 3x + 3 schreiben. Der Parameter ersetzt ⟦nur das k⟧, die Grundgebühr 2 bleibt.",
+    "einstieg": "Ein Taxi kostet 2 € Grundgebühr plus einen Preis pro Kilometer. Jede Stadt legt diesen Preis anders fest. Die offene Zahl k heißt ⟦Parameter⟧.",
+    "woerter": [
+     [
+      "Parameter",
+      "eine Zahl in der Gleichung, die man frei wählen kann, hier k"
+     ],
+     [
+      "Geradenschar",
+      "alle Geraden, die zu den verschiedenen Werten von k gehören"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      5
+     ],
+     "y": [
+      0,
+      18
+     ],
+     "name_x": "km",
+     "name_y": "€",
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 2,
+       "name": "k = 1"
+      },
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 2,
+       "name": "k = 2"
+      },
+      {
+       "art": "linear",
+       "m": 3,
+       "t": 2,
+       "name": "k = 3"
+      }
+     ]
+    },
+    "fehler_bild": {
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 3,
+       "t": 2,
+       "name": "richtig"
+      },
+      {
+       "art": "linear",
+       "m": 3,
+       "t": 3,
+       "name": "falsch"
+      }
+     ],
+     "punkte": null
+    }
    },
    {
     "lernziel": "parallelenschar",
     "titel": "Parallele Geraden: y = m · x + t",
-    "regel": "Ist der ⟦y-Achsenabschnitt⟧ der Parameter (y = 2x + t), haben alle Geraden die ⟦gleiche Steigung⟧. Sie sind ⟦parallel⟧ – wie Treppengeländer in verschiedenen Stockwerken. Durch einen Punkt P geht genau eine davon: ⟦t = y_P − m · x_P⟧.",
+    "regel": "Parameter t: Alle Geraden sind ⟦parallel⟧. Für die Gerade durch P setzt du P ein und löst nach t auf.",
     "bild": {
      "typ": "koordinaten",
      "x": [
-      -5,
+      0,
       5
      ],
      "y": [
-      -5,
-      5
+      0,
+      18
      ],
+     "name_x": "km",
+     "name_y": "€",
      "graphen": [
       {
        "art": "linear",
-       "m": 2.0,
-       "t": -2.0,
-       "name": "t = −2"
+       "m": 2,
+       "t": 1,
+       "name": "t = 1"
       },
       {
        "art": "linear",
-       "m": 2.0,
-       "t": 0.0,
-       "name": "t = 0"
+       "m": 2,
+       "t": 4,
+       "name": "t = 4"
       },
       {
        "art": "linear",
-       "m": 2.0,
-       "t": 2.0,
-       "name": "t = 2"
+       "m": 2,
+       "t": 7,
+       "name": "t = 7"
       }
      ]
     },
     "schritte": [
-     "Schar y = 2x + t. Welche Gerade geht durch P(3 | 1)? Einsetzen: 1 = 2 · 3 + t.",
-     "1 = 6 + t ⇒ ⟦t = −5⟧. Die Gerade ist y = 2x − 5."
+     {
+      "text": "In y = 2x + t ist der y-Achsenabschnitt t der Parameter."
+     },
+     {
+      "text": "Welche Gerade geht durch P(3 | 10)? Einsetzen: 10 = 2 · 3 + t.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 3,
+         "y": 10,
+         "name": "P"
+        }
+       ]
+      }
+     },
+     {
+      "text": "10 = 6 + t, also ⟦t = 4⟧.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 2,
+         "t": 4,
+         "name": "t = 4"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Die Gerade ist y = 2x + 4: 4 € Grundgebühr."
+     }
     ],
-    "probe": "2 · 3 − 5 = 1 ✓",
-    "fehler": "Aus 1 = 6 + t zu folgern t = 7 ist falsch: Du musst 6 ⟦abziehen⟧, nicht addieren. t = 1 − 6 = −5."
+    "fehler": "Aus 10 = 6 + t folgt nicht t = 16. Du musst 6 ⟦abziehen⟧: t = 10 − 6 = 4.",
+    "einstieg": "Drei Taxis kosten alle 2 € pro Kilometer, aber verschiedene Grundgebühren. Ihre Preis-Geraden steigen gleich steil, nur höher oder tiefer. Sie sind ⟦parallel⟧.",
+    "woerter": [
+     [
+      "y-Achsenabschnitt t",
+      "wo die Gerade die y-Achse trifft; hier die Grundgebühr"
+     ],
+     [
+      "parallel",
+      "gleich steil; die Geraden treffen sich nie"
+     ]
+    ],
+    "fehler_bild": {
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 4,
+       "name": "t = 4"
+      },
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 16,
+       "name": "t = 16"
+      }
+     ]
+    }
    },
    {
     "lernziel": "bueschel",
     "titel": "Geraden durch einen Punkt",
-    "regel": "Ist die ⟦Steigung⟧ der Parameter, z. B. y = m · (x − 1) + 3, gehen alle Geraden durch ⟦denselben Punkt⟧, hier Z(1 | 3) – wie die Speichen eines Rads um die Nabe. Diese Schar heißt ⟦Geradenbüschel⟧. Den gemeinsamen Punkt findest du dort, wo der Parameter ⟦keinen Einfluss⟧ hat.",
+    "regel": "Parameter in der Steigung: Alle Geraden gehen durch einen Punkt Z. Z liegt dort, wo der Parameter ⟦keinen Einfluss⟧ hat.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -102,8 +246,8 @@
      "graphen": [
       {
        "art": "linear",
-       "m": -1.0,
-       "t": 4.0,
+       "m": -1,
+       "t": 4,
        "name": "m = −1"
       },
       {
@@ -114,49 +258,387 @@
       },
       {
        "art": "linear",
-       "m": 2.0,
-       "t": 1.0,
+       "m": 2,
+       "t": 1,
        "name": "m = 2"
       }
      ]
     },
     "schritte": [
-     "Büschel y = m · (x − 1) + 3. Für x = 1 wird die Klammer 0, also y = 3 – egal, welches m.",
-     "Gemeinsamer Punkt ⟦Z(1 | 3)⟧. Durch Q(3 | 7): 7 = m · 2 + 3 ⇒ ⟦m = 2⟧."
+     {
+      "text": "Büschel y = m · (x − 1) + 3. Setze x = 1."
+     },
+     {
+      "text": "Die Klammer wird 0, also y = 3 für jedes m."
+     },
+     {
+      "text": "Gemeinsamer Punkt: ⟦Z(1 | 3)⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 1,
+         "y": 3,
+         "name": "Z"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Durch Q(3 | 7): 7 = m · 2 + 3, also ⟦m = 2⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 1,
+         "y": 3,
+         "name": "Z"
+        },
+        {
+         "x": 3,
+         "y": 7,
+         "name": "Q"
+        }
+       ],
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 2,
+         "t": 1,
+         "name": "m = 2"
+        }
+       ]
+      }
+     }
     ],
-    "fehler": "Bei y = m · (x − 1) + 3 den Punkt Z(−1 | 3) abzulesen ist falsch: Die Klammer ist null für ⟦x = +1⟧ – das Vorzeichen dreht sich um."
+    "fehler": "Z(−1 | 3) ist falsch. Die Klammer (x − 1) wird null bei ⟦x = +1⟧, das Vorzeichen dreht sich um.",
+    "einstieg": "Ein Leuchtturm schickt Lichtstrahlen in viele Richtungen. Alle Strahlen starten am selben Punkt, nur die Steigung ist anders. So eine Schar heißt ⟦Geradenbüschel⟧.",
+    "woerter": [
+     [
+      "Geradenbüschel",
+      "alle Geraden der Schar gehen durch denselben Punkt"
+     ],
+     [
+      "Z",
+      "der gemeinsame Punkt aller Geraden – der Leuchtturm"
+     ]
+    ],
+    "fehler_bild": {
+     "punkte": [
+      {
+       "x": 1,
+       "y": 3,
+       "name": "Z"
+      },
+      {
+       "x": -1,
+       "y": 3,
+       "name": "falsch"
+      }
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -1,
+       "t": 4,
+       "name": "m = −1"
+      },
+      {
+       "art": "linear",
+       "m": 0.5,
+       "t": 2.5,
+       "name": "m = 0,5"
+      },
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 1,
+       "name": "m = 2"
+      }
+     ]
+    }
    },
    {
     "lernziel": "wirkung",
     "titel": "Was bewirkt der Parameter?",
-    "regel": "Schau, ⟦wo⟧ der Parameter steht: Vor dem x verändert er die ⟦Steigung⟧ (die Gerade dreht sich), als Zahlglied verschiebt er die Gerade ⟦nach oben oder unten⟧. Für den Wert, der die Steigung 0 macht, ist die Gerade ⟦parallel zur x-Achse⟧.",
+    "regel": "Schau, wo der Parameter steht. Vor dem x ⟦dreht⟧ er die Gerade, als Zahlglied verschiebt er sie.",
     "schritte": [
-     "Schar y = (k − 2) · x + 1: Die Steigung ist k − 2, der y-Achsenabschnitt immer 1.",
-     "Parallel zur x-Achse: k − 2 = 0 ⇒ ⟦k = 2⟧. Fallende Geraden: k − 2 < 0, also ⟦k < 2⟧."
+     {
+      "text": "In y = (k − 2)x + 1 steht k im Faktor vor x."
+     },
+     {
+      "text": "Das Zahlglied ist immer 1: Alle Geraden gehen durch (0 | 1).",
+      "bild": {
+       "punkte": [
+        {
+         "x": 0,
+         "y": 1,
+         "name": "(0|1)"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Parallel zur x-Achse heißt Steigung 0: k − 2 = 0, ⟦k = 2⟧.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 0,
+         "t": 1,
+         "name": "k = 2"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Fallend heißt k − 2 < 0, also ⟦k < 2⟧.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "linear",
+         "m": -2,
+         "t": 1,
+         "name": "k = 0"
+        },
+        {
+         "art": "linear",
+         "m": -1,
+         "t": 1,
+         "name": "k = 1"
+        }
+       ]
+      }
+     }
     ],
-    "fehler": "„Bei y = (k − 2)x + 1 ist k die Steigung“ ist falsch: Die Steigung ist der ⟦ganze Faktor vor x⟧, also k − 2. Für k = 5 ist sie 3, nicht 5."
+    "fehler": "„k ist die Steigung“ ist falsch. Die Steigung ist der ⟦ganze Faktor vor x⟧: für k = 5 also 3, nicht 5.",
+    "einstieg": "Ein Schieberegler in einer Mathe-App verändert die Zahl k. Je nachdem, wo k steht, ⟦dreht⟧ sich die Gerade oder sie rutscht hoch und runter.",
+    "woerter": [
+     [
+      "Faktor vor x",
+      "die ganze Zahl oder Klammer, mit der x malgenommen wird – die Steigung"
+     ],
+     [
+      "parallel zur x-Achse",
+      "waagrecht, Steigung 0"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      3
+     ],
+     "y": [
+      -4,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -2,
+       "t": 1,
+       "name": "k = 0"
+      },
+      {
+       "art": "linear",
+       "m": 0,
+       "t": 1,
+       "name": "k = 2"
+      },
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 1,
+       "name": "k = 4"
+      }
+     ]
+    },
+    "fehler_bild": {
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 3,
+       "t": 1,
+       "name": "k = 5"
+      }
+     ]
+    }
    },
    {
     "lernziel": "loesung_parameter",
     "titel": "Lösungen, die vom Parameter abhängen",
-    "regel": "Bei einer Gleichung mit Parameter, z. B. k · x = 6, hängt die Lösung von k ab: ⟦x = 6 : k⟧. Achtung: Durch ⟦0 darfst du nicht teilen⟧. Für k = 0 heißt die Gleichung 0 = 6 – sie hat ⟦keine Lösung⟧. Genauso beim Schnittpunkt zweier Geraden: Gleiche Steigung heißt ⟦parallel⟧, also kein Schnittpunkt.",
+    "regel": "Vor dem Teilen prüfen: Wann ist der Term mit k gleich 0? Dann gibt es ⟦keine Lösung⟧.",
     "schritte": [
-     "Schnittpunkt von y = 2x + 1 und y = kx − 3: 2x + 1 = kx − 3 ⇔ (2 − k)x = −4 ⇔ x = −4 : (2 − k).",
-     "Für k = 4: x = −4 : (−2) = ⟦2⟧. Für ⟦k = 2⟧ sind die Geraden parallel – kein Schnittpunkt."
+     {
+      "text": "Gleich teuer: 2x + 4 = kx, also (k − 2) · x = 4."
+     },
+     {
+      "text": "Lösung: x = 4 : (k − 2)."
+     },
+     {
+      "text": "Für k = 4: x = 4 : 2 = ⟦2⟧. Schnittpunkt bei 2 km.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 2,
+         "y": 8,
+         "name": "S"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Für k = 2 teilst du durch 0: ⟦keine Lösung⟧, die Geraden sind parallel.",
+      "bild": {
+       "punkte": null,
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 2,
+         "t": 4,
+         "name": "A"
+        },
+        {
+         "art": "linear",
+         "m": 2,
+         "t": 0,
+         "name": "k = 2"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "k = 4, x = 2: 2 · 2 + 1 = 5 und 4 · 2 − 3 = 5 ✓",
-    "fehler": "Bei (k − 3) · x = 5 einfach „x = 5 : (k − 3)“ hinzuschreiben ist unvollständig: Für ⟦k = 3⟧ ist das Teilen verboten, die Gleichung hat dann keine Lösung."
+    "fehler": "Nur „x = 4 : (k − 2)“ hinschreiben ist unvollständig. Für ⟦k = 2⟧ ist das Teilen verboten, es gibt keine Lösung.",
+    "einstieg": "Taxi A kostet 4 € Grundgebühr und 2 € pro Kilometer. Taxi B hat keine Grundgebühr, aber k € pro Kilometer. Ab wann sind beide gleich teuer? Das hängt von k ab.",
+    "woerter": [
+     [
+      "Schnittpunkt",
+      "die Stelle, an der beide Taxis gleich viel kosten"
+     ],
+     [
+      "durch 0",
+      "durch null teilen ist verboten; dann gibt es keine Lösung"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      5
+     ],
+     "y": [
+      0,
+      18
+     ],
+     "name_x": "km",
+     "name_y": "€",
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 4,
+       "name": "A"
+      },
+      {
+       "art": "linear",
+       "m": 4,
+       "t": 0,
+       "name": "k = 4"
+      }
+     ]
+    }
    },
    {
     "lernziel": "sachaufgabe",
     "titel": "Parameter in Sachaufgaben",
-    "regel": "In Tarifen steckt oft ein Parameter: ⟦Kosten = Preis pro Einheit · Menge + Grundgebühr⟧. Ist eine Größe noch offen, ist sie der Parameter. Mit einer ⟦Bedingung⟧ (z. B. „10 km kosten 24 €“) bestimmst du ihn.",
+    "regel": "Bedingung in den Tarif einsetzen und nach dem Parameter auflösen. Die ⟦Grundgebühr⟧ zuerst abziehen.",
     "schritte": [
-     "Taxi: y = m · x + 4 (x in km, y in €, Grundgebühr 4 €). Für 10 km zahlt man 24 €.",
-     "24 = m · 10 + 4 ⇒ 10m = 20 ⇒ ⟦m = 2⟧: 2 € pro Kilometer."
+     {
+      "text": "Der Tarif ist y = m · x + 4, gesucht ist m."
+     },
+     {
+      "text": "Bedingung einsetzen: 24 = m · 10 + 4.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 0,
+         "y": 4,
+         "name": "Start"
+        },
+        {
+         "x": 10,
+         "y": 24,
+         "name": "P"
+        }
+       ]
+      }
+     },
+     {
+      "text": "4 abziehen: 20 = 10m, also ⟦m = 2⟧.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 2,
+         "t": 4,
+         "name": "m = 2"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Kontrolle: 2 · 10 + 4 = 24. Es stimmt."
+     }
     ],
-    "probe": "2 · 10 + 4 = 24 ✓",
-    "fehler": "24 : 10 = 2,40 € pro km ist falsch: Die ⟦Grundgebühr⟧ von 4 € muss zuerst abgezogen werden."
+    "fehler": "24 : 10 = 2,40 € pro km ist falsch. Die ⟦Grundgebühr⟧ von 4 € steckt im Preis und muss zuerst weg.",
+    "einstieg": "Ein Taxi kostet 4 € Grundgebühr und einen unbekannten Preis pro Kilometer. Für 10 km hast du 24 € bezahlt. Diese Angabe ist eine ⟦Bedingung⟧: Mit ihr berechnest du den Kilometerpreis.",
+    "woerter": [
+     [
+      "Grundgebühr",
+      "Betrag, den man immer zahlt, auch für 0 km"
+     ],
+     [
+      "Bedingung",
+      "eine bekannte Angabe, mit der man den Parameter ausrechnet"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      12
+     ],
+     "y": [
+      0,
+      30
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 4,
+       "name": "Start"
+      }
+     ],
+     "schritt_x": 2,
+     "schritt_y": 5,
+     "name_x": "km",
+     "name_y": "€"
+    },
+    "fehler_bild": {
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 4,
+       "name": "richtig"
+      },
+      {
+       "art": "linear",
+       "m": 2.4,
+       "t": 0,
+       "name": "falsch"
+      }
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [

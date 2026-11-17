@@ -41,88 +41,353 @@
    {
     "lernziel": "kuerzen",
     "titel": "Verhältnisse kürzen",
-    "regel": "Ein ⟦Verhältnis⟧ (ratio) a : b vergleicht zwei Größen. Man ⟦kürzt⟧ (simplify) es wie einen Bruch: beide Zahlen durch dieselbe Zahl teilen, bis kein gemeinsamer Teiler mehr übrig ist. Bei Größen zuerst ⟦dieselbe Einheit⟧ herstellen.",
+    "regel": "Verhältnis kürzen: ⟦beide Zahlen durch dieselbe Zahl⟧ teilen. Vorher gleiche Einheiten herstellen.",
     "schritte": [
-     "12 Mädchen und 18 Jungen: Verhältnis 12 : 18.",
-     "Der größte gemeinsame Teiler ist 6: 12 : 6 = 2 und 18 : 6 = 3.",
-     "Gekürzt: ⟦2 : 3⟧."
+     {
+      "text": "Mädchen : Jungen = 12 : 18."
+     },
+     {
+      "text": "Zum Kürzen: Beide Zahlen sind durch 6 teilbar."
+     },
+     {
+      "text": "12 : 6 = 2 und 18 : 6 = 3. Gekürzt: ⟦2 : 3⟧.",
+      "bild": {
+       "zeilen": [
+        {
+         "teile": 5,
+         "gefaerbt": 2
+        }
+       ]
+      }
+     }
     ],
-    "probe": "2 · 6 = 12 und 3 · 6 = 18 ✓",
-    "fehler": "1 m : 25 cm = 1 : 25 ist falsch: Die Einheiten sind verschieden. Erst umrechnen: 100 cm : 25 cm = ⟦4 : 1⟧."
+    "fehler": "1 m : 25 cm ist nicht 1 : 25. Erst ⟦gleiche Einheiten⟧: 100 cm : 25 cm = 4 : 1.",
+    "einstieg": "In der Klasse sind 12 Mädchen und 18 Jungen. Auf 2 Mädchen kommen also 3 Jungen. So einen Vergleich nennt man ⟦Verhältnis⟧, geschrieben 2 : 3.",
+    "woerter": [
+     [
+      "Verhältnis",
+      "Vergleich zweier Größen, geschrieben a : b"
+     ],
+     [
+      "kürzen",
+      "beide Zahlen durch dieselbe Zahl teilen"
+     ]
+    ],
+    "bild": {
+     "typ": "bruchstreifen",
+     "teile": 30,
+     "gefaerbt": 12,
+     "ganzes": "30 Kinder",
+     "teil_text": "12 Mädchen"
+    }
    },
    {
     "lernziel": "gleichwertig",
     "titel": "Gleichwertige Verhältnisse",
-    "regel": "Zwei Verhältnisse sind ⟦gleichwertig⟧ (equivalent), wenn man beide Zahlen mit ⟦derselben Zahl multipliziert⟧ (oder dividiert). 2 : 3 = 4 : 6 = 10 : 15. ⟦Addieren⟧ derselben Zahl ändert das Verhältnis.",
+    "regel": "Gleichwertig: beide Zahlen ⟦mit derselben Zahl malnehmen⟧ oder teilen. Addieren verändert das Verhältnis.",
     "schritte": [
-     "Gesucht: 3 : 5 = □ : 20.",
-     "Von 5 nach 20 multipliziert man mit 4.",
-     "Also auch 3 · 4 = 12: ⟦3 : 5 = 12 : 20⟧."
+     {
+      "text": "Gesucht: 3 : 5 = □ : 20."
+     },
+     {
+      "text": "Von 5 nach 20 nimmt man mal 4."
+     },
+     {
+      "text": "Also auch 3 · 4 = 12: ⟦3 : 5 = 12 : 20⟧.",
+      "bild": {
+       "zeilen": [
+        {
+         "teile": 32,
+         "gefaerbt": 12
+        }
+       ]
+      }
+     }
     ],
-    "probe": "12 : 20 gekürzt mit 4 ergibt 3 : 5 ✓",
-    "fehler": "3 : 5 = 18 : 20 („zu beiden 15 addiert“) ist falsch: Bei Verhältnissen wird ⟦multipliziert⟧, nicht addiert. Richtig ist 12 : 20."
+    "fehler": "18 : 20 ist falsch: Zu beiden 15 addieren verändert den Geschmack. Bei Verhältnissen wird ⟦multipliziert⟧.",
+    "einstieg": "Für Saft mischst du 3 Becher Sirup mit 5 Bechern Wasser. Für eine große Kanne nimmst du von beidem viermal so viel. Der Saft schmeckt gleich: Die Verhältnisse sind ⟦gleichwertig⟧.",
+    "woerter": [
+     [
+      "gleichwertig",
+      "beide Zahlen mit derselben Zahl malgenommen; das Verhältnis bleibt gleich"
+     ]
+    ],
+    "bild": {
+     "typ": "bruchstreifen",
+     "teile": 8,
+     "gefaerbt": 3,
+     "ganzes": "8 Becher",
+     "teil_text": "3 Sirup"
+    },
+    "fehler_bild": {
+     "zeilen": [
+      {
+       "teile": 38,
+       "gefaerbt": 18
+      }
+     ]
+    }
    },
    {
     "lernziel": "aufteilen",
     "titel": "Im Verhältnis aufteilen",
-    "regel": "Um eine Menge im Verhältnis a : b aufzuteilen, zählst du die ⟦Teile⟧ zusammen (a + b), berechnest ⟦einen Teil⟧ und nimmst ihn a-mal bzw. b-mal.",
+    "regel": "Teile zusammenzählen, ⟦einen Teil berechnen⟧, dann mit a und mit b malnehmen.",
     "schritte": [
-     "120 € im Verhältnis 3 : 5 aufteilen: 3 + 5 = 8 Teile.",
-     "Ein Teil: 120 € : 8 = 15 €.",
-     "Anteile: 3 · 15 € = ⟦45 €⟧ und 5 · 15 € = ⟦75 €⟧."
+     {
+      "text": "3 + 5 = 8 Teile."
+     },
+     {
+      "text": "Ein Teil: 120 € : 8 = 15 €.",
+      "bild": {
+       "teil_text": "1 Teil = 15 €"
+      }
+     },
+     {
+      "text": "3 Teile: 3 · 15 € = ⟦45 €⟧.",
+      "bild": {
+       "teil_text": "45 €"
+      }
+     },
+     {
+      "text": "5 Teile: 5 · 15 € = ⟦75 €⟧.",
+      "bild": {
+       "teil_text": "45 €",
+       "zeilen": [
+        {
+         "teile": 8,
+         "gefaerbt": 5
+        }
+       ]
+      }
+     }
     ],
-    "probe": "45 € + 75 € = 120 € ✓",
+    "bild": {
+     "typ": "bruchstreifen",
+     "teile": 8,
+     "gefaerbt": 3,
+     "ganzes": "120 €"
+    },
+    "fehler": "120 € : 3 und 120 € : 5 ist falsch. Zusammen wären das nur 64 €. Teile durch die ⟦Summe der Teile⟧.",
+    "einstieg": "Zwei Geschwister gewinnen 120 €. Eines hat 3 € Einsatz gezahlt, das andere 5 €. Sie verteilen im Verhältnis 3 : 5. Dafür zählt man die ⟦Teile⟧.",
+    "woerter": [
+     [
+      "Teile",
+      "gleich große Stücke; bei 3 : 5 sind es zusammen 8"
+     ]
+    ]
+   },
+   {
+    "lernziel": "proportion",
+    "titel": "Proportionen lösen",
+    "regel": "Proportion: über ⟦eins⟧ rechnen oder den Faktor suchen. Beide Größen wachsen im gleichen Verhältnis.",
+    "schritte": [
+     {
+      "text": "Als Proportion: 4 : 300 = 6 : x."
+     },
+     {
+      "text": "Dreisatz: 1 Portion braucht 300 g : 4 = 75 g.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Portionen",
+        "4",
+        "1",
+        "6"
+       ],
+       "zeilen": [
+        [
+         "Mehl in g",
+         "300",
+         "75",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "6 Portionen: 6 · 75 g = ⟦450 g⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Portionen",
+        "4",
+        "1",
+        "6"
+       ],
+       "zeilen": [
+        [
+         "Mehl in g",
+         "300",
+         "75",
+         "450"
+        ]
+       ]
+      }
+     }
+    ],
+    "fehler": "302 g ist falsch, nur 2 g mehr für 2 Portionen mehr. Die Menge wächst ⟦im gleichen Verhältnis⟧.",
+    "einstieg": "Ein Rezept für 4 Portionen braucht 300 g Mehl. Du willst 6 Portionen backen. Die Mengen wachsen im gleichen Verhältnis. So eine Gleichung heißt ⟦Proportion⟧.",
+    "woerter": [
+     [
+      "Proportion",
+      "zwei gleiche Verhältnisse: a : b = c : d"
+     ],
+     [
+      "Dreisatz",
+      "erst auf 1 rechnen, dann auf die gesuchte Zahl"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Portionen",
+      "4",
+      "1",
+      "6"
+     ],
+     "zeilen": [
+      [
+       "Mehl in g",
+       "300",
+       "?",
+       "?"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Portionen",
+      "4",
+      "1",
+      "6"
+     ],
+     "zeilen": [
+      [
+       "Mehl in g",
+       "300",
+       "?",
+       "302 ✗"
+      ]
+     ]
+    }
+   },
+   {
+    "lernziel": "einheitsrate",
+    "titel": "Einheitsraten und Stückpreise",
+    "regel": "Angebote vergleichen: ⟦Preis pro Einheit⟧ berechnen, z. B. pro 100 g. Der kleinere Wert ist günstiger.",
+    "schritte": [
+     {
+      "text": "A kostet mehr, enthält aber auch mehr."
+     },
+     {
+      "text": "Pro 100 g: A kostet 3,00 € : 7,5 = 0,40 €."
+     },
+     {
+      "text": "B kostet 2,20 € : 5 = 0,44 € pro 100 g.",
+      "bild": {
+       "einheit": "€ pro 100 g",
+       "werte": [
+        {
+         "name": "A",
+         "wert": 0.4
+        },
+        {
+         "name": "B",
+         "wert": 0.44
+        }
+       ]
+      }
+     },
+     {
+      "text": "Also ist ⟦Packung A günstiger⟧."
+     }
+    ],
+    "fehler": "„B ist billiger, weil 2,20 € < 3,00 €“ ist falsch. B enthält weniger. Vergleiche den ⟦Preis pro gleicher Menge⟧.",
+    "einstieg": "Packung A hat 750 g für 3,00 €, Packung B 500 g für 2,20 €. Was ist günstiger? Vergleiche den Preis für dieselbe Menge, die ⟦Einheitsrate⟧.",
+    "woerter": [
+     [
+      "Einheitsrate",
+      "der Wert für genau 1 Einheit, z. B. Preis pro 100 g"
+     ],
+     [
+      "pro",
+      "je, für jede: 0,40 € pro 100 g"
+     ]
+    ],
     "bild": {
      "typ": "saeulen",
      "einheit": "€",
      "werte": [
       {
-       "name": "3 Teile",
-       "wert": 45
+       "name": "A 750 g",
+       "wert": 3.0
       },
       {
-       "name": "5 Teile",
-       "wert": 75
+       "name": "B 500 g",
+       "wert": 2.2
       }
      ],
      "zahlen": true
-    },
-    "fehler": "120 € : 3 = 40 € und 120 € : 5 = 24 € ist falsch: Zusammen wären das nur 64 €. Man teilt durch die ⟦Summe der Teile⟧ (8), nicht durch jede Zahl einzeln."
-   },
-   {
-    "lernziel": "proportion",
-    "titel": "Proportionen lösen",
-    "regel": "Eine ⟦Proportion⟧ (proportion) ist eine Gleichung zweier Verhältnisse: a : b = c : d. Ist ein Wert unbekannt, findest du den ⟦Faktor⟧ zwischen den bekannten Zahlen oder rechnest über ⟦eins⟧ (Dreisatz).",
-    "schritte": [
-     "Für 4 Portionen braucht man 300 g Mehl. Wie viel für 6 Portionen?",
-     "4 : 300 = 6 : x. Eine Portion: 300 g : 4 = 75 g.",
-     "6 Portionen: 6 · 75 g = ⟦450 g⟧."
-    ],
-    "probe": "450 : 6 = 75 = 300 : 4 ✓",
-    "fehler": "6 Portionen = 300 g + 2 g = 302 g („2 Portionen mehr“) ist falsch: Die Menge wächst ⟦im gleichen Verhältnis⟧, nicht um die Differenz der Portionen."
-   },
-   {
-    "lernziel": "einheitsrate",
-    "titel": "Einheitsraten und Stückpreise",
-    "regel": "Eine ⟦Rate⟧ (rate) vergleicht zwei Größen mit verschiedenen Einheiten, z. B. km pro Stunde. Die ⟦Einheitsrate⟧ (unit rate) bezieht sich auf ⟦genau 1⟧ Einheit: Preis pro Stück, pro kg, pro 100 g. So lassen sich Angebote vergleichen.",
-    "schritte": [
-     "Packung A: 750 g für 3,00 €. Packung B: 500 g für 2,20 €.",
-     "Pro 100 g: A 3,00 € : 7,5 = 0,40 €; B 2,20 € : 5 = 0,44 €.",
-     "⟦Packung A ist günstiger⟧."
-    ],
-    "probe": "0,40 € · 7,5 = 3,00 € ✓",
-    "fehler": "B ist billiger, weil 2,20 € < 3,00 € – das ist falsch: B enthält auch weniger. Vergleichen kann man nur den ⟦Preis pro gleicher Menge⟧."
+    }
    },
    {
     "lernziel": "aenderung",
     "titel": "Änderungsraten berechnen",
-    "regel": "Die ⟦Änderungsrate⟧ (rate of change) sagt, wie stark sich eine Größe ⟦pro Einheit⟧ der anderen ändert: Änderungsrate = ⟦Zunahme der Größe : Zeitspanne⟧. Nimmt die Größe ab, ist die Rate ⟦negativ⟧.",
+    "regel": "Änderungsrate = ⟦Änderung : Zeitspanne⟧. Nimmt die Größe ab, ist die Rate negativ.",
     "schritte": [
-     "Um 9 Uhr zeigt das Thermometer 12 °C, um 13 Uhr 20 °C.",
-     "Änderung: 20 − 12 = 8 °C in 13 − 9 = 4 Stunden.",
-     "Rate: 8 : 4 = ⟦2 °C pro Stunde⟧."
+     {
+      "text": "Die Temperatur steigt um 20 − 12 = 8 °C.",
+      "bild": {
+       "strecken": [
+        [
+         13,
+         12,
+         13,
+         20,
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Zeitspanne: 13 − 9 = 4 Stunden.",
+      "bild": {
+       "strecken": [
+        [
+         9,
+         12,
+         13,
+         12,
+         "gestrichelt"
+        ],
+        [
+         13,
+         12,
+         13,
+         20,
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Rate: 8 : 4 = ⟦2 °C pro Stunde⟧.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 2,
+         "t": -6,
+         "bereich": [
+          9,
+          13
+         ]
+        }
+       ]
+      }
+     }
     ],
-    "probe": "12 °C + 4 · 2 °C = 20 °C ✓",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -145,22 +410,23 @@
        "name": "13 Uhr"
       }
      ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": 2,
-       "t": -6,
-       "bereich": [
-        9,
-        13
-       ]
-      }
-     ],
+     "schritt_x": 1,
+     "schritt_y": 4,
      "name_x": "Uhrzeit",
-     "name_y": "°C",
-     "schritt_y": 4
+     "name_y": "°C"
     },
-    "fehler": "20 : 13 ≈ 1,5 °C pro Stunde ist falsch: Man teilt nicht die Endwerte, sondern die ⟦Änderungen⟧: (20 − 12) : (13 − 9) = 2."
+    "fehler": "20 : 13 ≈ 1,5 ist falsch. Teile die ⟦Änderungen⟧, nicht die Endwerte: 8 : 4 = 2.",
+    "einstieg": "Um 9 Uhr zeigt das Thermometer 12 °C, um 13 Uhr schon 20 °C. Wie schnell wird es wärmer? Das sagt die ⟦Änderungsrate⟧.",
+    "woerter": [
+     [
+      "Änderungsrate",
+      "wie stark sich eine Größe pro Einheit ändert, z. B. °C pro Stunde"
+     ],
+     [
+      "Zeitspanne",
+      "wie viel Zeit vergangen ist"
+     ]
+    ]
    }
   ],
   "teilfaehigkeiten": [

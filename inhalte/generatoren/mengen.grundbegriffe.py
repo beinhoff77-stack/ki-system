@@ -284,7 +284,120 @@ def g_verstehen(s):
 
 GEN = {'elemente': g_elemente, 'schnitt': g_schnitt, 'vereinigung': g_vereinigung, 'venn': g_venn, 'verstehen': g_verstehen}
 
-bauen('mengen.grundbegriffe',
+# ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_rest import umbau_schreiben  # noqa: E402
+
+def _zs(**kw):
+    return {'typ': 'zahlenstrahl', 'start': 0, 'ende': 10, 'abschnitte': 10, 'beschriftet': 'alle', **kw}
+
+
+def _pk(*w):
+    return [{'wert': x, 'name': n} for x, n in w]
+
+
+def _v(*a, **kw):
+    """venn() aus _ib, aber die Kreisnamen A/B an die Außenkanten gerückt (Schrift ist seit 16.11. größer, lange Namen überlappten)."""
+    b = venn(*a, **kw)
+    na, nb = kw.get('A', 'A'), kw.get('B', 'B')
+    for k in b['kreise']:
+        if k.get('r') == 0 and k.get('name') == na:
+            k['m'][0] = -4.4
+        elif k.get('r') == 0 and k.get('name') == nb:
+            k['m'][0] = round(7.3 - (len(nb) * 9.6 + 10) / 15.3, 3)
+    return b
+
+
+_FS = dict(A='Fußball', B='Schwimmen', G='30 Kinder')
+UMBAU = {
+    'elemente': {
+        'einstieg': 'In deiner Federmappe liegen Stifte, ein Radierer und ein Lineal. Alles zusammen ist eine Sammlung. '
+                    'In Mathe heißt so eine Sammlung ⟦Menge⟧, die Dinge darin sind ihre Elemente.',
+        'woerter': [['Menge', 'eine Sammlung von Dingen in geschweiften Klammern, z. B. {2; 4; 6}'],
+                    ['Element', 'ein Ding, das zur Menge gehört'],
+                    ['∈', '„ist Element von“; ∉ heißt „ist nicht Element von“']],
+        'bild': _zs(),
+        'schritte': [
+            {'text': 'A sind die Teiler von 10. Prüfe 1 bis 10: Was geht auf?'},
+            {'text': '10 : 1, 10 : 2, 10 : 5 und 10 : 10 gehen auf.',
+             'bild': {'punkte': _pk((1, '1'), (2, '2'), (5, '5'), (10, '10'))}},
+            {'text': 'A = {1; 2; 5; 10} hat ⟦4 Elemente⟧.'},
+            {'text': 'Also ist ⟦2 ∈ A⟧, aber 4 ∉ A.'},
+        ],
+        'fehler': 'Nur {2; 5} ist falsch. ⟦1 und die Zahl selbst⟧ sind immer Teiler.',
+        'fehler_bild': {'punkte': _pk((1, 'fehlt'), (2, '2'), (5, '5'), (10, 'fehlt'))},
+        'regel': 'Eine Menge schreibt man in { }. ⟦3 ∈ A⟧ heißt: 3 gehört zu A. Jedes Element zählt nur einmal.',
+    },
+    'schnitt': {
+        'einstieg': 'Zwei Freunde vergleichen ihre Sticker-Listen. Welche Nummern haben beide? '
+                    'Genau diese Nummern bilden die ⟦Schnittmenge⟧.',
+        'woerter': [['Schnittmenge', 'A ∩ B: alles, was in A und in B ist'],
+                    ['Venn-Diagramm', 'Bild mit zwei Kreisen; die Überlappung ist A ∩ B'],
+                    ['leere Menge', '{ }: eine Menge ohne Elemente']],
+        'bild': _v('', '', '', None),
+        'schritte': [
+            {'text': 'Sticker von A: die Teiler von 12. Von B: die geraden Zahlen bis 12.'},
+            {'text': 'Gemeinsam sind 2, 4, 6 und 12: im Venn-Diagramm in die Mitte.', 'bild': _v('', '2; 4; 6; 12', '', None)},
+            {'text': 'Der Rest kommt außen in die Kreise.', 'bild': _v('1; 3', '2; 4; 6; 12', '8; 10', None)},
+            {'text': 'Also ist ⟦A ∩ B = {2; 4; 6; 12}⟧.'},
+            {'text': 'Hätten sie nichts gemeinsam, wäre A ∩ B die leere Menge { }.'},
+        ],
+        'fehler': 'Alle Zahlen beider Listen sind nicht die Schnittmenge. In A ∩ B kommt nur, was in ⟦beiden⟧ Mengen steht.',
+        'regel': 'A ∩ B: alles, was in A ⟦und⟧ in B ist. Im Venn-Diagramm ist das die Überlappung.',
+    },
+    'vereinigung': {
+        'einstieg': 'Die beiden Freunde kleben ihre Sticker zusammen in ein Album. Doppelte Sticker kommen nur einmal hinein. '
+                    'Das Album zeigt die ⟦Vereinigungsmenge⟧.',
+        'woerter': [['Vereinigungsmenge', 'A ∪ B: alles, was in A oder in B ist'],
+                    ['n(A)', 'die Anzahl der Elemente von A']],
+        'bild': _v('', '', '', None),
+        'schritte': [
+            {'text': 'A = {1; 3; 5; 7; 9} und B = {3; 6; 9}.'},
+            {'text': 'Gemeinsam sind 3 und 9, sie kommen in die Mitte.', 'bild': _v('', '3; 9', '', None)},
+            {'text': 'A ∪ B = {1; 3; 5; 6; 7; 9}.', 'bild': _v('1; 5; 7', '3; 9', '6', None)},
+            {'text': 'Anzahl: n(A) + n(B) − 2 = 5 + 3 − 2 = ⟦6⟧.'},
+        ],
+        'fehler': '5 + 3 = 8 ist falsch, denn 3 und 9 sind ⟦doppelt gezählt⟧. Man zieht sie einmal ab: 8 − 2 = 6.',
+        'regel': 'A ∪ B: alles, was in A ⟦oder⟧ in B ist. n(A ∪ B) = n(A) + n(B) − n(A ∩ B).',
+    },
+    'venn': {
+        'einstieg': 'In einer Klasse mit 30 Kindern spielen 18 Fußball und 14 schwimmen. 6 Kinder machen beides. '
+                    'Wie viele machen keins von beiden? Das ⟦Venn-Diagramm⟧ zeigt es.',
+        'woerter': [['Grundmenge', 'alle, um die es geht; im Bild das Rechteck'],
+                    ['weder noch', 'in keinem der beiden Kreise']],
+        'bild': _v('', '', '', None, **_FS),
+        'schritte': [
+            {'text': 'Die Grundmenge sind 30 Kinder. Zuerst die Überlappung: 6.', 'bild': _v('', '6', '', None, **_FS)},
+            {'text': 'Nur Fußball: 18 − 6 = 12. Nur Schwimmen: 14 − 6 = 8.', 'bild': _v('12', '6', '8', None, **_FS)},
+            {'text': 'Weder noch: 30 − 12 − 6 − 8 = ⟦4⟧.', 'bild': _v('12', '6', '8', '4', **_FS)},
+        ],
+        'fehler': '„Nur Fußball = 18“ ist falsch. Die 18 enthält auch die 6, die schwimmen. Erst ⟦die Überlappung abziehen⟧.',
+        'fehler_bild': _v('18', '6', '14', '?', **_FS),
+        'regel': 'Im Venn-Diagramm zuerst die ⟦Überlappung⟧ eintragen. Dann „nur A“, „nur B“ und außerhalb.',
+    },
+    'verstehen': {
+        'einstieg': 'Jemand behauptet: „A hat 5 Elemente, B hat 4. Also hat A ∩ B 9 Elemente.“ Stimmt das? '
+                    'Mit einem ⟦Beispiel⟧ kannst du solche Aussagen prüfen.',
+        'woerter': [['Gegenbeispiel', 'ein Beispiel, bei dem die Aussage nicht stimmt'],
+                    ['Teilmenge', 'A ⊆ B: Jedes Element von A liegt auch in B']],
+        'bild': _v('1; 2; 3', '4; 5', '6; 7', None),
+        'schritte': [
+            {'text': 'Beispiel: A = {1; 2; 3; 4; 5}, B = {4; 5; 6; 7}.'},
+            {'text': 'A ∩ B = {4; 5} hat nur 2 Elemente.'},
+            {'text': 'A ∩ B liegt ganz in A, hat also höchstens 5 Elemente.'},
+            {'text': '⟦Die Aussage ist falsch⟧. Das Beispiel ist ein Gegenbeispiel.'},
+            {'text': 'Ist A eine Teilmenge von B, gilt sogar A ∩ B = A.'},
+        ],
+        'fehler': 'n(A ∪ B) = n(A) + n(B) gilt nicht immer. Es stimmt ⟦nur ohne gemeinsame Elemente⟧.',
+        'regel': 'Die Schnittmenge ist ⟦nie größer⟧ als A oder B. Prüfe Aussagen mit einem Beispiel oder Venn-Diagramm.',
+    },
+}
+UMBAU_OFFEN = []
+UMBAU_WEG = []
+# ---------- Ende UMBAU ----------
+
+
+d = bauen('mengen.grundbegriffe',
       'Mengen aufschreiben, Schnitt- und Vereinigungsmengen bilden und mit Venn-Diagrammen zählen.',
       ['Menge (set): Elemente in { }, jedes nur einmal. 3 ∈ A: 3 gehört zu A.',
        'A ∩ B (intersection): in A und in B. A ∪ B (union): in A oder in B.',
@@ -296,3 +409,4 @@ bauen('mengen.grundbegriffe',
              'Venn-Diagramme mit der Figur-Zeichnung gebaut: zwei Kreise + Rechteck (Grundmenge); Beschriftungen als Namen unsichtbarer Hilfskreise (Radius 0), damit keine Punkt-Marker erscheinen. Mit dem Zeichencode der App nachgeprüft. Eine eigene Zeichenart „venn“ wäre robuster.',
              'Mengenschreibweise mit Semikolon {1; 2; 3}, damit Dezimalkommas eindeutig bleiben.'],
       vertiefung=['verstehen'])
+umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

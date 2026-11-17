@@ -42,7 +42,7 @@
    {
     "lernziel": "nach_oben",
     "titel": "Nach oben oder unten verschieben",
-    "regel": "Addierst du zum Funktionsterm eine Zahl e, wird jeder Punkt um e ⟦nach oben⟧ verschoben (bei e < 0 ⟦nach unten⟧): y = f(x) + e. Aus der Normalparabel y = x² wird ⟦y = x² + e⟧ mit Scheitel ⟦S(0 | e)⟧. Wie ein Aufzug: Alles fährt gleich weit.",
+    "regel": "Plus e hinten schiebt die Parabel um e nach oben. Scheitel: ⟦S(0 | e)⟧, bei e < 0 geht es nach unten.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -53,78 +53,268 @@
       -1,
       9
      ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "S"
+      }
+     ],
      "graphen": [
       {
        "art": "poly",
        "k": [
-        0.0,
-        0.0,
-        1.0
+        0,
+        0,
+        1
+       ],
+       "name": "y = x²"
+      }
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Die Normalparabel y = x² hat den Scheitel S(0 | 0)."
+     },
+     {
+      "text": "3 nach oben: Zu jedem y-Wert kommt 3 dazu.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "poly",
+         "k": [
+          0,
+          0,
+          1
+         ],
+         "name": "y = x²"
+        },
+        {
+         "art": "poly",
+         "k": [
+          3,
+          0,
+          1
+         ],
+         "name": "y = x² + 3"
+        }
+       ],
+       "pfeile": [
+        [
+         0,
+         0,
+         0,
+         3
+        ],
+        [
+         2,
+         4,
+         2,
+         7
+        ],
+        [
+         -2,
+         4,
+         -2,
+         7
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Neue Gleichung: ⟦y = x² + 3⟧, Scheitel ⟦S(0 | 3)⟧.",
+      "bild": {
+       "pfeile": null,
+       "punkte": [
+        {
+         "x": 0,
+         "y": 0,
+         "name": "S"
+        },
+        {
+         "x": 0,
+         "y": 3,
+         "name": "S′"
+        }
+       ]
+      }
+     }
+    ],
+    "fehler": "y = (x + 3)² ist nicht „3 nach oben“. Eine Zahl ⟦in der Klammer⟧ verschiebt nach links. Nach oben wird hinten addiert.",
+    "einstieg": "Eine Schablone in Form der Normalparabel liegt auf Karopapier. Du schiebst sie 3 Kästchen nach oben. Jeder Punkt wandert gleich weit mit. Das ist eine ⟦Verschiebung⟧.",
+    "woerter": [
+     [
+      "Normalparabel",
+      "der Graph von y = x², Scheitel im Ursprung"
+     ],
+     [
+      "Scheitel",
+      "der tiefste (oder höchste) Punkt der Parabel"
+     ]
+    ],
+    "fehler_bild": {
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        0,
+        1
        ],
        "name": "y = x²"
       },
       {
        "art": "poly",
        "k": [
-        3.0,
-        0.0,
-        1.0
+        9,
+        6,
+        1
        ],
-       "name": "y = x² + 3"
+       "name": "falsch"
       }
-     ]
-    },
-    "schritte": [
-     "Die Normalparabel wird um 3 nach oben verschoben: ⟦y = x² + 3⟧.",
-     "Der Scheitel wandert von S(0 | 0) nach ⟦S(0 | 3)⟧."
-    ],
-    "fehler": "y = (x + 3)² für „3 nach oben“ ist falsch: Eine Zahl ⟦in der Klammer⟧ verschiebt nach links oder rechts. Nach oben wird ⟦hinten addiert⟧: x² + 3."
+     ],
+     "punkte": null
+    }
    },
    {
     "lernziel": "nach_rechts",
     "titel": "Nach links oder rechts verschieben",
-    "regel": "Ersetzt du x durch ⟦(x − d)⟧, wird der Graph um d ⟦nach rechts⟧ verschoben, bei (x + d) ⟦nach links⟧. Aus y = x² wird ⟦y = (x − d)²⟧ mit Scheitel ⟦S(d | 0)⟧. Merke: Das Vorzeichen in der Klammer ist ⟦umgekehrt⟧ – bei x − 2 ist der Scheitel bei +2, denn dort wird die Klammer 0.",
+    "regel": "Die Zahl in der Klammer schiebt nach links oder rechts. Bei ⟦(x − d)²⟧ liegt der Scheitel bei S(d | 0).",
     "bild": {
      "typ": "koordinaten",
      "x": [
-      -3,
+      -5,
       5
      ],
      "y": [
       -1,
       9
      ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "S"
+      }
+     ],
      "graphen": [
       {
        "art": "poly",
        "k": [
-        0.0,
-        0.0,
-        1.0
+        0,
+        0,
+        1
+       ],
+       "name": "y = x²"
+      }
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Bei y = (x − 2)²: Die Klammer wird 0 für x = 2."
+     },
+     {
+      "text": "Dort liegt der tiefste Punkt: ⟦S(2 | 0)⟧.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "poly",
+         "k": [
+          0,
+          0,
+          1
+         ],
+         "name": "y = x²"
+        },
+        {
+         "art": "poly",
+         "k": [
+          4,
+          -4,
+          1
+         ],
+         "name": "neu"
+        }
+       ],
+       "punkte": [
+        {
+         "x": 2,
+         "y": 0,
+         "name": "S′"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Die Parabel ist also um 2 ⟦nach rechts⟧ verschoben.",
+      "bild": {
+       "pfeile": [
+        [
+         0,
+         0,
+         2,
+         0
+        ],
+        [
+         -2,
+         4,
+         0,
+         4
+        ]
+       ]
+      }
+     }
+    ],
+    "fehler": "y = (x + 4)² heißt nicht „4 nach rechts“. Die Klammer wird 0 für x = −4, also ⟦4 nach links⟧.",
+    "einstieg": "Jetzt schiebst du die Schablone 2 Kästchen nach rechts. Der Scheitel liegt dann bei x = 2. Überraschung: In der Gleichung steht dafür ⟦x − 2⟧, mit Minus.",
+    "woerter": [
+     [
+      "Klammer wird 0",
+      "an dieser Stelle x liegt der Scheitel; bei (x − 2) ist das x = 2"
+     ]
+    ],
+    "fehler_bild": {
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        0,
+        1
        ],
        "name": "y = x²"
       },
       {
        "art": "poly",
        "k": [
-        4.0,
-        -4.0,
-        1.0
+        16,
+        8,
+        1
        ],
-       "name": "y = (x − 2)²"
+       "name": "(x + 4)²"
+      }
+     ],
+     "pfeile": [
+      [
+       0,
+       0,
+       -4,
+       0
+      ]
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": 0,
+       "name": "S′"
       }
      ]
-    },
-    "schritte": [
-     "y = (x − 2)²: Die Klammer wird 0 für x = 2.",
-     "Scheitel ⟦S(2 | 0)⟧ – die Parabel ist um 2 ⟦nach rechts⟧ verschoben."
-    ],
-    "fehler": "y = (x + 4)² als „4 nach rechts“ zu lesen ist falsch: Die Klammer ist 0 für x = −4, also ⟦4 nach links⟧."
+    }
    },
    {
     "lernziel": "strecken",
     "titel": "Strecken, stauchen, nach unten öffnen",
-    "regel": "Multiplizierst du den Funktionsterm mit a, werden alle y-Werte mal a genommen: y = a · x². Für ⟦|a| > 1⟧ wird die Parabel ⟦gestreckt⟧ (enger), für ⟦0 < |a| < 1⟧ ⟦gestaucht⟧ (weiter). Ein ⟦negatives a⟧ spiegelt zusätzlich an der ⟦x-Achse⟧: Die Parabel ist nach unten geöffnet.",
+    "regel": "Mal a streckt oder staucht die Parabel. ⟦|a| > 1⟧ heißt enger, |a| < 1 weiter, negatives a nach unten geöffnet.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -132,49 +322,128 @@
       4
      ],
      "y": [
-      -5,
-      8
+      -9,
+      9
      ],
      "graphen": [
       {
        "art": "poly",
        "k": [
-        0.0,
-        0.0,
-        1.0
+        0,
+        0,
+        1
        ],
        "name": "y = x²"
-      },
-      {
-       "art": "poly",
-       "k": [
-        0.0,
-        0.0,
-        2.0
-       ],
-       "name": "y = 2x²"
-      },
-      {
-       "art": "poly",
-       "k": [
-        0.0,
-        0.0,
-        -0.5
-       ],
-       "name": "y = −0,5x²"
       }
      ]
     },
     "schritte": [
-     "y = 2x²: An der Stelle x = 3 ist y = 2 · 9 = ⟦18⟧ statt 9 – doppelt so hoch.",
-     "y = −0,5x²: Für x = 4 ist y = −0,5 · 16 = ⟦−8⟧. Halb so hoch und nach unten geöffnet."
+     {
+      "text": "Bei y = 2x² und x = 2: 2 · 4 = ⟦8⟧ statt 4.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "poly",
+         "k": [
+          0,
+          0,
+          1
+         ],
+         "name": "y = x²"
+        },
+        {
+         "art": "poly",
+         "k": [
+          0,
+          0,
+          2
+         ],
+         "name": "y = 2x²"
+        }
+       ],
+       "punkte": [
+        {
+         "x": 2,
+         "y": 4,
+         "name": "(2|4)"
+        },
+        {
+         "x": 2,
+         "y": 8,
+         "name": "(2|8)"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Doppelt so hoch, also enger: Die Parabel ist gestreckt."
+     },
+     {
+      "text": "y = −0,5x²: Für x = 4 ist y = −0,5 · 16 = ⟦−8⟧.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "poly",
+         "k": [
+          0,
+          0,
+          1
+         ],
+         "name": "y = x²"
+        },
+        {
+         "art": "poly",
+         "k": [
+          0,
+          0,
+          2
+         ],
+         "name": "y = 2x²"
+        },
+        {
+         "art": "poly",
+         "k": [
+          0,
+          0,
+          -0.5
+         ],
+         "name": "−0,5x²"
+        }
+       ],
+       "punkte": [
+        {
+         "x": 4,
+         "y": -8,
+         "name": "_R"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Halb so hoch, also gestaucht, und nach unten geöffnet."
+     }
     ],
-    "fehler": "y = 2x² für x = 3 als (2 · 3)² = 36 zu rechnen ist falsch: Erst ⟦quadrieren⟧, dann mit 2 multiplizieren: 2 · 9 = 18."
+    "fehler": "y = 2x² für x = 2 nicht als (2 · 2)² = 16 rechnen. Erst ⟦quadrieren⟧, dann mal 2: 2 · 4 = 8.",
+    "einstieg": "Nun nimmst du eine Schablone, die doppelt so steil ist. Jeder y-Wert ist doppelt so groß wie bei x². Die Parabel wird enger, sie ist ⟦gestreckt⟧.",
+    "woerter": [
+     [
+      "gestreckt",
+      "enger und steiler: alle y-Werte mal eine Zahl größer als 1"
+     ],
+     [
+      "gestaucht",
+      "weiter und flacher: alle y-Werte mal eine Zahl zwischen 0 und 1"
+     ],
+     [
+      "nach unten geöffnet",
+      "bei negativem a hängt die Parabel wie ein Bogen nach unten"
+     ]
+    ]
    },
    {
     "lernziel": "spiegeln",
     "titel": "An den Achsen spiegeln",
-    "regel": "Spiegeln an der ⟦x-Achse⟧: y-Werte bekommen das andere Vorzeichen, ⟦y = −f(x)⟧, Punkt (x | y) → (x | −y). Spiegeln an der ⟦y-Achse⟧: x wird durch −x ersetzt, ⟦y = f(−x)⟧, Punkt (x | y) → (−x | y). Wie im Spiegel: Was links war, ist rechts.",
+    "regel": "An der y-Achse spiegeln: x wird −x. An der ⟦x-Achse⟧ spiegeln: y wird −y.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -182,40 +451,114 @@
       5
      ],
      "y": [
-      -1,
+      -2,
       8
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 1,
+       "name": "S"
+      }
      ],
      "graphen": [
       {
        "art": "poly",
        "k": [
-        5.0,
-        -4.0,
-        1.0
+        5,
+        -4,
+        1
        ],
-       "name": "y = (x − 2)² + 1"
-      },
-      {
-       "art": "poly",
-       "k": [
-        5.0,
-        4.0,
-        1.0
-       ],
-       "name": "y = (x + 2)² + 1"
+       "name": "f"
       }
      ]
     },
     "schritte": [
-     "Parabel y = (x − 2)² + 1 mit S(2 | 1) an der y-Achse spiegeln: x durch −x ersetzen.",
-     "(−x − 2)² = (x + 2)², also ⟦y = (x + 2)² + 1⟧ mit ⟦S(−2 | 1)⟧."
+     {
+      "text": "Die Parabel y = (x − 2)² + 1 hat den Scheitel S(2 | 1)."
+     },
+     {
+      "text": "Spiegeln an der y-Achse: x durch −x ersetzen."
+     },
+     {
+      "text": "(−x − 2)² = (x + 2)², also ⟦y = (x + 2)² + 1⟧.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "poly",
+         "k": [
+          5,
+          -4,
+          1
+         ],
+         "name": "f"
+        },
+        {
+         "art": "poly",
+         "k": [
+          5,
+          4,
+          1
+         ],
+         "name": "Bild"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Neuer Scheitel ⟦S′(−2 | 1)⟧. Spiegeln an der x-Achse ändert dagegen nur y.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 2,
+         "y": 1,
+         "name": "S"
+        },
+        {
+         "x": -2,
+         "y": 1,
+         "name": "S′"
+        }
+       ]
+      }
+     }
     ],
-    "fehler": "Beim Spiegeln an der y-Achse auch y umzudrehen, also S(−2 | −1), ist falsch: An der ⟦y-Achse⟧ ändert sich ⟦nur x⟧."
+    "fehler": "S′(−2 | −1) ist falsch. An der ⟦y-Achse⟧ ändert sich nur x, die Höhe bleibt gleich.",
+    "einstieg": "Drehst du die Schablone um wie eine Buchseite, wird sie gespiegelt. Klappst du um die senkrechte Achse, tauschen links und rechts. Das heißt ⟦Spiegeln an der y-Achse⟧.",
+    "woerter": [
+     [
+      "Spiegeln an der y-Achse",
+      "links und rechts tauschen: (x | y) wird (−x | y)"
+     ],
+     [
+      "Spiegeln an der x-Achse",
+      "oben und unten tauschen: (x | y) wird (x | −y)"
+     ]
+    ],
+    "fehler_bild": {
+     "punkte": [
+      {
+       "x": 2,
+       "y": 1,
+       "name": "S"
+      },
+      {
+       "x": -2,
+       "y": 1,
+       "name": "S′"
+      },
+      {
+       "x": -2,
+       "y": -1,
+       "name": "falsch"
+      }
+     ]
+    }
    },
    {
     "lernziel": "kombiniert",
     "titel": "Mehrere Schritte: y = a(x − d)² + e",
-    "regel": "Die Gleichung ⟦y = a(x − d)² + e⟧ verrät alles: Scheitel ⟦S(d | e)⟧, Form a (gestreckt, gestaucht, nach unten geöffnet). Sie entsteht aus der Normalparabel durch ⟦Strecken mit a⟧, dann ⟦Verschieben um d nach rechts und e nach oben⟧.",
+    "regel": "Scheitelform: den ⟦Scheitel S(d | e)⟧ direkt ablesen. Dann sagt a, ob gestreckt, gestaucht oder nach unten geöffnet.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -223,46 +566,242 @@
       7
      ],
      "y": [
-      -4,
+      -5,
       6
      ],
      "graphen": [
       {
        "art": "poly",
        "k": [
-        0.0,
-        0.0,
-        1.0
+        0,
+        0,
+        1
        ],
        "name": "y = x²"
-      },
-      {
-       "art": "poly",
-       "k": [
-        -0.5,
-        3.0,
-        -0.5
-       ],
-       "name": "y = −0,5(x − 3)² + 4"
       }
      ]
     },
     "schritte": [
-     "y = −0,5(x − 3)² + 4: a = −0,5, also gestaucht und nach unten geöffnet.",
-     "Scheitel ⟦S(3 | 4)⟧: 3 nach rechts, 4 nach oben."
+     {
+      "text": "In y = −0,5(x − 3)² + 4 ist a = −0,5."
+     },
+     {
+      "text": "Also gestaucht und nach unten geöffnet.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "poly",
+         "k": [
+          0,
+          0,
+          1
+         ],
+         "name": "y = x²"
+        },
+        {
+         "art": "poly",
+         "k": [
+          0,
+          0,
+          -0.5
+         ],
+         "name": "a = −0,5"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Dann 3 nach rechts und 4 nach oben.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "poly",
+         "k": [
+          0,
+          0,
+          1
+         ],
+         "name": "y = x²"
+        },
+        {
+         "art": "poly",
+         "k": [
+          0,
+          0,
+          -0.5
+         ],
+         "name": "a = −0,5"
+        },
+        {
+         "art": "poly",
+         "k": [
+          -0.5,
+          3,
+          -0.5
+         ],
+         "name": "fertig"
+        }
+       ],
+       "pfeile": [
+        [
+         0,
+         0,
+         3,
+         4
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Der Scheitel ist ⟦S(3 | 4)⟧.",
+      "bild": {
+       "pfeile": null,
+       "punkte": [
+        {
+         "x": 3,
+         "y": 4,
+         "name": "S"
+        }
+       ]
+      }
+     }
     ],
-    "fehler": "Bei y = 2(x + 1)² − 5 den Scheitel S(1 | −5) abzulesen ist falsch: Die Klammer ist 0 für ⟦x = −1⟧, also S(−1 | −5)."
+    "fehler": "Bei y = 2(x + 1)² − 5 ist S(1 | −5) falsch. Die Klammer wird 0 für ⟦x = −1⟧, also S(−1 | −5).",
+    "einstieg": "Jetzt machst du alles nacheinander: Schablone tauschen, umdrehen, verschieben. Die Gleichung y = a(x − d)² + e erzählt das ganze Rezept. Sie heißt ⟦Scheitelform⟧.",
+    "woerter": [
+     [
+      "Scheitelform",
+      "y = a(x − d)² + e; daraus liest man S(d | e) und die Form a ab"
+     ]
+    ]
    },
    {
     "lernziel": "punkte",
     "titel": "Punkte mit abbilden",
-    "regel": "Kennst du einen Punkt P(x | y) auf dem Graphen von f, findest du sein Bild auf g(x) = a · f(x − d) + e ohne den Term von f: ⟦P'(x + d | a · y + e)⟧. Erst ⟦strecken⟧ (y mal a), dann ⟦verschieben⟧.",
+    "regel": "x-Wert plus d, y-Wert mal a plus e. So wird P(x | y) zu ⟦P′(x + d | a · y + e)⟧.",
     "schritte": [
-     "P(1 | 4) liegt auf dem Graphen von f. g(x) = 2 · f(x − 3) − 1.",
-     "x: 1 + 3 = 4; y: 2 · 4 − 1 = 7. Also ⟦P'(4 | 7)⟧."
+     {
+      "text": "Gegeben: P(1 | 4) und g(x) = 2 · f(x − 3) − 1."
+     },
+     {
+      "text": "x: f(x − 3) heißt 3 nach rechts, 1 + 3 = 4.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 1,
+         "y": 4,
+         "name": "P"
+        },
+        {
+         "x": 4,
+         "y": 4,
+         "name": "_Q"
+        }
+       ],
+       "pfeile": [
+        [
+         1,
+         4,
+         4,
+         4
+        ]
+       ]
+      }
+     },
+     {
+      "text": "y: erst mal 2, dann minus 1: 2 · 4 − 1 = 7.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 1,
+         "y": 4,
+         "name": "P"
+        },
+        {
+         "x": 4,
+         "y": 4,
+         "name": "_Q"
+        },
+        {
+         "x": 4,
+         "y": 7,
+         "name": "P′"
+        }
+       ],
+       "pfeile": [
+        [
+         1,
+         4,
+         4,
+         4
+        ],
+        [
+         4,
+         4,
+         4,
+         7
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Der Bildpunkt ist ⟦P′(4 | 7)⟧."
+     }
     ],
-    "probe": "g(4) = 2 · f(4 − 3) − 1 = 2 · f(1) − 1 = 2 · 4 − 1 = 7 ✓",
-    "fehler": "Bei g(x) = f(x − 3) den Punkt nach links zu schieben (x − 3) ist falsch: f(x − 3) heißt ⟦3 nach rechts⟧, also x + 3."
+    "fehler": "f(x − 3) schiebt nicht nach links. Es heißt ⟦3 nach rechts⟧, also x + 3, wie bei (x − 3)².",
+    "einstieg": "Auf der Schablone ist ein Punkt P markiert. Verschiebst du die Schablone, wandert P mit. Sein Ziel kannst du ausrechnen, ohne die Gleichung zu kennen. Es heißt ⟦Bildpunkt⟧.",
+    "woerter": [
+     [
+      "Bildpunkt",
+      "wohin P nach dem Abbilden kommt; geschrieben P′"
+     ],
+     [
+      "f(x − 3)",
+      "der Graph von f, um 3 nach rechts verschoben"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      6
+     ],
+     "y": [
+      -1,
+      9
+     ],
+     "schritt_x": 1,
+     "schritt_y": 1,
+     "punkte": [
+      {
+       "x": 1,
+       "y": 4,
+       "name": "P"
+      }
+     ]
+    },
+    "fehler_bild": {
+     "punkte": [
+      {
+       "x": 1,
+       "y": 4,
+       "name": "P"
+      },
+      {
+       "x": -2,
+       "y": 7,
+       "name": "falsch"
+      }
+     ],
+     "pfeile": [
+      [
+       1,
+       4,
+       -2,
+       7
+      ]
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [

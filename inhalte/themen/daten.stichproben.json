@@ -35,53 +35,396 @@
    {
     "lernziel": "begriffe",
     "titel": "Grundgesamtheit und Stichprobe",
-    "regel": "Die ⟦Grundgesamtheit⟧ sind alle, über die du etwas wissen willst. Befragst du alle, ist das eine ⟦Vollerhebung⟧. Meist befragt man nur einen Teil: die ⟦Stichprobe⟧. Ihre Größe heißt ⟦Stichprobenumfang⟧ n. Wie beim Kochen: Du probierst einen Löffel (Stichprobe), um den ganzen Topf (Grundgesamtheit) zu beurteilen.",
+    "regel": "Grundgesamtheit = alle, Stichprobe = der befragte Teil. Ihre Größe heißt ⟦Stichprobenumfang n⟧.",
     "schritte": [
-     "Eine Realschule hat 620 Kinder. 50 davon werden gefragt, wie sie zur Schule kommen.",
-     "Grundgesamtheit: ⟦alle 620 Kinder der Schule⟧. Stichprobe: die 50 Befragten, also ⟦n = 50⟧."
+     {
+      "text": "Die Schule will wissen, wie alle 620 Kinder zur Schule kommen.",
+      "bild": {
+       "typ": "saeulen",
+       "einheit": "Kinder",
+       "werte": [
+        {
+         "name": "Schule",
+         "wert": 620
+        }
+       ],
+       "zahlen": true
+      }
+     },
+     {
+      "text": "Die Grundgesamtheit sind ⟦alle 620 Kinder⟧."
+     },
+     {
+      "text": "Befragt werden nur 50 Kinder: die Stichprobe.",
+      "bild": {
+       "typ": "saeulen",
+       "einheit": "Kinder",
+       "werte": [
+        {
+         "name": "Schule",
+         "wert": 620
+        },
+        {
+         "name": "befragt",
+         "wert": 50
+        }
+       ],
+       "zahlen": true
+      }
+     },
+     {
+      "text": "Ihr Stichprobenumfang n = ⟦50⟧."
+     }
     ],
-    "fehler": "Die 50 Befragten als Grundgesamtheit zu bezeichnen ist falsch: Die Grundgesamtheit ist ⟦die ganze Gruppe⟧, über die man eine Aussage machen will – hier alle 620 Kinder."
+    "fehler": "Die 50 Befragten sind nicht die Grundgesamtheit. Die Grundgesamtheit ist ⟦die ganze Gruppe⟧, hier alle 620 Kinder.",
+    "einstieg": "Beim Kochen probierst du einen Löffel, nicht den ganzen Topf. Eine Schule mit 620 Kindern macht es genauso: Sie fragt nur 50 Kinder. Diese 50 sind die ⟦Stichprobe⟧.",
+    "woerter": [
+     [
+      "Grundgesamtheit",
+      "alle, über die man etwas wissen will – der ganze Topf"
+     ],
+     [
+      "Stichprobe",
+      "der Teil, der wirklich befragt wird – der Löffel"
+     ],
+     [
+      "Stichprobenumfang n",
+      "wie viele in der Stichprobe sind"
+     ]
+    ],
+    "bild": {
+     "typ": "saeulen",
+     "einheit": "Kinder",
+     "werte": [
+      {
+       "name": "Schule",
+       "wert": 620
+      },
+      {
+       "name": "befragt",
+       "wert": 50
+      }
+     ],
+     "zahlen": true
+    }
    },
    {
     "lernziel": "hochrechnen",
     "titel": "Von der Stichprobe hochrechnen",
-    "regel": "Ist die Stichprobe gut gewählt, überträgt man ihre ⟦relative Häufigkeit⟧ auf die Grundgesamtheit: ⟦Anteil = Anzahl in der Stichprobe : n⟧, dann ⟦geschätzte Anzahl = Anteil · Größe der Grundgesamtheit⟧. Das Ergebnis ist eine ⟦Schätzung⟧, kein genauer Wert.",
+    "regel": "Erst den Anteil der Stichprobe, dann mal die Grundgesamtheit. Das Ergebnis ist nur eine ⟦Schätzung⟧.",
     "schritte": [
-     "Von 80 befragten Kindern einer Schule mit 640 Kindern kommen 28 mit dem Rad. Anteil: 28 : 80 = 0,35 = 35 %.",
-     "Hochrechnung: 0,35 · 640 = ⟦224⟧. Etwa 224 Kinder der Schule kommen mit dem Rad."
+     {
+      "text": "Relative Häufigkeit: 28 : 80 = 0,35, also 35 %."
+     },
+     {
+      "text": "Die ganze Schule hat 640 Kinder, der Anteil bleibt gleich.",
+      "bild": {
+       "ganzes": "640 Kinder",
+       "teil_text": "?"
+      }
+     },
+     {
+      "text": "Hochrechnung: 0,35 · 640 = ⟦224⟧.",
+      "bild": {
+       "teil_text": "etwa 224"
+      }
+     },
+     {
+      "text": "Etwa 224 Kinder kommen mit dem Rad. Das ist eine Schätzung."
+     }
     ],
-    "probe": "224 : 640 = 0,35 ✓",
-    "fehler": "28 · 640 = 17 920 Kinder ist falsch: Erst den ⟦Anteil⟧ bilden (28 : 80), dann mit der Grundgesamtheit multiplizieren."
+    "fehler": "28 · 640 = 17 920 ist falsch, so viele Kinder hat die Schule gar nicht. Erst den ⟦Anteil⟧ bilden, dann malnehmen.",
+    "einstieg": "Von 80 befragten Kindern kommen 28 mit dem Rad. Wie viele sind es an der ganzen Schule mit 640 Kindern? Man überträgt den Anteil auf alle. Das heißt ⟦Hochrechnung⟧.",
+    "woerter": [
+     [
+      "relative Häufigkeit",
+      "der Anteil in der Stichprobe: Anzahl geteilt durch n"
+     ],
+     [
+      "Hochrechnung",
+      "den Anteil der Stichprobe auf alle übertragen; ergibt eine Schätzung"
+     ]
+    ],
+    "bild": {
+     "typ": "bruchstreifen",
+     "teile": 20,
+     "gefaerbt": 7,
+     "ganzes": "80 Kinder",
+     "teil_text": "28 mit Rad"
+    }
    },
    {
     "lernziel": "repraesentativ",
     "titel": "Ist die Stichprobe geeignet?",
-    "regel": "Eine Stichprobe ist ⟦repräsentativ⟧, wenn sie die Grundgesamtheit im Kleinen gut abbildet. Dafür sollte sie ⟦zufällig⟧ ausgewählt werden und ⟦groß genug⟧ sein. Befragt man nur eine besondere Gruppe, wird das Ergebnis ⟦verzerrt⟧.",
+    "regel": "Eine gute Stichprobe ist zufällig gewählt und groß genug. Nur dann ist sie ⟦repräsentativ⟧.",
     "schritte": [
-     "Frage: Wie viele Jugendliche in Bayern treiben Sport? Befragt werden nur Mitglieder eines Fußballvereins.",
-     "Nicht geeignet: ⟦Sportler sind zu stark vertreten⟧. Besser: zufällig ausgewählte Jugendliche aus vielen Schulen."
+     {
+      "text": "Im Fußballverein treiben ⟦100 %⟧ der Befragten Sport.",
+      "bild": {
+       "typ": "saeulen",
+       "einheit": "% Sport",
+       "werte": [
+        {
+         "name": "Verein",
+         "wert": 100
+        }
+       ],
+       "zahlen": true
+      }
+     },
+     {
+      "text": "Bei zufällig Befragten aus vielen Schulen sind es zum Beispiel nur 60 %.",
+      "bild": {
+       "typ": "saeulen",
+       "einheit": "% Sport",
+       "werte": [
+        {
+         "name": "Verein",
+         "wert": 100
+        },
+        {
+         "name": "zufällig",
+         "wert": 60
+        }
+       ],
+       "zahlen": true
+      }
+     },
+     {
+      "text": "Die Vereins-Stichprobe ist ⟦verzerrt⟧: Sportler sind zu stark vertreten."
+     }
     ],
-    "fehler": "„Wir haben 500 Leute befragt, also ist es repräsentativ“ ist falsch: Auch eine große Stichprobe ist ⟦verzerrt⟧, wenn sie nur aus einer besonderen Gruppe stammt."
+    "fehler": "„500 Befragte, also repräsentativ“ ist falsch. Auch eine große Stichprobe ist ⟦verzerrt⟧, wenn alle aus einer besonderen Gruppe stammen.",
+    "einstieg": "Wie viele Jugendliche in Bayern treiben Sport? Ein Forscher fragt nur in einem Fußballverein. Dort treiben alle Sport! Seine Stichprobe ist deshalb nicht ⟦repräsentativ⟧.",
+    "woerter": [
+     [
+      "repräsentativ",
+      "die Stichprobe sieht aus wie die Grundgesamtheit im Kleinen"
+     ],
+     [
+      "verzerrt",
+      "schief, weil eine Gruppe zu stark vertreten ist"
+     ],
+     [
+      "zufällig",
+      "jeder hat dieselbe Chance, ausgewählt zu werden"
+     ]
+    ],
+    "bild": {
+     "typ": "saeulen",
+     "einheit": "% Sport",
+     "werte": [
+      {
+       "name": "Verein",
+       "wert": 100
+      },
+      {
+       "name": "zufällig",
+       "wert": 60
+      }
+     ],
+     "zahlen": true
+    }
    },
    {
     "lernziel": "fehlerquellen",
     "titel": "Wie entstehen verzerrte Ergebnisse?",
-    "regel": "Typische Fehlerquellen: die Stichprobe ist ⟦zu klein⟧, die Auswahl ist ⟦einseitig⟧, die Frage ist ⟦suggestiv⟧ (sie drängt zu einer Antwort), oder ⟦nur Freiwillige⟧ antworten – meist die mit einer starken Meinung.",
+    "regel": "Prüfe Größe, Auswahl, Frage und wer antwortet. ⟦Suggestive Fragen⟧ und einseitige Auswahl verzerren.",
     "schritte": [
-     "Ein Verein fragt: „Sie sind doch sicher auch dafür, dass der Spielplatz erneuert wird?“",
-     "Fehlerquelle: ⟦suggestive Frage⟧. Neutral wäre: „Soll der Spielplatz erneuert werden?“"
+     {
+      "text": "Die Frage lautet: „Sie sind doch sicher auch dafür?“",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Frage",
+        "neutral?"
+       ],
+       "zeilen": [
+        [
+         "„Sie sind doch sicher dafür?“",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Sie drängt zum Ja: Fehlerquelle ⟦suggestive Frage⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Frage",
+        "neutral?"
+       ],
+       "zeilen": [
+        [
+         "„Sie sind doch sicher dafür?“",
+         "nein"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Neutral fragen: „Soll der Spielplatz erneuert werden?“",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Frage",
+        "neutral?"
+       ],
+       "zeilen": [
+        [
+         "„Sie sind doch sicher dafür?“",
+         "nein"
+        ],
+        [
+         "„Soll der Spielplatz erneuert werden?“",
+         "ja"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Weitere Fehlerquellen: zu klein, einseitig, nur freiwillige Antworten.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Fehlerquelle",
+        "Beispiel"
+       ],
+       "zeilen": [
+        [
+         "zu klein",
+         "5 Befragte"
+        ],
+        [
+         "einseitig",
+         "nur Vereinsmitglieder"
+        ],
+        [
+         "suggestiv",
+         "„doch sicher dafür?“"
+        ],
+        [
+         "freiwillig",
+         "Online-Abstimmung"
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "Eine Online-Abstimmung mit 10 000 Stimmen für repräsentativ halten ist falsch: Wer ⟦freiwillig⟧ mitmacht, hat meist eine starke Meinung – die anderen fehlen."
+    "fehler": "Eine Online-Abstimmung mit 10 000 Stimmen ist nicht repräsentativ. Es antworten nur ⟦Freiwillige⟧ mit starker Meinung.",
+    "einstieg": "Ein Verein will einen neuen Spielplatz. Er fragt: „Sie sind doch sicher auch dafür?“ Fast alle sagen Ja. Die Frage gibt die Antwort schon vor. Sie ist ⟦suggestiv⟧.",
+    "woerter": [
+     [
+      "suggestiv",
+      "drängt zu einer bestimmten Antwort"
+     ],
+     [
+      "einseitig",
+      "nur eine bestimmte Gruppe wird gefragt"
+     ],
+     [
+      "freiwillig",
+      "nur wer will, antwortet – meist mit starker Meinung"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Fehlerquelle",
+      "Beispiel"
+     ],
+     "zeilen": [
+      [
+       "zu klein",
+       "5 Befragte"
+      ],
+      [
+       "einseitig",
+       "nur Vereinsmitglieder"
+      ],
+      [
+       "suggestiv",
+       "„doch sicher dafür?“"
+      ],
+      [
+       "freiwillig",
+       "Online-Abstimmung"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "aussagen",
     "titel": "Aussagen kritisch prüfen",
-    "regel": "Ergebnisse von Stichproben ⟦schwanken⟧: Zwei Stichproben aus derselben Grundgesamtheit liefern meist etwas verschiedene Anteile. Je ⟦größer⟧ die Stichprobe, desto weniger schwankt sie. Aus einer Stichprobe folgt deshalb nur „⟦ungefähr⟧“, nie „genau“.",
+    "regel": "Stichproben liefern nur ungefähre Werte. Je ⟦größer⟧ die Stichprobe, desto weniger schwankt sie.",
     "schritte": [
-     "Stichprobe A: 7 von 10 Befragten (70 %) mögen das Mensaessen. Stichprobe B: 260 von 500 (52 %).",
-     "B ist ⟦aussagekräftiger⟧, weil sie viel größer ist. Der Unterschied beträgt 70 % − 52 % = ⟦18 Prozentpunkte⟧."
+     {
+      "text": "A: 7 von 10 mögen das Essen, das sind 70 %.",
+      "bild": {
+       "typ": "saeulen",
+       "einheit": "% mögen es",
+       "werte": [
+        {
+         "name": "A: 10",
+         "wert": 70
+        }
+       ],
+       "zahlen": true
+      }
+     },
+     {
+      "text": "B: 260 von 500 mögen es, das sind 52 %.",
+      "bild": {
+       "typ": "saeulen",
+       "einheit": "% mögen es",
+       "werte": [
+        {
+         "name": "A: 10",
+         "wert": 70
+        },
+        {
+         "name": "B: 500",
+         "wert": 52
+        }
+       ],
+       "zahlen": true
+      }
+     },
+     {
+      "text": "Unterschied: 70 % − 52 % = ⟦18 Prozentpunkte⟧."
+     },
+     {
+      "text": "B ist ⟦aussagekräftiger⟧, weil sie viel größer ist und weniger schwankt."
+     }
     ],
-    "fehler": "„In der Stichprobe waren es 40 %, also sind es in der Grundgesamtheit genau 40 %“ ist falsch: Die Stichprobe liefert nur einen ⟦Schätzwert⟧."
+    "fehler": "„In der Stichprobe 40 %, also genau 40 % bei allen“ ist falsch. Eine Stichprobe liefert nur einen ⟦Schätzwert⟧.",
+    "einstieg": "Zwei Klassen fragen nach dem Mensaessen. Die eine fragt 10 Kinder, die andere 500. Die Ergebnisse sind verschieden. Stichproben ⟦schwanken⟧, kleine stärker als große.",
+    "woerter": [
+     [
+      "schwanken",
+      "bei jeder Stichprobe kommt ein etwas anderer Anteil heraus"
+     ],
+     [
+      "Prozentpunkte",
+      "Unterschied zwischen zwei Prozentangaben, z. B. 70 % − 52 %"
+     ]
+    ],
+    "bild": {
+     "typ": "saeulen",
+     "einheit": "% mögen es",
+     "werte": [
+      {
+       "name": "A: 10",
+       "wert": 70
+      },
+      {
+       "name": "B: 500",
+       "wert": 52
+      }
+     ],
+     "zahlen": true
+    }
    }
   ],
   "teilfaehigkeiten": [

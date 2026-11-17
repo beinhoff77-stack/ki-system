@@ -40,13 +40,74 @@
    {
     "lernziel": "bereich",
     "titel": "Liegt ein Punkt im Bereich?",
-    "regel": "Eine lineare Ungleichung wie 2x + y ≤ 8 beschreibt eine ⟦Halbebene⟧: alle Punkte auf der Geraden 2x + y = 8 und auf ⟦einer⟧ Seite davon. Mehrere Ungleichungen zusammen ergeben den ⟦zulässigen Bereich⟧ (feasible region). Ein Punkt liegt darin, wenn er ⟦alle⟧ Ungleichungen erfüllt.",
+    "regel": "Ein Punkt ist zulässig, wenn er ⟦alle⟧ Ungleichungen erfüllt. Jede Ungleichung ist eine Halbebene.",
     "schritte": [
-     "Bedingungen: 2x + y ≤ 8, x + 2y ≤ 10, x ≥ 0, y ≥ 0. Prüfe Q(2 | 3).",
-     "2 · 2 + 3 = 7 ≤ 8 ✓; 2 + 2 · 3 = 8 ≤ 10 ✓; beide ≥ 0 ✓.",
-     "⟦Q liegt im zulässigen Bereich⟧."
+     {
+      "text": "I: 2x + y ≤ 8 ist eine Halbebene.",
+      "bild": {
+       "flaechen": [
+        {
+         "punkte": [
+          [
+           0,
+           0
+          ],
+          [
+           4,
+           0
+          ],
+          [
+           0,
+           8
+          ]
+         ]
+        }
+       ]
+      }
+     },
+     {
+      "text": "Mit II: x + 2y ≤ 10 entsteht der zulässige Bereich.",
+      "bild": {
+       "flaechen": [
+        {
+         "punkte": [
+          [
+           0,
+           0
+          ],
+          [
+           4,
+           0
+          ],
+          [
+           2,
+           4
+          ],
+          [
+           0,
+           5
+          ]
+         ]
+        }
+       ]
+      }
+     },
+     {
+      "text": "Q(2 | 3) in I: 2 · 2 + 3 = 7 ≤ 8.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 2,
+         "y": 3,
+         "name": "Q"
+        }
+       ]
+      }
+     },
+     {
+      "text": "In II: 2 + 2 · 3 = 8 ≤ 10. ⟦Q liegt im Bereich⟧."
+     }
     ],
-    "probe": "Ein Punkt außerhalb, z. B. (4 | 3): 2 · 4 + 3 = 11 > 8 ✗",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -57,6 +118,239 @@
       0,
       9
      ],
+     "schritt_x": 1,
+     "schritt_y": 1,
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -2,
+       "t": 8,
+       "bereich": [
+        0,
+        4
+       ],
+       "name": "I",
+       "name_x": 3.3
+      },
+      {
+       "art": "linear",
+       "m": -0.5,
+       "t": 5,
+       "bereich": [
+        0,
+        10
+       ],
+       "name": "II",
+       "name_x": 7
+      }
+     ]
+    },
+    "fehler": "Nur I prüfen reicht nicht. Ein Punkt kann I erfüllen und ⟦II verletzen⟧. Zulässig heißt: alle Bedingungen.",
+    "einstieg": "Eine kleine Bäckerei backt x Kuchen und y Torten. Ofenzeit und Teig reichen nicht für beliebig viele. Alle machbaren Mengen bilden den ⟦zulässigen Bereich⟧.",
+    "woerter": [
+     [
+      "Halbebene",
+      "alle Punkte auf einer Seite einer Geraden, die Gerade eingeschlossen"
+     ],
+     [
+      "zulässig",
+      "erfüllt jede Bedingung; der zulässige Bereich sind alle solchen Punkte"
+     ]
+    ],
+    "fehler_bild": {
+     "punkte": [
+      {
+       "x": 2,
+       "y": 3,
+       "name": "Q"
+      },
+      {
+       "x": 1,
+       "y": 5,
+       "name": "nur I"
+      }
+     ]
+    }
+   },
+   {
+    "lernziel": "aufstellen",
+    "titel": "Bedingungen aufstellen",
+    "regel": "Höchstens heißt ⟦≤⟧, mindestens heißt ≥. Dazu kommen immer x ≥ 0 und y ≥ 0.",
+    "schritte": [
+     {
+      "text": "Entscheidungsvariablen: x Kuchen und y Torten."
+     },
+     {
+      "text": "Zeit höchstens 30 h: ⟦2x + 3y ≤ 30⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "Kuchen (x)",
+        "Torte (y)",
+        "Grenze"
+       ],
+       "zeilen": [
+        [
+         "Zeit in h",
+         "2",
+         "3",
+         "≤ 30"
+        ],
+        [
+         "Gewinn in €",
+         "?",
+         "?",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Anzahlen sind nie negativ: x ≥ 0 und y ≥ 0."
+     },
+     {
+      "text": "Gewinn 4 € und 7 €: Zielfunktion ⟦G = 4x + 7y⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "Kuchen (x)",
+        "Torte (y)",
+        "Grenze"
+       ],
+       "zeilen": [
+        [
+         "Zeit in h",
+         "2",
+         "3",
+         "≤ 30"
+        ],
+        [
+         "Gewinn in €",
+         "4",
+         "7",
+         "möglichst groß"
+        ]
+       ]
+      }
+     }
+    ],
+    "fehler": "„Mindestens 4 Torten“ ist nicht y ≤ 4. Mindestens heißt ⟦y ≥ 4⟧, also 4 oder mehr.",
+    "einstieg": "Eine größere Bäckerei hat 30 Stunden Backzeit. Ein Kuchen braucht 2 h, eine Torte 3 h. Das wird eine Ungleichung. Was möglichst groß werden soll, ist die ⟦Zielfunktion⟧.",
+    "woerter": [
+     [
+      "Entscheidungsvariablen",
+      "x und y: wie viele Kuchen und wie viele Torten"
+     ],
+     [
+      "Zielfunktion",
+      "der Term, der möglichst groß oder klein werden soll"
+     ],
+     [
+      "höchstens",
+      "heißt ≤; mindestens heißt ≥"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Kuchen (x)",
+      "Torte (y)",
+      "Grenze"
+     ],
+     "zeilen": [
+      [
+       "Zeit in h",
+       "?",
+       "?",
+       "?"
+      ],
+      [
+       "Gewinn in €",
+       "?",
+       "?",
+       "?"
+      ]
+     ]
+    }
+   },
+   {
+    "lernziel": "ecken",
+    "titel": "Eckpunkte berechnen",
+    "regel": "Eckpunkt = Schnitt zweier Randgeraden. Mit einem ⟦Gleichungssystem⟧ ausrechnen, nicht nur ablesen.",
+    "schritte": [
+     {
+      "text": "Randgeraden: 2x + y = 8 und x + 2y = 10."
+     },
+     {
+      "text": "Erste mal 2: 4x + 2y = 16. Minus zweite: 3x = 6."
+     },
+     {
+      "text": "Also x = 2 und y = 8 − 2 · 2 = 4.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 2,
+         "y": 4,
+         "name": "(2|4)"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Eckpunkt ⟦(2 | 4)⟧. Dazu kommen (0 | 0), (4 | 0), (0 | 5).",
+      "bild": {
+       "punkte": [
+        {
+         "x": 0,
+         "y": 0,
+         "name": "(0|0)"
+        },
+        {
+         "x": 4,
+         "y": 0,
+         "name": "(4|0)"
+        },
+        {
+         "x": 2,
+         "y": 4,
+         "name": "(2|4)"
+        },
+        {
+         "x": 0,
+         "y": 5,
+         "name": "(0|5)"
+        }
+       ]
+      }
+     }
+    ],
+    "fehler": "Nur im Bild ablesen ist riskant. (2 | 4) und (2,2 | 3,8) sehen fast gleich aus. ⟦Rechne⟧ die Ecken aus.",
+    "einstieg": "Der zulässige Bereich der kleinen Bäckerei ist ein Viereck. Seine Ecken sind besonders wichtig. Wo sich zwei Ränder schneiden, liegt ein ⟦Eckpunkt⟧.",
+    "woerter": [
+     [
+      "Eckpunkt",
+      "Schnittpunkt zweier Randgeraden des Bereichs"
+     ],
+     [
+      "Randgerade",
+      "die Gerade zu einer Ungleichung, mit = statt ≤"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      11
+     ],
+     "y": [
+      0,
+      9
+     ],
+     "schritt_x": 1,
+     "schritt_y": 1,
      "graphen": [
       {
        "art": "linear",
@@ -81,63 +375,294 @@
        "name_x": 7
       }
      ],
-     "punkte": [
+     "flaechen": [
       {
-       "x": 2,
-       "y": 3,
-       "name": "Q"
+       "punkte": [
+        [
+         0,
+         0
+        ],
+        [
+         4,
+         0
+        ],
+        [
+         2,
+         4
+        ],
+        [
+         0,
+         5
+        ]
+       ]
       }
      ]
-    },
-    "fehler": "Nur die erste Ungleichung zu prüfen reicht nicht: Ein Punkt kann I erfüllen und ⟦II verletzen⟧. Zulässig heißt: ⟦alle⟧ Bedingungen gleichzeitig."
-   },
-   {
-    "lernziel": "aufstellen",
-    "titel": "Bedingungen aufstellen",
-    "regel": "Übersetze jede Einschränkung in eine Ungleichung: Lege fest, wofür x und y stehen (⟦Entscheidungsvariablen⟧). „Höchstens“ → ⟦≤⟧, „mindestens“ → ⟦≥⟧. Anzahlen sind nie negativ: ⟦x ≥ 0, y ≥ 0⟧. Was optimiert wird, ist die ⟦Zielfunktion⟧ (objective function), z. B. Gewinn G = 3x + 5y.",
-    "schritte": [
-     "Eine Bäckerei backt x Kuchen und y Torten. Ein Kuchen braucht 2 h, eine Torte 3 h; es gibt höchstens 30 h.",
-     "Zeit: ⟦2x + 3y ≤ 30⟧.",
-     "Gewinn 4 € pro Kuchen, 7 € pro Torte: Zielfunktion ⟦G = 4x + 7y⟧."
-    ],
-    "probe": "5 Kuchen und 6 Torten: 10 + 18 = 28 h ≤ 30 ✓",
-    "fehler": "„Mindestens 4 Torten“ als y ≤ 4 zu schreiben ist falsch: „mindestens“ heißt ⟦y ≥ 4⟧ – 4 oder mehr."
-   },
-   {
-    "lernziel": "ecken",
-    "titel": "Eckpunkte berechnen",
-    "regel": "Die ⟦Eckpunkte⟧ (vertices) des Bereichs liegen dort, wo sich zwei Randgeraden schneiden. Man berechnet sie mit einem ⟦linearen Gleichungssystem⟧ (Gleichheitszeichen statt ≤). Schnittpunkte mit den Achsen: x = 0 bzw. y = 0 einsetzen.",
-    "schritte": [
-     "Ränder 2x + y = 8 und x + 2y = 10.",
-     "Erste Gleichung mal 2: 4x + 2y = 16. Minus zweite: 3x = 6, also x = 2.",
-     "y = 8 − 2 · 2 = 4. Eckpunkt ⟦(2 | 4)⟧."
-    ],
-    "probe": "2 + 2 · 4 = 10 ✓",
-    "fehler": "Den Schnittpunkt einfach im Bild „ungefähr“ abzulesen ist riskant: (2 | 4) und (2,2 | 3,8) sehen fast gleich aus. ⟦Rechne⟧ die Ecken aus."
+    }
    },
    {
     "lernziel": "optimum",
     "titel": "Das Optimum finden",
-    "regel": "Das Maximum (oder Minimum) der Zielfunktion liegt immer an einer ⟦Ecke⟧ des zulässigen Bereichs (⟦Eckenprinzip⟧). Also: Zielfunktion ⟦an allen Ecken ausrechnen⟧ und den größten (kleinsten) Wert nehmen.",
+    "regel": "Das ⟦Optimum liegt an einer Ecke⟧. Zielfunktion an allen Ecken ausrechnen und vergleichen.",
     "schritte": [
-     "Ecken (0 | 0), (4 | 0), (2 | 4), (0 | 5). Zielfunktion G = 3x + 2y.",
-     "G: 0; 12; 3 · 2 + 2 · 4 = 14; 10.",
-     "Maximum ⟦G = 14 bei (2 | 4)⟧."
+     {
+      "text": "Zielfunktion G = 3x + 2y an allen Ecken ausrechnen."
+     },
+     {
+      "text": "(0 | 0): 0. (4 | 0): 12. (0 | 5): 10.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 0,
+         "y": 0,
+         "name": "0"
+        },
+        {
+         "x": 4,
+         "y": 0,
+         "name": "12"
+        },
+        {
+         "x": 2,
+         "y": 4,
+         "name": "C"
+        },
+        {
+         "x": 0,
+         "y": 5,
+         "name": "10"
+        }
+       ]
+      }
+     },
+     {
+      "text": "(2 | 4): 3 · 2 + 2 · 4 = 14.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 0,
+         "y": 0,
+         "name": "0"
+        },
+        {
+         "x": 4,
+         "y": 0,
+         "name": "12"
+        },
+        {
+         "x": 2,
+         "y": 4,
+         "name": "14"
+        },
+        {
+         "x": 0,
+         "y": 5,
+         "name": "10"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Das Optimum ist ⟦G = 14 bei (2 | 4)⟧."
+     }
     ],
-    "probe": "Kein Eckpunkt liefert mehr als 14 ✓",
-    "fehler": "Den Punkt mit dem ⟦größten x⟧ zu nehmen ist falsch: Bei G = 3x + 2y liefert (4 | 0) nur 12, die Ecke (2 | 4) aber 14. ⟦Alle Ecken einsetzen⟧."
+    "fehler": "Den Punkt mit dem ⟦größten x⟧ nehmen ist falsch. (4 | 0) liefert nur 12, (2 | 4) aber 14.",
+    "einstieg": "Ein Kuchen bringt 3 € Gewinn, eine Torte 2 €. Welche machbare Menge bringt am meisten? Der beste Wert liegt immer an einer Ecke. Das ist das ⟦Eckenprinzip⟧.",
+    "woerter": [
+     [
+      "Eckenprinzip",
+      "das Maximum oder Minimum liegt an einer Ecke des Bereichs"
+     ],
+     [
+      "Optimum",
+      "der beste Wert: größter Gewinn oder kleinste Kosten"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      11
+     ],
+     "y": [
+      0,
+      9
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "A"
+      },
+      {
+       "x": 4,
+       "y": 0,
+       "name": "B"
+      },
+      {
+       "x": 2,
+       "y": 4,
+       "name": "C"
+      },
+      {
+       "x": 0,
+       "y": 5,
+       "name": "D"
+      }
+     ],
+     "schritt_x": 1,
+     "schritt_y": 1,
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -2,
+       "t": 8,
+       "bereich": [
+        0,
+        4
+       ],
+       "name": "I",
+       "name_x": 3.3
+      },
+      {
+       "art": "linear",
+       "m": -0.5,
+       "t": 5,
+       "bereich": [
+        0,
+        10
+       ],
+       "name": "II",
+       "name_x": 7
+      }
+     ],
+     "flaechen": [
+      {
+       "punkte": [
+        [
+         0,
+         0
+        ],
+        [
+         4,
+         0
+        ],
+        [
+         2,
+         4
+        ],
+        [
+         0,
+         5
+        ]
+       ]
+      }
+     ]
+    }
    },
    {
     "lernziel": "sach",
     "titel": "Optimierung im Sachzusammenhang",
-    "regel": "Vorgehen: ⟦1.⟧ Variablen festlegen, ⟦2.⟧ Bedingungen und Zielfunktion aufstellen, ⟦3.⟧ Bereich zeichnen und Ecken bestimmen, ⟦4.⟧ Zielfunktion an den Ecken vergleichen, ⟦5.⟧ Antwort im Sachzusammenhang (z. B. „6 Kuchen und 4 Torten“).",
+    "regel": "Variablen, Bedingungen, Ecken, ⟦Zielfunktion vergleichen⟧. Dann im Sachzusammenhang antworten.",
     "schritte": [
-     "Gewinn G = 4x + 7y, Ecken (0 | 0), (15 | 0), (6 | 6), (0 | 8).",
-     "G: 0; 60; 24 + 42 = 66; 56.",
-     "Größter Gewinn ⟦66 € mit 6 Kuchen und 6 Torten⟧."
+     {
+      "text": "Gewinn G = 4x + 7y an allen vier Ecken ausrechnen."
+     },
+     {
+      "text": "G: 0 €, 60 €, 24 + 42 = 66 € und 56 €.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 0,
+         "y": 0,
+         "name": "0 €"
+        },
+        {
+         "x": 15,
+         "y": 0,
+         "name": "60 €"
+        },
+        {
+         "x": 6,
+         "y": 6,
+         "name": "66 €"
+        },
+        {
+         "x": 0,
+         "y": 8,
+         "name": "56 €"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Antwort im Sachzusammenhang: ⟦6 Kuchen und 6 Torten, 66 €⟧."
+     }
     ],
-    "probe": "66 > 60 > 56 ✓",
-    "fehler": "Nur „66“ zu antworten genügt nicht: Gefragt ist auch, ⟦wie viele⟧ von jedem Produkt man herstellen soll."
+    "fehler": "Nur „66“ antworten genügt nicht. Gefragt ist auch, ⟦wie viele⟧ Kuchen und Torten man backen soll.",
+    "einstieg": "Die größere Bäckerei will wissen, wie viele Kuchen und Torten sie backen soll. Die Ecken ihres Bereichs kennt sie schon. Jetzt fehlt die ⟦Antwort⟧.",
+    "woerter": [
+     [
+      "Sachzusammenhang",
+      "die Geschichte der Aufgabe: hier Kuchen, Torten und Euro"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      16
+     ],
+     "y": [
+      0,
+      10
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "(0|0)"
+      },
+      {
+       "x": 15,
+       "y": 0,
+       "name": "(15|0)"
+      },
+      {
+       "x": 6,
+       "y": 6,
+       "name": "(6|6)"
+      },
+      {
+       "x": 0,
+       "y": 8,
+       "name": "(0|8)"
+      }
+     ],
+     "schritt_x": 3,
+     "schritt_y": 2,
+     "flaechen": [
+      {
+       "punkte": [
+        [
+         0,
+         0
+        ],
+        [
+         15,
+         0
+        ],
+        [
+         6,
+         6
+        ],
+        [
+         0,
+         8
+        ]
+       ]
+      }
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [
@@ -4317,8 +4842,8 @@
   }
  ],
  "offen": [
-  "App-Wunsch: Halbebenen bzw. den zulässigen Bereich farbig füllen. Bisher werden nur die Randgeraden (I, II) gezeichnet; der Bereich wird in Worten beschrieben.",
   "Lehrplan-Feld leer („IB-Verlagsinhalt“): gebaut mit zwei Bedingungen plus x, y ≥ 0 und vier Ecken; Isogewinngeraden (Verschieben der Zielgeraden) nicht enthalten. Annahme MYP 4.",
-  "Lineare Gleichungssysteme (für die Ecken) werden vorausgesetzt (gleichungen.lgs2)."
+  "Lineare Gleichungssysteme (für die Ecken) werden vorausgesetzt (gleichungen.lgs2).",
+  "Umbau (Paket UR): Die Lernkarten füllen den zulässigen Bereich jetzt farbig (koordinaten.flaechen). Die Aufgaben-Grafiken zeigen weiter nur die Randgeraden, weil Aufgaben beim Umbau unverändert bleiben."
  ]
 }

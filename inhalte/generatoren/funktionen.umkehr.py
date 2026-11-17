@@ -308,8 +308,121 @@ def g_spiegeln(s):
 
 GEN = {'umkehrbar': g_umkehrbar, 'werte': g_werte, 'linear': g_linear, 'quadratisch': g_quadratisch, 'exp_log': g_exp_log, 'spiegeln': g_spiegeln}
 
+# ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_rest import umbau_schreiben  # noqa: E402
+
+from _umbau_rest import ko, pkte, tab  # noqa: E402
+
+
+def _l(m, t, name):
+    return {'art': 'linear', 'm': m, 't': t, 'name': name}
+
+
+_YX = _l(1, 0, 'y = x')
+_PAR = {'art': 'poly', 'k': [0, 0, 1], 'name': 'y = x²'}
+_F2 = {'art': 'poly', 'k': [5, -4, 1], 'name': 'f', 'bereich': [2, 4.4]}
+_EXP = {'art': 'exp', 'a': 1, 'b': 2, 'name': 'y = 2ˣ'}
+UMBAU = {
+    'umkehrbar': {
+        'einstieg': 'Eine Codiermaschine macht aus jeder Zahl eine Geheimzahl. Zum Entschlüsseln darf jede Geheimzahl nur einmal vorkommen. '
+                    'Dann heißt die Maschine ⟦umkehrbar⟧.',
+        'woerter': [['umkehrbar', 'jeder y-Wert kommt nur einmal vor; man kann eindeutig zurückrechnen'],
+                    ['waagrechte Gerade', 'eine Linie quer durchs Bild, z. B. y = 4']],
+        'bild': ko([-3, 3], [-1, 6], schritt=0, graphen=[_PAR]),
+        'schritte': [
+            {'text': 'Die Maschine y = x² macht aus 2 und aus −2 die 4.', 'bild': {'punkte': pkte({'(−2|4)': (-2, 4), '(2|4)': (2, 4)})}},
+            {'text': 'Die waagrechte Gerade y = 4 trifft die Parabel zweimal.', 'bild': {'waagrecht': [4]}},
+            {'text': 'Also ⟦nicht umkehrbar⟧: Aus 4 weiß man nicht, ob 2 oder −2.'},
+            {'text': 'Nur mit x ≥ 0 bleibt ein Ast übrig, dann ist sie ⟦umkehrbar⟧.',
+             'bild': {'graphen': [dict(_PAR, bereich=[0, 3])], 'punkte': pkte({'(2|4)': (2, 4)})}},
+        ],
+        'fehler': '„Zu jedem x gehört genau ein y“ reicht nicht, das gilt für jede Funktion. Für die Umkehrung braucht jedes y ⟦genau ein x⟧.',
+        'regel': 'Umkehrbar heißt: Jeder y-Wert kommt nur einmal vor. Test: Jede ⟦waagrechte Gerade⟧ trifft den Graphen höchstens einmal.',
+    },
+    'werte': {
+        'einstieg': 'Die Codiermaschine f macht aus 2 die Geheimzahl 5. Die Entschlüsselung macht aus 5 wieder 2. '
+                    'Diese Rückwärts-Maschine heißt ⟦Umkehrfunktion⟧.',
+        'woerter': [['Umkehrfunktion', 'rechnet rückwärts: aus f(a) = b wird f⁻¹(b) = a'],
+                    ['f⁻¹', 'gelesen „f hoch minus eins“: die Umkehrfunktion, kein Kehrwert']],
+        'bild': tab(['x', '0', '1', '2', '3'], ['f(x)', '1', '3', '5', '7']),
+        'schritte': [
+            {'text': 'Aus der Tabelle: f(2) = 5.'},
+            {'text': 'Die Umkehrfunktion liest rückwärts: ⟦f⁻¹(5) = 2⟧.', 'bild': tab(['x', '1', '3', '5', '7'], ['f⁻¹(x)', '0', '1', '2', '3'])},
+            {'text': 'Die beiden Zeilen tauschen also ihre Rollen.'},
+        ],
+        'fehler': 'f⁻¹(5) = 1/5 ist falsch. Das hochgestellte −1 heißt ⟦Umkehrfunktion⟧, nicht Kehrwert.',
+        'regel': 'Ist f(a) = b, dann ist ⟦f⁻¹(b) = a⟧. Für f⁻¹ liest du die Tabelle von unten nach oben.',
+    },
+    'linear': {
+        'einstieg': 'Die Maschine rechnet „mal 2, dann minus 6“. Rückwärts musst du alles umdrehen: erst plus 6, dann durch 2. '
+                    'Rechnerisch klappt das mit einem Trick: ⟦x und y vertauschen⟧.',
+        'woerter': [['nach y auflösen', 'umformen, bis y allein auf einer Seite steht']],
+        'bild': ko([-7, 7], [-7, 7], schritt=0, graphen=[_l(2, -6, 'f')]),
+        'schritte': [
+            {'text': 'Aus y = 2x − 6 wird durch Tauschen x = 2y − 6.'},
+            {'text': 'Nach y auflösen: 2y = x + 6, also ⟦y = 0,5x + 3⟧.', 'bild': {'graphen': [_l(2, -6, 'f'), _l(0.5, 3, 'f⁻¹')]}},
+            {'text': 'Probe: f(4) = 2 und f⁻¹(2) = 4. Beide liegen spiegelbildlich zu y = x.',
+             'bild': {'graphen': [_l(2, -6, 'f'), _l(0.5, 3, 'f⁻¹'), _YX], 'punkte': pkte({'(4|2)': (4, 2), '(2|4)': (2, 4)})}},
+        ],
+        'fehler': '0,5x − 6 ist falsch, nur die Steigung umzudrehen reicht nicht. Nach dem Tauschen ⟦vollständig nach y auflösen⟧.',
+        'fehler_bild': {'graphen': [_l(2, -6, 'f'), _l(0.5, 3, 'f⁻¹'), _l(0.5, -6, 'falsch')], 'punkte': None},
+        'regel': 'Umkehrfunktion: ⟦x und y vertauschen⟧, dann nach y auflösen. Bei f(x) = mx + t ist f⁻¹(x) = (x − t) : m.',
+    },
+    'quadratisch': {
+        'einstieg': 'Quadrieren macht aus 3 die 9. Rückwärts zieht man die Wurzel: Aus 9 wird 3. '
+                    'Damit das eindeutig klappt, nimmt man nur ⟦einen Ast⟧ der Parabel.',
+        'woerter': [['Ast', 'eine Hälfte der Parabel, z. B. nur der Teil mit x ≥ 2']],
+        'bild': ko([-1, 7], [-1, 7], schritt=0, graphen=[_F2]),
+        'schritte': [
+            {'text': 'f(x) = (x − 2)² + 1 mit x ≥ 2 ist ein Ast.'},
+            {'text': 'Tauschen: x = (y − 2)² + 1.'},
+            {'text': 'Minus 1: (y − 2)² = x − 1.'},
+            {'text': 'Wurzel ziehen, plus 2: ⟦f⁻¹(x) = √(x − 1) + 2⟧.'},
+            {'text': 'Probe: f(3) = 2 und f⁻¹(2) = √1 + 2 = 3.',
+             'bild': {'graphen': [_F2, _YX], 'punkte': pkte({'(3|2)': (3, 2), '(2|3)': (2, 3)})}},
+        ],
+        'fehler': '√(x + 1) − 2 ist falsch. Beim Umkehren drehen sich die Rechenzeichen um: ⟦−1 unter der Wurzel⟧, +2 dahinter.',
+        'regel': 'Eine Parabel nur auf ⟦einem Ast⟧ umkehren. Die Umkehrung von Quadrieren ist Wurzelziehen.',
+    },
+    'exp_log': {
+        'einstieg': 'Ein Gerücht verdoppelt sich jede Stunde: Nach 5 Stunden kennen es 2⁵ = 32 Leute. '
+                    'Rückwärts fragt man: Nach wie vielen Stunden sind es 32? Das sagt der ⟦Logarithmus⟧.',
+        'woerter': [['Logarithmus', 'log₂ 32 ist die Hochzahl, mit der man 2 potenzieren muss, um 32 zu erhalten'],
+                    ['lg', 'Logarithmus zur Basis 10']],
+        'bild': ko([-1, 6], [-1, 35], schritt=0, schritt_y=5, graphen=[_EXP]),
+        'schritte': [
+            {'text': 'f(x) = 2ˣ: Nach 5 Stunden sind es 2⁵ = 32.', 'bild': {'punkte': pkte({'(5|32)': (5, 32)})}},
+            {'text': 'Rückwärts: log₂ 32 = ⟦5⟧, denn 2⁵ = 32.', 'bild': {'strecken': [[0, 32, 5, 32, 'gestrichelt'], [5, 32, 5, 0, 'gestrichelt']]}},
+            {'text': 'Für die Basis 10 schreibt man lg: lg 100 = 2.'},
+        ],
+        'fehler': 'log₂ 32 = 16 ist falsch. Der Logarithmus ist ⟦nicht 32 : 2⟧, sondern die Hochzahl: 2 hoch 5 ist 32.',
+        'regel': 'Der ⟦Logarithmus⟧ ist die Umkehrung von bˣ. log_b x fragt: b hoch wie viel ergibt x?',
+    },
+    'spiegeln': {
+        'einstieg': 'Legst du einen Spiegel auf die Linie y = x, siehst du darin die Umkehrfunktion. '
+                    'x und y tauschen dabei ihre Plätze. Die Linie heißt ⟦Winkelhalbierende⟧.',
+        'woerter': [['Winkelhalbierende', 'die Gerade y = x; sie halbiert den Winkel zwischen den Achsen']],
+        'bild': ko([-3, 9], [-3, 9], schritt=0, graphen=[_EXP, _YX]),
+        'schritte': [
+            {'text': 'P(3 | 8) liegt auf y = 2ˣ.', 'bild': {'punkte': pkte({'P': (3, 8)})}},
+            {'text': 'Spiegeln an der Winkelhalbierenden heißt: x und y tauschen.'},
+            {'text': 'So entsteht ⟦P′(8 | 3)⟧ auf y = log₂ x.',
+             'bild': {'graphen': [_EXP, _YX, {'art': 'log', 'b': 2, 'name': 'log₂ x'}], 'punkte': pkte({'P': (3, 8), 'P′': (8, 3)}),
+                      'strecken': [[3, 8, 8, 3, 'gestrichelt']]}},
+        ],
+        'fehler': 'P′(−3 | −8) ist falsch, das wäre am ⟦Ursprung⟧ gespiegelt. An y = x werden die Koordinaten getauscht.',
+        'regel': 'Graph von f⁻¹: an der ⟦Winkelhalbierenden y = x⟧ spiegeln. Aus P(a | b) wird P′(b | a).',
+    },
+}
+UMBAU_OFFEN = ['Umbau (Paket UR): Den Graphen von √(x − 1) + 2 (Karte quadratisch) kann die App nicht zeichnen (Graph-Art wurzel nur als √x); '
+               'die Karte zeigt stattdessen den Ast von f, die Gerade y = x und ein Punktepaar.']
+UMBAU_WEG = []
+# ---------- Ende UMBAU ----------
+
+
 if __name__ == '__main__':
-    bauen('funktionen.umkehr',
+    d = bauen('funktionen.umkehr',
           'Entscheiden, ob eine Funktion umkehrbar ist, Umkehrfunktionen bestimmen (Gerade, Parabelast, Exponentialfunktion) und den Graphen an y = x spiegeln.',
           ['Umkehrbar: Jeder y-Wert kommt nur einmal vor (waagrechte Gerade schneidet höchstens einmal).',
            'f(a) = b ⇔ f⁻¹(b) = a. D und W tauschen.', 'f⁻¹ bestimmen: x und y tauschen, nach y auflösen.',
@@ -317,3 +430,4 @@ if __name__ == '__main__':
           [('Umkehrbarkeit', ['umkehrbar', 'werte']), ('Umkehrfunktionen bestimmen', ['linear', 'quadratisch', 'exp_log']), ('Graphen', ['spiegeln'])],
           ETAPPEN, GEN,
           offen=['Lehrplan-Feld leer: Annahme RS 10 (WPF I) – Umkehrbarkeit, Umkehrfunktion linearer Funktionen, eines Parabelastes und der Exponentialfunktion (Logarithmus), Spiegelung an y = x. Umkehrung gebrochen-rationaler Funktionen weggelassen.'])
+    umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

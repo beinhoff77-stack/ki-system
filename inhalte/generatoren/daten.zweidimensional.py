@@ -356,7 +356,114 @@ def g_kausal(s):
 
 GEN = {'ablesen': g_ablesen, 'zusammenhang': g_zusammenhang, 'gerade': g_gerade, 'ausreisser': g_ausreisser, 'kausal': g_kausal}
 
-bauen('daten.zweidimensional',
+# ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_rest import umbau_schreiben  # noqa: E402
+
+from _umbau_rest import ko, pkte, tab  # noqa: E402
+
+
+def _l(**kw):
+    return ko([0, kw.pop('x1', 9)], [0, 100], kw.pop('punkte'), schritt=0, schritt_x=1, schritt_y=10, name_x='h', name_y='Punkte', **kw)
+
+
+_LP = [(2, 45), (4, 60), (6, 70), (8, 85)]
+_G = [(1, 48), (2, 47), (3, 58), (5, 62), (7, 78), (8, 77), (10, 92)]
+_A = {'A': (1, 45), 'B': (2, 50), 'C': (3, 90), 'D': (4, 60), 'E': (6, 70), 'F': (8, 80)}
+_AUTO = [(1, 24), (2, 22), (4, 19), (5, 16), (7, 12), (9, 9), (10, 6)]
+_EIS = [(2, 3), (3, 4), (5, 6), (6, 8), (8, 9), (9, 11)]
+
+
+def _anon(ps):
+    return [{'x': a, 'y': b} for a, b in ps]
+
+
+UMBAU = {
+    'ablesen': {
+        'einstieg': 'Vor einem Test schreibt jedes Kind auf, wie lange es gelernt hat. Danach kommen die Testpunkte dazu. '
+                    'Das sind zweidimensionale Daten. Man zeichnet sie in ein ⟦Streudiagramm⟧.',
+        'woerter': [['zweidimensionale Daten', 'zu jedem Objekt gehören zwei Werte, hier Lernzeit und Punkte'],
+                    ['Streudiagramm', 'jedes Kind ist ein Punkt: Lernzeit nach rechts, Punkte nach oben']],
+        'bild': _l(punkte=_anon(_LP)),
+        'schritte': [
+            {'text': 'Ein Punkt liegt bei (4 | 60).', 'bild': {'punkte': _anon([(2, 45), (6, 70), (8, 85)]) + pkte({'(4 | 60)': (4, 60)})}},
+            {'text': 'Erst nach rechts: x = 4. Dieses Kind hat 4 Stunden gelernt.', 'bild': {'strecken': [[4, 0, 4, 60, 'gestrichelt']]}},
+            {'text': 'Dann nach oben: y = ⟦60 Punkte⟧ im Test.', 'bild': {'strecken': [[4, 0, 4, 60, 'gestrichelt'], [0, 60, 4, 60, 'gestrichelt']]}},
+        ],
+        'fehler': '(4 | 60) heißt nicht „60 Stunden, 4 Punkte“. Der ⟦erste Wert gehört zur x-Achse⟧, also nach rechts.',
+        'regel': 'Im Streudiagramm ist jedes Objekt ⟦ein Punkt⟧. Erster Wert nach rechts, zweiter nach oben.',
+    },
+    'zusammenhang': {
+        'einstieg': 'Ein Autohändler trägt Alter und Wert seiner Autos ein. Je älter ein Auto, desto weniger ist es wert. '
+                    'Die Punkte fallen nach rechts: ein ⟦negativer Zusammenhang⟧.',
+        'woerter': [['positiver Zusammenhang', 'je mehr x, desto mehr y; die Punkte steigen'],
+                    ['negativer Zusammenhang', 'je mehr x, desto weniger y; die Punkte fallen'],
+                    ['stark', 'die Punkte liegen eng an einer Linie']],
+        'bild': ko([0, 11], [0, 30], _anon(_AUTO), schritt=0, schritt_x=2, schritt_y=5, name_x='Jahre', name_y='Wert'),
+        'schritte': [
+            {'text': 'Die Punkte fallen von links oben nach rechts unten.'},
+            {'text': 'Sie liegen eng an einer Linie: ⟦stark negativer Zusammenhang⟧.',
+             'bild': {'graphen': [{'art': 'linear', 'm': -2, 't': 26, 'bereich': [0, 11]}]}},
+            {'text': 'Bei Lernzeit und Testpunkten steigen die Punkte: positiver Zusammenhang.',
+             'bild': _l(punkte=_anon(_LP), graphen=[{'art': 'linear', 'm': 6.5, 't': 32, 'bereich': [0, 9]}])},
+        ],
+        'fehler': '„Negativ“ heißt nicht „kein Zusammenhang“ oder „schlecht“. Es beschreibt nur die ⟦Richtung⟧: Wächst x, wird y kleiner.',
+        'regel': 'Steigen die Punkte, ist der Zusammenhang ⟦positiv⟧, fallen sie, negativ. Eine Wolke ohne Richtung zeigt keinen.',
+    },
+    'gerade': {
+        'einstieg': 'Durch die Punktwolke vom Lernen legt man eine Linie, mitten hindurch. Mit ihr schätzt man, '
+                    'wie viele Punkte 6 Stunden Lernen bringen. Sie heißt ⟦Ausgleichsgerade⟧.',
+        'woerter': [['Ausgleichsgerade', 'Gerade mitten durch die Punkte; etwa gleich viele darüber und darunter'],
+                    ['Extrapolation', 'Schätzen weit außerhalb der Daten; das ist unsicher']],
+        'bild': _l(punkte=_anon(_G), x1=11),
+        'schritte': [
+            {'text': 'Die Ausgleichsgerade hat die Gleichung y = 5x + 40.',
+             'bild': {'graphen': [{'art': 'linear', 'm': 5, 't': 40, 'bereich': [0, 11]}]}},
+            {'text': 'Für 6 Stunden: y = 5 · 6 + 40 = ⟦70 Punkte⟧.',
+             'bild': {'punkte': _anon(_G) + pkte({'Schätzung': (6, 70)}), 'strecken': [[6, 0, 6, 70, 'gestrichelt']]}},
+            {'text': 'Für 20 Stunden wären es 140 Punkte: Extrapolation, hier unsinnig.'},
+        ],
+        'fehler': '140 Punkte bei einem Test mit 100 Punkten sind unsinnig. Weit ⟦außerhalb der Daten⟧ gilt die Gerade nicht mehr.',
+        'regel': 'Mit der Ausgleichsgeraden ⟦innerhalb der Daten⟧ schätzen. Weit außerhalb wird die Schätzung unsicher.',
+    },
+    'ausreisser': {
+        'einstieg': 'Ein Kind hat nur 3 Stunden gelernt, aber 90 Punkte. Alle anderen mit so wenig Lernzeit haben viel weniger. '
+                    'So ein Punkt heißt ⟦Ausreißer⟧.',
+        'woerter': [['Ausreißer', 'ein Punkt weit weg vom Muster der anderen'],
+                    ['Muster', 'die Richtung, der die meisten Punkte folgen']],
+        'bild': _l(punkte=pkte(_A)),
+        'schritte': [
+            {'text': 'Fast alle Punkte folgen einem Muster: Sie steigen gleichmäßig an.',
+             'bild': {'graphen': [{'art': 'linear', 'm': 5, 't': 40, 'bereich': [0, 9]}]}},
+            {'text': 'Die Nachbarn B und D liegen bei etwa 50 und 60.'},
+            {'text': 'C bei (3 | 90) liegt weit darüber: ⟦C ist ein Ausreißer⟧.', 'bild': {'strecken': [[3, 55, 3, 90, 'gestrichelt']]}},
+        ],
+        'fehler': 'Nicht automatisch den Punkt mit dem ⟦größten y-Wert⟧ nehmen. Rechts oben passt ein hoher Wert zum Muster.',
+        'regel': 'Ein Ausreißer liegt ⟦weit weg vom Muster⟧. Prüfe ihn, bevor du eine Ausgleichsgerade zeichnest.',
+    },
+    'kausal': {
+        'einstieg': 'Im Sommer verkauft ein Laden mehr Eis und mehr Sonnencreme. Macht Eis Sonnenbrand? Nein, beides hängt am Wetter. '
+                    'So ein Zusammenhang heißt ⟦Korrelation⟧.',
+        'woerter': [['Korrelation', 'ein Zusammenhang in den Daten; er beweist keine Ursache'],
+                    ['dritte Größe', 'etwas Drittes, das beide Werte beeinflusst']],
+        'bild': ko([0, 10], [0, 12], _anon(_EIS), schritt=0, schritt_x=2, schritt_y=2, name_x='Eis', name_y='Creme'),
+        'schritte': [
+            {'text': 'Die Punkte steigen: positive Korrelation zwischen Eis und Sonnencreme.'},
+            {'text': 'Eis verursacht aber keine Sonnencreme.'},
+            {'text': 'Die dritte Größe ist das ⟦sonnige, warme Wetter⟧.',
+             'bild': tab(['Monat', 'Wetter', 'Eis', 'Creme'], ['Januar', 'kalt', 'wenig', 'wenig'], ['Juli', 'heiß', 'viel', 'viel'])},
+        ],
+        'fehler': '„Größere Füße lesen besser, also machen Füße schlau“ ist falsch. Beides wächst mit dem ⟦Alter⟧.',
+        'regel': '⟦Korrelation ist keine Ursache⟧. Suche nach einer dritten Größe, die beides erklärt.',
+    },
+}
+UMBAU_OFFEN = ['Umbau (Paket UR): Die Streudiagramme in den Karten zusammenhang (Autos) und kausal (Eis/Sonnencreme) zeigen erfundene Beispieldaten; '
+               'die Achsen haben keine Zahlen-Einheiten in der Beschriftung (kurz gehalten: „h“ für Lernzeit in Stunden, „Jahre“, „Wert“, „Eis“, „Creme“; längere Namen schneidet die App am Rand ab).']
+UMBAU_WEG = []
+# ---------- Ende UMBAU ----------
+
+
+d = bauen('daten.zweidimensional',
       'Zweidimensionale Daten im Streudiagramm darstellen und lesen, Zusammenhänge beschreiben, mit der Ausgleichsgeraden schätzen und Korrelation von Ursache unterscheiden.',
       ['Streudiagramm (scatter graph): ein Punkt pro Objekt, x nach rechts, y nach oben.',
        'Steigend = positiv, fallend = negativ, Wolke = kein Zusammenhang; eng an einer Linie = stark.',
@@ -367,3 +474,4 @@ bauen('daten.zweidimensional',
       offen=['Ausgleichsgerade wird gegeben (Gleichung und Zeichnung), nicht selbst berechnet: Regressionsrechnung ist nicht Stoff von MYP 3. Den Korrelationskoeffizienten r nur im Lösungsweg einer Vergleichsaufgabe erwähnt.',
              'App-Wunsch (optional): Das Kind kann die Ausgleichsgerade noch nicht selbst einzeichnen; Aufgaben dazu fehlen deshalb.'],
       vertiefung=[])
+umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

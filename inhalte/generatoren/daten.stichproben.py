@@ -360,8 +360,109 @@ def g_aussagen(s):
 GEN = {'begriffe': g_begriffe, 'hochrechnen': g_hochrechnen, 'repraesentativ': g_repraesentativ,
        'fehlerquellen': g_fehlerquellen, 'aussagen': g_aussagen}
 
+# ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_rest import umbau_schreiben  # noqa: E402
+
+from _umbau_rest import tab  # noqa: E402
+
+
+def _s(*w, einheit='Kinder'):
+    return {'typ': 'saeulen', 'einheit': einheit, 'werte': [{'name': n, 'wert': x} for n, x in w], 'zahlen': True}
+
+
+_FQ = tab(['Fehlerquelle', 'Beispiel'], ['zu klein', '5 Befragte'], ['einseitig', 'nur Vereinsmitglieder'],
+          ['suggestiv', '„doch sicher dafür?“'], ['freiwillig', 'Online-Abstimmung'])
+UMBAU = {
+    'begriffe': {
+        'einstieg': 'Beim Kochen probierst du einen Löffel, nicht den ganzen Topf. Eine Schule mit 620 Kindern macht es genauso: '
+                    'Sie fragt nur 50 Kinder. Diese 50 sind die ⟦Stichprobe⟧.',
+        'woerter': [['Grundgesamtheit', 'alle, über die man etwas wissen will – der ganze Topf'],
+                    ['Stichprobe', 'der Teil, der wirklich befragt wird – der Löffel'],
+                    ['Stichprobenumfang n', 'wie viele in der Stichprobe sind']],
+        'bild': _s(('Schule', 620), ('befragt', 50)),
+        'schritte': [
+            {'text': 'Die Schule will wissen, wie alle 620 Kinder zur Schule kommen.', 'bild': _s(('Schule', 620))},
+            {'text': 'Die Grundgesamtheit sind ⟦alle 620 Kinder⟧.'},
+            {'text': 'Befragt werden nur 50 Kinder: die Stichprobe.', 'bild': _s(('Schule', 620), ('befragt', 50))},
+            {'text': 'Ihr Stichprobenumfang n = ⟦50⟧.'},
+        ],
+        'fehler': 'Die 50 Befragten sind nicht die Grundgesamtheit. Die Grundgesamtheit ist ⟦die ganze Gruppe⟧, hier alle 620 Kinder.',
+        'regel': 'Grundgesamtheit = alle, Stichprobe = der befragte Teil. Ihre Größe heißt ⟦Stichprobenumfang n⟧.',
+    },
+    'hochrechnen': {
+        'einstieg': 'Von 80 befragten Kindern kommen 28 mit dem Rad. Wie viele sind es an der ganzen Schule mit 640 Kindern? '
+                    'Man überträgt den Anteil auf alle. Das heißt ⟦Hochrechnung⟧.',
+        'woerter': [['relative Häufigkeit', 'der Anteil in der Stichprobe: Anzahl geteilt durch n'],
+                    ['Hochrechnung', 'den Anteil der Stichprobe auf alle übertragen; ergibt eine Schätzung']],
+        'bild': {'typ': 'bruchstreifen', 'teile': 20, 'gefaerbt': 7, 'ganzes': '80 Kinder', 'teil_text': '28 mit Rad'},
+        'schritte': [
+            {'text': 'Relative Häufigkeit: 28 : 80 = 0,35, also 35 %.'},
+            {'text': 'Die ganze Schule hat 640 Kinder, der Anteil bleibt gleich.', 'bild': {'ganzes': '640 Kinder', 'teil_text': '?'}},
+            {'text': 'Hochrechnung: 0,35 · 640 = ⟦224⟧.', 'bild': {'teil_text': 'etwa 224'}},
+            {'text': 'Etwa 224 Kinder kommen mit dem Rad. Das ist eine Schätzung.'},
+        ],
+        'fehler': '28 · 640 = 17 920 ist falsch, so viele Kinder hat die Schule gar nicht. Erst den ⟦Anteil⟧ bilden, dann malnehmen.',
+        'regel': 'Erst den Anteil der Stichprobe, dann mal die Grundgesamtheit. Das Ergebnis ist nur eine ⟦Schätzung⟧.',
+    },
+    'repraesentativ': {
+        'einstieg': 'Wie viele Jugendliche in Bayern treiben Sport? Ein Forscher fragt nur in einem Fußballverein. '
+                    'Dort treiben alle Sport! Seine Stichprobe ist deshalb nicht ⟦repräsentativ⟧.',
+        'woerter': [['repräsentativ', 'die Stichprobe sieht aus wie die Grundgesamtheit im Kleinen'],
+                    ['verzerrt', 'schief, weil eine Gruppe zu stark vertreten ist'],
+                    ['zufällig', 'jeder hat dieselbe Chance, ausgewählt zu werden']],
+        'bild': _s(('Verein', 100), ('zufällig', 60), einheit='% Sport'),
+        'schritte': [
+            {'text': 'Im Fußballverein treiben ⟦100 %⟧ der Befragten Sport.', 'bild': _s(('Verein', 100), einheit='% Sport')},
+            {'text': 'Bei zufällig Befragten aus vielen Schulen sind es zum Beispiel nur 60 %.',
+             'bild': _s(('Verein', 100), ('zufällig', 60), einheit='% Sport')},
+            {'text': 'Die Vereins-Stichprobe ist ⟦verzerrt⟧: Sportler sind zu stark vertreten.'},
+        ],
+        'fehler': '„500 Befragte, also repräsentativ“ ist falsch. Auch eine große Stichprobe ist ⟦verzerrt⟧, wenn alle aus einer besonderen Gruppe stammen.',
+        'regel': 'Eine gute Stichprobe ist zufällig gewählt und groß genug. Nur dann ist sie ⟦repräsentativ⟧.',
+    },
+    'fehlerquellen': {
+        'einstieg': 'Ein Verein will einen neuen Spielplatz. Er fragt: „Sie sind doch sicher auch dafür?“ Fast alle sagen Ja. '
+                    'Die Frage gibt die Antwort schon vor. Sie ist ⟦suggestiv⟧.',
+        'woerter': [['suggestiv', 'drängt zu einer bestimmten Antwort'],
+                    ['einseitig', 'nur eine bestimmte Gruppe wird gefragt'],
+                    ['freiwillig', 'nur wer will, antwortet – meist mit starker Meinung']],
+        'bild': _FQ,
+        'schritte': [
+            {'text': 'Die Frage lautet: „Sie sind doch sicher auch dafür?“',
+             'bild': tab(['Frage', 'neutral?'], ['„Sie sind doch sicher dafür?“', '?'])},
+            {'text': 'Sie drängt zum Ja: Fehlerquelle ⟦suggestive Frage⟧.',
+             'bild': tab(['Frage', 'neutral?'], ['„Sie sind doch sicher dafür?“', 'nein'])},
+            {'text': 'Neutral fragen: „Soll der Spielplatz erneuert werden?“',
+             'bild': tab(['Frage', 'neutral?'], ['„Sie sind doch sicher dafür?“', 'nein'], ['„Soll der Spielplatz erneuert werden?“', 'ja'])},
+            {'text': 'Weitere Fehlerquellen: zu klein, einseitig, nur freiwillige Antworten.', 'bild': _FQ},
+        ],
+        'fehler': 'Eine Online-Abstimmung mit 10 000 Stimmen ist nicht repräsentativ. Es antworten nur ⟦Freiwillige⟧ mit starker Meinung.',
+        'regel': 'Prüfe Größe, Auswahl, Frage und wer antwortet. ⟦Suggestive Fragen⟧ und einseitige Auswahl verzerren.',
+    },
+    'aussagen': {
+        'einstieg': 'Zwei Klassen fragen nach dem Mensaessen. Die eine fragt 10 Kinder, die andere 500. '
+                    'Die Ergebnisse sind verschieden. Stichproben ⟦schwanken⟧, kleine stärker als große.',
+        'woerter': [['schwanken', 'bei jeder Stichprobe kommt ein etwas anderer Anteil heraus'],
+                    ['Prozentpunkte', 'Unterschied zwischen zwei Prozentangaben, z. B. 70 % − 52 %']],
+        'bild': _s(('A: 10', 70), ('B: 500', 52), einheit='% mögen es'),
+        'schritte': [
+            {'text': 'A: 7 von 10 mögen das Essen, das sind 70 %.', 'bild': _s(('A: 10', 70), einheit='% mögen es')},
+            {'text': 'B: 260 von 500 mögen es, das sind 52 %.', 'bild': _s(('A: 10', 70), ('B: 500', 52), einheit='% mögen es')},
+            {'text': 'Unterschied: 70 % − 52 % = ⟦18 Prozentpunkte⟧.'},
+            {'text': 'B ist ⟦aussagekräftiger⟧, weil sie viel größer ist und weniger schwankt.'},
+        ],
+        'fehler': '„In der Stichprobe 40 %, also genau 40 % bei allen“ ist falsch. Eine Stichprobe liefert nur einen ⟦Schätzwert⟧.',
+        'regel': 'Stichproben liefern nur ungefähre Werte. Je ⟦größer⟧ die Stichprobe, desto weniger schwankt sie.',
+    },
+}
+UMBAU_OFFEN = []
+UMBAU_WEG = []
+# ---------- Ende UMBAU ----------
+
+
 if __name__ == '__main__':
-    bauen('daten.stichproben',
+    d = bauen('daten.stichproben',
           'Grundgesamtheit und Stichprobe unterscheiden, von Stichproben hochrechnen und beurteilen, ob eine Stichprobe repräsentativ ist.',
           ['Grundgesamtheit: alle, über die man etwas wissen will. Stichprobe: die tatsächlich Befragten (Umfang n).',
            'Hochrechnen: Anteil in der Stichprobe mal Größe der Grundgesamtheit – ergibt nur eine Schätzung.',
@@ -370,3 +471,4 @@ if __name__ == '__main__':
           [('Grundbegriffe', ['begriffe', 'hochrechnen']), ('Aussagekraft', ['repraesentativ', 'fehlerquellen', 'aussagen'])],
           ETAPPEN, GEN,
           offen=['Umfang laut Liste nur „Repräsentativität und Grenzen von Aussagen“ (RS 7); die Hochrechnung mit relativen Häufigkeiten wurde als üblicher Schulstoff ergänzt.'])
+    umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

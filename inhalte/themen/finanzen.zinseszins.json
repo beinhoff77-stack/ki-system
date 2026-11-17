@@ -35,14 +35,82 @@
    {
     "lernziel": "jahr",
     "titel": "Zinsen Jahr für Jahr",
-    "regel": "Beim ⟦Zinseszins⟧ (compound interest) werden die Zinsen am Jahresende ⟦zum Kapital addiert⟧ und im nächsten Jahr ⟦mitverzinst⟧. Zinsen eines Jahres = Kapital · p %.",
+    "regel": "Zinseszins: Zinsen kommen zum Kapital und werden ⟦mitverzinst⟧. Zinsen eines Jahres = Kapital · p %.",
     "schritte": [
-     "Anfangskapital 1 000 €, Zinssatz 5 % pro Jahr.",
-     "Jahr 1: 5 % von 1 000 € = 50 € → 1 050 €.",
-     "Jahr 2: 5 % von 1 050 € = 52,50 € → ⟦1 102,50 €⟧."
+     {
+      "text": "Jahr 1: 5 % von 1 000 € sind 50 € Zinsen."
+     },
+     {
+      "text": "Das Kapital ist jetzt 1 050 €.",
+      "bild": {
+       "typ": "saeulen",
+       "einheit": "€",
+       "werte": [
+        {
+         "name": "Start",
+         "wert": 1000
+        },
+        {
+         "name": "Jahr 1",
+         "wert": 1050
+        }
+       ],
+       "y_start": 900,
+       "zahlen": true
+      }
+     },
+     {
+      "text": "Jahr 2: 5 % von 1 050 € sind 52,50 €."
+     },
+     {
+      "text": "Nach zwei Jahren: ⟦1 102,50 €⟧.",
+      "bild": {
+       "typ": "saeulen",
+       "einheit": "€",
+       "werte": [
+        {
+         "name": "Start",
+         "wert": 1000
+        },
+        {
+         "name": "Jahr 1",
+         "wert": 1050
+        },
+        {
+         "name": "Jahr 2",
+         "wert": 1102.5
+        }
+       ],
+       "y_start": 900,
+       "zahlen": true
+      }
+     }
     ],
-    "probe": "Im zweiten Jahr gibt es mehr Zinsen (52,50 € > 50 €), weil die 50 € mitverzinst werden ✓",
     "bild": {
+     "typ": "saeulen",
+     "einheit": "€",
+     "werte": [
+      {
+       "name": "Start",
+       "wert": 1000
+      }
+     ],
+     "y_start": 900,
+     "zahlen": true
+    },
+    "fehler": "Im 2. Jahr wieder nur 50 € ist falsch, das wären ⟦einfache Zinsen⟧. Verzinst wird das neue Kapital 1 050 €.",
+    "einstieg": "Du legst 1 000 € auf ein Sparkonto mit 5 % Zinsen. Nach einem Jahr kommen die Zinsen aufs Konto. Im zweiten Jahr gibt es auch Zinsen auf diese Zinsen: ⟦Zinseszins⟧.",
+    "woerter": [
+     [
+      "Zinseszins",
+      "Zinsen werden zum Kapital addiert und im nächsten Jahr mitverzinst"
+     ],
+     [
+      "Kapital",
+      "das Geld auf dem Konto"
+     ]
+    ],
+    "fehler_bild": {
      "typ": "saeulen",
      "einheit": "€",
      "werte": [
@@ -55,59 +123,338 @@
        "wert": 1050
       },
       {
-       "name": "Jahr 2",
-       "wert": 1102.5
+       "name": "falsch",
+       "wert": 1100
       }
      ],
      "y_start": 900,
      "zahlen": true
-    },
-    "fehler": "Im 2. Jahr wieder 50 € Zinsen zu rechnen (Ergebnis 1 100 €) ist falsch: Das wären ⟦einfache Zinsen⟧. Beim Zinseszins wird das ⟦neue Kapital⟧ 1 050 € verzinst."
+    }
    },
    {
     "lernziel": "faktor",
     "titel": "Der Wachstumsfaktor q",
-    "regel": "Statt Zinsen auszurechnen und zu addieren, multipliziert man mit dem ⟦Wachstumsfaktor⟧ (growth factor) ⟦q = 1 + p/100⟧: bei 4 % ist q = 1,04. Bei einer ⟦Abnahme⟧ um p % ist q = 1 − p/100, z. B. 0,85 bei −15 %.",
+    "regel": "⟦q = 1 + p/100⟧. Mal q ersetzt das Ausrechnen und Addieren der Zinsen.",
     "schritte": [
-     "Zinssatz 3 %: q = 1 + 3/100 = 1,03.",
-     "2 000 € · 1,03 = ⟦2 060 €⟧ nach einem Jahr."
+     {
+      "text": "Zinssatz p = 3 %, also 3/100 = 0,03."
+     },
+     {
+      "text": "Wachstumsfaktor q = 1 + 0,03 = 1,03.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Zinssatz",
+        "Rechnung",
+        "q"
+       ],
+       "zeilen": [
+        [
+         "3 %",
+         "1 + 0,03",
+         "1,03"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "2 000 € · 1,03 = ⟦2 060 €⟧ nach einem Jahr."
+     },
+     {
+      "text": "Bei 15 % Abnahme ist q = 1 − 0,15 = 0,85.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Zinssatz",
+        "Rechnung",
+        "q"
+       ],
+       "zeilen": [
+        [
+         "3 %",
+         "1 + 0,03",
+         "1,03"
+        ],
+        [
+         "−15 %",
+         "1 − 0,15",
+         "0,85"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "3 % von 2 000 € = 60 €; 2 000 + 60 = 2 060 ✓",
-    "fehler": "Bei 3 % mit q = 1,3 zu rechnen ist falsch: 1,3 bedeutet ⟦+30 %⟧. 3 % sind 0,03, also q = ⟦1,03⟧."
+    "fehler": "q = 1,3 bei 3 % ist falsch, das wären ⟦30 %⟧. 3 % sind 0,03, also q = 1,03.",
+    "einstieg": "Statt jedes Jahr Zinsen auszurechnen und zu addieren, geht es schneller. Du nimmst das Kapital mit einer einzigen Zahl mal. Sie heißt ⟦Wachstumsfaktor⟧.",
+    "woerter": [
+     [
+      "Wachstumsfaktor q",
+      "q = 1 + p/100; bei 3 % ist q = 1,03"
+     ],
+     [
+      "Zinssatz p",
+      "wie viel Prozent Zinsen es pro Jahr gibt"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Zinssatz",
+      "Rechnung",
+      "q"
+     ],
+     "zeilen": [
+      [
+       "3 %",
+       "?",
+       "?"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Zinssatz",
+      "Rechnung",
+      "q"
+     ],
+     "zeilen": [
+      [
+       "3 %",
+       "1 + 0,3 ✗",
+       "1,3 ✗"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "formel",
     "titel": "Kapital nach n Jahren",
-    "regel": "Nach n Jahren mit gleichem Zinssatz gilt: ⟦Kₙ = K₀ · qⁿ⟧ (K₀ Anfangskapital, q Wachstumsfaktor). Geldbeträge rundet man am Ende auf ⟦Cent⟧ (zwei Nachkommastellen).",
+    "regel": "⟦Kₙ = K₀ · qⁿ⟧. Am Ende auf Cent runden.",
     "schritte": [
-     "K₀ = 5 000 €, p = 2 %, n = 6 Jahre.",
-     "K₆ = 5 000 € · 1,02⁶ ≈ 5 000 € · 1,126162.",
-     "K₆ ≈ ⟦5 630,81 €⟧."
+     {
+      "text": "Formel: Kₙ = K₀ · qⁿ."
+     },
+     {
+      "text": "Hier ist K₀ = 5 000 €, q = 1,02 und n = 6."
+     },
+     {
+      "text": "K₆ = 5 000 € · 1,02⁶ ≈ 5 000 € · 1,126162.",
+      "bild": {
+       "typ": "saeulen",
+       "einheit": "€",
+       "werte": [
+        {
+         "name": "J0",
+         "wert": 5000
+        },
+        {
+         "name": "J1",
+         "wert": 5100
+        },
+        {
+         "name": "J2",
+         "wert": 5202
+        },
+        {
+         "name": "J3",
+         "wert": 5306.04
+        },
+        {
+         "name": "J4",
+         "wert": 5412.16
+        },
+        {
+         "name": "J5",
+         "wert": 5520.4
+        },
+        {
+         "name": "J6",
+         "wert": 5630.81
+        }
+       ],
+       "y_start": 4800,
+       "zahlen": true
+      }
+     },
+     {
+      "text": "Auf Cent gerundet: ⟦5 630,81 €⟧."
+     }
     ],
-    "probe": "Mehr als 5 000 € + 6 · 100 € = 5 600 € (einfache Zinsen) ✓",
-    "fehler": "K₆ = 5 000 · 1,02 · 6 = 30 600 € ist falsch: Der Faktor wird ⟦sechsmal multipliziert⟧ (Potenz 1,02⁶), nicht mit 6 malgenommen."
+    "fehler": "5 000 · 1,02 · 6 ist falsch. Der Faktor wird ⟦sechsmal malgenommen⟧, als Potenz 1,02⁶.",
+    "einstieg": "Du lässt 5 000 € sechs Jahre mit 2 % Zinsen auf dem Konto. Jedes Jahr wird mit 1,02 malgenommen, sechsmal hintereinander. Kurz schreibt man das als ⟦Potenz⟧ 1,02⁶.",
+    "woerter": [
+     [
+      "K₀",
+      "das Anfangskapital"
+     ],
+     [
+      "Kₙ",
+      "das Kapital nach n Jahren"
+     ],
+     [
+      "Potenz",
+      "1,02⁶ heißt: sechsmal 1,02 malnehmen"
+     ]
+    ],
+    "bild": {
+     "typ": "saeulen",
+     "einheit": "€",
+     "werte": [
+      {
+       "name": "J0",
+       "wert": 5000
+      }
+     ],
+     "y_start": 4800,
+     "zahlen": true
+    }
    },
    {
     "lernziel": "rueck",
     "titel": "Rückwärts rechnen",
-    "regel": "Gesucht ist das ⟦Anfangskapital⟧: ⟦K₀ = Kₙ : qⁿ⟧. Gesucht ist der ⟦Zinssatz⟧: q = Kₙ : K₀ für ein Jahr, bei zwei Jahren ⟦q = √(K₂ : K₀)⟧, dann p = (q − 1) · 100.",
+    "regel": "Anfangskapital: ⟦K₀ = Kₙ : qⁿ⟧. Zinssatz für ein Jahr: q = K₁ : K₀, dann p = (q − 1) · 100.",
     "schritte": [
-     "Nach 2 Jahren bei 5 % sind 2 205 € auf dem Konto.",
-     "K₀ = 2 205 € : 1,05² = 2 205 € : 1,1025 = ⟦2 000 €⟧."
+     {
+      "text": "Vorwärts wäre K₂ = K₀ · 1,05²."
+     },
+     {
+      "text": "Anfangskapital rückwärts: K₀ = 2 205 € : 1,05²."
+     },
+     {
+      "text": "1,05² = 1,1025, also K₀ = ⟦2 000 €⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "Start",
+        "Jahr 1",
+        "Jahr 2"
+       ],
+       "zeilen": [
+        [
+         "Kapital",
+         "2 000 €",
+         "2 100 €",
+         "2 205 €"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "2 000 · 1,05 · 1,05 = 2 205 ✓",
-    "fehler": "K₀ = 2 205 € − 2 · 5 % · 2 205 € ist falsch: Prozente beziehen sich auf den ⟦Grundwert am Anfang⟧. Rückwärts wird ⟦durch qⁿ geteilt⟧."
+    "fehler": "2 205 € minus 2 · 5 % von 2 205 € ist falsch. Rückwärts wird ⟦durch qⁿ geteilt⟧.",
+    "einstieg": "Auf dem Konto sind nach 2 Jahren mit 5 % Zinsen 2 205 €. Wie viel wurde am Anfang eingezahlt? Du rechnest ⟦rückwärts⟧: teilen statt malnehmen.",
+    "woerter": [
+     [
+      "Anfangskapital",
+      "das Geld, das am Anfang eingezahlt wurde: K₀"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Start",
+      "Jahr 1",
+      "Jahr 2"
+     ],
+     "zeilen": [
+      [
+       "Kapital",
+       "?",
+       "?",
+       "2 205 €"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "vergleich",
     "titel": "Angebote vergleichen",
-    "regel": "Zinseszins wächst ⟦schneller⟧ als einfache Zinsen, weil auch die Zinsen Zinsen bringen – je länger, desto deutlicher. Zum Vergleich von Angeboten rechnet man den ⟦Endbetrag⟧ aus. Wie lange es bis zur ⟦Verdopplung⟧ dauert, findet man durch Probieren mit qⁿ ≥ 2.",
+    "regel": "Zinseszins wächst ⟦schneller⟧ als einfache Zinsen. Verdopplung: n probieren, bis qⁿ ≥ 2.",
     "schritte": [
-     "Bei 7 %: 1,07¹⁰ ≈ 1,967 < 2, 1,07¹¹ ≈ 2,105 ≥ 2.",
-     "Das Kapital hat sich nach ⟦11 Jahren⟧ erstmals verdoppelt."
+     {
+      "text": "Bei 7 % ist q = 1,07. Gesucht: 1,07ⁿ ≥ 2."
+     },
+     {
+      "text": "1,07¹⁰ ≈ 1,967, das ist noch kleiner als 2.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "n",
+        "8",
+        "9",
+        "10",
+        "11"
+       ],
+       "zeilen": [
+        [
+         "1,07ⁿ",
+         "1,718",
+         "1,838",
+         "1,967",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "1,07¹¹ ≈ 2,105, das ist mehr als 2.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "n",
+        "8",
+        "9",
+        "10",
+        "11"
+       ],
+       "zeilen": [
+        [
+         "1,07ⁿ",
+         "1,718",
+         "1,838",
+         "1,967",
+         "2,105 ✓"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Nach ⟦11 Jahren⟧ hat sich das Kapital erstmals verdoppelt."
+     }
     ],
-    "probe": "Faustregel: 72 : 7 ≈ 10,3 – passt ungefähr ✓",
-    "fehler": "„Bei 5 % verdoppelt sich das Geld nach 20 Jahren, weil 20 · 5 % = 100 %“ ist falsch: Das gilt nur für einfache Zinsen. Mit Zinseszins reicht 1,05¹⁵ ≈ 2,08 – also ⟦15 Jahre⟧."
+    "fehler": "„Bei 5 % nach 20 Jahren, weil 20 · 5 % = 100 %“ gilt nur für einfache Zinsen. Mit Zinseszins reichen ⟦15 Jahre⟧.",
+    "einstieg": "Wann hat sich dein Geld verdoppelt? Mit einfachen Zinsen dauert es lange. Mit Zinseszins geht es schneller. Die ⟦Verdopplung⟧ findest du durch Probieren.",
+    "woerter": [
+     [
+      "Verdopplung",
+      "das Kapital ist doppelt so groß: qⁿ ≥ 2"
+     ],
+     [
+      "einfachen Zinsen",
+      "jedes Jahr Zinsen nur vom Startkapital"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "n",
+      "8",
+      "9",
+      "10",
+      "11"
+     ],
+     "zeilen": [
+      [
+       "1,07ⁿ",
+       "?",
+       "?",
+       "?",
+       "?"
+      ]
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [

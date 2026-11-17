@@ -276,7 +276,117 @@ def g_vergleichen(s):
 
 GEN = dativ({'eigenschaften': g_eigenschaften, 'regel': g_regel, 'anteile': g_anteile, 'zwert': g_zwert, 'vergleichen': g_vergleichen})
 
-bauen('daten.normalverteilung',
+# ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_rest import umbau_schreiben  # noqa: E402
+
+import math  # noqa: E402
+
+from _umbau_rest import ko, pkte, tab  # noqa: E402
+
+
+def _dichte(x, mu, s):
+    return round(math.exp(-((x - mu) ** 2) / (2 * s * s)), 3)
+
+
+def _fl(mu, s, a, b):
+    """Fläche unter der Glocke (Höhe 1) von a bis b als Vieleck."""
+    n = 24
+    xs = [a + (b - a) * i / n for i in range(n + 1)]
+    return {'punkte': [[a, 0]] + [[round(x, 3), _dichte(x, mu, s)] for x in xs] + [[b, 0]]}
+
+
+def _gl(mu, s, name_x, **kw):
+    g = [{'art': 'glocke', 'a': 1, 'mu': mu, 'sigma': s}] + kw.pop('mehr', [])
+    return ko([mu - 4 * s, mu + 4 * s], [0, 1.2], schritt=0, schritt_x=2 * s, schritt_y=0.5, name_x=name_x, name_y=' ', graphen=g, **kw)
+
+
+def _z(zm, zd):
+    return tab(['Fach', 'Punkte', 'μ', 'σ', 'z'], ['Mathe', '78', '70', '4', zm], ['Deutsch', '85', '75', '10', zd])
+
+
+UMBAU = {
+    'eigenschaften': {
+        'einstieg': 'Eine Maschine füllt Saftflaschen mit 500 ml. Mal sind es 498 ml, mal 503 ml, ganz selten 485 ml. '
+                    'Die Häufigkeiten bilden eine Glocke. Man sagt: Die Füllmenge ist ⟦normalverteilt⟧.',
+        'woerter': [['normalverteilt', 'die meisten Werte liegen nahe beim Mittelwert, symmetrisch wie eine Glocke'],
+                    ['μ', 'griechisch „mü“: der Mittelwert'],
+                    ['σ', 'griechisch „sigma“: die Standardabweichung; sie bestimmt die Breite']],
+        'bild': _gl(500, 5, 'ml'),
+        'schritte': [
+            {'text': 'Füllmengen: μ = 500 ml und σ = 5 ml.'},
+            {'text': 'Die Spitze der Glocke liegt bei ⟦500 ml⟧.', 'bild': {'punkte': pkte({'μ': (500, 1)})}},
+            {'text': '495 ml und 505 ml liegen gleich weit weg: gleich häufig.', 'bild': {'senkrecht': [495, 505]}},
+        ],
+        'fehler': '„Größeres σ macht die Glocke höher“ ist falsch. Größeres σ heißt ⟦breiter und flacher⟧, die Gesamtfläche bleibt 100 %.',
+        'fehler_bild': {'graphen': [{'art': 'glocke', 'a': 1, 'mu': 500, 'sigma': 5, 'name': 'σ = 5'},
+                                    {'art': 'glocke', 'a': 0.5, 'mu': 500, 'sigma': 10, 'name': 'σ = 10'}], 'punkte': None, 'senkrecht': None},
+        'regel': 'Normalverteilt: eine Glocke, ⟦symmetrisch um μ⟧. σ bestimmt die Breite.',
+    },
+    'regel': {
+        'einstieg': 'Die Körpergröße 15-jähriger Jungen ist normalverteilt mit μ = 170 cm und σ = 6 cm. Wie viele sind zwischen 158 cm und 182 cm groß? '
+                    'Es hilft die ⟦68-95-99,7-Regel⟧.',
+        'woerter': [['μ ± σ', 'der Bereich von μ − σ bis μ + σ'],
+                    ['68-95-99,7-Regel', 'Faustregel für die Anteile in den Bereichen μ ± σ, μ ± 2σ, μ ± 3σ']],
+        'bild': _gl(170, 6, 'cm'),
+        'schritte': [
+            {'text': 'μ ± σ: 164 cm bis 176 cm, das sind etwa 68 %.', 'bild': {'flaechen': [_fl(170, 6, 164, 176)]}},
+            {'text': 'μ − 2σ = 158 cm und μ + 2σ = 182 cm.', 'bild': {'flaechen': [_fl(170, 6, 158, 182)]}},
+            {'text': 'Dazwischen liegen etwa ⟦95 %⟧ der Jungen.'},
+            {'text': 'μ ± 3σ umfasst etwa 99,7 %.', 'bild': {'flaechen': [_fl(170, 6, 152, 188)]}},
+        ],
+        'fehler': '„Bei μ ± 2σ sind es 2 · 68 % = 136 %“ ist falsch. Mehr als 100 % geht nicht: ⟦68, 95, 99,7⟧.',
+        'regel': 'Faustregel: ⟦68 %, 95 %, 99,7 %⟧. Das gilt für μ ± σ, μ ± 2σ und μ ± 3σ.',
+    },
+    'anteile': {
+        'einstieg': 'Ein Test ist normalverteilt mit μ = 60 Punkten und σ = 10. Wie viele haben mehr als 70 Punkte? '
+                    'Die Glocke ist auf beiden Seiten gleich. Das nutzt man: ⟦Symmetrie⟧.',
+        'woerter': [['Symmetrie', 'links und rechts von μ sieht die Glocke gleich aus']],
+        'bild': _gl(60, 10, 'Pkt'),
+        'schritte': [
+            {'text': '70 Punkte sind μ + σ.', 'bild': {'senkrecht': [70]}},
+            {'text': 'Außerhalb von μ ± σ liegen 100 % − 68 % = 32 %.',
+             'bild': {'flaechen': [_fl(60, 10, 20, 50), _fl(60, 10, 70, 100)]}},
+            {'text': 'Wegen der Symmetrie liegt die Hälfte oben: ⟦16 %⟧.', 'bild': {'flaechen': [_fl(60, 10, 70, 100)]}},
+        ],
+        'fehler': '„Über μ + σ liegen 32 %“ ist falsch. Die 32 % verteilen sich auf ⟦beide Seiten⟧, oben ist nur die Hälfte.',
+        'regel': 'Wegen der Symmetrie die Anteile ⟦halbieren⟧. Über μ + σ liegen 16 %, über μ + 2σ 2,5 %.',
+    },
+    'zwert': {
+        'einstieg': 'Ein Junge ist 182 cm groß. Ist das viel? Das hängt davon ab, wie stark die Größen streuen. '
+                    'Der ⟦z-Wert⟧ sagt, wie viele σ er über dem Mittelwert liegt.',
+        'woerter': [['z-Wert', 'z = (x − μ) : σ, der Abstand zum Mittelwert in σ-Schritten']],
+        'bild': _gl(170, 6, 'cm', senkrecht=[170]),
+        'schritte': [
+            {'text': 'Gegeben: μ = 170 cm, σ = 6 cm, x = 182 cm.'},
+            {'text': 'Abstand zum Mittelwert: 182 − 170 = 12 cm.', 'bild': {'senkrecht': [170, 182], 'pfeile': [[170, 0.3, 182, 0.3, '12']]}},
+            {'text': 'In σ-Schritten: z = 12 : 6 = ⟦2⟧.', 'bild': {'pfeile': [[170, 0.3, 176, 0.3, 'σ'], [176, 0.3, 182, 0.3, 'σ']]}},
+        ],
+        'fehler': 'z = 182 : 6 ist falsch. Zuerst den ⟦Abstand zum Mittelwert⟧ bilden, dann durch σ teilen.',
+        'regel': '⟦z = (x − μ) : σ⟧. Positiv heißt über dem Mittelwert, negativ darunter.',
+    },
+    'vergleichen': {
+        'einstieg': 'Mathe: 78 Punkte. Deutsch: 85 Punkte. Welches Ergebnis ist besser? Das hängt davon ab, wie die anderen abgeschnitten haben. '
+                    'Mit z-Werten kann man ⟦fair vergleichen⟧.',
+        'woerter': [['ungewöhnlich', 'ab |z| > 2; nur etwa 5 % liegen so weit außen']],
+        'bild': _z('?', '?'),
+        'schritte': [
+            {'text': 'Mathe: z = (78 − 70) : 4 = 2.', 'bild': _z('2', '?')},
+            {'text': 'Deutsch: z = (85 − 75) : 10 = 1.', 'bild': _z('2', '1')},
+            {'text': 'Größerer z-Wert: ⟦Mathe ist relativ besser⟧, trotz weniger Punkten.'},
+            {'text': 'Ab |z| > 2 gilt ein Ergebnis als ungewöhnlich.'},
+        ],
+        'fehler': 'Nur 85 > 78 vergleichen ist falsch. Die Tests sind ⟦verschieden verteilt⟧, erst in z-Werte umrechnen.',
+        'regel': 'Verschiedene Verteilungen: in ⟦z-Werte⟧ umrechnen und vergleichen. Ab |z| > 2 ist ein Wert ungewöhnlich.',
+    },
+}
+UMBAU_OFFEN = ['Umbau (Paket UR): Die Lernkarten zeigen jetzt echte Glockenkurven (Graph-Art glocke) mit gefärbten Flächen (flaechen). '
+               'Die Aufgaben-Grafiken bleiben unverändert (Säulen in Glockenform).']
+UMBAU_WEG = ['App-Wunsch: Graphart „Glockenkurve“']
+# ---------- Ende UMBAU ----------
+
+
+d = bauen('daten.normalverteilung',
       'Die Normalverteilung als Modell kennen, Anteile mit der 68-95-99,7-Regel abschätzen, z-Werte berechnen und Ergebnisse vergleichen.',
       ['Normalverteilung (normal distribution): Glockenkurve, symmetrisch um μ; Mittelwert = Median = Modus.',
        'σ bestimmt die Breite: größer = breiter und flacher.',
@@ -288,3 +398,4 @@ bauen('daten.normalverteilung',
       offen=['Ohne Lehrplan-Zuordnung (Verlagsinhalt IB Extended); Niveau Klasse 9/10 angenommen. Rechnung nur mit der 68-95-99,7-Regel, keine Tabellen der Standardnormalverteilung und keine Taschenrechner-Funktionen (normalcdf).',
              'App-Wunsch: Graphart „Glockenkurve“ (Normalverteilungsdichte mit μ und σ, Fläche zwischen zwei Grenzen färbbar). Bisher Ersatz: Säulendiagramm in Glockenform und Tabelle der Streifen-Anteile.',
              'Feld klasse: {"zusatz": 10} statt {} (Prüfskript verlangt einen Eintrag) – siehe FRAGE im Postfach.'])
+umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

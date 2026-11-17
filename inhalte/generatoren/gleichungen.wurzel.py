@@ -268,11 +268,121 @@ def g_sachaufgabe(s):
 GEN = {'definitionsmenge': g_definitionsmenge, 'quadrieren': g_quadrieren, 'isolieren': g_isolieren, 'probe': g_probe,
        'zwei_seiten': g_zwei_seiten, 'sachaufgabe': g_sachaufgabe}
 
+# ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_rest import umbau_schreiben  # noqa: E402
+
+from _umbau_rest import tab  # noqa: E402
+
+
+def _g(*z):
+    return tab(['', 'Gleichung'], *z)
+
+
+_Q = [['Start', '√(3x + 1) = 5'], ['quadrieren', '3x + 1 = 25'], ['− 1, : 3', 'x = 8'], ['Probe', '√25 = 5 ✓']]
+_I = [['Start', '2 · √(x − 3) + 4 = 14'], ['− 4', '2 · √(x − 3) = 10'], [': 2', '√(x − 3) = 5'], ['quadrieren', 'x − 3 = 25'],
+      ['+ 3', 'x = 28']]
+_ZK = ['x', 'links √(x + 7)', 'rechts x + 1']
+UMBAU = {
+    'definitionsmenge': {
+        'einstieg': 'Tippst du √(−4) in den Taschenrechner, zeigt er „Error“. Unter einer Wurzel darf nichts Negatives stehen. '
+                    'Welche x erlaubt sind, sagt die ⟦Definitionsmenge D⟧.',
+        'woerter': [['Radikand', 'die Zahl oder der Term unter der Wurzel'],
+                    ['Definitionsmenge D', 'alle x, die man einsetzen darf'],
+                    ['D = {x | x ≥ 3}', 'gelesen: alle x, die größer oder gleich 3 sind']],
+        'bild': {'typ': 'zahlenstrahl', 'start': 0, 'ende': 6, 'abschnitte': 6, 'beschriftet': 'alle'},
+        'schritte': [
+            {'text': 'Der Radikand 2x − 6 darf nicht negativ sein: 2x − 6 ≥ 0.'},
+            {'text': 'Plus 6, dann durch 2: x ≥ 3.', 'bild': {'punkte': [{'wert': 3, 'name': 'x = 3'}]}},
+            {'text': 'Also ⟦D = {x | x ≥ 3}⟧.', 'bild': {'bereich': {'von': 3, 'bis': 6}}},
+        ],
+        'fehler': 'Bei √(6 − 2x) ist x ≥ 3 falsch. Beim Teilen durch −2 ⟦dreht sich das Zeichen⟧: x ≤ 3.',
+        'fehler_bild': {'bereich': {'von': 0, 'bis': 3}},
+        'regel': 'Radikand ≥ 0 setzen und nach x auflösen. Das ergibt die ⟦Definitionsmenge D⟧.',
+    },
+    'quadrieren': {
+        'einstieg': 'Tippst du 25 und dann √, zeigt der Taschenrechner 5. Tippst du danach x², steht wieder 25 da. '
+                    '⟦Quadrieren⟧ macht die Wurzel rückgängig.',
+        'woerter': [['quadrieren', 'eine Zahl mit sich selbst malnehmen: 5² = 25'],
+                    ['Probe', 'die Lösung in die Ausgangsgleichung einsetzen und prüfen']],
+        'bild': _g(_Q[0]),
+        'schritte': [
+            {'text': 'Beide Seiten quadrieren: 3x + 1 = 25.', 'bild': _g(*_Q[:2])},
+            {'text': 'Minus 1, dann durch 3: ⟦x = 8⟧.', 'bild': _g(*_Q[:3])},
+            {'text': 'Probe: √(3 · 8 + 1) = √25 = 5. Stimmt.', 'bild': _g(*_Q)},
+        ],
+        'fehler': '3x + 1 = 5 ist falsch. Die rechte Seite muss ⟦auch quadriert⟧ werden: 5² = 25.',
+        'fehler_bild': _g(_Q[0], ['falsch', '3x + 1 = 5'], ['richtig', '3x + 1 = 25']),
+        'regel': 'Steht die Wurzel allein, ⟦beide Seiten quadrieren⟧. Danach immer die Probe machen.',
+    },
+    'isolieren': {
+        'einstieg': 'Bevor du ein Geschenk auspackst, nimmst du das Band ab. Genauso hier: Erst alles um die Wurzel herum weg, '
+                    'dann quadrieren. Die Wurzel muss ⟦allein⟧ stehen.',
+        'woerter': [['isoliert', 'die Wurzel steht allein auf einer Seite']],
+        'bild': _g(_I[0]),
+        'schritte': [
+            {'text': 'Zuerst minus 4: 2 · √(x − 3) = 10.', 'bild': _g(*_I[:2])},
+            {'text': 'Dann durch 2: √(x − 3) = 5. Die Wurzel ist isoliert.', 'bild': _g(*_I[:3])},
+            {'text': 'Quadrieren: x − 3 = 25, also ⟦x = 28⟧.', 'bild': _g(*_I)},
+            {'text': 'Probe: 2 · √25 + 4 = 14. Stimmt.'},
+        ],
+        'fehler': 'Zu früh quadrieren ist falsch, denn (a + b)² ist ⟦nicht a² + b²⟧. Erst die 4 abziehen, dann quadrieren.',
+        'regel': 'Erst die Wurzel ⟦isolieren⟧, dann quadrieren. Zahlen davor und dahinter wie gewohnt wegbringen.',
+    },
+    'probe': {
+        'einstieg': 'Ein Taschenrechner zeigt bei √ nie eine negative Zahl. √(x + 5) = −3 kann also nie stimmen. '
+                    'Quadrieren findet trotzdem eine Zahl. Sie ist eine ⟦Scheinlösung⟧.',
+        'woerter': [['Scheinlösung', 'eine Zahl, die beim Rechnen herauskommt, aber die Probe nicht besteht'],
+                    ['L = { }', 'leere Lösungsmenge: Es gibt keine Lösung']],
+        'bild': tab(['x', '√(x + 5)', 'rechts'], ['?', '?', '−3']),
+        'schritte': [
+            {'text': 'Quadrieren: x + 5 = 9, also x = 4.', 'bild': tab(['x', '√(x + 5)', 'rechts'], ['4', '?', '−3'])},
+            {'text': 'Probe: √(4 + 5) = 3, nicht −3.', 'bild': tab(['x', '√(x + 5)', 'rechts'], ['4', '3', '−3'])},
+            {'text': 'x = 4 ist eine Scheinlösung, also ⟦L = { }⟧.'},
+        ],
+        'fehler': 'L = {4} ist falsch. Die Probe zeigt ⟦3 ≠ −3⟧. Eine Wurzel ist nie negativ.',
+        'regel': 'Quadrieren kann Scheinlösungen erzeugen. Darum jede Lösung mit der ⟦Probe⟧ prüfen.',
+    },
+    'zwei_seiten': {
+        'einstieg': 'Jetzt steht auf beiden Seiten etwas mit x: √(x + 7) = x + 1. Quadrieren macht daraus eine ⟦quadratische Gleichung⟧. '
+                    'Nur die Probe entscheidet, welche Lösung gilt.',
+        'woerter': [['quadratische Gleichung', 'eine Gleichung mit x², z. B. x² + x − 6 = 0']],
+        'bild': tab(_ZK, ['2', '?', '?'], ['−3', '?', '?']),
+        'schritte': [
+            {'text': 'Quadrieren: x + 7 = x² + 2x + 1.'},
+            {'text': 'Umstellen: x² + x − 6 = 0. Lösungen: −3 und 2.'},
+            {'text': 'Probe x = 2: √9 = 3 und 2 + 1 = 3. Stimmt.', 'bild': tab(_ZK, ['2', '3', '3 ✓'], ['−3', '?', '?'])},
+            {'text': 'x = −3: links 2, rechts −2. Also ⟦L = {2}⟧.', 'bild': tab(_ZK, ['2', '3', '3 ✓'], ['−3', '2', '−2 ✗'])},
+        ],
+        'fehler': 'Beide Lösungen in L schreiben ist falsch. Bei x = −3 ist die rechte Seite ⟦negativ⟧, das ist eine Scheinlösung.',
+        'regel': 'Quadrieren, quadratische Gleichung lösen, dann ⟦jede Lösung prüfen⟧. Nur bestandene Proben kommen in L.',
+    },
+    'sachaufgabe': {
+        'einstieg': 'Du lässt einen Stein in einen Schacht fallen und zählst 3 Sekunden bis zum Aufprall. '
+                    'Wie tief ist der Schacht? Die Formel ⟦t = √(h : 5)⟧ verrät es.',
+        'woerter': [['h', 'die Fallhöhe in Metern'], ['t', 'die Fallzeit in Sekunden']],
+        'bild': tab(['h in m', '5', '20', '?'], ['t in s', '1', '2', '3']),
+        'schritte': [
+            {'text': 'Einsetzen: √(h : 5) = 3.'},
+            {'text': 'Quadrieren: h : 5 = 9.'},
+            {'text': 'Mal 5: h = ⟦45⟧. Der Schacht ist 45 m tief.', 'bild': tab(['h in m', '5', '20', '45'], ['t in s', '1', '2', '3'])},
+            {'text': 'Probe: √(45 : 5) = √9 = 3. Stimmt.'},
+        ],
+        'fehler': 'h = 15 ist falsch. Zuerst ⟦quadrieren⟧, h : 5 = 9, dann mal 5.',
+        'regel': 'Gesucht ist die Größe unter der Wurzel? Wurzel isolieren, ⟦quadrieren⟧, auflösen.',
+    },
+}
+UMBAU_OFFEN = []
+UMBAU_WEG = []
+# ---------- Ende UMBAU ----------
+
+
 if __name__ == '__main__':
-    bauen('gleichungen.wurzel',
+    d = bauen('gleichungen.wurzel',
           'Wurzelgleichungen lösen: Definitionsmenge bestimmen, Wurzel allein stellen, quadrieren und mit der Probe Scheinlösungen erkennen.',
           ['Unter der Wurzel steht nie etwas Negatives: Radikand ≥ 0 liefert D.', 'Erst die Wurzel allein stellen, dann beide Seiten quadrieren.',
            'Eine Wurzel ist nie negativ: √(T) = negative Zahl hat keine Lösung.', 'Immer die Probe machen – Quadrieren kann Scheinlösungen erzeugen.'],
           [('Grundlagen', ['definitionsmenge', 'quadrieren', 'isolieren']), ('Probe und schwierigere Gleichungen', ['probe', 'zwei_seiten']),
            ('Anwenden', ['sachaufgabe'])],
           ETAPPEN, GEN)
+    umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

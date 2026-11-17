@@ -212,7 +212,105 @@ def g_vergleich(s):
 
 GEN = schoen({'jahr': g_jahr, 'faktor': g_faktor, 'formel': g_formel, 'rueck': g_rueck, 'vergleich': g_vergleich})
 
-bauen('finanzen.zinseszins',
+# ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_rest import umbau_schreiben  # noqa: E402
+
+from _umbau_rest import tab  # noqa: E402
+
+
+def _s(werte, y_start=900):
+    return {'typ': 'saeulen', 'einheit': '€', 'werte': [{'name': n, 'wert': w} for n, w in werte], 'y_start': y_start, 'zahlen': True}
+
+
+_J = [('Start', 1000), ('Jahr 1', 1050), ('Jahr 2', 1102.5)]
+_F = [('J0', 5000), ('J1', 5100), ('J2', 5202), ('J3', 5306.04), ('J4', 5412.16), ('J5', 5520.40), ('J6', 5630.81)]
+_QK = ['Zinssatz', 'Rechnung', 'q']
+_RK = ['', 'Start', 'Jahr 1', 'Jahr 2']
+_VK = ['n', '8', '9', '10', '11']
+UMBAU = {
+    'jahr': {
+        'einstieg': 'Du legst 1 000 € auf ein Sparkonto mit 5 % Zinsen. Nach einem Jahr kommen die Zinsen aufs Konto. '
+                    'Im zweiten Jahr gibt es auch Zinsen auf diese Zinsen: ⟦Zinseszins⟧.',
+        'woerter': [['Zinseszins', 'Zinsen werden zum Kapital addiert und im nächsten Jahr mitverzinst'],
+                    ['Kapital', 'das Geld auf dem Konto']],
+        'bild': _s(_J[:1]),
+        'schritte': [
+            {'text': 'Jahr 1: 5 % von 1 000 € sind 50 € Zinsen.'},
+            {'text': 'Das Kapital ist jetzt 1 050 €.', 'bild': _s(_J[:2])},
+            {'text': 'Jahr 2: 5 % von 1 050 € sind 52,50 €.'},
+            {'text': 'Nach zwei Jahren: ⟦1 102,50 €⟧.', 'bild': _s(_J)},
+        ],
+        'fehler': 'Im 2. Jahr wieder nur 50 € ist falsch, das wären ⟦einfache Zinsen⟧. Verzinst wird das neue Kapital 1 050 €.',
+        'fehler_bild': _s(_J[:2] + [('falsch', 1100)]),
+        'regel': 'Zinseszins: Zinsen kommen zum Kapital und werden ⟦mitverzinst⟧. Zinsen eines Jahres = Kapital · p %.',
+    },
+    'faktor': {
+        'einstieg': 'Statt jedes Jahr Zinsen auszurechnen und zu addieren, geht es schneller. '
+                    'Du nimmst das Kapital mit einer einzigen Zahl mal. Sie heißt ⟦Wachstumsfaktor⟧.',
+        'woerter': [['Wachstumsfaktor q', 'q = 1 + p/100; bei 3 % ist q = 1,03'],
+                    ['Zinssatz p', 'wie viel Prozent Zinsen es pro Jahr gibt']],
+        'bild': tab(_QK, ['3 %', '?', '?']),
+        'schritte': [
+            {'text': 'Zinssatz p = 3 %, also 3/100 = 0,03.'},
+            {'text': 'Wachstumsfaktor q = 1 + 0,03 = 1,03.', 'bild': tab(_QK, ['3 %', '1 + 0,03', '1,03'])},
+            {'text': '2 000 € · 1,03 = ⟦2 060 €⟧ nach einem Jahr.'},
+            {'text': 'Bei 15 % Abnahme ist q = 1 − 0,15 = 0,85.', 'bild': tab(_QK, ['3 %', '1 + 0,03', '1,03'], ['−15 %', '1 − 0,15', '0,85'])},
+        ],
+        'fehler': 'q = 1,3 bei 3 % ist falsch, das wären ⟦30 %⟧. 3 % sind 0,03, also q = 1,03.',
+        'fehler_bild': tab(_QK, ['3 %', '1 + 0,3 ✗', '1,3 ✗']),
+        'regel': '⟦q = 1 + p/100⟧. Mal q ersetzt das Ausrechnen und Addieren der Zinsen.',
+    },
+    'formel': {
+        'einstieg': 'Du lässt 5 000 € sechs Jahre mit 2 % Zinsen auf dem Konto. Jedes Jahr wird mit 1,02 malgenommen, sechsmal hintereinander. '
+                    'Kurz schreibt man das als ⟦Potenz⟧ 1,02⁶.',
+        'woerter': [['K₀', 'das Anfangskapital'], ['Kₙ', 'das Kapital nach n Jahren'],
+                    ['Potenz', '1,02⁶ heißt: sechsmal 1,02 malnehmen']],
+        'bild': _s(_F[:1], 4800),
+        'schritte': [
+            {'text': 'Formel: Kₙ = K₀ · qⁿ.'},
+            {'text': 'Hier ist K₀ = 5 000 €, q = 1,02 und n = 6.'},
+            {'text': 'K₆ = 5 000 € · 1,02⁶ ≈ 5 000 € · 1,126162.', 'bild': _s(_F, 4800)},
+            {'text': 'Auf Cent gerundet: ⟦5 630,81 €⟧.'},
+        ],
+        'fehler': '5 000 · 1,02 · 6 ist falsch. Der Faktor wird ⟦sechsmal malgenommen⟧, als Potenz 1,02⁶.',
+        'regel': '⟦Kₙ = K₀ · qⁿ⟧. Am Ende auf Cent runden.',
+    },
+    'rueck': {
+        'einstieg': 'Auf dem Konto sind nach 2 Jahren mit 5 % Zinsen 2 205 €. Wie viel wurde am Anfang eingezahlt? '
+                    'Du rechnest ⟦rückwärts⟧: teilen statt malnehmen.',
+        'woerter': [['Anfangskapital', 'das Geld, das am Anfang eingezahlt wurde: K₀']],
+        'bild': tab(_RK, ['Kapital', '?', '?', '2 205 €']),
+        'schritte': [
+            {'text': 'Vorwärts wäre K₂ = K₀ · 1,05².'},
+            {'text': 'Anfangskapital rückwärts: K₀ = 2 205 € : 1,05².'},
+            {'text': '1,05² = 1,1025, also K₀ = ⟦2 000 €⟧.', 'bild': tab(_RK, ['Kapital', '2 000 €', '2 100 €', '2 205 €'])},
+        ],
+        'fehler': '2 205 € minus 2 · 5 % von 2 205 € ist falsch. Rückwärts wird ⟦durch qⁿ geteilt⟧.',
+        'regel': 'Anfangskapital: ⟦K₀ = Kₙ : qⁿ⟧. Zinssatz für ein Jahr: q = K₁ : K₀, dann p = (q − 1) · 100.',
+    },
+    'vergleich': {
+        'einstieg': 'Wann hat sich dein Geld verdoppelt? Mit einfachen Zinsen dauert es lange. Mit Zinseszins geht es schneller. '
+                    'Die ⟦Verdopplung⟧ findest du durch Probieren.',
+        'woerter': [['Verdopplung', 'das Kapital ist doppelt so groß: qⁿ ≥ 2'],
+                    ['einfachen Zinsen', 'jedes Jahr Zinsen nur vom Startkapital']],
+        'bild': tab(_VK, ['1,07ⁿ', '?', '?', '?', '?']),
+        'schritte': [
+            {'text': 'Bei 7 % ist q = 1,07. Gesucht: 1,07ⁿ ≥ 2.'},
+            {'text': '1,07¹⁰ ≈ 1,967, das ist noch kleiner als 2.', 'bild': tab(_VK, ['1,07ⁿ', '1,718', '1,838', '1,967', '?'])},
+            {'text': '1,07¹¹ ≈ 2,105, das ist mehr als 2.', 'bild': tab(_VK, ['1,07ⁿ', '1,718', '1,838', '1,967', '2,105 ✓'])},
+            {'text': 'Nach ⟦11 Jahren⟧ hat sich das Kapital erstmals verdoppelt.'},
+        ],
+        'fehler': '„Bei 5 % nach 20 Jahren, weil 20 · 5 % = 100 %“ gilt nur für einfache Zinsen. Mit Zinseszins reichen ⟦15 Jahre⟧.',
+        'regel': 'Zinseszins wächst ⟦schneller⟧ als einfache Zinsen. Verdopplung: n probieren, bis qⁿ ≥ 2.',
+    },
+}
+UMBAU_OFFEN = []
+UMBAU_WEG = []
+# ---------- Ende UMBAU ----------
+
+
+d = bauen('finanzen.zinseszins',
       'Kapital mit Zinseszins berechnen, den Wachstumsfaktor nutzen, rückwärts rechnen und Angebote vergleichen.',
       ['Zinseszins (compound interest): Zinsen werden mitverzinst.',
        'Wachstumsfaktor q = 1 + p/100 (Abnahme: q = 1 − p/100).',
@@ -223,3 +321,4 @@ bauen('finanzen.zinseszins',
       offen=['Ohne Lehrplan-Zuordnung; Niveau Klasse 9/10 angenommen (Potenzen mit Taschenrechner, Rundung auf Cent mit Toleranz 0,01). Logarithmen zur Laufzeit-Berechnung nicht verwendet – Verdopplungszeit durch Probieren.',
              'Feld klasse: {"zusatz": 10} statt {} (Prüfskript verlangt einen Eintrag) – siehe FRAGE im Postfach.',
              'Überschneidung möglich mit bruch.prozent / Wachstum (Gymnasium Klasse 7 bzw. funktionen.exponential_log Klasse 10); hier eigenständig mit Zinsen.'])
+umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

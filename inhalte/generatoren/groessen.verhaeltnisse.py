@@ -352,7 +352,123 @@ def g_aenderung(s):
 GEN = {'kuerzen': g_kuerzen, 'gleichwertig': g_gleichwertig, 'aufteilen': g_aufteilen, 'proportion': g_proportion,
        'einheitsrate': g_einheitsrate, 'aenderung': g_aenderung}
 
-bauen('groessen.verhaeltnisse',
+# ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_rest import umbau_schreiben  # noqa: E402
+
+from _umbau_rest import ko, pkte, tab  # noqa: E402
+
+
+def _bs(teile, gefaerbt, ganzes=None, teil_text=None, **kw):
+    b = {'typ': 'bruchstreifen', 'teile': teile, 'gefaerbt': gefaerbt}
+    if ganzes:
+        b['ganzes'] = ganzes
+    if teil_text:
+        b['teil_text'] = teil_text
+    b.update(kw)
+    return b
+
+
+def _rez(*m):
+    return tab(['Portionen', '4', '1', '6'], ['Mehl in g', *m])
+
+
+_T = ko([8, 14], [0, 24], pkte({'9 Uhr': (9, 12), '13 Uhr': (13, 20)}), schritt=0, schritt_x=1, schritt_y=4, name_x='Uhrzeit', name_y='°C')
+UMBAU = {
+    'kuerzen': {
+        'einstieg': 'In der Klasse sind 12 Mädchen und 18 Jungen. Auf 2 Mädchen kommen also 3 Jungen. '
+                    'So einen Vergleich nennt man ⟦Verhältnis⟧, geschrieben 2 : 3.',
+        'woerter': [['Verhältnis', 'Vergleich zweier Größen, geschrieben a : b'],
+                    ['kürzen', 'beide Zahlen durch dieselbe Zahl teilen']],
+        'bild': _bs(30, 12, '30 Kinder', '12 Mädchen'),
+        'schritte': [
+            {'text': 'Mädchen : Jungen = 12 : 18.'},
+            {'text': 'Zum Kürzen: Beide Zahlen sind durch 6 teilbar.'},
+            {'text': '12 : 6 = 2 und 18 : 6 = 3. Gekürzt: ⟦2 : 3⟧.', 'bild': {'zeilen': [{'teile': 5, 'gefaerbt': 2}]}},
+        ],
+        'fehler': '1 m : 25 cm ist nicht 1 : 25. Erst ⟦gleiche Einheiten⟧: 100 cm : 25 cm = 4 : 1.',
+        'regel': 'Verhältnis kürzen: ⟦beide Zahlen durch dieselbe Zahl⟧ teilen. Vorher gleiche Einheiten herstellen.',
+    },
+    'gleichwertig': {
+        'einstieg': 'Für Saft mischst du 3 Becher Sirup mit 5 Bechern Wasser. Für eine große Kanne nimmst du von beidem viermal so viel. '
+                    'Der Saft schmeckt gleich: Die Verhältnisse sind ⟦gleichwertig⟧.',
+        'woerter': [['gleichwertig', 'beide Zahlen mit derselben Zahl malgenommen; das Verhältnis bleibt gleich']],
+        'bild': _bs(8, 3, '8 Becher', '3 Sirup'),
+        'schritte': [
+            {'text': 'Gesucht: 3 : 5 = □ : 20.'},
+            {'text': 'Von 5 nach 20 nimmt man mal 4.'},
+            {'text': 'Also auch 3 · 4 = 12: ⟦3 : 5 = 12 : 20⟧.', 'bild': {'zeilen': [{'teile': 32, 'gefaerbt': 12}]}},
+        ],
+        'fehler': '18 : 20 ist falsch: Zu beiden 15 addieren verändert den Geschmack. Bei Verhältnissen wird ⟦multipliziert⟧.',
+        'fehler_bild': {'zeilen': [{'teile': 38, 'gefaerbt': 18}]},
+        'regel': 'Gleichwertig: beide Zahlen ⟦mit derselben Zahl malnehmen⟧ oder teilen. Addieren verändert das Verhältnis.',
+    },
+    'aufteilen': {
+        'einstieg': 'Zwei Geschwister gewinnen 120 €. Eines hat 3 € Einsatz gezahlt, das andere 5 €. '
+                    'Sie verteilen im Verhältnis 3 : 5. Dafür zählt man die ⟦Teile⟧.',
+        'woerter': [['Teile', 'gleich große Stücke; bei 3 : 5 sind es zusammen 8']],
+        'bild': _bs(8, 3, '120 €'),
+        'schritte': [
+            {'text': '3 + 5 = 8 Teile.'},
+            {'text': 'Ein Teil: 120 € : 8 = 15 €.', 'bild': {'teil_text': '1 Teil = 15 €'}},
+            {'text': '3 Teile: 3 · 15 € = ⟦45 €⟧.', 'bild': {'teil_text': '45 €'}},
+            {'text': '5 Teile: 5 · 15 € = ⟦75 €⟧.', 'bild': {'teil_text': '45 €', 'zeilen': [{'teile': 8, 'gefaerbt': 5}]}},
+        ],
+        'fehler': '120 € : 3 und 120 € : 5 ist falsch. Zusammen wären das nur 64 €. Teile durch die ⟦Summe der Teile⟧.',
+        'regel': 'Teile zusammenzählen, ⟦einen Teil berechnen⟧, dann mit a und mit b malnehmen.',
+    },
+    'proportion': {
+        'einstieg': 'Ein Rezept für 4 Portionen braucht 300 g Mehl. Du willst 6 Portionen backen. '
+                    'Die Mengen wachsen im gleichen Verhältnis. So eine Gleichung heißt ⟦Proportion⟧.',
+        'woerter': [['Proportion', 'zwei gleiche Verhältnisse: a : b = c : d'],
+                    ['Dreisatz', 'erst auf 1 rechnen, dann auf die gesuchte Zahl']],
+        'bild': _rez('300', '?', '?'),
+        'schritte': [
+            {'text': 'Als Proportion: 4 : 300 = 6 : x.'},
+            {'text': 'Dreisatz: 1 Portion braucht 300 g : 4 = 75 g.', 'bild': _rez('300', '75', '?')},
+            {'text': '6 Portionen: 6 · 75 g = ⟦450 g⟧.', 'bild': _rez('300', '75', '450')},
+        ],
+        'fehler': '302 g ist falsch, nur 2 g mehr für 2 Portionen mehr. Die Menge wächst ⟦im gleichen Verhältnis⟧.',
+        'fehler_bild': _rez('300', '?', '302 ✗'),
+        'regel': 'Proportion: über ⟦eins⟧ rechnen oder den Faktor suchen. Beide Größen wachsen im gleichen Verhältnis.',
+    },
+    'einheitsrate': {
+        'einstieg': 'Packung A hat 750 g für 3,00 €, Packung B 500 g für 2,20 €. Was ist günstiger? '
+                    'Vergleiche den Preis für dieselbe Menge, die ⟦Einheitsrate⟧.',
+        'woerter': [['Einheitsrate', 'der Wert für genau 1 Einheit, z. B. Preis pro 100 g'],
+                    ['pro', 'je, für jede: 0,40 € pro 100 g']],
+        'bild': {'typ': 'saeulen', 'einheit': '€', 'werte': [{'name': 'A 750 g', 'wert': 3.0}, {'name': 'B 500 g', 'wert': 2.2}], 'zahlen': True},
+        'schritte': [
+            {'text': 'A kostet mehr, enthält aber auch mehr.'},
+            {'text': 'Pro 100 g: A kostet 3,00 € : 7,5 = 0,40 €.'},
+            {'text': 'B kostet 2,20 € : 5 = 0,44 € pro 100 g.',
+             'bild': {'einheit': '€ pro 100 g', 'werte': [{'name': 'A', 'wert': 0.4}, {'name': 'B', 'wert': 0.44}]}},
+            {'text': 'Also ist ⟦Packung A günstiger⟧.'},
+        ],
+        'fehler': '„B ist billiger, weil 2,20 € < 3,00 €“ ist falsch. B enthält weniger. Vergleiche den ⟦Preis pro gleicher Menge⟧.',
+        'regel': 'Angebote vergleichen: ⟦Preis pro Einheit⟧ berechnen, z. B. pro 100 g. Der kleinere Wert ist günstiger.',
+    },
+    'aenderung': {
+        'einstieg': 'Um 9 Uhr zeigt das Thermometer 12 °C, um 13 Uhr schon 20 °C. Wie schnell wird es wärmer? '
+                    'Das sagt die ⟦Änderungsrate⟧.',
+        'woerter': [['Änderungsrate', 'wie stark sich eine Größe pro Einheit ändert, z. B. °C pro Stunde'],
+                    ['Zeitspanne', 'wie viel Zeit vergangen ist']],
+        'bild': _T,
+        'schritte': [
+            {'text': 'Die Temperatur steigt um 20 − 12 = 8 °C.', 'bild': {'strecken': [[13, 12, 13, 20, 'gestrichelt']]}},
+            {'text': 'Zeitspanne: 13 − 9 = 4 Stunden.', 'bild': {'strecken': [[9, 12, 13, 12, 'gestrichelt'], [13, 12, 13, 20, 'gestrichelt']]}},
+            {'text': 'Rate: 8 : 4 = ⟦2 °C pro Stunde⟧.', 'bild': {'graphen': [{'art': 'linear', 'm': 2, 't': -6, 'bereich': [9, 13]}]}},
+        ],
+        'fehler': '20 : 13 ≈ 1,5 ist falsch. Teile die ⟦Änderungen⟧, nicht die Endwerte: 8 : 4 = 2.',
+        'regel': 'Änderungsrate = ⟦Änderung : Zeitspanne⟧. Nimmt die Größe ab, ist die Rate negativ.',
+    },
+}
+UMBAU_OFFEN = []
+UMBAU_WEG = []
+# ---------- Ende UMBAU ----------
+
+
+d = bauen('groessen.verhaeltnisse',
       'Verhältnisse kürzen und vergleichen, im Verhältnis aufteilen, Proportionen lösen, Einheitsraten und Änderungsraten berechnen.',
       ['Verhältnis (ratio) a : b – kürzen und erweitern wie bei Brüchen, nie addieren.',
        'Aufteilen: Teile zählen, einen Teil berechnen, vervielfachen.',
@@ -362,3 +478,4 @@ bauen('groessen.verhaeltnisse',
       ETAPPEN, GEN,
       offen=['Antworten bei Verhältnissen als Lücken □ : □ (je ein Zahlenfeld). Die App zeigt den Doppelpunkt aus der Schablone.',
              'Proportionen bewusst ohne Kreuzprodukt-Formel, sondern über Faktor und Dreisatz (Niveau MYP 2 ≈ Klasse 7).'])
+umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

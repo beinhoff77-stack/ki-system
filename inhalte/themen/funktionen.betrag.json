@@ -40,32 +40,99 @@
    {
     "lernziel": "betrag",
     "titel": "Betrag berechnen",
-    "regel": "Der ⟦Betrag⟧ (absolute value) |a| ist der ⟦Abstand der Zahl a von 0⟧ auf dem Zahlenstrahl. Er ist nie negativ: |5| = 5 und |−5| = 5. |a − b| ist der ⟦Abstand⟧ der Zahlen a und b.",
+    "regel": "Betrag = ⟦Abstand von 0⟧, nie negativ. |a − b| ist der Abstand von a und b.",
     "schritte": [
-     "f(x) = |x − 3| + 1 an der Stelle x = −2.",
-     "Innen zuerst: −2 − 3 = −5. Betrag: |−5| = 5.",
-     "f(−2) = 5 + 1 = ⟦6⟧."
+     {
+      "text": "Abstand von −2 bis 3: |−2 − 3|."
+     },
+     {
+      "text": "Innen zuerst: −2 − 3 = −5. Betrag: |−5| = 5.",
+      "bild": {
+       "boegen": [
+        {
+         "von": -2,
+         "bis": 3,
+         "name": "5"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Für x = −2: |x − 3| + 1 = 5 + 1 = ⟦6⟧."
+     }
     ],
-    "probe": "Abstand von −2 zu 3 sind 5 Schritte ✓",
     "bild": {
      "typ": "zahlenstrahl",
      "start": -5,
      "ende": 5,
      "abschnitte": 10,
-     "beschriftet": "anfang_ende"
+     "beschriftet": "anfang_ende",
+     "punkte": [
+      {
+       "wert": -2,
+       "name": "du"
+      },
+      {
+       "wert": 3,
+       "name": "Bus"
+      }
+     ]
     },
-    "fehler": "|−2 − 3| = |−2| − |3| = −1 ist falsch: Erst ⟦innen ausrechnen⟧ (−5), dann den Betrag nehmen: 5. Beträge darf man nicht einzeln abziehen."
+    "fehler": "|−2 − 3| = |−2| − |3| = −1 ist falsch. Erst ⟦innen ausrechnen⟧, dann den Betrag nehmen: 5.",
+    "einstieg": "Ein Bus hält bei Kilometer 3, du stehst bei Kilometer −2. Wie weit ist es bis zum Bus? Ein Abstand ist nie negativ. Man misst ihn mit dem ⟦Betrag⟧.",
+    "woerter": [
+     [
+      "Betrag",
+      "|a|: Abstand der Zahl a von 0; nie negativ"
+     ],
+     [
+      "Abstand",
+      "wie weit zwei Zahlen auseinanderliegen; geschrieben |a − b|"
+     ]
+    ]
    },
    {
     "lernziel": "graph",
     "titel": "Graph und Knickpunkt",
-    "regel": "Der Graph von f(x) = |x| ist ein ⟦V⟧ mit Spitze im Ursprung. f(x) = a · |x − d| + e ist dieses V, ⟦um d nach rechts und um e nach oben verschoben⟧, mit ⟦Knickpunkt⟧ (vertex) S(d | e). Der Faktor a macht das V steiler (|a| > 1) oder flacher; bei a < 0 ⟦öffnet es nach unten⟧.",
+    "regel": "Der Knickpunkt ist ⟦S(d | e)⟧. Das gilt für a · |x − d| + e. Bei a < 0 öffnet das V nach unten.",
     "schritte": [
-     "f(x) = 2 · |x − 1| − 3.",
-     "Innen steht x − 1: Verschiebung um 1 nach rechts; −3: um 3 nach unten.",
-     "Knickpunkt ⟦S(1 | −3)⟧; Steigung rechts 2, links −2."
+     {
+      "text": "f(x) = |x| ist ein V mit Spitze in (0 | 0)."
+     },
+     {
+      "text": "In 2 · |x − 1| − 3: 1 nach rechts, 3 nach unten.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "betrag",
+         "a": 1,
+         "b": 0,
+         "c": 0,
+         "name": "|x|"
+        },
+        {
+         "art": "betrag",
+         "a": 2,
+         "b": 1,
+         "c": -3,
+         "name": "f"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Knickpunkt ⟦S(1 | −3)⟧. Der Faktor 2 macht das V steiler.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 1,
+         "y": -3,
+         "name": "S"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "f(1) = 2 · 0 − 3 = −3 ✓",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -78,67 +145,329 @@
      ],
      "graphen": [
       {
-       "art": "linear",
-       "m": -2,
-       "t": -1,
-       "bereich": [
-        -4,
-        1
-       ]
-      },
+       "art": "betrag",
+       "a": 1,
+       "b": 0,
+       "c": 0,
+       "name": "|x|"
+      }
+     ]
+    },
+    "fehler": "Bei |x − 1| liegt der Knick nicht bei x = −1. Er liegt, wo ⟦innen 0⟧ herauskommt: x = 1.",
+    "einstieg": "Läufst du am Bus vorbei, wird der Abstand erst kleiner, dann wieder größer. Im Graphen entsteht ein V. Seine Spitze heißt ⟦Knickpunkt⟧.",
+    "woerter": [
+     [
+      "Knickpunkt",
+      "die Spitze des V; dort ist der Inhalt des Betrags 0"
+     ]
+    ],
+    "fehler_bild": {
+     "graphen": [
       {
-       "art": "linear",
-       "m": 2,
-       "t": -5,
-       "bereich": [
-        1,
-        6
-       ]
+       "art": "betrag",
+       "a": 1,
+       "b": 1,
+       "c": 0,
+       "name": "|x − 1|"
       }
      ],
      "punkte": [
       {
+       "x": -1,
+       "y": 0,
+       "name": "falsch"
+      },
+      {
        "x": 1,
-       "y": -3,
-       "name": "S"
+       "y": 0,
+       "name": "Knick"
       }
      ]
-    },
-    "fehler": "Bei f(x) = |x − 1| den Knick bei x = −1 zu suchen ist falsch: Der Knick liegt dort, wo ⟦innen 0⟧ herauskommt: x − 1 = 0, also ⟦x = 1⟧."
+    }
    },
    {
     "lernziel": "stueckweise",
     "titel": "Stückweise ohne Betrag schreiben",
-    "regel": "Ohne Betragsstriche schreibt man f ⟦stückweise⟧ (piecewise): Ist der Inhalt ⟦≥ 0⟧, bleibt er wie er ist; ist er ⟦< 0⟧, nimmt man sein ⟦Gegenteil⟧. Die Grenze ist der Knick.",
+    "regel": "Die Grenze liegt, wo innen 0 ist. Rechts bleibt der Inhalt, links nimmt man ⟦sein Gegenteil⟧.",
     "schritte": [
-     "f(x) = |x − 2|. Grenze: x − 2 = 0, also x = 2.",
-     "Für x ≥ 2: f(x) = x − 2.",
-     "Für x < 2: f(x) = −(x − 2) = ⟦−x + 2⟧."
+     {
+      "text": "Grenze: x − 2 = 0, also x = 2.",
+      "bild": {
+       "senkrecht": [
+        2
+       ]
+      }
+     },
+     {
+      "text": "Für x ≥ 2: f(x) = x − 2.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 1,
+         "t": -2,
+         "bereich": [
+          2,
+          6
+         ],
+         "name": "x − 2"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Für x < 2: f(x) = −(x − 2) = ⟦−x + 2⟧.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 1,
+         "t": -2,
+         "bereich": [
+          2,
+          6
+         ],
+         "name": "x − 2"
+        },
+        {
+         "art": "linear",
+         "m": -1,
+         "t": 2,
+         "bereich": [
+          -2,
+          2
+         ],
+         "name": "−x + 2"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "x = 0: |0 − 2| = 2 und −0 + 2 = 2 ✓",
-    "fehler": "Für x < 2 einfach f(x) = x + 2 zu schreiben ist falsch: Man muss die ⟦ganze Klammer negieren⟧: −(x − 2) = −x + 2. Probe mit x = 0: |0 − 2| = 2, aber 0 + 2 = 2 nur zufällig – bei x = 1 ergibt x + 2 = 3, richtig ist 1."
+    "fehler": "Für x < 2 ist x + 2 falsch. Die ⟦ganze Klammer negieren⟧: −(x − 2) = −x + 2. Probe mit x = 1.",
+    "einstieg": "Der Abstand zum Bus bei 2 geht auch ohne Betragsstriche. Rechts vom Bus rechnet man x − 2, links davon 2 − x. Das heißt ⟦stückweise⟧ schreiben.",
+    "woerter": [
+     [
+      "stückweise",
+      "für verschiedene Bereiche von x verschiedene Terme"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      6
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "betrag",
+       "a": 1,
+       "b": 2,
+       "c": 0,
+       "name": "|x − 2|"
+      }
+     ]
+    },
+    "fehler_bild": {
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 1,
+       "t": -2,
+       "bereich": [
+        2,
+        6
+       ],
+       "name": "x − 2"
+      },
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 2,
+       "bereich": [
+        -2,
+        2
+       ],
+       "name": "falsch"
+      }
+     ]
+    }
    },
    {
     "lernziel": "gleichung",
     "titel": "Betragsgleichungen lösen",
-    "regel": "|x − d| = c bedeutet: x hat von d den ⟦Abstand c⟧. Für c > 0 gibt es ⟦zwei Lösungen⟧: x = d − c und x = d + c. Für c = 0 eine Lösung, für ⟦c < 0 keine⟧ (ein Betrag ist nie negativ).",
+    "regel": "|x − d| = c heißt Abstand c von d. Für c > 0 gibt es ⟦zwei Lösungen⟧: d − c und d + c.",
     "schritte": [
-     "|x − 4| = 3: Abstand 3 von der Zahl 4.",
-     "x = 4 − 3 = ⟦1⟧ oder x = 4 + 3 = ⟦7⟧."
+     {
+      "text": "|x − 4| = 3 heißt: Abstand 3 von der Zahl 4."
+     },
+     {
+      "text": "Nach links: x = 4 − 3 = ⟦1⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 4,
+         "name": "4"
+        },
+        {
+         "wert": 1,
+         "name": "x₁"
+        }
+       ],
+       "boegen": [
+        {
+         "von": 4,
+         "bis": 1,
+         "name": "3"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Nach rechts: x = 4 + 3 = ⟦7⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 4,
+         "name": "4"
+        },
+        {
+         "wert": 1,
+         "name": "x₁"
+        },
+        {
+         "wert": 7,
+         "name": "x₂"
+        }
+       ],
+       "boegen": [
+        {
+         "von": 4,
+         "bis": 1,
+         "name": "3"
+        },
+        {
+         "von": 4,
+         "bis": 7,
+         "name": "3"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "|1 − 4| = 3 und |7 − 4| = 3 ✓",
-    "fehler": "Bei |x − 4| = 3 nur x = 7 anzugeben ist falsch: Es gibt ⟦zwei Zahlen⟧ mit Abstand 3 von 4 – auch x = 1 links davon."
+    "fehler": "Nur x = 7 ist unvollständig. Es gibt ⟦zwei Zahlen⟧ mit Abstand 3 von 4, auch x = 1.",
+    "einstieg": "Welche Haltestellen liegen genau 3 km von Kilometer 4 entfernt? Eine links, eine rechts. Die ⟦Betragsgleichung⟧ |x − 4| = 3 hat deshalb zwei Lösungen.",
+    "woerter": [
+     [
+      "Betragsgleichung",
+      "eine Gleichung, in der x im Betrag steht"
+     ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 8,
+     "abschnitte": 8,
+     "beschriftet": "alle",
+     "punkte": [
+      {
+       "wert": 4,
+       "name": "4"
+      }
+     ]
+    },
+    "fehler_bild": {
+     "punkte": [
+      {
+       "wert": 4,
+       "name": "4"
+      },
+      {
+       "wert": 1,
+       "name": "fehlt"
+      },
+      {
+       "wert": 7,
+       "name": "x = 7"
+      }
+     ],
+     "boegen": [
+      {
+       "von": 4,
+       "bis": 7,
+       "name": "3"
+      }
+     ]
+    }
    },
    {
     "lernziel": "verstehen",
     "titel": "Aussagen über Beträge prüfen",
-    "regel": "Prüfe Aussagen mit ⟦Zahlenbeispielen⟧, auch mit ⟦negativen Zahlen⟧. Wichtig: |a| ≥ 0, |−a| = |a|, aber im Allgemeinen ⟦|a + b| ≠ |a| + |b|⟧.",
+    "regel": "Aussagen auch mit ⟦negativen Zahlen⟧ testen. Im Allgemeinen gilt |a + b| ≠ |a| + |b|.",
     "schritte": [
-     "Behauptung: |a + b| = |a| + |b|. Teste a = 3, b = −5.",
-     "|3 + (−5)| = |−2| = 2, aber |3| + |−5| = 8. ⟦Die Aussage ist falsch⟧."
+     {
+      "text": "Behauptung: |a + b| = |a| + |b|. Teste a = 3, b = −5.",
+      "bild": {
+       "boegen": [
+        {
+         "von": 0,
+         "bis": 3,
+         "name": "3"
+        },
+        {
+         "von": 3,
+         "bis": -2,
+         "name": "−5"
+        }
+       ]
+      }
+     },
+     {
+      "text": "|3 + (−5)| = |−2| = 2.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 0,
+         "name": "Start"
+        },
+        {
+         "wert": -2,
+         "name": "Ziel"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Aber |3| + |−5| = 8. ⟦Die Aussage ist falsch⟧."
+     },
+     {
+      "text": "a = 3, b = −5 ist also ein Gegenbeispiel."
+     }
     ],
-    "probe": "Ein Gegenbeispiel genügt, um eine Allaussage zu widerlegen ✓",
-    "fehler": "„|−x| = x für alle x“ ist falsch: Für x = −4 ist |−(−4)| = 4, aber x = −4. Richtig ist ⟦|−x| = |x|⟧."
+    "fehler": "„|−x| = x für alle x“ ist falsch. Für x = −4 ist |−x| = 4, nicht −4. Richtig ist ⟦|−x| = |x|⟧.",
+    "einstieg": "Du läufst 3 km vor und 5 km zurück. Vom Start bist du nur 2 km entfernt, gelaufen bist du 8 km. Beträge darf man also nicht stur ⟦addieren⟧.",
+    "woerter": [
+     [
+      "Gegenbeispiel",
+      "ein Beispiel, bei dem eine Behauptung nicht stimmt"
+     ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": -5,
+     "ende": 5,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende",
+     "punkte": [
+      {
+       "wert": 0,
+       "name": "Start"
+      }
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [

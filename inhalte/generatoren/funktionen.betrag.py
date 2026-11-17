@@ -239,7 +239,115 @@ def g_verstehen(s):
 
 GEN = {'betrag': g_betrag, 'graph': g_graph, 'stueckweise': g_stueckweise, 'gleichung': g_gleichung, 'verstehen': g_verstehen}
 
-bauen('funktionen.betrag',
+# ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_rest import umbau_schreiben  # noqa: E402
+
+from _umbau_rest import ko, pkte  # noqa: E402
+
+
+def _zs(a, b, n, **kw):
+    return {'typ': 'zahlenstrahl', 'start': a, 'ende': b, 'abschnitte': n, 'beschriftet': 'anfang_ende', **kw}
+
+
+def _pk(*w):
+    return [{'wert': x, 'name': n} for x, n in w]
+
+
+def _b(a, b, c, name=None):
+    g = {'art': 'betrag', 'a': a, 'b': b, 'c': c}
+    if name:
+        g['name'] = name
+    return g
+
+
+def _l(m, t, ber, name=None):
+    g = {'art': 'linear', 'm': m, 't': t, 'bereich': ber}
+    if name:
+        g['name'] = name
+    return g
+
+
+UMBAU = {
+    'betrag': {
+        'einstieg': 'Ein Bus hält bei Kilometer 3, du stehst bei Kilometer −2. Wie weit ist es bis zum Bus? '
+                    'Ein Abstand ist nie negativ. Man misst ihn mit dem ⟦Betrag⟧.',
+        'woerter': [['Betrag', '|a|: Abstand der Zahl a von 0; nie negativ'],
+                    ['Abstand', 'wie weit zwei Zahlen auseinanderliegen; geschrieben |a − b|']],
+        'bild': _zs(-5, 5, 10, punkte=_pk((-2, 'du'), (3, 'Bus'))),
+        'schritte': [
+            {'text': 'Abstand von −2 bis 3: |−2 − 3|.'},
+            {'text': 'Innen zuerst: −2 − 3 = −5. Betrag: |−5| = 5.', 'bild': {'boegen': [{'von': -2, 'bis': 3, 'name': '5'}]}},
+            {'text': 'Für x = −2: |x − 3| + 1 = 5 + 1 = ⟦6⟧.'},
+        ],
+        'fehler': '|−2 − 3| = |−2| − |3| = −1 ist falsch. Erst ⟦innen ausrechnen⟧, dann den Betrag nehmen: 5.',
+        'regel': 'Betrag = ⟦Abstand von 0⟧, nie negativ. |a − b| ist der Abstand von a und b.',
+    },
+    'graph': {
+        'einstieg': 'Läufst du am Bus vorbei, wird der Abstand erst kleiner, dann wieder größer. '
+                    'Im Graphen entsteht ein V. Seine Spitze heißt ⟦Knickpunkt⟧.',
+        'woerter': [['Knickpunkt', 'die Spitze des V; dort ist der Inhalt des Betrags 0']],
+        'bild': ko([-4, 6], [-4, 6], schritt=0, graphen=[_b(1, 0, 0, '|x|')]),
+        'schritte': [
+            {'text': 'f(x) = |x| ist ein V mit Spitze in (0 | 0).'},
+            {'text': 'In 2 · |x − 1| − 3: 1 nach rechts, 3 nach unten.', 'bild': {'graphen': [_b(1, 0, 0, '|x|'), _b(2, 1, -3, 'f')]}},
+            {'text': 'Knickpunkt ⟦S(1 | −3)⟧. Der Faktor 2 macht das V steiler.', 'bild': {'punkte': pkte({'S': (1, -3)})}},
+        ],
+        'fehler': 'Bei |x − 1| liegt der Knick nicht bei x = −1. Er liegt, wo ⟦innen 0⟧ herauskommt: x = 1.',
+        'fehler_bild': {'graphen': [_b(1, 1, 0, '|x − 1|')], 'punkte': pkte({'falsch': (-1, 0), 'Knick': (1, 0)})},
+        'regel': 'Der Knickpunkt ist ⟦S(d | e)⟧. Das gilt für a · |x − d| + e. Bei a < 0 öffnet das V nach unten.',
+    },
+    'stueckweise': {
+        'einstieg': 'Der Abstand zum Bus bei 2 geht auch ohne Betragsstriche. Rechts vom Bus rechnet man x − 2, '
+                    'links davon 2 − x. Das heißt ⟦stückweise⟧ schreiben.',
+        'woerter': [['stückweise', 'für verschiedene Bereiche von x verschiedene Terme']],
+        'bild': ko([-2, 6], [-1, 5], schritt=0, graphen=[_b(1, 2, 0, '|x − 2|')]),
+        'schritte': [
+            {'text': 'Grenze: x − 2 = 0, also x = 2.', 'bild': {'senkrecht': [2]}},
+            {'text': 'Für x ≥ 2: f(x) = x − 2.', 'bild': {'graphen': [_l(1, -2, [2, 6], 'x − 2')]}},
+            {'text': 'Für x < 2: f(x) = −(x − 2) = ⟦−x + 2⟧.', 'bild': {'graphen': [_l(1, -2, [2, 6], 'x − 2'), _l(-1, 2, [-2, 2], '−x + 2')]}},
+        ],
+        'fehler': 'Für x < 2 ist x + 2 falsch. Die ⟦ganze Klammer negieren⟧: −(x − 2) = −x + 2. Probe mit x = 1.',
+        'fehler_bild': {'graphen': [_l(1, -2, [2, 6], 'x − 2'), _l(1, 2, [-2, 2], 'falsch')]},
+        'regel': 'Die Grenze liegt, wo innen 0 ist. Rechts bleibt der Inhalt, links nimmt man ⟦sein Gegenteil⟧.',
+    },
+    'gleichung': {
+        'einstieg': 'Welche Haltestellen liegen genau 3 km von Kilometer 4 entfernt? Eine links, eine rechts. '
+                    'Die ⟦Betragsgleichung⟧ |x − 4| = 3 hat deshalb zwei Lösungen.',
+        'woerter': [['Betragsgleichung', 'eine Gleichung, in der x im Betrag steht']],
+        'bild': _zs(0, 8, 8, beschriftet='alle', punkte=_pk((4, '4'))),
+        'schritte': [
+            {'text': '|x − 4| = 3 heißt: Abstand 3 von der Zahl 4.'},
+            {'text': 'Nach links: x = 4 − 3 = ⟦1⟧.', 'bild': {'punkte': _pk((4, '4'), (1, 'x₁')), 'boegen': [{'von': 4, 'bis': 1, 'name': '3'}]}},
+            {'text': 'Nach rechts: x = 4 + 3 = ⟦7⟧.',
+             'bild': {'punkte': _pk((4, '4'), (1, 'x₁'), (7, 'x₂')), 'boegen': [{'von': 4, 'bis': 1, 'name': '3'}, {'von': 4, 'bis': 7, 'name': '3'}]}},
+        ],
+        'fehler': 'Nur x = 7 ist unvollständig. Es gibt ⟦zwei Zahlen⟧ mit Abstand 3 von 4, auch x = 1.',
+        'fehler_bild': {'punkte': _pk((4, '4'), (1, 'fehlt'), (7, 'x = 7')), 'boegen': [{'von': 4, 'bis': 7, 'name': '3'}]},
+        'regel': '|x − d| = c heißt Abstand c von d. Für c > 0 gibt es ⟦zwei Lösungen⟧: d − c und d + c.',
+    },
+    'verstehen': {
+        'einstieg': 'Du läufst 3 km vor und 5 km zurück. Vom Start bist du nur 2 km entfernt, gelaufen bist du 8 km. '
+                    'Beträge darf man also nicht stur ⟦addieren⟧.',
+        'woerter': [['Gegenbeispiel', 'ein Beispiel, bei dem eine Behauptung nicht stimmt']],
+        'bild': _zs(-5, 5, 10, punkte=_pk((0, 'Start'))),
+        'schritte': [
+            {'text': 'Behauptung: |a + b| = |a| + |b|. Teste a = 3, b = −5.',
+             'bild': {'boegen': [{'von': 0, 'bis': 3, 'name': '3'}, {'von': 3, 'bis': -2, 'name': '−5'}]}},
+            {'text': '|3 + (−5)| = |−2| = 2.', 'bild': {'punkte': _pk((0, 'Start'), (-2, 'Ziel'))}},
+            {'text': 'Aber |3| + |−5| = 8. ⟦Die Aussage ist falsch⟧.'},
+            {'text': 'a = 3, b = −5 ist also ein Gegenbeispiel.'},
+        ],
+        'fehler': '„|−x| = x für alle x“ ist falsch. Für x = −4 ist |−x| = 4, nicht −4. Richtig ist ⟦|−x| = |x|⟧.',
+        'regel': 'Aussagen auch mit ⟦negativen Zahlen⟧ testen. Im Allgemeinen gilt |a + b| ≠ |a| + |b|.',
+    },
+}
+UMBAU_OFFEN = []
+UMBAU_WEG = []
+# ---------- Ende UMBAU ----------
+
+
+d = bauen('funktionen.betrag',
       'Beträge berechnen, die Betragsfunktion zeichnen, stückweise beschreiben und Betragsgleichungen lösen.',
       ['|a| (absolute value) ist der Abstand von 0 – nie negativ. |a − b| ist der Abstand von a und b.',
        'f(x) = a · |x − d| + e: V-förmiger Graph mit Knickpunkt S(d | e); a < 0: nach unten geöffnet.',
@@ -249,3 +357,4 @@ bauen('funktionen.betrag',
       ETAPPEN, GEN,
       offen=['Der Betragsgraph wird aus zwei Geradenstücken gezeichnet (Graphart „linear“ mit Bereich). Eine eigene Graphart „betrag“ wäre bequemer, ist aber nicht nötig.',
              'Lehrplan-Feld leer: Umfang nach Themenliste (Graph, stückweise Beschreibung) plus einfache Betragsgleichungen und eine Betragsungleichung als Anwendung (Toleranzbereich). Annahme MYP 4.'])
+umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

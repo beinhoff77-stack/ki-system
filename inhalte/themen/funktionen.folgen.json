@@ -41,79 +41,427 @@
    {
     "lernziel": "explizit",
     "titel": "Folgenglieder berechnen",
-    "regel": "Eine ⟦Folge⟧ (sequence) ist eine geordnete Liste von Zahlen, den ⟦Gliedern⟧ (terms) a₁, a₂, a₃, … Bei einer ⟦expliziten Formel⟧ (general term) für aₙ setzt man für n die ⟦Platznummer⟧ ein.",
+    "regel": "Explizite Formel: für n die ⟦Platznummer⟧ einsetzen. Das Ergebnis ist das Glied aₙ.",
     "schritte": [
-     "aₙ = 3n − 2. Gesucht: a₅.",
-     "n = 5 einsetzen: 3 · 5 − 2 = ⟦13⟧."
+     {
+      "text": "Die Formel für die Anzahl lautet aₙ = 3n − 2."
+     },
+     {
+      "text": "Für a₅ setzt du die Platznummer n = 5 ein."
+     },
+     {
+      "text": "3 · 5 − 2 = ⟦13⟧. Bild 5 hat 13 Plättchen.",
+      "bild": {
+       "typ": "saeulen",
+       "einheit": "Plättchen",
+       "werte": [
+        {
+         "name": "a₁",
+         "wert": 1
+        },
+        {
+         "name": "a₂",
+         "wert": 4
+        },
+        {
+         "name": "a₃",
+         "wert": 7
+        },
+        {
+         "name": "a₄",
+         "wert": 10
+        },
+        {
+         "name": "a₅",
+         "wert": 13
+        }
+       ],
+       "zahlen": true
+      }
+     }
     ],
-    "probe": "a₁ = 1, a₂ = 4, a₃ = 7, a₄ = 10, a₅ = 13 ✓",
     "bild": {
-     "typ": "tabelle",
-     "kopf": [
-      "n",
-      "1",
-      "2",
-      "3",
-      "4",
-      "5"
+     "typ": "saeulen",
+     "einheit": "Plättchen",
+     "werte": [
+      {
+       "name": "a₁",
+       "wert": 1
+      },
+      {
+       "name": "a₂",
+       "wert": 4
+      },
+      {
+       "name": "a₃",
+       "wert": 7
+      }
      ],
-     "zeilen": [
-      [
-       "aₙ = 3n − 2",
-       "1",
-       "4",
-       "7",
-       "10",
-       "13"
-      ]
-     ]
+     "zahlen": true
     },
-    "fehler": "a₅ als „fünfte Zahl in 3n − 2 einsetzen“ mit n = 13 zu verwechseln ist falsch: ⟦n ist die Platznummer⟧, aₙ ist der Wert an diesem Platz."
+    "fehler": "n ist die ⟦Platznummer⟧, aₙ der Wert. a₅ heißt Platz 5, nicht Wert 5.",
+    "einstieg": "Ein Muster aus Plättchen wächst. Bild 1 hat 1 Plättchen, Bild 2 hat 4, Bild 3 hat 7. Die Anzahlen bilden eine ⟦Folge⟧.",
+    "woerter": [
+     [
+      "Folge",
+      "eine geordnete Liste von Zahlen a₁, a₂, a₃, …"
+     ],
+     [
+      "aₙ",
+      "das Glied an Platz n; n ist die Platznummer"
+     ]
+    ]
    },
    {
     "lernziel": "rekursiv",
     "titel": "Rekursiv weiterrechnen",
-    "regel": "Eine ⟦rekursive Formel⟧ (recursive formula) sagt, wie man aus einem Glied das ⟦nächste⟧ erhält, z. B. aₙ₊₁ = aₙ + 4. Dazu braucht man einen ⟦Startwert⟧ a₁. Man rechnet Schritt für Schritt.",
+    "regel": "Rekursiv: aus dem ⟦vorigen Glied⟧ das nächste berechnen. Dazu braucht man einen Startwert.",
     "schritte": [
-     "a₁ = 5, aₙ₊₁ = 2 · aₙ − 1.",
-     "a₂ = 2 · 5 − 1 = 9; a₃ = 2 · 9 − 1 = 17.",
-     "a₄ = 2 · 17 − 1 = ⟦33⟧."
+     {
+      "text": "Startwert a₁ = 5, Regel aₙ₊₁ = 2 · aₙ − 1."
+     },
+     {
+      "text": "a₂ = 2 · 5 − 1 = 9.",
+      "bild": {
+       "typ": "saeulen",
+       "einheit": "",
+       "werte": [
+        {
+         "name": "a₁",
+         "wert": 5
+        },
+        {
+         "name": "a₂",
+         "wert": 9
+        }
+       ],
+       "zahlen": true
+      }
+     },
+     {
+      "text": "a₃ = 2 · 9 − 1 = 17.",
+      "bild": {
+       "typ": "saeulen",
+       "einheit": "",
+       "werte": [
+        {
+         "name": "a₁",
+         "wert": 5
+        },
+        {
+         "name": "a₂",
+         "wert": 9
+        },
+        {
+         "name": "a₃",
+         "wert": 17
+        }
+       ],
+       "zahlen": true
+      }
+     },
+     {
+      "text": "a₄ = 2 · 17 − 1 = ⟦33⟧.",
+      "bild": {
+       "typ": "saeulen",
+       "einheit": "",
+       "werte": [
+        {
+         "name": "a₁",
+         "wert": 5
+        },
+        {
+         "name": "a₂",
+         "wert": 9
+        },
+        {
+         "name": "a₃",
+         "wert": 17
+        },
+        {
+         "name": "a₄",
+         "wert": 33
+        }
+       ],
+       "zahlen": true
+      }
+     }
     ],
-    "probe": "Jedes Glied aus dem vorigen berechnet ✓",
-    "fehler": "a₄ = 2 · 4 − 1 = 7 ist falsch: In der rekursiven Formel setzt man ⟦das vorige Glied⟧ ein, nicht die Platznummer."
+    "fehler": "a₄ = 2 · 4 − 1 = 7 ist falsch. Rekursiv setzt man ⟦das vorige Glied⟧ ein, nicht die Platznummer.",
+    "einstieg": "Eine Regel sagt: Nimm die vorige Zahl, verdopple sie und zieh 1 ab. Start ist 5. So eine Vorschrift heißt ⟦rekursiv⟧.",
+    "woerter": [
+     [
+      "rekursiv",
+      "jedes Glied wird aus dem vorigen berechnet"
+     ],
+     [
+      "Startwert",
+      "das erste Glied a₁"
+     ],
+     [
+      "aₙ₊₁",
+      "das Glied direkt nach aₙ"
+     ]
+    ],
+    "bild": {
+     "typ": "saeulen",
+     "einheit": "",
+     "werte": [
+      {
+       "name": "a₁",
+       "wert": 5
+      }
+     ],
+     "zahlen": true
+    }
    },
    {
     "lernziel": "arithmetisch",
     "titel": "Arithmetische Folgen",
-    "regel": "Bei einer ⟦arithmetischen Folge⟧ (arithmetic sequence) kommt immer ⟦dieselbe Zahl d⟧ dazu (die Differenz, common difference). Explizit: ⟦aₙ = a₁ + (n − 1) · d⟧.",
+    "regel": "Arithmetisch: immer ⟦+ d⟧. Es gilt aₙ = a₁ + (n − 1) · d.",
     "schritte": [
-     "Folge 7; 11; 15; 19; … : d = 11 − 7 = 4.",
-     "a₂₀ = 7 + (20 − 1) · 4 = 7 + 76 = ⟦83⟧."
+     {
+      "text": "Arithmetische Folge 7; 11; 15; 19: d = 11 − 7 = 4."
+     },
+     {
+      "text": "Bis a₂₀ sind es 19 Schritte zu je 4."
+     },
+     {
+      "text": "a₂₀ = 7 + 19 · 4 = ⟦83⟧.",
+      "bild": {
+       "typ": "saeulen",
+       "einheit": "€",
+       "werte": [
+        {
+         "name": "a₁",
+         "wert": 7
+        },
+        {
+         "name": "a₂",
+         "wert": 11
+        },
+        {
+         "name": "a₃",
+         "wert": 15
+        },
+        {
+         "name": "a₄",
+         "wert": 19
+        },
+        {
+         "name": "a₂₀",
+         "wert": 83
+        }
+       ],
+       "zahlen": true
+      }
+     }
     ],
-    "probe": "a₄ = 7 + 3 · 4 = 19 ✓",
-    "fehler": "a₂₀ = 7 + 20 · 4 = 87 ist falsch: Von a₁ bis a₂₀ sind es nur ⟦19 Schritte⟧, also (n − 1) · d."
+    "fehler": "7 + 20 · 4 = 87 ist falsch. Von a₁ bis a₂₀ sind es nur ⟦19 Schritte⟧.",
+    "einstieg": "Du hast 7 € im Sparschwein und legst jede Woche 4 € dazu. Es kommt immer gleich viel dazu. So eine Folge heißt ⟦arithmetisch⟧.",
+    "woerter": [
+     [
+      "arithmetische Folge",
+      "immer dieselbe Zahl d kommt dazu"
+     ],
+     [
+      "d",
+      "die Differenz zweier Nachbarglieder"
+     ]
+    ],
+    "bild": {
+     "typ": "saeulen",
+     "einheit": "€",
+     "werte": [
+      {
+       "name": "a₁",
+       "wert": 7
+      },
+      {
+       "name": "a₂",
+       "wert": 11
+      },
+      {
+       "name": "a₃",
+       "wert": 15
+      },
+      {
+       "name": "a₄",
+       "wert": 19
+      }
+     ],
+     "zahlen": true
+    }
    },
    {
     "lernziel": "geometrisch",
     "titel": "Geometrische Folgen",
-    "regel": "Bei einer ⟦geometrischen Folge⟧ (geometric sequence) wird immer mit ⟦demselben Faktor q⟧ multipliziert (common ratio): q = a₂ : a₁. Explizit: ⟦aₙ = a₁ · qⁿ⁻¹⟧.",
+    "regel": "Geometrisch: immer ⟦mal q⟧. Es gilt aₙ = a₁ · qⁿ⁻¹.",
     "schritte": [
-     "Folge 3; 6; 12; 24; … : q = 6 : 3 = 2.",
-     "a₇ = 3 · 2⁶ = 3 · 64 = ⟦192⟧."
+     {
+      "text": "Geometrische Folge 3; 6; 12; 24: q = 6 : 3 = 2."
+     },
+     {
+      "text": "Bis a₇ wird 6-mal mit 2 malgenommen."
+     },
+     {
+      "text": "a₇ = 3 · 2⁶ = 3 · 64 = ⟦192⟧.",
+      "bild": {
+       "typ": "saeulen",
+       "einheit": "Leute",
+       "werte": [
+        {
+         "name": "a₁",
+         "wert": 3
+        },
+        {
+         "name": "a₂",
+         "wert": 6
+        },
+        {
+         "name": "a₃",
+         "wert": 12
+        },
+        {
+         "name": "a₄",
+         "wert": 24
+        },
+        {
+         "name": "a₅",
+         "wert": 48
+        },
+        {
+         "name": "a₆",
+         "wert": 96
+        },
+        {
+         "name": "a₇",
+         "wert": 192
+        }
+       ],
+       "zahlen": true
+      }
+     }
     ],
-    "probe": "24 · 2 · 2 · 2 = 192 ✓",
-    "fehler": "a₇ = 3 · 2⁷ = 384 ist falsch: Von a₁ bis a₇ wird nur ⟦6-mal⟧ mit q multipliziert, also qⁿ⁻¹ = q⁶."
+    "fehler": "3 · 2⁷ = 384 ist falsch. Von a₁ bis a₇ wird nur ⟦6-mal⟧ malgenommen: q⁶.",
+    "einstieg": "Am ersten Tag kennen 3 Leute ein Gerücht, jeden Tag verdoppelt sich die Zahl. Hier wird immer mit demselben Faktor malgenommen. Die Folge ist ⟦geometrisch⟧.",
+    "woerter": [
+     [
+      "geometrische Folge",
+      "immer mit demselben Faktor q malnehmen"
+     ],
+     [
+      "q",
+      "der Faktor: q = a₂ : a₁"
+     ]
+    ],
+    "bild": {
+     "typ": "saeulen",
+     "einheit": "Leute",
+     "werte": [
+      {
+       "name": "a₁",
+       "wert": 3
+      },
+      {
+       "name": "a₂",
+       "wert": 6
+      },
+      {
+       "name": "a₃",
+       "wert": 12
+      },
+      {
+       "name": "a₄",
+       "wert": 24
+      }
+     ],
+     "zahlen": true
+    }
    },
    {
     "lernziel": "erkennen",
     "titel": "Folgen erkennen und prüfen",
-    "regel": "Prüfe ⟦Differenzen⟧ aufeinanderfolgender Glieder (gleich → arithmetisch) und ⟦Quotienten⟧ (gleich → geometrisch). Ist beides nicht konstant, ist die Folge ⟦weder noch⟧ – z. B. Quadratzahlen 1; 4; 9; 16.",
+    "regel": "Differenzen gleich: arithmetisch. ⟦Quotienten gleich⟧: geometrisch. Sonst weder noch.",
     "schritte": [
-     "Folge 2; 6; 18; 54: Differenzen 4; 12; 36 – nicht gleich.",
-     "Quotienten 3; 3; 3 – gleich. ⟦Geometrisch mit q = 3⟧."
+     {
+      "text": "Die Differenzen sind 4; 12; 36. Nicht gleich, also nicht arithmetisch.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Glied",
+        "2",
+        "6",
+        "18",
+        "54"
+       ],
+       "zeilen": [
+        [
+         "Differenz",
+         "",
+         "4",
+         "12",
+         "36"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Die Quotienten sind 3; 3; 3. Gleich!",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Glied",
+        "2",
+        "6",
+        "18",
+        "54"
+       ],
+       "zeilen": [
+        [
+         "Differenz",
+         "",
+         "4",
+         "12",
+         "36"
+        ],
+        [
+         "Quotient",
+         "",
+         "3",
+         "3",
+         "3"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "⟦Geometrisch mit q = 3⟧, das nächste Glied ist 162."
+     }
     ],
-    "probe": "54 · 3 = 162 wäre das nächste Glied ✓",
-    "fehler": "Aus zwei Gliedern allein auf die Art zu schließen ist falsch: Bei 1; 4 könnte d = 3 oder q = 4 sein. Man braucht ⟦mindestens drei Glieder⟧."
+    "fehler": "Aus zwei Gliedern kann man nichts schließen. Bei 1; 4 passt d = 3 oder q = 4. Man braucht ⟦mindestens drei Glieder⟧.",
+    "einstieg": "Ein Detektiv bekommt die Zahlen 2; 6; 18; 54. Wie geht es weiter? Er prüft zwei Spuren: gleicher Abstand oder gleicher Faktor? So ⟦erkennt⟧ er die Folge.",
+    "woerter": [
+     [
+      "Differenz",
+      "Ergebnis von „Nachbar minus Glied“"
+     ],
+     [
+      "Quotient",
+      "Ergebnis von „Nachbar geteilt durch Glied“"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Glied",
+      "2",
+      "6",
+      "18",
+      "54"
+     ],
+     "zeilen": []
+    }
    }
   ],
   "teilfaehigkeiten": [

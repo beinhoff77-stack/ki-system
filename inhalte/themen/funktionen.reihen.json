@@ -40,59 +40,394 @@
    {
     "lernziel": "summenzeichen",
     "titel": "Das Summenzeichen ∑",
-    "regel": "Eine ⟦Reihe⟧ (series) ist die ⟦Summe⟧ von Folgengliedern. Kurz schreibt man sie mit dem ⟦Summenzeichen ∑⟧ (sigma notation): ∑ₖ₌₁⁵ (2k + 1) heißt: Setze k = 1, 2, 3, 4, 5 ein und ⟦addiere alle Ergebnisse⟧.",
+    "regel": "∑: für k ⟦alle Zahlen von unten bis oben⟧ einsetzen. Dann die Ergebnisse addieren.",
     "schritte": [
-     "∑ₖ₌₁⁴ (3k − 1): k = 1, 2, 3, 4 einsetzen.",
-     "Glieder: 2; 5; 8; 11.",
-     "Summe: 2 + 5 + 8 + 11 = ⟦26⟧."
+     {
+      "text": "∑ₖ₌₁⁴ (3k − 1): k = 1, 2, 3, 4 einsetzen."
+     },
+     {
+      "text": "Die Glieder sind 2; 5; 8; 11.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "k",
+        "1",
+        "2",
+        "3",
+        "4"
+       ],
+       "zeilen": [
+        [
+         "3k − 1",
+         "2",
+         "5",
+         "8",
+         "11"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Alles addieren: 2 + 5 + 8 + 11 = ⟦26⟧.",
+      "bild": {
+       "typ": "saeulen",
+       "einheit": "",
+       "werte": [
+        {
+         "name": "k = 1",
+         "wert": 2
+        },
+        {
+         "name": "k = 2",
+         "wert": 5
+        },
+        {
+         "name": "k = 3",
+         "wert": 8
+        },
+        {
+         "name": "k = 4",
+         "wert": 11
+        },
+        {
+         "name": "Summe",
+         "wert": 26
+        }
+       ],
+       "zahlen": true
+      }
+     }
     ],
-    "probe": "Vier Summanden für k = 1 bis 4 ✓",
-    "fehler": "∑ₖ₌₁⁴ (3k − 1) = 3 · 4 − 1 = 11 ist falsch: Das ist nur das ⟦letzte Glied⟧. Das Summenzeichen verlangt, ⟦alle Glieder zu addieren⟧."
+    "fehler": "3 · 4 − 1 = 11 ist nur das ⟦letzte Glied⟧. Das Summenzeichen verlangt, alle Glieder zu addieren.",
+    "einstieg": "Ein Muster hat in Bild 1 bis 4 nacheinander 2, 5, 8 und 11 Plättchen. Wie viele sind es zusammen? Die Summe von Folgengliedern heißt ⟦Reihe⟧.",
+    "woerter": [
+     [
+      "Reihe",
+      "die Summe von Folgengliedern"
+     ],
+     [
+      "∑",
+      "Summenzeichen: für k alle Zahlen von unten bis oben einsetzen und addieren"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "k",
+      "1",
+      "2",
+      "3",
+      "4"
+     ],
+     "zeilen": [
+      [
+       "3k − 1",
+       "?",
+       "?",
+       "?",
+       "?"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "arith",
     "titel": "Arithmetische Reihen",
-    "regel": "Für eine arithmetische Folge gilt: ⟦Sₙ = n · (a₁ + aₙ) : 2⟧. Idee (wie beim jungen Gauß): Erstes und letztes Glied, zweites und vorletztes, … ergeben ⟦immer dieselbe Summe⟧.",
+    "regel": "Arithmetische Reihe: ⟦Sₙ = n · (a₁ + aₙ) : 2⟧. Erstes plus letztes Glied, mal Anzahl, halbieren.",
     "schritte": [
-     "1 + 2 + 3 + … + 100: n = 100, a₁ = 1, a₁₀₀ = 100.",
-     "S₁₀₀ = 100 · (1 + 100) : 2 = ⟦5 050⟧."
+     {
+      "text": "Erstes und letztes Glied: 1 + 100 = 101."
+     },
+     {
+      "text": "Jedes Paar ergibt 101. 100 Zahlen bilden 50 Paare.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Paar",
+        "1 + 100",
+        "2 + 99",
+        "3 + 98",
+        "…",
+        "50 + 51"
+       ],
+       "zeilen": [
+        [
+         "Summe",
+         "101",
+         "101",
+         "101",
+         "…",
+         "101"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "S₁₀₀ = 50 · 101 = ⟦5 050⟧."
+     },
+     {
+      "text": "Als Formel: Sₙ = n · (a₁ + aₙ) : 2."
+     }
     ],
-    "probe": "50 Paare mit je 101: 50 · 101 = 5 050 ✓",
-    "fehler": "S₁₀₀ = 100 · (1 + 100) = 10 100 ist falsch: Jedes Paar wurde so ⟦doppelt⟧ gezählt. Man muss durch ⟦2⟧ teilen."
+    "fehler": "100 · 101 = 10 100 ist falsch. So ist jedes Paar ⟦doppelt⟧ gezählt, man muss durch 2 teilen.",
+    "einstieg": "Ein Lehrer lässt 1 + 2 + … + 100 rechnen. Ein Kind bildet Paare: 1 + 100 und 2 + 99 ergeben ⟦101⟧. Das ist der Trick der arithmetischen Reihe.",
+    "woerter": [
+     [
+      "Sₙ",
+      "die Summe der ersten n Glieder"
+     ],
+     [
+      "Paar",
+      "erstes und letztes Glied, zweites und vorletztes …"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Paar",
+      "1 + 100"
+     ],
+     "zeilen": [
+      [
+       "Summe",
+       "101"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "geom",
     "titel": "Geometrische Reihen",
-    "regel": "Für eine geometrische Folge mit q ≠ 1 gilt: ⟦Sₙ = a₁ · (qⁿ − 1) : (q − 1)⟧. Die Summe wächst bei q > 1 sehr schnell.",
+    "regel": "Geometrische Reihe: Die Summenformel hat ⟦qⁿ⟧, nicht qⁿ⁻¹. Sie lautet Sₙ = a₁ · (qⁿ − 1) : (q − 1).",
     "schritte": [
-     "3 + 6 + 12 + 24 + 48: a₁ = 3, q = 2, n = 5.",
-     "S₅ = 3 · (2⁵ − 1) : (2 − 1) = 3 · 31 = ⟦93⟧."
+     {
+      "text": "Die Briefe pro Runde: 3; 6; 12; 24; 48."
+     },
+     {
+      "text": "Also a₁ = 3, q = 2 und n = 5 Glieder."
+     },
+     {
+      "text": "S₅ = 3 · (2⁵ − 1) : 1 = ⟦93⟧.",
+      "bild": {
+       "typ": "saeulen",
+       "einheit": "Briefe",
+       "werte": [
+        {
+         "name": "R1",
+         "wert": 3
+        },
+        {
+         "name": "R2",
+         "wert": 6
+        },
+        {
+         "name": "R3",
+         "wert": 12
+        },
+        {
+         "name": "R4",
+         "wert": 24
+        },
+        {
+         "name": "R5",
+         "wert": 48
+        },
+        {
+         "name": "Summe",
+         "wert": 93
+        }
+       ],
+       "zahlen": true
+      }
+     },
+     {
+      "text": "Probe: 3 + 6 + 12 + 24 + 48 = 93."
+     }
     ],
-    "probe": "3 + 6 + 12 + 24 + 48 = 93 ✓",
-    "fehler": "S₅ = 3 · (2⁴ − 1) : 1 = 45 ist falsch: In der Summenformel steht ⟦qⁿ⟧ mit n = 5 (Anzahl der Glieder), nicht qⁿ⁻¹ wie in der Formel für das letzte Glied."
+    "fehler": "3 · (2⁴ − 1) = 45 ist falsch. In der Summenformel steht ⟦qⁿ⟧ mit n = 5, der Anzahl der Glieder.",
+    "einstieg": "Ein Kettenbrief: Erst bekommen ihn 3 Leute, jede Runde doppelt so viele. Wie viele Briefe sind es nach 5 Runden zusammen? Das zählt die ⟦geometrische Reihe⟧.",
+    "woerter": [
+     [
+      "geometrische Reihe",
+      "die Summe der Glieder einer geometrischen Folge"
+     ]
+    ],
+    "bild": {
+     "typ": "saeulen",
+     "einheit": "Briefe",
+     "werte": [
+      {
+       "name": "R1",
+       "wert": 3
+      },
+      {
+       "name": "R2",
+       "wert": 6
+      },
+      {
+       "name": "R3",
+       "wert": 12
+      },
+      {
+       "name": "R4",
+       "wert": 24
+      },
+      {
+       "name": "R5",
+       "wert": 48
+      }
+     ],
+     "zahlen": true
+    }
    },
    {
     "lernziel": "sach",
     "titel": "Reihen in Sachaufgaben",
-    "regel": "Erst klären: ⟦Kommt immer gleich viel dazu⟧ (arithmetisch) oder ⟦wird immer mit demselben Faktor multipliziert⟧ (geometrisch)? Dann a₁, d bzw. q und die ⟦Anzahl n⟧ der Glieder bestimmen und die passende Summenformel nutzen.",
+    "regel": "Erst klären: ⟦gleich viel dazu⟧ oder gleicher Faktor? Dann a₁, d oder q und n bestimmen und die Summenformel nutzen.",
     "schritte": [
-     "Training: Woche 1 läuft Mia 5 km, jede Woche 2 km mehr. Gesamtstrecke in 8 Wochen?",
-     "Arithmetisch: a₁ = 5, d = 2, a₈ = 5 + 7 · 2 = 19.",
-     "S₈ = 8 · (5 + 19) : 2 = ⟦96 km⟧."
+     {
+      "text": "Immer 2 km mehr: arithmetisch mit a₁ = 5 und d = 2."
+     },
+     {
+      "text": "Woche 8: a₈ = 5 + 7 · 2 = 19.",
+      "bild": {
+       "typ": "saeulen",
+       "einheit": "km",
+       "werte": [
+        {
+         "name": "W1",
+         "wert": 5
+        },
+        {
+         "name": "W2",
+         "wert": 7
+        },
+        {
+         "name": "W3",
+         "wert": 9
+        },
+        {
+         "name": "W4",
+         "wert": 11
+        },
+        {
+         "name": "W5",
+         "wert": 13
+        },
+        {
+         "name": "W6",
+         "wert": 15
+        },
+        {
+         "name": "W7",
+         "wert": 17
+        },
+        {
+         "name": "W8",
+         "wert": 19
+        }
+       ],
+       "zahlen": true
+      }
+     },
+     {
+      "text": "Gesamtstrecke: S₈ = 8 · (5 + 19) : 2 = ⟦96 km⟧."
+     }
     ],
-    "probe": "5 + 7 + 9 + 11 + 13 + 15 + 17 + 19 = 96 ✓",
-    "fehler": "Die Strecke der ⟦8. Woche⟧ (19 km) als Gesamtstrecke anzugeben ist falsch: Gefragt ist die ⟦Summe⟧ aller Wochen."
+    "fehler": "19 km ist nur die ⟦8. Woche⟧. Gefragt ist die Summe aller Wochen: 96 km.",
+    "einstieg": "Ein Läufer läuft in Woche 1 genau 5 km, jede Woche 2 km mehr. Wie viele km sind es in 8 Wochen zusammen? Gefragt ist die ⟦Summe⟧.",
+    "woerter": [
+     [
+      "Gesamtstrecke",
+      "alle Wochen zusammengezählt"
+     ]
+    ],
+    "bild": {
+     "typ": "saeulen",
+     "einheit": "km",
+     "werte": [
+      {
+       "name": "W1",
+       "wert": 5
+      },
+      {
+       "name": "W2",
+       "wert": 7
+      },
+      {
+       "name": "W3",
+       "wert": 9
+      }
+     ],
+     "zahlen": true
+    }
    },
    {
     "lernziel": "verstehen",
     "titel": "Fehler bei Reihen finden",
-    "regel": "Typische Fehler: ⟦aₙ und Sₙ verwechseln⟧, die ⟦Anzahl der Glieder⟧ falsch zählen (von k = 3 bis 10 sind es 8 Glieder), ⟦qⁿ und qⁿ⁻¹⟧ verwechseln. Prüfe immer mit den ersten Gliedern.",
+    "regel": "Beim Zählen beide Enden mitnehmen. Von u bis o sind es ⟦o − u + 1⟧ Glieder.",
     "schritte": [
-     "∑ₖ₌₃¹⁰ k: Wie viele Summanden?",
-     "k = 3, 4, …, 10: 10 − 3 + 1 = ⟦8 Summanden⟧."
+     {
+      "text": "∑ₖ₌₃¹⁰ k: Wie viele Summanden hat die Summe?"
+     },
+     {
+      "text": "k = 3, 4, 5, 6, 7, 8, 9, 10.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 3,
+         "name": ""
+        },
+        {
+         "wert": 4,
+         "name": ""
+        },
+        {
+         "wert": 5,
+         "name": ""
+        },
+        {
+         "wert": 6,
+         "name": ""
+        },
+        {
+         "wert": 7,
+         "name": ""
+        },
+        {
+         "wert": 8,
+         "name": ""
+        },
+        {
+         "wert": 9,
+         "name": ""
+        },
+        {
+         "wert": 10,
+         "name": ""
+        }
+       ]
+      }
+     },
+     {
+      "text": "Zählen: 10 − 3 + 1 = ⟦8 Summanden⟧."
+     }
     ],
-    "probe": "3, 4, 5, 6, 7, 8, 9, 10 – acht Zahlen ✓",
-    "fehler": "10 − 3 = 7 Summanden ist falsch: Beim Zählen von 3 bis 10 muss man ⟦beide Enden mitzählen⟧: 10 − 3 + 1 = 8."
+    "fehler": "10 − 3 = 7 ist falsch. Von 3 bis 10 zählen ⟦beide Enden mit⟧: 10 − 3 + 1 = 8.",
+    "einstieg": "Von Meter 3 bis Meter 10 steht an jedem Meter ein Zaunpfosten. Viele rechnen 10 − 3 = 7 und liegen daneben. Du musst ⟦beide Enden⟧ mitzählen.",
+    "woerter": [
+     [
+      "Summand",
+      "eine Zahl, die in einer Summe addiert wird"
+     ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 12,
+     "abschnitte": 12,
+     "beschriftet": "alle"
+    }
    }
   ],
   "teilfaehigkeiten": [

@@ -326,7 +326,132 @@ def g_verstehen(s):
 
 GEN = {'tafel': g_tafel, 'formel': g_formel, 'baum': g_baum, 'unabhaengig': g_unabhaengig, 'rueckschluss': g_rueckschluss, 'verstehen': g_verstehen}
 
-bauen('stochastik.bedingt',
+# ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_rest import umbau_schreiben  # noqa: E402
+
+from _umbau_rest import tab  # noqa: E402
+
+_VT = tab(['', 'Rad', 'kein Rad', 'Summe'], ['Brille', '20', '40', '60'], ['keine Brille', '30', '110', '140'], ['Summe', '50', '150', '200'])
+
+
+def _ast(text, p=None, *unter):
+    a = {'text': text}
+    if p:
+        a['p'] = p
+    if unter:
+        a['aeste'] = list(unter)
+    return a
+
+
+def _w(*z):
+    return tab(['', 'Wert'], ['P(Kopf)', '0,5'], ['P(Rot)', '0,4'], ['P(Kopf ∩ Rot)', '0,2'], *z)
+
+
+_HU = tab(['', 'Hund', 'kein Hund', 'Summe'], ['spazieren', '70', '330', '400'], ['nicht', '30', '570', '600'], ['Summe', '100', '900', '1 000'])
+UMBAU = {
+    'tafel': {
+        'einstieg': 'An einer Schule mit 200 Kindern fahren 50 mit dem Rad. Wie viele Radfahrer tragen eine Brille? '
+                    'Wer nur auf die Radfahrer schaut, rechnet eine ⟦bedingte Wahrscheinlichkeit⟧ aus.',
+        'woerter': [['Bedingung', 'was schon feststeht; in P(A | B) steht sie hinter dem Strich'],
+                    ['Vierfeldertafel', 'Tabelle mit vier Feldern und den Summen']],
+        'bild': _VT,
+        'schritte': [
+            {'text': 'In der Vierfeldertafel: 50 fahren Rad, 20 davon mit Brille.'},
+            {'text': 'Bedingung „fährt Rad“: Nur die Spalte Rad zählt.',
+             'bild': tab(['', 'Rad'], ['Brille', '20'], ['keine Brille', '30'], ['Summe', '50'])},
+            {'text': 'P(Brille | Rad) = 20 : 50 = ⟦0,4⟧.'},
+        ],
+        'fehler': '20 : 200 = 0,1 ist falsch, das ist P(Brille ∩ Rad). Unter der Bedingung teilt man durch die ⟦50 Radfahrer⟧.',
+        'regel': 'P(A | B): nur die ⟦Gruppe B⟧ betrachten. Teile „A und B“ durch die Anzahl von B.',
+    },
+    'formel': {
+        'einstieg': 'Statt Anzahlen kennst du manchmal nur Wahrscheinlichkeiten. 40 % der Kinder fahren Rad, '
+                    '10 % fahren Rad und tragen Brille. Dann hilft die ⟦Formel⟧.',
+        'woerter': [['A ∩ B', 'A und B treten beide ein, hier: Rad und Brille']],
+        'bild': {'typ': 'bruchstreifen', 'teile': 10, 'gefaerbt': 4, 'ganzes': 'alle Kinder', 'teil_text': 'Rad: 0,4'},
+        'schritte': [
+            {'text': 'P(B) = P(Rad) = 0,4 und P(A ∩ B) = 0,1.'},
+            {'text': 'Von den 0,4 Radfahrern ist 0,1 mit Brille.',
+             'bild': {'zeilen': [{'teile': 4, 'gefaerbt': 1}]}},
+            {'text': 'P(A | B) = 0,1 : 0,4 = ⟦0,25⟧.'},
+        ],
+        'fehler': '0,1 · 0,4 = 0,04 ist falsch. Für P(A | B) wird ⟦geteilt⟧, multipliziert wird nur für P(A ∩ B).',
+        'regel': '⟦P(A | B) = P(A ∩ B) : P(B)⟧. Umgestellt: P(A ∩ B) = P(B) · P(A | B).',
+    },
+    'baum': {
+        'einstieg': 'In einem Beutel sind 3 rote und 2 blaue Bonbons. Du nimmst eins und isst es, dann noch eins. '
+                    'Beim zweiten Griff ist eins weniger da: ⟦ohne Zurücklegen⟧.',
+        'woerter': [['ohne Zurücklegen', 'das Gezogene kommt nicht zurück; die zweite Stufe ändert sich'],
+                    ['Pfad', 'ein Weg durch das Baumdiagramm']],
+        'bild': {'typ': 'baum', 'aeste': [_ast('rot', '3/5'), _ast('blau', '2/5')]},
+        'schritte': [
+            {'text': 'Erster Griff: P(rot) = 3/5.'},
+            {'text': 'Danach sind noch 2 rote von 4 da: 2/4.',
+             'bild': {'aeste': [_ast('rot', '3/5', _ast('rot', '2/4'), _ast('blau', '2/4')), _ast('blau', '2/5')]}},
+            {'text': 'Pfad rot, rot: 3/5 · 2/4 = ⟦3/10⟧.',
+             'bild': {'aeste': [_ast('rot', '3/5', _ast('rot', '2/4'), _ast('blau', '2/4')),
+                                _ast('blau', '2/5', _ast('rot', '3/4'), _ast('blau', '1/4'))]}},
+        ],
+        'fehler': '3/5 · 3/5 ist falsch, denn das erste Bonbon ist ⟦gegessen⟧. Beim zweiten Griff sind nur noch 2 rote von 4 da.',
+        'fehler_bild': {'aeste': [_ast('rot', '3/5', _ast('rot', '3/5 ✗'), _ast('blau', '?')), _ast('blau', '2/5')]},
+        'regel': 'Ohne Zurücklegen ⟦ändert sich die zweite Stufe⟧. Entlang des Pfades multiplizieren.',
+    },
+    'unabhaengig': {
+        'einstieg': 'Eine Münze zeigt Kopf, ein Glücksrad bleibt auf Rot stehen. Das eine beeinflusst das andere nicht. '
+                    'Solche Ereignisse heißen ⟦unabhängig⟧.',
+        'woerter': [['unabhängig', 'das Wissen über B ändert die Wahrscheinlichkeit von A nicht'],
+                    ['abhängig', 'das Wissen über B ändert die Wahrscheinlichkeit von A']],
+        'bild': _w(),
+        'schritte': [
+            {'text': 'P(Kopf) = 0,5, P(Rot) = 0,4, P(beides) = 0,2.'},
+            {'text': 'P(Kopf) · P(Rot) = 0,5 · 0,4 = 0,2.', 'bild': _w(['P(Kopf) · P(Rot)', '0,2'])},
+            {'text': 'Das ist genau P(beides): ⟦unabhängig⟧.', 'bild': _w(['P(Kopf) · P(Rot)', '0,2 ✓'])},
+        ],
+        'fehler': '„Unvereinbar heißt unabhängig“ ist falsch. Tritt A ein, kann B nicht mehr eintreten. Solche Ereignisse sind ⟦abhängig⟧.',
+        'regel': 'Unabhängig, wenn ⟦P(A ∩ B) = P(A) · P(B)⟧. Sonst sind A und B abhängig.',
+    },
+    'rueckschluss': {
+        'einstieg': 'Ein Prüfgerät soll defekte Handys finden. Es meldet aber auch manchmal gute. '
+                    'Wie sicher ist ein gemeldetes Handy defekt? Stell dir ⟦1 000 Fälle⟧ vor.',
+        'woerter': [['gemeldet', 'das Prüfgerät schlägt Alarm']],
+        'bild': {'typ': 'baum', 'aeste': [_ast('defekt', '0,1'), _ast('gut', '0,9')]},
+        'schritte': [
+            {'text': '10 % von 1 000 sind defekt: 100 defekt, 900 gut.',
+             'bild': {'aeste': [_ast('defekt: 100', '0,1'), _ast('gut: 900', '0,9')]}},
+            {'text': 'Gemeldet werden 90 % der defekten (90) und 5 % der guten (45).',
+             'bild': {'aeste': [_ast('defekt: 100', '0,1', _ast('ja: 90', '0,9'), _ast('nein: 10', '0,1')),
+                                _ast('gut: 900', '0,9', _ast('ja: 45', '0,05'), _ast('nein: 855', '0,95'))]}},
+            {'text': 'Insgesamt gemeldet: 90 + 45 = 135.'},
+            {'text': 'P(defekt | gemeldet) = 90 : 135 = ⟦2/3⟧.'},
+        ],
+        'fehler': '0,9 ist falsch, das ist P(gemeldet | defekt). Die Bedingung ist ⟦vertauscht⟧: Unter den gemeldeten sind auch 45 gute.',
+        'regel': 'Mit 1 000 Fällen rechnen. Dann ⟦nur die Fälle mit der Bedingung⟧ zählen und den Anteil bilden.',
+    },
+    'verstehen': {
+        'einstieg': 'Eine Umfrage sagt: 70 % der Hundebesitzer gehen täglich spazieren. Haben dann 70 % der Spaziergänger einen Hund? Nein! '
+                    'Entscheidend ist, ⟦wer die Gruppe⟧ ist.',
+        'woerter': [['hinter dem Strich', 'dort steht in P(A | B) die Bedingung, also die Gruppe']],
+        'bild': _HU,
+        'schritte': [
+            {'text': 'Die Gruppe sind die Hundebesitzer. Sie stehen hinter dem Strich.'},
+            {'text': 'Also ⟦P(spazieren | Hund) = 0,7⟧: 70 von 100.',
+             'bild': tab(['', 'Hund'], ['spazieren', '70'], ['nicht', '30'], ['Summe', '100'])},
+            {'text': 'Umgekehrt: Von 400 Spaziergängern haben nur 70 einen Hund.',
+             'bild': tab(['', 'Hund', 'Summe'], ['spazieren', '70', '400'])},
+            {'text': 'P(Hund | spazieren) = 70 : 400 ≈ 0,18. Ganz anders!'},
+        ],
+        'fehler': '„90 % der Gewinner haben gespielt, also gewinnt man mit 90 %“ ist falsch. Das vertauscht die ⟦Bedingung⟧.',
+        'regel': 'Erst die ⟦Gruppe⟧ finden, sie steht hinter dem Strich. P(A | B) und P(B | A) sind meist verschieden.',
+    },
+}
+UMBAU_OFFEN = ['Umbau (Paket UR): Die Vierfeldertafel der Karte verstehen (Hund/Spaziergänger, 1 000 Personen) zeigt Beispielzahlen; '
+               'nur der Satz „70 % der Hundebesitzer …“ stammt aus dem bisherigen Beispiel.']
+UMBAU_WEG = []
+# ---------- Ende UMBAU ----------
+
+
+d = bauen('stochastik.bedingt',
       'Bedingte Wahrscheinlichkeiten aus Tafeln, Formeln und Baumdiagrammen bestimmen, Unabhängigkeit prüfen und Rückschlüsse mit Häufigkeiten ziehen.',
       ['P(A | B) (conditional probability): Wahrscheinlichkeit von A, wenn B schon feststeht.',
        'P(A | B) = P(A ∩ B) : P(B); P(A ∩ B) = P(B) · P(A | B).',
@@ -339,3 +464,4 @@ bauen('stochastik.bedingt',
              'Überschneidung mit stochastik.verknuepft (Gymnasium Klasse 9, Lernkarte „bedingt“): Hier ausführlicher (Formel, Ziehen ohne Zurücklegen, Unabhängigkeit, Rückschlüsse).',
              'Satz von Bayes nur über natürliche Häufigkeiten (1 000 Fälle), ohne Formel – passend zu MYP 4.'],
       vertiefung=['rueckschluss'])
+umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

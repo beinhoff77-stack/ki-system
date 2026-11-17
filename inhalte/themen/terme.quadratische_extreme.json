@@ -35,7 +35,7 @@
    {
     "lernziel": "ergaenzen",
     "titel": "Zum Binom ergänzen",
-    "regel": "Ein Term x² + bx wird zu einem vollständigen Quadrat, wenn du ⟦(b : 2)²⟧ ergänzt: ⟦x² + bx + (b : 2)² = (x + b : 2)²⟧. Bild: x² + 6x sind ein Quadrat x mal x und zwei Streifen 3 mal x. Zum großen Quadrat (x + 3)² fehlt nur die ⟦Ecke 3 · 3 = 9⟧.",
+    "regel": "Bei x² + bx ergänzt du ⟦(b : 2)²⟧. Dann ist x² + bx + (b : 2)² = (x + b : 2)².",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -76,12 +76,6 @@
        5
       ]
      },
-     "flaeche": [
-      "_m",
-      "_d",
-      "_e",
-      "_f"
-     ],
      "linien": [
       [
        "_a",
@@ -99,10 +93,10 @@
       ],
       [
        "_d",
-       "_e"
+       "_m"
       ],
       [
-       "_e",
+       "_m",
        "_f"
       ],
       [
@@ -124,69 +118,595 @@
        "_m"
       ],
       [
-       "_m",
-       "_f"
-      ],
-      [
        "_h",
        "_m"
-      ],
-      [
-       "_m",
-       "_d"
       ]
      ]
     },
     "schritte": [
-     "x² + 6x: Hälfte von 6 ist 3, und 3² = 9.",
-     "x² + 6x + ⟦9⟧ = ⟦(x + 3)²⟧."
+     {
+      "text": "x² + 6x sind das Quadrat x · x und zwei Streifen 3 · x."
+     },
+     {
+      "text": "Die Hälfte von 6 ist 3, die Ecke hat 3 · 3 = 9.",
+      "bild": {
+       "linien": [
+        [
+         "_a",
+         "_b",
+         "x"
+        ],
+        [
+         "_b",
+         "_c",
+         "3"
+        ],
+        [
+         "_c",
+         "_d"
+        ],
+        [
+         "_d",
+         "_m"
+        ],
+        [
+         "_m",
+         "_f"
+        ],
+        [
+         "_f",
+         "_g"
+        ],
+        [
+         "_g",
+         "_h",
+         "3"
+        ],
+        [
+         "_h",
+         "_a",
+         "x"
+        ],
+        [
+         "_b",
+         "_m"
+        ],
+        [
+         "_h",
+         "_m"
+        ],
+        [
+         "_d",
+         "_e"
+        ],
+        [
+         "_e",
+         "_f"
+        ]
+       ],
+       "flaeche": [
+        "_m",
+        "_d",
+        "_e",
+        "_f"
+       ]
+      }
+     },
+     {
+      "text": "x² + 6x + ⟦9⟧ = ⟦(x + 3)²⟧, ein vollständiges Quadrat."
+     }
     ],
-    "probe": "(x + 3)² = x² + 2 · 3 · x + 9 = x² + 6x + 9 ✓",
-    "fehler": "x² + 6x + 36 = (x + 6)² ist falsch: In die Klammer gehört die ⟦Hälfte⟧ von 6, also 3; ergänzt wird 3² = 9."
+    "fehler": "x² + 6x + 36 = (x + 6)² ist falsch. In die Klammer gehört die ⟦Hälfte⟧ von 6, die Ecke ist nur 3 · 3 = 9.",
+    "einstieg": "Ein quadratisches Beet hat die Seite x. An zwei Seiten kommt je ein Streifen der Breite 3 dazu. Zum großen Quadrat fehlt nur eine Ecke. Sie dazuzunehmen heißt ⟦quadratisch ergänzen⟧.",
+    "woerter": [
+     [
+      "vollständiges Quadrat",
+      "ein Term wie (x + 3)², also eine Klammer hoch 2"
+     ],
+     [
+      "quadratisch ergänzen",
+      "die fehlende Ecke (b : 2)² dazuzählen"
+     ]
+    ]
    },
    {
     "lernziel": "scheitelform",
     "titel": "Quadratische Ergänzung",
-    "regel": "Bei x² + bx + c ergänzt du (b : 2)² und ⟦ziehst es gleich wieder ab⟧ – so ändert sich der Wert nicht: ⟦x² + bx + c = (x + b : 2)² − (b : 2)² + c⟧.",
+    "regel": "Ergänzen und gleich wieder abziehen. So entsteht ⟦(x + b : 2)² − (b : 2)² + c⟧, der Wert bleibt gleich.",
     "schritte": [
-     "x² − 8x + 21 = x² − 8x + 16 − 16 + 21.",
-     "Zusammenfassen: ⟦(x − 4)² + 5⟧."
+     {
+      "text": "Die Hälfte von −8 ist −4, und (−4)² = 16."
+     },
+     {
+      "text": "16 dazu und gleich wieder weg: x² − 8x + 16 − 16 + 21.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "Term"
+       ],
+       "zeilen": [
+        [
+         "Start",
+         "x² − 8x + 21"
+        ],
+        [
+         "+ 16 − 16",
+         "x² − 8x + 16 − 16 + 21"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Die ersten drei Glieder sind (x − 4)².",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "Term"
+       ],
+       "zeilen": [
+        [
+         "Start",
+         "x² − 8x + 21"
+        ],
+        [
+         "+ 16 − 16",
+         "x² − 8x + 16 − 16 + 21"
+        ],
+        [
+         "Quadrat",
+         "(x − 4)² − 16 + 21"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Zusammenfassen: −16 + 21 = 5, also ⟦(x − 4)² + 5⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "Term"
+       ],
+       "zeilen": [
+        [
+         "Start",
+         "x² − 8x + 21"
+        ],
+        [
+         "+ 16 − 16",
+         "x² − 8x + 16 − 16 + 21"
+        ],
+        [
+         "Quadrat",
+         "(x − 4)² − 16 + 21"
+        ],
+        [
+         "fertig",
+         "(x − 4)² + 5"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "x = 0: 0 − 0 + 21 = 21 und (0 − 4)² + 5 = 16 + 5 = 21 ✓",
-    "fehler": "x² − 8x + 21 = (x − 4)² + 21 ist falsch: Die ergänzte 16 muss auch wieder ⟦abgezogen⟧ werden, sonst ist der Term um 16 zu groß."
+    "fehler": "(x − 4)² + 21 ist falsch. Die geliehene 16 muss auch ⟦zurück⟧, sonst ist der Term um 16 zu groß.",
+    "einstieg": "Beim Fliesenlegen leihst du dir 16 Fliesen für die Ecke und gibst sie gleich zurück. Insgesamt ändert sich nichts, aber du siehst ein fertiges Quadrat. So funktioniert die ⟦quadratische Ergänzung⟧.",
+    "woerter": [
+     [
+      "quadratische Ergänzung",
+      "(b : 2)² dazuzählen und gleich wieder abziehen"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Term"
+     ],
+     "zeilen": [
+      [
+       "Start",
+       "x² − 8x + 21"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Term"
+     ],
+     "zeilen": [
+      [
+       "Start",
+       "x² − 8x + 21"
+      ],
+      [
+       "falsch",
+       "(x − 4)² + 21"
+      ],
+      [
+       "richtig",
+       "(x − 4)² − 16 + 21"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "extremwert",
     "titel": "Minimum oder Maximum ablesen",
-    "regel": "Ein Quadrat ist ⟦nie negativ⟧: (x − 4)² ≥ 0, am kleinsten ist es (nämlich 0) für ⟦x = 4⟧. Also hat (x − 4)² + 5 das ⟦Minimum 5 für x = 4⟧. Steht ein ⟦Minus vor der Klammer⟧, z. B. −(x − 4)² + 5, gibt es ein ⟦Maximum⟧ 5 für x = 4.",
+    "regel": "Die Klammer null setzen: Dort liegt das Extremum. Plus vor der Klammer heißt ⟦Minimum⟧, Minus heißt Maximum.",
     "schritte": [
-     "T(x) = (x + 2)² − 7: Die Klammer ist 0 für x = −2.",
-     "Kleinster Wert: ⟦T = −7 für x = −2⟧ (Minimum)."
+     {
+      "text": "T(x) = (x + 2)² − 7. Die Klammer ist 0 für x = −2."
+     },
+     {
+      "text": "Dann ist T = 0 − 7 = −7.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "x",
+        "−4",
+        "−3",
+        "−2",
+        "−1",
+        "0"
+       ],
+       "zeilen": [
+        [
+         "T(x)",
+         "?",
+         "?",
+         "−7",
+         "?",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Für jedes andere x kommt etwas Positives dazu.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "x",
+        "−4",
+        "−3",
+        "−2",
+        "−1",
+        "0"
+       ],
+       "zeilen": [
+        [
+         "T(x)",
+         "−3",
+         "−6",
+         "−7",
+         "−6",
+         "−3"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Minimum: ⟦T = −7 für x = −2⟧."
+     },
+     {
+      "text": "Mit Minus vor der Klammer, −(x + 2)² − 7, wäre −7 das Maximum."
+     }
     ],
-    "probe": "x = −1: (1)² − 7 = −6 > −7 ✓",
-    "fehler": "Bei (x + 2)² − 7 das Minimum bei x = 2 abzulesen ist falsch: (x + 2) wird null für ⟦x = −2⟧."
+    "fehler": "Bei (x + 2)² − 7 liegt das Minimum nicht bei x = 2. Die Klammer wird null für ⟦x = −2⟧.",
+    "einstieg": "Ein Quadrat ist nie negativ: 3² = 9, (−3)² = 9, 0² = 0. Darum hat (x + 2)² − 7 einen kleinsten Wert. Er heißt ⟦Minimum⟧.",
+    "woerter": [
+     [
+      "Minimum",
+      "der kleinste Wert, den der Term annehmen kann"
+     ],
+     [
+      "Maximum",
+      "der größte Wert; es gibt ihn bei einem Minus vor der Klammer"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "−4",
+      "−3",
+      "−2",
+      "−1",
+      "0"
+     ],
+     "zeilen": [
+      [
+       "T(x)",
+       "?",
+       "?",
+       "?",
+       "?",
+       "?"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "mit_faktor",
     "titel": "Terme mit Faktor vor x²",
-    "regel": "Steht vor x² ein Faktor a ≠ 1, ⟦klammerst du a aus⟧ den x-Gliedern aus und ergänzt in der Klammer. Ist ⟦a > 0⟧, gibt es ein Minimum; ist ⟦a < 0⟧, ein Maximum.",
+    "regel": "Erst den Faktor vor x² ausklammern, dann ergänzen. Faktor positiv: ⟦Minimum⟧, Faktor negativ: Maximum.",
     "schritte": [
-     "T(x) = 2x² − 12x + 23 = 2(x² − 6x) + 23 = 2(x² − 6x + 9 − 9) + 23.",
-     "= 2(x − 3)² − 18 + 23 = ⟦2(x − 3)² + 5⟧. Minimum ⟦T = 5 für x = 3⟧."
+     {
+      "text": "2 ausklammern: 2x² − 12x + 23 = 2(x² − 6x) + 23.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "Term"
+       ],
+       "zeilen": [
+        [
+         "Start",
+         "2x² − 12x + 23"
+        ],
+        [
+         "2 ausklammern",
+         "2(x² − 6x) + 23"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "In der Klammer ergänzen: 2(x² − 6x + 9 − 9) + 23.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "Term"
+       ],
+       "zeilen": [
+        [
+         "Start",
+         "2x² − 12x + 23"
+        ],
+        [
+         "2 ausklammern",
+         "2(x² − 6x) + 23"
+        ],
+        [
+         "ergänzen",
+         "2(x² − 6x + 9 − 9) + 23"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Die −9 mal 2 herausholen: 2(x − 3)² − 18 + 23.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "Term"
+       ],
+       "zeilen": [
+        [
+         "Start",
+         "2x² − 12x + 23"
+        ],
+        [
+         "2 ausklammern",
+         "2(x² − 6x) + 23"
+        ],
+        [
+         "ergänzen",
+         "2(x² − 6x + 9 − 9) + 23"
+        ],
+        [
+         "−9 herausholen",
+         "2(x − 3)² − 18 + 23"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Ergebnis: ⟦2(x − 3)² + 5⟧, also Minimum ⟦T = 5 für x = 3⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "Term"
+       ],
+       "zeilen": [
+        [
+         "Start",
+         "2x² − 12x + 23"
+        ],
+        [
+         "2 ausklammern",
+         "2(x² − 6x) + 23"
+        ],
+        [
+         "ergänzen",
+         "2(x² − 6x + 9 − 9) + 23"
+        ],
+        [
+         "−9 herausholen",
+         "2(x − 3)² − 18 + 23"
+        ],
+        [
+         "fertig",
+         "2(x − 3)² + 5"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "T(3) = 18 − 36 + 23 = 5 ✓",
-    "fehler": "2(x² − 6x + 9 − 9) + 23 = 2(x − 3)² − 9 + 23 ist falsch: Die −9 steht in der Klammer und muss ⟦mit 2 multipliziert⟧ werden: −18."
+    "fehler": "−9 + 23 ist hier falsch. Die −9 steht in der Klammer und wird ⟦mit 2 malgenommen⟧: −18 + 23 = 5.",
+    "einstieg": "Steht vor x² eine Zahl wie 2, stört sie beim Ergänzen. Darum ziehst du sie zuerst vor eine Klammer. Das heißt ⟦ausklammern⟧. Danach ergänzt du in der Klammer wie gewohnt.",
+    "woerter": [
+     [
+      "ausklammern",
+      "einen gemeinsamen Faktor vor eine Klammer ziehen: 2x² − 12x = 2(x² − 6x)"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Term"
+     ],
+     "zeilen": [
+      [
+       "Start",
+       "2x² − 12x + 23"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Term"
+     ],
+     "zeilen": [
+      [
+       "ergänzen",
+       "2(x² − 6x + 9 − 9) + 23"
+      ],
+      [
+       "falsch",
+       "2(x − 3)² − 9 + 23"
+      ],
+      [
+       "richtig",
+       "2(x − 3)² − 18 + 23"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "optimierung",
     "titel": "Optimierungsaufgaben",
-    "regel": "Bei Optimierungsaufgaben stellst du die Größe, die möglichst groß oder klein werden soll, als ⟦Term in x⟧ auf. Dann bestimmst du mit der quadratischen Ergänzung das ⟦Extremum⟧ und beantwortest die Frage im Sachzusammenhang.",
+    "regel": "Zielgröße als Term in x aufstellen, dann ergänzen. Antwort im ⟦Sachzusammenhang⟧ geben: Stelle oder Wert?",
     "schritte": [
-     "Ein Rechteck hat 20 m Umfang. Ist eine Seite x, ist die andere 10 − x. Fläche: A(x) = x(10 − x) = −x² + 10x.",
-     "−x² + 10x = −(x² − 10x + 25 − 25) = −(x − 5)² + 25. ⟦Maximum 25 m² für x = 5 m⟧ – ein Quadrat."
+     {
+      "text": "Umfang 20 m: Eine Seite ist x, die andere 10 − x."
+     },
+     {
+      "text": "Fläche: A(x) = x · (10 − x) = −x² + 10x."
+     },
+     {
+      "text": "Ergänzen: −x² + 10x = −(x − 5)² + 25."
+     },
+     {
+      "text": "⟦Maximum 25 m² für x = 5 m⟧: ein Quadrat.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "_A": [
+         0,
+         0
+        ],
+        "_B": [
+         5,
+         0
+        ],
+        "_C": [
+         5,
+         5
+        ],
+        "_D": [
+         0,
+         5
+        ]
+       },
+       "flaeche": [
+        "_A",
+        "_B",
+        "_C",
+        "_D"
+       ],
+       "linien": [
+        [
+         "_A",
+         "_B",
+         "5 m"
+        ],
+        [
+         "_B",
+         "_C",
+         "5 m"
+        ],
+        [
+         "_C",
+         "_D"
+        ],
+        [
+         "_D",
+         "_A"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "x = 4: 4 · 6 = 24 < 25 ✓",
-    "fehler": "Die Fläche 25 m² als Seitenlänge anzugeben ist falsch: Lies genau, was gefragt ist – die ⟦Stelle x⟧ (Seitenlänge) oder den ⟦Extremwert⟧ (Fläche)."
+    "fehler": "25 ist hier die Fläche, nicht die Seite. Lies genau, was gefragt ist: die ⟦Stelle x⟧ oder der ⟦Extremwert⟧.",
+    "einstieg": "Mit 20 m Zaun soll ein rechteckiges Gehege möglichst groß werden. Ist ein langes, schmales besser oder ein Quadrat? Solche Aufgaben heißen ⟦Optimierungsaufgaben⟧.",
+    "woerter": [
+     [
+      "Optimierungsaufgabe",
+      "gesucht ist das Beste: möglichst groß oder möglichst klein"
+     ],
+     [
+      "Umfang",
+      "Länge des Zauns rund um das Rechteck"
+     ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       7,
+       0
+      ],
+      "_C": [
+       7,
+       3
+      ],
+      "_D": [
+       0,
+       3
+      ]
+     },
+     "flaeche": [
+      "_A",
+      "_B",
+      "_C",
+      "_D"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       "x"
+      ],
+      [
+       "_B",
+       "_C",
+       "10 − x"
+      ],
+      [
+       "_C",
+       "_D"
+      ],
+      [
+       "_D",
+       "_A"
+      ]
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [

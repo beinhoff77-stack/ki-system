@@ -358,8 +358,130 @@ def g_sachaufgabe(s):
 GEN = {'einsetzen': g_einsetzen, 'parallelenschar': g_parallelenschar, 'bueschel': g_bueschel, 'wirkung': g_wirkung,
        'loesung_parameter': g_loesung_parameter, 'sachaufgabe': g_sachaufgabe}
 
+# ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_rest import umbau_schreiben  # noqa: E402
+
+from _umbau_rest import ko, pkte  # noqa: E402
+
+
+def _g(m, t, name=None):
+    g = {'art': 'linear', 'm': m, 't': t}
+    if name:
+        g['name'] = name
+    return g
+
+
+def _taxi(x1=5, y1=18, **kw):
+    return ko([0, x1], [0, y1], schritt=0, name_x='km', name_y='€', **kw)
+
+
+UMBAU = {
+    'einsetzen': {
+        'einstieg': 'Ein Taxi kostet 2 € Grundgebühr plus einen Preis pro Kilometer. Jede Stadt legt diesen Preis anders fest. '
+                    'Die offene Zahl k heißt ⟦Parameter⟧.',
+        'woerter': [['Parameter', 'eine Zahl in der Gleichung, die man frei wählen kann, hier k'],
+                    ['Geradenschar', 'alle Geraden, die zu den verschiedenen Werten von k gehören']],
+        'bild': _taxi(graphen=[_g(1, 2, 'k = 1'), _g(2, 2, 'k = 2'), _g(3, 2, 'k = 3')]),
+        'schritte': [
+            {'text': 'Der Tarif y = k · x + 2 ist eine Geradenschar.'},
+            {'text': 'Die Stadt legt k = 3 fest: ⟦y = 3x + 2⟧.', 'bild': {'graphen': [_g(3, 2, 'k = 3')]}},
+            {'text': 'Für 4 km: y = 3 · 4 + 2 = ⟦14⟧, also 14 €.', 'bild': {'punkte': pkte({'(4|14)': (4, 14)})}},
+        ],
+        'fehler': 'Für k = 3 nicht y = 3x + 3 schreiben. Der Parameter ersetzt ⟦nur das k⟧, die Grundgebühr 2 bleibt.',
+        'fehler_bild': {'graphen': [_g(3, 2, 'richtig'), _g(3, 3, 'falsch')], 'punkte': None},
+        'regel': 'Parameter einsetzen: nur k ersetzen, alles andere bleibt. Jedes k gibt eine Gerade der ⟦Geradenschar⟧.',
+    },
+    'parallelenschar': {
+        'einstieg': 'Drei Taxis kosten alle 2 € pro Kilometer, aber verschiedene Grundgebühren. '
+                    'Ihre Preis-Geraden steigen gleich steil, nur höher oder tiefer. Sie sind ⟦parallel⟧.',
+        'woerter': [['y-Achsenabschnitt t', 'wo die Gerade die y-Achse trifft; hier die Grundgebühr'],
+                    ['parallel', 'gleich steil; die Geraden treffen sich nie']],
+        'bild': _taxi(graphen=[_g(2, 1, 't = 1'), _g(2, 4, 't = 4'), _g(2, 7, 't = 7')]),
+        'schritte': [
+            {'text': 'In y = 2x + t ist der y-Achsenabschnitt t der Parameter.'},
+            {'text': 'Welche Gerade geht durch P(3 | 10)? Einsetzen: 10 = 2 · 3 + t.', 'bild': {'punkte': pkte({'P': (3, 10)})}},
+            {'text': '10 = 6 + t, also ⟦t = 4⟧.', 'bild': {'graphen': [_g(2, 4, 't = 4')]}},
+            {'text': 'Die Gerade ist y = 2x + 4: 4 € Grundgebühr.'},
+        ],
+        'fehler': 'Aus 10 = 6 + t folgt nicht t = 16. Du musst 6 ⟦abziehen⟧: t = 10 − 6 = 4.',
+        'fehler_bild': {'graphen': [_g(2, 4, 't = 4'), _g(2, 16, 't = 16')]},
+        'regel': 'Parameter t: Alle Geraden sind ⟦parallel⟧. Für die Gerade durch P setzt du P ein und löst nach t auf.',
+    },
+    'bueschel': {
+        'einstieg': 'Ein Leuchtturm schickt Lichtstrahlen in viele Richtungen. Alle Strahlen starten am selben Punkt, '
+                    'nur die Steigung ist anders. So eine Schar heißt ⟦Geradenbüschel⟧.',
+        'woerter': [['Geradenbüschel', 'alle Geraden der Schar gehen durch denselben Punkt'],
+                    ['Z', 'der gemeinsame Punkt aller Geraden – der Leuchtturm']],
+        'bild': ko([-3, 5], [-2, 7], schritt=0, graphen=[_g(-1, 4, 'm = −1'), _g(0.5, 2.5, 'm = 0,5'), _g(2, 1, 'm = 2')]),
+        'schritte': [
+            {'text': 'Büschel y = m · (x − 1) + 3. Setze x = 1.'},
+            {'text': 'Die Klammer wird 0, also y = 3 für jedes m.'},
+            {'text': 'Gemeinsamer Punkt: ⟦Z(1 | 3)⟧.', 'bild': {'punkte': pkte({'Z': (1, 3)})}},
+            {'text': 'Durch Q(3 | 7): 7 = m · 2 + 3, also ⟦m = 2⟧.',
+             'bild': {'punkte': pkte({'Z': (1, 3), 'Q': (3, 7)}), 'graphen': [_g(2, 1, 'm = 2')]}},
+        ],
+        'fehler': 'Z(−1 | 3) ist falsch. Die Klammer (x − 1) wird null bei ⟦x = +1⟧, das Vorzeichen dreht sich um.',
+        'fehler_bild': {'punkte': pkte({'Z': (1, 3), 'falsch': (-1, 3)}),
+                        'graphen': [_g(-1, 4, 'm = −1'), _g(0.5, 2.5, 'm = 0,5'), _g(2, 1, 'm = 2')]},
+        'regel': 'Parameter in der Steigung: Alle Geraden gehen durch einen Punkt Z. Z liegt dort, wo der Parameter ⟦keinen Einfluss⟧ hat.',
+    },
+    'wirkung': {
+        'einstieg': 'Ein Schieberegler in einer Mathe-App verändert die Zahl k. Je nachdem, wo k steht, '
+                    '⟦dreht⟧ sich die Gerade oder sie rutscht hoch und runter.',
+        'woerter': [['Faktor vor x', 'die ganze Zahl oder Klammer, mit der x malgenommen wird – die Steigung'],
+                    ['parallel zur x-Achse', 'waagrecht, Steigung 0']],
+        'bild': ko([-3, 3], [-4, 6], schritt=0, graphen=[_g(-2, 1, 'k = 0'), _g(0, 1, 'k = 2'), _g(2, 1, 'k = 4')]),
+        'schritte': [
+            {'text': 'In y = (k − 2)x + 1 steht k im Faktor vor x.'},
+            {'text': 'Das Zahlglied ist immer 1: Alle Geraden gehen durch (0 | 1).', 'bild': {'punkte': pkte({'(0|1)': (0, 1)})}},
+            {'text': 'Parallel zur x-Achse heißt Steigung 0: k − 2 = 0, ⟦k = 2⟧.', 'bild': {'graphen': [_g(0, 1, 'k = 2')]}},
+            {'text': 'Fallend heißt k − 2 < 0, also ⟦k < 2⟧.', 'bild': {'graphen': [_g(-2, 1, 'k = 0'), _g(-1, 1, 'k = 1')]}},
+        ],
+        'fehler': '„k ist die Steigung“ ist falsch. Die Steigung ist der ⟦ganze Faktor vor x⟧: für k = 5 also 3, nicht 5.',
+        'fehler_bild': {'graphen': [_g(3, 1, 'k = 5')]},
+        'regel': 'Schau, wo der Parameter steht. Vor dem x ⟦dreht⟧ er die Gerade, als Zahlglied verschiebt er sie.',
+    },
+    'loesung_parameter': {
+        'einstieg': 'Taxi A kostet 4 € Grundgebühr und 2 € pro Kilometer. Taxi B hat keine Grundgebühr, aber k € pro Kilometer. '
+                    'Ab wann sind beide gleich teuer? Das hängt von k ab.',
+        'woerter': [['Schnittpunkt', 'die Stelle, an der beide Taxis gleich viel kosten'],
+                    ['durch 0', 'durch null teilen ist verboten; dann gibt es keine Lösung']],
+        'bild': _taxi(graphen=[_g(2, 4, 'A'), _g(4, 0, 'k = 4')]),
+        'schritte': [
+            {'text': 'Gleich teuer: 2x + 4 = kx, also (k − 2) · x = 4.'},
+            {'text': 'Lösung: x = 4 : (k − 2).'},
+            {'text': 'Für k = 4: x = 4 : 2 = ⟦2⟧. Schnittpunkt bei 2 km.', 'bild': {'punkte': pkte({'S': (2, 8)})}},
+            {'text': 'Für k = 2 teilst du durch 0: ⟦keine Lösung⟧, die Geraden sind parallel.',
+             'bild': {'punkte': None, 'graphen': [_g(2, 4, 'A'), _g(2, 0, 'k = 2')]}},
+        ],
+        'fehler': 'Nur „x = 4 : (k − 2)“ hinschreiben ist unvollständig. Für ⟦k = 2⟧ ist das Teilen verboten, es gibt keine Lösung.',
+        'regel': 'Vor dem Teilen prüfen: Wann ist der Term mit k gleich 0? Dann gibt es ⟦keine Lösung⟧.',
+    },
+    'sachaufgabe': {
+        'einstieg': 'Ein Taxi kostet 4 € Grundgebühr und einen unbekannten Preis pro Kilometer. Für 10 km hast du 24 € bezahlt. '
+                    'Diese Angabe ist eine ⟦Bedingung⟧: Mit ihr berechnest du den Kilometerpreis.',
+        'woerter': [['Grundgebühr', 'Betrag, den man immer zahlt, auch für 0 km'],
+                    ['Bedingung', 'eine bekannte Angabe, mit der man den Parameter ausrechnet']],
+        'bild': ko([0, 12], [0, 30], schritt=0, schritt_x=2, schritt_y=5, name_x='km', name_y='€', punkte=pkte({'Start': (0, 4)})),
+        'schritte': [
+            {'text': 'Der Tarif ist y = m · x + 4, gesucht ist m.'},
+            {'text': 'Bedingung einsetzen: 24 = m · 10 + 4.', 'bild': {'punkte': pkte({'Start': (0, 4), 'P': (10, 24)})}},
+            {'text': '4 abziehen: 20 = 10m, also ⟦m = 2⟧.', 'bild': {'graphen': [_g(2, 4, 'm = 2')]}},
+            {'text': 'Kontrolle: 2 · 10 + 4 = 24. Es stimmt.'},
+        ],
+        'fehler': '24 : 10 = 2,40 € pro km ist falsch. Die ⟦Grundgebühr⟧ von 4 € steckt im Preis und muss zuerst weg.',
+        'fehler_bild': {'graphen': [_g(2, 4, 'richtig'), _g(2.4, 0, 'falsch')]},
+        'regel': 'Bedingung in den Tarif einsetzen und nach dem Parameter auflösen. Die ⟦Grundgebühr⟧ zuerst abziehen.',
+    },
+}
+UMBAU_OFFEN = []
+UMBAU_WEG = []
+# ---------- Ende UMBAU ----------
+
+
 if __name__ == '__main__':
-    bauen('funktionen.scharen',
+    d = bauen('funktionen.scharen',
           'Geradenscharen mit Parameter verstehen: Parameter einsetzen und bestimmen, Parallelenscharen und Geradenbüschel erkennen, parameterabhängige Lösungen untersuchen.',
           ['Ein Parameter ist eine frei wählbare Zahl; jeder Wert liefert eine Gerade der Schar.',
            'y = m · x + t mit Parameter t: parallele Geraden. Mit Parameter m: Geradenbüschel durch einen gemeinsamen Punkt.',
@@ -370,3 +492,4 @@ if __name__ == '__main__':
           ETAPPEN, GEN,
           offen=['Lehrplan-Feld leer: Annahme RS 8 (WPF I) = Scharen linearer Funktionen (Parallelenschar, Geradenbüschel), Parameter bestimmen, parameterabhängige Lösungen linearer Gleichungen. Scharen quadratischer Funktionen (RS 9) weggelassen.',
                  'Schreibweise der Scharen: g_k bzw. „Schar y = k · x + 2“; Indizes wie g₋₃ nur in der Erklärung.'])
+    umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

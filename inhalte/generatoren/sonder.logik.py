@@ -255,7 +255,114 @@ def g_folgerung(s):
 
 GEN = {'aussagen': g_aussagen, 'negation': g_negation, 'verknuepfen': g_verknuepfen, 'tafel': g_tafel, 'folgerung': g_folgerung}
 
-bauen('sonder.logik',
+# ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_rest import umbau_schreiben  # noqa: E402
+
+from _umbau_rest import tab  # noqa: E402
+
+_AK = ['Satz', 'Aussage?', 'Wert']
+
+
+def _a(r1, r2, r3, r4):
+    return tab(_AK, ['17 ist eine Primzahl.', *r1], ['Komm her!', *r2], ['12 ist ungerade.', *r3], ['x ist größer als 3.', *r4])
+
+
+_PQ = [['w', 'w'], ['w', 'f'], ['f', 'w'], ['f', 'f']]
+
+
+def _t(kopf, *spalten):
+    return tab(['p', 'q', *kopf], *[[*pq, *[s[i] for s in spalten]] for i, pq in enumerate(_PQ)])
+
+
+_FK = ['Zahl', 'durch 4', 'gerade']
+UMBAU = {
+    'aussagen': {
+        'einstieg': '„17 ist eine Primzahl.“ Darauf kann man mit wahr oder falsch antworten. „Komm her!“ dagegen nicht. '
+                    'Sätze, die entweder wahr oder falsch sind, heißen ⟦Aussagen⟧.',
+        'woerter': [['Aussage', 'ein Satz, der entweder wahr oder falsch ist'],
+                    ['Wahrheitswert', 'wahr (w) oder falsch (f)']],
+        'bild': _a(['?', '?'], ['?', '?'], ['?', '?'], ['?', '?']),
+        'schritte': [
+            {'text': '„17 ist eine Primzahl“: Die Teiler sind nur 1 und 17.'},
+            {'text': 'Also eine Aussage mit dem Wahrheitswert ⟦wahr⟧.', 'bild': _a(['ja', 'w'], ['?', '?'], ['?', '?'], ['?', '?'])},
+            {'text': '„12 ist ungerade“ ist auch eine Aussage, nur eine falsche.', 'bild': _a(['ja', 'w'], ['?', '?'], ['ja', 'f'], ['?', '?'])},
+            {'text': '„Komm her!“ und „x ist größer als 3“ sind ⟦keine Aussagen⟧.',
+             'bild': _a(['ja', 'w'], ['nein', '–'], ['ja', 'f'], ['nein', '–'])},
+        ],
+        'fehler': '„Eine falsche Aussage ist keine Aussage“ stimmt nicht. „12 ist ungerade“ ist eine Aussage, ⟦eine falsche⟧.',
+        'regel': 'Eine Aussage ist ⟦entweder wahr oder falsch⟧. Fragen, Befehle und Sätze mit offenem x sind keine Aussagen.',
+    },
+    'negation': {
+        'einstieg': 'Ein Lehrer sagt: Alle Kinder haben ein Fahrrad. Ein Kind widerspricht. Dafür reicht schon ein Kind ohne Fahrrad. '
+                    'Das Gegenteil einer Aussage heißt ⟦Verneinung⟧.',
+        'woerter': [['Verneinung', '¬p: das Gegenteil von p; wahr genau dann, wenn p falsch ist'],
+                    ['mindestens ein', 'eins oder mehr']],
+        'bild': tab(['p', '¬p'], ['w', 'f'], ['f', 'w']),
+        'schritte': [
+            {'text': 'p: „Alle Kinder der Klasse haben ein Fahrrad.“'},
+            {'text': '¬p ist wahr, sobald ein einziges Kind keins hat.',
+             'bild': tab(['Klasse', 'p', '¬p'], ['alle mit Rad', 'w', 'f'], ['einer ohne', 'f', 'w'], ['keiner mit Rad', 'f', 'w'])},
+            {'text': 'Also ¬p: ⟦Mindestens ein Kind hat kein Fahrrad⟧.'},
+        ],
+        'fehler': '„Kein Kind hat ein Fahrrad“ ist nicht die Verneinung. Haben manche eins, sind ⟦beide Sätze falsch⟧.',
+        'fehler_bild': tab(['Klasse', 'p', '„kein Kind …“'], ['einige mit Rad', 'f', 'f ✗']),
+        'regel': 'Die Verneinung liefert ⟦immer das Gegenteil⟧. Aus „alle“ wird „mindestens einer nicht“.',
+    },
+    'verknuepfen': {
+        'einstieg': 'Ins Kino darfst du, wenn du Hausaufgaben gemacht ⟦und⟧ aufgeräumt hast. Ein Eis gibt es, wenn die Sonne scheint ⟦oder⟧ Ferien sind. '
+                    'Beide Wörter verknüpfen Aussagen.',
+        'woerter': [['p ∧ q', '„p und q“: nur wahr, wenn beide wahr sind'],
+                    ['p ∨ q', '„p oder q“: wahr, wenn mindestens eine wahr ist']],
+        'bild': _t(['p ∧ q', 'p ∨ q'], ['w', 'f', 'f', 'f'], ['w', 'w', 'w', 'f']),
+        'schritte': [
+            {'text': 'p: „9 ist gerade“ (falsch). q: „9 ist durch 3 teilbar“ (wahr).'},
+            {'text': 'p ∧ q ist falsch, weil p falsch ist.', 'bild': tab(['p', 'q', 'p ∧ q', 'p ∨ q'], ['f', 'w', 'f', '?'])},
+            {'text': 'p ∨ q ist ⟦wahr⟧, weil q wahr ist.', 'bild': tab(['p', 'q', 'p ∧ q', 'p ∨ q'], ['f', 'w', 'f', 'w'])},
+        ],
+        'fehler': '„Beide wahr, also ist p ∨ q falsch“ ist falsch. Das Oder in der Mathematik ⟦schließt beides ein⟧.',
+        'regel': '⟦∧ braucht beide⟧, ∨ braucht mindestens eine wahre Aussage. Das Oder schließt beides ein.',
+    },
+    'tafel': {
+        'einstieg': 'Bei zwei Aussagen gibt es vier Möglichkeiten: beide wahr, nur die erste, nur die zweite, keine. '
+                    'Eine ⟦Wahrheitstafel⟧ schreibt alle vier untereinander.',
+        'woerter': [['Wahrheitstafel', 'eine Tabelle mit allen Kombinationen von w und f'],
+                    ['Hilfsspalte', 'eine Spalte für einen Zwischenschritt, z. B. ¬q']],
+        'bild': _t([]),
+        'schritte': [
+            {'text': 'Ausdruck: p ∧ ¬q. Alle vier Zeilen hinschreiben.'},
+            {'text': 'Hilfsspalte ¬q: f, w, f, w.', 'bild': _t(['¬q'], ['f', 'w', 'f', 'w'])},
+            {'text': 'p ∧ ¬q ist nur wahr, wo p und ¬q beide wahr sind.'},
+            {'text': 'Ergebnis: ⟦f, w, f, f⟧.', 'bild': _t(['¬q', 'p ∧ ¬q'], ['f', 'w', 'f', 'w'], ['f', 'w', 'f', 'f'])},
+        ],
+        'fehler': '¬(p ∧ q) ist nicht ¬p ∧ ¬q. In Zeile 2 ist das erste wahr, das zweite falsch. Richtig ist ⟦¬p ∨ ¬q⟧.',
+        'fehler_bild': _t(['¬(p ∧ q)', '¬p ∧ ¬q'], ['f', 'w', 'w', 'w'], ['f', 'f', 'f', 'w']),
+        'regel': 'Zwei Aussagen ergeben ⟦4 Zeilen⟧. Mit Hilfsspalten von innen nach außen rechnen.',
+    },
+    'folgerung': {
+        'einstieg': '„Wenn es regnet, ist die Straße nass.“ Ist die Straße nass, regnet es aber nicht unbedingt. '
+                    'Vielleicht fuhr ein Sprengwagen vorbei. Wenn-dann-Sätze heißen ⟦Implikation⟧.',
+        'woerter': [['Implikation', 'p ⇒ q: „wenn p, dann q“'],
+                    ['Umkehrung', 'q ⇒ p; sie folgt nicht automatisch'],
+                    ['Kontraposition', '¬q ⇒ ¬p; sie gilt genau dann, wenn p ⇒ q gilt']],
+        'bild': tab(['p', 'q', 'p ⇒ q'], ['w', 'w', 'w'], ['w', 'f', 'f'], ['f', 'w', 'w'], ['f', 'f', 'w']),
+        'schritte': [
+            {'text': '„Wenn eine Zahl durch 4 teilbar ist, ist sie gerade.“ Das stimmt.',
+             'bild': tab(_FK, ['8', 'w', 'w'], ['6', 'f', 'w'], ['7', 'f', 'f'])},
+            {'text': 'Die Umkehrung „Wenn gerade, dann durch 4 teilbar“ ist falsch: 6.',
+             'bild': tab(_FK, ['8', 'w', 'w'], ['6 ✗', 'f', 'w'], ['7', 'f', 'f'])},
+            {'text': 'Die Kontraposition stimmt: ⟦Nicht gerade, dann nicht durch 4 teilbar⟧.'},
+        ],
+        'fehler': '„Die Straße ist nass, also regnet es“ ist falsch. Das ist die ⟦Umkehrung⟧, sie folgt nicht.',
+        'regel': 'p ⇒ q ist ⟦nur falsch bei p wahr, q falsch⟧. Die Kontraposition gilt mit, die Umkehrung nicht.',
+    },
+}
+UMBAU_OFFEN = []
+UMBAU_WEG = []
+# ---------- Ende UMBAU ----------
+
+
+d = bauen('sonder.logik',
       'Aussagen erkennen, verneinen und mit und, oder sowie wenn–dann verknüpfen; Wahrheitstafeln aufstellen und Folgerungen beurteilen.',
       ['Aussage (proposition): eindeutig wahr oder falsch.',
        '¬p ist wahr, wenn p falsch ist. ¬(alle …) = mindestens einer … nicht.',
@@ -267,3 +374,4 @@ bauen('sonder.logik',
       offen=['Ohne Lehrplan-Zuordnung (Verlagsinhalt); Niveau Klasse 9/10 angenommen. Äquivalenz (⇔) und ausschließendes Oder nur am Rand (nicht als eigene Lernkarte).',
              'Wahrheitswerte in Lücken als 1 (wahr) / 0 (falsch), weil Lücken nur ganze Zahlen erlauben. In der Tabelle stehen w/f.',
              'Feld klasse: {"zusatz": 10} statt {} (Prüfskript verlangt einen Eintrag) – siehe FRAGE im Postfach.'])
+umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

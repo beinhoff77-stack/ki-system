@@ -273,7 +273,118 @@ def g_sach(s):
 
 GEN = {'bereich': g_bereich, 'aufstellen': g_aufstellen, 'ecken': g_ecken, 'optimum': g_optimum, 'sach': g_sach}
 
-bauen('sonder.optimierung',
+# ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_rest import umbau_schreiben  # noqa: E402
+
+from _umbau_rest import ko, pkte, tab  # noqa: E402
+
+_GI = {'art': 'linear', 'm': -2, 't': 8, 'bereich': [0, 4], 'name': 'I', 'name_x': 3.3}
+_GII = {'art': 'linear', 'm': -0.5, 't': 5, 'bereich': [0, 10], 'name': 'II', 'name_x': 7}
+_EK = [[0, 0], [4, 0], [2, 4], [0, 5]]
+
+
+def _b(**kw):
+    return ko([0, 11], [0, 9], schritt=0, schritt_x=1, schritt_y=1, graphen=[_GI, _GII], **kw)
+
+
+def _ecken(namen):
+    return pkte({n: tuple(p) for n, p in zip(namen, _EK)})
+
+
+def _ab(*z):
+    return tab(['', 'Kuchen (x)', 'Torte (y)', 'Grenze'], *z)
+
+
+_GR = [[0, 0], [15, 0], [6, 6], [0, 8]]
+UMBAU = {
+    'bereich': {
+        'einstieg': 'Eine kleine Bäckerei backt x Kuchen und y Torten. Ofenzeit und Teig reichen nicht für beliebig viele. '
+                    'Alle machbaren Mengen bilden den ⟦zulässigen Bereich⟧.',
+        'woerter': [['Halbebene', 'alle Punkte auf einer Seite einer Geraden, die Gerade eingeschlossen'],
+                    ['zulässig', 'erfüllt jede Bedingung; der zulässige Bereich sind alle solchen Punkte']],
+        'bild': _b(),
+        'schritte': [
+            {'text': 'I: 2x + y ≤ 8 ist eine Halbebene.', 'bild': {'flaechen': [{'punkte': [[0, 0], [4, 0], [0, 8]]}]}},
+            {'text': 'Mit II: x + 2y ≤ 10 entsteht der zulässige Bereich.', 'bild': {'flaechen': [{'punkte': _EK}]}},
+            {'text': 'Q(2 | 3) in I: 2 · 2 + 3 = 7 ≤ 8.', 'bild': {'punkte': pkte({'Q': (2, 3)})}},
+            {'text': 'In II: 2 + 2 · 3 = 8 ≤ 10. ⟦Q liegt im Bereich⟧.'},
+        ],
+        'fehler': 'Nur I prüfen reicht nicht. Ein Punkt kann I erfüllen und ⟦II verletzen⟧. Zulässig heißt: alle Bedingungen.',
+        'fehler_bild': {'punkte': pkte({'Q': (2, 3), 'nur I': (1, 5)})},
+        'regel': 'Ein Punkt ist zulässig, wenn er ⟦alle⟧ Ungleichungen erfüllt. Jede Ungleichung ist eine Halbebene.',
+    },
+    'aufstellen': {
+        'einstieg': 'Eine größere Bäckerei hat 30 Stunden Backzeit. Ein Kuchen braucht 2 h, eine Torte 3 h. '
+                    'Das wird eine Ungleichung. Was möglichst groß werden soll, ist die ⟦Zielfunktion⟧.',
+        'woerter': [['Entscheidungsvariablen', 'x und y: wie viele Kuchen und wie viele Torten'],
+                    ['Zielfunktion', 'der Term, der möglichst groß oder klein werden soll'],
+                    ['höchstens', 'heißt ≤; mindestens heißt ≥']],
+        'bild': _ab(['Zeit in h', '?', '?', '?'], ['Gewinn in €', '?', '?', '?']),
+        'schritte': [
+            {'text': 'Entscheidungsvariablen: x Kuchen und y Torten.'},
+            {'text': 'Zeit höchstens 30 h: ⟦2x + 3y ≤ 30⟧.', 'bild': _ab(['Zeit in h', '2', '3', '≤ 30'], ['Gewinn in €', '?', '?', '?'])},
+            {'text': 'Anzahlen sind nie negativ: x ≥ 0 und y ≥ 0.'},
+            {'text': 'Gewinn 4 € und 7 €: Zielfunktion ⟦G = 4x + 7y⟧.',
+             'bild': _ab(['Zeit in h', '2', '3', '≤ 30'], ['Gewinn in €', '4', '7', 'möglichst groß'])},
+        ],
+        'fehler': '„Mindestens 4 Torten“ ist nicht y ≤ 4. Mindestens heißt ⟦y ≥ 4⟧, also 4 oder mehr.',
+        'regel': 'Höchstens heißt ⟦≤⟧, mindestens heißt ≥. Dazu kommen immer x ≥ 0 und y ≥ 0.',
+    },
+    'ecken': {
+        'einstieg': 'Der zulässige Bereich der kleinen Bäckerei ist ein Viereck. Seine Ecken sind besonders wichtig. '
+                    'Wo sich zwei Ränder schneiden, liegt ein ⟦Eckpunkt⟧.',
+        'woerter': [['Eckpunkt', 'Schnittpunkt zweier Randgeraden des Bereichs'],
+                    ['Randgerade', 'die Gerade zu einer Ungleichung, mit = statt ≤']],
+        'bild': _b(flaechen=[{'punkte': _EK}]),
+        'schritte': [
+            {'text': 'Randgeraden: 2x + y = 8 und x + 2y = 10.'},
+            {'text': 'Erste mal 2: 4x + 2y = 16. Minus zweite: 3x = 6.'},
+            {'text': 'Also x = 2 und y = 8 − 2 · 2 = 4.', 'bild': {'punkte': pkte({'(2|4)': (2, 4)})}},
+            {'text': 'Eckpunkt ⟦(2 | 4)⟧. Dazu kommen (0 | 0), (4 | 0), (0 | 5).',
+             'bild': {'punkte': _ecken(['(0|0)', '(4|0)', '(2|4)', '(0|5)'])}},
+        ],
+        'fehler': 'Nur im Bild ablesen ist riskant. (2 | 4) und (2,2 | 3,8) sehen fast gleich aus. ⟦Rechne⟧ die Ecken aus.',
+        'regel': 'Eckpunkt = Schnitt zweier Randgeraden. Mit einem ⟦Gleichungssystem⟧ ausrechnen, nicht nur ablesen.',
+    },
+    'optimum': {
+        'einstieg': 'Ein Kuchen bringt 3 € Gewinn, eine Torte 2 €. Welche machbare Menge bringt am meisten? '
+                    'Der beste Wert liegt immer an einer Ecke. Das ist das ⟦Eckenprinzip⟧.',
+        'woerter': [['Eckenprinzip', 'das Maximum oder Minimum liegt an einer Ecke des Bereichs'],
+                    ['Optimum', 'der beste Wert: größter Gewinn oder kleinste Kosten']],
+        'bild': _b(flaechen=[{'punkte': _EK}], punkte=_ecken(['A', 'B', 'C', 'D'])),
+        'schritte': [
+            {'text': 'Zielfunktion G = 3x + 2y an allen Ecken ausrechnen.'},
+            {'text': '(0 | 0): 0. (4 | 0): 12. (0 | 5): 10.', 'bild': {'punkte': _ecken(['0', '12', 'C', '10'])}},
+            {'text': '(2 | 4): 3 · 2 + 2 · 4 = 14.', 'bild': {'punkte': _ecken(['0', '12', '14', '10'])}},
+            {'text': 'Das Optimum ist ⟦G = 14 bei (2 | 4)⟧.'},
+        ],
+        'fehler': 'Den Punkt mit dem ⟦größten x⟧ nehmen ist falsch. (4 | 0) liefert nur 12, (2 | 4) aber 14.',
+        'regel': 'Das ⟦Optimum liegt an einer Ecke⟧. Zielfunktion an allen Ecken ausrechnen und vergleichen.',
+    },
+    'sach': {
+        'einstieg': 'Die größere Bäckerei will wissen, wie viele Kuchen und Torten sie backen soll. Die Ecken ihres Bereichs kennt sie schon. '
+                    'Jetzt fehlt die ⟦Antwort⟧.',
+        'woerter': [['Sachzusammenhang', 'die Geschichte der Aufgabe: hier Kuchen, Torten und Euro']],
+        'bild': ko([0, 16], [0, 10], schritt=0, schritt_x=3, schritt_y=2, flaechen=[{'punkte': _GR}],
+                   punkte=pkte({'(0|0)': (0, 0), '(15|0)': (15, 0), '(6|6)': (6, 6), '(0|8)': (0, 8)})),
+        'schritte': [
+            {'text': 'Gewinn G = 4x + 7y an allen vier Ecken ausrechnen.'},
+            {'text': 'G: 0 €, 60 €, 24 + 42 = 66 € und 56 €.',
+             'bild': {'punkte': pkte({'0 €': (0, 0), '60 €': (15, 0), '66 €': (6, 6), '56 €': (0, 8)})}},
+            {'text': 'Antwort im Sachzusammenhang: ⟦6 Kuchen und 6 Torten, 66 €⟧.'},
+        ],
+        'fehler': 'Nur „66“ antworten genügt nicht. Gefragt ist auch, ⟦wie viele⟧ Kuchen und Torten man backen soll.',
+        'regel': 'Variablen, Bedingungen, Ecken, ⟦Zielfunktion vergleichen⟧. Dann im Sachzusammenhang antworten.',
+    },
+}
+UMBAU_OFFEN = ['Umbau (Paket UR): Die Lernkarten füllen den zulässigen Bereich jetzt farbig (koordinaten.flaechen). '
+               'Die Aufgaben-Grafiken zeigen weiter nur die Randgeraden, weil Aufgaben beim Umbau unverändert bleiben.']
+UMBAU_WEG = ['App-Wunsch: Halbebenen bzw. den zulässigen Bereich farbig füllen']
+# ---------- Ende UMBAU ----------
+
+
+d = bauen('sonder.optimierung',
       'Bedingungen als lineare Ungleichungen aufstellen, den zulässigen Bereich und seine Ecken bestimmen und die Zielfunktion optimieren.',
       ['Zulässiger Bereich (feasible region): alle Punkte, die jede Ungleichung erfüllen.',
        'Höchstens → ≤, mindestens → ≥; Anzahlen: x ≥ 0, y ≥ 0.',
@@ -285,3 +396,4 @@ bauen('sonder.optimierung',
              'Lehrplan-Feld leer („IB-Verlagsinhalt“): gebaut mit zwei Bedingungen plus x, y ≥ 0 und vier Ecken; Isogewinngeraden (Verschieben der Zielgeraden) nicht enthalten. Annahme MYP 4.',
              'Lineare Gleichungssysteme (für die Ecken) werden vorausgesetzt (gleichungen.lgs2).'],
       vertiefung=['sach'])
+umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

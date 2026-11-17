@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 17:15 – STATUS
+**zahlen.potenzen_zehner** fertig: 6 umgestuft, 22 neue Übungen, 14 Knobel-Bordkarten, 10 überzählige. Prüfskript OK, 0 Gruppen, Nachweis OK.
+
 ## 2026-11-17 16:50 – STATUS
 **bruch.rechnen** fertig: 17 umgestuft, 70 neue Übungen, 24 Knobel-Bordkarten, 76 überzählige. Prüfskript OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
 

@@ -773,5 +773,104 @@ befunde_anwenden(DATEI, DS)
 # ---- DURCHSICHT ENDE ----
 
 
+# ---------- STUFEN (Zwanzigste Runde, Zweig stufen-kl6) ----------
+from _stufen_kl6 import Stufen, stufen_datei  # noqa: E402
+
+ST = Stufen('zahlen.potenzen_zehner', 20_6_4)
+Z, A, L, N, K, TB = ST.Z, ST.A, ST.L, ST.neu, ST.knobel, ST.typ_bau
+B = '□/□'
+
+lz = 'zehnerpotenz'
+ST.leiter(lz, '10ⁿ ausschreiben und die Zahl der Nullen ablesen.', 'Zahlen und Zahlwörter als Zehnerpotenz schreiben, Tausender zählen, Zehnerpotenzen einordnen.',
+          'Verhältnisse von Zehnerpotenzen, Stückzahlen über mehrere Stufen, Fehler deuten, Bereiche für n, Aussagen prüfen, rückwärts zum Exponenten.')
+TB(lz, 2, 'Welche Zahl ist gleich', 'erkennen', neu_s=1)
+TB(lz, 3, 'Wie viele Tausender ergeben', 'mehrschritt', neu_s=2)
+TB(lz, 3, 'In einer Kiste', 'verknuepfen'); TB(lz, 3, 'Ein Zahlenschloss', 'transfer')
+N(lz, Z('einkleidung', 'In ein großes Stadion passen etwa 10⁵ Menschen. Wie viele Menschen sind das?', 100000, '10 ** 5', '10⁵ ist eine 1 mit 5 Nullen: 100 000.', 'Wie viele Nullen hat 10⁵?'))
+N(lz, A('begruenden', 'Stimmt die Aussage? „Verdoppelt man den Exponenten, wird die Zehnerpotenz doppelt so groß.“', 'Nein, z. B. 10⁴ ist 100-mal so groß wie 10².', ['Ja, das stimmt.', 'Nur bei kleinen Exponenten.'],
+        '10² = 100, 10⁴ = 10 000 = 100 · 100. Der Wert wird viel größer als doppelt.', 'Vergleiche 10² und 10⁴.'))
+N(lz, Z('rueckwaerts', 'Eine Zahl wird dreimal mit 10 malgenommen und danach noch mit 100. Es kommt 10⁸ heraus. Die Zahl war 10ⁿ. Wie groß ist n?', 3, '8 - 3 - 2',
+        'Dreimal mit 10 und einmal mit 100 sind zusammen 10⁵. 10⁸ : 10⁵ = 10³, also n = 3.', 'Wie viele Nullen kommen insgesamt dazu?'))
+K(lz, Z('knobel', 'Wie viele Stellen hat die Zahl 10⁵ · 10⁴ − 1, wenn man sie ausschreibt?', 9, '9',
+        '10⁵ · 10⁴ = 10⁹ = 1 000 000 000 (10 Stellen). Zieht man 1 ab, erhält man 999 999 999 – eine Zahl mit 9 Stellen.', 'Rechne zuerst 10⁵ · 10⁴. Was passiert, wenn man von 1 000 eins abzieht?'))
+K(lz, Z('knobel', 'Mit wie vielen Nullen endet die Zahl 20⁴?', 4, '4', '20⁴ = 2⁴ · 10⁴ = 16 · 10 000 = 160 000. Sie endet mit 4 Nullen.', 'Schreibe 20 als 2 · 10.'))
+
+lz = 'gross_wissenschaftlich'
+ST.leiter(lz, 'Große Zahlen als a · 10ⁿ schreiben und zurück.', 'Große Zahlen aus dem Alltag umschreiben, die richtige Schreibweise auswählen, Summen ausschreiben, die Zahl a bestimmen.',
+          'Mantisse korrigieren, Stapelhöhe, Bruchteile großer Zahlen, Stellenzahl, Fehler deuten, Größen vergleichen, für welche Ziffern, mehrteilige Sachaufgabe.')
+for t in ('Ein Jahr hat etwa 31', 'Ein Mensch hat etwa', 'Auf der Erde leben', 'Licht legt', 'Die Sonne ist'):
+    TB(lz, 2, t, 'einkleidung')
+TB(lz, 3, 'Ein Papierstapel', 'verknuepfen'); TB(lz, 3, 'Die Zahl 4,5', 'rueckwaerts')
+N(lz, A('erkennen', 'Welche dieser Angaben ist in wissenschaftlicher Schreibweise geschrieben?', '3,2 · 10⁶', ['32 · 10⁵', '0,32 · 10⁷'], 'Vor dem Komma steht genau eine Ziffer von 1 bis 9: 3,2 · 10⁶.', 'Wie viele Ziffern dürfen vor dem Komma stehen?'))
+N(lz, A('begruenden', 'Stimmt die Aussage? „1,2 · 10⁹ ist größer als 9,8 · 10⁸.“', 'Ja: 1,2 · 10⁹ = 1 200 000 000 und 9,8 · 10⁸ = 980 000 000.', ['Nein, weil 9,8 größer ist als 1,2.', 'Nein, beide sind gleich.'],
+        'Zuerst entscheidet der Exponent: 10⁹ ist zehnmal 10⁸. Ausgeschrieben sieht man es: 1 200 Millionen gegen 980 Millionen.', 'Schreibe beide Zahlen aus.'))
+N(lz, Z('parameter', 'Für wie viele Ziffern a von 1 bis 9 ist a · 10⁷ größer als 35 Millionen?', 6, '9 - 4 + 1', 'a · 10⁷ = a · 10 Millionen. Größer als 35 Millionen für a = 4, 5, …, 9 – also 6 Ziffern.', 'Wie viel ist 1 · 10⁷?'))
+N(lz, Z('pruefung', 'Der Mond ist etwa 3,84 · 10⁵ km von der Erde entfernt. Ein Flugzeug fliegt 900 km pro Stunde. Wie viele volle Stunden bräuchte es bis zum Mond?', 426, '384000 // 900',
+        '3,84 · 10⁵ km = 384 000 km. 384 000 : 900 ≈ 426,7. Also 426 volle Stunden (fast 18 Tage).', 'Schreibe die Entfernung zuerst ohne Zehnerpotenz.'))
+K(lz, Z('knobel', 'Wie viele Stellen hat die Zahl 2 · 10⁶ · 5 · 10³, wenn man sie ausschreibt?', 11, '11', '2 · 5 = 10, und 10 · 10⁶ · 10³ = 10¹⁰. Das ist eine 1 mit 10 Nullen, also 11 Stellen.', 'Fasse geschickt zusammen: Was ergibt 2 · 5?'))
+K(lz, Z('knobel', 'Ein Jahr hat 365 Tage. Schreibe die Zahl der Sekunden eines Jahres als a · 10ⁿ und runde a auf eine Nachkommastelle. Wie groß ist a?', 3.2, 'round(365 * 24 * 60 * 60 / 10 ** 7, 1)',
+        '365 · 24 · 60 · 60 = 31 536 000 Sekunden = 3,1536 · 10⁷. Gerundet: a = 3,2.', 'Rechne Tage → Stunden → Minuten → Sekunden.'))
+
+lz = 'vorsilben_gross'
+ST.leiter(lz, 'Vorsilben k, M, G, T ihrer Zehnerpotenz zuordnen und einfache Werte umrechnen.', 'Mit Komma und in beide Richtungen umrechnen, Datenmengen und Leistungen vergleichen.',
+          'Wie viele passen hinein, Zeit beim Download, Haushalte mit Strom versorgen, Fehler deuten, Aussagen prüfen, für welche Zahlen.')
+TB(lz, 2, 'Ein Film hat', 'einkleidung'); TB(lz, 2, 'Rechne um: 3 100 000', 'umkehr'); TB(lz, 2, 'Rechne um: 7 900', 'umkehr')
+TB(lz, 3, 'Ein Spiel ist', 'verknuepfen'); TB(lz, 3, 'Eine Solaranlage', 'pruefung')
+N(lz, A('begruenden', 'Stimmt die Aussage? „1 GB ist 1 000-mal so groß wie 1 kB.“', 'Nein: 1 GB = 10⁹ B und 1 kB = 10³ B, also 1 000 000-mal so groß.', ['Ja, jede Vorsilbe ist 1 000-mal so groß.', 'Nein, 100-mal.'],
+        'Von kilo zu giga sind es zwei Schritte (k → M → G), jeder mal 1 000: 1 000 · 1 000 = 1 000 000.', 'Wie viele Schritte liegen zwischen k und G?'))
+N(lz, Z('parameter', 'Für wie viele ganze Zahlen n von 1 bis 10 ist n MW mehr als 4 500 kW?', 6, '10 - 5 + 1', '4 500 kW = 4,5 MW. Mehr ist es für n = 5, 6, …, 10 – also 6 Zahlen.', 'Rechne 4 500 kW in MW um.'))
+K(lz, Z('knobel', '1 TB Daten sollen auf USB-Sticks mit je 64 GB kopiert werden. Wie viele Sticks braucht man mindestens? (1 TB = 1 000 GB)', 16, '-(-1000 // 64)',
+        '1 000 GB : 64 GB = 15,625. 15 Sticks reichen nicht (960 GB), also braucht man 16.', 'Was machst du mit dem Rest?'))
+K(lz, Z('knobel', 'Eine Lampe mit 60 W brennt 1 000 Stunden lang. Wie viele kWh Strom braucht sie?', 60, '60 * 1000 / 1000', 'Die Leistung mal die Zeit ergibt die Energie: 60 W · 1 000 h = 60 000 Wh. Kilo heißt 1 000, also 60 000 Wh = 60 kWh.', 'Rechne erst in Wh, dann in kWh. Was bedeutet „k“?'))
+
+lz = 'negativer_exponent'
+ST.leiter(lz, '10⁻ⁿ als Dezimalzahl oder Bruch schreiben; erkennen, welche Zahl zu 10⁻ⁿ gehört.', 'Dezimalzahl als 10ⁿ schreiben, Nullen zählen, kleine Zehnerpotenzen vergleichen, Größen im Alltag.',
+          'Wie oft passt …, Verhältnisse, Nullen rückwärts, Fehler deuten, für welchen Exponenten, Aussagen prüfen, mit Brüchen verknüpfen.')
+TB(lz, 3, 'Die Zahl 10⁻ⁿ', 'rueckwaerts'); TB(lz, 3, 'Ben sagt', 'fehler')
+N(lz, A('erkennen', 'Welche Zahl ist 10⁻²?', '0,01', ['−100', '0,1', '−0,01'], '10⁻² = 1/100 = 0,01. Die Zahl ist klein, aber positiv.', 'Ein Minus im Exponenten macht die Zahl klein, nicht negativ.'))
+N(lz, Z('einkleidung', 'Ein Haar wächst etwa 10⁻⁴ m pro Stunde. Wie viele Millimeter sind das?', 0.1, '10 ** -4 * 1000', '10⁻⁴ m = 0,0001 m = 0,1 mm.', '1 m = 1 000 mm.', einheit='mm'))
+N(lz, A('begruenden', 'Stimmt die Aussage? „10⁰ ist 0.“', 'Nein, 10⁰ = 1.', ['Ja, hoch 0 ist immer 0.', 'Nein, 10⁰ = 10.'], 'Von 10¹ = 10 kommt man durch Teilen durch 10 zu 10⁰ = 1.', 'Teile 10¹ durch 10.'))
+N(lz, L('verknuepfen', 'Schreibe 10⁻³ als Bruch und nimm ihn mit 250 mal. Gib das Ergebnis vollständig gekürzt an.', B, [1, 4], ['250 // 250', '1000 // 250'], '10⁻³ = 1/1 000. 250/1 000 = 1/4.', 'Welcher Bruch ist 10⁻³?'))
+K(lz, Z('knobel', 'Wie viele Nullen stehen bei 10⁻²⁰ zwischen dem Komma und der 1?', 19, '20 - 1', '10⁻¹ = 0,1 (keine Null), 10⁻² = 0,01 (eine Null), … Bei 10⁻ⁿ stehen n − 1 Nullen vor der 1. Bei 10⁻²⁰ sind es 19.', 'Schau dir 10⁻¹, 10⁻² und 10⁻³ an.'))
+K(lz, Z('knobel', 'Welche Zahl liegt genau in der Mitte zwischen 10⁻² und 10⁻¹?', 0.055, '(0.01 + 0.1) / 2', '10⁻² = 0,01 und 10⁻¹ = 0,1. Die Mitte: (0,01 + 0,1) : 2 = 0,11 : 2 = 0,055 – nicht 10⁻¹,⁵ oder 0,05.', 'Schreibe beide als Dezimalzahlen.'))
+
+lz = 'klein_wissenschaftlich'
+ST.leiter(lz, 'a · 10⁻ⁿ als Dezimalzahl schreiben; die richtige Schreibweise erkennen.', 'Kleine Zahlen als a · 10ⁿ schreiben, auswählen, Nullen zählen, kleine Größen aus dem Alltag.',
+          'Wie viele passen auf eine Länge, Stapelhöhe, Teilen durch Zehnerpotenzen, Fehler deuten, Aussagen prüfen, Exponent bestimmen.')
+TB(lz, 2, 'Ein Bakterium ist etwa', 'einkleidung')
+TB(lz, 3, 'Schreibe 0,56', 'umkehr', neu_s=2); TB(lz, 3, 'Schreibe 0,44', 'umkehr', neu_s=2)
+TB(lz, 3, 'Eine Plastiktüte', 'pruefung'); TB(lz, 3, '7 · 10⁻⁴ wird', 'verknuepfen')
+N(lz, A('erkennen', 'Welche dieser Schreibweisen für 0,0045 ist die wissenschaftliche?', '4,5 · 10⁻³', ['45 · 10⁻⁴', '0,45 · 10⁻²'], 'Vor dem Komma muss genau eine Ziffer von 1 bis 9 stehen: 4,5 · 10⁻³.', 'Wie viele Ziffern vor dem Komma?'))
+N(lz, A('begruenden', 'Stimmt die Aussage? „3 · 10⁻⁶ ist kleiner als 2 · 10⁻⁵.“', 'Ja: 0,000003 < 0,00002.', ['Nein, weil 3 größer ist als 2.', 'Nein, beide sind gleich.'],
+        '10⁻⁶ ist zehnmal kleiner als 10⁻⁵. 3 · 10⁻⁶ = 0,3 · 10⁻⁵, und 0,3 < 2.', 'Schreibe beide Zahlen aus.'))
+N(lz, Z('parameter', 'Für welche ganze Zahl n ist 2,5 · 10ⁿ gleich 0,0025?', -3, '-3', '0,0025 = 2,5 : 1 000 = 2,5 · 10⁻³.', 'Wie oft wurde das Komma nach links geschoben?'))
+K(lz, Z('knobel', 'Ein Wassertropfen hat etwa 5 · 10⁻⁵ l. Wie viele Tropfen sind in einem Liter?', 20000, '1 / (5 * 10 ** -5)', '5 · 10⁻⁵ l = 0,00005 l. 1 : 0,00005 = 100 000 : 5 = 20 000 Tropfen.', 'Wie oft passt 0,00005 in 1?'))
+K(lz, Z('knobel', 'Ein Atom ist etwa 10⁻¹⁰ m groß. Wie viele Atome nebeneinander ergeben 1 mm?', 10000000, '10 ** -3 / 10 ** -10', '1 mm = 10⁻³ m. Wie oft 10⁻¹⁰ in 10⁻³ passt: 10⁻³ : 10⁻¹⁰ = 10⁷ = 10 000 000 Atome – zehn Millionen.', 'Schreibe 1 mm in Metern als Zehnerpotenz.'))
+
+lz = 'vorsilben_klein'
+ST.leiter(lz, 'Vorsilben m, µ, n ihrer Zehnerpotenz zuordnen und einfach umrechnen.', 'Umrechnen mit Komma und zur Grundeinheit zurück, Zeiten am Computer, kleinste Länge finden.',
+          'Wie viele passen auf eine Strecke, Bilder pro Sekunde, Fehler deuten, Aussagen prüfen, rückwärts zur Dicke, mehrteilige Sachaufgabe.')
+TB(lz, 2, 'Ein Rechenschritt', 'einkleidung'); TB(lz, 2, 'Rechne um: 930', 'umkehr')
+TB(lz, 3, 'Ein Rechenschritt', 'einkleidung', neu_s=2)
+TB(lz, 3, 'Eine Kamera', 'verknuepfen')
+N(lz, A('begruenden', 'Stimmt die Aussage? „1 µm ist 1 000-mal so groß wie 1 nm.“', 'Ja: 1 µm = 10⁻⁶ m und 1 nm = 10⁻⁹ m.', ['Nein, 1 nm ist größer.', 'Nein, 1 000 000-mal.'],
+        '10⁻⁶ : 10⁻⁹ = 10³ = 1 000. Mikro ist eine Stufe größer als Nano.', 'Vergleiche die Exponenten.'))
+N(lz, Z('rueckwaerts', 'Ein Stapel aus 400 gleichen Blättern ist 4 cm hoch. Wie dick ist ein Blatt in µm?', 100, '40 * 1000 / 400', '4 cm = 40 mm. 40 mm : 400 = 0,1 mm = 100 µm.', 'Rechne die Höhe in mm um und teile.', einheit='µm'))
+N(lz, Z('pruefung', 'Eine Schnecke kriecht 2 mm pro Sekunde. Wie viele Meter schafft sie in einer Stunde?', 7.2, '2 * 3600 / 1000', '2 mm · 3 600 = 7 200 mm = 7,2 m.', 'Wie viele Sekunden hat eine Stunde?', einheit='m'))
+K(lz, Z('knobel', 'Licht legt in 1 ns etwa 30 cm zurück. Wie viele Meter sind es in 1 µs?', 300, '0.3 * 1000', '1 µs = 1 000 ns. In 1 000 Nanosekunden schafft das Licht 1 000 · 30 cm = 30 000 cm = 300 m.', 'Wie viele Nanosekunden hat eine Mikrosekunde?', einheit='m'))
+K(lz, Z('knobel', 'Ein Fingernagel wächst etwa 0,1 mm pro Tag. Um wie viele Nanometer wächst er in einer Sekunde? Runde auf ganze Nanometer.', 1, 'round(100000 / 86400)',
+        '0,1 mm = 100 000 nm. Ein Tag hat 24 · 60 · 60 = 86 400 s. 100 000 : 86 400 ≈ 1,16, also etwa 1 nm pro Sekunde.', 'Rechne die Länge in nm und den Tag in Sekunden um.', einheit='nm'))
+
+lz = 'vergleichen_pruefen'
+ST.leiter(lz, 'Zwei Zahlen in Zehnerpotenz-Schreibweise vergleichen; eine Zehnerpotenz ausschreiben.', 'Die kleinste oder größte Zahl finden, ordnen, Verhältnisse, Größen aus dem Alltag, Exponent zu einer Zahl.',
+          'Fehler in der Schreibweise deuten, Aussagen prüfen, Verhältnisse kleiner Größen, Bereich für den Exponenten.')
+N(lz, Z('direkt', 'Schreibe 4 · 10³ ohne Zehnerpotenz.', 4000, '4 * 10 ** 3', '10³ = 1 000, also 4 · 1 000 = 4 000.', 'Wie viel ist 10³?'))
+N(lz, A('einkleidung', 'Ein Sandkorn wiegt etwa 6 · 10⁻⁵ kg, ein Reiskorn etwa 2,5 · 10⁻⁵ kg. Was ist schwerer?', 'das Sandkorn', ['das Reiskorn', 'Beide wiegen gleich viel.'], 'Gleicher Exponent: Die größere Zahl vorne gewinnt. 6 > 2,5.', 'Vergleiche zuerst die Exponenten.'))
+N(lz, Z('umkehr', 'Welcher Exponent n macht 4 · 10ⁿ genau 40 000?', 4, '4', '40 000 = 4 · 10 000 = 4 · 10⁴.', 'Wie viele Nullen hat 40 000?'))
+K(lz, A('knobel', 'Welche dieser drei Zahlen ist am größten: 3 · 10⁻⁴ · 10, 2 · 10⁻³ oder 0,0025?', '3 · 10⁻⁴ · 10', ['2 · 10⁻³', '0,0025'], '3 · 10⁻⁴ · 10 = 3 · 10⁻³ = 0,003; 2 · 10⁻³ = 0,002; 0,0025. Am größten ist 0,003.', 'Bringe alle auf die Form a · 10⁻³.'))
+K(lz, Z('knobel', 'Für wie viele ganze Zahlen n gilt 10⁻³ < 5 · 10ⁿ < 10²?', 5, '1 - (-3) + 1',
+        'n = −3: 0,005 > 0,001 passt; n = −4: 0,0005 ist zu klein. n = 1: 50 < 100 passt; n = 2: 500 ist zu groß. Also n = −3, −2, −1, 0, 1 – fünf Zahlen.', 'Probiere die Grenzen aus.'))
+
 if __name__ == '__main__':
     schreibe(DATEI)
+    stufen_datei('zahlen.potenzen_zehner', ST)

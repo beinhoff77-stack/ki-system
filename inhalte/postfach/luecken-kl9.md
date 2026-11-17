@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 13:01 – STATUS
+zahlen.reell fertig: neue Lernkarte „heron“ (Heron-Verfahren mit Tabelle) nach „eingrenzen“, Pflicht (LehrplanPLUS M9 1); 28 Aufgaben (Übung 4/6/8, davon 3 nach Prüfungsvorbild, 2 Knobel; Test 1, Korrektur 3, Sicherung 6). Karte „wurzel_mal“ um Schritt 5 „√((−3)²) = 3, also √(a²) = |a|“ mit Zahlenstrahl und 4 Übungen (S2: 2, S3: 2) erweitert – als Schritt statt als Fehler-Hinweis, weil „fehler“ schon belegt ist und höchstens 30 Wörter haben darf. Sachaufgaben: 6 neue Stufe-3-Übungen an eingrenzen, wurzel_mal (2), teilweise, zusammenfassen, nenner_rational. inhalt_pruefen OK; Nachweis OK (nur wurzel_mal geändert, Feld schritte).
+
 ## 2026-11-17 12:59 – STATUS
 gleichungen.quadratisch fertig: neue Lernkarte „bruchgleichung“ (Bruchgleichungen, die auf quadratische Gleichungen führen; Definitionsmenge, Scheinlösung; Schnittpunkte Gerade–Hyperbel) nach „loesungsformel“, Pflicht (LehrplanPLUS M9 2.2). 28 Aufgaben (Übung 4/6/8, davon 2 nach Prüfungsvorbild, 2 Knobel; Test 1, Korrektur 3, Sicherung 6). inhalt_pruefen OK; Nachweis OK.
 

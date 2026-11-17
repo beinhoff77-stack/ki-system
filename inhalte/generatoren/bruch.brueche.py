@@ -856,5 +856,197 @@ BF.nicht_umgesetzt('zahlenstrahl: Markierungen mit Dritteln/Sechsteln ohne Feld 
 befunde_anwenden(DATEI, BF)
 # ---- BEFUNDE ENDE ----
 
+
+# ---------- LUECKEN (Achtzehnte Runde, Teil B, Zweig luecken-kl6) ----------
+# Läuft nach allen bisherigen Abschnitten mit eigenem Zufallsstart; vorhandene Karten und Aufgaben bleiben unverändert.
+# Lehrplan: LehrplanPLUS Gymnasium Bayern M6 1.1 (Hauptnenner „ggf. per Primfaktorzerlegung“; Brüche als Zahlen, ℕ/ℤ/ℚ, positive und negative
+# Bruchzahlen am Zahlenstrahl begründet ordnen), M6 1.3/1.4 (gemischte Zahlen). Prüfungsvorbilder: Grundwissentest Mathematik Jgst. 7 der
+# Realschule (ISB) 2013 Nr. 2 (Zahl in der Mitte zwischen zwei Zahlen) und Nr. 5 („ein Fünftel der Zahl 3“: Bruch als Quotient),
+# 2015 Nr. 2 (Bruch mit vorgegebenem Nenner zwischen zwei Brüchen), 2022 Nr. 3 (Brüche ordnen), 2024 Nr. 5 (Menge aus einem Anteil).
+from _luecken_kl6 import karte_neu, karte_erweitern, zahl, wahl, mark, gemischt, bruch as lbruch  # noqa: E402
+
+
+def _gem_aufgaben():
+    U = 'uebung'
+    def b(t, E, h, w): return lambda R: lbruch(t, E, h, w)
+    def g(t, E, h, w): return lambda R: gemischt(t, E, h, w)
+    UM = 'Ganze mal Nenner, dann den Zähler dazuzählen.'
+    ZU = 'Teile Zähler durch Nenner. Das Ergebnis sind die Ganzen, der Rest ist der neue Zähler.'
+    return [
+        (U, 1, b('Schreibe 3 1/2 als unechten Bruch.', '3 + 1/2', UM, '3 Ganze sind 6/2. Dazu 1/2: 7/2.')),
+        (U, 1, b('Schreibe 1 2/5 als unechten Bruch.', '1 + 2/5', UM, '1 Ganzes sind 5/5. Dazu 2/5: 7/5.')),
+        (U, 1, g('Schreibe 9/4 als gemischte Zahl.', '9/4', ZU, '9 : 4 = 2 Rest 1. Also 9/4 = 2 1/4.')),
+        (U, 1, g('Schreibe 7/3 als gemischte Zahl.', '7/3', ZU, '7 : 3 = 2 Rest 1. Also 7/3 = 2 1/3.')),
+        (U, 2, b('Schreibe 4 5/6 als unechten Bruch.', '4 + 5/6', UM, '4 · 6 = 24 Sechstel. 24 + 5 = 29. Also 29/6.')),
+        (U, 2, g('Schreibe 23/8 als gemischte Zahl.', '23/8', ZU, '23 : 8 = 2 Rest 7. Also 23/8 = 2 7/8.')),
+        (U, 2, g('Schreibe 18/4 als gemischte Zahl. Kürze den Restbruch.', '18/4', 'Teile mit Rest. Prüfe danach, ob der Restbruch kürzbar ist.',
+                 '18 : 4 = 4 Rest 2, also 4 2/4. Gekürzt: 4 1/2.')),
+        (U, 2, lambda R: wahl(R, 'Welche Zahl ist größer: 2 3/5 oder 13/5?', 'Beide sind gleich groß.', ['2 3/5', '13/5'],
+                              'Schreibe 2 3/5 als unechten Bruch.', '2 3/5 = 10/5 + 3/5 = 13/5. Beide Zahlen sind gleich.', n=3)),
+        (U, 2, lambda R: wahl(R, 'Zwischen welchen ganzen Zahlen liegt 47/6?', 'zwischen 7 und 8', ['zwischen 4 und 5', 'zwischen 6 und 7', 'zwischen 8 und 9'],
+                              'Wie oft passt 6 in 47?', '47 : 6 = 7 Rest 5, also 47/6 = 7 5/6. Das liegt zwischen 7 und 8.')),
+        (U, 2, lambda R: zahl('Wie viele Viertelstunden sind 3 1/4 Stunden?', 13, '(3 + 1/4) * 4', 'Eine Stunde hat 4 Viertelstunden.',
+                              '3 Stunden sind 12 Viertelstunden, dazu 1 Viertelstunde: 13.')),
+        (U, 3, lambda R: zahl('Ein Rezept braucht 1 3/4 Becher Mehl. Ein Becher fasst 200 g. Wie viele Gramm Mehl sind das?', 350, '(1 + 3/4) * 200',
+                              'Ein ganzer Becher sind 200 g. Wie viel sind 3/4 Becher?', '1 Becher = 200 g. 3/4 Becher = 150 g. Zusammen 350 g.', einheit='g')),
+        (U, 3, g('Gib die gemischte Zahl mit dem Nenner 8 an, die zwischen 13/4 und 7/2 liegt.', '27/8',
+                 'Schreibe beide Brüche mit dem Nenner 8.', '13/4 = 26/8 und 7/2 = 28/8. Dazwischen liegt 27/8 = 3 3/8.')),
+        (U, 3, g('Welche Zahl liegt genau in der Mitte zwischen 1 1/2 und 4? Gib sie als gemischte Zahl an.', '(3/2 + 4) / 2',
+                 'Der Abstand ist 4 − 1 1/2. Die Mitte ist die Hälfte davon weiter.', 'Abstand 2 1/2, die Hälfte ist 1 1/4. 1 1/2 + 1 1/4 = 2 3/4.')),
+        (U, 3, g('Bilde mit den Ziffern 2, 3 und 5 (je einmal) eine gemischte Zahl mit echtem Bruch, z. B. 2 3/5. Welche ist die größte?', '5 + 2/3',
+                 'Die größte Ziffer gehört zu den Ganzen. Welcher echte Bruch aus den beiden anderen Ziffern ist möglich?',
+                 'Ganze 5. Echter Bruch aus 2 und 3: nur 2/3 (3/2 ist unecht). Also 5 2/3.')),
+        (U, 3, b('Ein Kind schreibt 3 2/5 = 6/5, weil 3 · 2 = 6. Wie heißt der unechte Bruch richtig?', '3 + 2/5',
+                 '3 2/5 heißt 3 + 2/5. Wie viele Fünftel sind 3 Ganze?', '3 Ganze = 15 Fünftel. 15 + 2 = 17. Richtig ist 17/5, nicht 6/5.')),
+        (U, 3, g('Ein Kind schreibt 17/4 = 3 5/4. Wie heißt die gemischte Zahl richtig?', '17/4',
+                 'Der Restbruch einer gemischten Zahl muss kleiner als 1 sein.', '5/4 ist noch mehr als 1. 17 : 4 = 4 Rest 1, also 4 1/4.')),
+        (U, 3, lambda R: zahl('Ein Band ist 5 1/4 m lang. Wie viele Stücke von je 1/4 m kann man abschneiden?', 21, '(5 + 1/4) * 4',
+                              'Wie viele Viertel sind 5 1/4?', '5 1/4 = 21/4. Also 21 Stücke zu je 1/4 m.')),
+        (U, 3, lambda R: wahl(R, 'Welche Aussage über 2 1/2 stimmt?', '2 1/2 = 5/2', ['2 1/2 = 2 · 1/2', '2 1/2 = 3/2', '2 1/2 = 21/2'],
+                              'Schreibe 2 1/2 als 2 + 1/2.', '2 + 1/2 = 4/2 + 1/2 = 5/2. 2 · 1/2 wäre nur 1, und 21/2 wäre 10 1/2.')),
+        ('test', 2, b('Schreibe 2 2/3 als unechten Bruch.', '2 + 2/3', '', '2 · 3 = 6 Drittel, dazu 2: 8/3.')),
+        ('korrektur', 2, b('Schreibe 1 5/8 als unechten Bruch.', '1 + 5/8', '', '8 Achtel + 5 Achtel = 13/8.')),
+        ('korrektur', 2, g('Schreibe 11/5 als gemischte Zahl.', '11/5', '', '11 : 5 = 2 Rest 1. Also 2 1/5.')),
+        ('korrektur', 2, b('Schreibe 3 3/7 als unechten Bruch.', '3 + 3/7', '', '3 · 7 = 21 Siebtel, dazu 3: 24/7.')),
+        ('sicherung', 2, b('Schreibe 5 1/3 als unechten Bruch.', '5 + 1/3', '', '5 · 3 = 15 Drittel, dazu 1: 16/3.')),
+        ('sicherung', 2, g('Schreibe 19/6 als gemischte Zahl.', '19/6', '', '19 : 6 = 3 Rest 1. Also 3 1/6.')),
+        ('sicherung', 2, b('Schreibe 2 4/9 als unechten Bruch.', '2 + 4/9', '', '2 · 9 = 18 Neuntel, dazu 4: 22/9.')),
+        ('sicherung', 2, g('Schreibe 15/7 als gemischte Zahl.', '15/7', '', '15 : 7 = 2 Rest 1. Also 2 1/7.')),
+        ('sicherung', 2, b('Schreibe 6 1/2 als unechten Bruch.', '6 + 1/2', '', '6 · 2 = 12 Halbe, dazu 1: 13/2.')),
+        ('sicherung', 2, g('Schreibe 25/8 als gemischte Zahl.', '25/8', '', '25 : 8 = 3 Rest 1. Also 3 1/8.')),
+    ]
+
+
+_GEM = {
+    'lernziel': 'gemischte_zahlen', 'titel': 'Gemischte Zahlen umwandeln',
+    'einstieg': 'Nach dem Fest bleiben 2 ganze Pizzen und 3/4 Pizza übrig. Man schreibt kurz 2 3/4 Pizzen. So eine Zahl heißt ⟦gemischte Zahl⟧.',
+    'woerter': [['gemischte Zahl', 'Ganze und ein Bruch zusammen: 2 3/4 heißt 2 + 3/4'],
+                ['unechter Bruch', 'ein Bruch mit Zähler größer als der Nenner, z. B. 11/4']],
+    'bild': {'typ': 'bruchstreifen', 'teile': 4, 'gefaerbt': 4, 'ganzes': '1 Pizza', 'teil_text': '1. Pizza',
+             'zeilen': [{'teile': 4, 'gefaerbt': 4, 'teil_text': '2. Pizza'}, {'teile': 4, 'gefaerbt': 3, 'teil_text': '3/4'}]},
+    'schritte': [
+        {'text': 'Jede ganze Pizza hat 4 Viertel. 2 Pizzen sind 8 Viertel.'},
+        {'text': 'Dazu kommen noch 3 Viertel: 8 + 3 = 11 Viertel.',
+         'bild': {'zeilen': [{'teile': 4, 'gefaerbt': 4, 'teil_text': '8/4'}, {'teile': 4, 'gefaerbt': 3, 'teil_text': '+ 3/4'}]}},
+        {'text': 'Also ist 2 3/4 = ⟦11/4⟧. Das ist ein unechter Bruch.'},
+        {'text': 'Rückwärts: 11 : 4 = 2 Rest 3. Also 11/4 = ⟦2 3/4⟧.'},
+    ],
+    'fehler': '2 3/4 heißt nicht 2 · 3/4. Zwei Pizzen und drei Viertel sind 2 + 3/4, also mehr als 2 Pizzen.',
+    'fehler_bild': {'teile': 4, 'gefaerbt': 4, 'teil_text': '2 · 3/4 = 6/4', 'zeilen': [{'teile': 4, 'gefaerbt': 2, 'teil_text': 'nur 1 1/2 Pizzen'}]},
+    'regel': 'Gemischte Zahl in Bruch: ⟦Ganze mal Nenner plus Zähler⟧. Rückwärts teilst du mit Rest.',
+    'probe': '11/4 = 8/4 + 3/4 = 2 + 3/4 = 2 3/4.',
+}
+
+
+def _zb_aufgaben():
+    U = 'uebung'
+    def m(t, a, e, n, i, h, w, z): return lambda R: mark(t, a, e, n, i, h, w, z)
+    def b(t, E, h, w): return lambda R: lbruch(t, E, h, w)
+    LINKS = 'Weiter links am Zahlenstrahl heißt kleiner.'
+    return [
+        (U, 1, m('Markiere −1/2 am Zahlenstrahl (von −1 bis 1, 8 gleiche Teile).', -1, 1, 8, 2, 'Ein Teil ist 1/4 lang. −1/2 liegt links von 0.',
+                 'Von −1 aus: −3/4, −1/2 – das ist der 2. Strich.', Fr(-1, 2))),
+        (U, 1, m('Markiere −3/4 am Zahlenstrahl (von −1 bis 1, 8 gleiche Teile).', -1, 1, 8, 1, 'Ein Teil ist 1/4 lang. Zähle von 0 nach links.',
+                 '−3/4 ist drei Viertel links von 0, also der 1. Strich nach −1.', Fr(-3, 4))),
+        (U, 1, lambda R: wahl(R, 'Welche Zahl ist kleiner: −1/3 oder 1/4?', '−1/3', ['1/4', 'Beide sind gleich groß.'], LINKS,
+                              'Jede negative Zahl ist kleiner als jede positive Zahl. Also ist −1/3 kleiner.', n=3)),
+        (U, 1, b('Schreibe 5 : 8 als Bruch.', '5 / 8', 'Der Bruchstrich bedeutet „geteilt durch“.', 'Der Bruchstrich heißt „geteilt durch“: 5 : 8 = 5/8.')),
+        (U, 2, lambda R: wahl(R, 'Ordne −2/3, −3/4 und −1/2 der Größe nach. Welche Zahl ist am kleinsten?', '−3/4', ['−2/3', '−1/2'],
+                              'Vergleiche zuerst 3/4, 2/3 und 1/2. Bei negativen Zahlen dreht sich die Reihenfolge um.',
+                              '3/4 > 2/3 > 1/2. Also liegt −3/4 am weitesten links: −3/4 < −2/3 < −1/2.', n=3)),
+        (U, 2, lambda R: wahl(R, 'Welche Zahl ist größer: −5/6 oder −7/8?', '−5/6', ['−7/8', 'Beide sind gleich groß.'],
+                              'Hauptnenner 24. Die Zahl mit dem kleineren Betrag liegt näher bei 0.',
+                              '5/6 = 20/24 und 7/8 = 21/24. −20/24 liegt näher bei 0, also ist −5/6 größer.', n=3)),
+        (U, 2, m('Markiere −1 1/4 am Zahlenstrahl (von −2 bis 0, 8 gleiche Teile).', -2, 0, 8, 3, 'Ein Teil ist 1/4 lang. −1 1/4 liegt zwischen −2 und −1.',
+                 '−1 1/4 = −5/4. Von −2 aus: −7/4, −6/4, −5/4 – der 3. Strich.', Fr(-5, 4))),
+        (U, 2, lambda R: gemischt('Schreibe 7 : 3 zuerst als Bruch und dann als gemischte Zahl.', '7 / 3', 'Der Bruchstrich heißt „geteilt durch“. Dann teilen mit Rest.',
+                                  '7 : 3 = 7/3. 7 : 3 = 2 Rest 1, also 2 1/3.')),
+        (U, 2, lambda R: wahl(R, 'Welche dieser Zahlen ist eine ganze Zahl?', '−8/4', ['3/4', '−1/2', '5/3'],
+                              'Kürze oder teile: Geht die Division ohne Rest auf?', '−8/4 = −8 : 4 = −2. Das ist eine ganze Zahl. Die anderen gehen nicht auf.')),
+        (U, 2, lambda R: wahl(R, 'Stimmt die Aussage? „Jede natürliche Zahl kann man als Bruch schreiben.“', 'Ja, zum Beispiel 5 = 5/1 = 10/2.',
+                              ['Nein, natürliche Zahlen sind keine Brüche.', 'Nur gerade Zahlen.'],
+                              'Denke an den Nenner 1.', 'Jede natürliche Zahl n ist n/1. Deshalb gehören alle natürlichen Zahlen zu den rationalen Zahlen.', n=3)),
+        (U, 3, b('Welche Zahl liegt genau in der Mitte zwischen −3/4 und 1/4?', '(-3/4 + 1/4) / 2', 'Der Abstand ist 1. Geh von −3/4 die Hälfte davon nach rechts.',
+                 'Abstand: 1/4 − (−3/4) = 1. Die Hälfte ist 1/2. −3/4 + 1/2 = −1/4.')),
+        (U, 3, lambda R: wahl(R, 'Welcher Term hat den gleichen Wert wie „ein Viertel von 3“?', '3 : 4', ['4 : 3', '3 · 4', '1/4 : 3'],
+                              'Ein Viertel von 3 sind 3 · 1/4. Das ist 3/4.', '3 · 1/4 = 3/4 = 3 : 4. Dagegen: 4 : 3 = 4/3, 3 · 4 = 12, 1/4 : 3 = 1/12.')),
+        (U, 3, lambda R: wahl(R, 'Ordne −1/2, 1/3, −2/3 und 1/4 der Größe nach, mit der kleinsten Zahl zuerst. Welche Zahl steht an zweiter Stelle?', '−1/2',
+                              ['−2/3', '1/4', '1/3'], 'Zuerst die negativen Zahlen. Die mit dem größeren Betrag ist kleiner.',
+                              '−2/3 < −1/2 < 1/4 < 1/3. An zweiter Stelle steht −1/2.')),
+        (U, 3, lambda R: wahl(R, 'Welche Zahl kommt direkt nach 1/2?', 'Keine: Zwischen zwei Brüchen liegt immer noch ein Bruch.', ['2/2', '1/3', '3/4'],
+                              'Suche einen Bruch zwischen 1/2 und deinem Kandidaten.',
+                              'Zwischen 1/2 und 3/4 liegt z. B. 5/8, dazwischen wieder 9/16 … Brüche haben keinen Nachfolger.')),
+        (U, 3, lambda R: zahl('Wie viele Brüche mit dem Nenner 6 liegen zwischen −1 und 0? (Die Grenzen zählen nicht.)', 5, '6 - 1',
+                              'Schreibe −1 als −6/6.', 'Es sind −5/6, −4/6, −3/6, −2/6 und −1/6, also 5 Brüche.')),
+        (U, 3, lambda R: wahl(R, 'Ein Kind sagt: „−2/5 ist kleiner als −3/5, weil 2 kleiner ist als 3.“ Was stimmt?', 'Falsch: −3/5 liegt weiter links, also −3/5 < −2/5.',
+                              ['Richtig.', 'Falsch: Beide Zahlen sind gleich groß.', 'Falsch: Negative Brüche kann man nicht vergleichen.'], LINKS,
+                              'Bei negativen Zahlen ist die mit dem größeren Betrag kleiner: 3/5 > 2/5, also −3/5 < −2/5.')),
+        (U, 3, m('Ein Thermometer zeigt −3/4 °C. Es wird noch 1/4 °C kälter. Markiere die neue Temperatur (Zahlenstrahl von −2 bis 0, 8 gleiche Teile).',
+                 -2, 0, 8, 4, 'Kälter heißt: nach links. Ein Teil ist 1/4.', '−3/4 − 1/4 = −1. −1 liegt beim 4. Strich nach −2.', -1)),
+        (U, 3, lambda R: wahl(R, 'Welche Zahl ist am kleinsten: −7/2, −3 oder −13/4?', '−7/2', ['−3', '−13/4'],
+                              'Schreibe alle Zahlen mit dem Nenner 4.', '−7/2 = −14/4, −3 = −12/4, −13/4. Am weitesten links: −14/4 = −7/2.', n=3)),
+        ('test', 2, m('Markiere −1/4 am Zahlenstrahl (von −1 bis 1, 8 gleiche Teile).', -1, 1, 8, 3, '', 'Von −1 aus: −3/4, −1/2, −1/4 – der 3. Strich.', Fr(-1, 4))),
+        ('korrektur', 2, lambda R: wahl(R, 'Welche Zahl ist größer: −2/3 oder −1/3?', '−1/3', ['−2/3', 'Beide sind gleich groß.'], '',
+                                        '−1/3 liegt näher bei 0, also weiter rechts. −1/3 ist größer.', n=3)),
+        ('korrektur', 2, b('Schreibe 7 : 9 als Bruch.', '7 / 9', '', 'Der Bruchstrich heißt „geteilt durch“: 7 : 9 = 7/9.')),
+        ('korrektur', 2, m('Markiere −3/2 am Zahlenstrahl (von −2 bis 0, 4 gleiche Teile).', -2, 0, 4, 1, '', 'Ein Teil ist 1/2. −3/2 = −1 1/2 ist der 1. Strich nach −2.', Fr(-3, 2))),
+        ('sicherung', 2, m('Markiere −1/2 am Zahlenstrahl (von −2 bis 2, 8 gleiche Teile).', -2, 2, 8, 3, '', 'Ein Teil ist 1/2. Von −2 aus: −3/2, −1, −1/2 – der 3. Strich.', Fr(-1, 2))),
+        ('sicherung', 2, lambda R: wahl(R, 'Welche Zahl ist kleiner: −1/4 oder −1/5?', '−1/4', ['−1/5', 'Beide sind gleich groß.'], '',
+                                        '1/4 > 1/5, also liegt −1/4 weiter links und ist kleiner.', n=3)),
+        ('sicherung', 2, b('Schreibe 11 : 4 als Bruch.', '11 / 4', '', 'Der Bruchstrich heißt „geteilt durch“: 11 : 4 = 11/4.')),
+        ('sicherung', 2, m('Markiere −1 1/2 am Zahlenstrahl (von −2 bis 1, 6 gleiche Teile).', -2, 1, 6, 1, '', 'Ein Teil ist 1/2. −1 1/2 ist der 1. Strich nach −2.', Fr(-3, 2))),
+        ('sicherung', 2, lambda R: wahl(R, 'Welche Zahl ist größer: −3/8 oder −1/2?', '−3/8', ['−1/2', 'Beide sind gleich groß.'], '',
+                                        '1/2 = 4/8 > 3/8. −3/8 liegt näher bei 0 und ist größer.', n=3)),
+        ('sicherung', 2, b('Schreibe 2 : 7 als Bruch.', '2 / 7', '', 'Der Bruchstrich heißt „geteilt durch“: 2 : 7 = 2/7.')),
+    ]
+
+
+_ZB = {
+    'lernziel': 'zahlbereiche', 'titel': 'Brüche als Zahlen, auch negativ',
+    'einstieg': 'Das Thermometer zeigt −1/2 °C, eine halbe Stufe unter null. Brüche gibt es also auch links von 0. Alle Brüche zusammen heißen ⟦rationale Zahlen⟧.',
+    'woerter': [['rationale Zahlen', 'alle positiven und negativen Brüche, auch die ganzen Zahlen; Zeichen ℚ'],
+                ['Quotient', 'Ergebnis einer Division: 3/4 = 3 : 4']],
+    'bild': {'typ': 'zahlenstrahl', 'start': -2, 'ende': 2, 'abschnitte': 8, 'beschriftet': 'anfang_ende'},
+    'schritte': [
+        {'text': '−3/4 liegt links von 0, genauso weit wie 3/4 rechts.',
+         'bild': {'punkte': [{'wert': -0.75, 'name': '−3/4'}, {'wert': 0.75, 'name': '3/4'}]}},
+        {'text': 'Jetzt kommt −1/2 dazu. Weiter links heißt kleiner.',
+         'bild': {'punkte': [{'wert': -0.75, 'name': '−3/4'}, {'wert': -0.5, 'name': '−1/2'}, {'wert': 0.75, 'name': '3/4'}]}},
+        {'text': 'Also gilt ⟦−3/4 < −1/2⟧, obwohl 3/4 größer ist als 1/2.'},
+        {'text': 'Jeder Bruch ist ein Quotient: 3/4 = 3 : 4 (3 Pizzen, 4 Kinder).'},
+    ],
+    'fehler': '−3/4 ist nicht größer als −1/2. Am Thermometer ist −3/4 °C kälter als −1/2 °C.',
+    'fehler_bild': {'punkte': [{'wert': -0.75, 'name': '−3/4: kälter'}, {'wert': -0.5, 'name': '−1/2'}]},
+    'regel': 'Am Zahlenstrahl ist die Zahl ⟦weiter links⟧ kleiner. Jeder Bruch ist ein Quotient: a/b = a : b.',
+    'probe': '−3/4 = −0,75 und −1/2 = −0,5: −0,75 liegt weiter links.',
+}
+
+
+def _vgl_aufgaben():
+    return [
+        (None, 2, lambda R: zahl('Bestimme den Hauptnenner von 5/12 und 7/18 mit der Primfaktorzerlegung.', 36, '2 * 2 * 3 * 3',
+                                 '12 = 2 · 2 · 3 und 18 = 2 · 3 · 3. Jeder Faktor so oft, wie er höchstens vorkommt.', '2 · 2 · 3 · 3 = 36.')),
+        (None, 2, lambda R: zahl('Bestimme den Hauptnenner von 3/8 und 5/12 mit der Primfaktorzerlegung.', 24, '2 * 2 * 2 * 3',
+                                 '8 = 2 · 2 · 2 und 12 = 2 · 2 · 3.', 'Drei Zweien (von der 8) und eine Drei (von der 12): 2 · 2 · 2 · 3 = 24.')),
+        (None, 2, lambda R: zahl('Bestimme den Hauptnenner von 7/15 und 9/20 mit der Primfaktorzerlegung.', 60, '2 * 2 * 3 * 5',
+                                 '15 = 3 · 5 und 20 = 2 · 2 · 5.', 'Zwei Zweien, eine Drei, eine Fünf: 2 · 2 · 3 · 5 = 60.')),
+        (None, 3, lambda R: wahl(R, 'Welcher Bruch ist größer: 7/12 oder 11/18?', '11/18', ['7/12', 'Beide sind gleich groß.'],
+                                 'Hauptnenner über die Primfaktoren: 12 = 2 · 2 · 3, 18 = 2 · 3 · 3.',
+                                 'Hauptnenner 36. 7/12 = 21/36 und 11/18 = 22/36. Also ist 11/18 größer.', n=3)),
+        (None, 3, lambda R: zahl('Bestimme den Hauptnenner von 1/6, 3/8 und 4/9.', 72, '2 * 2 * 2 * 3 * 3',
+                                 'Zerlege 6, 8 und 9 in Primfaktoren.', '6 = 2 · 3, 8 = 2 · 2 · 2, 9 = 3 · 3. Drei Zweien und zwei Dreien: 72.')),
+        (None, 3, lambda R: lbruch('Gib den Bruch mit dem Nenner 24 an, der genau in der Mitte zwischen 5/12 und 1/2 liegt.', '(5/12 + 1/2) / 2',
+                                   'Schreibe beide Brüche mit dem Nenner 24.', '5/12 = 10/24 und 1/2 = 12/24. In der Mitte liegt 11/24.')),
+    ]
+
+
+karte_neu(DATEI, _GEM, _gem_aufgaben(), seed=6181, nach='kuerzen', teil_text='Gemischte Zahlen und unechte Brüche umwandeln')
+karte_erweitern(DATEI, 'vergleichen', _vgl_aufgaben(), seed=6182,
+                schritte_einfuegen=[(1, {'text': 'Oder mit der Primfaktorzerlegung: 4 = 2 · 2 und 6 = 2 · 3.'}),
+                                    (2, {'text': 'Jeder Faktor so oft wie nötig: 2 · 2 · 3 = ⟦12⟧.'})],
+                woerter_dazu=[['Primfaktorzerlegung', 'eine Zahl als Produkt von Primzahlen schreiben: 12 = 2 · 2 · 3']])
+karte_neu(DATEI, _ZB, _zb_aufgaben(), seed=6183, vor='verstehen', teil_text='Brüche als Zahlen: negative Brüche ordnen, Bruch als Quotient')
+
+
 if __name__ == '__main__':
     schreibe(DATEI)

@@ -366,6 +366,25 @@
         }
        ]
       }
+     },
+     {
+      "text": "Zweites Beispiel: Der Rad-Anteil steigt von 20 % auf 25 %.",
+      "bild": {
+       "einheit": " %",
+       "werte": [
+        {
+         "name": "vorher",
+         "wert": 20
+        },
+        {
+         "name": "nachher",
+         "wert": 25
+        }
+       ]
+      }
+     },
+     {
+      "text": "Das sind 5 ⟦Prozentpunkte⟧ mehr. Aber 5 von 20 sind 25 % mehr."
      }
     ],
     "fehler": "−10 % und +10 % heben sich nicht auf. Die zweiten 10 % gehören zu einem anderen Grundwert.",
@@ -374,6 +393,10 @@
      [
       "Grundwert",
       "das Ganze, von dem die Prozente berechnet werden"
+     ],
+     [
+      "Prozentpunkte",
+      "Abstand zwischen zwei Prozentangaben: von 20 % auf 25 % sind es 5 Prozentpunkte"
      ]
     ],
     "bild": {
@@ -6395,6 +6418,120 @@
    },
    "h": "Rechne mit 1 000 €: 10 % davon, dann davon wieder 10 %.",
    "w": "10 % von 1 000 € = 100 €. 10 % von 100 € = 10 € = 1 % von 1 000 €."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Anteil der Kinder mit Fahrradhelm steigt von 30 % auf 36 %. Um wie viele Prozentpunkte ist er gestiegen?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "Prozentpunkte"
+   },
+   "c": "36 - 30",
+   "h": "Prozentpunkte: Differenz der beiden Prozentangaben. Prozent: Differenz im Vergleich zum alten Wert.",
+   "w": "36 % − 30 % = 6 Prozentpunkte."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einem Text steht: „Jedes vierte Kind spielt ein Instrument.“ Wie viel Prozent sind das?"
+   },
+   "a": [
+    "4 %",
+    "25 %",
+    "40 %",
+    "75 %"
+   ],
+   "o": {
+    "index": 1
+   },
+   "h": "Jedes vierte heißt: 1 von 4.",
+   "w": "1 von 4 = 1/4 = 25/100 = 25 %."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Anteil der Kinder mit Fahrradhelm steigt von 30 % auf 36 %. Um wie viel Prozent ist der Anteil gestiegen?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "%"
+   },
+   "c": "(36 - 30) / 30 * 100",
+   "h": "Prozentpunkte: Differenz der beiden Prozentangaben. Prozent: Differenz im Vergleich zum alten Wert.",
+   "w": "Der Anteil wächst um 6 Prozentpunkte. 6 von 30 sind 1/5 = 20 %."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Zeitung steht: „Drei von fünf Kindern lesen täglich. Das ist mehr als die Hälfte.“ Stimmt das?"
+   },
+   "a": [
+    "Ja: 3 von 5 sind 60 %, und 60 % ist mehr als 50 %.",
+    "Nein: Das ist genau die Hälfte.",
+    "Nein: 3 von 5 sind 30 %.",
+    "Nein: 3 von 5 sind 35 %."
+   ],
+   "o": {
+    "index": 0
+   },
+   "h": "Schreibe „drei von fünf“ als Bruch und dann in Prozent.",
+   "w": "3/5 = 60/100 = 60 %. Die Hälfte wären 50 %."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Quote sinkt von 40 % auf 30 %. In der Zeitung steht: „Sie ist um 10 % gesunken.“ Was stimmt?"
+   },
+   "a": [
+    "Sie ist um 10 Prozentpunkte gesunken, das sind 10 % weniger.",
+    "Sie ist um 10 Prozentpunkte gesunken. Das sind 25 % weniger.",
+    "Sie ist um 30 % gesunken.",
+    "Die Zeitung hat recht."
+   ],
+   "o": {
+    "index": 1
+   },
+   "h": "Prozentpunkte: Differenz der beiden Prozentangaben. Prozent: Differenz im Vergleich zum alten Wert.",
+   "w": "40 % − 30 % = 10 Prozentpunkte. Im Vergleich zum alten Wert: 10 von 40 = 1/4 = 25 % weniger."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Anteil steigt um 10 Prozentpunkte. Das sind 50 % mehr als vorher. Wie viel Prozent war der Anteil vorher?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "%"
+   },
+   "c": "10 / 50 * 100",
+   "h": "10 Prozentpunkte sind die Hälfte des alten Anteils.",
+   "w": "50 % mehr heißt: Die 10 Prozentpunkte sind die Hälfte des alten Werts. Also war er 20 %."
   }
  ],
  "offen": [

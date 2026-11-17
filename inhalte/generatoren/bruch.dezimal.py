@@ -785,5 +785,89 @@ BF.nicht_umgesetzt('runden „Runde 2,596 auf Hundertstel“ (Test 30,096): Lös
 befunde_anwenden(DATEI, BF)
 # ---- BEFUNDE ENDE ----
 
+
+# ---------- LUECKEN (Achtzehnte Runde, Teil B, Zweig luecken-kl6) ----------
+# Läuft nach allen bisherigen Abschnitten mit eigenem Zufallsstart; vorhandene Karten und Aufgaben bleiben unverändert.
+# Lehrplan: LehrplanPLUS Gymnasium Bayern M6 1.2 (Umwandlung Bruch ↔ Dezimalbruch bei passenden Zahlen auch im Kopf; Anzeigen digitaler
+# Hilfsmittel wie „0,166666667“ bei 1 : 6 reflektiert lesen), M6 1.1 (Prozent als andere Schreibweise für Brüche).
+# Prüfungsvorbilder: Grundwissentest Jgst. 7 der Realschule (ISB) 2009 Nr. 2 und 2023 Nr. 10 (Bruch mit einstelligem Zähler und zweistelligem
+# Nenner zu 0,75 bzw. 0,25), 2024 Nr. 14 (Taschenrechner-Anzeige eines Bruchs runden), 2008 Nr. 3 (Zahl in der Mitte zwischen zwei Zahlen).
+from _luecken_kl6 import karte_neu, zahl, wahl, luecken, bruch as lbruch  # noqa: E402
+
+_KOPF = ['Bruch', '1/2', '1/4', '3/4', '1/5', '1/8']
+_MERK = {
+    'lernziel': 'merkwerte', 'titel': 'Merkwerte: Bruch, Dezimalzahl, Prozent',
+    'einstieg': 'Im Laden steht „Die Hälfte gratis!“. Die Waage zeigt 0,5 kg, der Prospekt 50 %. Das ist immer derselbe Anteil. Solche ⟦Merkwerte⟧ kennst du am besten auswendig.',
+    'woerter': [['Merkwert', 'ein Bruch mit seiner Dezimalzahl, den man auswendig weiß, z. B. 1/2 = 0,5'],
+                ['Prozent', 'Hundertstel: 25 % = 25/100 = 0,25']],
+    'bild': tabelle(_KOPF, [['Dezimal', '?', '?', '?', '?', '?']]),
+    'schritte': [
+        {'text': 'Die Hälfte: 1/2 = 0,5. Die Hälfte davon: 1/4 = ⟦0,25⟧.',
+         'bild': {'zeilen': [['Dezimal', '0,5', '0,25', '?', '?', '?']]}},
+        {'text': 'Drei Viertel sind dreimal so viel: 3/4 = 0,75.', 'bild': {'zeilen': [['Dezimal', '0,5', '0,25', '0,75', '?', '?']]}},
+        {'text': '1/5 = 2/10 = 0,2. Und 1/8 ist die Hälfte von 1/4: 0,125.',
+         'bild': {'zeilen': [['Dezimal', '0,5', '0,25', '0,75', '0,2', '0,125']]}},
+        {'text': 'Prozent heißt Hundertstel: 0,25 = 25/100 = ⟦25 %⟧.',
+         'bild': {'zeilen': [['Dezimal', '0,5', '0,25', '0,75', '0,2', '0,125'], ['Prozent', '50 %', '25 %', '75 %', '20 %', '12,5 %']]}},
+    ],
+    'fehler': '1/5 ist nicht 0,5. Ein Fünftel ist viel weniger als die Hälfte: 1/5 = 2/10 = 0,2.',
+    'fehler_bild': {'typ': 'tabelle', 'kopf': ['Bruch', '1/2', '1/5'], 'zeilen': [['Dezimal', '0,5', '0,2 (nicht 0,5)']]},
+    'regel': 'Merke ⟦1/2, 1/4, 3/4, 1/5, 1/8⟧ als Dezimalzahl und Prozent. Andere Werte leitest du davon ab.',
+    'probe': '1/8 = 0,125: Zweimal 0,125 sind 0,25 = 1/4.',
+}
+
+
+def _merk_aufgaben():
+    U = 'uebung'
+    def b(t, E, h, w): return lambda R: lbruch(t, E, h, w)
+    def z(t, v, c, h, w, e=None): return lambda R: zahl(t, v, c, h, w, einheit=e)
+    AB = 'Leite den Wert aus einem Merkwert ab (halbieren, verdoppeln, mal 3 …).'
+    return [
+        (U, 1, z('Kopfrechnen: Schreibe 3/10 als Dezimalzahl.', Fr('0.3'), '3/10', 'Zehntel stehen an der ersten Stelle nach dem Komma.', '3/10 sind 3 Zehntel: 0,3.')),
+        (U, 1, b('Kopfrechnen: Schreibe 0,2 als vollständig gekürzten Bruch.', '0.2', 'Denk an die Merkwerte in der Tabelle.', '0,2 = 2/10 = 1/5.')),
+        (U, 1, z('Kopfrechnen: Wie viel Prozent sind 0,75?', 75, '0.75 * 100', 'Prozent heißt Hundertstel.', '0,75 = 75/100 = 75 %.', '%')),
+        (U, 1, b('Kopfrechnen: Schreibe 50 % als vollständig gekürzten Bruch.', '50/100', '50 % sind 50 Hundertstel.', '50 % = 50/100 = 1/2.')),
+        (U, 2, z('Kopfrechnen: Schreibe 3/8 als Dezimalzahl.', Fr('0.375'), '3/8', AB, '1/8 = 0,125. 3/8 = 3 · 0,125 = 0,375.')),
+        (U, 2, b('Kopfrechnen: Schreibe 0,4 als vollständig gekürzten Bruch.', '0.4', AB, '0,4 = 2 · 0,2 = 2 · 1/5 = 2/5.')),
+        (U, 2, z('Kopfrechnen: Wie viel Prozent sind 3/5?', 60, '3/5 * 100', AB, '1/5 = 20 %. 3/5 = 3 · 20 % = 60 %.', '%')),
+        (U, 2, b('Kopfrechnen: Schreibe 1,25 als Bruch. Ein Bruch größer als 1 ist erlaubt.', '1.25', '1,25 = 1 + 0,25.', '1 + 1/4 = 4/4 + 1/4 = 5/4.')),
+        (U, 2, z('Kopfrechnen: Schreibe 7/8 als Dezimalzahl.', Fr('0.875'), '7/8', 'Wie viel fehlt 7/8 bis zu einem Ganzen?', '7/8 = 1 − 1/8 = 1 − 0,125 = 0,875.')),
+        (U, 2, lambda R: wahl(R, 'Welche Angabe ist genau 1/3?', '0,' + _ue('3'), ['0,3', '0,33', '30 %'],
+                              '1/3 ist ein periodischer Dezimalbruch.', '1 : 3 = 0,333… = 0,3 mit Periodenstrich. 0,3 und 0,33 sind nur gerundet; 30 % = 0,3.')),
+        (U, 3, (lambda R: luecken('Gib 0,75 als Bruch mit einstelligem Zähler und zweistelligem Nenner an.', '□/□', 'Zähler ins erste Kästchen, Nenner ins zweite.', [9, 12],
+                            ['3 * 3', '4 * 3'], '0,75 = 3/4. Erweitere so, dass der Nenner zweistellig, der Zähler aber noch einstellig ist.',
+                            '0,75 = 3/4. Mit 2 erweitert: 6/8 (Nenner einstellig). Mit 3 erweitert: 9/12 – das passt. Mit 4: 12/16 (Zähler zweistellig).'))),
+        (U, 3, lambda R: wahl(R, 'Ein Taschenrechner zeigt für 1 : 6 die Anzeige 0,166666667. Was stimmt?', '1/6 = 0,1' + _ue('6') + '; der Rechner hat die letzte Stelle gerundet.',
+                              ['1/6 hat genau 9 Nachkommastellen.', 'Die 7 am Ende gehört zur Periode.', '1/6 = 0,17 genau.'],
+                              'Teile 1 durch 6 schriftlich: Hört die Rechnung auf?',
+                              '1 : 6 = 0,1666… – die 6 wiederholt sich ohne Ende. Der Rechner hat nur Platz für wenige Stellen und rundet die letzte auf 7.')),
+        (U, 3, z('Welche Zahl liegt genau in der Mitte zwischen 1/4 und 0,5? Gib sie als Dezimalzahl an.', Fr('0.375'), '(1/4 + 0.5) / 2',
+                 'Schreibe 1/4 als Dezimalzahl.', '1/4 = 0,25. Mitte zwischen 0,25 und 0,5: (0,25 + 0,5) : 2 = 0,375.')),
+        (U, 3, lambda R: wahl(R, 'Ordne 0,3; 1/3; 3/8 und 0,35 der Größe nach. Welche Zahl ist die zweitgrößte?', '0,35', ['3/8', '1/3', '0,3'],
+                              'Schreibe alle als Dezimalzahl mit drei Nachkommastellen.', '0,300 < 0,333… (1/3) < 0,350 < 0,375 (3/8). Die zweitgrößte ist 0,35.')),
+        (U, 3, b('Welcher Merkwert ist um genau 0,05 größer als 1/5? Gib ihn als Bruch an.', '1/5 + 0.05', '1/5 als Dezimalzahl, dann 0,05 dazu.',
+                 '1/5 = 0,2. 0,2 + 0,05 = 0,25 = 1/4.')),
+        (U, 3, z('Ein Kind schreibt 1/8 = 0,8. Wie heißt die Dezimalzahl richtig?', Fr('0.125'), '1/8', '1/8 ist die Hälfte von 1/4.',
+                 '1/4 = 0,25, die Hälfte davon ist 0,125. 0,8 wären 8/10 – viel zu groß.')),
+        (U, 3, z('3/4 l Saft und 0,5 l Wasser werden gemischt. Wie viele Liter sind das?', Fr('1.25'), '3/4 + 0.5', 'Schreibe 3/4 l als Dezimalzahl.',
+                 '3/4 l = 0,75 l. 0,75 l + 0,5 l = 1,25 l.', 'l')),
+        (U, 3, z('Ein Kind hat 7 von 8 Aufgaben richtig. Wie viel Prozent sind das?', Fr('87.5'), '7/8 * 100', '1/8 = 12,5 %.',
+                 '7/8 = 1 − 1/8 = 100 % − 12,5 % = 87,5 %.', '%')),
+        ('test', 2, z('Kopfrechnen: Wie viel Prozent sind 0,6?', 60, '0.6 * 100', '', '0,6 = 60/100 = 60 %.', '%')),
+        ('korrektur', 2, b('Kopfrechnen: Schreibe 0,125 als vollständig gekürzten Bruch.', '0.125', '', '0,125 ist der Merkwert von 1/8.')),
+        ('korrektur', 2, z('Kopfrechnen: Schreibe 2/5 als Dezimalzahl.', Fr('0.4'), '2/5', '', '1/5 = 0,2. 2/5 = 0,4.')),
+        ('korrektur', 2, z('Kopfrechnen: Schreibe 20 % als Dezimalzahl.', Fr('0.2'), '20/100', '', '20 % = 20/100 = 0,2.')),
+        ('sicherung', 2, z('Kopfrechnen: Schreibe 5/8 als Dezimalzahl.', Fr('0.625'), '5/8', '', '1/8 = 0,125. 5/8 = 5 · 0,125 = 0,625.')),
+        ('sicherung', 2, b('Kopfrechnen: Schreibe 0,6 als vollständig gekürzten Bruch.', '0.6', '', '0,6 = 6/10 = 3/5.')),
+        ('sicherung', 2, z('Kopfrechnen: Wie viel Prozent sind 1/4?', 25, '1/4 * 100', '', '1/4 = 0,25 = 25 %.', '%')),
+        ('sicherung', 2, b('Kopfrechnen: Schreibe 0,875 als vollständig gekürzten Bruch.', '0.875', '', '0,875 = 1 − 0,125 = 1 − 1/8 = 7/8.')),
+        ('sicherung', 2, z('Kopfrechnen: Schreibe 4/5 als Dezimalzahl.', Fr('0.8'), '4/5', '', '1/5 = 0,2. 4/5 = 4 · 0,2 = 0,8.')),
+        ('sicherung', 2, b('Kopfrechnen: Schreibe 12,5 % als vollständig gekürzten Bruch.', '12.5/100', '', '12,5 % = 0,125 = 1/8.')),
+    ]
+
+
+karte_neu(DATEI, _MERK, _merk_aufgaben(), seed=6211, nach='dezimal_zu_bruch', teil_text='Merkwerte Bruch – Dezimalzahl – Prozent im Kopf umwandeln')
+
+
 if __name__ == '__main__':
     schreibe(DATEI)

@@ -735,5 +735,44 @@ BF.stufe('prozentwert', 'Berechne 2,5 % von 320 €.', 2)
 befunde_anwenden(DATEI, BF)
 # ---- BEFUNDE ENDE ----
 
+
+# ---------- LUECKEN (Achtzehnte Runde, Teil B, Zweig luecken-kl6) ----------
+# Läuft nach allen bisherigen Abschnitten mit eigenem Zufallsstart; vorhandene Karten und Aufgaben bleiben unverändert.
+# Lehrplan: LehrplanPLUS Gymnasium Bayern M6 3 (Prozentangaben aus Texten, z. B. Zeitungen, auf Korrektheit prüfen; zwischen Prozent und
+# Prozentpunkten unterscheiden; Formulierungen wie „jeder Siebte“, „drei von fünf“). Prüfungsvorbilder: Bayerischer Mathematik-Test Jgst. 8 (ISB)
+# 2021 Aufg. 6c (Prozentpunkte statt Prozent); Grundwissentest Jgst. 7 der Realschule (ISB) 2019 Nr. 18 (Aussage mit Prozentangabe prüfen).
+from _luecken_kl6 import karte_erweitern, zahl, wahl  # noqa: E402
+
+
+def _pp_aufgaben():
+    PP = 'Prozentpunkte: Differenz der beiden Prozentangaben. Prozent: Differenz im Vergleich zum alten Wert.'
+    return [
+        (None, 2, lambda R: zahl('Der Anteil der Kinder mit Fahrradhelm steigt von 30 % auf 36 %. Um wie viele Prozentpunkte ist er gestiegen?', 6, '36 - 30',
+                                 PP, '36 % − 30 % = 6 Prozentpunkte.', einheit='Prozentpunkte')),
+        (None, 2, lambda R: wahl(R, 'In einem Text steht: „Jedes vierte Kind spielt ein Instrument.“ Wie viel Prozent sind das?', '25 %', ['4 %', '40 %', '75 %'],
+                                 'Jedes vierte heißt: 1 von 4.', '1 von 4 = 1/4 = 25/100 = 25 %.')),
+        (None, 3, lambda R: zahl('Der Anteil der Kinder mit Fahrradhelm steigt von 30 % auf 36 %. Um wie viel Prozent ist der Anteil gestiegen?', 20,
+                                 '(36 - 30) / 30 * 100', PP, 'Der Anteil wächst um 6 Prozentpunkte. 6 von 30 sind 1/5 = 20 %.', einheit='%')),
+        (None, 3, lambda R: wahl(R, 'In einer Zeitung steht: „Drei von fünf Kindern lesen täglich. Das ist mehr als die Hälfte.“ Stimmt das?',
+                                 'Ja: 3 von 5 sind 60 %, und 60 % ist mehr als 50 %.',
+                                 ['Nein: 3 von 5 sind 35 %.', 'Nein: Das ist genau die Hälfte.', 'Nein: 3 von 5 sind 30 %.'],
+                                 'Schreibe „drei von fünf“ als Bruch und dann in Prozent.', '3/5 = 60/100 = 60 %. Die Hälfte wären 50 %.')),
+        (None, 3, lambda R: wahl(R, 'Eine Quote sinkt von 40 % auf 30 %. In der Zeitung steht: „Sie ist um 10 % gesunken.“ Was stimmt?',
+                                 'Sie ist um 10 Prozentpunkte gesunken. Das sind 25 % weniger.',
+                                 ['Die Zeitung hat recht.', 'Sie ist um 10 Prozentpunkte gesunken, das sind 10 % weniger.', 'Sie ist um 30 % gesunken.'],
+                                 PP, '40 % − 30 % = 10 Prozentpunkte. Im Vergleich zum alten Wert: 10 von 40 = 1/4 = 25 % weniger.')),
+        (None, 3, lambda R: zahl('Ein Anteil steigt um 10 Prozentpunkte. Das sind 50 % mehr als vorher. Wie viel Prozent war der Anteil vorher?', 20,
+                                 '10 / 50 * 100', '10 Prozentpunkte sind die Hälfte des alten Anteils.', '50 % mehr heißt: Die 10 Prozentpunkte sind die Hälfte des alten Werts. Also war er 20 %.',
+                                 einheit='%')),
+    ]
+
+
+karte_erweitern(DATEI, 'verstehen', _pp_aufgaben(), seed=6201,
+                schritte_einfuegen=[(3, {'text': 'Zweites Beispiel: Der Rad-Anteil steigt von 20 % auf 25 %.',
+                                         'bild': {'einheit': ' %', 'werte': [{'name': 'vorher', 'wert': 20}, {'name': 'nachher', 'wert': 25}]}}),
+                                    (4, {'text': 'Das sind 5 ⟦Prozentpunkte⟧ mehr. Aber 5 von 20 sind 25 % mehr.'})],
+                woerter_dazu=[['Prozentpunkte', 'Abstand zwischen zwei Prozentangaben: von 20 % auf 25 % sind es 5 Prozentpunkte']])
+
+
 if __name__ == '__main__':
     schreibe(DATEI)

@@ -3974,3 +3974,24 @@ details.lr-woerter > summary::-webkit-details-marker { display: none; }
 @media (min-width: 760px) { .lr-test-knoepfe { flex-direction: row; flex-wrap: wrap; align-items: center; } }
 .lern-zeichnung.mit-neu :is(.graph, .punkt, .strecke, .hilfslinie, .kreis, .flaeche, .winkel, .bogen, .pfeil, .saeule-rot):not(.neu),
 .lern-zeichnung.mit-neu :is(.graphname0, .graphname1, .graphname2), .lern-strahl.mit-neu :is(.punkt, .bogen, .bogen-spitze):not(.neu) { opacity: .4; }
+
+/* K2: Mein Weg – Reiter als Links, Kontinente, Antarktis von oben, Merkheft nach Kontinent → Flug */
+.lr-weg-reiter a { min-height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 99px; color: var(--lr-text); font-weight: 800; text-decoration: none; font-size: .95rem; }
+.lr-weg-reiter a.on { background: var(--lr-akzent); color: var(--lr-auf-akzent); }
+.lr-weg-reiter { margin: 4px 0 14px; }
+.lr-kontinente { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); align-items: start; }
+.lr-kontinent > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: 6px 10px; align-items: end; min-height: 44px; }
+.lr-kontinent > summary::-webkit-details-marker { display: none; }
+.lr-kontinent > summary .lr-balken { grid-column: 1 / -1; }
+.lr-kontinent-kopf { display: flex; flex-direction: column; gap: 2px; } .lr-kontinent-kopf b { font-size: 19px; }
+.lr-kontinent-stand { display: flex; flex-direction: column; align-items: flex-end; } .lr-kontinent-stand b { font-size: 20px; font-variant-numeric: tabular-nums; } .lr-kontinent-stand small { color: var(--lr-leise); }
+.lr-kontinent[open] > summary { margin-bottom: 8px; }
+.lr-kontinent .lr-spaeter { opacity: .65; }
+.lr-polar { display: flex; justify-content: center; }
+.lr-karte-polar { width: min(100%, 320px); height: auto; aspect-ratio: 1; }
+.lr-polar-kreis { fill: none; stroke: var(--lr-linie, #c9c9c9); stroke-width: .8; stroke-dasharray: 3 4; }
+.lr-polar-pol { fill: var(--lr-leise, #888); }
+.lr-merkflug { margin: 0 0 12px; }
+.lr-merkflug-titel { margin: 6px 0; font-size: 18px; } .lr-merkflug-titel small { font-weight: 600; color: var(--lr-leise); }
+.lr-kontinent > summary, .lr-kontinent-kopf b, .lr-kontinent-stand b { color: var(--lr-text); }
+.lr-kontinent-kopf .lr-ueber { margin: 0; }

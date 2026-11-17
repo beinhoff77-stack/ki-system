@@ -2,6 +2,18 @@
 
 Neueste oben.
 
+## 2026-11-17 – STATUS Schritt B (K2) fertig – App 0.74.3
+
+- **Menü:** Abflugtafel · Mein Weg · Merkheft · Reisepass (alte Gestaltung: Heute · Mein Weg · Merkheft · Reisepass). `#/weltkarte/<kind>` führt in „Mein Weg · Karte“.
+- **Mein Weg** mit Reitern **Stand · Kontinente · Karte** (`#/weg/<kind>-stand|-kontinente|-karte`):
+  - Stand: Balken der eigenen Klasse nach der Rechenregel (Flüge mit `jahrgang[schulart] = Klasse`; gelandet = alle Pflicht-Etappen sitzen, „kann schon“ oder Ort geschafft), dazu wie bisher Gerade dran · Kommt noch · Kann ich. K3 ergänzt Mini-Linien und die drei Ebenen.
+  - Kontinente: je Kontinent eine aufklappbare Karte mit „gelandet/gesamt“ (ohne Flüge für spätere Klassen), darin die Flüge mit Ort, Klasse und Stand.
+  - Karte: nur Orte der eigenen Klasse (`orte[].ziel_klasse`), Route in Plan-Reihenfolge. Antarktis als Polarkarte von oben (Umriss aus der Weltkarte zurückgerechnet, Südpol in der Mitte, 0° oben).
+- **Merkheft:** nur Geschafftes (Etappe fertig oder sitzt), gegliedert Kontinent → Flug → Etappe, Suche oben.
+- **Reihenfolge der Flüge im Ort:** nach `reihenfolge` aus `schule_uebersicht.einheiten[]` (Zahl oder `{gym_by: n, …}` je Schulart des Kindes), sobald geliefert; sonst wie bisher.
+  **Für den Haupt-Chat:** `schule_uebersicht` liefert das Feld noch nicht – es steht nur in `inhalte/themenliste.json`. Vorschlag: Spalte `thema.reihenfolge jsonb` und Ausgabe in `einheiten[]`; die Migration kommt mit Schritt C.
+- Tests: 26 von 26 (3 neu: Reiter, Antarktis, Reihenfolge; Merkheft-Test auf „nur Geschafftes“ umgestellt).
+
 ## 2026-11-17 – Schritt A fertig (Befunde N1–N8) – App 0.74.2, Zweig bau-phase2 – Nachprüfung kann laufen
 
 | Nr. | Umsetzung | Prüfpunkt |

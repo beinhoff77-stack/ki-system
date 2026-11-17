@@ -1,5 +1,8 @@
 # Postfach durchsicht-rsib-2 (Neunzehnte Runde, Teil B, Chat 2)
 
+## 2026-11-17 17:00 – STATUS
+sonder.graphentheorie fertig: kürzeste Wege und Spannbaum hatten in allen Stufen dieselbe Frage – jetzt Sperrung, Zwischenhalt, Erreichbarkeit, neue Leitung, Blatt-Kante; Euler mit Nikolaus-Haus und Mindestzahl neuer Kanten; Gradlisten „Summe gerade, trotzdem unmöglich“. inhalt_pruefen OK ohne Hinweise.
+
 ## 2026-11-17 16:35 – STATUS
 funktionen.reihen fertig: Stufen getrennt, 8 Stufe-3-Übungen je Karte (u. a. Summe zerlegen, Vielfache summieren, K.-o.-Turnier, a₁ aus Sₙ, linear gegen Verdoppeln, aₙ = Sₙ − Sₙ₋₁). Überschneidung „Wie viele Summanden“ (summenzeichen/verstehen) gemeldet, nicht verschoben. inhalt_pruefen OK ohne Hinweise.
 

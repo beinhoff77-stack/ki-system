@@ -6,6 +6,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _ib import *  # noqa: E402,F403
+from _rsib2 import PLAN2, art3  # noqa: E402
 
 start(6504)
 
@@ -223,7 +224,7 @@ def g_kuerzester(s):
     best = wege[0]
     bi = bild(kn, ka, gew)
     weg_txt = lambda w: ' → '.join(w)  # noqa: E731
-    art = R.choice({1: ['laenge', 'laenge'], 2: ['laenge', 'weg', 'laenge'], 3: ['weg', 'umweg', 'laenge']}[s])
+    art = R.choice({1: ['laenge', 'laenge'], 2: ['laenge', 'weg', 'weg'], 3: ['weg', 'umweg', 'laenge']}[s])  # Durchsicht 19
     if s == 1 and len(best[1]) > 4: return None
     if art == 'laenge':
         return mit_grafik(zahl(f'Die Zahlen an den Kanten sind Fahrzeiten in Minuten. Wie lange dauert der schnellste Weg von {st} nach {ziel}?',
@@ -244,7 +245,7 @@ def g_kuerzester(s):
 
 
 def g_spannbaum(s):
-    art = R.choice({1: ['kanten_n', 'gewicht'], 2: ['gewicht', 'gewicht', 'erste'], 3: ['gewicht', 'ausgelassen', 'ersparnis']}[s])
+    art = R.choice({1: ['kanten_n', 'gewicht', 'erste'], 2: ['ersparnis', 'ausgelassen'], 3: ['gewicht', 'ausgelassen', 'ersparnis']}[s])  # Durchsicht 19: Stufe 2 = Ersparnis, übersprungene Kante
     if art == 'kanten_n':
         n = R.randint(5, 30)
         return zahl(f'Ein Spannbaum verbindet {n} Knoten. Wie viele Kanten hat er?', f'Ein Baum mit n Knoten hat n − 1 Kanten: {n} − 1 = {n - 1}.',
@@ -282,7 +283,7 @@ def g_spannbaum(s):
 
 
 def g_verstehen(s):
-    art = R.choice({1: ['moeglich', 'baum_kanten'], 2: ['moeglich', 'ungerade_anzahl', 'baum_kreis'], 3: ['moeglich', 'baum_kreis', 'fehler_euler', 'ungerade_anzahl']}[s])
+    art = R.choice({1: ['moeglich', 'baum_kanten'], 2: ['ungerade_anzahl', 'baum_kreis', 'moeglich'], 3: ['moeglich', 'baum_kreis', 'fehler_euler', 'ungerade_anzahl']}[s])
     if art == 'moeglich':
         n = R.randint(4, 6)
         grade = sorted((R.randint(1, 4) for _ in range(n)), reverse=True)
@@ -311,7 +312,186 @@ def g_verstehen(s):
                    'Eulerkreis: alle Grade gerade. Zwei ungerade Knoten: nur ein Eulerweg von einem zum anderen.', 'Wie war die Regel für Eulerkreis und Eulerweg?')
 
 
-GEN = {'grundbegriffe': g_grundbegriffe, 'euler': g_euler, 'kuerzester': g_kuerzester, 'spannbaum': g_spannbaum, 'verstehen': g_verstehen}
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil B, Zweig durchsicht-rsib-2) ----------
+# Prüfungsvorbilder: IB MYP (Verlagsinhalt Graphentheorie: Handschlag-Aufgaben, Adjazenzmatrix, Königsberg/„Haus vom Nikolaus“,
+# kürzeste Wege mit Sperrung oder Zwischenhalt, Kruskal), Wettbewerbe (Känguru: Gradfolgen, Kantenzahl). Eigene Zahlen.
+def grund3(art):
+    # fehlender_grad
+    m = R.randint(6, 12)
+    for _ in range(100):
+        grade = [R.randint(1, 4) for _ in range(R.randint(4, 6))]
+        rest = 2 * m - sum(grade)
+        if 1 <= rest <= 4 and graphisch(grade + [rest]): break
+    else:
+        return None
+    return zahl(f'Ein Graph hat {m} Kanten und {len(grade) + 1} Knoten. {len(grade)} Knoten haben die Grade {", ".join(map(str, grade))}. Welchen Grad hat der letzte Knoten?',
+                f'Summe aller Grade = 2 · {m} = {2 * m}. Bekannt: {" + ".join(map(str, grade))} = {sum(grade)}. Letzter Grad: {2 * m} − {sum(grade)} = {rest}.',
+                'Wie groß muss die Summe aller Grade sein?', rest, f'2 * {m} - {sum(grade)}')
+
+
+def euler3(art):
+    if art == 'nikolaus':
+        r = 'Ja, aber nur, wenn man unten links oder unten rechts anfängt.'
+        bi = netz({'A': (0, 0), 'B': (4, 0), 'C': (4, 4), 'D': (0, 4), 'E': (2, 6.5)},
+                  [('A', 'B', ''), ('B', 'C', ''), ('C', 'D', ''), ('D', 'A', ''), ('A', 'C', ''), ('B', 'D', ''), ('C', 'E', ''), ('D', 'E', '')])
+        return mit_grafik(auswahl('„Das ist das Haus vom Ni-ko-laus“: Kann man die Figur in einem Zug zeichnen, ohne eine Linie doppelt zu ziehen?', r,
+                                  ['Ja, von jeder Ecke aus.', 'Nein, das geht nicht.', 'Ja, aber nur, wenn man an der Dachspitze anfängt.'],
+                                  'Grade: A 3, B 3, C 4, D 4, E 2. Genau zwei ungerade Knoten (A und B): Es gibt einen Eulerweg, der in A oder B beginnt und im anderen endet.',
+                                  'Bestimme die Grade der fünf Ecken.'), bi)
+    # wie_viele_neu
+    k = R.choice([4, 6, 8])
+    return zahl(f'Ein zusammenhängender Graph hat genau {k} Knoten mit ungeradem Grad. Wie viele Kanten muss man mindestens hinzufügen, damit ein Eulerkreis möglich wird?',
+                f'Jede neue Kante macht höchstens zwei ungerade Knoten gerade. Für {k} ungerade Knoten braucht man mindestens {k} : 2 = {k // 2} Kanten (je zwei ungerade Knoten verbinden).',
+                'Wie viele ungerade Knoten kann eine neue Kante „reparieren“?', k // 2, f'{k} / 2')
+
+
+def kurz3(art):
+    g = zufallsgraph(8, 11)
+    if not g: return None
+    kn, ka = g
+    gew = {e: R.randint(1, 9) for e in ka}
+    bi = bild(kn, ka, gew)
+    dist, _ = dijkstra(kn, ka, gew, 'A')
+    if art == 'sperrung':
+        ziel = R.choice([k for k in kn if k != 'A'])
+        wege = sorted(alle_wege(kn, ka, gew, 'A', ziel))
+        if len(wege) < 2 or len(wege[0][1]) < 3 or wege[0][0] == wege[1][0]: return None
+        w = wege[0][1]
+        e = tuple(sorted((w[1], w[2])))
+        rest = [x for x in wege if not any(tuple(sorted((x[1][i], x[1][i + 1]))) == e for i in range(len(x[1]) - 1))]
+        if not rest: return None
+        neu = rest[0]
+        return mit_grafik(zahl(f'Die Zahlen sind Fahrzeiten in Minuten. Die Straße {e[0]}–{e[1]} ist gesperrt. Wie lange dauert jetzt der schnellste Weg von A nach {ziel}?',
+                               f'Ohne Sperrung: {" → ".join(w)} mit {wege[0][0]} min. Er benutzt {e[0]}–{e[1]}. Bester Weg ohne diese Straße: {" → ".join(neu[1])} mit {neu[0]} min.',
+                               'Streiche die gesperrte Kante und suche dann den schnellsten Weg.', neu[0], f'{neu[0]}', einheit='min'), bi)
+    if art == 'zwischenhalt':
+        ziel, h = R.sample([k for k in kn if k != 'A'], 2)
+        d2, _ = dijkstra(kn, ka, gew, h)
+        gesamt = dist[h] + d2[ziel]
+        if gesamt == dist[ziel]: return None
+        return mit_grafik(zahl(f'Die Zahlen sind Fahrzeiten in Minuten. Ein Bus muss von A nach {ziel} und unterwegs in {h} halten. Wie lange dauert die schnellste Fahrt?',
+                               f'Schnellster Weg A → {h}: {dist[h]} min. Schnellster Weg {h} → {ziel}: {d2[ziel]} min. Zusammen {gesamt} min (ohne Halt wären es {dist[ziel]} min).',
+                               f'Teile die Fahrt in zwei Teile: A bis {h} und {h} bis {ziel}.', gesamt, f'{dist[h]} + {d2[ziel]}', einheit='min'), bi)
+    # erreichbar
+    T = R.randint(6, 12)
+    k = sum(1 for x in kn if x != 'A' and dist[x] <= T)
+    if k in (0, len(kn) - 1): return None
+    return mit_grafik(zahl(f'Die Zahlen sind Fahrzeiten in Minuten. Wie viele Orte (außer A) erreicht man von A aus in höchstens {T} Minuten?',
+                           'Schnellste Zeiten ab A: ' + ', '.join(f'{x} {dist[x]}' for x in kn if x != 'A') + f'. Höchstens {T} min: {k} Orte.',
+                           'Bestimme für jeden Ort die schnellste Zeit ab A (Dijkstra-Idee).', k, f'{k}'), bi)
+
+
+def span3(art):
+    g = zufallsgraph(7, 10)
+    if not g: return None
+    kn, ka = g
+    gr = grad(kn, ka)
+    if art == 'pflichtkante':
+        blatt = [k for k in kn if gr[k] == 1]
+        if not blatt: return None
+        b = blatt[0]
+        e = next(x for x in ka if b in x)
+        ws = R.sample(range(1, 15), len(ka))
+        gew = dict(zip(ka, ws))
+        gew[e] = max(w for x, w in gew.items() if x != e) + 1  # wirklich die teuerste Leitung
+        return mit_grafik(auswahl(f'Haus {b} ist nur über die Leitung {e[0]}{e[1]} erreichbar. Sie ist die teuerste Leitung ({gew[e]}). Gehört sie zum minimalen Spannbaum?',
+                                  'Ja, sonst wäre Haus ' + b + ' nicht angeschlossen.', ['Nein, Kruskal nimmt die teuerste Kante nie.', 'Nur wenn sie keinen Kreis schließt – das kann man nicht wissen.', 'Nein, man nimmt immer nur die n − 1 billigsten Kanten.'],
+                                  f'Ein Spannbaum verbindet alle Knoten. {b} hat nur eine Kante – ohne sie bliebe {b} allein. Sie kann auch keinen Kreis schließen, weil {b} sonst unverbunden ist.',
+                                  'Was muss ein Spannbaum auf jeden Fall leisten?'), bild(kn, ka, gew))
+    if art == 'neue_leitung':
+        mit_g = 'G' in kn
+        kand = [e for e in (MIT_G if mit_g else OHNE_G) if tuple(sorted(e)) not in ka]
+        if not kand: return None
+        ws = R.sample(range(3, 16), len(ka))
+        gew = dict(zip(ka, ws))
+        alt = sum(gew[e] for e in kruskal(kn, ka, gew))
+        e = tuple(sorted(R.choice(kand)))
+        k = R.randint(1, 4)
+        gew2 = dict(gew); gew2[e] = k
+        neu = sum(gew2[x] for x in kruskal(kn, ka + [e], gew2))
+        if neu >= alt: return None
+        bi = bild(kn, ka, gew)
+        bi['linien'].append([e[0], e[1], f'{k} neu', 'gestrichelt'])
+        return mit_grafik(zahl(f'Die Zahlen sind Kosten in Tausend €. Eine neue Leitung {e[0]}{e[1]} (gestrichelt) würde {k} kosten. Um wie viel wird der minimale Spannbaum billiger, wenn man sie zulässt?',
+                               f'Ohne neue Leitung: {alt}. Mit ihr: {neu} (Kruskal neu durchführen). Ersparnis: {alt} − {neu} = {alt - neu}.',
+                               'Führe Kruskal zweimal durch: ohne und mit der neuen Leitung.', alt - neu, f'{alt} - {neu}'), bi)
+    # teuerste im Baum
+    ws = R.sample(range(1, 15), len(ka))
+    gew = dict(zip(ka, ws))
+    baum = kruskal(kn, ka, gew)
+    e = max(baum, key=lambda x: gew[x])
+    return mit_grafik(zahl('Die Zahlen sind Kosten in Tausend €. Wie teuer ist die teuerste Leitung, die im minimalen Spannbaum vorkommt?',
+                           f'Kruskal: {", ".join(f"{u}{v} ({gew[(u, v)]})" for u, v in sorted(baum, key=lambda x: gew[x]))}. Die letzte genommene Leitung ist {e[0]}{e[1]} mit {gew[e]}.',
+                           'Führe Kruskal durch: Die zuletzt genommene Kante ist die teuerste im Baum.', gew[e], f'{gew[e]}'), bild(kn, ka, gew))
+
+
+def verst3(art):
+    if art == 'max_kanten':
+        n = R.randint(4, 10)
+        return zahl(f'Wie viele Kanten kann ein Graph mit {n} Knoten höchstens haben (ohne Mehrfachkanten und Schleifen)?',
+                    f'Jeder Knoten ist mit jedem anderen verbunden: Grad {n - 1}. Kanten: {n} · {n - 1} : 2 = {n * (n - 1) // 2}.',
+                    'Wie viele Nachbarn kann ein Knoten höchstens haben?', n * (n - 1) // 2, f'{n} * ({n} - 1) / 2')
+    # gerade_reicht_nicht: Summe gerade, aber trotzdem unmöglich (Havel-Hakimi)
+    for _ in range(200):
+        n = R.randint(4, 6)
+        grade = sorted((R.randint(1, n - 1) for _ in range(n)), reverse=True)
+        if sum(grade) % 2 == 0 and not graphisch(grade): break
+    else:
+        return None
+    return ja_nein(f'Die Summe der Grade {", ".join(map(str, grade))} ist gerade. Gibt es einen Graphen (ohne Mehrfachkanten und Schleifen) mit genau diesen {n} Graden?', False,
+                   f'Die gerade Summe ist nötig, aber nicht genug. Die {grade.count(n - 1)} Knoten mit Grad {n - 1} müssten mit allen anderen verbunden sein. Dann hätte jeder andere Knoten schon mindestens Grad {grade.count(n - 1)} – '
+                   f'der kleinste Grad {grade[-1]} ist aber kleiner.' if grade[-1] < grade.count(n - 1) else
+                   f'Die gerade Summe ist nötig, aber nicht genug. Versucht man die Kanten zu verteilen (größter Grad zuerst), bleibt ein Knoten mit zu vielen offenen Kanten übrig.',
+                   'Eine gerade Summe reicht nicht immer. Prüfe, ob die großen Grade überhaupt genug Partner finden.')
+
+
+def _filter(g, s, teil, nicht=False):
+    for _ in range(120):
+        t = g(s)
+        if t and ((teil in t['f']['text']) != nicht): return t
+    return None
+
+
+def g2_grundbegriffe(s):
+    if s < 3: return g_grundbegriffe(s)
+    art = art3('handschlag_r', 'matrix', 'handschlag', ['handschlag_r', 'matrix', 'fehlender_grad', 'handschlag', 'fehlender_grad'])
+    if art == 'fehlender_grad': return grund3(art)
+    teil = {'handschlag_r': 'Hand', 'matrix': 'Adjazenzmatrix', 'handschlag': 'jeder der'}[art]
+    return _filter(g_grundbegriffe, 3, teil)
+
+
+def g2_euler(s):
+    if s == 1: return g_euler(1)
+    if s == 2:  # Stufe 2: Anzahl ungerader Knoten, Startknoten, Art mit beliebig vielen ungeraden Knoten
+        return g_euler(2)
+    art = art3('koenigsberg', 'nikolaus', 'ergaenzen', ['ergaenzen', 'wie_viele_neu', 'ergaenzen', 'wie_viele_neu', 'ergaenzen'])
+    if art == 'koenigsberg': return _filter(g_euler, 3, 'Königsberg')
+    if art == 'ergaenzen': return _filter(g_euler, 3, 'zusätzliche Kante')
+    return euler3(art)
+
+
+def g2_kuerzester(s):
+    if s < 3: return g_kuerzester(s)
+    art = art3('sperrung', 'zwischenhalt', 'erreichbar', ['umweg', 'sperrung', 'zwischenhalt', 'erreichbar', 'umweg'])
+    if art == 'umweg': return _filter(g_kuerzester, 3, 'direkte Kante')
+    return kurz3(art)
+
+
+def g2_spannbaum(s):
+    if s < 3: return g_spannbaum(s)
+    art = art3('teuerste', 'neue_leitung', 'pflichtkante', ['teuerste', 'neue_leitung', 'pflichtkante', 'teuerste', 'neue_leitung'])
+    return span3(art)
+
+
+def g2_verstehen(s):
+    if s < 3: return g_verstehen(s)
+    art = art3('fehler_euler', 'max_kanten', 'gerade_reicht_nicht', ['baum_kreis', 'max_kanten', 'gerade_reicht_nicht', 'max_kanten', 'gerade_reicht_nicht'])
+    if art == 'fehler_euler': return _filter(g_verstehen, 3, 'Leo')
+    if art == 'baum_kreis': return _filter(g_verstehen, 3, 'Straßennetz')
+    return verst3(art)
+
+
+GEN = {'grundbegriffe': g2_grundbegriffe, 'euler': g2_euler, 'kuerzester': g2_kuerzester, 'spannbaum': g2_spannbaum, 'verstehen': g2_verstehen}
 
 # ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
 # Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
@@ -446,5 +626,5 @@ d = bauen('sonder.graphentheorie',
       ETAPPEN, GEN,
       offen=['Lehrplan-Feld: „Graphentheorie, Graphenalgorithmen (IB-Verlagsinhalt)“ – Auswahl: Grundbegriffe, Adjazenzmatrix (nur ablesen), Euler, Dijkstra-Idee, Kruskal. Hamiltonkreise und Zahlentheorie nicht enthalten.',
              'Graphen werden als figur gezeichnet (Knoten = beschriftete Punkte, Kanten = Linien mit Gewicht). Die App beschriftet Kantengewichte nach außen – bei Kanten zur Mitte kann die Zahl nah an einer anderen Linie stehen. Bitte in der Ansicht prüfen.'],
-      vertiefung=['spannbaum'])
+      vertiefung=['spannbaum'], plan=PLAN2)
 umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

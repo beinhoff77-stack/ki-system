@@ -40,23 +40,316 @@
    {
     "lernziel": "elemente",
     "titel": "Was gehört zu einer Menge?",
-    "regel": "Eine ⟦Menge⟧ (set) fasst Dinge zusammen, ihre ⟦Elemente⟧ (elements). Man schreibt sie in geschweifte Klammern: A = {2; 4; 6}. ⟦4 ∈ A⟧ heißt „4 ist Element von A“, ⟦5 ∉ A⟧ heißt „5 ist nicht Element von A“. Jedes Element zählt nur einmal.",
+    "regel": "Eine Menge schreibt man in { }. ⟦3 ∈ A⟧ heißt: 3 gehört zu A. Jedes Element zählt nur einmal.",
     "schritte": [
-     "A = die Teiler von 10. Prüfe 1, 2, …, 10: 10 : 1, 10 : 2, 10 : 5, 10 : 10 gehen auf.",
-     "A = {1; 2; 5; 10}. Also ⟦2 ∈ A⟧, aber 4 ∉ A. A hat ⟦4 Elemente⟧."
+     {
+      "text": "A sind die Teiler von 10. Prüfe 1 bis 10: Was geht auf?"
+     },
+     {
+      "text": "10 : 1, 10 : 2, 10 : 5 und 10 : 10 gehen auf.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 1,
+         "name": "1"
+        },
+        {
+         "wert": 2,
+         "name": "2"
+        },
+        {
+         "wert": 5,
+         "name": "5"
+        },
+        {
+         "wert": 10,
+         "name": "10"
+        }
+       ]
+      }
+     },
+     {
+      "text": "A = {1; 2; 5; 10} hat ⟦4 Elemente⟧."
+     },
+     {
+      "text": "Also ist ⟦2 ∈ A⟧, aber 4 ∉ A."
+     }
     ],
-    "probe": "1 · 10 = 10 und 2 · 5 = 10 – kein Teiler vergessen ✓",
-    "fehler": "Bei „Teiler von 10“ die 1 und die 10 selbst zu vergessen und nur {2; 5} aufzuschreiben, ist falsch: ⟦Jede Zahl ist Teiler von sich selbst, und 1 teilt jede Zahl⟧."
+    "fehler": "Nur {2; 5} ist falsch. ⟦1 und die Zahl selbst⟧ sind immer Teiler.",
+    "einstieg": "In deiner Federmappe liegen Stifte, ein Radierer und ein Lineal. Alles zusammen ist eine Sammlung. In Mathe heißt so eine Sammlung ⟦Menge⟧, die Dinge darin sind ihre Elemente.",
+    "woerter": [
+     [
+      "Menge",
+      "eine Sammlung von Dingen in geschweiften Klammern, z. B. {2; 4; 6}"
+     ],
+     [
+      "Element",
+      "ein Ding, das zur Menge gehört"
+     ],
+     [
+      "∈",
+      "„ist Element von“; ∉ heißt „ist nicht Element von“"
+     ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 10,
+     "abschnitte": 10,
+     "beschriftet": "alle"
+    },
+    "fehler_bild": {
+     "punkte": [
+      {
+       "wert": 1,
+       "name": "fehlt"
+      },
+      {
+       "wert": 2,
+       "name": "2"
+      },
+      {
+       "wert": 5,
+       "name": "5"
+      },
+      {
+       "wert": 10,
+       "name": "fehlt"
+      }
+     ]
+    }
    },
    {
     "lernziel": "schnitt",
     "titel": "Die Schnittmenge A ∩ B",
-    "regel": "Die ⟦Schnittmenge⟧ (intersection) ⟦A ∩ B⟧ enthält alle Elemente, die in A ⟦und⟧ in B liegen. Im Venn-Diagramm (Venn diagram) ist das der Bereich, in dem sich die Kreise ⟦überlappen⟧. Haben A und B nichts gemeinsam, ist A ∩ B die ⟦leere Menge⟧ (empty set) { }.",
+    "regel": "A ∩ B: alles, was in A ⟦und⟧ in B ist. Im Venn-Diagramm ist das die Überlappung.",
     "schritte": [
-     "A = {1; 2; 3; 4; 6; 12} (Teiler von 12), B = {2; 4; 6; 8; 10; 12} (gerade Zahlen bis 12).",
-     "Gemeinsam sind 2, 4, 6 und 12. Also ⟦A ∩ B = {2; 4; 6; 12}⟧."
+     {
+      "text": "Sticker von A: die Teiler von 12. Von B: die geraden Zahlen bis 12."
+     },
+     {
+      "text": "Gemeinsam sind 2, 4, 6 und 12: im Venn-Diagramm in die Mitte.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "_M1": [
+         0,
+         0
+        ],
+        "_M2": [
+         3.6,
+         0
+        ],
+        "_E1": [
+         -4.6,
+         -4.4
+        ],
+        "_E2": [
+         8.200000000000001,
+         -4.4
+        ],
+        "_E3": [
+         8.200000000000001,
+         4.4
+        ],
+        "_E4": [
+         -4.6,
+         4.4
+        ]
+       },
+       "kreise": [
+        {
+         "m": "_M1",
+         "r": 3.2
+        },
+        {
+         "m": "_M2",
+         "r": 3.2
+        },
+        {
+         "m": [
+          0.291,
+          -0.065
+         ],
+         "r": 0,
+         "name": "2; 4; 6"
+        },
+        {
+         "m": [
+          0.977,
+          -1.045
+         ],
+         "r": 0,
+         "name": "12"
+        },
+        {
+         "m": [
+          -4.4,
+          3.245
+         ],
+         "r": 0,
+         "name": "A"
+        },
+        {
+         "m": [
+          6.019,
+          3.245
+         ],
+         "r": 0,
+         "name": "B"
+        },
+        {
+         "m": [
+          -4.742,
+          -4.355
+         ],
+         "r": 0,
+         "name": "G"
+        }
+       ],
+       "linien": [
+        [
+         "_E1",
+         "_E2"
+        ],
+        [
+         "_E2",
+         "_E3"
+        ],
+        [
+         "_E3",
+         "_E4"
+        ],
+        [
+         "_E4",
+         "_E1"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Der Rest kommt außen in die Kreise.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "_M1": [
+         0,
+         0
+        ],
+        "_M2": [
+         3.6,
+         0
+        ],
+        "_E1": [
+         -4.6,
+         -4.4
+        ],
+        "_E2": [
+         8.200000000000001,
+         -4.4
+        ],
+        "_E3": [
+         8.200000000000001,
+         4.4
+        ],
+        "_E4": [
+         -4.6,
+         4.4
+        ]
+       },
+       "kreise": [
+        {
+         "m": "_M1",
+         "r": 3.2
+        },
+        {
+         "m": "_M2",
+         "r": 3.2
+        },
+        {
+         "m": [
+          -2.358,
+          -0.555
+         ],
+         "r": 0,
+         "name": "1; 3"
+        },
+        {
+         "m": [
+          0.291,
+          -0.065
+         ],
+         "r": 0,
+         "name": "2; 4; 6"
+        },
+        {
+         "m": [
+          0.977,
+          -1.045
+         ],
+         "r": 0,
+         "name": "12"
+        },
+        {
+         "m": [
+          3.627,
+          -0.555
+         ],
+         "r": 0,
+         "name": "8; 10"
+        },
+        {
+         "m": [
+          -4.4,
+          3.245
+         ],
+         "r": 0,
+         "name": "A"
+        },
+        {
+         "m": [
+          6.019,
+          3.245
+         ],
+         "r": 0,
+         "name": "B"
+        },
+        {
+         "m": [
+          -4.742,
+          -4.355
+         ],
+         "r": 0,
+         "name": "G"
+        }
+       ],
+       "linien": [
+        [
+         "_E1",
+         "_E2"
+        ],
+        [
+         "_E2",
+         "_E3"
+        ],
+        [
+         "_E3",
+         "_E4"
+        ],
+        [
+         "_E4",
+         "_E1"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Also ist ⟦A ∩ B = {2; 4; 6; 12}⟧."
+     },
+     {
+      "text": "Hätten sie nichts gemeinsam, wäre A ∩ B die leere Menge { }."
+     }
     ],
-    "probe": "Jede der vier Zahlen steht in beiden Listen ✓",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -96,39 +389,7 @@
       },
       {
        "m": [
-        -2.358,
-        -0.555
-       ],
-       "r": 0,
-       "name": "1; 3"
-      },
-      {
-       "m": [
-        0.291,
-        -0.065
-       ],
-       "r": 0,
-       "name": "2; 4; 6"
-      },
-      {
-       "m": [
-        0.977,
-        -1.045
-       ],
-       "r": 0,
-       "name": "12"
-      },
-      {
-       "m": [
-        3.627,
-        -0.555
-       ],
-       "r": 0,
-       "name": "8; 10"
-      },
-      {
-       "m": [
-        0.425,
+        -4.4,
         3.245
        ],
        "r": 0,
@@ -136,7 +397,7 @@
       },
       {
        "m": [
-        1.908,
+        6.019,
         3.245
        ],
        "r": 0,
@@ -170,17 +431,891 @@
       ]
      ]
     },
-    "fehler": "A ∩ B = {1; 2; 3; 4; 6; 8; 10; 12} ist falsch: Das sind alle Zahlen aus beiden Mengen zusammen. In die Schnittmenge kommen nur Zahlen, die in ⟦beiden⟧ Mengen stehen."
+    "fehler": "Alle Zahlen beider Listen sind nicht die Schnittmenge. In A ∩ B kommt nur, was in ⟦beiden⟧ Mengen steht.",
+    "einstieg": "Zwei Freunde vergleichen ihre Sticker-Listen. Welche Nummern haben beide? Genau diese Nummern bilden die ⟦Schnittmenge⟧.",
+    "woerter": [
+     [
+      "Schnittmenge",
+      "A ∩ B: alles, was in A und in B ist"
+     ],
+     [
+      "Venn-Diagramm",
+      "Bild mit zwei Kreisen; die Überlappung ist A ∩ B"
+     ],
+     [
+      "leere Menge",
+      "{ }: eine Menge ohne Elemente"
+     ]
+    ]
    },
    {
     "lernziel": "vereinigung",
     "titel": "Die Vereinigungsmenge A ∪ B",
-    "regel": "Die ⟦Vereinigungsmenge⟧ (union) ⟦A ∪ B⟧ enthält alle Elemente, die in A ⟦oder⟧ in B liegen (oder in beiden). Gemeinsame Elemente schreibt man nur ⟦einmal⟧. Für die Anzahl gilt: ⟦n(A ∪ B) = n(A) + n(B) − n(A ∩ B)⟧.",
+    "regel": "A ∪ B: alles, was in A ⟦oder⟧ in B ist. n(A ∪ B) = n(A) + n(B) − n(A ∩ B).",
     "schritte": [
-     "A = {1; 3; 5; 7; 9}, B = {3; 6; 9}. Gemeinsam: 3 und 9.",
-     "A ∪ B = {1; 3; 5; 6; 7; 9}. Anzahl: 5 + 3 − 2 = ⟦6⟧."
+     {
+      "text": "A = {1; 3; 5; 7; 9} und B = {3; 6; 9}."
+     },
+     {
+      "text": "Gemeinsam sind 3 und 9, sie kommen in die Mitte.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "_M1": [
+         0,
+         0
+        ],
+        "_M2": [
+         3.6,
+         0
+        ],
+        "_E1": [
+         -4.6,
+         -4.4
+        ],
+        "_E2": [
+         8.200000000000001,
+         -4.4
+        ],
+        "_E3": [
+         8.200000000000001,
+         4.4
+        ],
+        "_E4": [
+         -4.6,
+         4.4
+        ]
+       },
+       "kreise": [
+        {
+         "m": "_M1",
+         "r": 3.2
+        },
+        {
+         "m": "_M2",
+         "r": 3.2
+        },
+        {
+         "m": [
+          0.742,
+          -0.555
+         ],
+         "r": 0,
+         "name": "3; 9"
+        },
+        {
+         "m": [
+          -4.4,
+          3.245
+         ],
+         "r": 0,
+         "name": "A"
+        },
+        {
+         "m": [
+          6.019,
+          3.245
+         ],
+         "r": 0,
+         "name": "B"
+        },
+        {
+         "m": [
+          -4.742,
+          -4.355
+         ],
+         "r": 0,
+         "name": "G"
+        }
+       ],
+       "linien": [
+        [
+         "_E1",
+         "_E2"
+        ],
+        [
+         "_E2",
+         "_E3"
+        ],
+        [
+         "_E3",
+         "_E4"
+        ],
+        [
+         "_E4",
+         "_E1"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "A ∪ B = {1; 3; 5; 6; 7; 9}.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "_M1": [
+         0,
+         0
+        ],
+        "_M2": [
+         3.6,
+         0
+        ],
+        "_E1": [
+         -4.6,
+         -4.4
+        ],
+        "_E2": [
+         8.200000000000001,
+         -4.4
+        ],
+        "_E3": [
+         8.200000000000001,
+         4.4
+        ],
+        "_E4": [
+         -4.6,
+         4.4
+        ]
+       },
+       "kreise": [
+        {
+         "m": "_M1",
+         "r": 3.2
+        },
+        {
+         "m": "_M2",
+         "r": 3.2
+        },
+        {
+         "m": [
+          -2.809,
+          -0.555
+         ],
+         "r": 0,
+         "name": "1; 5; 7"
+        },
+        {
+         "m": [
+          0.742,
+          -0.555
+         ],
+         "r": 0,
+         "name": "3; 9"
+        },
+        {
+         "m": [
+          4.293,
+          -0.555
+         ],
+         "r": 0,
+         "name": "6"
+        },
+        {
+         "m": [
+          -4.4,
+          3.245
+         ],
+         "r": 0,
+         "name": "A"
+        },
+        {
+         "m": [
+          6.019,
+          3.245
+         ],
+         "r": 0,
+         "name": "B"
+        },
+        {
+         "m": [
+          -4.742,
+          -4.355
+         ],
+         "r": 0,
+         "name": "G"
+        }
+       ],
+       "linien": [
+        [
+         "_E1",
+         "_E2"
+        ],
+        [
+         "_E2",
+         "_E3"
+        ],
+        [
+         "_E3",
+         "_E4"
+        ],
+        [
+         "_E4",
+         "_E1"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Anzahl: n(A) + n(B) − 2 = 5 + 3 − 2 = ⟦6⟧."
+     }
     ],
-    "probe": "Abzählen: 1, 3, 5, 6, 7, 9 – sechs Zahlen ✓",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_M1": [
+       0,
+       0
+      ],
+      "_M2": [
+       3.6,
+       0
+      ],
+      "_E1": [
+       -4.6,
+       -4.4
+      ],
+      "_E2": [
+       8.200000000000001,
+       -4.4
+      ],
+      "_E3": [
+       8.200000000000001,
+       4.4
+      ],
+      "_E4": [
+       -4.6,
+       4.4
+      ]
+     },
+     "kreise": [
+      {
+       "m": "_M1",
+       "r": 3.2
+      },
+      {
+       "m": "_M2",
+       "r": 3.2
+      },
+      {
+       "m": [
+        -4.4,
+        3.245
+       ],
+       "r": 0,
+       "name": "A"
+      },
+      {
+       "m": [
+        6.019,
+        3.245
+       ],
+       "r": 0,
+       "name": "B"
+      },
+      {
+       "m": [
+        -4.742,
+        -4.355
+       ],
+       "r": 0,
+       "name": "G"
+      }
+     ],
+     "linien": [
+      [
+       "_E1",
+       "_E2"
+      ],
+      [
+       "_E2",
+       "_E3"
+      ],
+      [
+       "_E3",
+       "_E4"
+      ],
+      [
+       "_E4",
+       "_E1"
+      ]
+     ]
+    },
+    "fehler": "5 + 3 = 8 ist falsch, denn 3 und 9 sind ⟦doppelt gezählt⟧. Man zieht sie einmal ab: 8 − 2 = 6.",
+    "einstieg": "Die beiden Freunde kleben ihre Sticker zusammen in ein Album. Doppelte Sticker kommen nur einmal hinein. Das Album zeigt die ⟦Vereinigungsmenge⟧.",
+    "woerter": [
+     [
+      "Vereinigungsmenge",
+      "A ∪ B: alles, was in A oder in B ist"
+     ],
+     [
+      "n(A)",
+      "die Anzahl der Elemente von A"
+     ]
+    ]
+   },
+   {
+    "lernziel": "venn",
+    "titel": "Mit Venn-Diagrammen zählen",
+    "regel": "Im Venn-Diagramm zuerst die ⟦Überlappung⟧ eintragen. Dann „nur A“, „nur B“ und außerhalb.",
+    "schritte": [
+     {
+      "text": "Die Grundmenge sind 30 Kinder. Zuerst die Überlappung: 6.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "_M1": [
+         0,
+         0
+        ],
+        "_M2": [
+         3.6,
+         0
+        ],
+        "_E1": [
+         -4.6,
+         -4.4
+        ],
+        "_E2": [
+         8.200000000000001,
+         -4.4
+        ],
+        "_E3": [
+         8.200000000000001,
+         4.4
+        ],
+        "_E4": [
+         -4.6,
+         4.4
+        ]
+       },
+       "kreise": [
+        {
+         "m": "_M1",
+         "r": 3.2
+        },
+        {
+         "m": "_M2",
+         "r": 3.2
+        },
+        {
+         "m": [
+          1.193,
+          -0.555
+         ],
+         "r": 0,
+         "name": "6"
+        },
+        {
+         "m": [
+          -4.4,
+          3.245
+         ],
+         "r": 0,
+         "name": "Fußball"
+        },
+        {
+         "m": [
+          0.999,
+          3.245
+         ],
+         "r": 0,
+         "name": "Schwimmen"
+        },
+        {
+         "m": [
+          -4.742,
+          -4.355
+         ],
+         "r": 0,
+         "name": "30 Kinder"
+        }
+       ],
+       "linien": [
+        [
+         "_E1",
+         "_E2"
+        ],
+        [
+         "_E2",
+         "_E3"
+        ],
+        [
+         "_E3",
+         "_E4"
+        ],
+        [
+         "_E4",
+         "_E1"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Nur Fußball: 18 − 6 = 12. Nur Schwimmen: 14 − 6 = 8.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "_M1": [
+         0,
+         0
+        ],
+        "_M2": [
+         3.6,
+         0
+        ],
+        "_E1": [
+         -4.6,
+         -4.4
+        ],
+        "_E2": [
+         8.200000000000001,
+         -4.4
+        ],
+        "_E3": [
+         8.200000000000001,
+         4.4
+        ],
+        "_E4": [
+         -4.6,
+         4.4
+        ]
+       },
+       "kreise": [
+        {
+         "m": "_M1",
+         "r": 3.2
+        },
+        {
+         "m": "_M2",
+         "r": 3.2
+        },
+        {
+         "m": [
+          -2.123,
+          -0.555
+         ],
+         "r": 0,
+         "name": "12"
+        },
+        {
+         "m": [
+          1.193,
+          -0.555
+         ],
+         "r": 0,
+         "name": "6"
+        },
+        {
+         "m": [
+          4.293,
+          -0.555
+         ],
+         "r": 0,
+         "name": "8"
+        },
+        {
+         "m": [
+          -4.4,
+          3.245
+         ],
+         "r": 0,
+         "name": "Fußball"
+        },
+        {
+         "m": [
+          0.999,
+          3.245
+         ],
+         "r": 0,
+         "name": "Schwimmen"
+        },
+        {
+         "m": [
+          -4.742,
+          -4.355
+         ],
+         "r": 0,
+         "name": "30 Kinder"
+        }
+       ],
+       "linien": [
+        [
+         "_E1",
+         "_E2"
+        ],
+        [
+         "_E2",
+         "_E3"
+        ],
+        [
+         "_E3",
+         "_E4"
+        ],
+        [
+         "_E4",
+         "_E1"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Weder noch: 30 − 12 − 6 − 8 = ⟦4⟧.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "_M1": [
+         0,
+         0
+        ],
+        "_M2": [
+         3.6,
+         0
+        ],
+        "_E1": [
+         -4.6,
+         -4.4
+        ],
+        "_E2": [
+         8.200000000000001,
+         -4.4
+        ],
+        "_E3": [
+         8.200000000000001,
+         4.4
+        ],
+        "_E4": [
+         -4.6,
+         4.4
+        ]
+       },
+       "kreise": [
+        {
+         "m": "_M1",
+         "r": 3.2
+        },
+        {
+         "m": "_M2",
+         "r": 3.2
+        },
+        {
+         "m": [
+          -2.123,
+          -0.555
+         ],
+         "r": 0,
+         "name": "12"
+        },
+        {
+         "m": [
+          1.193,
+          -0.555
+         ],
+         "r": 0,
+         "name": "6"
+        },
+        {
+         "m": [
+          4.293,
+          -0.555
+         ],
+         "r": 0,
+         "name": "8"
+        },
+        {
+         "m": [
+          6.693,
+          -4.205
+         ],
+         "r": 0,
+         "name": "4"
+        },
+        {
+         "m": [
+          -4.4,
+          3.245
+         ],
+         "r": 0,
+         "name": "Fußball"
+        },
+        {
+         "m": [
+          0.999,
+          3.245
+         ],
+         "r": 0,
+         "name": "Schwimmen"
+        },
+        {
+         "m": [
+          -4.742,
+          -4.355
+         ],
+         "r": 0,
+         "name": "30 Kinder"
+        }
+       ],
+       "linien": [
+        [
+         "_E1",
+         "_E2"
+        ],
+        [
+         "_E2",
+         "_E3"
+        ],
+        [
+         "_E3",
+         "_E4"
+        ],
+        [
+         "_E4",
+         "_E1"
+        ]
+       ]
+      }
+     }
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_M1": [
+       0,
+       0
+      ],
+      "_M2": [
+       3.6,
+       0
+      ],
+      "_E1": [
+       -4.6,
+       -4.4
+      ],
+      "_E2": [
+       8.200000000000001,
+       -4.4
+      ],
+      "_E3": [
+       8.200000000000001,
+       4.4
+      ],
+      "_E4": [
+       -4.6,
+       4.4
+      ]
+     },
+     "kreise": [
+      {
+       "m": "_M1",
+       "r": 3.2
+      },
+      {
+       "m": "_M2",
+       "r": 3.2
+      },
+      {
+       "m": [
+        -4.4,
+        3.245
+       ],
+       "r": 0,
+       "name": "Fußball"
+      },
+      {
+       "m": [
+        0.999,
+        3.245
+       ],
+       "r": 0,
+       "name": "Schwimmen"
+      },
+      {
+       "m": [
+        -4.742,
+        -4.355
+       ],
+       "r": 0,
+       "name": "30 Kinder"
+      }
+     ],
+     "linien": [
+      [
+       "_E1",
+       "_E2"
+      ],
+      [
+       "_E2",
+       "_E3"
+      ],
+      [
+       "_E3",
+       "_E4"
+      ],
+      [
+       "_E4",
+       "_E1"
+      ]
+     ]
+    },
+    "fehler": "„Nur Fußball = 18“ ist falsch. Die 18 enthält auch die 6, die schwimmen. Erst ⟦die Überlappung abziehen⟧.",
+    "einstieg": "In einer Klasse mit 30 Kindern spielen 18 Fußball und 14 schwimmen. 6 Kinder machen beides. Wie viele machen keins von beiden? Das ⟦Venn-Diagramm⟧ zeigt es.",
+    "woerter": [
+     [
+      "Grundmenge",
+      "alle, um die es geht; im Bild das Rechteck"
+     ],
+     [
+      "weder noch",
+      "in keinem der beiden Kreise"
+     ]
+    ],
+    "fehler_bild": {
+     "typ": "figur",
+     "punkte": {
+      "_M1": [
+       0,
+       0
+      ],
+      "_M2": [
+       3.6,
+       0
+      ],
+      "_E1": [
+       -4.6,
+       -4.4
+      ],
+      "_E2": [
+       8.200000000000001,
+       -4.4
+      ],
+      "_E3": [
+       8.200000000000001,
+       4.4
+      ],
+      "_E4": [
+       -4.6,
+       4.4
+      ]
+     },
+     "kreise": [
+      {
+       "m": "_M1",
+       "r": 3.2
+      },
+      {
+       "m": "_M2",
+       "r": 3.2
+      },
+      {
+       "m": [
+        -2.123,
+        -0.555
+       ],
+       "r": 0,
+       "name": "18"
+      },
+      {
+       "m": [
+        1.193,
+        -0.555
+       ],
+       "r": 0,
+       "name": "6"
+      },
+      {
+       "m": [
+        4.077,
+        -0.555
+       ],
+       "r": 0,
+       "name": "14"
+      },
+      {
+       "m": [
+        6.791,
+        -4.205
+       ],
+       "r": 0,
+       "name": "?"
+      },
+      {
+       "m": [
+        -4.4,
+        3.245
+       ],
+       "r": 0,
+       "name": "Fußball"
+      },
+      {
+       "m": [
+        0.999,
+        3.245
+       ],
+       "r": 0,
+       "name": "Schwimmen"
+      },
+      {
+       "m": [
+        -4.742,
+        -4.355
+       ],
+       "r": 0,
+       "name": "30 Kinder"
+      }
+     ],
+     "linien": [
+      [
+       "_E1",
+       "_E2"
+      ],
+      [
+       "_E2",
+       "_E3"
+      ],
+      [
+       "_E3",
+       "_E4"
+      ],
+      [
+       "_E4",
+       "_E1"
+      ]
+     ]
+    }
+   },
+   {
+    "lernziel": "verstehen",
+    "titel": "Aussagen über Mengen prüfen",
+    "regel": "Die Schnittmenge ist ⟦nie größer⟧ als A oder B. Prüfe Aussagen mit einem Beispiel oder Venn-Diagramm.",
+    "schritte": [
+     {
+      "text": "Beispiel: A = {1; 2; 3; 4; 5}, B = {4; 5; 6; 7}."
+     },
+     {
+      "text": "A ∩ B = {4; 5} hat nur 2 Elemente."
+     },
+     {
+      "text": "A ∩ B liegt ganz in A, hat also höchstens 5 Elemente."
+     },
+     {
+      "text": "⟦Die Aussage ist falsch⟧. Das Beispiel ist ein Gegenbeispiel."
+     },
+     {
+      "text": "Ist A eine Teilmenge von B, gilt sogar A ∩ B = A."
+     }
+    ],
+    "fehler": "n(A ∪ B) = n(A) + n(B) gilt nicht immer. Es stimmt ⟦nur ohne gemeinsame Elemente⟧.",
+    "einstieg": "Jemand behauptet: „A hat 5 Elemente, B hat 4. Also hat A ∩ B 9 Elemente.“ Stimmt das? Mit einem ⟦Beispiel⟧ kannst du solche Aussagen prüfen.",
+    "woerter": [
+     [
+      "Gegenbeispiel",
+      "ein Beispiel, bei dem die Aussage nicht stimmt"
+     ],
+     [
+      "Teilmenge",
+      "A ⊆ B: Jedes Element von A liegt auch in B"
+     ]
+    ],
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -224,7 +1359,7 @@
         -0.555
        ],
        "r": 0,
-       "name": "1; 5; 7"
+       "name": "1; 2; 3"
       },
       {
        "m": [
@@ -232,19 +1367,19 @@
         -0.555
        ],
        "r": 0,
-       "name": "3; 9"
+       "name": "4; 5"
       },
       {
        "m": [
-        4.293,
+        3.842,
         -0.555
        ],
        "r": 0,
-       "name": "6"
+       "name": "6; 7"
       },
       {
        "m": [
-        0.425,
+        -4.4,
         3.245
        ],
        "r": 0,
@@ -252,7 +1387,7 @@
       },
       {
        "m": [
-        1.908,
+        6.019,
         3.245
        ],
        "r": 0,
@@ -285,144 +1420,7 @@
        "_E1"
       ]
      ]
-    },
-    "fehler": "n(A ∪ B) = 5 + 3 = 8 ist falsch: 3 und 9 wurden ⟦doppelt gezählt⟧. Die gemeinsamen Elemente zieht man einmal ab: 8 − 2 = 6."
-   },
-   {
-    "lernziel": "venn",
-    "titel": "Mit Venn-Diagrammen zählen",
-    "regel": "Ein Rechteck steht für die ⟦Grundmenge⟧ (universal set), zwei Kreise für A und B. Es gibt ⟦vier Bereiche⟧: nur A, A und B, nur B, außerhalb beider. Fülle zuerst den ⟦Überlappungsbereich⟧, dann die anderen.",
-    "schritte": [
-     "30 Kinder: 18 spielen Fußball, 14 schwimmen, 6 tun beides.",
-     "Überlappung 6; nur Fußball 18 − 6 = 12; nur Schwimmen 14 − 6 = 8.",
-     "Weder noch: 30 − 12 − 6 − 8 = ⟦4⟧."
-    ],
-    "probe": "12 + 6 + 8 + 4 = 30 ✓",
-    "bild": {
-     "typ": "figur",
-     "punkte": {
-      "_M1": [
-       0,
-       0
-      ],
-      "_M2": [
-       3.6,
-       0
-      ],
-      "_E1": [
-       -4.6,
-       -4.4
-      ],
-      "_E2": [
-       8.200000000000001,
-       -4.4
-      ],
-      "_E3": [
-       8.200000000000001,
-       4.4
-      ],
-      "_E4": [
-       -4.6,
-       4.4
-      ]
-     },
-     "kreise": [
-      {
-       "m": "_M1",
-       "r": 3.2
-      },
-      {
-       "m": "_M2",
-       "r": 3.2
-      },
-      {
-       "m": [
-        -2.123,
-        -0.555
-       ],
-       "r": 0,
-       "name": "12"
-      },
-      {
-       "m": [
-        1.193,
-        -0.555
-       ],
-       "r": 0,
-       "name": "6"
-      },
-      {
-       "m": [
-        4.293,
-        -0.555
-       ],
-       "r": 0,
-       "name": "8"
-      },
-      {
-       "m": [
-        6.693,
-        -4.205
-       ],
-       "r": 0,
-       "name": "4"
-      },
-      {
-       "m": [
-        -2.161,
-        3.245
-       ],
-       "r": 0,
-       "name": "Fußball"
-      },
-      {
-       "m": [
-        1.908,
-        3.245
-       ],
-       "r": 0,
-       "name": "Schwimmen"
-      },
-      {
-       "m": [
-        -4.742,
-        -4.355
-       ],
-       "r": 0,
-       "name": "30 Kinder"
-      }
-     ],
-     "linien": [
-      [
-       "_E1",
-       "_E2"
-      ],
-      [
-       "_E2",
-       "_E3"
-      ],
-      [
-       "_E3",
-       "_E4"
-      ],
-      [
-       "_E4",
-       "_E1"
-      ]
-     ]
-    },
-    "fehler": "„Nur Fußball“ = 18 zu setzen ist falsch: Die 18 enthält auch die 6 Kinder, die zusätzlich schwimmen. Erst ⟦die Überlappung abziehen⟧: 18 − 6 = 12."
-   },
-   {
-    "lernziel": "verstehen",
-    "titel": "Aussagen über Mengen prüfen",
-    "regel": "Prüfe Aussagen mit einem Beispiel oder dem Venn-Diagramm: Die Schnittmenge ist ⟦nie größer⟧ als A oder B. Die Vereinigung ist ⟦nie kleiner⟧. Liegt A ganz in B (⟦Teilmenge⟧, subset: A ⊆ B), dann ist A ∩ B = A und A ∪ B = B.",
-    "schritte": [
-     "Behauptung: „A hat 5 Elemente, B hat 4. Dann hat A ∩ B 9 Elemente.“",
-     "A ∩ B liegt in A, kann also höchstens 5 Elemente haben. ⟦Die Aussage ist falsch⟧ – 9 wäre höchstens n(A ∪ B)."
-    ],
-    "probe": "Beispiel: A = {1; 2; 3; 4; 5}, B = {4; 5; 6; 7}: A ∩ B = {4; 5} ✓",
-    "fehler": "Zu meinen, A ∪ B habe immer n(A) + n(B) Elemente, ist falsch: Das stimmt ⟦nur, wenn A und B nichts gemeinsam haben⟧ (A ∩ B = { })."
+    }
    }
   ],
   "teilfaehigkeiten": [

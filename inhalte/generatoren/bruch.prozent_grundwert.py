@@ -706,6 +706,64 @@ BF.nicht_umgesetzt('argumente: Ablenker „Sinkt ein Wert um 100 %, halbiert er 
 
 # ---- BEFUNDE ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Klasse 7, siehe _durchsicht_kl7.py) ----
+# Vorbilder (Typ und Niveau, eigene Zahlen): BMT8 (ISB) 2023 A5/A6 (Anteile, „99 % der Keime“), 2021 A4 (Rabatt rückwärts); LehrplanPLUS M7 3 (Argumente prüfen).
+from _durchsicht_kl7 import Durchsicht, durchsicht_datei  # noqa: E402
+
+DS = Durchsicht('bruch.prozent_grundwert', 19_7_6)
+# faktor: zwei Stufe-2-Aufgaben sind das Beispiel mit anderen Zahlen
+DS.stufe('faktor', 'Ein Wert wird um 12 % verringert. Mit welchem Faktor multiplizierst du?', 1)
+DS.stufe('faktor', 'Ein Wert wird um 4 % erhöht. Mit welchem Faktor multiplizierst du?', 1)
+# vermehrt: Stufe 2 war überwiegend „Grundwert · Faktor“ wie Stufe 1 → drei auf Stufe 1, eine aus Stufe 3 ebenso; dafür Umkehrungen neu
+for _t in ['Ein Verein hat 800 Mitglieder. Die Mitgliederzahl wächst um 5 %. Wie groß ist der neue Wert?',
+           'Eine Monatsmiete beträgt 1100 €. Sie wird um 12 % erhöht. Wie groß ist der neue Wert?',
+           'Ein Sparguthaben beträgt 3000 €. In einem Jahr kommen 1 % Zinsen dazu. Wie hoch ist das Guthaben danach?',
+           'Ein Sparguthaben beträgt 2000 €. In einem Jahr kommen 2,5 % Zinsen dazu. Wie hoch ist das Guthaben danach?']:
+    DS.stufe('vermehrt', _t, 1)
+DS.neu('vermehrt', 2, DS.Z('Ein Fahrrad kostet 480 €. Es wird um 5 % teurer. Um wie viel Euro steigt der Preis?', 24, '480 * 5 / 100',
+                           'Gefragt ist nur die Erhöhung: 5 % von 480 € = 480 € · 0,05 = 24 €. (Der neue Preis wäre 504 €.)',
+                           'Nicht der neue Preis ist gefragt, sondern nur der Unterschied.', einheit='€'))
+DS.neu('vermehrt', 2, DS.Z('Ein Nettopreis beträgt 250 €. Wie viel Euro Mehrwertsteuer (19 %) kommen dazu?', 47.5, '250 * 19 / 100',
+                           '19 % von 250 € = 250 € · 0,19 = 47,50 €. Mit Steuer kostet es 297,50 €.', 'Gesucht ist nur die Steuer, nicht der Endpreis.', einheit='€'))
+# vermindert: viermal „Rabatt + Skonto“ ist zweischrittig (Stufe 2), die Tüten-Aufgabe einschrittig → Stufe 2; dafür neue Stufe-3-Gedanken
+for _t in ['Ein Schreibtisch kostet 300 €. Es gibt 10 % Rabatt, auf den reduzierten Preis bei Barzahlung noch 3 % Skonto. Was zahlt man bar?',
+           'Eine Waschmaschine kostet 600 €. Es gibt 10 % Rabatt, auf den reduzierten Preis bei Barzahlung noch 3 % Skonto. Was zahlt man bar?',
+           'Eine Waschmaschine kostet 400 €. Es gibt 25 % Rabatt, auf den reduzierten Preis bei Barzahlung noch 2 % Skonto. Was zahlt man bar?',
+           'Eine Jacke kostet 80 €. Es gibt 25 % Rabatt, auf den reduzierten Preis bei Barzahlung noch 2 % Skonto. Was zahlt man bar?',
+           'Früher brauchte eine Familie im Jahr 80 Plastiktüten. Durch Stoffbeutel sinkt der Verbrauch um 65 %. Wie viele Tüten sind es danach?']:
+    DS.stufe('vermindert', _t, 2)
+DS.neu('vermindert', 3, DS.Z('Bei 15 % Rabatt spart man 12 €. Wie viel kostete die Ware vor dem Rabatt?', 80, '12 / 0.15',
+                             '15 % des alten Preises sind 12 €. 1 % sind 0,80 €, 100 % also 80 €. (Nach dem Rabatt kostet sie 68 €.)',
+                             'Rückwärts: 12 € sind 15 % – wie viel sind 100 %?', einheit='€'))
+DS.neu('vermindert', 3, DS.Z('Laden A verkauft eine Jacke für 80 € mit 25 % Rabatt, Laden B dieselbe Jacke für 75 € mit 20 % Rabatt. Um wie viel Euro ist der günstigere Laden billiger?', 0,
+                             '80 * 0.75 - 75 * 0.8', 'A: 80 € · 0,75 = 60 €. B: 75 € · 0,8 = 60 €. Beide kosten gleich viel – der Unterschied ist 0 €.',
+                             'Rechne beide Endpreise aus, bevor du entscheidest.', einheit='€'))
+# zurueck: zwei Stufe-3-Aufgaben sind „neuer Wert : Faktor“ wie Stufe 2
+DS.stufe('zurueck', 'Nach einer Erhöhung um 35 % kostet eine Ware 222,75 €. Wie viel kostete sie vorher?', 2)
+DS.stufe('zurueck', 'Nach 45 % Rabatt kostet eine Ware 33 €. Wie viel kostete sie ursprünglich?', 2)
+# prozentsatz: Stufe 2 war meist Stufe 1 mit krummeren Zahlen → drei auf Stufe 1, dafür Umkehrungen neu
+for _t in ['Ein Preis ändert sich von 500 € auf 540 €. Um wie viel Prozent ändert er sich? (Zunahme positiv, Abnahme negativ)',
+           'Ein Preis ändert sich von 400 € auf 432 €. Um wie viel Prozent ändert er sich? (Zunahme positiv, Abnahme negativ)',
+           'Ein Preis ändert sich von 50 € auf 41 €. Um wie viel Prozent ändert er sich? (Zunahme positiv, Abnahme negativ)']:
+    DS.stufe('prozentsatz', _t, 1)
+DS.neu('prozentsatz', 2, DS.Z('Ein Preis steigt um 12 € auf 72 €. Um wie viel Prozent ist er gestiegen?', 20, '12 / 60 * 100',
+                              'Alter Preis: 72 € − 12 € = 60 €. 12 : 60 = 0,2 = 20 %.', 'Bestimme zuerst den alten Preis – er ist der Grundwert.', einheit='%'))
+DS.neu('prozentsatz', 2, DS.Z('Eine Klasse hatte 25 Kinder. Jetzt sind es 3 mehr. Um wie viel Prozent ist die Klasse gewachsen?', 12, '3 / 25 * 100',
+                              '3 von 25 Kindern: 3 : 25 = 0,12 = 12 %.', 'Der Grundwert ist die alte Klassengröße.', einheit='%'))
+# argumente: sechsmal dieselbe Frage „Welche Aussage ist mathematisch richtig begründet?“ in Stufe 2 → zwei durch andere Argument-Typen ersetzt
+DS.ersetze('argumente', 'Welche Aussage ist mathematisch richtig begründet?',
+           DS.A('In einer Zeitung steht: „Die Zahl der Radfahrer stieg von 200 auf 300 – eine Steigerung um 100 %.“ Was stimmt?',
+                'Falsch: 100 mehr bei 200 sind 50 %.', ['Richtig: Es sind 100 Radfahrer mehr.', 'Falsch: Es sind 150 %.', 'Falsch: Es sind 33 %.'],
+                'Die Steigerung bezieht sich auf den alten Wert 200: 100 : 200 = 0,5 = 50 %. „100 %“ verwechselt die Anzahl 100 mit dem Prozentsatz.',
+                'Wovon ist die Rede: von der Anzahl oder vom Prozentsatz? Teile durch den alten Wert.'), enthaelt='200 € mit 19 % Mehrwertsteuer ergeben 238 €', pools=('uebung',))
+DS.ersetze('argumente', 'Welche Aussage ist mathematisch richtig begründet?',
+           DS.A('Ein T-Shirt kostet in Laden A 20 €, in Laden B 25 €. Welche Aussage stimmt?', 'A ist 20 % billiger als B, und B ist 25 % teurer als A.',
+                ['A ist 25 % billiger als B, und B ist 25 % teurer als A.', 'A ist 5 % billiger als B.', 'A ist 20 % billiger als B, und B ist 20 % teurer als A.'],
+                '5 € von 25 € sind 20 % (A ist billiger als B). 5 € von 20 € sind 25 % (B ist teurer als A). Der Grundwert wechselt.',
+                'Bei „billiger als B“ ist B der Grundwert, bei „teurer als A“ ist es A.'), enthaelt='Erst 40 % Rabatt, dann 50 % Rabatt', pools=('uebung',))
+# ---- DURCHSICHT ENDE ----
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Faktoren', ['faktor', 'vermehrt', 'vermindert']), ('Rückwärts rechnen', ['zurueck', 'prozentsatz']), ('Komplexere Aufgaben', ['mehrfach', 'argumente'])],
@@ -715,3 +773,4 @@ if __name__ == '__main__':
 )
     anhaengen(META['thema_schluessel'], schwer())
     befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+    durchsicht_datei(META['thema_schluessel'], DS)  # Neunzehnte Runde: zuletzt

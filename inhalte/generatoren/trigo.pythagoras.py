@@ -677,3 +677,50 @@ if __name__ == '__main__':
                  'Gerundete Ergebnisse: Der Wurzelwert steht als 12-stellige Konstante im Rechenausdruck c, weil das Prüfskript keine Wurzeln kennt.'])
     anhaengen(d, 9910, schwer)
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+
+
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl9) ----
+from _durchsicht_kl9 import Befunde as _DSB, durchsicht  # noqa: E402
+
+DS = _DSB('trigo.pythagoras', 19_9_11)
+# hypotenuse: ganzzahlige Katheten wie im Kartenbeispiel sind Stufe 1; Seiten mit anderen Namen (α = 90°) sind Stufe 2 nur bei PQR
+for _t in ('Ein rechtwinkliges Dreieck hat die Katheten a = 24 cm und b = 7 cm. Berechne die Hypotenuse c.',
+           'Ein rechtwinkliges Dreieck hat die Katheten a = 27 cm und b = 36 cm. Berechne die Hypotenuse c.',
+           'Ein rechtwinkliges Dreieck hat die Katheten 33 cm und 56 cm. Wie lang ist die Hypotenuse?'):
+    DS.stufe('hypotenuse', _t, 1)
+DS.stufe('hypotenuse', 'Im Dreieck PQR ist der Winkel bei Q ein rechter, PQ = 2 cm, QR = 2,1 cm. Berechne PR.', 2)
+# kathete: ganzzahlige Werte wie im Beispiel → Stufe 1; Dezimalzahl → Stufe 2; dazu zwei neue Stufe-2-Aufgaben
+for _t in ('Ein rechtwinkliges Dreieck hat die Hypotenuse c = 51 cm und die Kathete b = 45 cm. Berechne die Kathete a.',
+           'Ein rechtwinkliges Dreieck hat die Hypotenuse c = 40 cm und die Kathete b = 32 cm. Berechne die Kathete a.',
+           'Ein rechtwinkliges Dreieck hat die Hypotenuse c = 52 cm und die Kathete b = 20 cm. Berechne die Kathete a.'):
+    DS.stufe('kathete', _t, 1)
+DS.stufe('kathete', 'Ein rechtwinkliges Dreieck hat die Hypotenuse c = 70 cm und die Kathete b = 42 cm. Berechne die Kathete a.', 1)
+DS.stufe('kathete', 'Ein rechtwinkliges Dreieck hat die Hypotenuse c = 9 cm und die Kathete b = 5,4 cm. Berechne die Kathete a.', 2)
+DS.neu('kathete', 2, DS.Z('Hypotenuse 12 cm, eine Kathete 7 cm. Wie lang ist die andere Kathete? Runde auf eine Nachkommastelle.', 9.7, '9.746794344809',
+                         'a² = 144 − 49 = 95, a = √95 cm ≈ 9,7 cm.', 'Bei einer Kathete: Quadrate abziehen.', einheit='cm', toleranz=0.1))
+DS.neu('kathete', 2, DS.Z('Ein rechtwinkliges Dreieck hat die Hypotenuse 2,6 m und eine Kathete von 1 m. Wie lang ist die andere Kathete?', 2.4, '2.4',
+                         'a² = 6,76 − 1 = 5,76, a = 2,4 m.', 'Rechne 2,6² − 1².', einheit='m'))
+# umkehrung: „Welcher Winkel ist ein rechter?“ einmal auf Stufe 3 lassen; Dezimalzahlen sind Stufe 2
+for _t in ('Im Dreieck ABC ist a = 12 cm, b = 13 cm, c = 5 cm. Welcher Winkel ist ein rechter Winkel?',
+           'Im Dreieck ABC ist a = 48 cm, b = 36 cm, c = 60 cm. Welcher Winkel ist ein rechter Winkel?',
+           'Ist das Dreieck mit den Seiten 2,5 cm, 6 cm und 6,5 cm rechtwinklig?'):
+    DS.stufe('umkehrung', _t, 2)
+# koordinaten: nur runden ist Stufe 2
+for _t in ('Berechne den Abstand von P(1 | −5) und Q(7 | −12) auf zwei Nachkommastellen (Einheit 1 cm).',
+           'Berechne den Abstand von P(5 | −5) und Q(0 | −1) auf zwei Nachkommastellen (Einheit 1 cm).',
+           'Berechne den Abstand von P(6 | 0) und Q(9 | −6) auf zwei Nachkommastellen (Einheit 1 cm).'):
+    DS.stufe('koordinaten', _t, 2)
+# raum: Raumdiagonale von Quader und Würfel ist das Kartenbeispiel → Stufe 2
+for _t in ('Wie lang ist die Raumdiagonale eines Würfels mit 7 cm Kantenlänge? Runde auf eine Nachkommastelle.',
+           'Wie lang ist die Raumdiagonale eines Würfels mit 6 cm Kantenlänge? Runde auf eine Nachkommastelle.',
+           'Ein Quader ist 12 cm lang, 4 cm breit und 3 cm hoch. Wie lang ist seine Raumdiagonale?'):
+    DS.stufe('raum', _t, 2)
+# anwendung: Höhe im gleichseitigen Dreieck wie die gleichschenklige Aufgabe (Stufe 2); Rampe ist ein Schritt
+for _t in ('Wie hoch ist ein gleichseitiges Dreieck mit 14 cm Seitenlänge? Runde auf zwei Nachkommastellen.',
+           'Wie hoch ist ein gleichseitiges Dreieck mit 4 cm Seitenlänge? Runde auf zwei Nachkommastellen.',
+           'Eine Rampe steigt auf 800 cm waagrechter Länge um 67 cm an. Wie lang ist die Rampe? Runde auf ganze Zentimeter.',
+           'Eine Rampe steigt auf 240 cm waagrechter Länge um 70 cm an. Wie lang ist die Rampe?'):
+    DS.stufe('anwendung', _t, 2)
+
+if __name__ == '__main__':
+    durchsicht('trigo.pythagoras', DS)

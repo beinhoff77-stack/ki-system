@@ -1150,6 +1150,260 @@ for _grad in (128, 64):
 # ---- DURCHSICHT ENDE ----
 
 
+# ---- STUFEN (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, siehe _stufen_kl7.py) ----
+# Vorbilder (Typ und Niveau, eigene Zahlen): Jahrgangsstufentest/BMT8 (ISB) – Winkel an Parallelen in Figuren begründen, Viereck auf Parallelität prüfen,
+# Winkel in Raute/Parallelogramm mit Diagonale; Knobel nach der Art von Känguru 7/8 und Mathematik-Olympiade (Pentagramm, spitze Winkel im Vieleck).
+from _stufen_kl7 import Stufen, stufen_datei  # noqa: E402
+
+ST = Stufen('geometrie.winkelsaetze', 20_7_4)
+# scheitel_neben
+ST.leiter('scheitel_neben', 'Neben- und Scheitelwinkel an einer Kreuzung bestimmen; erkennen, welche gleich groß sind.',
+          'Drei Geraden durch einen Punkt, Lagebeschreibungen, Nummerierung deuten, Winkel aus „um … größer“.',
+          'Verhältnisse, Summen von Winkeln zurückrechnen, Sachsituation Kreuzung, Scheitelwinkelsatz begründen, Fehler deuten.')
+ST.regel('scheitel_neben', 1, '', 'direkt')
+ST.regel('scheitel_neben', 2, 'größer als sein Nebenwinkel', 'umkehr')
+ST.regel('scheitel_neben', 2, 'nummeriert', 'darstellung')
+ST.regel('scheitel_neben', 2, '', 'mehrschritt')
+ST.regel('scheitel_neben', 3, 'Warum', 'begruenden')
+ST.regel('scheitel_neben', 3, 'Kreuzung', 'transfer')
+ST.regel('scheitel_neben', 3, 'Zwei Nebenwinkel verhalten', 'rueckwaerts')
+ST.regel('scheitel_neben', 3, 'Zwei Scheitelwinkel ergeben', 'rueckwaerts')
+ST.regel('scheitel_neben', 3, '', 'verknuepfen')
+ST.neu('scheitel_neben', 1, 'erkennen', ST.A('Zwei Geraden schneiden sich. Welche Winkel sind immer gleich groß?', 'Scheitelwinkel', ['Nebenwinkel', 'alle vier Winkel', 'keine zwei Winkel'],
+                                             'Scheitelwinkel liegen sich gegenüber und sind gleich groß. Nebenwinkel ergänzen sich zu 180°; gleich groß sind sie nur bei 90°.', 'Welche Winkel liegen sich gegenüber?'))
+ST.neu('scheitel_neben', 3, 'fehler', ST.A('Jemand sagt: „Zwei Geraden schneiden sich, ein Winkel ist 70°, also ist sein Scheitelwinkel 110°.“ Was stimmt?',
+                                           'Falsch: Der Scheitelwinkel ist auch 70°; 110° ist der Nebenwinkel.', ['Richtig.', 'Falsch: Der Scheitelwinkel ist 290°.', 'Falsch: Der Scheitelwinkel ist 20°.'],
+                                           'Scheitelwinkel sind gleich groß: 70°. Die 110° ergeben sich mit 180° − 70° für den Nebenwinkel – er hat die Namen verwechselt.', 'Liegt der gesuchte Winkel gegenüber oder daneben?'))
+ST.knobel('scheitel_neben', ST.Z('Vier Geraden gehen durch einen Punkt und bilden acht Winkel. Wie groß kann der kleinste dieser acht Winkel höchstens sein?', 45, '180 / 4',
+                                 'Die acht Winkel ergeben zusammen 360°. Gegenüberliegende Winkel sind Scheitelwinkel, also gleich groß: Es gibt vier Paare a, b, c, d mit a + b + c + d = 180°. '
+                                 'Wäre jeder größer als 45°, wäre die Summe größer als 180°. Also ist der kleinste höchstens 45°. Das geht genau: vier Geraden im Abstand von 45°.',
+                                 'Wie hängen die acht Winkel paarweise zusammen, und was ergibt ihre Summe?'))
+ST.knobel('scheitel_neben', ST.Z('Zwei Geraden schneiden sich. Ein Winkel ist um 24° kleiner als das Doppelte seines Nebenwinkels. Wie groß ist er?', 112, '(360 - 24) / 3',
+                                 'Nennt man den Nebenwinkel n, ist der Winkel 2n − 24°. Zusammen 180°: n + 2n − 24° = 180°, also 3n = 204° und n = 68°. '
+                                 'Der Winkel ist 180° − 68° = 112°. Probe: 2 · 68° − 24° = 112° ✓.',
+                                 'Beschreibe beide Winkel mit dem Nebenwinkel und nutze ihre Summe.'))
+# stufen_wechsel
+ST.leiter('stufen_wechsel', 'Stufen- und Wechselwinkel an Parallelen ablesen; Winkelpaare erkennen.',
+          'Winkel in anderer Lage über Neben- und Scheitelwinkel bestimmen, Winkelpaare benennen, Gleise und Straße.',
+          'Rampe mit Handlauf, Dreieck zwischen Parallelen, Knickweg, Verhältnis rückwärts, Fehler mit der Lage, Parameter, Prüfungsaufgabe Parallelogramm.')
+ST.regel('stufen_wechsel', 1, '', 'direkt')
+ST.regel('stufen_wechsel', 2, 'Wie heißen', 'darstellung')
+ST.regel('stufen_wechsel', 2, '', 'mehrschritt')
+ST.regel('stufen_wechsel', 3, 'Rampe', 'transfer')
+ST.regel('stufen_wechsel', 3, '-mal so groß', 'rueckwaerts')
+ST.regel('stufen_wechsel', 3, '', 'verknuepfen')
+ST.neu('stufen_wechsel', 1, 'erkennen', ST.A('g ∥ h, und k schneidet beide. Welche Winkelpaare an den beiden Kreuzungen sind immer gleich groß?', 'Stufenwinkel und Wechselwinkel',
+                                             ['nur Stufenwinkel', 'nur Wechselwinkel', 'alle acht Winkel'],
+                                             'An Parallelen sind Stufenwinkel (gleiche Lage) und Wechselwinkel (Z-Form) gleich groß. Alle acht sind nur gleich, wenn k senkrecht steht.',
+                                             'Denke an die F-Form und die Z-Form.'))
+ST.neu('stufen_wechsel', 2, 'einkleidung', ST.Z('Eine gerade Straße kreuzt zwei parallele Bahngleise. Am ersten Gleis bildet sie rechts oberhalb 65°. Welchen Winkel bildet sie am zweiten Gleis links oberhalb?',
+                                                115, '180 - 65', 'Am zweiten Gleis ist der Winkel rechts oberhalb ebenfalls 65° (Stufenwinkel). Links oberhalb ist sein Nebenwinkel: 180° − 65° = 115°.',
+                                                'Bestimme zuerst den Winkel in derselben Lage.', einheit='°'))
+ST.neu('stufen_wechsel', 3, 'fehler', ST.A('g ∥ h. Jemand sagt: „Bei S ist der Winkel rechts oberhalb 70°, also ist der Winkel bei T links unterhalb 110°.“ Was stimmt?',
+                                           'Falsch: Er ist 70°, denn es sind Wechselwinkel.', ['Richtig.', 'Falsch: Er ist 20°.', 'Falsch: Er ist 250°.'],
+                                           'Bei S: rechts oberhalb 70°, also links unterhalb auch 70° (Scheitelwinkel). Bei T links unterhalb ist es derselbe Winkel in gleicher Lage (Stufenwinkel): 70°.',
+                                           'Gehe über den Scheitelwinkel bei S.'))
+ST.neu('stufen_wechsel', 3, 'parameter', ST.Z('g ∥ h. Bei S ist der Winkel rechts oberhalb α. Für welches α ist der Winkel bei T links oberhalb genau doppelt so groß wie α?', 60, '180 / 3',
+                                              'Bei T rechts oberhalb ist α (Stufenwinkel), links oberhalb also 180° − α. Es soll 180° − α = 2α sein, also 3α = 180° und α = 60°.',
+                                              'Drücke den Winkel bei T links oberhalb mit α aus.', einheit='°'))
+ST.neu('stufen_wechsel', 3, 'pruefung', ST.Z('Zwei Paare paralleler Geraden (g ∥ h und k ∥ l) bilden ein Parallelogramm. Ein Innenwinkel ist 65° groß. Wie groß ist ein benachbarter Innenwinkel?',
+                                             115, '180 - 65', 'Benachbarte Innenwinkel liegen an einer Querlinie zwischen zwei Parallelen: Über Stufenwinkel und Nebenwinkel ergänzen sie sich zu 180°. 180° − 65° = 115°.',
+                                             'Verlängere eine Seite und suche den Stufenwinkel.', einheit='°'))
+ST.knobel('stufen_wechsel', ST.Z('g ∥ h, und k schneidet beide. Von den acht entstehenden Winkeln ist einer viermal so groß wie ein anderer. Wie groß ist der kleinere?', 36, '180 / 5',
+                                 'An Parallelen gibt es nur zwei verschiedene Winkelgrößen: α und 180° − α (alle anderen sind Stufen-, Wechsel- oder Scheitelwinkel dazu). '
+                                 'Ist der eine viermal so groß wie der andere, gilt 4α + α = 180°, also α = 36°. Die beiden Größen sind 36° und 144°.',
+                                 'Wie viele verschieden große Winkel gibt es an den beiden Kreuzungen überhaupt?'))
+ST.knobel('stufen_wechsel', ST.Z('Ein Lichtstrahl wird zwischen zwei parallelen Spiegeln hin und her geworfen. Er trifft den ersten Spiegel unter 35°. Unter welchem Winkel trifft er beim fünften Auftreffen auf einen Spiegel?',
+                                 35, '35',
+                                 'Am Spiegel gilt: Einfallswinkel = Ausfallswinkel, der Strahl verlässt den ersten Spiegel also auch unter 35°. Zwischen den Spiegeln ist er eine Querlinie zu zwei Parallelen: '
+                                 'Am zweiten Spiegel trifft er unter dem Wechselwinkel, wieder 35°. So geht es immer weiter – bei jedem Auftreffen 35°.',
+                                 'Verfolge den Strahl von Spiegel zu Spiegel. Welche Winkelpaare entstehen?'))
+# parallel_pruefen
+ST.leiter('parallel_pruefen', 'Mit gleichen Stufen- oder Wechselwinkeln auf Parallelität schließen; das Kriterium erkennen.',
+          'Lagen über Neben- und Scheitelwinkel umrechnen, nötige Drehung bestimmen, drei Parallelen, Regalbretter.',
+          'Begründung beurteilen, Schnittwinkel nicht paralleler Geraden, Senkrechte verknüpfen, parallele Paare auswählen, Fehler, Prüfungsaufgabe Viereck.')
+ST.regel('parallel_pruefen', 1, '', 'direkt')
+ST.regel('parallel_pruefen', 2, 'drehen', 'umkehr')
+ST.regel('parallel_pruefen', 2, '', 'mehrschritt')
+ST.regel('parallel_pruefen', 3, 'Welche', 'begruenden')
+ST.regel('parallel_pruefen', 3, '', 'verknuepfen')
+ST.neu('parallel_pruefen', 1, 'erkennen', ST.A('k schneidet g und h. Woran erkennt man sicher, dass g und h parallel sind?', 'Zwei Stufenwinkel sind gleich groß.',
+                                               ['Zwei Nebenwinkel sind gleich groß.', 'Zwei Scheitelwinkel sind gleich groß.', 'Ein Winkel ist 90°.'],
+                                               'Umkehrung des Stufenwinkelsatzes: Sind Stufenwinkel gleich groß, sind die Geraden parallel. Scheitelwinkel sind immer gleich groß, das sagt nichts aus.',
+                                               'Welche Winkel liegen an zwei verschiedenen Kreuzungen?'))
+ST.neu('parallel_pruefen', 2, 'einkleidung', ST.A('Ein Schreiner prüft zwei Regalbretter. Eine schräge Leiste bildet mit dem oberen Brett rechts oberhalb 62°, mit dem unteren Brett rechts oberhalb 63°. Sind die Bretter parallel?',
+                                                  'Nein: Die Stufenwinkel unterscheiden sich um 1°.', ['Ja: Die Winkel sind fast gleich.', 'Ja: Beide Winkel sind spitz.', 'Das kann man ohne zweite Leiste nicht sagen.'],
+                                                  'Parallel sind die Bretter nur bei gleichen Stufenwinkeln. 62° ≠ 63° – die Bretter laufen ganz leicht aufeinander zu.', 'Vergleiche die Stufenwinkel genau.'))
+ST.neu('parallel_pruefen', 3, 'fehler', ST.A('Bei S ist der Winkel rechts oberhalb 75°, bei T der Winkel links oberhalb 105°. Jemand sagt: „75° ≠ 105°, also sind g und h nicht parallel.“ Was stimmt?',
+                                             'Falsch: Bei T rechts oberhalb sind es 75°, die Stufenwinkel sind gleich, also g ∥ h.',
+                                             ['Richtig.', 'Falsch: Man kann es nicht entscheiden.', 'Falsch: g und h stehen senkrecht aufeinander.'],
+                                             'Die beiden genannten Winkel sind keine Stufenwinkel. Der Nebenwinkel bei T rechts oberhalb ist 180° − 105° = 75° – gleich dem Winkel bei S in derselben Lage. Also sind g und h parallel.',
+                                             'Liegen die beiden Winkel in derselben Lage?'))
+ST.neu('parallel_pruefen', 3, 'pruefung', ST.A('Ein Viereck ABCD hat der Reihe nach die Innenwinkel α = 70°, β = 110°, γ = 70°, δ = 110°. Welche Seiten sind sicher parallel?', '[AB] ∥ [CD] und [AD] ∥ [BC]',
+                                               ['nur [AB] ∥ [CD]', 'nur [AD] ∥ [BC]', 'keine'],
+                                               'An [AB] liegen α und β mit α + β = 180°: Verlängert man [AB], ist der Nebenwinkel von β gleich α – Stufenwinkel, also [AD] ∥ [BC]. Ebenso β + γ = 180° an [BC]: [AB] ∥ [CD]. ABCD ist ein Parallelogramm.',
+                                               'Prüfe, welche benachbarten Winkel sich zu 180° ergänzen.'))
+ST.knobel('parallel_pruefen', ST.Z('Fünf Geraden a, b, c, d, e werden von k geschnitten. Die Winkel rechts oberhalb sind: bei a 47°, bei b 133°, bei c 47°, bei d 48°, bei e 47°. Wie viele Paare paralleler Geraden gibt es?',
+                                   3, '3',
+                                   'Parallel sind zwei Geraden genau dann, wenn ihre Winkel rechts oberhalb (Stufenwinkel) gleich sind. 47° haben a, c und e: Das sind die Paare a–c, a–e, c–e. '
+                                   'b (133°) und d (48°) haben keinen Partner. Achtung: 133° ist der Nebenwinkel von 47°, aber kein Stufenwinkel – b ist nicht parallel zu a. Also 3 Paare.',
+                                   'Vergleiche nur Winkel in derselben Lage. Wie viele Paare bilden drei gleiche Geraden?'))
+ST.knobel('parallel_pruefen', ST.A('Für drei Geraden a, b, c gilt: a ist nicht parallel zu b, und b ist nicht parallel zu c. Was folgt für a und c?', 'Nichts Sicheres: a und c können parallel sein oder nicht.',
+                                   ['a und c sind sicher nicht parallel.', 'a und c sind sicher parallel.', 'a und c stehen sicher senkrecht aufeinander.'],
+                                   'Beispiel 1: a und c sind zwei waagrechte Geraden, b ist schräg – dann gilt a ∥ c. Beispiel 2: a waagrecht, b schräg, c senkrecht – dann ist a nicht parallel zu c. '
+                                   'Beide Beispiele erfüllen die Bedingungen, also folgt nichts Sicheres. „Nicht parallel“ lässt sich nicht weiterreichen wie „parallel“.',
+                                   'Versuche, für jede Antwort ein Beispiel oder ein Gegenbeispiel zu zeichnen.'))
+# innenwinkelsumme
+ST.leiter('innenwinkelsumme', 'Den dritten Winkel aus zwei Winkeln berechnen; die Winkelsumme 180° kennen.',
+          'Gleich große Winkel, rechter Winkel, Existenz eines Dreiecks prüfen, Beweisschritte mit Wechselwinkeln, Segel.',
+          'Größten Winkel begründen, Beweis mit Teilwinkeln, Fehler beim Zerlegen, Verhältnis und Differenzen rückwärts.')
+ST.regel('innenwinkelsumme', 1, '', 'direkt')
+ST.regel('innenwinkelsumme', 2, 'Beweis', 'darstellung')
+ST.regel('innenwinkelsumme', 2, '', 'mehrschritt')
+ST.regel('innenwinkelsumme', 3, 'Kann', 'begruenden')
+ST.regel('innenwinkelsumme', 3, 'Jemand sagt', 'fehler')
+ST.regel('innenwinkelsumme', 3, 'verhalten', 'verknuepfen')
+ST.regel('innenwinkelsumme', 3, '[CM]', 'verknuepfen')
+ST.regel('innenwinkelsumme', 3, '', 'rueckwaerts')
+ST.neu('innenwinkelsumme', 1, 'erkennen', ST.A('Wie groß ist die Summe der drei Innenwinkel in jedem Dreieck?', '180°', ['90°', '360°', 'Das hängt vom Dreieck ab.'],
+                                               'In jedem Dreieck ergeben die drei Innenwinkel zusammen 180°.', 'Das gilt für spitze, rechtwinklige und stumpfe Dreiecke gleich.'))
+ST.neu('innenwinkelsumme', 2, 'einkleidung', ST.Z('Ein dreieckiges Segel hat oben an der Spitze einen Winkel von 35° und unten am Mast einen rechten Winkel. Wie groß ist der dritte Winkel?', 55, '180 - 90 - 35',
+                                                  '180° − 90° − 35° = 55°.', 'Wie groß ist ein rechter Winkel?', einheit='°'))
+ST.knobel('innenwinkelsumme', ST.Z('In einem Dreieck ist ein Winkel genau so groß wie die beiden anderen zusammen. Wie groß ist dieser Winkel?', 90, '180 / 2',
+                                   'Ist γ = α + β, dann gilt α + β + γ = 2γ = 180°, also γ = 90°. Jedes solche Dreieck ist rechtwinklig.', 'Setze die Bedingung in die Winkelsumme ein.'))
+ST.knobel('innenwinkelsumme', ST.Z('Die drei Innenwinkel eines Dreiecks sind ganze Gradzahlen, die direkt aufeinander folgen (wie 40°, 41°, 42°). Wie groß ist der größte Winkel?', 61, '180 / 3 + 1',
+                                   'Ist der mittlere Winkel m, sind die Winkel m − 1, m, m + 1. Zusammen 3m = 180°, also m = 60°. Die Winkel sind 59°, 60°, 61° – der größte ist 61°.',
+                                   'Beschreibe alle drei Winkel mit dem mittleren.'))
+# aussenwinkel
+ST.leiter('aussenwinkel', 'Außenwinkel als Summe der beiden nicht anliegenden Innenwinkel oder als Nebenwinkel berechnen.',
+          'Innenwinkel aus Außenwinkel zurückrechnen, Außenwinkel an anderer Ecke, Dachgiebel.',
+          'Zwei Außenwinkel verknüpfen, Verhältnis rückwärts, drei spitze Außenwinkel begründen, Kreisfigur, Fehler „Innen- statt Außenwinkel“.')
+ST.regel('aussenwinkel', 1, '', 'direkt')
+ST.regel('aussenwinkel', 2, '', 'umkehr')
+ST.regel('aussenwinkel', 3, 'Kreis', 'transfer')
+ST.regel('aussenwinkel', 3, 'Kann', 'begruenden')
+ST.regel('aussenwinkel', 3, 'Außenwinkel bei B', 'rueckwaerts')
+ST.regel('aussenwinkel', 3, 'Die Außenwinkel bei A und B', 'rueckwaerts')
+ST.regel('aussenwinkel', 3, '', 'verknuepfen')
+ST.neu('aussenwinkel', 1, 'erkennen', ST.A('Wie groß ist ein Außenwinkel eines Dreiecks?', 'so groß wie die beiden nicht anliegenden Innenwinkel zusammen',
+                                           ['so groß wie der anliegende Innenwinkel', 'immer 90°', 'so groß wie alle drei Innenwinkel zusammen'],
+                                           'Außenwinkel und anliegender Innenwinkel ergeben 180°, die drei Innenwinkel auch. Also ist der Außenwinkel so groß wie die beiden anderen Innenwinkel zusammen.',
+                                           'Vergleiche: Außenwinkel + anliegender Innenwinkel = 180°.'))
+ST.neu('aussenwinkel', 2, 'mehrschritt', ST.Z('In einem Dreieck ist α = 50° und β = 65°. Wie groß ist der Außenwinkel bei A?', 130, '180 - 50',
+                                              'Der Außenwinkel bei A ist der Nebenwinkel von α: 180° − 50° = 130°. Probe: β + γ = 65° + 65° = 130° ✓.', 'Welcher Innenwinkel liegt bei A an?', einheit='°'))
+ST.neu('aussenwinkel', 2, 'einkleidung', ST.Z('Ein Dachgiebel ist ein Dreieck mit den Bodenwinkeln 40° (links) und 50° (rechts). Ein Brett verlängert die Bodenlinie nach rechts über die Ecke hinaus. Welchen Winkel bildet es mit der rechten Dachkante?',
+                                              130, '180 - 50', 'Das ist der Außenwinkel an der rechten Ecke: 180° − 50° = 130°. Probe: 40° + 90° (Spitze: 180° − 40° − 50°) = 130° ✓.',
+                                              'Welcher Innenwinkel liegt an der rechten Ecke?', einheit='°'))
+ST.neu('aussenwinkel', 3, 'fehler', ST.A('Jemand rechnet: „α = 40°, β = 75°, also ist der Außenwinkel bei C 180° − 40° − 75° = 65°.“ Was stimmt?',
+                                         'Falsch: 65° ist γ; der Außenwinkel bei C ist 40° + 75° = 115°.', ['Richtig.', 'Falsch: Er ist 140°.', 'Falsch: Er ist 105°.'],
+                                         'Mit 180° − α − β erhält man den Innenwinkel γ = 65°. Der Außenwinkel bei C ist sein Nebenwinkel: 180° − 65° = 115° = α + β.',
+                                         'Was hat er eigentlich ausgerechnet?'))
+ST.knobel('aussenwinkel', ST.Z('Ein fünfzackiger Stern wird in einem Zug aus fünf geraden Strecken gezeichnet; die Zacken dürfen verschieden spitz sein. Wie groß ist die Summe der fünf Winkel an den Spitzen?',
+                               180, '180',
+                               'Nenne die Spitzen der Reihe nach A, B, C, D, E. Die Strecken von A und von C kreuzen sich mit den Strecken von B in zwei Punkten; dort entsteht ein kleines Dreieck mit der Spitze B. '
+                               'Seine beiden anderen Winkel sind Außenwinkel zweier anderer Dreiecke: Der eine ist so groß wie die Spitzenwinkel bei A und D zusammen, der andere wie die bei C und E zusammen. '
+                               'Im Dreieck mit der Spitze B stehen also alle fünf Spitzenwinkel – ihre Summe ist 180°.',
+                               'Suche ein Dreieck, in dem ein Spitzenwinkel steht, und deute seine beiden anderen Winkel als Außenwinkel.'))
+ST.knobel('aussenwinkel', ST.Z('Die drei Außenwinkel eines Dreiecks (an jeder Ecke einer) verhalten sich wie 3 : 4 : 5. Wie groß ist der größte Innenwinkel?', 90, '180 - 360 / 12 * 3',
+                               'Jeder Außenwinkel ist 180° minus Innenwinkel. Zusammen: 3 · 180° − 180° = 360°. Bei 3 : 4 : 5 sind das 12 Teile zu 30°: 90°, 120°, 150°. '
+                               'Die Innenwinkel sind 90°, 60°, 30°. Der größte Innenwinkel gehört zum kleinsten Außenwinkel: 90°.',
+                               'Wie groß sind die drei Außenwinkel zusammen?'))
+# vieleck
+ST.leiter('vieleck', 'Fehlenden Winkel im Viereck berechnen, Winkelsumme eines n-Ecks bestimmen.',
+          'Zerlegung in Dreiecke, fehlender Winkel im Fünf- und Sechseck, Innenwinkel regelmäßiger Vielecke, Gartenbeet.',
+          'Eckenzahl und Diagonalen aus der Winkelsumme, Formel begründen, Viereck mit Vielfachen, Fehler beim Zerlegen.')
+ST.regel('vieleck', 1, '', 'direkt')
+ST.regel('vieleck', 2, 'Diagonalen', 'darstellung')
+ST.regel('vieleck', 2, '', 'mehrschritt')
+ST.regel('vieleck', 3, 'Warum', 'begruenden')
+ST.regel('vieleck', 3, 'Diagonalen', 'transfer')
+ST.regel('vieleck', 3, 'Jeder Innenwinkel', 'verknuepfen')
+ST.regel('vieleck', 3, 'Viereck', 'verknuepfen')
+ST.regel('vieleck', 3, '', 'rueckwaerts')
+ST.neu('vieleck', 1, 'erkennen', ST.A('Wie groß ist die Winkelsumme in jedem Viereck?', '360°', ['180°', '540°', 'Das hängt vom Viereck ab.'],
+                                      'Eine Diagonale teilt jedes Viereck in zwei Dreiecke: 2 · 180° = 360°.', 'In wie viele Dreiecke teilt eine Diagonale das Viereck?'))
+ST.neu('vieleck', 2, 'einkleidung', ST.Z('Ein Gartenbeet hat die Form eines Fünfecks. Drei Ecken sind rechte Winkel, die beiden anderen sind gleich groß. Wie groß ist jeder der beiden?', 135, '(540 - 3 * 90) / 2',
+                                        'Winkelsumme im Fünfeck: 3 · 180° = 540°. Drei rechte Winkel: 270°. Rest 270° für zwei gleiche Winkel: je 135°.', 'Wie groß ist die Winkelsumme im Fünfeck?', einheit='°'))
+ST.neu('vieleck', 3, 'fehler', ST.A('Jemand sagt: „Ein Sechseck hat 6 Ecken, also zerlegt man es in 6 Dreiecke und die Winkelsumme ist 6 · 180° = 1080°.“ Was stimmt?',
+                                    'Falsch: Von einer Ecke aus entstehen nur 4 Dreiecke, die Winkelsumme ist 720°.', ['Richtig.', 'Falsch: Die Winkelsumme ist 360°.', 'Falsch: Die Winkelsumme ist 900°.'],
+                                    'Von einer Ecke gehen 3 Diagonalen aus, sie zerlegen das Sechseck in 4 Dreiecke: 4 · 180° = 720°. '
+                                    'Zerlegt man von einem inneren Punkt aus in 6 Dreiecke, muss man die 360° um diesen Punkt wieder abziehen: 1080° − 360° = 720°.',
+                                    'Zeichne die Diagonalen von einer Ecke aus.'))
+ST.knobel('vieleck', ST.Z('In einem regelmäßigen Vieleck ist jeder Innenwinkel viermal so groß wie der Winkel, um den man an jeder Ecke abbiegt, wenn man außen herumläuft. Wie viele Ecken hat es?',
+                          10, '360 / 36',
+                          'Innenwinkel und Abbiegewinkel ergänzen sich zu 180°: 4x + x = 180°, also x = 36° und Innenwinkel 144°. '
+                          'Wer einmal ganz herumläuft, hat sich insgesamt um 360° gedreht. 360° : 36° = 10 Ecken. Probe: Winkelsumme 8 · 180° = 1440°, 1440° : 10 = 144° ✓.',
+                          'Wie hängen Innenwinkel und Abbiegewinkel an einer Ecke zusammen?'))
+ST.knobel('vieleck', ST.Z('Wie viele spitze Innenwinkel kann ein Vieleck ohne einspringende Ecke höchstens haben?', 3, '3',
+                          'Ohne einspringende Ecke ist jeder Innenwinkel kleiner als 180°, und der Abbiegewinkel 180° − Innenwinkel ist positiv. Beim n-Eck ergeben die Abbiegewinkel n · 180° − (n − 2) · 180° = 360°. '
+                          'Ein spitzer Innenwinkel hat einen Abbiegewinkel über 90°. Vier spitze Winkel ergäben schon mehr als 360° – unmöglich. Drei gehen, etwa beim spitzwinkligen Dreieck. Höchstens 3.',
+                          'Betrachte an jeder Ecke den Winkel 180° minus Innenwinkel. Was ergeben diese zusammen?'))
+# figuren
+ST.leiter('figuren', 'Winkel am Dreieck zwischen Parallelen und im Parallelogramm ablesen; gleiche Winkel erkennen.',
+          'Gegenüberliegende Winkel, Trapez und Raute, Fenster, benachbarte Winkel aus ihrer Differenz.',
+          'Schnittwinkel zweier Geraden, Diagonalen im Parallelogramm, Spiegel, Knickwege, Fehler im Trapez, Prüfungsaufgabe Raute.')
+ST.regel('figuren', 1, '', 'direkt')
+ST.regel('figuren', 2, '', 'mehrschritt')
+ST.regel('figuren', 3, 'Spiegel', 'transfer')
+ST.regel('figuren', 3, '∢ACD', 'transfer')
+ST.regel('figuren', 3, 'und ∢APB', 'rueckwaerts')
+ST.regel('figuren', 3, '∢ABC', 'rueckwaerts')
+ST.regel('figuren', 3, '', 'verknuepfen')
+ST.neu('figuren', 1, 'erkennen', ST.A('Welche Winkel sind in jedem Parallelogramm gleich groß?', 'gegenüberliegende Winkel', ['benachbarte Winkel', 'alle vier Winkel', 'keine zwei Winkel'],
+                                      'Gegenüberliegende Winkel sind gleich, benachbarte ergänzen sich zu 180°. Alle vier gleich sind sie nur beim Rechteck.', 'Denke an ein schiefes Parallelogramm.'))
+ST.neu('figuren', 2, 'einkleidung', ST.Z('Ein Fenster hat die Form eines Parallelogramms. Unten links ist der Winkel 72° groß. Wie groß ist der Winkel unten rechts?', 108, '180 - 72',
+                                        'Benachbarte Winkel im Parallelogramm ergänzen sich zu 180°: 180° − 72° = 108°.', 'Liegen die Winkel nebeneinander oder gegenüber?', einheit='°'))
+ST.neu('figuren', 2, 'umkehr', ST.Z('Im Parallelogramm ABCD ist ein Winkel um 40° größer als sein Nachbarwinkel. Wie groß ist der kleinere?', 70, '(180 - 40) / 2',
+                                   'Zusammen 180°. Ohne die 40° bleiben 140° für zwei gleich große Teile: 70°. Die Winkel sind 70° und 110°.', 'Was ergeben benachbarte Winkel zusammen?', einheit='°'))
+ST.neu('figuren', 3, 'fehler', ST.A('Im Trapez ABCD mit AB ∥ CD ist ∢DAB = 65°. Jemand sagt: „Dann ist ∢ADC auch 65°, das sind Stufenwinkel.“ Was stimmt?',
+                                    'Falsch: Die beiden Winkel ergänzen sich zu 180°, ∢ADC = 115°.', ['Richtig.', 'Falsch: ∢ADC = 25°.', 'Falsch: Man braucht noch ∢ABC.'],
+                                    'Die Winkel bei A und D liegen an der Seite [AD] zwischen den Parallelen auf derselben Seite. Verlängert man [DC] über D hinaus, ist der Nebenwinkel von ∢ADC der Wechselwinkel zu 65°. Also ∢ADC = 180° − 65° = 115°.',
+                                    'Zeichne das Trapez. Sehen die beiden Winkel gleich groß aus?'))
+ST.neu('figuren', 3, 'pruefung', ST.Z('In der Raute ABCD ist ∢ABC = 64°. Die Diagonale [BD] halbiert diesen Winkel. Wie groß ist ∢BDA?', 32, '64 / 2',
+                                      '∢DBC = 32°. In der Raute ist AD ∥ BC, [BD] schneidet beide: ∢BDA ist Wechselwinkel zu ∢DBC, also 32°.', 'Suche zwei parallele Seiten, die [BD] schneidet.', einheit='°'))
+ST.knobel('figuren', ST.Z('Im Parallelogramm ABCD schneiden sich die Winkelhalbierenden von α und β in P. Wie groß ist ∢APB – egal wie das Parallelogramm aussieht?', 90, '180 - 180 / 2',
+                          'Benachbarte Winkel im Parallelogramm ergänzen sich: α + β = 180°. Im Dreieck ABP sind die Winkel bei A und B die Hälften α/2 und β/2, zusammen 90°. '
+                          'Für ∢APB bleiben 180° − 90° = 90°. Das gilt für jedes Parallelogramm.',
+                          'Betrachte das Dreieck ABP und das, was α und β zusammen ergeben.'))
+ST.knobel('figuren', ST.A('Zwei Spiegel stehen senkrecht aufeinander. Ein Lichtstrahl trifft erst den einen, dann den anderen Spiegel. Wie läuft er danach?', 'parallel zum einfallenden Strahl zurück',
+                          ['senkrecht zum einfallenden Strahl', 'genau auf demselben Weg zurück', 'unter 45° zum einfallenden Strahl'],
+                          'Fällt der Strahl unter dem Winkel x auf den ersten Spiegel, verlässt er ihn unter x. Im Dreieck aus Strahl und Spiegeln (mit 90° in der Ecke) trifft er den zweiten Spiegel unter 90° − x und verlässt ihn unter 90° − x. '
+                          'Insgesamt dreht sich die Richtung um 2x + 2(90° − x) = 180°: Er läuft parallel zurück, aber versetzt. So funktioniert ein Katzenauge am Fahrrad.',
+                          'Verfolge die Winkel an beiden Spiegeln und addiere die Richtungsänderungen.'))
+# beweisen
+ST.leiter('beweisen', 'Passenden Winkelsatz zu einer Lage oder Begründung erkennen.',
+          'Beweiskette ordnen, Zirkelschluss erkennen, Fundamentalsatz und abgeleitete Sätze, Umkehrung im Alltag.',
+          'Beweis in Kärtchen ordnen, Aussagen über spitze und stumpfe Winkel begründen, Fehlschlüsse beurteilen, Messung gegen Satz, Tischplatte.')
+ST.regel('beweisen', 1, '', 'erkennen')
+ST.regel('beweisen', 2, 'Reihenfolge', 'darstellung')
+ST.regel('beweisen', 2, '', 'mehrschritt')
+ST.regel('beweisen', 3, 'Lisa', 'fehler')
+ST.regel('beweisen', 3, 'misst', 'fehler')
+ST.regel('beweisen', 3, 'Behauptung', 'fehler')
+ST.regel('beweisen', 3, 'Kärtchen', 'verknuepfen')
+ST.regel('beweisen', 3, 'Wie beweist', 'verknuepfen')
+ST.regel('beweisen', 3, '', 'begruenden')
+ST.neu('beweisen', 1, 'direkt', ST.Z('Ergänze den Satz: „Nebenwinkel ergänzen sich zu … Grad.“', 180, '180', 'Nebenwinkel bilden zusammen einen gestreckten Winkel: 180°.', 'Zwei Nebenwinkel liegen an einer Geraden.'))
+ST.neu('beweisen', 2, 'einkleidung', ST.A('Ein Zimmermann misst an einem Querbalken zwei Stufenwinkel zu zwei Balken: beide 73°. Welcher Satz erlaubt ihm den Schluss „Die Balken sind parallel“?',
+                                          'die Umkehrung des Stufenwinkelsatzes', ['der Stufenwinkelsatz selbst', 'der Scheitelwinkelsatz', 'die Winkelsumme im Dreieck'],
+                                          'Der Stufenwinkelsatz schließt von „parallel“ auf „gleiche Winkel“. Hier geht es umgekehrt von gleichen Winkeln auf „parallel“ – das ist die Umkehrung.',
+                                          'Was ist gegeben, was soll gefolgert werden?'))
+ST.neu('beweisen', 3, 'transfer', ST.A('Eine Tischplatte ist ein Viereck. Drei Ecken messen 85°, 95° und 100°. Der Schreiner misst die vierte Ecke mit 85°. Was folgt?',
+                                       'Er hat sich vermessen: Die vierte Ecke muss 80° groß sein.', ['Alles stimmt.', 'Die Platte ist ein Fünfeck.', 'Die vierte Ecke muss 100° groß sein.'],
+                                       'Die Winkelsumme im Viereck ist 360°. 85° + 95° + 100° = 280°, für die vierte Ecke bleiben 80°. Mit 85° wären es 365° – das kann nicht sein.',
+                                       'Was muss bei einem Viereck herauskommen, wenn man alle Winkel addiert?'))
+ST.knobel('beweisen', ST.A('Warum hat jedes Dreieck mindestens einen Winkel, der höchstens 60° groß ist?', 'Wären alle drei größer als 60°, wäre die Summe größer als 180°.',
+                           ['Weil jedes Dreieck einen rechten Winkel hat.', 'Weil das gleichseitige Dreieck 60° hat.', 'Weil der kleinste Winkel immer genau 60° ist.'],
+                           'Beweis durch Widerspruch: Angenommen, jeder der drei Winkel ist größer als 60°. Dann ist die Summe größer als 3 · 60° = 180°. '
+                           'Die Summe ist aber genau 180°. Also kann die Annahme nicht stimmen: Mindestens ein Winkel ist höchstens 60°.',
+                           'Nimm an, das Gegenteil gilt, und rechne die Winkelsumme ab.'))
+ST.knobel('beweisen', ST.Z('Wie viele rechte Innenwinkel kann ein Fünfeck höchstens haben?', 3, '3',
+                           'Die Winkelsumme im Fünfeck ist 540°. Bei vier rechten Winkeln (360°) bliebe für die fünfte Ecke 180° – das ist keine Ecke, die Figur wäre ein Viereck. '
+                           'Drei rechte Winkel gehen: Es bleiben 270° für zwei Ecken, z. B. je 135° (ein Rechteck mit einer abgeschnittenen Ecke). Höchstens 3.',
+                           'Was bliebe bei vier rechten Winkeln für die fünfte Ecke übrig?'))
+# ---- STUFEN ENDE ----
+
+
 if __name__ == '__main__':
     d, anz = datei()
     ZIEL.write_text(json.dumps(d, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
@@ -1158,3 +1412,4 @@ if __name__ == '__main__':
         l = e['lernziel']
         print(f'  {l:18} Prüfungsvorbild: {anz[(l, P)]}  Knobel: {anz[(l, K)]}')
     durchsicht_datei(META['thema_schluessel'], DS)  # Neunzehnte Runde: zuletzt
+    stufen_datei(META['thema_schluessel'], ST)  # Zwanzigste Runde: zuletzt

@@ -882,6 +882,196 @@ DS.ersetze('sach', 'Tarif A: 28 € und 2 € pro Stunde. Tarif B: 0 € und 4 �
 # ---- DURCHSICHT ENDE ----
 
 
+# ---- STUFEN (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, siehe _stufen_kl7.py) ----
+# Vorbilder (Typ und Niveau, eigene Zahlen): BMT8 (ISB) – „Löse die Gleichung“ mit Dezimalzahlen und Klammern, Zahl aus einer Lösung bestimmen,
+# Sachaufgabe mit Gesamtkosten; Knobel nach der Art von Känguru 7/8 und Mathematik-Olympiade (Flasche und Korken, Altersrätsel, Kerzen, Köpfe und Beine).
+from _stufen_kl7 import Stufen, stufen_datei  # noqa: E402
+
+ST = Stufen('gleichungen.linear', 20_7_5)
+# waage
+ST.leiter('waage', 'x ± a = b mit einer Umformung lösen; passende Umformung erkennen.',
+          'ax ± b = c in zwei Schritten, Umformungen notieren, Bruch als Faktor, Waage mit Päckchen.',
+          'Brüche als Faktoren verknüpfen, Kästchen für eine Lösung, Zahlenrätsel rückwärts, Fehler „durch x teilen“, Umformungen begründen, Prüfungsaufgabe mit Dezimalzahlen.')
+ST.regel('waage', 1, '', 'direkt')
+ST.regel('waage', 2, 'Welche Gleichung entsteht', 'darstellung')
+ST.regel('waage', 2, '', 'mehrschritt')
+ST.regel('waage', 3, 'Löse 3/4 x', 'mehrschritt', neu_s=2)
+ST.regel('waage', 3, 'Kästchen', 'parameter')
+ST.regel('waage', 3, 'Jemand', 'fehler')
+ST.regel('waage', 3, '', 'verknuepfen')
+ST.neu('waage', 1, 'erkennen', ST.A('Welche Umformung löst x − 7 = 12 in einem Schritt?', 'auf beiden Seiten + 7', ['auf beiden Seiten − 7', 'nur rechts + 7', 'auf beiden Seiten · 7'],
+                                    'x − 7 + 7 = x. Damit die Waage im Gleichgewicht bleibt, muss auch rechts + 7 gerechnet werden: x = 19.', 'Wie wird man die − 7 neben dem x los?'))
+ST.neu('waage', 2, 'einkleidung', ST.Z('Auf einer Waage liegen links 3 gleiche Päckchen und ein 200-g-Gewicht, rechts Gewichte mit zusammen 1 100 g. Die Waage ist im Gleichgewicht. Wie schwer ist ein Päckchen?',
+                                       300, '(1100 - 200) / 3', '3x + 200 = 1 100. Minus 200: 3x = 900. Durch 3: x = 300 g.', 'Nimm auf beiden Seiten 200 g weg.', einheit='g'))
+ST.neu('waage', 3, 'rueckwaerts', ST.Z('Ich denke mir eine Zahl, multipliziere sie mit 4 und ziehe 9 ab. Ich erhalte 23. Welche Zahl habe ich mir gedacht?', 8, '(23 + 9) / 4',
+                                       'Gleichung 4x − 9 = 23. Rückwärts: 23 + 9 = 32, 32 : 4 = 8. Probe: 4 · 8 − 9 = 23 ✓.', 'Mache die Rechenschritte in umgekehrter Reihenfolge rückgängig.'))
+ST.neu('waage', 3, 'pruefung', ST.Z('Löse die Gleichung 0,5x + 1,5 = 4.', 5, '(4 - 1.5) / 0.5', '0,5x = 2,5. Durch 0,5 (oder mal 2): x = 5. Probe: 2,5 + 1,5 = 4 ✓.', 'Ziehe zuerst 1,5 ab.'))
+ST.neu('waage', 3, 'begruenden', ST.A('Warum darf man bei einer Gleichung auf beiden Seiten dieselbe Zahl abziehen?', 'Weil beide Seiten gleich bleiben – wie bei einer Waage, von der man links und rechts gleich viel wegnimmt.',
+                                      ['Weil die Zahl dann verschwindet.', 'Weil man das bei jeder Rechnung darf.', 'Man darf es nur bei positiven Zahlen.'],
+                                      'Zwei gleich große Werte bleiben gleich, wenn man von beiden dasselbe abzieht. Deshalb hat die neue Gleichung dieselbe Lösung (Äquivalenzumformung).',
+                                      'Denke an eine Waage im Gleichgewicht.'))
+ST.knobel('waage', ST.Z('Eine Flasche mit Korken kostet 1,10 €. Die Flasche kostet 1 € mehr als der Korken. Wie viel Cent kostet der Korken?', 5, '(110 - 100) / 2',
+                        'Viele antworten 10 Cent – dann kostete die Flasche 1,10 € und beides zusammen 1,20 €. Richtig: Korken x Cent, Flasche x + 100 Cent. '
+                        'x + x + 100 = 110, also 2x = 10 und x = 5. Probe: 5 Cent + 1,05 € = 1,10 € ✓.',
+                        'Prüfe die erste Antwort, die dir einfällt, mit einer Probe.'))
+ST.knobel('waage', ST.Z('Ein Ziegelstein wiegt 1 kg und einen halben Ziegelstein. Wie viel Kilogramm wiegt ein ganzer Ziegelstein?', 2, '1 / (1 - 0.5)',
+                        'Gleichung: x = 1 + x/2. Zieht man x/2 ab: x/2 = 1, also x = 2 kg. Anschaulich: Auf der Waage halten ein halber Ziegel und 1 kg dem ganzen Ziegel stand – der halbe Ziegel wiegt also 1 kg.',
+                        'Lege einen Ziegelstein auf die eine Seite einer Waage. Was muss auf die andere?', einheit='kg'))
+# beide_seiten
+ST.leiter('beide_seiten', 'x auf beiden Seiten mit einem Schritt auf eine Seite bringen; sinnvollen ersten Schritt erkennen.',
+          'Mehrere x- und Zahlglieder, negative Faktoren, Umformungen notieren, Sparvergleich.',
+          'Lösungen als Bruch, Kästchen für eine Lösung, Waage mit Kugeln und Würfeln, Zahlenrätsel, Fehler beim Seitenwechsel, Prüfungsaufgabe mit Dezimalzahlen.')
+ST.regel('beide_seiten', 1, '', 'direkt')
+ST.regel('beide_seiten', 2, 'Welche Gleichung entsteht', 'darstellung')
+ST.regel('beide_seiten', 2, '', 'mehrschritt')
+ST.regel('beide_seiten', 3, 'Löse 2x − 14 + 5x', 'mehrschritt', neu_s=2)
+ST.regel('beide_seiten', 3, 'Löse 2,5x', 'mehrschritt', neu_s=2)
+ST.regel('beide_seiten', 3, 'Kästchen', 'parameter')
+ST.regel('beide_seiten', 3, 'Waage', 'transfer')
+ST.regel('beide_seiten', 3, '', 'verknuepfen')
+ST.neu('beide_seiten', 1, 'erkennen', ST.A('Was ist bei 5x + 3 = 2x + 12 ein sinnvoller erster Schritt?', 'auf beiden Seiten − 2x', ['auf beiden Seiten : 5', 'links − 3 und rechts + 3', 'auf beiden Seiten + 5x'],
+                                           'Mit − 2x stehen alle x links: 3x + 3 = 12. „Links − 3, rechts + 3“ ist keine Äquivalenzumformung, und : 5 macht die rechte Seite unnötig schwer.',
+                                           'Ziel: x nur noch auf einer Seite.'))
+ST.neu('beide_seiten', 2, 'einkleidung', ST.Z('Anna hat 30 € und spart jede Woche 5 €. Ben hat 50 € und spart jede Woche 3 €. Nach wie vielen Wochen haben beide gleich viel?', 10, '(50 - 30) / (5 - 3)',
+                                              '30 + 5x = 50 + 3x. Minus 3x und minus 30: 2x = 20, x = 10. Probe: 80 € = 80 € ✓.', 'Schreibe für beide den Betrag nach x Wochen auf.'))
+ST.neu('beide_seiten', 3, 'fehler', ST.A('Jemand löst 7x − 4 = 3x + 8 so: „7x − 3x = 8 − 4, also 4x = 4 und x = 1.“ Was stimmt?', 'Falsch: Aus − 4 wird auf der anderen Seite + 4; richtig ist 4x = 12, x = 3.',
+                                         ['Richtig.', 'Falsch: Richtig ist x = 2.', 'Falsch: Richtig ist x = −1.'],
+                                         'Auf beiden Seiten + 4 rechnen: 7x = 3x + 12. Dann − 3x: 4x = 12, x = 3. Probe: 21 − 4 = 17 = 9 + 8 ✓.', 'Mache die Probe mit x = 1.'))
+ST.neu('beide_seiten', 3, 'rueckwaerts', ST.Z('Lea denkt sich eine Zahl. Das Fünffache der Zahl minus 6 ist so viel wie das Doppelte der Zahl plus 9. Welche Zahl?', 5, '(9 + 6) / (5 - 2)',
+                                              '5x − 6 = 2x + 9. Minus 2x: 3x − 6 = 9. Plus 6: 3x = 15, x = 5. Probe: 25 − 6 = 19 = 10 + 9 ✓.', 'Übersetze beide Seiten in Terme.'))
+ST.neu('beide_seiten', 3, 'pruefung', ST.Z('Löse die Gleichung 1,2x + 0,8 = 0,4x + 4,8.', 5, '(4.8 - 0.8) / (1.2 - 0.4)', '0,8x = 4, x = 5. Probe: 6 + 0,8 = 6,8 = 2 + 4,8 ✓.', 'Bringe zuerst alle x auf die linke Seite.'))
+ST.knobel('beide_seiten', ST.Z('Ich bin 24 Jahre alt und jetzt dreimal so alt, wie du warst, als ich so alt war, wie du jetzt bist. Wie alt bist du?', 16, '96 / 6',
+                               'Du bist y Jahre alt, der Altersunterschied ist 24 − y. Als ich y war, war das vor 24 − y Jahren; du warst damals y − (24 − y) = 2y − 24. '
+                               'Bedingung: 24 = 3(2y − 24) = 6y − 72, also 6y = 96 und y = 16. Probe: Unterschied 8; als ich 16 war, warst du 8, und 24 = 3 · 8 ✓.',
+                               'Der Altersunterschied bleibt immer gleich. Gib ihm einen Namen.'))
+ST.knobel('beide_seiten', ST.Z('Zwei gleich lange Kerzen werden gleichzeitig angezündet. Die erste brennt in 4 Stunden ganz ab, die zweite in 6 Stunden. Nach wie vielen Stunden ist die zweite doppelt so lang wie die erste?',
+                               3, '1 / (1 / 2 - 1 / 6)',
+                               'Länge 1. Nach t Stunden: erste 1 − t/4, zweite 1 − t/6. Bedingung: 1 − t/6 = 2(1 − t/4) = 2 − t/2. Also t/2 − t/6 = 1, t/3 = 1, t = 3. '
+                               'Probe: erste 1/4, zweite 1/2 – doppelt so lang ✓.',
+                               'Welcher Bruchteil der Kerze brennt pro Stunde ab?'))
+# klammern
+ST.leiter('klammern', 'Klammer ausmultiplizieren und a(x + b) = c lösen; gleichwertige Gleichung erkennen.',
+          'Minusklammern, Klammern auf beiden Seiten, zwei Klammern, Kinokasse, Klammer zurückgewinnen.',
+          'Produkt zweier Klammern, Fehler mit dem Vorzeichen, Kästchen, Dreieck, Zahlenrätsel rückwärts, Prüfungsaufgabe.')
+ST.regel('klammern', 1, 'Löse', 'direkt')
+ST.regel('klammern', 1, '', 'direkt')
+ST.regel('klammern', 2, '', 'mehrschritt')
+ST.regel('klammern', 3, 'Löse 7x − (4x', 'mehrschritt', neu_s=2)
+ST.regel('klammern', 3, 'Löse 2(x + 1)', 'mehrschritt', neu_s=2)
+ST.regel('klammern', 3, 'Löse 3(x − 2) − 2(2x', 'mehrschritt', neu_s=2)
+ST.regel('klammern', 3, 'Jemand', 'fehler')
+ST.regel('klammern', 3, 'Kästchen', 'parameter')
+ST.regel('klammern', 3, 'Dreieck', 'transfer')
+ST.regel('klammern', 3, '', 'verknuepfen')
+ST.neu('klammern', 1, 'erkennen', ST.A('Welche Gleichung hat dieselbe Lösung wie 3(x + 2) = 21?', '3x + 6 = 21', ['3x + 2 = 21', 'x + 2 = 21', '3x + 6 = 63'],
+                                       'Ausmultiplizieren: 3 · x + 3 · 2 = 3x + 6. Die rechte Seite bleibt 21. Beide Gleichungen haben die Lösung x = 5.', 'Multipliziere die Klammer aus.'))
+ST.neu('klammern', 2, 'einkleidung', ST.Z('Drei Freunde kaufen je ein Kinoticket zu x € und je eine Cola zu 2 €. Sie zahlen zusammen 27 €. Wie teuer ist ein Ticket?', 7, '27 / 3 - 2',
+                                          '3(x + 2) = 27. Durch 3: x + 2 = 9, x = 7 €.', 'Was zahlt einer der drei?', einheit='€'))
+ST.neu('klammern', 2, 'umkehr', ST.Z('Ergänze: 5(x + □) = 5x + 35', 7, '35 / 5', '5 · □ = 35, also □ = 7.', 'Welche Zahl mal 5 ergibt 35?'))
+ST.neu('klammern', 3, 'rueckwaerts', ST.Z('Eine Zahl wird um 4 vermindert, das Ergebnis wird verdreifacht. Man erhält 21. Wie heißt die Zahl?', 11, '21 / 3 + 4',
+                                          '3(x − 4) = 21. Durch 3: x − 4 = 7, x = 11. Probe: (11 − 4) · 3 = 21 ✓.', 'Mache das Verdreifachen zuerst rückgängig.'))
+ST.neu('klammern', 3, 'pruefung', ST.Z('Löse die Gleichung 2(3x − 1) − 3(x + 2) = 4.', 4, '(4 + 2 + 6) / 3', '6x − 2 − 3x − 6 = 4, also 3x − 8 = 4, 3x = 12, x = 4. Probe: 2 · 11 − 3 · 6 = 4 ✓.',
+                                       'Multipliziere beide Klammern aus; achte auf − 3 · (+ 2).'))
+ST.knobel('klammern', ST.Z('Löse: 1(x − 1) + 2(x − 2) + 3(x − 3) + 4(x − 4) = 0', 3, '(1 + 4 + 9 + 16) / 10',
+                           'Ausmultiplizieren: x + 2x + 3x + 4x = 10x und 1 + 4 + 9 + 16 = 30. Also 10x − 30 = 0 und x = 3. '
+                           'Probe: 1 · 2 + 2 · 1 + 3 · 0 + 4 · (−1) = 2 + 2 + 0 − 4 = 0 ✓.',
+                           'Sammle die x-Glieder und die Zahlen getrennt.'))
+ST.knobel('klammern', ST.Z('Diophant war ein Sechstel seines Lebens Kind, ein Zwölftel Jugendlicher und ein Siebtel unverheiratet. 5 Jahre nach der Hochzeit kam sein Sohn, der halb so alt wurde wie Diophant. 4 Jahre nach dem Sohn starb Diophant. Wie alt wurde er?',
+                           84, '9 / (1 - (1 / 6 + 1 / 12 + 1 / 7 + 1 / 2))',
+                           'Lebensalter x: x/6 + x/12 + x/7 + 5 + x/2 + 4 = x. Hauptnenner 84: 14x + 7x + 12x + 42x = 75x, also 75x/84 + 9 = x. '
+                           'Dann x − 75x/84 = 9x/84 = 9 und x = 84. Probe: 14 + 7 + 12 + 5 + 42 + 4 = 84 ✓.',
+                           'Zerlege das Leben in alle genannten Abschnitte. Zusammen ergeben sie das ganze Leben.'))
+# probe
+ST.leiter('probe', 'Einsetzen und prüfen, ob eine Zahl Lösung ist; Sinn der Probe erkennen.',
+          'Fehlerzeile in einer Rechnung finden, Probe richtig aufschreiben, Kandidaten testen, Stiftepackungen.',
+          'Unzulässige Umformungen (· 0, falsch geteilt, Quadrieren) begründen, Fehler finden und korrigieren, Kästchen, Prüfungsaufgabe mit Auswahl.')
+ST.regel('probe', 1, '', 'direkt')
+ST.regel('probe', 2, 'Die Probe für', 'darstellung')
+ST.regel('probe', 2, '', 'mehrschritt')
+ST.regel('probe', 3, 'multipliziert', 'begruenden')
+ST.regel('probe', 3, 'Quadrieren', 'begruenden')
+ST.regel('probe', 3, 'Kästchen', 'parameter')
+ST.regel('probe', 3, 'Wie heißt die richtige Lösung', 'verknuepfen')
+ST.regel('probe', 3, '', 'fehler')
+ST.neu('probe', 1, 'erkennen', ST.A('Was macht man bei der Probe einer Gleichung?', 'Man setzt die Lösung in beide Seiten der ursprünglichen Gleichung ein und vergleicht.',
+                                    ['Man rechnet die Umformungen noch einmal rückwärts.', 'Man setzt die Lösung nur in die letzte Zeile ein.', 'Man prüft, ob die Lösung positiv ist.'],
+                                    'Nur die ursprüngliche Gleichung zeigt, ob die Zahl wirklich passt. Ein Fehler in einer Umformung würde sich in der letzten Zeile nicht zeigen.',
+                                    'In welche Gleichung muss man einsetzen, damit auch Umformungsfehler auffallen?'))
+ST.neu('probe', 2, 'einkleidung', ST.A('Mia hat 4 volle Packungen Stifte und 3 einzelne Stifte, zusammen 39 Stifte. Sie sagt: „In einer Packung sind 9 Stifte.“ Stimmt das?', 'Ja: 4 · 9 + 3 = 39.',
+                                       ['Nein: 4 · 9 + 3 = 40.', 'Nein: Es sind 9,75 Stifte.', 'Ja: 39 : 4 ≈ 9.'],
+                                       'Gleichung 4x + 3 = 39. Probe mit x = 9: 36 + 3 = 39 ✓. Die Antwort „39 : 4 ≈ 9“ vergisst die 3 einzelnen Stifte.', 'Setze 9 in die Gleichung 4x + 3 = 39 ein.'))
+ST.neu('probe', 3, 'pruefung', ST.A('Welche der Zahlen −3, −1, 1, 3 ist eine Lösung von 2(x − 1) = 5x + 7?', '−3', ['−1', '1', '3'],
+                                    'x = −3: links 2 · (−4) = −8, rechts −15 + 7 = −8 ✓. Bei −1: −4 und 2; bei 1: 0 und 12; bei 3: 4 und 22.', 'Setze jede Zahl in beide Seiten ein.'))
+ST.knobel('probe', ST.Z('Die Gleichung ax + 6 = 2x + b hat die Lösungen x = 1 und x = 2. Wie groß ist a + b?', 8, '2 + 6',
+                        'Eine Gleichung dieser Form hat genau eine, keine oder unendlich viele Lösungen. Mit zwei Lösungen muss sie unendlich viele haben: Beide Seiten sind gleich, also a = 2 und b = 6. '
+                        'Probe: 2x + 6 = 2x + 6 gilt für 1 und 2 ✓. a + b = 8.',
+                        'Wie viele Lösungen kann eine solche Gleichung überhaupt haben?'))
+ST.knobel('probe', ST.Z('x = 3 ist eine Lösung von ax − 4 = 2x + a. Wie groß ist a?', 5, '(6 + 4) / (3 - 1)',
+                        'Setze x = 3 ein: 3a − 4 = 6 + a. Jetzt ist a die Unbekannte: 2a = 10, a = 5. Probe: 15 − 4 = 11 und 6 + 5 = 11 ✓.',
+                        'Setze die bekannte Lösung ein. Was ist dann noch unbekannt?'))
+# sonderfaelle
+ST.leiter('sonderfaelle', 'Erkennen, ob eine Gleichung keine, eine oder unendlich viele Lösungen hat.',
+          'Lösungsmenge angeben, Kästchen für unendlich viele Lösungen, Handytarife ohne Treffpunkt.',
+          'Tarif-Deutung, Parameter für keine oder unendlich viele Lösungen, Grundmenge, Fehler „L = {6}“, Gleichung ohne Lösung begründen.')
+ST.regel('sonderfaelle', 1, '(x', 'direkt')
+ST.regel('sonderfaelle', 1, '', 'erkennen')
+ST.regel('sonderfaelle', 2, 'Welche Zahl muss', 'umkehr')
+ST.regel('sonderfaelle', 2, '', 'mehrschritt')
+ST.regel('sonderfaelle', 3, 'Tarif', 'transfer')
+ST.regel('sonderfaelle', 3, 'Welche Zahl muss', 'parameter')
+ST.regel('sonderfaelle', 3, 'Für welchen Wert', 'parameter')
+ST.regel('sonderfaelle', 3, 'Grundmenge', 'begruenden')
+ST.regel('sonderfaelle', 3, 'KEINE', 'begruenden')
+ST.regel('sonderfaelle', 3, 'Bestimme die Lösungsmenge von', 'verknuepfen')
+ST.neu('sonderfaelle', 2, 'einkleidung', ST.A('Handytarif A kostet 5 € Grundgebühr und 0,10 € pro Minute, Tarif B 8 € Grundgebühr und 0,10 € pro Minute. Bei wie vielen Minuten kosten beide gleich viel?',
+                                              'nie: B ist immer 3 € teurer', ['bei 30 Minuten', 'bei 3 Minuten', 'immer'],
+                                              '5 + 0,1x = 8 + 0,1x führt zu 5 = 8 – falsch. Die Gleichung hat keine Lösung: Pro Minute kosten beide gleich viel, B bleibt immer 3 € teurer.',
+                                              'Stelle die Gleichung auf und vereinfache.'))
+ST.neu('sonderfaelle', 3, 'fehler', ST.A('Jemand formt 2(x + 3) = 2x + 6 um und erhält 6 = 6. Er schreibt: „L = {6}.“ Was stimmt?', 'Falsch: 6 = 6 ist immer wahr, also ist jede Zahl Lösung: L = ℚ.',
+                                         ['Richtig.', 'Falsch: L = { }.', 'Falsch: L = {0}.'],
+                                         'Das x ist verschwunden, und die Aussage 6 = 6 stimmt für jedes x. Die 6 ist keine Lösung für x, sondern nur das, was übrig bleibt.',
+                                         'Probiere x = 1 in der Ausgangsgleichung.'))
+ST.knobel('sonderfaelle', ST.Z('Für welche Zahl a hat die Gleichung a · (a · x − 1) = 4x − 2 unendlich viele Lösungen?', 2, '0 - (-2)',
+                               'Ausmultipliziert: a²x − a = 4x − 2. Unendlich viele Lösungen gibt es nur, wenn beide Seiten gleich sind: a² = 4 und a = 2. '
+                               'a² = 4 gilt für a = 2 und a = −2. Bei a = −2 steht aber 4x + 2 = 4x − 2 da – keine Lösung. Nur a = 2 passt: 4x − 2 = 4x − 2.',
+                               'Vergleiche die x-Glieder und die Zahlen beider Seiten getrennt. Prüfe jeden Kandidaten.'))
+ST.knobel('sonderfaelle', ST.A('Lisa sagt: „Ich habe eine Gleichung der Form ax + b = cx + d gefunden, die genau zwei Lösungen hat.“ Kann das stimmen?',
+                               'Nein: Wer zwei Lösungen hat, hat sogar unendlich viele.', ['Ja, z. B. wenn a = c ist.', 'Ja, wenn b und d negativ sind.', 'Nein: Jede solche Gleichung hat genau eine Lösung.'],
+                               'Umgeformt: (a − c)x = d − b. Ist a ≠ c, gibt es genau eine Lösung. Ist a = c, steht 0 = d − b da: entweder immer wahr (unendlich viele) oder nie (keine). '
+                               'Genau zwei Lösungen sind also unmöglich.',
+                               'Bringe alle x auf eine Seite und unterscheide die Fälle.'))
+# sach
+ST.leiter('sach', 'Einfache Sachaufgabe mit einer Gleichung lösen; passende Gleichung erkennen.',
+          'Alter, Pfand, Sparen, Kino, Seil, Zahlenfolgen; Gleichung zu einer Situation auswählen.',
+          'Geld rückwärts, Ergebnis deuten, Tarife, Züge, Kanister, Theaterkasse, Gehege, Altersrätsel, Prüfungsaufgabe Klassenfahrt.')
+ST.regel('sach', 1, 'Welche Gleichung passt', 'erkennen')
+ST.regel('sach', 1, '', 'direkt')
+ST.regel('sach', 2, 'Fünfecks', 'mehrschritt')
+ST.regel('sach', 2, 'ganzer Zahlen', 'mehrschritt')
+ST.regel('sach', 2, '', 'einkleidung')
+ST.regel('sach', 3, 'Hälfte', 'rueckwaerts')
+ST.regel('sach', 3, 'Was folgt', 'begruenden')
+ST.regel('sach', 3, 'Welche G', 'begruenden')
+ST.regel('sach', 3, 'Tarif', 'transfer')
+ST.regel('sach', 3, 'Zug', 'transfer')
+ST.regel('sach', 3, 'Gehege', 'transfer')
+ST.regel('sach', 3, '', 'verknuepfen')
+ST.neu('sach', 2, 'darstellung', ST.A('Ein Bus hat 52 Plätze. Es sitzen dreimal so viele Erwachsene wie Kinder darin, 8 Plätze bleiben frei. Welche Gleichung passt (x = Zahl der Kinder)?',
+                                      'x + 3x + 8 = 52', ['3x + 8 = 52', 'x + 3x = 52 + 8', 'x + 3x − 8 = 52'],
+                                      'Kinder x, Erwachsene 3x, freie Plätze 8 – zusammen alle 52 Plätze. Lösung: 4x = 44, x = 11 Kinder.', 'Was ergibt zusammen alle 52 Plätze?'))
+ST.neu('sach', 3, 'pruefung', ST.Z('Für einen Ausflug zahlt jedes der 24 Kinder gleich viel. Der Bus kostet 336 €, der Eintritt 5 € pro Kind. Wie viel zahlt jedes Kind?', 19, '(336 + 24 * 5) / 24',
+                                   '24x = 336 + 24 · 5 = 456, also x = 19 €. Oder: 336 : 24 = 14 € Bus pro Kind, plus 5 € Eintritt.', 'Welche Kosten fallen insgesamt an?', einheit='€'))
+ST.knobel('sach', ST.Z('Auf einem Hof gibt es Hühner und Kaninchen, zusammen 30 Köpfe und 84 Beine. Wie viele Kaninchen sind es?', 12, '(84 - 2 * 30) / 2',
+                       'Stell dir vor, alle 30 Tiere stehen auf zwei Beinen: 60 Beine. Es fehlen 24 Beine – jedes Kaninchen hat 2 mehr, also 12 Kaninchen. '
+                       'Mit Gleichung: 2(30 − k) + 4k = 84, 60 + 2k = 84, k = 12. Probe: 18 Hühner (36 Beine) + 12 Kaninchen (48 Beine) = 84 ✓.',
+                       'Was wäre, wenn alle Tiere Hühner wären?'))
+ST.knobel('sach', ST.Z('Ein Wanderer geht eine Strecke hin mit 4 km/h und auf demselben Weg zurück mit 6 km/h. Insgesamt braucht er 5 Stunden. Wie lang ist die Strecke (einfach)?', 12, '5 / (1 / 4 + 1 / 6)',
+                       'Für s km braucht er hin s/4 Stunden und zurück s/6 Stunden. s/4 + s/6 = 5. Hauptnenner 12: 3s/12 + 2s/12 = 5s/12 = 5, also s = 12 km. '
+                       'Probe: 3 h hin + 2 h zurück = 5 h ✓. (Die Durchschnittsgeschwindigkeit ist 24 km : 5 h = 4,8 km/h, nicht 5 km/h.)',
+                       'Wie lange braucht er für einen Kilometer hin und für einen zurück?', einheit='km'))
+# ---- STUFEN ENDE ----
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Umformen', ['waage', 'beide_seiten', 'klammern']), ('Prüfen und Sonderfälle', ['probe', 'sonderfaelle']), ('Anwenden', ['sach'])],
@@ -895,3 +1085,4 @@ if __name__ == '__main__':
     anhaengen(META['thema_schluessel'], schwer())
     befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
     durchsicht_datei(META['thema_schluessel'], DS)  # Neunzehnte Runde: zuletzt
+    stufen_datei(META['thema_schluessel'], ST)  # Zwanzigste Runde: zuletzt

@@ -747,6 +747,226 @@ DS.ersetze('deuten', 'Jemand übersetzt „das Dreifache der Summe aus x und 5�
 # ---- DURCHSICHT ENDE ----
 
 
+# ---- STUFEN (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, siehe _stufen_kl7.py) ----
+# Vorbilder (Typ und Niveau, eigene Zahlen): BMT8 (ISB) 2022 A2 / 2025 A2 (Terme im Sachzusammenhang, Tabellenkalkulation); Knobel nach der Art
+# von Känguru der Mathematik (Klassenstufen 7/8) und Mathematik-Olympiade (Schulrunde): Klammern setzen, Zaubertricks, Gitter zählen.
+from _stufen_kl7 import Stufen, stufen_datei  # noqa: E402
+
+ST = Stufen('terme.aufstellen', 20_7_1)
+_HT = 'Trage die Zahlen in die Lücken ein.'
+# struktur
+ST.leiter('struktur', 'Termart eines einfachen Terms an der letzten Rechnung erkennen.',
+          'Punkt-vor-Strich-Fallen und Klammern beachten; zu einer Beschreibung den Term finden; Term in Worten.',
+          'Verschachtelte Beschreibungen in Terme übersetzen, Tabellen-Formeln deuten, falsche Begründungen widerlegen, Klammern gezielt setzen.')
+ST.regel('struktur', 1, 'Welche Termart hat der Term', 'direkt')
+ST.regel('struktur', 2, 'Welche Termart hat der Term', 'mehrschritt')
+ST.regel('struktur', 2, 'Welcher Term ist ein Produkt', 'umkehr')
+ST.regel('struktur', 2, 'in Worten', 'darstellung')
+ST.regel('struktur', 3, 'Welcher Term ist eine Differenz aus einer Zahl', 'rueckwaerts')
+ST.regel('struktur', 3, 'Welcher Term ist ein Quotient, dessen Dividend', 'rueckwaerts')
+ST.regel('struktur', 3, '(y² + ', 'verknuepfen')
+ST.regel('struktur', 3, 'Welche Termart hat der Term', 'mehrschritt', neu_s=2)
+ST.regel('struktur', 3, 'Welche Beschreibung passt', 'transfer')
+ST.regel('struktur', 3, 'Tabellenkalkulation', 'transfer')
+ST.regel('struktur', 3, 'Mittelwert', 'fehler')
+ST.regel('struktur', 3, 'Klammerpaar', 'transfer')
+ST.neu('struktur', 1, 'erkennen', ST.A('Welcher dieser Terme ist eine Summe?', '3x + 4', ['3 · (x + 4)', '(x + 4) : 3', '3x · 4'],
+                                       'Bei 3x + 4 wird zuerst 3 · x gerechnet, zuletzt + 4: eine Summe. Die anderen enden mit mal oder geteilt.',
+                                       'Welche Rechnung kommt in jedem Term zuletzt?'))
+ST.neu('struktur', 3, 'begruenden', ST.A('Tom sagt: „Im Term 3 · x + 4 kommt ein Mal vor, also ist er ein Produkt.“ Was stimmt?',
+                                         'Falsch: Zuletzt wird + 4 gerechnet, der Term ist eine Summe.',
+                                         ['Richtig: Ein Mal-Zeichen macht den Term zum Produkt.', 'Falsch: Der Term ist eine Differenz.',
+                                          'Richtig, aber nur, wenn x größer als 4 ist.'],
+                                         'Die Termart richtet sich nach der letzten Rechnung, nicht danach, welche Zeichen vorkommen: 3 · x zuerst, dann + 4 → Summe.',
+                                         'Entscheidend ist die Rechnung, die man zuletzt ausführt.'))
+ST.knobel('struktur', ST.Z('Setze in 1 + 2 · 3 + 4 · 5 so viele Klammerpaare, wie du willst. Die Reihenfolge der Zahlen und Zeichen bleibt. Wie groß kann das Ergebnis höchstens werden?',
+                           105, '(1 + 2) * (3 + 4) * 5',
+                           'Ohne Klammern: 1 + 6 + 20 = 27. Malnehmen vergrößert mehr als Addieren. Deshalb sollen die Plus-Zeichen zuerst gerechnet werden: '
+                           '(1 + 2) · (3 + 4) · 5 = 3 · 7 · 5 = 105. Andere Möglichkeiten bleiben kleiner, z. B. (1 + 2 · 3 + 4) · 5 = 55 oder ((1 + 2) · 3 + 4) · 5 = 65.',
+                           'Welche Rechnung macht eine Zahl stärker größer: Plus oder Mal? Was sollte also zuerst passieren?'))
+ST.knobel('struktur', ST.Z('Wie viele verschiedene Werte kann der Term 2 · 3 + 4 · 5 annehmen, wenn man beliebig Klammern setzt (Zahlen und Zeichen bleiben in dieser Reihenfolge)?',
+                           4, '4',
+                           'Klammern ändern nur etwas, wenn sie das Plus vor einem Mal rechnen lassen. Möglich sind: ohne Wirkung 6 + 20 = 26; (2 · 3 + 4) · 5 = 50; '
+                           '2 · (3 + 4 · 5) = 46; 2 · (3 + 4) · 5 = 70. Jede andere Klammerung ergibt einen dieser Werte. Also 4 verschiedene Werte.',
+                           'Klammern wirken nur, wenn sie ein Plus „schützen“. Wo kann das Plus mit hineingenommen werden?'))
+# termwert
+ST.leiter('termwert', 'Eine Zahl in einen einfachen Term einsetzen und ausrechnen.',
+          'Terme mit Quadrat, zwei Variablen, negativen Zahlen; Wertetabelle ausfüllen; Sachsituation.',
+          'Vom Termwert zurückrechnen, Parameter bestimmen, Fehler beim Einsetzen deuten, Aussagen über alle Zahlen prüfen, Tabellen-Formeln.')
+ST.regel('termwert', 1, 'Berechne den Wert', 'direkt')
+ST.regel('termwert', 2, 'Wertetabelle', 'darstellung')
+ST.regel('termwert', 2, 'Berechne den Wert', 'mehrschritt')
+ST.regel('termwert', 3, '(a · b) : (a + b)', 'verknuepfen')
+ST.regel('termwert', 3, 'Tabellenkalkulation', 'transfer')
+ST.regel('termwert', 3, 'Welche Zahl z', 'parameter')
+ST.regel('termwert', 3, 'nicht berechnen', 'verknuepfen')
+ST.regel('termwert', 3, 'kleinste Termwert', 'transfer')
+ST.neu('termwert', 1, 'erkennen', ST.A('Welcher Term hat für x = 2 den Wert 7?', '3x + 1', ['2x + 1', 'x + 3', '4x − 2'],
+                                       '3 · 2 + 1 = 7. Die anderen: 2 · 2 + 1 = 5, 2 + 3 = 5, 4 · 2 − 2 = 6.', 'Setze x = 2 in jeden Term ein.',
+                                       pruef=lambda t: {'3x + 1': 7, '2x + 1': 5, 'x + 3': 5, '4x − 2': 6}[t] == 7))
+ST.neu('termwert', 2, 'einkleidung', ST.Z('Eine Taxifahrt kostet 3,50 € Grundpreis und 2 € je Kilometer, also 2x + 3,5 Euro. Was kostet eine Fahrt über 7 km?', 17.5, '2 * 7 + 3.5',
+                                          '2 · 7 + 3,5 = 14 + 3,5 = 17,50 €.', 'x steht für die Kilometer. Setze 7 ein.', einheit='€'))
+ST.neu('termwert', 3, 'fehler', ST.A('Lea setzt x = −3 in x² + 2 ein und rechnet: −3² + 2 = −9 + 2 = −7. Was stimmt?', 'Falsch: (−3)² = 9, richtig ist 11.',
+                                     ['Richtig gerechnet.', 'Falsch: Richtig ist −3 · 2 + 2 = −4.', 'Falsch: Richtig ist 9 − 2 = 7.'],
+                                     'Für x wird die ganze Zahl −3 eingesetzt, also mit Klammer: (−3)² + 2 = 9 + 2 = 11. −3² bedeutet −(3²) = −9.',
+                                     'Was passiert, wenn man die negative Zahl ohne Klammer einsetzt?'))
+ST.neu('termwert', 3, 'rueckwaerts', ST.Z('Für eine Zahl x hat der Term 2x + 1 den Wert 9. Welchen Wert hat der Term 6x − 1 für dieselbe Zahl x?', 23, '6 * ((9 - 1) / 2) - 1',
+                                          '2x + 1 = 9 → 2x = 8 → x = 4. Dann 6 · 4 − 1 = 23.', 'Finde zuerst x, dann setze es in den zweiten Term ein.'))
+ST.neu('termwert', 3, 'begruenden', ST.A('Stimmt die Aussage: „Der Term x² ist für jede Zahl x größer als x“?', 'Nein: Für x = 0,5 ist x² = 0,25 kleiner als 0,5.',
+                                         ['Ja: Quadrieren macht jede Zahl größer.', 'Nein: Nur für negative x ist x² kleiner.', 'Ja, außer für x = 0.'],
+                                         'Ein Gegenbeispiel genügt: x = 0,5 ergibt 0,25 < 0,5 (auch x = 1 ergibt 1 = 1, also nicht größer). Für negative x ist x² dagegen größer als x.',
+                                         'Probiere Zahlen zwischen 0 und 1.'))
+ST.knobel('termwert', ST.Z('Für wie viele der Zahlen n = 1, 2, 3, …, 20 ist der Termwert von n² + n durch 4 teilbar?', 10, '20 / 2',
+                           'n² + n = n · (n + 1) ist das Produkt zweier Nachbarzahlen. Durch 4 teilbar ist es, wenn eine der beiden durch 4 teilbar ist '
+                           '(zwei Nachbarzahlen können nicht beide gerade sein). Das gilt für n = 3, 4, 7, 8, 11, 12, 15, 16, 19, 20 – also 10 Zahlen.',
+                           'Schreibe n² + n als Produkt. Was weißt du über zwei Nachbarzahlen?'))
+ST.knobel('termwert', ST.Z('Ein Term hat die Form a · x + b. Für x = 1 hat er den Wert 5, für x = 2 den Wert 8. Welchen Wert hat er für x = 10?', 32, '3 * 10 + 2',
+                           'Von x = 1 zu x = 2 wächst der Wert um 3, also ist a = 3 (jedes x mehr bringt a dazu). Dann 3 · 1 + b = 5, b = 2. Für x = 10: 3 · 10 + 2 = 32.',
+                           'Was passiert mit dem Wert, wenn x um 1 wächst?'))
+# uebersetzen
+ST.leiter('uebersetzen', 'Einfache Wortterme („die Summe aus dem Vierfachen von x und 3“) direkt übersetzen.',
+          'Differenzen in der richtigen Reihenfolge, „das Doppelte der Summe“ mit Klammer, Terme in Worten, Zahlenrätsel.',
+          'Übersetzen und zusammenfassen, rückwärts zur gedachten Zahl, Rätsel begründen, falsche Übersetzungen finden, Parameter bestimmen.')
+ST.regel('uebersetzen', 1, 'Schreibe als Term', 'direkt')
+ST.regel('uebersetzen', 2, 're:Differenz aus \\d+ und dem', 'umkehr')
+ST.regel('uebersetzen', 2, 'Schreibe als Term', 'mehrschritt')
+ST.regel('uebersetzen', 2, 'Zahlenrätsel', 'einkleidung')
+ST.regel('uebersetzen', 3, 'fasse zusammen', 'verknuepfen')
+ST.regel('uebersetzen', 3, 'Welcher Wortterm passt zu', 'darstellung', neu_s=2)
+ST.regel('uebersetzen', 3, 'Warum kommt für jede Zahl', 'begruenden')
+ST.regel('uebersetzen', 3, 'gleichwertig', 'transfer')
+ST.regel('uebersetzen', 3, 'passt NICHT', 'begruenden')
+ST.regel('uebersetzen', 3, 'Mit welcher Zahl hast du begonnen', 'rueckwaerts')
+ST.neu('uebersetzen', 1, 'erkennen', ST.A('Welcher Term gehört zu „das Dreifache von x“?', '3x', ['x + 3', 'x³', 'x : 3'],
+                                          '„Das Dreifache“ heißt mal 3: 3 · x = 3x. x³ wäre x · x · x.', 'Dreifach heißt: dreimal so viel.'))
+ST.neu('uebersetzen', 3, 'fehler', ST.A('Jemand übersetzt „die Hälfte der Summe aus x und 6“ als x + 6 : 2. Was stimmt?', 'Falsch: Die ganze Summe wird halbiert, richtig ist (x + 6) : 2.',
+                                        ['Richtig übersetzt.', 'Falsch: Richtig ist x : 2 + 6.', 'Falsch: Richtig ist 2 · (x + 6).'],
+                                        'Bei x + 6 : 2 wird wegen Punkt vor Strich nur die 6 halbiert. Gemeint ist die Summe, also Klammer: (x + 6) : 2.',
+                                        'Was wird bei x + 6 : 2 zuerst gerechnet?'))
+ST.neu('uebersetzen', 3, 'parameter', ST.Z('Für welche Zahl a ist „das a-Fache der Summe aus x und 2“ gleich dem Term 3x + 6?', 3, '6 / 2',
+                                           'a · (x + 2) = ax + 2a. Das soll 3x + 6 sein: a = 3 (und 2 · 3 = 6 passt).', 'Multipliziere a · (x + 2) aus und vergleiche.'))
+ST.knobel('uebersetzen', ST.Z('Zaubertrick: Denke dir eine Zahl, verdopple sie, addiere 10, halbiere das Ergebnis und ziehe die gedachte Zahl ab. Es kommt immer 5 heraus. '
+                              'Welche Zahl muss statt 10 stehen, damit immer 7 herauskommt?', 14, '7 * 2',
+                              'Mit der gedachten Zahl x und der Zahl z statt 10: (2x + z) : 2 − x = x + z : 2 − x = z : 2. Es kommt also immer die Hälfte von z heraus. '
+                              'Für 7 braucht man z = 14.',
+                              'Schreibe den Trick als Term mit x und einer unbekannten Zahl statt 10. Was bleibt übrig?'))
+ST.knobel('uebersetzen', ST.Z('Die Summe von drei aufeinanderfolgenden ganzen Zahlen (z. B. 4 + 5 + 6) ist immer durch eine bestimmte Zahl teilbar. Welche ist die größte Zahl, die jede solche Summe teilt?',
+                              3, '3', 'Mit der kleinsten Zahl n: n + (n + 1) + (n + 2) = 3n + 3 = 3 · (n + 1). Jede Summe ist durch 3 teilbar. '
+                              'Eine größere Zahl teilt nicht jede Summe: 1 + 2 + 3 = 6 und 2 + 3 + 4 = 9 haben als größten gemeinsamen Teiler 3.',
+                              'Nenne die kleinste Zahl n und schreibe die Summe als Term.'))
+# sachsituation
+ST.leiter('sachsituation', 'Grundgebühr plus Preis pro Einheit als Term aufschreiben.',
+          'Situationen mit zwei Bezügen, Rabatt, Einheitenwechsel, Tabelle → Term, Vergleich zweier Angebote.',
+          'Rest-Terme („der Rest“), Bedeutung von x deuten, Fehler im Ansatz finden, Grundgebühr rückwärts bestimmen, Kosten pro Person als Quotient.')
+ST.regel('sachsituation', 1, 'Gib den Term', 'direkt')
+ST.regel('sachsituation', 2, 'Rechteck', 'mehrschritt')
+ST.regel('sachsituation', 2, 'CENT', 'mehrschritt')
+ST.regel('sachsituation', 2, 'günstiger', 'umkehr')
+ST.regel('sachsituation', 2, 'Heft', 'mehrschritt')
+ST.regel('sachsituation', 2, 'Rabatt', 'einkleidung')
+ST.regel('sachsituation', 3, 'Streamingdienst', 'einkleidung', neu_s=2)
+ST.regel('sachsituation', 3, 'Ein Rechteck ist x cm breit', 'mehrschritt', neu_s=2)
+ST.regel('sachsituation', 3, 'Getränke', 'transfer')
+ST.regel('sachsituation', 3, 'Kletterhalle', 'verknuepfen')
+ST.regel('sachsituation', 3, 'Quadrat', 'transfer')
+ST.regel('sachsituation', 3, 'Wofür steht x', 'begruenden')
+ST.regel('sachsituation', 3, 'Wie hoch sind die Einnahmen', 'einkleidung', neu_s=2)
+ST.regel('sachsituation', 3, 'Garten', 'transfer')
+ST.neu('sachsituation', 1, 'erkennen', ST.A('Im Kino kostet der Eintritt 8 € pro Person, dazu kommt einmal 3 € Buchungsgebühr. Welcher Term gibt den Preis für x Personen an?',
+                                            '8x + 3', ['3x + 8', '11x', '8 + 3x'], 'Pro Person 8 € → 8x. Die Gebühr kommt einmal dazu: + 3.',
+                                            'Was fällt pro Person an, was nur einmal?'))
+ST.neu('sachsituation', 2, 'darstellung', ST.L('Ein Verleih hat diese Preistabelle: 1 Stunde 7 €, 2 Stunden 9 €, 3 Stunden 11 €. Gib den Term für x Stunden an.', '□x + □', [2, 5], ['9 - 7', '7 - 2'],
+                                               'Jede Stunde mehr kostet 2 € mehr: 2x. Bei 1 Stunde 7 € → 2 · 1 + □ = 7, also + 5. Term: 2x + 5.',
+                                               'Um wie viel steigt der Preis pro Stunde? Was bleibt bei 1 Stunde übrig?', 'Tippe den Term ein, z. B. 3x + 4.',
+                                               grafik={'typ': 'tabelle', 'kopf': ['Stunden', '1', '2', '3'], 'zeilen': [['Preis (€)', '7', '9', '11']]}))
+ST.neu('sachsituation', 3, 'fehler', ST.A('Ein Verleih verlangt 4 € Grundgebühr und 2,50 € je Stunde. Jemand schreibt den Term 4x + 2,5. Was stimmt?',
+                                          'Falsch: Grundgebühr und Stundenpreis sind vertauscht, richtig ist 2,5x + 4.',
+                                          ['Richtig: 4 € und 2,50 € kommen beide vor.', 'Falsch: Richtig ist 6,5x.', 'Falsch: Richtig ist 4 + 2,5 + x.'],
+                                          'Was pro Stunde anfällt, steht vor dem x: 2,5x. Die Grundgebühr kommt einmal dazu: + 4. Probe: 2 Stunden kosten 9 €, mit 4x + 2,5 wären es 10,50 €.',
+                                          'Was wird mit der Zahl der Stunden malgenommen?'))
+ST.neu('sachsituation', 3, 'parameter', ST.Z('Ein Verleih verlangt eine Grundgebühr g € und 3 € je Stunde. Für 5 Stunden zahlt man 22 €. Wie hoch ist g?', 7, '22 - 3 * 5',
+                                             'Kosten: 3 · 5 + g = 22 → 15 + g = 22 → g = 7 €.', 'Stelle den Term mit g auf und setze 5 Stunden ein.', einheit='€'))
+ST.neu('sachsituation', 3, 'pruefung', ST.A('Eine Klasse fährt ins Museum. Der Bus kostet 300 € für alle, der Eintritt 6 € pro Kind. Welcher Term gibt die Kosten pro Kind an, wenn x Kinder mitfahren?',
+                                            '(300 + 6x) : x', ['300 + 6x : x', '300 : x + 6x', '(300 + 6) : x'],
+                                            'Gesamtkosten 300 + 6x, gerecht geteilt durch x Kinder: (300 + 6x) : x. Ohne Klammer würde nur 6x geteilt.',
+                                            'Stelle zuerst die Gesamtkosten auf, dann teile.'))
+ST.knobel('sachsituation', ST.Z('Kinokarten kosten einzeln 9 €, eine Fünferkarte (5 Besuche) kostet 40 €. Wie viel Euro kosten 13 Kinobesuche mindestens?',
+                                107, '2 * 40 + 3 * 9',
+                                'Eine Fünferkarte spart 5 € gegenüber 5 Einzelkarten. Möglichkeiten: 2 Fünferkarten + 3 einzeln = 80 + 27 = 107 €; 3 Fünferkarten = 120 € (zwei Besuche verfallen); '
+                                '1 Fünferkarte + 8 einzeln = 112 €. Am günstigsten: 107 €.',
+                                'Vergleiche: Lohnt sich eine Fünferkarte auch, wenn du nicht alle 5 Besuche nutzt?', einheit='€'))
+ST.knobel('sachsituation', ST.Z('Ein Taxi kostet 4 € Grundpreis und 2 € je Kilometer. Zwei Freunde fahren 6 km zusammen, dann steigt einer aus, der andere fährt noch 4 km weiter. '
+                                'Den Grundpreis teilen sie halb-halb, die gemeinsamen Kilometer auch; die letzten 4 km zahlt der, der länger fährt. Wie viel zahlt er?', 16,
+                                '4 / 2 + 6 * 2 / 2 + 4 * 2',
+                                'Gesamtpreis: 4 + 10 · 2 = 24 €. Anteil des Längerfahrenden: halber Grundpreis 2 €, halbe gemeinsame Strecke 6 · 2 : 2 = 6 €, eigene Strecke 4 · 2 = 8 €. '
+                                'Zusammen 16 € (der andere zahlt 8 €, zusammen 24 € ✓).',
+                                'Teile die Rechnung in drei Teile: Grundpreis, gemeinsame Strecke, letzte Strecke.', einheit='€'))
+# muster
+ST.leiter('muster', 'Eine Figurenfolge um wenige Figuren fortsetzen.',
+          'Den Term zur Folge aus Bild oder Tabelle aufstellen; mit dem Term große Figuren berechnen; Figur zu einer Anzahl finden.',
+          'Term aus dem Aufbau begründen, rückwärts zur Figur, fremde Formeln (Diagonalen), quadratisches Wachstum, falsche Terme erkennen, Parameter.')
+ST.regel('muster', 1, 'Wie viele sind es bei Figur', 'direkt')
+ST.regel('muster', 2, 'Gib einen Term', 'darstellung')
+ST.regel('muster', 2, 'Welche Figur hat genau', 'umkehr')
+ST.regel('muster', 3, 'Welcher Term gibt die Anzahl', 'begruenden')
+ST.regel('muster', 3, 'Wie viele sind es bei Figur', 'mehrschritt', neu_s=2)
+ST.regel('muster', 3, 'Welche Figur braucht genau', 'rueckwaerts')
+ST.regel('muster', 3, 'Wie viele Diagonalen hat ein Zehneck', 'transfer')
+ST.regel('muster', 3, 'Wie viele Ecken hat es', 'rueckwaerts')
+ST.regel('muster', 3, 'n · n Plättchen', 'verknuepfen')
+ST.regel('muster', 3, 'Folge A', 'transfer')
+ST.neu('muster', 1, 'erkennen', ST.Z('Eine Folge hat 5, 8, 11, 14 Plättchen. Wie viele Plättchen kommen von Figur zu Figur dazu?', 3, '8 - 5',
+                                     'Von 5 auf 8, von 8 auf 11, von 11 auf 14: jedes Mal 3 mehr.', 'Vergleiche zwei Nachbarfiguren.'))
+ST.neu('muster', 2, 'mehrschritt', ST.L('Für n Tische in einer Reihe braucht man 2n + 2 Stühle. Wie viele Stühle braucht man für 15 Tische, und wie viele Tische für 40 Stühle?',
+                                        '15 Tische: □ Stühle; 40 Stühle: □ Tische', [32, 19], ['2 * 15 + 2', '(40 - 2) / 2'],
+                                        '2 · 15 + 2 = 32 Stühle. Für 40 Stühle: 2n + 2 = 40 → 2n = 38 → n = 19 Tische.',
+                                        'Einmal einsetzen, einmal rückwärts denken.'))
+ST.neu('muster', 3, 'fehler', ST.A('Eine Folge hat 5, 9, 13, 17 Plättchen. Jemand schreibt den Term n + 4. Was stimmt?', 'Falsch: Pro Figur kommen 4 dazu, richtig ist 4n + 1.',
+                                   ['Richtig: Es kommen immer 4 dazu.', 'Falsch: Richtig ist 5n.', 'Falsch: Richtig ist 4n + 5.'],
+                                   'Die Zunahme pro Figur (4) gehört vor das n: 4n. Probe mit Figur 1: 4 · 1 + 1 = 5 ✓. n + 4 ergäbe für Figur 2 nur 6.',
+                                   'Setze n = 2 in den Term ein und vergleiche mit der Folge.'))
+ST.neu('muster', 3, 'parameter', ST.Z('Eine Figurenfolge hat a · n + 2 Plättchen. Figur 5 hat 32 Plättchen. Wie groß ist a?', 6, '(32 - 2) / 5',
+                                      'a · 5 + 2 = 32 → 5a = 30 → a = 6.', 'Setze n = 5 ein und denke rückwärts.'))
+ST.knobel('muster', ST.Z('Aus Streichhölzern wird ein quadratisches Gitter aus 3 × 3 kleinen Quadraten gelegt (jede Kante ist ein Holz). Wie viele Streichhölzer braucht man?', 24, '2 * 3 * 4',
+                         'Waagrechte Linien: 4 Reihen mit je 3 Hölzern = 12. Senkrechte Linien: 4 Spalten mit je 3 Hölzern = 12. Zusammen 24. '
+                         '(Für n × n Quadrate allgemein 2 · n · (n + 1).)',
+                         'Zähle nicht Quadrate, sondern Linien: Wie viele waagrechte und senkrechte Linien gibt es?'))
+ST.knobel('muster', ST.Z('Um ein Quadrat aus n × n Plättchen wird ein Rahmen gelegt, der eine Plättchen breit ist. Wie viele Plättchen hat der Rahmen bei n = 10?', 44, '12 * 12 - 10 * 10',
+                         'Mit Rahmen ist das Quadrat (n + 2) × (n + 2) groß. Rahmen = (n + 2)² − n² = 4n + 4. Für n = 10: 144 − 100 = 44. '
+                         '(Oder: 4 Seiten mit je 10 Plättchen plus 4 Ecken = 44.)',
+                         'Vergleiche das große Quadrat mit Rahmen mit dem inneren.'))
+# deuten
+ST.leiter('deuten', 'Sagen, wofür eine Zahl im Term steht (Grundgebühr, Preis pro Einheit).',
+          'Eine Rechnung oder einen Termwert in der Situation deuten; vom Wert zurück zur Zeit; Term zu einer Situation wählen.',
+          'Teilterme in Figuren deuten, Tarife vergleichen und deuten, Fehlschlüsse erkennen, einen Parameter aus einem Messwert bestimmen.')
+ST.regel('deuten', 1, 'Was bedeutet die Zahl', 'erkennen')
+ST.regel('deuten', 2, 'Was bedeutet die Rechnung', 'darstellung')
+ST.regel('deuten', 2, 'Was bedeutet h =', 'umkehr')
+ST.regel('deuten', 2, 'ganz abgebrannt', 'umkehr')
+ST.regel('deuten', 2, 'Tank', 'einkleidung')
+ST.regel('deuten', 3, 'doppelt so hoch', 'transfer')
+ST.regel('deuten', 3, 'Tarif A', 'transfer')
+ST.regel('deuten', 3, 'Jemand übersetzt', 'fehler')
+ST.regel('deuten', 3, 'Wofür steht der Teilterm', 'begruenden')
+ST.regel('deuten', 3, 'Was berechnet der Term', 'begruenden')
+ST.regel('deuten', 3, 'Für die Fläche der Rahmenleiste', 'fehler')
+ST.regel('deuten', 3, 'Mia', 'begruenden')
+ST.neu('deuten', 1, 'direkt', ST.Z('Ein Parkhaus berechnet P = 2x + 3 (x = Stunden, P in €). Was kostet Parken für 4 Stunden?', 11, '2 * 4 + 3',
+                                   '2 · 4 + 3 = 11 €.', 'Setze für x die Stunden ein.', einheit='€'))
+ST.neu('deuten', 3, 'parameter', ST.Z('Ein Handytarif kostet K = 0,1x + g (x = Minuten, K in €). Bei 60 Minuten kostet er 14 €. Wie hoch ist die Grundgebühr g?', 8, '14 - 0.1 * 60',
+                                      '0,1 · 60 = 6. 6 + g = 14 → g = 8 €.', 'Setze 60 Minuten ein. Was bleibt für die Grundgebühr?', einheit='€'))
+ST.knobel('deuten', ST.Z('Kerze A ist 30 cm hoch und brennt 2 cm pro Stunde ab, Kerze B ist 20 cm hoch und brennt 1 cm pro Stunde ab. Beide werden gleichzeitig angezündet. '
+                         'Nach wie vielen Stunden sind beide gleich hoch?', 10, '(30 - 20) / (2 - 1)',
+                         'Höhen: A = 30 − 2x, B = 20 − x. Am Anfang ist A 10 cm höher. Jede Stunde holt B 1 cm auf (A verliert 2, B nur 1). Nach 10 Stunden: A = 10 cm, B = 10 cm.',
+                         'Um wie viel ist A am Anfang höher, und wie schnell schrumpft dieser Vorsprung?', einheit='Stunden'))
+ST.knobel('deuten', ST.Z('Ein Rechteck hat den Umfang 30 cm. Ist eine Seite x cm lang, beschreibt x · (15 − x) den Flächeninhalt. Wie groß ist der Flächeninhalt höchstens, wenn x eine ganze Zahl ist?',
+                         56, '7 * 8',
+                         '15 − x ist die andere Seite (beide Seiten zusammen sind der halbe Umfang). Probieren: x = 5 → 50, x = 6 → 54, x = 7 → 56, x = 8 → 56, x = 9 → 54. '
+                         'Am größten ist die Fläche, wenn die Seiten möglichst gleich lang sind: 7 · 8 = 56 cm².',
+                         'Wofür steht 15 − x? Lege eine Tabelle für verschiedene x an.', einheit='cm²'))
+# ---- STUFEN ENDE ----
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Terme lesen', ['struktur', 'termwert']), ('Terme aufstellen', ['uebersetzen', 'sachsituation', 'muster']), ('Terme deuten', ['deuten'])],
@@ -758,3 +978,4 @@ if __name__ == '__main__':
     anhaengen(META['thema_schluessel'], schwer())
     befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
     durchsicht_datei(META['thema_schluessel'], DS)  # Neunzehnte Runde: zuletzt
+    stufen_datei(META['thema_schluessel'], ST)  # Zwanzigste Runde: zuletzt

@@ -467,6 +467,293 @@ DS.neu('binomisch', 3, DS.Z('Rechne geschickt mit einer binomischen Formel: 49 �
 # ---- DURCHSICHT ENDE ----
 
 
+# ---- STUFEN (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, siehe _stufen_kl7.py) ----
+# Vorbilder (Typ und Niveau, eigene Zahlen): BMT8 (ISB) 2019 B1b, 2024 A2, 2025 A4 („Vereinfache so weit wie möglich“), 2014 B7 (ausklammern ergänzen),
+# 2023 A1 (äquivalente Terme ankreuzen); Knobel nach der Art von Känguru 7/8 und Mathematik-Olympiade (geschickt rechnen, Zauberquadrat, Vorzeichen).
+from _stufen_kl7 import Stufen, stufen_datei  # noqa: E402
+
+ST = Stufen('terme.umformen', 20_7_2)
+_HT = 'Tippe den ganzen Term ein, z. B. 3x − 2y.'
+_HZ = 'Trage in jedes Feld eine Zahl ein.'
+# zusammenfassen
+ST.leiter('zusammenfassen', 'Gleichartige Glieder mit x und y zusammenfassen.',
+          'Terme mit x², Zahlen und mehreren Gliedern; Umfang als Term; fehlenden Summanden bestimmen.',
+          'Fehler beim Zusammenfassen deuten, rückwärts den Term T finden, Seite aus dem Umfang, Potenzen unterscheiden, Parameter, Prüfungsaufgabe mit Produkten.')
+ST.regel('zusammenfassen', 1, 'Fasse zusammen', 'direkt')
+ST.regel('zusammenfassen', 1, 'gleichwertig', 'erkennen')
+ST.regel('zusammenfassen', 2, 'Fasse zusammen', 'mehrschritt')
+ST.regel('zusammenfassen', 2, 'Rechteck', 'einkleidung')
+ST.regel('zusammenfassen', 3, 'Jemand rechnet', 'fehler')
+ST.regel('zusammenfassen', 3, 'Wie heißt der Term T', 'rueckwaerts')
+ST.regel('zusammenfassen', 3, 'Dreiecks', 'transfer')
+ST.regel('zusammenfassen', 3, 'gleichartig', 'verknuepfen')
+ST.regel('zusammenfassen', 3, 'genau', 'begruenden')
+ST.neu('zusammenfassen', 2, 'umkehr', ST.L('Welcher Term ergibt zusammen mit 3x + 2y den Term 7x − y?', '□x + □y', [4, -3], ['7 - 3', '-1 - 2'],
+                                           '7x − 3x = 4x und −y − 2y = −3y. Der Term ist 4x − 3y. Probe: 3x + 2y + 4x − 3y = 7x − y ✓.',
+                                           'Was fehlt bei den x-Gliedern, was bei den y-Gliedern?', _HT))
+ST.neu('zusammenfassen', 3, 'parameter', ST.Z('Für welche Zahl k ergibt kx + 3y − 2x + y zusammengefasst 5x + 4y?', 7, '5 + 2',
+                                              'kx − 2x soll 5x sein, also k − 2 = 5 und k = 7. Die y-Glieder: 3y + y = 4y ✓.', 'Fasse die x-Glieder mit k zusammen.'))
+ST.neu('zusammenfassen', 3, 'pruefung', ST.L('Vereinfache so weit wie möglich: 2a² + 3a − a · a + 4a', '□a² + □a', [1, 7], ['2 - 1', '3 + 4'],
+                                             'a · a = a². Dann 2a² − a² = a² und 3a + 4a = 7a. Ergebnis: a² + 7a.', 'Rechne zuerst das Produkt a · a aus.', _HT))
+ST.neu('zusammenfassen', 3, 'fehler', ST.A('Jemand fasst 5x² + 3x zu 8x³ zusammen. Was stimmt?', 'Falsch: x² und x sind nicht gleichartig, 5x² + 3x bleibt stehen.',
+                                           ['Richtig: 5 + 3 = 8 und 2 + 1 = 3.', 'Falsch: Richtig ist 8x².', 'Falsch: Richtig ist 15x³.'],
+                                           'Zusammenfassen darf man nur Glieder mit genau demselben Buchstabenteil. x² und x sind verschieden – der Term lässt sich nicht kürzer schreiben.',
+                                           'Sind x² und x gleichartig?'))
+ST.knobel('zusammenfassen', ST.L('Zehn Terme: a, a + 3, a + 6, a + 9, …, a + 27 (jeder 3 mehr als der vorige). Fasse die Summe aller zehn Terme zusammen.', '□a + □', [10, 135],
+                                 ['10', '3 * (0 + 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9)'],
+                                 'Zehnmal a ergibt 10a. Die Zahlen sind 0 + 3 + 6 + … + 27 = 3 · (0 + 1 + … + 9) = 3 · 45 = 135. '
+                                 'Geschickt: Erster und letzter Summand ergeben 27, zweiter und vorletzter auch – 5 Paare · 27 = 135. Ergebnis 10a + 135.',
+                                 'Zähle die a getrennt. Für die Zahlen: Bilde Paare von vorne und hinten.', _HT))
+ST.knobel('zusammenfassen', ST.L('In einem Zauberquadrat aus 3 × 3 Feldern ergeben alle Zeilen, Spalten und beide Diagonalen dieselbe Summe. Im mittleren Feld steht x + 2. Wie groß ist diese Summe?',
+                                 '□x + □', [3, 6], ['3', '3 * 2'],
+                                 'Die mittlere Zeile, die mittlere Spalte und die beiden Diagonalen gehen durch die Mitte. Zusammen enthalten sie alle neun Felder einmal und die Mitte noch dreimal mehr: '
+                                 '4S = (Summe aller Felder) + 3 · Mitte = 3S + 3 · Mitte. Also S = 3 · Mitte = 3(x + 2) = 3x + 6.',
+                                 'Addiere die vier Linien durch die Mitte. Wie oft kommt jedes Feld darin vor?', _HT))
+# produkte
+ST.leiter('produkte', 'Zwei Faktoren mit Zahl und Variable malnehmen (2x · 5y).',
+          'Vorzeichen bei mehreren Faktoren, gleiche Variablen werden zum Quadrat, Fläche als Term, fehlende Seite.',
+          'Fehler x statt x², Volumen mit a³, fehlenden Faktor rückwärts, Vorzeichen bei drei Minus, Verdopplung der Seiten, Parameter, Prüfungsaufgabe.')
+ST.regel('produkte', 1, 'Vereinfache', 'direkt')
+ST.regel('produkte', 2, 'Vereinfache', 'mehrschritt')
+ST.regel('produkte', 2, 'Rechteck', 'einkleidung')
+ST.regel('produkte', 3, 'Jemand rechnet', 'fehler')
+ST.regel('produkte', 3, 'Quader', 'verknuepfen')
+ST.regel('produkte', 3, 'Welcher Faktor fehlt', 'rueckwaerts')
+ST.regel('produkte', 3, '(−c)', 'begruenden')
+ST.regel('produkte', 3, 'verdoppelt', 'begruenden')
+ST.neu('produkte', 1, 'erkennen', ST.A('Welcher Term ist gleich 4 · a · a?', '4a²', ['8a', '4a', '(4a)²'],
+                                       'a · a = a², also 4 · a · a = 4a². (4a)² wäre 4a · 4a = 16a².', 'Wie schreibt man a · a kürzer?'))
+ST.neu('produkte', 2, 'umkehr', ST.L('Ein Rechteck hat den Flächeninhalt 12x² und die Länge 4x. Wie breit ist es?', '□x', [3], ['12 / 4'],
+                                     '4x · 3x = 12x². Die Breite ist 3x.', 'Welcher Term mal 4x ergibt 12x²?', 'Tippe den Term ein, z. B. 5x.'))
+ST.neu('produkte', 3, 'transfer', ST.Z('Bei einem Quadrat mit der Seite s wird eine Seite verdreifacht und die andere halbiert. Mit welcher Zahl wird der Flächeninhalt malgenommen?', 1.5, '3 * 0.5',
+                                       'Neue Fläche: 3s · 0,5s = 1,5s². Vorher s². Die Fläche wird mit 1,5 malgenommen.', 'Schreibe die neue Fläche als Produkt und vergleiche mit s².'))
+ST.neu('produkte', 3, 'pruefung', ST.L('Vereinfache so weit wie möglich: (3x)² − 2x · 4x', '□x²', [1], ['9 - 8'],
+                                       '(3x)² = 3x · 3x = 9x². 2x · 4x = 8x². 9x² − 8x² = x².', 'Rechne beide Produkte einzeln aus.', 'Tippe den Term ein, z. B. 5x².'))
+ST.neu('produkte', 3, 'parameter', ST.Z('Für welche Zahl n gilt 2a · na = 10a²?', 5, '10 / 2', '2a · na = 2n · a². Das soll 10a² sein: 2n = 10, n = 5.', 'Multipliziere die Zahlen und die Variablen getrennt.'))
+ST.knobel('produkte', ST.Z('Ein großer Würfel hat die Kantenlänge 3a, kleine Würfel haben die Kantenlänge a. Wie viele kleine Würfel passen genau in den großen?', 27, '3 * 3 * 3',
+                           'Volumen groß: (3a)³ = 3a · 3a · 3a = 27a³. Volumen klein: a³. In jede Richtung passen 3 kleine Würfel: 3 · 3 · 3 = 27.',
+                           'Wie viele kleine Würfel passen entlang einer Kante?'))
+ST.knobel('produkte', ST.A('Welches Vorzeichen hat (−a) · (−a)² · (−a)³ für eine positive Zahl a?', 'plus', ['minus', 'Das hängt davon ab, wie groß a ist.'],
+                           '(−a)² = a² ist positiv, (−a)³ = −a³ ist negativ. (−a) · a² · (−a³) = (−1) · (−1) · a⁶ = a⁶: zwei Minuszeichen, also plus. '
+                           'Kurz: Insgesamt wird −a sechsmal mit sich malgenommen – eine gerade Anzahl.',
+                           'Zähle, wie oft der Faktor (−a) insgesamt vorkommt.'))
+# minusklammer
+ST.leiter('minusklammer', 'Eine Minusklammer auflösen und zusammenfassen; richtige Umformung erkennen.',
+          'Zwei Klammern, Minus vor einem Faktor, Sachsituation Konto, fehlenden Term in der Klammer finden.',
+          'Fehler deuten, verschachtelte Klammern, Ausgaben einer Kasse, Lücke rückwärts, Gegenbeispiel zu a − (b − c), Seite aus dem Umfang, Prüfungsaufgabe.')
+ST.regel('minusklammer', 1, 'Löse die Klammer auf und fasse zusammen', 'direkt')
+ST.regel('minusklammer', 1, 'Welche Umformung', 'erkennen')
+ST.regel('minusklammer', 2, 'Löse die Klammer', 'mehrschritt')
+ST.regel('minusklammer', 3, 'Jemand rechnet', 'fehler')
+ST.regel('minusklammer', 3, '(2x − (x', 'transfer')
+ST.regel('minusklammer', 3, 'Klassenkasse', 'transfer')
+ST.regel('minusklammer', 3, 'Lücke', 'parameter')
+ST.neu('minusklammer', 2, 'einkleidung', ST.L('Auf einem Konto sind 8x €. Abgebucht werden (3x − 5) €. Wie viel bleibt auf dem Konto?', '□x + □', [5, 5], ['8 - 3', '5'],
+                                              '8x − (3x − 5) = 8x − 3x + 5 = 5x + 5 (in €).', 'Die ganze Abbuchung wird abgezogen.', _HT))
+ST.neu('minusklammer', 2, 'umkehr', ST.L('Welcher Term gehört in die Klammer? 7x − ( ? ) = 4x + 2', '□x + □', [3, -2], ['7 - 4', '-2'],
+                                         '7x − (3x − 2) = 7x − 3x + 2 = 4x + 2 ✓.', 'Was muss abgezogen werden, damit aus 7x der Term 4x wird? Achte auf das Vorzeichen der Zahl.', _HT))
+ST.neu('minusklammer', 3, 'begruenden', ST.A('Stimmt für alle Zahlen: a − (b − c) = a − b − c?', 'Nein: Für a = 5, b = 3, c = 1 ergibt links 3, rechts 1.',
+                                             ['Ja: Man lässt die Klammer einfach weg.', 'Ja, aber nur für positive Zahlen.', 'Nein: Richtig ist a − b − c = a + b − c.'],
+                                             'Minus vor der Klammer dreht jedes Vorzeichen: a − (b − c) = a − b + c. Das Gegenbeispiel zeigt es: 5 − (3 − 1) = 3, aber 5 − 3 − 1 = 1.',
+                                             'Probiere es mit kleinen Zahlen aus.'))
+ST.neu('minusklammer', 3, 'rueckwaerts', ST.Z('Aus 9x − (□x + 4) entsteht nach dem Auflösen und Zusammenfassen 2x − 4. Welche Zahl steht im Kästchen?', 7, '9 - 2',
+                                              '9x − □x − 4 = 2x − 4. Also 9 − □ = 2 und □ = 7.', 'Löse die Klammer mit dem Kästchen auf und vergleiche die x-Glieder.'))
+ST.neu('minusklammer', 3, 'pruefung', ST.L('Vereinfache so weit wie möglich: (5x − 3) − (2x − 7) − x', '□x + □', [2, 4], ['5 - 2 - 1', '-3 + 7'],
+                                           '5x − 3 − 2x + 7 − x = 2x + 4.', 'Löse beide Klammern auf, dann zusammenfassen.', _HT))
+ST.neu('minusklammer', 3, 'verknuepfen', ST.L('Ein Dreieck hat den Umfang 10x + 4. Zwei Seiten sind (3x + 1) und (2x − 2) lang. Wie lang ist die dritte Seite?', '□x + □', [5, 5],
+                                              ['10 - 3 - 2', '4 - 1 + 2'], '10x + 4 − (3x + 1) − (2x − 2) = 10x + 4 − 3x − 1 − 2x + 2 = 5x + 5.',
+                                              'Umfang minus die beiden bekannten Seiten – jede als ganze Klammer.', _HT))
+ST.knobel('minusklammer', ST.Z('Berechne geschickt: 1 − 2 + 3 − 4 + 5 − 6 + … + 99 − 100', -50, '50 * (-1)',
+                               'Fasse je zwei Zahlen zusammen: (1 − 2) + (3 − 4) + … + (99 − 100). Das sind 50 Klammern mit je −1. Ergebnis −50.',
+                               'Bilde Paare aus Nachbarzahlen.'))
+ST.knobel('minusklammer', ST.Z('Setze in 10 − 9 − 8 − 7 genau ein Klammerpaar so, dass das Ergebnis möglichst groß wird. Wie groß ist es?', 16, '10 - (9 - 8 - 7)',
+                               'Ohne Klammer: −14. Eine Klammer hinter dem ersten Minus dreht alle Vorzeichen darin: 10 − (9 − 8 − 7) = 10 − 9 + 8 + 7 = 16. '
+                               'Andere Möglichkeiten: 10 − (9 − 8) − 7 = 2, 10 − 9 − (8 − 7) = 0. Am größten: 16.',
+                               'Ein Minus vor der Klammer dreht die Vorzeichen in der Klammer. Welche Zahlen sollen plus werden?'))
+# ausmultiplizieren
+ST.leiter('ausmultiplizieren', 'Eine Zahl vor der Klammer mit jedem Glied malnehmen.',
+          'x vor der Klammer, negative Faktoren, zwei Klammern vereinfachen, Fläche als Term, Faktoren ergänzen.',
+          'Zuwachs unabhängig von x, Faktor rückwärts, Fehler mit Vorzeichen und x · 4, Parameter a, Gegenbeispiel zu 2(ab), geschickt rechnen, Prüfungsaufgabe.')
+ST.regel('ausmultiplizieren', 1, 'Multipliziere aus', 'direkt')
+ST.regel('ausmultiplizieren', 2, 'Multipliziere aus', 'mehrschritt')
+ST.regel('ausmultiplizieren', 2, 'Vereinfache', 'mehrschritt')
+ST.regel('ausmultiplizieren', 3, 'Rechteck', 'transfer')
+ST.regel('ausmultiplizieren', 3, 'Welche Zahl steht vor der Klammer', 'rueckwaerts')
+ST.regel('ausmultiplizieren', 3, 'Jemand rechnet', 'fehler')
+ST.regel('ausmultiplizieren', 3, 'Für welche Zahl a', 'parameter')
+ST.neu('ausmultiplizieren', 1, 'erkennen', ST.A('Welcher Term entsteht, wenn man 5(x + 3) ausmultipliziert?', '5x + 15', ['5x + 3', 'x + 15', '5x + 8'],
+                                                '5 · x = 5x und 5 · 3 = 15. Die 5 kommt zu jedem Glied.', 'Wird die 3 auch malgenommen?'))
+ST.neu('ausmultiplizieren', 2, 'einkleidung', ST.L('Ein Rechteck ist x cm breit und 3 cm länger als breit. Gib seinen Flächeninhalt ohne Klammer an.', '□x² + □x', [1, 3], ['1', '3'],
+                                                   'Länge x + 3, Fläche x · (x + 3) = x² + 3x.', 'Schreibe zuerst die Länge als Term.', 'Tippe den Term ein, z. B. 2x² + 5x.'))
+ST.neu('ausmultiplizieren', 2, 'umkehr', ST.L('Ergänze: 4(□x + □) = 12x + 8', '4(□x + □)', [3, 2], ['12 / 4', '8 / 4'],
+                                              '4 · 3x = 12x und 4 · 2 = 8.', 'Welche Zahlen ergeben mal 4 genau 12 und 8?', _HZ))
+ST.neu('ausmultiplizieren', 3, 'begruenden', ST.A('Stimmt für alle Zahlen: 2 · (a · b) = 2a · 2b?', 'Nein: Für a = b = 1 ist links 2, rechts 4.',
+                                                  ['Ja: Die 2 kommt zu jedem Faktor.', 'Ja, das ist das Ausmultiplizieren.', 'Nein: Richtig ist 2 · (a · b) = 2a + 2b.'],
+                                                  'Ausmultiplizieren gilt nur bei Summen. Bei einem Produkt verdoppelt man nur einen Faktor: 2 · (a · b) = 2ab. Gegenbeispiel a = b = 1: 2 ≠ 4.',
+                                                  'Setze kleine Zahlen ein.'))
+ST.neu('ausmultiplizieren', 3, 'verknuepfen', ST.Z('Berechne geschickt mit Ausmultiplizieren: 7 · 103', 721, '7 * 100 + 7 * 3',
+                                                   '7 · 103 = 7 · (100 + 3) = 700 + 21 = 721.', 'Schreibe 103 als Summe.'))
+ST.neu('ausmultiplizieren', 3, 'pruefung', ST.L('Multipliziere aus und vereinfache so weit wie möglich: 3(2x − 1) − 2(x − 4)', '□x + □', [4, 5], ['6 - 2', '-3 + 8'],
+                                                '6x − 3 − 2x + 8 = 4x + 5.', 'Achte beim zweiten Teil auf −2 · (−4).', _HT))
+ST.neu('ausmultiplizieren', 3, 'fehler', ST.A('Jemand rechnet: x(x + 4) = x² + 4. Was stimmt?', 'Falsch: x · 4 = 4x fehlt, richtig ist x² + 4x.',
+                                              ['Richtig gerechnet.', 'Falsch: Richtig ist 2x + 4.', 'Falsch: Richtig ist x² + 4x².'],
+                                              'Das x vor der Klammer kommt zu jedem Glied: x · x = x² und x · 4 = 4x.', 'Wurde das zweite Glied auch mit x malgenommen?'))
+ST.knobel('ausmultiplizieren', ST.Z('Wie viele Glieder hat 2(a + b + c) + 3(b + c + d) − 5(c + d + e) nach dem Ausmultiplizieren und Zusammenfassen?', 4, '4',
+                                    'Ausmultipliziert: 2a + 2b + 2c + 3b + 3c + 3d − 5c − 5d − 5e. Zusammengefasst: 2a + 5b + 0c − 2d − 5e. '
+                                    'Das c fällt weg (2 + 3 − 5 = 0). Es bleiben 4 Glieder: 2a + 5b − 2d − 5e.',
+                                    'Zähle für jeden Buchstaben, wie oft er insgesamt vorkommt – mit Vorzeichen.'))
+ST.knobel('ausmultiplizieren', ST.Z('Rechnet man 3(x + 4) − 2(x + 5) − x aus, kommt für jedes x dieselbe Zahl heraus. Welche?', 2, '12 - 10',
+                                    '3x + 12 − 2x − 10 − x = (3 − 2 − 1)x + 2 = 2. Das x fällt ganz weg – für jede Zahl x ergibt sich 2.',
+                                    'Multipliziere aus und sammle die x-Glieder.'))
+# summe_mal_summe
+ST.leiter('summe_mal_summe', '(x + a)(x + b) ausmultiplizieren; die Anzahl der Produkte kennen.',
+          'Minuszeichen und Faktoren vor x, Garten als Sachsituation, Rechteck aus vier Teilflächen als Produkt schreiben.',
+          'Fehlende Glieder deuten, Flächenänderung, Zahl rückwärts, Parameter k, geschickt rechnen 21 · 19, Prüfungsaufgabe, Rechnung beurteilen.')
+ST.regel('summe_mal_summe', 1, 'Multipliziere aus', 'direkt')
+ST.regel('summe_mal_summe', 2, 'Multipliziere aus', 'mehrschritt')
+ST.regel('summe_mal_summe', 2, 'Garten', 'einkleidung')
+ST.regel('summe_mal_summe', 3, 'Jemand rechnet', 'fehler')
+ST.regel('summe_mal_summe', 3, 'Garten', 'transfer')
+ST.regel('summe_mal_summe', 3, 'Welche Zahl fehlt', 'rueckwaerts')
+ST.regel('summe_mal_summe', 3, 'Wie viele Produkte', 'begruenden')
+ST.neu('summe_mal_summe', 1, 'erkennen', ST.Z('Wie viele Produkte bildet man beim Ausmultiplizieren von (x + 2)(x + 5), bevor man zusammenfasst?', 4, '2 * 2',
+                                              'Jedes der 2 Glieder der ersten Klammer mal jedes der 2 Glieder der zweiten: 2 · 2 = 4 Produkte.', 'Jedes Glied mal jedes Glied.'))
+ST.neu('summe_mal_summe', 1, 'direkt', ST.L('Multipliziere aus: (a + 2)(b + 3)', '□ab + □a + □b + □', [1, 3, 2, 6], ['1', '3', '2', '2 * 3'],
+                                            'a · b + a · 3 + 2 · b + 2 · 3 = ab + 3a + 2b + 6. Hier lässt sich nichts zusammenfassen.', 'Jedes Glied der ersten Klammer mal jedes der zweiten.',
+                                            'Tippe den ganzen Term ein, z. B. ab + 2a + 3b + 6.'))
+ST.neu('summe_mal_summe', 2, 'darstellung', ST.A('Ein Rechteck ist in vier Teile zerlegt: x², 5x, 2x und 10. Welches Produkt beschreibt die ganze Fläche?', '(x + 2)(x + 5)',
+                                                 ['(x + 5)(x + 10)', '(x + 2)(x + 10)', '(x + 7)(x + 10)'],
+                                                 'Die Teile x · x, x · 5, 2 · x und 2 · 5 ergeben die Seiten x + 2 und x + 5. Probe: (x + 2)(x + 5) = x² + 5x + 2x + 10 ✓.',
+                                                 'Welche Seitenlängen ergeben die Teilflächen 5x und 10?'))
+ST.neu('summe_mal_summe', 3, 'parameter', ST.Z('Für welche Zahl k gilt (x + k)(x + 2) = x² + 7x + 10 für jedes x?', 5, '10 / 2',
+                                               '(x + k)(x + 2) = x² + (k + 2)x + 2k. Also k + 2 = 7 und 2k = 10: k = 5.', 'Multipliziere mit k aus und vergleiche die Glieder.'))
+ST.neu('summe_mal_summe', 3, 'pruefung', ST.Z('Vereinfache so weit wie möglich: (x + 4)(x − 2) − x(x + 2)', -8, '4 * (-2)',
+                                              '(x + 4)(x − 2) = x² + 2x − 8. x(x + 2) = x² + 2x. Differenz: −8.', 'Multipliziere beide Teile aus; Minus vor dem zweiten.'))
+ST.neu('summe_mal_summe', 3, 'verknuepfen', ST.Z('Berechne geschickt: 21 · 19 = (20 + 1)(20 − 1)', 399, '20 * 20 - 1',
+                                                 '(20 + 1)(20 − 1) = 400 − 20 + 20 − 1 = 399.', 'Multipliziere die Klammern aus. Zwei Glieder heben sich weg.'))
+ST.neu('summe_mal_summe', 3, 'begruenden', ST.A('Jemand rechnet: (2x + 1)(x + 3) = 2x² + 6x + x + 3 = 2x² + 7x + 3. Was stimmt?', 'Die Rechnung ist richtig.',
+                                                ['Falsch: Es fehlt das Glied 3x.', 'Falsch: Richtig ist 2x² + 3.', 'Falsch: Richtig ist 3x² + 7x + 3.'],
+                                                'Vier Produkte: 2x · x = 2x², 2x · 3 = 6x, 1 · x = x, 1 · 3 = 3. Zusammengefasst 2x² + 7x + 3 – alles richtig.',
+                                                'Prüfe jedes der vier Produkte einzeln.'))
+ST.knobel('summe_mal_summe', ST.Z('Berechne ohne Taschenrechner: 47 · 49 + 1', 2304, '48 * 48',
+                                  'Mit n = 48: (n − 1)(n + 1) + 1 = n² − 1 + 1 = n². Also 47 · 49 + 1 = 48² = 2 304.',
+                                  'Beide Zahlen liegen gleich weit neben einer runden Mitte. Schreibe sie mit dieser Mitte.'))
+ST.knobel('summe_mal_summe', ST.Z('Ein Rechteck hat die Seiten (x + 3) und (x + 7), ein Quadrat die Seite (x + 5). Um wie viel ist die Fläche des Quadrats größer – für jedes x?', 4, '25 - 21',
+                                  'Quadrat: (x + 5)(x + 5) = x² + 10x + 25. Rechteck: (x + 3)(x + 7) = x² + 10x + 21. Unterschied: 4 – egal wie groß x ist.',
+                                  'Multipliziere beide aus und vergleiche Glied für Glied.'))
+# ausklammern
+ST.leiter('ausklammern', 'Den größten gemeinsamen Zahlfaktor ausklammern.',
+          'Zahl und x ausklammern, fehlenden Faktor ergänzen, Länge aus Fläche und Breite.',
+          'Unvollständiges Ausklammern beurteilen, zwei Variablen, negative Faktoren, Länge rückwärts, Parameter, geschickt rechnen, Prüfungsaufgabe (Lücken).')
+ST.regel('ausklammern', 1, 'Klammere den größten gemeinsamen Faktor aus', 'direkt')
+ST.regel('ausklammern', 2, 'Klammere den größten gemeinsamen Faktor aus', 'mehrschritt')
+ST.regel('ausklammern', 3, 'Jemand klammert aus', 'fehler')
+ST.regel('ausklammern', 3, 'ab −', 'verknuepfen')
+ST.regel('ausklammern', 3, 'Klammere −4', 'transfer')
+ST.regel('ausklammern', 3, 'Rechteck', 'rueckwaerts')
+ST.neu('ausklammern', 1, 'erkennen', ST.Z('Welche größte Zahl steckt als Faktor in 6x und in 15?', 3, '3', '6 = 3 · 2 und 15 = 3 · 5. Der größte gemeinsame Faktor ist 3.',
+                                         'Suche die größte Zahl, die 6 und 15 teilt.'))
+ST.neu('ausklammern', 1, 'direkt', ST.L('Klammere x aus: x² + 7x', 'x(□x + □)', [1, 7], ['1', '7'], 'x² = x · x und 7x = x · 7. Also x(x + 7).', 'In beiden Gliedern steckt x.',
+                                        'Tippe den ganzen Term mit Klammer ein, z. B. x(x + 2).'))
+ST.neu('ausklammern', 2, 'umkehr', ST.Z('Ergänze: □ · (2x + 5) = 6x + 15', 3, '6 / 2', '3 · 2x = 6x und 3 · 5 = 15.', 'Welche Zahl mal 2x ergibt 6x?'))
+ST.neu('ausklammern', 2, 'einkleidung', ST.L('Ein Garten hat den Flächeninhalt (8x + 12) m² und ist 4 m breit. Wie lang ist er?', '□x + □', [2, 3], ['8 / 4', '12 / 4'],
+                                             '8x + 12 = 4(2x + 3). Breite 4 m, also Länge (2x + 3) m.', 'Klammere die Breite 4 aus.', _HT))
+ST.neu('ausklammern', 3, 'begruenden', ST.A('Ist 6x + 9 = 3(2x + 3) vollständig ausgeklammert?', 'Ja: 2x und 3 haben keinen gemeinsamen Faktor mehr.',
+                                            ['Nein: Man kann noch 2 ausklammern.', 'Nein: Man muss 9 ausklammern.', 'Ja, aber nur, wenn x gerade ist.'],
+                                            'Vollständig heißt: In der Klammer steckt kein gemeinsamer Faktor mehr. 2x und 3 haben keinen (3 ist ungerade, 2x nicht durch 3 teilbar).',
+                                            'Prüfe, ob die Glieder in der Klammer noch einen gemeinsamen Faktor haben.'))
+ST.neu('ausklammern', 3, 'parameter', ST.Z('Für welche Zahl k gilt kx + 20 = 4(3x + 5)?', 12, '4 * 3', '4(3x + 5) = 12x + 20. Also k = 12.', 'Multipliziere die rechte Seite aus.'))
+ST.neu('ausklammern', 3, 'pruefung', ST.L('Ergänze: 12a²b + 8ab² = □ab(3a + □b)', '□ab(3a + □b)', [4, 2], ['12 / 3', '8 / 4'],
+                                          'In beiden Gliedern stecken 4, a und b: 12a²b = 4ab · 3a und 8ab² = 4ab · 2b.', 'Welche Zahl mal 3a ergibt 12a²b, wenn ab schon dasteht?', _HZ))
+ST.neu('ausklammern', 3, 'verknuepfen', ST.Z('Berechne geschickt: 37 · 13 + 37 · 87', 3700, '37 * (13 + 87)', '37 · 13 + 37 · 87 = 37 · (13 + 87) = 37 · 100 = 3 700.',
+                                             'Welcher Faktor kommt in beiden Produkten vor?'))
+ST.knobel('ausklammern', ST.Z('Berechne ohne Taschenrechner: 2 024 · 2 023 − 2 023 · 2 022', 4046, '2023 * 2',
+                              'Klammere 2 023 aus: 2 023 · (2 024 − 2 022) = 2 023 · 2 = 4 046.', 'Welcher Faktor steckt in beiden Produkten?'))
+ST.knobel('ausklammern', ST.Z('Für welche natürliche Zahl n ergibt (n² + 5n) : (n + 5) genau 12?', 12, '12',
+                              'n² + 5n = n(n + 5). Geteilt durch n + 5 bleibt n. Also n = 12. (Probe: 144 + 60 = 204, 204 : 17 = 12 ✓.)',
+                              'Klammere im Zähler aus. Was kürzt sich weg?'))
+# aequivalenz
+ST.leiter('aequivalenz', 'Termwerte berechnen und einsetzen, um zu vergleichen; ausmultiplizierte Form erkennen.',
+          'Zwei Terme mit einer Zahl vergleichen, äquivalente Paare finden, Gegenbeispiel wählen, Wertetabelle → Term, Sachsituation zweier Kassen.',
+          'Fehlschluss aus einem Beispiel, Parameter, Term rückwärts, Zählweisen vergleichen, (−x)² und −x², Prüfungsaufgabe „nicht äquivalent“.')
+ST.regel('aequivalenz', 1, 'Berechne den Wert', 'direkt')
+ST.regel('aequivalenz', 1, 'Welcher Term ist äquivalent', 'erkennen')
+ST.regel('aequivalenz', 1, 'Setze x', 'direkt')
+ST.regel('aequivalenz', 2, 'Welcher Term ist äquivalent', 'erkennen', neu_s=1)
+ST.regel('aequivalenz', 2, 'Um wie viel', 'mehrschritt')
+ST.regel('aequivalenz', 2, 'Welche beiden Terme', 'mehrschritt')
+ST.regel('aequivalenz', 2, 'Gegenbeispiel', 'umkehr')
+ST.regel('aequivalenz', 3, 'Sind (x + ', 'begruenden')
+ST.regel('aequivalenz', 3, 'Lisa', 'fehler')
+ST.regel('aequivalenz', 3, 'x + x und x · x', 'begruenden')
+ST.regel('aequivalenz', 3, 'Für welche Zahl a', 'parameter')
+ST.neu('aequivalenz', 2, 'einkleidung', ST.A('Ein Heft kostet 2 €, ein Block 3 €. Für x Hefte und einen Block tippt Kasse A 2x + 3, Kasse B 2(x + 3) − 3. Rechnen beide Kassen immer gleich?',
+                                             'Ja: 2(x + 3) − 3 = 2x + 6 − 3 = 2x + 3.',
+                                             ['Nein: Kasse B rechnet 3 € zu viel.', 'Nein, nur bei x = 0.', 'Ja, aber nur, wenn x gerade ist.'],
+                                             '2(x + 3) − 3 = 2x + 6 − 3 = 2x + 3. Die Terme sind äquivalent – beide Kassen rechnen immer gleich.',
+                                             'Forme den Term von Kasse B um.'))
+ST.neu('aequivalenz', 2, 'darstellung', ST.A('Ein Term hat die Werte: x = 0 → 3, x = 1 → 5, x = 2 → 7. Welcher Term passt dazu?', '2(x + 1) + 1',
+                                             ['3x + 2', 'x + 3', '2x + 1'],
+                                             '2(x + 1) + 1 = 2x + 3: für 0, 1, 2 ergibt das 3, 5, 7 ✓. 3x + 2 ergibt bei x = 0 nur 2, x + 3 bei x = 1 nur 4, 2x + 1 bei x = 0 nur 1.',
+                                             'Setze die Werte aus der Tabelle in jeden Term ein.',
+                                             grafik={'typ': 'tabelle', 'kopf': ['x', '0', '1', '2'], 'zeilen': [['Wert', '3', '5', '7']]}))
+ST.neu('aequivalenz', 2, 'umkehr', ST.Z('2x + 1 und x + 2 sind nicht äquivalent. Für genau eine Zahl x haben sie trotzdem denselben Wert. Für welche?', 1, '2 - 1',
+                                        'Für x = 1: 2 · 1 + 1 = 3 und 1 + 2 = 3. Für jede andere Zahl unterscheiden sie sich (der Unterschied ist x − 1).', 'Probiere kleine Zahlen.'))
+ST.neu('aequivalenz', 3, 'rueckwaerts', ST.L('Ein Term T erfüllt T + (2x − 5) = 5x + 1 für jedes x. Wie heißt T?', '□x + □', [3, 6], ['5 - 2', '1 + 5'],
+                                             'T = 5x + 1 − (2x − 5) = 5x + 1 − 2x + 5 = 3x + 6.', 'Ziehe (2x − 5) von 5x + 1 ab.', _HT))
+ST.neu('aequivalenz', 3, 'transfer', ST.A('Um ein Quadrat aus n × n Plättchen liegt ein Rahmen. Anna zählt die Rahmen-Plättchen mit 4n + 4, Ben mit 4(n + 2) − 4. Was stimmt?',
+                                          'Beide Terme sind äquivalent: 4(n + 2) − 4 = 4n + 4.',
+                                          ['Nur Annas Term stimmt.', 'Nur Bens Term stimmt.', 'Die Terme sind verschieden, sie unterscheiden sich um 4.'],
+                                          '4(n + 2) − 4 = 4n + 8 − 4 = 4n + 4. Ben zählt vier Seiten mit je n + 2 Plättchen und zieht die doppelt gezählten Ecken ab.',
+                                          'Forme Bens Term um.'))
+ST.neu('aequivalenz', 3, 'pruefung', ST.A('Welcher Term ist NICHT äquivalent zu 6x − 9?', '3(2x − 9)', ['3(2x − 3)', '−3(3 − 2x)', '6(x − 1,5)'],
+                                          '3(2x − 9) = 6x − 27. Die anderen: 3(2x − 3) = 6x − 9, −3(3 − 2x) = −9 + 6x, 6(x − 1,5) = 6x − 9.',
+                                          'Multipliziere jeden Term aus.'))
+ST.neu('aequivalenz', 3, 'verknuepfen', ST.A('Sind (−x)² und −x² äquivalent?', 'Nein: Für x = 1 ist (−1)² = 1, aber −1² = −1.',
+                                             ['Ja: Beide haben ein Minus und ein Quadrat.', 'Ja, für alle Zahlen außer 0.', 'Nein: (−x)² ist immer negativ.'],
+                                             '(−x)² = (−x) · (−x) = x² ist nie negativ. −x² = −(x²) ist nie positiv. Nur für x = 0 sind beide gleich.',
+                                             'Setze x = 1 ein. Wo steht das Minus beim Quadrieren?'))
+ST.knobel('aequivalenz', ST.Z('Für wie viele ganze Zahlen x zwischen −10 und 10 haben x² und 3x denselben Wert?', 2, '2',
+                              'x² = 3x heißt x · x = 3 · x. Das gilt für x = 0 (0 = 0) und für x = 3 (9 = 9). Für jede andere Zahl darf man durch x teilen und bekommt x = 3 – also gibt es nur diese zwei.',
+                              'Vergleiche x · x mit 3 · x. Was passiert bei x = 0?'))
+ST.knobel('aequivalenz', ST.L('Der Term (x + 1)² − (x − 1)² ist äquivalent zu einem ganz einfachen Term. Zu welchem?', '□x', [4], ['4'],
+                              '(x + 1)² = x² + 2x + 1 und (x − 1)² = x² − 2x + 1. Differenz: 4x. Probe x = 2: 9 − 1 = 8 = 4 · 2 ✓.',
+                              'Multipliziere beide Quadrate als Summe mal Summe aus.', 'Tippe den Term ein, z. B. 3x.'))
+# binomisch
+ST.leiter('binomisch', '(x + a)² und (x − a)² mit der passenden Formel ausmultiplizieren; Formel erkennen.',
+          'Faktoren vor x, quadratischer Platz als Sachsituation, Quadrat erkennen und zurückschreiben, Flächenbild deuten.',
+          'Geschickt rechnen (51², 49 · 51), Fehler „Mittelglied vergessen“, ergänzen rückwärts, (a − b)² = (b − a)² begründen, Parameter, Prüfungsaufgabe.')
+ST.regel('binomisch', 1, 'Wende die', 'direkt')
+ST.regel('binomisch', 2, 'Wende die', 'direkt', neu_s=1)
+ST.regel('binomisch', 2, 'Multipliziere mit einer binomischen Formel aus', 'mehrschritt')
+ST.regel('binomisch', 3, 'Rechne geschickt', 'verknuepfen')
+ST.regel('binomisch', 3, 'Jemand rechnet', 'fehler')
+ST.regel('binomisch', 3, 'Ergänze', 'rueckwaerts')
+ST.neu('binomisch', 1, 'erkennen', ST.A('Welche binomische Formel passt zu (x − 5)(x + 5)?', 'die 3. binomische Formel', ['die 1. binomische Formel', 'die 2. binomische Formel'],
+                                        '(a + b)(a − b) = a² − b² ist die 3. Formel: eine Klammer mit plus, eine mit minus.', 'Wie sehen die beiden Klammern aus?'))
+ST.neu('binomisch', 2, 'einkleidung', ST.L('Ein quadratischer Platz mit Seite x m wird auf beiden Seiten um 3 m verlängert. Gib die neue Fläche ohne Klammer an.', 'x² + □x + □', [6, 9],
+                                           ['2 * 3', '3 * 3'], 'Neue Seite x + 3. (x + 3)² = x² + 6x + 9.', 'Schreibe die neue Seite als Term und quadriere.', 'Tippe den Term ein, z. B. x² + 4x + 4.'))
+ST.neu('binomisch', 2, 'umkehr', ST.Z('Schreibe als Quadrat: x² + 10x + 25 = (x + □)²', 5, '10 / 2', '25 = 5² und 10x = 2 · x · 5. Also (x + 5)².', 'Welche Zahl ergibt quadriert 25?'))
+ST.neu('binomisch', 2, 'darstellung', ST.A('Ein Quadrat mit der Seite a + b wird in ein Quadrat a², ein Quadrat b² und zwei gleiche Rechtecke zerlegt. Welchen Flächeninhalt hat eines der Rechtecke?',
+                                           'ab', ['2ab', 'a + b', 'a²b²'],
+                                           'Jedes Rechteck hat die Seiten a und b, also die Fläche ab. Zusammen 2ab – das Mittelglied der 1. Formel.', 'Welche Seitenlängen hat ein Rechteck?'))
+ST.neu('binomisch', 3, 'begruenden', ST.A('Stimmt für alle Zahlen: (a − b)² = (b − a)²?', 'Ja: Beide ergeben a² − 2ab + b².',
+                                          ['Nein: Das Vorzeichen ändert sich.', 'Nein, nur wenn a = b ist.', 'Ja, aber nur für positive Zahlen.'],
+                                          '(a − b)² = a² − 2ab + b² und (b − a)² = b² − 2ab + a² – dasselbe. Auch anschaulich: a − b und b − a unterscheiden sich nur im Vorzeichen, Quadrieren macht beides gleich.',
+                                          'Multipliziere beide aus.'))
+ST.neu('binomisch', 3, 'parameter', ST.Z('Für welche positive Zahl k ist x² + kx + 16 eine binomische Formel?', 8, '2 * 4', '16 = 4². (x + 4)² = x² + 8x + 16, also k = 8.', 'Welche Zahl ergibt quadriert 16?'))
+ST.neu('binomisch', 3, 'pruefung', ST.L('Vereinfache so weit wie möglich: (x + 3)² − (x − 3)²', '□x', [12], ['4 * 3'],
+                                        '(x + 3)² = x² + 6x + 9, (x − 3)² = x² − 6x + 9. Differenz: 12x.', 'Wende auf beide Quadrate eine binomische Formel an.',
+                                        'Tippe den Term ein, z. B. 5x.'))
+ST.knobel('binomisch', ST.Z('Berechne ohne Taschenrechner: 1 000 001² − 999 999²', 4000000, '(1000001 + 999999) * (1000001 - 999999)',
+                            'Mit der 3. Formel: a² − b² = (a + b)(a − b) = 2 000 000 · 2 = 4 000 000.', 'Die Zahlen liegen nahe beieinander. Welche Formel passt zu a² − b²?'))
+ST.knobel('binomisch', ST.Z('35² = 1 225 und 45² = 2 025. Es gibt einen Trick für Zahlen, die auf 5 enden. Wie groß ist 85²?', 7225, '85 * 85',
+                            'Eine Zahl mit Zehnerziffer a und Einer 5 ist 10a + 5. (10a + 5)² = 100a² + 100a + 25 = 100 · a · (a + 1) + 25. '
+                            'Für 85: a = 8, 8 · 9 = 72, dahinter 25: 7 225.',
+                            'Schreibe die Zahl als 10a + 5 und quadriere mit der 1. Formel.'))
+# ---- STUFEN ENDE ----
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Zusammenfassen und multiplizieren', ['zusammenfassen', 'produkte']),
@@ -480,3 +767,4 @@ if __name__ == '__main__':
          offen=['Runde 9: Thema stammt aus der Zeit vor dem Bausatz; die bisherigen Aufgaben liegen nur in der Datenbank. Dieser Generator erzeugt neue Aufgaben, '
                 'die beim Einspielen mit einheit_abgleichen(…, \'lassen\') dazukommen. Dubletten zu den alten Aufgaben ließen sich hier nicht prüfen, weil diese nicht im Repository liegen.'])
     durchsicht_datei(META['thema_schluessel'], DS)  # Neunzehnte Runde: zuletzt
+    stufen_datei(META['thema_schluessel'], ST)  # Zwanzigste Runde: zuletzt

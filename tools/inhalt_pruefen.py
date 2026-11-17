@@ -17,9 +17,26 @@ from fractions import Fraction
 from pathlib import Path
 
 WURZEL = Path(__file__).resolve().parent.parent
-POOLS = ('uebung', 'test', 'korrektur', 'sicherung')
+POOLS = ('uebung', 'test', 'korrektur', 'sicherung', 'bonus')
 TYPEN = ('zahl', 'auswahl', 'text', 'luecken', 'markierung')
-MIN = {'uebung': 12, 'test': 1, 'korrektur': 3, 'sicherung': 6}
+MIN = {'uebung': 12, 'test': 1, 'korrektur': 3, 'sicherung': 6, 'bonus': 0}
+MAX_BONUS = 3               # Knobel-Bordkarten je Lernkarte (freiwillig, zählen weder für „sitzt“ noch für den Test)
+# Bau-Auftrag F: Aufgabentyp „g“ (der Gedanke einer Bordkarte). Die Stufe folgt aus dem Typ, nicht aus der Größe der Zahlen.
+GEDANKEN = {
+    1: ('direkt', 'erkennen'),
+    2: ('mehrschritt', 'einkleidung', 'umkehr', 'darstellung'),
+    3: ('rueckwaerts', 'verknuepfen', 'begruenden', 'fehler', 'transfer', 'parameter', 'pruefung'),
+}
+BONUS_TYP = 'knobel'
+STUFE_VON = {g: st for st, gs in GEDANKEN.items() for g in gs}
+MIN_TYPEN = {1: 2, 2: 3, 3: 4}  # verschiedene Typen je Stufe, wenn alle Übungen einer Lernkarte „g“ haben
+MAX_GLEICH_GEBAUT = 2          # höchstens so viele Aufgaben desselben Typs je Stufe mit gleichem Satzbau
+ZAHL = re.compile(r'[−-]?\d+(?:[ \u202f]\d{3})*(?:[,.]\d+)?')
+
+
+def bauplan(a):
+    """Fragetext ohne Zahlen – zwei Aufgaben mit gleichem Bauplan sind „gleich gebaut“."""
+    return re.sub(r'\s+', ' ', ZAHL.sub('#', str((a.get('f') or {}).get('text', '')))).strip()
 MIN_JE_STUFE = 3            # Übungen: mindestens 3 je Stufe 1, 2, 3
 SLUG = re.compile(r'^[a-z][a-z0-9_]{1,30}$')
 BILDER = ('zahlenstrahl', 'stellentafel', 'koordinaten', 'figur', 'saeulen', 'kreisdiagramm', 'tabelle', 'boxplot', 'baum', 'thermometer', 'bruchstreifen')
@@ -160,10 +177,19 @@ def pruefe(pfad):
         if a['p'] not in POOLS: F(f'{wo}: p muss {POOLS} sein'); continue
         if a['y'] not in TYPEN: F(f'{wo}: y muss {TYPEN} sein'); continue
         if a.get('s') not in (1, 2, 3): F(f'{wo}: s (Stufe) muss 1, 2 oder 3 sein')
+        g = a.get('g')
+        if g is not None:
+            if g != BONUS_TYP and g not in STUFE_VON: F(f'{wo}: unbekannter Aufgabentyp g „{g}“ (Liste: inhalte/README.md „Stufen und Aufgabentypen“)')
+            elif g == BONUS_TYP and a['p'] != 'bonus': F(f'{wo}: Typ „knobel“ nur im Pool „bonus“')
+            elif g != BONUS_TYP and a.get('s') in (1, 2, 3) and STUFE_VON[g] != a['s']: F(f'{wo}: Typ „{g}“ gehört zu Stufe {STUFE_VON[g]}, nicht zu Stufe {a["s"]}')
+        if a['p'] == 'bonus':
+            if g != BONUS_TYP: F(f'{wo}: Bonus-Bordkarten brauchen g „knobel“')
+            if a.get('s') != 3: F(f'{wo}: Bonus-Bordkarten haben Stufe 3')
+            if not a.get('h'): F(f'{wo}: Bonus-Bordkarten brauchen einen Tipp "h" (verrät die Idee nicht)')
         zaehl[(a['l'], a['p'])] += 1
         if a['p'] == 'uebung' and a.get('s') in (1, 2, 3): stufen[(a['l'], a['s'])] += 1
         if a['p'] == 'uebung' and not a.get('h'): F(f'{wo}: Übungen brauchen einen Tipp "h"')
-        if a['p'] != 'uebung' and a.get('h'): F(f'{wo}: Test/Korrektur/Sicherung ohne Tipp "h"')
+        if a['p'] not in ('uebung', 'bonus') and a.get('h'): F(f'{wo}: Test/Korrektur/Sicherung ohne Tipp "h"')
         if len(str(a.get('w', ''))) < 15: F(f'{wo}: Lösungsweg "w" zu kurz')
         f, o, y = a['f'], a['o'], a['y']
         text = str(f.get('text', '')).strip()
@@ -224,8 +250,34 @@ def pruefe(pfad):
         if n < MIN[p]: F(f'Lernkarte {l}: {n} × {p}, mindestens {MIN[p]}')
     for (l, s), n in stufen.items():
         if n < MIN_JE_STUFE: F(f'Lernkarte {l}: {n} Übungen auf Stufe {s}, mindestens {MIN_JE_STUFE}')
+    # Bau-Auftrag F: Stufen und Aufgabentypen
+    gleich_gruppen = 0
+    for l in lz:
+        if zaehl[(l, 'bonus')] > MAX_BONUS: F(f'Lernkarte {l}: {zaehl[(l, "bonus")]} Bonus-Bordkarten, höchstens {MAX_BONUS}')
+        ue = [a for a in auf if isinstance(a, dict) and a.get('l') == l and a.get('p') == 'uebung']
+        mit_g = [a for a in ue if a.get('g') is not None]
+        je = {s: (sum(1 for a in ue if a.get('s') == s and a.get('g') is not None), sum(1 for a in ue if a.get('s') == s and a.get('g') is None)) for s in (1, 2, 3)}
+        W(f'Lernkarte {l}: Übungen je Stufe mit g / ohne g: ' + ' · '.join(f'S{s} {m}/{o}' for s, (m, o) in je.items()))
+        if ue and len(mit_g) == len(ue):
+            for s in (1, 2, 3):
+                typen = {a['g'] for a in ue if a.get('s') == s}
+                if len(typen) < MIN_TYPEN[s]: F(f'Lernkarte {l}: Stufe {s} hat {len(typen)} verschiedene Typen ({", ".join(sorted(typen)) or "keine"}), mindestens {MIN_TYPEN[s]}')
+                bau = {}
+                for a in ue:
+                    if a.get('s') == s: bau.setdefault((a['g'], bauplan(a)), []).append(a)
+                for (g, b), xs in bau.items():
+                    if len(xs) > MAX_GLEICH_GEBAUT: F(f'Lernkarte {l}: Stufe {s}, Typ „{g}“: {len(xs)} Aufgaben mit gleichem Satzbau („{b[:50]}“), höchstens {MAX_GLEICH_GEBAUT}')
+        # „gleich gebaut hintereinander“: 3 oder mehr Übungen dieser Lernkarte in Folge mit gleichem Bauplan
+        lauf, vor = 0, None
+        for a in ue + [None]:
+            b = bauplan(a) if a is not None else None
+            if b is not None and b == vor: lauf += 1
+            else:
+                if lauf >= 3: gleich_gruppen += 1; W(f'Lernkarte {l}: {lauf} gleich gebaute Übungen hintereinander („{vor[:50]}“)')
+                lauf, vor = 1, b
     info = {'lernkarten': len(lz), 'aufgaben': len(auf), **{p: sum(n for (l, q), n in zaehl.items() if q == p) for p in POOLS},
-            'nachgerechnet': sum(1 for a in auf if 'c' in a)}
+            'nachgerechnet': sum(1 for a in auf if 'c' in a), 'mit_typ': sum(1 for a in auf if isinstance(a, dict) and a.get('g') is not None),
+            'gleich_gebaut_hintereinander': gleich_gruppen}
     return fehler, warn, info
 
 
@@ -239,7 +291,9 @@ def main(argv):
         for m in f[:60]: print('  FEHLER  ' + m)
         if len(f) > 60: print(f'  … und {len(f) - 60} weitere')
         for m in w[:15]: print('  Hinweis ' + m)
+        if len(w) > 15: print(f'  … und {len(w) - 15} weitere Hinweise')
         gesamt += len(f)
+        if info: print(f'  Gruppen „gleich gebaut hintereinander“: {info.get("gleich_gebaut_hintereinander", 0)}')
     return 1 if gesamt else 0
 
 

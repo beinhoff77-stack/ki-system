@@ -49,8 +49,9 @@ Mehrere Chats bauen parallel Mathe-Themen als **Dateien**. Kein Chat außer dem 
 |---|---|
 | `l` | Lernziel (Lernkarte) |
 | `t` | Teilfähigkeit (`inhalt.teilfaehigkeiten[].k`) |
-| `p` | `uebung` · `test` · `korrektur` · `sicherung` |
-| `s` | Stufe 1 leicht · 2 mittel · 3 schwer |
+| `p` | `uebung` · `test` · `korrektur` · `sicherung` · `bonus` (freiwillige Knobel-Bordkarte, siehe „Stufen und Aufgabentypen“) |
+| `s` | Stufe 1 leicht · 2 mittel · 3 schwer – folgt aus dem Aufgabentyp `g` |
+| `g` | Aufgabentyp („Gedanke“), siehe „Stufen und Aufgabentypen“. Freiwillig für alte Aufgaben, Pflicht für neue. |
 | `y` | Antworttyp, siehe unten |
 | `f` | Frage: `{"text": "…"}` plus typabhängige Felder |
 | `a` | nur bei `auswahl`: 3–4 Antworten |
@@ -71,6 +72,39 @@ Antworttypen:
 
 Schreibweise in Texten: Minus `−`, Mal `·`, Geteilt `:`, große Zahlen mit Leerzeichen (`20 000`), Dezimalkomma, negative Zahlen in Rechnungen geklammert `(−7)`.
 
+### Stufen und Aufgabentypen (Bau-Auftrag F, 17.11.)
+
+**Regel: Die Stufe folgt aus dem Typ, nicht aus der Größe der Zahlen.** Stufe 2 ist nicht „Stufe 1 mit größeren Zahlen“, Stufe 3 nicht „Stufe 2 mit mehr Schritten derselben Art“.
+Jede Bordkarte bekommt im Feld `g` ihren Typ – den Gedanken, den sie verlangt:
+
+| Stufe | `g` | Was die Aufgabe verlangt | Beispiel (Prozent, Klasse 7) |
+|---|---|---|---|
+| 1 | `direkt` | wie das Beispiel der Lernkarte, andere Zahlen | „Wie viel sind 20 % von 150 €?“ |
+| 1 | `erkennen` | zuordnen, ablesen, benennen | „Welcher Anteil ist 25 %: ein Viertel, ein Drittel oder die Hälfte?“ |
+| 2 | `mehrschritt` | zwei bis drei Rechenschritte | „Eine Jacke kostet 80 €, erst 10 % Rabatt, dann noch 5 € Gutschein. Was zahlst du?“ |
+| 2 | `einkleidung` | Sachsituation, die direkt auf die Rechnung führt | „Von 24 Kindern fahren 6 mit dem Bus. Wie viel Prozent sind das?“ |
+| 2 | `umkehr` | eine andere Größe ist gesucht als im Beispiel | „15 € sind 30 % des Preises. Wie teuer ist das Spiel?“ |
+| 2 | `darstellung` | Wechsel zwischen Tabelle, Bild und Term | „Im Kreisdiagramm ist der Bus-Anteil ein Viertel. Wie viel Prozent?“ |
+| 3 | `rueckwaerts` | vom Ergebnis über mehrere Schritte zur Ausgangsgröße | „Nach 20 % Rabatt und 19 % Mehrwertsteuer kostet ein Rad 476 €. Wie hoch war der Nettopreis?“ |
+| 3 | `verknuepfen` | braucht früheren Stoff dazu | „Ein Rechteck wird 10 % länger und 10 % schmaler. Um wie viel Prozent ändert sich die Fläche?“ |
+| 3 | `begruenden` | Aussage prüfen, Gegenbeispiel finden | „Stimmt: Erst +50 %, dann −50 % ergibt wieder den Anfangswert?“ |
+| 3 | `fehler` | Fehler in einer Rechnung finden und deuten | „Lea rechnet: 30 % von 60 = 60 : 30 = 2. Was hat sie falsch gemacht?“ |
+| 3 | `transfer` | ungewohnte Einkleidung, Modell selbst aufstellen | „Ein Glas ist zu 40 % voll. Nach 120 ml mehr ist es zu 70 % voll. Wie viel passt hinein?“ |
+| 3 | `parameter` | Variable statt Zahl („für welche a …“) | „Für welches a sind a % von 200 genauso viel wie 40 % von 50?“ |
+| 3 | `pruefung` | Aufbau wie eine echte Prüfungs- oder Schulaufgabe (Typ nachbauen, nie Wortlaut) | mehrteilige Sachaufgabe wie in einer Jahrgangsstufentest-Aufgabe |
+| Bonus | `knobel` | Wettbewerbsniveau, mehrere Ideen nötig (Vorbild: Art der Känguru- oder Olympiade-Aufgaben) | „Eine Zahl wird um 20 % erhöht und das Ergebnis um 20 % gesenkt. Danach ist sie 4 kleiner. Welche Zahl war es?“ |
+
+Regeln (prüft `tools/inhalt_pruefen.py` für Aufgaben mit `g`):
+
+- Unbekannter Typ oder Typ, der nicht zur Stufe `s` passt, ist ein **Fehler**.
+- Haben **alle** Übungen einer Lernkarte ein `g`: mindestens 2 verschiedene Typen auf Stufe 1, 3 auf Stufe 2, 4 auf Stufe 3; höchstens 2 Aufgaben desselben Typs je Stufe mit gleichem Satzbau
+  (Fragetext nach Ersetzen aller Zahlen identisch) – sonst **Fehler**.
+- **Hinweis** für alle Lernkarten: Zahl der Übungen je Stufe mit/ohne `g` und „gleich gebaut hintereinander“ (3 oder mehr Übungen in Folge mit demselben Fragetext nach Ersetzen der Zahlen).
+  Am Ende jeder Datei steht die Zahl dieser Gruppen; Ziel ist 0. Innerhalb einer Lernkarte nie zwei Aufgaben desselben Typs direkt hintereinander.
+
+**Pool `bonus` (Knobel-Bordkarte):** freiwillig, zählt weder für „sitzt“ noch für den Test, kein Punktabzug. Je Lernkarte höchstens 3, nur Typ `knobel`, Stufe 3, mit Tipp `h`
+(verrät die Idee nicht) und ausführlichem Lösungsweg `w`. Richtig im ersten Versuch: 30 Sterne und ein Knobel-Stern. Die Mengenregeln der anderen Pools bleiben.
+
 ### Wenn ein Thema Zeichnungen braucht
 
 Die App kann bisher nur Zahlenstrahl und Stellenwerttafel zeichnen. Für Geometrie, Funktionsgraphen, Diagramme:
@@ -81,7 +115,7 @@ Die App kann bisher nur Zahlenstrahl und Stellenwerttafel zeichnen. Für Geometr
 ### Qualitätsmaßstab (wird von ChatGPT geprüft)
 
 - Deckt das Thema den `umfang` und `lehrplan_gym` aus `themenliste.json` ab – nicht mehr (Stoff höherer Klassen weglassen)?
-- Stufe 1 = Grundform direkt nach der Erklärung; Stufe 2 = Standard; Stufe 3 = mehrschrittig, Sonderfälle, Sachaufgabe oder „Fehler finden“.
+- Stufe 1 = Grundform direkt nach der Erklärung; Stufe 2 = Standard; Stufe 3 = ein anderer Gedanke (Typen siehe „Stufen und Aufgabentypen“), nicht nur größere Zahlen.
 - Mindestens eine Lernkarte je Thema prüft **Verstehen** (begründen, Fehler finden, Aussage beurteilen) statt nur Rechnen.
 - Sachaufgaben mit realistischen Zahlen; keine Namen realer Personen.
 

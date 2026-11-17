@@ -1,5 +1,48 @@
 # Postfach luecken-kl8 (Achtzehnte Runde, Teil B, Klasse 8)
 
+## 2026-11-17 – FERTIG – Abschlussbericht
+Zweig `luecken-kl8` (von lernen-app 4a71771), 4 Themen, je ein Commit. Keine Datenbank, kein App-Code, keine Tests, kein Merge.
+
+**Prüfung je Thema:**
+- `python3 -I tools/inhalt_pruefen.py inhalte/themen/<thema>.json` meldet OK, ohne Hinweise.
+- `python3 -I inhalte/generatoren/_luecken_nachweis.py <thema> [--erweitert umfang]` meldet NACHWEIS OK:
+  - alle alten Lernkarten Zeichen für Zeichen gleich, außer der erweiterten Karte „umfang“ (dort genau ein Schritt dazu);
+  - alle alten Aufgaben unverändert und in alter Reihenfolge vorne;
+  - in teilfaehigkeiten, abschnitte und bewertung nur neue Einträge dazu;
+  - ziel, merke, quellen und offen unverändert.
+- Die Generatoren erzeugen die Dateien bei erneutem Lauf unverändert.
+- Jede neue Aufgabe habe ich gelesen und von Hand nachgerechnet. Das Programm rechnet jede Zahl- und Lückenaufgabe zusätzlich über `c` nach.
+
+**Neue Lernkarten** (alle Pflicht, neues Muster: einstieg, woerter, Bildergeschichte mit Bild je Schritt, fehler + fehler_bild, regel, probe; je 18 Übungen 4/6/8 mit 2 Prüfungsvorbildern und 1 Knobelaufgabe, 1 Test, 3 Korrektur, 6 Sicherung):
+
+| Thema | Lernkarte (Stelle) | Inhalt | Lehrplan-Bezug |
+|---|---|---|---|
+| funktionen.linear | graph_ablesen (nach „ablesen“) | Gerade zeichnen: t auf der y-Achse, Steigungsdreieck aus ganzen Kästchen (auch m = a/b, fallend). Graph zur Gleichung zuordnen, m und t am Graphen ablesen. | M8 2 Lineare Funktionen (Graphen zeichnen, Parameter am Graphen deuten) |
+| funktionen.grundbegriffe | sachzusammenhang (am Ende) | Tarife als Tabelle, Term und Graph; Rückwärtsrechnen; Term aus Tabelle; Temperaturkurve ablesen und deuten; Tarifvergleich; Knobel „Temperatur → Uhrzeit ist keine Funktion“. | M8 1 Funktion und Term („funktionale Zusammenhänge (z. B. Stromtarife, Temperaturverläufe) mit Tabellen, Diagrammen und … Termen“) |
+| funktionen.gebrochen | indirekt_sach (nach „indirekt“) | Umgekehrter Dreisatz: Kosten teilen, Vorrat, Fahrzeit; erkennen, ob direkt, indirekt oder weder noch; Zahnräder; Tabelle; Ausfall bzw. Verkauf mitten im Vorgang; Pumpen mit Menge und Zeit; Druck · Volumen (Physik). | M8 3 („y = a/x als indirekt proportionale Zuordnung zweier Größen … auch in naturwissenschaftlichen Kontexten“) |
+
+**Erweiterte Karte:**
+- messen.kreisberechnung / umfang:
+  - 5. Schritt „Warum etwa 3,14? Sechseck innen hat 3 · d, Quadrat außen 4 · d.“ mit maßstäblicher Zeichnung;
+  - 6 neue Übungen (je 2 auf Stufe 1, 2, 3): π aus Messung (Teller, Fahrradreifen), Vielecke innen und außen, „π = 3 genügt?“.
+  - Bezug: M8 7, π näherungsweise bestimmen.
+
+**Nicht umgesetzt bzw. nur gemeldet:**
+- Prismen und Zylinder (messen.prisma_zylinder) baut Teil A. Das Verschieben der Karte „zylinder“ aus messen.kreisberechnung ist nur gemeldet.
+- gleichungen.bruch: Die Karte „graphisch“ steht am Ende statt wie vorgeschlagen nach „scheinloesung“. Verschieben ist nicht Teil dieses Auftrags, deshalb nur gemeldet.
+- Das Kind zeichnet in der App nicht selbst. „Gerade zeichnen“ wird deshalb über Zwischenschritte geprüft: welcher Gitterpunkt nach dem Steigungsdreieck, welches kleinste Steigungsdreieck, welcher Graph passt. Der Eintrag unter `offen` in funktionen.linear bleibt richtig und unverändert.
+
+**Quellen:**
+- Lehrplan:
+  - ISB, „Verbindliche Hinweise zu Schwerpunktsetzungen in den Lehrplänen, Gymnasium, Mathematik Jgst. 8“ (Stand 08/2021), mit Auszügen aus M8 1, M8 2 und M8 3: https://www.distanzunterricht.bayern.de/fileadmin/user_upload/lernenzuhause/Gymnasium/deutsch_englisch_mathe/M_Schwerpunktsetzungen_8.pdf
+  - Lehrplan-Seite: https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/8/mathematik. Ihr Abruf in diesem Chat blieb an einer offenen Freigabe hängen. Der Bezug für π (M8 7) stützt sich deshalb auf die Angabe in klasse8.json und nicht auf den selbst gelesenen Lehrplantext.
+- Prüfungsvorbilder (nur Typ und Niveau; Wortlaut, Einkleidung und Zahlen eigen; Fundstellen aus der Zehnten Runde, postfach/schwer-kl8.md):
+  - BMT8 2022/2024/2025 und BMT10 2017/2024 (ISB, https://www.isb.bayern.de/…/Jahrgangsstufenarbeiten/Mathematik/): Tarif, Steigung einer Treppe oder Straße, Schnittpunkt zweier Tarife;
+  - VERA-8 (IQB): Kurve lesen und deuten;
+  - Schulaufgaben-Typ Kl. 8 laut Stark-Leseprobe: „Welcher Graph gehört zu welcher Funktion?“.
+
+**Neue Hilfsdateien:** `inhalte/generatoren/_luecken_kl8.py` (Einbau neuer Karten mit eigenem Zufallsstart) und `inhalte/generatoren/_luecken_nachweis.py` (Nachweis gegen origin/lernen-app). Beide können die Chats der anderen Klassen mitbenutzen.
+
 ## 2026-11-17 – STATUS: Bestandsaufnahme (Liste „luecken“ in inhalte/pruefung/aufbau/klasse8.json vom 14.11., geprüft gegen lernen-app 4a71771)
 
 | # | Lücke (Kurzform) | Dringlichkeit | Stand heute |

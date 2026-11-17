@@ -713,3 +713,194 @@ DS.fuer_sebastian('gleichungen.lgs3: Der LehrplanPLUS M9 2.2 verlangt LGS mit dr
 
 if __name__ == '__main__':
     durchsicht('gleichungen.lgs3', DS)
+
+
+# ---- STUFEN (Zwanzigste Runde, Zweig stufen-kl9) ----
+from _stufen_kl9 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('gleichungen.lgs3', 20_9_5)
+Z, A, L = ST.Z, ST.A, ST.L
+_T = '(□ | □ | □)'
+
+# pruefen
+ST.stufenleiter('pruefen', 'Ein Zahlentripel in eine Gleichung einsetzen.',
+                'Ein Tripel in allen drei Gleichungen prüfen, eine fehlende Koordinate bestimmen, Preise im Sachzusammenhang prüfen.',
+                'Zwei Lösungsvorschläge beurteilen, Parameter bestimmen, widersprüchliche Systeme erkennen, unvollständige Probe finden, mehrteilige Aufgabe.')
+ST.typ('pruefen', 'Setze (x | y | z)', 'direkt')
+ST.typ('pruefen', 'Ist (', 'mehrschritt')
+ST.typ('pruefen', '/^(Zwei Schüler|Was gilt für das System)/', 'begruenden')
+ST.typ('pruefen', 'Für welche Zahl a', 'parameter')
+ST.typ('pruefen', 'Welches Tripel', 'verknuepfen')
+ST.neu('pruefen', 'erkennen', A('Was bedeutet: „(1 | 2 | 3) ist eine Lösung des Gleichungssystems“?', 'Das Tripel erfüllt alle drei Gleichungen.', ['Es erfüllt mindestens eine Gleichung.', 'Es erfüllt genau zwei Gleichungen.', 'Die Summe 1 + 2 + 3 steht in jeder Gleichung.'],
+       'Eine Lösung muss jede Gleichung des Systems erfüllen. Schon eine falsche Gleichung reicht, damit es keine Lösung ist.', 'Wie viele Gleichungen müssen stimmen?'))
+ST.neu('pruefen', 'einkleidung', A('Ein Kiosk: Brezel, Saft und Apfel kosten zusammen 3 €; zwei Brezeln und ein Saft 3,50 €; ein Saft und zwei Äpfel 2,50 €. Passen die Preise Brezel 1 €, Saft 1,50 €, Apfel 0,50 €?', 'Ja, alle drei Angaben stimmen.',
+       ['Nein, die erste Angabe stimmt nicht.', 'Nein, die zweite Angabe stimmt nicht.', 'Nein, die dritte Angabe stimmt nicht.'],
+       '1 + 1,5 + 0,5 = 3 €; 2 · 1 + 1,5 = 3,50 €; 1,5 + 2 · 0,5 = 2,50 €. Alle drei stimmen.', 'Prüfe jede Angabe einzeln.'))
+ST.neu('pruefen', 'umkehr', Z('Das Tripel (2 | y | 1) erfüllt die Gleichung x + 2y + z = 9. Bestimme y.', 3, '(9 - 2 - 1) // 2',
+       '2 + 2y + 1 = 9 ⇒ 2y = 6 ⇒ y = 3.', 'Setze x und z ein.'))
+ST.neu('pruefen', 'fehler', A('Jemand prüft (1 | 1 | 1) für (I) x + y + z = 3; (II) x − y = 0; (III) x + 2z = 4. Er rechnet (I) und (II) nach und sagt: „Lösung.“ Was stimmt?', 'Falsch: In (III) ergibt sich 3, nicht 4. Keine Lösung.',
+       ['Richtig, zwei Gleichungen reichen.', 'Falsch: Schon (I) stimmt nicht.', 'Falsch: (II) stimmt nicht.'], '(III): 1 + 2 · 1 = 3 ≠ 4. Eine Lösung muss alle Gleichungen erfüllen.', 'Prüfe auch die dritte Gleichung.'))
+ST.neu('pruefen', 'parameter', Z('Für welche Zahl a ist (a | a | a) eine Lösung der Gleichung x + 2y + 3z = 18?', 3, '18 // 6',
+       'a + 2a + 3a = 6a = 18 ⇒ a = 3.', 'Setze dreimal a ein.'))
+ST.neu('pruefen', 'transfer', A('Drei Zahlen: Ihre Summe ist 10, die erste ist doppelt so groß wie die zweite, die dritte ist um 1 kleiner als die erste. Ist (4 | 2 | 3) die Lösung?', 'Nein, die Summe ist 9 statt 10.',
+       ['Ja.', 'Nein, die erste ist nicht doppelt so groß wie die zweite.', 'Nein, die dritte passt nicht.'], 'Bedingungen 2 und 3 stimmen (4 = 2 · 2, 3 = 4 − 1), aber 4 + 2 + 3 = 9 ≠ 10.', 'Übersetze jede Bedingung in eine Gleichung und prüfe.'))
+ST.neu('pruefen', 'pruefung', L('Gegeben ist (I) x + y + z = 4; (II) 2x − y = 1; (III) y + z = 3. Setze (1 | 1 | 2) ein und gib die linken Seiten an.', '(I) □; (II) □; (III) □', [4, 1, 3], ['1 + 1 + 2', '2 - 1', '1 + 2'],
+       '(I) 1 + 1 + 2 = 4, (II) 2 − 1 = 1, (III) 1 + 2 = 3. Alle rechten Seiten stimmen: (1 | 1 | 2) ist eine Lösung.', 'Setze x = 1, y = 1, z = 2 in jede linke Seite ein.'))
+ST.knobel('pruefen', A('Wie viele Lösungen hat das System aus nur zwei Gleichungen (I) x + y − z = 0; (II) 2x − y = 0?', 'unendlich viele, z. B. (t | 2t | 3t) für jede Zahl t',
+          ['genau eine', 'keine', 'genau drei'],
+          'Aus (II) folgt y = 2x, aus (I) dann z = x + y = 3x. Für jedes x = t passt (t | 2t | 3t). Zwei Gleichungen reichen nicht, um drei Unbekannte festzulegen.',
+          'Drücke y und z mit x aus.'))
+ST.knobel('pruefen', L('Von drei Zahlen x, y, z ist jede um 2 kleiner als die Summe der beiden anderen. Bestimme die Zahlen.', _T, [2, 2, 2], ['2', '2', '2'],
+          'x = y + z − 2, y = x + z − 2, z = x + y − 2. Alle drei addieren: S = 2S − 6 mit S = x + y + z, also S = 6. Dann x = (S − x) − 2, also 2x = 4 und x = 2; ebenso y = z = 2.',
+          'Addiere alle drei Gleichungen.'))
+
+# stufenform
+ST.stufenleiter('stufenform', 'Ein System in Stufenform mit Koeffizient 1 von unten lösen.',
+                'Andere Koeffizienten und vertauschte Reihenfolge, ein Sachrätsel in Stufenform, ein System zur Lösung ergänzen.',
+                'Verdeckte Zahl rückwärts, Fehler beim Einsetzen, 0 · z = 5 oder 0 = 0 deuten, Parameter, Dezimalzahlen, mehrteilige Aufgabe.')
+ST.typ('stufenform', '/^Löse das System in Stufenform: \\(I\\) x [+−]/', 'direkt', s=1)
+ST.typ('stufenform', '/^(Löse das System in Stufenform|Löse: |Löse das System:)/', 'mehrschritt')
+ST.typ('stufenform', 'Im System', 'rueckwaerts')
+ST.neu('stufenform', 'erkennen', A('Welche Unbekannte bestimmst du bei (I) x + y + z = 6; (II) y + z = 4; (III) z = 1 zuerst?', 'z', ['x', 'y', 'alle gleichzeitig'],
+       'Die unterste Gleichung enthält nur z. Danach y aus (II), zuletzt x aus (I).', 'Welche Gleichung hat nur eine Unbekannte?'))
+ST.neu('stufenform', 'einkleidung', Z('Drei Kinder haben Murmeln. Das dritte hat 4. Das zweite hat 3 mehr als das dritte. Alle zusammen haben 20. Wie viele hat das erste?', 9, '20 - 7 - 4',
+       'Stufenform: z = 4; y = z + 3 = 7; x + y + z = 20 ⇒ x = 9.', 'Fang beim dritten Kind an.'))
+ST.neu('stufenform', 'umkehr', L('Ein System in Stufenform hat die Lösung (1 | 2 | 3). Ergänze: (I) x + y + z = □; (II) y − z = □; (III) 2z = □.', '□; □; □', [6, -1, 6], ['1 + 2 + 3', '2 - 3', '2 * 3'],
+       'Lösung einsetzen: (I) 1 + 2 + 3 = 6, (II) 2 − 3 = −1, (III) 2 · 3 = 6.', 'Setze die Lösung in die linken Seiten ein.'))
+ST.neu('stufenform', 'fehler', A('Jemand löst (I) x + y + z = 6; (II) y + z = 5; (III) z = 2 und erhält y = 7. Was stimmt?', 'Falsch: y = 5 − 2 = 3.', ['Richtig.', 'Falsch: y = 5.', 'Falsch: y = 2.'],
+       'Aus (II): y = 5 − z = 3. Wer 5 + 2 rechnet, hat das Minus vergessen. Dann x = 6 − 3 − 2 = 1.', 'Stelle (II) nach y um.'))
+ST.neu('stufenform', 'begruenden', A('Ein System in Stufenform endet mit (III) 0 · z = 5. Was folgt?', 'Es hat keine Lösung.', ['Es hat genau eine Lösung, z = 5.', 'Es hat unendlich viele Lösungen.', 'z = 0.'],
+       '0 · z ist immer 0, nie 5. Damit ist schon (III) nie erfüllt.', 'Was ergibt 0 mal eine Zahl?'))
+ST.neu('stufenform', 'begruenden', A('Wie viele Lösungen hat (I) x + y + z = 3; (II) y + z = 2; (III) 0 · z = 0?', 'unendlich viele', ['keine', 'genau eine', 'genau zwei'],
+       '(III) gilt für jedes z. Dann y = 2 − z und x = 3 − y − z = 1. Für jedes z gibt es eine Lösung (1 | 2 − z | z).', 'Gilt (III) für ein bestimmtes oder für jedes z?'))
+ST.neu('stufenform', 'parameter', Z('Für welche Zahl a hat (I) x + y + z = 4; (II) y + a · z = 3; (III) 2z = 2 eine Lösung mit y = 1?', 2, '3 - 1',
+       'Aus (III): z = 1. In (II): 1 + a · 1 = 3, also a = 2.', 'Bestimme zuerst z.'))
+ST.neu('stufenform', 'transfer', Z('Ein Kuchen braucht Mehl, Zucker und Butter, zusammen 900 g. Zucker und Butter wiegen zusammen 400 g, die Butter allein 150 g. Wie viel Mehl ist es?', 500, '900 - 400',
+       'Stufenform: b = 150; z + b = 400 ⇒ z = 250; m + z + b = 900 ⇒ m = 500 g.', 'Ordne die Angaben wie ein System in Stufenform.', einheit='g'))
+ST.neu('stufenform', 'verknuepfen', Z('Löse (I) x + y + z = 2; (II) 2y + z = 1,5; (III) 4z = 2. Bestimme x.', 1, '2 - 0.5 - 0.5',
+       'z = 0,5; 2y = 1,5 − 0,5 = 1 ⇒ y = 0,5; x = 2 − 0,5 − 0,5 = 1.', 'Rechne mit Dezimalzahlen von unten nach oben.'))
+ST.neu('stufenform', 'pruefung', L('Löse (I) x − 2y + z = 3; (II) 3y − z = 2; (III) 2z = 8.', 'z = □; y = □; x = □', [4, 2, 3], ['8 // 2', '(2 + 4) // 3', '3 + 2 * 2 - 4'],
+       '(III) z = 4. (II) 3y = 6, y = 2. (I) x − 4 + 4 = 3, x = 3.', 'Von unten nach oben.'))
+ST.knobel('stufenform', Z('Es gilt z = 1, y = z + 1, x = y + z + 1 und w = x + y + z + 1. Wie groß ist w?', 8, '4 + 2 + 1 + 1',
+          'Von unten: z = 1, y = 2, x = 2 + 1 + 1 = 4, w = 4 + 2 + 1 + 1 = 8. Jede neue Zahl ist doppelt so groß wie die vorige (1, 2, 4, 8), denn die Summe aller vorigen plus 1 verdoppelt sich jedes Mal.',
+          'Rechne von unten. Fällt dir ein Muster auf?'))
+
+# eliminieren
+ST.stufenleiter('eliminieren', 'Zwei Gleichungen addieren oder subtrahieren, wenn eine Variable dabei sofort wegfällt.',
+                'Vorher eine Gleichung mit einer Zahl malnehmen, die passende Rechnung auswählen, den Faktor k rückwärts finden, Preise vergleichen.',
+                'Summen wie x + y + z ohne Einzelwerte, Fehler beim Malnehmen, Parameter für zwei wegfallende Variablen, Widerspruch 0 = 3, mehrteilige Aufgabe.')
+ST.typ('eliminieren', '/^Gegeben: .* Berechne \\(I+\\) [+−] \\(I+\\)\\.$/', 'direkt', s=1)
+ST.typ('eliminieren', '/Jemand/', 'fehler')
+ST.typ('eliminieren', '/^\\(I\\) x \\+ y \\+ z = 10/', 'begruenden')
+ST.typ('eliminieren', '/^Für das System|^\\(I\\) x \\+ 2y \\+ 3z/', 'transfer')
+ST.typ('eliminieren', '/^(Gegeben:|\\(I\\))/', 'mehrschritt')
+ST.neu('eliminieren', 'erkennen', A('Welche Rechnung lässt bei (I) x + 2y − z = 4; (II) x − y + z = 1 die Variable z wegfallen?', '(I) + (II)', ['(I) − (II)', '2 · (I) + (II)', '(II) − (I)'],
+       '−z + z = 0. Bei (I) − (II) bliebe −2z.', 'Vergleiche die Vorzeichen von z.'))
+ST.neu('eliminieren', 'einkleidung', Z('2 Äpfel, 1 Birne und 1 Kiwi kosten 2,30 €. 1 Apfel, 1 Birne und 1 Kiwi kosten 1,80 €. Wie viel kostet ein Apfel?', 0.5, '2.3 - 1.8',
+       'Zweite Angabe von der ersten abziehen: Birne und Kiwi fallen weg, es bleibt 1 Apfel = 0,50 €.', 'Ziehe die Angaben voneinander ab.', einheit='€'))
+ST.neu('eliminieren', 'umkehr', Z('Bei (I) x + y + z = 3 und (II) 4x − y + 2z = 5 fällt bei (II) − k · (I) die Variable x weg. Wie groß ist k?', 4, '4 // 1',
+       '(II) hat 4x, (I) hat x. 4x − k · x = 0 ⇒ k = 4.', 'Vergleiche die Zahlen vor x.'))
+ST.neu('eliminieren', 'begruenden', A('Was ergibt das Eliminieren bei (I) x + y + z = 1; (II) 2x + 2y + 2z = 5?', '2 · (I) − (II) ergibt 0 = −3: keine Lösung.', ['Eine eindeutige Lösung.', 'x = 3.', 'Unendlich viele Lösungen.'],
+       '2 · (I): 2x + 2y + 2z = 2. Minus (II): 0 = 2 − 5 = −3. Ein Widerspruch: Das System hat keine Lösung.', 'Nimm (I) mit 2 mal.'))
+ST.neu('eliminieren', 'parameter', Z('Für welche Zahl a fallen bei (II) − (I) mit (I) x + 3y + az = 2 und (II) x − y + 5z = 7 die Variablen x und z gleichzeitig weg?', 5, '5',
+       'x fällt bei (II) − (I) immer weg. z fällt weg, wenn 5z − az = 0, also a = 5. Dann bleibt −4y = 5.', 'Was muss vor z stehen?'))
+ST.neu('eliminieren', 'pruefung', L('Gegeben: (I) x + y + z = 6; (II) x − y + z = 2; (III) 2x + y − z = 1. Berechne (I) − (II) und bestimme y.', '□y = □; y = □', [2, 4, 2], ['1 + 1', '6 - 2', '4 // 2'],
+       '(I) − (II): x − x + y − (−y) + z − z = 6 − 2, also 2y = 4 und y = 2.', 'Rechne Spalte für Spalte.'))
+ST.neu('eliminieren', 'verknuepfen', Z('Eliminiere y aus (I) 2x + y = 7 und (II) x − y = −1 (wie bei zwei Unbekannten). Welchen Wert hat x?', 2, '(7 - 1) // 3',
+       '(I) + (II): 3x = 6, also x = 2 (und y = 3).', 'Addieren lässt y wegfallen.'))
+ST.knobel('eliminieren', Z('Es gilt a + b = 3, b + c = 5, c + d = 7 und d + a = 5. Wie groß ist a + b + c + d?', 10, '(3 + 5 + 7 + 5) // 2',
+          'Alle vier Gleichungen addieren: Jede Variable kommt genau zweimal vor. 2(a + b + c + d) = 20, also a + b + c + d = 10. Einzeln lassen sich a, b, c, d hier gar nicht bestimmen.',
+          'Addiere alle Gleichungen.'))
+ST.knobel('eliminieren', Z('Es gilt x + y + z = 15 und x + 2y + 3z = 32. Wie groß ist y + 2z?', 17, '32 - 15',
+          'Zweite minus erste Gleichung: (x − x) + (2y − y) + (3z − z) = 32 − 15, also y + 2z = 17. x, y und z einzeln kennt man nicht.',
+          'Welche Rechnung lässt x verschwinden?'))
+
+# loesen
+ST.stufenleiter('loesen', 'Ein einfaches System lösen, in dem sich Variablen schnell eliminieren lassen.',
+                'Allgemeine Systeme, den geschicktesten Weg wählen, Tieraufgaben, fehlende Zahl aus der Lösung bestimmen.',
+                'Lösungsanzahl begründen, Summen-Trick, Parameter für unendlich viele Lösungen, Winkel im Dreieck, Fehler beim Teilen, mehrteilige Aufgabe.')
+ST.typ('loesen', 'Löse das Gleichungssystem', 'direkt', s=1)
+ST.typ('loesen', 'Wie viele Lösungen hat', 'begruenden')
+ST.typ('loesen', 'Löse: (I) 2x + y + z = 5', 'transfer')
+ST.typ('loesen', 'Drei Zahlen haben', 'einkleidung')
+ST.typ('loesen', '/^(Löse|Welche Unbekannte)/', 'mehrschritt')
+ST.neu('loesen', 'erkennen', A('Beim Lösen kommt 0 = 4 heraus. Was bedeutet das?', 'Das System hat keine Lösung.', ['Die Lösung ist x = 4.', 'Es hat unendlich viele Lösungen.', 'Man hat sich sicher verrechnet.'],
+       'Eine falsche Aussage wie 0 = 4 zeigt einen Widerspruch: Keine Zahlen erfüllen alle Gleichungen.', 'Kann 0 = 4 jemals stimmen?'))
+ST.neu('loesen', 'einkleidung', Z('In einem Stall sind Hühner, Kaninchen und Kühe, zusammen 10 Tiere mit 32 Beinen. Es gibt doppelt so viele Hühner wie Kühe. Wie viele Kaninchen sind es?', 4, '4',
+       'h + k + c = 10; 2h + 4k + 4c = 32; h = 2c. Einsetzen: 3c + k = 10 und 8c + 4k = 32, also 2c + k = 8. Abziehen: c = 2, k = 4, h = 4.', 'Hühner haben 2, Kaninchen und Kühe 4 Beine.'))
+ST.neu('loesen', 'umkehr', Z('Das System (I) x + y + z = 6; (II) x − y = 0; (III) z = c hat eine Lösung mit x = 2. Bestimme c.', 2, '6 - 2 - 2',
+       'Aus (II): y = x = 2. Aus (I): z = 6 − 4 = 2. Also c = 2.', 'Bestimme erst y, dann z.'))
+ST.neu('loesen', 'fehler', A('Jemand berechnet bei (I) x + 2y + z = 8; (II) x − y + z = 2 die Differenz (I) − (II) = 3y = 6 und schreibt dann y = 18. Was stimmt?', 'Falsch: Aus 3y = 6 folgt y = 2.', ['Richtig.', 'Falsch: 3y = 10.', 'Falsch: y = 3.'],
+       'Bei 3y = 6 wird durch 3 geteilt, nicht malgenommen: y = 2.', 'Wie löst man 3y = 6?'))
+ST.neu('loesen', 'parameter', Z('Für welche Zahl a hat (I) x + y + z = 1; (II) x − y + z = 1; (III) 2x + 2z = a unendlich viele Lösungen?', 2, '1 + 1',
+       '(I) + (II): 2x + 2z = 2. Ist a = 2, sagt (III) dasselbe; dann bleiben nur zwei verschiedene Gleichungen: unendlich viele Lösungen. Für a ≠ 2 gibt es keine.', 'Addiere (I) und (II) und vergleiche mit (III).'))
+ST.neu('loesen', 'pruefung', L('Löse (I) x + y + z = 9; (II) x − y = 1; (III) y − z = 1. a) Setze x = y + 1 und z = y − 1 in (I) ein. b) Gib die Lösung an.', 'a) □y = □; b) (□ | □ | □)', [3, 9, 4, 3, 2],
+       ['3', '9', '3 + 1', '9 // 3', '3 - 1'], 'a) y + 1 + y + y − 1 = 3y = 9. b) y = 3, x = 4, z = 2.', 'Drücke x und z mit y aus.'))
+ST.neu('loesen', 'verknuepfen', Z('In einem Dreieck ist α + β = 110° und β + γ = 130°. Wie groß ist β?', 60, '110 + 130 - 180',
+       'Winkelsumme: α + β + γ = 180°. Addiert man die beiden Angaben, ist β doppelt dabei: 240° = 180° + β, also β = 60°.', 'Denk an die Winkelsumme im Dreieck.', einheit='°'))
+ST.neu('loesen', 'rueckwaerts', Z('Ein System hat die Lösung (2 | −1 | 3). Seine dritte Gleichung lautet x + y + c · z = 7. Bestimme c.', 2, '(7 - 2 + 1) // 3',
+       'Einsetzen: 2 − 1 + 3c = 7 ⇒ 3c = 6 ⇒ c = 2.', 'Setze die Lösung ein.'))
+ST.knobel('loesen', Z('Von vier Zahlen lässt man jeweils eine weg und addiert die anderen drei. Die vier Summen sind 22, 24, 27 und 20. Wie heißt die größte der vier Zahlen?', 11, '31 - 20',
+          'Jede Zahl wird in drei der vier Summen mitgezählt: 22 + 24 + 27 + 20 = 93 = 3 · (Summe aller vier). Summe aller vier: 31. Die Zahlen sind 31 − 22 = 9, 31 − 24 = 7, 31 − 27 = 4 und 31 − 20 = 11.',
+          'Wie oft kommt jede Zahl in den vier Summen vor?'))
+ST.knobel('loesen', Z('Es gilt x + 2y + 3z = 14, 2x + 3y + z = 11 und 3x + y + 2z = 11. Wie groß ist x + y + z?', 6, '(14 + 11 + 11) // 6',
+          'Alle drei Gleichungen addieren: 6x + 6y + 6z = 36, also x + y + z = 6. Einzeln: x = 1, y = 2, z = 3.',
+          'Addiere alle Gleichungen. Was steht dann vor x, y und z?'))
+
+# parabel
+ST.stufenleiter('parabel', 'Drei Punkte mit x = 0, 1, −1 einsetzen und a, b, c bestimmen.',
+                'Beliebige Punkte, Werte aus einer Tabelle, Scheitel als Bedingung, ein Wasserstrahl im Sachzusammenhang.',
+                'Symmetrie nutzen, Brückenbogen, c aus Nullstellen, Fehler beim Einsetzen negativer x, Parameter, mehrteilige Wurfaufgabe.')
+ST.typ('parabel', '/^Die Parabel y = ax² \\+ bx \\+ c geht durch \\(0 \\| −?\\d+\\), \\(1 \\| −?\\d+\\), \\(−1/', 'direkt')
+ST.typ('parabel', 'Setze P(', 'erkennen')
+ST.typ('parabel', '/^Die Parabel y = ax² \\+ bx \\+ c geht durch \\(−3/', 'verknuepfen')
+ST.typ('parabel', '/^(Die Parabel y = ax²|Eine Parabel y = ax²)/', 'mehrschritt')
+ST.typ('parabel', 'Ein Brückenbogen', 'transfer')
+ST.typ('parabel', 'Die Parabel y = x² + bx + c geht durch (1 | 0)', 'rueckwaerts')
+ST.typ('parabel', 'Eine Parabel ist symmetrisch', 'verknuepfen')
+ST.typ('parabel', 'Jemand', 'fehler')
+ST.neu('parabel', 'erkennen', A('Die Parabel y = ax² + bx + c geht durch (0 | 7). Was folgt daraus sofort?', 'c = 7', ['a = 7', 'b = 7', 'a + b + c = 7'],
+       'Bei x = 0 fallen ax² und bx weg: y = c = 7.', 'Setze x = 0 ein.'))
+ST.neu('parabel', 'einkleidung', Z('Ein Wasserstrahl kommt aus 1 m Höhe (x = 0), ist bei x = 1 m genau 2 m hoch und bei x = 2 m wieder 1 m hoch. Er folgt einer Parabel. Wie hoch ist er bei x = 1,5 m?', 1.75, '-(1.5 ** 2) + 2 * 1.5 + 1',
+       'c = 1; a + b + 1 = 2; 4a + 2b + 1 = 1. Aus a + b = 1 und 2a + b = 0 folgt a = −1, b = 2. y(1,5) = −2,25 + 3 + 1 = 1,75 m.', 'Setze die drei Punkte ein.', einheit='m'))
+ST.neu('parabel', 'umkehr', L('Die Parabel y = x² + bx + c hat den Scheitel S(2 | 1). Bestimme b und c.', 'b = □; c = □', [-4, 5], ['-2 * 2', '2 ** 2 + 1'],
+       'Scheitelform y = (x − 2)² + 1 = x² − 4x + 5. Also b = −4, c = 5.', 'Schreib zuerst die Scheitelform.'))
+ST.neu('parabel', 'darstellung', L('Eine Parabel y = ax² + bx + c hat die Wertetabelle x = −1, 0, 1 mit y = 6, 3, 2. Bestimme a, b und c.', 'a = □; b = □; c = □', [1, -2, 3], ['(6 + 2 - 6) // 2', '(2 - 6) // 2', '3'],
+       'c = 3. a − b + 3 = 6 und a + b + 3 = 2. Addieren: 2a = 2, a = 1; dann b = −2.', 'Lies c bei x = 0 ab.'))
+ST.neu('parabel', 'parameter', Z('Für welche Zahl a geht die Parabel y = ax² + 2x + 1 durch (2 | 1)?', -1, '(1 - 4 - 1) // 4',
+       '1 = 4a + 4 + 1 ⇒ 4a = −4 ⇒ a = −1.', 'Setze den Punkt ein.'))
+ST.neu('parabel', 'pruefung', L('Ein Ball wird bei x = 0 aus 1 m Höhe geworfen. Bei x = 1 m ist er 4 m hoch, bei x = 2 m 5 m hoch. a) Bestimme a, b, c. b) Bei welchem x ist er am höchsten?', 'a) a = □; b = □; c = □; b) x = □', [-1, 4, 1, 2],
+       ['-1', '4', '1', '4 // 2'], 'a) c = 1; a + b = 3; 4a + 2b = 4. Also 2a = −2, a = −1, b = 4: y = −x² + 4x + 1. b) Scheitel bei x = −b/(2a) = 2.', 'Erst c, dann zwei Gleichungen für a und b.'))
+ST.knobel('parabel', Z('Eine Parabel y = ax² + bx + c geht durch (1 | 3), (2 | 7) und (3 | 13). Welchen Wert hat sie bei x = 10?', 111, '100 + 10 + 1',
+          'Die Abstände der y-Werte sind 4 und 6, sie wachsen um 2. Das passt zu a = 1. Aus a + b + c = 3 und 4a + 2b + c = 7: 3 + b = 4, b = 1, c = 1. y = x² + x + 1, bei x = 10: 111.',
+          'Schau auf die Abstände der y-Werte.'))
+ST.knobel('parabel', A('Wie viele Parabeln y = ax² + bx + c mit a ≠ 0 gehen durch (0 | 0), (1 | 1) und (2 | 2)?', 'keine', ['genau eine', 'unendlich viele', 'genau zwei'],
+          'c = 0; a + b = 1; 4a + 2b = 2, also 2a + b = 1. Abziehen: a = 0. Dann wäre es die Gerade y = x, keine Parabel. Die drei Punkte liegen auf einer Geraden.',
+          'Liegen die drei Punkte vielleicht auf einer Geraden?'))
+
+# sachaufgabe
+ST.stufenleiter('sachaufgabe', 'Zahlenrätsel mit drei Zahlen in Gleichungen übersetzen und lösen.',
+                'Vereine, Eintrittspreise und Einkäufe mit drei Unbekannten, Gleichungen selbst aufstellen.',
+                'Münzen, Ziffern, Winkel, Mischungen und paarweise Summen modellieren, Fehler beim Aufstellen finden, mehrteilige Aufgabe.')
+ST.typ('sachaufgabe', 'Drei Zahlen haben', 'direkt')
+ST.typ('sachaufgabe', '/^(Ein Sportverein|Im Zoo|Ein Kino)/', 'einkleidung')
+ST.typ('sachaufgabe', 'In einer Spardose', 'pruefung')
+ST.typ('sachaufgabe', '/^(Drei Kisten|1 kg Nussmischung)/', 'transfer')
+ST.typ('sachaufgabe', '/^(In einem Dreieck|Von 26|Eine dreistellige)/', 'verknuepfen')
+ST.neu('sachaufgabe', 'erkennen', A('Welche Gleichung passt zu: „Die zweite Zahl y ist um 3 größer als die erste Zahl x.“?', 'y = x + 3', ['x = y + 3', 'y = 3x', 'x + y = 3'],
+       'Um 3 größer: Zur ersten Zahl kommt 3 dazu. Also y = x + 3.', 'Wer ist größer?'))
+ST.neu('sachaufgabe', 'mehrschritt', Z('Für drei Zahlen gilt x + y + z = 15, x = 2y und z = y + 3. Wie groß ist z?', 6, '3 + 3',
+       'Einsetzen: 2y + y + y + 3 = 15 ⇒ 4y = 12 ⇒ y = 3. Dann x = 6 und z = 6.', 'Drücke alles mit y aus.'))
+ST.neu('sachaufgabe', 'umkehr', Z('Heft, Stift und Lineal kosten zusammen 6 €. Das Heft kostet 2 €, Stift und Lineal kosten gleich viel. Wie viel kostet der Stift?', 2, '(6 - 2) // 2',
+       'h + s + l = 6, h = 2, s = l ⇒ 2s = 4 ⇒ s = 2 €.', 'Setze die bekannten Werte ein.', einheit='€'))
+ST.neu('sachaufgabe', 'fehler', A('Jemand übersetzt „Die zweite Zahl y ist doppelt so groß wie die erste Zahl x“ mit x = 2y. Was stimmt?', 'Falsch: Es heißt y = 2x.', ['Richtig.', 'Falsch: Es heißt y = x + 2.', 'Falsch: Es heißt x + y = 2.'],
+       'Die größere Zahl ist y. Doppelt so groß wie x heißt y = 2 · x. Probe mit x = 3: y = 6.', 'Probiere ein Zahlenbeispiel.'))
+ST.knobel('sachaufgabe', Z('Drei Geschwister sind zusammen 30 Jahre alt. Vor 2 Jahren war die Älteste so alt wie die beiden anderen damals zusammen. Der Mittlere ist 4 Jahre älter als der Jüngste. Wie alt ist der Jüngste?', 6, '(16 - 4) // 2',
+          'a + b + c = 30. Vor 2 Jahren: a − 2 = (b − 2) + (c − 2), also a = b + c − 2. Einsetzen: a = 30 − a − 2, a = 14. Dann b + c = 16 und b = c + 4, also c = 6.',
+          'Achte darauf, dass vor 2 Jahren alle drei 2 Jahre jünger waren.'))
+ST.knobel('sachaufgabe', Z('Für genau 100 € werden genau 100 Tiere gekauft: Kühe zu 10 €, Schweine zu 3 € und Hühner zu 0,50 €, von jeder Art mindestens eins. Wie viele Kühe sind es?', 5, '5',
+          'k + s + h = 100 und 10k + 3s + 0,5h = 100, also 20k + 6s + h = 200. Abziehen: 19k + 5s = 100. Mit k, s ≥ 1 ganzzahlig: k = 5, s = 1 (95 + 5 = 100). Dann h = 94.',
+          'Zwei Gleichungen, drei Unbekannte – aber nur ganze Zahlen sind erlaubt.'))
+
+if __name__ == '__main__':
+    stufen('gleichungen.lgs3', ST)

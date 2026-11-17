@@ -639,15 +639,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Auf einem Sparkonto liegen 4 900 €. Nach einem Jahr gibt die Bank 49 € Zinsen dazu. Wie viel Geld ist dann auf dem Konto?"
+    "text": "Nach einem Jahr sind auf einem Sparkonto 3 090 €. Die Bank hat 90 € Zinsen dazugegeben. Wie viel Geld lag am Anfang auf dem Konto?"
    },
    "o": {
-    "wert": 4949,
+    "wert": 3000,
     "einheit": "€"
    },
-   "c": "4900 + 49",
-   "w": "Kapital plus Zinsen: 4 900 € + 49 € = 4 949 €.",
-   "h": "Die Zinsen kommen zum Kapital dazu."
+   "c": "3090 - 90",
+   "w": "Am Ende = Kapital + Zinsen. Also Kapital = 3 090 € − 90 € = 3 000 €.",
+   "h": "Die Zinsen kamen dazu. Rechne sie wieder weg."
   },
   {
    "l": "begriffe",
@@ -656,15 +656,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Auf einem Sparkonto liegen 3 700 €. Nach einem Jahr gibt die Bank 148 € Zinsen dazu. Wie viel Geld ist dann auf dem Konto?"
+    "text": "Auf einem Konto liegen 1 200 €. Im ersten Jahr kommen 24 € Zinsen dazu, im zweiten Jahr 24,48 €. Wie viel Geld ist nach zwei Jahren auf dem Konto?"
    },
    "o": {
-    "wert": 3848,
+    "wert": 1248.48,
     "einheit": "€"
    },
-   "c": "3700 + 148",
-   "w": "Kapital plus Zinsen: 3 700 € + 148 € = 3 848 €.",
-   "h": "Die Zinsen kommen zum Kapital dazu."
+   "c": "1200 + 24 + 24.48",
+   "w": "Beide Zinsbeträge kommen zum Kapital dazu: 1 200 € + 24 € + 24,48 € = 1 248,48 €.",
+   "h": "Zähle das Kapital und beide Zinsbeträge zusammen."
   },
   {
    "l": "begriffe",
@@ -687,7 +687,7 @@
    "l": "begriffe",
    "t": "begriffe",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Jemand hat 3 500 € angelegt. Nach einem Jahr sind 3 570 € auf dem Konto. Wie hoch waren die Zinsen?"
@@ -728,19 +728,19 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand sagt: „Bei 4 300 € Kapital bekomme ich 2 % Zinsen.“ Was ist daran ungenau?"
+    "text": "Konto A: 2 000 € Kapital, 40 € Zinsen im Jahr. Konto B: 1 000 € Kapital, 30 € Zinsen im Jahr. Welches Konto hat den höheren Zinssatz?"
    },
    "a": [
-    "Die Zinsen sind 4 300 €.",
-    "Der Zinssatz ist 86 €.",
-    "Nichts, Zinsen und Zinssatz sind dasselbe.",
-    "2 % ist der Zinssatz; die Zinsen sind ein Betrag: 86 €."
+    "Konto B: 3 % gegen 2 %",
+    "Konto A, weil es mehr Euro Zinsen gibt",
+    "Beide haben denselben Zinssatz",
+    "Das kann man ohne Bank nicht entscheiden"
    ],
    "o": {
-    "index": 3
+    "index": 0
    },
-   "w": "Der Zinssatz 2 % ist ein Prozentsatz. Die Zinsen sind 2 % von 4 300 € = 86 €.",
-   "h": "Prozentsatz oder Betrag in Euro?"
+   "w": "A: 40 € von 2 000 € sind 2 %. B: 30 € von 1 000 € sind 3 %. Mehr Euro Zinsen heißt nicht höherer Zinssatz.",
+   "h": "Rechne bei beiden aus, wie viel Prozent die Zinsen vom Kapital sind."
   },
   {
    "l": "begriffe",
@@ -749,19 +749,19 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand sagt: „Bei 2 300 € Kapital bekomme ich 1 % Zinsen.“ Was ist daran ungenau?"
+    "text": "Eine Bank zahlt 2 % Zinsen. Nach einem Jahr stehen 5 100 € auf dem Konto. Ein Kind sagt: „Die Zinsen sind 2 % von 5 100 €, also 102 €.“ Was stimmt?"
    },
    "a": [
-    "Nichts, Zinsen und Zinssatz sind dasselbe.",
-    "1 % ist der Zinssatz; die Zinsen sind ein Betrag: 23 €.",
-    "Die Zinsen sind 2 300 €.",
-    "Der Zinssatz ist 23 €."
+    "Falsch: Die Zinsen sind 5 100 €.",
+    "Falsch: Die 2 % gelten für das Kapital am Anfang. 5 100 € sind 102 %, also Kapital 5 000 € und Zinsen 100 €.",
+    "Falsch: Die Zinsen sind 2 €.",
+    "Richtig: 2 % von 5 100 € sind 102 €."
    ],
    "o": {
     "index": 1
    },
-   "w": "Der Zinssatz 1 % ist ein Prozentsatz. Die Zinsen sind 1 % von 2 300 € = 23 €.",
-   "h": "Prozentsatz oder Betrag in Euro?"
+   "w": "5 100 € = Kapital + Zinsen = 102 % des Kapitals. 1 % = 50 €, Kapital 5 000 €, Zinsen 100 €.",
+   "h": "Worauf bezieht sich der Zinssatz: auf das Geld am Anfang oder am Ende?"
   },
   {
    "l": "begriffe",
@@ -924,6 +924,23 @@
    "w": "Kapital plus Zinsen: 2 800 € + 28 € = 2 828 €."
   },
   {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kapital bringt in einem Jahr 45 € Zinsen. Wie viel Euro Zinsen bringt das doppelte Kapital beim selben Zinssatz?"
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "€"
+   },
+   "c": "45 * 2",
+   "w": "Gleicher Zinssatz, doppeltes Kapital: Die Zinsen verdoppeln sich. 2 · 45 € = 90 €.",
+   "h": "Was passiert mit dem Prozentwert, wenn der Grundwert doppelt so groß ist?"
+  },
+  {
    "l": "rollen",
    "t": "rollen",
    "p": "uebung",
@@ -1050,18 +1067,19 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Deine Eltern legen 1 400 € als Festgeld bei einer Bank an. Wer zahlt oder bekommt Zinsen?"
+    "text": "Ein Kind leiht sich bei der Bank 400 € und zahlt nach einem Jahr 420 € zurück. Wer bekommt die 20 €?"
    },
    "a": [
-    "Sie bekommen Zinsen.",
-    "Es gibt keine Zinsen.",
-    "Sie zahlen Zinsen."
+    "Die Bank",
+    "Der Staat",
+    "Niemand, das Geld verschwindet",
+    "Das Kind"
    ],
    "o": {
     "index": 0
    },
-   "w": "Wer fremdes Geld benutzt, zahlt Zinsen. Wer sein Geld verzinst anlegt, bekommt Zinsen. Liegt das Geld nur herum oder ist kein Zins vereinbart, gibt es keine.",
-   "h": "Wer benutzt hier das Geld eines anderen?"
+   "w": "Das Kind benutzt das Geld der Bank. Dafür zahlt es 20 € Zinsen an die Bank.",
+   "h": "Wer hat das Geld hergegeben?"
   },
   {
    "l": "rollen",
@@ -1070,18 +1088,19 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ein Ladenbesitzer leiht sich 4 600 € von der Bank für neue Regale. Wer zahlt oder bekommt Zinsen?"
+    "text": "Bei welchem Angebot zahlst du Zinsen?"
    },
    "a": [
-    "Er bekommt Zinsen.",
-    "Er zahlt Zinsen.",
-    "Es gibt keine Zinsen."
+    "Festgeld mit 2 % Zinsen",
+    "Sparbuch mit 1 % Zinsen",
+    "Handy auf Raten mit 5 % Zinsen",
+    "Geld in der Spardose"
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "w": "Wer fremdes Geld benutzt, zahlt Zinsen. Wer sein Geld verzinst anlegt, bekommt Zinsen. Liegt das Geld nur herum oder ist kein Zins vereinbart, gibt es keine.",
-   "h": "Wer benutzt hier das Geld eines anderen?"
+   "w": "Nur beim Ratenkauf benutzt du fremdes Geld. Beim Sparbuch und beim Festgeld bekommst du Zinsen, bei der Spardose gibt es keine.",
+   "h": "Wo benutzt du Geld, das dir nicht gehört?"
   },
   {
    "l": "rollen",
@@ -1107,7 +1126,7 @@
    "l": "rollen",
    "t": "rollen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Du leihst dir 3 000 € von der Bank. Nach einem Jahr zahlst du 3 270 € zurück. Wie viel Zinsen hast du gezahlt?"
@@ -1145,7 +1164,7 @@
    "l": "rollen",
    "t": "rollen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Du leihst dir 2 500 € von der Bank. Nach einem Jahr zahlst du 2 700 € zurück. Wie viel Zinsen hast du gezahlt?"
@@ -1162,7 +1181,7 @@
    "l": "rollen",
    "t": "rollen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Du leihst dir 1 500 € von der Bank. Nach einem Jahr zahlst du 1 635 € zurück. Wie viel Zinsen hast du gezahlt?"
@@ -1366,6 +1385,61 @@
    "w": "Wer fremdes Geld benutzt, zahlt Zinsen. Wer sein Geld verzinst anlegt, bekommt Zinsen. Liegt das Geld nur herum oder ist kein Zins vereinbart, gibt es keine."
   },
   {
+   "l": "rollen",
+   "t": "rollen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Bank zahlt 1 % Zinsen für Spargeld und verlangt 6 % für Kredite. Sie verleiht 10 000 € Spargeld als Kredit. Wie viel Euro bleiben der Bank nach einem Jahr?"
+   },
+   "o": {
+    "wert": 500,
+    "einheit": "€"
+   },
+   "c": "10000 * 6 / 100 - 10000 * 1 / 100",
+   "w": "Sie bekommt 6 % von 10 000 € = 600 € und zahlt 1 % = 100 € an die Sparer. Es bleiben 500 €.",
+   "h": "Rechne aus, was die Bank bekommt und was sie bezahlt."
+  },
+  {
+   "l": "rollen",
+   "t": "rollen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kind sagt: „Bei einem Kredit bekomme ich Zinsen, denn ich bekomme ja Geld.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Bei einem Kredit gibt es nie Zinsen.",
+    "Richtig.",
+    "Falsch: Wer fremdes Geld benutzt, zahlt Zinsen.",
+    "Richtig, aber nur bei großen Beträgen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Beim Kredit benutzt das Kind das Geld der Bank. Dafür zahlt es Zinsen – es bekommt keine.",
+   "h": "Wem gehört das Geld beim Kredit?"
+  },
+  {
+   "l": "rollen",
+   "t": "rollen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Jemand hat 1 000 € auf dem Sparkonto zu 1 % und gleichzeitig 1 000 € Kredit zu 8 %. Wie viel Euro verliert er in einem Jahr durch die Zinsen?"
+   },
+   "o": {
+    "wert": 70,
+    "einheit": "€"
+   },
+   "c": "1000 * 8 / 100 - 1000 * 1 / 100",
+   "w": "Er zahlt 80 € Kreditzinsen und bekommt 10 € Sparzinsen. 80 € − 10 € = 70 € Verlust.",
+   "h": "Vergleiche die Zinsen, die er zahlt, mit denen, die er bekommt."
+  },
+  {
    "l": "jahreszinsen",
    "t": "jahreszinsen",
    "p": "uebung",
@@ -1457,15 +1531,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Jahreszinsen für 9 440 € bei 8 % Jahreszinssatz."
+    "text": "Für einen Kredit über 1 200 € verlangt die Bank 7 % Jahreszinsen. Wie viel muss man nach einem Jahr insgesamt zurückzahlen?"
    },
    "o": {
-    "wert": 755.2,
+    "wert": 1284,
     "einheit": "€"
    },
-   "c": "9440 * 8 / 100",
-   "w": "Z = 9 440 € · 8/100. 1 % sind 94,40 €, also 8 % = 755,20 €.",
-   "h": "Z = K · p/100. Erst 1 %, dann mal p."
+   "c": "1200 + 1200 * 7 / 100",
+   "w": "7 % von 1 200 € sind 84 €. Zurück gehen Kredit und Zinsen: 1 200 € + 84 € = 1 284 €.",
+   "h": "Rechne die Zinsen aus und zähle den Kredit dazu."
   },
   {
    "l": "jahreszinsen",
@@ -1474,15 +1548,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Jahreszinsen für 4 520 € bei 6 % Jahreszinssatz."
+    "text": "Zwei Geschwister legen 800 € und 1 200 € an, beide zu 3 % Jahreszinsen. Wie viel Euro Zinsen bekommen sie zusammen?"
    },
    "o": {
-    "wert": 271.2,
+    "wert": 60,
     "einheit": "€"
    },
-   "c": "4520 * 6 / 100",
-   "w": "Z = 4 520 € · 6/100. 1 % sind 45,20 €, also 6 % = 271,20 €.",
-   "h": "Z = K · p/100. Erst 1 %, dann mal p."
+   "c": "(800 + 1200) * 3 / 100",
+   "w": "Geschickt: zusammen 2 000 €, davon 3 % sind 60 €. (Einzeln: 24 € + 36 € = 60 €.)",
+   "h": "Du kannst die Beträge erst zusammenzählen."
   },
   {
    "l": "jahreszinsen",
@@ -1491,15 +1565,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Jahreszinsen für 8 270 € bei 3 % Jahreszinssatz."
+    "text": "Jemand legt 5 000 € zu 2 % an und hebt die Zinsen jedes Jahr ab. Wie viel Euro Zinsen hat er nach 3 Jahren insgesamt abgehoben?"
    },
    "o": {
-    "wert": 248.1,
+    "wert": 300,
     "einheit": "€"
    },
-   "c": "8270 * 3 / 100",
-   "w": "Z = 8 270 € · 3/100. 1 % sind 82,70 €, also 3 % = 248,10 €.",
-   "h": "Z = K · p/100. Erst 1 %, dann mal p."
+   "c": "3 * 5000 * 2 / 100",
+   "w": "Das Kapital bleibt 5 000 €, jedes Jahr gibt es 2 % = 100 €. In 3 Jahren: 300 €.",
+   "h": "Wie viel Zinsen gibt es in einem Jahr?"
   },
   {
    "l": "jahreszinsen",
@@ -1522,7 +1596,7 @@
    "l": "jahreszinsen",
    "t": "jahreszinsen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Jemand legt 1 500 € für ein Jahr zu 4 % an. Wie viel Geld ist nach dem Jahr auf dem Konto?"
@@ -1580,15 +1654,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Bank A zahlt 3 %, Bank B 6 % Jahreszinsen. Wie viel Euro mehr bringen 1 700 € bei Bank B in einem Jahr?"
+    "text": "Bei welchem Zinssatz bringen 2 500 € in einem Jahr genauso viele Zinsen wie 5 000 € bei 3 %?"
    },
    "o": {
-    "wert": 51,
-    "einheit": "€"
+    "wert": 6,
+    "einheit": "%"
    },
-   "c": "1700 * 6 / 100 - 1700 * 3 / 100",
-   "w": "Bank B: 102 €, Bank A: 51 €. Unterschied: 51 €.",
-   "h": "Rechne beide Zinsen aus und ziehe ab."
+   "c": "5000 * 3 / 2500",
+   "w": "5 000 € bei 3 % bringen 150 €. Halbes Kapital braucht den doppelten Zinssatz: 150 € von 2 500 € sind 6 %.",
+   "h": "Rechne zuerst die Zinsen für 5 000 € aus."
   },
   {
    "l": "jahreszinsen",
@@ -1751,6 +1825,26 @@
    "w": "Z = 7 980 € · 4/100. 1 % sind 79,80 €, also 4 % = 319,20 €."
   },
   {
+   "l": "jahreszinsen",
+   "t": "jahreszinsen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Herr A legt 3 000 € zu 4 % an, Frau B 4 000 € zu 3 %. Wer bekommt mehr Zinsen?"
+   },
+   "a": [
+    "Beide gleich viel: 120 €",
+    "Frau B, weil ihr Kapital größer ist",
+    "Herr A, weil sein Zinssatz höher ist"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "3 000 · 4/100 = 120 € und 4 000 · 3/100 = 120 €. Kapital und Prozentzahl wurden nur vertauscht.",
+   "h": "Rechne beide Zinsen aus."
+  },
+  {
    "l": "jahreszinsen_komma",
    "t": "jahreszinsen_komma",
    "p": "uebung",
@@ -1842,15 +1936,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Jahreszinsen für 2 700 € bei 3,5 % Jahreszinssatz."
+    "text": "Bank A zahlt 2,5 %, Bank B 2,25 % Jahreszinsen. Wie viel Euro mehr bringt Bank A für 4 000 € in einem Jahr?"
    },
    "o": {
-    "wert": 94.5,
+    "wert": 10,
     "einheit": "€"
    },
-   "c": "2700 / 100 * 3.5",
-   "w": "1 % von 2 700 € sind 27 €. Mal 3,5: 27 € · 3,5 = 94,50 €.",
-   "h": "Erst 1 % ausrechnen, dann mit der Prozentzahl malnehmen."
+   "c": "4000 * 2.5 / 100 - 4000 * 2.25 / 100",
+   "w": "A: 40 € · 2,5 = 100 €. B: 40 € · 2,25 = 90 €. Unterschied 10 € (oder gleich 0,25 % von 4 000 €).",
+   "h": "Rechne 1 % von 4 000 € aus, dann beide Zinsen."
   },
   {
    "l": "jahreszinsen_komma",
@@ -1859,15 +1953,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Jahreszinsen für 2 300 € bei 2,2 % Jahreszinssatz."
+    "text": "Ein Kredit über 2 000 € kostet 4,5 % Jahreszinsen. Wie viel muss man nach einem Jahr insgesamt zurückzahlen?"
    },
    "o": {
-    "wert": 50.6,
+    "wert": 2090,
     "einheit": "€"
    },
-   "c": "2300 / 100 * 2.2",
-   "w": "1 % von 2 300 € sind 23 €. Mal 2,2: 23 € · 2,2 = 50,60 €.",
-   "h": "Erst 1 % ausrechnen, dann mit der Prozentzahl malnehmen."
+   "c": "2000 + 2000 * 4.5 / 100",
+   "w": "1 % sind 20 €, 4,5 % sind 90 €. Zurück: 2 000 € + 90 € = 2 090 €.",
+   "h": "Erst die Zinsen, dann den Kredit dazuzählen."
   },
   {
    "l": "jahreszinsen_komma",
@@ -1876,15 +1970,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Jahreszinsen für 4 100 € bei 4,5 % Jahreszinssatz."
+    "text": "Auf einem Konto liegen 840 € zu 1,5 % Jahreszinsen. Wie viel Geld ist nach einem Jahr darauf?"
    },
    "o": {
-    "wert": 184.5,
+    "wert": 852.6,
     "einheit": "€"
    },
-   "c": "4100 / 100 * 4.5",
-   "w": "1 % von 4 100 € sind 41 €. Mal 4,5: 41 € · 4,5 = 184,50 €.",
-   "h": "Erst 1 % ausrechnen, dann mit der Prozentzahl malnehmen."
+   "c": "840 + 840 * 1.5 / 100",
+   "w": "1 % sind 8,40 €, 1,5 % sind 12,60 €. 840 € + 12,60 € = 852,60 €.",
+   "h": "Zinsen ausrechnen und zum Kapital zählen."
   },
   {
    "l": "jahreszinsen_komma",
@@ -1907,7 +2001,7 @@
    "l": "jahreszinsen_komma",
    "t": "jahreszinsen_komma",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "2 920 € liegen ein Jahr zu 0,5 % auf einem Konto. Wie viel Geld ist danach darauf?"
@@ -1945,40 +2039,34 @@
    "t": "jahreszinsen_komma",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Jemand rechnet für 1 480 € bei 1,3 %: 1 % = 14,80 €, dann 14,80 € · 0,013 = 0,19 €. Was stimmt?"
+    "text": "Bei 2,5 % Jahreszinsen bekommt jemand nach einem Jahr 30 € Zinsen. Wie viel Geld hat er angelegt?"
    },
-   "a": [
-    "Falsch: Es sind 1 924 €.",
-    "Richtig, so rechnet man mit Kommazahlen.",
-    "Falsch: Mit der Prozentzahl 1,3 malnehmen, das ergibt 19,24 €."
-   ],
    "o": {
-    "index": 2
+    "wert": 1200,
+    "einheit": "€"
    },
-   "w": "Nach dem 1-%-Schritt nimmt man mit 1,3 mal, nicht mit 0,013: 14,80 € · 1,3 = 19,24 €.",
-   "h": "Wie oft nimmst du 1 % bei 1,3 %?"
+   "c": "30 / 2.5 * 100",
+   "w": "2,5 % sind 30 €, also 1 % = 30 € : 2,5 = 12 €. 100 % = 1 200 €.",
+   "h": "Rechne rückwärts über 1 %."
   },
   {
    "l": "jahreszinsen_komma",
    "t": "jahreszinsen_komma",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Jemand rechnet für 2 570 € bei 2,5 %: 1 % = 25,70 €, dann 25,70 € · 0,025 = 0,64 €. Was stimmt?"
+    "text": "Für 4 000 € gibt es in einem Jahr 70 € Zinsen. Wie hoch ist der Jahreszinssatz?"
    },
-   "a": [
-    "Falsch: Mit der Prozentzahl 2,5 malnehmen, das ergibt 64,25 €.",
-    "Richtig, so rechnet man mit Kommazahlen.",
-    "Falsch: Es sind 6 425 €."
-   ],
    "o": {
-    "index": 0
+    "wert": 1.75,
+    "einheit": "%"
    },
-   "w": "Nach dem 1-%-Schritt nimmt man mit 2,5 mal, nicht mit 0,025: 25,70 € · 2,5 = 64,25 €.",
-   "h": "Wie oft nimmst du 1 % bei 2,5 %?"
+   "c": "70 / 4000 * 100",
+   "w": "1 % von 4 000 € sind 40 €. 70 € : 40 € = 1,75. Der Zinssatz ist 1,75 %.",
+   "h": "Wie oft passt 1 % in die Zinsen?"
   },
   {
    "l": "jahreszinsen_komma",
@@ -2141,6 +2229,27 @@
    "w": "1 % von 1 300 € sind 13 €. Mal 1,2: 13 € · 1,2 = 15,60 €."
   },
   {
+   "l": "jahreszinsen_komma",
+   "t": "jahreszinsen_komma",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ohne genau zu rechnen: Was bringt in einem Jahr die meisten Zinsen?"
+   },
+   "a": [
+    "1 % von 10 000 €",
+    "10 % von 900 €",
+    "0,5 % von 15 000 €",
+    "2,5 % von 3 000 €"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "1 % von 10 000 € = 100 €; 10 % von 900 € = 90 €; 2,5 % von 3 000 € = 75 €; 0,5 % von 15 000 € = 75 €.",
+   "h": "Rechne jeweils 1 % im Kopf aus."
+  },
+  {
    "l": "zinssatz",
    "t": "zinssatz",
    "p": "uebung",
@@ -2249,15 +2358,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "4 400 € bringen in einem Jahr 264 € Zinsen. Wie hoch ist der Jahreszinssatz in Prozent?"
+    "text": "Ein Konto wächst in einem Jahr von 2 500 € auf 2 575 €. Wie hoch ist der Jahreszinssatz?"
    },
    "o": {
-    "wert": 6,
+    "wert": 3,
     "einheit": "%"
    },
-   "c": "264.0 / 4400 * 100",
-   "w": "Anteil: 264 € : 4 400 € = 0,06. Mal 100: 6 %.",
-   "h": "p = (Z : K) · 100."
+   "c": "(2575 - 2500) / 2500 * 100",
+   "w": "Zinsen: 2 575 € − 2 500 € = 75 €. 75 € von 2 500 € sind 3 %.",
+   "h": "Rechne zuerst die Zinsen in Euro aus."
   },
   {
    "l": "zinssatz",
@@ -2266,32 +2375,35 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "3 500 € bringen in einem Jahr 280 € Zinsen. Wie hoch ist der Jahreszinssatz in Prozent?"
-   },
-   "o": {
-    "wert": 8,
-    "einheit": "%"
-   },
-   "c": "280.0 / 3500 * 100",
-   "w": "Anteil: 280 € : 3 500 € = 0,08. Mal 100: 8 %.",
-   "h": "p = (Z : K) · 100."
-  },
-  {
-   "l": "zinssatz",
-   "t": "zinssatz",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "4 700 € bringen in einem Jahr 329 € Zinsen. Wie hoch ist der Jahreszinssatz in Prozent?"
+    "text": "Für einen Kredit über 800 € zahlt man nach einem Jahr 856 € zurück. Wie hoch ist der Jahreszinssatz?"
    },
    "o": {
     "wert": 7,
     "einheit": "%"
    },
-   "c": "329.0 / 4700 * 100",
-   "w": "Anteil: 329 € : 4 700 € = 0,07. Mal 100: 7 %.",
-   "h": "p = (Z : K) · 100."
+   "c": "(856 - 800) / 800 * 100",
+   "w": "Zinsen: 856 € − 800 € = 56 €. 1 % von 800 € sind 8 €, 56 : 8 = 7. Also 7 %.",
+   "h": "Wie viel Euro mehr als geliehen wird zurückgezahlt?"
+  },
+  {
+   "l": "zinssatz",
+   "t": "zinssatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bank A zahlt 60 € Zinsen für 2 000 €, Bank B 75 € Zinsen für 3 000 €. Welche Bank hat den höheren Zinssatz?"
+   },
+   "a": [
+    "Beide gleich",
+    "Bank B, weil sie mehr Euro zahlt",
+    "Bank A: 3 % gegen 2,5 %"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "A: 60 : 2 000 = 3 %. B: 75 : 3 000 = 2,5 %. Bank A ist besser, obwohl sie weniger Euro zahlt.",
+   "h": "Rechne beide Zinssätze aus."
   },
   {
    "l": "zinssatz",
@@ -2318,60 +2430,50 @@
    "t": "zinssatz",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Jemand rechnet für 2 000 € und 120 € Zinsen: 2 000 : 120 = 16,7 %. Was stimmt?"
+    "text": "1 200 € bringen in einem halben Jahr 18 € Zinsen. Wie hoch ist der Jahreszinssatz?"
    },
-   "a": [
-    "Falsch: Es sind 120 %.",
-    "Falsch herum gerechnet: 120 € : 2 000 € · 100 = 6 %.",
-    "Richtig, Kapital durch Zinsen."
-   ],
    "o": {
-    "index": 1
+    "wert": 3,
+    "einheit": "%"
    },
-   "w": "Der Zinssatz ist der Anteil der Zinsen am Kapital: 120 : 2 000 = 0,06, mal 100 = 6 %.",
-   "h": "Zinsen durch Kapital, nicht umgekehrt."
+   "c": "18 * 2 / 1200 * 100",
+   "w": "In einem ganzen Jahr wären es 36 €. 36 € von 1 200 € sind 3 %.",
+   "h": "Der Jahreszinssatz gilt für ein ganzes Jahr."
   },
   {
    "l": "zinssatz",
    "t": "zinssatz",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Jemand rechnet für 1 400 € und 42 € Zinsen: 1 400 : 42 = 33,3 %. Was stimmt?"
+    "text": "Ein Konto bringt 2 % Zinsen im Jahr. Die Zinsen werden jedes Jahr abgehoben. Nach wie vielen Jahren sind sie zusammen so viel wie das Kapital?"
    },
-   "a": [
-    "Falsch herum gerechnet: 42 € : 1 400 € · 100 = 3 %.",
-    "Richtig, Kapital durch Zinsen.",
-    "Falsch: Es sind 42 %."
-   ],
    "o": {
-    "index": 0
+    "wert": 50
    },
-   "w": "Der Zinssatz ist der Anteil der Zinsen am Kapital: 42 : 1 400 = 0,03, mal 100 = 3 %.",
-   "h": "Zinsen durch Kapital, nicht umgekehrt."
+   "c": "100 / 2",
+   "w": "Jedes Jahr gibt es 2 % des Kapitals. 100 % sind erreicht nach 100 : 2 = 50 Jahren.",
+   "h": "Wie viele Male 2 % ergeben 100 %?"
   },
   {
    "l": "zinssatz",
    "t": "zinssatz",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Jemand rechnet für 4 900 € und 392 € Zinsen: 4 900 : 392 = 12,5 %. Was stimmt?"
+    "text": "Für 5 000 € gibt es in einem Jahr 150 € Zinsen. Eine andere Bank zahlt 1 Prozentpunkt mehr. Wie viel Euro Zinsen gäbe es dort?"
    },
-   "a": [
-    "Falsch: Es sind 392 %.",
-    "Falsch herum gerechnet: 392 € : 4 900 € · 100 = 8 %.",
-    "Richtig, Kapital durch Zinsen."
-   ],
    "o": {
-    "index": 1
+    "wert": 200,
+    "einheit": "€"
    },
-   "w": "Der Zinssatz ist der Anteil der Zinsen am Kapital: 392 : 4 900 = 0,08, mal 100 = 8 %.",
-   "h": "Zinsen durch Kapital, nicht umgekehrt."
+   "c": "5000 * (150 / 5000 * 100 + 1) / 100",
+   "w": "Zinssatz hier: 150 € von 5 000 € = 3 %. Andere Bank: 4 %, also 200 €.",
+   "h": "Bestimme erst den Zinssatz."
   },
   {
    "l": "zinssatz",
@@ -2625,15 +2727,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Bei 3 % Jahreszinssatz bringt ein Kapital in einem Jahr 124,20 € Zinsen. Wie groß ist das Kapital?"
+    "text": "Für einen Kredit zahlt man bei 5 % Jahreszinsen 45 € Zinsen im Jahr. Wie hoch war der Kredit?"
    },
    "o": {
-    "wert": 4140,
+    "wert": 900,
     "einheit": "€"
    },
-   "c": "124.2 * 100 / 3",
-   "w": "1 % = 124,20 € : 3 = 41,40 €. 100 % = 41,40 € · 100 = 4 140 €.",
-   "h": "Rechne erst aus, wie viel 1 % ist."
+   "c": "45 / 5 * 100",
+   "w": "5 % sind 45 €, 1 % sind 9 €, 100 % sind 900 €.",
+   "h": "Rechne über 1 %."
   },
   {
    "l": "kapital",
@@ -2642,15 +2744,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Bei 4 % Jahreszinssatz bringt ein Kapital in einem Jahr 38,80 € Zinsen. Wie groß ist das Kapital?"
+    "text": "Bei 2,5 % Jahreszinssatz gibt es in einem Jahr 50 € Zinsen. Wie groß ist das Kapital?"
    },
    "o": {
-    "wert": 970,
+    "wert": 2000,
     "einheit": "€"
    },
-   "c": "38.8 * 100 / 4",
-   "w": "1 % = 38,80 € : 4 = 9,70 €. 100 % = 9,70 € · 100 = 970 €.",
-   "h": "Rechne erst aus, wie viel 1 % ist."
+   "c": "50 / 2.5 * 100",
+   "w": "1 % sind 50 € : 2,5 = 20 €. 100 % sind 2 000 €.",
+   "h": "Teile die Zinsen durch 2,5, dann mal 100."
   },
   {
    "l": "kapital",
@@ -2711,26 +2813,23 @@
    "t": "kapital",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Jemand rechnet: 111,30 € Zinsen bei 3 %, also Kapital = 111,30 € · 3 = 333,90 €. Was stimmt?"
+    "text": "Nach einem Jahr mit 4 % Zinsen sind 1 040 € auf dem Konto. Wie viel Geld wurde eingezahlt?"
    },
-   "a": [
-    "Falsch: 3 % von 333,90 € wären nur rund 10,02 €. Richtig sind 3 710 €.",
-    "Falsch: Das Kapital ist 111,30 €.",
-    "Richtig, man nimmt mit dem Zinssatz mal."
-   ],
    "o": {
-    "index": 0
+    "wert": 1000,
+    "einheit": "€"
    },
-   "w": "Rückwärts: 1 % = 111,30 € : 3 = 37,10 €, 100 % = 3 710 €. Probe: 3 % von 3 710 € = 111,30 € ✓",
-   "h": "Probe: Rechne die Zinsen für das angebliche Kapital aus."
+   "c": "1040 / 104 * 100",
+   "w": "Kapital + 4 % sind 104 % = 1 040 €. 1 % = 10 €, 100 % = 1 000 €.",
+   "h": "Auf dem Konto liegen Kapital und Zinsen zusammen. Wie viel Prozent sind das?"
   },
   {
    "l": "kapital",
    "t": "kapital",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Jemand möchte bei 2 % Jahreszinssatz in einem Jahr 42,60 € Zinsen bekommen. Wie viel Geld muss er anlegen?"
@@ -2748,20 +2847,17 @@
    "t": "kapital",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Jemand rechnet: 32,40 € Zinsen bei 2 %, also Kapital = 32,40 € · 2 = 64,80 €. Was stimmt?"
+    "text": "Bank A zahlt 2 %, Bank B 5 %. Jemand will 100 € Zinsen im Jahr. Wie viel Euro weniger muss er bei Bank B anlegen als bei Bank A?"
    },
-   "a": [
-    "Falsch: 2 % von 64,80 € wären nur rund 1,30 €. Richtig sind 1 620 €.",
-    "Falsch: Das Kapital ist 32,40 €.",
-    "Richtig, man nimmt mit dem Zinssatz mal."
-   ],
    "o": {
-    "index": 0
+    "wert": 3000,
+    "einheit": "€"
    },
-   "w": "Rückwärts: 1 % = 32,40 € : 2 = 16,20 €, 100 % = 1 620 €. Probe: 2 % von 1 620 € = 32,40 € ✓",
-   "h": "Probe: Rechne die Zinsen für das angebliche Kapital aus."
+   "c": "100 / 2 * 100 - 100 / 5 * 100",
+   "w": "Bank A: 100 € sind 2 %, Kapital 5 000 €. Bank B: 100 € sind 5 %, Kapital 2 000 €. Unterschied 3 000 €.",
+   "h": "Bestimme das Kapital für beide Banken."
   },
   {
    "l": "kapital",
@@ -2924,6 +3020,23 @@
    "w": "1 % = 17,40 € : 2 = 8,70 €. 100 % = 8,70 € · 100 = 870 €."
   },
   {
+   "l": "kapital",
+   "t": "kapital",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kapital bringt bei 4 % Jahreszinssatz in einem halben Jahr 30 € Zinsen. Wie groß ist das Kapital?"
+   },
+   "o": {
+    "wert": 1500,
+    "einheit": "€"
+   },
+   "c": "30 * 2 / 4 * 100",
+   "w": "Ein ganzes Jahr brächte 60 €. 4 % sind 60 €, 1 % = 15 €, 100 % = 1 500 €.",
+   "h": "Rechne erst die Zinsen für ein ganzes Jahr aus."
+  },
+  {
    "l": "monatszinsen",
    "t": "monatszinsen",
    "p": "uebung",
@@ -3032,15 +3145,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Zinsen für 9 800 € bei 6 % Jahreszinssatz für 4 Monate."
+    "text": "Vom 1. März bis zum 1. September liegen 2 400 € zu 3 % Jahreszinssatz auf einem Konto. Wie viel Euro Zinsen gibt es?"
    },
    "o": {
-    "wert": 196,
+    "wert": 36,
     "einheit": "€"
    },
-   "c": "9800 * 6 / 100 * 4 / 12",
-   "w": "Jahreszinsen: 588 €. 4 Monate = 4/12 Jahr: 588 € · 4 : 12 = 196 €.",
-   "h": "Erst die Jahreszinsen, dann den Anteil m/12."
+   "c": "2400 * 3 / 100 * 6 / 12",
+   "w": "März bis September sind 6 Monate. Jahreszinsen 72 €, davon 6/12: 36 €.",
+   "h": "Zähle zuerst die Monate."
   },
   {
    "l": "monatszinsen",
@@ -3100,7 +3213,7 @@
    "l": "monatszinsen",
    "t": "monatszinsen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Jemand leiht sich 6 100 € für 2 Monate zu 3 % Jahreszinssatz. Wie viel muss er am Ende insgesamt zurückzahlen?"
@@ -3117,7 +3230,7 @@
    "l": "monatszinsen",
    "t": "monatszinsen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Jemand leiht sich 10 500 € für 4 Monate zu 5 % Jahreszinssatz. Wie viel muss er am Ende insgesamt zurückzahlen?"
@@ -3135,20 +3248,16 @@
    "t": "monatszinsen",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Jemand rechnet für 1 700 € zu 6 % und 7 Monate: 7 · 102 € = 714 €. Was stimmt?"
+    "text": "Wie viele Monate muss man 6 000 € zu 4 % Jahreszinssatz anlegen, um 60 € Zinsen zu bekommen?"
    },
-   "a": [
-    "Falsch: Es sind 102 €.",
-    "Richtig, man nimmt die Jahreszinsen mal die Monate.",
-    "Falsch: 102 € gelten für ein ganzes Jahr. Für 7 Monate sind es 59,50 €."
-   ],
    "o": {
-    "index": 2
+    "wert": 3
    },
-   "w": "7 Monate sind 7/12 eines Jahres: 102 € · 7 : 12 = 59,50 €. 714 € wären die Zinsen für 7 Jahre.",
-   "h": "Der Zinssatz gilt für ein Jahr."
+   "c": "60 / (6000 * 4 / 100) * 12",
+   "w": "Ein Jahr bringt 240 €. 60 € sind ein Viertel davon, also 3 Monate.",
+   "h": "Rechne zuerst die Zinsen für ein ganzes Jahr aus."
   },
   {
    "l": "monatszinsen",
@@ -3311,6 +3420,43 @@
    "w": "Jahreszinsen: 178 €. 9 Monate = 9/12 Jahr: 178 € · 9 : 12 = 133,50 €."
   },
   {
+   "l": "monatszinsen",
+   "t": "monatszinsen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Was bringt mehr Zinsen: 3 000 € für 8 Monate zu 3 % oder 3 000 € für 1 Jahr zu 2 %?"
+   },
+   "a": [
+    "1 Jahr zu 2 %, weil die Zeit länger ist",
+    "8 Monate zu 3 %, weil 3 % mehr ist",
+    "Beide gleich viel: 60 €"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "8 Monate zu 3 %: 90 € · 8/12 = 60 €. 1 Jahr zu 2 %: 60 €.",
+   "h": "Rechne beide Zinsen aus."
+  },
+  {
+   "l": "monatszinsen",
+   "t": "monatszinsen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Jemand bekommt für 4 Monate 20 € Zinsen. Wie viel Euro Zinsen bekäme er für ein ganzes Jahr?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "€"
+   },
+   "c": "20 * 12 / 4",
+   "w": "Ein Jahr hat 3-mal 4 Monate. 3 · 20 € = 60 €.",
+   "h": "Wie oft passen 4 Monate in ein Jahr?"
+  },
+  {
    "l": "zeitanteil",
    "t": "zeitanteil",
    "p": "uebung",
@@ -3419,15 +3565,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "5 800 € liegen ein halbes Jahr zu 2 % Jahreszinssatz auf einem Konto. Wie viel Zinsen gibt es?"
+    "text": "1 600 € liegen ein Vierteljahr zu 3 % Jahreszinssatz auf einem Konto. Wie viel Geld ist danach auf dem Konto?"
    },
    "o": {
-    "wert": 58,
+    "wert": 1612,
     "einheit": "€"
    },
-   "c": "5800 * 2 / 100 * 1 / 2",
-   "w": "Jahreszinsen: 116 €. Für ein halbes Jahr: 116 € · 1/2 = 58 €.",
-   "h": "Erst die Jahreszinsen, dann den passenden Anteil nehmen."
+   "c": "1600 + 1600 * 3 / 100 / 4",
+   "w": "Jahreszinsen 48 €, ein Viertel davon 12 €. Auf dem Konto: 1 600 € + 12 € = 1 612 €.",
+   "h": "Erst die Zinsen, dann zum Kapital zählen."
   },
   {
    "l": "zeitanteil",
@@ -3453,15 +3599,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "3 400 € liegen ein halbes Jahr zu 2 % Jahreszinssatz auf einem Konto. Wie viel Zinsen gibt es?"
+    "text": "Ein Kredit über 2 000 € zu 6 % Jahreszinssatz wird nach einem halben Jahr zurückgezahlt. Wie viel muss man insgesamt zurückzahlen?"
    },
    "o": {
-    "wert": 34,
+    "wert": 2060,
     "einheit": "€"
    },
-   "c": "3400 * 2 / 100 * 1 / 2",
-   "w": "Jahreszinsen: 68 €. Für ein halbes Jahr: 68 € · 1/2 = 34 €.",
-   "h": "Erst die Jahreszinsen, dann den passenden Anteil nehmen."
+   "c": "2000 + 2000 * 6 / 100 / 2",
+   "w": "Jahreszinsen 120 €, für ein halbes Jahr 60 €. Zurück: 2 060 €.",
+   "h": "Halbe Zeit, halbe Zinsen."
   },
   {
    "l": "zeitanteil",
@@ -3488,26 +3634,23 @@
    "t": "zeitanteil",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Jemand rechnet für 6 000 € zu 2 % und ein halbes Jahr: 120 € · 6 = 720 €. Was stimmt?"
+    "text": "Ein Kapital bringt bei 2 % in einem halben Jahr 25 € Zinsen. Wie viel Euro Zinsen bringt es in einem Vierteljahr?"
    },
-   "a": [
-    "Falsch: Ein halbes Jahr bringt die Hälfte, also 60 €.",
-    "Richtig, ein halbes Jahr hat 6 Monate.",
-    "Falsch: Es sind 240 €."
-   ],
    "o": {
-    "index": 0
+    "wert": 12.5,
+    "einheit": "€"
    },
-   "w": "Die Jahreszinsen 120 € gelten für 12 Monate. 6 Monate sind die Hälfte: 60 €.",
-   "h": "Mehr oder weniger Zinsen als in einem ganzen Jahr?"
+   "c": "25 / 2",
+   "w": "Ein Vierteljahr ist die Hälfte eines halben Jahres. 25 € : 2 = 12,50 €.",
+   "h": "Vergleiche die beiden Zeiten miteinander."
   },
   {
    "l": "zeitanteil",
    "t": "zeitanteil",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Wie viele Monate sind ein Vierteljahr?"
@@ -3531,18 +3674,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand rechnet für 4 500 € zu 4 % und ein halbes Jahr: 180 € · 6 = 1 080 €. Was stimmt?"
+    "text": "Angebot A: ein halbes Jahr zu 4 %. Angebot B: ein ganzes Jahr zu 2 %. Bei welchem gibt es für 1 000 € mehr Zinsen?"
    },
    "a": [
-    "Falsch: Es sind 360 €.",
-    "Falsch: Ein halbes Jahr bringt die Hälfte, also 90 €.",
-    "Richtig, ein halbes Jahr hat 6 Monate."
+    "B, weil die Zeit länger ist",
+    "A, weil 4 % mehr sind",
+    "Beide gleich viel: 20 €"
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "w": "Die Jahreszinsen 180 € gelten für 12 Monate. 6 Monate sind die Hälfte: 90 €.",
-   "h": "Mehr oder weniger Zinsen als in einem ganzen Jahr?"
+   "w": "A: 40 € für ein Jahr, halbes Jahr 20 €. B: 2 % von 1 000 € = 20 €.",
+   "h": "Rechne beide Zinsen aus."
   },
   {
    "l": "zeitanteil",
@@ -3703,6 +3846,27 @@
    },
    "c": "3500 * 3 / 100 * 1 / 4",
    "w": "Jahreszinsen: 105 €. Für ein Vierteljahr: 105 € · 1/4 = 26,25 €."
+  },
+  {
+   "l": "zeitanteil",
+   "t": "zeitanteil",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "2 000 € liegen zu 3 % Jahreszinssatz auf einem Konto. Wie lange muss das Geld liegen, damit es 15 € Zinsen gibt?"
+   },
+   "a": [
+    "ein ganzes Jahr",
+    "einen Monat",
+    "ein Vierteljahr",
+    "ein halbes Jahr"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ein Jahr bringt 60 €. 15 € sind ein Viertel davon, also ein Vierteljahr.",
+   "h": "Rechne zuerst die Jahreszinsen aus."
   }
  ],
  "offen": [

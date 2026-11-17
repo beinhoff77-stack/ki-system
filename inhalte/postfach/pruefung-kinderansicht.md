@@ -36,3 +36,7 @@ Wichtigste Befunde (nachgestellt):
 - B8 Klasse von Ort und Thema widersprechen sich bei 13 von 65 Orten.
 - B10 Navigation nur über schwebendes ≡; Menü markiert im Reisepass „Mein Weg“.
 Vorschlag: Heute · Mein Weg (mit Kartenansicht) · Merkheft (nur Geschafftes) · Reisepass mit fester Leiste; ein Fortschrittsmaß „Klasse X: n von m Themen“.
+
+## 2026-11-17 – Nachprüfung 0.74.5
+- Bericht: `inhalte/pruefung/NACHPRUEFUNG-2026-11-17.md`. Umgesetzt: A, R1–R3, N5–N7, K1/K2, D2, E-1 bis E-3. Offen laut Plan: K3–K5, E-4.
+- Neue Befunde M1–M9 (Gerade dran zählt alles, Klasse noch mit Speichern, Häkchen getrennt vom Flug, Klasse-8-Ort im Klasse-5-Plan, Zielangabe 29 Etappen, Detektiv bei Auswahl, doppeltes Bild, ≡ verdeckt, Text „alles verteilt“).

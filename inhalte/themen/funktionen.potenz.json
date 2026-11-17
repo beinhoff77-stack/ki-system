@@ -772,7 +772,7 @@
    "l": "werte",
    "t": "werte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Berechne f(−3) für f(x) = −3x³."
@@ -814,7 +814,7 @@
    "l": "werte",
    "t": "werte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne f(−2) für f(x) = −3x⁵."
@@ -1762,7 +1762,7 @@
    "l": "verlauf",
    "t": "verlauf",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Wie verläuft der Graph von y = 6x³?"
@@ -1783,7 +1783,7 @@
    "l": "verlauf",
    "t": "verlauf",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Wie verläuft der Graph von y = −x³?"
@@ -1927,7 +1927,7 @@
    "l": "verlauf",
    "t": "verlauf",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Wie verläuft der Graph von y = −x⁹?"
@@ -1948,7 +1948,7 @@
    "l": "verlauf",
    "t": "verlauf",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welcher Graph gehört zu y = x³?",
@@ -2041,7 +2041,7 @@
    "l": "verlauf",
    "t": "verlauf",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welcher Graph liegt für 0 < x < 1 weiter oben: y = x⁵ oder y = x³?"
@@ -2678,7 +2678,7 @@
    "l": "parameter",
    "t": "parameter",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Der Graph von y = a · xⁿ geht durch P(1 | −1) und Q(−2 | 8). Bestimme n."
@@ -2694,7 +2694,7 @@
    "l": "parameter",
    "t": "parameter",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Der Graph von y = a · xⁿ geht durch P(3 | 27) und Q(1 | 3). Bestimme n."
@@ -2726,7 +2726,7 @@
    "l": "parameter",
    "t": "parameter",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Der Graph von y = a · xⁿ geht durch P(−2 | 16) und Q(3 | 36). Bestimme n."
@@ -3159,7 +3159,7 @@
    "l": "negativ",
    "t": "negativ",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Für welche x ist f(x) = x⁻⁴ definiert?"
@@ -3521,14 +3521,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(36) für f(x) = x^(1/2)."
+    "text": "Berechne f(36) für f(x) = 2 · √x."
    },
    "o": {
-    "wert": 6
+    "wert": 12
    },
-   "c": "36 / 6 ** 1",
-   "w": "x^(1/2) = √x; f(36) = 6.",
-   "h": "Hoch 1/n bedeutet n-te Wurzel."
+   "c": "2 * 6",
+   "w": "√36 = 6, also f(36) = 2 · 6 = 12.",
+   "h": "Erst die Wurzel, dann mal 2."
   },
   {
    "l": "wurzelfunktion",
@@ -3537,14 +3537,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(196) für f(x) = x^(1/2)."
+    "text": "Berechne f(196) für f(x) = 0,5 · √x."
    },
    "o": {
-    "wert": 14
+    "wert": 7
    },
-   "c": "196 / 14 ** 1",
-   "w": "x^(1/2) = √x; f(196) = 14.",
-   "h": "Hoch 1/n bedeutet n-te Wurzel."
+   "c": "0.5 * 14",
+   "w": "√196 = 14, also f(196) = 0,5 · 14 = 7.",
+   "h": "Erst die Wurzel, dann mal 0,5."
   },
   {
    "l": "wurzelfunktion",
@@ -3569,14 +3569,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(49) für f(x) = x^(1/2)."
+    "text": "Die Funktion f(x) = √x hat den Wert 7. Für welches x?"
    },
    "o": {
-    "wert": 7
+    "wert": 49
    },
-   "c": "49 / 7 ** 1",
-   "w": "x^(1/2) = √x; f(49) = 7.",
-   "h": "Hoch 1/n bedeutet n-te Wurzel."
+   "c": "7 ** 2",
+   "w": "Rückwärts: √x = 7 heißt x = 7² = 49.",
+   "h": "Die Umkehrung der Wurzel ist das Quadrieren."
   },
   {
    "l": "wurzelfunktion",
@@ -3585,14 +3585,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(81) für f(x) = x^(1/2)."
+    "text": "Berechne f(81) für f(x) = √x − 4."
    },
    "o": {
-    "wert": 9
+    "wert": 5
    },
-   "c": "81 / 9 ** 1",
-   "w": "x^(1/2) = √x; f(81) = 9.",
-   "h": "Hoch 1/n bedeutet n-te Wurzel."
+   "c": "9 - 4",
+   "w": "√81 = 9, also f(81) = 9 − 4 = 5.",
+   "h": "Erst die Wurzel, dann minus 4."
   },
   {
    "l": "wurzelfunktion",
@@ -3601,14 +3601,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(8) für f(x) = x^(1/3)."
+    "text": "Berechne f(8) für f(x) = 3 · ∛x."
    },
    "o": {
-    "wert": 2
+    "wert": 6
    },
-   "c": "8 / 2 ** 2",
-   "w": "x^(1/3) = ∛x; f(8) = 2.",
-   "h": "Hoch 1/n bedeutet n-te Wurzel."
+   "c": "3 * 2",
+   "w": "∛8 = 2, denn 2³ = 8. Also f(8) = 3 · 2 = 6.",
+   "h": "Erst die dritte Wurzel, dann mal 3."
   },
   {
    "l": "wurzelfunktion",
@@ -3628,7 +3628,7 @@
    "o": {
     "index": 3
    },
-   "w": "Die Umkehrfunktion macht das Quadrieren rückgängig: Aus y = x² folgt x = √y. Also g(x) = √x = x^(1/2).",
+   "w": "Die Umkehrfunktion macht das Quadrieren rückgängig: Aus y = x² folgt x = √y. Also g(x) = √x.",
    "h": "Welche Rechnung macht das Quadrieren rückgängig?"
   },
   {
@@ -3758,19 +3758,19 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Für welche x ist f(x) = x^(1/2) definiert?"
+    "text": "Der Graph von y = √x wird um 3 nach oben verschoben. Welcher Punkt liegt auf dem neuen Graphen?"
    },
    "a": [
-    "für alle x ≠ 0",
-    "für alle x",
-    "für alle x > 0",
-    "für alle x ≥ 0"
+    "(7 | 2)",
+    "(4 | 5)",
+    "(4 | 2)",
+    "(1 | 3)"
    ],
    "o": {
-    "index": 3
+    "index": 1
    },
-   "w": "x^(1/2) ist die 2. Wurzel; sie ist nur für x ≥ 0 erklärt.",
-   "h": "Aus welchen Zahlen kann man eine Wurzel ziehen?"
+   "w": "Neuer Graph: y = √x + 3. Bei x = 4: √4 + 3 = 5. (4 | 2) liegt auf dem alten Graphen, (7 | 2) wäre nach rechts verschoben.",
+   "h": "Welche Gleichung hat der verschobene Graph? Setze die x-Werte ein."
   },
   {
    "l": "wurzelfunktion",
@@ -3779,13 +3779,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(27) für f(x) = x^(1/3)."
+    "text": "Berechne f(27) für f(x) = ∛x."
    },
    "o": {
     "wert": 3
    },
-   "c": "27 / 3 ** 2",
-   "w": "x^(1/3) = ∛x; f(27) = 3."
+   "c": "27 // 9",
+   "w": "∛27 = 3, denn 3³ = 27."
   },
   {
    "l": "wurzelfunktion",
@@ -3824,13 +3824,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(64) für f(x) = x^(1/2)."
+    "text": "Berechne f(64) für f(x) = √x."
    },
    "o": {
     "wert": 8
    },
-   "c": "64 / 8 ** 1",
-   "w": "x^(1/2) = √x; f(64) = 8."
+   "c": "64 // 8",
+   "w": "√64 = 8, denn 8 · 8 = 64."
   },
   {
    "l": "wurzelfunktion",
@@ -3839,13 +3839,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(125) für f(x) = x^(1/3)."
+    "text": "Berechne f(125) für f(x) = ∛x."
    },
    "o": {
     "wert": 5
    },
-   "c": "125 / 5 ** 2",
-   "w": "x^(1/3) = ∛x; f(125) = 5."
+   "c": "125 // 25",
+   "w": "∛125 = 5, denn 5³ = 125."
   },
   {
    "l": "wurzelfunktion",
@@ -3869,13 +3869,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(216) für f(x) = x^(1/3)."
+    "text": "Berechne f(216) für f(x) = ∛x."
    },
    "o": {
     "wert": 6
    },
-   "c": "216 / 6 ** 2",
-   "w": "x^(1/3) = ∛x; f(216) = 6."
+   "c": "216 // 36",
+   "w": "∛216 = 6, denn 6³ = 216."
   },
   {
    "l": "wurzelfunktion",
@@ -4023,7 +4023,7 @@
    "l": "symmetrie",
    "t": "symmetrie",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Der Graph von y = a · x⁵ geht durch (2 | 8). Welchen y-Wert hat er bei x = −2?"
@@ -4039,7 +4039,7 @@
    "l": "symmetrie",
    "t": "symmetrie",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Der Graph von f(x) = a · x⁴ geht durch (−3 | 162). Welchen Wert hat f(3)?"
@@ -4097,7 +4097,7 @@
    "l": "symmetrie",
    "t": "symmetrie",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welche Symmetrie hat der Graph von y = −2x³?"
@@ -4226,7 +4226,7 @@
    "l": "verlauf",
    "t": "verlauf",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welcher Graph verläuft von links oben nach rechts unten?"
@@ -4289,7 +4289,7 @@
    "l": "parameter",
    "t": "parameter",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Der Graph von y = a · x³ geht durch P(−2 | 4). Bestimme a."
@@ -4438,7 +4438,7 @@
    "l": "negativ",
    "t": "negativ",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne f(0,5) für f(x) = 2 · x⁻³."
@@ -4558,7 +4558,7 @@
    "l": "wurzelfunktion",
    "t": "wurzelfunktion",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Der Punkt (a | 5) liegt auf dem Graphen von y = √x. Bestimme a."

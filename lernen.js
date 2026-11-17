@@ -204,11 +204,14 @@ function lernStats(konto) {
   // Antippen erklärt, was die Zahlen bedeuten.
   return el('details', { class: 'lr-stats-box' },
     el('summary', { 'aria-label': 'Stempel, Sterne und Lerntage – antippen für Erklärung' },
-      el('div', { class: 'lr-stats' }, s(LI.stempel, konto?.stempel ?? 0, 'Stempel'), s(LI.stern, lernZahl(konto?.sterne ?? 0), 'Sterne'), s(LI.tag, konto?.lerntage ?? 0, 'Lerntage'))),
+      el('div', { class: 'lr-stats' }, s(LI.stempel, konto?.stempel ?? 0, 'Stempel'), s(LI.stern, lernZahl(konto?.sterne ?? 0), 'Sterne'), s(LI.tag, konto?.lerntage ?? 0, 'Lerntage')),
+      // F: Knobel-Sterne – nur, wenn die Datenbank sie zählt (Migration F)
+      konto?.knobel_sterne !== undefined ? el('p', { class: 'lr-knobel-sterne' }, `★ Knobel-Sterne: ${konto.knobel_sterne}`) : null),
     el('div', { class: 'lr-stats-erkl' },
       el('p', {}, el('b', {}, 'Sterne: '), '10 für jede Bordkarte, die du zum ersten Mal richtig löst, 20 für jede richtige Bordkarte im Test. Sterne kannst du später gegen Belohnungen eintauschen.'),
       el('p', {}, el('b', {}, 'Stempel: '), 'Jeder Ort hat einen oder mehrere Flüge. Hast du alle Flüge eines Ortes geschafft, bekommst du seinen Stempel in den Reisepass.'),
-      el('p', {}, el('b', {}, 'Lerntage: '), 'Tage, an denen du geübt hast.')));
+      el('p', {}, el('b', {}, 'Lerntage: '), 'Tage, an denen du geübt hast.'),
+      konto?.knobel_sterne !== undefined ? el('p', {}, el('b', {}, 'Knobel-Sterne: '), 'Knobel-Bordkarten sind freiwillig und richtig schwer. Löst du eine beim ersten Versuch, gibt es 30 Sterne und einen Knobel-Stern.') : null));
 }
 async function lernLadeKind(arg) {
   const kindId = Number(arg);
@@ -218,6 +221,7 @@ async function lernLadeKind(arg) {
   if (!d) { route('lernen'); return null; }
   if (k?.look) Object.assign(d.kind, k.look);
   d.konto = k?.konto || null; d.belohnungen = k?.belohnungen || []; d.einloesungen = k?.einloesungen || [];
+  d.knobelTag = k?.knobel_tag || null; // F: „Knobeln des Tages“ (Migration F; fehlt → nichts)
   d.u = u; // K3: für den Stand über Schularten
   return d;
 }
@@ -227,6 +231,99 @@ async function lernLadeKind(arg) {
 // Ort geschafft oder „kann schon“. Läuft: mindestens eine Etappe fertig. Wackelt: Fehler offen oder Rückreise offen.
 // Flüge: schule_uebersicht.themen (alle Mathe-Flüge, auch ohne Inhalt; Migration 20261117_w150_d_*), sonst die Flüge mit Inhalt (einheiten).
 // Stufe: kind.stufen[s] (Migration D), sonst eigene Schulart = Klasse, andere = gleiche Klasse, IB MYP = Klasse − 4.
+// ---------- Bau-Auftrag F: Stufen und Aufgabentypen ----------
+// Typ einer Bordkarte („Gedanke“, Feld typ aus schule.aufgabe; Migration 20261118_w150_f_*). Die Stufe folgt aus dem Typ.
+const LERN_TYP = {
+  direkt: [1, 'wie im Beispiel'], erkennen: [1, 'erkennen'],
+  mehrschritt: [2, 'mehrere Schritte'], einkleidung: [2, 'Sachaufgabe'], umkehr: [2, 'umgekehrt gefragt'], darstellung: [2, 'Darstellung wechseln'],
+  rueckwaerts: [3, 'rückwärts'], verknuepfen: [3, 'mit früherem Stoff'], begruenden: [3, 'begründen'], fehler: [3, 'Fehler finden'],
+  transfer: [3, 'Transfer'], parameter: [3, 'mit Variable'], pruefung: [3, 'wie in einer Prüfung'], knobel: [3, 'Knobeln'],
+};
+// Stufenzeichen im Kopf der Bordkarte: ● leicht · ●● mittel · ●●● schwer – ohne Druck (keine rote Farbe, kein „zu schwer“)
+function lernStufeZeichen(a) {
+  if (a.bonus) return el('span', { class: 'lr-stufe lr-stufe-bonus', role: 'img', 'aria-label': 'Knobel-Bordkarte, freiwillig' }, '★ KNOBEL');
+  const n = Number(a.stufe); if (!(n >= 1 && n <= 3)) return el('span', {});
+  const wort = ['', 'leicht', 'mittel', 'schwer'][n];
+  return el('span', { class: 'lr-stufe lr-stufe-' + n, role: 'img', 'aria-label': 'Stufe: ' + wort, title: wort }, '●'.repeat(n));
+}
+// Knobel-Bordkarte (Pool „bonus“): freiwillig, ein Versuch, falsch kostet nichts und zeigt den Weg; richtig im ersten Versuch = 30 Sterne und ein Knobel-Stern.
+// Zählt weder für „sitzt“ noch für Wiederholung oder Test (die Datenbank bucht sie nicht in den Karten-Stand).
+function lernKnobelAngebot(e, oeffnen) {
+  const offen = (e.bonus || []).filter((k) => !k.versuche);
+  if (!offen.length) return null;
+  return el('button', { type: 'button', class: 'lr-knopf-zweit lr-knobel-angebot', onclick: () => oeffnen(offen[0]) }, '★ Knobel-Bordkarte (freiwillig)');
+}
+function lernKnobel(ziel, a, ctx, { ortCode = '', zurueck, titel = 'KNOBEL-BORDKARTE' } = {}) {
+  const auf = lernAufgabe(a, null, { tasten: false }); const cid = lernCid();
+  const meldung = el('div', { role: 'status', 'aria-live': 'polite' });
+  const hilfeBox = el('div', { class: 'lr-hilfebox' });
+  const tipp = a.tipp ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { tipp.remove(); lernAnhaengen(hilfeBox, el('p', { class: 'lr-tipp' }, el('b', {}, 'Tipp: '), lernText(a.tipp))); } }, 'Tipp') : null;
+  const pruefen = el('button', { type: 'button', class: 'lr-knopf' }, 'Prüfen');
+  const weiter = zurueck ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: zurueck }, 'Zurück') : null;
+  pruefen.addEventListener('click', async () => {
+    const w = auf.antwort();
+    if (!w) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, auf.fehlerText() || 'Bitte erst antworten.')); return; }
+    pruefen.disabled = true;
+    try {
+      const r = await lernCall('schule_uebung_pruefen', { lernender_id: ctx.kind, aufgabe_id: a.id, antwort: w, client_id: cid });
+      if (!r.format_ok) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, r.hinweis || 'Bitte prüfe die Eingabe.')); pruefen.disabled = false; return; }
+      a.versuche = (a.versuche || 0) + 1; if (r.richtig) a.geloest = true;
+      auf.zeigeLoesung?.(r.loesung); pruefen.remove(); tipp?.remove();
+      lernErsetze(meldung, r.richtig
+        ? el('div', { class: 'lr-rueck lr-rueck-ok lr-knobel-ok' }, el('b', {}, '★ Geknackt!'), r.sterne ? el('p', { class: 'lr-sterne-neu' }, `+${r.sterne} Sterne · ein Knobel-Stern`) : null,
+          r.knobel_sterne ? el('p', { class: 'lr-leise' }, `Knobel-Sterne: ${r.knobel_sterne}`) : null, r.loesungsweg ? el('p', {}, lernText(r.loesungsweg)) : null)
+        : el('div', { class: 'lr-rueck lr-knobel-falsch' }, el('b', {}, 'Diesmal nicht – das war eine harte Nuss.'), el('p', {}, 'Richtig ist: ' + lernLoesungText({ ...a, loesung: r.loesung })),
+          r.loesungsweg ? el('p', {}, el('b', {}, 'So geht’s: '), lernText(r.loesungsweg)) : null, el('p', { class: 'lr-leise' }, 'Knobeln kostet nichts – deine Punkte bleiben.')));
+    } catch (err) { lernErsetze(meldung, el('p', { class: 'err-text' }, err.message)); pruefen.disabled = false; }
+  });
+  lernErsetze(ziel, el('section', { class: 'lr-karte-box lr-aufgabe lr-bordkarte lr-knobel' },
+      el('div', { class: 'lr-bord-kopf' }, el('span', {}, ortCode ? `${titel} · ${ortCode}` : titel), lernStufeZeichen({ ...a, bonus: true })),
+      el('p', { class: 'lr-leise' }, 'Freiwillig: zählt nicht für „sitzt“ und nicht für den Test. Richtig beim ersten Versuch: 30 Sterne.'),
+      auf.node, el('div', { class: 'lr-knopfzeile' }, pruefen, tipp)),
+    hilfeBox, meldung, weiter);
+  ziel.scrollIntoView?.({ block: 'start' });
+}
+// F: „Knobeln des Tages“ auf der Abflugtafel – höchstens einmal je Lerntag, aus einer sitzenden Etappe (schule_konto.knobel_tag)
+function lernKnobelDesTages(d) {
+  const a = d.knobelTag; if (!a) return null;
+  const tag = new Date().toISOString().slice(0, 10), schl = `lern.knobel.${d.kind.id}`;
+  try { if (localStorage.getItem(schl) === tag) return null; } catch { /* egal */ }
+  const box = el('section', { class: 'lr-karte-box lr-knobel-tag' },
+    el('p', { class: 'lr-ueber' }, '★ KNOBELN DES TAGES'),
+    el('p', {}, 'Eine harte Nuss aus ', el('b', {}, a.etappe || 'einer Etappe, die schon sitzt'), a.stadt ? ` (${a.stadt})` : '', '. Freiwillig – falsch kostet nichts.'),
+    el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => {
+      try { localStorage.setItem(schl, tag); } catch { /* egal */ }
+      lernKnobel(box, a, { kind: d.kind.id }, { titel: 'KNOBELN DES TAGES', zurueck: () => box.remove() });
+    } }, 'Knobeln (freiwillig)'));
+  return box;
+}
+// Auswahl der nächsten Bordkarte (stellt sie an den Anfang von warte). Regel „sitzt“ (16.11.): Die Stufe steigt mit den Punkten.
+function lernWaehleBordkarte(warte, e, letzte, gesehenTyp = new Set()) {
+  const ziel = e.ziel || 6, p = e.serie || 0, soll = p >= ziel ? 3 : Math.min(3, 1 + Math.floor(p * 3 / ziel));
+  const vor = (j) => { if (j > 0) warte.unshift(...warte.splice(j, 1)); return j >= 0; };
+  // Punkte voll, aber die schwere Aufgabe fehlt noch: dann kommt auf jeden Fall eine schwere
+  // F: Abwechslung – nie zweimal hintereinander derselbe Typ (ohne Typ: derselbe Fragetext ohne Zahlen); Typen bevorzugen, die in dieser Etappe noch nicht dran waren
+  const anders = (x) => !letzte || (x.typ && letzte.typ ? x.typ !== letzte.typ : lernBauplan(x) !== lernBauplan(letzte));
+  const neuTyp = (x) => !x.typ || !gesehenTyp.has(x.typ);
+  for (const ex of [(x) => anders(x) && neuTyp(x), anders]) {
+    if (p >= ziel && e.schwerNoetig && !e.schwerOk && vor(warte.findIndex((x) => lernIstSchwer(x) && x !== letzte && !x.geloest && ex(x)))) return;
+  }
+  if (p >= ziel && e.schwerNoetig && !e.schwerOk && vor(warte.findIndex((x) => lernIstSchwer(x) && x !== letzte && !x.geloest))) return;
+  if (p >= ziel && e.schwerNoetig && !e.schwerOk && vor(warte.findIndex((x) => lernIstSchwer(x) && x !== letzte))) return;
+  const reihe = soll === 3 ? [3, 2, 1] : soll === 2 ? [2, 3, 1] : [1, 2, 3];
+  for (const ok of [(x) => !x.geloest && !x.falschHeute, (x) => !x.geloest, (x) => x !== letzte])
+    for (const st of reihe)
+      for (const ex of [(x) => anders(x) && neuTyp(x), anders])
+        if (vor(warte.findIndex((x) => (x.stufe || 2) === st && ok(x) && ex(x)))) return;
+  for (const ok of [(x) => !x.geloest && !x.falschHeute, (x) => !x.geloest, (x) => x !== letzte])
+    for (const st of reihe)
+      if (vor(warte.findIndex((x) => (x.stufe || 2) === st && ok(x)))) return;
+}
+// Bauplan einer Bordkarte: Fragetext ohne Zahlen (gleiche Regel wie tools/inhalt_pruefen.py)
+const lernBauplan = (a) => String(a?.frage?.text || '').replace(/[−-]?\d+(?:[ \u202f]\d{3})*(?:[,.]\d+)?/g, '#').replace(/\s+/g, ' ').trim();
+// Zählt für „eine schwere Bordkarte im ersten Versuch“: Stufe 3 – und wenn ein Typ da ist, ein Stufe-3-Typ
+const lernIstSchwer = (a) => a.stufe === 3 && (!a.typ || LERN_TYP[a.typ]?.[0] === 3) && a.typ !== 'knobel';
+
 const LERN_SYS = [
   { sa: 'gym_by', kurz: 'GYM', name: 'Gymnasium', stufen: [5, 6, 7, 8, 9, 10], label: (n) => 'Klasse ' + n, kl: (n) => n, farbe: '#2F6FDE' },
   { sa: 'rs_by', kurz: 'RS', name: 'Realschule', stufen: [5, 6, 7, 8, 9, 10], label: (n) => 'Klasse ' + n, kl: (n) => n, farbe: '#D9482A' },
@@ -563,6 +660,7 @@ function lernAbflugtafel(d, { n, et, nWdh, wdhRest = 0, wdhFertig = false, ort =
       ...d.spaeter.slice(0, 1).map((e) => zeile(e, `AB KLASSE ${kl(e) ?? ''}`.trim(), ' lr-flug-spaeter'))),
     band,
     el('div', { class: 'lr-tafelchips' }, el('a', { href: `#/reisepass/${kind.id}` }, `◎ ${d.konto?.stempel ?? 0} Stempel`), el('span', {}, 'Abflug, wann es dir passt')),
+    lernKnobelDesTages(d),
     nWdh && !n.laeuft && !testDran ? el('p', { class: 'lr-leise lr-start-info' }, `Erst ${nWdh} ${nWdh === 1 ? 'Wiederholung' : 'Wiederholungen'}, dann ${n.stadt}.`) : null,
     wdhRest ? el('a', { class: 'lr-textlink', href: `#/wiederholen/${kind.id}` }, `Noch ${wdhRest} ${wdhRest === 1 ? 'Wiederholung' : 'Wiederholungen'} offen – wenn du magst`) : null,
     el('a', { class: 'lr-textlink', href: `#/lerneinheit/${kind.id}-${n.id}` }, 'Erst die Erklärungen ansehen'),
@@ -1396,7 +1494,8 @@ function lernEtappen(daten) {
     const k = st[e.lernziel] || {};
     return { ...e, nr: i + 1, fertig: !!k.fertig, extra: pflicht.get(e.lernziel) === false, abschnitt: abschnitt.get(e.lernziel) || null,
       serie: Number(k.serie || 0), ziel: Number(k.ziel || 4), sitzt: !!k.sitzt, schwerOk: !!k.schwer_ok, schwerNoetig: !!k.schwer_noetig, faellig: !!k.faellig, nachgewiesen: !!k.fertig && !k.sitzt,
-      aufgaben: (daten.uebungen || []).filter((a) => a.lernziel === e.lernziel) };
+      aufgaben: (daten.uebungen || []).filter((a) => a.lernziel === e.lernziel && !a.bonus),
+      bonus: (daten.bonus || []).filter((a) => a.lernziel === e.lernziel) }; // F: Knobel-Bordkarten (freiwillig)
   });
 }
 // Punkte für die Serie: ●●○○ (gefüllt = richtig in Folge), bei „sitzt“ alle gefüllt.
@@ -1463,6 +1562,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
   const fehlerKarten = etappen.filter((e) => e.fehler);
   // Neue Lernkarte (noch nie geübt): erst die Erklärung zeigen, dann die Aufgaben („Jetzt du ›“).
   const erklGesehen = new Set(); // Karten, deren Erklärung das Kind in dieser Sitzung schon vor sich hatte
+  const lernTypGesehen = {}; // F: je Etappe die Typen, die in dieser Sitzung schon dran waren
   const neuKarte = (e) => !!e && !e.fertig && !e.sitzt && !e.faellig && !e.serie && !!e.regel && !erklGesehen.has(e.lernziel) && !e.aufgaben.some((x) => x.versuche || x.geloest);
   const erstErklaeren = (e) => { offeneKarte = e; zeichneErklaeren(); zeige('erklaeren'); adresse(e, false); window.scrollTo(0, 0); };
   if (start === 'ueben' && !karteNr && neuKarte(empfohlen())) { karteNr = empfohlen().nr; start = 'erklaeren'; }
@@ -1559,20 +1659,11 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
     const naechsteKarte = etappen.slice(e.nr).find((x) => !x.fertig && x.aufgaben.length) || etappen.find((x) => x !== e && !x.fertig && x.aufgaben.length);
     // Regel „sitzt“ (16.11.): Die Stufe steigt mit den Punkten – erst leicht, dann mittel, dann schwer. Ein Fehler kostet 2 Punkte, also geht es eine Stufe zurück.
     let letzte = null;
-    const waehleStufe = () => {
-      if (stufe || e.sitzt || e.fertig) return;
-      const ziel = e.ziel || 6, p = e.serie || 0, soll = p >= ziel ? 3 : Math.min(3, 1 + Math.floor(p * 3 / ziel));
-      const vor = (j) => { if (j > 0) warte.unshift(...warte.splice(j, 1)); return j >= 0; };
-      // Punkte voll, aber die schwere Aufgabe fehlt noch: dann kommt auf jeden Fall eine schwere
-      if (p >= ziel && e.schwerNoetig && !e.schwerOk && vor(warte.findIndex((x) => x.stufe === 3 && x !== letzte && !x.geloest))) return;
-      if (p >= ziel && e.schwerNoetig && !e.schwerOk && vor(warte.findIndex((x) => x.stufe === 3 && x !== letzte))) return;
-      for (const ok of [(x) => !x.geloest && !x.falschHeute, (x) => !x.geloest, (x) => x !== letzte])
-        for (const st of soll === 3 ? [3, 2, 1] : soll === 2 ? [2, 3, 1] : [1, 2, 3])
-          if (vor(warte.findIndex((x) => (x.stufe || 2) === st && ok(x)))) return;
-    };
+    const gesehenTyp = (lernTypGesehen[e.lernziel] ||= new Set()); // F: Typen, die in dieser Etappe schon dran waren
+    const waehleStufe = () => { if (!stufe && !e.sitzt && !e.fertig) lernWaehleBordkarte(warte, e, letzte, gesehenTyp); };
     const zeigeAufgabe = (fest) => {
       if (fest !== true) waehleStufe();
-      const a = warte[0]; letzte = a || null;
+      const a = warte[0]; letzte = a || null; if (a?.typ) gesehenTyp.add(a.typ);
       if (!a) { lernErsetze(flaeche, el('p', { class: 'lr-leise' }, 'Für diese Auswahl gibt es keine Bordkarten.')); return; }
       nr++;
       const auf = lernAufgabe(a, null, { tasten: neu, stellen: neu && kind.klasse && kind.klasse <= 6 }); let hilfe = 0; const dock = el('div', { class: 'lr-dock' }); let cid = lernCid();
@@ -1660,6 +1751,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
               el('h2', {}, e.titel, ' ✓'), el('p', {}, `${e.ziel || 6} Punkte gesammelt` + (e.schwerNoetig ? ' – auch eine schwere Bordkarte war dabei.' : '.')),
               sterne ? el('p', { class: 'lr-sterne-neu' }, lernIcon(LI.stern, 20), ` +${sterne} Sterne`) : null,
               el('p', { class: 'lr-leise' }, 'Die Etappe kommt in ein paar Tagen zum Wiederholen.'),
+              lernKnobelAngebot(e, (k) => lernKnobel(flaeche, k, ctx, { ortCode, zurueck: () => { stufe = 0; zeichneUeben(); window.scrollTo(0, 0); } })),
               naechsteKarte ? el('button', { type: 'button', class: 'lr-knopf', onclick: () => { if (neuKarte(naechsteKarte)) { erstErklaeren(naechsteKarte); return; } aktKarte = naechsteKarte; stufe = 0; zeichneUeben(); window.scrollTo(0, 0); } }, `Anschlussflug: ${naechsteKarte.titel} ›`) : null,
               !naechsteKarte && !pflicht.some((x) => !x.fertig) ? lernTestTeil(ctx, etappen) : null,
               el('a', { class: 'lr-knopf-zweit', href: `#/reise/${ctx.kind}` }, 'Zur Abflugtafel'),
@@ -1673,6 +1765,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
             el('p', { class: 'lr-ueber' }, 'ETAPPE SITZT'), el('h2', {}, e.titel),
             sterne ? el('p', { class: 'lr-sterne-neu' }, lernIcon(LI.stern, 20), ` +${sterne} Sterne`) : null,
             el('p', { class: 'lr-leise' }, 'Sie kommt in ein paar Tagen zum Wiederholen.'),
+            lernKnobelAngebot(e, (k) => lernKnobel(flaeche, k, ctx, { ortCode, zurueck: () => { stufe = 0; zeichneUeben(); window.scrollTo(0, 0); } })),
             naechsteKarte ? el('button', { type: 'button', class: 'lr-knopf', onclick: () => { if (neuKarte(naechsteKarte)) { erstErklaeren(naechsteKarte); return; } aktKarte = naechsteKarte; stufe = 0; zeichneUeben(); window.scrollTo(0, 0); } }, `Nächste Etappe: ${naechsteKarte.titel}`)
               : el('button', { type: 'button', class: 'lr-knopf', onclick: () => zeige('erklaeren') }, 'Zur Übersicht der Etappen')));
           (jetztSitzt ? meldung : weiter).scrollIntoView?.({ block: 'center', behavior: 'smooth' });
@@ -1684,7 +1777,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
         lernErsetze(dock, auf.tasten ? lernTastenfeld(auf.tasten, pruefen) : pruefen);
         lernErsetze(flaeche, erkl, erklBox,
           el('section', { class: 'lr-karte-box lr-aufgabe lr-bordkarte' },
-            el('div', { class: 'lr-bord-kopf' }, el('span', {}, `BORDKARTE ${nr} · ${ortCode}`), el('span', {}, a.stufe ? ['', 'LEICHT', 'MITTEL', 'SCHWER'][a.stufe] || '' : '')),
+            el('div', { class: 'lr-bord-kopf' }, el('span', {}, `BORDKARTE ${nr} · ${ortCode}`), lernStufeZeichen(a)),
             auf.node, el('div', { class: 'lr-perforation', 'aria-hidden': 'true' }),
             tipp ? el('div', { class: 'lr-knopfzeile' }, tipp) : null),
           hilfeBox, meldung,
@@ -1692,7 +1785,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
       } else lernErsetze(flaeche,
         erkl, erklBox,
         el('section', { class: 'lr-karte-box lr-aufgabe' },
-          el('p', { class: 'lr-ueber' }, `AUFGABE ${nr}` + (a.stufe ? ` · ${['', 'LEICHT', 'MITTEL', 'SCHWER'][a.stufe] || ''}` : '')), auf.node,
+          el('p', { class: 'lr-ueber' }, `AUFGABE ${nr} `, lernStufeZeichen(a)), auf.node,
           pruefen, tipp ? el('div', { class: 'lr-knopfzeile' }, tipp) : null),
         hilfeBox, meldung,
         ctx.leitung ? lernAendern({ einheit_id: ctx.einheit, lernziel: e.lernziel, aufgabe_id: a.id, lernender_id: ctx.kind }, { bezug: 'bordkarte', wo: `Bordkarte „${String(a.frage?.text || '').slice(0, 60)}“` }) : null);
@@ -2621,7 +2714,7 @@ function lernEtappeStandText(x) {
   return `${x.serie || 0} von ${x.ziel || 6} Punkten · ${x.richtig} richtig, ${x.falsch} falsch`;
 }
 
-// ---------- Eltern/Lehrer: Info-Seite „So funktioniert’s“ (E-1). Text aus inhalte/pruefung/eltern/info-seite.md, gegen den Code geprüft (Stand 0.74.7). ----------
+// ---------- Eltern/Lehrer: Info-Seite „So funktioniert’s“ (E-1). Text aus inhalte/pruefung/eltern/info-seite.md, gegen den Code geprüft (Stand 0.75.0). ----------
 // Ändert sich eine Regel aus „Wie wird gelernt?“ (Etappe sitzt, Wiederholung, Tests), diesen Text im selben Schritt anpassen.
 const LERN_INFO_FRAGEN = [
   ['Worauf baut die App auf?', [
@@ -2634,7 +2727,9 @@ const LERN_INFO_FRAGEN = [
     ['Flug', ' = ein Mathe-Thema, z. B. „Ganze Zahlen“'],
     ['Etappe', ' = ein Lernschritt mit eigener Erklärung'],
     ['Bordkarte', ' = eine Übungsaufgabe'],
-    'Jede Etappe hat eine Erklärung (Alltagseinstieg, neue Wörter, Beispiel Schritt für Schritt, typischer Fehler, Merksatz) und im Schnitt etwa 20 Bordkarten in drei Stufen: leicht, mittel, schwer.']],
+    'Jede Etappe hat eine Erklärung (Alltagseinstieg, neue Wörter, Beispiel Schritt für Schritt, typischer Fehler, Merksatz) und im Schnitt etwa 20 Bordkarten in drei Stufen.',
+    ['Drei Stufen = drei Arten zu denken:', ' ● leicht – wie im Beispiel oder etwas erkennen; ●● mittel – mehrere Schritte, eine Sachaufgabe, umgekehrt gefragt oder die Darstellung wechseln; ●●● schwer – rückwärts rechnen, mit früherem Stoff verknüpfen, begründen, einen Fehler finden, ein Modell selbst aufstellen oder mit einer Variablen statt einer Zahl. Schwer heißt also ein anderer Gedanke, nicht größere Zahlen. Das Zeichen steht im Kopf jeder Bordkarte; unter „Inhalte ansehen“ steht bei jeder Bordkarte auch ihre Art.'],
+    ['Knobel-Bordkarten:', ' freiwillige Zusatzaufgaben auf Wettbewerbsniveau. Sie erscheinen, wenn eine Etappe sitzt, und höchstens einmal am Tag als „Knobeln des Tages“. Ein Versuch; falsch kostet nichts und zeigt den Lösungsweg. Richtig beim ersten Versuch: 30 Sterne und ein Knobel-Stern im Reisepass. Sie zählen nicht für „sitzt“, Wiederholung oder Test.']]],
   ['Wie wird gelernt?', [
     ['Neue Etappe:', ' Zuerst kommt die Erklärung, danach die Bordkarten.'],
     ['Zweiter Versuch:', ' Bei einem Fehler gibt es zuerst einen zweiten Versuch, ohne Lösung (nicht bei Auswahl-Bordkarten mit nur zwei Antworten). Erst wenn auch er falsch ist, zeigt die App Lösung und Lösungsweg.'],
@@ -2642,7 +2737,7 @@ const LERN_INFO_FRAGEN = [
     ['Wiederholung:', ' Sitzt eine Etappe, kommt sie nach 1, 3, 7, 14 und 30 Lerntagen wieder, jeweils mit einer Bordkarte. Ein Lerntag ist ein Tag, an dem das Kind Mathe übt; Reisetage ohne Mathe zählen nicht. Vor einem Flug kommen höchstens 6 Wiederholungen, weitere werden nur angeboten. Ein Fehler: Die Etappe kommt am nächsten Lerntag wieder. Zwei Fehler hintereinander: Das Kind übt sie noch einmal.'],
     ['Flug-Test:', ' wenn alle Etappen sitzen; eine Bordkarte je Etappe, ohne Tipps. Etappen mit Fehlern werden danach verbessert („Verbessern“).'],
     ['Nachtests:', ' später, nach Lerntagen gezählt (nach 10, 25 und 60 Lerntagen); alle Etappen des Flugs, ohne Tipps. Ab 80 %: bestanden. 60–79 %: wiederholen. Unter 60 %: automatische Rückreise im Flugplan.'],
-    ['Belohnungen:', ' 10 Sterne für jede Bordkarte, die zum ersten Mal richtig ist, 20 Sterne für jede richtige Bordkarte im Test, 100 Sterne und ein Stempel für jeden geschafften Ort. Welche Belohnungen es gibt, legen die Eltern fest, und sie bestätigen jede Einlösung.'],
+    ['Belohnungen:', ' 10 Sterne für jede Bordkarte, die zum ersten Mal richtig ist, 20 Sterne für jede richtige Bordkarte im Test, 30 Sterne für eine Knobel-Bordkarte beim ersten Versuch, 100 Sterne und ein Stempel für jeden geschafften Ort. Welche Belohnungen es gibt, legen die Eltern fest, und sie bestätigen jede Einlösung.'],
     'Keine Zeitvorgaben, keine Uhr, keine Ranglisten.']],
   ['Wie entstehen die Inhalte, und wer prüft sie?', [
     'Erklärungen und Bordkarten erstellt eine KI (Claude) nach festen Regeln: Bezug zum Lehrplan, Alltagseinstieg, einfache Sprache, jede Lösung vom Programm berechnet und geprüft.',
@@ -2837,7 +2932,10 @@ async function viewInhalte(arg) {
   const etappen = lernEtappen({ inhalt: d.inhalt, uebungen: aufgaben.filter((a) => a.pool === 'uebung') });
   lernTitel = new Map(etappen.map((e) => [e.lernziel, e.titel]));
   const rmJe = (lz) => (d.rueckmeldungen || []).filter((r) => r.lernziel === lz);
-  const stufeText = (a) => a.pool === 'uebung' ? (['', 'leicht', 'mittel', 'schwer'][a.stufe] || '–') : a.pool === 'test' ? 'Test' : a.pool === 'nachtest' ? 'Nachtest' : a.pool;
+  // F: Stufe und Typ je Bordkarte (typ aus Migration F; fehlt → nur die Stufe)
+  const stufeText = (a) => a.pool === 'bonus' ? el('span', {}, '★ Knobel', el('small', { class: 'muted lp-typ' }, 'freiwillig'))
+    : a.pool === 'uebung' ? el('span', {}, ['', 'leicht', 'mittel', 'schwer'][a.stufe] || '–', a.typ ? el('small', { class: 'muted lp-typ' }, LERN_TYP[a.typ]?.[1] || a.typ) : null)
+    : a.pool === 'test' ? 'Test' : a.pool === 'nachtest' ? 'Nachtest' : a.pool;
   const tabelle = (as) => el('div', { class: 'lp-tabelle-rahmen' }, el('table', { class: 'lp-tabelle' },
     el('thead', {}, el('tr', {}, el('th', {}, 'Stufe'), el('th', {}, 'Bordkarte'), el('th', {}, 'Lösung'), el('th', {}, 'Lösungsweg'), el('th', {}, 'Status'))),
     el('tbody', {}, ...as.map((a) => el('tr', {},
@@ -2893,6 +2991,7 @@ async function viewLernstand(arg) {
       k.richtig + k.falsch ? el('small', { class: 'muted' }, `${k.richtig} richtig · ${k.falsch} falsch` + (k.mit_tipp ? ` · ${k.mit_tipp}-mal Tipp` : '') + (k.zuletzt ? ` · zuletzt ${tag(k.zuletzt)}` : '')) : null,
       // K4: wie viele Bordkarten bis „sitzt“ gebraucht wurden (zeigt, ob „6 Punkte und eine schwere Bordkarte“ zu lang ist)
       k.sitzt && k.bis_sitzt ? el('small', { class: 'muted ls-bis-sitzt' }, `sitzt nach ${k.bis_sitzt} ${k.bis_sitzt === 1 ? 'Bordkarte' : 'Bordkarten'}`) : null,
+      k.knobel_gesamt ? el('small', { class: 'muted ls-knobel' }, `Knobel: ${k.knobel_geloest || 0} von ${k.knobel_gesamt}`) : null, // F
       (k.fehler || []).length ? el('details', { class: 'ls-fehler' }, el('summary', {}, `Letzte falsche Antworten (${k.fehler.length})`),
         ...k.fehler.map((f) => { const a = { antworttyp: f.antworttyp, antworten: f.antworten, loesung: f.loesung, frage: { text: f.frage, schablone: f.schablone, grafik: f.grafik } };
           return el('p', { class: 'small' }, el('span', {}, lernText(f.frage || '')), el('br'), el('span', { class: 'ls-falsch' }, 'Antwort: ' + (lernAntwortText(a, f.antwort || {}) || '–')),

@@ -29,6 +29,7 @@ const AUFG = {
   13: { id: 13, lernziel: 'binomisch', antworttyp: 'luecken', frage: { text: 'Multipliziere aus: (x + 1)²', schablone: '□x² + □x + □' }, loesung: { werte: [1, 2, 1] } },
   15: { id: 15, lernziel: 'binomisch', stufe: 3, antworttyp: 'luecken', frage: { text: 'Kürze 6/8 vollständig.', schablone: '□/□' }, loesung: { werte: [3, 4] } },
   16: { id: 16, lernziel: 'binomisch', stufe: 3, antworttyp: 'luecken', frage: { text: 'Löse das Gleichungssystem.', schablone: 'x = □; y = □' }, loesung: { werte: [2, -1] } },
+  501: { id: 501, lernziel: 'stellenwert', stufe: 3, typ: 'knobel', bonus: true, antworttyp: 'zahl', frage: { text: 'Knobel: Welche Zahl ist um 4 kleiner, wenn man sie erst um 20 % erhöht und dann um 20 % senkt?' }, loesung: { wert: 100 } },
   14: { id: 14, lernziel: 'lesen', antworttyp: 'auswahl', frage: { text: 'Wie liest man 11 490 051?' }, antworten: ['elf Millionen vierhundertneuntausend…', 'elf Millionen vierhundertneunzigtausendeinundfünfzig'], loesung: { index: 1 } },
 };
 const ETAPPEN = [
@@ -141,6 +142,10 @@ async function setup(t, opt = {}) {
       { einheit_id: 2, block_id: 52, stadt: 'New York', ort_titel: 'Zinsen', etappen: ETAPPEN.slice(0, 2), stand: { stellenwert: { fertig: true } }, blocktest_fertig: false, nachtest: { grund: 'einheit_offen' } }] };
     else if (b.aktion === 'schule_uebung_pruefen') {
       const a = AUFG[d.aufgabe_id]; const r = bewerte(a, d.antwort);
+      if (a.bonus) { // F: wie die Datenbank nach Migration F – kein Karten-Stand, kein „nochmal“
+        e = { ok: true, ...r, bonus: true, erster_versuch: true, sterne: r.richtig ? 30 : 0, knobel_sterne: r.richtig ? 1 : 0, loesung: a.loesung, loesungsweg: 'Erst 1,2 · x, dann 0,96 · x.' };
+        await route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: e }) }); return;
+      }
       const k = stand.karten[a.lernziel] ||= { serie: 0, ziel: 2, sitzt: false };
       let neu = false;
       // wie die Datenbank (R2): Fehlermuster als grund; anlauf 1 + falsch → keine Lösung, keine Buchung; anlauf 2 + richtig → Serie steigt nicht
@@ -1383,4 +1388,108 @@ test('P2: Mein Weg · Karte wählt die Orte nach derselben Regel wie „Stand“
   await page.locator('.lr-ortliste li').first().waitFor();
   const orte = await page.locator('.lr-ortliste').innerText();
   assert.match(orte, /Athen/); assert.doesNotMatch(orte, /Rom/);
+});
+
+// ---------- Bau-Auftrag F Teil 2: Stufenzeichen, Abwechslung der Typen, Knobel-Bordkarten ----------
+const mitBonus = (aktion, e) => {
+  if (aktion === 'schule_einheit_lesen') { const x = structuredClone(e); x.uebungen = x.uebungen.map((a) => ({ ...a, stufe: a.stufe || { 11: 1, 12: 1, 13: 2 }[a.id], typ: { 11: 'direkt', 12: 'erkennen', 13: 'mehrschritt', 15: 'rueckwaerts', 16: 'fehler' }[a.id] }));
+    x.bonus = [{ ...zeig(AUFG[501]), versuche: 0, geloest: false }]; return x; }
+  if (aktion === 'schule_konto') { const x = structuredClone(e); x.konto.knobel_sterne = 2; return x; }
+  if (aktion === 'schule_lernstand') { const x = structuredClone(e); Object.assign(x.einheiten[0].karten[0], { knobel_gesamt: 2, knobel_geloest: 1 }); return x; }
+  if (aktion === 'schule_inhalt_lesen' && e.aufgaben?.length) { const x = structuredClone(e); x.aufgaben[0].typ = 'direkt';
+    x.aufgaben.push({ id: 501, lernziel: x.aufgaben[0].lernziel, pool: 'bonus', stufe: 3, typ: 'knobel', antworttyp: 'zahl', frage: { text: 'Knobel?' }, loesung: { wert: 100 }, loesungsweg: 'Weg.', freigegeben: true }); return x; }
+  return null;
+};
+
+test('F: Stufenzeichen im Kopf der Bordkarte (● / ●● / ●●●, mit Text für Vorleser, ohne Rot)', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: mitBonus });
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-3'); await page.getByText(/BORDKARTE 1 · ROM/).waitFor();
+  const z = page.locator('.lr-bord-kopf .lr-stufe');
+  assert.match(await z.getAttribute('aria-label'), /^Stufe: (leicht|mittel|schwer)$/);
+  assert.match(await z.innerText(), /^●{1,3}$/);
+  const farbe = await z.evaluate((x) => getComputedStyle(x).color);
+  const [r, g, b] = farbe.match(/\d+/g).map(Number); assert.ok(!(r > 150 && g < 100 && b < 100), 'kein Rot: ' + farbe);
+  assert.equal(await page.getByText(/^(LEICHT|MITTEL|SCHWER)$/).count(), 0);
+  // ohne Stufe kein Zeichen-Text, Knobel mit Stern
+  assert.deepEqual(await page.evaluate(() => [lernStufeZeichen({ stufe: 2 }).textContent, lernStufeZeichen({}).textContent, lernStufeZeichen({ stufe: 3, bonus: true }).textContent]), ['●●', '', '★ KNOBEL']);
+});
+
+test('F: Auswahl der nächsten Bordkarte – nie zweimal derselbe Typ hintereinander, neue Typen zuerst; schwere Bordkarte nur mit Stufe-3-Typ', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' });
+  await page.goto(origin + '/#/reise/1'); await page.getByRole('heading', { name: /Abflüge/ }).waitFor();
+  const r = await page.evaluate(() => {
+    const k = (id, stufe, typ, text) => ({ id, stufe, typ, frage: { text: text || `Aufgabe ${id}: rechne 3 + ${id}.` } });
+    // 1) Zielstufe 1, letzte war „direkt“: zwei weitere „direkt“ vorn, „erkennen“ dahinter → „erkennen“
+    const e1 = { ziel: 6, serie: 0 }; const w1 = [k(2, 1, 'direkt'), k(3, 1, 'direkt'), k(4, 1, 'erkennen')];
+    lernWaehleBordkarte(w1, e1, k(1, 1, 'direkt'), new Set(['direkt']));
+    // 2) neue Typen zuerst: „mehrschritt“ schon gesehen, „umkehr“ noch nicht
+    const e2 = { ziel: 6, serie: 3 }; const w2 = [k(5, 2, 'mehrschritt'), k(6, 2, 'umkehr')];
+    lernWaehleBordkarte(w2, e2, k(9, 2, 'einkleidung'), new Set(['mehrschritt', 'einkleidung']));
+    // 3) ohne Typ: nie derselbe Fragetext nach Ersetzen der Zahlen
+    const e3 = { ziel: 6, serie: 0 }; const w3 = [k(7, 1, null, 'Rechne 12 + 5.'), k(8, 1, null, 'Rechne 30 + 9.'), k(10, 1, null, 'Wie viel ist das Doppelte von 7?')];
+    lernWaehleBordkarte(w3, e3, k(11, 1, null, 'Rechne 4 + 4.'), new Set());
+    // 4) Punkte voll, schwere Bordkarte fehlt: eine Stufe-3-Aufgabe mit Stufe-1-Typ zählt nicht
+    const e4 = { ziel: 6, serie: 6, schwerNoetig: true, schwerOk: false }; const w4 = [k(12, 3, 'direkt'), k(13, 3, 'begruenden')];
+    lernWaehleBordkarte(w4, e4, null, new Set());
+    return [w1[0].id, w2[0].id, w3[0].id, w4[0].id, lernIstSchwer(k(1, 3, 'knobel')), lernIstSchwer(k(1, 3, null))];
+  });
+  assert.deepEqual(r, [4, 6, 10, 13, false, true]);
+  // in der App: nach einer „direkt“-Bordkarte kommt nicht wieder „direkt“, solange es eine andere gibt
+});
+
+test('F: Knobel-Bordkarte nach der Landung – freiwillig, ein Versuch, 30 Sterne; zählt nicht für „sitzt“', async (t) => {
+  const { page, calls } = await setup(t, { gestaltung: 'nacht', anpassen: mitBonus });
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText(/BORDKARTE 1 · ROM/).waitFor();
+  for (let i = 0; i < 2; i++) {
+    for (const z of ['2', '0', '0', '0']) await page.getByRole('group', { name: 'Tastenfeld' }).getByRole('button', { name: z, exact: true }).click();
+    await page.getByRole('group', { name: 'Tastenfeld' }).getByRole('button', { name: 'Prüfen' }).click();
+    if (i === 0) { await page.getByText(/An Bord/).waitFor(); await page.getByRole('button', { name: 'Neue Bordkarte ›' }).click(); }
+  }
+  await page.getByText('GELANDET').waitFor();
+  const vorher = calls.filter((c) => c.aktion === 'schule_uebung_pruefen').length;
+  await page.getByRole('button', { name: '★ Knobel-Bordkarte (freiwillig)' }).click();
+  await page.locator('.lr-knobel .lr-stufe-bonus').waitFor();
+  assert.match(await page.locator('.lr-knobel').innerText(), /zählt nicht für „sitzt“/);
+  await page.locator('.lr-knobel input').fill('100');
+  await page.locator('.lr-knobel').getByRole('button', { name: 'Prüfen' }).click();
+  await page.getByText('+30 Sterne · ein Knobel-Stern').waitFor();
+  assert.equal(await page.locator('.lr-knobel').getByRole('button', { name: 'Prüfen' }).count(), 0, 'kein zweiter Versuch');
+  const c = calls.filter((x) => x.aktion === 'schule_uebung_pruefen').slice(vorher);
+  assert.equal(c.length, 1); assert.equal(c[0].daten.aufgabe_id, 501); assert.equal(c[0].daten.anlauf, undefined); assert.equal(c[0].daten.hilfe, undefined);
+  await page.screenshot({ path: path.join(root, 'test-results/f-knobel-390.png'), fullPage: true });
+});
+
+test('F: Knobel falsch kostet nichts und zeigt den Weg; ohne Bonus-Aufgaben kein Angebot', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: mitBonus });
+  await page.goto(origin + '/#/reise/1'); await page.getByRole('heading', { name: /Abflüge/ }).waitFor();
+  await page.evaluate(() => { const box = document.createElement('div'); box.id = 'kb'; document.querySelector('.lr-inhalt').append(box);
+    lernKnobel(box, { id: 501, stufe: 3, bonus: true, antworttyp: 'zahl', frage: { text: 'Knobel?' }, tipp: 'Denk nach.' }, { kind: 1 }); });
+  await page.locator('#kb input').fill('96');
+  await page.locator('#kb').getByRole('button', { name: 'Prüfen' }).click();
+  await page.locator('#kb .lr-knobel-falsch').waitFor();
+  const r = [await page.locator('#kb .lr-knobel-falsch').innerText(), ...await page.evaluate(() => [lernKnobelAngebot({ bonus: [] }, () => {}), lernKnobelAngebot({}, () => {})])];
+  assert.match(r[0], /kostet nichts[\s\S]*|So geht’s/);
+  assert.match(r[0], /Richtig ist: 100/);
+  assert.deepEqual(r.slice(1), [null, null]);
+});
+
+test('F: Knobeln des Tages auf der Abflugtafel (einmal je Tag), Knobel-Sterne im Reisepass, Eltern sehen Stufe, Typ und Knobel x von y', async (t) => {
+  const tag = (aktion, e) => { const x = mitBonus(aktion, e); if (aktion !== 'schule_konto') return x;
+    x.knobel_tag = { ...zeig(AUFG[501]), einheit_id: 1, stadt: 'Rom', etappe: 'Welchen Wert hat eine Ziffer?' }; return x; };
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: tag });
+  await page.goto(origin + '/#/reise/1');
+  const box = page.locator('.lr-knobel-tag'); await box.waitFor();
+  assert.match(await box.innerText(), /KNOBELN DES TAGES[\s\S]*Welchen Wert hat eine Ziffer\?/);
+  await box.getByRole('button', { name: 'Knobeln (freiwillig)' }).click();
+  await box.locator('.lr-knobel input').waitFor();
+  await page.reload(); await page.getByRole('heading', { name: /Abflüge/ }).waitFor();
+  assert.equal(await page.locator('.lr-knobel-tag').count(), 0, 'heute nur einmal');
+  await page.goto(origin + '/#/reisepass/1'); await page.getByText('★ Knobel-Sterne: 2').waitFor();
+  // Eltern: Lernstand und Inhalte
+  await page.goto(origin + '/#/lernstand/1'); await page.locator('.ls-knobel').first().waitFor();
+  assert.equal(await page.locator('.ls-knobel').first().innerText(), 'Knobel: 1 von 2');
+  await page.goto(origin + '/#/inhalte/1'); await page.locator('details.lp-karte summary').first().click();
+  const zeilen = page.locator('details.lp-karte').first().locator('.lp-tabelle tbody tr');
+  assert.match(await zeilen.first().locator('td').first().innerText(), /leicht\s*wie im Beispiel/);
+  assert.match(await zeilen.last().locator('td').first().innerText(), /★ Knobel\s*freiwillig/);
 });

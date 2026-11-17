@@ -73,3 +73,30 @@ def umbau_schreiben(d, felder, offen=(), weg=()):
     pfad = THEMEN / f"{d['thema_schluessel']}.json"
     pfad.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding='utf-8')
     return d
+
+
+# ---------- Bausteine für Kartenbilder ----------
+def ko(x, y, punkte=None, strecken=(), schritt=1, **extra):
+    """Koordinatensystem; punkte als {Name: (x, y)} (Name mit _ = ohne Beschriftung)."""
+    b = {'typ': 'koordinaten', 'x': list(x), 'y': list(y)}
+    if schritt:
+        b['schritt_x'] = b['schritt_y'] = schritt
+    if punkte:
+        b['punkte'] = pkte(punkte)
+    if strecken:
+        b['strecken'] = [list(s) for s in strecken]
+    b.update(extra)
+    return b
+
+
+def pkte(punkte):
+    return [{'x': a, 'y': b, 'name': n} for n, (a, b) in punkte.items()]
+
+
+def rand(*ps):
+    """Geschlossener Streckenzug durch die Punkte."""
+    return [[*ps[i], *ps[(i + 1) % len(ps)]] for i in range(len(ps))]
+
+
+def tab(kopf, *zeilen):
+    return {'typ': 'tabelle', 'kopf': list(kopf), 'zeilen': [[str(z) for z in r] for r in zeilen]}

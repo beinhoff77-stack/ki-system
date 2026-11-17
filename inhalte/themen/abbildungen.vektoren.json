@@ -42,7 +42,7 @@
    {
     "lernziel": "vektor_bestimmen",
     "titel": "Einen Vektor aus zwei Punkten",
-    "regel": "Ein ⟦Vektor⟧ beschreibt eine Verschiebung: so viel nach rechts (x) und so viel nach oben (y). Vom Punkt A zum Punkt B gilt: ⟦Vektor AB = (x_B − x_A | y_B − y_A)⟧ – „Spitze minus Fuß“. Wie bei einer Wegbeschreibung: „4 Schritte nach rechts, 3 nach oben.“",
+    "regel": "Vektor AB = Spitze minus Fuß. Rechne ⟦x von B minus x von A⟧, ebenso für y.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -66,41 +66,90 @@
        "y": 4,
        "name": "B"
       }
-     ],
-     "strecken": [
-      [
-       1,
-       1,
-       5,
-       4
-      ],
-      [
-       1,
-       1,
-       5,
-       1,
-       "gestrichelt"
-      ],
-      [
-       5,
-       1,
-       5,
-       4,
-       "gestrichelt"
-      ]
      ]
     },
     "schritte": [
-     "A(1 | 1), B(5 | 4): x: 5 − 1 = 4, y: 4 − 1 = 3.",
-     "Also ⟦Vektor AB = (4 | 3)⟧: 4 nach rechts, 3 nach oben."
+     {
+      "text": "Start ist A(1 | 1), Ziel ist B(5 | 4)."
+     },
+     {
+      "text": "Nach rechts: 5 − 1 = 4.",
+      "bild": {
+       "strecken": [
+        [
+         1,
+         1,
+         5,
+         1,
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Nach oben: 4 − 1 = 3.",
+      "bild": {
+       "strecken": [
+        [
+         1,
+         1,
+         5,
+         1,
+         "gestrichelt"
+        ],
+        [
+         5,
+         1,
+         5,
+         4,
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Spitze minus Fuß ergibt ⟦Vektor AB = (4 | 3)⟧.",
+      "bild": {
+       "pfeile": [
+        [
+         1,
+         1,
+         5,
+         4,
+         "AB"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "A + Vektor: (1 + 4 | 1 + 3) = (5 | 4) = B ✓",
-    "fehler": "Fuß minus Spitze, also (1 − 5 | 1 − 4) = (−4 | −3), ist falsch: Das ist der Vektor ⟦BA⟧, er zeigt in die ⟦Gegenrichtung⟧."
+    "fehler": "Fuß minus Spitze ergibt (−4 | −3). Das ist der Vektor ⟦BA⟧, er zeigt zurück zum Baum.",
+    "einstieg": "Auf einer Schatzkarte steht ein Weg: vom Baum 4 Schritte nach rechts und 3 nach oben. So eine Wegbeschreibung schreibt man kurz als (4 | 3). Sie heißt ⟦Vektor⟧.",
+    "woerter": [
+     [
+      "Vektor",
+      "eine Verschiebung: so weit nach rechts | so weit nach oben"
+     ],
+     [
+      "Spitze minus Fuß",
+      "Zielpunkt minus Startpunkt, getrennt für x und für y"
+     ]
+    ],
+    "fehler_bild": {
+     "pfeile": [
+      [
+       5,
+       4,
+       1,
+       1,
+       "BA"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "bildpunkt",
     "titel": "Punkte verschieben",
-    "regel": "Bei einer ⟦Parallelverschiebung⟧ mit dem Vektor v = (v_x | v_y) wird jeder Punkt gleich weit und in die gleiche Richtung verschoben: ⟦P' = (x + v_x | y + v_y)⟧. Wie ein Schiebepuzzle: Alle Teile rutschen gemeinsam.",
+    "regel": "Bildpunkt = Punkt plus Vektor: x plus x, y plus y. ⟦Alle Punkte⟧ rutschen mit demselben Vektor.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -118,55 +167,295 @@
        "x": -2,
        "y": 3,
        "name": "P"
+      }
+     ]
+    },
+    "schritte": [
+     {
+      "text": "P(−2 | 3) wird mit v = (5 | −2) verschoben.",
+      "bild": {
+       "pfeile": [
+        [
+         -2,
+         3,
+         3,
+         1,
+         "v"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "x: −2 + 5 = 3."
+     },
+     {
+      "text": "y: 3 + (−2) = 1, denn −2 heißt nach unten."
+     },
+     {
+      "text": "Der Bildpunkt ist ⟦P′(3 | 1)⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": -2,
+         "y": 3,
+         "name": "P"
+        },
+        {
+         "x": 3,
+         "y": 1,
+         "name": "P′"
+        }
+       ]
+      }
+     }
+    ],
+    "fehler": "3 + (−2) = 5 ist falsch. Minus beim y heißt ⟦nach unten⟧, der Stein landet tiefer: 3 + (−2) = 1.",
+    "einstieg": "Ein Spielstein steht auf P. Er rutscht 5 nach rechts und 2 nach unten. Rutschen alle Steine so, ist das eine Parallelverschiebung. Der neue Platz heißt ⟦Bildpunkt⟧.",
+    "woerter": [
+     [
+      "Bildpunkt",
+      "der Punkt nach der Verschiebung, geschrieben P′ (gelesen „P Strich“)"
+     ],
+     [
+      "Parallelverschiebung",
+      "alle Punkte rutschen mit demselben Vektor"
+     ]
+    ],
+    "fehler_bild": {
+     "punkte": [
+      {
+       "x": -2,
+       "y": 3,
+       "name": "P"
       },
       {
        "x": 3,
        "y": 1,
-       "name": "P'"
+       "name": "P′"
+      },
+      {
+       "x": 3,
+       "y": 5,
+       "name": "falsch"
       }
-     ],
-     "strecken": [
-      [
-       -2,
-       3,
-       3,
-       1
-      ]
      ]
-    },
-    "schritte": [
-     "P(−2 | 3) mit v = (5 | −2): x: −2 + 5 = 3, y: 3 + (−2) = 1.",
-     "Bildpunkt ⟦P'(3 | 1)⟧."
-    ],
-    "probe": "Vektor PP' = (3 − (−2) | 1 − 3) = (5 | −2) = v ✓",
-    "fehler": "3 + (−2) = 5 ist falsch: Eine negative y-Koordinate im Vektor heißt ⟦nach unten⟧ – es wird kleiner: 3 + (−2) = 1."
+    }
    },
    {
     "lernziel": "gegenvektor",
     "titel": "Gegenvektor und Rückweg",
-    "regel": "Der ⟦Gegenvektor⟧ von v = (a | b) ist ⟦−v = (−a | −b)⟧: gleich lang, entgegengesetzte Richtung. Die ⟦Umkehrabbildung⟧ einer Verschiebung ist die Verschiebung mit dem Gegenvektor – sie bringt jeden Bildpunkt zurück auf seinen Urpunkt: ⟦P = P' − v⟧.",
+    "regel": "Gegenvektor: beide Vorzeichen umdrehen. Mit ⟦−v⟧ kommt jeder Bildpunkt zurück zum Urpunkt.",
     "schritte": [
-     "v = (4 | −3), P'(1 | 2). Gegenvektor: −v = (−4 | 3).",
-     "Urpunkt: P = (1 + (−4) | 2 + 3) = ⟦P(−3 | 5)⟧."
+     {
+      "text": "P′(1 | 2) entstand durch v = (4 | −3). Gesucht ist der Urpunkt P."
+     },
+     {
+      "text": "Gegenvektor: Vorzeichen umdrehen, −v = (−4 | 3).",
+      "bild": {
+       "pfeile": [
+        [
+         1,
+         2,
+         -3,
+         5,
+         "−v"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "P = (1 + (−4) | 2 + 3) = ⟦P(−3 | 5)⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 1,
+         "y": 2,
+         "name": "P′"
+        },
+        {
+         "x": -3,
+         "y": 5,
+         "name": "P"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Probe: P plus v ergibt wieder (1 | 2).",
+      "bild": {
+       "pfeile": [
+        [
+         -3,
+         5,
+         1,
+         2,
+         "v"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "P(−3 | 5) + v: (−3 + 4 | 5 − 3) = (1 | 2) = P' ✓",
-    "fehler": "Zum Bildpunkt nochmal v addieren, also (1 + 4 | 2 − 3) = (5 | −1), ist falsch: Damit schiebst du ⟦weiter⟧ statt zurück. Für den Rückweg brauchst du den ⟦Gegenvektor⟧."
+    "fehler": "Nochmal v addieren schiebt weiter statt zurück: (5 | −1) ist falsch. Für den Rückweg brauchst du den ⟦Gegenvektor⟧.",
+    "einstieg": "Der Spielstein soll zurück an seinen Start. Dafür geht er denselben Weg rückwärts: nach links statt nach rechts, nach oben statt nach unten. Dieser Rückweg heißt ⟦Gegenvektor⟧.",
+    "woerter": [
+     [
+      "Gegenvektor",
+      "gleich lang, aber genau entgegengesetzt; zu v gehört −v"
+     ],
+     [
+      "Urpunkt",
+      "der Punkt vor der Verschiebung"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      6
+     ],
+     "y": [
+      -2,
+      6
+     ],
+     "schritt_x": 1,
+     "schritt_y": 1,
+     "punkte": [
+      {
+       "x": 1,
+       "y": 2,
+       "name": "P′"
+      }
+     ]
+    },
+    "fehler_bild": {
+     "punkte": [
+      {
+       "x": 1,
+       "y": 2,
+       "name": "P′"
+      },
+      {
+       "x": 5,
+       "y": -1,
+       "name": "falsch"
+      }
+     ],
+     "pfeile": [
+      [
+       1,
+       2,
+       5,
+       -1,
+       "v"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "addition",
     "titel": "Vektoren addieren",
-    "regel": "Zwei Verschiebungen nacheinander ergeben ⟦eine einzige Verschiebung⟧: ⟦(a | b) + (c | d) = (a + c | b + d)⟧. Bei einer Vektorkette gilt: ⟦Vektor AB + Vektor BC = Vektor AC⟧ – wie zwei Etappen einer Wanderung.",
+    "regel": "Vektoren addieren: x mit x, y mit y. ⟦AB + BC = AC⟧: Zwei Züge ergeben einen.",
     "schritte": [
-     "v₁ = (3 | −1), v₂ = (−5 | 4).",
-     "v₁ + v₂ = (3 + (−5) | −1 + 4) = ⟦(−2 | 3)⟧."
+     {
+      "text": "Erster Zug: v₁ = (3 | −1).",
+      "bild": {
+       "pfeile": [
+        [
+         0,
+         0,
+         3,
+         -1,
+         "v₁"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Zweiter Zug ab dort: v₂ = (−5 | 4).",
+      "bild": {
+       "pfeile": [
+        [
+         0,
+         0,
+         3,
+         -1,
+         "v₁"
+        ],
+        [
+         3,
+         -1,
+         -2,
+         3,
+         "v₂"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "x: 3 + (−5) = −2. y: −1 + 4 = 3."
+     },
+     {
+      "text": "Summe: ⟦(−2 | 3)⟧, der direkte Weg vom Start zum Ziel.",
+      "bild": {
+       "pfeile": [
+        [
+         0,
+         0,
+         3,
+         -1,
+         "v₁"
+        ],
+        [
+         3,
+         -1,
+         -2,
+         3,
+         "v₂"
+        ],
+        [
+         0,
+         0,
+         -2,
+         3,
+         "Summe"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "Erst 3 nach rechts, dann 5 nach links: insgesamt 2 nach links ✓",
-    "fehler": "Kreuzweise addieren, also (3 + 4 | −1 + (−5)), ist falsch: Es wird ⟦x mit x⟧ und ⟦y mit y⟧ addiert."
+    "fehler": "Über Kreuz addieren, also x mit y, ist falsch. Es gilt ⟦x mit x⟧ und y mit y.",
+    "einstieg": "Der Spielstein zieht zweimal: erst (3 | −1), dann (−5 | 4). Wo endet er insgesamt? Beide Züge zusammen sind ein einziger Zug, die ⟦Summe⟧ der Vektoren.",
+    "woerter": [
+     [
+      "Summe",
+      "das Ergebnis beim Addieren; hier: beide Züge als ein einziger Zug"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      4
+     ],
+     "y": [
+      -2,
+      4
+     ],
+     "schritt_x": 1,
+     "schritt_y": 1,
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "Start"
+      }
+     ]
+    }
    },
    {
     "lernziel": "punkt_berechnen",
     "titel": "Punkte mit Vektoren berechnen",
-    "regel": "Mit Vektoren findest du fehlende Punkte ohne Zeichnung. Im ⟦Parallelogramm ABCD⟧ gilt ⟦Vektor AD = Vektor BC⟧ (gleich lang und gleich gerichtet). Also: ⟦D = A + Vektor BC⟧.",
+    "regel": "Im Parallelogramm ABCD gilt ⟦AD = BC⟧. Also ist D = A + Vektor BC.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -194,11 +483,6 @@
        "x": 6,
        "y": 4,
        "name": "C"
-      },
-      {
-       "x": 2,
-       "y": 3,
-       "name": "D"
       }
      ],
      "strecken": [
@@ -213,39 +497,286 @@
        1,
        6,
        4
-      ],
-      [
-       6,
-       4,
-       2,
-       3,
-       "gestrichelt"
-      ],
-      [
-       2,
-       3,
-       0,
-       0,
-       "gestrichelt"
       ]
      ]
     },
     "schritte": [
-     "A(0 | 0), B(4 | 1), C(6 | 4). Vektor BC = (6 − 4 | 4 − 1) = (2 | 3).",
-     "D = A + Vektor BC = (0 + 2 | 0 + 3) = ⟦D(2 | 3)⟧."
+     {
+      "text": "Vektor BC = (6 − 4 | 4 − 1) = (2 | 3).",
+      "bild": {
+       "pfeile": [
+        [
+         4,
+         1,
+         6,
+         4,
+         "BC"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "AD ist derselbe Vektor wie BC.",
+      "bild": {
+       "pfeile": [
+        [
+         4,
+         1,
+         6,
+         4,
+         "BC"
+        ],
+        [
+         0,
+         0,
+         2,
+         3,
+         "AD"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "D = (0 + 2 | 0 + 3) = ⟦D(2 | 3)⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 0,
+         "y": 0,
+         "name": "A"
+        },
+        {
+         "x": 4,
+         "y": 1,
+         "name": "B"
+        },
+        {
+         "x": 6,
+         "y": 4,
+         "name": "C"
+        },
+        {
+         "x": 2,
+         "y": 3,
+         "name": "D"
+        }
+       ],
+       "strecken": [
+        [
+         0,
+         0,
+         4,
+         1
+        ],
+        [
+         4,
+         1,
+         6,
+         4
+        ],
+        [
+         6,
+         4,
+         2,
+         3,
+         "gestrichelt"
+        ],
+        [
+         2,
+         3,
+         0,
+         0,
+         "gestrichelt"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "Vektor DC = (6 − 2 | 4 − 3) = (4 | 1) = Vektor AB ✓",
-    "fehler": "D = B + Vektor AC zu rechnen ist falsch: Das liefert einen Punkt ⟦außerhalb⟧ des Parallelogramms. Die Ecken laufen der Reihe nach A, B, C, D – D liegt ⟦gegenüber von B⟧."
+    "fehler": "D = B + AC ist falsch, das ergibt einen Punkt weit außerhalb. D liegt ⟦gegenüber von B⟧, die Ecken laufen der Reihe nach.",
+    "einstieg": "Ein Spielfeld hat die Form eines Parallelogramms ABCD. Drei Ecken kennst du, die vierte fehlt. Gegenüberliegende Seiten sind gleiche Vektoren. Damit findest du D ohne Zeichnung.",
+    "woerter": [
+     [
+      "Parallelogramm",
+      "Viereck mit den Ecken der Reihe nach A, B, C, D; Gegenseiten parallel und gleich lang"
+     ]
+    ]
    },
    {
     "lernziel": "eigenschaften",
     "titel": "Was bleibt bei der Verschiebung?",
-    "regel": "Die Parallelverschiebung ist eine ⟦Kongruenzabbildung⟧: Bild und Urbild sind ⟦deckungsgleich⟧. Sie ist ⟦längentreu, winkeltreu, flächentreu⟧, jede Strecke bleibt ⟦parallel⟧ zu ihrem Bild, und der Umlaufsinn bleibt gleich.",
+    "regel": "Verschieben ändert nur die Lage. Längen, Winkel und Flächen bleiben, Strecken bleiben ⟦parallel⟧ zu ihrem Bild.",
     "schritte": [
-     "Dreieck ABC mit AB = 5 cm, Winkel α = 40°, Fläche 6 cm² wird mit v = (3 | 2) verschoben.",
-     "Dann gilt: A'B' = ⟦5 cm⟧, α' = ⟦40°⟧, Fläche ⟦6 cm²⟧, und A'B' ist parallel zu AB."
+     {
+      "text": "Das Dreieck ABC wird mit v = (3 | 2) verschoben.",
+      "bild": {
+       "pfeile": [
+        [
+         0,
+         0,
+         3,
+         2,
+         "v"
+        ],
+        [
+         4,
+         0,
+         7,
+         2
+        ],
+        [
+         1,
+         3,
+         4,
+         5
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Das Bild A′B′C′ liegt woanders, sieht aber gleich aus.",
+      "bild": {
+       "pfeile": null,
+       "punkte": [
+        {
+         "x": 0,
+         "y": 0,
+         "name": "A"
+        },
+        {
+         "x": 4,
+         "y": 0,
+         "name": "B"
+        },
+        {
+         "x": 1,
+         "y": 3,
+         "name": "C"
+        },
+        {
+         "x": 3,
+         "y": 2,
+         "name": "A′"
+        },
+        {
+         "x": 7,
+         "y": 2,
+         "name": "B′"
+        },
+        {
+         "x": 4,
+         "y": 5,
+         "name": "C′"
+        }
+       ],
+       "strecken": [
+        [
+         0,
+         0,
+         4,
+         0
+        ],
+        [
+         4,
+         0,
+         1,
+         3
+        ],
+        [
+         1,
+         3,
+         0,
+         0
+        ],
+        [
+         3,
+         2,
+         7,
+         2
+        ],
+        [
+         7,
+         2,
+         4,
+         5
+        ],
+        [
+         4,
+         5,
+         3,
+         2
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Längentreu: A′B′ ist wie AB ⟦4 lang⟧ und parallel dazu."
+     },
+     {
+      "text": "Auch Winkel und Fläche bleiben: beide Dreiecke sind ⟦6 Kästchen⟧ groß."
+     }
     ],
-    "fehler": "„Weil das Dreieck nach oben verschoben wird, wird es größer“ ist falsch: Eine Verschiebung ändert nur die ⟦Lage⟧, nie die Größe oder Form."
+    "fehler": "„Nach oben geschoben heißt größer“ ist falsch. Eine Verschiebung ändert nur die ⟦Lage⟧, nie Größe oder Form.",
+    "einstieg": "Schiebst du ein Puzzleteil über den Tisch, bleibt es dasselbe Teil. Nur sein Platz ändert sich. Abbildungen, bei denen Form und Größe bleiben, heißen ⟦Kongruenzabbildungen⟧.",
+    "woerter": [
+     [
+      "Kongruenzabbildung",
+      "Bild und Original sind deckungsgleich: gleiche Form, gleiche Größe"
+     ],
+     [
+      "längentreu",
+      "jede Strecke ist im Bild genauso lang wie vorher"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      8
+     ],
+     "y": [
+      -1,
+      6
+     ],
+     "schritt_x": 1,
+     "schritt_y": 1,
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "A"
+      },
+      {
+       "x": 4,
+       "y": 0,
+       "name": "B"
+      },
+      {
+       "x": 1,
+       "y": 3,
+       "name": "C"
+      }
+     ],
+     "strecken": [
+      [
+       0,
+       0,
+       4,
+       0
+      ],
+      [
+       4,
+       0,
+       1,
+       3
+      ],
+      [
+       1,
+       3,
+       0,
+       0
+      ]
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [
@@ -4373,6 +4904,6 @@
   "Flächen mit Determinanten stehen im eigenen Thema abbildungen.determinanten2 (gleicher Block); hier nicht wiederholt.",
   "Das Skalarprodukt (im Feld umfang genannt) ist Stoff der Realschule Klasse 10 und wurde weggelassen; es steht im Thema abbildungen.matrizen.",
   "Kongruenzeigenschaften hier nur für die Parallelverschiebung; Drehung und Achsenspiegelung sind Gymnasium-Themen (abbildungen.kongruenz).",
-  "App-Wunsch: Pfeilspitzen für Vektoren im Koordinatensystem. Bis dahin erscheinen Verschiebungspfeile als Strecken."
+  "Umbau (Paket UR): Die Lernkarten zeigen Vektoren jetzt als Pfeile. Die Aufgaben-Grafiken zeigen sie weiter als Strecken, weil Aufgaben beim Umbau unverändert bleiben."
  ]
 }

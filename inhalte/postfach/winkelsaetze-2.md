@@ -1,7 +1,11 @@
 # Postfach winkelsaetze-2 (Sechzehnte Runde: Flug „Winkelsätze“ nachbessern)
 
+## 2026-11-17 02:50 – STATUS
+**Achtung, doppelte Bearbeitung:** Auf `winkelsaetze-2` hatte eine andere Sitzung schon um 02:15 dieselbe Nachbesserung gepusht (103b7d6, Prüfskript OK).
+Ich habe sie nicht überschrieben. Meine Fassung liegt deshalb auf dem Zweig **`winkelsaetze-2-alt`**. Sebastian entscheidet, welche Fassung eingespielt wird.
+
 ## 2026-11-17 02:45 – FERTIG
-Zweig `winkelsaetze-2` (von `lernen-app` 2e95607). Geändert: nur `inhalte/generatoren/geometrie.winkelsaetze.py`, die erzeugte `inhalte/themen/geometrie.winkelsaetze.json` und diese Meldung.
+Zweig `winkelsaetze-2-alt` (gebaut als `winkelsaetze-2` von `lernen-app` 2e95607). Geändert: nur `inhalte/generatoren/geometrie.winkelsaetze.py`, die erzeugte `inhalte/themen/geometrie.winkelsaetze.json` und diese Meldung.
 `python3 -I tools/inhalt_pruefen.py inhalte/themen/geometrie.winkelsaetze.json` → **OK** (8 Lernkarten, 224 Aufgaben, 154 nachgerechnet, keine Hinweise).
 Der Generator erzeugt die Datei bei jedem Lauf gleich (gleiche Prüfsumme).
 

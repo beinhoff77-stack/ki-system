@@ -711,6 +711,42 @@ BF.nicht_umgesetzt('deuten S3 „Jemand übersetzt … in den Term … Stimmt da
 
 # ---- BEFUNDE ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Klasse 7, siehe _durchsicht_kl7.py) ----
+from _durchsicht_kl7 import Durchsicht, durchsicht_datei  # noqa: E402
+
+DS = Durchsicht('terme.aufstellen', 19_7_1)
+# termwert: Aufgaben nutzen Tabellenkalkulations-Formeln (LehrplanPLUS M7 1.1), die Karte zeigte sie nicht → ein Schritt dazu
+DS.karte('termwert', 'Schritt zur Tabellenkalkulation ergänzt (Aufgaben nutzen Formeln wie =A2*(A1+4)-A1).',
+         schritte=lambda alt: alt + [{'text': 'Tabellenprogramm: x steht in Zelle A1, der Term heißt =3*A1+5 (* heißt mal).'}])
+# sachsituation: fünf Stufe-2-Aufgaben sind das Beispiel mit anderen Zahlen (Grundgebühr + Preis pro Einheit) → Stufe 1
+for _t in ['Ein Kanuverleih verlangt 8 € Grundgebühr und 6 € pro Stunde. Gib den Term für die Kosten (in €) bei x Stunden an.',
+           'Eine Taxifahrt kostet 4 € Grundpreis und 3 € je Kilometer. Gib den Term für den Fahrpreis (in €) bei x Kilometern an.',
+           'Ein Streamingdienst kostet 10 € im Monat, jeder ausgeliehene Film zusätzlich 2 €. Gib den Term für die Monatskosten (in €) bei x Filmen an.',
+           'Ein Streamingdienst kostet 12 € im Monat, jeder ausgeliehene Film zusätzlich 4 €. Gib den Term für die Monatskosten (in €) bei x Filmen an.',
+           'Eine Taxifahrt kostet 6 € Grundpreis und 3 € je Kilometer. Gib den Term für den Fahrpreis (in €) bei x Kilometern an.']:
+    DS.stufe('sachsituation', _t, 1)
+# sachsituation: echte Stufe 2 (zwei Bezüge, Rabatt) ergänzen
+DS.neu('sachsituation', 2, DS.L('Ein Heft kostet x €, ein Block 1 € mehr als ein Heft. Gib einen Term für den Preis von 3 Heften und 2 Blöcken an und fasse zusammen.',
+                                '□x + □', [5, 2], ['5', '2'], '3x + 2(x + 1) = 3x + 2x + 2 = 5x + 2.',
+                                'Schreib zuerst den Preis eines Blocks als Term: x + 1.'))
+DS.neu('sachsituation', 2, DS.L('Der Eintritt kostet x € pro Person. Eine Gruppe aus 12 Personen bekommt 2 € Rabatt pro Person. Gib einen Term für den Gesamtpreis der Gruppe an.',
+                                '□x + □', [12, -24], ['12', '-24'], 'Jede Person zahlt x − 2 €. Zusammen: 12(x − 2) = 12x − 24.',
+                                'Was zahlt eine Person? Dann mal 12.'))
+# deuten: zwei der vier Stufe-3-Aufgaben „Jemand übersetzt …“ prüfen Übersetzen (Karte uebersetzen), nicht Deuten → durch Deuten-Aufgaben ersetzen
+DS.ersetze('deuten', 'Jemand übersetzt „die Differenz aus 8 und x“ in den Term x − 8. Stimmt das?',
+           DS.A('Tarif A: K = 0,1x + 8. Tarif B: K = 0,2x + 3 (x = Minuten, K in €). Für x = 50 ergeben beide Terme 13. Was bedeutet das?',
+                'Bei 50 Minuten kosten beide Tarife gleich viel, nämlich 13 €.',
+                ['Beide Tarife kosten pro Minute 13 Cent.', 'Bei 13 Minuten kosten beide Tarife 50 €.', 'Tarif B ist ab 13 Minuten günstiger.'],
+                '0,1 · 50 + 8 = 13 und 0,2 · 50 + 3 = 13: Bei 50 Minuten zahlt man in beiden Tarifen 13 €.',
+                'Setze in Gedanken x = 50 in beide Terme ein. Wofür steht x, wofür K?'))
+DS.ersetze('deuten', 'Jemand übersetzt „das Dreifache der Summe aus x und 5“ in den Term 3x + 5. Stimmt das?',
+           DS.A('Eine Kerze ist nach x Stunden h = 20 − 2x cm hoch. Eine zweite Kerze ist am Anfang doppelt so hoch und brennt genauso schnell ab. Welcher Term passt zur zweiten Kerze?',
+                '40 − 2x', ['40 − 4x', '20 − 4x', '2 · (20 − 2x)'],
+                'Doppelt so hoch: Anfangshöhe 40 cm. Gleich schnell: weiter 2 cm pro Stunde. Also 40 − 2x. 2 · (20 − 2x) = 40 − 4x würde doppelt so schnell abbrennen.',
+                'Welche Zahl im Term ist die Anfangshöhe, welche die Abnahme pro Stunde?'))
+# ---- DURCHSICHT ENDE ----
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Terme lesen', ['struktur', 'termwert']), ('Terme aufstellen', ['uebersetzen', 'sachsituation', 'muster']), ('Terme deuten', ['deuten'])],
@@ -721,3 +757,4 @@ if __name__ == '__main__':
                 'Äquivalenzumformungen von Termen (Ausmultiplizieren, Zusammenfassen als eigenes Thema) sind nicht Teil dieses Themas; nur einfaches Zusammenfassen kommt in Stufe 3 vor.'])
     anhaengen(META['thema_schluessel'], schwer())
     befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+    durchsicht_datei(META['thema_schluessel'], DS)  # Neunzehnte Runde: zuletzt

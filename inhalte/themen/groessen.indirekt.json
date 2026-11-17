@@ -2578,6 +2578,118 @@
    "l": "produkt",
    "t": "erkennen",
    "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "In der Tabelle einer indirekten Proportionalität hat sich ein Fehler eingeschlichen. Welches Paar ist falsch?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "2",
+      "3",
+      "12",
+      "24"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "76",
+       "48",
+       "12",
+       "6"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "(3 | 48)",
+    "(12 | 12)",
+    "(24 | 6)",
+    "(2 | 76)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Produkte: 2 · 76 = 152, 3 · 48 = 144, 12 · 12 = 144, 24 · 6 = 144. Nur (2 | 76) weicht ab; richtig wäre 72.",
+   "h": "Berechne alle Produkte. Welches fällt aus der Reihe?",
+   "g": "fehler"
+  },
+  {
+   "l": "produkt",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle gehört zu einer indirekten Proportionalität. Ergänze den fehlenden Wert.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "0,5",
+      "10"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "30",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1.5
+   },
+   "c": "(1/2) * 30 / 10",
+   "w": "Produkt: 0,5 · 30 = 15. Fehlender Wert: 15 : 10 = 1,5.",
+   "h": "Auch mit Dezimalzahlen gilt: Produkt ist konstant.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "produkt",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Preisgeld wird gleichmäßig aufgeteilt. Bei 5 Personen bekommt jede 24 €. Nun kommen noch Personen dazu, und jede bekommt nur noch 12 €. Wie viele Personen sind es jetzt?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "5 * 24 // 12",
+   "w": "Gesamtbetrag (Produkt): 5 · 24 = 120 €. Personen: 120 : 12 = 10.",
+   "h": "Was bleibt gleich, egal wie viele Personen es sind?",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "produkt",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "An einer Wippe herrscht Gleichgewicht. Gemessen: 20 kg bei 3 m, 30 kg bei 2 m, 40 kg bei 1,6 m, 60 kg bei 1 m Abstand. Welcher Messwert passt nicht zur indirekten Proportionalität?"
+   },
+   "a": [
+    "30 kg bei 2 m",
+    "40 kg bei 1,6 m",
+    "60 kg bei 1 m",
+    "20 kg bei 3 m"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gewicht · Abstand: 60, 60, 64, 60. Nur 40 · 1,6 = 64 weicht ab; richtig wären 1,5 m.",
+   "h": "Bilde für jeden Messwert das Produkt.",
+   "g": "transfer"
+  },
+  {
+   "l": "produkt",
+   "t": "erkennen",
+   "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
@@ -2764,38 +2876,6 @@
    "t": "erkennen",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Tabelle gehört zu einer indirekten Proportionalität. Ergänze den fehlenden Wert.",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "x",
-      "0,5",
-      "10"
-     ],
-     "zeilen": [
-      [
-       "y",
-       "30",
-       "?"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 1.5
-   },
-   "c": "(1/2) * 30 / 10",
-   "w": "Produkt: 0,5 · 30 = 15. Fehlender Wert: 15 : 10 = 1,5.",
-   "h": "Auch mit Dezimalzahlen gilt: Produkt ist konstant.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "produkt",
-   "t": "erkennen",
-   "p": "uebung",
-   "s": 3,
    "y": "auswahl",
    "f": {
     "text": "In der Tabelle einer indirekten Proportionalität hat sich ein Fehler eingeschlichen. Welches Paar ist falsch?",
@@ -2803,32 +2883,32 @@
      "typ": "tabelle",
      "kopf": [
       "x",
-      "2",
       "3",
+      "10",
       "12",
-      "24"
+      "20"
      ],
      "zeilen": [
       [
        "y",
-       "76",
-       "48",
-       "12",
-       "6"
+       "23",
+       "6",
+       "5",
+       "3"
       ]
      ]
     }
    },
    "a": [
-    "(3 | 48)",
-    "(12 | 12)",
-    "(24 | 6)",
-    "(2 | 76)"
+    "(20 | 3)",
+    "(12 | 5)",
+    "(3 | 23)",
+    "(10 | 6)"
    ],
    "o": {
-    "index": 3
+    "index": 2
    },
-   "w": "Produkte: 2 · 76 = 152, 3 · 48 = 144, 12 · 12 = 144, 24 · 6 = 144. Nur (2 | 76) weicht ab; richtig wäre 72.",
+   "w": "Produkte: 3 · 23 = 69, 10 · 6 = 60, 12 · 5 = 60, 20 · 3 = 60. Nur (3 | 23) weicht ab; richtig wäre 20.",
    "h": "Berechne alle Produkte. Welches fällt aus der Reihe?",
    "g": "fehler"
   },
@@ -2839,13 +2919,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Preisgeld wird gleichmäßig aufgeteilt. Bei 5 Personen bekommt jede 24 €. Nun kommen noch Personen dazu, und jede bekommt nur noch 12 €. Wie viele Personen sind es jetzt?"
+    "text": "Ein Preisgeld wird gleichmäßig aufgeteilt. Bei 4 Personen bekommt jede 30 €. Nun kommen noch Personen dazu, und jede bekommt nur noch 10 €. Wie viele Personen sind es jetzt?"
    },
    "o": {
-    "wert": 10
+    "wert": 12
    },
-   "c": "5 * 24 // 12",
-   "w": "Gesamtbetrag (Produkt): 5 · 24 = 120 €. Personen: 120 : 12 = 10.",
+   "c": "4 * 30 // 10",
+   "w": "Gesamtbetrag (Produkt): 4 · 30 = 120 €. Personen: 120 : 10 = 12.",
    "h": "Was bleibt gleich, egal wie viele Personen es sind?",
    "g": "rueckwaerts"
   },
@@ -2856,20 +2936,55 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "An einer Wippe herrscht Gleichgewicht. Gemessen: 20 kg bei 3 m, 30 kg bei 2 m, 40 kg bei 1,6 m, 60 kg bei 1 m Abstand. Welcher Messwert passt nicht zur indirekten Proportionalität?"
+    "text": "In einer Tabellenkalkulation steht x in Spalte A. In Spalte B soll y einer indirekten Proportionalität mit x · y = 120 stehen. Welche Formel gehört in B2?"
    },
    "a": [
-    "30 kg bei 2 m",
-    "40 kg bei 1,6 m",
-    "60 kg bei 1 m",
-    "20 kg bei 3 m"
+    "=A2/120",
+    "=120-A2",
+    "=120*A2",
+    "=120/A2"
    ],
    "o": {
-    "index": 1
+    "index": 3
    },
-   "w": "Gewicht · Abstand: 60, 60, 64, 60. Nur 40 · 1,6 = 64 weicht ab; richtig wären 1,5 m.",
-   "h": "Bilde für jeden Messwert das Produkt.",
+   "w": "Aus x · y = 120 folgt y = 120 : x. Also =120/A2.",
+   "h": "Stelle x · y = 120 nach y um.",
    "g": "transfer"
+  },
+  {
+   "l": "produkt",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 9 cm lang und 2 cm breit. Ein zweites Rechteck mit demselben Flächeninhalt ist doppelt so lang wie breit. Wie breit ist es?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm"
+   },
+   "c": "18 / 6",
+   "w": "Fläche 18 cm². Breite b, Länge 2b: 2b · b = 18 ⇔ b · b = 9 ⇔ b = 3 cm (Länge 6 cm).",
+   "h": "Schreibe die Länge als 2 · b.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "produkt",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer indirekten Proportionalität ist y = 9, wenn x = 4. Für welches positive x sind x und y gleich groß?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "36 / 6",
+   "w": "Produkt 36. x = y heißt x · x = 36, also x = 6 (6 · 6 = 36).",
+   "h": "Welche Zahl mal sich selbst ergibt das Produkt?",
+   "g": "parameter"
   },
   {
    "l": "produkt",
@@ -3094,42 +3209,201 @@
    "l": "produkt",
    "t": "erkennen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine indirekte Proportionalität enthält das Paar (0,5 | 36). Welcher y-Wert gehört zu x = 4,5?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "0.5 * 36 / 4.5",
+   "w": "Produkt: 0,5 · 36 = 18. y = 18 : 4,5 = 4.",
+   "h": "Erst das Produkt, dann teilen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "produkt",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "In der Tabelle einer indirekten Proportionalität hat sich ein Fehler eingeschlichen. Welches Paar ist falsch?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "x",
-      "3",
-      "10",
-      "12",
-      "20"
-     ],
-     "zeilen": [
-      [
-       "y",
-       "23",
-       "6",
-       "5",
-       "3"
-      ]
-     ]
-    }
+    "text": "Eine indirekte Proportionalität enthält das Paar (3 | 20). Welches Paar passt NICHT dazu?"
    },
    "a": [
-    "(20 | 3)",
-    "(12 | 5)",
-    "(3 | 23)",
-    "(10 | 6)"
+    "(6 | 10)",
+    "(15 | 4)",
+    "(5 | 15)",
+    "(12 | 5)"
    ],
    "o": {
     "index": 2
    },
-   "w": "Produkte: 3 · 23 = 69, 10 · 6 = 60, 12 · 5 = 60, 20 · 3 = 60. Nur (3 | 23) weicht ab; richtig wäre 20.",
-   "h": "Berechne alle Produkte. Welches fällt aus der Reihe?",
+   "w": "Das Produkt muss 60 sein. 5 · 15 = 75, alle anderen ergeben 60.",
+   "h": "Bilde jeweils x · y.",
+   "g": "umkehr"
+  },
+  {
+   "l": "produkt",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet: 3 Pumpen brauchen 8 h, also brauchen 12 Pumpen 32 h. Was ist falsch?"
+   },
+   "a": [
+    "Man muss 8 + 12 rechnen.",
+    "Es müssten 34 h sein.",
+    "Richtig gerechnet.",
+    "Mehr Pumpen brauchen weniger Zeit: 3 · 8 = 24, 24 : 12 = 2 h."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Indirekt proportional: Das Produkt Pumpen · Stunden bleibt gleich (24). Gerechnet wurde wie bei einer direkten Proportionalität.",
+   "h": "Mehr Pumpen – mehr oder weniger Zeit?",
    "g": "fehler"
+  },
+  {
+   "l": "produkt",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Wippe ist im Gleichgewicht, wenn auf beiden Seiten „Gewicht · Abstand zum Drehpunkt“ gleich ist. Ein Kind mit 30 kg sitzt 2 m vom Drehpunkt. Wie weit muss ein Kind mit 40 kg sitzen?"
+   },
+   "o": {
+    "wert": 1.5,
+    "einheit": "m"
+   },
+   "c": "30 * 2 / 40",
+   "w": "30 · 2 = 60. Also 40 · Abstand = 60, Abstand = 1,5 m. Das schwerere Kind sitzt näher am Drehpunkt.",
+   "h": "Gewicht und Abstand sind indirekt proportional.",
+   "g": "transfer"
+  },
+  {
+   "l": "produkt",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "x und y sind indirekt proportional. x wird um 25 % erhöht. Um wie viel Prozent sinkt y?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "%"
+   },
+   "c": "(1 - 1 / 1.25) * 100",
+   "w": "Neues x = 1,25 · x. Damit x · y gleich bleibt, wird y durch 1,25 geteilt: y · 0,8. Das ist eine Abnahme um 20 %, nicht um 25 %.",
+   "h": "Teste mit Zahlen: x = 4, y = 10. Was ist y, wenn x = 5?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "produkt",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "8 Arbeiter brauchen für einen Auftrag 15 Tage. Nach 5 Tagen kommen 2 Arbeiter dazu. Wie viele Tage dauert der Auftrag insgesamt?"
+   },
+   "o": {
+    "wert": 13,
+    "einheit": "Tage"
+   },
+   "c": "5 + (8 * 15 - 8 * 5) / 10",
+   "w": "Der Auftrag braucht 8 · 15 = 120 Arbeitstage. Nach 5 Tagen sind 40 erledigt, 80 fehlen. 10 Arbeiter brauchen dafür 8 Tage. Insgesamt 5 + 8 = 13 Tage.",
+   "h": "Rechne in „Arbeitstagen“ (Arbeiter · Tage).",
+   "g": "pruefung"
+  },
+  {
+   "l": "produkt",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl a ist die Zuordnung (2 | 9), (3 | 6), (a | 4) indirekt proportional?"
+   },
+   "o": {
+    "wert": 4.5
+   },
+   "c": "18 / 4",
+   "w": "x · y = 18 bei den ersten beiden Paaren. Also a · 4 = 18 ⇒ a = 4,5.",
+   "h": "Welches Produkt ist bei den bekannten Paaren gleich?"
+  },
+  {
+   "l": "produkt",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Vorrat reicht für eine Gruppe 20 Tage. Kommen 5 Personen dazu, reicht er nur noch 16 Tage. Wie viele Personen waren es ursprünglich?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "16 * 5 / (20 - 16)",
+   "w": "Personen · Tage bleibt gleich: 20n = 16(n + 5) ⇒ 4n = 80 ⇒ n = 20.",
+   "h": "Das Produkt Personen · Tage ändert sich nicht."
+  },
+  {
+   "l": "produkt",
+   "t": "erkennen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "In einer Tabelle einer indirekten Proportionalität stehen die Paare (x | 18) und (x + 3 | 12). Wie groß ist x?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "3 * 12 / (18 - 12)",
+   "w": "x · 18 = (x + 3) · 12 ⇒ 18x = 12x + 36 ⇒ x = 6. Probe: 6 · 18 = 108 = 9 · 12.",
+   "h": "Beide Paare haben dasselbe Produkt."
+  },
+  {
+   "l": "produkt",
+   "t": "erkennen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer indirekten Proportionalität ist das Produkt 36. Wie viele Paare aus zwei natürlichen Zahlen (x | y) gehören dazu?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "9",
+   "w": "x muss ein Teiler von 36 sein: 1, 2, 3, 4, 6, 9, 12, 18, 36 – neun Teiler, also neun Paare (1 | 36), (2 | 18), …, (36 | 1).",
+   "h": "Welche x sind möglich, wenn y eine natürliche Zahl sein soll?"
+  },
+  {
+   "l": "produkt",
+   "t": "erkennen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Vorrat reicht für 10 Tiere 30 Tage. Nach 6 Tagen kommen 2 Tiere dazu, nach weiteren 10 Tagen werden 4 Tiere abgegeben. Wie viele Tage reicht der Vorrat insgesamt?"
+   },
+   "o": {
+    "wert": 31
+   },
+   "c": "6 + 10 + (300 - 60 - 120) / 8",
+   "w": "Der Vorrat sind 10 · 30 = 300 „Tiertage“. 6 Tage mit 10 Tieren: 60. 10 Tage mit 12 Tieren: 120. Rest 120 für 8 Tiere: 15 Tage. Insgesamt 6 + 10 + 15 = 31 Tage.",
+   "h": "Rechne mit „Tiertagen“ wie mit einer Menge, die verbraucht wird."
   },
   {
    "l": "produkt",
@@ -3494,153 +3768,6 @@
     "index": 2
    },
    "w": "Produkte: 3 · 16 = 48, 4 · 15 = 60, 8 · 6 = 48, 12 · 4 = 48. Ein abweichendes Produkt genügt für „nein“."
-  },
-  {
-   "l": "produkt",
-   "t": "erkennen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Preisgeld wird gleichmäßig aufgeteilt. Bei 4 Personen bekommt jede 30 €. Nun kommen noch Personen dazu, und jede bekommt nur noch 10 €. Wie viele Personen sind es jetzt?"
-   },
-   "o": {
-    "wert": 12
-   },
-   "c": "4 * 30 // 10",
-   "w": "Gesamtbetrag (Produkt): 4 · 30 = 120 €. Personen: 120 : 10 = 12.",
-   "h": "Was bleibt gleich, egal wie viele Personen es sind?",
-   "g": "rueckwaerts"
-  },
-  {
-   "l": "produkt",
-   "t": "erkennen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine indirekte Proportionalität enthält das Paar (0,5 | 36). Welcher y-Wert gehört zu x = 4,5?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "0.5 * 36 / 4.5",
-   "w": "Produkt: 0,5 · 36 = 18. y = 18 : 4,5 = 4.",
-   "h": "Erst das Produkt, dann teilen.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "produkt",
-   "t": "erkennen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine indirekte Proportionalität enthält das Paar (3 | 20). Welches Paar passt NICHT dazu?"
-   },
-   "a": [
-    "(6 | 10)",
-    "(15 | 4)",
-    "(5 | 15)",
-    "(12 | 5)"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Das Produkt muss 60 sein. 5 · 15 = 75, alle anderen ergeben 60.",
-   "h": "Bilde jeweils x · y.",
-   "g": "umkehr"
-  },
-  {
-   "l": "produkt",
-   "t": "erkennen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "In einer Tabellenkalkulation steht x in Spalte A. In Spalte B soll y einer indirekten Proportionalität mit x · y = 120 stehen. Welche Formel gehört in B2?"
-   },
-   "a": [
-    "=A2/120",
-    "=120-A2",
-    "=120*A2",
-    "=120/A2"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Aus x · y = 120 folgt y = 120 : x. Also =120/A2.",
-   "h": "Stelle x · y = 120 nach y um.",
-   "g": "transfer"
-  },
-  {
-   "l": "produkt",
-   "t": "erkennen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rechteck ist 9 cm lang und 2 cm breit. Ein zweites Rechteck mit demselben Flächeninhalt ist doppelt so lang wie breit. Wie breit ist es?"
-   },
-   "o": {
-    "wert": 3,
-    "einheit": "cm"
-   },
-   "c": "18 / 6",
-   "w": "Fläche 18 cm². Breite b, Länge 2b: 2b · b = 18 ⇔ b · b = 9 ⇔ b = 3 cm (Länge 6 cm).",
-   "h": "Schreibe die Länge als 2 · b.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "produkt",
-   "t": "erkennen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Bei einer indirekten Proportionalität ist y = 9, wenn x = 4. Für welches positive x sind x und y gleich groß?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "36 / 6",
-   "w": "Produkt 36. x = y heißt x · x = 36, also x = 6 (6 · 6 = 36).",
-   "h": "Welche Zahl mal sich selbst ergibt das Produkt?",
-   "g": "parameter"
-  },
-  {
-   "l": "produkt",
-   "t": "erkennen",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "In einer Tabelle einer indirekten Proportionalität stehen die Paare (x | 18) und (x + 3 | 12). Wie groß ist x?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "3 * 12 / (18 - 12)",
-   "w": "x · 18 = (x + 3) · 12 ⇒ 18x = 12x + 36 ⇒ x = 6. Probe: 6 · 18 = 108 = 9 · 12.",
-   "h": "Beide Paare haben dasselbe Produkt."
-  },
-  {
-   "l": "produkt",
-   "t": "erkennen",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Bei einer indirekten Proportionalität ist das Produkt 36. Wie viele Paare aus zwei natürlichen Zahlen (x | y) gehören dazu?"
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "9",
-   "w": "x muss ein Teiler von 36 sein: 1, 2, 3, 4, 6, 9, 12, 18, 36 – neun Teiler, also neun Paare (1 | 36), (2 | 18), …, (36 | 1).",
-   "h": "Welche x sind möglich, wenn y eine natürliche Zahl sein soll?"
   },
   {
    "l": "dreisatz",
@@ -4501,6 +4628,102 @@
    "l": "graph",
    "t": "darstellen",
    "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Hyperbeln gehören zu y = 6 : x und y = 12 : x. Welche gehört zu y = 12 : x?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      12
+     ],
+     "y": [
+      0,
+      12
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 6,
+       "b": 0,
+       "c": 0,
+       "name": "f",
+       "bereich": [
+        0.5,
+        12
+       ]
+      },
+      {
+       "art": "hyperbel",
+       "a": 12,
+       "b": 0,
+       "c": 0,
+       "name": "g",
+       "bereich": [
+        1.0,
+        12
+       ]
+      }
+     ]
+    }
+   },
+   "a": [
+    "f",
+    "Man kann es nicht erkennen.",
+    "g"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Bei gleichem x ist y = 12 : x größer als y = 6 : x. Die Hyperbel mit größerem k liegt weiter oben, hier g.",
+   "h": "Vergleiche die y-Werte bei x = 1 oder x = 2.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "graph",
+   "t": "darstellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph gehört zu y = 6 : x. Welchen y-Wert hat er bei x = 8? (Dezimalzahl)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      12
+     ],
+     "y": [
+      0,
+      12
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 6,
+       "b": 0,
+       "c": 0,
+       "bereich": [
+        0.5,
+        12
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.75
+   },
+   "c": "6 / 8",
+   "w": "y = 6 : 8 = 0,75. Am Graphen siehst du: knapp über oder unter einer ganzen Zahl.",
+   "h": "Setze ein und rechne genau.",
+   "g": "direkt"
+  },
+  {
+   "l": "graph",
+   "t": "darstellen",
+   "p": "uebung",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -4628,96 +4851,40 @@
    "t": "darstellen",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Die Hyperbeln gehören zu y = 6 : x und y = 12 : x. Welche gehört zu y = 12 : x?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      12
-     ],
-     "y": [
-      0,
-      12
-     ],
-     "graphen": [
-      {
-       "art": "hyperbel",
-       "a": 6,
-       "b": 0,
-       "c": 0,
-       "name": "f",
-       "bereich": [
-        0.5,
-        12
-       ]
-      },
-      {
-       "art": "hyperbel",
-       "a": 12,
-       "b": 0,
-       "c": 0,
-       "name": "g",
-       "bereich": [
-        1.0,
-        12
-       ]
-      }
-     ]
-    }
+    "text": "P(2 | 9) und Q(6 | 3) liegen auf derselben Hyperbel y = k : x. Jeder Punkt bildet mit dem Ursprung und den Achsen ein Rechteck. Um wie viel cm² unterscheiden sich die Flächeninhalte?"
    },
-   "a": [
-    "f",
-    "Man kann es nicht erkennen.",
-    "g"
-   ],
    "o": {
-    "index": 2
+    "wert": 0,
+    "einheit": "cm²"
    },
-   "w": "Bei gleichem x ist y = 12 : x größer als y = 6 : x. Die Hyperbel mit größerem k liegt weiter oben, hier g.",
-   "h": "Vergleiche die y-Werte bei x = 1 oder x = 2.",
-   "g": "verknuepfen"
+   "c": "2 * 9 - 6 * 3",
+   "w": "P: 2 · 9 = 18, Q: 6 · 3 = 18. Beide Rechtecke haben 18 cm² – Unterschied 0. Das gilt für alle Punkte der Hyperbel.",
+   "h": "Fläche = x · y.",
+   "g": "begruenden"
   },
   {
    "l": "graph",
    "t": "darstellen",
    "p": "uebung",
-   "s": 1,
-   "y": "zahl",
+   "s": 3,
+   "y": "auswahl",
    "f": {
-    "text": "Der Graph gehört zu y = 6 : x. Welchen y-Wert hat er bei x = 8? (Dezimalzahl)",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      12
-     ],
-     "y": [
-      0,
-      12
-     ],
-     "graphen": [
-      {
-       "art": "hyperbel",
-       "a": 6,
-       "b": 0,
-       "c": 0,
-       "bereich": [
-        0.5,
-        12
-       ]
-      }
-     ]
-    }
+    "text": "Für welche x > 0 liegt der Graph von y = 12 : x oberhalb der Geraden y = 3?"
    },
+   "a": [
+    "für alle x > 0",
+    "für x > 3",
+    "für 0 < x < 4",
+    "für x > 4"
+   ],
    "o": {
-    "wert": 0.75
+    "index": 2
    },
-   "c": "6 / 8",
-   "w": "y = 6 : 8 = 0,75. Am Graphen siehst du: knapp über oder unter einer ganzen Zahl.",
-   "h": "Setze ein und rechne genau.",
-   "g": "direkt"
+   "w": "Bei x = 4 ist y = 3. Für kleinere x ist 12 : x größer als 3, für größere kleiner.",
+   "h": "Wo ist 12 : x genau 3?",
+   "g": "verknuepfen"
   },
   {
    "l": "graph",
@@ -4786,6 +4953,53 @@
    "c": "1 * 8",
    "w": "P(1 | 8): k = x · y = 1 · 8 = 8.",
    "h": "k ist das Produkt der Koordinaten eines Punktes."
+  },
+  {
+   "l": "graph",
+   "t": "darstellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph gehört zu einer indirekten Proportionalität und geht durch P(4 | 3). Welchen y-Wert hat er bei x = 6?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      8
+     ],
+     "y": [
+      0,
+      8
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 12,
+       "b": 0,
+       "c": 0,
+       "bereich": [
+        1.5,
+        8
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 4,
+       "y": 3,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "4 * 3 / 6",
+   "w": "k = 4 · 3 = 12. Bei x = 6: y = 12 : 6 = 2.",
+   "h": "Bestimme zuerst k aus P.",
+   "g": "direkt"
   },
   {
    "l": "graph",
@@ -4928,6 +5142,290 @@
    },
    "w": "0,5 · 48 = 24. Das Produkt stimmt, Q liegt auf dem Graphen.",
    "h": "Prüfe x · y."
+  },
+  {
+   "l": "graph",
+   "t": "darstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Alle Rechtecke mit 24 cm² Flächeninhalt: Breite x → Länge y. Der Punkt P(2 | 12) liegt auf dem Graphen. Was bedeutet der Punkt?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      12
+     ],
+     "y": [
+      0,
+      13
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 24,
+       "b": 0,
+       "c": 0,
+       "bereich": [
+        1.85,
+        12
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 12,
+       "name": "P"
+      }
+     ],
+     "name_x": "Breite in cm",
+     "name_y": "Länge in cm"
+    }
+   },
+   "a": [
+    "Ein Rechteck mit Breite 2 cm und Länge 12 cm hat 24 cm².",
+    "Breite und Länge zusammen sind 14 cm².",
+    "Das Rechteck ist 24 cm lang.",
+    "Ein Rechteck mit Breite 2 cm hat 24 cm² Umfang."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "x ist die Breite, y die Länge. Der Punkt steht für ein Rechteck mit 2 cm · 12 cm = 24 cm².",
+   "h": "Was bedeuten die beiden Achsen?"
+  },
+  {
+   "l": "graph",
+   "t": "darstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Hyperbel einer indirekten Proportionalität geht durch P(3 | 4). Durch welchen Punkt geht sie außerdem?"
+   },
+   "a": [
+    "(6 | 2)",
+    "(1 | 7)",
+    "(2 | 5)",
+    "(6 | 8)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "k = 3 · 4 = 12. Nur 6 · 2 = 12. (6 | 8) wäre direkt proportional gedacht, (1 | 7) und (2 | 5) haben die Summe 7 wie P.",
+   "h": "Bilde das Produkt.",
+   "g": "pruefung"
+  },
+  {
+   "l": "graph",
+   "t": "darstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Hyperbel y = k : x und die Gerade y = x schneiden sich bei x = 5 (x > 0). Bestimme k."
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "5 * 5",
+   "w": "Schnittpunkt (5 | 5) liegt auf der Hyperbel: k = 5 · 5 = 25.",
+   "h": "Welchen y-Wert hat die Gerade bei x = 5?",
+   "g": "parameter"
+  },
+  {
+   "l": "graph",
+   "t": "darstellen",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „Der Graph von y = 12 : x schneidet die x-Achse bei x = 12.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Er schneidet sie bei x = 0.",
+    "Falsch: Er schneidet sie bei x = 1.",
+    "Richtig.",
+    "Falsch: y = 12 : x wird nie 0, der Graph erreicht die x-Achse nicht."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Bei x = 12 ist y = 1, nicht 0. Ein Quotient 12 : x ist nie 0 – die Hyperbel kommt der Achse nur immer näher.",
+   "h": "Berechne y bei x = 12."
+  },
+  {
+   "l": "graph",
+   "t": "darstellen",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Punkt P der Hyperbel y = k : x (x > 0) bildet mit dem Ursprung und den Achsen ein Rechteck mit 18 cm² Flächeninhalt (1 LE = 1 cm). Wie groß ist k?"
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "18",
+   "w": "Das Rechteck hat die Seiten x und y, also den Flächeninhalt x · y = k = 18.",
+   "h": "Wie lang sind die Seiten des Rechtecks?"
+  },
+  {
+   "l": "graph",
+   "t": "darstellen",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Wertetabelle enthält (1 | 20), (2 | 10), (4 | 5), (5 | 4). Wie sieht der Graph aus?"
+   },
+   "a": [
+    "eine fallende Gerade",
+    "eine steigende Gerade durch den Ursprung",
+    "eine Kurve, die von links oben nach rechts unten fällt und immer flacher wird",
+    "eine Kurve, die die x-Achse bei x = 20 trifft"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Alle Produkte sind 20: Hyperbel y = 20 : x. Sie fällt erst steil (von 20 auf 10), dann immer flacher (von 5 auf 4).",
+   "h": "Prüfe die Produkte und wie stark y jeweils fällt."
+  },
+  {
+   "l": "graph",
+   "t": "darstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "P liegt auf dem Graphen von f(x) = 12/x (x > 0). P, der Ursprung und die beiden Lotfußpunkte auf den Achsen bilden ein Rechteck (Bild: P(3 | 4)). Was gilt für seinen Flächeninhalt, wenn P auf dem Graphen wandert?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      8
+     ],
+     "y": [
+      0,
+      8
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 12,
+       "b": 0,
+       "c": 0,
+       "bereich": [
+        1.5,
+        8
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 3,
+       "y": 4,
+       "name": "P"
+      }
+     ],
+     "flaechen": [
+      {
+       "punkte": [
+        [
+         0,
+         0
+        ],
+        [
+         3,
+         0
+        ],
+        [
+         3,
+         4
+        ],
+        [
+         0,
+         4
+        ]
+       ]
+      }
+     ]
+    }
+   },
+   "a": [
+    "Er ist nur für P(3 | 4) gleich 12.",
+    "Er wird immer kleiner, je weiter P nach rechts wandert.",
+    "Er ist am größten für P(1 | 12).",
+    "Er ist immer 12, denn x · y = 12."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Das Rechteck ist x breit und y hoch. Sein Flächeninhalt ist x · y. Für jeden Punkt des Graphen gilt y = 12/x, also x · y = 12.",
+   "h": "Der Flächeninhalt ist Breite · Höhe = x · y. Was weißt du über x · y?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "graph",
+   "t": "darstellen",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt: „Der Graph einer indirekten Proportionalität ist eine fallende Gerade“?"
+   },
+   "a": [
+    "Richtig, aber nur für x > 0.",
+    "Falsch: Er ist eine steigende Gerade.",
+    "Richtig.",
+    "Falsch: Er ist eine Kurve (Hyperbel), weil x · y gleich bleibt."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Bei 1 ↦ 12, 2 ↦ 6, 3 ↦ 4 nimmt y erst um 6, dann um 2 ab – nicht gleichmäßig wie bei einer Geraden.",
+   "h": "Rechne drei Werte von y = 12/x aus und vergleiche die Abnahmen."
+  },
+  {
+   "l": "graph",
+   "t": "darstellen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Die Hyperbeln y = 8 : x und y = 2 · x schneiden sich für x > 0 in einem Punkt. Welche x-Koordinate hat er?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "8 : x = 2x ⇒ 2x² = 8 ⇒ x² = 4 ⇒ x = 2 (x > 0). Probe: 8 : 2 = 4 = 2 · 2.",
+   "h": "Setze beide Terme gleich und multipliziere mit x."
+  },
+  {
+   "l": "graph",
+   "t": "darstellen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Auf der Hyperbel y = 24 : x liegen A(2 | 12) und B(6 | 4). Wie groß ist die Fläche des Dreiecks aus A, B und dem Punkt C(6 | 12)?"
+   },
+   "o": {
+    "wert": 16,
+    "einheit": "FE"
+   },
+   "c": "(6 - 2) * (12 - 4) / 2",
+   "w": "Bei C ist ein rechter Winkel: AC ist waagrecht (Länge 6 − 2 = 4), BC senkrecht (Länge 12 − 4 = 8). Fläche 4 · 8 : 2 = 16.",
+   "h": "Zeichne die drei Punkte ein."
   },
   {
    "l": "graph",
@@ -5315,281 +5813,6 @@
     "index": 1
    },
    "w": "Ein Punkt liegt auf dem Graphen, wenn x · y = k ist: 3 · 17 = 51. Das ist nicht 48. Bei x = 3 wäre y = 16."
-  },
-  {
-   "l": "graph",
-   "t": "darstellen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Alle Rechtecke mit 24 cm² Flächeninhalt: Breite x → Länge y. Der Punkt P(2 | 12) liegt auf dem Graphen. Was bedeutet der Punkt?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      12
-     ],
-     "y": [
-      0,
-      13
-     ],
-     "graphen": [
-      {
-       "art": "hyperbel",
-       "a": 24,
-       "b": 0,
-       "c": 0,
-       "bereich": [
-        1.85,
-        12
-       ]
-      }
-     ],
-     "punkte": [
-      {
-       "x": 2,
-       "y": 12,
-       "name": "P"
-      }
-     ],
-     "name_x": "Breite in cm",
-     "name_y": "Länge in cm"
-    }
-   },
-   "a": [
-    "Ein Rechteck mit Breite 2 cm und Länge 12 cm hat 24 cm².",
-    "Breite und Länge zusammen sind 14 cm².",
-    "Das Rechteck ist 24 cm lang.",
-    "Ein Rechteck mit Breite 2 cm hat 24 cm² Umfang."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "x ist die Breite, y die Länge. Der Punkt steht für ein Rechteck mit 2 cm · 12 cm = 24 cm².",
-   "h": "Was bedeuten die beiden Achsen?"
-  },
-  {
-   "l": "graph",
-   "t": "darstellen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Der Graph gehört zu einer indirekten Proportionalität und geht durch P(4 | 3). Welchen y-Wert hat er bei x = 6?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      8
-     ],
-     "y": [
-      0,
-      8
-     ],
-     "graphen": [
-      {
-       "art": "hyperbel",
-       "a": 12,
-       "b": 0,
-       "c": 0,
-       "bereich": [
-        1.5,
-        8
-       ]
-      }
-     ],
-     "punkte": [
-      {
-       "x": 4,
-       "y": 3,
-       "name": "P"
-      }
-     ]
-    }
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "4 * 3 / 6",
-   "w": "k = 4 · 3 = 12. Bei x = 6: y = 12 : 6 = 2.",
-   "h": "Bestimme zuerst k aus P.",
-   "g": "direkt"
-  },
-  {
-   "l": "graph",
-   "t": "darstellen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "P(2 | 9) und Q(6 | 3) liegen auf derselben Hyperbel y = k : x. Jeder Punkt bildet mit dem Ursprung und den Achsen ein Rechteck. Um wie viel cm² unterscheiden sich die Flächeninhalte?"
-   },
-   "o": {
-    "wert": 0,
-    "einheit": "cm²"
-   },
-   "c": "2 * 9 - 6 * 3",
-   "w": "P: 2 · 9 = 18, Q: 6 · 3 = 18. Beide Rechtecke haben 18 cm² – Unterschied 0. Das gilt für alle Punkte der Hyperbel.",
-   "h": "Fläche = x · y.",
-   "g": "begruenden"
-  },
-  {
-   "l": "graph",
-   "t": "darstellen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Hyperbel einer indirekten Proportionalität geht durch P(3 | 4). Durch welchen Punkt geht sie außerdem?"
-   },
-   "a": [
-    "(6 | 2)",
-    "(1 | 7)",
-    "(2 | 5)",
-    "(6 | 8)"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "k = 3 · 4 = 12. Nur 6 · 2 = 12. (6 | 8) wäre direkt proportional gedacht, (1 | 7) und (2 | 5) haben die Summe 7 wie P.",
-   "h": "Bilde das Produkt.",
-   "g": "pruefung"
-  },
-  {
-   "l": "graph",
-   "t": "darstellen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Hyperbel y = k : x und die Gerade y = x schneiden sich bei x = 5 (x > 0). Bestimme k."
-   },
-   "o": {
-    "wert": 25
-   },
-   "c": "5 * 5",
-   "w": "Schnittpunkt (5 | 5) liegt auf der Hyperbel: k = 5 · 5 = 25.",
-   "h": "Welchen y-Wert hat die Gerade bei x = 5?",
-   "g": "parameter"
-  },
-  {
-   "l": "graph",
-   "t": "darstellen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Für welche x > 0 liegt der Graph von y = 12 : x oberhalb der Geraden y = 3?"
-   },
-   "a": [
-    "für alle x > 0",
-    "für x > 3",
-    "für 0 < x < 4",
-    "für x > 4"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Bei x = 4 ist y = 3. Für kleinere x ist 12 : x größer als 3, für größere kleiner.",
-   "h": "Wo ist 12 : x genau 3?",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "graph",
-   "t": "darstellen",
-   "p": "uebung",
-   "s": 3,
-   "g": "fehler",
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand sagt: „Der Graph von y = 12 : x schneidet die x-Achse bei x = 12.“ Was stimmt?"
-   },
-   "a": [
-    "Falsch: Er schneidet sie bei x = 0.",
-    "Falsch: Er schneidet sie bei x = 1.",
-    "Richtig.",
-    "Falsch: y = 12 : x wird nie 0, der Graph erreicht die x-Achse nicht."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Bei x = 12 ist y = 1, nicht 0. Ein Quotient 12 : x ist nie 0 – die Hyperbel kommt der Achse nur immer näher.",
-   "h": "Berechne y bei x = 12."
-  },
-  {
-   "l": "graph",
-   "t": "darstellen",
-   "p": "uebung",
-   "s": 3,
-   "g": "rueckwaerts",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Punkt P der Hyperbel y = k : x (x > 0) bildet mit dem Ursprung und den Achsen ein Rechteck mit 18 cm² Flächeninhalt (1 LE = 1 cm). Wie groß ist k?"
-   },
-   "o": {
-    "wert": 18
-   },
-   "c": "18",
-   "w": "Das Rechteck hat die Seiten x und y, also den Flächeninhalt x · y = k = 18.",
-   "h": "Wie lang sind die Seiten des Rechtecks?"
-  },
-  {
-   "l": "graph",
-   "t": "darstellen",
-   "p": "uebung",
-   "s": 3,
-   "g": "transfer",
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Wertetabelle enthält (1 | 20), (2 | 10), (4 | 5), (5 | 4). Wie sieht der Graph aus?"
-   },
-   "a": [
-    "eine fallende Gerade",
-    "eine steigende Gerade durch den Ursprung",
-    "eine Kurve, die von links oben nach rechts unten fällt und immer flacher wird",
-    "eine Kurve, die die x-Achse bei x = 20 trifft"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Alle Produkte sind 20: Hyperbel y = 20 : x. Sie fällt erst steil (von 20 auf 10), dann immer flacher (von 5 auf 4).",
-   "h": "Prüfe die Produkte und wie stark y jeweils fällt."
-  },
-  {
-   "l": "graph",
-   "t": "darstellen",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Die Hyperbeln y = 8 : x und y = 2 · x schneiden sich für x > 0 in einem Punkt. Welche x-Koordinate hat er?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "2",
-   "w": "8 : x = 2x ⇒ 2x² = 8 ⇒ x² = 4 ⇒ x = 2 (x > 0). Probe: 8 : 2 = 4 = 2 · 2.",
-   "h": "Setze beide Terme gleich und multipliziere mit x."
-  },
-  {
-   "l": "graph",
-   "t": "darstellen",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Auf der Hyperbel y = 24 : x liegen A(2 | 12) und B(6 | 4). Wie groß ist die Fläche des Dreiecks aus A, B und dem Punkt C(6 | 12)?"
-   },
-   "o": {
-    "wert": 16,
-    "einheit": "FE"
-   },
-   "c": "(6 - 2) * (12 - 4) / 2",
-   "w": "Bei C ist ein rechter Winkel: AC ist waagrecht (Länge 6 − 2 = 4), BC senkrecht (Länge 12 − 4 = 8). Fläche 4 · 8 : 2 = 16.",
-   "h": "Zeichne die drei Punkte ein."
   },
   {
    "l": "unterscheiden",
@@ -6913,6 +7136,60 @@
    "l": "sach",
    "t": "rechnen",
    "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Kind A (35 kg) sitzt auf einer Wippe 1,6 m vom Drehpunkt entfernt. Kind B sitzt auf der anderen Seite 1,4 m vom Drehpunkt. Wie schwer muss B sein, damit die Wippe im Gleichgewicht ist?"
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "kg"
+   },
+   "c": "35 * 1.6 / 1.4",
+   "w": "Gewicht · Abstand gleich: 35 · 1,6 = 56. B: 56 : 1,4 = 40 kg.",
+   "h": "Das Produkt aus Gewicht und Abstand ist auf beiden Seiten gleich.",
+   "g": "transfer"
+  },
+  {
+   "l": "sach",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Läufer braucht für eine Runde 80 Sekunden. Wie lange braucht er, wenn er 25 % schneller läuft?"
+   },
+   "o": {
+    "wert": 64,
+    "einheit": "s"
+   },
+   "c": "80 / 1.25",
+   "w": "Geschwindigkeit · 1,25 heißt Zeit : 1,25 = 80 : 1,25 = 64 s. Nicht 80 · 0,75 = 60 s.",
+   "h": "Zeit und Geschwindigkeit sind indirekt proportional.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "sach",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Klasse möchte für die Abschlussfahrt einen Bus für 540 € mieten; die Kosten werden gleich aufgeteilt. Erst sagen 18 Kinder zu, später kommen 9 dazu. Um wie viel Euro sinkt der Anteil für jedes Kind?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "€"
+   },
+   "c": "540 / 18 - 540 / 27",
+   "w": "Vorher 540 : 18 = 30 €, nachher 540 : 27 = 20 €. Er sinkt um 10 €.",
+   "h": "Berechne beide Anteile."
+  },
+  {
+   "l": "sach",
+   "t": "rechnen",
+   "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
@@ -6948,6 +7225,24 @@
    "l": "sach",
    "t": "rechnen",
    "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Mit einer Schrittlänge von 75 cm braucht jemand für einen Weg 1 200 Schritte. Wie viele Schritte sind es bei 60 cm Schrittlänge?"
+   },
+   "o": {
+    "wert": 1500,
+    "einheit": "Schritte"
+   },
+   "c": "75 * 1200 / 60",
+   "w": "75 cm · 1 200 = 90 000 cm Weg. 90 000 : 60 = 1 500 Schritte.",
+   "h": "Der Weg bleibt gleich.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "sach",
+   "t": "rechnen",
+   "p": "uebung",
    "s": 3,
    "y": "auswahl",
    "f": {
@@ -6969,19 +7264,18 @@
    "l": "sach",
    "t": "rechnen",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Mit einer Schrittlänge von 75 cm braucht jemand für einen Weg 1 200 Schritte. Wie viele Schritte sind es bei 60 cm Schrittlänge?"
+    "text": "Zahnrad A hat 40 Zähne und dreht sich 30-mal pro Minute. Es greift in Zahnrad B mit 24 Zähnen. Wie oft dreht sich B pro Minute?"
    },
    "o": {
-    "wert": 1500,
-    "einheit": "Schritte"
+    "wert": 50
    },
-   "c": "75 * 1200 / 60",
-   "w": "75 cm · 1 200 = 90 000 cm Weg. 90 000 : 60 = 1 500 Schritte.",
-   "h": "Der Weg bleibt gleich.",
-   "g": "einkleidung"
+   "c": "40 * 30 / 24",
+   "w": "Pro Minute greifen 40 · 30 = 1 200 Zähne ineinander. B: 1 200 : 24 = 50 Umdrehungen. Das kleinere Rad dreht sich schneller.",
+   "h": "Zähnezahl · Umdrehungen ist für beide Räder gleich.",
+   "g": "transfer"
   },
   {
    "l": "sach",
@@ -6990,16 +7284,34 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Kind A (35 kg) sitzt auf einer Wippe 1,6 m vom Drehpunkt entfernt. Kind B sitzt auf der anderen Seite 1,4 m vom Drehpunkt. Wie schwer muss B sein, damit die Wippe im Gleichgewicht ist?"
+    "text": "Ein Zug fährt 300 km mit 120 km/h. Wegen einer Baustelle darf er auf der ganzen Strecke nur 100 km/h fahren. Wie viele Minuten Verspätung hat er?"
    },
    "o": {
-    "wert": 40,
-    "einheit": "kg"
+    "wert": 30,
+    "einheit": "min"
    },
-   "c": "35 * 1.6 / 1.4",
-   "w": "Gewicht · Abstand gleich: 35 · 1,6 = 56. B: 56 : 1,4 = 40 kg.",
-   "h": "Das Produkt aus Gewicht und Abstand ist auf beiden Seiten gleich.",
-   "g": "transfer"
+   "c": "(300 / 100 - 300 / 120) * 60",
+   "w": "Geplant: 300 : 120 = 2,5 h. Jetzt: 300 : 100 = 3 h. Unterschied 0,5 h = 30 min.",
+   "h": "Berechne beide Fahrzeiten für dieselbe Strecke.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "sach",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Futtervorrat reicht für 8 Schafe 45 Tage. Nach 15 Tagen werden 4 Schafe verkauft. Wie viele Tage reicht der Rest noch?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "Tage"
+   },
+   "c": "8 * (45 - 15) / (8 - 4)",
+   "w": "Nach 15 Tagen reicht der Rest für 8 Schafe noch 30 Tage, das sind 240 Schaftage. Für 4 Schafe: 240 : 4 = 60 Tage.",
+   "h": "Wie viele Tage würde der Rest für die ursprüngliche Herde noch reichen?",
+   "g": "pruefung"
   },
   {
    "l": "sach",
@@ -7017,6 +7329,249 @@
    "w": "3 · 60 = 180 Kinder. 180 : 6 = 30 pro Bus.",
    "h": "Wie viele Kinder sind es insgesamt?",
    "g": "direkt"
+  },
+  {
+   "l": "sach",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Heuvorrat soll für mehr Pferde reichen. Wie ändert sich die Zahl der Tage?"
+   },
+   "a": [
+    "Sie wird größer.",
+    "Sie wird um die Zahl der neuen Pferde kleiner.",
+    "Sie wird kleiner: doppelt so viele Pferde → halb so viele Tage.",
+    "Sie bleibt gleich."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Mehr Fresser leeren den Vorrat schneller; Pferde · Tage bleibt gleich.",
+   "h": "Was bleibt gleich: der Vorrat oder die Tage?"
+  },
+  {
+   "l": "sach",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Taxifahrt kostet 5 € Grundgebühr und 2 € pro km. 4 km kosten 13 €. Was kosten 6 km?"
+   },
+   "a": [
+    "12 €",
+    "17 €",
+    "19,5 €"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Weder direkt noch indirekt – kein Dreisatz! 5 € + 6 · 2 € = 17 €.",
+   "h": "Zuerst: direkt, indirekt oder keins von beiden?",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "sach",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Saftvorrat füllt 30 Gläser zu je 0,2 l. Wie viele Gläser zu je 0,25 l kann man damit füllen?"
+   },
+   "o": {
+    "wert": 24,
+    "einheit": "Gläser"
+   },
+   "c": "30 * 0.2 / 0.25",
+   "w": "Vorrat: 30 · 0,2 l = 6 l. 6 : 0,25 = 24 Gläser.",
+   "h": "Berechne zuerst den ganzen Vorrat.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "sach",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Weg wird mit 4 km/h in 45 Minuten zurückgelegt. Wie schnell muss man gehen, um nur 30 Minuten zu brauchen?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "km/h"
+   },
+   "c": "4 * 45 / 30",
+   "w": "km/h · Minuten bleibt gleich: 4 · 45 = 180. 180 : 30 = 6 km/h.",
+   "h": "Welches Produkt bleibt gleich?"
+  },
+  {
+   "l": "sach",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Handwerkerin berechnet 40 € Anfahrt und 50 € je Arbeitsstunde. 2 Stunden kosten zusammen 140 €. Jemand rechnet für 4 Stunden: 140 · 2 = 280 €. Stimmt das?"
+   },
+   "a": [
+    "Nein: Die Anfahrt wird nur einmal bezahlt, es sind 240 €.",
+    "Ja, doppelt so viele Stunden kosten doppelt so viel.",
+    "Nein: Es sind 70 €, weil es indirekt proportional ist."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Zuordnung ist weder noch, weil die Anfahrt fest ist: 40 + 4 · 50 = 240 €.",
+   "h": "Wird jeder Betrag bei mehr Stunden mehrfach bezahlt?",
+   "g": "fehler"
+  },
+  {
+   "l": "sach",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für eine Fahrt wird ein Bus gemietet und die Kosten werden geteilt. Fahren 5 Kinder mehr mit, zahlt jedes nur noch 30 € statt 36 €. Wie viele Kinder wollten ursprünglich mitfahren?"
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "Kinder"
+   },
+   "c": "30 * 5 / (36 - 30)",
+   "w": "Gesamtpreis gleich: 36 · n = 30 · (n + 5) ⇔ 6n = 150 ⇔ n = 25. Probe: 36 · 25 = 900 = 30 · 30.",
+   "h": "Der Buspreis bleibt gleich. Stelle eine Gleichung mit n auf.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "sach",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für eine eingeschlossene Luftmenge gilt bei gleicher Temperatur: Druck · Volumen bleibt gleich. Bei 2 bar nimmt sie 6 l ein. Welches Volumen hat sie bei 3 bar?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "l"
+   },
+   "c": "2 * 6 / 3",
+   "w": "Produkt: 2 bar · 6 l = 12. Bei 3 bar: 12 : 3 = 4 l. Mehr Druck, weniger Volumen.",
+   "h": "Das Produkt aus Druck und Volumen bleibt gleich.",
+   "g": "transfer"
+  },
+  {
+   "l": "sach",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "x und y sind indirekt proportional. Wird x um 2 größer, halbiert sich y. Wie groß war x?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Das Produkt bleibt gleich: (x + 2) · y/2 = x · y. Also (x + 2) : 2 = x, das heißt x + 2 = 2x und x = 2. Probe: 2 · y = 4 · y/2 ✓",
+   "h": "Halbiert sich y, muss sich x verdoppeln. Welche Zahl verdoppelt sich, wenn man 2 dazuzählt?",
+   "g": "parameter"
+  },
+  {
+   "l": "sach",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zug fährt eine Strecke normalerweise mit 100 km/h in 1,5 h. Wegen Bauarbeiten fährt er nur 75 km/h. Wie viele Minuten braucht er länger?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "min"
+   },
+   "c": "(100 * (3/2) / 75 - (3/2)) * 60",
+   "w": "Strecke 100 · 1,5 = 150 km. Neue Fahrzeit 150 : 75 = 2 h. Unterschied 0,5 h = 30 min.",
+   "h": "Berechne zuerst die Strecke, dann die neue Fahrzeit.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "sach",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "4 gleiche Pumpen leeren ein Becken in 15 h. Nach 6 h fällt 1 Pumpe aus. Wie viele Stunden dauert das Leeren insgesamt?"
+   },
+   "o": {
+    "wert": 18,
+    "einheit": "h"
+   },
+   "c": "6 + (4 * 15 - 4 * 6) / (4 - 1)",
+   "w": "Arbeit: 4 · 15 = 60 Pumpenstunden. Nach 6 h sind 24 erledigt, 36 bleiben. 3 Pumpen brauchen dafür 36 : 3 = 12 h. Insgesamt 6 + 12 = 18 h.",
+   "h": "Rechne in Pumpenstunden: Wie viel ist schon geschafft, wie viel bleibt?",
+   "g": "pruefung"
+  },
+  {
+   "l": "sach",
+   "t": "rechnen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Vorrat reicht 10 Hühnern 30 Tage. Nach 6 Tagen werden 2 Hühner verschenkt, nach weiteren 10 Tagen kommen 8 Hühner dazu. Wie viele Tage reicht der Vorrat ab diesem Zeitpunkt noch?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "Tage"
+   },
+   "c": "(10*30 - 10*6 - 8*10) / 16",
+   "w": "Vorrat = 10 · 30 = 300 Hühnertage. Verbraucht: 10 · 6 = 60 und 8 · 10 = 80. Rest 160 Hühnertage für 8 + 8 = 16 Hühner: 160 : 16 = 10 Tage.",
+   "h": "Rechne mit „Hühnertagen“ statt mit Tagen."
+  },
+  {
+   "l": "sach",
+   "t": "rechnen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Zahnrad A (36 Zähne) treibt Zahnrad B (24 Zähne), B treibt C (12 Zähne). A dreht sich 10-mal pro Minute. Wie oft dreht sich C pro Minute?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "Umdrehungen"
+   },
+   "c": "36 * 10 / 12",
+   "w": "Pro Minute greifen bei A 360 Zähne ein, also auch bei B und C. C: 360 : 12 = 30 Umdrehungen. Das mittlere Rad ändert daran nichts.",
+   "h": "Wie viele Zähne laufen pro Minute an jedem Rad vorbei?"
+  },
+  {
+   "l": "sach",
+   "t": "rechnen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "3 gleiche Pumpen füllen ein Becken in 10 h. Nach 4 h fällt eine aus, nach weiteren 3 h kommt sie zurück und eine vierte dazu. Wie lange dauert das Füllen insgesamt?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "h"
+   },
+   "c": "4 + 3 + (30 - 12 - 6) / 4",
+   "w": "Arbeit: 3 · 10 = 30 Pumpenstunden. 4 h mit 3 Pumpen: 12. 3 h mit 2 Pumpen: 6. Rest 12 mit 4 Pumpen: 3 h. Insgesamt 4 + 3 + 3 = 10 h – zufällig wie geplant.",
+   "h": "Rechne mit Pumpenstunden."
   },
   {
    "l": "sach",
@@ -7180,213 +7735,6 @@
     "index": 1
    },
    "w": "Weder direkt noch indirekt – kein Dreisatz! 3 € + 6 · 2 € = 15 €."
-  },
-  {
-   "l": "sach",
-   "t": "rechnen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Taxifahrt kostet 5 € Grundgebühr und 2 € pro km. 4 km kosten 13 €. Was kosten 6 km?"
-   },
-   "a": [
-    "12 €",
-    "17 €",
-    "19,5 €"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Weder direkt noch indirekt – kein Dreisatz! 5 € + 6 · 2 € = 17 €.",
-   "h": "Zuerst: direkt, indirekt oder keins von beiden?",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "sach",
-   "t": "rechnen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Handwerkerin berechnet 40 € Anfahrt und 50 € je Arbeitsstunde. 2 Stunden kosten zusammen 140 €. Jemand rechnet für 4 Stunden: 140 · 2 = 280 €. Stimmt das?"
-   },
-   "a": [
-    "Nein: Die Anfahrt wird nur einmal bezahlt, es sind 240 €.",
-    "Ja, doppelt so viele Stunden kosten doppelt so viel.",
-    "Nein: Es sind 70 €, weil es indirekt proportional ist."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Die Zuordnung ist weder noch, weil die Anfahrt fest ist: 40 + 4 · 50 = 240 €.",
-   "h": "Wird jeder Betrag bei mehr Stunden mehrfach bezahlt?",
-   "g": "fehler"
-  },
-  {
-   "l": "sach",
-   "t": "rechnen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Saftvorrat füllt 30 Gläser zu je 0,2 l. Wie viele Gläser zu je 0,25 l kann man damit füllen?"
-   },
-   "o": {
-    "wert": 24,
-    "einheit": "Gläser"
-   },
-   "c": "30 * 0.2 / 0.25",
-   "w": "Vorrat: 30 · 0,2 l = 6 l. 6 : 0,25 = 24 Gläser.",
-   "h": "Berechne zuerst den ganzen Vorrat.",
-   "g": "einkleidung"
-  },
-  {
-   "l": "sach",
-   "t": "rechnen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Zahnrad A hat 40 Zähne und dreht sich 30-mal pro Minute. Es greift in Zahnrad B mit 24 Zähnen. Wie oft dreht sich B pro Minute?"
-   },
-   "o": {
-    "wert": 50
-   },
-   "c": "40 * 30 / 24",
-   "w": "Pro Minute greifen 40 · 30 = 1 200 Zähne ineinander. B: 1 200 : 24 = 50 Umdrehungen. Das kleinere Rad dreht sich schneller.",
-   "h": "Zähnezahl · Umdrehungen ist für beide Räder gleich.",
-   "g": "transfer"
-  },
-  {
-   "l": "sach",
-   "t": "rechnen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Für eine Fahrt wird ein Bus gemietet und die Kosten werden geteilt. Fahren 5 Kinder mehr mit, zahlt jedes nur noch 30 € statt 36 €. Wie viele Kinder wollten ursprünglich mitfahren?"
-   },
-   "o": {
-    "wert": 25,
-    "einheit": "Kinder"
-   },
-   "c": "30 * 5 / (36 - 30)",
-   "w": "Gesamtpreis gleich: 36 · n = 30 · (n + 5) ⇔ 6n = 150 ⇔ n = 25. Probe: 36 · 25 = 900 = 30 · 30.",
-   "h": "Der Buspreis bleibt gleich. Stelle eine Gleichung mit n auf.",
-   "g": "rueckwaerts"
-  },
-  {
-   "l": "sach",
-   "t": "rechnen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Läufer braucht für eine Runde 80 Sekunden. Wie lange braucht er, wenn er 25 % schneller läuft?"
-   },
-   "o": {
-    "wert": 64,
-    "einheit": "s"
-   },
-   "c": "80 / 1.25",
-   "w": "Geschwindigkeit · 1,25 heißt Zeit : 1,25 = 80 : 1,25 = 64 s. Nicht 80 · 0,75 = 60 s.",
-   "h": "Zeit und Geschwindigkeit sind indirekt proportional.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "sach",
-   "t": "rechnen",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Heuvorrat soll für mehr Pferde reichen. Wie ändert sich die Zahl der Tage?"
-   },
-   "a": [
-    "Sie wird größer.",
-    "Sie wird um die Zahl der neuen Pferde kleiner.",
-    "Sie wird kleiner: doppelt so viele Pferde → halb so viele Tage.",
-    "Sie bleibt gleich."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Mehr Fresser leeren den Vorrat schneller; Pferde · Tage bleibt gleich.",
-   "h": "Was bleibt gleich: der Vorrat oder die Tage?"
-  },
-  {
-   "l": "sach",
-   "t": "rechnen",
-   "p": "uebung",
-   "s": 2,
-   "g": "umkehr",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Weg wird mit 4 km/h in 45 Minuten zurückgelegt. Wie schnell muss man gehen, um nur 30 Minuten zu brauchen?"
-   },
-   "o": {
-    "wert": 6,
-    "einheit": "km/h"
-   },
-   "c": "4 * 45 / 30",
-   "w": "km/h · Minuten bleibt gleich: 4 · 45 = 180. 180 : 30 = 6 km/h.",
-   "h": "Welches Produkt bleibt gleich?"
-  },
-  {
-   "l": "sach",
-   "t": "rechnen",
-   "p": "uebung",
-   "s": 3,
-   "g": "pruefung",
-   "y": "zahl",
-   "f": {
-    "text": "Eine Klasse möchte für die Abschlussfahrt einen Bus für 540 € mieten; die Kosten werden gleich aufgeteilt. Erst sagen 18 Kinder zu, später kommen 9 dazu. Um wie viel Euro sinkt der Anteil für jedes Kind?"
-   },
-   "o": {
-    "wert": 10,
-    "einheit": "€"
-   },
-   "c": "540 / 18 - 540 / 27",
-   "w": "Vorher 540 : 18 = 30 €, nachher 540 : 27 = 20 €. Er sinkt um 10 €.",
-   "h": "Berechne beide Anteile."
-  },
-  {
-   "l": "sach",
-   "t": "rechnen",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Vorrat reicht 10 Hühnern 30 Tage. Nach 6 Tagen werden 2 Hühner verschenkt, nach weiteren 10 Tagen kommen 8 Hühner dazu. Wie viele Tage reicht der Vorrat ab diesem Zeitpunkt noch?"
-   },
-   "o": {
-    "wert": 10,
-    "einheit": "Tage"
-   },
-   "c": "(10*30 - 10*6 - 8*10) / 16",
-   "w": "Vorrat = 10 · 30 = 300 Hühnertage. Verbraucht: 10 · 6 = 60 und 8 · 10 = 80. Rest 160 Hühnertage für 8 + 8 = 16 Hühner: 160 : 16 = 10 Tage.",
-   "h": "Rechne mit „Hühnertagen“ statt mit Tagen."
-  },
-  {
-   "l": "sach",
-   "t": "rechnen",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Zahnrad A (36 Zähne) treibt Zahnrad B (24 Zähne), B treibt C (12 Zähne). A dreht sich 10-mal pro Minute. Wie oft dreht sich C pro Minute?"
-   },
-   "o": {
-    "wert": 30,
-    "einheit": "Umdrehungen"
-   },
-   "c": "36 * 10 / 12",
-   "w": "Pro Minute greifen bei A 360 Zähne ein, also auch bei B und C. C: 360 : 12 = 30 Umdrehungen. Das mittlere Rad ändert daran nichts.",
-   "h": "Wie viele Zähne laufen pro Minute an jedem Rad vorbei?"
   },
   {
    "l": "unterscheiden",

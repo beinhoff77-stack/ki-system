@@ -1180,3 +1180,10 @@ if __name__ == '__main__':
                 'Der Funktionsbegriff y = k : x wird nur als Wertepaare/Graph genutzt, keine Funktionsuntersuchung (Asymptoten als Fachbegriff weggelassen).',
                 'Hyperbeln nur im 1. Quadranten (x > 0), weil alle Sachsituationen positive Größen haben.'],
          teil=TEIL)
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('groessen.indirekt')
+# ---- BEREINIGEN ENDE ----

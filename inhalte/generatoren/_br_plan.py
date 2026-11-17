@@ -351,3 +351,151 @@ PLAN['abbildungen.kongruenz'] = [
          'bild': {'typ': 'koordinaten', 'x': [-1, 5], 'y': [-1, 5], 'graphen': [{'art': 'linear', 'm': 1, 't': 0, 'name': 'a'}],
                   'punkte': [{'x': 4, 'y': 3, 'name': 'P'}, {'x': 3, 'y': 4, 'name': "P'"}], 'strecken': [[4, 3, 3, 4, 'gestrichelt']]}}]),
 ]
+
+# ======================= Klasse 8 =======================
+# A1: Indirekte Proportionalität steht in groessen.indirekt (Reihenfolge 5) vor funktionen.gebrochen (6). Dort entfallen die beiden Karten
+# indirekt und indirekt_sach; ihre besten Aufgaben ziehen in die passenden Karten von groessen.indirekt.
+PLAN['funktionen.gebrochen'] = [
+    entfaellt('indirekt'), entfaellt('indirekt_sach'),
+    inhalt(ziel='Funktionen f(x) = a/(x + b) + c untersuchen: Definitionsmenge, Asymptoten, Achsenschnittpunkte, Verschiebungen. Grundlage ist die indirekte Proportionalität (voriger Flug).',
+           merke=['Grundlage: y = k/x (indirekte Proportionalität).', 'f(x) = a/(x + b) + c: D = ℚ \\ {−b}, Asymptoten x = −b und y = c.', 'x − 3 in der Klammer: 3 nach rechts. + c: c nach oben.']),
+]
+PLAN['groessen.indirekt'] = [
+    her('funktionen.gebrochen', 'indirekt', 'graph', r'S3:(Graph|f\(x\) = 12/x)', auto=True),
+    her('funktionen.gebrochen', 'indirekt', 'produkt', r'S3:.', auto=True),
+    her('funktionen.gebrochen', 'indirekt_sach', 'sach', r'S3:.', auto=True),
+]
+# A1: Zylinder. Der Flug messen.prisma_zylinder behandelt den Zylinder ausführlich (Volumen begründet, Oberfläche über das Netz – das Netz
+# kommt in messen.koerper_darstellung, Reihenfolge 13, nach messen.kreisberechnung, 12). Die Karte kreisberechnung/zylinder entfällt.
+PLAN['messen.kreisberechnung'] = [
+    entfaellt('zylinder'),
+    inhalt(ziel='Umfang und Flächeninhalt von Kreisen, Kreisausschnitten und Kreisringen berechnen – gerundet und exakt mit π. Der Zylinder folgt im Flug zu Prisma und Zylinder.',
+           merke=['u = 2πr = πd, A = πr².', 'Ausschnitt: Anteil α/360° von Umfang bzw. Fläche.']),
+]
+PLAN['messen.prisma_zylinder'] = [
+    her('messen.kreisberechnung', 'zylinder', 'zylinder_volumen', r'S3:.', auto=True),
+    her('messen.kreisberechnung', 'zylinder', 'zylinder_oberflaeche', r'S3:.', auto=True),
+    # A2 aus gleichungen.formeln: Prisma-Aufgaben
+    her('gleichungen.formeln', 'geometrie', 'prisma_umstellen', r'Prisma', auto=True),
+]
+# A2: gleichungen.formeln (Reihenfolge 9) nutzt Körperformeln, die erst später kommen: Prisma (messen.prisma_zylinder, 14) und Pyramide (Kl. 10).
+PLAN['gleichungen.formeln'] = [
+    weg('geometrie', r'Prisma|Pyramide'),
+    neu('geometrie', 'umkehr', Z('Ein Parallelogramm ist 6 cm hoch und hat den Flächeninhalt 75 cm². Wie lang ist die Grundseite?', 12.5, '75 / 6',
+        'A = g · h, umgestellt g = A : h = 75 cm² : 6 cm = 12,5 cm.', 'Stelle A = g · h nach g um.', einheit='cm')),
+    neu('geometrie', 'umkehr', Z('Ein Quader ist 5 cm hoch und hat das Volumen 120 cm³. Wie groß ist seine Grundfläche in cm²?', 24, '120 // 5',
+        'V = G · h, umgestellt G = V : h = 120 cm³ : 5 cm = 24 cm².', 'Volumen = Grundfläche · Höhe. Stelle nach der Grundfläche um.', einheit='cm²')),
+    neu('geometrie', 'pruefung', Z('Aus einem Rechteck (10 cm × 6 cm) wird ein Dreieck mit der Grundseite 10 cm ausgeschnitten. Der Rest ist noch 39 cm² groß. Wie hoch ist das Dreieck in cm?',
+        4.2, '2 * (10 * 6 - 39) / 10',
+        'Rechteck: 60 cm². Dreieck: 60 − 39 = 21 cm². Aus A = g · h : 2 folgt h = 2 · A : g = 2 · 21 : 10 = 4,2 cm.', 'Wie groß ist das Dreieck? Stelle dann A = g · h : 2 nach h um.', einheit='cm')),
+    pool('geometrie', 'sicherung', T(Z('Ein Quader hat das Volumen 270 cm³, die Länge 9 cm und die Breite 5 cm. Wie hoch ist er?', 6, '270 // (9 * 5)',
+         'Grundfläche 9 · 5 = 45 cm². Höhe = 270 : 45 = 6 cm.', '-', einheit='cm'))),
+]
+# A1: Schrägbild (q = 1/2) und Ecken/Kanten/Flächen von Prismen stehen in messen.koerper_darstellung (Kl. 8). In raum.schraegbilder (Kl. 10)
+# entfällt die Karte laengen (Schrägbilder von Prismen); ihre Pyramiden-Aufgaben bleiben im Flug (Karte pyramide), die besten Prismen-Aufgaben
+# ziehen nach koerper_darstellung/schraegbild.
+PLAN['messen.koerper_darstellung'] = [
+    her('raum.schraegbilder', 'laengen', 'schraegbild', r'S3:^(?!.*Pyramide)', auto=True),
+]
+
+# ======================= Klasse 9 =======================
+# A1: Parabel–Gerade gehört in die Karte schnittpunkte.
+PLAN['funktionen.quadratisch'] = [
+    weg('nullstellen', r'^Die Parabel y = x² − 2x − 3 und die Gerade y = x \+ 1', 1),
+    neu('nullstellen', 'parameter', Z('Für welche Zahl c hat die Parabel y = x² − 6x + c genau eine Nullstelle?', 9, '6 * 6 // 4',
+        'Genau eine Nullstelle heißt: Die Diskriminante ist 0. (−6)² − 4 · 1 · c = 0, also 36 = 4c und c = 9. Dann ist y = (x − 3)².',
+        'Wann hat die Lösungsformel nur eine Lösung?')),
+    her('funktionen.quadratisch', 'nullstellen', 'schnittpunkte', r'^Die Parabel y = x² − 2x − 3 und die Gerade y = x \+ 1', 1, auto=True),
+]
+# A2: LGS mit drei Unbekannten – M9 2.2 verlangt nur einfache Beispiele: pruefen, stufenform, eliminieren werden Vertiefung.
+PLAN['gleichungen.lgs3'] = [vertiefung('pruefen'), vertiefung('stufenform'), vertiefung('eliminieren')]
+# A2: gleichungen.trig steht jetzt nach trigo.allgemein. Was noch vorgreift (Graphen von sin/cos, Bereiche über 360°: Kl. 10 funktionen.trig),
+# zieht nach funktionen.trig; Test-/Sicherungsaufgaben mit Graph werden durch Fassungen ohne Graph ersetzt.
+PLAN['gleichungen.trig'] = [
+    weg('anzahl', r'^Im Bild siehst du den Graphen'),
+    weg('sinus', r'720°'), weg('kosinus', r'720°|−360°'), weg('anzahl', r'720°'),
+    pool('anzahl', 'korrektur', T(Z('Wie viele Lösungen hat sin x = 0,67 im Bereich 0° ≤ x < 360°?', 2, '1 + 1',
+         '0 < 0,67 < 1: Es gibt einen Winkel im I. Quadranten (x ≈ 42,1°) und einen im II. Quadranten (180° − 42,1° ≈ 137,9°). Also 2 Lösungen.', '-'))),
+    pool('anzahl', 'sicherung', T(Z('Wie viele Lösungen hat cos x = −1 im Bereich 0° ≤ x < 360°?', 1, '1',
+         'cos x = −1 nur bei x = 180° – am Einheitskreis ist das der Punkt ganz links. Also 1 Lösung.', '-'))),
+    pool('anzahl', 'sicherung', T(Z('Wie viele Lösungen hat cos x = −0,65 im Bereich 0° ≤ x < 360°?', 2, '1 + 1',
+         '−1 < −0,65 < 0: Ein Winkel liegt im II. Quadranten (x ≈ 130,5°), der andere im III. Quadranten (360° − 130,5° ≈ 229,5°). Also 2 Lösungen.', '-'))),
+]
+PLAN['funktionen.trig'] = [
+    her('gleichungen.trig', 'sinus', 'periode', r'720°', auto=True),
+    her('gleichungen.trig', 'kosinus', 'periode', r'720°|−360°', auto=True),
+    her('gleichungen.trig', 'anzahl', 'periode', r'720°', auto=True),
+    her('gleichungen.trig', 'anzahl', 'werte', r'^Im Bild siehst du den Graphen', auto=True),
+]
+
+# ======================= Klasse 10 =======================
+# A1: a · b^t = c mit dem Logarithmus lösen. funktionen.exponential_log/zeitpunkt (Reihenfolge 1) übt das, bevor Logarithmus und
+# Potenzregel erklärt sind (gleichungen.exponential, 2). Der Stoff bleibt dort, wo er erklärt wird; die Karte zeitpunkt entfällt.
+PLAN['funktionen.exponential_log'] = [entfaellt('zeitpunkt')]
+PLAN['gleichungen.exponential'] = [
+    her('funktionen.exponential_log', 'zeitpunkt', 'wachstum', r'S3:.', auto=True),
+    her('funktionen.exponential_log', 'zeitpunkt', 'mit_log_loesen', r'S3:.', auto=True),
+]
+# A1: π schätzen steht in stochastik.mehrstufig/pi_schaetzen. Die π-Aufgaben aus mehrstufig/simulation und simulation/monte_carlo ziehen dorthin.
+PLAN['stochastik.mehrstufig'] = [
+    weg('simulation', r'Kreis mit Radius 1', 2),
+    neu('simulation', 'verknuepfen', Z('Ein Glücksrad hat 4 gleich große Felder mit 1 €, 2 €, 0 € und 5 €. Wie viel Euro gewinnt man im Mittel pro Drehung, wenn man sehr oft dreht?', 2,
+        '(1 + 2 + 0 + 5) / 4', 'Jedes Feld kommt auf lange Sicht gleich oft. Mittelwert: (1 + 2 + 0 + 5) : 4 = 2 €.', 'Bei vielen Drehungen kommt jedes Feld etwa gleich oft.', einheit='€')),
+    neu('simulation', 'pruefung', Z('Bei einem Spiel wirft man zwei Münzen. Zweimal Kopf bringt 4 Punkte, sonst gibt es 0. Wie viele Punkte erwartet man bei 200 Spielen insgesamt?', 200,
+        '200 * 4 // 4', 'P(zweimal Kopf) = 1/2 · 1/2 = 1/4. Erwartet: 1/4 · 200 = 50 Spiele mit 4 Punkten, zusammen 200 Punkte.', 'Pfadregel: Wie wahrscheinlich ist zweimal Kopf?')),
+    her('stochastik.mehrstufig', 'simulation', 'pi_schaetzen', r'Kreis mit Radius 1', auto=True),
+    her('stochastik.simulation', 'monte_carlo', 'pi_schaetzen', r'Viertelkreis|Kreis mit Radius', auto=True),
+]
+PLAN['stochastik.simulation'] = [
+    weg('monte_carlo', r'Viertelkreis|Kreis mit Radius'),
+    neu('monte_carlo', 'umkehr', Z('Ein Quadrat hat 5 cm Seitenlänge. Eine Figur darin ist 10 cm² groß. Wie viele von 500 Zufallspunkten erwartest du ungefähr in der Figur?', 200, '500 * 10 // (5 * 5)',
+        'Die Figur bedeckt 10 : 25 = 0,4 des Quadrats. Erwartet: 0,4 · 500 = 200 Punkte.', 'Welcher Anteil des Quadrats ist die Figur?')),
+    neu('monte_carlo', 'darstellung', Z('Die Tabelle zeigt drei Simulationsläufe in einem Quadrat mit 4 cm Seitenlänge. Schätze die Fläche der Figur aus allen Läufen zusammen (in cm²).',
+        4, '16 * (50 + 72 + 128) / (200 + 300 + 500)',
+        'Zusammen: 1 000 Punkte, davon 50 + 72 + 128 = 250 in der Figur. Anteil 250 : 1 000 = 0,25. Fläche ≈ 0,25 · 16 cm² = 4 cm².',
+        'Zähle alle Punkte und alle Treffer zusammen.', einheit='cm²',
+        grafik={'typ': 'tabelle', 'kopf': ['Lauf', 'Punkte', 'in der Figur'], 'zeilen': [['1', '200', '50'], ['2', '300', '72'], ['3', '500', '128']]})),
+    neu('monte_carlo', 'verknuepfen', Z('In einem Quadrat mit 6 cm Seitenlänge ist ein Dreieck mit der Grundseite 6 cm und der Höhe 6 cm gezeichnet. Wie viele von 800 Zufallspunkten erwartest du im Dreieck?',
+        400, '800 * (6 * 6 // 2) // 36', 'Dreieck: 6 · 6 : 2 = 18 cm², Quadrat: 36 cm². Anteil 18 : 36 = 1/2, also etwa 400 Punkte.', 'Berechne zuerst beide Flächen.')),
+    neu('monte_carlo', 'pruefung', Z('Ein See liegt auf einer rechteckigen Karte, die 4 km breit und 3 km hoch ist. Von 600 Zufallspunkten auf der Karte liegen 210 im See. Wie groß ist der See ungefähr in km²?',
+        4.2, '4 * 3 * 210 / 600', 'Anteil 210 : 600 = 0,35. Karte 12 km². See ≈ 0,35 · 12 km² = 4,2 km².', 'Anteil der Treffer mal Fläche der Karte.', einheit='km²')),
+    neu('monte_carlo', 'begruenden', A('Zwei Gruppen schätzen dieselbe Fläche, die eine mit 50, die andere mit 5 000 Zufallspunkten. Welche Aussage stimmt?',
+        'Die Schätzung mit 5 000 Punkten ist meist genauer, aber auch nicht exakt.', ['Beide Schätzungen sind gleich gut.', 'Mit 5 000 Punkten erhält man den exakten Wert.'],
+        'Mit mehr Punkten schwankt der Anteil der Treffer weniger um den wahren Flächenanteil. Exakt wird er trotzdem nicht, weil der Zufall bleibt.',
+        'Was passiert mit relativen Häufigkeiten bei vielen Versuchen?')),
+]
+# A1: Pyramide. Seitenkante und Höhe der quadratischen Pyramide (Pythagoras) stehen in raum.schraegbilder/pyramide (Reihenfolge 8) –
+# in raum.pyramide_kegel_kugel/pyr_volumen entfallen sie.
+PLAN['raum.schraegbilder'] = [
+    entfaellt('laengen'),
+    her('raum.schraegbilder', 'laengen', 'pyramide', r'Pyramide', auto=True),
+    her('raum.pyramide_kegel_kugel', 'pyr_volumen', 'pyramide', r'^Eine quadratische Pyramide hat die Grundkante a = \d+ cm(, jede Seitenkante| und die Höhe h = \d+ cm\. Wie lang ist eine Seitenkante)', auto=True),
+    abschnitt('Prismen und Pyramiden', 'Pyramiden'),
+    inhalt(ziel='Pyramiden beschreiben und ihre Schrägbilder verstehen, Lagebeziehungen im Raum erkennen, Rotationskörper und Axialschnitte beschreiben und Punkte im Raum mit Koordinaten angeben. Schrägbilder von Prismen: Klasse 8.'),
+]
+PLAN['raum.pyramide_kegel_kugel'] = [
+    weg('pyr_volumen', r'^Eine quadratische Pyramide hat die Grundkante a = \d+ cm(, jede Seitenkante| und die Höhe h = \d+ cm\. Wie lang ist eine Seitenkante)', 4),
+    her('gleichungen.formeln', 'geometrie', 'pyr_volumen', r'Pyramide', auto=True),
+    neu('pyr_volumen', 'verknuepfen', Z('Eine quadratische Pyramide und ein Quader haben dieselbe Grundfläche 36 cm² und dieselbe Höhe 6 cm. Wie viele cm³ fasst der Quader mehr als die Pyramide?',
+        144, '36 * 6 - 36 * 6 // 3', 'Quader: 36 · 6 = 216 cm³. Pyramide: 1/3 · 216 = 72 cm³. Unterschied 144 cm³.', 'Eine Pyramide fasst ein Drittel des passenden Prismas.', einheit='cm³')),
+    neu('pyr_volumen', 'pruefung', Z('Ein Zelt hat die Form einer quadratischen Pyramide mit 3 m Grundkante und 2,5 m Höhe. Wie viele m³ Luft sind darin?', 7.5, '3 * 3 * 25 / 30',
+        'G = 3 m · 3 m = 9 m². V = 1/3 · 9 m² · 2,5 m = 7,5 m³.', 'Erst die Grundfläche, dann V = 1/3 · G · h.', einheit='m³')),
+    neu('pyr_volumen', 'rueckwaerts', Z('Eine Pyramide ist 12 cm hoch und hat das Volumen 256 cm³. Wie groß ist ihre Grundfläche?', 64, '3 * 256 // 12',
+        'V = 1/3 · G · h, also G = 3 · V : h = 3 · 256 : 12 = 64 cm².', 'Stelle V = 1/3 · G · h nach G um.', einheit='cm²')),
+]
+# A2: Substitution wird erst in gleichungen.polynom/substitution erklärt.
+PLAN['funktionen.ganzrational'] = [
+    weg('nullstellen', r'x⁴ − (29|17|5)x²', 3),
+    neu('nullstellen', 'verknuepfen', Z('Bestimme die größte Nullstelle von f(x) = x³ − 9x.', 3, '3',
+        'Ausklammern: x · (x² − 9) = x · (x − 3) · (x + 3) (dritte binomische Formel). Nullstellen −3, 0, 3; die größte ist 3.',
+        'Klammere x aus. Erkennst du im Rest eine binomische Formel?')),
+    neu('nullstellen', 'rueckwaerts', Z('Eine Funktion 3. Grades mit dem Leitkoeffizienten 1 hat genau die Nullstellen −2, 1 und 4. Wie groß ist ihr Absolutglied?', 8, '2 * (-1) * (-4)',
+        'f(x) = (x + 2)(x − 1)(x − 4). Das Absolutglied ist das Produkt der Zahlen in den Klammern: 2 · (−1) · (−4) = 8.',
+        'Schreibe f in Produktform. Was bleibt übrig, wenn du x = 0 einsetzt?')),
+    neu('nullstellen', 'pruefung', A('f(x) = x² · (x − 3). Welche Aussage über die Nullstellen stimmt?',
+        'x = 0 ist doppelte Nullstelle (der Graph berührt), x = 3 ist einfache Nullstelle (der Graph schneidet).',
+        ['x = 0 und x = 3 sind beide einfache Nullstellen.', 'x = 3 ist doppelte Nullstelle, x = 0 einfache.', 'Es gibt nur die Nullstelle x = 3.'],
+        'x² steht für den Faktor x zweimal: x = 0 ist doppelte Nullstelle, dort berührt der Graph die x-Achse. (x − 3) kommt einmal vor: einfache Nullstelle, Vorzeichenwechsel.',
+        'Wie oft kommt jeder Linearfaktor vor?')),
+]
+PLAN['gleichungen.polynom'] = [her('funktionen.ganzrational', 'nullstellen', 'substitution', r'x⁴ − (29|17|5)x²', auto=True)]

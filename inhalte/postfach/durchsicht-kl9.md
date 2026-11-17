@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 13:23 – STATUS
+funktionen.quadratisch fertig: 39 umgestuft (Kartenbeispiel-Aufgaben von Stufe 2 auf 1, bloße Abwandlungen von 3 auf 2), 1 ersetzt (unklare Frage „Wie klein … höchstens“), 2 neu (umformen Stufe 3: Fehler finden, b aus dem Scheitel), Karte umformen: Schritt 5 „zuerst ausklammern“. inhalt_pruefen OK, Nachweis OK.
+
 ## 2026-11-17 13:21 – STATUS
 zahlen.reell fertig: 28 umgestuft (teilweise: „größere Zahlen“ auf Stufe 1, Umkehrung „als eine Wurzel“ auf 2; eingrenzen: Hundertstel auf 2; zahlarten, wurzel_mal, nenner_rational einzelne), Karte nenner_rational: Schritt 4 mit √m − n im Nenner (vorher nur im Merksatz). inhalt_pruefen OK, Nachweis OK.
 

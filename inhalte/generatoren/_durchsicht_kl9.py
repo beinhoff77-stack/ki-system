@@ -67,8 +67,21 @@ def nachweis(thema, stand='origin/lernen-app'):
     z = collections.Counter()
     for tag, i1, i2, j1, j2 in sm.get_opcodes():
         if tag == 'equal': continue
-        if tag == 'replace' and i2 - i1 == j2 - j1:
-            for a, b in zip(A[i1:i2], N[j1:j2]):
+        if tag == 'replace':
+            alt_b, neu_b = list(A[i1:i2]), list(N[j1:j2])
+            paare = []
+            if len(alt_b) == len(neu_b):
+                paare = list(zip(alt_b, neu_b)); neu_b = []
+            else:  # gleich lange Paare über Lernkarte + Fragetext finden, Rest sind neue Aufgaben
+                for a in alt_b:
+                    b = next((x for x in neu_b if (x['l'], x['p'], x['f']['text']) == (a['l'], a['p'], a['f']['text'])), None)
+                    if b is None: ok = False; print(f'FEHLER: Aufgabe verschwunden: {a["f"]["text"][:80]}'); continue
+                    neu_b.remove(b); paare.append((a, b))
+            for b in neu_b:
+                z['neu'] += 1
+                print(f'  NEU      {b["l"]}/{b["p"]} s{b["s"]}: „{b["f"]["text"][:100]}“')
+                if b['p'] != 'uebung': ok = False
+            for a, b in paare:
                 if a['f'] != b['f'] or a.get('a') != b.get('a'):
                     z['ersetzt'] += 1
                     print(f'  ERSETZT  {a["l"]}/{a["p"]} s{a["s"]}: „{a["f"]["text"][:100]}“ → s{b["s"]} „{b["f"]["text"][:100]}“')

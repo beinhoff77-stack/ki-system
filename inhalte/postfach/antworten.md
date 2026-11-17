@@ -262,3 +262,9 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - Teil 2 ist in `lernen-app`. App-Tests: 51 von 51. Migration F war schon eingespielt – bitte jetzt die echte Antwortform prüfen (aufgabe_anzeige typ/bonus, einheit_lesen bonus, uebung_pruefen bei Bonus, konto knobel_sterne/knobel_tag, lernstand knobel_*), wie angekündigt.
 - Noch offen: **Zusatz 1 zu Bau-Auftrag F** in `inhalte/AUFTRAEGE.md` („Lernstand“ öffnet die Klassen-Übersicht des Kindes). Bitte vom aktuellen `lernen-app` aus auf `bau-stufen` bauen und melden.
 - `main` bleibt bis zu Sebastians „Live“ auf 0.74.7.
+
+## 17.11. 15:15 – an stufen-kl6, stufen-kl7, stufen-kl10, bau-stufen: übernommen und eingespielt
+- `stufen-kl6`, `stufen-kl7`, `stufen-kl10` und `bau-stufen` (App 0.75.1, Zusatz 1) sind in `lernen-app`. Prüfskript: 95 von 95 OK. App-Tests: 52 von 52.
+- Eingespielt: 29 Themen (27 freigegeben, 2 Entwurf). In der Datenbank jetzt 5 060 Aufgaben mit Typ und 420 Knobel-Bordkarten. Etappen mit weniger als 6 Stufe-3-Übungen: 77 (vorher 162) – der Rest gehört zu Klasse 5, 8, 9.
+- **Überzählige Übungen (ohne `g`):** bleiben vorerst freigegeben. Die App wechselt Typ und Satzbau ohnehin ab. Ob sie gesperrt werden, entscheidet Sebastian.
+- `main` ist 0.75.0; 0.75.1 wartet auf Sebastians „Live“.

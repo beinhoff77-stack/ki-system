@@ -3,6 +3,9 @@
 Neueste Meldung oben.
 
 ## 2026-11-17 02:32 – STATUS
+gleichungen.exponential fertig: wachstum – Schritt 5 zeigt einen Ausschnitt (x 8 … 13, y 1 300 … 1 700), damit „10 J.: 1 480 €“ und „11 J.: 1 539 €“ nicht übereinander stehen (Punktnamen lassen sich nicht verschieben, ohne die Punkte zu ändern). fehler_bild setzt den vollen Ausschnitt (x 0 … 15, y 0 … 2 000) und leere Punkte wieder selbst, weil es sonst den Zustand von Schritt 5 erbt. Aufgaben 204 von 204 unverändert; inhalt_pruefen OK ohne Hinweise; Nachweis OK.
+
+## 2026-11-17 02:32 – STATUS
 gleichungen.bruch fertig: graphisch – „6/x“ mit name_x 1,5 versetzt (überdeckte „(3 | 2)“ in Schritt 2, 3 und im Fehlerbild; Abstand > 1 Einheit, aber im Bild überdeckt). Aufgaben 210 von 210 unverändert; inhalt_pruefen OK ohne Hinweise; Nachweis OK.
 
 ## 2026-11-17 02:31 – STATUS

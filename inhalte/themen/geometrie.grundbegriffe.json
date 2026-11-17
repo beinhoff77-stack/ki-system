@@ -1404,7 +1404,7 @@
    "l": "koordinaten",
    "t": "koordinaten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Ein Rechteck ABCD hat die Ecken A(−5 | −4), B(−3 | −4) und C(−3 | 4). Seine Seiten sind parallel zu den Achsen. Welche Koordinaten hat D?",
@@ -1626,7 +1626,7 @@
    "l": "koordinaten",
    "t": "koordinaten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Ein Rechteck ABCD hat die Ecken A(3 | −1), B(5 | −1) und C(5 | 2). Seine Seiten sind parallel zu den Achsen. Welche Koordinaten hat D?",
@@ -3065,7 +3065,7 @@
    "l": "lagebeziehungen",
    "t": "lagebeziehungen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "g und h sind gleich",
@@ -3085,7 +3085,7 @@
    "l": "lagebeziehungen",
    "t": "lagebeziehungen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "g geht durch A(−6 | −3) und B(−6 | 0), h geht durch C(4 | −3) und D(4 | 5). Wie liegen g und h zueinander?"
@@ -3153,7 +3153,7 @@
    "l": "lagebeziehungen",
    "t": "lagebeziehungen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "g ∥ h",
@@ -3825,7 +3825,7 @@
    "l": "kreis_lage",
    "t": "kreis_lage",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Nein, der Ort liegt außerhalb der Reichweite.",
@@ -3885,7 +3885,7 @@
    "l": "kreis_lage",
    "t": "kreis_lage",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Das hängt von der Richtung ab.",
@@ -4735,7 +4735,7 @@
    "l": "winkelarten",
    "t": "winkelarten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "gestreckt",
@@ -4756,7 +4756,7 @@
    "l": "winkelarten",
    "t": "winkelarten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "überstumpf",
@@ -4777,7 +4777,7 @@
    "l": "winkelarten",
    "t": "winkelarten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "recht",
@@ -4815,7 +4815,7 @@
    "l": "winkelarten",
    "t": "winkelarten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "gestreckt",
@@ -8001,34 +8001,73 @@
    "t": "vierecke",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "luecken",
    "f": {
-    "text": "Ein Quadrat hat den Umfang 28 cm. Welchen Flächeninhalt hat es?"
+    "text": "ABCD ist ein Parallelogramm mit A(1 | 1), B(5 | 1) und C(6 | 4). Welche Koordinaten hat D?",
+    "schablone": "D(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      7
+     ],
+     "y": [
+      -1,
+      6
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 1,
+       "name": "A"
+      },
+      {
+       "x": 5,
+       "y": 1,
+       "name": "B"
+      },
+      {
+       "x": 6,
+       "y": 4,
+       "name": "C"
+      }
+     ]
+    }
    },
    "o": {
-    "wert": 49,
-    "einheit": "cm²"
+    "werte": [
+     2,
+     4
+    ]
    },
-   "c": "(28 // 4) ** 2",
-   "w": "Seite: 28 cm : 4 = 7 cm. Fläche: 7 cm · 7 cm = 49 cm².",
-   "h": "Bestimme zuerst die Seitenlänge."
+   "c": [
+    "6 - (5 - 1)",
+    "4 - (1 - 1)"
+   ],
+   "w": "Im Parallelogramm ist [AD] parallel und gleich lang wie [BC]. Von B nach C geht es 1 nach rechts und 3 nach oben. Von A aus genauso: D(2 | 4).",
+   "h": "Gegenüberliegende Seiten sind parallel und gleich lang. Wie kommt man von B nach C?"
   },
   {
    "l": "vierecke",
    "t": "vierecke",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Ein Rechteck ist 3 cm breit. Umfang (in cm) und Flächeninhalt (in cm²) haben dieselbe Maßzahl. Wie lang ist das Rechteck?"
+    "text": "Ein Viereck hat vier gleich lange Seiten, aber keinen rechten Winkel. Welcher Name passt am genauesten?"
    },
+   "a": [
+    "Quadrat",
+    "Parallelogramm",
+    "Rechteck",
+    "Raute"
+   ],
    "o": {
-    "wert": 6,
-    "einheit": "cm"
+    "index": 3
    },
-   "c": "6",
-   "w": "Probieren: Länge 6 cm ergibt Umfang 2 · (6 + 3) = 18 und Fläche 6 · 3 = 18.",
-   "h": "Probiere Längen aus und vergleiche Umfang und Fläche."
+   "w": "Vier gleich lange Seiten: Quadrat oder Raute. Ohne rechten Winkel ist es kein Quadrat, also eine Raute. „Parallelogramm“ stimmt auch, ist aber weniger genau.",
+   "h": "Welche Vierecke haben vier gleich lange Seiten? Welches davon braucht rechte Winkel?"
   },
   {
    "l": "vierecke",

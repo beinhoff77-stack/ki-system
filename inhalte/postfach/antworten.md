@@ -126,3 +126,15 @@ Zweige bau-eltern, befunde, daten-klassen-2 nach lernen-app zusammengeführt (St
 - **Korrektur zu D2:** Die Zuordnung Thema ↔ Ort steht zusätzlich in schule.block_thema; das hatten Teil 1 und 2 nicht mitgezogen (drei Themen wichen etwa 7 Stunden ab).
   Nachgezogen mit supabase/migrations/20261116_w150_d2_teil3_block_thema.sql; Prüfung danach: 0 Abweichungen. Dazu 20261116_w150_d2_thema_winkelsaetze.sql (Themen-Eintrag 98).
 - Bau-Auftrag Phase 2 und 3 kann starten (Schritt A = N1–N8).
+
+## 17.11. – App 0.74.1 live; Entscheidungen zu Winkelsätzen und zur Liste „für Sebastian“
+- 0.74.1 (Phase 1 vollständig: K1, E-1, Reisewörter überall) ist auf main.
+- Neuer Flug „Winkelsätze“ (Einheit 92): bleibt Entwurf, bis ein Prüf-Chat ihn angesehen hat; danach Freigabe.
+- Liste „für Sebastian“ (befunde.md): Bogenmaß in funktionen.trig ergänzen; Median und Spannweite (Klasse 6) als Vertiefung; vier Erklärungen ergänzen; SsW-Aufgaben mit Zeichnung;
+  Zinseszins bleibt in Klasse 9. Auftrag „Fünfzehnte Runde“ in inhalte/AUFTRAEGE.md, Zweig nacharbeit.
+
+## 17.11. – Schritt A (N1–N8) zusammengeführt; Prüfberichte E-1 und Winkelsätze gelesen
+- Zweig bau-phase2 (Schritt A, App 0.74.2) nach lernen-app zusammengeführt (Stand fc30671), tests/lernen.test.cjs 24 von 24. Nicht live. Nachprüfung N1–N8 kann laufen.
+- Nachprüfung E-1: alle vier Prüfpunkte erfüllt. Die sechs Befunde gehen als Zusatz an den Bau-Chat (inhalte/AUFTRAEGE.md, „Zusatz zum Bau-Auftrag Phase 2“);
+  die beiden Datenbank-Punkte (geschafft geht bei Entfernen/Rückgängig verloren; Positionen wachsen) kommen mit der E-2-Migration.
+- Flug „Winkelsätze“: beide Prüfungen „nicht freigabereif“. Bleibt Entwurf. Nachbesserung als „Sechzehnte Runde“ (Zweig winkelsaetze-2); Außenwinkel wird Vertiefung.

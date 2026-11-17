@@ -1034,3 +1034,94 @@ Teil 3 – inhalte/themenliste.json: (a) die vier fehlenden Themen aufnehmen (za
 Fertig, wenn `python3 -I tools/inhalt_pruefen.py` für alle geänderten Themendateien OK meldet. Je Teil ein Commit + Push auf daten-klassen-2.
 Grenzen: Keine Datenbank, kein App-Code, keine Tests, kein Merge. Meldungen in inhalte/postfach/daten-klassen-2.md. Arbeite ohne Rückfragen durch.
 ```
+
+# Fünfzehnte Runde: offene Punkte aus der Liste „für Sebastian“ (Befund-Chat) umsetzen
+
+Entscheidung Sebastian 17.11.: wie vom Haupt-Chat vorgeschlagen. Grundlage: inhalte/postfach/befunde.md, Abschnitt „Liste „für Sebastian““.
+
+```text
+Du überarbeitest einzelne Lernkarten und Aufgaben einer Mathe-Lern-App (bayerisches Gymnasium).
+Repository: beinhoff77-stack/ki-system (lernen-app ist ein Zweig darin). Hole den aktuellen Stand des Zweigs lernen-app, lege davon den Zweig nacharbeit an und arbeite nur dort.
+Lies zuerst vollständig: inhalte/README.md (Format, „Verständliche Erklärungen“ mit „Vorgabe seit 16.11.“, „Zeichnungen“), inhalte/postfach/README.md,
+inhalte/postfach/befunde.md (Abschnitt „Liste „für Sebastian““ und die Arbeitsweise im Abschlussbericht) sowie in inhalte/AUFTRAEGE.md die Abschnitte „Zehnte Runde“ und „Dreizehnte Runde“.
+Die Themen sind für Kinder freigegeben: Was du nicht ausdrücklich ändern sollst, bleibt Zeichen für Zeichen gleich (Nachweis per Skript wie in der Dreizehnten Runde,
+Werkzeug inhalte/generatoren/_befunde_nachweis.py bzw. ein eigenes Vergleichsskript gegen origin/lernen-app).
+
+Aufträge (je Thema ein Commit + Push):
+1. funktionen.trig (Klasse 10) – Bogenmaß: LehrplanPLUS M10 3 und das Abitur arbeiten im Bogenmaß; die App kann die x-Achse in Vielfachen von π beschriften (README, Zeichnungen).
+   Lernkarten so ergänzen, dass Bogenmaß erklärt und danach durchgehend mitgeführt wird (Gradmaß bleibt als Einstieg). Je Lernkarte mindestens 8 neue Übungen im Bogenmaß
+   (Stufe 1: 2, Stufe 2: 3, Stufe 3: 3). Die alten Gradmaß-Aufgaben bleiben. Den veralteten Eintrag unter „offen“ (keine π-Beschriftung) entfernen.
+2. daten.kennwerte (Klasse 6): die Lernkarten modal_spannweite und median als Vertiefung führen (aus bewertung.lernziele_pflicht nehmen, in bewertung.lernziele_vertiefung eintragen –
+   Muster: geometrie.winkel nach der Vierzehnten Runde). Sonst nichts ändern.
+3. Erklärung ergänzen, damit sie zu den vorhandenen Aufgaben passt (je ein zusätzlicher Schritt der Bildergeschichte mit Zeichnung, höchstens zwei; Längenregeln der README einhalten):
+   a) geometrie.grundbegriffe / kreis_lage: zwei Kreise – von außen berühren und getrennt liegen (Abstand der Mittelpunkte im Vergleich zu r₁ + r₂).
+   b) geometrie.ortslinien / zwei_kreise: „Kreis im Kreis“ (Abstand kleiner als r₁ − r₂) kurz zeigen.
+   c) trigo.allgemein / kosinussatz_seite: bei Kurs- und Schiff-Aufgaben ist der Dreieckswinkel 180° minus Drehwinkel – mit Zeichnung.
+   d) gleichungen.lgs3 / loesen: ein Schritt „Was, wenn am Ende 0 = 5 oder 0 = 0 steht?“ (keine bzw. unendlich viele Lösungen).
+4. geometrie.konstruktion / kongruenzsatz: Die Stufe-3-Aufgaben zum Fall SsW sind ohne Zeichnung kaum zu entscheiden. Jede dieser Aufgaben bekommt eine Zeichnung (Zeichnungsart figur),
+   aus der die Lage der gegebenen Stücke ablesbar ist; ist das nicht sauber möglich, die Aufgabe durch eine entscheidbare ersetzen und den alten Fragetext unter „ersetzt“ melden.
+5. Aufräumen: veraltete Einträge unter „offen“ entfernen oder berichtigen – funktionen.grundbegriffe („Kreis kann die App nicht zeichnen“ stimmt nicht mehr) und geometrie.winkel
+   (nennt noch die alte Lage „Winkelsätze Kl. 5“; das Thema heißt jetzt „Mit Winkeln rechnen“, Winkelsätze sind ein eigener Flug in Klasse 7).
+6. inhalte/README.md: einen kurzen Abschnitt „Vertiefung“ ergänzen (Felder bewertung.lernziele_pflicht und bewertung.lernziele_vertiefung, Bedeutung: nicht testrelevant, zählt nicht für den Stempel).
+Nicht ändern (so entschieden): gleichungen.potenz – Zinseszins-Sachaufgaben bleiben in Klasse 9; zahlen.intervalle und gleichungen.ungleichungen bleiben vorläufig Klasse 8;
+Schrägbilder, Simulation und Ortslinien sind durch D2 schon geklärt.
+
+Fertig je Thema, wenn `python3 -I tools/inhalt_pruefen.py inhalte/themen/<datei>.json` OK meldet und der Nachweis „nur das Beauftragte geändert“ stimmt.
+Grenzen: Keine Datenbank, kein App-Code, keine Tests, kein Merge. Keine Schulbuch- oder Prüfungsaufgaben wörtlich übernehmen.
+Meldungen in inhalte/postfach/nacharbeit.md: nach jedem Thema eine Zeile, am Ende ein Abschlussbericht mit den Listen „geänderte Lernkarten“ (Thema, Lernkarte, was ergänzt wurde),
+„ersetzt“ (alte Fragetexte) und „offen geblieben“. Arbeite ohne Rückfragen durch.
+```
+
+Einspielen (Haupt-Chat): einheit_abgleichen(…, 'sperren') je Thema (Weg A); geänderte Erklärungen dabei mit übernehmen.
+
+# Sechzehnte Runde: Flug „Winkelsätze“ nach zwei Prüfungen nachbessern
+
+Zwei Prüf-Chats haben geometrie.winkelsaetze (Entwurf, Einheit 92) geprüft: „freigabereif: nein“. Befunde:
+origin/pruefung-winkelsaetze:inhalte/postfach/pruefung-winkelsaetze.md (Teile A, B, C) und origin/pruefung-eltern:inhalte/postfach/pruefung-eltern.md (Abschnitt „Flug Winkelsätze“).
+
+```text
+Du besserst einen neuen, noch nicht freigegebenen Flug einer Mathe-Lern-App nach (bayerisches Gymnasium, Klasse 7): geometrie.winkelsaetze.
+Repository: beinhoff77-stack/ki-system (lernen-app ist ein Zweig darin). Hole den aktuellen Stand des Zweigs lernen-app, lege davon den Zweig winkelsaetze-2 an und arbeite nur dort.
+Lies zuerst vollständig: inhalte/README.md, inhalte/postfach/README.md, den Generator inhalte/generatoren/geometrie.winkelsaetze.py und die beiden Prüfberichte (nur lesen, git show):
+origin/pruefung-winkelsaetze:inhalte/postfach/pruefung-winkelsaetze.md und origin/pruefung-eltern:inhalte/postfach/pruefung-eltern.md (Abschnitt „Flug Winkelsätze“).
+Das Thema ist ein Entwurf ohne Lernstände: Aufgaben dürfen geändert, ersetzt und umsortiert werden.
+
+Setze ALLE Befunde beider Berichte um (Teil A, B und C sowie die drei „Vor der Freigabe beheben“ und die Kleinigkeiten des zweiten Berichts). Entscheidungen dazu:
+- Außenwinkel: Die Etappe aussenwinkel wird Vertiefung (bewertung.lernziele_vertiefung, nicht Pflicht), weil sie nicht im LehrplanPLUS M7 2.2 steht.
+  Aufgaben anderer Etappen, die den Außenwinkelsatz brauchen (z. B. parallel_pruefen #67, #69, #71, #73), über Stufenwinkel bzw. Winkelsumme begründen oder in die Etappe aussenwinkel verschieben.
+- Gleichschenklige Dreiecke / Basiswinkel (Stoff von M7 5) kommen in Pflicht-Etappen nicht vor; solche Aufgaben ersetzen. In der Vertiefungs-Etappe aussenwinkel höchstens 2 davon, mit dem Satz
+  „Im gleichschenkligen Dreieck sind die beiden Basiswinkel gleich groß“ im Aufgabentext.
+- Lineare Gleichungen (M7 3) kommen nach diesem Flug: Aufgaben, die nur mit x-Ansatz lösbar sind, ohne Variable stellen („Teile“-Überlegung) oder ersetzen; „Wie groß ist x?“ nicht mit Einheit Grad.
+- Wechselwinkel: nur eindeutige Paare abfragen; „weder noch“ nur für Paare, die an Parallelen nie gleich groß sind. In der Lernkarte einen Satz ergänzen, dass manche Bücher auch die
+  äußeren Paare Wechselwinkel nennen.
+- Zeichnungen: „nicht parallel“ sichtbar nicht parallel zeichnen; Winkelbögen an der richtigen Geraden; angeschriebene und gezeichnete Winkel höchstens 3° auseinander;
+  Etappe figuren: jede Bordkarte mit Zeichnung (Zeichnungsart figur); Etappe vieleck: Stufe 1 und 2 mit Zeichnung.
+- Etappe beweisen: Test, Korrektur und Sicherung prüfen das Lernziel der Etappe (Fundamentalsatz/abgeleiteter Satz, Zirkelschluss, Reihenfolge einer Beweiskette); die Lückenaufgabe eindeutig machen.
+- Bildergeschichte innenwinkelsumme: jeder Schritt mit eigenem Bild, die Wechselwinkel an C eingezeichnet.
+- Mehr Abwechslung, wo die Berichte Wiederholungen nennen; Schreibweise ∢BAC einheitlich und einmal erklärt; große Zahlen mit Leerzeichen; fehlende Wörter in woerter.
+- Überschneidung mit geometrie.konstruktion (gleicher Ort): nichts an geometrie.konstruktion ändern, nur im Postfach auflisten, welche Karten sich überschneiden.
+Mengen je Etappe bleiben: 18 Übungen (4/6/8), 1 Test, 3 Korrektur, 6 Sicherung. Lösungen berechnen und von Hand nachrechnen; jede Zeichnung ansehen (gezeichnete gegen angeschriebene Winkel per Skript).
+Fertig, wenn `python3 -I tools/inhalt_pruefen.py inhalte/themen/geometrie.winkelsaetze.json` OK meldet. Commit + Push auf winkelsaetze-2.
+Grenzen: Keine Datenbank, kein App-Code, keine Tests, kein Merge, keine anderen Themen. Meldung in inhalte/postfach/winkelsaetze-2.md: je Befund „behoben / anders gelöst / nicht umgesetzt (Grund)“.
+Arbeite ohne Rückfragen durch.
+```
+
+Einspielen (Haupt-Chat): Entwurf → einheit_abgleichen(…, 'loeschen'); danach kurze Nachprüfung und Freigabe durch Sebastian.
+
+# Zusatz zum Bau-Auftrag Phase 2 (17.11.): Befunde aus der Nachprüfung E-1
+
+Quelle: origin/pruefung-eltern:inhalte/postfach/pruefung-eltern.md (Befunde 1–6). Schritt A (N1–N8) ist nach lernen-app zusammengeführt (0.74.2).
+
+```text
+Zusatz zum laufenden Bau-Auftrag Phase 2 und 3 (Zweig bau-phase2). Schritt A ist nach lernen-app zusammengeführt (0.74.2, 24 von 24 Tests); führe lernen-app in bau-phase2, bevor du weitermachst.
+Die Nachprüfung von E-1 (git show origin/pruefung-eltern:inhalte/postfach/pruefung-eltern.md) hat sechs Befunde. Bitte in Schritt C (E-2) mit erledigen:
+1. Info-Seite: keine feste Zahl der Flüge („derzeit 87“) – zählen oder „über 90“; den überholten Satz zu „16 Flügen, Klassen-Zuordnung noch geprüft“ streichen;
+   „100 Sterne für einen geschafften Ort“ ergänzen.
+2. Rückgängig nach „Entfernen“ eines geschafften Ortes: Der Ort darf „geschafft“ nicht verlieren. Datenbank-Seite (schule_plan_setzen) als Migration-Datei vorschlagen
+   (alten Status beim Entfernen merken bzw. fertig nicht überschreiben) – zusammen mit der Migration für abwählbare Flüge.
+3. Positionen entfernter Orte wachsen bei jedem Speichern um 200 000 (Zahlenüberlauf nach etwa 10 000 Speichervorgängen): in derselben Migration beheben.
+4. „Rückgängig“ dauerhaft in der Kopfzeile des Flugplans, nicht nur 8 Sekunden.
+5. Reisewörter-Test: Muster auf \bThema\b|\bThemen\b ändern (die gewollte Erklärung „Flug = ein Mathe-Thema“ ausnehmen).
+6. Flugplan-Zeilen flacher und Ziehen statt vieler Tipps – ist ohnehin E-2.
+Außerdem aus deinem eigenen Bericht zu N2: Die App zeigt „Kurz gesagt“ jetzt ganz; die 116 zu langen Merksätze sind Inhalt und gehen an einen Inhalts-Chat, nicht an dich.
+```

@@ -709,3 +709,161 @@ DS.stufe('wurzelfunktion', 'Der Punkt (a | 5) liegt auf dem Graphen von y = √x
 
 if __name__ == '__main__':
     durchsicht('funktionen.potenz', DS)
+
+
+# ---- STUFEN (Zwanzigste Runde, Zweig stufen-kl9) ----
+from _stufen_kl9 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('funktionen.potenz', 20_9_8)
+Z, A, L = ST.Z, ST.A, ST.L
+
+# werte
+ST.stufenleiter('werte', 'f(x) = a · xⁿ für positive x ausrechnen.',
+                'Negative Eingaben (Potenz vor Punkt), Vorzeichen begründen, Wertetabellen fortsetzen, Volumen eines Würfels.',
+                'Fehler mit dem Minus finden, Brüche und Dezimalzahlen ohne Taschenrechner, Symmetrie nutzen, Faktoren beim Vervielfachen, Bedingung für n, mehrteilige Aufgabe.')
+ST.typ('werte', 'Welches Vorzeichen hat', 'erkennen')
+ST.typ('werte', '/^Berechne f\\(\\d+\\) für f\\(x\\) = \\d*x[²³⁴⁵⁶]+\\.$/', 'direkt')
+ST.typ('werte', '/^Berechne f\\(/', 'mehrschritt', s=2)
+ST.typ('werte', 'Berechne f(−2) für f(x) = −3x³', 'mehrschritt')
+ST.typ('werte', 'Berechne ohne Taschenrechner', 'verknuepfen')
+ST.typ('werte', 'f(x) = −x⁴. Jemand', 'fehler')
+ST.typ('werte', '/^(Die Leistung eines Windrads|Ein würfelförmiger Wassertank)/', 'transfer')
+ST.typ('werte', 'Für f(x) = x⁵ gilt', 'begruenden')
+ST.typ('werte', 'Für f(x) = 2x³: Um welchen', 'verknuepfen')
+ST.neu('werte', 'einkleidung', Z('Ein Würfel mit der Kantenlänge x hat das Volumen V(x) = x³. Wie groß ist V bei x = 4 cm?', 64, '4 ** 3',
+       'V(4) = 4 · 4 · 4 = 64 cm³.', 'Setze 4 ein.', einheit='cm³'))
+ST.neu('werte', 'darstellung', Z('Eine Wertetabelle zu f(x) = a · x² zeigt: f(1) = 3 und f(2) = 12. Welcher Wert gehört zu x = 3?', 27, '3 * 3 ** 2',
+       'Aus f(1) = 3 folgt a = 3. f(3) = 3 · 9 = 27.', 'Bestimme zuerst a.'))
+ST.neu('werte', 'parameter', Z('Für welche natürliche Zahl n gilt für f(x) = xⁿ: f(−1) = 1 und f(2) = 16?', 4, '4',
+       'f(−1) = 1 verlangt ein gerades n. 2ⁿ = 16 gilt für n = 4. Beides passt.', 'Was sagt f(−1) = 1 über n?'))
+ST.neu('werte', 'pruefung', L('Gegeben ist f(x) = −0,5x⁴. Berechne a) f(2), b) f(−2), c) f(0).', 'a) □; b) □; c) □', [-8, -8, 0], ['-0.5 * 2 ** 4', '-0.5 * (-2) ** 4', '0'],
+       'a) −0,5 · 16 = −8. b) (−2)⁴ = 16, also wieder −8. c) 0.', 'Erst die Potenz, dann mal −0,5.'))
+ST.knobel('werte', Z('f(x) = x³. Für welche ganze Zahl x gilt f(x) + f(x + 1) = 35?', 2, '2',
+          'Kleine Kubikzahlen: 1, 8, 27, 64. 8 + 27 = 35, also x = 2 (2³ + 3³). Für negative x wird die Summe kleiner, für x ≥ 3 zu groß.',
+          'Schreib einige Kubikzahlen nebeneinander.'))
+ST.knobel('werte', Z('Für welche positive Zahl x gilt x⁴ = 16x²?', 4, '4',
+          'Durch x² teilen (x ≠ 0): x² = 16, positiv x = 4. Probe: 4⁴ = 256 und 16 · 16 = 256.', 'Teile beide Seiten durch dieselbe Potenz.'))
+
+# symmetrie
+ST.stufenleiter('symmetrie', 'Am Exponenten die Symmetrie ablesen und f(−x) aus f(x) angeben.',
+                'Symmetrie am Graphen erkennen, f(−2) aus f(2) ohne a bestimmen, Brückenbogen.',
+                'Summen von Potenzen untersuchen, Fehler „ein Wert genügt“ finden, beide Symmetrien zugleich, Bedingung für n.')
+ST.typ('symmetrie', 'Welche Symmetrie hat der Graph von y = ', 'erkennen', s=1)
+ST.typ('symmetrie', 'Welche Symmetrie hat der gezeigte', 'darstellung')
+ST.typ('symmetrie', '/^Für f\\(x\\) = a · x/', 'umkehr')
+ST.typ('symmetrie', '/^Der Graph von (y|f\\(x\\)) = /', 'darstellung')
+ST.typ('symmetrie', 'Jemand behauptet', 'fehler')
+ST.typ('symmetrie', '/^(Welche Symmetrie hat der Graph von y = x⁴ − x\\?|Der Graph einer Funktion f ist)/', 'begruenden')
+ST.typ('symmetrie', '/^(Welcher Graph ist|Welche Symmetrie hat der Graph von y = x)/', 'verknuepfen')
+ST.neu('symmetrie', 'direkt', Z('Für f(x) = x⁴ gilt f(3) = 81. Wie groß ist f(−3)?', 81, '(-3) ** 4',
+       'Gerader Exponent: achsensymmetrisch, f(−3) = f(3) = 81.', 'Gerader oder ungerader Exponent?'))
+ST.neu('symmetrie', 'einkleidung', Z('Ein Brückenbogen folgt y = −0,5x² + 8 (in m, x = 0 in der Mitte). 3 m rechts der Mitte ist er 3,5 m hoch. Wie hoch ist er 3 m links der Mitte?', 3.5, '-0.5 * 9 + 8',
+       'Der Bogen ist achsensymmetrisch zur y-Achse: f(−3) = f(3) = 3,5 m.', 'Ist der Bogen symmetrisch?', einheit='m'))
+ST.neu('symmetrie', 'parameter', A('Für welche natürlichen Zahlen n ist y = xⁿ + x² achsensymmetrisch zur y-Achse?', 'für alle geraden n', ['für alle ungeraden n', 'nur für n = 2', 'für kein n'],
+       'x² ist achsensymmetrisch. Die Summe ist es genau dann, wenn auch xⁿ es ist, also bei geradem n. Bei ungeradem n ist f(−1) = 0 ≠ 2 = f(1).', 'Prüfe f(−1) und f(1).'))
+ST.knobel('symmetrie', Z('Für f(x) = a · x⁵ + b · x³ + c · x gilt f(2) = 7. Wie groß ist f(−2)?', -7, '-7',
+          'Alle Exponenten sind ungerade, also ist jeder Summand punktsymmetrisch: f(−x) = −f(x). Damit f(−2) = −7, ohne a, b, c zu kennen.',
+          'Welche Symmetrie hat jeder einzelne Summand?'))
+ST.knobel('symmetrie', Z('Für f(x) = a · x³ + 2 gilt f(1) = 5. Wie groß ist f(−1)?', -1, '-3 + 2',
+          'Aus f(1) = a + 2 = 5 folgt a = 3. f(−1) = −3 + 2 = −1. Der Graph ist punktsymmetrisch zu (0 | 2), nicht zum Ursprung: 5 und −1 liegen gleich weit über bzw. unter 2.',
+          'Wo liegt das Symmetriezentrum, wenn man +2 addiert?'))
+
+# verlauf
+ST.stufenleiter('verlauf', 'Den Verlauf von xⁿ und −xⁿ am Exponenten und am Vorzeichen ablesen.',
+                'Graphen zuordnen, x⁵ und x³ zwischen 0 und 1 vergleichen, n aus Verlauf und Punkt bestimmen.',
+                'Gemeinsame Punkte berechnen, Fehler beim Vorzeichen finden, Wachstum vergleichen, Bedingung (−1 | 1), mehrteilige Aufgabe.')
+ST.typ('verlauf', '/^Wie verläuft der Graph von y = /', 'erkennen', s=1)
+ST.typ('verlauf', 'Durch welchen Punkt gehen alle', 'erkennen')
+ST.typ('verlauf', '/^(Wie verläuft|Welcher Graph)/', 'darstellung')
+ST.typ('verlauf', 'Für x = 0,5', 'begruenden')
+ST.typ('verlauf', 'Welche Graphen der Form', 'parameter')
+ST.typ('verlauf', '/^(Die Graphen von|Welcher Term gehört|Wie viele gemeinsame)/', 'verknuepfen')
+ST.neu('verlauf', 'direkt', Z('Welchen Wert hat y = −x⁵ bei x = 2?', -32, '-(2 ** 5)',
+       '2⁵ = 32, mit Minus davor −32.', 'Erst die Potenz, dann das Minus.'))
+ST.neu('verlauf', 'mehrschritt', A('Welcher der Werte x³, x⁵ und −x⁴ ist bei x = 2 am kleinsten?', '−x⁴ = −16', ['x³ = 8', 'x⁵ = 32', 'Alle sind gleich.'],
+       'x³ = 8, x⁵ = 32, −x⁴ = −16. Am kleinsten ist −16.', 'Rechne alle drei aus.'))
+ST.neu('verlauf', 'umkehr', Z('Ein Graph y = xⁿ verläuft von links unten nach rechts oben und geht durch (2 | 32). Welches n hat er?', 5, '5',
+       '2ⁿ = 32 gilt für n = 5. Ungerader Exponent passt zum Verlauf von links unten nach rechts oben.', 'Welche Zweierpotenz ist 32?'))
+ST.neu('verlauf', 'fehler', A('Jemand sagt: „y = −x⁴ verläuft von links unten nach rechts oben, weil ein Minus davor steht.“ Was stimmt?', 'Falsch: von links unten nach rechts unten.',
+       ['Richtig.', 'Falsch: von links oben nach rechts oben.', 'Falsch: von links oben nach rechts unten.'], 'x⁴ verläuft von links oben nach rechts oben. Das Minus spiegelt an der x-Achse: links unten nach rechts unten.', 'Wie verläuft x⁴ ohne Minus?'))
+ST.neu('verlauf', 'transfer', A('Zwei Pflanzen wachsen: Höhe h₁ = t² und h₂ = t³ (t in Wochen ab dem Pflanzen, h in cm). Was stimmt?', 'Nach der ersten Woche ist die zweite Pflanze höher.',
+       ['Die erste Pflanze ist immer höher.', 'Die zweite ist immer höher.', 'Sie sind immer gleich hoch.'], 'Für 0 < t < 1 ist t³ < t², bei t = 1 gleich, für t > 1 ist t³ > t².', 'Vergleiche t = 0,5 und t = 2.'))
+ST.neu('verlauf', 'pruefung', L('Die Graphen von y = x³ und y = x schneiden sich. Gib die x-Koordinaten der Schnittpunkte an (kleinste zuerst).', 'x₁ = □; x₂ = □; x₃ = □', [-1, 0, 1], ['-1', '0', '1'],
+       'x³ = x ⇒ x³ − x = 0 ⇒ x(x² − 1) = 0 ⇒ x = 0, x = 1, x = −1.', 'Bring alles auf eine Seite und klammere aus.'))
+ST.knobel('verlauf', Z('Wie viele gemeinsame Punkte haben die Graphen von y = x⁴ und y = x³?', 2, '2',
+          'x⁴ = x³ ⇒ x³(x − 1) = 0 ⇒ x = 0 oder x = 1. Für negative x ist x⁴ positiv und x³ negativ, dort gibt es keinen Schnitt. Zwei Punkte: (0 | 0) und (1 | 1).',
+          'Bring alles auf eine Seite und klammere aus.'))
+ST.knobel('verlauf', Z('Wie viele ganze Zahlen x erfüllen x⁴ < 10x²?', 6, '2 * 3',
+          'Für x = 0 steht 0 < 0 da, das ist falsch. Für x ≠ 0 darf man durch x² (positiv) teilen: x² < 10. Das gilt für x = ±1, ±2, ±3 (3² = 9 < 10, 4² = 16). Also 6 ganze Zahlen.',
+          'Teile vorsichtig: Was passiert bei x = 0?'))
+
+# parameter
+ST.stufenleiter('parameter', 'a aus einem Punkt in y = a · xⁿ bestimmen.',
+                'n aus einem Punkt oder zwei Punkten bestimmen, mit a weiterrechnen, Bremsweg und Tabellen.',
+                'n und a aus zwei Punkten mit Vorzeichen, Fehler mit (−2)³, unmögliche Punkte begründen, Fallweg und Windrad, mehrteilige Aufgabe.')
+ST.typ('parameter', 'Der Graph von y = a · x⁴ geht durch (1 | 3). Welchen', 'mehrschritt')
+ST.typ('parameter', '/^(y = a · x[²³⁴⁵⁶]+ geht durch|Der Graph von y = a · x[²³⁴⁵⁶]+ geht durch)/', 'direkt')
+ST.typ('parameter', '/^(y = xⁿ geht durch|Der Graph von y = xⁿ geht durch)/', 'umkehr')
+ST.typ('parameter', '/^Der Graph von y = a · xⁿ geht durch P\\(\\d/', 'mehrschritt')
+ST.typ('parameter', '/^Der Graph von y = a · xⁿ geht durch/', 'verknuepfen')
+ST.typ('parameter', '/^(Für den Fallweg|Die Leistung eines Windrads)/', 'transfer')
+ST.neu('parameter', 'erkennen', A('Welche Gleichung entsteht, wenn du P(2 | 12) in y = a · x² einsetzt?', '12 = a · 4', ['2 = a · 144', '12 = a · 2', '12 = 2a²'],
+       'x = 2 und y = 12 einsetzen: 12 = a · 2² = a · 4. Also a = 3.', 'x und y aus dem Punkt einsetzen.'))
+ST.neu('parameter', 'einkleidung', Z('Für den Bremsweg gilt s = a · v². Bei v = 50 km/h ist s = 25 m. Bestimme a.', 0.01, '25 / 2500',
+       '25 = a · 2 500, also a = 0,01.', 'Setze v und s ein.'))
+ST.neu('parameter', 'darstellung', Z('Eine Wertetabelle zu y = a · x⁴ zeigt bei x = 1 den Wert 0,5 und bei x = 2 den Wert 8. Bestimme a.', 0.5, '8 / 16',
+       'x = 1 liefert sofort a = 0,5. Kontrolle: 0,5 · 16 = 8.', 'Welche Stelle verrät a sofort?'))
+ST.neu('parameter', 'fehler', A('Jemand bestimmt a bei y = a · x³ durch P(−2 | 16) so: 16 = a · 6, also a = 8/3. Was stimmt?', 'Falsch: (−2)³ = −8, also a = −2.', ['Richtig.', 'Falsch: a = 2.', 'Falsch: a = −8/3.'],
+       '(−2)³ = (−2) · (−2) · (−2) = −8, nicht 6. 16 = a · (−8) ⇒ a = −2.', 'Was ist (−2)³?'))
+ST.neu('parameter', 'begruenden', A('Kann der Graph von y = a · x⁴ durch P(1 | 2) und Q(−1 | −2) gehen?', 'Nein, x⁴ ist achsensymmetrisch, also müsste f(−1) = f(1) sein.', ['Ja, mit a = 2.', 'Ja, mit a = −2.', 'Nur wenn a = 0 ist.'],
+       'f(1) = a und f(−1) = a. Also kann nicht f(1) = 2 und f(−1) = −2 gelten.', 'Vergleiche f(1) und f(−1).'))
+ST.neu('parameter', 'pruefung', L('Der Graph von y = a · xⁿ geht durch (1 | 3) und (2 | 24). Bestimme a) a, b) n, c) den y-Wert bei x = −1.', 'a) □; b) □; c) □', [3, 3, -3], ['3', '3', '-3'],
+       'a) x = 1: a = 3. b) 3 · 2ⁿ = 24 ⇒ 2ⁿ = 8 ⇒ n = 3. c) 3 · (−1)³ = −3.', 'Fang mit x = 1 an.'))
+ST.knobel('parameter', Z('Der Graph von y = a · xⁿ geht durch (2 | 12) und (4 | 48). Welchen Wert hat er bei x = 8?', 192, '3 * 8 ** 2',
+          'Verdoppelt sich x, wird y 4-mal so groß: 2ⁿ = 4, n = 2. Aus 12 = a · 4 folgt a = 3. Bei x = 8: 3 · 64 = 192 (oder: noch einmal verdoppeln, noch einmal mal 4).',
+          'Was passiert mit y, wenn sich x verdoppelt?'))
+ST.knobel('parameter', Z('Für f(x) = a · xⁿ gilt f(2) = f(−2) = 48 und f(1) = 3. Wie groß ist f(3)?', 243, '3 * 3 ** 4',
+          'f(1) = 3 ⇒ a = 3. 3 · 2ⁿ = 48 ⇒ 2ⁿ = 16 ⇒ n = 4 (gerade, passt zu f(−2) = f(2)). f(3) = 3 · 81 = 243.',
+          'x = 1 verrät a.'))
+
+# negativ
+ST.stufenleiter('negativ', 'x⁻ⁿ als Kehrwert von xⁿ ausrechnen.',
+                'Brüche einsetzen, Symmetrie und Definitionsmenge, Punkte auf dem Graphen prüfen.',
+                'Verhalten für große x und nahe 0, Fehler 4⁻² = −16, Rechteckfläche, Bedingung für a, Beleuchtung bei verdoppeltem Abstand.')
+ST.typ('negativ', '/^Berechne f\\(\\d+\\) für f\\(x\\) = x⁻/', 'direkt')
+ST.typ('negativ', '/^Berechne f\\(/', 'mehrschritt')
+ST.typ('negativ', '/^(Welche Symmetrie|Welcher Punkt)/', 'darstellung')
+ST.typ('negativ', 'Für welche x ist', 'umkehr')
+ST.typ('negativ', '/^Was passiert mit/', 'verknuepfen')
+ST.typ('negativ', 'Jemand', 'fehler')
+ST.typ('negativ', '/^(Gegeben ist f\\(x\\) = 4|Die Beleuchtungsstärke)/', 'transfer')
+ST.typ('negativ', 'Für welches a > 0', 'parameter')
+ST.typ('negativ', '/^(Für welche x liegt|E\\(d\\) = 400)/', 'begruenden')
+ST.neu('negativ', 'erkennen', A('Was bedeutet x⁻³?', '1/x³', ['−x³', '−3x', 'x : 3'],
+       'Ein negativer Exponent bedeutet Kehrwert: x⁻³ = 1/x³.', 'Minus im Exponenten heißt Kehrwert.'))
+ST.knobel('negativ', Z('Für welche Zahl x > 1 gilt x + x⁻¹ = 2,5?', 2, '2',
+          'x⁻¹ = 1/x. Probiere: x = 2 ergibt 2 + 0,5 = 2,5. Die zweite Lösung 0,5 ist kleiner als 1. Rechnerisch: x² − 2,5x + 1 = 0.', 'Zahl plus Kehrwert – probiere einfache Zahlen.'))
+ST.knobel('negativ', Z('f(x) = x⁻². Um wie viel Prozent sinkt f(x), wenn x um 25 % größer wird?', 36, '(1 - 1 / 1.25 ** 2) * 100',
+          'Neues x: 1,25x. f(1,25x) = 1 : (1,5625x²) = 0,64 · f(x). Der Wert sinkt auf 64 %, also um 36 %.', 'Setze 1,25 · x ein.', einheit='%'))
+
+# wurzelfunktion
+ST.stufenleiter('wurzelfunktion', 'Mit der Umkehrung von x² und x³ aus einem Funktionswert x bestimmen.',
+                'Werte von Wurzelfunktionen mit Faktor und Verschiebung, Punkte rückwärts, Gleichungen wie 3x² = 75.',
+                'Punkte durch Tauschen übertragen, Lage zu y = x begründen, Wertemenge, Schnittzahl, Fehler „Kehrwert statt Wurzel“, Pendel und Horizont.')
+ST.typ('wurzelfunktion', '/^f\\(x\\) = x[²³] für x ≥ 0/', 'direkt')
+ST.typ('wurzelfunktion', 'Welche Funktion ist die Umkehrfunktion', 'erkennen')
+ST.typ('wurzelfunktion', '/^(f\\(x\\) = 3x²|Die Funktion f\\(x\\) = √x hat)/', 'umkehr')
+ST.typ('wurzelfunktion', '/^(Berechne f|Der Graph von y = √x wird)/', 'mehrschritt')
+ST.typ('wurzelfunktion', 'Der Punkt (a | 5)', 'darstellung')
+ST.typ('wurzelfunktion', '/^(Der Punkt \\(9|Der Punkt \\(2)/', 'verknuepfen')
+ST.typ('wurzelfunktion', '/^(Im Bild siehst du|Welche Wertemenge|Wie oft schneiden)/', 'begruenden')
+ST.typ('wurzelfunktion', '/^(Für die Schwingungsdauer|Wie weit man)/', 'transfer')
+ST.neu('wurzelfunktion', 'fehler', A('Jemand sagt: „Die Umkehrfunktion von f(x) = x² (x ≥ 0) ist g(x) = 1/x².“ Was stimmt?', 'Falsch: Sie ist g(x) = √x.', ['Richtig.', 'Falsch: Sie ist g(x) = −x².', 'Falsch: Sie ist g(x) = x : 2.'],
+       'Die Umkehrfunktion macht das Quadrieren rückgängig: aus 9 wird wieder 3 = √9. 1/x² ist der Kehrwert, keine Umkehrung.', 'Was macht Quadrieren rückgängig?'))
+ST.knobel('wurzelfunktion', Z('Für welche positive Zahl x gilt √x + √x = x?', 4, '2 ** 2',
+          '2√x = x. Setze w = √x: 2w = w², also w = 2 (w > 0). Dann x = 4. Probe: 2 + 2 = 4.', 'Gib √x einen eigenen Namen.'))
+ST.knobel('wurzelfunktion', Z('Die Graphen von y = ∛x und y = x/4 schneiden sich in einem Punkt mit x > 0. Bei welchem x?', 8, '8',
+          '∛x = x/4. Hoch drei: x = x³/64, also (x > 0) x² = 64 und x = 8. Probe: ∛8 = 2 = 8/4.', 'Nimm beide Seiten hoch 3.'))
+
+if __name__ == '__main__':
+    stufen('funktionen.potenz', ST)

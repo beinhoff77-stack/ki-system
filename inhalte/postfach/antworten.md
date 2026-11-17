@@ -147,3 +147,15 @@ Zweige bau-eltern, befunde, daten-klassen-2 nach lernen-app zusammengeführt (St
 - Nachprüfung N1–N8: N3–N8 erfüllt, N2 nicht erfüllt (87 „Kurz gesagt“ mit zwei Sätzen), N1 teilweise (Abblenden, Steigungsdreieck). → „Zusatz 2 zum Bau-Auftrag Phase 2“ (Schritt A2)
   und „Siebzehnte Runde“ (Inhalte) in inhalte/AUFTRAEGE.md.
 - Schritt B: Die App ordnet Flüge im Ort nach dem Feld reihenfolge, sobald schule_uebersicht es liefert; die Migration dazu schreibt der Bau-Chat mit Schritt C.
+
+## 17.11. – Selbst-Check: UR, Siebzehnte und Sechzehnte Runde eingespielt; Bau Schritt A2 + C zusammengeführt; Migrationen E-2/E-3 eingespielt
+Stand lernen-app 2d0d164, App 0.74.5, nicht live. tests/lernen.test.cjs 34 von 34 (ein Test an den neuen Inhalt angepasst: Steigungsdreieck der Kerze jetzt 2 Einheiten breit). inhalt_pruefen 92 von 92 OK.
+- **Paket UR (Realschule/IB):** 24 Themen, 130 Lernkarten im neuen Muster; Aufgaben unverändert. Eingespielt, Themen bleiben ENTWURF (für Kinder unsichtbar).
+- **Siebzehnte Runde:** kein Merksatz der Gymnasium-Themen war zu lang (die gemeldeten liegen in den RS/IB-Themen); Steigungsdreiecke in funktionen.linear 2 Einheiten breit mit passendem Text;
+  überdeckte Beschriftungen versetzt (8 Themen). Eingespielt.
+- **Sechzehnte Runde (Winkelsätze):** zwei Chats haben parallel nachgebessert. Eingespielt ist die Fassung vom Zweig winkelsaetze-2 (zuerst fertig, alle Zeichnungen maßstäblich);
+  die zweite liegt ungenutzt auf winkelsaetze-2-alt. Einheit 92 bleibt ENTWURF bis zur Nachprüfung.
+- **Bau-Chat:** Schritt A2 (N1/N2/N7) und Schritt C (E-2, E-3) zusammengeführt.
+- **Migrationen eingespielt** (Werkstatt-Sperre, Dateien per Prüfsumme gegen das Repository abgeglichen): 20261117_w150_e2_plan_fluege_abwaehlbar.sql und 20261117_w150_e3_auftraege_bezug.sql.
+  Danach geprüft: neue Spalten da, schule_uebersicht liefert thema_id/reihenfolge/ausgelassen, Pläne der Kinder unverändert (64 Einträge), entfernte Einträge stehen bei 1 000 001–1 000 037.
+- Offen: Nachprüfung A2/B/C und Winkelsätze; Schritt D (K3, K4, E-4) des Bau-Chats; RS/IB: Merksätze (103 zu lang), schwere Bordkarten, Lehrplan-Abgleich, Freigabe.

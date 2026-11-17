@@ -696,5 +696,30 @@ NAEHERUNG = [
 ergaenze_karte(DATEI, 'sachaufgaben', NAEHERUNG, 18_5_8)
 # ---- LÜCKEN ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl5, siehe _durchsicht_kl5.py) ----
+from _durchsicht_kl5 import Durchsicht, durchsicht_anwenden  # noqa: E402
+
+DS = Durchsicht('messen.flaechen', 19_5_13)
+# a) Stufe 3 mit dem Gedanken von Stufe 2 (m · cm in dm², Zerlegen in zwei Einheiten, Räume addieren, Rahmen) → Stufe 2
+for _lz, _t in [('rechteck', 'Ein Rechteck ist 3 m lang und 30 cm breit. Wie groß ist der Flächeninhalt in dm²?'),
+        ('rechteck', 'Ein Rechteck ist 6 m lang und 90 cm breit. Wie groß ist der Flächeninhalt in dm²?'),
+        ('rechteck', 'Ein Rechteck ist 2 m lang und 90 cm breit. Wie groß ist der Flächeninhalt in dm²?'),
+        ('einheiten', 'Zerlege: 3 569 mm² = □ cm² □ mm²'),
+        ('einheiten', 'Ein Bauernhof hat 12 ha Ackerland. Wie viele m² sind das?'),
+        ('einheiten', 'Zerlege: 1 621 m² = □ a □ m²'),
+        ('einheiten', 'Zerlege: 2 301 cm² = □ dm² □ cm²'),
+        ('zerlegen', 'Eine Wohnung besteht aus einem Raum mit 3 m × 5 m, einem Raum mit 6 m × 6 m, einem Raum mit 5 m × 2 m und einem Raum mit 7 m × 5 m. Wie groß ist die Wohnfläche?'),
+        ('zerlegen', 'Eine Wohnung besteht aus einem Raum mit 3 m × 6 m, einem Raum mit 5 m × 2 m, einem Raum mit 5 m × 6 m und einem Raum mit 8 m × 3 m. Wie groß ist die Wohnfläche?'),
+        ('zerlegen', 'Ein großes Quadrat hat 8 cm Seitenlänge. Darin liegt ein kleines Quadrat mit 3 cm Seitenlänge. Wie groß ist die Fläche zwischen den beiden Quadraten?')]:
+    DS.stufe(_lz, _t, 2, enthaelt=lambda x: x['s'] == 3)
+# c) Lösung 30,25 cm² verlangt Kommazahl mal Kommazahl (5,5 · 5,5) – das ist Kl. 6. Gleicher Gedanke mit ganzen Zahlen:
+DS.ersetze('rechteck', 'Ein Rechteck ist 8 cm lang und 3 cm breit. Ein Quadrat hat denselben Umfang. Wie groß ist der Flächeninhalt des Quadrats?',
+           DS.Z('Ein Rechteck ist 9 cm lang und 5 cm breit. Ein Quadrat hat denselben Umfang. Wie groß ist der Flächeninhalt des Quadrats?',
+                49, '((2 * 9 + 2 * 5) / 4) ** 2',
+                'Umfang: 2 · 9 cm + 2 · 5 cm = 28 cm. Quadratseite: 28 cm : 4 = 7 cm. Fläche: 7 cm · 7 cm = 49 cm².',
+                'Berechne den Umfang und teile ihn auf 4 gleiche Seiten.', einheit='cm²'))
+durchsicht_anwenden(DATEI, DS)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI)

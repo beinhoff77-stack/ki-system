@@ -828,5 +828,38 @@ BF.fuer_sebastian('geometrie.grundbegriffe/kreis_lage: Die Lernkarte erklärt nu
 befunde_anwenden(DATEI, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl5, siehe _durchsicht_kl5.py) ----
+from _durchsicht_kl5 import Durchsicht, durchsicht_anwenden  # noqa: E402
+
+DS = Durchsicht('geometrie.grundbegriffe', 19_5_3)
+_s3 = lambda x: x['s'] == 3
+# a) Stufe 3 ohne neuen Gedanken (Ablesen, Einkleidung des Grundfalls, viermal dieselbe Vorlage) → Stufe 2
+for _lz, _t in [
+        ('koordinaten', 'Ein Rechteck ABCD hat die Ecken A(−5 | −4), B(−3 | −4) und C(−3 | 4). Seine Seiten sind parallel zu den Achsen. Welche Koordinaten hat D?'),
+        ('koordinaten', 'Ein Rechteck ABCD hat die Ecken A(3 | −1), B(5 | −1) und C(5 | 2). Seine Seiten sind parallel zu den Achsen. Welche Koordinaten hat D?'),
+        ('lagebeziehungen', 'g geht durch A(1 | −3) und B(1 | 1), h geht durch C(−3 | −3) und D(1 | −3). Wie liegen g und h zueinander?'),
+        ('lagebeziehungen', 'g geht durch A(−6 | −3) und B(−6 | 0), h geht durch C(4 | −3) und D(4 | 5). Wie liegen g und h zueinander?'),
+        ('lagebeziehungen', 'g geht durch A(−5 | −4) und B(−5 | 3), h geht durch C(−2 | −4) und D(2 | −4). Wie liegen g und h zueinander?'),
+        ('kreis_lage', 'Ein Funkmast reicht 4 km weit in jede Richtung. Ein Dorf ist 7 km vom Mast entfernt. Hat das Dorf Empfang?'),
+        ('kreis_lage', 'Ein Funkmast reicht 10 km weit in jede Richtung. Ein Dorf ist 9 km vom Mast entfernt. Hat das Dorf Empfang?'),
+        ('winkelarten', 'Zwei Winkel 22° und 152° liegen direkt nebeneinander (gemeinsamer Schenkel). Welche Art hat der zusammengesetzte Winkel?'),
+        ('winkelarten', 'Zwei Winkel 124° und 145° liegen direkt nebeneinander (gemeinsamer Schenkel). Welche Art hat der zusammengesetzte Winkel?'),
+        ('winkelarten', 'Zwei Winkel 145° und 134° liegen direkt nebeneinander (gemeinsamer Schenkel). Welche Art hat der zusammengesetzte Winkel?'),
+        ('winkelarten', 'Zwei Winkel 82° und 98° liegen direkt nebeneinander (gemeinsamer Schenkel). Welche Art hat der zusammengesetzte Winkel?')]:
+    DS.stufe(_lz, _t, 2, enthaelt=_s3)
+# c) Aufgaben mit Flächeninhalt (kommt erst im Flug messen.flaechen, Reihenfolge 13) → Aufgaben zu Vierecken
+DS.ersetze('vierecke', 'Ein Quadrat hat den Umfang 28 cm. Welchen Flächeninhalt hat es?', DS.L(
+    'ABCD ist ein Parallelogramm mit A(1 | 1), B(5 | 1) und C(6 | 4). Welche Koordinaten hat D?', 'D(□ | □)', [2, 4], ['6 - (5 - 1)', '4 - (1 - 1)'],
+    'Im Parallelogramm ist [AD] parallel und gleich lang wie [BC]. Von B nach C geht es 1 nach rechts und 3 nach oben. Von A aus genauso: D(2 | 4).',
+    'Gegenüberliegende Seiten sind parallel und gleich lang. Wie kommt man von B nach C?',
+    grafik={'typ': 'koordinaten', 'x': [-1, 7], 'y': [-1, 6], 'punkte': [{'x': 1, 'y': 1, 'name': 'A'}, {'x': 5, 'y': 1, 'name': 'B'}, {'x': 6, 'y': 4, 'name': 'C'}]}))
+DS.ersetze('vierecke', 'Ein Rechteck ist 3 cm breit. Umfang (in cm) und Flächeninhalt (in cm²) haben dieselbe Maßzahl. Wie lang ist das Rechteck?', DS.A(
+    'Ein Viereck hat vier gleich lange Seiten, aber keinen rechten Winkel. Welcher Name passt am genauesten?', 'Raute',
+    ['Quadrat', 'Parallelogramm', 'Rechteck'],
+    'Vier gleich lange Seiten: Quadrat oder Raute. Ohne rechten Winkel ist es kein Quadrat, also eine Raute. „Parallelogramm“ stimmt auch, ist aber weniger genau.',
+    'Welche Vierecke haben vier gleich lange Seiten? Welches davon braucht rechte Winkel?'))
+durchsicht_anwenden(DATEI, DS)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI)

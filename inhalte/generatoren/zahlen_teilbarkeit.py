@@ -353,3 +353,59 @@ if __name__ == '__main__':
          offen=['Runde 9: Thema stammt aus der Zeit vor dem Bausatz; die bisherigen Aufgaben liegen nur in der Datenbank. Dieser Generator erzeugt neue Aufgaben, '
                 'die beim Einspielen mit einheit_abgleichen(…, \'lassen\') dazukommen. Dubletten zu den alten Aufgaben ließen sich hier nicht prüfen, weil diese nicht im Repository liegen.',
                 'Primfaktor-Lücken (□ · □ · □): Die Faktoren sind in der Reihenfolge klein → groß einzutragen; der Hinweis sagt das. Eine andere Reihenfolge würde als falsch gewertet.'])
+    # ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl5, siehe _durchsicht_kl5.py) ----
+    import json as _json
+    from _durchsicht_kl5 import Durchsicht, durchsicht_anwenden
+    _pfad = Path(__file__).resolve().parent.parent / 'themen' / 'zahlen.teilbarkeit.json'
+    _d = _json.loads(_pfad.read_text(encoding='utf-8'))
+    DS = Durchsicht('zahlen.teilbarkeit', 19_5_8)
+    # a) Stufe 3 ohne neuen Gedanken (Teiler zählen wie Teiler auflisten; dieselbe „Jemand sagt“-Aufgabe dreimal; Standardzerlegung) → Stufe 2
+    for _lz, _t in [('teiler', 'Wie viele Teiler hat 16?'), ('teiler', 'Wie viele Teiler hat 25?'), ('teiler', 'Wie viele Teiler hat 49?'),
+                    ('vielfache', 'Jemand sagt: „12 ist ein Vielfaches von 4, also ist 4 ein Vielfaches von 12.“ Stimmt das?'),
+                    ('vielfache', 'Jemand sagt: „36 ist ein Vielfaches von 6, also ist 6 ein Vielfaches von 36.“ Stimmt das?'),
+                    ('endziffer', 'Jemand sagt: „4 761 beginnt mit 4, also ist die Zahl durch 2 teilbar.“ Stimmt das?'),
+                    ('endziffer', 'Jemand sagt: „2 877 beginnt mit 2, also ist die Zahl durch 2 teilbar.“ Stimmt das?'),
+                    ('primzahl', 'Jemand sagt: „15 ist ungerade, also eine Primzahl.“ Stimmt das?'),
+                    ('primzahl', 'Welches ist die kleinste Primzahl, die größer als 29 ist?'),
+                    ('primfaktoren', 'Welche ist die Primfaktorzerlegung von 56?'), ('primfaktoren', 'Welche ist die Primfaktorzerlegung von 110?')]:
+        DS.stufe(_lz, _t, 2, enthaelt=lambda x: x['s'] == 3)
+    # d) neue Stufe-3-Übungen: rückwärts, Bedingungen verknüpfen, Ziffernkarten (Prüfungsvorbild: Jahrgangsstufentest 6 Realschule Bayern 2019 „Teiler angeben“,
+    #    Ziffernkarten-Aufgaben JT 6 / Känguru), Knobelaufgaben
+    _tz = lambda n: sum(1 for k in range(1, n + 1) if n % k == 0)
+    DS.neu('teiler', 3, DS.Z('Eine Zahl hat genau die Teiler 1, 2, 4, 7, 14 und einen weiteren. Welche Zahl ist es?', 28, '2 * 14',
+                             'Teiler kommen in Paaren: 1 · □, 2 · 14, 4 · 7. Zur 1 fehlt der Partner – das ist die Zahl selbst: 2 · 14 = 28.',
+                             'Teiler kommen in Paaren. Welcher Partner fehlt noch?'))
+    DS.neu('teiler', 3, DS.Z('36 Kinder sollen in gleich große Gruppen aufgeteilt werden. Jede Gruppe soll mindestens 3 und höchstens 12 Kinder haben. Wie viele verschiedene Gruppengrößen sind möglich?',
+                             sum(1 for k in range(3, 13) if 36 % k == 0), str(sum(1 for k in range(3, 13) if 36 % k == 0)),
+                             'Teiler von 36: 1, 2, 3, 4, 6, 9, 12, 18, 36. Zwischen 3 und 12 liegen 3, 4, 6, 9 und 12: also 5 Gruppengrößen.',
+                             'Schreibe alle Teiler von 36 auf. Welche passen zur Bedingung?'))
+    DS.neu('teiler', 3, DS.A('Welche Zahl hat genau drei Teiler?', '49', ['12', '15', '21'],
+                             '49 hat die Teiler 1, 7, 49 – genau drei. 12 hat sechs Teiler, 15 und 21 haben je vier. Genau drei Teiler haben nur Quadrate von Primzahlen.',
+                             'Schreibe zu jeder Zahl die Teilerpaare auf. Bei welcher Zahl ist ein Paar „doppelt“?'))
+    assert [n for n in (49, 12, 15, 21) if _tz(n) == 3] == [49]
+    DS.neu('vielfache', 3, DS.Z('Welche ist die größte dreistellige Zahl, die ein Vielfaches von 17 ist?', 986, '17 * (999 // 17)',
+                                '999 : 17 = 58 Rest 13. Also ist 17 · 58 = 986 das größte Vielfache unter 1 000.', 'Teile 999 durch 17. Was bedeutet der Rest?'))
+    DS.neu('vielfache', 3, DS.Z('Wie viele Vielfache von 6 liegen zwischen 100 und 200?', sum(1 for x in range(101, 200) if x % 6 == 0), '198 // 6 - 100 // 6',
+                                'Das erste ist 102 = 6 · 17, das letzte 198 = 6 · 33. Von 17 bis 33 sind es 33 − 17 + 1 = 17 Vielfache.',
+                                'Suche das erste und das letzte Vielfache im Bereich.'))
+    DS.neu('endziffer', 3, DS.Z('Wie viele Zahlen von 1 bis 100 sind durch 5, aber nicht durch 10 teilbar?', sum(1 for x in range(1, 101) if x % 5 == 0 and x % 10), '100 // 5 - 100 // 10',
+                                'Durch 5 teilbar: 20 Zahlen (Endziffer 0 oder 5). Davon enden 10 auf 0 und sind auch durch 10 teilbar. Es bleiben 10 (5, 15, …, 95).',
+                                'Welche Endziffer haben Zahlen, die durch 5, aber nicht durch 10 teilbar sind?'))
+    DS.neu('endziffer', 3, DS.Z('Aus den Ziffernkarten 2, 5 und 7 legst du dreistellige Zahlen, jede Karte genau einmal. Wie viele dieser Zahlen sind durch 5 teilbar?', 2, '2 * 1',
+                                'Durch 5 teilbar heißt: Endziffer 5. Die 5 liegt hinten, vorne 2 und 7 in zwei Reihenfolgen: 275 und 725.',
+                                'Welche Karte muss ganz hinten liegen?'))
+    DS.neu('primzahl', 3, DS.Z('Die Summe zweier Primzahlen ist 21. Wie heißt die größere der beiden?', 19, '21 - 2',
+                               'Eine ungerade Summe entsteht nur aus einer geraden und einer ungeraden Zahl. Die einzige gerade Primzahl ist 2, also 2 + 19 = 21.',
+                               'Eine der beiden Zahlen muss gerade sein. Welche Primzahl ist gerade?'))
+    DS.neu('primzahl', 3, DS.Z('Wie viele Primzahlen liegen zwischen 90 und 100?', 1, '1',
+                               '91 = 7 · 13, 93 = 3 · 31, 95 = 5 · 19, 99 = 9 · 11; die geraden Zahlen fallen weg. Nur 97 ist eine Primzahl.',
+                               'Prüfe nur die ungeraden Zahlen mit den Prüfzahlen 3, 5 und 7.'))
+    assert [p for p in range(91, 100) if all(p % k for k in range(2, p))] == [97]
+    DS.neu('primfaktoren', 3, DS.A('Die Primfaktorzerlegung einer Zahl ist 2 · 3 · 3 · 5. Durch welche dieser Zahlen ist sie NICHT teilbar?', '27', ['6', '9', '10'],
+                                   'Die Zahl ist 90. 6 = 2 · 3, 9 = 3 · 3 und 10 = 2 · 5 stecken darin. 27 = 3 · 3 · 3 bräuchte drei Dreien, es sind nur zwei.',
+                                   'Zerlege auch die Antwortzahlen in Primfaktoren. Stecken sie in 2 · 3 · 3 · 5?'))
+    DS.neu('primfaktoren', 3, DS.Z('Welche ist die kleinste Zahl, deren Primfaktorzerlegung genau drei verschiedene Primzahlen enthält?', 30, '2 * 3 * 5',
+                                   'Die drei kleinsten Primzahlen nehmen: 2 · 3 · 5 = 30.', 'Welche drei Primzahlen sind am kleinsten?'))
+    durchsicht_anwenden(_d, DS)
+    _pfad.write_text(_json.dumps(_d, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
+    # ---- DURCHSICHT ENDE ----

@@ -563,5 +563,30 @@ BF.fuer_sebastian('geometrie.ortslinien/zwei_kreise: Die Lernkarte erklärt nur 
 befunde_anwenden(DATEI, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl5, siehe _durchsicht_kl5.py) ----
+from _durchsicht_kl5 import Durchsicht, durchsicht_anwenden  # noqa: E402
+
+DS = Durchsicht('geometrie.ortslinien', 19_5_4)
+_s3 = lambda x: x['s'] == 3
+# a) Stufe 3 mit dem Grundgedanken einer früheren Stufe oder sechsmal dieselbe Vorlage → Stufe 2
+for _lz, _t in [
+        ('parallelen', 'Die waagrechten Geraden g: y = −1 und h: y = 5 sind parallel. Wie weit sind sie voneinander entfernt?'),
+        ('zwei_kreise', 'Kreis um A mit r = 2 cm, Kreis um B mit r = 3 cm, [AB] = 7 cm. Wie viele Schnittpunkte haben die Kreise?'),
+        ('zwei_kreise', 'Ein Kreis um A hat r = 6 cm, ein Kreis um B hat r = 4 cm, [AB] = 10 cm. Wie viele gemeinsame Punkte haben die Kreise?'),
+        ('zwei_kreise', 'Ein Kreis um A hat r = 3 cm, ein Kreis um B hat ebenfalls r = 3 cm, [AB] = 7 cm. Wie viele gemeinsame Punkte haben die Kreise?'),
+        ('verknuepfen', 'M hat von g den Abstand 9 cm. Wie viele Punkte haben von M den Abstand 4 cm und von g den Abstand 2 cm?'),
+        ('verknuepfen', 'M hat von g den Abstand 1 cm. Wie viele Punkte haben von M den Abstand 2 cm und von g den Abstand 3 cm?'),
+        ('verknuepfen', 'M hat von g den Abstand 6 cm. Wie viele Punkte haben von M den Abstand 3 cm und von g den Abstand 4 cm?'),
+        ('sachsituationen', 'Zwei Sender A und B stehen 7 km auseinander. Ein Handy hat genau 6 km Abstand zu A und genau 6 km Abstand zu B. An wie vielen Stellen kann es sein?'),
+        ('sachsituationen', 'Zwei Sender A und B stehen 7 km auseinander. Ein Handy hat genau 2 km Abstand zu A und genau 4 km Abstand zu B. An wie vielen Stellen kann es sein?'),
+        ('sachsituationen', 'Zwei Sender A und B stehen 10 km auseinander. Ein Handy hat genau 4 km Abstand zu A und genau 6 km Abstand zu B. An wie vielen Stellen kann es sein?'),
+        ('sachsituationen', 'Zwei Sender A und B stehen 12 km auseinander. Ein Handy hat genau 8 km Abstand zu A und genau 7 km Abstand zu B. An wie vielen Stellen kann es sein?'),
+        ('verstehen', 'Stimmt die Aussage? „Ein Hund an einer 5 m langen Leine kann eine Kreisfläche mit Durchmesser 10 m erreichen.“'),
+        ('verstehen', 'Stimmt die Aussage? „Ein Hund an einer 2 m langen Leine kann eine Kreisfläche mit Durchmesser 4 m erreichen.“'),
+        ('verstehen', 'Stimmt die Aussage? „Ein Hund an einer 7 m langen Leine kann eine Kreisfläche mit Durchmesser 14 m erreichen.“')]:
+    DS.stufe(_lz, _t, 2, enthaelt=_s3)
+durchsicht_anwenden(DATEI, DS)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI)

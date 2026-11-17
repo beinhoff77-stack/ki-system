@@ -1011,7 +1011,7 @@
    "l": "teiler",
    "t": "teiler",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Wie viele Teiler hat 16?"
@@ -1032,7 +1032,7 @@
    "l": "teiler",
    "t": "teiler",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Wie viele Teiler hat 25?"
@@ -1053,7 +1053,7 @@
    "l": "teiler",
    "t": "teiler",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Wie viele Teiler hat 49?"
@@ -1291,6 +1291,59 @@
    "w": "Teilerpaare: 1 · 30, 2 · 15, 3 · 10, 5 · 6. Teiler: 1, 2, 3, 5, 6, 10, 15, 30 – das sind 8."
   },
   {
+   "l": "teiler",
+   "t": "teiler",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl hat genau die Teiler 1, 2, 4, 7, 14 und einen weiteren. Welche Zahl ist es?"
+   },
+   "o": {
+    "wert": 28
+   },
+   "c": "2 * 14",
+   "w": "Teiler kommen in Paaren: 1 · □, 2 · 14, 4 · 7. Zur 1 fehlt der Partner – das ist die Zahl selbst: 2 · 14 = 28.",
+   "h": "Teiler kommen in Paaren. Welcher Partner fehlt noch?"
+  },
+  {
+   "l": "teiler",
+   "t": "teiler",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "36 Kinder sollen in gleich große Gruppen aufgeteilt werden. Jede Gruppe soll mindestens 3 und höchstens 12 Kinder haben. Wie viele verschiedene Gruppengrößen sind möglich?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "Teiler von 36: 1, 2, 3, 4, 6, 9, 12, 18, 36. Zwischen 3 und 12 liegen 3, 4, 6, 9 und 12: also 5 Gruppengrößen.",
+   "h": "Schreibe alle Teiler von 36 auf. Welche passen zur Bedingung?"
+  },
+  {
+   "l": "teiler",
+   "t": "teiler",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl hat genau drei Teiler?"
+   },
+   "a": [
+    "15",
+    "49",
+    "12",
+    "21"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "49 hat die Teiler 1, 7, 49 – genau drei. 12 hat sechs Teiler, 15 und 21 haben je vier. Genau drei Teiler haben nur Quadrate von Primzahlen.",
+   "h": "Schreibe zu jeder Zahl die Teilerpaare auf. Bei welcher Zahl ist ein Paar „doppelt“?"
+  },
+  {
    "l": "vielfache",
    "t": "vielfache",
    "p": "uebung",
@@ -1484,7 +1537,7 @@
    "l": "vielfache",
    "t": "vielfache",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Jemand sagt: „12 ist ein Vielfaches von 4, also ist 4 ein Vielfaches von 12.“ Stimmt das?"
@@ -1504,7 +1557,7 @@
    "l": "vielfache",
    "t": "vielfache",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Jemand sagt: „36 ist ein Vielfaches von 6, also ist 6 ein Vielfaches von 36.“ Stimmt das?"
@@ -1699,6 +1752,38 @@
     "index": 0
    },
    "w": "77 = 7 · 11, also ist 77 ein Vielfaches von 11. Die anderen Zahlen liegen zwischen zwei Vielfachen."
+  },
+  {
+   "l": "vielfache",
+   "t": "vielfache",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche ist die größte dreistellige Zahl, die ein Vielfaches von 17 ist?"
+   },
+   "o": {
+    "wert": 986
+   },
+   "c": "17 * (999 // 17)",
+   "w": "999 : 17 = 58 Rest 13. Also ist 17 · 58 = 986 das größte Vielfache unter 1 000.",
+   "h": "Teile 999 durch 17. Was bedeutet der Rest?"
+  },
+  {
+   "l": "vielfache",
+   "t": "vielfache",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Vielfache von 6 liegen zwischen 100 und 200?"
+   },
+   "o": {
+    "wert": 17
+   },
+   "c": "198 // 6 - 100 // 6",
+   "w": "Das erste ist 102 = 6 · 17, das letzte 198 = 6 · 33. Von 17 bis 33 sind es 33 − 17 + 1 = 17 Vielfache.",
+   "h": "Suche das erste und das letzte Vielfache im Bereich."
   },
   {
    "l": "endziffer",
@@ -1931,7 +2016,7 @@
    "l": "endziffer",
    "t": "endziffer",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Jemand sagt: „4 761 beginnt mit 4, also ist die Zahl durch 2 teilbar.“ Stimmt das?"
@@ -1952,7 +2037,7 @@
    "l": "endziffer",
    "t": "endziffer",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Jemand sagt: „2 877 beginnt mit 2, also ist die Zahl durch 2 teilbar.“ Stimmt das?"
@@ -2153,6 +2238,38 @@
     "index": 2
    },
    "w": "3 145 endet auf 5: durch 5, aber nicht durch 10. 3 140 endet auf 0 und ist auch durch 10 teilbar."
+  },
+  {
+   "l": "endziffer",
+   "t": "endziffer",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Zahlen von 1 bis 100 sind durch 5, aber nicht durch 10 teilbar?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "100 // 5 - 100 // 10",
+   "w": "Durch 5 teilbar: 20 Zahlen (Endziffer 0 oder 5). Davon enden 10 auf 0 und sind auch durch 10 teilbar. Es bleiben 10 (5, 15, …, 95).",
+   "h": "Welche Endziffer haben Zahlen, die durch 5, aber nicht durch 10 teilbar sind?"
+  },
+  {
+   "l": "endziffer",
+   "t": "endziffer",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Ziffernkarten 2, 5 und 7 legst du dreistellige Zahlen, jede Karte genau einmal. Wie viele dieser Zahlen sind durch 5 teilbar?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2 * 1",
+   "w": "Durch 5 teilbar heißt: Endziffer 5. Die 5 liegt hinten, vorne 2 und 7 in zwei Reihenfolgen: 275 und 725.",
+   "h": "Welche Karte muss ganz hinten liegen?"
   },
   {
    "l": "quersumme",
@@ -2838,7 +2955,7 @@
    "l": "primzahl",
    "t": "primzahl",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welches ist die kleinste Primzahl, die größer als 29 ist?"
@@ -2858,7 +2975,7 @@
    "l": "primzahl",
    "t": "primzahl",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Jemand sagt: „15 ist ungerade, also eine Primzahl.“ Stimmt das?"
@@ -3063,6 +3180,38 @@
     "index": 0
    },
    "w": "73 ist ungerade, die Quersumme 10 ist nicht durch 3 teilbar, die Endziffer ist nicht 0 oder 5. Auch 7 und 11 gehen nicht auf: 73 ist eine Primzahl."
+  },
+  {
+   "l": "primzahl",
+   "t": "primzahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Summe zweier Primzahlen ist 21. Wie heißt die größere der beiden?"
+   },
+   "o": {
+    "wert": 19
+   },
+   "c": "21 - 2",
+   "w": "Eine ungerade Summe entsteht nur aus einer geraden und einer ungeraden Zahl. Die einzige gerade Primzahl ist 2, also 2 + 19 = 21.",
+   "h": "Eine der beiden Zahlen muss gerade sein. Welche Primzahl ist gerade?"
+  },
+  {
+   "l": "primzahl",
+   "t": "primzahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Primzahlen liegen zwischen 90 und 100?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "91 = 7 · 13, 93 = 3 · 31, 95 = 5 · 19, 99 = 9 · 11; die geraden Zahlen fallen weg. Nur 97 ist eine Primzahl.",
+   "h": "Prüfe nur die ungeraden Zahlen mit den Prüfzahlen 3, 5 und 7."
   },
   {
    "l": "primfaktoren",
@@ -3316,7 +3465,7 @@
    "l": "primfaktoren",
    "t": "primfaktoren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche ist die Primfaktorzerlegung von 56?"
@@ -3337,7 +3486,7 @@
    "l": "primfaktoren",
    "t": "primfaktoren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche ist die Primfaktorzerlegung von 110?"
@@ -3527,6 +3676,43 @@
    },
    "c": "2 * 7 * 7",
    "w": "Malnehmen: 2 · 7 · 7 = 98."
+  },
+  {
+   "l": "primfaktoren",
+   "t": "primfaktoren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Primfaktorzerlegung einer Zahl ist 2 · 3 · 3 · 5. Durch welche dieser Zahlen ist sie NICHT teilbar?"
+   },
+   "a": [
+    "6",
+    "10",
+    "27",
+    "9"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Zahl ist 90. 6 = 2 · 3, 9 = 3 · 3 und 10 = 2 · 5 stecken darin. 27 = 3 · 3 · 3 bräuchte drei Dreien, es sind nur zwei.",
+   "h": "Zerlege auch die Antwortzahlen in Primfaktoren. Stecken sie in 2 · 3 · 3 · 5?"
+  },
+  {
+   "l": "primfaktoren",
+   "t": "primfaktoren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche ist die kleinste Zahl, deren Primfaktorzerlegung genau drei verschiedene Primzahlen enthält?"
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "2 * 3 * 5",
+   "w": "Die drei kleinsten Primzahlen nehmen: 2 · 3 · 5 = 30.",
+   "h": "Welche drei Primzahlen sind am kleinsten?"
   },
   {
    "l": "ggt",

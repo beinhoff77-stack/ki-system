@@ -588,5 +588,26 @@ BF.nicht_umgesetzt('sachaufgaben S2 Aquarium ohne Deckel „anspruchsvoller als 
 befunde_anwenden(DATEI, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl5, siehe _durchsicht_kl5.py) ----
+from _durchsicht_kl5 import Durchsicht, durchsicht_anwenden  # noqa: E402
+
+DS = Durchsicht('messen.koerper_berechnung', 19_5_14)
+# a) Stufe 3 wiederholt eine Stufe-2-Aufgabe wörtlich (3 Würfel, 2 cm, Reihe) → Stufe 2
+DS.stufe('zusammengesetzt', 'Drei gleiche Würfel mit 2 cm Kantenlänge werden in einer Reihe aneinandergeklebt. Wie groß ist die Oberfläche des neuen Körpers?', 2,
+         enthaelt=lambda x: x['s'] == 3)
+# c) Pflichtkarte Oberfläche fragt nach dem Volumen (Volumen ist nicht Stoff von M5, nur Vertiefung) – gleicher Rückwärts-Gedanke ohne Volumen:
+DS.ersetze('oberflaeche', 'Ein Würfel hat die Oberfläche 216 cm². Wie groß ist sein Volumen?',
+           DS.Z('Ein Würfel hat die Oberfläche 216 cm². Wie lang sind alle seine Kanten zusammen?',
+                72, '216 / 6 / 6 * 12',
+                'Eine Fläche: 216 cm² : 6 = 36 cm² = 6 cm · 6 cm. Kante 6 cm. Alle 12 Kanten: 12 · 6 cm = 72 cm.',
+                'Teile die Oberfläche auf 6 gleiche Quadrate auf. Welche Seitenlänge hat ein Quadrat?', einheit='cm'))
+# d) sachaufgaben hatte nur 3 Übungen auf Stufe 1
+DS.neu('sachaufgaben', 1, DS.Z('Eine Kiste ist 6 cm lang, 5 cm breit und 4 cm hoch. Wie viel cm² Papier braucht man, um sie ganz zu bekleben?',
+                               148, '2 * 6 * 5 + 2 * 6 * 4 + 2 * 5 * 4',
+                               'Oberfläche: 2 · 30 + 2 · 24 + 2 · 20 = 60 + 48 + 40 = 148 cm².',
+                               'Ganz bekleben heißt: alle 6 Flächen.', einheit='cm²'))
+durchsicht_anwenden(DATEI, DS)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI)

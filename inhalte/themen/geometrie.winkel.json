@@ -1720,7 +1720,7 @@
    "l": "ergaenzen",
    "t": "ergaenzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Winkel ist um 11° größer als ein rechter Winkel. Um wie viel Grad muss man ihn noch vergrößern, damit er gestreckt ist?"
@@ -1754,7 +1754,7 @@
    "l": "ergaenzen",
    "t": "ergaenzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Winkel ist um 26° größer als ein rechter Winkel. Um wie viel Grad muss man ihn noch vergrößern, damit er gestreckt ist?"
@@ -4645,7 +4645,7 @@
    "l": "um_punkt",
    "t": "um_punkt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Torte wird in 8 gleiche Stücke geschnitten. Wie groß ist der Winkel eines Stücks an der Spitze?"
@@ -4730,7 +4730,7 @@
    "l": "um_punkt",
    "t": "um_punkt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Pizza wird in 8 gleiche Stücke geschnitten. Wie groß ist der Winkel eines Stücks an der Spitze?"
@@ -6694,7 +6694,7 @@
    "l": "uhr",
    "t": "uhr",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Um wie viel Grad dreht sich der Stundenzeiger in 120 Minuten?"
@@ -6711,7 +6711,7 @@
    "l": "uhr",
    "t": "uhr",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Um wie viel Grad dreht sich der Stundenzeiger in 40 Minuten?"
@@ -6946,7 +6946,7 @@
    "l": "uhr",
    "t": "uhr",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Um wie viel Grad dreht sich der Minutenzeiger in 150 Minuten?"
@@ -6963,7 +6963,7 @@
    "l": "uhr",
    "t": "uhr",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Um wie viel Grad dreht sich der Stundenzeiger in 90 Minuten?"
@@ -11205,7 +11205,7 @@
    "l": "figuren",
    "t": "figuren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Schranke liegt waagrecht. Sie wird um 30° nach oben gedreht. Um wie viel Grad muss sie noch weiter gedreht werden, bis sie senkrecht steht?"
@@ -11239,7 +11239,7 @@
    "l": "figuren",
    "t": "figuren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Schranke liegt waagrecht. Sie wird um 31° nach oben gedreht. Um wie viel Grad muss sie noch weiter gedreht werden, bis sie senkrecht steht?"
@@ -11735,7 +11735,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Nein, denn 360° : 4 = 80°.",
@@ -11815,7 +11815,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Nein, denn 90° : 8 = 11,25°.",

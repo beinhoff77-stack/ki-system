@@ -1350,5 +1350,35 @@ neue_karte(DATEI, KARTE_UMK, 'subtrahieren', 'Addieren und Subtrahieren', ('glei
 neue_karte(DATEI, KARTE_VERST, 'ketten', 'Alles zusammen', ('begruenden', 'Aussagen prüfen und mit Gegenbeispielen widerlegen'), g_verst, 18_5_3, FEST_VERST)
 # ---- LÜCKEN ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl5, siehe _durchsicht_kl5.py) ----
+from _durchsicht_kl5 import Durchsicht, durchsicht_anwenden  # noqa: E402
+
+DS = Durchsicht('zahlen.ganz', 19_5_2)
+_s3 = lambda x: x['s'] == 3
+# a) Stufe 3 mit demselben Gedanken wie Stufe 2 (nur andere oder größere Zahlen) → Stufe 2
+for _lz, _t, _n in [
+        ('zahlengerade', 'Welche Zahl liegt genau in der Mitte zwischen −8 und 16?', 1),
+        ('zahlengerade', 'Welche Zahl liegt genau in der Mitte zwischen −31 und −23?', 1),
+        ('zahlengerade', 'Welche Zahl liegt genau in der Mitte zwischen −31 und −15?', 1),
+        ('zahlengerade', 'Tippe die Markierung an, an der die Zahl 100 liegt.', 1),
+        ('ordnen', 'Welche Aussage stimmt?', 2),
+        ('betrag', 'Welche Zahlen haben den Betrag 23?', 1), ('betrag', 'Welche Zahlen haben den Betrag 35?', 1), ('betrag', 'Welche Zahlen haben den Betrag 36?', 1),
+        ('betrag', 'Berechne |−54| − |−15|.', 1), ('betrag', 'Berechne |−57| − |−4|.', 1),
+        ('addieren', 'Ist (−166) + 174 positiv oder negativ? Entscheide, ohne auszurechnen.', 1),
+        ('addieren', 'Ist (−321) + 67 positiv oder negativ? Entscheide, ohne auszurechnen.', 1),
+        ('subtrahieren', 'Wie groß ist der Abstand zwischen −9 und 50 auf der Zahlengeraden?', 1),
+        ('subtrahieren', 'Wie groß ist der Abstand zwischen −65 und −27 auf der Zahlengeraden?', 1),
+        ('ketten', 'Berechne −3 − 18 − (−11) + (−40).', 1), ('ketten', 'Berechne 17 − 36 − (−25) − (−7).', 1),
+        ('ketten', 'Berechne −19 − 22 + (−32) − (−33).', 1),
+        ('sach', 'Ein U-Boot taucht von −3 m auf −53 m. Um wie viele Meter ist es tiefer gegangen?', 1),
+        ('sach', 'Ein U-Boot taucht von −16 m auf −45 m. Um wie viele Meter ist es tiefer gegangen?', 1),
+        ('sach', 'Ein U-Boot taucht von −3 m auf −43 m. Um wie viele Meter ist es tiefer gegangen?', 1),
+        ('sach', 'Ein U-Boot taucht von −16 m auf −36 m. Um wie viele Meter ist es tiefer gegangen?', 1),
+        ('umkehraufgabe', 'Löse die Gleichung 184 + x = 72. Wie groß ist x?', 1),
+        ('umkehraufgabe', 'Löse die Gleichung x − (−93) = −194. Wie groß ist x?', 1)]:
+    DS.stufe(_lz, _t, 2, enthaelt=_s3, anzahl=_n)
+durchsicht_anwenden(DATEI, DS)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI, 'zahlen.ganz.json')

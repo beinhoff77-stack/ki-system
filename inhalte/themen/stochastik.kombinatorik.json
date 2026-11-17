@@ -1287,7 +1287,7 @@
    "l": "systematisch",
    "t": "systematisch",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Beim Eis gibt es 3 Sorten, 3 Soßen und 2 Streusel. Ein Becher hat genau eine Sorte, eine Soße und einen Streusel. Wie viele verschiedene Becher gibt es?"
@@ -1660,7 +1660,7 @@
    "l": "zaehlprinzip",
    "t": "zaehlprinzip",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Es gibt 3 Hosen, 4 Pullover und einige Mützen. Insgesamt sind 48 verschiedene Outfits aus je einem Teil möglich. Wie viele Mützen gibt es?"
@@ -1676,7 +1676,7 @@
    "l": "zaehlprinzip",
    "t": "zaehlprinzip",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Vereinsausweis hat einen Code aus 1 Großbuchstaben (A bis Z, 26 Stück) und danach 3 Ziffern (0 bis 9). Wie viele Codes gibt es?"
@@ -2098,7 +2098,7 @@
    "l": "reihenfolgen",
    "t": "reihenfolgen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viele verschiedene „Wörter“ (auch sinnlose) kann man aus den Buchstaben von KATZE bilden, wenn jeder Buchstabe genau einmal verwendet wird?"
@@ -2162,7 +2162,7 @@
    "l": "reihenfolgen",
    "t": "reihenfolgen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viele verschiedene „Wörter“ (auch sinnlose) kann man aus den Buchstaben von HUND bilden, wenn jeder Buchstabe genau einmal verwendet wird?"
@@ -2178,7 +2178,7 @@
    "l": "reihenfolgen",
    "t": "reihenfolgen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viele verschiedene „Wörter“ (auch sinnlose) kann man aus den Buchstaben von MAUS bilden, wenn jeder Buchstabe genau einmal verwendet wird?"
@@ -3340,7 +3340,7 @@
    "l": "bedingungen",
    "t": "bedingungen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Aus den Ziffern 0, 1, 6, 7 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?"
@@ -4886,7 +4886,7 @@
    "l": "baumdiagramm",
    "t": "baumdiagramm",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Das Baumdiagramm zeigt zwei Münzwürfe (K = Kopf, Z = Zahl). Bei wie vielen Pfaden kommt mindestens einmal Z vor?",

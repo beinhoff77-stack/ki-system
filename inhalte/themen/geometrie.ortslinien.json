@@ -2213,7 +2213,7 @@
    "l": "parallelen",
    "t": "parallelen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Die waagrechten Geraden g: y = −1 und h: y = 5 sind parallel. Wie weit sind sie voneinander entfernt?"
@@ -3063,7 +3063,7 @@
    "l": "zwei_kreise",
    "t": "zwei_kreise",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Kreis um A mit r = 2 cm, Kreis um B mit r = 3 cm, [AB] = 7 cm. Wie viele Schnittpunkte haben die Kreise?"
@@ -3084,7 +3084,7 @@
    "l": "zwei_kreise",
    "t": "zwei_kreise",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Kreis um A hat r = 6 cm, ein Kreis um B hat r = 4 cm, [AB] = 10 cm. Wie viele gemeinsame Punkte haben die Kreise?"
@@ -3121,7 +3121,7 @@
    "l": "zwei_kreise",
    "t": "zwei_kreise",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Kreis um A hat r = 3 cm, ein Kreis um B hat ebenfalls r = 3 cm, [AB] = 7 cm. Wie viele gemeinsame Punkte haben die Kreise?"
@@ -3789,7 +3789,7 @@
    "l": "verknuepfen",
    "t": "verknuepfen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "M hat von g den Abstand 9 cm. Wie viele Punkte haben von M den Abstand 4 cm und von g den Abstand 2 cm?",
@@ -3863,7 +3863,7 @@
    "l": "verknuepfen",
    "t": "verknuepfen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "M hat von g den Abstand 1 cm. Wie viele Punkte haben von M den Abstand 2 cm und von g den Abstand 3 cm?",
@@ -4011,7 +4011,7 @@
    "l": "verknuepfen",
    "t": "verknuepfen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "M hat von g den Abstand 6 cm. Wie viele Punkte haben von M den Abstand 3 cm und von g den Abstand 4 cm?",
@@ -5185,7 +5185,7 @@
    "l": "sachsituationen",
    "t": "sachsituationen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Zwei Sender A und B stehen 7 km auseinander. Ein Handy hat genau 6 km Abstand zu A und genau 6 km Abstand zu B. An wie vielen Stellen kann es sein?"
@@ -5201,7 +5201,7 @@
    "l": "sachsituationen",
    "t": "sachsituationen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Zwei Sender A und B stehen 7 km auseinander. Ein Handy hat genau 2 km Abstand zu A und genau 4 km Abstand zu B. An wie vielen Stellen kann es sein?"
@@ -5217,7 +5217,7 @@
    "l": "sachsituationen",
    "t": "sachsituationen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Zwei Sender A und B stehen 10 km auseinander. Ein Handy hat genau 4 km Abstand zu A und genau 6 km Abstand zu B. An wie vielen Stellen kann es sein?"
@@ -5233,7 +5233,7 @@
    "l": "sachsituationen",
    "t": "sachsituationen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Zwei Sender A und B stehen 12 km auseinander. Ein Handy hat genau 8 km Abstand zu A und genau 7 km Abstand zu B. An wie vielen Stellen kann es sein?"
@@ -5743,7 +5743,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Nein, der Durchmesser ist 5 m.",
@@ -5763,7 +5763,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Nein, der Durchmesser ist 8 m.",
@@ -5783,7 +5783,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Ja, Radius 7 m, also Durchmesser 14 m.",

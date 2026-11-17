@@ -650,5 +650,22 @@ for _t in ('2 Sorten, 3 Soßen und 2 Streusel', '3 Sorten, 2 Soßen und 2 Streus
 befunde_anwenden(DATEI, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl5, siehe _durchsicht_kl5.py) ----
+from _durchsicht_kl5 import Durchsicht, durchsicht_anwenden  # noqa: E402
+
+DS = Durchsicht('stochastik.kombinatorik', 19_5_9)
+# a) Stufe 3 mit derselben Vorlage oder demselben Gedanken wie Stufe 1/2 → Stufe 2
+for _lz, _t in [('systematisch', 'Beim Eis gibt es 3 Sorten, 3 Soßen und 2 Streusel. Ein Becher hat genau eine Sorte, eine Soße und einen Streusel. Wie viele verschiedene Becher gibt es?'),
+        ('zaehlprinzip', 'Es gibt 3 Hosen, 4 Pullover und einige Mützen. Insgesamt sind 48 verschiedene Outfits aus je einem Teil möglich. Wie viele Mützen gibt es?'),
+        ('zaehlprinzip', 'Ein Vereinsausweis hat einen Code aus 1 Großbuchstaben (A bis Z, 26 Stück) und danach 3 Ziffern (0 bis 9). Wie viele Codes gibt es?'),
+        ('reihenfolgen', 'Wie viele verschiedene „Wörter“ (auch sinnlose) kann man aus den Buchstaben von KATZE bilden, wenn jeder Buchstabe genau einmal verwendet wird?'),
+        ('reihenfolgen', 'Wie viele verschiedene „Wörter“ (auch sinnlose) kann man aus den Buchstaben von HUND bilden, wenn jeder Buchstabe genau einmal verwendet wird?'),
+        ('reihenfolgen', 'Wie viele verschiedene „Wörter“ (auch sinnlose) kann man aus den Buchstaben von MAUS bilden, wenn jeder Buchstabe genau einmal verwendet wird?'),
+        ('bedingungen', 'Aus den Ziffern 0, 1, 6, 7 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?'),
+        ('baumdiagramm', 'Das Baumdiagramm zeigt zwei Münzwürfe (K = Kopf, Z = Zahl). Bei wie vielen Pfaden kommt mindestens einmal Z vor?')]:
+    DS.stufe(_lz, _t, 2, enthaelt=lambda x: x['s'] == 3)
+durchsicht_anwenden(DATEI, DS)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI)

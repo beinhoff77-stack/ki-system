@@ -769,6 +769,17 @@ BF.nicht_umgesetzt('probe S3 „Für welche der Zahlen 3, 4, 5, 6 gilt 2 · x + 
 baue = mit_befunden(baue, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl5, siehe _durchsicht_kl5.py) ----
+from _durchsicht_kl5 import Durchsicht, mit_durchsicht  # noqa: E402
+
+DS = Durchsicht('gleichungen.einfach', 19_5_10)
+# a) Stufe 3 mit derselben Gleichungsform wie Stufe 2 (a : x = b, a − x = b) → Stufe 2
+for _lz, _t in [('umkehr_mal', 'Löse 72 : x = 9.'), ('umkehr_mal', 'Löse 110 : x = 11.'), ('umkehr_mal', 'Löse 40 : x = 10.'),
+                ('umkehr_plus', 'Löse 131 − x = 57.'), ('umkehr_plus', 'Löse 127 − x = 10.')]:
+    DS.stufe(_lz, _t, 2, enthaelt=lambda x: x['s'] == 3)
+baue = mit_durchsicht(baue, DS)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Was ist eine Gleichung?', ['waage']), ('Rückwärts rechnen', ['umkehr_plus', 'umkehr_mal', 'zwei_schritte']),

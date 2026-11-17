@@ -1414,5 +1414,59 @@ neue_karte(DATEI, KARTE_SDIV, 'schriftlich', 'Große Rechnungen', 'verfahren', g
 neue_karte(DATEI, KARTE_SACH, 'schriftlich_geteilt', ('Anwenden', 'Große Rechnungen'), ('anwenden', 'Sachaufgaben mit allen Grundrechenarten, Vorwärts- und Rückwärtsarbeiten'), g_sach, 18_5_7, FEST_SACH)
 # ---- LÜCKEN ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl5, siehe _durchsicht_kl5.py) ----
+from _durchsicht_kl5 import Durchsicht, durchsicht_anwenden  # noqa: E402
+
+DS = Durchsicht('zahlen.rechengesetze', 19_5_6)
+# a) Stufe 3 ohne neuen Gedanken (längere Rechnung, mehr Faktoren, gleiche Vorlage wie Stufe 2) → Stufe 2
+for _lz, _t in [('punkt_strich', 'Berechne 8 + 4 · 8 · 8 − 4.'),
+        ('punkt_strich', 'Berechne 588 : 7 : 7 + 4 · 7.'),
+        ('klammern', 'Bei welchem Term kommt 88 heraus?'),
+        ('vorteil', 'Rechne geschickt: 125 · 6 · 9 · 8'),
+        ('vorteil', 'Rechne geschickt: 20 · 3 · 9 · 5'),
+        ('vorteil', 'Rechne geschickt: 4 · 50 · 3 · 2'),
+        ('vorteil', 'Rechne geschickt: 25 · 25 · 4 · 4'),
+        ('vorteil', 'Rechne geschickt: 8 · 23 · 125'),
+        ('differenz_summe', 'Rechne geschickt: 43 − 26 + 37 − 34'),
+        ('differenz_summe', 'Rechne geschickt: 51 − 34 + 9 − 16'),
+        ('differenz_summe', 'Rechne geschickt: 42 − 33 + 18 − 17'),
+        ('verteilen', 'Rechne geschickt: 15 · 29 + 85 · 29'),
+        ('verteilen', 'Rechne geschickt: 53 · 38 + 47 · 38'),
+        ('verteilen', 'Welcher Term ist gleich 3 · (10 + 3)?'),
+        ('verteilen', 'Rechne geschickt: 18 · 11 + 18 · 89'),
+        ('verteilen', 'Rechne geschickt: 26 · 67 − 26 · 57'),
+        ('mal_ganz', 'Ist (−1) · (−6) · (−1) · (−8) positiv oder negativ? Entscheide, ohne auszurechnen.'),
+        ('mal_ganz', 'Berechne 2 · 6 · (−5).'),
+        ('mal_ganz', 'Ist (−2) · (−8) · (−1) · 2 positiv oder negativ? Entscheide, ohne auszurechnen.'),
+        ('mal_ganz', 'Berechne 9 · 6 · (−3).'),
+        ('mal_ganz', 'Ist 6 · (−9) · 6 · (−9) positiv oder negativ? Entscheide, ohne auszurechnen.'),
+        ('geteilt_ganz', 'Berechne 3 · (−3) : 9.'),
+        ('geteilt_ganz', 'Berechne (−72) : (−3) : (−2).'),
+        ('geteilt_ganz', 'Berechne 12 : 2 : (−2).'),
+        ('geteilt_ganz', 'Berechne 24 : 3 : (−2).'),
+        ('geteilt_ganz', 'Berechne (−240) : (−8) : (−6).'),
+        ('ueberschlag', 'Im Lager stehen 42 Kisten mit je 34 Flaschen. Überschlage die Zahl der Flaschen: Runde beide Zahlen auf Zehner.'),
+        ('ueberschlag', 'Nur ein Ergebnis kann stimmen. Entscheide mit einem Überschlag: 818 · 73 = ?'),
+        ('ueberschlag', 'Nur ein Ergebnis kann stimmen. Entscheide mit einem Überschlag: 940 · 59 = ?')]:
+    DS.stufe(_lz, _t, 2, enthaelt=lambda x: x['s'] == 3)
+# e) Prüfung der Achtzehnten Runde: Das Bild zu Schritt 2 zeigte schon die 6 Sprünge bis −8 und verriet die Lösung → Sprünge erst in Schritt 3
+_B6 = [{'von': 0, 'bis': -8}, {'von': -8, 'bis': -16}, {'von': -16, 'bis': -24}, {'von': -24, 'bis': -32}, {'von': -32, 'bis': -40}, {'von': -40, 'bis': -48}]
+DS.karte('umkehraufgabe_mal', 'Schritt 2 zeigte schon die sechs Sprünge bis −8 (Lösung verraten); jetzt erscheinen die Sprünge erst in Schritt 3 zusammen mit dem Ergebnis.',
+         schritte=[{'text': 'Die Gleichung heißt 6 · x = −48. Gesucht ist x.', 'bild': {'punkte': [{'wert': -48, 'name': 'nach 6 min'}]}},
+                   {'text': 'Umkehraufgabe: Aus „mal 6“ wird „geteilt durch 6“.'},
+                   {'text': 'x = (−48) : 6 = ⟦−8⟧. Er sinkt 8 m pro Minute.',
+                    'bild': {'boegen': _B6, 'punkte': [{'wert': -8, 'name': '1 min'}, {'wert': -48, 'name': 'nach 6 min'}]}},
+                   {'text': 'Probe: 6 · (−8) = −48. Die Gleichung stimmt.'}])
+# c) Prüfung der Achtzehnten Runde: drei Aufgaben „Fest, Eintritt, Getränke“ direkt hintereinander auf Stufe 2 → zwei davon durch andere Sachaufgaben ersetzt
+DS.ersetze('sach', 'Ein Fest: 39 Gäste zahlen je 9 € Eintritt. Davon gehen 44 € für Getränke ab. Welcher Term berechnet, was übrig bleibt?', DS.Z(
+    'Ein Verein kauft 12 Bälle zu je 18 €. Weil er so viele nimmt, bekommt er 25 € Rabatt auf den ganzen Einkauf. Wie viel Euro zahlt er?', 191, '12 * 18 - 25',
+    'Vorwärts: 12 · 18 = 216 €. Davon gehen 25 € Rabatt ab: 216 − 25 = 191 €.', 'Rechne zuerst den Preis ohne Rabatt aus.', einheit='€'))
+DS.ersetze('sach', 'Ein Fest: 30 Gäste zahlen je 9 € Eintritt. Davon gehen 83 € für Getränke ab. Welcher Term berechnet, was übrig bleibt?', DS.Z(
+    'Beim Kuchenverkauf werden zuerst 45 € für die Zutaten abgezogen. Den Rest teilen 3 Klassen gleich auf, jede bekommt 52 €. Wie viel Euro wurden eingenommen?', 201, '52 * 3 + 45',
+    'Rückwärts, den letzten Schritt zuerst: 52 · 3 = 156 €. Dazu die Zutaten: 156 + 45 = 201 €. Probe: 201 − 45 = 156, 156 : 3 = 52.',
+    'Arbeite rückwärts: Kehre zuerst das Teilen um, dann das Abziehen.', einheit='€'))
+durchsicht_anwenden(DATEI, DS)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI, 'zahlen.rechengesetze.json')

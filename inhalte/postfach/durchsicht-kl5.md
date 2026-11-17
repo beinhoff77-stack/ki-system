@@ -2,6 +2,12 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 15:45 – STATUS: zahlen.rechengesetze fertig (mit den Befunden der Prüfung zur Achtzehnten Runde)
+Umgestuft 29 (Stufe 3 → 2: längere Punkt-vor-Strich-Ketten, mehr Faktoren beim Vertauschen, Ausklammern wie Stufe 2, Vorzeichen-Frage und Ketten bei Mal/Geteilt, Überschlag-Auswahl 2 von 5),
+ersetzt 2 (sach: zwei der drei aufeinanderfolgenden „Fest, Eintritt, Getränke“-Aufgaben → Rabatt vorwärts, Kuchenverkauf rückwärts),
+Lernkarte verbessert 1 (umkehraufgabe_mal: vorher verriet das Bild zu Schritt 2 mit den sechs Sprüngen schon −8; nachher erscheinen die Sprünge erst in Schritt 3 mit dem Ergebnis).
+Prüfskript OK, Nachweis OK (391 von 422 unverändert; außerhalb der Aufgaben nur inhalt.etappen[umkehraufgabe_mal].schritte).
+
 ## 2026-11-17 15:20 – STATUS: geometrie.winkel fertig
 Umgestuft 12 (Stufe 3 → 2: Ein-Schritt-Aufgaben „Torte/Pizza in 8 Stücke“, „Stundenzeiger in … Minuten“, „Schranke bis senkrecht“, „gleich große Winkel um einen Punkt“, Wiederholung „um … größer als ein rechter Winkel“). Prüfskript OK, Nachweis OK (226 von 238 unverändert).
 

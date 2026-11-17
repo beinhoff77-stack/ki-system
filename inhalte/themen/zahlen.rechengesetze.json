@@ -1029,7 +1029,10 @@
       }
      },
      {
-      "text": "Umkehraufgabe: Aus „mal 6“ wird „geteilt durch 6“.",
+      "text": "Umkehraufgabe: Aus „mal 6“ wird „geteilt durch 6“."
+     },
+     {
+      "text": "x = (−48) : 6 = ⟦−8⟧. Er sinkt 8 m pro Minute.",
       "bild": {
        "boegen": [
         {
@@ -1056,12 +1059,7 @@
          "von": -40,
          "bis": -48
         }
-       ]
-      }
-     },
-     {
-      "text": "x = (−48) : 6 = ⟦−8⟧. Er sinkt 8 m pro Minute.",
-      "bild": {
+       ],
        "punkte": [
         {
          "wert": -8,
@@ -1887,7 +1885,7 @@
    "l": "punkt_strich",
    "t": "vorrang",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 8 + 4 · 8 · 8 − 4."
@@ -1903,7 +1901,7 @@
    "l": "punkt_strich",
    "t": "vorrang",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 588 : 7 : 7 + 4 · 7."
@@ -2285,7 +2283,7 @@
    "l": "klammern",
    "t": "vorrang",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Bei welchem Term kommt 88 heraus?"
@@ -3141,7 +3139,7 @@
    "l": "vorteil",
    "t": "gesetze",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Rechne geschickt: 125 · 6 · 9 · 8"
@@ -3199,7 +3197,7 @@
    "l": "vorteil",
    "t": "gesetze",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Rechne geschickt: 20 · 3 · 9 · 5"
@@ -3215,7 +3213,7 @@
    "l": "vorteil",
    "t": "gesetze",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Rechne geschickt: 4 · 50 · 3 · 2"
@@ -3561,7 +3559,7 @@
    "l": "differenz_summe",
    "t": "gesetze",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Rechne geschickt: 43 − 26 + 37 − 34"
@@ -3577,7 +3575,7 @@
    "l": "differenz_summe",
    "t": "gesetze",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Rechne geschickt: 51 − 34 + 9 − 16"
@@ -3633,7 +3631,7 @@
    "l": "differenz_summe",
    "t": "gesetze",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Rechne geschickt: 42 − 33 + 18 − 17"
@@ -3987,7 +3985,7 @@
    "l": "verteilen",
    "t": "gesetze",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Rechne geschickt: 15 · 29 + 85 · 29"
@@ -4003,7 +4001,7 @@
    "l": "verteilen",
    "t": "gesetze",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Rechne geschickt: 53 · 38 + 47 · 38"
@@ -4019,7 +4017,7 @@
    "l": "verteilen",
    "t": "gesetze",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welcher Term ist gleich 3 · (10 + 3)?"
@@ -4040,7 +4038,7 @@
    "l": "verteilen",
    "t": "gesetze",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Rechne geschickt: 18 · 11 + 18 · 89"
@@ -4056,7 +4054,7 @@
    "l": "verteilen",
    "t": "gesetze",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Rechne geschickt: 26 · 67 − 26 · 57"
@@ -4390,7 +4388,7 @@
    "l": "mal_ganz",
    "t": "ganz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ist (−1) · (−6) · (−1) · (−8) positiv oder negativ? Entscheide, ohne auszurechnen."
@@ -4410,7 +4408,7 @@
    "l": "mal_ganz",
    "t": "ganz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 2 · 6 · (−5)."
@@ -4426,7 +4424,7 @@
    "l": "mal_ganz",
    "t": "ganz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ist (−2) · (−8) · (−1) · 2 positiv oder negativ? Entscheide, ohne auszurechnen."
@@ -4446,7 +4444,7 @@
    "l": "mal_ganz",
    "t": "ganz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 9 · 6 · (−3)."
@@ -4462,7 +4460,7 @@
    "l": "mal_ganz",
    "t": "ganz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ist 6 · (−9) · 6 · (−9) positiv oder negativ? Entscheide, ohne auszurechnen."
@@ -4800,7 +4798,7 @@
    "l": "geteilt_ganz",
    "t": "ganz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 3 · (−3) : 9."
@@ -4816,7 +4814,7 @@
    "l": "geteilt_ganz",
    "t": "ganz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne (−72) : (−3) : (−2)."
@@ -4832,7 +4830,7 @@
    "l": "geteilt_ganz",
    "t": "ganz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 12 : 2 : (−2)."
@@ -4848,7 +4846,7 @@
    "l": "geteilt_ganz",
    "t": "ganz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 24 : 3 : (−2)."
@@ -4864,7 +4862,7 @@
    "l": "geteilt_ganz",
    "t": "ganz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne (−240) : (−8) : (−6)."
@@ -5207,7 +5205,7 @@
    "l": "ueberschlag",
    "t": "verfahren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Lager stehen 42 Kisten mit je 34 Flaschen. Überschlage die Zahl der Flaschen: Runde beide Zahlen auf Zehner."
@@ -5223,7 +5221,7 @@
    "l": "ueberschlag",
    "t": "verfahren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Nur ein Ergebnis kann stimmen. Entscheide mit einem Überschlag: 818 · 73 = ?"
@@ -5244,7 +5242,7 @@
    "l": "ueberschlag",
    "t": "verfahren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Nur ein Ergebnis kann stimmen. Entscheide mit einem Überschlag: 940 · 59 = ?"
@@ -6215,7 +6213,7 @@
    "l": "vorteil",
    "t": "gesetze",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Rechne geschickt: 8 · 23 · 125"
@@ -6268,7 +6266,7 @@
    "l": "vorteil",
    "t": "gesetze",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Rechne geschickt: 25 · 25 · 4 · 4"
@@ -8397,42 +8395,34 @@
    "t": "anwenden",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Ein Fest: 39 Gäste zahlen je 9 € Eintritt. Davon gehen 44 € für Getränke ab. Welcher Term berechnet, was übrig bleibt?"
+    "text": "Ein Verein kauft 12 Bälle zu je 18 €. Weil er so viele nimmt, bekommt er 25 € Rabatt auf den ganzen Einkauf. Wie viel Euro zahlt er?"
    },
-   "a": [
-    "(39 + 9) − 44",
-    "39 · (9 − 44)",
-    "39 · 9 + 44",
-    "39 · 9 − 44"
-   ],
    "o": {
-    "index": 3
+    "wert": 191,
+    "einheit": "€"
    },
-   "w": "Einnahmen: 39 · 9. Davon gehen 44 € ab: 39 · 9 − 44 = 307 €.",
-   "h": "Was wird zuerst ausgerechnet, was danach abgezogen?"
+   "c": "12 * 18 - 25",
+   "w": "Vorwärts: 12 · 18 = 216 €. Davon gehen 25 € Rabatt ab: 216 − 25 = 191 €.",
+   "h": "Rechne zuerst den Preis ohne Rabatt aus."
   },
   {
    "l": "sach",
    "t": "anwenden",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Ein Fest: 30 Gäste zahlen je 9 € Eintritt. Davon gehen 83 € für Getränke ab. Welcher Term berechnet, was übrig bleibt?"
+    "text": "Beim Kuchenverkauf werden zuerst 45 € für die Zutaten abgezogen. Den Rest teilen 3 Klassen gleich auf, jede bekommt 52 €. Wie viel Euro wurden eingenommen?"
    },
-   "a": [
-    "(30 + 9) − 83",
-    "30 · (9 − 83)",
-    "30 · 9 + 83",
-    "30 · 9 − 83"
-   ],
    "o": {
-    "index": 3
+    "wert": 201,
+    "einheit": "€"
    },
-   "w": "Einnahmen: 30 · 9. Davon gehen 83 € ab: 30 · 9 − 83 = 187 €.",
-   "h": "Was wird zuerst ausgerechnet, was danach abgezogen?"
+   "c": "52 * 3 + 45",
+   "w": "Rückwärts, den letzten Schritt zuerst: 52 · 3 = 156 €. Dazu die Zutaten: 156 + 45 = 201 €. Probe: 201 − 45 = 156, 156 : 3 = 52.",
+   "h": "Arbeite rückwärts: Kehre zuerst das Teilen um, dann das Abziehen."
   },
   {
    "l": "sach",

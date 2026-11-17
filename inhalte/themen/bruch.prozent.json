@@ -2041,7 +2041,7 @@
    "l": "prozent_bedeutung",
    "t": "prozent_bedeutung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Schreibe 1,87 in Prozent."
@@ -2075,7 +2075,7 @@
    "l": "prozent_bedeutung",
    "t": "prozent_bedeutung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "15 %",
@@ -2095,7 +2095,7 @@
    "l": "prozent_bedeutung",
    "t": "prozent_bedeutung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Schreibe 2,44 in Prozent."
@@ -2112,7 +2112,7 @@
    "l": "prozent_bedeutung",
    "t": "prozent_bedeutung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viel Prozent sind 2/7? Runde auf eine Nachkommastelle."
@@ -2129,7 +2129,7 @@
    "l": "prozent_bedeutung",
    "t": "prozent_bedeutung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "3/20",
@@ -2967,7 +2967,7 @@
    "l": "prozentwert",
    "t": "prozentwert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 7,5 % von 1 360 €."
@@ -2984,7 +2984,7 @@
    "l": "prozentwert",
    "t": "prozentwert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 1,5 % von 360 €."
@@ -3018,7 +3018,7 @@
    "l": "prozentwert",
    "t": "prozentwert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "24 % der Kinder einer Schule mit 200 Kindern – wie viele Kinder sind das?"
@@ -3055,7 +3055,7 @@
    "l": "prozentwert",
    "t": "prozentwert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "etwa 15 kg",
@@ -3457,7 +3457,7 @@
    "l": "prozentsatz",
    "t": "prozentsatz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Bei einer Umfrage unter 25 Kindern wählen 7 Fußball, 6 Schwimmen und der Rest Tanzen. Wie viel Prozent wählen Tanzen?"
@@ -3474,7 +3474,7 @@
    "l": "prozentsatz",
    "t": "prozentsatz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Preis sinkt von 60 € auf 45 €. Um wie viel Prozent wurde er gesenkt?"
@@ -3491,7 +3491,7 @@
    "l": "prozentsatz",
    "t": "prozentsatz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Preis sinkt von 150 € auf 120 €. Um wie viel Prozent wurde er gesenkt?"
@@ -3525,7 +3525,7 @@
    "l": "prozentsatz",
    "t": "prozentsatz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viel Prozent einer Stunde sind 36 Minuten?"
@@ -3906,7 +3906,7 @@
    "l": "grundwert",
    "t": "grundwert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "108 Kinder einer Schule fahren mit dem Bus. Das sind 20 % aller Kinder. Wie viele Kinder hat die Schule?"
@@ -3922,7 +3922,7 @@
    "l": "grundwert",
    "t": "grundwert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Bei einem Rabatt von 10 % spart man 40 €. Wie viel kostete die Ware vorher?"
@@ -3955,7 +3955,7 @@
    "l": "grundwert",
    "t": "grundwert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "88 Kinder einer Schule fahren mit dem Bus. Das sind 20 % aller Kinder. Wie viele Kinder hat die Schule?"
@@ -3971,7 +3971,7 @@
    "l": "grundwert",
    "t": "grundwert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Bei einem Rabatt von 40 % spart man 88 €. Wie viel kostete die Ware vorher?"
@@ -3988,7 +3988,7 @@
    "l": "grundwert",
    "t": "grundwert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "60 Kinder einer Schule fahren mit dem Bus. Das sind 25 % aller Kinder. Wie viele Kinder hat die Schule?"
@@ -4389,7 +4389,7 @@
    "l": "rabatt_aufschlag",
    "t": "rabatt_aufschlag",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Laden B (408 € gegen 414 €)",
@@ -4451,7 +4451,7 @@
    "l": "rabatt_aufschlag",
    "t": "rabatt_aufschlag",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "24 €",
@@ -4472,7 +4472,7 @@
    "l": "rabatt_aufschlag",
    "t": "rabatt_aufschlag",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Laden B, weil der Preis kleiner ist",
@@ -4891,7 +4891,7 @@
    "l": "zinsen",
    "t": "zinsen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "5 100 € werden nur 3 Monate lang zu 3 % (pro Jahr) angelegt. Wie viel Euro Zinsen gibt es?"
@@ -4908,7 +4908,7 @@
    "l": "zinsen",
    "t": "zinsen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Bank A zahlt 4 %, Bank B zahlt 1 % Zinsen im Jahr. Wie viel Euro mehr Zinsen bringt die bessere Bank für 7 500 € in einem Jahr?"
@@ -4925,7 +4925,7 @@
    "l": "zinsen",
    "t": "zinsen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Bank A zahlt 2 %, Bank B zahlt 3 % Zinsen im Jahr. Wie viel Euro mehr Zinsen bringt die bessere Bank für 2 000 € in einem Jahr?"
@@ -4942,7 +4942,7 @@
    "l": "zinsen",
    "t": "zinsen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "2 600 € werden nur 3 Monate lang zu 3 % (pro Jahr) angelegt. Wie viel Euro Zinsen gibt es?"
@@ -5399,7 +5399,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Nein, die Senkung ist 40 € von 80 € = 50 %.",
@@ -5459,7 +5459,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Stimmt die Aussage? „Sinkt ein Preis von 1 000 € auf 500 €, ist er um 100 % gesunken.“"
@@ -5777,7 +5777,7 @@
    "l": "prozent_bedeutung",
    "t": "prozent_bedeutung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viel Prozent sind 1 1/4?"
@@ -6046,7 +6046,7 @@
    "l": "grundwert",
    "t": "grundwert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Bei einer Untersuchung waren 63 Kinder sichere Schwimmer. Das sind 45 % aller untersuchten Kinder. Wie viele Kinder wurden untersucht?"
@@ -6478,7 +6478,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "In einer Zeitung steht: „Drei von fünf Kindern lesen täglich. Das ist mehr als die Hälfte.“ Stimmt das?"

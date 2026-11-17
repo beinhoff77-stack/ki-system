@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 16:15 – STATUS
+**bruch.prozent** fertig: 30 Übungen umgestuft, keine falsche Lösung, keine Kartenänderung. Prüfskript OK, Nachweis OK.
+
 ## 2026-11-17 16:00 – STATUS
 **terme.potenzgesetze** fertig: 25 Übungen umgestuft, keine falsche Lösung, keine Kartenänderung. Prüfskript OK, Nachweis OK.
 

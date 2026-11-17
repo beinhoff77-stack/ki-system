@@ -774,5 +774,46 @@ karte_erweitern(DATEI, 'verstehen', _pp_aufgaben(), seed=6201,
                 woerter_dazu=[['Prozentpunkte', 'Abstand zwischen zwei Prozentangaben: von 20 % auf 25 % sind es 5 Prozentpunkte']])
 
 
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil A, Zweig durchsicht-kl6) ----------
+from _durchsicht_kl6 import Befunde, befunde_anwenden  # noqa: E402
+
+DS = Befunde('bruch.prozent', 19_6_6)
+_S = DS.stufe
+_R = {
+    # prozent_bedeutung: Dezimalzahl/Bruch in Prozent und Bruch-Prozent-Vergleich = Stufe-2-Muster
+    'prozent_bedeutung': ('Schreibe 1,87 in Prozent.', 'Schreibe 2,44 in Prozent.', 'Was ist mehr: 1/10 oder 15 %?', 'Was ist mehr: 3/20 oder 20 %?',
+                          'Wie viel Prozent sind 2/7? Runde auf eine Nachkommastelle.', 'Wie viel Prozent sind 1 1/4?'),
+    # prozentwert: Prozentwert mit Dezimal-Prozentsatz bzw. eingekleidet und zweiter Überschlag = Stufe 2
+    'prozentwert': ('Berechne 7,5 % von 1 360 €.', 'Berechne 1,5 % von 360 €.', '24 % der Kinder einer Schule mit 200 Kindern – wie viele Kinder sind das?',
+                    'Etwa wie viel sind 76 % von 206 kg? Überschlage im Kopf.'),
+    # prozentsatz: dreimal Preissenkung, Stunde-Minuten, Rest-Anteil = Stufe 2
+    'prozentsatz': ('Ein Preis sinkt von 60 € auf 45 €. Um wie viel Prozent wurde er gesenkt?', 'Ein Preis sinkt von 150 € auf 120 €. Um wie viel Prozent wurde er gesenkt?',
+                    'Wie viel Prozent einer Stunde sind 36 Minuten?', 'Bei einer Umfrage unter 25 Kindern wählen 7 Fußball, 6 Schwimmen und der Rest Tanzen. Wie viel Prozent wählen Tanzen?'),
+    # grundwert: Grundwert direkt aus einem eingekleideten Prozentwert (dreimal Bus, zweimal Rabatt) = Stufe 2
+    'grundwert': ('108 Kinder einer Schule fahren mit dem Bus. Das sind 20 % aller Kinder. Wie viele Kinder hat die Schule?',
+                  '88 Kinder einer Schule fahren mit dem Bus. Das sind 20 % aller Kinder. Wie viele Kinder hat die Schule?',
+                  '60 Kinder einer Schule fahren mit dem Bus. Das sind 25 % aller Kinder. Wie viele Kinder hat die Schule?',
+                  'Bei einem Rabatt von 10 % spart man 40 €. Wie viel kostete die Ware vorher?', 'Bei einem Rabatt von 40 % spart man 88 €. Wie viel kostete die Ware vorher?',
+                  'Bei einer Untersuchung waren 63 Kinder sichere Schwimmer. Das sind 45 % aller untersuchten Kinder. Wie viele Kinder wurden untersucht?'),
+    # rabatt_aufschlag: Ladenvergleich viermal → zwei nach S2; neuer Preis als Auswahl = Stufe 2
+    'rabatt_aufschlag': ('Laden A: Die Spielkonsole kostet 460 € mit 10 % Rabatt. Laden B: Sie kostet 510 € mit 20 % Rabatt. Wo ist sie billiger?',
+                         'Laden A: Die Spielkonsole kostet 560 € mit 50 % Rabatt. Laden B: Sie kostet 470 € mit 40 % Rabatt. Wo ist sie billiger?',
+                         'Ein Paar Schuhe kostet 120 €, es gibt 20 % Rabatt. Welcher neue Preis ist richtig?'),
+    # zinsen: Monatszinsen und Bankvergleich je dreimal → je zwei nach S2
+    'zinsen': ('5 100 € werden nur 3 Monate lang zu 3 % (pro Jahr) angelegt. Wie viel Euro Zinsen gibt es?', '2 600 € werden nur 3 Monate lang zu 3 % (pro Jahr) angelegt. Wie viel Euro Zinsen gibt es?',
+               'Bank A zahlt 4 %, Bank B zahlt 1 % Zinsen im Jahr. Wie viel Euro mehr Zinsen bringt die bessere Bank für 7 500 € in einem Jahr?',
+               'Bank A zahlt 2 %, Bank B zahlt 3 % Zinsen im Jahr. Wie viel Euro mehr Zinsen bringt die bessere Bank für 2 000 € in einem Jahr?'),
+    # verstehen: „um 100 % gesunken“ dreimal → zwei nach S2; „3 von 5 mehr als die Hälfte“ = Stufe 2
+    'verstehen': ('Stimmt die Aussage? „Sinkt ein Preis von 80 € auf 40 €, ist er um 100 % gesunken.“', 'Stimmt die Aussage? „Sinkt ein Preis von 1 000 € auf 500 €, ist er um 100 % gesunken.“',
+                  'In einer Zeitung steht: „Drei von fünf Kindern lesen täglich. Das ist mehr als die Hälfte.“ Stimmt das?'),
+}
+for _lz, _ts in _R.items():
+    for _t in _ts:
+        _S(_lz, _t, 2)
+befunde_anwenden(DATEI, DS)
+# ---- DURCHSICHT ENDE ----
+
+
 if __name__ == '__main__':
     schreibe(DATEI)

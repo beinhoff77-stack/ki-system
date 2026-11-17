@@ -612,6 +612,52 @@ BF.nicht_umgesetzt('gegenereignis S3 „3 Würfe, P(mindestens eine Sechs) = 91/
 baue = mit_befunden(baue, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Kl. 8, siehe _durchsicht_kl8.py) ----
+from _durchsicht_kl8 import Durchsicht, mit_durchsicht  # noqa: E402
+
+DSX = Durchsicht('stochastik.grundbegriffe', 19_8_10)
+# rel_haeufigkeit: viermal „Zwei Gruppen …“ in Reihe → zwei ersetzt
+DSX.ersetze('rel_haeufigkeit', 'Zwei Gruppen werfen einen Würfel: Gruppe A 200-mal mit 37 Sechsen, Gruppe B 20-mal mit 3 Sechsen. Wie groß ist die relative Häufigkeit der Sechs insgesamt in Prozent? (Runde auf eine Nachkommastelle.)', DSX.A(
+    'Gruppe A hat 100-mal gewürfelt (17 % Sechsen), Gruppe B 25-mal (12 % Sechsen). Mia rechnet für beide zusammen (17 % + 12 %) : 2 = 14,5 %. Was stimmt?',
+    'Falsch: Die Gruppen sind verschieden groß. Richtig ist (17 + 3) : 125 = 16 %.',
+    ['Richtig: Man nimmt den Mittelwert der beiden Anteile.', 'Falsch: Man muss die Anteile addieren, also 29 %.', 'Falsch: Richtig ist 17 % – die größere Gruppe zählt allein.'],
+    'A hatte 17 Sechsen, B 3 Sechsen (12 % von 25). Zusammen 20 Sechsen bei 125 Würfen: 20 : 125 = 0,16 = 16 %. Der einfache Mittelwert wäre nur bei gleich großen Gruppen richtig.',
+    'Rechne die absoluten Häufigkeiten aus und addiere sie.'))
+DSX.ersetze('rel_haeufigkeit', 'Zwei Gruppen werfen einen Würfel: Gruppe A 50-mal mit 6 Sechsen, Gruppe B 20-mal mit 3 Sechsen. Wie groß ist die relative Häufigkeit der Sechs insgesamt in Prozent? (Runde auf eine Nachkommastelle.)', DSX.Z(
+    'Ein Würfel wird 300-mal geworfen. Die relative Häufigkeit der 1 ist 0,15, die der 2 ist 0,2. Wie oft fiel eine 1 oder eine 2?', 105, '300 * (15/100 + 20/100)',
+    'Einsen: 0,15 · 300 = 45. Zweien: 0,2 · 300 = 60. Zusammen 105-mal.', 'Rechne aus den relativen Häufigkeiten die absoluten aus.'))
+DSX.stufen('rel_haeufigkeit', 'S1 rel. Häufigkeit berechnen; S2 Tabelle, rückwärts; S3 viermal „zwei Gruppen zusammen“',
+           'S1 berechnen; S2 aus Tabelle/Diagramm, rückwärts zur absoluten Häufigkeit; S3 Gruppen zusammenlegen, Fehler beim Mitteln, Rest, nötige weitere Treffer, Vergleich mit 1/6')
+# laplace_pruefen: einfache Ja-Fälle auf Stufe 2 sind Stufe-1-Aufgaben
+for _t in ['Ist das ein Laplace-Experiment? Werfen einer fairen Münze.', 'Ist das ein Laplace-Experiment? Werfen eines fairen Spielwürfels.',
+           'Ist das ein Laplace-Experiment? Ein Glücksrad mit 10 gleich großen Feldern.']:
+    DSX.stufe('laplace_pruefen', _t, 1)
+DSX.stufen('laplace_pruefen', 'S1 und S2 teils dieselbe Ja/Nein-Frage', 'S1 Ja/Nein mit Begründung; S2 Glücksrad mit Winkeln, Farbe statt Kugel, Augensumme; S3 Lotto-Irrtum, Winkel planen, Feld gedanklich teilen, Serie deuten')
+# gegenereignis: 100 % − p ist Stufe 1; einfache „NICHT“-Wahrscheinlichkeiten sind Stufe 2
+for _t in ['Die Wahrscheinlichkeit, dass ein Elfmeter verwandelt wird, beträgt 81 %. Wie groß ist die Wahrscheinlichkeit, dass er nicht verwandelt wird (in %)?',
+           'Die Wahrscheinlichkeit, dass ein Zug pünktlich ist, beträgt 89 %. Wie groß ist die Wahrscheinlichkeit, dass er nicht pünktlich ist (in %)?',
+           'Die Wahrscheinlichkeit, dass ein Elfmeter verwandelt wird, beträgt 76 %. Wie groß ist die Wahrscheinlichkeit, dass er nicht verwandelt wird (in %)?',
+           'Die Wahrscheinlichkeit, dass ein Elfmeter verwandelt wird, beträgt 82 %. Wie groß ist die Wahrscheinlichkeit, dass er nicht verwandelt wird (in %)?',
+           'Die Wahrscheinlichkeit, dass ein Zug pünktlich ist, beträgt 83 %. Wie groß ist die Wahrscheinlichkeit, dass er nicht pünktlich ist (in %)?']:
+    DSX.stufe('gegenereignis', _t, 1)
+DSX.stufe('gegenereignis', 'Ein Glücksrad hat 10 gleich große Felder mit den Zahlen 1 bis 10. Wie groß ist die Wahrscheinlichkeit, dass die Zahl NICHT durch 3 teilbar ist? Gib sie als Dezimalzahl an.', 2)
+DSX.stufe('gegenereignis', 'Ein Spielwürfel wird einmal geworfen. Wie groß ist die Wahrscheinlichkeit, dass KEINE Primzahl fällt? Gib sie als Dezimalzahl an.', 2)
+DSX.stufen('gegenereignis', 'S1 und S2 dieselbe Rechnung 100 % − p; S3 teils einfache Laplace-Gegenwahrscheinlichkeit',
+           'S1 100 % − p; S2 Gegenereignis in Worten, „nicht durch 3 teilbar“; S3 mindestens eine Sechs, zwei Ereignisse, Überschneidung, keine 7, P(E) = 3 · P(Ē)')
+DSX.stufe('grosse_zahlen', 'Wie oft erwartest du bei 100 Versuchen ungefähr Wappen beim Münzwurf?', 1)
+DSX.ersetze('grosse_zahlen', 'Welche Aussage ist FALSCH?', DSX.A(
+    'Serie A: 50 Münzwürfe, 30-mal Wappen. Serie B: 5 000 Münzwürfe, 2 560-mal Wappen. Was stimmt?',
+    'B weicht in der Anzahl stärker von der Hälfte ab (60 statt 5), aber der Anteil liegt näher an 50 %.',
+    ['B weicht in Anzahl und Anteil stärker ab.', 'A weicht in Anzahl und Anteil stärker ab.', 'Beide weichen gleich stark ab, denn beide haben mehr Wappen.'],
+    'A: Hälfte wäre 25, also 5 mehr; Anteil 60 %. B: Hälfte wäre 2 500, also 60 mehr; Anteil 51,2 %. Das Gesetz der großen Zahlen sagt: Der Anteil nähert sich 50 %, die Anzahl muss es nicht.',
+    'Vergleiche getrennt: Abweichung der Anzahl und Abweichung des Anteils.'), enthaelt='"index": 2')
+DSX.stufen('grosse_zahlen', 'S1 n · P; S2 teils dieselbe Rechnung; S3 zweimal dieselbe Roulette-Aussage',
+           'S1 n · P; S2 n · P mit Bruch, P schätzen, Winkel; S3 Fehlvorstellungen, Anzahl gegen Anteil, Schätzung vergleichen, Gegenereignis aus Schätzung')
+DSX.stufen('begriffe', 'S1 Ergebnisraum zählen; S2 Ereignis als Menge; S3 zwei Würfel, Reihenfolge, Ereignis in Worten, Zählen bis 100')
+DSX.stufen('laplace', 'S1 Urne; S2 Würfel, Karten, Glücksrad (Bruch und Dezimalzahl); S3 Kugeln dazulegen, Augensumme, Säcke mischen')
+baue = mit_durchsicht(baue, DSX)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Grundbegriffe', ['begriffe', 'rel_haeufigkeit']), ('Wahrscheinlichkeiten', ['laplace', 'laplace_pruefen', 'gegenereignis']), ('Zufall auf Dauer', ['grosse_zahlen'])],

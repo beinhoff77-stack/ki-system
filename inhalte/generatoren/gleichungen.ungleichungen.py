@@ -772,6 +772,37 @@ BF.nicht_umgesetzt('sachaufgabe: Stufen 1 und 2 (Aufzug/Handytarif) inhaltlich g
 baue = mit_befunden(baue, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Kl. 8, siehe _durchsicht_kl8.py) ----
+from _durchsicht_kl8 import Durchsicht, mit_durchsicht  # noqa: E402
+
+DS = Durchsicht('gleichungen.ungleichungen', 19_8_4)
+DS.stufe('umformen', 'Löse die Ungleichung 7x − 11 ≤ 4x + 16.', 2)
+DS.stufen('umformen', 'S1 ein Schritt; S2 zwei Schritte, x auf beiden Seiten; S3 teils wie S2',
+          'S1 ein Schritt; S2 zwei Schritte, x auf beiden Seiten, Brüche; S3 leere Menge/alle Zahlen, Zahlen prüfen, Parameter a und c')
+for _t in ['Löse x + 15 ≥ 3x + 33. Die Lösung hat die Form x ≤ □. Gib die Zahl an.', 'Löse die Ungleichung 3x − 4 < 5x + 8.',
+           'Löse 4x + 15 > 6x − 9. Die Lösung hat die Form x < □. Gib die Zahl an.', 'Löse 6x + 12 > 11x − 33. Die Lösung hat die Form x < □. Gib die Zahl an.']:
+    DS.stufe('umdrehen', _t, 2)
+DS.stufen('umdrehen', 'S1 ein Schritt mit Umdrehen; S2 zwei Schritte; S3 viermal „x auf beiden Seiten“ (nur längere Rechnung)',
+          'S1 ein Schritt mit Umdrehen; S2 zwei Schritte, x auf beiden Seiten; S3 Fehler finden, Intervall, a < b allgemein, −3x > x')
+DS.stufe('klammern', 'Löse −2(x + 1) − 3(x + 4) ≤ −x + 2. Die Lösung hat die Form x ≥ □. Gib die Zahl an.', 2)
+DS.stufe('klammern', 'Löse 3(x − 4) − 4(x − 5) ≤ −3x + 14. Die Lösung hat die Form x ≤ □. Gib die Zahl an.', 2)
+DS.stufen('klammern', 'S1 eine Klammer; S2 Klammer und x rechts; S3 viermal zwei Klammern (längere Rechnung)',
+          'S1 eine Klammer; S2 Klammer(n) und x auf beiden Seiten; S3 Brüche, x² hebt sich auf, leere Menge, größte ganze Zahl')
+DS.stufe('grafisch', 'Die Abbildung zeigt die Geraden f und g. Gib die Lösungsmenge von f(x) ≤ g(x) an.', 2, enthaelt='L = [−1; ∞[')
+DS.stufe('grafisch', 'Die Abbildung zeigt die Geraden f und g. Gib die Lösungsmenge von f(x) ≤ g(x) an.', 2, enthaelt='L = [−4; ∞[')
+DS.stufe('grafisch', 'Die Abbildung zeigt die Geraden f und g. Für welche x liegt f unterhalb von g, Schnittpunkt eingeschlossen?', 2)
+DS.stufe('grafisch', 'Die Abbildung zeigt die Geraden f und g. Gib die Lösungsmenge von f(x) > g(x) an.', 2)
+DS.stufen('grafisch', 'S1 oberhalb/unterhalb einer waagrechten Linie; S2 zwei Geraden; S3 viermal dasselbe Ablesen wie S2',
+          'S1 oberhalb/unterhalb einer waagrechten Linie; S2 zwei Geraden, auch mit Intervall; S3 Tarifgraph, „zwischen“, beide positiv, Parameter m')
+DS.stufe('sachaufgabe', 'Ein Aufzug darf höchstens 400 kg tragen. Eine Person (69 kg) will Kisten zu je 50 kg mitnehmen. Wie viele Kisten darf sie höchstens einladen?', 1)
+DS.stufe('sachaufgabe', 'Ein Handytarif kostet im Monat 12 € Grundgebühr und 3 € je zusätzliches Datenpaket. Man will höchstens 35 € zahlen. Wie viele Datenpakete kann man höchstens kaufen?', 1)
+DS.stufe('sachaufgabe', 'Für ein Fahrrad (Preis 420 €) hat jemand 60 € gespart und legt jede Woche 25 € dazu. Welche Ungleichung beschreibt: „Das Geld reicht mindestens für das Fahrrad“ (x = Anzahl Wochen)?', 1)
+DS.stufen('sachaufgabe', 'S1 und S2 teils dieselben Aufzug-/Handy-/Fahrrad-Aufgaben', 'S1 Grundpreis + Stückpreis ≤ Grenze; S2 „je angefangen“, Einkleidungen, Zehnerkarte; S3 Vergleich zweier Tarife, Mindestanzahl, Durchschnitt, Geometrie, Kerzen')
+DS.stufen('intervall', 'S1 Ungleichung ↔ Intervall; S2 erst lösen (mit Umdrehen), dann Intervall; S3 Doppelungleichung, zwei Bedingungen, leere Menge')
+DS.stufen('pruefen', 'S1 Zahl einsetzen; S2 kleinste/größte ganze Zahl; S3 Fehler in einer Rechnung finden, Probe deuten, Parameter')
+baue = mit_durchsicht(baue, DS)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Ungleichungen lösen', ['umformen', 'umdrehen', 'klammern']), ('Lösungsmenge', ['intervall', 'pruefen', 'grafisch']), ('Anwenden', ['sachaufgabe'])],

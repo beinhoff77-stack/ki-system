@@ -676,6 +676,33 @@ BF.stufe('verhaeltnis', 'Für 6 Personen braucht man 200 g Mehl. Wie viel Mehl b
 baue = mit_befunden(baue, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Kl. 8, siehe _durchsicht_kl8.py) ----
+from _durchsicht_kl8 import Durchsicht, mit_durchsicht  # noqa: E402
+
+DSX = Durchsicht('gleichungen.bruch', 19_8_8)
+for _t in ['Löse (x − 3)/(x + 7) = −3.', 'Löse (x + 3)/(x − 9) = 3.', 'Löse (3x + 5)/(x − 3) = −1.', 'Löse (x + 3)/(x + 7) = 3.']:
+    DSX.stufe('ein_bruch', _t, 2)
+DSX.stufen('ein_bruch', 'S1 a/x = c; S2 a/(bx) und a/(x + b); S3 viermal (x + a)/(x + b) = c (zwei Schritte mehr)',
+           'S1 a/x = c; S2 a/(x + b) = c, auch x im Zähler; S3 Zahl in der Gleichung rückwärts bestimmen, Sachaufgabe, leere Lösungsmenge, Zahlenrätsel')
+DSX.stufe('ueber_kreuz', 'Löse (x − 7)/(x − 6) = (x + 2)/(x + 8).', 2)
+DSX.stufe('ueber_kreuz', 'Löse (x + 5)/(x + 1) = (x − 8)/(x − 7).', 2)
+DSX.stufen('ueber_kreuz', 'S1 a/x = b/(x − c); S2 beide Nenner x ± c; S3 viermal x² hebt sich weg (längere Rechnung)',
+           'S1 a/x = b/(x − c); S2 beide Nenner x ± c, auch x im Zähler; S3 x² hebt sich weg, Begründung des Verfahrens, Fehler finden, Parameter')
+for _t in ['Gib die Lösungsmenge von (x − 6)/(x − 7) = 1/(x − 7) an.', 'Gib die Lösungsmenge von 3x/(x + 2) = −6/(x + 2) an.',
+           'Warum ist x = 6 keine Lösung von (x − 4)/(x − 6) = 2/(x − 6), obwohl die Rechnung x = 6 ergibt?',
+           'Warum ist x = 2 keine Lösung von (x − 8)/(x − 2) = −6/(x − 2), obwohl die Rechnung x = 2 ergibt?']:
+    DSX.stufe('scheinloesung', _t, 2)
+DSX.stufen('scheinloesung', 'S1 Lösungsmenge wählen; S2 und S3 dieselben Aufgaben (L angeben, „Warum keine Lösung?“)',
+           'S1 Lösungsmenge wählen; S2 Scheinlösung erkennen und begründen; S3 Nenner x² − 1, Fehler finden, kürzbarer Bruch, Parameter a')
+DSX.stufe('verhaeltnis', 'Eine Karte hat den Maßstab 1 : 25 000. Zwei Orte sind auf der Karte 1 cm voneinander entfernt. Wie weit sind sie in Wirklichkeit entfernt (in km)?', 2)
+DSX.stufen('verhaeltnis', 'S1 Verhältnisgleichung lösen; S2 x im Nenner, Mischungen; S3 teils einfacher Maßstab',
+           'S1 x im Zähler; S2 x im Nenner, Mischungen, Maßstab; S3 x auf beiden Seiten, Flächen-Maßstab, Differenz, Verhältnis ändert sich')
+DSX.stufen('definitionsmenge', 'S1 ein Nenner; S2 zwei Nenner; S3 Produktnenner, x² − 2x, Gleichung zu D, Parameter')
+DSX.stufen('hauptnenner', 'S1 gleiche Nenner; S2 x und kx; S3 gemeinsame Arbeit, Nenner x² − 4, L = ℚ \\ {1}, leere Menge')
+DSX.stufen('graphisch', 'S1 Schnitt mit waagrechter Linie; S2 Hyperbel und Gerade; S3 Anzahl der Lösungen, Parameter c, Ursprungsgerade')
+baue = mit_durchsicht(baue, DSX)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Bruchgleichungen lösen', ['definitionsmenge', 'ein_bruch', 'ueber_kreuz', 'hauptnenner']), ('Prüfen', ['scheinloesung']), ('Verhältnisse und Graphen', ['verhaeltnis', 'graphisch'])],

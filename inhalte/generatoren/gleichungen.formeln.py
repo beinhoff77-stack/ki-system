@@ -630,6 +630,48 @@ BF.nicht_umgesetzt('einsetzen S3 Dichte mit dm³ (Aluminium, Glas, Eis)', 'Drei 
 baue = mit_befunden(baue, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Kl. 8, siehe _durchsicht_kl8.py) ----
+from _durchsicht_kl8 import Durchsicht, mit_durchsicht  # noqa: E402
+
+DSX = Durchsicht('gleichungen.formeln', 19_8_9)
+for _t in ['Stelle u = 4 · a nach a um.', 'Stelle d = 2 · r nach r um.', 'Stelle P = U · I nach I um.', 'Stelle m = ρ · V nach ρ um.']:
+    DSX.stufe('ein_schritt', _t, 1)
+for _t in ['An einem Widerstand R = 3 Ω liegt U = 9 V. Jemand rechnet I = R : U = 0,33 A. Welche Probe zeigt den Fehler?',
+           'An einem Widerstand R = 10 Ω liegt die Spannung U = 200 V. Jemand rechnet I = R : U = 0,05 A. Welche Probe zeigt den Fehler?',
+           'Es gilt v = s : t. Berechne t für s = 91 und v = 7.', 'Es gilt v = s : t. Berechne t für s = 30,1 und v = 7.',
+           'Für einen elektrischen Widerstand gilt U = R · I. Ein Gerät nimmt bei 230 V eine Stromstärke von 0,5 A auf. Wie groß ist sein Widerstand R?']:
+    DSX.stufe('ein_schritt', _t, 2)
+DSX.neu('ein_schritt', 3, DSX.A('Für die Leistung gilt P = U · I. Ein Wasserkocher hat 2 000 W und hängt an 230 V. Ist die Stromstärke größer oder kleiner als 10 A?',
+                                'kleiner: I = P : U ≈ 8,7 A', ['größer: I = P · U = 460 000 A', 'genau 10 A', 'größer: I = U : P ≈ 11,5 A'],
+                                'Umstellen: I = P : U = 2 000 : 230. Überschlag: 2 300 : 230 = 10, und 2 000 ist kleiner als 2 300. Also I ≈ 8,7 A, kleiner als 10 A.',
+                                'Stelle nach I um und überschlage mit 2 300 : 230.'))
+DSX.neu('ein_schritt', 3, DSX.Z('Zwei Würfel sind gleich schwer: einer aus Holz (ρ = 0,6 g/cm³), einer aus Eisen (ρ = 7,8 g/cm³). Wie viel Mal so groß ist das Volumen des Holzwürfels?',
+                                13, '7.8 / 0.6', 'Aus ρ = m : V folgt V = m : ρ. Gleiches m: V(Holz) : V(Eisen) = (m : 0,6) : (m : 7,8) = 7,8 : 0,6 = 13.',
+                                'Stelle nach V um. Was passiert mit V, wenn ρ kleiner wird und m gleich bleibt?'))
+DSX.stufen('ein_schritt', 'S1/S2 dieselbe Ein-Schritt-Umstellung; S3 teils Probe und Einsetzen wie S2',
+           'S1 eine Umstellung; S2 Analogie zu einer Zahlenrechnung, Probe, einsetzen; S3 Linsenformel, Änderungen von Größen, Überschlag, Verhältnis zweier Volumina')
+for _t in ['Es gilt y = m · x + t mit m = 3 und t = 4. Für welches x ist y = 28?', 'Stelle u = 2 · (a + b) nach a um.',
+           'Für Temperaturen gilt F = 1,8 · C + 32 (F in Grad Fahrenheit, C in Grad Celsius). Wie viel Grad Celsius sind 86 °F?']:
+    DSX.stufe('zwei_schritte', _t, 2)
+DSX.stufen('zwei_schritte', 'S1 zwei Schritte umstellen; S2 Mittelwert, Formeln mit Klammer; S3 teils Einsetzen wie S2',
+           'S1 zwei Schritte; S2 Klammern, Mittelwert, Fahrenheit, Werte einsetzen; S3 Trapez nach c, Bremsweg, Umstellung rückwärts erkennen, x auf beiden Seiten')
+for _t, _e in [('Jemand stellt V = G · h : 3 nach h um und erhält h = V : G. Stimmt das?', None),
+               ('Jemand stellt A = (a + c) · h : 2 nach a um und erhält a = 2 · A : (h − c). Stimmt das?', None),
+               ('Jemand stellt Z = K · p : 100 nach K um und erhält K = 100 · Z : p. Stimmt das?', None),
+               ('Jemand stellt V = G · h : 3 nach h um und erhält h = V : (3 · G). Stimmt das?', None)]:
+    DSX.stufe('pruefen', _t, 2)
+DSX.stufen('pruefen', 'S1 Ein-Schritt-Umstellung prüfen; S2 und S3 dieselbe Prüfaufgabe mit längerer Formel',
+           'S1 Ein-Schritt-Umstellung prüfen; S2 Zwei-Schritt-Umstellung prüfen; S3 Probe mit Zahlen erfinden, ungeeignete Probezahl, zwei Lösungswege vergleichen')
+DSX.stufe('einsetzen', 'Ein Stück Glas (ρ = 2,5 g/cm³) hat das Volumen 10 dm³. Wie schwer ist es in kg? (ρ = m : V)', 2)
+DSX.stufe('einsetzen', 'Ein Stück Eis (ρ = 0,9 g/cm³) hat das Volumen 10 dm³. Wie schwer ist es in kg? (ρ = m : V)', 2)
+DSX.stufen('einsetzen', 'S1 einsetzen; S2 einsetzen nach Umstellen; S3 dreimal dieselbe Einheitenumrechnung',
+           'S1 einsetzen; S2 umstellen und einsetzen, auch dm³ → kg; S3 Einheiten (min → h, Liter → m³), Linsenformel, gleiche Zahl auf beiden Skalen')
+DSX.stufe('geometrie', 'Eine Pyramide hat das Volumen 45 cm³ und die Grundfläche 27 cm². Wie hoch ist sie? (V = G · h : 3)', 2)
+DSX.stufen('geometrie', 'S1 Höhe aus A = g · h; S2 Dreieck, Prisma, Quader, Umfang; S3 Pyramide wie S2, Trapez, Sachaufgaben',
+           'S1 Höhe aus A = g · h; S2 Dreieck, Prisma, Pyramide, Quader, Umfang; S3 Trapez, Liter → dm³, gleiches Volumen, Verhältnis der Seiten')
+baue = mit_durchsicht(baue, DSX)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Umstellen', ['ein_schritt', 'zwei_schritte', 'pruefen']), ('Anwenden', ['einsetzen', 'geometrie'])],

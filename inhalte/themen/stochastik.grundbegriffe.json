@@ -1337,18 +1337,21 @@
    "t": "rel_haeufigkeit",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Zwei Gruppen werfen einen Würfel: Gruppe A 200-mal mit 37 Sechsen, Gruppe B 20-mal mit 3 Sechsen. Wie groß ist die relative Häufigkeit der Sechs insgesamt in Prozent? (Runde auf eine Nachkommastelle.)"
+    "text": "Gruppe A hat 100-mal gewürfelt (17 % Sechsen), Gruppe B 25-mal (12 % Sechsen). Mia rechnet für beide zusammen (17 % + 12 %) : 2 = 14,5 %. Was stimmt?"
    },
+   "a": [
+    "Falsch: Man muss die Anteile addieren, also 29 %.",
+    "Falsch: Richtig ist 17 % – die größere Gruppe zählt allein.",
+    "Falsch: Die Gruppen sind verschieden groß. Richtig ist (17 + 3) : 125 = 16 %.",
+    "Richtig: Man nimmt den Mittelwert der beiden Anteile."
+   ],
    "o": {
-    "wert": 18.2,
-    "einheit": "%",
-    "toleranz": 0.1
+    "index": 2
    },
-   "c": "round(40 / 220 * 100, 1)",
-   "w": "Insgesamt 40 Sechsen bei 220 Würfen: 40 : 220 ≈ 18,2 %.",
-   "h": "Addiere die Sechsen und die Würfe – nicht die Prozentsätze mitteln."
+   "w": "A hatte 17 Sechsen, B 3 Sechsen (12 % von 25). Zusammen 20 Sechsen bei 125 Würfen: 20 : 125 = 0,16 = 16 %. Der einfache Mittelwert wäre nur bei gleich großen Gruppen richtig.",
+   "h": "Rechne die absoluten Häufigkeiten aus und addiere sie."
   },
   {
    "l": "rel_haeufigkeit",
@@ -1357,16 +1360,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Zwei Gruppen werfen einen Würfel: Gruppe A 50-mal mit 6 Sechsen, Gruppe B 20-mal mit 3 Sechsen. Wie groß ist die relative Häufigkeit der Sechs insgesamt in Prozent? (Runde auf eine Nachkommastelle.)"
+    "text": "Ein Würfel wird 300-mal geworfen. Die relative Häufigkeit der 1 ist 0,15, die der 2 ist 0,2. Wie oft fiel eine 1 oder eine 2?"
    },
    "o": {
-    "wert": 12.9,
-    "einheit": "%",
-    "toleranz": 0.1
+    "wert": 105
    },
-   "c": "round(9 / 70 * 100, 1)",
-   "w": "Insgesamt 9 Sechsen bei 70 Würfen: 9 : 70 ≈ 12,9 %.",
-   "h": "Addiere die Sechsen und die Würfe – nicht die Prozentsätze mitteln."
+   "c": "300 * (15/100 + 20/100)",
+   "w": "Einsen: 0,15 · 300 = 45. Zweien: 0,2 · 300 = 60. Zusammen 105-mal.",
+   "h": "Rechne aus den relativen Häufigkeiten die absoluten aus."
   },
   {
    "l": "rel_haeufigkeit",
@@ -2481,7 +2482,7 @@
    "l": "laplace_pruefen",
    "t": "laplace_pruefen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Ist das ein Laplace-Experiment? Werfen einer fairen Münze."
@@ -2594,7 +2595,7 @@
    "l": "laplace_pruefen",
    "t": "laplace_pruefen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Ist das ein Laplace-Experiment? Werfen eines fairen Spielwürfels."
@@ -2615,7 +2616,7 @@
    "l": "laplace_pruefen",
    "t": "laplace_pruefen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Ist das ein Laplace-Experiment? Ein Glücksrad mit 10 gleich großen Feldern."
@@ -3374,7 +3375,7 @@
    "l": "gegenereignis",
    "t": "gegenereignis",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Die Wahrscheinlichkeit, dass ein Elfmeter verwandelt wird, beträgt 81 %. Wie groß ist die Wahrscheinlichkeit, dass er nicht verwandelt wird (in %)?"
@@ -3412,7 +3413,7 @@
    "l": "gegenereignis",
    "t": "gegenereignis",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Die Wahrscheinlichkeit, dass ein Zug pünktlich ist, beträgt 89 %. Wie groß ist die Wahrscheinlichkeit, dass er nicht pünktlich ist (in %)?"
@@ -3429,7 +3430,7 @@
    "l": "gegenereignis",
    "t": "gegenereignis",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Die Wahrscheinlichkeit, dass ein Elfmeter verwandelt wird, beträgt 76 %. Wie groß ist die Wahrscheinlichkeit, dass er nicht verwandelt wird (in %)?"
@@ -3446,7 +3447,7 @@
    "l": "gegenereignis",
    "t": "gegenereignis",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Die Wahrscheinlichkeit, dass ein Elfmeter verwandelt wird, beträgt 82 %. Wie groß ist die Wahrscheinlichkeit, dass er nicht verwandelt wird (in %)?"
@@ -3463,7 +3464,7 @@
    "l": "gegenereignis",
    "t": "gegenereignis",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Die Wahrscheinlichkeit, dass ein Zug pünktlich ist, beträgt 83 %. Wie groß ist die Wahrscheinlichkeit, dass er nicht pünktlich ist (in %)?"
@@ -3501,7 +3502,7 @@
    "l": "gegenereignis",
    "t": "gegenereignis",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Glücksrad hat 10 gleich große Felder mit den Zahlen 1 bis 10. Wie groß ist die Wahrscheinlichkeit, dass die Zahl NICHT durch 3 teilbar ist? Gib sie als Dezimalzahl an."
@@ -3533,7 +3534,7 @@
    "l": "gegenereignis",
    "t": "gegenereignis",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Spielwürfel wird einmal geworfen. Wie groß ist die Wahrscheinlichkeit, dass KEINE Primzahl fällt? Gib sie als Dezimalzahl an."
@@ -3934,7 +3935,7 @@
    "l": "grosse_zahlen",
    "t": "grosse_zahlen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Wie oft erwartest du bei 100 Versuchen ungefähr Wappen beim Münzwurf?"
@@ -4066,19 +4067,19 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage ist FALSCH?"
+    "text": "Serie A: 50 Münzwürfe, 30-mal Wappen. Serie B: 5 000 Münzwürfe, 2 560-mal Wappen. Was stimmt?"
    },
    "a": [
-    "Je öfter man eine Münze wirft, desto näher liegt meist der Anteil der Wappen bei 0,5.",
-    "Mit vielen Versuchen kann man eine unbekannte Wahrscheinlichkeit gut schätzen.",
-    "Wenn beim Roulette fünfmal Rot kam, muss jetzt Schwarz kommen.",
-    "Die relative Häufigkeit kann bei wenigen Versuchen stark von der Wahrscheinlichkeit abweichen."
+    "A weicht in Anzahl und Anteil stärker ab.",
+    "B weicht in der Anzahl stärker von der Hälfte ab (60 statt 5), aber der Anteil liegt näher an 50 %.",
+    "Beide weichen gleich stark ab, denn beide haben mehr Wappen.",
+    "B weicht in Anzahl und Anteil stärker ab."
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
-   "w": "Falsch: Wenn beim Roulette fünfmal Rot kam, muss jetzt Schwarz kommen. Die relative Häufigkeit nähert sich nur ungefähr an, genaue Vorhersagen sind unmöglich.",
-   "h": "Achte auf Wörter wie „genau“, „immer“ und „muss“."
+   "w": "A: Hälfte wäre 25, also 5 mehr; Anteil 60 %. B: Hälfte wäre 2 500, also 60 mehr; Anteil 51,2 %. Das Gesetz der großen Zahlen sagt: Der Anteil nähert sich 50 %, die Anzahl muss es nicht.",
+   "h": "Vergleiche getrennt: Abweichung der Anzahl und Abweichung des Anteils."
   },
   {
    "l": "grosse_zahlen",

@@ -658,6 +658,75 @@ baue = mit_luecken(baue, LK)
 # ---- LÜCKEN ENDE ----
 
 
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Kl. 8, siehe _durchsicht_kl8.py) ----
+from _durchsicht_kl8 import Durchsicht, mit_durchsicht  # noqa: E402
+
+DSX = Durchsicht('messen.kreisberechnung', 19_8_12)
+# Gleiche Aufgabenart wie die Stufe darunter → umgestuft
+DSX.stufe('umfang', 'Ein Kreis hat den Durchmesser 36 cm. Berechne den Umfang. Runde auf eine Nachkommastelle.', 1)
+DSX.stufe('umfang', 'Ein Kreis hat den Durchmesser 3,4 cm. Berechne den Umfang. Runde auf eine Nachkommastelle.', 1)
+DSX.stufe('umfang', 'Berechne den Umfang eines Kreises mit r = 9,2 cm. Runde auf eine Nachkommastelle.', 1)
+DSX.stufe('umfang', 'Du misst bei einem Eimer den Umfang u = 94,2 cm und den Durchmesser d = 30 cm. Was ergibt u : d ungefähr?', 1)
+DSX.stufe('umfang', 'Ein Kreis hat den Umfang 74,8 cm. Berechne den Radius. Runde auf eine Nachkommastelle.', 2)
+DSX.stufe('flaeche', 'Berechne den Flächeninhalt eines Kreises mit r = 17 cm. Runde auf eine Nachkommastelle.', 1)
+DSX.stufe('flaeche', 'Berechne den Flächeninhalt eines Kreises mit r = 12 cm. Runde auf eine Nachkommastelle.', 1)
+DSX.stufe('flaeche', 'Berechne den Flächeninhalt eines Kreises mit r = 2 cm. Runde auf eine Nachkommastelle.', 1)
+DSX.stufe('flaeche', 'Berechne den Flächeninhalt eines Kreises mit r = 14 cm. Runde auf eine Nachkommastelle.', 1)
+DSX.stufe('flaeche', 'Ein Kreis hat den Flächeninhalt 36π cm². Wie groß ist sein Radius?', 2)
+DSX.stufe('exakt', 'Ein Kreis hat den Durchmesser 9 cm. Gib den Umfang exakt an: u = □ · π cm. Welche Zahl gehört in das Kästchen?', 1)
+DSX.stufe('sektor', 'Ein Kreisausschnitt hat r = 1,9 cm und α = 210°. Berechne seinen Flächeninhalt. Runde auf eine Nachkommastelle.', 2)
+DSX.stufe('zusammengesetzt', 'Ein Kreisring hat den Außenradius 11 cm und den Innenradius 7 cm. Berechne seinen Flächeninhalt. Runde auf eine Nachkommastelle.', 1)
+DSX.stufe('zusammengesetzt', 'Ein Kreisring hat den Außenradius 15 cm und den Innenradius 12 cm. Berechne seinen Flächeninhalt. Runde auf eine Nachkommastelle.', 1)
+DSX.stufe('zusammengesetzt', 'Ein Kreisring hat den Außenradius 14 cm und den Innenradius 12 cm. Berechne seinen Flächeninhalt. Runde auf eine Nachkommastelle.', 1)
+DSX.stufe('zusammengesetzt', 'Ein Kreisring hat den Außenradius 15 cm und den Innenradius 13 cm. Berechne seinen Flächeninhalt. Runde auf eine Nachkommastelle.', 1)
+DSX.stufe('zylinder', 'Ein Zylinder hat r = 4 cm und h = 7 cm. Berechne seine Mantelfläche. Runde auf eine Nachkommastelle.', 1)
+DSX.stufe('zylinder', 'Ein Zylinder hat r = 5 cm und h = 7 cm. Berechne seine Mantelfläche. Runde auf eine Nachkommastelle.', 1)
+DSX.stufe('zylinder', 'Ein Zylinder hat r = 1 cm und h = 5 cm. Berechne sein Volumen. Runde auf eine Nachkommastelle.', 1)
+DSX.stufe('zylinder', 'Ein Zylinder hat r = 4 cm und h = 4 cm. Berechne sein Volumen. Runde auf eine Nachkommastelle.', 1)
+DSX.stufe('zylinder', 'Ein Regenfass mit r = 35 cm enthält 250 l Wasser. Wie hoch steht das Wasser? Runde auf eine Nachkommastelle.', 2)
+# flaeche: Stufe 2 war nur „r einsetzen“ wie Stufe 1 → Umkehrung und Verknüpfung; dreimal Pizza-Vergleich → einer ersetzt
+DSX.ersetze('flaeche', 'Berechne den Flächeninhalt eines Kreises mit r = 4,5 cm. Runde auf eine Nachkommastelle.', DSX.Z(
+    'Ein runder Teich hat den Flächeninhalt 78,5 m². Wie groß ist sein Radius? Runde auf eine Nachkommastelle.', 5, '5',
+    'A = π · r², also r² = 78,5 : π ≈ 25. Die Zahl, die mit sich selbst malgenommen 25 ergibt, ist 5. Der Radius ist etwa 5,0 m.',
+    'Rechne rückwärts: erst durch π teilen, dann die Zahl suchen, deren Quadrat herauskommt.', einheit='m', toleranz=0.1))
+DSX.ersetze('flaeche', 'Berechne den Flächeninhalt eines Kreises mit r = 9,5 cm. Runde auf eine Nachkommastelle.', DSX.Z(
+    'Ein Kreis hat den Umfang 31,4 cm. Berechne seinen Flächeninhalt. Runde auf eine Nachkommastelle.', 78.5, 'round(31.4 * 31.4 / (4 * 3.14159265), 1)',
+    'Aus dem Umfang den Radius: r = 31,4 : (2 · π) ≈ 5 cm. Dann A = π · r² ≈ π · 25 ≈ 78,5 cm².',
+    'Berechne zuerst den Radius aus dem Umfang.', einheit='cm²', toleranz=0.1))
+DSX.ersetze('flaeche', 'Eine Pizza mit 32 cm Durchmesser kostet 10 €, zwei Pizzen mit je 22 cm kosten zusammen auch 10 €. Wo bekommst du mehr Pizza?', DSX.Z(
+    'Ein Kreis soll genauso viel Fläche haben wie ein Quadrat mit 10 cm Seitenlänge. Welchen Radius braucht er? Runde auf eine Nachkommastelle.', 5.6, '5.6',
+    'Das Quadrat hat 100 cm². Also π · r² = 100, r² = 100 : π ≈ 31,8. Da 5,6 · 5,6 ≈ 31,4 und 5,7 · 5,7 ≈ 32,5 sind, ist r ≈ 5,6 cm.',
+    'Setze π · r² gleich der Quadratfläche und rechne rückwärts.', einheit='cm', toleranz=0.1))
+# exakt: dreimal Kreisring in Folge → einer ersetzt durch Fehler finden
+DSX.ersetze('exakt', 'Ein Kreisring hat den Außenradius 12 cm und den Innenradius 8 cm. Gib den Flächeninhalt exakt an: A = □ · π cm².', DSX.Z(
+    'Lea rechnet für einen Kreis mit d = 10 cm: A = π · 10² = 100π cm². Berichtige: A = □ · π cm². Welche Zahl gehört in das Kästchen?', 25, '(10 / 2) ** 2',
+    'Lea hat den Durchmesser quadriert. Richtig ist der Radius r = 5 cm: A = π · 5² = 25π cm².', 'In die Flächenformel gehört der Radius.'))
+# verstehen: dreimal derselbe Formelfehler, viermal derselbe Vergleich → ersetzt
+DSX.ersetze('verstehen', 'Ein Kreis hat r = 2 cm. Jemand rechnet A = 2 · π · 2. Was ist der Fehler?', DSX.Z(
+    'Ein Kreis hat den Flächeninhalt 20 cm². Sein Radius wird verdoppelt. Wie groß ist der neue Flächeninhalt?', 80, '20 * 2 ** 2',
+    'Doppelter Radius heißt vierfache Fläche: 4 · 20 cm² = 80 cm².', 'Die Fläche wächst mit r².', einheit='cm²'))
+DSX.ersetze('verstehen', 'Welcher Kreis hat den größeren Flächeninhalt: einer mit r = 7 cm oder einer mit u = 65 cm?', DSX.Z(
+    'Ein Kreis soll doppelt so viel Fläche bekommen. Mit welcher Zahl muss man seinen Radius malnehmen? Runde auf zwei Nachkommastellen.', 1.41, '1.41',
+    'Die Fläche wächst mit dem Quadrat des Faktors. Gesucht ist k mit k · k = 2: 1,41 · 1,41 ≈ 1,99, 1,42 · 1,42 ≈ 2,02. Also k ≈ 1,41 – nicht 2.',
+    'Welche Zahl ergibt mit sich selbst malgenommen 2?', toleranz=0.01))
+DSX.ersetze('verstehen', 'Welcher Kreis hat den größeren Flächeninhalt: einer mit r = 4 cm oder einer mit u = 79 cm?', DSX.Z(
+    'Ein großer Kreis hat 9-mal so viel Fläche wie ein kleiner Kreis mit r = 2 cm. Welchen Radius hat der große Kreis?', 6, '2 * 3',
+    '9-fache Fläche heißt Radius mal 3, denn 3² = 9. Also r = 3 · 2 cm = 6 cm.', 'Rechne rückwärts: Welcher Faktor ergibt quadriert 9?', einheit='cm'))
+# zusammengesetzt: zweimal Laufbahn in Folge → einer ersetzt
+DSX.ersetze('zusammengesetzt', 'Eine Laufbahn besteht aus zwei geraden Stücken von je 11 m und zwei Halbkreisen mit Radius 8 m. Wie lang ist eine Runde? Runde auf eine Nachkommastelle.', DSX.Z(
+    'Ein Kreisring soll 100 cm² groß sein. Der Innenradius ist 3 cm. Wie groß muss der Außenradius sein? Runde auf eine Nachkommastelle.', 6.4, '6.4',
+    'π · R² − π · 3² = 100, also R² = 100 : π + 9 ≈ 31,8 + 9 = 40,8. Da 6,4 · 6,4 ≈ 41,0 und 6,3 · 6,3 ≈ 39,7 sind, ist R ≈ 6,4 cm.',
+    'Ringfläche = große Kreisfläche minus kleine. Rechne rückwärts.', einheit='cm', toleranz=0.1))
+DSX.stufen('umfang', 'S1 und S2 dieselbe Rechnung u = π · d; S3 teils nur Umkehrung', 'S1 Umfang aus d oder r, u : d; S2 Sachkontext, Umkehrung, Sechseck/Quadrat; S3 Umdrehungen, Maßstab, Seil-Rätsel, π-Näherung begründen')
+DSX.stufen('flaeche', 'S1 und S2 dieselbe Rechnung π · r²; S3 dreimal Pizza-Vergleich', 'S1 Fläche aus r oder d; S2 Umkehrung, aus dem Umfang, Vergleich mit Quadrat; S3 Preisvergleich, Zaun, gleiche Fläche wie Quadrat, Anteil, gleiche Maßzahl')
+DSX.stufen('exakt', 'S3 dreimal Kreisring', 'S1 Umfang exakt; S2 Umkehrung, Fläche aus d; S3 Umfang → Fläche, Kreisring, Fehler berichtigen, Figur, Draht')
+DSX.stufen('verstehen', 'S2 dreimal derselbe Fehler; S3 viermal derselbe Vergleich', 'S1 Faktor bei Vergrößerung; S2 Fehler erkennen, Faktor 1,5, Fläche nach Verdopplung; S3 Vergleich r gegen u, Faktor für doppelte Fläche, rückwärts, Prozent, Maßstab')
+DSX.stufen('sektor', 'S3 enthielt eine reine Formelaufgabe', 'S1 Anteil des Kreises; S2 Fläche und Bogen mit Formel; S3 Winkel rückwärts, Scheibenwischer, Uhr, Diagramm, ganzer Rand')
+DSX.stufen('zusammengesetzt', 'S1 und S2 dieselbe Kreisring-Rechnung; S3 zweimal Laufbahn', 'S1 Kreisring; S2 Kreisabschnitt, Durchmesser statt Radius, Halbkreis; S3 Figuren zerlegen, Laufbahn, Ring rückwärts, Fenster, Sportplatz')
+DSX.stufen('zylinder', 'S1 und S2 dieselbe Formel; S3 Regenfass wie S2', 'S1 Volumen, Mantel; S2 Oberfläche, Höhe rückwärts, Sachkontext; S3 Term wählen, Wasserspiegel, Vergleich, Blatt rollen')
+baue = mit_durchsicht(baue, DSX)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Kreis', ['umfang', 'flaeche', 'exakt', 'verstehen']), ('Teile von Kreisen', ['sektor', 'zusammengesetzt']), ('Zylinder', ['zylinder'])],

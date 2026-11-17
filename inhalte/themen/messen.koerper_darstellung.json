@@ -1555,19 +1555,19 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Kann ein Prisma 37 Kanten haben?"
+    "text": "Ein Körper hat 12 Ecken, 18 Kanten und 8 Flächen. Kann er ein Prisma sein?"
    },
    "a": [
-    "Ja, ein 37-seitiges.",
-    "Ja, ein 18-seitiges.",
-    "Ja, jede Zahl ab 9 ist möglich.",
-    "Nein, die Kantenzahl ist immer durch 3 teilbar."
+    "Nein, 18 Kanten sind für ein Prisma zu viele.",
+    "Nein, ein Prisma hat immer 6 Flächen.",
+    "Ja, ein achtseitiges Prisma.",
+    "Ja, ein sechsseitiges Prisma: 2 · 6 = 12 Ecken, 3 · 6 = 18 Kanten, 6 + 2 = 8 Flächen."
    ],
    "o": {
     "index": 3
    },
-   "w": "Ein n-seitiges Prisma hat 3n Kanten. 37 ist nicht durch 3 teilbar, also gibt es kein solches Prisma.",
-   "h": "Wie viele Kanten hat ein n-seitiges Prisma?"
+   "w": "Aus 12 Ecken folgt n = 6. Dann müssen es 3 · 6 = 18 Kanten und 6 + 2 = 8 Flächen sein – beides stimmt.",
+   "h": "Bestimme n aus den Ecken und prüfe dann Kanten und Flächen."
   },
   {
    "l": "prisma",
@@ -2618,15 +2618,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Das Netz eines Quaders hat die Fläche 318 cm². Die Grundfläche ist 3 cm × 9 cm. Wie hoch ist der Quader?"
+    "text": "Eine Schachtel ohne Deckel hat die Form eines Quaders: 10 cm lang, 6 cm breit, 4 cm hoch. Wie viel Pappe braucht man ohne Klebelaschen?"
    },
    "o": {
-    "wert": 11,
-    "einheit": "cm"
+    "wert": 188,
+    "einheit": "cm²"
    },
-   "c": "(318 - 2 * 3 * 9) / (2 * (3 + 9))",
-   "w": "318 = 2 · 27 + 2 · (3 + 9) · h → 264 = 24 · h → h = 11 cm.",
-   "h": "Ziehe die beiden Grundflächen ab. Der Rest ist der Mantel: Umfang · Höhe."
+   "c": "10 * 6 + 2 * 10 * 4 + 2 * 6 * 4",
+   "w": "Boden 10 · 6 = 60 cm². Zwei lange Seiten 2 · 10 · 4 = 80 cm², zwei kurze 2 · 6 · 4 = 48 cm². Ohne Deckel: 60 + 80 + 48 = 188 cm².",
+   "h": "Zähle nur die Flächen, die es wirklich gibt – der Deckel fehlt."
   },
   {
    "l": "netz",
@@ -4273,18 +4273,21 @@
    "t": "zylinder",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Eine Dose hat den Durchmesser 7,5 cm und ist 11 cm hoch. Das Etikett überlappt 1 cm. Wie lang muss es sein? (π ≈ 3,14, auf eine Nachkommastelle runden)"
+    "text": "Dose B hat den doppelten Durchmesser von Dose A, ist aber nur halb so hoch. Was gilt für ihre Etiketten (Mantelflächen)?"
    },
+   "a": [
+    "Beide sind gleich groß.",
+    "Das Etikett von B ist doppelt so groß.",
+    "Das Etikett von B ist halb so groß.",
+    "Das Etikett von B ist viermal so groß."
+   ],
    "o": {
-    "wert": 24.6,
-    "einheit": "cm",
-    "toleranz": 0.1
+    "index": 0
    },
-   "c": "round(3.14 * (15/2) + 1, 1)",
-   "w": "Umfang u = π · d ≈ 3,14 · 7,5 = 23,55 cm. Dazu die Überlappung: 23,55 + 1 ≈ 24,6 cm.",
-   "h": "Das Etikett reicht einmal um die Dose (Umfang) und ein Stück weiter."
+   "w": "Doppelter Durchmesser heißt doppelter Umfang, also doppelt so langes Rechteck. Halbe Höhe heißt halb so hoch. 2 · ½ = 1: gleich groß.",
+   "h": "Mantel = Umfang mal Höhe. Wie ändern sich beide Faktoren?"
   },
   {
    "l": "zylinder",
@@ -4760,7 +4763,7 @@
    "l": "schraegbild",
    "t": "schraegbild",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Das Schrägbild (q = 1/2, ω = 45°) zeigt einen Quader. Wie tief ist der Quader in Wirklichkeit?",
@@ -4873,7 +4876,7 @@
    "l": "schraegbild",
    "t": "schraegbild",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Das Schrägbild (q = 1/2, ω = 45°) zeigt einen Quader. Wie tief ist der Quader in Wirklichkeit?",
@@ -4986,7 +4989,7 @@
    "l": "schraegbild",
    "t": "schraegbild",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Das Schrägbild (q = 1/2, ω = 45°) zeigt einen Quader. Wie tief ist der Quader in Wirklichkeit?",
@@ -5839,7 +5842,7 @@
    "l": "ansichten",
    "t": "ansichten",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welche Form hat die Vorderansicht – betrachtet wird ein stehender Quader mit quadratischer Grundfläche (höher als breit)?"
@@ -5905,19 +5908,19 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welcher Körper hat die Vorderansicht „Rechteck“ und die Draufsicht „Kreis“?"
+    "text": "Welche Form hat die Seitenansicht eines liegenden Zylinders (Achse von links nach rechts)?"
    },
    "a": [
-    "Ein Würfel",
-    "Ein dreiseitiges Prisma, das auf einer Rechteckfläche liegt (Dreieck vorne)",
-    "Ein stehender Quader mit quadratischer Grundfläche (höher als breit)",
-    "Ein stehender Zylinder"
+    "Dreieck",
+    "Rechteck",
+    "Kreis",
+    "Quadrat"
    ],
    "o": {
-    "index": 3
+    "index": 2
    },
-   "w": "Ein stehender Zylinder: von vorn Rechteck, von oben Kreis.",
-   "h": "Stell dir vor, du schaust von vorn und von oben auf den Körper."
+   "w": "Von der Seite schaust du genau auf einen der beiden Grundkreise.",
+   "h": "Wohin zeigt die Achse, wenn du von der Seite schaust?"
   },
   {
    "l": "ansichten",
@@ -6007,7 +6010,7 @@
    "l": "ansichten",
    "t": "ansichten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welcher Körper hat die Vorderansicht „Dreieck“ und die Draufsicht „Quadrat“?"
@@ -6473,25 +6476,25 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage ist FALSCH?"
+    "text": "Stimmt die Aussage: „Ein Zylinder ist ein Prisma.“?"
    },
    "a": [
-    "Ein Quader ist ein Prisma.",
-    "Der Mantel eines geraden dreiseitigen Prismas besteht aus 3 Rechtecken.",
-    "Die Grundflächen eines Prismas sind parallel und deckungsgleich.",
-    "Das Mantelrechteck eines Zylinders ist so lang wie der Durchmesser des Grundkreises."
+    "Ja, er hat zwei gleiche, parallele Grundflächen.",
+    "Nein: Seine Grundflächen sind Kreise, keine Vielecke.",
+    "Nein, weil er gar keine Grundfläche hat.",
+    "Ja, weil sein Mantel ein Rechteck ist."
    ],
    "o": {
-    "index": 3
+    "index": 1
    },
-   "w": "Falsch: Das Mantelrechteck eines Zylinders ist so lang wie der Durchmesser des Grundkreises.",
-   "h": "Suche ein Gegenbeispiel oder zähle nach."
+   "w": "Ein Prisma hat zwei gleiche, parallele Vielecke als Grundflächen und Rechtecke als Seiten. Der Zylinder hat Kreise und keine Kanten an der Seite.",
+   "h": "Vergleiche mit allen Merkmalen eines Prismas."
   },
   {
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welche Aussage ist richtig?"
@@ -6512,7 +6515,7 @@
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welche Aussage ist richtig?"
@@ -6533,7 +6536,7 @@
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welche Aussage ist richtig?"
@@ -6554,7 +6557,7 @@
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welche Aussage über Körper ist richtig?"
@@ -6638,7 +6641,7 @@
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Aussage über Zylinder und Prismen ist FALSCH?"

@@ -906,7 +906,7 @@
    "l": "zufallsgeraet",
    "t": "zufallsgeraet",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Ein Bus hat Verspätung mit der Wahrscheinlichkeit 0,7. Welches Zufallsgerät simuliert das richtig?"
@@ -959,7 +959,7 @@
    "l": "zufallsgeraet",
    "t": "zufallsgeraet",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Eine Schülerin löst eine Rätselaufgabe mit der Wahrscheinlichkeit 0,1. Welches Zufallsgerät simuliert das richtig?"
@@ -1014,17 +1014,21 @@
    "t": "zufallsgeraet",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Ein Glücksrad soll einen Treffer mit p = 0,45 simulieren. Wie groß muss der Mittelpunktswinkel des Trefferfeldes sein (in Grad)?"
+    "text": "Ein Ereignis hat die Wahrscheinlichkeit 0,15. Kann man es mit einem normalen Spielwürfel (ein Wurf) simulieren?"
    },
+   "a": [
+    "Nein: Ein Würfel liefert nur Wahrscheinlichkeiten wie 1/6, 2/6, 3/6 …, 0,15 ist nicht dabei.",
+    "Nein: Mit einem Würfel kann man gar nichts simulieren.",
+    "Ja: Jedes Zufallsgerät ist geeignet.",
+    "Ja: Die Eins zählt als Treffer."
+   ],
    "o": {
-    "wert": 162,
-    "einheit": "°"
+    "index": 0
    },
-   "c": "(9/20) * 360",
-   "w": "0,45 · 360° = 162°.",
-   "h": "Der Anteil am Vollwinkel 360° ist die Wahrscheinlichkeit."
+   "w": "1/6 ≈ 0,167 ist nicht 0,15. Besser: Zufallszahlen 00 bis 99 mit 00 bis 14 als Treffer.",
+   "h": "Welche Wahrscheinlichkeiten kann ein Würfel liefern?"
   },
   {
    "l": "zufallsgeraet",
@@ -1493,21 +1497,16 @@
    "t": "regel",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Mit zweistelligen Zufallszahlen 00–99 soll p = 0,83 simuliert werden. Welche Regel ist richtig?"
+    "text": "Mit Zufallszahlen 00 bis 99 gilt die Regel „00 bis 37 = Treffer“. Welche Wahrscheinlichkeit wird damit simuliert? Gib sie als Dezimalzahl an."
    },
-   "a": [
-    "00 bis 8 = Treffer",
-    "01 bis 82 = Treffer",
-    "00 bis 82 = Treffer",
-    "00 bis 83 = Treffer"
-   ],
    "o": {
-    "index": 2
+    "wert": 0.38
    },
-   "w": "Es gibt 100 Zahlen. 0,83 · 100 = 83 Treffer-Zahlen: 00, 01, …, 82.",
-   "h": "Zähle genau: Von 00 bis 09 sind es 10 Zahlen."
+   "c": "38 / 100",
+   "w": "Von 00 bis 37 sind es 38 Zahlen (die 00 zählt mit). 38 von 100 ergibt 0,38.",
+   "h": "Zähle die Trefferzahlen genau – auch die 00."
   },
   {
    "l": "regel",
@@ -1537,19 +1536,19 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Mit zweistelligen Zufallszahlen 00–99 soll p = 0,17 simuliert werden. Welche Regel ist richtig?"
+    "text": "Tim hat nur Zufallsziffern 0 bis 9 und will p = 0,35 simulieren. Was ist richtig?"
    },
    "a": [
-    "00 bis 1 = Treffer",
-    "00 bis 16 = Treffer",
-    "00 bis 17 = Treffer",
-    "01 bis 16 = Treffer"
+    "Das geht mit Zufallsziffern nicht.",
+    "Ziffern 0 bis 35 = Treffer.",
+    "Ziffern 0 bis 3 = Treffer.",
+    "Je zwei Ziffern als Zahl 00 bis 99 lesen, 00 bis 34 = Treffer."
    ],
    "o": {
-    "index": 1
+    "index": 3
    },
-   "w": "Es gibt 100 Zahlen. 0,17 · 100 = 17 Treffer-Zahlen: 00, 01, …, 16.",
-   "h": "Zähle genau: Von 00 bis 09 sind es 10 Zahlen."
+   "w": "Mit einer Ziffer gibt es nur Zehntel. Zwei Ziffern zusammen ergeben 100 gleich wahrscheinliche Zahlen; 35 davon (00 bis 34) sind Treffer.",
+   "h": "Wie viele gleich wahrscheinliche Ergebnisse brauchst du für Hundertstel?"
   },
   {
    "l": "regel",
@@ -2155,14 +2154,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Jede 4er-Gruppe ist ein Durchgang mit 4 Versuchen; nur die Ziffer 0 ist Treffer. In wie vielen Durchgängen gab es mindestens einen Treffer? Gruppen: 8694 0532 1163 8233 5111 1544 6928 4716"
+    "text": "„Warten auf den ersten Treffer“: Treffer sind die Ziffern 0 und 1. Ziffernfolge: 5 7 3 9 1 4 0 8. Beim wievielten Versuch kommt der erste Treffer?"
    },
    "o": {
-    "wert": 1
+    "wert": 5
    },
-   "c": "1",
-   "w": "Gruppen mit mindestens einer Treffer-Ziffer (0): 0532. Das sind 1.",
-   "h": "Prüfe jede Gruppe: Ist mindestens eine Treffer-Ziffer dabei?"
+   "c": "5",
+   "w": "5, 7, 3, 9 sind keine Treffer. Die 1 an fünfter Stelle ist der erste Treffer.",
+   "h": "Gehe die Ziffern der Reihe nach durch und zähle mit."
   },
   {
    "l": "zufallsziffern",
@@ -2334,7 +2333,7 @@
    "l": "zufallsziffern",
    "t": "zufallsziffern",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Regel: Die Ziffern 0 bis 5 sind Treffer (p = 0,6). Zähle die Treffer in den 20 Zufallsziffern 4719 0382 6650 1197 2843."
@@ -2636,40 +2635,35 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Gruppe A simuliert 2000 Durchgänge, Gruppe B 1000. Wessen Schätzwert für die Wahrscheinlichkeit ist vermutlich zuverlässiger?"
+    "text": "Eine Simulation von „mindestens eine Sechs bei vier Würfen“ ergab 0,52. Berechnet sind etwa 0,518. Lea sagt: „Die Simulation war falsch, der Wert stimmt nicht genau.“ Was stimmt?"
    },
    "a": [
-    "Der von Gruppe B, weil sie weniger Durchgänge hat.",
-    "Das hängt nur vom Zufallsgerät ab, nicht von der Anzahl.",
-    "Der von Gruppe A, weil sie mehr Durchgänge hat.",
-    "Beide gleich, Zufall bleibt Zufall."
+    "Man kann Simulation und Rechnung nicht vergleichen.",
+    "Lea hat recht: Eine richtige Simulation trifft den Wert genau.",
+    "Lea irrt: Eine Simulation liefert nur einen Schätzwert, 0,52 passt sehr gut.",
+    "Die Rechnung ist falsch, die Simulation stimmt."
    ],
    "o": {
     "index": 2
    },
-   "w": "Nach dem Gesetz der großen Zahlen schwankt die relative Häufigkeit bei vielen Durchgängen weniger.",
-   "h": "Denke an das Gesetz der großen Zahlen."
+   "w": "Simulationen schwanken zufällig. 0,52 liegt nur 0,002 neben 0,518 – das ist eine sehr gute Übereinstimmung.",
+   "h": "Was liefert eine Simulation: einen genauen Wert oder einen Schätzwert?"
   },
   {
    "l": "auswerten",
    "t": "auswerten",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Gruppe A simuliert 100 Durchgänge, Gruppe B 50. Wessen Schätzwert für die Wahrscheinlichkeit ist vermutlich zuverlässiger?"
+    "text": "Ein Ereignis hat die Wahrscheinlichkeit 0,25. Eine Simulation mit 80 Durchgängen ergab 26 Treffer. Um wie viele Treffer weicht sie vom erwarteten Wert ab?"
    },
-   "a": [
-    "Der von Gruppe A, weil sie mehr Durchgänge hat.",
-    "Der von Gruppe B, weil sie weniger Durchgänge hat.",
-    "Das hängt nur vom Zufallsgerät ab, nicht von der Anzahl.",
-    "Beide gleich, Zufall bleibt Zufall."
-   ],
    "o": {
-    "index": 0
+    "wert": 6
    },
-   "w": "Nach dem Gesetz der großen Zahlen schwankt die relative Häufigkeit bei vielen Durchgängen weniger.",
-   "h": "Denke an das Gesetz der großen Zahlen."
+   "c": "26 - 80 * 25 / 100",
+   "w": "Erwartet sind 0,25 · 80 = 20 Treffer. 26 − 20 = 6.",
+   "h": "Berechne zuerst, wie viele Treffer man erwarten würde."
   },
   {
    "l": "auswerten",
@@ -3487,388 +3481,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "In ein Quadrat mit Seitenlänge 1 wird ein Viertelkreis mit Radius 1 gezeichnet (Bild: Ausschnitt mit 40 Punkten). Von 400 Zufallspunkten liegen 331 im Viertelkreis. Welchen Schätzwert für π erhält man?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "_A": [
-       0,
-       0
-      ],
-      "_B": [
-       10,
-       0
-      ],
-      "_C": [
-       10,
-       10
-      ],
-      "_D": [
-       0,
-       10
-      ],
-      "_k0": [
-       10.0,
-       0.0
-      ],
-      "_k1": [
-       9.85,
-       1.74
-      ],
-      "_k2": [
-       9.4,
-       3.42
-      ],
-      "_k3": [
-       8.66,
-       5.0
-      ],
-      "_k4": [
-       7.66,
-       6.43
-      ],
-      "_k5": [
-       6.43,
-       7.66
-      ],
-      "_k6": [
-       5.0,
-       8.66
-      ],
-      "_k7": [
-       3.42,
-       9.4
-      ],
-      "_k8": [
-       1.74,
-       9.85
-      ],
-      "_k9": [
-       0.0,
-       10.0
-      ]
-     },
-     "flaeche": [
-      "_A",
-      "_k0",
-      "_k1",
-      "_k2",
-      "_k3",
-      "_k4",
-      "_k5",
-      "_k6",
-      "_k7",
-      "_k8",
-      "_k9"
-     ],
-     "linien": [
-      [
-       "_A",
-       "_B"
-      ],
-      [
-       "_B",
-       "_C"
-      ],
-      [
-       "_C",
-       "_D"
-      ],
-      [
-       "_D",
-       "_A"
-      ]
-     ],
-     "kreise": [
-      {
-       "m": [
-        9.4,
-        0.4
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        7.2,
-        1.8
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        9.6,
-        0.5
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.6,
-        6.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.4,
-        9.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        2.6,
-        3.5
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        7.0,
-        2.9
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        2.8,
-        2.4
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.4,
-        8.5
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        7.8,
-        2.4
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        9.0,
-        5.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        2.5,
-        4.6
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.2,
-        1.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.6,
-        3.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.7,
-        9.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        6.4,
-        4.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.4,
-        9.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.9,
-        9.2
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        0.5,
-        1.6
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        1.9,
-        9.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        6.8,
-        7.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        3.0,
-        5.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.6,
-        1.2
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        1.4,
-        0.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.7,
-        8.2
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.5,
-        4.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.0,
-        2.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        9.2,
-        3.6
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        2.5,
-        3.2
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.1,
-        3.3
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.8,
-        3.5
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.5,
-        1.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.8,
-        7.8
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.8,
-        1.4
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.9,
-        3.8
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.2,
-        9.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        7.3,
-        3.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        0.7,
-        8.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        9.2,
-        1.8
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.0,
-        4.8
-       ],
-       "r": 0.13
-      }
-     ]
-    }
+    "text": "Ein Rechteck ist 6 cm lang und 4 cm breit. Eine Figur darin ist 9 cm² groß. Wie viele von 400 Zufallspunkten im Rechteck liegen ungefähr in der Figur?"
    },
    "o": {
-    "wert": 3.31
+    "wert": 150
    },
-   "c": "4 * 331 / 400",
-   "w": "Viertelkreis A = π/4, Quadrat A = 1. Also π/4 ≈ 331/400 → π ≈ 4 · 0,8275 = 3,31.",
-   "h": "Der Viertelkreis hat die Fläche π/4. Setze den Punkteanteil gleich π/4."
+   "c": "400 * 9 / 24",
+   "w": "Die Figur bedeckt 9 von 24 cm², also 3/8 des Rechtecks. 3/8 von 400 sind 150 Punkte.",
+   "h": "Rechne rückwärts: erst den Flächenanteil, dann den Anteil der Punkte."
   },
   {
    "l": "monte_carlo",
@@ -4265,390 +3885,21 @@
    "t": "monte_carlo",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "In ein Quadrat mit Seitenlänge 1 wird ein Viertelkreis mit Radius 1 gezeichnet (Bild: Ausschnitt mit 40 Punkten). Von 1000 Zufallspunkten liegen 758 im Viertelkreis. Welchen Schätzwert für π erhält man?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "_A": [
-       0,
-       0
-      ],
-      "_B": [
-       10,
-       0
-      ],
-      "_C": [
-       10,
-       10
-      ],
-      "_D": [
-       0,
-       10
-      ],
-      "_k0": [
-       10.0,
-       0.0
-      ],
-      "_k1": [
-       9.85,
-       1.74
-      ],
-      "_k2": [
-       9.4,
-       3.42
-      ],
-      "_k3": [
-       8.66,
-       5.0
-      ],
-      "_k4": [
-       7.66,
-       6.43
-      ],
-      "_k5": [
-       6.43,
-       7.66
-      ],
-      "_k6": [
-       5.0,
-       8.66
-      ],
-      "_k7": [
-       3.42,
-       9.4
-      ],
-      "_k8": [
-       1.74,
-       9.85
-      ],
-      "_k9": [
-       0.0,
-       10.0
-      ]
-     },
-     "flaeche": [
-      "_A",
-      "_k0",
-      "_k1",
-      "_k2",
-      "_k3",
-      "_k4",
-      "_k5",
-      "_k6",
-      "_k7",
-      "_k8",
-      "_k9"
-     ],
-     "linien": [
-      [
-       "_A",
-       "_B"
-      ],
-      [
-       "_B",
-       "_C"
-      ],
-      [
-       "_C",
-       "_D"
-      ],
-      [
-       "_D",
-       "_A"
-      ]
-     ],
-     "kreise": [
-      {
-       "m": [
-        9.4,
-        0.4
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        7.2,
-        1.8
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        9.6,
-        0.5
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.6,
-        6.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.4,
-        9.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        2.6,
-        3.5
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        7.0,
-        2.9
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        2.8,
-        2.4
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.4,
-        8.5
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        7.8,
-        2.4
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        9.0,
-        5.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        2.5,
-        4.6
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.2,
-        1.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.6,
-        3.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.7,
-        9.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        6.4,
-        4.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.4,
-        9.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.9,
-        9.2
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        0.5,
-        1.6
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        1.9,
-        9.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        6.8,
-        7.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        3.0,
-        5.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.6,
-        1.2
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        1.4,
-        0.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.7,
-        8.2
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.5,
-        4.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.0,
-        2.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        9.2,
-        3.6
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        2.5,
-        3.2
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.1,
-        3.3
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.8,
-        3.5
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.5,
-        1.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.8,
-        7.8
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.8,
-        1.4
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.9,
-        3.8
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.2,
-        9.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        7.3,
-        3.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        0.7,
-        8.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        9.2,
-        1.8
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.0,
-        4.8
-       ],
-       "r": 0.13
-      }
-     ]
-    }
+    "text": "Zwei Gruppen schätzen π mit dem Viertelkreis im Quadrat: A setzt 100 Zufallspunkte, B 10 000. Was ist zu erwarten?"
    },
+   "a": [
+    "Mit mehr Punkten wird der Schätzwert immer größer.",
+    "Der Wert von B liegt meist näher an 3,14 – sicher ist das aber nicht.",
+    "A und B erhalten genau 3,14.",
+    "Der Wert von A liegt immer näher an 3,14."
+   ],
    "o": {
-    "wert": 3.032
+    "index": 1
    },
-   "c": "4 * 758 / 1000",
-   "w": "Viertelkreis A = π/4, Quadrat A = 1. Also π/4 ≈ 758/1000 → π ≈ 4 · 0,758 = 3,032.",
-   "h": "Der Viertelkreis hat die Fläche π/4. Setze den Punkteanteil gleich π/4."
+   "w": "Mehr Punkte machen den Anteil zuverlässiger (Gesetz der großen Zahlen). Im Einzelfall kann A trotzdem zufällig besser liegen.",
+   "h": "Was bewirken viele Versuche bei einer Simulation?"
   },
   {
    "l": "monte_carlo",
@@ -4998,7 +4249,7 @@
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Ein Kind gewinnt beim Losstand mit p = 0,2. Simuliert wird mit einem Glücksrad mit einem 270°-Trefferfeld. Ist das geeignet?"
@@ -5019,7 +4270,7 @@
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Ein Basketballspieler trifft beim Freiwurf mit p = 0,3. Simuliert wird mit einem Würfel (1 bis 4 = Treffer). Ist das geeignet?"
@@ -5040,7 +4291,7 @@
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Eine Schülerin löst eine Rätselaufgabe mit p = 0,25. Simuliert wird mit einer Münze (Wappen = Treffer). Ist das geeignet?"
@@ -5061,7 +4312,7 @@
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Ein Kind gewinnt beim Losstand mit p = 0,7. Simuliert wird mit einer Urne mit 7 roten von 10 Kugeln (mit Zurücklegen). Ist das geeignet?"
@@ -5082,7 +4333,7 @@
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Ein Bus hat Verspätung mit p = 0,5. Simuliert wird mit einer Münze (Wappen = Treffer). Ist das geeignet?"
@@ -5103,7 +4354,7 @@
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Eine Ampel zeigt bei Ankunft Grün mit p = 0,5. Simuliert wird mit einem Würfel (1 bis 5 = Treffer). Ist das geeignet?"
@@ -5124,7 +4375,7 @@
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ein Kind gewinnt beim Losstand mit p = 5/6. Simuliert wird mit einer Urne mit 7 roten von 10 Kugeln (mit Zurücklegen). Ist das geeignet?"
@@ -5145,7 +4396,7 @@
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Ein Bauteil ist fehlerhaft mit p = 0,3. Simuliert wird mit einer Urne mit 3 roten von 10 Kugeln (mit Zurücklegen). Ist das geeignet?"
@@ -5187,7 +4438,7 @@
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Eine Ampel zeigt bei Ankunft Grün mit p = 2/3. Simuliert wird mit einer Urne mit 7 roten von 10 Kugeln (mit Zurücklegen). Ist das geeignet?"

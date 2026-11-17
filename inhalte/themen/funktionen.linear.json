@@ -1156,7 +1156,7 @@
    "l": "ablesen",
    "t": "ablesen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Gib die Steigung m der Geraden y = −4x + 6 an."
@@ -1172,7 +1172,7 @@
    "l": "ablesen",
    "t": "ablesen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Gib den y-Achsenabschnitt t der Geraden y = 1,5x + 7 an."
@@ -1264,7 +1264,7 @@
    "l": "ablesen",
    "t": "ablesen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Gib die Steigung m der Geraden y = 6x + 9 an."
@@ -1312,7 +1312,7 @@
    "l": "ablesen",
    "t": "ablesen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Das Bild zeigt eine Gerade mit Steigungsdreieck. Wie groß ist die Steigung m?",
@@ -1926,7 +1926,7 @@
    "l": "zwei_punkte",
    "t": "zwei_punkte",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Berechne die Steigung der Geraden durch P(3 | 3) und Q(5 | 11)."
@@ -1958,7 +1958,7 @@
    "l": "zwei_punkte",
    "t": "zwei_punkte",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Berechne die Steigung der Geraden durch P(1 | 1) und Q(−3 | 45)."
@@ -2063,7 +2063,7 @@
    "l": "zwei_punkte",
    "t": "zwei_punkte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Liegen A(−1 | 0), B(1 | 6) und C(3 | 14) auf einer Geraden?"
@@ -2105,7 +2105,7 @@
    "l": "zwei_punkte",
    "t": "zwei_punkte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Jemand rechnet für P(−3 | −3), Q(1 | −11): m = (−11 − (−3)) : (−3 − 1) = 2. Was ist falsch?"
@@ -2583,14 +2583,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Die Gerade y = k · x geht durch P(6 | 6). Berechne y für x = −2."
+    "text": "Ein Auto verbraucht 6,4 l Benzin auf 100 km. Der Verbrauch ist proportional zur Strecke. Wie viele Liter braucht es für 250 km?"
    },
    "o": {
-    "wert": -2
+    "wert": 16,
+    "einheit": "l"
    },
-   "c": "6 / (6) * (-2)",
-   "w": "k = 6 : 6 = 1. y = 1 · (−2) = −2.",
-   "h": "Berechne zuerst k = y : x."
+   "c": "6.4 / 100 * 250",
+   "w": "k = 6,4 : 100 = 0,064 l je km. Für 250 km: 0,064 · 250 = 16 l.",
+   "h": "Berechne zuerst den Verbrauch für 1 km (k)."
   },
   {
    "l": "proportional",
@@ -2615,14 +2616,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Die Gerade y = k · x geht durch P(1 | −1). Berechne y für x = 6."
+    "text": "Ein Wasserhahn füllt in 3 Minuten 27 Liter in eine Wanne. Wie viele Minuten braucht er für 45 Liter?"
    },
    "o": {
-    "wert": -6
+    "wert": 5,
+    "einheit": "min"
    },
-   "c": "-1 / (1) * (6)",
-   "w": "k = −1 : 1 = −1. y = −1 · 6 = −6.",
-   "h": "Berechne zuerst k = y : x."
+   "c": "45 / (27 / 3)",
+   "w": "k = 27 : 3 = 9 Liter pro Minute. Gesucht ist x mit 9 · x = 45: x = 45 : 9 = 5 Minuten.",
+   "h": "Berechne k. Hier ist y gegeben und x gesucht."
   },
   {
    "l": "proportional",
@@ -3293,7 +3295,7 @@
    "l": "aufstellen",
    "t": "aufstellen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Ein Handwerker berechnet 30 € Anfahrt und 45 € pro Stunde. Gib die Kosten K(x) für x Stunden an.",
@@ -3317,7 +3319,7 @@
    "l": "aufstellen",
    "t": "aufstellen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Ein Wassertank enthält 150 Liter. Pro Minute fließen 4 Liter ab. Gib den Inhalt V(x) nach x Minuten an.",
@@ -5164,7 +5166,7 @@
    "l": "deuten",
    "t": "deuten",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Eine Kerze brennt ab: h(x) = −x + 15 (x in Stunden, h in cm). Welche Aussage ist richtig?"

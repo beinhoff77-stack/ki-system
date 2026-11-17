@@ -715,6 +715,57 @@ baue = mit_luecken(baue, LK)
 # ---- LÜCKEN ENDE ----
 
 
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Kl. 8, siehe _durchsicht_kl8.py) ----
+from _durchsicht_kl8 import Durchsicht, mit_durchsicht  # noqa: E402
+
+DSX = Durchsicht('funktionen.gebrochen', 19_8_6)
+for _t in ['Wie ist die Zuordnung (3 | 8), (8 | 3), (12 | 2)?', 'Wie ist die Zuordnung (3 | 6), (6 | 12), (9 | 18)?',
+           'Wie ist die Zuordnung (2 | 15), (3 | 13), (5 | 12)?', 'Wie ist die Zuordnung (1 | 18), (2 | 16), (3 | 15)?']:
+    DSX.stufe('indirekt', _t, 2)
+DSX.stufen('indirekt', 'S1 Dreisatz umgekehrt; S2 Fehler, Fahrzeit, Tabelle; S3 viermal Zuordnung einordnen',
+           'S1 Dreisatz umgekehrt; S2 Fehler, Fahrzeit, Tabelle, Zuordnung einordnen; S3 Wippe, Rechteck unter der Hyperbel, Prozent, Arbeiter kommen dazu')
+# definitionsmenge: D von a/(x ± b) + c auf allen Stufen derselbe Gedanke
+for _t in ['Gib die Definitionsmenge von f(x) = 7/(x + 2) − 1 an.', 'Gib die Definitionsmenge von f(x) = −4/(x + 5) + 3 an.', 'Gib die Definitionsmenge von f(x) = −4/(x − 1) an.',
+           'Welche Zahl gehört nicht zur Definitionsmenge von f(x) = 6/(x − 3) − 2?', 'Welche Zahl gehört nicht zur Definitionsmenge von f(x) = −8/(x − 2) − 1?',
+           'Welche Zahl gehört nicht zur Definitionsmenge von f(x) = −2/(x − 5) + 6?']:
+    DSX.stufe('definitionsmenge', _t, 1)
+for _t in ['Welche Zahl gehört nicht zur Definitionsmenge von f(x) = −4/(2x − 3) − 3?', 'Welche Zahl gehört nicht zur Definitionsmenge von f(x) = −7/(5x − 2) + 1?',
+           'Welche Zahl gehört nicht zur Definitionsmenge von f(x) = 3/(5x + 6) − 5?', 'Welche Zahl gehört nicht zur Definitionsmenge von f(x) = −1/(4x + 2) − 1?']:
+    DSX.stufe('definitionsmenge', _t, 2)
+DSX.stufen('definitionsmenge', 'S1 und S2 dieselbe Aufgabe x ± b; S3 viermal Nenner ax + b (nur etwas längere Rechnung)',
+           'S1 Nenner x ± b; S2 Nenner 3 − x, ax + b, Dezimalzahl; S3 zwei Brüche, aus dem Graphen, Parameter b und a')
+# asymptoten: Stufe 1 und 2 waren dieselbe Ablese-Aufgabe
+for _t in ['Gib die waagrechte Asymptote von f(x) = −6/(x + 3) − 6 an. y = □', 'Gib die waagrechte Asymptote von f(x) = 1/(x + 8) + 3 an. y = □',
+           'Gib die senkrechte Asymptote von f(x) = 3/(x − 2) + 5 an. x = □', 'Gib die senkrechte Asymptote von f(x) = −2/(x − 7) + 5 an. x = □',
+           'Gib die waagrechte Asymptote von f(x) = −5/(x − 4) − 3 an. y = □', 'Gib die waagrechte Asymptote von f(x) = −5/(x + 1) − 4 an. y = □']:
+    DSX.stufe('asymptoten', _t, 1)
+DSX.stufe('asymptoten', 'Lies die Asymptoten der Hyperbel ab.', 2, enthaelt='"werte": [3, 0]')
+DSX.neu('asymptoten', 2, DSX.L('Gib beide Asymptoten von f(x) = −2/(5 + x) + 1 an.', 'x = □; y = □', [-5, 1], ['-5', '1'],
+                               'Umsortieren: 5 + x = x + 5, also b = 5. Senkrechte Asymptote x = −5, waagrechte y = 1.', 'Schreibe den Nenner als x + b.'))
+DSX.neu('asymptoten', 2, DSX.L('Gib beide Asymptoten von f(x) = 4/x − 3 an.', 'x = □; y = □', [0, -3], ['0', '-3'],
+                               'Der Nenner ist x, also b = 0: senkrechte Asymptote x = 0 (die y-Achse). Die Verschiebung −3 gibt y = −3.', 'Wo wird der Nenner 0? Was bleibt für große x?'))
+DSX.stufen('asymptoten', 'S1 und S2 dieselbe Aufgabe „Asymptote ablesen“; S3 Term aus Asymptoten, Graph',
+           'S1 eine Asymptote aus dem Term; S2 umsortierter Nenner, b = 0, aus dem Graphen; S3 Term aus Asymptoten und Punkt, Schnitt mit y = c, Parameter a')
+DSX.stufe('achsenpunkte', 'Berechne die Nullstelle von f(x) = −6/(x + 1) − 1.', 2)
+DSX.stufe('achsenpunkte', 'Berechne die Nullstelle von f(x) = 4/(x − 5) − 1.', 2)
+DSX.stufen('achsenpunkte', 'S1 y-Achse; S2 Nullstelle; S3 teils dieselbe Nullstelle',
+           'S1 Schnitt mit der y-Achse; S2 Nullstelle, Sonderfälle (keine, x = 0 nicht in D); S3 beide Punkte, Funktion ohne Nullstelle, Parameter c')
+for _t in ['Der Graph von g(x) = 3/x wird um 5 nach rechts und um 2 nach oben verschoben. Wie heißt der neue Funktionsterm?',
+           'Der Graph von g(x) = 6/x wird um 5 nach rechts und um 6 nach oben verschoben. Wie heißt der neue Funktionsterm?',
+           'Der Graph von g(x) = 2/x wird um 4 nach links und um 5 nach oben verschoben. Wie heißt der neue Funktionsterm?']:
+    DSX.stufe('parameter', _t, 2)
+DSX.stufen('parameter', 'S1 nach oben/unten; S2 beide Richtungen; S3 dreimal nur umgekehrt (Term zur Verschiebung)',
+           'S1 nach oben/unten; S2 beide Richtungen, auch rückwärts (Term zur Verschiebung), Streckung/Spiegelung erkennen; S3 Term aus dem Graphen, doppelt verschoben, Symmetriepunkt, Spiegelung')
+for _t in ['Welche Aussage über f(x) = −3/(x + 4) − 1 ist FALSCH?', 'Welche Aussage über f(x) = 3/(x − 2) − 3 ist FALSCH?',
+           'Welche Aussage über f(x) = −2/(x + 6) + 1 ist FALSCH?', 'Welche Aussage über f(x) = −1/(x − 6) − 5 ist FALSCH?']:
+    DSX.stufe('beurteilen', _t, 2)
+DSX.stufen('beurteilen', 'S1 richtige Aussage; S2 und S3 dieselbe „FALSCH“-Aufgabe',
+           'S1 richtige Aussage; S2 falsche Aussage finden; S3 Fehlvorstellungen (fällt also kleiner), Grenzverhalten, Schnittpunkte durch Probieren, Punkt ausschließen')
+DSX.stufen('indirekt_sach', 'S1 umgekehrter Dreisatz; S2 Art erkennen, Zahnräder, Tabelle; S3 Ausfall/Verkauf mitten im Vorgang, zwei Größen, Physik, Knobelaufgabe')
+DSX.fuer_sebastian('funktionen.gebrochen/indirekt und indirekt_sach überschneiden sich mit dem Flug groessen.indirekt (siehe dort).')
+baue = mit_durchsicht(baue, DSX)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Indirekte Proportionalität', ['indirekt']), ('Hyperbeln untersuchen', ['definitionsmenge', 'asymptoten', 'achsenpunkte']),

@@ -993,6 +993,73 @@ baue = mit_luecken(baue, LK)
 # ---- LÜCKEN ENDE ----
 
 
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Kl. 8, siehe _durchsicht_kl8.py) ----
+from _durchsicht_kl8 import Durchsicht, mit_durchsicht  # noqa: E402
+
+DS = Durchsicht('funktionen.grundbegriffe', 19_8_1)
+# eindeutig: reine Paarlisten sind Stufe 1; „Schüler ↔ Geburtstag“ ist derselbe Gedanke wie die Alltagspaare der Stufe 2; Parabel-Graph = Standard
+for _t in ['Ist die Zuordnung (8 | 9), (−5 | 1), (4 | 0), (0 | −7), (5 | 6), (0 | −4), (−3 | 9) eine Funktion?',
+           'Ist die Zuordnung (0 | 4), (7 | 5), (3 | 1), (6 | −4), (−3 | 3), (−6 | −3) eine Funktion?',
+           'Ist die Zuordnung (3 | −1), (4 | 0), (−6 | 0), (2 | 7) eine Funktion?']:
+    DS.stufe('eindeutig', _t, 1)
+DS.stufe('eindeutig', 'Jedem Schüler wird sein Geburtstag zugeordnet. Und umgekehrt: Jedem Geburtstag wird ein Schüler zugeordnet. Welche Zuordnungen sind Funktionen?', 2)
+DS.stufe('eindeutig', 'Ist der gezeichnete Graph der Graph einer Funktion?', 2)
+DS.stufen('eindeutig', 'S1 Paarliste prüfen; S2 teils dieselbe Paarliste, teils Alltag; S3 teils Alltag wie S2',
+          'S1 Paarliste prüfen; S2 Alltagszuordnungen in beide Richtungen, Graph, „Welche ist keine?“; S3 Begründung bewerten, Kreis, Anzahl der Werte für a')
+# funktionswert: Einsetzen in einen linearen Term ist kein anderer Gedanke → Stufe 2; neue Stufe 3 (Parameter, Fehler finden)
+DS.stufe('funktionswert', 'Berechne f(−2) für f(x) = −x² + x.', 2)
+DS.stufe('funktionswert', 'Berechne f(−4) für f(x) = 3x + 5,5.', 2)
+DS.stufe('funktionswert', 'Berechne f(−0,5) für f(x) = 2,5x − 5.', 2)
+DS.stufe('funktionswert', 'f(x) = −x² + 4. Berechne f(2) − f(−3).', 2)
+DS.neu('funktionswert', 3, DS.Z('Für f(x) = a · x + 3 gilt f(2) = 11. Bestimme a.', 4, '(11 - 3) / 2',
+                                'Einsetzen: a · 2 + 3 = 11. Also 2a = 8 und a = 4. Probe: f(2) = 4 · 2 + 3 = 11.',
+                                'Setze x = 2 ein und schreibe die Gleichung a · 2 + 3 = 11 auf.'))
+DS.neu('funktionswert', 3, DS.A('Lea berechnet f(−3) für f(x) = −x² + 2 so: −3² + 2 = −9 + 2 = −7. Ihr Freund meint, die Klammer fehlt. Was stimmt?',
+                                'Lea hat richtig gerechnet: f(−3) = −(−3)² + 2 = −9 + 2 = −7.',
+                                ['Richtig ist (−3)² + 2 = 11.', 'Richtig ist −(−3)² + 2 = 9 + 2 = 11.', 'Richtig ist −(−3) · 2 + 2 = 8.'],
+                                'Das Minus vor x² bleibt vor dem Quadrat: −(−3)² = −9. Lea hat die Klammer nicht geschrieben, aber zufällig richtig gerechnet: −3² ist auch −9. Ergebnis −7.',
+                                'Rechne sauber mit Klammer: −(−3)². Was kommt heraus?'))
+DS.stufen('funktionswert', 'S1 linear einsetzen; S2 quadratisch einsetzen; S3 teils wieder nur einsetzen',
+          'S1 linear einsetzen; S2 quadratisch, Brüche, negative Dezimalzahlen; S3 Tabellenkalkulation, Parameter, f(a) = f(a + 1), Fehler finden')
+# stelle: einfache lineare Gleichungen auf Stufe 3 → 1/2
+DS.stufe('stelle', 'Für welches x ist f(x) = 4, wenn f(x) = 2/x?', 2)
+DS.stufe('stelle', 'Für welches x gilt f(x) = 21, wenn f(x) = 2,5x − 9?', 2)
+DS.stufe('stelle', 'Für welches x gilt f(x) = −33, wenn f(x) = 3x − 3?', 1)
+DS.stufen('stelle', 'S1 lineare Gleichung; S2 Klammer, a/x, „für kein x“; S3 teils dieselbe lineare Gleichung',
+          'S1 lineare Gleichung; S2 Klammer, a/x, „für kein x“; S3 konstante Funktion, Parameter c, Bruchterm, zwei Stellen, Sachaufgabe')
+# graph_lesen: f(a) ablesen ist Stufe 1, y → x ablesen ist Stufe 2
+DS.stufe('graph_lesen', 'Lies am Graphen ab: f(−2) = ?', 1, enthaelt='"wert": 6')
+DS.stufe('graph_lesen', 'Lies am Graphen ab: An welcher Stelle hat f den Wert −1? Gib den Punkt an.', 2, enthaelt='"werte": [-1, -1]')
+DS.stufe('graph_lesen', 'Lies am Graphen ab: An welcher Stelle hat f den Wert 2? Gib den Punkt an.', 2, enthaelt='"werte": [-2, 2]')
+DS.stufe('graph_lesen', 'Für welche x gilt f(x) = 1? Lies am Graphen ab (kleinere Stelle zuerst).', 2)
+DS.stufen('graph_lesen', 'S1 f(a) ablesen; S2 x zu y ablesen; S3 zur Hälfte dasselbe wie S1/S2',
+          'S1 f(a) ablesen; S2 x zu y ablesen (auch zwei Stellen); S3 Bereich unterhalb der Achse, Sachgraph Badewanne, c mit genau einer Lösung')
+# nullstellen: lineare Nullstellen ohne Besonderheit → Stufe 1
+DS.stufe('nullstellen', 'Berechne die Nullstelle von f(x) = −6x + 18.', 1)
+DS.stufe('nullstellen', 'Berechne die Nullstelle von f(x) = 2x + 6.', 1)
+DS.stufen('nullstellen', 'S1/S2 teils dieselbe lineare Nullstelle; S3 Bruchterm, Produkt',
+          'S1 lineare Nullstelle; S2 Produktform, „keine“, Sachaufgabe; S3 Bruchterm, Achsenpunkte, Parameter b, gekürzter Bruchterm')
+# punkt_graph: lineare Punktprobe ist Stufe 1; vier gleiche k-Aufgaben in Reihe → zwei ersetzt
+DS.stufe('punkt_graph', 'Welcher Punkt liegt auf dem Graphen von f(x) = −2x − 7?', 1)
+DS.stufe('punkt_graph', 'Welcher Punkt liegt auf dem Graphen von f(x) = 5x + 2?', 1)
+DS.ersetze('punkt_graph', 'Der Punkt P(−5 | −26) liegt auf dem Graphen von f(x) = k · x + 4. Bestimme k.', DS.A(
+    'Tom prüft, ob P(−2 | 7) auf dem Graphen von f(x) = −3x + 1 liegt. Er rechnet −3 · 7 + 1 = −20 und sagt: „−20 ≠ −2, also nein.“ Was stimmt?',
+    'Tom hat x und y vertauscht. f(−2) = −3 · (−2) + 1 = 7: P liegt auf dem Graphen.',
+    ['Tom hat recht, P liegt nicht auf dem Graphen.', 'Tom hat x und y vertauscht. f(−2) = 5, also liegt P nicht darauf.', 'Man muss 7 und −2 addieren: 5 ≠ 1, also nein.'],
+    'In P(−2 | 7) ist −2 der x-Wert. Einsetzen: f(−2) = −3 · (−2) + 1 = 6 + 1 = 7. Das ist genau der y-Wert, also liegt P auf dem Graphen.',
+    'Welche Zahl in P(−2 | 7) ist x? Setze nur diese ein.'))
+DS.ersetze('punkt_graph', 'Der Punkt P(1 | −1) liegt auf dem Graphen von f(x) = k · x + 5. Bestimme k.', DS.Z(
+    'Der Punkt Q(b | 10) liegt auf dem Graphen von f(x) = 2x² + 2. Seine x-Koordinate ist positiv. Bestimme b.', 2, '2',
+    'Einsetzen: 2b² + 2 = 10, also 2b² = 8 und b² = 4. Es gibt b = 2 und b = −2; positiv ist b = 2. Probe: 2 · 2² + 2 = 10.',
+    'Setze den y-Wert gleich: 2b² + 2 = 10. Welche Zahl ergibt im Quadrat 4?'))
+DS.stufen('punkt_graph', 'S1 Punktprobe; S2 teils dieselbe Punktprobe; S3 viermal k bestimmen',
+          'S1 Punktprobe linear; S2 quadratisch, Hyperbel, oberhalb/unterhalb; S3 Parameter k, Fehler finden, x zu gegebenem y, Definitionslücke, m und t aus zwei Punkten')
+DS.stufen('mengen', 'S1 D von a/(x − b); S2 W aus endlicher D; S3 D mit zwei Lücken, Aussagen über W, Sachkontext, Parameter')
+DS.stufen('wertetabelle', 'S1 y einsetzen; S2 quadratisch einsetzen und x rückwärts; S3 Term zur Tabelle, Sachtabelle, Parameter a')
+DS.stufen('sachzusammenhang', 'S1 Tarif einsetzen, Temperatur ablesen, Term wählen; S2 rückwärts, Term aus Tabelle, Änderung ablesen; S3 Tarifvergleich, Aussage zur Kurve, Umkehrung keine Funktion')
+baue = mit_durchsicht(baue, DS)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Was ist eine Funktion?', ['eindeutig', 'mengen']), ('Mit dem Term rechnen', ['funktionswert', 'stelle', 'wertetabelle', 'graph_lesen']),

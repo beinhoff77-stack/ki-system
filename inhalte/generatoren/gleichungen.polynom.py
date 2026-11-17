@@ -537,3 +537,37 @@ if __name__ == '__main__':
                  'Prüfung eingearbeitet (Runde 3): Substitution mit nicht ganzzahligen Lösungen (zahl, Toleranz 0,01), Vorzeichenwechsel in Stufe 3/Korrektur/Sicherung ohne Grafik und Ja/Nein ausgewogen, Sachaufgaben (Quader, Schachtel aus Karton) in „verstehen“ Stufe 3.'])
     ergaenzen(datei, schwer())
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl10) ----------
+# Gesamtdurchsicht: jede Lernkarte und jede Aufgabe gelesen und nachgerechnet. Läuft ganz am Ende auf der fertigen Datei.
+def durchsicht():
+    from _durchsicht_kl10 import Durchsicht
+    D = Durchsicht('gleichungen.polynom', 19070)
+    # ausklammern: x⁴ − ax² bzw. x²(x² + bx + c) = Stufe-1/2-Rechnung mit x² statt x
+    D.stufe(range(12, 18), 2, 'Löse ')
+    # nullprodukt: der Faktor x² + c ohne Lösung ist die Falle der Lernkarte, drei Faktoren ihr Beispiel → Stufe 2
+    D.stufe([40, 41, 42, 43, 44, 45], 2, 'Löse (x')
+    # substitution: „L = { }“ dreimal auf Stufe 3; Wurzel-Lösungen sind die Stufe-2-Rechnung mit Rundung
+    D.stufe([69, 71], 2, 'Welche Lösungsmenge hat')
+    D.stufe([70, 73], 2, 'Löse x⁴')
+    # vielfachheit: Vorzeichenwechsel und Grad eines Produkts stehen schon auf Stufe 2
+    D.stufe(99, 2, 'f(x) = (x + 4)³')
+    D.stufe(101, 2, 'f(x) = (x − 4)³')
+    # verstehen: Graph zuordnen und fehlende Rücksubstitution stehen gleich auf Stufe 2; fünfmal „durch x geteilt“ auf Stufe 2 – zwei ersetzt
+    D.stufe(128, 2, 'Welcher Funktionsterm passt')
+    D.stufe(129, 2, 'Bei x⁴ − 61x² + 900 = 0')
+    D.ersetze(121, 'Jemand löst x³ = 36x',
+              D.Z('Wie viele reelle Lösungen hat die Gleichung x⁴ − 16 = 0?', 2, '2',
+                  'x⁴ − 16 = (x² − 4)(x² + 4) = 0. x² = 4 ergibt x = ±2; x² = −4 hat keine Lösung. Also 2 Lösungen.',
+                  'Zerlege mit der dritten binomischen Formel in zwei Faktoren.'))
+    D.ersetze(125, 'Jemand löst x³ = 4x',
+              D.A('Jemand sagt: „x⁴ = 81 hat nur die Lösung x = 3.“ Was stimmt?', 'Falsch: Auch x = −3 ist Lösung, denn (−3)⁴ = 81.',
+                  ['Richtig.', 'Falsch: x = 81 : 4.', 'Falsch: Die Lösungen sind 3 und 9.'],
+                  'Bei geradem Exponenten gibt es zwei Lösungen mit entgegengesetztem Vorzeichen: x = ±3. Probe: (−3)⁴ = 81.',
+                  'Was ergibt (−3)⁴?'))
+    D.anwenden()
+
+
+if __name__ == '__main__':
+    durchsicht()  # Neunzehnte Runde (durchsicht-kl10) – ganz am Ende

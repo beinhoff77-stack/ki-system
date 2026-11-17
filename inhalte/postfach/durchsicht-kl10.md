@@ -20,3 +20,7 @@ Alle 8 Lernkarten und 334 Aufgaben gelesen und nachgerechnet, keine falsche Lös
 ## 2026-11-17 – STATUS: funktionen.ganzrational fertig
 Alle 7 Lernkarten und 238 Aufgaben gelesen und nachgerechnet. 33 umgestuft, 1 ersetzt (zweite richtige Auswahlantwort), Lernkarten unverändert. Prüfskript OK, Nachweis OK.
 Ersetzt (bitte sperren; randverhalten, Übung Stufe 3): „Der Graph von f(x) = a · x⁴ + x³ verläuft von links unten nach rechts unten. Was gilt für a?“ – die Antwort „a < 1“ war ebenfalls richtig.
+
+## 2026-11-17 – STATUS: gleichungen.polynom fertig
+Alle 5 Lernkarten und 170 Aufgaben gelesen und nachgerechnet, keine falsche Lösung. 20 umgestuft, 2 ersetzt (Abwechslung), Lernkarten unverändert. Prüfskript OK, Nachweis OK.
+Ersetzt (bitte sperren; verstehen, Übung Stufe 2): „Jemand löst x³ = 36x, indem er durch x teilt, und erhält x = ±6. Was stimmt?“ · „Jemand löst x³ = 4x, indem er durch x teilt, und erhält x = ±2. Was stimmt?“

@@ -991,6 +991,152 @@ ST.knobel('sachaufgabe', SZ('Sitzplätze kosten 15 €, Stehplätze 9 €. Eine 
 baue = mit_stufen(baue, ST)
 # ---- STUFEN ENDE ----
 
+# ---------- TEXT: Zweiundzwanzigste Runde (18.11., Auftrag des Lehrers) – mehr Textaufgaben, siehe _text_kl8.py ----------
+from _text_kl8 import Text, mit_text, text_auf_datei  # noqa: E402
+TX = Text('gleichungen.ungleichungen', 22_8_1)
+TZ, TA, TL, TW = TX.Z, TX.A, TX.L, TX.W
+
+TX.huerde_alt('sachaufgabe', r'Pro Person sollen höchstens 30 € anfallen', 'deuten')
+TX.huerde_alt('sachaufgabe', r'Eine Kugel Eis kostet 1,80 €', 'deuten')
+_JN = ['Ja', 'Nein']
+
+# --- umformen ---
+TX.u('umformen', 'direkt', TZ('Ein Aufzug darf höchstens 600 kg tragen. Die Personen darin wiegen zusammen schon 420 kg. Wie viel kg darf noch dazukommen? (x + 420 ≤ 600)', '600 - 420',
+    TW('höchstens 600 kg, schon 420 kg.', 'größtes erlaubtes x.', 'x + 420 ≤ 600, auf beiden Seiten 420 abziehen.', 'x ≤ 180.', 'Es dürfen noch höchstens 180 kg dazukommen.'), 'Welche Zahl musst du auf beiden Seiten abziehen?', einheit='kg'))
+TX.u('umformen', 'einkleidung', TZ('Ein Kind hat 35 € gespart und legt jede Woche 6 € dazu. Eine Konzertkarte kostet 89 €. Nach wie vielen Wochen hat es mindestens genug Geld?', '(89 - 35) / 6',
+    TW('Start 35 €, +6 € pro Woche, Ziel 89 €.', 'kleinste Wochenzahl x.', '35 + 6x ≥ 89.', '6x ≥ 54 ⇒ x ≥ 9.', 'Nach 9 Wochen hat es genug.'), 'Stelle eine Ungleichung mit „mindestens“ auf.', einheit='Wochen'))
+TX.u('umformen', 'mehrschritt', TZ('Ein Kind hat im Monat 40 € Taschengeld. Sein Musik-Abo kostet 7 €, ein Kinobesuch 9 €. Wie viele Kinobesuche sind höchstens drin?', '(40 - 7) // 9',
+    TW('40 €, Abo 7 €, Kino 9 € pro Besuch.', 'höchste Anzahl x.', '7 + 9x ≤ 40.', '9x ≤ 33 ⇒ x ≤ 3,67, also höchstens 3 ganze Besuche.', 'Es sind höchstens 3 Kinobesuche drin.'), 'Ziehe das Abo zuerst ab.'))
+TX.u('umformen', 'transfer', TZ('Für einen Ausflug fahren 27 Kinder mit Kleinbussen, in jeden Bus passen 8 Kinder. Wie viele Busse braucht man mindestens?', '-(-27 // 8)',
+    TW('27 Kinder, 8 pro Bus.', 'kleinste Busanzahl x.', '8x ≥ 27.', 'x ≥ 3,375; nur ganze Busse.', 'Man braucht mindestens 4 Busse.'), 'Reichen 3 Busse? Welche ganze Zahl erfüllt die Ungleichung als erste?'), huerde='deuten')
+TX.u('umformen', 'pruefung', TZ('Eine Druckerei verlangt für Flyer 25 € Einrichtungskosten und 0,12 € pro Stück. Die Flyer sind farbig und im Format DIN A5. Die Schülerzeitung hat 70 €. Wie viele Flyer kann sie höchstens drucken lassen?', '(70 - 25) / 0.12',
+    TW('25 € fest, 0,12 € pro Stück, höchstens 70 €. Farbe und Format spielen keine Rolle.', 'größte Stückzahl x.', '25 + 0,12x ≤ 70.', '0,12x ≤ 45 ⇒ x ≤ 375.', 'Sie kann höchstens 375 Flyer drucken lassen.'),
+    'Welche Angaben gehören in die Ungleichung?'), huerde='ueberfluessig')
+TX.u('umformen', 'rueckwaerts', TZ('Eine Klasse plant eine Feier: Raummiete 60 €, pro Person 8 € für Essen. Es sollen mindestens 15 Personen kommen, und die Kosten dürfen höchstens 260 € betragen. Wie viele Personen dürfen höchstens kommen?', '(260 - 60) / 8',
+    TW('60 € fest, 8 € pro Person, höchstens 260 €, mindestens 15 Personen.', 'höchste Personenzahl.', '60 + 8x ≤ 260, dann mit „mindestens 15“ vergleichen.', '8x ≤ 200 ⇒ x ≤ 25; 25 ≥ 15 ✓.', 'Es dürfen höchstens 25 Personen kommen.'),
+    'Zwei Bedingungen: Welche begrenzt nach oben?'), huerde='zwei')
+TX.s('umformen', TZ('Ein Paket darf höchstens 31,5 kg wiegen, der Karton allein wiegt 1,5 kg. Wie viel kg darf der Inhalt höchstens wiegen?', '31.5 - 1.5',
+    TW('höchstens 31,5 kg, Karton 1,5 kg.', 'größtes Gewicht x.', 'x + 1,5 ≤ 31,5.', 'x ≤ 30.', 'Der Inhalt darf höchstens 30 kg wiegen.'), einheit='kg'))
+TX.s('umformen', TZ('Eine Prepaidkarte hat 15 € Guthaben, eine SMS kostet 0,09 €. Wie viele SMS kann man höchstens schicken?', '15 // 0.09',
+    TW('15 €, 0,09 € pro SMS.', 'größte Anzahl x.', '0,09x ≤ 15.', 'x ≤ 166,7, also 166 ganze SMS.', 'Man kann höchstens 166 SMS schicken.')))
+TX.k('umformen', TZ('Ein Kind hat 50 €. Es kauft einen Füller für 14 € und Hefte zu je 1,80 €. Wie viele Hefte kann es höchstens kaufen?', '(50 - 14) / 1.8',
+    TW('50 €, Füller 14 €, Heft 1,80 €.', 'größte Heftzahl x.', '14 + 1,8x ≤ 50.', '1,8x ≤ 36 ⇒ x ≤ 20.', 'Es kann höchstens 20 Hefte kaufen.')))
+
+# --- umdrehen ---
+TX.u('umdrehen', 'direkt', TZ('Ein Handyakku ist zu 80 % geladen und verliert pro Stunde 12 %. Es sollen mindestens 20 % übrig bleiben: 80 − 12x ≥ 20. Wie viele Stunden sind es höchstens?', '(80 - 20) / 12',
+    TW('80 − 12x ≥ 20.', 'größtes x.', '80 abziehen, dann durch (−12) teilen und Zeichen umdrehen.', '−12x ≥ −60 ⇒ x ≤ 5.', 'Höchstens 5 Stunden.'), 'Was passiert mit dem Zeichen beim Teilen durch eine negative Zahl?', einheit='h'))
+TX.u('umdrehen', 'einkleidung', TZ('Aus einem Tank mit 900 l fließen pro Minute 35 l ab. Es sollen mindestens 200 l im Tank bleiben. Wie viele volle Minuten darf das Wasser höchstens laufen?', '(900 - 200) / 35',
+    TW('900 l, −35 l pro Minute, mindestens 200 l.', 'größte Minutenzahl x.', '900 − 35x ≥ 200.', '−35x ≥ −700 ⇒ x ≤ 20 (Zeichen umgedreht).', 'Höchstens 20 Minuten.'), 'Stelle die Ungleichung mit „mindestens“ auf.', einheit='min'))
+TX.u('umdrehen', 'umkehr', TZ('Eine Kerze ist 24 cm hoch und brennt pro Stunde 1,5 cm ab. Ab wann ist sie kürzer als 9 cm? Die Lösung hat die Form x > □. Gib die Zahl an.', '(24 - 9) / 1.5',
+    TW('24 − 1,5x < 9.', 'Grenze für x.', '24 abziehen, durch (−1,5) teilen, Zeichen umdrehen.', '−1,5x < −15 ⇒ x > 10.', 'Nach mehr als 10 Stunden ist sie kürzer als 9 cm.'), 'Höhe am Anfang minus Abbrand – wann ist das kleiner als 9?', einheit='h'))
+TX.u('umdrehen', 'pruefung', TZ('Ein Heißluftballon schwebt in 1 200 m Höhe und sinkt pro Minute um 40 m. An Bord sind 4 Personen und ein 20-l-Gastank. Wie viele volle Minuten bleibt er noch über 500 m Höhe?', '(1200 - 500) // 40',
+    TW('1 200 m, −40 m pro Minute, über 500 m. Personen und Gas spielen keine Rolle.', 'größte volle Minutenzahl.', '1 200 − 40x > 500.', '−40x > −700 ⇒ x < 17,5.', 'Er bleibt noch 17 volle Minuten über 500 m.'),
+    'Welche Angaben brauchst du für die Höhe?', einheit='min'), huerde='ueberfluessig')
+TX.u('umdrehen', 'begruenden', TX.A('Ein ausgeschalteter Gefrierschrank hat −18 °C und wird pro Stunde 2,5 °C wärmer. Die Ware muss unter −8 °C bleiben. Jemand löst −18 + 2,5x < −8 und schreibt: x > 4. Was stimmt?',
+    'Falsch: Es gilt x < 4, beim Teilen durch 2,5 wird nicht umgedreht – also weniger als 4 Stunden.', ['Richtig: Mit negativen Zahlen dreht man immer um.', 'Falsch: Es gilt x < −4.', 'Richtig: Nach mehr als 4 Stunden ist es sicher.'],
+    TW('−18 + 2,5x < −8.', 'Ist x > 4 richtig?', '18 dazuzählen, durch die positive Zahl 2,5 teilen.', '2,5x < 10 ⇒ x < 4.', 'Falsch: Die Ware ist nur weniger als 4 Stunden sicher.'),
+    'Durch welche Zahl wird geteilt – ist sie negativ?'), huerde='entscheidung')
+TX.u('umdrehen', 'fehler', TX.A('Ein Fahrkartenguthaben von 30 € sinkt pro Fahrt um 2,40 €. Jemand will wissen, ab wann weniger als 5 € übrig sind, und rechnet: 30 − 2,4x < 5 ⇒ −2,4x < −25 ⇒ x < 10,4. Was stimmt?',
+    'Falsch: x > 10,4 – nach der 11. Fahrt sind weniger als 5 € übrig.', ['Richtig: nach höchstens 10 Fahrten.', 'Falsch: x > 25.', 'Richtig, aber man muss auf 10 abrunden.'],
+    TW('30 − 2,4x < 5.', 'Fehler und Deutung.', 'Beim Teilen durch (−2,4) das Zeichen umdrehen; dann auf ganze Fahrten deuten.', 'x > 10,4 ⇒ ab der 11. Fahrt.', 'Das Zeichen wurde nicht umgedreht; erst nach der 11. Fahrt sind es weniger als 5 €.'),
+    'Was muss beim Teilen durch eine negative Zahl passieren?'), huerde='deuten')
+TX.s('umdrehen', TZ('Ein voll geladener Akku (100 %) verliert beim Spielen 8 % pro Stunde. Wie viele volle Stunden kann man spielen, ohne dass er unter 20 % fällt?', '(100 - 20) / 8',
+    TW('100 − 8x ≥ 20.', 'größtes x.', 'Zeichen beim Teilen durch (−8) umdrehen.', '−8x ≥ −80 ⇒ x ≤ 10.', 'Man kann 10 Stunden spielen.'), einheit='h'))
+TX.s('umdrehen', TZ('Ein Pool enthält 12 m³ Wasser, pro Stunde verdunsten 0,15 m³. Nach wie vielen vollen Stunden sind erstmals weniger als 11 m³ darin?', '-(-(12 - 11) // 0.15)',
+    TW('12 − 0,15x < 11.', 'erste volle Stunde.', 'Zeichen umdrehen, dann aufrunden.', '−0,15x < −1 ⇒ x > 6,67.', 'Nach 7 Stunden.'), einheit='h'))
+TX.k('umdrehen', TZ('Auf einer Busfahrkarte sind 20 € Guthaben, jede Fahrt kostet 1,60 €. Wie viele Fahrten kann man höchstens machen?', '20 // 1.6',
+    TW('20 − 1,6x ≥ 0.', 'größtes x.', 'Zeichen umdrehen, abrunden.', '−1,6x ≥ −20 ⇒ x ≤ 12,5.', 'Höchstens 12 Fahrten.')))
+
+# --- klammern ---
+TX.u('klammern', 'direkt', TZ('Tarif A kostet 5 € plus 0,10 € pro Minute, Tarif B 0,20 € pro Minute. Ab wann ist A günstiger? Löse 5 + 0,1x < 0,2x. Die Lösung hat die Form x > □.', '5 / (0.2 - 0.1)',
+    TW('5 + 0,1x < 0,2x.', 'Grenze.', '0,1x auf beiden Seiten abziehen.', '5 < 0,1x ⇒ x > 50.', 'Ab mehr als 50 Minuten ist A günstiger.'), 'Bringe alle x auf eine Seite.', einheit='min'))
+TX.u('klammern', 'einkleidung', TZ('Ein Kind hat 120 € und spart jede Woche 5 € dazu. Seine Schwester hat 60 € und spart jede Woche 9 € dazu. Ab der wievielten Woche hat die Schwester mehr Geld?', '(120 - 60) // (9 - 5) + 1',
+    TW('Kind 120 + 5x, Schwester 60 + 9x.', 'erste Woche mit mehr Geld.', '60 + 9x > 120 + 5x.', '4x > 60 ⇒ x > 15.', 'Ab der 16. Woche hat die Schwester mehr.'), 'Stelle für beide einen Term auf und vergleiche.'))
+TX.u('klammern', 'mehrschritt', TZ('Tank A hat 500 l und verliert 30 l pro Minute, Tank B hat 300 l und verliert 10 l pro Minute. Ab wann ist in A weniger Wasser als in B? Die Lösung hat die Form x > □.', '(500 - 300) / (30 - 10)',
+    TW('A: 500 − 30x, B: 300 − 10x.', 'Grenze.', '500 − 30x < 300 − 10x.', '200 < 20x ⇒ x > 10.', 'Nach mehr als 10 Minuten ist in A weniger.'), 'x-Glieder auf eine Seite bringen.', einheit='min'))
+TX.u('klammern', 'pruefung', TZ('Fahrradverleih A rechnet 2 · (x + 3) € für x Stunden, Verleih B 4 € pro Stunde. Beide haben 30 Räder und öffnen um 9 Uhr. Ab wann ist A günstiger? Die Lösung hat die Form x > □.', '6 / (4 - 2)',
+    TW('2(x + 3) < 4x. Räder und Öffnungszeit spielen keine Rolle.', 'Grenze.', 'Klammer auflösen, x auf eine Seite.', '2x + 6 < 4x ⇒ 6 < 2x ⇒ x > 3.', 'Ab mehr als 3 Stunden ist A günstiger.'),
+    'Welche Angaben gehören in die Ungleichung?', einheit='h'), huerde='ueberfluessig')
+TX.u('klammern', 'transfer', TZ('Bus A kostet 4 · (x + 20) € bei x Kindern, Bus B kostet 6x + 50 €. Ab wie vielen Kindern ist Bus A günstiger?', '(80 - 50) // (6 - 4) + 1',
+    TW('4(x + 20) < 6x + 50.', 'kleinste Kinderzahl.', 'Klammer auflösen, x auf eine Seite, ganze Kinder.', '4x + 80 < 6x + 50 ⇒ 30 < 2x ⇒ x > 15.', 'Ab 16 Kindern ist Bus A günstiger.'), 'Gibt es 15,5 Kinder?'), huerde='deuten')
+TX.u('klammern', 'begruenden', TX.A('Angebot A kostet 2 · (x + 5) €, Angebot B 2x + 8 € für x Stück. Jemand sagt: „Ab einer bestimmten Stückzahl wird A billiger.“ Was stimmt?',
+    'Falsch: A = 2x + 10 ist immer 2 € teurer als B.', ['Richtig: ab 5 Stück.', 'Richtig: ab 9 Stück.', 'Falsch: A ist immer billiger.'],
+    TW('2(x + 5) < 2x + 8?', 'Gibt es eine Stückzahl?', 'Klammer auflösen und vergleichen.', '2x + 10 < 2x + 8 ⇒ 10 < 8 – nie wahr.', 'A wird nie billiger.'), 'Löse die Klammer auf und vergleiche die Terme.'), huerde='entscheidung')
+TX.s('klammern', TZ('Taxi A kostet 3 € plus 2 € pro km, Taxi B 5 € plus 1,50 € pro km. Ab wann ist B günstiger? Die Lösung hat die Form x > □.', '(5 - 3) / (2 - 1.5)',
+    TW('5 + 1,5x < 3 + 2x.', 'Grenze.', 'x auf eine Seite.', '2 < 0,5x ⇒ x > 4.', 'Ab mehr als 4 km.'), einheit='km'))
+TX.s('klammern', TZ('Eine Zeitschrift kostet im Einzelkauf 4 € pro Heft, im Abo 2 · (x + 6) € für x Hefte. Ab wie vielen Heften ist das Abo günstiger?', '12 // (4 - 2) + 1',
+    TW('2(x + 6) < 4x.', 'kleinste Heftzahl.', 'Klammer auflösen.', '2x + 12 < 4x ⇒ x > 6.', 'Ab 7 Heften.')))
+TX.k('klammern', TZ('Handyvertrag A: 10 € plus 0,05 € pro Minute. Vertrag B: 0,15 € pro Minute. Ab wie vielen vollen Minuten ist A günstiger?', '10 / (0.15 - 0.05) + 1',
+    TW('10 + 0,05x < 0,15x.', 'kleinste volle Minutenzahl.', 'x auf eine Seite.', '10 < 0,1x ⇒ x > 100.', 'Ab 101 Minuten.')))
+
+# --- intervall ---
+TX.u('intervall', 'direkt', TX.A('Ein Aquarium braucht 24 °C bis 28 °C, beide Grenzen erlaubt. Gib die passenden Temperaturen als Intervall an.', '[24; 28]', [']24; 28[', '[24; 28[', ']24; 28]'],
+    TW('24 ≤ x ≤ 28.', 'Intervall.', 'Beide Grenzen gehören dazu.', '[24; 28].', 'L = [24; 28].'), 'Welche Klammern gehören zu „≤“?'))
+TX.u('intervall', 'einkleidung', TX.A('Ein Ausflug soll pro Kind mindestens 10 € und höchstens 25 € kosten. Der Eintritt kostet 4 €, dazu kommen x € Fahrtkosten. Welche Fahrtkosten sind möglich?', '[6; 21]', ['[10; 25]', ']6; 21[', '[14; 29]'],
+    TW('10 ≤ 4 + x ≤ 25.', 'Intervall für x.', 'Auf allen Seiten 4 abziehen.', '6 ≤ x ≤ 21.', 'Die Fahrtkosten dürfen zwischen 6 € und 21 € liegen: [6; 21].'), 'Ziehe den Eintritt von beiden Grenzen ab.'))
+TX.u('intervall', 'mehrschritt', TX.A('Eine Brücke trägt höchstens 7,5 t. Ein Lkw wiegt leer 3 t und lädt Kisten zu je 0,25 t. Gib die mögliche Kistenzahl x als Intervall an (x ≥ 0).', '[0; 18]', ['[0; 30]', '[0; 18[', '[0; 12]'],
+    TW('3 + 0,25x ≤ 7,5, x ≥ 0.', 'Intervall.', 'Umformen, untere Grenze 0.', '0,25x ≤ 4,5 ⇒ x ≤ 18.', 'L = [0; 18].'), 'Welche Grenze nach unten ist sinnvoll?'))
+TX.u('intervall', 'pruefung', TZ('Ein Aufzug darf höchstens 630 kg tragen und fährt nur mit mindestens einer Person. Eine Person wiegt im Schnitt 75 kg, dazu kommt ein 30 kg schwerer Wagen. Wie viele Personen dürfen höchstens mitfahren?', '(630 - 30) / 75',
+    TW('30 + 75x ≤ 630, x ≥ 1.', 'größtes x.', 'Umformen, dann mit „mindestens 1“ vergleichen.', '75x ≤ 600 ⇒ x ≤ 8. L = [1; 8].', 'Höchstens 8 Personen.'), 'Zwei Bedingungen ergeben ein Intervall.'), huerde='zwei')
+TX.u('intervall', 'transfer', TZ('Eine Jugendgruppe übernachtet: 18 € pro Person und Nacht, dazu einmal 40 € Endreinigung. Es stehen 410 € zur Verfügung. Wie viele Personen können höchstens übernachten?', '(410 - 40) // 18',
+    TW('40 + 18x ≤ 410.', 'größte Personenzahl.', 'Umformen und auf ganze Personen abrunden.', '18x ≤ 370 ⇒ x ≤ 20,6.', 'Höchstens 20 Personen.'), 'Kann eine halbe Person mitfahren?'), huerde='deuten')
+TX.u('intervall', 'begruenden', TX.A('Für einen Kuchen muss der Ofen mehr als 160 °C und höchstens 180 °C haben. Jemand schreibt L = [160; 180[. Was stimmt?', 'Falsch: Richtig ist ]160; 180].', ['Richtig.', 'Falsch: Richtig ist [160; 180].', 'Falsch: Richtig ist ]160; 180[.'],
+    TW('160 < x ≤ 180.', 'richtiges Intervall.', '„mehr als“: nach außen; „höchstens“: nach innen.', ']160; 180].', 'Die Klammern sind vertauscht; richtig ist ]160; 180].'), 'Gehört 160 dazu? Gehört 180 dazu?'), huerde='entscheidung')
+TX.s('intervall', TX.A('Eine Schaukel ist für Kinder von 15 kg bis höchstens 40 kg. Gib die erlaubten Gewichte als Intervall an.', '[15; 40]', [']15; 40]', '[15; 40[', ']15; 40['],
+    TW('15 ≤ x ≤ 40.', 'Intervall.', 'Beide Grenzen gehören dazu.', '[15; 40].', 'L = [15; 40].')))
+TX.s('intervall', TX.A('Ein Handyvertrag kostet 9 € im Monat. Nach x Monaten sollen die Kosten mehr als 45 € und höchstens 108 € betragen. Gib die möglichen Monate als Intervall an.', ']5; 12]', ['[5; 12]', ']5; 12[', ']45; 108]'],
+    TW('45 < 9x ≤ 108.', 'Intervall.', 'Durch 9 teilen.', '5 < x ≤ 12.', 'L = ]5; 12].')))
+TX.k('intervall', TX.A('Eine Rutsche ist für Kinder ab 1,10 m und unter 1,60 m Körpergröße. Gib das Intervall an.', '[1,1; 1,6[', [']1,1; 1,6]', '[1,1; 1,6]', ']1,1; 1,6['],
+    TW('1,1 ≤ x < 1,6.', 'Intervall.', '„ab“ nach innen, „unter“ nach außen.', '[1,1; 1,6[.', 'L = [1,1; 1,6[.')))
+
+# --- pruefen ---
+TX.u('pruefen', 'erkennen', TX.A('Ein Taxi kostet 3 € Grundpreis und 2 € pro km. Du hast 15 €. Welche Strecke kannst du NICHT bezahlen?', '6,5 km', ['4 km', '5 km', '6 km'],
+    TW('3 + 2x ≤ 15.', 'Strecke, die nicht passt.', 'Jede Strecke einsetzen.', '4 km: 11 €; 5 km: 13 €; 6 km: 15 €; 6,5 km: 16 €.', '6,5 km kosten 16 € – zu viel.'), 'Setze jede Strecke ein und rechne den Preis aus.'))
+TX.u('pruefen', 'einkleidung', TX.A('Ein Becken fasst 800 l und enthält schon 200 l, pro Minute fließen 40 l dazu. Läuft es nach 16 Minuten schon über?', 'Ja, dann wären es 840 l.', ['Nein, dann sind es 800 l.', 'Nein, dann sind es 640 l.', 'Ja, schon nach 10 Minuten.'],
+    TW('200 + 40x > 800?', 'Prüfung für x = 16.', 'x = 16 einsetzen.', '200 + 640 = 840 > 800.', 'Ja, es läuft schon über.'), 'Setze 16 ein und vergleiche mit 800.'))
+TX.u('pruefen', 'mehrschritt', TZ('Für eine Party gilt: 12 € Raummiete plus 3 € pro Gast, höchstens 60 €. Jemand behauptet, mit 16 Gästen bleibe man im Rahmen. Wie viel Euro kostet die Party mit 16 Gästen?', '12 + 3 * 16',
+    TW('12 + 3x ≤ 60, x = 16.', 'Kosten bei 16 Gästen.', 'Einsetzen und vergleichen.', '12 + 48 = 60 ≤ 60 ✓.', 'Es kostet genau 60 € – die Behauptung stimmt.'), 'Setze die Gästezahl ein.', einheit='€'))
+TX.u('pruefen', 'pruefung', TX.A('Ein Lkw darf mit Ladung höchstens 12 t wiegen, leer wiegt er 7,2 t. Er ist 9 m lang. Der Fahrer lädt 25 Säcke zu je 0,2 t. Darf er so fahren?', 'Nein, er wöge 12,2 t.', ['Ja, er wiegt genau 12 t.', 'Ja, er wiegt 7,4 t.', 'Nein, er ist zu lang.'],
+    TW('7,2 + 0,2 · 25 ≤ 12? Die Länge spielt keine Rolle.', 'Ist die Ladung erlaubt?', 'Einsetzen und vergleichen.', '7,2 + 5 = 12,2 > 12.', 'Nein, der Lkw ist 0,2 t zu schwer.'), 'Was zählt für die Gewichtsgrenze?'), huerde='ueberfluessig')
+TX.u('pruefen', 'begruenden', TX.A('In die Klassenkasse kommen 4 € am Anfang und dann 2,50 € pro Woche; es sollen mindestens 50 € werden. Jemand sagt: „Nach 18 Wochen reicht es.“ Was stimmt?',
+    'Falsch: Nach 18 Wochen sind es erst 49 €; man braucht 19 Wochen.', ['Richtig: 4 + 2,5 · 18 = 50.', 'Falsch: Man braucht 20 Wochen.', 'Richtig: schon nach 17 Wochen.'],
+    TW('4 + 2,5x ≥ 50, Behauptung x = 18.', 'Stimmt die Behauptung?', 'Einsetzen, dann die kleinste Lösung bestimmen.', '4 + 45 = 49 < 50. x ≥ 18,4 ⇒ 19 Wochen.', 'Die Aussage ist falsch: Es reicht erst nach 19 Wochen.'), 'Mache die Probe mit 18.'), huerde='entscheidung')
+TX.u('pruefen', 'transfer', TZ('Ein Rucksack für eine Bergtour soll mindestens 4 kg und höchstens 9 kg wiegen. Leer wiegt er 1,5 kg, jede Wasserflasche 0,75 kg. Wie viele Flaschen dürfen höchstens hinein?', '(9 - 1.5) / 0.75',
+    TW('4 ≤ 1,5 + 0,75x ≤ 9.', 'höchste Flaschenzahl.', 'Obere Bedingung umformen; untere prüfen.', '0,75x ≤ 7,5 ⇒ x ≤ 10. Untere: x ≥ 3,3.', 'Höchstens 10 Flaschen (und mindestens 4).'), 'Welche der beiden Bedingungen begrenzt nach oben?'), huerde='zwei')
+TX.u('pruefen', 'rueckwaerts', TZ('Ein Aufzug trägt höchstens 1 000 kg. Mit einem 75 kg schweren Mitarbeiter und 12 gleich schweren Kisten ist er gerade noch erlaubt, mit 13 Kisten wäre er zu schwer. Eine Kiste wiegt eine ganze Zahl von kg. Wie schwer kann eine Kiste höchstens sein?', '(1000 - 75) // 12',
+    TW('75 + 12k ≤ 1 000; 75 + 13k > 1 000.', 'größtes ganzes k.', 'Erste Bedingung umformen, abrunden, zweite prüfen.', '12k ≤ 925 ⇒ k ≤ 77,08 ⇒ k = 77. Probe: 75 + 13 · 77 = 1 076 > 1 000 ✓.', 'Eine Kiste wiegt höchstens 77 kg.'),
+    'Stelle die Ungleichung für 12 Kisten auf.', einheit='kg'), huerde='deuten')
+TX.s('pruefen', TZ('Ein Kind hat 25 € und kauft Hefte zu 1,50 €. Es rechnet: höchstens 16 Hefte. Mache die Probe: Wie viel kosten 16 Hefte?', '16 * 1.5',
+    TW('1,5x ≤ 25, x = 16.', 'Preis für 16 Hefte.', 'Einsetzen.', '16 · 1,5 = 24 ≤ 25 ✓.', '16 Hefte kosten 24 €.'), einheit='€'))
+TX.s('pruefen', TZ('Ein Paket darf höchstens 20 kg wiegen. Der Karton wiegt 0,8 kg, darin liegen 6 Bücher zu je 3,1 kg. Wie viel kg wiegt das Paket?', '0.8 + 6 * 3.1',
+    TW('0,8 + 6 · 3,1 ≤ 20?', 'Gewicht.', 'Einsetzen.', '0,8 + 18,6 = 19,4 ≤ 20 ✓.', 'Das Paket wiegt 19,4 kg und ist erlaubt.'), einheit='kg'))
+TX.k('pruefen', TZ('Ein Becken fasst 1 000 l und enthält 300 l, pro Minute kommen 25 l dazu. Wie viele Liter sind nach 28 Minuten darin?', '300 + 25 * 28',
+    TW('300 + 25x ≤ 1 000, x = 28.', 'Inhalt nach 28 min.', 'Einsetzen.', '300 + 700 = 1 000.', 'Es sind genau 1 000 l – das Becken ist gerade voll.'), einheit='l'))
+
+# --- grafisch ---
+TX.u('grafisch', 'erkennen', TX.A('Ein Graph zeigt die Kosten zweier Handytarife. Die Geraden schneiden sich bei 50 Minuten, links davon liegt die Gerade von Tarif A unter der von B. Wann ist A günstiger?',
+    'bei weniger als 50 Minuten', ['bei mehr als 50 Minuten', 'genau bei 50 Minuten', 'nie'],
+    TW('Schnittpunkt bei 50, links liegt A unten.', 'Bereich, in dem A günstiger ist.', 'Unten heißt billiger.', 'links vom Schnittpunkt: x < 50.', 'A ist bei weniger als 50 Minuten günstiger.'), 'Welche Gerade liegt links vom Schnittpunkt unten?'))
+TX.u('grafisch', 'einkleidung', TX.A('Fahrradverleih A kostet y = 3x + 5 €, Verleih B y = 5x € (x Stunden). Die Geraden schneiden sich bei x = 2,5. Wann ist B günstiger?', 'bei weniger als 2,5 Stunden', ['bei mehr als 2,5 Stunden', 'immer', 'nie'],
+    TW('A: 3x + 5, B: 5x, Schnitt bei 2,5.', 'Bereich, in dem B günstiger ist.', '5x < 3x + 5.', '2x < 5 ⇒ x < 2,5.', 'B ist bei weniger als 2,5 Stunden günstiger.'), 'Setze eine kleine Zahl ein, z. B. x = 1.'))
+TX.u('grafisch', 'darstellung', TZ('Eine Tabelle zeigt zwei Handytarife: bei 0, 50, 100 und 150 Minuten kostet A 10 €, 15 €, 20 €, 25 €; B kostet 0 €, 10 €, 20 €, 30 €. Ab wann ist A günstiger? Die Lösung hat die Form x > □.', '100',
+    TW('A: 10 + 0,1x, B: 0,2x (aus der Tabelle).', 'Grenze.', 'Gleich teuer bei 100 Minuten, danach ist A billiger.', '10 + 0,1x < 0,2x ⇒ x > 100.', 'Ab mehr als 100 Minuten ist A günstiger.'), 'Wo sind beide gleich teuer?', einheit='min'))
+TX.u('grafisch', 'pruefung', TZ('Zwei Kerzen stehen auf einem 40 cm hohen Tisch: A ist h = 25 − 2x cm hoch, B h = 18 − x cm (x in Stunden). Wie lange ist A höher als B? Die Lösung hat die Form x < □.', '25 - 18',
+    TW('25 − 2x > 18 − x. Die Tischhöhe spielt keine Rolle.', 'Grenze.', 'Am Graphen: Schnittpunkt; rechnerisch umformen.', '7 > x.', 'A ist weniger als 7 Stunden lang höher.'), 'Welche Angabe gehört nicht zu den Kerzenhöhen?', einheit='h'), huerde='ueberfluessig')
+TX.u('grafisch', 'begruenden', TX.A('Tarif A kostet y = 0,1x + 8 €, Tarif B y = 0,1x + 5 €. Jemand sagt: „Am Graphen sieht man, dass A irgendwann billiger wird.“ Was stimmt?',
+    'Falsch: Die Geraden sind parallel, A bleibt immer 3 € teurer.', ['Richtig: ab 30 Minuten.', 'Richtig: ab 80 Minuten.', 'Falsch: B wird irgendwann teurer.'],
+    TW('A: 0,1x + 8, B: 0,1x + 5.', 'Schneiden sich die Graphen?', 'Gleiche Steigung heißt parallel.', '0,1x + 8 < 0,1x + 5 ⇒ 8 < 5 – nie.', 'A wird nie billiger.'), 'Vergleiche die Steigungen.'), huerde='entscheidung')
+TX.u('grafisch', 'transfer', TZ('Ein Läufer startet mit 10 km/h. Ein Radfahrer startet eine halbe Stunde später am selben Ort mit 20 km/h in dieselbe Richtung. Wie lange nach dem Start des Läufers liegt dieser noch vorne? Die Lösung hat die Form x < □.', '20 * 0.5 / (20 - 10)',
+    TW('Läufer 10x, Radfahrer 20(x − 0,5), x ≥ 0,5.', 'Grenze.', '10x > 20(x − 0,5).', '10x > 20x − 10 ⇒ x < 1.', 'Der Läufer ist weniger als 1 Stunde nach seinem Start vorne.'), 'Wie weit ist der Radfahrer x Stunden nach dem Start des Läufers gefahren?', einheit='h'), huerde='zwei')
+TX.s('grafisch', TX.A('Tarif A kostet y = 0,2x + 4 €, Tarif B y = 0,3x €. Die Graphen schneiden sich bei x = 40. Wann ist A günstiger?', 'bei mehr als 40 Minuten', ['bei weniger als 40 Minuten', 'nie', 'immer'],
+    TW('Schnitt bei 40.', 'Bereich.', '0,2x + 4 < 0,3x.', 'x > 40.', 'A ist ab mehr als 40 Minuten günstiger.')))
+TX.s('grafisch', TZ('Ein Tank enthält nach x Minuten y = 500 − 20x Liter. Ab wann sind weniger als 100 l darin? Die Lösung hat die Form x > □.', '(500 - 100) / 20',
+    TW('500 − 20x < 100.', 'Grenze.', 'Umformen, Zeichen umdrehen.', '−20x < −400 ⇒ x > 20.', 'Nach mehr als 20 Minuten.'), einheit='min'))
+TX.k('grafisch', TZ('Sparplan A: y = 50 + 10x €, Sparplan B: y = 20 + 15x € (x Monate). Ab wann hat B mehr? Die Lösung hat die Form x > □.', '(50 - 20) / (15 - 10)',
+    TW('20 + 15x > 50 + 10x.', 'Grenze.', 'x auf eine Seite.', '5x > 30 ⇒ x > 6.', 'Nach mehr als 6 Monaten.'), einheit='Monate'))
+baue = mit_text(baue, TX)
+# ---- TEXT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Ungleichungen lösen', ['umformen', 'umdrehen', 'klammern']), ('Lösungsmenge', ['intervall', 'pruefen', 'grafisch']), ('Anwenden', ['sachaufgabe'])],

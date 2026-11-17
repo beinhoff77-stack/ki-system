@@ -2,6 +2,33 @@
 
 Neueste Meldung oben.
 
+## 2026-11-18 02:21 – STATUS gleichungen.ungleichungen
+
+### gleichungen.ungleichungen
+
+Anteil Textaufgaben an den Übungen mit g: vorher 12% (nur einkleidung/transfer) bzw. 21% (mit anerkannten Sachaufgaben anderer Typen) → nachher **40%**.
+
+| Lernkarte | vorher S1/S2/S3 (Lehrer) | vorher S1/S2/S3 (mit anderen Typen) | nachher S1/S2/S3 | neu Übung | neu Sicherung/Korrektur | überzählig | Sicherung/Korrektur Text nachher |
+|---|---|---|---|---|---|---|---|
+| umformen | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 2 | 2/1 |
+| umdrehen | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 3 | 2/1 |
+| klammern | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 2 | 2/1 |
+| intervall | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 1 | 2/1 |
+| pruefen | 0/1/0 | 0/1/0 | 1/3/4 = 8 | 7 | 2/1 | 2 | 2/1 |
+| grafisch | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 4 | 2/1 |
+| sachaufgabe | 0/4/3 | 6/7/7 | 6/7/7 = 20 | 0 | 0/0 | 0 | 6/3 |
+
+Beispiele (je Stufe eine neue Textaufgabe, Wortlaut):
+
+- Stufe 1 (umformen): „Ein Aufzug darf höchstens 600 kg tragen. Die Personen darin wiegen zusammen schon 420 kg. Wie viel kg darf noch dazukommen? (x + 420 ≤ 600)“
+- Stufe 2 (intervall): „Ein Ausflug soll pro Kind mindestens 10 € und höchstens 25 € kosten. Der Eintritt kostet 4 €, dazu kommen x € Fahrtkosten. Welche Fahrtkosten sind möglich?“
+- Stufe 3 (umformen): „Für einen Ausflug fahren 27 Kinder mit Kleinbussen, in jeden Bus passen 8 Kinder. Wie viele Busse braucht man mindestens?“
+
+Überzählig (g entfernt, Aufgabe bleibt): 14 – grafisch S2 darstellung (Anteil 40 %); grafisch S2 mehrschritt (Anteil 40 %); umdrehen S2 mehrschritt (Anteil 40 %); grafisch S2 darstellung (Anteil 40 %); umdrehen S2 mehrschritt (Anteil 40 %); pruefen S3 fehler (Anteil 40 %); klammern S2 mehrschritt (Anteil 40 %); umformen S2 mehrschritt (Anteil 40 %); grafisch S2 mehrschritt (Anteil 40 %); pruefen S2 mehrschritt (Anteil 40 %); umdrehen S2 mehrschritt (Anteil 40 %); intervall S1 direkt (Anteil 40 %) …
+Als Sachaufgabe anerkannte alte Aufgaben anderer Typen: 15 Übungen, 9 Sicherung/Korrektur.
+Sachkontexte: Taschengeld, Tarife, Aufzug/Lkw-Last, Tanks/Akkus, Kerzen; Antworten als größte/kleinste ganze Zahl oder Intervall-Auswahl.
+
+
 ## 2026-11-18 02:18 – STATUS zahlen.intervalle
 
 ### zahlen.intervalle

@@ -1,5 +1,9 @@
 # Postfach luecken-kl10 (Achtzehnte Runde, Teil B, Klasse 10)
 
+## 2026-11-17 15:00 – STATUS: raum.pyramide_kegel_kugel fertig
+- `verstehen` erweitert: 5. Schritt „Schiefes Prisma: wie ein schräg geschobener Stapel gleicher Platten, also V = G · h.“ mit Zeichnung (gerades und schiefes Prisma von der Seite, beide 2 breit und 3 hoch, Schichten gestrichelt, Höhe mit rechtem Winkel), 6 Übungen (1/2/3), u. a. Höhe aus Kante und Neigungswinkel, typischer Fehler „Kante statt Höhe“, schräger Münzstapel.
+- `inhalt_pruefen`: OK, keine Warnungen. Nachweis: alle 238 alten Aufgaben unverändert, NACHWEIS OK.
+
 ## 2026-11-17 14:40 – STATUS: stochastik.mehrstufig fertig
 - Neue Lernkarte `pi_schaetzen` („π schätzen: Zufall oder Streifen?“, Pflicht) nach `simulation`, Abschnitt „Simulation und Verstehen“: Viertelkreis als gefüllte Fläche, 40 Zufallspunkte (31 Treffer ⇒ π ≈ 3,1), Streifenmethode mit 4 Rechtecken über/unter dem Bogen (3,5 und 2,5). 28 Aufgaben (Übung 4/6/8, Test 1, Korrektur 3, Sicherung 6), u. a. Tabellenkalkulation mit WENN(x² + y² ≤ 1; 1; 0), Punkt im Viertelkreis per Pythagoras, Ober-/Untersumme mit 2, 4, 5 Streifen, Vergleich der Verfahren.
 - `inhalt_pruefen`: OK, keine Warnungen. Nachweis: alle 238 alten Aufgaben unverändert, NACHWEIS OK.

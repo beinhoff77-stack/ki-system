@@ -806,6 +806,78 @@ BF.loesung('kugel', 'Eine Kugel hat das Volumen 4 312 cm³. Berechne ihren Radiu
 
 # ---- BEFUNDE ENDE ----
 
+# ---------- Achtzehnte Runde (Zweig luecken-kl10): Volumen schiefer Prismen ----------
+# Lücke laut Aufbau-Prüfung (inhalte/pruefung/aufbau/klasse10.json): LehrplanPLUS M10 5 verlangt, ausgehend von geraden Prismen plausibel zu
+# machen, dass auch für schiefe Prismen V = G · h gilt (z. B. mit dem Prinzip von Cavalieri). Die Karte „verstehen“ bekommt dazu einen
+# fünften Schritt mit Zeichnung (gerades und schiefes Prisma von der Seite, gleich breit und gleich hoch) und 6 Übungen.
+# Läuft ganz am Ende mit eigenem Zufallsstart; alle alten Aufgaben bleiben gleich.
+# Prüfungsvorbild (Typ und Niveau, eigene Zahlen): Körperberechnungen in Sachkontexten mit Längen und Winkeln (LehrplanPLUS M10 5,
+# Schulaufgaben Jgst. 10): Höhe eines schiefen Körpers aus Seitenkante und Neigungswinkel.
+SCHRITT_SCHIEF = {
+    'text': 'Schiefes Prisma: wie ein schräg geschobener Stapel gleicher Platten, also ⟦V = G · h⟧.',
+    'bild': {'typ': 'figur',
+             'punkte': {'_A': [0, 0], '_B': [2, 0], '_C': [2, 3], '_D': [0, 3], '_E': [4, 0], '_F': [6, 0], '_G': [7.5, 3], '_H': [5.5, 3], '_L': [5.5, 0],
+                        '_a1': [0, 1], '_b1': [2, 1], '_a2': [0, 2], '_b2': [2, 2], '_e1': [4.5, 1], '_f1': [6.5, 1], '_e2': [5, 2], '_f2': [7, 2]},
+             'linien': [['_A', '_B', 'G'], ['_B', '_C', 'h'], ['_C', '_D', ''], ['_D', '_A', ''], ['_E', '_F', 'G'], ['_F', '_G', ''], ['_G', '_H', ''], ['_H', '_E', ''],
+                        ['_H', '_L', 'h', 'gestrichelt'], ['_a1', '_b1', '', 'gestrichelt'], ['_a2', '_b2', '', 'gestrichelt'],
+                        ['_e1', '_f1', '', 'gestrichelt'], ['_e2', '_f2', '', 'gestrichelt']],
+             'rechter_winkel': [['_L', '_F', '_H']],
+             'label': 'gerade und schief: gleiche Platten'}}
+
+
+def luecken_kl10():
+    start(18040)
+    U = []
+
+    def neu(s, a):
+        assert a is not None
+        a['p'], a['s'] = 'uebung', s
+        U.append(a)
+
+    G, h = 12, 5
+    neu(1, zahl(f'Ein schiefes Prisma hat die Grundfläche {G} cm² und die Höhe {h} cm. Wie groß ist sein Volumen?',
+                f'Auch beim schiefen Prisma gilt V = G · h = {G} cm² · {h} cm = {G * h} cm³.', 'Schief oder gerade: Was zählt, ist die Höhe senkrecht zur Grundfläche.',
+                G * h, f'{G} * {h}', einheit='cm³'))
+    g_, hd, H = 6, 4, 10
+    neu(2, zahl(f'Ein schiefes Prisma hat ein Dreieck als Grundfläche (Grundseite {g_} cm, zugehörige Höhe {hd} cm). Der Abstand von Grund- und Deckfläche beträgt {H} cm. Wie groß ist das Volumen?',
+                f'G = {g_} · {hd} : 2 = {g_ * hd // 2} cm². V = G · h = {g_ * hd // 2} · {H} = {g_ * hd // 2 * H} cm³.',
+                'Berechne zuerst die Dreiecksfläche. Die Höhe des Prismas ist der Abstand der beiden Dreiecke.', g_ * hd // 2 * H, f'{g_} * {hd} / 2 * {H}', einheit='cm³'))
+    neu(2, auswahl('Ein gerades und ein schiefes Prisma haben dieselbe Grundfläche und beide den Abstand 8 cm zwischen Grund- und Deckfläche. Die Seitenkanten des schiefen Prismas sind 10 cm lang. Was gilt für die Volumina?',
+                   'Beide haben dasselbe Volumen.', ['Das schiefe Prisma hat das größere Volumen, weil seine Kanten länger sind.', 'Das schiefe Prisma hat das kleinere Volumen, weil es schräg steht.',
+                                                     'Das schiefe Prisma hat ein Drittel des Volumens.'],
+                   'In jeder Höhe sind die Querschnitte gleich groß (Cavalieri). Beide haben V = G · 8 cm. Die schräge Kante von 10 cm ist nicht die Höhe.',
+                   'Vergleiche die Querschnitte in jeder Höhe.'))
+    G, s, w = 20, 10, 30
+    wahr = G * s * math.cos(math.radians(w))
+    v = gerundet(wahr, 0)
+    neu(3, zahl(f'Ein schiefes Prisma hat die Grundfläche {G} cm². Seine Seitenkanten sind {s} cm lang und um {w}° gegen die Senkrechte geneigt. Wie groß ist sein Volumen? Runde auf ganze cm³.',
+                f'Höhe h = {s} · cos {w}° ≈ {dz(round(s * math.cos(math.radians(w)), 3))} cm (rechtwinkliges Dreieck aus Kante, Höhe und Verschiebung). V = G · h ≈ {G} · {dz(round(s * math.cos(math.radians(w)), 3))} ≈ {dz(v)} cm³.',
+                'Die Höhe ist nicht die Kante. Zeichne das rechtwinklige Dreieck aus Kante und Höhe; der Winkel liegt an der Senkrechten.',
+                v, f'round({G} * {s} * {K(math.cos(math.radians(w)))})', einheit='cm³', tol=1))
+    G, s, h = 10, 13, 12
+    neu(3, auswahl(f'Bei einem schiefen Prisma ist G = {G} cm², die schräge Seitenkante {s} cm und die Höhe {h} cm. Jemand rechnet V = G · {s} cm = {G * s} cm³. Was stimmt?',
+                   f'Falsch: V = G · h = {G} · {h} = {G * h} cm³; die Kante ist nicht die Höhe.',
+                   ['Richtig.', f'Falsch: V = 1/3 · G · h = {G * h // 3} cm³.', f'Falsch: V = G · ({s} − {h}) = {G * (s - h)} cm³.'],
+                   f'Das Volumen hängt von der Höhe senkrecht zur Grundfläche ab, nicht von der schrägen Kante: V = {G} · {h} = {G * h} cm³. 1/3 gehört zu Pyramide und Kegel.',
+                   'Welche Länge steht in V = G · h?'))
+    n, d, dicke = 20, Fr(26, 10), Fr(22, 10)
+    hc = n * dicke / 10
+    wahr = math.pi * float(d / 2) ** 2 * float(hc)
+    v = gerundet(wahr, 1)
+    neu(3, zahl(f'Ein Stapel aus {n} gleichen Münzen (Durchmesser {dz(d)} cm, Dicke {dz(dicke)} mm) wird schräg verschoben. Wie groß ist das Volumen des schiefen Stapels? Runde auf eine Nachkommastelle.',
+                f'Schräg verschieben ändert keine Schicht (Cavalieri): wie ein Zylinder mit r = {dz(d / 2)} cm und h = {n} · {dz(dicke)} mm = {dz(hc)} cm. V = π · {dz(d / 2)}² · {dz(hc)} ≈ {dz(v)} cm³.',
+                'Wie hoch ist der Stapel? Ändert das Verschieben die Fläche einer Münze?', v, f'round({PI} * {float(d / 2)} ** 2 * {float(hc)}, 1)', einheit='cm³', tol=0.1))
+    return U
+
+
+def luecken_einbauen():
+    from _luecken_kl10 import karte_erweitern, offen_ergaenzen
+    karte_erweitern('raum.pyramide_kegel_kugel', 'verstehen', [SCHRITT_SCHIEF], luecken_kl10())
+    offen_ergaenzen('raum.pyramide_kegel_kugel', 'Achtzehnte Runde (luecken-kl10): Karte „verstehen“ um einen Schritt zu schiefen Prismen (V = G · h, Cavalieri; '
+                    'Zeichnung: gerades und schiefes Prisma von der Seite, gleich breit und gleich hoch) und 6 Übungen ergänzt (LehrplanPLUS M10 5). '
+                    'Rotationskörper stehen in raum.schraegbilder (seit D2 Klasse 10). Schrägbild und Netz des Kegels bleiben offen (App).')
+
+
 if __name__ == '__main__':
     datei = bauen('raum.pyramide_kegel_kugel',
           'Volumen und Oberfläche von Pyramide, Kegel und Kugel berechnen, die Kegelformeln begründen und Körper in Sachzusammenhängen untersuchen.',
@@ -824,3 +896,4 @@ if __name__ == '__main__':
                  'Gerundete Ergebnisse mit Toleranz (0,1 bzw. 0,01; bei ganzen Zahlen 1); π als 12-stellige Konstante in c.'])
     ergaenzen(datei, schwer())
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+    luecken_einbauen()  # Achtzehnte Runde (luecken-kl10): verstehen um schiefe Prismen erweitert – ganz am Ende

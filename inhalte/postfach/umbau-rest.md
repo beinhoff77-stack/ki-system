@@ -1,5 +1,58 @@
 # Postfach umbau-rest (Paket UR, Achte Runde)
 
+## 2026-11-17 02:22 – FERTIG
+Paket UR (Zweig `umbau-rest`): alle 24 Themen ohne gym_by (Realschule/IB/ohne Klasse) mit zusammen 130 Lernkarten auf das neue Muster umgebaut. Ein Thema = ein Commit, alle gepusht.
+
+| Thema | Karten | Aufgaben gleich | Prüfskript | Karten mit fehler_bild |
+|---|---|---|---|---|
+| abbildungen.determinanten2 | 6 | 168/168 | 0 Fehler, 0 Hinweise | 4 |
+| abbildungen.vektoren | 6 | 168/168 | 0/0 | 3 |
+| daten.stichproben | 5 | 140/140 | 0/0 | 0 |
+| funktionen.scharen | 6 | 168/168 | 0/0 | 5 |
+| terme.quadratische_extreme | 5 | 140/140 | 0/0 | 2 |
+| funktionen.transformation | 6 | 168/168 | 0/0 | 4 |
+| gleichungen.reinquadratisch | 6 | 168/168 | 0/0 | 3 |
+| gleichungen.wurzel | 6 | 168/168 | 0/0 | 2 |
+| abbildungen.matrizen | 6 | 168/168 | 0/0 | 2 |
+| funktionen.umkehr | 6 | 168/168 | 0/0 | 1 |
+| mengen.grundbegriffe | 5 | 140/140 | 0/0 | 2 |
+| groessen.verhaeltnisse | 6 | 168/168 | 0/0 | 2 |
+| daten.zweidimensional | 5 | 140/140 | 0/0 | 0 |
+| daten.standardabweichung | 5 | 140/140 | 0/0 | 1 |
+| stochastik.bedingt | 6 | 168/168 | 0/0 | 1 |
+| funktionen.betrag | 5 | 140/140 | 0/0 | 3 |
+| funktionen.folgen | 5 | 140/140 | 0/0 | 0 |
+| funktionen.reihen | 5 | 140/140 | 0/0 | 0 |
+| sonder.graphentheorie | 5 | 140/140 | 0/0 | 2 |
+| sonder.optimierung | 5 | 140/140 | 0/0 | 1 |
+| daten.normalverteilung | 5 | 140/140 | 0/0 | 1 |
+| finanzen.zinseszins | 5 | 140/140 | 0/0 | 2 |
+| sonder.logik | 5 | 140/140 | 0/0 | 2 |
+| zahlen.schranken | 5 | 140/140 | 0/0 | 4 |
+
+### Was gemacht ist
+- Jede Karte: einstieg (≤ 35 Wörter, Alltagssituation, möglichst durchgehend im Thema), woerter (≤ 3, jedes im Text), Kartenbild, schritte als {text, bild} mit Bild bei jedem Bildwechsel, fehler (≤ 30 Wörter) + fehler_bild wo zeigbar, regel (erster Satz ≤ 12 Wörter als „Kurz gesagt“). Satzlänge nach Prüfskript (IB-Themen ≤ 15, RS/zusatz ≤ 20). titel, lernziel, Aufgaben, abschnitte, merke, ziel unverändert.
+- Technik: neue Hilfsdatei `inhalte/generatoren/_umbau_rest.py` (`umbau_schreiben`). Die Generatoren erzeugen die Aufgaben wie bisher mit den alten Karten (dort hängt der Dopplungsabgleich dran) und ersetzen danach die Erklärfelder. Die alte `probe` fällt weg; wo nötig steht die Kontrolle als Schritt. Bilder mit `typ` in Schritten werden als vollständige Bilder behandelt (Felder des vorigen Zustands auf null), wie in `_umbau_kl7.py`.
+- Nachweis je Thema: Aufgaben-Liste der neuen Datei == `git show origin/lernen-app:inhalte/themen/<thema>.json` (Vergleich des ganzen Felds `aufgaben`, plus Kopf-, abschnitte-, bewertung-Felder). Alle Zahlen der Beispiele nachgerechnet.
+- Zeichnungen: jede Karte mit der App-Funktion `lernErklaerung` aus `lernen.js` im Browser (Playwright/Chrome) gerendert und angesehen; Darstellungsfehler (abgeschnittene Achsennamen, überlappende Venn-Beschriftungen, Punkte am Rand) korrigiert.
+
+### Geänderte Beispiele (Zahlen neu, nachgerechnet; keine Aufgabe gleicht dem neuen Beispiel)
+- funktionen.scharen: durchgehende Taxi-Situation (k = 3 statt −3; P(3 | 10) statt P(3 | 1); loesung_parameter mit Taxi A y = 2x + 4 / Taxi B y = kx).
+- funktionen.transformation/strecken: x = 2 statt x = 3 (passt ins Bild).
+- gleichungen.reinquadratisch/umformen: 3x² + 20 = 95 statt 3x² − 20 = 55 (gleiche Zwischenschritte).
+- sonder.graphentheorie/euler: 5 Knoten statt 4 (die alte Gradliste 2, 3, 4, 3 ist mit 4 Knoten nicht als einfacher Graph zeichenbar).
+
+### Erledigte App-Wünsche aus "offen" (jetzt mit vorhandenen Zeichnungsarten gelöst, nur in den Karten)
+- Vektorpfeile (determinanten2, vektoren) → `pfeile`; zulässigen Bereich füllen (optimierung) → `flaechen`; Glockenkurve (normalverteilung) → Graph-Art `glocke` + `flaechen`; Fehlerbereich auf dem Zahlenstrahl (schranken) → `bereich`. In "offen" steht jeweils, dass die Aufgaben-Grafiken unverändert die alte Darstellung behalten.
+
+### offen
+- Die Aufgaben-Grafiken (unverändert) nutzen teils noch die alten Ersatzdarstellungen (Strecken statt Pfeile, Säulen statt Glocke, Randgeraden ohne Fläche). Wer die Aufgaben-Grafiken umstellen will, ändert damit die Aufgaben – bewusst nicht gemacht.
+- mengen.grundbegriffe: `venn()` aus `_ib.py` setzt die Kreisnamen für die alte, kleinere Schrift. Bei langen Namen (z. B. Fußball/Schwimmen) überlappen sie in Aufgaben-Grafiken; in den Karten sind sie verschoben. App-Wunsch: eigene Zeichnungsart „venn“.
+- Zahlenstrahl-Punkte können nicht hohl gezeichnet werden (für „obere Schranke gehört nicht dazu“). App-Wunsch, falls gewünscht: `"offen": true` auch bei zahlenstrahl.punkte.
+- funktionen.umkehr/quadratisch: √(x − 1) + 2 kann die App nicht als Graph zeichnen (Graph-Art wurzel nur √x).
+- Einige Karten zeigen erfundene Beispieldaten (daten.zweidimensional Autos/Eis, stochastik.bedingt Hund/Spaziergänger, daten.stichproben „zum Beispiel 60 %“); jeweils in "offen" bzw. im Text als Beispiel gekennzeichnet.
+- Nicht mit Kindern getestet; laut AUFTRAEGE.md läuft UR zuletzt. Kein Merge nach main oder lernen-app; keine Datenbank, kein App-Code, keine Tests geändert.
+
 ## 2026-11-17 02:22 – STATUS
 zahlen.schranken umgebaut (5 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_rest.umbau_schreiben); probe entfällt.
 Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/zahlen.schranken.json`: 140 Aufgaben, alle wörtlich gleich; titel/lernziel unverändert. inhalt_pruefen: 0 Fehler, 0 Hinweise. Zeichnungen gerendert (app-eigenes lernErklaerung im Browser), angesehen. Ohne fehler_bild: produkt (der Fehler betrifft Geschwindigkeit, nicht die Fliese aus dem Bild). Fehlerbereiche jetzt auf dem Zahlenstrahl mit markiertem Bereich (alter App-Wunsch erledigt, aus offen entfernt). Die obere Schranke erscheint als voller Punkt; ein hohler Punkt auf dem Zahlenstrahl ist laut README nicht vorgesehen – der Text sagt „gehört nicht mehr dazu“.

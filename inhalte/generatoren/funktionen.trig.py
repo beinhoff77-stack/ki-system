@@ -1053,6 +1053,340 @@ def nacharbeit_anhaengen(thema, neue):
     pfad.write_text(json.dumps(d, ensure_ascii=False, indent=1) + ('\n' if roh.endswith('\n') else ''), encoding='utf-8')
     print(f'{pfad.name}: {len(neue)} Bogenmaß-Übungen (Fünfzehnte Runde) angehängt, jetzt {len(d["aufgaben"])} Aufgaben')
 
+# ---------- Achtzehnte Runde (Zweig luecken-kl10): Verschiebung in x-Richtung, beliebige Winkel ----------
+# Lücken laut Aufbau-Prüfung (inhalte/pruefung/aufbau/klasse10.json): LehrplanPLUS M10 3 verlangt die Wirkung von a, b, c und d bei
+# a · sin(b · (x + c)) + d und das Zurückführen von Winkeln über 2π und negativer Winkel auf 0 bis 2π.
+# Neue Lernkarte „verschiebung_x“ nach „parameter“; „zuordnen“ um Übungen mit c erweitert; „periode“ um einen Schritt und Übungen zu
+# beliebigen Winkeln. Läuft ganz am Ende (eigener Zufallsstart, nur zum Mischen der Antworten); alle alten Aufgaben bleiben gleich.
+# Prüfungsvorbilder (Typ und Niveau, eigene Zahlen und Einkleidung): Abitur Bayern Prüfungsteil A (Term einer Sinusfunktion aus Eigenschaften),
+# Grundwissen G9 Jgst. 10 bayerischer Gymnasien (allgemeine Sinusfunktion a · sin(b(x + c)) + d beschreiben, Werte beliebiger Winkel ohne Rechner),
+# Modellierungsaufgaben Gezeiten/Temperatur mit Phasenverschiebung.
+def _bterm(T, form='faktor', name='f(x) = '):
+    """T = (art, a, b, c, d): a · art(b · (x + c·π)) + d als Text (x im Bogenmaß)."""
+    art, a, b, c, d = T
+    c = Fr(c)
+    af = '' if a == 1 else '−' if a == -1 else dz(a) + ' · '
+    pm = lambda q: ('+ ' if q > 0 else '− ') + pi_text(abs(q))  # noqa: E731
+    if b == 1:
+        innen = 'x' + (f' {pm(c)}' if c else '')
+    elif form == 'ausmult':
+        innen = f'{dz(b)}x' + (f' {pm(b * c)}' if c else '')
+    else:
+        innen = f'{dz(b)} · (x {pm(c)})' if c else f'{dz(b)}x'
+    t = f'{name}{af}{art}({innen})'
+    if d: t += f' {plus(d)}'
+    return t
+
+
+def _bwert(T, x):
+    art, a, b, c, d = T
+    u = float(b) * (x + float(c) * PI)
+    return float(a) * (math.sin(u) if art == 'sin' else math.cos(u)) + float(d)
+
+
+def _bgleich(T1, T2):
+    return all(abs(_bwert(T1, k / 7) - _bwert(T2, k / 7)) < 1e-9 for k in range(-60, 61))
+
+
+def _bgraph(T, **kw):
+    art, a, b, c, d = T
+    g = {'art': art, 'a': zahlwert_json(a), 'b': zahlwert_json(b), 'c': round(float(b * Fr(c)) * PI, 6), 'd': zahlwert_json(d), 'bogen': True}
+    g.update(kw)
+    return g
+
+
+def _bbild(Ts, x1=2, y=None, **kw):
+    return koord([_bgraph(T) for T in Ts], x=(0, round(x1 * PI, 4)), y=y, pi=True, schritt_y=1, streckung=1.4, **kw)
+
+
+_KREIS_SCHRITT = {'typ': 'koordinaten', 'x': [-1.5, 1.5], 'y': [-1.5, 1.5], 'grad': False, 'pi': False, 'schritt_x': 0.5, 'schritt_y': 0.5,
+                  'streckung': None, 'graphen': [], 'senkrecht': [], 'kreise': [{'m': [0, 0], 'r': 1}]}
+
+KARTE_VERSCHIEBUNG = {
+    'lernziel': 'verschiebung_x', 'titel': 'Verschiebung in x-Richtung',
+    'einstieg': 'Zwei Gondeln fahren im selben Riesenrad, B eine Viertelrunde hinter A. B erreicht jede Höhe etwas später. '
+                'Ihre Höhenkurve ist dieselbe, nur zur Seite geschoben: eine ⟦Verschiebung in x-Richtung⟧.',
+    'woerter': [['Verschiebung in x-Richtung', 'der ganze Graph rutscht nach links oder nach rechts, seine Form bleibt'],
+                ['c', 'die Zahl in der Klammer bei sin(x + c); sie gibt an, wie weit der Graph rutscht']],
+    'bild': _bbild([('sin', 1, 1, 0, 0)], y=(-1.5, 1.5)) | {'schritt_y': 0.5, 'graphen': [_bgraph(('sin', 1, 1, 0, 0), name='sin x', name_x=round(PI * 1.2, 4))]},
+    'schritte': [
+        {'text': 'Bei f(x) = sin(x − π/2) ist die Klammer erst bei x = π/2 null.',
+         'bild': {'graphen': [_bgraph(('sin', 1, 1, 0, 0), name='sin x', name_x=round(PI * 1.2, 4)), _bgraph(('sin', 1, 1, Fr(-1, 2), 0), name='f', name_x=round(PI * 1.75, 4))],
+                  'punkte': [{'x': 0, 'y': 0, 'name': 'Start'}, {'x': round(PI / 2, 4), 'y': 0, 'name': 'Start f'}]}},
+        {'text': 'Jeder Wert von sin x kommt bei f um π/2 später: ⟦Verschiebung nach rechts⟧.',
+         'bild': {'punkte': [{'x': round(PI / 2, 4), 'y': 1, 'name': 'Hoch'}, {'x': round(PI, 4), 'y': 1, 'name': 'Hoch f'}],
+                  'pfeile': [[round(PI / 2, 4), 1, round(PI, 4), 1, '']]}},
+        {'text': 'Bei sin(x + π/2) kommt alles früher: Der Graph rückt ⟦nach links⟧.',
+         'bild': {'graphen': [_bgraph(('sin', 1, 1, 0, 0), name='sin x', name_x=round(PI * 1.2, 4)), _bgraph(('sin', 1, 1, Fr(1, 2), 0), name='g', name_x=round(PI * 0.8, 4))],
+                  'punkte': [{'x': round(PI / 2, 4), 'y': 1, 'name': 'Hoch'}, {'x': 0, 'y': 1, 'name': 'Hoch neu'}], 'pfeile': [[round(PI / 2, 4), 1, 0, 1, '']]}},
+        {'text': 'Rückwärts: Startet die Kurve steigend bei π/4, ist c = −π/4: ⟦sin(x − π/4)⟧.',
+         'bild': {'graphen': [_bgraph(('sin', 1, 1, Fr(-1, 4), 0), name='f', name_x=round(PI * 1.9, 4))], 'pfeile': [],
+                  'punkte': [{'x': round(PI / 4, 4), 'y': 0, 'name': 'π/4'}]}}],
+    'fehler': 'Bei sin(x − π/2) nach links zu schieben ist falsch. Gondel B kommt später dran, nicht früher: Minus heißt ⟦nach rechts⟧.',
+    'fehler_bild': {'graphen': [_bgraph(('sin', 1, 1, Fr(-1, 2), 0), name='richtig', name_x=round(PI * 1.75, 4)),
+                                _bgraph(('sin', 1, 1, Fr(1, 2), 0), name='falsch', name_x=round(PI * 0.8, 4))], 'punkte': [], 'pfeile': []},
+    'regel': 'Bei sin(x + c) wird der Graph um c verschoben. ⟦Plus: nach links⟧, Minus: nach rechts. Vorher b ausklammern.'}
+
+
+def luecken_kl10():
+    """Liefert (neue Karte mit Aufgaben, Übungen für „zuordnen“, neuer Schritt und Übungen für „periode“)."""
+    start(18010)
+    V, Z, P = [], [], []
+
+    def neu(liste, p, s, a):
+        assert a is not None, 'zu wenige verschiedene Antworten'
+        a['p'], a['s'] = p, s
+        liste.append(a)
+
+    def pq(text, q, w, h):
+        q = Fr(q)
+        return luecken(text, '□/□ · π', 'Bruch vor π (gekürzt)', [q.numerator, q.denominator], w, h, c=[str(q.numerator), str(q.denominator)])
+
+    def richt(c):
+        return 'nach links' if c > 0 else 'nach rechts'
+
+    def richtung(T, form='faktor', grund=None):
+        """Um wie viel und wohin ist a · art(b(x + c)) + d gegenüber a · art(bx) + d verschoben?"""
+        art, a, b, c, d = T
+        c = Fr(c)
+        ohne = _bterm((art, a, b, 0, d), name='')
+        richtig = f'um {pi_text(abs(c))} {richt(c)}'
+        falsch = [f'um {pi_text(abs(c))} {richt(-c)}']
+        if b != 1:
+            falsch += [f'um {pi_text(abs(b * c))} {richt(c)}', f'um {pi_text(abs(b * c))} {richt(-c)}']
+        else:
+            falsch += [f'um {pi_text(abs(c))} nach {"oben" if c > 0 else "unten"}', f'um {pi_text(2 * abs(c))} {richt(c)}']
+        if form == 'ausmult':
+            w = f'Ausklammern: {_bterm(T, "ausmult", "")} = {_bterm(T, "faktor", "")}. Also c = {pi_text(c)}: {richtig}.'
+        else:
+            w = f'In der Klammer steht x {"+" if c > 0 else "−"} {pi_text(abs(c))}. {"Plus" if c > 0 else "Minus"} heißt {richt(c)}: {richtig}.'
+        return auswahl(f'Um wie viel und in welche Richtung ist der Graph von {_bterm(T, form)} gegenüber dem Graphen von y = {ohne} verschoben?',
+                       richtig, falsch, w, grund or ('Klammere zuerst den Faktor vor x aus.' if form == 'ausmult' else 'Plus in der Klammer heißt nach links, Minus nach rechts.'))
+
+    def term_aus_text(art, c, d, a=1):
+        T = (art, a, 1, Fr(c), d)
+        txt = f'Der Graph von {"" if a == 1 else dz(a) + " · "}{art} x wird um {pi_text(abs(Fr(c)))} {richt(Fr(c))}'
+        if d: txt += f' und um {dz(abs(d))} nach {"oben" if d > 0 else "unten"}'
+        txt += ' verschoben. Welcher Term gehört zum neuen Graphen?'
+        kand = [(art, a, 1, -Fr(c), d), (art, a, 1, Fr(c), -d) if d else (art, a, 1, 2 * Fr(c), 0), ('cos' if art == 'sin' else 'sin', a, 1, Fr(c), d)]
+        falsch = [_bterm(k, name='') for k in kand if not _bgleich(k, T)]
+        # „verschoben um c nach oben statt in x-Richtung“: c außerhalb der Klammer
+        falsch.append(f'{"" if a == 1 else dz(a) + " · "}{art}(x) {"+" if Fr(c) > 0 else "−"} {pi_text(abs(Fr(c)))}' + (f' {plus(d)}' if d else ''))
+        return auswahl(txt, _bterm(T, name=''), falsch[:3],
+                       f'Nach {"links" if Fr(c) > 0 else "rechts"} um {pi_text(abs(Fr(c)))}: x {"+" if Fr(c) > 0 else "−"} {pi_text(abs(Fr(c)))} in die Klammer'
+                       + (f'; {"nach oben" if d > 0 else "nach unten"} um {dz(abs(d))}: {plus(d)} am Ende.' if d else '.'),
+                       'Verschiebung in x-Richtung: in die Klammer. Verschiebung nach oben/unten: ans Ende.')
+
+    def graph_auswahl(T, kand, w, h):
+        falsch = []
+        for k in kand:
+            if _bgleich(k, T) or any(_bgleich(k, f) for f in falsch): continue
+            falsch.append(k)
+        assert len(falsch) >= 3, T
+        a_ = auswahl('Welcher Funktionsterm gehört zum gezeichneten Graphen (x im Bogenmaß)?', _bterm(T, name=''), [_bterm(k, name='') for k in falsch[:3]], w, h)
+        art, a, b, c, d = T
+        lo, hi = d - abs(a), d + abs(a)
+        return mit_grafik(a_, _bbild([T], y=(math.floor(min(lo, 0) - 1), math.ceil(max(hi, 0) + 1))))
+
+    def hochpunkt(T):
+        """Erster Hochpunkt in [0; 2π[ von a · art(x + c) + d (b = 1, a > 0)."""
+        art, a, b, c, d = T
+        assert b == 1 and a > 0
+        basis = Fr(1, 2) if art == 'sin' else Fr(0)
+        x = (basis - Fr(c)) % 2
+        return luecken(f'Bestimme den ersten Hochpunkt von {_bterm(T)} im Intervall [0; 2π[.', 'H(□/□ · π | □)', 'Stelle als Bruch vor π, dann der y-Wert',
+                       [x.numerator, x.denominator, a + d],
+                       f'{art} ist am größten, wenn die Klammer {pi_text(basis) if basis else "0"} ist: x {"+" if Fr(c) > 0 else "−"} {pi_text(abs(Fr(c)))} = {pi_text(basis) if basis else "0"} ⇒ x = {pi_text(x)}. '
+                       f'y = {dz(a)} · 1 {plus(d)} = {dz(a + d)}.',
+                       f'{art} hat sein Maximum, wenn die Klammer {pi_text(basis) if basis else "0"} ist.',
+                       c=[str(x.numerator), str(x.denominator), f'{a} + ({d})'])
+
+    def wertemenge(T):
+        art, a, b, c, d = T
+        lo, hi = d - abs(a), d + abs(a)
+        return luecken(f'Gib die Wertemenge von {_bterm(T)} an.', 'W = [□; □]', 'kleinster und größter Wert', [lo, hi],
+                       f'Die Verschiebung in x-Richtung ändert die Werte nicht. Amplitude {abs(a)}, Mittellinie y = {dz(d)}: W = [{dz(lo)}; {dz(hi)}].',
+                       'Ändert eine Verschiebung nach links oder rechts den größten und kleinsten Wert?', c=[f'{d} - {abs(a)}', f'{d} + {abs(a)}'])
+
+    def nullstelle(T):
+        """kleinste positive Nullstelle von art(b(x + c)) (sin)."""
+        art, a, b, c, d = T
+        assert art == 'sin' and d == 0
+        k = 0
+        while True:
+            x = Fr(k, b) - Fr(c)
+            if x > 0: break
+            k += 1
+        return pq(f'Bestimme die kleinste positive Nullstelle von {_bterm(T)}.', x,
+                  f'sin ist 0, wenn die Klammer ein Vielfaches von π ist: {_bterm((art, 1, b, c, 0), name="")[4:-1]} = {pi_text(Fr(k))} ⇒ x = {pi_text(x)}'
+                  + (f' (kleinere Vielfache ergeben x ≤ 0).' if k else '.'),
+                  'Setze die Klammer gleich 0, π, 2π, … und löse nach x auf.')
+
+    def grad_wert(art, cg, x):
+        u = x + cg
+        v = {0: (0, 1), 90: (1, 0), 180: (0, -1), 270: (-1, 0), 360: (0, 1)}[u % 360 if u % 360 else 0]
+        w_ = v[0] if art == 'sin' else v[1]
+        return zahl(f'Gegeben ist f(x) = {art}(x {plus(cg)}°). Welchen Wert hat f an der Stelle x = {x}°?',
+                    f'f({x}°) = {art}({x}° {plus(cg)}°) = {art}({u}°) = {dz(w_)}.', 'Rechne zuerst die Klammer aus.', w_, str(w_))
+
+    # ===== neue Lernkarte verschiebung_x =====
+    # Stufe 1
+    neu(V, 'uebung', 1, richtung(('sin', 1, 1, Fr(-1, 4), 0)))
+    neu(V, 'uebung', 1, zahl('Um wie viel Grad ist der Graph von f(x) = cos(x + 60°) gegenüber dem Graphen von cos x nach links verschoben?',
+                             'In der Klammer steht + 60°. Plus heißt nach links: um 60°.', 'Plus in der Klammer heißt nach links.', 60, '60', einheit='°'))
+    T = ('sin', 1, 1, Fr(1, 4), 0)
+    neu(V, 'uebung', 1, graph_auswahl(T, [('sin', 1, 1, Fr(-1, 4), 0), ('cos', 1, 1, Fr(1, 4), 0), ('sin', 1, 1, Fr(3, 4), 0), ('sin', 1, 1, 0, 0)],
+                                      'Der Hochpunkt liegt bei π/4 statt bei π/2 wie bei sin x. Alles kommt π/4 früher: Verschiebung um π/4 nach links, f(x) = sin(x + π/4).',
+                                      'Wo liegt der erste Hochpunkt? Vergleiche mit sin x (Hochpunkt bei π/2).'))
+    neu(V, 'uebung', 1, pq('Bestimme die kleinste Stelle x ≥ 0, an der f(x) = sin(x − π/3) den Wert 0 hat.', Fr(1, 3),
+                           'Die Klammer ist bei x = π/3 gleich 0, und sin 0 = 0. Kleinere x ≥ 0 geben eine negative Klammer zwischen −π/3 und 0, dort ist sin nicht 0. Also x = π/3.',
+                           'Für welches x ist die Klammer gleich 0?'))
+    # Stufe 2
+    neu(V, 'uebung', 2, richtung(('sin', 1, 2, Fr(-1, 4), 0), 'ausmult'))
+    neu(V, 'uebung', 2, term_aus_text('cos', Fr(-1, 3), 0))
+    neu(V, 'uebung', 2, hochpunkt(('sin', 2, 1, Fr(-1, 6), 1)))
+    neu(V, 'uebung', 2, wertemenge(('cos', 3, 1, Fr(1, 5), -2)))
+    T = ('cos', 1, 1, Fr(-1, 4), 1)
+    neu(V, 'uebung', 2, graph_auswahl(T, [('cos', 1, 1, Fr(1, 4), 1), ('sin', 1, 1, Fr(-1, 4), 1), ('cos', 1, 1, 0, 1), ('cos', 1, 1, Fr(-1, 4), -1)],
+                                      'Mittellinie y = 1, Amplitude 1, Periode 2π. Der höchste Punkt liegt bei π/4 statt bei 0: cos um π/4 nach rechts, f(x) = cos(x − π/4) + 1.',
+                                      'cos startet im Hochpunkt. Wo liegt hier der erste Hochpunkt?'))
+    neu(V, 'uebung', 2, grad_wert('sin', -30, 120))
+    # Stufe 3 – Prüfungsvorbild: Term aus Hoch- und Tiefpunkt (Abitur Bayern, Prüfungsteil A)
+    a_, c_, d_ = 2, Fr(1, 4), 3
+    xh, xt = c_ + Fr(1, 2), c_ + Fr(3, 2)
+    neu(V, 'uebung', 3, luecken(f'Die Funktion f(x) = a · sin(x − c) + d (a > 0, 0 < c < π, x im Bogenmaß) hat den Hochpunkt ({pi_text(xh)} | {d_ + a_}) '
+                                f'und den nächsten Tiefpunkt ({pi_text(xt)} | {d_ - a_}). Bestimme a, c und d.', 'a = □; c = □/□ · π; d = □', 'a, c als Bruch vor π, d',
+                                [a_, c_.numerator, c_.denominator, d_],
+                                f'd = ({d_ + a_} + {d_ - a_}) : 2 = {d_}; a = ({d_ + a_} − {d_ - a_}) : 2 = {a_}. sin ist am größten bei π/2: {pi_text(xh)} − c = π/2 ⇒ c = {pi_text(c_)}. '
+                                f'Probe Tiefpunkt: {pi_text(xt)} − {pi_text(c_)} = 3π/2 ✓.',
+                                'Mittellinie und Amplitude aus den y-Werten; c aus der Stelle des Hochpunkts (sin ist bei π/2 am größten).',
+                                c=[f'({d_ + a_} - {d_ - a_}) // 2', str(c_.numerator), str(c_.denominator), f'({d_ + a_} + {d_ - a_}) // 2']))
+    # Stufe 3 – Prüfungsvorbild: Modell Gezeiten mit Verschiebung
+    A_, H_, M_ = 2, 4, 3
+    neu(V, 'uebung', 3, luecken(f'In einem Hafen ist um {H_} Uhr Hochwasser. Der Wasserstand schwankt zwischen {M_ - A_} m und {M_ + A_} m, von Hochwasser zu Hochwasser vergehen 12 Stunden. '
+                                'Ergänze das Modell (t in Stunden nach Mitternacht, h in m).', 'h(t) = □ · cos(π/6 · (t − □)) + □', 'Amplitude, Uhrzeit des Hochwassers, Mittelwert',
+                                [A_, H_, M_],
+                                f'Mittelwert ({M_ - A_} + {M_ + A_}) : 2 = {M_}, Amplitude {M_ + A_} − {M_} = {A_}. Periode 12 h passt zu π/6, denn 2π : 12 = π/6. '
+                                f'cos ist am größten, wenn die Klammer 0 ist: bei t = {H_}. Also h(t) = {A_} · cos(π/6 · (t − {H_})) + {M_}.',
+                                'cos hat seinen größten Wert, wenn die Klammer 0 ist. Wann soll das sein?', c=[f'({M_ + A_} - {M_ - A_}) // 2', str(H_), f'({M_ + A_} + {M_ - A_}) // 2']))
+    # Stufe 3 – Knobelaufgabe
+    neu(V, 'uebung', 3, luecken('Für welche Zahl c mit 0 < c < 2π gilt sin(x + c) = −sin x für jedes x? Gib c als Vielfaches von π an.', 'c = □ · π', 'Zahl vor π', [1],
+                                'Um eine halbe Periode verschoben, liegt jeder Hochpunkt dort, wo vorher ein Tiefpunkt war: sin(x + π) = −sin x. Also c = π. Probe x = π/2: sin(3π/2) = −1 = −sin(π/2) ✓.',
+                                'Welche Verschiebung macht aus jedem Hochpunkt einen Tiefpunkt?', c=['2 // 2']))
+    neu(V, 'uebung', 3, auswahl('Jemand sagt: „Der Graph von f(x) = sin(3x + π) ist gegenüber dem Graphen von sin(3x) um π nach links verschoben.“ Was stimmt?',
+                                'Falsch: um π/3 nach links, denn 3x + π = 3 · (x + π/3).',
+                                ['Richtig.', 'Falsch: um π nach rechts.', 'Falsch: um 3π nach links.'],
+                                'Erst den Faktor 3 ausklammern: sin(3x + π) = sin(3 · (x + π/3)). Die Verschiebung ist π/3 nach links.',
+                                'Klammere den Faktor vor x aus. Was steht dann neben x?'))
+    neu(V, 'uebung', 3, nullstelle(('sin', 1, 2, Fr(1, 3), 0)))
+    neu(V, 'uebung', 3, zahl('Die Temperatur an einem Frühlingstag wird beschrieben durch T(t) = 12 + 5 · sin(π/12 · (t − 10)) (t in Stunden nach Mitternacht, T in °C). '
+                             'Um wie viel Uhr ist es am kältesten?',
+                             'sin ist am kleinsten (−1), wenn die Klammer −π/2 ist: π/12 · (t − 10) = −π/2 ⇒ t − 10 = −6 ⇒ t = 4. '
+                             'Um 4 Uhr ist es am kältesten: T = 12 − 5 = 7 °C.', 'sin hat den Wert −1 bei −π/2 (oder 3π/2). Setze die Klammer gleich diesem Winkel.',
+                             4, '10 - 6', einheit='Uhr'))
+    T = ('sin', 2, 1, Fr(-1, 4), 1)
+    neu(V, 'uebung', 3, graph_auswahl(T, [('sin', 2, 1, Fr(1, 4), 1), ('cos', 2, 1, Fr(-1, 4), 1), ('sin', 2, 1, Fr(-1, 2), 1), ('sin', 1, 1, Fr(-1, 4), 2)],
+                                      'Mittellinie y = 1 (Mitte zwischen −1 und 3), Amplitude 2. Steigend durch die Mittellinie bei π/4: sin um π/4 nach rechts, f(x) = 2 · sin(x − π/4) + 1.',
+                                      'Lies Mittellinie und Amplitude ab. Wo kreuzt der Graph die Mittellinie steigend?'))
+    T1 = ('sin', 1, 2, Fr(-1, 6), 0)
+    neu(V, 'uebung', 3, auswahl('Der Graph von sin x wird zuerst um π/3 nach rechts verschoben und danach in x-Richtung auf die Hälfte gestaucht (Periode π). Welcher Term gehört dazu?',
+                                _bterm(T1, 'ausmult', ''), [_bterm(('sin', 1, 2, Fr(-1, 3), 0), 'faktor', ''), _bterm(('sin', 1, 2, Fr(1, 6), 0), 'ausmult', ''), 'sin(0,5x − π/3)'],
+                                'Nach dem Verschieben: sin(x − π/3). Stauchen heißt, x durch 2x zu ersetzen: sin(2x − π/3) = sin(2 · (x − π/6)). '
+                                'Das Stauchen halbiert auch die Verschiebung.',
+                                'Beim Stauchen wird jedes x durch 2x ersetzt – auch das x in der Klammer.'))
+    # Test, Korrektur, Sicherung (ohne Tipp, Stufe 2)
+    neu(V, 'test', 2, richtung(('sin', 1, 1, Fr(1, 6), 0)))
+    neu(V, 'korrektur', 2, richtung(('cos', 1, 3, Fr(-1, 3), 0), 'ausmult'))
+    neu(V, 'korrektur', 2, term_aus_text('sin', Fr(1, 4), 2))
+    neu(V, 'korrektur', 2, hochpunkt(('cos', 3, 1, Fr(-1, 3), -1)))
+    neu(V, 'sicherung', 2, richtung(('cos', 1, 1, Fr(-2, 3), 0)))
+    neu(V, 'sicherung', 2, zahl('Um wie viel Grad ist der Graph von f(x) = sin(x − 45°) gegenüber dem Graphen von sin x nach rechts verschoben?',
+                                'In der Klammer steht − 45°. Minus heißt nach rechts: um 45°.', 'Minus in der Klammer heißt nach rechts.', 45, '45', einheit='°'))
+    neu(V, 'sicherung', 2, nullstelle(('sin', 1, 1, Fr(1, 4), 0)))
+    neu(V, 'sicherung', 2, wertemenge(('sin', 2, 1, Fr(-1, 7), 4)))
+    neu(V, 'sicherung', 2, term_aus_text('cos', Fr(-1, 6), -1))
+    neu(V, 'sicherung', 2, grad_wert('cos', 30, 150))
+
+    # ===== zuordnen: Übungen mit Verschiebung c =====
+    T = ('sin', 1, 1, Fr(-1, 3), 0)
+    neu(Z, 'uebung', 1, graph_auswahl(T, [('sin', 1, 1, Fr(1, 3), 0), ('cos', 1, 1, Fr(-1, 3), 0), ('sin', 1, 1, 0, 0), ('sin', 1, 1, Fr(-2, 3), 0)],
+                                      'Der Graph kreuzt die x-Achse steigend bei π/3 statt bei 0: sin um π/3 nach rechts, f(x) = sin(x − π/3).',
+                                      'Wo beginnt eine Schwingung (steigend auf der Mittellinie)?'))
+    T = ('cos', 2, 1, Fr(1, 3), 0)
+    neu(Z, 'uebung', 2, graph_auswahl(T, [('cos', 2, 1, Fr(-1, 3), 0), ('sin', 2, 1, Fr(1, 3), 0), ('cos', 1, 1, Fr(1, 3), 0), ('cos', 2, 1, Fr(2, 3), 0)],
+                                      'Amplitude 2. Der Hochpunkt, den cos bei 0 hat, liegt hier bei −π/3 (der nächste bei 5π/3): cos um π/3 nach links, f(x) = 2 · cos(x + π/3).',
+                                      'cos hat bei 0 einen Hochpunkt. Wo liegt hier der Hochpunkt, der 0 am nächsten ist?'))
+    T = ('sin', 3, 1, Fr(-1, 6), 1)
+    xh = Fr(1, 2) + Fr(1, 6)
+    g = _bbild([T], y=(-3, 5)) | {'punkte': [{'x': round(float(xh) * PI, 4), 'y': 4, 'name': 'H(2π/3 | 4)'}]}
+    neu(Z, 'uebung', 2, mit_grafik(luecken('Der Graph gehört zu f(x) = a · sin(x − c) + d mit a > 0 und 0 < c < π. Bestimme a, c und d.', 'a = □; c = □/□ · π; d = □',
+                                           'a, c als Bruch vor π, d', [3, 1, 6, 1],
+                                           'Größter Wert 4, kleinster −2: d = (4 + (−2)) : 2 = 1, a = (4 − (−2)) : 2 = 3. sin ist bei π/2 am größten: 2π/3 − c = π/2 ⇒ c = π/6.',
+                                           'Mittellinie und Amplitude aus größtem und kleinstem Wert; c aus der Lage des Hochpunkts.',
+                                           c=['(4 - (-2)) // 2', '1', '6', '(4 + (-2)) // 2']), g))
+    T = ('cos', 2, 2, Fr(-1, 3), 1)
+    g = _bbild([T], y=(-2, 4)) | {'punkte': [{'x': round(PI / 3, 4), 'y': 3, 'name': 'H(π/3 | 3)'}]}
+    neu(Z, 'uebung', 3, mit_grafik(luecken('Der Graph gehört zu f(x) = a · cos(b · (x − c)) + d mit a > 0, b > 0 und 0 < c < π/2. Bestimme a, b, c und d.',
+                                           'a = □; b = □; c = □/□ · π; d = □', 'a, b, c als Bruch vor π, d', [2, 2, 1, 3, 1],
+                                           'Werte von −1 bis 3: d = 1, a = 2. Von Hochpunkt zu Hochpunkt ist es π: b = 2π : π = 2. cos hat bei 0 einen Hochpunkt, hier liegt er bei π/3: c = π/3.',
+                                           'Periode von Hochpunkt zu Hochpunkt ablesen; c ist die Stelle des Hochpunkts.',
+                                           c=['(3 - (-1)) // 2', '2 // 1', '1', '3', '(3 + (-1)) // 2']), g))
+    neu(Z, 'uebung', 3, auswahl('Eine Kurve startet bei x = π/3 steigend auf der Mittellinie y = 0, hat die Amplitude 1 und die Periode π. Jemand schreibt dafür f(x) = sin(2x − π/3). Was stimmt?',
+                                'Falsch: Richtig ist sin(2 · (x − π/3)) = sin(2x − 2π/3).',
+                                ['Richtig.', 'Falsch: Richtig ist sin(2x + π/3).', 'Falsch: Richtig ist sin(0,5x − π/3).'],
+                                'Periode π ⇒ b = 2. Start bei π/3 ⇒ x − π/3 in der Klammer, danach erst mal 2: sin(2 · (x − π/3)). Bei sin(2x − π/3) läge der Start bei π/6.',
+                                'Setze x = π/3 in sin(2x − π/3) ein. Ist die Klammer dann 0?'))
+    neu(Z, 'uebung', 3, auswahl('Welcher Term beschreibt denselben Graphen wie f(x) = cos(x − π/2)?', 'sin(x)', ['−sin(x)', 'cos(x) − π/2', '−cos(x)'],
+                                'cos startet im Hochpunkt bei 0; um π/2 nach rechts liegt der Hochpunkt bei π/2. Dort hat auch sin x seinen Hochpunkt, und bei 0 sind beide 0: f(x) = sin x.',
+                                'Setze x = 0 und x = π/2 ein und vergleiche mit den Angeboten.'))
+
+    # ===== periode: beliebige Winkel =====
+    schritt = {'text': 'Volle Runden zählen nicht: 9π/4 wirkt wie π/4, −π/2 wie 3π/2.',
+               'bild': _KREIS_SCHRITT | {'strecken': [[0, 0, 0.7071, 0.7071], [0, 0, 0, -1]],
+                                         'punkte': [{'x': 0.7071, 'y': 0.7071, 'name': '9π/4'}, {'x': 0, 'y': -1, 'name': '−π/2'}]}}
+
+    def wert_beliebig(f, q, p='uebung', s=1):
+        q = Fr(q)
+        r = q % 2
+        g = int(r * 180)
+        v = {0: (0, 1), 30: (Fr(1, 2), None), 90: (1, 0), 150: (Fr(1, 2), None), 180: (0, -1), 210: (Fr(-1, 2), None), 270: (-1, 0), 330: (Fr(-1, 2), None),
+             60: (None, Fr(1, 2)), 120: (None, Fr(-1, 2)), 240: (None, Fr(-1, 2)), 300: (None, Fr(1, 2))}[g]
+        w_ = v[0] if f == 'sin' else v[1]
+        assert w_ is not None
+        runden = (q - r) / 2
+        return zahl(f'Gib den exakten Wert von {f}({pi_text(q)}) an.',
+                    f'{pi_text(q)} {"−" if runden > 0 else "+"} {pi_text(abs(runden) * 2)} = {pi_text(r)} ({"volle Runde" if abs(runden) == 1 else f"{dz(abs(runden))} volle Runden"} '
+                    f'{"weg" if runden > 0 else "dazu"}). {f}({pi_text(r)}) = {f} {g}° = {dz(w_)}.',
+                    'Zähle volle Runden (2π) weg oder dazu, bis der Winkel zwischen 0 und 2π liegt.', w_, cf_(w_))
+
+    neu(P, 'uebung', 1, wert_beliebig('sin', Fr(5, 2)))
+    neu(P, 'uebung', 2, wert_beliebig('cos', Fr(-1, 3)))
+    neu(P, 'uebung', 2, pq('Gib den Winkel zwischen 0 und 2π an, der am Einheitskreis zum selben Punkt gehört wie −3π/4.', Fr(5, 4),
+                           '−3π/4 + 2π = −3π/4 + 8π/4 = 5π/4.', 'Ein negativer Winkel dreht im Uhrzeigersinn. Zähle eine volle Runde 2π dazu.'))
+    neu(P, 'uebung', 3, wert_beliebig('sin', Fr(-17, 6)))
+    q1, q2 = Fr(100), Fr(-101, 2)
+    r2 = q2 % 2
+    neu(P, 'uebung', 3, zahl('Berechne ohne Taschenrechner: cos(100π) + sin(−101π/2).',
+                             f'100π sind 50 volle Runden: cos(100π) = cos 0 = 1. −101π/2 + 52π = {pi_text(r2)}: sin({pi_text(r2)}) = −1. Summe: 1 + (−1) = 0.',
+                             'Führe beide Winkel durch volle Runden (2π) auf 0 bis 2π zurück.', 0, '1 + (-1)'))
+    neu(P, 'uebung', 3, auswahl('Welche Aussage gilt für jedes x?', 'cos(x − 2π) = cos x', ['sin(x + π) = sin x', 'sin(−x) = sin x', 'cos(x + π) = cos x'],
+                                'Eine volle Runde rückwärts (−2π) führt zum selben Punkt: cos(x − 2π) = cos x. Eine halbe Runde (π) wechselt das Vorzeichen, und sin(−x) = −sin x.',
+                                'Prüfe jede Aussage mit x = π/2 oder x = 0.'))
+    return V, Z, (schritt, P)
+
+
+def luecken_einbauen():
+    from _luecken_kl10 import karte_einfuegen, karte_erweitern, offen_ergaenzen
+    V, Z, (schritt, P) = luecken_kl10()
+    karte_einfuegen('funktionen.trig', KARTE_VERSCHIEBUNG, 'parameter', V)
+    karte_erweitern('funktionen.trig', 'zuordnen', [], Z,
+                    felder={'regel': 'Lies Mittellinie, Amplitude und Periode ab. Start auf der Mittellinie: ⟦sin⟧. Start ganz oben: cos. b = 2π : p. Start verschoben? Dann c ablesen.'})
+    karte_erweitern('funktionen.trig', 'periode', [schritt], P)
+    offen_ergaenzen('funktionen.trig', 'Achtzehnte Runde (luecken-kl10): neue Lernkarte „verschiebung_x“ (Parameter c, LehrplanPLUS M10 3) nach „parameter“; '
+                    '„zuordnen“ um Übungen mit c erweitert (Merksatz um „Start verschoben? Dann c ablesen.“ ergänzt); „periode“ um einen Schritt '
+                    '(Winkel über 2π und negative Winkel am Einheitskreis) und Übungen ergänzt. Der Eintrag „Verschiebung in x-Richtung: … keine eigene Lernkarte“ ist damit überholt.')
+
+
 if __name__ == '__main__':
     datei = bauen('funktionen.trig',
           'Sinus- und Kosinusfunktion mit Grad- und Bogenmaß beschreiben, Periode, Amplitude und Verschiebung deuten, Graph und Term zuordnen und periodische Vorgänge modellieren.',
@@ -1069,3 +1403,4 @@ if __name__ == '__main__':
     ergaenzen(datei, schwer())
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
     nacharbeit_anhaengen('funktionen.trig', nacharbeit())  # Fünfzehnte Runde: Bogenmaß-Übungen, ganz am Ende
+    luecken_einbauen()  # Achtzehnte Runde (luecken-kl10): neue Karte verschiebung_x, zuordnen und periode erweitert – ganz am Ende

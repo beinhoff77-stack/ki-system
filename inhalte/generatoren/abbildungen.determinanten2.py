@@ -606,6 +606,206 @@ def durchsicht(d):
         })
 
 
+# ---- STUFEN (Zwanzigste Runde, Zusatz RS/IB, Zweig stufen-rsib-1) ----
+from _stufen_rsib1 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('abbildungen.determinanten2', 20_71_1)
+Z, A, L = ST.Z, ST.A, ST.L
+
+# det_berechnen
+ST.stufenleiter('det_berechnen', 'Die Determinante zweier Vektoren über Kreuz ausrechnen und die richtige Rechnung erkennen.',
+                'Fehlende Koordinate aus dem Wert bestimmen, Pfeile aus einer Beschreibung übersetzen, Determinanten verrechnen, einfache Sachsituation.',
+                'Rechenregeln begründen (Vertauschen, Vervielfachen, Addieren), Vorzeichenfehler finden, Parameter mit Determinante 0, mehrteilige Prüfungsaufgabe.')
+ST.typ('det_berechnen', '/^(Berechne|Welchen Wert hat) die Determinante/', 'direkt')
+ST.typ('det_berechnen', '/^(Die Determinante der Vektoren a = \\(x|In der Determinante)/', 'umkehr')
+ST.typ('det_berechnen', '/hängen von x ab/', 'parameter')
+ST.typ('det_berechnen', '/^Die Determinante der Vektoren a und b hat den Wert/', 'begruenden')
+ST.neu('det_berechnen', 'erkennen', A('Welche Rechnung liefert die Determinante der Vektoren a = (3 | 1) und b = (2 | 4)?', '3 · 4 − 1 · 2', ['3 · 2 − 1 · 4', '3 · 4 + 1 · 2', '1 · 2 − 3 · 4'],
+       'Über Kreuz: obere Zahl von a mal untere Zahl von b, minus untere Zahl von a mal obere Zahl von b: 3 · 4 − 1 · 2 = 10.', 'Schreibe a und b als Spalten nebeneinander.'))
+ST.neu('det_berechnen', 'erkennen', A('Welches Vektorpaar hat die Determinante 0?', 'a = (2 | 3) und b = (4 | 6)', ['a = (2 | 3) und b = (3 | 2)', 'a = (1 | 0) und b = (0 | 1)', 'a = (2 | 3) und b = (−2 | 3)'],
+       '2 · 6 − 3 · 4 = 0. Die Pfeile zeigen in dieselbe Richtung (b = 2 · a), sie spannen keine Fläche auf. Die anderen Paare ergeben −5, 1 und 12.', 'Wann spannen zwei Pfeile keine Fläche auf?'))
+ST.neu('det_berechnen', 'darstellung', Z('Pfeil a führt 3 Kästchen nach rechts und 2 nach oben, Pfeil b 1 Kästchen nach links und 4 nach oben. Berechne die Determinante der beiden Pfeile.', 14, '3 * 4 - 2 * (-1)',
+       'a = (3 | 2), b = (−1 | 4), denn „nach links“ ist negativ. 3 · 4 − 2 · (−1) = 12 + 2 = 14.', 'Übersetze zuerst jeden Pfeil in Koordinaten.'))
+ST.neu('det_berechnen', 'mehrschritt', Z('Gegeben sind a = (2 | 1), b = (3 | 4) und c = (1 | −2). Berechne die Determinante von a und b plus die Determinante von b und c.', -5, '(2 * 4 - 1 * 3) + (3 * (-2) - 4 * 1)',
+       'a und b: 2 · 4 − 1 · 3 = 5. b und c: 3 · (−2) − 4 · 1 = −10. Summe: 5 + (−10) = −5.', 'Rechne die beiden Determinanten einzeln.'))
+ST.neu('det_berechnen', 'einkleidung', Z('Eine Fliese hat die Form eines Parallelogramms. Ihre Kanten sind die Pfeile (20 | 0) und (6 | 15), alles in cm. Wie groß ist die Fliese?', 300, '20 * 15 - 0 * 6',
+       'Die Determinante ist die Fläche: 20 · 15 − 0 · 6 = 300 cm².', 'Die Determinante der Kantenpfeile ist die Fläche.', einheit='cm²'))
+ST.neu('det_berechnen', 'fehler', A('Jemand rechnet die Determinante von a = (4 | 2) und b = (1 | 3) so: 4 · 3 + 2 · 1 = 14. Was stimmt?', 'Falsch: Man zieht ab: 4 · 3 − 2 · 1 = 10.',
+       ['Richtig.', 'Falsch: 4 · 1 − 2 · 3 = −2.', 'Falsch: 4 · 2 − 1 · 3 = 5.'],
+       'Die Determinante ist „über Kreuz malnehmen, dann abziehen“. Plus statt Minus ergibt 14 statt 10.', 'Plus oder minus zwischen den beiden Produkten?'))
+ST.neu('det_berechnen', 'fehler', A('Jemand rechnet die Determinante von a = (5 | −2) und b = (3 | 1) so: 5 · 1 − (−2) · 3 = 5 − 6 = −1. Was stimmt?', 'Falsch: − (−2) · 3 = + 6, also 5 + 6 = 11.',
+       ['Richtig.', 'Falsch: 5 · 3 − (−2) · 1 = 17.', 'Falsch: Das Ergebnis ist 1.'],
+       '(−2) · 3 = −6. Davon wird abgezogen: 5 − (−6) = 5 + 6 = 11. Der Fehler steckt im Vorzeichen.', 'Rechne (−2) · 3 erst aus und ziehe dann ab.'))
+ST.neu('det_berechnen', 'parameter', L('Für welche Zahlen t hat die Determinante der Vektoren a = (t | 2) und b = (8 | t) den Wert 0?', 't₁ = □; t₂ = □', [-4, 4], ['-4', '4'],
+       'Determinante: t · t − 2 · 8 = t² − 16. t² = 16 hat die Lösungen −4 und 4.', 'Stelle die Determinante als Term mit t auf.'))
+ST.neu('det_berechnen', 'begruenden', A('Stimmt: Addiert man zu b das Doppelte von a, ändert sich die Determinante von a und b nicht?', 'Ja: Es kommt zweimal die Determinante von a mit a dazu, und die ist 0.',
+       ['Nein, sie verdoppelt sich.', 'Nein, sie wird 0.', 'Nur wenn a = b ist.'],
+       'Beispiel a = (2 | 1), b = (1 | 3): Determinante 5. b + 2a = (5 | 5): 2 · 5 − 1 · 5 = 5. Allgemein: Die Determinante von a mit a ist immer 0 – darum ändert sich nichts.', 'Probiere es mit einem Beispiel aus.'))
+ST.neu('det_berechnen', 'pruefung', L('Gegeben sind a = (4 | 1) und b = (x | 3). a) Berechne die Determinante für x = 2. b) Für welches x ist die Determinante 0? c) Für welches x ist sie −8?', 'a) □; b) □; c) □', [10, 12, 20],
+       ['4 * 3 - 1 * 2', '12', '12 + 8'], 'Determinante: 4 · 3 − 1 · x = 12 − x. a) 12 − 2 = 10. b) 12 − x = 0 ⇒ x = 12. c) 12 − x = −8 ⇒ x = 20.', 'Stelle zuerst die Determinante als Term mit x auf.'))
+ST.knobel('det_berechnen', Z('Die Vektoren a = (n | 1) und b = (1 | n) mit einer natürlichen Zahl n spannen eine Fläche von 48 FE auf. Wie groß ist n?', 7, '7',
+          'Determinante: n · n − 1 · 1 = n² − 1. n² − 1 = 48 ⇒ n² = 49 ⇒ n = 7 (n ist natürlich, also nicht −7). Probe: 7 · 7 − 1 = 48.', 'Schreibe die Determinante mit n auf.'))
+ST.knobel('det_berechnen', Z('Die Determinante von a und b ist 3. Wie groß ist die Determinante von a + b und a − b (erst a + b, dann a − b)?', -6, '-2 * 3',
+          'Probiere ein Beispiel mit Determinante 3: a = (3 | 0), b = (0 | 1). a + b = (3 | 1), a − b = (3 | −1). 3 · (−1) − 1 · 3 = −6. '
+          'Allgemein: Ausmultiplizieren ergibt −(a mit b) + (b mit a) = −2 · 3 = −6, weil a mit a und b mit b je 0 sind.', 'Such dir ein einfaches Beispiel mit Determinante 3.'))
+
+# parallelogramm
+ST.stufenleiter('parallelogramm', 'Mit zwei gegebenen Spannvektoren die Fläche eines Parallelogramms ausrechnen; die Spannvektoren erkennen.',
+                'Spannvektoren aus Eckpunkten bilden, mit Maßstab in m² umrechnen, fehlende Koordinate aus der Fläche, Grundseite mal Höhe mit Determinante vergleichen.',
+                'Fläche in Abhängigkeit von x, Lage auf einer Geraden, Wirkung von Verdoppeln und Verschieben begründen, Fehler „Ortsvektoren statt Spannvektoren“, Höhe aus der Fläche, Prüfungsaufgabe mit C.')
+ST.typ('parallelogramm', 'Die Vektoren AB', 'direkt')
+ST.typ('parallelogramm', '/^(Berechne|Welchen) (den )?Flächeninhalt/', 'mehrschritt')
+ST.typ('parallelogramm', 'Ein Beet', 'einkleidung')
+ST.typ('parallelogramm', '/^Gegeben sind A\\(0 \\| 0\\)/', 'parameter')
+ST.typ('parallelogramm', 'Ein Parallelogramm ABCD hat 6 FE', 'begruenden')
+ST.neu('parallelogramm', 'erkennen', A('Welche Vektoren spannen das Parallelogramm ABCD mit A(1 | 2), B(5 | 2) und D(2 | 5) auf?', 'AB = (4 | 0) und AD = (1 | 3)',
+       ['AB = (6 | 4) und AD = (3 | 7)', 'AB = (−4 | 0) und AD = (−1 | −3)', 'AB = (4 | 0) und AD = (2 | 5)'],
+       'Spitze minus Fuß: AB = (5 − 1 | 2 − 2) = (4 | 0), AD = (2 − 1 | 5 − 2) = (1 | 3).', 'Rechne Spitze minus Fuß.'))
+ST.neu('parallelogramm', 'direkt', Z('Ein Parallelogramm wird von den Vektoren a = (5 | 1) und b = (2 | 4) aufgespannt. Wie groß ist es?', 18, '5 * 4 - 1 * 2',
+       '5 · 4 − 1 · 2 = 20 − 2 = 18 FE.', 'Determinante über Kreuz.', einheit='FE'))
+ST.neu('parallelogramm', 'umkehr', Z('Das Parallelogramm aus AB = (6 | 0) und AD = (2 | h) hat 30 FE (h > 0). Wie groß ist h?', 5, '30 // 6',
+       'Determinante: 6 · h − 0 · 2 = 6h. 6h = 30 ⇒ h = 5.', 'Stelle die Determinante mit h auf.'))
+ST.neu('parallelogramm', 'darstellung', A('Ein Parallelogramm hat die Ecken A(0 | 0), B(4 | 0), C(6 | 3) und D(2 | 3). Grundseite AB mal Höhe ergibt 4 · 3 = 12 FE. Was ergibt die Determinante aus AB und AD?',
+       '4 · 3 − 0 · 2 = 12 FE, also dasselbe', ['4 · 2 − 0 · 3 = 8 FE', '4 · 3 + 0 · 2 = 12 FE, aber nur zufällig', '6 · 3 − 0 · 4 = 18 FE'],
+       'AB = (4 | 0), AD = (2 | 3). Determinante 4 · 3 − 0 · 2 = 12. Beide Wege liefern dieselbe Fläche.', 'Bilde AB und AD aus den Ecken.'))
+ST.neu('parallelogramm', 'fehler', A('Jemand berechnet das Parallelogramm ABCD mit A(1 | 1), B(4 | 2) und D(2 | 5) mit der Determinante von (4 | 2) und (2 | 5): 16 FE. Was stimmt?',
+       'Falsch: Man braucht AB = (3 | 1) und AD = (1 | 4); die Fläche ist 11 FE.', ['Richtig.', 'Falsch: Die Fläche ist 8 FE.', 'Falsch: Man muss das Ergebnis noch halbieren.'],
+       'Mit den Punkten selbst (Ortsvektoren) rechnet man ein anderes Parallelogramm aus, eines mit Ecke im Ursprung. Richtig: AB = (3 | 1), AD = (1 | 4), 3 · 4 − 1 · 1 = 11.', 'Welche Pfeile gehen von A aus?'))
+ST.neu('parallelogramm', 'verknuepfen', Z('Das Parallelogramm ABCD mit A(0 | 0), B(3 | 4) und D(−2 | 5) hat die Grundseite AB mit der Länge 5. Wie hoch ist es über AB?', 4.6, '(3 * 5 - 4 * (-2)) / 5',
+       'Fläche: 3 · 5 − 4 · (−2) = 15 + 8 = 23 FE. Fläche = Grundseite · Höhe ⇒ h = 23 : 5 = 4,6.', 'Erst die Fläche mit der Determinante, dann die Formel Grundseite mal Höhe.'))
+ST.neu('parallelogramm', 'begruenden', A('Stimmt: Verschiebt man das ganze Parallelogramm um 3 nach rechts, bleibt die Determinante aus AB und AD gleich?', 'Ja: Die Pfeile AB und AD ändern sich beim Verschieben nicht.',
+       ['Nein, sie wird um 3 größer.', 'Nein, sie wird um 9 größer.', 'Nur wenn A im Ursprung liegt.'],
+       'Beim Verschieben wird zu jeder x-Koordinate 3 addiert. Spitze minus Fuß bleibt gleich, also auch AB, AD und die Fläche.', 'Was passiert mit „Spitze minus Fuß“?'))
+ST.neu('parallelogramm', 'pruefung', L('Gegeben sind A(1 | 1), B(6 | 2) und D(2 | 4) eines Parallelogramms ABCD. a) Berechne die Koordinaten von C. b) Berechne den Flächeninhalt.', 'C(□ | □); A = □ FE', [7, 5, 14],
+       ['6 + 1', '2 + 3', '5 * 3 - 1 * 1'], 'AB = (5 | 1), AD = (1 | 3). a) C = B + AD = (6 + 1 | 2 + 3) = (7 | 5). b) 5 · 3 − 1 · 1 = 14 FE.', 'Von B aus geht es so weiter wie von A nach D.'))
+ST.knobel('parallelogramm', Z('Das Parallelogramm ABCD hat die Ecken A(0 | 0), B(4 | 1), C(5 | 4) und D(1 | 3). Wie viele Gitterpunkte (Punkte mit ganzzahligen Koordinaten) liegen echt im Inneren?', 10, '10',
+          'Fläche: 4 · 3 − 1 · 1 = 11 FE. Auf dem Rand liegen nur die 4 Ecken, weil auf den Seiten (4 | 1) und (1 | 3) keine Gitterpunkte dazwischen liegen. '
+          'Zeichnen und Zählen ergibt Zeile y = 1: (1 | 1), (2 | 1), (3 | 1); y = 2: (1 | 2) bis (4 | 2), das sind 4; y = 3: (2 | 3), (3 | 3), (4 | 3). Zusammen 3 + 4 + 3 = 10.', 'Zeichne genau und zähle Zeile für Zeile.'))
+ST.knobel('parallelogramm', Z('Im Parallelogramm ABCD mit A(0 | 0), B(4 | 0), C(5 | 3) und D(1 | 3) schneiden sich die Diagonalen in M. Wie groß ist das Dreieck ABM?', 3, '4 * 3 / 4',
+          'Die Diagonalen halbieren sich und zerlegen das Parallelogramm in vier gleich große Dreiecke. Fläche: 4 · 3 − 0 · 1 = 12 FE, also ABM = 12 : 4 = 3 FE. '
+          'Probe: M(2,5 | 1,5), AB = (4 | 0), AM = (2,5 | 1,5): ½ · (4 · 1,5 − 0) = 3.', 'Wie teilen die beiden Diagonalen das Parallelogramm?', einheit='FE'))
+
+# dreieck
+ST.stufenleiter('dreieck', 'Mit zwei Spannvektoren die Dreiecksfläche als halbe Determinante ausrechnen.',
+                'Spannvektoren aus Ecken bilden, Plan mit Maßstab, fehlende Koordinate aus der Fläche.',
+                'Fläche in Abhängigkeit von x, Verschieben und Verkleinern begründen, Fehler „Halbieren vergessen“, Mittelpunkt nutzen, Koordinaten selbst festlegen, Prüfungsaufgabe.')
+ST.typ('dreieck', 'Die Vektoren AB', 'direkt')
+ST.typ('dreieck', '/^(Berechne|Welchen) (den )?Flächeninhalt/', 'mehrschritt')
+ST.typ('dreieck', 'Auf einem Plan', 'einkleidung')
+ST.typ('dreieck', 'Gegeben: A(', 'umkehr')
+ST.typ('dreieck', '/^Gegeben sind A\\(0 \\| 0\\)/', 'parameter')
+ST.typ('dreieck', 'Ein Dreieck ABC hat 10 FE', 'begruenden')
+ST.neu('dreieck', 'erkennen', A('Wie hängen die Fläche des Dreiecks ABC und die Determinante aus AB und AC zusammen (Determinante positiv)?', 'Die Fläche ist die Hälfte der Determinante.',
+       ['Die Fläche ist das Doppelte der Determinante.', 'Beide sind gleich groß.', 'Die Fläche ist ein Viertel der Determinante.'],
+       'AB und AC spannen ein Parallelogramm auf. Die Seite BC halbiert es, das Dreieck ist die Hälfte.', 'Denk an das Parallelogramm aus AB und AC.'))
+ST.neu('dreieck', 'direkt', Z('Berechne den Flächeninhalt des Dreiecks mit A(0 | 0), B(6 | 0) und C(2 | 5).', 15, '(6 * 5 - 0 * 2) / 2',
+       'AB = (6 | 0), AC = (2 | 5). Determinante 6 · 5 − 0 · 2 = 30. Dreieck: 30 : 2 = 15 FE.', 'Halbe Determinante.', einheit='FE'))
+ST.neu('dreieck', 'fehler', A('Jemand berechnet das Dreieck mit AB = (4 | 1) und AC = (2 | 3) so: 4 · 3 − 1 · 2 = 10 FE. Was stimmt?', 'Falsch: 10 ist das Parallelogramm, das Dreieck hat 5 FE.',
+       ['Richtig.', 'Falsch: Es hat 20 FE.', 'Falsch: Es hat 7 FE.'], 'Die Determinante 10 gehört zum Parallelogramm. Das Dreieck ist die Hälfte: 5 FE.', 'Was fehlt noch nach der Determinante?'))
+ST.neu('dreieck', 'verknuepfen', Z('M ist der Mittelpunkt der Strecke AB mit A(0 | 0) und B(6 | 2). C liegt bei (1 | 5). Wie groß ist das Dreieck AMC?', 7, '(3 * 5 - 1 * 1) / 2',
+       'M = (3 | 1). AM = (3 | 1), AC = (1 | 5). ½ · (3 · 5 − 1 · 1) = ½ · 14 = 7 FE. Das ist die Hälfte von Dreieck ABC (14 FE).', 'Bestimme zuerst M.', einheit='FE'))
+ST.neu('dreieck', 'transfer', Z('Ein dreieckiges Grundstück: Vom Eckpunkt A aus liegt B 40 m östlich und 10 m nördlich, C liegt 10 m östlich und 30 m nördlich. Wie groß ist das Grundstück?', 550, '(40 * 30 - 10 * 10) / 2',
+       'Lege A in den Ursprung, Osten = x, Norden = y: AB = (40 | 10), AC = (10 | 30). ½ · (40 · 30 − 10 · 10) = ½ · 1 100 = 550 m².', 'Lege selbst ein Koordinatensystem mit A im Ursprung.', einheit='m²'))
+ST.neu('dreieck', 'pruefung', L('Gegeben ist das Dreieck ABC mit A(−1 | −2), B(5 | 0) und C(1 | 4). a) Gib AB und AC an. b) Berechne den Flächeninhalt.', 'AB = (□ | □); AC = (□ | □); A = □ FE', [6, 2, 2, 6, 16],
+       ['5 + 1', '0 + 2', '1 + 1', '4 + 2', '(6 * 6 - 2 * 2) / 2'], 'a) AB = (5 − (−1) | 0 − (−2)) = (6 | 2), AC = (2 | 6). b) ½ · (6 · 6 − 2 · 2) = ½ · 32 = 16 FE.', 'Spitze minus Fuß, Vorsicht bei negativen Koordinaten.'))
+ST.neu('dreieck', 'begruenden', A('Stimmt: Halbiert man alle Koordinaten von A, B und C, halbiert sich die Fläche des Dreiecks?', 'Nein: Sie wird nur ein Viertel so groß.',
+       ['Ja, genau.', 'Nein, sie bleibt gleich.', 'Nein, sie verdoppelt sich.'],
+       'AB und AC werden halbiert. In der Determinante werden beide Produkte mit ½ · ½ = ¼ multipliziert. Beispiel: AB = (4 | 0), AC = (0 | 4): 8 FE; halbiert: (2 | 0), (0 | 2): 2 FE.', 'Probiere ein Beispiel aus.'))
+ST.knobel('dreieck', L('A(0 | 0) und B(4 | 0) sind fest. C liegt auf der Geraden y = x + 1, und das Dreieck ABC hat 10 FE. Gib beide möglichen x-Koordinaten von C an.', 'x₁ = □; x₂ = □', [-6, 4], ['-6', '4'],
+          'C(x | x + 1). AB = (4 | 0), AC = (x | x + 1). Fläche = ½ · |4 · (x + 1)| = 2 · |x + 1| = 10 ⇒ |x + 1| = 5. Also x + 1 = 5 (x = 4) oder x + 1 = −5 (x = −6). '
+          'C kann oberhalb oder unterhalb von AB liegen.', 'C kann über oder unter der x-Achse liegen.'))
+ST.knobel('dreieck', Z('Im Quadrat A(0 | 0), B(6 | 0), C(6 | 6), D(0 | 6) ist M der Mittelpunkt von BC. Wie groß ist das Dreieck AMD?', 18, '(6 * 6 - 3 * 0) / 2',
+          'M(6 | 3). AM = (6 | 3), AD = (0 | 6). ½ · (6 · 6 − 3 · 0) = 18 FE – genau die Hälfte des Quadrats. Das gilt für jeden Punkt M auf BC: Grundseite AD = 6, Höhe immer 6.', 'Rechne – und überlege, ob das Ergebnis von der Lage von M abhängt.', einheit='FE'))
+
+# umlaufsinn
+ST.stufenleiter('umlaufsinn', 'Aus dem Vorzeichen der Determinante den Umlaufsinn ablesen.',
+                'Umlaufsinn aus Eckpunkten berechnen, Fläche als Betrag, Vertauschen der Pfeile, Laufweg im Alltag.',
+                'Reihenfolge gegen den Uhrzeigersinn festlegen, Fehler mit negativer Fläche finden, Lage auf einer Geraden begründen, Parameter für Umlaufsinn und Gerade.')
+ST.typ('umlaufsinn', 'Für A, B, C ist die Determinante', 'erkennen')
+ST.typ('umlaufsinn', '/^(Wie laufen die Ecken|Berechne den Flächeninhalt)/', 'mehrschritt')
+ST.typ('umlaufsinn', 'Die Ecken P', 'verknuepfen')
+ST.typ('umlaufsinn', 'Jemand rechnet', 'fehler')
+ST.typ('umlaufsinn', 'Bilden A', 'begruenden')
+ST.typ('umlaufsinn', 'Gegeben sind A(', 'parameter')
+ST.neu('umlaufsinn', 'direkt', A('Berechne die Determinante aus AB = (2 | 1) und AC = (1 | 3). Wie laufen die Ecken A → B → C?', '5, gegen den Uhrzeigersinn', ['5, im Uhrzeigersinn', '−5, im Uhrzeigersinn', '7, gegen den Uhrzeigersinn'],
+       '2 · 3 − 1 · 1 = 5 > 0: gegen den Uhrzeigersinn.', 'Positiv heißt gegen den Uhrzeigersinn.'))
+ST.neu('umlaufsinn', 'umkehr', A('Für A, B, C ergibt die Determinante aus AB und AC den Wert −14. Welchen Wert hat die Determinante aus AC und AB (Reihenfolge vertauscht)?', '14', ['−14', '7', '−7'],
+       'Vertauscht man die beiden Pfeile, ändert sich nur das Vorzeichen: 14. Das passt: A → C → B läuft andersherum als A → B → C.', 'Was ändert sich beim Vertauschen?'))
+ST.neu('umlaufsinn', 'einkleidung', A('Auf einem Sportplatz läuft jemand von der Ecke A(0 | 0) zur Fahne B(30 | 10), dann zur Fahne C(10 | 40) und zurück zu A. Läuft er gegen den Uhrzeigersinn?', 'Ja, die Determinante ist 1 100 > 0.',
+       ['Nein, die Determinante ist −1 100.', 'Nein, die Punkte liegen auf einer Geraden.', 'Das kann man ohne Zeichnung nicht sagen.'],
+       'AB = (30 | 10), AC = (10 | 40). 30 · 40 − 10 · 10 = 1 100 > 0: gegen den Uhrzeigersinn.', 'Berechne die Determinante aus AB und AC.'))
+ST.knobel('umlaufsinn', Z('A(0 | 0) und B(5 | 0) sind fest. C hat ganzzahlige Koordinaten mit −3 ≤ x ≤ 3 und −3 ≤ y ≤ 3. Für wie viele solche Punkte C laufen A → B → C gegen den Uhrzeigersinn?', 21, '3 * 7',
+          'AB = (5 | 0), AC = (x | y). Determinante 5 · y − 0 · x = 5y. Sie ist positiv genau für y > 0, also y = 1, 2, 3. Für x gibt es jeweils 7 Werte: 3 · 7 = 21. Auf x kommt es gar nicht an.',
+          'Schreibe die Determinante mit x und y auf. Welche Koordinate zählt?'))
+ST.knobel('umlaufsinn', Z('A(1 | 2), B(4 | 3) und C(x | 6) mit einer ganzen Zahl x. Wie klein kann der Flächeninhalt des Dreiecks ABC höchstens werden, wenn es ein echtes Dreieck sein soll?', 0.5, '1 / 2',
+          'AB = (3 | 1), AC = (x − 1 | 4). Determinante: 3 · 4 − 1 · (x − 1) = 13 − x. Für x = 13 liegen die Punkte auf einer Geraden (Fläche 0). '
+          'Kleinster Wert ungleich 0: x = 12 oder x = 14 mit |13 − x| = 1, Fläche ½ · 1 = 0,5 FE.', 'Wann ist die Fläche 0? Was liegt knapp daneben?', einheit='FE'))
+
+# viereck
+ST.stufenleiter('viereck', 'Ein Viereck mit drei gegebenen Pfeilen AB, AC, AD in zwei Dreiecke zerlegen und die Fläche ausrechnen.',
+                'Pfeile aus den Ecken bilden, Grundstück auf einem Plan, fehlende Determinante aus der Fläche bestimmen.',
+                'Fehler „½ vergessen“ finden, Zerlegung über die andere Diagonale begründen, Drachen und Rechteck als Sonderfall, Parameter x, Prüfungsaufgabe.')
+ST.typ('viereck', 'Für das Viereck', 'direkt')
+ST.typ('viereck', '/^(Berechne|Welchen) (den )?Flächeninhalt/', 'mehrschritt')
+ST.typ('viereck', 'Jemand rechnet', 'fehler')
+ST.typ('viereck', 'Ein Grundstück', 'einkleidung')
+ST.typ('viereck', 'Gegeben sind A(', 'parameter')
+ST.typ('viereck', 'Du teilst ein Viereck', 'begruenden')
+ST.typ('viereck', 'Von einem Viereck', 'umkehr')
+ST.neu('viereck', 'erkennen', A('In welche zwei Dreiecke zerlegt die Diagonale AC das Viereck ABCD?', 'ABC und ACD', ['ABD und BCD', 'ABC und BCD', 'ACD und ABD'],
+       'Die Diagonale AC verbindet A und C. Auf der einen Seite liegt B (Dreieck ABC), auf der anderen D (Dreieck ACD).', 'Welche Ecken liegen links und rechts der Diagonale?'))
+ST.neu('viereck', 'direkt', Z('Berechne den Flächeninhalt des Vierecks mit A(0 | 0), B(4 | 0), C(5 | 3) und D(0 | 2).', 11, '(4 * 3 - 0 * 5 + 5 * 2 - 3 * 0) / 2',
+       'AB = (4 | 0), AC = (5 | 3), AD = (0 | 2). AB mit AC: 12. AC mit AD: 5 · 2 − 3 · 0 = 10. Fläche: ½ · (12 + 10) = 11 FE.', 'Zwei Determinanten, dann halbieren.', einheit='FE'))
+ST.neu('viereck', 'transfer', Z('Ein Flugdrachen hat die Ecken A(0 | 0), B(3 | 4), C(0 | 10) und D(−3 | 4), Maße in dm. Wie viel dm² Stoff braucht man?', 30, '(3 * 10 - 4 * 0 + 0 * 4 - 10 * (-3)) / 2',
+       'AB = (3 | 4), AC = (0 | 10), AD = (−3 | 4). AB mit AC: 30. AC mit AD: 0 · 4 − 10 · (−3) = 30. ½ · 60 = 30 dm². Probe: Diagonalen 6 und 10, ½ · 6 · 10 = 30.', 'Zerlege von A aus.', einheit='dm²'))
+ST.neu('viereck', 'verknuepfen', A('Was liefert die Determinanten-Methode für das Rechteck ABCD mit A(0 | 0), B(a | 0), C(a | b) und D(0 | b)?', '½ · (a · b + a · b) = a · b',
+       ['½ · a · b', '2 · a · b', 'a + b'], 'AB = (a | 0), AC = (a | b), AD = (0 | b). AB mit AC: a · b. AC mit AD: a · b − b · 0 = a · b. ½ · 2ab = ab – die bekannte Rechteckformel.',
+       'Rechne mit den Buchstaben wie mit Zahlen.'))
+ST.neu('viereck', 'pruefung', L('Gegeben ist das Viereck ABCD mit A(−2 | −1), B(4 | −2), C(5 | 3) und D(0 | 4). a) Gib AC an. b) Berechne den Flächeninhalt.', 'AC = (□ | □); A = □ FE', [7, 4, 29],
+       ['5 + 2', '3 + 1', '((6 * 4 - (-1) * 7) + (7 * 5 - 4 * 2)) / 2'],
+       'AB = (6 | −1), AC = (7 | 4), AD = (2 | 5). AB mit AC: 24 + 7 = 31. AC mit AD: 35 − 8 = 27. ½ · 58 = 29 FE.', 'Erst alle drei Pfeile, dann zwei Determinanten.'))
+ST.knobel('viereck', Z('Im Quadrat A(0 | 0), B(6 | 0), C(6 | 6), D(0 | 6) liegen P(6 | 2) auf BC und Q(2 | 6) auf CD. Wie groß ist das Dreieck APQ?', 16, '(6 * 6 - 2 * 2) / 2',
+          'AP = (6 | 2), AQ = (2 | 6): ½ · (36 − 4) = 16 FE. Andere Idee: Quadrat 36 minus drei Dreiecke ABP (6), AQD (6) und PCQ (½ · 4 · 4 = 8): 36 − 20 = 16.', 'Du kannst rechnen oder vom Quadrat etwas abziehen.', einheit='FE'))
+ST.knobel('viereck', Z('Die Mittelpunkte der vier Seiten des Vierecks A(0 | 0), B(8 | 0), C(6 | 6), D(0 | 4) bilden ein neues Viereck. Wie groß ist es?', 18, '36 / 2',
+          'ABCD: AB = (8 | 0), AC = (6 | 6), AD = (0 | 4): ½ · (48 + 24) = 36 FE. Mittelpunkte (4 | 0), (7 | 3), (3 | 5), (0 | 2). '
+          'Von (4 | 0) aus: (3 | 3), (−1 | 5), (−4 | 2): ½ · ((15 + 3) + (−2 + 20)) = 18 FE – genau die Hälfte. Das gilt für jedes Viereck.', 'Berechne beide Flächen und vergleiche.', einheit='FE'))
+
+# vieleck
+ST.stufenleiter('vieleck', 'Ein Fünfeck mit gegebenen Pfeilen von A aus in drei Dreiecke zerlegen; wissen, wie viele Determinanten man braucht.',
+                'Pfeile aus den Ecken bilden, Sechseck, Spielplatz mit Maßstab, Ecken aus einer Tabelle, fehlende Determinante aus der Fläche.',
+                'Fehler „ein Dreieck zu viel“, Unabhängigkeit von der Startecke und Umlaufsinn nach Spiegeln begründen, L-Form mit Rechtecken prüfen, Hauswand als Modell, Parameter, Prüfungsaufgabe.')
+ST.typ('vieleck', 'Für das Fünfeck', 'direkt')
+ST.typ('vieleck', 'Wie viele Determinanten', 'erkennen')
+ST.typ('vieleck', 'Berechne den Flächeninhalt des', 'mehrschritt')
+ST.typ('vieleck', 'Ein Spielplatz', 'einkleidung')
+ST.typ('vieleck', 'Gegeben sind A(', 'parameter')
+ST.typ('vieleck', 'Für ein Fünfeck', 'umkehr')
+ST.neu('vieleck', 'darstellung', Z('Die Ecken eines Fünfecks stehen in einer Tabelle: A(0 | 0), B(4 | 0), C(5 | 3), D(2 | 5), E(0 | 3). Berechne den Flächeninhalt.', 18.5, '(4 * 3 - 0 * 5 + 5 * 5 - 3 * 2 + 2 * 3 - 5 * 0) / 2',
+       'AB = (4 | 0), AC = (5 | 3), AD = (2 | 5), AE = (0 | 3). 12 + (25 − 6) + (6 − 0) = 37. ½ · 37 = 18,5 FE.', 'Bilde die vier Pfeile von A aus.', einheit='FE'))
+ST.neu('vieleck', 'fehler', A('Jemand rechnet beim Fünfeck ABCDE die Determinanten AB mit AC, AC mit AD, AD mit AE und dazu AE mit AB, addiert und halbiert. Was stimmt?',
+       'Falsch: AE mit AB gehört nicht dazu, es sind nur drei Dreiecke.', ['Richtig, das sind die vier Dreiecke.', 'Falsch: Man darf nicht halbieren.', 'Falsch: Es fehlt noch AB mit AD.'],
+       'Von A aus entstehen beim Fünfeck nur drei Dreiecke: ABC, ACD und ADE. Jedes weitere Produkt verfälscht das Ergebnis.', 'Wie viele Dreiecke entstehen beim Fünfeck?'))
+ST.neu('vieleck', 'begruenden', A('Stimmt: Zerlegt man ein Vieleck von der Ecke C statt von A aus, kommt dieselbe Fläche heraus?', 'Ja, die Fläche hängt nicht davon ab, wo man zerlegt.',
+       ['Nein, von A aus ist es immer mehr.', 'Nur bei Fünfecken.', 'Nein, das Vorzeichen ist dann immer negativ.'],
+       'Die Fläche ist eine Eigenschaft der Figur. Jede Zerlegung in Dreiecke liefert dieselbe Summe, solange die Ecken in derselben Reihenfolge laufen.', 'Hängt die Fläche einer Figur von der Rechnung ab?'))
+ST.neu('vieleck', 'begruenden', A('Ein Fünfeck ABCDE (gegen den Uhrzeigersinn) hat 20 FE. Man spiegelt es an der y-Achse und rechnet mit denselben Buchstaben. Was ergibt die halbe Summe der Determinanten?', '−20, weil die Ecken jetzt im Uhrzeigersinn laufen',
+       ['20, es ändert sich nichts', '−40', '0'], 'Spiegeln dreht den Umlaufsinn um. Jede Determinante wechselt das Vorzeichen, die Fläche bleibt 20 FE.', 'Was macht eine Spiegelung mit dem Umlaufsinn?'))
+ST.neu('vieleck', 'verknuepfen', Z('Ein L-förmiges Sechseck hat die Ecken A(0 | 0), B(6 | 0), C(6 | 2), D(2 | 2), E(2 | 5), F(0 | 5). Berechne die Fläche mit Determinanten (von A aus).', 18,
+       '(6 * 2 - 0 * 6 + 6 * 2 - 2 * 2 + 2 * 5 - 2 * 2 + 2 * 5 - 5 * 0) / 2',
+       'AB mit AC: 12. AC mit AD: 12 − 4 = 8. AD mit AE: 10 − 4 = 6. AE mit AF: 10 − 0 = 10. ½ · 36 = 18 FE. Probe mit Rechtecken: 6 · 2 + 2 · 3 = 18.', 'Prüfe dein Ergebnis mit zwei Rechtecken.', einheit='FE'))
+ST.neu('vieleck', 'transfer', Z('Eine Hauswand ist 4 m breit und bis zur Dachkante 4 m hoch, der Giebel in der Mitte ist 6 m hoch. Lege die Wand in ein Koordinatensystem und berechne ihre Fläche mit Determinanten.', 20,
+       '(4 * 4 - 0 * 4 + 4 * 6 - 4 * 2 + 2 * 4 - 6 * 0) / 2',
+       'Ecken A(0 | 0), B(4 | 0), C(4 | 4), D(2 | 6), E(0 | 4). 16 + (24 − 8) + (8 − 0) = 40. ½ · 40 = 20 m². Probe: Rechteck 16 + Dreieck 4.', 'Lege eine Ecke der Wand in den Ursprung.', einheit='m²'))
+ST.neu('vieleck', 'pruefung', Z('Ein Fünfeck hat die Ecken A(1 | 0), B(5 | 1), C(6 | 4), D(3 | 6) und E(0 | 3). Zerlege von A aus und berechne den Flächeninhalt.', 22.5,
+       '((4 * 4 - 1 * 5) + (5 * 6 - 4 * 2) + (2 * 3 - 6 * (-1))) / 2',
+       'AB = (4 | 1), AC = (5 | 4), AD = (2 | 6), AE = (−1 | 3). 11 + 22 + 12 = 45. ½ · 45 = 22,5 FE.', 'Vier Pfeile, drei Determinanten.', einheit='FE'))
+ST.knobel('vieleck', Z('Aus einem Quadrat mit A(0 | 0), C(6 | 6) entsteht ein Achteck, indem man an jeder Ecke ein Dreieck mit zwei Schenkeln der Länge 2 abschneidet. Wie groß ist das Achteck?', 28, '36 - 4 * 2',
+          'Das Quadrat hat 36 FE. Jedes abgeschnittene Dreieck hat ½ · 2 · 2 = 2 FE, vier davon 8 FE. 36 − 8 = 28 FE. '
+          'Mit Determinanten über die Ecken (2 | 0), (4 | 0), (6 | 2), (6 | 4), (4 | 6), (2 | 6), (0 | 4), (0 | 2) kommt dasselbe heraus.', 'Muss man wirklich sechs Determinanten rechnen?', einheit='FE'))
+ST.knobel('vieleck', Z('Das Fünfeck A(0 | 0), B(6 | 0), C(6 | 4), D(3 | 6), E(0 | 4) wird zum Viereck ABCE, indem man die Ecke D weglässt. Um wie viel FE wird die Fläche kleiner?', 6, '((-3) * 0 - 2 * (-6)) / 2',
+          'Der Unterschied ist genau das Dreieck CDE. CD = (−3 | 2), CE = (−6 | 0): ½ · ((−3) · 0 − 2 · (−6)) = 6 FE. Probe: Fünfeck 30 FE, Rechteck ABCE 24 FE.', 'Welche Figur fällt weg?', einheit='FE'))
+
+
 if __name__ == '__main__':
     d = bauen('abbildungen.determinanten2',
           'Flächen von Dreiecken, Vierecken und Vielecken im Koordinatensystem mit zweireihigen Determinanten berechnen.',
@@ -620,3 +820,4 @@ if __name__ == '__main__':
                  'Determinanten werden als „Determinante der Vektoren a und b“ ausgeschrieben; die Spaltenschreibweise steht nur als Tabelle in der Lernkarte.'])
     umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=['Die App kann keine Vektorpfeile zeichnen'])
     durchsicht(d)
+    stufen('abbildungen.determinanten2', ST)

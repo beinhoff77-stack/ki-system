@@ -547,9 +547,11 @@ KLAR = {
                {'text': 'Durch 1 000 teilen: 1,04^t = 1,5.'},
                {'text': 'Logarithmieren: t = lg 1,5 : lg 1,04 ≈ 10,34.', 'bild': {'senkrecht': [10.34]}},
                {'text': 'Zinsen gibt es am Jahresende. ⟦Nach 11 Jahren⟧ sind 1 500 € erreicht.',
-                'bild': {'punkte': [{'x': 10, 'y': 1480, 'name': '10 J.: 1 480 €'}, {'x': 11, 'y': 1539, 'name': '11 J.: 1 539 €'}]}}],
+                'bild': {'x': [8, 13], 'y': [1300, 1700], 'schritt_y': 100,
+                         'punkte': [{'x': 10, 'y': 1480, 'name': '10 J.: 1 480 €'}, {'x': 11, 'y': 1539, 'name': '11 J.: 1 539 €'}]}}],
   'fehler': 'Der Faktor ist nicht 0,04. Dann blieben nach einem Jahr nur 40 €. Richtig ist ⟦1,04⟧: das ganze Geld plus 4 %.',
-  'fehler_bild': {'graphen': [{'art': 'exp', 'a': 1000, 'b': 1.04, 'bereich': [0, 15], 'name': '1,04'},
+  'fehler_bild': {'x': [0, 15], 'y': [0, 2000], 'schritt_y': 500, 'punkte': [],
+                  'graphen': [{'art': 'exp', 'a': 1000, 'b': 1.04, 'bereich': [0, 15], 'name': '1,04'},
                               {'art': 'exp', 'a': 1000, 'b': 0.04, 'bereich': [0, 15], 'name': '0,04?'}]},
   'regel': 'Ansatz Anfangswert · q^t = Ziel, dann logarithmieren. Bei Zunahme um p ist ⟦q = 1 + p⟧, bei Abnahme q = 1 − p.'},
  'verstehen': {

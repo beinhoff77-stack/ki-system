@@ -562,7 +562,7 @@ UMBAU = {
  'funktionswert': {
   'einstieg': 'Ein Taxi kostet 3 € Grundpreis und 2 € pro Kilometer. Die Rechenvorschrift ist wie eine Maschine: Kilometer hinein, Preis heraus. Was herauskommt, heißt ⟦Funktionswert⟧.',
   'woerter': [['t(x)', 'gelesen „t von x“: der Preis für x Kilometer'], ['t(5)', 'der Preis für 5 Kilometer'], ['Funktionswert', 'das Ergebnis der Maschine, also der y-Wert']],
-  'bild': _TAXI,
+  'bild': {**_TAXI, 'graphen': [{'art': 'linear', 'm': 2, 't': 3, 'name': 'Preis', 'bereich': [0, 6], 'name_x': 2}]},
   'schritte': [{'text': 'Die Taxi-Maschine heißt t(x) = 2x + 3. Gesucht ist t(5).'},
                {'text': 'Überall, wo x steht, eine 5 einsetzen: t(5) = 2 · 5 + 3.', 'bild': {'senkrecht': [5]}},
                {'text': 'Ausrechnen: 10 + 3 = 13. Also ⟦t(5) = 13⟧, die Fahrt kostet 13 €.', 'bild': {'punkte': [{'x': 5, 'y': 13, 'name': '(5 | 13)'}], 'waagrecht': [13]}}],

@@ -391,7 +391,8 @@
        "art": "potenz",
        "a": 1,
        "n": -2,
-       "name": "y = x⁻²"
+       "name": "y = x⁻²",
+       "name_x": 1
       }
      ]
     },
@@ -473,7 +474,8 @@
          "art": "potenz",
          "a": 1,
          "n": 0.3333333333333333,
-         "name": "y = ∛x"
+         "name": "y = ∛x",
+         "name_x": 4
         }
        ],
        "punkte": [

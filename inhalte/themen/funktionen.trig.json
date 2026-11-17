@@ -481,7 +481,8 @@
          "b": 1,
          "c": 0.0,
          "d": 1,
-         "name": "f"
+         "name": "f",
+         "name_x": 45
         }
        ],
        "waagrecht": [
@@ -534,7 +535,8 @@
          "c": 0.0,
          "d": 1,
          "bogen": true,
-         "name": "f"
+         "name": "f",
+         "name_x": 0.7854
         }
        ],
        "punkte": [
@@ -773,7 +775,8 @@
          "c": 0.0,
          "d": 0,
          "bogen": true,
-         "name": "cos x"
+         "name": "cos x",
+         "name_x": -5.236
         }
        ],
        "punkte": [
@@ -821,7 +824,8 @@
        "b": 1,
        "c": 0.0,
        "d": 0,
-       "name": "cos x"
+       "name": "cos x",
+       "name_x": -300
       }
      ]
     },

@@ -438,13 +438,15 @@
        "art": "linear",
        "m": 3,
        "t": 5,
-       "name": "Ausgaben"
+       "name": "Ausgaben",
+       "name_x": 2.5
       },
       {
        "art": "linear",
        "m": 0,
        "t": 17,
-       "name": "Geld"
+       "name": "Geld",
+       "name_x": 1.5
       }
      ],
      "schritt_y": 2

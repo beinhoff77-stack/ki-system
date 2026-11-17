@@ -208,7 +208,7 @@ UMBAU = {
                {'text': 'Zusammengefasst: y = (x − 3)² − 4.'},
                {'text': 'Der Scheitel ist ⟦S(3 | −4)⟧.', 'bild': {'punkte': [{'x': 3, 'y': -4, 'name': 'S(3 | −4)'}]}}],
   'fehler': 'y = (x − 6)² + 5 ist falsch. In die Klammer gehört die Hälfte von 6, und die 9 muss wieder weg.',
-  'fehler_bild': {'graphen': [{'art': 'poly', 'k': [5, -6, 1], 'name': 'richtig'}, {'art': 'poly', 'k': [41, -12, 1], 'name': 'falsch'}]},
+  'fehler_bild': {'graphen': [{'art': 'poly', 'k': [5, -6, 1], 'name': 'richtig', 'name_x': 6.3}, {'art': 'poly', 'k': [41, -12, 1], 'name': 'falsch', 'name_x': 4.5}]},
   'regel': 'Ergänze ⟦(b/2)²⟧ und ziehe es wieder ab. Steht vor x² eine Zahl, klammerst du sie zuerst aus.'},
  'nullstellen': {
   'einstieg': 'Wo trifft eine Parabel die x-Achse? Dort ist die Höhe 0, wie beim Wasserstrahl am Boden. Diese Stellen heißen ⟦Nullstellen⟧.',

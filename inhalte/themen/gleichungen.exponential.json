@@ -456,6 +456,15 @@
      {
       "text": "Zinsen gibt es am Jahresende. ⟦Nach 11 Jahren⟧ sind 1 500 € erreicht.",
       "bild": {
+       "x": [
+        8,
+        13
+       ],
+       "y": [
+        1300,
+        1700
+       ],
+       "schritt_y": 100,
        "punkte": [
         {
          "x": 10,
@@ -517,6 +526,16 @@
      ]
     ],
     "fehler_bild": {
+     "x": [
+      0,
+      15
+     ],
+     "y": [
+      0,
+      2000
+     ],
+     "schritt_y": 500,
+     "punkte": [],
      "graphen": [
       {
        "art": "exp",

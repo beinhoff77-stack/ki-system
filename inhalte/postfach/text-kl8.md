@@ -2,6 +2,34 @@
 
 Neueste Meldung oben.
 
+## 2026-11-18 02:27 – STATUS funktionen.linear
+
+### funktionen.linear
+
+Anteil Textaufgaben an den Übungen mit g: vorher 15% (nur einkleidung/transfer) bzw. 31% (mit anerkannten Sachaufgaben anderer Typen) → nachher **44%**.
+
+| Lernkarte | vorher S1/S2/S3 (Lehrer) | vorher S1/S2/S3 (mit anderen Typen) | nachher S1/S2/S3 | neu Übung | neu Sicherung/Korrektur | überzählig | Sicherung/Korrektur Text nachher |
+|---|---|---|---|---|---|---|---|
+| ablesen | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 0 | 2/1 |
+| graph_ablesen | 0/1/2 | 0/1/2 | 1/3/4 = 8 | 5 | 2/1 | 0 | 2/1 |
+| zwei_punkte | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 0 | 2/1 |
+| proportional | 0/2/1 | 4/2/5 | 4/3/7 = 14 | 3 | 2/1 | 0 | 2/1 |
+| aufstellen | 0/3/1 | 0/3/1 | 1/3/4 = 8 | 4 | 2/0 | 0 | 3/2 |
+| schnittpunkte | 0/2/1 | 0/2/1 | 1/3/4 = 8 | 5 | 2/1 | 0 | 2/1 |
+| lage | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 0 | 2/1 |
+| deuten | 0/3/2 | 6/8/8 | 6/8/10 = 24 | 2 | 0/0 | 0 | 6/3 |
+
+Beispiele (je Stufe eine neue Textaufgabe, Wortlaut):
+
+- Stufe 1 (ablesen): „Ein Taxi kostet y = 2,4x + 4 Euro für x km. Wie hoch ist der Grundpreis t?“
+- Stufe 2 (ablesen): „Ein Wassertank enthält nach x Minuten y = −12x + 600 Liter. Um wie viele Liter ändert sich der Inhalt pro Minute? (Gib die Steigung m an.)“
+- Stufe 3 (deuten): „Ein Becken wird geleert: V(x) = −40x + 1 200 (x in Minuten, V in Litern). Jemand sagt: „−40 bedeutet: Nach 40 Minuten ist das Becken leer.“ Was stimmt?“
+
+Überzählig (g entfernt, Aufgabe bleibt): 0
+Als Sachaufgabe anerkannte alte Aufgaben anderer Typen: 26 Übungen, 12 Sicherung/Korrektur.
+Sachkontexte: Tarife, Taxi, Mietwagen, Kerzen, Tanks, Wanderer/Läufer; Steigung und y-Achsenabschnitt t werden jeweils im Kontext gedeutet.
+
+
 ## 2026-11-18 02:25 – STATUS funktionen.grundbegriffe
 
 ### funktionen.grundbegriffe

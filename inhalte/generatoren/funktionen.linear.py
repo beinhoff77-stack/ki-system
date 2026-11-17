@@ -1152,6 +1152,151 @@ ST.knobel('deuten', SZ('Ein Händler hat Kosten K(x) = 2x + 300 und Einnahmen E(
 baue = mit_stufen(baue, ST)
 # ---- STUFEN ENDE ----
 
+# ---------- TEXT: Zweiundzwanzigste Runde (18.11., Auftrag des Lehrers) – mehr Textaufgaben, siehe _text_kl8.py ----------
+from _text_kl8 import Text, mit_text, text_auf_datei  # noqa: E402
+TX = Text('funktionen.linear', 22_8_8)
+TZ, TA, TL, TW = TX.Z, TX.A, TX.L, TX.W
+
+# --- ablesen (m und t aus dem Term) ---
+TX.u('ablesen', 'direkt', TZ('Ein Taxi kostet y = 2,4x + 4 Euro für x km. Wie hoch ist der Grundpreis t?', '4',
+    TW('y = 2,4x + 4.', 'y-Achsenabschnitt t.', 't ist die Zahl ohne x.', 't = 4.', 'Der Grundpreis ist 4 €.'), 'Welcher Betrag fällt auch bei 0 km an?', einheit='€'))
+TX.u('ablesen', 'einkleidung', TZ('Ein Wassertank enthält nach x Minuten y = −12x + 600 Liter. Um wie viele Liter ändert sich der Inhalt pro Minute? (Gib die Steigung m an.)', '-12',
+    TW('y = −12x + 600.', 'Steigung m.', 'm ist die Zahl vor x.', 'm = −12.', 'Pro Minute fließen 12 l ab, m = −12.'), 'Welche Zahl steht vor dem x?', einheit='l pro min'))
+TX.u('ablesen', 'darstellung', TZ('Ein Kerzengraph geht durch (0 | 22) und (4 | 16). Wie groß ist die Steigung m (in cm pro Stunde)?', '(16 - 22) / 4',
+    TW('(0 | 22), (4 | 16).', 'Steigung m.', 'Höhenänderung durch Zeitänderung.', '(16 − 22) : 4 = −1,5.', 'm = −1,5; die Kerze wird 1,5 cm pro Stunde kürzer.'), 'Um wie viel ändert sich y in 4 Stunden?'))
+TX.u('ablesen', 'transfer', TZ('Ein Handyvertrag kostet y = 0,09x + 7,99 Euro im Monat (x Minuten). Im Vertrag sind 3 GB Daten enthalten. Wie viel kostet jede zusätzliche Gesprächsminute in Cent?', '0.09 * 100',
+    TW('y = 0,09x + 7,99; die Datenmenge spielt keine Rolle.', 'm in Cent.', 'm ablesen, in Cent umrechnen.', '0,09 € = 9 ct.', 'Jede Minute kostet 9 Cent.'), 'Welche Zahl gehört zu einer zusätzlichen Minute?', einheit='ct'), huerde='ueberfluessig')
+TX.u('ablesen', 'pruefung', TX.A('Ein Fitnessstudio kostet y = 4x + 25 Euro im Monat (x Besuche). Jemand sagt: „Der Grundbetrag ist 4 €, jeder Besuch kostet 25 €.“ Was stimmt?',
+    'Falsch: Grundbetrag t = 25 €, jeder Besuch m = 4 €.', ['Richtig.', 'Falsch: Beides kostet 29 €.', 'Falsch: Grundbetrag 0 €, Besuch 29 €.'],
+    TW('y = 4x + 25.', 'Was ist m, was ist t?', 'm steht vor x, t ist die Zahl allein.', 'm = 4, t = 25.', 'Die Aussage vertauscht m und t.'), 'Welche Zahl gehört zum x?'), huerde='entscheidung')
+TX.u('ablesen', 'begruenden', TZ('Ein Becken wird gefüllt: y = 0,8x + 15 (x in Minuten, y in cm). Das Becken ist 95 cm tief. Wie viele Minuten dauert es, bis es voll ist?', '(95 - 15) / 0.8',
+    TW('y = 0,8x + 15, voll bei 95 cm.', 'Füllzeit.', 'm und t deuten, dann y = 95 setzen.', '0,8x = 80 ⇒ x = 100.', 'Nach 100 Minuten ist das Becken voll.'), 'Wie hoch steht das Wasser am Anfang, wie schnell steigt es?', einheit='min'), huerde='zwei')
+TX.s('ablesen', TZ('Ein Paketdienst berechnet y = 1,2x + 5 Euro für x kg. Wie viel kostet jedes Kilogramm?', '1.2',
+    TW('y = 1,2x + 5.', 'm.', 'Zahl vor x.', 'm = 1,2.', 'Jedes kg kostet 1,20 €.'), einheit='€'))
+TX.s('ablesen', TZ('Ein Ballon sinkt: Höhe y = −3x + 240 m nach x Sekunden. In welcher Höhe startet er?', '240',
+    TW('y = −3x + 240.', 't.', 'Zahl ohne x.', 't = 240.', 'Er startet in 240 m Höhe.'), einheit='m'))
+TX.k('ablesen', TZ('Ein Mietwagen kostet y = 0,3x + 45 Euro (x km). Wie hoch sind die festen Kosten?', '45',
+    TW('y = 0,3x + 45.', 't.', 'Zahl ohne x.', 't = 45.', 'Die festen Kosten sind 45 €.'), einheit='€'))
+
+# --- zwei_punkte ---
+TX.u('zwei_punkte', 'direkt', TZ('Ein Taxi kostet für 2 km 8 € und für 6 km 16 €. Der Preis steigt gleichmäßig. Wie viel kostet jeder km?', '(16 - 8) / (6 - 2)',
+    TW('(2 | 8), (6 | 16).', 'Steigung m.', 'm = Δy : Δx.', '8 : 4 = 2.', 'Jeder km kostet 2 €.'), 'Wie viel teurer sind 4 km mehr?', einheit='€'))
+TX.u('zwei_punkte', 'einkleidung', TL('Eine Kerze ist nach 2 h 21 cm und nach 5 h 15 cm hoch. Gib die Geradengleichung an.', 'h = □ · t + □', ['(15 - 21) / 3', '21 + 2 * 2'],
+    TW('(2 | 21), (5 | 15).', 'h = m·t + t₀.', 'Erst m, dann Startwert.', 'm = −6 : 3 = −2; 21 = −2 · 2 + t₀ ⇒ t₀ = 25.', 'h = −2t + 25.'), 'Erst die Steigung, dann den Anfangswert.', hinweis='Je Lücke eine ganze Zahl, Vorzeichen mit eingeben.'))
+TX.u('zwei_punkte', 'mehrschritt', TZ('Ein Handyvertrag kostet bei 100 Minuten 17 € und bei 250 Minuten 26 €. Wie hoch ist die monatliche Grundgebühr?', '17 - 100 * (26 - 17) / (250 - 100)',
+    TW('(100 | 17), (250 | 26).', 'Grundgebühr t.', 'm bestimmen, dann t.', 'm = 9 : 150 = 0,06; t = 17 − 6 = 11.', 'Die Grundgebühr ist 11 €.'), 'Was kosten 150 Minuten mehr?', einheit='€'))
+TX.u('zwei_punkte', 'pruefung', TZ('Ein Wanderer ist um 10 Uhr bei km 6 und um 13 Uhr bei km 18. Er trägt einen 9 kg schweren Rucksack. Er geht gleichmäßig. Bei welchem km war er um 9 Uhr?', '6 - (18 - 6) / 3',
+    TW('(10 | 6), (13 | 18); der Rucksack spielt keine Rolle.', 'Wert um 9 Uhr.', 'm bestimmen, eine Stunde zurück.', 'm = 12 : 3 = 4; 6 − 4 = 2.', 'Um 9 Uhr war er bei km 2.'), 'Welche Angaben brauchst du für die Gerade?', einheit='km'), huerde='ueberfluessig')
+TX.u('zwei_punkte', 'transfer', TZ('Ein Handwerker berechnet für 2 h Arbeit 130 € und für 5 h 265 €, jeweils mit gleicher Anfahrtspauschale. Ein Kunde hat höchstens 350 € Budget. Wie viele volle Stunden kann er bezahlen?', '(350 - (130 - 2 * 45)) // 45',
+    TW('(2 | 130), (5 | 265), höchstens 350 €.', 'größte volle Stundenzahl.', 'Gerade aus zwei Punkten, dann Grenze.', 'm = 135 : 3 = 45, t = 40; 45x + 40 ≤ 350 ⇒ x ≤ 6,9.', 'Er kann 6 volle Stunden bezahlen.'), 'Was kostet eine Stunde, was die Anfahrt?', einheit='h'), huerde='deuten')
+TX.u('zwei_punkte', 'verknuepfen', TX.A('Ein Becken: Nach 4 min ist das Wasser 30 cm hoch, nach 10 min 57 cm. Jemand sagt: „Das Becken war am Anfang leer.“ Was stimmt?',
+    'Falsch: Am Anfang standen schon 12 cm Wasser darin.', ['Richtig: Bei t = 0 sind es 0 cm.', 'Falsch: Am Anfang waren es 30 cm.', 'Falsch: Am Anfang waren es 4,5 cm.'],
+    TW('(4 | 30), (10 | 57).', 'Startwert.', 'm bestimmen, auf t = 0 zurückrechnen.', 'm = 27 : 6 = 4,5; 30 − 4 · 4,5 = 12.', 'Am Anfang standen 12 cm Wasser darin.'), 'Rechne mit der Steigung vier Minuten zurück.'), huerde='entscheidung')
+TX.s('zwei_punkte', TZ('Ein Paket wiegt 2 kg und kostet 7 €, ein 5-kg-Paket kostet 11,50 €. Wie viel kostet jedes kg?', '(11.5 - 7) / 3',
+    TW('(2 | 7), (5 | 11,5).', 'm.', 'Δy : Δx.', '4,5 : 3 = 1,5.', 'Jedes kg kostet 1,50 €.'), einheit='€'))
+TX.s('zwei_punkte', TZ('Ein Tank enthält nach 3 min 410 l und nach 8 min 260 l. Wie viel war am Anfang darin?', '410 + 3 * (410 - 260) / 5',
+    TW('(3 | 410), (8 | 260).', 't.', 'm, dann zurückrechnen.', 'm = −30; 410 + 90 = 500.', 'Am Anfang waren 500 l darin.'), einheit='l'))
+TX.k('zwei_punkte', TZ('Eine Taxifahrt über 3 km kostet 10 €, über 7 km 18 €. Wie hoch ist der Grundpreis?', '10 - 3 * (18 - 10) / 4',
+    TW('(3 | 10), (7 | 18).', 't.', 'm = 2, dann t.', '10 − 6 = 4.', 'Der Grundpreis ist 4 €.'), einheit='€'))
+
+# --- proportional ---
+TX.u('proportional', 'mehrschritt', TZ('Ein Drucker schafft 18 Seiten in 45 Sekunden. Wie lange braucht er für einen Stapel von 120 Seiten?', '45 / 18 * 120',
+    TW('18 Seiten → 45 s, proportional.', 'Zeit für 120 Seiten.', 'Zeit pro Seite.', '2,5 s · 120 = 300 s.', 'Er braucht 300 s, also 5 Minuten.'), 'Wie lange dauert eine Seite?', einheit='s'))
+TX.u('proportional', 'pruefung', TZ('Ein Lieferwagen verbraucht 9 l Diesel auf 100 km. Er hat 6 Sitzplätze und ist weiß lackiert. Wie viele Liter braucht er für 340 km?', '9 / 100 * 340',
+    TW('9 l pro 100 km, 340 km; Sitze und Farbe spielen keine Rolle.', 'Verbrauch.', 'Verbrauch pro km.', '0,09 · 340 = 30,6.', 'Er braucht 30,6 l.'), 'Welche Angaben gehören zum Verbrauch?', einheit='l'), huerde='ueberfluessig')
+TX.u('proportional', 'verknuepfen', TX.A('Ein Laden verkauft Saft: 1 l kostet 2,20 €, die 5-l-Packung kostet 9 €. Jemand sagt: „Der Preis ist proportional zur Menge.“ Was stimmt?',
+    'Falsch: Bei Proportionalität müssten 5 l 11 € kosten.', ['Richtig: Mehr Saft kostet mehr.', 'Richtig: 9 : 5 = 2,20.', 'Falsch: 5 l müssten 10 € kosten.'],
+    TW('1 l → 2,20 €, 5 l → 9 €.', 'proportional?', 'Quotient Preis : Menge vergleichen.', '2,20 € pro l gegen 1,80 € pro l.', 'Nicht proportional; die Großpackung ist günstiger.'), 'Was müssten 5 l bei gleichem Literpreis kosten?'), huerde='entscheidung')
+TX.s('proportional', TZ('3 m Stoff kosten 21 €. Was kosten 5 m?', '21 / 3 * 5',
+    TW('3 m → 21 €.', 'Preis für 5 m.', 'Preis pro m.', '7 · 5 = 35.', '5 m kosten 35 €.'), einheit='€'))
+TX.s('proportional', TZ('Ein Wasserhahn füllt in 4 Minuten 30 l. Wie viel Liter sind es nach 10 Minuten?', '30 / 4 * 10',
+    TW('4 min → 30 l.', 'Menge nach 10 min.', 'Pro Minute.', '7,5 · 10 = 75.', '75 l.'), einheit='l'))
+TX.k('proportional', TZ('Ein Auto fährt mit konstanter Geschwindigkeit 150 km in 2 Stunden. Wie weit kommt es in 3,5 Stunden?', '150 / 2 * 3.5',
+    TW('2 h → 150 km.', 'Weg in 3,5 h.', 'Pro Stunde.', '75 · 3,5 = 262,5.', '262,5 km.'), einheit='km'))
+
+# --- aufstellen ---
+TX.u('aufstellen', 'direkt', TL('Ein Schwimmbad kostet 3 € Eintritt pro Besuch, dazu einmalig 10 € für eine Chipkarte. Stelle den Funktionsterm für x Besuche auf.', 'y = □ · x + □', ['3', '10'],
+    TW('3 € pro Besuch, 10 € einmalig.', 'y = mx + t.', 'm = Preis pro Besuch, t = einmalige Kosten.', 'm = 3, t = 10.', 'y = 3x + 10.'), 'Was ändert sich mit jedem Besuch, was bleibt gleich?'))
+TX.u('aufstellen', 'transfer', TZ('Ein Mietwagen kostet 0,35 € pro km und 49 € Grundgebühr. Er hat Platz für 5 Personen. Stelle den Term auf und berechne den Preis für 260 km.', '0.35 * 260 + 49',
+    TW('m = 0,35, t = 49; Plätze spielen keine Rolle.', 'Preis bei 260 km.', 'y = 0,35x + 49, einsetzen.', '91 + 49 = 140.', '260 km kosten 140 €.'), 'Welche Angaben gehören in den Term?', einheit='€'), huerde='ueberfluessig')
+TX.u('aufstellen', 'pruefung', TX.A('Ein Kino bietet eine Karte für 30 € im Monat an, mit der jeder Film nur 4 € kostet. Einzeln kostet ein Film 9 €. Welcher Term und welche Entscheidung passen für 5 Filme im Monat?',
+    'y = 4x + 30; 50 € gegen 45 € einzeln – die Karte lohnt sich nicht.', ['y = 30x + 4; die Karte lohnt sich.', 'y = 4x + 30; 50 € gegen 45 € – die Karte lohnt sich.', 'y = 9x + 30; beides kostet gleich viel.'],
+    TW('Karte: 30 € + 4 € pro Film; einzeln 9 € pro Film.', 'Term und Entscheidung.', 'Beide Terme bei x = 5.', '4 · 5 + 30 = 50; 9 · 5 = 45.', 'Bei 5 Filmen ist einzeln günstiger.'), 'Stelle beide Terme auf und setze 5 ein.'), huerde='entscheidung')
+TX.u('aufstellen', 'verknuepfen', TL('Ein Zug fährt gleichmäßig mit 120 km/h. Um 10 Uhr ist er 50 km vom Startbahnhof entfernt. Stelle s(x) für x Stunden nach 10 Uhr auf und gib den Abstand um 12:30 Uhr an.', 's = □ · x + □; um 12:30 Uhr □ km', ['120', '50', '120 * 2.5 + 50'],
+    TW('120 km/h, 50 km um 10 Uhr.', 'Term und Wert bei 12:30 Uhr.', 'm = 120, t = 50; x = 2,5.', '300 + 50 = 350.', 's = 120x + 50; um 12:30 Uhr 350 km.'), 'Wie viele Stunden sind es von 10 Uhr bis 12:30 Uhr?'), huerde='deuten')
+TX.s('aufstellen', TL('Ein Kind hat 25 € gespart und spart jede Woche 4 € dazu. Stelle den Term auf.', 'y = □ · x + □', ['4', '25'],
+    TW('4 € pro Woche, Start 25 €.', 'y = mx + t.', 'm, t ablesen.', 'm = 4, t = 25.', 'y = 4x + 25.')))
+TX.s('aufstellen', TL('Eine Kerze ist 30 cm hoch und brennt pro Stunde 2 cm ab. Stelle den Term auf.', 'h = □ · x + □', ['-2', '30'],
+    TW('−2 cm pro Stunde, Start 30 cm.', 'h = mx + t.', 'Abnahme heißt negatives m.', 'm = −2, t = 30.', 'h = −2x + 30.'), hinweis='Je Lücke eine ganze Zahl, Vorzeichen mit eingeben.'))
+
+# --- schnittpunkte ---
+TX.u('schnittpunkte', 'direkt', TZ('Tarif A kostet y = 0,2x Euro, Tarif B y = 0,1x + 6 Euro (x Minuten). Bei wie vielen Minuten kosten beide gleich viel?', '6 / (0.2 - 0.1)',
+    TW('0,2x = 0,1x + 6.', 'x.', 'Gleichsetzen.', '0,1x = 6 ⇒ x = 60.', 'Bei 60 Minuten kosten beide 12 €.'), 'Setze die Terme gleich.', einheit='min'))
+TX.u('schnittpunkte', 'einkleidung', TZ('Ein Kind hat 40 € und spart 5 € pro Woche, sein Bruder hat 10 € und spart 8 € pro Woche. Nach wie vielen Wochen haben beide gleich viel?', '(40 - 10) / (8 - 5)',
+    TW('40 + 5x = 10 + 8x.', 'x.', 'Gleichsetzen.', '30 = 3x ⇒ x = 10.', 'Nach 10 Wochen haben beide 90 €.'), 'Stelle zwei Terme auf.', einheit='Wochen'))
+TX.u('schnittpunkte', 'pruefung', TZ('Zwei Kerzen brennen gleichzeitig: A ist 24 cm hoch und brennt 2 cm pro Stunde, B ist 18 cm hoch und brennt 1 cm pro Stunde. A ist rot, B ist weiß. Nach wie vielen Stunden sind beide gleich hoch?', '(24 - 18) / (2 - 1)',
+    TW('24 − 2x = 18 − x; Farben spielen keine Rolle.', 'x.', 'Gleichsetzen.', '6 = x.', 'Nach 6 Stunden sind beide 12 cm hoch.'), 'Welche Angaben gehören in die Terme?', einheit='h'), huerde='ueberfluessig')
+TX.u('schnittpunkte', 'transfer', TZ('Zwei Handwerker: A verlangt 30 € Anfahrt und 40 € pro Stunde, B 60 € Anfahrt und 34 € pro Stunde. Ab wie vielen vollen Stunden ist B günstiger?', '(60 - 30) // (40 - 34) + 1',
+    TW('A: 30 + 40x, B: 60 + 34x.', 'kleinste volle Stundenzahl mit B < A.', 'Schnittpunkt, dann deuten.', '30 + 40x = 60 + 34x ⇒ x = 5; bei 5 h gleich teuer.', 'Ab 6 Stunden ist B günstiger.'), 'Was gilt genau am Schnittpunkt?', einheit='h'), huerde='deuten')
+TX.u('schnittpunkte', 'begruenden', TX.A('Zwei Läufer: A startet bei km 0 mit 12 km/h, B startet gleichzeitig bei km 3 mit 10 km/h. Jemand sagt: „A holt B nach 1,5 Stunden ein, also noch vor dem Ziel bei km 15.“ Was stimmt?',
+    'Richtig: Treffpunkt bei km 18 nach 1,5 h – aber das ist hinter dem Ziel, A holt B also nicht ein.', ['Richtig: A holt B bei km 15 ein.', 'Falsch: A holt B nie ein.', 'Falsch: A holt B nach 0,5 h ein.'],
+    TW('A: 12x, B: 10x + 3, Ziel bei km 15.', 'Treffpunkt vor dem Ziel?', 'Gleichsetzen, dann mit dem Ziel vergleichen.', '12x = 10x + 3 ⇒ x = 1,5; 12 · 1,5 = 18 > 15.', 'Die Zeit stimmt, aber der Treffpunkt liegt hinter dem Ziel.'), 'Berechne auch, bei welchem km sie sich treffen würden.'), huerde='zwei')
+TX.s('schnittpunkte', TZ('Taxi A: 3 € + 2 € pro km, Taxi B: 5 € + 1,50 € pro km. Bei wie vielen km kosten beide gleich viel?', '(5 - 3) / (2 - 1.5)',
+    TW('3 + 2x = 5 + 1,5x.', 'x.', 'Gleichsetzen.', '0,5x = 2 ⇒ x = 4.', 'Bei 4 km.'), einheit='km'))
+TX.s('schnittpunkte', TZ('Tank A hat 200 l und verliert 10 l pro Minute, Tank B hat 50 l und bekommt 5 l pro Minute dazu. Nach wie vielen Minuten ist in beiden gleich viel?', '(200 - 50) / (10 + 5)',
+    TW('200 − 10x = 50 + 5x.', 'x.', 'Gleichsetzen.', '150 = 15x ⇒ x = 10.', 'Nach 10 Minuten.'), einheit='min'))
+TX.k('schnittpunkte', TZ('Sparplan A: 100 € + 20 € pro Monat, Sparplan B: 40 € + 35 € pro Monat. Nach wie vielen Monaten sind beide gleich?', '(100 - 40) / (35 - 20)',
+    TW('100 + 20x = 40 + 35x.', 'x.', 'Gleichsetzen.', '60 = 15x ⇒ x = 4.', 'Nach 4 Monaten.'), einheit='Monate'))
+
+# --- lage ---
+TX.u('lage', 'erkennen', TX.A('Zwei Handytarife: A kostet y = 0,1x + 5, B kostet y = 0,1x + 8 Euro. Wie liegen ihre Graphen zueinander?', 'parallel', ['schneiden sich bei x = 3', 'identisch', 'senkrecht'],
+    TW('beide m = 0,1, verschiedenes t.', 'Lage.', 'Gleiche Steigung, verschiedener Achsenabschnitt.', 'parallel.', 'Die Graphen sind parallel; B ist immer 3 € teurer.'), 'Vergleiche die Steigungen.'))
+TX.u('lage', 'einkleidung', TX.A('Zwei Kerzen brennen gleich schnell ab: A ist 20 cm, B 15 cm hoch. Wie verlaufen die Graphen Höhe über Zeit?', 'parallel, A immer 5 cm höher', ['Sie schneiden sich nach 5 h.', 'Sie sind identisch.', 'Sie stehen senkrecht.'],
+    TW('gleiche Abbrennrate, verschiedene Starthöhe.', 'Lage der Graphen.', 'gleiches m, verschiedenes t.', 'parallel.', 'Die Graphen sind parallel.'), 'Was bedeutet „gleich schnell“ für die Steigung?'))
+TX.u('lage', 'mehrschritt', TZ('Eine gerade Straße verläuft auf einem Plan entlang y = 2x + 1. Ein Fußweg soll senkrecht zu ihr durch den Brunnen bei (4 | 3) gehen. Welchen y-Achsenabschnitt t hat der Fußweg?', '3 + 0.5 * 4',
+    TW('Straße m = 2; senkrecht: m = −0,5; Punkt (4 | 3).', 't.', 'm senkrecht = −1 : 2, dann Punkt einsetzen.', '3 = −0,5 · 4 + t ⇒ t = 5.', 'Der Fußweg hat t = 5: y = −0,5x + 5.'), 'Welche Steigung hat eine Senkrechte zu m = 2?'))
+TX.u('lage', 'pruefung', TX.A('Zwei Fitnessstudios: A kostet y = 3x + 20, B y = 3x + 20 Euro (x Besuche). A hat Sauna, B eine Kletterwand. Was gilt für die Graphen der Kosten?', 'identisch – beide kosten immer gleich viel.', ['parallel – A ist immer teurer.', 'Sie schneiden sich bei x = 20.', 'Sie stehen senkrecht.'],
+    TW('beide 3x + 20; Ausstattung spielt keine Rolle.', 'Lage.', 'm und t vergleichen.', 'gleiches m und gleiches t.', 'Die Graphen sind identisch.'), 'Vergleiche m und t – was ist für die Kosten wichtig?'), huerde='ueberfluessig')
+TX.u('lage', 'transfer', TX.A('Zwei Läufer laufen gleich schnell (10 km/h) in dieselbe Richtung, der zweite startet 2 km weiter vorne. Jemand sagt: „Irgendwann holt der erste den zweiten ein.“ Was stimmt?',
+    'Falsch: Die Graphen sind parallel, der Abstand bleibt 2 km.', ['Richtig: nach 2 Stunden.', 'Richtig: nach 12 Minuten.', 'Falsch: Der zweite wird eingeholt, wenn er müde wird.'],
+    TW('beide 10 km/h, Abstand 2 km.', 'Einholen?', 'gleiche Steigung → parallel.', '10x = 10x + 2 hat keine Lösung.', 'Er holt ihn nie ein.'), 'Was bedeutet gleiche Geschwindigkeit für die Graphen?'), huerde='entscheidung')
+TX.u('lage', 'verknuepfen', TZ('Zwei Tarife: A kostet y = 0,15x + 4, B kostet y = m · x + 10 Euro. Für welches m sind die Graphen parallel und was kostet B dann bei 100 Minuten?', '0.15 * 100 + 10',
+    TW('parallel ⇒ m = 0,15.', 'Preis von B bei 100 min.', 'Steigung übernehmen, einsetzen.', '15 + 10 = 25.', 'm = 0,15; B kostet bei 100 Minuten 25 €.'), 'Parallel heißt: gleiche Steigung.', einheit='€'), huerde='zwei')
+TX.s('lage', TX.A('Tank A: y = −5x + 100, Tank B: y = −5x + 80 (x Minuten, y Liter). Wie liegen die Graphen?', 'parallel', ['Sie schneiden sich.', 'identisch', 'senkrecht'],
+    TW('gleiches m.', 'Lage.', 'm und t vergleichen.', 'm gleich, t verschieden.', 'parallel.')))
+TX.s('lage', TZ('Ein Weg verläuft auf einem Plan entlang y = −2x + 6. Ein zweiter Weg soll senkrecht dazu verlaufen. Welche Steigung hat er?', '1 / 2',
+    TW('m = −2.', 'senkrechte Steigung.', 'm₂ = −1 : m₁.', '−1 : (−2) = 0,5.', 'm = 0,5.')))
+TX.k('lage', TX.A('Taxi A: y = 2x + 4, Taxi B: y = 2,5x + 3. Wie liegen die Graphen?', 'Sie schneiden sich.', ['parallel', 'identisch', 'senkrecht'],
+    TW('m verschieden.', 'Lage.', 'Steigungen vergleichen.', '2 ≠ 2,5, Produkt ≠ −1.', 'Sie schneiden sich (bei x = 2).')))
+
+# --- deuten ---
+TX.u('deuten', 'fehler', TX.A('Ein Becken wird geleert: V(x) = −40x + 1 200 (x in Minuten, V in Litern). Jemand sagt: „−40 bedeutet: Nach 40 Minuten ist das Becken leer.“ Was stimmt?',
+    'Falsch: −40 heißt 40 l weniger pro Minute; leer ist es nach 30 Minuten.', ['Richtig.', 'Falsch: Leer ist es nach 1 200 Minuten.', 'Falsch: −40 heißt, es kommen 40 l dazu.'],
+    TW('V(x) = −40x + 1 200.', 'Bedeutung von −40, Leerzeit.', 'm deuten, Nullstelle berechnen.', '1 200 : 40 = 30.', '−40 ist die Abnahme pro Minute; leer nach 30 Minuten.'), 'Was bedeutet die Zahl vor x in Worten?'), huerde='entscheidung')
+TX.u('deuten', 'pruefung', TZ('Ein Lieferdienst berechnet K(x) = 1,5x + 2,5 Euro (x km Entfernung). Er liefert von 11 bis 22 Uhr und hat 12 Fahrräder. Wie viel kostet eine Lieferung über 6 km?', '1.5 * 6 + 2.5',
+    TW('K(x) = 1,5x + 2,5; Lieferzeiten und Räder spielen keine Rolle.', 'K(6).', 'Einsetzen.', '9 + 2,5 = 11,5.', 'Die Lieferung kostet 11,50 €.'), 'Welche Angaben stecken im Term?', einheit='€'), huerde='ueberfluessig')
+
+# --- graph_ablesen ---
+TX.u('graph_ablesen', 'erkennen', TX.A('Eine Gerade zeigt die Kosten eines Mietrads: Sie schneidet die y-Achse bei 2 und steigt pro Stunde um 3. Welche Gleichung gehört dazu?', 'y = 3x + 2', ['y = 2x + 3', 'y = 3x − 2', 'y = 5x'],
+    TW('t = 2, m = 3.', 'Gleichung.', 'y = mx + t.', 'y = 3x + 2.', 'y = 3x + 2.'), 'Wo beginnt der Graph, wie stark steigt er?'))
+TX.u('graph_ablesen', 'darstellung', TZ('Ein Graph zeigt die Höhe einer Kerze: Er beginnt bei 24 cm und trifft die x-Achse bei 8 Stunden. Wie viele cm brennt die Kerze pro Stunde ab?', '24 / 8',
+    TW('(0 | 24), (8 | 0).', 'Abnahme pro Stunde.', 'Steigung aus zwei Punkten.', 'm = −24 : 8 = −3.', 'Die Kerze brennt 3 cm pro Stunde ab.'), 'Welche zwei Punkte kannst du ablesen?', einheit='cm'))
+TX.u('graph_ablesen', 'einkleidung', TZ('Der Graph eines Sparkontos geht durch (0 | 150) und (6 | 330) (x Monate, y Euro). Wie viel wird pro Monat eingezahlt?', '(330 - 150) / 6',
+    TW('(0 | 150), (6 | 330).', 'm.', 'Δy : Δx.', '180 : 6 = 30.', 'Pro Monat werden 30 € eingezahlt.'), 'Wie viel kommt in 6 Monaten dazu?', einheit='€'))
+TX.u('graph_ablesen', 'pruefung', TZ('Ein Graph zeigt die Fahrt eines Radfahrers: Er beginnt bei (0 | 5) und geht durch (2 | 35) (x in h, y in km). Das Rad wiegt 11 kg. Wie weit ist der Radfahrer nach 3 Stunden vom Ort mit km 0 entfernt?', '5 + 3 * (35 - 5) / 2',
+    TW('(0 | 5), (2 | 35); das Gewicht spielt keine Rolle.', 'y bei x = 3.', 'm = 15, t = 5.', '15 · 3 + 5 = 50.', 'Nach 3 Stunden ist er bei km 50.'), 'Welche Angabe brauchst du nicht?', einheit='km'), huerde='ueberfluessig')
+TX.u('graph_ablesen', 'begruenden', TX.A('Ein Graph beginnt bei (0 | 40) und fällt bis (5 | 0); er zeigt den Akkustand eines Staubsaugers in Prozent. Jemand sagt: „Der Akku war am Anfang voll.“ Was stimmt?',
+    'Falsch: Er startete bei 40 % und war nach 5 Minuten leer.', ['Richtig: Der Graph beginnt oben.', 'Richtig: 40 bedeutet voll.', 'Falsch: Er startete bei 5 %.'],
+    TW('Start (0 | 40).', 'War er voll?', 'y-Achsenabschnitt deuten.', 't = 40 %.', 'Der Akku startete bei 40 %, nicht voll.'), 'Welcher y-Wert gehört zu x = 0?'), huerde='entscheidung')
+TX.s('graph_ablesen', TZ('Ein Graph geht durch (0 | 10) und (4 | 30) (x Stunden, y Euro). Wie viel kostet eine Stunde?', '(30 - 10) / 4',
+    TW('(0 | 10), (4 | 30).', 'm.', 'Δy : Δx.', '20 : 4 = 5.', '5 € pro Stunde.'), einheit='€'))
+TX.s('graph_ablesen', TZ('Ein Graph zeigt einen Tank: Er beginnt bei 90 l und fällt pro Minute um 6 l. Nach wie vielen Minuten trifft er die x-Achse?', '90 / 6',
+    TW('t = 90, m = −6.', 'Nullstelle.', '90 − 6x = 0.', 'x = 15.', 'Nach 15 Minuten.'), einheit='min'))
+TX.k('graph_ablesen', TZ('Ein Graph beginnt bei 3 € und geht durch (5 | 13) (x km). Wie viel kostet ein km?', '(13 - 3) / 5',
+    TW('(0 | 3), (5 | 13).', 'm.', 'Δy : Δx.', '10 : 5 = 2.', '2 € pro km.'), einheit='€'))
+baue = mit_text(baue, TX)
+# ---- TEXT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Steigung und Achsenabschnitt', ['ablesen', 'zwei_punkte', 'proportional']), ('Geraden bestimmen', ['aufstellen', 'schnittpunkte', 'lage']),

@@ -798,6 +798,92 @@ ST.knobel('geometrie', SZ('Ein Rechteck mit ganzzahligen Seitenlängen hat den U
 baue = mit_stufen(baue, ST)
 # ---- STUFEN ENDE ----
 
+# ---------- TEXT: Zweiundzwanzigste Runde (18.11., Auftrag des Lehrers) – mehr Textaufgaben, siehe _text_kl8.py ----------
+from _text_kl8 import Text, mit_text, text_auf_datei  # noqa: E402
+TX = Text('gleichungen.formeln', 22_8_4)
+TZ, TA, TL, TW = TX.Z, TX.A, TX.L, TX.W
+
+TX.huerde_alt('ein_schritt', r'Ist die Stromstärke größer oder kleiner als 10 A', 'entscheidung')
+TX.huerde_alt('einsetzen', r'1 Stunde mit 60 km/h und danach 2 Stunden', 'zwei')
+TX.huerde_alt('einsetzen', r'Für 120 km bei 80 km/h rechnet jemand', 'entscheidung')
+
+# --- ein_schritt ---
+TX.u('ein_schritt', 'direkt', TZ('Ein Auto fährt gleichmäßig mit 80 km/h. Wie lange braucht es für 200 km? Nutze s = v · t.', '200 / 80',
+    TW('v = 80 km/h, s = 200 km.', 'Zeit t.', 's = v · t nach t umstellen: t = s : v.', 't = 200 : 80 = 2,5.', 'Es braucht 2,5 Stunden.'), 'Welche Größe ist gesucht, welche Rechnung macht „mal v“ rückgängig?', einheit='h'))
+TX.u('ein_schritt', 'einkleidung', TZ('Für eine Party werden 12 gleiche Flaschen Saft für zusammen 18 € gekauft. Es gilt Preis P = Anzahl n · Stückpreis p. Wie viel kostet eine Flasche?', '18 / 12',
+    TW('P = 18 €, n = 12.', 'Stückpreis p.', 'P = n · p nach p umstellen: p = P : n.', 'p = 18 : 12 = 1,5.', 'Eine Flasche kostet 1,50 €.'), 'Was ist hier gegeben, was gesucht?', einheit='€'))
+TX.u('ein_schritt', 'umkehr', TZ('Ein Messingstück hat die Dichte 8,5 g/cm³ und wiegt 170 g. Welches Volumen hat es? Stelle ρ = m : V passend um.', '170 / 8.5',
+    TW('ρ = 8,5 g/cm³, m = 170 g.', 'Volumen V.', 'ρ = m : V ⇒ V = m : ρ.', 'V = 170 : 8,5 = 20.', 'Das Stück hat 20 cm³.'), 'V steht im Nenner – erst mal V, dann durch ρ.', einheit='cm³'))
+TX.u('ein_schritt', 'rueckwaerts', TZ('Ein Lkw darf mit Ladung höchstens 7,5 t wiegen, leer wiegt er 3,9 t. Er soll Kies laden; 1 m³ Kies wiegt 1,8 t. Wie viele m³ Kies darf er höchstens laden?', '(7.5 - 3.9) / 1.8',
+    TW('Gesamt höchstens 7,5 t, leer 3,9 t, 1 m³ = 1,8 t.', 'erlaubtes Kiesvolumen.', 'Erst erlaubte Ladung, dann m = ρ · V nach V umstellen.', 'Ladung 7,5 − 3,9 = 3,6 t. V = 3,6 : 1,8 = 2.', 'Er darf höchstens 2 m³ Kies laden.'),
+    'Wie viel Tonnen darf die Ladung allein wiegen?', einheit='m³'), huerde='zwei')
+TX.s('ein_schritt', TZ('Ein Radfahrer fährt gleichmäßig mit 18 km/h. Wie lange braucht er für 27 km? Stelle s = v · t nach t um.', '27 / 18',
+    TW('v = 18 km/h, s = 27 km.', 'Zeit t.', 't = s : v.', 't = 27 : 18 = 1,5.', 'Er braucht 1,5 Stunden.'), einheit='h'))
+TX.k('ein_schritt', TZ('Ein rechteckiges Beet soll 24 m² groß und 3 m breit sein. Wie lang muss es sein? Stelle A = a · b nach a um.', '24 / 3',
+    TW('A = 24 m², b = 3 m.', 'Länge a.', 'a = A : b.', 'a = 24 : 3 = 8.', 'Das Beet muss 8 m lang sein.'), einheit='m'))
+
+# --- zwei_schritte ---
+TX.u('zwei_schritte', 'direkt', TZ('Ein Taxi berechnet K = 4 + 2 · s (K in €, s in km). Die Fahrt kostete 18 €. Wie viele km war sie lang?', '(18 - 4) / 2',
+    TW('K = 18 €, 4 € Grundpreis, 2 € pro km.', 'Strecke s.', 'Erst 4 abziehen, dann durch 2.', 's = (18 − 4) : 2 = 7.', 'Die Fahrt war 7 km lang.'), 'Was wurde zuletzt gerechnet – und was machst du darum zuerst rückgängig?', einheit='km'))
+TX.u('zwei_schritte', 'einkleidung', TZ('Ein Fitnessstudio kostet im Monat K = 25 + 3 · b (b Besuche, K in €). Im Mai waren es 61 €. Wie oft war die Kundin im Mai dort?', '(61 - 25) / 3',
+    TW('K = 61 €, 25 € fest, 3 € pro Besuch.', 'Anzahl der Besuche b.', 'b = (K − 25) : 3.', 'b = 36 : 3 = 12.', 'Sie war 12-mal dort.'), 'Wie viel Geld fällt allein auf die Besuche?'))
+TX.u('zwei_schritte', 'pruefung', TZ('Eine Autovermietung rechnet K = 39 + 0,25 · s (s gefahrene km, K in €). Das Auto hat 5 Sitze und braucht 6 l auf 100 km. Die Rechnung lautet 89 €. Wie viele km wurde gefahren?', '(89 - 39) / 0.25',
+    TW('K = 89 €, 39 € fest, 0,25 € pro km. Sitze und Verbrauch spielen keine Rolle.', 'Strecke s.', 's = (K − 39) : 0,25.', 's = 50 : 0,25 = 200.', 'Es wurden 200 km gefahren.'),
+    'Welche Angaben kommen in der Formel überhaupt vor?', einheit='km'), huerde='ueberfluessig')
+TX.u('zwei_schritte', 'transfer', TX.A('Tarif A kostet K = 10 + 0,2 · m, Tarif B kostet K = 0,3 · m (m Minuten im Monat, K in €). Jemand telefoniert etwa 120 Minuten im Monat. Welcher Tarif ist günstiger?',
+    'Tarif A (34 € statt 36 €).', ['Tarif B, weil er keine Grundgebühr hat.', 'Beide kosten gleich viel.', 'Tarif B (24 € statt 34 €).'],
+    TW('A: 10 + 0,2m, B: 0,3m, m = 120.', 'günstigerer Tarif.', 'Beide Kosten für m = 120 berechnen.', 'A: 10 + 24 = 34 €. B: 36 €.', 'Bei 120 Minuten ist Tarif A günstiger.'), 'Setze 120 in beide Formeln ein.'), huerde='entscheidung')
+TX.s('zwei_schritte', TZ('Für eine Schulfeier gilt: Kosten K = 120 + 4,5 · n (n Gäste, K in €). Es stehen 300 € bereit. Wie viele Gäste können kommen?', '(300 - 120) / 4.5',
+    TW('K = 300 €, 120 € fest, 4,50 € pro Gast.', 'Gästezahl n.', 'n = (K − 120) : 4,5.', 'n = 180 : 4,5 = 40.', 'Es können 40 Gäste kommen.')))
+
+# --- pruefen ---
+TX.u('pruefen', 'erkennen', TX.A('Hefte kosten 2,50 € pro Stück: P = 2,5 · n. Ein Kind will aus dem Preis die Anzahl berechnen und schreibt n = P · 2,5. Stimmt das?', 'Nein, richtig ist n = P : 2,5.',
+    ['Ja, das stimmt.', 'Nein, richtig ist n = 2,5 : P.', 'Nein, richtig ist n = P − 2,5.'],
+    TW('P = 2,5 · n.', 'richtige Umstellung nach n.', '„mal 2,5“ wird durch „geteilt durch 2,5“ rückgängig gemacht.', 'Probe: 4 Hefte kosten 10 €; 10 · 2,5 = 25 ≠ 4, aber 10 : 2,5 = 4.', 'Richtig ist n = P : 2,5.'), 'Probiere mit 4 Heften aus.'))
+TX.u('pruefen', 'einkleidung', TZ('Ein Kino rechnet für Gruppen K = 20 + 6 · n (n Personen, K in €). Jemand stellt um zu n = K : 6 − 20 und setzt K = 80 ein. Wie viele Personen waren es wirklich?', '(80 - 20) / 6',
+    TW('K = 80 €, 20 € fest, 6 € pro Person; Umstellung n = K : 6 − 20.', 'richtige Personenzahl.', 'Richtig umgestellt: n = (K − 20) : 6.', 'n = 60 : 6 = 10. (Die falsche Umstellung gibt eine negative Zahl.)', 'Es waren 10 Personen.'),
+    'Welche Rechnung muss zuerst rückgängig gemacht werden?'))
+TX.u('pruefen', 'mehrschritt', TZ('Eine Kerze ist nach t Stunden h = 24 − 1,5 · t (in cm) hoch. Jemand stellt nach t um: t = (24 − h) : 1,5. Prüfe mit h = 15: Nach wie vielen Stunden ist die Kerze 15 cm hoch?', '(24 - 15) / 1.5',
+    TW('h = 24 − 1,5t, h = 15 cm.', 'Zeit t (und ob die Umstellung stimmt).', 'Einsetzen in die Umstellung, mit der Ausgangsformel prüfen.', 't = 9 : 1,5 = 6. Probe: 24 − 1,5 · 6 = 15 ✓.', 'Nach 6 Stunden – die Umstellung stimmt.'), 'Setze ein und mache die Probe.', einheit='h'))
+TX.u('pruefen', 'pruefung', TZ('Ein Paketdienst berechnet K = 4,90 + 0,8 · m (m in kg, K in €). Ein 60 cm langes Paket kostet 9,70 €. Jemand stellt um zu m = (K − 4,90) : 0,8. Wie schwer ist das Paket?', '(9.7 - 4.9) / 0.8',
+    TW('K = 9,70 €; Länge spielt keine Rolle; Umstellung prüfen.', 'Masse m.', 'Die Umstellung ist richtig: erst 4,90 abziehen, dann durch 0,8.', 'm = 4,8 : 0,8 = 6.', 'Das Paket wiegt 6 kg.'),
+    'Welche Angabe hat mit der Formel nichts zu tun?', einheit='kg'), huerde='ueberfluessig')
+TX.u('pruefen', 'transfer', TX.A('Für die Höhe eines Weges gilt h = s · p : 100 (s Weglänge in m, p Steigung in %). Jemand stellt nach s um: s = h · 100 : p. Ein Weg steigt mit 8 % auf 24 m Höhe. Was stimmt?',
+    'Die Umstellung stimmt, der Weg ist 300 m lang.', ['Falsch, richtig wäre s = h · p : 100 = 1,92 m.', 'Die Umstellung stimmt, der Weg ist 3 m lang.', 'Falsch, richtig wäre s = p : h · 100.'],
+    TW('h = 24 m, p = 8 %; Umstellung s = h · 100 : p.', 'Ist die Umstellung richtig, wie lang ist der Weg?', 'Erst prüfen, dann einsetzen.', 'h = s · p : 100 ⇒ s = h · 100 : p. s = 2 400 : 8 = 300. Probe: 300 · 8 : 100 = 24 ✓.', 'Die Umstellung stimmt; der Weg ist 300 m lang.'),
+    'Mache die Probe mit der Ausgangsformel.'), huerde='entscheidung')
+TX.u('pruefen', 'verknuepfen', TZ('Ein rechteckiger Pool ist 8 m lang und 4 m breit, pro Stunde fließen 1 600 l hinein. Jemand rechnet für 2 Stunden mit h = V : G: h = 3 200 : 32 = 100 cm. Wie hoch steht das Wasser wirklich in cm?', '3.2 / 32 * 100',
+    TW('G = 32 m², V = 3 200 l nach 2 h.', 'Wasserhöhe in cm.', 'Einheiten passend machen: 3 200 l = 3,2 m³, dann h = V : G.', 'h = 3,2 : 32 = 0,1 m = 10 cm.', 'Das Wasser steht 10 cm hoch – Liter und m² passen nicht zusammen.'),
+    'In welcher Einheit muss V stehen, wenn G in m² gegeben ist?', einheit='cm'), huerde='fehlend')
+TX.s('pruefen', TZ('Beim Wandern gilt t = s : 4 (s in km, t in h). Jemand stellt nach s um und schreibt s = t : 4. Wie weit kommt man in 3 Stunden wirklich?', '3 * 4',
+    TW('t = s : 4, t = 3 h.', 'Strecke s.', 'Richtig umgestellt: s = 4 · t.', 's = 4 · 3 = 12.', 'Man kommt 12 km weit.'), einheit='km'))
+TX.s('pruefen', TZ('Für den Strom gilt K = 12 + 0,3 · E (E in kWh, K in €). Jemand stellt um zu E = (K − 12) : 0,3. Wie viele kWh wurden bei 87 € verbraucht?', '(87 - 12) / 0.3',
+    TW('K = 87 €.', 'Verbrauch E.', 'Die Umstellung ist richtig.', 'E = 75 : 0,3 = 250.', 'Es wurden 250 kWh verbraucht.'), einheit='kWh'))
+TX.k('pruefen', TZ('Ein Handwerker berechnet K = 50 + 40 · t (t Stunden, K in €). Jemand stellt um zu t = K : 40 − 50. Wie viele Stunden wurden bei 210 € wirklich gearbeitet?', '(210 - 50) / 40',
+    TW('K = 210 €.', 'Arbeitszeit t.', 'Richtig umgestellt: t = (K − 50) : 40.', 't = 160 : 40 = 4.', 'Es wurden 4 Stunden gearbeitet.'), einheit='h'))
+
+# --- geometrie ---
+TX.u('geometrie', 'direkt', TZ('Ein rechteckiger Teppich soll 12 m² groß und 3 m breit sein. Wie lang ist er?', '12 / 3',
+    TW('A = 12 m², b = 3 m.', 'Länge a.', 'A = a · b ⇒ a = A : b.', 'a = 12 : 3 = 4.', 'Der Teppich ist 4 m lang.'), 'Welche Formel gehört zum Rechteck?', einheit='m'))
+TX.u('geometrie', 'einkleidung', TZ('Ein dreieckiges Segel hat 7,5 m² Fläche, seine untere Kante ist 3 m lang. Wie hoch ist das Segel?', '2 * 7.5 / 3',
+    TW('A = 7,5 m², g = 3 m.', 'Höhe h.', 'A = g · h : 2 ⇒ h = 2 · A : g.', 'h = 15 : 3 = 5.', 'Das Segel ist 5 m hoch.'), 'Vergiss das „: 2“ der Dreiecksformel nicht.', einheit='m'))
+TX.u('geometrie', 'umkehr', TZ('Der Zaun um ein rechteckiges Grundstück ist 86 m lang. Das Grundstück ist 25 m lang. Wie breit ist es?', '86 / 2 - 25',
+    TW('u = 86 m, a = 25 m.', 'Breite b.', 'u = 2 · (a + b) ⇒ b = u : 2 − a.', 'b = 43 − 25 = 18.', 'Es ist 18 m breit.'), 'Wie lang sind eine Länge und eine Breite zusammen?', einheit='m'))
+TX.u('geometrie', 'pruefung', TZ('Eine Garage ist ein Quader mit 18 m² Grundfläche und 45 m³ Volumen. Ihr Tor ist 2,4 m breit. Wie hoch ist die Garage?', '45 / 18',
+    TW('G = 18 m², V = 45 m³; die Torbreite spielt keine Rolle.', 'Höhe h.', 'V = G · h ⇒ h = V : G.', 'h = 45 : 18 = 2,5.', 'Die Garage ist 2,5 m hoch.'), 'Welche Formel verbindet Volumen und Grundfläche?', einheit='m'), huerde='ueberfluessig')
+TX.u('geometrie', 'begruenden', TX.A('Ein trapezförmiges Beet soll 30 m² groß werden, seine parallelen Seiten sind 7 m und 5 m lang. Der Garten ist 6 m tief. Passt das Beet in den Garten?',
+    'Ja, das Beet ist 5 m tief.', ['Nein, es braucht 10 m Tiefe.', 'Ja, es braucht genau 6 m.', 'Nein, es braucht 7 m.'],
+    TW('A = 30 m², a = 7 m, c = 5 m, Garten 6 m tief.', 'Höhe h und Entscheidung.', 'A = (a + c) : 2 · h ⇒ h = 2 · A : (a + c).', 'h = 60 : 12 = 5.', 'Es passt: Das Beet ist 5 m tief, der Garten 6 m.'),
+    'Berechne die Höhe des Trapezes und vergleiche.'), huerde='entscheidung')
+TX.s('geometrie', TZ('Ein Grundstück hat die Form eines Parallelogramms: 600 m² groß, die Straßenseite (Grundseite) ist 30 m lang. Wie tief ist es (Höhe)?', '600 / 30',
+    TW('A = 600 m², g = 30 m.', 'Höhe h.', 'h = A : g.', 'h = 600 : 30 = 20.', 'Es ist 20 m tief.'), einheit='m'))
+TX.s('geometrie', TZ('Ein rechteckiges Fenster hat 1,8 m² Glas und ist 1,2 m breit. Wie hoch ist es?', '1.8 / 1.2',
+    TW('A = 1,8 m², b = 1,2 m.', 'Höhe.', 'A = b · h ⇒ h = A : b.', 'h = 1,8 : 1,2 = 1,5.', 'Das Fenster ist 1,5 m hoch.'), einheit='m'))
+TX.k('geometrie', TZ('Ein quaderförmiges Becken fasst 24 m³, es ist 4 m lang und 3 m breit. Wie tief ist es?', '24 / (4 * 3)',
+    TW('V = 24 m³, Grundfläche 4 m · 3 m.', 'Tiefe h.', 'h = V : G.', 'G = 12 m². h = 24 : 12 = 2.', 'Das Becken ist 2 m tief.'), einheit='m'))
+baue = mit_text(baue, TX)
+# ---- TEXT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Umstellen', ['ein_schritt', 'zwei_schritte', 'pruefen']), ('Anwenden', ['einsetzen', 'geometrie'])],

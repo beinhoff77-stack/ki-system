@@ -2,6 +2,31 @@
 
 Neueste Meldung oben.
 
+## 2026-11-18 02:11 – STATUS gleichungen.formeln
+
+### gleichungen.formeln
+
+Anteil Textaufgaben an den Übungen mit g: vorher 14% (nur einkleidung/transfer) bzw. 33% (mit anerkannten Sachaufgaben anderer Typen) → nachher **43%**.
+
+| Lernkarte | vorher S1/S2/S3 (Lehrer) | vorher S1/S2/S3 (mit anderen Typen) | nachher S1/S2/S3 | neu Übung | neu Sicherung/Korrektur | überzählig | Sicherung/Korrektur Text nachher |
+|---|---|---|---|---|---|---|---|
+| ein_schritt | 0/1/2 | 0/1/3 | 1/3/4 = 8 | 4 | 1/1 | 0 | 2/1 |
+| zwei_schritte | 0/2/1 | 0/2/2 | 1/3/4 = 8 | 4 | 1/0 | 0 | 2/1 |
+| pruefen | 0/1/0 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 0 | 2/1 |
+| einsetzen | 0/2/2 | 5/8/6 | 5/8/6 = 19 | 0 | 0/0 | 0 | 5/2 |
+| geometrie | 0/1/2 | 0/1/3 | 1/3/5 = 9 | 5 | 2/1 | 0 | 2/1 |
+
+Beispiele (je Stufe eine neue Textaufgabe, Wortlaut):
+
+- Stufe 1 (ein_schritt): „Ein Auto fährt gleichmäßig mit 80 km/h. Wie lange braucht es für 200 km? Nutze s = v · t.“
+- Stufe 2 (pruefen): „Ein Kino rechnet für Gruppen K = 20 + 6 · n (n Personen, K in €). Jemand stellt um zu n = K : 6 − 20 und setzt K = 80 ein. Wie viele Personen waren es wirklich?“
+- Stufe 3 (geometrie): „Eine Garage ist ein Quader mit 18 m² Grundfläche und 45 m³ Volumen. Ihr Tor ist 2,4 m breit. Wie hoch ist die Garage?“
+
+Überzählig (g entfernt, Aufgabe bleibt): 0
+Als Sachaufgabe anerkannte alte Aufgaben anderer Typen: 20 Übungen, 10 Sicherung/Korrektur.
+Alle neuen Aufgaben verlangen das Umstellen in einer Sachsituation (Tarif, Dichte, Fahrzeit, Grundstück); Hürden bei einsetzen und ein_schritt teils über alte Aufgaben.
+
+
 ## 2026-11-18 02:09 – STATUS groessen.indirekt
 
 ### groessen.indirekt

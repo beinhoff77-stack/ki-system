@@ -446,11 +446,12 @@ test('Zeichnungen: Koordinatensystem, Figur, Diagramme und Tabelle in den Erklä
     await page.locator('svg.lern-zeichnung').nth(i).screenshot({ path: path.join(root, `test-results/zeichnung-${n}.png`) });
 });
 
-test('Lernstand: Was wackelt – je Lernkarte mit den echten falschen Antworten', async (t) => {
+test('Was wackelt? – je Lernkarte mit den echten falschen Antworten (eigener Knopf an der Kinderkarte)', async (t) => {
   const { page } = await setup(t);
   await page.goto(origin + '/#/lernen');
-  await page.getByRole('link', { name: /Lernstand Kind A/ }).click();
-  await page.getByRole('heading', { name: 'Was wackelt?' }).waitFor();
+  await page.getByRole('link', { name: 'Was wackelt? Kind A' }).click();
+  await page.waitForURL(/#\/wackelt\/1$/);
+  await page.getByRole('heading', { name: 'Was wackelt?', exact: true }).waitFor();
   await page.locator('.ls-wackelt .ls-karte', { hasText: 'Runden' }).getByText('5 falsch').waitFor();
   await page.getByText('Letzte 7 Tage: 30 Bordkarten, davon 22 richtig, 4-mal mit Tipp.', { exact: false }).waitFor();
   await page.getByText('Letzte falsche Antworten (1)').click();
@@ -760,7 +761,7 @@ test('Reisewörter auf allen Eltern-/Lehrerseiten', async (t) => {
     if (b.aktion === 'schule_zugaenge') return route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true, zugaenge: [{ id: 1, name: 'Herr Lehrer', rolle: 'lehrer', aktiv: true, zuletzt: null }] } }) });
     return route.fallback();
   });
-  for (const [pfad, warte] of [['lernen', 'Lehrplan-Übersicht'], ['plan/1', 'Lehrplan'], ['lehrplan', 'Lehrplan-Übersicht'], ['inhalte/1', 'Bordkarten zum Üben'], ['lernstand/1', 'Was wackelt?'], ['lernauftraege', 'Neuer Auftrag (allgemein)'], ['zugaenge', 'Neuen Zugang anlegen'], ['info', 'Erste Schritte']]) {
+  for (const [pfad, warte] of [['lernen', 'Lehrplan-Übersicht'], ['plan/1', 'Lehrplan'], ['lehrplan', 'Lehrplan-Übersicht'], ['inhalte/1', 'Bordkarten zum Üben'], ['wackelt/1', 'Was wackelt?'], ['lernstand/1', 'Einstieg prüfen'], ['schulstand', 'Alle Kinder im Vergleich'], ['lernauftraege', 'Neuer Auftrag (allgemein)'], ['zugaenge', 'Neuen Zugang anlegen'], ['info', 'Erste Schritte']]) {
     await page.goto(origin + '/#/' + pfad);
     await page.getByText(warte, { exact: false }).first().waitFor();
     await page.evaluate(() => document.querySelectorAll('#main details').forEach((d) => { d.open = true; }));
@@ -1094,7 +1095,7 @@ test('E-2: Startseite je Kind ein Bereich mit drei Schularten; darunter „Für 
   await a.waitFor();
   assert.deepEqual(await a.locator('.lern-mini-name').allInnerTexts(), ['GYM 5', 'RS 5', 'IB 1']);
   await a.getByText('Jetzt: Rom · Natürliche Zahlen (2/4)').waitFor();
-  assert.deepEqual(await a.locator('.lern-kindbereich-knoepfe a').allInnerTexts(), ['Lernstand', 'Flugplan', 'Lernreise ansehen']);
+  assert.deepEqual(await a.locator('.lern-kindbereich-knoepfe a').allInnerTexts(), ['Lernstand', 'Was wackelt?', 'Flugplan', 'Lernreise ansehen']);
   assert.equal(await page.locator('.lern-kindbereich').count(), 2, 'je Kind ein Bereich (Testkind nicht)');
   await page.getByText('FÜR ALLE KINDER').waitFor();
   for (const t2 of ['Lehrplan-Übersicht', 'Meine Aufträge', 'So funktioniert’s']) await page.locator('.lern-kinderliste').getByText(t2, { exact: true }).waitFor();
@@ -1186,20 +1187,20 @@ test('K3: ohne Migration D (keine „themen“) zählen die Flüge mit Inhalt, n
 test('K4: Eltern – Stand über Schularten: Übersicht, Landkarte mit Einstiegs-Check und Hinweis, Feld mit Bordkarten bis „sitzt“', async (t) => {
   const { page, calls } = await setup(t, { anpassen: standAnpassen({ bisSitzt: 9 }) });
   await page.goto(origin + '/#/lernen');
-  await page.getByRole('link', { name: /Stand über Schularten/ }).click();
+  await page.getByRole('link', { name: /Alle Kinder im Vergleich/ }).click();
   await page.waitForURL(/#\/schulstand$/);
   const felder = page.locator('.lern-stand-feld');
   await felder.first().waitFor();
   assert.equal(await felder.count(), 6, '2 Kinder × 3 Schularten (Testkind nicht)');
   assert.equal(await felder.nth(0).getAttribute('aria-label'), 'Kind A, Gymnasium Klasse 5: 2 von 3 gelandet');
   await felder.nth(0).click();
-  await page.waitForURL(/#\/schulstand\/1-gym_by$/);
+  await page.waitForURL(/#\/lernstand\/1-gym_by$/);
   await page.locator('.lern-stand-raster').waitFor();
   await page.getByText('Orientierung, keine Einstufung durch eine Schule').first().waitFor(); // erst lesen, wenn die Seite fertig gezeichnet ist (sonst gelegentlich „Lade …“)
   assert.match(await page.locator('main').innerText(), /Orientierung, keine Einstufung durch eine Schule/);
   // Einstieg prüfen Klasse 7: alles bis Klasse 6 = 3 Flüge Kl. 5 + 1 Flug Kl. 6 → 2 von 4 gelandet = 50 % → rot
   await page.locator('.lern-chips-zeile[aria-label="Einstieg prüfen"] a', { hasText: 'Kl. 7' }).click();
-  await page.waitForURL(/#\/schulstand\/1-gym_by-7$/);
+  await page.waitForURL(/#\/lernstand\/1-gym_by-7$/);
   const ampel = page.locator('.lern-ampel');
   await ampel.waitFor();
   assert.match(await ampel.getAttribute('class'), /\brot\b/);
@@ -1210,7 +1211,7 @@ test('K4: Eltern – Stand über Schularten: Übersicht, Landkarte mit Einstiegs
   await page.screenshot({ path: path.join(root, 'test-results/k4-landkarte-390.png'), fullPage: true });
   // Ebene 3: Feld Zahlen × Klasse 5 → Flüge mit Etappen, „sitzt – nach 9 Bordkarten“
   await page.locator('.lern-zelle', { hasText: '2/3' }).click();
-  await page.waitForURL(/#\/schulstand\/1-gym_by-7-0-5$/);
+  await page.waitForURL(/#\/lernstand\/1-gym_by-7-0-5$/);
   await page.locator('.lern-etappen-stand li').first().waitFor();
   assert.match(await page.locator('.lern-etappen-stand li').first().innerText(), /sitzt – nach 9 Bordkarten/);
   assert.ok(calls.some((c) => c.aktion === 'schule_lernstand' && c.daten.lernender_id === 1));
@@ -1486,10 +1487,37 @@ test('F: Knobeln des Tages auf der Abflugtafel (einmal je Tag), Knobel-Sterne im
   assert.equal(await page.locator('.lr-knobel-tag').count(), 0, 'heute nur einmal');
   await page.goto(origin + '/#/reisepass/1'); await page.getByText('★ Knobel-Sterne: 2').waitFor();
   // Eltern: Lernstand und Inhalte
-  await page.goto(origin + '/#/lernstand/1'); await page.locator('.ls-knobel').first().waitFor();
+  await page.goto(origin + '/#/wackelt/1'); await page.locator('.ls-knobel').first().waitFor();
   assert.equal(await page.locator('.ls-knobel').first().innerText(), 'Knobel: 1 von 2');
   await page.goto(origin + '/#/inhalte/1'); await page.locator('details.lp-karte summary').first().click();
   const zeilen = page.locator('details.lp-karte').first().locator('.lp-tabelle tbody tr');
   assert.match(await zeilen.first().locator('td').first().innerText(), /leicht\s*wie im Beispiel/);
   assert.match(await zeilen.last().locator('td').first().innerText(), /★ Knobel\s*freiwillig/);
+});
+
+// ---------- Zusatz 1 zu Bau-Auftrag F: „Lernstand“ öffnet die Klassen-Übersicht des Kindes ----------
+test('Zusatz 1 zu F: Knopf „Lernstand“ zeigt mit einem Klick die Tabelle des Kindes; „Was wackelt?“ eigener Knopf', async (t) => {
+  const { page } = await setup(t, { anpassen: standAnpassen() });
+  await page.goto(origin + '/#/lernen');
+  const karte = page.locator('.lern-kindbereich', { hasText: 'Kind A' });
+  await karte.getByRole('link', { name: 'Lernstand Kind A', exact: true }).click();
+  await page.waitForURL(/#\/lernstand\/1$/);
+  await page.locator('.lern-stand-raster').waitFor();
+  await page.locator('main h2', { hasText: 'Lernstand Kind A' }).waitFor();
+  assert.equal(await page.locator('#title').innerText(), 'Lernstand Kind A');
+  assert.equal(await page.locator('.lern-chips-zeile[aria-label="Schulart"] a[aria-current]').innerText(), 'Gymnasium', 'in der Schulart des Kindes');
+  assert.equal(await page.locator('.lern-chips-zeile[aria-label="Einstieg prüfen"]').count(), 1);
+  // Schulart wechseln bleibt auf der Lernstand-Seite
+  await page.locator('.lern-chips-zeile[aria-label="Schulart"] a', { hasText: 'Realschule' }).click();
+  await page.waitForURL(/#\/lernstand\/1-rs_by$/);
+  // Verweis auf „Was wackelt?“
+  await page.getByRole('link', { name: /Was wackelt\? – Etappen/ }).click();
+  await page.waitForURL(/#\/wackelt\/1$/);
+  await page.getByRole('heading', { name: 'Was wackelt?', exact: true }).waitFor();
+  // Vergleich aller Kinder
+  await page.goto(origin + '/#/lernen');
+  assert.equal(await karte.getByRole('link', { name: 'Was wackelt? Kind A', exact: true }).getAttribute('href'), '#/wackelt/1');
+  await page.getByRole('link', { name: /Alle Kinder im Vergleich/ }).click();
+  await page.locator('main h2', { hasText: 'Alle Kinder im Vergleich' }).waitFor();
+  await page.screenshot({ path: path.join(root, 'test-results/f-lernstand-390.png'), fullPage: true });
 });

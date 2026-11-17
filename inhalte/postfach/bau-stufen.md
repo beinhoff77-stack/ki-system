@@ -2,6 +2,24 @@
 
 Neueste oben.
 
+## 2026-11-17 15:10 – FERTIG: Migration F gegen die App geprüft; Zusatz 1 zu F gebaut – App 0.75.1
+
+**Prüfung Migration F (nur lesend):** Spalte `typ`, beide Prüfbedingungen mit `bonus`, Regel `sterne_bonus_richtig` = 30. In allen Funktionen stehen die neuen Teile:
+`aufgabe_anzeige` (typ, bonus), `einheit_lesen_intern` (bonus), `uebung_pruefen_intern` (Pool bonus, erster_versuch, sterne, knobel_sterne), `schule.konto` (knobel_sterne),
+`api.schule_konto` (knobel_tag), `schule_lernstand` (knobel_gesamt/knobel_geloest), `schule_inhalt_lesen` (typ), `sterne_aus_versuch`, `karte_buchen`, `einheit_abgleichen`.
+Echte Antwort (Stichprobe): `aufgabe_anzeige` liefert heute ohne `typ` und ohne `bonus` (jsonb_strip_nulls; noch keine Aufgabe mit typ, 0 Bonus-Bordkarten) – die App kommt damit zurecht.
+`konto.knobel_sterne` = 0 für alle Kinder. **Eine Abweichung, behoben:** Die App zeigte „★ Knobel-Sterne: 0“ im Reisepass, sobald das Feld da war – gegen „ohne Bonus-Aufgaben erscheint nichts“.
+Jetzt erst ab 1. Sonst keine Abweichung. Die Bonus-Antwort von `schule_uebung_pruefen` entspricht der Form im Test (live nicht aufrufbar, da es noch keine Bonus-Bordkarte gibt).
+
+**Zusatz 1 zu F – „Lernstand“ öffnet die Klassen-Übersicht des Kindes**
+- Knopf „Lernstand“ an jeder Kinderkarte → `#/lernstand/<id>`: direkt die Tabelle Kontinente × Klassen dieses Kindes in seiner Schulart. Titel und Kopfzeile „Lernstand <Name>“;
+  Schulart-Umschalter, „Einstieg prüfen“ und der Weg in die Zelle bleiben (`#/lernstand/<id>-<schulart>[-<ziel>[-<kontinent>-<klasse>]]`). Die Mini-Balken der Kinderkarte führen ebenfalls dorthin.
+- Die bisherige Seite heißt überall „Was wackelt?“, eigene Adresse `#/wackelt/<id>`, eigener Knopf „Was wackelt?“ an der Kinderkarte neben „Lernstand“; Verweis von der Tabelle (Kopf und Zelle) dorthin.
+- Vergleich aller Kinder: `#/schulstand`, Karte und Überschrift „Alle Kinder im Vergleich“. Alte Adressen `#/schulstand/<id>-…` zeigen weiter die Tabelle des Kindes.
+- Info-Seite (Schritt 2, „Was kann ich selbst ändern?“) und der Satz beim Kind: „Frag Mama oder Papa – sie sehen unter „Was wackelt?“, wo es hakt.“
+- Tests: lernen 52 von 52 (neu: Klick auf „Lernstand“ zeigt die Tabelle des Kindes; angepasst: Was wackelt?, K4, Reisewörter, Kinderkarte). Suche: die 9 bekannten alten Fehler.
+Keine Datenbank-Änderung. Kein Merge nach lernen-app oder main.
+
 ## 2026-11-17 16:20 – FERTIG: Teil 2 fertig (App) – App 0.75.0 – wartet auf Migration F
 
 Die App läuft ohne Migration F wie bisher (ohne typ: Abwechslung nach Fragetext ohne Zahlen; ohne bonus/knobel_tag/knobel_sterne: nichts davon sichtbar).

@@ -206,12 +206,12 @@ function lernStats(konto) {
     el('summary', { 'aria-label': 'Stempel, Sterne und Lerntage – antippen für Erklärung' },
       el('div', { class: 'lr-stats' }, s(LI.stempel, konto?.stempel ?? 0, 'Stempel'), s(LI.stern, lernZahl(konto?.sterne ?? 0), 'Sterne'), s(LI.tag, konto?.lerntage ?? 0, 'Lerntage')),
       // F: Knobel-Sterne – nur, wenn die Datenbank sie zählt (Migration F)
-      konto?.knobel_sterne !== undefined ? el('p', { class: 'lr-knobel-sterne' }, `★ Knobel-Sterne: ${konto.knobel_sterne}`) : null),
+      konto?.knobel_sterne ? el('p', { class: 'lr-knobel-sterne' }, `★ Knobel-Sterne: ${konto.knobel_sterne}`) : null),
     el('div', { class: 'lr-stats-erkl' },
       el('p', {}, el('b', {}, 'Sterne: '), '10 für jede Bordkarte, die du zum ersten Mal richtig löst, 20 für jede richtige Bordkarte im Test. Sterne kannst du später gegen Belohnungen eintauschen.'),
       el('p', {}, el('b', {}, 'Stempel: '), 'Jeder Ort hat einen oder mehrere Flüge. Hast du alle Flüge eines Ortes geschafft, bekommst du seinen Stempel in den Reisepass.'),
       el('p', {}, el('b', {}, 'Lerntage: '), 'Tage, an denen du geübt hast.'),
-      konto?.knobel_sterne !== undefined ? el('p', {}, el('b', {}, 'Knobel-Sterne: '), 'Knobel-Bordkarten sind freiwillig und richtig schwer. Löst du eine beim ersten Versuch, gibt es 30 Sterne und einen Knobel-Stern.') : null));
+      konto?.knobel_sterne ? el('p', {}, el('b', {}, 'Knobel-Sterne: '), 'Knobel-Bordkarten sind freiwillig und richtig schwer. Löst du eine beim ersten Versuch, gibt es 30 Sterne und einen Knobel-Stern.') : null));
 }
 async function lernLadeKind(arg) {
   const kindId = Number(arg);
@@ -447,7 +447,7 @@ async function viewLernen() {
     return el('section', { class: 'card lern-kindbereich', 'aria-label': k.name },
       el('div', { class: 'lern-kindbereich-kopf' }, el('h3', {}, k.name),
         el('span', { class: 'small muted' }, k.klasse ? `${LERN_SCHULART[k.schulart || 'gym_by'] || 'Gymnasium'} · Klasse ${k.klasse}` : 'Klasse nicht gesetzt')),
-      linien.length ? el('div', { class: 'lern-mini-linien', role: 'list', 'aria-label': 'Stand in drei Schularten' }, ...linien.map((l) => el('a', { class: 'lern-mini-linie' + (l.eigen ? ' eigen' : ''), role: 'listitem', href: `#/schulstand/${k.id}-${l.sa}` },
+      linien.length ? el('div', { class: 'lern-mini-linien', role: 'list', 'aria-label': 'Stand in drei Schularten' }, ...linien.map((l) => el('a', { class: 'lern-mini-linie' + (l.eigen ? ' eigen' : ''), role: 'listitem', href: `#/lernstand/${k.id}-${l.sa}` },
         el('span', { class: 'lern-mini-name' }, `${l.kurz} ${l.klasse}`),
         el('span', { class: 'lern-mini-balken', role: 'img', 'aria-label': `${l.name} Klasse ${l.klasse}: ${l.gelandet} von ${l.n} Flügen gelandet` }, el('i', { style: `width:${l.n ? Math.round(100 * l.gelandet / l.n) : 0}%` })),
         el('span', { class: 'lern-mini-zahl' }, l.n ? `${l.gelandet}/${l.n}` : '–')))) : null,
@@ -455,6 +455,7 @@ async function viewLernen() {
       ko ? el('p', { class: 'small muted' }, `${ko.stempel} Stempel · ${lernZahl(ko.sterne)} Sterne · ${ko.lerntage} Lerntage`) : null,
       el('div', { class: 'lern-kindbereich-knoepfe' },
         el('a', { class: 'btn secondary', href: `#/lernstand/${k.id}`, 'aria-label': `Lernstand ${k.name}` }, 'Lernstand'),
+        el('a', { class: 'btn secondary', href: `#/wackelt/${k.id}`, 'aria-label': `Was wackelt? ${k.name}` }, 'Was wackelt?'),
         el('a', { class: 'btn secondary', href: `#/plan/${k.id}`, 'aria-label': `Flugplan ${k.name}` }, 'Flugplan'),
         el('a', { class: 'btn secondary', href: `#/reise/${k.id}`, 'aria-label': `Lernreise ${k.name} ansehen` }, 'Lernreise ansehen')));
   };
@@ -466,8 +467,8 @@ async function viewLernen() {
       el('a', { class: 'card lern-kindkarte lp-hauptkarte', href: '#/lehrplan' }, el('b', {}, 'Lehrplan-Übersicht'),
         el('p', { class: 'small muted' }, 'Alle Flüge je Schulart und Klasse: was fertig ist, was in Prüfung ist, was noch fehlt – mit Inhalten zum Ansehen.'),
         el('span', { class: 'lern-kindkarte-los' }, 'Öffnen ›')),
-      el('a', { class: 'card lern-kindkarte', href: '#/schulstand' }, el('b', {}, 'Stand über Schularten'),
-        el('p', { class: 'small muted' }, 'Alle Kinder × Gymnasium, Realschule, IB MYP – mit Lehrplan-Landkarte und „Einstieg prüfen“'), el('span', { class: 'lern-kindkarte-los' }, 'Öffnen ›')),
+      el('a', { class: 'card lern-kindkarte', href: '#/schulstand' }, el('b', {}, 'Alle Kinder im Vergleich'),
+        el('p', { class: 'small muted' }, 'Alle Kinder × Gymnasium, Realschule, IB MYP; den Lernstand eines Kindes öffnet „Lernstand“ an seiner Karte'), el('span', { class: 'lern-kindkarte-los' }, 'Öffnen ›')),
       el('a', { class: 'card lern-kindkarte', href: '#/lernauftraege' }, el('b', {}, 'Meine Aufträge'),
         el('p', { class: 'small muted' }, offen ? `${offen} offen` : 'Was ihr ändern lassen wollt – mit Status und Antwort'), el('span', { class: 'lern-kindkarte-los' }, 'Öffnen ›')),
       el('a', { class: 'card lern-kindkarte', href: '#/info' }, el('b', {}, 'So funktioniert’s'),
@@ -1741,7 +1742,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
                 el('div', { class: 'lr-knopfzeile' },
                   leichter ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { warte.splice(warte.indexOf(leichter), 1); warte.unshift(leichter); zeigeAufgabe(true); window.scrollTo(0, 0); } }, 'Leichtere Bordkarte') : null,
                   erkl ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { if (erkl.getAttribute('aria-expanded') !== 'true') erkl.click(); erklBox.scrollIntoView?.({ block: 'start', behavior: 'smooth' }); } }, 'Beispiel ansehen') : null),
-                fehlFolge >= 3 ? el('p', { class: 'lr-leise' }, 'Frag Mama oder Papa – sie sehen im Lernstand, wo es hakt.') : null));
+                fehlFolge >= 3 ? el('p', { class: 'lr-leise' }, 'Frag Mama oder Papa – sie sehen unter „Was wackelt?“, wo es hakt.') : null));
             }
           }
           if (jetztSitzt && neu) {
@@ -2568,8 +2569,8 @@ async function viewPlan(arg) {
   const kindForm = el('section', { class: 'card lp-kindform' }, el('h3', {}, 'Klasse'),
     el('div', { class: 'row' }, el('label', { class: 'small' }, 'Klasse ', klIn), kindStatus),
     el('p', { class: 'small muted' }, `${LERN_SCHULART[sa] || 'Gymnasium'}. Bestimmt, welche Flüge beim Kind als „seine Klasse“ zählen. Wird sofort gespeichert.`),
-    // K3/E-4: Stufe je Schulart für „Stand über Schularten“ – nur, wenn die Datenbank sie liefert (kind.stufen, Migration D)
-    ...(stufenDa ? [el('p', { class: 'small' }, el('b', {}, 'Stufe je Schulart'), el('span', { class: 'muted' }, ' – für „Stand über Schularten“; „aus Klasse“ = Klasse, IB MYP = Klasse − 4')),
+    // K3/E-4: Stufe je Schulart für den Lernstand (Kontinente × Klassen) – nur, wenn die Datenbank sie liefert (kind.stufen, Migration D)
+    ...(stufenDa ? [el('p', { class: 'small' }, el('b', {}, 'Stufe je Schulart'), el('span', { class: 'muted' }, ' – für den Lernstand; „aus Klasse“ = Klasse, IB MYP = Klasse − 4')),
       el('div', { class: 'row lp-stufen' }, ...LERN_SYS.map((y) => el('label', { class: 'small' }, y.name + ' ', stufeIn[y.sa])))] : []));
   lernErsetze(main, ...[
     lernInfoLink(),
@@ -2626,42 +2627,53 @@ function lernPlanVorlage(p, kannAbwaehlen, ersetze) {
 }
 
 // ---------- Eltern/Lehrer: Stand über Schularten (K4) – drei Ebenen ----------
-// #/schulstand                                   Ebene 1: alle Kinder × drei Schularten
-// #/schulstand/<kind>-<schulart>[-<ziel>]        Ebene 2: Lehrplan-Landkarte (Kontinente × Klassen), Schalter „Einstieg prüfen: Klasse X“
-// #/schulstand/<kind>-<schulart>-<ziel>-<k>-<kl> Ebene 3: Flüge eines Feldes mit dem Stand der Etappen (inkl. Bordkarten bis „sitzt“)
+// #/schulstand                                   Ebene 1: „Alle Kinder im Vergleich“ – alle Kinder × drei Schularten
+// #/lernstand/<kind>[-<schulart>][-<ziel>]       Ebene 2: „Lernstand <Name>“ – Lehrplan-Landkarte (Kontinente × Klassen), Schalter „Einstieg prüfen: Klasse X“
+//                                                (Zusatz 1 zu F: der Knopf „Lernstand“ an der Kinderkarte führt direkt hierher, in der Schulart des Kindes)
+// #/lernstand/<kind>-<schulart>-<ziel>-<k>-<kl>  Ebene 3: Flüge eines Feldes mit dem Stand der Etappen (inkl. Bordkarten bis „sitzt“)
+// Alte Adressen #/schulstand/<kind>-… zeigen dieselbe Seite.
 const LERN_ORIENTIERUNG = 'Orientierung, keine Einstufung durch eine Schule.';
-async function viewSchulstand(arg) {
-  setChrome('Stand über Schularten', { back: true, showTabs: false });
+const viewLernstand = (arg) => viewSchulstand(arg, true);
+async function viewSchulstand(arg, alsLernstand = false) {
+  setChrome(alsLernstand ? 'Lernstand' : 'Alle Kinder im Vergleich', { back: true, showTabs: false });
   const live = viewGuard();
-  const [kidArg, saArg, zielArg, kontArg, klArg] = String(arg || '').split('-');
+  const [kidArg, saRoh, zielArg, kontArg, klArg] = String(arg || '').split('-');
   loading();
   const u = await lernCall('schule_uebersicht');
   if (!live()) return;
   const kinder = (u.lernende || []).filter((k) => !k.ist_test);
   const modelle = new Map(kinder.map((k) => [k.id, lernStandModell(u, k)]));
-  const kind = kinder.find((k) => k.id === Number(kidArg)); const y = LERN_SYS.find((q) => q.sa === saArg);
+  const kind = kinder.find((k) => k.id === Number(kidArg));
+  const saArg = saRoh || (kind ? kind.schulart || 'gym_by' : undefined); // „Lernstand“ ohne Schulart: die Schulart des Kindes
+  const y = LERN_SYS.find((q) => q.sa === saArg);
   const krumen = (teile) => el('nav', { class: 'lern-krumen', 'aria-label': 'Pfad' }, ...teile.flatMap(([t, h], i) => i < teile.length - 1 ? [el('a', { href: h }, t), el('span', { 'aria-hidden': 'true' }, '›')] : [el('b', {}, t)]));
-  const kopf = el('section', { class: 'start-intro' }, el('p', { class: 'eyebrow' }, 'ELTERN UND LEHRER'), el('h2', {}, 'Stand über Schularten'),
+  const kopf = el('section', { class: 'start-intro' }, el('p', { class: 'eyebrow' }, 'ELTERN UND LEHRER'), el('h2', {}, 'Alle Kinder im Vergleich'),
     el('p', {}, 'Wie weit jedes Kind in Gymnasium, Realschule und IB MYP ist – gezählt werden alle Flüge, die laut Lehrplan in die jeweilige Klasse gehören.'));
   const hinweisFluege = modelle.size && ![...modelle.values()][0].alleFluege ? el('p', { class: 'small muted' }, 'Gezählt werden vorerst nur Flüge mit Inhalt; alle Flüge kommen, sobald die Datenbank sie liefert.') : null;
   // Ebene 1
   if (!kind || !y) {
-    lernErsetze(main, lernInfoLink(), kopf, krumen([['Übersicht', null]]),
+    if (alsLernstand && kidArg) { route('schulstand'); return; } // unbekanntes Kind
+    $('#title').textContent = 'Alle Kinder im Vergleich';
+    lernErsetze(main, lernInfoLink(), kopf,
       el('div', { class: 'lern-tabelle-rollen' }, el('table', { class: 'lern-stand-raster lern-stand-ueber' },
         el('thead', {}, el('tr', {}, el('th', {}, ''), ...LERN_SYS.map((q) => el('th', { style: `color:${q.farbe}` }, q.name)))),
         el('tbody', {}, ...kinder.map((k) => { const m = modelle.get(k.id);
           return el('tr', {}, el('th', { scope: 'row' }, k.name), ...LERN_SYS.map((q) => { const n = m.stufe(q.sa); const c = m.zahl(q.sa, n);
             const w = m.themen.filter((t) => n && Number(t.jahrgang?.[q.sa]) <= n && t.st === 'wackelt').length;
-            return el('td', {}, el('a', { class: 'lern-stand-feld', href: `#/schulstand/${k.id}-${q.sa}`, 'aria-label': `${k.name}, ${n ? lernSysVoll(q, n) : q.name}: ${c.f} von ${c.n} gelandet` },
+            return el('td', {}, el('a', { class: 'lern-stand-feld', href: `#/lernstand/${k.id}-${q.sa}`, 'aria-label': `${k.name}, ${n ? lernSysVoll(q, n) : q.name}: ${c.f} von ${c.n} gelandet` },
               el('b', {}, n ? q.label(n) : '–'), el('span', { class: 'lern-mini-balken', style: `--f:${q.farbe}` }, el('i', { style: `width:${lernPz(c.f, c.n)}%;background:${q.farbe}` })),
               el('small', {}, `${c.f}/${c.n}`, w ? el('span', { class: 'lern-wackelt' }, ` · ${w} wackelt`) : null))); })); })))),
       el('p', { class: 'small muted' }, 'Feld antippen → Lehrplan-Landkarte dieses Kindes in dieser Schulart, mit „Einstieg prüfen“. Die Stufe je Schulart setzt ihr im Flugplan.'), hinweisFluege);
     return;
   }
   const m = modelle.get(kind.id); const ziel = Number(zielArg) || null;
-  const basis = `#/schulstand/${kind.id}-${y.sa}`;
+  const basis = `#/lernstand/${kind.id}-${y.sa}`;
+  $('#title').textContent = 'Lernstand ' + kind.name; // Zusatz 1 zu F
+  const lsKopf = el('section', { class: 'start-intro lern-lernstand-kopf' }, el('p', { class: 'eyebrow' }, `${(LERN_SCHULART[kind.schulart || 'gym_by'] || '').toUpperCase()}${kind.klasse ? ' · KLASSE ' + kind.klasse : ''}`),
+    el('h2', {}, 'Lernstand ' + kind.name),
+    el('p', { class: 'small' }, el('a', { href: `#/wackelt/${kind.id}` }, 'Was wackelt? – Etappen mit den echten falschen Antworten ›')));
   const konts = [...new Set(m.themen.map((t) => t.kontinent))].sort(lernKontReihe);
-  const reiter = el('div', { class: 'lern-chips-zeile', role: 'group', 'aria-label': 'Schulart' }, ...LERN_SYS.map((q) => el('a', { class: 'lern-chip', href: `#/schulstand/${kind.id}-${q.sa}`, 'aria-current': q.sa === y.sa ? 'page' : null }, q.name)));
+  const reiter = el('div', { class: 'lern-chips-zeile', role: 'group', 'aria-label': 'Schulart' }, ...LERN_SYS.map((q) => el('a', { class: 'lern-chip', href: `#/lernstand/${kind.id}-${q.sa}`, 'aria-current': q.sa === y.sa ? 'page' : null }, q.name)));
   const check = el('div', { class: 'lern-chips-zeile', role: 'group', 'aria-label': 'Einstieg prüfen' }, el('span', { class: 'small' }, 'Einstieg prüfen:'),
     ...[null, ...y.stufen.slice(1)].map((n) => el('a', { class: 'lern-chip', href: n ? `${basis}-${n}` : basis, 'aria-current': (ziel || null) === n ? 'page' : null }, n ? (y.sa === 'ib_myp' ? 'MYP ' : 'Kl. ') + n : 'aus')));
   const davor = ziel ? m.themen.filter((t) => Number(t.jahrgang?.[y.sa]) && Number(t.jahrgang[y.sa]) < ziel) : [];
@@ -2680,13 +2692,13 @@ async function viewSchulstand(arg) {
     const ls = await lernCall('schule_lernstand', { lernender_id: kind.id }).catch(() => null);
     if (!live()) return;
     const proEinheit = new Map((ls?.einheiten || []).map((e) => [e.einheit_id, e]));
-    lernErsetze(main, lernInfoLink(), krumen([['Übersicht', '#/schulstand'], [`${kind.name} · ${y.name}`, ziel ? `${basis}-${ziel}` : basis], [`${k} · ${y.label(kl)}`, null]]),
+    lernErsetze(main, lernInfoLink(), krumen([['Alle Kinder', '#/schulstand'], [`Lernstand ${kind.name} · ${y.name}`, ziel ? `${basis}-${ziel}` : basis], [`${k} · ${y.label(kl)}`, null]]),
       el('section', { class: 'card' }, el('h3', {}, `${k} · ${y.label(kl)}`),
         ...ts.map((t) => { const e = t.einheit ? proEinheit.get(t.einheit.id) : null;
           return flugZeile(t, e ? el('ul', { class: 'lern-etappen-stand' }, ...(e.karten || []).map((x) => el('li', {}, el('span', {}, x.titel || x.lernziel),
             el('small', { class: 'muted' }, lernEtappeStandText(x))))) : null); }),
         ts.length ? null : el('p', { class: 'muted' }, 'Keine Flüge in diesem Feld.')),
-      el('p', {}, el('a', { href: `#/lernstand/${kind.id}` }, `Was wackelt? – Lernstand ${kind.name} mit den echten falschen Antworten ›`)));
+      el('p', {}, el('a', { href: `#/wackelt/${kind.id}` }, `Was wackelt? – ${kind.name} mit den echten falschen Antworten ›`)));
     return;
   }
   // Ebene 2: Landkarte Kontinente × Klassen
@@ -2700,7 +2712,7 @@ async function viewSchulstand(arg) {
         const [f, art] = farbe(ts); const w = ts.some((t) => t.st === 'wackelt');
         return el('td', {}, el('a', { class: `lern-zelle z-${art}${w ? ' w' : ''}${ziel && n >= ziel ? ' aus' : ''}`, href: `${basis}-${ziel || 0}-${ki}-${n}`, 'aria-label': `${kn}, ${y.label(n)}: ${f} von ${ts.length} gelandet${w ? ', wackelt' : ''}` }, `${f}/${ts.length}`)); }))),
       el('tr', { class: 'summe' }, el('th', { scope: 'row' }, 'Gesamt'), ...y.stufen.map((n) => { const c = m.zahl(y.sa, n); return el('td', {}, c.n ? lernPz(c.f, c.n) + ' %' : '–'); }))));
-  lernErsetze(main, lernInfoLink(), krumen([['Übersicht', '#/schulstand'], [`${kind.name} · ${y.name}`, null]]),
+  lernErsetze(main, lernInfoLink(), lsKopf, krumen([['Alle Kinder im Vergleich', '#/schulstand'], [`Lernstand ${kind.name} · ${y.name}`, null]]),
     el('section', { class: 'card' }, reiter, check, ampel,
       el('div', { class: 'lern-tabelle-rollen' }, raster),
       el('p', { class: 'lern-legende small' }, ...[['offen', 'offen'], ['laeuft', 'läuft'], ['teil', 'teilweise'], ['alles', 'alles gelandet'], ['w', 'wackelt']].map(([c2, t]) => el('span', {}, el('i', { class: 'z-' + c2 }), t))),
@@ -2714,7 +2726,7 @@ function lernEtappeStandText(x) {
   return `${x.serie || 0} von ${x.ziel || 6} Punkten · ${x.richtig} richtig, ${x.falsch} falsch`;
 }
 
-// ---------- Eltern/Lehrer: Info-Seite „So funktioniert’s“ (E-1). Text aus inhalte/pruefung/eltern/info-seite.md, gegen den Code geprüft (Stand 0.75.0). ----------
+// ---------- Eltern/Lehrer: Info-Seite „So funktioniert’s“ (E-1). Text aus inhalte/pruefung/eltern/info-seite.md, gegen den Code geprüft (Stand 0.75.1). ----------
 // Ändert sich eine Regel aus „Wie wird gelernt?“ (Etappe sitzt, Wiederholung, Tests), diesen Text im selben Schritt anpassen.
 const LERN_INFO_FRAGEN = [
   ['Worauf baut die App auf?', [
@@ -2747,7 +2759,8 @@ const LERN_INFO_FRAGEN = [
     ['Flugplan je Kind:', ' Reihenfolge der Orte (am Griff ⠿ ziehen oder ↑ ↓), Orte aus dem Lehrplan hinzufügen (ziehen oder „+“) oder entfernen, „kann es schon“. Einen Ort antippen zeigt seine Flüge; einzelne Flüge lassen sich dort abwählen – ein abgewählter Flug fehlt in der Lernreise des Kindes und zählt nicht für den Stempel. Jede Änderung wird sofort gespeichert; „↶ Rückgängig“ oben im Flugplan holt den Stand davor zurück. Hat jemand anderes den Plan inzwischen geändert, meldet die App das und überschreibt nichts – dann neu laden.'],
     ['Klasse des Kindes', ' (im Flugplan)'],
     ['Notizen zum Kind', ' (im Flugplan)'],
-    ['Lernstand lesen:', ' was sitzt, was wackelt, mit den echten falschen Antworten.'],
+    ['Lernstand:', ' die Lehrplan-Landkarte des Kindes (Kontinente × Klassen) mit „Einstieg prüfen“; ein Feld antippen zeigt Flüge und Etappen.'],
+    ['Was wackelt?:', ' was sitzt und was wackelt, je Etappe mit den echten falschen Antworten.'],
     'Inhalte werden nicht direkt geändert, sondern beauftragt (nächste Frage). Belohnungen und Zugänge verwalten nur Eltern.']],
   ['Wie beauftrage ich eine Änderung?', [
     'An der betroffenen Stelle „✎ Ändern lassen“ tippen – derselbe Knopf an Erklärung, Etappe, Bordkarte, Flug und Flugplan; der Auftrag weiß dann, worum es geht. An einzelnen Bordkarten steht er in der Lernreise eines Kindes (am einfachsten beim Testkind). Für Flüge ohne Inhalt steht er in der Lehrplan-Übersicht, mit „Neuer Flug“ vorbelegt. Allgemeine Wünsche: „Meine Aufträge“ → „Neuer Auftrag“.',
@@ -2778,7 +2791,7 @@ async function viewInfo() {
     el('h3', {}, 'Erste Schritte'),
     el('div', { class: 'lern-info-schritte' },
       schritt(1, 'Flugplan prüfen', 'Lege fest, welche Orte das Kind in welcher Reihenfolge bereist (ziehen oder ↑ ↓), wähle Flüge ab, die nicht dran sind, und hake ab, was es schon kann. Neu anfangen: „Neuer Plan aus Lehrplan-Vorlage“. Jede Änderung wird sofort gespeichert.', jeKind('plan', 'Flugplan')),
-      schritt(2, 'Lernstand lesen', 'Was sitzt, was wackelt – je Etappe mit den echten falschen Antworten. Wie weit in Gymnasium, Realschule und IB MYP: „Stand über Schularten“ mit „Einstieg prüfen“ (Orientierung, keine Einstufung durch eine Schule).', jeKind('lernstand', 'Lernstand'), el('a', { href: '#/schulstand' }, 'Stand über Schularten ›')),
+      schritt(2, 'Lernstand lesen', '„Lernstand“ an der Kinderkarte: die Lehrplan-Landkarte des Kindes (Kontinente × Klassen) in seiner Schulart, mit „Einstieg prüfen“ (Orientierung, keine Einstufung durch eine Schule). „Was wackelt?“: je Etappe, was sitzt und was wackelt, mit den echten falschen Antworten. Alle Kinder nebeneinander: „Alle Kinder im Vergleich“.', jeKind('lernstand', 'Lernstand'), jeKind('wackelt', 'Was wackelt?'), el('a', { href: '#/schulstand' }, 'Alle Kinder im Vergleich ›')),
       schritt(3, 'Inhalte ansehen', 'In der Lehrplan-Übersicht unter „Inhalte ansehen“: jede Etappe mit ihrer Erklärung und alle Bordkarten mit Lösung.', el('a', { href: '#/lehrplan' }, 'Lehrplan-Übersicht ›')),
       schritt(4, 'Ändern lassen', 'Fehlt etwas oder stimmt etwas nicht? Mit „✎ Ändern lassen“ direkt an der Stelle beauftragen; Status und Antwort stehen unter „Meine Aufträge“.', el('a', { href: '#/lernauftraege' }, 'Meine Aufträge ›'))),
     el('h3', {}, 'Fragen'),
@@ -2972,15 +2985,15 @@ async function viewInhalte(arg) {
 }
 
 // ---------- Eltern/Lehrer: „Was wackelt?“ – Lernstand je Lernkarte mit den echten falschen Antworten ----------
-async function viewLernstand(arg) {
-  setChrome('Lernstand', { back: true, showTabs: false });
+async function viewWackelt(arg) { // Zusatz 1 zu F: frühere Seite „Lernstand“, jetzt „Was wackelt?“ unter #/wackelt/<id>
+  setChrome('Was wackelt?', { back: true, showTabs: false });
   const live = viewGuard();
   const kindId = Number(arg);
   if (!kindId) { route('lernen'); return; }
   loading();
   const d = await lernCall('schule_lernstand', { lernender_id: kindId });
   if (!live()) return;
-  $('#title').textContent = 'Lernstand ' + d.kind.name;
+  $('#title').textContent = 'Was wackelt? · ' + d.kind.name;
   const tag = (t) => new Date(t).toLocaleDateString('de-DE', { day: 'numeric', month: 'numeric' });
   const zustand = (k) => k.faellig ? ['wiederholen', 'wdh'] : k.sitzt ? ['sitzt', 'ok']
     : k.falsch >= 3 && k.falsch > k.richtig ? ['wackelt', 'wackelt'] : k.richtig + k.falsch ? ['am Üben', 'ueben'] : ['noch nicht geübt', 'neu'];

@@ -22,6 +22,7 @@
     "lernziele": [
      "werte",
      "faktor",
+     "linear_oder_exponentiell",
      "modell"
     ]
    },
@@ -251,6 +252,251 @@
       }
      ]
     }
+   },
+   {
+    "lernziel": "linear_oder_exponentiell",
+    "titel": "Linear oder exponentiell?",
+    "einstieg": "Zwei Teiche starten mit je 5 m² Wasserlinsen. In Teich A kommen jede Woche 5 m² dazu. In Teich B verdoppelt sich die Fläche. Gleiches Plus oder gleicher Faktor: ⟦linear⟧ oder ⟦exponentiell⟧.",
+    "woerter": [
+     [
+      "lineares Wachstum",
+      "in gleichen Schritten kommt immer gleich viel dazu: gleiche Differenzen"
+     ],
+     [
+      "exponentielles Wachstum",
+      "in gleichen Schritten wird immer mit derselben Zahl malgenommen: gleiche Quotienten"
+     ],
+     [
+      "Quotient",
+      "Ergebnis einer Division, hier: neuer Wert : alter Wert"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Woche",
+      "A (m²)",
+      "B (m²)"
+     ],
+     "zeilen": [
+      [
+       "0",
+       "5",
+       "5"
+      ],
+      [
+       "1",
+       "10",
+       "10"
+      ],
+      [
+       "2",
+       "15",
+       "20"
+      ],
+      [
+       "3",
+       "20",
+       "40"
+      ]
+     ]
+    },
+    "schritte": [
+     {
+      "text": "A: 10 − 5 = 5, 15 − 10 = 5. Gleiches Plus: ⟦lineares Wachstum⟧.",
+      "bild": {
+       "kopf": [
+        "Woche",
+        "A (m²)",
+        "Plus"
+       ],
+       "zeilen": [
+        [
+         "0",
+         "5",
+         ""
+        ],
+        [
+         "1",
+         "10",
+         "+ 5"
+        ],
+        [
+         "2",
+         "15",
+         "+ 5"
+        ],
+        [
+         "3",
+         "20",
+         "+ 5"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "B: 10 : 5 = 2, 20 : 10 = 2. Gleicher Quotient: ⟦exponentielles Wachstum⟧.",
+      "bild": {
+       "kopf": [
+        "Woche",
+        "B (m²)",
+        "mal"
+       ],
+       "zeilen": [
+        [
+         "0",
+         "5",
+         ""
+        ],
+        [
+         "1",
+         "10",
+         "· 2"
+        ],
+        [
+         "2",
+         "20",
+         "· 2"
+        ],
+        [
+         "3",
+         "40",
+         "· 2"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Im Bild ist A eine Gerade, B eine immer steilere Kurve.",
+      "bild": {
+       "typ": "koordinaten",
+       "x": [
+        0,
+        4
+       ],
+       "y": [
+        0,
+        90
+       ],
+       "schritt_y": 10,
+       "name_x": "Wochen",
+       "name_y": "m²",
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 5,
+         "t": 5,
+         "name": "A",
+         "bereich": [
+          0,
+          4
+         ]
+        },
+        {
+         "art": "exp",
+         "a": 5,
+         "b": 2,
+         "name": "B",
+         "bereich": [
+          0,
+          4
+         ]
+        }
+       ],
+       "punkte": [
+        {
+         "x": 3,
+         "y": 20
+        },
+        {
+         "x": 3,
+         "y": 40
+        }
+       ]
+      }
+     },
+     {
+      "text": "Nach 10 Wochen hätte B schon 5 120 m². Kein Teich ist so groß.",
+      "bild": {
+       "x": [
+        0,
+        10
+       ],
+       "y": [
+        0,
+        6000
+       ],
+       "schritt_y": 1000,
+       "schritt_x": 2,
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 5,
+         "t": 5,
+         "name": "A",
+         "bereich": [
+          0,
+          10
+         ]
+        },
+        {
+         "art": "exp",
+         "a": 5,
+         "b": 2,
+         "name": "B",
+         "bereich": [
+          0,
+          10
+         ]
+        }
+       ],
+       "punkte": [
+        {
+         "x": 10,
+         "y": 5120,
+         "name": "B: 5 120"
+        },
+        {
+         "x": 10,
+         "y": 55,
+         "name": "A: 55"
+        }
+       ]
+      }
+     }
+    ],
+    "fehler": "Aus 5, 10 auf „immer + 5“ zu schließen ist voreilig. Bei B folgt 20, also + 10. Prüfe ⟦mehrere Schritte⟧.",
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Woche",
+      "B (m²)",
+      "Plus"
+     ],
+     "zeilen": [
+      [
+       "0",
+       "5",
+       ""
+      ],
+      [
+       "1",
+       "10",
+       "+ 5"
+      ],
+      [
+       "2",
+       "20",
+       "+ 10"
+      ],
+      [
+       "3",
+       "40",
+       "+ 20"
+      ]
+     ]
+    },
+    "regel": "Gleiche Differenzen: linear. ⟦Gleiche Quotienten: exponentiell⟧. Ein Modell gilt nur in einem sinnvollen Bereich."
    },
    {
     "lernziel": "modell",
@@ -620,6 +866,13 @@
     ]
    },
    {
+    "k": "linear_oder_exponentiell",
+    "text": "Linear oder exponentiell?",
+    "lernziele": [
+     "linear_oder_exponentiell"
+    ]
+   },
+   {
     "k": "modell",
     "text": "Ein Wachstumsmodell aufstellen",
     "lernziele": [
@@ -652,6 +905,7 @@
    "lernziele_pflicht": [
     "werte",
     "faktor",
+    "linear_oder_exponentiell",
     "modell",
     "graph",
     "logfunktion",
@@ -4768,12 +5022,850 @@
    },
    "w": "t steht im Exponenten. Nach dem Teilen durch 80 bleibt 1,04^t = 3; man muss logarithmieren: t = lg 3 : lg 1,04 ≈ 28,0.",
    "h": "Wo steht t? Durch welche Rechnung holt man es dort heraus?"
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wächst oder fällt die Größe in der Tabelle linear oder exponentiell?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "3",
+       "6",
+       "9",
+       "12"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "linear, − 3 je Schritt",
+    "linear, + 3 je Schritt",
+    "weder linear noch exponentiell",
+    "exponentiell, Faktor 2 je Schritt"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Differenzen: + 3, + 3, + 3 – immer gleich, also linear. Die Quotienten (2, 1,5) sind verschieden.",
+   "h": "Berechne für jeden Schritt die Differenz (neu − alt) und den Quotienten (neu : alt). Was bleibt gleich?"
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wächst oder fällt die Größe in der Tabelle linear oder exponentiell?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "3",
+       "6",
+       "12",
+       "24"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "exponentiell, Faktor 2 je Schritt",
+    "weder linear noch exponentiell",
+    "exponentiell, Faktor 3 je Schritt",
+    "linear, + 3 je Schritt"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Quotienten: 2, 2, 2 – immer gleich, also exponentiell. Die Differenzen (+ 3, + 6) sind verschieden.",
+   "h": "Berechne für jeden Schritt die Differenz (neu − alt) und den Quotienten (neu : alt). Was bleibt gleich?"
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Kerze ist 20 cm hoch und brennt jede Stunde um 2 cm ab. Wie ändert sich die Größe?"
+   },
+   "a": [
+    "exponentiell",
+    "linear",
+    "weder linear noch exponentiell"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "In gleichen Schritten ändert sich die Größe immer um denselben Betrag: gleiche Differenzen, also linear.",
+   "h": "Kommt in jedem Schritt derselbe Betrag dazu (bzw. weg) – oder ein fester Prozentsatz des jeweiligen Werts?"
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Guthaben wächst jedes Jahr um 3 % Zinsen. Wie ändert sich die Größe?"
+   },
+   "a": [
+    "weder linear noch exponentiell",
+    "linear",
+    "exponentiell"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "In gleichen Schritten wird immer mit demselben Faktor malgenommen (Prozent vom jeweiligen Wert): gleiche Quotienten, also exponentiell.",
+   "h": "Kommt in jedem Schritt derselbe Betrag dazu (bzw. weg) – oder ein fester Prozentsatz des jeweiligen Werts?"
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wächst oder fällt die Größe in der Tabelle linear oder exponentiell?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "400",
+       "300",
+       "225",
+       "168,75"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "exponentiell, Faktor 0,75 je Schritt",
+    "exponentiell, Faktor 0,25 je Schritt",
+    "linear, − 100 je Schritt",
+    "weder linear noch exponentiell"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Quotienten: 0,75, 0,75, 0,75 – immer gleich, also exponentiell. Die Differenzen (− 100, − 75) sind verschieden.",
+   "h": "Berechne für jeden Schritt die Differenz (neu − alt) und den Quotienten (neu : alt). Was bleibt gleich?"
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Größe ändert sich exponentiell: 200; 240; 288; … Welcher Wert folgt?"
+   },
+   "o": {
+    "wert": 345.6
+   },
+   "c": "288 * 1.2",
+   "w": "Quotient je Schritt: 240 : 200 = 1,2. Nächster Wert: 288 · 1,2 = 345,6.",
+   "h": "Exponentiell heißt: Es wird immer mit derselben Zahl malgenommen. Mit welcher?"
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Größe ändert sich linear: 1,8; 2,5; 3,2; … Welcher Wert folgt?"
+   },
+   "o": {
+    "wert": 3.9
+   },
+   "c": "3.2 + (0.7)",
+   "w": "Differenz je Schritt: + 0,7. Nächster Wert: 3,2 + 0,7 = 3,9.",
+   "h": "Linear heißt: Es kommt immer derselbe Betrag dazu. Welcher?"
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Tabelle gehört zu einer linearen Funktion. Gib ihren Term an.",
+    "schablone": "f(x) = □x + □",
+    "hinweis": "Steigung, dann Wert bei x = 0",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "7",
+       "10",
+       "13",
+       "16"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     7
+    ]
+   },
+   "w": "Pro Schritt + 3: Steigung m = 3. Bei x = 0 ist der Wert 7. Also f(x) = 3x + 7.",
+   "h": "Die Steigung ist das Plus je Schritt; der Wert unter x = 0 ist f(0).",
+   "c": [
+    "10 - (7)",
+    "7"
+   ]
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Tabelle gehört zu einer Exponentialfunktion f(x) = a · b^x. Bestimme a und b.",
+    "schablone": "a = □; b = □",
+    "hinweis": "Anfangswert und Faktor",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "5",
+       "15",
+       "45",
+       "135"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     5,
+     3
+    ]
+   },
+   "w": "a = f(0) = 5. Quotient je Schritt 15 : 5 = 3 = b. Also f(x) = 5 · 3^x.",
+   "h": "a ist der Wert bei x = 0, b der Quotient je Schritt.",
+   "c": [
+    "5",
+    "15 // 5"
+   ]
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Beschreibung gehört zu exponentiellem Wachstum?"
+   },
+   "a": [
+    "Ein Baum wird jedes Jahr um 30 cm höher.",
+    "Ein Tank verliert jede Minute 2 Liter.",
+    "Ein Taxi kostet 4 € Grundpreis und 2 € pro Kilometer.",
+    "Die Zahl der Nutzer einer App steigt jeden Monat um 8 %."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "8 % mehr heißt: jeden Monat mal 1,08 – gleiche Quotienten. Baum, Tank und Taxi ändern sich je Schritt um denselben Betrag (linear).",
+   "h": "Suche die Beschreibung mit einem festen Prozentsatz statt eines festen Betrags."
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt, wie viele Spieler ein neues Online-Spiel in den ersten Monaten hatte. Prüfe, ob exponentielles Wachstum vorliegt, und gib den Wachstumsfaktor je Monat an.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Monat",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Spieler",
+       "2 000",
+       "2 600",
+       "3 380",
+       "4 394"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1.3
+   },
+   "c": "2600 / 2000",
+   "w": "Quotienten: 2 600 : 2 000 = 1,3, 3 380 : 2 600 = 1,3, 4 394 : 3 380 = 1,3. Immer gleich: exponentiell mit Faktor 1,3 (30 % mehr je Monat).",
+   "h": "Teile jeden Wert durch den vorigen. Sind die Quotienten gleich?"
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt, wie viele Spieler ein neues Online-Spiel in den ersten Monaten hatte. Das Wachstum ist exponentiell. Mit wie vielen Spielern rechnet dieses Modell im Monat 5? Runde auf ganze Spieler.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Monat",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Spieler",
+       "2 000",
+       "2 600",
+       "3 380",
+       "4 394"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 7426,
+    "toleranz": 1
+   },
+   "c": "round(2000 * 1.3 ** 5)",
+   "w": "Faktor 2 600 : 2 000 = 1,3. f(5) = 2 000 · 1,3⁵ = 2 000 · 3,71293 ≈ 7 426.",
+   "h": "Stelle f(t) = a · b^t auf und setze t = 5 ein."
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Größe hat zu Beginn den Wert 4, nach zwei Jahren den Wert 36. Welchen Wert hatte sie nach einem Jahr, wenn sie linear wächst – und welchen, wenn sie exponentiell wächst?",
+    "schablone": "linear: □; exponentiell: □",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     20,
+     12
+    ]
+   },
+   "w": "Linear: zwei gleiche Schritte von 4 bis 36, also je + 16: Wert 20. Exponentiell: zwei gleiche Faktoren mit b² = 36 : 4 = 9, also b = 3: Wert 4 · 3 = 12.",
+   "h": "Linear: gleiche Differenzen in beiden Jahren. Exponentiell: gleiche Faktoren in beiden Jahren.",
+   "c": [
+    "(4 + 36) // 2",
+    "4 * 3"
+   ]
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Pflanze A ist 100 cm hoch und wächst jede Woche um 20 cm. Pflanze B ist 10 cm hoch und verdoppelt ihre Höhe jede Woche (Modell). Nach wie vielen ganzen Wochen ist B zum ersten Mal höher als A?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "Wochen"
+   },
+   "c": "5",
+   "w": "Wertetabelle: Woche 3: A 160, B 80; Woche 4: A 180, B 160; Woche 5: A 200, B 320. Ab Woche 5 ist B höher.",
+   "h": "Lege eine Tabelle an: A + 20 je Woche, B · 2 je Woche."
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Bakterienkultur verdoppelt sich im Labor jede Stunde. Warum beschreibt das exponentielle Modell die Anzahl nach einigen Tagen nicht mehr?"
+   },
+   "a": [
+    "Weil exponentielles Wachstum mit der Zeit von selbst langsamer wird.",
+    "Nährstoffe und Platz sind begrenzt; so viele Bakterien hätten keinen Platz.",
+    "Weil man 2^t für t > 24 nicht ausrechnen kann.",
+    "Weil 2^t für große t negativ wird."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nach 3 Tagen (72 Stunden) wäre die Anzahl 2⁷² ≈ 4,7 · 10²¹-mal so groß. Dafür reichen Nahrung und Platz nicht: Das Modell gilt nur für einen begrenzten Zeitraum.",
+   "h": "Rechne aus, wie groß die Anzahl nach 72 Stunden wäre. Was spricht in der Wirklichkeit dagegen?"
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „Die Werte 2, 4, 6, 8 wachsen exponentiell, weil sie sich am Anfang verdoppeln.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Die Differenzen sind alle + 2, also linear.",
+    "Falsch: Die Quotienten sind alle 2, also linear.",
+    "Falsch: Die Werte wachsen weder linear noch exponentiell.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Differenzen: + 2, + 2, + 2 (gleich). Quotienten: 2; 1,5; 1,33… (verschieden). Nur der erste Schritt ist eine Verdopplung – also linear.",
+   "h": "Prüfe alle Schritte, nicht nur den ersten."
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Vereine haben je 1 000 Mitglieder. Verein A gewinnt jedes Jahr 100 Mitglieder dazu, Verein B jedes Jahr 8 %. Nach wie vielen ganzen Jahren hat B zum ersten Mal mehr Mitglieder als A?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      12
+     ],
+     "y": [
+      0,
+      2600
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 100,
+       "t": 1000,
+       "name": "A",
+       "bereich": [
+        0,
+        12
+       ]
+      },
+      {
+       "art": "exp",
+       "a": 1000,
+       "b": 1.08,
+       "name": "B",
+       "bereich": [
+        0,
+        12
+       ]
+      }
+     ],
+     "schritt_x": 1,
+     "schritt_y": 200,
+     "name_x": "Jahre",
+     "name_y": "Mitglieder"
+    }
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "Jahre"
+   },
+   "c": "7",
+   "w": "A: 1 000 + 100 · t; B: 1 000 · 1,08^t. Jahr 6: A 1 600, B ≈ 1 587; Jahr 7: A 1 700, B ≈ 1 714. Also nach 7 Jahren.",
+   "h": "Vergleiche Jahr für Jahr; im Bild schneiden sich die Graphen."
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Sparkonten starten mit je 1 000 €. Konto A bekommt jedes Jahr 50 € dazu, Konto B jedes Jahr 5 % Zinsen. Welche Aussage stimmt?"
+   },
+   "a": [
+    "Bei beiden kommt jedes Jahr gleich viel dazu.",
+    "Im ersten Jahr kommen bei beiden 50 € dazu, danach bei B jedes Jahr mehr.",
+    "Bei A kommt immer mehr dazu, weil 50 € fest sind.",
+    "Ab dem zweiten Jahr kommt bei A mehr dazu als bei B."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Jahr 1: 5 % von 1 000 € = 50 €, genau wie bei A. Jahr 2: 5 % von 1 050 € = 52,50 € > 50 €. Die Zinsen werden vom wachsenden Betrag berechnet.",
+   "h": "Rechne für B das erste und das zweite Jahr aus."
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wächst oder fällt die Größe in der Tabelle linear oder exponentiell?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "4",
+       "6",
+       "9",
+       "13,5"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "weder linear noch exponentiell",
+    "exponentiell, Faktor 1,5 je Schritt",
+    "linear, + 2 je Schritt",
+    "exponentiell, Faktor 2 je Schritt"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Quotienten: 1,5, 1,5, 1,5 – immer gleich, also exponentiell. Die Differenzen (+ 2, + 3) sind verschieden."
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wächst oder fällt die Größe in der Tabelle linear oder exponentiell?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "50",
+       "47",
+       "44",
+       "41"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "linear, − 3 je Schritt",
+    "linear, + 3 je Schritt",
+    "exponentiell, Faktor 0,94 je Schritt",
+    "weder linear noch exponentiell"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Differenzen: − 3, − 3, − 3 – immer gleich, also linear. Die Quotienten (0,94, 44/47) sind verschieden."
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Größe ändert sich exponentiell: 500; 450; 405; … Welcher Wert folgt?"
+   },
+   "o": {
+    "wert": 364.5
+   },
+   "c": "405 * 0.9",
+   "w": "Quotient je Schritt: 450 : 500 = 0,9. Nächster Wert: 405 · 0,9 = 364,5."
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Beschreibung gehört zu linearem Wachstum?"
+   },
+   "a": [
+    "Ein Kredit wächst jährlich um 4 % Zinsen.",
+    "Eine Pflanze wächst jeden Tag 1,5 cm.",
+    "Die Zahl der Erkrankten verdoppelt sich alle 3 Tage.",
+    "Ein Auto verliert jedes Jahr 15 % an Wert."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Jeden Tag + 1,5 cm: gleiche Differenzen, also linear. Die anderen ändern sich um einen festen Faktor (Prozent oder Verdopplung)."
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wächst oder fällt die Größe in der Tabelle linear oder exponentiell?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "2",
+       "2,5",
+       "3",
+       "3,5"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "linear, − 0,5 je Schritt",
+    "linear, + 0,5 je Schritt",
+    "weder linear noch exponentiell",
+    "exponentiell, Faktor 1,25 je Schritt"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Differenzen: + 0,5, + 0,5, + 0,5 – immer gleich, also linear. Die Quotienten (1,25, 1,2) sind verschieden."
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wächst oder fällt die Größe in der Tabelle linear oder exponentiell?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "64",
+       "16",
+       "4",
+       "1"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "weder linear noch exponentiell",
+    "exponentiell, Faktor 0,25 je Schritt",
+    "exponentiell, Faktor 0,75 je Schritt",
+    "linear, − 48 je Schritt"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Quotienten: 0,25, 0,25, 0,25 – immer gleich, also exponentiell. Die Differenzen (− 48, − 12) sind verschieden."
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Tabelle gehört zu einer linearen Funktion. Gib ihren Term an.",
+    "schablone": "f(x) = □x + □",
+    "hinweis": "Steigung, dann Wert bei x = 0",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "12",
+       "9",
+       "6",
+       "3"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -3,
+     12
+    ]
+   },
+   "w": "Pro Schritt − 3: Steigung m = −3. Bei x = 0 ist der Wert 12. Also f(x) = −3x + 12.",
+   "c": [
+    "9 - (12)",
+    "12"
+   ]
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Tabelle gehört zu einer Exponentialfunktion f(x) = a · b^x. Bestimme a und b.",
+    "schablone": "a = □; b = □",
+    "hinweis": "Anfangswert und Faktor",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "2",
+       "8",
+       "32",
+       "128"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     2,
+     4
+    ]
+   },
+   "w": "a = f(0) = 2. Quotient je Schritt 8 : 2 = 4 = b. Also f(x) = 2 · 4^x.",
+   "c": [
+    "2",
+    "8 // 2"
+   ]
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Größe ändert sich linear: 15; 22; 29; … Welcher Wert folgt?"
+   },
+   "o": {
+    "wert": 36
+   },
+   "c": "29 + (7)",
+   "w": "Differenz je Schritt: + 7. Nächster Wert: 29 + 7 = 36."
+  },
+  {
+   "l": "linear_oder_exponentiell",
+   "t": "linear_oder_exponentiell",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Luftdruck nimmt pro Kilometer Höhe um etwa 12 % ab. Wie ändert sich die Größe?"
+   },
+   "a": [
+    "exponentiell",
+    "linear",
+    "weder linear noch exponentiell"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "In gleichen Schritten wird immer mit demselben Faktor malgenommen (Prozent vom jeweiligen Wert): gleiche Quotienten, also exponentiell."
   }
  ],
  "offen": [
   "Prüfung eingearbeitet (Runde 3): realistische Raten je Größe mit passendem Pronomen, Tabelle „linear oder exponentiell?“, Modell aus Halbwertszeit, verschobene Graphen mit Zeichnung, Logarithmus im Kopf, Graph der Logarithmusfunktion, realistische Getränketemperaturen, eine Nachkommastelle immer angezeigt.",
   "Nicht übernommen: Vorschlag (Meinung) der Prüfung, in „zeitpunkt“ die Faustregel „Verdopplungszeit ≈ 70 : p“ zu ergänzen. Die Karte ist als „ok“ bewertet; eine Näherungsregel neben der exakten Rechnung lädt dazu ein, sie auch bei großen p (wo sie ungenau wird) zu verwenden. Kann als Zusatz in einer späteren Runde kommen.",
   "Zeichnungen: Jede Lernkarte hat ein Koordinatensystem (Exponential- und Logarithmuskurve, Spiegelung an y = x, Zielwert als waagrechte Linie). Aufgaben „Welcher Term passt zum Graphen?“ und y-Achsenabschnitt zeigen den Graphen.",
-  "Gerundete Ergebnisse mit Toleranz 0,1 bzw. 0,01; Logarithmuswerte als 12-stellige Konstanten in c."
+  "Gerundete Ergebnisse mit Toleranz 0,1 bzw. 0,01; Logarithmuswerte als 12-stellige Konstanten in c.",
+  "Achtzehnte Runde (luecken-kl10): neue Lernkarte „linear_oder_exponentiell“ nach „faktor“ (LehrplanPLUS M10 1: exponentielles von linearem Wachstum begründet abgrenzen, Modellgrenzen). Wertetabellen als „tabelle“, beide Graphen in einem Koordinatensystem."
  ]
 }

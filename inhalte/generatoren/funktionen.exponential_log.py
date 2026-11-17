@@ -619,6 +619,204 @@ BF.stufe('faktor', 'Ein Guthaben wächst jedes Jahr um 5 %. Um welchen Faktor ä
 
 # ---- BEFUNDE ENDE ----
 
+# ---------- Achtzehnte Runde (Zweig luecken-kl10): linear oder exponentiell? ----------
+# Lücke laut Aufbau-Prüfung (inhalte/pruefung/aufbau/klasse10.json): LehrplanPLUS M10 1 verlangt, exponentielles Wachstum begründet von linearem
+# abzugrenzen (gleiche Differenzen vs. gleiche Quotienten) und Modellgrenzen zu benennen. Neue Lernkarte „linear_oder_exponentiell“ nach „faktor“.
+# Läuft ganz am Ende mit eigenem Zufallsstart (nur zum Mischen der Antworten); alle alten Aufgaben bleiben gleich.
+# Prüfungsvorbilder (Typ und Niveau, eigene Zahlen und Einkleidung): Bayerischer Mathematik-Test Jgst. 10 (ISB; Tabellen mit Messwerten
+# auf Wachstumsart prüfen, Modell fortsetzen), Grundwissen M10 bayerischer Gymnasien (Tabellen „linear oder exponentiell?“ begründen,
+# Vergleich zweier Wachstumsmodelle).
+_TAB_LE = {'typ': 'tabelle', 'kopf': ['Woche', 'A (m²)', 'B (m²)'], 'zeilen': [['0', '5', '5'], ['1', '10', '10'], ['2', '15', '20'], ['3', '20', '40']]}
+_KS_LE = {'typ': 'koordinaten', 'x': [0, 4], 'y': [0, 90], 'schritt_y': 10, 'name_x': 'Wochen', 'name_y': 'm²',
+          'graphen': [{'art': 'linear', 'm': 5, 't': 5, 'name': 'A', 'bereich': [0, 4]}, {'art': 'exp', 'a': 5, 'b': 2, 'name': 'B', 'bereich': [0, 4]}],
+          'punkte': [{'x': 3, 'y': 20}, {'x': 3, 'y': 40}]}
+KARTE_LIN_EXP = {
+    'lernziel': 'linear_oder_exponentiell', 'titel': 'Linear oder exponentiell?',
+    'einstieg': 'Zwei Teiche starten mit je 5 m² Wasserlinsen. In Teich A kommen jede Woche 5 m² dazu. In Teich B verdoppelt sich die Fläche. '
+                'Gleiches Plus oder gleicher Faktor: ⟦linear⟧ oder ⟦exponentiell⟧.',
+    'woerter': [['lineares Wachstum', 'in gleichen Schritten kommt immer gleich viel dazu: gleiche Differenzen'],
+                ['exponentielles Wachstum', 'in gleichen Schritten wird immer mit derselben Zahl malgenommen: gleiche Quotienten'],
+                ['Quotient', 'Ergebnis einer Division, hier: neuer Wert : alter Wert']],
+    'bild': _TAB_LE,
+    'schritte': [
+        {'text': 'A: 10 − 5 = 5, 15 − 10 = 5. Gleiches Plus: ⟦lineares Wachstum⟧.',
+         'bild': {'kopf': ['Woche', 'A (m²)', 'Plus'], 'zeilen': [['0', '5', ''], ['1', '10', '+ 5'], ['2', '15', '+ 5'], ['3', '20', '+ 5']]}},
+        {'text': 'B: 10 : 5 = 2, 20 : 10 = 2. Gleicher Quotient: ⟦exponentielles Wachstum⟧.',
+         'bild': {'kopf': ['Woche', 'B (m²)', 'mal'], 'zeilen': [['0', '5', ''], ['1', '10', '· 2'], ['2', '20', '· 2'], ['3', '40', '· 2']]}},
+        {'text': 'Im Bild ist A eine Gerade, B eine immer steilere Kurve.', 'bild': _KS_LE},
+        {'text': 'Nach 10 Wochen hätte B schon 5 120 m². Kein Teich ist so groß.',
+         'bild': {'x': [0, 10], 'y': [0, 6000], 'schritt_y': 1000, 'schritt_x': 2,
+                  'graphen': [{'art': 'linear', 'm': 5, 't': 5, 'name': 'A', 'bereich': [0, 10]}, {'art': 'exp', 'a': 5, 'b': 2, 'name': 'B', 'bereich': [0, 10]}],
+                  'punkte': [{'x': 10, 'y': 5120, 'name': 'B: 5 120'}, {'x': 10, 'y': 55, 'name': 'A: 55'}]}}],
+    'fehler': 'Aus 5, 10 auf „immer + 5“ zu schließen ist voreilig. Bei B folgt 20, also + 10. Prüfe ⟦mehrere Schritte⟧.',
+    'fehler_bild': {'typ': 'tabelle', 'kopf': ['Woche', 'B (m²)', 'Plus'], 'zeilen': [['0', '5', ''], ['1', '10', '+ 5'], ['2', '20', '+ 10'], ['3', '40', '+ 20']]},
+    'regel': 'Gleiche Differenzen: linear. ⟦Gleiche Quotienten: exponentiell⟧. Ein Modell gilt nur in einem sinnvollen Bereich.'}
+
+
+def luecken_kl10():
+    start(18020)
+    V = []
+
+    def neu(p, s, a):
+        assert a is not None, 'zu wenige verschiedene Antworten'
+        a['p'], a['s'] = p, s
+        V.append(a)
+
+    def zt_(x):
+        x = Fr(x)
+        return dz(x) if endlich(x) else br(x)
+
+    def plus_t(x):
+        return ('+ ' if x >= 0 else '− ') + zt_(abs(x))
+
+    def art(ys):
+        ys = [Fr(y) for y in ys]
+        ds = [ys[i + 1] - ys[i] for i in range(len(ys) - 1)]
+        qs = [ys[i + 1] / ys[i] for i in range(len(ys) - 1)]
+        if len(set(ds)) == 1: return 'linear', ds[0], ds, qs
+        if len(set(qs)) == 1: return 'exponentiell', qs[0], ds, qs
+        return 'weder', None, ds, qs
+
+    def tab(ys, name='y'):
+        return {'typ': 'tabelle', 'kopf': ['x'] + [str(i) for i in range(len(ys))], 'zeilen': [[name] + [zt_(y) for y in ys]]}
+
+    def tab_entscheiden(ys):
+        typ, k, ds, qs = art(ys)
+        assert typ != 'weder'
+        if typ == 'linear':
+            richtig = f'linear, {plus_t(k)} je Schritt'
+            falsch = [f'exponentiell, Faktor {zt_(qs[0])} je Schritt', 'weder linear noch exponentiell', f'linear, {plus_t(-k)} je Schritt']
+            w = f'Differenzen: {", ".join(plus_t(d) for d in ds)} – immer gleich, also linear. Die Quotienten ({", ".join(zt_(q) if endlich(q) else br(q) for q in qs[:2])}) sind verschieden.'
+        else:
+            richtig = f'exponentiell, Faktor {zt_(k)} je Schritt'
+            falsch = [f'linear, {plus_t(ds[0])} je Schritt', 'weder linear noch exponentiell', f'exponentiell, Faktor {zt_(ds[0] if k > 1 else 1 - k)} je Schritt']
+            w = f'Quotienten: {", ".join(zt_(q) for q in qs)} – immer gleich, also exponentiell. Die Differenzen ({", ".join(plus_t(d) for d in ds[:2])}) sind verschieden.'
+        return mit_grafik(auswahl('Wächst oder fällt die Größe in der Tabelle linear oder exponentiell?', richtig, falsch, w,
+                                  'Berechne für jeden Schritt die Differenz (neu − alt) und den Quotienten (neu : alt). Was bleibt gleich?'), tab(ys))
+
+    def situation(text, typ):
+        richtig = {'linear': 'linear', 'exp': 'exponentiell'}[typ]
+        w = ('In gleichen Schritten ändert sich die Größe immer um denselben Betrag: gleiche Differenzen, also linear.' if typ == 'linear'
+             else 'In gleichen Schritten wird immer mit demselben Faktor malgenommen (Prozent vom jeweiligen Wert): gleiche Quotienten, also exponentiell.')
+        return auswahl(f'{text} Wie ändert sich die Größe?', richtig, ['exponentiell' if typ == 'linear' else 'linear', 'weder linear noch exponentiell'], w,
+                       'Kommt in jedem Schritt derselbe Betrag dazu (bzw. weg) – oder ein fester Prozentsatz des jeweiligen Werts?')
+
+    def weiter(ys, typ):
+        a_, k, ds, qs = art(ys)
+        assert a_ == typ
+        n = ys[-1] + k if typ == 'linear' else Fr(ys[-1]) * k
+        folge = '; '.join(zt_(y) for y in ys)
+        if typ == 'linear':
+            return zahl(f'Eine Größe ändert sich linear: {folge}; … Welcher Wert folgt?', f'Differenz je Schritt: {plus_t(k)}. Nächster Wert: {zt_(ys[-1])} {plus_t(k)} = {zt_(n)}.',
+                        'Linear heißt: Es kommt immer derselbe Betrag dazu. Welcher?', n, f'{float(ys[-1]) if not float(ys[-1]).is_integer() else int(ys[-1])} + ({float(k) if not float(k).is_integer() else int(k)})')
+        return zahl(f'Eine Größe ändert sich exponentiell: {folge}; … Welcher Wert folgt?', f'Quotient je Schritt: {zt_(ys[1])} : {zt_(ys[0])} = {zt_(k)}. Nächster Wert: {zt_(ys[-1])} · {zt_(k)} = {zt_(n)}.',
+                    'Exponentiell heißt: Es wird immer mit derselben Zahl malgenommen. Mit welcher?', n, f'{zt_(ys[-1]).replace(",", ".").replace(" ", "")} * {zt_(k).replace(",", ".")}')
+
+    def term_lin(ys):
+        a_, k, ds, qs = art(ys)
+        assert a_ == 'linear'
+        return mit_grafik(luecken('Die Tabelle gehört zu einer linearen Funktion. Gib ihren Term an.', 'f(x) = □x + □', 'Steigung, dann Wert bei x = 0', [k, ys[0]],
+                                  f'Pro Schritt {plus_t(k)}: Steigung m = {zt_(k)}. Bei x = 0 ist der Wert {zt_(ys[0])}. Also f(x) = {poly(k, ys[0])}.',
+                                  'Die Steigung ist das Plus je Schritt; der Wert unter x = 0 ist f(0).', c=[f'{ys[1]} - ({ys[0]})', str(ys[0])]), tab(ys))
+
+    def term_exp(ys):
+        a_, k, ds, qs = art(ys)
+        assert a_ == 'exponentiell' and Fr(k).denominator == 1
+        return mit_grafik(luecken('Die Tabelle gehört zu einer Exponentialfunktion f(x) = a · b^x. Bestimme a und b.', 'a = □; b = □', 'Anfangswert und Faktor', [ys[0], int(k)],
+                                  f'a = f(0) = {zt_(ys[0])}. Quotient je Schritt {zt_(ys[1])} : {zt_(ys[0])} = {zt_(k)} = b. Also f(x) = {zt_(ys[0])} · {zt_(k)}^x.',
+                                  'a ist der Wert bei x = 0, b der Quotient je Schritt.', c=[str(ys[0]), f'{ys[1]} // {ys[0]}']), tab(ys))
+
+    # ---- Stufe 1 ----
+    neu('uebung', 1, tab_entscheiden([3, 6, 9, 12]))
+    neu('uebung', 1, tab_entscheiden([3, 6, 12, 24]))
+    neu('uebung', 1, situation('Eine Kerze ist 20 cm hoch und brennt jede Stunde um 2 cm ab.', 'linear'))
+    neu('uebung', 1, situation('Ein Guthaben wächst jedes Jahr um 3 % Zinsen.', 'exp'))
+    # ---- Stufe 2 ----
+    neu('uebung', 2, tab_entscheiden([400, 300, 225, Fr(675, 4)]))
+    neu('uebung', 2, weiter([200, 240, 288], 'exponentiell'))
+    neu('uebung', 2, weiter([Fr(18, 10), Fr(25, 10), Fr(32, 10)], 'linear'))
+    neu('uebung', 2, term_lin([7, 10, 13, 16]))
+    neu('uebung', 2, term_exp([5, 15, 45, 135]))
+    neu('uebung', 2, auswahl('Welche Beschreibung gehört zu exponentiellem Wachstum?', 'Die Zahl der Nutzer einer App steigt jeden Monat um 8 %.',
+                             ['Ein Baum wird jedes Jahr um 30 cm höher.', 'Ein Tank verliert jede Minute 2 Liter.', 'Ein Taxi kostet 4 € Grundpreis und 2 € pro Kilometer.'],
+                             '8 % mehr heißt: jeden Monat mal 1,08 – gleiche Quotienten. Baum, Tank und Taxi ändern sich je Schritt um denselben Betrag (linear).',
+                             'Suche die Beschreibung mit einem festen Prozentsatz statt eines festen Betrags.'))
+    # ---- Stufe 3 ----
+    # Prüfungsvorbild BMT10: Messwerte in einer Tabelle auf exponentielles Wachstum prüfen, Wachstumsfaktor angeben, Modell fortsetzen
+    ys = [2000, 2600, 3380, 4394]
+    _, q, _, qs = art(ys)
+    g = {'typ': 'tabelle', 'kopf': ['Monat', '0', '1', '2', '3'], 'zeilen': [['Spieler'] + [dz(y) for y in ys]]}
+    neu('uebung', 3, mit_grafik(zahl('Die Tabelle zeigt, wie viele Spieler ein neues Online-Spiel in den ersten Monaten hatte. Prüfe, ob exponentielles Wachstum vorliegt, und gib den Wachstumsfaktor je Monat an.',
+                                     f'Quotienten: 2 600 : 2 000 = {dz(qs[0])}, 3 380 : 2 600 = {dz(qs[1])}, 4 394 : 3 380 = {dz(qs[2])}. Immer gleich: exponentiell mit Faktor {dz(q)} (30 % mehr je Monat).',
+                                     'Teile jeden Wert durch den vorigen. Sind die Quotienten gleich?', q, '2600 / 2000'), g))
+    v = 2000 * 1.3 ** 5
+    w5 = gerundet(v, 0)
+    neu('uebung', 3, mit_grafik(zahl('Die Tabelle zeigt, wie viele Spieler ein neues Online-Spiel in den ersten Monaten hatte. Das Wachstum ist exponentiell. '
+                                     'Mit wie vielen Spielern rechnet dieses Modell im Monat 5? Runde auf ganze Spieler.',
+                                     f'Faktor 2 600 : 2 000 = 1,3. f(5) = 2 000 · 1,3⁵ = 2 000 · 3,71293 ≈ {dz(w5)}.', 'Stelle f(t) = a · b^t auf und setze t = 5 ein.',
+                                     w5, 'round(2000 * 1.3 ** 5)', tol=1), g))
+    # Knobelaufgabe: derselbe Anfang, zwei Modelle
+    f0, f2 = 4, 36
+    neu('uebung', 3, luecken(f'Eine Größe hat zu Beginn den Wert {f0}, nach zwei Jahren den Wert {f2}. Welchen Wert hatte sie nach einem Jahr, wenn sie linear wächst – und welchen, wenn sie exponentiell wächst?',
+                             'linear: □; exponentiell: □', 'zwei ganze Zahlen', [(f0 + f2) // 2, 12],
+                             f'Linear: zwei gleiche Schritte von {f0} bis {f2}, also je + {(f2 - f0) // 2}: Wert {(f0 + f2) // 2}. '
+                             f'Exponentiell: zwei gleiche Faktoren mit b² = {f2} : {f0} = 9, also b = 3: Wert {f0} · 3 = 12.',
+                             'Linear: gleiche Differenzen in beiden Jahren. Exponentiell: gleiche Faktoren in beiden Jahren.', c=[f'({f0} + {f2}) // 2', f'{f0} * 3']))
+    # Vergleich zweier Modelle
+    t = 0
+    while 10 * 2 ** t <= 100 + 20 * t: t += 1
+    neu('uebung', 3, zahl('Pflanze A ist 100 cm hoch und wächst jede Woche um 20 cm. Pflanze B ist 10 cm hoch und verdoppelt ihre Höhe jede Woche (Modell). '
+                          'Nach wie vielen ganzen Wochen ist B zum ersten Mal höher als A?',
+                          'Wertetabelle: Woche 3: A 160, B 80; Woche 4: A 180, B 160; Woche 5: A 200, B 320. Ab Woche 5 ist B höher.',
+                          'Lege eine Tabelle an: A + 20 je Woche, B · 2 je Woche.', t, str(t), einheit='Wochen'))
+    neu('uebung', 3, auswahl('Eine Bakterienkultur verdoppelt sich im Labor jede Stunde. Warum beschreibt das exponentielle Modell die Anzahl nach einigen Tagen nicht mehr?',
+                             'Nährstoffe und Platz sind begrenzt; so viele Bakterien hätten keinen Platz.',
+                             ['Weil 2^t für große t negativ wird.', 'Weil exponentielles Wachstum mit der Zeit von selbst langsamer wird.',
+                              'Weil man 2^t für t > 24 nicht ausrechnen kann.'],
+                             'Nach 3 Tagen (72 Stunden) wäre die Anzahl 2⁷² ≈ 4,7 · 10²¹-mal so groß. Dafür reichen Nahrung und Platz nicht: Das Modell gilt nur für einen begrenzten Zeitraum.',
+                             'Rechne aus, wie groß die Anzahl nach 72 Stunden wäre. Was spricht in der Wirklichkeit dagegen?'))
+    neu('uebung', 3, auswahl('Jemand sagt: „Die Werte 2, 4, 6, 8 wachsen exponentiell, weil sie sich am Anfang verdoppeln.“ Was stimmt?',
+                             'Falsch: Die Differenzen sind alle + 2, also linear.',
+                             ['Richtig.', 'Falsch: Die Quotienten sind alle 2, also linear.', 'Falsch: Die Werte wachsen weder linear noch exponentiell.'],
+                             'Differenzen: + 2, + 2, + 2 (gleich). Quotienten: 2; 1,5; 1,33… (verschieden). Nur der erste Schritt ist eine Verdopplung – also linear.',
+                             'Prüfe alle Schritte, nicht nur den ersten.'))
+    # Prüfungsvorbild: Vergleich zweier Modelle mit beiden Graphen in einem Koordinatensystem
+    t = 0
+    while 1000 * 1.08 ** t <= 1000 + 100 * t: t += 1
+    g = koord([{'art': 'linear', 'm': 100, 't': 1000, 'name': 'A', 'bereich': [0, 12]}, {'art': 'exp', 'a': 1000, 'b': 1.08, 'name': 'B', 'bereich': [0, 12]}],
+              x=(0, 12), y=(0, 2600), schritt_x=1, schritt_y=200, name_x='Jahre', name_y='Mitglieder')
+    neu('uebung', 3, mit_grafik(zahl('Zwei Vereine haben je 1 000 Mitglieder. Verein A gewinnt jedes Jahr 100 Mitglieder dazu, Verein B jedes Jahr 8 %. '
+                                     'Nach wie vielen ganzen Jahren hat B zum ersten Mal mehr Mitglieder als A?',
+                                     'A: 1 000 + 100 · t; B: 1 000 · 1,08^t. Jahr 6: A 1 600, B ≈ 1 587; Jahr 7: A 1 700, B ≈ 1 714. Also nach 7 Jahren.',
+                                     'Vergleiche Jahr für Jahr; im Bild schneiden sich die Graphen.', t, str(t), einheit='Jahre'), g))
+    neu('uebung', 3, auswahl('Zwei Sparkonten starten mit je 1 000 €. Konto A bekommt jedes Jahr 50 € dazu, Konto B jedes Jahr 5 % Zinsen. Welche Aussage stimmt?',
+                             'Im ersten Jahr kommen bei beiden 50 € dazu, danach bei B jedes Jahr mehr.',
+                             ['Bei A kommt immer mehr dazu, weil 50 € fest sind.', 'Bei beiden kommt jedes Jahr gleich viel dazu.', 'Ab dem zweiten Jahr kommt bei A mehr dazu als bei B.'],
+                             'Jahr 1: 5 % von 1 000 € = 50 €, genau wie bei A. Jahr 2: 5 % von 1 050 € = 52,50 € > 50 €. Die Zinsen werden vom wachsenden Betrag berechnet.',
+                             'Rechne für B das erste und das zweite Jahr aus.'))
+    # ---- Test, Korrektur, Sicherung ----
+    neu('test', 2, tab_entscheiden([4, 6, 9, Fr(27, 2)]))
+    neu('korrektur', 2, tab_entscheiden([50, 47, 44, 41]))
+    neu('korrektur', 2, weiter([500, 450, 405], 'exponentiell'))
+    neu('korrektur', 2, auswahl('Welche Beschreibung gehört zu linearem Wachstum?', 'Eine Pflanze wächst jeden Tag 1,5 cm.',
+                                ['Ein Kredit wächst jährlich um 4 % Zinsen.', 'Die Zahl der Erkrankten verdoppelt sich alle 3 Tage.', 'Ein Auto verliert jedes Jahr 15 % an Wert.'],
+                                'Jeden Tag + 1,5 cm: gleiche Differenzen, also linear. Die anderen ändern sich um einen festen Faktor (Prozent oder Verdopplung).', 'x'))
+    neu('sicherung', 2, tab_entscheiden([2, Fr(5, 2), 3, Fr(7, 2)]))
+    neu('sicherung', 2, tab_entscheiden([64, 16, 4, 1]))
+    neu('sicherung', 2, term_lin([12, 9, 6, 3]))
+    neu('sicherung', 2, term_exp([2, 8, 32, 128]))
+    neu('sicherung', 2, weiter([15, 22, 29], 'linear'))
+    neu('sicherung', 2, situation('Der Luftdruck nimmt pro Kilometer Höhe um etwa 12 % ab.', 'exp'))
+    return V
+
+
+def luecken_einbauen():
+    from _luecken_kl10 import karte_einfuegen, offen_ergaenzen
+    karte_einfuegen('funktionen.exponential_log', KARTE_LIN_EXP, 'faktor', luecken_kl10())
+    offen_ergaenzen('funktionen.exponential_log', 'Achtzehnte Runde (luecken-kl10): neue Lernkarte „linear_oder_exponentiell“ nach „faktor“ (LehrplanPLUS M10 1: '
+                    'exponentielles von linearem Wachstum begründet abgrenzen, Modellgrenzen). Wertetabellen als „tabelle“, beide Graphen in einem Koordinatensystem.')
+
+
 if __name__ == '__main__':
     datei = bauen('funktionen.exponential_log',
           'Exponentielles Wachstum und Zerfall mit f(x) = a · b^x beschreiben, Graphen deuten, Logarithmusfunktion als Umkehrung nutzen und Zeitpunkte berechnen.',
@@ -634,3 +832,4 @@ if __name__ == '__main__':
                  'Gerundete Ergebnisse mit Toleranz 0,1 bzw. 0,01; Logarithmuswerte als 12-stellige Konstanten in c.'])
     ergaenzen(datei, schwer())
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+    luecken_einbauen()  # Achtzehnte Runde (luecken-kl10): neue Karte linear_oder_exponentiell – ganz am Ende

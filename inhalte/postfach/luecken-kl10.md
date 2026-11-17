@@ -1,5 +1,9 @@
 # Postfach luecken-kl10 (Achtzehnte Runde, Teil B, Klasse 10)
 
+## 2026-11-17 14:10 – STATUS: funktionen.exponential_log fertig
+- Neue Lernkarte `linear_oder_exponentiell` („Linear oder exponentiell?“, Pflicht) nach `faktor`, Abschnitt „Exponentialfunktion“: Wertetabelle als `tabelle` (Differenzen/Quotienten je Schritt), beide Graphen in einem Koordinatensystem, Modellgrenze (10 Wochen Verdopplung). 28 Aufgaben (Übung 4/6/8, Test 1, Korrektur 3, Sicherung 6).
+- `inhalt_pruefen`: OK, keine Warnungen. Nachweis: alle 204 alten Aufgaben unverändert, NACHWEIS OK.
+
 ## 2026-11-17 13:40 – STATUS: funktionen.trig fertig
 - Neue Lernkarte `verschiebung_x` („Verschiebung in x-Richtung“, Pflicht) nach `parameter`, im Abschnitt „Parameter“: 28 Aufgaben (Übung 4/6/8, Test 1, Korrektur 3, Sicherung 6).
 - `zuordnen` erweitert: 6 Übungen mit c (Stufe 1/2/3: 1/2/3), Merksatz um „Start verschoben? Dann c ablesen.“ ergänzt (25 Wörter). Kein neuer Schritt, weil die Karte schon 5 Schritte hat; die Erklärung zu c steht in `verschiebung_x` direkt davor.

@@ -615,3 +615,10 @@ stufen_anwenden(DATEI, 'messen.koerper_berechnung')
 
 if __name__ == '__main__':
     schreibe(DATEI)
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('messen.koerper_berechnung')
+# ---- BEREINIGEN ENDE ----

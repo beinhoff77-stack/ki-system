@@ -16,6 +16,7 @@ optional Vorsatz 'S2:' und Nachsatz '@@text'; 'n' = erwartete Trefferzahl, sonst
   neu(lz, g, aufgabe)                neue Übung (Stufe folgt aus g); knobel(lz, aufgabe) neue Knobel-Bordkarte
   ersetze(lz, muster, aufgabe, g=None)  Aufgabe an gleicher Stelle durch eine neue Fassung ersetzen (alter Text → „ersetzt“)
   karte(lz, **felder)                Felder der Lernkarte setzen (nur wo der Auftrag es verlangt)
+  inhalt(**felder), abschnitt(alt, neu)  Ziel/Merke/offen des Themas bzw. Titel eines Bereichs anpassen
 Danach je geänderter Lernkarte: Übungen ordnen (nie zweimal derselbe Typ hintereinander) und Regeln der Zwanzigsten Runde
 prüfen (ohne überzählige: Stufe 1/2/3 mindestens 4/6/8 Übungen mit 2/3/4 Typen, Stufe 3 je Typ höchstens 3, 1–3 Knobel).
 """
@@ -51,6 +52,8 @@ def neu(lz, g, aufgabe): return ('neu', lz, g, aufgabe)
 def knobel(lz, aufgabe): return ('knobel', lz, aufgabe)
 def ersetze(lz, muster, aufgabe, g=None, n=1): return ('ersetze', lz, muster, aufgabe, g, n)
 def karte(lz, **felder): return ('karte', lz, felder)
+def inhalt(**felder): return ('inhalt', felder)          # ziel, merke, offen (Liste) usw. des Themas
+def abschnitt(alt, neu_titel): return ('abschnitt', alt, neu_titel)
 
 
 def passt(muster, a):
@@ -228,6 +231,13 @@ def anwenden(d, thema, plan):
                 if v is None: e.pop(k, None)
                 else: e[k] = v
             b['karte'].append({'lz': lz, 'felder': sorted(felder)})
+        elif art == 'inhalt':
+            for k, v in op[1].items(): d['inhalt'][k] = v
+            b.setdefault('inhalt', []).append(sorted(op[1]))
+        elif art == 'abschnitt':
+            ab = next(a for a in d['inhalt']['abschnitte'] if a['titel'] == op[1])
+            ab['titel'] = op[2]
+            b.setdefault('abschnitt', []).append([op[1], op[2]])
         else:
             raise ValueError(art)
     # Übungen je geänderter Lernkarte ordnen: an der Stelle der ersten Übung der Karte, Knobel direkt danach

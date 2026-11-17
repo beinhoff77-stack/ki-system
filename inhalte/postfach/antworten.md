@@ -159,3 +159,11 @@ Stand lernen-app 2d0d164, App 0.74.5, nicht live. tests/lernen.test.cjs 34 von 3
 - **Migrationen eingespielt** (Werkstatt-Sperre, Dateien per Prüfsumme gegen das Repository abgeglichen): 20261117_w150_e2_plan_fluege_abwaehlbar.sql und 20261117_w150_e3_auftraege_bezug.sql.
   Danach geprüft: neue Spalten da, schule_uebersicht liefert thema_id/reihenfolge/ausgelassen, Pläne der Kinder unverändert (64 Einträge), entfernte Einträge stehen bei 1 000 001–1 000 037.
 - Offen: Nachprüfung A2/B/C und Winkelsätze; Schritt D (K3, K4, E-4) des Bau-Chats; RS/IB: Merksätze (103 zu lang), schwere Bordkarten, Lehrplan-Abgleich, Freigabe.
+
+## 17.11. – Schritt D (Phase 3) zusammengeführt, Migration D eingespielt; Nachprüfung 0.74.5 gelesen
+- Zweig bau-phase2 (Schritt D: K3, K4, E-4) nach lernen-app zusammengeführt (Stand b7c4078), App 0.74.6, nicht live. tests/lernen.test.cjs 38 von 38 (K4-Test stabilisiert: wartete nicht auf die fertige Seite).
+- Migration supabase/migrations/20261117_w150_d_stufen_stand.sql eingespielt (Werkstatt-Sperre, per Prüfsumme gegen das Repository abgeglichen). Danach geprüft: 68 Themen mit Lehrplan-Reihenfolge,
+  lernender.stufen vorhanden, die vier Funktionen tragen die neuen Felder; bis_sitzt liefert plausible Zahlen (neueste Etappen: 8 und 9 Bordkarten bis „sitzt“).
+- Nachprüfung 0.74.5 (NACHPRUEFUNG-2026-11-17.md): A1–A12, R1–R3, N5–N7, K1/K2, D2, E-1 bis E-3 nachgestellt und umgesetzt. Neue Befunde M1–M9 → „Zusatz 3 zum Bau-Auftrag“ (Schritt E).
+  M4 mit echten Daten geprüft: Im Plan des Kindes der Klasse 5 steht kein Klasse-8-Ort (Cusco stammt aus den Testdaten); Adelaide (Klasse 6) steht bewusst im Klasse-6-Teil des Plans.
+- Damit sind alle Pakete des Gesamtauftrags gebaut: Phase 1 (A, R1, K1, E-1), Phase 2 (K2, E-2, E-3, R2), Phase 3 (K3, K4, E-4, R3). Offen: Schritt E, Nachprüfung von D, R4, Inhalte.

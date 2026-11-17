@@ -1167,3 +1167,29 @@ Regeln: Nur die genannten Felder ändern (regel, einzelne schritte bzw. bild). A
 Fertig je Thema, wenn `python3 -I tools/inhalt_pruefen.py inhalte/themen/<datei>.json` OK meldet und der Nachweis stimmt.
 Grenzen: Keine Datenbank, kein App-Code, keine Tests, kein Merge. Meldungen in inhalte/postfach/merksaetze.md; am Ende eine Liste alt → neu für jeden geänderten Merksatz. Arbeite ohne Rückfragen durch.
 ```
+
+# Zusatz 3 zum Bau-Auftrag (17.11.): Schritt E – Befunde M1–M9 aus der Nachprüfung 0.74.5
+
+Quelle: origin/pruefung-kinderansicht:inhalte/pruefung/NACHPRUEFUNG-2026-11-17.md (Bilder unter inhalte/pruefung/nach-0745/bilder/). Schritt D ist zusammengeführt (0.74.6), Migration D eingespielt.
+
+```text
+Zusatz 3 zum Bau-Auftrag (Zweig bau-phase2). Schritt D (K3, K4, E-4; App 0.74.6) ist nach lernen-app zusammengeführt, 38 von 38 Tests. Die Migration 20261117_w150_d_stufen_stand.sql ist
+unverändert eingespielt. Ein Test wurde stabilisiert (K4 wartete nicht auf die fertig gezeichnete Seite und las gelegentlich „Lade …“). Führe lernen-app in bau-phase2.
+1. Prüfe Schritt D gegen die echte Antwortform (schule_uebersicht.themen und lernende[].stufen, schule_plan_lesen.kind.stufen und lehrplan_reihenfolge, schule_lernstand.bis_sitzt/sitzt_am,
+   schule_kind_setzen mit stufen) und melde das Ergebnis.
+2. Schritt E – Befunde der Nachprüfung 0.74.5 (git show origin/pruefung-kinderansicht:inhalte/pruefung/NACHPRUEFUNG-2026-11-17.md, Abschnitt „Neue Befunde“):
+   M1 „Gerade dran“ in Mein Weg · Stand widerspricht den Zahlen darüber: „Gerade dran“ = nur der aktuelle Ort (höchstens dazu der nächste); alles Übrige im Plan unter „Kommt noch“.
+      Kacheln passend, z. B. „1 kann ich · 1 gerade dran · 12 kommen noch“.
+   M2 Flugplan: Das Feld „Klasse“ (und die Stufen je Schulart) speichert sofort wie der Plan – kein eigener Knopf „Speichern“.
+   M3 Aufgeklappter Ort im Flugplan: Häkchen links in derselben Zeile wie der Flugname, eine Zeile je Flug.
+   M4 Orte, deren Flüge alle über der Klasse des Kindes liegen: im Flugplan sichtbar markieren („Klasse 8 – über der Klasse des Kindes“) und beim Kind unter „Später“ einsortieren,
+      solange Eltern sie nicht bewusst vorgezogen haben (Vorziehen = im Plan vor einem Ort der eigenen Klasse eingeordnet).
+   M5 Abflugtafel: als Ziel das nächste Zwischenziel zeigen („Noch 3 Etappen bis ›Ganze Zahlen‹ gelandet“); der Stempel des Ortes mit allen Flügen steht im Reisepass und klein darunter.
+   M6 Detektiv bei Auswahl-Bordkarten ohne hinterlegtes Fehlermuster: neutraler Satz („Schau dir deine Wahl und die Frage noch einmal an“) statt eines Musters, das nicht zur Antwort passt.
+   M7 Erklärung: bei „Worum geht’s“ kein Bild zeigen, wenn Schritt 1 dasselbe Bild (nur mit Ergänzung) zeigt.
+   M8 Schwebender Menüknopf ≡ verdeckt Inhalt: prüfen (Handy 390 px, Tablet 820 px, beim Rollen) und so setzen, dass er keinen Text und keinen Knopf überdeckt.
+   M9 Text „Für deine Klasse ist alles verteilt.“ → „Alles aus Klasse 5 steht schon in deinem Plan.“ (mit der Klasse des Kindes).
+   Außerdem aus dem Prüfbericht „nicht nachgestellt“: Ziehen im Flugplan auf Handy (390 px) und Rechner (Maus) mit einem eigenen Test absichern; Startseite: GYM/RS/IB-Balken dürfen nicht „–“ zeigen,
+   wenn Flüge mit Klasse da sind.
+Tests grün, Version erhöhen, Commit + Push, Meldung „Schritt E fertig“ im Postfach. Braucht ein Punkt die Datenbank: Migration als Datei, nicht ausführen.
+```

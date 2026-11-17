@@ -490,6 +490,122 @@ UMBAU_OFFEN = ['Umbau (Paket UR): Die Lernkarten zeigen Vektoren jetzt als Pfeil
 GEN = {'det_berechnen': g_det_berechnen, 'parallelogramm': g_parallelogramm, 'dreieck': g_dreieck,
        'umlaufsinn': g_umlaufsinn, 'viereck': g_viereck, 'vieleck': g_vieleck}
 
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil B, Zweig durchsicht-rsib-1) ----------
+# Prüfungsvorbilder: Realschul-Abschlussprüfung Mathematik I (Bayern), Aufgaben „Parallelogramme ABCnDn / Dreiecke ABCn …
+# in Abhängigkeit von der x-Koordinate“ (z. B. ISB-Beispielaufgabe B 4, AP 2006/2008), Jahrgangsstufentest 8 I (2021: Lücken
+# in einer Determinante ergänzen). Typ und Aufbau übernommen, Zahlen und Wortlaut eigen.
+def durchsicht(d):
+    from _rsib1 import Z, A, L, nachtrag
+    S = 'Schreibe den Term mit den Zahlen.'
+    nachtrag(d,
+        umstufen={
+            'Welchen Wert hat die Determinante der Vektoren a = (1 | 5) und b = (8 | 2)?': 2,
+            'Welchen Flächeninhalt hat das Parallelogramm ABCD mit A(2 | 3), B(−3 | 6) und D(0 | −2)?': 2,
+            'Welchen Flächeninhalt hat das Parallelogramm ABCD mit A(1 | −4), B(−4 | −1) und D(0 | −9)?': 2,
+            'Welchen Flächeninhalt hat das Dreieck ABC mit A(−2 | 3), B(−3 | 2) und C(0 | 0)?': 2,
+            'Welchen Flächeninhalt hat das Viereck ABCD mit A(−4 | −2), B(2 | 4), C(−3 | 4), D(−4 | 1)?': 2,
+            'Welchen Flächeninhalt hat das Viereck ABCD mit A(−1 | −4), B(4 | 1), C(3 | 5), D(−1 | 4)?': 2,
+        },
+        ersetzen={
+            'Für A, B, C ist die Determinante aus AB und AC gleich −15. Wie laufen die Ecken A → B → C?':
+                A(1, 'Für A, B, C ist die Determinante aus AB und AC gleich 0. Was bedeutet das?',
+                  'Die Punkte liegen auf einer Geraden.', ['gegen den Uhrzeigersinn', 'im Uhrzeigersinn'],
+                  'Determinante 0 heißt Fläche 0: A, B und C liegen auf einer Geraden, es gibt kein Dreieck.',
+                  'Was heißt eine Fläche von 0?'),
+            'Für A, B, C ist die Determinante aus AB und AC gleich −6. Wie laufen die Ecken A → B → C?':
+                A(1, 'Für A, B, C ist die Determinante aus AB und AC gleich 8. Wie laufen die Ecken A → B → C?',
+                  'gegen den Uhrzeigersinn', ['im Uhrzeigersinn', 'Die Punkte liegen auf einer Geraden.'],
+                  'Die Determinante 8 ist positiv: A → B → C läuft gegen den Uhrzeigersinn.',
+                  'Positiv oder negativ?'),
+        },
+        neu={
+            'det_berechnen': [
+                L(3, 'In der Determinante der Vektoren a = (3 | □) und b = (2 | 5) fehlt eine Zahl. Die Determinante hat den Wert 7. Welche Zahl fehlt?',
+                  'a = (3 | □)', [4], ['(3*5 - 7)/2'],
+                  '3 · 5 − □ · 2 = 7 ⇒ 15 − 2 · □ = 7 ⇒ 2 · □ = 8 ⇒ □ = 4.',
+                  'Schreibe die Rechnung über Kreuz mit □ hin und löse nach □ auf.'),
+                L(3, 'Die Vektoren a = (x | 2) und b = (3 | 4) hängen von x ab. Gib ihre Determinante als Term an.',
+                  '□x + □', [4, -6], ['4', '-2*3'],
+                  'x · 4 − 2 · 3 = 4x − 6.', 'Rechne über Kreuz wie mit Zahlen; x bleibt stehen.', hinweis=S),
+                Z(3, 'Die Determinante der Vektoren a und b hat den Wert 7. Welchen Wert hat die Determinante, wenn du a und b vertauschst (erst b, dann a)?',
+                  -7, '-7', 'Beim Vertauschen tauschen die beiden Produkte die Plätze: aus 12 − 5 wird 5 − 12. Das Ergebnis wechselt das Vorzeichen: −7.',
+                  'Probiere es mit a = (4 | 1) und b = (5 | 3) aus.'),
+                Z(3, 'Die Determinante der Vektoren a und b hat den Wert 5. Welchen Wert hat die Determinante der Vektoren 2 · a und b?',
+                  10, '2*5', 'Verdoppelst du a, verdoppelt sich jedes Produkt mit einer Zahl aus a. Also verdoppelt sich die Determinante: 10. '
+                  'Im Bild: Das Parallelogramm wird doppelt so lang.', 'Was passiert mit dem Parallelogramm, wenn ein Pfeil doppelt so lang wird?'),
+            ],
+            'parallelogramm': [
+                L(3, 'Gegeben sind A(0 | 0) und B(4 | 1). Die Punkte D liegen bei D(x | 3) mit x < 12. Sie bilden Parallelogramme ABCD. '
+                     'Gib den Flächeninhalt in Abhängigkeit von x an.',
+                  'A(x) = (□ · x + □) FE', [-1, 12], ['-1*1', '4*3'],
+                  'AB = (4 | 1), AD = (x | 3). Determinante: 4 · 3 − 1 · x = 12 − x. Also A(x) = (−1 · x + 12) FE.',
+                  'Bilde AB und AD wie sonst – in AD steht jetzt x.'),
+                Z(3, 'Gegeben sind A(0 | 0), B(4 | 1) und D(x | 3). Für welches x hat das Parallelogramm ABCD den Flächeninhalt 8 FE?',
+                  4, '12 - 8', 'Fläche: 4 · 3 − 1 · x = 12 − x. Gleichung 12 − x = 8 ⇒ x = 4.',
+                  'Stelle die Fläche als Term auf und setze ihn gleich 8.'),
+                Z(3, 'Gegeben sind A(0 | 0), B(4 | 1) und D(x | 3). Für welches x entsteht kein Parallelogramm, weil A, B und D auf einer Geraden liegen?',
+                  12, '4*3/1', 'Kein Parallelogramm heißt Fläche 0: 12 − x = 0 ⇒ x = 12. Probe: D(12 | 3) = 3 · B, also auf der Geraden durch A und B.',
+                  'Welche Fläche hat ein „plattgedrücktes“ Parallelogramm?'),
+                A(3, 'Ein Parallelogramm ABCD hat 6 FE. Man verdoppelt alle Koordinaten von A, B, C und D. Wie groß ist das neue Parallelogramm?',
+                  '24 FE', ['12 FE', '6 FE', '48 FE'],
+                  'Beide Pfeile AB und AD werden doppelt so lang. Jedes Produkt in der Determinante wird 2 · 2 = 4-mal so groß: 4 · 6 = 24 FE.',
+                  'Rechne mit AB = (3 | 0) und AD = (0 | 2) und dann mit den doppelten Pfeilen.'),
+            ],
+            'dreieck': [
+                L(3, 'Gegeben sind A(0 | 0) und B(6 | 0). Die Punkte C liegen bei C(x | x + 1) mit x > −1. Gib den Flächeninhalt der Dreiecke ABC in Abhängigkeit von x an.',
+                  'A(x) = (□ · x + □) FE', [3, 3], ['6/2', '6*1/2'],
+                  'AB = (6 | 0), AC = (x | x + 1). Determinante: 6 · (x + 1) − 0 · x = 6x + 6. Halbieren: A(x) = (3 · x + 3) FE.',
+                  'Rechne mit AC = (x | x + 1) über Kreuz und halbiere am Ende.'),
+                Z(3, 'Gegeben sind A(0 | 0), B(6 | 0) und C(x | x + 1). Für welches x hat das Dreieck ABC den Flächeninhalt 12 FE?',
+                  3, '(12 - 3)/3', 'Fläche: 1/2 · 6 · (x + 1) = 3x + 3. Gleichung 3x + 3 = 12 ⇒ 3x = 9 ⇒ x = 3.',
+                  'Stelle zuerst die Fläche als Term in x auf.'),
+                A(3, 'Ein Dreieck ABC hat 10 FE. Man verschiebt C parallel zur Seite AB an eine andere Stelle. Wie groß ist das neue Dreieck?',
+                  '10 FE', ['größer als 10 FE', 'kleiner als 10 FE', 'Das kann man nicht sagen.'],
+                  'Bei einer Verschiebung parallel zu AB bleibt der Abstand von C zur Seite AB gleich. Grundseite und Höhe bleiben, also bleibt die Fläche 10 FE.',
+                  'Was ändert sich an Grundseite AB und Höhe?'),
+            ],
+            'umlaufsinn': [
+                Z(3, 'Gegeben sind A(1 | 1), B(5 | 3) und C(x | 5). Für welches x liegen die drei Punkte auf einer Geraden?',
+                  9, '1 + 16/2', 'AB = (4 | 2), AC = (x − 1 | 4). Determinante: 4 · 4 − 2 · (x − 1) = 0 ⇒ 16 = 2x − 2 ⇒ x = 9.',
+                  'Auf einer Geraden heißt Determinante 0.'),
+                A(3, 'Gegeben sind A(0 | 0), B(4 | 0) und C(3 | y). Für welche y laufen die Ecken A → B → C gegen den Uhrzeigersinn?',
+                  'für y > 0', ['für y < 0', 'für y > 3', 'für jedes y'],
+                  'AB = (4 | 0), AC = (3 | y). Determinante: 4 · y − 0 · 3 = 4y. Gegen den Uhrzeigersinn heißt positiv: 4y > 0, also y > 0.',
+                  'Rechne die Determinante mit y aus und frage: Wann ist sie positiv?'),
+            ],
+            'viereck': [
+                L(3, 'Gegeben sind A(0 | 0), B(6 | 0), D(0 | 4) und die Punkte C(x | 5) mit x > 0. Gib den Flächeninhalt der Vierecke ABCD in Abhängigkeit von x an.',
+                  'A(x) = (□ · x + □) FE', [2, 15], ['4/2', '6*5/2'],
+                  'AB = (6 | 0), AC = (x | 5), AD = (0 | 4). ABC: 6 · 5 − 0 · x = 30. ACD: x · 4 − 5 · 0 = 4x. A(x) = 1/2 · (30 + 4x) = (2 · x + 15) FE.',
+                  'Teile mit der Diagonale AC. In AC steht x.'),
+                Z(3, 'Gegeben sind A(0 | 0), B(6 | 0), C(x | 5) und D(0 | 4). Für welches x hat das Viereck ABCD den Flächeninhalt 25 FE?',
+                  5, '(25 - 15)/2', 'Fläche: 1/2 · (30 + 4x) = 2x + 15. Gleichung 2x + 15 = 25 ⇒ x = 5.',
+                  'Erst die Fläche als Term in x, dann gleich 25 setzen.'),
+                A(3, 'Du teilst ein Viereck ABCD einmal mit der Diagonale AC und einmal mit der Diagonale BD. Was gilt für die beiden Ergebnisse?',
+                  'Beide Wege geben dieselbe Fläche.', ['Mit BD kommt immer mehr heraus.', 'Mit AC kommt immer mehr heraus.', 'Die Ergebnisse hängen von der Lage im Koordinatensystem ab.'],
+                  'Beide Diagonalen zerlegen dasselbe Viereck lückenlos in zwei Dreiecke. Die Gesamtfläche bleibt gleich.',
+                  'Was ändert sich am Viereck selbst, wenn du anders zerschneidest?'),
+                Z(3, 'Von einem Viereck ABCD weißt du: Die Determinante aus AB und AC ist 18. Das Viereck hat 15 FE. Wie groß ist die Determinante aus AC und AD?',
+                  12, '2*15 - 18', 'Fläche = 1/2 · (18 + ?) = 15 ⇒ 18 + ? = 30 ⇒ ? = 12.',
+                  'Schreibe die Flächenformel hin und rechne rückwärts.'),
+            ],
+            'vieleck': [
+                L(3, 'Gegeben sind A(0 | 0), B(4 | 0), C(6 | 3), D(2 | 6) und die Punkte E(x | 4) mit x ≤ 0. Gib den Flächeninhalt der Fünfecke ABCDE in Abhängigkeit von x an.',
+                  'A(x) = (□ · x + □) FE', [-3, 25], ['-6/2', '(12 + 30 + 8)/2'],
+                  'AB mit AC: 4 · 3 − 0 · 6 = 12. AC mit AD: 6 · 6 − 3 · 2 = 30. AD mit AE: 2 · 4 − 6 · x = 8 − 6x. '
+                  'A(x) = 1/2 · (50 − 6x) = (−3 · x + 25) FE.',
+                  'Nur die letzte Determinante (AD mit AE) enthält x.'),
+                Z(3, 'Gegeben sind A(0 | 0), B(4 | 0), C(6 | 3), D(2 | 6) und E(x | 4) mit x ≤ 0. Für welches x hat das Fünfeck ABCDE den Flächeninhalt 31 FE?',
+                  -2, '(25 - 31)/3', 'Fläche: 1/2 · (12 + 30 + 8 − 6x) = 25 − 3x. Gleichung 25 − 3x = 31 ⇒ −3x = 6 ⇒ x = −2.',
+                  'Stelle zuerst die Fläche als Term in x auf.'),
+                Z(3, 'Für ein Fünfeck ABCDE gilt: AB mit AC ergibt 10, AC mit AD ergibt 14. Das Fünfeck hat 20 FE. Welchen Wert hat die Determinante aus AD und AE?',
+                  16, '2*20 - 10 - 14', 'Fläche = 1/2 · (10 + 14 + ?) = 20 ⇒ 24 + ? = 40 ⇒ ? = 16.',
+                  'Verdopple die Fläche und ziehe die bekannten Determinanten ab.'),
+            ],
+        })
+
+
 if __name__ == '__main__':
     d = bauen('abbildungen.determinanten2',
           'Flächen von Dreiecken, Vierecken und Vielecken im Koordinatensystem mit zweireihigen Determinanten berechnen.',
@@ -503,3 +619,4 @@ if __name__ == '__main__':
           offen=['Die App kann keine Vektorpfeile zeichnen; Vektoren erscheinen als Strecken. App-Wunsch: Pfeilspitzen bei Strecken im Koordinatensystem.',
                  'Determinanten werden als „Determinante der Vektoren a und b“ ausgeschrieben; die Spaltenschreibweise steht nur als Tabelle in der Lernkarte.'])
     umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=['Die App kann keine Vektorpfeile zeichnen'])
+    durchsicht(d)

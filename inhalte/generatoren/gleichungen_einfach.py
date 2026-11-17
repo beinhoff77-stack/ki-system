@@ -779,6 +779,21 @@ for _lz, _t in [('umkehr_mal', 'Löse 72 : x = 9.'), ('umkehr_mal', 'Löse 110 :
     DS.stufe(_lz, _t, 2, enthaelt=lambda x: x['s'] == 3)
 baue = mit_durchsicht(baue, DS)
 # ---- DURCHSICHT ENDE ----
+# ---- STUFEN (Zwanzigste Runde) ----
+from _stufen_kl5 import stufen_anwenden  # noqa: E402
+_baue_ds = baue
+
+
+def baue(meta, *args, **kwargs):
+    d = _baue_ds(meta, *args, **kwargs)
+    stufen_anwenden(d, meta['thema_schluessel'])
+    (_THEMEN_ST / f"{meta['thema_schluessel']}.json").write_text(_json_st.dumps(d, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
+    return d
+
+
+import json as _json_st  # noqa: E402
+from _befunde import THEMEN as _THEMEN_ST  # noqa: E402
+# ---- STUFEN ENDE ----
 
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,

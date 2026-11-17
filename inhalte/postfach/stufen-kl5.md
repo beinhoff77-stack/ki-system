@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 15:12 – STATUS: gleichungen.einfach fertig
+7 Lernkarten: 10 neue Übungen, 14 Knobel-Bordkarten, 0 umgestuft, 26 überzählig. Prüfskript OK, 0 Gruppen „gleich gebaut hintereinander“, Gegenprobe ohne überzählige OK, Nachweis OK.
+
 ## 2026-11-17 15:10 – STATUS: stochastik.kombinatorik fertig
 7 Lernkarten: 18 neue Übungen, 14 Knobel-Bordkarten, 0 umgestuft, 24 überzählig. Prüfskript OK, 0 Gruppen „gleich gebaut hintereinander“, Gegenprobe ohne überzählige OK, Nachweis OK.
 

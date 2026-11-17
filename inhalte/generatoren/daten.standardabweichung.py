@@ -290,7 +290,109 @@ def g_deuten(s):
 
 GEN = {'abweichung': g_abweichung, 'varianz': g_varianz, 'sigma': g_sigma, 'eigenschaften': g_eigenschaften, 'deuten': g_deuten}
 
-bauen('daten.standardabweichung',
+# ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_rest import umbau_schreiben  # noqa: E402
+
+from _umbau_rest import tab  # noqa: E402
+
+
+def _zs(a, b, n, **kw):
+    return {'typ': 'zahlenstrahl', 'start': a, 'ende': b, 'abschnitte': n, 'beschriftet': 'anfang_ende', **kw}
+
+
+def _pk(*w):
+    return [{'wert': x, 'name': n} for x, n in w]
+
+
+def _var(ab, q):
+    return tab(['Wert', '2', '4', '6', '8'], ['Abweichung', *ab], ['Quadrat', *q])
+
+
+UMBAU = {
+    'abweichung': {
+        'einstieg': 'Drei Kinder springen 4 m, 7 m und 10 m weit. Im Schnitt sind das 7 m. '
+                    'Wie weit liegt jeder Sprung daneben? Das ist die ⟦Abweichung⟧ vom Mittelwert.',
+        'woerter': [['Mittelwert', 'x̄: Summe aller Werte geteilt durch ihre Anzahl'],
+                    ['Abweichung', 'Wert minus Mittelwert']],
+        'bild': _zs(0, 12, 12, punkte=_pk((4, '4'), (7, '7'), (10, '10'))),
+        'schritte': [
+            {'text': 'Mittelwert: (4 + 7 + 10) : 3 = 7.', 'bild': {'punkte': _pk((4, '4'), (7, 'x̄ = 7'), (10, '10'))}},
+            {'text': 'Abweichung von 4: 4 − 7 = −3.', 'bild': {'boegen': [{'von': 7, 'bis': 4, 'name': '−3'}]}},
+            {'text': 'Von 7: 0. Von 10: 10 − 7 = ⟦3⟧.',
+             'bild': {'boegen': [{'von': 7, 'bis': 4, 'name': '−3'}, {'von': 7, 'bis': 10, 'name': '+3'}]}},
+            {'text': 'Zusammen: (−3) + 0 + 3 = 0.'},
+        ],
+        'fehler': 'Abweichungen einfach addieren misst keine Streuung. Es kommt immer 0 heraus: ⟦Plus und Minus heben sich auf⟧.',
+        'regel': 'Abweichung = ⟦Wert − Mittelwert⟧. Alle Abweichungen zusammen ergeben immer 0.',
+    },
+    'varianz': {
+        'einstieg': 'Damit sich Plus und Minus nicht aufheben, quadriert man jede Abweichung. Dann sind alle Beiträge positiv. '
+                    'Ihr Mittelwert heißt ⟦Varianz⟧.',
+        'woerter': [['Varianz', 'Mittelwert der quadrierten Abweichungen'],
+                    ['quadriert', 'mit sich selbst malgenommen: (−3)² = 9']],
+        'bild': _var(['?'] * 4, ['?'] * 4),
+        'schritte': [
+            {'text': 'Werte 2; 4; 6; 8. Mittelwert: 20 : 4 = 5.'},
+            {'text': 'Abweichungen: −3; −1; 1; 3.', 'bild': _var(['−3', '−1', '1', '3'], ['?'] * 4)},
+            {'text': 'Quadrieren: 9; 1; 1; 9.', 'bild': _var(['−3', '−1', '1', '3'], ['9', '1', '1', '9'])},
+            {'text': 'Varianz: (9 + 1 + 1 + 9) : 4 = ⟦5⟧.'},
+        ],
+        'fehler': '(−3)² = −9 ist falsch. Minus mal Minus ergibt Plus: ⟦(−3)² = 9⟧.',
+        'fehler_bild': _var(['−3', '−1', '1', '3'], ['−9 ✗', '−1 ✗', '1', '9']),
+        'regel': 'Varianz: Abweichungen ⟦quadrieren⟧, addieren, durch n teilen. Sie ist nie negativ.',
+    },
+    'sigma': {
+        'einstieg': 'Fünf Bohnenpflanzen sind 3, 5, 7, 9 und 11 cm hoch. Die Varianz hat die Einheit cm², das passt nicht. '
+                    'Die Wurzel daraus ist die ⟦Standardabweichung⟧.',
+        'woerter': [['Standardabweichung σ', 'Wurzel aus der Varianz; der typische Abstand zum Mittelwert'],
+                    ['σ', 'griechischer Buchstabe „sigma“']],
+        'bild': _zs(0, 14, 14, punkte=_pk((3, '3'), (5, '5'), (7, '7'), (9, '9'), (11, '11'))),
+        'schritte': [
+            {'text': 'Mittelwert: 35 : 5 = 7.', 'bild': {'punkte': _pk((3, '3'), (5, '5'), (7, 'x̄'), (9, '9'), (11, '11'))}},
+            {'text': 'Quadrierte Abweichungen: 16; 4; 0; 4; 16.'},
+            {'text': 'Varianz: 40 : 5 = 8.'},
+            {'text': 'Standardabweichung σ = √8 ≈ ⟦2,83 cm⟧.', 'bild': {'bereich': {'von': 4.17, 'bis': 9.83}}},
+        ],
+        'fehler': 'Die Varianz 8 ist nicht σ. Sie hat die Einheit cm². Erst die ⟦Wurzel⟧ ergibt σ in cm.',
+        'regel': 'σ ist die ⟦Wurzel aus der Varianz⟧. Sie hat dieselbe Einheit wie die Daten.',
+    },
+    'eigenschaften': {
+        'einstieg': 'Nach einer Klassenarbeit bekommt jedes Kind 3 Bonuspunkte. Alle rücken gleich weit nach oben. '
+                    'Ändert sich dadurch die ⟦Streuung⟧?',
+        'woerter': [['Streuung', 'wie weit die Werte auseinanderliegen']],
+        'bild': _zs(0, 20, 20, punkte=_pk((8, '8'), (16, '16'))),
+        'schritte': [
+            {'text': 'Punkte 8; 8; 16; 16: Mittelwert 12, σ = 4.', 'bild': {'bereich': {'von': 8, 'bis': 16}}},
+            {'text': 'Mit 3 Bonuspunkten: 11; 11; 19; 19.',
+             'bild': {'punkte': _pk((8, ''), (16, ''), (11, '11'), (19, '19')), 'bereich': None, 'boegen': [{'von': 8, 'bis': 11, 'name': '+3'}, {'von': 16, 'bis': 19, 'name': '+3'}]}},
+            {'text': 'Alle Abstände zum neuen Mittelwert 15 bleiben 4: ⟦σ = 4⟧.',
+             'bild': {'boegen': None, 'punkte': _pk((11, '11'), (19, '19')), 'bereich': {'von': 11, 'bis': 19}}},
+        ],
+        'fehler': 'σ = 4 + 3 = 7 ist falsch. Die Werte ⟦verschieben sich gemeinsam⟧, ihre Abstände bleiben gleich.',
+        'regel': 'Plus eine Zahl: ⟦σ bleibt gleich⟧. Mal k: σ wird mal |k|. Alle Werte gleich: σ = 0.',
+    },
+    'deuten': {
+        'einstieg': 'Zwei Klassen schreiben denselben Test, beide haben im Schnitt 12 Punkte. In A liegen alle nah beieinander, '
+                    'in B gibt es sehr gute und sehr schwache. σ zeigt den ⟦Unterschied⟧.',
+        'woerter': [['Bereich um x̄', 'von x̄ − σ bis x̄ + σ; dort liegen viele Werte']],
+        'bild': _zs(0, 24, 24, punkte=_pk((12, 'x̄ = 12'))),
+        'schritte': [
+            {'text': 'Klasse A: x̄ = 12, σ = 2.'},
+            {'text': 'Bereich um x̄: von 12 − 2 = 10 bis ⟦14⟧.', 'bild': {'bereich': {'von': 10, 'bis': 14}}},
+            {'text': 'Klasse B: σ = 5, also etwa 7 bis 17.', 'bild': {'bereich': {'von': 7, 'bis': 17}}},
+            {'text': 'In A liegen die Ergebnisse ⟦enger beieinander⟧.', 'bild': {'bereich': {'von': 10, 'bis': 14}}},
+        ],
+        'fehler': '„B ist besser, weil σ größer ist“ ist falsch. σ sagt nicht, ⟦wer besser⟧ ist, nur wie verschieden die Ergebnisse sind.',
+        'regel': '⟦Kleines σ⟧: Die Werte liegen eng beieinander. Großes σ: Die Werte streuen stark.',
+    },
+}
+UMBAU_OFFEN = []
+UMBAU_WEG = []
+# ---------- Ende UMBAU ----------
+
+
+d = bauen('daten.standardabweichung',
       'Die Streuung von Daten mit Varianz und Standardabweichung berechnen, ihre Eigenschaften kennen und sie in Sachzusammenhängen deuten.',
       ['Abweichung = Wert − Mittelwert; die Summe aller Abweichungen ist 0.',
        'Varianz (variance) = Mittelwert der quadrierten Abweichungen (durch n teilen).',
@@ -301,3 +403,4 @@ bauen('daten.standardabweichung',
       ETAPPEN, GEN,
       offen=['σ wird als Standardabweichung der Gesamtheit berechnet (Teilen durch n), wie im IB MYP üblich. Die Stichproben-Form (durch n − 1) ist bewusst nicht enthalten.',
              'Im IB wird σ meist mit dem Taschenrechner (GDC) bestimmt. Hier rechnen die Kinder mit kleinen Datensätzen von Hand, um die Bedeutung zu verstehen.'])
+umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

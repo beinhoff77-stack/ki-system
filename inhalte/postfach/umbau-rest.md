@@ -1,5 +1,9 @@
 # Postfach umbau-rest (Paket UR, Achte Runde)
 
+## 2026-11-17 02:10 – STATUS
+daten.standardabweichung umgebaut (5 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_rest.umbau_schreiben); probe entfällt.
+Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/daten.standardabweichung.json`: 140 Aufgaben, alle wörtlich gleich; titel/lernziel unverändert. inhalt_pruefen: 0 Fehler, 0 Hinweise. Zeichnungen gerendert (app-eigenes lernErklaerung im Browser), angesehen. Ohne fehler_bild: abweichung (die Summe 0 zeigt das Schrittbild schon), sigma (Einheitenfehler), eigenschaften (Rechenfehler; das Schrittbild zeigt gleiche Abstände), deuten (Deutungsfehler).
+
 ## 2026-11-17 02:09 – STATUS
 daten.zweidimensional umgebaut (5 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_rest.umbau_schreiben); probe entfällt.
 Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/daten.zweidimensional.json`: 140 Aufgaben, alle wörtlich gleich; titel/lernziel unverändert. inhalt_pruefen: 0 Fehler, 0 Hinweise. Zeichnungen gerendert (app-eigenes lernErklaerung im Browser), angesehen. Ohne fehler_bild: ablesen, zusammenhang, kausal (Lese- bzw. Denkfehler), gerade (140 Punkte liegen außerhalb des Bildes), ausreisser (Denkfehler; das Schrittbild zeigt den Abstand zum Muster schon). Achsennamen kurz (h, Jahre), weil die App längere Namen am rechten Rand abschneidet; offen-Hinweis ergänzt.

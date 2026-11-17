@@ -3,6 +3,8 @@
 Stand geprüft: `origin/main` = `origin/lernen-app` = `e842c07`, App 0.74.5. Datenbank-Migrationen bis `w150_e3_auftraege_bezug` eingespielt.
 Annahme: GitHub Pages zeigt `main` – die Live-Seite selbst konnte ich von hier nicht abrufen (Netz gesperrt). Geprüft mit Playwright gegen den Stand von `main` und Testdaten (Mock), nicht mit echten Kinderdaten.
 
+Ergänzt `NACHPRUEFUNG-2026-11-17-N1-N8.md` (Schritt A, 0.74.2, anderer Chat); dessen Nacharbeit A2 ist laut Commit in 0.74.4 gebaut – die 593-Etappen-Zählung habe ich für 0.74.4 nicht wiederholt.
+
 Skripte: `nach-0745/kind-rundgang.test.cjs`, `nach-0745/eltern-rundgang.test.cjs`, `nach/nachstellen-v074.test.cjs`, `rueckmeldung/nachstellen.test.cjs`. Bilder: `nach-0745/bilder/`.
 
 ## 1. Umgesetzt (nachgestellt)

@@ -739,6 +739,39 @@ BF.nicht_umgesetzt('kuerzen S3 (x² − 49)/(x − 7) setzt die 3. binomische Fo
 baue = mit_befunden(baue, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Kl. 8, siehe _durchsicht_kl8.py) ----
+from _durchsicht_kl8 import Durchsicht, mit_durchsicht  # noqa: E402
+
+DSX = Durchsicht('terme.bruchterme', 19_8_7)
+DSX.stufe('termwert', 'Berechne T(−6) für T(x) = (−x + 9)/(x + 2).', 2)
+DSX.stufe('termwert', 'Berechne T(4) für T(x) = (−x − 6)/(−x − 2). Gib das Ergebnis als vollständig gekürzten Bruch an.', 2)
+DSX.stufe('termwert', 'Für welches x hat T(x) = 4/(x − 3) den Wert 4?', 2)
+DSX.stufe('termwert', 'Für welches x hat T(x) = −18/(x − 5) den Wert 3?', 2)
+DSX.stufen('termwert', 'S1 einsetzen; S2 Bruch als Ergebnis, x gesucht; S3 teils dieselben Aufgaben wie S2',
+           'S1 einsetzen; S2 Ergebnis als Bruch, x zu gegebenem Wert; S3 Parameter a, Tabellenkalkulation (Rechenreihenfolge), Wert −1, unerreichbarer Wert')
+# kuerzen: viermal (x² − a²)/(x ± a) in Reihe → zwei durch andere Stufe-3-Gedanken ersetzt
+DSX.ersetze('kuerzen', 'Kürze vollständig: (x² − 16)/(x − 4)', DSX.A(
+    'Kürze vollständig: (2x² − 18)/(x + 3)', '2x − 6', ['2x − 3', 'x − 3', '2x² − 6'],
+    'Erst 2 ausklammern: 2x² − 18 = 2(x² − 9) = 2(x + 3)(x − 3) (dritte binomische Formel). (x + 3) kürzen: 2(x − 3) = 2x − 6.',
+    'Klammere zuerst eine Zahl aus. Erkennst du danach eine binomische Formel?'))
+DSX.ersetze('kuerzen', 'Kürze vollständig: (x² − 25)/(x + 5)', DSX.A(
+    'Tom kürzt (x² + 4)/(x + 2) zu x + 2. Was stimmt?', 'Falsch: x² + 4 lässt sich nicht in (x + 2) · … zerlegen. Der Bruch ist nicht kürzbar.',
+    ['Richtig: x² + 4 = (x + 2)².', 'Richtig: x² + 4 = (x + 2)(x − 2).', 'Falsch: Richtig ist x − 2.'],
+    '(x + 2)² = x² + 4x + 4 und (x + 2)(x − 2) = x² − 4 – beides ist nicht x² + 4. Probe mit x = 1: 5/3 ≠ 3.',
+    'Multipliziere (x + 2)² und (x + 2)(x − 2) aus und vergleiche mit x² + 4.'))
+DSX.stufen('kuerzen', 'S1 Potenzen kürzen; S2 ausklammern; S3 viermal dieselbe binomische Formel',
+           'S1 Potenzen kürzen; S2 ausklammern, zwei Variablen; S3 binomische Formel (auch nach Ausklammern), Fehler finden, (x − 4)/(4 − x), Parameter')
+DSX.stufe('fehler_finden', 'Welche Umformung ist FALSCH?', 2, enthaelt='(x/3) : 9 = 9x/3')
+DSX.stufe('fehler_finden', 'Welche Umformung ist FALSCH?', 2, enthaelt='6/x + 8/x = 14/(2x)')
+DSX.stufen('fehler_finden', 'S1 richtige Umformung wählen; S2 falsche wählen, begründen; S3 teils dieselbe Wahl wie S2',
+           'S1 richtige Umformung wählen; S2 falsche wählen, Fehler begründen; S3 Fehler in einer Rechnung, Probe außerhalb von D, Sonderfall x = 0, Gegenbeispiel finden')
+DSX.stufen('definitionsmenge', 'S1 ein Nenner x − a; S2 Nenner ax + b, Produkt; S3 zwei Brüche, x² + c, Parameter, Division')
+DSX.stufen('erweitern', 'S1 neuer Zähler; S2 Erweiterungsterm, Zähler mit Summe; S3 Nenner faktorisieren, Hauptnenner, 1 − x')
+DSX.stufen('addieren', 'S1 gleicher Nenner; S2 Hauptnenner x bzw. x²; S3 Nenner x − a, 1 als Bruch, (x − 2) und (2 − x), Parameter')
+DSX.stufen('multiplizieren', 'S1 Malnehmen; S2 Teilen mit Kehrbruch; S3 Klammerterme kürzen, binomische Formel, Ergebnis eine Zahl, Kehrbruch gesucht')
+baue = mit_durchsicht(baue, DSX)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Grundlagen', ['definitionsmenge', 'termwert']), ('Kürzen und Erweitern', ['kuerzen', 'erweitern']),

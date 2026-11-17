@@ -1234,7 +1234,7 @@
    "l": "termwert",
    "t": "termwert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne T(−6) für T(x) = (−x + 9)/(x + 2)."
@@ -1250,7 +1250,7 @@
    "l": "termwert",
    "t": "termwert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Berechne T(4) für T(x) = (−x − 6)/(−x − 2). Gib das Ergebnis als vollständig gekürzten Bruch an.",
@@ -1274,7 +1274,7 @@
    "l": "termwert",
    "t": "termwert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Für welches x hat T(x) = 4/(x − 3) den Wert 4?"
@@ -1290,7 +1290,7 @@
    "l": "termwert",
    "t": "termwert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Für welches x hat T(x) = −18/(x − 5) den Wert 3?"
@@ -1820,19 +1820,19 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Kürze vollständig: (x² − 16)/(x − 4)"
+    "text": "Kürze vollständig: (2x² − 18)/(x + 3)"
    },
    "a": [
-    "x + 4",
-    "x − 4",
-    "x² − 4",
-    "x + 16"
+    "2x² − 6",
+    "x − 3",
+    "2x − 3",
+    "2x − 6"
    ],
    "o": {
-    "index": 0
+    "index": 3
    },
-   "w": "3. binomische Formel: x² − 16 = (x + 4)(x − 4). Mit (x − 4) kürzen: x + 4.",
-   "h": "Erkenne die 3. binomische Formel: a² − b² = (a + b)(a − b)."
+   "w": "Erst 2 ausklammern: 2x² − 18 = 2(x² − 9) = 2(x + 3)(x − 3) (dritte binomische Formel). (x + 3) kürzen: 2(x − 3) = 2x − 6.",
+   "h": "Klammere zuerst eine Zahl aus. Erkennst du danach eine binomische Formel?"
   },
   {
    "l": "kuerzen",
@@ -1862,19 +1862,19 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Kürze vollständig: (x² − 25)/(x + 5)"
+    "text": "Tom kürzt (x² + 4)/(x + 2) zu x + 2. Was stimmt?"
    },
    "a": [
-    "x + 5",
-    "x − 5",
-    "x² − 5",
-    "x − 25"
+    "Richtig: x² + 4 = (x + 2)².",
+    "Richtig: x² + 4 = (x + 2)(x − 2).",
+    "Falsch: x² + 4 lässt sich nicht in (x + 2) · … zerlegen. Der Bruch ist nicht kürzbar.",
+    "Falsch: Richtig ist x − 2."
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "w": "3. binomische Formel: x² − 25 = (x + 5)(x − 5). Mit (x + 5) kürzen: x − 5.",
-   "h": "Erkenne die 3. binomische Formel: a² − b² = (a + b)(a − b)."
+   "w": "(x + 2)² = x² + 4x + 4 und (x + 2)(x − 2) = x² − 4 – beides ist nicht x² + 4. Probe mit x = 1: 5/3 ≠ 3.",
+   "h": "Multipliziere (x + 2)² und (x + 2)(x − 2) aus und vergleiche mit x² + 4."
   },
   {
    "l": "kuerzen",
@@ -4322,7 +4322,7 @@
    "l": "fehler_finden",
    "t": "fehler_finden",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Umformung ist FALSCH?"
@@ -4343,7 +4343,7 @@
    "l": "fehler_finden",
    "t": "fehler_finden",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Umformung ist FALSCH?"

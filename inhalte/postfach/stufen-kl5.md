@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 14:46 – STATUS: zahlen.teilbarkeit fertig
+8 Lernkarten: 68 neue Übungen, 16 Knobel-Bordkarten, 15 umgestuft, 35 überzählig. Prüfskript OK, 0 Gruppen „gleich gebaut hintereinander“, Gegenprobe ohne überzählige OK, Nachweis OK.
+
 ## 2026-11-17 14:42 – STATUS: zahlen.potenzen_basis fertig
 7 Lernkarten: 38 neue Übungen, 14 Knobel-Bordkarten, 35 umgestuft, 16 überzählig. Prüfskript OK, 0 Gruppen „gleich gebaut hintereinander“, Gegenprobe ohne überzählige OK, Nachweis OK.
 

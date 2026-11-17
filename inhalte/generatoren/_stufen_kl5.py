@@ -124,9 +124,10 @@ def stufen_anwenden(d, thema):
         ue = [a for a in d['aufgaben'] if a['l'] == lz and a['p'] == 'uebung']
         vorher = {s: sum(1 for a in ue if a['s'] == s) for s in (1, 2, 3)}
         umgestuft, ueber = [], []
+        fehlt = [f'S{a["s"]} „{a["f"]["text"]}“' for a in ue if not any(_passt(r, a) for r in k['typ'])]
+        assert not fehlt, f'{thema}/{lz}: kein Typ für ' + ' | '.join(fehlt)
         for a in ue:
             regel = next((r for r in k['typ'] if _passt(r, a)), None)
-            assert regel, f'{thema}/{lz}: kein Typ für S{a["s"]} „{a["f"]["text"]}“'
             g = regel[1]
             if g == '-':
                 a.pop('g', None); ueber.append(a['f']['text']); continue

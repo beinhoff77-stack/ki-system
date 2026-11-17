@@ -818,6 +818,28 @@
    "l": "teiler",
    "t": "teiler",
    "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Liste enthält genau alle Teiler von 56?"
+   },
+   "a": [
+    "1, 2, 4, 7, 14, 28, 56",
+    "2, 4, 7, 8, 14, 28",
+    "1, 2, 4, 7, 8, 14, 28, 56",
+    "1, 2, 3, 4, 7, 8, 14, 28, 56"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Teilerpaare: 1 · 56, 2 · 28, 4 · 14, 7 · 8. Teiler: 1, 2, 4, 7, 8, 14, 28, 56 – das sind 8.",
+   "h": "Suche Teilerpaare. Fang bei 1 an und hör auf, wenn sich die Paare wiederholen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "teiler",
+   "t": "teiler",
+   "p": "uebung",
    "s": 1,
    "y": "luecken",
    "f": {
@@ -834,29 +856,30 @@
     "70 // 7"
    ],
    "w": "70 : 7 = 10, denn 7 · 10 = 70. Also sind 7 und 10 Teiler von 70.",
-   "h": "Rechne 70 : 7."
+   "h": "Rechne 70 : 7.",
+   "g": "direkt"
   },
   {
    "l": "teiler",
    "t": "teiler",
    "p": "uebung",
-   "s": 1,
-   "y": "luecken",
+   "s": 2,
+   "y": "auswahl",
    "f": {
-    "text": "Ergänze das Teilerpaar von 27: 3 · □ = 27",
-    "schablone": "3 · □ = 27",
-    "hinweis": "Trage in jedes Feld eine Zahl ein."
+    "text": "Welche Liste enthält genau alle Teiler von 80?"
    },
-   "o": {
-    "werte": [
-     9
-    ]
-   },
-   "c": [
-    "27 // 3"
+   "a": [
+    "1, 2, 4, 5, 8, 10, 16, 20, 40, 80",
+    "2, 4, 5, 8, 10, 16, 20, 40",
+    "1, 2, 3, 4, 5, 8, 10, 16, 20, 40, 80",
+    "1, 2, 4, 5, 8, 16, 20, 40, 80"
    ],
-   "w": "27 : 3 = 9, denn 3 · 9 = 27. Also sind 3 und 9 Teiler von 27.",
-   "h": "Rechne 27 : 3."
+   "o": {
+    "index": 0
+   },
+   "w": "Teilerpaare: 1 · 80, 2 · 40, 4 · 20, 5 · 16, 8 · 10. Teiler: 1, 2, 4, 5, 8, 10, 16, 20, 40, 80 – das sind 10.",
+   "h": "Suche Teilerpaare. Fang bei 1 an und hör auf, wenn sich die Paare wiederholen.",
+   "g": "mehrschritt"
   },
   {
    "l": "teiler",
@@ -879,6 +902,157 @@
    ],
    "w": "6 : 3 = 2, denn 3 · 2 = 6. Also sind 3 und 2 Teiler von 6.",
    "h": "Rechne 6 : 3."
+  },
+  {
+   "l": "teiler",
+   "t": "teiler",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Liste enthält genau alle Teiler von 63?"
+   },
+   "a": [
+    "1, 3, 7, 21, 63",
+    "1, 3, 7, 9, 21, 63",
+    "1, 2, 3, 7, 9, 21, 63",
+    "3, 7, 9, 21"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Teilerpaare: 1 · 63, 3 · 21, 7 · 9. Teiler: 1, 3, 7, 9, 21, 63 – das sind 6.",
+   "h": "Suche Teilerpaare. Fang bei 1 an und hör auf, wenn sich die Paare wiederholen."
+  },
+  {
+   "l": "teiler",
+   "t": "teiler",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Ist 6 ein Teiler von 45?"
+   },
+   "a": [
+    "Ja, weil 4 + 5 = 9.",
+    "Nein: 45 : 6 = 7 Rest 3.",
+    "Ja: 45 : 6 = 7."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "6 · 7 = 42 und 6 · 8 = 48. 45 liegt dazwischen, es bleibt ein Rest.",
+   "h": "Teile 45 durch 6."
+  },
+  {
+   "l": "teiler",
+   "t": "teiler",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Liste enthält genau alle Teiler von 100?"
+   },
+   "a": [
+    "1, 2, 3, 4, 5, 10, 20, 25, 50, 100",
+    "2, 4, 5, 10, 20, 25, 50",
+    "1, 2, 4, 5, 20, 25, 50, 100",
+    "1, 2, 4, 5, 10, 20, 25, 50, 100"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Teilerpaare: 1 · 100, 2 · 50, 4 · 25, 5 · 20, 10 · 10. Teiler: 1, 2, 4, 5, 10, 20, 25, 50, 100 – das sind 9.",
+   "h": "Suche Teilerpaare. Fang bei 1 an und hör auf, wenn sich die Paare wiederholen."
+  },
+  {
+   "l": "teiler",
+   "t": "teiler",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Teiler hat 16?"
+   },
+   "a": [
+    "5",
+    "7",
+    "6",
+    "4"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Teilerpaare: 1 · 16, 2 · 8, 4 · 4. Bei 4 · 4 zählt die 4 nur einmal: 1, 2, 4, 8, 16 – 5 Teiler.",
+   "h": "Bei einer Quadratzahl gibt es ein Paar mit zwei gleichen Zahlen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "teiler",
+   "t": "teiler",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "45 Kinder sollen in gleich große Gruppen aufgeteilt werden, jede Gruppe mit mindestens 2 Kindern. Keiner bleibt übrig, es gibt mindestens 2 Gruppen. Wie viele verschiedene Gruppengrößen sind möglich?"
+   },
+   "a": [
+    "4",
+    "6",
+    "5"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gruppengrößen sind Teiler von 45 ohne 1 und ohne 45: 3, 5, 9, 15. Das sind 4 Möglichkeiten.",
+   "h": "Welche Teiler von 45 passen? 1 und 45 fallen weg.",
+   "g": "transfer"
+  },
+  {
+   "l": "teiler",
+   "t": "teiler",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze das Teilerpaar von 27: 3 · □ = 27",
+    "schablone": "3 · □ = 27",
+    "hinweis": "Trage in jedes Feld eine Zahl ein."
+   },
+   "o": {
+    "werte": [
+     9
+    ]
+   },
+   "c": [
+    "27 // 3"
+   ],
+   "w": "27 : 3 = 9, denn 3 · 9 = 27. Also sind 3 und 9 Teiler von 27.",
+   "h": "Rechne 27 : 3.",
+   "g": "direkt"
+  },
+  {
+   "l": "teiler",
+   "t": "teiler",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist ein Teiler von 36?"
+   },
+   "a": [
+    "10",
+    "8",
+    "5",
+    "9"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "36 : 9 = 4 ohne Rest. 8, 5 und 10 lassen einen Rest.",
+   "h": "Probiere, ob die Division aufgeht."
   },
   {
    "l": "teiler",
@@ -909,90 +1083,6 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Liste enthält genau alle Teiler von 56?"
-   },
-   "a": [
-    "1, 2, 4, 7, 14, 28, 56",
-    "2, 4, 7, 8, 14, 28",
-    "1, 2, 4, 7, 8, 14, 28, 56",
-    "1, 2, 3, 4, 7, 8, 14, 28, 56"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Teilerpaare: 1 · 56, 2 · 28, 4 · 14, 7 · 8. Teiler: 1, 2, 4, 7, 8, 14, 28, 56 – das sind 8.",
-   "h": "Suche Teilerpaare. Fang bei 1 an und hör auf, wenn sich die Paare wiederholen."
-  },
-  {
-   "l": "teiler",
-   "t": "teiler",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Liste enthält genau alle Teiler von 80?"
-   },
-   "a": [
-    "1, 2, 4, 5, 8, 10, 16, 20, 40, 80",
-    "2, 4, 5, 8, 10, 16, 20, 40",
-    "1, 2, 3, 4, 5, 8, 10, 16, 20, 40, 80",
-    "1, 2, 4, 5, 8, 16, 20, 40, 80"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Teilerpaare: 1 · 80, 2 · 40, 4 · 20, 5 · 16, 8 · 10. Teiler: 1, 2, 4, 5, 8, 10, 16, 20, 40, 80 – das sind 10.",
-   "h": "Suche Teilerpaare. Fang bei 1 an und hör auf, wenn sich die Paare wiederholen."
-  },
-  {
-   "l": "teiler",
-   "t": "teiler",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Liste enthält genau alle Teiler von 63?"
-   },
-   "a": [
-    "1, 3, 7, 21, 63",
-    "1, 3, 7, 9, 21, 63",
-    "1, 2, 3, 7, 9, 21, 63",
-    "3, 7, 9, 21"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Teilerpaare: 1 · 63, 3 · 21, 7 · 9. Teiler: 1, 3, 7, 9, 21, 63 – das sind 6.",
-   "h": "Suche Teilerpaare. Fang bei 1 an und hör auf, wenn sich die Paare wiederholen."
-  },
-  {
-   "l": "teiler",
-   "t": "teiler",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Liste enthält genau alle Teiler von 100?"
-   },
-   "a": [
-    "1, 2, 3, 4, 5, 10, 20, 25, 50, 100",
-    "2, 4, 5, 10, 20, 25, 50",
-    "1, 2, 4, 5, 20, 25, 50, 100",
-    "1, 2, 4, 5, 10, 20, 25, 50, 100"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Teilerpaare: 1 · 100, 2 · 50, 4 · 25, 5 · 20, 10 · 10. Teiler: 1, 2, 4, 5, 10, 20, 25, 50, 100 – das sind 9.",
-   "h": "Suche Teilerpaare. Fang bei 1 an und hör auf, wenn sich die Paare wiederholen."
-  },
-  {
-   "l": "teiler",
-   "t": "teiler",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
     "text": "Welche Liste enthält genau alle Teiler von 44?"
    },
    "a": [
@@ -1014,27 +1104,6 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Wie viele Teiler hat 16?"
-   },
-   "a": [
-    "5",
-    "7",
-    "6",
-    "4"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Teilerpaare: 1 · 16, 2 · 8, 4 · 4. Bei 4 · 4 zählt die 4 nur einmal: 1, 2, 4, 8, 16 – 5 Teiler.",
-   "h": "Bei einer Quadratzahl gibt es ein Paar mit zwei gleichen Zahlen."
-  },
-  {
-   "l": "teiler",
-   "t": "teiler",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
     "text": "Wie viele Teiler hat 25?"
    },
    "a": [
@@ -1047,7 +1116,29 @@
     "index": 2
    },
    "w": "Teilerpaare: 1 · 25, 5 · 5. Bei 5 · 5 zählt die 5 nur einmal: 1, 5, 25 – 3 Teiler.",
-   "h": "Bei einer Quadratzahl gibt es ein Paar mit zwei gleichen Zahlen."
+   "h": "Bei einer Quadratzahl gibt es ein Paar mit zwei gleichen Zahlen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "teiler",
+   "t": "teiler",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "auswahl",
+   "f": {
+    "text": "Können 52 Kinder in Gruppen zu je 6 Kindern eingeteilt werden, ohne dass jemand übrig bleibt?"
+   },
+   "a": [
+    "Nein: 6 ist kein Teiler von 52.",
+    "Ja, es gibt 9 Gruppen.",
+    "Ja, es gibt 8 Gruppen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "52 : 6 = 8 Rest 4. Vier Kinder blieben übrig.",
+   "h": "Ist 6 ein Teiler von 52?"
   },
   {
    "l": "teiler",
@@ -1074,21 +1165,186 @@
    "l": "teiler",
    "t": "teiler",
    "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl hat das Teilerpaar 6 · 9. Welche Zahl ist es?"
+   },
+   "o": {
+    "wert": 54
+   },
+   "c": "6 * 9",
+   "w": "Ein Teilerpaar ergibt malgenommen die Zahl: 6 · 9 = 54.",
+   "h": "Was ergeben die beiden Zahlen eines Teilerpaars zusammen?"
+  },
+  {
+   "l": "teiler",
+   "t": "teiler",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl hat genau die Teiler 1, 2, 4, 7, 14 und einen weiteren. Welche Zahl ist es?"
+   },
+   "o": {
+    "wert": 28
+   },
+   "c": "2 * 14",
+   "w": "Teiler kommen in Paaren: 1 · □, 2 · 14, 4 · 7. Zur 1 fehlt der Partner – das ist die Zahl selbst: 2 · 14 = 28.",
+   "h": "Teiler kommen in Paaren. Welcher Partner fehlt noch?",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "teiler",
+   "t": "teiler",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "36 Kinder sollen in gleich große Gruppen aufgeteilt werden. Jede Gruppe soll mindestens 3 und höchstens 12 Kinder haben. Wie viele verschiedene Gruppengrößen sind möglich?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "Teiler von 36: 1, 2, 3, 4, 6, 9, 12, 18, 36. Zwischen 3 und 12 liegen 3, 4, 6, 9 und 12: also 5 Gruppengrößen.",
+   "h": "Schreibe alle Teiler von 36 auf. Welche passen zur Bedingung?",
+   "g": "transfer"
+  },
+  {
+   "l": "teiler",
+   "t": "teiler",
+   "p": "uebung",
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "45 Kinder sollen in gleich große Gruppen aufgeteilt werden, jede Gruppe mit mindestens 2 Kindern. Keiner bleibt übrig, es gibt mindestens 2 Gruppen. Wie viele verschiedene Gruppengrößen sind möglich?"
+    "text": "Welche Zahl hat genau drei Teiler?"
    },
    "a": [
-    "4",
-    "6",
-    "5"
+    "15",
+    "49",
+    "12",
+    "21"
    ],
    "o": {
-    "index": 0
+    "index": 1
    },
-   "w": "Gruppengrößen sind Teiler von 45 ohne 1 und ohne 45: 3, 5, 9, 15. Das sind 4 Möglichkeiten.",
-   "h": "Welche Teiler von 45 passen? 1 und 45 fallen weg."
+   "w": "49 hat die Teiler 1, 7, 49 – genau drei. 12 hat sechs Teiler, 15 und 21 haben je vier. Genau drei Teiler haben nur Quadrate von Primzahlen.",
+   "h": "Schreibe zu jeder Zahl die Teilerpaare auf. Bei welcher Zahl ist ein Paar „doppelt“?",
+   "g": "parameter"
+  },
+  {
+   "l": "teiler",
+   "t": "teiler",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand schreibt die Teiler von 20 so auf: 2, 4, 5, 10. Was fehlt?"
+   },
+   "a": [
+    "Die 40.",
+    "1 und 20 selbst.",
+    "Die 3 und die 6.",
+    "Nichts, die Liste ist vollständig."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Jede Zahl hat 1 und sich selbst als Teiler: 1, 2, 4, 5, 10, 20.",
+   "h": "Denk an die Teilerpaare: 1 · 20, 2 · 10, 4 · 5."
+  },
+  {
+   "l": "teiler",
+   "t": "teiler",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Jede natürliche Zahl größer als 1 hat mindestens zwei Teiler.“"
+   },
+   "a": [
+    "Ja, aber nur Zahlen über 10.",
+    "Nein: Primzahlen haben nur einen.",
+    "Ja: Sie hat immer 1 und sich selbst als Teiler.",
+    "Nein: Gerade Zahlen haben nur einen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Für jede Zahl n > 1 gilt n : 1 = n und n : n = 1. Das sind zwei verschiedene Teiler.",
+   "h": "Welche zwei Teiler hat jede Zahl?"
+  },
+  {
+   "l": "teiler",
+   "t": "teiler",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Gib alle Teiler von 18 an, die größer als 2 sind. Wie groß ist ihre Summe?"
+   },
+   "o": {
+    "wert": 36
+   },
+   "c": "3 + 6 + 9 + 18",
+   "w": "Teiler von 18: 1, 2, 3, 6, 9, 18. Größer als 2: 3, 6, 9, 18. Summe 36.",
+   "h": "Schreib zuerst alle Teilerpaare von 18 auf."
+  },
+  {
+   "l": "teiler",
+   "t": "teiler",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Teiler hat 2⁴?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "2⁴ = 16. Teiler: 1, 2, 4, 8, 16 – also 5.",
+   "h": "Rechne 2⁴ aus und schreib die Teilerpaare auf."
+  },
+  {
+   "l": "teiler",
+   "t": "teiler",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Welche ist die kleinste Zahl mit genau 6 Teilern?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "12",
+   "w": "Prüfe der Reihe nach: Bis 11 hat keine Zahl 6 Teiler (z. B. 8 hat 4, 10 hat 4). 12 hat 1, 2, 3, 4, 6, 12 – genau 6.",
+   "h": "Zähle die Teiler kleiner Zahlen mit vielen Teilern."
+  },
+  {
+   "l": "teiler",
+   "t": "teiler",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Zahlen von 1 bis 50 haben eine ungerade Anzahl von Teilern?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "Teiler kommen in Paaren (a · b = n). Nur wenn a = b ist, also n eine Quadratzahl, fällt ein Partner weg. Quadratzahlen bis 50: 1, 4, 9, 16, 25, 36, 49 – das sind 7.",
+   "h": "Teiler bilden Paare. Wann hat ein Teiler keinen anderen Partner?"
   },
   {
    "l": "teiler",
@@ -1291,59 +1547,6 @@
    "w": "Teilerpaare: 1 · 30, 2 · 15, 3 · 10, 5 · 6. Teiler: 1, 2, 3, 5, 6, 10, 15, 30 – das sind 8."
   },
   {
-   "l": "teiler",
-   "t": "teiler",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Zahl hat genau die Teiler 1, 2, 4, 7, 14 und einen weiteren. Welche Zahl ist es?"
-   },
-   "o": {
-    "wert": 28
-   },
-   "c": "2 * 14",
-   "w": "Teiler kommen in Paaren: 1 · □, 2 · 14, 4 · 7. Zur 1 fehlt der Partner – das ist die Zahl selbst: 2 · 14 = 28.",
-   "h": "Teiler kommen in Paaren. Welcher Partner fehlt noch?"
-  },
-  {
-   "l": "teiler",
-   "t": "teiler",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "36 Kinder sollen in gleich große Gruppen aufgeteilt werden. Jede Gruppe soll mindestens 3 und höchstens 12 Kinder haben. Wie viele verschiedene Gruppengrößen sind möglich?"
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "5",
-   "w": "Teiler von 36: 1, 2, 3, 4, 6, 9, 12, 18, 36. Zwischen 3 und 12 liegen 3, 4, 6, 9 und 12: also 5 Gruppengrößen.",
-   "h": "Schreibe alle Teiler von 36 auf. Welche passen zur Bedingung?"
-  },
-  {
-   "l": "teiler",
-   "t": "teiler",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Zahl hat genau drei Teiler?"
-   },
-   "a": [
-    "15",
-    "49",
-    "12",
-    "21"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "49 hat die Teiler 1, 7, 49 – genau drei. 12 hat sechs Teiler, 15 und 21 haben je vier. Genau drei Teiler haben nur Quadrate von Primzahlen.",
-   "h": "Schreibe zu jeder Zahl die Teilerpaare auf. Bei welcher Zahl ist ein Paar „doppelt“?"
-  },
-  {
    "l": "vielfache",
    "t": "vielfache",
    "p": "uebung",
@@ -1357,7 +1560,30 @@
    },
    "c": "(52 // 12 + 1) * 12",
    "w": "4 · 12 = 48 ist noch zu klein. Das nächste Vielfache: 5 · 12 = 60.",
-   "h": "Zähle in 12er-Schritten bis über 52."
+   "h": "Zähle in 12er-Schritten bis über 52.",
+   "g": "direkt"
+  },
+  {
+   "l": "vielfache",
+   "t": "vielfache",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist ein Vielfaches von 10?"
+   },
+   "a": [
+    "61",
+    "58",
+    "60",
+    "66"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "60 = 6 · 10, also ist 60 ein Vielfaches von 10. Die anderen Zahlen liegen zwischen zwei Vielfachen.",
+   "h": "Teile jede Zahl durch 10: Geht es ohne Rest?",
+   "g": "erkennen"
   },
   {
    "l": "vielfache",
@@ -1373,39 +1599,8 @@
    },
    "c": "7 * 8",
    "w": "Die Vielfachen von 8: 8, 16, 24, 32, 40, 48, 56. Das 7. ist 7 · 8 = 56.",
-   "h": "Das ist das Einmaleins mit 8: 7 · 8."
-  },
-  {
-   "l": "vielfache",
-   "t": "vielfache",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Nenne das 3. Vielfache von 10 (zähle mit 10 als 1. Vielfachem)."
-   },
-   "o": {
-    "wert": 30
-   },
-   "c": "3 * 10",
-   "w": "Die Vielfachen von 10: 10, 20, 30. Das 3. ist 3 · 10 = 30.",
-   "h": "Das ist das Einmaleins mit 10: 3 · 10."
-  },
-  {
-   "l": "vielfache",
-   "t": "vielfache",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Welches ist das kleinste Vielfache von 5, das größer als 16 ist?"
-   },
-   "o": {
-    "wert": 20
-   },
-   "c": "(16 // 5 + 1) * 5",
-   "w": "3 · 5 = 15 ist noch zu klein. Das nächste Vielfache: 4 · 5 = 20.",
-   "h": "Zähle in 5er-Schritten bis über 16."
+   "h": "Das ist das Einmaleins mit 8: 7 · 8.",
+   "g": "direkt"
   },
   {
    "l": "vielfache",
@@ -1421,7 +1616,102 @@
    },
    "c": "77 // 13",
    "w": "77 : 13 = 5 Rest 12. Also gibt es 5 Vielfache: 13, 26, … bis 65.",
-   "h": "Wie oft passt 13 in 77?"
+   "h": "Wie oft passt 13 in 77?",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "vielfache",
+   "t": "vielfache",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Nenne das 3. Vielfache von 10 (zähle mit 10 als 1. Vielfachem)."
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "3 * 10",
+   "w": "Die Vielfachen von 10: 10, 20, 30. Das 3. ist 3 · 10 = 30.",
+   "h": "Das ist das Einmaleins mit 10: 3 · 10.",
+   "g": "direkt"
+  },
+  {
+   "l": "vielfache",
+   "t": "vielfache",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Muffins gibt es nur in Packungen zu 8 Stück. Du brauchst mindestens 38 Muffins. Wie viele Muffins kaufst du mindestens?"
+   },
+   "o": {
+    "wert": 40
+   },
+   "c": "(38 + 8 - 1) // 8 * 8",
+   "w": "Vielfache von 8: … 32, 40. 32 reicht nicht, 40 schon. Das sind 5 Packungen.",
+   "h": "Suche das kleinste Vielfache von 8, das mindestens 38 ist.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "vielfache",
+   "t": "vielfache",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „30 ist ein Vielfaches von 6, also ist 6 ein Vielfaches von 30.“ Stimmt das?"
+   },
+   "a": [
+    "Ja, denn 30 : 6 = 5.",
+    "Ja, das gilt immer in beide Richtungen.",
+    "Nein. 6 ist ein Teiler von 30, kein Vielfaches."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "30 = 5 · 6 ist ein Vielfaches von 6. Ein Vielfaches von 30 wäre aber mindestens 30. 6 ist kleiner, also ein Teiler.",
+   "h": "Ein Vielfaches ist nie kleiner als die Zahl.",
+   "g": "begruenden"
+  },
+  {
+   "l": "vielfache",
+   "t": "vielfache",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welches ist das kleinste Vielfache von 5, das größer als 16 ist?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "(16 // 5 + 1) * 5",
+   "w": "3 · 5 = 15 ist noch zu klein. Das nächste Vielfache: 4 · 5 = 20.",
+   "h": "Zähle in 5er-Schritten bis über 16.",
+   "g": "direkt"
+  },
+  {
+   "l": "vielfache",
+   "t": "vielfache",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist ein Vielfaches von 10?"
+   },
+   "a": [
+    "41",
+    "40",
+    "38",
+    "46"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "40 = 4 · 10, also ist 40 ein Vielfaches von 10. Die anderen Zahlen liegen zwischen zwei Vielfachen.",
+   "h": "Teile jede Zahl durch 10: Geht es ohne Rest?",
+   "g": "erkennen"
   },
   {
    "l": "vielfache",
@@ -1437,28 +1727,25 @@
    },
    "c": "142 // 8",
    "w": "142 : 8 = 17 Rest 6. Also gibt es 17 Vielfache: 8, 16, … bis 136.",
-   "h": "Wie oft passt 8 in 142?"
+   "h": "Wie oft passt 8 in 142?",
+   "g": "mehrschritt"
   },
   {
    "l": "vielfache",
    "t": "vielfache",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
+   "g": "umkehr",
+   "y": "zahl",
    "f": {
-    "text": "Welche Zahl ist ein Vielfaches von 10?"
+    "text": "Das 9. Vielfache einer Zahl ist 63. Welche Zahl ist es?"
    },
-   "a": [
-    "61",
-    "58",
-    "60",
-    "66"
-   ],
    "o": {
-    "index": 2
+    "wert": 7
    },
-   "w": "60 = 6 · 10, also ist 60 ein Vielfaches von 10. Die anderen Zahlen liegen zwischen zwei Vielfachen.",
-   "h": "Teile jede Zahl durch 10: Geht es ohne Rest?"
+   "c": "63 // 9",
+   "w": "9 · □ = 63, also □ = 7.",
+   "h": "Rechne rückwärts mit der Umkehraufgabe."
   },
   {
    "l": "vielfache",
@@ -1481,63 +1768,49 @@
    "t": "vielfache",
    "p": "uebung",
    "s": 2,
+   "g": "darstellung",
    "y": "auswahl",
    "f": {
-    "text": "Welche Zahl ist ein Vielfaches von 10?"
+    "text": "Welche Zahlenreihe besteht nur aus Vielfachen von 7?"
    },
    "a": [
-    "41",
-    "40",
-    "38",
-    "46"
+    "14, 35, 49, 70",
+    "14, 27, 49, 70",
+    "21, 42, 64, 77",
+    "7, 17, 27, 37"
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
-   "w": "40 = 4 · 10, also ist 40 ein Vielfaches von 10. Die anderen Zahlen liegen zwischen zwei Vielfachen.",
-   "h": "Teile jede Zahl durch 10: Geht es ohne Rest?"
-  },
-  {
-   "l": "vielfache",
-   "t": "vielfache",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand sagt: „30 ist ein Vielfaches von 6, also ist 6 ein Vielfaches von 30.“ Stimmt das?"
-   },
-   "a": [
-    "Ja, denn 30 : 6 = 5.",
-    "Ja, das gilt immer in beide Richtungen.",
-    "Nein. 6 ist ein Teiler von 30, kein Vielfaches."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "30 = 5 · 6 ist ein Vielfaches von 6. Ein Vielfaches von 30 wäre aber mindestens 30. 6 ist kleiner, also ein Teiler.",
-   "h": "Ein Vielfaches ist nie kleiner als die Zahl."
-  },
-  {
-   "l": "vielfache",
-   "t": "vielfache",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Muffins gibt es nur in Packungen zu 8 Stück. Du brauchst mindestens 38 Muffins. Wie viele Muffins kaufst du mindestens?"
-   },
-   "o": {
-    "wert": 40
-   },
-   "c": "(38 + 8 - 1) // 8 * 8",
-   "w": "Vielfache von 8: … 32, 40. 32 reicht nicht, 40 schon. Das sind 5 Packungen.",
-   "h": "Suche das kleinste Vielfache von 8, das mindestens 38 ist."
+   "w": "14 = 2 · 7, 35 = 5 · 7, 49 = 7 · 7, 70 = 10 · 7. In den anderen Reihen steckt eine Zahl ohne Faktor 7 (27, 17, 64).",
+   "h": "Prüfe jede Zahl der Reihe."
   },
   {
    "l": "vielfache",
    "t": "vielfache",
    "p": "uebung",
    "s": 2,
+   "g": "einkleidung",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Bus fährt alle 15 Minuten, der erste um 6:00 Uhr. Fährt um 8:40 Uhr ein Bus ab?"
+   },
+   "a": [
+    "Nein: Von 6:00 bis 8:40 sind es 160 Minuten, kein Vielfaches von 15.",
+    "Ja, weil 40 durch 5 teilbar ist.",
+    "Ja, um 8:40 Uhr fährt ein Bus."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Busse fahren 6:00, 6:15, …, 8:30, 8:45. 160 ist kein Vielfaches von 15.",
+   "h": "Wie viele Minuten sind seit 6:00 Uhr vergangen?"
+  },
+  {
+   "l": "vielfache",
+   "t": "vielfache",
+   "p": "uebung",
+   "s": 3,
    "y": "auswahl",
    "f": {
     "text": "Jemand sagt: „12 ist ein Vielfaches von 4, also ist 4 ein Vielfaches von 12.“ Stimmt das?"
@@ -1551,13 +1824,31 @@
     "index": 1
    },
    "w": "12 = 3 · 4 ist ein Vielfaches von 4. Ein Vielfaches von 12 wäre aber mindestens 12. 4 ist kleiner, also ein Teiler.",
-   "h": "Ein Vielfaches ist nie kleiner als die Zahl."
+   "h": "Ein Vielfaches ist nie kleiner als die Zahl.",
+   "g": "begruenden"
   },
   {
    "l": "vielfache",
    "t": "vielfache",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche ist die größte dreistellige Zahl, die ein Vielfaches von 17 ist?"
+   },
+   "o": {
+    "wert": 986
+   },
+   "c": "17 * (999 // 17)",
+   "w": "999 : 17 = 58 Rest 13. Also ist 17 · 58 = 986 das größte Vielfache unter 1 000.",
+   "h": "Teile 999 durch 17. Was bedeutet der Rest?",
+   "g": "transfer"
+  },
+  {
+   "l": "vielfache",
+   "t": "vielfache",
+   "p": "uebung",
+   "s": 3,
    "y": "auswahl",
    "f": {
     "text": "Jemand sagt: „36 ist ein Vielfaches von 6, also ist 6 ein Vielfaches von 36.“ Stimmt das?"
@@ -1572,6 +1863,130 @@
    },
    "w": "36 = 6 · 6 ist ein Vielfaches von 6. Ein Vielfaches von 36 wäre aber mindestens 36. 6 ist kleiner, also ein Teiler.",
    "h": "Ein Vielfaches ist nie kleiner als die Zahl."
+  },
+  {
+   "l": "vielfache",
+   "t": "vielfache",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Vielfache von 6 liegen zwischen 100 und 200?"
+   },
+   "o": {
+    "wert": 17
+   },
+   "c": "198 // 6 - 100 // 6",
+   "w": "Das erste ist 102 = 6 · 17, das letzte 198 = 6 · 33. Von 17 bis 33 sind es 33 − 17 + 1 = 17 Vielfache.",
+   "h": "Suche das erste und das letzte Vielfache im Bereich.",
+   "g": "pruefung"
+  },
+  {
+   "l": "vielfache",
+   "t": "vielfache",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand zählt die Vielfachen von 4 auf: 4, 8, 12, 14, 16. Was ist falsch?"
+   },
+   "a": [
+    "Die 4 gehört nicht dazu.",
+    "Nichts, die Liste stimmt.",
+    "14 ist kein Vielfaches von 4.",
+    "Die 16 ist zu groß."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Vielfache von 4: 4, 8, 12, 16. 14 : 4 = 3 Rest 2.",
+   "h": "Prüfe jede Zahl: Geht sie durch 4 ohne Rest?"
+  },
+  {
+   "l": "vielfache",
+   "t": "vielfache",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl ist ein Vielfaches von 9 und liegt zwischen 50 und 60. Wie heißt sie, und was ergibt die Hälfte davon? Gib die Hälfte an."
+   },
+   "o": {
+    "wert": 27
+   },
+   "c": "54 // 2",
+   "w": "Das einzige Vielfache von 9 zwischen 50 und 60 ist 54. Die Hälfte ist 27.",
+   "h": "Schreib die Vielfachen von 9 auf."
+  },
+  {
+   "l": "vielfache",
+   "t": "vielfache",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Wie heißt die kleinste natürliche Zahl a, für die 7 · a ein Vielfaches von 12 ist?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "12",
+   "w": "7 und 12 haben keinen gemeinsamen Teiler außer 1. Darum muss a selbst ein Vielfaches von 12 sein: a = 12.",
+   "h": "Probiere a = 1, 2, 3, … Was fällt auf?"
+  },
+  {
+   "l": "vielfache",
+   "t": "vielfache",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Vielfache von 5 liegen zwischen −22 und 22?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "9",
+   "w": "−20, −15, −10, −5, 0, 5, 10, 15, 20 – auch 0 und die negativen zählen: 9.",
+   "h": "Denk auch an 0 und an negative Vielfache."
+  },
+  {
+   "l": "vielfache",
+   "t": "vielfache",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Welche ist die kleinste Zahl größer als 1, die beim Teilen durch 2, 3, 4, 5 und 6 jeweils den Rest 1 lässt?"
+   },
+   "o": {
+    "wert": 61
+   },
+   "c": "60 + 1",
+   "w": "Die Zahl minus 1 muss ein Vielfaches von 2, 3, 4, 5 und 6 sein. Das kleinste gemeinsame Vielfache ist 60. Also 61.",
+   "h": "Was gilt für die Zahl, die um 1 kleiner ist?"
+  },
+  {
+   "l": "vielfache",
+   "t": "vielfache",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Zahlen von 1 bis 100 sind Vielfache von 3 oder von 5 (oder von beiden)?"
+   },
+   "o": {
+    "wert": 47
+   },
+   "c": "33 + 20 - 6",
+   "w": "Vielfache von 3: 33. Vielfache von 5: 20. Doppelt gezählt sind die Vielfachen von 15: 6. Also 33 + 20 − 6 = 47.",
+   "h": "Pass auf, dass du keine Zahl doppelt zählst."
   },
   {
    "l": "vielfache",
@@ -1754,38 +2169,6 @@
    "w": "77 = 7 · 11, also ist 77 ein Vielfaches von 11. Die anderen Zahlen liegen zwischen zwei Vielfachen."
   },
   {
-   "l": "vielfache",
-   "t": "vielfache",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Welche ist die größte dreistellige Zahl, die ein Vielfaches von 17 ist?"
-   },
-   "o": {
-    "wert": 986
-   },
-   "c": "17 * (999 // 17)",
-   "w": "999 : 17 = 58 Rest 13. Also ist 17 · 58 = 986 das größte Vielfache unter 1 000.",
-   "h": "Teile 999 durch 17. Was bedeutet der Rest?"
-  },
-  {
-   "l": "vielfache",
-   "t": "vielfache",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele Vielfache von 6 liegen zwischen 100 und 200?"
-   },
-   "o": {
-    "wert": 17
-   },
-   "c": "198 // 6 - 100 // 6",
-   "w": "Das erste ist 102 = 6 · 17, das letzte 198 = 6 · 33. Von 17 bis 33 sind es 33 − 17 + 1 = 17 Vielfache.",
-   "h": "Suche das erste und das letzte Vielfache im Bereich."
-  },
-  {
    "l": "endziffer",
    "t": "endziffer",
    "p": "uebung",
@@ -1804,28 +2187,30 @@
     "index": 2
    },
    "w": "Die Endziffer ist 9. Ungerade: nicht durch 2. Nicht 0 oder 5: nicht durch 5. Nicht 0: nicht durch 10.",
-   "h": "Schau nur auf die letzte Ziffer."
+   "h": "Schau nur auf die letzte Ziffer.",
+   "g": "direkt"
   },
   {
    "l": "endziffer",
    "t": "endziffer",
    "p": "uebung",
    "s": 1,
+   "g": "erkennen",
    "y": "auswahl",
    "f": {
-    "text": "Durch welche der Zahlen 2, 5 und 10 ist 4 893 teilbar?"
+    "text": "Welche Endziffer muss eine Zahl haben, damit sie durch 10 teilbar ist?"
    },
    "a": [
-    "nur durch 2",
-    "durch keine dieser Zahlen",
-    "durch 2, 5 und 10",
-    "nur durch 5"
+    "5",
+    "eine gerade Ziffer",
+    "0",
+    "0 oder 5"
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "w": "Die Endziffer ist 3. Ungerade: nicht durch 2. Nicht 0 oder 5: nicht durch 5. Nicht 0: nicht durch 10.",
-   "h": "Schau nur auf die letzte Ziffer."
+   "w": "Durch 10 teilbar sind genau die Zahlen mit Endziffer 0.",
+   "h": "Denk an 10, 20, 30, …"
   },
   {
    "l": "endziffer",
@@ -1846,6 +2231,153 @@
     "index": 1
    },
    "w": "Die Endziffer ist 0. Gerade: durch 2 teilbar. 0 oder 5: durch 5. 0: durch 10.",
+   "h": "Schau nur auf die letzte Ziffer."
+  },
+  {
+   "l": "endziffer",
+   "t": "endziffer",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist durch 5, aber nicht durch 10 teilbar?"
+   },
+   "a": [
+    "2 835",
+    "2 832",
+    "2 830",
+    "2 838"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "2 835 endet auf 5: durch 5, aber nicht durch 10. 2 830 endet auf 0 und ist auch durch 10 teilbar.",
+   "h": "Durch 10 heißt Endziffer 0, durch 5 heißt Endziffer 0 oder 5.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "endziffer",
+   "t": "endziffer",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welcher Rest bleibt bei 12 339 : 2?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "12339 % 2",
+   "w": "Bei 2 entscheidet die Endziffer 9: 9 : 2 lässt den Rest 1. Also bleibt Rest 1.",
+   "h": "Für 2, 5 und 10 reicht die letzte Ziffer, auch für den Rest.",
+   "g": "umkehr"
+  },
+  {
+   "l": "endziffer",
+   "t": "endziffer",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist durch 5, aber nicht durch 10 teilbar?"
+   },
+   "a": [
+    "5 142",
+    "5 145",
+    "5 148",
+    "5 140"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "5 145 endet auf 5: durch 5, aber nicht durch 10. 5 140 endet auf 0 und ist auch durch 10 teilbar.",
+   "h": "Durch 10 heißt Endziffer 0, durch 5 heißt Endziffer 0 oder 5."
+  },
+  {
+   "l": "endziffer",
+   "t": "endziffer",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Hotel hat 145 Zimmer. Kann man sie gleichmäßig auf 2 Stockwerke verteilen?"
+   },
+   "a": [
+    "Ja, je 72 Zimmer.",
+    "Nein, 145 ist ungerade.",
+    "Ja, weil 145 durch 5 teilbar ist."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gleichmäßig auf 2 verteilen geht nur bei geraden Zahlen. 145 endet auf 5.",
+   "h": "Ist 145 durch 2 teilbar?"
+  },
+  {
+   "l": "endziffer",
+   "t": "endziffer",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „8 323 beginnt mit 8, also ist die Zahl durch 2 teilbar.“ Stimmt das?"
+   },
+   "a": [
+    "Nein. Die Endziffer 3 ist ungerade.",
+    "Das kann man nicht prüfen.",
+    "Ja, die Zahl ist groß genug.",
+    "Ja, die erste Ziffer ist gerade."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für die Teilbarkeit durch 2 zählt nur die letzte Ziffer. 3 ist ungerade, also ist 8 323 nicht durch 2 teilbar.",
+   "h": "Welche Ziffer ist entscheidend?",
+   "g": "fehler"
+  },
+  {
+   "l": "endziffer",
+   "t": "endziffer",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Durch welche der Zahlen 2, 5 und 10 ist 4 893 teilbar?"
+   },
+   "a": [
+    "nur durch 2",
+    "durch keine dieser Zahlen",
+    "durch 2, 5 und 10",
+    "nur durch 5"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Endziffer ist 3. Ungerade: nicht durch 2. Nicht 0 oder 5: nicht durch 5. Nicht 0: nicht durch 10.",
+   "h": "Schau nur auf die letzte Ziffer.",
+   "g": "direkt"
+  },
+  {
+   "l": "endziffer",
+   "t": "endziffer",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist gerade?"
+   },
+   "a": [
+    "1 115",
+    "8 006",
+    "2 009",
+    "4 573"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gerade heißt durch 2 teilbar: Endziffer 0, 2, 4, 6 oder 8.",
    "h": "Schau nur auf die letzte Ziffer."
   },
   {
@@ -1879,27 +2411,6 @@
     "text": "Welche Zahl ist durch 5, aber nicht durch 10 teilbar?"
    },
    "a": [
-    "2 835",
-    "2 832",
-    "2 830",
-    "2 838"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "2 835 endet auf 5: durch 5, aber nicht durch 10. 2 830 endet auf 0 und ist auch durch 10 teilbar.",
-   "h": "Durch 10 heißt Endziffer 0, durch 5 heißt Endziffer 0 oder 5."
-  },
-  {
-   "l": "endziffer",
-   "t": "endziffer",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Zahl ist durch 5, aber nicht durch 10 teilbar?"
-   },
-   "a": [
     "7 048",
     "7 042",
     "7 045",
@@ -1909,44 +2420,25 @@
     "index": 2
    },
    "w": "7 045 endet auf 5: durch 5, aber nicht durch 10. 7 040 endet auf 0 und ist auch durch 10 teilbar.",
-   "h": "Durch 10 heißt Endziffer 0, durch 5 heißt Endziffer 0 oder 5."
+   "h": "Durch 10 heißt Endziffer 0, durch 5 heißt Endziffer 0 oder 5.",
+   "g": "mehrschritt"
   },
   {
    "l": "endziffer",
    "t": "endziffer",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Zahl ist durch 5, aber nicht durch 10 teilbar?"
-   },
-   "a": [
-    "5 142",
-    "5 145",
-    "5 148",
-    "5 140"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "5 145 endet auf 5: durch 5, aber nicht durch 10. 5 140 endet auf 0 und ist auch durch 10 teilbar.",
-   "h": "Durch 10 heißt Endziffer 0, durch 5 heißt Endziffer 0 oder 5."
-  },
-  {
-   "l": "endziffer",
-   "t": "endziffer",
-   "p": "uebung",
-   "s": 2,
+   "g": "einkleidung",
    "y": "zahl",
    "f": {
-    "text": "Welcher Rest bleibt bei 12 339 : 2?"
+    "text": "Jemand hat 3 785 Cent nur in 5-Cent-Münzen. Wie viele Münzen sind es?"
    },
    "o": {
-    "wert": 1
+    "wert": 757
    },
-   "c": "12339 % 2",
-   "w": "Bei 2 entscheidet die Endziffer 9: 9 : 2 lässt den Rest 1. Also bleibt Rest 1.",
-   "h": "Für 2, 5 und 10 reicht die letzte Ziffer, auch für den Rest."
+   "c": "3785 // 5",
+   "w": "3 785 : 5 = 757. Es geht auf, weil 3 785 auf 5 endet.",
+   "h": "Teile durch 5."
   },
   {
    "l": "endziffer",
@@ -1973,22 +2465,23 @@
    "l": "endziffer",
    "t": "endziffer",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
+   "g": "umkehr",
    "y": "auswahl",
    "f": {
-    "text": "Jemand sagt: „8 323 beginnt mit 8, also ist die Zahl durch 2 teilbar.“ Stimmt das?"
+    "text": "Welche Endziffer kann eine Zahl haben, die durch 2 und durch 5 teilbar ist?"
    },
    "a": [
-    "Nein. Die Endziffer 3 ist ungerade.",
-    "Das kann man nicht prüfen.",
-    "Ja, die Zahl ist groß genug.",
-    "Ja, die erste Ziffer ist gerade."
+    "2 oder 5",
+    "jede gerade Ziffer",
+    "0 oder 5",
+    "nur 0"
    ],
    "o": {
-    "index": 0
+    "index": 3
    },
-   "w": "Für die Teilbarkeit durch 2 zählt nur die letzte Ziffer. 3 ist ungerade, also ist 8 323 nicht durch 2 teilbar.",
-   "h": "Welche Ziffer ist entscheidend?"
+   "w": "Durch 5: Endziffer 0 oder 5. Durch 2: gerade. Beides zugleich: nur 0.",
+   "h": "Welche Endziffern passen zu beiden Bedingungen?"
   },
   {
    "l": "endziffer",
@@ -2010,13 +2503,14 @@
     "(687 * 10 + 0) % 10"
    ],
    "w": "Durch 2 und 5 heißt: Endziffer 0. Die Zahl heißt 6870.",
-   "h": "Welche Endziffern passen zu beiden Bedingungen?"
+   "h": "Welche Endziffern passen zu beiden Bedingungen?",
+   "g": "parameter"
   },
   {
    "l": "endziffer",
    "t": "endziffer",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "auswahl",
    "f": {
     "text": "Jemand sagt: „4 761 beginnt mit 4, also ist die Zahl durch 2 teilbar.“ Stimmt das?"
@@ -2031,13 +2525,31 @@
     "index": 2
    },
    "w": "Für die Teilbarkeit durch 2 zählt nur die letzte Ziffer. 1 ist ungerade, also ist 4 761 nicht durch 2 teilbar.",
-   "h": "Welche Ziffer ist entscheidend?"
+   "h": "Welche Ziffer ist entscheidend?",
+   "g": "fehler"
   },
   {
    "l": "endziffer",
    "t": "endziffer",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Zahlen von 1 bis 100 sind durch 5, aber nicht durch 10 teilbar?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "100 // 5 - 100 // 10",
+   "w": "Durch 5 teilbar: 20 Zahlen (Endziffer 0 oder 5). Davon enden 10 auf 0 und sind auch durch 10 teilbar. Es bleiben 10 (5, 15, …, 95).",
+   "h": "Welche Endziffer haben Zahlen, die durch 5, aber nicht durch 10 teilbar sind?",
+   "g": "transfer"
+  },
+  {
+   "l": "endziffer",
+   "t": "endziffer",
+   "p": "uebung",
+   "s": 3,
    "y": "auswahl",
    "f": {
     "text": "Jemand sagt: „2 877 beginnt mit 2, also ist die Zahl durch 2 teilbar.“ Stimmt das?"
@@ -2053,6 +2565,113 @@
    },
    "w": "Für die Teilbarkeit durch 2 zählt nur die letzte Ziffer. 7 ist ungerade, also ist 2 877 nicht durch 2 teilbar.",
    "h": "Welche Ziffer ist entscheidend?"
+  },
+  {
+   "l": "endziffer",
+   "t": "endziffer",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Ziffernkarten 2, 5 und 7 legst du dreistellige Zahlen, jede Karte genau einmal. Wie viele dieser Zahlen sind durch 5 teilbar?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2 * 1",
+   "w": "Durch 5 teilbar heißt: Endziffer 5. Die 5 liegt hinten, vorne 2 und 7 in zwei Reihenfolgen: 275 und 725.",
+   "h": "Welche Karte muss ganz hinten liegen?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "endziffer",
+   "t": "endziffer",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Eine Zahl, die durch 10 teilbar ist, ist auch durch 2 und durch 5 teilbar.“"
+   },
+   "a": [
+    "Nein, nur durch 5.",
+    "Nein, nur durch 2.",
+    "Ja, aber nur, wenn sie dreistellig ist.",
+    "Ja: Sie endet auf 0, und 0 ist gerade und passt zur 5er-Regel."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "10 = 2 · 5. Endziffer 0 erfüllt beide Regeln.",
+   "h": "Welche Endziffer hat die Zahl?"
+  },
+  {
+   "l": "endziffer",
+   "t": "endziffer",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Eine vierstellige Zahl ist durch 10 teilbar. Ihre Ziffern sind 3, 0, 7 und 1 (jede einmal). Wie heißt die größte solche Zahl?"
+   },
+   "o": {
+    "wert": 7310
+   },
+   "c": "7310",
+   "w": "Durch 10 teilbar: die 0 steht am Ende. Die übrigen Ziffern absteigend: 7 310.",
+   "h": "Wohin muss die 0?"
+  },
+  {
+   "l": "endziffer",
+   "t": "endziffer",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Gib die größte vierstellige Zahl mit lauter verschiedenen Ziffern an, die durch 5 teilbar ist."
+   },
+   "o": {
+    "wert": 9875
+   },
+   "c": "9875",
+   "w": "Endziffer 0 oder 5. Mit 5 am Ende: 9 875. Mit 0 am Ende: 9 870. Die größere ist 9 875.",
+   "h": "Probiere beide möglichen Endziffern."
+  },
+  {
+   "l": "endziffer",
+   "t": "endziffer",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Mit wie vielen Nullen endet das Produkt 1 · 2 · 3 · … · 20?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Jede Null am Ende braucht einen Faktor 2 und einen Faktor 5. Zweien gibt es reichlich. Fünfen stecken in 5, 10, 15, 20 – je eine. Also 4 Nullen.",
+   "h": "Woraus entsteht eine Null am Ende eines Produkts?"
+  },
+  {
+   "l": "endziffer",
+   "t": "endziffer",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele dreistellige Zahlen sind gerade, aber nicht durch 5 teilbar?"
+   },
+   "o": {
+    "wert": 360
+   },
+   "c": "450 - 90",
+   "w": "Gerade dreistellige Zahlen: 100, 102, …, 998 – das sind 450. Gerade und durch 5 teilbar heißt durch 10 teilbar: 90 Zahlen. 450 − 90 = 360.",
+   "h": "Zähle erst alle geraden, dann ziehe die ab, die stören."
   },
   {
    "l": "endziffer",
@@ -2240,36 +2859,25 @@
    "w": "3 145 endet auf 5: durch 5, aber nicht durch 10. 3 140 endet auf 0 und ist auch durch 10 teilbar."
   },
   {
-   "l": "endziffer",
-   "t": "endziffer",
+   "l": "quersumme",
+   "t": "quersumme",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
+   "s": 2,
+   "y": "auswahl",
    "f": {
-    "text": "Wie viele Zahlen von 1 bis 100 sind durch 5, aber nicht durch 10 teilbar?"
+    "text": "Ist 91 657 durch 3 oder durch 9 teilbar?"
    },
+   "a": [
+    "durch 3 und durch 9",
+    "nur durch 9",
+    "weder durch 3 noch durch 9",
+    "durch 3, aber nicht durch 9"
+   ],
    "o": {
-    "wert": 10
+    "index": 2
    },
-   "c": "100 // 5 - 100 // 10",
-   "w": "Durch 5 teilbar: 20 Zahlen (Endziffer 0 oder 5). Davon enden 10 auf 0 und sind auch durch 10 teilbar. Es bleiben 10 (5, 15, …, 95).",
-   "h": "Welche Endziffer haben Zahlen, die durch 5, aber nicht durch 10 teilbar sind?"
-  },
-  {
-   "l": "endziffer",
-   "t": "endziffer",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Aus den Ziffernkarten 2, 5 und 7 legst du dreistellige Zahlen, jede Karte genau einmal. Wie viele dieser Zahlen sind durch 5 teilbar?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "2 * 1",
-   "w": "Durch 5 teilbar heißt: Endziffer 5. Die 5 liegt hinten, vorne 2 und 7 in zwei Reihenfolgen: 275 und 725.",
-   "h": "Welche Karte muss ganz hinten liegen?"
+   "w": "Quersumme: 9 + 1 + 6 + 5 + 7 = 28. 28 ist weder durch 3 noch durch 9 teilbar.",
+   "h": "Berechne die Quersumme und prüfe sie."
   },
   {
    "l": "quersumme",
@@ -2285,23 +2893,30 @@
    },
    "c": "9 + 3 + 6 + 0 + 8",
    "w": "Alle Ziffern zusammenzählen: 9 + 3 + 6 + 0 + 8 = 26.",
-   "h": "Zähle alle Ziffern zusammen."
+   "h": "Zähle alle Ziffern zusammen.",
+   "g": "direkt"
   },
   {
    "l": "quersumme",
    "t": "quersumme",
    "p": "uebung",
    "s": 1,
-   "y": "zahl",
+   "g": "erkennen",
+   "y": "auswahl",
    "f": {
-    "text": "Berechne die Quersumme von 12 842."
+    "text": "Eine Zahl hat eine Quersumme, die durch 9 teilbar ist. Durch welche Zahl ist sie sicher teilbar?"
    },
+   "a": [
+    "durch 2",
+    "durch 9",
+    "durch 5",
+    "durch 6"
+   ],
    "o": {
-    "wert": 17
+    "index": 1
    },
-   "c": "1 + 2 + 8 + 4 + 2",
-   "w": "Alle Ziffern zusammenzählen: 1 + 2 + 8 + 4 + 2 = 17.",
-   "h": "Zähle alle Ziffern zusammen."
+   "w": "Ist die Quersumme durch 9 teilbar, dann auch die Zahl.",
+   "h": "Denk an die Quersummenregel."
   },
   {
    "l": "quersumme",
@@ -2323,22 +2938,6 @@
    "l": "quersumme",
    "t": "quersumme",
    "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Quersumme von 13 891."
-   },
-   "o": {
-    "wert": 22
-   },
-   "c": "1 + 3 + 8 + 9 + 1",
-   "w": "Alle Ziffern zusammenzählen: 1 + 3 + 8 + 9 + 1 = 22.",
-   "h": "Zähle alle Ziffern zusammen."
-  },
-  {
-   "l": "quersumme",
-   "t": "quersumme",
-   "p": "uebung",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -2354,49 +2953,29 @@
     "index": 1
    },
    "w": "Quersumme: 2 + 6 + 6 + 0 + 2 = 16. 16 ist weder durch 3 noch durch 9 teilbar.",
-   "h": "Berechne die Quersumme und prüfe sie."
+   "h": "Berechne die Quersumme und prüfe sie.",
+   "g": "mehrschritt"
   },
   {
    "l": "quersumme",
    "t": "quersumme",
    "p": "uebung",
    "s": 2,
+   "g": "einkleidung",
    "y": "auswahl",
    "f": {
-    "text": "Ist 72 800 durch 3 oder durch 9 teilbar?"
+    "text": "Kann man 1 233 Bonbons gerecht an 9 Kinder verteilen?"
    },
    "a": [
-    "weder durch 3 noch durch 9",
-    "durch 3, aber nicht durch 9",
-    "nur durch 9",
-    "durch 3 und durch 9"
+    "Ja: Die Quersumme 9 ist durch 9 teilbar.",
+    "Nur, wenn man einen Bonbon wegnimmt.",
+    "Nein, es bleibt ein Rest."
    ],
    "o": {
     "index": 0
    },
-   "w": "Quersumme: 7 + 2 + 8 + 0 + 0 = 17. 17 ist weder durch 3 noch durch 9 teilbar.",
-   "h": "Berechne die Quersumme und prüfe sie."
-  },
-  {
-   "l": "quersumme",
-   "t": "quersumme",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist 91 657 durch 3 oder durch 9 teilbar?"
-   },
-   "a": [
-    "durch 3 und durch 9",
-    "nur durch 9",
-    "weder durch 3 noch durch 9",
-    "durch 3, aber nicht durch 9"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Quersumme: 9 + 1 + 6 + 5 + 7 = 28. 28 ist weder durch 3 noch durch 9 teilbar.",
-   "h": "Berechne die Quersumme und prüfe sie."
+   "w": "1 + 2 + 3 + 3 = 9. Also ist 1 233 durch 9 teilbar: 137 Bonbons je Kind.",
+   "h": "Berechne die Quersumme."
   },
   {
    "l": "quersumme",
@@ -2424,21 +3003,17 @@
    "t": "quersumme",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
+   "g": "umkehr",
+   "y": "zahl",
    "f": {
-    "text": "Ist 31 807 durch 3 oder durch 9 teilbar?"
+    "text": "Welche ist die kleinste dreistellige Zahl mit der Quersumme 9?"
    },
-   "a": [
-    "durch 3, aber nicht durch 9",
-    "durch 3 und durch 9",
-    "weder durch 3 noch durch 9",
-    "nur durch 9"
-   ],
    "o": {
-    "index": 2
+    "wert": 108
    },
-   "w": "Quersumme: 3 + 1 + 8 + 0 + 7 = 19. 19 ist weder durch 3 noch durch 9 teilbar.",
-   "h": "Berechne die Quersumme und prüfe sie."
+   "c": "108",
+   "w": "Die Hunderterziffer muss mindestens 1 sein. Dann bleibt 8 für Zehner und Einer – am kleinsten mit Zehner 0: 108.",
+   "h": "Mach die vorderen Ziffern so klein wie möglich."
   },
   {
    "l": "quersumme",
@@ -2460,7 +3035,166 @@
     "(9 - (7 + 8) % 9) % 9"
    ],
    "w": "Quersumme ohne □: 7 + 8 = 15. Bis zur nächsten durch 9 teilbaren Zahl fehlen 3. Probe: 783 hat die Quersumme 18.",
-   "h": "Die Quersumme muss durch 9 teilbar sein. Wie viel fehlt bis zur nächsten Neunerzahl?"
+   "h": "Die Quersumme muss durch 9 teilbar sein. Wie viel fehlt bis zur nächsten Neunerzahl?",
+   "g": "parameter"
+  },
+  {
+   "l": "quersumme",
+   "t": "quersumme",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Ziffern kann man für □ einsetzen, damit 493□ durch 3 teilbar ist?"
+   },
+   "a": [
+    "2, 5, 8",
+    "2",
+    "1, 4, 7",
+    "0, 3, 6, 9"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Quersumme ohne □: 16. Mit 2, 5, 8 wird die Quersumme durch 3 teilbar.",
+   "h": "Probiere, welche Ziffern die Quersumme zu einer Dreierzahl machen.",
+   "g": "transfer"
+  },
+  {
+   "l": "quersumme",
+   "t": "quersumme",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Quersumme von 12 842."
+   },
+   "o": {
+    "wert": 17
+   },
+   "c": "1 + 2 + 8 + 4 + 2",
+   "w": "Alle Ziffern zusammenzählen: 1 + 2 + 8 + 4 + 2 = 17.",
+   "h": "Zähle alle Ziffern zusammen.",
+   "g": "direkt"
+  },
+  {
+   "l": "quersumme",
+   "t": "quersumme",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl hat die Quersumme 10?"
+   },
+   "a": [
+    "2 008",
+    "1 118",
+    "3 009",
+    "2 006"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "2 + 0 + 0 + 8 = 10. Die anderen: 12, 8, 11.",
+   "h": "Addiere die Ziffern."
+  },
+  {
+   "l": "quersumme",
+   "t": "quersumme",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Quersumme von 13 891."
+   },
+   "o": {
+    "wert": 22
+   },
+   "c": "1 + 3 + 8 + 9 + 1",
+   "w": "Alle Ziffern zusammenzählen: 1 + 3 + 8 + 9 + 1 = 22.",
+   "h": "Zähle alle Ziffern zusammen."
+  },
+  {
+   "l": "quersumme",
+   "t": "quersumme",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist 72 800 durch 3 oder durch 9 teilbar?"
+   },
+   "a": [
+    "weder durch 3 noch durch 9",
+    "durch 3, aber nicht durch 9",
+    "nur durch 9",
+    "durch 3 und durch 9"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Quersumme: 7 + 2 + 8 + 0 + 0 = 17. 17 ist weder durch 3 noch durch 9 teilbar.",
+   "h": "Berechne die Quersumme und prüfe sie.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "quersumme",
+   "t": "quersumme",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "auswahl",
+   "f": {
+    "text": "2 412 Blätter sollen in 3 gleich hohe Stapel geteilt werden. Geht das ohne Rest?"
+   },
+   "a": [
+    "Ja: Die Quersumme 9 ist durch 3 teilbar.",
+    "Nein, es bleibt ein Rest.",
+    "Nur in 2 Stapel."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "2 + 4 + 1 + 2 = 9, durch 3 teilbar. 2 412 : 3 = 804.",
+   "h": "Prüfe mit der Quersumme."
+  },
+  {
+   "l": "quersumme",
+   "t": "quersumme",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist 31 807 durch 3 oder durch 9 teilbar?"
+   },
+   "a": [
+    "durch 3, aber nicht durch 9",
+    "durch 3 und durch 9",
+    "weder durch 3 noch durch 9",
+    "nur durch 9"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Quersumme: 3 + 1 + 8 + 0 + 7 = 19. 19 ist weder durch 3 noch durch 9 teilbar.",
+   "h": "Berechne die Quersumme und prüfe sie."
+  },
+  {
+   "l": "quersumme",
+   "t": "quersumme",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Welche ist die größte dreistellige Zahl mit der Quersumme 12?"
+   },
+   "o": {
+    "wert": 930
+   },
+   "c": "930",
+   "w": "Hunderterziffer so groß wie möglich: 9. Für Zehner und Einer bleibt 3, am größten mit 3 an der Zehnerstelle: 930.",
+   "h": "Mach die vorderen Ziffern so groß wie möglich."
   },
   {
    "l": "quersumme",
@@ -2482,28 +3216,8 @@
     "(9 - (8 + 9) % 9) % 9"
    ],
    "w": "Quersumme ohne □: 8 + 9 = 17. Bis zur nächsten durch 9 teilbaren Zahl fehlt 1. Probe: 891 hat die Quersumme 18.",
-   "h": "Die Quersumme muss durch 9 teilbar sein. Wie viel fehlt bis zur nächsten Neunerzahl?"
-  },
-  {
-   "l": "quersumme",
-   "t": "quersumme",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Ziffern kann man für □ einsetzen, damit 493□ durch 3 teilbar ist?"
-   },
-   "a": [
-    "2, 5, 8",
-    "2",
-    "1, 4, 7",
-    "0, 3, 6, 9"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Quersumme ohne □: 16. Mit 2, 5, 8 wird die Quersumme durch 3 teilbar.",
-   "h": "Probiere, welche Ziffern die Quersumme zu einer Dreierzahl machen."
+   "h": "Die Quersumme muss durch 9 teilbar sein. Wie viel fehlt bis zur nächsten Neunerzahl?",
+   "g": "parameter"
   },
   {
    "l": "quersumme",
@@ -2524,7 +3238,125 @@
     "index": 3
    },
    "w": "Quersumme ohne □: 8. Mit 1, 4, 7 wird die Quersumme durch 3 teilbar.",
-   "h": "Probiere, welche Ziffern die Quersumme zu einer Dreierzahl machen."
+   "h": "Probiere, welche Ziffern die Quersumme zu einer Dreierzahl machen.",
+   "g": "transfer"
+  },
+  {
+   "l": "quersumme",
+   "t": "quersumme",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „2 222 ist durch 3 teilbar, weil alle Ziffern gleich sind.“ Was ist falsch?"
+   },
+   "a": [
+    "Nichts, das stimmt.",
+    "Die Quersumme 8 ist nicht durch 3 teilbar, also auch 2 222 nicht.",
+    "Die Zahl ist durch 9 teilbar.",
+    "Gleiche Ziffern bedeuten Teilbarkeit durch 2."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Für die Teilbarkeit durch 3 zählt die Quersumme: 2 + 2 + 2 + 2 = 8.",
+   "h": "Berechne die Quersumme."
+  },
+  {
+   "l": "quersumme",
+   "t": "quersumme",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Jede Zahl, die durch 9 teilbar ist, ist auch durch 3 teilbar.“"
+   },
+   "a": [
+    "Nein, nur gerade Zahlen.",
+    "Ja, aber nicht umgekehrt durch 6.",
+    "Nein, z. B. 18.",
+    "Ja: 9 = 3 · 3, also steckt 3 in jedem Vielfachen von 9."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ist n = 9 · k, dann ist n = 3 · (3 · k).",
+   "h": "Schreib 9 als Produkt."
+  },
+  {
+   "l": "quersumme",
+   "t": "quersumme",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Gib die kleinste vierstellige Zahl mit lauter verschiedenen Ziffern an, die durch 9 teilbar ist."
+   },
+   "o": {
+    "wert": 1026
+   },
+   "c": "1026",
+   "w": "Mit 10 vorne: 1 0 _ _, die beiden letzten Ziffern brauchen zusammen 8 (Quersumme 9), verschieden und nicht 0 oder 1: 2 + 6. Kleinste: 1 026.",
+   "h": "Beginne mit 10 … und suche passende letzte Ziffern."
+  },
+  {
+   "l": "quersumme",
+   "t": "quersumme",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Welche ist die kleinste Quadratzahl größer als 100, die durch 3 teilbar ist?"
+   },
+   "o": {
+    "wert": 144
+   },
+   "c": "12 ** 2",
+   "w": "121: Quersumme 4, nein. 144: Quersumme 9, ja.",
+   "h": "Prüfe 11², 12², … mit der Quersumme."
+  },
+  {
+   "l": "quersumme",
+   "t": "quersumme",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "auswahl",
+   "f": {
+    "text": "Aus den Ziffern 1 bis 9 (jede genau einmal) wird eine neunstellige Zahl gebildet. Durch welche Zahlen ist JEDE solche Zahl teilbar?"
+   },
+   "a": [
+    "durch 3 und durch 9",
+    "durch 5 und durch 9",
+    "durch 2 und durch 3",
+    "nur durch 3"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Quersumme ist immer 1 + 2 + … + 9 = 45, und 45 ist durch 3 und durch 9 teilbar. Ob die Zahl gerade oder durch 5 teilbar ist, hängt von der letzten Ziffer ab.",
+   "h": "Was ist bei all diesen Zahlen gleich?"
+  },
+  {
+   "l": "quersumme",
+   "t": "quersumme",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele dreistellige Zahlen haben die Quersumme 26?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Höchstens 9 + 9 + 9 = 27. Für 26 muss eine Ziffer 8 sein und die anderen 9: 899, 989, 998. Also 3.",
+   "h": "Wie groß kann die Quersumme höchstens sein?"
   },
   {
    "l": "quersumme",
@@ -2730,6 +3562,26 @@
    "l": "primzahl",
    "t": "primzahl",
    "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist 113 eine Primzahl?"
+   },
+   "a": [
+    "Ja, keine der Zahlen 2, 3, 5, 7, 11 geht auf.",
+    "Nein, sie ist durch 7 teilbar.",
+    "Nein, sie ist durch 3 teilbar."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "113 ist ungerade, die Quersumme 5 ist nicht durch 3 teilbar, die Endziffer ist nicht 0 oder 5. Auch 7 und 11 gehen nicht auf: 113 ist eine Primzahl.",
+   "h": "Teste der Reihe nach 2, 3, 5, 7 und 11."
+  },
+  {
+   "l": "primzahl",
+   "t": "primzahl",
+   "p": "uebung",
    "s": 1,
    "y": "auswahl",
    "f": {
@@ -2745,28 +3597,25 @@
     "index": 0
    },
    "w": "37 hat nur die Teiler 1 und 37. 69 = 3 · 23. 21 = 3 · 7. 27 = 3 · 9.",
-   "h": "Prüfe, ob 2, 3, 5 oder 7 aufgehen."
+   "h": "Prüfe, ob 2, 3, 5 oder 7 aufgehen.",
+   "g": "erkennen"
   },
   {
    "l": "primzahl",
    "t": "primzahl",
    "p": "uebung",
    "s": 1,
-   "y": "auswahl",
+   "g": "direkt",
+   "y": "zahl",
    "f": {
-    "text": "Welche Zahl ist eine Primzahl?"
+    "text": "Wie viele Primzahlen gibt es zwischen 1 und 10?"
    },
-   "a": [
-    "81",
-    "39",
-    "53",
-    "49"
-   ],
    "o": {
-    "index": 2
+    "wert": 4
    },
-   "w": "53 hat nur die Teiler 1 und 53. 81 = 3 · 27. 39 = 3 · 13. 49 = 7 · 7.",
-   "h": "Prüfe, ob 2, 3, 5 oder 7 aufgehen."
+   "c": "4",
+   "w": "2, 3, 5 und 7 – das sind 4. Die 1 ist keine Primzahl.",
+   "h": "Eine Primzahl hat genau zwei Teiler."
   },
   {
    "l": "primzahl",
@@ -2788,6 +3637,149 @@
    },
    "w": "41 hat nur die Teiler 1 und 41. 9 = 3 · 3. 45 = 3 · 15. 57 = 3 · 19.",
    "h": "Prüfe, ob 2, 3, 5 oder 7 aufgehen."
+  },
+  {
+   "l": "primzahl",
+   "t": "primzahl",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist 133 eine Primzahl?"
+   },
+   "a": [
+    "Ja, sie ist ungerade.",
+    "Nein, 133 = 7 · 19.",
+    "Ja, sie endet nicht auf 5."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "133 : 7 = 19. Also hat 133 mehr als zwei Teiler und ist keine Primzahl.",
+   "h": "Ungerade heißt noch nicht Primzahl. Teste 3, 7, 11, 13.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "primzahl",
+   "t": "primzahl",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches ist die kleinste Primzahl, die größer als 29 ist?"
+   },
+   "a": [
+    "31",
+    "30",
+    "33"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Prüfe die Zahlen nach 29 der Reihe nach: 31 ist die erste ohne weiteren Teiler.",
+   "h": "Gerade Zahlen (außer 2) fallen sofort weg.",
+   "g": "umkehr"
+  },
+  {
+   "l": "primzahl",
+   "t": "primzahl",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist 77 eine Primzahl?"
+   },
+   "a": [
+    "Ja, sie endet nicht auf 5.",
+    "Ja, sie ist ungerade.",
+    "Nein, 77 = 7 · 11."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "77 : 7 = 11. Also hat 77 mehr als zwei Teiler und ist keine Primzahl.",
+   "h": "Ungerade heißt noch nicht Primzahl. Teste 3, 7, 11, 13."
+  },
+  {
+   "l": "primzahl",
+   "t": "primzahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „9 ist ungerade, also eine Primzahl.“ Stimmt das?"
+   },
+   "a": [
+    "Ja, alle ungeraden Zahlen sind Primzahlen.",
+    "Nein, 9 = 3 · 3.",
+    "Ja, nur gerade Zahlen haben Teiler."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "9 ist durch 3 teilbar. Nicht jede ungerade Zahl ist eine Primzahl.",
+   "h": "Prüfe 3, 5 und 7.",
+   "g": "fehler"
+  },
+  {
+   "l": "primzahl",
+   "t": "primzahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Primzahlen liegen zwischen 90 und 100?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "91 = 7 · 13, 93 = 3 · 31, 95 = 5 · 19, 99 = 9 · 11; die geraden Zahlen fallen weg. Nur 97 ist eine Primzahl.",
+   "h": "Prüfe nur die ungeraden Zahlen mit den Prüfzahlen 3, 5 und 7.",
+   "g": "pruefung"
+  },
+  {
+   "l": "primzahl",
+   "t": "primzahl",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist eine Primzahl?"
+   },
+   "a": [
+    "81",
+    "39",
+    "53",
+    "49"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "53 hat nur die Teiler 1 und 53. 81 = 3 · 27. 39 = 3 · 13. 49 = 7 · 7.",
+   "h": "Prüfe, ob 2, 3, 5 oder 7 aufgehen.",
+   "g": "erkennen"
+  },
+  {
+   "l": "primzahl",
+   "t": "primzahl",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "auswahl",
+   "f": {
+    "text": "Ist 23 eine Primzahl?"
+   },
+   "a": [
+    "Nein, 23 = 3 · 7 + 2.",
+    "Ja",
+    "Nein, weil sie ungerade ist."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "23 ist durch 2, 3 und 5 nicht teilbar, und 5 · 5 = 25 > 23. Also Primzahl.",
+   "h": "Prüfe die Teiler 2, 3 und 5."
   },
   {
    "l": "primzahl",
@@ -2817,26 +3809,6 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ist 133 eine Primzahl?"
-   },
-   "a": [
-    "Ja, sie ist ungerade.",
-    "Nein, 133 = 7 · 19.",
-    "Ja, sie endet nicht auf 5."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "133 : 7 = 19. Also hat 133 mehr als zwei Teiler und ist keine Primzahl.",
-   "h": "Ungerade heißt noch nicht Primzahl. Teste 3, 7, 11, 13."
-  },
-  {
-   "l": "primzahl",
-   "t": "primzahl",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
     "text": "Ist 107 eine Primzahl?"
    },
    "a": [
@@ -2848,47 +3820,29 @@
     "index": 2
    },
    "w": "107 ist ungerade, die Quersumme 8 ist nicht durch 3 teilbar, die Endziffer ist nicht 0 oder 5. Auch 7 und 11 gehen nicht auf: 107 ist eine Primzahl.",
-   "h": "Teste der Reihe nach 2, 3, 5, 7 und 11."
+   "h": "Teste der Reihe nach 2, 3, 5, 7 und 11.",
+   "g": "mehrschritt"
   },
   {
    "l": "primzahl",
    "t": "primzahl",
    "p": "uebung",
    "s": 2,
+   "g": "einkleidung",
    "y": "auswahl",
    "f": {
-    "text": "Ist 113 eine Primzahl?"
+    "text": "37 Kinder sollen in gleich große Gruppen eingeteilt werden: mindestens 2 Gruppen, jede mit mindestens 2 Kindern. Geht das?"
    },
    "a": [
-    "Ja, keine der Zahlen 2, 3, 5, 7, 11 geht auf.",
-    "Nein, sie ist durch 7 teilbar.",
-    "Nein, sie ist durch 3 teilbar."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "113 ist ungerade, die Quersumme 5 ist nicht durch 3 teilbar, die Endziffer ist nicht 0 oder 5. Auch 7 und 11 gehen nicht auf: 113 ist eine Primzahl.",
-   "h": "Teste der Reihe nach 2, 3, 5, 7 und 11."
-  },
-  {
-   "l": "primzahl",
-   "t": "primzahl",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist 77 eine Primzahl?"
-   },
-   "a": [
-    "Ja, sie endet nicht auf 5.",
-    "Ja, sie ist ungerade.",
-    "Nein, 77 = 7 · 11."
+    "Ja, in Gruppen zu 3.",
+    "Ja, in Gruppen zu 7.",
+    "Nein, 37 ist eine Primzahl."
    ],
    "o": {
     "index": 2
    },
-   "w": "77 : 7 = 11. Also hat 77 mehr als zwei Teiler und ist keine Primzahl.",
-   "h": "Ungerade heißt noch nicht Primzahl. Teste 3, 7, 11, 13."
+   "w": "37 hat nur die Teiler 1 und 37.",
+   "h": "Welche Teiler hat 37?"
   },
   {
    "l": "primzahl",
@@ -2914,6 +3868,45 @@
    "l": "primzahl",
    "t": "primzahl",
    "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl von Plättchen kann man nur in einer einzigen Reihe zu einem Rechteck legen (nicht in mehreren gleich langen Reihen)?"
+   },
+   "a": [
+    "21",
+    "12",
+    "15",
+    "13"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "13 ist eine Primzahl: nur 1 · 13. 12 = 3 · 4, 15 = 3 · 5, 21 = 3 · 7.",
+   "h": "Welche Zahl hat keine Teilerpaare außer 1 · n?"
+  },
+  {
+   "l": "primzahl",
+   "t": "primzahl",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Welche ist die größte Primzahl, die kleiner als 50 ist?"
+   },
+   "o": {
+    "wert": 47
+   },
+   "c": "47",
+   "w": "49 = 7 · 7, 48 gerade, 47 ist durch 2, 3, 5 nicht teilbar und 7 · 7 = 49 > 47. Also 47.",
+   "h": "Prüfe 49, 48, 47 der Reihe nach."
+  },
+  {
+   "l": "primzahl",
+   "t": "primzahl",
+   "p": "uebung",
    "s": 3,
    "y": "auswahl",
    "f": {
@@ -2929,53 +3922,14 @@
     "index": 3
    },
    "w": "Primzahlen zwischen 70 und 80: 71, 73, 79. Das sind 3.",
-   "h": "Nur die ungeraden Zahlen, die nicht auf 5 enden, kommen in Frage."
+   "h": "Nur die ungeraden Zahlen, die nicht auf 5 enden, kommen in Frage.",
+   "g": "transfer"
   },
   {
    "l": "primzahl",
    "t": "primzahl",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand sagt: „9 ist ungerade, also eine Primzahl.“ Stimmt das?"
-   },
-   "a": [
-    "Ja, alle ungeraden Zahlen sind Primzahlen.",
-    "Nein, 9 = 3 · 3.",
-    "Ja, nur gerade Zahlen haben Teiler."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "9 ist durch 3 teilbar. Nicht jede ungerade Zahl ist eine Primzahl.",
-   "h": "Prüfe 3, 5 und 7."
-  },
-  {
-   "l": "primzahl",
-   "t": "primzahl",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welches ist die kleinste Primzahl, die größer als 29 ist?"
-   },
-   "a": [
-    "31",
-    "30",
-    "33"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Prüfe die Zahlen nach 29 der Reihe nach: 31 ist die erste ohne weiteren Teiler.",
-   "h": "Gerade Zahlen (außer 2) fallen sofort weg."
-  },
-  {
-   "l": "primzahl",
-   "t": "primzahl",
-   "p": "uebung",
-   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Jemand sagt: „15 ist ungerade, also eine Primzahl.“ Stimmt das?"
@@ -2989,7 +3943,115 @@
     "index": 2
    },
    "w": "15 ist durch 3 teilbar. Nicht jede ungerade Zahl ist eine Primzahl.",
-   "h": "Prüfe 3, 5 und 7."
+   "h": "Prüfe 3, 5 und 7.",
+   "g": "fehler"
+  },
+  {
+   "l": "primzahl",
+   "t": "primzahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Summe zweier Primzahlen ist 21. Wie heißt die größere der beiden?"
+   },
+   "o": {
+    "wert": 19
+   },
+   "c": "21 - 2",
+   "w": "Eine ungerade Summe entsteht nur aus einer geraden und einer ungeraden Zahl. Die einzige gerade Primzahl ist 2, also 2 + 19 = 21.",
+   "h": "Eine der beiden Zahlen muss gerade sein. Welche Primzahl ist gerade?",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "primzahl",
+   "t": "primzahl",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Alle Primzahlen sind ungerade.“"
+   },
+   "a": [
+    "Ja, immer.",
+    "Ja, außer der 1.",
+    "Nein: 2 ist eine gerade Primzahl.",
+    "Nein: 9 ist eine gerade Primzahl."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "2 hat genau die Teiler 1 und 2. Alle anderen geraden Zahlen sind durch 2 teilbar und keine Primzahlen.",
+   "h": "Denk an die kleinste Primzahl."
+  },
+  {
+   "l": "primzahl",
+   "t": "primzahl",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Ziffer □, die größer als 5 ist, ist 4□ eine Primzahl?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "46 und 48 sind gerade, 49 = 7 · 7. 47 ist eine Primzahl.",
+   "h": "Prüfe 46, 47, 48 und 49."
+  },
+  {
+   "l": "primzahl",
+   "t": "primzahl",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist die Summe aller Primzahlen zwischen 20 und 40?"
+   },
+   "o": {
+    "wert": 120
+   },
+   "c": "23 + 29 + 31 + 37",
+   "w": "Primzahlen: 23, 29, 31, 37. Summe 120.",
+   "h": "Prüfe nur die ungeraden Zahlen."
+  },
+  {
+   "l": "primzahl",
+   "t": "primzahl",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Das Produkt dreier verschiedener Primzahlen ist 1 001. Wie groß ist ihre Summe?"
+   },
+   "o": {
+    "wert": 31
+   },
+   "c": "7 + 11 + 13",
+   "w": "1 001 = 7 · 143 = 7 · 11 · 13. Summe: 7 + 11 + 13 = 31.",
+   "h": "Probiere, durch welche kleinen Primzahlen 1 001 teilbar ist."
+  },
+  {
+   "l": "primzahl",
+   "t": "primzahl",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Für wie viele Primzahlen p sind auch p + 2 und p + 4 Primzahlen?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "p = 3 passt: 3, 5, 7. Bei jeder anderen Primzahl ist eine der drei Zahlen p, p + 2, p + 4 durch 3 teilbar und größer als 3 – also keine Primzahl. (Beispiel: 5, 7, 9 oder 7, 9, 11.) Es gibt nur eine.",
+   "h": "Untersuche, welche der drei Zahlen durch 3 teilbar ist."
   },
   {
    "l": "primzahl",
@@ -3182,38 +4244,6 @@
    "w": "73 ist ungerade, die Quersumme 10 ist nicht durch 3 teilbar, die Endziffer ist nicht 0 oder 5. Auch 7 und 11 gehen nicht auf: 73 ist eine Primzahl."
   },
   {
-   "l": "primzahl",
-   "t": "primzahl",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Summe zweier Primzahlen ist 21. Wie heißt die größere der beiden?"
-   },
-   "o": {
-    "wert": 19
-   },
-   "c": "21 - 2",
-   "w": "Eine ungerade Summe entsteht nur aus einer geraden und einer ungeraden Zahl. Die einzige gerade Primzahl ist 2, also 2 + 19 = 21.",
-   "h": "Eine der beiden Zahlen muss gerade sein. Welche Primzahl ist gerade?"
-  },
-  {
-   "l": "primzahl",
-   "t": "primzahl",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele Primzahlen liegen zwischen 90 und 100?"
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "1",
-   "w": "91 = 7 · 13, 93 = 3 · 31, 95 = 5 · 19, 99 = 9 · 11; die geraden Zahlen fallen weg. Nur 97 ist eine Primzahl.",
-   "h": "Prüfe nur die ungeraden Zahlen mit den Prüfzahlen 3, 5 und 7."
-  },
-  {
    "l": "primfaktoren",
    "t": "primfaktoren",
    "p": "uebung",
@@ -3237,7 +4267,25 @@
     "17"
    ],
    "w": "102 : 2 = 51. 51 : 3 = 17. 17 : 17 = 1. Also 102 = 2 · 3 · 17.",
-   "h": "Teile immer wieder durch die kleinste Primzahl, die passt."
+   "h": "Teile immer wieder durch die kleinste Primzahl, die passt.",
+   "g": "direkt"
+  },
+  {
+   "l": "primfaktoren",
+   "t": "primfaktoren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl hat die Primfaktorzerlegung 2 · 2 · 5 · 7?"
+   },
+   "o": {
+    "wert": 140
+   },
+   "c": "2 * 2 * 5 * 7",
+   "w": "Malnehmen: 2 · 2 · 5 · 7 = 140.",
+   "h": "Nimm alle Primfaktoren miteinander mal.",
+   "g": "umkehr"
   },
   {
    "l": "primfaktoren",
@@ -3263,7 +4311,30 @@
     "5"
    ],
    "w": "50 : 2 = 25. 25 : 5 = 5. 5 : 5 = 1. Also 50 = 2 · 5 · 5.",
-   "h": "Teile immer wieder durch die kleinste Primzahl, die passt."
+   "h": "Teile immer wieder durch die kleinste Primzahl, die passt.",
+   "g": "direkt"
+  },
+  {
+   "l": "primfaktoren",
+   "t": "primfaktoren",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche ist die Primfaktorzerlegung von 56?"
+   },
+   "a": [
+    "2 · 2 · 2 · 7",
+    "2 · 2 · 7",
+    "2 · 2 · 14",
+    "4 · 14"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nur in 2 · 2 · 2 · 7 stehen ausschließlich Primzahlen, und das Produkt ist 56.",
+   "h": "Prüfe zwei Dinge: Sind alle Faktoren Primzahlen? Stimmt das Produkt?",
+   "g": "erkennen"
   },
   {
    "l": "primfaktoren",
@@ -3298,6 +4369,73 @@
    "s": 1,
    "y": "luecken",
    "f": {
+    "text": "Zerlege 136 in Primfaktoren: 136 = □ · □ · □ · □",
+    "schablone": "136 = □ · □ · □ · □",
+    "hinweis": "Primfaktoren der Größe nach, die kleinste zuerst."
+   },
+   "o": {
+    "werte": [
+     2,
+     2,
+     2,
+     17
+    ]
+   },
+   "c": [
+    "2",
+    "2",
+    "2",
+    "17"
+   ],
+   "w": "136 : 2 = 68. 68 : 2 = 34. 34 : 2 = 17. 17 : 17 = 1. Also 136 = 2 · 2 · 2 · 17.",
+   "h": "Teile immer wieder durch die kleinste Primzahl, die passt.",
+   "g": "direkt"
+  },
+  {
+   "l": "primfaktoren",
+   "t": "primfaktoren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl hat die Primfaktorzerlegung 2 · 2 · 3?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "2 * 2 * 3",
+   "w": "Malnehmen: 2 · 2 · 3 = 12.",
+   "h": "Nimm alle Primfaktoren miteinander mal.",
+   "g": "umkehr"
+  },
+  {
+   "l": "primfaktoren",
+   "t": "primfaktoren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand schreibt: 99 = 9 · 11. Ist das eine Primfaktorzerlegung?"
+   },
+   "a": [
+    "Ja, man darf beliebige Faktoren nehmen.",
+    "Ja, das Produkt stimmt.",
+    "Nein, 9 ist keine Primzahl."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "9 = 3 · 3 lässt sich weiter zerlegen. Richtig: 99 = 3 · 3 · 11.",
+   "h": "Sind alle Faktoren Primzahlen?",
+   "g": "fehler"
+  },
+  {
+   "l": "primfaktoren",
+   "t": "primfaktoren",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
     "text": "Zerlege 117 in Primfaktoren: 117 = □ · □ · □",
     "schablone": "117 = □ · □ · □",
     "hinweis": "Primfaktoren der Größe nach, die kleinste zuerst."
@@ -3321,51 +4459,7 @@
    "l": "primfaktoren",
    "t": "primfaktoren",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Welche Zahl hat die Primfaktorzerlegung 2 · 2 · 5 · 7?"
-   },
-   "o": {
-    "wert": 140
-   },
-   "c": "2 * 2 * 5 * 7",
-   "w": "Malnehmen: 2 · 2 · 5 · 7 = 140.",
-   "h": "Nimm alle Primfaktoren miteinander mal."
-  },
-  {
-   "l": "primfaktoren",
-   "t": "primfaktoren",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Zerlege 136 in Primfaktoren: 136 = □ · □ · □ · □",
-    "schablone": "136 = □ · □ · □ · □",
-    "hinweis": "Primfaktoren der Größe nach, die kleinste zuerst."
-   },
-   "o": {
-    "werte": [
-     2,
-     2,
-     2,
-     17
-    ]
-   },
-   "c": [
-    "2",
-    "2",
-    "2",
-    "17"
-   ],
-   "w": "136 : 2 = 68. 68 : 2 = 34. 34 : 2 = 17. 17 : 17 = 1. Also 136 = 2 · 2 · 2 · 17.",
-   "h": "Teile immer wieder durch die kleinste Primzahl, die passt."
-  },
-  {
-   "l": "primfaktoren",
-   "t": "primfaktoren",
-   "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Zerlege 90 in Primfaktoren: 90 = □ · □ · □ · □",
@@ -3387,23 +4481,30 @@
     "5"
    ],
    "w": "90 : 2 = 45. 45 : 3 = 15. 15 : 3 = 5. 5 : 5 = 1. Also 90 = 2 · 3 · 3 · 5.",
-   "h": "Teile immer wieder durch die kleinste Primzahl, die passt."
+   "h": "Teile immer wieder durch die kleinste Primzahl, die passt.",
+   "g": "direkt"
   },
   {
    "l": "primfaktoren",
    "t": "primfaktoren",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
+   "s": 1,
+   "y": "auswahl",
    "f": {
-    "text": "Welche Zahl hat die Primfaktorzerlegung 2 · 2 · 3?"
+    "text": "Welche ist die Primfaktorzerlegung von 110?"
    },
+   "a": [
+    "5 · 11",
+    "2 · 5 · 11",
+    "10 · 11",
+    "2 · 55"
+   ],
    "o": {
-    "wert": 12
+    "index": 1
    },
-   "c": "2 * 2 * 3",
-   "w": "Malnehmen: 2 · 2 · 3 = 12.",
-   "h": "Nimm alle Primfaktoren miteinander mal."
+   "w": "Nur in 2 · 5 · 11 stehen ausschließlich Primzahlen, und das Produkt ist 110.",
+   "h": "Prüfe zwei Dinge: Sind alle Faktoren Primzahlen? Stimmt das Produkt?",
+   "g": "erkennen"
   },
   {
    "l": "primfaktoren",
@@ -3419,27 +4520,64 @@
    },
    "c": "3 * 5 * 11",
    "w": "Malnehmen: 3 · 5 · 11 = 165.",
-   "h": "Nimm alle Primfaktoren miteinander mal."
+   "h": "Nimm alle Primfaktoren miteinander mal.",
+   "g": "umkehr"
   },
   {
    "l": "primfaktoren",
    "t": "primfaktoren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "84 Plättchen sollen zu Rechtecken gelegt werden. Dafür zerlegt man 84 in Primfaktoren. Wie viele Primfaktoren (mit Wiederholung) hat 84?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "84 = 2 · 42 = 2 · 2 · 21 = 2 · 2 · 3 · 7: vier Primfaktoren.",
+   "h": "Teile immer wieder durch die kleinste passende Primzahl."
+  },
+  {
+   "l": "primfaktoren",
+   "t": "primfaktoren",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
    "y": "auswahl",
    "f": {
-    "text": "Jemand schreibt: 99 = 9 · 11. Ist das eine Primfaktorzerlegung?"
+    "text": "Welche Potenzschreibweise passt zu 2 · 2 · 2 · 3 · 3?"
    },
    "a": [
-    "Ja, man darf beliebige Faktoren nehmen.",
-    "Ja, das Produkt stimmt.",
-    "Nein, 9 ist keine Primzahl."
+    "2² · 3³",
+    "6⁵",
+    "2³ · 3²",
+    "2 · 3⁵"
    ],
    "o": {
     "index": 2
    },
-   "w": "9 = 3 · 3 lässt sich weiter zerlegen. Richtig: 99 = 3 · 3 · 11.",
-   "h": "Sind alle Faktoren Primzahlen?"
+   "w": "Drei Zweien: 2³. Zwei Dreien: 3².",
+   "h": "Zähle, wie oft jede Primzahl vorkommt."
+  },
+  {
+   "l": "primfaktoren",
+   "t": "primfaktoren",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "zahl",
+   "f": {
+    "text": "Zerlege 360 in Primfaktoren. Wie oft kommt die 2 vor?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "360 = 2 · 180 = 2 · 2 · 90 = 2 · 2 · 2 · 45 = 2 · 2 · 2 · 3 · 3 · 5. Die 2 kommt dreimal vor.",
+   "h": "Teile so lange durch 2, wie es geht."
   },
   {
    "l": "primfaktoren",
@@ -3459,49 +4597,154 @@
     "index": 1
    },
    "w": "6 = 2 · 3 lässt sich weiter zerlegen. Richtig: 30 = 2 · 3 · 5.",
-   "h": "Sind alle Faktoren Primzahlen?"
+   "h": "Sind alle Faktoren Primzahlen?",
+   "g": "fehler"
   },
   {
    "l": "primfaktoren",
    "t": "primfaktoren",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welche ist die Primfaktorzerlegung von 56?"
+    "text": "Die Primfaktorzerlegung einer Zahl ist 2 · 3 · 3 · 5. Durch welche dieser Zahlen ist sie NICHT teilbar?"
    },
    "a": [
-    "2 · 2 · 2 · 7",
-    "2 · 2 · 7",
-    "2 · 2 · 14",
-    "4 · 14"
+    "6",
+    "10",
+    "27",
+    "9"
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "w": "Nur in 2 · 2 · 2 · 7 stehen ausschließlich Primzahlen, und das Produkt ist 56.",
-   "h": "Prüfe zwei Dinge: Sind alle Faktoren Primzahlen? Stimmt das Produkt?"
+   "w": "Die Zahl ist 90. 6 = 2 · 3, 9 = 3 · 3 und 10 = 2 · 5 stecken darin. 27 = 3 · 3 · 3 bräuchte drei Dreien, es sind nur zwei.",
+   "h": "Zerlege auch die Antwortzahlen in Primfaktoren. Stecken sie in 2 · 3 · 3 · 5?",
+   "g": "transfer"
   },
   {
    "l": "primfaktoren",
    "t": "primfaktoren",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche ist die kleinste Zahl, deren Primfaktorzerlegung genau drei verschiedene Primzahlen enthält?"
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "2 * 3 * 5",
+   "w": "Die drei kleinsten Primzahlen nehmen: 2 · 3 · 5 = 30.",
+   "h": "Welche drei Primzahlen sind am kleinsten?",
+   "g": "parameter"
+  },
+  {
+   "l": "primfaktoren",
+   "t": "primfaktoren",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
    "y": "auswahl",
    "f": {
-    "text": "Welche ist die Primfaktorzerlegung von 110?"
+    "text": "Stimmt die Aussage? „Jede Zahl größer als 1 hat genau eine Primfaktorzerlegung, wenn man die Reihenfolge nicht beachtet.“"
    },
    "a": [
-    "5 · 11",
-    "2 · 5 · 11",
-    "10 · 11",
-    "2 · 55"
+    "Nein: Primzahlen haben keine.",
+    "Ja, aber nur gerade Zahlen.",
+    "Ja: Man kann verschieden anfangen, es kommen immer dieselben Primfaktoren heraus.",
+    "Nein: 12 = 2 · 6 = 3 · 4."
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "w": "Nur in 2 · 5 · 11 stehen ausschließlich Primzahlen, und das Produkt ist 110.",
-   "h": "Prüfe zwei Dinge: Sind alle Faktoren Primzahlen? Stimmt das Produkt?"
+   "w": "12 = 2 · 2 · 3, egal ob man mit 2 · 6 oder 3 · 4 beginnt. 6 und 4 sind keine Primzahlen.",
+   "h": "Zerlege 12 auf zwei Wegen bis zum Ende."
+  },
+  {
+   "l": "primfaktoren",
+   "t": "primfaktoren",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl zwischen 100 und 200 hat die Primfaktorzerlegung 2 · 2 · p · p mit einer Primzahl p. Welche Zahl ist es?"
+   },
+   "o": {
+    "wert": 196
+   },
+   "c": "2 * 2 * 7 * 7",
+   "w": "4 · p · p zwischen 100 und 200 heißt p · p zwischen 25 und 50: p = 7 (p = 5 ergibt genau 100). Zahl: 4 · 49 = 196.",
+   "h": "Was muss p · p ungefähr sein?"
+  },
+  {
+   "l": "primfaktoren",
+   "t": "primfaktoren",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 2⁴ · 3 · 5 als Zahl."
+   },
+   "o": {
+    "wert": 240
+   },
+   "c": "2 ** 4 * 3 * 5",
+   "w": "2⁴ = 16. 16 · 3 = 48. 48 · 5 = 240.",
+   "h": "Rechne zuerst die Potenz aus."
+  },
+  {
+   "l": "primfaktoren",
+   "t": "primfaktoren",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Zerlege 1 260 in Primfaktoren. Wie viele verschiedene Primzahlen kommen vor?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "1 260 = 2 · 2 · 3 · 3 · 5 · 7. Verschieden: 2, 3, 5, 7 – also 4.",
+   "h": "Teile nacheinander durch 2, 3, 5, 7."
+  },
+  {
+   "l": "primfaktoren",
+   "t": "primfaktoren",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Welche ist die kleinste Zahl, die durch jede der Zahlen 2, 3, 4, 5, 6, 7, 8, 9 und 10 teilbar ist?"
+   },
+   "o": {
+    "wert": 2520
+   },
+   "c": "2 ** 3 * 3 ** 2 * 5 * 7",
+   "w": "Man braucht so viele Primfaktoren, dass jede Zahl hineinpasst: 2 · 2 · 2 (für 8), 3 · 3 (für 9), 5 und 7. 8 · 9 · 5 · 7 = 2 520.",
+   "h": "Welche Primfaktoren und wie oft braucht man mindestens?"
+  },
+  {
+   "l": "primfaktoren",
+   "t": "primfaktoren",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Teiler hat 2⁵ · 3?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "6 * 2",
+   "w": "Jeder Teiler hat die Form 2ᵃ · 3ᵇ mit a von 0 bis 5 (6 Möglichkeiten) und b gleich 0 oder 1 (2 Möglichkeiten): 6 · 2 = 12 Teiler.",
+   "h": "Aus welchen Primfaktoren kann ein Teiler bestehen?"
   },
   {
    "l": "primfaktoren",
@@ -3678,41 +4921,38 @@
    "w": "Malnehmen: 2 · 7 · 7 = 98."
   },
   {
-   "l": "primfaktoren",
-   "t": "primfaktoren",
+   "l": "ggt",
+   "t": "ggt",
    "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Die Primfaktorzerlegung einer Zahl ist 2 · 3 · 3 · 5. Durch welche dieser Zahlen ist sie NICHT teilbar?"
-   },
-   "a": [
-    "6",
-    "10",
-    "27",
-    "9"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Die Zahl ist 90. 6 = 2 · 3, 9 = 3 · 3 und 10 = 2 · 5 stecken darin. 27 = 3 · 3 · 3 bräuchte drei Dreien, es sind nur zwei.",
-   "h": "Zerlege auch die Antwortzahlen in Primfaktoren. Stecken sie in 2 · 3 · 3 · 5?"
-  },
-  {
-   "l": "primfaktoren",
-   "t": "primfaktoren",
-   "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Welche ist die kleinste Zahl, deren Primfaktorzerlegung genau drei verschiedene Primzahlen enthält?"
+    "text": "Bestimme ggT(35, 28)."
    },
    "o": {
-    "wert": 30
+    "wert": 7
    },
-   "c": "2 * 3 * 5",
-   "w": "Die drei kleinsten Primzahlen nehmen: 2 · 3 · 5 = 30.",
-   "h": "Welche drei Primzahlen sind am kleinsten?"
+   "c": "35 // 5",
+   "w": "Teiler von 35: 1, 5, 7, 35. Teiler von 28: 1, 2, 4, 7, 14, 28. Der größte gemeinsame ist 7.",
+   "h": "Schreib die Teiler beider Zahlen auf und suche den größten gemeinsamen."
+  },
+  {
+   "l": "ggt",
+   "t": "ggt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Bänder sind 24 cm und 28 cm lang. Sie sollen ohne Rest in gleich lange Stücke geschnitten werden, die möglichst lang sind. Wie lang wird ein Stück?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "24 // 6",
+   "w": "Gesucht ist ggT(24, 28) = 4. Probe: 24 : 4 = 6, 28 : 4 = 7.",
+   "h": "Die Stücklänge muss in beide Längen passen.",
+   "g": "einkleidung"
   },
   {
    "l": "ggt",
@@ -3728,39 +4968,30 @@
    },
    "c": "16 // 4",
    "w": "Teiler von 16: 1, 2, 4, 8, 16. Teiler von 12: 1, 2, 3, 4, 6, 12. Der größte gemeinsame ist 4.",
-   "h": "Schreib die Teiler beider Zahlen auf und suche den größten gemeinsamen."
+   "h": "Schreib die Teiler beider Zahlen auf und suche den größten gemeinsamen.",
+   "g": "direkt"
   },
   {
    "l": "ggt",
    "t": "ggt",
    "p": "uebung",
    "s": 1,
-   "y": "zahl",
+   "g": "erkennen",
+   "y": "auswahl",
    "f": {
-    "text": "Bestimme ggT(28, 24)."
+    "text": "Welche Zahl ist ein gemeinsamer Teiler von 18 und 24?"
    },
+   "a": [
+    "6",
+    "9",
+    "4",
+    "8"
+   ],
    "o": {
-    "wert": 4
+    "index": 0
    },
-   "c": "28 // 7",
-   "w": "Teiler von 28: 1, 2, 4, 7, 14, 28. Teiler von 24: 1, 2, 3, 4, 6, 8, 12, 24. Der größte gemeinsame ist 4.",
-   "h": "Schreib die Teiler beider Zahlen auf und suche den größten gemeinsamen."
-  },
-  {
-   "l": "ggt",
-   "t": "ggt",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme ggT(35, 28)."
-   },
-   "o": {
-    "wert": 7
-   },
-   "c": "35 // 5",
-   "w": "Teiler von 35: 1, 5, 7, 35. Teiler von 28: 1, 2, 4, 7, 14, 28. Der größte gemeinsame ist 7.",
-   "h": "Schreib die Teiler beider Zahlen auf und suche den größten gemeinsamen."
+   "w": "18 : 6 = 3 und 24 : 6 = 4. 4 und 8 teilen 18 nicht, 9 teilt 24 nicht.",
+   "h": "Prüfe für jede Zahl beide Divisionen."
   },
   {
    "l": "ggt",
@@ -3785,39 +5016,6 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Bestimme ggT(33, 77)."
-   },
-   "o": {
-    "wert": 11
-   },
-   "c": "33 // 3",
-   "w": "33 = 11 · 3 und 77 = 11 · 7. 3 und 7 haben keinen gemeinsamen Teiler mehr, also ggT = 11.",
-   "h": "Suche den größten Teiler, der in beiden Zahlen steckt."
-  },
-  {
-   "l": "ggt",
-   "t": "ggt",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Zwei Bänder sind 24 cm und 28 cm lang. Sie sollen ohne Rest in gleich lange Stücke geschnitten werden, die möglichst lang sind. Wie lang wird ein Stück?"
-   },
-   "o": {
-    "wert": 4,
-    "einheit": "cm"
-   },
-   "c": "24 // 6",
-   "w": "Gesucht ist ggT(24, 28) = 4. Probe: 24 : 4 = 6, 28 : 4 = 7.",
-   "h": "Die Stücklänge muss in beide Längen passen."
-  },
-  {
-   "l": "ggt",
-   "t": "ggt",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
     "text": "Zwei Bänder sind 22 cm und 33 cm lang. Sie sollen ohne Rest in gleich lange Stücke geschnitten werden, die möglichst lang sind. Wie lang wird ein Stück?"
    },
    "o": {
@@ -3826,7 +5024,25 @@
    },
    "c": "22 // 2",
    "w": "Gesucht ist ggT(22, 33) = 11. Probe: 22 : 11 = 2, 33 : 11 = 3.",
-   "h": "Die Stücklänge muss in beide Längen passen."
+   "h": "Die Stücklänge muss in beide Längen passen.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "ggt",
+   "t": "ggt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "25 Äpfel und 35 Birnen sollen so auf Körbe verteilt werden, dass alle Körbe gleich gefüllt sind und nichts übrig bleibt. Es sollen möglichst viele Körbe sein. Wie viele Körbe sind es?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "25 // 5",
+   "w": "Gesucht ist ggT(25, 35) = 5. Jeder Korb bekommt 5 Äpfel und 7 Birnen.",
+   "h": "Die Zahl der Körbe muss in beide Anzahlen passen.",
+   "g": "transfer"
   },
   {
    "l": "ggt",
@@ -3849,6 +5065,82 @@
    "l": "ggt",
    "t": "ggt",
    "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „ggT(14, 49) = 1, denn 1 teilt beide Zahlen.“ Stimmt das?"
+   },
+   "a": [
+    "Nein, 7 teilt auch beide und ist größer.",
+    "Nein, der ggT ist 14.",
+    "Ja, ein gemeinsamer Teiler genügt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "1 ist ein gemeinsamer Teiler, aber nicht der größte. 14 : 7 = 2 und 49 : 7 = 7, also ggT = 7.",
+   "h": "Gibt es einen größeren gemeinsamen Teiler?",
+   "g": "fehler"
+  },
+  {
+   "l": "ggt",
+   "t": "ggt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme ggT(28, 24)."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "28 // 7",
+   "w": "Teiler von 28: 1, 2, 4, 7, 14, 28. Teiler von 24: 1, 2, 3, 4, 6, 8, 12, 24. Der größte gemeinsame ist 4.",
+   "h": "Schreib die Teiler beider Zahlen auf und suche den größten gemeinsamen.",
+   "g": "direkt"
+  },
+  {
+   "l": "ggt",
+   "t": "ggt",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Was bedeutet ggT(8, 12)?"
+   },
+   "a": [
+    "das Produkt von 8 und 12",
+    "das kleinste Vielfache von 8 und 12",
+    "der größte Teiler, den 8 und 12 gemeinsam haben",
+    "der kleinste gemeinsame Teiler"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "ggT steht für „größter gemeinsamer Teiler“. Hier ist er 4.",
+   "h": "Wofür stehen die drei Buchstaben?"
+  },
+  {
+   "l": "ggt",
+   "t": "ggt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme ggT(33, 77)."
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "33 // 3",
+   "w": "33 = 11 · 3 und 77 = 11 · 7. 3 und 7 haben keinen gemeinsamen Teiler mehr, also ggT = 11.",
+   "h": "Suche den größten Teiler, der in beiden Zahlen steckt."
+  },
+  {
+   "l": "ggt",
+   "t": "ggt",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -3866,17 +5158,69 @@
    "l": "ggt",
    "t": "ggt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
+   "g": "mehrschritt",
    "y": "zahl",
    "f": {
-    "text": "25 Äpfel und 35 Birnen sollen so auf Körbe verteilt werden, dass alle Körbe gleich gefüllt sind und nichts übrig bleibt. Es sollen möglichst viele Körbe sein. Wie viele Körbe sind es?"
+    "text": "Bestimme den ggT von 36, 48 und 60."
    },
    "o": {
-    "wert": 5
+    "wert": 12
    },
-   "c": "25 // 5",
-   "w": "Gesucht ist ggT(25, 35) = 5. Jeder Korb bekommt 5 Äpfel und 7 Birnen.",
-   "h": "Die Zahl der Körbe muss in beide Anzahlen passen."
+   "c": "12",
+   "w": "Teiler von 36: …, 12, 18, 36. 12 teilt auch 48 und 60, 18 nicht. ggT = 12.",
+   "h": "Suche den größten Teiler von 36, der auch 48 und 60 teilt."
+  },
+  {
+   "l": "ggt",
+   "t": "ggt",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Der ggT zweier Zahlen ist 6. Eine Zahl ist 18, die andere liegt zwischen 20 und 29. Wie heißt sie?"
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "24",
+   "w": "Die andere muss ein Vielfaches von 6 sein: 24 (zwischen 20 und 29). ggT(18, 24) = 6 stimmt.",
+   "h": "Die andere Zahl muss durch 6 teilbar sein."
+  },
+  {
+   "l": "ggt",
+   "t": "ggt",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "zahl",
+   "f": {
+    "text": "Teiler von 20: 1, 2, 4, 5, 10, 20. Teiler von 30: 1, 2, 3, 5, 6, 10, 15, 30. Wie groß ist ggT(20, 30)?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "10",
+   "w": "Gemeinsame Teiler: 1, 2, 5, 10. Der größte ist 10.",
+   "h": "Markiere die Zahlen, die in beiden Listen stehen."
+  },
+  {
+   "l": "ggt",
+   "t": "ggt",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Gärtner hat 42 Tulpen und 56 Narzissen. Er bindet möglichst viele gleiche Sträuße, ohne dass eine Blume übrig bleibt. Wie viele Sträuße werden es?"
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "14",
+   "w": "Die Zahl der Sträuße muss 42 und 56 teilen: ggT(42, 56) = 14. Jeder Strauß hat 3 Tulpen und 4 Narzissen.",
+   "h": "Gesucht ist ein gemeinsamer Teiler – welcher?"
   },
   {
    "l": "ggt",
@@ -3892,27 +5236,8 @@
    },
    "c": "22 // 2",
    "w": "Gesucht ist ggT(22, 33) = 11. Jeder Korb bekommt 2 Äpfel und 3 Birnen.",
-   "h": "Die Zahl der Körbe muss in beide Anzahlen passen."
-  },
-  {
-   "l": "ggt",
-   "t": "ggt",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand sagt: „ggT(14, 49) = 1, denn 1 teilt beide Zahlen.“ Stimmt das?"
-   },
-   "a": [
-    "Nein, 7 teilt auch beide und ist größer.",
-    "Nein, der ggT ist 14.",
-    "Ja, ein gemeinsamer Teiler genügt."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "1 ist ein gemeinsamer Teiler, aber nicht der größte. 14 : 7 = 2 und 49 : 7 = 7, also ggT = 7.",
-   "h": "Gibt es einen größeren gemeinsamen Teiler?"
+   "h": "Die Zahl der Körbe muss in beide Anzahlen passen.",
+   "g": "transfer"
   },
   {
    "l": "ggt",
@@ -3932,7 +5257,115 @@
     "index": 2
    },
    "w": "1 ist ein gemeinsamer Teiler, aber nicht der größte. 42 : 6 = 7 und 24 : 6 = 4, also ggT = 6.",
-   "h": "Gibt es einen größeren gemeinsamen Teiler?"
+   "h": "Gibt es einen größeren gemeinsamen Teiler?",
+   "g": "fehler"
+  },
+  {
+   "l": "ggt",
+   "t": "ggt",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Der ggT zweier Zahlen ist nie größer als die kleinere der beiden Zahlen.“"
+   },
+   "a": [
+    "Ja: Ein Teiler einer Zahl ist nie größer als die Zahl selbst.",
+    "Nein: ggT(4, 6) = 12.",
+    "Nein: Er ist immer das Produkt.",
+    "Ja, aber nur bei geraden Zahlen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der ggT teilt beide Zahlen, also auch die kleinere – und Teiler sind höchstens so groß wie die Zahl.",
+   "h": "Kann ein Teiler von 8 größer als 8 sein?"
+  },
+  {
+   "l": "ggt",
+   "t": "ggt",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl a zwischen 10 und 20 gilt ggT(a, 36) = 12?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "12",
+   "w": "a muss ein Vielfaches von 12 sein und darf mit 36 keinen größeren gemeinsamen Teiler haben: zwischen 10 und 20 nur 12. ggT(12, 36) = 12.",
+   "h": "a muss durch 12 teilbar sein."
+  },
+  {
+   "l": "ggt",
+   "t": "ggt",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme ggT(84, 126)."
+   },
+   "o": {
+    "wert": 42
+   },
+   "c": "42",
+   "w": "84 = 2 · 42, 126 = 3 · 42, und 2 und 3 haben keinen gemeinsamen Teiler außer 1. ggT = 42.",
+   "h": "Zerlege beide Zahlen in Primfaktoren."
+  },
+  {
+   "l": "ggt",
+   "t": "ggt",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Zahlen haben den ggT 14 und zusammen 42. Die kleinere ist kleiner als 20. Wie heißt die größere?"
+   },
+   "o": {
+    "wert": 28
+   },
+   "c": "42 - 14",
+   "w": "Beide sind Vielfache von 14 und kleiner als 42: 14 und 28. ggT(14, 28) = 14 und 14 + 28 = 42.",
+   "h": "Beide Zahlen müssen Vielfache von 14 sein."
+  },
+  {
+   "l": "ggt",
+   "t": "ggt",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele der Zahlen von 1 bis 30 haben mit 30 den ggT 1?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "8",
+   "w": "30 = 2 · 3 · 5. Gesucht sind Zahlen ohne Faktor 2, 3 oder 5: 1, 7, 11, 13, 17, 19, 23, 29 – das sind 8.",
+   "h": "Welche Primfaktoren hat 30? Welche Zahlen haben keinen davon?"
+  },
+  {
+   "l": "ggt",
+   "t": "ggt",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Zahlen haben den ggT 6, ihr Produkt ist 360. Beide sind größer als 6. Wie groß ist ihre Summe?"
+   },
+   "o": {
+    "wert": 42
+   },
+   "c": "12 + 30",
+   "w": "Schreibe die Zahlen als 6 · x und 6 · y. Dann ist 36 · x · y = 360, also x · y = 10, und x, y haben keinen gemeinsamen Teiler: x = 1, y = 10 oder x = 2, y = 5. Beide größer als 6 geht nur mit 12 und 30. Summe 42.",
+   "h": "Beide Zahlen sind Vielfache von 6. Schreib sie so auf."
   },
   {
    "l": "ggt",
@@ -4094,38 +5527,6 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Bestimme kgV(5, 4)."
-   },
-   "o": {
-    "wert": 20
-   },
-   "c": "5 * 4",
-   "w": "Vielfache von 5: 5, 10, 15, 20. 20 ist das erste, das auch durch 4 teilbar ist.",
-   "h": "Geh die Vielfachen der größeren Zahl durch."
-  },
-  {
-   "l": "kgv",
-   "t": "kgv",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme kgV(6, 9)."
-   },
-   "o": {
-    "wert": 18
-   },
-   "c": "9 * 2",
-   "w": "Vielfache von 9: 9, 18. 18 ist das erste, das auch durch 6 teilbar ist.",
-   "h": "Geh die Vielfachen der größeren Zahl durch."
-  },
-  {
-   "l": "kgv",
-   "t": "kgv",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
     "text": "Bestimme kgV(10, 8)."
    },
    "o": {
@@ -4134,6 +5535,23 @@
    "c": "10 * 4",
    "w": "Vielfache von 10: 10, 20, 30, 40. 40 ist das erste, das auch durch 8 teilbar ist.",
    "h": "Geh die Vielfachen der größeren Zahl durch."
+  },
+  {
+   "l": "kgv",
+   "t": "kgv",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Busse fahren um 7:00 Uhr gemeinsam ab. Der eine fährt alle 4 Minuten, der andere alle 14 Minuten. Nach wie vielen Minuten fahren sie wieder gemeinsam ab?"
+   },
+   "o": {
+    "wert": 28
+   },
+   "c": "14 * 2",
+   "w": "Gesucht ist kgV(4, 14) = 28. Nach 28 Minuten fahren beide wieder gleichzeitig.",
+   "h": "Suche das kleinste gemeinsame Vielfache.",
+   "g": "einkleidung"
   },
   {
    "l": "kgv",
@@ -4155,17 +5573,40 @@
    "l": "kgv",
    "t": "kgv",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist ein gemeinsames Vielfaches von 4 und 6?"
+   },
+   "a": [
+    "18",
+    "16",
+    "30",
+    "24"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "24 = 6 · 4 = 4 · 6. 16 ist kein Vielfaches von 6, 18 und 30 sind keine Vielfachen von 4.",
+   "h": "Prüfe, ob die Zahl durch 4 und durch 6 teilbar ist."
+  },
+  {
+   "l": "kgv",
+   "t": "kgv",
+   "p": "uebung",
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Zwei Busse fahren um 7:00 Uhr gemeinsam ab. Der eine fährt alle 4 Minuten, der andere alle 14 Minuten. Nach wie vielen Minuten fahren sie wieder gemeinsam ab?"
+    "text": "Bestimme kgV(5, 4)."
    },
    "o": {
-    "wert": 28
+    "wert": 20
    },
-   "c": "14 * 2",
-   "w": "Gesucht ist kgV(4, 14) = 28. Nach 28 Minuten fahren beide wieder gleichzeitig.",
-   "h": "Suche das kleinste gemeinsame Vielfache."
+   "c": "5 * 4",
+   "w": "Vielfache von 5: 5, 10, 15, 20. 20 ist das erste, das auch durch 4 teilbar ist.",
+   "h": "Geh die Vielfachen der größeren Zahl durch.",
+   "g": "direkt"
   },
   {
    "l": "kgv",
@@ -4181,13 +5622,14 @@
    },
    "c": "8 * 1",
    "w": "Gesucht ist kgV(8, 4) = 8. Nach 8 Minuten fahren beide wieder gleichzeitig.",
-   "h": "Suche das kleinste gemeinsame Vielfache."
+   "h": "Suche das kleinste gemeinsame Vielfache.",
+   "g": "einkleidung"
   },
   {
    "l": "kgv",
    "t": "kgv",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Bestimme kgV(10, 14)."
@@ -4203,7 +5645,84 @@
    "l": "kgv",
    "t": "kgv",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Würstchen gibt es in Packungen zu 10, Brötchen in Packungen zu 6. Du willst gleich viele Würstchen wie Brötchen, möglichst wenige. Wie viele Packungen Würstchen kaufst du?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "30 // 10",
+   "w": "kgV(10, 6) = 30. 30 Würstchen sind 30 : 10 = 3 Packungen.",
+   "h": "Erst das kgV bestimmen, dann durch die Packungsgröße teilen.",
+   "g": "transfer"
+  },
+  {
+   "l": "kgv",
+   "t": "kgv",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „kgV(6, 10) = 60, denn 6 · 10 = 60.“ Stimmt das?"
+   },
+   "a": [
+    "Nein, schon 30 ist ein gemeinsames Vielfaches.",
+    "Ja, das kgV ist immer das Produkt.",
+    "Nein, das kgV ist 10."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "60 ist gemeinsam, aber nicht das kleinste: 30 ist durch 6 und durch 10 teilbar.",
+   "h": "Gibt es ein kleineres gemeinsames Vielfaches?",
+   "g": "fehler"
+  },
+  {
+   "l": "kgv",
+   "t": "kgv",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme kgV(6, 9)."
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "9 * 2",
+   "w": "Vielfache von 9: 9, 18. 18 ist das erste, das auch durch 6 teilbar ist.",
+   "h": "Geh die Vielfachen der größeren Zahl durch.",
+   "g": "direkt"
+  },
+  {
+   "l": "kgv",
+   "t": "kgv",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Liste enthält die ersten Vielfachen von 6?"
+   },
+   "a": [
+    "6, 12, 18, 24",
+    "1, 2, 3, 6",
+    "6, 16, 26, 36",
+    "12, 18, 24, 32"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Vielfache von 6: 6 · 1, 6 · 2, 6 · 3, 6 · 4.",
+   "h": "Zähle in Sechserschritten."
+  },
+  {
+   "l": "kgv",
+   "t": "kgv",
+   "p": "uebung",
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Bestimme kgV(10, 6)."
@@ -4235,17 +5754,70 @@
    "l": "kgv",
    "t": "kgv",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
+   "g": "mehrschritt",
    "y": "zahl",
    "f": {
-    "text": "Würstchen gibt es in Packungen zu 10, Brötchen in Packungen zu 6. Du willst gleich viele Würstchen wie Brötchen, möglichst wenige. Wie viele Packungen Würstchen kaufst du?"
+    "text": "Bestimme kgV(4, 6, 10)."
+   },
+   "o": {
+    "wert": 60
+   },
+   "c": "60",
+   "w": "Vielfache von 10: 10, 20, 30, 40, 50, 60. 60 ist auch durch 4 und durch 6 teilbar – die erste, die passt.",
+   "h": "Geh die Vielfachen der größten Zahl durch."
+  },
+  {
+   "l": "kgv",
+   "t": "kgv",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "kgV(8, a) = 24, und a ist ungerade. Wie heißt a?"
    },
    "o": {
     "wert": 3
    },
-   "c": "30 // 10",
-   "w": "kgV(10, 6) = 30. 30 Würstchen sind 30 : 10 = 3 Packungen.",
-   "h": "Erst das kgV bestimmen, dann durch die Packungsgröße teilen."
+   "c": "3",
+   "w": "a muss 24 teilen und ungerade sein: 1 oder 3. kgV(8, 1) = 8, kgV(8, 3) = 24. Also a = 3.",
+   "h": "a muss ein Teiler von 24 sein."
+  },
+  {
+   "l": "kgv",
+   "t": "kgv",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "zahl",
+   "f": {
+    "text": "Vielfache von 6: 6, 12, 18, 24, 30, 36. Vielfache von 9: 9, 18, 27, 36. Wie groß ist kgV(6, 9)?"
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "18",
+   "w": "Gemeinsam in beiden Listen: 18 und 36. Das kleinste ist 18.",
+   "h": "Suche die kleinste Zahl, die in beiden Listen steht."
+  },
+  {
+   "l": "kgv",
+   "t": "kgv",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Leuchtturm blinkt alle 6 Sekunden, ein anderer alle 10 Sekunden. Eben blinken beide gleichzeitig. Nach wie vielen Sekunden blinken sie wieder gleichzeitig?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "s"
+   },
+   "c": "30",
+   "w": "kgV(6, 10) = 30.",
+   "h": "Gesucht ist ein gemeinsames Vielfaches – welches?"
   },
   {
    "l": "kgv",
@@ -4261,27 +5833,8 @@
    },
    "c": "45 // 9",
    "w": "kgV(9, 15) = 45. 45 Würstchen sind 45 : 9 = 5 Packungen.",
-   "h": "Erst das kgV bestimmen, dann durch die Packungsgröße teilen."
-  },
-  {
-   "l": "kgv",
-   "t": "kgv",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand sagt: „kgV(6, 10) = 60, denn 6 · 10 = 60.“ Stimmt das?"
-   },
-   "a": [
-    "Nein, schon 30 ist ein gemeinsames Vielfaches.",
-    "Ja, das kgV ist immer das Produkt.",
-    "Nein, das kgV ist 10."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "60 ist gemeinsam, aber nicht das kleinste: 30 ist durch 6 und durch 10 teilbar.",
-   "h": "Gibt es ein kleineres gemeinsames Vielfaches?"
+   "h": "Erst das kgV bestimmen, dann durch die Packungsgröße teilen.",
+   "g": "transfer"
   },
   {
    "l": "kgv",
@@ -4301,7 +5854,123 @@
     "index": 2
    },
    "w": "135 ist gemeinsam, aber nicht das kleinste: 45 ist durch 15 und durch 9 teilbar.",
-   "h": "Gibt es ein kleineres gemeinsames Vielfaches?"
+   "h": "Gibt es ein kleineres gemeinsames Vielfaches?",
+   "g": "fehler"
+  },
+  {
+   "l": "kgv",
+   "t": "kgv",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Das kgV zweier Zahlen ist immer ihr Produkt.“"
+   },
+   "a": [
+    "Nein: Es ist immer ihre Summe.",
+    "Ja, aber nur bei geraden Zahlen.",
+    "Ja, immer.",
+    "Nein: kgV(4, 6) = 12, nicht 24."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Haben die Zahlen einen gemeinsamen Teiler, ist das kgV kleiner als das Produkt.",
+   "h": "Probiere 4 und 6."
+  },
+  {
+   "l": "kgv",
+   "t": "kgv",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Für welche kleinste Zahl a, die größer als 6 ist, gilt kgV(6, a) = 6 · a?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "kgV = Produkt heißt: kein gemeinsamer Teiler außer 1. 7 hat mit 6 keinen gemeinsamen Teiler.",
+   "h": "Wann ist das kgV gleich dem Produkt?"
+  },
+  {
+   "l": "kgv",
+   "t": "kgv",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "luecken",
+   "f": {
+    "text": "Zwei Glocken läuten um 12:00 Uhr gemeinsam. Die eine läutet alle 8 Minuten, die andere alle 12 Minuten. Wann läuten sie zum dritten Mal gemeinsam (12:00 Uhr mitgezählt)?",
+    "schablone": "□:□ Uhr",
+    "hinweis": "Stunden und Minuten je als ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     12,
+     48
+    ]
+   },
+   "c": [
+    "12",
+    "2 * 24"
+   ],
+   "w": "kgV(8, 12) = 24. Gemeinsam: 12:00, 12:24, 12:48. Zum dritten Mal um 12:48 Uhr.",
+   "h": "Bestimme, alle wie viele Minuten sie gemeinsam läuten."
+  },
+  {
+   "l": "kgv",
+   "t": "kgv",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme kgV(12, 18)."
+   },
+   "o": {
+    "wert": 36
+   },
+   "c": "36",
+   "w": "Vielfache von 18: 18, 36. 36 ist durch 12 teilbar. kgV = 36.",
+   "h": "Geh die Vielfachen der größeren Zahl durch."
+  },
+  {
+   "l": "kgv",
+   "t": "kgv",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Welche ist die kleinste Zahl größer als 3, die beim Teilen durch 4, durch 6 und durch 9 jeweils den Rest 3 lässt?"
+   },
+   "o": {
+    "wert": 39
+   },
+   "c": "36 + 3",
+   "w": "Die Zahl minus 3 muss durch 4, 6 und 9 teilbar sein: kgV(4, 6, 9) = 36. Also 39.",
+   "h": "Was gilt für die Zahl, die um 3 kleiner ist?"
+  },
+  {
+   "l": "kgv",
+   "t": "kgv",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Drei Läufer starten gemeinsam. Für eine Runde braucht der erste 4 Minuten, der zweite 6, der dritte 10. Nach wie vielen Runden des schnellsten Läufers sind alle zum ersten Mal wieder gleichzeitig am Start?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "60 // 4",
+   "w": "Gemeinsam am Start nach kgV(4, 6, 10) = 60 Minuten. Der schnellste läuft in 60 Minuten 60 : 4 = 15 Runden.",
+   "h": "Bestimme zuerst die Zeit, nach der sich alle treffen."
   },
   {
    "l": "kgv",

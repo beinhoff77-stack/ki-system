@@ -571,3 +571,139 @@ def durchsicht():
 
 if __name__ == '__main__':
     durchsicht()  # Neunzehnte Runde (durchsicht-kl10) – ganz am Ende
+
+
+# ---------- STUFEN (Zwanzigste Runde, Zweig stufen-kl10) ----------
+def stufen():
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from _stufen_kl10 import Stufen
+    S = Stufen('gleichungen.polynom', 2070)
+    Z, A, L = S.Z, S.A, S.L
+
+    # --- ausklammern ---
+    S.stufenleiter('ausklammern', 'x ausklammern und mit dem Satz vom Nullprodukt lösen; erkennen, wann das geht.',
+                   'Quadratische Klammer lösen, x² ausklammern, erst umstellen, Graph und Sachsituation.',
+                   'Parameter aus einer Lösung, Gleichungen mit (x − 1) auf beiden Seiten, Fehler „durch x teilen“, Begründen, Koeffizienten rückwärts, binomische Formel.')
+    S.g('ausklammern', direkt=[0, 5, 1, 2, 4, 3], mehrschritt=[6, 10, 7, 8, 9, 11, 12, 15, 17, 13, 14, 16, 141], umkehr=[140],
+        parameter=[142], pruefung=[143], transfer=[144, 145])
+    S.ueberzaehlig(5, 2, 4, 10, 7, 9, 11, 14, 15, 16, 141)
+    S.neu('ausklammern', 'erkennen', A('Welche Gleichung kann man direkt durch Ausklammern von x lösen?', 'x³ − 4x² + 3x = 0', ['x³ − 4x² + 3 = 0', 'x² + 5 = 0', 'x³ = 8'],
+                                       'Nur dort hat jedes Glied mindestens ein x und rechts steht 0: x(x² − 4x + 3) = 0.', 'Hat jedes Glied ein x? Steht rechts 0?'))
+    S.neu('ausklammern', 'erkennen', A('x · (x² − 4) = 0. Was folgt nach dem Satz vom Nullprodukt?', 'x = 0 oder x² − 4 = 0', ['x = 0 und x² − 4 = 0 gleichzeitig', 'nur x² − 4 = 0', 'x = 4'],
+                                       'Ein Produkt ist 0, wenn mindestens ein Faktor 0 ist – das „oder“ zählt.', 'Wann ist ein Produkt null?'))
+    S.neu('ausklammern', 'einkleidung', Z('Ein geworfener Ball hat die Höhe h(t) = −t³ + 4t² (t in s, h in m, nur für 0 ≤ t ≤ 4). Wann ist er nach dem Abwurf wieder auf Höhe 0?', 4, '4',
+                                          '−t³ + 4t² = t²(4 − t) = 0 ⇒ t = 0 (Abwurf) oder t = 4.', 'Klammere t² aus.', einheit='s'))
+    S.neu('ausklammern', 'darstellung', A('Der Graph von f(x) = x³ − x schneidet die x-Achse dreimal. An welchen Stellen?', '−1, 0 und 1', ['nur bei 0', '0 und 1', '−1 und 1'],
+                                          'x³ − x = x(x² − 1) = x(x − 1)(x + 1) = 0.', 'Klammere x aus.'))
+    S.neu('ausklammern', 'fehler', A('Jemand löst x³ − 4x² = 0 so: „x³ = 4x², durch x² teilen: x = 4.“ Was stimmt?', 'Unvollständig: Auch x = 0 ist Lösung; durch x² darf man nur für x ≠ 0 teilen.',
+                                     ['Richtig, x = 4 ist die einzige Lösung.', 'Falsch: x = 2.', 'Falsch: x = −4 ist die einzige Lösung.'],
+                                     'x²(x − 4) = 0 ⇒ x = 0 oder x = 4. Beim Teilen durch x² geht die Lösung 0 verloren.', 'Was passiert, wenn x = 0 ist?'))
+    S.neu('ausklammern', 'begruenden', A('Hat jede Gleichung der Form x³ + bx² + cx = 0 die Lösung x = 0?', 'Ja: x lässt sich ausklammern, und x = 0 macht das Produkt null.',
+                                         ['Nein, nur wenn c = 0 ist.', 'Nein, nur wenn b und c positiv sind.', 'Ja, aber nur für b = c.'],
+                                         'x(x² + bx + c) = 0: Für x = 0 ist der erste Faktor 0 – egal, wie b und c sind.', 'Setze x = 0 ein.'))
+    S.neu('ausklammern', 'verknuepfen', Z('Löse x³ − 6x² + 9x = 0. Gib die Lösung an, die nicht 0 ist.', 3, '3', 'x(x² − 6x + 9) = x(x − 3)² = 0 ⇒ x = 0 oder x = 3 (doppelt).', 'Die Klammer ist eine binomische Formel.'))
+    S.neu('ausklammern', 'rueckwaerts', L('Die Gleichung x³ + bx² + cx = 0 hat die Lösungen 0, 2 und 5. Bestimme b und c.', 'b = □; c = □', [-7, 10], ['-(2 + 5)', '2 * 5'],
+                                          'x(x − 2)(x − 5) = x(x² − 7x + 10) = x³ − 7x² + 10x. Also b = −7, c = 10.', 'Schreibe die Gleichung in Produktform und multipliziere aus.', hinweis='ganze Zahlen mit Vorzeichen'))
+    S.bonus('ausklammern', Z('Wie viele reelle Lösungen hat x⁵ = x?', 3, '3', 'x⁵ − x = x(x⁴ − 1) = x(x² − 1)(x² + 1) = 0. Lösungen 0, 1, −1; x² + 1 ist nie 0. Also 3.',
+                             'Bringe alles auf eine Seite und klammere aus.'))
+    S.bonus('ausklammern', Z('Für welche positive ganze Zahl n hat x³ − nx² + 4x = 0 genau zwei verschiedene Lösungen?', 4, '4',
+                             'x(x² − nx + 4) = 0. Neben 0 braucht die Klammer genau eine (doppelte) Lösung: n² − 16 = 0 ⇒ n = 4 (Lösung x = 2). Dass 0 Lösung der Klammer ist, geht nicht (4 ≠ 0).',
+                             'Wann hat eine quadratische Gleichung genau eine Lösung?'))
+
+    # --- nullprodukt ---
+    S.stufenleiter('nullprodukt', 'In einer Produktform jeden Faktor null setzen.',
+                   'Faktoren wie x² − a² und x² + c, doppelte Faktoren, Nullstellen am Graphen.',
+                   'Gleichung zu vorgegebenen Lösungen, Zahl der Lösungen, Parameter, Fehler „= 6 statt = 0“, Faktoren ohne Lösung begründen, Lösungsmenge wie im BMT, rückwärts.')
+    S.g('nullprodukt', direkt=[28, 29, 31, 30, 32, 33], mehrschritt=[34, 35, 39, 36, 37, 38, 43, 146], umkehr=[40, 41, 44, 45, 42, 147],
+        rueckwaerts=[148], verknuepfen=[149], parameter=[150], transfer=[151])
+    S.ueberzaehlig(31, 32, 33, 35, 39, 37, 38, 41, 44, 45)
+    S.neu('nullprodukt', 'erkennen', A('Wann ist ein Produkt aus mehreren Faktoren gleich 0?', 'wenn mindestens ein Faktor 0 ist', ['nur wenn alle Faktoren 0 sind', 'wenn ein Faktor negativ ist', 'wenn die Summe der Faktoren 0 ist'],
+                                       'Satz vom Nullprodukt: Ein Faktor 0 genügt.', 'Was ist 0 mal irgendetwas?'))
+    S.neu('nullprodukt', 'erkennen', A('Welcher Faktor liefert in (x − 4)(x² + 9) = 0 keine Lösung?', 'x² + 9', ['x − 4', 'beide Faktoren', 'keiner der Faktoren'],
+                                       'x² + 9 ist immer mindestens 9. Nur x − 4 = 0 liefert x = 4.', 'Kann x² + 9 null werden?'))
+    S.neu('nullprodukt', 'darstellung', A('An welchen Stellen schneidet der Graph von f(x) = (x + 1)(x² − 4) die x-Achse?', '−2, −1 und 2', ['nur bei −1', '−1 und 4', '−4, −1 und 4'],
+                                          'x + 1 = 0 ⇒ −1; x² − 4 = 0 ⇒ ±2.', 'Setze jeden Faktor null.'))
+    S.neu('nullprodukt', 'fehler', A('Jemand löst (x − 2)(x + 3) = 6 so: „x − 2 = 6 oder x + 3 = 6, also x = 8 oder x = 3.“ Was stimmt?', 'Falsch: Der Satz vom Nullprodukt gilt nur, wenn rechts 0 steht.',
+                                     ['Richtig.', 'Falsch: x = 2 oder x = −3.', 'Falsch: Es gibt keine Lösung.'],
+                                     'Probe x = 8: 6 · 11 = 66 ≠ 6. Richtig: ausmultiplizieren, x² + x − 12 = 0 ⇒ x = 3 oder x = −4.', 'Mach die Probe mit x = 8.'))
+    S.neu('nullprodukt', 'begruenden', A('Hat die Gleichung (x² + 4)(x⁴ + 1) = 0 eine Lösung?', 'Nein: Beide Faktoren sind immer positiv.', ['Ja: x = ±2.', 'Ja: x = ±1.', 'Ja: x = 0.'],
+                                         'x² + 4 ≥ 4 und x⁴ + 1 ≥ 1. Ein Produkt positiver Zahlen ist nie 0.', 'Kann einer der Faktoren 0 werden?'))
+    S.neu('nullprodukt', 'pruefung', L('Bestimme alle Lösungen von x(x − 1)(x² − 16) = 0 (kleinste zuerst).', 'x₁ = □; x₂ = □; x₃ = □; x₄ = □', [-4, 0, 1, 4], ['-4', '0', '1', '4'],
+                                       'x = 0, x = 1 und x² = 16 ⇒ x = ±4. Sortiert: −4, 0, 1, 4.', 'Setze jeden Faktor null.', hinweis='kleinste zuerst'))
+    S.neu('nullprodukt', 'rueckwaerts', Z('Die Gleichung (x − a)(x − 2a) = 0 hat die Lösung 6, die andere Lösung ist kleiner. Welche?', 3, '6 // 2',
+                                          'Entweder a = 6 (dann ist 2a = 12 größer – passt nicht) oder 2a = 6, also a = 3. Die andere Lösung ist 3.', 'Welcher Faktor kann 6 liefern?'))
+    S.bonus('nullprodukt', Z('Wie viele Lösungen hat (x − 1)(x − 2)(x − 3) = (x − 1)(x − 2)(x − 4)?', 2, '2',
+                             'Alles nach links: (x − 1)(x − 2)[(x − 3) − (x − 4)] = (x − 1)(x − 2) · 1 = 0 ⇒ x = 1 oder x = 2. Wer durch (x − 1)(x − 2) teilt, erhält −3 = −4 und übersieht beide Lösungen.',
+                             'Teile nicht – klammere den gemeinsamen Teil aus.'))
+    S.bonus('nullprodukt', Z('(x − a)(x − b) = 0 hat die Lösungen 3 und 7. Welche größere Lösung hat (2x − a)(2x − b) = 0?', 3.5, '7 / 2',
+                             'a und b sind 3 und 7. 2x = 3 oder 2x = 7 ⇒ x = 1,5 oder 3,5. Die größere ist 3,5.', 'Bestimme zuerst a und b.'))
+
+    # --- substitution ---
+    S.stufenleiter('substitution', 'Biquadratische Gleichungen erkennen und mit z = x² in eine quadratische Gleichung übersetzen.',
+                   'Vollständig lösen mit Rücksubstitution, negative z, Dezimalwerte, Sachsituation.',
+                   'Faktor vor x⁴, Parameter k, x⁶ und Klammer-Substitution, Fehler mit negativem z, genau drei Lösungen begründen, Koeffizienten rückwärts.')
+    S.g('substitution', direkt=[56, 57, 58, 59, 60, 61], mehrschritt=[62, 63, 64, 65, 66, 67, 152, 70, 73, 153], umkehr=[68, 69, 71],
+        pruefung=[72], parameter=[154], transfer=[155, 156], fehler=[157])
+    S.ueberzaehlig(63, 73)
+    S.neu('substitution', 'erkennen', A('Welche Gleichung ist biquadratisch?', 'x⁴ − 5x² + 4 = 0', ['x³ − 5x + 4 = 0', 'x⁴ − 5x³ + 4 = 0', 'x⁴ − 5x = 0'],
+                                        'Biquadratisch: nur x⁴, x² und eine Zahl.', 'Welche Hochzahlen kommen vor?'))
+    S.neu('substitution', 'erkennen', A('Was wird aus x⁴ − 13x² + 36 = 0 mit z = x²?', 'z² − 13z + 36 = 0', ['z⁴ − 13z² + 36 = 0', 'z − 13z + 36 = 0', 'z² − 13 + 36 = 0'],
+                                        'x⁴ = (x²)² = z² und x² = z.', 'Schreibe x⁴ als (x²)².'))
+    S.neu('substitution', 'einkleidung', Z('Ein Quadrat hat die Seite x cm und den Flächeninhalt A = x² cm². Es gilt A² − 20A + 64 = 0, und die Fläche ist größer als 5 cm². Wie lang ist die Seite?', 4, '4',
+                                           'A² − 20A + 64 = (A − 4)(A − 16) = 0 ⇒ A = 4 oder A = 16. Wegen A > 5 ist A = 16, also x = 4 cm.', 'Löse zuerst nach A, dann nach x.', einheit='cm'))
+    S.neu('substitution', 'begruenden', A('Kann eine biquadratische Gleichung genau drei verschiedene Lösungen haben?', 'Ja, wenn z = 0 eine Lösung ist, z. B. x⁴ − x² = 0 mit −1, 0 und 1.',
+                                          ['Nein, immer 0, 2 oder 4.', 'Ja, z. B. x⁴ − 5x² + 4 = 0.', 'Nein, weil Lösungen immer paarweise ±x vorkommen.'],
+                                          'Zu z > 0 gehören zwei Lösungen ±√z, zu z = 0 nur x = 0. So entsteht eine ungerade Anzahl.', 'Was liefert z = 0?'))
+    S.neu('substitution', 'rueckwaerts', Z('Eine Gleichung x⁴ + bx² + c = 0 hat genau die Lösungen ±1 und ±4. Bestimme c.', 16, '1 * 16',
+                                           'Die z-Werte sind 1 und 16: (z − 1)(z − 16) = z² − 17z + 16. Also c = 16 (b = −17).', 'Welche Lösungen hat die Gleichung für z?'))
+    S.neu('substitution', 'verknuepfen', Z('Löse (x² − 1)² = 9. Gib die positive Lösung an.', 2, '2', 'x² − 1 = 3 oder x² − 1 = −3. Also x² = 4 (x = ±2) oder x² = −2 (keine Lösung).',
+                                           'Ziehe zuerst die Wurzel: Welche Zahlen ergeben quadriert 9?'))
+    S.bonus('substitution', Z('Für wie viele ganze Zahlen k mit 1 ≤ k ≤ 10 hat x⁴ − kx² + 9 = 0 genau vier verschiedene Lösungen?', 4, '10 - 7 + 1',
+                              'Vier Lösungen brauchen zwei verschiedene positive z in z² − kz + 9 = 0. Ihr Produkt ist 9 > 0, ihre Summe k > 0, also beide positiv, sobald es zwei gibt: k² − 36 > 0 ⇒ k > 6. k = 7, 8, 9, 10.',
+                              'Welche Bedingung braucht z² − kz + 9 = 0?'))
+    S.bonus('substitution', Z('Wie viele reelle Lösungen hat x⁸ − 17x⁴ + 16 = 0?', 4, '4',
+                              'Mit z = x⁴: z² − 17z + 16 = (z − 1)(z − 16) = 0. x⁴ = 1 ⇒ x = ±1; x⁴ = 16 ⇒ x = ±2. Vier Lösungen.', 'Substituiere diesmal z = x⁴.'))
+
+    # --- vielfachheit ---
+    S.stufenleiter('vielfachheit', 'Die Vielfachheit einer Nullstelle an der Hochzahl der Klammer ablesen.',
+                   'Vorzeichenwechsel aus der Vielfachheit, Grad einer Produktform, Vielfachheit aus einer Zerlegung.',
+                   'Doppelte Lösungen durch binomische Formeln, Mindestgrad, Zahl der Vorzeichenwechsel, Parameter, Fehler, Begründen.')
+    S.g('vielfachheit', direkt=[84, 85, 86, 87, 88, 89], darstellung=[90, 91, 92, 93, 94, 95], umkehr=[96, 99, 159], mehrschritt=[101, 158],
+        verknuepfen=[97, 98, 100], transfer=[160, 162], rueckwaerts=[161], parameter=[163])
+    S.ueberzaehlig(87, 88, 89, 92, 93, 94, 95, 99)
+    S.neu('vielfachheit', 'erkennen', A('Welcher Faktor gehört zu einer doppelten Nullstelle bei x = −3?', '(x + 3)²', ['(x − 3)²', '2(x + 3)', '(x + 3)³'],
+                                        'Nullstelle −3: Klammer (x + 3); doppelt: Hochzahl 2.', 'Welche Klammer wird bei x = −3 null?'))
+    S.neu('vielfachheit', 'erkennen', A('Bei welchen Nullstellen wechselt der Graph das Vorzeichen?', 'bei Nullstellen mit ungerader Vielfachheit', ['bei Nullstellen mit gerader Vielfachheit', 'bei allen Nullstellen', 'bei keiner Nullstelle'],
+                                        'Ungerade Vielfachheit: Schnitt mit Vorzeichenwechsel; gerade: Berührung.', 'Denke an x und an x².'))
+    S.neu('vielfachheit', 'fehler', A('Jemand sagt: „f(x) = (x − 2)² · (x + 1) wechselt bei x = 2 das Vorzeichen.“ Was stimmt?', 'Falsch: Bei der doppelten Nullstelle 2 berührt der Graph nur, ohne Vorzeichenwechsel.',
+                                      ['Richtig.', 'Falsch: f hat bei 2 keine Nullstelle.', 'Falsch: f wechselt nur bei 2 das Vorzeichen, nicht bei −1.'],
+                                      '(x − 2)² ist links und rechts von 2 positiv – das Vorzeichen bestimmt nur (x + 1).', 'Welches Vorzeichen hat (x − 2)² links und rechts von 2?'))
+    S.neu('vielfachheit', 'begruenden', A('Eine ganzrationale Funktion vom Grad 4 hat eine dreifache Nullstelle a. Hat sie noch eine weitere Nullstelle?',
+                                          'Ja: Der übrige Faktor ist linear und liefert eine Nullstelle (ist sie gleich a, ist a vierfach).',
+                                          ['Nein, nie.', 'Nur wenn der Leitkoeffizient positiv ist.', 'Ja, und zwar immer zwei weitere.'],
+                                          'f(x) = (x − a)³ · (c · x + d) mit c ≠ 0: Der lineare Faktor ist bei x = −d/c null.', 'Welcher Grad bleibt für den übrigen Faktor?'))
+    S.bonus('vielfachheit', Z('f(x) = (x − 1)(x − 2)²(x − 3)³(x − 4)⁴. An wie vielen Nullstellen wechselt f das Vorzeichen?', 2, '2',
+                              'Vorzeichenwechsel nur bei ungerader Vielfachheit: x = 1 (einfach) und x = 3 (dreifach). Zwei Stellen.', 'Welche Vielfachheiten sind ungerade?'))
+    S.bonus('vielfachheit', Z('Welchen Grad hat f(x) = (x − 1)(x − 2)²(x − 3)³ · … · (x − 10)¹⁰?', 55, '10 * 11 // 2',
+                              'Der Grad ist die Summe der Vielfachheiten: 1 + 2 + … + 10 = 55 (Gauß: 10 · 11 : 2).', 'Addiere alle Hochzahlen geschickt.'))
+
+    # --- verstehen ---
+    S.stufenleiter('verstehen', 'Einfache Potenzgleichungen lösen und die höchstmögliche Zahl von Lösungen kennen.',
+                   'Graph und Term zuordnen, Lösungen zählen, Gleichungen ohne Lösung erkennen, Würfelkante aus dem Volumen.',
+                   'Fehler beim Teilen und bei der Rücksubstitution, Aussagen begründen, Sachaufgaben (Quader, Schachtel, Würfel), Term rückwärts aus Nullstellen.')
+    S.g('verstehen', erkennen=[112, 114, 115, 113, 116, 117], fehler=[118, 119, 123, 122, 129], darstellung=[120, 128], mehrschritt=[121, 165], begruenden=[125, 124, 169],
+        umkehr=[164], transfer=[126, 127], rueckwaerts=[166, 167], verknuepfen=[168])
+    S.ueberzaehlig(114, 116, 129)
+    S.neu('verstehen', 'direkt', Z('Löse x³ = 8.', 2, '2', '2³ = 8, also x = 2 (eine Lösung, denn (−2)³ = −8).', 'Welche Zahl hoch drei ergibt 8?'))
+    S.neu('verstehen', 'direkt', L('Löse x² = 49 (kleinere Lösung zuerst).', 'x₁ = □; x₂ = □', [-7, 7], ['-7', '7'], '7² = 49 und (−7)² = 49.', 'Denke auch an die negative Zahl.', hinweis='kleinste zuerst'))
+    S.neu('verstehen', 'einkleidung', Z('Ein Würfel hat das Volumen 125 cm³. Wie lang ist eine Kante?', 5, '5', 'x³ = 125 ⇒ x = 5 cm, denn 5 · 5 · 5 = 125.', 'Volumen = Kante hoch drei.', einheit='cm'))
+    S.bonus('verstehen', Z('Wie viele reelle Lösungen hat x³ + x² + x + 1 = 0?', 1, '1',
+                           'Gruppieren: x²(x + 1) + (x + 1) = (x + 1)(x² + 1) = 0. Nur x = −1; x² + 1 ist nie 0. Also eine Lösung.', 'Fasse die Glieder paarweise zusammen.'))
+    S.bonus('verstehen', Z('Für welche ganze Zahl x gilt x³ − x = 120?', 5, '5',
+                           'x³ − x = (x − 1) · x · (x + 1): das Produkt dreier aufeinanderfolgender Zahlen. 120 = 4 · 5 · 6, also x = 5.', 'Klammere x aus und zerlege weiter.'))
+    S.anwenden()
+
+
+if __name__ == '__main__':
+    stufen()  # Zwanzigste Runde (stufen-kl10) – ganz am Ende

@@ -2,6 +2,11 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 16:20 – STATUS: zahlen.teilbarkeit fertig
+Dünnster Flug der Klasse (je Karte nur 4/5/4 Übungen, je Stufe meist eine Vorlage). Umgestuft 11 (Stufe 3 → 2: Teiler zählen, je zweimal wiederholte „Jemand sagt“-Aufgaben, Standard-Zerlegung, „kleinste Primzahl über 29“),
+neu 11 Stufe-3-Übungen (teiler 3, vielfache 2, endziffer 2, primzahl 2, primfaktoren 2: rückwärts, Bedingungen, Ziffernkarten, Knobel). Danach je Karte mindestens 4 Übungen je Stufe.
+Prüfskript OK, Nachweis OK (173 von 184 unverändert, 11 neu).
+
 ## 2026-11-17 16:00 – STATUS: zahlen.potenzen_basis fertig
 Umgestuft 13 (Stufe 3 → 2: 2¹², 9⁴, (−5)⁵ nur größer; Vergleiche wie in Stufe 1/2; Zehnerpotenz-Schreibweise wie Stufe 2; Quadratzahl erkennen/einfache Rechnung). Prüfskript OK, Nachweis OK (204 von 217 unverändert).
 

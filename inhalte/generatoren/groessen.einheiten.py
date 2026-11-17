@@ -701,5 +701,29 @@ BF.stufe('masse', 'Rechne um: 32 t = ? kg', 1)
 befunde_anwenden(DATEI, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl5, siehe _durchsicht_kl5.py) ----
+from _durchsicht_kl5 import Durchsicht, durchsicht_anwenden  # noqa: E402
+
+DS = Durchsicht('groessen.einheiten', 19_5_11)
+# a) Stufe 3 mit dem Gedanken von Stufe 2 (Zerlegen in zwei Einheiten, Ankunftszeit, zwei Rechenschritte beim Einkauf) → Stufe 2
+for _lz, _t in [('laenge', 'Zerlege: 986 cm = □ m □ cm'),
+        ('laenge', 'Zerlege: 215 mm = □ cm □ mm'),
+        ('laenge', 'Zerlege: 321 mm = □ cm □ mm'),
+        ('laenge', 'Zerlege: 626 mm = □ dm □ mm'),
+        ('laenge', 'Wandle um: 382 dm = ? mm'),
+        ('masse', 'Zerlege: 1 069 g = □ kg □ g'),
+        ('masse', 'Zerlege: 3 608 g = □ kg □ g'),
+        ('zeit', 'Ein Zug fährt um 13:05 Uhr ab. Die Fahrt dauert 3 h 15 min. Wann kommt er an?'),
+        ('zeit', 'Ein Zug fährt um 18:10 Uhr ab. Die Fahrt dauert 1 h 10 min. Wann kommt er an?'),
+        ('zeit', 'Ein Zug fährt um 6:20 Uhr ab. Die Fahrt dauert 1 h 5 min. Wann kommt er an?'),
+        ('kommaschreibweise', 'Schreibe 4 km 30 m in km.'),
+        ('rechnen', 'Einkauf: Brot 4,84 €, Käse 1,71 €, Obst 2,78 €. Bezahlt wird mit 20 €. Wie viel Rückgeld gibt es?'),
+        ('rechnen', 'Einkauf: Brot 5,78 €, Käse 4,32 €, Obst 3,07 €. Bezahlt wird mit 20 €. Wie viel Rückgeld gibt es?'),
+        ('rechnen', 'Einkauf: Brot 4,53 €, Käse 2,68 €, Obst 6,34 €. Bezahlt wird mit 20 €. Wie viel Rückgeld gibt es?'),
+        ('rechnen', 'Ein Kind fährt an 4 Schultagen mit dem Rad zur Schule und zurück. Der Schulweg ist 2,5 km lang. Wie viele km sind das in der Woche?')]:
+    DS.stufe(_lz, _t, 2, enthaelt=lambda x: x['s'] == 3)
+durchsicht_anwenden(DATEI, DS)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI)

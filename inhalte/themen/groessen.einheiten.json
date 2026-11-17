@@ -1549,7 +1549,7 @@
    "l": "laenge",
    "t": "laenge",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Zerlege: 986 cm = □ m □ cm",
@@ -1573,7 +1573,7 @@
    "l": "laenge",
    "t": "laenge",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Zerlege: 215 mm = □ cm □ mm",
@@ -1635,7 +1635,7 @@
    "l": "laenge",
    "t": "laenge",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Zerlege: 321 mm = □ cm □ mm",
@@ -1659,7 +1659,7 @@
    "l": "laenge",
    "t": "laenge",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Zerlege: 626 mm = □ dm □ mm",
@@ -2110,7 +2110,7 @@
    "l": "masse",
    "t": "masse",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Zerlege: 1 069 g = □ kg □ g",
@@ -2155,7 +2155,7 @@
    "l": "masse",
    "t": "masse",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Zerlege: 3 608 g = □ kg □ g",
@@ -2564,7 +2564,7 @@
    "l": "zeit",
    "t": "zeit",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Ein Zug fährt um 13:05 Uhr ab. Die Fahrt dauert 3 h 15 min. Wann kommt er an?",
@@ -2612,7 +2612,7 @@
    "l": "zeit",
    "t": "zeit",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Ein Zug fährt um 18:10 Uhr ab. Die Fahrt dauert 1 h 10 min. Wann kommt er an?",
@@ -2684,7 +2684,7 @@
    "l": "zeit",
    "t": "zeit",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Ein Zug fährt um 6:20 Uhr ab. Die Fahrt dauert 1 h 5 min. Wann kommt er an?",
@@ -3640,7 +3640,7 @@
    "l": "rechnen",
    "t": "rechnen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Einkauf: Brot 4,84 €, Käse 1,71 €, Obst 2,78 €. Bezahlt wird mit 20 €. Wie viel Rückgeld gibt es?"
@@ -3657,7 +3657,7 @@
    "l": "rechnen",
    "t": "rechnen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Einkauf: Brot 5,78 €, Käse 4,32 €, Obst 3,07 €. Bezahlt wird mit 20 €. Wie viel Rückgeld gibt es?"
@@ -3674,7 +3674,7 @@
    "l": "rechnen",
    "t": "rechnen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Kind fährt an 4 Schultagen mit dem Rad zur Schule und zurück. Der Schulweg ist 2,5 km lang. Wie viele km sind das in der Woche?"
@@ -3725,7 +3725,7 @@
    "l": "rechnen",
    "t": "rechnen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Einkauf: Brot 4,53 €, Käse 2,68 €, Obst 6,34 €. Bezahlt wird mit 20 €. Wie viel Rückgeld gibt es?"
@@ -5154,7 +5154,7 @@
    "l": "laenge",
    "t": "laenge",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wandle um: 382 dm = ? mm"
@@ -5489,7 +5489,7 @@
    "l": "kommaschreibweise",
    "t": "kommaschreibweise",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Schreibe 4 km 30 m in km."

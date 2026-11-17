@@ -8536,6 +8536,981 @@
    },
    "w": "Beispiel: 2 cm → 4 cm². 6 cm → 36 cm². 36 : 4 = 9. Länge und Breite werden je verdreifacht: 3 · 3 = 9.",
    "h": "Rechne mit einem Beispiel: Seite 2 cm und Seite 6 cm."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein See auf einer Karte. Jedes Kästchen steht für 1 km Länge und 1 km Breite, also 1 km². Wie viele Kästchen liegen ganz im See?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       8,
+       0
+      ],
+      "_C": [
+       8,
+       6
+      ],
+      "_D": [
+       0,
+       6
+      ],
+      "_s0": [
+       0.5,
+       3
+      ],
+      "_s1": [
+       1.5,
+       1
+      ],
+      "_s2": [
+       4,
+       0.5
+      ],
+      "_s3": [
+       6.5,
+       1
+      ],
+      "_s4": [
+       7.5,
+       3
+      ],
+      "_s5": [
+       6.5,
+       5
+      ],
+      "_s6": [
+       4,
+       5.5
+      ],
+      "_s7": [
+       1.5,
+       5
+      ],
+      "_xu1": [
+       1,
+       0
+      ],
+      "_xo1": [
+       1,
+       6
+      ],
+      "_xu2": [
+       2,
+       0
+      ],
+      "_xo2": [
+       2,
+       6
+      ],
+      "_xu3": [
+       3,
+       0
+      ],
+      "_xo3": [
+       3,
+       6
+      ],
+      "_xu4": [
+       4,
+       0
+      ],
+      "_xo4": [
+       4,
+       6
+      ],
+      "_xu5": [
+       5,
+       0
+      ],
+      "_xo5": [
+       5,
+       6
+      ],
+      "_xu6": [
+       6,
+       0
+      ],
+      "_xo6": [
+       6,
+       6
+      ],
+      "_xu7": [
+       7,
+       0
+      ],
+      "_xo7": [
+       7,
+       6
+      ],
+      "_yl1": [
+       0,
+       1
+      ],
+      "_yr1": [
+       8,
+       1
+      ],
+      "_yl2": [
+       0,
+       2
+      ],
+      "_yr2": [
+       8,
+       2
+      ],
+      "_yl3": [
+       0,
+       3
+      ],
+      "_yr3": [
+       8,
+       3
+      ],
+      "_yl4": [
+       0,
+       4
+      ],
+      "_yr4": [
+       8,
+       4
+      ],
+      "_yl5": [
+       0,
+       5
+      ],
+      "_yr5": [
+       8,
+       5
+      ]
+     },
+     "flaeche": [
+      "_s0",
+      "_s1",
+      "_s2",
+      "_s3",
+      "_s4",
+      "_s5",
+      "_s6",
+      "_s7"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       ""
+      ],
+      [
+       "_B",
+       "_C",
+       ""
+      ],
+      [
+       "_C",
+       "_D",
+       ""
+      ],
+      [
+       "_D",
+       "_A",
+       ""
+      ],
+      [
+       "_xu1",
+       "_xo1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu2",
+       "_xo2",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu3",
+       "_xo3",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu4",
+       "_xo4",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu5",
+       "_xo5",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu6",
+       "_xo6",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu7",
+       "_xo7",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl1",
+       "_yr1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl2",
+       "_yr2",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl3",
+       "_yr3",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl4",
+       "_yr4",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl5",
+       "_yr5",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "20",
+   "w": "Zeile für Zeile zählen: 0 + 4 + 6 + 6 + 4 + 0 = 20 Kästchen liegen ganz im See. Der See ist also größer als 20 km².",
+   "h": "Zähle Zeile für Zeile nur die Kästchen, die ganz gefärbt sind."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Kästchen sind 1 km². Was kannst du über die Fläche des Sees sicher sagen?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       8,
+       0
+      ],
+      "_C": [
+       8,
+       6
+      ],
+      "_D": [
+       0,
+       6
+      ],
+      "_s0": [
+       0.5,
+       3
+      ],
+      "_s1": [
+       1.5,
+       1
+      ],
+      "_s2": [
+       4,
+       0.5
+      ],
+      "_s3": [
+       6.5,
+       1
+      ],
+      "_s4": [
+       7.5,
+       3
+      ],
+      "_s5": [
+       6.5,
+       5
+      ],
+      "_s6": [
+       4,
+       5.5
+      ],
+      "_s7": [
+       1.5,
+       5
+      ],
+      "_xu1": [
+       1,
+       0
+      ],
+      "_xo1": [
+       1,
+       6
+      ],
+      "_xu2": [
+       2,
+       0
+      ],
+      "_xo2": [
+       2,
+       6
+      ],
+      "_xu3": [
+       3,
+       0
+      ],
+      "_xo3": [
+       3,
+       6
+      ],
+      "_xu4": [
+       4,
+       0
+      ],
+      "_xo4": [
+       4,
+       6
+      ],
+      "_xu5": [
+       5,
+       0
+      ],
+      "_xo5": [
+       5,
+       6
+      ],
+      "_xu6": [
+       6,
+       0
+      ],
+      "_xo6": [
+       6,
+       6
+      ],
+      "_xu7": [
+       7,
+       0
+      ],
+      "_xo7": [
+       7,
+       6
+      ],
+      "_yl1": [
+       0,
+       1
+      ],
+      "_yr1": [
+       8,
+       1
+      ],
+      "_yl2": [
+       0,
+       2
+      ],
+      "_yr2": [
+       8,
+       2
+      ],
+      "_yl3": [
+       0,
+       3
+      ],
+      "_yr3": [
+       8,
+       3
+      ],
+      "_yl4": [
+       0,
+       4
+      ],
+      "_yr4": [
+       8,
+       4
+      ],
+      "_yl5": [
+       0,
+       5
+      ],
+      "_yr5": [
+       8,
+       5
+      ]
+     },
+     "flaeche": [
+      "_s0",
+      "_s1",
+      "_s2",
+      "_s3",
+      "_s4",
+      "_s5",
+      "_s6",
+      "_s7"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       ""
+      ],
+      [
+       "_B",
+       "_C",
+       ""
+      ],
+      [
+       "_C",
+       "_D",
+       ""
+      ],
+      [
+       "_D",
+       "_A",
+       ""
+      ],
+      [
+       "_xu1",
+       "_xo1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu2",
+       "_xo2",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu3",
+       "_xo3",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu4",
+       "_xo4",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu5",
+       "_xo5",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu6",
+       "_xo6",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu7",
+       "_xo7",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl1",
+       "_yr1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl2",
+       "_yr2",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl3",
+       "_yr3",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl4",
+       "_yr4",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl5",
+       "_yr5",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Sie ist größer als 20 km² und kleiner als 40 km².",
+    "Sie ist kleiner als 20 km².",
+    "Sie ist größer als 40 km².",
+    "Sie ist genau 48 km²."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Innen liegen 20 ganze Kästchen, also mehr als 20 km². Alle Kästchen, die der See berührt, sind 20 + 20 = 40. Sie decken den See ganz ab, also weniger als 40 km². 48 km² ist die ganze Karte (8 · 6).",
+   "h": "Zähle die ganzen Kästchen im See. Zähle dann alle Kästchen, die der See berührt."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jedes Kästchen ist 1 km². Welcher dieser Werte kommt als Fläche des Sees in Frage?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       8,
+       0
+      ],
+      "_C": [
+       8,
+       6
+      ],
+      "_D": [
+       0,
+       6
+      ],
+      "_s0": [
+       0.5,
+       3
+      ],
+      "_s1": [
+       1.5,
+       1
+      ],
+      "_s2": [
+       4,
+       0.5
+      ],
+      "_s3": [
+       6.5,
+       1
+      ],
+      "_s4": [
+       7.5,
+       3
+      ],
+      "_s5": [
+       6.5,
+       5
+      ],
+      "_s6": [
+       4,
+       5.5
+      ],
+      "_s7": [
+       1.5,
+       5
+      ],
+      "_xu1": [
+       1,
+       0
+      ],
+      "_xo1": [
+       1,
+       6
+      ],
+      "_xu2": [
+       2,
+       0
+      ],
+      "_xo2": [
+       2,
+       6
+      ],
+      "_xu3": [
+       3,
+       0
+      ],
+      "_xo3": [
+       3,
+       6
+      ],
+      "_xu4": [
+       4,
+       0
+      ],
+      "_xo4": [
+       4,
+       6
+      ],
+      "_xu5": [
+       5,
+       0
+      ],
+      "_xo5": [
+       5,
+       6
+      ],
+      "_xu6": [
+       6,
+       0
+      ],
+      "_xo6": [
+       6,
+       6
+      ],
+      "_xu7": [
+       7,
+       0
+      ],
+      "_xo7": [
+       7,
+       6
+      ],
+      "_yl1": [
+       0,
+       1
+      ],
+      "_yr1": [
+       8,
+       1
+      ],
+      "_yl2": [
+       0,
+       2
+      ],
+      "_yr2": [
+       8,
+       2
+      ],
+      "_yl3": [
+       0,
+       3
+      ],
+      "_yr3": [
+       8,
+       3
+      ],
+      "_yl4": [
+       0,
+       4
+      ],
+      "_yr4": [
+       8,
+       4
+      ],
+      "_yl5": [
+       0,
+       5
+      ],
+      "_yr5": [
+       8,
+       5
+      ]
+     },
+     "flaeche": [
+      "_s0",
+      "_s1",
+      "_s2",
+      "_s3",
+      "_s4",
+      "_s5",
+      "_s6",
+      "_s7"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       ""
+      ],
+      [
+       "_B",
+       "_C",
+       ""
+      ],
+      [
+       "_C",
+       "_D",
+       ""
+      ],
+      [
+       "_D",
+       "_A",
+       ""
+      ],
+      [
+       "_xu1",
+       "_xo1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu2",
+       "_xo2",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu3",
+       "_xo3",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu4",
+       "_xo4",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu5",
+       "_xo5",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu6",
+       "_xo6",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu7",
+       "_xo7",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl1",
+       "_yr1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl2",
+       "_yr2",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl3",
+       "_yr3",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl4",
+       "_yr4",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl5",
+       "_yr5",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "etwa 10 km²",
+    "etwa 30 km²",
+    "etwa 45 km²",
+    "etwa 48 km²"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Fläche liegt zwischen 20 km² (ganze Kästchen) und 40 km² (alle berührten Kästchen). Nur 30 km² liegt dazwischen. Angeschnittene Kästchen zählen etwa halb: 20 + 20 : 2 = 30.",
+   "h": "Suche erst eine untere und eine obere Grenze mit den Kästchen."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Teich liegt ganz im großen Rechteck (9 m mal 6 m). Das kleine Rechteck (5 m mal 3 m) liegt ganz im Teich. Zwischen welchen Werten liegt die Fläche des Teichs?",
+    "schablone": "mehr als □ m², weniger als □ m²",
+    "hinweis": "Trage die beiden Grenzen ein.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_t0": [
+       0,
+       3
+      ],
+      "_t1": [
+       1,
+       1
+      ],
+      "_t2": [
+       3,
+       0
+      ],
+      "_t3": [
+       6,
+       0
+      ],
+      "_t4": [
+       8.5,
+       1.5
+      ],
+      "_t5": [
+       9,
+       3.5
+      ],
+      "_t6": [
+       7.5,
+       5.5
+      ],
+      "_t7": [
+       4,
+       6
+      ],
+      "_t8": [
+       1,
+       5
+      ],
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       9,
+       0
+      ],
+      "_C": [
+       9,
+       6
+      ],
+      "_D": [
+       0,
+       6
+      ],
+      "_E": [
+       2,
+       1.5
+      ],
+      "_F": [
+       7,
+       1.5
+      ],
+      "_G": [
+       7,
+       4.5
+      ],
+      "_H": [
+       2,
+       4.5
+      ]
+     },
+     "flaeche": [
+      "_t0",
+      "_t1",
+      "_t2",
+      "_t3",
+      "_t4",
+      "_t5",
+      "_t6",
+      "_t7",
+      "_t8"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       "9 m",
+       "gestrichelt"
+      ],
+      [
+       "_B",
+       "_C",
+       "6 m",
+       "gestrichelt"
+      ],
+      [
+       "_C",
+       "_D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_D",
+       "_A",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_E",
+       "_F",
+       "5 m",
+       "gestrichelt"
+      ],
+      [
+       "_F",
+       "_G",
+       "3 m",
+       "gestrichelt"
+      ],
+      [
+       "_G",
+       "_H",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_H",
+       "_E",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     15,
+     54
+    ]
+   },
+   "c": [
+    "5 * 3",
+    "9 * 6"
+   ],
+   "w": "Das kleine Rechteck liegt im Teich: Der Teich ist größer als 5 · 3 = 15 m². Das große Rechteck umschließt ihn: Er ist kleiner als 9 · 6 = 54 m².",
+   "h": "Rechne die Fläche beider Rechtecke aus. Welches liegt innen, welches außen?"
   }
  ],
  "offen": [

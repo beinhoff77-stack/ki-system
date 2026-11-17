@@ -887,5 +887,468 @@ for _t in ['Berechne geschickt: 25 − 56 + 56 − 38.', 'Berechne geschickt: 20
 befunde_anwenden(DATEI, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- LÜCKEN (Achtzehnte Runde, Teil B, Zweig luecken-kl5): drei neue Lernkarten, siehe _luecken_kl5.py ----
+# Lehrplan M5 1.2 (schriftlich addieren/subtrahieren auch über einer Million; Gleichungen a + x = b, x − a = b, a − x = b
+# durch Probieren oder Umkehraufgabe) und M5 1.1 (Aussagen prüfen, Gegenbeispiele). Alle bisherigen Karten und Aufgaben
+# bleiben unverändert; die neuen Aufgaben hängen hinten an und haben eigene feste Zufallsstarts (18_5_1 … 18_5_3).
+import itertools  # noqa: E402
+
+from _luecken_kl5 import mische, neue_karte  # noqa: E402
+
+TAB_KOPF = ['', 'M', 'HT', 'ZT', 'T', 'H', 'Z', 'E']
+
+
+def _ziffern(n, name):
+    s = str(n)
+    return [name] + [''] * (7 - len(s)) + list(s)
+
+
+def _ueberschlag(a, b):
+    """Beide Zahlen auf die zweithöchste Stelle der größeren runden."""
+    e = 10 ** max(len(str(max(a, b))) - 2, 0)
+    r = lambda x: (x + e // 2) // e * e
+    return r(a), r(b)
+
+
+def _ohne_uebertrag(a, b):
+    s, t = str(a), str(b).zfill(len(str(a)))
+    return int(''.join(str((int(x) + int(y)) % 10) for x, y in zip(s, t)))
+
+
+def _kleiner_von_groesser(a, b):
+    s, t = str(a), str(b).zfill(len(str(a)))
+    return int(''.join(str(abs(int(x) - int(y))) for x, y in zip(s, t)))
+
+
+def _zahl(R, stellen):
+    return R.randint(10 ** (stellen - 1), 10 ** stellen - 1)
+
+
+def _uebertraege(a, b):
+    n, c = 0, 0
+    while a or b:
+        c = 1 if a % 10 + b % 10 + c >= 10 else 0
+        n += c; a //= 10; b //= 10
+    return n
+
+
+def _entbuendeln(a, b):
+    n = 0
+    while b:
+        if a % 10 < b % 10: n += 1
+        a //= 10; b //= 10
+    return n
+
+
+H_PLUS = 'Einer unter Einer, dann von rechts Stelle für Stelle. Den Übertrag in der nächsten Stelle mitzählen.'
+H_MINUS = 'Von rechts rechnen. Reicht eine Ziffer oben nicht, tausche 1 der nächsten Stelle gegen 10.'
+
+
+def _rechnung(R, stellen_a, stellen_b, minus):
+    for _ in range(500):
+        a, b = _zahl(R, stellen_a), _zahl(R, stellen_b)
+        if minus:
+            if a <= b or _entbuendeln(a, b) < 2: continue
+        elif _uebertraege(a, b) < 2: continue
+        return a, b
+    raise SystemExit('keine Rechnung gefunden')
+
+
+def g_spm(R, s):
+    if s in (1, 2) and R.random() < (.85 if s == 1 else .55):
+        minus = R.random() < .5
+        a, b = _rechnung(R, *((R.choice([5, 6]), R.choice([4, 5])) if s == 1 else (7, R.choice([6, 7]))), minus)
+        e = a - b if minus else a + b
+        ra, rb = _ueberschlag(a, b)
+        op = '−' if minus else '+'
+        return {'y': 'zahl', 'f': {'text': f'Rechne schriftlich: {zt(a)} {op} {zt(b)}'}, 'o': {'wert': e}, 'c': f'{a} {"-" if minus else "+"} {b}',
+                'w': f'Stellengerecht untereinander, von rechts mit {"Entbündeln" if minus else "Übertrag"}: {zt(a)} {op} {zt(b)} = {zt(e)}. '
+                     f'Überschlag: {zt(ra)} {op} {zt(rb)} = {zt(ra - rb if minus else ra + rb)}.',
+                'h': H_MINUS if minus else H_PLUS}
+    if s == 2:
+        art = R.choice(['ueberschlag', 'ueberschlag', 'sach_plus', 'sach_minus'])
+        if art == 'ueberschlag':
+            minus = R.random() < .5
+            a, b = _rechnung(R, 7, R.choice([6, 7]), minus)
+            e = a - b if minus else a + b
+            ra, rb = _ueberschlag(a, b)
+            op = '−' if minus else '+'
+            falsch = [e // 10, e * 10, e + 1_000_000 if minus else e - 1_000_000]
+            opts, i = mische(R, zt(e), [zt(x) for x in falsch])
+            return {'y': 'auswahl', 'f': {'text': f'Nur ein Ergebnis kann zu {zt(a)} {op} {zt(b)} gehören. Entscheide mit einem Überschlag.'},
+                    'a': opts, 'o': {'index': i},
+                    'w': f'Überschlag: {zt(ra)} {op} {zt(rb)} = {zt(ra - rb if minus else ra + rb)}. Nur {zt(e)} liegt in der Nähe. Die anderen sind 10-mal zu klein, 10-mal zu groß oder um eine Million daneben.',
+                    'h': 'Runde beide Zahlen grob und rechne im Kopf. Welches Ergebnis liegt in der Nähe?'}
+        if art == 'sach_plus':
+            a, b = _rechnung(R, 7, 6, False)
+            ort = R.choice(['Ein Flughafen zählt im Juli {a} Fluggäste und im August {b}. Wie viele Fluggäste sind das zusammen?',
+                            'Eine Bahnstrecke hatte im ersten Halbjahr {a} Fahrgäste, im zweiten {b}. Wie viele Fahrgäste waren es im ganzen Jahr?',
+                            'Ein Freizeitpark hatte im Frühjahr {a} Besucher und im Sommer {b}. Wie viele Besucher waren es zusammen?'])
+            return {'y': 'zahl', 'f': {'text': ort.format(a=zt(a), b=zt(b))}, 'o': {'wert': a + b}, 'c': f'{a} + {b}',
+                    'w': f'Zusammen heißt plus: {zt(a)} + {zt(b)} = {zt(a + b)}. Überschlag: {" + ".join(zt(x) for x in _ueberschlag(a, b))} = {zt(sum(_ueberschlag(a, b)))}.',
+                    'h': H_PLUS}
+        a, b = _rechnung(R, 7, R.choice([6, 7]), True)
+        ort = R.choice(['Eine Großstadt hat {a} Einwohner, eine andere {b}. Wie viele Einwohner hat die größere Stadt mehr?',
+                        'Ein Verein hat für ein Stadion {a} € gesammelt. Gebraucht werden nur {b} €. Wie viel Euro bleiben übrig?'])
+        return {'y': 'zahl', 'f': {'text': ort.format(a=zt(a), b=zt(b))}, 'o': {'wert': a - b, **({'einheit': '€'} if '€' in ort else {})}, 'c': f'{a} - {b}',
+                'w': f'Unterschied heißt minus: {zt(a)} − {zt(b)} = {zt(a - b)}. Überschlag: {" − ".join(zt(x) for x in _ueberschlag(a, b))} = {zt(_ueberschlag(a, b)[0] - _ueberschlag(a, b)[1])}.',
+                'h': H_MINUS}
+    art = R.choice(['null', 'drei', 'ziffer', 'fehler', 'fehler_minus', 'sach3'])
+    if art == 'null':
+        a = R.choice([1, 2, 3, 4, 5, 6, 7, 8, 9]) * 1_000_000 + R.choice([0, 0, R.randint(1, 9) * 1000])
+        b = _zahl(R, 6) + R.randint(0, max(a // 1_000_000 - 1, 0)) * 1_000_000
+        if b >= a: return g_spm(R, s)
+        return {'y': 'zahl', 'f': {'text': f'Rechne schriftlich: {zt(a)} − {zt(b)}'}, 'o': {'wert': a - b}, 'c': f'{a} - {b}',
+                'w': f'Bei den Nullen musst du mehrmals entbündeln: Eine Million wird zu 10 Hunderttausendern, einer davon zu 10 Zehntausendern und so weiter. {zt(a)} − {zt(b)} = {zt(a - b)}. Probe: {zt(a - b)} + {zt(b)} = {zt(a)}.',
+                'h': 'Lauter Nullen oben: Entbündle Schritt für Schritt von links. Probe mit Plus.'}
+    if art == 'drei':
+        a, b, c = _zahl(R, 7), _zahl(R, 6), _zahl(R, 6)
+        if a - b + c <= 0 or a < b: return g_spm(R, s)
+        return {'y': 'zahl', 'f': {'text': f'Ein Konto für einen Schulbau steht bei {zt(a)} €. Es werden {zt(b)} € ausgegeben und danach {zt(c)} € gespendet. Wie viel Euro sind jetzt auf dem Konto?'},
+                'o': {'wert': a - b + c, 'einheit': '€'}, 'c': f'{a} - {b} + {c}',
+                'w': f'Erst ausgeben: {zt(a)} − {zt(b)} = {zt(a - b)}. Dann die Spende dazu: {zt(a - b)} + {zt(c)} = {zt(a - b + c)} €.',
+                'h': 'Rechne in der Reihenfolge der Geschichte: zuerst minus, dann plus.'}
+    if art == 'ziffer':
+        a, b = _zahl(R, 7), _zahl(R, 6)
+        st = R.randint(2, 5)
+        ziffer = a // 10 ** st % 10
+        text_a = str(a)
+        pos = len(text_a) - 1 - st
+        luecke = text_a[:pos] + '□' + text_a[pos + 1:]
+        lt = ' '.join([luecke[::-1][i:i + 3][::-1] for i in range(0, len(luecke), 3)][::-1])
+        return {'y': 'luecken', 'f': {'text': f'Eine Ziffer ist verdeckt: {lt} + {zt(b)} = {zt(a + b)}. Welche Ziffer gehört in das Kästchen?',
+                                      'schablone': '□', 'hinweis': 'Trage die fehlende Ziffer ein.'},
+                'o': {'werte': [ziffer]}, 'c': [f'({a + b} - {b}) // {10 ** st} % 10'],
+                'w': f'Rückwärts mit der Umkehraufgabe: {zt(a + b)} − {zt(b)} = {zt(a)}. An der verdeckten Stelle steht {ziffer}.',
+                'h': 'Rechne rückwärts: Ergebnis minus die zweite Zahl.'}
+    if art == 'fehler':
+        a, b = _rechnung(R, 6, 6, False)
+        f = _ohne_uebertrag(a, b)
+        if f == a + b: return g_spm(R, s)
+        opts, i = mische(R, f'Die Überträge fehlen. Richtig ist {zt(a + b)}.',
+                         ['Nichts, die Rechnung stimmt.', f'Ein Übertrag zu viel. Richtig ist {zt(f - 10)}.', f'Die Zahlen stehen falsch untereinander. Richtig ist {zt(a + b * 10)}.'])
+        return {'y': 'auswahl', 'f': {'text': f'Jemand rechnet schriftlich {zt(a)} + {zt(b)} = {zt(f)}. Was ist falsch?'}, 'a': opts, 'o': {'index': i},
+                'w': f'Richtig ist {zt(a)} + {zt(b)} = {zt(a + b)}. Wer jede Stelle ohne Übertrag rechnet, schreibt nur die Einer der Teilsummen auf und erhält {zt(f)}.',
+                'h': 'Rechne selbst schriftlich nach und vergleiche Stelle für Stelle.'}
+    if art == 'fehler_minus':
+        a, b = _rechnung(R, 6, 6, True)
+        f = _kleiner_von_groesser(a, b)
+        if f == a - b: return g_spm(R, s)
+        opts, i = mische(R, f'In manchen Stellen wurde „oben minus unten“ einfach umgedreht. Richtig ist {zt(a - b)}.',
+                         ['Nichts, die Rechnung stimmt.', f'Ein Übertrag wurde vergessen. Richtig ist {zt(f + 10)}.', f'Es hätte plus gerechnet werden müssen: {zt(a + b)}.'])
+        return {'y': 'auswahl', 'f': {'text': f'Jemand rechnet schriftlich {zt(a)} − {zt(b)} = {zt(f)}. Was ist falsch?'}, 'a': opts, 'o': {'index': i},
+                'w': f'Wo die obere Ziffer kleiner ist, wurde die kleinere von der größeren abgezogen statt zu entbündeln. Richtig: {zt(a)} − {zt(b)} = {zt(a - b)}. Probe: {zt(a - b)} + {zt(b)} = {zt(a)}.',
+                'h': 'Mach die Probe mit Plus: Kommt die obere Zahl heraus?'}
+    a, b = _rechnung(R, 7, 7, True)
+    if a - b < 100_000: return g_spm(R, s)
+    z = a - b
+    return {'y': 'zahl', 'f': {'text': f'Bis Ende Juni hatte ein Stadion {zt(a)} Besucher im Jahr. Das ist um {zt(b)} mehr als im ganzen Vorjahr. Wie viele Besucher waren es im Vorjahr?'},
+            'o': {'wert': z}, 'c': f'{a} - {b}',
+            'w': f'Das Vorjahr hatte {zt(b)} weniger: {zt(a)} − {zt(b)} = {zt(z)}. Probe: {zt(z)} + {zt(b)} = {zt(a)}.',
+            'h': '„Um … mehr als im Vorjahr“: Das Vorjahr ist die kleinere Zahl. Rechne minus.'}
+
+
+KARTE_SPM = {
+    'lernziel': 'schriftlich_plus_minus', 'titel': 'Schriftlich addieren und subtrahieren',
+    'einstieg': 'Ein Flughafen zählt im Januar 1 286 450 Fluggäste und im Februar 947 380. Wie viele sind das zusammen? So große Zahlen rechnest du ⟦schriftlich⟧.',
+    'woerter': [['schriftlich', 'mit dem Stift untereinander rechnen, Stelle für Stelle von rechts'],
+                ['Übertrag', 'ergibt eine Stelle 10 oder mehr, wandert 1 in die nächste Stelle'],
+                ['Überschlag', 'mit gerundeten Zahlen grob rechnen, um das Ergebnis zu prüfen']],
+    'bild': {'typ': 'tabelle', 'kopf': TAB_KOPF, 'zeilen': [_ziffern(1286450, 'Jan'), _ziffern(947380, '+ Feb'), ['Übertrag'] + [''] * 7, ['='] + [''] * 7]},
+    'schritte': [
+        {'text': 'Schreibe die Zahlen untereinander: Einer unter Einer, Zehner unter Zehner.'},
+        {'text': 'Zehner: 5 + 8 = 13. Schreibe 3, die 1 ist der ⟦Übertrag⟧.',
+         'bild': {'zeilen': [_ziffern(1286450, 'Jan'), _ziffern(947380, '+ Feb'), ['Übertrag', '', '', '', '', '1', '', ''], ['=', '', '', '', '', '', '3', '0']]}},
+        {'text': 'Hunderter: 4 + 3 + 1 = 8. So geht es Stelle für Stelle weiter.',
+         'bild': {'zeilen': [_ziffern(1286450, 'Jan'), _ziffern(947380, '+ Feb'), ['Übertrag', '', '', '', '', '1', '', ''], ['=', '', '', '', '', '8', '3', '0']]}},
+        {'text': 'Zusammen sind es ⟦2 233 830⟧ Fluggäste.',
+         'bild': {'zeilen': [_ziffern(1286450, 'Jan'), _ziffern(947380, '+ Feb'), ['Übertrag', '1', '1', '1', '', '1', '', ''], _ziffern(2233830, '=')]}},
+        {'text': 'Überschlag: 1 300 000 + 900 000 = 2 200 000. Das passt.'}],
+    'fehler': 'Den Übertrag vergessen ergibt 1 123 730 Fluggäste. Der Überschlag sagt etwa 2 200 000. Da fehlt eine ganze Million.',
+    'fehler_bild': {'zeilen': [_ziffern(1286450, 'Jan'), _ziffern(947380, '+ Feb'), ['Übertrag'] + [''] * 7, _ziffern(1123730, 'falsch')]},
+    'regel': 'Stelle für Stelle von rechts rechnen, den ⟦Übertrag⟧ mitnehmen. Beim Minus tauschst du notfalls 1 der nächsten Stelle gegen 10. Prüfe mit einem Überschlag.',
+}
+assert 1286450 + 947380 == 2233830 and _ohne_uebertrag(1286450, 947380) == 1123730
+_kd = min((abs(int(''.join(map(str, p[:3]))) - int(''.join(map(str, p[3:])))), p) for p in itertools.permutations([2, 4, 5, 7, 8, 9])
+          if int(''.join(map(str, p[:3]))) != int(''.join(map(str, p[3:]))))
+FEST_SPM = [
+    # Prüfungsvorbild: Fehler in einer Rechnung beschreiben (Jahrgangsstufentest Mathematik 6 Realschule Bayern 2025, „Luca hat … vertauscht“)
+    wahl(3, 'Jemand rechnet schriftlich 702 315 − 248 607 und erhält 546 312. Was ist passiert?',
+         ['In manchen Stellen wurde die kleinere von der größeren Ziffer abgezogen. Richtig ist 453 708.',
+          'Nichts, die Rechnung stimmt.', 'Ein Übertrag wurde vergessen. Richtig ist 546 322.', 'Es hätte plus gerechnet werden müssen: 950 922.'],
+         lambda o: o.endswith(f'{de(702315 - 248607)}.') and o.startswith('In manchen') and _kleiner_von_groesser(702315, 248607) == 546312,
+         'Bei den Einern ist oben 5, unten 7: Hier muss man entbündeln, nicht 7 − 5 rechnen. Richtig: 702 315 − 248 607 = 453 708. Probe: 453 708 + 248 607 = 702 315.',
+         'Mach die Probe mit Plus. Kommt 702 315 heraus?'),
+    # Prüfungsvorbild: Lücke in einer Rechnung ergänzen (Jahrgangsstufentest 6 Realschule Bayern 2019, Nr. 7; Probeunterricht Gymnasium 2014, Nr. 6)
+    L(3, 'Eine Ziffer fehlt: 3 □75 418 − 1 286 509 = 2 488 909. Welche Ziffer gehört in das Kästchen?', '□', 'Trage die fehlende Ziffer ein.',
+      ['(2488909 + 1286509) // 100000 % 10'],
+      'Umkehraufgabe: 2 488 909 + 1 286 509 = 3 775 418. Die fehlende Ziffer ist 7.', 'Rechne rückwärts mit Plus.'),
+    # Knobelaufgabe (Wettbewerbsart Känguru 5/6: Ziffernkarten)
+    Z(3, 'Aus den Ziffernkarten 2, 4, 5, 7, 8, 9 legst du zwei dreistellige Zahlen. Jede Karte wird genau einmal benutzt. Wie groß ist der kleinste mögliche Unterschied der beiden Zahlen?',
+      '527 - 498', 'Die Hunderter sollen sich nur um 1 unterscheiden, zum Beispiel 5 und 4. Dann muss die größere Zahl hinten möglichst klein, die kleinere möglichst groß sein: 527 − 498 = 29. Kleiner geht es nicht.',
+      'Wähle zwei benachbarte Hunderterziffern. Was legst du dann hinten hin?'),
+]
+assert _kd[0] == 29
+
+
+# --- Lernkarte umkehraufgabe ---
+def _gl(form, a, b):
+    """Gleichungstext und Lösung x. form: 'x+a', 'a+x', 'x-a', 'a-x'."""
+    if form == 'x+a': return f'x + {kl(a)} = {zt(b)}', b - a, f'({b}) - ({a})'
+    if form == 'a+x': return f'{kl(a)} + x = {zt(b)}', b - a, f'({b}) - ({a})'
+    if form == 'x-a': return f'x − {kl(a)} = {zt(b)}', b + a, f'({b}) + ({a})'
+    return f'{kl(a)} − x = {zt(b)}', a - b, f'({a}) - ({b})'
+
+
+def _umk_weg(form, a, b, x):
+    if form in ('x+a', 'a+x'):
+        return f'Umkehraufgabe von plus {kl(a)} ist minus {kl(a)}: x = {zt(b)} − {kl(a)} = {zt(x)}. Probe: {kl(x) if form == "x+a" else kl(a)} + {kl(a) if form == "x+a" else kl(x)} = {zt(b)} ✓'
+    if form == 'x-a':
+        return f'Umkehraufgabe von minus {kl(a)} ist plus {kl(a)}: x = {zt(b)} + {kl(a)} = {zt(x)}. Probe: {kl(x)} − {kl(a)} = {zt(b)} ✓'
+    return f'Von {zt(a)} wird x abgezogen und es bleibt {zt(b)}. Also ist x der Unterschied: x = {zt(a)} − {kl(b)} = {zt(x)}. Probe: {zt(a)} − {kl(x)} = {zt(b)} ✓'
+
+
+H_UMK = {'x+a': 'Kehre plus mit minus um: Rechne das Ergebnis minus die bekannte Zahl.',
+         'a+x': 'Kehre plus mit minus um: Rechne das Ergebnis minus die bekannte Zahl.',
+         'x-a': 'Kehre minus mit plus um: Rechne das Ergebnis plus die abgezogene Zahl.',
+         'a-x': 'Frage: Wie viel muss ich von der ersten Zahl abziehen, damit das Ergebnis herauskommt?'}
+
+
+def g_umk(R, s):
+    g = {1: 15, 2: 60, 3: 200}[s]
+    if s == 2 and R.random() < .2:
+        form = R.choice(['x+a', 'x-a'])
+        a, b = R.randint(3, 40), -R.randint(1, 40)
+        text, x, c = _gl(form, a, b)
+        r = f'x = {zt(b)} {"−" if form == "x+a" else "+"} {a}'
+        f = [f'x = {zt(b)} {"+" if form == "x+a" else "−"} {a}', f'x = {a} {"−" if form == "x+a" else "+"} {kl(b)}']
+        if form == 'x-a': f[1] = f'x = {a} − {kl(b)}'
+        opts, i = mische(R, r, f)
+        return {'y': 'auswahl', 'f': {'text': f'Welche Umkehraufgabe löst die Gleichung {text}?'}, 'a': opts, 'o': {'index': i},
+                'w': _umk_weg(form, a, b, x), 'h': 'Plus kehrt man mit minus um, minus mit plus.'}
+    if s == 3 and R.random() < .45:
+        art = R.choice(['probieren', 'taucher', 'konto', 'temp'])
+        if art == 'probieren':
+            a, b = R.randint(-20, 20), R.randint(-30, 30)
+            x = a - b
+            if x == 0 or b == 0 or a == 0: return g_umk(R, s)
+            kand = sorted({x, -x, b - a, a + b} - {0})
+            if len(kand) < 3: return g_umk(R, s)
+            kand = kand[:4] if x in kand[:4] else kand[:3] + [x]
+            opts, i = mische(R, zt(x), [zt(k) for k in kand if k != x])
+            return {'y': 'auswahl', 'f': {'text': f'Welche Zahl ist eine Lösung von {kl(a)} − x = {zt(b)}? Probiere die Zahlen aus.'}, 'a': opts, 'o': {'index': i},
+                    'w': f'Einsetzen: {kl(a)} − {kl(x)} = {zt(a - x)} ✓. ' + _umk_weg('a-x', a, b, x), 'h': 'Setze jede Zahl für x ein und rechne nach.'}
+        if art == 'taucher':
+            a, b = -R.randint(5, 40), -R.randint(5, 40)
+            if a == b: return g_umk(R, s)
+            x = b - a
+            return {'y': 'zahl', 'f': {'text': f'Ein Taucher ist auf {zt(a)} m. Er ändert seine Höhe und ist danach auf {zt(b)} m. Löse {kl(a)} + x = {zt(b)}: Um wie viele Meter hat sich seine Höhe geändert?'},
+                    'o': {'wert': x, 'einheit': 'm'}, 'c': f'({b}) - ({a})', 'w': _umk_weg('a+x', a, b, x) + f' {"Er ist gestiegen." if x > 0 else "Er ist gesunken."}',
+                    'h': 'Kehre plus mit minus um. Ein negatives Ergebnis heißt: Er ist gesunken.'}
+        if art == 'konto':
+            b, a = -R.randint(2, 30) * 5, R.randint(2, 40) * 5
+            x = b + a
+            return {'y': 'zahl', 'f': {'text': f'Nach einer Abbuchung von {a} € steht ein Konto bei {zt(b)} €. Löse x − {a} = {zt(b)}: Wie hoch war der Kontostand vorher?'},
+                    'o': {'wert': x, 'einheit': '€'}, 'c': f'({b}) + {a}', 'w': _umk_weg('x-a', a, b, x), 'h': 'Kehre minus mit plus um: Die abgebuchten Euro wieder dazu.'}
+        a, b = R.randint(3, 15), -R.randint(1, 12)
+        x = b - a
+        return {'y': 'zahl', 'f': {'text': f'Bis zum Abend wurde es um {a} Grad wärmer. Jetzt sind es {zt(b)} °C. Löse x + {a} = {zt(b)}: Wie warm war es morgens?'},
+                'o': {'wert': x, 'einheit': '°C'}, 'c': f'({b}) - {a}', 'w': _umk_weg('x+a', a, b, x), 'h': 'Rechne rückwärts: Es war morgens kälter.'}
+    form = R.choice(['x+a', 'x-a'] if s == 1 else ['x+a', 'a+x', 'x-a', 'a-x'] + (['a-x', 'a-x'] if s == 3 else []))
+    for _ in range(200):
+        a = R.randint(1, g) if s == 1 else R.choice([-1, 1]) * R.randint(1, g)
+        b = R.randint(-g, g)
+        text, x, c = _gl(form, a, b)
+        if 0 in (a, b, x) or min(a, b, x) >= 0: continue
+        if s == 1 and abs(x) > 25: continue
+        break
+    return {'y': 'zahl', 'f': {'text': f'Löse die Gleichung {text}. Wie groß ist x?'}, 'o': {'wert': x}, 'c': c,
+            'w': _umk_weg(form, a, b, x), 'h': H_UMK[form]}
+
+
+GERADE_UMK = {'typ': 'zahlenstrahl', 'start': -10, 'ende': 10, 'abschnitte': 20, 'beschriftet': 'anfang_ende'}
+KARTE_UMK = {
+    'lernziel': 'umkehraufgabe', 'titel': 'Gleichungen mit Umkehraufgaben lösen',
+    'einstieg': 'Bis mittags wurde es 7 Grad wärmer, jetzt sind es 3 °C. Wie kalt war es morgens? Die unbekannte Temperatur heißt x, die Rechnung ist eine ⟦Gleichung⟧.',
+    'woerter': [['Gleichung', 'zwei Seiten mit Gleichheitszeichen, eine Zahl ist noch unbekannt'],
+                ['x', 'steht für die gesuchte Zahl, wie ein leeres Kästchen'],
+                ['Umkehraufgabe', 'die Rechnung rückwärts: aus plus wird minus, aus minus wird plus']],
+    'bild': GERADE_UMK,
+    'schritte': [
+        {'text': 'Gleichung: x + 7 = 3. Gesucht ist der Startwert x.', 'bild': {'punkte': [{'wert': 3, 'name': 'mittags'}]}},
+        {'text': 'Umkehraufgabe: Von 3 aus gehst du 7 Schritte zurück nach links.', 'bild': {'boegen': [{'von': 3, 'bis': -4, 'name': '−7'}]}},
+        {'text': 'x = 3 − 7 = ⟦−4⟧. Morgens waren es −4 °C.',
+         'bild': {'boegen': [{'von': 3, 'bis': -4, 'name': '−7'}], 'punkte': [{'wert': -4, 'name': 'morgens'}, {'wert': 3, 'name': 'mittags'}]}},
+        {'text': 'Probe: (−4) + 7 = 3. Die Gleichung stimmt.', 'bild': {'boegen': [{'von': -4, 'bis': 3, 'name': '+7'}]}}],
+    'fehler': 'x = 3 + 7 = 10 ist falsch. Dann wäre es morgens wärmer gewesen als mittags. Rückwärts musst du plus in minus umkehren.',
+    'fehler_bild': {'boegen': [{'von': 3, 'bis': 10, 'name': 'falsche Richtung'}], 'punkte': [{'wert': 3, 'name': 'mittags'}, {'wert': 10, 'name': 'falsch'}]},
+    'regel': 'Rechne rückwärts mit der ⟦Umkehraufgabe⟧. Aus + 7 wird − 7, aus − 7 wird + 7. Mach immer die Probe.',
+}
+FEST_UMK = [
+    # Prüfungsvorbild: Gleichung mit großen Zahlen über die Umkehraufgabe lösen (Probeunterricht Gymnasium Bayern 2014, Mathematik Tag 1, Nr. 6)
+    Z(3, 'Löse die Gleichung 1 205 340 − x = 386 917. Wie groß ist x?', '1205340 - 386917',
+      'Von 1 205 340 wird x abgezogen und es bleiben 386 917. Also ist x der Unterschied: 1 205 340 − 386 917 = 818 423. Probe: 1 205 340 − 818 423 = 386 917 ✓',
+      'Was muss man von 1 205 340 abziehen, damit 386 917 übrig bleibt? Rechne schriftlich.'),
+    # Prüfungsvorbild: Lücke in einer Rechnung mit Klammer ergänzen (Jahrgangsstufentest 6 Realschule Bayern 2019, Nr. 7: „3 · (__ − 15) = 18“)
+    L(3, 'Ergänze die Lücke so, dass die Rechnung stimmt: (□ − 15) + 8 = −3', '(□ − 15) + 8 = −3', 'Trage die fehlende Zahl ein (mit Minus, falls negativ).',
+      ['-3 - 8 + 15'], 'Rückwärts, den letzten Schritt zuerst: −3 − 8 = −11. Dann −11 + 15 = 4. Probe: (4 − 15) + 8 = −11 + 8 = −3 ✓',
+      'Kehre zuerst das „+ 8“ um, danach das „− 15“.'),
+    # Knobelaufgabe: systematisches Probieren
+    Z(3, 'Für welche ganze Zahl x gilt x + x = x − 5? Probiere aus.', '-5',
+      'Probieren: x = −5 ergibt links (−5) + (−5) = −10 und rechts (−5) − 5 = −10 ✓. Links steht x zweimal, rechts einmal und dazu „− 5“: Das zweite x muss −5 sein.',
+      'Probiere auch negative Zahlen. Links wird x zweimal genommen, rechts nur einmal.'),
+]
+
+
+# --- Lernkarte verstehen ---
+AUSSAGEN = [
+    # (Text, gilt(a, b), Rechnung als Text, Bereich der Paare, stimmt immer?)
+    ('Die Summe a + b ist größer als a und auch größer als b.', lambda a, b: a + b > a and a + b > b,
+     lambda a, b: f'{kl(a)} + {kl(b)} = {zt(a + b)}', lambda R: (R.randint(-20, 20), R.randint(-20, 20)), False),
+    ('Subtrahiert man von a die Zahl b, ist das Ergebnis kleiner als a.', lambda a, b: a - b < a,
+     lambda a, b: f'{kl(a)} − {kl(b)} = {zt(a - b)}', lambda R: (R.randint(-20, 20), R.randint(-15, 15)), False),
+    ('Von zwei Zahlen a und b ist die mit dem größeren Betrag die größere.', lambda a, b: (a > b) == (abs(a) > abs(b)),
+     lambda a, b: f'|{zt(a)}| = {abs(a)}, |{zt(b)}| = {abs(b)} und {zt(max(a, b))} > {zt(min(a, b))}', lambda R: (R.randint(-20, 20), R.randint(-20, 20)), False),
+    ('|a + b| ist so groß wie |a| + |b|.', lambda a, b: abs(a + b) == abs(a) + abs(b),
+     lambda a, b: f'|{kl(a)} + {kl(b)}| = {abs(a + b)}, |{zt(a)}| + |{zt(b)}| = {abs(a) + abs(b)}', lambda R: (R.randint(-15, 15), R.randint(-15, 15)), False),
+    ('Sind a und b negativ, dann ist auch a − b negativ.', lambda a, b: a - b < 0,
+     lambda a, b: f'{kl(a)} − {kl(b)} = {zt(a - b)}', lambda R: (-R.randint(1, 20), -R.randint(1, 20)), False),
+    ('Ist a positiv und b negativ, dann ist a + b negativ.', lambda a, b: a + b < 0,
+     lambda a, b: f'{kl(a)} + {kl(b)} = {zt(a + b)}', lambda R: (R.randint(1, 20), -R.randint(1, 20)), False),
+    ('Ist a kleiner als b, dann ist auch |a| kleiner als |b|.', lambda a, b: abs(a) < abs(b),
+     lambda a, b: f'{zt(a)} < {zt(b)}; |{zt(a)}| = {abs(a)} und |{zt(b)}| = {abs(b)}', lambda R: tuple(sorted(R.sample(range(-20, 21), 2))), False),
+    ('Sind a und b negativ, dann ist auch a + b negativ.', lambda a, b: a + b < 0,
+     lambda a, b: f'{kl(a)} + {kl(b)} = {zt(a + b)}', lambda R: (-R.randint(1, 20), -R.randint(1, 20)), True),
+    ('Addiert man zu a die Gegenzahl von a, erhält man 0.', lambda a, b: a + (-a) == 0,
+     lambda a, b: f'{kl(a)} + {kl(-a)} = 0', lambda R: (R.choice([-1, 1]) * R.randint(1, 20), 0), True),
+]
+
+
+def _paar(a, b, nur_a=False):
+    return f'a = {zt(a)}' if nur_a else f'a = {zt(a)} und b = {zt(b)}'
+
+
+def _paare(R, aus, n_gut, n_gegen):
+    text, gilt, rech, ber, immer = aus
+    gut, gegen = set(), set()
+    for _ in range(4000):
+        a, b = ber(R)
+        if a == 0 or (b == 0 and not immer) or abs(a) == abs(b) or a == b: continue
+        (gut if gilt(a, b) else gegen).add((a, b))
+        if len(gut) >= n_gut and len(gegen) >= n_gegen: break
+    return R.sample(sorted(gut), n_gut), R.sample(sorted(gegen), n_gegen) if n_gegen else []
+
+
+ZAEHLEN = {'n': 0}  # Zählaufgabe „Für wie viele b …“ höchstens zweimal
+
+
+def g_verst(R, s):
+    falsche = [x for x in AUSSAGEN if not x[4]]
+    if s == 1 or (s == 2 and R.random() < .35):
+        aus = R.choice(falsche)
+        text, gilt, rech, ber, immer = aus
+        if s == 1 and R.random() < .5:
+            gut, gegen = _paare(R, aus, 1, 1)
+            a, b = R.choice([gut[0], gegen[0]])
+            ok = gilt(a, b)
+            opts, i = mische(R, 'Ja, für dieses Paar stimmt sie.' if ok else 'Nein, dieses Paar ist ein Gegenbeispiel.',
+                             ['Nein, dieses Paar ist ein Gegenbeispiel.' if ok else 'Ja, für dieses Paar stimmt sie.', 'Das kann man nicht nachprüfen.'])
+            return {'y': 'auswahl', 'f': {'text': f'Aussage: „{text}“ Stimmt sie für {_paar(a, b)}?'}, 'a': opts, 'o': {'index': i},
+                    'w': f'Nachrechnen: {rech(a, b)}. Für dieses Paar {"stimmt die Aussage" if ok else "stimmt sie nicht – es ist ein Gegenbeispiel"}.',
+                    'h': 'Setze die Zahlen ein und rechne nach.'}
+        gut, gegen = _paare(R, aus, 2 if s == 1 else 3, 1)
+        a, b = gegen[0]
+        opts, i = mische(R, _paar(a, b), [_paar(*p) for p in gut])
+        return {'y': 'auswahl', 'f': {'text': f'Aussage: „{text}“ Welches Zahlenpaar ist ein Gegenbeispiel?'}, 'a': opts, 'o': {'index': i},
+                'w': f'Für {_paar(a, b)} gilt: {rech(a, b)}. Hier stimmt die Aussage nicht. Bei den anderen Paaren stimmt sie.',
+                'h': 'Setze jedes Paar ein. Gesucht ist das Paar, bei dem die Aussage nicht stimmt.'}
+    if s == 2:
+        aus = R.choice([x for x in AUSSAGEN if x[4]]) if R.random() < .2 else R.choice(falsche)
+        text, gilt, rech, ber, immer = aus
+        gut, gegen = _paare(R, aus, 1, 0 if immer else 1)
+        g = gut[0]
+        if immer:
+            r = 'Ja, sie stimmt immer.'
+            f = [f'Nein. Gegenbeispiel: {rech(*g)}.', 'Nein, sie stimmt nie.']
+            w = f'Die Aussage stimmt immer, ein Gegenbeispiel gibt es nicht. Beispiel: {rech(*g)}. Das bestätigt sie, ist also kein Gegenbeispiel.'
+        else:
+            r = f'Nein. Gegenbeispiel: {rech(*gegen[0])}.'
+            f = ['Ja, sie stimmt immer.', 'Nein, sie stimmt nie.']
+            w = f'Für {_paar(*gegen[0])} gilt {rech(*gegen[0])}: Die Aussage ist falsch. Sie stimmt aber manchmal, zum Beispiel für {_paar(*g)}: {rech(*g)}.'
+        opts, i = mische(R, r, f)
+        return {'y': 'auswahl', 'f': {'text': f'Stimmt diese Aussage immer? „{text}“'}, 'a': opts, 'o': {'index': i}, 'w': w,
+                'h': 'Probiere verschiedene Zahlen, auch negative und die 0.'}
+    art = R.choice(['welche', 'beweis', 'zaehlen'])
+    if art == 'zaehlen':
+        ZAEHLEN['n'] += 1
+        if ZAEHLEN['n'] > 2: art = R.choice(['welche', 'beweis'])
+    if art == 'welche':
+        wahr = R.choice([x for x in AUSSAGEN if x[4]])
+        ff = R.sample(falsche, 3)
+        opts, i = mische(R, wahr[0], [x[0] for x in ff])
+        gg = [(x, _paare(R, x, 1, 1)[1][0]) for x in ff]
+        return {'y': 'auswahl', 'f': {'text': 'Nur eine dieser Aussagen stimmt immer. Welche?'}, 'a': opts, 'o': {'index': i},
+                'w': 'Die anderen haben Gegenbeispiele: ' + '; '.join(x[2](*p) for x, p in gg) + '.',
+                'h': 'Suche für jede Aussage ein Gegenbeispiel. Wo findest du keines?'}
+    if art == 'beweis':
+        aus = R.choice(falsche)
+        text, gilt, rech, ber, immer = aus
+        gut, gegen = _paare(R, aus, 1, 1)
+        opts, i = mische(R, f'Ein passendes Beispiel beweist nichts. Gegenbeispiel: {rech(*gegen[0])}.',
+                         ['Das stimmt. Ein Beispiel genügt als Begründung.', f'Das stimmt, weil {rech(*gut[0])}.', 'Die Aussage stimmt nie.'])
+        return {'y': 'auswahl', 'f': {'text': f'Jemand prüft „{text}“ mit {_paar(*gut[0])} und sagt: „Passt, also stimmt sie immer.“ Was ist richtig?'},
+                'a': opts, 'o': {'index': i},
+                'w': f'Für {_paar(*gut[0])} passt es: {rech(*gut[0])}. Aber für {_paar(*gegen[0])} nicht: {rech(*gegen[0])}. Ein Gegenbeispiel genügt, um die Aussage zu widerlegen.',
+                'h': 'Kann ein einziges passendes Beispiel zeigen, dass etwas immer stimmt?'}
+    werte = sorted(R.sample(range(-6, 7), 5))
+    n = sum(1 for b in werte if b <= 0)
+    return {'y': 'zahl', 'f': {'text': f'Aussage: „Subtrahiert man von 10 die Zahl b, ist das Ergebnis kleiner als 10.“ Geprüft wird b = {", ".join(zt(b) for b in werte)}. Für wie viele dieser Werte ist b ein Gegenbeispiel?'},
+            'o': {'wert': n}, 'c': ' + '.join('1' if b <= 0 else '0' for b in werte),
+            'w': 'Nachrechnen: ' + '; '.join(f'10 − {kl(b)} = {zt(10 - b)}' for b in werte) + f'. Nicht kleiner als 10 wird es für b = 0 und negative b. Das sind {n} Werte.',
+            'h': 'Rechne für jedes b aus. Bei welchen b ist das Ergebnis 10 oder mehr?'}
+
+
+KARTE_VERST = {
+    'lernziel': 'verstehen', 'titel': 'Stimmt das? Mit Gegenbeispiel prüfen',
+    'einstieg': 'Jemand behauptet: Von zwei Zahlen ist die mit dem größeren Betrag größer. Bei 5 und 3 stimmt das. Ein Fall, in dem es nicht stimmt, heißt ⟦Gegenbeispiel⟧.',
+    'woerter': [['Aussage', 'ein Satz, der entweder stimmt oder nicht stimmt'], ['Gegenbeispiel', 'ein Beispiel, bei dem die Aussage nicht stimmt']],
+    'bild': {'typ': 'zahlenstrahl', 'start': -10, 'ende': 10, 'abschnitte': 20, 'beschriftet': 'anfang_ende'},
+    'schritte': [
+        {'text': 'Aussage: Die Zahl mit dem größeren Betrag ist die größere.'},
+        {'text': 'Probiere −8 und 3: |−8| = 8 ist größer als |3| = 3.',
+         'bild': {'punkte': [{'wert': -8, 'name': '−8'}, {'wert': 3, 'name': '3'}], 'boegen': [{'von': 0, 'bis': -8, 'name': '8'}, {'von': 0, 'bis': 3, 'name': '3'}]}},
+        {'text': 'Aber −8 liegt links von 3. Also ist ⟦−8 < 3⟧.', 'bild': {'boegen': [], 'bereich': {'von': -8, 'bis': 3}}},
+        {'text': 'Ein Gegenbeispiel genügt: Die Aussage ist ⟦falsch⟧.'}],
+    'fehler': 'Bei 5 und 3 stimmt die Aussage zufällig. Ein passendes Beispiel beweist nicht, dass sie immer stimmt.',
+    'fehler_bild': {'punkte': [{'wert': 3, 'name': '3'}, {'wert': 5, 'name': '5'}], 'boegen': [], 'bereich': []},
+    'regel': 'Ein ⟦Gegenbeispiel⟧ genügt, um eine Aussage zu widerlegen. Für „stimmt immer“ reichen Beispiele nicht.',
+}
+FEST_VERST = [
+    # Prüfungsvorbild: Aussage mit Gegenbeispiel widerlegen (LehrplanPLUS M5 1.1; Jahrgangsstufentest 6 Realschule Bayern, „richtig oder falsch – begründe“)
+    wahl(3, 'Jemand behauptet: „Die Gegenzahl einer ganzen Zahl ist immer negativ.“ Welches Beispiel widerlegt das?',
+         ['Die Gegenzahl von −4 ist 4.', 'Die Gegenzahl von 4 ist −4.', 'Die Gegenzahl von 9 ist −9.'],
+         lambda o: o == 'Die Gegenzahl von −4 ist 4.',
+         'Die Gegenzahl von −4 ist 4, und 4 ist positiv. Damit ist die Aussage widerlegt. Die anderen Beispiele passen zur Aussage, beweisen aber nichts.',
+         'Suche ein Beispiel, bei dem die Gegenzahl nicht negativ ist.'),
+    # Prüfungsvorbild: richtiges Ergebnis, falsche Begründung erkennen (Jahrgangsstufentest 6 Realschule Bayern 2020/2025: Fehler beschreiben)
+    wahl(3, 'Jemand sagt: „(−9) − (−4) ist negativ, weil die Differenz zweier negativer Zahlen immer negativ ist.“ Was stimmt?',
+         ['Das Ergebnis −5 stimmt, die Begründung nicht: (−4) − (−9) = 5 ist positiv.',
+          'Alles stimmt: Die Differenz zweier negativer Zahlen ist immer negativ.',
+          'Das Ergebnis ist falsch: (−9) − (−4) = 5.'],
+         lambda o: o.startswith('Das Ergebnis −5 stimmt') and (-9) - (-4) == -5 and (-4) - (-9) == 5,
+         '(−9) − (−4) = (−9) + 4 = −5, das Ergebnis ist negativ. Die Begründung ist aber falsch: (−4) − (−9) = (−4) + 9 = 5 ist ein Gegenbeispiel.',
+         'Rechne (−9) − (−4) aus. Prüfe dann die Begründung mit vertauschten Zahlen.'),
+    # Knobelaufgabe: mehrere Aussagen gleichzeitig beurteilen
+    Z(3, 'Wie viele dieser vier Aussagen stimmen immer? (1) Die Summe zweier negativer Zahlen ist negativ. (2) Die Differenz zweier negativer Zahlen ist negativ. '
+         '(3) |a + b| ist so groß wie |a| + |b|. (4) Eine Zahl plus ihre Gegenzahl ergibt 0.', '1 + 0 + 0 + 1',
+      'Immer wahr sind (1) und (4). Gegenbeispiele: zu (2) (−3) − (−8) = 5, zu (3) |5 + (−2)| = 3, aber |5| + |−2| = 7. Also stimmen 2 Aussagen immer.',
+      'Suche für jede Aussage ein Gegenbeispiel. Probiere dabei negative Zahlen.'),
+]
+
+neue_karte(DATEI, KARTE_SPM, 'betrag', 'Addieren und Subtrahieren', ('schriftlich', 'Schriftlich addieren und subtrahieren mit Überschlag'), g_spm, 18_5_1, FEST_SPM)
+neue_karte(DATEI, KARTE_UMK, 'subtrahieren', 'Addieren und Subtrahieren', ('gleichungen', 'Gleichungen durch Probieren und Umkehraufgaben lösen'), g_umk, 18_5_2, FEST_UMK)
+neue_karte(DATEI, KARTE_VERST, 'ketten', 'Alles zusammen', ('begruenden', 'Aussagen prüfen und mit Gegenbeispielen widerlegen'), g_verst, 18_5_3, FEST_VERST)
+# ---- LÜCKEN ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI, 'zahlen.ganz.json')

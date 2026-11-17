@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 14:25 – STATUS
+zahlen.reell fertig: 37 neue Übungen, 14 Knobel-Bordkarten, 20 umgestuft, 63 überzählig (ohne Typ). inhalt_pruefen OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
+
 ## 2026-11-17 14:21 – STATUS
 zahlen.wurzeln_basis fertig: 47 neue Übungen, 12 Knobel-Bordkarten, 16 umgestuft, 61 überzählig (ohne Typ). inhalt_pruefen OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
 

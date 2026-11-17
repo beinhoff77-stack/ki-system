@@ -56,9 +56,10 @@ class Stufen:
 
     def A(self, *a, **k): return self.B.A(*a, **k)
 
-    def typ(self, lz, muster, g):
+    def typ(self, lz, muster, g, s=None):
+        """s: nur Übungen, die bisher auf dieser Stufe stehen (wenn gleiche Fragetexte auf mehreren Stufen vorkommen)."""
         assert g in STUFE_VON, g
-        self.regeln.append((lz, muster, g))
+        self.regeln.append((lz, (muster, s), g))
 
     def neu(self, lz, g, aufgabe):
         assert g in STUFE_VON, g
@@ -72,7 +73,10 @@ class Stufen:
         self.leiter[lz] = (s1, s2, s3)
 
 
-def _passt(muster, text):
+def _passt(regel, a):
+    muster, s = regel
+    if s is not None and a['s'] != s: return False
+    text = a['f']['text']
     if muster.startswith('/') and muster.endswith('/'): return re.search(muster[1:-1], text) is not None
     return text.startswith(muster)
 
@@ -84,11 +88,11 @@ def anwenden(d, st):
     benutzt = collections.Counter()
     ueberzaehlig = []
     ohne = [f'{a["l"]} S{a["s"]}: „{a["f"]["text"]}“' for a in auf if a['p'] == 'uebung'
-            and not any(lz == a['l'] and _passt(m, a['f']['text']) for lz, m, g in st.regeln)]
+            and not any(lz == a['l'] and _passt(m, a) for lz, m, g in st.regeln)]
     assert not ohne, 'kein Typ für:\n' + '\n'.join(ohne)
     for a in auf:
         if a['p'] != 'uebung': continue
-        treffer = [(i, g) for i, (lz, m, g) in enumerate(st.regeln) if lz == a['l'] and _passt(m, a['f']['text'])]
+        treffer = [(i, g) for i, (lz, m, g) in enumerate(st.regeln) if lz == a['l'] and _passt(m, a)]
         i, g = treffer[0]
         benutzt[i] += 1
         a['_g'] = g

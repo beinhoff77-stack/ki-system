@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 01:54 – STATUS
+geometrie.grundbegriffe fertig: Lernkarte kreis_lage – zwei neue Schritte mit Zeichnung: zwei Kreise berühren sich von außen (Mittelpunkte 5 m = 3 m + 2 m) und liegen getrennt (7 m > 3 + 2). Aufgaben unverändert; inhalt_pruefen OK ohne Hinweise, Nachweis OK (nur schritte).
+
 ## 2026-11-17 01:53 – STATUS
 trigo.allgemein fertig: Lernkarte kosinussatz_seite – neuer letzter Schritt „Schiff: Drehwinkel 50°. Der Dreieckswinkel am Wendepunkt ist 180° − 50° = 130°.“ mit Zeichnung (Kurs mit gestrichelter Verlängerung, 50° und 130°), neues Wort „Drehwinkel“. fehler_bild vollständig angegeben (die App übernimmt sonst das Bild des letzten Schritts); Anzeige des Fehlers wie bisher. Aufgaben unverändert; inhalt_pruefen OK ohne Hinweise, Nachweis OK.
 

@@ -2,6 +2,47 @@
 
 Neueste Meldung oben.
 
+## 2026-11-18 – ABSCHLUSS Zweiundzwanzigste Runde (Klasse 8)
+
+Alle 14 Themen mit gym_by = 8 sind bearbeitet, je Thema ein Commit auf `text-kl8`. **Kein Merge**, keine Datenbank, kein App-Code, keine Tests geändert.
+
+### Übersicht
+
+Anteil = Textaufgaben unter den Übungen mit g. „Lehrer“ = nur Typen einkleidung/transfer; „anerkannt“ = zusätzlich Sachaufgaben anderer Typen (Sachkontext-Wort und ≥ 2 Sätze bzw. ≥ 90 Zeichen).
+
+| Thema | vorher (Lehrer) | vorher (anerkannt) | nachher | neu Übung | neu Sicherung/Korrektur | überzählig (g entfernt) |
+|---|---|---|---|---|---|---|
+| messen.kreisberechnung | 19 % | 28 % | 40 % | 26 | 18 | 3 |
+| messen.prisma_zylinder | 20 % | 35 % | 43 % | 21 | 5 | 0 |
+| groessen.indirekt | 17 % | 61 % | 65 % | 18 | 9 | 0 |
+| gleichungen.formeln | 14 % | 33 % | 43 % | 19 | 9 | 0 |
+| messen.koerper_darstellung | 12 % | 18 % | 40 % | 31 | 18 | 21 |
+| stochastik.grundbegriffe | 13 % | 23 % | 40 % | 25 | 12 | 17 |
+| zahlen.intervalle | 17 % | 17 % | 40 % | 20 | 12 | 16 |
+| gleichungen.ungleichungen | 12 % | 21 % | 40 % | 37 | 18 | 14 |
+| funktionen.grundbegriffe | 14 % | 27 % | 41 % | 43 | 24 | 0 |
+| funktionen.linear | 15 % | 31 % | 44 % | 37 | 20 | 0 |
+| funktionen.gebrochen | 13 % | 26 % | 41 % | 36 | 15 | 0 |
+| terme.bruchterme | 10 % | 10 % | 40 % | 44 | 21 | 33 |
+| gleichungen.bruch | 15 % | 17 % | 40 % | 36 | 20 | 22 |
+| gleichungen.lgs2 | 17 % | 22 % | 40 % | 39 | 21 | 11 |
+| **Summe** | | | | **432** | **222** | **137** |
+
+Geprüft (automatisch, je Thema, Abbruch bei Verstoß): jede Lernkarte ≥ 8 Textaufgaben (S1 ≥ 1, S2 ≥ 3, S3 ≥ 4), ≥ 2 S3-Aufgaben mit Hürde, Thema ≥ 40 %, Sicherung ≥ 2 und Korrektur ≥ 1 Textaufgaben, Mindestzahlen 4/6/8 und Typenvielfalt je Stufe, S3 höchstens 3 je Typ, keine gleichen Typen nebeneinander, c bei zahl/luecken mit exakter Nachrechnung, w in fünf Schritten, h bei jeder neuen Übung. inhalt_pruefen: 0 Fehler in allen 14 Themen. Alte Aufgaben: Text, Antwort, Optionen zeichengleich; einzige Änderung ist das Entfernen von g bei überzähligen Aufgaben (Aufgabe bleibt im Pool). Test-Aufgaben unverändert.
+
+### Ausnahmen
+
+Keine.
+
+### Offen / nicht geprüft
+
+- Kein vollständiges Lesen jeder einzelnen neuen Aufgabe durch einen Menschen; Stichproben je Thema stehen in den Einzelmeldungen.
+- Darstellung in der App (Zeilenumbrüche, Lückenschablonen, Einheiten) nicht geprüft.
+- Kein Test mit Kindern (Verständlichkeit, Dauer).
+- **Sicherung/Korrektur-Pools sind gewachsen** (alte Aufgaben bleiben, neue kommen dazu, z. B. 8 Sicherung/4 Korrektur je Karte). Nicht geprüft, wie Server/App daraus zieht. Wenn die App nur einen Teil nimmt, sollte sie die neuen Textaufgaben bevorzugen oder mischen – sonst wirkt die Erhöhung in Sicherung/Korrektur nicht sicher.
+- Die Erkennung „Sachaufgabe“ bei alten Aufgaben ist eine Wortliste plus Längenregel; Würfel/Münze/Urne/Glücksrad zählen bewusst nicht als Sachsituation. Grenzfälle sind möglich.
+- Merge nach `main` erst nach Sebastians „Live“.
+
 ## 2026-11-18 02:36 – STATUS gleichungen.lgs2
 
 ### gleichungen.lgs2

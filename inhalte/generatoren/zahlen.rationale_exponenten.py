@@ -708,7 +708,7 @@ ST.typ('nte_wurzel', 'Ein Guthaben', 'transfer')
 ST.neu('nte_wurzel', 'erkennen', A('Was bedeutet ⁵√32 = 2?', '2⁵ = 32', ['32 : 5 = 2', '2 · 5 = 32', '5² = 32'],
        'ⁿ√a = b heißt: b hoch n ergibt a. 2 · 2 · 2 · 2 · 2 = 32.', 'Lies die Wurzel rückwärts als Potenz.'))
 ST.neu('nte_wurzel', 'umkehr', Z('Für welche Zahl a gilt ⁴√a = 3?', 81, '3 ** 4',
-       'a = 3⁴ = 81.', 'Rückwärts: hoch 4.'))
+       'Rückwärts: a = 3⁴ = 3 · 3 · 3 · 3 = 81.', 'Rückwärts: hoch 4.'))
 ST.neu('nte_wurzel', 'fehler', A('Jemand rechnet ⁴√16 = 4, weil 16 : 4 = 4. Was stimmt?', 'Falsch: ⁴√16 = 2, denn 2⁴ = 16.', ['Richtig.', 'Falsch: ⁴√16 = 8.', 'Falsch: ⁴√16 = 64.'],
        'Die vierte Wurzel sucht die Zahl, die viermal mit sich malgenommen 16 ergibt: 2 · 2 · 2 · 2. 4⁴ wäre 256.', 'Mach die Probe mit der Potenz.'))
 ST.neu('nte_wurzel', 'begruenden', A('Stimmt: ⁶√64 = √(³√64)?', 'Ja, beide ergeben 2.', ['Nein, links 2, rechts 4.', 'Nein, links 8, rechts 2.', 'Nur ungefähr.'],
@@ -763,7 +763,7 @@ ST.typ('umwandeln', 'Welcher Term ist für x > 0 NICHT', 'begruenden')
 ST.neu('umwandeln', 'erkennen', A('Welcher Exponent gehört zu ⁵√x?', '1/5', ['5', '−5', '5/2'],
        '⁵√x = x^(1/5): Der Wurzelexponent wird Nenner.', 'Wohin kommt der Wurzelexponent?'))
 ST.neu('umwandeln', 'einkleidung', L('Für die Kante eines Würfels gilt a = ³√V. Schreibe das als Potenz von V.', 'a = V^(□/□)', [1, 3], ['1', '3'],
-       '³√V = V^(1/3).', 'Wurzelexponent in den Nenner.'))
+       'Der Wurzelexponent 3 wird Nenner: ³√V = V^(1/3).', 'Wurzelexponent in den Nenner.'))
 ST.neu('umwandeln', 'fehler', A('Jemand schreibt ⁵√(x²) = x^(5/2). Was stimmt?', 'Falsch: x^(2/5); der Wurzelexponent gehört in den Nenner.', ['Richtig.', 'Falsch: x^(10).', 'Falsch: x^(2/10).'],
        'ⁿ√(x^m) = x^(m/n): hier m = 2, n = 5.', 'Was steht im Nenner?'))
 ST.neu('umwandeln', 'parameter', Z('Für welche natürliche Zahl n gilt ⁿ√(x⁶) = x² für alle x > 0?', 3, '6 // 2',

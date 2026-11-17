@@ -2,6 +2,34 @@
 
 Neueste Meldung oben.
 
+## 2026-11-18 02:36 – STATUS gleichungen.lgs2
+
+### gleichungen.lgs2
+
+Anteil Textaufgaben an den Übungen mit g: vorher 17% (nur einkleidung/transfer) bzw. 22% (mit anerkannten Sachaufgaben anderer Typen) → nachher **40%**.
+
+| Lernkarte | vorher S1/S2/S3 (Lehrer) | vorher S1/S2/S3 (mit anderen Typen) | nachher S1/S2/S3 | neu Übung | neu Sicherung/Korrektur | überzählig | Sicherung/Korrektur Text nachher |
+|---|---|---|---|---|---|---|---|
+| pruefen | 0/1/2 | 0/1/2 | 1/3/4 = 8 | 5 | 2/1 | 0 | 2/1 |
+| grafisch | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 2 | 2/1 |
+| einsetzen | 0/1/1 | 0/1/2 | 1/3/4 = 8 | 5 | 2/1 | 1 | 2/1 |
+| gleichsetzen | 0/1/2 | 0/1/2 | 1/3/4 = 8 | 5 | 2/1 | 2 | 2/1 |
+| addition | 0/1/1 | 0/2/1 | 1/3/4 = 8 | 5 | 2/1 | 5 | 2/1 |
+| verfahren | 0/2/1 | 0/2/1 | 1/3/4 = 8 | 5 | 2/1 | 0 | 2/1 |
+| loesbarkeit | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 1 | 2/1 |
+| sachaufgabe | 0/7/2 | 2/7/7 | 2/7/9 = 18 | 2 | 0/0 | 0 | 3/3 |
+
+Beispiele (je Stufe eine neue Textaufgabe, Wortlaut):
+
+- Stufe 1 (pruefen): „Im Kino kosten 2 Kinder- und 1 Erwachsenenkarte 22 €, 1 Kinder- und 2 Erwachsenenkarten 26 €. Passt (k | e) = (6 | 10)?“
+- Stufe 2 (addition): „Im Zoo sind 120 Besucher, Kinder und Erwachsene; es sind 40 Kinder mehr als Erwachsene. Wie viele Kinder und Erwachsene?“
+- Stufe 3 (sachaufgabe): „In einer Kasse liegen 25 Münzen, nur 1-€- und 2-€-Stücke, zusammen 38 €. Jemand stellt auf: e + z = 38, e + 2z = 25. Was stimmt?“
+
+Überzählig (g entfernt, Aufgabe bleibt): 11 – addition S1 direkt (Anteil 40 %); addition S1 direkt (Anteil 40 %); addition S2 mehrschritt (Anteil 40 %); gleichsetzen S1 direkt (Anteil 40 %); grafisch S3 pruefung (Anteil 40 %); addition S3 verknuepfen (Anteil 40 %); loesbarkeit S3 parameter (Anteil 40 %); addition S1 direkt (Anteil 40 %); gleichsetzen S1 direkt (Anteil 40 %); einsetzen S2 mehrschritt (Anteil 40 %); grafisch S1 erkennen (Anteil 40 %)
+Als Sachaufgabe anerkannte alte Aufgaben anderer Typen: 10 Übungen, 6 Sicherung/Korrektur.
+Sachkontexte: Preise (Bäcker, Kiosk, Kino), Tarife, Tanks, Kerzen, Tiere/Beine, Münzen, Zimmerbelegung, Boot mit Strömung; Lösbarkeit an parallelen/identischen Tarifen. 11 überzählige alte Aufgaben verlieren g.
+
+
 ## 2026-11-18 02:34 – STATUS gleichungen.bruch
 
 ### gleichungen.bruch

@@ -839,27 +839,6 @@
    "l": "pruefen",
    "t": "pruefen",
    "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Gegeben: I: 2x − 6y = 20   II: 2x − 3y = 8. Welches Zahlenpaar ist die Lösung?"
-   },
-   "a": [
-    "(1 | −3)",
-    "(−2 | −4)",
-    "(−8 | −6)",
-    "(−4 | −2)"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "(−2 | −4) erfüllt I: 20 = 20 und II: 8 = 8. Andere Paare erfüllen höchstens eine Gleichung.",
-   "h": "Ein Paar, das nur eine Gleichung erfüllt, ist keine Lösung."
-  },
-  {
-   "l": "pruefen",
-   "t": "pruefen",
-   "p": "uebung",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -882,6 +861,27 @@
    "l": "pruefen",
    "t": "pruefen",
    "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: 2x − 6y = 20   II: 2x − 3y = 8. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(1 | −3)",
+    "(−2 | −4)",
+    "(−8 | −6)",
+    "(−4 | −2)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "(−2 | −4) erfüllt I: 20 = 20 und II: 8 = 8. Andere Paare erfüllen höchstens eine Gleichung.",
+   "h": "Ein Paar, das nur eine Gleichung erfüllt, ist keine Lösung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
    "s": 3,
    "y": "auswahl",
    "f": {
@@ -899,6 +899,110 @@
    "w": "„4 cm länger als breit“: Länge = Breite + 4, also x = y + 4. Umfang = 2 · Länge + 2 · Breite = 36.",
    "h": "Übersetze jeden Satz einzeln. Was ist der Umfang eines Rechtecks?",
    "g": "transfer"
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (−2 | 0,5) eine Lösung von I: x + 4y = 0 und II: 3x − 2y = −7?"
+   },
+   "a": [
+    "Ja, beide Gleichungen sind erfüllt.",
+    "Nein, nur Gleichung I ist erfüllt.",
+    "Nein, nur Gleichung II ist erfüllt.",
+    "Nein, keine der beiden Gleichungen ist erfüllt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "I: −2 + 4 · 0,5 = −2 + 2 = 0 ✓. II: 3 · (−2) − 2 · 0,5 = −6 − 1 = −7 ✓.",
+   "h": "Setze x = −2 und y = 0,5 in beide Gleichungen ein.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (2 | 1) eine Lösung von I: x + y = 3 und II: x − y = 1?"
+   },
+   "a": [
+    "Nein, nur I stimmt.",
+    "Nein, nur II stimmt.",
+    "Ja, beide Gleichungen stimmen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "I: 2 + 1 = 3 ✓. II: 2 − 1 = 1 ✓.",
+   "h": "Setze x = 2 und y = 1 in beide Gleichungen ein."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Heft und ein Stift kosten zusammen 3 €, zwei Hefte und ein Stift 4,50 €. Passt „Heft 1,50 €, Stift 1,50 €“?"
+   },
+   "a": [
+    "Nein, nur die erste stimmt.",
+    "Ja, beide Angaben stimmen.",
+    "Nein, nur die zweite stimmt.",
+    "Nein, keine stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "1,50 + 1,50 = 3 ✓ und 2 · 1,50 + 1,50 = 4,50 ✓.",
+   "h": "Prüfe jede Preisangabe einzeln."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Kann ein System aus zwei linearen Gleichungen genau zwei Lösungen haben?"
+   },
+   "a": [
+    "Nein: Zwei Geraden haben keinen, genau einen oder unendlich viele gemeinsame Punkte.",
+    "Nur wenn eine Gleichung x² enthält.",
+    "Ja, bei parallelen Geraden.",
+    "Ja, wenn die Geraden sich zweimal schneiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Zwei verschiedene Geraden schneiden sich höchstens einmal. Haben sie zwei gemeinsame Punkte, sind sie gleich – dann gibt es unendlich viele.",
+   "h": "Wie oft können sich zwei Geraden schneiden?"
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Das Zahlenpaar (2 | y) ist Lösung von I: 3x + 2y = 14. Bestimme y und prüfe, ob das Paar auch II: x − y = −2 erfüllt. Gib y an."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(14 - 3 * 2) / 2",
+   "w": "6 + 2y = 14 ⇒ y = 4. II: 2 − 4 = −2 ✓ – (2 | 4) ist die Lösung des Systems.",
+   "h": "Setze x = 2 in I ein."
   },
   {
    "l": "pruefen",
@@ -941,111 +1045,6 @@
     "index": 3
    },
    "w": "(5 | −2) erfüllt I: −17 = −17 und II: −34 = −34. Andere Paare erfüllen höchstens eine Gleichung.",
-   "h": "Ein Paar, das nur eine Gleichung erfüllt, ist keine Lösung."
-  },
-  {
-   "l": "pruefen",
-   "t": "pruefen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Gegeben: I: −4x − 3y = −15   II: −x + 4y = 20. Welches Zahlenpaar ist die Lösung?"
-   },
-   "a": [
-    "(5 | 0)",
-    "(−6 | 13)",
-    "(0 | 5)",
-    "(−3 | 9)"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "(0 | 5) erfüllt I: −15 = −15 und II: 20 = 20. Andere Paare erfüllen höchstens eine Gleichung.",
-   "h": "Ein Paar, das nur eine Gleichung erfüllt, ist keine Lösung."
-  },
-  {
-   "l": "pruefen",
-   "t": "pruefen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Gegeben: I: −5x + 6y = 16   II: x + y = 10. Welches Zahlenpaar ist die Lösung?"
-   },
-   "a": [
-    "(4 | 6)",
-    "(10 | 11)",
-    "(6 | 4)",
-    "(−2 | 1)"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "(4 | 6) erfüllt I: 16 = 16 und II: 10 = 10. Andere Paare erfüllen höchstens eine Gleichung.",
-   "h": "Ein Paar, das nur eine Gleichung erfüllt, ist keine Lösung."
-  },
-  {
-   "l": "pruefen",
-   "t": "pruefen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Gegeben: I: 4x − y = 24   II: 4x − 4y = 24. Welches Zahlenpaar ist die Lösung?"
-   },
-   "a": [
-    "(6 | 0)",
-    "(1 | −20)",
-    "(0 | 6)",
-    "(10 | 16)"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "(6 | 0) erfüllt I: 24 = 24 und II: 24 = 24. Andere Paare erfüllen höchstens eine Gleichung.",
-   "h": "Ein Paar, das nur eine Gleichung erfüllt, ist keine Lösung."
-  },
-  {
-   "l": "pruefen",
-   "t": "pruefen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Gegeben: I: −6x − 4y = −38   II: 5x − 6y = 13. Welches Zahlenpaar ist die Lösung?"
-   },
-   "a": [
-    "(3 | 5)",
-    "(5 | 2)",
-    "(2 | 5)",
-    "(1 | 8)"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "(5 | 2) erfüllt I: −38 = −38 und II: 13 = 13. Andere Paare erfüllen höchstens eine Gleichung.",
-   "h": "Ein Paar, das nur eine Gleichung erfüllt, ist keine Lösung."
-  },
-  {
-   "l": "pruefen",
-   "t": "pruefen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Gegeben: I: −x − 3y = −2   II: 2x + y = 4. Welches Zahlenpaar ist die Lösung?"
-   },
-   "a": [
-    "(0 | 2)",
-    "(−1 | 1)",
-    "(2 | 0)",
-    "(8 | −2)"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "(2 | 0) erfüllt I: −2 = −2 und II: 4 = 4. Andere Paare erfüllen höchstens eine Gleichung.",
    "h": "Ein Paar, das nur eine Gleichung erfüllt, ist keine Lösung."
   },
   {
@@ -1127,6 +1126,25 @@
     "index": 3
    },
    "w": "(4 | 5) erfüllt I: −16 = −16 und II: −26 = −26. Andere Paare erfüllen höchstens eine Gleichung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kiosk: 3 Eis und 2 Wasser kosten 8 €, 1 Eis und 1 Wasser 3 €. Passt (Eis | Wasser) = (2 | 1)?"
+   },
+   "a": [
+    "Nein, II stimmt nicht.",
+    "Ja",
+    "Nein, I stimmt nicht."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegeben: 3e + 2w = 8; e + w = 3. Gesucht: Prüfung. Ansatz: Einsetzen. Rechnung: 6 + 2 = 8 ✓; 3 ✓. Antwort: Ja."
   },
   {
    "l": "pruefen",
@@ -1251,6 +1269,149 @@
   {
    "l": "pruefen",
    "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "2 Brezeln und 1 Saft kosten 3,40 €, 1 Brezel und 2 Säfte kosten 3,80 €. Passt (Brezel | Saft) = (1 | 1,40)?"
+   },
+   "a": [
+    "Nein, I stimmt nicht.",
+    "Ja",
+    "Nein, II stimmt nicht."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegeben: 2b + s = 3,4; b + 2s = 3,8. Gesucht: Prüfung. Ansatz: Einsetzen. Rechnung: 2 + 1,4 = 3,4 ✓; 1 + 2,8 = 3,8 ✓. Antwort: Ja."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Parkplatz: 40 Fahrzeuge, Autos und Motorräder, 130 Räder. Passt (Autos | Motorräder) = (25 | 15)?"
+   },
+   "a": [
+    "Nein, II stimmt nicht.",
+    "Nein, I stimmt nicht.",
+    "Ja"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gegeben: a + m = 40; 4a + 2m = 130. Gesucht: Prüfung. Ansatz: Einsetzen. Rechnung: 40 ✓; 100 + 30 = 130 ✓. Antwort: Ja."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: −4x − 3y = −15   II: −x + 4y = 20. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(5 | 0)",
+    "(−6 | 13)",
+    "(0 | 5)",
+    "(−3 | 9)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "(0 | 5) erfüllt I: −15 = −15 und II: 20 = 20. Andere Paare erfüllen höchstens eine Gleichung.",
+   "h": "Ein Paar, das nur eine Gleichung erfüllt, ist keine Lösung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: −5x + 6y = 16   II: x + y = 10. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(4 | 6)",
+    "(10 | 11)",
+    "(6 | 4)",
+    "(−2 | 1)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "(4 | 6) erfüllt I: 16 = 16 und II: 10 = 10. Andere Paare erfüllen höchstens eine Gleichung.",
+   "h": "Ein Paar, das nur eine Gleichung erfüllt, ist keine Lösung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: 4x − y = 24   II: 4x − 4y = 24. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(6 | 0)",
+    "(1 | −20)",
+    "(0 | 6)",
+    "(10 | 16)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "(6 | 0) erfüllt I: 24 = 24 und II: 24 = 24. Andere Paare erfüllen höchstens eine Gleichung.",
+   "h": "Ein Paar, das nur eine Gleichung erfüllt, ist keine Lösung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: −6x − 4y = −38   II: 5x − 6y = 13. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(3 | 5)",
+    "(5 | 2)",
+    "(2 | 5)",
+    "(1 | 8)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "(5 | 2) erfüllt I: −38 = −38 und II: 13 = 13. Andere Paare erfüllen höchstens eine Gleichung.",
+   "h": "Ein Paar, das nur eine Gleichung erfüllt, ist keine Lösung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: −x − 3y = −2   II: 2x + y = 4. Welches Zahlenpaar ist die Lösung?"
+   },
+   "a": [
+    "(0 | 2)",
+    "(−1 | 1)",
+    "(2 | 0)",
+    "(8 | −2)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "(2 | 0) erfüllt I: −2 = −2 und II: 4 = 4. Andere Paare erfüllen höchstens eine Gleichung.",
+   "h": "Ein Paar, das nur eine Gleichung erfüllt, ist keine Lösung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
    "p": "uebung",
    "s": 2,
    "y": "auswahl",
@@ -1290,28 +1451,6 @@
    "w": "(1 | 3): I: 2 + 3 = 5 ✓, II: 1 − 3 = −2 ✗. (2 | 1) erfüllt beide, (0 | −1) und (3 | 2) erfüllen I nicht.",
    "h": "Prüfe jedes Paar zuerst in I, dann in II.",
    "g": "umkehr"
-  },
-  {
-   "l": "pruefen",
-   "t": "pruefen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist (−2 | 0,5) eine Lösung von I: x + 4y = 0 und II: 3x − 2y = −7?"
-   },
-   "a": [
-    "Ja, beide Gleichungen sind erfüllt.",
-    "Nein, nur Gleichung I ist erfüllt.",
-    "Nein, nur Gleichung II ist erfüllt.",
-    "Nein, keine der beiden Gleichungen ist erfüllt."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "I: −2 + 4 · 0,5 = −2 + 2 = 0 ✓. II: 3 · (−2) − 2 · 0,5 = −6 − 1 = −7 ✓.",
-   "h": "Setze x = −2 und y = 0,5 in beide Gleichungen ein.",
-   "g": "mehrschritt"
   },
   {
    "l": "pruefen",
@@ -1368,49 +1507,6 @@
    "l": "pruefen",
    "t": "pruefen",
    "p": "uebung",
-   "s": 1,
-   "g": "direkt",
-   "y": "auswahl",
-   "f": {
-    "text": "Ist (2 | 1) eine Lösung von I: x + y = 3 und II: x − y = 1?"
-   },
-   "a": [
-    "Nein, nur I stimmt.",
-    "Nein, nur II stimmt.",
-    "Ja, beide Gleichungen stimmen."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "I: 2 + 1 = 3 ✓. II: 2 − 1 = 1 ✓.",
-   "h": "Setze x = 2 und y = 1 in beide Gleichungen ein."
-  },
-  {
-   "l": "pruefen",
-   "t": "pruefen",
-   "p": "uebung",
-   "s": 2,
-   "g": "einkleidung",
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Heft und ein Stift kosten zusammen 3 €, zwei Hefte und ein Stift 4,50 €. Passt „Heft 1,50 €, Stift 1,50 €“?"
-   },
-   "a": [
-    "Nein, nur die erste stimmt.",
-    "Ja, beide Angaben stimmen.",
-    "Nein, nur die zweite stimmt.",
-    "Nein, keine stimmt."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "1,50 + 1,50 = 3 ✓ und 2 · 1,50 + 1,50 = 4,50 ✓.",
-   "h": "Prüfe jede Preisangabe einzeln."
-  },
-  {
-   "l": "pruefen",
-   "t": "pruefen",
-   "p": "uebung",
    "s": 3,
    "g": "fehler",
    "y": "auswahl",
@@ -1434,45 +1530,6 @@
    "t": "pruefen",
    "p": "uebung",
    "s": 3,
-   "g": "begruenden",
-   "y": "auswahl",
-   "f": {
-    "text": "Kann ein System aus zwei linearen Gleichungen genau zwei Lösungen haben?"
-   },
-   "a": [
-    "Nein: Zwei Geraden haben keinen, genau einen oder unendlich viele gemeinsame Punkte.",
-    "Nur wenn eine Gleichung x² enthält.",
-    "Ja, bei parallelen Geraden.",
-    "Ja, wenn die Geraden sich zweimal schneiden."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Zwei verschiedene Geraden schneiden sich höchstens einmal. Haben sie zwei gemeinsame Punkte, sind sie gleich – dann gibt es unendlich viele.",
-   "h": "Wie oft können sich zwei Geraden schneiden?"
-  },
-  {
-   "l": "pruefen",
-   "t": "pruefen",
-   "p": "uebung",
-   "s": 3,
-   "g": "pruefung",
-   "y": "zahl",
-   "f": {
-    "text": "Das Zahlenpaar (2 | y) ist Lösung von I: 3x + 2y = 14. Bestimme y und prüfe, ob das Paar auch II: x − y = −2 erfüllt. Gib y an."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "(14 - 3 * 2) / 2",
-   "w": "6 + 2y = 14 ⇒ y = 4. II: 2 − 4 = −2 ✓ – (2 | 4) ist die Lösung des Systems.",
-   "h": "Setze x = 2 in I ein."
-  },
-  {
-   "l": "pruefen",
-   "t": "pruefen",
-   "p": "uebung",
-   "s": 3,
    "g": "verknuepfen",
    "y": "auswahl",
    "f": {
@@ -1489,6 +1546,110 @@
    },
    "w": "(2 | 3): 2 · 2 − 1 = 3 ✓ und −2 + 5 = 3 ✓. (1 | 1) liegt nur auf der ersten, (0 | 5) nur auf der zweiten.",
    "h": "Ein gemeinsamer Punkt erfüllt beide Geradengleichungen."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "auswahl",
+   "f": {
+    "text": "Im Kino kosten 2 Kinder- und 1 Erwachsenenkarte 22 €, 1 Kinder- und 2 Erwachsenenkarten 26 €. Passt (k | e) = (6 | 10)?"
+   },
+   "a": [
+    "Ja: 12 + 10 = 22 und 6 + 20 = 26.",
+    "Nein, die erste Gleichung stimmt nicht.",
+    "Nein, die zweite Gleichung stimmt nicht."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegeben: I: 2k + e = 22, II: k + 2e = 26. Gesucht: Lösung? Ansatz: In beide Gleichungen einsetzen. Rechnung: 22 ✓, 26 ✓. Antwort: Ja, (6 | 10) ist die Lösung.",
+   "h": "Setze in beide Gleichungen ein."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "auswahl",
+   "f": {
+    "text": "In einem Stall sind Hühner und Kaninchen, zusammen 20 Köpfe und 56 Beine. Jemand behauptet: 12 Hühner und 8 Kaninchen. Stimmt das?"
+   },
+   "a": [
+    "Nein, es sind 64 Beine.",
+    "Nein, es sind 21 Köpfe.",
+    "Ja: 12 + 8 = 20 und 24 + 32 = 56."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gegeben: h + k = 20, 2h + 4k = 56. Gesucht: Prüfung. Ansatz: Einsetzen. Rechnung: 20 ✓; 24 + 32 = 56 ✓. Antwort: Die Behauptung stimmt.",
+   "h": "Wie viele Beine hat ein Huhn, wie viele ein Kaninchen?"
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "zahl",
+   "f": {
+    "text": "3 Hefte und 2 Stifte kosten 7,50 €, 1 Heft und 4 Stifte kosten 6,50 €. Jemand sagt, ein Heft kostet 1,50 €. Wie viel kostet dann ein Stift laut der ersten Gleichung – und passt das zur zweiten?"
+   },
+   "o": {
+    "wert": 1.5,
+    "einheit": "€"
+   },
+   "c": "(7.5 - 3 * 1.5) / 2",
+   "w": "Gegeben: I: 3h + 2s = 7,5, II: h + 4s = 6,5. Gesucht: s und Probe. Ansatz: h einsetzen, s bestimmen, in II prüfen. Rechnung: s = 1,5; II: 1,5 + 6 = 7,5 ≠ 6,5. Antwort: Ein Stift kostet laut I 1,50 €, aber II stimmt nicht – die Behauptung ist falsch.",
+   "h": "Prüfe am Ende auch die zweite Gleichung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Theater verkauft 300 Karten, Parkett zu 25 € und Rang zu 15 €, Einnahmen 6 300 €. Die Vorstellung beginnt um 19:30 Uhr. Passt (p | r) = (180 | 120)?"
+   },
+   "a": [
+    "Ja: 300 Karten und 4 500 + 1 800 = 6 300 €.",
+    "Nein, es wären 6 600 €.",
+    "Nein, die Uhrzeit passt nicht.",
+    "Nein, es wären 310 Karten."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegeben: p + r = 300, 25p + 15r = 6 300; die Uhrzeit spielt keine Rolle. Gesucht: Lösung? Ansatz: Einsetzen. Rechnung: 300 ✓; 4 500 + 1 800 = 6 300 ✓. Antwort: Ja, es passt.",
+   "h": "Welche Angaben gehören ins Gleichungssystem?"
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Für zwei Zahlen gilt: Summe 30, Differenz 6. Jemand sagt: „(20 | 10) ist die Lösung, weil 20 + 10 = 30.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: Die Differenz ist 10, nicht 6. Richtig ist (18 | 12).",
+    "Falsch: (24 | 6).",
+    "Falsch: (15 | 15)."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegeben: x + y = 30, x − y = 6. Gesucht: Prüfung. Ansatz: Beide Gleichungen prüfen. Rechnung: 20 − 10 = 10 ≠ 6; richtig (18 | 12). Antwort: Die Aussage ist falsch.",
+   "h": "Prüfe beide Bedingungen."
   },
   {
    "l": "pruefen",
@@ -1578,48 +1739,48 @@
    "l": "grafisch",
    "t": "grafisch",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Gegeben: I: y = −2x − 3   II: y = −3x − 6. Jemand liest am Bild den Schnittpunkt (−2 | 3) ab. Stimmt das?",
+    "text": "Die beiden Geraden eines Gleichungssystems sind gezeichnet. Wie viele Lösungen hat das System?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
-      -7,
-      1
+      -4,
+      4
      ],
      "y": [
-      -3,
-      9
+      -5,
+      5
      ],
      "graphen": [
       {
        "art": "linear",
-       "m": -2,
-       "t": -3,
-       "name": "I"
+       "m": 1,
+       "t": 1,
+       "name": "g"
       },
       {
        "art": "linear",
-       "m": -3,
-       "t": -6,
-       "name": "II"
+       "m": 1,
+       "t": -2,
+       "name": "h"
       }
      ]
     }
    },
    "a": [
-    "Nein, richtig ist (−3 | 3).",
-    "Nein, richtig ist (3 | −3).",
-    "Ja, das Paar erfüllt beide Gleichungen.",
-    "Das kann man am Bild nicht entscheiden."
+    "genau eine Lösung",
+    "keine Lösung",
+    "zwei Lösungen",
+    "unendlich viele Lösungen"
    ],
    "o": {
-    "index": 0
+    "index": 1
    },
-   "w": "Der Schnittpunkt ist (−3 | 3). Probe: I und II mit x = −3, y = 3 erfüllt.",
-   "h": "Setze das abgelesene Paar in beide Gleichungen ein.",
-   "g": "fehler"
+   "w": "Die Geraden sind parallel (gleiche Steigung) und verschieden. Sie haben keinen gemeinsamen Punkt.",
+   "h": "Haben die Geraden einen gemeinsamen Punkt?",
+   "g": "darstellung"
   },
   {
    "l": "grafisch",
@@ -1675,48 +1836,48 @@
    "l": "grafisch",
    "t": "grafisch",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Die beiden Geraden eines Gleichungssystems sind gezeichnet. Wie viele Lösungen hat das System?",
+    "text": "Gegeben: I: y = −2x − 3   II: y = −3x − 6. Jemand liest am Bild den Schnittpunkt (−2 | 3) ab. Stimmt das?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
-      -4,
-      4
+      -7,
+      1
      ],
      "y": [
-      -5,
-      5
+      -3,
+      9
      ],
      "graphen": [
       {
        "art": "linear",
-       "m": 1,
-       "t": 1,
-       "name": "g"
+       "m": -2,
+       "t": -3,
+       "name": "I"
       },
       {
        "art": "linear",
-       "m": 1,
-       "t": -2,
-       "name": "h"
+       "m": -3,
+       "t": -6,
+       "name": "II"
       }
      ]
     }
    },
    "a": [
-    "genau eine Lösung",
-    "keine Lösung",
-    "zwei Lösungen",
-    "unendlich viele Lösungen"
+    "Nein, richtig ist (−3 | 3).",
+    "Nein, richtig ist (3 | −3).",
+    "Ja, das Paar erfüllt beide Gleichungen.",
+    "Das kann man am Bild nicht entscheiden."
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
-   "w": "Die Geraden sind parallel (gleiche Steigung) und verschieden. Sie haben keinen gemeinsamen Punkt.",
-   "h": "Haben die Geraden einen gemeinsamen Punkt?",
-   "g": "darstellung"
+   "w": "Der Schnittpunkt ist (−3 | 3). Probe: I und II mit x = −3, y = 3 erfüllt.",
+   "h": "Setze das abgelesene Paar in beide Gleichungen ein.",
+   "g": "fehler"
   },
   {
    "l": "grafisch",
@@ -1789,6 +1950,154 @@
    "w": "I: 2 + 2 · 3 = 8 ✓. II: 3 · 2 − 3 = 3, nicht 4 ✗. Ein abgelesener Punkt ist nur dann die Lösung, wenn beide Gleichungen stimmen.",
    "h": "Setze (2 | 3) in beide Gleichungen ein.",
    "g": "mehrschritt"
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Geraden g: y = 2x − 1 und h: y = −x + 1,5 schneiden sich ungefähr bei (0,8 | 0,7). Berechne die x-Koordinate genau (gekürzter Bruch).",
+    "schablone": "x = □/□",
+    "hinweis": "Zähler und Nenner je als ganze Zahl.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      3
+     ],
+     "y": [
+      -3,
+      3
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": -1,
+       "name": "g"
+      },
+      {
+       "art": "linear",
+       "m": -1,
+       "t": 1.5,
+       "name": "h"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     5,
+     6
+    ]
+   },
+   "c": [
+    "5",
+    "6"
+   ],
+   "w": "Gleichsetzen: 2x − 1 = −x + 1,5 ⇔ 3x = 2,5 ⇔ x = 2,5/3 = 5/6 ≈ 0,83. Am Bild kann man das nur ungefähr ablesen.",
+   "h": "Ablesen ist hier ungenau. Rechne mit Gleichsetzen.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gerade g geht durch A(0 | 4) und B(4 | 0), Gerade h durch C(0 | −2) und D(2 | 0). Denke dir die Geraden durch die Punkte. Wo schneiden sie sich?",
+    "schablone": "S(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -3,
+      5
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 4,
+       "name": "A"
+      },
+      {
+       "x": 4,
+       "y": 0,
+       "name": "B"
+      },
+      {
+       "x": 0,
+       "y": -2,
+       "name": "C"
+      },
+      {
+       "x": 2,
+       "y": 0,
+       "name": "D"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     1
+    ]
+   },
+   "c": [
+    "(4 + 2) / 2",
+    "-3 + 4"
+   ],
+   "w": "g: y = −x + 4, h: y = x − 2. Gleichsetzen: −x + 4 = x − 2 ⇔ x = 3, y = 1. S(3 | 1).",
+   "h": "Bestimme aus den Punkten die beiden Geradengleichungen.",
+   "g": "transfer"
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Du willst I: 2x + y = 7 und II: x − y = −1 zeichnen. Welche Geraden zeichnest du?"
+   },
+   "a": [
+    "y = −2x + 7 und y = −x − 1",
+    "y = −2x + 7 und y = x + 1",
+    "y = 2x − 7 und y = x + 1",
+    "y = 2x + 7 und y = x − 1"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "I: 2x auf die andere Seite, y = −2x + 7. II: x − y = −1, also y = x + 1.",
+   "h": "Stelle jede Gleichung nach y um.",
+   "g": "darstellung"
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Tarif A: y = 10 + 2x, Tarif B: y = 4x (x Stunden, y Kosten in €). Im Diagramm schneiden sich die Geraden. Nach wie vielen Stunden kosten beide gleich viel?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "h"
+   },
+   "c": "10 / (4 - 2)",
+   "w": "10 + 2x = 4x ⇒ 2x = 10 ⇒ x = 5 h (beide 20 €).",
+   "h": "Der Schnittpunkt ist die Stelle gleicher Kosten."
   },
   {
    "l": "grafisch",
@@ -1989,200 +2298,6 @@
   {
    "l": "grafisch",
    "t": "grafisch",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Lies die Lösung des Gleichungssystems I: y = −x + 4   II: y = 2x + 4 am Schnittpunkt ab.",
-    "schablone": "S(□ | □)",
-    "hinweis": "Trage x und y des Schnittpunkts ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -4,
-      4
-     ],
-     "y": [
-      -2,
-      10
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": -1,
-       "t": 4,
-       "name": "I"
-      },
-      {
-       "art": "linear",
-       "m": 2,
-       "t": 4,
-       "name": "II"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     0,
-     4
-    ]
-   },
-   "c": [
-    "0",
-    "4"
-   ],
-   "w": "Die Geraden schneiden sich in S(0 | 4). L = {(0 | 4)}. Probe: I und II mit x = 0, y = 4 erfüllt.",
-   "h": "Suche den Punkt, der auf beiden Geraden liegt. Erst nach rechts/links (x), dann nach oben/unten (y)."
-  },
-  {
-   "l": "grafisch",
-   "t": "grafisch",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Lies die Lösung des Gleichungssystems I: −2x + y = 5   II: y = 3x + 5 am Schnittpunkt ab.",
-    "schablone": "S(□ | □)",
-    "hinweis": "Trage x und y des Schnittpunkts ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -4,
-      4
-     ],
-     "y": [
-      -1,
-      11
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": 2,
-       "t": 5,
-       "name": "I"
-      },
-      {
-       "art": "linear",
-       "m": 3,
-       "t": 5,
-       "name": "II"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     0,
-     5
-    ]
-   },
-   "c": [
-    "0",
-    "5"
-   ],
-   "w": "Die Geraden schneiden sich in S(0 | 5). L = {(0 | 5)}. Probe: I und II mit x = 0, y = 5 erfüllt.",
-   "h": "Suche den Punkt, der auf beiden Geraden liegt. Erst nach rechts/links (x), dann nach oben/unten (y)."
-  },
-  {
-   "l": "grafisch",
-   "t": "grafisch",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Lies die Lösung des Gleichungssystems I: y = 3x − 1   II: 2x + y = 4 am Schnittpunkt ab.",
-    "schablone": "S(□ | □)",
-    "hinweis": "Trage x und y des Schnittpunkts ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -3,
-      5
-     ],
-     "y": [
-      -4,
-      8
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": 3,
-       "t": -1,
-       "name": "I"
-      },
-      {
-       "art": "linear",
-       "m": -2,
-       "t": 4,
-       "name": "II"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     1,
-     2
-    ]
-   },
-   "c": [
-    "1",
-    "2"
-   ],
-   "w": "Die Geraden schneiden sich in S(1 | 2). L = {(1 | 2)}. Probe: I und II mit x = 1, y = 2 erfüllt.",
-   "h": "Suche den Punkt, der auf beiden Geraden liegt. Erst nach rechts/links (x), dann nach oben/unten (y)."
-  },
-  {
-   "l": "grafisch",
-   "t": "grafisch",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Gegeben: I: y = 3x − 1   II: y = 2x + 1. Jemand liest am Bild den Schnittpunkt (2 | 6) ab. Stimmt das?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -2,
-      6
-     ],
-     "y": [
-      -1,
-      11
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": 3,
-       "t": -1,
-       "name": "I"
-      },
-      {
-       "art": "linear",
-       "m": 2,
-       "t": 1,
-       "name": "II"
-      }
-     ]
-    }
-   },
-   "a": [
-    "Das kann man am Bild nicht entscheiden.",
-    "Nein, richtig ist (5 | 2).",
-    "Ja, das Paar erfüllt beide Gleichungen.",
-    "Nein, richtig ist (2 | 5)."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Der Schnittpunkt ist (2 | 5). Probe: I und II mit x = 2, y = 5 erfüllt.",
-   "h": "Setze das abgelesene Paar in beide Gleichungen ein.",
-   "g": "fehler"
-  },
-  {
-   "l": "grafisch",
-   "t": "grafisch",
    "p": "test",
    "s": 2,
    "y": "luecken",
@@ -2371,6 +2486,29 @@
     "2"
    ],
    "w": "Die Geraden schneiden sich in S(4 | 2). L = {(4 | 2)}. Probe: I und II mit x = 4, y = 2 erfüllt."
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Taxi A: y = 2x + 4, Taxi B: y = 3x + 1. Schnittpunkt?",
+    "schablone": "(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     3,
+     10
+    ]
+   },
+   "c": [
+    "3",
+    "10"
+   ],
+   "w": "Gegeben: 2x + 4 = 3x + 1. Gesucht: Schnittpunkt. Ansatz: Gleichsetzen. Rechnung: x = 3, y = 10. Antwort: (3 | 10)."
   },
   {
    "l": "grafisch",
@@ -2663,6 +2801,246 @@
   {
    "l": "grafisch",
    "t": "grafisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Tarif A: y = 0,2x + 2, Tarif B: y = 0,3x. Schnittpunkt?",
+    "schablone": "(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     20,
+     6
+    ]
+   },
+   "c": [
+    "20",
+    "6"
+   ],
+   "w": "Gegeben: 0,2x + 2 = 0,3x. Gesucht: Schnittpunkt. Ansatz: Gleichsetzen. Rechnung: x = 20, y = 6. Antwort: (20 | 6)."
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Tank A: y = 100 − 5x, Tank B: y = 40 + 5x (x Minuten). Wann gleich voll, wie viel?",
+    "schablone": "nach □ min, □ l",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     6,
+     70
+    ]
+   },
+   "c": [
+    "6",
+    "70"
+   ],
+   "w": "Gegeben: 100 − 5x = 40 + 5x. Gesucht: Schnittpunkt. Ansatz: Gleichsetzen. Rechnung: x = 6, y = 70. Antwort: Nach 6 min, 70 l."
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Lies die Lösung des Gleichungssystems I: y = −x + 4   II: y = 2x + 4 am Schnittpunkt ab.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage x und y des Schnittpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -2,
+      10
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -1,
+       "t": 4,
+       "name": "I"
+      },
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 4,
+       "name": "II"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     0,
+     4
+    ]
+   },
+   "c": [
+    "0",
+    "4"
+   ],
+   "w": "Die Geraden schneiden sich in S(0 | 4). L = {(0 | 4)}. Probe: I und II mit x = 0, y = 4 erfüllt.",
+   "h": "Suche den Punkt, der auf beiden Geraden liegt. Erst nach rechts/links (x), dann nach oben/unten (y)."
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Lies die Lösung des Gleichungssystems I: −2x + y = 5   II: y = 3x + 5 am Schnittpunkt ab.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage x und y des Schnittpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -1,
+      11
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 5,
+       "name": "I"
+      },
+      {
+       "art": "linear",
+       "m": 3,
+       "t": 5,
+       "name": "II"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     0,
+     5
+    ]
+   },
+   "c": [
+    "0",
+    "5"
+   ],
+   "w": "Die Geraden schneiden sich in S(0 | 5). L = {(0 | 5)}. Probe: I und II mit x = 0, y = 5 erfüllt.",
+   "h": "Suche den Punkt, der auf beiden Geraden liegt. Erst nach rechts/links (x), dann nach oben/unten (y)."
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Lies die Lösung des Gleichungssystems I: y = 3x − 1   II: 2x + y = 4 am Schnittpunkt ab.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage x und y des Schnittpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      5
+     ],
+     "y": [
+      -4,
+      8
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 3,
+       "t": -1,
+       "name": "I"
+      },
+      {
+       "art": "linear",
+       "m": -2,
+       "t": 4,
+       "name": "II"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "c": [
+    "1",
+    "2"
+   ],
+   "w": "Die Geraden schneiden sich in S(1 | 2). L = {(1 | 2)}. Probe: I und II mit x = 1, y = 2 erfüllt.",
+   "h": "Suche den Punkt, der auf beiden Geraden liegt. Erst nach rechts/links (x), dann nach oben/unten (y)."
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: I: y = 3x − 1   II: y = 2x + 1. Jemand liest am Bild den Schnittpunkt (2 | 6) ab. Stimmt das?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      6
+     ],
+     "y": [
+      -1,
+      11
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 3,
+       "t": -1,
+       "name": "I"
+      },
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 1,
+       "name": "II"
+      }
+     ]
+    }
+   },
+   "a": [
+    "Das kann man am Bild nicht entscheiden.",
+    "Nein, richtig ist (5 | 2).",
+    "Ja, das Paar erfüllt beide Gleichungen.",
+    "Nein, richtig ist (2 | 5)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Der Schnittpunkt ist (2 | 5). Probe: I und II mit x = 2, y = 5 erfüllt.",
+   "h": "Setze das abgelesene Paar in beide Gleichungen ein.",
+   "g": "fehler"
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
    "p": "uebung",
    "s": 1,
    "y": "luecken",
@@ -2757,192 +3135,6 @@
    ],
    "w": "Die Geraden schneiden sich in S(1 | −1). L = {(1 | −1)}. Probe: I und II mit x = 1, y = −1 erfüllt.",
    "h": "Suche den Punkt, der auf beiden Geraden liegt. Erst nach rechts/links (x), dann nach oben/unten (y)."
-  },
-  {
-   "l": "grafisch",
-   "t": "grafisch",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Lies den Schnittpunkt der beiden Geraden ab.",
-    "schablone": "S(□ | □)",
-    "hinweis": "Je Lücke eine ganze Zahl.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -2,
-      6
-     ],
-     "y": [
-      -1,
-      6
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": 0.5,
-       "t": 2,
-       "name": "g"
-      },
-      {
-       "art": "linear",
-       "m": -1,
-       "t": 5,
-       "name": "h"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     2,
-     3
-    ]
-   },
-   "c": [
-    "2",
-    "3"
-   ],
-   "w": "Die Geraden y = 0,5x + 2 und y = −x + 5 schneiden sich in (2 | 3). Probe: 0,5 · 2 + 2 = 3 und −2 + 5 = 3.",
-   "h": "Suche den gemeinsamen Punkt und lies x und y ab.",
-   "g": "erkennen"
-  },
-  {
-   "l": "grafisch",
-   "t": "grafisch",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Die Geraden g: y = 2x − 1 und h: y = −x + 1,5 schneiden sich ungefähr bei (0,8 | 0,7). Berechne die x-Koordinate genau (gekürzter Bruch).",
-    "schablone": "x = □/□",
-    "hinweis": "Zähler und Nenner je als ganze Zahl.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -2,
-      3
-     ],
-     "y": [
-      -3,
-      3
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": 2,
-       "t": -1,
-       "name": "g"
-      },
-      {
-       "art": "linear",
-       "m": -1,
-       "t": 1.5,
-       "name": "h"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     5,
-     6
-    ]
-   },
-   "c": [
-    "5",
-    "6"
-   ],
-   "w": "Gleichsetzen: 2x − 1 = −x + 1,5 ⇔ 3x = 2,5 ⇔ x = 2,5/3 = 5/6 ≈ 0,83. Am Bild kann man das nur ungefähr ablesen.",
-   "h": "Ablesen ist hier ungenau. Rechne mit Gleichsetzen.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "grafisch",
-   "t": "grafisch",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welches Gleichungssystem gehört zu den gezeichneten Geraden?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -2,
-      4
-     ],
-     "y": [
-      -2,
-      5
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": -1,
-       "t": 3
-      },
-      {
-       "art": "linear",
-       "m": 2,
-       "t": 0
-      }
-     ]
-    }
-   },
-   "a": [
-    "I: x + y = 3;  II: 2x − y = 0",
-    "I: x + y = −3;  II: 2x + y = 0",
-    "I: x + y = 3;  II: x − 2y = 0",
-    "I: x − y = 3;  II: 2x − y = 0"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Die fallende Gerade geht durch (0 | 3) und (3 | 0): y = −x + 3, also x + y = 3. Die steigende durch (0 | 0) und (1 | 2): y = 2x, also 2x − y = 0.",
-   "h": "Bestimme zu jeder Geraden y = m · x + t und forme um.",
-   "g": "rueckwaerts"
-  },
-  {
-   "l": "grafisch",
-   "t": "grafisch",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Die Gerade g: y = x + 1 ist gezeichnet. Mit welcher zweiten Gleichung hat das System KEINE Lösung?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -4,
-      4
-     ],
-     "y": [
-      -4,
-      5
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": 1,
-       "t": 1,
-       "name": "g"
-      }
-     ]
-    }
-   },
-   "a": [
-    "y = 2x + 1",
-    "y = −x + 1",
-    "y = x − 3",
-    "2y = 2x + 2"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Keine Lösung heißt: parallel, aber verschieden. y = x − 3 hat dieselbe Steigung 1. 2y = 2x + 2 ist dieselbe Gerade wie g (unendlich viele Lösungen).",
-   "h": "Welche Gerade ist parallel zu g, aber nicht gleich?",
-   "g": "begruenden"
   },
   {
    "l": "einsetzen",
@@ -3121,6 +3313,88 @@
    "t": "einsetzen",
    "p": "uebung",
    "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = 5x − 5   II: −4x − 2y = 80. Gib y an."
+   },
+   "o": {
+    "wert": -30
+   },
+   "c": "(5) * (-5) + (-5)",
+   "w": "I in II: −4x − 2 · (5x − 5) = 80 → −14x + 10 = 80 → x = −5. In I: y = 5 · (−5) − 5 = −30. L = {(−5 | −30)}.",
+   "h": "Setze den Term für y (oder x) in die andere Gleichung ein. Klammern setzen!",
+   "g": "direkt"
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Vater ist dreimal so alt wie seine Tochter. Zusammen sind sie 52 Jahre alt. Wie alt ist die Tochter?"
+   },
+   "o": {
+    "wert": 13,
+    "einheit": "Jahre"
+   },
+   "c": "52 / 4",
+   "w": "I: v = 3t, II: v + t = 52. Einsetzen: 3t + t = 52 ⇔ t = 13. Der Vater ist 39.",
+   "h": "Stelle zwei Gleichungen auf. Eine ist schon nach v aufgelöst.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ben setzt I: y = 2x + 1 in II: 4x − 3y = 7 ein und schreibt: 4x − 3 · 2x + 1 = 7. Was stimmt?"
+   },
+   "a": [
+    "Richtig; es folgt x = −3.",
+    "Falsch: Man muss y in I einsetzen.",
+    "Falsch: Richtig ist x = 5.",
+    "Falsch: 2x + 1 muss in Klammern. Richtig ist x = −5."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Richtig: 4x − 3(2x + 1) = 7 ⇔ 4x − 6x − 3 = 7 ⇔ −2x = 10 ⇔ x = −5, y = −9. Ohne Klammer wird nur 2x mit 3 multipliziert.",
+   "h": "Was passiert mit der 1, wenn man −3 · (2x + 1) rechnet?",
+   "g": "fehler"
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "luecken",
+   "f": {
+    "text": "Löse I: x = 2y + 1, II: 3x − 4y = 7 und mache die Probe.",
+    "schablone": "x = □; y = □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     5,
+     2
+    ]
+   },
+   "c": [
+    "5",
+    "2"
+   ],
+   "w": "3(2y + 1) − 4y = 7 ⇒ 2y + 3 = 7 ⇒ y = 2, x = 5. Probe II: 15 − 8 = 7 ✓.",
+   "h": "Setze den Term für x mit Klammer in II ein."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Löse mit dem Einsetzungsverfahren: I: y = 4x   II: 2x − y = −14. Gib die Lösung an.",
@@ -3186,95 +3460,6 @@
     "(-1) * (-4) + (7)"
    ],
    "w": "I in II: 4x − 3 · (−x + 7) = −49 → 7x − 21 = −49 → x = −4. In I: y = −(−4) + 7 = 11. L = {(−4 | 11)}.",
-   "h": "Setze den Term für y (oder x) in die andere Gleichung ein. Klammern setzen!"
-  },
-  {
-   "l": "einsetzen",
-   "t": "einsetzen",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse mit dem Einsetzungsverfahren: I: y = 5x + 2   II: x − 2y = 23. Gib die Lösung an.",
-    "schablone": "x = □; y = □",
-    "hinweis": "Trage x und y ein."
-   },
-   "o": {
-    "werte": [
-     -3,
-     -13
-    ]
-   },
-   "c": [
-    "(23 - (-2) * (2)) / ((1) + (-2) * (5))",
-    "(5) * (-3) + (2)"
-   ],
-   "w": "I in II: x − 2 · (5x + 2) = 23 → −9x − 4 = 23 → x = −3. In I: y = 5 · (−3) + 2 = −13. L = {(−3 | −13)}.",
-   "h": "Setze den Term für y (oder x) in die andere Gleichung ein. Klammern setzen!"
-  },
-  {
-   "l": "einsetzen",
-   "t": "einsetzen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse mit dem Einsetzungsverfahren: I: y = 5x − 5   II: −4x − 2y = 80. Gib y an."
-   },
-   "o": {
-    "wert": -30
-   },
-   "c": "(5) * (-5) + (-5)",
-   "w": "I in II: −4x − 2 · (5x − 5) = 80 → −14x + 10 = 80 → x = −5. In I: y = 5 · (−5) − 5 = −30. L = {(−5 | −30)}.",
-   "h": "Setze den Term für y (oder x) in die andere Gleichung ein. Klammern setzen!",
-   "g": "direkt"
-  },
-  {
-   "l": "einsetzen",
-   "t": "einsetzen",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse mit dem Einsetzungsverfahren: I: y = −2x − 9   II: −x − 4y = 57. Gib die Lösung an.",
-    "schablone": "x = □; y = □",
-    "hinweis": "Trage x und y ein."
-   },
-   "o": {
-    "werte": [
-     3,
-     -15
-    ]
-   },
-   "c": [
-    "(57 - (-4) * (-9)) / ((-1) + (-4) * (-2))",
-    "(-2) * (3) + (-9)"
-   ],
-   "w": "I in II: −x − 4 · (−2x − 9) = 57 → 7x + 36 = 57 → x = 3. In I: y = −2 · 3 − 9 = −15. L = {(3 | −15)}.",
-   "h": "Setze den Term für y (oder x) in die andere Gleichung ein. Klammern setzen!"
-  },
-  {
-   "l": "einsetzen",
-   "t": "einsetzen",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse mit dem Einsetzungsverfahren: I: y = −x + 3   II: −2x + 4y = −6. Gib die Lösung an.",
-    "schablone": "x = □; y = □",
-    "hinweis": "Trage x und y ein."
-   },
-   "o": {
-    "werte": [
-     3,
-     0
-    ]
-   },
-   "c": [
-    "(-6 - (4) * (3)) / ((-2) + (4) * (-1))",
-    "(-1) * (3) + (3)"
-   ],
-   "w": "I in II: −2x + 4 · (−x + 3) = −6 → −6x + 12 = −6 → x = 3. In I: y = −3 + 3 = 0. L = {(3 | 0)}.",
    "h": "Setze den Term für y (oder x) in die andere Gleichung ein. Klammern setzen!"
   },
   {
@@ -3368,6 +3553,22 @@
     "(5) * (0) + (-7)"
    ],
    "w": "I in II: −x + 3 · (5x − 7) = −21 → 14x − 21 = −21 → x = 0. In I: y = 5 · 0 − 7 = −7. L = {(0 | −7)}."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist doppelt so lang wie breit, Umfang 36 cm. Wie breit ist es?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "36 / 6",
+   "w": "Gegeben: l = 2b, 2l + 2b = 36. Gesucht: b. Ansatz: Einsetzen. Rechnung: 6b = 36 ⇒ b = 6. Antwort: 6 cm."
   },
   {
    "l": "einsetzen",
@@ -3494,6 +3695,110 @@
   {
    "l": "einsetzen",
    "t": "einsetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Vater ist 28 Jahre älter als seine Tochter. Zusammen sind sie 50. Wie alt ist die Tochter?"
+   },
+   "o": {
+    "wert": 11,
+    "einheit": "Jahre"
+   },
+   "c": "(50 - 28) / 2",
+   "w": "Gegeben: v = t + 28, v + t = 50. Gesucht: t. Ansatz: Einsetzen. Rechnung: 2t + 28 = 50 ⇒ t = 11. Antwort: 11 Jahre."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Saft kostet dreimal so viel wie ein Wasser. Zusammen kosten sie 4 €. Was kostet das Wasser?"
+   },
+   "o": {
+    "wert": 1,
+    "einheit": "€"
+   },
+   "c": "4 / 4",
+   "w": "Gegeben: s = 3w, s + w = 4. Gesucht: w. Ansatz: Einsetzen. Rechnung: 4w = 4 ⇒ w = 1. Antwort: 1 €."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = 5x + 2   II: x − 2y = 23. Gib die Lösung an.",
+    "schablone": "x = □; y = □",
+    "hinweis": "Trage x und y ein."
+   },
+   "o": {
+    "werte": [
+     -3,
+     -13
+    ]
+   },
+   "c": [
+    "(23 - (-2) * (2)) / ((1) + (-2) * (5))",
+    "(5) * (-3) + (2)"
+   ],
+   "w": "I in II: x − 2 · (5x + 2) = 23 → −9x − 4 = 23 → x = −3. In I: y = 5 · (−3) + 2 = −13. L = {(−3 | −13)}.",
+   "h": "Setze den Term für y (oder x) in die andere Gleichung ein. Klammern setzen!"
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = −2x − 9   II: −x − 4y = 57. Gib die Lösung an.",
+    "schablone": "x = □; y = □",
+    "hinweis": "Trage x und y ein."
+   },
+   "o": {
+    "werte": [
+     3,
+     -15
+    ]
+   },
+   "c": [
+    "(57 - (-4) * (-9)) / ((-1) + (-4) * (-2))",
+    "(-2) * (3) + (-9)"
+   ],
+   "w": "I in II: −x − 4 · (−2x − 9) = 57 → 7x + 36 = 57 → x = 3. In I: y = −2 · 3 − 9 = −15. L = {(3 | −15)}.",
+   "h": "Setze den Term für y (oder x) in die andere Gleichung ein. Klammern setzen!"
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse mit dem Einsetzungsverfahren: I: y = −x + 3   II: −2x + 4y = −6. Gib die Lösung an.",
+    "schablone": "x = □; y = □",
+    "hinweis": "Trage x und y ein."
+   },
+   "o": {
+    "werte": [
+     3,
+     0
+    ]
+   },
+   "c": [
+    "(-6 - (4) * (3)) / ((-2) + (4) * (-1))",
+    "(-1) * (3) + (3)"
+   ],
+   "w": "I in II: −2x + 4 · (−x + 3) = −6 → −6x + 12 = −6 → x = 3. In I: y = −3 + 3 = 0. L = {(3 | 0)}.",
+   "h": "Setze den Term für y (oder x) in die andere Gleichung ein. Klammern setzen!"
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
    "p": "uebung",
    "s": 1,
    "y": "luecken",
@@ -3568,24 +3873,6 @@
    "t": "einsetzen",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Vater ist dreimal so alt wie seine Tochter. Zusammen sind sie 52 Jahre alt. Wie alt ist die Tochter?"
-   },
-   "o": {
-    "wert": 13,
-    "einheit": "Jahre"
-   },
-   "c": "52 / 4",
-   "w": "I: v = 3t, II: v + t = 52. Einsetzen: 3t + t = 52 ⇔ t = 13. Der Vater ist 39.",
-   "h": "Stelle zwei Gleichungen auf. Eine ist schon nach v aufgelöst.",
-   "g": "einkleidung"
-  },
-  {
-   "l": "einsetzen",
-   "t": "einsetzen",
-   "p": "uebung",
-   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse: I: 2x + 3y = 7   II: x − 2y = 0. Gib die Lösung an.",
@@ -3603,30 +3890,7 @@
     "1"
    ],
    "w": "II umstellen: x = 2y. In I: 4y + 3y = 7 ⇔ y = 1. x = 2. Probe: 4 + 3 = 7.",
-   "h": "Stelle zuerst die einfachere Gleichung nach x um.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "einsetzen",
-   "t": "einsetzen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ben setzt I: y = 2x + 1 in II: 4x − 3y = 7 ein und schreibt: 4x − 3 · 2x + 1 = 7. Was stimmt?"
-   },
-   "a": [
-    "Richtig; es folgt x = −3.",
-    "Falsch: Man muss y in I einsetzen.",
-    "Falsch: Richtig ist x = 5.",
-    "Falsch: 2x + 1 muss in Klammern. Richtig ist x = −5."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Richtig: 4x − 3(2x + 1) = 7 ⇔ 4x − 6x − 3 = 7 ⇔ −2x = 10 ⇔ x = −5, y = −9. Ohne Klammer wird nur 2x mit 3 multipliziert.",
-   "h": "Was passiert mit der 1, wenn man −3 · (2x + 1) rechnet?",
-   "g": "fehler"
+   "h": "Stelle zuerst die einfachere Gleichung nach x um."
   },
   {
    "l": "einsetzen",
@@ -3751,31 +4015,6 @@
    "t": "einsetzen",
    "p": "uebung",
    "s": 3,
-   "g": "pruefung",
-   "y": "luecken",
-   "f": {
-    "text": "Löse I: x = 2y + 1, II: 3x − 4y = 7 und mache die Probe.",
-    "schablone": "x = □; y = □",
-    "hinweis": "Je Lücke eine ganze Zahl."
-   },
-   "o": {
-    "werte": [
-     5,
-     2
-    ]
-   },
-   "c": [
-    "5",
-    "2"
-   ],
-   "w": "3(2y + 1) − 4y = 7 ⇒ 2y + 3 = 7 ⇒ y = 2, x = 5. Probe II: 15 − 8 = 7 ✓.",
-   "h": "Setze den Term für x mit Klammer in II ein."
-  },
-  {
-   "l": "einsetzen",
-   "t": "einsetzen",
-   "p": "uebung",
-   "s": 3,
    "g": "transfer",
    "y": "zahl",
    "f": {
@@ -3787,6 +4026,106 @@
    "c": "2 * 12 + 4",
    "w": "y = 2x + 4 und x + y = 40 ⇒ 3x + 4 = 40 ⇒ x = 12, y = 28.",
    "h": "Stelle zwei Gleichungen auf und setze ein."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Stift kostet 1 € mehr als ein Radiergummi (s = r + 1). Zusammen kosten sie 3 €. Was kostet der Radiergummi?"
+   },
+   "o": {
+    "wert": 1,
+    "einheit": "€"
+   },
+   "c": "(3 - 1) / 2",
+   "w": "Gegeben: s = r + 1, s + r = 3. Gesucht: r. Ansatz: I in II einsetzen. Rechnung: r + 1 + r = 3 ⇒ r = 1. Antwort: Der Radiergummi kostet 1 €.",
+   "h": "Ersetze s in der zweiten Gleichung."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Mutter ist dreimal so alt wie ihr Sohn. Zusammen sind sie 48 Jahre alt. Wie alt ist der Sohn?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "Jahre"
+   },
+   "c": "48 / 4",
+   "w": "Gegeben: m = 3s, m + s = 48. Gesucht: s. Ansatz: Einsetzen. Rechnung: 3s + s = 48 ⇒ s = 12. Antwort: Der Sohn ist 12 Jahre alt.",
+   "h": "Ersetze m durch 3s."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "luecken",
+   "f": {
+    "text": "Ein Rechteck ist 4 cm länger als breit, sein Umfang ist 32 cm. Bestimme Breite und Länge.",
+    "schablone": "b = □ cm, l = □ cm",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     6,
+     10
+    ]
+   },
+   "c": [
+    "6",
+    "10"
+   ],
+   "w": "Gegeben: l = b + 4, 2l + 2b = 32. Gesucht: b, l. Ansatz: Einsetzen. Rechnung: 2(b + 4) + 2b = 32 ⇒ 4b = 24 ⇒ b = 6, l = 10. Antwort: b = 6 cm, l = 10 cm.",
+   "h": "Ersetze l in der Umfangsformel."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Ticket für Erwachsene kostet doppelt so viel wie für Kinder: e = 2k. 1 Erwachsener und 3 Kinder zahlen 25 €. Jemand rechnet: 2k + 3 = 25 ⇒ k = 11. Was stimmt?"
+   },
+   "a": [
+    "Falsch: k = 8 €.",
+    "Richtig.",
+    "Falsch: 2k + 3k = 25 ⇒ k = 5 €.",
+    "Falsch: k = 12,5 €."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gegeben: e = 2k, e + 3k = 25. Gesucht: Fehler. Ansatz: e durch 2k ersetzen, 3k nicht vergessen. Rechnung: 5k = 25 ⇒ k = 5. Antwort: Ein Kinderticket kostet 5 €.",
+   "h": "Was ist mit dem k bei „3 Kinder“ passiert?"
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "In einer Klasse mit 2 Lehrkräften sind 4 mehr Mädchen als Jungen; zusammen sind es 28 Kinder. Wie viele Mädchen sind in der Klasse?"
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "(28 + 4) / 2",
+   "w": "Gegeben: m = j + 4, m + j = 28; die Lehrkräfte zählen nicht mit. Gesucht: m. Ansatz: Einsetzen. Rechnung: j + 4 + j = 28 ⇒ j = 12, m = 16. Antwort: Es sind 16 Mädchen.",
+   "h": "Welche Angabe gehört nicht in die Gleichungen?"
   },
   {
    "l": "einsetzen",
@@ -3901,6 +4240,31 @@
    "l": "gleichsetzen",
    "t": "gleichsetzen",
    "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −2x + 5   II: 6x − 2y = −50. Gib die Lösung an.",
+    "schablone": "x = □; y = □",
+    "hinweis": "Trage x und y ein."
+   },
+   "o": {
+    "werte": [
+     -4,
+     13
+    ]
+   },
+   "c": [
+    "(25 - (5)) / ((-2) - (3))",
+    "(-2) * (-4) + (5)"
+   ],
+   "w": "II nach y auflösen: y = 3x + 25. Gleichsetzen: −2x + 5 = 3x + 25 → −5x = 20 → x = −4. In I: y = 13. L = {(−4 | 13)}.",
+   "h": "Löse zuerst Gleichung II nach y auf.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
    "s": 1,
    "y": "luecken",
    "f": {
@@ -3950,26 +4314,109 @@
    "l": "gleichsetzen",
    "t": "gleichsetzen",
    "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Wanderer sind 18 km voneinander entfernt und gehen gleichzeitig aufeinander zu: A mit 4 km/h, B mit 5 km/h. Nach wie vielen Stunden treffen sie sich?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "h"
+   },
+   "c": "18 / 9",
+   "w": "Ort von A ab Start A: s = 4t. Ort von B: s = 18 − 5t. Gleichsetzen: 4t = 18 − 5t ⇔ 9t = 18 ⇔ t = 2.",
+   "h": "Miss beide Orte vom Startpunkt von A aus.",
+   "g": "transfer"
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −2x + 5   II: 6x − 2y = −50. Gib die Lösung an.",
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −3x + 4   II: 10x − 2y = −40. Gib die Lösung an.",
     "schablone": "x = □; y = □",
     "hinweis": "Trage x und y ein."
    },
    "o": {
     "werte": [
-     -4,
-     13
+     -2,
+     10
     ]
    },
    "c": [
-    "(25 - (5)) / ((-2) - (3))",
-    "(-2) * (-4) + (5)"
+    "(20 - (4)) / ((-3) - (5))",
+    "(-3) * (-2) + (4)"
    ],
-   "w": "II nach y auflösen: y = 3x + 25. Gleichsetzen: −2x + 5 = 3x + 25 → −5x = 20 → x = −4. In I: y = 13. L = {(−4 | 13)}.",
+   "w": "II nach y auflösen: y = 5x + 20. Gleichsetzen: −3x + 4 = 5x + 20 → −8x = 16 → x = −2. In I: y = 10. L = {(−2 | 10)}.",
    "h": "Löse zuerst Gleichung II nach y auf.",
    "g": "mehrschritt"
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Handytarif A: 9 € im Monat plus 0,05 € pro Minute. Tarif B: 0,11 € pro Minute ohne Grundgebühr. Bei wie vielen Minuten kosten beide gleich viel?"
+   },
+   "o": {
+    "wert": 150,
+    "einheit": "min"
+   },
+   "c": "9 / 0.06",
+   "w": "A: y = 0,05x + 9, B: y = 0,11x. Gleichsetzen: 0,05x + 9 = 0,11x ⇔ 9 = 0,06x ⇔ x = 150.",
+   "h": "Stelle für jeden Tarif y = … auf.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse: I: 2y = 4x + 6   II: 3y = 6x − 3. Was ergibt sich?"
+   },
+   "a": [
+    "keine Lösung",
+    "x = 0, y = 3",
+    "unendlich viele Lösungen",
+    "genau eine Lösung"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nach y auflösen: I: y = 2x + 3, II: y = 2x − 1. Gleichsetzen: 2x + 3 = 2x − 1 ⇔ 3 = −1. Falsch – keine Lösung (parallele Geraden).",
+   "h": "Löse zuerst beide Gleichungen nach y auf.",
+   "g": "begruenden"
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "luecken",
+   "f": {
+    "text": "Löse I: y = 1,5x − 2, II: y = −0,5x + 6 und gib die Lösung an.",
+    "schablone": "x = □; y = □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     4,
+     4
+    ]
+   },
+   "c": [
+    "4",
+    "4"
+   ],
+   "w": "1,5x − 2 = −0,5x + 6 ⇒ 2x = 8 ⇒ x = 4, y = 4.",
+   "h": "Bring alle x auf eine Seite."
   },
   {
    "l": "gleichsetzen",
@@ -3985,26 +4432,7 @@
    },
    "c": "(3) * (8) + (-4)",
    "w": "3x − 4 = −x + 28 → 4x = 32 → x = 8. In I: y = 20. L = {(8 | 20)}.",
-   "h": "Setze die beiden rechten Seiten gleich und löse nach x.",
-   "g": "direkt"
-  },
-  {
-   "l": "gleichsetzen",
-   "t": "gleichsetzen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Zwei Wanderer sind 18 km voneinander entfernt und gehen gleichzeitig aufeinander zu: A mit 4 km/h, B mit 5 km/h. Nach wie vielen Stunden treffen sie sich?"
-   },
-   "o": {
-    "wert": 2,
-    "einheit": "h"
-   },
-   "c": "18 / 9",
-   "w": "Ort von A ab Start A: s = 4t. Ort von B: s = 18 − 5t. Gleichsetzen: 4t = 18 − 5t ⇔ 9t = 18 ⇔ t = 2.",
-   "h": "Miss beide Orte vom Startpunkt von A aus.",
-   "g": "transfer"
+   "h": "Setze die beiden rechten Seiten gleich und löse nach x."
   },
   {
    "l": "gleichsetzen",
@@ -4053,96 +4481,6 @@
    ],
    "w": "−2x + 5 = 5x − 30 → −7x = −35 → x = 5. In I: y = −5. L = {(5 | −5)}.",
    "h": "Setze die beiden rechten Seiten gleich und löse nach x."
-  },
-  {
-   "l": "gleichsetzen",
-   "t": "gleichsetzen",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = x − 8   II: y = 4x + 10. Gib die Lösung an.",
-    "schablone": "x = □; y = □",
-    "hinweis": "Trage x und y ein."
-   },
-   "o": {
-    "werte": [
-     -6,
-     -14
-    ]
-   },
-   "c": [
-    "(10 - (-8)) / ((1) - (4))",
-    "(1) * (-6) + (-8)"
-   ],
-   "w": "x − 8 = 4x + 10 → −3x = 18 → x = −6. In I: y = −14. L = {(−6 | −14)}.",
-   "h": "Setze die beiden rechten Seiten gleich und löse nach x."
-  },
-  {
-   "l": "gleichsetzen",
-   "t": "gleichsetzen",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −4x − 4   II: y = x − 19. Gib die Lösung an.",
-    "schablone": "x = □; y = □",
-    "hinweis": "Trage x und y ein."
-   },
-   "o": {
-    "werte": [
-     3,
-     -16
-    ]
-   },
-   "c": [
-    "(-19 - (-4)) / ((-4) - (1))",
-    "(-4) * (3) + (-4)"
-   ],
-   "w": "−4x − 4 = x − 19 → −5x = −15 → x = 3. In I: y = −16. L = {(3 | −16)}.",
-   "h": "Setze die beiden rechten Seiten gleich und löse nach x."
-  },
-  {
-   "l": "gleichsetzen",
-   "t": "gleichsetzen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −3x − 5   II: y = −4x − 1. Gib x an."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "(-1 - (-5)) / ((-3) - (-4))",
-   "w": "−3x − 5 = −4x − 1 → x = 4. In I: y = −17. L = {(4 | −17)}.",
-   "h": "Setze die beiden rechten Seiten gleich und löse nach x.",
-   "g": "direkt"
-  },
-  {
-   "l": "gleichsetzen",
-   "t": "gleichsetzen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −3x + 4   II: 10x − 2y = −40. Gib die Lösung an.",
-    "schablone": "x = □; y = □",
-    "hinweis": "Trage x und y ein."
-   },
-   "o": {
-    "werte": [
-     -2,
-     10
-    ]
-   },
-   "c": [
-    "(20 - (4)) / ((-3) - (5))",
-    "(-3) * (-2) + (4)"
-   ],
-   "w": "II nach y auflösen: y = 5x + 20. Gleichsetzen: −3x + 4 = 5x + 20 → −8x = 16 → x = −2. In I: y = 10. L = {(−2 | 10)}.",
-   "h": "Löse zuerst Gleichung II nach y auf.",
-   "g": "mehrschritt"
   },
   {
    "l": "gleichsetzen",
@@ -4219,6 +4557,22 @@
    },
    "c": "(-5) * (2) + (4)",
    "w": "−5x + 4 = x − 8 → −6x = −12 → x = 2. In I: y = −6. L = {(2 | −6)}."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Handwerker A: y = 40x + 30, Handwerker B: y = 35x + 50. Bei wie vielen Stunden gleich teuer?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "h"
+   },
+   "c": "20 / 5",
+   "w": "Gegeben: 40x + 30 = 35x + 50. Gesucht: x. Ansatz: Gleichsetzen. Rechnung: x = 4. Antwort: Bei 4 Stunden."
   },
   {
    "l": "gleichsetzen",
@@ -4353,6 +4707,102 @@
   {
    "l": "gleichsetzen",
    "t": "gleichsetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Taxi A: y = 2x + 5, Taxi B: y = 3x + 1. Bei wie vielen km gleich teuer?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "km"
+   },
+   "c": "4",
+   "w": "Gegeben: 2x + 5 = 3x + 1. Gesucht: x. Ansatz: Gleichsetzen. Rechnung: x = 4. Antwort: Bei 4 km."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Sparplan A: y = 100 + 20x, Sparplan B: y = 40 + 35x. Nach wie vielen Monaten gleich?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "Monate"
+   },
+   "c": "60 / 15",
+   "w": "Gegeben: 100 + 20x = 40 + 35x. Gesucht: x. Ansatz: Gleichsetzen. Rechnung: x = 4. Antwort: Nach 4 Monaten."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = x − 8   II: y = 4x + 10. Gib die Lösung an.",
+    "schablone": "x = □; y = □",
+    "hinweis": "Trage x und y ein."
+   },
+   "o": {
+    "werte": [
+     -6,
+     -14
+    ]
+   },
+   "c": [
+    "(10 - (-8)) / ((1) - (4))",
+    "(1) * (-6) + (-8)"
+   ],
+   "w": "x − 8 = 4x + 10 → −3x = 18 → x = −6. In I: y = −14. L = {(−6 | −14)}.",
+   "h": "Setze die beiden rechten Seiten gleich und löse nach x."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −4x − 4   II: y = x − 19. Gib die Lösung an.",
+    "schablone": "x = □; y = □",
+    "hinweis": "Trage x und y ein."
+   },
+   "o": {
+    "werte": [
+     3,
+     -16
+    ]
+   },
+   "c": [
+    "(-19 - (-4)) / ((-4) - (1))",
+    "(-4) * (3) + (-4)"
+   ],
+   "w": "−4x − 4 = x − 19 → −5x = −15 → x = 3. In I: y = −16. L = {(3 | −16)}.",
+   "h": "Setze die beiden rechten Seiten gleich und löse nach x."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −3x − 5   II: y = −4x − 1. Gib x an."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(-1 - (-5)) / ((-3) - (-4))",
+   "w": "−3x − 5 = −4x − 1 → x = 4. In I: y = −17. L = {(4 | −17)}.",
+   "h": "Setze die beiden rechten Seiten gleich und löse nach x."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
    "p": "uebung",
    "s": 2,
    "y": "luecken",
@@ -4421,46 +4871,6 @@
    ],
    "w": "0,5x + 3 = −0,5x + 1 ⇔ x = −2. y = −1 + 3 = 2.",
    "h": "Setze die Terme gleich und sammle x links."
-  },
-  {
-   "l": "gleichsetzen",
-   "t": "gleichsetzen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Handytarif A: 9 € im Monat plus 0,05 € pro Minute. Tarif B: 0,11 € pro Minute ohne Grundgebühr. Bei wie vielen Minuten kosten beide gleich viel?"
-   },
-   "o": {
-    "wert": 150,
-    "einheit": "min"
-   },
-   "c": "9 / 0.06",
-   "w": "A: y = 0,05x + 9, B: y = 0,11x. Gleichsetzen: 0,05x + 9 = 0,11x ⇔ 9 = 0,06x ⇔ x = 150.",
-   "h": "Stelle für jeden Tarif y = … auf.",
-   "g": "einkleidung"
-  },
-  {
-   "l": "gleichsetzen",
-   "t": "gleichsetzen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Löse: I: 2y = 4x + 6   II: 3y = 6x − 3. Was ergibt sich?"
-   },
-   "a": [
-    "keine Lösung",
-    "x = 0, y = 3",
-    "unendlich viele Lösungen",
-    "genau eine Lösung"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Nach y auflösen: I: y = 2x + 3, II: y = 2x − 1. Gleichsetzen: 2x + 3 = 2x − 1 ⇔ 3 = −1. Falsch – keine Lösung (parallele Geraden).",
-   "h": "Löse zuerst beide Gleichungen nach y auf.",
-   "g": "begruenden"
   },
   {
    "l": "gleichsetzen",
@@ -4606,31 +5016,6 @@
    "t": "gleichsetzen",
    "p": "uebung",
    "s": 3,
-   "g": "pruefung",
-   "y": "luecken",
-   "f": {
-    "text": "Löse I: y = 1,5x − 2, II: y = −0,5x + 6 und gib die Lösung an.",
-    "schablone": "x = □; y = □",
-    "hinweis": "Je Lücke eine ganze Zahl."
-   },
-   "o": {
-    "werte": [
-     4,
-     4
-    ]
-   },
-   "c": [
-    "4",
-    "4"
-   ],
-   "w": "1,5x − 2 = −0,5x + 6 ⇒ 2x = 8 ⇒ x = 4, y = 4.",
-   "h": "Bring alle x auf eine Seite."
-  },
-  {
-   "l": "gleichsetzen",
-   "t": "gleichsetzen",
-   "p": "uebung",
-   "s": 3,
    "g": "transfer",
    "y": "zahl",
    "f": {
@@ -4643,6 +5028,106 @@
    "c": "14 - 6",
    "w": "20 − 2t = 14 − t ⇒ t = 6 h. Dann sind beide 20 − 12 = 8 cm lang.",
    "h": "Stelle für jede Kerze die Länge nach t Stunden auf."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Tarif A kostet y = 0,1x + 8, Tarif B y = 0,3x Euro (x Minuten). Bei wie vielen Minuten kosten beide gleich viel?"
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "min"
+   },
+   "c": "8 / 0.2",
+   "w": "Gegeben: 0,1x + 8 = 0,3x. Gesucht: x. Ansatz: Gleichsetzen. Rechnung: 8 = 0,2x ⇒ x = 40. Antwort: Bei 40 Minuten.",
+   "h": "Setze die beiden Terme gleich."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Kind A hat 50 € und spart 5 € pro Woche, Kind B hat 20 € und spart 8 € pro Woche. Nach wie vielen Wochen haben beide gleich viel?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "Wochen"
+   },
+   "c": "30 / 3",
+   "w": "Gegeben: y = 50 + 5x, y = 20 + 8x. Gesucht: x. Ansatz: Gleichsetzen. Rechnung: 30 = 3x ⇒ x = 10. Antwort: Nach 10 Wochen.",
+   "h": "Stelle für beide eine Gleichung auf."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "luecken",
+   "f": {
+    "text": "Tank A enthält 500 l und verliert 20 l pro Minute, Tank B enthält 200 l und bekommt 10 l pro Minute. Wann ist in beiden gleich viel, und wie viel?",
+    "schablone": "nach □ min, □ l",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     10,
+     300
+    ]
+   },
+   "c": [
+    "10",
+    "300"
+   ],
+   "w": "Gegeben: y = 500 − 20x, y = 200 + 10x. Gesucht: Schnittpunkt. Ansatz: Gleichsetzen, einsetzen. Rechnung: 300 = 30x ⇒ x = 10; y = 300. Antwort: Nach 10 min, 300 l.",
+   "h": "Erst x, dann y."
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Fitnessstudio A kostet 30 € Grundbetrag plus 2 € pro Besuch, B 10 € plus 4 € pro Besuch. A hat eine Sauna. Bei wie vielen Besuchen im Monat kosten beide gleich viel?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "20 / 2",
+   "w": "Gegeben: 30 + 2x = 10 + 4x; die Sauna spielt keine Rolle. Gesucht: x. Ansatz: Gleichsetzen. Rechnung: 20 = 2x ⇒ x = 10. Antwort: Bei 10 Besuchen.",
+   "h": "Welche Angabe gehört nicht in die Rechnung?"
+  },
+  {
+   "l": "gleichsetzen",
+   "t": "gleichsetzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Kerzen: A ist 24 cm hoch und brennt 3 cm pro Stunde, B ist 16 cm hoch und brennt 1 cm pro Stunde. Jemand sagt: „Nach 4 Stunden sind beide gleich hoch – danach ist A kleiner.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Danach ist A größer.",
+    "Falsch: Sie sind nie gleich hoch.",
+    "Falsch: nach 8 h.",
+    "Richtig: Beide sind nach 4 h 12 cm hoch, danach brennt A schneller."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gegeben: 24 − 3x = 16 − x. Gesucht: Prüfen. Ansatz: Gleichsetzen und deuten. Rechnung: x = 4, h = 12. Antwort: Die Aussage stimmt.",
+   "h": "Löse die Gleichung und überlege, welche Kerze schneller kürzer wird."
   },
   {
    "l": "gleichsetzen",
@@ -4827,6 +5312,96 @@
    "l": "addition",
    "t": "addition",
    "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse geschickt: I: 37x + 63y = 163   II: 63x + 37y = 137. Gib die Lösung an.",
+    "schablone": "x = □; y = □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "c": [
+    "(3 - 1) / 2",
+    "(3 + 1) / 2"
+   ],
+   "w": "I + II: 100x + 100y = 300 ⇔ x + y = 3. II − I: 26x − 26y = −26 ⇔ x − y = −1. Daraus x = 1, y = 2.",
+   "h": "Addiere I und II. Ziehe dann I von II ab. Was fällt auf?",
+   "g": "transfer"
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "3 Brezeln und 2 Kakao kosten 7,40 €, 1 Brezel und 2 Kakao kosten 5 €. Was kostet eine Brezel?"
+   },
+   "o": {
+    "wert": 1.2,
+    "einheit": "€"
+   },
+   "c": "(74/10 - 5) / 2",
+   "w": "Subtrahieren (I − II): 2 Brezeln = 2,40 € ⇒ 1 Brezel = 1,20 €.",
+   "h": "Die Kakaos sind in beiden Angaben gleich – zieh ab."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand addiert I: 2x + y = 7 und II: 3x − y = 8 und schreibt 5x = 1. Was stimmt?"
+   },
+   "a": [
+    "Falsch: 5x = −1.",
+    "Richtig.",
+    "Falsch: Man muss subtrahieren.",
+    "Falsch: Auch die rechten Seiten werden addiert: 5x = 15, x = 3."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Linke Seiten addieren und rechte Seiten addieren: 5x = 7 + 8 = 15.",
+   "h": "Was passiert mit 7 und 8?"
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "luecken",
+   "f": {
+    "text": "Löse I: 2x + 5y = 1, II: 3x − 2y = 11.",
+    "schablone": "x = □; y = □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     3,
+     -1
+    ]
+   },
+   "c": [
+    "3",
+    "-1"
+   ],
+   "w": "I · 2: 4x + 10y = 2, II · 5: 15x − 10y = 55. Addieren: 19x = 57 ⇒ x = 3. Dann 6 + 5y = 1 ⇒ y = −1.",
+   "h": "Mach die Zahlen vor y zu Gegenzahlen (10 und −10)."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
    "s": 1,
    "y": "luecken",
    "f": {
@@ -4845,8 +5420,7 @@
     "(-21 - (3) * (-3)) / (2)"
    ],
    "w": "Addieren: 2x = −6 → x = −3. x = −3 in I: 3 · (−3) + 2y = −21 → 2y = −12 → y = −6. L = {(−3 | −6)}.",
-   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen.",
-   "g": "direkt"
+   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen."
   },
   {
    "l": "addition",
@@ -4879,8 +5453,7 @@
    },
    "c": "(1 * (63) + (2) * (-49)) / (1 * (5) + (2) * (-5))",
    "w": "II · 2: −10x − 4y = −98. Addieren: −5x = −35 → x = 7. x = 7 in I: 5 · 7 + 4y = 63 → 4y = 28 → y = 7. L = {(7 | 7)}.",
-   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen.",
-   "g": "direkt"
+   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen."
   },
   {
    "l": "addition",
@@ -4906,102 +5479,6 @@
    "w": "I · 4: 2x + y = 8. Plus II: 3x = 9 ⇔ x = 3. In II: 3 − y = 1 ⇔ y = 2.",
    "h": "Mache zuerst die Kommazahlen in I zu ganzen Zahlen.",
    "g": "verknuepfen"
-  },
-  {
-   "l": "addition",
-   "t": "addition",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse mit dem Additionsverfahren: I: 4x − 4y = 4   II: 3x − 2y = 6. Gib die Lösung an.",
-    "schablone": "x = □; y = □",
-    "hinweis": "Trage x und y ein."
-   },
-   "o": {
-    "werte": [
-     4,
-     3
-    ]
-   },
-   "c": [
-    "(1 * (4) + (-2) * (6)) / (1 * (4) + (-2) * (3))",
-    "(4 - (4) * (4)) / (-4)"
-   ],
-   "w": "II · (−2): −6x + 4y = −12. Addieren: −2x = −8 → x = 4. x = 4 in I: 4 · 4 − 4y = 4 → −4y = −12 → y = 3. L = {(4 | 3)}.",
-   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen."
-  },
-  {
-   "l": "addition",
-   "t": "addition",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse mit dem Additionsverfahren: I: −4x − 3y = 11   II: −2x + y = −7. Gib die Lösung an.",
-    "schablone": "x = □; y = □",
-    "hinweis": "Trage x und y ein."
-   },
-   "o": {
-    "werte": [
-     1,
-     -5
-    ]
-   },
-   "c": [
-    "(1 * (11) + (3) * (-7)) / (1 * (-4) + (3) * (-2))",
-    "(11 - (-4) * (1)) / (-3)"
-   ],
-   "w": "II · 3: −6x + 3y = −21. Addieren: −10x = −10 → x = 1. x = 1 in I: −4 · 1 − 3y = 11 → −3y = 15 → y = −5. L = {(1 | −5)}.",
-   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen."
-  },
-  {
-   "l": "addition",
-   "t": "addition",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse mit dem Additionsverfahren: I: −6x + 2y = 2   II: 3x + y = −5. Gib die Lösung an.",
-    "schablone": "x = □; y = □",
-    "hinweis": "Trage x und y ein."
-   },
-   "o": {
-    "werte": [
-     -1,
-     -2
-    ]
-   },
-   "c": [
-    "(1 * (2) + (-2) * (-5)) / (1 * (-6) + (-2) * (3))",
-    "(2 - (-6) * (-1)) / (2)"
-   ],
-   "w": "II · (−2): −6x − 2y = 10. Addieren: −12x = 12 → x = −1. x = −1 in I: −6 · (−1) + 2y = 2 → 2y = −4 → y = −2. L = {(−1 | −2)}.",
-   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen."
-  },
-  {
-   "l": "addition",
-   "t": "addition",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse mit dem Additionsverfahren: I: −6x + 3y = 24   II: −3x − 2y = −9. Gib die Lösung an.",
-    "schablone": "x = □; y = □",
-    "hinweis": "Trage x und y ein."
-   },
-   "o": {
-    "werte": [
-     -1,
-     6
-    ]
-   },
-   "c": [
-    "(2 * (24) + (3) * (-9)) / (2 * (-6) + (3) * (-3))",
-    "(24 - (-6) * (-1)) / (3)"
-   ],
-   "w": "I · 2: −12x + 6y = 48. II · 3: −9x − 6y = −27. Addieren: −21x = 21 → x = −1. x = −1 in I: −6 · (−1) + 3y = 24 → 3y = 18 → y = 6. L = {(−1 | 6)}.",
-   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen."
   },
   {
    "l": "addition",
@@ -5078,6 +5555,22 @@
    },
    "c": "(-33 - (3) * (3)) / (-6)",
    "w": "II · (−2): 6x + 6y = 60. Addieren: 9x = 27 → x = 3. x = 3 in I: 3 · 3 − 6y = −33 → −6y = −42 → y = 7. L = {(3 | 7)}."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "3 Hefte und 1 Block kosten 5 €, 1 Heft und 1 Block 3 €. Was kostet ein Heft?"
+   },
+   "o": {
+    "wert": 1,
+    "einheit": "€"
+   },
+   "c": "(5 - 3) / 2",
+   "w": "Gegeben: I − II. Gesucht: h. Ansatz: Subtrahieren. Rechnung: 2h = 2 ⇒ h = 1. Antwort: 1 €."
   },
   {
    "l": "addition",
@@ -5204,6 +5697,141 @@
   {
    "l": "addition",
    "t": "addition",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2 Kaffee und 1 Kuchen kosten 8 €, 1 Kaffee und 1 Kuchen 5,50 €. Was kostet ein Kaffee?"
+   },
+   "o": {
+    "wert": 2.5,
+    "einheit": "€"
+   },
+   "c": "8 - 5.5",
+   "w": "Gegeben: I − II. Gesucht: k. Ansatz: Subtrahieren. Rechnung: 2,5. Antwort: 2,50 €."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Zwei Zahlen: Summe 50, Differenz 14. Welche?",
+    "schablone": "□ und □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     32,
+     18
+    ]
+   },
+   "c": [
+    "32",
+    "18"
+   ],
+   "w": "Gegeben: x + y = 50, x − y = 14. Gesucht: x, y. Ansatz: Addieren. Rechnung: 2x = 64 ⇒ x = 32, y = 18. Antwort: 32 und 18."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: 4x − 4y = 4   II: 3x − 2y = 6. Gib die Lösung an.",
+    "schablone": "x = □; y = □",
+    "hinweis": "Trage x und y ein."
+   },
+   "o": {
+    "werte": [
+     4,
+     3
+    ]
+   },
+   "c": [
+    "(1 * (4) + (-2) * (6)) / (1 * (4) + (-2) * (3))",
+    "(4 - (4) * (4)) / (-4)"
+   ],
+   "w": "II · (−2): −6x + 4y = −12. Addieren: −2x = −8 → x = 4. x = 4 in I: 4 · 4 − 4y = 4 → −4y = −12 → y = 3. L = {(4 | 3)}.",
+   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: −4x − 3y = 11   II: −2x + y = −7. Gib die Lösung an.",
+    "schablone": "x = □; y = □",
+    "hinweis": "Trage x und y ein."
+   },
+   "o": {
+    "werte": [
+     1,
+     -5
+    ]
+   },
+   "c": [
+    "(1 * (11) + (3) * (-7)) / (1 * (-4) + (3) * (-2))",
+    "(11 - (-4) * (1)) / (-3)"
+   ],
+   "w": "II · 3: −6x + 3y = −21. Addieren: −10x = −10 → x = 1. x = 1 in I: −4 · 1 − 3y = 11 → −3y = 15 → y = −5. L = {(1 | −5)}.",
+   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: −6x + 2y = 2   II: 3x + y = −5. Gib die Lösung an.",
+    "schablone": "x = □; y = □",
+    "hinweis": "Trage x und y ein."
+   },
+   "o": {
+    "werte": [
+     -1,
+     -2
+    ]
+   },
+   "c": [
+    "(1 * (2) + (-2) * (-5)) / (1 * (-6) + (-2) * (3))",
+    "(2 - (-6) * (-1)) / (2)"
+   ],
+   "w": "II · (−2): −6x − 2y = 10. Addieren: −12x = 12 → x = −1. x = −1 in I: −6 · (−1) + 2y = 2 → 2y = −4 → y = −2. L = {(−1 | −2)}.",
+   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse mit dem Additionsverfahren: I: −6x + 3y = 24   II: −3x − 2y = −9. Gib die Lösung an.",
+    "schablone": "x = □; y = □",
+    "hinweis": "Trage x und y ein."
+   },
+   "o": {
+    "werte": [
+     -1,
+     6
+    ]
+   },
+   "c": [
+    "(2 * (24) + (3) * (-9)) / (2 * (-6) + (3) * (-3))",
+    "(24 - (-6) * (-1)) / (3)"
+   ],
+   "w": "I · 2: −12x + 6y = 48. II · 3: −9x − 6y = −27. Addieren: −21x = 21 → x = −1. x = −1 in I: −6 · (−1) + 3y = 24 → 3y = 18 → y = 6. L = {(−1 | 6)}.",
+   "h": "Sorge dafür, dass vor x oder y Gegenzahlen stehen. Dann addiere die Gleichungen."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
    "p": "uebung",
    "s": 2,
    "y": "luecken",
@@ -5295,8 +5923,7 @@
     "(10 - 6) / 4"
    ],
    "w": "I · 3 und II · 4: 9x + 12y = 30 und 8x − 12y = 4. Addieren: 17x = 34 ⇔ x = 2. In I: 6 + 4y = 10 ⇔ y = 1.",
-   "h": "Multipliziere beide Gleichungen, bis bei y Gegenzahlen stehen.",
-   "g": "mehrschritt"
+   "h": "Multipliziere beide Gleichungen, bis bei y Gegenzahlen stehen."
   },
   {
    "l": "addition",
@@ -5319,33 +5946,7 @@
    "l": "addition",
    "t": "addition",
    "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse geschickt: I: 37x + 63y = 163   II: 63x + 37y = 137. Gib die Lösung an.",
-    "schablone": "x = □; y = □",
-    "hinweis": "Je Lücke eine ganze Zahl."
-   },
-   "o": {
-    "werte": [
-     1,
-     2
-    ]
-   },
-   "c": [
-    "(3 - 1) / 2",
-    "(3 + 1) / 2"
-   ],
-   "w": "I + II: 100x + 100y = 300 ⇔ x + y = 3. II − I: 26x − 26y = −26 ⇔ x − y = −1. Daraus x = 1, y = 2.",
-   "h": "Addiere I und II. Ziehe dann I von II ab. Was fällt auf?",
-   "g": "transfer"
-  },
-  {
-   "l": "addition",
-   "t": "addition",
-   "p": "uebung",
    "s": 1,
-   "g": "direkt",
    "y": "luecken",
    "f": {
     "text": "Löse mit dem Additionsverfahren: I: x + y = 7, II: x − y = 3.",
@@ -5364,24 +5965,6 @@
    ],
    "w": "Addieren: 2x = 10 ⇒ x = 5, y = 2.",
    "h": "Vor y stehen schon Gegenzahlen."
-  },
-  {
-   "l": "addition",
-   "t": "addition",
-   "p": "uebung",
-   "s": 2,
-   "g": "einkleidung",
-   "y": "zahl",
-   "f": {
-    "text": "3 Brezeln und 2 Kakao kosten 7,40 €, 1 Brezel und 2 Kakao kosten 5 €. Was kostet eine Brezel?"
-   },
-   "o": {
-    "wert": 1.2,
-    "einheit": "€"
-   },
-   "c": "(74/10 - 5) / 2",
-   "w": "Subtrahieren (I − II): 2 Brezeln = 2,40 € ⇒ 1 Brezel = 1,20 €.",
-   "h": "Die Kakaos sind in beiden Angaben gleich – zieh ab."
   },
   {
    "l": "addition",
@@ -5427,28 +6010,6 @@
    },
    "w": "Jede Zeile der Tafel wird eine Gleichung. Subtrahiert: a = 0,50 €, b = 0,60 €.",
    "h": "Übersetze jede Zeile einzeln."
-  },
-  {
-   "l": "addition",
-   "t": "addition",
-   "p": "uebung",
-   "s": 3,
-   "g": "fehler",
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand addiert I: 2x + y = 7 und II: 3x − y = 8 und schreibt 5x = 1. Was stimmt?"
-   },
-   "a": [
-    "Falsch: 5x = −1.",
-    "Richtig.",
-    "Falsch: Man muss subtrahieren.",
-    "Falsch: Auch die rechten Seiten werden addiert: 5x = 15, x = 3."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Linke Seiten addieren und rechte Seiten addieren: 5x = 7 + 8 = 15.",
-   "h": "Was passiert mit 7 und 8?"
   },
   {
    "l": "addition",
@@ -5511,32 +6072,6 @@
    "t": "addition",
    "p": "uebung",
    "s": 3,
-   "g": "pruefung",
-   "y": "luecken",
-   "f": {
-    "text": "Löse I: 2x + 5y = 1, II: 3x − 2y = 11.",
-    "schablone": "x = □; y = □",
-    "hinweis": "Je Lücke eine ganze Zahl."
-   },
-   "o": {
-    "werte": [
-     3,
-     -1
-    ]
-   },
-   "c": [
-    "3",
-    "-1"
-   ],
-   "w": "I · 2: 4x + 10y = 2, II · 5: 15x − 10y = 55. Addieren: 19x = 57 ⇒ x = 3. Dann 6 + 5y = 1 ⇒ y = −1.",
-   "h": "Mach die Zahlen vor y zu Gegenzahlen (10 und −10)."
-  },
-  {
-   "l": "addition",
-   "t": "addition",
-   "p": "uebung",
-   "s": 3,
-   "g": "verknuepfen",
    "y": "luecken",
    "f": {
     "text": "Löse I: x/2 + y/3 = 4, II: x/2 − y/3 = 0.",
@@ -5555,6 +6090,107 @@
    ],
    "w": "Addieren: x = 4. In II: 2 − y/3 = 0 ⇒ y = 6.",
    "h": "Die Brüche mit y sind schon Gegenzahlen."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "2 Brötchen und 1 Croissant kosten 2,50 €, 1 Brötchen und 1 Croissant 1,90 €. Was kostet ein Brötchen? (Ziehe II von I ab.)"
+   },
+   "o": {
+    "wert": 0.6,
+    "einheit": "€"
+   },
+   "c": "2.5 - 1.9",
+   "w": "Gegeben: I: 2b + c = 2,5, II: b + c = 1,9. Gesucht: b. Ansatz: I − II. Rechnung: b = 0,6. Antwort: Ein Brötchen kostet 0,60 €.",
+   "h": "Was bleibt übrig, wenn du II von I abziehst?"
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "luecken",
+   "f": {
+    "text": "Im Zoo sind 120 Besucher, Kinder und Erwachsene; es sind 40 Kinder mehr als Erwachsene. Wie viele Kinder und Erwachsene?",
+    "schablone": "k = □, e = □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     80,
+     40
+    ]
+   },
+   "c": [
+    "80",
+    "40"
+   ],
+   "w": "Gegeben: k + e = 120, k − e = 40. Gesucht: k, e. Ansatz: Addieren. Rechnung: 2k = 160 ⇒ k = 80, e = 40. Antwort: 80 Kinder, 40 Erwachsene.",
+   "h": "Addiere beide Gleichungen."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Boot fährt flussabwärts 24 km/h, flussaufwärts 16 km/h (v + s = 24, v − s = 16). Wie lange braucht es für 30 km im stillen Wasser? Gib Minuten an."
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "min"
+   },
+   "c": "30 / 20 * 60",
+   "w": "Gegeben: v + s = 24, v − s = 16. Gesucht: Zeit im stillen Wasser. Ansatz: Addieren: v; dann t = 30 : v. Rechnung: 2v = 40 ⇒ v = 20; 30 : 20 = 1,5 h. Antwort: Es braucht 90 Minuten.",
+   "h": "Erst die Eigengeschwindigkeit, dann die Zeit – achte auf die Einheit."
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "3 Äpfel und 2 Birnen kosten 3,40 €, 3 Äpfel und 1 Birne kosten 2,60 €. Jemand addiert beide Gleichungen, um eine Birne zu berechnen. Was stimmt?"
+   },
+   "a": [
+    "Ungeschickt: Subtrahieren entfernt die Äpfel – eine Birne kostet 0,80 €.",
+    "Richtig, so fällt a weg.",
+    "Eine Birne kostet 3 €.",
+    "Eine Birne kostet 6 €."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegeben: 3a + 2b = 3,4; 3a + b = 2,6. Gesucht: b. Ansatz: I − II. Rechnung: b = 0,8. Antwort: Subtrahieren; eine Birne kostet 0,80 €.",
+   "h": "Bei welcher Rechnung fallen die Äpfel weg?"
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bäcker verkauft am Montag 40 Brezeln und 20 Brötchen für 52 €, am Dienstag 40 Brezeln und 30 Brötchen für 58 €. Der Laden öffnet um 6 Uhr. Was kostet ein Brötchen?"
+   },
+   "o": {
+    "wert": 0.6,
+    "einheit": "€"
+   },
+   "c": "(58 - 52) / 10",
+   "w": "Gegeben: 40b + 20r = 52, 40b + 30r = 58; die Uhrzeit spielt keine Rolle. Gesucht: r. Ansatz: II − I. Rechnung: 10r = 6 ⇒ r = 0,6. Antwort: Ein Brötchen kostet 0,60 €.",
+   "h": "Welche Angabe brauchst du nicht?"
   },
   {
    "l": "addition",
@@ -5678,6 +6314,28 @@
    "l": "verfahren",
    "t": "verfahren",
    "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "auswahl",
+   "f": {
+    "text": "Tarif A: K = 5 + 0,2x, Tarif B: K = 0,3x. Welches Verfahren passt für „Wann kosten beide gleich viel?“"
+   },
+   "a": [
+    "Gleichsetzen, weil beide nach K aufgelöst sind.",
+    "Einsetzen von x in K.",
+    "Addieren, weil Kosten addiert werden.",
+    "Keins – man muss probieren."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "5 + 0,2x = 0,3x ⇒ x = 50.",
+   "h": "Wie sind beide Gleichungen aufgebaut?"
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
    "s": 1,
    "y": "auswahl",
    "f": {
@@ -5745,28 +6403,6 @@
    "l": "verfahren",
    "t": "verfahren",
    "p": "uebung",
-   "s": 2,
-   "g": "einkleidung",
-   "y": "auswahl",
-   "f": {
-    "text": "Tarif A: K = 5 + 0,2x, Tarif B: K = 0,3x. Welches Verfahren passt für „Wann kosten beide gleich viel?“"
-   },
-   "a": [
-    "Gleichsetzen, weil beide nach K aufgelöst sind.",
-    "Einsetzen von x in K.",
-    "Addieren, weil Kosten addiert werden.",
-    "Keins – man muss probieren."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "5 + 0,2x = 0,3x ⇒ x = 50.",
-   "h": "Wie sind beide Gleichungen aufgebaut?"
-  },
-  {
-   "l": "verfahren",
-   "t": "verfahren",
-   "p": "uebung",
    "s": 1,
    "y": "auswahl",
    "f": {
@@ -5788,6 +6424,94 @@
    "l": "verfahren",
    "t": "verfahren",
    "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei I: y = 3x − 1   II: y = 3x + 2 sagt Lea: „Ich muss gar nicht rechnen.“ Warum?"
+   },
+   "a": [
+    "Weil beide Gleichungen mit y beginnen.",
+    "Gleiche Steigung, verschiedener Achsenabschnitt: keine Lösung.",
+    "Weil die Geraden identisch sind.",
+    "Weil die Lösung x = 0 sofort sichtbar ist."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Beide Geraden haben die Steigung 3, schneiden die y-Achse aber bei −1 und 2. Sie sind parallel und verschieden – das System hat keine Lösung.",
+   "h": "Vergleiche Steigungen und Achsenabschnitte.",
+   "g": "transfer"
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "I: 5x + 3y = 1   II: 2x − 4y = 6. Welcher erste Schritt erzeugt beim Additionsverfahren Gegenzahlen vor x?"
+   },
+   "a": [
+    "I · 2 und II · 5",
+    "I · 5 und II · 2",
+    "I · 2 und II · (−5)",
+    "I · (−2) und II · (−5)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "I · 2: 10x + …, II · (−5): −10x + … – Gegenzahlen. Bei II · 5 stünden zweimal +10x, beim Addieren würde x nicht wegfallen.",
+   "h": "Gegenzahlen haben gleichen Betrag, aber verschiedenes Vorzeichen.",
+   "g": "pruefung"
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "auswahl",
+   "f": {
+    "text": "„Ein Stift kostet doppelt so viel wie ein Radiergummi, zusammen 1,50 €“: I: s = 2r, II: s + r = 1,5. Welcher Weg ist geschickt?"
+   },
+   "a": [
+    "Addieren der beiden Gleichungen.",
+    "Einsetzen: 2r für s in II.",
+    "Gleichsetzen von I und II.",
+    "Grafisch, rechnen geht nicht."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "2r + r = 1,5 ⇒ r = 0,50 €, s = 1 €.",
+   "h": "Eine Gleichung sagt genau, was s ist."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand addiert I: y = 3x + 1 und II: y = −x + 5 und erhält 2y = 2x + 6. Was stimmt?"
+   },
+   "a": [
+    "Falsch gerechnet.",
+    "Man darf diese Gleichungen nicht addieren.",
+    "Richtig und der schnellste Weg.",
+    "Richtig gerechnet, aber umständlich: Gleichsetzen ergibt sofort 3x + 1 = −x + 5, x = 1."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Addition stimmt, hilft aber nicht weiter – y und x sind noch beide da.",
+   "h": "Ist eine Variable weggefallen?"
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
    "s": 1,
    "y": "auswahl",
    "f": {
@@ -5800,86 +6524,6 @@
    ],
    "o": {
     "index": 2
-   },
-   "w": "Beide Gleichungen sind nach y aufgelöst: rechte Seiten gleichsetzen.",
-   "h": "Schau, ob eine Gleichung schon nach x oder y aufgelöst ist, und ob Gegenzahlen vorkommen."
-  },
-  {
-   "l": "verfahren",
-   "t": "verfahren",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welches Verfahren ist für I: y = −4x − 3   II: −2x + y = 9 am geschicktesten?"
-   },
-   "a": [
-    "Einsetzungsverfahren",
-    "Additionsverfahren",
-    "Gleichsetzungsverfahren"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Eine Gleichung ist schon nach y aufgelöst, die andere nicht: einsetzen.",
-   "h": "Schau, ob eine Gleichung schon nach x oder y aufgelöst ist, und ob Gegenzahlen vorkommen."
-  },
-  {
-   "l": "verfahren",
-   "t": "verfahren",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welches Verfahren ist für I: x = 2y − 2   II: x = −4y − 2 am geschicktesten?"
-   },
-   "a": [
-    "Einsetzungsverfahren",
-    "Gleichsetzungsverfahren",
-    "Additionsverfahren"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Beide Gleichungen sind nach x aufgelöst: rechte Seiten gleichsetzen.",
-   "h": "Schau, ob eine Gleichung schon nach x oder y aufgelöst ist, und ob Gegenzahlen vorkommen."
-  },
-  {
-   "l": "verfahren",
-   "t": "verfahren",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welches Verfahren ist für I: x = 3y + 10   II: x = 2y + 7 am geschicktesten?"
-   },
-   "a": [
-    "Additionsverfahren",
-    "Gleichsetzungsverfahren",
-    "Einsetzungsverfahren"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Beide Gleichungen sind nach x aufgelöst: rechte Seiten gleichsetzen.",
-   "h": "Schau, ob eine Gleichung schon nach x oder y aufgelöst ist, und ob Gegenzahlen vorkommen."
-  },
-  {
-   "l": "verfahren",
-   "t": "verfahren",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welches Verfahren ist für I: y = 4x − 17   II: y = x − 2 am geschicktesten?"
-   },
-   "a": [
-    "Gleichsetzungsverfahren",
-    "Additionsverfahren",
-    "Einsetzungsverfahren"
-   ],
-   "o": {
-    "index": 0
    },
    "w": "Beide Gleichungen sind nach y aufgelöst: rechte Seiten gleichsetzen.",
    "h": "Schau, ob eine Gleichung schon nach x oder y aufgelöst ist, und ob Gegenzahlen vorkommen."
@@ -5959,6 +6603,22 @@
     "index": 2
    },
    "w": "Eine Gleichung ist schon nach y aufgelöst, die andere nicht: einsetzen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "I: 3a + 2b = 13, II: 3a + b = 11 (Preise in €). Was kostet b?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "€"
+   },
+   "c": "13 - 11",
+   "w": "Gegeben: I − II. Gesucht: b. Ansatz: Subtrahieren. Rechnung: b = 2. Antwort: 2 €."
   },
   {
    "l": "verfahren",
@@ -6077,6 +6737,124 @@
   {
    "l": "verfahren",
    "t": "verfahren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Zwei Zahlen: Summe 40, die größere ist das Dreifache der kleineren. Welche?",
+    "schablone": "kleiner □, größer □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     10,
+     30
+    ]
+   },
+   "c": [
+    "10",
+    "30"
+   ],
+   "w": "Gegeben: g = 3k, g + k = 40. Gesucht: k, g. Ansatz: Einsetzen. Rechnung: 4k = 40 ⇒ k = 10. Antwort: 10 und 30."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Tarif A: y = 0,5x + 3, Tarif B: y = x. Bei welchem x sind beide gleich?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "Gegeben: 0,5x + 3 = x. Gesucht: x. Ansatz: Gleichsetzen. Rechnung: x = 6. Antwort: x = 6."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: y = −4x − 3   II: −2x + y = 9 am geschicktesten?"
+   },
+   "a": [
+    "Einsetzungsverfahren",
+    "Additionsverfahren",
+    "Gleichsetzungsverfahren"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Eine Gleichung ist schon nach y aufgelöst, die andere nicht: einsetzen.",
+   "h": "Schau, ob eine Gleichung schon nach x oder y aufgelöst ist, und ob Gegenzahlen vorkommen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: x = 2y − 2   II: x = −4y − 2 am geschicktesten?"
+   },
+   "a": [
+    "Einsetzungsverfahren",
+    "Gleichsetzungsverfahren",
+    "Additionsverfahren"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Beide Gleichungen sind nach x aufgelöst: rechte Seiten gleichsetzen.",
+   "h": "Schau, ob eine Gleichung schon nach x oder y aufgelöst ist, und ob Gegenzahlen vorkommen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: x = 3y + 10   II: x = 2y + 7 am geschicktesten?"
+   },
+   "a": [
+    "Additionsverfahren",
+    "Gleichsetzungsverfahren",
+    "Einsetzungsverfahren"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Beide Gleichungen sind nach x aufgelöst: rechte Seiten gleichsetzen.",
+   "h": "Schau, ob eine Gleichung schon nach x oder y aufgelöst ist, und ob Gegenzahlen vorkommen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren ist für I: y = 4x − 17   II: y = x − 2 am geschicktesten?"
+   },
+   "a": [
+    "Gleichsetzungsverfahren",
+    "Additionsverfahren",
+    "Einsetzungsverfahren"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Beide Gleichungen sind nach y aufgelöst: rechte Seiten gleichsetzen.",
+   "h": "Schau, ob eine Gleichung schon nach x oder y aufgelöst ist, und ob Gegenzahlen vorkommen."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
    "p": "uebung",
    "s": 1,
    "y": "auswahl",
@@ -6155,50 +6933,6 @@
    },
    "w": "Beide Gleichungen haben 2x. Zieht man II von I ab, fällt x sofort weg.",
    "h": "Stehen bei einer Variablen gleiche Zahlen?"
-  },
-  {
-   "l": "verfahren",
-   "t": "verfahren",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Bei I: y = 3x − 1   II: y = 3x + 2 sagt Lea: „Ich muss gar nicht rechnen.“ Warum?"
-   },
-   "a": [
-    "Weil beide Gleichungen mit y beginnen.",
-    "Gleiche Steigung, verschiedener Achsenabschnitt: keine Lösung.",
-    "Weil die Geraden identisch sind.",
-    "Weil die Lösung x = 0 sofort sichtbar ist."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Beide Geraden haben die Steigung 3, schneiden die y-Achse aber bei −1 und 2. Sie sind parallel und verschieden – das System hat keine Lösung.",
-   "h": "Vergleiche Steigungen und Achsenabschnitte.",
-   "g": "transfer"
-  },
-  {
-   "l": "verfahren",
-   "t": "verfahren",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "I: 5x + 3y = 1   II: 2x − 4y = 6. Welcher erste Schritt erzeugt beim Additionsverfahren Gegenzahlen vor x?"
-   },
-   "a": [
-    "I · 2 und II · 5",
-    "I · 5 und II · 2",
-    "I · 2 und II · (−5)",
-    "I · (−2) und II · (−5)"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "I · 2: 10x + …, II · (−5): −10x + … – Gegenzahlen. Bei II · 5 stünden zweimal +10x, beim Addieren würde x nicht wegfallen.",
-   "h": "Gegenzahlen haben gleichen Betrag, aber verschiedenes Vorzeichen.",
-   "g": "pruefung"
   },
   {
    "l": "verfahren",
@@ -6294,28 +7028,6 @@
    "t": "verfahren",
    "p": "uebung",
    "s": 2,
-   "g": "einkleidung",
-   "y": "auswahl",
-   "f": {
-    "text": "„Ein Stift kostet doppelt so viel wie ein Radiergummi, zusammen 1,50 €“: I: s = 2r, II: s + r = 1,5. Welcher Weg ist geschickt?"
-   },
-   "a": [
-    "Addieren der beiden Gleichungen.",
-    "Einsetzen: 2r für s in II.",
-    "Gleichsetzen von I und II.",
-    "Grafisch, rechnen geht nicht."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "2r + r = 1,5 ⇒ r = 0,50 €, s = 1 €.",
-   "h": "Eine Gleichung sagt genau, was s ist."
-  },
-  {
-   "l": "verfahren",
-   "t": "verfahren",
-   "p": "uebung",
-   "s": 2,
    "g": "umkehr",
    "y": "auswahl",
    "f": {
@@ -6359,23 +7071,109 @@
    "l": "verfahren",
    "t": "verfahren",
    "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Für zwei Tarife gilt I: y = 0,2x + 4 und II: y = 0,3x + 2. Welches Verfahren ist am geschicktesten?"
+   },
+   "a": [
+    "Addieren",
+    "Gleichsetzen",
+    "Einsetzen von x",
+    "Probieren"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegeben: Beide nach y aufgelöst. Gesucht: Verfahren. Ansatz: Gleiche linke Seite. Rechnung: Gleichsetzen. Antwort: Gleichsetzen ist am geschicktesten.",
+   "h": "Wonach sind beide Gleichungen schon aufgelöst?"
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "luecken",
+   "f": {
+    "text": "Hühner und Kaninchen: 30 Köpfe, 84 Beine. Löse mit einem geschickten Verfahren.",
+    "schablone": "□ Hühner, □ Kaninchen",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     18,
+     12
+    ]
+   },
+   "c": [
+    "18",
+    "12"
+   ],
+   "w": "Gegeben: h + k = 30, 2h + 4k = 84. Gesucht: h, k. Ansatz: I · 2 von II abziehen. Rechnung: 2k = 24 ⇒ k = 12, h = 18. Antwort: 18 Hühner, 12 Kaninchen.",
+   "h": "Multipliziere die erste Gleichung mit 2."
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Für eine Feier werden 50 Getränke gekauft: Säfte zu 1,50 € und Wasser zu 0,80 €, zusammen 61 €. Wie viele Säfte?"
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "(61 - 0.8 * 50) / 0.7",
+   "w": "Gegeben: s + w = 50, 1,5s + 0,8w = 61. Gesucht: s. Ansatz: w = 50 − s einsetzen. Rechnung: 1,5s + 40 − 0,8s = 61 ⇒ 0,7s = 21 ⇒ s = 30. Antwort: 30 Säfte.",
+   "h": "Welche Gleichung lässt sich leicht nach einer Variablen auflösen?"
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kiosk mit 2 Verkäufern: I: 2c + 3e = 12, II: 2c + e = 8 (c Cola, e Eis). Welches Verfahren ist am geschicktesten und was kostet ein Eis?"
+   },
+   "a": [
+    "Addieren: e = 5 €.",
+    "Gleichsetzen: e = 4 €.",
+    "Subtrahieren: 2e = 4, ein Eis kostet 2 €.",
+    "Einsetzen: e = 1 €."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gegeben: 2c steht in beiden; die Verkäufer spielen keine Rolle. Gesucht: Verfahren und e. Ansatz: I − II. Rechnung: 2e = 4 ⇒ e = 2. Antwort: Subtrahieren; ein Eis kostet 2 €.",
+   "h": "Welche Variable fällt sofort weg?"
+  },
+  {
+   "l": "verfahren",
+   "t": "verfahren",
+   "p": "uebung",
    "s": 3,
    "g": "fehler",
    "y": "auswahl",
    "f": {
-    "text": "Jemand addiert I: y = 3x + 1 und II: y = −x + 5 und erhält 2y = 2x + 6. Was stimmt?"
+    "text": "Für Tickets gilt I: e = 2k, II: e + k = 18. Jemand formt beide um und addiert, ohne dass eine Variable wegfällt. Was ist geschickter?"
    },
    "a": [
-    "Falsch gerechnet.",
-    "Man darf diese Gleichungen nicht addieren.",
-    "Richtig und der schnellste Weg.",
-    "Richtig gerechnet, aber umständlich: Gleichsetzen ergibt sofort 3x + 1 = −x + 5, x = 1."
+    "Man kann es nicht lösen.",
+    "Gleichsetzen: k = 18.",
+    "Addieren ist am besten.",
+    "Einsetzen: 2k + k = 18 ⇒ k = 6, e = 12."
    ],
    "o": {
     "index": 3
    },
-   "w": "Die Addition stimmt, hilft aber nicht weiter – y und x sind noch beide da.",
-   "h": "Ist eine Variable weggefallen?"
+   "w": "Gegeben: I schon nach e aufgelöst. Gesucht: Verfahren. Ansatz: I in II einsetzen. Rechnung: 3k = 18 ⇒ k = 6. Antwort: Einsetzen ist geschickter.",
+   "h": "Ist eine Gleichung schon nach einer Variablen aufgelöst?"
   },
   {
    "l": "verfahren",
@@ -6457,23 +7255,6 @@
    "l": "loesbarkeit",
    "t": "loesbarkeit",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "I: −2x + y = −8   II: −4x + a · y = −15. Für welchen Wert von a hat das Gleichungssystem keine Lösung?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "2 * (1)",
-   "w": "Keine Lösung, wenn II die linke Seite von I mal 2 ist, die rechte Seite aber nicht: a = 2 · 1 = 2. Dann steht rechts −15 statt −16.",
-   "h": "Vergleiche die Faktoren vor x. Mit welcher Zahl wurde I multipliziert?",
-   "g": "parameter"
-  },
-  {
-   "l": "loesbarkeit",
-   "t": "loesbarkeit",
-   "p": "uebung",
    "s": 1,
    "y": "auswahl",
    "f": {
@@ -6511,6 +7292,23 @@
    "w": "II ist genau I · (−3): Beide Gleichungen haben dieselben Lösungen.",
    "h": "Vergleiche die beiden Gleichungen: Ist eine ein Vielfaches der anderen – links, rechts, oder beides?",
    "g": "mehrschritt"
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "I: −2x + y = −8   II: −4x + a · y = −15. Für welchen Wert von a hat das Gleichungssystem keine Lösung?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2 * (1)",
+   "w": "Keine Lösung, wenn II die linke Seite von I mal 2 ist, die rechte Seite aber nicht: a = 2 · 1 = 2. Dann steht rechts −15 statt −16.",
+   "h": "Vergleiche die Faktoren vor x. Mit welcher Zahl wurde I multipliziert?",
+   "g": "parameter"
   },
   {
    "l": "loesbarkeit",
@@ -6558,23 +7356,6 @@
    "l": "loesbarkeit",
    "t": "loesbarkeit",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "I: −x − 3y = 4   II: 2x + a · y = −12. Für welchen Wert von a hat das Gleichungssystem keine Lösung?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "-2 * (-3)",
-   "w": "Keine Lösung, wenn II die linke Seite von I mal (−2) ist, die rechte Seite aber nicht: a = (−2) · (−3) = 6. Dann steht rechts −12 statt −8.",
-   "h": "Vergleiche die Faktoren vor x. Mit welcher Zahl wurde I multipliziert?",
-   "g": "parameter"
-  },
-  {
-   "l": "loesbarkeit",
-   "t": "loesbarkeit",
-   "p": "uebung",
    "s": 1,
    "y": "auswahl",
    "f": {
@@ -6617,83 +7398,106 @@
    "l": "loesbarkeit",
    "t": "loesbarkeit",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Wie viele Lösungen hat I: −5x + 3y = 12   II: 10x − 6y = −24?"
+    "text": "Ein lineares Gleichungssystem hat die Lösungen (1 | 2) und (3 | 6). Wie viele Lösungen hat es?"
    },
    "a": [
-    "keine Lösung",
-    "unendlich viele Lösungen",
-    "genau eine Lösung"
+    "keine",
+    "unendlich viele",
+    "genau zwei",
+    "genau eine"
    ],
    "o": {
     "index": 1
    },
-   "w": "II ist genau I · (−2): Beide Gleichungen haben dieselben Lösungen.",
-   "h": "Vergleiche die beiden Gleichungen: Ist eine ein Vielfaches der anderen – links, rechts, oder beides?"
+   "w": "Zwei Geraden haben entweder keinen, genau einen oder unendlich viele gemeinsame Punkte. Zwei gemeinsame Punkte gibt es nur, wenn die Geraden gleich sind.",
+   "h": "Wie viele Punkte können zwei Geraden gemeinsam haben?",
+   "g": "begruenden"
   },
   {
    "l": "loesbarkeit",
    "t": "loesbarkeit",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Wie viele Lösungen hat I: −6x − 2y = −9   II: 6x + 2y = 10?"
+    "text": "Wie viele Lösungen hat das System aus I: x + y = 5, II: 2x + 2y = 10 und III: x − y = 1?"
    },
    "a": [
-    "unendlich viele Lösungen",
-    "genau eine Lösung",
-    "keine Lösung"
+    "unendlich viele",
+    "genau zwei",
+    "keine",
+    "genau eine"
    ],
    "o": {
-    "index": 2
+    "index": 3
    },
-   "w": "I · (−1) ergibt links dasselbe wie II, rechts aber 9 statt 10: Widerspruch.",
-   "h": "Vergleiche die beiden Gleichungen: Ist eine ein Vielfaches der anderen – links, rechts, oder beides?"
+   "w": "I und II beschreiben dieselbe Gerade. Mit III: x + y = 5 und x − y = 1 ergibt x = 3, y = 2. Genau eine Lösung (3 | 2).",
+   "h": "Vergleiche I und II zuerst.",
+   "g": "transfer"
   },
   {
    "l": "loesbarkeit",
    "t": "loesbarkeit",
    "p": "uebung",
    "s": 2,
+   "g": "einkleidung",
    "y": "auswahl",
    "f": {
-    "text": "Ein Gleichungssystem hat keine Lösung. Was bedeutet das für die beiden Geraden?"
+    "text": "Zwei Kerzen brennen gleich schnell ab (2 cm pro Stunde). Die eine ist 20 cm lang, die andere 15 cm. Werden sie jemals gleich lang?"
    },
    "a": [
-    "Sie schneiden sich im Ursprung.",
-    "Sie sind parallel und verschieden.",
-    "Sie schneiden sich in genau einem Punkt.",
-    "Sie sind identisch (liegen aufeinander)."
+    "Immer, sie sind gleich lang.",
+    "Nie – das System hat keine Lösung.",
+    "Ja, nach 2,5 Stunden.",
+    "Ja, nach 5 Stunden."
    ],
    "o": {
     "index": 1
    },
-   "w": "Jede Lösung ist ein gemeinsamer Punkt beider Geraden. Keine Lösung: Sie sind parallel und verschieden.",
-   "h": "Die Lösungen sind die gemeinsamen Punkte der Geraden.",
-   "g": "darstellung"
+   "w": "20 − 2t = 15 − 2t ⇒ 20 = 15 – falsch. Der Unterschied von 5 cm bleibt.",
+   "h": "Ändert sich der Unterschied der Längen?"
   },
   {
    "l": "loesbarkeit",
    "t": "loesbarkeit",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
+   "g": "pruefung",
    "y": "auswahl",
    "f": {
-    "text": "Wie viele Lösungen hat I: −3x − y = 5   II: 5x + 2y = 2?"
+    "text": "I: 2x − y = 3, II: 4x − 2y = k. Welche Aussage stimmt?"
    },
    "a": [
-    "genau eine Lösung",
-    "keine Lösung",
-    "unendlich viele Lösungen"
+    "Für k = 6 gibt es keine Lösung.",
+    "Für k = 6 gibt es unendlich viele Lösungen, für jedes andere k keine.",
+    "Für jedes k gibt es genau eine Lösung.",
+    "Für k = 3 gibt es unendlich viele Lösungen."
    ],
    "o": {
-    "index": 0
+    "index": 1
    },
-   "w": "Die linke Seite von II ist kein Vielfaches der linken Seite von I: Es gibt genau ein Lösungspaar.",
-   "h": "Vergleiche die beiden Gleichungen: Ist eine ein Vielfaches der anderen – links, rechts, oder beides?"
+   "w": "II − 2 · I: 0 = k − 6. Für k = 6 ist das wahr (unendlich viele), sonst falsch (keine).",
+   "h": "Vergleiche II mit dem Doppelten von I."
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "I: −x − 3y = 4   II: 2x + a · y = −12. Für welchen Wert von a hat das Gleichungssystem keine Lösung?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "-2 * (-3)",
+   "w": "Keine Lösung, wenn II die linke Seite von I mal (−2) ist, die rechte Seite aber nicht: a = (−2) · (−3) = 6. Dann steht rechts −12 statt −8.",
+   "h": "Vergleiche die Faktoren vor x. Mit welcher Zahl wurde I multipliziert?",
+   "g": "parameter"
   },
   {
    "l": "loesbarkeit",
@@ -6770,6 +7574,25 @@
     "index": 1
    },
    "w": "I · (−3) ergibt links dasselbe wie II, rechts aber 3 statt 5: Widerspruch."
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Tarif A: y = 0,1x + 5, Tarif B: y = 0,2x + 3. Anzahl der Lösungen?"
+   },
+   "a": [
+    "keine",
+    "genau eine",
+    "unendlich viele"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegeben: verschiedene Steigungen. Gesucht: Anzahl. Ansatz: Schnittpunkt. Rechnung: genau eine. Antwort: genau eine (x = 20)."
   },
   {
    "l": "loesbarkeit",
@@ -6938,6 +7761,126 @@
   {
    "l": "loesbarkeit",
    "t": "loesbarkeit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Taxi A: y = 2x + 3, Taxi B: y = 2x + 3. Anzahl der Lösungen?"
+   },
+   "a": [
+    "unendlich viele",
+    "keine",
+    "genau eine"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegeben: identisch. Gesucht: Anzahl. Ansatz: Vergleich. Rechnung: gleiche Gerade. Antwort: unendlich viele."
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Tank A: y = 50 − 5x, Tank B: y = 80 − 5x. Anzahl der Lösungen?"
+   },
+   "a": [
+    "unendlich viele",
+    "genau eine",
+    "keine"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gegeben: parallel. Gesucht: Anzahl. Ansatz: Steigungen gleich. Rechnung: keine. Antwort: keine Lösung."
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat I: −5x + 3y = 12   II: 10x − 6y = −24?"
+   },
+   "a": [
+    "keine Lösung",
+    "unendlich viele Lösungen",
+    "genau eine Lösung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "II ist genau I · (−2): Beide Gleichungen haben dieselben Lösungen.",
+   "h": "Vergleiche die beiden Gleichungen: Ist eine ein Vielfaches der anderen – links, rechts, oder beides?"
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat I: −6x − 2y = −9   II: 6x + 2y = 10?"
+   },
+   "a": [
+    "unendlich viele Lösungen",
+    "genau eine Lösung",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "I · (−1) ergibt links dasselbe wie II, rechts aber 9 statt 10: Widerspruch.",
+   "h": "Vergleiche die beiden Gleichungen: Ist eine ein Vielfaches der anderen – links, rechts, oder beides?"
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Gleichungssystem hat keine Lösung. Was bedeutet das für die beiden Geraden?"
+   },
+   "a": [
+    "Sie schneiden sich im Ursprung.",
+    "Sie sind parallel und verschieden.",
+    "Sie schneiden sich in genau einem Punkt.",
+    "Sie sind identisch (liegen aufeinander)."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Jede Lösung ist ein gemeinsamer Punkt beider Geraden. Keine Lösung: Sie sind parallel und verschieden.",
+   "h": "Die Lösungen sind die gemeinsamen Punkte der Geraden.",
+   "g": "darstellung"
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat I: −3x − y = 5   II: 5x + 2y = 2?"
+   },
+   "a": [
+    "genau eine Lösung",
+    "keine Lösung",
+    "unendlich viele Lösungen"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die linke Seite von II ist kein Vielfaches der linken Seite von I: Es gibt genau ein Lösungspaar.",
+   "h": "Vergleiche die beiden Gleichungen: Ist eine ein Vielfaches der anderen – links, rechts, oder beides?"
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
    "p": "uebung",
    "s": 2,
    "y": "auswahl",
@@ -7011,52 +7954,7 @@
     "index": 3
    },
    "w": "II · 2: 6x + 2y = 10. Für a = 6 wären die Geraden parallel (6 ≠ 10, keine Lösung). Für jedes andere a schneiden sie sich in genau einem Punkt.",
-   "h": "Bringe y in beiden Gleichungen auf dieselbe Zahl. Wann sind die Geraden parallel?",
-   "g": "parameter"
-  },
-  {
-   "l": "loesbarkeit",
-   "t": "loesbarkeit",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein lineares Gleichungssystem hat die Lösungen (1 | 2) und (3 | 6). Wie viele Lösungen hat es?"
-   },
-   "a": [
-    "keine",
-    "unendlich viele",
-    "genau zwei",
-    "genau eine"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Zwei Geraden haben entweder keinen, genau einen oder unendlich viele gemeinsame Punkte. Zwei gemeinsame Punkte gibt es nur, wenn die Geraden gleich sind.",
-   "h": "Wie viele Punkte können zwei Geraden gemeinsam haben?",
-   "g": "begruenden"
-  },
-  {
-   "l": "loesbarkeit",
-   "t": "loesbarkeit",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat das System aus I: x + y = 5, II: 2x + 2y = 10 und III: x − y = 1?"
-   },
-   "a": [
-    "unendlich viele",
-    "genau zwei",
-    "keine",
-    "genau eine"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "I und II beschreiben dieselbe Gerade. Mit III: x + y = 5 und x − y = 1 ergibt x = 3, y = 2. Genau eine Lösung (3 | 2).",
-   "h": "Vergleiche I und II zuerst.",
-   "g": "transfer"
+   "h": "Bringe y in beiden Gleichungen auf dieselbe Zahl. Wann sind die Geraden parallel?"
   },
   {
    "l": "loesbarkeit",
@@ -7084,28 +7982,6 @@
    "l": "loesbarkeit",
    "t": "loesbarkeit",
    "p": "uebung",
-   "s": 2,
-   "g": "einkleidung",
-   "y": "auswahl",
-   "f": {
-    "text": "Zwei Kerzen brennen gleich schnell ab (2 cm pro Stunde). Die eine ist 20 cm lang, die andere 15 cm. Werden sie jemals gleich lang?"
-   },
-   "a": [
-    "Immer, sie sind gleich lang.",
-    "Nie – das System hat keine Lösung.",
-    "Ja, nach 2,5 Stunden.",
-    "Ja, nach 5 Stunden."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "20 − 2t = 15 − 2t ⇒ 20 = 15 – falsch. Der Unterschied von 5 cm bleibt.",
-   "h": "Ändert sich der Unterschied der Längen?"
-  },
-  {
-   "l": "loesbarkeit",
-   "t": "loesbarkeit",
-   "p": "uebung",
    "s": 3,
    "g": "fehler",
    "y": "auswahl",
@@ -7128,23 +8004,128 @@
    "l": "loesbarkeit",
    "t": "loesbarkeit",
    "p": "uebung",
-   "s": 3,
-   "g": "pruefung",
+   "s": 1,
+   "g": "erkennen",
    "y": "auswahl",
    "f": {
-    "text": "I: 2x − y = 3, II: 4x − 2y = k. Welche Aussage stimmt?"
+    "text": "Tarif A: y = 0,1x + 5, Tarif B: y = 0,1x + 8. Wie viele Lösungen hat das Gleichungssystem?"
    },
    "a": [
-    "Für k = 6 gibt es keine Lösung.",
-    "Für k = 6 gibt es unendlich viele Lösungen, für jedes andere k keine.",
-    "Für jedes k gibt es genau eine Lösung.",
-    "Für k = 3 gibt es unendlich viele Lösungen."
+    "genau eine",
+    "keine – die Tarife sind nie gleich teuer",
+    "zwei",
+    "unendlich viele"
    ],
    "o": {
     "index": 1
    },
-   "w": "II − 2 · I: 0 = k − 6. Für k = 6 ist das wahr (unendlich viele), sonst falsch (keine).",
-   "h": "Vergleiche II mit dem Doppelten von I."
+   "w": "Gegeben: gleiche Steigung, verschiedener Achsenabschnitt. Gesucht: Anzahl. Ansatz: parallel. Rechnung: keine Lösung. Antwort: Keine Lösung.",
+   "h": "Vergleiche die Steigungen."
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Kinder sparen: A hat 20 € und spart 5 € pro Woche, B hat 20 € und spart 5 € pro Woche. Wie viele Lösungen hat „gleich viel Geld“?"
+   },
+   "a": [
+    "unendlich viele – sie haben immer gleich viel",
+    "genau eine",
+    "keine",
+    "zwei"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegeben: beide y = 5x + 20. Gesucht: Anzahl. Ansatz: identische Geraden. Rechnung: unendlich viele. Antwort: Unendlich viele Lösungen.",
+   "h": "Sind die Gleichungen gleich?"
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "auswahl",
+   "f": {
+    "text": "I: 2h + 4k = 56, II: h + 2k = 30 (Hühner und Kaninchen). Wie viele Lösungen gibt es?"
+   },
+   "a": [
+    "genau eine",
+    "keine – II · 2 ergibt 60 ≠ 56",
+    "zwei",
+    "unendlich viele"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegeben: II · 2: 2h + 4k = 60. Gesucht: Anzahl. Ansatz: Vergleich mit I. Rechnung: 56 ≠ 60. Antwort: Widerspruch – keine Lösung.",
+   "h": "Multipliziere II mit 2 und vergleiche."
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Läufer laufen mit je 10 km/h, der zweite startet 1 km weiter vorne. Jemand sucht den Treffpunkt. Was gilt?"
+   },
+   "a": [
+    "Treffpunkt nach 1 h.",
+    "Sie laufen immer zusammen.",
+    "Treffpunkt nach 10 min.",
+    "Kein Treffpunkt – die Geraden sind parallel."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gegeben: y = 10x, y = 10x + 1. Gesucht: Lösbar? Ansatz: Steigungen vergleichen. Rechnung: 10x = 10x + 1 ⇒ 0 = 1. Antwort: Keine Lösung.",
+   "h": "Was passiert beim Gleichsetzen?"
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "zahl",
+   "f": {
+    "text": "Tarif A: y = 0,2x + 6, Tarif B: y = m · x + 4. Für welches m gibt es KEINEN Schnittpunkt? Die Grundgebühren stehen schon fest, der Anbieter heißt gleich."
+   },
+   "o": {
+    "wert": 0.2
+   },
+   "c": "0.2",
+   "w": "Gegeben: parallel ⇒ m = 0,2; Name des Anbieters spielt keine Rolle. Gesucht: m. Ansatz: Gleiche Steigung, verschiedenes t. Rechnung: m = 0,2. Antwort: Für m = 0,2 gibt es keinen Schnittpunkt.",
+   "h": "Wann sind zwei Geraden parallel?"
+  },
+  {
+   "l": "loesbarkeit",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kiosk: I: 2e + 2w = 6, II: e + w = 3 (Eis, Wasser in €). Jemand sagt: „Daraus kann man den Preis eines Eises berechnen.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: II · 2 = I – unendlich viele Lösungen, der Preis ist nicht eindeutig.",
+    "Falsch: keine Lösung.",
+    "Richtig: e = 2 €.",
+    "Richtig: e = 1,50 €."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegeben: I = 2 · II. Gesucht: eindeutig? Ansatz: Gleichungen vergleichen. Rechnung: gleiche Gerade. Antwort: Unendlich viele Lösungen.",
+   "h": "Steckt in I mehr Information als in II?"
   },
   {
    "l": "loesbarkeit",
@@ -7343,23 +8324,18 @@
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
+   "s": 3,
+   "y": "zahl",
    "f": {
-    "text": "Eine Gruppe aus 9 Personen zahlt 63 € Eintritt. Erwachsene zahlen 9 €, Kinder 4,50 €. Welches Gleichungssystem passt (x Erwachsene, y Kinder)?"
+    "text": "Eine zweistellige Zahl hat die Quersumme 11. Vertauscht man ihre Ziffern, wird die Zahl um 27 größer. Wie heißt die Zahl?"
    },
-   "a": [
-    "9x + y = 9; x + 4,5y = 63",
-    "x + y = 63; 9x + 4,5y = 9",
-    "x + y = 9; 4,5x + 9y = 63",
-    "x + y = 9; 9x + 4,5y = 63"
-   ],
    "o": {
-    "index": 3
+    "wert": 47
    },
-   "w": "Personen: x + y = 9. Geld: 9 € je Erwachsener und 4,50 € je Kind ergibt 9x + 4,5y = 63. (Lösung: 5 Erwachsene, 4 Kinder.)",
-   "h": "Eine Gleichung zählt die Personen, die andere das Geld.",
-   "g": "erkennen"
+   "c": "10 * 4 + 7",
+   "w": "Zehner a, Einer b: a + b = 11 und (10b + a) − (10a + b) = 27 ⇔ 9b − 9a = 27 ⇔ b − a = 3. Also b = 7, a = 4: Zahl 47 (74 − 47 = 27).",
+   "h": "Schreibe die Zahl als 10a + b und die vertauschte als 10b + a.",
+   "g": "verknuepfen"
   },
   {
    "l": "sachaufgabe",
@@ -7382,6 +8358,50 @@
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Für „Ein Heft kostet 2 € mehr als ein Stift“ (h Heft, s Stift) schreibt jemand s = h + 2. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Das Heft ist teurer, also h = s + 2.",
+    "Richtig.",
+    "Falsch: h = 2s.",
+    "Falsch: h + s = 2."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Probe mit Zahlen: Stift 1 €, Heft 3 €. Dann gilt 3 = 1 + 2, also h = s + 2.",
+   "h": "Setze Beispielpreise ein."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Gruppe aus 9 Personen zahlt 63 € Eintritt. Erwachsene zahlen 9 €, Kinder 4,50 €. Welches Gleichungssystem passt (x Erwachsene, y Kinder)?"
+   },
+   "a": [
+    "9x + y = 9; x + 4,5y = 63",
+    "x + y = 63; 9x + 4,5y = 9",
+    "x + y = 9; 4,5x + 9y = 63",
+    "x + y = 9; 9x + 4,5y = 63"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Personen: x + y = 9. Geld: 9 € je Erwachsener und 4,50 € je Kind ergibt 9x + 4,5y = 63. (Lösung: 5 Erwachsene, 4 Kinder.)",
+   "h": "Eine Gleichung zählt die Personen, die andere das Geld.",
+   "g": "erkennen"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
@@ -7394,40 +8414,6 @@
    "w": "I: x + y = 30, II: 2x + y = 43. y = 30 − x einsetzen: x = 13. Andere Sorte: y = 30 − 13 = 17.",
    "h": "x = Anzahl der wertvolleren Münzen. Eine Gleichung für die Anzahl, eine für den Wert.",
    "g": "direkt"
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Eintrittskarte kostet für Erwachsene 15 €, für Kinder 8 €. Eine Gruppe aus 45 Personen zahlt 563 €. Wie viele Kinder sind dabei?"
-   },
-   "o": {
-    "wert": 16
-   },
-   "c": "(15 * 45 - 563) / (15 - 8)",
-   "w": "I: x + y = 45, II: 15x + 8y = 563. x = 45 − y einsetzen: 675 − 7y = 563 → y = 16. Erwachsene: x = 45 − 16 = 29.",
-   "h": "x = Erwachsene, y = Kinder. Eine Gleichung für die Personen, eine für den Preis."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Händler mischt Erdnüsse zu 10 € pro kg mit Cashewkernen zu 16 € pro kg. Er erhält 13 kg Mischung im Wert von 178 €. Wie viel kg der billigeren Sorte verwendet er?"
-   },
-   "o": {
-    "wert": 5,
-    "einheit": "kg"
-   },
-   "c": "(16 * 13 - 178) / (16 - 10)",
-   "w": "I: x + y = 13, II: 10x + 16y = 178. y = 13 − x: 10x + 208 − 16x = 178 → −6x = −30 → x = 5. Teurere Sorte: y = 13 − 5 = 8.",
-   "h": "Eine Gleichung für die Masse, eine für den Preis.",
-   "g": "transfer"
   },
   {
    "l": "sachaufgabe",
@@ -7591,6 +8577,40 @@
    "s": 2,
    "y": "zahl",
    "f": {
+    "text": "Eine Eintrittskarte kostet für Erwachsene 15 €, für Kinder 8 €. Eine Gruppe aus 45 Personen zahlt 563 €. Wie viele Kinder sind dabei?"
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "(15 * 45 - 563) / (15 - 8)",
+   "w": "I: x + y = 45, II: 15x + 8y = 563. x = 45 − y einsetzen: 675 − 7y = 563 → y = 16. Erwachsene: x = 45 − 16 = 29.",
+   "h": "x = Erwachsene, y = Kinder. Eine Gleichung für die Personen, eine für den Preis."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Händler mischt Erdnüsse zu 10 € pro kg mit Cashewkernen zu 16 € pro kg. Er erhält 13 kg Mischung im Wert von 178 €. Wie viel kg der billigeren Sorte verwendet er?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "kg"
+   },
+   "c": "(16 * 13 - 178) / (16 - 10)",
+   "w": "I: x + y = 13, II: 10x + 16y = 178. y = 13 − x: 10x + 208 − 16x = 178 → −6x = −30 → x = 5. Teurere Sorte: y = 13 − 5 = 8.",
+   "h": "Eine Gleichung für die Masse, eine für den Preis.",
+   "g": "transfer"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
     "text": "Kinokarten kosten für Erwachsene 9 € und für Kinder 6 €. 7 Personen zahlen zusammen 51 €. Wie viele Erwachsene sind dabei?"
    },
    "o": {
@@ -7677,23 +8697,6 @@
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine zweistellige Zahl hat die Quersumme 11. Vertauscht man ihre Ziffern, wird die Zahl um 27 größer. Wie heißt die Zahl?"
-   },
-   "o": {
-    "wert": 47
-   },
-   "c": "10 * 4 + 7",
-   "w": "Zehner a, Einer b: a + b = 11 und (10b + a) − (10a + b) = 27 ⇔ 9b − 9a = 27 ⇔ b − a = 3. Also b = 7, a = 4: Zahl 47 (74 − 47 = 27).",
-   "h": "Schreibe die Zahl als 10a + b und die vertauschte als 10b + a.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
    "s": 2,
    "g": "umkehr",
    "y": "auswahl",
@@ -7738,19 +8741,36 @@
    "g": "fehler",
    "y": "auswahl",
    "f": {
-    "text": "Für „Ein Heft kostet 2 € mehr als ein Stift“ (h Heft, s Stift) schreibt jemand s = h + 2. Was stimmt?"
+    "text": "In einer Kasse liegen 25 Münzen, nur 1-€- und 2-€-Stücke, zusammen 38 €. Jemand stellt auf: e + z = 38, e + 2z = 25. Was stimmt?"
    },
    "a": [
-    "Falsch: Das Heft ist teurer, also h = s + 2.",
-    "Richtig.",
-    "Falsch: h = 2s.",
-    "Falsch: h + s = 2."
+    "Falsch: 2e + z = 38.",
+    "Falsch: e − z = 25.",
+    "Falsch: Anzahl und Wert vertauscht – e + z = 25, e + 2z = 38 ⇒ 13 Zwei-Euro-Stücke.",
+    "Richtig."
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "w": "Probe mit Zahlen: Stift 1 €, Heft 3 €. Dann gilt 3 = 1 + 2, also h = s + 2.",
-   "h": "Setze Beispielpreise ein."
+   "w": "Gegeben: Anzahl 25, Wert 38. Gesucht: richtiger Ansatz. Ansatz: Zuordnen, dann subtrahieren. Rechnung: z = 38 − 25 = 13, e = 12. Antwort: Die Zahlen sind vertauscht; z = 13.",
+   "h": "Welche Zahl ist eine Anzahl, welche ein Geldbetrag?"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Für eine Klassenfahrt mit 3 Lehrkräften werden Doppel- und Viererzimmer gebucht: 10 Zimmer für 32 Kinder. Die Lehrkräfte schlafen in Einzelzimmern. Wie viele Viererzimmer sind es?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(32 - 2 * 10) / 2",
+   "w": "Gegeben: d + v = 10, 2d + 4v = 32; die Lehrkräfte gehören nicht dazu. Gesucht: v. Ansatz: d = 10 − v einsetzen. Rechnung: 20 − 2v + 4v = 32 ⇒ v = 6. Antwort: Es sind 6 Viererzimmer.",
+   "h": "Welche Angaben gehören nicht ins Gleichungssystem?"
   },
   {
    "l": "sachaufgabe",
@@ -7790,81 +8810,136 @@
    "l": "grafisch",
    "t": "grafisch",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Gerade g geht durch A(0 | 4) und B(4 | 0), Gerade h durch C(0 | −2) und D(2 | 0). Denke dir die Geraden durch die Punkte. Wo schneiden sie sich?",
+    "text": "Lies den Schnittpunkt der beiden Geraden ab.",
     "schablone": "S(□ | □)",
     "hinweis": "Je Lücke eine ganze Zahl.",
     "grafik": {
      "typ": "koordinaten",
      "x": [
-      -1,
-      5
+      -2,
+      6
      ],
      "y": [
-      -3,
-      5
+      -1,
+      6
      ],
-     "punkte": [
+     "graphen": [
       {
-       "x": 0,
-       "y": 4,
-       "name": "A"
+       "art": "linear",
+       "m": 0.5,
+       "t": 2,
+       "name": "g"
       },
       {
-       "x": 4,
-       "y": 0,
-       "name": "B"
-      },
-      {
-       "x": 0,
-       "y": -2,
-       "name": "C"
-      },
-      {
-       "x": 2,
-       "y": 0,
-       "name": "D"
+       "art": "linear",
+       "m": -1,
+       "t": 5,
+       "name": "h"
       }
      ]
     }
    },
    "o": {
     "werte": [
-     3,
-     1
+     2,
+     3
     ]
    },
    "c": [
-    "(4 + 2) / 2",
-    "-3 + 4"
+    "2",
+    "3"
    ],
-   "w": "g: y = −x + 4, h: y = x − 2. Gleichsetzen: −x + 4 = x − 2 ⇔ x = 3, y = 1. S(3 | 1).",
-   "h": "Bestimme aus den Punkten die beiden Geradengleichungen.",
-   "g": "transfer"
+   "w": "Die Geraden y = 0,5x + 2 und y = −x + 5 schneiden sich in (2 | 3). Probe: 0,5 · 2 + 2 = 3 und −2 + 5 = 3.",
+   "h": "Suche den gemeinsamen Punkt und lies x und y ab."
   },
   {
    "l": "grafisch",
    "t": "grafisch",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Du willst I: 2x + y = 7 und II: x − y = −1 zeichnen. Welche Geraden zeichnest du?"
+    "text": "Welches Gleichungssystem gehört zu den gezeichneten Geraden?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      4
+     ],
+     "y": [
+      -2,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -1,
+       "t": 3
+      },
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 0
+      }
+     ]
+    }
    },
    "a": [
-    "y = −2x + 7 und y = −x − 1",
-    "y = −2x + 7 und y = x + 1",
-    "y = 2x − 7 und y = x + 1",
-    "y = 2x + 7 und y = x − 1"
+    "I: x + y = 3;  II: 2x − y = 0",
+    "I: x + y = −3;  II: 2x + y = 0",
+    "I: x + y = 3;  II: x − 2y = 0",
+    "I: x − y = 3;  II: 2x − y = 0"
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
-   "w": "I: 2x auf die andere Seite, y = −2x + 7. II: x − y = −1, also y = x + 1.",
-   "h": "Stelle jede Gleichung nach y um.",
-   "g": "darstellung"
+   "w": "Die fallende Gerade geht durch (0 | 3) und (3 | 0): y = −x + 3, also x + y = 3. Die steigende durch (0 | 0) und (1 | 2): y = 2x, also 2x − y = 0.",
+   "h": "Bestimme zu jeder Geraden y = m · x + t und forme um.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Gerade g: y = x + 1 ist gezeichnet. Mit welcher zweiten Gleichung hat das System KEINE Lösung?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -4,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 1,
+       "name": "g"
+      }
+     ]
+    }
+   },
+   "a": [
+    "y = 2x + 1",
+    "y = −x + 1",
+    "y = x − 3",
+    "2y = 2x + 2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Keine Lösung heißt: parallel, aber verschieden. y = x − 3 hat dieselbe Steigung 1. 2y = 2x + 2 ist dieselbe Gerade wie g (unendlich viele Lösungen).",
+   "h": "Welche Gerade ist parallel zu g, aber nicht gleich?",
+   "g": "begruenden"
   },
   {
    "l": "grafisch",
@@ -7890,24 +8965,6 @@
    ],
    "w": "x + 1 = −x + 3 ⇒ 2x = 2 ⇒ x = 1, y = 2.",
    "h": "Gleiche y-Werte: setze die Terme gleich."
-  },
-  {
-   "l": "grafisch",
-   "t": "grafisch",
-   "p": "uebung",
-   "s": 2,
-   "g": "einkleidung",
-   "y": "zahl",
-   "f": {
-    "text": "Tarif A: y = 10 + 2x, Tarif B: y = 4x (x Stunden, y Kosten in €). Im Diagramm schneiden sich die Geraden. Nach wie vielen Stunden kosten beide gleich viel?"
-   },
-   "o": {
-    "wert": 5,
-    "einheit": "h"
-   },
-   "c": "10 / (4 - 2)",
-   "w": "10 + 2x = 4x ⇒ 2x = 10 ⇒ x = 5 h (beide 20 €).",
-   "h": "Der Schnittpunkt ist die Stelle gleicher Kosten."
   },
   {
    "l": "grafisch",
@@ -7978,7 +9035,6 @@
    "t": "grafisch",
    "p": "uebung",
    "s": 3,
-   "g": "pruefung",
    "y": "luecken",
    "f": {
     "text": "Gerade g geht durch (0 | 1) und (1 | 3), Gerade h durch (0 | 7) und (1 | 6). Bestimme den Schnittpunkt.",
@@ -7997,6 +9053,150 @@
    ],
    "w": "g: y = 2x + 1, h: y = −x + 7. 2x + 1 = −x + 7 ⇒ x = 2, y = 5.",
    "h": "Stelle zuerst beide Geradengleichungen auf."
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Handytarife werden als Geraden gezeichnet: y = 0,1x + 5 und y = 0,2x. Sie schneiden sich in (50 | 10). Was bedeutet der Schnittpunkt?"
+   },
+   "a": [
+    "Tarif A kostet 50 €.",
+    "Ab 10 Minuten ist A billiger.",
+    "Bei 50 Minuten kosten beide 10 €.",
+    "Bei 10 Minuten kosten beide 50 €."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gegeben: Schnittpunkt (50 | 10). Gesucht: Bedeutung. Ansatz: x = Minuten, y = Kosten. Rechnung: gleiche Kosten bei 50 min. Antwort: Bei 50 Minuten kosten beide 10 €.",
+   "h": "Was steht auf der x-Achse, was auf der y-Achse?"
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "luecken",
+   "f": {
+    "text": "Kerze A: h = −2x + 20, Kerze B: h = −x + 14 (x in Stunden). Lies am Schnittpunkt ab, wann beide gleich hoch sind und wie hoch.",
+    "schablone": "nach □ h, Höhe □ cm",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     6,
+     8
+    ]
+   },
+   "c": [
+    "6",
+    "8"
+   ],
+   "w": "Gegeben: −2x + 20 = −x + 14. Gesucht: Schnittpunkt. Ansatz: Gleichsetzen oder ablesen. Rechnung: x = 6, h = 8. Antwort: Nach 6 h sind beide 8 cm hoch.",
+   "h": "Wo treffen sich die beiden Geraden?"
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "luecken",
+   "f": {
+    "text": "Eine Tabelle zeigt zwei Sparpläne: A: 0 Monate 40 €, 2 Monate 60 €, 4 Monate 80 €. B: 0 Monate 0 €, 2 Monate 30 €, 4 Monate 60 €. Wann haben beide gleich viel, und wie viel?",
+    "schablone": "nach □ Monaten, □ €",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     8,
+     120
+    ]
+   },
+   "c": [
+    "8",
+    "120"
+   ],
+   "w": "Gegeben: A: 40 + 10x, B: 15x. Gesucht: Schnittpunkt. Ansatz: Gleichsetzen. Rechnung: 40 + 10x = 15x ⇒ x = 8; 120 €. Antwort: Nach 8 Monaten haben beide 120 €.",
+   "h": "Stelle aus der Tabelle für beide eine Gerade auf."
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Fahrradverleihe: A y = 3x + 6, B y = 5x (x Stunden). Der Schnittpunkt liegt bei x = 3. Eine Gruppe will 5 Stunden fahren. Welcher Verleih ist günstiger?"
+   },
+   "a": [
+    "B: 25 € statt 21 €",
+    "Beide kosten 15 €.",
+    "B, weil er bei 0 € beginnt.",
+    "A: 21 € statt 25 €"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gegeben: A: 3x + 6, B: 5x, x = 5. Gesucht: günstiger. Ansatz: Rechts vom Schnittpunkt prüfen. Rechnung: A: 21, B: 25. Antwort: A ist bei 5 Stunden günstiger.",
+   "h": "Liegt x = 5 links oder rechts vom Schnittpunkt?"
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "luecken",
+   "f": {
+    "text": "Ein Wanderer startet um 8 Uhr bei km 0 mit 4 km/h. Ein Radfahrer startet um 9 Uhr bei km 0 mit 12 km/h in dieselbe Richtung. Wann und wo holt der Radfahrer ihn ein? (x = Stunden nach 8 Uhr)",
+    "schablone": "um □:30 Uhr bei km □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     9,
+     6
+    ]
+   },
+   "c": [
+    "9",
+    "6"
+   ],
+   "w": "Gegeben: W: y = 4x, R: y = 12(x − 1). Gesucht: Schnittpunkt. Ansatz: Gleichsetzen. Rechnung: 4x = 12x − 12 ⇒ x = 1,5; y = 6. Antwort: Um 9:30 Uhr bei km 6.",
+   "h": "Der Radfahrer fährt eine Stunde kürzer."
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "luecken",
+   "f": {
+    "text": "Zwei Lieferdienste: A kostet y = 2x + 3, B y = x + 7 Euro (x km). Beide haben 20 Fahrer. Bei wie vielen km kosten beide gleich viel und wie viel?",
+    "schablone": "bei □ km, □ €",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     4,
+     11
+    ]
+   },
+   "c": [
+    "4",
+    "11"
+   ],
+   "w": "Gegeben: 2x + 3 = x + 7; Fahrerzahl spielt keine Rolle. Gesucht: Schnittpunkt. Ansatz: Gleichsetzen. Rechnung: x = 4, y = 11. Antwort: Bei 4 km kosten beide 11 €.",
+   "h": "Welche Angabe brauchst du nicht?"
   },
   {
    "l": "grafisch",

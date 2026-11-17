@@ -207,3 +207,19 @@ Folgen (Haupt-Chat):
   - Kind B · Realschule: Kl. 5 12/15 = 80 % · Kl. 6 9/10 = 90 % · Kl. 7 3/14 = 21 % · Kl. 8 0/9 · Kl. 9 0/13 · Kl. 10 0/11
   - Kind B · IB MYP: 1 15/19 = 79 % · 2 5/12 = 42 % · 3 3/13 = 23 % · 4 0/20
   Die App sollte dieselben Zahlen zeigen; Abweichungen bitte melden (die App rechnet im Browser aus schule_uebersicht, diese Zahlen sind unabhängig per SQL gerechnet).
+
+## 17.11. – Achtzehnte Runde Teil B (Lücken je Klasse) zusammengeführt und eingespielt
+Zweige luecken-kl5 … luecken-kl10 nach lernen-app zusammengeführt (Stand ffdad93). inhalt_pruefen 92 von 92 OK; tests/lernen.test.cjs 46 von 46.
+Eigene Gegenprüfung über alle 23 geänderten Themen: keine alte Aufgabe fehlt, keine Lernkarte entfernt, nichts aus der Pflicht genommen.
+- Eingespielt mit einheit_abgleichen(…, 'sperren') (Weg A): 26 neue Lernkarten, 8 erweiterte Lernkarten, 799 neue Aufgaben (Übung 109/176/254 nach Stufe, 26 Test, 78 Korrektur, 156 Sicherung).
+  Danach: 489 freigegebene Lernkarten; jede hat mindestens 3 freie Übungen je Stufe; keine neue Aufgabe gesperrt.
+- Neue Lernkarten: Kl. 5 zahlen.ganz (schriftlich_plus_minus, umkehraufgabe, verstehen), zahlen.rechengesetze (kopfrechnen, umkehraufgabe_mal, schriftlich_geteilt, sach) ·
+  Kl. 6 bruch.brueche (gemischte_zahlen, zahlbereiche), bruch.dezimal (merkwerte), bruch.rechnen (potenzen, sach) · Kl. 7 abbildungen.kongruenz (mittelsenkrechte, winkelhalbierende, vierecke_ordnen),
+  geometrie.konstruktion (planfigur) · Kl. 8 funktionen.linear (graph_ablesen), funktionen.grundbegriffe (sachzusammenhang), funktionen.gebrochen (indirekt_sach) ·
+  Kl. 9 funktionen.quadratisch (schnittpunkte), gleichungen.quadratisch (bruchgleichung), zahlen.reell (heron), trigo.allgemein (anwendung) ·
+  Kl. 10 funktionen.trig (verschiebung_x), funktionen.exponential_log (linear_oder_exponentiell), stochastik.mehrstufig (pi_schaetzen).
+- Betroffene Lernstände: kein abgeschlossener Flug der beiden Kinder liegt in diesen Themen; ein Kind hat in zahlen.ganz 2 Lernkarten begonnen (dort kommen 3 neue dazu).
+- Offen aus den Berichten: App-Wünsche (gemischte Zahl als gestapelter Bruch, Einheitskreis neben Graph, Kegel/Körper-Zeichnungen, Simulationsknopf, Konstruieren durch Zeichnen);
+  in den Themendateien stochastik.simulation und raum.schraegbilder steht noch gym_by 8 (Datenbank und Themenliste: 10); veraltete „offen“-Einträge in bruch.rechnen, bruch.dezimal, geometrie.konstruktion;
+  Frage, ob die neuen Pflichtkarten der Klasse 9 auch für Realschule/IB Pflicht sind; gleichungen.trig nach Klasse 10?
+- Teil A (drei neue Flüge, Zweig luecken-neu) ist noch nicht gestartet bzw. hat noch nichts hochgeladen.

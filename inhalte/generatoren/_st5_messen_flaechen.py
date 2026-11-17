@@ -1,0 +1,135 @@
+"""Zwanzigste Runde, Klasse 5: messen.flaechen – Typen, neue Übungen, Knobel-Bordkarten (siehe _stufen_kl5.py)."""
+from _stufen_kl5 import A, Z
+
+KARTEN = {
+ 'einheitsquadrate': {
+  'leiter': ('Einheitsquadrate in einem Rechteck abzählen oder ausrechnen.',
+             'Reihen oder Seitenlängen aus der Zahl der Quadrate bestimmen, größere Fliesen auslegen.',
+             'Vergrößerungen deuten, Rechtecke aus gegebenen Quadraten bilden, Randquadrate zählen, rückwärts aus Bedingungen.'),
+  'typ': [(r'^Wie viele Einheitsquadrate \(1 cm²\) passen', 'erkennen'), (r'^Ein Rechteck ist \d+ cm lang und \d+ cm breit\. Wie viele Quadrate', 'direkt'),
+          (r'ausgelegt|Quadrat ist aus \d+', 'umkehr'), (r'Fliesen', 'mehrschritt'), (r'doppelt so lang', 'verknuepfen'), (r'verschieden geformte|am Rand', 'transfer'),
+          (r'Plakat', 'pruefung'), (r'3-mal so lang', 'rueckwaerts')],
+  'neu': [
+   ('einkleidung', Z('Eine Albumseite ist 20 cm breit und 30 cm hoch. Sie wird mit quadratischen Stickern von 1 cm Seitenlänge lückenlos beklebt. Wie viele Sticker passen darauf?', 600, '20 * 30', '20 Reihen zu je 30 Stickern: 600.', 'Wie viele Sticker passen in eine Reihe, wie viele Reihen gibt es?')),
+   ('fehler', A('Jemand zählt bei einem Rechteck aus 5 · 3 Einheitsquadraten nur die Kästchenlängen am Rand und sagt: „Der Flächeninhalt ist 16 cm².“ Was ist falsch?', 'Der Flächeninhalt zählt alle Quadrate: 15 cm². 16 cm ist der Umfang.',
+                ['Nichts, das stimmt.', 'Richtig sind 8 cm².', 'Richtig sind 30 cm².'], 'Flächeninhalt: 5 · 3 = 15 Quadrate. Der Rand ist 2 · (5 + 3) = 16 cm lang – das ist der Umfang.', 'Was misst der Flächeninhalt, was der Umfang?')),
+  ],
+  'knobel': [
+   Z('Aus 36 Einheitsquadraten (1 cm²) werden verschiedene Rechtecke gelegt. Wie groß ist der kleinste mögliche Umfang?', 24, '2 * (6 + 6)', 'Möglich sind 1 · 36, 2 · 18, 3 · 12, 4 · 9 und 6 · 6. Die Umfänge: 74, 40, 30, 26 und 24 cm. Am kleinsten beim Quadrat: 24 cm.', 'Je „quadratischer“ das Rechteck, desto …?', einheit='cm'),
+   Z('Ein Rechteck besteht aus 30 Einheitsquadraten. Genau 22 davon liegen am Rand. Wie viele Quadrate ist es lang (die längere Seite)?', 10, '10',
+     'Bei a · b Quadraten liegen 2 · a + 2 · b − 4 am Rand (die Ecken nicht doppelt). 2 · a + 2 · b − 4 = 22 heißt a + b = 13. Mit a · b = 30 passt nur 10 und 3.', 'Wie viele Quadrate liegen bei einem a · b-Rechteck am Rand? Denk an die Ecken.'),
+  ],
+ },
+ 'rechteck': {
+  'leiter': ('Flächeninhalt und Umfang eines Rechtecks mit gegebenen Seiten berechnen.',
+             'Eine Seite aus Fläche oder Umfang bestimmen, Einheiten angleichen, Umfang und Fläche verknüpfen.',
+             'Veränderungen der Seiten deuten, größte Flächen bei festem Umfang, Rechtecke aus Bedingungen finden, Fehler bei der Umfangsformel.'),
+  'typ': [(r'Welche Angabe ist der', 'erkennen'), (r'^Berechne den', 'direkt'), (r'Länge wird verdoppelt', 'verknuepfen'), (r'größte m|denselben Umfang', 'transfer'),
+          (r'je um 1 cm größer', 'rueckwaerts'), (r'Flächeninhalt \d+ (m²|dm²|cm²)\. Wie lang ist eine Seite|Flächeninhalt \d+ (m²|cm²) und ist \d+ \w+ lang|hat den Umfang \d+ cm\. Wie breit', 'umkehr'), (r'.', 'mehrschritt')],
+  'neu': [
+   ('einkleidung', Z('Ein Tischtuch ist 2 m lang und 1 m 50 cm breit. Wie viele dm² hat es?', 300, '20 * 15', '2 m = 20 dm, 1 m 50 cm = 15 dm. 20 dm · 15 dm = 300 dm².', 'Rechne beide Seiten in dm um.', einheit='dm²')),
+   ('fehler', A('Jemand berechnet den Umfang eines Rechtecks mit 8 cm und 3 cm so: 8 + 3 = 11 cm. Was ist falsch?', 'Jede Seite kommt zweimal vor: 2 · (8 + 3) = 22 cm.', ['Nichts, das stimmt.', 'Richtig ist 8 · 3 = 24 cm.', 'Richtig ist 4 · 8 = 32 cm.'],
+                'Der Umfang ist der Weg einmal ganz herum: 8 + 3 + 8 + 3 = 22 cm.', 'Wie viele Seiten hat ein Rechteck?')),
+   ('begruenden', A('Stimmt die Aussage? „Verdoppelt man die Länge eines Rechtecks und lässt die Breite gleich, verdoppelt sich der Flächeninhalt.“', 'Ja: A = 2 · a · b, also doppelt so groß.', ['Nein, er vervierfacht sich.', 'Nein, er bleibt gleich.', 'Nur bei Quadraten.'],
+                    'Das neue Rechteck besteht aus zwei alten Rechtecken nebeneinander.', 'Lege zwei gleiche Rechtecke nebeneinander.')),
+   ('parameter', Z('Ein Rechteck ist 4 cm breit. Für welche Länge a haben Umfang (in cm) und Flächeninhalt (in cm²) dieselbe Maßzahl?', 4, '4', 'Umfang 2 · a + 8, Flächeninhalt 4 · a. Gleich: 2 · a + 8 = 4 · a, also 2 · a = 8 und a = 4 (Quadrat: 16 cm und 16 cm²).', 'Schreib Umfang und Flächeninhalt mit a auf.', einheit='cm')),
+   ('pruefung', A('Welche Angabe ist richtig?', '8 m und 300 cm ergeben 24 m².', ['4 cm und 6 cm ergeben 24 cm.', '5 dm und 20 cm ergeben 100 dm².', '7 m und 2 m ergeben 18 m².'],
+                  '8 m · 3 m = 24 m². Die anderen: falsche Einheit (cm statt cm²), 5 dm · 2 dm = 10 dm², 7 m · 2 m = 14 m² (18 wäre der Umfang).', 'Bring beide Seiten auf dieselbe Einheit und prüfe die Einheit des Ergebnisses.')),
+  ],
+  'knobel': [
+   Z('Ein Rechteck hat den Umfang 20 cm und den Flächeninhalt 24 cm². Wie lang ist die längere Seite?', 6, '6', 'Länge + Breite = 10 cm und Länge · Breite = 24 cm². Probieren: 6 und 4.', 'Was ergeben Länge und Breite zusammen?', einheit='cm'),
+   Z('Ein Quadrat wird in 3 gleiche Streifen (Rechtecke) zerlegt. Jeder Streifen hat den Umfang 24 cm. Wie groß ist der Flächeninhalt des Quadrats?', 81, '9 * 9',
+     'Ist die Quadratseite s, ist ein Streifen s lang und s : 3 breit. Umfang: 2 · s + 2 · (s : 3) = 24. Mit s = 9: 18 + 6 = 24. Flächeninhalt: 81 cm².', 'Drücke die Streifenbreite durch die Quadratseite aus.', einheit='cm²'),
+  ],
+ },
+ 'einheiten': {
+  'leiter': ('Eine Fläche in die benachbarte Einheit umrechnen.',
+             'Über mehrere Stufen umrechnen, zwei Einheiten zusammenfassen oder zerlegen, Flächen schätzen.',
+             'Flächen in verschiedenen Einheiten vergleichen, Fehler mit der Umrechnungszahl erklären, rückwärts rechnen, Lücken füllen.'),
+  'typ': [(r'am (größten|kleinsten)', 'verknuepfen'), (r'Was ist falsch', 'fehler'), (r'Wie viele Quadrate mit 1 cm', 'transfer'), (r'ungefähr', 'einkleidung'),
+          (r'Bauernhof', 'einkleidung'), (r'^Schreibe in|^Zerlege', 'darstellung'), (r'S1:^Rechne um', 'direkt'), (r'.', 'mehrschritt')],
+  'neu': [
+   ('erkennen', A('Welche Umrechnungszahl gilt zwischen benachbarten Flächeneinheiten (z. B. m² und dm²)?', '100', ['10', '1 000', '60'], '1 m² = 10 dm · 10 dm = 100 dm².', 'Ein Quadrat mit 1 m Seite – wie viele dm²?')),
+   ('begruenden', A('Stimmt die Aussage? „1 m = 100 cm, also ist 1 m² = 100 cm².“', 'Nein: 1 m² = 100 cm · 100 cm = 10 000 cm².', ['Ja, das stimmt.', 'Nein: 1 m² = 1 000 cm².', 'Nein: 1 m² = 200 cm².'], 'Bei Flächen werden beide Seiten umgerechnet.', 'Zeichne ein Quadrat mit 1 m Seite.')),
+   ('rueckwaerts', Z('Ein Grundstück wird in 8 gleich große Bauplätze von je 6 a geteilt. Wie viele m² hatte das Grundstück?', 4800, '8 * 600', '8 · 6 a = 48 a = 4 800 m².', 'Rechne erst in a, dann in m².', einheit='m²')),
+   ('pruefung', Z('Fülle die Lücke: 2 ha − 75 a + □ m² = 1,5 ha. Welche Zahl gehört in die Lücke?', 2500, '15000 - (20000 - 7500)', '2 ha = 20 000 m², 75 a = 7 500 m², 1,5 ha = 15 000 m². 20 000 − 7 500 = 12 500. Bis 15 000 fehlen 2 500.', 'Rechne alles in m² um.')),
+  ],
+  'knobel': [
+   Z('Ein quadratischer Park hat genau 1 ha. Wie lang ist eine Seite in m?', 100, '100', '1 ha = 10 000 m² = 100 m · 100 m. Die Seite ist 100 m lang.', 'Wie viele m² hat 1 ha? Welche Zahl mal sich selbst ergibt das?', einheit='m'),
+   Z('Wie viele Quadrate mit 2 cm Seitenlänge passen lückenlos in 1 m²?', 2500, '50 * 50', 'In 1 m = 100 cm passen 50 Quadrate nebeneinander, in 50 Reihen: 50 · 50 = 2 500.', 'Wie viele passen in eine Reihe von 1 m?'),
+  ],
+ },
+ 'kommaschreibweise': {
+  'leiter': ('Zwei Flächeneinheiten in Kommaschreibweise schreiben.',
+             'Kommaschreibweise zurückrechnen, Nullen beachten, mit Flächen in Kommaschreibweise rechnen.',
+             'Flächen vergleichen, Schreibfehler erklären, rückwärts rechnen, Ziffern bestimmen.'),
+  'typ': [(r'Welche Schreibweise ist richtig', 'begruenden'), (r'am kleinsten', 'verknuepfen'), (r'Was ist falsch', 'fehler'), (r'fehlen', 'transfer'), (r'^Berechne', 'mehrschritt'),
+          (r'^Rechne um: [\d\s]+,\d+ \w+²? = \?|ha = \? a', 'umkehr'), (r'^Rechne um', 'darstellung'), (r'S1:^Schreibe in', 'direkt'), (r'.', 'mehrschritt')],
+  'neu': [
+   ('erkennen', A('Wie viele Stellen nach dem Komma braucht man, wenn man m² und dm² zusammen in m² schreibt?', '2', ['1', '3', '4'], '1 m² = 100 dm²: dm² brauchen zwei Stellen.', 'Wie viele dm² hat 1 m²?')),
+   ('rueckwaerts', Z('Zu einer Fläche werden 35 dm² addiert. Es ergibt sich 2,10 m². Wie viele dm² waren es?', 175, '210 - 35', '2,10 m² = 210 dm². 210 − 35 = 175 dm².', 'Rechne in dm².', einheit='dm²')),
+   ('parameter', Z('Für welche Ziffer □ gilt 3,□6 a = 346 m²?', 4, '4', '346 m² = 3 a 46 m² = 3,46 a.', 'Schreib 346 m² mit a und m².')),
+   ('pruefung', Z('Ordne 1,2 a; 125 m²; 1 a 5 m²; 0,13 a der Größe nach. Wie viele m² hat die größte Fläche?', 125, '125', 'In m²: 120, 125, 105 und 13. Die größte ist 125 m².', 'Rechne alles in m² um.', einheit='m²')),
+  ],
+  'knobel': [
+   Z('Um wie viele m² ist 1,2 ha größer als 1 ha 2 a?', 1800, '12000 - 10200', '1,2 ha = 12 000 m². 1 ha 2 a = 10 000 m² + 200 m² = 10 200 m². Unterschied 1 800 m².', 'Vorsicht: 1,2 ha ist nicht 1 ha 2 a.', einheit='m²'),
+   Z('Ein Quadrat hat den Flächeninhalt 0,25 m². Wie lang ist eine Seite in cm?', 50, '50', '0,25 m² = 2 500 cm² = 50 cm · 50 cm.', 'Rechne in cm² um.', einheit='cm'),
+  ],
+ },
+ 'zerlegen': {
+  'leiter': ('Den Flächeninhalt einer Figur durch Ergänzen zu einem Rechteck und Abziehen berechnen.',
+             'Figuren zerlegen, Wohnungen und Rahmen berechnen, Umfänge zusammengesetzter Figuren.',
+             'Wege um Beete, Treppen- und U-Formen, Umfang beim Ausschneiden und Aneinanderlegen, Bedingungen und Fehler.'),
+  'typ': [(r'^Berechne den Flächeninhalt der Figur', 'direkt'), (r'Wohnung|Bilderrahmen', 'einkleidung'), (r'Weg', 'transfer'), (r'Umfang der U-Form|Zwei gleiche Quadrate', 'verknuepfen'),
+          (r'Umfang der Restfigur', 'begruenden'), (r'Treppenfigur', 'transfer'), (r'.', 'mehrschritt')],
+  'neu': [
+   ('erkennen', A('Wie kann man den Flächeninhalt einer L-Form berechnen?', 'in zwei Rechtecke zerlegen und die Flächen addieren', ['Länge mal Breite der längsten Seiten', 'alle Seiten addieren', 'den Umfang halbieren'], 'Die L-Form besteht aus zwei Rechtecken.', 'Woraus besteht eine L-Form?')),
+   ('erkennen', A('Aus einem großen Rechteck wird ein kleines Rechteck herausgeschnitten. Wie berechnet man den Flächeninhalt der Restfigur?', 'großes Rechteck minus kleines Rechteck', ['großes plus kleines Rechteck', 'Umfang des großen Rechtecks', 'kleines Rechteck mal 2'], 'Ergänzen: Was fehlt, zieht man ab.', 'Was ist weg?')),
+   ('umkehr', Z('Eine L-Form hat 40 m². Sie besteht aus einem Rechteck mit 6 m × 4 m und einem zweiten Rechteck, das 2 m breit ist. Wie lang ist das zweite Rechteck?', 8, '(40 - 24) // 2', 'Für das zweite Rechteck bleiben 40 − 24 = 16 m². 16 : 2 = 8 m.', 'Wie viel m² bleiben für das zweite Rechteck?', einheit='m')),
+   ('fehler', A('Jemand zerlegt eine L-Form in zwei Rechtecke, zählt aber ein Stück von 2 m × 2 m doppelt und erhält 52 m². Wie groß ist die Fläche wirklich?', '48 m²', ['52 m²', '56 m²', '50 m²'], 'Das doppelt gezählte Stück hat 4 m²: 52 − 4 = 48 m².', 'Wie groß ist das doppelt gezählte Stück?')),
+   ('parameter', Z('Aus einem Quadrat mit 9 cm Seitenlänge wird in einer Ecke ein Quadrat mit a cm Seitenlänge herausgeschnitten. Es bleiben 72 cm². Wie groß ist a?', 3, '3', '81 − a · a = 72, also a · a = 9 und a = 3.', 'Wie groß ist das herausgeschnittene Quadrat?', einheit='cm')),
+   ('pruefung', Z('An die kurze Seite eines Rechtecks 10 cm × 6 cm wird ein Quadrat mit 6 cm Seitenlänge angesetzt. Wie groß ist der Umfang der neuen Figur?', 44, '2 * (16 + 6)', 'Die Figur ist ein Rechteck 16 cm × 6 cm. Umfang 2 · (16 + 6) = 44 cm.', 'Welche Form entsteht?', einheit='cm')),
+  ],
+  'knobel': [
+   Z('Aus einem Quadrat aus 5 · 5 Kästchen wird das mittlere Kästchen herausgenommen. Wie lang ist der gesamte Rand der Figur (außen und innen) in Kästchenlängen?', 24, '20 + 4', 'Außen: 4 · 5 = 20. Innen um das Loch: 4. Zusammen 24.', 'Das Loch hat auch einen Rand.'),
+   Z('Aus einem Rechteck 10 cm × 8 cm werden an allen vier Ecken gleiche Quadrate mit 2 cm Seitenlänge ausgeschnitten. Wie groß ist der Umfang der Restfigur?', 36, '2 * (10 + 8)', 'An jeder Ecke fallen 2 + 2 cm weg, aber 2 + 2 cm kommen nach innen dazu. Der Umfang bleibt 36 cm.', 'Was passiert an einer Ecke mit dem Rand?', einheit='cm'),
+  ],
+ },
+ 'sachaufgaben': {
+  'leiter': ('Flächeninhalt oder Umfang einer rechteckigen Fläche im Alltag berechnen.',
+             'Mit Preisen und Mengen pro m² rechnen, Türen aussparen, Zäune und Leisten.',
+             'Wände und Fliesen, Einheiten verknüpfen, Flächen schätzen und eingrenzen, Fehler bei Zaun und Fläche erklären.'),
+  'typ': [(r'Wand ist|1 a Rasen', 'verknuepfen'), (r'Fliesen|Sandkasten', 'transfer'), (r'alle vier Wände|Eimer', 'pruefung'), (r'Was ist falsch', 'fehler'),
+          (r'Wie viele Kästchen liegen ganz', 'darstellung'), (r'sicher sagen|in Frage', 'begruenden'), (r'Teich', 'parameter'),
+          (r'^Ein Garten ist \d+ m lang und \d+ m breit\. Wie viele Meter|^Ein Rasen ist \d+ m lang und \d+ m breit\. Wie viele m²', 'direkt'),
+          (r'Fußleiste|Teppich', 'mehrschritt'), (r'.', 'einkleidung')],
+  'neu': [
+   ('erkennen', A('Für einen Zaun um einen Garten braucht man …', 'den Umfang', ['den Flächeninhalt', 'die Diagonale', 'die halbe Fläche'], 'Ein Zaun geht einmal ganz herum: Umfang.', 'Geht der Zaun um den Garten herum oder liegt er darauf?')),
+   ('umkehr', Z('Ein rechteckiges Beet hat 24 m² und ist 6 m lang. Wie viele Meter Zaun braucht man ringsherum?', 20, '2 * (6 + 24 // 6)', 'Breite: 24 : 6 = 4 m. Umfang: 2 · (6 + 4) = 20 m.', 'Bestimme zuerst die Breite.', einheit='m')),
+  ],
+  'knobel': [
+   Z('Ein quadratischer Garten hat den Umfang 48 m. Ein 1 m breiter Weg führt mitten hindurch, parallel zu einer Seite, und teilt ihn in zwei Beete. Wie groß sind die beiden Beete zusammen?', 132, '144 - 12', 'Seite: 48 : 4 = 12 m. Garten: 144 m². Weg: 12 m · 1 m = 12 m². Beete: 132 m².', 'Wie lang ist eine Seite des Gartens?', einheit='m²'),
+   Z('Ein Zimmer 5 m × 4 m soll mit quadratischen Platten von 50 cm Seitenlänge ausgelegt werden. Die Platten gibt es nur in Paketen zu 6 Stück. Wie viele Pakete muss man kaufen?', 14, '80 // 6 + 1', '10 · 8 = 80 Platten. 80 : 6 = 13 Rest 2 – also 14 Pakete.', 'Wie viele Platten passen in jede Richtung?'),
+  ],
+ },
+ 'verstehen': {
+  'leiter': ('Einfache Aussagen über Flächeninhalt, Umfang und Flächeneinheiten prüfen.',
+             'Umrechnungen in Aussagen prüfen, Fläche und Umfang in Sachsituationen auseinanderhalten.',
+             'Zusammenhänge zwischen Umfang und Fläche begründen und widerlegen, Vergrößerungen deuten.'),
+  'typ': [(r'2 a = 200|6 m² 4 dm²', 'darstellung'), (r'Flächeninhalt 9 cm² und den Umfang', 'mehrschritt'), (r'Ecke ein kleines Rechteck|Zerlegen und beim Ergänzen|gleichem Umfang', 'begruenden'),
+          (r'Umfang 32 cm', 'verknuepfen'), (r'halbiert|beide den Flächeninhalt 36', 'transfer'), (r'Umfang 20 cm hat den größten', 'pruefung'), (r'Verdreifache', 'fehler'), (r'.', 'erkennen')],
+  'neu': [
+   ('direkt', Z('Wie groß ist der Flächeninhalt eines Quadrats mit 5 cm Seitenlänge?', 25, '5 * 5', '5 cm · 5 cm = 25 cm².', 'Seite mal Seite.', einheit='cm²')),
+   ('umkehr', A('Stimmt die Aussage? „Ein Rechteck mit 24 cm² Flächeninhalt und 6 cm Länge ist 4 cm breit.“', 'Ja: 24 cm² : 6 cm = 4 cm.', ['Nein: Es ist 18 cm breit.', 'Nein: Es ist 6 cm breit.', 'Nein: Man kann die Breite nicht bestimmen.'],
+                'Breite = Flächeninhalt : Länge = 24 : 6 = 4 cm.', 'Rechne die Breite aus.')),
+   ('mehrschritt', A('Stimmt die Aussage? „Ein Rechteck mit 5 m Länge und 30 cm Breite hat 150 dm².“', 'Ja: 50 dm · 3 dm = 150 dm².', ['Nein: Es hat 150 m².', 'Nein: Es hat 15 dm².', 'Nein: Es hat 1 500 dm².'],
+                     'Beide Seiten in dm: 5 m = 50 dm, 30 cm = 3 dm. 50 · 3 = 150.', 'Rechne beide Seiten in dm um.')),
+   ('einkleidung', A('Ein Zimmer ist 5 m lang und 4 m breit. Stimmt: „Für den Teppichboden braucht man 18 m.“?', 'Nein: Der Teppich braucht die Fläche 20 m²; 18 m ist der Umfang.', ['Ja, das stimmt.', 'Nein: Man braucht 9 m².', 'Nein: Man braucht 40 m².'],
+                     'Teppich deckt die Fläche: 5 m · 4 m = 20 m². 18 m wäre die Länge einer Leiste ringsherum.', 'Braucht man für Teppich die Fläche oder den Umfang?')),
+  ],
+  'knobel': [
+   Z('Ein Rechteck hat den Flächeninhalt 36 cm² und ganzzahlige Seitenlängen (in cm). Wie groß ist sein größtmöglicher Umfang?', 74, '2 * (1 + 36)', 'Möglich: 1 · 36, 2 · 18, 3 · 12, 4 · 9, 6 · 6. Am längsten wird der Umfang beim schmalsten Rechteck: 2 · (1 + 36) = 74 cm.', 'Welches Rechteck ist am „schmalsten“?', einheit='cm'),
+   Z('Ein Quadrat und ein Rechteck haben beide den Umfang 24 cm. Das Rechteck ist 2 cm breit. Um wie viele cm² ist das Quadrat größer?', 16, '36 - 20', 'Quadrat: Seite 6 cm, 36 cm². Rechteck: 2 cm breit, 10 cm lang, 20 cm². Unterschied 16 cm².', 'Bestimme zuerst die Seiten beider Figuren.', einheit='cm²'),
+  ],
+ },
+}

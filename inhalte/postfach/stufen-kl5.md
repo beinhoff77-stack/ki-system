@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 15:05 – STATUS: messen.flaechen fertig
+7 Lernkarten: 27 neue Übungen, 14 Knobel-Bordkarten, 24 umgestuft, 22 überzählig. Prüfskript OK, 0 Gruppen „gleich gebaut hintereinander“, Gegenprobe ohne überzählige OK, Nachweis OK.
+
 ## 2026-11-17 15:02 – STATUS: geometrie.ortslinien fertig
 6 Lernkarten: 20 neue Übungen, 12 Knobel-Bordkarten, 7 umgestuft, 42 überzählig. Prüfskript OK, 0 Gruppen „gleich gebaut hintereinander“, Gegenprobe ohne überzählige OK, Nachweis OK.
 

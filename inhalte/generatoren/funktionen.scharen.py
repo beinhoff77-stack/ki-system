@@ -480,6 +480,122 @@ UMBAU_WEG = []
 # ---------- Ende UMBAU ----------
 
 
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil B, Zweig durchsicht-rsib-1) ----------
+# Prüfungsvorbilder: Jahrgangsstufentest 8 I und Realschul-Abschlussprüfung Mathematik I (Bayern): Geradenscharen, Parameter aus
+# einer Punktprobe bestimmen, gemeinsamer Punkt eines Büschels nach Umformen, Tarifvergleich mit zwei Bedingungen.
+# Typ übernommen, Wortlaut und Zahlen eigen.
+def durchsicht(d):
+    from _rsib1 import Z, A, L, nachtrag, finde
+    T = lambda teil: finde(d, teil)
+    LT, HT = '□x + □', 'Tippe den Term ein, z. B. 3x − 2.'
+    nachtrag(d,
+        umstufen={
+            T('Welche Gleichung gehört in der Schar y = 3x + k zu k = 5?'): 1,
+            T('Welche Gleichung gehört in der Schar y = −2x + k zu k = 1?'): 1,
+            T('Liegt der Punkt P(−6 | −26)'): 2,
+            T('Liegt der Punkt P(−4 | 1)'): 2,
+            T('Welchen Punkt haben alle Geraden der Schar y = m · (x − 2) + 4 gemeinsam?'): 1,
+            T('Löse (k + 2) · x = 4k für k = −4.'): 2,
+            T('Ein Handwerker berechnet 50 € Anfahrt plus m € pro Stunde. Für 4 Stunden bezahlt man 290 €.'): 2,
+            T('Ein Fahrradverleih nimmt 2 € Grundgebühr plus m € pro Stunde. Für 4 Stunden bezahlt man 14 €. Wie hoch'): 2,
+        },
+        ersetzen={
+            T('Liegt der Punkt P(−2 | −4)'):
+                A(3, 'Liegt der Punkt P(0 | 5) auf irgendeiner Geraden der Schar y = k · x + 3?',
+                  'Nein: Bei x = 0 ist y immer 3.', ['Ja, für k = 5.', 'Ja, für k = 2.', 'Ja, für jedes k.'],
+                  'Setze x = 0 ein: y = k · 0 + 3 = 3 – für jedes k. Der Punkt (0 | 5) liegt auf keiner Geraden der Schar.',
+                  'Was passiert mit k · x, wenn x = 0 ist?'),
+            T('Liegt der Punkt P(1 | −18)'):
+                L(3, 'In der Schar y = k · x − 1 gehört zu k = 1,5 eine Gerade. Gib die Gerade der Schar an, die doppelt so steil ist.',
+                  LT, [3, -1], ['2*1.5', '-1'], 'Doppelt so steil: Steigung 2 · 1,5 = 3, also k = 3. Die Gerade: y = 3x − 1.',
+                  'Welche Zahl in der Gleichung ist die Steigung?', hinweis=HT),
+            T('Jemand rechnet für die Schar y = 2,5x + t und P(4 | −1)'):
+                Z(3, 'Zwei Geraden der Schar y = −x + t gehen durch P(1 | 4) bzw. Q(3 | 1). Um wie viel unterscheiden sich ihre y-Achsenabschnitte?',
+                  1, '(4 + 1) - (1 + 3)', 'Durch P: 4 = −1 + t, t = 5. Durch Q: 1 = −3 + t, t = 4. Unterschied 5 − 4 = 1.',
+                  'Bestimme t für jeden Punkt einzeln.'),
+            T('Ein Handwerker berechnet 40 € Anfahrt plus m € pro Stunde. Für 4 Stunden bezahlt man 240 €.'):
+                Z(3, 'Ein Handwerker berechnet eine feste Anfahrt plus einen Stundenlohn. 4 Stunden kosten 290 €, 6 Stunden kosten 410 €. Wie hoch ist die Anfahrt?',
+                  50, '290 - 4*(410 - 290)/2', '2 Stunden mehr kosten 120 € mehr: Stundenlohn 60 €. Anfahrt: 290 − 4 · 60 = 50 €.',
+                  'Was kosten die 2 zusätzlichen Stunden?', einheit='€'),
+            T('Ein Stromtarif kostet 12 € Grundgebühr im Monat plus m € pro kWh. Für 250 kWh bezahlt man 74,50 €. Wie hoch'):
+                Z(3, 'Ein Stromtarif kostet 12 € Grundgebühr im Monat plus 0,25 € pro kWh. Eine Familie zahlt 74,50 €. Wie viele kWh hat sie verbraucht?',
+                  250, '(74.5 - 12)/0.25', 'Ohne Grundgebühr: 74,50 − 12 = 62,50 €. 62,50 : 0,25 = 250 kWh.',
+                  'Zieh zuerst die Grundgebühr ab.', einheit='kWh'),
+        },
+        neu={
+            'einsetzen': [
+                Z(3, 'Für welchen Wert von k geht die Gerade der Schar y = k · x + 2 durch den Punkt P(4 | 14)?',
+                  3, '(14 - 2)/4', 'P einsetzen: 14 = k · 4 + 2 ⇒ 4k = 12 ⇒ k = 3.', 'Setze die Koordinaten von P ein und löse nach k auf.'),
+                Z(3, 'Gegeben ist die Schar y = (k − 1) · x + 2k. Für welches k geht die Gerade durch P(2 | 10)?',
+                  3, '(10 + 2)/4', 'Einsetzen: 10 = (k − 1) · 2 + 2k = 2k − 2 + 2k = 4k − 2 ⇒ 4k = 12 ⇒ k = 3.',
+                  'Setze x = 2 und y = 10 ein, multipliziere die Klammer aus.'),
+                A(3, 'Gegeben ist die Schar y = k · x + 3. Für welche k liegt der y-Wert an der Stelle x = 2 über 9?',
+                  'für k > 3', ['für k < 3', 'für k > 9', 'für k > 6'],
+                  'An der Stelle 2: y = 2k + 3 > 9 ⇒ 2k > 6 ⇒ k > 3.', 'Setze x = 2 ein und vergleiche mit 9.'),
+                Z(3, 'Die Geraden der Schar y = k · x + 1 zu k = 2 und zu k = −2 werden gezeichnet. An welcher Stelle x haben beide denselben y-Wert?',
+                  0, '0', '2x + 1 = −2x + 1 ⇒ 4x = 0 ⇒ x = 0. Alle Geraden der Schar gehen durch (0 | 1).',
+                  'Setze die beiden Terme gleich.'),
+                Z(3, 'Taxi-Tarif y = k · x + 2 (x in km, y in €). In Stadt A kosten 5 km genau 17 €. Wie viel kosten dort 8 km?',
+                  26, '(17 - 2)/5*8 + 2', '17 = 5k + 2 ⇒ k = 3. Für 8 km: 3 · 8 + 2 = 26 €.',
+                  'Bestimme zuerst k für Stadt A.', einheit='€'),
+                Z(3, 'Gegeben ist die Schar y = k · x + 4. Um wie viel ist bei x = 4 der y-Wert für k = 5 größer als für k = 3?',
+                  8, '(5 - 3)*4', 'k = 5: 24, k = 3: 16. Unterschied 8 = (5 − 3) · 4. Die 4 fällt weg.',
+                  'Rechne beide y-Werte aus – oder überlege, was sich ändert.'),
+            ],
+            'parallelenschar': [
+                Z(3, 'Für welches t schneidet die Gerade der Schar y = 0,5x + t die x-Achse bei x = 6?',
+                  -3, '0 - 0.5*6', 'Schnitt mit der x-Achse heißt y = 0: 0 = 0,5 · 6 + t ⇒ t = −3.', 'Welchen y-Wert hat ein Punkt auf der x-Achse?'),
+                L(3, 'Eine Gerade der Schar y = 2x + t liegt 3 Einheiten unterhalb der Geraden y = 2x + 1. Gib ihre Gleichung an.',
+                  LT, [2, -2], ['2', '1 - 3'], 'Gleiche Steigung 2, y-Achsenabschnitt 1 − 3 = −2: y = 2x − 2.',
+                  'Parallele Geraden unterscheiden sich nur im y-Achsenabschnitt.', hinweis=HT),
+            ],
+            'bueschel': [
+                L(3, 'Alle Geraden der Schar y = m · x + 2m − 1 gehen durch einen gemeinsamen Punkt Z. Gib Z an.',
+                  'Z(□ | □)', [-2, -1], ['-2', '-1'], 'Umformen: y = m · (x + 2) − 1. Für x = −2 wird die Klammer 0, dann ist y = −1: Z(−2 | −1).',
+                  'Klammere m aus: m · x + 2m = m · (x + 2).'),
+                L(3, 'Welche Gerade des Büschels y = m · (x − 1) + 3 geht durch den Ursprung?',
+                  LT, [3, 0], ['3', '0'], 'O(0 | 0) einsetzen: 0 = m · (−1) + 3 ⇒ m = 3. Gerade: y = 3 · (x − 1) + 3 = 3x.',
+                  'Setze x = 0 und y = 0 ein.', hinweis='Tippe den Term ein, z. B. 3x + 0 oder 3x.'),
+                Z(3, 'Für welches m schneidet die Gerade des Büschels y = m · (x − 2) + 4 die x-Achse bei x = 4?',
+                  -2, '-4/2', 'Punkt (4 | 0) einsetzen: 0 = m · 2 + 4 ⇒ m = −2.', 'Welcher Punkt liegt bei x = 4 auf der x-Achse?'),
+            ],
+            'wirkung': [
+                A(3, 'Für welche k steigt die Gerade der Schar y = (2k − 6) · x + 1 steiler an als y = 2x?',
+                  'für k > 4', ['für k > 3', 'für k > 2', 'für k > 8'],
+                  'Steigung 2k − 6 > 2 ⇒ 2k > 8 ⇒ k > 4.', 'Vergleiche die Steigung 2k − 6 mit 2.'),
+                A(3, 'Gibt es in der Schar y = k · x + k eine Gerade durch den Ursprung?',
+                  'Ja, für k = 0: Das ist die x-Achse.', ['Nein, alle schneiden die y-Achse bei k.', 'Ja, für jedes k.', 'Ja, für k = 1.'],
+                  'Durch (0 | 0): 0 = k · 0 + k ⇒ k = 0. Dann lautet die Gleichung y = 0 – die x-Achse.',
+                  'Hier steckt k auch im y-Achsenabschnitt.'),
+            ],
+            'loesung_parameter': [
+                Z(3, 'Für welches k schneiden sich die Geraden y = 2x + 4 und y = k · x genau bei x = 4?',
+                  3, '(2*4 + 4)/4', 'Bei x = 4 hat die erste Gerade y = 12. Dann muss 12 = k · 4 sein, also k = 3.',
+                  'Welchen y-Wert hat die erste Gerade bei x = 4?'),
+                Z(3, 'Für welches k hat die Gleichung (k − 2) · x = k − 2 unendlich viele Lösungen?',
+                  2, '2', 'Für k = 2 steht da 0 · x = 0. Das stimmt für jedes x: unendlich viele Lösungen. Für k ≠ 2 ist x = 1 die einzige Lösung.',
+                  'Setze den Wert ein, für den die Klammer 0 wird. Was steht dann da?'),
+                A(3, 'Für welche k ist die Lösung der Gleichung (k + 1) · x = 6 positiv?',
+                  'für k > −1', ['für k > 0', 'für k < −1', 'für k > 6'],
+                  'x = 6 : (k + 1) ist positiv, wenn k + 1 positiv ist: k > −1.', 'Wann ist 6 geteilt durch eine Zahl positiv?'),
+            ],
+            'sachaufgabe': [
+                Z(3, 'Handytarif A: 5 € im Monat plus 0,10 € pro Minute. Tarif B: keine Grundgebühr, 0,15 € pro Minute. Wie viel spart man mit A bei 300 Minuten?',
+                  10, '0.15*300 - (5 + 0.1*300)', 'A: 5 + 0,10 · 300 = 35 €. B: 0,15 · 300 = 45 €. Ersparnis 10 €.',
+                  'Rechne beide Tarife für 300 Minuten aus.', einheit='€'),
+                Z(3, 'Ein Taxi hat eine Grundgebühr und einen festen Kilometerpreis. 8 km kosten 22 €, 12 km kosten 30 €. Wie hoch ist die Grundgebühr?',
+                  6, '22 - 8*(30 - 22)/4', '4 km mehr kosten 8 € mehr: 2 € pro km. Grundgebühr: 22 − 8 · 2 = 6 €.',
+                  'Was kosten die 4 zusätzlichen Kilometer?', einheit='€'),
+                L(3, 'Ein Fahrradverleih hat einen festen Tarif: Für 3 Stunden zahlt man 17 €, für 5 Stunden 25 €. Gib den Tarif als y = m · x + t an (x in Stunden, y in €).',
+                  LT, [4, 5], ['(25 - 17)/2', '17 - 3*4'], '2 Stunden mehr kosten 8 € mehr: m = 4. t = 17 − 3 · 4 = 5. y = 4x + 5.',
+                  'Bestimme m aus dem Unterschied, dann t.', hinweis=HT),
+                Z(3, 'Ein Taxiunternehmen erhöht den Kilometerpreis um 0,50 € und senkt die Grundgebühr um 3 €. Bei wie vielen Kilometern kostet eine Fahrt genauso viel wie vorher?',
+                  6, '3/0.5', 'Pro Kilometer kommen 0,50 € dazu, insgesamt fallen 3 € weg. Gleich viel: 0,5 · x = 3 ⇒ x = 6 km. Ab mehr als 6 km wird es teurer.',
+                  'Wie viele Kilometer braucht es, bis die 3 € wieder „aufgefressen“ sind?', einheit='km'),
+            ],
+        })
+
+
 if __name__ == '__main__':
     d = bauen('funktionen.scharen',
           'Geradenscharen mit Parameter verstehen: Parameter einsetzen und bestimmen, Parallelenscharen und Geradenbüschel erkennen, parameterabhängige Lösungen untersuchen.',
@@ -493,3 +609,4 @@ if __name__ == '__main__':
           offen=['Lehrplan-Feld leer: Annahme RS 8 (WPF I) = Scharen linearer Funktionen (Parallelenschar, Geradenbüschel), Parameter bestimmen, parameterabhängige Lösungen linearer Gleichungen. Scharen quadratischer Funktionen (RS 9) weggelassen.',
                  'Schreibweise der Scharen: g_k bzw. „Schar y = k · x + 2“; Indizes wie g₋₃ nur in der Erklärung.'])
     umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
+    durchsicht(d)

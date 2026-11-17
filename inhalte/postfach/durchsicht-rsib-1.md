@@ -1,5 +1,8 @@
 # Postfach durchsicht-rsib-1 (Neunzehnte Runde, Teil B, Chat 1)
 
+## 2026-11-17 15:00 – STATUS
+funktionen.scharen fertig: 8 umgestuft, 5 ersetzt, 20 neu (Stufe 3: Parameter aus Punktprobe, Büschelpunkt nach Ausklammern, Tarif aus zwei Angaben, unendlich viele Lösungen). inhalt_pruefen: OK, 0 Hinweise.
+
 ## 2026-11-17 14:40 – STATUS
 daten.stichproben fertig: 8 umgestuft, 5 ersetzt (u. a. aussagen Stufe 1: sechsmal dieselbe Frage), 18 neu (Stufe 3: Fang-Wiederfang, Schlagzeilen und Werbeaussagen prüfen, Rücklaufquote, Mindestanzahl). inhalt_pruefen: OK, 0 Hinweise.
 

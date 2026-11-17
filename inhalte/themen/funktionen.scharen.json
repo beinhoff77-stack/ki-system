@@ -947,7 +947,7 @@
    "l": "einsetzen",
    "t": "einsetzen",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welche Gleichung gehört in der Schar y = 3x + k zu k = 5?"
@@ -968,7 +968,7 @@
    "l": "einsetzen",
    "t": "einsetzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Liegt der Punkt P(−6 | −26) auf der Geraden der Schar y = k · x + 5 mit k = 5?"
@@ -988,7 +988,7 @@
    "l": "einsetzen",
    "t": "einsetzen",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welche Gleichung gehört in der Schar y = −2x + k zu k = 1?"
@@ -1009,7 +1009,7 @@
    "l": "einsetzen",
    "t": "einsetzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Liegt der Punkt P(−4 | 1) auf der Geraden der Schar y = −2x + k mit k = −6?"
@@ -1032,18 +1032,75 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Liegt der Punkt P(−2 | −4) auf der Geraden der Schar y = (k + 2) · x + 2k mit k = −6?"
+    "text": "Liegt der Punkt P(0 | 5) auf irgendeiner Geraden der Schar y = k · x + 3?"
    },
    "a": [
-    "Das hängt nicht von k ab.",
-    "Ja",
-    "Nein"
+    "Ja, für k = 5.",
+    "Nein: Bei x = 0 ist y immer 3.",
+    "Ja, für k = 2.",
+    "Ja, für jedes k."
    ],
    "o": {
     "index": 1
    },
-   "w": "y = −4x − 12: für x = −2 ist y = −4 – stimmt.",
-   "h": "Setze k ein und prüfe, ob P die Gleichung erfüllt."
+   "w": "Setze x = 0 ein: y = k · 0 + 3 = 3 – für jedes k. Der Punkt (0 | 5) liegt auf keiner Geraden der Schar.",
+   "h": "Was passiert mit k · x, wenn x = 0 ist?"
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In der Schar y = k · x − 1 gehört zu k = 1,5 eine Gerade. Gib die Gerade der Schar an, die doppelt so steil ist.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x − 2."
+   },
+   "o": {
+    "werte": [
+     3,
+     -1
+    ]
+   },
+   "c": [
+    "2*1.5",
+    "-1"
+   ],
+   "w": "Doppelt so steil: Steigung 2 · 1,5 = 3, also k = 3. Die Gerade: y = 3x − 1.",
+   "h": "Welche Zahl in der Gleichung ist die Steigung?"
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welchen Wert von k geht die Gerade der Schar y = k · x + 2 durch den Punkt P(4 | 14)?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(14 - 2)/4",
+   "w": "P einsetzen: 14 = k · 4 + 2 ⇒ 4k = 12 ⇒ k = 3.",
+   "h": "Setze die Koordinaten von P ein und löse nach k auf."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Gegeben ist die Schar y = (k − 1) · x + 2k. Für welches k geht die Gerade durch P(2 | 10)?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(10 + 2)/4",
+   "w": "Einsetzen: 10 = (k − 1) · 2 + 2k = 2k − 2 + 2k = 4k − 2 ⇒ 4k = 12 ⇒ k = 3.",
+   "h": "Setze x = 2 und y = 10 ein, multipliziere die Klammer aus."
   },
   {
    "l": "einsetzen",
@@ -1052,18 +1109,68 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Liegt der Punkt P(1 | −18) auf der Geraden der Schar y = (k − 3) · x + 2k mit k = −5?"
+    "text": "Gegeben ist die Schar y = k · x + 3. Für welche k liegt der y-Wert an der Stelle x = 2 über 9?"
    },
    "a": [
-    "Das hängt nicht von k ab.",
-    "Nein",
-    "Ja"
+    "für k < 3",
+    "für k > 9",
+    "für k > 6",
+    "für k > 3"
    ],
    "o": {
-    "index": 2
+    "index": 3
    },
-   "w": "y = −8x − 10: für x = 1 ist y = −18 – stimmt.",
-   "h": "Setze k ein und prüfe, ob P die Gleichung erfüllt."
+   "w": "An der Stelle 2: y = 2k + 3 > 9 ⇒ 2k > 6 ⇒ k > 3.",
+   "h": "Setze x = 2 ein und vergleiche mit 9."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Geraden der Schar y = k · x + 1 zu k = 2 und zu k = −2 werden gezeichnet. An welcher Stelle x haben beide denselben y-Wert?"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "2x + 1 = −2x + 1 ⇒ 4x = 0 ⇒ x = 0. Alle Geraden der Schar gehen durch (0 | 1).",
+   "h": "Setze die beiden Terme gleich."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Taxi-Tarif y = k · x + 2 (x in km, y in €). In Stadt A kosten 5 km genau 17 €. Wie viel kosten dort 8 km?"
+   },
+   "o": {
+    "wert": 26,
+    "einheit": "€"
+   },
+   "c": "(17 - 2)/5*8 + 2",
+   "w": "17 = 5k + 2 ⇒ k = 3. Für 8 km: 3 · 8 + 2 = 26 €.",
+   "h": "Bestimme zuerst k für Stadt A."
+  },
+  {
+   "l": "einsetzen",
+   "t": "einsetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Gegeben ist die Schar y = k · x + 4. Um wie viel ist bei x = 4 der y-Wert für k = 5 größer als für k = 3?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(5 - 3)*4",
+   "w": "k = 5: 24, k = 3: 16. Unterschied 8 = (5 − 3) · 4. Die 4 fällt weg.",
+   "h": "Rechne beide y-Werte aus – oder überlege, was sich ändert."
   },
   {
    "l": "einsetzen",
@@ -1599,21 +1706,56 @@
    "t": "parallelenschar",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Jemand rechnet für die Schar y = 2,5x + t und P(4 | −1): t = 9. Was stimmt?"
+    "text": "Zwei Geraden der Schar y = −x + t gehen durch P(1 | 4) bzw. Q(3 | 1). Um wie viel unterscheiden sich ihre y-Achsenabschnitte?"
    },
-   "a": [
-    "Falsch, richtig ist t = −1.",
-    "Falsch, richtig ist t = −9.",
-    "Richtig.",
-    "Falsch, richtig ist t = −11."
-   ],
    "o": {
-    "index": 3
+    "wert": 1
    },
-   "w": "−1 = 2,5 · 4 + t ⇔ −1 = 10 + t ⇔ t = −11. Der Fehler: 10 wurde addiert statt abgezogen.",
-   "h": "Setze ein und prüfe: Ergibt sich die y-Koordinate von P?"
+   "c": "(4 + 1) - (1 + 3)",
+   "w": "Durch P: 4 = −1 + t, t = 5. Durch Q: 1 = −3 + t, t = 4. Unterschied 5 − 4 = 1.",
+   "h": "Bestimme t für jeden Punkt einzeln."
+  },
+  {
+   "l": "parallelenschar",
+   "t": "parallelenschar",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welches t schneidet die Gerade der Schar y = 0,5x + t die x-Achse bei x = 6?"
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "0 - 0.5*6",
+   "w": "Schnitt mit der x-Achse heißt y = 0: 0 = 0,5 · 6 + t ⇒ t = −3.",
+   "h": "Welchen y-Wert hat ein Punkt auf der x-Achse?"
+  },
+  {
+   "l": "parallelenschar",
+   "t": "parallelenschar",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Gerade der Schar y = 2x + t liegt 3 Einheiten unterhalb der Geraden y = 2x + 1. Gib ihre Gleichung an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x − 2."
+   },
+   "o": {
+    "werte": [
+     2,
+     -2
+    ]
+   },
+   "c": [
+    "2",
+    "1 - 3"
+   ],
+   "w": "Gleiche Steigung 2, y-Achsenabschnitt 1 − 3 = −2: y = 2x − 2.",
+   "h": "Parallele Geraden unterscheiden sich nur im y-Achsenabschnitt."
   },
   {
    "l": "parallelenschar",
@@ -2229,7 +2371,7 @@
    "l": "bueschel",
    "t": "bueschel",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welchen Punkt haben alle Geraden der Schar y = m · (x − 2) + 4 gemeinsam?"
@@ -2245,6 +2387,70 @@
    },
    "w": "Für x = 2 ist (x − 2) = 0, dann y = 4.",
    "h": "Achte auf das Vorzeichen in der Klammer."
+  },
+  {
+   "l": "bueschel",
+   "t": "bueschel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Alle Geraden der Schar y = m · x + 2m − 1 gehen durch einen gemeinsamen Punkt Z. Gib Z an.",
+    "schablone": "Z(□ | □)",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     -2,
+     -1
+    ]
+   },
+   "c": [
+    "-2",
+    "-1"
+   ],
+   "w": "Umformen: y = m · (x + 2) − 1. Für x = −2 wird die Klammer 0, dann ist y = −1: Z(−2 | −1).",
+   "h": "Klammere m aus: m · x + 2m = m · (x + 2)."
+  },
+  {
+   "l": "bueschel",
+   "t": "bueschel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Welche Gerade des Büschels y = m · (x − 1) + 3 geht durch den Ursprung?",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 0 oder 3x."
+   },
+   "o": {
+    "werte": [
+     3,
+     0
+    ]
+   },
+   "c": [
+    "3",
+    "0"
+   ],
+   "w": "O(0 | 0) einsetzen: 0 = m · (−1) + 3 ⇒ m = 3. Gerade: y = 3 · (x − 1) + 3 = 3x.",
+   "h": "Setze x = 0 und y = 0 ein."
+  },
+  {
+   "l": "bueschel",
+   "t": "bueschel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welches m schneidet die Gerade des Büschels y = m · (x − 2) + 4 die x-Achse bei x = 4?"
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-4/2",
+   "w": "Punkt (4 | 0) einsetzen: 0 = m · 2 + 4 ⇒ m = −2.",
+   "h": "Welcher Punkt liegt bei x = 4 auf der x-Achse?"
   },
   {
    "l": "bueschel",
@@ -2819,6 +3025,48 @@
   {
    "l": "wirkung",
    "t": "wirkung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche k steigt die Gerade der Schar y = (2k − 6) · x + 1 steiler an als y = 2x?"
+   },
+   "a": [
+    "für k > 3",
+    "für k > 2",
+    "für k > 8",
+    "für k > 4"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Steigung 2k − 6 > 2 ⇒ 2k > 8 ⇒ k > 4.",
+   "h": "Vergleiche die Steigung 2k − 6 mit 2."
+  },
+  {
+   "l": "wirkung",
+   "t": "wirkung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gibt es in der Schar y = k · x + k eine Gerade durch den Ursprung?"
+   },
+   "a": [
+    "Ja, für k = 0: Das ist die x-Achse.",
+    "Nein, alle schneiden die y-Achse bei k.",
+    "Ja, für jedes k.",
+    "Ja, für k = 1."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Durch (0 | 0): 0 = k · 0 + k ⇒ k = 0. Dann lautet die Gleichung y = 0 – die x-Achse.",
+   "h": "Hier steckt k auch im y-Achsenabschnitt."
+  },
+  {
+   "l": "wirkung",
+   "t": "wirkung",
    "p": "test",
    "s": 2,
    "y": "zahl",
@@ -3232,7 +3480,7 @@
    "l": "loesung_parameter",
    "t": "loesung_parameter",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse (k + 2) · x = 4k für k = −4."
@@ -3312,6 +3560,59 @@
    "c": "-2",
    "w": "Keinen Schnittpunkt haben parallele Geraden (verschiedene y-Achsenabschnitte −4 und 4): k = −2.",
    "h": "Wann sind zwei Geraden parallel?"
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welches k schneiden sich die Geraden y = 2x + 4 und y = k · x genau bei x = 4?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(2*4 + 4)/4",
+   "w": "Bei x = 4 hat die erste Gerade y = 12. Dann muss 12 = k · 4 sein, also k = 3.",
+   "h": "Welchen y-Wert hat die erste Gerade bei x = 4?"
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welches k hat die Gleichung (k − 2) · x = k − 2 unendlich viele Lösungen?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Für k = 2 steht da 0 · x = 0. Das stimmt für jedes x: unendlich viele Lösungen. Für k ≠ 2 ist x = 1 die einzige Lösung.",
+   "h": "Setze den Wert ein, für den die Klammer 0 wird. Was steht dann da?"
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche k ist die Lösung der Gleichung (k + 1) · x = 6 positiv?"
+   },
+   "a": [
+    "für k > 0",
+    "für k > −1",
+    "für k < −1",
+    "für k > 6"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "x = 6 : (k + 1) ist positiv, wenn k + 1 positiv ist: k > −1.",
+   "h": "Wann ist 6 geteilt durch eine Zahl positiv?"
   },
   {
    "l": "loesung_parameter",
@@ -3691,7 +3992,7 @@
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ein Handwerker berechnet 50 € Anfahrt plus m € pro Stunde. Für 4 Stunden bezahlt man 290 €. Wie hoch ist m?"
@@ -3747,47 +4048,40 @@
    "t": "sachaufgabe",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Ein Handwerker berechnet 40 € Anfahrt plus m € pro Stunde. Für 4 Stunden bezahlt man 240 €. Wie hoch ist m?"
+    "text": "Ein Handwerker berechnet eine feste Anfahrt plus einen Stundenlohn. 4 Stunden kosten 290 €, 6 Stunden kosten 410 €. Wie hoch ist die Anfahrt?"
    },
-   "a": [
-    "60 €",
-    "200 €",
-    "70 €",
-    "50 €"
-   ],
    "o": {
-    "index": 3
+    "wert": 50,
+    "einheit": "€"
    },
-   "w": "240 = m · 4 + 40 ⇔ m · 4 = 200 ⇔ m = 50 €.",
-   "h": "Vergiss die Grundgebühr nicht."
+   "c": "290 - 4*(410 - 290)/2",
+   "w": "2 Stunden mehr kosten 120 € mehr: Stundenlohn 60 €. Anfahrt: 290 − 4 · 60 = 50 €.",
+   "h": "Was kosten die 2 zusätzlichen Stunden?"
   },
   {
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Ein Stromtarif kostet 12 € Grundgebühr im Monat plus m € pro kWh. Für 250 kWh bezahlt man 74,50 €. Wie hoch ist m?"
+    "text": "Ein Stromtarif kostet 12 € Grundgebühr im Monat plus 0,25 € pro kWh. Eine Familie zahlt 74,50 €. Wie viele kWh hat sie verbraucht?"
    },
-   "a": [
-    "0,25 €",
-    "62,50 €",
-    "1,25 €"
-   ],
    "o": {
-    "index": 0
+    "wert": 250,
+    "einheit": "kWh"
    },
-   "w": "74,50 = m · 250 + 12 ⇔ m · 250 = 62,50 ⇔ m = 0,25 €.",
-   "h": "Vergiss die Grundgebühr nicht."
+   "c": "(74.5 - 12)/0.25",
+   "w": "Ohne Grundgebühr: 74,50 − 12 = 62,50 €. 62,50 : 0,25 = 250 kWh.",
+   "h": "Zieh zuerst die Grundgebühr ab."
   },
   {
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ein Fahrradverleih nimmt 2 € Grundgebühr plus m € pro Stunde. Für 4 Stunden bezahlt man 14 €. Wie hoch ist m?"
@@ -3803,6 +4097,81 @@
    },
    "w": "14 = m · 4 + 2 ⇔ m · 4 = 12 ⇔ m = 3 €.",
    "h": "Vergiss die Grundgebühr nicht."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Handytarif A: 5 € im Monat plus 0,10 € pro Minute. Tarif B: keine Grundgebühr, 0,15 € pro Minute. Wie viel spart man mit A bei 300 Minuten?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "€"
+   },
+   "c": "0.15*300 - (5 + 0.1*300)",
+   "w": "A: 5 + 0,10 · 300 = 35 €. B: 0,15 · 300 = 45 €. Ersparnis 10 €.",
+   "h": "Rechne beide Tarife für 300 Minuten aus."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Taxi hat eine Grundgebühr und einen festen Kilometerpreis. 8 km kosten 22 €, 12 km kosten 30 €. Wie hoch ist die Grundgebühr?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "€"
+   },
+   "c": "22 - 8*(30 - 22)/4",
+   "w": "4 km mehr kosten 8 € mehr: 2 € pro km. Grundgebühr: 22 − 8 · 2 = 6 €.",
+   "h": "Was kosten die 4 zusätzlichen Kilometer?"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Fahrradverleih hat einen festen Tarif: Für 3 Stunden zahlt man 17 €, für 5 Stunden 25 €. Gib den Tarif als y = m · x + t an (x in Stunden, y in €).",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x − 2."
+   },
+   "o": {
+    "werte": [
+     4,
+     5
+    ]
+   },
+   "c": [
+    "(25 - 17)/2",
+    "17 - 3*4"
+   ],
+   "w": "2 Stunden mehr kosten 8 € mehr: m = 4. t = 17 − 3 · 4 = 5. y = 4x + 5.",
+   "h": "Bestimme m aus dem Unterschied, dann t."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Taxiunternehmen erhöht den Kilometerpreis um 0,50 € und senkt die Grundgebühr um 3 €. Bei wie vielen Kilometern kostet eine Fahrt genauso viel wie vorher?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "km"
+   },
+   "c": "3/0.5",
+   "w": "Pro Kilometer kommen 0,50 € dazu, insgesamt fallen 3 € weg. Gleich viel: 0,5 · x = 3 ⇒ x = 6 km. Ab mehr als 6 km wird es teurer.",
+   "h": "Wie viele Kilometer braucht es, bis die 3 € wieder „aufgefressen“ sind?"
   },
   {
    "l": "sachaufgabe",

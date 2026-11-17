@@ -161,10 +161,10 @@
     "regel": "Abstand d zu g: ⟦zwei Parallelen⟧, auf jeder Seite eine. Höchstens d Abstand: der Streifen dazwischen.",
     "schritte": [
      {
-      "text": "g ist die Gerade y = 1. Gesucht sind alle Punkte mit Abstand 2."
+      "text": "g ist waagrecht durch (0 | 1). Gesucht sind alle Punkte mit Abstand 2."
      },
      {
-      "text": "2 nach oben: 1 + 2 = 3. Das ist die Parallele ⟦y = 3⟧.",
+      "text": "2 nach oben: 1 + 2 = 3. Die Parallele geht durch ⟦(0 | 3)⟧.",
       "bild": {
        "waagrecht": [
         1,
@@ -182,7 +182,7 @@
       }
      },
      {
-      "text": "2 nach unten: 1 − 2 = −1. Das ist die Parallele ⟦y = −1⟧.",
+      "text": "2 nach unten: 1 − 2 = −1. Die Parallele geht durch ⟦(0 | −1)⟧.",
       "bild": {
        "waagrecht": [
         1,
@@ -216,8 +216,8 @@
       "eine Gerade, die überall gleich weit von g entfernt ist"
      ],
      [
-      "y = 1",
-      "die waagrechte Gerade durch alle Punkte mit der y-Koordinate 1"
+      "waagrecht durch (0 | 1)",
+      "die Gerade liegt waagrecht und geht durch (0 | 1); alle ihre Punkte haben die y-Koordinate 1"
      ]
     ],
     "bild": {
@@ -2031,7 +2031,7 @@
     "index": 1
    },
    "f": {
-    "text": "g ist die waagrechte Gerade y = −2. Der Streifen enthält alle Punkte mit höchstens 3 Abstand zu g. Wo liegt P(−3 | −2)?",
+    "text": "g ist die waagrechte Gerade durch den Punkt (0 | −2). Der Streifen enthält alle Punkte mit höchstens 3 Abstand zu g. Wo liegt P(−3 | −2)?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -2092,7 +2092,7 @@
     "index": 1
    },
    "f": {
-    "text": "g ist die waagrechte Gerade y = −2. Der Streifen enthält alle Punkte mit höchstens 2 Abstand zu g. Wo liegt P(−4 | 3)?",
+    "text": "g ist die waagrechte Gerade durch den Punkt (0 | −2). Der Streifen enthält alle Punkte mit höchstens 2 Abstand zu g. Wo liegt P(−4 | 3)?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -2128,8 +2128,8 @@
    "s": 1,
    "y": "luecken",
    "f": {
-    "text": "g ist die waagrechte Gerade y = 2. Alle Punkte mit Abstand 2 von g liegen auf zwei Parallelen. Welche y-Werte haben sie? (kleinerer zuerst)",
-    "schablone": "y = □ und y = □",
+    "text": "g ist die waagrechte Gerade durch den Punkt (0 | 2). Alle Punkte mit Abstand 2 von g liegen auf zwei Parallelen. Welche y-Werte haben sie? (kleinerer zuerst)",
+    "schablone": "(0 | □) und (0 | □)",
     "hinweis": "Kleinere Zahl zuerst."
    },
    "o": {
@@ -2142,7 +2142,7 @@
     "(2) - 2",
     "(2) + 2"
    ],
-   "w": "2 unter g: y = 0, 2 über g: y = 4.",
+   "w": "2 unter g: y-Wert 0, 2 über g: y-Wert 4.",
    "h": "Eine Parallele liegt über g, eine darunter.",
    "g": "direkt"
   },
@@ -2161,7 +2161,7 @@
     "index": 1
    },
    "f": {
-    "text": "g ist die waagrechte Gerade y = 2. Der Streifen enthält alle Punkte mit höchstens 4 Abstand zu g. Wo liegt P(1 | −1)?",
+    "text": "g ist die waagrechte Gerade durch den Punkt (0 | 2). Der Streifen enthält alle Punkte mit höchstens 4 Abstand zu g. Wo liegt P(1 | −1)?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -2196,7 +2196,7 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "g ist die waagrechte Gerade y = 1. Der Streifen enthält alle Punkte mit höchstens 3 Abstand zu g. Welcher Punkt liegt außerhalb?"
+    "text": "g ist die waagrechte Gerade durch den Punkt (0 | 1). Der Streifen enthält alle Punkte mit höchstens 3 Abstand zu g. Welcher Punkt liegt außerhalb?"
    },
    "a": [
     "(−4 | 0)",
@@ -2207,7 +2207,7 @@
    "o": {
     "index": 2
    },
-   "w": "Der Streifen reicht von y = −2 bis y = 4. (5 | −3) liegt darunter, also außerhalb. (0 | 4) und (2 | −2) liegen auf dem Rand.",
+   "w": "Der Streifen reicht von y-Wert −2 bis y-Wert 4. (5 | −3) liegt darunter, also außerhalb. (0 | 4) und (2 | −2) liegen auf dem Rand.",
    "h": "Bestimme zuerst die beiden Randlinien des Streifens.",
    "g": "mehrschritt"
   },
@@ -2226,7 +2226,7 @@
     "index": 0
    },
    "f": {
-    "text": "g ist die waagrechte Gerade y = −2. Der Streifen enthält alle Punkte mit höchstens 3 Abstand zu g. Wo liegt P(−4 | −5)?",
+    "text": "g ist die waagrechte Gerade durch den Punkt (0 | −2). Der Streifen enthält alle Punkte mit höchstens 3 Abstand zu g. Wo liegt P(−4 | −5)?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -2261,9 +2261,9 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "g: y = −6 und h: y = −2 sind parallel. Welche Gerade enthält alle Punkte, die von g und h gleich weit entfernt sind?",
-    "schablone": "y = □",
-    "hinweis": "Trage den y-Wert ein."
+    "text": "Die waagrechten Geraden g durch (0 | −6) und h durch (0 | −2) sind parallel. Welche Gerade enthält alle Punkte, die von g und h gleich weit entfernt sind?",
+    "schablone": "waagrecht durch (0 | □)",
+    "hinweis": "Trage den y-Wert des Punkts auf der y-Achse ein."
    },
    "o": {
     "werte": [
@@ -2284,7 +2284,7 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "g ist die waagrechte Gerade y = −3. Wie viele Punkte mit ganzzahligen Koordinaten auf der senkrechten Linie x = 2 haben von g höchstens den Abstand 3?"
+    "text": "g ist die waagrechte Gerade durch den Punkt (0 | −3). Wie viele Punkte mit ganzzahligen Koordinaten auf der senkrechten Linie durch (2 | 0) haben von g höchstens den Abstand 3?"
    },
    "o": {
     "wert": 7
@@ -2318,8 +2318,8 @@
    "s": 1,
    "y": "luecken",
    "f": {
-    "text": "g ist die waagrechte Gerade y = −3. Alle Punkte mit Abstand 4 von g liegen auf zwei Parallelen. Welche y-Werte haben sie? (kleinerer zuerst)",
-    "schablone": "y = □ und y = □",
+    "text": "g ist die waagrechte Gerade durch den Punkt (0 | −3). Alle Punkte mit Abstand 4 von g liegen auf zwei Parallelen. Welche y-Werte haben sie? (kleinerer zuerst)",
+    "schablone": "(0 | □) und (0 | □)",
     "hinweis": "Kleinere Zahl zuerst."
    },
    "o": {
@@ -2332,7 +2332,7 @@
     "(-3) - 4",
     "(-3) + 4"
    ],
-   "w": "4 unter g: y = −7, 4 über g: y = 1.",
+   "w": "4 unter g: y-Wert −7, 4 über g: y-Wert 1.",
    "h": "Eine Parallele liegt über g, eine darunter.",
    "g": "direkt"
   },
@@ -2365,8 +2365,8 @@
    "s": 1,
    "y": "luecken",
    "f": {
-    "text": "g ist die waagrechte Gerade y = −2. Alle Punkte mit Abstand 1 von g liegen auf zwei Parallelen. Welche y-Werte haben sie? (kleinerer zuerst)",
-    "schablone": "y = □ und y = □",
+    "text": "g ist die waagrechte Gerade durch den Punkt (0 | −2). Alle Punkte mit Abstand 1 von g liegen auf zwei Parallelen. Welche y-Werte haben sie? (kleinerer zuerst)",
+    "schablone": "(0 | □) und (0 | □)",
     "hinweis": "Kleinere Zahl zuerst."
    },
    "o": {
@@ -2379,7 +2379,7 @@
     "(-2) - 1",
     "(-2) + 1"
    ],
-   "w": "1 unter g: y = −3, 1 über g: y = −1.",
+   "w": "1 unter g: y-Wert −3, 1 über g: y-Wert −1.",
    "h": "Eine Parallele liegt über g, eine darunter."
   },
   {
@@ -2397,7 +2397,7 @@
     "index": 1
    },
    "f": {
-    "text": "g ist die waagrechte Gerade y = 2. Der Streifen enthält alle Punkte mit höchstens 2 Abstand zu g. Wo liegt P(−3 | 1)?",
+    "text": "g ist die waagrechte Gerade durch den Punkt (0 | 2). Der Streifen enthält alle Punkte mit höchstens 2 Abstand zu g. Wo liegt P(−3 | 1)?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -2433,7 +2433,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Die waagrechten Geraden g: y = −1 und h: y = 5 sind parallel. Wie weit sind sie voneinander entfernt?"
+    "text": "Die waagrechten Geraden g durch (0 | −1) und h durch (0 | 5) sind parallel. Wie weit sind sie voneinander entfernt?"
    },
    "o": {
     "wert": 6
@@ -2458,7 +2458,7 @@
     "index": 2
    },
    "f": {
-    "text": "g ist die waagrechte Gerade y = 3. Der Streifen enthält alle Punkte mit höchstens 4 Abstand zu g. Wo liegt P(3 | −2)?",
+    "text": "g ist die waagrechte Gerade durch den Punkt (0 | 3). Der Streifen enthält alle Punkte mit höchstens 4 Abstand zu g. Wo liegt P(3 | −2)?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -2529,13 +2529,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "g ist die waagrechte Gerade y = −1. Wie viele Punkte mit ganzzahligen Koordinaten auf der senkrechten Linie x = 2 haben von g mehr als 1, aber höchstens 3 Abstand?"
+    "text": "g ist die waagrechte Gerade durch den Punkt (0 | −1). Wie viele Punkte mit ganzzahligen Koordinaten auf der senkrechten Linie durch (2 | 0) haben von g mehr als 1, aber höchstens 3 Abstand?"
    },
    "o": {
     "wert": 4
    },
    "c": "2 * 2",
-   "w": "Abstand 2 oder 3: oberhalb y = 1 und y = 2, unterhalb y = −3 und y = −4. Das sind 4 Punkte.",
+   "w": "Abstand 2 oder 3: oberhalb y-Wert 1 und y-Wert 2, unterhalb y-Wert −3 und y-Wert −4. Das sind 4 Punkte.",
    "h": "Zähle oberhalb und unterhalb von g getrennt; der Abstand 1 gehört nicht dazu.",
    "g": "verknuepfen"
   },
@@ -2546,9 +2546,9 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "g: y = −1 und h: y = 7 sind parallel. Welche Gerade enthält alle Punkte, die von g und h gleich weit entfernt sind?",
-    "schablone": "y = □",
-    "hinweis": "Trage den y-Wert ein."
+    "text": "Die waagrechten Geraden g durch (0 | −1) und h durch (0 | 7) sind parallel. Welche Gerade enthält alle Punkte, die von g und h gleich weit entfernt sind?",
+    "schablone": "waagrecht durch (0 | □)",
+    "hinweis": "Trage den y-Wert des Punkts auf der y-Achse ein."
    },
    "o": {
     "werte": [
@@ -2569,7 +2569,7 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "g ist die Gerade y = −5, h ist die Gerade y = 3. P liegt auf der y-Achse und ist von g und h gleich weit entfernt. Welche Koordinaten hat P?",
+    "text": "g ist die waagrechte Gerade durch (0 | −5), h die waagrechte Gerade durch (0 | 3). P liegt auf der y-Achse und ist von g und h gleich weit entfernt. Welche Koordinaten hat P?",
     "schablone": "P(□ | □)",
     "hinweis": "Trage x- und y-Koordinate ein."
    },
@@ -2583,8 +2583,8 @@
     "0",
     "(-5 + 3) // 2"
    ],
-   "w": "Gleich weit von g und h: die Mittelparallele in der Mitte zwischen −5 und 3, also y = −1. Auf der y-Achse ist x = 0: P(0 | −1).",
-   "h": "Wo liegt die Mitte zwischen y = −5 und y = 3?",
+   "w": "Gleich weit von g und h: die Mittelparallele in der Mitte zwischen −5 und 3, also y-Wert −1. Auf der y-Achse ist x-Wert 0: P(0 | −1).",
+   "h": "Wo liegt die Mitte zwischen y-Wert −5 und y-Wert 3?",
    "g": "rueckwaerts"
   },
   {
@@ -2594,9 +2594,9 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "g: y = −2 und h: y = 6 sind parallel. Welche Gerade enthält alle Punkte, die von g und h gleich weit entfernt sind?",
-    "schablone": "y = □",
-    "hinweis": "Trage den y-Wert ein."
+    "text": "Die waagrechten Geraden g durch (0 | −2) und h durch (0 | 6) sind parallel. Welche Gerade enthält alle Punkte, die von g und h gleich weit entfernt sind?",
+    "schablone": "waagrecht durch (0 | □)",
+    "hinweis": "Trage den y-Wert des Punkts auf der y-Achse ein."
    },
    "o": {
     "werte": [
@@ -2622,7 +2622,7 @@
     "wert": 4
    },
    "c": "4",
-   "w": "Abstand 2 zur x-Achse: y = 2 oder y = −2. Abstand 3 zur y-Achse: x = 3 oder x = −3. Jede Kombination passt: 4 Punkte.",
+   "w": "Abstand 2 zur x-Achse: y-Wert 2 oder y-Wert −2. Abstand 3 zur y-Achse: x-Wert 3 oder x-Wert −3. Jede Kombination passt: 4 Punkte.",
    "h": "Jede Bedingung ergibt zwei Parallelen. Wie oft schneiden sie sich?",
    "g": "pruefung"
   },
@@ -2650,8 +2650,8 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "g ist die Gerade y = 2, h die Gerade y = 8. Welche Punkte der y-Achse sind von g doppelt so weit entfernt wie von h? Gib die y-Werte an (kleinerer zuerst).",
-    "schablone": "y = □ und y = □",
+    "text": "g ist die waagrechte Gerade durch (0 | 2), h die waagrechte Gerade durch (0 | 8). Welche Punkte der y-Achse sind von g doppelt so weit entfernt wie von h? Gib die y-Werte an (kleinerer zuerst).",
+    "schablone": "(0 | □) und (0 | □)",
     "hinweis": "Trage beide y-Werte ein."
    },
    "o": {
@@ -2664,7 +2664,7 @@
     "6",
     "14"
    ],
-   "w": "Zwischen g und h: bei y = 6 ist der Abstand zu g 4, zu h 2. Oberhalb von h: bei y = 14 ist der Abstand zu g 12, zu h 6. Zwei Lösungen.",
+   "w": "Zwischen g und h: bei y-Wert 6 ist der Abstand zu g 4, zu h 2. Oberhalb von h: bei y-Wert 14 ist der Abstand zu g 12, zu h 6. Zwei Lösungen.",
    "h": "Denk auch an Punkte oberhalb von h. Probiere y-Werte aus.",
    "g": "parameter"
   },
@@ -2676,13 +2676,13 @@
    "g": "knobel",
    "y": "zahl",
    "f": {
-    "text": "Wie viele Punkte mit ganzzahligen Koordinaten liegen zwischen den Linien x = −2 und x = 2 (beide mitgezählt) und haben von der x-Achse genau den Abstand 3?"
+    "text": "Wie viele Punkte mit ganzzahligen Koordinaten liegen zwischen den senkrechten Linien durch (−2 | 0) und (2 | 0) (beide mitgezählt) und haben von der x-Achse genau den Abstand 3?"
    },
    "o": {
     "wert": 10
    },
    "c": "5 * 2",
-   "w": "Abstand 3 von der x-Achse: y = 3 oder y = −3. x kann −2, −1, 0, 1, 2 sein. 5 · 2 = 10 Punkte.",
+   "w": "Abstand 3 von der x-Achse: y-Wert 3 oder y-Wert −3. x kann −2, −1, 0, 1, 2 sein. 5 · 2 = 10 Punkte.",
    "h": "Auf welchen Linien liegen Punkte mit Abstand 3 von der x-Achse?"
   },
   {
@@ -2718,7 +2718,7 @@
     "index": 2
    },
    "f": {
-    "text": "g ist die waagrechte Gerade y = 2. Der Streifen enthält alle Punkte mit höchstens 1 Abstand zu g. Wo liegt P(1 | −1)?",
+    "text": "g ist die waagrechte Gerade durch den Punkt (0 | 2). Der Streifen enthält alle Punkte mit höchstens 1 Abstand zu g. Wo liegt P(1 | −1)?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -2760,7 +2760,7 @@
     "index": 0
    },
    "f": {
-    "text": "g ist die waagrechte Gerade y = 3. Der Streifen enthält alle Punkte mit höchstens 2 Abstand zu g. Wo liegt P(−4 | 0)?",
+    "text": "g ist die waagrechte Gerade durch den Punkt (0 | 3). Der Streifen enthält alle Punkte mit höchstens 2 Abstand zu g. Wo liegt P(−4 | 0)?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -2802,7 +2802,7 @@
     "index": 0
    },
    "f": {
-    "text": "g ist die waagrechte Gerade y = −3. Der Streifen enthält alle Punkte mit höchstens 3 Abstand zu g. Wo liegt P(4 | −1)?",
+    "text": "g ist die waagrechte Gerade durch den Punkt (0 | −3). Der Streifen enthält alle Punkte mit höchstens 3 Abstand zu g. Wo liegt P(4 | −1)?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -2844,7 +2844,7 @@
     "index": 0
    },
    "f": {
-    "text": "g ist die waagrechte Gerade y = 3. Der Streifen enthält alle Punkte mit höchstens 1 Abstand zu g. Wo liegt P(−2 | 3)?",
+    "text": "g ist die waagrechte Gerade durch den Punkt (0 | 3). Der Streifen enthält alle Punkte mit höchstens 1 Abstand zu g. Wo liegt P(−2 | 3)?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -2886,7 +2886,7 @@
     "index": 2
    },
    "f": {
-    "text": "g ist die waagrechte Gerade y = −2. Der Streifen enthält alle Punkte mit höchstens 4 Abstand zu g. Wo liegt P(2 | 3)?",
+    "text": "g ist die waagrechte Gerade durch den Punkt (0 | −2). Der Streifen enthält alle Punkte mit höchstens 4 Abstand zu g. Wo liegt P(2 | 3)?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -2928,7 +2928,7 @@
     "index": 0
    },
    "f": {
-    "text": "g ist die waagrechte Gerade y = −3. Der Streifen enthält alle Punkte mit höchstens 3 Abstand zu g. Wo liegt P(0 | 0)?",
+    "text": "g ist die waagrechte Gerade durch den Punkt (0 | −3). Der Streifen enthält alle Punkte mit höchstens 3 Abstand zu g. Wo liegt P(0 | 0)?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -2970,7 +2970,7 @@
     "index": 0
    },
    "f": {
-    "text": "g ist die waagrechte Gerade y = −1. Der Streifen enthält alle Punkte mit höchstens 3 Abstand zu g. Wo liegt P(2 | −4)?",
+    "text": "g ist die waagrechte Gerade durch den Punkt (0 | −1). Der Streifen enthält alle Punkte mit höchstens 3 Abstand zu g. Wo liegt P(2 | −4)?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -3012,7 +3012,7 @@
     "index": 0
    },
    "f": {
-    "text": "g ist die waagrechte Gerade y = −2. Der Streifen enthält alle Punkte mit höchstens 1 Abstand zu g. Wo liegt P(4 | −5)?",
+    "text": "g ist die waagrechte Gerade durch den Punkt (0 | −2). Der Streifen enthält alle Punkte mit höchstens 1 Abstand zu g. Wo liegt P(4 | −5)?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -3054,7 +3054,7 @@
     "index": 1
    },
    "f": {
-    "text": "g ist die waagrechte Gerade y = −2. Der Streifen enthält alle Punkte mit höchstens 4 Abstand zu g. Wo liegt P(−3 | −7)?",
+    "text": "g ist die waagrechte Gerade durch den Punkt (0 | −2). Der Streifen enthält alle Punkte mit höchstens 4 Abstand zu g. Wo liegt P(−3 | −7)?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -3096,7 +3096,7 @@
     "index": 0
    },
    "f": {
-    "text": "g ist die waagrechte Gerade y = 1. Der Streifen enthält alle Punkte mit höchstens 3 Abstand zu g. Wo liegt P(−2 | 2)?",
+    "text": "g ist die waagrechte Gerade durch den Punkt (0 | 1). Der Streifen enthält alle Punkte mit höchstens 3 Abstand zu g. Wo liegt P(−2 | 2)?",
     "grafik": {
      "typ": "koordinaten",
      "x": [

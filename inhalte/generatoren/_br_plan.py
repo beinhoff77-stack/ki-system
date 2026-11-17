@@ -184,3 +184,41 @@ PLAN['bruch.brueche'] = [
                   'ggT: größter gemeinsamer Teiler – damit kürzt du vollständig. kgV: kleinstes gemeinsames Vielfaches – der Hauptnenner.',
                   'Erweitern und Kürzen ändern den Wert nicht.', 'Vergleichen: auf den Hauptnenner bringen, dann Zähler vergleichen.']),
 ]
+
+# A2: Geradengleichungen („y = 2“) kommen erst in Kl. 8. In geometrie.ortslinien heißt die Gerade jetzt „waagrecht durch (0 | 2)“;
+# Lösungen, Grafiken, Stufen und Typen bleiben. Neue Fragetexte → alte in „ersetzt“.
+_ORTS = [
+    (r'^g: y = (−?\d+) und h: y = (−?\d+) sind parallel', r'Die waagrechten Geraden g durch (0 | \1) und h durch (0 | \2) sind parallel'),
+    (r'Die waagrechten Geraden g: y = (−?\d+) und h: y = (−?\d+)', r'Die waagrechten Geraden g durch (0 | \1) und h durch (0 | \2)'),
+    (r'g ist die Gerade y = (−?\d+), h (?:ist )?die Gerade y = (−?\d+)', r'g ist die waagrechte Gerade durch (0 | \1), h die waagrechte Gerade durch (0 | \2)'),
+    (r'die waagrechte Gerade y = (−?\d+)', r'die waagrechte Gerade durch den Punkt (0 | \1)'),
+    (r'senkrechten Linie x = (−?\d+)', r'senkrechten Linie durch (\1 | 0)'),
+    (r'zwischen den Linien x = (−?\d+) und x = (−?\d+)', r'zwischen den senkrechten Linien durch (\1 | 0) und (\2 | 0)'),
+    (r'^y = □ und y = □$', '(0 | □) und (0 | □)'),
+    (r'^y = □$', 'waagrecht durch (0 | □)'),
+    (r'Trage den y-Wert ein\.', 'Trage den y-Wert des Punkts auf der y-Achse ein.'),
+    (r'\b([xy]) = (−?\d+)', r'\1-Wert \2'),
+]
+PLAN['geometrie.ortslinien'] = [
+    umschreiben('parallelen', r'[xy] = −?\d', _ORTS, 29),
+    umschreiben('parallelen', r'^Wie viele Punkte haben von der x-Achse den Abstand 2', _ORTS, 1),
+    karte('parallelen',
+          schritte=[{'text': 'g ist waagrecht durch (0 | 1). Gesucht sind alle Punkte mit Abstand 2.'},
+                    {'text': '2 nach oben: 1 + 2 = 3. Die Parallele geht durch ⟦(0 | 3)⟧.', 'bild': {'waagrecht': [1, 3], 'strecken': [[0, 1, 0, 3, 'gestrichelt']]}},
+                    {'text': '2 nach unten: 1 − 2 = −1. Die Parallele geht durch ⟦(0 | −1)⟧.',
+                     'bild': {'waagrecht': [1, 3, -1], 'strecken': [[0, 1, 0, 3, 'gestrichelt'], [0, 1, 0, -1, 'gestrichelt']]}}],
+          woerter=[['Parallele', 'eine Gerade, die überall gleich weit von g entfernt ist'],
+                   ['waagrecht durch (0 | 1)', 'die Gerade liegt waagrecht und geht durch (0 | 1); alle ihre Punkte haben die y-Koordinate 1']]),
+]
+
+# A2: Der Stundenzeiger dreht „0,5° pro Minute“ – Dezimalzahlen kommen erst in Kl. 6. Neu: „1° in 2 Minuten“ (alle Ergebnisse sind ganzzahlig).
+PLAN['geometrie.winkel'] = [
+    karte('uhr', regel='Zwischen zwei Zahlen liegen ⟦30°⟧. Der Minutenzeiger dreht 6° pro Minute, der Stundenzeiger 1° in 2 Minuten.'),
+    umschreiben('uhr', r'^(Um wie viel Grad dreht sich der Stundenzeiger in \d+ Minuten|Wie groß ist der kleinere Winkel zwischen den Zeigern um (9:20|3:40) Uhr)',
+                [(r'also 0,5° pro Minute: (\d+) · 0,5° =', r'also 1° in 2 Minuten: (\1 : 2)° ='),
+                 (r'(\d+) Minuten · 0,5° =', r'(\1 : 2)° ='), (r'(\d+) · 0,5° =', r'(\1 : 2)° =')], 5),
+]
+
+# A2: Der Begriff „proportional“ steht nicht in M5 (dort Schlussrechnung/Dreisatz); Gymnasium: Kl. 8 (Funktionen), Realschule: M6 LB 6.
+# Kein passendes Thema in Kl. 6/7 → Karte „erkennen“ wird Vertiefung.
+PLAN['groessen.proportional'] = [vertiefung('erkennen')]

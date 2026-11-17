@@ -654,7 +654,6 @@
   ],
   "bewertung": {
    "lernziele_pflicht": [
-    "erkennen",
     "vervielfachen",
     "pruefen",
     "einheit",
@@ -662,7 +661,9 @@
     "geschickt",
     "sach"
    ],
-   "lernziele_vertiefung": [],
+   "lernziele_vertiefung": [
+    "erkennen"
+   ],
    "testaufgaben_je_lernziel": 1,
    "hilfen_im_test": false
   },

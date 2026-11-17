@@ -464,7 +464,7 @@
    {
     "lernziel": "uhr",
     "titel": "Winkel an der Uhr",
-    "regel": "Zwischen zwei Zahlen liegen ⟦30°⟧. Der Minutenzeiger dreht 6° pro Minute, der Stundenzeiger 0,5° pro Minute.",
+    "regel": "Zwischen zwei Zahlen liegen ⟦30°⟧. Der Minutenzeiger dreht 6° pro Minute, der Stundenzeiger 1° in 2 Minuten.",
     "schritte": [
      {
       "text": "Ein Stundenabstand ist 360° : 12 = 30°.",
@@ -6847,7 +6847,7 @@
     "einheit": "°"
    },
    "c": "120 / 60 * 30",
-   "w": "In 60 min dreht er sich um 30°, also 0,5° pro Minute: 120 · 0,5° = 60°.",
+   "w": "In 60 min dreht er sich um 30°, also 1° in 2 Minuten: (120 : 2)° = 60°.",
    "h": "Der Stundenzeiger braucht 60 Minuten für 30°.",
    "g": "mehrschritt"
   },
@@ -6882,7 +6882,7 @@
     "einheit": "°"
    },
    "c": "40 / 60 * 30",
-   "w": "In 60 min dreht er sich um 30°, also 0,5° pro Minute: 40 · 0,5° = 20°.",
+   "w": "In 60 min dreht er sich um 30°, also 1° in 2 Minuten: (40 : 2)° = 20°.",
    "h": "Der Stundenzeiger braucht 60 Minuten für 30°.",
    "g": "mehrschritt"
   },
@@ -7768,7 +7768,7 @@
     "einheit": "°"
    },
    "c": "90 / 60 * 30",
-   "w": "In 60 min dreht er sich um 30°, also 0,5° pro Minute: 90 · 0,5° = 45°.",
+   "w": "In 60 min dreht er sich um 30°, also 1° in 2 Minuten: (90 : 2)° = 45°.",
    "h": "Der Stundenzeiger braucht 60 Minuten für 30°."
   },
   {
@@ -7785,7 +7785,7 @@
     "einheit": "°"
    },
    "c": "160",
-   "w": "Minutenzeiger auf 4: 120°. Stundenzeiger: 9 · 30° + 20 · 0,5° = 280°. Unterschied 160°.",
+   "w": "Minutenzeiger auf 4: 120°. Stundenzeiger: 9 · 30° + (20 : 2)° = 280°. Unterschied 160°.",
    "h": "Der Stundenzeiger wandert in 20 Minuten 10° weiter."
   },
   {
@@ -7952,7 +7952,7 @@
     "wert": 130
    },
    "c": "240 - (90 + 20)",
-   "w": "Minutenzeiger auf der 8: 240°. Stundenzeiger: 3 Uhr = 90°, dazu 40 Minuten · 0,5° = 20°, also 110°. Unterschied 130°.",
+   "w": "Minutenzeiger auf der 8: 240°. Stundenzeiger: 3 Uhr = 90°, dazu (40 : 2)° = 20°, also 110°. Unterschied 130°.",
    "h": "Der Stundenzeiger bewegt sich auch zwischen den vollen Stunden weiter."
   },
   {

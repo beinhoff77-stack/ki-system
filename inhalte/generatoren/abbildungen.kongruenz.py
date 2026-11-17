@@ -890,16 +890,18 @@ def _ms_karte():
     def m_waag(R, B_):
         y, a, k = R.randint(-3, 5), R.randint(-6, 3), R.randint(1, 5)
         b = a + 2 * k
-        return B_.L(f'Die Punkte {pk("A", a, y)} und {pk("B", b, y)} liegen auf einer waagrechten Linie. Gib die Mittelsenkrechte von [AB] an.', 'x = □', [a + k], [f'({a} + {b}) / 2'],
-                    f'Die Mittelsenkrechte ist senkrecht und geht durch die Mitte von [AB]: x = ({zf(a)} + {zf(b)}) : 2 = {zf(a + k)}.',
-                    'Die Mittelsenkrechte geht durch die Mitte der Strecke.', 'Trage die Zahl ein.', grafik=koord([(a, y, 'A'), (b, y, 'B')]))
+        return B_.L(f'Die Punkte {pk("A", a, y)} und {pk("B", b, y)} liegen auf einer waagrechten Linie. Ihre Mittelsenkrechte ist senkrecht. Wo schneidet sie die x-Achse?',
+                    'S(□ | □)', [a + k, 0], [f'({a} + {b}) / 2', '0'],
+                    f'Die Mittelsenkrechte geht senkrecht durch die Mitte von [AB]. Der x-Wert der Mitte ist ({zf(a)} + {zf(b)}) : 2 = {zf(a + k)}. Sie schneidet die x-Achse in S({zf(a + k)} | 0).',
+                    'Die Mittelsenkrechte geht durch die Mitte der Strecke – senkrecht nach oben und unten.', _HP, grafik=koord([(a, y, 'A'), (b, y, 'B')]))
 
     def m_senk(R, B_):
         x, a, k = R.randint(-4, 5), R.randint(-5, 2), R.randint(1, 4)
         b = a + 2 * k
-        return B_.L(f'Die Punkte {pk("A", x, a)} und {pk("B", x, b)} liegen übereinander. Gib die Mittelsenkrechte von [AB] an.', 'y = □', [a + k], [f'({a} + {b}) / 2'],
-                    f'Die Mittelsenkrechte ist hier waagrecht und geht durch die Mitte: y = ({zf(a)} + {zf(b)}) : 2 = {zf(a + k)}.',
-                    'Die Mittelsenkrechte geht durch die Mitte der Strecke und steht senkrecht auf ihr.', 'Trage die Zahl ein.', grafik=koord([(x, a, 'A'), (x, b, 'B')]))
+        return B_.L(f'Die Punkte {pk("A", x, a)} und {pk("B", x, b)} liegen übereinander. Ihre Mittelsenkrechte ist waagrecht. Wo schneidet sie die y-Achse?',
+                    'S(□ | □)', [0, a + k], ['0', f'({a} + {b}) / 2'],
+                    f'Die Mittelsenkrechte geht waagrecht durch die Mitte von [AB]. Der y-Wert der Mitte ist ({zf(a)} + {zf(b)}) : 2 = {zf(a + k)}. Sie schneidet die y-Achse in S(0 | {zf(a + k)}).',
+                    'Die Mittelsenkrechte geht durch die Mitte der Strecke und steht senkrecht auf ihr.', _HP, grafik=koord([(x, a, 'A'), (x, b, 'B')]))
 
     def m_mitte(R, B_):
         a, b = R.randint(-5, 3), R.randint(-4, 4)
@@ -907,7 +909,7 @@ def _ms_karte():
         if dy == 0: dy = 2
         return B_.L(f'Durch welchen Punkt M geht die Mittelsenkrechte von [AB] mit {pk("A", a, b)} und {pk("B", a + dx, b + dy)}?', 'M(□ | □)',
                     [a + dx // 2, b + dy // 2], [f'({a} + {a + dx}) / 2', f'({b} + {b + dy}) / 2'],
-                    f'M ist die Mitte von [AB]: x = ({zf(a)} + {zf(a + dx)}) : 2 = {zf(a + dx // 2)}, y = ({zf(b)} + {zf(b + dy)}) : 2 = {zf(b + dy // 2)}.',
+                    f'M ist die Mitte von [AB]: x-Wert ({zf(a)} + {zf(a + dx)}) : 2 = {zf(a + dx // 2)}, y-Wert ({zf(b)} + {zf(b + dy)}) : 2 = {zf(b + dy // 2)}.',
                     'Die Mittelsenkrechte geht durch den Mittelpunkt der Strecke.', _HP, grafik=koord([(a, b, 'A'), (a + dx, b + dy, 'B')]))
 
     def m_eig(R, B_):
@@ -955,19 +957,19 @@ def _ms_karte():
         c = R.choice([v for v in range(-3, 6) if v != y])
         p = R.choice('PQC')
         if R.random() < 0.5:
-            return B_.L(f'Fälle das Lot von {pk(p, x, y)} auf die waagrechte Gerade g: y = {zf(c)}. Wo ist der Lotfußpunkt F?', 'F(□ | □)', [x, c], [str(x), str(c)],
-                        f'Das Lot auf eine waagrechte Gerade ist senkrecht: x bleibt {zf(x)}, F liegt auf g, also y = {zf(c)}.',
+            return B_.L(f'Fälle das Lot von {pk(p, x, y)} auf die waagrechte Gerade g durch {pk("", 0, c)}. Wo ist der Lotfußpunkt F?', 'F(□ | □)', [x, c], [str(x), str(c)],
+                        f'Das Lot auf eine waagrechte Gerade ist senkrecht: Der x-Wert bleibt {zf(x)}. F liegt auf g, also ist der y-Wert {zf(c)}.',
                         'Das Lot auf eine waagrechte Gerade geht senkrecht nach oben oder unten.', _HP, grafik=koord([(x, y, p)], y=[c], waagrecht=[c]))
-        return B_.L(f'Fälle das Lot von {pk(p, y, x)} auf die senkrechte Gerade g: x = {zf(c)}. Wo ist der Lotfußpunkt F?', 'F(□ | □)', [c, x], [str(c), str(x)],
-                    f'Das Lot auf eine senkrechte Gerade ist waagrecht: y bleibt {zf(x)}, F liegt auf g, also x = {zf(c)}.',
+        return B_.L(f'Fälle das Lot von {pk(p, y, x)} auf die senkrechte Gerade g durch {pk("", c, 0)}. Wo ist der Lotfußpunkt F?', 'F(□ | □)', [c, x], [str(c), str(x)],
+                    f'Das Lot auf eine senkrechte Gerade ist waagrecht: Der y-Wert bleibt {zf(x)}. F liegt auf g, also ist der x-Wert {zf(c)}.',
                     'Das Lot auf eine senkrechte Gerade geht waagrecht nach links oder rechts.', _HP, grafik=koord([(y, x, p)], x=[c], senkrecht=[c]))
 
     def m_abst(R, B_):
         x, y = R.randint(-4, 6), R.randint(-3, 7)
         c = R.choice([v for v in range(-3, 7) if v != y])
         p = R.choice('PQC')
-        return B_.Z(f'Wie weit ist {pk(p, x, y)} von der Geraden g: y = {zf(c)} entfernt? (1 Einheit = 1 cm)', abs(y - c), f'abs({y} - ({c}))',
-                    f'Gemessen wird auf dem Lot (senkrecht): von y = {zf(y)} bis y = {zf(c)} sind es {zf(abs(y - c))} cm.',
+        return B_.Z(f'Wie weit ist {pk(p, x, y)} von der waagrechten Geraden g durch {pk("", 0, c)} entfernt? (1 Einheit = 1 cm)', abs(y - c), f'abs({y} - ({c}))',
+                    f'Gemessen wird auf dem Lot (senkrecht): vom y-Wert {zf(y)} bis zum y-Wert {zf(c)} sind es {zf(abs(y - c))} cm.',
                     'Der Abstand zu einer Geraden wird senkrecht gemessen.', einheit='cm', grafik=koord([(x, y, p)], y=[c], waagrecht=[c]))
 
     def m_spiel(R, B_):
@@ -977,7 +979,7 @@ def _ms_karte():
         ding = R.choice(['ein Spielplatz', 'eine Bushaltestelle', 'ein Briefkasten', 'eine Bank'])
         return B_.L(f'Zwei Häuser stehen bei {pk("A", a, h)} und {pk("B", b, h)}. An der Straße (x-Achse) soll {ding} S hin, von beiden Häusern gleich weit entfernt.',
                     'S(□ | □)', [a + k, 0], [f'({a} + {b}) / 2', '0'],
-                    f'S liegt auf der Mittelsenkrechten x = {zf(a + k)} von [AB] und auf der x-Achse: S({zf(a + k)} | 0).',
+                    f'S liegt auf der Mittelsenkrechten von [AB] – sie geht senkrecht durch die Mitte {pk("", a + k, h)} – und auf der x-Achse: S({zf(a + k)} | 0).',
                     'Gleich weit von A und B: Mittelsenkrechte. Dann mit der Straße schneiden.', _HP, grafik=koord([(a, h, 'A'), (b, h, 'B')]))
 
     def m_spiegel(R, B_):
@@ -1038,7 +1040,7 @@ def _ms_karte():
         orte = R.choice([('Ahorn', 'Birk', 'Celle'), ('Au', 'Berg', 'Chiem'), ('Alm', 'Bach', 'Ried')])
         return B_.L(f'Drei Orte liegen bei {pk("A", a, b)}, {pk("B", a + 2 * p, b)} und {pk("C", a, b + 2 * q)}. Ein Funkmast soll von allen drei Orten gleich weit entfernt sein. Wo steht er?',
                     'M(□ | □)', [a + p, b + q], [f'({a} + {a + 2 * p}) / 2', f'({b} + {b + 2 * q}) / 2'],
-                    f'M liegt auf der Mittelsenkrechten von [AB] (x = {zf(a + p)}) und auf der von [AC] (y = {zf(b + q)}). Schnittpunkt: M({zf(a + p)} | {zf(b + q)}).',
+                    f'M liegt auf der Mittelsenkrechten von [AB] (senkrecht durch die Mitte {pk("", a + p, b)}) und auf der von [AC] (waagrecht durch die Mitte {pk("", a, b + q)}). Schnittpunkt: M({zf(a + p)} | {zf(b + q)}).',
                     'Gleich weit von A und B: eine Mittelsenkrechte. Gleich weit von A und C: noch eine. Wo schneiden sie sich?', _HP, art='pruefung',
                     grafik=koord([(a, b, 'A'), (a + 2 * p, b, 'B'), (a, b + 2 * q, 'C')]))
 
@@ -1047,10 +1049,10 @@ def _ms_karte():
         x = R.randint(s // 2 + 1, s + 3)
         y = s - x
         if x == y: x, y = x + 1, y - 1
-        return B_.L(f'Fälle das Lot von {pk("P", x, y)} auf die Gerade y = x. Wo ist der Lotfußpunkt F?', 'F(□ | □)', [s // 2, s // 2], [f'({x} + {y}) / 2', f'({x} + {y}) / 2'],
-                    f"Spiegle P an y = x: P'({zf(y)} | {zf(x)}). Die Gerade y = x ist die Mittelsenkrechte von [PP'], F ist die Mitte: F({zf(s // 2)} | {zf(s // 2)}).",
-                    "Spiegle P an y = x (x und y tauschen). Der Fußpunkt ist die Mitte von P und P'.", _HP,
-                    grafik=koord([(x, y, 'P')], graphen=[{'art': 'linear', 'm': 1, 't': 0, 'name': 'y = x'}]))
+        return B_.L(f'Die Gerade w geht durch (0 | 0) und (1 | 1). Fälle das Lot von {pk("P", x, y)} auf w. Wo ist der Lotfußpunkt F?', 'F(□ | □)', [s // 2, s // 2], [f'({x} + {y}) / 2', f'({x} + {y}) / 2'],
+                    f"Spiegle P an w – dabei tauschen x und y: P'({zf(y)} | {zf(x)}). w ist die Mittelsenkrechte von [PP'], F ist die Mitte: F({zf(s // 2)} | {zf(s // 2)}).",
+                    "Spiegle P an w (x und y tauschen). Der Fußpunkt ist die Mitte von P und P'.", _HP,
+                    grafik=koord([(x, y, 'P')], graphen=[{'art': 'linear', 'm': 1, 't': 0, 'name': 'w'}]))
 
     def m_knobel(R, B_):
         ab = R.randint(4, 10)
@@ -1065,14 +1067,14 @@ def _ms_karte():
     def f_leucht(R, B_):
         return B_.L('Zwei Leuchttürme stehen bei L₁(1 | 6) und L₂(7 | 6). Ein Schiff fährt auf der Route durch (0 | 1) und (8 | 5). An welchem Punkt P der Route ist es von beiden Leuchttürmen gleich weit entfernt?',
                     'P(□ | □)', [4, 3], ['(1 + 7) / 2', '1 + 4 / 2'],
-                    'P liegt auf der Mittelsenkrechten von [L₁L₂]: x = (1 + 7) : 2 = 4. Die Route steigt je 2 nach rechts um 1: bei x = 4 ist y = 1 + 2 = 3. P(4 | 3).',
+                    'P liegt auf der Mittelsenkrechten von [L₁L₂]; sie geht senkrecht durch die Mitte (4 | 6). Die Route steigt je 2 nach rechts um 1: beim x-Wert 4 ist der y-Wert 1 + 2 = 3. P(4 | 3).',
                     'Gleich weit von beiden Türmen: Mittelsenkrechte. Wo schneidet sie die Route?', _HP, art='pruefung',
                     grafik=koord([(1, 6, 'L₁'), (7, 6, 'L₂')], x=[8], graphen=[{'art': 'linear', 'm': 0.5, 't': 1, 'name': 'Route'}]))
 
     def f_drei(R, B_):
         return B_.L('Die Häuser A(−1 | 0), B(7 | 0) und C(−1 | 6) sollen einen gemeinsamen Spielplatz bekommen, der von allen drei Häusern gleich weit entfernt ist. Wo liegt er?',
                     'S(□ | □)', [3, 3], ['(-1 + 7) / 2', '(0 + 6) / 2'],
-                    'Mittelsenkrechte von [AB]: x = 3. Mittelsenkrechte von [AC]: y = 3. Sie schneiden sich in S(3 | 3); S ist von A, B und C je 5 Einheiten entfernt.',
+                    'Mittelsenkrechte von [AB]: senkrecht durch die Mitte (3 | 0). Mittelsenkrechte von [AC]: waagrecht durch die Mitte (−1 | 3). Sie schneiden sich in S(3 | 3); S ist von A, B und C je 5 Einheiten entfernt.',
                     'Zwei Mittelsenkrechten reichen: eine für A und B, eine für A und C.', _HP, art='pruefung',
                     grafik=koord([(-1, 0, 'A'), (7, 0, 'B'), (-1, 6, 'C')]))
 
@@ -1165,7 +1167,7 @@ def _wh_karte():
         f = R.sample([p for p in kand if abs(p[0]) != abs(p[1])], 3)
         nm = lambda p: pk('P', p[0], p[1])
         return B_.A('Welcher Punkt ist von der x-Achse und von der y-Achse gleich weit entfernt?', nm(r), [nm(p) for p in f],
-                    f'Abstand zur x-Achse ist der y-Wert, Abstand zur y-Achse der x-Wert. Bei {nm(r)} sind beide {k}: Der Punkt liegt auf der Winkelhalbierenden y = x.',
+                    f'Abstand zur x-Achse ist der y-Wert, Abstand zur y-Achse der x-Wert. Bei {nm(r)} sind beide {k}: Der Punkt liegt auf der Winkelhalbierenden der beiden Achsen.',
                     'Der Abstand zur x-Achse ist |y|, zur y-Achse |x|.', pruef=lambda t: t == nm(r))
 
     def w_eig(R, B_):
@@ -1196,7 +1198,7 @@ def _wh_karte():
         d = R.randint(2, 7)
         ach = R.choice(['x-Achse', 'y-Achse'])
         return B_.L(f'P liegt im 1. Quadranten auf der Winkelhalbierenden von x-Achse und y-Achse und hat von der {ach} den Abstand {d}. Gib P an.', 'P(□ | □)', [d, d], [str(d), str(d)],
-                    f'Auf dieser Winkelhalbierenden (y = x) sind beide Abstände gleich: P({d} | {d}).', 'Von beiden Achsen gleich weit entfernt.', _HP)
+                    f'Auf dieser Winkelhalbierenden sind beide Abstände gleich, x-Wert und y-Wert also auch: P({d} | {d}).', 'Von beiden Achsen gleich weit entfernt.', _HP)
 
     def w_schritt(R, B_):
         v = R.random() < 0.5
@@ -1222,8 +1224,8 @@ def _wh_karte():
         kand = [(e0 + k, c + k + 1), (e0 + k + 1, c), (e0, c + k), (e0 + k, c), (e0 + 2 * k, c + k), (e0 + 1, c + k)]
         f = R.sample([p for p in kand if not auf(p)], 3)
         nm = lambda p: pk('P', p[0], p[1])
-        return B_.A(f'Gegeben sind die Geraden g: y = {zf(c)} und h: x = {zf(e0)}. Welcher Punkt ist von g und h gleich weit entfernt?', nm(r), [nm(p) for p in f],
-                    f'Abstand zu g: |y − ({zf(c)})|, Abstand zu h: |x − ({zf(e0)})|. Bei {nm(r)} sind beide {k}.',
+        return B_.A(f'Gegeben sind die waagrechte Gerade g durch {pk("", 0, c)} und die senkrechte Gerade h durch {pk("", e0, 0)}. Welcher Punkt ist von g und h gleich weit entfernt?', nm(r), [nm(p) for p in f],
+                    f'Abstand zu g: senkrecht bis g gezählt. Abstand zu h: waagrecht bis h gezählt. Bei {nm(r)} sind beide {k}.',
                     'Zähle die Kästchen senkrecht bis g und waagrecht bis h.', pruef=lambda t: t == nm(r),
                     grafik=koord([], x=[e0, e0 + 2 * k + 1] + [p[0] for p in [r] + f], y=[c, c + k + 2] + [p[1] for p in [r] + f], waagrecht=[c], senkrecht=[e0]))  # g, h und alle Auswahlpunkte sichtbar (Prüfung 17.11.)
 
@@ -1231,15 +1233,15 @@ def _wh_karte():
         k = R.choice([2, 3, 4, 6, 7])
         return B_.L(f'Zwei Straßen verlaufen entlang der x-Achse und der y-Achse. Ein Brunnen soll von beiden Straßen gleich weit entfernt sein und am Weg von (0 | {2 * k}) nach ({2 * k} | 0) liegen.',
                     'B(□ | □)', [k, k], [f'{2 * k} / 2', f'{2 * k} / 2'],
-                    f'Gleich weit von beiden Straßen: Winkelhalbierende y = x. Auf dem Weg gilt x + y = {2 * k}. Also x = y = {k}: B({k} | {k}).',
+                    f'Gleich weit von beiden Straßen heißt: x-Wert und y-Wert sind gleich (Winkelhalbierende der Achsen). Auf dem Weg von (0 | {2 * k}) nach ({2 * k} | 0) ist das nur in der Mitte so: B({k} | {k}).',
                     'Gleich weit von beiden Achsen heißt: x und y sind gleich.', _HP, art='pruefung',
                     grafik=koord([(0, 2 * k), (2 * k, 0)], strecken=[[0, 2 * k, 2 * k, 0]]))
 
     def w_ecke(R, B_):
         c, e0, m = R.randint(-2, 2), R.randint(-3, 1), R.randint(3, 6)
-        return B_.L(f'g: y = {zf(c)} und h: x = {zf(e0)} kreuzen sich. Gesucht ist der Punkt rechts von h und oberhalb von g, der von g und h gleich weit entfernt ist und auf y = {zf(c + m)} liegt.',
+        return B_.L(f'Die waagrechte Gerade g durch {pk("", 0, c)} und die senkrechte Gerade h durch {pk("", e0, 0)} kreuzen sich. Gesucht ist der Punkt rechts von h und oberhalb von g, der von g und h gleich weit entfernt ist und den y-Wert {zf(c + m)} hat.',
                     'P(□ | □)', [e0 + m, c + m], [f'{e0} + {m}', f'{c} + {m}'],
-                    f'Auf y = {zf(c + m)} ist der Abstand zu g gleich {m}. Also ist auch der Abstand zu h gleich {m}: x = {zf(e0)} + {m} = {zf(e0 + m)}.',
+                    f'Beim y-Wert {zf(c + m)} ist der Abstand zu g gleich {m}. Also ist auch der Abstand zu h gleich {m}: x-Wert {zf(e0)} + {m} = {zf(e0 + m)}.',
                     'Bestimme zuerst den Abstand zu g; derselbe Abstand gilt für h.', _HP,
                     grafik=koord([], x=[e0, e0 + m + 1], y=[c, c + m + 1], waagrecht=[c, c + m], senkrecht=[e0]))  # g und h sichtbar (Prüfung 17.11.)
 
@@ -1259,7 +1261,7 @@ def _wh_karte():
     def f_brunnen(R, B_):
         return B_.L('Ein Feld wird von zwei geraden Wegen begrenzt: der x-Achse und der y-Achse. Ein Baum soll von beiden Wegen gleich weit entfernt sein und am Bach von (0 | 10) nach (10 | 0) stehen.',
                     'B(□ | □)', [5, 5], ['10 / 2', '10 / 2'],
-                    'Gleich weit von beiden Wegen: Winkelhalbierende y = x. Auf dem Bach gilt x + y = 10. Also B(5 | 5).',
+                    'Gleich weit von beiden Wegen heißt: x-Wert und y-Wert sind gleich (Winkelhalbierende der Achsen). Auf dem Bach von (0 | 10) nach (10 | 0) ist das nur in der Mitte so: B(5 | 5).',
                     'Gleich weit von beiden Achsen heißt: x und y sind gleich.', _HP, art='pruefung',
                     grafik=koord([(0, 10), (10, 0)], strecken=[[0, 10, 10, 0]]))
 
@@ -1338,7 +1340,7 @@ def _vo_karte():
             {'text': 'Ebenso ist jede Raute ein Drachenviereck, jedes Rechteck ein gleichschenkliges Trapez.', 'bild': tab},
         ],
         'probe': 'Quadrat: 4 Achsen und punktsymmetrisch – es hat alles, was Raute und Rechteck haben ✓',
-        'fehler': '„Jede Raute ist ein Quadrat“ stimmt nicht: Eine schiefe Raute hat keinen rechten Winkel. Wie bei Fliesen zählt die Richtung des Satzes.',
+        'fehler': '„Jede Raute ist ein Quadrat“ stimmt nicht: Eine schiefe Raute hat keinen rechten Winkel. Nur umgekehrt stimmt es: Jedes Quadrat ist eine Raute.',
         'fehler_bild': fig({'A': (0, 0), 'B': (4, 0), 'C': (4 + D50[0], D50[1]), 'D': D50}, flaeche=['A', 'B', 'C', 'D'], linien=rl,
                            winkel=[['A', 'B', 'D', '50°']]),
         'regel': 'Je mehr Symmetrie, desto weiter unten im Haus der Vierecke. Ein Viereck unten hat alle ⟦Eigenschaften⟧ der Vierecke darüber.',
@@ -1429,7 +1431,7 @@ def _vo_karte():
         t = _treffen(a, b)
         f = R.sample([v for v in _VI if v != t and v not in (a, b)], 3)
         return B_.A(f'Ein Viereck ist {_ein(a)} und zugleich {_ein(b)}. Welches Viereck ist es sicher?', t, f,
-                    f'Es hat die Symmetrien beider Vierecke. Im Haus der Vierecke ist das {_ein(t)} (oder ein Spezialfall davon).',
+                    f'Es hat die Symmetrien beider Vierecke. Im Haus der Vierecke steht darunter als allgemeinstes Viereck {_ein(t)}.',
                     'Suche das Viereck, das unter beiden steht – das höchste davon.', art=art, pruef=lambda x: x == t)
 
     def v_treff3(R, B_):
@@ -1486,6 +1488,37 @@ _LUECKEN_OFFEN = ['Achtzehnte Runde (luecken-kl7): neue Lernkarten mittelsenkrec
                   'und Abstandsprobleme im Koordinatensystem ohne schräge Längen (Pythagoras kommt erst später).']
 
 
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Klasse 7, siehe _durchsicht_kl7.py) ----
+from _durchsicht_kl7 import Durchsicht, durchsicht_datei  # noqa: E402
+
+DS = Durchsicht('abbildungen.kongruenz', 19_7_3)
+# achsenspiegelung: Aufgaben spiegeln an y = x und y = −x; die Karte zeigte nur senkrechte Achsen → Schritt ergänzt
+DS.karte('achsenspiegelung', 'Schritt „Spiegeln an y = x: x und y tauschen“ ergänzt (Aufgaben ab Stufe 2 nutzen ihn).',
+         schritte=lambda alt: alt + [{'text': "An der Geraden y = x tauschen x und y die Plätze: P'(3 | 4).",
+                                      'bild': {'typ': 'koordinaten', 'x': [-1, 5], 'y': [-1, 5], 'graphen': [{'art': 'linear', 'm': 1, 't': 0, 'name': 'y = x'}],
+                                               'punkte': [{'x': 4, 'y': 3, 'name': 'P'}, {'x': 3, 'y': 4, 'name': "P'"}], 'strecken': [[4, 3, 3, 4, 'gestrichelt']]}}])
+DS.stufe('achsenspiegelung', 'Spiegle P(−5 | 1) an der Winkelhalbierenden y = x.', 2)   # gleicher Gedanke wie die Stufe-2-Aufgabe zu y = x
+# punktspiegelung: zwei Stufe-3-Aufgaben sind „Spiegle P an Z“ wie Stufe 2
+DS.stufe('punktspiegelung', 'Spiegle P(−1 | −6) am Punkt Z(1 | 3).', 2)
+DS.stufe('punktspiegelung', 'Spiegle P(−7 | 2) am Punkt Z(−2 | 1).', 2)
+# verschiebung: „erst …, dann … – wohin kommt P?“ ist zweimal derselbe Schritt (Stufe 2), dreimal in Stufe 3
+for _t in ['P(−4 | −7) wird erst mit (1 | −2), dann mit (−2 | −6) verschoben. Wohin kommt P?',
+           'P(−1 | 3) wird erst mit (−5 | 2), dann mit (6 | −2) verschoben. Wohin kommt P?',
+           'P(−4 | 4) wird erst mit (5 | 2), dann mit (6 | 1) verschoben. Wohin kommt P?']:
+    DS.stufe('verschiebung', _t, 2)
+# symmetrie: Aufgaben fragen nach dem kleinsten Drehwinkel (360° : n); die Karte erklärte Drehsymmetrie nicht → Schritt und Wort ergänzt
+_sechs = {f'_{i}': [round(2 * math.cos(math.radians(60 * i)), 3), round(2 * math.sin(math.radians(60 * i)), 3)] for i in range(6)}
+DS.karte('symmetrie', 'Schritt zur Drehsymmetrie (kleinster Drehwinkel 360° : n) mit Sechseck ergänzt; Wort „drehsymmetrisch“ erklärt.',
+         woerter=lambda alt: alt + [['drehsymmetrisch', 'passt nach einer Drehung um weniger als 360° wieder auf sich']],
+         schritte=lambda alt: alt + [{'text': 'Ein regelmäßiges Sechseck passt schon nach 360° : 6 = 60° wieder: ⟦drehsymmetrisch⟧.',
+                                      'bild': {'typ': 'figur', 'punkte': {**_sechs, 'M': [0, 0]}, 'flaeche': [f'_{i}' for i in range(6)],
+                                               'linien': [[f'_{i}', f'_{(i + 1) % 6}'] for i in range(6)] + [['M', '_0', '', 'gestrichelt'], ['M', '_1', '', 'gestrichelt']],
+                                               'winkel': [['M', '_0', '_1', '60°']]}}])
+# eigenschaften: „Welche Abbildung ist es?“ steht dreimal in Stufe 3 genauso wie in Stufe 2 → Stufe 2
+DS.stufe('eigenschaften', "Das Dreieck ABC wird auf A'B'C' (gestrichelt) abgebildet. Welche Abbildung ist es?", 2, enthaelt='"s": 3', anzahl=3)
+# ---- DURCHSICHT ENDE ----
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Spiegeln', ['achsenspiegelung', 'punktspiegelung']), ('Verschieben und Drehen', ['verschiebung', 'drehung']), ('Symmetrie und Eigenschaften', ['symmetrie', 'parkett', 'eigenschaften'])],
@@ -1502,3 +1535,4 @@ if __name__ == '__main__':
     anhaengen(META['thema_schluessel'], schwer())
     befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
     einfuegen(META['thema_schluessel'], luecken(), 7180, quelle=_LUECKEN_QUELLE, offen=_LUECKEN_OFFEN)  # Achtzehnte Runde: zuletzt
+    durchsicht_datei(META['thema_schluessel'], DS)  # Neunzehnte Runde: zuletzt

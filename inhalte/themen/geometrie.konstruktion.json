@@ -6700,7 +6700,7 @@
    "l": "konstruierbar",
    "t": "konstruierbar",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Zwei Seiten eines Dreiecks sind 9 cm und 5 cm lang. Wie viele verschiedene ganzzahlige Längen (in cm) sind für die dritte Seite möglich?"
@@ -6732,7 +6732,7 @@
    "l": "konstruierbar",
    "t": "konstruierbar",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Zwei Seiten eines Dreiecks sind 3 cm und 3 cm lang. Wie viele verschiedene ganzzahlige Längen (in cm) sind für die dritte Seite möglich?"
@@ -7330,7 +7330,7 @@
    "l": "vierecke",
    "t": "vierecke",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "In einem Viereck ist α = 76°, β = 69° und γ = 76°. Berechne δ."
@@ -7347,7 +7347,7 @@
    "l": "vierecke",
    "t": "vierecke",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "In einem Viereck ist α = 111°, β = 117° und γ = 90°. Berechne δ."
@@ -7364,7 +7364,7 @@
    "l": "vierecke",
    "t": "vierecke",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "In einem Viereck ist α = 68°, β = 96° und γ = 72°. Berechne δ."
@@ -7381,7 +7381,7 @@
    "l": "vierecke",
    "t": "vierecke",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "In einem Viereck ist α = 117°, β = 70° und γ = 76°. Berechne δ."
@@ -7582,19 +7582,19 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Wie lautet der Kehrsatz zu: „Wenn ein Viereck eine Raute ist, dann ist es ein Parallelogramm.“"
+    "text": "Wie lautet der Kehrsatz zu: „Wenn zwei Geraden parallel sind, dann sind die Stufenwinkel gleich groß.“"
    },
    "a": [
-    "Wenn sich die Diagonalen eines Vierecks halbieren, dann ist es ein Parallelogramm.",
-    "Wenn ein Viereck ein Parallelogramm ist, dann ist es eine Raute.",
-    "Wenn ein Viereck eine Raute ist, dann ist es ein Parallelogramm.",
-    "Wenn ein Viereck vier gleich lange Seiten hat, dann ist es ein Quadrat."
+    "Wenn die Stufenwinkel gleich groß sind, dann schneiden sich die Geraden.",
+    "Wenn zwei Geraden parallel sind, dann sind die Wechselwinkel gleich groß.",
+    "Wenn die Stufenwinkel gleich groß sind, dann sind die Geraden parallel.",
+    "Wenn zwei Geraden nicht parallel sind, dann sind die Stufenwinkel verschieden groß."
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "w": "Voraussetzung und Behauptung werden vertauscht: „Wenn ein Viereck ein Parallelogramm ist, dann ist es eine Raute.“",
-   "h": "Tausche den Wenn-Teil und den Dann-Teil."
+   "w": "Beim Kehrsatz tauschen Wenn-Teil und Dann-Teil die Plätze. Hier ist der Kehrsatz auch wahr: Es ist die Umkehrung, mit der man Parallelität prüft.",
+   "h": "Tausche nur Wenn-Teil und Dann-Teil – nichts verneinen, nichts dazu erfinden."
   },
   {
    "l": "satz_kehrsatz",
@@ -7788,7 +7788,7 @@
    "l": "satz_kehrsatz",
    "t": "satz_kehrsatz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Widerlege den Kehrsatz: „Wenn ein Viereck ein Rechteck ist, dann ist es ein Quadrat.“ Welches Gegenbeispiel passt?"
@@ -7808,7 +7808,7 @@
    "l": "satz_kehrsatz",
    "t": "satz_kehrsatz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Widerlege den Kehrsatz: „Wenn eine Zahl durch 3 teilbar ist, dann ist sie durch 6 teilbar.“ Welches Gegenbeispiel passt?"
@@ -9060,7 +9060,7 @@
     "7 - 3",
     "3"
    ],
-   "w": "Parallele zu [AB] im Abstand 3 cm: y = 3. Der 45°-Schenkel in B geht je 1 nach links und oben; bei y = 3 ist er 3 links von B: C(4 | 3).",
+   "w": "Parallele zu [AB] im Abstand 3 cm: 3 Kästchen über [AB]. Der 45°-Schenkel in B geht je 1 nach links und oben; in der Höhe 3 ist er 3 links von B: C(4 | 3).",
    "h": "Erst die Parallele (h_c), dann der Winkel in B."
   },
   {
@@ -9107,7 +9107,7 @@
     "8 / 2",
     "5"
    ],
-   "w": "C ist von A und B gleich weit entfernt, liegt also auf der Mittelsenkrechten x = 4. Mit h_c = 5 cm: C(4 | 5).",
+   "w": "C ist von A und B gleich weit entfernt, liegt also auf der Mittelsenkrechten von [AB]; sie geht senkrecht durch die Mitte (4 | 0). Mit h_c = 5 cm: C(4 | 5).",
    "h": "Welche Linie enthält alle Punkte, die von A und B gleich weit entfernt sind?"
   },
   {
@@ -9272,7 +9272,7 @@
     "5",
     "5"
    ],
-   "w": "Der 45°-Schenkel in A ist die Gerade y = x. Die Parallele zu [AB] im Abstand 5 ist y = 5. Schnittpunkt: C(5 | 5).",
+   "w": "Der 45°-Schenkel in A geht je 1 nach rechts und 1 nach oben. Die Parallele zu [AB] im Abstand 5 liegt 5 Kästchen über [AB]. Dort trifft der Schenkel sie: C(5 | 5).",
    "h": "Ein 45°-Winkel in A: Der freie Schenkel geht je 1 nach rechts und 1 nach oben."
   },
   {
@@ -9361,7 +9361,7 @@
     "7",
     "2"
    ],
-   "w": "Der freie Schenkel in B steht senkrecht auf [AB]: x = 7. Die Parallele im Abstand 2: y = 2. C(7 | 2).",
+   "w": "Der freie Schenkel in B steht senkrecht auf [AB], C liegt also genau über B (x-Wert 7). Die Parallele im Abstand 2 liegt 2 Kästchen hoch. C(7 | 2).",
    "h": "Ein rechter Winkel in B: Der Schenkel geht senkrecht nach oben."
   },
   {
@@ -9440,7 +9440,7 @@
     "6 - 3",
     "3"
    ],
-   "w": "Der 45°-Schenkel in B geht je 1 nach links und 1 nach oben. Bei y = 3 ist er 3 links von B: C(3 | 3).",
+   "w": "Der 45°-Schenkel in B geht je 1 nach links und 1 nach oben. In der Höhe 3 ist er 3 links von B: C(3 | 3).",
    "h": "Vom Punkt B aus: so viele Kästchen nach links wie nach oben."
   },
   {
@@ -9561,7 +9561,7 @@
     "2",
     "2"
    ],
-   "w": "Der 45°-Schenkel in A ist die Gerade y = x. Die Parallele zu [AB] im Abstand 2 ist y = 2. Schnittpunkt: C(2 | 2)."
+   "w": "Der 45°-Schenkel in A geht je 1 nach rechts und 1 nach oben. Die Parallele zu [AB] im Abstand 2 liegt 2 Kästchen über [AB]. Dort trifft der Schenkel sie: C(2 | 2)."
   },
   {
    "l": "planfigur",
@@ -9647,7 +9647,7 @@
     "0",
     "4"
    ],
-   "w": "Der freie Schenkel in A steht senkrecht auf [AB]: x = 0. Die Parallele im Abstand 4: y = 4. C(0 | 4)."
+   "w": "Der freie Schenkel in A steht senkrecht auf [AB], C liegt also genau über A (x-Wert 0). Die Parallele im Abstand 4 liegt 4 Kästchen hoch. C(0 | 4)."
   },
   {
    "l": "planfigur",
@@ -9693,7 +9693,7 @@
     "3",
     "3"
    ],
-   "w": "Der 45°-Schenkel in A ist die Gerade y = x. Die Parallele zu [AB] im Abstand 3 ist y = 3. Schnittpunkt: C(3 | 3)."
+   "w": "Der 45°-Schenkel in A geht je 1 nach rechts und 1 nach oben. Die Parallele zu [AB] im Abstand 3 liegt 3 Kästchen über [AB]. Dort trifft der Schenkel sie: C(3 | 3)."
   },
   {
    "l": "planfigur",
@@ -9759,7 +9759,7 @@
     "9",
     "6"
    ],
-   "w": "Der freie Schenkel in B steht senkrecht auf [AB]: x = 9. Die Parallele im Abstand 6: y = 6. C(9 | 6)."
+   "w": "Der freie Schenkel in B steht senkrecht auf [AB], C liegt also genau über B (x-Wert 9). Die Parallele im Abstand 6 liegt 6 Kästchen hoch. C(9 | 6)."
   },
   {
    "l": "planfigur",

@@ -91,6 +91,49 @@
         ]
        ]
       }
+     },
+     {
+      "text": "An der Geraden y = x tauschen x und y die Plätze: P'(3 | 4).",
+      "bild": {
+       "typ": "koordinaten",
+       "x": [
+        -1,
+        5
+       ],
+       "y": [
+        -1,
+        5
+       ],
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 1,
+         "t": 0,
+         "name": "y = x"
+        }
+       ],
+       "punkte": [
+        {
+         "x": 4,
+         "y": 3,
+         "name": "P"
+        },
+        {
+         "x": 3,
+         "y": 4,
+         "name": "P'"
+        }
+       ],
+       "strecken": [
+        [
+         4,
+         3,
+         3,
+         4,
+         "gestrichelt"
+        ]
+       ]
+      }
      }
     ],
     "fehler": "An der x-Achse ist das Bild von P(4 | 3) nicht (−4 | 3). Die x-Achse liegt waagrecht wie eine Wasseroberfläche. Das Bild liegt darunter: ⟦(4 | −3)⟧.",
@@ -1340,6 +1383,96 @@
      },
      {
       "text": "Nach einer halben Drehung liegt es wieder gleich: ⟦punktsymmetrisch⟧."
+     },
+     {
+      "text": "Ein regelmäßiges Sechseck passt schon nach 360° : 6 = 60° wieder: ⟦drehsymmetrisch⟧.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "_0": [
+         2.0,
+         0.0
+        ],
+        "_1": [
+         1.0,
+         1.732
+        ],
+        "_2": [
+         -1.0,
+         1.732
+        ],
+        "_3": [
+         -2.0,
+         0.0
+        ],
+        "_4": [
+         -1.0,
+         -1.732
+        ],
+        "_5": [
+         1.0,
+         -1.732
+        ],
+        "M": [
+         0,
+         0
+        ]
+       },
+       "flaeche": [
+        "_0",
+        "_1",
+        "_2",
+        "_3",
+        "_4",
+        "_5"
+       ],
+       "linien": [
+        [
+         "_0",
+         "_1"
+        ],
+        [
+         "_1",
+         "_2"
+        ],
+        [
+         "_2",
+         "_3"
+        ],
+        [
+         "_3",
+         "_4"
+        ],
+        [
+         "_4",
+         "_5"
+        ],
+        [
+         "_5",
+         "_0"
+        ],
+        [
+         "M",
+         "_0",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "M",
+         "_1",
+         "",
+         "gestrichelt"
+        ]
+       ],
+       "winkel": [
+        [
+         "M",
+         "_0",
+         "_1",
+         "60°"
+        ]
+       ]
+      }
      }
     ],
     "bild": {
@@ -1413,6 +1546,10 @@
      [
       "punktsymmetrisch",
       "sieht nach einer halben Drehung genauso aus"
+     ],
+     [
+      "drehsymmetrisch",
+      "passt nach einer Drehung um weniger als 360° wieder auf sich"
      ]
     ],
     "fehler_bild": {
@@ -1777,7 +1914,7 @@
      }
     ],
     "probe": "Quadrat: 4 Achsen und punktsymmetrisch – es hat alles, was Raute und Rechteck haben ✓",
-    "fehler": "„Jede Raute ist ein Quadrat“ stimmt nicht: Eine schiefe Raute hat keinen rechten Winkel. Wie bei Fliesen zählt die Richtung des Satzes.",
+    "fehler": "„Jede Raute ist ein Quadrat“ stimmt nicht: Eine schiefe Raute hat keinen rechten Winkel. Nur umgekehrt stimmt es: Jedes Quadrat ist eine Raute.",
     "fehler_bild": {
      "typ": "figur",
      "punkte": {
@@ -2826,7 +2963,7 @@
    "l": "achsenspiegelung",
    "t": "achsenspiegelung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Spiegle P(−5 | 1) an der Winkelhalbierenden y = x.",
@@ -3878,7 +4015,7 @@
    "l": "punktspiegelung",
    "t": "punktspiegelung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Spiegle P(−1 | −6) am Punkt Z(1 | 3).",
@@ -3925,7 +4062,7 @@
    "l": "punktspiegelung",
    "t": "punktspiegelung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Spiegle P(−7 | 2) am Punkt Z(−2 | 1).",
@@ -4929,7 +5066,7 @@
    "l": "verschiebung",
    "t": "verschiebung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "P(−4 | −7) wird erst mit (1 | −2), dann mit (−2 | −6) verschoben. Wohin kommt P?",
@@ -5013,7 +5150,7 @@
    "l": "verschiebung",
    "t": "verschiebung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "P(−1 | 3) wird erst mit (−5 | 2), dann mit (6 | −2) verschoben. Wohin kommt P?",
@@ -5055,7 +5192,7 @@
    "l": "verschiebung",
    "t": "verschiebung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "P(−4 | 4) wird erst mit (5 | 2), dann mit (6 | 1) verschoben. Wohin kommt P?",
@@ -8689,7 +8826,7 @@
    "l": "eigenschaften",
    "t": "eigenschaften",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Das Dreieck ABC wird auf A'B'C' (gestrichelt) abgebildet. Welche Abbildung ist es?",
@@ -8794,7 +8931,7 @@
    "l": "eigenschaften",
    "t": "eigenschaften",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Das Dreieck ABC wird auf A'B'C' (gestrichelt) abgebildet. Welche Abbildung ist es?",
@@ -8899,7 +9036,7 @@
    "l": "eigenschaften",
    "t": "eigenschaften",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Das Dreieck ABC wird auf A'B'C' (gestrichelt) abgebildet. Welche Abbildung ist es?",
@@ -11073,7 +11210,7 @@
     "(1 + 7) / 2",
     "1 + 4 / 2"
    ],
-   "w": "P liegt auf der Mittelsenkrechten von [L₁L₂]: x = (1 + 7) : 2 = 4. Die Route steigt je 2 nach rechts um 1: bei x = 4 ist y = 1 + 2 = 3. P(4 | 3).",
+   "w": "P liegt auf der Mittelsenkrechten von [L₁L₂]; sie geht senkrecht durch die Mitte (4 | 6). Die Route steigt je 2 nach rechts um 1: beim x-Wert 4 ist der y-Wert 1 + 2 = 3. P(4 | 3).",
    "h": "Gleich weit von beiden Türmen: Mittelsenkrechte. Wo schneidet sie die Route?"
   },
   {
@@ -11125,7 +11262,7 @@
     "(-1 + 7) / 2",
     "(0 + 6) / 2"
    ],
-   "w": "Mittelsenkrechte von [AB]: x = 3. Mittelsenkrechte von [AC]: y = 3. Sie schneiden sich in S(3 | 3); S ist von A, B und C je 5 Einheiten entfernt.",
+   "w": "Mittelsenkrechte von [AB]: senkrecht durch die Mitte (3 | 0). Mittelsenkrechte von [AC]: waagrecht durch die Mitte (−1 | 3). Sie schneiden sich in S(3 | 3); S ist von A, B und C je 5 Einheiten entfernt.",
    "h": "Zwei Mittelsenkrechten reichen: eine für A und B, eine für A und C."
   },
   {
@@ -11151,9 +11288,9 @@
    "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Die Punkte A(−4 | −5) und B(−4 | 3) liegen übereinander. Gib die Mittelsenkrechte von [AB] an.",
-    "schablone": "y = □",
-    "hinweis": "Trage die Zahl ein.",
+    "text": "Die Punkte A(−4 | −5) und B(−4 | 3) liegen übereinander. Ihre Mittelsenkrechte ist waagrecht. Wo schneidet sie die y-Achse?",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -11180,13 +11317,15 @@
    },
    "o": {
     "werte": [
+     0,
      -1
     ]
    },
    "c": [
+    "0",
     "(-5 + 3) / 2"
    ],
-   "w": "Die Mittelsenkrechte ist hier waagrecht und geht durch die Mitte: y = (−5 + 3) : 2 = −1.",
+   "w": "Die Mittelsenkrechte geht waagrecht durch die Mitte von [AB]. Der y-Wert der Mitte ist (−5 + 3) : 2 = −1. Sie schneidet die y-Achse in S(0 | −1).",
    "h": "Die Mittelsenkrechte geht durch die Mitte der Strecke und steht senkrecht auf ihr."
   },
   {
@@ -11196,9 +11335,9 @@
    "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Die Punkte A(−5 | −1) und B(1 | −1) liegen auf einer waagrechten Linie. Gib die Mittelsenkrechte von [AB] an.",
-    "schablone": "x = □",
-    "hinweis": "Trage die Zahl ein.",
+    "text": "Die Punkte A(−5 | −1) und B(1 | −1) liegen auf einer waagrechten Linie. Ihre Mittelsenkrechte ist senkrecht. Wo schneidet sie die x-Achse?",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -11225,14 +11364,16 @@
    },
    "o": {
     "werte": [
-     -2
+     -2,
+     0
     ]
    },
    "c": [
-    "(-5 + 1) / 2"
+    "(-5 + 1) / 2",
+    "0"
    ],
-   "w": "Die Mittelsenkrechte ist senkrecht und geht durch die Mitte von [AB]: x = (−5 + 1) : 2 = −2.",
-   "h": "Die Mittelsenkrechte geht durch die Mitte der Strecke."
+   "w": "Die Mittelsenkrechte geht senkrecht durch die Mitte von [AB]. Der x-Wert der Mitte ist (−5 + 1) : 2 = −2. Sie schneidet die x-Achse in S(−2 | 0).",
+   "h": "Die Mittelsenkrechte geht durch die Mitte der Strecke – senkrecht nach oben und unten."
   },
   {
    "l": "mittelsenkrechte",
@@ -11278,7 +11419,7 @@
     "(1 + 9) / 2",
     "(0 + 6) / 2"
    ],
-   "w": "M ist die Mitte von [AB]: x = (1 + 9) : 2 = 5, y = (0 + 6) : 2 = 3.",
+   "w": "M ist die Mitte von [AB]: x-Wert (1 + 9) : 2 = 5, y-Wert (0 + 6) : 2 = 3.",
    "h": "Die Mittelsenkrechte geht durch den Mittelpunkt der Strecke."
   },
   {
@@ -11309,7 +11450,7 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Fälle das Lot von P(0 | 3) auf die waagrechte Gerade g: y = −2. Wo ist der Lotfußpunkt F?",
+    "text": "Fälle das Lot von P(0 | 3) auf die waagrechte Gerade g durch (0 | −2). Wo ist der Lotfußpunkt F?",
     "schablone": "F(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate ein.",
     "grafik": {
@@ -11344,7 +11485,7 @@
     "0",
     "-2"
    ],
-   "w": "Das Lot auf eine waagrechte Gerade ist senkrecht: x bleibt 0, F liegt auf g, also y = −2.",
+   "w": "Das Lot auf eine waagrechte Gerade ist senkrecht: Der x-Wert bleibt 0. F liegt auf g, also ist der y-Wert −2.",
    "h": "Das Lot auf eine waagrechte Gerade geht senkrecht nach oben oder unten."
   },
   {
@@ -11391,7 +11532,7 @@
     "(0 + 8) / 2",
     "0"
    ],
-   "w": "S liegt auf der Mittelsenkrechten x = 4 von [AB] und auf der x-Achse: S(4 | 0).",
+   "w": "S liegt auf der Mittelsenkrechten von [AB] – sie geht senkrecht durch die Mitte (4 | 3) – und auf der x-Achse: S(4 | 0).",
    "h": "Gleich weit von A und B: Mittelsenkrechte. Dann mit der Straße schneiden."
   },
   {
@@ -11443,7 +11584,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie weit ist Q(5 | −3) von der Geraden g: y = 2 entfernt? (1 Einheit = 1 cm)",
+    "text": "Wie weit ist Q(5 | −3) von der waagrechten Geraden g durch (0 | 2) entfernt? (1 Einheit = 1 cm)",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -11471,7 +11612,7 @@
     "einheit": "cm"
    },
    "c": "abs(-3 - (2))",
-   "w": "Gemessen wird auf dem Lot (senkrecht): von y = −3 bis y = 2 sind es 5 cm.",
+   "w": "Gemessen wird auf dem Lot (senkrecht): vom y-Wert −3 bis zum y-Wert 2 sind es 5 cm.",
    "h": "Der Abstand zu einer Geraden wird senkrecht gemessen."
   },
   {
@@ -11626,7 +11767,7 @@
     "(0 + 4) / 2",
     "(2 + 10) / 2"
    ],
-   "w": "M liegt auf der Mittelsenkrechten von [AB] (x = 2) und auf der von [AC] (y = 6). Schnittpunkt: M(2 | 6).",
+   "w": "M liegt auf der Mittelsenkrechten von [AB] (senkrecht durch die Mitte (2 | 2)) und auf der von [AC] (waagrecht durch die Mitte (0 | 6)). Schnittpunkt: M(2 | 6).",
    "h": "Gleich weit von A und B: eine Mittelsenkrechte. Gleich weit von A und C: noch eine. Wo schneiden sie sich?"
   },
   {
@@ -11636,7 +11777,7 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Fälle das Lot von P(4 | −2) auf die Gerade y = x. Wo ist der Lotfußpunkt F?",
+    "text": "Die Gerade w geht durch (0 | 0) und (1 | 1). Fälle das Lot von P(4 | −2) auf w. Wo ist der Lotfußpunkt F?",
     "schablone": "F(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate ein.",
     "grafik": {
@@ -11661,7 +11802,7 @@
        "art": "linear",
        "m": 1,
        "t": 0,
-       "name": "y = x"
+       "name": "w"
       }
      ]
     }
@@ -11676,8 +11817,8 @@
     "(4 + -2) / 2",
     "(4 + -2) / 2"
    ],
-   "w": "Spiegle P an y = x: P'(−2 | 4). Die Gerade y = x ist die Mittelsenkrechte von [PP'], F ist die Mitte: F(1 | 1).",
-   "h": "Spiegle P an y = x (x und y tauschen). Der Fußpunkt ist die Mitte von P und P'."
+   "w": "Spiegle P an w – dabei tauschen x und y: P'(−2 | 4). w ist die Mittelsenkrechte von [PP'], F ist die Mitte: F(1 | 1).",
+   "h": "Spiegle P an w (x und y tauschen). Der Fußpunkt ist die Mitte von P und P'."
   },
   {
    "l": "mittelsenkrechte",
@@ -11739,7 +11880,7 @@
     "(0 + 6) / 2",
     "0"
    ],
-   "w": "S liegt auf der Mittelsenkrechten x = 3 von [AB] und auf der x-Achse: S(3 | 0)."
+   "w": "S liegt auf der Mittelsenkrechten von [AB] – sie geht senkrecht durch die Mitte (3 | 6) – und auf der x-Achse: S(3 | 0)."
   },
   {
    "l": "mittelsenkrechte",
@@ -11785,7 +11926,7 @@
     "(-2 + 2) / 2",
     "0"
    ],
-   "w": "S liegt auf der Mittelsenkrechten x = 0 von [AB] und auf der x-Achse: S(0 | 0)."
+   "w": "S liegt auf der Mittelsenkrechten von [AB] – sie geht senkrecht durch die Mitte (0 | 5) – und auf der x-Achse: S(0 | 0)."
   },
   {
    "l": "mittelsenkrechte",
@@ -11794,7 +11935,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie weit ist C(4 | 3) von der Geraden g: y = 6 entfernt? (1 Einheit = 1 cm)",
+    "text": "Wie weit ist C(4 | 3) von der waagrechten Geraden g durch (0 | 6) entfernt? (1 Einheit = 1 cm)",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -11822,7 +11963,7 @@
     "einheit": "cm"
    },
    "c": "abs(3 - (6))",
-   "w": "Gemessen wird auf dem Lot (senkrecht): von y = 3 bis y = 6 sind es 3 cm."
+   "w": "Gemessen wird auf dem Lot (senkrecht): vom y-Wert 3 bis zum y-Wert 6 sind es 3 cm."
   },
   {
    "l": "mittelsenkrechte",
@@ -11847,7 +11988,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie weit ist C(0 | −2) von der Geraden g: y = 5 entfernt? (1 Einheit = 1 cm)",
+    "text": "Wie weit ist C(0 | −2) von der waagrechten Geraden g durch (0 | 5) entfernt? (1 Einheit = 1 cm)",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -11875,7 +12016,7 @@
     "einheit": "cm"
    },
    "c": "abs(-2 - (5))",
-   "w": "Gemessen wird auf dem Lot (senkrecht): von y = −2 bis y = 5 sind es 7 cm."
+   "w": "Gemessen wird auf dem Lot (senkrecht): vom y-Wert −2 bis zum y-Wert 5 sind es 7 cm."
   },
   {
    "l": "mittelsenkrechte",
@@ -11920,7 +12061,7 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Fälle das Lot von P(5 | −1) auf die senkrechte Gerade g: x = 3. Wo ist der Lotfußpunkt F?",
+    "text": "Fälle das Lot von P(5 | −1) auf die senkrechte Gerade g durch (3 | 0). Wo ist der Lotfußpunkt F?",
     "schablone": "F(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate ein.",
     "grafik": {
@@ -11955,7 +12096,7 @@
     "3",
     "-1"
    ],
-   "w": "Das Lot auf eine senkrechte Gerade ist waagrecht: y bleibt −1, F liegt auf g, also x = 3."
+   "w": "Das Lot auf eine senkrechte Gerade ist waagrecht: Der y-Wert bleibt −1. F liegt auf g, also ist der x-Wert 3."
   },
   {
    "l": "mittelsenkrechte",
@@ -11984,7 +12125,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie weit ist P(6 | 7) von der Geraden g: y = 5 entfernt? (1 Einheit = 1 cm)",
+    "text": "Wie weit ist P(6 | 7) von der waagrechten Geraden g durch (0 | 5) entfernt? (1 Einheit = 1 cm)",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -12012,7 +12153,7 @@
     "einheit": "cm"
    },
    "c": "abs(7 - (5))",
-   "w": "Gemessen wird auf dem Lot (senkrecht): von y = 7 bis y = 5 sind es 2 cm."
+   "w": "Gemessen wird auf dem Lot (senkrecht): vom y-Wert 7 bis zum y-Wert 5 sind es 2 cm."
   },
   {
    "l": "winkelhalbierende",
@@ -12064,7 +12205,7 @@
     "10 / 2",
     "10 / 2"
    ],
-   "w": "Gleich weit von beiden Wegen: Winkelhalbierende y = x. Auf dem Bach gilt x + y = 10. Also B(5 | 5).",
+   "w": "Gleich weit von beiden Wegen heißt: x-Wert und y-Wert sind gleich (Winkelhalbierende der Achsen). Auf dem Bach von (0 | 10) nach (10 | 0) ist das nur in der Mitte so: B(5 | 5).",
    "h": "Gleich weit von beiden Achsen heißt: x und y sind gleich."
   },
   {
@@ -12139,7 +12280,7 @@
    "o": {
     "index": 2
    },
-   "w": "Abstand zur x-Achse ist der y-Wert, Abstand zur y-Achse der x-Wert. Bei P(4 | 4) sind beide 4: Der Punkt liegt auf der Winkelhalbierenden y = x.",
+   "w": "Abstand zur x-Achse ist der y-Wert, Abstand zur y-Achse der x-Wert. Bei P(4 | 4) sind beide 4: Der Punkt liegt auf der Winkelhalbierenden der beiden Achsen.",
    "h": "Der Abstand zur x-Achse ist |y|, zur y-Achse |x|."
   },
   {
@@ -12249,7 +12390,7 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Gegeben sind die Geraden g: y = 2 und h: x = −3. Welcher Punkt ist von g und h gleich weit entfernt?",
+    "text": "Gegeben sind die waagrechte Gerade g durch (0 | 2) und die senkrechte Gerade h durch (−3 | 0). Welcher Punkt ist von g und h gleich weit entfernt?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -12277,7 +12418,7 @@
    "o": {
     "index": 3
    },
-   "w": "Abstand zu g: |y − (2)|, Abstand zu h: |x − (−3)|. Bei P(0 | 5) sind beide 3.",
+   "w": "Abstand zu g: senkrecht bis g gezählt. Abstand zu h: waagrecht bis h gezählt. Bei P(0 | 5) sind beide 3.",
    "h": "Zähle die Kästchen senkrecht bis g und waagrecht bis h."
   },
   {
@@ -12386,7 +12527,7 @@
     "7",
     "7"
    ],
-   "w": "Auf dieser Winkelhalbierenden (y = x) sind beide Abstände gleich: P(7 | 7).",
+   "w": "Auf dieser Winkelhalbierenden sind beide Abstände gleich, x-Wert und y-Wert also auch: P(7 | 7).",
    "h": "Von beiden Achsen gleich weit entfernt."
   },
   {
@@ -12460,7 +12601,7 @@
     "14 / 2",
     "14 / 2"
    ],
-   "w": "Gleich weit von beiden Straßen: Winkelhalbierende y = x. Auf dem Weg gilt x + y = 14. Also x = y = 7: B(7 | 7).",
+   "w": "Gleich weit von beiden Straßen heißt: x-Wert und y-Wert sind gleich (Winkelhalbierende der Achsen). Auf dem Weg von (0 | 14) nach (14 | 0) ist das nur in der Mitte so: B(7 | 7).",
    "h": "Gleich weit von beiden Achsen heißt: x und y sind gleich."
   },
   {
@@ -12470,7 +12611,7 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "g: y = 2 und h: x = −2 kreuzen sich. Gesucht ist der Punkt rechts von h und oberhalb von g, der von g und h gleich weit entfernt ist und auf y = 5 liegt.",
+    "text": "Die waagrechte Gerade g durch (0 | 2) und die senkrechte Gerade h durch (−2 | 0) kreuzen sich. Gesucht ist der Punkt rechts von h und oberhalb von g, der von g und h gleich weit entfernt ist und den y-Wert 5 hat.",
     "schablone": "P(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate ein.",
     "grafik": {
@@ -12502,7 +12643,7 @@
     "-2 + 3",
     "2 + 3"
    ],
-   "w": "Auf y = 5 ist der Abstand zu g gleich 3. Also ist auch der Abstand zu h gleich 3: x = −2 + 3 = 1.",
+   "w": "Beim y-Wert 5 ist der Abstand zu g gleich 3. Also ist auch der Abstand zu h gleich 3: x-Wert −2 + 3 = 1.",
    "h": "Bestimme zuerst den Abstand zu g; derselbe Abstand gilt für h."
   },
   {
@@ -12545,7 +12686,7 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Gegeben sind die Geraden g: y = 0 und h: x = −2. Welcher Punkt ist von g und h gleich weit entfernt?",
+    "text": "Gegeben sind die waagrechte Gerade g durch (0 | 0) und die senkrechte Gerade h durch (−2 | 0). Welcher Punkt ist von g und h gleich weit entfernt?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -12573,7 +12714,7 @@
    "o": {
     "index": 2
    },
-   "w": "Abstand zu g: |y − (0)|, Abstand zu h: |x − (−2)|. Bei P(0 | 2) sind beide 2.",
+   "w": "Abstand zu g: senkrecht bis g gezählt. Abstand zu h: waagrecht bis h gezählt. Bei P(0 | 2) sind beide 2.",
    "h": "Zähle die Kästchen senkrecht bis g und waagrecht bis h."
   },
   {
@@ -12583,7 +12724,7 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Gegeben sind die Geraden g: y = 3 und h: x = 2. Welcher Punkt ist von g und h gleich weit entfernt?",
+    "text": "Gegeben sind die waagrechte Gerade g durch (0 | 3) und die senkrechte Gerade h durch (2 | 0). Welcher Punkt ist von g und h gleich weit entfernt?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -12611,7 +12752,7 @@
    "o": {
     "index": 0
    },
-   "w": "Abstand zu g: |y − (3)|, Abstand zu h: |x − (2)|. Bei P(5 | 6) sind beide 3."
+   "w": "Abstand zu g: senkrecht bis g gezählt. Abstand zu h: waagrecht bis h gezählt. Bei P(5 | 6) sind beide 3."
   },
   {
    "l": "winkelhalbierende",
@@ -12717,7 +12858,7 @@
     "4",
     "4"
    ],
-   "w": "Auf dieser Winkelhalbierenden (y = x) sind beide Abstände gleich: P(4 | 4)."
+   "w": "Auf dieser Winkelhalbierenden sind beide Abstände gleich, x-Wert und y-Wert also auch: P(4 | 4)."
   },
   {
    "l": "winkelhalbierende",
@@ -12829,7 +12970,7 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Gegeben sind die Geraden g: y = 1 und h: x = −1. Welcher Punkt ist von g und h gleich weit entfernt?",
+    "text": "Gegeben sind die waagrechte Gerade g durch (0 | 1) und die senkrechte Gerade h durch (−1 | 0). Welcher Punkt ist von g und h gleich weit entfernt?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -12857,7 +12998,7 @@
    "o": {
     "index": 3
    },
-   "w": "Abstand zu g: |y − (1)|, Abstand zu h: |x − (−1)|. Bei P(3 | 5) sind beide 4."
+   "w": "Abstand zu g: senkrecht bis g gezählt. Abstand zu h: waagrecht bis h gezählt. Bei P(3 | 5) sind beide 4."
   },
   {
    "l": "winkelhalbierende",
@@ -12882,7 +13023,7 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Gegeben sind die Geraden g: y = 1 und h: x = −2. Welcher Punkt ist von g und h gleich weit entfernt?",
+    "text": "Gegeben sind die waagrechte Gerade g durch (0 | 1) und die senkrechte Gerade h durch (−2 | 0). Welcher Punkt ist von g und h gleich weit entfernt?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -12910,7 +13051,7 @@
    "o": {
     "index": 0
    },
-   "w": "Abstand zu g: |y − (1)|, Abstand zu h: |x − (−2)|. Bei P(1 | 4) sind beide 3."
+   "w": "Abstand zu g: senkrecht bis g gezählt. Abstand zu h: waagrecht bis h gezählt. Bei P(1 | 4) sind beide 3."
   },
   {
    "l": "vierecke_ordnen",
@@ -13201,7 +13342,7 @@
    "o": {
     "index": 1
    },
-   "w": "Es hat die Symmetrien beider Vierecke. Im Haus der Vierecke ist das ein Quadrat (oder ein Spezialfall davon).",
+   "w": "Es hat die Symmetrien beider Vierecke. Im Haus der Vierecke steht darunter als allgemeinstes Viereck ein Quadrat.",
    "h": "Suche das Viereck, das unter beiden steht – das höchste davon."
   },
   {
@@ -13304,7 +13445,7 @@
    "o": {
     "index": 1
    },
-   "w": "Es hat die Symmetrien beider Vierecke. Im Haus der Vierecke ist das ein Quadrat (oder ein Spezialfall davon).",
+   "w": "Es hat die Symmetrien beider Vierecke. Im Haus der Vierecke steht darunter als allgemeinstes Viereck ein Quadrat.",
    "h": "Suche das Viereck, das unter beiden steht – das höchste davon."
   },
   {
@@ -13448,7 +13589,7 @@
    "o": {
     "index": 0
    },
-   "w": "Es hat die Symmetrien beider Vierecke. Im Haus der Vierecke ist das ein Quadrat (oder ein Spezialfall davon)."
+   "w": "Es hat die Symmetrien beider Vierecke. Im Haus der Vierecke steht darunter als allgemeinstes Viereck ein Quadrat."
   },
   {
    "l": "vierecke_ordnen",

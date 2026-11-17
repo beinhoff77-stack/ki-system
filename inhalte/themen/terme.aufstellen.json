@@ -202,6 +202,9 @@
         ]
        ]
       }
+     },
+     {
+      "text": "Tabellenprogramm: x steht in Zelle A1, der Term heißt =3*A1+5 (* heißt mal)."
      }
     ],
     "fehler": "3 · 4 + 5 ist nicht 3 · 9 = 27. Erst malnehmen, dann die Gebühr ⟦dazuzählen⟧: 12 + 5 = 17 €.",
@@ -2385,7 +2388,7 @@
    "l": "sachsituation",
    "t": "sachsituation",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Ein Kanuverleih verlangt 8 € Grundgebühr und 6 € pro Stunde. Gib den Term für die Kosten (in €) bei x Stunden an.",
@@ -2409,7 +2412,7 @@
    "l": "sachsituation",
    "t": "sachsituation",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Eine Taxifahrt kostet 4 € Grundpreis und 3 € je Kilometer. Gib den Term für den Fahrpreis (in €) bei x Kilometern an.",
@@ -2433,7 +2436,7 @@
    "l": "sachsituation",
    "t": "sachsituation",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Ein Streamingdienst kostet 10 € im Monat, jeder ausgeliehene Film zusätzlich 2 €. Gib den Term für die Monatskosten (in €) bei x Filmen an.",
@@ -2481,7 +2484,7 @@
    "l": "sachsituation",
    "t": "sachsituation",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Ein Streamingdienst kostet 12 € im Monat, jeder ausgeliehene Film zusätzlich 4 €. Gib den Term für die Monatskosten (in €) bei x Filmen an.",
@@ -2505,7 +2508,7 @@
    "l": "sachsituation",
    "t": "sachsituation",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Eine Taxifahrt kostet 6 € Grundpreis und 3 € je Kilometer. Gib den Term für den Fahrpreis (in €) bei x Kilometern an.",
@@ -5173,19 +5176,19 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand übersetzt „das Dreifache der Summe aus x und 5“ in den Term 3x + 5. Stimmt das?"
+    "text": "Eine Kerze ist nach x Stunden h = 20 − 2x cm hoch. Eine zweite Kerze ist am Anfang doppelt so hoch und brennt genauso schnell ab. Welcher Term passt zur zweiten Kerze?"
    },
    "a": [
-    "Falsch: richtig ist x + 3 · 5.",
-    "Falsch: richtig ist 3 · x · 5.",
-    "Falsch: Die Summe muss in Klammern stehen, richtig ist 3(x + 5).",
-    "Richtig übersetzt."
+    "20 − 4x",
+    "2 · (20 − 2x)",
+    "40 − 4x",
+    "40 − 2x"
    ],
    "o": {
-    "index": 2
+    "index": 3
    },
-   "w": "Falsch: Die Summe muss in Klammern stehen, richtig ist 3(x + 5).",
-   "h": "Übersetze selbst und vergleiche – achte auf Klammern und Reihenfolge."
+   "w": "Doppelt so hoch: Anfangshöhe 40 cm. Gleich schnell: weiter 2 cm pro Stunde. Also 40 − 2x. 2 · (20 − 2x) = 40 − 4x würde doppelt so schnell abbrennen.",
+   "h": "Welche Zahl im Term ist die Anfangshöhe, welche die Abnahme pro Stunde?"
   },
   {
    "l": "deuten",
@@ -5194,19 +5197,19 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand übersetzt „die Differenz aus 8 und x“ in den Term x − 8. Stimmt das?"
+    "text": "Tarif A: K = 0,1x + 8. Tarif B: K = 0,2x + 3 (x = Minuten, K in €). Für x = 50 ergeben beide Terme 13. Was bedeutet das?"
    },
    "a": [
-    "Falsch: richtig ist 8x.",
-    "Richtig übersetzt.",
-    "Falsch: richtig ist x + 8.",
-    "Falsch: Bei „Differenz aus 8 und x“ steht 8 vorne, richtig ist 8 − x."
+    "Bei 13 Minuten kosten beide Tarife 50 €.",
+    "Tarif B ist ab 13 Minuten günstiger.",
+    "Bei 50 Minuten kosten beide Tarife gleich viel, nämlich 13 €.",
+    "Beide Tarife kosten pro Minute 13 Cent."
    ],
    "o": {
-    "index": 3
+    "index": 2
    },
-   "w": "Falsch: Bei „Differenz aus 8 und x“ steht 8 vorne, richtig ist 8 − x.",
-   "h": "Übersetze selbst und vergleiche – achte auf Klammern und Reihenfolge."
+   "w": "0,1 · 50 + 8 = 13 und 0,2 · 50 + 3 = 13: Bei 50 Minuten zahlt man in beiden Tarifen 13 €.",
+   "h": "Setze in Gedanken x = 50 in beide Terme ein. Wofür steht x, wofür K?"
   },
   {
    "l": "deuten",
@@ -5935,6 +5938,54 @@
    ],
    "w": "Außen ist es x + 2 lang und x/2 + 2 breit. Umfang: 2(x + 2) + 2(x/2 + 2) = 2x + 4 + x + 4 = 3x + 8.",
    "h": "Der Weg macht jede Seite um 2 m länger (1 m auf jeder Seite)."
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Heft kostet x €, ein Block 1 € mehr als ein Heft. Gib einen Term für den Preis von 3 Heften und 2 Blöcken an und fasse zusammen.",
+    "schablone": "□x + □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     5,
+     2
+    ]
+   },
+   "c": [
+    "5",
+    "2"
+   ],
+   "w": "3x + 2(x + 1) = 3x + 2x + 2 = 5x + 2.",
+   "h": "Schreib zuerst den Preis eines Blocks als Term: x + 1."
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Der Eintritt kostet x € pro Person. Eine Gruppe aus 12 Personen bekommt 2 € Rabatt pro Person. Gib einen Term für den Gesamtpreis der Gruppe an.",
+    "schablone": "□x + □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     12,
+     -24
+    ]
+   },
+   "c": [
+    "12",
+    "-24"
+   ],
+   "w": "Jede Person zahlt x − 2 €. Zusammen: 12(x − 2) = 12x − 24.",
+   "h": "Was zahlt eine Person? Dann mal 12."
   },
   {
    "l": "muster",

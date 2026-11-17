@@ -334,6 +334,139 @@ VERBOT = {'zusammenfassen': ['3x + 5y − x + 2y'], 'produkte': ['3a · (−2a)'
           'ausmultiplizieren': ['−2(3x − 4)'], 'summe_mal_summe': ['(x + 3)(x − 2)'], 'ausklammern': ['12x² + 4x'],
           'aequivalenz': ['2(x + 3)'], 'binomisch': ['(x + 4)²', '(x − 3)²', '(x + 6)(x − 6)']}
 
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Klasse 7, siehe _durchsicht_kl7.py) ----
+# Thema ohne Zehnte Runde: Stufe 3 war oft nur das Beispiel in Einkleidung oder dreimal derselbe Fehler-Typ. Falsch eingestufte Aufgaben umgestuft,
+# Wiederholungen ersetzt, je Lernkarte Stufe-3-Aufgaben mit anderem Gedanken ergänzt (rückwärts, Fehler finden, Parameter, verschachtelt, Einkleidung).
+# Vorbilder (Typ und Niveau, eigene Zahlen): BMT8 (ISB) 2019 B1b, 2024 A2, 2025 A4 (vereinfachen), 2014 B7 (ausklammern ergänzen); LehrplanPLUS M7 1.2 (Verdopplung der Seiten).
+from _durchsicht_kl7 import Durchsicht, durchsicht_datei  # noqa: E402
+
+DS = Durchsicht('terme.umformen', 19_7_2)
+_HT = 'Tippe den ganzen Term ein, z. B. 3x − 2y.'
+_HK = 'Tippe den ganzen Term mit Klammer ein, z. B. 4x(3x + 1).'
+_HZ = 'Trage in jedes Feld eine Zahl ein.'
+# zusammenfassen
+DS.stufe('zusammenfassen', 'Welcher Term ist gleichwertig zu 7x − 5x + 8?', 1)
+DS.stufe('zusammenfassen', 'Ein Rechteck ist 3x lang und 9y breit. Gib den Umfang als Term an.', 2)
+DS.ersetze('zusammenfassen', 'Jemand rechnet: 6x + 9y = 15xy. Was stimmt?',
+           DS.L('5x + 4y − T soll zusammengefasst 2x + 7y ergeben. Wie heißt der Term T?', '□x + □y', [3, -3], ['5 - 2', '4 - 7'],
+                'Von 5x bis 2x fehlen 3x, also zieht T 3x ab. Von 4y bis 7y kommen 3y dazu, also zieht T −3y ab. T = 3x − 3y.',
+                'Rückwärts denken: Was muss T bei den x-Gliedern abziehen, was bei den y-Gliedern?', _HT))
+DS.neu('zusammenfassen', 3, DS.L('Der Umfang eines Dreiecks ist 9x + 5y. Zwei Seiten sind 2x + y und 4x − y lang. Wie lang ist die dritte Seite?', '□x + □y', [3, 5],
+                                 ['9 - 2 - 4', '5 - 1 + 1'], 'Die zwei Seiten zusammen: 2x + y + 4x − y = 6x. Dritte Seite: 9x + 5y − 6x = 3x + 5y.',
+                                 'Fasse die beiden bekannten Seiten zusammen und zieh sie vom Umfang ab.', _HT))
+DS.neu('zusammenfassen', 3, DS.A('Im Term 4ab + 3a² − ab + 2a: Welche beiden Glieder sind gleichartig?', '4ab und −ab',
+                                 ['3a² und 2a', '4ab und 3a²', '3a² und −ab'],
+                                 'Gleichartig heißt: gleicher Buchstabenteil. 4ab und −ab haben beide ab. a² und a sind verschieden.',
+                                 'Vergleiche nur den Buchstabenteil – auch die Hochzahl zählt.'))
+DS.neu('zusammenfassen', 3, DS.A('Welcher Term ergibt zusammengefasst genau 5x?', '3x + 4x − 2x', ['3x − 4x + 2x', '3x + 4 − 2x', '6x − x − x'],
+                                 '3x + 4x − 2x = 5x. Die anderen: 3x − 4x + 2x = x; 3x + 4 − 2x = x + 4; 6x − x − x = 4x.',
+                                 'Fasse jeden Term zusammen. Achtung: 4 ohne x ist nicht gleichartig.'))
+# produkte
+DS.stufe('produkte', 'Ein Rechteck ist 6a lang und 5a breit. Gib den Flächeninhalt als Term an.', 2)
+DS.ersetze('produkte', 'Jemand rechnet: 5x · 4x = 20x. Was stimmt?',
+           DS.L('Ein Quader ist 2a lang, 3a breit und a hoch. Gib sein Volumen als Term an.', '□a³', [6], ['2 * 3 * 1'],
+                'V = 2a · 3a · a = (2 · 3 · 1) · a · a · a = 6a³.', 'Volumen ist Länge · Breite · Höhe. Wie oft kommt a als Faktor vor?',
+                'Tippe den ganzen Term ein, z. B. 5a³.'))
+DS.ersetze('produkte', 'Jemand rechnet: 8x · 8x = 64x. Was stimmt?',
+           DS.L('Welcher Faktor fehlt? 4x · (?) = −20x²', '□x', [-5], ['-20 / 4'],
+                '4 · (−5) = −20 und x · x = x². Der Faktor ist −5x.', 'Rückwärts: Welche Zahl mal 4 ergibt −20? Und ein x fehlt noch.', 'Tippe den Faktor ein, z. B. −3x.'))
+DS.neu('produkte', 3, DS.A('Vereinfache (−2a) · (−3b) · (−c). Was kommt heraus?', '−6abc', ['6abc', '−5abc', '5abc'],
+                           'Zahlen: (−2) · (−3) · (−1) = −6, drei Minuszeichen ergeben minus. Buchstaben: a · b · c = abc. Also −6abc.',
+                           'Zähle die Minuszeichen: Gerade Anzahl ergibt plus, ungerade minus. Vor c steht die Zahl −1.'))
+DS.neu('produkte', 3, DS.A('Ein Quadrat hat die Seitenlänge 3x. Jede Seite wird verdoppelt. Was passiert mit dem Flächeninhalt?',
+                           'Er wird vervierfacht: aus 9x² wird 36x².',
+                           ['Er wird verdoppelt: aus 9x² wird 18x².', 'Er wird verdoppelt: aus 9x wird 18x.', 'Er bleibt gleich, nur die Form ändert sich.'],
+                           'Vorher 3x · 3x = 9x². Nachher 6x · 6x = 36x², das ist 4 · 9x². Beide Seiten verdoppeln heißt Fläche mal 4.',
+                           'Rechne die Fläche vorher und nachher als Term aus und vergleiche.'))
+# minusklammer
+DS.stufe('minusklammer', 'Welche Umformung von 12x − (2x − 4) ist richtig?', 1)
+DS.stufe('minusklammer', 'Welche Umformung von 10x − (1x − 6) ist richtig?', 1)
+DS.stufe('minusklammer', 'Löse die Klammer auf: −4(7x + 1)', 2)
+DS.stufe('minusklammer', 'Löse die Klammer auf: −5(4x + 2)', 2)
+DS.neu('minusklammer', 3, DS.A('Jemand rechnet: 7x − (3x − 5) = 4x − 5. Was stimmt?', 'Falsch: Auch −5 wechselt das Vorzeichen, richtig ist 4x + 5.',
+                               ['Richtig: 7x − 3x = 4x.', 'Falsch: Richtig ist 10x − 5.', 'Falsch: Richtig ist 4x − 5x.'],
+                               '7x − (3x − 5) = 7x − 3x + 5 = 4x + 5. Der Fehler: Nur das erste Vorzeichen wurde gewechselt.',
+                               'Wechselt jedes Vorzeichen in der Klammer?'))
+DS.neu('minusklammer', 3, DS.L('Vereinfache: 3x − (2x − (x − 4))', '□x + □', [2, -4], ['3 - 1', '-4'],
+                               'Innen zuerst: 2x − (x − 4) = 2x − x + 4 = x + 4. Dann 3x − (x + 4) = 3x − x − 4 = 2x − 4.',
+                               'Löse zuerst die innere Klammer auf.', 'Tippe den ganzen Term ein, z. B. 3x − 4.'))
+DS.neu('minusklammer', 3, DS.L('In der Klassenkasse sind 5x €. Ausgegeben werden (x + 12) € für Bastelzeug und (2x − 3) € für Getränke. Wie viel bleibt übrig?', '□x + □', [2, -9],
+                               ['5 - 1 - 2', '-12 + 3'], '5x − (x + 12) − (2x − 3) = 5x − x − 12 − 2x + 3 = 2x − 9 (in €).',
+                               'Beide Ausgaben werden abgezogen – jede als ganze Klammer.', 'Tippe den ganzen Term ein, z. B. 3x − 4.'))
+DS.neu('minusklammer', 3, DS.Z('Welche Zahl muss in die Lücke, damit 6x − (2x − □) für jedes x denselben Wert hat wie 4x + 7?', 7, '7',
+                               '6x − (2x − □) = 6x − 2x + □ = 4x + □. Damit das 4x + 7 ist, muss □ = 7 sein.',
+                               'Löse die Klammer auf: Welches Vorzeichen bekommt die Zahl in der Lücke?'))
+# ausmultiplizieren
+DS.stufe('ausmultiplizieren', 'Für 9 Geschenke kauft jemand je ein Buch für x € und eine Karte für 1 €. Die Kosten sind 9(x + 1). Multipliziere aus.', 1)
+for _t in ['Vereinfache: 2(x + 6) − 4(x + 5)', 'Vereinfache: 5(x − 2) − 6(x − 3)', 'Vereinfache: 2(x + 2) − 6(x − 3)']:
+    DS.stufe('ausmultiplizieren', _t, 2)
+DS.neu('ausmultiplizieren', 3, DS.Z('Ein Rechteck ist x cm lang und 4 cm breit. Die Länge wird um 3 cm vergrößert. Um wie viel cm² wächst die Fläche – egal wie groß x ist?', 12, '4 * 3',
+                                    'Neue Fläche 4(x + 3) = 4x + 12, alte Fläche 4x. Unterschied: 12 cm², für jedes x.',
+                                    'Stelle die neue Fläche als Term auf, multipliziere aus und vergleiche mit 4x.', einheit='cm²'))
+DS.neu('ausmultiplizieren', 3, DS.Z('Welche Zahl steht vor der Klammer? □ · (2x − 5) = −6x + 15', -3, '-6 / 2',
+                                    '□ · 2x = −6x, also □ = −3. Probe: (−3) · (−5) = +15 ✓.', 'Rückwärts: Welche Zahl mal 2 ergibt −6? Prüfe mit dem zweiten Glied.'))
+DS.neu('ausmultiplizieren', 3, DS.A('Jemand rechnet: −3(2x − 4) = −6x − 12. Was stimmt?', 'Falsch: (−3) · (−4) = +12, richtig ist −6x + 12.',
+                                    ['Richtig.', 'Falsch: Richtig ist −6x − 4.', 'Falsch: Richtig ist 6x + 12.'],
+                                    '(−3) · 2x = −6x und (−3) · (−4) = +12. Minus mal minus ergibt plus.', 'Prüfe das Vorzeichen beim zweiten Glied.'))
+DS.neu('ausmultiplizieren', 3, DS.Z('Für welche Zahl a hat der Term a(x + 2) − 3x für jedes x den Wert 6?', 3, '6 / 2',
+                                    'a(x + 2) − 3x = ax + 2a − 3x. Das x muss wegfallen: a = 3. Dann bleibt 2 · 3 = 6 ✓.',
+                                    'Multipliziere aus. Wann fällt x ganz weg?'))
+# summe_mal_summe
+for _t in ['Ein quadratischer Garten mit Seite x m wird 2 m länger und 5 m breiter. Gib die neue Fläche (x + 2)(x + 5) ohne Klammern an.',
+           'Ein quadratischer Garten mit Seite x m wird 6 m länger und 1 m breiter. Gib die neue Fläche (x + 6)(x + 1) ohne Klammern an.',
+           'Ein quadratischer Garten mit Seite x m wird 2 m länger und 2 m breiter. Gib die neue Fläche (x + 2)(x + 2) ohne Klammern an.']:
+    DS.stufe('summe_mal_summe', _t, 2)
+DS.neu('summe_mal_summe', 3, DS.L('Ein quadratischer Garten mit Seite x m wird 4 m länger und 3 m schmaler. Gib die Änderung der Fläche (x + 4)(x − 3) − x² als Term an.',
+                                  '□x + □', [1, -12], ['4 - 3', '4 * (-3)'],
+                                  '(x + 4)(x − 3) = x² − 3x + 4x − 12 = x² + x − 12. Minus x²: x − 12. Die Fläche wächst nur, wenn x größer als 12 ist.',
+                                  'Erst ausmultiplizieren, dann x² abziehen.', 'Tippe den ganzen Term ein, z. B. 3x − 4.'))
+DS.neu('summe_mal_summe', 3, DS.Z('Welche Zahl fehlt? (x + □)(x + 3) = x² + 8x + 15', 5, '15 / 3',
+                                  '□ · 3 = 15, also □ = 5. Probe Mittelglied: 3x + 5x = 8x ✓.', 'Rückwärts: Das letzte Glied entsteht aus □ · 3.'))
+DS.neu('summe_mal_summe', 3, DS.Z('Wie viele Produkte entstehen beim Ausmultiplizieren von (a + b + 2)(a − 3), bevor man zusammenfasst?', 6, '3 * 2',
+                                  'Jedes der 3 Glieder der ersten Klammer mal jedes der 2 Glieder der zweiten: 3 · 2 = 6 Produkte.',
+                                  'Jedes Glied mal jedes Glied – zähle die Glieder in beiden Klammern.'))
+# ausklammern
+DS.stufe('ausklammern', 'Klammere den größten gemeinsamen Faktor aus: 4x² + 2x', 2)
+DS.ersetze('ausklammern', 'Jemand klammert aus: 12x + 20 = 2(6x + 10). Was stimmt?',
+           DS.L('Klammere den größten gemeinsamen Faktor aus: 6ab − 9b', '□b(□a + □)', [3, 2, -3], ['3', '6 / 3', '-9 / 3'],
+                'In beiden Gliedern stecken 3 und b: 6ab − 9b = 3b(2a − 3).', 'Welche Zahl und welcher Buchstabe stecken in beiden Gliedern?', _HK))
+DS.ersetze('ausklammern', 'Jemand klammert aus: 30x + 10 = 2(15x + 5). Was stimmt?',
+           DS.L('Klammere −4 aus: −8x + 12', '−4(□x + □)', [2, -3], ['-8 / (-4)', '12 / (-4)'],
+                '−8x : (−4) = 2x und 12 : (−4) = −3. Also −4(2x − 3). Probe: −4 · 2x = −8x, −4 · (−3) = +12 ✓.',
+                'Teile jedes Glied durch −4. Achte auf die Vorzeichen.', 'Tippe den ganzen Term mit Klammer ein, z. B. −4(3x + 1).'))
+DS.neu('ausklammern', 3, DS.L('Ein Rechteck hat den Flächeninhalt 6x² + 15x und die Breite 3x. Wie lang ist es?', '□x + □', [2, 5], ['6 / 3', '15 / 3'],
+                              '6x² + 15x = 3x(2x + 5). Breite 3x, also Länge 2x + 5.', 'Klammere die Breite 3x aus. Was bleibt in der Klammer?',
+                              'Tippe den ganzen Term ein, z. B. 3x − 4.'))
+# aequivalenz
+DS.stufe('aequivalenz', 'Welcher Term ist äquivalent zu 4(x + 9)?', 1)
+DS.stufe('aequivalenz', 'Welcher Term ist äquivalent zu 7(x + 4)?', 1)
+DS.stufe('aequivalenz', 'Setze x = 4 in 3(x + 2) und in 3x + 2 ein. Um wie viel ist der erste Wert größer?', 2)
+DS.neu('aequivalenz', 1, DS.L('Setze x = 0 in 3(x + 4) und in 3x + 4 ein. Welche Werte ergeben sich?', '3(x + 4): □; 3x + 4: □', [12, 4], ['3 * 4', '4'],
+                              '3 · (0 + 4) = 12 und 3 · 0 + 4 = 4. Verschiedene Werte: x = 0 ist ein Gegenbeispiel, die Terme sind nicht äquivalent.',
+                              'Erst die Klammer ausrechnen, dann malnehmen.', _HZ))
+DS.neu('aequivalenz', 2, DS.A('Welche beiden Terme sind äquivalent? A: 2(x − 3) + x   B: 3x − 6   C: 3(x − 3)', 'A und B', ['A und C', 'B und C', 'alle drei'],
+                              'A: 2x − 6 + x = 3x − 6, das ist B. C: 3x − 9 ist anders (für x = 0: −6 gegen −9).', 'Forme A und C um und vergleiche mit B.'))
+DS.neu('aequivalenz', 2, DS.A('x² und 2x sind nicht äquivalent. Welche Zahl ist ein Gegenbeispiel?', '3', ['0', '2'],
+                              'Für 3: 3² = 9, aber 2 · 3 = 6 – verschieden. Für 0 (0 und 0) und 2 (4 und 4) passen beide zufällig.',
+                              'Setze jede Zahl in beide Terme ein. Ein Gegenbeispiel liefert verschiedene Werte.'))
+DS.ersetze('aequivalenz', 'Sind (x + 3)² und x² + 9 äquivalent?',
+           DS.A('Lisa sagt: „x + x + x und x · x · x sind äquivalent, denn für x = 0 ergeben beide 0.“ Was stimmt?', 'Falsch: Für x = 2 ergibt sich 6 und 8.',
+                ['Richtig: Ein passendes Beispiel genügt.', 'Richtig: Beide haben dreimal x.', 'Falsch: Für x = 0 ergibt sich 0 und 3.'],
+                'Ein passendes Beispiel beweist nichts. Für x = 2: 2 + 2 + 2 = 6, aber 2 · 2 · 2 = 8. Das Gegenbeispiel zeigt: nicht äquivalent.',
+                'Ein Beispiel reicht für „nicht äquivalent“, aber nie für „äquivalent“. Probiere eine andere Zahl.'))
+DS.neu('aequivalenz', 3, DS.Z('Für welche Zahl a ist der Term 3(x + a) äquivalent zu 3x + 12?', 4, '12 / 3',
+                              '3(x + a) = 3x + 3a. Äquivalent zu 3x + 12 heißt 3a = 12, also a = 4.', 'Multipliziere 3(x + a) aus und vergleiche Glied für Glied.'))
+# binomisch
+DS.ersetze('binomisch', 'Ergänze so, dass eine binomische Formel entsteht: x² + 14x + □ = (x + □)²',
+           DS.L('Ergänze so, dass eine binomische Formel entsteht: (□x − 3)² = 4x² − □x + 9', '(□x − 3)² = 4x² − □x + 9', [2, 12], ['2', '2 * 2 * 3'],
+                '4x² = (2x)², also steht 2 vorne. Mittelglied: 2 · 2x · 3 = 12x. (2x − 3)² = 4x² − 12x + 9.',
+                'Welcher Term ergibt quadriert 4x²? Das Mittelglied ist 2 · a · b.', _HZ))
+DS.neu('binomisch', 3, DS.Z('Rechne geschickt mit einer binomischen Formel: 49 · 51', 2499, '50 * 50 - 1',
+                            '49 · 51 = (50 − 1)(50 + 1) = 50² − 1² = 2500 − 1 = 2499 (3. binomische Formel).',
+                            'Schreibe 49 und 51 als 50 − 1 und 50 + 1.'))
+# ---- DURCHSICHT ENDE ----
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Zusammenfassen und multiplizieren', ['zusammenfassen', 'produkte']),
@@ -346,3 +479,4 @@ if __name__ == '__main__':
          verbot=VERBOT,
          offen=['Runde 9: Thema stammt aus der Zeit vor dem Bausatz; die bisherigen Aufgaben liegen nur in der Datenbank. Dieser Generator erzeugt neue Aufgaben, '
                 'die beim Einspielen mit einheit_abgleichen(…, \'lassen\') dazukommen. Dubletten zu den alten Aufgaben ließen sich hier nicht prüfen, weil diese nicht im Repository liegen.'])
+    durchsicht_datei(META['thema_schluessel'], DS)  # Neunzehnte Runde: zuletzt

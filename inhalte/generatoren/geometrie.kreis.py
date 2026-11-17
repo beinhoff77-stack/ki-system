@@ -677,6 +677,75 @@ BF.stufe('tangente', _t.format(3), 1)
 
 # ---- BEFUNDE ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Klasse 7, siehe _durchsicht_kl7.py) ----
+# Geradengleichungen (y = 4, x = −6 …) kommen am Gymnasium erst in Klasse 8 (Prüf-Befund zur Achtzehnten Runde) → Aufgaben mit Beschreibungen
+# („waagrechte Gerade durch (0 | 4)“) ersetzt; Stufen geschärft.
+from _durchsicht_kl7 import Durchsicht, durchsicht_datei  # noqa: E402
+
+DS = Durchsicht('geometrie.kreis', 19_7_9)
+
+
+def _k(m, r, waag=(), senk=(), x=None, y=None):
+    g = {'typ': 'koordinaten', 'x': x, 'y': y, 'kreise': [{'m': list(m), 'r': r}], 'punkte': [{'x': m[0], 'y': m[1], 'name': 'M'}]}
+    if waag: g['waagrecht'] = list(waag)
+    if senk: g['senkrecht'] = list(senk)
+    return g
+
+
+_LAGE = ['Sekante', 'Tangente', 'Passante']
+_HL = 'Wie weit ist die Gerade von M entfernt? Vergleiche mit dem Radius.'
+# thales / umkehrung: „Radius = halbe Strecke“ ist ein Schritt (Stufe 1); „Liegt C auf dem Kreis?“ mit Winkelsumme ist zweischrittig (Stufe 2)
+for _t in ['Über einer 7 cm langen Strecke [AB] wird der Thaleskreis gezeichnet. Wie groß ist sein Radius?',
+           'Über einer 15 cm langen Strecke [AB] wird der Thaleskreis gezeichnet. Wie groß ist sein Radius?',
+           'Über einer 4 cm langen Strecke [AB] wird der Thaleskreis gezeichnet. Wie groß ist sein Radius?']:
+    DS.stufe('thales', _t, 1)
+for _t in ['Das Dreieck ABC hat bei C einen rechten Winkel, A(−4 | −4), B(−4 | 0). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)',
+           'Das Dreieck ABC hat bei C einen rechten Winkel, A(−2 | −3), B(2 | −3). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)',
+           'Das Dreieck ABC hat bei C einen rechten Winkel, A(−4 | 4), B(−4 | 10). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)']:
+    DS.stufe('umkehrung', _t, 1)
+for _t in ['Im Dreieck ABC ist α = 33° und β = 57°. Liegt C auf dem Kreis mit dem Durchmesser [AB]?',
+           'Im Dreieck ABC ist α = 78° und β = 12°. Liegt C auf dem Kreis mit dem Durchmesser [AB]?',
+           'Im Dreieck ABC ist α = 20° und β = 50°. Liegt C auf dem Kreis mit dem Durchmesser [AB]?']:
+    DS.stufe('umkehrung', _t, 2)
+# umkreis_inkreis: viermal ∠BIC mit derselben Rechnung → zwei davon Stufe 2
+DS.stufe('umkreis_inkreis', 'In einem Dreieck ABC ist β = 100° und γ = 66°. I ist der Inkreismittelpunkt. Wie groß ist der Winkel ∠BIC?', 2)
+DS.stufe('umkreis_inkreis', 'In einem Dreieck ABC ist β = 96° und γ = 48°. I ist der Inkreismittelpunkt. Wie groß ist der Winkel ∠BIC?', 2)
+# lage / tangente: Geradengleichungen durch Beschreibungen ersetzen
+DS.ersetze('lage', 'Ein Kreis hat den Mittelpunkt M(3 | 0) und den Radius r = 3. Wie viele gemeinsame Punkte haben der Kreis und die Gerade x = 0?',
+           DS.Z('Ein Kreis hat den Mittelpunkt M(3 | 0) und den Radius r = 3. Wie viele gemeinsame Punkte haben der Kreis und die y-Achse?', 1, '1',
+                'Die y-Achse ist von M(3 | 0) waagrecht gemessen 3 entfernt. Abstand = Radius → Tangente, also genau 1 gemeinsamer Punkt.', _HL,
+                grafik=_k((3, 0), 3, x=[-2, 7], y=[-4, 4])))
+DS.ersetze('lage', 'Ein Kreis hat den Mittelpunkt M(−1 | 4) und den Radius r = 2. Welche Lage hat die Gerade y = 3?',
+           DS.A('Ein Kreis hat den Mittelpunkt M(−1 | 4) und den Radius r = 2. Welche Lage hat die waagrechte Gerade durch (0 | 3)?', 'Sekante',
+                ['Tangente', 'Passante', 'Durchmesser'], 'Die Gerade ist von M senkrecht gemessen 1 entfernt (von 4 bis 3). 1 < 2 = r → Sekante.', _HL,
+                grafik=_k((-1, 4), 2, waag=[3], x=[-4, 2], y=[1, 7])))
+DS.ersetze('lage', 'Ein Kreis hat den Mittelpunkt M(−2 | 0) und den Radius r = 4. Welche Lage hat die Gerade x = −6?',
+           DS.A('Ein Kreis hat den Mittelpunkt M(−2 | 0) und den Radius r = 4. Welche Lage hat die senkrechte Gerade durch (−6 | 0)?', 'Tangente',
+                ['Sekante', 'Passante', 'Durchmesser'], 'Von M(−2 | 0) bis zur Geraden sind es waagrecht 4. Abstand = Radius → Tangente.', _HL,
+                grafik=_k((-2, 0), 4, senk=[-6], x=[-8, 3], y=[-5, 5])))
+DS.ersetze('lage', 'Ein Kreis hat den Mittelpunkt M(1 | −2) und den Radius r = 4. Welche Lage hat die Gerade y = −4?',
+           DS.A('Ein Kreis hat den Mittelpunkt M(1 | −2) und den Radius r = 4. Welche Lage hat die waagrechte Gerade durch (0 | −4)?', 'Sekante',
+                ['Tangente', 'Passante', 'Durchmesser'], 'Von M(1 | −2) bis zur Geraden sind es senkrecht 2. 2 < 4 = r → Sekante.', _HL,
+                grafik=_k((1, -2), 4, waag=[-4], x=[-4, 6], y=[-7, 3])))
+DS.ersetze('lage', 'Ein Kreis hat den Mittelpunkt M(2 | 1) und den Radius 3. Welche Lage hat die Gerade y = 4?',
+           DS.A('Ein Kreis hat den Mittelpunkt M(2 | 1) und den Radius 3. Welche Lage hat die waagrechte Gerade durch (0 | 4)?', 'Tangente',
+                ['Sekante', 'Passante', 'Durchmesser'], 'Von M(2 | 1) bis zur Geraden sind es senkrecht 3 (von 1 bis 4). Abstand = Radius → Tangente.',
+                'Bestimme den Abstand von M zur waagrechten Geraden.', grafik=_k((2, 1), 3, waag=[4], x=[-2, 6], y=[-3, 5])))
+DS.ersetze('lage', 'Ein Kreis hat den Mittelpunkt M(−2 | 3) und den Radius 2. Wie viele der Geraden x = 0, y = 0, y = 5 und x = −5 sind Tangenten?',
+           DS.Z('Ein Kreis hat den Mittelpunkt M(−2 | 3) und den Radius 2. Wie viele dieser Geraden sind Tangenten: die y-Achse, die x-Achse, '
+                'die waagrechte Gerade durch (0 | 5) und die senkrechte Gerade durch (−5 | 0)?', 2, '2',
+                'Abstände von M: y-Achse 2 (Tangente), x-Achse 3, waagrechte Gerade durch (0 | 5): 2 (Tangente), senkrechte Gerade durch (−5 | 0): 3. Also 2 Tangenten.',
+                'Bestimme für jede Gerade den Abstand von M – waagrecht oder senkrecht gezählt.'))
+DS.ersetze('tangente', 'Ein Kreis um M(0 | 0) berührt eine Tangente im Punkt B(0 | 3). Gib die Gleichung der Tangente an.',
+           DS.A('Ein Kreis um M(0 | 0) berührt eine Tangente im Punkt B(0 | 3). Wie verläuft die Tangente?', 'waagrecht durch B(0 | 3)',
+                ['senkrecht durch B(0 | 3)', 'durch M und B', 'waagrecht durch M(0 | 0)'],
+                'Der Berührradius [MB] liegt auf der y-Achse, ist also senkrecht. Die Tangente steht senkrecht darauf: waagrecht durch B.',
+                'Die Tangente steht senkrecht auf dem Berührradius.', grafik=_k((0, 0), 3, x=[-4, 4], y=[-4, 5])))
+DS.loesung('lage', 'Kreis 1 hat den Mittelpunkt (0 | 0) und den Radius 2, Kreis 2 den Mittelpunkt (6 | 0) und den Radius 3. Wie viele gemeinsame Punkte haben die Kreise?',
+           w='Kreis 1 reicht nach rechts bis zum x-Wert 2, Kreis 2 beginnt beim x-Wert 6 − 3 = 3. Die Mittelpunkte sind 6 auseinander, die Radien zusammen nur 5: kein gemeinsamer Punkt.')
+# ---- DURCHSICHT ENDE ----
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Satz des Thales', ['thales', 'umkehrung', 'beweis']), ('Tangenten', ['lage', 'tangente']), ('Besondere Kreise', ['umkreis_inkreis'])],
@@ -688,3 +757,4 @@ if __name__ == '__main__':
                 'Kreiswinkel (Umfangs-/Mittelpunktswinkelsatz) aus dem Feld „umfang“ weggelassen: nicht im lehrplan_gym für Klasse 7; nur der Spezialfall am Thaleskreis kommt vor.'])
     anhaengen(META['thema_schluessel'], schwer())
     befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+    durchsicht_datei(META['thema_schluessel'], DS)  # Neunzehnte Runde: zuletzt

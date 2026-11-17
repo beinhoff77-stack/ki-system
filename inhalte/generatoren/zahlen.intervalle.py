@@ -621,6 +621,101 @@ ST.knobel('beurteilen', SZ('In wie vielen der Intervalle [1; 2], [1; 3], [1; 4],
 baue = mit_stufen(baue, ST)
 # ---- STUFEN ENDE ----
 
+# ---------- TEXT: Zweiundzwanzigste Runde (18.11., Auftrag des Lehrers) – mehr Textaufgaben, siehe _text_kl8.py ----------
+from _text_kl8 import Text, mit_text, text_auf_datei  # noqa: E402
+TX = Text('zahlen.intervalle', 22_8_2)
+TZ, TA, TL, TW = TX.Z, TX.A, TX.L, TX.W
+
+_JN = ['Ja', 'Nein']
+
+# --- lesen ---
+TX.u('lesen', 'direkt', TX.A('Am Freibad steht: „Wassertemperatur [22; 26] °C“. Was bedeutet das?', 'von 22 °C bis 26 °C, beide Grenzen gehören dazu',
+    ['über 22 °C und unter 26 °C', 'nur 22 °C oder 26 °C', 'von 22 °C bis unter 26 °C'],
+    TW('[22; 26].', 'Bedeutung.', 'Eckige Klammer nach innen: Grenze gehört dazu.', 'Beide Klammern zeigen nach innen.', 'Gemeint sind 22 °C bis 26 °C, beide eingeschlossen.'), 'Zeigen die Klammern zur Zahl hin oder von ihr weg?'))
+TX.u('lesen', 'pruefung', TX.A('Im Kletterpark gilt: Parcours A für Kinder ab 1,10 m und kleiner als 1,40 m, Parcours B ab 1,30 m. Ein Kind ist 1,35 m groß. Welche Parcours darf es benutzen?',
+    'A und B', ['nur A', 'nur B', 'keinen'],
+    TW('A: [1,10; 1,40[ m, B: [1,30; ∞[ m, Kind 1,35 m.', 'erlaubte Parcours.', 'Für jeden Parcours prüfen, ob 1,35 im Intervall liegt.', '1,10 ≤ 1,35 < 1,40 ✓; 1,35 ≥ 1,30 ✓.', 'Das Kind darf A und B benutzen.'),
+    'Prüfe jede Bedingung einzeln.'), huerde='zwei')
+TX.u('lesen', 'begruenden', TX.A('Ein Paketdienst: Päckchen bis einschließlich 2 kg kosten 4 €, Pakete im Bereich ]2; 5] kg kosten 6 €. Ein Paket wiegt genau 2 kg. Jemand sagt: „Das kostet 6 €.“ Was stimmt?',
+    'Falsch: 2 kg gehört nicht zu ]2; 5], es kostet 4 €.', ['Richtig: 2 liegt in ]2; 5].', 'Richtig: Ab 2 kg kostet es 6 €.', 'Falsch: Es kostet 10 €.'],
+    TW('Päckchen bis einschließlich 2 kg; Pakete ]2; 5] kg.', 'Preis für genau 2 kg.', 'Die Klammer bei 2 zeigt nach außen: 2 gehört nicht dazu.', '2 kg fällt unter „bis einschließlich 2 kg“.', 'Die Aussage ist falsch; das Paket kostet 4 €.'),
+    'Gehört die 2 zum Intervall ]2; 5]?'), huerde='entscheidung')
+TX.s('lesen', TX.A('Ein Thermostat hält die Raumtemperatur im Intervall [19; 21] °C. Welche Temperatur liegt NICHT darin?', '21,5 °C', ['19 °C', '20,5 °C', '21 °C'],
+    TW('[19; 21].', 'Temperatur außerhalb.', 'Beide Grenzen gehören dazu.', '21,5 > 21.', '21,5 °C liegt nicht darin.')))
+TX.s('lesen', TX.A('Der Jugendtarif gilt für das Alter [14; 18[. Darf eine 18-Jährige den Jugendtarif nutzen?', 'Nein', ['Ja', 'Nur am Geburtstag'],
+    TW('[14; 18[.', 'Gehört 18 dazu?', 'Die Klammer bei 18 zeigt nach außen.', '18 gehört nicht dazu.', 'Nein, mit 18 gilt der Jugendtarif nicht mehr.')))
+TX.k('lesen', TX.A('Nach dem Umschalten ist eine Ampel im Zeitraum [0; 25[ Sekunden grün. Ist sie nach genau 25 Sekunden noch grün?', 'Nein', ['Ja', 'Das kann man nicht sagen'],
+    TW('[0; 25[.', 'Ist 25 dabei?', 'Klammer bei 25 nach außen.', '25 gehört nicht dazu.', 'Nein, nach genau 25 Sekunden ist sie nicht mehr grün.')))
+
+# --- schreiben ---
+TX.u('schreiben', 'direkt', TX.A('In einem Kühlschrank soll es über 0 °C und höchstens 7 °C kalt sein. Schreibe diese Temperaturen als Intervall.', ']0; 7]', ['[0; 7]', ']0; 7[', '[0; 7['],
+    TW('über 0, höchstens 7.', 'Intervall.', '„über“: Klammer nach außen; „höchstens“: Klammer nach innen.', ']0; 7].', 'Das Intervall ist ]0; 7].'), 'Gehört 0 °C dazu, gehört 7 °C dazu?'))
+TX.u('schreiben', 'einkleidung', TX.A('Ein Handgepäckstück darf höchstens 8 kg wiegen. Schreibe alle erlaubten Gewichte (mehr als 0 kg) als Intervall.', ']0; 8]', ['[0; 8[', ']0; 8[', '[8; ∞['],
+    TW('mehr als 0 kg, höchstens 8 kg.', 'Intervall.', '„mehr als“ nach außen, „höchstens“ nach innen.', ']0; 8].', 'Erlaubt ist ]0; 8] kg.'), 'Darf das Gepäck genau 8 kg wiegen?'))
+TX.u('schreiben', 'darstellung', TX.A('Im Fahrplan steht: Der Bus fährt ab 6 Uhr bis vor 9 Uhr alle 10 Minuten. Schreibe diese Zeitspanne (in Stunden) als Intervall.', '[6; 9[', ['[6; 9]', ']6; 9[', ']6; 9]'],
+    TW('ab 6 Uhr, bis vor 9 Uhr.', 'Intervall.', '„ab“ nach innen, „bis vor“ nach außen.', '[6; 9[.', 'Die Zeitspanne ist [6; 9[.'), 'Fährt um genau 9 Uhr noch ein Bus im 10-Minuten-Takt?'))
+TX.u('schreiben', 'pruefung', TX.A('Medikament A darf bei 15 °C bis 25 °C gelagert werden, Medikament B bei mehr als 20 °C bis 30 °C. In welchem Temperaturbereich kann man beide zusammen lagern?',
+    ']20; 25]', ['[15; 30]', '[20; 25]', ']20; 25['],
+    TW('A: [15; 25], B: ]20; 30].', 'Bereich für beide.', 'Nur Zahlen, die in beiden Intervallen liegen.', 'Unten: über 20 (wegen B). Oben: höchstens 25 (wegen A).', 'Beide zusammen gehen bei ]20; 25] °C.'),
+    'Welche Temperaturen erfüllen beide Bedingungen?'), huerde='zwei')
+TX.u('schreiben', 'begruenden', TX.A('Auf einer Straße gilt: mindestens 60 km/h, höchstens 120 km/h. Jemand schreibt die erlaubten Geschwindigkeiten als ]60; 120[. Was stimmt?',
+    'Falsch: Richtig ist [60; 120], die Grenzen gehören dazu.', ['Richtig.', 'Falsch: Richtig ist [60; 120[.', 'Falsch: Richtig ist ]60; 120].'],
+    TW('„mindestens 60“, „höchstens 120“.', 'Ist ]60; 120[ richtig?', '„mindestens“ und „höchstens“ schließen die Grenze ein.', 'Beide Klammern müssen nach innen zeigen.', 'Falsch; richtig ist [60; 120].'),
+    'Darf man genau 60 km/h fahren?'), huerde='entscheidung')
+TX.s('schreiben', TX.A('Schreibe „für Kinder ab 3 Jahren bis einschließlich 12 Jahren“ als Intervall.', '[3; 12]', [']3; 12]', '[3; 12[', ']3; 12['],
+    TW('ab 3, bis einschließlich 12.', 'Intervall.', 'Beide Grenzen gehören dazu.', '[3; 12].', 'Das Intervall ist [3; 12].')))
+TX.s('schreiben', TX.A('Ein Ofen backt Pizza bei mehr als 250 °C. Schreibe diese Temperaturen als Intervall.', ']250; ∞[', ['[250; ∞[', ']−∞; 250[', ']250; ∞]'],
+    TW('mehr als 250.', 'Intervall.', '„mehr als“: nach außen; nach oben offen.', ']250; ∞[.', 'Das Intervall ist ]250; ∞[.')))
+TX.k('schreiben', TX.A('Schreibe „Fahrräder mit einer Rahmenhöhe ab 50 cm bis unter 56 cm“ als Intervall.', '[50; 56[', ['[50; 56]', ']50; 56[', ']50; 56]'],
+    TW('ab 50, unter 56.', 'Intervall.', '„ab“ nach innen, „unter“ nach außen.', '[50; 56[.', 'Das Intervall ist [50; 56[.')))
+
+# --- enthalten ---
+TX.u('enthalten', 'erkennen', TX.A('Ein Aufzug trägt Lasten im Bereich ]0; 630] kg. Welche Last ist zu schwer?', '631 kg', ['630 kg', '600 kg', '450 kg'],
+    TW(']0; 630] kg.', 'Last außerhalb.', '630 gehört dazu, alles darüber nicht.', '631 > 630.', '631 kg ist zu schwer.'), 'Gehört 630 dazu?'))
+TX.u('enthalten', 'einkleidung', TZ('Eine Parkuhr nimmt Parkzeiten von 15 bis 120 Minuten an, beide Grenzen erlaubt, nur volle Minuten. Wie viele verschiedene Parkzeiten gibt es?', '120 - 15 + 1',
+    TW('[15; 120], nur ganze Minuten.', 'Anzahl der Parkzeiten.', 'Ganze Zahlen von 15 bis 120 zählen: Ende − Anfang + 1.', '120 − 15 + 1 = 106.', 'Es gibt 106 Parkzeiten.'), 'Wie zählst du alle ganzen Zahlen von a bis b?'))
+TX.u('enthalten', 'mehrschritt', TZ('Ein Thermometer im Gewächshaus zeigt nur ganze Grad. Für Tomaten ist ]12; 30[ °C gut. Wie viele angezeigte Temperaturen sind gut?', '29 - 13 + 1',
+    TW(']12; 30[, ganze Grad.', 'Anzahl der guten Werte.', 'Grenzen gehören nicht dazu: von 13 bis 29 zählen.', '29 − 13 + 1 = 17.', 'Es sind 17 Temperaturen.'), 'Welche ist die kleinste und die größte ganze Zahl im Intervall?'))
+TX.u('enthalten', 'pruefung', TZ('Im Kino gibt es Ermäßigung für Jugendliche unter 16 Jahren und für Rentner ab 65 Jahren; der Film ist ab 12 Jahren. Wie viele ganze Alter von 12 bis 70 bekommen eine Ermäßigung?', '(15 - 12 + 1) + (70 - 65 + 1)',
+    TW('Film ab 12; ermäßigt [12; 16[ und [65; 70].', 'Anzahl der ermäßigten Alter.', 'Beide Bereiche einzeln zählen, dann addieren.', '12, 13, 14, 15 (4) und 65 bis 70 (6).', 'Es sind 10 Alter.'),
+    'Zwei Bereiche – zähle sie getrennt.'), huerde='zwei')
+TX.u('enthalten', 'begruenden', TX.A('Brötchen sollen 55 g bis 65 g wiegen, beide Grenzen erlaubt. Ein Brötchen wiegt 54,9 g. Darf es verkauft werden?', 'Nein, 54,9 liegt nicht in [55; 65].', ['Ja, gerundet sind es 55 g.', 'Ja, 54,9 liegt in [55; 65].', 'Nein, weil es mehr als 65 g wiegt.'],
+    TW('[55; 65], 54,9 g.', 'Liegt 54,9 im Intervall?', 'Mit der linken Grenze vergleichen.', '54,9 < 55.', 'Nein, das Brötchen ist zu leicht.'), 'Ist 54,9 mindestens 55?'), huerde='entscheidung')
+TX.u('enthalten', 'rueckwaerts', TZ('Ein Aufzug darf höchstens 630 kg tragen; man rechnet mit 75 kg pro Person. Die erlaubte Personenzahl sind die ganzen Zahlen im Intervall [1; b]. Wie groß ist b?', '630 // 75',
+    TW('höchstens 630 kg, 75 kg pro Person.', 'größte erlaubte Personenzahl b.', '630 : 75 und abrunden.', '630 : 75 = 8,4.', 'b = 8: Es dürfen höchstens 8 Personen mitfahren.'), 'Darf die 9. Person noch mit?'), huerde='deuten')
+TX.s('enthalten', TZ('Eine Karussellfahrt ist für Kinder von 4 bis einschließlich 10 Jahren. Wie viele ganze Altersjahre sind das?', '10 - 4 + 1',
+    TW('[4; 10].', 'Anzahl der Alter.', 'Ende − Anfang + 1.', '10 − 4 + 1 = 7.', 'Es sind 7 Altersjahre.')))
+TX.s('enthalten', TZ('Ein Bus braucht laut Plan zwischen 18 und 25 Minuten. Wie viele Minuten Spielraum sind das?', '25 - 18',
+    TW('[18; 25].', 'Länge des Intervalls.', 'rechte − linke Grenze.', '25 − 18 = 7.', 'Der Spielraum ist 7 Minuten.'), einheit='min'))
+TX.k('enthalten', TZ('Eine Kühlbox hält Temperaturen im Bereich ]−2; 6] °C. Wie viele ganze Temperaturen liegen darin?', '6 - (-1) + 1',
+    TW(']−2; 6].', 'Anzahl ganzer Temperaturen.', '−2 gehört nicht dazu: von −1 bis 6 zählen.', '6 − (−1) + 1 = 8.', 'Es sind 8 ganze Temperaturen.')))
+
+# --- beurteilen ---
+TX.u('beurteilen', 'direkt', TX.A('Vor einer Unterführung steht: „Fahrzeughöhe ]0; 2,5] m“. Darf ein genau 2,5 m hoher Lieferwagen durchfahren?', 'Ja', ['Nein', 'Nur langsam'],
+    TW(']0; 2,5].', 'Gehört 2,5 dazu?', 'Klammer bei 2,5 zeigt nach innen.', '2,5 gehört dazu.', 'Ja, er darf durchfahren.'), 'Wohin zeigt die Klammer bei 2,5?'))
+TX.u('beurteilen', 'einkleidung', TX.A('Ein Spielzeug ist für Kinder von 3 bis unter 6 Jahren, also [3; 6[. Welche Aussage stimmt?', 'Ein Kind mit 3 Jahren gehört zur Zielgruppe.',
+    ['Ein Kind mit 6 Jahren gehört zur Zielgruppe.', 'Nur Kinder mit genau 3, 4 oder 5 Jahren und 0 Monaten.', 'Ein Kind mit 2 Jahren und 11 Monaten gehört dazu.'],
+    TW('[3; 6[.', 'richtige Aussage.', 'Grenze 3 gehört dazu, 6 nicht; dazwischen alle Werte.', '3 ✓, 6 ✗, 2,9 ✗.', 'Ein Kind mit 3 Jahren gehört dazu.'), 'Welche Grenze gehört dazu?'))
+TX.u('beurteilen', 'mehrschritt', TX.A('Der Wetterbericht sagt Tagestemperaturen im Bereich ]18; 25] °C voraus. Liegt die Mitte dieses Bereichs über 21 °C?', 'Ja, die Mitte ist 21,5 °C.', ['Nein, die Mitte ist 21 °C.', 'Nein, die Mitte ist 7 °C.', 'Ja, die Mitte ist 25 °C.'],
+    TW(']18; 25].', 'Mitte und Vergleich.', 'Mitte = (linke + rechte Grenze) : 2.', '(18 + 25) : 2 = 21,5.', 'Ja, die Mitte ist 21,5 °C.'), 'Wie berechnest du die Mitte zweier Zahlen?'))
+TX.u('beurteilen', 'pruefung', TX.A('Ein Wanderweg ist mit einer Gehzeit von 3 bis 5 Stunden ausgeschildert. Er ist 14 km lang und hat 4 Rastplätze. Eine Gruppe braucht 5 Stunden und 15 Minuten. Liegt sie im angegebenen Bereich?',
+    'Nein, 5,25 h liegt nicht in [3; 5].', ['Ja, 5 Stunden und 15 Minuten sind 5,15 h.', 'Ja, die Rastplätze zählen nicht mit.', 'Nein, weil 14 km zu lang sind.'],
+    TW('[3; 5] h, Gruppe 5 h 15 min. Länge und Rastplätze spielen keine Rolle.', 'Liegt die Zeit im Bereich?', 'Minuten in Stunden umrechnen und vergleichen.', '15 min = 0,25 h; 5,25 > 5.', 'Nein, die Gruppe war langsamer.'),
+    'Wie viele Stunden sind 15 Minuten?'), huerde='ueberfluessig')
+TX.u('beurteilen', 'transfer', TX.A('Ein Onlineshop liefert versandkostenfrei bei einem Bestellwert im Intervall [50; ∞[ €. Jemand bestellt für 49,90 € und sagt: „Gerundet sind das 50 €, also ist der Versand gratis.“ Was stimmt?',
+    'Falsch: 49,90 liegt nicht im Intervall, der Versand kostet.', ['Richtig: Man darf runden.', 'Richtig: 49,90 liegt in [50; ∞[.', 'Falsch: Erst ab 51 € ist er gratis.'],
+    TW('[50; ∞[, Bestellung 49,90 €.', 'Ist der Versand gratis?', 'Exakt vergleichen, nicht runden.', '49,90 < 50.', 'Nein, die Bestellung liegt knapp darunter.'), 'Ist 49,90 mindestens 50?'), huerde='entscheidung')
+TX.u('beurteilen', 'verknuepfen', TZ('Im Freizeitpark liegt die Wartezeit an einer Bahn im Intervall ]10; 20] Minuten. Sie ist eine ganze Zahl und ein Vielfaches von 7. Wie viele Minuten wartet man?', '14',
+    TW(']10; 20], Vielfaches von 7.', 'Wartezeit.', 'Vielfache von 7 aufzählen und mit dem Intervall vergleichen.', '7 (zu klein), 14 ✓, 21 (zu groß).', 'Man wartet 14 Minuten.'), 'Welche Vielfachen von 7 kennst du?', einheit='min'), huerde='zwei')
+TX.s('beurteilen', TX.A('Ein Hotel bietet den Check-in im Intervall [15; 22[ Uhr an. Ist ein Check-in um genau 22 Uhr möglich?', 'Nein', ['Ja', 'Nur mit Anmeldung'],
+    TW('[15; 22[.', 'Gehört 22 dazu?', 'Klammer bei 22 nach außen.', '22 gehört nicht dazu.', 'Nein.')))
+TX.s('beurteilen', TX.A('Eine Gartenlampe darf bei Temperaturen im Intervall [−20; 40] °C betrieben werden. Welche Aussage stimmt?', 'Bei −20 °C darf sie leuchten.', ['Bei −21 °C darf sie leuchten.', 'Bei 41 °C darf sie leuchten.', 'Bei 40 °C darf sie nicht leuchten.'],
+    TW('[−20; 40].', 'richtige Aussage.', 'Beide Grenzen gehören dazu.', '−20 ✓, −21 ✗, 41 ✗, 40 ✓.', '−20 °C ist erlaubt.')))
+TX.k('beurteilen', TX.A('Eine Bergbahn fährt bei Wind bis einschließlich 60 km/h. Fährt sie bei genau 60 km/h Wind?', 'Ja', ['Nein', 'Nur talwärts'],
+    TW('Wind ≤ 60 km/h, also [0; 60].', 'Fährt sie bei 60?', '„bis einschließlich“ schließt 60 ein.', '60 gehört dazu.', 'Ja, sie fährt.')))
+baue = mit_text(baue, TX)
+# ---- TEXT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Schreibweise', ['lesen', 'schreiben']), ('Zahlen im Intervall', ['enthalten', 'beurteilen'])],

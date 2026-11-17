@@ -2,6 +2,30 @@
 
 Neueste Meldung oben.
 
+## 2026-11-18 02:18 – STATUS zahlen.intervalle
+
+### zahlen.intervalle
+
+Anteil Textaufgaben an den Übungen mit g: vorher 17% (nur einkleidung/transfer) bzw. 17% (mit anerkannten Sachaufgaben anderer Typen) → nachher **40%**.
+
+| Lernkarte | vorher S1/S2/S3 (Lehrer) | vorher S1/S2/S3 (mit anderen Typen) | nachher S1/S2/S3 | neu Übung | neu Sicherung/Korrektur | überzählig | Sicherung/Korrektur Text nachher |
+|---|---|---|---|---|---|---|---|
+| lesen | 0/4/2 | 0/4/2 | 1/4/4 = 9 | 3 | 2/1 | 1 | 2/1 |
+| schreiben | 0/1/2 | 0/1/2 | 1/3/4 = 8 | 5 | 2/1 | 4 | 2/1 |
+| enthalten | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 7 | 2/1 |
+| beurteilen | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 4 | 2/1 |
+
+Beispiele (je Stufe eine neue Textaufgabe, Wortlaut):
+
+- Stufe 1 (lesen): „Am Freibad steht: „Wassertemperatur [22; 26] °C“. Was bedeutet das?“
+- Stufe 2 (enthalten): „Eine Parkuhr nimmt Parkzeiten von 15 bis 120 Minuten an, beide Grenzen erlaubt, nur volle Minuten. Wie viele verschiedene Parkzeiten gibt es?“
+- Stufe 3 (beurteilen): „Ein Wanderweg ist mit einer Gehzeit von 3 bis 5 Stunden ausgeschildert. Er ist 14 km lang und hat 4 Rastplätze. Eine Gruppe braucht 5 Stunden und 15 Minuten. Liegt sie im angegebenen Bereich?“
+
+Überzählig (g entfernt, Aufgabe bleibt): 16 – enthalten S1 erkennen (Anteil 40 %); enthalten S2 mehrschritt (Anteil 40 %); enthalten S3 verknuepfen (Anteil 40 %); schreiben S2 darstellung (Anteil 40 %); beurteilen S3 begruenden (Anteil 40 %); enthalten S2 mehrschritt (Anteil 40 %); enthalten S1 erkennen (Anteil 40 %); schreiben S2 darstellung (Anteil 40 %); beurteilen S2 umkehr (Anteil 40 %); beurteilen S3 pruefung (Anteil 40 %); enthalten S3 pruefung (Anteil 40 %); schreiben S3 begruenden (Anteil 40 %) …
+Als Sachaufgabe anerkannte alte Aufgaben anderer Typen: 0 Übungen, 0 Sicherung/Korrektur.
+Sachbezug über Schilder, Tarife, Lagertemperaturen, Altersgrenzen und Fahrpläne. Für 40 % verlieren 16 alte reine Schreibweise-Aufgaben ihr g.
+
+
 ## 2026-11-18 02:16 – STATUS stochastik.grundbegriffe
 
 ### stochastik.grundbegriffe

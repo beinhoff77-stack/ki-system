@@ -1476,3 +1476,18 @@ damit Sebastian den Unterschied sieht. Arbeite ohne Rückfragen durch.
 ```
 
 Einspielen (Haupt-Chat): Migration F einspielen, dann einheit_abgleichen(…, 'lassen') je Thema (übernimmt typ und Stufe, fügt Neues ein); „überzählig“ sperren.
+
+# Zwanzigste Runde – Zusatz Realschule und IB (17.11.): Typen, echte Stufe 3 und Knobel-Bordkarten für die 24 Themen ohne Gymnasium-Klasse
+
+Entscheidung von Sebastian (17.11.): Die Realschul- und IB-Themen werden **nicht** zurückgestellt. Sie kommen in den Plan der Kinder (Ziel: nach Klasse 8 der Stand von Gymnasium, Realschule und IB). Dafür brauchen sie dieselbe Qualität wie die Gymnasium-Themen.
+
+Es gelten **alle Regeln des Abschnitts „Zwanzigste Runde (Inhalte): echte Stufe 3 und Knobel-Bordkarten“** (Stufen-Leiter je Lernkarte, Feld `g` für jede Übung, Stufe 1 mindestens 4 Übungen aus 2 Typen, Stufe 2 mindestens 6 aus 3 Typen, Stufe 3 mindestens 8 aus 4 Typen, 2 Knobel-Bordkarten je Lernkarte, überzählige Übungen ohne `g` und im Bericht gelistet, drei Beispiel-Bordkarten je Stufe im Bericht). Statt „Klasse `<N>`“ gilt die Themenliste unten. Vorher `inhalte/README.md`, Abschnitt „Stufen und Aufgabentypen“, lesen.
+
+Zwei Chats, je 12 Themen:
+
+- **Chat 1 – Zweig `stufen-rsib-1`, Meldungen in `inhalte/postfach/stufen-rsib-1.md`:** abbildungen.determinanten2, abbildungen.vektoren, daten.stichproben, funktionen.scharen, terme.quadratische_extreme, funktionen.transformation, gleichungen.reinquadratisch, gleichungen.wurzel, abbildungen.matrizen, funktionen.umkehr, mengen.grundbegriffe, groessen.verhaeltnisse
+- **Chat 2 – Zweig `stufen-rsib-2`, Meldungen in `inhalte/postfach/stufen-rsib-2.md`:** daten.zweidimensional, daten.standardabweichung, stochastik.bedingt, funktionen.betrag, funktionen.folgen, funktionen.reihen, sonder.graphentheorie, sonder.optimierung, daten.normalverteilung, finanzen.zinseszins, sonder.logik, zahlen.schranken
+
+Zusätzlich je Thema im Bericht: (a) Welches Vorwissen aus anderen Flügen setzt das Thema voraus (Themenschlüssel nennen)? (b) Ab welcher Klasse kann ein Gymnasium-Kind das Thema frühestens lösen? Das brauche ich für die Einordnung in den Plan.
+
+Ein Thema = ein Commit + Push. Kein Merge, keine Datenbank, kein App-Code, keine Tests.

@@ -658,6 +658,127 @@ DSX.stufen('laplace', 'S1 Urne; S2 Würfel, Karten, Glücksrad (Bruch und Dezima
 baue = mit_durchsicht(baue, DSX)
 # ---- DURCHSICHT ENDE ----
 
+# ---- STUFEN (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, siehe _stufen_kl8.py) ----
+from _stufen_kl8 import Stufen, mit_stufen  # noqa: E402
+
+ST = Stufen('stochastik.grundbegriffe', 20_8_13)
+SA, SZ, SL = ST.A, ST.Z, ST.L
+def T(lz, *regeln):
+    for m, g in regeln: ST.typ(lz, m, g)
+
+# --- begriffe ---
+ST.leiter('begriffe', 'Ergebnisraum einfacher Versuche nennen und zählen',
+          'Ereignis als Menge schreiben, Ergebnisse eines Ereignisses zählen, anderer Ergebnisraum (Anzahl Wappen), Lose',
+          'Zahlenpaare zählen, Reihenfolge begründen, Ereignis in Worten rückwärts, Ziffern zählen, zwei Bedingungen verknüpfen, Augensumme')
+T('begriffe', (r'Augensumme', 'transfer'), (r'Wie viele Ergebnisse hat der Ergebnisraum\?$|Wie viele Ergebnisse hat der Ergebnisraum bei', 'direkt'), (r'Welche Menge beschreibt', 'darstellung'),
+  (r'nur, wie oft Wappen|keine Primzahl', 'mehrschritt'), (r'4 Flächen|Nummern 1 bis 30', 'verknuepfen'), (r'Welcher Ergebnisraum ist richtig', 'begruenden'),
+  (r'in Worten', 'rueckwaerts'), (r'entält|enthält|Augensumme', 'transfer'), (r'genau zwei', 'pruefung'))
+ST.neu('begriffe', 'erkennen', SA('Was ist der Ergebnisraum beim einmaligen Werfen einer Münze?', 'Ω = {Wappen; Zahl}', ['Ω = {Wappen}', 'Ω = {1; 2}', 'Ω = {Wappen; Zahl; Rand}'], 'Alle möglichen Ergebnisse: Wappen oder Zahl.', 'Was kann alles oben liegen?'))
+ST.neu('begriffe', 'einkleidung', SZ('Aus 50 Losen mit den Nummern 1 bis 50 wird eines gezogen. Wie viele Ergebnisse gehören zum Ereignis „Nummer ist durch 10 teilbar“?', 5, '50 // 10', '10, 20, 30, 40, 50 – fünf Ergebnisse.', 'Schreibe die passenden Nummern auf.'))
+ST.neu('begriffe', 'parameter', SZ('Ein Glücksrad hat n Felder mit den Nummern 1 bis n. Es wird zweimal gedreht, notiert wird das Zahlenpaar. Der Ergebnisraum hat 49 Ergebnisse. Wie groß ist n?', 7, '7',
+    'Zahlenpaare: n · n = 49 ⇒ n = 7.', 'Wie viele Paare gibt es bei n Feldern?'))
+ST.knobel('begriffe', SZ('Eine Münze wird dreimal geworfen (Reihenfolge zählt). Wie viele verschiedene Ereignisse gibt es, die aus genau zwei Ergebnissen bestehen?', 28, '8 * 7 / 2',
+    'Der Ergebnisraum hat 2 · 2 · 2 = 8 Ergebnisse. Ein Ereignis aus zwei Ergebnissen ist eine Auswahl von 2 aus 8: 8 · 7 : 2 = 28 (durch 2, weil die Reihenfolge der Auswahl egal ist).',
+    'Zähle zuerst die Ergebnisse, dann die Paare daraus.'))
+ST.knobel('begriffe', SZ('Zwei Spielwürfel werden geworfen, notiert wird das Produkt der Augenzahlen. Wie viele Ergebnisse hat dieser Ergebnisraum?', 18, '18',
+    'Mögliche Produkte: 1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 16, 18, 20, 24, 25, 30, 36. Viele kommen mehrfach vor (z. B. 6 = 1 · 6 = 2 · 3), zählen aber nur einmal: 18 Ergebnisse.',
+    'Schreibe die Einmaleins-Tafel bis 6 · 6 und streiche doppelte Werte.'))
+
+# --- rel_haeufigkeit ---
+ST.leiter('rel_haeufigkeit', 'relative Häufigkeit = Anzahl : Gesamtzahl berechnen',
+          'aus Tabelle und Säulendiagramm, Prozent, absolute Häufigkeit rückwärts, Klassen-Beispiel',
+          'Gruppen zusammenlegen, Mittelwert-Fehler, Rest berechnen, Bruch/Prozent verknüpfen, nötige Treffer rückwärts, Vergleich begründen')
+T('rel_haeufigkeit', (r'^Bei \d+ Würfen kam', 'direkt'), (r'Tabelle zeigt|Säulendiagramm', 'darstellung'), (r'Wie oft trat es ein|Kronkorken', 'umkehr'), (r'Brille', 'einkleidung'),
+  (r'^Zwei Gruppen|Umfrage', 'verknuepfen'), (r'Mia rechnet', 'fehler'), (r'300-mal|nächsten 10', 'rueckwaerts'), (r'Glücksrad wurde', 'pruefung'), (r'^Lea', 'begruenden'))
+ST.neu('rel_haeufigkeit', 'erkennen', SA('Was gibt die relative Häufigkeit an?', 'den Anteil der Versuche, bei denen das Ergebnis eintrat', ['wie oft das Ergebnis insgesamt eintrat', 'die Anzahl aller Versuche', 'wie wahrscheinlich das Ergebnis sicher ist'],
+    'Relativ heißt: im Verhältnis zur Zahl aller Versuche. 12 Sechsen bei 60 Würfen sind 12/60 = 0,2.', 'Was ist der Unterschied zwischen „wie oft“ und „welcher Anteil“?'))
+ST.neu('rel_haeufigkeit', 'direkt', SZ('Ein Glücksrad wurde 40-mal gedreht und blieb 10-mal auf Gelb stehen. Wie groß ist die relative Häufigkeit von Gelb in Prozent?', 25, '10 / 40 * 100', '10 : 40 = 0,25 = 25 %.', 'Anzahl durch Gesamtzahl.', einheit='%'))
+ST.neu('rel_haeufigkeit', 'erkennen', SA('Welche Zahl kann KEINE relative Häufigkeit sein?', '1,2', ['0', '0,5', '1'], 'Eine relative Häufigkeit liegt immer zwischen 0 und 1 (0 % bis 100 %), denn der Teil ist nie größer als das Ganze.', 'Kann ein Ergebnis öfter eintreten, als man Versuche macht?'))
+ST.knobel('rel_haeufigkeit', SZ('Nach 20 Würfen ist die relative Häufigkeit der Sechs 0,25. Wie viele weitere Würfe ohne Sechs braucht man mindestens, damit sie unter 0,2 fällt?', 6, '5 / (2/10) - 20 + 1',
+    'Es gab 5 Sechsen. Nach n weiteren Würfen ohne Sechs: 5 : (20 + n) < 0,2 ⇒ 20 + n > 25 ⇒ n > 5. Bei n = 5 ist es genau 0,2, also braucht man 6.',
+    'Die Zahl der Sechsen bleibt gleich – nur der Nenner wächst.'))
+ST.knobel('rel_haeufigkeit', SZ('Eine Münze wird 10-mal geworfen, danach ist die relative Häufigkeit von Wappen 0,6. Nach 10 weiteren Würfen ist sie 0,45. Wie oft kam Wappen in den zweiten 10 Würfen?', 3, '45/100 * 20 - 6',
+    'Nach 10 Würfen: 6 Wappen. Nach 20 Würfen: 0,45 · 20 = 9 Wappen. In den zweiten 10 also 9 − 6 = 3.', 'Rechne beide relativen Häufigkeiten in Anzahlen um.'))
+
+# --- laplace ---
+ST.leiter('laplace', 'P = günstige : mögliche Ergebnisse bei einer Urne berechnen',
+          'Würfel, Skatblatt, Glücksrad (Bruch und Dezimalzahl), Rest-Farbe bestimmen',
+          'Kugeln dazulegen rückwärts, Augensummen zweier Würfel, Säcke mischen begründen, „zweite größer“ verknüpfen')
+T('laplace', (r'^In einer Urne liegen \d+ rote( Kugeln)?, \d+ blaue', 'direkt'), (r'Skatblatt', 'einkleidung'), (r'Rest blau', 'umkehr'), (r'^Ein fairer Würfel|Glücksrad hat \d+ gleich|Nummern 1 bis 20', 'mehrschritt'),
+  (r'dazulegen', 'rueckwaerts'), (r'größer als 10', 'pruefung'), (r'Augensumme', 'transfer'), (r'Säckchen', 'begruenden'), (r'zweite Zahl größer', 'verknuepfen'))
+ST.neu('laplace', 'erkennen', SA('Wann darf man P(E) = Anzahl günstiger : Anzahl möglicher Ergebnisse rechnen?', 'wenn alle Ergebnisse gleich wahrscheinlich sind', ['bei jedem Zufallsversuch', 'nur bei Würfeln', 'nur wenn es zwei Ergebnisse gibt'],
+    'Das ist die Laplace-Regel; sie gilt nur bei gleich wahrscheinlichen Ergebnissen (fairer Würfel, gut gemischte Karten …).', 'Wie heißt diese Regel, und welche Voraussetzung hat sie?'))
+ST.neu('laplace', 'fehler', SA('Tom sagt: „Bei zwei Würfeln ist die Augensumme 2 genauso wahrscheinlich wie die Summe 7, denn beides ist eine von 11 möglichen Summen.“ Was stimmt?', 'Falsch: Die 11 Summen sind nicht gleich wahrscheinlich; P(2) = 1/36, P(7) = 6/36.',
+    ['Richtig, beide haben 1/11.', 'Falsch: Die 2 ist wahrscheinlicher.', 'Falsch: Beide haben 1/36.'],
+    'Laplace geht nur mit gleich wahrscheinlichen Ergebnissen – das sind die 36 Zahlenpaare. Die 2 kommt nur als (1|1), die 7 als (1|6), (2|5), (3|4), (4|3), (5|2), (6|1).', 'Zähle die Zahlenpaare für jede Summe.'))
+ST.knobel('laplace', SZ('In einer Urne ist P(rot) = 2/5. Legt man 4 rote Kugeln dazu, ist P(rot) = 1/2. Wie viele Kugeln waren ursprünglich in der Urne?', 20, '(4 - 2) / (1/2 - 2/5)',
+    'Mit n Kugeln sind 0,4n rot. (0,4n + 4) : (n + 4) = 0,5 ⇒ 0,4n + 4 = 0,5n + 2 ⇒ 0,1n = 2 ⇒ n = 20 (8 rote). Probe: 12/24 = 1/2.', 'Schreibe die Zahl der roten Kugeln mit n.'))
+ST.knobel('laplace', SZ('Aus den Zahlen 1 bis 30 wird eine zufällig gezogen. Wie groß ist die Wahrscheinlichkeit, dass sie durch 2 oder durch 3 teilbar ist? Gib sie als Dezimalzahl auf zwei Nachkommastellen an.', 0.67, 'round((15 + 10 - 5) / 30, 2)',
+    'Durch 2: 15 Zahlen. Durch 3: 10 Zahlen. Durch beide (durch 6): 5 Zahlen – sonst doppelt gezählt. 15 + 10 − 5 = 20 günstige: 20/30 ≈ 0,67.', 'Achte auf Zahlen, die du doppelt zählst.', toleranz=0.01))
+
+# --- laplace_pruefen ---
+ST.leiter('laplace_pruefen', 'entscheiden, ob alle Ergebnisse gleich wahrscheinlich sind',
+          'Glücksrad mit Winkeln, Farbe statt Kugel, Augensumme als Ergebnis',
+          'Lotto-Irrtum, Winkel planen, Feld gedanklich teilen, Serie deuten, Parameter für Winkel, rückwärts zur fairen Urne, Prüfungsauswahl')
+T('laplace_pruefen', (r'^Ist das ein Laplace-Experiment\?', 'erkennen'), (r'^Ein Glücksrad hat die Felder A \d+°, B', 'mehrschritt'), (r'Urne mit 3 roten', 'einkleidung'), (r'Augensumme', 'umkehr'),
+  (r'^Lisa', 'fehler'), (r'jeder zweiten', 'transfer'), (r'trotzdem mit Laplace', 'verknuepfen'), (r'7-mal', 'begruenden'))
+ST.neu('laplace_pruefen', 'direkt', SA('Ein Spielwürfel ist fair. Wie wahrscheinlich ist jede einzelne Augenzahl?', '1/6', ['1/2', '1/3', '1/12'], 'Sechs gleich wahrscheinliche Ergebnisse: jedes hat 1/6.', 'Wie viele Seiten hat der Würfel?'))
+ST.neu('laplace_pruefen', 'parameter', SZ('Ein Glücksrad hat vier Felder: drei mit je a° und eines mit 2a°. Wie groß ist a?', 72, '360 / 5', '3a + 2a = 360° ⇒ a = 72°. Das große Feld (144°) ist doppelt so wahrscheinlich – kein Laplace-Rad.', 'Alle Winkel zusammen ergeben 360°.', einheit='°'))
+ST.neu('laplace_pruefen', 'rueckwaerts', SZ('Eine Urne enthält 7 rote und 12 blaue Kugeln. „Farbe ziehen“ soll ein Laplace-Experiment werden. Wie viele rote Kugeln muss man dazulegen?', 5, '12 - 7',
+    'Beide Farben müssen gleich wahrscheinlich sein, also gleich viele: 12 rote. 12 − 7 = 5.', 'Wann sind „rot“ und „blau“ gleich wahrscheinlich?'))
+ST.neu('laplace_pruefen', 'pruefung', SA('Welches Experiment ist ein Laplace-Experiment?', 'aus 1 roten, 1 blauen und 1 grünen Kugel eine ziehen und die Farbe notieren',
+    ['eine Reißzwecke werfen', 'zwei Würfel werfen und die Augensumme notieren', 'aus 2 roten und 1 blauen Kugel eine ziehen und die Farbe notieren'],
+    'Nur bei je einer Kugel pro Farbe sind die drei Farben gleich wahrscheinlich.', 'Prüfe jeweils, ob alle Ergebnisse gleich wahrscheinlich sind.'))
+ST.neu('laplace_pruefen', 'darstellung', SA('Eine Strichliste nach 600 Würfen eines Würfels zeigt: 1: 98, 2: 103, 3: 97, 4: 101, 5: 99, 6: 102. Was passt am besten?', 'Der Würfel verhält sich wie ein Laplace-Würfel.',
+    ['Der Würfel ist gezinkt, weil nicht alle Zahlen gleich oft kamen.', 'Die 2 ist sicher wahrscheinlicher als die 3.', 'Man kann aus der Liste gar nichts schließen.'],
+    'Erwartet sind je etwa 100. Abweichungen von wenigen Würfen sind bei Zufall normal – nichts spricht gegen gleich wahrscheinliche Augenzahlen.', 'Wie oft erwartest du jede Zahl bei 600 Würfen?'))
+ST.neu('laplace_pruefen', 'begruenden', SA('Ein Quader-Würfel ist 1 cm × 2 cm × 3 cm groß; die Flächen sind mit 1 bis 6 beschriftet. Warum ist Werfen damit kein Laplace-Experiment?', 'Die Flächen sind verschieden groß, große Flächen liegen öfter unten bzw. oben.',
+    ['Weil er nur sechs Flächen hat.', 'Weil die Zahlen nicht gleich groß gedruckt sind.', 'Er ist doch ein Laplace-Experiment.'],
+    'Ein Körper landet bevorzugt auf großen, stabilen Flächen. Gleich wahrscheinlich sind die Seiten nur bei einem symmetrischen Würfel.', 'Welche Seite ist am stabilsten?'))
+ST.knobel('laplace_pruefen', SA('Zwei Münzen werden geworfen; notiert wird nur „gleich“ (beide Wappen oder beide Zahl) oder „verschieden“. Ist das ein Laplace-Experiment?', 'Ja: Beide Ergebnisse haben die Wahrscheinlichkeit 1/2.',
+    ['Nein, „gleich“ ist wahrscheinlicher.', 'Nein, „verschieden“ ist wahrscheinlicher.', 'Das lässt sich nicht entscheiden.'],
+    'Die vier gleich wahrscheinlichen Ausgänge WW, ZZ, WZ, ZW verteilen sich 2 : 2 auf „gleich“ und „verschieden“.', 'Schreibe die vier Ausgänge mit Reihenfolge auf.'))
+ST.knobel('laplace_pruefen', SA('Mit einem fairen Würfel soll ein Laplace-Experiment mit genau 4 gleich wahrscheinlichen Ergebnissen gebaut werden. Wie geht es?', 'Würfeln; bei 5 oder 6 noch einmal würfeln, sonst zählt die Zahl 1 bis 4.',
+    ['Die Augenzahl durch 2 teilen und runden.', 'Die Augenzahlen 1–2, 3, 4 und 5–6 zusammenfassen.', 'Das ist unmöglich.'],
+    'Wiederholt man bei 5 und 6, bleiben am Ende nur 1, 2, 3, 4 – und die sind gleich wahrscheinlich. Beim Zusammenfassen wären 1–2 und 5–6 doppelt so wahrscheinlich.', 'Was passiert, wenn man bestimmte Ergebnisse einfach nicht gelten lässt?'))
+
+# --- gegenereignis ---
+ST.leiter('gegenereignis', 'P(nicht E) = 100 % − P(E) berechnen, das Gegenereignis benennen',
+          '„nicht durch 3 teilbar“, „keine Primzahl“ über das Gegenereignis, Sachbeispiel, E aus dem Gegenereignis finden',
+          'mindestens eine Sechs, zwei Ereignisse und Überschneidung verknüpfen, „keine 7“, P(E) = 3 · P(Ē), falsches Gegenereignis, begründen warum P + P = 1')
+T('gegenereignis', (r'beträgt \d+ %', 'direkt'), (r'Wie heißt das Gegenereignis', 'darstellung'), (r'NICHT|KEINE Primzahl', 'mehrschritt'),
+  (r'mindestens eine Sechs|KEINE 7', 'transfer'), (r'weder rot noch blau|Bäumen', 'verknuepfen'), (r'dreimal so groß', 'parameter'))
+ST.neu('gegenereignis', 'erkennen', SA('Ein Würfel wird einmal geworfen. Was ist das Gegenereignis zu „gerade Zahl“?', 'ungerade Zahl', ['Zahl größer als 3', 'die Sechs', 'keine Sechs'], 'Gegenereignis = alle anderen Ergebnisse: {1; 3; 5}.', 'Welche Ergebnisse bleiben übrig?'))
+ST.neu('gegenereignis', 'einkleidung', SZ('In einer Tüte sind 20 Gummibärchen, 7 davon rot. Wie groß ist die Wahrscheinlichkeit, KEIN rotes zu ziehen? Gib sie als Dezimalzahl an.', 0.65, '13 / 20', '20 − 7 = 13 nicht rote: 13/20 = 0,65 (oder 1 − 0,35).', 'Zähle die nicht roten oder rechne mit dem Gegenereignis.'))
+ST.neu('gegenereignis', 'umkehr', SA('Das Gegenereignis von E ist „höchstens eine Sechs bei drei Würfen“. Wie heißt E?', 'mindestens zwei Sechsen', ['genau eine Sechs', 'keine Sechs', 'höchstens zwei Sechsen'],
+    'Höchstens eine heißt 0 oder 1. Alles andere – 2 oder 3 Sechsen – ist „mindestens zwei“.', 'Welche Anzahlen sind in „höchstens eine“ enthalten, welche nicht?'))
+ST.neu('gegenereignis', 'fehler', SA('Jemand sagt: Das Gegenereignis von „mindestens eine Sechs“ ist „höchstens eine Sechs“. Was stimmt?', 'Falsch: Es ist „keine Sechs“.', ['Richtig.', 'Falsch: Es ist „genau eine Sechs“.', 'Falsch: Es ist „mindestens zwei Sechsen“.'],
+    '„Genau eine Sechs“ gehört zu beiden Ereignissen – Gegenereignisse dürfen sich nicht überschneiden. Das Gegenteil von „mindestens eine“ ist „gar keine“.', 'Gibt es Ergebnisse, die zu beiden Ereignissen gehören?'))
+ST.neu('gegenereignis', 'begruenden', SA('Warum gilt P(E) + P(Ē) = 1?', 'Bei jedem Versuch tritt genau eines von beiden ein.', ['Weil beide Wahrscheinlichkeiten 0,5 sind.', 'Weil man immer 100 Versuche macht.', 'Das gilt nur bei Würfeln.'],
+    'E und Ē teilen den Ergebnisraum ohne Überschneidung auf. Zusammen sind sie sicher – das hat die Wahrscheinlichkeit 1.', 'Kann beides gleichzeitig passieren? Kann keines passieren?'))
+ST.knobel('gegenereignis', SZ('Drei Münzen werden geworfen. Wie groß ist die Wahrscheinlichkeit für mindestens einmal Wappen? Gib sie als Dezimalzahl an.', 0.875, '1 - 1/8',
+    'Gegenereignis: dreimal Zahl, P = 1/2 · 1/2 · 1/2 = 1/8. Also 1 − 1/8 = 7/8 = 0,875.', 'Das Gegenereignis ist viel einfacher zu zählen.'))
+ST.knobel('gegenereignis', SZ('Wie oft muss man eine Münze mindestens werfen, damit die Wahrscheinlichkeit für „mindestens einmal Zahl“ größer als 0,95 ist?', 5, '5',
+    'Gegenereignis: n-mal Wappen, P = (1/2)ⁿ. Gesucht: 1 − (1/2)ⁿ > 0,95, also (1/2)ⁿ < 0,05. 1/16 = 0,0625 reicht nicht, 1/32 ≈ 0,031 schon: n = 5.', 'Rechne mit dem Gegenereignis „nur Wappen“.'))
+
+# --- grosse_zahlen ---
+ST.leiter('grosse_zahlen', 'erwartete Anzahl = Versuche · Wahrscheinlichkeit',
+          'Glücksrad mit Anteil, Wahrscheinlichkeit aus vielen Würfen schätzen, Winkel als Wahrscheinlichkeit',
+          'Fehlvorstellungen (Roulette) begründen, Anzahl gegen Anteil, Schätzungen vergleichen, Gegenereignis aus Schätzung, „ausgleichen“ als Fehler')
+T('grosse_zahlen', (r'^Wie oft erwartest du bei \d+ Versuchen ungefähr (Wappen|eine Sechs)|mit 4 gleichen Feldern', 'direkt'), (r'Glücksrad mit \d+ gleichen', 'mehrschritt'),
+  (r'Schätze die Wahrscheinlichkeit', 'umkehr'), (r'größer als 4', 'einkleidung'), (r'90°', 'darstellung'), (r'FALSCH', 'begruenden'), (r'^Anna|gerade Zahl', 'transfer'),
+  (r'^Serie', 'verknuepfen'), (r'1/3', 'pruefung'), (r'Gewinnspiel', 'fehler'), (r'Reißnagel', 'rueckwaerts'))
+ST.neu('grosse_zahlen', 'erkennen', SA('Was sagt das Gesetz der großen Zahlen?', 'Bei sehr vielen Versuchen liegt die relative Häufigkeit meist nahe an der Wahrscheinlichkeit.',
+    ['Bei vielen Versuchen tritt jedes Ergebnis genau gleich oft auf.', 'Nach vielen Fehlversuchen wird ein Treffer wahrscheinlicher.', 'Die absolute Häufigkeit wird immer genauer vorhersagbar.'],
+    'Der Anteil pendelt sich ein, die Anzahl muss es nicht; und der Zufall „merkt sich“ nichts.', 'Geht es um Anzahlen oder um Anteile?'))
+ST.knobel('grosse_zahlen', SZ('Ein Würfel wird 6 000-mal geworfen. Wie oft erwartest du ungefähr eine Augenzahl, die eine Primzahl oder die 1 ist?', 4000, '6000 * 4 / 6',
+    'Primzahlen bis 6: 2, 3, 5; dazu die 1 – vier von sechs Ergebnissen. 4/6 · 6 000 = 4 000.', 'Welche Augenzahlen gehören dazu?'))
+ST.knobel('grosse_zahlen', SA('Ein Kronkorken lag bei 1 000 Würfen 380-mal „oben“. Er wird noch 1 000-mal geworfen. Welche Aussage ist am vernünftigsten?', 'Man erwartet wieder etwa 380-mal „oben“, genau vorhersagen kann man es nicht.',
+    ['Jetzt kommt öfter „oben“, damit es ausgeglichen wird.', 'Es kommt genau 380-mal „oben“.', 'Man kann gar nichts erwarten.'],
+    'Die Schätzung P ≈ 0,38 gilt weiter; der Kronkorken gleicht nichts aus. Wegen des Zufalls wird es nicht genau 380 sein.', 'Hat der Kronkorken ein Gedächtnis?'))
+baue = mit_stufen(baue, ST)
+# ---- STUFEN ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Grundbegriffe', ['begriffe', 'rel_haeufigkeit']), ('Wahrscheinlichkeiten', ['laplace', 'laplace_pruefen', 'gegenereignis']), ('Zufall auf Dauer', ['grosse_zahlen'])],

@@ -14,3 +14,4 @@ Annahme zu „überzählig“: Überzählige Übungen bleiben in der Datei (Stuf
 - messen.koerper_darstellung: 19 neue Übungen, 12 Knobel-Bordkarten, 8 umgestuft, 19 überzählig. `inhalt_pruefen` OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
 - messen.kreisberechnung: 21 neue Übungen, 14 Knobel-Bordkarten, 6 umgestuft, 28 überzählig. `inhalt_pruefen` OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
 - messen.prisma_zylinder: 17 neue Übungen, 14 Knobel-Bordkarten, 10 umgestuft, 0 überzählig (alle Übungen mit Typ, strenge Prüfregeln laufen). `inhalt_pruefen` OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
+- stochastik.grundbegriffe: 20 neue Übungen, 12 Knobel-Bordkarten, 0 umgestuft, 13 überzählig (ohne Typ, im Abschlussbericht). `inhalt_pruefen` OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.

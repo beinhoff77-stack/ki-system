@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 18:00 – STATUS
+**messen.flaechen_vielecke** fertig: Typen vergeben (die Prüfungsvorbild-Aufgaben der Achtzehnten Runde als „pruefung“), 5 neue Übungen, 14 Knobel-Bordkarten, 1 überzählige. Prüfskript OK, 0 Gruppen, Nachweis OK.
+
 ## 2026-11-17 17:35 – STATUS
 **terme.potenzgesetze** fertig: 10 umgestuft, 35 neue Übungen, 14 Knobel-Bordkarten, 2 überzählige. Prüfskript OK, 0 Gruppen, Nachweis OK.
 

@@ -19,6 +19,7 @@ sys.path.insert(0, str(HIER))
 from _bausatz import PI, jw, rechne, runde, zt  # noqa: E402,F401
 
 P, K = 'pruefung', 'knobel'
+ARTEN = {}  # Fragetext → Art (pruefung/knobel); nur zum Nachschlagen für die Zwanzigste Runde, ändert keine Ausgabe
 PLAN = [('uebung', 1)] * 4 + [('uebung', 2)] * 6 + [('uebung', 3)] * 8 + [('test', 2)] + [('korrektur', 2)] * 3 + [('sicherung', 2)] * 6
 
 
@@ -57,7 +58,7 @@ def Z(text, wert, c, w, h='', einheit=None, art=None, grafik=None, toleranz=None
     if einheit: a['o']['einheit'] = einheit
     if toleranz is not None: a['o']['toleranz'] = toleranz
     if grafik: a['f']['grafik'] = grafik
-    if art: a['_art'] = art
+    if art: a['_art'] = art; ARTEN[a['f']['text']] = art
     return a
 
 
@@ -76,7 +77,7 @@ def A(R, text, richtig, falsche, w, h='', art=None, grafik=None):
     f.insert(i, richtig)
     a = {'y': 'auswahl', 'f': {'text': text}, 'a': f, 'o': {'index': i}, 'w': w, 'h': h}
     if grafik: a['f']['grafik'] = grafik
-    if art: a['_art'] = art
+    if art: a['_art'] = art; ARTEN[a['f']['text']] = art
     return a
 
 
@@ -84,7 +85,7 @@ def L(text, schablone, werte, c, w, h, hinweis, art=None, grafik=None):
     for ci, v in zip(c, werte): assert rechne(ci) == Fr(v), (ci, v)
     a = {'y': 'luecken', 'f': {'text': text, 'schablone': schablone, 'hinweis': hinweis}, 'o': {'werte': [int(v) for v in werte]}, 'c': list(c), 'w': w, 'h': h}
     if grafik: a['f']['grafik'] = grafik
-    if art: a['_art'] = art
+    if art: a['_art'] = art; ARTEN[a['f']['text']] = art
     return a
 
 

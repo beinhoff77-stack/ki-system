@@ -865,6 +865,104 @@ def datei():
     }, anz
 
 
+# ---------- STUFEN (Zwanzigste Runde, Zweig stufen-kl6) ----------
+from _stufen_kl6 import Stufen, stufen_datei  # noqa: E402
+
+ST = Stufen('messen.flaechen_vielecke', 20_6_10)
+SZ, SA, SN, SK, STB = ST.Z, ST.A, ST.neu, ST.knobel, ST.typ_bau
+
+lz = 'parallelogramm'
+ST.leiter(lz, 'A = g · h mit gegebener Grundseite und Höhe; die richtige Höhe erkennen.', 'Einheiten umrechnen, mehrere Flächen in Sachsituationen, die passende Höhe zur gewählten Seite.',
+          'Fläche im Koordinatensystem, Höhe zu einer anderen Seite, Verdoppeln begründen, schief gedrückter Rahmen, Diagonale, Kosten, Fehler deuten.')
+for t, g in (('Die Punkte', 'verknuepfen'), ('Ein Parallelogramm hat die Seiten a = 10 cm und b = 6', 'pruefung'), ('Ein Rahmen', 'transfer'), ('Ein Parallelogramm hat 27', 'begruenden'),
+             ('Für eine Fassade', 'transfer'), ('Ein Parallelogramm hat die Seiten a = 10 cm und b = 4', 'rueckwaerts'), ('Eine Diagonale', 'transfer'), ('Jonas', 'fehler')):
+    STB(lz, 3, t, g)
+SK(lz, SZ('knobel', 'Ein Parallelogramm hat die Seiten 8 cm und 5 cm. Wie groß kann sein Flächeninhalt höchstens sein?', 40, '8 * 5',
+         'A = g · h. Mit g = 8 cm kann die Höhe höchstens so lang sein wie die andere Seite, 5 cm – dann steht sie senkrecht und das Parallelogramm ist ein Rechteck. Größter Flächeninhalt: 40 cm².',
+         'Wie lang kann die Höhe höchstens werden?', einheit='cm²'))
+SK(lz, SZ('knobel', 'In einem Parallelogramm mit 60 cm² verbindet man die Mittelpunkte der vier Seiten. Wie groß ist das innere Viereck?', 30, '60 / 2',
+         'Die Verbindungen der Mitten zerlegen das Parallelogramm in das innere Viereck und vier Eckdreiecke. Jedes Eckdreieck ist so groß wie ein Viertel eines kleinen Parallelogramms, zusammen die Hälfte. Innen bleiben 30 cm².',
+         'Zeichne die Mittellinien parallel zu den Seiten ein.', einheit='cm²'))
+
+lz = 'dreieck'
+ST.leiter(lz, 'A = g · h : 2 mit gegebener Grundseite und Höhe; erkennen, was die Höhe ist.', 'Höhe außen, rechtwinklige Dreiecke, Einheiten, die passende Rechnung auswählen.',
+          'Dreieck im Rechteck rückwärts, Koordinaten, wandernde Spitze, Drachen, Fehler deuten, gleiche Fläche begründen.')
+STB(lz, 1, 'Berechne den Flächeninhalt', 'direkt'); STB(lz, 2, 'Ein dreieckiger Wimpel', 'einkleidung')
+for t, g in (('Ein Rechteck ist 6 cm hoch', 'rueckwaerts'), ('Das Parallelogramm ABCD', 'verknuepfen'), ('In einem Quadrat', 'transfer'), ('Lea', 'fehler'),
+             ('Dreieck 1', 'begruenden'), ('Ein Drachen', 'pruefung'), ('In ein Rechteck', 'transfer')):
+    STB(lz, 3, t, g)
+SN(lz, SA('erkennen', 'Welche Aussage über die Höhe eines Dreiecks stimmt?', 'Sie steht senkrecht auf der Grundseite und geht durch die gegenüberliegende Ecke.',
+         ['Sie ist immer die längste Seite.', 'Sie ist immer eine der drei Seiten.'], 'Die Höhe ist der Abstand der Spitze von der Grundseite – senkrecht gemessen. Nur im rechtwinkligen Dreieck kann sie eine Seite sein.', 'Wie misst man einen Abstand?'))
+SK(lz, SZ('knobel', 'Die Grundseite AB eines Dreiecks ist 6 cm lang. Die Spitze C liegt irgendwo auf einer Linie, die 4 cm über AB parallel zu AB verläuft. Wie groß ist der Flächeninhalt, egal wo C liegt?', 12, '6 * 4 / 2',
+         'Wo C auch liegt: Die Höhe ist immer der Abstand der Linie von AB, also 4 cm. A = 6 cm · 4 cm : 2 = 12 cm². Alle diese Dreiecke sind gleich groß.', 'Was ändert sich, wenn C wandert – und was nicht?', einheit='cm²'))
+SK(lz, SZ('knobel', 'Ein rechtwinkliges Dreieck hat die Seiten 6 cm und 8 cm am rechten Winkel und die längste Seite 10 cm. Wie lang ist die Höhe auf die längste Seite?', 4.8, '6 * 8 / 10',
+         'Fläche mit den Seiten am rechten Winkel: 6 · 8 : 2 = 24 cm². Dieselbe Fläche mit der langen Seite als Grundseite: 10 · h : 2 = 24, also h = 4,8 cm.', 'Berechne die Fläche auf zwei Arten.', einheit='cm'))
+
+lz = 'trapez'
+ST.leiter(lz, 'A = (a + c) · h : 2 mit gegebenen Maßen; die parallelen Seiten erkennen.', 'Grundstücke und rechtwinklige Trapeze, Einheiten, die passende Rechnung auswählen.',
+          'Formel begründen, Koordinaten, Rechteck mit abgeschnittenen Ecken, Mittellinie, Kosten einer Wiese, Zerlegen, Fehler bei Punkt vor Strich.')
+STB(lz, 1, 'Berechne den Flächeninhalt', 'direkt')
+STB(lz, 2, 'Ein Grundstück', 'einkleidung'); STB(lz, 2, 'Ein Trapez hat die parallelen Seiten 7', 'einkleidung'); STB(lz, 2, 'Ein Trapez hat a = 1,3', 'mehrschritt')
+for t, g in (('Warum', 'begruenden'), ('Die Punkte', 'verknuepfen'), ('Von einem Rechteck', 'transfer'), ('Eine Dachfläche', 'transfer'), ('Eine Wiese', 'pruefung'),
+             ('Bei einem Trapez', 'transfer'), ('Ein Trapez wird in', 'rueckwaerts'), ('Tim', 'fehler')):
+    STB(lz, 3, t, g)
+SN(lz, SA('erkennen', 'Welche Seiten eines Trapezes sind parallel?', 'die beiden Grundseiten a und c', ['die beiden Schenkel b und d', 'alle vier Seiten'], 'Ein Trapez hat (mindestens) ein Paar paralleler Seiten: a und c. Ihr Abstand ist die Höhe.', 'Welche Seiten kommen in der Formel vor?'))
+SK(lz, SZ('knobel', 'Ein Trapez hat a = 10 cm, c = 4 cm und h = 6 cm. Eine Diagonale teilt es in zwei Dreiecke. Wie groß ist das größere Dreieck?', 30, '10 * 6 / 2',
+         'Beide Dreiecke haben die Höhe 6 cm. Das eine hat die Grundseite a = 10 cm (30 cm²), das andere c = 4 cm (12 cm²). Zusammen 42 cm² = Trapezfläche. Das größere hat 30 cm².', 'Welche Grundseite und welche Höhe hat jedes Dreieck?', einheit='cm²'))
+SK(lz, SZ('knobel', 'Ein Trapez hat a = 12 cm und h = 5 cm. Es soll doppelt so groß sein wie ein Dreieck mit der Grundseite 12 cm und der Höhe 5 cm. Wie lang muss c sein?', 12, '2 * 12 * 5 / 2 * 2 / 5 - 12',
+         'Dreieck: 12 · 5 : 2 = 30 cm², doppelt 60 cm². (12 + c) · 5 : 2 = 60 ergibt 12 + c = 24, also c = 12 cm. Das „Trapez“ ist dann sogar ein Parallelogramm.', 'Wie groß muss das Trapez sein?', einheit='cm'))
+
+lz = 'rueckwaerts'
+ST.leiter(lz, 'Aus Fläche und einer Länge die fehlende Länge beim Parallelogramm bestimmen.', 'Fehlende Höhe oder Grundseite bei Dreieck und Trapez, mit Einheiten.',
+          'Höhe zu einer anderen Seite, gleich große Figuren, Einheitenwechsel, fehlende parallele Seite, Abstand der Seiten in einer Sachsituation.')
+for t, g in (('Ein Parallelogramm hat die Seiten a = 8', 'pruefung'), ('Ein Dreieck soll dieselbe', 'verknuepfen'), ('Ein Dreieck hat die Seiten', 'transfer'),
+             ('Ein Dreieck mit der Grundseite 8', 'verknuepfen'), ('Ein Parallelogramm (g = 7', 'transfer'), ('Ein Parallelogramm hat 0,14', 'verknuepfen'),
+             ('Ein Trapez ist 4 cm hoch', 'rueckwaerts'), ('Ein Beet', 'rueckwaerts')):
+    STB(lz, 3, t, g)
+SK(lz, SZ('knobel', 'Ein Trapez ist 4 cm hoch und hat 30 cm². Die Seite a ist 3 cm länger als die Seite c. Wie lang ist a?', 9, '(30 * 2 / 4 + 3) / 2',
+         '(a + c) · 4 : 2 = 30 ergibt a + c = 15. Wenn a um 3 länger ist: c + 3 + c = 15, also 2c = 12, c = 6 und a = 9 cm.', 'Bestimme zuerst a + c.', einheit='cm'))
+SK(lz, SZ('knobel', 'Ein Dreieck hat 36 cm². Grundseite und Höhe sind ganze Zentimeter. Wie viele Möglichkeiten gibt es für die Länge der Grundseite?', 12, '12',
+         'g · h : 2 = 36 heißt g · h = 72. g kann jeder Teiler von 72 sein: 1, 2, 3, 4, 6, 8, 9, 12, 18, 24, 36, 72 – das sind 12 Möglichkeiten.', 'Was muss g · h ergeben?'))
+
+lz = 'zusammengesetzt'
+ST.leiter(lz, 'Eine Figur in Rechtecke und Dreiecke zerlegen und die Teile addieren.', 'Abschneiden oder Ausschneiden (subtrahieren), Figuren aus mehreren Grundformen.',
+          'Vierecke im Koordinatensystem, Loch mit vorgegebener Größe, Quadrat in Quadrat, Rahmen, Giebelwand, fehlende Höhe rückwärts.')
+STB(lz, 1, 'Ein Fünfeck', 'direkt'); STB(lz, 1, 'Die L-Form', 'direkt'); STB(lz, 2, 'Ein Pfeil', 'einkleidung')
+for t, g in (('Berechne den Flächeninhalt des Vierecks', 'verknuepfen'), ('Aus einem Rechteck', 'rueckwaerts'), ('In ein Quadrat', 'transfer'), ('Auf jede Seite', 'transfer'),
+             ('Ein Bilderrahmen', 'transfer'), ('Berechne den Flächeninhalt des Fünfecks', 'verknuepfen'), ('Eine Giebelwand', 'pruefung'), ('Ein Fünfeck aus', 'rueckwaerts')):
+    STB(lz, 3, t, g)
+SN(lz, SA('erkennen', 'In welche Teilflächen zerlegst du eine L-förmige Figur am einfachsten?', 'in zwei Rechtecke', ['in ein Rechteck und ein Dreieck', 'in zwei Dreiecke'], 'Ein L hat nur rechte Winkel. Ein Schnitt zerlegt es in zwei Rechtecke.', 'Welche Winkel hat ein L?'))
+SK(lz, SZ('knobel', 'Ein Kreuz besteht aus 5 gleichen Quadraten (eines in der Mitte, an jeder Seite eines). Sein Umfang ist 48 cm. Wie groß ist sein Flächeninhalt?', 80, '5 * (48 / 12) ** 2',
+         'Der Rand des Kreuzes besteht aus 12 Quadratseiten. 48 cm : 12 = 4 cm. Ein Quadrat hat 16 cm², fünf Quadrate 80 cm².', 'Zähle, wie viele Quadratseiten den Rand bilden.', einheit='cm²'))
+SK(lz, SZ('knobel', 'In einem Rechteck (12 cm · 8 cm) verbindet man die Mittelpunkte der vier Seiten. Wie groß ist das entstehende Viereck?', 48, '12 * 8 / 2',
+         'Die Verbindungen schneiden vier gleiche rechtwinklige Dreiecke (6 cm · 4 cm : 2 = 12 cm²) ab. 96 cm² − 4 · 12 cm² = 48 cm² – genau die Hälfte.', 'Was wird an den Ecken abgeschnitten?', einheit='cm²'))
+
+lz = 'oberflaeche'
+ST.leiter(lz, 'Oberfläche eines Prismas aus Grundflächen und Rechtecken zusammensetzen; Flächen eines Körpers erkennen.', 'Schachteln, Zelte, Behälter und Netze mit Dreieck oder Trapez als Grundfläche.',
+          'Würfel mit herausgenommener Ecke begründen, zusammengeklebte Körper, Kantenmodell, Schachtel aus Karton, Spielhaus, offener Trog.')
+STB(lz, 2, 'Ein geschlossener Behälter', 'mehrschritt')
+for t, g in (('Aus einem Würfel', 'begruenden'), ('Vier Würfel', 'pruefung'), ('Zwei gleiche Keile (Dreieck mit 6', 'transfer'), ('Ein Keil', 'verknuepfen'),
+             ('Zwei gleiche Keile (rechtwinkliges', 'transfer'), ('Eine Schachtel', 'pruefung'), ('Ein Spielhaus', 'verknuepfen'), ('Ein Futtertrog', 'transfer')):
+    STB(lz, 3, t, g)
+SK(lz, SZ('knobel', 'Ein Würfel mit 3 cm Kante wird in 27 Würfel mit 1 cm Kante zersägt. Um wie viele cm² ist die Oberfläche aller kleinen Würfel zusammen größer als die des großen Würfels?', 108, '27 * 6 - 6 * 9',
+         'Großer Würfel: 6 · 9 cm² = 54 cm². Kleine Würfel: 27 · 6 cm² = 162 cm². Unterschied: 108 cm² – so viel Fläche entsteht durch die Schnitte.', 'Rechne beide Oberflächen aus.', einheit='cm²'))
+SK(lz, SZ('knobel', '12 Würfel mit 1 cm Kante werden zu einem Quader zusammengelegt. Wie groß ist die kleinstmögliche Oberfläche?', 32, '2 * (2 * 2 + 2 * 3 + 2 * 3)',
+         'Möglich sind 1 · 1 · 12 (50 cm²), 1 · 2 · 6 (40 cm²), 1 · 3 · 4 (38 cm²) und 2 · 2 · 3 (32 cm²). Je „würfelähnlicher“, desto kleiner: 32 cm².', 'Schreibe alle Quader mit 12 Würfeln auf.', einheit='cm²'))
+
+lz = 'verstehen'
+ST.leiter(lz, 'Flächen vergleichen und einfache Aussagen beurteilen; Flächeninhalt eines Rechtecks berechnen.', 'Schief drücken, verdoppeln, gleiche Grundseite und Höhe, fehlende Seite eines Rechtecks, Fläche schätzen.',
+          'Fläche und Umfang unterscheiden, Maßstab, gleiche Fläche begründen, schätzen bei gebogenen Rändern, Fehler deuten, fehlende Höhe.')
+for t, g in (('Stimmt die Aussage', 'begruenden'), ('Ein See', 'pruefung'), ('Ein Dreieck und ein Parallelogramm', 'transfer'), ('Ein Spielplatz', 'transfer'),
+             ('Zwei Rechtecke', 'begruenden'), ('Ein Parallelogramm (g = 10', 'rueckwaerts'), ('Mara', 'fehler'), ('Auf einer Karte', 'verknuepfen')):
+    STB(lz, 3, t, g)
+SN(lz, SZ('direkt', 'Ein Rechteck ist 6 cm lang und 4,5 cm breit. Wie groß ist sein Flächeninhalt?', 27, '6 * 4.5', 'A = 6 cm · 4,5 cm = 27 cm².', 'Länge mal Breite.', einheit='cm²'))
+SN(lz, SZ('umkehr', 'Ein Rechteck hat 48 cm² und ist 8 cm lang. Wie breit ist es?', 6, '48 / 8', '48 cm² : 8 cm = 6 cm.', 'Welche Zahl mal 8 ergibt 48?', einheit='cm'))
+SK(lz, SZ('knobel', 'Ein Rechteck hat den Umfang 24 cm und ganzzahlige Seiten. Wie groß kann sein Flächeninhalt höchstens sein?', 36, '6 * 6',
+         'Länge + Breite = 12 cm. Möglich: 1 · 11, 2 · 10, 3 · 9, 4 · 8, 5 · 7, 6 · 6. Die Flächen 11, 20, 27, 32, 35, 36 cm² – am größten beim Quadrat: 36 cm².', 'Wie groß ist Länge plus Breite?', einheit='cm²'))
+SK(lz, SZ('knobel', 'Wie viele verschiedene Rechtecke mit ganzzahligen Seiten (in cm) haben den Flächeninhalt 36 cm²? (Gedrehte zählen nicht doppelt.)', 5, '5',
+         '36 = 1 · 36 = 2 · 18 = 3 · 12 = 4 · 9 = 6 · 6. Das sind 5 Rechtecke (das letzte ist ein Quadrat).', 'Zerlege 36 in zwei Faktoren.'))
+
 if __name__ == '__main__':
     d_, anz = datei()
     schreiben(ZIEL, d_, anz)
+    stufen_datei('messen.flaechen_vielecke', ST)

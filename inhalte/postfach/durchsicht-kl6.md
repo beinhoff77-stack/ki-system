@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 15:25 – STATUS
+**bruch.rechnen** fertig: 57 Übungen umgestuft, 2 neue Stufe-3-Übungen (rechenvorteile), keine falsche Lösung, keine Kartenänderung. Prüfskript OK, Nachweis OK.
+
 ## 2026-11-17 14:50 – STATUS
 **bruch.dezimal** fertig: 28 Übungen umgestuft, keine falsche Lösung, Erklärungen ausreichend (keine Kartenänderung). Prüfskript OK, Nachweis OK.
 

@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 17:00 – STATUS
+**daten.darstellen** fertig: 20 Übungen umgestuft, keine falsche Lösung, keine Kartenänderung. Prüfskript OK, Nachweis OK.
+
 ## 2026-11-17 16:45 – STATUS
 **finanzen.zinsen** fertig: Stufe 2 war Stufe 1 mit größeren Zahlen, Stufe 3 drei- bis viermal derselbe Fehler-Typ. 31 Übungen ersetzt (alte Texte im Schlussbericht), 10 neu, 10 umgestuft. Jetzt je Karte mindestens 4 echte Übungen je Stufe. Keine falsche Lösung. Prüfskript OK, Nachweis OK.
 

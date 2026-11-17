@@ -798,7 +798,7 @@
    "l": "absolute_haeufigkeit",
    "t": "absolute_haeufigkeit",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Umfrage Lieblingsfach: Mathe, Kunst, Mathe, Sport, Deutsch, Kunst, Mathe, Kunst, Kunst, Kunst, Kunst, Sport, Kunst, Sport, Musik. Wie viele Kinder nannten weder „Kunst“ noch „Mathe“?"
@@ -814,7 +814,7 @@
    "l": "absolute_haeufigkeit",
    "t": "absolute_haeufigkeit",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Umfrage Lieblingsfach: Mathe, Deutsch, Deutsch, Deutsch, Sport, Sport, Deutsch, Musik, Mathe, Deutsch, Kunst, Kunst, Sport. Wie viele Kinder nannten weder „Deutsch“ noch „Kunst“?"
@@ -1416,7 +1416,7 @@
    "l": "relative_haeufigkeit",
    "t": "relative_haeufigkeit",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Bei 40 Münzwürfen lag die relative Häufigkeit für „Zahl“ bei 20 %. Wie oft fiel „Zahl“?"
@@ -1453,7 +1453,7 @@
    "l": "relative_haeufigkeit",
    "t": "relative_haeufigkeit",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Bei 60 Münzwürfen lag die relative Häufigkeit für „Zahl“ bei 10 %. Wie oft fiel „Zahl“?"
@@ -1469,7 +1469,7 @@
    "l": "relative_haeufigkeit",
    "t": "relative_haeufigkeit",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Haustier: Hund 15 %, Katze 20 %, der Rest wählt Hamster. Wie viel Prozent wählen Hamster?"
@@ -2100,7 +2100,7 @@
    "l": "tabelle_auswerten",
    "t": "tabelle_auswerten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Die Tabelle zeigt eine Umfrage zum Thema Schulweg. Wie viel Prozent haben „zu Fuß“ gewählt?",
@@ -2136,7 +2136,7 @@
    "l": "tabelle_auswerten",
    "t": "tabelle_auswerten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Fußball",
@@ -2218,7 +2218,7 @@
    "l": "tabelle_auswerten",
    "t": "tabelle_auswerten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Tanzen",
@@ -2260,7 +2260,7 @@
    "l": "tabelle_auswerten",
    "t": "tabelle_auswerten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Die Tabelle zeigt eine Umfrage zum Thema Lieblingsfach. Wie viel Prozent haben „Kunst“ gewählt?",
@@ -2296,7 +2296,7 @@
    "l": "tabelle_auswerten",
    "t": "tabelle_auswerten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Die Tabelle zeigt eine Umfrage zum Thema Schulweg. Wie viel Prozent haben „Rad“ gewählt?",
@@ -3064,7 +3064,7 @@
    "l": "saeulendiagramm",
    "t": "saeulendiagramm",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Das Säulendiagramm zeigt eine Umfrage zum Thema Schulweg. Wie viel Prozent der Befragten nennen „zu Fuß“?",
@@ -3116,7 +3116,7 @@
    "l": "saeulendiagramm",
    "t": "saeulendiagramm",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Die Tabelle zeigt eine Umfrage zum Thema Lieblingsobst. Maßstab: 1 cm für 4 Kinder. Wie hoch wird die höchste Säule?",
@@ -3154,7 +3154,7 @@
    "l": "saeulendiagramm",
    "t": "saeulendiagramm",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Das Säulendiagramm zeigt eine Umfrage zum Thema Haustier. Wie viel Prozent der Befragten nennen „Hamster“?",
@@ -3206,7 +3206,7 @@
    "l": "saeulendiagramm",
    "t": "saeulendiagramm",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Die Tabelle zeigt eine Umfrage zum Thema Schulweg. Maßstab: 1 cm für 4 Kinder. Wie hoch wird die höchste Säule?",
@@ -3921,7 +3921,7 @@
    "l": "kreisdiagramm",
    "t": "kreisdiagramm",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Kreisausschnitt hat einen Winkel von 234°. Wie viel Prozent stellt er dar?"
@@ -3938,7 +3938,7 @@
    "l": "kreisdiagramm",
    "t": "kreisdiagramm",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Kreisdiagramm hat die Winkel 108° und 54° und einen dritten Teil. Wie viel Prozent stellt der dritte Teil dar?"
@@ -3955,7 +3955,7 @@
    "l": "kreisdiagramm",
    "t": "kreisdiagramm",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Kreisdiagramm hat die Winkel 162° und 108° und einen dritten Teil. Wie viel Prozent stellt der dritte Teil dar?"
@@ -4605,7 +4605,7 @@
    "l": "irrefuehrend",
    "t": "irrefuehrend",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Nein, ein Kreisdiagramm darf höchstens zwei Teile haben.",
@@ -4625,7 +4625,7 @@
    "l": "irrefuehrend",
    "t": "irrefuehrend",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Bild-Diagramm zeigt den 2-fachen Wert durch ein Bild, das 2-mal so hoch und 2-mal so breit ist. Wie viel Mal so groß ist die Bildfläche?"
@@ -4641,7 +4641,7 @@
    "l": "irrefuehrend",
    "t": "irrefuehrend",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Nein, die Anteile ergeben zusammen nicht 100 %.",

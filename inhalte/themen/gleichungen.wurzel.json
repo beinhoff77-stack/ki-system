@@ -41,66 +41,518 @@
    {
     "lernziel": "definitionsmenge",
     "titel": "Wann ist die Wurzel definiert?",
-    "regel": "Unter der Wurzel (im ⟦Radikanden⟧) darf ⟦keine negative Zahl⟧ stehen. Bei √(2x − 6) muss also ⟦2x − 6 ≥ 0⟧ gelten. Diese Ungleichung löst du – das ergibt die ⟦Definitionsmenge D⟧. Wie ein Türsteher: Nur x-Werte aus D dürfen in die Gleichung.",
+    "regel": "Radikand ≥ 0 setzen und nach x auflösen. Das ergibt die ⟦Definitionsmenge D⟧.",
     "schritte": [
-     "√(2x − 6): 2x − 6 ≥ 0 | + 6 ⇒ 2x ≥ 6 | : 2 ⇒ x ≥ 3.",
-     "Also ⟦D = {x | x ≥ 3}⟧."
+     {
+      "text": "Der Radikand 2x − 6 darf nicht negativ sein: 2x − 6 ≥ 0."
+     },
+     {
+      "text": "Plus 6, dann durch 2: x ≥ 3.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 3,
+         "name": "x = 3"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Also ⟦D = {x | x ≥ 3}⟧.",
+      "bild": {
+       "bereich": {
+        "von": 3,
+        "bis": 6
+       }
+      }
+     }
     ],
-    "probe": "x = 3: √0 = 0 ✓; x = 2: √(−2) gibt es nicht ✓",
-    "fehler": "Bei √(6 − 2x) zu schreiben D = {x | x ≥ 3} ist falsch: −2x ≥ −6 und beim Teilen durch ⟦−2 dreht sich das Zeichen⟧: x ≤ 3."
+    "fehler": "Bei √(6 − 2x) ist x ≥ 3 falsch. Beim Teilen durch −2 ⟦dreht sich das Zeichen⟧: x ≤ 3.",
+    "einstieg": "Tippst du √(−4) in den Taschenrechner, zeigt er „Error“. Unter einer Wurzel darf nichts Negatives stehen. Welche x erlaubt sind, sagt die ⟦Definitionsmenge D⟧.",
+    "woerter": [
+     [
+      "Radikand",
+      "die Zahl oder der Term unter der Wurzel"
+     ],
+     [
+      "Definitionsmenge D",
+      "alle x, die man einsetzen darf"
+     ],
+     [
+      "D = {x | x ≥ 3}",
+      "gelesen: alle x, die größer oder gleich 3 sind"
+     ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 6,
+     "abschnitte": 6,
+     "beschriftet": "alle"
+    },
+    "fehler_bild": {
+     "bereich": {
+      "von": 0,
+      "bis": 3
+     }
+    }
    },
    {
     "lernziel": "quadrieren",
     "titel": "Durch Quadrieren lösen",
-    "regel": "Steht die Wurzel allein, ⟦quadrierst du beide Seiten⟧: Aus √(T) = c wird ⟦T = c²⟧. Das ist eine Gleichung ohne Wurzel. Danach immer die ⟦Probe⟧ machen.",
+    "regel": "Steht die Wurzel allein, ⟦beide Seiten quadrieren⟧. Danach immer die Probe machen.",
     "schritte": [
-     "√(3x + 1) = 5 | quadrieren ⇒ 3x + 1 = 25.",
-     "3x = 24 ⇒ ⟦x = 8⟧."
+     {
+      "text": "Beide Seiten quadrieren: 3x + 1 = 25.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "Gleichung"
+       ],
+       "zeilen": [
+        [
+         "Start",
+         "√(3x + 1) = 5"
+        ],
+        [
+         "quadrieren",
+         "3x + 1 = 25"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Minus 1, dann durch 3: ⟦x = 8⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "Gleichung"
+       ],
+       "zeilen": [
+        [
+         "Start",
+         "√(3x + 1) = 5"
+        ],
+        [
+         "quadrieren",
+         "3x + 1 = 25"
+        ],
+        [
+         "− 1, : 3",
+         "x = 8"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Probe: √(3 · 8 + 1) = √25 = 5. Stimmt.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "Gleichung"
+       ],
+       "zeilen": [
+        [
+         "Start",
+         "√(3x + 1) = 5"
+        ],
+        [
+         "quadrieren",
+         "3x + 1 = 25"
+        ],
+        [
+         "− 1, : 3",
+         "x = 8"
+        ],
+        [
+         "Probe",
+         "√25 = 5 ✓"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "√(3 · 8 + 1) = √25 = 5 ✓",
-    "fehler": "√(3x + 1) = 5 ⇒ 3x + 1 = 5 ist falsch: Die rechte Seite muss ⟦auch quadriert⟧ werden: 5² = 25."
+    "fehler": "3x + 1 = 5 ist falsch. Die rechte Seite muss ⟦auch quadriert⟧ werden: 5² = 25.",
+    "einstieg": "Tippst du 25 und dann √, zeigt der Taschenrechner 5. Tippst du danach x², steht wieder 25 da. ⟦Quadrieren⟧ macht die Wurzel rückgängig.",
+    "woerter": [
+     [
+      "quadrieren",
+      "eine Zahl mit sich selbst malnehmen: 5² = 25"
+     ],
+     [
+      "Probe",
+      "die Lösung in die Ausgangsgleichung einsetzen und prüfen"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Gleichung"
+     ],
+     "zeilen": [
+      [
+       "Start",
+       "√(3x + 1) = 5"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Gleichung"
+     ],
+     "zeilen": [
+      [
+       "Start",
+       "√(3x + 1) = 5"
+      ],
+      [
+       "falsch",
+       "3x + 1 = 5"
+      ],
+      [
+       "richtig",
+       "3x + 1 = 25"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "isolieren",
     "titel": "Erst die Wurzel allein stellen",
-    "regel": "Bevor du quadrierst, muss die ⟦Wurzel allein⟧ auf einer Seite stehen. Zahlen davor oder dahinter bringst du wie gewohnt weg. Quadrierst du zu früh, entsteht ein unübersichtlicher Term.",
+    "regel": "Erst die Wurzel ⟦isolieren⟧, dann quadrieren. Zahlen davor und dahinter wie gewohnt wegbringen.",
     "schritte": [
-     "2 · √(x − 3) + 4 = 14 | − 4 ⇒ 2 · √(x − 3) = 10 | : 2 ⇒ √(x − 3) = 5.",
-     "Quadrieren: x − 3 = 25 ⇒ ⟦x = 28⟧."
+     {
+      "text": "Zuerst minus 4: 2 · √(x − 3) = 10.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "Gleichung"
+       ],
+       "zeilen": [
+        [
+         "Start",
+         "2 · √(x − 3) + 4 = 14"
+        ],
+        [
+         "− 4",
+         "2 · √(x − 3) = 10"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Dann durch 2: √(x − 3) = 5. Die Wurzel ist isoliert.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "Gleichung"
+       ],
+       "zeilen": [
+        [
+         "Start",
+         "2 · √(x − 3) + 4 = 14"
+        ],
+        [
+         "− 4",
+         "2 · √(x − 3) = 10"
+        ],
+        [
+         ": 2",
+         "√(x − 3) = 5"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Quadrieren: x − 3 = 25, also ⟦x = 28⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "Gleichung"
+       ],
+       "zeilen": [
+        [
+         "Start",
+         "2 · √(x − 3) + 4 = 14"
+        ],
+        [
+         "− 4",
+         "2 · √(x − 3) = 10"
+        ],
+        [
+         ": 2",
+         "√(x − 3) = 5"
+        ],
+        [
+         "quadrieren",
+         "x − 3 = 25"
+        ],
+        [
+         "+ 3",
+         "x = 28"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Probe: 2 · √25 + 4 = 14. Stimmt."
+     }
     ],
-    "probe": "2 · √25 + 4 = 2 · 5 + 4 = 14 ✓",
-    "fehler": "√(x − 3) + 4 = 14 gleich zu quadrieren und (x − 3) + 16 = 196 zu schreiben ist falsch: (a + b)² ist ⟦nicht a² + b²⟧. Erst die 4 abziehen."
+    "fehler": "Zu früh quadrieren ist falsch, denn (a + b)² ist ⟦nicht a² + b²⟧. Erst die 4 abziehen, dann quadrieren.",
+    "einstieg": "Bevor du ein Geschenk auspackst, nimmst du das Band ab. Genauso hier: Erst alles um die Wurzel herum weg, dann quadrieren. Die Wurzel muss ⟦allein⟧ stehen.",
+    "woerter": [
+     [
+      "isoliert",
+      "die Wurzel steht allein auf einer Seite"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Gleichung"
+     ],
+     "zeilen": [
+      [
+       "Start",
+       "2 · √(x − 3) + 4 = 14"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "probe",
     "titel": "Probe und Scheinlösungen",
-    "regel": "Quadrieren kann ⟦Scheinlösungen⟧ erzeugen: Aus √(T) = −3 wird T = 9, obwohl eine Wurzel ⟦nie negativ⟧ ist. Deshalb gilt: Jede Lösung mit der ⟦Probe⟧ prüfen. Fällt sie durch, gehört sie nicht zu L.",
+    "regel": "Quadrieren kann Scheinlösungen erzeugen. Darum jede Lösung mit der ⟦Probe⟧ prüfen.",
     "schritte": [
-     "√(x + 5) = −3 ⇒ x + 5 = 9 ⇒ x = 4.",
-     "Probe: √(4 + 5) = 3 ≠ −3. x = 4 ist eine Scheinlösung, also ⟦L = { }⟧."
+     {
+      "text": "Quadrieren: x + 5 = 9, also x = 4.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "x",
+        "√(x + 5)",
+        "rechts"
+       ],
+       "zeilen": [
+        [
+         "4",
+         "?",
+         "−3"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Probe: √(4 + 5) = 3, nicht −3.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "x",
+        "√(x + 5)",
+        "rechts"
+       ],
+       "zeilen": [
+        [
+         "4",
+         "3",
+         "−3"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "x = 4 ist eine Scheinlösung, also ⟦L = { }⟧."
+     }
     ],
-    "fehler": "Bei √(x + 5) = −3 einfach L = {4} anzugeben ist falsch: Die Probe zeigt ⟦3 ≠ −3⟧. Schon vorher erkennbar: Eine Wurzel kann nicht negativ sein."
+    "fehler": "L = {4} ist falsch. Die Probe zeigt ⟦3 ≠ −3⟧. Eine Wurzel ist nie negativ.",
+    "einstieg": "Ein Taschenrechner zeigt bei √ nie eine negative Zahl. √(x + 5) = −3 kann also nie stimmen. Quadrieren findet trotzdem eine Zahl. Sie ist eine ⟦Scheinlösung⟧.",
+    "woerter": [
+     [
+      "Scheinlösung",
+      "eine Zahl, die beim Rechnen herauskommt, aber die Probe nicht besteht"
+     ],
+     [
+      "L = { }",
+      "leere Lösungsmenge: Es gibt keine Lösung"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "√(x + 5)",
+      "rechts"
+     ],
+     "zeilen": [
+      [
+       "?",
+       "?",
+       "−3"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "zwei_seiten",
     "titel": "Wurzel und x auf beiden Seiten",
-    "regel": "Bei √(x + b) = x + c ergibt das Quadrieren eine ⟦quadratische Gleichung⟧: x + b = (x + c)². Sie hat oft zwei Lösungen – aber ⟦nur die mit bestandener Probe⟧ gehört zu L. Bei √(T₁) = √(T₂) quadrierst du einfach zu T₁ = T₂.",
+    "regel": "Quadrieren, quadratische Gleichung lösen, dann ⟦jede Lösung prüfen⟧. Nur bestandene Proben kommen in L.",
     "schritte": [
-     "√(x + 7) = x + 1 ⇒ x + 7 = x² + 2x + 1 ⇒ x² + x − 6 = 0 ⇒ x = −3 oder x = 2.",
-     "Probe: x = 2: √9 = 3 = 2 + 1 ✓. x = −3: √4 = 2, aber −3 + 1 = −2 ✗. Also ⟦L = {2}⟧."
+     {
+      "text": "Quadrieren: x + 7 = x² + 2x + 1."
+     },
+     {
+      "text": "Umstellen: x² + x − 6 = 0. Lösungen: −3 und 2."
+     },
+     {
+      "text": "Probe x = 2: √9 = 3 und 2 + 1 = 3. Stimmt.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "x",
+        "links √(x + 7)",
+        "rechts x + 1"
+       ],
+       "zeilen": [
+        [
+         "2",
+         "3",
+         "3 ✓"
+        ],
+        [
+         "−3",
+         "?",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "x = −3: links 2, rechts −2. Also ⟦L = {2}⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "x",
+        "links √(x + 7)",
+        "rechts x + 1"
+       ],
+       "zeilen": [
+        [
+         "2",
+         "3",
+         "3 ✓"
+        ],
+        [
+         "−3",
+         "2",
+         "−2 ✗"
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "Beide Lösungen der quadratischen Gleichung in L zu schreiben ist falsch: x = −3 macht die rechte Seite ⟦negativ⟧ – eine Scheinlösung."
+    "fehler": "Beide Lösungen in L schreiben ist falsch. Bei x = −3 ist die rechte Seite ⟦negativ⟧, das ist eine Scheinlösung.",
+    "einstieg": "Jetzt steht auf beiden Seiten etwas mit x: √(x + 7) = x + 1. Quadrieren macht daraus eine ⟦quadratische Gleichung⟧. Nur die Probe entscheidet, welche Lösung gilt.",
+    "woerter": [
+     [
+      "quadratische Gleichung",
+      "eine Gleichung mit x², z. B. x² + x − 6 = 0"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "links √(x + 7)",
+      "rechts x + 1"
+     ],
+     "zeilen": [
+      [
+       "2",
+       "?",
+       "?"
+      ],
+      [
+       "−3",
+       "?",
+       "?"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "sachaufgabe",
     "titel": "Formeln mit Wurzeln",
-    "regel": "Manche Formeln enthalten Wurzeln, z. B. die Fallzeit ⟦t = √(h : 5)⟧ (h in m, t in s) oder die Aufprallgeschwindigkeit ⟦v = √(20 · h)⟧ (v in m/s). Ist das Ergebnis gegeben und die Größe ⟦unter der Wurzel⟧ gesucht, löst du eine Wurzelgleichung.",
+    "regel": "Gesucht ist die Größe unter der Wurzel? Wurzel isolieren, ⟦quadrieren⟧, auflösen.",
     "schritte": [
-     "Ein Stein fällt 3 s lang: √(h : 5) = 3 | quadrieren ⇒ h : 5 = 9.",
-     "h = 45. Er fiel aus ⟦45 m⟧ Höhe."
+     {
+      "text": "Einsetzen: √(h : 5) = 3."
+     },
+     {
+      "text": "Quadrieren: h : 5 = 9."
+     },
+     {
+      "text": "Mal 5: h = ⟦45⟧. Der Schacht ist 45 m tief.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "h in m",
+        "5",
+        "20",
+        "45"
+       ],
+       "zeilen": [
+        [
+         "t in s",
+         "1",
+         "2",
+         "3"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Probe: √(45 : 5) = √9 = 3. Stimmt."
+     }
     ],
-    "probe": "√(45 : 5) = √9 = 3 ✓",
-    "fehler": "√(h : 5) = 3 ⇒ h = 15 ist falsch: Zuerst ⟦quadrieren⟧ (h : 5 = 9), dann mal 5."
+    "fehler": "h = 15 ist falsch. Zuerst ⟦quadrieren⟧, h : 5 = 9, dann mal 5.",
+    "einstieg": "Du lässt einen Stein in einen Schacht fallen und zählst 3 Sekunden bis zum Aufprall. Wie tief ist der Schacht? Die Formel ⟦t = √(h : 5)⟧ verrät es.",
+    "woerter": [
+     [
+      "h",
+      "die Fallhöhe in Metern"
+     ],
+     [
+      "t",
+      "die Fallzeit in Sekunden"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "h in m",
+      "5",
+      "20",
+      "?"
+     ],
+     "zeilen": [
+      [
+       "t in s",
+       "1",
+       "2",
+       "3"
+      ]
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [

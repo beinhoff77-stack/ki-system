@@ -1,5 +1,9 @@
 # Postfach umbau-rest (Paket UR, Achte Runde)
 
+## 2026-11-17 02:02 – STATUS
+gleichungen.wurzel umgebaut (6 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_rest.umbau_schreiben); probe entfällt.
+Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/gleichungen.wurzel.json`: 168 Aufgaben, alle wörtlich gleich; titel/lernziel unverändert. inhalt_pruefen: 0 Fehler, 0 Hinweise. Zeichnungen gerendert (app-eigenes lernErklaerung im Browser), angesehen. Ohne fehler_bild: isolieren ((a + b)² ≠ a² + b² ist ein Rechenfehler), probe und zwei_seiten (die Schrittbilder zeigen die durchgefallene Probe schon), sachaufgabe (Reihenfolgefehler). Kartenbilder meist Umformungs- und Probetabellen; die App kann √(x + 7) nicht als Graph zeichnen (nur √x), darum keine Graphen bei zwei_seiten.
+
 ## 2026-11-17 02:01 – STATUS
 gleichungen.reinquadratisch umgebaut (6 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_rest.umbau_schreiben); probe entfällt.
 Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/gleichungen.reinquadratisch.json`: 168 Aufgaben, alle wörtlich gleich; titel/lernziel unverändert. inhalt_pruefen: 0 Fehler, 0 Hinweise. Zeichnungen gerendert (app-eigenes lernErklaerung im Browser), angesehen. Ohne fehler_bild: schaetzen (falscher Rechenweg „Hälfte“, 27,5 liegt weit außerhalb des Bildes), klammer (Fehler beim Ausmultiplizieren), sachaufgabe (Deutungsfehler). Beispiel umformen: 3x² + 20 = 95 statt 3x² − 20 = 55 (passt zur Fliesen-Situation; gleiche Zwischenschritte 3x² = 75, x² = 25; keine Aufgabe gleicht dem Beispiel).

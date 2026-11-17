@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 14:43 – STATUS
+abbildungen.aehnlichkeit fertig: 29 neue Übungen, 12 Knobel-Bordkarten, 52 überzählig (ohne Typ; viele Wiederholungen derselben Vorlage). inhalt_pruefen OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
+
 ## 2026-11-17 14:40 – STATUS
 stochastik.verknuepft fertig: 28 neue Übungen, 12 Knobel-Bordkarten, 17 überzählig (ohne Typ). inhalt_pruefen OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
 

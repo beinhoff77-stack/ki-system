@@ -809,3 +809,176 @@ for _t in ('Ein 2 m langer Stab wirft einen 5 m langen Schatten. Zur gleichen Ze
 
 if __name__ == '__main__':
     durchsicht('abbildungen.aehnlichkeit', DS)
+
+
+# ---- STUFEN (Zwanzigste Runde, Zweig stufen-kl9) ----
+from _stufen_kl9 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('abbildungen.aehnlichkeit', 20_9_7)
+Z, A, L = ST.Z, ST.A, ST.L
+_P = "P'(□ | □)"
+
+# streckung
+ST.stufenleiter('streckung', 'Eine Strecke mit k strecken und einen Bildpunkt mit positivem k bestimmen.',
+                'Negatives oder gebrochenes k, k aus zwei Längen bestimmen, Projektor im Sachzusammenhang.',
+                'Zentrum rückwärts finden, Streckungen hintereinander, Fehler „vom Ursprung aus“, Bedingung für k, Winkeltreue begründen, mehrteilige Aufgabe.')
+ST.typ('streckung', 'Eine Strecke der Länge', 'direkt')
+ST.typ('streckung', '/^Strecke den Punkt P\\(\\d+ \\| −?\\d+\\) zentrisch mit dem Zentrum Z\\(\\d+ \\| \\d+\\) und k = \\d+\\./', 'direkt')
+ST.typ('streckung', '/^Bei einer zentrischen Streckung (mit Zentrum Z ist|wird eine)/', 'umkehr')
+ST.typ('streckung', '/^Strecke /', 'mehrschritt')
+ST.typ('streckung', 'P(−3 | −7) wird', 'rueckwaerts')
+ST.typ('streckung', 'Ein Dreieck wird zentrisch', 'transfer')
+ST.typ('streckung', '/^(Bei einer zentrischen Streckung mit Zentrum Z\\(0|Eine Figur wird)/', 'verknuepfen')
+ST.neu('streckung', 'erkennen', A('Was bedeutet ein negativer Streckfaktor, zum Beispiel k = −2?', 'Das Bild liegt auf der anderen Seite des Zentrums, doppelt so weit weg.',
+       ['Das Bild wird kleiner.', 'Das Bild wird an der x-Achse gespiegelt.', 'Die Streckung ist nicht erlaubt.'], 'Das Minus dreht die Richtung um, die 2 verdoppelt den Abstand vom Zentrum.', 'Wohin zeigt der Pfeil vom Zentrum aus?'))
+ST.neu('streckung', 'einkleidung', Z('Ein Projektor wirft ein 3,6 cm breites Dia auf eine Leinwand. Das Bild ist dort 1,8 m breit. Wie groß ist der Streckfaktor?', 50, '180 / 3.6',
+       '1,8 m = 180 cm. k = 180 : 3,6 = 50.', 'Rechne beide Längen in dieselbe Einheit um.'))
+ST.neu('streckung', 'fehler', A("Jemand streckt P(5 | 1) mit dem Zentrum Z(1 | 3) und k = 2 und erhält P'(10 | 2). Was stimmt?", "Falsch: Er hat vom Ursprung aus gestreckt; richtig ist P'(9 | −1).",
+       ['Richtig.', "Falsch: P'(11 | 5).", "Falsch: P'(6 | 4)."], "Von Z nach P: 4 nach rechts, 2 nach unten. Verdoppelt: 8 nach rechts, 4 nach unten. Von Z aus: (1 + 8 | 3 − 4) = (9 | −1).", 'Geh vom Zentrum aus, nicht vom Ursprung.'))
+ST.neu('streckung', 'parameter', Z("Z(0 | 0), P(2 | 3). Für welchen Streckfaktor k liegt der Bildpunkt P' auf der Geraden x = −6?", -3, '-6 / 2',
+       "P' = (2k | 3k). 2k = −6 ⇒ k = −3. Dann P'(−6 | −9).", 'Schreib die Koordinaten von P\' mit k.'))
+ST.neu('streckung', 'begruenden', A('Stimmt: Bei einer zentrischen Streckung bleiben alle Winkel gleich groß?', 'Ja, Bild und Urbild sind ähnlich; Winkel bleiben gleich.', ['Nein, sie werden mit k malgenommen.', 'Nur bei positivem k.', 'Nein, rechte Winkel werden spitz.'],
+       'Die zentrische Streckung ist winkeltreu und streckt alle Längen mit |k|. Deshalb ist das Bild ähnlich zum Urbild.', 'Denk an ein vergrößertes Foto.'))
+ST.neu('streckung', 'pruefung', L("Das Dreieck A(1 | 1), B(3 | 1), C(1 | 4) wird mit Z(0 | 0) und k = 2 gestreckt. a) Gib C' an. b) Gib die Flächeninhalte von ABC und A'B'C' an (in Flächeneinheiten).", "a) C'(□ | □); b) □ und □", [2, 8, 3, 12],
+       ['2 * 1', '2 * 4', '2 * 3 // 2', '4 * 3'], "a) C'(2 | 8). b) ABC ist rechtwinklig mit Katheten 2 und 3: Fläche 3. Das Bild hat k² = 4-mal so viel: 12.", 'Längen mal 2, Fläche mal 4.'))
+ST.knobel('streckung', L('P(3 | 2) wird erst mit dem Zentrum Z₁(0 | 0) und k = 2 gestreckt, das Ergebnis dann mit dem Zentrum Z₂(4 | 0) und k = 0,5. Wo landet P?', _P, [5, 2], ['4 + (6 - 4) // 2', '(4 - 0) // 2'],
+          "Erst: (6 | 4). Dann von Z₂(4 | 0): Vektor (2 | 4), halbiert (1 | 2), also (5 | 2). Bemerkenswert: Insgesamt ist P nur um 2 nach rechts verschoben worden – das gilt für jeden Punkt.",
+          'Rechne beide Streckungen nacheinander.'))
+ST.knobel('streckung', Z('Ein Quadrat ABCD mit 4 cm Seite wird mit dem Zentrum A und k = 0,5 gestreckt. Wie viel Prozent des großen Quadrats bedeckt das kleine?', 25, '0.5 ** 2 * 100',
+          'Das kleine Quadrat hat die Ecke A gemeinsam und 2 cm Seite, liegt also ganz im großen. Fläche 4 cm² von 16 cm²: 25 %. Allgemein: Fläche mal k² = 0,25.',
+          'Zeichne beide Quadrate. Wo liegt das kleine?', einheit='%'))
+
+# aehnlich
+ST.stufenleiter('aehnlich', 'Eine Seite einer ähnlichen Figur mit k berechnen und wissen, dass Winkel gleich bleiben.',
+                'Winkel prüfen, k aus zwei entsprechenden Seiten bestimmen, Umfänge berechnen.',
+                'Fallen bei gleichschenkligen und rechtwinkligen Dreiecken, Prozent beim Umfang, DIN-Format, Rahmen, Fehler „+2 cm“.')
+ST.typ('aehnlich', 'Zwei Dreiecke sind ähnlich mit k', 'direkt')
+ST.typ('aehnlich', '/^(Dreieck 1 hat die Winkel|Ein Dreieck hat die Seiten|Ein Dreieck hat die Winkel)/', 'mehrschritt')
+ST.typ('aehnlich', 'Dreieck 1 hat die Seiten 3 cm', 'einkleidung')
+ST.typ('aehnlich', '/^(Dreieck 1 hat die Seiten .* Dreieck 2 ist ähnlich, seine längste|Ein Dreieck wird so|Papierformate|Zwei Dreiecke sind ähnlich\\. Das kleine)/', 'transfer')
+ST.typ('aehnlich', '/^Zwei (gleichschenklige|rechtwinklige)/', 'verknuepfen')
+ST.typ('aehnlich', '/^(Dreieck 1: |Welche zwei Figuren|Ein Bild \\()/', 'begruenden')
+ST.neu('aehnlich', 'erkennen', A('Welche Eigenschaft haben zwei ähnliche Dreiecke immer?', 'Sie haben gleich große Winkel.', ['Sie haben gleich lange Seiten.', 'Sie haben denselben Umfang.', 'Sie haben denselben Flächeninhalt.'],
+       'Ähnlich heißt: Alle Längen mit demselben Faktor k, die Winkel bleiben gleich.', 'Denk an ein vergrößertes Foto.'))
+ST.neu('aehnlich', 'erkennen', A('Sind zwei beliebige Quadrate immer zueinander ähnlich?', 'Ja, alle Winkel sind 90° und alle Seiten wachsen mit demselben Faktor.', ['Nein, nur gleich große.', 'Nur wenn die Seiten ganzzahlig sind.', 'Nein, nie.'],
+       'Quadrat mit Seite a und Quadrat mit Seite b: Faktor k = b : a für alle Seiten.', 'Gibt es einen Faktor für alle Seiten?'))
+ST.neu('aehnlich', 'umkehr', Z('Dreieck 2 ist ähnlich zu einem Dreieck mit den Seiten 3 cm, 4 cm und 5 cm und hat den Umfang 30 cm. Wie lang ist seine längste Seite?', 12.5, '5 * 30 / 12',
+       'Umfang des ersten: 12 cm. k = 30 : 12 = 2,5. Längste Seite 5 · 2,5 = 12,5 cm.', 'Bestimme k aus den Umfängen.', einheit='cm'))
+ST.neu('aehnlich', 'fehler', A('Jemand vergrößert ein Dreieck mit 4 cm, 6 cm und 7 cm, indem er zu jeder Seite 2 cm addiert. Ist das neue Dreieck ähnlich?', 'Nein: 6 : 4, 8 : 6 und 9 : 7 sind verschiedene Faktoren.',
+       ['Ja, alle Seiten wurden gleich verändert.', 'Ja, die Winkel bleiben gleich.', 'Nur wenn das Dreieck gleichseitig ist.'], 'Ähnlich heißt malnehmen mit demselben k, nicht addieren. 1,5 ≠ 1,33… ≠ 1,29…', 'Berechne die Verhältnisse der Seiten.'))
+ST.knobel('aehnlich', Z('Ein Rechteck ist 2 cm breit und 3 cm lang. Ein ähnliches Rechteck hat 54 cm² Flächeninhalt. Wie lang ist seine kürzere Seite?', 6, '2 * 3',
+          'Die Fläche wächst mit k²: 54 : 6 = 9 = k², also k = 3. Kürzere Seite 2 · 3 = 6 cm (und 9 cm). Probe: 6 · 9 = 54.',
+          'Wie verändert sich die Fläche, wenn alle Längen mit k malgenommen werden?', einheit='cm'))
+ST.knobel('aehnlich', Z('Wie viele verschieden große Dreiecke sind ähnlich zum Dreieck mit den Seiten 3 cm, 4 cm und 5 cm und haben eine Seite der Länge 12 cm?', 3, '3',
+          'Die 12 cm können der 3-cm-, der 4-cm- oder der 5-cm-Seite entsprechen: k = 4, k = 3 oder k = 2,4. Das ergibt drei verschieden große Dreiecke (12, 16, 20), (9, 12, 15) und (7,2; 9,6; 12).',
+          'Welcher Seite kann die 12 cm entsprechen?'))
+
+# strahlensatz1
+ST.stufenleiter('strahlensatz1', 'Mit SA, SA\' und SB die Strecke SB\' berechnen.',
+                'Mit AA\' statt SA\', rückwärts SA\' oder BB\', X-Figur, Sachsituation mit Wegen.',
+                'Parallelität prüfen (Umkehrung), unbekanntes x, drei Parallelen, Dachschräge, Fehler „AA\' statt SA\'“.')
+ST.typ('strahlensatz1', '/^Es gilt AB ∥ A\'B\'\\. SA = [\\d,]+ cm, SA\' = [\\d,]+ cm, SB = [\\d,]+ cm\\. Berechne SB\'/', 'direkt')
+ST.typ('strahlensatz1', '/^Es gilt AB ∥ A\'B\'\\. SA = [\\d,]+ cm, AA\' = [\\d,]+ cm, SB = [\\d,]+ cm\\. Berechne (SB|BB)\'/', 'mehrschritt')
+ST.typ('strahlensatz1', '/^Es gilt AB ∥ A\'B\'\\. SA = [\\d,]+ cm, SB = /', 'umkehr')
+ST.typ('strahlensatz1', 'X-Figur', 'darstellung')
+ST.typ('strahlensatz1', '/Sind AB und A\'B\' parallel/', 'begruenden')
+ST.typ('strahlensatz1', "Es gilt AB ∥ A'B'. SA' =", 'rueckwaerts')
+ST.typ('strahlensatz1', '/^(Eine Dachschräge|Zwei Strahlen)/', 'transfer')
+ST.typ('strahlensatz1', '/^(Es gilt AB ∥ A\'B\'\\. SA = x|SA = 4 cm, AA\' = 6 cm)/', 'parameter')
+ST.neu('strahlensatz1', 'erkennen', A('Welche Voraussetzung braucht man für den Strahlensatz?', "AB und A'B' sind parallel.", ["AB und A'B' sind gleich lang.", 'S liegt in der Mitte.', 'Die Strahlen stehen senkrecht.'],
+       "Nur wenn die Geraden AB und A'B' parallel sind, stimmen die Verhältnisse auf beiden Strahlen überein.", 'Was muss für die beiden Querstrecken gelten?'))
+ST.neu('strahlensatz1', 'erkennen', A("Welches Verhältnis ist nach dem 1. Strahlensatz gleich SA' : SA?", "SB' : SB", ["SB : SB'", "A'B' : SA", "BB' : SA"],
+       "Auf beiden Strahlen gilt derselbe Faktor: SA' : SA = SB' : SB.", 'Gleiche Reihenfolge auf beiden Strahlen.'))
+ST.neu('strahlensatz1', 'einkleidung', Z('Zwei gerade Straßen beginnen an einer Kreuzung. Zwei parallele Querwege verbinden sie. Auf der ersten Straße sind es 200 m bis zum ersten und 300 m bis zum zweiten Querweg, auf der zweiten Straße 240 m bis zum ersten Querweg. Wie weit ist es dort bis zum zweiten?', 360, '240 * 300 // 200',
+       'Faktor 300 : 200 = 1,5. 240 · 1,5 = 360 m.', 'Die Kreuzung ist der Scheitel.', einheit='m'))
+ST.neu('strahlensatz1', 'fehler', A("Bei SA = 4 cm, AA' = 2 cm, SB = 6 cm rechnet jemand SB' = 6 · 2 : 4 = 3 cm. Was stimmt?", "Falsch: Er hat AA' statt SA' = 6 cm benutzt; SB' = 6 · 6 : 4 = 9 cm.",
+       ['Richtig.', "Falsch: SB' = 12 cm.", "Falsch: SB' = 8 cm."], "SA' = SA + AA' = 6 cm. Faktor 6 : 4 = 1,5, also SB' = 9 cm. SB' muss länger als SB sein.", "Was ist der Unterschied zwischen AA' und SA'?"))
+ST.knobel('strahlensatz1', Z('Zwei Strahlen mit Scheitel S werden von drei Parallelen geschnitten. Auf dem ersten Strahl sind die Abschnitte (von S aus) 2 cm, 3 cm und x cm lang, auf dem zweiten 3 cm, y cm und 6 cm. Wie groß ist x + y?', 8.5, '4 + 4.5',
+          'Alle Abschnitte des zweiten Strahls sind 1,5-mal so lang (3 : 2). Also y = 3 · 1,5 = 4,5 und x = 6 : 1,5 = 4. Summe 8,5.',
+          'Vergleiche die ersten Abschnitte.'))
+ST.knobel('strahlensatz1', Z('Ein 2 m hoher Zaun steht 1 m vor einer Hauswand. Eine Leiter berührt den Boden, die Oberkante des Zauns und die Wand in 6 m Höhe. Wie weit steht der Fuß der Leiter vom Zaun entfernt?', 0.5, '2 / 4',
+          'Abstand x vom Fuß zum Zaun. Strahlensatz am Fußpunkt: 2 : 6 = x : (x + 1). Also 6x = 2x + 2 und x = 0,5 m.',
+          'Der Fuß der Leiter ist der Scheitel.', einheit='m'))
+
+# strahlensatz2
+ST.stufenleiter('strahlensatz2', 'Mit SA, SA\' und AB die Parallelstrecke A\'B\' berechnen.',
+                'SA rückwärts, mit AA\' rechnen, X-Figur, Lampe und Schatten.',
+                'AA\' aus den Parallelen, Fehler „AA\' statt SA\'“ und falsche Verhältnisse finden, Mond, Laterne, Trapez.')
+ST.typ('strahlensatz2', '/^Es gilt AB ∥ A\'B\'\\. SA = [\\d,]+ cm, SA\' = /', 'direkt')
+ST.typ('strahlensatz2', '/Jemand rechnet/', 'fehler')
+ST.typ('strahlensatz2', 'Es gilt AB ∥ A\'B\' mit Scheitel S. Welche', 'erkennen')
+ST.typ('strahlensatz2', "/^Es gilt AB ∥ A'B'\\. AB = /", 'umkehr')
+ST.typ('strahlensatz2', "/^Es gilt AB ∥ A'B'\\. SA = [\\d,]+ cm, AA' = /", 'mehrschritt')
+ST.typ('strahlensatz2', "/^Es gilt AB ∥ A'B'\\. SA = [\\d,]+ cm, AB = /", 'rueckwaerts')
+ST.typ('strahlensatz2', '/^(Eine Münze|Ein 1,8 m)/', 'transfer')
+ST.typ('strahlensatz2', 'Im Trapez', 'verknuepfen')
+ST.neu('strahlensatz2', 'erkennen', A("Darf man beim 2. Strahlensatz A'B' : AB = AA' : SA rechnen?", "Nein, es muss SA' : SA heißen.", ['Ja, das ist dasselbe.', 'Nur in der X-Figur.', "Ja, wenn AA' kürzer als SA ist."],
+       "Die Parallelstrecken verhalten sich wie die Strecken ab dem Scheitel: A'B' : AB = SA' : SA. AA' beginnt nicht bei S.", 'Beginnen beide Strecken am Scheitel?'))
+ST.neu('strahlensatz2', 'einkleidung', Z('Eine Lampe beleuchtet ein 30 cm breites Brett, das 1 m von ihr entfernt ist. Wie breit ist der Schatten an einer Wand 3 m von der Lampe?', 90, '30 * 3',
+       'Faktor 3 : 1 = 3. Schatten 30 · 3 = 90 cm.', 'Die Lampe ist der Scheitel.', einheit='cm'))
+ST.neu('strahlensatz2', 'darstellung', Z("X-Figur: S liegt zwischen AB und A'B', AB ∥ A'B'. SA = 3 cm, SA' = 6 cm, AB = 4 cm. Berechne A'B'.", 8, '4 * 6 // 3',
+       "Auch in der X-Figur gilt A'B' : AB = SA' : SA = 2. A'B' = 8 cm.", 'Die Verhältnisse gelten auch, wenn S zwischen den Parallelen liegt.', einheit='cm'))
+ST.neu('strahlensatz2', 'mehrschritt', Z("Es gilt AB ∥ A'B'. SA = 6 cm, AA' = 3 cm, A'B' = 12 cm. Berechne AB.", 8, '12 * 6 // 9',
+       "SA' = 9 cm. AB : A'B' = SA : SA' = 6 : 9, also AB = 12 · 6 : 9 = 8 cm.", "Erst SA' bestimmen.", einheit='cm'))
+ST.knobel('strahlensatz2', L('Im Trapez ABCD ist AB ∥ CD, AB = 10 cm und CD = 6 cm. Die Diagonalen schneiden sich in M. In welchem Verhältnis teilt M die Diagonale AC? AM : MC =', '□ : □', [5, 3], ['10 // 2', '6 // 2'],
+          'Die Dreiecke ABM und CDM bilden eine X-Figur mit Scheitel M und den Parallelen AB und CD. Also AM : MC = AB : CD = 10 : 6 = 5 : 3.',
+          'Such eine X-Figur in der Zeichnung.'))
+ST.knobel('strahlensatz2', Z('Im Trapez ABCD ist AB ∥ CD, AB = 12 cm, CD = 6 cm. Durch den Schnittpunkt M der Diagonalen wird eine Strecke parallel zu AB von AD bis BC gezogen. Wie lang ist sie?', 8, '2 * 12 * 6 // 18',
+          'AM : MC = 12 : 6 = 2 : 1, also AM = 2/3 · AC. Der Teil von AD bis M ist im Dreieck ACD parallel zu CD: Länge 2/3 · 6 = 4. Ebenso von M bis BC im Dreieck BCD: 4. Zusammen 8 cm.',
+          'Teile die Strecke im Punkt M in zwei Stücke und nutze zweimal den Strahlensatz.', einheit='cm'))
+
+# flaeche_volumen
+ST.stufenleiter('flaeche_volumen', 'Fläche mit k² und Volumen mit k³ verändern.',
+                'k aus dem Flächenfaktor finden, Maßstäbe für Flächen, Pizza-Vergleich, Oberfläche nach Volumen.',
+                'Volumen im Maßstab umrechnen, Gewichte und Füllmengen ähnlicher Körper, Fehler „doppelt so viel Fläche“, Prozent, mehrteilige Aufgabe.')
+ST.typ('flaeche_volumen', '/^(Alle Längen|Ein Quadrat mit|Ein Körper hat)/', 'direkt')
+ST.typ('flaeche_volumen', '/^(Eine Figur wird so vergrößert|Bei einer Streckung wird die Fläche)/', 'umkehr')
+ST.typ('flaeche_volumen', '/^Ein Modell im Maßstab 1 : \\d+ hat eine Grundfläche/', 'mehrschritt')
+ST.typ('flaeche_volumen', 'Ein Modell im Maßstab 1 : 20 hat', 'verknuepfen')
+ST.typ('flaeche_volumen', 'Ein Kreis wird', 'begruenden')
+ST.typ('flaeche_volumen', '/^(Ein Foto|Ein Holzwürfel|Zwei Flaschen)/', 'transfer')
+ST.neu('flaeche_volumen', 'erkennen', A('Mit welchem Faktor ändert sich das Volumen, wenn alle Längen verdreifacht werden?', '27', ['3', '9', '6'],
+       'Volumen wächst mit k³ = 3 · 3 · 3 = 27.', 'Drei Richtungen werden verdreifacht.'))
+ST.neu('flaeche_volumen', 'einkleidung', Z('Eine runde Pizza hat 30 cm Durchmesser, eine andere 20 cm. Wie viel Mal so viel Fläche hat die große?', 2.25, '1.5 ** 2',
+       'Die Pizzen sind ähnlich mit k = 30 : 20 = 1,5. Fläche mal k² = 2,25.', 'Bestimme zuerst k.'))
+ST.neu('flaeche_volumen', 'mehrschritt', Z('Ein Würfel wird so vergrößert, dass sein Volumen 27-mal so groß ist. Mit welchem Faktor wächst seine Oberfläche?', 9, '3 ** 2',
+       'k³ = 27 heißt k = 3. Die Oberfläche ist eine Fläche: mal k² = 9.', 'Bestimme zuerst k.'))
+ST.neu('flaeche_volumen', 'fehler', A('Jemand sagt: „Verdoppelt man alle Seiten eines Rechtecks, verdoppelt sich die Fläche.“ Was stimmt?', 'Falsch: Die Fläche wird 4-mal so groß.', ['Richtig.', 'Falsch: Sie wird 8-mal so groß.', 'Falsch: Sie bleibt gleich.'],
+       'Fläche = Länge · Breite; beide werden verdoppelt: 2 · 2 = 4. Beispiel 2 × 3 = 6 wird 4 × 6 = 24.', 'Probiere ein Beispiel.'))
+ST.neu('flaeche_volumen', 'parameter', Z('Ein Würfel wird mit dem Faktor k gestreckt. Seine Oberfläche wächst dabei um 300 %. Wie groß ist k?', 2, '2',
+       'Um 300 % wachsen heißt auf 400 %, also das 4-Fache. k² = 4, k = 2.', 'Um 300 % mehr ist das Wievielfache?'))
+ST.neu('flaeche_volumen', 'pruefung', L('Ein Haus hat 60 m² Grundfläche und 300 m³ Volumen. Ein Modell im Maßstab 1 : 10 wird gebaut. a) Grundfläche des Modells in dm²? b) Volumen des Modells in dm³?', 'a) □ dm²; b) □ dm³', [60, 300],
+       ['60 * 100 // 100', '300 * 1000 // 1000'], 'a) Fläche : 100 = 0,6 m² = 60 dm². b) Volumen : 1 000 = 0,3 m³ = 300 dm³.', 'Flächen : k², Volumen : k³.'))
+ST.knobel('flaeche_volumen', Z('Ein großer Würfel wird aus gleichen kleinen Würfeln gebaut. Seine Oberfläche ist 9-mal so groß wie die eines kleinen Würfels. Wie viele kleine Würfel sind es?', 27, '3 ** 3',
+          'Oberfläche 9-fach heißt k² = 9, also k = 3. Das Volumen ist dann 27-fach: 27 kleine Würfel (3 · 3 · 3).', 'Von der Fläche auf k, dann auf das Volumen.'))
+ST.knobel('flaeche_volumen', Z('Zwei ähnliche Kerzen aus demselben Wachs: Die große ist doppelt so hoch. Die kleine brennt 3 Stunden. Wie lange brennt die große, wenn beide pro Stunde gleich viel Wachs verbrauchen?', 24, '3 * 2 ** 3',
+          'Die große hat k³ = 8-mal so viel Wachs. Bei gleichem Verbrauch pro Stunde brennt sie 8 · 3 = 24 Stunden.', 'Wie viel mehr Wachs hat die große Kerze?', einheit='h'))
+
+# anwendung
+ST.stufenleiter('anwendung', 'Höhe eines Gegenstands aus Stab und Schatten bestimmen.',
+                'Daumensprung, Kartenmaßstab, Schatten rückwärts, Höhenunterschied.',
+                'Gebäude über den Daumen schätzen, Flussbreite, Mauer und Baum, Spiegel, Schattenspitzen treffen sich, Fehler im Verhältnis.')
+ST.typ('anwendung', '/^Ein [\\d,]+ m (langer Stab|hoher Pfosten)/', 'direkt')
+ST.typ('anwendung', 'Daumensprung', 'einkleidung')
+ST.typ('anwendung', '/^(Auf einer Karte|Ein Verkehrsschild)/', 'einkleidung')
+ST.typ('anwendung', '/^(Mit ausgestrecktem Arm|Flussbreite|Ein 10 cm langes Lineal)/', 'transfer')
+ST.typ('anwendung', 'Ein Baum steht', 'pruefung')
+ST.typ('anwendung', '/^(Eine 2 m hohe Stange|Ein Kind)/', 'verknuepfen')
+ST.neu('anwendung', 'erkennen', A('Ein Stab (2 m) wirft 3 m Schatten, ein Baum zur selben Zeit 18 m. Welche Gleichung gilt für die Baumhöhe h?', 'h : 18 = 2 : 3', ['h : 2 = 18 : 3 · 2', 'h : 3 = 18 : 2', 'h = 18 − 3 + 2'],
+       'Höhe zu Schatten ist bei beiden gleich: h : 18 = 2 : 3, also h = 12 m.', 'Stelle Höhe zu Schatten gegenüber.'))
+ST.neu('anwendung', 'umkehr', Z('Ein Baum ist 9 m hoch und wirft 12 m Schatten. Wie lang ist zur selben Zeit der Schatten eines 1,5 m großen Menschen?', 2, '1.5 * 12 / 9',
+       'Schatten : Höhe = 12 : 9. Schatten = 1,5 · 12 : 9 = 2 m.', 'Gesucht ist diesmal der Schatten.', einheit='m'))
+ST.neu('anwendung', 'mehrschritt', Z('Ein 1,5 m hoher Stab wirft 2 m Schatten, ein Haus zur selben Zeit 16 m. Wie viel höher als der Stab ist das Haus?', 10.5, '1.5 * 16 / 2 - 1.5',
+       'Haushöhe: 1,5 · 16 : 2 = 12 m. Unterschied 12 − 1,5 = 10,5 m.', 'Erst die Haushöhe, dann den Unterschied.', einheit='m'))
+ST.neu('anwendung', 'umkehr', Z('Ein Wanderweg ist in Wirklichkeit 6 km lang. Wie lang ist er auf einer Karte im Maßstab 1 : 50 000 (in cm)?', 12, '6 * 100000 // 50000',
+       '6 km = 600 000 cm. 600 000 : 50 000 = 12 cm.', 'Rechne km in cm um.', einheit='cm'))
+ST.neu('anwendung', 'fehler', A('Stab 2 m, Stabschatten 3 m, Baumschatten 18 m. Jemand rechnet h = 18 · 3 : 2 = 27 m. Was stimmt?', 'Falsch: Das Verhältnis ist vertauscht; h = 18 · 2 : 3 = 12 m.',
+       ['Richtig.', 'Falsch: h = 18 − 3 + 2 = 17 m.', 'Falsch: h = 18 : 2 = 9 m.'], 'Der Baum ist höher als sein Schatten, wenn der Stab höher als sein Schatten ist – hier ist der Stab kürzer als sein Schatten, also ist auch h < 18 m.', 'Ist der Stab länger oder kürzer als sein Schatten?'))
+ST.knobel('anwendung', Z('Zwei senkrechte Stäbe, 2 m und 3 m hoch, stehen 5 m auseinander. Man spannt Schnüre von der Spitze jedes Stabs zum Fuß des anderen. In welcher Höhe kreuzen sie sich?', 1.2, '2 * 3 / 5',
+          'Kreuzung in Höhe h, waagrecht x vom 2-m-Stab. Strahlensatz vom Fuß des 3-m-Stabs: h : 2 = (5 − x) : 5. Vom Fuß des 2-m-Stabs: h : 3 = x : 5. Addiert: h/2 + h/3 = 1, also h = 6/5 = 1,2 m. Der Abstand der Stäbe spielt gar keine Rolle.',
+          'Stelle zwei Strahlensätze auf, einen von jedem Fußpunkt aus.', einheit='m'))
+ST.knobel('anwendung', Z('Ein 1,6 m großes Kind steht 3 m von einem 4 m hohen Baum entfernt, so dass die Spitzen ihrer Schatten genau zusammenfallen. Wie lang ist der Schatten des Kindes?', 2, '1.6 * 3 / (4 - 1.6)',
+          'Schattenlänge s. Strahlensatz an der Schattenspitze: 1,6 : 4 = s : (s + 3). Also 4s = 1,6s + 4,8, 2,4s = 4,8, s = 2 m.', 'Die gemeinsame Schattenspitze ist der Scheitel.', einheit='m'))
+
+if __name__ == '__main__':
+    stufen('abbildungen.aehnlichkeit', ST)

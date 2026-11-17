@@ -3,6 +3,9 @@
 Neueste Meldung oben.
 
 ## 2026-11-17 – STATUS
+geometrie.kreis fertig: 11 umgestuft, 7 ersetzt (Geradengleichungen „y = 4“, „x = −6“ und „Gib die Gleichung der Tangente an“ durch Beschreibungen ersetzt – gleicher Grund wie der Prüf-Befund zu Klasse 7), 1 Lösungsweg berichtigt. Prüfer OK, Nachweis OK.
+
+## 2026-11-17 – STATUS
 geometrie.konstruktion fertig: 8 umgestuft, 1 ersetzt (doppelte Stufe-1-Frage), 9 Lösungswege in planfigur ohne Geradengleichungen (Prüf-Befund). Prüfer OK, Nachweis OK.
 
 ## 2026-11-17 – STATUS

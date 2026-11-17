@@ -766,6 +766,27 @@
   "datei": "inhalte/themen/messen.volumen.json"
  },
  {
+  "thema_id": 101,
+  "thema_schluessel": "messen.prisma_zylinder",
+  "block_id": 86,
+  "ort": "Cusco",
+  "gebiet": "Fläche und Raum",
+  "titel": "Prismen und Zylinder",
+  "klasse": {
+   "gym_by": 8
+  },
+  "reihenfolge": {
+   "gym_by": 14
+  },
+  "umfang": "Volumen gerader Prismen V = G · h (für jede Grundfläche begründet), Oberfläche über Netz und Mantel, Formeln umstellen, Zylinder als Grenzfall des Prismas, Zylinder-Oberfläche über das Netz, Hohlzylinder, Sachaufgaben mit Annahmen, Änderungen von Radius und Höhe beurteilen.",
+  "lehrplan_gym": [
+   "M8 7 Volumen gerader Prismen als G · h begründen und berechnen",
+   "Oberflächen von Prismen und Zylindern über Netze bestimmen; Zylinderformeln begründen (Grenzfall des Prismas)",
+   "Volumen- und Oberflächenformeln in Sachzusammenhängen flexibel nutzen, Annahmen treffen"
+  ],
+  "datei": "inhalte/themen/messen.prisma_zylinder.json"
+ },
+ {
   "thema_id": 61,
   "thema_schluessel": "stochastik.grundbegriffe",
   "block_id": 92,

@@ -2,6 +2,11 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 14:00 – STATUS
+messen.prisma_zylinder (thema_id 101, Cusco, Klasse 8) fertig: 7 Lernkarten (prisma_volumen, prisma_oberflaeche, prisma_umstellen, zylinder_volumen, zylinder_oberflaeche, sach, verstehen), 196 Aufgaben
+(je Karte 18 Übungen 4/6/8 mit 2 Prüfungsvorbildern und 1 Knobelaufgabe, 1 Test, 3 Korrektur, 6 Sicherung). inhalt_pruefen OK ohne Hinweise; alle Aufgaben gelesen und nachgerechnet.
+Verweis auf die Karte „zylinder“ in messen.kreisberechnung (Buenos Aires), dort nichts verschoben. Eintrag in themenliste.json: Klasse 8, reihenfolge 14 (nach messen.koerper_darstellung).
+
 ## 2026-11-17 13:41 – STATUS
 messen.volumen (thema_id 100, Quito, Klasse 6) fertig: 7 Lernkarten (einheitswuerfel, quader, einheiten, liter, rueckwaerts, zusammengesetzt, verstehen), 196 Aufgaben
 (je Karte 18 Übungen 4/6/8 mit 2 Prüfungsvorbildern und 1 Knobelaufgabe, 1 Test, 3 Korrektur, 6 Sicherung). inhalt_pruefen OK ohne Hinweise; alle Aufgaben gelesen und nachgerechnet.

@@ -1395,7 +1395,7 @@
    "l": "ein_bruch",
    "t": "ein_bruch",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse (x − 3)/(x + 7) = −3."
@@ -1411,7 +1411,7 @@
    "l": "ein_bruch",
    "t": "ein_bruch",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse (x + 3)/(x − 9) = 3."
@@ -1427,7 +1427,7 @@
    "l": "ein_bruch",
    "t": "ein_bruch",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse (3x + 5)/(x − 3) = −1."
@@ -1443,7 +1443,7 @@
    "l": "ein_bruch",
    "t": "ein_bruch",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse (x + 3)/(x + 7) = 3."
@@ -1903,7 +1903,7 @@
    "l": "ueber_kreuz",
    "t": "ueber_kreuz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse (x − 7)/(x − 6) = (x + 2)/(x + 8)."
@@ -1919,7 +1919,7 @@
    "l": "ueber_kreuz",
    "t": "ueber_kreuz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse (x + 5)/(x + 1) = (x − 8)/(x − 7)."
@@ -2885,7 +2885,7 @@
    "l": "scheinloesung",
    "t": "scheinloesung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Gib die Lösungsmenge von (x − 6)/(x − 7) = 1/(x − 7) an."
@@ -2906,7 +2906,7 @@
    "l": "scheinloesung",
    "t": "scheinloesung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Warum ist x = 6 keine Lösung von (x − 4)/(x − 6) = 2/(x − 6), obwohl die Rechnung x = 6 ergibt?"
@@ -2927,7 +2927,7 @@
    "l": "scheinloesung",
    "t": "scheinloesung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Gib die Lösungsmenge von 3x/(x + 2) = −6/(x + 2) an."
@@ -2948,7 +2948,7 @@
    "l": "scheinloesung",
    "t": "scheinloesung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Warum ist x = 2 keine Lösung von (x − 8)/(x − 2) = −6/(x − 2), obwohl die Rechnung x = 2 ergibt?"
@@ -3451,7 +3451,7 @@
    "l": "verhaeltnis",
    "t": "verhaeltnis",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Karte hat den Maßstab 1 : 25 000. Zwei Orte sind auf der Karte 1 cm voneinander entfernt. Wie weit sind sie in Wirklichkeit entfernt (in km)?"

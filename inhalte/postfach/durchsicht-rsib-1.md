@@ -1,5 +1,8 @@
 # Postfach durchsicht-rsib-1 (Neunzehnte Runde, Teil B, Chat 1)
 
+## 2026-11-17 17:50 – STATUS
+groessen.verhaeltnisse fertig: 9 umgestuft, 6 ersetzt, 21 neu (Stufe 3: antiproportionale Falle, Maßstab bestimmen, „4 nehmen, 3 zahlen“, zwei Kerzen, Rate aus Tabelle). inhalt_pruefen: OK, 0 Hinweise. Alle 12 Themen durch; Abschlussbericht folgt.
+
 ## 2026-11-17 17:30 – STATUS
 mengen.grundbegriffe fertig: 16 umgestuft (Stufe 3 bestand fast nur aus Stufe-2-Aufgaben), 4 ersetzt, 26 neu (Stufe 3: x im Venn-Diagramm, Mindest-Überlappung, ggT/kgV als Schnittmenge, Aussagen mit Gegenbeispiel). inhalt_pruefen: OK, 0 Hinweise.
 

@@ -479,3 +479,105 @@ d = bauen('groessen.verhaeltnisse',
       offen=['Antworten bei Verhältnissen als Lücken □ : □ (je ein Zahlenfeld). Die App zeigt den Doppelpunkt aus der Schablone.',
              'Proportionen bewusst ohne Kreuzprodukt-Formel, sondern über Faktor und Dreisatz (Niveau MYP 2 ≈ Klasse 7).'])
 umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
+
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil B, Zweig durchsicht-rsib-1) ----------
+# Prüfungsvorbilder: IB-MYP-Aufgabenformate „Ratio, rates and proportion“ (Verhältnis aus Brüchen, Anteil aus Verhältnis,
+# „best buy“, Wechselkurs, Maßstab bestimmen, Änderungsrate aus Tabelle, rückwärts rechnen). Typ übernommen, Wortlaut und Zahlen eigen.
+def durchsicht(d):
+    from _rsib1 import Z, A, L, nachtrag, finde
+    T = lambda teil: finde(d, teil)
+    nachtrag(d,
+        umstufen={
+            T('Kürze das Verhältnis 4 € : 15 ct.'): 2,
+            T('Welches Verhältnis ist gleichwertig zu 8 : 9?'): 2,
+            T('Für 4 Portionen braucht man 100 g Zucker. Wie viel Zucker braucht man für 6 Portionen?'): 2,
+            T('Äpfel kosten 1,50 € pro kg. Wie viel kosten 6 kg?'): 1,
+            T('Äpfel kosten 2,40 € pro kg. Wie viel kosten 12 kg?'): 1,
+            T('Ein Tank wird mit 4 Litern pro Minute gefüllt. Am Anfang sind 35 Liter'): 1,
+            T('Ein Tank wird mit 8 Litern pro Minute gefüllt. Am Anfang sind 19 Liter'): 1,
+            T('Eine Kerze ist 36 cm hoch. Nach 7 Stunden'): 2,
+            T('Robotermäher A mäht 20 m² in 4 Minuten'): 1,
+        },
+        ersetzen={
+            T('Ina sagt: „7 : 9 = 14 : 16'):
+                Z(3, 'Für welche positive Zahl x gilt 3 : x = x : 12?', 6, '6',
+                  'Gleichwertig heißt: Von 3 zu x und von x zu 12 nimmt man mit demselben Faktor mal. 3 · 2 = 6 und 6 · 2 = 12. Also x = 6: 3 : 6 = 6 : 12 = 1 : 2.', 'Probiere x = 4, 5, 6 … und vergleiche die gekürzten Verhältnisse.'),
+            T('4 Hemden hängen nebeneinander auf der Leine und sind nach 50 Minuten trocken.'):
+                Z(3, '3 Maler brauchen für ein Haus 12 Tage. Wie viele Tage brauchen 4 Maler, wenn alle gleich schnell arbeiten?', 9, '3*12/4',
+                  'Mehr Maler, weniger Tage: Das ist nicht proportional. 3 · 12 = 36 Malertage. 36 : 4 = 9 Tage.',
+                  'Wächst die Zeit mit der Zahl der Maler – oder sinkt sie?', einheit='Tage'),
+            T('Äpfel kosten 2,40 € pro kg. Wie viel kosten 20 kg?'):
+                Z(3, 'Angebot A: 3 Stück für 2,40 €. Angebot B: 5 Stück für 3,75 €. Um wie viel Cent ist ein Stück bei B günstiger?', 5, '240/3 - 375/5',
+                  'A: 2,40 € : 3 = 0,80 €. B: 3,75 € : 5 = 0,75 €. Unterschied 5 ct.', 'Berechne den Stückpreis bei beiden.', einheit='ct'),
+            T('Äpfel kosten 2,40 € pro kg. Wie viel kosten 10 kg?'):
+                Z(3, 'Aktion „4 nehmen, 3 bezahlen“: Ein Stück kostet sonst 1,20 €. Wie viel kostet ein Stück bei der Aktion?', 0.9, '3*1.2/4',
+                  'Man zahlt 3 · 1,20 € = 3,60 € für 4 Stück. 3,60 € : 4 = 0,90 €.', 'Wie viel zahlt man für 4 Stück?', einheit='€'),
+            T('Ein Tank wird mit 4 Litern pro Minute gefüllt. Am Anfang sind 59 Liter'):
+                Z(3, 'Ein Tank wird mit 4 Litern pro Minute gefüllt. Nach 6 Minuten sind 83 Liter darin. Wie viel war am Anfang drin?', 59, '83 - 6*4',
+                  'In 6 Minuten kommen 24 Liter dazu. 83 − 24 = 59 Liter.', 'Rechne rückwärts.', einheit='l'),
+            T('Ein Tank wird mit 6 Litern pro Minute gefüllt. Am Anfang sind 49 Liter'):
+                Z(3, 'Ein Tank enthält 35 Liter und wird mit 4 Litern pro Minute gefüllt. Nach wie vielen Minuten sind 75 Liter darin?', 10, '(75 - 35)/4',
+                  'Es fehlen 75 − 35 = 40 Liter. 40 : 4 = 10 Minuten.', 'Wie viel muss noch dazukommen?', einheit='min'),
+        },
+        neu={
+            'kuerzen': [
+                L(3, 'Schreibe das Verhältnis 3/4 : 1/2 mit möglichst kleinen ganzen Zahlen.', '□ : □', [3, 2], ['3', '2'],
+                  'Mal 4: 3/4 · 4 = 3 und 1/2 · 4 = 2. Also 3 : 2.', 'Multipliziere beide Teile mit dem gemeinsamen Nenner.'),
+                L(3, 'In einer Klasse ist das Verhältnis Mädchen : Jungen = 3 : 4. Welcher Anteil der Klasse sind Mädchen?', '□/□', [3, 7], ['3', '3 + 4'],
+                  '3 + 4 = 7 Teile, davon 3 Mädchen: 3/7.', 'Wie viele Teile sind es insgesamt?', hinweis='Zähler und Nenner eintragen.'),
+                Z(3, 'In einer Gruppe ist das Verhältnis Mädchen : Jungen = 2 : 3. Kommen 2 Mädchen dazu, ist es 1 : 1. Wie viele Kinder waren es vorher?', 10, '5*2',
+                  'Vorher 2k Mädchen, 3k Jungen. 2k + 2 = 3k ⇒ k = 2: 4 Mädchen, 6 Jungen, zusammen 10.', 'Probiere k = 1, 2, 3 für 2k : 3k.'),
+            ],
+            'gleichwertig': [
+                Z(3, 'Mehl, Zucker und Butter stehen im Verhältnis 5 : 2 : 3. Man nimmt 600 g Butter. Wie viel Gramm Mehl braucht man?', 1000, '600/3*5',
+                  '3 Teile = 600 g ⇒ 1 Teil = 200 g. Mehl: 5 · 200 g = 1 000 g.', 'Wie viel ist ein Teil?', einheit='g'),
+                A(3, 'Welche beiden Verhältnisse sind gleichwertig?', '4 : 6 und 10 : 15', ['4 : 6 und 6 : 8', '6 : 8 und 10 : 15', '4 : 6 und 9 : 12'],
+                  'Gekürzt: 4 : 6 = 2 : 3, 10 : 15 = 2 : 3, 6 : 8 = 3 : 4, 9 : 12 = 3 : 4. Gleich sind 4 : 6 und 10 : 15 (und 6 : 8 und 9 : 12).',
+                  'Kürze jedes Verhältnis vollständig.'),
+                Z(3, 'Mädchen und Jungen stehen im Verhältnis 3 : 4. Es sind 12 Mädchen. Wie viele Kinder sind es insgesamt?', 28, '12/3*7',
+                  '3 Teile = 12 ⇒ 1 Teil = 4. Insgesamt 7 Teile = 28 Kinder.', 'Bestimme zuerst einen Teil.'),
+            ],
+            'aufteilen': [
+                Z(3, 'Ein Erbe wird im Verhältnis 2 : 3 : 5 verteilt. Der kleinste Anteil beträgt 4 000 €. Wie groß ist das Erbe insgesamt?', 20000, '4000/2*10',
+                  '2 Teile = 4 000 € ⇒ 1 Teil = 2 000 €. 2 + 3 + 5 = 10 Teile = 20 000 €.', 'Welcher Anteil ist der kleinste?', einheit='€'),
+                Z(3, 'Ein Rechteck hat 64 cm Umfang. Länge und Breite stehen im Verhältnis 5 : 3. Wie lang ist das Rechteck?', 20, '64/2/8*5',
+                  'Länge + Breite = 32 cm. 5 + 3 = 8 Teile ⇒ 1 Teil = 4 cm. Länge 5 · 4 = 20 cm.', 'Der Umfang enthält Länge und Breite je zweimal.', einheit='cm'),
+            ],
+            'proportion': [
+                Z(3, 'Der Wechselkurs ist 1 € = 1,10 $. Wie viele Euro bekommt man für 220 $?', 200, '220/1.1',
+                  '1,10 $ entsprechen 1 €. 220 : 1,10 = 200 €.', 'Wie viele „1,10-$-Päckchen“ stecken in 220 $?', einheit='€'),
+                Z(3, 'Auf einer Karte entsprechen 6 cm in Wirklichkeit 3 km. Der Maßstab ist 1 : x. Wie groß ist x?', 50000, '300000/6',
+                  '3 km = 300 000 cm. 6 cm : 300 000 cm = 1 : 50 000.', 'Rechne beide Längen in dieselbe Einheit um.'),
+                Z(3, 'Ein Handyfoto ist 6 cm breit und 10 cm hoch. Als Poster soll es 45 cm breit werden. Wie hoch wird das Poster?', 75, '45/6*10',
+                  'Faktor 45 : 6 = 7,5. Höhe 10 · 7,5 = 75 cm.', 'Um welchen Faktor wird das Bild vergrößert?', einheit='cm'),
+            ],
+            'einheitsrate': [
+                Z(3, 'Saft: 1,5 l kosten 1,95 €, 0,75 l kosten 1,05 €. Wie viele Euro spart man pro Liter mit der großen Flasche?', 0.1, '1.05/0.75 - 1.95/1.5',
+                  'Groß: 1,95 € : 1,5 = 1,30 € pro l. Klein: 1,05 € : 0,75 = 1,40 € pro l. Ersparnis 0,10 €.', 'Berechne den Literpreis beider Flaschen.', einheit='€'),
+                Z(3, 'Ein Auto verbraucht 6 Liter auf 100 km. Wie weit kommt es mit 45 Litern?', 750, '45/6*100',
+                  '1 Liter reicht für 100 : 6 km. 45 Liter: 45 : 6 · 100 = 750 km.', 'Wie viele „6-Liter-Portionen“ stecken in 45 Litern?', einheit='km'),
+                Z(3, 'Ein Drucker druckt 18 Seiten in 45 Sekunden. Wie viele Seiten schafft er pro Minute?', 24, '18/45*60',
+                  'Pro Sekunde 18 : 45 = 0,4 Seiten. Pro Minute 0,4 · 60 = 24 Seiten.', 'Achte auf die Einheit: Minute statt Sekunde.'),
+                A(3, 'Läuferin A schafft 400 m in 80 s, Läuferin B 1 km in 210 s. Wer ist schneller?', 'A', ['B', 'beide gleich schnell'],
+                  'A: 400 : 80 = 5 m/s. B: 1 000 : 210 ≈ 4,76 m/s. A ist schneller.', 'Berechne für beide die Meter pro Sekunde.'),
+            ],
+            'aenderung': [
+                Z(3, 'Von 8 Uhr bis 12 Uhr steigt die Temperatur um 2,5 °C pro Stunde. Um 12 Uhr sind es 17 °C. Wie warm war es um 8 Uhr?', 7, '17 - 4*2.5',
+                  '4 Stunden · 2,5 °C = 10 °C Anstieg. 17 − 10 = 7 °C.', 'Rechne rückwärts.', einheit='°C'),
+                Z(3, 'Kerze A ist 30 cm hoch und brennt 2 cm pro Stunde ab. Kerze B ist 24 cm hoch und brennt 1 cm pro Stunde ab. Nach wie vielen Stunden sind beide gleich hoch?', 6, '(30 - 24)/(2 - 1)',
+                  'A holt pro Stunde 1 cm auf B auf. Der Unterschied ist 6 cm: nach 6 Stunden, beide 18 cm hoch.', 'Um wie viel ändert sich der Unterschied pro Stunde?', einheit='h'),
+                Z(3, 'Ein Pool enthält 450 Liter und verliert 3 Liter pro Minute. Nach wie vielen Minuten ist er leer?', 150, '450/3',
+                  '450 : 3 = 150 Minuten (2,5 Stunden).', 'Wie oft passen 3 Liter in 450 Liter?', einheit='min'),
+                A(3, 'Die Änderungsrate der Höhe einer Kerze ist −1,5 cm pro Stunde. Was bedeutet das?', 'Sie wird jede Stunde 1,5 cm kürzer.',
+                  ['Sie ist 1,5 cm hoch.', 'Sie wächst jede Stunde 1,5 cm.', 'Sie brennt 1,5 Stunden lang.'],
+                  'Das Minus zeigt eine Abnahme: pro Stunde 1,5 cm weniger.', 'Was sagt das Vorzeichen?'),
+                Z(3, 'Ein Becken: nach 0 Minuten 20 l, nach 5 Minuten 45 l, nach 10 Minuten 70 l. Wie groß ist die Änderungsrate in Litern pro Minute?', 5, '(70 - 20)/10',
+                  'In 10 Minuten kommen 50 l dazu: 50 : 10 = 5 l pro Minute (jeder 5-Minuten-Schritt bringt 25 l).', 'Nimm Anfangs- und Endwert.', einheit='l/min'),
+                Z(3, 'Ein Flugzeug sinkt in 20 Minuten von 9 000 m auf 3 000 m Höhe. Berechne die Änderungsrate in m pro Minute.', -300, '(3000 - 9000)/20',
+                  'Änderung 3 000 − 9 000 = −6 000 m. −6 000 : 20 = −300 m pro Minute.', 'Die Höhe nimmt ab – welches Vorzeichen hat die Rate?', einheit='m/min'),
+            ],
+        })
+
+
+durchsicht(d)

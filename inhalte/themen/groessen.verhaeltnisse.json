@@ -861,7 +861,7 @@
    "l": "kuerzen",
    "t": "kuerzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Kürze das Verhältnis 4 € : 15 ct.",
@@ -928,6 +928,70 @@
     "2.0 * 2",
     "3.5 * 2"
    ]
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe das Verhältnis 3/4 : 1/2 mit möglichst kleinen ganzen Zahlen.",
+    "schablone": "□ : □",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     3,
+     2
+    ]
+   },
+   "c": [
+    "3",
+    "2"
+   ],
+   "w": "Mal 4: 3/4 · 4 = 3 und 1/2 · 4 = 2. Also 3 : 2.",
+   "h": "Multipliziere beide Teile mit dem gemeinsamen Nenner."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Klasse ist das Verhältnis Mädchen : Jungen = 3 : 4. Welcher Anteil der Klasse sind Mädchen?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner eintragen."
+   },
+   "o": {
+    "werte": [
+     3,
+     7
+    ]
+   },
+   "c": [
+    "3",
+    "3 + 4"
+   ],
+   "w": "3 + 4 = 7 Teile, davon 3 Mädchen: 3/7.",
+   "h": "Wie viele Teile sind es insgesamt?"
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Gruppe ist das Verhältnis Mädchen : Jungen = 2 : 3. Kommen 2 Mädchen dazu, ist es 1 : 1. Wie viele Kinder waren es vorher?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "5*2",
+   "w": "Vorher 2k Mädchen, 3k Jungen. 2k + 2 = 3k ⇒ k = 2: 4 Mädchen, 6 Jungen, zusammen 10.",
+   "h": "Probiere k = 1, 2, 3 für 2k : 3k."
   },
   {
    "l": "kuerzen",
@@ -1360,7 +1424,7 @@
    "l": "gleichwertig",
    "t": "gleichwertig",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welches Verhältnis ist gleichwertig zu 8 : 9?"
@@ -1464,21 +1528,70 @@
    "t": "gleichwertig",
    "p": "uebung",
    "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche positive Zahl x gilt 3 : x = x : 12?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "Gleichwertig heißt: Von 3 zu x und von x zu 12 nimmt man mit demselben Faktor mal. 3 · 2 = 6 und 6 · 2 = 12. Also x = 6: 3 : 6 = 6 : 12 = 1 : 2.",
+   "h": "Probiere x = 4, 5, 6 … und vergleiche die gekürzten Verhältnisse."
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Mehl, Zucker und Butter stehen im Verhältnis 5 : 2 : 3. Man nimmt 600 g Butter. Wie viel Gramm Mehl braucht man?"
+   },
+   "o": {
+    "wert": 1000,
+    "einheit": "g"
+   },
+   "c": "600/3*5",
+   "w": "3 Teile = 600 g ⇒ 1 Teil = 200 g. Mehl: 5 · 200 g = 1 000 g.",
+   "h": "Wie viel ist ein Teil?"
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Ina sagt: „7 : 9 = 14 : 16, weil ich zu beiden Zahlen 7 addiert habe.“ Stimmt das?"
+    "text": "Welche beiden Verhältnisse sind gleichwertig?"
    },
    "a": [
-    "Richtig, weil der Unterschied 2 gleich bleibt.",
-    "Falsch: Man muss multiplizieren, richtig ist 7 : 9 = 21 : 27.",
-    "Richtig, man darf zu beiden Zahlen dasselbe addieren.",
-    "Falsch: Man muss 7 abziehen."
+    "4 : 6 und 6 : 8",
+    "6 : 8 und 10 : 15",
+    "4 : 6 und 9 : 12",
+    "4 : 6 und 10 : 15"
    ],
    "o": {
-    "index": 1
+    "index": 3
    },
-   "w": "7 : 9 und 14 : 16 sind nicht gleichwertig (Probe: 7 · 16 = 112, aber 9 · 14 = 126). Gleichwertig wird es nur durch Multiplizieren.",
-   "h": "Prüfe mit Kürzen: Lässt sich das neue Verhältnis auf das alte kürzen?"
+   "w": "Gekürzt: 4 : 6 = 2 : 3, 10 : 15 = 2 : 3, 6 : 8 = 3 : 4, 9 : 12 = 3 : 4. Gleich sind 4 : 6 und 10 : 15 (und 6 : 8 und 9 : 12).",
+   "h": "Kürze jedes Verhältnis vollständig."
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Mädchen und Jungen stehen im Verhältnis 3 : 4. Es sind 12 Mädchen. Wie viele Kinder sind es insgesamt?"
+   },
+   "o": {
+    "wert": 28
+   },
+   "c": "12/3*7",
+   "w": "3 Teile = 12 ⇒ 1 Teil = 4. Insgesamt 7 Teile = 28 Kinder.",
+   "h": "Bestimme zuerst einen Teil."
   },
   {
    "l": "gleichwertig",
@@ -2012,6 +2125,40 @@
   {
    "l": "aufteilen",
    "t": "aufteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Erbe wird im Verhältnis 2 : 3 : 5 verteilt. Der kleinste Anteil beträgt 4 000 €. Wie groß ist das Erbe insgesamt?"
+   },
+   "o": {
+    "wert": 20000,
+    "einheit": "€"
+   },
+   "c": "4000/2*10",
+   "w": "2 Teile = 4 000 € ⇒ 1 Teil = 2 000 €. 2 + 3 + 5 = 10 Teile = 20 000 €.",
+   "h": "Welcher Anteil ist der kleinste?"
+  },
+  {
+   "l": "aufteilen",
+   "t": "aufteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck hat 64 cm Umfang. Länge und Breite stehen im Verhältnis 5 : 3. Wie lang ist das Rechteck?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "cm"
+   },
+   "c": "64/2/8*5",
+   "w": "Länge + Breite = 32 cm. 5 + 3 = 8 Teile ⇒ 1 Teil = 4 cm. Länge 5 · 4 = 20 cm.",
+   "h": "Der Umfang enthält Länge und Breite je zweimal."
+  },
+  {
+   "l": "aufteilen",
+   "t": "aufteilen",
    "p": "test",
    "s": 2,
    "y": "zahl",
@@ -2467,7 +2614,7 @@
    "l": "proportion",
    "t": "proportion",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Für 4 Portionen braucht man 100 g Zucker. Wie viel Zucker braucht man für 6 Portionen?"
@@ -2485,21 +2632,17 @@
    "t": "proportion",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "4 Hemden hängen nebeneinander auf der Leine und sind nach 50 Minuten trocken. Wie lange brauchen 12 Hemden, die ebenfalls gleichzeitig hängen?"
+    "text": "3 Maler brauchen für ein Haus 12 Tage. Wie viele Tage brauchen 4 Maler, wenn alle gleich schnell arbeiten?"
    },
-   "a": [
-    "58 Minuten",
-    "16 Minuten",
-    "150 Minuten",
-    "50 Minuten"
-   ],
    "o": {
-    "index": 3
+    "wert": 9,
+    "einheit": "Tage"
    },
-   "w": "Die Hemden trocknen gleichzeitig. Die Zeit hängt nicht von der Anzahl ab – das ist keine Proportion. Es bleiben 50 Minuten.",
-   "h": "Prüfe zuerst: Wächst die Zeit wirklich mit der Anzahl?"
+   "c": "3*12/4",
+   "w": "Mehr Maler, weniger Tage: Das ist nicht proportional. 3 · 12 = 36 Malertage. 36 : 4 = 9 Tage.",
+   "h": "Wächst die Zeit mit der Zahl der Maler – oder sinkt sie?"
   },
   {
    "l": "proportion",
@@ -2517,6 +2660,56 @@
    "c": "3 * 100000 / 50000",
    "w": "3 km = 300 000 cm. Auf der Karte: 300 000 : 50 000 = 6 cm.",
    "h": "Rechne km in cm um und teile durch die Maßstabszahl."
+  },
+  {
+   "l": "proportion",
+   "t": "proportion",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Wechselkurs ist 1 € = 1,10 $. Wie viele Euro bekommt man für 220 $?"
+   },
+   "o": {
+    "wert": 200,
+    "einheit": "€"
+   },
+   "c": "220/1.1",
+   "w": "1,10 $ entsprechen 1 €. 220 : 1,10 = 200 €.",
+   "h": "Wie viele „1,10-$-Päckchen“ stecken in 220 $?"
+  },
+  {
+   "l": "proportion",
+   "t": "proportion",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einer Karte entsprechen 6 cm in Wirklichkeit 3 km. Der Maßstab ist 1 : x. Wie groß ist x?"
+   },
+   "o": {
+    "wert": 50000
+   },
+   "c": "300000/6",
+   "w": "3 km = 300 000 cm. 6 cm : 300 000 cm = 1 : 50 000.",
+   "h": "Rechne beide Längen in dieselbe Einheit um."
+  },
+  {
+   "l": "proportion",
+   "t": "proportion",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Handyfoto ist 6 cm breit und 10 cm hoch. Als Poster soll es 45 cm breit werden. Wie hoch wird das Poster?"
+   },
+   "o": {
+    "wert": 75,
+    "einheit": "cm"
+   },
+   "c": "45/6*10",
+   "w": "Faktor 45 : 6 = 7,5. Höhe 10 · 7,5 = 75 cm.",
+   "h": "Um welchen Faktor wird das Bild vergrößert?"
   },
   {
    "l": "proportion",
@@ -2895,7 +3088,7 @@
    "l": "einheitsrate",
    "t": "einheitsrate",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Äpfel kosten 1,50 € pro kg. Wie viel kosten 6 kg?"
@@ -2912,7 +3105,7 @@
    "l": "einheitsrate",
    "t": "einheitsrate",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Äpfel kosten 2,40 € pro kg. Wie viel kosten 12 kg?"
@@ -2952,15 +3145,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Äpfel kosten 2,40 € pro kg. Wie viel kosten 20 kg?"
+    "text": "Angebot A: 3 Stück für 2,40 €. Angebot B: 5 Stück für 3,75 €. Um wie viel Cent ist ein Stück bei B günstiger?"
    },
    "o": {
-    "wert": 48,
-    "einheit": "€"
+    "wert": 5,
+    "einheit": "ct"
    },
-   "c": "2.4 * 20",
-   "w": "20 · 2,40 € = 48 €.",
-   "h": "Einheitsrate mal Menge."
+   "c": "240/3 - 375/5",
+   "w": "A: 2,40 € : 3 = 0,80 €. B: 3,75 € : 5 = 0,75 €. Unterschied 5 ct.",
+   "h": "Berechne den Stückpreis bei beiden."
   },
   {
    "l": "einheitsrate",
@@ -2989,15 +3182,85 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Äpfel kosten 2,40 € pro kg. Wie viel kosten 10 kg?"
+    "text": "Aktion „4 nehmen, 3 bezahlen“: Ein Stück kostet sonst 1,20 €. Wie viel kostet ein Stück bei der Aktion?"
    },
    "o": {
-    "wert": 24,
+    "wert": 0.9,
     "einheit": "€"
    },
-   "c": "2.4 * 10",
-   "w": "10 · 2,40 € = 24 €.",
-   "h": "Einheitsrate mal Menge."
+   "c": "3*1.2/4",
+   "w": "Man zahlt 3 · 1,20 € = 3,60 € für 4 Stück. 3,60 € : 4 = 0,90 €.",
+   "h": "Wie viel zahlt man für 4 Stück?"
+  },
+  {
+   "l": "einheitsrate",
+   "t": "einheitsrate",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Saft: 1,5 l kosten 1,95 €, 0,75 l kosten 1,05 €. Wie viele Euro spart man pro Liter mit der großen Flasche?"
+   },
+   "o": {
+    "wert": 0.1,
+    "einheit": "€"
+   },
+   "c": "1.05/0.75 - 1.95/1.5",
+   "w": "Groß: 1,95 € : 1,5 = 1,30 € pro l. Klein: 1,05 € : 0,75 = 1,40 € pro l. Ersparnis 0,10 €.",
+   "h": "Berechne den Literpreis beider Flaschen."
+  },
+  {
+   "l": "einheitsrate",
+   "t": "einheitsrate",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Auto verbraucht 6 Liter auf 100 km. Wie weit kommt es mit 45 Litern?"
+   },
+   "o": {
+    "wert": 750,
+    "einheit": "km"
+   },
+   "c": "45/6*100",
+   "w": "1 Liter reicht für 100 : 6 km. 45 Liter: 45 : 6 · 100 = 750 km.",
+   "h": "Wie viele „6-Liter-Portionen“ stecken in 45 Litern?"
+  },
+  {
+   "l": "einheitsrate",
+   "t": "einheitsrate",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Drucker druckt 18 Seiten in 45 Sekunden. Wie viele Seiten schafft er pro Minute?"
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "18/45*60",
+   "w": "Pro Sekunde 18 : 45 = 0,4 Seiten. Pro Minute 0,4 · 60 = 24 Seiten.",
+   "h": "Achte auf die Einheit: Minute statt Sekunde."
+  },
+  {
+   "l": "einheitsrate",
+   "t": "einheitsrate",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Läuferin A schafft 400 m in 80 s, Läuferin B 1 km in 210 s. Wer ist schneller?"
+   },
+   "a": [
+    "B",
+    "A",
+    "beide gleich schnell"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "A: 400 : 80 = 5 m/s. B: 1 000 : 210 ≈ 4,76 m/s. A ist schneller.",
+   "h": "Berechne für beide die Meter pro Sekunde."
   },
   {
    "l": "einheitsrate",
@@ -3379,7 +3642,7 @@
    "l": "aenderung",
    "t": "aenderung",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Tank wird mit 4 Litern pro Minute gefüllt. Am Anfang sind 35 Liter darin. Wie viele Liter sind es nach 4 Minuten?"
@@ -3396,7 +3659,7 @@
    "l": "aenderung",
    "t": "aenderung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Kerze ist 36 cm hoch. Nach 7 Stunden ist sie noch 15 cm hoch. Berechne die Änderungsrate der Höhe in cm pro Stunde."
@@ -3413,7 +3676,7 @@
    "l": "aenderung",
    "t": "aenderung",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Tank wird mit 8 Litern pro Minute gefüllt. Am Anfang sind 19 Liter darin. Wie viele Liter sind es nach 5 Minuten?"
@@ -3433,21 +3696,21 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Tank wird mit 4 Litern pro Minute gefüllt. Am Anfang sind 59 Liter darin. Wie viele Liter sind es nach 6 Minuten?"
+    "text": "Ein Tank wird mit 4 Litern pro Minute gefüllt. Nach 6 Minuten sind 83 Liter darin. Wie viel war am Anfang drin?"
    },
    "o": {
-    "wert": 83,
+    "wert": 59,
     "einheit": "l"
    },
-   "c": "59 + 4 * 6",
-   "w": "Zunahme: 4 · 6 = 24 l. Inhalt: 59 + 24 = 83 l.",
-   "h": "Rate mal Zeit ergibt die Zunahme."
+   "c": "83 - 6*4",
+   "w": "In 6 Minuten kommen 24 Liter dazu. 83 − 24 = 59 Liter.",
+   "h": "Rechne rückwärts."
   },
   {
    "l": "aenderung",
    "t": "aenderung",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Robotermäher A mäht 20 m² in 4 Minuten, Mäher B 8 m² in 4 Minuten. Welcher mäht schneller?"
@@ -3470,15 +3733,121 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Tank wird mit 6 Litern pro Minute gefüllt. Am Anfang sind 49 Liter darin. Wie viele Liter sind es nach 4 Minuten?"
+    "text": "Ein Tank enthält 35 Liter und wird mit 4 Litern pro Minute gefüllt. Nach wie vielen Minuten sind 75 Liter darin?"
    },
    "o": {
-    "wert": 73,
-    "einheit": "l"
+    "wert": 10,
+    "einheit": "min"
    },
-   "c": "49 + 6 * 4",
-   "w": "Zunahme: 6 · 4 = 24 l. Inhalt: 49 + 24 = 73 l.",
-   "h": "Rate mal Zeit ergibt die Zunahme."
+   "c": "(75 - 35)/4",
+   "w": "Es fehlen 75 − 35 = 40 Liter. 40 : 4 = 10 Minuten.",
+   "h": "Wie viel muss noch dazukommen?"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Von 8 Uhr bis 12 Uhr steigt die Temperatur um 2,5 °C pro Stunde. Um 12 Uhr sind es 17 °C. Wie warm war es um 8 Uhr?"
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "°C"
+   },
+   "c": "17 - 4*2.5",
+   "w": "4 Stunden · 2,5 °C = 10 °C Anstieg. 17 − 10 = 7 °C.",
+   "h": "Rechne rückwärts."
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Kerze A ist 30 cm hoch und brennt 2 cm pro Stunde ab. Kerze B ist 24 cm hoch und brennt 1 cm pro Stunde ab. Nach wie vielen Stunden sind beide gleich hoch?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "h"
+   },
+   "c": "(30 - 24)/(2 - 1)",
+   "w": "A holt pro Stunde 1 cm auf B auf. Der Unterschied ist 6 cm: nach 6 Stunden, beide 18 cm hoch.",
+   "h": "Um wie viel ändert sich der Unterschied pro Stunde?"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Pool enthält 450 Liter und verliert 3 Liter pro Minute. Nach wie vielen Minuten ist er leer?"
+   },
+   "o": {
+    "wert": 150,
+    "einheit": "min"
+   },
+   "c": "450/3",
+   "w": "450 : 3 = 150 Minuten (2,5 Stunden).",
+   "h": "Wie oft passen 3 Liter in 450 Liter?"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Änderungsrate der Höhe einer Kerze ist −1,5 cm pro Stunde. Was bedeutet das?"
+   },
+   "a": [
+    "Sie ist 1,5 cm hoch.",
+    "Sie wächst jede Stunde 1,5 cm.",
+    "Sie brennt 1,5 Stunden lang.",
+    "Sie wird jede Stunde 1,5 cm kürzer."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Das Minus zeigt eine Abnahme: pro Stunde 1,5 cm weniger.",
+   "h": "Was sagt das Vorzeichen?"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Becken: nach 0 Minuten 20 l, nach 5 Minuten 45 l, nach 10 Minuten 70 l. Wie groß ist die Änderungsrate in Litern pro Minute?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "l/min"
+   },
+   "c": "(70 - 20)/10",
+   "w": "In 10 Minuten kommen 50 l dazu: 50 : 10 = 5 l pro Minute (jeder 5-Minuten-Schritt bringt 25 l).",
+   "h": "Nimm Anfangs- und Endwert."
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Flugzeug sinkt in 20 Minuten von 9 000 m auf 3 000 m Höhe. Berechne die Änderungsrate in m pro Minute."
+   },
+   "o": {
+    "wert": -300,
+    "einheit": "m/min"
+   },
+   "c": "(3000 - 9000)/20",
+   "w": "Änderung 3 000 − 9 000 = −6 000 m. −6 000 : 20 = −300 m pro Minute.",
+   "h": "Die Höhe nimmt ab – welches Vorzeichen hat die Rate?"
   },
   {
    "l": "aenderung",

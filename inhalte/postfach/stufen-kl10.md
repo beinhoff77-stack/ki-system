@@ -38,7 +38,7 @@ Je Thema (neu / Knobel / umgestuft / überzählig): exponential_log 45/14/16/53 
 - ISB, Abschlussprüfung Realschule Mathematik I 2024, Haupttermin, Lösungen: https://isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Abschlusspruefung/Mathematik/2024/2024_mi_ht_l.pdf
   → Vorbild für: Pyramiden- und Kegelrechnungen mit Pythagoras und Winkeln, Logarithmusfunktion („Punkt auf dem Graphen“, Nullstelle), „sicher nach dem n-ten Zug“ (Ziehen ohne Zurücklegen).
 - ISB, Abiturprüfung Mathematik 2025, Prüfungsteil A (ohne Hilfsmittel): https://www.isb.bayern.de/fileadmin/user_upload/Gymnasium/Leistungserhebungen/Abiturpruefung/Mathematik/2025/abiturpruefung_mathematik_2025_pruefungsteil_a.pdf
-  sowie Teil-A-Aufgaben zu sin(ax) und 2 · sin(x/2) (Lösungsseiten https://www.mathelike.de/abiturloesungen-mathematik-bayern/mathematik-abitur-bayern-2015/pruefungsteil-a/analysis-1 und …/2024/pruefungsteil-a/analysis-1)
+  sowie Teil-A-Aufgaben zu sin(ax) und 2 · sin(x/2) (Lösungsseiten https://www.mathelike.de/abiturloesungen-mathematik-bayern/mathematik-abitur-bayern-2015/pruefungsteil-a/analysis-1 und https://www.mathelike.de/abiturloesungen-mathematik-bayern/mathematik-abitur-bayern-2024/pruefungsteil-a/analysis-1)
   → Vorbild für: exakte Werte ohne Rechner, Nullstellen verschobener Funktionen, Term einer ganzrationalen Funktion aus Eigenschaften, Gezeitenmodell.
 - Knobel-Bordkarten: Vorbild ist die **Art** von Känguru- und Olympiade-Aufgaben (eine eigene Idee nötig: Paare bilden, Gegenereignis, Symmetrie, Abwickeln). Ich habe keine einzelne Wettbewerbsaufgabe nachgebaut und keine Wettbewerbsquelle wörtlich verwendet.
 

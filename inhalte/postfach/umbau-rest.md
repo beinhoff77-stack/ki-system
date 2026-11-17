@@ -1,5 +1,9 @@
 # Postfach umbau-rest (Paket UR, Achte Runde)
 
+## 2026-11-17 02:12 – STATUS
+funktionen.betrag umgebaut (5 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_rest.umbau_schreiben); probe entfällt.
+Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/funktionen.betrag.json`: 140 Aufgaben, alle wörtlich gleich; titel/lernziel unverändert. inhalt_pruefen: 0 Fehler, 0 Hinweise. Zeichnungen gerendert (app-eigenes lernErklaerung im Browser), angesehen. Ohne fehler_bild: betrag (Rechenfehler beim Aufteilen des Betrags), verstehen (das Beispiel steht schon in den Schrittbildern). Kartenbilder nutzen jetzt die Graph-Art betrag; die Aufgaben-Grafiken bleiben unverändert (zwei Geradenstücke, offen-Hinweis bleibt).
+
 ## 2026-11-17 02:11 – STATUS
 stochastik.bedingt umgebaut (6 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_rest.umbau_schreiben); probe entfällt.
 Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/stochastik.bedingt.json`: 168 Aufgaben, alle wörtlich gleich; titel/lernziel unverändert. inhalt_pruefen: 0 Fehler, 0 Hinweise. Zeichnungen gerendert (app-eigenes lernErklaerung im Browser), angesehen. Ohne fehler_bild: tafel, formel, rueckschluss, verstehen (Fehler beim Teilen bzw. vertauschte Bedingung; die Schrittbilder zeigen die richtige Gruppe), unabhaengig (Denkfehler ohne Zahlenbild). Kartenbild formel: Bruchstreifen (0,4 der Kinder fahren Rad, davon 1/4 mit Brille). Karte verstehen mit Beispiel-Vierfeldertafel (offen-Punkt).

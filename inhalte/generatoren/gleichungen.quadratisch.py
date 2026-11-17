@@ -924,3 +924,232 @@ DS_KARTEN = {
 
 if __name__ == '__main__':
     durchsicht('gleichungen.quadratisch', DS, DS_KARTEN)
+
+
+# ---- STUFEN (Zwanzigste Runde, Zweig stufen-kl9) ----
+from _stufen_kl9 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('gleichungen.quadratisch', 20_9_4)
+Z, A, L = ST.Z, ST.A, ST.L
+_X2 = 'x₁ = □; x₂ = □'
+
+# reinquadratisch
+ST.stufenleiter('reinquadratisch', 'ax² − c = 0 nach x² auflösen und beide Lösungen angeben.',
+                'Leere Lösungsmenge erkennen, Terme auf beiden Seiten zusammenfassen, rückwärts c bestimmen, Flächengleichheit.',
+                'Klammern wie (x + 2)² = 25, Fehler ±√5 statt ±1 finden, Gleichungen ohne Lösung erkennen, Bremsweg.')
+ST.typ('reinquadratisch', '/^Löse (x² |\\d|0,5)/', 'direkt', s=1)
+ST.typ('reinquadratisch', '/^Welche Lösungsmenge hat/', 'mehrschritt')
+ST.typ('reinquadratisch', '/^Jemand löst/', 'fehler')
+ST.typ('reinquadratisch', '/^Löse \\(/', 'verknuepfen')
+ST.typ('reinquadratisch', 'Welche Gleichung hat keine', 'begruenden')
+ST.typ('reinquadratisch', 'Für den Bremsweg', 'transfer')
+ST.typ('reinquadratisch', 'Die Gleichung x² = d', 'umkehr')
+ST.neu('reinquadratisch', 'erkennen', A('Welche Lösungsmenge hat x² = 64?', '{−8; 8}', ['{8}', '{32}', '{ }'],
+       '8 · 8 = 64 und (−8) · (−8) = 64. Beide Zahlen lösen die Gleichung.', 'Denk an Minus mal Minus.'))
+ST.neu('reinquadratisch', 'einkleidung', Z('Ein Quadrat hat genauso viel Fläche wie ein Rechteck mit 3 cm Breite und 12 cm Länge. Wie lang ist die Quadratseite?', 6, '36 // 6',
+       'x² = 3 · 12 = 36. Positive Lösung x = 6 cm (die Lösung −6 passt nicht zu einer Länge).', 'Setze die Flächen gleich.', einheit='cm'))
+ST.neu('reinquadratisch', 'umkehr', Z('Die Gleichung 2x² − c = 0 hat die Lösungen −5 und 5. Wie groß ist c?', 50, '2 * 5 ** 2',
+       'Einsetzen von 5: 2 · 25 − c = 0, also c = 50.', 'Setze eine Lösung ein.'))
+ST.neu('reinquadratisch', 'mehrschritt', L('Löse 3x² − 7 = 2x² + 9.', _X2, [-4, 4], ['-4', '4'],
+       'Auf eine Seite bringen: x² = 16, also x = −4 oder x = 4.', 'Bring alle x² auf eine Seite.'))
+ST.knobel('reinquadratisch', Z('Die Gleichungen x² = a und x² = a + 7 haben zusammen vier ganzzahlige Lösungen. Wie groß ist a (a > 0)?', 9, '3 ** 2',
+          'Ganzzahlige Lösungen gibt es nur, wenn a und a + 7 beide Quadratzahlen sind. Quadratzahlen mit Abstand 7: 9 und 16 (16 − 9 = 7). Also a = 9 mit den Lösungen ±3 und ±4.',
+          'Welche zwei Quadratzahlen liegen 7 auseinander?'))
+ST.knobel('reinquadratisch', L('Löse (x − 1)² = (2x + 1)². (kleinere Lösung zuerst)', _X2, [-2, 0], ['-2', '0'],
+          'Zwei Quadrate sind gleich, wenn die Grundzahlen gleich oder entgegengesetzt sind. x − 1 = 2x + 1 ergibt x = −2. x − 1 = −(2x + 1) ergibt 3x = 0, also x = 0.',
+          'Wann haben zwei Zahlen dasselbe Quadrat?'))
+
+# ausklammern
+ST.stufenleiter('ausklammern', 'x ausklammern und den Satz vom Nullprodukt anwenden.',
+                'Mit Faktor vor x² oder x auf beiden Seiten lösen, Wurfhöhe null setzen, a rückwärts bestimmen.',
+                'Fehler „durch x teilen“, x³ − 9x, Bedingung für b, Aussagen über x = 0, Rechteck mit gleicher Maßzahl, mehrteilige Aufgabe.')
+ST.typ('ausklammern', '/^Löse x² [+−] \\d+x = 0\\.$/', 'direkt')
+ST.typ('ausklammern', '/^Löse (−?\\d*x²|\\d+x²) [+−=]/', 'mehrschritt')
+ST.typ('ausklammern', 'Jemand löst', 'fehler')
+ST.typ('ausklammern', '/^Löse (x³|x\\(x)/', 'verknuepfen')
+ST.typ('ausklammern', 'Für welche Zahl b', 'parameter')
+ST.neu('ausklammern', 'erkennen', A('Welchen Faktor klammerst du bei 5x² − 15x aus, damit in der Klammer x − 3 steht?', '5x', ['x', '5', '15x'],
+       '5x · (x − 3) = 5x² − 15x.', 'Multipliziere zur Probe wieder aus.'))
+ST.neu('ausklammern', 'einkleidung', Z('Ein Ball wird hochgeworfen: h(t) = 20t − 5t² (t in s, h in m). Nach wie vielen Sekunden ist er wieder auf Abwurfhöhe?', 4, '20 / 5',
+       '20t − 5t² = 0 ⇒ 5t(4 − t) = 0 ⇒ t = 0 (Abwurf) oder t = 4 s.', 'Setze h = 0 und klammere t aus.', einheit='s'))
+ST.neu('ausklammern', 'umkehr', Z('Die Gleichung ax² − 12x = 0 hat außer 0 die Lösung x = 4. Bestimme a.', 3, '12 // 4',
+       'x(ax − 12) = 0. Die zweite Lösung ist x = 12/a = 4, also a = 3.', 'Klammere aus und schau auf die zweite Lösung.'))
+ST.neu('ausklammern', 'begruenden', A('Stimmt: Jede Gleichung ax² + bx = 0 mit a ≠ 0 hat die Lösung x = 0?', 'Ja, denn a · 0² + b · 0 = 0.', ['Nein, nur wenn b = 0 ist.', 'Nein, nur wenn a > 0 ist.', 'Nur bei ganzzahligen a und b.'],
+       'Setzt man 0 ein, ist jeder Summand 0. Ausklammern zeigt es auch: x · (ax + b) = 0.', 'Setze x = 0 ein.'))
+ST.neu('ausklammern', 'transfer', Z('Ein Rechteck ist doppelt so lang wie breit. Sein Flächeninhalt in cm² hat dieselbe Maßzahl wie sein Umfang in cm. Wie breit ist es?', 3, '6 // 2',
+       'Breite x, Länge 2x: Fläche 2x², Umfang 6x. 2x² = 6x ⇒ 2x(x − 3) = 0 ⇒ x = 3 cm (0 ist keine Breite).', 'Stelle Fläche und Umfang mit x auf.', einheit='cm'))
+ST.neu('ausklammern', 'pruefung', L('Gegeben ist f(x) = −0,5x² + 4x. a) Bestimme die Nullstellen (kleinere zuerst). b) Bei welchem x liegt der Scheitel?', 'a) x₁ = □; x₂ = □; b) x = □', [0, 8, 4], ['0', '4 / 0.5', '8 // 2'],
+       'a) x(−0,5x + 4) = 0: x = 0 oder x = 8. b) Der Scheitel liegt mittig bei x = 4.', 'Klammere x aus.'))
+ST.knobel('ausklammern', Z('Wie viele Lösungen hat die Gleichung x⁴ = 9x²?', 3, '1 + 2',
+          'x⁴ − 9x² = 0 ⇒ x²(x² − 9) = 0 ⇒ x² = 0 oder x² = 9. Lösungen: 0, 3, −3. Wer durch x² teilt, verliert die 0.',
+          'Nicht teilen, sondern ausklammern.'))
+ST.knobel('ausklammern', Z('Wie viele Lösungen hat (x² − 4x)² = x² − 4x?', 4, '2 + 2',
+          'Setze u = x² − 4x. Dann u² = u, also u(u − 1) = 0: u = 0 oder u = 1. x² − 4x = 0 hat 0 und 4. x² − 4x − 1 = 0 hat D = 16 + 4 = 20 > 0, also zwei weitere Lösungen. Zusammen 4.',
+          'Gib dem Term in der Klammer einen eigenen Namen.'))
+
+# faktorisieren
+ST.stufenleiter('faktorisieren', 'Den Satz vom Nullprodukt bei fertigen Produkten anwenden.',
+                'x² + bx + c in zwei Klammern zerlegen, binomische Formeln erkennen, fehlende Zahl ergänzen.',
+                'Gleichung zu gegebenen Lösungen, Anzahl passender b, Fehler bei (x − 3)², Aussagen über c, Flächenaufgabe, mehrteilige Aufgabe.')
+ST.typ('faktorisieren', '/^Löse \\(x [+−] \\d+\\) · /', 'direkt')
+ST.typ('faktorisieren', 'Die Funktion f mit', 'darstellung')
+ST.typ('faktorisieren', '/^Löse (−?\\d*x²|\\(\\d)/', 'mehrschritt')
+ST.typ('faktorisieren', 'Gib eine Gleichung', 'rueckwaerts')
+ST.typ('faktorisieren', 'Für ', 'parameter')
+ST.typ('faktorisieren', 'Löse (x − 3)(x + 4) = 8', 'verknuepfen')
+ST.typ('faktorisieren', 'Jemand', 'fehler')
+ST.neu('faktorisieren', 'erkennen', A('Welche zwei Zahlen haben das Produkt −12 und die Summe 1?', '4 und −3', ['−4 und 3', '6 und −2', '12 und −1'],
+       '4 · (−3) = −12 und 4 + (−3) = 1. Bei −4 und 3 ist die Summe −1.', 'Prüfe Produkt und Summe.'))
+ST.neu('faktorisieren', 'umkehr', Z('Ergänze: x² − □x + 15 = (x − 3)(x − 5).', 8, '3 + 5',
+       '(x − 3)(x − 5) = x² − 5x − 3x + 15 = x² − 8x + 15.', 'Multipliziere die Klammern aus.'))
+ST.neu('faktorisieren', 'begruenden', A('Stimmt: Hat x² + bx + c = 0 die Lösungen 3 und 4, dann ist c = 12?', 'Ja, denn x² + bx + c = (x − 3)(x − 4) = x² − 7x + 12.',
+       ['Nein, c = 7.', 'Nein, c = −12.', 'Das hängt von b ab.'], 'Das Zahlglied ist das Produkt der beiden Zahlen in den Klammern: (−3) · (−4) = 12.', 'Schreib die Gleichung in Klammerform.'))
+ST.neu('faktorisieren', 'transfer', Z('Ein Rechteck ist 2 cm länger als breit und hat 35 cm² Fläche. Wie breit ist es?', 5, '5',
+       'x(x + 2) = 35 ⇒ x² + 2x − 35 = 0 ⇒ (x + 7)(x − 5) = 0. Breite 5 cm.', 'Stelle die Flächengleichung auf und faktorisiere.', einheit='cm'))
+ST.neu('faktorisieren', 'pruefung', L('Gegeben ist x² − 2x − 24 = 0. a) Faktorisiere. b) Gib die kleinere Lösung an.', 'a) (x + □)(x − □) = 0; b) □', [4, 6, -4], ['4', '6', '-4'],
+       'a) Zahlen mit Produkt −24 und Summe −2: 4 und −6, also (x + 4)(x − 6) = 0. b) x = −4 (die andere ist 6).', 'Suche Produkt −24 und Summe −2.'))
+ST.knobel('faktorisieren', Z('Die Gleichung x² − 13x + c = 0 hat zwei Lösungen, die beide Primzahlen sind. Wie groß ist c?', 22, '2 * 11',
+          'Die Lösungen p und q erfüllen p + q = 13 und p · q = c. Zwei Primzahlen mit ungerader Summe: eine muss 2 sein (sonst wäre die Summe gerade). Also 2 und 11, c = 22.',
+          'Was weißt du über die Summe zweier ungerader Zahlen?'))
+ST.knobel('faktorisieren', Z('Löse (x − 1)(x − 2)(x − 3) = 4 · (x − 1)(x − 2). Gib die größte Lösung an.', 7, '3 + 4',
+          'Alles auf eine Seite: (x − 1)(x − 2) · (x − 3 − 4) = 0. Lösungen 1, 2 und 7. Wer durch (x − 1)(x − 2) teilt, verliert 1 und 2.',
+          'Nicht kürzen, sondern ausklammern.'))
+
+# ergaenzung
+ST.stufenleiter('ergaenzung', 'x² + bx + c = 0 auf die Form (x + d)² = e bringen.',
+                'Vollständig lösen, die Ergänzung bestimmen, a ≠ 1 vorher ausklammern, c rückwärts, Flächenaufgabe.',
+                'Ungerades b, Wurzel-Lösungen 4 ± √d, Fehler bei der Ergänzung, Bedingung für q, begründen, mehrteilige Aufgabe.')
+ST.typ('ergaenzung', '/^Bringe x²/', 'direkt')
+ST.typ('ergaenzung', 'Welche Zahl musst du', 'erkennen')
+ST.typ('ergaenzung', '/^Löse (2x²|x² \\+ 3x|x² − 8x \\+ 13)/', 'verknuepfen')
+ST.typ('ergaenzung', '/^(Löse x² [+−] \\d+x [+−] \\d+ = 0 mit|Bringe 2x²)/', 'mehrschritt')
+ST.typ('ergaenzung', 'Bei x² + 8x + c', 'umkehr')
+ST.neu('ergaenzung', 'einkleidung', Z('Ein Rechteck ist 6 m länger als breit und hat 16 m² Fläche. Bestimme die Breite mit quadratischer Ergänzung.', 2, '5 - 3',
+       'x(x + 6) = 16 ⇒ x² + 6x + 9 = 25 ⇒ (x + 3)² = 25 ⇒ x + 3 = 5 (positiv) ⇒ x = 2 m.', 'Ergänze x² + 6x zu einem Quadrat.', einheit='m'))
+ST.neu('ergaenzung', 'fehler', A('Jemand ergänzt x² + 10x = 11 zu x² + 10x + 100 = 111. Was stimmt?', 'Falsch: Die Ergänzung ist 5² = 25, also (x + 5)² = 36.', ['Richtig.', 'Falsch: Die Ergänzung ist 10.', 'Falsch: Man muss 100 nur links addieren.'],
+       'Halbe Zahl vor x: 5, quadriert 25. x² + 10x + 25 = 36, (x + 5)² = 36, x = 1 oder x = −11.', 'Halbiere zuerst die Zahl vor x.'))
+ST.neu('ergaenzung', 'begruenden', A('Was zeigt die quadratische Ergänzung bei x² + 2x + 5 = 0?', '(x + 1)² = −4: Ein Quadrat ist nie negativ, also keine Lösung.', ['x = −1 ± 2', 'x = −1 ist die einzige Lösung.', 'x = ±2'],
+       'x² + 2x + 1 = −4, also (x + 1)² = −4. Kein Quadrat einer Zahl ist negativ.', 'Ergänze und schau auf die rechte Seite.'))
+ST.neu('ergaenzung', 'parameter', A('Nach quadratischer Ergänzung wird x² + 4x + q = 0 zu (x + 2)² = 4 − q. Für welche q gibt es zwei Lösungen?', 'q < 4', ['q > 4', 'q = 4', 'q < −4'],
+       'Zwei Lösungen, wenn die rechte Seite positiv ist: 4 − q > 0, also q < 4.', 'Wann hat (x + 2)² = e zwei Lösungen?'))
+ST.neu('ergaenzung', 'transfer', Z('Ein quadratisches Beet wird an einer Seite um 4 m verlängert und hat dann 60 m² Fläche. Wie lang war die Seite des Quadrats?', 6, '8 - 2',
+       'x(x + 4) = 60 ⇒ x² + 4x + 4 = 64 ⇒ (x + 2)² = 64 ⇒ x + 2 = 8 ⇒ x = 6 m.', 'Aus dem Quadrat wird ein Rechteck mit den Seiten x und x + 4.', einheit='m'))
+ST.neu('ergaenzung', 'pruefung', L('Gegeben ist x² − 6x − 7 = 0. a) Bringe sie auf die Form (x − d)² = e. b) Gib die Lösungen an (kleinere zuerst).', 'a) (x − □)² = □; b) x₁ = □; x₂ = □', [3, 16, -1, 7], ['3', '9 + 7', '3 - 4', '3 + 4'],
+       'a) x² − 6x + 9 = 16, also (x − 3)² = 16. b) x − 3 = ±4: x = −1 oder x = 7.', 'Ergänze mit 9.'))
+ST.knobel('ergaenzung', Z('Löse x² − 2 024x + 1 012² − 1 = 0. Gib die größere Lösung an.', 1013, '1012 + 1',
+          'Der Term x² − 2 024x + 1 012² ist ein volles Quadrat: (x − 1 012)². Die Gleichung heißt also (x − 1 012)² = 1. Dann x − 1 012 = ±1, Lösungen 1 011 und 1 013.',
+          'Halbiere 2 024. Kommt dir die Zahl bekannt vor?'))
+ST.knobel('ergaenzung', Z('Berechne ohne Taschenrechner 999² + 2 · 999 + 1.', 1000000, '1000 ** 2',
+          'Das ist a² + 2a + 1 = (a + 1)² mit a = 999. Also (999 + 1)² = 1 000² = 1 000 000.',
+          'Erinnert dich der Term an eine binomische Formel?'))
+
+# loesungsformel
+ST.stufenleiter('loesungsformel', 'a, b, c ablesen und die Diskriminante berechnen.',
+                'Mit der Formel lösen, auch mit a < 0 oder Dezimalzahlen, Gleichung aus dem Ergebnis der Formel zurückgewinnen.',
+                'Erst umformen, Fehler beim Vorzeichen von c finden, Aussagen über ganzzahlige Lösungen prüfen, Parameter mit Wurzel-Lösung, Wurfhöhe.')
+ST.typ('loesungsformel', 'Berechne die Diskriminante', 'direkt')
+ST.typ('loesungsformel', '/^Löse (−?\\d*x²|ohne Taschenrechner)/', 'mehrschritt')
+ST.typ('loesungsformel', '/^Löse (x\\(|\\()/', 'verknuepfen')
+ST.typ('loesungsformel', 'Die Gleichung x² + bx − 12', 'rueckwaerts')
+ST.neu('loesungsformel', 'erkennen', L('Lies a, b und c aus 3x² − x + 7 = 0 ab.', 'a = □; b = □; c = □', [3, -1, 7], ['3', '-1', '7'],
+       '−x = (−1) · x, also b = −1. a = 3, c = 7.', 'Vor x steht eine unsichtbare 1.'))
+ST.neu('loesungsformel', 'einkleidung', Z('Ein Rechteck ist 7 cm länger als breit und hat 60 cm² Fläche. Wie breit ist es?', 5, '(-7 + 17) // 2',
+       'x² + 7x − 60 = 0. D = 49 + 240 = 289, √D = 17. x = (−7 + 17) : 2 = 5 cm (die andere Lösung −12 passt nicht).', 'Stelle die Gleichung auf und nutze die Formel.', einheit='cm'))
+ST.neu('loesungsformel', 'umkehr', L('Die Lösungsformel liefert x = (6 ± √16) : 2. Wie lautet die Gleichung x² + bx + c = 0?', 'b = □; c = □', [-6, 5], ['-(5 + 1)', '5 * 1'],
+       'Lösungen (6 + 4) : 2 = 5 und (6 − 4) : 2 = 1. Also (x − 5)(x − 1) = x² − 6x + 5.', 'Berechne zuerst die beiden Lösungen.'))
+ST.neu('loesungsformel', 'fehler', A('Jemand rechnet bei x² − 4x − 5 = 0: D = 16 − 20 = −4, also keine Lösung. Was stimmt?', 'Falsch: c = −5, also D = 16 + 20 = 36; Lösungen −1 und 5.',
+       ['Richtig.', 'Falsch: D = 16, Lösungen 0 und 4.', 'Falsch: D = 4, Lösungen 1 und 3.'], 'D = b² − 4ac = 16 − 4 · 1 · (−5) = 36. x = (4 ± 6) : 2.', 'Achte auf das Vorzeichen von c.'))
+ST.neu('loesungsformel', 'begruenden', A('Stimmt: Ist die Diskriminante eine Quadratzahl, dann sind die Lösungen ganze Zahlen?', 'Nein: 2x² − 5x − 3 = 0 hat D = 49, aber die Lösung −0,5.',
+       ['Ja, immer.', 'Ja, wenn a positiv ist.', 'Nein, dann gibt es keine Lösung.'], 'Die Wurzel ist dann ganz, aber man teilt noch durch 2a. Hier (5 − 7) : 4 = −0,5.', 'Denk an das Teilen durch 2a.'))
+ST.neu('loesungsformel', 'parameter', Z('Für welche Zahl c hat x² − 2x + c = 0 die Lösung x = 1 + √3?', -2, '-((1 + 3) - 2 - 2 * 1 + 2)',
+       'Einsetzen: (1 + √3)² − 2(1 + √3) + c = 1 + 2√3 + 3 − 2 − 2√3 + c = 2 + c = 0, also c = −2.', 'Setze die Lösung ein und multipliziere aus.'))
+ST.neu('loesungsformel', 'transfer', Z('Ein Ball fliegt nach h(t) = 1,8 + 12t − 5t² (t in s, h in m). Nach wie vielen Sekunden ist er zum ersten Mal 8,2 m hoch?', 0.8, '(12 - 4) / 10',
+       '5t² − 12t + 6,4 = 0. D = 144 − 128 = 16. t = (12 ± 4) : 10, also 0,8 s oder 1,6 s. Zum ersten Mal: 0,8 s.', 'Setze h = 8,2 und bring alles auf eine Seite.', einheit='s'))
+ST.knobel('loesungsformel', Z('Die Gleichung x² − 6x + 1 = 0 hat die Lösungen x₁ und x₂. Berechne x₁² + x₂².', 34, '2 * (9 + 8)',
+          'Lösungen: x = 3 ± √8 = 3 ± 2√2. Quadrate: (3 + 2√2)² = 9 + 12√2 + 8 und (3 − 2√2)² = 9 − 12√2 + 8. Summe: 2 · 17 = 34. Die Wurzeln heben sich auf.',
+          'Du musst die Wurzeln nicht ausrechnen. Was passiert beim Addieren?'))
+ST.knobel('loesungsformel', Z('Für welche ganze Zahl k ≠ 6 haben x² + kx + 6 = 0 und x² + 6x + k = 0 eine gemeinsame Lösung?', -7, '-1 - 6',
+          'Die gemeinsame Lösung erfüllt beide Gleichungen. Abziehen: (k − 6)x + (6 − k) = 0, also (k − 6)(x − 1) = 0. Wegen k ≠ 6 ist x = 1. Einsetzen: 1 + k + 6 = 0, k = −7.',
+          'Ziehe die Gleichungen voneinander ab.'))
+
+# diskriminante
+ST.stufenleiter('diskriminante', 'Am Vorzeichen von D oder am Graphen die Lösungszahl ablesen.',
+                'c für genau eine Lösung bestimmen, erst umformen, Höhenfragen im Sachzusammenhang, D = 0 am Graphen deuten.',
+                'Fehler „± heißt zwei Lösungen“, Bedingungen an a, c und k, Vorzeichen-Begründung, Begegnungen in einer Wurfbahn.')
+ST.typ('diskriminante', '/^(Wie viele Lösungen hat|Die Parabel zu)/', 'erkennen')
+ST.typ('diskriminante', '/^Für welche Zahl c hat x² [+−] \\d+x \\+ c = 0 genau/', 'umkehr')
+ST.typ('diskriminante', 'Jemand sagt', 'fehler')
+ST.typ('diskriminante', '/^(Für welche positive|Für welche Zahlen c|Für welche Zahl a)/', 'parameter')
+ST.typ('diskriminante', '/^(Für welchen Term|In ax²)/', 'begruenden')
+ST.neu('diskriminante', 'direkt', Z('Berechne die Diskriminante von 3x² + 2x + 1 = 0.', -8, '2 ** 2 - 4 * 3 * 1',
+       'D = 2² − 4 · 3 · 1 = 4 − 12 = −8. Also keine Lösung.', 'D = b² − 4ac.'))
+ST.neu('diskriminante', 'mehrschritt', A('Wie viele Lösungen hat (x − 3)² = 2x − 7?', 'genau eine', ['keine', 'zwei', 'unendlich viele'],
+       'Ausmultiplizieren: x² − 6x + 9 = 2x − 7, also x² − 8x + 16 = 0. D = 64 − 64 = 0: genau eine Lösung (x = 4).', 'Erst auf die Form ax² + bx + c = 0 bringen.'))
+ST.neu('diskriminante', 'einkleidung', A('Ein Ball fliegt auf der Bahn y = −x² + 6x (in m). Erreicht er die Höhe 10 m?', 'Nein, −x² + 6x = 10 hat keine Lösung.', ['Ja, zweimal.', 'Ja, genau einmal.', 'Ja, bei x = 10.'],
+       'x² − 6x + 10 = 0, D = 36 − 40 = −4 < 0. Höchstens erreicht er 9 m (bei x = 3).', 'Setze y = 10 und berechne D.'))
+ST.neu('diskriminante', 'darstellung', A('Die Parabel y = x² + bx + c berührt die x-Achse in genau einem Punkt. Was gilt für die Diskriminante von x² + bx + c = 0?', 'D = 0', ['D > 0', 'D < 0', 'D = 1'],
+       'Berühren heißt genau ein gemeinsamer Punkt mit y = 0, also genau eine Lösung: D = 0.', 'Wie viele Lösungen hat die Gleichung?'))
+ST.neu('diskriminante', 'transfer', A('Eine Modellrakete fliegt nach h(t) = 30t − 5t² (in m). Wie oft ist sie genau 40 m hoch?', 'zweimal', ['nie', 'einmal', 'dreimal'],
+       '5t² − 30t + 40 = 0, also t² − 6t + 8 = 0. D = 36 − 32 = 4 > 0: zwei Zeitpunkte (2 s und 4 s), einmal steigend, einmal fallend.', 'Stelle die Gleichung auf und prüfe D.'))
+ST.knobel('diskriminante', Z('Für wie viele ganze Zahlen b hat x² + bx + 9 = 0 keine Lösung?', 11, '2 * 5 + 1',
+          'Keine Lösung heißt D = b² − 36 < 0, also b² < 36 und −6 < b < 6. Ganze Zahlen: −5, …, 5, das sind 11.',
+          'Schreib die Bedingung D < 0 mit b auf.'))
+ST.knobel('diskriminante', Z('Für welche positive Zahl k haben die Parabel y = x² und die Gerade y = kx − 4 genau einen gemeinsamen Punkt?', 4, '4',
+          'Gleichsetzen: x² − kx + 4 = 0. Genau ein Punkt heißt D = k² − 16 = 0, also k = 4 (positiv). Die Gerade berührt die Parabel dann bei x = 2.',
+          'Wann hat die Gleichung nach dem Gleichsetzen genau eine Lösung?'))
+
+# sachaufgabe
+ST.stufenleiter('sachaufgabe', 'Seite eines Quadrats aus der Fläche und daraus den Umfang bestimmen.',
+                'Rechteck mit „länger als breit“, Zahlenrätsel, Werte aus einer Tabelle fortsetzen.',
+                'Wege, Rahmen und Würfe modellieren, unpassende Lösungen aussortieren, Fehler bei negativen Längen, Unmöglichkeit begründen.')
+ST.typ('sachaufgabe', 'Ein quadratischer Garten', 'direkt')
+ST.typ('sachaufgabe', '/^Ein Rechteck (ist \\d+ cm länger|hat \\d+ cm Umfang)/', 'einkleidung')
+ST.typ('sachaufgabe', 'Das Quadrat einer positiven', 'mehrschritt')
+ST.typ('sachaufgabe', '/^(Um ein rechteckiges Beet|Ein Ball wird|Ein Bild ist)/', 'transfer')
+ST.typ('sachaufgabe', 'Mit 20 m Zaun', 'pruefung')
+ST.typ('sachaufgabe', 'Der Anhalteweg', 'transfer')
+ST.typ('sachaufgabe', '/^(Das Produkt zweier|Eine Zahl plus)/', 'verknuepfen')
+ST.neu('sachaufgabe', 'erkennen', A('Ein Rechteck ist 3 m länger als breit und hat 40 m² Fläche. Welche Gleichung passt (x ist die Breite)?', 'x · (x + 3) = 40', ['x + (x + 3) = 40', '2x + 2(x + 3) = 40', 'x · 3 = 40'],
+       'Fläche = Breite · Länge = x · (x + 3). Die anderen Gleichungen beschreiben Summen oder den Umfang.', 'Wie berechnet man den Flächeninhalt?'))
+ST.neu('sachaufgabe', 'direkt', Z('Eine positive Zahl mit sich selbst malgenommen ergibt 144. Welche Zahl ist es?', 12, '144 // 12',
+       'x² = 144, positive Lösung x = 12.', 'Ziehe die Wurzel.'))
+ST.neu('sachaufgabe', 'mehrschritt', Z('Eine positive Zahl mal die um 4 größere Zahl ergibt 96. Wie heißt die kleinere Zahl?', 8, '8',
+       'x(x + 4) = 96 ⇒ x² + 4x − 96 = 0 ⇒ (x + 12)(x − 8) = 0. Positiv: x = 8. Probe: 8 · 12 = 96.', 'Stelle die Gleichung auf.'))
+ST.neu('sachaufgabe', 'einkleidung', Z('Ein Rechteck hat die Breite x und die Länge 2x + 1 (in m). Es ist 21 m² groß. Wie breit ist es?', 3, '3',
+       'x(2x + 1) = 21 ⇒ 2x² + x − 21 = 0. D = 1 + 168 = 169. x = (−1 + 13) : 4 = 3 m.', 'Ausmultiplizieren, dann die Lösungsformel.', einheit='m'))
+ST.neu('sachaufgabe', 'darstellung', Z('Eine Tabelle zeigt die Breite x und die Fläche x(x + 2) von Rechtecken: x = 4 ergibt 24, x = 5 ergibt 35. Bei welcher Breite ist die Fläche 63?', 7, '7',
+       'x² + 2x − 63 = 0 ⇒ (x + 9)(x − 7) = 0 ⇒ x = 7. Probe: 7 · 9 = 63.', 'Setze die Fläche gleich 63.'))
+ST.neu('sachaufgabe', 'fehler', A('Jemand löst „Ein Rechteck ist 3 m länger als breit und 54 m² groß“ mit x = 6 oder x = −9 und antwortet: „Die Breite ist 6 m oder −9 m.“ Was stimmt?', 'Falsch: −9 m ist keine Breite; nur 6 m passt.',
+       ['Richtig.', 'Falsch: Die Breite ist 9 m.', 'Falsch: Die Breite ist 15 m.'], 'x(x + 3) = 54 hat die Lösungen 6 und −9. Im Sachzusammenhang zählt nur die positive: 6 m breit, 9 m lang.', 'Passen beide Lösungen zum Sachzusammenhang?'))
+ST.neu('sachaufgabe', 'begruenden', A('Kann ein Rechteck mit 20 m Umfang einen Flächeninhalt von 30 m² haben?', 'Nein: x(10 − x) = 30 hat keine Lösung; höchstens sind 25 m² möglich.',
+       ['Ja, 3 m × 10 m.', 'Ja, 5 m × 6 m.', 'Ja, jede Fläche ist möglich.'], 'Seiten x und 10 − x: x² − 10x + 30 = 0, D = 100 − 120 < 0. Das größte Rechteck ist das Quadrat 5 m × 5 m mit 25 m².', 'Stelle eine Gleichung auf und prüfe D.'))
+ST.knobel('sachaufgabe', Z('Die Summe der Quadrate von drei aufeinanderfolgenden natürlichen Zahlen ist 110. Wie heißt die kleinste?', 5, '5',
+          'Zahlen n − 1, n, n + 1: (n − 1)² + n² + (n + 1)² = 3n² + 2 = 110, also n² = 36, n = 6. Die kleinste Zahl ist 5. Probe: 25 + 36 + 49 = 110.',
+          'Nimm die mittlere Zahl als Unbekannte.'))
+ST.knobel('sachaufgabe', Z('Ein Saal hat 300 Plätze. Jede Reihe hat 5 Plätze mehr, als es Reihen gibt. Wie viele Reihen hat der Saal?', 15, '15',
+          'r Reihen mit je r + 5 Plätzen: r(r + 5) = 300 ⇒ r² + 5r − 300 = 0 ⇒ (r + 20)(r − 15) = 0. Also 15 Reihen mit je 20 Plätzen.',
+          'Stelle eine Gleichung mit der Reihenzahl auf.'))
+
+# bruchgleichung
+ST.stufenleiter('bruchgleichung', 'Definitionsmenge angeben, mit dem Nenner malnehmen und die quadratische Gleichung lösen.',
+                'Nenner wie x − 1, Hyperbel und Gerade schneiden, Scheinlösungen streichen, Rechteckseiten aus einer Bruchgleichung.',
+                'Zwei Brüche, Berührbedingung, Preis- und Geschwindigkeitsaufgaben, Fehler bei Scheinlösungen, Bedingung für a.')
+ST.typ('bruchgleichung', '/^(Löse die Bruchgleichung|Du nimmst)/', 'direkt')
+ST.typ('bruchgleichung', 'Welche Zahl darfst du', 'erkennen')
+ST.typ('bruchgleichung', 'Berechne die Schnittpunkte der Hyperbel y = 4/x', 'darstellung')
+ST.typ('bruchgleichung', '/^(Löse x \\+ |Löse \\d+\\/\\(x − 1\\)|Löse x²\\/|Wie viele Lösungen hat|Löse \\d+\\/x \\+ x)/', 'mehrschritt')
+ST.typ('bruchgleichung', '/^(Berechne die Schnittpunkte|Löse \\d+\\/x − |Wie viele Schnittpunkte)/', 'verknuepfen')
+ST.typ('bruchgleichung', '/^(Die Gerade|Für welche Zahlen a)/', 'parameter')
+ST.typ('bruchgleichung', '/^(Eine Klasse|Ein Rechteck hat den)/', 'transfer')
+ST.typ('bruchgleichung', 'Jemand', 'fehler')
+ST.neu('bruchgleichung', 'einkleidung', Z('Ein Rechteck hat 12 cm² Fläche und ist 4 cm länger als breit. Für die Breite x gilt 12/x = x + 4. Wie breit ist es?', 2, '2',
+       'Mal x: 12 = x² + 4x ⇒ x² + 4x − 12 = 0 ⇒ (x + 6)(x − 2) = 0. Breite 2 cm (−6 passt nicht).', 'Nimm beide Seiten mal x.', einheit='cm'))
+ST.knobel('bruchgleichung', Z('Ein Radfahrer fährt 60 km. Wäre er 5 km/h schneller, käme er eine Stunde früher an. Wie schnell fährt er?', 15, '15',
+          'Zeit = Weg : Geschwindigkeit. 60/v − 60/(v + 5) = 1. Mal v(v + 5): 60(v + 5) − 60v = v² + 5v, also v² + 5v − 300 = 0, (v + 20)(v − 15) = 0. v = 15 km/h. Probe: 4 h und 3 h.',
+          'Schreib beide Fahrzeiten als Bruch.', einheit='km/h'))
+ST.knobel('bruchgleichung', Z('Für welche positive Zahl x gilt 1/x + 1/(x + 1) = 7/12?', 3, '(17 + 25) // 14',
+          'Mal 12x(x + 1): 12(x + 1) + 12x = 7x(x + 1), also 7x² − 17x − 12 = 0. D = 289 + 336 = 625. x = (17 + 25) : 14 = 3. Probe: 1/3 + 1/4 = 7/12.',
+          'Mache alle Nenner gleichnamig.'))
+
+if __name__ == '__main__':
+    stufen('gleichungen.quadratisch', ST)

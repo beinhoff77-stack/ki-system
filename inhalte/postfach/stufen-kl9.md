@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 14:33 – STATUS
+gleichungen.quadratisch fertig: 41 neue Übungen, 16 Knobel-Bordkarten, 34 überzählig (ohne Typ). inhalt_pruefen OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
+
 ## 2026-11-17 14:29 – STATUS
 funktionen.quadratisch fertig: 45 neue Übungen, 16 Knobel-Bordkarten, 23 überzählig (ohne Typ). inhalt_pruefen OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
 

@@ -41,146 +41,1078 @@
    {
     "lernziel": "eigenschaften",
     "titel": "Die Glockenkurve",
-    "regel": "Viele Messgrößen (Körpergrößen, Füllmengen, Messfehler) sind ⟦normalverteilt⟧ (normal distribution): Die meisten Werte liegen nahe beim ⟦Mittelwert μ⟧, je weiter weg, desto seltener. Das Histogramm sieht aus wie eine ⟦Glocke⟧, ⟦symmetrisch⟧ um μ. Mittelwert, Median und Modus fallen zusammen. Die ⟦Standardabweichung σ⟧ bestimmt die Breite.",
+    "regel": "Normalverteilt: eine Glocke, ⟦symmetrisch um μ⟧. σ bestimmt die Breite.",
     "schritte": [
-     "Füllmengen: μ = 500 ml, σ = 5 ml.",
-     "Die Glocke hat ihre Spitze bei ⟦500 ml⟧; Füllmengen wie 495 ml und 505 ml sind ⟦gleich häufig⟧."
+     {
+      "text": "Füllmengen: μ = 500 ml und σ = 5 ml."
+     },
+     {
+      "text": "Die Spitze der Glocke liegt bei ⟦500 ml⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 500,
+         "y": 1,
+         "name": "μ"
+        }
+       ]
+      }
+     },
+     {
+      "text": "495 ml und 505 ml liegen gleich weit weg: gleich häufig.",
+      "bild": {
+       "senkrecht": [
+        495,
+        505
+       ]
+      }
+     }
     ],
-    "probe": "Symmetrie: 500 − 5 = 495 und 500 + 5 = 505 ✓",
     "bild": {
-     "typ": "saeulen",
-     "einheit": "Anteil in %",
-     "werte": [
+     "typ": "koordinaten",
+     "x": [
+      480,
+      520
+     ],
+     "y": [
+      0,
+      1.2
+     ],
+     "schritt_x": 10,
+     "schritt_y": 0.5,
+     "name_x": "ml",
+     "name_y": " ",
+     "graphen": [
       {
-       "name": "μ−3σ",
-       "wert": 2
+       "art": "glocke",
+       "a": 1,
+       "mu": 500,
+       "sigma": 5
+      }
+     ]
+    },
+    "fehler": "„Größeres σ macht die Glocke höher“ ist falsch. Größeres σ heißt ⟦breiter und flacher⟧, die Gesamtfläche bleibt 100 %.",
+    "einstieg": "Eine Maschine füllt Saftflaschen mit 500 ml. Mal sind es 498 ml, mal 503 ml, ganz selten 485 ml. Die Häufigkeiten bilden eine Glocke. Man sagt: Die Füllmenge ist ⟦normalverteilt⟧.",
+    "woerter": [
+     [
+      "normalverteilt",
+      "die meisten Werte liegen nahe beim Mittelwert, symmetrisch wie eine Glocke"
+     ],
+     [
+      "μ",
+      "griechisch „mü“: der Mittelwert"
+     ],
+     [
+      "σ",
+      "griechisch „sigma“: die Standardabweichung; sie bestimmt die Breite"
+     ]
+    ],
+    "fehler_bild": {
+     "graphen": [
+      {
+       "art": "glocke",
+       "a": 1,
+       "mu": 500,
+       "sigma": 5,
+       "name": "σ = 5"
       },
       {
-       "name": "",
-       "wert": 9
-      },
-      {
-       "name": "μ−σ",
-       "wert": 23
-      },
-      {
-       "name": "μ",
-       "wert": 32
-      },
-      {
-       "name": "μ+σ",
-       "wert": 23
-      },
-      {
-       "name": "",
-       "wert": 9
-      },
-      {
-       "name": "μ+3σ",
-       "wert": 2
+       "art": "glocke",
+       "a": 0.5,
+       "mu": 500,
+       "sigma": 10,
+       "name": "σ = 10"
       }
      ],
-     "zahlen": false
-    },
-    "fehler": "„Bei größerem σ wird die Glocke höher“ ist falsch: Größeres σ heißt ⟦breiter und dafür flacher⟧ – die Gesamtfläche bleibt 100 %."
+     "punkte": null,
+     "senkrecht": null
+    }
    },
    {
     "lernziel": "regel",
     "titel": "Die 68-95-99,7-Regel",
-    "regel": "Bei einer Normalverteilung liegen etwa ⟦68 %⟧ der Werte zwischen μ − σ und μ + σ, etwa ⟦95 %⟧ zwischen μ − 2σ und μ + 2σ und etwa ⟦99,7 %⟧ zwischen μ − 3σ und μ + 3σ (empirical rule).",
+    "regel": "Faustregel: ⟦68 %, 95 %, 99,7 %⟧. Das gilt für μ ± σ, μ ± 2σ und μ ± 3σ.",
     "schritte": [
-     "Körpergröße: μ = 170 cm, σ = 6 cm.",
-     "μ − 2σ = 158 cm, μ + 2σ = 182 cm.",
-     "Etwa ⟦95 %⟧ sind zwischen 158 cm und 182 cm groß."
+     {
+      "text": "μ ± σ: 164 cm bis 176 cm, das sind etwa 68 %.",
+      "bild": {
+       "flaechen": [
+        {
+         "punkte": [
+          [
+           164,
+           0
+          ],
+          [
+           164.0,
+           0.607
+          ],
+          [
+           164.5,
+           0.657
+          ],
+          [
+           165.0,
+           0.707
+          ],
+          [
+           165.5,
+           0.755
+          ],
+          [
+           166.0,
+           0.801
+          ],
+          [
+           166.5,
+           0.844
+          ],
+          [
+           167.0,
+           0.882
+          ],
+          [
+           167.5,
+           0.917
+          ],
+          [
+           168.0,
+           0.946
+          ],
+          [
+           168.5,
+           0.969
+          ],
+          [
+           169.0,
+           0.986
+          ],
+          [
+           169.5,
+           0.997
+          ],
+          [
+           170.0,
+           1.0
+          ],
+          [
+           170.5,
+           0.997
+          ],
+          [
+           171.0,
+           0.986
+          ],
+          [
+           171.5,
+           0.969
+          ],
+          [
+           172.0,
+           0.946
+          ],
+          [
+           172.5,
+           0.917
+          ],
+          [
+           173.0,
+           0.882
+          ],
+          [
+           173.5,
+           0.844
+          ],
+          [
+           174.0,
+           0.801
+          ],
+          [
+           174.5,
+           0.755
+          ],
+          [
+           175.0,
+           0.707
+          ],
+          [
+           175.5,
+           0.657
+          ],
+          [
+           176.0,
+           0.607
+          ],
+          [
+           176,
+           0
+          ]
+         ]
+        }
+       ]
+      }
+     },
+     {
+      "text": "μ − 2σ = 158 cm und μ + 2σ = 182 cm.",
+      "bild": {
+       "flaechen": [
+        {
+         "punkte": [
+          [
+           158,
+           0
+          ],
+          [
+           158.0,
+           0.135
+          ],
+          [
+           159.0,
+           0.186
+          ],
+          [
+           160.0,
+           0.249
+          ],
+          [
+           161.0,
+           0.325
+          ],
+          [
+           162.0,
+           0.411
+          ],
+          [
+           163.0,
+           0.506
+          ],
+          [
+           164.0,
+           0.607
+          ],
+          [
+           165.0,
+           0.707
+          ],
+          [
+           166.0,
+           0.801
+          ],
+          [
+           167.0,
+           0.882
+          ],
+          [
+           168.0,
+           0.946
+          ],
+          [
+           169.0,
+           0.986
+          ],
+          [
+           170.0,
+           1.0
+          ],
+          [
+           171.0,
+           0.986
+          ],
+          [
+           172.0,
+           0.946
+          ],
+          [
+           173.0,
+           0.882
+          ],
+          [
+           174.0,
+           0.801
+          ],
+          [
+           175.0,
+           0.707
+          ],
+          [
+           176.0,
+           0.607
+          ],
+          [
+           177.0,
+           0.506
+          ],
+          [
+           178.0,
+           0.411
+          ],
+          [
+           179.0,
+           0.325
+          ],
+          [
+           180.0,
+           0.249
+          ],
+          [
+           181.0,
+           0.186
+          ],
+          [
+           182.0,
+           0.135
+          ],
+          [
+           182,
+           0
+          ]
+         ]
+        }
+       ]
+      }
+     },
+     {
+      "text": "Dazwischen liegen etwa ⟦95 %⟧ der Jungen."
+     },
+     {
+      "text": "μ ± 3σ umfasst etwa 99,7 %.",
+      "bild": {
+       "flaechen": [
+        {
+         "punkte": [
+          [
+           152,
+           0
+          ],
+          [
+           152.0,
+           0.011
+          ],
+          [
+           153.5,
+           0.023
+          ],
+          [
+           155.0,
+           0.044
+          ],
+          [
+           156.5,
+           0.08
+          ],
+          [
+           158.0,
+           0.135
+          ],
+          [
+           159.5,
+           0.216
+          ],
+          [
+           161.0,
+           0.325
+          ],
+          [
+           162.5,
+           0.458
+          ],
+          [
+           164.0,
+           0.607
+          ],
+          [
+           165.5,
+           0.755
+          ],
+          [
+           167.0,
+           0.882
+          ],
+          [
+           168.5,
+           0.969
+          ],
+          [
+           170.0,
+           1.0
+          ],
+          [
+           171.5,
+           0.969
+          ],
+          [
+           173.0,
+           0.882
+          ],
+          [
+           174.5,
+           0.755
+          ],
+          [
+           176.0,
+           0.607
+          ],
+          [
+           177.5,
+           0.458
+          ],
+          [
+           179.0,
+           0.325
+          ],
+          [
+           180.5,
+           0.216
+          ],
+          [
+           182.0,
+           0.135
+          ],
+          [
+           183.5,
+           0.08
+          ],
+          [
+           185.0,
+           0.044
+          ],
+          [
+           186.5,
+           0.023
+          ],
+          [
+           188.0,
+           0.011
+          ],
+          [
+           188,
+           0
+          ]
+         ]
+        }
+       ]
+      }
+     }
     ],
-    "probe": "2 · 6 = 12; 170 ± 12 ✓",
     "bild": {
-     "typ": "tabelle",
-     "kopf": [
-      "Bereich",
-      "Anteil"
+     "typ": "koordinaten",
+     "x": [
+      146,
+      194
      ],
-     "zeilen": [
-      [
-       "μ ± σ",
-       "≈ 68 %"
-      ],
-      [
-       "μ ± 2σ",
-       "≈ 95 %"
-      ],
-      [
-       "μ ± 3σ",
-       "≈ 99,7 %"
-      ]
+     "y": [
+      0,
+      1.2
+     ],
+     "schritt_x": 12,
+     "schritt_y": 0.5,
+     "name_x": "cm",
+     "name_y": " ",
+     "graphen": [
+      {
+       "art": "glocke",
+       "a": 1,
+       "mu": 170,
+       "sigma": 6
+      }
      ]
     },
-    "fehler": "„Zwischen μ − 2σ und μ + 2σ liegen 2 · 68 % = 136 %“ ist falsch: Mehr als 100 % geht nicht. Die Anteile wachsen ⟦nicht proportional⟧: 68 %, 95 %, 99,7 %."
+    "fehler": "„Bei μ ± 2σ sind es 2 · 68 % = 136 %“ ist falsch. Mehr als 100 % geht nicht: ⟦68, 95, 99,7⟧.",
+    "einstieg": "Die Körpergröße 15-jähriger Jungen ist normalverteilt mit μ = 170 cm und σ = 6 cm. Wie viele sind zwischen 158 cm und 182 cm groß? Es hilft die ⟦68-95-99,7-Regel⟧.",
+    "woerter": [
+     [
+      "μ ± σ",
+      "der Bereich von μ − σ bis μ + σ"
+     ],
+     [
+      "68-95-99,7-Regel",
+      "Faustregel für die Anteile in den Bereichen μ ± σ, μ ± 2σ, μ ± 3σ"
+     ]
+    ]
    },
    {
     "lernziel": "anteile",
     "titel": "Anteile in Teilbereichen",
-    "regel": "Wegen der ⟦Symmetrie⟧ teilt man die Anteile in Hälften: Zwischen μ und μ + σ liegen ⟦34 %⟧, zwischen μ + σ und μ + 2σ ⟦13,5 %⟧, zwischen μ + 2σ und μ + 3σ ⟦2,35 %⟧, darüber 0,15 %. Über μ + σ liegen also ⟦16 %⟧, über μ + 2σ ⟦2,5 %⟧.",
+    "regel": "Wegen der Symmetrie die Anteile ⟦halbieren⟧. Über μ + σ liegen 16 %, über μ + 2σ 2,5 %.",
     "schritte": [
-     "Testergebnisse: μ = 60, σ = 10. Wie viel % haben mehr als 70 Punkte?",
-     "70 = μ + σ. Darüber: (100 % − 68 %) : 2 = ⟦16 %⟧."
-    ],
-    "probe": "34 % + 34 % + 16 % + 16 % = 100 ✓",
-    "bild": {
-     "typ": "saeulen",
-     "einheit": "Anteil in %; Bereiche in σ-Schritten ab μ",
-     "werte": [
-      {
-       "name": "unter −2",
-       "wert": 2.5
-      },
-      {
-       "name": "−2…−1",
-       "wert": 13.5
-      },
-      {
-       "name": "−1…0",
-       "wert": 34
-      },
-      {
-       "name": "0…1",
-       "wert": 34
-      },
-      {
-       "name": "1…2",
-       "wert": 13.5
-      },
-      {
-       "name": "über 2",
-       "wert": 2.5
+     {
+      "text": "70 Punkte sind μ + σ.",
+      "bild": {
+       "senkrecht": [
+        70
+       ]
       }
+     },
+     {
+      "text": "Außerhalb von μ ± σ liegen 100 % − 68 % = 32 %.",
+      "bild": {
+       "flaechen": [
+        {
+         "punkte": [
+          [
+           20,
+           0
+          ],
+          [
+           20.0,
+           0.0
+          ],
+          [
+           21.25,
+           0.001
+          ],
+          [
+           22.5,
+           0.001
+          ],
+          [
+           23.75,
+           0.001
+          ],
+          [
+           25.0,
+           0.002
+          ],
+          [
+           26.25,
+           0.003
+          ],
+          [
+           27.5,
+           0.005
+          ],
+          [
+           28.75,
+           0.008
+          ],
+          [
+           30.0,
+           0.011
+          ],
+          [
+           31.25,
+           0.016
+          ],
+          [
+           32.5,
+           0.023
+          ],
+          [
+           33.75,
+           0.032
+          ],
+          [
+           35.0,
+           0.044
+          ],
+          [
+           36.25,
+           0.06
+          ],
+          [
+           37.5,
+           0.08
+          ],
+          [
+           38.75,
+           0.105
+          ],
+          [
+           40.0,
+           0.135
+          ],
+          [
+           41.25,
+           0.172
+          ],
+          [
+           42.5,
+           0.216
+          ],
+          [
+           43.75,
+           0.267
+          ],
+          [
+           45.0,
+           0.325
+          ],
+          [
+           46.25,
+           0.389
+          ],
+          [
+           47.5,
+           0.458
+          ],
+          [
+           48.75,
+           0.531
+          ],
+          [
+           50.0,
+           0.607
+          ],
+          [
+           50,
+           0
+          ]
+         ]
+        },
+        {
+         "punkte": [
+          [
+           70,
+           0
+          ],
+          [
+           70.0,
+           0.607
+          ],
+          [
+           71.25,
+           0.531
+          ],
+          [
+           72.5,
+           0.458
+          ],
+          [
+           73.75,
+           0.389
+          ],
+          [
+           75.0,
+           0.325
+          ],
+          [
+           76.25,
+           0.267
+          ],
+          [
+           77.5,
+           0.216
+          ],
+          [
+           78.75,
+           0.172
+          ],
+          [
+           80.0,
+           0.135
+          ],
+          [
+           81.25,
+           0.105
+          ],
+          [
+           82.5,
+           0.08
+          ],
+          [
+           83.75,
+           0.06
+          ],
+          [
+           85.0,
+           0.044
+          ],
+          [
+           86.25,
+           0.032
+          ],
+          [
+           87.5,
+           0.023
+          ],
+          [
+           88.75,
+           0.016
+          ],
+          [
+           90.0,
+           0.011
+          ],
+          [
+           91.25,
+           0.008
+          ],
+          [
+           92.5,
+           0.005
+          ],
+          [
+           93.75,
+           0.003
+          ],
+          [
+           95.0,
+           0.002
+          ],
+          [
+           96.25,
+           0.001
+          ],
+          [
+           97.5,
+           0.001
+          ],
+          [
+           98.75,
+           0.001
+          ],
+          [
+           100.0,
+           0.0
+          ],
+          [
+           100,
+           0
+          ]
+         ]
+        }
+       ]
+      }
+     },
+     {
+      "text": "Wegen der Symmetrie liegt die Hälfte oben: ⟦16 %⟧.",
+      "bild": {
+       "flaechen": [
+        {
+         "punkte": [
+          [
+           70,
+           0
+          ],
+          [
+           70.0,
+           0.607
+          ],
+          [
+           71.25,
+           0.531
+          ],
+          [
+           72.5,
+           0.458
+          ],
+          [
+           73.75,
+           0.389
+          ],
+          [
+           75.0,
+           0.325
+          ],
+          [
+           76.25,
+           0.267
+          ],
+          [
+           77.5,
+           0.216
+          ],
+          [
+           78.75,
+           0.172
+          ],
+          [
+           80.0,
+           0.135
+          ],
+          [
+           81.25,
+           0.105
+          ],
+          [
+           82.5,
+           0.08
+          ],
+          [
+           83.75,
+           0.06
+          ],
+          [
+           85.0,
+           0.044
+          ],
+          [
+           86.25,
+           0.032
+          ],
+          [
+           87.5,
+           0.023
+          ],
+          [
+           88.75,
+           0.016
+          ],
+          [
+           90.0,
+           0.011
+          ],
+          [
+           91.25,
+           0.008
+          ],
+          [
+           92.5,
+           0.005
+          ],
+          [
+           93.75,
+           0.003
+          ],
+          [
+           95.0,
+           0.002
+          ],
+          [
+           96.25,
+           0.001
+          ],
+          [
+           97.5,
+           0.001
+          ],
+          [
+           98.75,
+           0.001
+          ],
+          [
+           100.0,
+           0.0
+          ],
+          [
+           100,
+           0
+          ]
+         ]
+        }
+       ]
+      }
+     }
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      20,
+      100
      ],
-     "zahlen": true
+     "y": [
+      0,
+      1.2
+     ],
+     "schritt_x": 20,
+     "schritt_y": 0.5,
+     "name_x": "Pkt",
+     "name_y": " ",
+     "graphen": [
+      {
+       "art": "glocke",
+       "a": 1,
+       "mu": 60,
+       "sigma": 10
+      }
+     ]
     },
-    "fehler": "„Über μ + σ liegen 32 %“ ist falsch: Die 32 % außerhalb von μ ± σ verteilen sich auf ⟦beide Seiten⟧ – oben nur die Hälfte, 16 %."
+    "fehler": "„Über μ + σ liegen 32 %“ ist falsch. Die 32 % verteilen sich auf ⟦beide Seiten⟧, oben ist nur die Hälfte.",
+    "einstieg": "Ein Test ist normalverteilt mit μ = 60 Punkten und σ = 10. Wie viele haben mehr als 70 Punkte? Die Glocke ist auf beiden Seiten gleich. Das nutzt man: ⟦Symmetrie⟧.",
+    "woerter": [
+     [
+      "Symmetrie",
+      "links und rechts von μ sieht die Glocke gleich aus"
+     ]
+    ]
    },
    {
     "lernziel": "zwert",
     "titel": "Der z-Wert",
-    "regel": "Der ⟦z-Wert⟧ (z-score) gibt an, ⟦wie viele Standardabweichungen⟧ ein Wert x vom Mittelwert entfernt ist: ⟦z = (x − μ) : σ⟧. Positiv: über dem Mittelwert, negativ: darunter. Umgekehrt: x = μ + z · σ.",
+    "regel": "⟦z = (x − μ) : σ⟧. Positiv heißt über dem Mittelwert, negativ darunter.",
     "schritte": [
-     "μ = 170 cm, σ = 6 cm, x = 182 cm.",
-     "z = (182 − 170) : 6 = 12 : 6 = ⟦2⟧.",
-     "Die Person ist 2 Standardabweichungen größer als der Durchschnitt."
+     {
+      "text": "Gegeben: μ = 170 cm, σ = 6 cm, x = 182 cm."
+     },
+     {
+      "text": "Abstand zum Mittelwert: 182 − 170 = 12 cm.",
+      "bild": {
+       "senkrecht": [
+        170,
+        182
+       ],
+       "pfeile": [
+        [
+         170,
+         0.3,
+         182,
+         0.3,
+         "12"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "In σ-Schritten: z = 12 : 6 = ⟦2⟧.",
+      "bild": {
+       "pfeile": [
+        [
+         170,
+         0.3,
+         176,
+         0.3,
+         "σ"
+        ],
+        [
+         176,
+         0.3,
+         182,
+         0.3,
+         "σ"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "170 + 2 · 6 = 182 ✓",
-    "fehler": "z = 182 : 6 ≈ 30,3 ist falsch: Zuerst den ⟦Abstand zum Mittelwert⟧ bilden (182 − 170), dann durch σ teilen."
+    "fehler": "z = 182 : 6 ist falsch. Zuerst den ⟦Abstand zum Mittelwert⟧ bilden, dann durch σ teilen.",
+    "einstieg": "Ein Junge ist 182 cm groß. Ist das viel? Das hängt davon ab, wie stark die Größen streuen. Der ⟦z-Wert⟧ sagt, wie viele σ er über dem Mittelwert liegt.",
+    "woerter": [
+     [
+      "z-Wert",
+      "z = (x − μ) : σ, der Abstand zum Mittelwert in σ-Schritten"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      146,
+      194
+     ],
+     "y": [
+      0,
+      1.2
+     ],
+     "schritt_x": 12,
+     "schritt_y": 0.5,
+     "name_x": "cm",
+     "name_y": " ",
+     "graphen": [
+      {
+       "art": "glocke",
+       "a": 1,
+       "mu": 170,
+       "sigma": 6
+      }
+     ],
+     "senkrecht": [
+      170
+     ]
+    }
    },
    {
     "lernziel": "vergleichen",
     "titel": "Vergleichen und beurteilen",
-    "regel": "Mit z-Werten kann man Ergebnisse aus ⟦verschiedenen Verteilungen⟧ vergleichen: Der größere z-Wert ist ⟦relativ besser⟧. Werte mit ⟦|z| > 2⟧ gelten als ⟦ungewöhnlich⟧ (nur etwa 5 % liegen so weit außen).",
+    "regel": "Verschiedene Verteilungen: in ⟦z-Werte⟧ umrechnen und vergleichen. Ab |z| > 2 ist ein Wert ungewöhnlich.",
     "schritte": [
-     "Mathe: 78 Punkte bei μ = 70, σ = 4 → z = 2. Deutsch: 85 Punkte bei μ = 75, σ = 10 → z = 1.",
-     "Trotz weniger Punkten ist ⟦Mathe das bessere Ergebnis⟧ im Vergleich zur Gruppe."
+     {
+      "text": "Mathe: z = (78 − 70) : 4 = 2.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Fach",
+        "Punkte",
+        "μ",
+        "σ",
+        "z"
+       ],
+       "zeilen": [
+        [
+         "Mathe",
+         "78",
+         "70",
+         "4",
+         "2"
+        ],
+        [
+         "Deutsch",
+         "85",
+         "75",
+         "10",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Deutsch: z = (85 − 75) : 10 = 1.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Fach",
+        "Punkte",
+        "μ",
+        "σ",
+        "z"
+       ],
+       "zeilen": [
+        [
+         "Mathe",
+         "78",
+         "70",
+         "4",
+         "2"
+        ],
+        [
+         "Deutsch",
+         "85",
+         "75",
+         "10",
+         "1"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Größerer z-Wert: ⟦Mathe ist relativ besser⟧, trotz weniger Punkten."
+     },
+     {
+      "text": "Ab |z| > 2 gilt ein Ergebnis als ungewöhnlich."
+     }
     ],
-    "probe": "(78 − 70) : 4 = 2 und (85 − 75) : 10 = 1 ✓",
-    "fehler": "Nur die Punktzahlen zu vergleichen (85 > 78) ist falsch, wenn die Tests ⟦verschieden verteilt⟧ sind. Erst in z-Werte umrechnen."
+    "fehler": "Nur 85 > 78 vergleichen ist falsch. Die Tests sind ⟦verschieden verteilt⟧, erst in z-Werte umrechnen.",
+    "einstieg": "Mathe: 78 Punkte. Deutsch: 85 Punkte. Welches Ergebnis ist besser? Das hängt davon ab, wie die anderen abgeschnitten haben. Mit z-Werten kann man ⟦fair vergleichen⟧.",
+    "woerter": [
+     [
+      "ungewöhnlich",
+      "ab |z| > 2; nur etwa 5 % liegen so weit außen"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Fach",
+      "Punkte",
+      "μ",
+      "σ",
+      "z"
+     ],
+     "zeilen": [
+      [
+       "Mathe",
+       "78",
+       "70",
+       "4",
+       "?"
+      ],
+      [
+       "Deutsch",
+       "85",
+       "75",
+       "10",
+       "?"
+      ]
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [
@@ -2990,7 +3922,7 @@
  ],
  "offen": [
   "Ohne Lehrplan-Zuordnung (Verlagsinhalt IB Extended); Niveau Klasse 9/10 angenommen. Rechnung nur mit der 68-95-99,7-Regel, keine Tabellen der Standardnormalverteilung und keine Taschenrechner-Funktionen (normalcdf).",
-  "App-Wunsch: Graphart „Glockenkurve“ (Normalverteilungsdichte mit μ und σ, Fläche zwischen zwei Grenzen färbbar). Bisher Ersatz: Säulendiagramm in Glockenform und Tabelle der Streifen-Anteile.",
-  "Feld klasse: {\"zusatz\": 10} statt {} (Prüfskript verlangt einen Eintrag) – siehe FRAGE im Postfach."
+  "Feld klasse: {\"zusatz\": 10} statt {} (Prüfskript verlangt einen Eintrag) – siehe FRAGE im Postfach.",
+  "Umbau (Paket UR): Die Lernkarten zeigen jetzt echte Glockenkurven (Graph-Art glocke) mit gefärbten Flächen (flaechen). Die Aufgaben-Grafiken bleiben unverändert (Säulen in Glockenform)."
  ]
 }

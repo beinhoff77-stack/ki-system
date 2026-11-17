@@ -20,6 +20,7 @@
     "titel": "Steigung und Achsenabschnitt",
     "lernziele": [
      "ablesen",
+     "graph_ablesen",
      "zwei_punkte",
      "proportional"
     ]
@@ -153,6 +154,178 @@
       ]
      ]
     }
+   },
+   {
+    "lernziel": "graph_ablesen",
+    "titel": "Gerade zeichnen und am Graphen ablesen",
+    "einstieg": "Eine Treppe beginnt auf einem Podest, 1 dm über dem Boden. Jede Stufe ist 3 dm tief und 2 dm hoch. Die Linie über die Stufenkanten ist eine Gerade; eine Stufe ist ihr ⟦Steigungsdreieck⟧.",
+    "woerter": [
+     [
+      "Steigungsdreieck",
+      "Dreieck unter der Geraden: so weit nach rechts, so weit nach oben – wie eine Treppenstufe"
+     ],
+     [
+      "Gitterpunkt",
+      "Punkt, an dem sich zwei Kästchenlinien kreuzen; beide Koordinaten sind ganze Zahlen"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      7
+     ],
+     "y": [
+      -1,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 0.666667,
+       "t": 1,
+       "name": "Treppe"
+      }
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 1,
+       "name": "(0 | 1)"
+      },
+      {
+       "x": 3,
+       "y": 3,
+       "name": "(3 | 3)"
+      }
+     ],
+     "strecken": [
+      [
+       0,
+       1,
+       3,
+       1,
+       "gestrichelt"
+      ],
+      [
+       3,
+       1,
+       3,
+       3,
+       "gestrichelt"
+      ]
+     ],
+     "name_x": "dm",
+     "name_y": "dm"
+    },
+    "schritte": [
+     {
+      "text": "Der Start liegt auf der y-Achse bei t = 1: der Gitterpunkt (0 | 1).",
+      "bild": {
+       "graphen": [],
+       "strecken": [],
+       "punkte": [
+        {
+         "x": 0,
+         "y": 1,
+         "name": "(0 | 1)"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Eine Stufe: 3 nach rechts, 2 nach oben. So kommst du zu (3 | 3).",
+      "bild": {
+       "graphen": [],
+       "strecken": [
+        [
+         0,
+         1,
+         3,
+         1,
+         "gestrichelt"
+        ],
+        [
+         3,
+         1,
+         3,
+         3,
+         "gestrichelt"
+        ]
+       ],
+       "punkte": [
+        {
+         "x": 0,
+         "y": 1,
+         "name": "(0 | 1)"
+        },
+        {
+         "x": 3,
+         "y": 3,
+         "name": "(3 | 3)"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Die Gerade durch beide Punkte ist der Graph von ⟦y = (2/3)x + 1⟧.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 0.666667,
+         "t": 1,
+         "name": "Treppe"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Rückwärts liest du ab: Höhe durch Tiefe der Stufe, also m = 2 : 3."
+     }
+    ],
+    "probe": "Bei x = 6 (zwei Stufen weiter): (2/3) · 6 + 1 = 5. Der Punkt (6 | 5) liegt auf der Geraden ✓",
+    "fehler": "Die Stufe nicht kippen: 2 nach rechts und 3 nach oben ergibt m = 3 : 2. Das wäre eine viel steilere Treppe.",
+    "fehler_bild": {
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 0.666667,
+       "t": 1,
+       "name": "richtig"
+      },
+      {
+       "art": "linear",
+       "m": 1.5,
+       "t": 1,
+       "name": "falsch"
+      }
+     ],
+     "strecken": [
+      [
+       0,
+       1,
+       2,
+       1,
+       "gestrichelt"
+      ],
+      [
+       2,
+       1,
+       2,
+       4,
+       "gestrichelt"
+      ]
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 1,
+       "name": "(0 | 1)"
+      }
+     ]
+    },
+    "regel": "Erst t auf der y-Achse, dann das Steigungsdreieck. Bei m = a/b: b nach rechts, a nach oben (bei negativem m nach unten)."
    },
    {
     "lernziel": "zwei_punkte",
@@ -771,6 +944,13 @@
     ]
    },
    {
+    "k": "graph_ablesen",
+    "text": "Gerade zeichnen und am Graphen ablesen",
+    "lernziele": [
+     "graph_ablesen"
+    ]
+   },
+   {
     "k": "zwei_punkte",
     "text": "Steigung aus zwei Punkten",
     "lernziele": [
@@ -816,6 +996,7 @@
   "bewertung": {
    "lernziele_pflicht": [
     "ablesen",
+    "graph_ablesen",
     "zwei_punkte",
     "proportional",
     "aufstellen",
@@ -5300,6 +5481,1075 @@
    },
    "w": "Beide Geraden haben die Steigung 2: Sie sind parallel. B kostet bei jeder Strecke 1,50 € mehr. B ist nie billiger.",
    "h": "Vergleiche die Steigungen. Können sich die Geraden schneiden?"
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Lies am Graphen den y-Achsenabschnitt t ab.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -7,
+      10
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 3,
+       "t": -3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "-3",
+   "w": "Die Gerade schneidet die y-Achse bei y = −3: t = −3.",
+   "h": "Wo trifft die Gerade die senkrechte Achse?"
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Das Bild zeigt eine Gerade mit Steigungsdreieck (1 nach rechts). Wie groß ist die Steigung m?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -16,
+      2
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -3,
+       "t": -3
+      }
+     ],
+     "strecken": [
+      [
+       1,
+       -6,
+       2,
+       -6,
+       "gestrichelt"
+      ],
+      [
+       2,
+       -6,
+       2,
+       -9,
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "-3",
+   "w": "1 nach rechts, dann 3 nach unten: m = −3.",
+   "h": "Wie weit geht es nach oben oder unten, wenn du 1 nach rechts gehst? Nach unten zählt negativ."
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Du zeichnest die Gerade y = 2x. Du startest bei (0 | 0) und gehst mit dem Steigungsdreieck 1 nach rechts. Bei welchem Gitterpunkt kommst du an?",
+    "schablone": "P(□ | □)",
+    "hinweis": "Trage die beiden Koordinaten ein."
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "c": [
+    "1",
+    "2 + 0"
+   ],
+   "w": "1 nach rechts, dann m = 2 nach oben: y = 0 + 2 = 2. Also P(1 | 2).",
+   "h": "Start bei t auf der y-Achse. Bei 1 nach rechts geht es um m nach oben (m negativ: nach unten)."
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Lies am Graphen den y-Achsenabschnitt t ab.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -2,
+      17
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 3,
+       "t": 4
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Die Gerade schneidet die y-Achse bei y = 4: t = 4.",
+   "h": "Wo trifft die Gerade die senkrechte Achse?"
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche der gezeichneten Geraden ist der Graph von y = −(4/3)x − 2?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -5,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -1.3333333333333333,
+       "t": 2,
+       "name": "g"
+      },
+      {
+       "art": "linear",
+       "m": 1.3333333333333333,
+       "t": -2,
+       "name": "h"
+      },
+      {
+       "art": "linear",
+       "m": -1.3333333333333333,
+       "t": -2,
+       "name": "k"
+      }
+     ]
+    }
+   },
+   "a": [
+    "keine davon",
+    "g",
+    "k",
+    "h"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "t = −2: Die Gerade muss die y-Achse bei −2 schneiden. m = −4/3 < 0: Sie fällt. Beides passt nur zu k.",
+   "h": "Prüfe zuerst den Schnitt mit der y-Achse, dann: steigt oder fällt die Gerade?"
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Du zeichnest y = 1,5x. Vom Start (0 | 0) aus gehst du mit einem Steigungsdreieck aus ganzen Kästchen weiter, 2 nach rechts. Bei welchem Gitterpunkt kommst du an?",
+    "schablone": "P(□ | □)",
+    "hinweis": "Trage die beiden Koordinaten ein."
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "c": [
+    "2",
+    "0 + (3)"
+   ],
+   "w": "m = 1,5: 2 nach rechts und 3 nach oben. y = 0 + 3 = 3. Also P(2 | 3).",
+   "h": "Bei m = 1,5 ist der Nenner der Weg nach rechts, der Zähler der Weg nach oben (Minus: nach unten)."
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Das Bild zeigt eine Gerade mit einem Steigungsdreieck aus ganzen Kästchen. Gib die Steigung m als gekürzten Bruch an.",
+    "schablone": "m = □/□",
+    "hinweis": "Zähler und Nenner eintragen (Minus beim Zähler).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -2,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 0.5,
+       "t": 2
+      }
+     ],
+     "strecken": [
+      [
+       0,
+       2,
+       2,
+       2,
+       "gestrichelt"
+      ],
+      [
+       2,
+       2,
+       2,
+       3,
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "c": [
+    "1",
+    "2"
+   ],
+   "w": "Das Dreieck geht 2 nach rechts und 1 nach oben: m = 1/2.",
+   "h": "m = (nach oben) : (nach rechts). Nach unten zählt negativ."
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Gerade geht durch die beiden markierten Gitterpunkte. Welche Gleichung gehört zu ihr?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -2,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 0.3333333333333333,
+       "t": 3
+      }
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 3
+      },
+      {
+       "x": 3,
+       "y": 4
+      }
+     ]
+    }
+   },
+   "a": [
+    "y = (1/3)x − 3",
+    "y = (1/3)x + 3",
+    "y = 3x + 3",
+    "y = −(1/3)x + 3"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Schnitt mit der y-Achse bei 3: t = 3. Von (0 | 3) nach (3 | 4): 3 nach rechts, 1 nach oben, m = 1/3. Also y = (1/3)x + 3.",
+   "h": "Lies zuerst t an der y-Achse ab. Dann: Wie weit nach oben, wenn du nach rechts gehst?"
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Das Bild zeigt eine Gerade mit einem Steigungsdreieck aus ganzen Kästchen. Gib die Steigung m als gekürzten Bruch an.",
+    "schablone": "m = □/□",
+    "hinweis": "Zähler und Nenner eintragen (Minus beim Zähler).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -5,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 1.5,
+       "t": -2
+      }
+     ],
+     "strecken": [
+      [
+       0,
+       -2,
+       2,
+       -2,
+       "gestrichelt"
+      ],
+      [
+       2,
+       -2,
+       2,
+       1,
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     2
+    ]
+   },
+   "c": [
+    "3",
+    "2"
+   ],
+   "w": "Das Dreieck geht 2 nach rechts und 3 nach oben: m = 3/2.",
+   "h": "m = (nach oben) : (nach rechts). Nach unten zählt negativ."
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Du zeichnest y = −0,6x − 2. Vom Start (0 | −2) aus gehst du mit einem Steigungsdreieck aus ganzen Kästchen weiter, 5 nach rechts. Bei welchem Gitterpunkt kommst du an?",
+    "schablone": "P(□ | □)",
+    "hinweis": "Trage die beiden Koordinaten ein."
+   },
+   "o": {
+    "werte": [
+     5,
+     -5
+    ]
+   },
+   "c": [
+    "5",
+    "-2 + (-3)"
+   ],
+   "w": "m = −0,6: 5 nach rechts und 3 nach unten. y = −2 − 3 = −5. Also P(5 | −5).",
+   "h": "Bei m = −0,6 ist der Nenner der Weg nach rechts, der Zähler der Weg nach oben (Minus: nach unten)."
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche der drei Geraden ist der Graph von y = −0,5x + 2? Begründe mit t und m.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -4,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -0.5,
+       "t": -2,
+       "name": "g"
+      },
+      {
+       "art": "linear",
+       "m": 0.5,
+       "t": 2,
+       "name": "h"
+      },
+      {
+       "art": "linear",
+       "m": -0.5,
+       "t": 2,
+       "name": "k"
+      }
+     ]
+    }
+   },
+   "a": [
+    "k: Sie schneidet die y-Achse bei 2 und fällt um 1 auf 2 nach rechts.",
+    "g: Sie fällt mit der Steigung −0,5.",
+    "g: Sie geht durch (0 | −2).",
+    "h: Sie schneidet die y-Achse bei 2."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Zuerst t = 2: Das passt zu h und k. Dann m = −0,5 < 0: Die Gerade fällt, 2 nach rechts geht es 1 nach unten. Das ist nur k. h steigt, g hat t = −2.",
+   "h": "Prüfe zuerst t (y-Achse), dann ob die Gerade steigt oder fällt."
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Treppe hat Stufen mit 18 cm Höhe und 30 cm Tiefe. Die Linie über die Stufenkanten ist eine Gerade. Wie groß ist ihre Steigung m?"
+   },
+   "o": {
+    "wert": 0.6
+   },
+   "c": "18 / 30",
+   "w": "Jede Stufe ist ein Steigungsdreieck: 30 cm nach rechts, 18 cm nach oben. m = 18 : 30 = 0,6.",
+   "h": "m = (nach oben) : (nach rechts), in derselben Einheit."
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Steigung einer Geraden ist m = 0,4. Mit 1 nach rechts müsstest du 0,4 Kästchen nach oben zeichnen – zu ungenau. Welches kleinste Steigungsdreieck aus ganzen Kästchen passt?",
+    "schablone": "□ nach rechts, □ nach oben",
+    "hinweis": "Zwei ganze Zahlen eintragen."
+   },
+   "o": {
+    "werte": [
+     5,
+     2
+    ]
+   },
+   "c": [
+    "5",
+    "2"
+   ],
+   "w": "0,4 = 4/10 = 2/5. Also 5 nach rechts und 2 nach oben. Kleiner geht es mit ganzen Kästchen nicht, denn 2/5 lässt sich nicht kürzen.",
+   "h": "Schreibe 0,4 als gekürzten Bruch."
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Geraden ist ein großes Steigungsdreieck gezeichnet: 10 nach rechts und 8 nach unten. Wie weit geht es nach unten, wenn man nur 1 nach rechts geht? Gib die Steigung m an."
+   },
+   "o": {
+    "wert": -0.8
+   },
+   "c": "-8 / 10",
+   "w": "m = −8 : 10 = −0,8. Jedes Steigungsdreieck an derselben Geraden ergibt dasselbe m.",
+   "h": "Teile den Weg nach oben (unten negativ) durch den Weg nach rechts."
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Gerade geht durch die beiden markierten Gitterpunkte. Gib ihre Steigung als gekürzten Bruch an.",
+    "schablone": "m = □/□",
+    "hinweis": "Zähler und Nenner eintragen (Minus beim Zähler).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -7,
+      8
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -2.5,
+       "t": 4
+      }
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 4
+      },
+      {
+       "x": 2,
+       "y": -1
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -5,
+     2
+    ]
+   },
+   "c": [
+    "-5",
+    "2"
+   ],
+   "w": "Von (0 | 4) nach (2 | −1): 2 nach rechts und 5 nach unten. m = −5/2.",
+   "h": "Nach unten zählt negativ. Achte auf das Vorzeichen."
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Du zeichnest y = −0,75x + 6 mit Steigungsdreiecken (4 nach rechts, 3 nach unten). An welcher Stelle x trifft die Gerade die x-Achse?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "-6 / (-3/4)",
+   "w": "Start bei (0 | 6). Jedes Dreieck senkt um 3. Nach 2 Dreiecken ist y = 0, also x = 2 · 4 = 8. Probe: (−0,75) · 8 + 6 = 0.",
+   "h": "Wie viele Dreiecke brauchst du, bis du von t auf 0 heruntergekommen bist?"
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Geraden ist ein großes Steigungsdreieck gezeichnet: 10 nach rechts und 12 nach oben. Wie weit geht es nach oben, wenn man nur 1 nach rechts geht? Gib die Steigung m an."
+   },
+   "o": {
+    "wert": 1.2
+   },
+   "c": "12 / 10",
+   "w": "m = 12 : 10 = 1,2. Jedes Steigungsdreieck an derselben Geraden ergibt dasselbe m.",
+   "h": "Teile den Weg nach oben (unten negativ) durch den Weg nach rechts."
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Du zeichnest y = −0,5x + 1 mit Steigungsdreiecken (2 nach rechts, 1 nach unten). An welcher Stelle x trifft die Gerade die x-Achse?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "-1 / (-1/2)",
+   "w": "Start bei (0 | 1). Jedes Dreieck senkt um 1. Nach 1 Dreieck ist y = 0, also x = 1 · 2 = 2. Probe: (−0,5) · 2 + 1 = 0.",
+   "h": "Wie viele Dreiecke brauchst du, bis du von t auf 0 heruntergekommen bist?"
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche der gezeichneten Geraden ist der Graph von y = 3x − 2?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -5,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 3,
+       "t": -2,
+       "name": "g"
+      },
+      {
+       "art": "linear",
+       "m": 3,
+       "t": 2,
+       "name": "h"
+      },
+      {
+       "art": "linear",
+       "m": -3,
+       "t": -2,
+       "name": "k"
+      }
+     ]
+    }
+   },
+   "a": [
+    "keine davon",
+    "h",
+    "k",
+    "g"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "t = −2: Die Gerade muss die y-Achse bei −2 schneiden. m = 3 > 0: Sie steigt. Beides passt nur zu g."
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Gerade geht durch die beiden markierten Gitterpunkte. Welche Gleichung gehört zu ihr?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      6
+     ],
+     "y": [
+      -2,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -0.6,
+       "t": 3
+      }
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 3
+      },
+      {
+       "x": 5,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "y = −(5/3)x + 3",
+    "y = 0,6x + 3",
+    "y = −0,6x + 3",
+    "y = −0,6x − 3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Schnitt mit der y-Achse bei 3: t = 3. Von (0 | 3) nach (5 | 0): 5 nach rechts, 3 nach unten, m = −0,6. Also y = −0,6x + 3."
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche der gezeichneten Geraden ist der Graph von y = −x + 2?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -5,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -1,
+       "t": 2,
+       "name": "g"
+      },
+      {
+       "art": "linear",
+       "m": -1,
+       "t": -2,
+       "name": "h"
+      },
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 2,
+       "name": "k"
+      }
+     ]
+    }
+   },
+   "a": [
+    "k",
+    "g",
+    "keine davon",
+    "h"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "t = 2: Die Gerade muss die y-Achse bei 2 schneiden. m = −1 < 0: Sie fällt. Beides passt nur zu g."
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Du zeichnest y = 0,75x − 2. Vom Start (0 | −2) aus gehst du mit einem Steigungsdreieck aus ganzen Kästchen weiter, 4 nach rechts. Bei welchem Gitterpunkt kommst du an?",
+    "schablone": "P(□ | □)",
+    "hinweis": "Trage die beiden Koordinaten ein."
+   },
+   "o": {
+    "werte": [
+     4,
+     1
+    ]
+   },
+   "c": [
+    "4",
+    "-2 + (3)"
+   ],
+   "w": "m = 0,75: 4 nach rechts und 3 nach oben. y = −2 + 3 = 1. Also P(4 | 1)."
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Das Bild zeigt eine Gerade mit einem Steigungsdreieck aus ganzen Kästchen. Gib die Steigung m als gekürzten Bruch an.",
+    "schablone": "m = □/□",
+    "hinweis": "Zähler und Nenner eintragen (Minus beim Zähler).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -4,
+      3
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -0.75,
+       "t": 1
+      }
+     ],
+     "strecken": [
+      [
+       0,
+       1,
+       4,
+       1,
+       "gestrichelt"
+      ],
+      [
+       4,
+       1,
+       4,
+       -2,
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -3,
+     4
+    ]
+   },
+   "c": [
+    "-3",
+    "4"
+   ],
+   "w": "Das Dreieck geht 4 nach rechts und 3 nach unten: m = −3/4."
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Gerade geht durch die beiden markierten Gitterpunkte. Welche Gleichung gehört zu ihr?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -5,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -1.5,
+       "t": 2
+      }
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 2
+      },
+      {
+       "x": 2,
+       "y": -1
+      }
+     ]
+    }
+   },
+   "a": [
+    "y = −(2/3)x + 2",
+    "y = −1,5x − 2",
+    "y = 1,5x + 2",
+    "y = −1,5x + 2"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Schnitt mit der y-Achse bei 2: t = 2. Von (0 | 2) nach (2 | −1): 2 nach rechts, 3 nach unten, m = −1,5. Also y = −1,5x + 2."
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Gerade geht durch die beiden markierten Gitterpunkte. Welche Gleichung gehört zu ihr?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      6
+     ],
+     "y": [
+      -2,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -0.4,
+       "t": 3
+      }
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 3
+      },
+      {
+       "x": 5,
+       "y": 1
+      }
+     ]
+    }
+   },
+   "a": [
+    "y = −0,4x + 3",
+    "y = −2,5x + 3",
+    "y = −0,4x − 3",
+    "y = 0,4x + 3"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Schnitt mit der y-Achse bei 3: t = 3. Von (0 | 3) nach (5 | 1): 5 nach rechts, 2 nach unten, m = −0,4. Also y = −0,4x + 3."
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Du zeichnest y = 0,25x + 3. Vom Start (0 | 3) aus gehst du mit einem Steigungsdreieck aus ganzen Kästchen weiter, 4 nach rechts. Bei welchem Gitterpunkt kommst du an?",
+    "schablone": "P(□ | □)",
+    "hinweis": "Trage die beiden Koordinaten ein."
+   },
+   "o": {
+    "werte": [
+     4,
+     4
+    ]
+   },
+   "c": [
+    "4",
+    "3 + (1)"
+   ],
+   "w": "m = 0,25: 4 nach rechts und 1 nach oben. y = 3 + 1 = 4. Also P(4 | 4)."
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Das Bild zeigt eine Gerade mit einem Steigungsdreieck aus ganzen Kästchen. Gib die Steigung m als gekürzten Bruch an.",
+    "schablone": "m = □/□",
+    "hinweis": "Zähler und Nenner eintragen (Minus beim Zähler).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -6,
+      9
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2.5,
+       "t": -2
+      }
+     ],
+     "strecken": [
+      [
+       0,
+       -2,
+       2,
+       -2,
+       "gestrichelt"
+      ],
+      [
+       2,
+       -2,
+       2,
+       3,
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     5,
+     2
+    ]
+   },
+   "c": [
+    "5",
+    "2"
+   ],
+   "w": "Das Dreieck geht 2 nach rechts und 5 nach oben: m = 5/2."
+  },
+  {
+   "l": "graph_ablesen",
+   "t": "graph_ablesen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Gerade geht durch die beiden markierten Gitterpunkte. Welche Gleichung gehört zu ihr?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -2,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 0.3333333333333333,
+       "t": 2
+      }
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 2
+      },
+      {
+       "x": 3,
+       "y": 3
+      }
+     ]
+    }
+   },
+   "a": [
+    "y = 3x + 2",
+    "y = (1/3)x − 2",
+    "y = (1/3)x + 2",
+    "y = −(1/3)x + 2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Schnitt mit der y-Achse bei 2: t = 2. Von (0 | 2) nach (3 | 3): 3 nach rechts, 1 nach oben, m = 1/3. Also y = (1/3)x + 2."
   }
  ],
  "offen": [

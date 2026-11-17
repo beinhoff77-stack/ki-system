@@ -745,6 +745,208 @@ BF.stufe('deuten', 'Ein Planschbecken wird befüllt: h(x) = 0,5x + 5 (x in Minut
 baue = mit_befunden(baue, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- LÜCKEN (Achtzehnte Runde, Teil B: neue Lernkarte „graph_ablesen“ nach „ablesen“, siehe _luecken_kl8.py) ----
+# LehrplanPLUS M8 2 (Lineare Funktionen): Graphen zeichnen, Parameter am Graphen/Steigungsdreieck ablesen.
+# Vorbilder (Typ und Niveau, nicht Wortlaut/Zahlen): Stegreifaufgaben-Typ Kl. 8 („Welcher Graph gehört zu welcher Funktion?“),
+# BMT10 2017 (Steigung einer Treppe/Straße als Geradensteigung), Klassenarbeits-Typ „Gerade mit Steigungsdreieck zeichnen“.
+from _luecken_kl8 import K as _K, P as _P, Luecken, mit_luecken  # noqa: E402
+
+LK = Luecken('funktionen.linear', 18_8_2)
+_LZ = 'graph_ablesen'
+
+
+def _ko(xs=(-1, 7), ys=(-1, 6), **k):
+    return {'typ': 'koordinaten', 'x': list(xs), 'y': list(ys), **k}
+
+
+def _mf(m):
+    """Steigung für die Zeichnung (Brüche als Dezimalzahl, wie in den übrigen Karten)."""
+    return float(m) if Fr(m).denominator != 1 else int(m)
+
+
+_KARTE = {
+    'lernziel': _LZ, 'titel': 'Gerade zeichnen und am Graphen ablesen',
+    'einstieg': 'Eine Treppe beginnt auf einem Podest, 1 dm über dem Boden. Jede Stufe ist 3 dm tief und 2 dm hoch. '
+                'Die Linie über die Stufenkanten ist eine Gerade; eine Stufe ist ihr ⟦Steigungsdreieck⟧.',
+    'woerter': [['Steigungsdreieck', 'Dreieck unter der Geraden: so weit nach rechts, so weit nach oben – wie eine Treppenstufe'],
+                ['Gitterpunkt', 'Punkt, an dem sich zwei Kästchenlinien kreuzen; beide Koordinaten sind ganze Zahlen']],
+    'bild': _ko(graphen=[{'art': 'linear', 'm': 0.666667, 't': 1, 'name': 'Treppe'}], punkte=[{'x': 0, 'y': 1, 'name': '(0 | 1)'}, {'x': 3, 'y': 3, 'name': '(3 | 3)'}],
+                strecken=[[0, 1, 3, 1, 'gestrichelt'], [3, 1, 3, 3, 'gestrichelt']], name_x='dm', name_y='dm'),
+    'schritte': [{'text': 'Der Start liegt auf der y-Achse bei t = 1: der Gitterpunkt (0 | 1).',
+                  'bild': {'graphen': [], 'strecken': [], 'punkte': [{'x': 0, 'y': 1, 'name': '(0 | 1)'}]}},
+                 {'text': 'Eine Stufe: 3 nach rechts, 2 nach oben. So kommst du zu (3 | 3).',
+                  'bild': {'graphen': [], 'strecken': [[0, 1, 3, 1, 'gestrichelt'], [3, 1, 3, 3, 'gestrichelt']],
+                           'punkte': [{'x': 0, 'y': 1, 'name': '(0 | 1)'}, {'x': 3, 'y': 3, 'name': '(3 | 3)'}]}},
+                 {'text': 'Die Gerade durch beide Punkte ist der Graph von ⟦y = (2/3)x + 1⟧.',
+                  'bild': {'graphen': [{'art': 'linear', 'm': 0.666667, 't': 1, 'name': 'Treppe'}]}},
+                 {'text': 'Rückwärts liest du ab: Höhe durch Tiefe der Stufe, also m = 2 : 3.'}],
+    'probe': 'Bei x = 6 (zwei Stufen weiter): (2/3) · 6 + 1 = 5. Der Punkt (6 | 5) liegt auf der Geraden ✓',
+    'fehler': 'Die Stufe nicht kippen: 2 nach rechts und 3 nach oben ergibt m = 3 : 2. Das wäre eine viel steilere Treppe.',
+    'fehler_bild': {'graphen': [{'art': 'linear', 'm': 0.666667, 't': 1, 'name': 'richtig'}, {'art': 'linear', 'm': 1.5, 't': 1, 'name': 'falsch'}],
+                    'strecken': [[0, 1, 2, 1, 'gestrichelt'], [2, 1, 2, 4, 'gestrichelt']], 'punkte': [{'x': 0, 'y': 1, 'name': '(0 | 1)'}]},
+    'regel': 'Erst t auf der y-Achse, dann das Steigungsdreieck. Bei m = a/b: b nach rechts, a nach oben (bei negativem m nach unten).',
+}
+
+
+def _fenster(m, t, x1):
+    ys = [t, m * x1 + t, m * -1 + t, m * max(4, x1 + 1) + t]
+    lo, hi = min(min(ys), -1), max(max(ys), 1)
+    return [int(math.floor(lo)) - 1, int(math.ceil(hi)) + 1]
+
+
+import collections  # noqa: E402
+import math  # noqa: E402
+
+
+def _bruch_m(R, neg=None):
+    a, b = R.choice([(1, 2), (1, 3), (2, 3), (3, 2), (3, 4), (1, 4), (2, 5), (4, 3), (5, 2), (3, 5)])
+    s = -1 if (neg if neg is not None else R.random() < 0.4) else 1
+    return Fr(s * a, b), s * a, b
+
+
+def _graph(m, t, x1=None, dreieck=None, punkte=(), name=None):
+    """Koordinatensystem mit Gerade y = m x + t. dreieck=(x0, dx): Steigungsdreieck ab x0, dx nach rechts."""
+    g = {'art': 'linear', 'm': _mf(m), 't': _mf(t)}
+    if name: g['name'] = name
+    x1 = x1 if x1 is not None else 3
+    k = _ko(xs=(-1, max(4, x1 + 1)), ys=_fenster(m, t, x1), graphen=[g])
+    if dreieck:
+        x0, dx = dreieck
+        y0 = m * x0 + t
+        k['strecken'] = [[x0, _mf(y0), x0 + dx, _mf(y0), 'gestrichelt'], [x0 + dx, _mf(y0), x0 + dx, _mf(y0 + m * dx), 'gestrichelt']]
+    if punkte: k['punkte'] = [{'x': _mf(x), 'y': _mf(y)} for x, y in punkte]
+    return k
+
+
+_WAHL = collections.Counter()
+
+
+def _wahl(R, st, arten):
+    n = min(_WAHL[(st, a)] for a in arten)
+    a = R.choice([x for x in arten if _WAHL[(st, x)] == n])
+    _WAHL[(st, a)] += 1
+    return a
+
+
+def _mt(m):
+    """Steigung als Text: endliche Dezimalzahl mit Komma, sonst Bruch a/b (Minus davor)."""
+    m = Fr(m)
+    if m.denominator in (1, 2, 4, 5, 8, 10): return zt(m)
+    return ('−' if m < 0 else '') + f'{abs(m.numerator)}/{m.denominator}'
+
+
+def g_graph_ablesen(R, st):
+    if st == 1:
+        art = _wahl(R, 1, ['punkt1', 't_ab', 'm_ganz'])
+        m, t = Fr(R.choice([-3, -2, -1, 1, 2, 3])), Fr(R.randint(-3, 4))
+        if art == 'punkt1':
+            return L(f'Du zeichnest die Gerade y = {lin(m, t)}. Du startest bei (0 | {zt(t)}) und gehst mit dem Steigungsdreieck 1 nach rechts. Bei welchem Gitterpunkt kommst du an?',
+                     'P(□ | □)', [1, m + t], ['1', f'{cz(m)} + {cz(t)}'],
+                     f'1 nach rechts, dann m = {zt(m)} nach {"oben" if m > 0 else "unten"}: y = {zt(t)} + {kl(m)} = {zt(m + t)}. Also P(1 | {zt(m + t)}).',
+                     'Start bei t auf der y-Achse. Bei 1 nach rechts geht es um m nach oben (m negativ: nach unten).', hinweis='Trage die beiden Koordinaten ein.')
+        if art == 't_ab':
+            return Z('Lies am Graphen den y-Achsenabschnitt t ab.', t, cz(t), f'Die Gerade schneidet die y-Achse bei y = {zt(t)}: t = {zt(t)}.',
+                     'Wo trifft die Gerade die senkrechte Achse?') | {'f': {'text': 'Lies am Graphen den y-Achsenabschnitt t ab.', 'grafik': _graph(m, t)}}
+        return Z('Das Bild zeigt eine Gerade mit Steigungsdreieck (1 nach rechts). Wie groß ist die Steigung m?', m, cz(m),
+                 f'1 nach rechts, dann {abs(m)} nach {"oben" if m > 0 else "unten"}: m = {zt(m)}.', 'Wie weit geht es nach oben oder unten, wenn du 1 nach rechts gehst? Nach unten zählt negativ.') | \
+            {'f': {'text': 'Das Bild zeigt eine Gerade mit Steigungsdreieck (1 nach rechts). Wie groß ist die Steigung m?', 'grafik': _graph(m, t, dreieck=(R.randint(1, 3), 1))}}
+    if st == 2:
+        art = _wahl(R, 2, ['punkt_bruch', 'welche_gl', 'welcher_graph', 'm_dreieck'])
+        if art == 'punkt_bruch':
+            m, a, b = _bruch_m(R)
+            t = Fr(R.randint(-2, 3))
+            return L(f'Du zeichnest y = {lin(m, t)}. Vom Start (0 | {zt(t)}) aus gehst du mit einem Steigungsdreieck aus ganzen Kästchen weiter, {b} nach rechts. Bei welchem Gitterpunkt kommst du an?',
+                     'P(□ | □)', [b, t + a], [str(b), f'{cz(t)} + ({a})'],
+                     f'm = {_mt(m)}: {b} nach rechts und {abs(a)} nach {"oben" if a > 0 else "unten"}. y = {zt(t)} {"+" if a > 0 else "−"} {abs(a)} = {zt(t + a)}. Also P({b} | {zt(t + a)}).',
+                     f'Bei m = {_mt(m)} ist der Nenner der Weg nach rechts, der Zähler der Weg nach oben (Minus: nach unten).', hinweis='Trage die beiden Koordinaten ein.')
+        if art == 'm_dreieck':
+            m, a, b = _bruch_m(R)
+            t = Fr(R.randint(-2, 2))
+            if abs(t + a) > 6: return g_graph_ablesen(R, st)
+            return L('Das Bild zeigt eine Gerade mit einem Steigungsdreieck aus ganzen Kästchen. Gib die Steigung m als gekürzten Bruch an.', 'm = □/□', [a, b], [str(a), str(b)],
+                     f'Das Dreieck geht {b} nach rechts und {abs(a)} nach {"oben" if a > 0 else "unten"}: m = {"−" if a < 0 else ""}{abs(a)}/{b}.',
+                     'm = (nach oben) : (nach rechts). Nach unten zählt negativ.', hinweis='Zähler und Nenner eintragen (Minus beim Zähler).') | \
+                {'f': {'text': 'Das Bild zeigt eine Gerade mit einem Steigungsdreieck aus ganzen Kästchen. Gib die Steigung m als gekürzten Bruch an.', 'schablone': 'm = □/□',
+                       'hinweis': 'Zähler und Nenner eintragen (Minus beim Zähler).', 'grafik': _graph(m, t, x1=b, dreieck=(0, b))}}
+        if art == 'welche_gl':
+            m, a, b = _bruch_m(R)
+            t = Fr(R.choice([-2, -1, 1, 2, 3]))
+            richtig = f'y = {lin(m, t)}'
+            falsch = [f'y = {lin(1 / m, t)}', f'y = {lin(m, -t)}', f'y = {lin(-m, t)}']
+            return LK.A('Die Gerade geht durch die beiden markierten Gitterpunkte. Welche Gleichung gehört zu ihr?', richtig, falsch,
+                        f'Schnitt mit der y-Achse bei {zt(t)}: t = {zt(t)}. Von (0 | {zt(t)}) nach ({b} | {zt(t + a)}): {b} nach rechts, {abs(a)} nach {"oben" if a > 0 else "unten"}, '
+                        f'm = {_mt(m)}. Also {richtig}.',
+                        'Lies zuerst t an der y-Achse ab. Dann: Wie weit nach oben, wenn du nach rechts gehst?',
+                        grafik=_graph(m, t, x1=b, punkte=[(0, t), (b, t + a)]))
+        # welcher_graph: drei Geraden, eine passt
+        m = Fr(R.choice([-2, -1, 2, 3])) if R.random() < 0.5 else _bruch_m(R)[0]
+        t = Fr(R.choice([-2, -1, 1, 2]))
+        kand = {'g': (m, t), 'h': (m, -t), 'k': (-m, t)}
+        namen = ['g', 'h', 'k']
+        R.shuffle(namen)
+        zu = dict(zip(namen, kand.values()))
+        richtig = [n for n, v in zu.items() if v == (m, t)][0]
+        gr = _ko(xs=(-4, 4), ys=(-5, 5), graphen=[{'art': 'linear', 'm': _mf(v[0]), 't': _mf(v[1]), 'name': n} for n, v in sorted(zu.items())])
+        return LK.A(f'Welche der gezeichneten Geraden ist der Graph von y = {lin(m, t)}?', richtig, [n for n in 'ghk' if n != richtig] + ['keine davon'],
+                    f't = {zt(t)}: Die Gerade muss die y-Achse bei {zt(t)} schneiden. m = {zt(m)} {"> 0: Sie steigt" if m > 0 else "< 0: Sie fällt"}. Beides passt nur zu {richtig}.',
+                    'Prüfe zuerst den Schnitt mit der y-Achse, dann: steigt oder fällt die Gerade?', grafik=gr)
+    art = _wahl(R, 3, ['fallend', 'nullstelle', 'gross', 'zwei_pkt'])
+    if art == 'fallend':
+        m, a, b = _bruch_m(R, neg=True)
+        t = Fr(R.randint(1, 4))
+        return L('Die Gerade geht durch die beiden markierten Gitterpunkte. Gib ihre Steigung als gekürzten Bruch an.', 'm = □/□', [a, b], [str(a), str(b)],
+                 f'Von (0 | {zt(t)}) nach ({b} | {zt(t + a)}): {b} nach rechts und {abs(a)} nach unten. m = −{abs(a)}/{b}.',
+                 'Nach unten zählt negativ. Achte auf das Vorzeichen.', hinweis='Zähler und Nenner eintragen (Minus beim Zähler).') | \
+            {'f': {'text': 'Die Gerade geht durch die beiden markierten Gitterpunkte. Gib ihre Steigung als gekürzten Bruch an.', 'schablone': 'm = □/□',
+                   'hinweis': 'Zähler und Nenner eintragen (Minus beim Zähler).', 'grafik': _graph(m, t, x1=b, punkte=[(0, t), (b, t + a)])}}
+    if art == 'nullstelle':
+        m, a, b = _bruch_m(R, neg=True)
+        k = R.randint(1, 2)
+        t = Fr(-a * k)  # Nullstelle bei x = k·b (ganzzahlig)
+        x0 = -t / m
+        return Z(f'Du zeichnest y = {lin(m, t)} mit Steigungsdreiecken ({b} nach rechts, {abs(a)} nach unten). An welcher Stelle x trifft die Gerade die x-Achse?', x0,
+                 f'-{cz(t)} / {cz(m)}', f'Start bei (0 | {zt(t)}). Jedes Dreieck senkt um {abs(a)}. Nach {k} Dreieck{"en" if k > 1 else ""} ist y = 0, also x = {k} · {b} = {zt(x0)}. '
+                 f'Probe: ({_mt(m)}) · {zt(x0)} + {kl(t)} = 0.', 'Wie viele Dreiecke brauchst du, bis du von t auf 0 heruntergekommen bist?')
+    if art == 'gross':
+        m = Fr(R.choice([3, 4, 6, 8, 12]), 10) * R.choice([1, -1])
+        dx = 10 if (m * 10).denominator == 1 else 20
+        dy = m * dx
+        if dy.denominator != 1: return g_graph_ablesen(R, st)
+        t = Fr(R.randint(0, 3))
+        return Z(f'An einer Geraden ist ein großes Steigungsdreieck gezeichnet: {dx} nach rechts und {abs(dy)} nach {"oben" if dy > 0 else "unten"}. '
+                 f'Wie weit geht es nach {"oben" if dy > 0 else "unten"}, wenn man nur 1 nach rechts geht? Gib die Steigung m an.', m, f'{cz(dy)} / {dx}',
+                 f'm = {zt(dy)} : {dx} = {zt(m)}. Jedes Steigungsdreieck an derselben Geraden ergibt dasselbe m.', 'Teile den Weg nach oben (unten negativ) durch den Weg nach rechts.')
+    m = Fr(R.choice([1, 2, 3, -1, -2]), R.choice([2, 3]))
+    x1, x2 = R.randint(-3, 0), R.randint(2, 5)
+    dx = x2 - x1
+    if (m * dx).denominator != 1 or (m * x1).denominator != 1: return g_graph_ablesen(R, st)
+    t = Fr(R.randint(-2, 2))
+    y1, y2 = m * x1 + t, m * x2 + t
+    return L(f'Eine Gerade geht durch A({x1} | {zt(y1)}) und B({x2} | {zt(y2)}). Welches Steigungsdreieck aus ganzen Kästchen führt von A nach B?',
+             '□ nach rechts, □ nach oben (unten: negativ)', [dx, y2 - y1], [str(dx), f'{cz(y2)} - ({cz(y1)})'],
+             f'Nach rechts: {x2} − {kl(x1)} = {dx}. Nach oben: {zt(y2)} − {kl(y1)} = {zt(y2 - y1)}. Steigung m = {zt(y2 - y1)} : {dx} = {_mt(m)}.',
+             'Differenz der x-Werte (nach rechts) und der y-Werte (nach oben) bilden.', hinweis='Zwei ganze Zahlen eintragen; nach unten mit Minus.')
+
+
+_GR3 = _ko(xs=(-4, 4), ys=(-4, 5), graphen=[{'art': 'linear', 'm': -0.5, 't': -2, 'name': 'g'}, {'art': 'linear', 'm': 0.5, 't': 2, 'name': 'h'},
+                                             {'art': 'linear', 'm': -0.5, 't': 2, 'name': 'k'}])
+_FEST = [
+    lambda: LK.A('Welche der drei Geraden ist der Graph von y = −0,5x + 2? Begründe mit t und m.', 'k: Sie schneidet die y-Achse bei 2 und fällt um 1 auf 2 nach rechts.',
+                 ['h: Sie schneidet die y-Achse bei 2.', 'g: Sie fällt mit der Steigung −0,5.', 'g: Sie geht durch (0 | −2).'],
+                 'Zuerst t = 2: Das passt zu h und k. Dann m = −0,5 < 0: Die Gerade fällt, 2 nach rechts geht es 1 nach unten. Das ist nur k. h steigt, g hat t = −2.',
+                 'Prüfe zuerst t (y-Achse), dann ob die Gerade steigt oder fällt.', grafik=_GR3, art=_P),
+    lambda: Z('Eine Treppe hat Stufen mit 18 cm Höhe und 30 cm Tiefe. Die Linie über die Stufenkanten ist eine Gerade. Wie groß ist ihre Steigung m?', Fr(3, 5), '18 / 30',
+              'Jede Stufe ist ein Steigungsdreieck: 30 cm nach rechts, 18 cm nach oben. m = 18 : 30 = 0,6.', 'm = (nach oben) : (nach rechts), in derselben Einheit.') | {'_art': _P},
+    lambda: L('Die Steigung einer Geraden ist m = 0,4. Mit 1 nach rechts müsstest du 0,4 Kästchen nach oben zeichnen – zu ungenau. '
+              'Welches kleinste Steigungsdreieck aus ganzen Kästchen passt?', '□ nach rechts, □ nach oben', [5, 2], ['5', '2'],
+              '0,4 = 4/10 = 2/5. Also 5 nach rechts und 2 nach oben. Kleiner geht es mit ganzen Kästchen nicht, denn 2/5 lässt sich nicht kürzen.',
+              'Schreibe 0,4 als gekürzten Bruch.', hinweis='Zwei ganze Zahlen eintragen.') | {'_art': _K},
+]
+LK.karte(_KARTE, nach='ablesen', abschnitt='Steigung und Achsenabschnitt', gen=g_graph_ablesen, fest=_FEST)
+baue = mit_luecken(baue, LK)
+# ---- LÜCKEN ENDE ----
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Steigung und Achsenabschnitt', ['ablesen', 'zwei_punkte', 'proportional']), ('Geraden bestimmen', ['aufstellen', 'schnittpunkte', 'lage']),

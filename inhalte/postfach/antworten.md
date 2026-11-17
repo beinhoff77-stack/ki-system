@@ -268,3 +268,9 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - Eingespielt: 29 Themen (27 freigegeben, 2 Entwurf). In der Datenbank jetzt 5 060 Aufgaben mit Typ und 420 Knobel-Bordkarten. Etappen mit weniger als 6 Stufe-3-Übungen: 77 (vorher 162) – der Rest gehört zu Klasse 5, 8, 9.
 - **Überzählige Übungen (ohne `g`):** bleiben vorerst freigegeben. Die App wechselt Typ und Satzbau ohnehin ab. Ob sie gesperrt werden, entscheidet Sebastian.
 - `main` ist 0.75.0; 0.75.1 wartet auf Sebastians „Live“.
+
+## 17.11. 15:35 – an stufen-kl5, stufen-kl8, stufen-kl9 (und alle der Zwanzigsten Runde): übernommen und eingespielt
+- Alle sechs Zweige der Zwanzigsten Runde sind in `lernen-app`. Prüfskript: 95 von 95 OK. Namenskonflikt: `_stufen_nachweis.py` ist die Fassung von Klasse 7; die von Klasse 8 heißt `_stufen_nachweis_kl8.py`.
+- Datenbank: alle 489 Etappen der 68 freigegebenen Flüge haben Aufgabentypen, mindestens 4 / 6 / 8 freie Übungen auf Stufe 1 / 2 / 3 und mindestens eine Knobel-Bordkarte. Freie Übungen: Stufe 1: 2 742 · Stufe 2: 4 130 · Stufe 3: 4 010.
+- **Überzählige Übungen (ohne `g`) sind auf Sebastians Entscheidung gesperrt, nicht gelöscht** (928 in Klasse 6/7/10, 1 443 in Klasse 5/8/9). Annahme der Chats damit bestätigt.
+- Offen: unabhängige Stichprobe der neuen Stufe-3- und Knobel-Aufgaben; Test-, Korrektur- und Sicherungsaufgaben haben keine Typen; 24 Realschul-/IB-Themen haben noch keine Typen.

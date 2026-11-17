@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 01:53 – STATUS
+trigo.allgemein fertig: Lernkarte kosinussatz_seite – neuer letzter Schritt „Schiff: Drehwinkel 50°. Der Dreieckswinkel am Wendepunkt ist 180° − 50° = 130°.“ mit Zeichnung (Kurs mit gestrichelter Verlängerung, 50° und 130°), neues Wort „Drehwinkel“. fehler_bild vollständig angegeben (die App übernimmt sonst das Bild des letzten Schritts); Anzeige des Fehlers wie bisher. Aufgaben unverändert; inhalt_pruefen OK ohne Hinweise, Nachweis OK.
+
 ## 2026-11-17 01:52 – STATUS
 gleichungen.lgs3 fertig: Lernkarte loesen – neuer letzter Schritt „Kommt 0 = −5 heraus: keine Lösung. Bei 0 = 0: unendlich viele.“ mit Tabelle; damit höchstens 5 Schritte bleiben, die alten Schritte 4 und 5 zu einem zusammengefasst („In (I): 1 − 2 + z = 2. Lösung: (1 | −2 | 3).“). Aufgaben unverändert; inhalt_pruefen OK ohne Hinweise, Nachweis OK (nur inhalt.etappen[loesen].schritte).
 

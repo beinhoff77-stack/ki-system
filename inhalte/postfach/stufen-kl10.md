@@ -3,6 +3,9 @@
 Arbeitsweise (gilt für alle Themen): Hilfsdatei `inhalte/generatoren/_stufen_kl10.py`, je Generator ein Abschnitt „STUFEN“ ganz am Ende.
 **Annahme zu „überzählig“:** Überzählige Übungen (gleicher Typ und gleicher Satzbau ab der dritten, sowie dieselbe Vorlage zum vierten Mal) bekommen **kein** `g` und behalten ihre Stufe. Gäbe man ihnen ein `g`, meldete das Prüfskript für die ganze Lernkarte „mehr als 2 Aufgaben mit gleichem Satzbau“. So bleibt jede Datei OK. Zusätzlich prüft das Skript jede Datei **ohne** die überzähligen mit allen strengen Regeln (wie nach dem Sperren). Die überzähligen sind so eingestreut, dass es keine Gruppe „gleich gebaut hintereinander“ gibt. Bitte sperren; Liste im Abschlussbericht.
 
+## 2026-11-17 – STATUS: raum.pyramide_kegel_kugel fertig
+7 Lernkarten typisiert. 35 neue Übungen, 14 Knobel-Bordkarten, 3 umgestuft, 67 überzählig (darunter die doppelte Fragestellung „Bei einem Kegel wird nur die Höhe verdoppelt …“). Prüfskript OK (0 Gruppen), strenge Prüfung ohne Überzählige OK, Nachweis OK.
+
 ## 2026-11-17 – STATUS: raum.schraegbilder fertig
 6 Lernkarten typisiert. 35 neue Übungen, 12 Knobel-Bordkarten, 8 umgestuft, 36 überzählig. Prüfskript OK (0 Gruppen), strenge Prüfung ohne Überzählige OK, Nachweis OK.
 

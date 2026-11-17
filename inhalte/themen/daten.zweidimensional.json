@@ -40,12 +40,68 @@
    {
     "lernziel": "ablesen",
     "titel": "Streudiagramme lesen",
-    "regel": "Bei ⟦zweidimensionalen Daten⟧ (bivariate data) gehören zu jedem Objekt ⟦zwei Werte⟧, z. B. Lernzeit und Testpunkte eines Schülers. Im ⟦Streudiagramm⟧ (scatter graph) ist jedes Objekt ⟦ein Punkt⟧: x-Wert nach rechts, y-Wert nach oben.",
+    "regel": "Im Streudiagramm ist jedes Objekt ⟦ein Punkt⟧. Erster Wert nach rechts, zweiter nach oben.",
     "schritte": [
-     "Ein Punkt liegt bei (4 | 60): Dieser Schüler hat 4 Stunden gelernt.",
-     "Sein y-Wert: ⟦60 Punkte⟧ im Test."
+     {
+      "text": "Ein Punkt liegt bei (4 | 60).",
+      "bild": {
+       "punkte": [
+        {
+         "x": 2,
+         "y": 45
+        },
+        {
+         "x": 6,
+         "y": 70
+        },
+        {
+         "x": 8,
+         "y": 85
+        },
+        {
+         "x": 4,
+         "y": 60,
+         "name": "(4 | 60)"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Erst nach rechts: x = 4. Dieses Kind hat 4 Stunden gelernt.",
+      "bild": {
+       "strecken": [
+        [
+         4,
+         0,
+         4,
+         60,
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Dann nach oben: y = ⟦60 Punkte⟧ im Test.",
+      "bild": {
+       "strecken": [
+        [
+         4,
+         0,
+         4,
+         60,
+         "gestrichelt"
+        ],
+        [
+         0,
+         60,
+         4,
+         60,
+         "gestrichelt"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "Erst nach rechts zu x = 4, dann nach oben bis zum Punkt ✓",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -63,8 +119,7 @@
       },
       {
        "x": 4,
-       "y": 60,
-       "name": "(4 | 60)"
+       "y": 60
       },
       {
        "x": 6,
@@ -75,21 +130,96 @@
        "y": 85
       }
      ],
-     "name_x": "Lernzeit in h",
-     "name_y": "Punkte",
-     "schritt_y": 10
+     "schritt_x": 1,
+     "schritt_y": 10,
+     "name_x": "h",
+     "name_y": "Punkte"
     },
-    "fehler": "Den Punkt (4 | 60) als „60 Stunden, 4 Punkte“ zu lesen ist falsch: Der ⟦erste Wert gehört zur x-Achse⟧ (nach rechts), der zweite zur y-Achse."
+    "fehler": "(4 | 60) heißt nicht „60 Stunden, 4 Punkte“. Der ⟦erste Wert gehört zur x-Achse⟧, also nach rechts.",
+    "einstieg": "Vor einem Test schreibt jedes Kind auf, wie lange es gelernt hat. Danach kommen die Testpunkte dazu. Das sind zweidimensionale Daten. Man zeichnet sie in ein ⟦Streudiagramm⟧.",
+    "woerter": [
+     [
+      "zweidimensionale Daten",
+      "zu jedem Objekt gehören zwei Werte, hier Lernzeit und Punkte"
+     ],
+     [
+      "Streudiagramm",
+      "jedes Kind ist ein Punkt: Lernzeit nach rechts, Punkte nach oben"
+     ]
+    ]
    },
    {
     "lernziel": "zusammenhang",
     "titel": "Art des Zusammenhangs erkennen",
-    "regel": "Steigen die Punkte von links nach rechts an, ist der Zusammenhang ⟦positiv⟧ (positive correlation): „je mehr x, desto mehr y“. Fallen sie, ist er ⟦negativ⟧. Liegen sie wie eine Wolke ohne Richtung, gibt es ⟦keinen⟧ Zusammenhang. Je enger die Punkte an einer Geraden liegen, desto ⟦stärker⟧ ist der Zusammenhang.",
+    "regel": "Steigen die Punkte, ist der Zusammenhang ⟦positiv⟧, fallen sie, negativ. Eine Wolke ohne Richtung zeigt keinen.",
     "schritte": [
-     "Alter eines Autos und sein Wert: Die Punkte fallen von links oben nach rechts unten.",
-     "Sie liegen eng an einer Linie: ⟦stark negativer Zusammenhang⟧."
+     {
+      "text": "Die Punkte fallen von links oben nach rechts unten."
+     },
+     {
+      "text": "Sie liegen eng an einer Linie: ⟦stark negativer Zusammenhang⟧.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "linear",
+         "m": -2,
+         "t": 26,
+         "bereich": [
+          0,
+          11
+         ]
+        }
+       ]
+      }
+     },
+     {
+      "text": "Bei Lernzeit und Testpunkten steigen die Punkte: positiver Zusammenhang.",
+      "bild": {
+       "typ": "koordinaten",
+       "x": [
+        0,
+        9
+       ],
+       "y": [
+        0,
+        100
+       ],
+       "punkte": [
+        {
+         "x": 2,
+         "y": 45
+        },
+        {
+         "x": 4,
+         "y": 60
+        },
+        {
+         "x": 6,
+         "y": 70
+        },
+        {
+         "x": 8,
+         "y": 85
+        }
+       ],
+       "schritt_x": 1,
+       "schritt_y": 10,
+       "name_x": "h",
+       "name_y": "Punkte",
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 6.5,
+         "t": 32,
+         "bereich": [
+          0,
+          9
+         ]
+        }
+       ]
+      }
+     }
     ],
-    "probe": "Je älter das Auto, desto geringer der Wert – passt zu „negativ“ ✓",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -130,21 +260,102 @@
        "y": 6
       }
      ],
-     "name_x": "Alter in Jahren",
-     "name_y": "Wert in Tausend €",
-     "schritt_y": 5
+     "schritt_x": 2,
+     "schritt_y": 5,
+     "name_x": "Jahre",
+     "name_y": "Wert"
     },
-    "fehler": "„Negativer Zusammenhang“ heißt nicht „kein Zusammenhang“ oder „schlecht“: Negativ beschreibt nur die ⟦Richtung⟧ – wenn x wächst, ⟦wird y kleiner⟧."
+    "fehler": "„Negativ“ heißt nicht „kein Zusammenhang“ oder „schlecht“. Es beschreibt nur die ⟦Richtung⟧: Wächst x, wird y kleiner.",
+    "einstieg": "Ein Autohändler trägt Alter und Wert seiner Autos ein. Je älter ein Auto, desto weniger ist es wert. Die Punkte fallen nach rechts: ein ⟦negativer Zusammenhang⟧.",
+    "woerter": [
+     [
+      "positiver Zusammenhang",
+      "je mehr x, desto mehr y; die Punkte steigen"
+     ],
+     [
+      "negativer Zusammenhang",
+      "je mehr x, desto weniger y; die Punkte fallen"
+     ],
+     [
+      "stark",
+      "die Punkte liegen eng an einer Linie"
+     ]
+    ]
    },
    {
     "lernziel": "gerade",
     "titel": "Mit der Ausgleichsgeraden schätzen",
-    "regel": "Eine ⟦Ausgleichsgerade⟧ (line of best fit) läuft mitten durch die Punktwolke: etwa gleich viele Punkte darüber und darunter. Mit ihrer Gleichung y = m · x + t kann man ⟦Werte schätzen⟧. Innerhalb der Daten (⟦Interpolation⟧) ist das verlässlich, weit außerhalb (⟦Extrapolation⟧) nicht.",
+    "regel": "Mit der Ausgleichsgeraden ⟦innerhalb der Daten⟧ schätzen. Weit außerhalb wird die Schätzung unsicher.",
     "schritte": [
-     "Ausgleichsgerade: y = 5x + 40 (x Lernzeit in h, y Punkte).",
-     "Schätzung für 6 Stunden: y = 5 · 6 + 40 = ⟦70 Punkte⟧."
+     {
+      "text": "Die Ausgleichsgerade hat die Gleichung y = 5x + 40.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 5,
+         "t": 40,
+         "bereich": [
+          0,
+          11
+         ]
+        }
+       ]
+      }
+     },
+     {
+      "text": "Für 6 Stunden: y = 5 · 6 + 40 = ⟦70 Punkte⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 1,
+         "y": 48
+        },
+        {
+         "x": 2,
+         "y": 47
+        },
+        {
+         "x": 3,
+         "y": 58
+        },
+        {
+         "x": 5,
+         "y": 62
+        },
+        {
+         "x": 7,
+         "y": 78
+        },
+        {
+         "x": 8,
+         "y": 77
+        },
+        {
+         "x": 10,
+         "y": 92
+        },
+        {
+         "x": 6,
+         "y": 70,
+         "name": "Schätzung"
+        }
+       ],
+       "strecken": [
+        [
+         6,
+         0,
+         6,
+         70,
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Für 20 Stunden wären es 140 Punkte: Extrapolation, hier unsinnig."
+     }
     ],
-    "probe": "Im Diagramm liegt bei x = 6 auch ein Punkt in der Nähe von 70 ✓",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -185,32 +396,63 @@
        "y": 92
       }
      ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": 5,
-       "t": 40,
-       "bereich": [
-        0,
-        11
-       ]
-      }
-     ],
-     "name_x": "Lernzeit in h",
-     "name_y": "Punkte",
-     "schritt_y": 10
+     "schritt_x": 1,
+     "schritt_y": 10,
+     "name_x": "h",
+     "name_y": "Punkte"
     },
-    "fehler": "Mit y = 5x + 40 für 20 Stunden 140 Punkte vorherzusagen ist unsinnig, wenn der Test nur 100 Punkte hat: Weit ⟦außerhalb der Daten⟧ gilt die Gerade nicht mehr."
+    "fehler": "140 Punkte bei einem Test mit 100 Punkten sind unsinnig. Weit ⟦außerhalb der Daten⟧ gilt die Gerade nicht mehr.",
+    "einstieg": "Durch die Punktwolke vom Lernen legt man eine Linie, mitten hindurch. Mit ihr schätzt man, wie viele Punkte 6 Stunden Lernen bringen. Sie heißt ⟦Ausgleichsgerade⟧.",
+    "woerter": [
+     [
+      "Ausgleichsgerade",
+      "Gerade mitten durch die Punkte; etwa gleich viele darüber und darunter"
+     ],
+     [
+      "Extrapolation",
+      "Schätzen weit außerhalb der Daten; das ist unsicher"
+     ]
+    ]
    },
    {
     "lernziel": "ausreisser",
     "titel": "Ausreißer finden",
-    "regel": "Ein ⟦Ausreißer⟧ (outlier) ist ein Punkt, der ⟦weit weg vom Muster⟧ der anderen liegt. Er kann ein Messfehler sein oder ein echter Sonderfall. Ausreißer verschieben die Ausgleichsgerade, deshalb prüft man sie zuerst.",
+    "regel": "Ein Ausreißer liegt ⟦weit weg vom Muster⟧. Prüfe ihn, bevor du eine Ausgleichsgerade zeichnest.",
     "schritte": [
-     "Fast alle Punkte steigen eng an. Punkt C bei (3 | 90) liegt weit über allen Nachbarn.",
-     "⟦C ist ein Ausreißer⟧."
+     {
+      "text": "Fast alle Punkte folgen einem Muster: Sie steigen gleichmäßig an.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 5,
+         "t": 40,
+         "bereich": [
+          0,
+          9
+         ]
+        }
+       ]
+      }
+     },
+     {
+      "text": "Die Nachbarn B und D liegen bei etwa 50 und 60."
+     },
+     {
+      "text": "C bei (3 | 90) liegt weit darüber: ⟦C ist ein Ausreißer⟧.",
+      "bild": {
+       "strecken": [
+        [
+         3,
+         55,
+         3,
+         90,
+         "gestrichelt"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "Die Nachbarn bei x = 2 und x = 4 liegen bei etwa 50 und 60 ✓",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -253,22 +495,115 @@
        "name": "F"
       }
      ],
-     "name_x": "Lernzeit in h",
-     "name_y": "Punkte",
-     "schritt_y": 10
+     "schritt_x": 1,
+     "schritt_y": 10,
+     "name_x": "h",
+     "name_y": "Punkte"
     },
-    "fehler": "Den Punkt mit dem ⟦größten y-Wert⟧ automatisch als Ausreißer zu nehmen ist falsch: Bei einem steigenden Zusammenhang gehört ein hoher y-Wert ganz rechts zum Muster. Entscheidend ist der ⟦Abstand zum Muster⟧."
+    "fehler": "Nicht automatisch den Punkt mit dem ⟦größten y-Wert⟧ nehmen. Rechts oben passt ein hoher Wert zum Muster.",
+    "einstieg": "Ein Kind hat nur 3 Stunden gelernt, aber 90 Punkte. Alle anderen mit so wenig Lernzeit haben viel weniger. So ein Punkt heißt ⟦Ausreißer⟧.",
+    "woerter": [
+     [
+      "Ausreißer",
+      "ein Punkt weit weg vom Muster der anderen"
+     ],
+     [
+      "Muster",
+      "die Richtung, der die meisten Punkte folgen"
+     ]
+    ]
    },
    {
     "lernziel": "kausal",
     "titel": "Korrelation oder Ursache?",
-    "regel": "Ein Zusammenhang in den Daten (⟦Korrelation⟧, correlation) beweist ⟦keine Ursache⟧ (causation). Oft steckt eine ⟦dritte Größe⟧ dahinter, die beide beeinflusst, oder es ist Zufall. Eine Ursache zeigt man erst mit einem ⟦Experiment⟧ oder einer guten Erklärung.",
+    "regel": "⟦Korrelation ist keine Ursache⟧. Suche nach einer dritten Größe, die beides erklärt.",
     "schritte": [
-     "In Sommermonaten werden mehr Eis und mehr Sonnencreme verkauft: positive Korrelation.",
-     "Eis verursacht keine Sonnencreme. Die dritte Größe ist das ⟦sonnige, warme Wetter⟧."
+     {
+      "text": "Die Punkte steigen: positive Korrelation zwischen Eis und Sonnencreme."
+     },
+     {
+      "text": "Eis verursacht aber keine Sonnencreme."
+     },
+     {
+      "text": "Die dritte Größe ist das ⟦sonnige, warme Wetter⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Monat",
+        "Wetter",
+        "Eis",
+        "Creme"
+       ],
+       "zeilen": [
+        [
+         "Januar",
+         "kalt",
+         "wenig",
+         "wenig"
+        ],
+        [
+         "Juli",
+         "heiß",
+         "viel",
+         "viel"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "Im Winter sinken beide Verkäufe – das Wetter erklärt beides ✓",
-    "fehler": "„Kinder mit größeren Füßen lesen besser, also macht große Füße schlau“ ist falsch: Beide wachsen mit dem ⟦Alter⟧ – das ist die dritte Größe."
+    "fehler": "„Größere Füße lesen besser, also machen Füße schlau“ ist falsch. Beides wächst mit dem ⟦Alter⟧.",
+    "einstieg": "Im Sommer verkauft ein Laden mehr Eis und mehr Sonnencreme. Macht Eis Sonnenbrand? Nein, beides hängt am Wetter. So ein Zusammenhang heißt ⟦Korrelation⟧.",
+    "woerter": [
+     [
+      "Korrelation",
+      "ein Zusammenhang in den Daten; er beweist keine Ursache"
+     ],
+     [
+      "dritte Größe",
+      "etwas Drittes, das beide Werte beeinflusst"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      10
+     ],
+     "y": [
+      0,
+      12
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 3
+      },
+      {
+       "x": 3,
+       "y": 4
+      },
+      {
+       "x": 5,
+       "y": 6
+      },
+      {
+       "x": 6,
+       "y": 8
+      },
+      {
+       "x": 8,
+       "y": 9
+      },
+      {
+       "x": 9,
+       "y": 11
+      }
+     ],
+     "schritt_x": 2,
+     "schritt_y": 2,
+     "name_x": "Eis",
+     "name_y": "Creme"
+    }
    }
   ],
   "teilfaehigkeiten": [
@@ -8343,6 +8678,7 @@
  ],
  "offen": [
   "Ausgleichsgerade wird gegeben (Gleichung und Zeichnung), nicht selbst berechnet: Regressionsrechnung ist nicht Stoff von MYP 3. Den Korrelationskoeffizienten r nur im Lösungsweg einer Vergleichsaufgabe erwähnt.",
-  "App-Wunsch (optional): Das Kind kann die Ausgleichsgerade noch nicht selbst einzeichnen; Aufgaben dazu fehlen deshalb."
+  "App-Wunsch (optional): Das Kind kann die Ausgleichsgerade noch nicht selbst einzeichnen; Aufgaben dazu fehlen deshalb.",
+  "Umbau (Paket UR): Die Streudiagramme in den Karten zusammenhang (Autos) und kausal (Eis/Sonnencreme) zeigen erfundene Beispieldaten; die Achsen haben keine Zahlen-Einheiten in der Beschriftung (kurz gehalten: „h“ für Lernzeit in Stunden, „Jahre“, „Wert“, „Eis“, „Creme“; längere Namen schneidet die App am Rand ab)."
  ]
 }

@@ -9,3 +9,4 @@ Annahme zu „überzählig“: Überzählige Übungen bleiben in der Datei (Stuf
 - gleichungen.bruch: 45 neue Übungen, 14 Knobel-Bordkarten, 21 umgestuft, 52 überzählig. `inhalt_pruefen` OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
 - gleichungen.lgs2: 53 neue Übungen, 16 Knobel-Bordkarten, 21 umgestuft, 58 überzählig. `inhalt_pruefen` OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
 - funktionen.grundbegriffe: 38 neue Übungen, 18 Knobel-Bordkarten, 14 umgestuft, 43 überzählig. `inhalt_pruefen` OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
+- funktionen.linear: 30 neue Übungen, 16 Knobel-Bordkarten, 13 umgestuft, 28 überzählig. `inhalt_pruefen` OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.

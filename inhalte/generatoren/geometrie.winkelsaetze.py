@@ -912,7 +912,12 @@ def gen_beweisen(R, st):
         if art == 'stuetzt':
             k = R.choice(['D', 'V', 'F', 'S', 'St'])
             richtig = {'D': SAETZE['W'], 'V': SAETZE['D'], 'F': SAETZE['D'], 'S': SAETZE['D'], 'St': SAETZE['W']}[k]
-            falsch = [x for x in [SAETZE['W'], SAETZE['D'], SAETZE['V'], 'Scheitelwinkel sind gleich groß.', SAETZE['F']] if x != richtig and x != SAETZE[k]]
+            # Nachprüfung 17.11.: Ein Vieleck lässt sich auch in kleinere Vielecke zerlegen (Sechseck = zwei Vierecke). Sätze über Vielecke mit weniger Ecken
+            # wären deshalb als Antwort ebenfalls vertretbar und dürfen nicht als falsche Auswahl erscheinen.
+            # Ebenso beim Stufenwinkel-Satz: Sein Beweis braucht Wechselwinkel UND Scheitelwinkel – „Scheitelwinkel“ ist dort keine falsche Antwort.
+            kleiner = {'F': [SAETZE['V']], 'S': [SAETZE['V'], SAETZE['F']], 'St': ['Scheitelwinkel sind gleich groß.']}.get(k, [])
+            falsch = [x for x in [SAETZE['W'], SAETZE['D'], SAETZE['V'], 'Scheitelwinkel sind gleich groß.', SAETZE['F'], 'Nebenwinkel ergänzen sich zu 180°.', SAETZE['St']]
+                      if x != richtig and x != SAETZE[k] and x not in kleiner]
             return A(R, f'Auf welchen Satz stützt sich der Beweis von „{SAETZE[k][:-1]}“ direkt?', richtig, R.sample(falsch, 3),
                      {'D': 'Die Parallele durch C bringt α und β als Wechselwinkel nach C.', 'V': 'Eine Diagonale teilt das Viereck in zwei Dreiecke mit je 180°.',
                       'F': 'Die Diagonalen von einer Ecke teilen das Fünfeck in drei Dreiecke mit je 180°.', 'S': 'Die Diagonalen von einer Ecke teilen das Sechseck in vier Dreiecke mit je 180°.',

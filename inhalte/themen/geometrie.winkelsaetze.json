@@ -16612,9 +16612,9 @@
    },
    "a": [
     "Die Winkelsumme im Dreieck ist 180°.",
+    "Wechselwinkel an Parallelen sind gleich groß.",
     "Die Winkelsumme im Fünfeck ist 540°.",
-    "Scheitelwinkel sind gleich groß.",
-    "Wechselwinkel an Parallelen sind gleich groß."
+    "Scheitelwinkel sind gleich groß."
    ],
    "o": {
     "index": 0
@@ -16672,13 +16672,13 @@
     "text": "Auf welchen Satz stützt sich der Beweis von „Die Winkelsumme im Fünfeck ist 540°“ direkt?"
    },
    "a": [
-    "Die Winkelsumme im Viereck ist 360°.",
-    "Die Winkelsumme im Dreieck ist 180°.",
+    "Stufenwinkel an Parallelen sind gleich groß.",
+    "Nebenwinkel ergänzen sich zu 180°.",
     "Scheitelwinkel sind gleich groß.",
-    "Wechselwinkel an Parallelen sind gleich groß."
+    "Die Winkelsumme im Dreieck ist 180°."
    ],
    "o": {
-    "index": 1
+    "index": 3
    },
    "w": "Die Diagonalen von einer Ecke teilen das Fünfeck in drei Dreiecke mit je 180°.",
    "h": "Welcher Satz wird im Beweis als Werkzeug benutzt?"
@@ -16763,13 +16763,13 @@
     "text": "Wozu braucht man die Umkehrung „Sind Stufenwinkel gleich groß, dann sind die Geraden parallel“?"
    },
    "a": [
-    "um Winkel an Parallelen zu berechnen",
-    "um zu zeigen, dass Scheitelwinkel gleich sind",
     "gar nicht, sie ist dasselbe wie der Satz",
-    "um nachzuweisen, dass zwei Geraden parallel sind"
+    "um nachzuweisen, dass zwei Geraden parallel sind",
+    "um Winkel an Parallelen zu berechnen",
+    "um zu zeigen, dass Scheitelwinkel gleich sind"
    ],
    "o": {
-    "index": 3
+    "index": 1
    },
    "w": "Der Satz schließt von „parallel“ auf „gleiche Winkel“. Die Umkehrung schließt von „gleiche Winkel“ auf „parallel“ – damit prüft man Parallelität.",
    "h": "In welche Richtung schließt die Umkehrung?"
@@ -16781,61 +16781,19 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand misst in einem gezeichneten Dreieck die Winkelsumme 179°. Widerlegt das den Satz über die Winkelsumme?"
+    "text": "Warum kann ein Dreieck höchstens einen stumpfen Winkel haben?"
    },
    "a": [
-    "Ja: Dann gilt der Satz nur für manche Dreiecke.",
-    "Nein: Messungen sind ungenau, der Satz ist bewiesen.",
-    "Nein: Die Winkelsumme ist ohnehin 179°.",
-    "Ja: Ein Gegenbeispiel genügt."
+    "Das stimmt nicht, es können zwei sein.",
+    "Weil stumpfe Winkel immer bei C liegen.",
+    "Zwei stumpfe Winkel wären zusammen schon mehr als 180°.",
+    "Weil man es so zeichnet."
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "w": "Zeichnen und Messen haben kleine Fehler. Ein bewiesener Satz gilt für jedes Dreieck; ein Gegenbeispiel müsste exakt sein, nicht gemessen.",
-   "h": "Wie genau ist eine Messung mit dem Geodreieck?"
-  },
-  {
-   "l": "beweisen",
-   "t": "beweisen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Dreiecke braucht man, um die Winkelsumme 540° im Fünfeck zu begründen, wenn man alle Diagonalen von einer Ecke aus zieht?"
-   },
-   "a": [
-    "3",
-    "4",
-    "2",
-    "5"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Von einer Ecke gehen 2 Diagonalen aus; sie zerlegen das Fünfeck in 3 Dreiecke: 3 · 180° = 540°.",
-   "h": "Zeichne ein Fünfeck und zähle."
-  },
-  {
-   "l": "beweisen",
-   "t": "beweisen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Behauptung: „Wenn zwei Winkel zusammen 180° ergeben, sind sie Nebenwinkel.“ Was stimmt?"
-   },
-   "a": [
-    "Richtig, das ist die Definition.",
-    "Richtig, denn Nebenwinkel ergeben 180°.",
-    "Falsch: Nebenwinkel ergeben 360°.",
-    "Falsch: Auch zwei Winkel an verschiedenen Stellen können zusammen 180° ergeben."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Gegenbeispiel: Im Parallelogramm ergeben die Winkel bei A und B zusammen 180°, liegen aber an verschiedenen Ecken. Die Umkehrung eines Satzes muss eigens geprüft werden.",
-   "h": "Suche ein Gegenbeispiel."
+   "w": "Ein stumpfer Winkel ist größer als 90°. Zwei davon ergäben mehr als 180° – mehr als die ganze Winkelsumme.",
+   "h": "Denke an die Winkelsumme."
   },
   {
    "l": "beweisen",
@@ -16848,12 +16806,12 @@
    },
    "a": [
     "Man nimmt an, dass alle Vierecke gleich sind.",
-    "Man misst vier Winkel und addiert.",
     "Eine Diagonale teilt das Viereck in zwei Dreiecke: 2 · 180° = 360°.",
-    "Ein Viereck hat 4 rechte Winkel."
+    "Ein Viereck hat 4 rechte Winkel.",
+    "Man misst vier Winkel und addiert."
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
    "w": "Mit der Diagonale entstehen zwei Dreiecke. Ihre Winkel bilden zusammen genau die vier Viereckswinkel.",
    "h": "Welche Hilfslinie zerlegt das Viereck?"
@@ -16861,27 +16819,49 @@
   {
    "l": "beweisen",
    "t": "beweisen",
-   "p": "test",
-   "s": 2,
+   "p": "uebung",
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand begründet „Die Winkelsumme im Dreieck ist 180°“ mit der Winkelsumme im Fünfeck. Was ist das Problem?"
+    "text": "Jemand misst in einem gezeichneten Dreieck die Winkelsumme 179°. Widerlegt das den Satz über die Winkelsumme?"
    },
    "a": [
-    "Die Winkelsumme im Fünfeck ist falsch.",
-    "Die Winkelsumme im Fünfeck wird selbst mit der im Dreieck bewiesen – ein Zirkelschluss.",
-    "Man muss die Winkel zuerst messen.",
-    "Kein Problem, das ist ein gültiger Beweis."
+    "Ja: Ein Gegenbeispiel genügt.",
+    "Ja: Dann gilt der Satz nur für manche Dreiecke.",
+    "Nein: Die Winkelsumme ist ohnehin 179°.",
+    "Nein: Messungen sind ungenau, der Satz ist bewiesen."
    ],
    "o": {
-    "index": 1
+    "index": 3
    },
-   "w": "Der Satz über das Fünfeck folgt aus der Winkelsumme im Dreieck. Man darf ihn nicht benutzen, um die Winkelsumme im Dreieck zu beweisen."
+   "w": "Zeichnen und Messen haben kleine Fehler. Ein bewiesener Satz gilt für jedes Dreieck; ein Gegenbeispiel müsste exakt sein, nicht gemessen.",
+   "h": "Wie genau ist eine Messung mit dem Geodreieck?"
   },
   {
    "l": "beweisen",
    "t": "beweisen",
-   "p": "korrektur",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Behauptung: „Wenn zwei Winkel zusammen 180° ergeben, sind sie Nebenwinkel.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Auch zwei Winkel an verschiedenen Stellen können zusammen 180° ergeben.",
+    "Richtig, denn Nebenwinkel ergeben 180°.",
+    "Richtig, das ist die Definition.",
+    "Falsch: Nebenwinkel ergeben 360°."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegenbeispiel: Im Parallelogramm ergeben die Winkel bei A und B zusammen 180°, liegen aber an verschiedenen Ecken. Die Umkehrung eines Satzes muss eigens geprüft werden.",
+   "h": "Suche ein Gegenbeispiel."
+  },
+  {
+   "l": "beweisen",
+   "t": "beweisen",
+   "p": "test",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -16897,6 +16877,26 @@
     "index": 0
    },
    "w": "Ganz unten steht der Fundamentalsatz (Wechselwinkel). Daraus folgt die Winkelsumme im Dreieck, daraus die im Fünfeck."
+  },
+  {
+   "l": "beweisen",
+   "t": "beweisen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand begründet „Die Winkelsumme im Dreieck ist 180°“ mit der Winkelsumme im Fünfeck. Was ist das Problem?"
+   },
+   "a": [
+    "Kein Problem, das ist ein gültiger Beweis.",
+    "Man muss die Winkel zuerst messen.",
+    "Die Winkelsumme im Fünfeck wird selbst mit der im Dreieck bewiesen – ein Zirkelschluss.",
+    "Die Winkelsumme im Fünfeck ist falsch."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Satz über das Fünfeck folgt aus der Winkelsumme im Dreieck. Man darf ihn nicht benutzen, um die Winkelsumme im Dreieck zu beweisen."
   },
   {
    "l": "beweisen",
@@ -16927,8 +16927,8 @@
     "text": "Auf welchen Satz stützt sich der Beweis von „Die Winkelsumme im Dreieck ist 180°“ direkt?"
    },
    "a": [
+    "Nebenwinkel ergänzen sich zu 180°.",
     "Scheitelwinkel sind gleich groß.",
-    "Die Winkelsumme im Fünfeck ist 540°.",
     "Die Winkelsumme im Viereck ist 360°.",
     "Wechselwinkel an Parallelen sind gleich groß."
    ],
@@ -16969,7 +16969,7 @@
    "a": [
     "Wechselwinkel an Parallelen sind gleich groß.",
     "Die Winkelsumme im Dreieck ist 180°.",
-    "Die Winkelsumme im Fünfeck ist 540°.",
+    "Nebenwinkel ergänzen sich zu 180°.",
     "Die Winkelsumme im Viereck ist 360°."
    ],
    "o": {
@@ -17045,10 +17045,10 @@
     "text": "Auf welchen Satz stützt sich der Beweis von „Die Winkelsumme im Sechseck ist 720°“ direkt?"
    },
    "a": [
-    "Scheitelwinkel sind gleich groß.",
+    "Nebenwinkel ergänzen sich zu 180°.",
     "Die Winkelsumme im Dreieck ist 180°.",
     "Wechselwinkel an Parallelen sind gleich groß.",
-    "Die Winkelsumme im Viereck ist 360°."
+    "Scheitelwinkel sind gleich groß."
    ],
    "o": {
     "index": 1

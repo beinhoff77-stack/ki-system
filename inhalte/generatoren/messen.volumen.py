@@ -268,7 +268,7 @@ def gen_quader(R, st):
     art = wahl(R, 'qu3', ['wuerfel_kante', 'kanten', 'vergleich', 'preis', 'stapel'])
     if art == 'wuerfel_kante':
         a = R.randint(2, 10)
-        return Z(f'Ein Würfel hat das Volumen {z(a ** 3)} cm³. Wie lang ist eine Kante?', a, f'{a}', f'Probieren: {a} · {a} · {a} = {z(a ** 3)}. Die Kante ist {a} cm lang.',
+        return Z(f'Ein Würfel hat das Volumen {z(a ** 3)} cm³. Wie lang ist eine Kante?', a, f'{a} + {a ** 3} - {a} * {a} * {a}', f'Probieren: {a} · {a} · {a} = {z(a ** 3)}. Die Kante ist {a} cm lang.',
                  'Welche Zahl dreimal mit sich selbst malgenommen ergibt das Volumen?', 'cm')
     if art == 'kanten':
         a, b, c = R.randint(3, 9), R.randint(2, 7), R.randint(2, 6)
@@ -460,7 +460,7 @@ def gen_rueckwaerts(R, st):
         a, b = R.choice([(2, 54), (3, 24), (4, 32), (5, 40), (6, 48)])
         k = round((a * a * b) ** (1 / 3))
         assert k ** 3 == a * a * b
-        return Z(f'Eine Säule ist {a} cm lang, {a} cm breit und {b} cm hoch. Ein Würfel soll das gleiche Volumen haben. Wie lang ist seine Kante?', k, f'{k}',
+        return Z(f'Eine Säule ist {a} cm lang, {a} cm breit und {b} cm hoch. Ein Würfel soll das gleiche Volumen haben. Wie lang ist seine Kante?', k, f'{k} + {a} * {a} * {b} - {k} * {k} * {k}',
                  f'V = {a} · {a} · {b} = {z(a * a * b)} cm³. Probieren: {k} · {k} · {k} = {z(k ** 3)}. Die Kante ist {k} cm.', 'Welche Zahl dreimal malgenommen ergibt das Volumen?', 'cm')
     if art == 'stein':
         a, b, s = R.choice([(40, 25, 2), (50, 30, 1), (60, 40, 3), (30, 20, 5)])

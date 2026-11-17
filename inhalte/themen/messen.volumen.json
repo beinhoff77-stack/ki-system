@@ -5098,7 +5098,7 @@
     "wert": 7,
     "einheit": "cm"
    },
-   "c": "7",
+   "c": "7 + 343 - 7 * 7 * 7",
    "w": "Probieren: 7 · 7 · 7 = 343. Die Kante ist 7 cm lang.",
    "h": "Welche Zahl dreimal mit sich selbst malgenommen ergibt das Volumen?"
   },
@@ -7603,7 +7603,7 @@
     "wert": 12,
     "einheit": "cm"
    },
-   "c": "12",
+   "c": "12 + 6 * 6 * 48 - 12 * 12 * 12",
    "w": "V = 6 · 6 · 48 = 1 728 cm³. Probieren: 12 · 12 · 12 = 1 728. Die Kante ist 12 cm.",
    "h": "Welche Zahl dreimal malgenommen ergibt das Volumen?"
   },

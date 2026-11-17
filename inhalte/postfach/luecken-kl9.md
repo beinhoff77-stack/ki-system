@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 13:06 – STATUS
+zahlen.rationale_exponenten fertig: 6 Sachaufgaben Stufe 3 (Würfelkante aus Volumen, Zinsfaktor pro Jahr, Grundumsatz E = 70 · m^(3/4) vorwärts und rückwärts, Planetenabstand a = T^(2/3), doppeltes Würfelvolumen → Kante +26 %) an nte_wurzel, potenz_wert, gleichung_exp, verstehen. Keine Karte geändert. inhalt_pruefen OK; Nachweis OK.
+
 ## 2026-11-17 13:04 – STATUS
 trigo.allgemein fertig: neue Lernkarte „anwendung“ (Vermessen und navigieren: Planfigur, Sinus- oder Kosinussatz wählen; Turmhöhe, Kurs mit Drehwinkel, Grundstück, Tunnel; Pythagoras als Spezialfall des Kosinussatzes) am Ende, Pflicht (LehrplanPLUS M9 7.2); 28 Aufgaben (Übung 4/6/8, davon 3 nach Prüfungsvorbild, 1 Knobel; Test 1, Korrektur 3, Sicherung 6), jede Dreiecksaufgabe mit maßstäblicher Zeichnung (per Skript geprüft). Karte „sinussatz_seite“ um Schritt 5 „Warum? Die Höhe ist h = b · sin α = a · sin β.“ (Zeichnung mit Höhe) und 3 Übungen erweitert; ihr fehler_bild ist jetzt vollständig angegeben (sonst bliebe der rechte Winkel der Höhe stehen; Anzeige sonst gleich). inhalt_pruefen OK; Nachweis OK.
 

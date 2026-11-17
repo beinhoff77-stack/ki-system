@@ -144,7 +144,7 @@ def erweitern(thema, lernziel, seed, bauplan=None, schritt=None, felder=None):
     """Vorhandene Karte erweitern: schritt (dict) wird hinten angehängt, felder (dict) ersetzen Kartenfelder
     (z. B. ein vollständiges fehler_bild, damit es zum neuen letzten Schritt passt). bauplan wie bei einbauen."""
     pfad, roh, d = _lesen(thema)
-    e = next(x for x in d['inhalt']['etappen'] if x['lernziel'] == lernziel)
+    e = next(x for x in d['inhalt']['etappen'] if x['lernziel'] == lernziel) if lernziel else None  # None: nur Übungen an mehreren Karten
     if schritt:
         e['schritte'].append(schritt)
     for k, v in (felder or {}).items():
@@ -157,7 +157,7 @@ def erweitern(thema, lernziel, seed, bauplan=None, schritt=None, felder=None):
         z = _aufgaben_dazu(d, bauplan())
     _schreiben(pfad, roh, d)
     _bericht(thema, z)
-    print(f'{pfad.name}: Karte {lernziel} erweitert ({"Schritt, " if schritt else ""}{sum(z.values())} Aufgaben), jetzt {len(d["aufgaben"])} Aufgaben')
+    print(f'{pfad.name}: Karte {lernziel or "(mehrere)"} erweitert ({"Schritt, " if schritt else ""}{sum(z.values())} Aufgaben), jetzt {len(d["aufgaben"])} Aufgaben')
     return d
 
 

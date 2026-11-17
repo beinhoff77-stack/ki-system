@@ -766,6 +766,163 @@ DSX.fuer_sebastian('funktionen.gebrochen/indirekt und indirekt_sach überschneid
 baue = mit_durchsicht(baue, DSX)
 # ---- DURCHSICHT ENDE ----
 
+# ---- STUFEN (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, siehe _stufen_kl8.py) ----
+from _stufen_kl8 import Stufen, mit_stufen  # noqa: E402
+
+ST = Stufen('funktionen.gebrochen', 20_8_9)
+SA, SZ, SL = ST.A, ST.Z, ST.L
+def T(lz, *regeln):
+    for m, g in regeln: ST.typ(lz, m, g)
+
+# --- indirekt ---
+ST.leiter('indirekt', 'mit „doppelt so viele – halb so lange“ rechnen, direkte und indirekte Proportionalität erkennen',
+          'Geschwindigkeit und Zeit, Tabelle ergänzen, x · y = konstant nutzen, Rechteckseite zur festen Fläche',
+          'Wippe modellieren, Rechteck unter der Hyperbel, Prozent verknüpfen, Fehler (Pumpen) deuten, Graph begründen, Parameter, rückwärts zur Gruppengröße')
+T('indirekt', (r'^Wie ist die Zuordnung', 'erkennen'), (r'^Jemand rechnet', 'fehler'), (r'km/h', 'einkleidung'), (r'^Die Tabelle', 'darstellung'),
+  (r'x · y immer gleich', 'mehrschritt'), (r'Rechteck hat', 'umkehr'), (r'Wippe', 'transfer'), (r'Lotfußpunkte|25 %', 'verknuepfen'), (r'Arbeiter', 'pruefung'), (r'.', 'direkt'))
+ST.neu('indirekt', 'begruenden', SA('Stimmt: „Der Graph einer indirekten Proportionalität ist eine fallende Gerade“?', 'Falsch: Er ist eine Kurve (Hyperbel), weil x · y gleich bleibt.',
+    ['Richtig.', 'Richtig, aber nur für x > 0.', 'Falsch: Er ist eine steigende Gerade.'], 'Bei 1 ↦ 12, 2 ↦ 6, 3 ↦ 4 nimmt y erst um 6, dann um 2 ab – nicht gleichmäßig wie bei einer Geraden.', 'Rechne drei Werte von y = 12/x aus und vergleiche die Abnahmen.'))
+ST.neu('indirekt', 'parameter', SZ('Für welche Zahl a ist die Zuordnung (2 | 9), (3 | 6), (a | 4) indirekt proportional?', 4.5, '18 / 4', 'x · y = 18 bei den ersten beiden Paaren. Also a · 4 = 18 ⇒ a = 4,5.', 'Welches Produkt ist bei den bekannten Paaren gleich?'))
+ST.neu('indirekt', 'rueckwaerts', SZ('Ein Vorrat reicht für eine Gruppe 20 Tage. Kommen 5 Personen dazu, reicht er nur noch 16 Tage. Wie viele Personen waren es ursprünglich?', 20, '16 * 5 / (20 - 16)',
+    'Personen · Tage bleibt gleich: 20n = 16(n + 5) ⇒ 4n = 80 ⇒ n = 20.', 'Das Produkt Personen · Tage ändert sich nicht.'))
+ST.knobel('indirekt', SZ('Ein Vorrat reicht für 10 Tiere 30 Tage. Nach 6 Tagen kommen 2 Tiere dazu, nach weiteren 10 Tagen werden 4 Tiere abgegeben. Wie viele Tage reicht der Vorrat insgesamt?', 31, '6 + 10 + (300 - 60 - 120) / 8',
+    'Der Vorrat sind 10 · 30 = 300 „Tiertage“. 6 Tage mit 10 Tieren: 60. 10 Tage mit 12 Tieren: 120. Rest 120 für 8 Tiere: 15 Tage. Insgesamt 6 + 10 + 15 = 31 Tage.',
+    'Rechne mit „Tiertagen“ wie mit einer Menge, die verbraucht wird.'))
+ST.knobel('indirekt', SZ('Zwei Zahnräder greifen ineinander: Rad A hat 24 Zähne, Rad B hat 18. Nach wie vielen Umdrehungen von A stehen beide zum ersten Mal wieder wie am Anfang?', 3, '72 / 24',
+    'Es greifen gleich viele Zähne ineinander. Beide stehen wieder am Anfang, wenn die Zahl der durchgelaufenen Zähne ein Vielfaches von 24 und von 18 ist: kgV = 72. A dreht sich dann 3-mal, B 4-mal.',
+    'Zähle die Zähne, die an der Berührstelle vorbeilaufen.'))
+
+# --- indirekt_sach ---
+ST.leiter('indirekt_sach', 'den umgekehrten Dreisatz in einer vertrauten Situation anwenden',
+          'Zuordnungsart begründet wählen, Tabelle ergänzen, Zahnräder und Beete, gesuchte Anzahl statt gesuchter Zeit, Mindestanzahl',
+          'Gasgesetz übertragen, Verspätung in Minuten verknüpfen, Parameter x, Mischaufgaben mit zwei Größen, Ausfall unterwegs wie in einer Prüfung')
+T('indirekt_sach', (r'^Wie ist die Zuordnung', 'erkennen'), (r'Ergänze die Tabelle', 'darstellung'), (r'Zahnräder|Beet', 'einkleidung'), (r'Luftmenge|fördern in', 'transfer'),
+  (r'Zug fährt', 'verknuepfen'), (r'Wird x um 2 größer', 'parameter'), (r'verkauft|fällt 1 Pumpe aus', 'pruefung'), (r'.', 'direkt'))
+ST.neu('indirekt_sach', 'umkehr', SZ('Ein Vorrat reicht für 6 Pferde 20 Tage. Für wie viele Pferde reicht er 24 Tage?', 5, '6 * 20 / 24', '6 · 20 = 120 Pferdetage. 120 : 24 = 5 Pferde.', 'Gesucht ist diesmal die Anzahl der Pferde.'))
+ST.neu('indirekt_sach', 'mehrschritt', SZ('4 gleiche Pumpen leeren ein Becken in 9 h. Wie viele Pumpen braucht man mindestens, um in höchstens 5 h fertig zu sein?', 8, '36 // 5 + 1',
+    '4 · 9 = 36 Pumpenstunden. 36 : 5 = 7,2 – mit 7 Pumpen dauert es 5,1 h, also braucht man 8.', 'Runde passend: Reicht 7?'))
+ST.knobel('indirekt_sach', SZ('3 gleiche Pumpen füllen ein Becken in 10 h. Nach 4 h fällt eine aus, nach weiteren 3 h kommt sie zurück und eine vierte dazu. Wie lange dauert das Füllen insgesamt?', 10, '4 + 3 + (30 - 12 - 6) / 4',
+    'Arbeit: 3 · 10 = 30 Pumpenstunden. 4 h mit 3 Pumpen: 12. 3 h mit 2 Pumpen: 6. Rest 12 mit 4 Pumpen: 3 h. Insgesamt 4 + 3 + 3 = 10 h – zufällig wie geplant.',
+    'Rechne mit Pumpenstunden.', einheit='h'))
+ST.knobel('indirekt_sach', SZ('Fährt ein Bus 20 % schneller als sonst, spart er auf seiner Strecke 15 Minuten. Wie viele Minuten braucht er normalerweise?', 90, '15 / (1 - 1 / (12/10))',
+    'Bei 1,2-facher Geschwindigkeit braucht er t : 1,2 = 5/6 · t. Ersparnis: t − 5/6 · t = t/6 = 15 ⇒ t = 90 Minuten.', 'Wie viel Zeit braucht man bei 1,2-facher Geschwindigkeit?', einheit='min'))
+
+# --- definitionsmenge ---
+ST.leiter('definitionsmenge', 'die Zahl ausschließen, bei der x + b null wird',
+          'Nenner mit Faktor (2x − 3), Nenner 3 − x, Sachfunktion, Funktion zu einer Definitionsmenge finden, Graph lesen',
+          'zwei Brüche verknüpfen, x² − 4, Fehler (Konstante mitgezählt), begründen, Parameter b und a, Party-Modell, Vergleich zweier Funktionen')
+T('definitionsmenge', (r'^Gib die Definitionsmenge von f\(x\) = −?\d+/\(x [−+] \d+\)( [−+] \d+)? an', 'direkt'), (r'^Welche Zahl gehört nicht zur Definitionsmenge von f\(x\) = −?\d+/\(x [−+] \d+\)', 'erkennen'),
+  (r'Abbildung', 'darstellung'), (r'\) \+ \d/\(', 'verknuepfen'), (r'Bestimme b', 'parameter'), (r'Zahl a', 'rueckwaerts'), (r'.', 'mehrschritt'))
+ST.neu('definitionsmenge', 'einkleidung', SA('Für 120 km braucht man t(v) = 120/v Stunden. Welche Zahl gehört nicht zur Definitionsmenge, und welche v sind im Sachzusammenhang sinnvoll?', 'v = 0; sinnvoll sind nur v > 0.',
+    ['v = 120; sinnvoll sind alle v.', 'v = 1; sinnvoll sind v > 1.', 'Keine; alle v sind sinnvoll.'], 'Bei v = 0 wäre der Nenner 0. Negative Geschwindigkeiten ergeben hier keinen Sinn.', 'Wann wird der Nenner 0 – und was bedeutet v?'))
+ST.neu('definitionsmenge', 'umkehr', SA('Welche Funktion hat die Definitionsmenge ℚ \\ {−4}?', 'f(x) = 2/(x + 4) − 1', ['f(x) = 2/(x − 4) − 1', 'f(x) = 2/x − 4', 'f(x) = −4/(x + 1)'],
+    'x + 4 = 0 bei x = −4. Die anderen schließen 4, 0 bzw. −1 aus.', 'Bei welchem x wird jeder Nenner 0?'))
+ST.neu('definitionsmenge', 'fehler', SA('Jemand gibt für f(x) = 3/(x + 2) − 5 die Definitionsmenge ℚ \\ {−2; 5} an. Was stimmt?', 'Falsch: Nur der Nenner zählt, D = ℚ \\ {−2}.', ['Richtig.', 'Falsch: D = ℚ \\ {2}.', 'Falsch: D = ℚ \\ {5}.'],
+    'Das „− 5“ steht nicht im Nenner, es verschiebt den Graphen nur nach unten.', 'Welche Zahl macht wirklich einen Nenner zu 0?'))
+ST.neu('definitionsmenge', 'begruenden', SA('Warum gehört x = 0 zur Definitionsmenge von f(x) = 1/(x − 1) + 3?', 'Weil der Nenner bei x = 0 den Wert −1 hat, nicht 0.', ['Weil 0 nie ausgeschlossen wird.', 'Gehört sie nicht.', 'Weil der Zähler 1 ist.'],
+    'Ausgeschlossen ist nur x = 1. f(0) = −1 + 3 = 2 existiert.', 'Setze 0 in den Nenner ein.'))
+ST.neu('definitionsmenge', 'transfer', SZ('180 € Kosten teilen sich die Gäste einer Feier, die zwei Gastgeber zahlen nichts: p(n) = 180/(n − 2) bei n Personen. Wie viele Personen sind da, wenn jeder Gast 15 € zahlt?', 14, '180 / 15 + 2',
+    '180/(n − 2) = 15 ⇒ n − 2 = 12 ⇒ n = 14 (12 Gäste zahlen, 2 Gastgeber nicht).', 'Löse nach n auf.'))
+ST.neu('definitionsmenge', 'pruefung', SA('f(x) = 2/(x − 3) + 1 und g(x) = 1/(x + 3). Welche Zahl gehört zur Definitionsmenge von f, aber nicht zu der von g?', '−3', ['3', '0', '1'],
+    'f schließt 3 aus, g schließt −3 aus. −3 darf man in f einsetzen (f(−3) = 2/(−6) + 1), in g nicht.', 'Bestimme beide Definitionsmengen.'))
+ST.neu('definitionsmenge', 'verknuepfen', SA('Welche Definitionsmenge hat f(x) = 1/(x² − 4)?', 'ℚ \\ {−2; 2}', ['ℚ \\ {2}', 'ℚ \\ {4}', 'ℚ \\ {−4; 4}'], 'x² − 4 = (x − 2)(x + 2) = 0 für x = 2 und x = −2.', 'Zerlege den Nenner mit der binomischen Formel.'))
+ST.knobel('definitionsmenge', SZ('f(x) = 1/(x − a) + 1/(x − b) hat die Definitionsmenge ℚ \\ {1; 5}, und es gilt a < b. Berechne f(3).', 0, '1/2 + 1/(-2)',
+    'Ausgeschlossen sind a und b, also a = 1, b = 5. f(3) = 1/2 + 1/(−2) = 0. Die 3 liegt genau in der Mitte – die beiden Brüche heben sich auf.', 'Bestimme a und b aus der Definitionsmenge.'))
+ST.knobel('definitionsmenge', SZ('Für wie viele ganze Zahlen x von −10 bis 10 ist f(x) = 1/(x² − 9) definiert?', 19, '21 - 2',
+    'Von −10 bis 10 gibt es 21 ganze Zahlen. Nicht definiert ist f für x² = 9, also x = 3 und x = −3. Es bleiben 19.', 'Für welche x ist x² − 9 = 0? Denk an beide Vorzeichen.'))
+
+# --- asymptoten ---
+ST.leiter('asymptoten', 'senkrechte und waagrechte Asymptote aus a/(x + b) + c ablesen',
+          'beide Asymptoten, Kommazahlen, Asymptoten am Bild ablesen, Sachbedeutung der waagrechten Asymptote',
+          'Term aus Asymptoten rückwärts, Schnitt mit einer Geraden, begründen warum y = c nie erreicht wird, Parameter, Vorzeichenfehler, Prüfungsaufgabe mit Nullstelle')
+T('asymptoten', (r'^Gib die (senkrechte|waagrechte) Asymptote von f\(x\) = −?\d+/\(x [−+] \d+\) [−+] \d+ an', 'direkt'), (r'^Lies die Asymptoten', 'darstellung'),
+  (r'Wie heißt der Term|bestimme den Term', 'rueckwaerts'), (r'schneidet die Gerade', 'verknuepfen'), (r'^Kann der Graph', 'begruenden'), (r'Ursprung', 'parameter'),
+  (r'.', 'mehrschritt'))
+ST.neu('asymptoten', 'erkennen', SA('Welche Gerade ist die waagrechte Asymptote von f(x) = 2/(x + 1) + 4?', 'y = 4', ['y = 2', 'x = −1', 'y = 1'], 'Für große x wird 2/(x + 1) fast 0, f(x) nähert sich 4.', 'Was bleibt übrig, wenn der Bruch fast 0 ist?'))
+ST.neu('asymptoten', 'einkleidung', SZ('Bei n Mitfahrern kostet eine Fahrt pro Person p(n) = 200/n + 8 €. Welchem Betrag nähert sich der Preis, wenn sehr viele mitfahren?', 8, '8',
+    'Für großes n wird 200/n sehr klein; übrig bleiben die 8 € (waagrechte Asymptote).', 'Was passiert mit 200/n, wenn n riesig wird?', einheit='€'))
+ST.neu('asymptoten', 'fehler', SA('Jemand gibt für f(x) = 3/(x − 2) + 5 die senkrechte Asymptote x = −2 an. Was stimmt?', 'Falsch: Der Nenner ist 0 für x = 2, also x = 2.', ['Richtig.', 'Falsch: x = 5.', 'Falsch: x = 3.'],
+    'x − 2 = 0 ⇒ x = 2. Das Vorzeichen in der Klammer kehrt sich beim Ablesen um.', 'Setze den Nenner gleich 0.'))
+ST.neu('asymptoten', 'transfer', SA('Mit n gleichen Pumpen dauert das Leeren t(n) = 24/n Stunden. Was bedeutet die waagrechte Asymptote y = 0?', 'Mit immer mehr Pumpen geht die Zeit gegen 0, wird aber nie 0.',
+    ['Mit 24 Pumpen dauert es 0 Stunden.', 'Ohne Pumpen dauert es 0 Stunden.', 'Die Zeit wird irgendwann negativ.'], '24/n ist für jedes n > 0 positiv, wird aber beliebig klein.', 'Kann 24/n jemals 0 sein?'))
+ST.neu('asymptoten', 'pruefung', SZ('Gegeben f(x) = 6/(x + 2) − 3. Gib die Asymptoten an und berechne die Nullstelle. Gib die Nullstelle an.', 0, '6 / 3 - 2',
+    'Asymptoten: x = −2 und y = −3. Nullstelle: 6/(x + 2) = 3 ⇒ x + 2 = 2 ⇒ x = 0 (der Graph geht durch den Ursprung).', 'Setze f(x) = 0 und löse.'))
+ST.knobel('asymptoten', SZ('Die Hyperbel f(x) = a/(x − 1) + 2 geht durch (3 | 5). Wie weit ist ihr Punkt mit x = 7 von der waagrechten Asymptote entfernt?', 1, '6 / (7 - 1)',
+    'Aus (3 | 5): a/2 + 2 = 5 ⇒ a = 6. f(7) = 6/6 + 2 = 3. Die waagrechte Asymptote ist y = 2, der Abstand also 1.', 'Bestimme zuerst a.'))
+ST.knobel('asymptoten', SZ('Wie viele Punkte mit ganzzahligen Koordinaten liegen auf dem Graphen von f(x) = 4/(x − 1) + 2?', 6, '2 * 3',
+    'f(x) ist ganz, wenn x − 1 ein Teiler von 4 ist: ±1, ±2, ±4. Das ergibt 6 Werte für x (2, 0, 3, −1, 5, −3) und jeweils einen ganzen y-Wert.', 'Wann ist 4/(x − 1) eine ganze Zahl?'))
+
+# --- achsenpunkte ---
+ST.leiter('achsenpunkte', 'den Schnittpunkt mit der y-Achse durch Einsetzen von x = 0 bestimmen',
+          'Nullstelle berechnen, „keine Nullstelle“ erkennen, Sachfunktion auswerten, Funktion zu einem Achsenpunkt finden',
+          'Lücken bei x = 0 begründen, Fehler (x = 0 statt f(x) = 0), Parameter c, rückwärts zu a, Dreiecksfläche verknüpfen, beide Achsenpunkte wie in einer Prüfung')
+T('achsenpunkte', (r'^In welchem Punkt schneidet der Graph', 'direkt'), (r'^Wo schneidet|Welche Funktion hat KEINE|Für welche Werte von c', 'begruenden'),
+  (r'Bestimme beide', 'pruefung'), (r'Wert von c', 'parameter'), (r'.', 'mehrschritt'))
+ST.neu('achsenpunkte', 'erkennen', SA('Wie findet man den Schnittpunkt eines Graphen mit der y-Achse?', 'x = 0 einsetzen', ['f(x) = 0 setzen', 'den Nenner gleich 0 setzen', 'x = 1 einsetzen'],
+    'Alle Punkte der y-Achse haben x = 0.', 'Welche Koordinate ist auf der y-Achse null?'))
+ST.neu('achsenpunkte', 'einkleidung', SZ('Ein Tank wird geleert. Die Restmenge ist V(t) = 120/(t + 2) − 10 (t in h, V in hl). Wie viel ist am Anfang darin?', 50, '120 / 2 - 10', 'V(0) = 60 − 10 = 50 hl.', 'Am Anfang ist t = 0.', einheit='hl'))
+ST.neu('achsenpunkte', 'umkehr', SA('Welche Funktion schneidet die y-Achse bei 3?', 'f(x) = 4/(x + 2) + 1', ['f(x) = 4/(x − 2) + 1', 'f(x) = 3/(x + 3)', 'f(x) = 6/x + 3'],
+    'f(0) = 4/2 + 1 = 3. Die anderen: −1, 1, und 6/x ist bei 0 nicht definiert.', 'Setze in jede Funktion x = 0 ein.'))
+ST.neu('achsenpunkte', 'fehler', SA('Für die Nullstelle von f(x) = 4/(x − 1) − 2 setzt jemand x = 0 ein und erhält −6. Was stimmt?', 'Falsch: Für die Nullstelle setzt man f(x) = 0; das ergibt x = 3.',
+    ['Richtig, die Nullstelle ist −6.', 'Falsch: Die Nullstelle ist 1.', 'Falsch: Es gibt keine Nullstelle.'], 'f(0) = −6 ist der y-Achsenabschnitt. 4/(x − 1) = 2 ⇒ x − 1 = 2 ⇒ x = 3.', 'Was ist bei einer Nullstelle null: x oder f(x)?'))
+ST.neu('achsenpunkte', 'rueckwaerts', SZ('f(x) = a/(x + 1) − 3 hat die Nullstelle x = 1. Bestimme a.', 6, '3 * 2', 'a/2 − 3 = 0 ⇒ a = 6.', 'Setze x = 1 und f(x) = 0 ein.'))
+ST.neu('achsenpunkte', 'verknuepfen', SZ('Der Graph von f(x) = 6/(x + 2) − 1 schneidet die Achsen in N und S. Wie groß ist die Fläche des Dreiecks aus N, S und dem Ursprung?', 4, '4 * 2 / 2',
+    'S: f(0) = 3 − 1 = 2, also (0 | 2). N: 6/(x + 2) = 1 ⇒ x = 4, also (4 | 0). Rechtwinkliges Dreieck: A = 4 · 2 : 2 = 4.', 'Bestimme beide Achsenpunkte.', einheit='FE'))
+ST.knobel('achsenpunkte', SZ('Für wie viele ganze Zahlen c hat f(x) = 12/(x − 1) + c eine ganzzahlige Nullstelle?', 12, '2 * 6',
+    '12/(x − 1) = −c ⇒ x − 1 = −12/c. Ganz, wenn c ein Teiler von 12 ist (c ≠ 0, für c = 0 gibt es keine Nullstelle): ±1, ±2, ±3, ±4, ±6, ±12 – zwölf Werte.', 'Löse die Gleichung f(x) = 0 nach x auf.'))
+ST.knobel('achsenpunkte', SA('Kann eine Funktion f(x) = a/(x + b) + c mit a ≠ 0 zwei Nullstellen haben?', 'Nein: a/(x + b) = −c hat höchstens eine Lösung.', ['Ja, wenn c = 0 ist.', 'Ja, wenn b negativ ist.', 'Ja, immer.'],
+    'Aus a/(x + b) = −c folgt x + b = a/(−c) – genau ein Wert (für c ≠ 0), für c = 0 gar keiner.', 'Löse a/(x + b) + c = 0 allgemein.'))
+
+# --- parameter ---
+ST.leiter('parameter', 'eine Verschiebung nach oben/unten am Term erkennen',
+          'Verschiebung nach links/rechts und oben/unten, Einfluss von a (Streckung, Spiegelung), Term zu einer Verschiebung aufstellen',
+          'Term aus Asymptoten, Verschiebungen verketten, Symmetriezentrum, Spiegelung, Fehler bei „+ b nach rechts“, begründen, Spiegelung an y = x')
+T('parameter', (r'^Wie entsteht der Graph von f\(x\) = −?\d+/x [+−] \d+ aus', 'direkt'), (r'^Wie entsteht', 'mehrschritt'), (r'Wie unterscheidet sich', 'darstellung'),
+  (r'^Der Graph von g\(x\) = \d+/x wird um', 'umkehr'), (r'Lies die Asymptoten', 'rueckwaerts'), (r'f\(x\) = 3/\(x − 1\) \+ 2 wird', 'verknuepfen'), (r'punktsymmetrisch', 'parameter'),
+  (r'gespiegelt', 'transfer'))
+ST.neu('parameter', 'erkennen', SA('Welcher Parameter in f(x) = a/(x + b) + c verschiebt den Graphen nach oben oder unten?', 'c', ['a', 'b', 'x'], 'c wird zu jedem Funktionswert addiert – das hebt oder senkt den ganzen Graphen.', 'Welche Zahl wird am Ende addiert?'))
+ST.neu('parameter', 'fehler', SA('Jemand sagt: „Der Graph von f(x) = 2/(x + 3) ist der von 2/x, um 3 nach rechts verschoben.“ Was stimmt?', 'Falsch: + 3 im Nenner verschiebt um 3 nach links.',
+    ['Richtig.', 'Falsch: um 3 nach oben.', 'Falsch: um 3 nach unten.'], 'Die Lücke liegt bei x + 3 = 0, also x = −3 – links vom Ursprung.', 'Wo ist die neue Definitionslücke?'))
+ST.neu('parameter', 'begruenden', SA('Warum verschiebt „x − 2“ im Nenner den Graphen nach rechts?', 'Bei x = 2 ist der Nenner jetzt 0 – die Lücke liegt bei 2 statt bei 0.',
+    ['Weil Minus immer nach rechts bedeutet.', 'Weil 2 positiv ist und man nach oben schiebt.', 'Das tut es nicht, es verschiebt nach links.'],
+    'f(x) = a/(x − 2) nimmt bei x die Werte an, die a/x bei x − 2 hat – alles passiert 2 Einheiten später, also weiter rechts.', 'Wo ist die Definitionslücke von a/(x − 2)?'))
+ST.neu('parameter', 'pruefung', SA('Der Graph von g(x) = 1/x wird um 2 nach links und um 1 nach unten verschoben. Welche Asymptoten hat der neue Graph?', 'x = −2 und y = −1', ['x = 2 und y = −1', 'x = −2 und y = 1', 'x = −1 und y = −2'],
+    'Neuer Term f(x) = 1/(x + 2) − 1: senkrecht x = −2, waagrecht y = −1.', 'Stelle zuerst den neuen Term auf.'))
+ST.neu('parameter', 'transfer', SA('Der Graph von f(x) = 1/(x − 1) + 1 wird an der Geraden y = x gespiegelt. Welche Funktion gehört zum gespiegelten Graphen?', 'wieder f(x) = 1/(x − 1) + 1',
+    ['f(x) = 1/(x + 1) − 1', 'f(x) = −1/(x − 1) + 1', 'f(x) = x − 1'], 'Beim Spiegeln an y = x vertauscht man x und y: x − 1 = 1/(y − 1) ⇒ y − 1 = 1/(x − 1). Es kommt derselbe Term heraus – der Graph ist zu y = x symmetrisch.',
+    'Vertausche x und y und löse nach y auf.'))
+ST.knobel('parameter', SZ('Der Graph von f(x) = 2/(x − 3) + 1 wird erst um 5 nach links, dann um 2 nach unten verschoben und danach an der x-Achse gespiegelt. Welchen Wert hat der neue Term bei x = 0?', 0, '-(2 / (0 + 2) - 1)',
+    'Nach links um 5: 2/(x + 2) + 1. Nach unten um 2: 2/(x + 2) − 1. Spiegeln an der x-Achse: −2/(x + 2) + 1. Bei x = 0: −1 + 1 = 0.', 'Mache die drei Schritte nacheinander am Term.'))
+ST.knobel('parameter', SA('Für welche b und c geht der Graph von f(x) = 1/(x + b) + c durch den Ursprung und hat die waagrechte Asymptote y = 1?', 'b = −1, c = 1', ['b = 1, c = 1', 'b = −1, c = −1', 'b = 1, c = −1'],
+    'Asymptote y = 1 ⇒ c = 1. Ursprung: 1/b + 1 = 0 ⇒ b = −1. Probe: f(0) = 1/(−1) + 1 = 0.', 'Die waagrechte Asymptote verrät c sofort.'))
+
+# --- beurteilen ---
+ST.leiter('beurteilen', 'eine richtige Aussage über Definitionslücke oder Nullstelle erkennen',
+          'die falsche Aussage finden, Werte berechnen und vergleichen, Stückkosten-Sachaussage beurteilen',
+          'Fehlschlüsse (fällt ⇒ größer) widerlegen, Verhalten für große x begründen, Schnittpunkte mit Geraden, Parameter, rückwärts, Abstand-Modell, Prüfungsaufgabe')
+T('beurteilen', (r'ist richtig\?$', 'erkennen'), (r'FALSCH\?$', 'umkehr'), (r'^Ben', 'fehler'), (r'^Ina|KEINEM Graphen', 'begruenden'), (r'Wie viele Schnittpunkte', 'verknuepfen'))
+ST.neu('beurteilen', 'direkt', SA('Stimmt: f(x) = 4/(x − 2) + 1 ist bei x = 2 nicht definiert?', 'Ja, dort ist der Nenner 0.', ['Nein, das ist bei x = −2.', 'Nein, f ist überall definiert.'], 'x − 2 = 0 bei x = 2.', 'Setze 2 in den Nenner ein.'))
+ST.neu('beurteilen', 'mehrschritt', SA('Für f(x) = 6/(x − 1) + 2: Welche Aussage stimmt?', 'f(4) = 4 und f(−2) = 0', ['f(4) = 4 und f(−2) = 4', 'f(4) = 8 und f(−2) = 0', 'f(4) = 2 und f(−2) = −2'],
+    'f(4) = 6/3 + 2 = 4. f(−2) = 6/(−3) + 2 = 0.', 'Berechne beide Werte.'))
+ST.neu('beurteilen', 'einkleidung', SA('Die Kosten pro Stück sind k(n) = 500/n + 2 € bei n Stück. Welche Aussage stimmt?', 'Bei mehr Stück sinken die Stückkosten, bleiben aber über 2 €.',
+    ['Ab 250 Stück kostet jedes Stück genau 2 €.', 'Die Stückkosten steigen mit n.', 'Bei 500 Stück ist ein Stück kostenlos.'], '500/n wird kleiner, bleibt aber positiv: k(n) > 2. Bei 500 Stück: 3 €.', 'Was macht 500/n, wenn n wächst?'))
+ST.neu('beurteilen', 'darstellung', SA('Ein Graph hat die Asymptoten x = 3 und y = −1; seine Äste liegen rechts oben und links unten vom Asymptotenkreuz. Welcher Term passt?', 'f(x) = 2/(x − 3) − 1',
+    ['f(x) = −2/(x − 3) − 1', 'f(x) = 2/(x + 3) − 1', 'f(x) = 2/(x − 3) + 1'], 'Senkrecht x = 3 ⇒ (x − 3), waagrecht y = −1 ⇒ − 1. Äste rechts oben/links unten ⇒ a > 0.', 'Lies b und c an den Asymptoten ab, das Vorzeichen von a an der Lage der Äste.'))
+ST.neu('beurteilen', 'parameter', SA('Für welche a liegt der Graph von f(x) = a/x im 2. und 4. Quadranten?', 'für alle a < 0', ['für alle a > 0', 'nur für a = −1', 'für alle a ≠ 0'],
+    'Für a < 0 ist f(x) negativ bei positiven x (4. Quadrant) und positiv bei negativen x (2. Quadrant).', 'Probiere a = −2 mit x = 1 und x = −1.'))
+ST.neu('beurteilen', 'rueckwaerts', SZ('Eine Hyperbel f(x) = a/x geht durch (3 | −4). Welchen Wert hat f(6)?', -2, '(3 * -4) / 6', 'a = 3 · (−4) = −12. f(6) = −12/6 = −2.', 'Bestimme a aus dem Punkt.'))
+ST.neu('beurteilen', 'transfer', SA('Vereinfacht gilt für die Helligkeit einer Lampe H = 100/d (d Abstand). Wie ändert sich H, wenn man den Abstand verdreifacht?', 'H wird ein Drittel so groß.',
+    ['H wird dreimal so groß.', 'H bleibt gleich.', 'H wird um 3 kleiner.'], '100/(3d) = (1/3) · 100/d.', 'Setze 3d statt d ein.'))
+ST.neu('beurteilen', 'pruefung', SA('Welche Aussage über f(x) = 2/(x + 1) − 2 ist richtig?', 'Nullstelle 0, Asymptoten x = −1 und y = −2', ['Nullstelle 1, Asymptoten x = 1 und y = −2', 'keine Nullstelle, Asymptoten x = −1 und y = 2', 'Nullstelle 0, Asymptoten x = 1 und y = 2'],
+    '2/(x + 1) = 2 ⇒ x = 0. Senkrecht x = −1, waagrecht y = −2.', 'Bestimme Nullstelle und beide Asymptoten.'))
+ST.knobel('beurteilen', SZ('Wie viele Schnittpunkte hat der Graph von f(x) = 1/x mit der Geraden y = −x + 2,5?', 2, '2',
+    'Probieren: x = 2 ergibt 1/2 und −2 + 2,5 = 0,5 ✓. x = 0,5 ergibt 2 und 2 ✓. Beide Graphen sind spiegelbildlich zu y = x, deshalb gehört zu (2 | 0,5) auch (0,5 | 2). Für x < 0 ist 1/x negativ, die Gerade aber positiv – dort gibt es keinen Schnitt. Also 2.',
+    'Probiere einfache Zahlen und nutze die Symmetrie zu y = x.'))
+ST.knobel('beurteilen', SZ('Wie viele Punkte mit positiven ganzzahligen Koordinaten liegen auf dem Graphen von f(x) = 6/x?', 4, '4',
+    'x muss ein positiver Teiler von 6 sein: 1, 2, 3, 6. Das ergibt (1 | 6), (2 | 3), (3 | 2), (6 | 1).', 'Wann ist 6/x eine ganze Zahl?'))
+baue = mit_stufen(baue, ST)
+# ---- STUFEN ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Indirekte Proportionalität', ['indirekt']), ('Hyperbeln untersuchen', ['definitionsmenge', 'asymptoten', 'achsenpunkte']),

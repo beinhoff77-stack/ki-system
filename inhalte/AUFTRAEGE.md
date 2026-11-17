@@ -1272,3 +1272,108 @@ am Ende ein Abschlussbericht (neue Lernkarten mit Lehrplan-Bezug und Quelle, erw
 
 Einspielen (Haupt-Chat): Teil A als Entwurf importieren (einheit_importieren), prüfen lassen, Freigabe durch Sebastian; Quito danach in den Plan der Klasse 6 aufnehmen.
 Teil B mit einheit_abgleichen(…, 'sperren') (Weg A); neue Etappen sind sofort sichtbar.
+
+# Neunzehnte Runde: Gesamtdurchsicht der Stoffsammlung – je Klasse, dazu Realschule und IB
+
+Auftrag Sebastian 17.11.: Jede Klasse geht ihre gesamte Stoffsammlung noch einmal durch – passen die Themen, sind die Erklärungen gut, einfach, schlüssig und mit Beispielen,
+unterscheiden sich die Stufen der Bordkarten wirklich im Gedanken und nicht nur in der Größe der Zahlen. Mängel werden gleich behoben (in Grenzen), alles Übrige gemeldet.
+Teil A: Gymnasium, ein Chat je Klasse (Zweige durchsicht-kl5 … durchsicht-kl10). Teil B: die 24 Realschul-/IB-Themen in zwei Chats (durchsicht-rsib-1, durchsicht-rsib-2).
+Teil C: Abgleich aller Themen mit dem Realschul-Lehrplan und dem IB MYP (ein Chat, Zweig lehrplan-rsib, nur Vorschlag).
+
+## Teil A – Gymnasium (im Text `<N>` durch die Klasse ersetzen)
+
+```text
+Du gehst die gesamte Stoffsammlung einer Mathe-Lern-App für Klasse <N> (bayerisches Gymnasium, LehrplanPLUS) kritisch durch und besserst nach. Die Themen sind für Kinder freigegeben.
+Repository: beinhoff77-stack/ki-system (lernen-app ist ein Zweig darin). Hole den aktuellen Stand des Zweigs lernen-app, lege davon den Zweig durchsicht-kl<N> an und arbeite nur dort.
+Lies zuerst vollständig: inhalte/README.md (Format, Regeln, „Verständliche Erklärungen“ mit „Vorgabe seit 16.11.“, „Zeichnungen“, „Vertiefung“), inhalte/postfach/README.md,
+in inhalte/AUFTRAEGE.md die Abschnitte „Zehnte Runde“ (schwere Aufgaben, Prüfungsvorbilder, Urheberrecht), „Dreizehnte Runde“ und „Fünfzehnte Runde“ (Arbeitsweise und Nachweis bei freigegebenen
+Themen) und die Berichte zu deiner Klasse in inhalte/postfach/ (schwer-kl<N>.md, befunde.md, luecken-kl<N>.md), damit du weißt, was schon geprüft und bewusst entschieden ist.
+Deine Themen: alle Einträge in inhalte/themenliste.json mit klasse {"gym_by": <N>} (Datei inhalte/themen/<thema_schluessel>.json, Generator unter inhalte/generatoren/).
+Lies den LehrplanPLUS Gymnasium Mathematik <N> selbst nach (Websuche, lehrplanplus.bayern.de). Sprache der App: „Flug“ = Thema, „Etappe“ = Lernkarte, „Bordkarte“ = Aufgabe.
+
+Prüfe JEDES Thema vollständig – jede Lernkarte ganz, jede Aufgabe gelesen und nachgerechnet – in dieser Reihenfolge:
+1. Passt das Thema? Stoff und Umfang gegen den Lehrplan der Klasse <N>: fehlt etwas, ist etwas zu viel oder gehört in eine andere Klasse? Stimmt die Reihenfolge der Lernkarten
+   (jede baut nur auf vorher Erklärtem auf – auch über Themen hinweg, siehe Feld reihenfolge in der Themenliste)? Überschneidet es sich mit einem anderen Thema?
+2. Erklärungen: Versteht ein Kind der Klasse <N> die Lernkarte allein, ohne Erwachsenen? Einfache Wörter, kurze Sätze, jedes Fachwort einmal erklärt. Ist sie schlüssig (kein Sprung, jeder Schritt
+   folgt aus dem vorigen)? Hat sie ein vollständig vorgerechnetes Beispiel mit Zeichnung, das genau den Aufgabentyp der Karte zeigt, und eine typische Falle? Passt der Merksatz
+   (erster Satz höchstens 12 Wörter)? Kommt in den Aufgaben etwas vor, das die Erklärung nicht zeigt?
+3. Aufgaben: Lösung richtig, Frage eindeutig, bei Auswahl keine zweite richtige Antwort, Zeichnung stimmt mit den Zahlen, Tipp hilft ohne zu verraten, Lösungsweg nachvollziehbar.
+4. Schwierigkeit – der wichtigste Punkt: Die drei Stufen müssen sich im GEDANKEN unterscheiden, nicht in der Größe der Zahlen.
+   Stufe 1 = das vorgerechnete Beispiel mit anderen Zahlen (ein Schritt, direkt anwenden). Stufe 2 = mehrere Schritte, eine Einkleidung, eine kleine Abwandlung oder Umkehrung.
+   Stufe 3 = ein anderer Gedanke: rückwärts denken, verknüpfen mit früherem Stoff, begründen oder Fehler finden, ungewohnte Einkleidung, Parameter statt Zahl, Prüfungsniveau.
+   Schreibe je Lernkarte in einem Satz auf, worin sich ihre Stufen heute unterscheiden. Wo die Antwort „nur größere Zahlen“ oder „längere Rechnung“ lautet, ist das ein Mangel.
+   Prüfe auch die Abwechslung: nicht dieselbe Aufgabe mit getauschten Zahlen in Reihe.
+
+Nachbessern (im Generator des Themas, eigener Abschnitt; alles andere bleibt Zeichen für Zeichen gleich – Nachweis per Skript gegen origin/lernen-app):
+ a) Falsche Stufe: nur das Feld s ändern. b) Fehler in Lösung, Tipp oder Lösungsweg bei gleicher Frage: berichtigen.
+ c) Fehlerhafte, mehrdeutige oder bloß wiederholende Aufgabe: durch eine bessere ersetzen und den alten Fragetext unter „ersetzt“ melden (der Haupt-Chat sperrt die alte Fassung).
+ d) Stufen ohne echten Unterschied: neue Aufgaben der fehlenden Art ergänzen, bis jede Lernkarte mindestens 4 Übungen je Stufe hat, die der Beschreibung oben entsprechen
+    (für Stufe 3 gelten die Regeln der Zehnten Runde; Prüfungsvorbilder recherchieren, nie wörtlich übernehmen).
+ e) Erklärung unklar, lückenhaft oder ohne passendes Beispiel: die Lernkarte verbessern (einstieg, woerter, schritte mit Zeichnung, fehler, regel, probe) – Längenregeln der README einhalten,
+    Lernziel-Schlüssel, Titel und Reihenfolge der Lernkarten nicht ändern. Jede geänderte Lernkarte mit „vorher/nachher“ in einem Satz melden.
+ Nicht selbst ändern, nur melden: Themen in eine andere Klasse schieben, Lernkarten löschen, teilen oder zwischen Themen verschieben, neue Themen, App-Wünsche.
+Fertig je Thema, wenn `python3 -I tools/inhalt_pruefen.py inhalte/themen/<datei>.json` OK meldet, der Nachweis stimmt und jede Lernkarte weiter mindestens 3 Übungen je Stufe hat.
+Ein Thema = ein Commit + Push auf durchsicht-kl<N>.
+Grenzen: Keine Datenbank, kein App-Code, keine Tests, kein Merge. Keine Namen oder Daten von Kindern. Keine Schulbuch- oder Prüfungsaufgaben wörtlich übernehmen.
+Meldungen in inhalte/postfach/durchsicht-kl<N>.md: je Thema eine Zeile nach Abschluss; am Ende ein Abschlussbericht in einfacher Sprache mit
+ (1) Urteil je Thema: Thema passt? Erklärungen? Stufen? – je mit einer Note von 1 bis 5 und einem Satz Begründung,
+ (2) Tabelle je Lernkarte: worin sich die Stufen unterscheiden (vorher → nachher),
+ (3) Zahlen: umgestuft, berichtigt, ersetzt, neu, Lernkarten verbessert,
+ (4) Liste „ersetzt“ (alte Fragetexte je Thema),
+ (5) Liste „für Sebastian“: was nicht passt und eine Entscheidung braucht (Thema in anderer Klasse, fehlender Stoff, Überschneidungen, App-Wünsche),
+ (6) was du nicht prüfen konntest. Trenne Tatsachen, Annahmen und Meinung. Arbeite ohne Rückfragen durch.
+```
+
+## Teil B – Realschule und IB (24 Themen ohne Gymnasium-Klasse, bisher Entwurf)
+
+Chat 1 (Zweig durchsicht-rsib-1): abbildungen.determinanten2, abbildungen.vektoren, daten.stichproben, funktionen.scharen, terme.quadratische_extreme, funktionen.transformation,
+gleichungen.reinquadratisch, gleichungen.wurzel, abbildungen.matrizen, funktionen.umkehr, mengen.grundbegriffe, groessen.verhaeltnisse.
+Chat 2 (Zweig durchsicht-rsib-2): daten.zweidimensional, daten.standardabweichung, stochastik.bedingt, funktionen.betrag, funktionen.folgen, funktionen.reihen, sonder.graphentheorie,
+sonder.optimierung, daten.normalverteilung, finanzen.zinseszins, sonder.logik, zahlen.schranken.
+
+```text
+Du machst Themen einer Mathe-Lern-App für Realschule (Bayern) und IB MYP freigabereif. Die Themen sind Entwürfe: Kinder sehen sie noch nicht, es hängen keine Lernstände daran –
+Lernkarten und Aufgaben dürfen deshalb geändert, ersetzt und ergänzt werden (Lernziel-Schlüssel, thema_id und block_id bleiben).
+Repository: beinhoff77-stack/ki-system (lernen-app ist ein Zweig darin). Hole den aktuellen Stand des Zweigs lernen-app, lege davon den Zweig <ZWEIG> an und arbeite nur dort.
+Deine Themen: <THEMEN>.
+Lies zuerst vollständig: inhalte/README.md (Format, Regeln, „Verständliche Erklärungen“ mit „Vorgabe seit 16.11.“, „Zeichnungen“, „Vertiefung“), inhalte/postfach/README.md,
+inhalte/postfach/umbau-rest.md (letzter Umbau dieser Themen), in inhalte/AUFTRAEGE.md die Abschnitte „Zehnte Runde“ (schwere Aufgaben, Prüfungsvorbilder, Urheberrecht) und
+„Neunzehnte Runde, Teil A“ – die vier Prüfpunkte dort (Thema passt, Erklärungen, Aufgaben, Schwierigkeit im Gedanken statt in der Zahlengröße) gelten hier genauso.
+Welche Klasse ein Thema in welcher Schulart hat, steht in inhalte/themenliste.json (rs_by = Realschule Bayern, ib_myp = IB MYP Jahr 1–5; MYP 1 entspricht etwa Klasse 6).
+Lies zum Stoff den LehrplanPLUS Realschule Mathematik der genannten Klasse (lehrplanplus.bayern.de, Wahlpflichtfächergruppe I, wo unterschieden wird) bzw. für IB das MYP Mathematics Framework
+(vier Bereiche: Zahl, Algebra, Geometrie und Trigonometrie, Statistik und Wahrscheinlichkeit; Standard und Extended) selbst nach. Das MYP legt den Stoff nicht je Jahr fest – schreibe dazu, wie sicher die Zuordnung ist.
+
+Je Thema, vollständig (jede Lernkarte ganz, jede Aufgabe gelesen und nachgerechnet):
+1. Die vier Prüfpunkte aus Teil A. Zusätzlich: Baut das Thema nur auf Stoff auf, der in dieser Schulart vorher dran war?
+2. „Kurz gesagt“: erster Satz jedes Merksatzes höchstens 12 Wörter und 90 Zeichen (in diesen Themen sind laut Prüfung rund 100 zu lang) – kürzen, Rest der Regel bleibt inhaltlich.
+3. Erklärungen nach dem Muster der Gymnasium-Themen nachziehen, wo sie dünner sind (vorgerechnetes Beispiel mit Zeichnung je Schritt, fehler mit fehler_bild).
+4. Aufgaben: Mängel beheben; je Lernkarte am Ende mindestens 18 Übungen (Stufe 1: mindestens 4, Stufe 2: mindestens 6, Stufe 3: mindestens 8, davon 2 nach Prüfungsvorbild – z. B. Abschlussprüfung
+   Realschule Bayern, Jahrgangsstufentests, IB-Aufgabenformate – und 1 Knobelaufgabe), dazu 1 Test, 3 Korrektur, 6 Sicherung. Vorhandene gute Aufgaben bleiben.
+Fertig je Thema, wenn `python3 -I tools/inhalt_pruefen.py inhalte/themen/<datei>.json` OK ohne Hinweise meldet. Ein Thema = ein Commit + Push.
+Grenzen: Keine Datenbank, kein App-Code, keine Tests, kein Merge, keine anderen Themen. Keine Schulbuch- oder Prüfungsaufgaben wörtlich übernehmen.
+Meldungen in inhalte/postfach/<ZWEIG>.md: je Thema eine Zeile; am Ende Abschlussbericht wie in Teil A (Urteil je Thema mit Noten, Stufen-Tabelle, Zahlen, „für Sebastian“, nicht Geprüftes)
+und je Thema „freigabereif: ja/nein“. Arbeite ohne Rückfragen durch.
+```
+
+## Teil C – Abgleich mit Realschul-Lehrplan und IB MYP (nur Vorschlag)
+
+```text
+Du prüfst für eine Mathe-Lern-App, ob alle Themen richtig den Klassen der Realschule Bayern und den Jahren des IB MYP zugeordnet sind, und was für diese Schularten noch fehlt.
+Repository: beinhoff77-stack/ki-system (lernen-app ist ein Zweig darin). Hole den aktuellen Stand des Zweigs lernen-app, lege davon den Zweig lehrplan-rsib an und arbeite nur dort.
+Lies zuerst: inhalte/README.md, inhalte/postfach/README.md, inhalte/themenliste.json (Felder klasse.rs_by, klasse.ib_myp, lehrplan_gym, reihenfolge), in inhalte/AUFTRAEGE.md den Abschnitt
+„Elfte Runde“ und mit git show origin/daten-klassen:inhalte/pruefung/klassen/vorschlag.md den Vorschlag fürs Gymnasium – dein Ergebnis soll genauso aufgebaut sein.
+Teil 1 – Realschule Bayern: Für JEDES Thema mit rs_by den Lernbereich und die Jahrgangsstufe im LehrplanPLUS Realschule Mathematik suchen (lehrplanplus.bayern.de, mit Websuche; wo die
+ Wahlpflichtfächergruppen I und II/III sich unterscheiden, beide nennen und Gruppe I als Hauptfall nehmen). Tabelle: Thema · Klasse heute · Klasse laut Lehrplan · Lernbereich · Quelle (Adresse) ·
+ Vorschlag (bleibt / ändern auf …). Dazu eine laufende Nummer in Lehrplan-Reihenfolge je Klasse (für das Feld reihenfolge.rs_by).
+Teil 2 – Was fehlt der Realschule? Gehe den LehrplanPLUS Realschule Mathematik Klasse 5 bis 10 Lernbereich für Lernbereich durch und liste, was kein Thema der App abdeckt
+ (was fehlt · Lehrplan-Bezug · wohin: vorhandenes Thema erweitern oder neues Thema · Dringlichkeit).
+Teil 3 – IB MYP: Für jedes Thema mit ib_myp die Zuordnung zu MYP-Jahr und Bereich des Mathematics Framework prüfen (Standard oder Extended). Das MYP gibt keinen festen Stoff je Jahr vor –
+ nenne deshalb je Thema, worauf sich das Jahr stützt (Framework, typische Schulcurricula, Lehrwerke mit Quelle) und wie sicher es ist (sicher / üblich / Annahme). Liste, was aus dem Framework
+ (Standard, dazu Extended getrennt) fehlt. Vorschlag für reihenfolge.ib_myp nur, wo belegbar.
+Nichts raten: ohne Beleg „kein Beleg gefunden“ schreiben. Ergebnis: inhalte/pruefung/klassen/vorschlag-rsib.md mit den Tabellen und einer kurzen Liste der Punkte, die Sebastian entscheiden muss.
+Grenzen: KEINE Änderung an inhalte/themenliste.json, Generatoren, Datenbank, App-Code oder Tests – nur der Vorschlag. Kein Merge. Meldungen in inhalte/postfach/lehrplan-rsib.md.
+Arbeite ohne Rückfragen durch.
+```
+
+Einspielen (Haupt-Chat): Teil A mit einheit_abgleichen(…, 'sperren') (Weg A) und Sperren der „ersetzt“-Fassungen; Teil B als Entwurf abgleichen ('loeschen'), Freigabe durch Sebastian;
+Teil C ist Entscheidungsgrundlage (Klassen, Reihenfolge, neue Themen).

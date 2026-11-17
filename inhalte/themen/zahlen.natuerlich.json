@@ -2771,7 +2771,7 @@
    "l": "strahl_ablesen",
    "t": "strahl_ablesen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Welche Zahl zeigt der Pfeil?",
@@ -2795,7 +2795,7 @@
    "l": "strahl_ablesen",
    "t": "strahl_ablesen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Welche Zahl zeigt der Pfeil?",
@@ -2864,7 +2864,7 @@
    "l": "strahl_ablesen",
    "t": "strahl_ablesen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Welche Zahl zeigt der Pfeil?",
@@ -2888,7 +2888,7 @@
    "l": "strahl_ablesen",
    "t": "strahl_ablesen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Welche Zahl zeigt der Pfeil?",
@@ -3184,6 +3184,38 @@
    "w": "Abschnittswert: (1 800 − 1 000) : 8 = 100. Pfeil: 1 000 + 1 · 100 = 1 100."
   },
   {
+   "l": "strahl_ablesen",
+   "t": "strahl_ablesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zahlenstrahl hat gleich große Abschnitte. Zwei Abschnitte nach dem Anfang steht 300, sechs Abschnitte nach dem Anfang steht 500. Welche Zahl steht neun Abschnitte nach dem Anfang?"
+   },
+   "o": {
+    "wert": 650
+   },
+   "c": "500 + 3 * ((500 - 300) // 4)",
+   "w": "Von 300 bis 500 sind es 4 Abschnitte: 200 : 4 = 50 je Abschnitt. Von 6 bis 9 sind es 3 Abschnitte: 500 + 3 · 50 = 650.",
+   "h": "Wie viele Abschnitte liegen zwischen 300 und 500? Wie viel ist dann einer wert?"
+  },
+  {
+   "l": "strahl_ablesen",
+   "t": "strahl_ablesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zahlenstrahl beginnt bei 1 000 und hat 8 gleich große Abschnitte. Drei Abschnitte nach dem Anfang steht 1 450. Bei welcher Zahl endet der Strahl?"
+   },
+   "o": {
+    "wert": 2200
+   },
+   "c": "1000 + 8 * ((1450 - 1000) // 3)",
+   "w": "Bis 1 450 sind es 450 in 3 Abschnitten: 450 : 3 = 150 je Abschnitt. Ende: 1 000 + 8 · 150 = 2 200.",
+   "h": "Rechne zuerst aus, wie viel ein Abschnitt wert ist."
+  },
+  {
    "l": "strahl_eintragen",
    "t": "strahl_eintragen",
    "p": "uebung",
@@ -3417,7 +3449,7 @@
    "l": "strahl_eintragen",
    "t": "strahl_eintragen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "markierung",
    "f": {
     "text": "Tippe die Markierung an, an der 140 000 liegt.",
@@ -3502,7 +3534,7 @@
    "l": "strahl_eintragen",
    "t": "strahl_eintragen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "markierung",
    "f": {
     "text": "Tippe die Markierung an, an der 1 300 000 liegt.",
@@ -5332,19 +5364,19 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Eine Stadt hat 8 495 588 Einwohner. Welche Angabe für eine Zeitungsüberschrift ist sinnvoll gerundet?"
+    "text": "Eine Stadt hat 8 495 588 Einwohner. Für die Zeitung wird auf Hunderttausender gerundet. Welche Angabe ist richtig?"
    },
    "a": [
-    "etwa 8 495 590",
-    "etwa 8 Millionen",
     "genau 8 495 588",
-    "etwa 8,5 Millionen"
+    "etwa 8 495 590",
+    "etwa 8,5 Millionen",
+    "etwa 8,4 Millionen"
    ],
    "o": {
-    "index": 3
+    "index": 2
    },
-   "w": "Für eine Überschrift genügt ein grober Wert: auf Hunderttausender gerundet 8 500 000, also etwa 8,5 Millionen.",
-   "h": "Eine Überschrift soll man sich leicht merken können."
+   "w": "Rundungsstelle: Hunderttausender. Rechts daneben steht 9, also aufrunden: 8 500 000, das sind 8,5 Millionen.",
+   "h": "Suche die Hunderttausenderstelle und schau die Ziffer rechts daneben an."
   },
   {
    "l": "runden_sinnvoll",
@@ -5374,19 +5406,19 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Eine Stadt hat 8 212 268 Einwohner. Welche Angabe für eine Zeitungsüberschrift ist sinnvoll gerundet?"
+    "text": "Eine Stadt hat 8 212 268 Einwohner. Für die Zeitung wird auf Hunderttausender gerundet. Welche Angabe ist richtig?"
    },
    "a": [
-    "genau 8 212 268",
     "etwa 8,2 Millionen",
-    "etwa 8 Millionen",
+    "etwa 8,3 Millionen",
+    "genau 8 212 268",
     "etwa 8 212 270"
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
-   "w": "Für eine Überschrift genügt ein grober Wert: auf Hunderttausender gerundet 8 200 000, also etwa 8,2 Millionen.",
-   "h": "Eine Überschrift soll man sich leicht merken können."
+   "w": "Rundungsstelle: Hunderttausender. Rechts daneben steht 1, also abrunden: 8 200 000, das sind 8,2 Millionen.",
+   "h": "Suche die Hunderttausenderstelle und schau die Ziffer rechts daneben an."
   },
   {
    "l": "runden_sinnvoll",
@@ -5395,19 +5427,19 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Eine Stadt hat 3 080 713 Einwohner. Welche Angabe für eine Zeitungsüberschrift ist sinnvoll gerundet?"
+    "text": "Eine Stadt hat 3 080 713 Einwohner. Für die Zeitung wird auf Hunderttausender gerundet. Welche Angabe ist richtig?"
    },
    "a": [
+    "etwa 3,1 Millionen",
     "etwa 3 080 710",
     "etwa 3 Millionen",
-    "genau 3 080 713",
-    "etwa 3,1 Millionen"
+    "genau 3 080 713"
    ],
    "o": {
-    "index": 3
+    "index": 0
    },
-   "w": "Für eine Überschrift genügt ein grober Wert: auf Hunderttausender gerundet 3 100 000, also etwa 3,1 Millionen.",
-   "h": "Eine Überschrift soll man sich leicht merken können."
+   "w": "Rundungsstelle: Hunderttausender. Rechts daneben steht 8, also aufrunden: 3 100 000, das sind 3,1 Millionen.",
+   "h": "Suche die Hunderttausenderstelle und schau die Ziffer rechts daneben an."
   },
   {
    "l": "runden_sinnvoll",
@@ -5416,19 +5448,19 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Eine Stadt hat 8 181 056 Einwohner. Welche Angabe für eine Zeitungsüberschrift ist sinnvoll gerundet?"
+    "text": "Eine Stadt hat 8 181 056 Einwohner. Für die Zeitung wird auf Hunderttausender gerundet. Welche Angabe ist richtig?"
    },
    "a": [
-    "etwa 8 Millionen",
-    "genau 8 181 056",
     "etwa 8,2 Millionen",
+    "etwa 8,1 Millionen",
+    "genau 8 181 056",
     "etwa 8 181 060"
    ],
    "o": {
-    "index": 2
+    "index": 0
    },
-   "w": "Für eine Überschrift genügt ein grober Wert: auf Hunderttausender gerundet 8 200 000, also etwa 8,2 Millionen.",
-   "h": "Eine Überschrift soll man sich leicht merken können."
+   "w": "Rundungsstelle: Hunderttausender. Rechts daneben steht 8, also aufrunden: 8 200 000, das sind 8,2 Millionen.",
+   "h": "Suche die Hunderttausenderstelle und schau die Ziffer rechts daneben an."
   },
   {
    "l": "runden_sinnvoll",
@@ -5649,18 +5681,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Eine Stadt hat 6 205 029 Einwohner. Welche Angabe für eine Zeitungsüberschrift ist sinnvoll gerundet?"
+    "text": "Eine Stadt hat 6 205 029 Einwohner. Für die Zeitung wird auf Hunderttausender gerundet. Welche Angabe ist richtig?"
    },
    "a": [
-    "genau 6 205 029",
     "etwa 6 205 030",
+    "etwa 6,3 Millionen",
     "etwa 6,2 Millionen",
-    "etwa 6 Millionen"
+    "genau 6 205 029"
    ],
    "o": {
     "index": 2
    },
-   "w": "Für eine Überschrift genügt ein grober Wert: auf Hunderttausender gerundet 6 200 000, also etwa 6,2 Millionen."
+   "w": "Rundungsstelle: Hunderttausender. Rechts daneben steht 0, also abrunden: 6 200 000, das sind 6,2 Millionen."
   },
   {
    "l": "runden_sinnvoll",
@@ -5688,18 +5720,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Eine Stadt hat 5 240 931 Einwohner. Welche Angabe für eine Zeitungsüberschrift ist sinnvoll gerundet?"
+    "text": "Eine Stadt hat 5 240 931 Einwohner. Für die Zeitung wird auf Hunderttausender gerundet. Welche Angabe ist richtig?"
    },
    "a": [
     "etwa 5,2 Millionen",
-    "etwa 5 240 930",
     "genau 5 240 931",
-    "etwa 5 Millionen"
+    "etwa 5 240 930",
+    "etwa 5,3 Millionen"
    ],
    "o": {
     "index": 0
    },
-   "w": "Für eine Überschrift genügt ein grober Wert: auf Hunderttausender gerundet 5 200 000, also etwa 5,2 Millionen."
+   "w": "Rundungsstelle: Hunderttausender. Rechts daneben steht 4, also abrunden: 5 200 000, das sind 5,2 Millionen."
   },
   {
    "l": "runden_sinnvoll",
@@ -5942,7 +5974,7 @@
    "l": "unendlich",
    "t": "unendlich",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Gib den Nachfolger von 2 099 999 an."
@@ -6011,7 +6043,7 @@
    "l": "unendlich",
    "t": "unendlich",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Gib den Nachfolger von 9 099 999 an."
@@ -6387,7 +6419,7 @@
    "l": "roemisch_schreiben",
    "t": "roemisch_schreiben",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Über einem Tor steht die Jahreszahl MCMXXXI. Welches Jahr ist das?"
@@ -6455,7 +6487,7 @@
    "l": "roemisch_schreiben",
    "t": "roemisch_schreiben",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Über einem Tor steht die Jahreszahl MDCCXCIX. Welches Jahr ist das?"

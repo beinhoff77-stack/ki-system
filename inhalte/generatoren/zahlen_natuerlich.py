@@ -739,6 +739,40 @@ if __name__ == '__main__':
                     'Römische Zahlen als Textantwort (Groß-/Kleinschreibung egal) nur bis 12 Zeichen; längere als Auswahl.'])
     d['autor'] = 'Claude (Zwölfte Runde, Generator zahlen_natuerlich.py)'
     d['inhalt']['quellen']['aufgaben'] = 'Vom Generator erzeugt und berechnet (Zwölfte Runde); Stufe 3 teils nach Prüfungsvorbild (Jahrgangsstufentest 6 Bayern, Probeunterricht Gym 5), eigene Zahlen.'
+    # ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl5, siehe _durchsicht_kl5.py) ----
+    from _durchsicht_kl5 import Durchsicht, durchsicht_anwenden
+    DS = Durchsicht('zahlen.natuerlich', 19_5_1)
+    # a) Stufe 3 mit gleichem Gedanken wie Stufe 2, nur größere Zahlen → Stufe 2
+    DS.stufe('strahl_ablesen', 'Welche Zahl zeigt der Pfeil?', 2, enthaelt=lambda x: x['s'] == 3, anzahl=4)
+    for _t in ['Tippe die Markierung an, an der 140 000 liegt.', 'Tippe die Markierung an, an der 1 300 000 liegt.']:
+        DS.stufe('strahl_eintragen', _t, 2)
+    for _t in ['Gib den Nachfolger von 2 099 999 an.', 'Gib den Nachfolger von 9 099 999 an.']:
+        DS.stufe('unendlich', _t, 2)
+    for _t in ['Über einem Tor steht die Jahreszahl MCMXXXI. Welches Jahr ist das?', 'Über einem Tor steht die Jahreszahl MDCCXCIX. Welches Jahr ist das?']:
+        DS.stufe('roemisch_schreiben', _t, 2)
+    # c) Zwei richtige Antworten: „etwa 8 Millionen“ ist ebenfalls sinnvoll gerundet (auf Millionen). Neue Frage legt die Rundungsstelle fest.
+    _alt = 'Eine Stadt hat {} Einwohner. Welche Angabe für eine Zeitungsüberschrift ist sinnvoll gerundet?'
+    for _n, _pool in [(8495588, 'uebung'), (8212268, 'uebung'), (3080713, 'uebung'), (8181056, 'uebung'), (6205029, 'korrektur'), (5240931, 'sicherung')]:
+        _g = runde(_n, 10 ** 5)
+        _ab = _n // 10 ** 5 * 10 ** 5
+        _falsch = _g + 10 ** 5 if _ab == _g else _ab
+        _mio = lambda x: f'etwa {x // 10 ** 6},{x % 10 ** 6 // 10 ** 5} Millionen' if x % 10 ** 6 else f'etwa {x // 10 ** 6} Millionen'
+        DS.ersetze('runden_sinnvoll', _alt.format(zt(_n)), DS.A(
+            f'Eine Stadt hat {zt(_n)} Einwohner. Für die Zeitung wird auf Hunderttausender gerundet. Welche Angabe ist richtig?',
+            _mio(_g), [_mio(_falsch), f'etwa {zt(runde(_n, 10))}', f'genau {zt(_n)}'],
+            f'Rundungsstelle: Hunderttausender. Rechts daneben steht {_n // 10 ** 4 % 10}, also {"aufrunden" if _g > _ab else "abrunden"}: {zt(_g)}, das sind {_mio(_g)[5:]}.',
+            'Suche die Hunderttausenderstelle und schau die Ziffer rechts daneben an.'), pools=(_pool,))
+    # d) Stufe 3 bei strahl_ablesen: rückwärts denken statt größerer Zahlen
+    DS.neu('strahl_ablesen', 3, DS.Z(
+        'Ein Zahlenstrahl hat gleich große Abschnitte. Zwei Abschnitte nach dem Anfang steht 300, sechs Abschnitte nach dem Anfang steht 500. Welche Zahl steht neun Abschnitte nach dem Anfang?',
+        650, '500 + 3 * ((500 - 300) // 4)', 'Von 300 bis 500 sind es 4 Abschnitte: 200 : 4 = 50 je Abschnitt. Von 6 bis 9 sind es 3 Abschnitte: 500 + 3 · 50 = 650.',
+        'Wie viele Abschnitte liegen zwischen 300 und 500? Wie viel ist dann einer wert?'))
+    DS.neu('strahl_ablesen', 3, DS.Z(
+        'Ein Zahlenstrahl beginnt bei 1 000 und hat 8 gleich große Abschnitte. Drei Abschnitte nach dem Anfang steht 1 450. Bei welcher Zahl endet der Strahl?',
+        2200, '1000 + 8 * ((1450 - 1000) // 3)', 'Bis 1 450 sind es 450 in 3 Abschnitten: 450 : 3 = 150 je Abschnitt. Ende: 1 000 + 8 · 150 = 2 200.',
+        'Rechne zuerst aus, wie viel ein Abschnitt wert ist.'))
+    durchsicht_anwenden(d, DS)
+    # ---- DURCHSICHT ENDE ----
     pfad = Path(__file__).resolve().parent.parent / 'themen' / 'zahlen.natuerlich.json'
     import json
     pfad.write_text(json.dumps(d, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')

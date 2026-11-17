@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 14:38 – STATUS: zahlen.rechengesetze fertig
+14 Lernkarten: 92 neue Übungen, 28 Knobel-Bordkarten, 88 umgestuft, 65 überzählig. Prüfskript OK, 0 Gruppen „gleich gebaut hintereinander“, Gegenprobe ohne überzählige OK, Nachweis OK.
+
 ## 2026-11-17 14:31 – STATUS: zahlen.ganz fertig
 11 Lernkarten: 64 neue Übungen, 22 Knobel-Bordkarten, 57 umgestuft, 52 überzählig. Prüfskript OK, 0 Gruppen „gleich gebaut hintereinander“, Gegenprobe ohne überzählige OK, Nachweis OK.
 

@@ -524,3 +524,51 @@ if __name__ == '__main__':
                 'Eine kleine Simulationsfunktion in der App (Knopf „100-mal würfeln“) würde das Thema stark verbessern.',
                 'Lehrplan: lehrplan_gym ist für dieses Thema leer – bitte im Aufbau klären.',
                 'Monte-Carlo-Bild: Quadrat mit Viertelkreis und 40 Punkten (Behelf mit kleinen Kreisen); bei den Flächen-Aufgaben ohne bekannte Figur gibt es kein Bild.'])
+
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl10) ----------
+# Gesamtdurchsicht (seit D2 Klasse 10): jede Lernkarte und jede Aufgabe gelesen und nachgerechnet. Läuft ganz am Ende auf der fertigen Datei.
+# Neue Stufe-3-Übungen nach den Beispielen des LehrplanPLUS M10 2 (Simulation bei nicht direkt berechenbaren Wahrscheinlichkeiten:
+# Geburtstagsproblem, vertauschte Briefe, Ziegenproblem; Werte auf Plausibilität prüfen) – eigene Zahlen und Einkleidung.
+def durchsicht():
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from _durchsicht_kl10 import Durchsicht
+    D = Durchsicht('stochastik.simulation', 19040)
+    # zufallsgeraet: „Welches Zufallsgerät passt?“ steht gleich auf Stufe 1 und 2
+    D.stufe([5, 8], 1, '')
+    # regel: dreistellige Zufallszahlen = die zweistellige Regel mit einer Stelle mehr
+    D.stufe(56, 2, 'Mit dreistelligen Zufallszahlen')
+    # auswerten: „Wessen Schätzwert ist zuverlässiger?“ (dreimal) ist Grundwissen der Karte, kein anderer Gedanke
+    D.stufe([101, 102, 103], 2, 'Gruppe A simuliert')
+    # beurteilen: „Ist das Gerät geeignet?“ mit gleicher Rechnung wie Stufe 2 (bzw. 1)
+    D.stufe([160, 163], 2, '')
+    D.stufe(161, 1, 'Ein Bauteil ist fehlerhaft mit p = 0,3')
+    D.neu('auswerten', 3, D.A('Eine Simulation mit 1 000 Schulklassen zu je 25 Kindern ergab 571-mal „mindestens zwei Kinder haben am selben Tag Geburtstag“. '
+                              'Jemand meint: „Das kann nicht stimmen, das Jahr hat doch 365 Tage.“ Was stimmt?',
+                              'Die Simulation ist plausibel: Bei 25 Kindern gibt es 300 Paare, die gleich sein können; berechnet ist P ≈ 0,57.',
+                              ['Der Einwand stimmt: P ist etwa 25 : 365 ≈ 0,07.', 'Der Einwand stimmt: Bei 365 Tagen ist P genau 0.',
+                               'Die Simulation ist falsch, weil man Geburtstage nicht simulieren kann.'],
+                              'Es geht nicht um einen bestimmten Tag, sondern um irgendein Paar: 25 · 24 : 2 = 300 Paare. Gerechnet: P = 1 − (365 · 364 · … · 341) : 365²⁵ ≈ 0,569. '
+                              'Der Schätzwert 0,571 passt.',
+                              'Vergleiche nicht mit einem bestimmten Tag: Wie viele Paare von Kindern gibt es in der Klasse?'))
+    D.neu('auswerten', 3, D.Z('Drei Briefe werden zufällig in drei adressierte Umschläge gesteckt. Eine Simulation ergab bei 600 Durchgängen 203-mal „kein Brief im richtigen Umschlag“. '
+                              'Prüfe den Schätzwert: Bei wie vielen der 6 möglichen Reihenfolgen steckt kein Brief richtig?', 2, '6 - 1 - 3',
+                              'Reihenfolgen der Briefe A, B, C in den Umschlägen A, B, C: ABC (3 richtig), ACB, BAC, CBA (je 1 richtig), BCA, CAB (keiner richtig). '
+                              'Also 2 von 6: P = 1/3 ≈ 0,333; der Schätzwert 203 : 600 ≈ 0,338 passt.',
+                              'Schreibe alle 6 Reihenfolgen auf und prüfe jede.'))
+    D.neu('beurteilen', 3, D.A('Bei einer Spielshow steht hinter einer von drei Türen ein Auto. Nach der Wahl öffnet der Moderator eine andere Tür mit einer Ziege und bietet den Wechsel an. '
+                               'Eine Simulation von 300 Spielen „immer wechseln“ ergab 198 Gewinne. Was stimmt?',
+                               'Schätzwert 0,66 – das passt zum berechneten Wert 2/3.',
+                               ['Schätzwert 0,66 – die Simulation ist falsch, richtig wäre 1/2.', 'Schätzwert 0,198 – Wechseln lohnt sich nicht.',
+                                'Schätzwert 0,66 – das passt zum berechneten Wert 1/3.'],
+                               'Wer wechselt, gewinnt genau dann, wenn die erste Wahl eine Ziege war: P = 2/3 ≈ 0,667. Der Schätzwert 198 : 300 = 0,66 passt.',
+                               'Wann gewinnt man beim Wechseln? Wie wahrscheinlich ist es, zuerst eine Ziege zu wählen?'))
+    D.fuer_sebastian('stochastik.simulation (seit D2 Klasse 10): Die Karten haben Klasse-8-Niveau (Zufallsgerät wählen, Regel, Ziffern zählen). LehrplanPLUS M10 2 nennt '
+                     'Simulation für nicht direkt berechenbare Wahrscheinlichkeiten (vertauschte Briefe, Ziegenproblem, Geburtstagsproblem) – jetzt drei Stufe-3-Übungen, keine Lernkarte. '
+                     'In der Themendatei steht weiter klasse gym_by 8 (Themenliste: 10). π-Übungen überschneiden sich mit stochastik.mehrstufig/pi_schaetzen.')
+    D.anwenden()
+
+
+if __name__ == '__main__':
+    durchsicht()  # Neunzehnte Runde (durchsicht-kl10) – ganz am Ende

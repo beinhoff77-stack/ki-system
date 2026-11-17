@@ -10,3 +10,6 @@ Ersetzt (bitte sperren; Lernkarte verstehen, Übung Stufe 1): „Welche Lösung 
 ## 2026-11-17 – STATUS: stochastik.mehrstufig fertig
 Alle 8 Lernkarten und 266 Aufgaben gelesen und nachgerechnet, keine falsche Lösung. 35 umgestuft, 4 ersetzt (Abwechslung), Lernkarten unverändert. Prüfskript OK, Nachweis OK.
 Ersetzt (bitte sperren): gegenereignis „Ein Spiel wird mit der Wahrscheinlichkeit 0,1 gewonnen. Wie oft muss man mindestens spielen, um mit einer Wahrscheinlichkeit von mindestens 95 % wenigstens einmal zu gewinnen?“ · „Ein Spiel wird mit der Wahrscheinlichkeit 0,2 gewonnen. Wie oft muss man mindestens spielen, um mit einer Wahrscheinlichkeit von mindestens 95 % wenigstens einmal zu gewinnen?“ · verstehen „An einer Verzweigung stehen die Äste 0,1 und 0,8 (nur diese zwei). Was stimmt?“ · „An einer Verzweigung stehen die Äste 0,3 und 0,2 (nur diese zwei). Was stimmt?“
+
+## 2026-11-17 – STATUS: stochastik.simulation fertig
+Alle 6 Lernkarten und 180 Aufgaben gelesen und nachgerechnet, keine falsche Lösung. 9 umgestuft, 3 neue Stufe-3-Übungen nach den Lehrplan-Beispielen M10 2 (Geburtstagsproblem, vertauschte Briefe, Ziegenproblem). Prüfskript OK, Nachweis OK.

@@ -906,7 +906,7 @@
    "l": "zufallsgeraet",
    "t": "zufallsgeraet",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Ein Bus hat Verspätung mit der Wahrscheinlichkeit 0,7. Welches Zufallsgerät simuliert das richtig?"
@@ -959,7 +959,7 @@
    "l": "zufallsgeraet",
    "t": "zufallsgeraet",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Eine Schülerin löst eine Rätselaufgabe mit der Wahrscheinlichkeit 0,1. Welches Zufallsgerät simuliert das richtig?"
@@ -1876,7 +1876,7 @@
    "l": "regel",
    "t": "regel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Mit dreistelligen Zufallszahlen 000 bis 999 soll p = 0,125 simuliert werden. Welche Regel ist richtig?"
@@ -2612,7 +2612,7 @@
    "l": "auswerten",
    "t": "auswerten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Gruppe A simuliert 20 Durchgänge, Gruppe B 500. Wessen Schätzwert für die Wahrscheinlichkeit ist vermutlich zuverlässiger?"
@@ -2633,7 +2633,7 @@
    "l": "auswerten",
    "t": "auswerten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Gruppe A simuliert 2000 Durchgänge, Gruppe B 1000. Wessen Schätzwert für die Wahrscheinlichkeit ist vermutlich zuverlässiger?"
@@ -2654,7 +2654,7 @@
    "l": "auswerten",
    "t": "auswerten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Gruppe A simuliert 100 Durchgänge, Gruppe B 50. Wessen Schätzwert für die Wahrscheinlichkeit ist vermutlich zuverlässiger?"
@@ -5124,7 +5124,7 @@
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ein Kind gewinnt beim Losstand mit p = 5/6. Simuliert wird mit einer Urne mit 7 roten von 10 Kugeln (mit Zurücklegen). Ist das geeignet?"
@@ -5145,7 +5145,7 @@
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Ein Bauteil ist fehlerhaft mit p = 0,3. Simuliert wird mit einer Urne mit 3 roten von 10 Kugeln (mit Zurücklegen). Ist das geeignet?"
@@ -5187,7 +5187,7 @@
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Eine Ampel zeigt bei Ankunft Grün mit p = 2/3. Simuliert wird mit einer Urne mit 7 roten von 10 Kugeln (mit Zurücklegen). Ist das geeignet?"
@@ -5527,6 +5527,64 @@
    },
    "w": "Es kommt nur auf den Anteil an: 3 von 5 = 0,6. Die anderen ergeben 0,5, 3/7 ≈ 0,43 und 60/64 ≈ 0,94.",
    "h": "Berechne bei jeder Urne den Anteil der roten Kugeln."
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Simulation mit 1 000 Schulklassen zu je 25 Kindern ergab 571-mal „mindestens zwei Kinder haben am selben Tag Geburtstag“. Jemand meint: „Das kann nicht stimmen, das Jahr hat doch 365 Tage.“ Was stimmt?"
+   },
+   "a": [
+    "Der Einwand stimmt: P ist etwa 25 : 365 ≈ 0,07.",
+    "Der Einwand stimmt: Bei 365 Tagen ist P genau 0.",
+    "Die Simulation ist plausibel: Bei 25 Kindern gibt es 300 Paare, die gleich sein können; berechnet ist P ≈ 0,57.",
+    "Die Simulation ist falsch, weil man Geburtstage nicht simulieren kann."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Es geht nicht um einen bestimmten Tag, sondern um irgendein Paar: 25 · 24 : 2 = 300 Paare. Gerechnet: P = 1 − (365 · 364 · … · 341) : 365²⁵ ≈ 0,569. Der Schätzwert 0,571 passt.",
+   "h": "Vergleiche nicht mit einem bestimmten Tag: Wie viele Paare von Kindern gibt es in der Klasse?"
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Drei Briefe werden zufällig in drei adressierte Umschläge gesteckt. Eine Simulation ergab bei 600 Durchgängen 203-mal „kein Brief im richtigen Umschlag“. Prüfe den Schätzwert: Bei wie vielen der 6 möglichen Reihenfolgen steckt kein Brief richtig?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "6 - 1 - 3",
+   "w": "Reihenfolgen der Briefe A, B, C in den Umschlägen A, B, C: ABC (3 richtig), ACB, BAC, CBA (je 1 richtig), BCA, CAB (keiner richtig). Also 2 von 6: P = 1/3 ≈ 0,333; der Schätzwert 203 : 600 ≈ 0,338 passt.",
+   "h": "Schreibe alle 6 Reihenfolgen auf und prüfe jede."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einer Spielshow steht hinter einer von drei Türen ein Auto. Nach der Wahl öffnet der Moderator eine andere Tür mit einer Ziege und bietet den Wechsel an. Eine Simulation von 300 Spielen „immer wechseln“ ergab 198 Gewinne. Was stimmt?"
+   },
+   "a": [
+    "Schätzwert 0,66 – die Simulation ist falsch, richtig wäre 1/2.",
+    "Schätzwert 0,66 – das passt zum berechneten Wert 2/3.",
+    "Schätzwert 0,66 – das passt zum berechneten Wert 1/3.",
+    "Schätzwert 0,198 – Wechseln lohnt sich nicht."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Wer wechselt, gewinnt genau dann, wenn die erste Wahl eine Ziege war: P = 2/3 ≈ 0,667. Der Schätzwert 198 : 300 = 0,66 passt.",
+   "h": "Wann gewinnt man beim Wechseln? Wie wahrscheinlich ist es, zuerst eine Ziege zu wählen?"
   }
  ],
  "offen": [

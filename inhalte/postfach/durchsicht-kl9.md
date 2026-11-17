@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 13:27 – STATUS
+stochastik.verknuepft fertig: 14 umgestuft (Gegenereignis-Wiederholungen auf Stufe 1, „mindestens eines“ und „Gesamt minus drei Felder“ von 3 auf 2), Karte verstehen: Schritt 5 zum Gegenereignis „mindestens einmal ↔ keinmal“ (vorher nur im Fehler). inhalt_pruefen OK, Nachweis OK.
+
 ## 2026-11-17 13:25 – STATUS
 gleichungen.lgs3 fertig: 18 umgestuft (größere Zahlen/gewöhnliche Systeme von 3 auf 2, Zahlenrätsel von 2 auf 1), 2 neu (parabel Stufe 3: Symmetrie nutzen, Fehler finden). Keine Karte geändert. Für Sebastian: Umfang (6 Karten) groß gegenüber dem Lehrplan. inhalt_pruefen OK, Nachweis OK.
 

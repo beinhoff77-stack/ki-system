@@ -712,3 +712,44 @@ if __name__ == '__main__':
                  'Ā und B̄ stehen jetzt auch in Aufgaben (Prüfvorschlag „Ereignis in Symbolen“); bitte in der App prüfen, ob der Strich über B (B̄) sauber dargestellt wird.'])
     anhaengen(d, 9914, schwer)
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+
+
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl9) ----
+from _durchsicht_kl9 import Befunde as _DSB, durchsicht  # noqa: E402
+
+DS = _DSB('stochastik.verknuepft', 19_9_6)
+# verknuepfen: A ∩ B̄ zählen wie auf Stufe 2
+DS.stufe('verknuepfen', 'Aus den Zahlen 1 bis 25 wird zufällig eine gezogen. A: „Die Zahl ist ungerade.“ B: „Die Zahl ist durch 3 teilbar.“ Berechne P(A ∩ B̄ („A, aber nicht B“)) als Dezimalzahl.', 2)
+# vierfeld: „Gesamt minus drei Felder“ ist Ergänzen wie Stufe 1/2 → Stufe 2
+for _n in ('200', '120'):
+    DS.stufe('vierfeld', f'Untersucht werden {_n} Schülerinnen und Schüler einer Schule. A: „hat ein Haustier“, B: „fährt mit dem Rad zur Schule“. Ergänze das Feld „?“.', 2)
+DS.stufe('vierfeld', 'Untersucht werden 500 Mitglieder eines Fußballvereins. A: „spielt in einer Mannschaft“, B: „ist jünger als 18 Jahre“. Ergänze das Feld „?“.', 2)
+# tafel_wkeit: „mindestens eines“ steht schon auf Stufe 2 → Stufe 2
+for _t in ('Die Tafel zeigt 400 Besucher eines Freibads. A: „ist Erwachsener“, B: „hat eine Jahreskarte“. Ein Besucher wird zufällig ausgewählt. Mit welcher Wahrscheinlichkeit gilt: „ist Erwachsener“ oder „hat eine Jahreskarte“ (mindestens eines)? Gib das Ergebnis als Dezimalzahl an.',
+           'Die Tafel zeigt 500 Teilnehmende einer Umfrage. A: „liest täglich Nachrichten“, B: „ist älter als 40 Jahre“. Eine teilnehmende Person wird zufällig ausgewählt. Mit welcher Wahrscheinlichkeit gilt: mindestens eines von beiden? Gib das Ergebnis als Dezimalzahl an.',
+           'Die Tafel zeigt 250 Jugendliche. A: „hat einen Hund“, B: „reitet“. Mit welcher Wahrscheinlichkeit hat eine zufällig gewählte Person einen Hund oder reitet? Gib sie in Prozent an.'):
+    DS.stufe('tafel_wkeit', _t, 2)
+# verstehen: Gegenereignis „mindestens einmal“ ist Stufe 1 (jetzt in Schritt 5 erklärt); je eine Wiederholung von Stufe 3 auf 2
+for _t in ('Bei 6 Würfelwürfen ist A: „mindestens einmal eine Sechs“. Was ist das Gegenereignis Ā?', 'Bei 3 Torschüssen ist A: „mindestens einmal ein Treffer“. Was ist das Gegenereignis Ā?',
+           'Bei 6 Münzwürfen ist A: „mindestens einmal Kopf“. Was ist das Gegenereignis Ā?', 'Was ist das Gegenereignis zu „mindestens eine Sechs bei zwei Würfen“?'):
+    DS.stufe('verstehen', _t, 1)
+DS.stufe('verstehen', 'Bei 4 Würfelwürfen ist A: „mindestens einmal eine Sechs“. Was ist das Gegenereignis Ā?', 1)
+DS.stufe('verstehen', 'P(A) = 0,5, P(B) = 0,4, P(A ∩ B) = 0,07. Jemand rechnet P(A ∪ B) = 0,9. Was stimmt?', 2)
+DS.stufe('verstehen', 'P(A) = 0,7, P(B) = 0,4. Welcher Wert ist für P(A ∪ B) möglich?', 2)
+
+DS_KARTEN = {
+    'verstehen': {
+        'woerter': [['unvereinbar', 'A und B haben kein gemeinsames Ergebnis'],
+                    ['Gegenereignis', 'Ā: alles, was nicht zu A gehört']],
+        'schritte': [{'text': 'Behauptung: P(A) = 0,7, P(B) = 0,6, A und B sind unvereinbar.'},
+                     {'text': 'Unvereinbar hieße: P(A ∪ B) = 0,7 + 0,6 = 1,3.',
+                      'bild': {'boegen': [{'von': 0, 'bis': 0.7, 'name': 'gegessen'}, {'von': 0.7, 'bis': 1.3, 'name': 'gespielt'}]}},
+                     {'text': 'Mehr als alle Gäste gibt es nicht: 1,3 ist größer als 1.', 'bild': {'punkte': [{'wert': 1, 'name': 'alle'}]}},
+                     {'text': 'Also ⟦überschneiden sich A und B⟧. Die Behauptung ist falsch.'},
+                     {'text': 'Das Gegenereignis zu „mindestens einmal“ heißt ⟦„keinmal“⟧.',
+                      'bild': {'typ': 'tabelle', 'kopf': ['Ereignis A', 'Gegenereignis Ā'], 'zeilen': [['mindestens ein Treffer', 'kein Treffer']]}}],
+    },
+}
+
+if __name__ == '__main__':
+    durchsicht('stochastik.verknuepft', DS, DS_KARTEN)

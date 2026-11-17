@@ -656,5 +656,27 @@ BF.ersetze('quadrat', 'Welche Zahl ist eine Quadratzahl?', BF.A(
 befunde_anwenden(DATEI, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl5, siehe _durchsicht_kl5.py) ----
+from _durchsicht_kl5 import Durchsicht, durchsicht_anwenden  # noqa: E402
+
+DS = Durchsicht('zahlen.potenzen_basis', 19_5_7)
+# a) Stufe 3 nur mit größeren Zahlen oder derselben Vorlage wie Stufe 2 → Stufe 2
+for _lz, _t in [('schreibweise', '5 hoch wie viel ergibt 625?'),
+        ('berechnen', 'Berechne 2¹².'),
+        ('berechnen', 'Berechne 9⁴.'),
+        ('quadrat', 'Berechne 20² − 2².'),
+        ('quadrat', 'Welche Zahl ist eine Quadratzahl?'),
+        ('quadrat', 'Berechne 13² + 31.'),
+        ('vertauschen', 'Vergleiche 9³ und 3⁹. Was stimmt?'),
+        ('vertauschen', 'Vergleiche 3⁸ und 8³. Was stimmt?'),
+        ('zehner', 'Wie schreibt man 8 Milliarden mit einer Zehnerpotenz?'),
+        ('zehner', 'Schreibe 44 · 10⁶ als Zahl.'),
+        ('zehner', 'Wie schreibt man 2 Millionen mit einer Zehnerpotenz?'),
+        ('zehner', 'Wie schreibt man 3 Milliarden mit einer Zehnerpotenz?'),
+        ('negativ', 'Berechne (−5)⁵.')]:
+    DS.stufe(_lz, _t, 2, enthaelt=lambda x: x['s'] == 3)
+durchsicht_anwenden(DATEI, DS)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI, 'zahlen.potenzen_basis.json')

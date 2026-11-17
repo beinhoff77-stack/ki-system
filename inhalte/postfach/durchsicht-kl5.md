@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 16:00 – STATUS: zahlen.potenzen_basis fertig
+Umgestuft 13 (Stufe 3 → 2: 2¹², 9⁴, (−5)⁵ nur größer; Vergleiche wie in Stufe 1/2; Zehnerpotenz-Schreibweise wie Stufe 2; Quadratzahl erkennen/einfache Rechnung). Prüfskript OK, Nachweis OK (204 von 217 unverändert).
+
 ## 2026-11-17 15:45 – STATUS: zahlen.rechengesetze fertig (mit den Befunden der Prüfung zur Achtzehnten Runde)
 Umgestuft 29 (Stufe 3 → 2: längere Punkt-vor-Strich-Ketten, mehr Faktoren beim Vertauschen, Ausklammern wie Stufe 2, Vorzeichen-Frage und Ketten bei Mal/Geteilt, Überschlag-Auswahl 2 von 5),
 ersetzt 2 (sach: zwei der drei aufeinanderfolgenden „Fest, Eintritt, Getränke“-Aufgaben → Rabatt vorwärts, Kuchenverkauf rückwärts),

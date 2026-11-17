@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _ib import *  # noqa: E402,F403
+from _rsib2 import PLAN2, art3  # noqa: E402
 
 start(8204)
 
@@ -83,7 +84,7 @@ def g_tafel(s):
     aa, ab, ba, bb = zuf_tafel(N)
     G, A, nA, B, nB, ein = R.choice(SZEN)
     bild = tafel_bild(aa, ab, ba, bb, A, nA, B, nB)
-    art = R.choice({1: ['AgB', 'BgA'], 2: ['AgB', 'BgA', 'nAgB', 'AgnB'], 3: ['luecke', 'vergleich', 'nAgnB']}[s])
+    art = R.choice({1: ['AgB', 'BgA'], 2: ['nAgB', 'AgnB', 'nAgnB', 'luecke'], 3: ['luecke', 'vergleich', 'nAgnB']}[s])  # Durchsicht 19: Stufe 2 = Gegenteil als Bedingung / fehlendes Feld
     vor = f'Die Vierfeldertafel zeigt {dz(N)} {G}.'
     if art in ('AgB', 'BgA', 'nAgB', 'AgnB', 'nAgnB'):
         zael, nenn, bed, ziel = {'AgB': (aa, aa + ba, B, A), 'BgA': (aa, aa + ab, A, B), 'nAgB': (ba, aa + ba, B, nA),
@@ -137,7 +138,7 @@ def g_baum(s):
     r, b = R.randint(2, 7), R.randint(2, 7)
     n = r + b
     f1, f2 = R.choice([('rot', 'blau'), ('grün', 'gelb'), ('weiß', 'schwarz')])
-    art = R.choice({1: ['zweite', 'rr'], 2: ['rr', 'bb', 'rb', 'zweite_b'], 3: ['verschieden', 'mind_eine', 'gleich']}[s])
+    art = R.choice({1: ['zweite', 'rr', 'bb'], 2: ['rb', 'zweite_b', 'verschieden', 'gleich'], 3: ['verschieden', 'mind_eine', 'gleich']}[s])  # Durchsicht 19
     vor = f'In einer Urne liegen {r} {f1}e und {b} {f2}e Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen.'
     bild = {'typ': 'baum', 'aeste': [{'text': f1, 'p': f'{r}/{n}', 'aeste': [{'text': f1, 'p': f'{r - 1}/{n - 1}'}, {'text': f2, 'p': f'{b}/{n - 1}'}]},
                                      {'text': f2, 'p': f'{b}/{n}', 'aeste': [{'text': f1, 'p': f'{r}/{n - 1}'}, {'text': f2, 'p': f'{b - 1}/{n - 1}'}]}]}
@@ -192,7 +193,7 @@ def g_unabhaengig(s):
     if art == 'tafel':
         G, A, nA, B, nB, ein = R.choice(SZEN)
         N = R.choice([100, 200, 400])
-        un = R.random() < .5
+        un = AKT['nr'] % 2 == 0  # Durchsicht 19: abwechselnd, vorher meist „unabhängig“ (Wiederholungen bevorzugten den einfachen Fall)
         for _ in range(200):
             pa, pb = Fr(R.randint(2, 8), 10), Fr(R.randint(2, 8), 10)
             aa = pa * pb * N
@@ -324,7 +325,250 @@ def g_verstehen(s):
                    'Was weißt du sicher über jemanden mit Merkmal A?')
 
 
-GEN = {'tafel': g_tafel, 'formel': g_formel, 'baum': g_baum, 'unabhaengig': g_unabhaengig, 'rueckschluss': g_rueckschluss, 'verstehen': g_verstehen}
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil B, Zweig durchsicht-rsib-2) ----------
+# Prüfungsvorbilder: IB MYP Extended (Venn-Diagramm, P(A ∪ B), „given that“-Fragen, unabhängige Ausfälle, Ziehen ohne Zurücklegen
+# mit „mindestens eins“, Vierfeldertafel aus Prozentangaben), Abschlussprüfung Realschule Bayern (Vierfeldertafel / Baum im Sachzusammenhang).
+def tafel3(art):
+    if art == 'prozent_tafel':
+        N = R.choice([200, 400, 500])
+        m = R.choice([x for x in range(N // 5, N * 4 // 5 + 1, 10)])
+        pm, pj = R.sample([10, 15, 20, 25, 30, 40, 50, 60], 2)
+        rm, rj = m * pm / 100, (N - m) * pj / 100
+        if rm != int(rm) or rj != int(rj) or rm + rj == 0: return None
+        q = Fr(int(rm), int(rm + rj))
+        return bruch_luecke(f'An einer Schule mit {N} Kindern sind {m} Mädchen. {pm} % der Mädchen und {pj} % der Jungen fahren mit dem Rad zur Schule. '
+                            'Ein Kind, das mit dem Rad kommt, wird zufällig ausgewählt. Mit welcher Wahrscheinlichkeit ist es ein Mädchen? (gekürzter Bruch)', q,
+                            f'Radfahrende Mädchen: {pm} % von {m} = {int(rm)}. Radfahrende Jungen: {pj} % von {N - m} = {int(rj)}. Bedingung „Rad“: {int(rm)} + {int(rj)} = {int(rm + rj)}. '
+                            f'P(Mädchen | Rad) = {int(rm)}/{int(rm + rj)}' + (f' = {br(q)}.' if q.denominator != rm + rj else '.'),
+                            'Lege eine Vierfeldertafel an: Mädchen/Jungen und Rad/kein Rad. Die Bedingung ist „Rad“.', c=[str(q.numerator), str(q.denominator)])
+    if art == 'rueck':
+        N = R.choice([200, 300, 400])
+        b = R.choice(range(N // 5, N // 2, 10))
+        p = Fr(R.choice([1, 2, 3, 4, 5, 6, 7]), R.choice([10, 20]))
+        aa = b * p
+        a = R.choice(range(N // 5, N // 2, 10))
+        if aa.denominator != 1 or not 0 < aa < min(a, b): return None
+        q = Fr(int(aa), a)
+        return bruch_luecke(f'Von {N} Kindern fahren {b} mit dem Rad, {a} tragen eine Brille. Es gilt P(Brille | Rad) = {dz(p)}. Berechne P(Rad | Brille). (gekürzter Bruch)', q,
+                            f'Radfahrer mit Brille: {dz(p)} · {b} = {int(aa)}. Bedingung „Brille“: {a} Kinder. P(Rad | Brille) = {int(aa)}/{a}' + (f' = {br(q)}.' if q.denominator != a else '.'),
+                            'Bestimme zuerst die Anzahl der Kinder mit Rad und Brille.', c=[str(q.numerator), str(q.denominator)])
+    return None
+
+
+def formel3(art):
+    if art == 'venn':
+        a, ab, b, au = R.randint(3, 20), R.randint(2, 12), R.randint(3, 20), R.randint(2, 15)
+        frage = R.choice(['AgB', 'BgA'])
+        z, n = (ab, ab + b) if frage == 'AgB' else (ab, a + ab)
+        q = Fr(z, n)
+        G = a + ab + b + au
+        bild = venn(a, ab, b, au, A='T', B='F', G='')
+        return mit_grafik(bruch_luecke(f'Das Venn-Diagramm zeigt {G} Jugendliche: T spielt Tennis, F spielt Fußball. Berechne {"P(T | F)" if frage == "AgB" else "P(F | T)"}. (gekürzter Bruch)', q,
+                                       f'Bedingung {"F" if frage == "AgB" else "T"}: ganzer Kreis {"F" if frage == "AgB" else "T"} = {n}. Davon in beiden Kreisen: {z}. P = {z}/{n}' + (f' = {br(q)}.' if q.denominator != n else '.'),
+                                       'Die Bedingung ist der ganze Kreis hinter dem Strich – zähle beide Teile dieses Kreises.', c=[str(q.numerator), str(q.denominator)]), bild)
+    if art == 'vereinigung':
+        for _ in range(100):
+            pa, pb = Fr(R.randint(2, 7), 10), Fr(R.randint(2, 7), 10)
+            pab = Fr(R.randint(1, 5), 10)
+            if pab < min(pa, pb) and pa + pb - pab <= 1 and endlich(pab / pb): break
+        else:
+            return None
+        pu = pa + pb - pab
+        return zahl(f'Es gilt P(A) = {dz(pa)}, P(B) = {dz(pb)} und P(A ∪ B) = {dz(pu)}. Berechne P(A | B).',
+                    f'P(A ∩ B) = P(A) + P(B) − P(A ∪ B) = {dz(pa)} + {dz(pb)} − {dz(pu)} = {dz(pab)}. P(A | B) = {dz(pab)} : {dz(pb)} = {dz(pab / pb)}.',
+                    'Bestimme zuerst P(A ∩ B) mit dem Additionssatz.', pab / pb, f'({float(pa)} + {float(pb)} - {float(pu)}) / {float(pb)}')
+    if art == 'beide':
+        for _ in range(100):
+            pab = Fr(R.choice([1, 2, 3, 4, 6]), R.choice([10, 20]))
+            q1, q2 = Fr(R.choice([1, 2, 3, 4, 5, 6, 8]), 10), Fr(R.choice([1, 2, 3, 4, 5, 6, 8]), 10)
+            pb, pa = pab / q1, pab / q2
+            if q1 != q2 and pa < 1 and pb < 1 and endlich(pa) and endlich(pb): break
+        else:
+            return None
+        return zahl(f'Es gilt P(A ∩ B) = {dz(pab)}, P(A | B) = {dz(q1)} und P(B | A) = {dz(q2)}. Wie groß ist P(A)?',
+                    f'P(B | A) = P(A ∩ B) : P(A), also P(A) = {dz(pab)} : {dz(q2)} = {dz(pa)}. (P(A | B) wird dafür nicht gebraucht; P(B) wäre {dz(pab)} : {dz(q1)} = {dz(pb)}.)',
+                    'Bei welcher der beiden Angaben steht A hinter dem Strich?', pa, f'{float(pab)} / {float(q2)}')
+    # fehler_formel
+    pb, q = Fr(R.choice([2, 4, 5, 8]), 10), Fr(R.choice([2, 4, 5, 6]), 10)
+    pab = pb * q
+    r = f'Tim hat multipliziert statt geteilt. Richtig: {dz(pab)} : {dz(pb)} = {dz(q)}.'
+    return auswahl(f'P(B) = {dz(pb)}, P(A ∩ B) = {dz(pab)}. Tim rechnet P(A | B) = {dz(pab)} · {dz(pb)} = {dz(pab * pb)}. Was stimmt?', r,
+                   [f'Tim hat recht.', f'Tim hätte durch P(A) teilen müssen; das Ergebnis ist {dz(pab * 2)}.', f'Richtig wäre {dz(pb)} : {dz(pab)} = {dz(pb / pab)}.'],
+                   f'P(A | B) = P(A ∩ B) : P(B) = {dz(pab)} : {dz(pb)} = {dz(q)}. Eine bedingte Wahrscheinlichkeit kann nicht kleiner sein als P(A ∩ B).',
+                   'Wie lautet die Formel – wird geteilt oder multipliziert?')
+
+
+def baum3(art):
+    if art == 'kontext':
+        m, j = R.randint(6, 15), R.randint(6, 15)
+        n = m + j
+        q = Fr(2 * m * j, n * (n - 1))
+        return bruch_luecke(f'In einer Klasse sind {m} Mädchen und {j} Jungen. Für die Klassensprecher werden nacheinander zwei Namen ausgelost (niemand zweimal). '
+                            'Mit welcher Wahrscheinlichkeit sind es ein Mädchen und ein Junge? (gekürzter Bruch)', q,
+                            f'Zwei Pfade: M, J: {m}/{n} · {j}/{n - 1}; J, M: {j}/{n} · {m}/{n - 1}. Zusammen {2 * m * j}/{n * (n - 1)} = {br(q)}.',
+                            'Zeichne einen Baum mit zwei Stufen. Welche Pfade passen?', c=[str(q.numerator), str(q.denominator)])
+    if art == 'mindestens':
+        r, b = R.randint(2, 6), R.randint(3, 8)
+        n = r + b
+        f1, f2 = R.choice([('rot', 'blau'), ('grün', 'gelb'), ('weiß', 'schwarz')])
+        bb = Fr(b * (b - 1), n * (n - 1))
+        q = 1 - bb
+        return bruch_luecke(f'In einer Urne liegen {r} {f1}e und {b} {f2}e Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne die Wahrscheinlichkeit, mindestens eine {f1}e Kugel zu ziehen.', q,
+                            f'Gegenereignis „keine {f1}e“ = zweimal {f2}: {b}/{n} · {b - 1}/{n - 1} = {br(bb)}. P = 1 − {br(bb)} = {br(q)}.',
+                            '„Mindestens eine“: Rechne mit dem Gegenereignis.', c=[str(q.numerator), str(q.denominator)])
+    if art == 'rueck_anzahl':
+        n = R.choice([6, 8, 9, 10, 12, 15, 16])
+        r = R.randint(2, n - 2)
+        q = Fr(r * (r - 1), n * (n - 1))
+        if sum(1 for k in range(n + 1) if Fr(k * (k - 1), n * (n - 1)) == q) != 1: return None
+        return zahl(f'In einer Urne liegen {n} Kugeln, einige davon rot. Zieht man zwei Kugeln ohne Zurücklegen, ist P(zweimal rot) = {br(q)}. Wie viele rote Kugeln sind in der Urne?',
+                    f'Mit r roten Kugeln: r/{n} · (r − 1)/{n - 1} = {br(q)}, also r · (r − 1) = {br(q)} · {n * (n - 1)} = {r * (r - 1)}. Probieren: {r} · {r - 1} = {r * (r - 1)}. Also {r} rote.',
+                    'Stelle P(zweimal rot) mit einer Unbekannten r auf und probiere kleine Zahlen.', r, f'{r}')
+    # mit_ohne
+    r, b = R.randint(2, 6), R.randint(2, 6)
+    n = r + b
+    f1 = R.choice(['rot', 'grün', 'weiß'])
+    mit, ohne = Fr(r * r, n * n), Fr(r * (r - 1), n * (n - 1))
+    return auswahl(f'Urne mit {r} {f1}en und {b} anderen Kugeln, zwei Züge. Wann ist P(zweimal {f1}) größer: mit oder ohne Zurücklegen?', 'mit Zurücklegen',
+                   ['ohne Zurücklegen', 'bei beiden gleich', 'Das hängt vom Glück ab.'],
+                   f'Mit Zurücklegen: {r}/{n} · {r}/{n} = {br(mit)}. Ohne: {r}/{n} · {r - 1}/{n - 1} = {br(ohne)}. Ohne Zurücklegen fehlt beim zweiten Zug eine {f1}e Kugel – das macht {f1} seltener.',
+                   'Was ändert sich beim zweiten Zug, wenn die erste Kugel nicht zurückkommt?')
+
+
+def unabh3(art):
+    if art == 'tafel_ergaenzen':
+        N = R.choice([100, 200, 400, 500])
+        pa, pb = Fr(R.randint(1, 9), 10), Fr(R.choice([1, 2, 3, 4, 5, 6, 7, 8, 9]), 10)
+        aa = pa * pb * N
+        if aa.denominator != 1 or aa < 2: return None
+        return zahl(f'Von {N} Befragten treiben {int(pa * N)} Sport (A), {int(pb * N)} spielen ein Instrument (B). Wie viele müssen beides tun, damit A und B unabhängig sind?',
+                    f'Unabhängig: P(A ∩ B) = P(A) · P(B) = {dz(pa)} · {dz(pb)} = {dz(pa * pb)}. Anzahl: {dz(pa * pb)} · {N} = {int(aa)}.',
+                    'Rechne mit Anteilen: P(A) · P(B), dann mal die Gesamtzahl.', aa, f'{int(pa * N)} / {N} * {int(pb * N)} / {N} * {N}')
+    if art == 'ausfall':
+        a, b = Fr(R.choice([1, 2, 5]), R.choice([10, 20, 100])), Fr(R.choice([1, 2, 3, 4]), R.choice([10, 20]))
+        if not (0 < a < 1 and 0 < b < 1): return None
+        q = 1 - (1 - a) * (1 - b)
+        return zahl(f'Zwei Pumpen arbeiten unabhängig voneinander. Pumpe 1 fällt an einem Tag mit der Wahrscheinlichkeit {dz(a)} aus, Pumpe 2 mit {dz(b)}. '
+                    'Wie groß ist die Wahrscheinlichkeit, dass an einem Tag mindestens eine Pumpe ausfällt?',
+                    f'Gegenereignis: beide laufen. Unabhängig: {dz(1 - a)} · {dz(1 - b)} = {dz((1 - a) * (1 - b))}. P = 1 − {dz((1 - a) * (1 - b))} = {dz(q)}.',
+                    '„Mindestens eine“: Rechne erst die Wahrscheinlichkeit, dass keine ausfällt.', q, f'1 - (1 - {float(a)}) * (1 - {float(b)})')
+    return None
+
+
+def rueck3(art):
+    for _ in range(200):
+        pk = R.choice([1, 2, 5, 10, 20])
+        se = R.choice([80, 90, 95, 100])
+        fp = R.choice([5, 10, 20])
+        N = 1000
+        k = N * pk // 100
+        tp, f = k * se // 100, (N - k) * fp // 100
+        if k * se % 100 == 0 and (N - k) * fp % 100 == 0 and se < 100: break
+    ctx = R.choice([('Geräte', 'defekt', 'gemeldet', 'Ein Prüfgerät meldet', 'nicht gemeldet', 'es'), ('E-Mails', 'Spam', 'markiert', 'Ein Filter markiert', 'nicht markiert', 'sie')])
+    D, K, T2, T, NT, pron = ctx
+    vor = f'{pk} % der {D} sind {K}. {T} {se} % dieser {D}, aber irrtümlich auch {fp} % der übrigen. Stelle dir 1 000 {D} vor.'
+    if art == 'negativ':
+        fn, tn = k - tp, (N - k) - f
+        q = Fr(fn, fn + tn)
+        return bruch_luecke(vor + f' {"Ein Gerät" if D == "Geräte" else "Eine E-Mail"} wurde {NT}. Wie groß ist die Wahrscheinlichkeit, dass {pron} trotzdem {K} ist? (gekürzter Bruch)', q,
+                            f'{NT.capitalize()}: {K} {fn} (= {k} − {tp}) und übrige {tn} (= {N - k} − {f}), zusammen {fn + tn}. P = {fn}/{fn + tn}' + (f' = {br(q)}.' if q.denominator != fn + tn else '.'),
+                            f'Die Bedingung ist jetzt „{NT}“. Zähle beide Gruppen ohne Signal.', c=[str(q.numerator), str(q.denominator)])
+    # basisrate
+    r = f'Es gibt viel mehr {D} ohne Befund; schon {fp} % von ihnen sind mehr Fälle als die richtig erkannten.'
+    q = Fr(tp, tp + f)
+    if f <= tp: return None
+    gruppe = 'der defekten Geräte' if D == 'Geräte' else 'der Spam-E-Mails'
+    return auswahl(vor + f' Nur etwa {dz(round(float(q) * 100))} % der {T2}en {D} sind wirklich {K}, obwohl {se} % {gruppe} gefunden werden. Woran liegt das?', r,
+                   [f'Das Gerät arbeitet schlecht: Es findet nur {100 - se} % der Fälle.', f'Man hat falsch gerechnet; richtig wären {se} %.', f'Weil {pk} % eine kleine Zahl ist, ist auch die Wahrscheinlichkeit klein.'],
+                   f'{K.capitalize()} und {T2}: {tp}. Ohne Befund, aber {T2}: {f} – mehr als {tp}, weil es {N - k} {D} ohne Befund gibt. Darum ist P({K} | {T2}) = {tp}/{tp + f} ≈ {dz(round(float(q), 2))} klein.',
+                   'Vergleiche die Anzahl der richtigen und der falschen Meldungen unter 1 000.')
+
+
+def verstehen3(art):
+    if art == 'welche_gruppe':
+        m, f, mf = R.randint(40, 90), R.randint(20, 60), R.randint(8, 19)
+        r = f'{mf} : {m}'
+        return auswahl(f'An einer Schule sind {m} Mädchen, {f} Kinder spielen Fußball, {mf} Mädchen spielen Fußball. Gefragt: „Wie viel Prozent der Mädchen spielen Fußball?“ Welche Rechnung passt?', r,
+                       [f'{mf} : {f}', f'{f} : {m}', f'{m} : {mf}'],
+                       f'„der Mädchen“ ist die Gruppe (Bedingung): P(Fußball | Mädchen) = {mf} : {m} ≈ {dz(round(mf / m * 100, 1))} %.',
+                       'Auf welche Gruppe bezieht sich „Prozent der …“? Durch deren Anzahl wird geteilt.')
+    if art == 'gleich_wann':
+        r = 'Wenn A und B gleich viele Personen umfassen.'
+        return auswahl('Wann gilt P(A | B) = P(B | A) (mit P(A ∩ B) > 0)?', r,
+                       ['Nie.', 'Immer, es geht ja um dieselben Personen.', 'Wenn A und B unabhängig sind.'],
+                       'P(A | B) = Anzahl(A und B) : Anzahl(B), P(B | A) = Anzahl(A und B) : Anzahl(A). Der Zähler ist gleich, also müssen die Nenner gleich sein: Anzahl(A) = Anzahl(B).',
+                       'Schreibe beide Brüche mit Anzahlen auf. Was ist gleich, was verschieden?')
+    return None
+
+
+def g2_tafel(s):
+    if s < 3: return g_tafel(s)
+    art = art3('vergleich', 'prozent_tafel', 'rueck', ['luecke', 'vergleich', 'prozent_tafel', 'rueck'])
+    if art in ('luecke', 'vergleich'):
+        for _ in range(50):
+            a = g_tafel(3)
+            if a and (('fehlt' in a['f']['text']) == (art == 'luecke')) and ('größer' in a['f']['text'] or art == 'luecke'): return a
+        return None
+    return tafel3(art)
+
+
+def g2_formel(s):
+    if s == 1: return g_formel(1)
+    if s == 2:  # Stufe 2: umstellen, Gegenereignis unter der Bedingung, Prozent-Sachaufgabe (vorher Stufe 3)
+        return g_formel(R.choice([2, 3]))
+    return formel3(art3('venn', 'vereinigung', 'beide', ['venn', 'vereinigung', 'beide', 'fehler_formel']))
+
+
+def g2_baum(s):
+    if s == 1: return g_baum(1)
+    if s == 2:  # Stufe 2: ein Pfad oder zwei Pfade addieren (vorher Stufe 3)
+        return g_baum(2)
+    return baum3(art3('kontext', 'mindestens', 'rueck_anzahl', ['kontext', 'mindestens', 'rueck_anzahl', 'mit_ohne']))
+
+
+def g2_unabhaengig(s):
+    if s == 1: return g_unabhaengig(1)
+    if s == 2:
+        for _ in range(80):  # Stufe 2: an der Vierfeldertafel prüfen, P(A | B) = P(A) nutzen (vorher Stufe 3)
+            a = g_unabhaengig(3)
+            if a and ('Vierfeldertafel' in a['f']['text'] or 'Wie groß ist P(A | B)' in a['f']['text']): return a
+        return None
+    art = art3('tafel_ergaenzen', 'ausfall', 'ausschluss', ['tafel_ergaenzen', 'ausfall', 'ausschluss', 'muenze'])
+    if art in ('tafel_ergaenzen', 'ausfall'): return unabh3(art)
+    for _ in range(80):
+        a = g_unabhaengig(3)
+        t = a['f']['text'] if a else ''
+        if a and {'ausschluss': 'schließen sich aus', 'muenze': 'Münze', 'bedingt_gleich': 'Wie groß ist P(A | B)'}[art] in t: return a
+    return None
+
+
+def g2_rueckschluss(s):
+    if s < 3: return g_rueckschluss(s)
+    art = art3('bayes', 'negativ', 'basisrate', ['bayes', 'negativ', 'basisrate', 'vergleich'])
+    if art in ('bayes', 'vergleich'):
+        for _ in range(80):
+            a = g_rueckschluss(3)
+            if a and (('größer oder kleiner' in a['f']['text']) == (art == 'vergleich')) and '100 %?' not in a['f']['text']: return a
+        return None
+    return rueck3(art)
+
+
+def g2_verstehen(s):
+    if s == 1: return g_verstehen(1)
+    if s == 2:
+        for _ in range(50):
+            a = g_verstehen(R.choice([2, 3]))
+            if a and ('Ist P(A | B) = P(B | A)' in a['f']['text'] or 'Jemand folgert' in a['f']['text']): return a
+        return None
+    art = art3('welche_gruppe', 'tausch', 'gleich_wann', ['welche_gruppe', 'tausch', 'groesser'])
+    if art in ('welche_gruppe', 'gleich_wann'): return verstehen3(art)
+    for _ in range(80):
+        a = g_verstehen(3)
+        if a and (('Geige' in a['f']['text']) == (art == 'tausch')) and ('Merkmal A haben auch' in a['f']['text'] or art == 'tausch'): return a
+    return None
+
+
+GEN = {'tafel': g2_tafel, 'formel': g2_formel, 'baum': g2_baum, 'unabhaengig': g2_unabhaengig, 'rueckschluss': g2_rueckschluss, 'verstehen': g2_verstehen}
 
 # ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
 # Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
@@ -408,7 +652,7 @@ UMBAU = {
             {'text': 'P(Kopf) · P(Rot) = 0,5 · 0,4 = 0,2.', 'bild': _w(['P(Kopf) · P(Rot)', '0,2'])},
             {'text': 'Das ist genau P(beides): ⟦unabhängig⟧.', 'bild': _w(['P(Kopf) · P(Rot)', '0,2 ✓'])},
         ],
-        'fehler': '„Unvereinbar heißt unabhängig“ ist falsch. Tritt A ein, kann B nicht mehr eintreten. Solche Ereignisse sind ⟦abhängig⟧.',
+        'fehler': '„A und B können nie zusammen eintreten, also unabhängig“ ist falsch. Tritt A ein, ist B ausgeschlossen: ⟦abhängig⟧.',
         'regel': 'Unabhängig, wenn ⟦P(A ∩ B) = P(A) · P(B)⟧. Sonst sind A und B abhängig.',
     },
     'rueckschluss': {
@@ -441,7 +685,7 @@ UMBAU = {
              'bild': tab(['', 'Hund', 'Summe'], ['spazieren', '70', '400'])},
             {'text': 'P(Hund | spazieren) = 70 : 400 ≈ 0,18. Ganz anders!'},
         ],
-        'fehler': '„90 % der Gewinner haben gespielt, also gewinnt man mit 90 %“ ist falsch. Das vertauscht die ⟦Bedingung⟧.',
+        'fehler': '„70 % der Spaziergänger haben einen Hund“ ist falsch. Das vertauscht die ⟦Bedingung⟧: Es sind nur 70 von 400.',
         'regel': 'Erst die ⟦Gruppe⟧ finden, sie steht hinter dem Strich. P(A | B) und P(B | A) sind meist verschieden.',
     },
 }
@@ -463,5 +707,5 @@ d = bauen('stochastik.bedingt',
       offen=['Schreibweise P(A | B) wie im IB; im bayerischen Gymnasium heißt das P_B(A). Bei der ersten Erklärung beides erwähnen? Bisher nur IB-Schreibweise.',
              'Überschneidung mit stochastik.verknuepft (Gymnasium Klasse 9, Lernkarte „bedingt“): Hier ausführlicher (Formel, Ziehen ohne Zurücklegen, Unabhängigkeit, Rückschlüsse).',
              'Satz von Bayes nur über natürliche Häufigkeiten (1 000 Fälle), ohne Formel – passend zu MYP 4.'],
-      vertiefung=['rueckschluss'])
+      vertiefung=['rueckschluss'], plan=PLAN2)
 umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

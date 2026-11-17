@@ -330,7 +330,7 @@ async function viewReise(arg) {
   // K1/U1: Den Stempel gibt es erst, wenn alle Flüge des Ortes geschafft sind – das Band zählt deshalb alle Etappen des Ortes.
   const ortFluege = n ? d.mit.filter((e) => e.block_id === n.block_id) : [];
   const ort = ortFluege.reduce((z, e) => { const m = merk.find((x) => x.einheit_id === e.id); const q = m ? lernEtappenZahl(m) : { n: e.n, f: e.fertig }; return { n: z.n + q.n, f: z.f + Math.min(q.f, q.n), fluege: z.fluege + 1 }; }, { n: 0, f: 0, fluege: 0 });
-  if (lernNeu(kind) && n) { lernErsetze(main, lernRahmen(kind, 'reise', ...lernAbflugtafel(d, { n, et, nWdh, wdhRest, ort }))); return; }
+  if (lernNeu(kind) && n) { lernErsetze(main, lernRahmen(kind, 'reise', ...lernAbflugtafel(d, { n, et, nWdh, wdhRest, wdhFertig: wdhGemacht, ort }))); return; }
   const teile = [el('header', { class: 'lr-kopf lr-kopf-kurz' }, el('p', { class: 'lr-gruss' }, `Hallo ${kind.name}!`))];
   if (n) {
     const kont = d.orte.filter((o) => o.kontinent === (d.orte.find((x) => x.block_id === n.block_id)?.kontinent));
@@ -380,7 +380,7 @@ function lernWdhErklaert() {
     el('p', {}, 'Stimmt die Bordkarte nicht, kommt die Etappe am nächsten Lerntag wieder. Erst beim zweiten Fehler übst du sie noch einmal von vorn.'),
     el('p', {}, 'Vor einem Flug kommen höchstens ' + LERN_WDH_RUNDE + ' Wiederholungen. Nach dem Test zu einem Flug folgt später ein kurzer Nachtest.'));
 }
-function lernAbflugtafel(d, { n, et, nWdh, wdhRest = 0, ort = null }) {
+function lernAbflugtafel(d, { n, et, nWdh, wdhRest = 0, wdhFertig = false, ort = null }) {
   const { kind } = d; const sa = kind.schulart || 'gym_by';
   const kl = (e) => e.jahrgang?.[sa] ?? e.ziel_klasse;
   const code = (e) => String(e.stadt || e.ort_titel || '').toUpperCase();
@@ -437,7 +437,11 @@ function lernAbflugtafel(d, { n, et, nWdh, wdhRest = 0, ort = null }) {
       el('div', { class: 'lr-fortschritt' }, el('div', { class: 'lr-balken', role: 'img', 'aria-label': `${jg.geschafft} von ${jg.themen} Flügen geschafft` }, el('span', { style: `width:${Math.round(100 * jg.geschafft / jg.themen)}%` })),
         el('b', {}, `${jg.geschafft} von ${jg.themen} Flügen`))) : null,
     el('div', { class: 'lr-dock lr-dock-start' }, el('a', { class: 'lr-knopf lr-einsteigen-knopf', href: ziel },
-      el('span', {}, n.laeuft ? 'Test weitermachen' : testDran ? 'Zum Test' : nWdh ? 'Erst wiederholen' : 'Einsteigen'), el('span', { class: 'lr-mono' }, code(n).slice(0, 14) + ' ›'))),
+      // N4: Die Wiederholung kann aus einem anderen Ort stammen – der Knopf nennt deshalb die Anzahl, nicht das Ziel.
+      ...(n.laeuft || testDran ? [el('span', {}, n.laeuft ? 'Test weitermachen' : 'Zum Test'), el('span', { class: 'lr-mono' }, code(n).slice(0, 14) + ' ›')]
+        : nWdh ? [el('span', {}, `Erst ${nWdh} ${nWdh === 1 ? 'Wiederholung' : 'Wiederholungen'} ›`)]
+        : wdhFertig ? [el('span', {}, `Weiter nach ${n.stadt || n.ort_titel || n.titel} ›`)]
+        : [el('span', {}, 'Einsteigen'), el('span', { class: 'lr-mono' }, code(n).slice(0, 14) + ' ›')]))),
   ];
 }
 
@@ -592,13 +596,13 @@ function lernZahlenstrahl(g, waehlbar, onWahl) {
   }
   boegen.forEach((bo, j) => { // Sprung von → bis als Bogen mit Pfeilspitze
     const a = xv(bo.von), z = xv(bo.bis), h = Math.min(40, 14 + Math.abs(z - a) * 0.28) + (j % 2 ? 0 : 0), my = Y - 10 - h;
-    mk('path', { d: `M${a.toFixed(1)} ${Y - 10} Q${((a + z) / 2).toFixed(1)} ${(my - h * 0.55).toFixed(1)} ${z.toFixed(1)} ${Y - 10}`, class: 'bogen' });
+    mk('path', { d: `M${a.toFixed(1)} ${Y - 10} Q${((a + z) / 2).toFixed(1)} ${(my - h * 0.55).toFixed(1)} ${z.toFixed(1)} ${Y - 10}`, class: 'bogen' + lernNeu1(g, 'boegen', bo) });
     const r = z >= a ? 1 : -1; mk('path', { d: `M${z.toFixed(1)} ${Y - 9} l${(-r * 9).toFixed(1)} -3 l${(r * 4).toFixed(1)} -7 z`, class: 'bogen-spitze' });
     if (bo.name) mk('text', { x: Math.min(B - lernBreite(bo.name) / 2 - 2, Math.max(lernBreite(bo.name) / 2 + 2, (a + z) / 2)), y: Math.max(16, my - h * 0.2 - 4), class: 'zahl fett' }, bo.name);
   });
   { // Punkte mit Namen: ohne Bögen über dem Strahl, mit Bögen darunter (zweite Zeile); Namen, die sich berühren würden, rücken eine Zeile weiter
     const unten = boegen.length > 0; const belegt = [];
-    punkte.forEach((q) => { mk('circle', { cx: xv(q.wert), cy: Y, r: 6, class: 'punkt' }); if (!q.name) return;
+    punkte.forEach((q) => { mk('circle', { cx: xv(q.wert), cy: Y, r: lernNeu1(g, 'punkte', q) ? 8 : 6, class: 'punkt' + lernNeu1(g, 'punkte', q) }); if (!q.name) return;
       const w = lernBreite(q.name), m = Math.min(B - w / 2 - 2, Math.max(w / 2 + 2, xv(q.wert))); let z = 0;
       while (belegt.some(([a0, b0, z0]) => z0 === z && m - w / 2 < b0 + 4 && m + w / 2 > a0 - 4)) z++;
       belegt.push([m - w / 2, m + w / 2, z]); mk('text', { x: m, y: unten ? Y + 52 + z * 20 : Y - 14 - z * 20, class: 'zahl' }, q.name); });
@@ -606,6 +610,9 @@ function lernZahlenstrahl(g, waehlbar, onWahl) {
     if (unten && zeilen) svg.setAttribute('viewBox', `0 0 ${B} ${84 + oben + zeilen * 20 + 4}`);
   }
   if (g.pfeil !== undefined && g.pfeil !== null) mk('path', { d: `M${x(g.pfeil)} ${Y - 12} l-6 -12 h12 z`, class: 'pfeil' });
+  // N7: Testergebnis – gewählte falsche Markierung rot, richtige grün eingezeichnet
+  if (Number.isInteger(g._gewaehlt) && g._gewaehlt !== g._richtig) mk('circle', { cx: x(g._gewaehlt), cy: Y, r: 9, class: 'marke-falsch' });
+  if (Number.isInteger(g._richtig)) { mk('circle', { cx: x(g._richtig), cy: Y, r: 10, class: 'marke-richtig' }); mk('text', { x: x(g._richtig), y: Y - 16, class: 'zahl fett marke-richtig-text' }, '✓'); }
   return svg;
 }
 
@@ -815,7 +822,8 @@ function lernKurs(a, w) {
   const zd = zeile(d), zz = zeile(z);
   const koepfe = !ln && lg <= 7 ? ['', ...['M', 'HT', 'ZT', 'T', 'H', 'Z', 'E'].slice(7 - lg)] : null;
   const reihe = (name, zs, andere) => el('div', { class: 'lr-kurs-zeile' }, el('span', { class: 'lr-kurs-name' }, name),
-    ...zs.map((c, i) => el('span', { class: 'lr-kurs-kachel' + (c === ',' || (ln && i === lg + 1) ? ' komma' : '') + (c.trim() === '' ? ' leer' : '') + (c !== andere[i] ? ' ab' : '') }, c.trim())));
+    ...zs.map((c, i) => { const kp = !!ln && i === lg + 1; // N3: Komma-Platz ohne Komma bleibt leer, ohne Rahmen
+      return el('span', { class: 'lr-kurs-kachel' + (kp ? ' komma' : '') + (c.trim() === '' ? ' leer' : '') + (c !== andere[i] && !(kp && c !== ',') ? ' ab' : '') }, c.trim()); }));
   return el('div', { class: 'lr-kurs', role: 'img', 'aria-label': `Deine Zahl ${w.wert}, Ziel ${lernZahl(a.loesung.wert)}` },
     koepfe ? el('div', { class: 'lr-kurs-zeile lr-kurs-kopf' }, el('span', { class: 'lr-kurs-name' }), ...koepfe.map((c) => el('span', { class: 'lr-kurs-kachel' }, c))) : null,
     reihe('DU', zd, zz), reihe('ZIEL', zz, zd));
@@ -908,11 +916,9 @@ function lernMarkiert(t, wctx) {
   return teile.flatMap((s, i) => (i % 2 ? [el('mark', {}, ...lernWortKnoten(s, wctx))] : lernWortKnoten(s, wctx)));
 }
 // „Kurz gesagt“: der erste Satz des Merksatzes (ohne Markierung).
-function lernKurzGesagt(regel) {
+function lernKurzGesagt(regel) { // N2: ganz zeigen, nie mit „…“ abschneiden
   const t = String(regel ?? '').replace(/⟦|⟧/g, '').trim();
-  const m = t.match(/^.*?[.!?](?=\s|$)/); let k = (m ? m[0] : t).trim();
-  if (k.length > 110) k = k.slice(0, 107).replace(/\s+\S*$/, '') + ' …';
-  return k;
+  const m = t.match(/^.*?[^\s.]{2,}[.!?](?=\s+[A-ZÄÖÜ„]|$)/); return (m ? m[0] : t).trim(); // „z. B.“ beendet keinen Satz
 }
 // Kl. 7–10: „Kurz gesagt“ zusätzlich als erste Zeile in der Karte (Schalter je Kind und Gerät, Standard aus – Entscheidung von Sebastian offen).
 function lernKurzOben(kind) {
@@ -931,7 +937,7 @@ function lernThermometer(b) {
   if (b.stand !== undefined && b.stand !== null) mk('rect', { x: X - 5, y: py(b.stand), width: 10, height: H - U + 14 - py(b.stand), class: 'saeule-rot' });
   const roh = (hi - lo) / 8; const p = 10 ** Math.floor(Math.log10(roh)); const sy = b.schritt || [1, 2, 5, 10].map((m) => m * p).find((m) => m >= roh);
   for (let v = Math.ceil(lo / sy) * sy; v <= hi + 1e-9; v += sy) { mk('line', { x1: X + 9, y1: py(v), x2: X + (v === 0 ? 30 : 20), y2: py(v), class: v === 0 ? 'achse' : 'strich' }); mk('text', { x: X + 34, y: py(v) + 6, class: 'zahl links' + (v === 0 ? ' fett' : '') }, lernZahlText(v) + (b.einheit ? ' ' + b.einheit : '')); }
-  if (b.stand !== undefined && b.stand !== null) { mk('path', { d: `M${X - 12} ${py(b.stand)} l-12 -6 v12 z`, class: 'pfeil' }); mk('text', { x: X - 28, y: py(b.stand) + 6, class: 'zahl rechts fett' }, b.name || lernZahlText(b.stand) + (b.einheit ? ' ' + b.einheit : '')); }
+  if (b.stand !== undefined && b.stand !== null) { const nz = b._neu?.stand ? ' neu' : ''; mk('path', { d: `M${X - 12} ${py(b.stand)} l-12 -6 v12 z`, class: 'pfeil' + nz }); mk('text', { x: X - 28, y: py(b.stand) + 6, class: 'zahl rechts fett' + (nz ? ' neu-text' : '') }, b.name || lernZahlText(b.stand) + (b.einheit ? ' ' + b.einheit : '')); }
   return svg;
 }
 // Bruchstreifen: teile, gefaerbt, ganzes (Text unter dem ganzen Streifen), teil_text (Text über dem gefärbten Teil), zeilen: weitere Streifen [{teile, gefaerbt, teil_text}]
@@ -1012,7 +1018,7 @@ function lernKoordinaten(b) {
   const zahl = (v) => lernZahlText(v);
   // pi: true → x-Achse in Vielfachen von π beschriften (½π, π, 3π/2 …)
   const piText = (v) => { const k = Math.round(v / (Math.PI / 2)); const m = k < 0 ? '−' : ''; const n = Math.abs(k); return n % 2 === 0 ? m + (n === 2 ? '' : n / 2) + 'π' : m + (n === 1 ? '' : n) + 'π/2'; };
-  for (const f of b.flaechen || []) mk('polygon', { points: (f.punkte || []).map(([x, y]) => `${px(Math.min(Math.max(x, x0), x1)).toFixed(1)},${py(Math.min(Math.max(y, y0), y1)).toFixed(1)}`).join(' '), class: 'flaeche' });
+  for (const f of b.flaechen || []) mk('polygon', { points: (f.punkte || []).map(([x, y]) => `${px(Math.min(Math.max(x, x0), x1)).toFixed(1)},${py(Math.min(Math.max(y, y0), y1)).toFixed(1)}`).join(' '), class: 'flaeche' + lernNeu1(b, 'flaechen', f) });
   for (let x = Math.ceil(x0 / sx) * sx; x <= x1 + 1e-9; x += sx) mk('line', { x1: px(x), y1: py(y0), x2: px(x), y2: py(y1), class: 'gitter' });
   for (let y = Math.ceil(y0 / sy) * sy; y <= y1 + 1e-9; y += sy) mk('line', { x1: px(x0), y1: py(y), x2: px(x1), y2: py(y), class: 'gitter' });
   const ax = Math.min(Math.max(0, y0), y1), ay = Math.min(Math.max(0, x0), x1); // Achsen am Rand, wenn 0 außerhalb liegt
@@ -1026,8 +1032,8 @@ function lernKoordinaten(b) {
       if (x - w / 2 < rechts + 3 || x + w / 2 > ende) continue; mk('text', { x, y: py(ax) + 19, class: 'zahl' }, t); rechts = x + w / 2; } }
   { let unten = 1e9; // y-Beschriftung: mindestens eine Schrifthöhe Abstand
     for (let i = Math.ceil(y0 / sy); i * sy <= y1 + 1e-9; i++) { if (i === 0 || i % ny) continue; const y = py(i * sy); if (unten - y < 19 || y < py(y1) + 12) continue; mk('text', { x: px(ay) - 6, y: y + 6, class: 'zahl rechts' }, zahl(i * sy)); unten = y; } }
-  for (const v of b.senkrecht || []) mk('line', { x1: px(v), y1: py(y0), x2: px(v), y2: py(y1), class: 'hilfslinie' });
-  for (const v of b.waagrecht || []) mk('line', { x1: px(x0), y1: py(v), x2: px(x1), y2: py(v), class: 'hilfslinie' });
+  for (const v of b.senkrecht || []) mk('line', { x1: px(v), y1: py(y0), x2: px(v), y2: py(y1), class: 'hilfslinie' + lernNeu1(b, 'senkrecht', v) });
+  for (const v of b.waagrecht || []) mk('line', { x1: px(x0), y1: py(v), x2: px(x1), y2: py(v), class: 'hilfslinie' + lernNeu1(b, 'waagrecht', v) });
   (b.graphen || []).forEach((g, gi) => {
     let d = '', offen = false, yVor = null;
     const [gx0, gx1] = g.bereich || [x0, x1];
@@ -1040,18 +1046,18 @@ function lernKoordinaten(b) {
     const clip = `lk${Math.random().toString(36).slice(2, 8)}`;
     const cp = mk('clipPath', { id: clip }); const r = document.createElementNS(LERN_SVG, 'rect');
     for (const [k, v] of Object.entries({ x: px(x0), y: py(y1), width: px(x1) - px(x0), height: py(y0) - py(y1) })) r.setAttribute(k, v); cp.append(r);
-    mk('path', { d, class: 'graph graph' + (gi % 3), 'clip-path': `url(#${clip})` });
+    mk('path', { d, class: 'graph graph' + (gi % 3) + lernNeu1(b, 'graphen', g), 'clip-path': `url(#${clip})` });
     if (g.name) { const xn = g.name_x ?? (x1 - (x1 - x0) * 0.12); const yn = lernGraphWert(g, xn); if (Number.isFinite(yn) && yn > y0 && yn < y1) mk('text', { x: px(xn) + 4, y: py(yn) - 6, class: 'zahl kursiv graphname' + (gi % 3) }, g.name); }
   });
-  for (const st of b.strecken || []) mk('line', { x1: px(st[0]), y1: py(st[1]), x2: px(st[2]), y2: py(st[3]), class: st[4] === 'gestrichelt' ? 'hilfslinie' : 'strecke' });
-  for (const k of b.kreise || []) { const m = k.m || [0, 0]; mk('ellipse', { cx: px(m[0]), cy: py(m[1]), rx: Math.abs(px(m[0] + k.r) - px(m[0])), ry: Math.abs(py(m[1] + k.r) - py(m[1])), class: 'graph graph' + ((k.farbe ?? 1) % 3) }); if (k.name) mk('text', { x: px(m[0] + k.r * 0.71) + 6, y: py(m[1] + k.r * 0.71) - 4, class: 'zahl links kursiv' }, k.name); }
+  for (const st of b.strecken || []) mk('line', { x1: px(st[0]), y1: py(st[1]), x2: px(st[2]), y2: py(st[3]), class: (st[4] === 'gestrichelt' ? 'hilfslinie' : 'strecke') + lernNeu1(b, 'strecken', st) });
+  for (const k of b.kreise || []) { const m = k.m || [0, 0]; mk('ellipse', { cx: px(m[0]), cy: py(m[1]), rx: Math.abs(px(m[0] + k.r) - px(m[0])), ry: Math.abs(py(m[1] + k.r) - py(m[1])), class: 'graph graph' + ((k.farbe ?? 1) % 3) + lernNeu1(b, 'kreise', k) }); if (k.name) mk('text', { x: px(m[0] + k.r * 0.71) + 6, y: py(m[1] + k.r * 0.71) - 4, class: 'zahl links kursiv' }, k.name); }
   for (const v of b.pfeile || []) { // Vektorpfeil [x1, y1, x2, y2, name]
     const [ax1, ay1, ax2, ay2] = [px(v[0]), py(v[1]), px(v[2]), py(v[3])]; const L = Math.hypot(ax2 - ax1, ay2 - ay1) || 1; const ux = (ax2 - ax1) / L, uy = (ay2 - ay1) / L;
-    mk('line', { x1: ax1, y1: ay1, x2: ax2 - ux * 6, y2: ay2 - uy * 6, class: 'strecke' });
+    mk('line', { x1: ax1, y1: ay1, x2: ax2 - ux * 6, y2: ay2 - uy * 6, class: 'strecke' + lernNeu1(b, 'pfeile', v) });
     mk('path', { d: `M${ax2.toFixed(1)} ${ay2.toFixed(1)} L${(ax2 - ux * 10 - uy * 4.5).toFixed(1)} ${(ay2 - uy * 10 + ux * 4.5).toFixed(1)} L${(ax2 - ux * 10 + uy * 4.5).toFixed(1)} ${(ay2 - uy * 10 - ux * 4.5).toFixed(1)} z`, class: 'spitze' });
     if (v[4]) mk('text', { x: (ax1 + ax2) / 2 - uy * 12, y: (ay1 + ay2) / 2 + ux * 12 + 4, class: 'zahl kursiv' }, v[4]);
   }
-  for (const p of b.punkte || []) { mk('circle', { cx: px(p.x), cy: py(p.y), r: 4, class: p.offen ? 'punkt offen' : 'punkt' }); if (p.name) mk('text', { x: px(p.x) + 7, y: py(p.y) - 7, class: 'zahl links' }, p.name); }
+  for (const p of b.punkte || []) { const nz = lernNeu1(b, 'punkte', p); mk('circle', { cx: px(p.x), cy: py(p.y), r: nz ? 6.5 : 4, class: (p.offen ? 'punkt offen' : 'punkt') + nz }); if (p.name) mk('text', { x: px(p.x) + 8, y: py(p.y) - 8, class: 'zahl links' + (nz ? ' fett neu-text' : '') }, p.name); }
   return svg;
 }
 // Figur aus benannten Punkten: linien [[A, B, 'c = 4 cm']], flaeche ['A','B','C'], rechter_winkel [[Scheitel, Schenkel1, Schenkel2]], winkel [[Scheitel, S1, S2, 'α']], kreise [{m: 'M'|[x,y], r, name}]
@@ -1064,11 +1070,11 @@ function lernFigur(b) {
   const ox = (B - (xb - xa) * f) / 2; const px = (x) => ox + (x - xa) * f, py = (y) => H - R - (y - ya) * f;
   const mitte = [(xa + xb) / 2, (ya + yb) / 2];
   const { svg, mk } = lernSvg(B, H, b.label || 'Skizze');
-  if (b.flaeche) mk('polygon', { points: b.flaeche.map((k) => `${px(pk(k)[0])},${py(pk(k)[1])}`).join(' '), class: 'flaeche' });
-  for (const k of b.kreise || []) { const m = pk(k.m); mk('circle', { cx: px(m[0]), cy: py(m[1]), r: k.r * f, class: 'kreis' }); if (k.name) mk('text', { x: px(m[0] + k.r * 0.72) + 6, y: py(m[1] + k.r * 0.72) - 4, class: 'zahl links' }, k.name); }
-  for (const [u, v, text, art] of b.linien || []) {
-    const a = pk(u), c = pk(v);
-    mk('line', { x1: px(a[0]), y1: py(a[1]), x2: px(c[0]), y2: py(c[1]), class: art === 'gestrichelt' ? 'hilfslinie' : 'strecke' });
+  if (b.flaeche) mk('polygon', { points: b.flaeche.map((k) => `${px(pk(k)[0])},${py(pk(k)[1])}`).join(' '), class: 'flaeche' + (b._neu?.flaeche ? ' neu' : '') });
+  for (const k of b.kreise || []) { const m = pk(k.m); mk('circle', { cx: px(m[0]), cy: py(m[1]), r: k.r * f, class: 'kreis' + lernNeu1(b, 'kreise', k) }); if (k.name) mk('text', { x: px(m[0] + k.r * 0.72) + 6, y: py(m[1] + k.r * 0.72) - 4, class: 'zahl links' }, k.name); }
+  for (const lin of b.linien || []) {
+    const [u, v, text, art] = lin; const a = pk(u), c = pk(v);
+    mk('line', { x1: px(a[0]), y1: py(a[1]), x2: px(c[0]), y2: py(c[1]), class: (art === 'gestrichelt' ? 'hilfslinie' : 'strecke') + lernNeu1(b, 'linien', lin) });
     if (text) {
       const m = [(a[0] + c[0]) / 2, (a[1] + c[1]) / 2]; let n = [-(c[1] - a[1]), c[0] - a[0]]; const l = Math.hypot(...n) || 1; n = [n[0] / l, n[1] / l];
       if ((m[0] - mitte[0]) * n[0] + (m[1] - mitte[1]) * n[1] < 0) n = [-n[0], -n[1]]; // Beschriftung nach außen
@@ -1076,23 +1082,24 @@ function lernFigur(b) {
     }
   }
   const richtung = (s, q) => { const a = pk(s), c = pk(q); const l = Math.hypot(c[0] - a[0], c[1] - a[1]) || 1; return [(c[0] - a[0]) / l, (c[1] - a[1]) / l]; };
-  for (const [s, q1, q2] of b.rechter_winkel || []) {
-    const a = pk(s), u = richtung(s, q1), v = richtung(s, q2), d = 13;
-    mk('path', { d: `M${px(a[0]) + u[0] * d} ${py(a[1]) - u[1] * d} l${v[0] * d} ${-v[1] * d} l${-u[0] * d} ${u[1] * d}`, class: 'winkel' });
+  for (const rw of b.rechter_winkel || []) {
+    const [s, q1, q2] = rw; const a = pk(s), u = richtung(s, q1), v = richtung(s, q2), d = 13;
+    mk('path', { d: `M${px(a[0]) + u[0] * d} ${py(a[1]) - u[1] * d} l${v[0] * d} ${-v[1] * d} l${-u[0] * d} ${u[1] * d}`, class: 'winkel' + lernNeu1(b, 'rechter_winkel', rw) });
     mk('circle', { cx: px(a[0]) + (u[0] + v[0]) * d / 2, cy: py(a[1]) - (u[1] + v[1]) * d / 2, r: 1.6, class: 'punkt' });
   }
-  for (const [s, q1, q2, text] of b.winkel || []) {
-    const a = pk(s), u = richtung(s, q1), v = richtung(s, q2), d = 22;
+  for (const wk of b.winkel || []) {
+    const [s, q1, q2, text] = wk; const a = pk(s), u = richtung(s, q1), v = richtung(s, q2), d = 22;
     const kreuz = u[0] * v[1] - u[1] * v[0];
-    mk('path', { d: `M${px(a[0]) + u[0] * d} ${py(a[1]) - u[1] * d} A${d} ${d} 0 0 ${kreuz > 0 ? 0 : 1} ${px(a[0]) + v[0] * d} ${py(a[1]) - v[1] * d}`, class: 'winkel' });
+    mk('path', { d: `M${px(a[0]) + u[0] * d} ${py(a[1]) - u[1] * d} A${d} ${d} 0 0 ${kreuz > 0 ? 0 : 1} ${px(a[0]) + v[0] * d} ${py(a[1]) - v[1] * d}`, class: 'winkel' + lernNeu1(b, 'winkel', wk) });
     const w = [u[0] + v[0], u[1] + v[1]]; const l = Math.hypot(...w) || 1;
     if (text) mk('text', { x: px(a[0]) + w[0] / l * (d + 13), y: py(a[1]) - w[1] / l * (d + 13) + 4, class: 'zahl' }, text);
   }
   for (const [name, p] of Object.entries(P)) {
     if (name.startsWith('_')) continue; // Hilfspunkte ohne Beschriftung
     let n = [p[0] - mitte[0], p[1] - mitte[1]]; const l = Math.hypot(...n) || 1; n = [n[0] / l, n[1] / l];
-    mk('circle', { cx: px(p[0]), cy: py(p[1]), r: 2.5, class: 'punkt' });
-    mk('text', { x: px(p[0]) + n[0] * 15, y: py(p[1]) - n[1] * 15 + 4, class: 'zahl fett' }, name);
+    const nz = b._neu?.punktnamen?.has(name) ? ' neu' : '';
+    mk('circle', { cx: px(p[0]), cy: py(p[1]), r: nz ? 5 : 2.5, class: 'punkt' + nz });
+    mk('text', { x: px(p[0]) + n[0] * 15, y: py(p[1]) - n[1] * 15 + 4, class: 'zahl fett' + (nz ? ' neu-text' : '') }, name);
   }
   return svg;
 }
@@ -1182,6 +1189,44 @@ function lernSchrittBild(zustand, b) {
   if (!zustand || (b.typ && b.typ !== zustand.typ)) return b;
   return { ...zustand, ...b };
 }
+// N1: Was gegenüber dem zuletzt gezeigten Bild neu ist, wird markiert (b._neu) und in der Akzentfarbe kräftig gezeichnet.
+const LERN_NEU_LISTEN = ['punkte', 'strecken', 'kreise', 'pfeile', 'graphen', 'flaechen', 'senkrecht', 'waagrecht', 'linien', 'winkel', 'rechter_winkel', 'boegen'];
+function lernNeuMarkieren(vorher, b) {
+  if (!b || !vorher || (vorher.typ || null) !== (b.typ || null)) return b;
+  const j = (x) => JSON.stringify(x); const neu = {};
+  for (const f of LERN_NEU_LISTEN) {
+    if (!Array.isArray(b[f])) continue;
+    const alt = new Set((Array.isArray(vorher[f]) ? vorher[f] : []).map(j));
+    const n = new Set(b[f].map(j).filter((x) => !alt.has(x))); if (n.size) neu[f] = n;
+  }
+  if (b.punkte && !Array.isArray(b.punkte)) { // Figur: Punkte als {Name: [x, y]}
+    const alt = vorher.punkte && !Array.isArray(vorher.punkte) ? vorher.punkte : {};
+    const n = new Set(Object.keys(b.punkte).filter((k) => j(alt[k]) !== j(b.punkte[k]))); if (n.size) neu.punktnamen = n;
+  }
+  if (j(b.flaeche) !== j(vorher.flaeche) && b.flaeche) neu.flaeche = true;
+  for (const f of ['stand', 'pfeil', 'markiert', 'gefaerbt']) if (b[f] !== undefined && b[f] !== null && j(b[f]) !== j(vorher[f])) neu[f] = true;
+  return Object.keys(neu).length ? { ...b, _neu: neu } : b;
+}
+// Bild mit Neuem: der Rest tritt zurück (CSS .mit-neu), damit das Neue auffällt – auch wenn es dieselbe Farbe hat wie der Graph.
+const lernBildNeu = (b) => { const k = lernBild(b); if (k && b?._neu) k.querySelector('svg')?.classList.add('mit-neu'); return k; };
+// N1: Ein Steigungsdreieck in der Bildergeschichte (waagrechte, dann senkrechte Hilfslinie, die aneinander hängen) wird mindestens 2 Einheiten breit
+// gezeichnet – gleiche Steigung, nur größer, damit man es auf dem Handy erkennt. Nur in Erklärungen, nie in Bordkarten (dort wird abgelesen).
+function lernDreieckGross(b) {
+  if (!b || b.typ !== 'koordinaten' || !Array.isArray(b.strecken) || (b.x?.[1] - b.x?.[0]) < 6) return b;
+  const st = b.strecken.map((x) => [...x]); let geaendert = false;
+  for (const w of st) {
+    if (w[1] !== w[3] || w[0] === w[2]) continue; // waagrecht
+    const s2 = st.find((v) => v !== w && v[0] === v[2] && v[0] === w[2] && v[1] === w[3]); // senkrecht, beginnt am Ende der waagrechten
+    const breite = Math.abs(w[2] - w[0]); if (!s2 || breite >= 2) continue;
+    const k = 2 / breite, xe = w[0] + (w[2] - w[0]) * k, ye = w[1] + (s2[3] - s2[1]) * k;
+    if (xe < b.x[0] || xe > b.x[1] || (b.y && (ye < b.y[0] || ye > b.y[1]))) continue;
+    w[2] = xe; s2[0] = xe; s2[2] = xe; s2[3] = ye; geaendert = true;
+  }
+  return geaendert ? { ...b, strecken: st } : b;
+}
+const lernNeu1 = (b, f, x) => (b?._neu?.[f]?.has?.(JSON.stringify(x)) ? ' neu' : '');
+// Vergleich zweier gezeichneter Bilder (ohne zufällige IDs): gleich → nicht noch einmal zeigen.
+const lernBildText = (knoten) => (knoten ? knoten.outerHTML.replace(/lk[a-z0-9]{3,8}/g, '') : '');
 // Eine Anzeige für alle Karten (Vorgabe 16.11.): [Kurz gesagt] → Worum geht's? → Bild → Beispiel als Bildergeschichte → „Pass auf!“ → MERKE → Wörterliste.
 // Karten ohne einstieg beginnen beim Bild. Schritte sind Texte oder {text, bild}; ein Schrittbild ergänzt das Kartenbild.
 function lernErklaerung(e, { kurz = false, kurzGesagt = false } = {}) {
@@ -1191,12 +1236,20 @@ function lernErklaerung(e, { kurz = false, kurzGesagt = false } = {}) {
   const schritte = (e.schritte || []).map((x) => (typeof x === 'string' ? { text: x } : x || {}));
   const mitBildern = schritte.some((x) => x.bild);
   let zustand = e.bild || null;
+  // N1: Ein Schrittbild nur zeigen, wenn es sich gegenüber dem zuletzt gezeigten Bild (auch dem Einstiegsbild) ändert; sonst nur der Text.
+  let gezeigt = e.bild || null, gezeigtText = lernBildText(lernBild(e.bild));
   const li = schritte.map((x) => {
-    if (mitBildern) zustand = lernSchrittBild(zustand, x.bild);
-    return el('li', { class: 'lr-schritt' + (mitBildern ? ' mit-bild' : '') }, mitBildern && zustand ? lernBild(zustand) : null, el('span', { class: 'lr-schritt-text' }, ...M(x.text)));
+    let bild = null;
+    if (mitBildern) {
+      zustand = lernSchrittBild(zustand, x.bild);
+      const z = lernDreieckGross(zustand);
+      const t = z ? lernBildText(lernBild(z)) : ''; // Vergleich ohne Markierung
+      if (t && t !== gezeigtText) { bild = lernBildNeu(lernNeuMarkieren(gezeigt, z)); gezeigt = z; gezeigtText = t; }
+    }
+    return el('li', { class: 'lr-schritt' + (bild ? ' mit-bild' : '') }, bild, el('span', { class: 'lr-schritt-text' }, ...M(x.text)));
   });
   const passauf = e.fehler && !kurz ? el('div', { class: 'lr-fehler lr-passauf' + (e.fehler_bild ? ' mit-bild' : '') },
-    e.fehler_bild ? lernBild(lernSchrittBild(zustand, e.fehler_bild)) : null,
+    e.fehler_bild ? lernBildNeu(lernNeuMarkieren(zustand, lernSchrittBild(zustand, e.fehler_bild))) : null,
     el('p', { class: 'lr-schritt-text' }, el('b', {}, 'Pass auf! '), ...M(e.fehler))) : null;
   const probe = e.probe ? el('p', { class: 'lr-probe' }, 'Probe: ', ...M(e.probe)) : null;
   const merke = e.regel ? el('div', { class: 'lr-merke' }, el('p', { class: 'lr-ueber' }, 'MERKE'), el('p', { class: 'lr-regel' }, ...M(e.regel))) : null;
@@ -1461,12 +1514,12 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
               a.antworttyp === 'luecken' && lernIstTermVorlage(a.frage?.schablone) && lernGleichwertigAusgeklammert(a.frage?.schablone, w.werte, r.loesung?.werte)
                 ? el('p', {}, 'Dein Term ist gleichwertig, aber noch nicht vollständig ausgeklammert: Vor die Klammer gehört der größte gemeinsame Faktor.') : null,
               r.loesungsweg ? el('p', {}, lernText(r.loesungsweg)) : null,
-              e.fehler ? el('div', { class: 'lr-fehler lr-detektiv' }, el('p', { class: 'lr-ueber' }, 'IST DIR DAS PASSIERT?'), el('p', {}, ...lernMarkiert(e.fehler))) : null)
+              e.fehler && !LERN_GRUND[r.grund] ? el('div', { class: 'lr-fehler lr-detektiv' }, el('p', { class: 'lr-ueber' }, 'IST DIR DAS PASSIERT?'), el('p', {}, ...lernMarkiert(e.fehler))) : null)
             : el('div', { class: 'lr-rueck lr-rueck-falsch' }, el('b', {}, 'Noch nicht. Richtig ist: ' + lernLoesungText(a)),
               a.antworttyp === 'luecken' && lernIstTermVorlage(a.frage?.schablone) && lernGleichwertigAusgeklammert(a.frage?.schablone, w.werte, r.loesung?.werte)
                 ? el('p', {}, 'Dein Term ist gleichwertig, aber noch nicht vollständig ausgeklammert: Vor die Klammer gehört der größte gemeinsame Faktor.') : null,
               r.loesungsweg ? el('p', {}, el('b', {}, 'So geht’s: '), lernText(r.loesungsweg)) : null,
-              e.fehler ? el('div', { class: 'lr-fehler lr-detektiv' }, el('p', { class: 'lr-ueber' }, 'FEHLER-DETEKTIV: IST DIR DAS PASSIERT?'), el('p', {}, ...lernMarkiert(e.fehler))) : null,
+              e.fehler && !LERN_GRUND[r.grund] ? el('div', { class: 'lr-fehler lr-detektiv' }, el('p', { class: 'lr-ueber' }, 'FEHLER-DETEKTIV: IST DIR DAS PASSIERT?'), el('p', {}, ...lernMarkiert(e.fehler))) : null,
               el('p', { class: 'lr-leise' }, 'Ein Fehler kostet 2 Punkte. Die Erklärung findest du über der Bordkarte.')));
           if (!r.richtig) {
             if (LERN_GRUND[r.grund]) meldung.firstElementChild?.prepend(el('p', { class: 'lr-grund' }, LERN_GRUND[r.grund])); // V3
@@ -1564,7 +1617,7 @@ function lernJahrgangText(j, kind) {
 function lernEinheitTest(ctx) {
   const body = el('div', { class: 'lern-body' });
   lernErsetze(main, lernRahmen(ctx.kindObj, 'weg',
-    el('header', { class: 'lr-kopf' }, el('p', { class: 'lr-ueber' }, 'TEST'), el('h1', { class: 'lr-titel' }, ctx.titel)),
+    el('header', { class: 'lr-kopf' }, el('p', { class: 'lr-ueber' }, 'TEST'), el('h1', { class: 'lr-titel' }, ctx.ort?.stadt ? `${ctx.ort.stadt} · ${ctx.titelKurz}` : ctx.titel)), // N6: „Ort · Flug“ wie im Erklären-Reiter
     el('a', { class: 'lr-zurueck', href: ctx.basis }, '‹ Zu den Etappen'), body));
   lernAnhaengen(body, lernTestStart(ctx, body));
 }
@@ -1780,7 +1833,7 @@ function lernTestErgebnis(ctx, box, r) {
   lernErsetze(box, 
     el('div', { class: 'card lern-ergebnis' },
       el('h3', {}, `${r.richtig} von ${r.gesamt} richtig`),
-      r.einheit_abgeschlossen ? el('p', { class: 'lern-rueck ok' }, el('b', {}, 'Einheit geschafft! 🎉')) : el('p', { class: 'small' }, 'Bei „noch üben“: die passenden Etappen noch einmal üben, dann „Verbessern“.'),
+      r.einheit_abgeschlossen ? el('p', { class: 'lern-rueck ok' }, el('b', {}, 'Flug geschafft! 🎉')) : el('p', { class: 'small' }, 'Bei „noch üben“: die passenden Etappen noch einmal üben, dann „Verbessern“.'),
       r.nachtest_ergebnis ? el('p', { class: 'lern-rueck ' + (r.nachtest_ergebnis === 'bestanden' ? 'ok' : 'falsch') }, el('b', {}, {
         bestanden: r.nachtest?.folgerunde && r.nachtest_runde >= 3 ? 'Nachtest geschafft (ab 80 %).' : `Nachtest-Runde ${r.nachtest_runde} geschafft (ab 80 %).`,
         wiederholen: 'Unter 80 %: Diese Runde zählt noch nicht. Verbessere die falschen Etappen, dann kommt der Nachtest noch einmal.',
@@ -1793,13 +1846,25 @@ function lernTestErgebnis(ctx, box, r) {
       return el('div', { class: 'card lern-rueck-karte ' + (x.richtig ? 'ok' : 'falsch') },
         el('p', { class: 'eyebrow' }, lernZielName(x.lernziel) + (x.richtig ? ' · ✓ richtig' : ' · ✗ falsch')),
         el('p', { class: 'lern-frage' }, lernText(x.frage?.text)),
-        x.frage?.grafik ? (x.frage.grafik.typ && x.frage.grafik.typ !== 'zahlenstrahl' ? lernBild(x.frage.grafik) : lernZahlenstrahl(x.frage.grafik, false)) : null,
+        x.frage?.grafik ? (x.frage.grafik.typ && x.frage.grafik.typ !== 'zahlenstrahl' ? lernBild(x.frage.grafik)
+          : lernZahlenstrahl(a.antworttyp === 'markierung' ? { ...x.frage.grafik, _richtig: x.loesung?.index, _gewaehlt: x.antwort?.index } : x.frage.grafik, false)) : null,
         el('p', { class: 'small' }, 'Deine Antwort: ', el('b', {}, lernAntwortText(a, x.antwort))),
         x.richtig ? null : el('p', { class: 'small' }, 'Richtig: ', el('b', {}, lernLoesungText(a))),
         x.loesungsweg && !x.richtig ? el('p', { class: 'small muted' }, x.loesungsweg) : null);
     }),
-    el('div', { class: 'row lern-knoepfe' }, el('a', { class: 'btn primary', href: ctx.basis || `#/lerneinheit/${ctx.kind}-${ctx.einheit}` }, 'Zum Flug'),
-      el('a', { class: 'btn secondary', href: `#/reise/${ctx.kind}` }, 'Zur Reise')));
+    lernTestKnoepfe(ctx, r));
+}
+// N7: Knöpfe im Abflug-Stil. Bei „noch üben“: erst die Etappe üben, dann verbessern.
+function lernTestKnoepfe(ctx, r) {
+  const basis = ctx.basis || `#/lerneinheit/${ctx.kind}-${ctx.einheit}`;
+  const etappen = ctx.daten?.inhalt?.etappen || [];
+  const ueben = (r.lernziele || []).filter((s) => s.pflicht !== false && s.status === 'fehler');
+  const erste = ueben[0]; const nr = erste ? etappen.findIndex((e) => e.lernziel === erste.lernziel) + 1 : 0;
+  return el('div', { class: 'lr-knopfzeile lr-test-knoepfe' },
+    erste ? el('a', { class: 'lr-knopf', href: nr ? `${basis}-ueben-${nr}` : `${basis}-ueben` }, `Erst üben: ${lernZielName(erste.lernziel)} ›`) : null,
+    erste ? el('a', { class: 'lr-knopf-zweit', href: `${basis}-test` }, 'Verbessern ›') : null,
+    el('a', { class: erste ? 'lr-textlink' : 'lr-knopf', href: basis }, erste ? 'Zum Flug' : 'Zum Flug ›'),
+    el('a', { class: erste ? 'lr-textlink' : 'lr-knopf-zweit', href: `#/reise/${ctx.kind}` }, 'Zur Abflugtafel'));
 }
 
 

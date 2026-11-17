@@ -742,3 +742,115 @@ test('Reisewörter auf allen Eltern-/Lehrerseiten', async (t) => {
     assert.equal(treffer, null, `${pfad}: ${treffer && text.slice(Math.max(0, text.search(verboten) - 60), text.search(verboten) + 60)}`);
   }
 });
+
+// ---------- Bau-Auftrag Phase 2, Schritt A: Befunde N1–N8 der Nachprüfung vom 16.11. ----------
+const echteEtappe = (datei, titel) => JSON.parse(fs.readFileSync(path.join(root, 'inhalte/themen', datei), 'utf8')).inhalt.etappen.find((e) => e.titel.includes(titel));
+async function erklaerSeite(t, etappen, breite = 390) {
+  const { page } = await setup(t, { gestaltung: 'nacht' });
+  await page.setViewportSize({ width: breite, height: 900 });
+  await page.route('**/functions/v1/lernen-api/**', async (route) => {
+    const b = JSON.parse(route.request().postData() || '{}');
+    if (b.aktion !== 'schule_einheit_lesen') return route.fallback();
+    return route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true, einheit_id: 1, status: 'geprueft', inhalt: { ziel: 'Test', etappen },
+      uebungen: [], stand: etappen.map((x) => ({ lernziel: x.lernziel, pflicht: true, status: 'offen' })), etappen_stand: {}, laufender_test: null } }) });
+  });
+  return page;
+}
+// Vergleich ohne die Hervorhebung des Neuen (Klasse „neu“, größere Punkte)
+const bilderDerKarte = (page) => page.evaluate(() => [...document.querySelectorAll('.lr-erklaert .lr-bild')].map((b) => { const c = b.cloneNode(true);
+  c.querySelectorAll('.neu, .neu-text').forEach((x) => { x.classList.remove('neu', 'neu-text'); if (x.tagName === 'circle') x.removeAttribute('r'); }); return c.innerHTML.replace(/lk[a-z0-9]{3,8}/g, ''); }));
+
+test('N1: Bildergeschichte zeigt ein Bild nur, wenn es sich ändert; Neues ist hervorgehoben; Etappe auf dem Handy kurz', async (t) => {
+  const neg = echteEtappe('zahlen.ganz.json', 'negative Zahl');
+  const page = await erklaerSeite(t, [neg]);
+  await page.goto(origin + '/#/lerneinheit/1-1-erklaeren-1');
+  await page.locator('.lr-erklaert').waitFor();
+  const bilder = await bilderDerKarte(page);
+  for (let i = 1; i < bilder.length; i++) assert.notEqual(bilder[i], bilder[i - 1], `Bild ${i} gleicht dem vorigen`);
+  assert.equal(await page.locator('.lr-sogehts li').count(), 3);
+  assert.equal(await page.locator('.lr-sogehts li.mit-bild').count(), 1, 'nur Schritt 1 bringt ein neues Bild');
+  assert.equal(await page.locator('.lr-sogehts .lern-thermo .pfeil.neu').count(), 1, 'neuer Stand in der Akzentfarbe');
+  const h = await page.evaluate(() => document.documentElement.scrollHeight);
+  assert.ok(h < 2400, 'Etappe auf dem Handy: ' + h + ' px');
+  fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
+  await page.screenshot({ path: path.join(root, 'test-results/n1-negative-zahl-390.png'), fullPage: true });
+});
+
+test('N1 und N8: Kerze (Kl. 8) – keine zwei gleichen Bilder, neue Punkte kräftig; Tablet: Bild links, Text rechts', async (t) => {
+  const kerze = echteEtappe('funktionen.linear.json', 'Sachzusammenhang');
+  const page = await erklaerSeite(t, [kerze], 820);
+  await page.goto(origin + '/#/lerneinheit/1-1-erklaeren-1');
+  await page.locator('.lr-erklaert').waitFor();
+  const bilder = await bilderDerKarte(page);
+  for (let i = 1; i < bilder.length; i++) assert.notEqual(bilder[i], bilder[i - 1], `Bild ${i} gleicht dem vorigen`);
+  assert.ok(await page.locator('.lr-sogehts .punkt.neu').count() >= 2, 'neue Punkte (Start, leer) hervorgehoben');
+  assert.ok(await page.locator('.lr-sogehts .hilfslinie.neu').count() >= 2, 'Steigungsdreieck hervorgehoben');
+  for (const li of await page.locator('.lr-sogehts li.mit-bild').all()) {
+    const b = await li.locator('.lr-bild').boundingBox(), x = await li.locator('.lr-schritt-text').boundingBox();
+    assert.ok(x.x >= b.x + b.width - 1, 'Text rechts neben dem Bild');
+    assert.ok(x.y < b.y + b.height && x.y + x.height > b.y, 'Text und Bild in derselben Zeile');
+  }
+  await page.screenshot({ path: path.join(root, 'test-results/n1-n8-kerze-820.png'), fullPage: true });
+});
+
+test('N2: „Kurz gesagt“ in der Übersicht ganz, ohne „…“', async (t) => {
+  const neg = echteEtappe('zahlen.ganz.json', 'negative Zahl');
+  const lang = { ...neg, lernziel: 'lang', titel: 'Lang', regel: 'Unter null schreibst du ein Minus vor die Zahl, zum Beispiel minus drei Grad, und über null kein Zeichen davor. Danach kommt mehr.' };
+  const page = await erklaerSeite(t, [neg, lang]);
+  await page.goto(origin + '/#/lerneinheit/1-1-erklaeren');
+  const kurz = page.locator('.lr-kachel-kurz').nth(1);
+  await kurz.waitFor();
+  assert.equal(await kurz.innerText(), 'Kurz gesagt: Unter null schreibst du ein Minus vor die Zahl, zum Beispiel minus drei Grad, und über null kein Zeichen davor.');
+  assert.equal(await kurz.evaluate((x) => getComputedStyle(x).webkitLineClamp), 'none');
+});
+
+test('N3: Kurs-Grafik – Komma-Platz ohne Komma bleibt leer (0,24 statt 24)', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' });
+  await page.goto(origin + '/#/reise/1');
+  await page.getByRole('heading', { name: /Abflüge/ }).waitFor();
+  const kurs = await page.evaluate(() => { const k = lernKurs({ antworttyp: 'zahl', loesung: { wert: 24 } }, { wert: '0,24' });
+    return [...k.querySelectorAll('.lr-kurs-zeile')].map((z) => [...z.querySelectorAll('.lr-kurs-kachel')].map((c) => c.className.replace('lr-kurs-kachel', '').trim() + ':' + c.textContent)); });
+  const ziel = kurs.at(-1), du = kurs.at(-2);
+  assert.ok(du.some((c) => c.startsWith('komma') && c.endsWith(':,')), 'DU hat das Komma: ' + du);
+  const platz = ziel.find((c) => c.startsWith('komma'));
+  assert.ok(platz && !platz.includes('ab') && platz.endsWith(':'), 'ZIEL ohne Komma und ohne Rahmen am Komma-Platz: ' + ziel);
+});
+
+test('N4: Startknopf „Erst 1 Wiederholung ›“, danach „Weiter nach Rom ›“', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' });
+  await page.route('**/functions/v1/lernen-api/**', async (route) => {
+    const b = JSON.parse(route.request().postData() || '{}');
+    if (b.aktion !== 'schule_wiederholung') return route.fallback();
+    return route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true, faellig: 1, aufgaben: [{ ...AUFG[11], einheit_id: 2, stadt: 'New York' }] } }) });
+  });
+  await page.goto(origin + '/#/reise/1');
+  const knopf = page.locator('.lr-einsteigen-knopf');
+  await knopf.waitFor();
+  assert.equal((await knopf.innerText()).replace(/\s+/g, ' ').trim(), 'Erst 1 Wiederholung ›');
+  await page.evaluate(() => lernWdhHeute(1, true));
+  await page.reload(); await knopf.waitFor();
+  assert.equal((await knopf.innerText()).replace(/\s+/g, ' ').trim(), 'Weiter nach Rom ›');
+});
+
+test('N5–N7: Detektiv nur ohne Fehlermuster; Test-Kopf „Ort · Flug“; Testergebnis mit Abflug-Knöpfen und grüner Markierung', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' });
+  // N5 (Code): der Detektiv hängt an LERN_GRUND – mit erkanntem Muster kein Detektiv
+  const quelle = fs.readFileSync(path.join(root, 'lernen.js'), 'utf8');
+  assert.equal((quelle.match(/e\.fehler && !LERN_GRUND\[r\.grund\] \? el\('div', \{ class: 'lr-fehler lr-detektiv' \}/g) || []).length, 2);
+  await page.goto(origin + '/#/lerneinheit/1-1-test');
+  await page.getByRole('heading', { name: 'Rom · Natürliche Zahlen' }).waitFor(); // N6
+  await page.getByRole('button', { name: 'Test starten' }).click();
+  await page.getByText('elf Millionen vierhundertneunzigtausendeinundfünfzig').click();
+  await page.getByRole('button', { name: 'Weiter ›' }).click();
+  await page.getByRole('button', { name: 'Markierung 2' }).click();
+  await page.getByRole('button', { name: 'Abgeben' }).click();
+  await page.getByText('1 von 2 richtig').waitFor();
+  const knoepfe = page.locator('.lr-test-knoepfe');
+  assert.deepEqual((await knoepfe.locator('a').allInnerTexts()).map((x) => x.trim()), ['Erst üben: Zahlenstrahl ›', 'Verbessern ›', 'Zum Flug', 'Zur Abflugtafel']);
+  assert.equal(await knoepfe.locator('a.lr-knopf').getAttribute('href'), '#/lerneinheit/1-1-ueben-2');
+  assert.equal(await knoepfe.locator('a.lr-knopf-zweit').getAttribute('href'), '#/lerneinheit/1-1-test');
+  assert.equal(await page.locator('.btn.primary, .btn.secondary').count(), 0);
+  assert.equal(await page.locator('.lern-strahl .marke-richtig').count(), 1, 'richtige Markierung grün');
+  assert.equal(await page.locator('.lern-strahl .marke-falsch').count(), 1, 'gewählte falsche Markierung');
+  await page.screenshot({ path: path.join(root, 'test-results/n7-testergebnis-390.png'), fullPage: true });
+});

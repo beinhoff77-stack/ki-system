@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 21:40 – STATUS
+mengen.grundbegriffe fertig: 18 neue Übungen, 10 Knobel-Bordkarten, 7 überzählig. inhalt_pruefen OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
+
 ## 2026-11-17 21:05 – STATUS
 funktionen.umkehr fertig: 28 neue Übungen, 12 Knobel-Bordkarten, 25 überzählig. inhalt_pruefen OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
 

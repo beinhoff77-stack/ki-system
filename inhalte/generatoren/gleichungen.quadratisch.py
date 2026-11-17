@@ -700,6 +700,142 @@ BF.stufe('ausklammern', 'Löse 5x² = 30x.', 2)
 
 # ---- BEFUNDE ENDE ----
 
+
+# ---------- Achtzehnte Runde, Teil B (Zweig luecken-kl9): neue Lernkarte „bruchgleichung“ nach „loesungsformel“ ----------
+# Lehrplan: LehrplanPLUS M9 2.2 – „lösen Bruchgleichungen, die sich unmittelbar auf quadratische Gleichungen zurückführen lassen,
+# und berechnen damit auch die Koordinaten der Schnittpunkte von Geraden mit Hyperbeln“ (Wortlaut nach ISB, Schwerpunktsetzungen Jgst. 9).
+# Prüfungsvorbilder (Typ und Niveau, eigene Zahlen): ISB-Material M 9.2.2 (Definitions- und Lösungsmenge von Bruchgleichungen),
+# Abschlussprüfung Realschule Bayern (Schnittpunkte von Graphen rechnerisch). Eigener Zufallsstart, alles Alte bleibt unverändert.
+from _luecken_kl9 import einbauen  # noqa: E402
+
+BG_L = 'bruchgleichung'
+BG_X2 = 'x₁ = □; x₂ = □'
+BG_P2 = 'S₁(□ | □); S₂(□ | □)'
+
+KARTE_BG = {
+    'lernziel': BG_L, 'titel': 'Bruchgleichungen quadratisch lösen',
+    'einstieg': 'Ein Rechteck soll 6 m² groß sein. Eine Seite ist 1 m länger als die andere. '
+                'Mit der Länge x führt das auf 6/x = x + 1: eine ⟦Bruchgleichung⟧.',
+    'woerter': [['Bruchgleichung', 'Gleichung, bei der x im Nenner eines Bruchs steht'],
+                ['Definitionsmenge', 'alle Zahlen, die man für x einsetzen darf; kein Nenner darf 0 werden'],
+                ['Hyperbel', 'der Graph von y = 6/x: zwei Äste, die nie die Achsen berühren']],
+    'bild': {'typ': 'koordinaten', 'x': [-6, 6], 'y': [-6, 7],
+             'graphen': [{'art': 'hyperbel', 'a': 6, 'b': 0, 'c': 0, 'name': '6/x'}, {'art': 'linear', 'm': 1, 't': 1, 'name': 'x + 1'}]},
+    'schritte': [{'text': 'Definitionsmenge: x darf nicht 0 sein, sonst steht 0 im Nenner.'},
+                 {'text': 'Beide Seiten mal x nehmen: 6 = x² + x.'},
+                 {'text': 'x² + x − 6 = 0 ergibt ⟦x = 2 oder x = −3⟧.',
+                  'bild': {'punkte': [{'x': 2, 'y': 3, 'name': '(2 | 3)'}, {'x': -3, 'y': -2, 'name': '(−3 | −2)'}]}},
+                 {'text': 'Im Bild schneiden sich dort die Hyperbel y = 6/x und die Gerade.'},
+                 {'text': '−3 m ist keine Länge. Die kurze Seite ist ⟦2 m⟧ lang.',
+                  'bild': {'punkte': [{'x': 2, 'y': 3, 'name': '2 m'}]}}],
+    'fehler': 'Nur eine Seite mal x nehmen: 6 = x + 1 gibt x = 5. Das Rechteck hätte aber 5 m · 6 m = 30 m², nicht 6 m².',
+    'fehler_bild': {'punkte': [{'x': 5, 'y': 1.2, 'name': '6/5'}, {'x': 5, 'y': 6, 'name': '5 + 1'}], 'senkrecht': [5]},
+    'regel': 'Definitionsmenge bestimmen, mit dem Nenner malnehmen, quadratisch lösen. Jede Lösung mit ⟦D⟧ prüfen.',
+    'probe': '6/2 = 3 und 2 + 1 = 3. Stimmt.',
+}
+
+
+_BG_GENUTZT = {(-3, 2), (-2, 4)}  # Beispiel der Karte (6/x = x + 1) und die Stufe-1-Aufgabe 8/x = x − 2 nicht wiederholen
+
+
+def _bg_wurzeln():
+    """r1 < 0 < r2, damit a = −r1·r2 > 0; r1 + r2 ≠ 0; jedes Paar nur einmal"""
+    while True:
+        r = R.choice([-6, -5, -4, -3, -2, -1]), R.choice([1, 2, 3, 4, 5, 6])
+        if r[0] + r[1] != 0 and r not in _BG_GENUTZT:
+            _BG_GENUTZT.add(r)
+            return r
+
+
+def _bg_loesen(vorn=''):
+    r1, r2 = _bg_wurzeln()
+    a, k = -r1 * r2, -(r1 + r2)
+    return luecken(f'{vorn}Löse die Bruchgleichung {a}/x = {poly(1, k)} (D = ℝ ohne 0). Kleinere Lösung zuerst.', BG_X2, 'zwei ganze Zahlen',
+                   [r1, r2], f'Mal x: {a} = {poly(1, k, 0)}, also {poly(1, k, -a)} = 0. Lösungen x = {dz(r1)} und x = {dz(r2)}; beide sind nicht 0.',
+                   'Nimm beide Seiten mal x und bringe alles auf eine Seite.', c=[str(r1), str(r2)])
+
+
+def _bg_hyperbel(vorn=''):
+    r1, r2 = _bg_wurzeln()
+    a, k = -r1 * r2, -(r1 + r2)
+    return luecken(f'{vorn}Berechne die Schnittpunkte der Hyperbel y = {a}/x mit der Geraden y = {poly(1, k)} (kleineres x zuerst).', BG_P2,
+                   'x und y des ersten, dann des zweiten Punkts', [r1, r1 + k, r2, r2 + k],
+                   f'Gleichsetzen: {a}/x = {poly(1, k)}. Mal x: {poly(1, k, -a)} = 0, also x = {dz(r1)} oder x = {dz(r2)}. '
+                   f'y-Werte aus der Geraden: {dz(r1 + k)} und {dz(r2 + k)}.',
+                   'Gleichsetzen, mit x malnehmen, quadratische Gleichung lösen, y aus der Geraden.',
+                   c=[str(r1), f'({r1}) + ({k})', str(r2), f'({r2}) + ({k})'])
+
+
+def bruch_aufgaben():
+    L = []
+
+    def neu(pool, s, art, a):
+        a['l'] = BG_L
+        L.append((pool, s, art, a))
+
+    # Stufe 1
+    neu('uebung', 1, '', _bg_loesen())
+    neu('uebung', 1, '', _bg_loesen())
+    neu('uebung', 1, '', luecken('Du nimmst 8/x = x − 2 mit x mal und bringst alles nach links. Welche Gleichung entsteht?', 'x² + □x + □ = 0',
+                                 'zwei ganze Zahlen (mit Vorzeichen)', [-2, -8], 'Mal x: 8 = x² − 2x. Alles nach links: x² − 2x − 8 = 0.',
+                                 'Auch die rechte Seite x − 2 wird mit x malgenommen.', c=['-2', '-8']))
+    neu('uebung', 1, '', zahl('Welche Zahl darfst du in 5/(x − 3) = x + 1 nicht für x einsetzen?', 'Für x = 3 wäre der Nenner x − 3 = 0. Durch 0 kann man nicht teilen.',
+                              'Wann wird der Nenner 0?', 3, '3'))
+    # Stufe 2
+    neu('uebung', 2, '', luecken('Löse x + 6/x = 5 (D = ℝ ohne 0). Kleinere Lösung zuerst.', BG_X2, 'zwei ganze Zahlen', [2, 3],
+                                 'Mal x: x² + 6 = 5x, also x² − 5x + 6 = 0. x = 2 oder x = 3.', 'Jeder Summand wird mit x malgenommen.', c=['2', '3']))
+    neu('uebung', 2, '', luecken('Löse 6/(x − 1) = x (D = ℝ ohne 1). Kleinere Lösung zuerst.', BG_X2, 'zwei ganze Zahlen', [-2, 3],
+                                 'Mal (x − 1): 6 = x² − x, also x² − x − 6 = 0. x = −2 oder x = 3; keine ist 1.',
+                                 'Nimm beide Seiten mal (x − 1). Achte auf die Klammer.', c=['-2', '3']))
+    neu('uebung', 2, '', luecken('Berechne die Schnittpunkte der Hyperbel y = 4/x mit der Geraden y = x + 3 (kleineres x zuerst).', BG_P2,
+                                 'x und y des ersten, dann des zweiten Punkts', [-4, -1, 1, 4],
+                                 '4/x = x + 3 ⇒ 4 = x² + 3x ⇒ x² + 3x − 4 = 0 ⇒ x = −4 oder x = 1. y = −4 + 3 = −1 und y = 1 + 3 = 4.',
+                                 'Gleichsetzen und mit x malnehmen.', c=['-4', '-4 + 3', '1', '1 + 3']))
+    neu('uebung', 2, '', zahl('Löse x²/(x − 2) = 4/(x − 2). Gib die Lösung an.', 'D = ℝ ohne 2. Mal (x − 2): x² = 4, also x = 2 oder x = −2. '
+                              'x = 2 ist nicht erlaubt (Nenner 0). Lösung: x = −2.', 'Löse und prüfe dann jede Lösung mit der Definitionsmenge.', -2, '-2'))
+    neu('uebung', 2, '', zahl('Wie viele Lösungen hat die Gleichung 1/x = x + 3?', 'Mal x: 1 = x² + 3x, also x² + 3x − 1 = 0. D = 9 + 4 = 13 > 0: zwei Lösungen, keine davon ist 0.',
+                              'Bringe auf die Form x² + px + q = 0 und berechne D.', 2, '2'))
+    neu('uebung', 2, '', luecken('Löse 3/x + x = 4 (D = ℝ ohne 0). Kleinere Lösung zuerst.', BG_X2, 'zwei ganze Zahlen', [1, 3],
+                                 'Mal x: 3 + x² = 4x ⇒ x² − 4x + 3 = 0 ⇒ x = 1 oder x = 3.', 'Nimm jeden Summanden mal x.', c=['1', '3']))
+    # Stufe 3
+    neu('uebung', 3, 'pruefung', luecken('Berechne die Schnittpunkte der Hyperbel y = 6/(x + 1) mit der Geraden y = −x + 4 (kleineres x zuerst).', BG_P2,
+                                         'x und y des ersten, dann des zweiten Punkts', [1, 3, 2, 2],
+                                         'D = ℝ ohne −1. 6/(x + 1) = −x + 4 ⇒ 6 = (−x + 4)(x + 1) = −x² + 3x + 4 ⇒ x² − 3x + 2 = 0 ⇒ x = 1 oder x = 2. '
+                                         'y = 3 und y = 2.', 'Mal (x + 1) und die Klammern ausmultiplizieren.', c=['1', '-1 + 4', '2', '-2 + 4']))
+    neu('uebung', 3, 'pruefung', zahl('Die Gerade y = −x + t soll die Hyperbel y = 4/x (x > 0) berühren. Bestimme t.',
+                                      '4/x = −x + t ⇒ 4 = −x² + tx ⇒ x² − tx + 4 = 0. Berühren: D = t² − 16 = 0 ⇒ t = 4 (für x > 0 muss t positiv sein).',
+                                      'Berühren heißt: genau eine Lösung, also D = 0.', 4, '16 // 4'))
+    neu('uebung', 3, '', luecken('Löse 6/x − 4/(x + 1) = 1 (D = ℝ ohne 0 und −1). Kleinere Lösung zuerst.', BG_X2, 'zwei ganze Zahlen', [-2, 3],
+                                 'Hauptnenner x(x + 1): 6(x + 1) − 4x = x(x + 1) ⇒ 2x + 6 = x² + x ⇒ x² − x − 6 = 0 ⇒ x = −2 oder x = 3. Beide sind erlaubt.',
+                                 'Nimm alles mit dem Hauptnenner x(x + 1) mal.', c=['-2', '3']))
+    neu('uebung', 3, 'knobel', zahl('Eine Klasse kauft Eintrittskarten für zusammen 120 €. Wäre jede Karte 2 € billiger, bekäme sie für 120 € genau 5 Karten mehr. '
+                                    'Wie viel kostet eine Karte?',
+                                    'Preis p: 120/(p − 2) = 120/p + 5. Mal p(p − 2): 120p = 120(p − 2) + 5p(p − 2) ⇒ 5p² − 10p − 240 = 0 ⇒ p² − 2p − 48 = 0 ⇒ '
+                                    'p = 8 oder p = −6. Probe: 120 : 8 = 15 Karten, 120 : 6 = 20 Karten. Eine Karte kostet 8 €.',
+                                    'Anzahl der Karten = 120 : Preis. Stelle die Gleichung „billiger = 5 Karten mehr“ auf.', 8, '1 + 7', einheit='€'))
+    neu('uebung', 3, '', zahl('Ein Rechteck hat den Flächeninhalt 24 cm² und den Umfang 20 cm. Wie lang ist die kürzere Seite?',
+                              'Seite a, andere Seite 24/a. Umfang: 2a + 2 · 24/a = 20 ⇒ a + 24/a = 10 ⇒ a² − 10a + 24 = 0 ⇒ a = 4 oder a = 6. Kürzere Seite: 4 cm.',
+                              'Drücke die zweite Seite mit der Fläche aus: 24 : a.', 4, '5 - 1', einheit='cm'))
+    neu('uebung', 3, '', auswahl('Jemand löst x²/(x + 2) = 4/(x + 2) und gibt L = {−2; 2} an. Was stimmt?', 'Falsch: −2 gehört nicht zur Definitionsmenge, L = {2}.',
+                                 ['Richtig.', 'Falsch: L = {−2}.', 'Falsch: Die Gleichung hat keine Lösung.'],
+                                 'Für x = −2 ist der Nenner x + 2 = 0. Diese Zahl darf man nicht einsetzen. Übrig bleibt x = 2.',
+                                 'Setze beide Zahlen in die Nenner ein.'))
+    neu('uebung', 3, 'knobel', auswahl('Für welche Zahlen a hat die Gleichung a/x = x keine Lösung?', 'für a ≤ 0',
+                                       ['nur für a < 0', 'für a > 0', 'für keine Zahl a'],
+                                       'Mal x: x² = a. Für a < 0 gibt es keine Lösung. Für a = 0 wäre x = 0, das ist aber ausgeschlossen. Also keine Lösung für a ≤ 0.',
+                                       'Denke auch an a = 0: Welche Lösung käme heraus, und ist sie erlaubt?'))
+    neu('uebung', 3, '', zahl('Wie viele Schnittpunkte haben die Hyperbel y = 1/x und die Gerade y = −x + 1?',
+                              '1/x = −x + 1 ⇒ 1 = −x² + x ⇒ x² − x + 1 = 0. D = 1 − 4 = −3 < 0: keine Lösung, also 0 Schnittpunkte.',
+                              'Gleichsetzen, mit x malnehmen und D berechnen.', 0, '0'))
+    # Test, Korrektur, Sicherung
+    neu('test', 2, '', _bg_loesen())
+    neu('korrektur', 2, '', _bg_loesen())
+    neu('korrektur', 2, '', _bg_hyperbel())
+    neu('korrektur', 2, '', _bg_loesen())
+    for _ in range(3): neu('sicherung', 2, '', _bg_loesen())
+    for _ in range(3): neu('sicherung', 2, '', _bg_hyperbel())
+    return L
+
 if __name__ == '__main__':
     d = bauen('gleichungen.quadratisch',
           'Quadratische Gleichungen mit der passenden Methode lösen und die Anzahl der Lösungen mit der Diskriminante begründen.',
@@ -715,3 +851,4 @@ if __name__ == '__main__':
                  'Grafische Deutung (Nullstellen der Parabel) steht im Thema funktionen.quadratisch.'])
     anhaengen(d, 9904, schwer)
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+    einbauen('gleichungen.quadratisch', KARTE_BG, 'loesungsformel', 18_9_2, bruch_aufgaben)  # Achtzehnte Runde: Lehrplan-Lücke

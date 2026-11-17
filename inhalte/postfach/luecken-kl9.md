@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 12:59 – STATUS
+gleichungen.quadratisch fertig: neue Lernkarte „bruchgleichung“ (Bruchgleichungen, die auf quadratische Gleichungen führen; Definitionsmenge, Scheinlösung; Schnittpunkte Gerade–Hyperbel) nach „loesungsformel“, Pflicht (LehrplanPLUS M9 2.2). 28 Aufgaben (Übung 4/6/8, davon 2 nach Prüfungsvorbild, 2 Knobel; Test 1, Korrektur 3, Sicherung 6). inhalt_pruefen OK; Nachweis OK.
+
 ## 2026-11-17 12:57 – STATUS
 funktionen.quadratisch fertig: neue Lernkarte „schnittpunkte“ (Schnittpunkte von Parabel und Gerade, auch Parabel–Parabel; Diskriminante: zwei Schnittpunkte / Tangente / keiner) nach „bestimmen“, Pflicht (LehrplanPLUS M9 2.2). 28 Aufgaben (Übung 4/6/8, davon 3 nach Prüfungsvorbild, 1 Knobel; Test 1, Korrektur 3, Sicherung 6). inhalt_pruefen OK; Nachweis OK (alle 238 alten Aufgaben und 7 alten Karten unverändert).
 

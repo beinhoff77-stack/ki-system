@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 16:00 – STATUS
+**terme.potenzgesetze** fertig: 25 Übungen umgestuft, keine falsche Lösung, keine Kartenänderung. Prüfskript OK, Nachweis OK.
+
 ## 2026-11-17 15:45 – STATUS
 **zahlen.potenzen_zehner** fertig: 15 Übungen umgestuft, keine falsche Lösung, keine Kartenänderung. Nebenbei: block_id der Themendatei 49 (Rom) → 44 (Paris), wie Themenliste und Datenbank seit D2; der Generator zieht sie aus der Themenliste. Prüfskript OK, Nachweis OK (Nachweis erlaubt nur diese Angleichung).
 

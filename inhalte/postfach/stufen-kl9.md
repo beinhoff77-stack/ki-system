@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 14:48 – STATUS
+gleichungen.potenz fertig: 36 neue Übungen, 12 Knobel-Bordkarten, 30 überzählig (ohne Typ). inhalt_pruefen OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
+
 ## 2026-11-17 14:46 – STATUS
 funktionen.potenz fertig: 21 neue Übungen, 12 Knobel-Bordkarten, 14 überzählig (ohne Typ). inhalt_pruefen OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
 

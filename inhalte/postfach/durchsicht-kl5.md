@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 15:20 – STATUS: geometrie.winkel fertig
+Umgestuft 12 (Stufe 3 → 2: Ein-Schritt-Aufgaben „Torte/Pizza in 8 Stücke“, „Stundenzeiger in … Minuten“, „Schranke bis senkrecht“, „gleich große Winkel um einen Punkt“, Wiederholung „um … größer als ein rechter Winkel“). Prüfskript OK, Nachweis OK (226 von 238 unverändert).
+
 ## 2026-11-17 15:05 – STATUS: geometrie.ortslinien fertig
 Umgestuft 14 (Stufe 3 → 2: Schnittpunktzahl zweier Kreise = Grundgedanke der Karte zwei_kreise 3, „Sender“-Aufgabe 4, sechsmal gleiche Verknüpfungsaufgabe → 3 davon, Leine/Durchmesser-Aussage 3, Abstand zweier Parallelen 1), sonst nichts geändert.
 Prüfskript OK, Nachweis OK (190 von 204 unverändert). Hinweis: Der Flug passt zu M5 2 („Punkte mit vorgegebenen Abstandsbedingungen bestimmen“); die frühere Meldung „Ortslinien erst Jgst. 7“ betrifft nur Mittelsenkrechte/Winkelhalbierende.

@@ -662,5 +662,26 @@ BF.stufe('ergaenzen', 'Ein Winkel α = 241° wird durch einen zweiten Winkel β 
 befunde_anwenden(DATEI, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl5, siehe _durchsicht_kl5.py) ----
+from _durchsicht_kl5 import Durchsicht, durchsicht_anwenden  # noqa: E402
+
+DS = Durchsicht('geometrie.winkel', 19_5_5)
+# a) Stufe 3 ohne neuen Gedanken (ein Rechenschritt wie in Stufe 1/2, Wiederholung derselben Vorlage) → Stufe 2
+for _lz, _t in [('ergaenzen', 'Ein Winkel ist um 11° größer als ein rechter Winkel. Um wie viel Grad muss man ihn noch vergrößern, damit er gestreckt ist?'),
+        ('ergaenzen', 'Ein Winkel ist um 26° größer als ein rechter Winkel. Um wie viel Grad muss man ihn noch vergrößern, damit er gestreckt ist?'),
+        ('um_punkt', 'Eine Torte wird in 8 gleiche Stücke geschnitten. Wie groß ist der Winkel eines Stücks an der Spitze?'),
+        ('um_punkt', 'Eine Pizza wird in 8 gleiche Stücke geschnitten. Wie groß ist der Winkel eines Stücks an der Spitze?'),
+        ('uhr', 'Um wie viel Grad dreht sich der Stundenzeiger in 120 Minuten?'),
+        ('uhr', 'Um wie viel Grad dreht sich der Stundenzeiger in 40 Minuten?'),
+        ('uhr', 'Um wie viel Grad dreht sich der Minutenzeiger in 150 Minuten?'),
+        ('uhr', 'Um wie viel Grad dreht sich der Stundenzeiger in 90 Minuten?'),
+        ('figuren', 'Eine Schranke liegt waagrecht. Sie wird um 30° nach oben gedreht. Um wie viel Grad muss sie noch weiter gedreht werden, bis sie senkrecht steht?'),
+        ('figuren', 'Eine Schranke liegt waagrecht. Sie wird um 31° nach oben gedreht. Um wie viel Grad muss sie noch weiter gedreht werden, bis sie senkrecht steht?'),
+        ('verstehen', 'Stimmt die Aussage? „Vier gleich große Winkel um einen Punkt sind rechte Winkel.“'),
+        ('verstehen', 'Stimmt die Aussage? „8 gleich große Winkel um einen Punkt sind je 45° groß.“')]:
+    DS.stufe(_lz, _t, 2, enthaelt=lambda x: x['s'] == 3)
+durchsicht_anwenden(DATEI, DS)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI)

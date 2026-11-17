@@ -1,5 +1,8 @@
 # Postfach durchsicht-rsib-1 (Neunzehnte Runde, Teil B, Chat 1)
 
+## 2026-11-17 17:05 – STATUS
+funktionen.umkehr fertig: 6 umgestuft, 6 ersetzt – darunter ein FEHLER: „Jemand spiegelt P(3 | −3) … zu P′(−3 | 3)“ war als falsch markiert, ist aber richtig (Generator-Variante bei x = −y). 19 neu (Stufe 3: Schnittpunkt f/f⁻¹, Umkehrgerade aus zwei Punkten, Achsenschnittpunkte von f⁻¹, linker Parabelast). inhalt_pruefen: OK, 0 Hinweise.
+
 ## 2026-11-17 16:45 – STATUS
 abbildungen.matrizen fertig: 8 umgestuft, 6 ersetzt, 20 neu (Stufe 3: Bildpunkte in Abhängigkeit von x, orthogonale Affinität, Fixpunkt, Drehwinkel rückwärts, rechter Winkel mit Skalarprodukt). inhalt_pruefen: OK, 0 Hinweise.
 

@@ -1,5 +1,8 @@
 # Postfach durchsicht-rsib-2 (Neunzehnte Runde, Teil B, Chat 2)
 
+## 2026-11-17 16:35 – STATUS
+funktionen.reihen fertig: Stufen getrennt, 8 Stufe-3-Übungen je Karte (u. a. Summe zerlegen, Vielfache summieren, K.-o.-Turnier, a₁ aus Sₙ, linear gegen Verdoppeln, aₙ = Sₙ − Sₙ₋₁). Überschneidung „Wie viele Summanden“ (summenzeichen/verstehen) gemeldet, nicht verschoben. inhalt_pruefen OK ohne Hinweise.
+
 ## 2026-11-17 16:10 – STATUS
 funktionen.folgen fertig: Stufen getrennt (erkennen s3 war Stufe-1-Stoff), mehrdeutige Fehleraufgabe „Lars“ (a₁ = q) behoben, 8 Stufe-3-Übungen je Karte (u. a. „Ist z ein Glied?“, periodische Folge, erstes negatives Glied, zweite Differenzen). inhalt_pruefen OK ohne Hinweise.
 

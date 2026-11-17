@@ -740,14 +740,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne ∑ₖ₌₁¹⁹ 9."
+    "text": "Es gilt ∑ₖ₌₁²⁰ k = 210. Berechne damit ∑ₖ₌₁²⁰ (3k + 1)."
    },
    "o": {
-    "wert": 171
+    "wert": 650
    },
-   "c": "19 * 9",
-   "w": "Der Term hängt nicht von k ab: 19 Summanden, jeder 9. Summe: 19 · 9 = 171.",
-   "h": "Was wird für jedes k addiert?"
+   "c": "3 * 210 + 20 * 1",
+   "w": "∑ₖ₌₁²⁰ (3k + 1) = 3 · (∑ₖ₌₁²⁰ k) + 20 · 1 = 3 · 210 + 20 = 650.",
+   "h": "Jeder Summand ist 3 · k plus 1. Der Teil „plus 1“ kommt 20-mal vor."
   },
   {
    "l": "summenzeichen",
@@ -756,29 +756,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne ∑ₖ₌₁¹⁶ 4."
+    "text": "Berechne ∑ₖ₌₁⁹ 5."
    },
    "o": {
-    "wert": 64
+    "wert": 45
    },
-   "c": "16 * 4",
-   "w": "Der Term hängt nicht von k ab: 16 Summanden, jeder 4. Summe: 16 · 4 = 64.",
-   "h": "Was wird für jedes k addiert?"
-  },
-  {
-   "l": "summenzeichen",
-   "t": "summenzeichen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne ∑ₖ₌₁¹³ 9."
-   },
-   "o": {
-    "wert": 117
-   },
-   "c": "13 * 9",
-   "w": "Der Term hängt nicht von k ab: 13 Summanden, jeder 9. Summe: 13 · 9 = 117.",
+   "c": "9 * 5",
+   "w": "Der Term hängt nicht von k ab: 9 Summanden, jeder 5. Summe: 9 · 5 = 45.",
    "h": "Was wird für jedes k addiert?"
   },
   {
@@ -788,18 +772,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welche Schreibweise passt zu 5 + 9 + 13 + 17 + 21 + 25 + 29?"
+    "text": "Welche Schreibweise passt zu 4 + 8 + 12 + 16 + 20 + 24 + 28?"
    },
    "a": [
-    "∑ₖ₌₀⁷ (4k + 1)",
-    "∑ₖ₌₁⁶ (4k + 1)",
-    "∑ₖ₌₁⁷ (4k + 5)",
-    "∑ₖ₌₁⁷ (4k + 1)"
+    "∑ₖ₌₁⁷ (4k + 4)",
+    "∑ₖ₌₁⁷ 4k",
+    "∑ₖ₌₀⁷ 4k",
+    "∑ₖ₌₁⁶ 4k"
    ],
    "o": {
-    "index": 3
+    "index": 1
    },
-   "w": "Die Glieder wachsen um 4: Term 4k + 1 (k = 1 ergibt 5). 7 Glieder: k von 1 bis 7.",
+   "w": "Die Glieder wachsen um 4: Term 4k (k = 1 ergibt 4). 7 Glieder: k von 1 bis 7.",
    "h": "Prüfe den Term mit k = 1 und zähle die Glieder."
   },
   {
@@ -809,14 +793,62 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne ∑ₖ₌₂⁶ (4k + 2)."
+    "text": "Berechne ∑ₖ₌₃⁶ (k − 5)."
    },
    "o": {
-    "wert": 90
+    "wert": -2
    },
-   "c": "(4 * 2 + (2)) + (4 * 3 + (2)) + (4 * 4 + (2)) + (4 * 5 + (2)) + (4 * 6 + (2))",
-   "w": "k = 2 bis 6: 10; 14; 18; 22; 26. Summe: 90.",
-   "h": "Beginne mit k = 2, nicht mit 1."
+   "c": "(1 * 3 + (-5)) + (1 * 4 + (-5)) + (1 * 5 + (-5)) + (1 * 6 + (-5))",
+   "w": "k = 3 bis 6: −2; −1; 0; 1. Summe: −2.",
+   "h": "Beginne mit k = 3, nicht mit 1."
+  },
+  {
+   "l": "summenzeichen",
+   "t": "summenzeichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt ∑ₖ₌₁¹⁰ k = 55. Berechne damit ∑ₖ₌₁¹⁰ (4k + 1)."
+   },
+   "o": {
+    "wert": 230
+   },
+   "c": "4 * 55 + 10 * 1",
+   "w": "∑ₖ₌₁¹⁰ (4k + 1) = 4 · (∑ₖ₌₁¹⁰ k) + 10 · 1 = 4 · 55 + 10 = 230.",
+   "h": "Jeder Summand ist 4 · k plus 1. Der Teil „plus 1“ kommt 10-mal vor."
+  },
+  {
+   "l": "summenzeichen",
+   "t": "summenzeichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne ∑ₖ₌₁⁸ 7."
+   },
+   "o": {
+    "wert": 56
+   },
+   "c": "8 * 7",
+   "w": "Der Term hängt nicht von k ab: 8 Summanden, jeder 7. Summe: 8 · 7 = 56.",
+   "h": "Was wird für jedes k addiert?"
+  },
+  {
+   "l": "summenzeichen",
+   "t": "summenzeichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne ∑ₖ₌₄⁶ 5k."
+   },
+   "o": {
+    "wert": 75
+   },
+   "c": "(5 * 4 + (0)) + (5 * 5 + (0)) + (5 * 6 + (0))",
+   "w": "k = 4 bis 6: 20; 25; 30. Summe: 75.",
+   "h": "Beginne mit k = 4, nicht mit 1."
   },
   {
    "l": "summenzeichen",
@@ -825,13 +857,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne ∑ₖ₌₁⁷ (k + 6)."
+    "text": "Berechne ∑ₖ₌₁⁸ (k − 1)."
    },
    "o": {
-    "wert": 70
+    "wert": 28
    },
-   "c": "(1 * 1 + (6)) + (1 * 2 + (6)) + (1 * 3 + (6)) + (1 * 4 + (6)) + (1 * 5 + (6)) + (1 * 6 + (6)) + (1 * 7 + (6))",
-   "w": "Glieder: 7; 8; 9; 10; 11; 12; 13. Summe: 70."
+   "c": "(1 * 1 + (-1)) + (1 * 2 + (-1)) + (1 * 3 + (-1)) + (1 * 4 + (-1)) + (1 * 5 + (-1)) + (1 * 6 + (-1)) + (1 * 7 + (-1)) + (1 * 8 + (-1))",
+   "w": "Glieder: 0; 1; 2; 3; 4; 5; 6; 7. Summe: 28."
   },
   {
    "l": "summenzeichen",
@@ -840,13 +872,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne ∑ₖ₌₁⁵ (2k − 4)."
+    "text": "Berechne ∑ₖ₌₁⁶ (−2k − 2)."
    },
    "o": {
-    "wert": 10
+    "wert": -54
    },
-   "c": "(2 * 1 + (-4)) + (2 * 2 + (-4)) + (2 * 3 + (-4)) + (2 * 4 + (-4)) + (2 * 5 + (-4))",
-   "w": "Glieder: −2; 0; 2; 4; 6. Summe: 10."
+   "c": "(-2 * 1 + (-2)) + (-2 * 2 + (-2)) + (-2 * 3 + (-2)) + (-2 * 4 + (-2)) + (-2 * 5 + (-2)) + (-2 * 6 + (-2))",
+   "w": "Glieder: −4; −6; −8; −10; −12; −14. Summe: −54."
   },
   {
    "l": "summenzeichen",
@@ -855,18 +887,33 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne ∑ₖ₌₁⁷ (3k + 6)."
+    "text": "Berechne ∑ₖ₌₁⁴ k²."
    },
    "o": {
-    "wert": 126
+    "wert": 30
    },
-   "c": "(3 * 1 + (6)) + (3 * 2 + (6)) + (3 * 3 + (6)) + (3 * 4 + (6)) + (3 * 5 + (6)) + (3 * 6 + (6)) + (3 * 7 + (6))",
-   "w": "Glieder: 9; 12; 15; 18; 21; 24; 27. Summe: 126."
+   "c": "1 ** 2 + 2 ** 2 + 3 ** 2 + 4 ** 2",
+   "w": "1 + 4 + 9 + 16 = 30."
   },
   {
    "l": "summenzeichen",
    "t": "summenzeichen",
    "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne ∑ₖ₌₁⁸ (2k + 4)."
+   },
+   "o": {
+    "wert": 104
+   },
+   "c": "(2 * 1 + (4)) + (2 * 2 + (4)) + (2 * 3 + (4)) + (2 * 4 + (4)) + (2 * 5 + (4)) + (2 * 6 + (4)) + (2 * 7 + (4)) + (2 * 8 + (4))",
+   "w": "Glieder: 6; 8; 10; 12; 14; 16; 18; 20. Summe: 104."
+  },
+  {
+   "l": "summenzeichen",
+   "t": "summenzeichen",
+   "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -885,13 +932,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne ∑ₖ₌₁⁵ (−2k − 2)."
+    "text": "Wie viele Summanden hat ∑ₖ₌₁₀³¹ (k + 1)?"
    },
    "o": {
-    "wert": -40
+    "wert": 22
    },
-   "c": "(-2 * 1 + (-2)) + (-2 * 2 + (-2)) + (-2 * 3 + (-2)) + (-2 * 4 + (-2)) + (-2 * 5 + (-2))",
-   "w": "Glieder: −4; −6; −8; −10; −12. Summe: −40."
+   "c": "31 - 10 + 1",
+   "w": "k läuft von 10 bis 31: 31 − 10 + 1 = 22 Summanden."
   },
   {
    "l": "summenzeichen",
@@ -900,13 +947,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie viele Summanden hat ∑ₖ₌₇²⁶ (k − 5)?"
+    "text": "Berechne ∑ₖ₌₁⁵ (5k + 1)."
    },
    "o": {
-    "wert": 20
+    "wert": 80
    },
-   "c": "26 - 7 + 1",
-   "w": "k läuft von 7 bis 26: 26 − 7 + 1 = 20 Summanden."
+   "c": "(5 * 1 + (1)) + (5 * 2 + (1)) + (5 * 3 + (1)) + (5 * 4 + (1)) + (5 * 5 + (1))",
+   "w": "Glieder: 6; 11; 16; 21; 26. Summe: 80."
   },
   {
    "l": "summenzeichen",
@@ -915,13 +962,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie viele Summanden hat ∑ₖ₌₂²⁹ 5k?"
+    "text": "Berechne ∑ₖ₌₁⁶ (−2k + 6)."
    },
    "o": {
-    "wert": 28
+    "wert": -6
    },
-   "c": "29 - 2 + 1",
-   "w": "k läuft von 2 bis 29: 29 − 2 + 1 = 28 Summanden."
+   "c": "(-2 * 1 + (6)) + (-2 * 2 + (6)) + (-2 * 3 + (6)) + (-2 * 4 + (6)) + (-2 * 5 + (6)) + (-2 * 6 + (6))",
+   "w": "Glieder: 4; 2; 0; −2; −4; −6. Summe: −6."
   },
   {
    "l": "summenzeichen",
@@ -930,107 +977,28 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie viele Summanden hat ∑ₖ₌₇³⁶ (−2k + 5)?"
-   },
-   "o": {
-    "wert": 30
-   },
-   "c": "36 - 7 + 1",
-   "w": "k läuft von 7 bis 36: 36 − 7 + 1 = 30 Summanden."
-  },
-  {
-   "l": "summenzeichen",
-   "t": "summenzeichen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne ∑ₖ₌₁⁵ (5k − 1)."
-   },
-   "o": {
-    "wert": 70
-   },
-   "c": "(5 * 1 + (-1)) + (5 * 2 + (-1)) + (5 * 3 + (-1)) + (5 * 4 + (-1)) + (5 * 5 + (-1))",
-   "w": "Glieder: 4; 9; 14; 19; 24. Summe: 70."
-  },
-  {
-   "l": "summenzeichen",
-   "t": "summenzeichen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele Summanden hat ∑ₖ₌₈²⁶ (−2k − 1)?"
+    "text": "Wie viele Summanden hat ∑ₖ₌₁₀²⁸ (3k − 5)?"
    },
    "o": {
     "wert": 19
    },
-   "c": "26 - 8 + 1",
-   "w": "k läuft von 8 bis 26: 26 − 8 + 1 = 19 Summanden."
+   "c": "28 - 10 + 1",
+   "w": "k läuft von 10 bis 28: 28 − 10 + 1 = 19 Summanden."
   },
   {
-   "l": "arith",
-   "t": "arith",
-   "p": "uebung",
-   "s": 1,
+   "l": "summenzeichen",
+   "t": "summenzeichen",
+   "p": "sicherung",
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Arithmetische Reihe mit n = 10, a₁ = 12 und a₁₀ = 48. Berechne S₁₀."
+    "text": "Berechne ∑ₖ₌₁⁵ (k + 3)."
    },
    "o": {
-    "wert": 300
+    "wert": 30
    },
-   "c": "10 * (12 + (48)) / 2",
-   "w": "S₁₀ = 10 · (12 + 48) : 2 = 300.",
-   "h": "Sₙ = n · (a₁ + aₙ) : 2."
-  },
-  {
-   "l": "arith",
-   "t": "arith",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 1 + 2 + 3 + … + 10."
-   },
-   "o": {
-    "wert": 55
-   },
-   "c": "10 * (1 + 10) / 2",
-   "w": "Sₙ = 10 · (1 + 10) : 2 = 55.",
-   "h": "Paare bilden: erstes + letztes, zweites + vorletztes …"
-  },
-  {
-   "l": "arith",
-   "t": "arith",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Arithmetische Reihe mit n = 22, a₁ = 14 und a₂₂ = −49. Berechne S₂₂."
-   },
-   "o": {
-    "wert": -385
-   },
-   "c": "22 * (14 + (-49)) / 2",
-   "w": "S₂₂ = 22 · (14 − 49) : 2 = −385.",
-   "h": "Sₙ = n · (a₁ + aₙ) : 2."
-  },
-  {
-   "l": "arith",
-   "t": "arith",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 1 + 2 + 3 + … + 40."
-   },
-   "o": {
-    "wert": 820
-   },
-   "c": "40 * (1 + 40) / 2",
-   "w": "Sₙ = 40 · (1 + 40) : 2 = 820.",
-   "h": "Paare bilden: erstes + letztes, zweites + vorletztes …"
+   "c": "(1 * 1 + (3)) + (1 * 2 + (3)) + (1 * 3 + (3)) + (1 * 4 + (3)) + (1 * 5 + (3))",
+   "w": "Glieder: 4; 5; 6; 7; 8. Summe: 30."
   },
   {
    "l": "arith",
@@ -1055,13 +1023,77 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Arithmetische Reihe mit n = 13, a₁ = 1 und a₁₃ = 25. Berechne S₁₃."
+    "text": "Arithmetische Reihe mit n = 11, a₁ = 5 und a₁₁ = −15. Berechne S₁₁."
    },
    "o": {
-    "wert": 169
+    "wert": -55
    },
-   "c": "13 * (1 + (25)) / 2",
-   "w": "S₁₃ = 13 · (1 + 25) : 2 = 169.",
+   "c": "11 * (5 + (-15)) / 2",
+   "w": "S₁₁ = 11 · (5 − 15) : 2 = −55.",
+   "h": "Sₙ = n · (a₁ + aₙ) : 2."
+  },
+  {
+   "l": "arith",
+   "t": "arith",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 1 + 2 + 3 + … + 80."
+   },
+   "o": {
+    "wert": 3240
+   },
+   "c": "80 * (1 + 80) / 2",
+   "w": "Sₙ = 80 · (1 + 80) : 2 = 3 240.",
+   "h": "Paare bilden: erstes + letztes, zweites + vorletztes …"
+  },
+  {
+   "l": "arith",
+   "t": "arith",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Arithmetische Reihe mit n = 10, a₁ = 13 und a₁₀ = −5. Berechne S₁₀."
+   },
+   "o": {
+    "wert": 40
+   },
+   "c": "10 * (13 + (-5)) / 2",
+   "w": "S₁₀ = 10 · (13 − 5) : 2 = 40.",
+   "h": "Sₙ = n · (a₁ + aₙ) : 2."
+  },
+  {
+   "l": "arith",
+   "t": "arith",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Arithmetische Reihe mit n = 8, a₁ = 6 und a₈ = 34. Berechne S₈."
+   },
+   "o": {
+    "wert": 160
+   },
+   "c": "8 * (6 + (34)) / 2",
+   "w": "S₈ = 8 · (6 + 34) : 2 = 160.",
+   "h": "Sₙ = n · (a₁ + aₙ) : 2."
+  },
+  {
+   "l": "arith",
+   "t": "arith",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Arithmetische Reihe mit n = 12, a₁ = −4 und a₁₂ = −37. Berechne S₁₂."
+   },
+   "o": {
+    "wert": -246
+   },
+   "c": "12 * (-4 + (-37)) / 2",
+   "w": "S₁₂ = 12 · (−4 − 37) : 2 = −246.",
    "h": "Sₙ = n · (a₁ + aₙ) : 2."
   },
   {
@@ -1071,13 +1103,29 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Summe der ersten 15 Glieder der Folge 10; 8; 6; 4; …"
+    "text": "Arithmetische Folge mit a₁ = 13 und d = −3. Berechne die Summe der ersten 10 Glieder."
    },
    "o": {
-    "wert": -60
+    "wert": -5
    },
-   "c": "15 * (10 + 10 + (15 - 1) * (-2)) / 2",
-   "w": "d = −2, a₁₅ = 10 + 14 · (−2) = −18. S₁₅ = 15 · (10 − 18) : 2 = −60.",
+   "c": "10 * (13 + 13 + (10 - 1) * (-3)) / 2",
+   "w": "a₁₀ = 13 + 9 · (−3) = −14. S₁₀ = 10 · (13 − 14) : 2 = −5.",
+   "h": "Berechne zuerst das letzte Glied aₙ."
+  },
+  {
+   "l": "arith",
+   "t": "arith",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Summe der ersten 11 Glieder der Folge 0; 2; 4; 6; …"
+   },
+   "o": {
+    "wert": 110
+   },
+   "c": "11 * (0 + 0 + (11 - 1) * (2)) / 2",
+   "w": "d = 2, a₁₁ = 0 + 10 · 2 = 20. S₁₁ = 11 · (0 + 20) : 2 = 110.",
    "h": "Bestimme d, dann aₙ, dann Sₙ."
   },
   {
@@ -1087,13 +1135,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Summe der ersten 22 Glieder der Folge 15; 17; 19; 21; …"
+    "text": "Berechne die Summe der ersten 19 Glieder der Folge 11; 8; 5; 2; …"
    },
    "o": {
-    "wert": 792
+    "wert": -304
    },
-   "c": "22 * (15 + 15 + (22 - 1) * (2)) / 2",
-   "w": "d = 2, a₂₂ = 15 + 21 · 2 = 57. S₂₂ = 22 · (15 + 57) : 2 = 792.",
+   "c": "19 * (11 + 11 + (19 - 1) * (-3)) / 2",
+   "w": "d = −3, a₁₉ = 11 + 18 · (−3) = −43. S₁₉ = 19 · (11 − 43) : 2 = −304.",
    "h": "Bestimme d, dann aₙ, dann Sₙ."
   },
   {
@@ -1103,14 +1151,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Arithmetische Reihe mit n = 24, a₁ = 7 und a₂₄ = −39. Berechne S₂₄."
+    "text": "Berechne die Summe der ersten 20 Glieder der Folge 6; 8; 10; 12; …"
    },
    "o": {
-    "wert": -384
+    "wert": 500
    },
-   "c": "24 * (7 + (-39)) / 2",
-   "w": "S₂₄ = 24 · (7 − 39) : 2 = −384.",
-   "h": "Sₙ = n · (a₁ + aₙ) : 2."
+   "c": "20 * (6 + 6 + (20 - 1) * (2)) / 2",
+   "w": "d = 2, a₂₀ = 6 + 19 · 2 = 44. S₂₀ = 20 · (6 + 44) : 2 = 500.",
+   "h": "Bestimme d, dann aₙ, dann Sₙ."
   },
   {
    "l": "arith",
@@ -1119,14 +1167,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Arithmetische Reihe mit n = 11, a₁ = 13 und a₁₁ = 63. Berechne S₁₁."
+    "text": "Berechne die Summe der ersten 30 Glieder der Folge −1; 1; 3; 5; …"
    },
    "o": {
-    "wert": 418
+    "wert": 840
    },
-   "c": "11 * (13 + (63)) / 2",
-   "w": "S₁₁ = 11 · (13 + 63) : 2 = 418.",
-   "h": "Sₙ = n · (a₁ + aₙ) : 2."
+   "c": "30 * (-1 + -1 + (30 - 1) * (2)) / 2",
+   "w": "d = 2, a₃₀ = −1 + 29 · 2 = 57. S₃₀ = 30 · (−1 + 57) : 2 = 840.",
+   "h": "Bestimme d, dann aₙ, dann Sₙ."
   },
   {
    "l": "arith",
@@ -1135,30 +1183,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Arithmetische Reihe mit n = 17, a₁ = 1 und a₁₇ = 81. Berechne S₁₇."
+    "text": "Berechne die Summe der ersten 46 Glieder der Folge 12; 16; 20; 24; …"
    },
    "o": {
-    "wert": 697
+    "wert": 4692
    },
-   "c": "17 * (1 + (81)) / 2",
-   "w": "S₁₇ = 17 · (1 + 81) : 2 = 697.",
-   "h": "Sₙ = n · (a₁ + aₙ) : 2."
-  },
-  {
-   "l": "arith",
-   "t": "arith",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Arithmetische Reihe mit n = 13, a₁ = 12 und a₁₃ = 72. Berechne S₁₃."
-   },
-   "o": {
-    "wert": 546
-   },
-   "c": "13 * (12 + (72)) / 2",
-   "w": "S₁₃ = 13 · (12 + 72) : 2 = 546.",
-   "h": "Sₙ = n · (a₁ + aₙ) : 2."
+   "c": "46 * (12 + 12 + (46 - 1) * (4)) / 2",
+   "w": "d = 4, a₄₆ = 12 + 45 · 4 = 192. S₄₆ = 46 · (12 + 192) : 2 = 4 692.",
+   "h": "Bestimme d, dann aₙ, dann Sₙ."
   },
   {
    "l": "arith",
@@ -1167,61 +1199,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Summe der ersten 25 Glieder der Folge 12; 14; 16; 18; …"
+    "text": "Berechne 34 + 35 + 36 + … + 73."
    },
    "o": {
-    "wert": 900
+    "wert": 2140
    },
-   "c": "25 * (12 + 12 + (25 - 1) * (2)) / 2",
-   "w": "d = 2, a₂₅ = 12 + 24 · 2 = 60. S₂₅ = 25 · (12 + 60) : 2 = 900.",
-   "h": "Bestimme d, dann aₙ, dann Sₙ."
-  },
-  {
-   "l": "arith",
-   "t": "arith",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Summe der ersten 36 Glieder der Folge 0; 4; 8; 12; …"
-   },
-   "o": {
-    "wert": 2520
-   },
-   "c": "36 * (0 + 0 + (36 - 1) * (4)) / 2",
-   "w": "d = 4, a₃₆ = 0 + 35 · 4 = 140. S₃₆ = 36 · (0 + 140) : 2 = 2 520.",
-   "h": "Bestimme d, dann aₙ, dann Sₙ."
-  },
-  {
-   "l": "arith",
-   "t": "arith",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Summe der ersten 24 Glieder der Folge 13; 16; 19; 22; …"
-   },
-   "o": {
-    "wert": 1140
-   },
-   "c": "24 * (13 + 13 + (24 - 1) * (3)) / 2",
-   "w": "d = 3, a₂₄ = 13 + 23 · 3 = 82. S₂₄ = 24 · (13 + 82) : 2 = 1 140.",
-   "h": "Bestimme d, dann aₙ, dann Sₙ."
-  },
-  {
-   "l": "arith",
-   "t": "arith",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 12 + 13 + 14 + … + 30."
-   },
-   "o": {
-    "wert": 399
-   },
-   "c": "(30 - 12 + 1) * (12 + 30) / 2",
-   "w": "n = 30 − 12 + 1 = 19 Glieder. S = 19 · (12 + 30) : 2 = 399.",
+   "c": "(73 - 34 + 1) * (34 + 73) / 2",
+   "w": "n = 73 − 34 + 1 = 40 Glieder. S = 40 · (34 + 73) : 2 = 2 140.",
    "h": "Zähle zuerst die Glieder (beide Enden mitzählen)."
   },
   {
@@ -1231,13 +1215,45 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne 28 + 29 + 30 + … + 52."
+    "text": "Wie viele Glieder der Folge 5; 7; 9; … muss man addieren, damit die Summe 60 ergibt?"
    },
    "o": {
-    "wert": 1000
+    "wert": 6
    },
-   "c": "(52 - 28 + 1) * (28 + 52) / 2",
-   "w": "n = 52 − 28 + 1 = 25 Glieder. S = 25 · (28 + 52) : 2 = 1 000.",
+   "c": "6",
+   "w": "Sₙ = n · (5 + 5 + (n − 1) · 2) : 2. Probieren: Für n = 6 ist a₆ = 15 und S₆ = 6 · (5 + 15) : 2 = 60.",
+   "h": "Rechne Summen für einige n aus (oder stelle Sₙ als Term in n auf) und nähere dich an."
+  },
+  {
+   "l": "arith",
+   "t": "arith",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Summe aller Vielfachen von 6 zwischen 20 und 80."
+   },
+   "o": {
+    "wert": 510
+   },
+   "c": "10 * (24 + 78) / 2",
+   "w": "Erstes Vielfaches: 24, letztes: 78. Anzahl: (78 − 24) : 6 + 1 = 10. Summe: 10 · (24 + 78) : 2 = 510.",
+   "h": "Bestimme das erste und das letzte Vielfache im Bereich und zähle, wie viele es sind."
+  },
+  {
+   "l": "arith",
+   "t": "arith",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 27 + 28 + 29 + … + 66."
+   },
+   "o": {
+    "wert": 1860
+   },
+   "c": "(66 - 27 + 1) * (27 + 66) / 2",
+   "w": "n = 66 − 27 + 1 = 40 Glieder. S = 40 · (27 + 66) : 2 = 1 860.",
    "h": "Zähle zuerst die Glieder (beide Enden mitzählen)."
   },
   {
@@ -1247,14 +1263,62 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Summe der ersten 44 Glieder der Folge 15; 18; 21; 24; …"
+    "text": "Wie viele Glieder der Folge 2; 4; 6; … muss man addieren, damit die Summe 210 ergibt?"
    },
    "o": {
-    "wert": 3498
+    "wert": 14
    },
-   "c": "44 * (15 + 15 + (44 - 1) * (3)) / 2",
-   "w": "d = 3, a₄₄ = 15 + 43 · 3 = 144. S₄₄ = 44 · (15 + 144) : 2 = 3 498.",
-   "h": "Bestimme d, dann aₙ, dann Sₙ."
+   "c": "14",
+   "w": "Sₙ = n · (2 + 2 + (n − 1) · 2) : 2. Probieren: Für n = 14 ist a₁₄ = 28 und S₁₄ = 14 · (2 + 28) : 2 = 210.",
+   "h": "Rechne Summen für einige n aus (oder stelle Sₙ als Term in n auf) und nähere dich an."
+  },
+  {
+   "l": "arith",
+   "t": "arith",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Summe aller Vielfachen von 8 zwischen 1 und 100."
+   },
+   "o": {
+    "wert": 624
+   },
+   "c": "12 * (8 + 96) / 2",
+   "w": "Erstes Vielfaches: 8, letztes: 96. Anzahl: (96 − 8) : 8 + 1 = 12. Summe: 12 · (8 + 96) : 2 = 624.",
+   "h": "Bestimme das erste und das letzte Vielfache im Bereich und zähle, wie viele es sind."
+  },
+  {
+   "l": "arith",
+   "t": "arith",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 20 + 21 + 22 + … + 53."
+   },
+   "o": {
+    "wert": 1241
+   },
+   "c": "(53 - 20 + 1) * (20 + 53) / 2",
+   "w": "n = 53 − 20 + 1 = 34 Glieder. S = 34 · (20 + 53) : 2 = 1 241.",
+   "h": "Zähle zuerst die Glieder (beide Enden mitzählen)."
+  },
+  {
+   "l": "arith",
+   "t": "arith",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Glieder der Folge 4; 8; 12; … muss man addieren, damit die Summe 264 ergibt?"
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "11",
+   "w": "Sₙ = n · (4 + 4 + (n − 1) · 4) : 2. Probieren: Für n = 11 ist a₁₁ = 44 und S₁₁ = 11 · (4 + 44) : 2 = 264.",
+   "h": "Rechne Summen für einige n aus (oder stelle Sₙ als Term in n auf) und nähere dich an."
   },
   {
    "l": "arith",
@@ -1263,13 +1327,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Summe der ersten 13 Glieder der Folge −3; 2; 7; 12; …"
+    "text": "Berechne die Summe der ersten 38 Glieder der Folge −1; 1; 3; 5; …"
    },
    "o": {
-    "wert": 351
+    "wert": 1368
    },
-   "c": "13 * (-3 + -3 + (13 - 1) * (5)) / 2",
-   "w": "d = 5, a₁₃ = −3 + 12 · 5 = 57. S₁₃ = 13 · (−3 + 57) : 2 = 351."
+   "c": "38 * (-1 + -1 + (38 - 1) * (2)) / 2",
+   "w": "d = 2, a₃₈ = −1 + 37 · 2 = 73. S₃₈ = 38 · (−1 + 73) : 2 = 1 368."
   },
   {
    "l": "arith",
@@ -1278,13 +1342,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Arithmetische Reihe mit n = 24, a₁ = −2 und a₂₄ = 90. Berechne S₂₄."
+    "text": "Berechne die Summe der ersten 15 Glieder der Folge 0; 4; 8; 12; …"
    },
    "o": {
-    "wert": 1056
+    "wert": 420
    },
-   "c": "24 * (-2 + (90)) / 2",
-   "w": "S₂₄ = 24 · (−2 + 90) : 2 = 1 056."
+   "c": "15 * (0 + 0 + (15 - 1) * (4)) / 2",
+   "w": "d = 4, a₁₅ = 0 + 14 · 4 = 56. S₁₅ = 15 · (0 + 56) : 2 = 420."
   },
   {
    "l": "arith",
@@ -1293,13 +1357,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Summe der ersten 23 Glieder der Folge 13; 17; 21; 25; …"
+    "text": "Berechne die Summe der ersten 43 Glieder der Folge −2; −5; −8; −11; …"
    },
    "o": {
-    "wert": 1311
+    "wert": -2795
    },
-   "c": "23 * (13 + 13 + (23 - 1) * (4)) / 2",
-   "w": "d = 4, a₂₃ = 13 + 22 · 4 = 101. S₂₃ = 23 · (13 + 101) : 2 = 1 311."
+   "c": "43 * (-2 + -2 + (43 - 1) * (-3)) / 2",
+   "w": "d = −3, a₄₃ = −2 + 42 · (−3) = −128. S₄₃ = 43 · (−2 − 128) : 2 = −2 795."
   },
   {
    "l": "arith",
@@ -1308,13 +1372,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Arithmetische Folge mit a₁ = −3 und d = −2. Berechne die Summe der ersten 20 Glieder."
+    "text": "Berechne die Summe der ersten 33 Glieder der Folge 2; 4; 6; 8; …"
    },
    "o": {
-    "wert": -440
+    "wert": 1122
    },
-   "c": "20 * (-3 + -3 + (20 - 1) * (-2)) / 2",
-   "w": "a₂₀ = −3 + 19 · (−2) = −41. S₂₀ = 20 · (−3 − 41) : 2 = −440."
+   "c": "33 * (2 + 2 + (33 - 1) * (2)) / 2",
+   "w": "d = 2, a₃₃ = 2 + 32 · 2 = 66. S₃₃ = 33 · (2 + 66) : 2 = 1 122."
   },
   {
    "l": "arith",
@@ -1323,13 +1387,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Summe der ersten 11 Glieder der Folge −1; 1; 3; 5; …"
+    "text": "Berechne die Summe der ersten 19 Glieder der Folge 13; 17; 21; 25; …"
    },
    "o": {
-    "wert": 99
+    "wert": 931
    },
-   "c": "11 * (-1 + -1 + (11 - 1) * (2)) / 2",
-   "w": "d = 2, a₁₁ = −1 + 10 · 2 = 19. S₁₁ = 11 · (−1 + 19) : 2 = 99."
+   "c": "19 * (13 + 13 + (19 - 1) * (4)) / 2",
+   "w": "d = 4, a₁₉ = 13 + 18 · 4 = 85. S₁₉ = 19 · (13 + 85) : 2 = 931."
   },
   {
    "l": "arith",
@@ -1338,13 +1402,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Arithmetische Folge mit a₁ = 12 und d = 4. Berechne die Summe der ersten 20 Glieder."
+    "text": "Berechne die Summe der ersten 41 Glieder der Folge 3; 5; 7; 9; …"
    },
    "o": {
-    "wert": 1000
+    "wert": 1763
    },
-   "c": "20 * (12 + 12 + (20 - 1) * (4)) / 2",
-   "w": "a₂₀ = 12 + 19 · 4 = 88. S₂₀ = 20 · (12 + 88) : 2 = 1 000."
+   "c": "41 * (3 + 3 + (41 - 1) * (2)) / 2",
+   "w": "d = 2, a₄₁ = 3 + 40 · 2 = 83. S₄₁ = 41 · (3 + 83) : 2 = 1 763."
   },
   {
    "l": "arith",
@@ -1353,13 +1417,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Arithmetische Reihe mit n = 15, a₁ = 11 und a₁₅ = 81. Berechne S₁₅."
+    "text": "Berechne die Summe der ersten 13 Glieder der Folge −4; −1; 2; 5; …"
    },
    "o": {
-    "wert": 690
+    "wert": 182
    },
-   "c": "15 * (11 + (81)) / 2",
-   "w": "S₁₅ = 15 · (11 + 81) : 2 = 690."
+   "c": "13 * (-4 + -4 + (13 - 1) * (3)) / 2",
+   "w": "d = 3, a₁₃ = −4 + 12 · 3 = 32. S₁₃ = 13 · (−4 + 32) : 2 = 182."
   },
   {
    "l": "arith",
@@ -1368,13 +1432,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Summe der ersten 16 Glieder der Folge 7; 9; 11; 13; …"
+    "text": "Berechne die Summe der ersten 34 Glieder der Folge 2; 6; 10; 14; …"
    },
    "o": {
-    "wert": 352
+    "wert": 2312
    },
-   "c": "16 * (7 + 7 + (16 - 1) * (2)) / 2",
-   "w": "d = 2, a₁₆ = 7 + 15 · 2 = 37. S₁₆ = 16 · (7 + 37) : 2 = 352."
+   "c": "34 * (2 + 2 + (34 - 1) * (4)) / 2",
+   "w": "d = 4, a₃₄ = 2 + 33 · 4 = 134. S₃₄ = 34 · (2 + 134) : 2 = 2 312."
   },
   {
    "l": "arith",
@@ -1383,13 +1447,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Arithmetische Folge mit a₁ = −4 und d = 3. Berechne die Summe der ersten 10 Glieder."
+    "text": "Berechne die Summe der ersten 24 Glieder der Folge −3; −1; 1; 3; …"
    },
    "o": {
-    "wert": 95
+    "wert": 480
    },
-   "c": "10 * (-4 + -4 + (10 - 1) * (3)) / 2",
-   "w": "a₁₀ = −4 + 9 · 3 = 23. S₁₀ = 10 · (−4 + 23) : 2 = 95."
+   "c": "24 * (-3 + -3 + (24 - 1) * (2)) / 2",
+   "w": "d = 2, a₂₄ = −3 + 23 · 2 = 43. S₂₄ = 24 · (−3 + 43) : 2 = 480."
   },
   {
    "l": "arith",
@@ -1398,13 +1462,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Arithmetische Folge mit a₁ = 15 und d = 4. Berechne die Summe der ersten 25 Glieder."
+    "text": "Berechne die Summe der ersten 45 Glieder der Folge 8; 10; 12; 14; …"
    },
    "o": {
-    "wert": 1575
+    "wert": 2340
    },
-   "c": "25 * (15 + 15 + (25 - 1) * (4)) / 2",
-   "w": "a₂₅ = 15 + 24 · 4 = 111. S₂₅ = 25 · (15 + 111) : 2 = 1 575."
+   "c": "45 * (8 + 8 + (45 - 1) * (2)) / 2",
+   "w": "d = 2, a₄₅ = 8 + 44 · 2 = 96. S₄₅ = 45 · (8 + 96) : 2 = 2 340."
   },
   {
    "l": "geom",
@@ -1413,29 +1477,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne 3 + 6 + 12 + 24 + 48."
+    "text": "Berechne 6 + 12 + 24 + 48 + 96."
    },
    "o": {
-    "wert": 93
+    "wert": 186
    },
-   "c": "3 + 6 + 12 + 24 + 48",
-   "w": "a₁ = 3, q = 2, n = 5: S = 3 · (2⁵ − 1) : (2 − 1) = 93. (Probe: Glieder addieren.)",
-   "h": "Direkt addieren oder die Summenformel nutzen."
-  },
-  {
-   "l": "geom",
-   "t": "geom",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 2 + 4 + 8 + 16 + 32."
-   },
-   "o": {
-    "wert": 62
-   },
-   "c": "2 + 4 + 8 + 16 + 32",
-   "w": "a₁ = 2, q = 2, n = 5: S = 2 · (2⁵ − 1) : (2 − 1) = 62. (Probe: Glieder addieren.)",
+   "c": "6 + 12 + 24 + 48 + 96",
+   "w": "a₁ = 6, q = 2, n = 5: S = 6 · (2⁵ − 1) : (2 − 1) = 186. (Probe: Glieder addieren.)",
    "h": "Direkt addieren oder die Summenformel nutzen."
   },
   {
@@ -1461,13 +1509,45 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne 6 + 18 + 54 + 162 + 486."
+    "text": "Geometrische Reihe mit a₁ = 5, q = 2. Berechne S₆."
    },
    "o": {
-    "wert": 726
+    "wert": 315
    },
-   "c": "6 + 18 + 54 + 162 + 486",
-   "w": "a₁ = 6, q = 3, n = 5: S = 6 · (3⁵ − 1) : (3 − 1) = 726. (Probe: Glieder addieren.)",
+   "c": "5 * (2 ** 6 - 1) / (2 - 1)",
+   "w": "S₆ = 5 · (2⁶ − 1) : (2 − 1) = 5 · 63 : 1 = 315.",
+   "h": "Sₙ = a₁ · (qⁿ − 1) : (q − 1)."
+  },
+  {
+   "l": "geom",
+   "t": "geom",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Geometrische Reihe mit a₁ = 6, q = 2. Berechne S₄."
+   },
+   "o": {
+    "wert": 90
+   },
+   "c": "6 * (2 ** 4 - 1) / (2 - 1)",
+   "w": "S₄ = 6 · (2⁴ − 1) : (2 − 1) = 6 · 15 : 1 = 90.",
+   "h": "Sₙ = a₁ · (qⁿ − 1) : (q − 1)."
+  },
+  {
+   "l": "geom",
+   "t": "geom",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 5 + 15 + 45 + 135."
+   },
+   "o": {
+    "wert": 200
+   },
+   "c": "5 + 15 + 45 + 135",
+   "w": "a₁ = 5, q = 3, n = 4: S = 5 · (3⁴ − 1) : (3 − 1) = 200. (Probe: Glieder addieren.)",
    "h": "Direkt addieren oder die Summenformel nutzen."
   },
   {
@@ -1477,30 +1557,14 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Geometrische Reihe mit a₁ = 5, q = 2. Berechne S₄."
+    "text": "Berechne 2 + 6 + 18 + 54 + 162."
    },
    "o": {
-    "wert": 75
+    "wert": 242
    },
-   "c": "5 * (2 ** 4 - 1) / (2 - 1)",
-   "w": "S₄ = 5 · (2⁴ − 1) : (2 − 1) = 5 · 15 : 1 = 75.",
-   "h": "Sₙ = a₁ · (qⁿ − 1) : (q − 1)."
-  },
-  {
-   "l": "geom",
-   "t": "geom",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Geometrische Reihe mit a₁ = 4, q = 3. Berechne S₄."
-   },
-   "o": {
-    "wert": 160
-   },
-   "c": "4 * (3 ** 4 - 1) / (3 - 1)",
-   "w": "S₄ = 4 · (3⁴ − 1) : (3 − 1) = 4 · 80 : 2 = 160.",
-   "h": "Sₙ = a₁ · (qⁿ − 1) : (q − 1)."
+   "c": "2 + 6 + 18 + 54 + 162",
+   "w": "a₁ = 2, q = 3, n = 5: S = 2 · (3⁵ − 1) : (3 − 1) = 242. (Probe: Glieder addieren.)",
+   "h": "Direkt addieren oder die Summenformel nutzen."
   },
   {
    "l": "geom",
@@ -1509,13 +1573,45 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Geometrische Reihe mit a₁ = 4 und q = −2. Berechne S₆."
+    "text": "Berechne die Summe der ersten 5 Glieder der Folge 4; 12; 36; 108; …"
    },
    "o": {
-    "wert": -84
+    "wert": 484
    },
-   "c": "4 * ((-2) ** 6 - 1) / (-2 - 1)",
-   "w": "S₆ = 4 · ((−2)⁶ − 1) : (−2 − 1) = 4 · (63) : (−3) = −84.",
+   "c": "4 * (3 ** 5 - 1) / (3 - 1)",
+   "w": "q = 3. S₅ = 4 · (3⁵ − 1) : (3 − 1) = 484.",
+   "h": "Bestimme q und setze in die Summenformel ein."
+  },
+  {
+   "l": "geom",
+   "t": "geom",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Summe der ersten 9 Glieder der Folge 5; 10; 20; 40; …"
+   },
+   "o": {
+    "wert": 2555
+   },
+   "c": "5 * (2 ** 9 - 1) / (2 - 1)",
+   "w": "q = 2. S₉ = 5 · (2⁹ − 1) : (2 − 1) = 2 555.",
+   "h": "Bestimme q und setze in die Summenformel ein."
+  },
+  {
+   "l": "geom",
+   "t": "geom",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Geometrische Reihe mit a₁ = 4 und q = −2. Berechne S₅."
+   },
+   "o": {
+    "wert": 44
+   },
+   "c": "4 * ((-2) ** 5 - 1) / (-2 - 1)",
+   "w": "S₅ = 4 · ((−2)⁵ − 1) : (−2 − 1) = 4 · (−33) : (−3) = 44.",
    "h": "Achte auf die Klammern bei der negativen Basis."
   },
   {
@@ -1525,14 +1621,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Summe der ersten 5 Glieder der Folge 6; 12; 24; 48; …"
+    "text": "Geometrische Reihe mit a₁ = 5 und q = −2. Berechne S₆."
    },
    "o": {
-    "wert": 186
+    "wert": -105
    },
-   "c": "6 * (2 ** 5 - 1) / (2 - 1)",
-   "w": "q = 2. S₅ = 6 · (2⁵ − 1) : (2 − 1) = 186.",
-   "h": "Bestimme q und setze in die Summenformel ein."
+   "c": "5 * ((-2) ** 6 - 1) / (-2 - 1)",
+   "w": "S₆ = 5 · ((−2)⁶ − 1) : (−2 − 1) = 5 · (63) : (−3) = −105.",
+   "h": "Achte auf die Klammern bei der negativen Basis."
   },
   {
    "l": "geom",
@@ -1541,14 +1637,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Summe der ersten 6 Glieder der Folge 5; 15; 45; 135; …"
+    "text": "Geometrische Reihe mit a₁ = 1 und q = −2. Berechne S₅."
    },
    "o": {
-    "wert": 1820
+    "wert": 11
    },
-   "c": "5 * (3 ** 6 - 1) / (3 - 1)",
-   "w": "q = 3. S₆ = 5 · (3⁶ − 1) : (3 − 1) = 1 820.",
-   "h": "Bestimme q und setze in die Summenformel ein."
+   "c": "1 * ((-2) ** 5 - 1) / (-2 - 1)",
+   "w": "S₅ = 1 · ((−2)⁵ − 1) : (−2 − 1) = 1 · (−33) : (−3) = 11.",
+   "h": "Achte auf die Klammern bei der negativen Basis."
   },
   {
    "l": "geom",
@@ -1557,45 +1653,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Geometrische Reihe mit a₁ = 6, q = 2. Berechne S₉."
+    "text": "Geometrische Reihe mit a₁ = 4 und q = −2. Berechne S₇."
    },
    "o": {
-    "wert": 3066
+    "wert": 172
    },
-   "c": "6 * (2 ** 9 - 1) / (2 - 1)",
-   "w": "S₉ = 6 · (2⁹ − 1) : (2 − 1) = 6 · 511 : 1 = 3 066.",
-   "h": "Sₙ = a₁ · (qⁿ − 1) : (q − 1)."
-  },
-  {
-   "l": "geom",
-   "t": "geom",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Geometrische Reihe mit a₁ = 6, q = 2. Berechne S₆."
-   },
-   "o": {
-    "wert": 378
-   },
-   "c": "6 * (2 ** 6 - 1) / (2 - 1)",
-   "w": "S₆ = 6 · (2⁶ − 1) : (2 − 1) = 6 · 63 : 1 = 378.",
-   "h": "Sₙ = a₁ · (qⁿ − 1) : (q − 1)."
-  },
-  {
-   "l": "geom",
-   "t": "geom",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Geometrische Reihe mit a₁ = 3 und q = −2. Berechne S₄."
-   },
-   "o": {
-    "wert": -15
-   },
-   "c": "3 * ((-2) ** 4 - 1) / (-2 - 1)",
-   "w": "S₄ = 3 · ((−2)⁴ − 1) : (−2 − 1) = 3 · (15) : (−3) = −15.",
+   "c": "4 * ((-2) ** 7 - 1) / (-2 - 1)",
+   "w": "S₇ = 4 · ((−2)⁷ − 1) : (−2 − 1) = 4 · (−129) : (−3) = 172.",
    "h": "Achte auf die Klammern bei der negativen Basis."
   },
   {
@@ -1605,14 +1669,62 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Summe der ersten 5 Glieder der Folge 128; 64; 32; 16; …"
+    "text": "Geometrische Reihe mit a₁ = 5 und q = 3. Wie viele Glieder muss man addieren, damit die Summe 200 ist?"
    },
    "o": {
-    "wert": 248
+    "wert": 4
    },
-   "c": "128 * (0.5 ** 5 - 1) / (0.5 - 1)",
-   "w": "q = 0,5. S₅ = 128 · (0,5⁵ − 1) : (0,5 − 1) = 248.",
-   "h": "Die Formel gilt auch für q < 1 – achte auf die Vorzeichen."
+   "c": "4",
+   "w": "5 · (3ⁿ − 1) : 2 = 200 ⇒ 3ⁿ − 1 = 80 ⇒ 3ⁿ = 81 ⇒ n = 4.",
+   "h": "Stelle nach qⁿ um und probiere Potenzen."
+  },
+  {
+   "l": "geom",
+   "t": "geom",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einem Turnier mit 128 Spielern scheidet in jedem Spiel der Verlierer aus (K.-o.-System). In Runde 1 gibt es 64 Spiele, in jeder Runde halb so viele wie in der vorigen, bis zum Finale. Wie viele Spiele gibt es insgesamt?"
+   },
+   "o": {
+    "wert": 127
+   },
+   "c": "128 - 1",
+   "w": "64 + 32 + 16 + 8 + 4 + 2 + 1: geometrische Reihe mit a₁ = 64, q = 1/2, n = 7. Summe 127. (Probe: Jeder außer dem Sieger verliert genau einmal: 128 − 1.)",
+   "h": "Schreibe die Spiele je Runde auf, bis nur noch ein Spiel übrig ist."
+  },
+  {
+   "l": "geom",
+   "t": "geom",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine geometrische Reihe hat q = 3 und S₅ = 1 089. Wie groß ist a₁?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "1089 / ((3 ** 5 - 1) / (3 - 1))",
+   "w": "S₅ = a₁ · (3⁵ − 1) : 2 = a₁ · 121. Also a₁ = 1 089 : 121 = 9.",
+   "h": "Setze in die Summenformel ein. Alles außer a₁ ist bekannt."
+  },
+  {
+   "l": "geom",
+   "t": "geom",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Geometrische Reihe mit a₁ = 5 und q = 3. Wie viele Glieder muss man addieren, damit die Summe 16 400 ist?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "8",
+   "w": "5 · (3ⁿ − 1) : 2 = 16 400 ⇒ 3ⁿ − 1 = 6 560 ⇒ 3ⁿ = 6 561 ⇒ n = 8.",
+   "h": "Stelle nach qⁿ um und probiere Potenzen."
   },
   {
    "l": "geom",
@@ -1637,46 +1749,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Geometrische Reihe mit a₁ = 6 und q = 3. Wie viele Glieder muss man addieren, damit die Summe 19 680 ist?"
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "8",
-   "w": "6 · (3ⁿ − 1) : 2 = 19 680 ⇒ 3ⁿ − 1 = 6 560 ⇒ 3ⁿ = 6 561 ⇒ n = 8.",
-   "h": "Stelle nach qⁿ um und probiere Potenzen."
-  },
-  {
-   "l": "geom",
-   "t": "geom",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Summe der ersten 4 Glieder der Folge 128; 64; 32; 16; …"
-   },
-   "o": {
-    "wert": 240
-   },
-   "c": "128 * (0.5 ** 4 - 1) / (0.5 - 1)",
-   "w": "q = 0,5. S₄ = 128 · (0,5⁴ − 1) : (0,5 − 1) = 240.",
-   "h": "Die Formel gilt auch für q < 1 – achte auf die Vorzeichen."
-  },
-  {
-   "l": "geom",
-   "t": "geom",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Geometrische Reihe mit a₁ = 5 und q = 3. Wie viele Glieder muss man addieren, damit die Summe 605 ist?"
+    "text": "Eine geometrische Reihe hat q = 2 und S₅ = 155. Wie groß ist a₁?"
    },
    "o": {
     "wert": 5
    },
-   "c": "5",
-   "w": "5 · (3ⁿ − 1) : 2 = 605 ⇒ 3ⁿ − 1 = 242 ⇒ 3ⁿ = 243 ⇒ n = 5.",
-   "h": "Stelle nach qⁿ um und probiere Potenzen."
+   "c": "155 / ((2 ** 5 - 1) / (2 - 1))",
+   "w": "S₅ = a₁ · (2⁵ − 1) : 1 = a₁ · 31. Also a₁ = 155 : 31 = 5.",
+   "h": "Setze in die Summenformel ein. Alles außer a₁ ist bekannt."
   },
   {
    "l": "geom",
@@ -1685,14 +1765,30 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Geometrische Reihe mit a₁ = 3 und q = −2. Berechne S₆."
+    "text": "Bei einem Turnier mit 32 Spielern scheidet in jedem Spiel der Verlierer aus (K.-o.-System). In Runde 1 gibt es 16 Spiele, in jeder Runde halb so viele wie in der vorigen, bis zum Finale. Wie viele Spiele gibt es insgesamt?"
    },
    "o": {
-    "wert": -63
+    "wert": 31
    },
-   "c": "3 * ((-2) ** 6 - 1) / (-2 - 1)",
-   "w": "S₆ = 3 · ((−2)⁶ − 1) : (−2 − 1) = 3 · (63) : (−3) = −63.",
-   "h": "Achte auf die Klammern bei der negativen Basis."
+   "c": "32 - 1",
+   "w": "16 + 8 + 4 + 2 + 1: geometrische Reihe mit a₁ = 16, q = 1/2, n = 5. Summe 31. (Probe: Jeder außer dem Sieger verliert genau einmal: 32 − 1.)",
+   "h": "Schreibe die Spiele je Runde auf, bis nur noch ein Spiel übrig ist."
+  },
+  {
+   "l": "geom",
+   "t": "geom",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Summe der ersten 5 Glieder der Folge 256; 128; 64; 32; …"
+   },
+   "o": {
+    "wert": 496
+   },
+   "c": "256 * (0.5 ** 5 - 1) / (0.5 - 1)",
+   "w": "q = 0,5. S₅ = 256 · (0,5⁵ − 1) : (0,5 − 1) = 496.",
+   "h": "Die Formel gilt auch für q < 1 – achte auf die Vorzeichen."
   },
   {
    "l": "geom",
@@ -1701,28 +1797,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Geometrische Reihe mit a₁ = 1, q = 2. Berechne S₉."
+    "text": "Geometrische Reihe mit a₁ = 3 und q = −2. Berechne S₆."
    },
    "o": {
-    "wert": 511
+    "wert": -63
    },
-   "c": "1 * (2 ** 9 - 1) / (2 - 1)",
-   "w": "S₉ = 1 · (2⁹ − 1) : (2 − 1) = 1 · 511 : 1 = 511."
-  },
-  {
-   "l": "geom",
-   "t": "geom",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Summe der ersten 7 Glieder der Folge 4; 12; 36; 108; …"
-   },
-   "o": {
-    "wert": 4372
-   },
-   "c": "4 * (3 ** 7 - 1) / (3 - 1)",
-   "w": "q = 3. S₇ = 4 · (3⁷ − 1) : (3 − 1) = 4 372."
+   "c": "3 * ((-2) ** 6 - 1) / (-2 - 1)",
+   "w": "S₆ = 3 · ((−2)⁶ − 1) : (−2 − 1) = 3 · (63) : (−3) = −63."
   },
   {
    "l": "geom",
@@ -1746,13 +1827,28 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Summe der ersten 9 Glieder der Folge 3; 9; 27; 81; …"
+    "text": "Berechne die Summe der ersten 7 Glieder der Folge 3; 9; 27; 81; …"
    },
    "o": {
-    "wert": 29523
+    "wert": 3279
    },
-   "c": "3 * (3 ** 9 - 1) / (3 - 1)",
-   "w": "q = 3. S₉ = 3 · (3⁹ − 1) : (3 − 1) = 29 523."
+   "c": "3 * (3 ** 7 - 1) / (3 - 1)",
+   "w": "q = 3. S₇ = 3 · (3⁷ − 1) : (3 − 1) = 3 279."
+  },
+  {
+   "l": "geom",
+   "t": "geom",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Summe der ersten 6 Glieder der Folge 2; 6; 18; 54; …"
+   },
+   "o": {
+    "wert": 728
+   },
+   "c": "2 * (3 ** 6 - 1) / (3 - 1)",
+   "w": "q = 3. S₆ = 2 · (3⁶ − 1) : (3 − 1) = 728."
   },
   {
    "l": "geom",
@@ -1761,13 +1857,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Summe der ersten 8 Glieder der Folge 3; 6; 12; 24; …"
+    "text": "Berechne die Summe der ersten 5 Glieder der Folge 5; 10; 20; 40; …"
    },
    "o": {
-    "wert": 765
+    "wert": 155
    },
-   "c": "3 * (2 ** 8 - 1) / (2 - 1)",
-   "w": "q = 2. S₈ = 3 · (2⁸ − 1) : (2 − 1) = 765."
+   "c": "5 * (2 ** 5 - 1) / (2 - 1)",
+   "w": "q = 2. S₅ = 5 · (2⁵ − 1) : (2 − 1) = 155."
   },
   {
    "l": "geom",
@@ -1776,13 +1872,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Geometrische Reihe mit a₁ = 3 und q = −2. Berechne S₅."
+    "text": "Berechne die Summe der ersten 9 Glieder der Folge 1; 3; 9; 27; …"
    },
    "o": {
-    "wert": 33
+    "wert": 9841
    },
-   "c": "3 * ((-2) ** 5 - 1) / (-2 - 1)",
-   "w": "S₅ = 3 · ((−2)⁵ − 1) : (−2 − 1) = 3 · (−33) : (−3) = 33."
+   "c": "1 * (3 ** 9 - 1) / (3 - 1)",
+   "w": "q = 3. S₉ = 1 · (3⁹ − 1) : (3 − 1) = 9 841."
   },
   {
    "l": "geom",
@@ -1791,13 +1887,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Geometrische Reihe mit a₁ = 2 und q = −2. Berechne S₇."
+    "text": "Berechne die Summe der ersten 5 Glieder der Folge 2; 6; 18; 54; …"
    },
    "o": {
-    "wert": 86
+    "wert": 242
    },
-   "c": "2 * ((-2) ** 7 - 1) / (-2 - 1)",
-   "w": "S₇ = 2 · ((−2)⁷ − 1) : (−2 − 1) = 2 · (−129) : (−3) = 86."
+   "c": "2 * (3 ** 5 - 1) / (3 - 1)",
+   "w": "q = 3. S₅ = 2 · (3⁵ − 1) : (3 − 1) = 242."
   },
   {
    "l": "geom",
@@ -1806,13 +1902,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Geometrische Reihe mit a₁ = 6 und q = −2. Berechne S₅."
+    "text": "Geometrische Reihe mit a₁ = 1 und q = −2. Berechne S₆."
    },
    "o": {
-    "wert": 66
+    "wert": -21
    },
-   "c": "6 * ((-2) ** 5 - 1) / (-2 - 1)",
-   "w": "S₅ = 6 · ((−2)⁵ − 1) : (−2 − 1) = 6 · (−33) : (−3) = 66."
+   "c": "1 * ((-2) ** 6 - 1) / (-2 - 1)",
+   "w": "S₆ = 1 · ((−2)⁶ − 1) : (−2 − 1) = 1 · (63) : (−3) = −21."
   },
   {
    "l": "geom",
@@ -1821,13 +1917,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Summe der ersten 9 Glieder der Folge 6; 18; 54; 162; …"
+    "text": "Geometrische Reihe mit a₁ = 2 und q = −2. Berechne S₅."
    },
    "o": {
-    "wert": 59046
+    "wert": 22
    },
-   "c": "6 * (3 ** 9 - 1) / (3 - 1)",
-   "w": "q = 3. S₉ = 6 · (3⁹ − 1) : (3 − 1) = 59 046."
+   "c": "2 * ((-2) ** 5 - 1) / (-2 - 1)",
+   "w": "S₅ = 2 · ((−2)⁵ − 1) : (−2 − 1) = 2 · (−33) : (−3) = 22."
   },
   {
    "l": "geom",
@@ -1836,13 +1932,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Summe der ersten 8 Glieder der Folge 4; 12; 36; 108; …"
+    "text": "Berechne die Summe der ersten 5 Glieder der Folge 3; 9; 27; 81; …"
    },
    "o": {
-    "wert": 13120
+    "wert": 363
    },
-   "c": "4 * (3 ** 8 - 1) / (3 - 1)",
-   "w": "q = 3. S₈ = 4 · (3⁸ − 1) : (3 − 1) = 13 120."
+   "c": "3 * (3 ** 5 - 1) / (3 - 1)",
+   "w": "q = 3. S₅ = 3 · (3⁵ − 1) : (3 − 1) = 363."
   },
   {
    "l": "sach",
@@ -1851,14 +1947,14 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Läufer läuft in der ersten Woche 5 km und steigert seine Strecke jede Woche um 2 km. Wie viele km läuft er in 6 Wochen insgesamt?"
+    "text": "Ein Läufer läuft in der ersten Woche 5 km und steigert seine Strecke jede Woche um 1 km. Wie viele km läuft er in 7 Wochen insgesamt?"
    },
    "o": {
-    "wert": 60,
+    "wert": 56,
     "einheit": "km"
    },
-   "c": "6 * (5 + 15) / 2",
-   "w": "Arithmetisch: a₆ = 5 + 5 · 2 = 15. S = 6 · (5 + 15) : 2 = 60 km.",
+   "c": "7 * (5 + 11) / 2",
+   "w": "Arithmetisch: a₇ = 5 + 6 · 1 = 11. S = 7 · (5 + 11) : 2 = 56 km.",
    "h": "Kommt jede Woche gleich viel dazu? Dann arithmetische Reihe."
   },
   {
@@ -1868,30 +1964,14 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Stadion-Block hat 20 Reihen. Reihe 1 hat 21 Plätze, jede Reihe 3 Plätze mehr als die vorige. Wie viele Plätze hat der Block?"
+    "text": "Ein Läufer läuft in der ersten Woche 4 km und steigert seine Strecke jede Woche um 2 km. Wie viele km läuft er in 12 Wochen insgesamt?"
    },
    "o": {
-    "wert": 990
-   },
-   "c": "20 * (21 + 78) / 2",
-   "w": "a₂₀ = 21 + 19 · 3 = 78. S = 20 · (21 + 78) : 2 = 990.",
-   "h": "Gesucht ist die Summe aller Reihen."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Läufer läuft in der ersten Woche 4 km und steigert seine Strecke jede Woche um 1 km. Wie viele km läuft er in 8 Wochen insgesamt?"
-   },
-   "o": {
-    "wert": 60,
+    "wert": 180,
     "einheit": "km"
    },
-   "c": "8 * (4 + 11) / 2",
-   "w": "Arithmetisch: a₈ = 4 + 7 · 1 = 11. S = 8 · (4 + 11) : 2 = 60 km.",
+   "c": "12 * (4 + 26) / 2",
+   "w": "Arithmetisch: a₁₂ = 4 + 11 · 2 = 26. S = 12 · (4 + 26) : 2 = 180 km.",
    "h": "Kommt jede Woche gleich viel dazu? Dann arithmetische Reihe."
   },
   {
@@ -1901,14 +1981,14 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Läufer läuft in der ersten Woche 4 km und steigert seine Strecke jede Woche um 1 km. Wie viele km läuft er in 10 Wochen insgesamt?"
+    "text": "Ein Läufer läuft in der ersten Woche 2 km und steigert seine Strecke jede Woche um 2 km. Wie viele km läuft er in 10 Wochen insgesamt?"
    },
    "o": {
-    "wert": 85,
+    "wert": 110,
     "einheit": "km"
    },
-   "c": "10 * (4 + 13) / 2",
-   "w": "Arithmetisch: a₁₀ = 4 + 9 · 1 = 13. S = 10 · (4 + 13) : 2 = 85 km.",
+   "c": "10 * (2 + 20) / 2",
+   "w": "Arithmetisch: a₁₀ = 2 + 9 · 2 = 20. S = 10 · (2 + 20) : 2 = 110 km.",
    "h": "Kommt jede Woche gleich viel dazu? Dann arithmetische Reihe."
   },
   {
@@ -1918,13 +1998,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Stadion-Block hat 10 Reihen. Reihe 1 hat 23 Plätze, jede Reihe 2 Plätze mehr als die vorige. Wie viele Plätze hat der Block?"
+    "text": "Ein Stadion-Block hat 19 Reihen. Reihe 1 hat 14 Plätze, jede Reihe 4 Plätze mehr als die vorige. Wie viele Plätze hat der Block?"
    },
    "o": {
-    "wert": 320
+    "wert": 950
    },
-   "c": "10 * (23 + 41) / 2",
-   "w": "a₁₀ = 23 + 9 · 2 = 41. S = 10 · (23 + 41) : 2 = 320.",
+   "c": "19 * (14 + 86) / 2",
+   "w": "a₁₉ = 14 + 18 · 4 = 86. S = 19 · (14 + 86) : 2 = 950.",
    "h": "Gesucht ist die Summe aller Reihen."
   },
   {
@@ -1934,46 +2014,30 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Stadion-Block hat 15 Reihen. Reihe 1 hat 20 Plätze, jede Reihe 2 Plätze mehr als die vorige. Wie viele Plätze hat der Block?"
+    "text": "Ein Läufer läuft in der ersten Woche 5 km und steigert seine Strecke jede Woche um 2 km. Wie viele km läuft er in 12 Wochen insgesamt?"
    },
    "o": {
-    "wert": 510
-   },
-   "c": "15 * (20 + 48) / 2",
-   "w": "a₁₅ = 20 + 14 · 2 = 48. S = 15 · (20 + 48) : 2 = 510.",
-   "h": "Gesucht ist die Summe aller Reihen."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Läufer läuft in der ersten Woche 5 km und steigert seine Strecke jede Woche um 2 km. Wie viele km läuft er in 7 Wochen insgesamt?"
-   },
-   "o": {
-    "wert": 77,
+    "wert": 192,
     "einheit": "km"
    },
-   "c": "7 * (5 + 17) / 2",
-   "w": "Arithmetisch: a₇ = 5 + 6 · 2 = 17. S = 7 · (5 + 17) : 2 = 77 km.",
+   "c": "12 * (5 + 27) / 2",
+   "w": "Arithmetisch: a₁₂ = 5 + 11 · 2 = 27. S = 12 · (5 + 27) : 2 = 192 km.",
    "h": "Kommt jede Woche gleich viel dazu? Dann arithmetische Reihe."
   },
   {
    "l": "sach",
    "t": "sach",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Stadion-Block hat 20 Reihen. Reihe 1 hat 19 Plätze, jede Reihe 2 Plätze mehr als die vorige. Wie viele Plätze hat der Block?"
+    "text": "Ein Stadion-Block hat 15 Reihen. Reihe 1 hat 17 Plätze, jede Reihe 2 Plätze mehr als die vorige. Wie viele Plätze hat der Block?"
    },
    "o": {
-    "wert": 760
+    "wert": 465
    },
-   "c": "20 * (19 + 57) / 2",
-   "w": "a₂₀ = 19 + 19 · 2 = 57. S = 20 · (19 + 57) : 2 = 760.",
+   "c": "15 * (17 + 45) / 2",
+   "w": "a₁₅ = 17 + 14 · 2 = 45. S = 15 · (17 + 45) : 2 = 465.",
    "h": "Gesucht ist die Summe aller Reihen."
   },
   {
@@ -1983,46 +2047,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Stadion-Block hat 21 Reihen. Reihe 1 hat 16 Plätze, jede Reihe 3 Plätze mehr als die vorige. Wie viele Plätze hat der Block?"
+    "text": "Baumstämme werden gestapelt: unten 15, darüber jeweils einer weniger, ganz oben 1. Wie viele Stämme sind es?"
    },
    "o": {
-    "wert": 966
+    "wert": 120
    },
-   "c": "21 * (16 + 76) / 2",
-   "w": "a₂₁ = 16 + 20 · 3 = 76. S = 21 · (16 + 76) : 2 = 966.",
-   "h": "Gesucht ist die Summe aller Reihen."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Lea spart im ersten Monat 5 € und legt jeden Monat 5 € mehr zurück als im Vormonat. Wie viel hat sie nach einem Jahr gespart?"
-   },
-   "o": {
-    "wert": 390,
-    "einheit": "€"
-   },
-   "c": "12 * (5 + 60) / 2",
-   "w": "a₁₂ = 5 + 11 · 5 = 60. S₁₂ = 12 · (5 + 60) : 2 = 390 €.",
-   "h": "12 Monate = 12 Glieder."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Baumstämme werden gestapelt: unten 20, darüber jeweils einer weniger, ganz oben 1. Wie viele Stämme sind es?"
-   },
-   "o": {
-    "wert": 210
-   },
-   "c": "20 * (20 + 1) / 2",
-   "w": "1 + 2 + … + 20 = 20 · (20 + 1) : 2 = 210.",
+   "c": "15 * (15 + 1) / 2",
+   "w": "1 + 2 + … + 15 = 15 · (15 + 1) : 2 = 120.",
    "h": "Von oben gelesen: 1, 2, 3, …"
   },
   {
@@ -2032,14 +2063,97 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Stadion-Block hat 23 Reihen. Reihe 1 hat 19 Plätze, jede Reihe 2 Plätze mehr als die vorige. Wie viele Plätze hat der Block?"
+    "text": "Lea spart im ersten Monat 20 € und legt jeden Monat 5 € mehr zurück als im Vormonat. Wie viel hat sie nach einem Jahr gespart?"
    },
    "o": {
-    "wert": 943
+    "wert": 570,
+    "einheit": "€"
    },
-   "c": "23 * (19 + 63) / 2",
-   "w": "a₂₃ = 19 + 22 · 2 = 63. S = 23 · (19 + 63) : 2 = 943.",
-   "h": "Gesucht ist die Summe aller Reihen."
+   "c": "12 * (20 + 75) / 2",
+   "w": "a₁₂ = 20 + 11 · 5 = 75. S₁₂ = 12 · (20 + 75) : 2 = 570 €.",
+   "h": "12 Monate = 12 Glieder."
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Baumstämme werden gestapelt: unten 19, darüber jeweils einer weniger, ganz oben 1. Wie viele Stämme sind es?"
+   },
+   "o": {
+    "wert": 190
+   },
+   "c": "19 * (19 + 1) / 2",
+   "w": "1 + 2 + … + 19 = 19 · (19 + 1) : 2 = 190.",
+   "h": "Von oben gelesen: 1, 2, 3, …"
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Lea spart im ersten Monat 10 € und legt jeden Monat 5 € mehr zurück als im Vormonat. Wie viel hat sie nach einem Jahr gespart?"
+   },
+   "o": {
+    "wert": 450,
+    "einheit": "€"
+   },
+   "c": "12 * (10 + 65) / 2",
+   "w": "a₁₂ = 10 + 11 · 5 = 65. S₁₂ = 12 · (10 + 65) : 2 = 450 €.",
+   "h": "12 Monate = 12 Glieder."
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Auf das 1. Feld eines Schachbretts legt man 1 Reiskorn, auf jedes weitere doppelt so viele wie auf das vorige. Wie viele Körner liegen auf den ersten 6 Feldern zusammen?"
+   },
+   "o": {
+    "wert": 63
+   },
+   "c": "2 ** 6 - 1",
+   "w": "1 + 2 + 4 + … : a₁ = 1, q = 2, n = 6. S = (2⁶ − 1) : 1 = 63.",
+   "h": "Geometrische Reihe mit q = 2."
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Lea spart im ersten Monat 20 € und legt jeden Monat 2 € mehr zurück als im Vormonat. Wie viel hat sie nach einem Jahr gespart?"
+   },
+   "o": {
+    "wert": 372,
+    "einheit": "€"
+   },
+   "c": "12 * (20 + 42) / 2",
+   "w": "a₁₂ = 20 + 11 · 2 = 42. S₁₂ = 12 · (20 + 42) : 2 = 372 €.",
+   "h": "12 Monate = 12 Glieder."
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Jemand spart im 1. Monat 10 € und dann jeden Monat 5 € mehr. Nach wie vielen Monaten hat er insgesamt 175 € gespart?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "Probieren mit Sₙ = n · (10 + 10 + (n − 1) · 5) : 2: Für n = 7 ergibt sich 175 €.",
+   "h": "Setze Werte für n ein oder stelle eine Gleichung auf."
   },
   {
    "l": "sach",
@@ -2064,14 +2178,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Auf das 1. Feld eines Schachbretts legt man 1 Reiskorn, auf jedes weitere doppelt so viele wie auf das vorige. Wie viele Körner liegen auf den ersten 6 Feldern zusammen?"
+    "text": "Angebot A: am 1. Tag 10 €, jeden Tag 10 € mehr. Angebot B: am 1. Tag 1 Cent, jeden Tag doppelt so viel wie am Vortag. Nach wie vielen Tagen hat man mit B insgesamt mehr Geld als mit A?"
    },
    "o": {
-    "wert": 63
+    "wert": 18
    },
-   "c": "2 ** 6 - 1",
-   "w": "1 + 2 + 4 + … : a₁ = 1, q = 2, n = 6. S = (2⁶ − 1) : 1 = 63.",
-   "h": "Geometrische Reihe mit q = 2."
+   "c": "18",
+   "w": "A nach n Tagen: 10 · n · (n + 1) : 2 €. B nach n Tagen: (2ⁿ − 1) Cent. Für n = 17: A = 1 530 €, B = 1 310,71 €. Für n = 18: A = 1 710 €, B = 2 621,43 €. Also ab Tag 18.",
+   "h": "Rechne beide Summen für einige Tage aus. Achtung: B ist in Cent."
   },
   {
    "l": "sach",
@@ -2080,45 +2194,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Bei einem Turnier spielt jede der 16 Mannschaften genau einmal gegen jede andere. Wie viele Spiele gibt es? (Mannschaft 1 spielt 15-mal, Mannschaft 2 noch 14-mal gegen neue Gegner …)"
+    "text": "Jemand spart im 1. Monat 10 € und dann jeden Monat 10 € mehr. Nach wie vielen Monaten hat er insgesamt 660 € gespart?"
    },
    "o": {
-    "wert": 120
+    "wert": 11
    },
-   "c": "(16 - 1) * 16 / 2",
-   "w": "15 + 14 + … + 1 = 15 · 16 : 2 = 120.",
-   "h": "Arithmetische Reihe von 1 bis t − 1."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Auf das 1. Feld eines Schachbretts legt man 1 Reiskorn, auf jedes weitere doppelt so viele wie auf das vorige. Wie viele Körner liegen auf den ersten 7 Feldern zusammen?"
-   },
-   "o": {
-    "wert": 127
-   },
-   "c": "2 ** 7 - 1",
-   "w": "1 + 2 + 4 + … : a₁ = 1, q = 2, n = 7. S = (2⁷ − 1) : 1 = 127.",
-   "h": "Geometrische Reihe mit q = 2."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Jemand spart im 1. Monat 10 € und dann jeden Monat 10 € mehr. Nach wie vielen Monaten hat er insgesamt 780 € gespart?"
-   },
-   "o": {
-    "wert": 12
-   },
-   "c": "12",
-   "w": "Probieren mit Sₙ = n · (10 + 10 + (n − 1) · 10) : 2: Für n = 12 ergibt sich 780 €.",
+   "c": "11",
+   "w": "Probieren mit Sₙ = n · (10 + 10 + (n − 1) · 10) : 2: Für n = 11 ergibt sich 660 €.",
    "h": "Setze Werte für n ein oder stelle eine Gleichung auf."
   },
   {
@@ -2140,17 +2222,65 @@
   {
    "l": "sach",
    "t": "sach",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Angebot A: am 1. Tag 20 €, jeden Tag 20 € mehr. Angebot B: am 1. Tag 1 Cent, jeden Tag doppelt so viel wie am Vortag. Nach wie vielen Tagen hat man mit B insgesamt mehr Geld als mit A?"
+   },
+   "o": {
+    "wert": 19
+   },
+   "c": "19",
+   "w": "A nach n Tagen: 20 · n · (n + 1) : 2 €. B nach n Tagen: (2ⁿ − 1) Cent. Für n = 18: A = 3 420 €, B = 2 621,43 €. Für n = 19: A = 3 800 €, B = 5 242,87 €. Also ab Tag 19.",
+   "h": "Rechne beide Summen für einige Tage aus. Achtung: B ist in Cent."
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einem Turnier spielt jede der 13 Mannschaften genau einmal gegen jede andere. Wie viele Spiele gibt es? (Mannschaft 1 spielt 12-mal, Mannschaft 2 noch 11-mal gegen neue Gegner …)"
+   },
+   "o": {
+    "wert": 78
+   },
+   "c": "(13 - 1) * 13 / 2",
+   "w": "12 + 11 + … + 1 = 12 · 13 : 2 = 78.",
+   "h": "Arithmetische Reihe von 1 bis t − 1."
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Jemand spart im 1. Monat 20 € und dann jeden Monat 5 € mehr. Nach wie vielen Monaten hat er insgesamt 495 € gespart?"
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "11",
+   "w": "Probieren mit Sₙ = n · (20 + 20 + (n − 1) · 5) : 2: Für n = 11 ergibt sich 495 €.",
+   "h": "Setze Werte für n ein oder stelle eine Gleichung auf."
+  },
+  {
+   "l": "sach",
+   "t": "sach",
    "p": "test",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Baumstämme werden gestapelt: unten 19, darüber jeweils einer weniger, ganz oben 1. Wie viele Stämme sind es?"
+    "text": "Auf das 1. Feld eines Schachbretts legt man 1 Reiskorn, auf jedes weitere doppelt so viele wie auf das vorige. Wie viele Körner liegen auf den ersten 8 Feldern zusammen?"
    },
    "o": {
-    "wert": 190
+    "wert": 255
    },
-   "c": "19 * (19 + 1) / 2",
-   "w": "1 + 2 + … + 19 = 19 · (19 + 1) : 2 = 190."
+   "c": "2 ** 8 - 1",
+   "w": "1 + 2 + 4 + … : a₁ = 1, q = 2, n = 8. S = (2⁸ − 1) : 1 = 255."
   },
   {
    "l": "sach",
@@ -2159,13 +2289,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Baumstämme werden gestapelt: unten 14, darüber jeweils einer weniger, ganz oben 1. Wie viele Stämme sind es?"
+    "text": "Auf das 1. Feld eines Schachbretts legt man 1 Reiskorn, auf jedes weitere doppelt so viele wie auf das vorige. Wie viele Körner liegen auf den ersten 7 Feldern zusammen?"
    },
    "o": {
-    "wert": 105
+    "wert": 127
    },
-   "c": "14 * (14 + 1) / 2",
-   "w": "1 + 2 + … + 14 = 14 · (14 + 1) : 2 = 105."
+   "c": "2 ** 7 - 1",
+   "w": "1 + 2 + 4 + … : a₁ = 1, q = 2, n = 7. S = (2⁷ − 1) : 1 = 127."
   },
   {
    "l": "sach",
@@ -2174,29 +2304,104 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Lea spart im ersten Monat 10 € und legt jeden Monat 2 € mehr zurück als im Vormonat. Wie viel hat sie nach einem Jahr gespart?"
+    "text": "Baumstämme werden gestapelt: unten 20, darüber jeweils einer weniger, ganz oben 1. Wie viele Stämme sind es?"
    },
    "o": {
-    "wert": 252,
+    "wert": 210
+   },
+   "c": "20 * (20 + 1) / 2",
+   "w": "1 + 2 + … + 20 = 20 · (20 + 1) : 2 = 210."
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Baumstämme werden gestapelt: unten 16, darüber jeweils einer weniger, ganz oben 1. Wie viele Stämme sind es?"
+   },
+   "o": {
+    "wert": 136
+   },
+   "c": "16 * (16 + 1) / 2",
+   "w": "1 + 2 + … + 16 = 16 · (16 + 1) : 2 = 136."
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Auf das 1. Feld eines Schachbretts legt man 1 Reiskorn, auf jedes weitere doppelt so viele wie auf das vorige. Wie viele Körner liegen auf den ersten 9 Feldern zusammen?"
+   },
+   "o": {
+    "wert": 511
+   },
+   "c": "2 ** 9 - 1",
+   "w": "1 + 2 + 4 + … : a₁ = 1, q = 2, n = 9. S = (2⁹ − 1) : 1 = 511."
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Baumstämme werden gestapelt: unten 12, darüber jeweils einer weniger, ganz oben 1. Wie viele Stämme sind es?"
+   },
+   "o": {
+    "wert": 78
+   },
+   "c": "12 * (12 + 1) / 2",
+   "w": "1 + 2 + … + 12 = 12 · (12 + 1) : 2 = 78."
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Baumstämme werden gestapelt: unten 13, darüber jeweils einer weniger, ganz oben 1. Wie viele Stämme sind es?"
+   },
+   "o": {
+    "wert": 91
+   },
+   "c": "13 * (13 + 1) / 2",
+   "w": "1 + 2 + … + 13 = 13 · (13 + 1) : 2 = 91."
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Baumstämme werden gestapelt: unten 18, darüber jeweils einer weniger, ganz oben 1. Wie viele Stämme sind es?"
+   },
+   "o": {
+    "wert": 171
+   },
+   "c": "18 * (18 + 1) / 2",
+   "w": "1 + 2 + … + 18 = 18 · (18 + 1) : 2 = 171."
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Lea spart im ersten Monat 5 € und legt jeden Monat 2 € mehr zurück als im Vormonat. Wie viel hat sie nach einem Jahr gespart?"
+   },
+   "o": {
+    "wert": 192,
     "einheit": "€"
    },
-   "c": "12 * (10 + 32) / 2",
-   "w": "a₁₂ = 10 + 11 · 2 = 32. S₁₂ = 12 · (10 + 32) : 2 = 252 €."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Stadion-Block hat 21 Reihen. Reihe 1 hat 18 Plätze, jede Reihe 3 Plätze mehr als die vorige. Wie viele Plätze hat der Block?"
-   },
-   "o": {
-    "wert": 1008
-   },
-   "c": "21 * (18 + 78) / 2",
-   "w": "a₂₁ = 18 + 20 · 3 = 78. S = 21 · (18 + 78) : 2 = 1 008."
+   "c": "12 * (5 + 27) / 2",
+   "w": "a₁₂ = 5 + 11 · 2 = 27. S₁₂ = 12 · (5 + 27) : 2 = 192 €."
   },
   {
    "l": "sach",
@@ -2205,90 +2410,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Stadion-Block hat 20 Reihen. Reihe 1 hat 15 Plätze, jede Reihe 4 Plätze mehr als die vorige. Wie viele Plätze hat der Block?"
+    "text": "Lea spart im ersten Monat 5 € und legt jeden Monat 5 € mehr zurück als im Vormonat. Wie viel hat sie nach einem Jahr gespart?"
    },
    "o": {
-    "wert": 1060
+    "wert": 390,
+    "einheit": "€"
    },
-   "c": "20 * (15 + 91) / 2",
-   "w": "a₂₀ = 15 + 19 · 4 = 91. S = 20 · (15 + 91) : 2 = 1 060."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Stadion-Block hat 18 Reihen. Reihe 1 hat 18 Plätze, jede Reihe 3 Plätze mehr als die vorige. Wie viele Plätze hat der Block?"
-   },
-   "o": {
-    "wert": 783
-   },
-   "c": "18 * (18 + 69) / 2",
-   "w": "a₁₈ = 18 + 17 · 3 = 69. S = 18 · (18 + 69) : 2 = 783."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Stadion-Block hat 12 Reihen. Reihe 1 hat 20 Plätze, jede Reihe 2 Plätze mehr als die vorige. Wie viele Plätze hat der Block?"
-   },
-   "o": {
-    "wert": 372
-   },
-   "c": "12 * (20 + 42) / 2",
-   "w": "a₁₂ = 20 + 11 · 2 = 42. S = 12 · (20 + 42) : 2 = 372."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Läufer läuft in der ersten Woche 2 km und steigert seine Strecke jede Woche um 1 km. Wie viele km läuft er in 9 Wochen insgesamt?"
-   },
-   "o": {
-    "wert": 54,
-    "einheit": "km"
-   },
-   "c": "9 * (2 + 10) / 2",
-   "w": "Arithmetisch: a₉ = 2 + 8 · 1 = 10. S = 9 · (2 + 10) : 2 = 54 km."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Stadion-Block hat 13 Reihen. Reihe 1 hat 23 Plätze, jede Reihe 3 Plätze mehr als die vorige. Wie viele Plätze hat der Block?"
-   },
-   "o": {
-    "wert": 533
-   },
-   "c": "13 * (23 + 59) / 2",
-   "w": "a₁₃ = 23 + 12 · 3 = 59. S = 13 · (23 + 59) : 2 = 533."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Läufer läuft in der ersten Woche 2 km und steigert seine Strecke jede Woche um 2 km. Wie viele km läuft er in 8 Wochen insgesamt?"
-   },
-   "o": {
-    "wert": 72,
-    "einheit": "km"
-   },
-   "c": "8 * (2 + 16) / 2",
-   "w": "Arithmetisch: a₈ = 2 + 7 · 2 = 16. S = 8 · (2 + 16) : 2 = 72 km."
+   "c": "12 * (5 + 60) / 2",
+   "w": "a₁₂ = 5 + 11 · 5 = 60. S₁₂ = 12 · (5 + 60) : 2 = 390 €."
   },
   {
    "l": "verstehen",
@@ -2297,39 +2426,18 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Wie viele Summanden hat ∑ₖ₌₇¹⁹ k?"
+    "text": "Arithmetische Folge mit a₁ = 8, d = 4. Gefragt: Summe der ersten 20 Glieder. Ben antwortet: 8 + 19 · 4 = 84. Stimmt das?"
    },
    "a": [
-    "14",
-    "19",
-    "13",
-    "12"
+    "Falsch: richtig ist 8 + 20 · 4 = 88.",
+    "Richtig.",
+    "Falsch: 84 ist nur a₂₀, die Summe ist S₂₀ = 920.",
+    "Falsch: richtig ist 20 · 84 = 1 680."
    ],
    "o": {
     "index": 2
    },
-   "w": "19 − 7 + 1 = 13: Beide Grenzen gehören dazu.",
-   "h": "Teste mit kleinen Zahlen: Von 3 bis 5 sind es 3, 4, 5."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Arithmetische Folge mit a₁ = 5, d = 4. Gefragt: Summe der ersten 19 Glieder. Ben antwortet: 5 + 18 · 4 = 77. Stimmt das?"
-   },
-   "a": [
-    "Falsch: richtig ist 5 + 19 · 4 = 81.",
-    "Falsch: richtig ist 19 · 77 = 1 463.",
-    "Falsch: 77 ist nur a₁₉, die Summe ist S₁₉ = 779.",
-    "Richtig."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Ben hat das letzte Glied berechnet. Die Summe: 19 · (5 + 77) : 2 = 779.",
+   "w": "Ben hat das letzte Glied berechnet. Die Summe: 20 · (8 + 84) : 2 = 920.",
    "h": "Ist nach einem Glied oder nach der Summe gefragt?"
   },
   {
@@ -2339,39 +2447,18 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Wie viele Summanden hat ∑ₖ₌₄¹⁵ k?"
+    "text": "Arithmetische Folge mit a₁ = 4, d = 5. Gefragt: Summe der ersten 20 Glieder. Ben antwortet: 4 + 19 · 5 = 99. Stimmt das?"
    },
    "a": [
-    "12",
-    "13",
-    "15",
-    "11"
+    "Falsch: richtig ist 20 · 99 = 1 980.",
+    "Falsch: richtig ist 4 + 20 · 5 = 104.",
+    "Richtig.",
+    "Falsch: 99 ist nur a₂₀, die Summe ist S₂₀ = 1 030."
    ],
    "o": {
-    "index": 0
+    "index": 3
    },
-   "w": "15 − 4 + 1 = 12: Beide Grenzen gehören dazu.",
-   "h": "Teste mit kleinen Zahlen: Von 3 bis 5 sind es 3, 4, 5."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Arithmetische Folge mit a₁ = 2, d = 5. Gefragt: Summe der ersten 16 Glieder. Ben antwortet: 2 + 15 · 5 = 77. Stimmt das?"
-   },
-   "a": [
-    "Falsch: 77 ist nur a₁₆, die Summe ist S₁₆ = 632.",
-    "Falsch: richtig ist 2 + 16 · 5 = 82.",
-    "Falsch: richtig ist 16 · 77 = 1 232.",
-    "Richtig."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Ben hat das letzte Glied berechnet. Die Summe: 16 · (2 + 77) : 2 = 632.",
+   "w": "Ben hat das letzte Glied berechnet. Die Summe: 20 · (4 + 99) : 2 = 1 030.",
    "h": "Ist nach einem Glied oder nach der Summe gefragt?"
   },
   {
@@ -2381,18 +2468,38 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Wie viele Summanden hat ∑ₖ₌₈¹³ k?"
+    "text": "Arithmetische Folge mit a₁ = 6, d = 6. Gefragt: Summe der ersten 13 Glieder. Ben antwortet: 6 + 12 · 6 = 78. Stimmt das?"
    },
    "a": [
-    "13",
-    "5",
+    "Falsch: richtig ist 6 + 13 · 6 = 84.",
+    "Richtig.",
+    "Falsch: richtig ist 13 · 78 = 1 014.",
+    "Falsch: 78 ist nur a₁₃, die Summe ist S₁₃ = 546."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ben hat das letzte Glied berechnet. Die Summe: 13 · (6 + 78) : 2 = 546.",
+   "h": "Ist nach einem Glied oder nach der Summe gefragt?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Summanden hat ∑ₖ₌₂⁸ k?"
+   },
+   "a": [
     "6",
+    "8",
     "7"
    ],
    "o": {
     "index": 2
    },
-   "w": "13 − 8 + 1 = 6: Beide Grenzen gehören dazu.",
+   "w": "8 − 2 + 1 = 7: Beide Grenzen gehören dazu.",
    "h": "Teste mit kleinen Zahlen: Von 3 bis 5 sind es 3, 4, 5."
   },
   {
@@ -2402,18 +2509,39 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Wie viele Summanden hat ∑ₖ₌₉²² k?"
+    "text": "Arithmetische Folge mit a₁ = 7, d = 4. Gefragt: Summe der ersten 16 Glieder. Ben antwortet: 7 + 15 · 4 = 67. Stimmt das?"
    },
    "a": [
-    "14",
-    "15",
-    "13",
-    "22"
+    "Richtig.",
+    "Falsch: richtig ist 16 · 67 = 1 072.",
+    "Falsch: 67 ist nur a₁₆, die Summe ist S₁₆ = 592.",
+    "Falsch: richtig ist 7 + 16 · 4 = 71."
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "w": "22 − 9 + 1 = 14: Beide Grenzen gehören dazu.",
+   "w": "Ben hat das letzte Glied berechnet. Die Summe: 16 · (7 + 67) : 2 = 592.",
+   "h": "Ist nach einem Glied oder nach der Summe gefragt?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Summanden hat ∑ₖ₌₃²⁰ k?"
+   },
+   "a": [
+    "20",
+    "17",
+    "19",
+    "18"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "20 − 3 + 1 = 18: Beide Grenzen gehören dazu.",
    "h": "Teste mit kleinen Zahlen: Von 3 bis 5 sind es 3, 4, 5."
   },
   {
@@ -2423,18 +2551,60 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Arithmetische Folge mit a₁ = 9, d = 6. Gefragt: Summe der ersten 17 Glieder. Ben antwortet: 9 + 16 · 6 = 105. Stimmt das?"
+    "text": "Eva rechnet 1 + 2 + … + 30 = 30 · (30 + 1) = 930. Stimmt das?"
    },
    "a": [
-    "Richtig.",
-    "Falsch: 105 ist nur a₁₇, die Summe ist S₁₇ = 969.",
-    "Falsch: richtig ist 17 · 105 = 1 785.",
-    "Falsch: richtig ist 9 + 17 · 6 = 111."
+    "Falsch: richtig ist 30 · 30 = 900.",
+    "Falsch: richtig ist (30 + 1) : 2 = 15,5.",
+    "Falsch: Es fehlt das Teilen durch 2; richtig ist 465.",
+    "Richtig."
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "w": "Ben hat das letzte Glied berechnet. Die Summe: 17 · (9 + 105) : 2 = 969.",
+   "w": "n · (a₁ + aₙ) zählt jedes Paar doppelt. 30 · 31 : 2 = 465.",
+   "h": "Probiere mit 1 + 2 + 3: Was liefert Evas Formel?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Summanden hat ∑ₖ₌₇²¹ k?"
+   },
+   "a": [
+    "16",
+    "21",
+    "15",
+    "14"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "21 − 7 + 1 = 15: Beide Grenzen gehören dazu.",
+   "h": "Teste mit kleinen Zahlen: Von 3 bis 5 sind es 3, 4, 5."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Arithmetische Folge mit a₁ = 6, d = 4. Gefragt: Summe der ersten 13 Glieder. Ben antwortet: 6 + 12 · 4 = 54. Stimmt das?"
+   },
+   "a": [
+    "Falsch: 54 ist nur a₁₃, die Summe ist S₁₃ = 390.",
+    "Falsch: richtig ist 13 · 54 = 702.",
+    "Falsch: richtig ist 6 + 13 · 4 = 58.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ben hat das letzte Glied berechnet. Die Summe: 13 · (6 + 54) : 2 = 390.",
    "h": "Ist nach einem Glied oder nach der Summe gefragt?"
   },
   {
@@ -2444,40 +2614,19 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Arithmetische Folge mit a₁ = 1, d = 3. Gefragt: Summe der ersten 16 Glieder. Ben antwortet: 1 + 15 · 3 = 46. Stimmt das?"
+    "text": "Wie viele Summanden hat ∑ₖ₌₇²² k?"
    },
    "a": [
-    "Richtig.",
-    "Falsch: 46 ist nur a₁₆, die Summe ist S₁₆ = 376.",
-    "Falsch: richtig ist 1 + 16 · 3 = 49.",
-    "Falsch: richtig ist 16 · 46 = 736."
+    "16",
+    "17",
+    "15",
+    "22"
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
-   "w": "Ben hat das letzte Glied berechnet. Die Summe: 16 · (1 + 46) : 2 = 376.",
-   "h": "Ist nach einem Glied oder nach der Summe gefragt?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Arithmetische Folge mit a₁ = 6, d = 3. Gefragt: Summe der ersten 12 Glieder. Ben antwortet: 6 + 11 · 3 = 39. Stimmt das?"
-   },
-   "a": [
-    "Richtig.",
-    "Falsch: 39 ist nur a₁₂, die Summe ist S₁₂ = 270.",
-    "Falsch: richtig ist 6 + 12 · 3 = 42.",
-    "Falsch: richtig ist 12 · 39 = 468."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Ben hat das letzte Glied berechnet. Die Summe: 12 · (6 + 39) : 2 = 270.",
-   "h": "Ist nach einem Glied oder nach der Summe gefragt?"
+   "w": "22 − 7 + 1 = 16: Beide Grenzen gehören dazu.",
+   "h": "Teste mit kleinen Zahlen: Von 3 bis 5 sind es 3, 4, 5."
   },
   {
    "l": "verstehen",
@@ -2489,13 +2638,13 @@
     "text": "Eva rechnet 1 + 2 + … + 100 = 100 · (100 + 1) = 10 100. Stimmt das?"
    },
    "a": [
-    "Falsch: Es fehlt das Teilen durch 2; richtig ist 5 050.",
     "Falsch: richtig ist (100 + 1) : 2 = 50,5.",
+    "Richtig.",
     "Falsch: richtig ist 100 · 100 = 10 000.",
-    "Richtig."
+    "Falsch: Es fehlt das Teilen durch 2; richtig ist 5 050."
    ],
    "o": {
-    "index": 0
+    "index": 3
    },
    "w": "n · (a₁ + aₙ) zählt jedes Paar doppelt. 100 · 101 : 2 = 5 050.",
    "h": "Probiere mit 1 + 2 + 3: Was liefert Evas Formel?"
@@ -2507,98 +2656,19 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Arithmetische Folge mit a₁ = 2, d = 2. Gefragt: Summe der ersten 13 Glieder. Ben antwortet: 2 + 12 · 2 = 26. Stimmt das?"
+    "text": "Wie viele Summanden hat ∑ₖ₌₅²⁵ k?"
    },
    "a": [
-    "Falsch: richtig ist 13 · 26 = 338.",
-    "Falsch: 26 ist nur a₁₃, die Summe ist S₁₃ = 182.",
-    "Falsch: richtig ist 2 + 13 · 2 = 28.",
-    "Richtig."
+    "22",
+    "21",
+    "25",
+    "20"
    ],
    "o": {
     "index": 1
    },
-   "w": "Ben hat das letzte Glied berechnet. Die Summe: 13 · (2 + 26) : 2 = 182.",
-   "h": "Ist nach einem Glied oder nach der Summe gefragt?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Summanden hat ∑ₖ₌₈¹⁸ k?"
-   },
-   "a": [
-    "18",
-    "10",
-    "11",
-    "12"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "18 − 8 + 1 = 11: Beide Grenzen gehören dazu.",
+   "w": "25 − 5 + 1 = 21: Beide Grenzen gehören dazu.",
    "h": "Teste mit kleinen Zahlen: Von 3 bis 5 sind es 3, 4, 5."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Arithmetische Folge mit a₁ = 6, d = 3. Gefragt: Summe der ersten 14 Glieder. Ben antwortet: 6 + 13 · 3 = 45. Stimmt das?"
-   },
-   "a": [
-    "Falsch: 45 ist nur a₁₄, die Summe ist S₁₄ = 357.",
-    "Richtig.",
-    "Falsch: richtig ist 14 · 45 = 630.",
-    "Falsch: richtig ist 6 + 14 · 3 = 48."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Ben hat das letzte Glied berechnet. Die Summe: 14 · (6 + 45) : 2 = 357.",
-   "h": "Ist nach einem Glied oder nach der Summe gefragt?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Eva rechnet 1 + 2 + … + 20 = 20 · (20 + 1) = 420. Stimmt das?"
-   },
-   "a": [
-    "Falsch: richtig ist 20 · 20 = 400.",
-    "Richtig.",
-    "Falsch: Es fehlt das Teilen durch 2; richtig ist 210.",
-    "Falsch: richtig ist (20 + 1) : 2 = 10,5."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "n · (a₁ + aₙ) zählt jedes Paar doppelt. 20 · 21 : 2 = 210.",
-   "h": "Probiere mit 1 + 2 + 3: Was liefert Evas Formel?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Für eine Folge ist S₆ = 87 und S₉ = 198. Wie groß ist a₇ + a₈ + a₉?"
-   },
-   "o": {
-    "wert": 111
-   },
-   "c": "198 - 87",
-   "w": "S₉ − S₆ = 198 − 87 = 111: genau die drei Glieder danach.",
-   "h": "Was bleibt übrig, wenn man von der längeren Summe die kürzere abzieht?"
   },
   {
    "l": "verstehen",
@@ -2610,13 +2680,13 @@
     "text": "Geometrische Reihe mit a₁ = 2, q = 2, n = 5. Tom rechnet S₅ = 2 · (2⁴ − 1) : 1 = 30. Stimmt das?"
    },
    "a": [
-    "Falsch: Man muss durch 2 teilen: 15.",
-    "Falsch: Es muss 2⁵ heißen, also 62.",
     "Falsch: Es muss 2 · 2⁴ = 32 heißen.",
-    "Richtig."
+    "Falsch: Man muss durch 2 teilen: 15.",
+    "Richtig.",
+    "Falsch: Es muss 2⁵ heißen, also 62."
    ],
    "o": {
-    "index": 1
+    "index": 3
    },
    "w": "In der Summenformel steht qⁿ. Probe mit n = 1: S₁ = 2 · (2¹ − 1) = 2 ✓.",
    "h": "Teste die Formel mit n = 1: Muss a₁ herauskommen?"
@@ -2626,18 +2696,50 @@
    "t": "verstehen",
    "p": "uebung",
    "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für eine Folge ist S₉ = 81 und S₁₂ = 144. Wie groß ist a₁₀ + a₁₁ + a₁₂?"
+   },
+   "o": {
+    "wert": 63
+   },
+   "c": "144 - 81",
+   "w": "S₁₂ − S₉ = 144 − 81 = 63: genau die drei Glieder danach.",
+   "h": "Was bleibt übrig, wenn man von der längeren Summe die kürzere abzieht?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für eine Folge gilt für jedes n: Sₙ = 3n² + 4n. Wie groß ist a₅?"
+   },
+   "o": {
+    "wert": 31
+   },
+   "c": "95 - (64)",
+   "w": "a₅ = S₅ − S₄ = 95 − 64 = 31.",
+   "h": "S₅ enthält alle Glieder bis a₅, S₄ alle bis a₄."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Geometrische Reihe mit a₁ = 4, q = 2, n = 6. Tom rechnet S₆ = 4 · (2⁵ − 1) : 1 = 124. Stimmt das?"
+    "text": "Geometrische Reihe mit a₁ = 4, q = 2, n = 8. Tom rechnet S₈ = 4 · (2⁷ − 1) : 1 = 508. Stimmt das?"
    },
    "a": [
     "Richtig.",
-    "Falsch: Es muss 4 · 2⁵ = 128 heißen.",
-    "Falsch: Es muss 2⁶ heißen, also 252.",
-    "Falsch: Man muss durch 2 teilen: 62."
+    "Falsch: Man muss durch 2 teilen: 254.",
+    "Falsch: Es muss 4 · 2⁷ = 512 heißen.",
+    "Falsch: Es muss 2⁸ heißen, also 1 020."
    ],
    "o": {
-    "index": 2
+    "index": 3
    },
    "w": "In der Summenformel steht qⁿ. Probe mit n = 1: S₁ = 4 · (2¹ − 1) = 4 ✓.",
    "h": "Teste die Formel mit n = 1: Muss a₁ herauskommen?"
@@ -2649,13 +2751,13 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Geometrische Reihe mit a₁ = 2, q = 2, n = 7. Tom rechnet S₇ = 2 · (2⁶ − 1) : 1 = 126. Stimmt das?"
+    "text": "Geometrische Reihe mit a₁ = 2, q = 2, n = 6. Tom rechnet S₆ = 2 · (2⁵ − 1) : 1 = 62. Stimmt das?"
    },
    "a": [
-    "Falsch: Man muss durch 2 teilen: 63.",
-    "Falsch: Es muss 2 · 2⁶ = 128 heißen.",
+    "Falsch: Es muss 2 · 2⁵ = 64 heißen.",
+    "Falsch: Man muss durch 2 teilen: 31.",
     "Richtig.",
-    "Falsch: Es muss 2⁷ heißen, also 254."
+    "Falsch: Es muss 2⁶ heißen, also 126."
    ],
    "o": {
     "index": 3
@@ -2666,141 +2768,135 @@
   {
    "l": "verstehen",
    "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für eine Folge gilt für jedes n: Sₙ = n² − n. Wie groß ist a₈?"
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "56 - (42)",
+   "w": "a₈ = S₈ − S₇ = 56 − 42 = 14.",
+   "h": "S₈ enthält alle Glieder bis a₈, S₇ alle bis a₇."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für eine Folge ist S₁₀ = 200 und S₁₃ = 338. Wie groß ist a₁₁ + a₁₂ + a₁₃?"
+   },
+   "o": {
+    "wert": 138
+   },
+   "c": "338 - 200",
+   "w": "S₁₃ − S₁₀ = 338 − 200 = 138: genau die drei Glieder danach.",
+   "h": "Was bleibt übrig, wenn man von der längeren Summe die kürzere abzieht?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Geometrische Reihe mit a₁ = 4, q = 2, n = 5. Tom rechnet S₅ = 4 · (2⁴ − 1) : 1 = 60. Stimmt das?"
+   },
+   "a": [
+    "Falsch: Es muss 2⁵ heißen, also 124.",
+    "Falsch: Man muss durch 2 teilen: 30.",
+    "Richtig.",
+    "Falsch: Es muss 4 · 2⁴ = 64 heißen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "In der Summenformel steht qⁿ. Probe mit n = 1: S₁ = 4 · (2¹ − 1) = 4 ✓.",
+   "h": "Teste die Formel mit n = 1: Muss a₁ herauskommen?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
    "p": "test",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Arithmetische Folge mit a₁ = 9, d = 4. Gefragt: Summe der ersten 9 Glieder. Ben antwortet: 9 + 8 · 4 = 41. Stimmt das?"
+    "text": "Arithmetische Folge mit a₁ = 5, d = 6. Gefragt: Summe der ersten 19 Glieder. Ben antwortet: 5 + 18 · 6 = 113. Stimmt das?"
    },
    "a": [
-    "Richtig.",
-    "Falsch: richtig ist 9 + 9 · 4 = 45.",
-    "Falsch: richtig ist 9 · 41 = 369.",
-    "Falsch: 41 ist nur a₉, die Summe ist S₉ = 225."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Ben hat das letzte Glied berechnet. Die Summe: 9 · (9 + 41) : 2 = 225."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Summanden hat ∑ₖ₌₂¹² k?"
-   },
-   "a": [
-    "12",
-    "11",
-    "10"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "12 − 2 + 1 = 11: Beide Grenzen gehören dazu."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Arithmetische Folge mit a₁ = 4, d = 2. Gefragt: Summe der ersten 11 Glieder. Ben antwortet: 4 + 10 · 2 = 24. Stimmt das?"
-   },
-   "a": [
-    "Richtig.",
-    "Falsch: 24 ist nur a₁₁, die Summe ist S₁₁ = 154.",
-    "Falsch: richtig ist 11 · 24 = 264.",
-    "Falsch: richtig ist 4 + 11 · 2 = 26."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Ben hat das letzte Glied berechnet. Die Summe: 11 · (4 + 24) : 2 = 154."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Arithmetische Folge mit a₁ = 4, d = 3. Gefragt: Summe der ersten 11 Glieder. Ben antwortet: 4 + 10 · 3 = 34. Stimmt das?"
-   },
-   "a": [
-    "Falsch: richtig ist 4 + 11 · 3 = 37.",
-    "Falsch: 34 ist nur a₁₁, die Summe ist S₁₁ = 209.",
-    "Richtig.",
-    "Falsch: richtig ist 11 · 34 = 374."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Ben hat das letzte Glied berechnet. Die Summe: 11 · (4 + 34) : 2 = 209."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Summanden hat ∑ₖ₌₆²¹ k?"
-   },
-   "a": [
-    "17",
-    "16",
-    "15",
-    "21"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "21 − 6 + 1 = 16: Beide Grenzen gehören dazu."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Summanden hat ∑ₖ₌₉²⁷ k?"
-   },
-   "a": [
-    "20",
-    "27",
-    "18",
-    "19"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "27 − 9 + 1 = 19: Beide Grenzen gehören dazu."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Arithmetische Folge mit a₁ = 7, d = 5. Gefragt: Summe der ersten 17 Glieder. Ben antwortet: 7 + 16 · 5 = 87. Stimmt das?"
-   },
-   "a": [
-    "Falsch: richtig ist 7 + 17 · 5 = 92.",
-    "Falsch: richtig ist 17 · 87 = 1 479.",
-    "Falsch: 87 ist nur a₁₇, die Summe ist S₁₇ = 799.",
+    "Falsch: 113 ist nur a₁₉, die Summe ist S₁₉ = 1 121.",
+    "Falsch: richtig ist 5 + 19 · 6 = 119.",
+    "Falsch: richtig ist 19 · 113 = 2 147.",
     "Richtig."
    ],
    "o": {
-    "index": 2
+    "index": 0
    },
-   "w": "Ben hat das letzte Glied berechnet. Die Summe: 17 · (7 + 87) : 2 = 799."
+   "w": "Ben hat das letzte Glied berechnet. Die Summe: 19 · (5 + 113) : 2 = 1 121."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Arithmetische Folge mit a₁ = 1, d = 5. Gefragt: Summe der ersten 20 Glieder. Ben antwortet: 1 + 19 · 5 = 96. Stimmt das?"
+   },
+   "a": [
+    "Falsch: 96 ist nur a₂₀, die Summe ist S₂₀ = 970.",
+    "Falsch: richtig ist 1 + 20 · 5 = 101.",
+    "Richtig.",
+    "Falsch: richtig ist 20 · 96 = 1 920."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ben hat das letzte Glied berechnet. Die Summe: 20 · (1 + 96) : 2 = 970."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Arithmetische Folge mit a₁ = 1, d = 6. Gefragt: Summe der ersten 20 Glieder. Ben antwortet: 1 + 19 · 6 = 115. Stimmt das?"
+   },
+   "a": [
+    "Falsch: richtig ist 20 · 115 = 2 300.",
+    "Richtig.",
+    "Falsch: richtig ist 1 + 20 · 6 = 121.",
+    "Falsch: 115 ist nur a₂₀, die Summe ist S₂₀ = 1 160."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ben hat das letzte Glied berechnet. Die Summe: 20 · (1 + 115) : 2 = 1 160."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eva rechnet 1 + 2 + … + 20 = 20 · (20 + 1) = 420. Stimmt das?"
+   },
+   "a": [
+    "Falsch: richtig ist (20 + 1) : 2 = 10,5.",
+    "Falsch: Es fehlt das Teilen durch 2; richtig ist 210.",
+    "Richtig.",
+    "Falsch: richtig ist 20 · 20 = 400."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "n · (a₁ + aₙ) zählt jedes Paar doppelt. 20 · 21 : 2 = 210."
   },
   {
    "l": "verstehen",
@@ -2809,18 +2905,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Wie viele Summanden hat ∑ₖ₌₉²³ k?"
+    "text": "Wie viele Summanden hat ∑ₖ₌₃¹³ k?"
    },
    "a": [
-    "14",
-    "15",
-    "16",
-    "23"
+    "11",
+    "12",
+    "13",
+    "10"
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
-   "w": "23 − 9 + 1 = 15: Beide Grenzen gehören dazu."
+   "w": "13 − 3 + 1 = 11: Beide Grenzen gehören dazu."
   },
   {
    "l": "verstehen",
@@ -2829,18 +2925,58 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Wie viele Summanden hat ∑ₖ₌₃⁹ k?"
+    "text": "Arithmetische Folge mit a₁ = 1, d = 2. Gefragt: Summe der ersten 18 Glieder. Ben antwortet: 1 + 17 · 2 = 35. Stimmt das?"
    },
    "a": [
-    "8",
-    "7",
-    "6",
-    "9"
+    "Falsch: 35 ist nur a₁₈, die Summe ist S₁₈ = 324.",
+    "Falsch: richtig ist 18 · 35 = 630.",
+    "Richtig.",
+    "Falsch: richtig ist 1 + 18 · 2 = 37."
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
-   "w": "9 − 3 + 1 = 7: Beide Grenzen gehören dazu."
+   "w": "Ben hat das letzte Glied berechnet. Die Summe: 18 · (1 + 35) : 2 = 324."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Summanden hat ∑ₖ₌₉²⁹ k?"
+   },
+   "a": [
+    "22",
+    "20",
+    "29",
+    "21"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "29 − 9 + 1 = 21: Beide Grenzen gehören dazu."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Arithmetische Folge mit a₁ = 4, d = 4. Gefragt: Summe der ersten 20 Glieder. Ben antwortet: 4 + 19 · 4 = 80. Stimmt das?"
+   },
+   "a": [
+    "Falsch: 80 ist nur a₂₀, die Summe ist S₂₀ = 840.",
+    "Richtig.",
+    "Falsch: richtig ist 20 · 80 = 1 600.",
+    "Falsch: richtig ist 4 + 20 · 4 = 84."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ben hat das letzte Glied berechnet. Die Summe: 20 · (4 + 80) : 2 = 840."
   },
   {
    "l": "verstehen",
@@ -2852,15 +2988,35 @@
     "text": "Eva rechnet 1 + 2 + … + 40 = 40 · (40 + 1) = 1 640. Stimmt das?"
    },
    "a": [
-    "Richtig.",
     "Falsch: richtig ist 40 · 40 = 1 600.",
     "Falsch: Es fehlt das Teilen durch 2; richtig ist 820.",
+    "Richtig.",
     "Falsch: richtig ist (40 + 1) : 2 = 20,5."
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
    "w": "n · (a₁ + aₙ) zählt jedes Paar doppelt. 40 · 41 : 2 = 820."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Summanden hat ∑ₖ₌₅²⁰ k?"
+   },
+   "a": [
+    "17",
+    "16",
+    "20",
+    "15"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "20 − 5 + 1 = 16: Beide Grenzen gehören dazu."
   }
  ],
  "offen": [

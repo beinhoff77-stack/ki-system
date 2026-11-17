@@ -192,3 +192,18 @@ Folgen (Haupt-Chat):
   Hinweis: Cusco hat damit einen zweiten Flug ohne Inhalt; der Ort gilt erst als abgeschlossen, wenn auch dieser Flug da und geschafft (oder abgewählt) ist.
 - Auftrag „Achtzehnte Runde“ (Teil A: drei neue Flüge, Zweig luecken-neu; Teil B: fehlende Etappen je Klasse, Zweige luecken-kl5 … luecken-kl10) in inhalte/AUFTRAEGE.md.
 - Die Meldung „Nachprüfung 0.74.5“ (M1–M9) des Prüf-Chats ist schon als „Zusatz 3 zum Bau-Auftrag“ beim Bau-Chat; M4 wurde mit echten Daten geprüft (kein Klasse-8-Ort im Plan der Klasse 5).
+
+## 17.11. – Schritt E zusammengeführt (App 0.74.7), Migration P3 eingespielt; K3/K4: Vergleichszahlen aus echten Daten
+- Zweig bau-phase2 (Schritt E: M1–M9, P1–P3) nach lernen-app zusammengeführt (Stand f8f069d), tests/lernen.test.cjs 46 von 46. Nicht live.
+- Migration supabase/migrations/20261117_w150_e_ort_fertig_bei_abwahl.sql eingespielt (Werkstatt-Sperre, Prüfsumme gegen das Repository). Pläne der Kinder unverändert.
+- Zum Wunsch „K3 und K4 vorziehen“ (Prüf-Chat, 17.11.): K3 und K4 sind seit Schritt D gebaut (0.74.6) – Mini-Linien GYM · RS · IB auf der Abflugtafel, „Mein Weg · Stand“ in drei Ebenen,
+  Eltern-Seite „Stand über Schularten“ (#/schulstand) mit Prozent je Klasse, Feld stufen je Kind (speichert sofort seit Schritt E). Bitte gegen die Vorgabe des Prüf-Chats nachprüfen.
+- Vergleichszahlen nach der Rechenregel „Stand“, direkt aus der Datenbank gerechnet (gelandet = Ort geschafft, „kann schon“ oder alle Pflicht-Etappen des Flugs erledigt; alle Flüge der Klasse zählen,
+  auch ohne Inhalt), Stand 17.11. mittags:
+  - Kind A · Gymnasium: Kl. 5 1/14 = 7 % · Kl. 6 0/11 · Kl. 7 0/9 · Kl. 8 0/14 · Kl. 9 0/14 · Kl. 10 0/9
+  - Kind A · Realschule: Kl. 5 1/15 = 7 % · Kl. 6 0/10 · Kl. 7 0/14 · Kl. 8 0/9 · Kl. 9 0/13 · Kl. 10 0/11
+  - Kind A · IB MYP: 1 1/19 = 5 % · 2 0/12 · 3 0/13 · 4 0/20
+  - Kind B · Gymnasium: Kl. 5 13/14 = 93 % · Kl. 6 8/11 = 73 % · Kl. 7 3/9 = 33 % · Kl. 8 0/14 · Kl. 9 0/14 · Kl. 10 0/9
+  - Kind B · Realschule: Kl. 5 12/15 = 80 % · Kl. 6 9/10 = 90 % · Kl. 7 3/14 = 21 % · Kl. 8 0/9 · Kl. 9 0/13 · Kl. 10 0/11
+  - Kind B · IB MYP: 1 15/19 = 79 % · 2 5/12 = 42 % · 3 3/13 = 23 % · 4 0/20
+  Die App sollte dieselben Zahlen zeigen; Abweichungen bitte melden (die App rechnet im Browser aus schule_uebersicht, diese Zahlen sind unabhängig per SQL gerechnet).

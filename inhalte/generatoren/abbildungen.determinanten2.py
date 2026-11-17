@@ -341,11 +341,157 @@ def g_vieleck(s):
     return bild(a, koord_bild(ps, list(NAMEN[:n])))
 
 
+# ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_rest import umbau_schreiben  # noqa: E402
+
+
+def _ko(x, y, punkte, strecken=(), **extra):
+    return {'typ': 'koordinaten', 'x': x, 'y': y, 'schritt_x': 1, 'schritt_y': 1,
+            'punkte': [{'x': a, 'y': b, 'name': n} for n, (a, b) in punkte.items()],
+            'strecken': [list(s) for s in strecken], **extra}
+
+
+def _rand(*ps):
+    return [[*ps[i], *ps[(i + 1) % len(ps)]] for i in range(len(ps))]
+
+
+_PA = {'A': (1, 1), 'B': (5, 1), 'C': (6, 4), 'D': (2, 4)}
+_DR = {'A': (-1, 0), 'B': (4, 1), 'C': (1, 5)}
+_UM = {'A': (0, 0), 'B': (1, 4), 'C': (5, 1)}
+_VI = {'A': (0, 0), 'B': (5, 1), 'C': (4, 4), 'D': (1, 3)}
+_FU = {'A': (0, 0), 'B': (4, 0), 'C': (5, 3), 'D': (2, 5), 'E': (-1, 3)}
+
+UMBAU = {
+    'det_berechnen': {
+        'einstieg': 'Ein Gärtner zeichnet seine Beete auf Karopapier. Zwei Pfeile vom selben Eckpunkt spannen ein Beet auf. '
+                    'Aus den Pfeilen bekommt man mit einer kurzen Rechnung eine Zahl. Sie heißt ⟦Determinante⟧.',
+        'woerter': [['Vektor', 'ein Pfeil, beschrieben durch „so weit nach rechts | so weit nach oben“, z. B. (4 | 2)'],
+                    ['Determinante', 'eine Zahl aus zwei Vektoren: über Kreuz malnehmen, dann abziehen']],
+        'bild': _ko([0, 6], [0, 6], {}, pfeile=[[0, 0, 4, 2, 'a'], [0, 0, 1, 3, 'b']]),
+        'schritte': [
+            {'text': 'Die Vektoren sind a = (4 | 2) und b = (1 | 3).'},
+            {'text': 'Schreibe sie als Spalten: oben 4 und 1, unten 2 und 3.',
+             'bild': {'typ': 'tabelle', 'kopf': ['', 'a', 'b'], 'zeilen': [['nach rechts', '4', '1'], ['nach oben', '2', '3']]}},
+            {'text': 'Über Kreuz malnehmen: 4 · 3 = 12 und 2 · 1 = 2.'},
+            {'text': 'Abziehen: 12 − 2 = ⟦10⟧. So groß ist die Fläche zwischen den Pfeilen.',
+             'bild': _ko([0, 6], [0, 6], {}, pfeile=[[0, 0, 4, 2, 'a'], [0, 0, 1, 3, 'b']],
+                         flaechen=[{'punkte': [[0, 0], [4, 2], [5, 5], [1, 3]]}])},
+        ],
+        'fehler': 'Plus statt Minus: 4 · 3 + 2 · 1 = 14 ist falsch. Zwischen den beiden Produkten steht immer ein ⟦Minus⟧.',
+        'regel': 'Determinante: über Kreuz malnehmen, dann abziehen. ⟦Oben links mal unten rechts⟧ minus unten links mal oben rechts.',
+    },
+    'parallelogramm': {
+        'einstieg': 'Ein Beet hat die Form eines Parallelogramms. Seine Ecken A, B, C, D liegen auf dem Plan gegen den Uhrzeigersinn. '
+                    'Wie groß ist das Beet? Die Pfeile AB und AD verraten es.',
+        'woerter': [['Parallelogramm', 'Viereck, bei dem gegenüberliegende Seiten parallel und gleich lang sind'],
+                    ['gegen den Uhrzeigersinn', 'die Ecken linksherum ablaufen: A, dann B, dann C, dann D'],
+                    ['FE', 'Flächeneinheit: ein Kästchen auf dem Plan']],
+        'bild': _ko([0, 7], [0, 5], _PA, _rand(*_PA.values())),
+        'schritte': [
+            {'text': 'Einen Vektor rechnest du als Spitze minus Fuß.'},
+            {'text': 'AB = (5 − 1 | 1 − 1) = (4 | 0).',
+             'bild': {'pfeile': [[1, 1, 5, 1, 'AB']]}},
+            {'text': 'Ebenso AD = (2 − 1 | 4 − 1) = (1 | 3).',
+             'bild': {'pfeile': [[1, 1, 5, 1, 'AB'], [1, 1, 2, 4, 'AD']]}},
+            {'text': 'Determinante: 4 · 3 − 0 · 1 = ⟦12⟧. Das Beet hat 12 FE.',
+             'bild': {'flaechen': [{'punkte': [list(p) for p in _PA.values()]}]}},
+        ],
+        'fehler': 'Mit den Punkten selbst rechnen: 5 · 4 − 1 · 2 = 18 ist falsch. '
+                  'Das wäre ein anderes Parallelogramm. Erst die ⟦Vektoren⟧ AB und AD bilden.',
+        'fehler_bild': {'pfeile': [[0, 0, 5, 1, 'B'], [0, 0, 2, 4, 'D']], 'flaechen': [{'punkte': [[0, 0], [5, 1], [7, 5], [2, 4]]}]},
+        'regel': 'Fläche des Parallelogramms = Determinante aus AB und AD. Ecken ⟦gegen den Uhrzeigersinn⟧ benennen, Ergebnis in FE.',
+    },
+    'dreieck': {
+        'einstieg': 'Ein Beet ist dreieckig. Zwei gleiche Dreiecke ergeben zusammen ein Parallelogramm. '
+                    'Also hat das Dreieck die ⟦halbe Fläche⟧ des Parallelogramms aus denselben Pfeilen.',
+        'woerter': [['1/2 ·', 'die Hälfte davon nehmen, also durch 2 teilen']],
+        'bild': _ko([-2, 7], [-1, 7], _DR, _rand(*_DR.values())),
+        'schritte': [
+            {'text': 'Die Pfeile sind AB = (5 | 1) und AC = (2 | 5).',
+             'bild': {'pfeile': [[-1, 0, 4, 1, 'AB'], [-1, 0, 1, 5, 'AC']]}},
+            {'text': 'Determinante: 5 · 5 − 1 · 2 = 23. Das ist das ganze Parallelogramm.',
+             'bild': {'strecken': _rand(*_DR.values()) + [[4, 1, 6, 6, 'gestrichelt'], [6, 6, 1, 5, 'gestrichelt']],
+                      'flaechen': [{'punkte': [[-1, 0], [4, 1], [6, 6], [1, 5]]}]}},
+            {'text': 'Das Dreieck ist die Hälfte: 1/2 · 23 = ⟦11,5 FE⟧.',
+             'bild': {'flaechen': [{'punkte': [list(p) for p in _DR.values()]}]}},
+        ],
+        'fehler': 'Die 1/2 vergessen: 23 FE ist das ganze Parallelogramm. Das Dreieck ist nur die Hälfte, also ⟦11,5 FE⟧.',
+        'fehler_bild': {'flaechen': [{'punkte': [[-1, 0], [4, 1], [6, 6], [1, 5]]}]},
+        'regel': 'Dreieck = halbes Parallelogramm. Fläche = ⟦1/2 · Determinante aus AB und AC⟧, Ecken gegen den Uhrzeigersinn.',
+    },
+    'umlaufsinn': {
+        'einstieg': 'Um ein Beet kannst du linksherum oder rechtsherum gehen. Die Determinante merkt das: '
+                    'Linksherum ist sie positiv, rechtsherum negativ. Die Richtung heißt ⟦Umlaufsinn⟧.',
+        'woerter': [['Umlaufsinn', 'die Richtung, in der man die Ecken der Reihe nach abläuft'],
+                    ['Betrag', 'die Zahl ohne Minus: Der Betrag von −19 ist 19']],
+        'bild': _ko([-1, 6], [-1, 5], _UM, _rand(*_UM.values())),
+        'schritte': [
+            {'text': 'Die Pfeile sind AB = (1 | 4) und AC = (5 | 1).',
+             'bild': {'pfeile': [[0, 0, 1, 4, 'AB'], [0, 0, 5, 1, 'AC']]}},
+            {'text': 'Determinante: 1 · 1 − 4 · 5 = ⟦−19⟧.'},
+            {'text': 'Das Minus heißt: A → B → C läuft im Uhrzeigersinn.',
+             'bild': {'pfeile': [[0, 0, 1, 4], [1, 4, 5, 1], [5, 1, 0, 0]]}},
+            {'text': 'Die Fläche ist der Betrag: 1/2 · 19 = ⟦9,5 FE⟧.',
+             'bild': {'pfeile': None, 'flaechen': [{'punkte': [list(p) for p in _UM.values()]}]}},
+        ],
+        'fehler': '„Die Fläche ist −9,5 FE“ ist falsch. Flächen sind nie negativ. Das Minus zeigt nur die ⟦falsche Reihenfolge⟧ der Ecken.',
+        'regel': 'Negative Determinante: Die Ecken laufen im Uhrzeigersinn. Die Fläche ist dann der ⟦Betrag⟧. Bei 0 liegen die Punkte auf einer Geraden.',
+    },
+    'viereck': {
+        'einstieg': 'Ein Beet hat vier Ecken, aber keine besondere Form. Spanne eine Schnur von A nach C. '
+                    'Sie teilt das Beet in zwei Dreiecke. Diese Schnur heißt ⟦Diagonale⟧.',
+        'woerter': [['Diagonale', 'Strecke zwischen zwei Ecken, die nicht nebeneinanderliegen']],
+        'bild': _ko([-1, 6], [-1, 5], _VI, _rand(*_VI.values())),
+        'schritte': [
+            {'text': 'Die Diagonale AC teilt das Viereck in die Dreiecke ABC und ACD.',
+             'bild': {'strecken': _rand(*_VI.values()) + [[0, 0, 4, 4, 'gestrichelt']]}},
+            {'text': 'AB = (5 | 1), AC = (4 | 4), AD = (1 | 3).',
+             'bild': {'pfeile': [[0, 0, 5, 1, 'AB'], [0, 0, 4, 4, 'AC'], [0, 0, 1, 3, 'AD']]}},
+            {'text': 'Dreieck ABC: 5 · 4 − 1 · 4 = 16.',
+             'bild': {'flaechen': [{'punkte': [[0, 0], [5, 1], [4, 4]]}]}},
+            {'text': 'Dreieck ACD: 4 · 3 − 4 · 1 = 8.',
+             'bild': {'flaechen': [{'punkte': [[0, 0], [5, 1], [4, 4]]}, {'punkte': [[0, 0], [4, 4], [1, 3]]}]}},
+            {'text': 'Fläche: 1/2 · (16 + 8) = ⟦12 FE⟧.'},
+        ],
+        'fehler': 'Nur 1/2 · Determinante aus AB und AD rechnen ist falsch. Das ist nur das Dreieck ABD, das Stück ⟦BCD fehlt⟧.',
+        'fehler_bild': {'pfeile': None, 'flaechen': [{'punkte': [[0, 0], [5, 1], [1, 3]]}],
+                        'strecken': _rand(*_VI.values()) + [[5, 1, 1, 3, 'gestrichelt']]},
+        'regel': 'Viereck: mit der Diagonale AC in zwei Dreiecke teilen. Beide Determinanten addieren, dann ⟦halbieren⟧.',
+    },
+    'vieleck': {
+        'einstieg': 'Ein großes Beet hat fünf Ecken. Von Ecke A aus spannst du Schnüre zu allen anderen Ecken. '
+                    'Wie bei einem ⟦Fächer⟧ entstehen lauter Dreiecke.',
+        'woerter': [['Fächer', 'Dreiecke, die alle die Ecke A gemeinsam haben'],
+                    ['benachbart', 'direkt nebeneinander, z. B. die Pfeile AC und AD']],
+        'bild': _ko([-2, 6], [-1, 6], _FU, _rand(*_FU.values())),
+        'schritte': [
+            {'text': 'Von A aus zerlegen: drei Dreiecke ABC, ACD und ADE.',
+             'bild': {'strecken': _rand(*_FU.values()) + [[0, 0, 5, 3, 'gestrichelt'], [0, 0, 2, 5, 'gestrichelt']]}},
+            {'text': 'Pfeile AB, AC, AD, AE: Rechne immer zwei benachbarte zusammen.',
+             'bild': {'pfeile': [[0, 0, 4, 0, '(4|0)'], [0, 0, 5, 3, '(5|3)'], [0, 0, 2, 5, '(2|5)'], [0, 0, -1, 3, '(−1|3)']]}},
+            {'text': 'AB mit AC: 4 · 3 − 0 · 5 = 12.',
+             'bild': {'flaechen': [{'punkte': [[0, 0], [4, 0], [5, 3]]}]}},
+            {'text': 'Ebenso AC mit AD: 19. AD mit AE: 11.',
+             'bild': {'flaechen': [{'punkte': [[0, 0], [4, 0], [5, 3]]}, {'punkte': [[0, 0], [5, 3], [2, 5]]},
+                                   {'punkte': [[0, 0], [2, 5], [-1, 3]]}]}},
+            {'text': 'Fläche: 1/2 · (12 + 19 + 11) = ⟦21 FE⟧.'},
+        ],
+        'fehler': 'Pfeile überspringen, etwa AB mit AD: Dann fehlen Stücke oder zählen doppelt. '
+                  'Immer der Reihe nach: AB mit AC, ⟦AC mit AD⟧, AD mit AE.',
+        'fehler_bild': {'pfeile': None, 'flaechen': [{'punkte': [[0, 0], [4, 0], [2, 5]]}]},
+        'regel': 'Vieleck: von A aus in Dreiecke zerlegen. Determinanten ⟦benachbarter Pfeile⟧ addieren, dann halbieren.',
+    },
+}
+UMBAU_OFFEN = ['Umbau (Paket UR): Die Lernkarten zeigen Vektoren jetzt als Pfeile. Die Aufgaben-Grafiken zeigen sie weiter als Strecken, '
+               'weil Aufgaben beim Umbau unverändert bleiben.']
+
+
 GEN = {'det_berechnen': g_det_berechnen, 'parallelogramm': g_parallelogramm, 'dreieck': g_dreieck,
        'umlaufsinn': g_umlaufsinn, 'viereck': g_viereck, 'vieleck': g_vieleck}
 
 if __name__ == '__main__':
-    bauen('abbildungen.determinanten2',
+    d = bauen('abbildungen.determinanten2',
           'Flächen von Dreiecken, Vierecken und Vielecken im Koordinatensystem mit zweireihigen Determinanten berechnen.',
           ['Determinante: a₁ · b₂ − a₂ · b₁ (über Kreuz).',
            'Parallelogramm: A = Determinante aus AB und AD. Dreieck: A = ½ · Determinante aus AB und AC.',
@@ -356,3 +502,4 @@ if __name__ == '__main__':
           ETAPPEN, GEN,
           offen=['Die App kann keine Vektorpfeile zeichnen; Vektoren erscheinen als Strecken. App-Wunsch: Pfeilspitzen bei Strecken im Koordinatensystem.',
                  'Determinanten werden als „Determinante der Vektoren a und b“ ausgeschrieben; die Spaltenschreibweise steht nur als Tabelle in der Lernkarte.'])
+    umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=['Die App kann keine Vektorpfeile zeichnen'])

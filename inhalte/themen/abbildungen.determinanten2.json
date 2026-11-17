@@ -41,38 +41,142 @@
    {
     "lernziel": "det_berechnen",
     "titel": "Eine Determinante berechnen",
-    "regel": "Schreibe zwei Vektoren a = (a₁ | a₂) und b = (b₁ | b₂) als Spalten nebeneinander. Die ⟦Determinante⟧ ist die Zahl ⟦a₁ · b₂ − a₂ · b₁⟧: „links oben mal rechts unten minus links unten mal rechts oben“ – über Kreuz.",
+    "regel": "Determinante: über Kreuz malnehmen, dann abziehen. ⟦Oben links mal unten rechts⟧ minus unten links mal oben rechts.",
     "bild": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "a",
-      "b"
+     "typ": "koordinaten",
+     "x": [
+      0,
+      6
      ],
-     "zeilen": [
+     "y": [
+      0,
+      6
+     ],
+     "schritt_x": 1,
+     "schritt_y": 1,
+     "punkte": [],
+     "strecken": [],
+     "pfeile": [
       [
-       "x",
-       "4",
-       "1"
+       0,
+       0,
+       4,
+       2,
+       "a"
       ],
       [
-       "y",
-       "2",
-       "3"
+       0,
+       0,
+       1,
+       3,
+       "b"
       ]
      ]
     },
     "schritte": [
-     "Vektoren a = (4 | 2) und b = (1 | 3): oben steht 4 und 1, unten 2 und 3 (siehe Tabelle).",
-     "Über Kreuz: 4 · 3 − 2 · 1 = 12 − 2 = ⟦10⟧."
+     {
+      "text": "Die Vektoren sind a = (4 | 2) und b = (1 | 3)."
+     },
+     {
+      "text": "Schreibe sie als Spalten: oben 4 und 1, unten 2 und 3.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "a",
+        "b"
+       ],
+       "zeilen": [
+        [
+         "nach rechts",
+         "4",
+         "1"
+        ],
+        [
+         "nach oben",
+         "2",
+         "3"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Über Kreuz malnehmen: 4 · 3 = 12 und 2 · 1 = 2."
+     },
+     {
+      "text": "Abziehen: 12 − 2 = ⟦10⟧. So groß ist die Fläche zwischen den Pfeilen.",
+      "bild": {
+       "typ": "koordinaten",
+       "x": [
+        0,
+        6
+       ],
+       "y": [
+        0,
+        6
+       ],
+       "schritt_x": 1,
+       "schritt_y": 1,
+       "punkte": [],
+       "strecken": [],
+       "pfeile": [
+        [
+         0,
+         0,
+         4,
+         2,
+         "a"
+        ],
+        [
+         0,
+         0,
+         1,
+         3,
+         "b"
+        ]
+       ],
+       "flaechen": [
+        {
+         "punkte": [
+          [
+           0,
+           0
+          ],
+          [
+           4,
+           2
+          ],
+          [
+           5,
+           5
+          ],
+          [
+           1,
+           3
+          ]
+         ]
+        }
+       ]
+      }
+     }
     ],
-    "probe": "Vertauschst du a und b, kommt −10 heraus: 1 · 2 − 3 · 4 = −10. Die Reihenfolge zählt.",
-    "fehler": "4 · 3 ⟦+⟧ 2 · 1 = 14 ist falsch: Zwischen den beiden Produkten steht ein ⟦Minus⟧. Ebenso falsch: 4 · 2 − 1 · 3 (das rechnet waagrecht statt über Kreuz)."
+    "fehler": "Plus statt Minus: 4 · 3 + 2 · 1 = 14 ist falsch. Zwischen den beiden Produkten steht immer ein ⟦Minus⟧.",
+    "einstieg": "Ein Gärtner zeichnet seine Beete auf Karopapier. Zwei Pfeile vom selben Eckpunkt spannen ein Beet auf. Aus den Pfeilen bekommt man mit einer kurzen Rechnung eine Zahl. Sie heißt ⟦Determinante⟧.",
+    "woerter": [
+     [
+      "Vektor",
+      "ein Pfeil, beschrieben durch „so weit nach rechts | so weit nach oben“, z. B. (4 | 2)"
+     ],
+     [
+      "Determinante",
+      "eine Zahl aus zwei Vektoren: über Kreuz malnehmen, dann abziehen"
+     ]
+    ]
    },
    {
     "lernziel": "parallelogramm",
     "titel": "Fläche eines Parallelogramms",
-    "regel": "Spannen die Vektoren AB und AD das Parallelogramm ABCD auf (Ecken ⟦gegen den Uhrzeigersinn⟧), dann gilt: ⟦A = Determinante aus AB und AD⟧ in Flächeneinheiten (FE). Stell dir die Determinante als Maschine vor, die aus zwei Pfeilen die Fläche zwischen ihnen macht.",
+    "regel": "Fläche des Parallelogramms = Determinante aus AB und AD. Ecken ⟦gegen den Uhrzeigersinn⟧ benennen, Ergebnis in FE.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -135,29 +239,249 @@
      ]
     },
     "schritte": [
-     "A(1 | 1), B(5 | 1), D(2 | 4): Vektor AB = (5 − 1 | 1 − 1) = (4 | 0), Vektor AD = (2 − 1 | 4 − 1) = (1 | 3).",
-     "Determinante: 4 · 3 − 0 · 1 = 12. Das Parallelogramm hat ⟦12 FE⟧."
+     {
+      "text": "Einen Vektor rechnest du als Spitze minus Fuß."
+     },
+     {
+      "text": "AB = (5 − 1 | 1 − 1) = (4 | 0).",
+      "bild": {
+       "pfeile": [
+        [
+         1,
+         1,
+         5,
+         1,
+         "AB"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Ebenso AD = (2 − 1 | 4 − 1) = (1 | 3).",
+      "bild": {
+       "pfeile": [
+        [
+         1,
+         1,
+         5,
+         1,
+         "AB"
+        ],
+        [
+         1,
+         1,
+         2,
+         4,
+         "AD"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Determinante: 4 · 3 − 0 · 1 = ⟦12⟧. Das Beet hat 12 FE.",
+      "bild": {
+       "flaechen": [
+        {
+         "punkte": [
+          [
+           1,
+           1
+          ],
+          [
+           5,
+           1
+          ],
+          [
+           6,
+           4
+          ],
+          [
+           2,
+           4
+          ]
+         ]
+        }
+       ]
+      }
+     }
     ],
-    "probe": "Grundseite 4, Höhe 3: 4 · 3 = 12 ✓",
-    "fehler": "Mit den Punkten selbst rechnen, also 5 · 4 − 1 · 2 = 18, ist falsch: Zuerst die ⟦Vektoren⟧ AB und AD bilden (Spitze minus Fuß), erst dann die Determinante."
+    "fehler": "Mit den Punkten selbst rechnen: 5 · 4 − 1 · 2 = 18 ist falsch. Das wäre ein anderes Parallelogramm. Erst die ⟦Vektoren⟧ AB und AD bilden.",
+    "einstieg": "Ein Beet hat die Form eines Parallelogramms. Seine Ecken A, B, C, D liegen auf dem Plan gegen den Uhrzeigersinn. Wie groß ist das Beet? Die Pfeile AB und AD verraten es.",
+    "woerter": [
+     [
+      "Parallelogramm",
+      "Viereck, bei dem gegenüberliegende Seiten parallel und gleich lang sind"
+     ],
+     [
+      "gegen den Uhrzeigersinn",
+      "die Ecken linksherum ablaufen: A, dann B, dann C, dann D"
+     ],
+     [
+      "FE",
+      "Flächeneinheit: ein Kästchen auf dem Plan"
+     ]
+    ],
+    "fehler_bild": {
+     "pfeile": [
+      [
+       0,
+       0,
+       5,
+       1,
+       "B"
+      ],
+      [
+       0,
+       0,
+       2,
+       4,
+       "D"
+      ]
+     ],
+     "flaechen": [
+      {
+       "punkte": [
+        [
+         0,
+         0
+        ],
+        [
+         5,
+         1
+        ],
+        [
+         7,
+         5
+        ],
+        [
+         2,
+         4
+        ]
+       ]
+      }
+     ]
+    }
    },
    {
     "lernziel": "dreieck",
     "titel": "Fläche eines Dreiecks",
-    "regel": "Ein Dreieck ABC ist ein ⟦halbes Parallelogramm⟧. Deshalb gilt bei ABC gegen den Uhrzeigersinn: ⟦A = ½ · Determinante aus AB und AC⟧.",
+    "regel": "Dreieck = halbes Parallelogramm. Fläche = ⟦1/2 · Determinante aus AB und AC⟧, Ecken gegen den Uhrzeigersinn.",
     "schritte": [
-     "A(−1 | 0), B(4 | 1), C(1 | 5): Vektor AB = (5 | 1), Vektor AC = (2 | 5).",
-     "Determinante: 5 · 5 − 1 · 2 = 23. Fläche: ½ · 23 = ⟦11,5 FE⟧."
+     {
+      "text": "Die Pfeile sind AB = (5 | 1) und AC = (2 | 5).",
+      "bild": {
+       "pfeile": [
+        [
+         -1,
+         0,
+         4,
+         1,
+         "AB"
+        ],
+        [
+         -1,
+         0,
+         1,
+         5,
+         "AC"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Determinante: 5 · 5 − 1 · 2 = 23. Das ist das ganze Parallelogramm.",
+      "bild": {
+       "strecken": [
+        [
+         -1,
+         0,
+         4,
+         1
+        ],
+        [
+         4,
+         1,
+         1,
+         5
+        ],
+        [
+         1,
+         5,
+         -1,
+         0
+        ],
+        [
+         4,
+         1,
+         6,
+         6,
+         "gestrichelt"
+        ],
+        [
+         6,
+         6,
+         1,
+         5,
+         "gestrichelt"
+        ]
+       ],
+       "flaechen": [
+        {
+         "punkte": [
+          [
+           -1,
+           0
+          ],
+          [
+           4,
+           1
+          ],
+          [
+           6,
+           6
+          ],
+          [
+           1,
+           5
+          ]
+         ]
+        }
+       ]
+      }
+     },
+     {
+      "text": "Das Dreieck ist die Hälfte: 1/2 · 23 = ⟦11,5 FE⟧.",
+      "bild": {
+       "flaechen": [
+        {
+         "punkte": [
+          [
+           -1,
+           0
+          ],
+          [
+           4,
+           1
+          ],
+          [
+           1,
+           5
+          ]
+         ]
+        }
+       ]
+      }
+     }
     ],
     "bild": {
      "typ": "koordinaten",
      "x": [
       -2,
-      5
+      7
      ],
      "y": [
       -1,
-      6
+      7
      ],
      "schritt_x": 1,
      "schritt_y": 1,
@@ -199,22 +523,185 @@
       ]
      ]
     },
-    "fehler": "Das ⟦½⟧ vergessen: 23 FE wäre die Fläche des ganzen Parallelogramms, das Dreieck ist nur die Hälfte, also 11,5 FE."
+    "fehler": "Die 1/2 vergessen: 23 FE ist das ganze Parallelogramm. Das Dreieck ist nur die Hälfte, also ⟦11,5 FE⟧.",
+    "einstieg": "Ein Beet ist dreieckig. Zwei gleiche Dreiecke ergeben zusammen ein Parallelogramm. Also hat das Dreieck die ⟦halbe Fläche⟧ des Parallelogramms aus denselben Pfeilen.",
+    "woerter": [
+     [
+      "1/2 ·",
+      "die Hälfte davon nehmen, also durch 2 teilen"
+     ]
+    ],
+    "fehler_bild": {
+     "flaechen": [
+      {
+       "punkte": [
+        [
+         -1,
+         0
+        ],
+        [
+         4,
+         1
+        ],
+        [
+         6,
+         6
+        ],
+        [
+         1,
+         5
+        ]
+       ]
+      }
+     ]
+    }
    },
    {
     "lernziel": "umlaufsinn",
     "titel": "Was sagt das Vorzeichen?",
-    "regel": "Die Formel braucht die Ecken ⟦gegen den Uhrzeigersinn⟧ (mathematisch positiver Umlaufsinn). Ist die Determinante ⟦negativ⟧, laufen die Ecken im Uhrzeigersinn – die Fläche ist der ⟦Betrag⟧. Ist sie ⟦0⟧, liegen die Punkte auf einer Geraden: kein Dreieck.",
+    "regel": "Negative Determinante: Die Ecken laufen im Uhrzeigersinn. Die Fläche ist dann der ⟦Betrag⟧. Bei 0 liegen die Punkte auf einer Geraden.",
     "schritte": [
-     "A(0 | 0), B(1 | 4), C(5 | 1): Vektor AB = (1 | 4), Vektor AC = (5 | 1). Determinante: 1 · 1 − 4 · 5 = −19.",
-     "Negativ: A → B → C läuft ⟦im Uhrzeigersinn⟧. Richtig benannt (A, C, B) ergibt sich +19, Fläche ⟦9,5 FE⟧."
+     {
+      "text": "Die Pfeile sind AB = (1 | 4) und AC = (5 | 1).",
+      "bild": {
+       "pfeile": [
+        [
+         0,
+         0,
+         1,
+         4,
+         "AB"
+        ],
+        [
+         0,
+         0,
+         5,
+         1,
+         "AC"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Determinante: 1 · 1 − 4 · 5 = ⟦−19⟧."
+     },
+     {
+      "text": "Das Minus heißt: A → B → C läuft im Uhrzeigersinn.",
+      "bild": {
+       "pfeile": [
+        [
+         0,
+         0,
+         1,
+         4
+        ],
+        [
+         1,
+         4,
+         5,
+         1
+        ],
+        [
+         5,
+         1,
+         0,
+         0
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Die Fläche ist der Betrag: 1/2 · 19 = ⟦9,5 FE⟧.",
+      "bild": {
+       "pfeile": null,
+       "flaechen": [
+        {
+         "punkte": [
+          [
+           0,
+           0
+          ],
+          [
+           1,
+           4
+          ],
+          [
+           5,
+           1
+          ]
+         ]
+        }
+       ]
+      }
+     }
     ],
-    "fehler": "„Die Fläche ist −9,5 FE“ ist falsch: Flächen sind nie negativ. Das Minus zeigt nur die ⟦falsche Reihenfolge⟧ der Ecken an."
+    "fehler": "„Die Fläche ist −9,5 FE“ ist falsch. Flächen sind nie negativ. Das Minus zeigt nur die ⟦falsche Reihenfolge⟧ der Ecken.",
+    "einstieg": "Um ein Beet kannst du linksherum oder rechtsherum gehen. Die Determinante merkt das: Linksherum ist sie positiv, rechtsherum negativ. Die Richtung heißt ⟦Umlaufsinn⟧.",
+    "woerter": [
+     [
+      "Umlaufsinn",
+      "die Richtung, in der man die Ecken der Reihe nach abläuft"
+     ],
+     [
+      "Betrag",
+      "die Zahl ohne Minus: Der Betrag von −19 ist 19"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      6
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "schritt_x": 1,
+     "schritt_y": 1,
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "A"
+      },
+      {
+       "x": 1,
+       "y": 4,
+       "name": "B"
+      },
+      {
+       "x": 5,
+       "y": 1,
+       "name": "C"
+      }
+     ],
+     "strecken": [
+      [
+       0,
+       0,
+       1,
+       4
+      ],
+      [
+       1,
+       4,
+       5,
+       1
+      ],
+      [
+       5,
+       1,
+       0,
+       0
+      ]
+     ]
+    }
    },
    {
     "lernziel": "viereck",
     "titel": "Fläche eines Vierecks",
-    "regel": "Die ⟦Diagonale AC⟧ zerlegt das Viereck ABCD in die Dreiecke ABC und ACD. Darum gilt: ⟦A = ½ · (Determinante aus AB und AC + Determinante aus AC und AD)⟧. Das klappt auch bei Drachen, Trapezen und schiefen Vierecken.",
+    "regel": "Viereck: mit der Diagonale AC in zwei Dreiecke teilen. Beide Determinanten addieren, dann ⟦halbieren⟧.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -273,31 +760,213 @@
        3,
        0,
        0
-      ],
-      [
-       0,
-       0,
-       4,
-       4,
-       "gestrichelt"
       ]
      ]
     },
     "schritte": [
-     "A(0 | 0), B(5 | 1), C(4 | 4), D(1 | 3): Vektoren AB = (5 | 1), AC = (4 | 4), AD = (1 | 3).",
-     "D₁ = 5 · 4 − 1 · 4 = 16; D₂ = 4 · 3 − 4 · 1 = 8.",
-     "A = ½ · (16 + 8) = ⟦12 FE⟧."
+     {
+      "text": "Die Diagonale AC teilt das Viereck in die Dreiecke ABC und ACD.",
+      "bild": {
+       "strecken": [
+        [
+         0,
+         0,
+         5,
+         1
+        ],
+        [
+         5,
+         1,
+         4,
+         4
+        ],
+        [
+         4,
+         4,
+         1,
+         3
+        ],
+        [
+         1,
+         3,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         4,
+         4,
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "AB = (5 | 1), AC = (4 | 4), AD = (1 | 3).",
+      "bild": {
+       "pfeile": [
+        [
+         0,
+         0,
+         5,
+         1,
+         "AB"
+        ],
+        [
+         0,
+         0,
+         4,
+         4,
+         "AC"
+        ],
+        [
+         0,
+         0,
+         1,
+         3,
+         "AD"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Dreieck ABC: 5 · 4 − 1 · 4 = 16.",
+      "bild": {
+       "flaechen": [
+        {
+         "punkte": [
+          [
+           0,
+           0
+          ],
+          [
+           5,
+           1
+          ],
+          [
+           4,
+           4
+          ]
+         ]
+        }
+       ]
+      }
+     },
+     {
+      "text": "Dreieck ACD: 4 · 3 − 4 · 1 = 8.",
+      "bild": {
+       "flaechen": [
+        {
+         "punkte": [
+          [
+           0,
+           0
+          ],
+          [
+           5,
+           1
+          ],
+          [
+           4,
+           4
+          ]
+         ]
+        },
+        {
+         "punkte": [
+          [
+           0,
+           0
+          ],
+          [
+           4,
+           4
+          ],
+          [
+           1,
+           3
+          ]
+         ]
+        }
+       ]
+      }
+     },
+     {
+      "text": "Fläche: 1/2 · (16 + 8) = ⟦12 FE⟧."
+     }
     ],
-    "fehler": "Nur ½ · Determinante aus AB und AD zu rechnen (½ · 14 = 7) ist falsch: Das ist das Dreieck ABD – das Stück ⟦BCD fehlt⟧. Immer über die Diagonale AC in zwei Dreiecke zerlegen."
+    "fehler": "Nur 1/2 · Determinante aus AB und AD rechnen ist falsch. Das ist nur das Dreieck ABD, das Stück ⟦BCD fehlt⟧.",
+    "einstieg": "Ein Beet hat vier Ecken, aber keine besondere Form. Spanne eine Schnur von A nach C. Sie teilt das Beet in zwei Dreiecke. Diese Schnur heißt ⟦Diagonale⟧.",
+    "woerter": [
+     [
+      "Diagonale",
+      "Strecke zwischen zwei Ecken, die nicht nebeneinanderliegen"
+     ]
+    ],
+    "fehler_bild": {
+     "pfeile": null,
+     "flaechen": [
+      {
+       "punkte": [
+        [
+         0,
+         0
+        ],
+        [
+         5,
+         1
+        ],
+        [
+         1,
+         3
+        ]
+       ]
+      }
+     ],
+     "strecken": [
+      [
+       0,
+       0,
+       5,
+       1
+      ],
+      [
+       5,
+       1,
+       4,
+       4
+      ],
+      [
+       4,
+       4,
+       1,
+       3
+      ],
+      [
+       1,
+       3,
+       0,
+       0
+      ],
+      [
+       5,
+       1,
+       1,
+       3,
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "vieleck",
     "titel": "Fläche eines Vielecks",
-    "regel": "Ein n-Eck zerlegst du von A aus wie einen ⟦Fächer⟧ in Dreiecke. Mit den Vektoren AB, AC, AD, AE … rechnest du die Determinanten ⟦benachbarter Vektoren⟧, addierst sie und nimmst die ⟦Hälfte⟧.",
+    "regel": "Vieleck: von A aus in Dreiecke zerlegen. Determinanten ⟦benachbarter Pfeile⟧ addieren, dann halbieren.",
     "bild": {
      "typ": "koordinaten",
      "x": [
-      -1,
+      -2,
       6
      ],
      "y": [
@@ -363,29 +1032,211 @@
        3,
        0,
        0
-      ],
-      [
-       0,
-       0,
-       5,
-       3,
-       "gestrichelt"
-      ],
-      [
-       0,
-       0,
-       2,
-       5,
-       "gestrichelt"
       ]
      ]
     },
     "schritte": [
-     "Fünfeck A(0 | 0), B(4 | 0), C(5 | 3), D(2 | 5), E(−1 | 3): AB = (4 | 0), AC = (5 | 3), AD = (2 | 5), AE = (−1 | 3).",
-     "D₁ = 4 · 3 − 0 · 5 = 12; D₂ = 5 · 5 − 3 · 2 = 19; D₃ = 2 · 3 − 5 · (−1) = 11.",
-     "A = ½ · (12 + 19 + 11) = ⟦21 FE⟧."
+     {
+      "text": "Von A aus zerlegen: drei Dreiecke ABC, ACD und ADE.",
+      "bild": {
+       "strecken": [
+        [
+         0,
+         0,
+         4,
+         0
+        ],
+        [
+         4,
+         0,
+         5,
+         3
+        ],
+        [
+         5,
+         3,
+         2,
+         5
+        ],
+        [
+         2,
+         5,
+         -1,
+         3
+        ],
+        [
+         -1,
+         3,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         5,
+         3,
+         "gestrichelt"
+        ],
+        [
+         0,
+         0,
+         2,
+         5,
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Pfeile AB, AC, AD, AE: Rechne immer zwei benachbarte zusammen.",
+      "bild": {
+       "pfeile": [
+        [
+         0,
+         0,
+         4,
+         0,
+         "(4|0)"
+        ],
+        [
+         0,
+         0,
+         5,
+         3,
+         "(5|3)"
+        ],
+        [
+         0,
+         0,
+         2,
+         5,
+         "(2|5)"
+        ],
+        [
+         0,
+         0,
+         -1,
+         3,
+         "(−1|3)"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "AB mit AC: 4 · 3 − 0 · 5 = 12.",
+      "bild": {
+       "flaechen": [
+        {
+         "punkte": [
+          [
+           0,
+           0
+          ],
+          [
+           4,
+           0
+          ],
+          [
+           5,
+           3
+          ]
+         ]
+        }
+       ]
+      }
+     },
+     {
+      "text": "Ebenso AC mit AD: 19. AD mit AE: 11.",
+      "bild": {
+       "flaechen": [
+        {
+         "punkte": [
+          [
+           0,
+           0
+          ],
+          [
+           4,
+           0
+          ],
+          [
+           5,
+           3
+          ]
+         ]
+        },
+        {
+         "punkte": [
+          [
+           0,
+           0
+          ],
+          [
+           5,
+           3
+          ],
+          [
+           2,
+           5
+          ]
+         ]
+        },
+        {
+         "punkte": [
+          [
+           0,
+           0
+          ],
+          [
+           2,
+           5
+          ],
+          [
+           -1,
+           3
+          ]
+         ]
+        }
+       ]
+      }
+     },
+     {
+      "text": "Fläche: 1/2 · (12 + 19 + 11) = ⟦21 FE⟧."
+     }
     ],
-    "fehler": "Determinanten von Vektoren bilden, die ⟦nicht nebeneinander⟧ liegen (z. B. AB und AD), zählt Dreiecke doppelt oder lässt Stücke aus. Immer der Reihe nach: AB mit AC, AC mit AD, AD mit AE."
+    "fehler": "Pfeile überspringen, etwa AB mit AD: Dann fehlen Stücke oder zählen doppelt. Immer der Reihe nach: AB mit AC, ⟦AC mit AD⟧, AD mit AE.",
+    "einstieg": "Ein großes Beet hat fünf Ecken. Von Ecke A aus spannst du Schnüre zu allen anderen Ecken. Wie bei einem ⟦Fächer⟧ entstehen lauter Dreiecke.",
+    "woerter": [
+     [
+      "Fächer",
+      "Dreiecke, die alle die Ecke A gemeinsam haben"
+     ],
+     [
+      "benachbart",
+      "direkt nebeneinander, z. B. die Pfeile AC und AD"
+     ]
+    ],
+    "fehler_bild": {
+     "pfeile": null,
+     "flaechen": [
+      {
+       "punkte": [
+        [
+         0,
+         0
+        ],
+        [
+         4,
+         0
+        ],
+        [
+         2,
+         5
+        ]
+       ]
+      }
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [
@@ -5427,7 +6278,7 @@
   }
  ],
  "offen": [
-  "Die App kann keine Vektorpfeile zeichnen; Vektoren erscheinen als Strecken. App-Wunsch: Pfeilspitzen bei Strecken im Koordinatensystem.",
-  "Determinanten werden als „Determinante der Vektoren a und b“ ausgeschrieben; die Spaltenschreibweise steht nur als Tabelle in der Lernkarte."
+  "Determinanten werden als „Determinante der Vektoren a und b“ ausgeschrieben; die Spaltenschreibweise steht nur als Tabelle in der Lernkarte.",
+  "Umbau (Paket UR): Die Lernkarten zeigen Vektoren jetzt als Pfeile. Die Aufgaben-Grafiken zeigen sie weiter als Strecken, weil Aufgaben beim Umbau unverändert bleiben."
  ]
 }

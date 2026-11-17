@@ -769,3 +769,43 @@ if __name__ == '__main__':
           offen=['Strahlensatzaufgaben zeigen die Figur jetzt als Zeichnung (f.grafik); der Fragetext nennt nur noch die Maße. Bitte in der App prüfen, ob die Beschriftungen bei spitzen Winkeln gut lesbar sind.'])
     anhaengen(d, 9909, schwer)
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+
+
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl9) ----
+from _durchsicht_kl9 import Befunde as _DSB, durchsicht  # noqa: E402
+
+DS = _DSB('abbildungen.aehnlichkeit', 19_9_7)
+# streckung: Bildpunkt mit k = 2 ist genau das Beispiel der Karte → Stufe 1 (negative und gebrochene k bleiben Stufe 2)
+for _t in ('Strecke den Punkt P(5 | −1) zentrisch mit dem Zentrum Z(2 | 1) und k = 2. Gib den Bildpunkt P\' an.',
+           'Strecke den Punkt P(−1 | 1) zentrisch mit dem Zentrum Z(−2 | 2) und k = 2. Gib den Bildpunkt P\' an.',
+           'Strecke den Punkt P(−3 | 1) zentrisch mit dem Zentrum Z(0 | −1) und k = 2. Gib den Bildpunkt P\' an.'):
+    DS.stufe('streckung', _t, 1)
+# aehnlich: „ähnlich über Winkel?“ steht viermal auf Stufe 2; die drei gleichen Aufgaben auf Stufe 3 werden durch andere Gedanken ersetzt
+DS.ersetze('aehnlich', 'Dreieck 1 hat die Winkel 71° und 30°. Dreieck 2 hat die Winkel 30° und 79°. Sind die Dreiecke ähnlich?',
+           DS.A('Zwei gleichschenklige Dreiecke haben beide einen Winkel von 50°. Sind sie sicher ähnlich?', 'Nein: 50° kann Spitzen- oder Basiswinkel sein (50°, 50°, 80° oder 50°, 65°, 65°).',
+                ['Ja, ein gleicher Winkel reicht bei gleichschenkligen Dreiecken.', 'Ja, denn alle gleichschenkligen Dreiecke sind ähnlich.', 'Nein, weil die Seitenlängen fehlen.'],
+                'Ist 50° der Spitzenwinkel, sind die Basiswinkel je 65°. Ist 50° ein Basiswinkel, ist der Spitzenwinkel 80°. Die Winkel stimmen dann nicht überein.',
+                'Wo kann der 50°-Winkel im gleichschenkligen Dreieck liegen?'))
+DS.ersetze('aehnlich', 'Dreieck 1 hat die Winkel 25° und 55°. Dreieck 2 hat die Winkel 55° und 105°. Sind die Dreiecke ähnlich?',
+           DS.A('Zwei rechtwinklige Dreiecke haben beide einen Winkel von 35°. Sind sie ähnlich?', 'Ja: Beide haben die Winkel 90°, 35° und 55°.',
+                ['Nein, dazu bräuchte man drei gleiche Winkel.', 'Nur, wenn auch eine Seite gleich lang ist.', 'Nein, rechtwinklige Dreiecke sind nie ähnlich.'],
+                'Neben 90° und 35° bleibt 180° − 90° − 35° = 55°. Zwei gleiche Winkel genügen, der dritte folgt aus der Winkelsumme.',
+                'Welche Winkel hat jedes Dreieck insgesamt?'))
+DS.ersetze('aehnlich', 'Dreieck 1 hat die Winkel 79° und 72°. Dreieck 2 hat die Winkel 72° und 29°. Sind die Dreiecke ähnlich?',
+           DS.Z('Ein Dreieck wird so vergrößert, dass die Seite 8 cm zur Seite 12 cm wird. Um wie viel Prozent wächst der Umfang?', 50, '(12 - 8) / 8 * 100',
+                'k = 12 : 8 = 1,5. Alle Seiten wachsen mit 1,5, also auch der Umfang: 1,5-fach heißt 50 % mehr.',
+                'Der Umfang ist eine Summe von Seiten. Mit welchem Faktor wächst er?', einheit='%'))
+# strahlensatz2: einmal Fehlerfinden auf Stufe 2 (dreimal dieselbe Aufgabe auf Stufe 3)
+DS.stufe('strahlensatz2', 'Es gilt AB ∥ A\'B\'. SA = 2 cm, AA\' = 1 cm, AB = 2 cm. Jemand rechnet A\'B\' = 2 · 1 : 2 = 1 cm. Was stimmt?', 2)
+# flaeche_volumen: Fläche mal k² ist Stufe 1; Modell im Maßstab wie auf Stufe 2
+DS.stufe('flaeche_volumen', 'Ein Quadrat mit 9 cm² wird mit k = 4 gestreckt. Welchen Flächeninhalt hat das Bild?', 1)
+DS.stufe('flaeche_volumen', 'Ein Modell im Maßstab 1 : 50 hat eine Grundfläche von 6 cm². Wie groß ist die Grundfläche des Originals in m²?', 2, anzahl=None or 1)
+# anwendung: Stab und Schatten ist das Beispiel der Karte → Stufe 1
+for _t in ('Ein 2 m langer Stab wirft einen 5 m langen Schatten. Zur gleichen Zeit wirft ein Turm einen 140 m langen Schatten. Wie hoch ist er?',
+           'Ein 1 m langer Stab wirft einen 2 m langen Schatten. Zur gleichen Zeit wirft ein Baum einen 38 m langen Schatten. Wie hoch ist er?',
+           'Ein 1 m langer Stab wirft einen 2 m langen Schatten. Zur gleichen Zeit wirft ein Mast einen 28 m langen Schatten. Wie hoch ist er?',
+           'Ein 1,2 m hoher Pfosten wirft 1,5 m Schatten. Zur selben Zeit wirft ein Haus 12 m Schatten. Wie hoch ist das Haus?'):
+    DS.stufe('anwendung', _t, 1)
+
+if __name__ == '__main__':
+    durchsicht('abbildungen.aehnlichkeit', DS)

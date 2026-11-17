@@ -726,6 +726,28 @@
         ]
        ]
       }
+     },
+     {
+      "text": "Bei 6/(√5 − 2) erweitere mit √5 + 2. Unten: 5 − 4 = 1.",
+      "bild": {
+       "zeilen": [
+        [
+         "vorher",
+         "6",
+         "√5 − 2"
+        ],
+        [
+         "mal (√5 + 2)",
+         "6(√5 + 2)",
+         "5 − 4 = 1"
+        ],
+        [
+         "Ergebnis",
+         "6(√5 + 2)",
+         "1"
+        ]
+       ]
+      }
      }
     ],
     "fehler": "12/√3 ist nicht 4, denn √3 ist nicht 3. Probe: 12 : 1,732 ≈ 6,93, und 4√3 ≈ 6,93 stimmt.",
@@ -1003,7 +1025,7 @@
    "l": "zahlarten",
    "t": "zahlarten",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Ist √576 rational oder irrational?"
@@ -1024,7 +1046,7 @@
    "l": "zahlarten",
    "t": "zahlarten",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Ist √103 rational oder irrational?"
@@ -1045,7 +1067,7 @@
    "l": "zahlarten",
    "t": "zahlarten",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Ist √289 rational oder irrational?"
@@ -1192,7 +1214,7 @@
    "l": "zahlarten",
    "t": "zahlarten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche der Zahlen ist irrational?"
@@ -1635,7 +1657,7 @@
    "l": "eingrenzen",
    "t": "eingrenzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Zwischen welchen Zahlen mit 2 Nachkommastellen liegt √134?"
@@ -1656,7 +1678,7 @@
    "l": "eingrenzen",
    "t": "eingrenzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Zwischen welchen Zahlen mit 2 Nachkommastellen liegt √41?"
@@ -1677,7 +1699,7 @@
    "l": "eingrenzen",
    "t": "eingrenzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Zwischen welchen Zahlen mit 2 Nachkommastellen liegt √105?"
@@ -1698,7 +1720,7 @@
    "l": "eingrenzen",
    "t": "eingrenzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Zwischen welchen Zahlen mit 2 Nachkommastellen liegt √19?"
@@ -1719,7 +1741,7 @@
    "l": "eingrenzen",
    "t": "eingrenzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Zwischen welchen Zahlen mit 2 Nachkommastellen liegt √56?"
@@ -1740,7 +1762,7 @@
    "l": "eingrenzen",
    "t": "eingrenzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Zwischen welchen Zahlen mit 2 Nachkommastellen liegt √150?"
@@ -2174,7 +2196,7 @@
    "l": "wurzel_mal",
    "t": "wurzel_mal",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne √52 · √468 − √256."
@@ -2190,7 +2212,7 @@
    "l": "wurzel_mal",
    "t": "wurzel_mal",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne √50 · √18 − √196."
@@ -2578,7 +2600,7 @@
    "l": "teilweise",
    "t": "teilweise",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Ziehe teilweise die Wurzel, so weit wie möglich: √208.",
@@ -2602,7 +2624,7 @@
    "l": "teilweise",
    "t": "teilweise",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Ziehe teilweise die Wurzel, so weit wie möglich: √810.",
@@ -2626,7 +2648,7 @@
    "l": "teilweise",
    "t": "teilweise",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Ziehe teilweise die Wurzel, so weit wie möglich: √1 215.",
@@ -2650,7 +2672,7 @@
    "l": "teilweise",
    "t": "teilweise",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Ziehe teilweise die Wurzel, so weit wie möglich: √704.",
@@ -2674,7 +2696,7 @@
    "l": "teilweise",
    "t": "teilweise",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Ziehe teilweise die Wurzel, so weit wie möglich: √600.",
@@ -2698,7 +2720,7 @@
    "l": "teilweise",
    "t": "teilweise",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Ziehe teilweise die Wurzel, so weit wie möglich: √384.",
@@ -2722,7 +2744,7 @@
    "l": "teilweise",
    "t": "teilweise",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Ziehe teilweise die Wurzel, so weit wie möglich: √1 300.",
@@ -2746,7 +2768,7 @@
    "l": "teilweise",
    "t": "teilweise",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Schreibe 6√2 als eine einzige Wurzel.",
@@ -2792,7 +2814,7 @@
    "l": "teilweise",
    "t": "teilweise",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Schreibe 10√2 als eine einzige Wurzel.",
@@ -2838,7 +2860,7 @@
    "l": "teilweise",
    "t": "teilweise",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Ziehe teilweise die Wurzel, so weit wie möglich: √250.",
@@ -4067,7 +4089,7 @@
    "l": "nenner_rational",
    "t": "nenner_rational",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Mache den Nenner rational: 3/(√5 − 2).",
@@ -4119,7 +4141,7 @@
    "l": "nenner_rational",
    "t": "nenner_rational",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Mache den Nenner rational: 9/(√7 − 2).",
@@ -4727,7 +4749,7 @@
    "l": "wurzel_mal",
    "t": "wurzel_mal",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Berechne √3 · √12."
@@ -4743,7 +4765,7 @@
    "l": "teilweise",
    "t": "teilweise",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Ergänze die Lücke: √□ = 5√3.",
@@ -4834,7 +4856,7 @@
    "l": "teilweise",
    "t": "teilweise",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Ziehe teilweise die Wurzel, so weit wie möglich: √180.",
@@ -5117,7 +5139,7 @@
    "l": "nenner_rational",
    "t": "nenner_rational",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Mache den Nenner rational: 15/√5.",

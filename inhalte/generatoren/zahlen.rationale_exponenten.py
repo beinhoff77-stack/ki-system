@@ -657,3 +657,31 @@ if __name__ == '__main__':
     anhaengen(d, 9903, schwer)
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
     erweitern('zahlen.rationale_exponenten', None, 18_9_8, sach_exponenten)  # Achtzehnte Runde: Sachaufgaben (Stufe 3) an mehreren Karten
+
+
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl9) ----
+from _durchsicht_kl9 import Befunde as _DSB, durchsicht  # noqa: E402
+
+DS = _DSB('zahlen.rationale_exponenten', 19_9_10)
+# nte_wurzel: Wurzel aus Brüchen und Rechenketten sind Stufe 2
+for _t in ('Berechne ⁴√(1/16) als Dezimalzahl.', 'Berechne ⁵√(1/32) als Dezimalzahl.', 'Berechne ⁴√(1/625) als Dezimalzahl.', 'Berechne ⁶√(1/64) als Dezimalzahl.',
+           'Berechne 5 · ⁴√81 − ⁵√243.', 'Berechne 4 · ³√27 − ⁵√32.'):
+    DS.stufe('nte_wurzel', _t, 2)
+# umwandeln: „Welcher Term ist gleich x^(m/n)?“ steht schon auf Stufe 2
+for _t in ('Welcher Term ist gleich x^(7/6) für x ≥ 0?', 'Welcher Term ist gleich x^(5/2) für x ≥ 0?', 'Welcher Term ist gleich x^(7/4) für x ≥ 0?'):
+    DS.stufe('umwandeln', _t, 2)
+# zusammenfassen: Teilen von Wurzeln ist die Abwandlung des Beispiels (Stufe 2)
+for _t in ('Fasse zu einer Potenz zusammen (x > 0): ⁴√x : √x.', 'Fasse zu einer Potenz zusammen (x > 0): ⁵√x : ³√x.'):
+    DS.stufe('zusammenfassen', _t, 2)
+# gleichung_exp: x^(1/n) = c ist Stufe 1, x^(m/n) = c wie im Beispiel Stufe 2
+for _t in ('Löse x^(1/3) = 3 für x > 0.', 'Löse x^(1/2) = 5 für x > 0.', 'Löse x^(1/4) = 2 für x > 0.', 'Löse x^(1/4) = 3 für x > 0.', 'Löse x^(1/2) = 6 für x > 0.'):
+    DS.stufe('gleichung_exp', _t, 1)
+for _t in ('Löse x^(4/3) = 256 für x > 0.', 'Löse x^(5/3) = 243 für x > 0.'):
+    DS.stufe('gleichung_exp', _t, 2)
+# verstehen: Exponent kürzen ist Stufe 1; zwei der fünf gleichen Fehlerfinden auf Stufe 2
+DS.stufe('verstehen', 'Welche Aussage gilt für x ≥ 0?', 1, anzahl=6)
+for _t in ('Jemand rechnet 4^(3/2) = 4 · 3 : 2. Was ist richtig?', 'Jemand rechnet 32^(2/5) = 32 · 2 : 5. Was ist richtig?'):
+    DS.stufe('verstehen', _t, 2)
+
+if __name__ == '__main__':
+    durchsicht('zahlen.rationale_exponenten', DS)

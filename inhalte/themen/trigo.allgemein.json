@@ -1339,7 +1339,7 @@
    "l": "einheitskreis",
    "t": "einheitskreis",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Gib den Punkt zum Winkel 360° am Einheitskreis an.",
@@ -1424,7 +1424,7 @@
    "l": "einheitskreis",
    "t": "einheitskreis",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Gib den Punkt zum Winkel 270° am Einheitskreis an.",
@@ -1448,7 +1448,7 @@
    "l": "einheitskreis",
    "t": "einheitskreis",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welches Vorzeichen hat sin 100°?"
@@ -2410,7 +2410,7 @@
    "l": "flaeche",
    "t": "flaeche",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Parallelogramm hat die Seiten 7 cm und 5 cm, die einen Winkel von 146° einschließen. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
@@ -2462,7 +2462,7 @@
    "l": "flaeche",
    "t": "flaeche",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Parallelogramm hat die Seiten 15 cm und 11 cm, die einen Winkel von 110° einschließen. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
@@ -2902,7 +2902,7 @@
    "l": "sinussatz_seite",
    "t": "sinussatz_seite",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Zwei Beobachter A und B stehen 115 m voneinander entfernt. Sie sehen einen Baum C auf der anderen Seite eines Sees unter den Winkeln α = 37° (bei A) und β = 61° (bei B) zur Strecke AB. Wie weit ist der Baum von A entfernt (auf ganze Meter)?"
@@ -2920,7 +2920,7 @@
    "l": "sinussatz_seite",
    "t": "sinussatz_seite",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Zwei Beobachter A und B stehen 77 m voneinander entfernt. Sie sehen einen Baum C auf der anderen Seite eines Sees unter den Winkeln α = 34° (bei A) und β = 27° (bei B) zur Strecke AB. Wie weit ist der Baum von A entfernt (auf ganze Meter)?"
@@ -3258,7 +3258,7 @@
    "l": "sinussatz_winkel",
    "t": "sinussatz_winkel",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist a = 8 cm, b = 3 cm und α = 43°. Berechne β (auf eine Nachkommastelle)."
@@ -3276,7 +3276,7 @@
    "l": "sinussatz_winkel",
    "t": "sinussatz_winkel",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist a = 14 cm, b = 6 cm und α = 65°. Berechne β (auf eine Nachkommastelle)."
@@ -3348,7 +3348,7 @@
    "l": "sinussatz_winkel",
    "t": "sinussatz_winkel",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist a = 12 cm, b = 8 cm und α = 60°. Berechne β (auf eine Nachkommastelle)."
@@ -3686,7 +3686,7 @@
    "l": "kosinussatz_seite",
    "t": "kosinussatz_seite",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist a = 5 cm, b = 11 cm und γ = 124°. Berechne c (auf eine Nachkommastelle)."
@@ -3772,7 +3772,7 @@
    "l": "kosinussatz_seite",
    "t": "kosinussatz_seite",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist a = 5 cm, b = 21 cm und γ = 60°. Berechne c."
@@ -3806,7 +3806,7 @@
    "l": "kosinussatz_seite",
    "t": "kosinussatz_seite",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist a = 10 cm, b = 16 cm und γ = 60°. Berechne c."
@@ -3840,7 +3840,7 @@
    "l": "kosinussatz_seite",
    "t": "kosinussatz_seite",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist a = 16 cm, b = 6 cm und γ = 60°. Berechne c."
@@ -3874,7 +3874,7 @@
    "l": "kosinussatz_seite",
    "t": "kosinussatz_seite",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist a = 4 cm, b = 9 cm und γ = 35°. Berechne c (auf eine Nachkommastelle)."
@@ -3892,7 +3892,7 @@
    "l": "kosinussatz_seite",
    "t": "kosinussatz_seite",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Schiff fährt 4 km nach Osten, dreht dann um 134° nach links und fährt 15 km weiter. Wie weit ist es vom Start entfernt (auf eine Nachkommastelle)?"
@@ -3910,7 +3910,7 @@
    "l": "kosinussatz_seite",
    "t": "kosinussatz_seite",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Schiff fährt 8 km nach Osten, dreht dann um 32° nach links und fährt 13 km weiter. Wie weit ist es vom Start entfernt (auf eine Nachkommastelle)?"
@@ -3946,7 +3946,7 @@
    "l": "kosinussatz_seite",
    "t": "kosinussatz_seite",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist a = 11 cm, b = 8 cm und γ = 85°. Berechne c (auf eine Nachkommastelle)."
@@ -4249,7 +4249,7 @@
    "l": "kosinussatz_winkel",
    "t": "kosinussatz_winkel",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Dreieck hat die Seiten a = 16 cm, b = 10 cm, c = 14 cm. Berechne γ."
@@ -4355,7 +4355,7 @@
    "l": "kosinussatz_winkel",
    "t": "kosinussatz_winkel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Dreieck hat die Seiten a = 7 cm, b = 6 cm, c = 5 cm. Berechne γ (auf eine Nachkommastelle)."
@@ -4412,7 +4412,7 @@
    "l": "kosinussatz_winkel",
    "t": "kosinussatz_winkel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Dreieck hat die Seiten a = 7 cm, b = 7 cm, c = 13 cm. Berechne γ (auf eine Nachkommastelle)."
@@ -4430,7 +4430,7 @@
    "l": "kosinussatz_winkel",
    "t": "kosinussatz_winkel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein dreieckiges Grundstück hat die Seiten 90 m, 30 m und 70 m. Wie groß ist der Winkel gegenüber der 70-m-Seite (auf eine Nachkommastelle)?"
@@ -4448,7 +4448,7 @@
    "l": "kosinussatz_winkel",
    "t": "kosinussatz_winkel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein dreieckiges Grundstück hat die Seiten 100 m, 70 m und 120 m. Wie groß ist der Winkel gegenüber der 120-m-Seite (auf eine Nachkommastelle)?"
@@ -4759,7 +4759,7 @@
    "l": "satz_waehlen",
    "t": "satz_waehlen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Im Dreieck ABC ist a = 9 cm, c = 14 cm und β = 26°. Womit berechnest du die Seite b?"
@@ -4822,7 +4822,7 @@
    "l": "satz_waehlen",
    "t": "satz_waehlen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Im Dreieck ABC ist a = 15 cm, b = 4 cm und γ = 65°. Womit berechnest du die Seite c?"
@@ -4927,7 +4927,7 @@
    "l": "satz_waehlen",
    "t": "satz_waehlen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Gegeben a = 6 cm, b = 11 cm, γ = 93°. Jemand will c mit dem Sinussatz berechnen. Was stimmt?"
@@ -4990,7 +4990,7 @@
    "l": "satz_waehlen",
    "t": "satz_waehlen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Gegeben a = 9 cm, b = 6 cm, γ = 61°. Jemand will c mit dem Sinussatz berechnen. Was stimmt?"
@@ -5364,7 +5364,7 @@
    "l": "flaeche",
    "t": "flaeche",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Dreieck hat a = 8 cm, b = 5 cm und den eingeschlossenen Winkel γ = 150°. Berechne den Flächeninhalt ohne Taschenrechner (sin 150° = 0,5)."
@@ -5476,7 +5476,7 @@
    "l": "sinussatz_seite",
    "t": "sinussatz_seite",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist c = 10 cm, α = 45° und γ = 30°. Berechne a (sin 45° ≈ 0,7071; sin 30° = 0,5). Runde auf eine Nachkommastelle."
@@ -5494,7 +5494,7 @@
    "l": "sinussatz_seite",
    "t": "sinussatz_seite",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist a = 9 cm, β = 48° und γ = 77°. Berechne b (auf eine Nachkommastelle)."
@@ -5547,7 +5547,7 @@
    "l": "sinussatz_seite",
    "t": "sinussatz_seite",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist a = 7 cm, α = 40° und β = 75°. Berechne b (auf eine Nachkommastelle)."
@@ -5610,7 +5610,7 @@
    "l": "sinussatz_winkel",
    "t": "sinussatz_winkel",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist a = 8 cm, b = 5 cm und α = 70°. Berechne β (auf eine Nachkommastelle)."
@@ -5649,7 +5649,7 @@
    "l": "sinussatz_winkel",
    "t": "sinussatz_winkel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist a = 12 cm, c = 9 cm und α = 100°. Berechne γ (auf eine Nachkommastelle)."

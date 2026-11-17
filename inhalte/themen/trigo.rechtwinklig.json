@@ -512,7 +512,7 @@
    {
     "lernziel": "beziehungen",
     "titel": "Beziehungen zwischen sin, cos, tan",
-    "regel": "Es gilt ⟦sin² α + cos² α = 1⟧. Außerdem ist tan α = sin α : cos α.",
+    "regel": "Es gilt ⟦sin² α + cos² α = 1⟧. Dazu: tan α = sin α : cos α, sin α = cos(90° − α).",
     "schritte": [
      {
       "text": "Bekannt ist sin α = 0,28. Im Bild: 7 : 25 = 0,28."
@@ -525,6 +525,9 @@
      },
      {
       "text": "tan α = 0,28 : 0,96 = 7/24."
+     },
+     {
+      "text": "Am anderen Winkel 90° − α liegt 7 an: ⟦cos(90° − α) = sin α⟧."
      }
     ],
     "fehler": "cos α ist nicht 1 − 0,28 = 0,72. Die Formel gilt mit den Quadraten: sin² α + cos² α = 1.",
@@ -2286,7 +2289,7 @@
    "l": "verhaeltnisse",
    "t": "verhaeltnisse",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Im Dreieck ABC ist α = 90°. Welcher Term ist sin β?"
@@ -2307,7 +2310,7 @@
    "l": "verhaeltnisse",
    "t": "verhaeltnisse",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist γ = 90°, a = 12 cm, b = 16 cm, c = 20 cm. Berechne tan α als Dezimalzahl."
@@ -2339,7 +2342,7 @@
    "l": "verhaeltnisse",
    "t": "verhaeltnisse",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist γ = 90°, a = 21 cm, b = 28 cm, c = 35 cm. Berechne sin α als Dezimalzahl."
@@ -2523,7 +2526,7 @@
    "l": "seite",
    "t": "seite",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist γ = 90°, α = 15° und c = 17 cm. Berechne b (auf eine Nachkommastelle)."
@@ -2541,7 +2544,7 @@
    "l": "seite",
    "t": "seite",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist γ = 90°, α = 25° und c = 16 cm. Berechne b (auf eine Nachkommastelle)."
@@ -3493,7 +3496,7 @@
    "l": "beziehungen",
    "t": "beziehungen",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welcher Ausdruck ist gleich sin 26°?"
@@ -3514,7 +3517,7 @@
    "l": "beziehungen",
    "t": "beziehungen",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welcher Ausdruck ist gleich sin 10°?"
@@ -3535,7 +3538,7 @@
    "l": "beziehungen",
    "t": "beziehungen",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welcher Ausdruck ist gleich sin 81°?"
@@ -3556,7 +3559,7 @@
    "l": "beziehungen",
    "t": "beziehungen",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welcher Ausdruck ist gleich sin 61°?"
@@ -3577,7 +3580,7 @@
    "l": "beziehungen",
    "t": "beziehungen",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welcher Ausdruck ist gleich sin 13°?"
@@ -3598,7 +3601,7 @@
    "l": "beziehungen",
    "t": "beziehungen",
    "p": "uebung",
-   "s": 1,
+   "s": 3,
    "y": "zahl",
    "f": {
     "text": "Gib den exakten Wert von cos 45° · sin 45° · 2 an."
@@ -3614,7 +3617,7 @@
    "l": "beziehungen",
    "t": "beziehungen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Für einen spitzen Winkel α gilt sin α = 0,8432. Berechne cos α."
@@ -3630,7 +3633,7 @@
    "l": "beziehungen",
    "t": "beziehungen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Für einen spitzen Winkel α gilt sin α = 0,936. Berechne cos α."
@@ -3700,7 +3703,7 @@
    "l": "beziehungen",
    "t": "beziehungen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Für einen spitzen Winkel β gilt cos β = 0,5376. Berechne sin β."
@@ -4780,7 +4783,7 @@
    "l": "seite",
    "t": "seite",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist γ = 90°, α = 35° und b = 9 cm. Berechne c (auf eine Nachkommastelle)."
@@ -4798,7 +4801,7 @@
    "l": "seite",
    "t": "seite",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck ABC ist γ = 90°, α = 40° und c = 12 cm. Berechne a (auf eine Nachkommastelle)."
@@ -4829,6 +4832,42 @@
    "c": "round(9.326153163100, 1)",
    "w": "a = b · tan α = 20 · tan 25° ≈ 9,3 cm.",
    "h": "Gegenkathete und Ankathete: Tangens."
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 30° und c = 12 cm. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 31.2,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(6 * 10.392304845413 / 2, 1)",
+   "w": "a = 12 · sin 30° = 6 cm, b = 12 · cos 30° ≈ 10,39 cm. A = a · b : 2 ≈ 31,2 cm².",
+   "h": "Berechne erst beide Katheten."
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Leiter soll 4 m hoch an eine Wand reichen. Mit dem Boden darf sie höchstens 75° einschließen. Wie lang muss sie mindestens sein? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 4.2,
+    "einheit": "m",
+    "toleranz": 0.1
+   },
+   "c": "round(4.141104721640 + 0.05, 1)",
+   "w": "Leiter = Hypotenuse: L = 4 : sin 75° ≈ 4,14 m. Bei kleinerem Winkel wird sie länger, also mindestens etwa 4,2 m (aufgerundet).",
+   "h": "Leiter = Hypotenuse, Höhe = Gegenkathete. Beim Runden: Sie darf nicht zu kurz sein."
   },
   {
    "l": "winkel",
@@ -4966,6 +5005,42 @@
    "h": "Ankathete b und Hypotenuse c."
   },
   {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 12 cm lang und 5 cm breit. Unter welchem spitzen Winkel schneiden sich seine Diagonalen? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 45.2,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(2 * 22.619864948040, 1)",
+   "w": "Die Diagonale bildet mit der langen Seite den Winkel tan⁻¹(5 : 12) ≈ 22,6°. Die Diagonalen schneiden sich unter 2 · 22,6° ≈ 45,2°.",
+   "h": "Zeichne eine Diagonale und das rechtwinklige Dreieck mit den Rechteckseiten."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gleichschenkliges Dreieck hat die Basis 10 cm und zwei 13 cm lange Schenkel. Wie groß ist ein Basiswinkel? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 67.4,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(67.380135051960, 1)",
+   "w": "Die Höhe halbiert die Basis: cos α = 5 : 13, α = cos⁻¹(5/13) ≈ 67,4°.",
+   "h": "Die Höhe teilt das Dreieck in zwei rechtwinklige Dreiecke."
+  },
+  {
    "l": "beziehungen",
    "t": "beziehungen",
    "p": "uebung",
@@ -5062,7 +5137,7 @@
    "l": "beziehungen",
    "t": "beziehungen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Für einen spitzen Winkel gilt cos α = 0,8. Berechne sin α."

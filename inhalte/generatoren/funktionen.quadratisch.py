@@ -933,3 +933,75 @@ if __name__ == '__main__':
     anhaengen(d, 9907, schwer)
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
     einbauen('funktionen.quadratisch', KARTE_SP, 'bestimmen', 18_9_1, schnitt_aufgaben)  # Achtzehnte Runde: Lehrplan-Lücke
+
+
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl9) ----
+from _durchsicht_kl9 import Befunde as _DSB, durchsicht  # noqa: E402
+
+DS = _DSB('funktionen.quadratisch', 19_9_3)
+# scheitel: a(x − d)² + e ablesen ist genau das Beispiel der Karte → Stufe 1; umgestellte Terme (7 − 3(x − 8)²) sind die Abwandlung → Stufe 2
+for _f in ('2(x + 6)² − 1', '2(x + 2)² − 2', '4(x + 2)² − 1', '2(x + 8)² − 2', '−3(x + 3)² − 1', '0,5(x − 4)² − 1'):
+    DS.stufe('scheitel', f'Gib den Scheitel der Parabel y = {_f} an.', 1)
+for _f in ('7 − 3(x − 8)²', '−5 + 2(x − 4)²', '−8 + 4(x − 1)²', '−5 + 4(x + 6)²'):
+    DS.stufe('scheitel', f'Gib den Scheitel der Parabel y = {_f} an.', 2)
+# parameter: Verschieben ist Stufe 1; Nullstellenzahl am Scheitel ist Stufe 2
+DS.stufe('parameter', 'Die Normalparabel wird um 5 nach rechts und um 3 nach oben verschoben. Welche Gleichung hat die neue Parabel?', 1)
+DS.stufe('parameter', 'Die Normalparabel wird um 5 nach rechts verschoben. Welche Gleichung gehört zum neuen Graphen?', 1)
+DS.stufe('parameter', 'Wie entsteht der Graph von g mit g(x) = (x + 2)² − 3 aus der Normalparabel?', 1)
+DS.stufe('parameter', 'Ohne zu rechnen: Wie viele Nullstellen hat y = −2(x − 4)²?', 2)
+DS.stufe('parameter', 'Ohne zu rechnen: Wie viele Nullstellen hat y = −2(x + 2)²?', 2)
+# umformen: a = 1 ist Stufe 1, a = −1 Stufe 2; a ≠ ±1 (ausklammern) zeigt die Karte jetzt in Schritt 5; dazu zwei Aufgaben mit anderem Gedanken
+for _t in ('Bestimme den Scheitel von y = x² − 4x + 4.', 'Bestimme den Scheitel von y = x² − 14x + 42.', 'Bringe y = x² − 2x + 3 in Scheitelform und gib den Scheitel an.'):
+    DS.stufe('umformen', _t, 1)
+for _t in ('Bestimme den Scheitel von y = −x² + 2x + 5.', 'Bestimme den Scheitel von y = −x² + 2x − 10.', 'Bringe y = −x² + 6x − 5 in Scheitelform.'):
+    DS.stufe('umformen', _t, 2)
+DS.neu('umformen', 3, DS.A('Jemand rechnet: y = x² + 8x + 10 = (x + 8)² − 54. Was stimmt?', 'Falsch: In die Klammer gehört die Hälfte von 8: y = (x + 4)² − 6.',
+                           ['Richtig, denn 8² = 64 und 64 − 54 = 10.', 'Falsch: y = (x + 4)² + 10.', 'Falsch: y = (x − 4)² − 6.'],
+                           '(x + 8)² = x² + 16x + 64 – das hat 16x, nicht 8x. Richtig: x² + 8x + 16 − 16 + 10 = (x + 4)² − 6.',
+                           'Multipliziere (x + 8)² zur Probe aus. Stimmt das x-Glied?'))
+DS.neu('umformen', 3, DS.Z('Die Parabel y = x² + bx + 5 hat ihren Scheitel bei x = 3. Bestimme b.', -6, '-2 * 3',
+                           'Scheitelform (x − 3)² + e = x² − 6x + 9 + e. Das x-Glied muss −6x sein, also b = −6.',
+                           'Rückwärts: Welche Klammer (x − d)² gehört zu x = 3? Multipliziere sie aus.'))
+# nullstellen: Lösungsformel und Diskriminante sind Stufe 2
+DS.stufe('nullstellen', 'Bestimme die Nullstellen von f(x) = 2x² − 8x − 10.', 2)
+DS.stufe('nullstellen', 'Wie viele Nullstellen hat die Funktion f mit f(x) = −x² − 8x − 16?', 2)
+DS.stufe('nullstellen', 'Wie viele Nullstellen hat die Funktion f mit f(x) = −4x² − 16x − 16?', 2)
+DS.fuer_sebastian('funktionen.quadratisch/nullstellen: die Stufe-3-Aufgabe „Parabel und Gerade schneiden sich zweimal“ überschneidet sich mit der neuen Karte „schnittpunkte“ (bleibt, kein Fehler).')
+# punkte: Funktionswert berechnen ist Stufe 1 (auch als Q(−3 | v)); Kugelstoßen = Einsetzen mit Einkleidung → Stufe 2
+DS.stufe('punkte', 'Berechne f(−2) für f(x) = −x² + 3x + 1.', 1)
+DS.stufe('punkte', 'Q(−3 | v) liegt auf dem Graphen von y = −x² − 2x. Bestimme v.', 1)
+DS.stufe('punkte', 'Die Bahn einer Kugel beim Kugelstoßen: h(x) = −0,1x² + 0,9x + 2 (x waagrechte Entfernung, h Höhe, beides in m). In welcher Höhe ist die Kugel 5 m vom Abstoß entfernt?', 2)
+# bestimmen: Scheitel + Punkt ist das Beispiel (Stufe 1); Nullstellen + Punkt ist die Abwandlung (Stufe 2)
+for _t in ('Eine Parabel hat den Scheitel S(−4 | −4) und geht durch P(−5 | −7). Bestimme a in y = a(x − d)² + e.',
+           'Eine Parabel hat den Scheitel S(−1 | 3) und geht durch P(2 | 30). Bestimme a in y = a(x − d)² + e.',
+           'Eine Parabel hat den Scheitel S(2 | 2) und geht durch P(−1 | −16). Bestimme a in y = a(x − d)² + e.',
+           'Die Parabel y = a(x − 1)² + 3 geht durch P(3 | 11). Bestimme a.'):
+    DS.stufe('bestimmen', _t, 1)
+for _t in ('Eine Parabel hat die Nullstellen x₁ = −6 und x₂ = 3 und geht durch P(0 | 54). Bestimme a in y = a(x − x₁)(x − x₂).',
+           'Eine Parabel hat die Nullstellen x₁ = −2 und x₂ = 0 und geht durch P(4 | −48). Bestimme a in y = a(x − x₁)(x − x₂).',
+           'Eine Parabel hat die Nullstellen x₁ = −3 und x₂ = −1 und geht durch P(3 | −72). Bestimme a in y = a(x − x₁)(x − x₂).',
+           'Eine Parabel hat die Nullstellen x₁ = −4 und x₂ = 4 und geht durch P(0 | 32). Bestimme a in y = a(x − x₁)(x − x₂).'):
+    DS.stufe('bestimmen', _t, 2)
+
+# extremwert: kleinster/größter Wert einer gegebenen Funktion ist Stufe 1; zwei der vier Hauswand-Aufgaben auf Stufe 2; unklare Frage ersetzt
+DS.stufe('extremwert', 'Wie groß ist der kleinste Funktionswert von y = (x − 3)² + 7?', 1)
+DS.stufe('extremwert', 'Wie groß ist der größte Funktionswert von f(x) = −x² + 8x?', 1)
+DS.stufe('extremwert', 'An einer Hauswand soll ein rechteckiger Auslauf mit 108 m Zaun abgegrenzt werden (die Wand ersetzt eine Seite). Welche Fläche ist höchstens möglich?', 2)
+DS.stufe('extremwert', 'An einer Hauswand soll ein rechteckiger Auslauf mit 76 m Zaun abgegrenzt werden (die Wand ersetzt eine Seite). Welche Fläche ist höchstens möglich?', 2)
+DS.ersetze('extremwert', 'Die Differenz zweier Zahlen ist 10. Wie klein kann ihr Produkt höchstens werden?',
+           DS.Z('Die Differenz zweier Zahlen ist 10. Welchen kleinsten Wert kann ihr Produkt annehmen?', -25, '(-5) * 5',
+                'Zahlen x und x + 10: P(x) = x² + 10x = (x + 5)² − 25. Kleinster Wert −25 bei x = −5 (die Zahlen −5 und 5).',
+                'Nenne die kleinere Zahl x. Wie heißt die größere? Bilde das Produkt und suche den Scheitel.'))
+
+DS_KARTEN = {
+    'umformen': {
+        'schritte': [{'text': 'Die Hälfte von 6 ist 3, und 3² = 9.'},
+                     {'text': 'Plus 9 minus 9: y = x² − 6x + 9 − 9 + 5.'},
+                     {'text': 'Zusammengefasst: y = (x − 3)² − 4.'},
+                     {'text': 'Der Scheitel ist ⟦S(3 | −4)⟧.', 'bild': {'punkte': [{'x': 3, 'y': -4, 'name': 'S(3 | −4)'}]}},
+                     {'text': 'Bei 2x² − 8x + 3 zuerst 2 ausklammern: 2(x² − 4x) + 3.'}],
+    },
+}
+
+if __name__ == '__main__':
+    durchsicht('funktionen.quadratisch', DS, DS_KARTEN)

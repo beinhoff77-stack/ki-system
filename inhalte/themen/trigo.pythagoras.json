@@ -1411,7 +1411,7 @@
    "l": "hypotenuse",
    "t": "hypotenuse",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 24 cm und b = 7 cm. Berechne die Hypotenuse c."
@@ -1464,7 +1464,7 @@
    "l": "hypotenuse",
    "t": "hypotenuse",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 27 cm und b = 36 cm. Berechne die Hypotenuse c."
@@ -1651,7 +1651,7 @@
    "l": "hypotenuse",
    "t": "hypotenuse",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Dreieck PQR ist der Winkel bei Q ein rechter, PQ = 2 cm, QR = 2,1 cm. Berechne PR."
@@ -1970,7 +1970,7 @@
    "l": "kathete",
    "t": "kathete",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 51 cm und die Kathete b = 45 cm. Berechne die Kathete a."
@@ -1987,7 +1987,7 @@
    "l": "kathete",
    "t": "kathete",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 40 cm und die Kathete b = 32 cm. Berechne die Kathete a."
@@ -2021,7 +2021,7 @@
    "l": "kathete",
    "t": "kathete",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 52 cm und die Kathete b = 20 cm. Berechne die Kathete a."
@@ -2114,7 +2114,7 @@
    "l": "kathete",
    "t": "kathete",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 9 cm und die Kathete b = 5,4 cm. Berechne die Kathete a."
@@ -2131,7 +2131,7 @@
    "l": "kathete",
    "t": "kathete",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 70 cm und die Kathete b = 42 cm. Berechne die Kathete a."
@@ -2622,7 +2622,7 @@
    "l": "umkehrung",
    "t": "umkehrung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Im Dreieck ABC ist a = 12 cm, b = 13 cm, c = 5 cm. Welcher Winkel ist ein rechter Winkel?"
@@ -2642,7 +2642,7 @@
    "l": "umkehrung",
    "t": "umkehrung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Im Dreieck ABC ist a = 48 cm, b = 36 cm, c = 60 cm. Welcher Winkel ist ein rechter Winkel?"
@@ -3396,7 +3396,7 @@
    "l": "koordinaten",
    "t": "koordinaten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne den Abstand von P(1 | −5) und Q(7 | −12) auf zwei Nachkommastellen (Einheit 1 cm)."
@@ -3414,7 +3414,7 @@
    "l": "koordinaten",
    "t": "koordinaten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne den Abstand von P(5 | −5) und Q(0 | −1) auf zwei Nachkommastellen (Einheit 1 cm)."
@@ -3465,7 +3465,7 @@
    "l": "koordinaten",
    "t": "koordinaten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne den Abstand von P(6 | 0) und Q(9 | −6) auf zwei Nachkommastellen (Einheit 1 cm)."
@@ -3881,7 +3881,7 @@
    "l": "raum",
    "t": "raum",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie lang ist die Raumdiagonale eines Würfels mit 7 cm Kantenlänge? Runde auf eine Nachkommastelle."
@@ -3899,7 +3899,7 @@
    "l": "raum",
    "t": "raum",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie lang ist die Raumdiagonale eines Würfels mit 6 cm Kantenlänge? Runde auf eine Nachkommastelle."
@@ -4347,7 +4347,7 @@
    "l": "anwendung",
    "t": "anwendung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie hoch ist ein gleichseitiges Dreieck mit 14 cm Seitenlänge? Runde auf zwei Nachkommastellen."
@@ -4365,7 +4365,7 @@
    "l": "anwendung",
    "t": "anwendung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Rampe steigt auf 800 cm waagrechter Länge um 67 cm an. Wie lang ist die Rampe? Runde auf ganze Zentimeter."
@@ -4383,7 +4383,7 @@
    "l": "anwendung",
    "t": "anwendung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie hoch ist ein gleichseitiges Dreieck mit 4 cm Seitenlänge? Runde auf zwei Nachkommastellen."
@@ -4435,7 +4435,7 @@
    "l": "anwendung",
    "t": "anwendung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Rampe steigt auf 240 cm waagrechter Länge um 70 cm an. Wie lang ist die Rampe?"
@@ -4706,7 +4706,7 @@
    "l": "hypotenuse",
    "t": "hypotenuse",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein rechtwinkliges Dreieck hat die Katheten 33 cm und 56 cm. Wie lang ist die Hypotenuse?"
@@ -4822,6 +4822,41 @@
    "h": "c² − b², dann Wurzel."
   },
   {
+   "l": "kathete",
+   "t": "kathete",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Hypotenuse 12 cm, eine Kathete 7 cm. Wie lang ist die andere Kathete? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 9.7,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(9.746794344809, 1)",
+   "w": "a² = 144 − 49 = 95, a = √95 cm ≈ 9,7 cm.",
+   "h": "Bei einer Kathete: Quadrate abziehen."
+  },
+  {
+   "l": "kathete",
+   "t": "kathete",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse 2,6 m und eine Kathete von 1 m. Wie lang ist die andere Kathete?"
+   },
+   "o": {
+    "wert": 2.4,
+    "einheit": "m"
+   },
+   "c": "2.4",
+   "w": "a² = 6,76 − 1 = 5,76, a = 2,4 m.",
+   "h": "Rechne 2,6² − 1²."
+  },
+  {
    "l": "umkehrung",
    "t": "umkehrung",
    "p": "uebung",
@@ -4883,7 +4918,7 @@
    "l": "umkehrung",
    "t": "umkehrung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ist das Dreieck mit den Seiten 2,5 cm, 6 cm und 6,5 cm rechtwinklig?"
@@ -5067,7 +5102,7 @@
    "l": "raum",
    "t": "raum",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Quader ist 12 cm lang, 4 cm breit und 3 cm hoch. Wie lang ist seine Raumdiagonale?"

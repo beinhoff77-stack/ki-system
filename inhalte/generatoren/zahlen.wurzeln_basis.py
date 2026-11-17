@@ -659,3 +659,55 @@ if __name__ == '__main__':
                  'Rechenausdruck c bei Wurzeln: Das Prüfskript kann keine Wurzeln rechnen. c prüft deshalb die Umkehrung (z. B. 196 / 14 = 14 bzw. 343 / (7 · 7) = 7).'])
     anhaengen(d, 9901, schwer)
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+
+
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl9) ----
+# Stufen im Gedanken statt in der Zahlengröße: S1 = Beispiel mit anderen Zahlen, S2 = Umkehrung/mehrere Schritte, S3 = anderer Gedanke.
+from _durchsicht_kl9 import Befunde as _DSB, durchsicht  # noqa: E402
+
+DS = _DSB('zahlen.wurzeln_basis', 19_9_1)
+# quadratwurzel: reine Rechenketten sind kein anderer Gedanke → Stufe 2
+for _t in ('Berechne 2 · √25 − √169.', 'Berechne 3 · √9 − √100.', 'Berechne 4 · √169 − √16.', 'Berechne √(62 + 19).'):
+    DS.stufe('quadratwurzel', _t, 2)
+# wurzel_dezimal: Bruchwurzel wie auf Stufe 2
+DS.stufe('wurzel_dezimal', 'Berechne √(9/169).', 2)
+# kubikwurzel: Bruch- und Produktaufgaben wie auf Stufe 2; dafür eine neue Knobelaufgabe
+for _t in ('Berechne ∛(1/343).', 'Berechne ∛(27/343).', 'Berechne ∛(216/343).', 'Berechne ∛64 · √25.'):
+    DS.stufe('kubikwurzel', _t, 2)
+DS.neu('kubikwurzel', 3, DS.Z('Ein voller Würfel besteht aus 64 Würfelchen. Er soll zu einem vollen Würfel ergänzt werden, dessen Kante 1 Würfelchen länger ist. '
+                              'Wie viele Würfelchen kommen dazu?', 61, '5 ** 3 - 4 ** 3',
+                              'Kante jetzt ∛64 = 4, später 5. Der neue Würfel hat 5³ = 125 Würfelchen. Dazu kommen 125 − 64 = 61.',
+                              'Bestimme zuerst die Kantenlänge des alten Würfels.'))
+# abschaetzen: „natürliche Zahlen, nur größer“ ist derselbe Gedanke wie Stufe 1 → Stufe 1; Zehntel-Aufgabe auf Stufe 2
+for _z in ('√285', '√323', '√103', '√404', '√788', '√200', '√1 605', '√1 291'):
+    DS.stufe('abschaetzen', f'Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt {_z}?', 1)
+DS.stufe('abschaetzen', 'Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √648?', 1)
+DS.stufe('abschaetzen', 'Zwischen welchen Zehnteln liegt √82?', 2)
+# wurzel_deuten: Wiederholungen der Stufe-1-Muster → Stufe 1; Fehlerfinden einmal auf Stufe 2; zwei Wiederholungen auf Stufe 3 ersetzt
+for _t in ('Was gilt für √(−169)?', 'Was gilt für √(−121)?', 'Was gilt für √(−289)?', 'Welchen Wert hat (√88)²?', 'Welchen Wert hat (√79)²?'):
+    DS.stufe('wurzel_deuten', _t, 1)
+DS.stufe('wurzel_deuten', 'Jemand rechnet: √(36 + 49) = √36 + √49 = 13. Was stimmt?', 2)
+DS.ersetze('wurzel_deuten', 'Jemand rechnet: √(36 + 9) = √36 + √9 = 9. Was stimmt?',
+           DS.A('Für welche Zahlen x ist √(x − 4) erklärt?', 'für x ≥ 4', ['für x > 4', 'für x ≥ 0', 'für alle x'],
+                'Unter der Wurzel darf nichts Negatives stehen: x − 4 ≥ 0, also x ≥ 4. Auch x = 4 geht: √0 = 0.',
+                'Wann ist x − 4 nicht negativ?'))
+DS.ersetze('wurzel_deuten', 'Jemand rechnet: √(81 + 16) = √81 + √16 = 13. Was stimmt?',
+           DS.Z('Berechne (−√7)².', 7, '7', '(−√7)² = (−√7) · (−√7) = √7 · √7 = 7. Minus mal Minus ergibt Plus.',
+                'Schreibe das Quadrat als Produkt. Was ergibt Minus mal Minus?'))
+# wurzel_sache: Oberfläche → Kante ist zweischrittig (Stufe 2); nur zwei solcher Aufgaben bleiben auf Stufe 3; Beinahe-Dublette (512 cm³ zweimal) ersetzt
+for _t in ('Ein Würfel hat eine Oberfläche von 384 cm². Wie lang ist eine Kante?', 'Ein Würfel hat eine Oberfläche von 486 cm². Wie lang ist eine Kante?',
+           'Ein Würfel hat eine Oberfläche von 1 350 cm². Wie lang ist eine Kante?'):
+    DS.stufe('wurzel_sache', _t, 2)
+DS.ersetze('wurzel_sache', 'Ein Spielwürfel aus Kunststoff hat ein Volumen von 512 cm³. Wie lang ist eine Kante?',
+           DS.Z('Ein Würfel hat ein Volumen von 0,027 m³. Wie lang ist eine Kante in Zentimetern?', 30, '3 * 10',
+                '∛0,027 = 0,3, denn 0,3 · 0,3 · 0,3 = 0,027. Die Kante ist 0,3 m = 30 cm lang.', 'Ziehe die dritte Wurzel und rechne m in cm um.', einheit='cm'),
+           pools=('uebung',))
+DS_KARTEN = {
+    'wurzel_deuten': {
+        'fehler': '√25 ist nicht −5 und nicht ±5. Die Wurzel ist nie negativ. Nur die Gleichung x² = 25 hat zwei Lösungen.',
+        'fehler_bild': {'punkte': [{'x': -5, 'y': 25, 'name': '−5 ≠ √25'}, {'x': 5, 'y': 25, 'name': '√25 = 5'}]},
+    },
+}
+
+if __name__ == '__main__':
+    durchsicht('zahlen.wurzeln_basis', DS, DS_KARTEN)

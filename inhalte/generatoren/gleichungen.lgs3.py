@@ -670,3 +670,46 @@ if __name__ == '__main__':
                  'Sonderfälle (keine oder unendlich viele Lösungen) nur als Erkennen-Aufgabe in Stufe 3 von „loesen“ (Prüfvorschlag); die Erklärung der Karte nennt sie nicht ausdrücklich.'])
     anhaengen(d, 9906, schwer)
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+
+
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl9) ----
+from _durchsicht_kl9 import Befunde as _DSB, durchsicht  # noqa: E402
+
+DS = _DSB('gleichungen.lgs3', 19_9_5)
+# stufenform: gewöhnliche Stufenform ist Stufe 2; auf Stufe 3 bleiben die vertauschten Systeme und die verdeckte Zahl
+for _t in ('Löse: (I) x + y + z = 2; (II) 2y − z = 7; (III) 3z = −3.', 'Löse: (I) 2x − y + z = 9; (II) 4y + z = −5; (III) 0,5z = 1,5.',
+           'Löse: (I) x − 2y + 3z = 13; (II) −y + 4z = 11; (III) −2z = −6.'):
+    DS.stufe('stufenform', _t, 2)
+# eliminieren: Vielfache abziehen wie auf Stufe 2
+for _t in ('Gegeben: (I) −2x + y + 3z = 16; (III) −x + 3y + 2z = 9. Berechne 2 · (III) − (I).',
+           'Gegeben: (II) −x + 3z = −3; (III) 3x − 3y − z = −10. Berechne (III) + 3 · (II).',
+           '(I) x + y + z = 6; (II) 2x − y + 3z = 9. Berechne (II) − 2 · (I).'):
+    DS.stufe('eliminieren', _t, 2)
+# loesen: dieselbe Aufgabe mit größeren Zahlen → Stufe 2
+for _t in ('Löse das Gleichungssystem: (I) −x − 2y − 3z = 25; (II) x + 3y + z = −21; (III) x − 2y − z = 19.',
+           'Löse das Gleichungssystem: (I) −x − 3y + 2z = 17; (II) 2x − 3y + z = −4; (III) 3x + y − 2z = −23.',
+           'Löse das Gleichungssystem: (I) x − 3y + 2z = −2; (II) 2x + 2y − z = 6; (III) x + 3y − 3z = 8.',
+           'Löse das Gleichungssystem: (I) −3x + y + z = −15; (II) −3x − y + z = −29; (III) −2x − 2y − z = −27.'):
+    DS.stufe('loesen', _t, 2)
+# parabel: drei beliebige Punkte sind die Abwandlung (Stufe 2); dazu zwei Aufgaben mit anderem Gedanken
+for _t in ('Die Parabel y = ax² + bx + c geht durch (−3 | −37), (2 | −2), (3 | −13). Bestimme a, b und c.',
+           'Die Parabel y = ax² + bx + c geht durch (−3 | 30), (−1 | 6), (2 | 0). Bestimme a, b und c.',
+           'Die Parabel y = ax² + bx + c geht durch (−2 | −7), (1 | −1), (3 | −27). Bestimme a, b und c.',
+           'Die Parabel y = ax² + bx + c geht durch (−1 | −8), (1 | −2), (2 | 4). Bestimme a, b und c.',
+           'Eine Parabel y = ax² + bx + c geht durch A(0 | 3), B(1 | 4) und C(2 | 3). Bestimme a, b und c.',
+           'Die Parabel y = ax² + bx + c geht durch (−1 | 6), (1 | 2) und (2 | 3). Bestimme a, b und c.'):
+    DS.stufe('parabel', _t, 2)
+DS.neu('parabel', 3, DS.Z('Eine Parabel ist symmetrisch zur y-Achse und geht durch (2 | 1) und (4 | 7). Bestimme c in y = ax² + bx + c.', -1, '1 - 4 * 1 / 2',
+                          'Symmetrisch zur y-Achse heißt b = 0: y = ax² + c. (2 | 1): 4a + c = 1; (4 | 7): 16a + c = 7. Abziehen: 12a = 6, a = 0,5; c = 1 − 2 = −1.',
+                          'Was bedeutet „symmetrisch zur y-Achse“ für b? Dann reichen zwei Gleichungen.'))
+DS.neu('parabel', 3, DS.A('Jemand setzt den Punkt (−2 | 5) in y = ax² + bx + c ein und schreibt −4a − 2b + c = 5. Was stimmt?', 'Falsch: (−2)² = 4, richtig ist 4a − 2b + c = 5.',
+                          ['Richtig.', 'Falsch: richtig ist 4a + 2b + c = 5.', 'Falsch: richtig ist −4a − 2b + c = −5.'],
+                          'x = −2 einsetzen: a · (−2)² + b · (−2) + c = 4a − 2b + c. Das Quadrat einer negativen Zahl ist positiv.',
+                          'Rechne (−2)² und b · (−2) einzeln aus.'))
+# sachaufgabe: Zahlenrätsel wie Stufe 1; Sportverein wie Stufe 2
+DS.stufe('sachaufgabe', 'Drei Zahlen haben die Summe 20. Die zweite ist doppelt so groß wie die erste, die dritte um 4 größer als die erste. Wie heißen die Zahlen?', 1)
+DS.stufe('sachaufgabe', 'Ein Sportverein hat 75 Mitglieder in den Abteilungen Fußball, Tennis und Schwimmen (jedes Mitglied in genau einer). Fußball hat 3-mal so viele Mitglieder wie Tennis, Schwimmen 20 mehr als Tennis. Wie viele sind es je Abteilung?', 2)
+DS.fuer_sebastian('gleichungen.lgs3: Der LehrplanPLUS M9 2.2 verlangt LGS mit drei Unbekannten nur für Parabelpunkte; die ISB-Schwerpunktsetzung erlaubt „wenige, einfache Beispiele“. Sechs Lernkarten (Prüfen, Stufenform, Eliminieren, Lösen, Parabel, Sachaufgaben) sind dafür viel – Vorschlag: pruefen, stufenform, eliminieren als Vertiefung oder zusammenfassen.')
+
+if __name__ == '__main__':
+    durchsicht('gleichungen.lgs3', DS)

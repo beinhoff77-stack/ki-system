@@ -852,3 +852,75 @@ if __name__ == '__main__':
     anhaengen(d, 9904, schwer)
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
     einbauen('gleichungen.quadratisch', KARTE_BG, 'loesungsformel', 18_9_2, bruch_aufgaben)  # Achtzehnte Runde: Lehrplan-Lücke
+
+
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl9) ----
+from _durchsicht_kl9 import Befunde as _DSB, durchsicht  # noqa: E402
+
+DS = _DSB('gleichungen.quadratisch', 19_9_4)
+# reinquadratisch: ax² − c = 0 ist genau das Beispiel der Karte → Stufe 1
+for _t in ('Löse 5x² − 320 = 0.', 'Löse 6x² − 6 = 0.', 'Löse 4x² − 144 = 0.', 'Löse 0,5x² = 8.'):
+    DS.stufe('reinquadratisch', _t, 1)
+DS.stufe('reinquadratisch', 'Jemand löst 2x² = 50 so: x = ±√50. Was stimmt?', 2)
+# ausklammern: ax² = bx ist die Abwandlung von Stufe 2
+DS.stufe('ausklammern', 'Löse 7x² = 28x.', 2)
+DS.stufe('ausklammern', 'Löse 2x² = −4x.', 2)
+# faktorisieren: Faktorisieren wie im Kartenbeispiel ist Stufe 2; dafür zwei Aufgaben mit anderem Gedanken
+for _t in ('Löse x² − 7x + 12 = 0 durch Faktorisieren.', 'Löse x² − 9x + 20 = 0 durch Faktorisieren.', 'Löse x² − 5x + 4 = 0 durch Faktorisieren.',
+           'Löse x² + 6x − 27 = 0 durch Faktorisieren.', 'Löse x² + x − 56 = 0 durch Faktorisieren.', 'Löse (4x + 5)(x + 1) = 0.',
+           'Die Funktion f mit f(x) = x² − 10x + 21 hat zwei Nullstellen. Bestimme sie durch Faktorisieren.'):
+    DS.stufe('faktorisieren', _t, 2)
+DS.neu('faktorisieren', 3, DS.A('Jemand faktorisiert x² − 6x + 9 = 0 zu (x − 3)(x + 3) = 0 und erhält x = 3 oder x = −3. Was stimmt?',
+                                'Falsch: x² − 6x + 9 = (x − 3)², die einzige Lösung ist x = 3.',
+                                ['Richtig.', 'Falsch: Die Lösungen sind x = 3 und x = 9.', 'Falsch: Die Gleichung hat keine Lösung.'],
+                                '(x − 3)(x + 3) = x² − 9, das ist eine andere Gleichung. Richtig: 2. binomische Formel (x − 3)² = 0, also nur x = 3. Probe mit −3: 9 + 18 + 9 = 36 ≠ 0.',
+                                'Multipliziere (x − 3)(x + 3) zur Probe aus.'))
+DS.neu('faktorisieren', 3, DS.Z('Für welche Zahl c hat x² + 6x + c = 0 genau eine Lösung? (Denke an eine binomische Formel.)', 9, '3 ** 2',
+                                'Genau eine Lösung, wenn links ein volles Quadrat steht: x² + 6x + 9 = (x + 3)². Also c = 9, Lösung x = −3.',
+                                'Welche Zahl macht x² + 6x zu (x + 3)²?'))
+# ergaenzung: „auf die Form bringen“ ist Stufe 1, vollständig lösen wie im Beispiel Stufe 2; Stufe 3 bleibt: ungerades b, a ≠ 1, Parameter, Wurzel-Lösung
+for _t in ('Bringe x² − 14x + 47 = 0 mit quadratischer Ergänzung auf die Form (x − …)² = ….', 'Bringe x² − 6x + 3 = 0 mit quadratischer Ergänzung auf die Form (x − …)² = ….',
+           'Bringe x² − 14x + 44 = 0 mit quadratischer Ergänzung auf die Form (x − …)² = ….', 'Bringe x² + 14x + 41 = 0 mit quadratischer Ergänzung auf die Form (x + …)² = ….',
+           'Bringe x² + 12x + 33 = 0 mit quadratischer Ergänzung auf die Form (x + …)² = ….', 'Bringe x² + 2x − 6 = 0 mit quadratischer Ergänzung auf die Form (x + …)² = ….',
+           'Bringe x² − 2x − 8 = 0 auf die Form (x − …)² = ….'):
+    DS.stufe('ergaenzung', _t, 1)
+for _t in ('Löse x² + 2x − 63 = 0 mit quadratischer Ergänzung.', 'Löse x² + 6x + 8 = 0 mit quadratischer Ergänzung.', 'Löse x² − 4x − 21 = 0 mit quadratischer Ergänzung.',
+           'Löse x² − 6x − 40 = 0 mit quadratischer Ergänzung.', 'Löse x² − 10x − 56 = 0 mit quadratischer Ergänzung.'):
+    DS.stufe('ergaenzung', _t, 2)
+# loesungsformel: Diskriminante berechnen ist Stufe 1; „größere Lösung“ mit Dezimalzahl ist nur die Formel → Stufe 2
+DS.stufe('loesungsformel', 'Berechne die Diskriminante von 5x² − 2x − 3 = 0.', 1)
+for _t in ('Löse 4x² + 34x + 60 = 0 mit der Lösungsformel. Gib die größere Lösung an.', 'Löse 4x² + 10x − 24 = 0 mit der Lösungsformel. Gib die größere Lösung an.',
+           'Löse 4x² − 22x − 12 = 0 mit der Lösungsformel. Gib die größere Lösung an.'):
+    DS.stufe('loesungsformel', _t, 2)
+# diskriminante: Anzahl bestimmen ist Stufe 1 (auch mit a ≠ 1); einmal Fehlerfinden auf Stufe 2
+for _t in ('Wie viele Lösungen hat 2x² − 3x + 3 = 0?', 'Wie viele Lösungen hat 4x² − 12x + 9 = 0?', 'Wie viele Lösungen hat 4x² + 12x + 9 = 0?',
+           'Wie viele Lösungen hat −x² + 4x − 5 = 0?'):
+    DS.stufe('diskriminante', _t, 1)
+DS.stufe('diskriminante', 'Jemand sagt: „4x² + 6x + 7 = 0 hat zwei Lösungen, weil die Lösungsformel ± enthält.“ Was stimmt?', 2)
+
+# Zusatz (Prüfung der Achtzehnten Runde): Scheinlösung in der Bildergeschichte und in einer Sicherungsaufgabe
+DS.ersetze('bruchgleichung', 'Löse die Bruchgleichung 2/x = x + 1 (D = ℝ ohne 0). Kleinere Lösung zuerst.',
+           DS.Z('Löse x²/(x − 4) = 16/(x − 4). Gib die Lösung an.', -4, '-4',
+                'D = ℝ ohne 4. Mal (x − 4): x² = 16, also x = 4 oder x = −4. x = 4 liegt nicht in D (Nenner 0): Scheinlösung. Lösung: x = −4.',
+                'Bestimme zuerst D und prüfe am Ende jede Lösung.'), pools=('sicherung',))
+_BG_BILD = {'typ': 'koordinaten', 'x': [-6, 6], 'y': [-6, 7],
+            'graphen': [{'art': 'hyperbel', 'a': 6, 'b': 0, 'c': 0, 'name': '6/x'}, {'art': 'linear', 'm': 1, 't': 1, 'name': 'x + 1'}]}
+DS_KARTEN = {
+    'bruchgleichung': {
+        'woerter': [['Bruchgleichung', 'Gleichung, bei der x im Nenner eines Bruchs steht'],
+                    ['Definitionsmenge', 'alle Zahlen, die man für x einsetzen darf; kein Nenner darf 0 werden'],
+                    ['Scheinlösung', 'eine Lösung der umgeformten Gleichung, die nicht in der Definitionsmenge liegt; sie fällt weg']],
+        'schritte': [{'text': 'Definitionsmenge: x darf nicht 0 sein, sonst steht 0 im Nenner.'},
+                     {'text': 'Beide Seiten mal x nehmen: 6 = x² + x.'},
+                     {'text': 'x² + x − 6 = 0 ergibt ⟦x = 2 oder x = −3⟧.',
+                      'bild': {'punkte': [{'x': 2, 'y': 3, 'name': '(2 | 3)'}, {'x': -3, 'y': -2, 'name': '(−3 | −2)'}]}},
+                     {'text': '−3 m ist keine Länge. Die kurze Seite ist ⟦2 m⟧ lang.', 'bild': {'punkte': [{'x': 2, 'y': 3, 'name': '2 m'}]}},
+                     {'text': 'Achtung: Bei x²/(x + 3) = 9/(x + 3) fällt −3 weg, eine Scheinlösung.',
+                      'bild': {'typ': 'tabelle', 'kopf': ['x', 'in D?', 'also'], 'zeilen': [['3', 'ja', 'Lösung'], ['−3', 'nein, Nenner 0', 'Scheinlösung']]}}],
+        'fehler_bild': {**_BG_BILD, 'punkte': [{'x': 5, 'y': 1.2, 'name': '6/5'}, {'x': 5, 'y': 6, 'name': '5 + 1'}], 'senkrecht': [5]},
+        'regel': 'Definitionsmenge bestimmen, mit dem Nenner malnehmen, quadratisch lösen. Jede Lösung mit ⟦D⟧ prüfen: Sonst ist sie eine Scheinlösung.',
+    },
+}
+
+if __name__ == '__main__':
+    durchsicht('gleichungen.quadratisch', DS, DS_KARTEN)

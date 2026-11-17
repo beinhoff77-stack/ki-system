@@ -621,3 +621,28 @@ if __name__ == '__main__':
           offen=['Rechenausdruck c bei gerundeten Lösungen (Lernkarte „naeherung“): Das Prüfskript kann keine Wurzeln ziehen; der Wurzelwert steht als 12-stellige Konstante im Ausdruck.'])
     anhaengen(d, 9905, schwer)
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+
+
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl9) ----
+from _durchsicht_kl9 import Befunde as _DSB, durchsicht  # noqa: E402
+
+DS = _DSB('gleichungen.potenz', 19_9_9)
+# gerade: xⁿ = c mit geradem n ist genau das Beispiel der Karte → Stufe 1
+for _t in ('Löse x⁶ = 64.', 'Bestimme alle Lösungen von 81 = x⁴.', 'Löse x⁴ − 256 = 0.', 'Bestimme alle Lösungen von 729 = x⁶.', 'Löse x⁴ = 10 000.'):
+    DS.stufe('gerade', _t, 1)
+# ungerade: positive c sind der einfache Fall (Stufe 1); negative Dezimalzahlen wie Stufe 2
+for _t in ('Löse x³ = 1.', 'Löse x⁵ = 32.', 'Löse x³ = 1 000.'):
+    DS.stufe('ungerade', _t, 1)
+for _t in ('Löse x³ = −3,375.', 'Löse x⁵ = −0,00243.'):
+    DS.stufe('ungerade', _t, 2)
+# anzahl: einmal Fehlerfinden auf Stufe 2
+DS.stufe('anzahl', 'Jemand sagt: „x³ = −64 hat keine Lösung, weil man aus negativen Zahlen keine Wurzel ziehen kann.“ Was stimmt?', 2)
+# naeherung: negative Lösung bei geradem Exponenten ist die Abwandlung (Stufe 2)
+for _t in ('Löse 5x⁶ = 30. Gib die negative Lösung auf zwei Nachkommastellen an.', 'Löse 4x⁶ = 820. Gib die negative Lösung auf zwei Nachkommastellen an.'):
+    DS.stufe('naeherung', _t, 2)
+# sachaufgabe: je eine Wiederholung von Kiste und Quader auf Stufe 2
+DS.stufe('sachaufgabe', 'Eine Kiste hat eine quadratische Grundfläche. Sie ist 2-mal so hoch wie breit und hat 54 cm³ Volumen. Wie breit ist sie?', 2)
+DS.stufe('sachaufgabe', 'Ein Quader (2 cm × 2 cm × 16 cm) wird eingeschmolzen und zu einem Würfel mit gleichem Volumen gegossen. Wie lang ist eine Würfelkante?', 2)
+
+if __name__ == '__main__':
+    durchsicht('gleichungen.potenz', DS)

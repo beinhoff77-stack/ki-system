@@ -502,6 +502,22 @@
      },
      {
       "text": "Also ⟦überschneiden sich A und B⟧. Die Behauptung ist falsch."
+     },
+     {
+      "text": "Das Gegenereignis zu „mindestens einmal“ heißt ⟦„keinmal“⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Ereignis A",
+        "Gegenereignis Ā"
+       ],
+       "zeilen": [
+        [
+         "mindestens ein Treffer",
+         "kein Treffer"
+        ]
+       ]
+      }
      }
     ],
     "fehler": "Das Gegenteil von „mindestens ein Treffer“ ist nicht „mindestens ein Fehlschuss“, sondern „kein Treffer“.",
@@ -510,6 +526,10 @@
      [
       "unvereinbar",
       "A und B haben kein gemeinsames Ergebnis"
+     ],
+     [
+      "Gegenereignis",
+      "Ā: alles, was nicht zu A gehört"
      ]
     ],
     "bild": {
@@ -865,7 +885,7 @@
    "l": "verknuepfen",
    "t": "verknuepfen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Aus den Zahlen 1 bis 25 wird zufällig eine gezogen. A: „Die Zahl ist ungerade.“ B: „Die Zahl ist durch 3 teilbar.“ Berechne P(A ∩ B̄ („A, aber nicht B“)) als Dezimalzahl."
@@ -1923,7 +1943,7 @@
    "l": "vierfeld",
    "t": "vierfeld",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Untersucht werden 200 Schülerinnen und Schüler einer Schule. A: „hat ein Haustier“, B: „fährt mit dem Rad zur Schule“. Ergänze das Feld „?“.",
@@ -2018,7 +2038,7 @@
    "l": "vierfeld",
    "t": "vierfeld",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Untersucht werden 500 Mitglieder eines Fußballvereins. A: „spielt in einer Mannschaft“, B: „ist jünger als 18 Jahre“. Ergänze das Feld „?“.",
@@ -2063,7 +2083,7 @@
    "l": "vierfeld",
    "t": "vierfeld",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Untersucht werden 120 Schülerinnen und Schüler einer Schule. A: „hat ein Haustier“, B: „fährt mit dem Rad zur Schule“. Ergänze das Feld „?“.",
@@ -3052,7 +3072,7 @@
    "l": "tafel_wkeit",
    "t": "tafel_wkeit",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Die Tafel zeigt 400 Besucher eines Freibads. A: „ist Erwachsener“, B: „hat eine Jahreskarte“. Ein Besucher wird zufällig ausgewählt. Mit welcher Wahrscheinlichkeit gilt: „ist Erwachsener“ oder „hat eine Jahreskarte“ (mindestens eines)? Gib das Ergebnis als Dezimalzahl an.",
@@ -3142,7 +3162,7 @@
    "l": "tafel_wkeit",
    "t": "tafel_wkeit",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Die Tafel zeigt 500 Teilnehmende einer Umfrage. A: „liest täglich Nachrichten“, B: „ist älter als 40 Jahre“. Eine teilnehmende Person wird zufällig ausgewählt. Mit welcher Wahrscheinlichkeit gilt: mindestens eines von beiden? Gib das Ergebnis als Dezimalzahl an.",
@@ -5003,7 +5023,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Bei 6 Würfelwürfen ist A: „mindestens einmal eine Sechs“. Was ist das Gegenereignis Ā?"
@@ -5024,7 +5044,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Bei 4 Würfelwürfen ist A: „mindestens einmal eine Sechs“. Was ist das Gegenereignis Ā?"
@@ -5066,7 +5086,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Bei 3 Torschüssen ist A: „mindestens einmal ein Treffer“. Was ist das Gegenereignis Ā?"
@@ -5087,7 +5107,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Bei 6 Münzwürfen ist A: „mindestens einmal Kopf“. Was ist das Gegenereignis Ā?"
@@ -5129,7 +5149,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "P(A) = 0,5, P(B) = 0,4, P(A ∩ B) = 0,07. Jemand rechnet P(A ∪ B) = 0,9. Was stimmt?"
@@ -5171,7 +5191,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "P(A) = 0,7, P(B) = 0,4. Welcher Wert ist für P(A ∪ B) möglich?"
@@ -5805,7 +5825,7 @@
    "l": "tafel_wkeit",
    "t": "tafel_wkeit",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Die Tafel zeigt 250 Jugendliche. A: „hat einen Hund“, B: „reitet“. Mit welcher Wahrscheinlichkeit hat eine zufällig gewählte Person einen Hund oder reitet? Gib sie in Prozent an.",
@@ -6180,7 +6200,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Was ist das Gegenereignis zu „mindestens eine Sechs bei zwei Würfen“?"

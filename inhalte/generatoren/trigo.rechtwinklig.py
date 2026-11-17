@@ -675,3 +675,54 @@ if __name__ == '__main__':
                  'Rechenausdruck c: sin/cos/tan-Werte stehen als 12-stellige Konstanten, weil das Prüfskript keine Winkelfunktionen kennt. Werte nahe an Rundungsgrenzen werden vom Generator verworfen.'])
     anhaengen(d, 9911, schwer)
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+
+
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl9) ----
+from _durchsicht_kl9 import Befunde as _DSB, durchsicht  # noqa: E402
+
+DS = _DSB('trigo.rechtwinklig', 19_9_12)
+# verhaeltnisse: Verhältnis aus drei gegebenen Seiten ist Stufe 2; anders liegender rechter Winkel einmal auf Stufe 2
+for _t in ('Im Dreieck ABC ist γ = 90°, a = 12 cm, b = 16 cm, c = 20 cm. Berechne tan α als Dezimalzahl.',
+           'Im Dreieck ABC ist γ = 90°, a = 21 cm, b = 28 cm, c = 35 cm. Berechne sin α als Dezimalzahl.',
+           'Im Dreieck ABC ist α = 90°. Welcher Term ist sin β?'):
+    DS.stufe('verhaeltnisse', _t, 2)
+# seite: Die Karte rechnet a = c · sin α vor; Kosinus statt Sinus ist die Abwandlung (Stufe 2), c = b : cos α ebenso
+for _t in ('Im Dreieck ABC ist γ = 90°, α = 15° und c = 17 cm. Berechne b (auf eine Nachkommastelle).',
+           'Im Dreieck ABC ist γ = 90°, α = 25° und c = 16 cm. Berechne b (auf eine Nachkommastelle).'):
+    DS.stufe('seite', _t, 2)
+DS.stufe('seite', 'Im Dreieck ABC ist γ = 90°, α = 40° und c = 12 cm. Berechne a (auf eine Nachkommastelle).', 1)
+DS.stufe('seite', 'Im Dreieck ABC ist γ = 90°, α = 35° und b = 9 cm. Berechne c (auf eine Nachkommastelle).', 2)
+DS.neu('seite', 3, DS.Z('Im Dreieck ABC ist γ = 90°, α = 30° und c = 12 cm. Berechne den Flächeninhalt (auf eine Nachkommastelle).', 31.2, '6 * 10.392304845413 / 2',
+                       'a = 12 · sin 30° = 6 cm, b = 12 · cos 30° ≈ 10,39 cm. A = a · b : 2 ≈ 31,2 cm².',
+                       'Berechne erst beide Katheten.', einheit='cm²', toleranz=0.1))
+DS.neu('seite', 3, DS.Z('Eine Leiter soll 4 m hoch an eine Wand reichen. Mit dem Boden darf sie höchstens 75° einschließen. Wie lang muss sie mindestens sein? Runde auf eine Nachkommastelle.', 4.2, '4.141104721640 + 0.05',
+                       'Leiter = Hypotenuse: L = 4 : sin 75° ≈ 4,14 m. Bei kleinerem Winkel wird sie länger, also mindestens etwa 4,2 m (aufgerundet).',
+                       'Leiter = Hypotenuse, Höhe = Gegenkathete. Beim Runden: Sie darf nicht zu kurz sein.', einheit='m', toleranz=0.1))
+# winkel: zwei neue Stufe-3-Aufgaben (Winkel in Figuren)
+DS.neu('winkel', 3, DS.Z('Ein Rechteck ist 12 cm lang und 5 cm breit. Unter welchem spitzen Winkel schneiden sich seine Diagonalen? Runde auf eine Nachkommastelle.', 45.2, '2 * 22.619864948040',
+                        'Die Diagonale bildet mit der langen Seite den Winkel tan⁻¹(5 : 12) ≈ 22,6°. Die Diagonalen schneiden sich unter 2 · 22,6° ≈ 45,2°.',
+                        'Zeichne eine Diagonale und das rechtwinklige Dreieck mit den Rechteckseiten.', einheit='°', toleranz=0.1))
+DS.neu('winkel', 3, DS.Z('Ein gleichschenkliges Dreieck hat die Basis 10 cm und zwei 13 cm lange Schenkel. Wie groß ist ein Basiswinkel? Runde auf eine Nachkommastelle.', 67.4, '67.380135051960',
+                        'Die Höhe halbiert die Basis: cos α = 5 : 13, α = cos⁻¹(5/13) ≈ 67,4°.',
+                        'Die Höhe teilt das Dreieck in zwei rechtwinklige Dreiecke.', einheit='°', toleranz=0.1))
+# beziehungen: cos aus sin (wie die Karte) ist Stufe 1; sin α = cos(90° − α) ist Stufe 2 und kommt jetzt auf der Karte vor
+for _t in ('Für einen spitzen Winkel α gilt sin α = 0,8432. Berechne cos α.', 'Für einen spitzen Winkel α gilt sin α = 0,936. Berechne cos α.',
+           'Für einen spitzen Winkel β gilt cos β = 0,5376. Berechne sin β.', 'Für einen spitzen Winkel gilt cos α = 0,8. Berechne sin α.'):
+    DS.stufe('beziehungen', _t, 1)
+for _g in (26, 10, 81, 61, 13):
+    DS.stufe('beziehungen', f'Welcher Ausdruck ist gleich sin {_g}°?', 2)
+DS.stufe('beziehungen', 'Gib den exakten Wert von cos 45° · sin 45° · 2 an.', 3)
+
+DS_KARTEN = {
+    'beziehungen': {
+        'schritte': [{'text': 'Bekannt ist sin α = 0,28. Im Bild: 7 : 25 = 0,28.'},
+                     {'text': 'Pythagoras geteilt durch c²: sin² α + cos² α = 1.'},
+                     {'text': 'cos² α = 1 − 0,0784 = 0,9216, also ⟦cos α = 0,96⟧.'},
+                     {'text': 'tan α = 0,28 : 0,96 = 7/24.'},
+                     {'text': 'Am anderen Winkel 90° − α liegt 7 an: ⟦cos(90° − α) = sin α⟧.'}],
+        'regel': 'Es gilt ⟦sin² α + cos² α = 1⟧. Dazu: tan α = sin α : cos α, sin α = cos(90° − α).',
+    },
+}
+
+if __name__ == '__main__':
+    durchsicht('trigo.rechtwinklig', DS, DS_KARTEN)

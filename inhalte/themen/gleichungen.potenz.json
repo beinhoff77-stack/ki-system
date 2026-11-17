@@ -767,7 +767,7 @@
    "l": "gerade",
    "t": "gerade",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Löse x⁶ = 64.",
@@ -791,7 +791,7 @@
    "l": "gerade",
    "t": "gerade",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Bestimme alle Lösungen von 81 = x⁴.",
@@ -836,7 +836,7 @@
    "l": "gerade",
    "t": "gerade",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Löse x⁴ − 256 = 0.",
@@ -860,7 +860,7 @@
    "l": "gerade",
    "t": "gerade",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Bestimme alle Lösungen von 729 = x⁶.",
@@ -1318,7 +1318,7 @@
    "l": "ungerade",
    "t": "ungerade",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Löse x³ = 1."
@@ -1334,7 +1334,7 @@
    "l": "ungerade",
    "t": "ungerade",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Löse x⁵ = 32."
@@ -1366,7 +1366,7 @@
    "l": "ungerade",
    "t": "ungerade",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Löse x³ = 1 000."
@@ -1478,7 +1478,7 @@
    "l": "ungerade",
    "t": "ungerade",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse x³ = −3,375."
@@ -1494,7 +1494,7 @@
    "l": "ungerade",
    "t": "ungerade",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse x⁵ = −0,00243."
@@ -2029,7 +2029,7 @@
    "l": "anzahl",
    "t": "anzahl",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Jemand sagt: „x³ = −64 hat keine Lösung, weil man aus negativen Zahlen keine Wurzel ziehen kann.“ Was stimmt?"
@@ -3142,7 +3142,7 @@
    "l": "naeherung",
    "t": "naeherung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse 5x⁶ = 30. Gib die negative Lösung auf zwei Nachkommastellen an."
@@ -3159,7 +3159,7 @@
    "l": "naeherung",
    "t": "naeherung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse 4x⁶ = 820. Gib die negative Lösung auf zwei Nachkommastellen an."
@@ -3592,7 +3592,7 @@
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Kiste hat eine quadratische Grundfläche. Sie ist 2-mal so hoch wie breit und hat 54 cm³ Volumen. Wie breit ist sie?"
@@ -3626,7 +3626,7 @@
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Quader (2 cm × 2 cm × 16 cm) wird eingeschmolzen und zu einem Würfel mit gleichem Volumen gegossen. Wie lang ist eine Würfelkante?"
@@ -3881,7 +3881,7 @@
    "l": "gerade",
    "t": "gerade",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Löse x⁴ = 10 000.",

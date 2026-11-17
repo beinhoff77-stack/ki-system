@@ -660,3 +660,52 @@ if __name__ == '__main__':
     anhaengen(d, 9908, schwer)
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
     erweitern('funktionen.potenz', None, 18_9_9, sach_potenz)  # Achtzehnte Runde: Sachaufgaben (Stufe 3) an mehreren Karten
+
+
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl9) ----
+from _durchsicht_kl9 import Befunde as _DSB, durchsicht  # noqa: E402
+
+DS = _DSB('funktionen.potenz', 19_9_8)
+# werte: negative Eingabe in a · xⁿ ist Stufe 2
+DS.stufe('werte', 'Berechne f(−3) für f(x) = −3x³.', 2, anzahl=1)
+DS.stufe('werte', 'Berechne f(−2) für f(x) = −3x⁵.', 2)
+# symmetrie: Symmetrie ablesen ist Stufe 1; Funktionswert aus dem Spiegelpunkt ist Stufe 2
+DS.stufe('symmetrie', 'Welche Symmetrie hat der Graph von y = −2x³?', 1)
+DS.stufe('symmetrie', 'Der Graph von y = a · x⁵ geht durch (2 | 8). Welchen y-Wert hat er bei x = −2?', 2)
+DS.stufe('symmetrie', 'Der Graph von f(x) = a · x⁴ geht durch (−3 | 162). Welchen Wert hat f(3)?', 2)
+# verlauf: Verlauf benennen ist Stufe 1; Graph zuordnen und Vergleich 0 < x < 1 ist Stufe 2
+for _t in ('Wie verläuft der Graph von y = −x³?', 'Wie verläuft der Graph von y = −x⁹?'):
+    DS.stufe('verlauf', _t, 1)
+DS.stufe('verlauf', 'Wie verläuft der Graph von y = 6x³?', 1, anzahl=1)
+DS.stufe('verlauf', 'Welcher Graph gehört zu y = x³?', 2, pools=('uebung',), enthaelt='"s": 3')
+DS.stufe('verlauf', 'Welcher Graph liegt für 0 < x < 1 weiter oben: y = x⁵ oder y = x³?', 2)
+DS.stufe('verlauf', 'Welcher Graph verläuft von links oben nach rechts unten?', 2)
+# parameter: n aus zwei Punkten steht sechsmal auf Stufe 3 → drei davon auf Stufe 2; a aus einem Punkt ist Stufe 2
+DS.stufe('parameter', 'Der Graph von y = a · x³ geht durch P(−2 | 4). Bestimme a.', 2)
+for _pq in ('P(3 | 27) und Q(1 | 3)', 'P(−2 | 16) und Q(3 | 36)', 'P(1 | −1) und Q(−2 | 8)'):
+    DS.stufe('parameter', f'Der Graph von y = a · xⁿ geht durch {_pq}. Bestimme n.', 2)
+# negativ: Definitionsmenge und Funktionswert wie Stufe 2
+DS.stufe('negativ', 'Für welche x ist f(x) = x⁻⁴ definiert?', 2)
+DS.stufe('negativ', 'Berechne f(0,5) für f(x) = 2 · x⁻³.', 2)
+# wurzelfunktion: Die Schreibweise x^(1/2) erklärt erst das spätere Thema zahlen.rationale_exponenten → Aufgaben mit √x und ∛x
+for _t, _n in (('Berechne f(36) für f(x) = x^(1/2).', DS.Z('Berechne f(36) für f(x) = 2 · √x.', 12, '2 * 6', '√36 = 6, also f(36) = 2 · 6 = 12.', 'Erst die Wurzel, dann mal 2.')),
+               ('Berechne f(196) für f(x) = x^(1/2).', DS.Z('Berechne f(196) für f(x) = 0,5 · √x.', 7, '0.5 * 14', '√196 = 14, also f(196) = 0,5 · 14 = 7.', 'Erst die Wurzel, dann mal 0,5.')),
+               ('Berechne f(49) für f(x) = x^(1/2).', DS.Z('Die Funktion f(x) = √x hat den Wert 7. Für welches x?', 49, '7 ** 2', 'Rückwärts: √x = 7 heißt x = 7² = 49.', 'Die Umkehrung der Wurzel ist das Quadrieren.')),
+               ('Berechne f(81) für f(x) = x^(1/2).', DS.Z('Berechne f(81) für f(x) = √x − 4.', 5, '9 - 4', '√81 = 9, also f(81) = 9 − 4 = 5.', 'Erst die Wurzel, dann minus 4.')),
+               ('Berechne f(8) für f(x) = x^(1/3).', DS.Z('Berechne f(8) für f(x) = 3 · ∛x.', 6, '3 * 2', '∛8 = 2, denn 2³ = 8. Also f(8) = 3 · 2 = 6.', 'Erst die dritte Wurzel, dann mal 3.'))):
+    DS.ersetze('wurzelfunktion', _t, _n, pools=('uebung',))
+for _t, _n in (('Berechne f(27) für f(x) = x^(1/3).', DS.Z('Berechne f(27) für f(x) = ∛x.', 3, '27 // 9', '∛27 = 3, denn 3³ = 27.', '-')),
+               ('Berechne f(64) für f(x) = x^(1/2).', DS.Z('Berechne f(64) für f(x) = √x.', 8, '64 // 8', '√64 = 8, denn 8 · 8 = 64.', '-')),
+               ('Berechne f(125) für f(x) = x^(1/3).', DS.Z('Berechne f(125) für f(x) = ∛x.', 5, '125 // 25', '∛125 = 5, denn 5³ = 125.', '-')),
+               ('Berechne f(216) für f(x) = x^(1/3).', DS.Z('Berechne f(216) für f(x) = ∛x.', 6, '216 // 36', '∛216 = 6, denn 6³ = 216.', '-'))):
+    DS.ersetze('wurzelfunktion', _t, _n, pools=('test', 'korrektur', 'sicherung'))
+DS.ersetze('wurzelfunktion', 'Für welche x ist f(x) = x^(1/2) definiert?',
+           DS.A('Der Graph von y = √x wird um 3 nach oben verschoben. Welcher Punkt liegt auf dem neuen Graphen?', '(4 | 5)', ['(4 | 2)', '(7 | 2)', '(1 | 3)'],
+                'Neuer Graph: y = √x + 3. Bei x = 4: √4 + 3 = 5. (4 | 2) liegt auf dem alten Graphen, (7 | 2) wäre nach rechts verschoben.',
+                'Welche Gleichung hat der verschobene Graph? Setze die x-Werte ein.'))
+DS.loesung('wurzelfunktion', 'Welche Funktion ist die Umkehrfunktion von f(x) = x² für x ≥ 0?',
+           w='Die Umkehrfunktion macht das Quadrieren rückgängig: Aus y = x² folgt x = √y. Also g(x) = √x.')
+DS.stufe('wurzelfunktion', 'Der Punkt (a | 5) liegt auf dem Graphen von y = √x. Bestimme a.', 2)
+
+if __name__ == '__main__':
+    durchsicht('funktionen.potenz', DS)

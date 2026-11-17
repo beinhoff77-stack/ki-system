@@ -1053,3 +1053,58 @@ if __name__ == '__main__':
     # Achtzehnte Runde: Lehrplan-Lücken (Anwendungen, Herleitung des Sinussatzes)
     einbauen('trigo.allgemein', KARTE_AN, None, 18_9_6, anwendung_aufgaben)
     erweitern('trigo.allgemein', 'sinussatz_seite', 18_9_7, sinussatz_aufgaben, schritt=SCHRITT_SIN, felder={'fehler_bild': FEHLERBILD_SIN})
+
+
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl9) ----
+from _durchsicht_kl9 import Befunde as _DSB, durchsicht  # noqa: E402
+
+DS = _DSB('trigo.allgemein', 19_9_14)
+# einheitskreis: Punkt zum Winkel ablesen und Vorzeichen sind Stufe 1 (Schritt 1 der Karte)
+for _t in ('Gib den Punkt zum Winkel 360° am Einheitskreis an.', 'Gib den Punkt zum Winkel 270° am Einheitskreis an.', 'Welches Vorzeichen hat sin 100°?'):
+    DS.stufe('einheitskreis', _t, 1)
+# flaeche: Parallelogramm zweimal auf Stufe 2; dieselbe Aufgabe wie Stufe 1 (γ = 150°) auf Stufe 1
+for _t in ('Ein Parallelogramm hat die Seiten 7 cm und 5 cm, die einen Winkel von 146° einschließen. Berechne den Flächeninhalt (auf eine Nachkommastelle).',
+           'Ein Parallelogramm hat die Seiten 15 cm und 11 cm, die einen Winkel von 110° einschließen. Berechne den Flächeninhalt (auf eine Nachkommastelle).'):
+    DS.stufe('flaeche', _t, 2)
+DS.stufe('flaeche', 'Ein Dreieck hat a = 8 cm, b = 5 cm und den eingeschlossenen Winkel γ = 150°. Berechne den Flächeninhalt ohne Taschenrechner (sin 150° = 0,5).', 1)
+# sinussatz_seite: direkte Rechnung wie die Karte → Stufe 1; dritte Seite nach Winkelsumme → Stufe 2
+DS.stufe('sinussatz_seite', 'Im Dreieck ABC ist a = 7 cm, α = 40° und β = 75°. Berechne b (auf eine Nachkommastelle).', 1)
+for _t in ('Im Dreieck ABC ist c = 10 cm, α = 45° und γ = 30°. Berechne a (sin 45° ≈ 0,7071; sin 30° = 0,5). Runde auf eine Nachkommastelle.',
+           'Im Dreieck ABC ist a = 9 cm, β = 48° und γ = 77°. Berechne b (auf eine Nachkommastelle).',
+           'Zwei Beobachter A und B stehen 115 m voneinander entfernt. Sie sehen einen Baum C auf der anderen Seite eines Sees unter den Winkeln α = 37° (bei A) und β = 61° (bei B) zur Strecke AB. Wie weit ist der Baum von A entfernt (auf ganze Meter)?',
+           'Zwei Beobachter A und B stehen 77 m voneinander entfernt. Sie sehen einen Baum C auf der anderen Seite eines Sees unter den Winkeln α = 34° (bei A) und β = 27° (bei B) zur Strecke AB. Wie weit ist der Baum von A entfernt (auf ganze Meter)?'):
+    DS.stufe('sinussatz_seite', _t, 2)
+# sinussatz_winkel: β bei a > b ist das Kartenbeispiel (Stufe 1); stumpfes α (nur spitzes γ) ist Stufe 2
+for _t in ('Im Dreieck ABC ist a = 8 cm, b = 3 cm und α = 43°. Berechne β (auf eine Nachkommastelle).',
+           'Im Dreieck ABC ist a = 14 cm, b = 6 cm und α = 65°. Berechne β (auf eine Nachkommastelle).',
+           'Im Dreieck ABC ist a = 12 cm, b = 8 cm und α = 60°. Berechne β (auf eine Nachkommastelle).',
+           'Im Dreieck ABC ist a = 8 cm, b = 5 cm und α = 70°. Berechne β (auf eine Nachkommastelle).'):
+    DS.stufe('sinussatz_winkel', _t, 1)
+DS.stufe('sinussatz_winkel', 'Im Dreieck ABC ist a = 12 cm, c = 9 cm und α = 100°. Berechne γ (auf eine Nachkommastelle).', 2)
+# kosinussatz_seite: γ = 60° ist das Kartenbeispiel; stumpfes γ und runden sind Stufe 2; Schiff steht als Schritt 5 auf der Karte
+DS.stufe('kosinussatz_seite', 'Im Dreieck ABC ist a = 5 cm, b = 11 cm und γ = 124°. Berechne c (auf eine Nachkommastelle).', 2)
+for _t in ('Im Dreieck ABC ist a = 5 cm, b = 21 cm und γ = 60°. Berechne c.', 'Im Dreieck ABC ist a = 10 cm, b = 16 cm und γ = 60°. Berechne c.',
+           'Im Dreieck ABC ist a = 16 cm, b = 6 cm und γ = 60°. Berechne c.'):
+    DS.stufe('kosinussatz_seite', _t, 1)
+for _t in ('Im Dreieck ABC ist a = 4 cm, b = 9 cm und γ = 35°. Berechne c (auf eine Nachkommastelle).',
+           'Im Dreieck ABC ist a = 11 cm, b = 8 cm und γ = 85°. Berechne c (auf eine Nachkommastelle).',
+           'Ein Schiff fährt 4 km nach Osten, dreht dann um 134° nach links und fährt 15 km weiter. Wie weit ist es vom Start entfernt (auf eine Nachkommastelle)?',
+           'Ein Schiff fährt 8 km nach Osten, dreht dann um 32° nach links und fährt 13 km weiter. Wie weit ist es vom Start entfernt (auf eine Nachkommastelle)?'):
+    DS.stufe('kosinussatz_seite', _t, 2)
+# kosinussatz_winkel: Seiten mit glattem Ergebnis wie das Beispiel → Stufe 1; Runden und ein Teil der Grundstücke → Stufe 2
+DS.stufe('kosinussatz_winkel', 'Ein Dreieck hat die Seiten a = 16 cm, b = 10 cm, c = 14 cm. Berechne γ.', 1)
+for _t in ('Ein Dreieck hat die Seiten a = 7 cm, b = 6 cm, c = 5 cm. Berechne γ (auf eine Nachkommastelle).',
+           'Ein Dreieck hat die Seiten a = 7 cm, b = 7 cm, c = 13 cm. Berechne γ (auf eine Nachkommastelle).',
+           'Ein dreieckiges Grundstück hat die Seiten 90 m, 30 m und 70 m. Wie groß ist der Winkel gegenüber der 70-m-Seite (auf eine Nachkommastelle)?',
+           'Ein dreieckiges Grundstück hat die Seiten 100 m, 70 m und 120 m. Wie groß ist der Winkel gegenüber der 120-m-Seite (auf eine Nachkommastelle)?'):
+    DS.stufe('kosinussatz_winkel', _t, 2)
+# satz_waehlen: einfache SWS-Zuordnung ist Stufe 1; „Sinussatz bei SWS?“ zweimal auf Stufe 2
+for _t in ('Im Dreieck ABC ist a = 9 cm, c = 14 cm und β = 26°. Womit berechnest du die Seite b?',
+           'Im Dreieck ABC ist a = 15 cm, b = 4 cm und γ = 65°. Womit berechnest du die Seite c?'):
+    DS.stufe('satz_waehlen', _t, 1)
+for _t in ('Gegeben a = 6 cm, b = 11 cm, γ = 93°. Jemand will c mit dem Sinussatz berechnen. Was stimmt?',
+           'Gegeben a = 9 cm, b = 6 cm, γ = 61°. Jemand will c mit dem Sinussatz berechnen. Was stimmt?'):
+    DS.stufe('satz_waehlen', _t, 2)
+
+if __name__ == '__main__':
+    durchsicht('trigo.allgemein', DS)

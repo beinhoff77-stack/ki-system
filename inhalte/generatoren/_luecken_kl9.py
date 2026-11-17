@@ -47,7 +47,7 @@ def _karte_pruefen(e):
     assert len(e['woerter']) <= 3
     alles = e['einstieg'] + ' ' + ' '.join(s['text'] for s in e['schritte'])
     for w, _ in e['woerter']:
-        assert w in alles, ('Wort kommt nicht vor', w)
+        assert w.lower() in alles.lower(), ('Wort kommt nicht vor', w)
     assert 2 <= len(e['schritte']) <= 5
     for s in e['schritte']:
         assert _woerter(s['text']) <= 15, ('Schritt zu lang', s['text'])

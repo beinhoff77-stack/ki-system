@@ -779,7 +779,7 @@
       "text": "Die Gleichung hat ⟦zwei Lösungen⟧: 5 und −5. Aber √25 meint nur ⟦5⟧."
      }
     ],
-    "fehler": "√(9 + 16) ist nicht √9 + √16 = 7. Erst unter der Wurzel rechnen: √25 = 5. Probe: 7 · 7 = 49, nicht 25.",
+    "fehler": "√25 ist nicht −5 und nicht ±5. Die Wurzel ist nie negativ. Nur die Gleichung x² = 25 hat zwei Lösungen.",
     "einstieg": "Ein Rätsel: Meine Zahl mal sich selbst ergibt 25. Das passt für 5 und für −5. Das Wurzelzeichen meint aber nur die Zahl ⟦ohne Minus⟧.",
     "woerter": [
      [
@@ -816,6 +816,20 @@
      ],
      "waagrecht": [
       25
+     ]
+    },
+    "fehler_bild": {
+     "punkte": [
+      {
+       "x": -5,
+       "y": 25,
+       "name": "−5 ≠ √25"
+      },
+      {
+       "x": 5,
+       "y": 25,
+       "name": "√25 = 5"
+      }
      ]
     }
    },
@@ -1220,7 +1234,7 @@
    "l": "quadratwurzel",
    "t": "quadratwurzel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 2 · √25 − √169."
@@ -1236,7 +1250,7 @@
    "l": "quadratwurzel",
    "t": "quadratwurzel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne √(62 + 19)."
@@ -1284,7 +1298,7 @@
    "l": "quadratwurzel",
    "t": "quadratwurzel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 3 · √9 − √100."
@@ -1300,7 +1314,7 @@
    "l": "quadratwurzel",
    "t": "quadratwurzel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 4 · √169 − √16."
@@ -1703,7 +1717,7 @@
    "l": "wurzel_dezimal",
    "t": "wurzel_dezimal",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Berechne √(9/169).",
@@ -2231,7 +2245,7 @@
    "l": "kubikwurzel",
    "t": "kubikwurzel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Berechne ∛(1/343).",
@@ -2255,7 +2269,7 @@
    "l": "kubikwurzel",
    "t": "kubikwurzel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Berechne ∛(27/343).",
@@ -2279,7 +2293,7 @@
    "l": "kubikwurzel",
    "t": "kubikwurzel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne ∛64 · √25."
@@ -2295,7 +2309,7 @@
    "l": "kubikwurzel",
    "t": "kubikwurzel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Berechne ∛(216/343).",
@@ -2634,7 +2648,7 @@
    "l": "abschaetzen",
    "t": "abschaetzen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √285?",
@@ -2658,7 +2672,7 @@
    "l": "abschaetzen",
    "t": "abschaetzen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √323?",
@@ -2682,7 +2696,7 @@
    "l": "abschaetzen",
    "t": "abschaetzen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √103?",
@@ -2706,7 +2720,7 @@
    "l": "abschaetzen",
    "t": "abschaetzen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √404?",
@@ -2751,7 +2765,7 @@
    "l": "abschaetzen",
    "t": "abschaetzen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √1 605?",
@@ -2775,7 +2789,7 @@
    "l": "abschaetzen",
    "t": "abschaetzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Zwischen welchen Zehnteln liegt √82?"
@@ -2796,7 +2810,7 @@
    "l": "abschaetzen",
    "t": "abschaetzen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √788?",
@@ -2844,7 +2858,7 @@
    "l": "abschaetzen",
    "t": "abschaetzen",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √648?",
@@ -2868,7 +2882,7 @@
    "l": "abschaetzen",
    "t": "abschaetzen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √1 291?",
@@ -3248,7 +3262,7 @@
    "l": "wurzel_deuten",
    "t": "wurzel_deuten",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Was gilt für √(−169)?"
@@ -3269,7 +3283,7 @@
    "l": "wurzel_deuten",
    "t": "wurzel_deuten",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Was gilt für √(−121)?"
@@ -3290,7 +3304,7 @@
    "l": "wurzel_deuten",
    "t": "wurzel_deuten",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welchen Wert hat (√88)²?"
@@ -3311,7 +3325,7 @@
    "l": "wurzel_deuten",
    "t": "wurzel_deuten",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welchen Wert hat (√79)²?"
@@ -3332,7 +3346,7 @@
    "l": "wurzel_deuten",
    "t": "wurzel_deuten",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Was gilt für √(−289)?"
@@ -3374,7 +3388,7 @@
    "l": "wurzel_deuten",
    "t": "wurzel_deuten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Jemand rechnet: √(36 + 49) = √36 + √49 = 13. Was stimmt?"
@@ -3419,40 +3433,35 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand rechnet: √(36 + 9) = √36 + √9 = 9. Was stimmt?"
+    "text": "Für welche Zahlen x ist √(x − 4) erklärt?"
    },
    "a": [
-    "Richtig, denn 6 + 3 = 9",
-    "Richtig, man darf die Wurzel aus jedem Summanden einzeln ziehen",
-    "Falsch: Erst addieren, dann Wurzel ziehen: √45 ≈ 6,7. Probe: 9² = 81 ≠ 45.",
-    "Falsch: Das Ergebnis ist 18"
+    "für x > 4",
+    "für x ≥ 0",
+    "für x ≥ 4",
+    "für alle x"
    ],
    "o": {
     "index": 2
    },
-   "w": "Erst den Radikanden berechnen: 36 + 9 = 45, √45 ≈ 6,7. Probe: 9² = 81 ≠ 45. Die Wurzel aus einer Summe ist nicht die Summe der Wurzeln.",
-   "h": "Rechne zuerst aus, was unter der Wurzel steht, und mache die Probe durch Quadrieren."
+   "w": "Unter der Wurzel darf nichts Negatives stehen: x − 4 ≥ 0, also x ≥ 4. Auch x = 4 geht: √0 = 0.",
+   "h": "Wann ist x − 4 nicht negativ?"
   },
   {
    "l": "wurzel_deuten",
    "t": "wurzel_deuten",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Jemand rechnet: √(81 + 16) = √81 + √16 = 13. Was stimmt?"
+    "text": "Berechne (−√7)²."
    },
-   "a": [
-    "Falsch: Erst addieren, dann Wurzel ziehen: √97 ≈ 9,8. Probe: 13² = 169 ≠ 97.",
-    "Richtig, man darf die Wurzel aus jedem Summanden einzeln ziehen",
-    "Falsch: Das Ergebnis ist 36",
-    "Richtig, denn 9 + 4 = 13"
-   ],
    "o": {
-    "index": 0
+    "wert": 7
    },
-   "w": "Erst den Radikanden berechnen: 81 + 16 = 97, √97 ≈ 9,8. Probe: 13² = 169 ≠ 97. Die Wurzel aus einer Summe ist nicht die Summe der Wurzeln.",
-   "h": "Rechne zuerst aus, was unter der Wurzel steht, und mache die Probe durch Quadrieren."
+   "c": "7",
+   "w": "(−√7)² = (−√7) · (−√7) = √7 · √7 = 7. Minus mal Minus ergibt Plus.",
+   "h": "Schreibe das Quadrat als Produkt. Was ergibt Minus mal Minus?"
   },
   {
    "l": "wurzel_deuten",
@@ -3872,15 +3881,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Spielwürfel aus Kunststoff hat ein Volumen von 512 cm³. Wie lang ist eine Kante?"
+    "text": "Ein Würfel hat ein Volumen von 0,027 m³. Wie lang ist eine Kante in Zentimetern?"
    },
    "o": {
-    "wert": 8,
+    "wert": 30,
     "einheit": "cm"
    },
-   "c": "512 / (8 * 8)",
-   "w": "a = ∛512 cm = 8 cm, denn 8³ = 512.",
-   "h": "Beim Würfel gilt V = a · a · a."
+   "c": "3 * 10",
+   "w": "∛0,027 = 0,3, denn 0,3 · 0,3 · 0,3 = 0,027. Die Kante ist 0,3 m = 30 cm lang.",
+   "h": "Ziehe die dritte Wurzel und rechne m in cm um."
   },
   {
    "l": "wurzel_sache",
@@ -3920,7 +3929,7 @@
    "l": "wurzel_sache",
    "t": "wurzel_sache",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Würfel hat eine Oberfläche von 384 cm². Wie lang ist eine Kante?"
@@ -3954,7 +3963,7 @@
    "l": "wurzel_sache",
    "t": "wurzel_sache",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Würfel hat eine Oberfläche von 486 cm². Wie lang ist eine Kante?"
@@ -3971,7 +3980,7 @@
    "l": "wurzel_sache",
    "t": "wurzel_sache",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Würfel hat eine Oberfläche von 1 350 cm². Wie lang ist eine Kante?"
@@ -4474,6 +4483,22 @@
    "h": "Denke an 2³ = 8 und 10³ = 1 000."
   },
   {
+   "l": "kubikwurzel",
+   "t": "kubikwurzel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein voller Würfel besteht aus 64 Würfelchen. Er soll zu einem vollen Würfel ergänzt werden, dessen Kante 1 Würfelchen länger ist. Wie viele Würfelchen kommen dazu?"
+   },
+   "o": {
+    "wert": 61
+   },
+   "c": "5 ** 3 - 4 ** 3",
+   "w": "Kante jetzt ∛64 = 4, später 5. Der neue Würfel hat 5³ = 125 Würfelchen. Dazu kommen 125 − 64 = 61.",
+   "h": "Bestimme zuerst die Kantenlänge des alten Würfels."
+  },
+  {
    "l": "abschaetzen",
    "t": "abschaetzen",
    "p": "uebung",
@@ -4637,7 +4662,7 @@
    "l": "abschaetzen",
    "t": "abschaetzen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √200?",

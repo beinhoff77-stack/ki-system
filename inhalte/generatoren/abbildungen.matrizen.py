@@ -580,6 +580,183 @@ def durchsicht(d):
         })
 
 
+# ---- STUFEN (Zwanzigste Runde, Zusatz RS/IB, Zweig stufen-rsib-1) ----
+from _stufen_rsib1 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('abbildungen.matrizen', 20_101_9)
+Z, A, L = ST.Z, ST.A, ST.L
+_P = "P′(□ | □)"
+_M = '(□  □; □  □)'
+
+# bildpunkt
+ST.stufenleiter('bildpunkt', 'Einen Punkt mit einer Matrix abbilden: Zeile mal Spalte; die richtige Rechnung erkennen.',
+                'Urpunkt aus dem Bildpunkt, Matrix aus den Abbildungsgleichungen, Bild aus den Bildern der Einheitspunkte, zweimal abbilden, Spiel-Verzerrung.',
+                'Parameter, Fixpunkt begründen, Fehler „Spalte statt Zeile“, Fläche des Bilds, Scherung als Modell, Abbilden und Verschieben rückwärts, Prüfungsaufgabe.')
+ST.typ('bildpunkt', '/^(Bilde P|Welcher Bildpunkt)/', 'direkt')
+ST.typ('bildpunkt', 'Die Abbildung mit M', 'umkehr')
+ST.typ('bildpunkt', 'Die Abbildung hat die Gleichungen', 'darstellung')
+ST.typ('bildpunkt', 'Eine Matrix bildet', 'mehrschritt')
+ST.typ('bildpunkt', '/^(Die Punkte P\\(x|Für welchen Wert k)/', 'parameter')
+ST.typ('bildpunkt', 'Welcher Punkt wird', 'begruenden')
+ST.neu('bildpunkt', 'erkennen', A('Welche Rechnung liefert x′, wenn P(3 | 2) mit M = (4  1; 2  5) abgebildet wird?', '4 · 3 + 1 · 2', ['4 · 3 + 2 · 2', '4 · 2 + 1 · 3', '2 · 3 + 5 · 2'],
+       'x′ = erste Zeile mal Punkt: 4 · 3 + 1 · 2 = 14. Die zweite Zeile liefert y′ = 2 · 3 + 5 · 2 = 16.', 'Welche Zeile gehört zu x′?'))
+ST.neu('bildpunkt', 'einkleidung', L('Ein Computerspiel verzerrt Figuren mit M = (2  0; 0  1). Wohin kommt die Ecke (3 | 4) einer Figur?', '(□ | □)', [6, 4], ['2 * 3 + 0 * 4', '0 * 3 + 1 * 4'],
+       'x′ = 2 · 3 + 0 · 4 = 6, y′ = 0 · 3 + 1 · 4 = 4. Die Figur wird nur in x-Richtung doppelt so breit.', 'Zeile mal Spalte.'))
+ST.neu('bildpunkt', 'mehrschritt', L('Bilde P(1 | 2) mit M = (1  1; 0  1) ab und das Ergebnis noch einmal mit M.', "P″(□ | □)", [5, 2], ['(1 + 2) + 2', '2'],
+       'Erst: (1 + 2 | 2) = (3 | 2). Dann: (3 + 2 | 2) = (5 | 2).', 'Bilde zweimal nacheinander ab.'))
+ST.neu('bildpunkt', 'fehler', A('Jemand bildet P(2 | 1) mit M = (3  1; 0  2) ab und rechnet x′ = 3 · 2 + 0 · 1 = 6. Was stimmt?', 'Falsch: Er hat die Spalte statt der Zeile genommen; x′ = 3 · 2 + 1 · 1 = 7.',
+       ['Richtig.', 'Falsch: x′ = 3 + 2 = 5.', 'Falsch: x′ = 3 · 1 + 1 · 2 = 5.'], 'Für x′ nimmt man die erste Zeile (3  1): 3 · 2 + 1 · 1 = 7. y′ = 0 · 2 + 2 · 1 = 2.', 'Welche Zahlen stehen in der ersten Zeile?'))
+ST.neu('bildpunkt', 'verknuepfen', Z('Das Dreieck A(0 | 0), B(2 | 0), C(0 | 1) wird mit M = (3  0; 0  2) abgebildet. Wie groß ist die Fläche des Bilddreiecks?', 6, '6 * 2 / 2',
+       'B′(6 | 0), C′(0 | 2). Rechtwinkliges Dreieck mit Katheten 6 und 2: ½ · 6 · 2 = 6 FE. Das Original hatte 1 FE – die Fläche wurde mit 3 · 2 = 6 multipliziert.', 'Bilde B und C ab.', einheit='FE'))
+ST.neu('bildpunkt', 'transfer', Z('Die Matrix (1  k; 0  1) schiebt Punkte waagrecht, umso weiter, je höher sie liegen (Scherung). Wie weit wird der Punkt (0 | 5) bei k = 0,4 nach rechts geschoben?', 2, '0.4 * 5',
+       'x′ = 1 · 0 + 0,4 · 5 = 2, y′ = 5. Der Punkt wandert 2 nach rechts.', 'Bilde (0 | 5) ab.'))
+ST.neu('bildpunkt', 'rueckwaerts', L('Ein Punkt P wird erst mit M = (2  0; 0  3) abgebildet und dann um (1 | 1) verschoben. Er landet bei (9 | −5). Wo lag P?', 'P(□ | □)', [4, -2], ['(9 - 1) // 2', '(-5 - 1) // 3'],
+       'Rückwärts: Verschiebung rückgängig: (8 | −6). Dann die Matrix rückgängig: x durch 2, y durch 3: (4 | −2).', 'Mache die Schritte in umgekehrter Reihenfolge rückgängig.'))
+ST.neu('bildpunkt', 'pruefung', L('Gegeben ist M = (1  2; −1  3). a) Bilde A(2 | 1) ab. b) Bilde B(−1 | 2) ab.', "A′(□ | □); B′(□ | □)", [4, 1, 3, 7], ['2 + 2', '-2 + 3', '-1 + 4', '1 + 6'],
+       'a) (1 · 2 + 2 · 1 | −1 · 2 + 3 · 1) = (4 | 1). b) (−1 + 4 | 1 + 6) = (3 | 7).', 'Zeile mal Spalte.'))
+ST.knobel('bildpunkt', L('Die Matrix M = (0  1; 1  0) wird 2 025-mal hintereinander auf P(3 | 7) angewendet. Wo landet P?', 'P(□ | □)', [7, 3], ['7', '3'],
+          'M vertauscht x und y. Zweimal angewendet ist alles wie vorher. 2 025 ist ungerade, also wirkt es wie einmal: (7 | 3).', 'Was passiert nach zwei Anwendungen?'))
+ST.knobel('bildpunkt', A('Für welche Punkte P gilt bei M = (2  1; 1  2), dass das Bild P′ genau das Dreifache von P ist?', 'für alle Punkte der Form (t | t)', ['nur für (1 | 1)', 'für alle Punkte (t | −t)', 'für keinen Punkt außer (0 | 0)'],
+          '(2x + y | x + 2y) = (3x | 3y) ⇒ y = x und x = y. Also alle Punkte (t | t) auf der Geraden y = x. Probe: (1 | 1) ↦ (3 | 3).', 'Stelle zwei Gleichungen auf.'))
+
+# abbildungsmatrix
+ST.stufenleiter('abbildungsmatrix', 'Mit gegebener Matrix spiegeln oder drehen; die Matrix einer Standardabbildung angeben und erkennen.',
+                'Streckungen und Affinitäten als Matrix, Matrix aus den Bildern von (1 | 0) und (0 | 1), Faktor aus einem Punktpaar, Bildvergrößerung.',
+                'Fehler „90° statt −90°“ und „falsche Spiegelachse“, Doppelte Abbildungen begründen, Spiegelung an y = −x herleiten, Flächenfaktor, Verkleinerung als Bedingung, Prüfungsaufgabe.')
+ST.typ('abbildungsmatrix', 'Bilde P(', 'direkt')
+ST.typ('abbildungsmatrix', 'Welche Matrix beschreibt', 'erkennen')
+ST.typ('abbildungsmatrix', '/^Gib die Matrix der (Spiegelung an der y-Achse|Drehung|Punktspiegelung)/', 'direkt')
+ST.typ('abbildungsmatrix', '/^Gib die Matrix der (zentrischen|orthogonalen)/', 'mehrschritt')
+ST.typ('abbildungsmatrix', 'Gib die Matrix der Spiegelung an der Geraden', 'transfer')
+ST.typ('abbildungsmatrix', 'Eine Abbildung bildet', 'darstellung')
+ST.typ('abbildungsmatrix', '/^(Die Matrix \\(k|Gib die Matrix an, die jeden)/', 'umkehr')
+ST.typ('abbildungsmatrix', 'Jemand gibt', 'fehler')
+ST.typ('abbildungsmatrix', '/^(Die Punktspiegelung am Ursprung wird|Welche Abbildung hat)/', 'begruenden')
+ST.neu('abbildungsmatrix', 'einkleidung', L('Ein Grafikprogramm vergrößert ein Bild in beide Richtungen auf das Dreifache (Mitte im Ursprung). Gib die Matrix an.', _M, [3, 0, 0, 3], ['3', '0', '0', '3'],
+       '(1 | 0) wird zu (3 | 0), (0 | 1) zu (0 | 3). Als Spalten: (3  0; 0  3).', 'Wohin gehen (1 | 0) und (0 | 1)?'))
+ST.neu('abbildungsmatrix', 'fehler', A('Jemand sagt: „Die Matrix (0  1; 1  0) beschreibt die Spiegelung an der x-Achse.“ Was stimmt?', 'Falsch: Sie vertauscht x und y – das ist die Spiegelung an der Geraden y = x.',
+       ['Richtig.', 'Falsch: Das ist die Spiegelung an der y-Achse.', 'Falsch: Das ist die Drehung um 90°.'], '(0  1; 1  0) bildet (3 | 2) auf (2 | 3) ab. Die Spiegelung an der x-Achse hätte (1  0; 0  −1) und ergäbe (3 | −2).', 'Bilde einen Punkt ab.'))
+ST.neu('abbildungsmatrix', 'parameter', A('Für welche Zahlen k verkleinert die Matrix (k  0; 0  k) jede Figur (k ≠ 0)?', 'für −1 < k < 1', ['für k < 1', 'für k > −1', 'für 0 < k < 2'],
+       'Alle Längen werden mit |k| multipliziert. Kleiner wird die Figur, wenn |k| < 1, also −1 < k < 1. Negatives k dreht dabei zusätzlich um 180°.', 'Was macht ein negatives k?'))
+ST.neu('abbildungsmatrix', 'verknuepfen', Z('Die Streckung mit der Matrix (2  0; 0  2) bildet ein Quadrat mit 3 FE ab. Wie groß ist das Bild?', 12, '3 * 4',
+       'Alle Längen werden verdoppelt, die Fläche also mit 2 · 2 = 4 multipliziert: 12 FE.', 'Was passiert mit der Fläche, wenn alle Längen doppelt so lang werden?', einheit='FE'))
+ST.neu('abbildungsmatrix', 'pruefung', L('Die Drehung um O um 90° gegen den Uhrzeigersinn: a) Wohin geht (1 | 0)? b) Wohin geht (0 | 1)? c) Gib die Matrix an.', 'a) (□ | □); b) (□ | □); c) (□  □; □  □)', [0, 1, -1, 0, 0, -1, 1, 0],
+       ['0', '1', '-1', '0', '0', '-1', '1', '0'], 'a) (1 | 0) ↦ (0 | 1). b) (0 | 1) ↦ (−1 | 0). c) Bilder als Spalten: (0  −1; 1  0).', 'Zeichne die beiden Einheitspfeile und drehe sie.'))
+ST.knobel('abbildungsmatrix', Z('Wie viele verschiedene Matrizen gibt es, in denen in jeder Zeile und jeder Spalte genau ein Eintrag 1 oder −1 steht und sonst 0?', 8, '2 * 2 * 2',
+          'Die Nicht-Null-Einträge stehen entweder auf der Hauptdiagonale oder auf der Nebendiagonale (2 Möglichkeiten), und jeder kann 1 oder −1 sein (2 · 2). Zusammen 8. '
+          'Das sind genau die Drehungen um 0°, 90°, 180°, 270° und die vier Spiegelungen, die ein Quadrat um O auf sich selbst abbilden.', 'Wo können die beiden Einträge stehen?'))
+ST.knobel('abbildungsmatrix', L('Eine Abbildung bildet (1 | 1) auf (3 | 3) und (1 | −1) auf (1 | −1) ab. Gib ihre Matrix an.', _M, [2, 1, 1, 2], ['2', '1', '1', '2'],
+          'M = (a  b; c  d). Aus (1 | 1): a + b = 3, c + d = 3. Aus (1 | −1): a − b = 1, c − d = −1. Also a = 2, b = 1, c = 1, d = 2.', 'Stelle für jede Zeile zwei Gleichungen auf.'))
+
+# drehung
+ST.stufenleiter('drehung', 'Einen Punkt auf der x-Achse mit der Drehmatrix drehen und x′ oder y′ berechnen; die Drehmatrix erkennen.',
+                'Beliebige Punkte drehen, exakt um 90° drehen, Drehwinkel aus Bild und Urbild, Gondel eines Riesenrads.',
+                'Abstand bleibt – begründen und nutzen, Winkel rückwärts aus einer Koordinate, Drehsymmetrie, Fehler beim Drehsinn, Bereich der Drehwinkel, Prüfungsaufgabe.')
+ST.typ('drehung', '/^P\\(\\d+ \\| 0\\) wird um O um \\d+° gedreht\\. Berechne/', 'direkt')
+ST.typ('drehung', 'Welche Matrix beschreibt', 'erkennen')
+ST.typ('drehung', '/^P\\([−\\d]+ \\| [−\\d]+\\) wird um O um \\d+° gedreht\\. Berechne/', 'mehrschritt')
+ST.typ('drehung', 'P(3 | 4) wird um O um 90°', 'mehrschritt')
+ST.typ('drehung', 'P(4 | 0) wird um O gedreht', 'umkehr')
+ST.typ('drehung', '/(Wie weit ist P. vom Ursprung|^P\\(6 \\| 8\\))/', 'verknuepfen')
+ST.typ('drehung', 'P(2 | 0) wird um O um einen Winkel', 'rueckwaerts')
+ST.typ('drehung', 'Eine Drehung um O um 60°', 'begruenden')
+ST.typ('drehung', 'Ein Quadrat', 'transfer')
+ST.neu('drehung', 'einkleidung', Z('Ein Riesenrad hat 10 m Radius, seine Mitte liegt im Ursprung. Eine Gondel startet bei (10 | 0) und dreht sich um 30° gegen den Uhrzeigersinn. Wie hoch über der Mitte ist sie dann?', 5, '10 * 0.5',
+       'y′ = 10 · sin 30° + 0 · cos 30° = 10 · 0,5 = 5 m.', 'Berechne y′ mit der Drehmatrix.', einheit='m'))
+ST.neu('drehung', 'fehler', A('Jemand dreht P(4 | 0) um O um 90° gegen den Uhrzeigersinn und erhält P′(0 | −4). Was stimmt?', 'Falsch: Gegen den Uhrzeigersinn landet P bei (0 | 4).',
+       ['Richtig.', 'Falsch: P′(−4 | 0).', 'Falsch: P′(4 | 4).'], 'Mit (0  −1; 1  0): x′ = 0, y′ = 4. (0 | −4) wäre die Drehung im Uhrzeigersinn (−90°).', 'In welche Richtung dreht „gegen den Uhrzeigersinn“?'))
+ST.neu('drehung', 'parameter', A('Für welche Drehwinkel φ mit 0° ≤ φ < 360° landet P(5 | 0) unterhalb der x-Achse?', 'für 180° < φ < 360°', ['für 0° < φ < 180°', 'für 90° < φ < 270°', 'für φ > 90°'],
+       'y′ = 5 · sin φ. Das ist negativ für 180° < φ < 360°.', 'Wann ist sin φ negativ?'))
+ST.neu('drehung', 'pruefung', L('P(2 | 0) wird um O um 60° gedreht. a) Berechne x′ (cos 60° = 0,5). b) Wie weit ist P′ vom Ursprung entfernt? c) Um wie viel Grad muss man noch weiterdrehen, bis P wieder bei (2 | 0) ist?',
+       'a) □; b) □; c) □°', [1, 2, 300], ['2 * 0.5', '2', '360 - 60'], 'a) x′ = 2 · cos 60° = 1. b) Drehen ändert den Abstand nicht: 2. c) 360° − 60° = 300°.', 'Ein Kreis hat 360°.'))
+ST.knobel('drehung', L('Ein regelmäßiges Sechseck mit dem Mittelpunkt O hat eine Ecke bei (4 | 0). Gib die gegenüberliegende Ecke an.', '(□ | □)', [-4, 0], ['-4', '0'],
+          'Die gegenüberliegende Ecke erreicht man durch drei Drehungen um 60°, also um 180°: (4 | 0) ↦ (−4 | 0).', 'Um wie viel Grad liegen gegenüberliegende Ecken auseinander?'))
+ST.knobel('drehung', Z('Ein Punkt wird immer wieder um 135° gedreht. Nach wie vielen Drehungen ist er zum ersten Mal wieder an seiner Stelle?', 8, '1080 // 135',
+          'Gesucht ist das kleinste n mit n · 135° = Vielfaches von 360°. 135 · 8 = 1 080 = 3 · 360. Kleinere n gehen nicht (135 · 4 = 540 = 1,5 · 360). Also 8.', 'Wann ist n · 135 durch 360 teilbar?'))
+
+# rechnen
+ST.stufenleiter('rechnen', 'Matrizen addieren und mit einer Zahl multiplizieren; den Eintrag eines Produkts erkennen.',
+                'Matrizen multiplizieren, fehlende Matrix bei einer Summe, Einkaufskosten als Matrix mal Vektor.',
+                'Vertauschbarkeit prüfen, Verkettung von Abbildungen, Drehung zweimal, Parameter für AB = BA, Fehler „eintragsweise multipliziert“, Prüfungsaufgabe.')
+ST.typ('rechnen', '/^Berechne (\\(−\\d\\)|\\d+) · A/', 'direkt')
+ST.typ('rechnen', 'Berechne A + B', 'direkt')
+ST.typ('rechnen', '/^(Berechne A · B|Was ergibt A · B|Berechne A · A)/', 'mehrschritt')
+ST.typ('rechnen', '/^(Gilt A · B|Die Drehung um O um 90° hat)/', 'begruenden')
+ST.typ('rechnen', 'Erst wird', 'verknuepfen')
+ST.typ('rechnen', 'Für welche x gilt', 'parameter')
+ST.neu('rechnen', 'erkennen', A('Welche Rechnung liefert den Eintrag oben links in A · B mit A = (1  2; 3  4) und B = (5  6; 7  8)?', '1 · 5 + 2 · 7 = 19', ['1 · 5 = 5', '1 · 5 + 3 · 6 = 23', '1 · 6 + 2 · 8 = 22'],
+       'Oben links: erste Zeile von A mal erste Spalte von B: 1 · 5 + 2 · 7 = 19.', 'Zeile mal Spalte.'))
+ST.neu('rechnen', 'einkleidung', L('Klasse A kauft 10 Hefte und 4 Stifte, Klasse B 6 Hefte und 8 Stifte. Ein Heft kostet 2 €, ein Stift 1 €. Berechne (10  4; 6  8) · (2 | 1): die Kosten beider Klassen.', 'A: □ €; B: □ €', [24, 20],
+       ['10 * 2 + 4 * 1', '6 * 2 + 8 * 1'], 'Zeile mal Preise: A: 10 · 2 + 4 · 1 = 24 €. B: 6 · 2 + 8 · 1 = 20 €.', 'Jede Zeile gehört zu einer Klasse.'))
+ST.neu('rechnen', 'umkehr', L('Ergänze: (2  1; 0  3) + X = (5  1; 2  3). Gib X an.', _M, [3, 0, 2, 0], ['5 - 2', '1 - 1', '2 - 0', '3 - 3'],
+       'X = (5  1; 2  3) − (2  1; 0  3) = (3  0; 2  0), Eintrag für Eintrag.', 'Ziehe ab.'))
+ST.neu('rechnen', 'fehler', A('Jemand rechnet (1  2; 3  4) · (1  0; 0  1), indem er nur Einträge an gleicher Stelle multipliziert: (1  0; 0  4). Was stimmt?',
+       'Falsch: Zeile mal Spalte ergibt wieder (1  2; 3  4), denn (1  0; 0  1) ändert nichts.', ['Richtig.', 'Falsch: (2  2; 3  5).', 'Falsch: (1  2; 0  4).'],
+       '(1  0; 0  1) ist die Einheitsmatrix. Zeile mal Spalte: oben links 1 · 1 + 2 · 0 = 1, oben rechts 1 · 0 + 2 · 1 = 2 usw. Ergebnis (1  2; 3  4).', 'Rechne einen Eintrag Zeile mal Spalte nach.'))
+ST.neu('rechnen', 'pruefung', L('A = (1  2; 0  1), B = (3  0; 1  1). a) Berechne A + B. b) Berechne A · B.', 'a) (□  □; □  □); b) (□  □; □  □)', [4, 2, 1, 2, 5, 2, 1, 1],
+       ['1 + 3', '2 + 0', '0 + 1', '1 + 1', '1 * 3 + 2 * 1', '1 * 0 + 2 * 1', '0 * 3 + 1 * 1', '0 * 0 + 1 * 1'],
+       'a) Eintragsweise: (4  2; 1  2). b) Zeile mal Spalte: (1 · 3 + 2 · 1  1 · 0 + 2 · 1; 0 · 3 + 1 · 1  0 + 1) = (5  2; 1  1).', 'Addition eintragsweise, Multiplikation Zeile mal Spalte.'))
+ST.knobel('rechnen', Z('A = (1  1; 0  1). Man multipliziert A zehnmal mit sich selbst (A¹⁰). Welche Zahl steht oben rechts?', 10, '10',
+          'A · A = (1  2; 0  1), A³ = (1  3; 0  1). Jedes weitere A erhöht den Eintrag oben rechts um 1. Also A¹⁰ = (1  10; 0  1).', 'Rechne A², A³ und erkenne das Muster.'))
+ST.knobel('rechnen', A('Welche Matrix X ist nicht die Nullmatrix, aber X · X ergibt die Nullmatrix (0  0; 0  0)?', '(0  1; 0  0)', ['(1  0; 0  0)', '(0  1; 1  0)', '(1  1; 1  1)'],
+          '(0  1; 0  0) · (0  1; 0  0): oben links 0 · 0 + 1 · 0 = 0, oben rechts 0 · 1 + 1 · 0 = 0, unten beide 0. Bei Matrizen kann ein Produkt 0 sein, obwohl kein Faktor 0 ist.', 'Rechne jede Möglichkeit aus.'))
+
+# inverse
+ST.stufenleiter('inverse', 'Die Determinante einer Matrix berechnen; erkennen, wann es keine Inverse gibt.',
+                'Inverse Matrix berechnen, Urpunkt mit der Inversen, einfacher Code entschlüsseln.',
+                'Parameter ohne Inverse und mit Determinante 1, Drehung rückgängig begründen, Fehler beim Bilden der Inversen, Flächenfaktor, zweimal abgebildet rückwärts, Prüfungsaufgabe.')
+ST.typ('inverse', 'Berechne die Determinante', 'direkt')
+ST.typ('inverse', 'Berechne die inverse Matrix', 'mehrschritt')
+ST.typ('inverse', '/^Für welches x hat M/', 'parameter')
+ST.typ('inverse', '/Berechne P mit der inversen Matrix/', 'umkehr')
+ST.typ('inverse', 'Hat M =', 'erkennen')
+ST.typ('inverse', 'Ist die inverse Matrix', 'begruenden')
+ST.neu('inverse', 'erkennen', A('Welche Matrix hat keine inverse Matrix?', '(2  4; 1  2)', ['(2  1; 1  2)', '(1  0; 0  1)', '(0  1; 1  0)'],
+       'Determinante von (2  4; 1  2): 2 · 2 − 4 · 1 = 0. Ohne Determinante ≠ 0 gibt es keine Inverse. Die anderen haben 3, 1 und −1.', 'Berechne die Determinanten.'))
+ST.neu('inverse', 'mehrschritt', L('Berechne M⁻¹ für M = (2  3; 1  2).', _M, [2, -3, -1, 2], ['2', '-3', '-1', '2'],
+       'det M = 4 − 3 = 1. a und d tauschen, b und c mit Minus: (2  −3; −1  2), durch 1 geteilt.', 'Erst die Determinante.'))
+ST.neu('inverse', 'einkleidung', L('Ein Code verschlüsselt Zahlenpaare mit M = (2  1; 1  1). Aus einem Paar (a | b) wurde (5 | 3). Wie lautete das Paar?', '(□ | □)', [2, 1], ['5 - 3', '-5 + 2 * 3'],
+       'M⁻¹ = (1  −1; −1  2), da det M = 1. (1 · 5 − 1 · 3 | −1 · 5 + 2 · 3) = (2 | 1). Probe: (2 · 2 + 1 | 2 + 1) = (5 | 3).', 'Entschlüsseln heißt: mit der Inversen abbilden.'))
+ST.neu('inverse', 'fehler', A('Jemand bildet die Inverse von (3  1; 2  1) so: a und d tauschen und vor alle Einträge ein Minus: (−1  −1; −2  −3). Was stimmt?', 'Falsch: Nur b und c bekommen ein Minus: (1  −1; −2  3), denn det = 1.',
+       ['Richtig.', 'Falsch: (1  1; 2  3).', 'Falsch: (−3  −1; −2  −1).'], 'det = 3 − 2 = 1. Inverse: (d  −b; −c  a) : det = (1  −1; −2  3). Probe: (3  1; 2  1) · (1  −1; −2  3) = (1  0; 0  1).', 'Mach die Probe M · M⁻¹.'))
+ST.neu('inverse', 'verknuepfen', Z('Ein Dreieck mit 5 FE wird mit M = (2  1; 1  3) abgebildet. Die Fläche wird dabei mit det M multipliziert. Wie groß ist das Bilddreieck?', 25, '5 * (2 * 3 - 1 * 1)',
+       'det M = 2 · 3 − 1 · 1 = 5. Bildfläche 5 · 5 = 25 FE.', 'Berechne die Determinante.', einheit='FE'))
+ST.neu('inverse', 'rueckwaerts', L('Ein Punkt wird mit M = (1  1; 0  2) abgebildet und das Ergebnis noch einmal mit M. Er landet bei (7 | 8). Wo lag er?', 'P(□ | □)', [1, 2], ['7 - 3 * 2', '8 // 4'],
+       'M · M = (1  3; 0  4). Also x + 3y = 7 und 4y = 8 ⇒ y = 2, x = 1. Probe: (1 | 2) ↦ (3 | 4) ↦ (7 | 8).', 'Berechne zuerst M · M – oder rechne zweimal mit der Inversen zurück.'))
+ST.neu('inverse', 'pruefung', L('M = (4  3; 1  1). a) Berechne det M. b) Gib M⁻¹ an. c) P′(10 | 3) ist das Bild von P. Berechne P.', 'a) □; b) (□  □; □  □); c) P(□ | □)', [1, 1, -3, -1, 4, 1, 2],
+       ['4 - 3', '1', '-3', '-1', '4', '10 - 9', '-10 + 12'], 'a) 4 − 3 = 1. b) (1  −3; −1  4). c) (10 − 9 | −10 + 12) = (1 | 2).', 'Die Inverse bildet P′ zurück auf P.'))
+ST.knobel('inverse', A('Für welche ganzen Zahlen a hat M = (a  2; 2  a) eine inverse Matrix, deren Einträge alle ganze Zahlen sind?', 'für kein a', ['für a = 3', 'für a = ±1', 'für alle a ≠ ±2'],
+          'M⁻¹ = (a  −2; −2  a) : (a² − 4). Damit −2 : (a² − 4) ganz ist, muss a² − 4 einer der Werte ±1 oder ±2 sein, also a² = 5, 3, 6 oder 2. Keine davon ist eine Quadratzahl. Für a = ±2 gibt es gar keine Inverse.',
+          'Wann ist 2 : (a² − 4) eine ganze Zahl?'))
+ST.knobel('inverse', L('M = (0  1; −1  0) beschreibt eine Drehung. Gib M⁻¹ an, ohne die Formel zu benutzen.', _M, [0, -1, 1, 0], ['0', '-1', '1', '0'],
+          'M bildet (1 | 0) auf (0 | −1) ab: Drehung um −90°. Rückgängig macht das die Drehung um +90° mit der Matrix (0  −1; 1  0). Probe: M · M⁻¹ = (1  0; 0  1).', 'Welche Drehung ist M? Was macht sie rückgängig?'))
+
+# skalarprodukt
+ST.stufenleiter('skalarprodukt', 'Das Skalarprodukt zweier Vektoren berechnen und damit „senkrecht“ erkennen.',
+                'Parameter für senkrecht, Winkel aus dem Skalarprodukt, Betrag eines Vektors, Arbeit einer Kraft.',
+                'Fehler „Vektor statt Zahl“, rechter Winkel im Dreieck, Winkel aus Beträgen, senkrechter Vektor mit Vorgabe, Vorzeichen deuten, Prüfungsaufgabe.')
+ST.typ('skalarprodukt', 'Berechne das Skalarprodukt', 'direkt')
+ST.typ('skalarprodukt', 'Stehen a', 'erkennen')
+ST.typ('skalarprodukt', 'Für welches t stehen', 'umkehr')
+ST.typ('skalarprodukt', 'Berechne den Winkel', 'mehrschritt')
+ST.typ('skalarprodukt', 'Jemand berechnet', 'fehler')
+ST.typ('skalarprodukt', '/^(Für welches t > 0|Gib den Vektor an)/', 'parameter')
+ST.typ('skalarprodukt', 'Gegeben sind A(0', 'verknuepfen')
+ST.typ('skalarprodukt', 'Für zwei Vektoren gilt', 'rueckwaerts')
+ST.neu('skalarprodukt', 'einkleidung', Z('Eine Kraft F = (3 | 4) (in N) zieht einen Wagen den Weg s = (10 | 0) (in m). Die Arbeit ist das Skalarprodukt F · s (in J). Wie groß ist sie?', 30, '3 * 10 + 4 * 0',
+       'F · s = 3 · 10 + 4 · 0 = 30 J. Nur der Teil der Kraft in Wegrichtung zählt.', 'Skalarprodukt ausrechnen.', einheit='J'))
+ST.neu('skalarprodukt', 'mehrschritt', Z('Berechne den Betrag (die Länge) von a = (6 | 8).', 10, '10', '|a| = √(6² + 8²) = √100 = 10.', 'Satz des Pythagoras.'))
+ST.neu('skalarprodukt', 'begruenden', A('Stimmt: Ist das Skalarprodukt zweier Vektoren negativ, ist der Winkel zwischen ihnen größer als 90°?', 'Ja: a · b = |a| · |b| · cos φ, und cos φ ist dann negativ.',
+       ['Nein, dann sind sie senkrecht.', 'Nein, dann ist der Winkel kleiner als 90°.', 'Das hat mit dem Winkel nichts zu tun.'],
+       'Die Beträge sind positiv. Das Vorzeichen kommt nur von cos φ, und cos φ < 0 für 90° < φ ≤ 180°.', 'Woher kommt das Vorzeichen?'))
+ST.neu('skalarprodukt', 'pruefung', L('a = (2 | 1), b = (−1 | 2), c = (3 | 4). a) Berechne a · b. b) Berechne a · c. c) Welcher Vektor steht senkrecht auf a? (1 = b, 2 = c)', 'a) □; b) □; c) □', [0, 10, 1],
+       ['2 * (-1) + 1 * 2', '2 * 3 + 1 * 4', '1'], 'a) −2 + 2 = 0. b) 6 + 4 = 10. c) b, weil a · b = 0.', 'Senkrecht heißt Skalarprodukt 0.'))
+ST.knobel('skalarprodukt', Z('Wie viele Vektoren (x | y) ≠ (0 | 0) mit ganzen Zahlen x, y zwischen −3 und 3 stehen senkrecht auf (1 | 2)?', 2, '2',
+          'x + 2y = 0 ⇒ x = −2y. y = 1 gibt (−2 | 1), y = −1 gibt (2 | −1). Für |y| ≥ 2 wäre |x| ≥ 4 – zu groß. y = 0 gibt den Nullvektor. Also 2.', 'Stelle die Bedingung als Gleichung auf.'))
+ST.knobel('skalarprodukt', Z('a = (2 | 1). Für welche Zahl x gilt für b = (x | 0): a · b = |a|²?', 2.5, '5 / 2',
+          '|a|² = 2² + 1² = 5. a · b = 2 · x + 1 · 0 = 2x. Also 2x = 5 ⇒ x = 2,5. Probe: (2 | 1) · (2,5 | 0) = 5.', 'Berechne beide Seiten.'))
+
+
 if __name__ == '__main__':
     d = bauen('abbildungen.matrizen',
           'Abbildungen im Koordinatensystem mit Matrizen beschreiben (Spiegelung, Drehung, Streckung), mit Matrizen rechnen, Umkehrmatrizen bestimmen und das Skalarprodukt nutzen.',
@@ -595,3 +772,4 @@ if __name__ == '__main__':
                  'Spiegelung an beliebigen Ursprungsgeraden (cos 2α, sin 2α) weggelassen; nur Achsen, y = x, Drehungen und zentrische Streckung.'])
     umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
     durchsicht(d)
+    stufen('abbildungen.matrizen', ST)

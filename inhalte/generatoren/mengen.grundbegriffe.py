@@ -527,3 +527,133 @@ def durchsicht(d):
 
 
 durchsicht(d)
+
+
+# ---- STUFEN (Zwanzigste Runde, Zusatz RS/IB, Zweig stufen-rsib-1) ----
+from _stufen_rsib1 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('mengen.grundbegriffe', 20_11_11)
+Z, A, L = ST.Z, ST.A, ST.L
+
+# elemente
+ST.stufenleiter('elemente', 'Mit ∈ und ∉ entscheiden, ob eine Zahl zu einer Menge gehört; Elemente einer kleinen Menge zählen.',
+                'Mengen in Worten aufzählen und zählen, Beschreibung zu einer Aufzählung finden, Menge aus einer Klassenliste.',
+                'Gleiche Mengen und doppelte Elemente begründen, Fehler „1 vergessen“, Quersummen- und Quadratbedingungen als neue Beschreibung, gerade Primzahlen, Zahl mit 5 Teilern rückwärts.')
+ST.typ('elemente', '/(Welches Zeichen passt|gehört NICHT zu A)/', 'erkennen')
+ST.typ('elemente', 'A = die Zahlen von 6 bis 10', 'direkt')
+ST.typ('elemente', '/(Welche Aufzählung ist richtig|A = die (Vielfachen von 6 bis 24|Teiler von 24)\\. Wie viele)/', 'mehrschritt')
+ST.typ('elemente', 'Wie kann man die Menge', 'umkehr')
+ST.typ('elemente', '/^(Welche Menge ist gleich|Wie viele Elemente hat die Menge)/', 'begruenden')
+ST.typ('elemente', '/^A = (alle zweistelligen|die Zahlen 1, 2, 3)/', 'transfer')
+ST.typ('elemente', '/^A = (alle Primzahlen, die gerade|die Vielfachen von 3 zwischen)/', 'verknuepfen')
+ST.typ('elemente', 'Die Menge der Teiler', 'rueckwaerts')
+ST.neu('elemente', 'einkleidung', A('In einer Gruppe sind Ada, Ben, Can, Dora und Emil. A = die Kinder, deren Name mit einem Vokal beginnt. Welche Menge ist A?', '{Ada; Emil}',
+       ['{Ben; Can; Dora}', '{Ada}', '{Ada; Dora; Emil}'], 'Vokale sind A, E, I, O, U. Mit einem Vokal beginnen Ada und Emil.', 'Prüfe jeden Anfangsbuchstaben.'))
+ST.neu('elemente', 'fehler', A('Jemand schreibt für A = die Teiler von 9: A = {3; 9}. Was stimmt?', 'Falsch: Auch 1 ist ein Teiler, A = {1; 3; 9}.', ['Richtig.', 'Falsch: A = {3}.', 'Falsch: A = {1; 3; 6; 9}.'],
+       '9 : 1 = 9, 9 : 3 = 3 und 9 : 9 = 1 gehen auf. Die 1 ist Teiler jeder Zahl.', 'Prüfe die Zahlen 1 bis 9 der Reihe nach.'))
+ST.knobel('elemente', Z('A = alle zweistelligen Zahlen, deren Ziffern zusammen 9 ergeben. Wie viele Elemente hat A?', 9, '9',
+          'Zehnerziffer 1 bis 9, die Einerziffer ist dann 9 minus Zehnerziffer: 18, 27, 36, 45, 54, 63, 72, 81, 90. Das sind 9 Zahlen.', 'Wähle die Zehnerziffer – dann steht die Einerziffer fest.'))
+ST.knobel('elemente', Z('A = die Zahlen von 1 bis 100, die zugleich eine Quadratzahl und eine Kubikzahl sind. Wie viele Elemente hat A?', 2, '2',
+          'Kubikzahlen bis 100: 1, 8, 27, 64. Davon sind Quadratzahlen: 1 = 1 · 1 und 64 = 8 · 8. Also A = {1; 64}.', 'Schreibe zuerst die kleinere Liste auf.'))
+
+# schnitt
+ST.stufenleiter('schnitt', 'Die Schnittmenge zweier aufgezählter Mengen bestimmen und das Zeichen ∩ erkennen.',
+                'Schnittmengen von Mengen in Worten, Kinder in zwei AGs, eine passende Menge B zu einer Schnittmenge.',
+                'Gemeinsame Teiler und Vielfache, Teilmengen begründen, Fehler „∩ mit ∪ verwechselt“, Folgerungen über eine Person, Prüfungsaufgabe.')
+ST.typ('schnitt', '/^A = \\{1; 2; 3\\} und A ∩ B/', 'umkehr')
+ST.typ('schnitt', '/^A = \\{/', 'direkt')
+ST.typ('schnitt', '/^(Klasse 6a|Sportverein)/', 'einkleidung')
+ST.typ('schnitt', '/^A = die Teiler von 12, B = die Teiler von 18/', 'verknuepfen')
+ST.typ('schnitt', 'A = die Vielfachen von 2 bis 24', 'begruenden')
+ST.typ('schnitt', 'A = die Vielfachen von 4 bis 60', 'verknuepfen')
+ST.typ('schnitt', '/^A = die /', 'mehrschritt')
+ST.typ('schnitt', 'Für zwei Mengen gilt', 'begruenden')
+ST.typ('schnitt', 'A = Kinder mit Brille', 'transfer')
+ST.neu('schnitt', 'erkennen', A('Welches Zeichen steht für die Schnittmenge („gehört zu A und zu B“)?', '∩', ['∪', '∈', '∉'],
+       'A ∩ B enthält die Elemente, die in beiden Mengen liegen. ∪ ist die Vereinigung, ∈ heißt „ist Element von“.', 'Denk an die Mitte im Venn-Diagramm.'))
+ST.neu('schnitt', 'fehler', A('Jemand bestimmt für A = {2; 4; 6; 8} und B = {4; 8; 12}: A ∩ B = {2; 4; 6; 8; 12}. Was stimmt?', 'Falsch: Das ist A ∪ B. A ∩ B = {4; 8}.',
+       ['Richtig.', 'Falsch: A ∩ B = {2; 6; 12}.', 'Falsch: A ∩ B = { }.'], 'In die Schnittmenge kommen nur Zahlen, die in beiden Mengen stehen: 4 und 8.', 'Welche Zahlen stehen in beiden Mengen?'))
+ST.neu('schnitt', 'parameter', A('A = die Vielfachen von k bis 30, B = die Vielfachen von 6 bis 30. Für welche natürlichen Zahlen k gilt A ∩ B = B?', 'für k = 1, 2, 3 oder 6',
+       ['nur für k = 6', 'für k = 12', 'für jedes k'], 'A ∩ B = B heißt: Jedes Vielfache von 6 ist auch ein Vielfaches von k. Das gilt genau, wenn k ein Teiler von 6 ist: 1, 2, 3, 6.', 'Wann ist jede Zahl aus B auch in A?'))
+ST.neu('schnitt', 'pruefung', L('A = die Teiler von 20, B = die Teiler von 30. a) Wie viele Elemente hat A? b) Wie viele hat B? c) Wie viele hat A ∩ B?', 'a) □; b) □; c) □', [6, 8, 4], ['6', '8', '4'],
+       'A = {1; 2; 4; 5; 10; 20}, B = {1; 2; 3; 5; 6; 10; 15; 30}, A ∩ B = {1; 2; 5; 10}.', 'Zähle zuerst alle Teiler auf.'))
+ST.knobel('schnitt', Z('A = die Vielfachen von 3 bis 100, B = die Vielfachen von 5 bis 100. Wie viele Elemente hat A ∩ B?', 6, '100 // 15',
+          'Gemeinsame Vielfache von 3 und 5 sind die Vielfachen von 15: 15, 30, 45, 60, 75, 90. Also 6.', 'Welche Zahlen sind durch 3 und durch 5 teilbar?'))
+ST.knobel('schnitt', Z('Von 1 bis 60: A = gerade Zahlen, B = Vielfache von 3, C = Vielfache von 5. Wie viele Elemente hat A ∩ B ∩ C?', 2, '60 // 30',
+          'In allen drei Mengen liegen die Zahlen, die durch 2, 3 und 5 teilbar sind, also durch 30: 30 und 60.', 'Durch welche Zahl muss eine Zahl teilbar sein?'))
+
+# vereinigung
+ST.stufenleiter('vereinigung', 'Die Vereinigung zweier aufgezählter Mengen bilden und zählen; das Zeichen ∪ erkennen.',
+                'Vereinigungen von Mengen in Worten, Anzahlformel n(A) + n(B) − n(A ∩ B), Sachsituationen „mindestens eines“, fehlende Anzahlen rückwärts.',
+                'Disjunkte Mengen und Höchstzahl begründen, Fehler „Überlappung addiert“, Teiler zweier Zahlen, Hotelpersonal als Modell, Mengen aus Angaben rekonstruieren, Prüfungsaufgabe.')
+ST.typ('vereinigung', '/^A = \\{[^}]*\\}, B = /', 'direkt')
+ST.typ('vereinigung', '/^A = die /', 'mehrschritt')
+ST.typ('vereinigung', 'n(A) = 7, n(B) = 19', 'mehrschritt')
+ST.typ('vereinigung', '/^(Bei einem Schulfest|In einer Klasse: |Im Feriencamp)/', 'einkleidung')
+ST.typ('vereinigung', '/^(n\\(A\\) = 18|n\\(A ∪ B\\) = 20)/', 'umkehr')
+ST.typ('vereinigung', '/^(A und B haben keine|n\\(A\\) = 10 und n\\(B\\) = 7)/', 'begruenden')
+ST.typ('vereinigung', '/^(In einer Klasse mit 28|A ∪ B = )/', 'rueckwaerts')
+ST.neu('vereinigung', 'erkennen', A('Welches Zeichen steht für die Vereinigungsmenge („gehört zu A oder zu B“)?', '∪', ['∩', '∈', '∉'],
+       'A ∪ B enthält alles, was in A oder in B (oder in beiden) liegt.', 'Denk an beide Kreise zusammen.'))
+ST.neu('vereinigung', 'fehler', A('Jemand rechnet: n(A) = 6, n(B) = 4, n(A ∩ B) = 2, also n(A ∪ B) = 6 + 4 + 2 = 12. Was stimmt?', 'Falsch: Die 2 gemeinsamen werden abgezogen: 6 + 4 − 2 = 8.',
+       ['Richtig.', 'Falsch: 6 + 4 = 10.', 'Falsch: 6 − 4 = 2.'], 'Die gemeinsamen Elemente stecken schon in n(A) und in n(B). Sie werden einmal zu viel gezählt, also abziehen.', 'Wie oft zählst du die gemeinsamen Elemente?'))
+ST.neu('vereinigung', 'verknuepfen', Z('A = die Teiler von 12, B = die Teiler von 18. Wie viele Elemente hat A ∪ B?', 8, '6 + 6 - 4',
+       'A = {1; 2; 3; 4; 6; 12}, B = {1; 2; 3; 6; 9; 18}. A ∪ B = {1; 2; 3; 4; 6; 9; 12; 18}: 8 Elemente. Gemeinsam sind 4.', 'Zähle die Teiler auf und lass Doppelte weg.'))
+ST.neu('vereinigung', 'transfer', Z('In einem Hotel sprechen 12 Angestellte Englisch, 8 Französisch, 5 beides, und 3 sprechen keine dieser Sprachen. Wie viele Angestellte hat das Hotel?', 18, '12 + 8 - 5 + 3',
+       'Mindestens eine Sprache: 12 + 8 − 5 = 15. Dazu 3 ohne: 18 Angestellte.', 'Zeichne ein Venn-Diagramm mit einem Feld außen.'))
+ST.neu('vereinigung', 'pruefung', L('A = {1; 3; 5; 7; 9}, B = {1; 2; 3; 4}. a) Wie viele Elemente hat A ∩ B? b) Wie viele hat A ∪ B? c) Berechne n(A) + n(B) − n(A ∩ B).', 'a) □; b) □; c) □', [2, 7, 7],
+       ['2', '7', '5 + 4 - 2'], 'a) {1; 3}. b) {1; 2; 3; 4; 5; 7; 9}. c) 5 + 4 − 2 = 7 – passt zu b).', 'Erst die Schnittmenge.'))
+ST.knobel('vereinigung', Z('n(A) = 8 und n(B) = 5. Wie viele verschiedene Werte kann n(A ∪ B) annehmen?', 6, '13 - 8 + 1',
+          'Am kleinsten: B liegt ganz in A, n(A ∪ B) = 8. Am größten: nichts gemeinsam, 13. Dazwischen geht jeder Wert (je nachdem, wie viele gemeinsam sind): 8, 9, 10, 11, 12, 13. Also 6 Werte.', 'Was ist der kleinste, was der größte Wert?'))
+ST.knobel('vereinigung', Z('Wie viele der Zahlen von 1 bis 30 sind gerade oder durch 3 teilbar?', 20, '15 + 10 - 5',
+          'Gerade: 15. Durch 3 teilbar: 10. Beides (durch 6 teilbar): 5. Zusammen 15 + 10 − 5 = 20.', 'Welche Zahlen zählst du doppelt?'))
+
+# venn
+ST.stufenleiter('venn', 'Anzahlen aus einem Venn-Diagramm ablesen; das richtige Feld erkennen.',
+                'Felder zusammenzählen (insgesamt, genau eins, nicht A), „nur A“ aus Angaben, weder noch, fehlende Zahl außen.',
+                'Überlappung rückwärts aus „keines“, Gleichung mit x, nur Gemüse ohne „keines“, Unmöglichkeit begründen, Prozentanteil, Mindest-Überlappung, Fehler beim Eintragen, Prüfungsaufgabe.')
+ST.typ('venn', '/^Lies das Venn-Diagramm ab\\. Wie viele (Kinder sind in keiner|Familien haben einen Hund|Kinder sind in beiden|Kinder tun keines|Jugendliche spielen Gitarre)/', 'direkt')
+ST.typ('venn', 'Lies das Venn-Diagramm ab', 'darstellung')
+ST.typ('venn', '/wurden befragt: .*Wie viele gehören nur zu/', 'einkleidung')
+ST.typ('venn', '/wurden befragt: .*(weder|in keiner)/', 'mehrschritt')
+ST.typ('venn', '/^(30 Kinder:|Von 40 Gästen)/', 'rueckwaerts')
+ST.typ('venn', 'In einem Venn-Diagramm steht', 'parameter')
+ST.typ('venn', 'Eine Klasse hat 20', 'begruenden')
+ST.typ('venn', 'Im Venn-Diagramm stehen', 'verknuepfen')
+ST.typ('venn', '25 Kinder:', 'transfer')
+ST.neu('venn', 'erkennen', A('In welchem Feld eines Venn-Diagramms stehen die Elemente, die zu A, aber nicht zu B gehören?', 'im Teil von Kreis A außerhalb der Überlappung',
+       ['in der Überlappung', 'außerhalb beider Kreise', 'im Teil von Kreis B außerhalb der Überlappung'], '„Zu A, aber nicht zu B“ heißt: in Kreis A, aber nicht im gemeinsamen Teil.', 'Male die Kreise.'))
+ST.neu('venn', 'umkehr', Z('Im Venn-Diagramm stehen: nur A 5, beide 3, nur B 4. Außerhalb steht eine Zahl. Insgesamt sind es 15. Welche Zahl steht außerhalb?', 3, '15 - 5 - 3 - 4',
+       'Alle Felder zusammen sind 15: 5 + 3 + 4 + x = 15 ⇒ x = 3.', 'Die vier Felder ergeben zusammen das Ganze.'))
+ST.neu('venn', 'fehler', A('20 Kinder mögen Pizza, 15 Pasta, 8 beides. Jemand trägt ein: nur Pizza 20, beide 8, nur Pasta 15. Was stimmt?', 'Falsch: nur Pizza 12, nur Pasta 7 – die 8 stecken schon in 20 und 15.',
+       ['Richtig.', 'Falsch: beide 28.', 'Falsch: nur Pizza 8, nur Pasta 8.'], 'Die 20 Pizza-Kinder sind „nur Pizza“ plus „beide“: 20 − 8 = 12. Ebenso 15 − 8 = 7.', 'Wohin gehören die 8 Kinder, die beides mögen?'))
+ST.neu('venn', 'pruefung', L('32 Kinder: 18 haben ein Fahrrad, 14 einen Roller, 6 haben beides. a) Wie viele haben nur ein Fahrrad? b) Nur einen Roller? c) Keines von beiden?', 'a) □; b) □; c) □', [12, 8, 6],
+       ['18 - 6', '14 - 6', '32 - 12 - 8 - 6'], 'a) 18 − 6 = 12. b) 14 − 6 = 8. c) 32 − 12 − 8 − 6 = 6.', 'Fang mit der Überlappung an.'))
+ST.knobel('venn', Z('Drei AGs haben je 10 Kinder. Je zwei AGs haben 3 gemeinsame Kinder, und 1 Kind ist in allen drei AGs. Wie viele verschiedene Kinder sind in den AGs?', 22, '30 - 9 + 1',
+          'Mit Venn-Diagramm: Mitte 1. Jede Zweier-Überlappung hat 3, davon 1 in der Mitte, also 2 nur in diesen beiden. Jede AG allein: 10 − 2 − 2 − 1 = 5. Zusammen 1 + 3 · 2 + 3 · 5 = 22. Rechnung: 30 − 9 + 1 = 22.',
+          'Zeichne drei Kreise und fülle von der Mitte aus.'))
+ST.knobel('venn', L('In einer Klasse mit 30 Kindern mögen 20 Mathe und 18 Sport. Wie viele mögen mindestens und höchstens beides?', 'mindestens □; höchstens □', [8, 18], ['20 + 18 - 30', '18'],
+          'Höchstens: alle Sport-Kinder mögen auch Mathe, also 18. Mindestens: 20 + 18 = 38 sind 8 mehr als 30 Kinder, also mögen mindestens 8 beides.', 'Wann ist die Überlappung am größten, wann am kleinsten?'))
+
+# verstehen
+ST.stufenleiter('verstehen', 'Erkennen, dass A ∩ B höchstens so groß ist wie die kleinere Menge; leere Schnittmengen erkennen.',
+                'Teilmengen in Vereinigung und Schnitt nutzen, Elemente aus Bedingungen rückwärts, AG-Situation als Mengenaussage.',
+                'Mindest- und Höchstzahlen begründen, Fehler bei Formel und Venn-Diagramm finden, allgemeine Aussagen prüfen, aus n(A ∪ B) = n(A) folgern.')
+ST.typ('verstehen', '/^A hat \\d+ Elemente, B hat \\d+ Elemente\\. Wie viele Elemente kann A ∩ B höchstens/', 'erkennen')
+ST.typ('verstehen', 'A = die geraden Zahlen von 1 bis', 'erkennen')
+ST.typ('verstehen', '/^A = die Vielfachen von \\d/', 'mehrschritt')
+ST.typ('verstehen', '/^(n\\(A\\) = \\d+, n\\(B\\) = \\d+, n\\(A ∩ B\\) = \\d+\\. Tom|16 Kinder spielen)/', 'fehler')
+ST.typ('verstehen', '/(A ∪ B mindestens|A ∩ B mindestens)/', 'parameter')
+ST.typ('verstehen', '/^(Stimmt|Welche Aussage ist für alle)/', 'begruenden')
+ST.typ('verstehen', 'Für zwei Mengen gilt', 'transfer')
+ST.neu('verstehen', 'direkt', Z('A = {1; 2; 3; 4} und B = {3; 4; 5}. Wie viele Elemente hat A ∩ B?', 2, '2', 'Gemeinsam sind 3 und 4: A ∩ B = {3; 4}, also 2 Elemente.', 'Welche Zahlen stehen in beiden Mengen?'))
+ST.neu('verstehen', 'umkehr', Z('A = {1; 2; 3; 4} und A ∩ B = {2; 4}. B hat genau drei Elemente, alle gerade und kleiner als 10. Welches ist das dritte Element, wenn es so klein wie möglich ist?', 6, '6',
+       'B enthält 2 und 4. Das dritte Element ist gerade, kleiner als 10 und darf nicht in A liegen (sonst wäre es in A ∩ B). Kleinste Möglichkeit: 6.', 'Warum darf das dritte Element nicht in A liegen?'))
+ST.neu('verstehen', 'einkleidung', A('Alle Kinder der Fußball-AG spielen auch Basketball. F = Fußball-Kinder, B = Basketball-Kinder. Was gilt?', 'F ∩ B = F', ['F ∩ B = B', 'F ∪ B = F', 'F ∩ B = { }'],
+       'F liegt ganz in B. Die gemeinsamen Kinder sind also alle Fußball-Kinder: F ∩ B = F (und F ∪ B = B).', 'Zeichne F als Kreis innerhalb von B.'))
+ST.knobel('verstehen', Z('A und B sind Mengen aus den Zahlen 1 bis 10. A hat 7, B hat 6 Elemente. Wie viele Elemente hat A ∩ B mindestens?', 3, '7 + 6 - 10',
+          'A ∪ B kann höchstens 10 Elemente haben. n(A ∩ B) = 7 + 6 − n(A ∪ B) ≥ 13 − 10 = 3. Es geht genau mit 3, z. B. A = {1; …; 7}, B = {5; …; 10}.', 'Wie groß kann A ∪ B höchstens sein?'))
+ST.knobel('verstehen', A('Für welche Mengen A und B gilt A ∩ B = A ∪ B?', 'genau dann, wenn A = B', ['für keine Mengen', 'wenn A und B nichts gemeinsam haben', 'wenn A leer ist'],
+          'Ist ein Element in A, aber nicht in B, liegt es in A ∪ B, aber nicht in A ∩ B. Gleich sind beide also nur, wenn A und B dieselben Elemente haben.', 'Was passiert mit einem Element, das nur in A liegt?'))
+
+stufen('mengen.grundbegriffe', ST)

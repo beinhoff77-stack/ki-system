@@ -475,6 +475,170 @@ def durchsicht(d):
         })
 
 
+# ---- STUFEN (Zwanzigste Runde, Zusatz RS/IB, Zweig stufen-rsib-1) ----
+from _stufen_rsib1 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('gleichungen.wurzel', 20_91_8)
+Z, A, L = ST.Z, ST.A, ST.L
+
+# definitionsmenge
+ST.stufenleiter('definitionsmenge', 'Die Definitionsmenge von √(x ± c) angeben; erkennen, ob eine Zahl eingesetzt werden darf.',
+                'Radikanden mit Faktor vor x, Bereich am Zahlenstrahl, kleinste erlaubte ganze Zahl, Parameter aus der Definitionsmenge.',
+                'Definitionsmenge von Gleichungen mit zwei Wurzeln, Radikand mit −x, √(x²) begründen, Fehler beim Teilen, Bedingung an a, Prüfungsaufgabe.')
+ST.typ('definitionsmenge', '/^Gib die Definitionsmenge von √\\(x/', 'direkt')
+ST.typ('definitionsmenge', 'Darf man x', 'erkennen')
+ST.typ('definitionsmenge', 'Gib die Definitionsmenge von √(', 'mehrschritt')
+ST.typ('definitionsmenge', '/^(Welche ist die kleinste ganze Zahl|Für welchen Wert von a)/', 'umkehr')
+ST.typ('definitionsmenge', '/^Gib die Definitionsmenge (der Gleichung|des Terms)/', 'verknuepfen')
+ST.typ('definitionsmenge', 'Welche Definitionsmenge hat', 'transfer')
+ST.typ('definitionsmenge', 'Für welche x ist', 'begruenden')
+ST.neu('definitionsmenge', 'darstellung', A('Welcher Bereich des Zahlenstrahls gehört zur Definitionsmenge von √(x − 3)?', 'alles ab 3 nach rechts, die 3 eingeschlossen',
+       ['alles links von 3', 'alles ab −3 nach rechts', 'nur die 3'], 'x − 3 ≥ 0 heißt x ≥ 3: die 3 und alles rechts davon.', 'Wann ist x − 3 nicht negativ?'))
+ST.neu('definitionsmenge', 'fehler', A('Jemand bestimmt für √(2x − 8) die Definitionsmenge D = {x | x ≥ 8}. Was stimmt?', 'Falsch: 2x − 8 ≥ 0 ⇒ 2x ≥ 8 ⇒ x ≥ 4.',
+       ['Richtig.', 'Falsch: x ≥ −4.', 'Falsch: x ≥ 16.'], 'Erst 8 addieren, dann durch 2 teilen. Probe: √(2 · 5 − 8) = √2 ist erlaubt, obwohl 5 < 8.', 'Probiere x = 5.'))
+ST.neu('definitionsmenge', 'parameter', A('Für welche Zahlen a liegt die 0 in der Definitionsmenge von √(x + a)?', 'für a ≥ 0', ['für a ≤ 0', 'für a > 1', 'für jedes a'],
+       'x = 0 einsetzen: √a. Das ist erlaubt, wenn a ≥ 0.', 'Setze x = 0 ein.'))
+ST.neu('definitionsmenge', 'pruefung', L('Gegeben ist die Gleichung √(x − 2) = √(10 − x). a) Gib die Definitionsmenge als □ ≤ x ≤ □ an. b) Löse die Gleichung.', 'a) □ ≤ x ≤ □; b) x = □', [2, 10, 6], ['2', '10', '12 // 2'],
+       'a) x − 2 ≥ 0 ⇒ x ≥ 2 und 10 − x ≥ 0 ⇒ x ≤ 10. b) Quadrieren: x − 2 = 10 − x ⇒ 2x = 12 ⇒ x = 6 (liegt in D). Probe: √4 = √4.', 'Beide Radikanden müssen ≥ 0 sein.'))
+ST.knobel('definitionsmenge', Z('Wie viele ganze Zahlen liegen in der Definitionsmenge von √(x + 4) + √(3 − x)?', 8, '3 - (-4) + 1',
+          'x + 4 ≥ 0 ⇒ x ≥ −4 und 3 − x ≥ 0 ⇒ x ≤ 3. Ganze Zahlen von −4 bis 3: das sind 8.', 'Beide Wurzeln müssen erlaubt sein.'))
+ST.knobel('definitionsmenge', L('Für welche Zahl x ist √(x − 7) + √(7 − x) definiert, und welchen Wert hat der Term dann?', 'x = □; Wert □', [7, 0], ['7', '0'],
+          'x − 7 ≥ 0 heißt x ≥ 7, und 7 − x ≥ 0 heißt x ≤ 7. Beides gilt nur für x = 7. Dann ist der Term √0 + √0 = 0.', 'Schreibe beide Bedingungen auf.'))
+
+# quadrieren
+ST.stufenleiter('quadrieren', '√(x ± c) = d durch Quadrieren lösen und den ersten Schritt erkennen.',
+                'Faktoren und Dezimalzahlen im Radikanden, c aus einer Lösung, Zahlenrätsel.',
+                'Fehler „rechts nicht quadriert“, Wurzel aus einem Vielfachen, x² unter der Wurzel, √(x + 9) ≠ √x + 3, Parameter a, Zahlenrätsel rückwärts, Prüfungsaufgabe.')
+ST.typ('quadrieren', '/^Löse √\\(x [−+] \\d+\\) = \\d+\\.$/', 'direkt')
+ST.typ('quadrieren', 'Löse √(x²', 'verknuepfen')
+ST.typ('quadrieren', 'Löse √(', 'mehrschritt')
+ST.typ('quadrieren', 'Für welchen Wert c', 'umkehr')
+ST.typ('quadrieren', 'Jemand löst', 'fehler')
+ST.typ('quadrieren', 'Es gilt √(2x + 1)', 'verknuepfen')
+ST.neu('quadrieren', 'erkennen', A('Was ist bei √(2x + 1) = 5 der erste Schritt?', 'beide Seiten quadrieren', ['beide Seiten durch 2 teilen', '1 von 5 abziehen', 'die Wurzel aus 5 ziehen'],
+       'Die Wurzel steht allein. Quadrieren hebt sie auf: 2x + 1 = 25, dann x = 12.', 'Was macht eine Wurzel rückgängig?'))
+ST.neu('quadrieren', 'einkleidung', Z('Wenn man von einer Zahl 5 abzieht, ist die Wurzel daraus 6. Welche Zahl ist es?', 41, '36 + 5',
+       '√(x − 5) = 6 ⇒ x − 5 = 36 ⇒ x = 41. Probe: √36 = 6.', 'Schreibe die Aussage als Gleichung.'))
+ST.neu('quadrieren', 'begruenden', A('Stimmt: √(x + 9) = √x + 3 für jede Zahl x ≥ 0?', 'Nein, z. B. x = 16: √25 = 5, aber √16 + 3 = 7.', ['Ja, immer.', 'Nur für x > 9.', 'Nein, die linke Seite ist immer größer.'],
+       'Die Wurzel einer Summe ist nicht die Summe der Wurzeln. Gleich sind beide nur für x = 0.', 'Setze eine Zahl ein.'))
+ST.neu('quadrieren', 'parameter', Z('Für welches a ist x = 8 die Lösung von √(a · x + 1) = 5?', 3, '(25 - 1) // 8',
+       'Einsetzen: √(8a + 1) = 5 ⇒ 8a + 1 = 25 ⇒ a = 3.', 'Setze x = 8 ein und quadriere.'))
+ST.neu('quadrieren', 'rueckwaerts', Z('Denk dir eine Zahl, verdopple sie, addiere 1 und ziehe die Wurzel. Du erhältst 9. Welche Zahl hast du gedacht?', 40, '(81 - 1) // 2',
+       'Rückwärts: 9² = 81, 81 − 1 = 80, 80 : 2 = 40. Gleichung √(2x + 1) = 9.', 'Mache jeden Schritt rückwärts.'))
+ST.neu('quadrieren', 'pruefung', L('Löse a) √(x + 7) = 5; b) √(3x − 2) = 4; c) √(x : 4) = 3.', 'a) □; b) □; c) □', [18, 6, 36], ['25 - 7', '(16 + 2) // 3', '9 * 4'],
+       'a) x + 7 = 25 ⇒ 18. b) 3x − 2 = 16 ⇒ 6. c) x : 4 = 9 ⇒ 36.', 'Immer quadrieren, dann auflösen.'))
+ST.knobel('quadrieren', Z('Löse √(√x) = 3.', 81, '9 * 9',
+          'Quadrieren: √x = 9. Noch einmal quadrieren: x = 81. Probe: √81 = 9, √9 = 3.', 'Quadriere zweimal.'))
+ST.knobel('quadrieren', Z('Für wie viele natürliche Zahlen n ≤ 100 ist √(n + 20) eine natürliche Zahl?', 6, '6',
+          'n + 20 muss eine Quadratzahl zwischen 21 und 120 sein: 25, 36, 49, 64, 81, 100. Das sind 6 (n = 5, 16, 29, 44, 61, 80).', 'Welche Quadratzahlen kommen für n + 20 in Frage?'))
+
+# isolieren
+ST.stufenleiter('isolieren', 'Erst die Wurzel allein stellen (Zahl abziehen), dann quadrieren; ersten Schritt erkennen.',
+                'Faktoren vor der Wurzel, Teilen, Zahlenrätsel, c aus einer Lösung.',
+                'Fehler „sofort quadrieren“, Wurzel als neue Unbekannte, Wurzel mit Minus davor, Unmöglichkeit begründen, Bedingung an c, Prüfungsaufgabe mit Probe.')
+ST.typ('isolieren', '/^Löse √\\(x [−+] \\d+\\) \\+ \\d+ = \\d+\\.$/', 'direkt')
+ST.typ('isolieren', '/^Löse (\\d · √|√\\(x \\+ 4\\) :)/', 'mehrschritt')
+ST.typ('isolieren', 'Jemand quadriert', 'fehler')
+ST.typ('isolieren', 'Löse 3 + √', 'transfer')
+ST.typ('isolieren', '/^Löse \\d+ −/', 'verknuepfen')
+ST.typ('isolieren', 'Für welches c', 'umkehr')
+ST.neu('isolieren', 'erkennen', A('Welcher erste Schritt stellt bei √(x − 1) + 6 = 10 die Wurzel allein?', 'auf beiden Seiten 6 abziehen', ['beide Seiten quadrieren', 'durch 6 teilen', '1 addieren'],
+       'Erst muss die Wurzel allein stehen: √(x − 1) = 4. Dann quadrieren: x − 1 = 16, x = 17.', 'Was steht außer der Wurzel noch auf der linken Seite?'))
+ST.neu('isolieren', 'einkleidung', Z('Die Wurzel aus x + 9, vermehrt um 2, ergibt 7. Wie groß ist x?', 16, '25 - 9',
+       '√(x + 9) + 2 = 7 ⇒ √(x + 9) = 5 ⇒ x + 9 = 25 ⇒ x = 16.', 'Schreibe die Aussage als Gleichung.'))
+ST.neu('isolieren', 'begruenden', A('Stimmt: √(x − 4) + 9 = 5 hat keine Lösung – das sieht man ohne zu rechnen?', 'Ja: Eine Wurzel ist nie negativ, also ist die linke Seite mindestens 9.',
+       ['Nein, x = 0 ist eine Lösung.', 'Nein, man muss erst quadrieren.', 'Nein, x = 20 ist eine Lösung.'], '√(x − 4) ≥ 0, also √(x − 4) + 9 ≥ 9 > 5. Isoliert man, steht √(x − 4) = −4 da – unmöglich.', 'Wie klein kann eine Wurzel sein?'))
+ST.neu('isolieren', 'parameter', A('Für welche Zahlen c hat √(x + 1) + c = 4 eine Lösung?', 'für c ≤ 4', ['für c ≥ 4', 'für c > 0', 'für jedes c'],
+       '√(x + 1) = 4 − c. Das geht nur, wenn 4 − c ≥ 0, also c ≤ 4.', 'Stelle die Wurzel allein.'))
+ST.neu('isolieren', 'pruefung', L('a) Löse √(x − 3) + 4 = 9. b) Löse 3 · √(x + 2) − 5 = 7. c) Probe zu b): Welchen Wert hat die linke Seite?', 'a) □; b) □; c) □', [28, 14, 7], ['25 + 3', '16 - 2', '3 * 4 - 5'],
+       'a) √(x − 3) = 5 ⇒ x = 28. b) 3 · √(x + 2) = 12 ⇒ √(x + 2) = 4 ⇒ x = 14. c) 3 · √16 − 5 = 12 − 5 = 7. Stimmt.', 'Erst isolieren, dann quadrieren.'))
+ST.knobel('isolieren', Z('Löse √x + √x + √x = 12.', 16, '4 * 4',
+          '3 · √x = 12 ⇒ √x = 4 ⇒ x = 16. Wer jeden Summanden einzeln quadriert, landet bei 3x = 144 und x = 48 – das ist falsch.', 'Fasse gleiche Summanden zusammen.'))
+ST.knobel('isolieren', Z('Löse √(x + 5) = √x + 1.', 4, '2 * 2',
+          'Quadrieren: x + 5 = x + 2√x + 1 ⇒ 4 = 2√x ⇒ √x = 2 ⇒ x = 4. Probe: √9 = 3 und √4 + 1 = 3.', 'Quadriere – das x² taucht gar nicht auf.'))
+
+# probe
+ST.stufenleiter('probe', 'Mit einer Probe prüfen, ob eine Zahl Lösung ist; leere Lösungsmenge bei negativer rechter Seite erkennen.',
+                'Definitionsmenge mitprüfen, isolieren und dann Unmöglichkeit erkennen, Gleichung zu einer Scheinlösung finden, unmögliches Zahlenrätsel.',
+                'Sinn der Probe begründen, Bedingung an c, Fehler „Scheinlösung angegeben“, Parameter aus zwei Quadrierlösungen rückwärts, quadratische Gleichung mit einer echten Lösung, Prüfungsaufgabe.')
+ST.typ('probe', 'Welche Lösungsmenge hat', 'erkennen')
+ST.typ('probe', '/Mach die Probe\\.$/', 'direkt')
+ST.typ('probe', 'Ist x =', 'mehrschritt')
+ST.typ('probe', '/^Löse \\d · √/', 'mehrschritt')
+ST.typ('probe', 'Aus welcher Gleichung', 'umkehr')
+ST.typ('probe', '/^(Warum muss man|Bei √)/', 'begruenden')
+ST.typ('probe', 'Für welche Zahlen c', 'parameter')
+ST.typ('probe', 'Jemand löst', 'fehler')
+ST.neu('probe', 'einkleidung', A('Jemand sagt: „Die Wurzel aus meiner Zahl plus 5 ergibt 2.“ Welche Zahl hat er?', 'Keine – die Aussage ist unmöglich.', ['9', '−9', '4'],
+       '√x + 5 = 2 ⇒ √x = −3. Eine Wurzel ist nie negativ, also gibt es keine solche Zahl.', 'Stelle die Wurzel allein.'))
+ST.neu('probe', 'rueckwaerts', L('Beim Quadrieren von √(x + a) = x − 1 erhielt jemand die Lösungen x = 3 und x = 0. Wie groß ist a, und welche Lösung ist echt?', 'a = □; echte Lösung x = □', [1, 3], ['(3 - 1) ** 2 - 3', '3'],
+       'x = 3 eingesetzt in (x − 1)² = x + a: 4 = 3 + a ⇒ a = 1. Probe: x = 3: √4 = 2 und 3 − 1 = 2, stimmt. x = 0: √1 = 1, aber 0 − 1 = −1: Scheinlösung.', 'Setze eine der Lösungen in die quadrierte Gleichung ein.'))
+ST.neu('probe', 'verknuepfen', A('Welche Lösungsmenge hat √(x − 1) = 1 − x?', 'L = {1}', ['L = { }', 'L = {1; 2}', 'L = {2}'],
+       'Quadrieren: x − 1 = (1 − x)² ⇒ x² − 3x + 2 = 0 ⇒ x = 1 oder x = 2. Probe: x = 1: 0 = 0 stimmt. x = 2: √1 = 1, aber 1 − 2 = −1: Scheinlösung.', 'Quadrieren, quadratische Gleichung lösen, Probe.'))
+ST.neu('probe', 'pruefung', L('Gegeben ist √(2x + 3) + 5 = 2. a) Isoliere die Wurzel: √(2x + 3) = □. b) Wie viele Lösungen hat die Gleichung?', 'a) □; b) □', [-3, 0], ['2 - 5', '0'],
+       'a) √(2x + 3) = −3. b) Eine Wurzel ist nie negativ: keine Lösung, L = { }.', 'Erst isolieren, dann beurteilen.'))
+ST.knobel('probe', Z('Für welche kleinste ganze Zahl k hat √(x + 4) = k − 2 eine Lösung, √(x + 4) = 2 − k aber keine?', 3, '3',
+          'Die erste braucht k − 2 ≥ 0, also k ≥ 2. Die zweite soll keine Lösung haben: 2 − k < 0, also k > 2. Beides: k ≥ 3, kleinste ganze Zahl 3.', 'Wann hat √(…) = c eine Lösung?'))
+ST.knobel('probe', Z('Wie viele dieser Gleichungen haben eine Lösung: √x = −1, √x = 0, √(x − 1) = 0, √(−x) = 2, √(x²) = −3?', 3, '3',
+          '√x = −1: nein. √x = 0: x = 0. √(x − 1) = 0: x = 1. √(−x) = 2: −x = 4, x = −4 (erlaubt, denn −x = 4 ≥ 0). √(x²) = −3: nein. Also 3.', 'Achte auf negative rechte Seiten – und auf das Minus unter der Wurzel.'))
+
+# zwei_seiten
+ST.stufenleiter('zwei_seiten', 'Gleichungen mit je einer Wurzel auf beiden Seiten quadrieren und lösen; ersten Schritt erkennen.',
+                'Wurzel = linearer Term: quadratische Gleichung lösen und Scheinlösung aussortieren, Zahlenrätsel, Parameter aus der Lösung.',
+                'Probe bei zwei Kandidaten begründen, √(2x + 3) = x, √(x²) = x begründen, Fehler beim Quadrieren von x ± 1, Parameter für jedes a, Quadrate gleicher Seite, Prüfungsaufgabe.')
+ST.typ('zwei_seiten', '/^Löse √\\([^)]*\\) = √/', 'direkt')
+ST.typ('zwei_seiten', '/^(Löse √\\(x \\+ \\d+\\) = x|Welche Lösungsmenge hat)/', 'mehrschritt')
+ST.typ('zwei_seiten', 'Beim Lösen', 'begruenden')
+ST.typ('zwei_seiten', 'Löse √(2x + 3) = x', 'verknuepfen')
+ST.typ('zwei_seiten', 'Für welche x gilt', 'begruenden')
+ST.neu('zwei_seiten', 'erkennen', A('Was macht man bei √(2x + 1) = √(x + 5) zuerst?', 'beide Seiten quadrieren: 2x + 1 = x + 5', ['beide Seiten durch √x teilen', '2x + 1 = (x + 5)²', 'x = 5 einsetzen'],
+       'Quadrieren hebt beide Wurzeln auf: 2x + 1 = x + 5 ⇒ x = 4. Probe: √9 = √9.', 'Was passiert mit √(…)²?'))
+ST.neu('zwei_seiten', 'einkleidung', Z('Die Wurzel aus dem Dreifachen einer Zahl ist gleich der Wurzel aus der um 8 vergrößerten Zahl. Welche Zahl ist es?', 4, '8 // 2',
+       '√(3x) = √(x + 8) ⇒ 3x = x + 8 ⇒ x = 4. Probe: √12 = √12.', 'Schreibe beide Seiten als Wurzel.'))
+ST.neu('zwei_seiten', 'umkehr', Z('Die Gleichung √(4x + a) = √(2x + 10) hat die Lösung x = 3. Wie groß ist a?', 4, '16 - 12',
+       'Einsetzen: √(12 + a) = √16 ⇒ 12 + a = 16 ⇒ a = 4.', 'Setze x = 3 ein.'))
+ST.neu('zwei_seiten', 'fehler', A('Jemand löst √(x + 5) = x − 1 so: „x + 5 = x² + 1.“ Was stimmt?', 'Falsch: (x − 1)² = x² − 2x + 1; richtig ist x² − 3x − 4 = 0 und L = {4}.',
+       ['Richtig.', 'Falsch: x + 5 = x² − 1.', 'Falsch: x + 5 = x − 1.'], 'Binomische Formel: (x − 1)² = x² − 2x + 1. Dann x² − 3x − 4 = 0 ⇒ x = 4 oder x = −1. Probe: nur x = 4 passt (√9 = 3 = 4 − 1).',
+       'Multipliziere (x − 1)² aus.'))
+ST.neu('zwei_seiten', 'parameter', A('Für welche Zahlen a hat √(x + a) = √(2x) die Lösung x = a?', 'für jedes a ≥ 0', ['nur für a = 0', 'nur für a = 1', 'für kein a'],
+       'Einsetzen: √(2a) = √(2a) stimmt immer, solange 2a ≥ 0. Also für jedes a ≥ 0.', 'Setze x = a ein.'))
+ST.neu('zwei_seiten', 'transfer', Z('Ein Quadrat hat die Fläche (3x + 4) cm², ein anderes (x + 16) cm². Für welches x sind ihre Seiten gleich lang?', 6, '12 // 2',
+       'Gleiche Seiten heißt √(3x + 4) = √(x + 16), also gleiche Flächen: 3x + 4 = x + 16 ⇒ x = 6 (beide 22 cm²).', 'Die Seite ist die Wurzel aus der Fläche.'))
+ST.neu('zwei_seiten', 'pruefung', L('Löse √(x + 7) = x + 1. a) Gib die beiden Lösungen der quadratischen Gleichung an (kleinere zuerst). b) Welche ist die echte Lösung?', 'a) □ und □; b) □', [-3, 2, 2], ['-3', '2', '2'],
+       'Quadrieren: x + 7 = x² + 2x + 1 ⇒ x² + x − 6 = 0 ⇒ x = −3 oder x = 2. Probe: x = 2: √9 = 3 = 2 + 1. x = −3: √4 = 2, aber −3 + 1 = −2: Scheinlösung.', 'Quadrieren, lösen, Probe.'))
+ST.knobel('zwei_seiten', Z('Löse √(x + √(x + √(x + …))) = 3 (die Wurzeln gehen unendlich weiter).', 6, '9 - 3',
+          'Der Ausdruck unter der ersten Wurzel enthält wieder den ganzen Ausdruck, also 3: √(x + 3) = 3 ⇒ x + 3 = 9 ⇒ x = 6.', 'Was steht unter der ersten Wurzel?'))
+ST.knobel('zwei_seiten', Z('Für wie viele ganze Zahlen x von −5 bis 5 gilt √(x²) = −x?', 6, '6',
+          '√(x²) ist der Betrag von x. |x| = −x gilt für x ≤ 0: −5, −4, −3, −2, −1, 0. Also 6 Zahlen.', 'Was ergibt √(x²) für negative x?'))
+
+# sachaufgabe
+ST.stufenleiter('sachaufgabe', 'In t = √(h : 5), v = √(20h) oder a = √A eine Größe einsetzen und die andere bestimmen; die richtige Gleichung erkennen.',
+                'Vergrößertes Beet, Fallzeit aus der Höhe, Pendel und Ball als Sachsituation.',
+                'Wirkung von Verdoppeln begründen, Zeitunterschiede rückwärts, Horizont als Modell, v = h als Bedingung, Fehler „Quadrieren vergessen“, Prüfungsaufgabe.')
+ST.typ('sachaufgabe', '/^Für die Fallzeit gilt t = √\\(h : 5\\) \\(h in m, t in s\\)\\. Ein Stein/', 'direkt')
+ST.typ('sachaufgabe', '/^Für die Aufprallgeschwindigkeit nach einem Fall/', 'direkt')
+ST.typ('sachaufgabe', 'Ein Quadrat hat die Seitenlänge', 'direkt')
+ST.typ('sachaufgabe', '/Die neue Seitenlänge ist √A/', 'mehrschritt')
+ST.typ('sachaufgabe', '/^(Für die Fallzeit gilt t = √\\(h : 5\\) \\(h in m, t in s\\)\\. Ein Ball|Für ein Pendel)/', 'einkleidung')
+ST.typ('sachaufgabe', '/^(Für die Fallzeit gilt t = √\\(h : 5\\)\\. Aus welcher Höhe fällt|Für die Aufprallgeschwindigkeit gilt v = √\\(20 · h\\)\\. Aus 5)/', 'verknuepfen')
+ST.typ('sachaufgabe', '/(viermal so groß|Aus h Metern)/', 'rueckwaerts')
+ST.typ('sachaufgabe', 'Bis zum Horizont', 'transfer')
+ST.typ('sachaufgabe', 'Für die Aufprallgeschwindigkeit gilt v = √(20 · h). Bei welcher', 'parameter')
+ST.typ('sachaufgabe', 'Für die Fallzeit gilt t = √(h : 5). Wie ändert', 'begruenden')
+ST.neu('sachaufgabe', 'erkennen', A('Für die Fallzeit gilt t = √(h : 5). Welche Gleichung muss man lösen, wenn der Fall 4 s dauert?', '√(h : 5) = 4', ['√(4 : 5) = h', 'h : 5 = 4', '√h = 4 · 5'],
+       'Man setzt t = 4 ein: √(h : 5) = 4. Dann quadrieren: h : 5 = 16, h = 80 m.', 'Welche Größe ist bekannt, welche gesucht?'))
+ST.neu('sachaufgabe', 'umkehr', Z('Für die Fallzeit gilt t = √(h : 5). Wie lange fällt ein Stein aus 45 m Höhe?', 3, '3',
+       't = √(45 : 5) = √9 = 3 s.', 'Hier musst du nur einsetzen.', einheit='s'))
+ST.neu('sachaufgabe', 'fehler', A('Jemand rechnet bei t = √(h : 5) und t = 3 s: „h = 3 · 5 = 15 m.“ Was stimmt?', 'Falsch: Erst quadrieren: h : 5 = 9, also h = 45 m.', ['Richtig.', 'Falsch: h = 3 : 5 = 0,6 m.', 'Falsch: h = 3² = 9 m.'],
+       'Die Wurzel muss durch Quadrieren aufgehoben werden: h : 5 = 3² = 9. Probe: √(15 : 5) = √3 ≈ 1,7 s, nicht 3 s.', 'Mach die Probe mit 15 m.'))
+ST.neu('sachaufgabe', 'pruefung', L('Für die Aufprallgeschwindigkeit gilt v = √(20 · h). a) Mit welcher Geschwindigkeit prallt etwas aus 20 m Höhe auf? b) Aus welcher Höhe prallt es mit 40 m/s auf?', 'a) □ m/s; b) □ m', [20, 80],
+       ['20', '1600 // 20'], 'a) √400 = 20 m/s. b) √(20h) = 40 ⇒ 20h = 1 600 ⇒ h = 80 m.', 'Bei b) quadrieren.'))
+ST.knobel('sachaufgabe', Z('Ein Stein wird aus einer Höhe fallen gelassen und schlägt nach 3 s auf (t = √(h : 5)). Ein zweiter Stein wird 1 s später an derselben Stelle losgelassen. Wie hoch ist der zweite Stein über dem Boden, wenn der erste aufschlägt?', 25, '45 - 20',
+          'Die Höhe ist h = 5 · 3² = 45 m. Der zweite Stein ist erst 2 s gefallen: 5 · 2² = 20 m. Er ist noch 45 − 20 = 25 m über dem Boden.', 'Rechne aus t = √(h : 5) den Fallweg nach 2 s.', einheit='m'))
+ST.knobel('sachaufgabe', Z('Bis zum Horizont sieht man etwa d = 3,6 · √h km weit (h in m). Um wie viele Meter muss man von 25 m Augenhöhe aus höher steigen, um doppelt so weit zu sehen?', 75, '4 * 25 - 25',
+          'Doppelte Sichtweite heißt doppelte Wurzel, also vierfache Höhe: 4 · 25 = 100 m. Man muss 75 m höher steigen. Probe: 3,6 · 5 = 18 km, 3,6 · 10 = 36 km.', 'Wie ändert sich √h, wenn h vervierfacht wird?', einheit='m'))
+
+
 if __name__ == '__main__':
     d = bauen('gleichungen.wurzel',
           'Wurzelgleichungen lösen: Definitionsmenge bestimmen, Wurzel allein stellen, quadrieren und mit der Probe Scheinlösungen erkennen.',
@@ -485,3 +649,4 @@ if __name__ == '__main__':
           ETAPPEN, GEN)
     umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
     durchsicht(d)
+    stufen('gleichungen.wurzel', ST)

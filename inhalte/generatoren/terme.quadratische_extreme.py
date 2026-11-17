@@ -488,6 +488,157 @@ def durchsicht(d):
         })
 
 
+# ---- STUFEN (Zwanzigste Runde, Zusatz RS/IB, Zweig stufen-rsib-1) ----
+from _stufen_rsib1 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('terme.quadratische_extreme', 20_81_5)
+Z, A, L = ST.Z, ST.A, ST.L
+
+# ergaenzen
+ST.stufenleiter('ergaenzen', 'x² + bx mit gerader Zahl b zu einem Binom ergänzen und ein Binom erkennen.',
+                'Mit negativem b und ungeradem b (Dezimalzahl) ergänzen, ein Binom als Klammerquadrat schreiben, Eckquadrat am Bild bestimmen.',
+                'Vom Binom zurück auf den mittleren Term, Faktor vor x², Abstand zum Binom, Fehler „b statt b/2“, b für ein Binom bestimmen, Nichtnegativität begründen, Prüfungsaufgabe.')
+ST.typ('ergaenzen', 'Ergänze zu einem vollständigen Quadrat', 'direkt')
+ST.typ('ergaenzen', 'Welche Zahl musst du zu', 'erkennen')
+ST.typ('ergaenzen', 'Ergänze so, dass ein Binom', 'mehrschritt')
+ST.typ('ergaenzen', 'Welche Zahl muss man zu', 'mehrschritt')
+ST.typ('ergaenzen', 'Schreibe x² + 10x + 25', 'umkehr')
+ST.typ('ergaenzen', 'Jemand schreibt', 'fehler')
+ST.typ('ergaenzen', 'Ergänze die Lücken so, dass die Gleichung', 'rueckwaerts')
+ST.typ('ergaenzen', 'Ergänze die Lücken so, dass ein vollständiges', 'transfer')
+ST.typ('ergaenzen', 'Um wie viel ist', 'verknuepfen')
+ST.neu('ergaenzen', 'erkennen', A('Welcher Term ist ein vollständiges Quadrat (ein Binom)?', 'x² + 12x + 36', ['x² + 12x + 12', 'x² + 6x + 36', 'x² + 12x + 144'],
+       'x² + 12x + 36 = (x + 6)², denn die Hälfte von 12 ist 6 und 6² = 36.', 'Halbiere die Zahl vor x und quadriere.'))
+ST.neu('ergaenzen', 'darstellung', Z('Ein Quadrat mit der Seite x wird um zwei Streifen mit je x · 5 ergänzt (Fläche x² + 10x). Wie groß ist das Eckquadrat, das zum großen Quadrat noch fehlt?', 25, '5 * 5',
+       'Die Streifen sind 5 breit. Das fehlende Eckquadrat hat die Seite 5, also 25. Dann ist x² + 10x + 25 = (x + 5)².', 'Wie breit sind die Streifen?'))
+ST.neu('ergaenzen', 'begruenden', A('Stimmt: x² + 6x + 9 ist für jedes x mindestens 0?', 'Ja, denn x² + 6x + 9 = (x + 3)², und ein Quadrat ist nie negativ.',
+       ['Nein, für negative x wird es negativ.', 'Nur für x > 0.', 'Nein, für x = −3 ist es negativ.'], '(x + 3)² ≥ 0. Für x = −3 ist der Term genau 0, sonst positiv.', 'Schreibe den Term als Quadrat.'))
+ST.neu('ergaenzen', 'parameter', L('Für welche Zahlen b ist x² + bx + 16 ein vollständiges Quadrat?', 'b₁ = □; b₂ = □', [-8, 8], ['-8', '8'],
+       '16 = 4². (x + 4)² = x² + 8x + 16 und (x − 4)² = x² − 8x + 16. Also b = 8 oder b = −8.', 'Welche Zahl ergibt quadriert 16?'))
+ST.neu('ergaenzen', 'pruefung', L('a) Welche Zahl musst du zu x² + 14x addieren, damit ein Binom entsteht? b) Schreibe das Binom als Quadrat. c) Welchen Wert hat es für x = −7?', 'a) □; b) (x + □)²; c) □', [49, 7, 0],
+       ['7 * 7', '7', '0'], 'a) (14 : 2)² = 49. b) x² + 14x + 49 = (x + 7)². c) (−7 + 7)² = 0.', 'Halbieren, quadrieren.'))
+ST.knobel('ergaenzen', Z('Berechne 47² im Kopf, indem du 47 = 50 − 3 nutzt.', 2209, '50 * 50 - 2 * 50 * 3 + 3 * 3',
+          '(50 − 3)² = 50² − 2 · 50 · 3 + 3² = 2 500 − 300 + 9 = 2 209.', 'Binomische Formel mit Minus.'))
+ST.knobel('ergaenzen', Z('Wie viele ganze Zahlen x erfüllen x² − 10x + 25 < 4?', 3, '3',
+          'x² − 10x + 25 = (x − 5)². (x − 5)² < 4 heißt: x − 5 liegt zwischen −2 und 2 (ohne die Grenzen). Ganze Zahlen: x = 4, 5, 6. Also 3.', 'Erkenne das Binom.'))
+
+# scheitelform
+ST.stufenleiter('scheitelform', 'x² + bx + c mit quadratischer Ergänzung in die Form (x + d)² + e bringen; passende Form erkennen.',
+                'Ungerade b mit Dezimalzahlen, Scheitelform ausmultiplizieren, c aus der Scheitelform, Term zu einer Wertetabelle.',
+                'Lücken rückwärts füllen, Fehler bei b/2 und beim Abziehen finden, Positivität und Gleichheit begründen, Bedingung an c, Fontäne als Modell, Prüfungsaufgabe.')
+ST.typ('scheitelform', '/^Bringe (T\\(x\\) = x² \\+ 3x|x² − 5x)/', 'mehrschritt')
+ST.typ('scheitelform', 'Bringe T(x) = x²', 'direkt')
+ST.typ('scheitelform', 'Welcher Term lässt sich', 'erkennen')
+ST.typ('scheitelform', 'Multipliziere', 'umkehr')
+ST.typ('scheitelform', 'Es gilt x² + 6x + c', 'umkehr')
+ST.typ('scheitelform', 'Ergänze die Lücken', 'rueckwaerts')
+ST.typ('scheitelform', 'Jemand formt um', 'fehler')
+ST.typ('scheitelform', '/^(Warum ist|Sind \\()/', 'begruenden')
+ST.neu('scheitelform', 'erkennen', A('Welche Zahl wird bei x² − 6x + 10 ergänzt und gleich wieder abgezogen?', '9', ['6', '36', '3'],
+       'Die Hälfte von −6 ist −3, (−3)² = 9: x² − 6x + 9 − 9 + 10 = (x − 3)² + 1.', 'Halbieren, quadrieren.'))
+ST.neu('scheitelform', 'darstellung', A('Eine Wertetabelle: x = 0, 1, 2, 3 ergibt T(x) = 5, 2, 1, 2. Welcher Term passt?', '(x − 2)² + 1', ['(x + 2)² + 1', '(x − 1)² + 2', '(x − 2)² − 1'],
+       'Der kleinste Wert 1 liegt bei x = 2, links und rechts davon ist es symmetrisch. Probe: (0 − 2)² + 1 = 5, (3 − 2)² + 1 = 2.', 'Wo ist der kleinste Wert in der Tabelle?'))
+ST.neu('scheitelform', 'fehler', A('Jemand formt x² + 8x + 3 um zu (x + 8)² − 61. Was stimmt?', 'Falsch: Man nimmt die Hälfte von 8: (x + 4)² − 13.',
+       ['Richtig.', 'Falsch: (x + 4)² + 3.', 'Falsch: (x + 8)² + 3.'], 'Ergänzt wird (8 : 2)² = 16: x² + 8x + 16 − 16 + 3 = (x + 4)² − 13. Mit (x + 8)² stünde 16x statt 8x da.', 'Multipliziere (x + 8)² zur Probe aus.'))
+ST.neu('scheitelform', 'parameter', A('Für welche Zahlen c ist x² + 4x + c für jedes x positiv?', 'für c > 4', ['für c > 0', 'für c > 2', 'für c < 4'],
+       'x² + 4x + c = (x + 2)² + c − 4. Der kleinste Wert ist c − 4 (bei x = −2). Er ist positiv, wenn c > 4.', 'Bringe den Term in die Scheitelform.'))
+ST.neu('scheitelform', 'transfer', Z('Ein Wasserstrahl hat die Höhe h(x) = −x² + 6x + 1 (alles in dm, x ist der waagrechte Abstand). Wie hoch steigt der Strahl höchstens?', 10, '9 + 1',
+       '−x² + 6x + 1 = −(x² − 6x + 9) + 9 + 1 = −(x − 3)² + 10. Höchste Höhe 10 dm bei x = 3 dm.', 'Klammere das Minus vor x² aus und ergänze.', einheit='dm'))
+ST.neu('scheitelform', 'pruefung', L('Gegeben ist T(x) = x² − 10x + 21. a) Bringe T in die Form (x + d)² + e. b) Für welches x ist die Klammer 0? c) Welchen Wert hat T dann?',
+       'a) d = □; e = □; b) □; c) □', [-5, -4, 5, -4], ['-5', '21 - 25', '5', '0 - 4'],
+       'a) x² − 10x + 25 − 25 + 21 = (x − 5)² − 4: d = −5, e = −4. b) x = 5. c) T(5) = −4.', 'Hälfte von −10 ist −5.'))
+ST.knobel('scheitelform', Z('Für welches x wird (x − 3)² + (x − 5)² am kleinsten?', 4, '4',
+          'Ausmultiplizieren: 2x² − 16x + 34 = 2(x² − 8x + 16) + 2 = 2(x − 4)² + 2. Am kleinsten für x = 4 – genau in der Mitte zwischen 3 und 5.', 'Multipliziere aus und ergänze.'))
+ST.knobel('scheitelform', L('Welche Zahlen x und y erfüllen x² + y² − 6x + 4y + 13 = 0?', 'x = □; y = □', [3, -2], ['3', '-2'],
+          'Ergänzen: (x² − 6x + 9) + (y² + 4y + 4) = 0, also (x − 3)² + (y + 2)² = 0. Zwei Quadrate ergeben nur 0, wenn beide 0 sind: x = 3, y = −2.', 'Ergänze für x und für y getrennt.'))
+
+# extremwert
+ST.stufenleiter('extremwert', 'An (x − d)² + e bzw. −(x − d)² + e Stelle und Wert des Extremums ablesen; Minimum oder Maximum erkennen.',
+                'Erst ergänzen, dann ablesen; Parameter aus einem Extremwert; Gewinn als Sachsituation; Extremum aus einer Wertetabelle.',
+                'Größter Wert existiert nicht – begründen, Aussagen über Schranken prüfen, Fehler beim Vorzeichen in der Klammer, Bedingung für ein Maximum, Temperaturverlauf, Prüfungsaufgabe.')
+ST.typ('extremwert', 'Bestimme Stelle und Wert des Extremums', 'direkt')
+ST.typ('extremwert', 'Hat T(x)', 'erkennen')
+ST.typ('extremwert', '/^Bestimme Stelle und Wert des (Minimums|Maximums)/', 'mehrschritt')
+ST.typ('extremwert', 'Für welches c hat', 'umkehr')
+ST.typ('extremwert', 'Für welches x ist', 'verknuepfen')
+ST.typ('extremwert', '/^(Welche Aussage|Gibt es ein x)/', 'begruenden')
+ST.neu('extremwert', 'einkleidung', Z('Der Gewinn eines Standes ist G(x) = −(x − 30)² + 400 Euro, wenn x der Preis in Cent ist. Bei welchem Preis ist der Gewinn am größten?', 30, '30',
+       'Die Klammer ist 0 für x = 30. Dann ist G = 400 € der größte Gewinn, weil sonst etwas abgezogen wird.', 'Wann wird nichts abgezogen?', einheit='ct'))
+ST.neu('extremwert', 'darstellung', A('Eine Wertetabelle: x = 1, 2, 3, 4, 5 ergibt T(x) = 6, 3, 2, 3, 6. Wo liegt das Extremum?', 'Minimum 2 bei x = 3', ['Maximum 6 bei x = 1', 'Minimum 3 bei x = 2', 'Maximum 2 bei x = 3'],
+       'Die Werte sind symmetrisch um x = 3 und dort am kleinsten: Minimum T = 2.', 'Suche den kleinsten Wert und die Symmetrie.'))
+ST.neu('extremwert', 'umkehr', Z('T(x) = (x − d)² + 5 hat sein Minimum bei x = −2. Wie groß ist d?', -2, '-2',
+       'Die Klammer ist 0 für x = d. Das Minimum liegt bei x = d = −2. Probe: (x + 2)² + 5.', 'Für welches x wird die Klammer null?'))
+ST.neu('extremwert', 'fehler', A('Jemand liest bei T(x) = (x + 3)² − 2 ab: „Minimum −2 bei x = 3.“ Was stimmt?', 'Falsch: Die Klammer ist für x = −3 null, also Minimum −2 bei x = −3.',
+       ['Richtig.', 'Falsch: Maximum −2 bei x = 3.', 'Falsch: Minimum 3 bei x = −2.'], 'x + 3 = 0 ⇒ x = −3. Probe: T(3) = 36 − 2 = 34, also kein Minimum.', 'Setze x = 3 zur Probe ein.'))
+ST.neu('extremwert', 'parameter', A('Für welche Zahlen a hat T(x) = a · (x − 1)² + 4 ein Maximum?', 'für a < 0', ['für a > 0', 'für a > 4', 'für jedes a ≠ 0'],
+       'Ist a negativ, wird von 4 immer etwas abgezogen (außer bei x = 1): Maximum 4. Ist a positiv, kommt etwas dazu: Minimum.', 'Wird etwas dazugezählt oder abgezogen?'))
+ST.neu('extremwert', 'transfer', Z('Die Temperatur in einem Gewächshaus ist T(t) = −(t − 14)² + 30 (in °C, t = Uhrzeit in Stunden). Um wie viel Grad ist es um 17 Uhr kälter als zur wärmsten Zeit?', 9, '(17 - 14) ** 2',
+       'Am wärmsten um 14 Uhr: 30 °C. Um 17 Uhr: −(17 − 14)² + 30 = −9 + 30 = 21 °C. Unterschied 9 Grad.', 'Wann ist es am wärmsten?', einheit='°C'))
+ST.neu('extremwert', 'pruefung', L('Gegeben ist T(x) = x² + 6x + 2. a) Bringe T in die Form (x + d)² + e. b) Gib Stelle und Wert des Minimums an.', 'a) d = □; e = □; b) x = □; T = □', [3, -7, -3, -7],
+       ['3', '2 - 9', '-3', '-7'], 'a) x² + 6x + 9 − 9 + 2 = (x + 3)² − 7. b) Minimum −7 bei x = −3.', 'Erst ergänzen, dann ablesen.'))
+ST.knobel('extremwert', Z('Welchen größten Wert hat 1 : ((x − 2)² + 4)?', 0.25, '1 / 4',
+          'Ein Bruch mit Zähler 1 ist am größten, wenn der Nenner am kleinsten ist. (x − 2)² + 4 ist mindestens 4 (bei x = 2). Größter Wert 1 : 4 = 0,25.', 'Wann ist ein Bruch mit Zähler 1 am größten?'))
+ST.knobel('extremwert', Z('x darf nur ganze Zahlen annehmen. Welchen kleinsten Wert hat dann (x − 2,5)² + 1?', 1.25, '0.5 * 0.5 + 1',
+          'Das Minimum 1 läge bei x = 2,5 – das ist keine ganze Zahl. Am nächsten liegen 2 und 3, beide mit Abstand 0,5: (0,5)² + 1 = 1,25.', 'Welche ganzen Zahlen liegen nah an 2,5?'))
+
+# mit_faktor
+ST.stufenleiter('mit_faktor', 'Bei a · x² + bx + c den Faktor a ausklammern, ergänzen und das Extremum angeben; Minimum oder Maximum am Vorzeichen von a erkennen.',
+                'Negative und gebrochene Faktoren, Faktor a aus der Lage des Extremums, Flächeninhalt als Term.',
+                'Fehler „Ausgleich nicht mit a malgenommen“, Lage des Extremums vergleichen, Bedingung an c, c aus dem Minimum zurück, Stückkosten als Modell, Prüfungsaufgabe.')
+ST.typ('mit_faktor', '/^Bestimme Stelle und Wert des Extremums von T\\(x\\) = (−|0,5)/', 'mehrschritt')
+ST.typ('mit_faktor', 'Bestimme Stelle und Wert des Extremums', 'direkt')
+ST.typ('mit_faktor', 'Hat T(x)', 'erkennen')
+ST.typ('mit_faktor', 'Der Term T(x) = a', 'umkehr')
+ST.typ('mit_faktor', 'Für den Flächeninhalt', 'einkleidung')
+ST.typ('mit_faktor', 'Jemand formt', 'fehler')
+ST.typ('mit_faktor', 'Welcher der Terme', 'begruenden')
+ST.typ('mit_faktor', 'Für welche c', 'parameter')
+ST.neu('mit_faktor', 'rueckwaerts', Z('Der Term T(x) = 2x² − 12x + c hat das Minimum 3. Wie groß ist c?', 21, '3 + 18',
+       '2x² − 12x + c = 2(x − 3)² − 18 + c. Minimum: −18 + c = 3 ⇒ c = 21.', 'Ergänze mit c und setze den kleinsten Wert gleich 3.'))
+ST.neu('mit_faktor', 'transfer', Z('Die Kosten pro Stück sind K(x) = 0,5x² − 20x + 260 Euro (x in Hundert Stück). Bei welcher Menge sind sie am niedrigsten? Gib x an.', 20, '20 / (2 * 0.5)',
+       '0,5(x² − 40x) + 260 = 0,5(x − 20)² − 200 + 260 = 0,5(x − 20)² + 60. Am niedrigsten bei x = 20, also 2 000 Stück, mit 60 € pro Stück.', 'Klammere 0,5 aus.'))
+ST.neu('mit_faktor', 'begruenden', A('Stimmt: T(x) = 3x² + 6x + 10 und S(x) = x² + 2x + 10 haben ihr Minimum an derselben Stelle?', 'Ja, beide bei x = −1, aber mit verschiedenen Werten (7 und 9).',
+       ['Nein, T hat es bei x = −3.', 'Ja, und beide haben den Wert 10.', 'Nein, T hat ein Maximum.'],
+       'T(x) = 3(x² + 2x) + 10 = 3(x + 1)² + 7, S(x) = (x + 1)² + 9. Beide Klammern sind bei x = −1 null.', 'Klammere bei T die 3 aus und vergleiche die Klammern.'))
+ST.neu('mit_faktor', 'fehler', A('Jemand bestimmt für T(x) = −2x² + 8x + 1 „das Minimum 9 bei x = 2“. Was stimmt?', 'Falsch: Wegen −2 ist es ein Maximum, 9 bei x = 2.',
+       ['Richtig.', 'Falsch: Minimum 1 bei x = 0.', 'Falsch: Maximum 17 bei x = 2.'], '−2(x² − 4x) + 1 = −2(x − 2)² + 8 + 1 = −2(x − 2)² + 9. Der Faktor −2 öffnet nach unten: Maximum.', 'Achte auf das Vorzeichen von a.'))
+ST.neu('mit_faktor', 'pruefung', L('Gegeben ist T(x) = −3x² + 12x − 5. Bringe T in die Form a · (x − d)² + e und gib a, d und e an.', 'a = □; d = □; e = □', [-3, 2, 7], ['-3', '2', '12 - 5'],
+       '−3(x² − 4x) − 5 = −3(x² − 4x + 4 − 4) − 5 = −3(x − 2)² + 12 − 5 = −3(x − 2)² + 7. Größter Wert 7 bei x = 2.', 'Klammere −3 aus den ersten beiden Gliedern aus.'))
+ST.knobel('mit_faktor', L('Für welches x ist das Produkt x · (12 − 2x) am größten, und wie groß ist es dann?', 'x = □; Produkt □', [3, 18], ['3', '3 * 6'],
+          'x · (12 − 2x) = −2x² + 12x = −2(x² − 6x) = −2(x − 3)² + 18. Größtes Produkt 18 bei x = 3.', 'Multipliziere aus und ergänze mit Faktor.'))
+ST.knobel('mit_faktor', Z('T(x) = a · x² + 4x + 1 (a > 0) hat ein Minimum. Für welches a ist dieses Minimum genau 0?', 4, '4',
+          'a(x² + (4/a)x) + 1 = a(x + 2/a)² − 4/a + 1. Minimum 1 − 4/a = 0 ⇒ a = 4. Probe: 4x² + 4x + 1 = (2x + 1)².', 'Ergänze mit dem Buchstaben a.'))
+
+# optimierung
+ST.stufenleiter('optimierung', 'Bei Rechtecken mit festem Umfang und Zahlen mit fester Summe das größte Produkt bestimmen; den Flächenterm erkennen.',
+                'Feste Differenz, Rechteck an einer Mauer, Preiserhöhung mit weniger Käufern, gesuchte Seitenlänge statt Fläche.',
+                'Seitenlängen als Terme, Eintrittspreis, Summe von Quadraten, Hausecke als Modell, Fehler beim halben Umfang, Quadrat als bestes Rechteck begründen, Stallgehege als Prüfungsaufgabe.')
+ST.typ('optimierung', 'Ein Rechteck hat den Umfang', 'direkt')
+ST.typ('optimierung', 'Die Summe zweier Zahlen ist 30', 'direkt')
+ST.typ('optimierung', '/^Die Summe zweier Zahlen ist \\d+\\. Wie groß kann/', 'direkt')
+ST.typ('optimierung', '/^(Die Differenz zweier|Ein Kiosk)/', 'mehrschritt')
+ST.typ('optimierung', '/^(An einer Mauer|Aus 20 m Zaun)/', 'einkleidung')
+ST.typ('optimierung', 'An einer langen Mauer', 'umkehr')
+ST.typ('optimierung', 'Ein Rechteck hat die Seitenlängen', 'verknuepfen')
+ST.typ('optimierung', '/^(Ein Kino|Die Summe zweier Zahlen ist 12\\. Wie groß ist die Summe|In einer Hausecke)/', 'transfer')
+ST.neu('optimierung', 'erkennen', A('Ein Rechteck hat den Umfang 24 cm. Welcher Term beschreibt seine Fläche, wenn eine Seite x cm lang ist?', 'x · (12 − x)', ['x · (24 − x)', '2x + 24', 'x² + 12'],
+       'Zwei Seiten zusammen sind der halbe Umfang: 12 cm. Die andere Seite ist 12 − x, die Fläche x · (12 − x).', 'Wie lang sind zwei benachbarte Seiten zusammen?'))
+ST.neu('optimierung', 'fehler', A('Jemand rechnet: Umfang 20 m, Seiten x und 20 − x, also größte Fläche 100 m² bei x = 10. Was stimmt?', 'Falsch: Die zweite Seite ist 10 − x; größte Fläche 25 m² bei x = 5.',
+       ['Richtig.', 'Falsch: 50 m² bei x = 10.', 'Falsch: 400 m² bei x = 20.'], 'Zwei Seiten sind zusammen der halbe Umfang, 10 m. A = x(10 − x) = −(x − 5)² + 25.', 'Rechne den Umfang deines Rechtecks nach.'))
+ST.neu('optimierung', 'begruenden', A('Stimmt: Unter allen Rechtecken mit gleichem Umfang hat das Quadrat die größte Fläche?', 'Ja: A(x) = x · (h − x) mit h = halber Umfang ist bei x = h/2 am größten – dann sind beide Seiten gleich.',
+       ['Nein, das längste Rechteck hat die größte Fläche.', 'Nur bei Umfang 20.', 'Nein, alle haben dieselbe Fläche.'],
+       'A(x) = −x² + hx = −(x − h/2)² + h²/4. Der größte Wert liegt bei x = h/2, die andere Seite ist dann ebenfalls h/2.', 'Ergänze x · (h − x) mit dem Buchstaben h.'))
+ST.neu('optimierung', 'pruefung', L('Ein rechteckiges Gehege wird an eine Stallwand gebaut, 36 m Zaun reichen für die drei übrigen Seiten. x ist die Länge der beiden Seiten senkrecht zur Wand. a) Gib A(x) = □x² + □x an. b) Für welches x ist A maximal? c) Wie groß ist A dann?',
+       'a) A(x) = □x² + □x; b) □; c) □', [-2, 36, 9, 162], ['-2', '36', '9', '9 * 18'],
+       'a) Die Seite parallel zur Wand ist 36 − 2x: A = x(36 − 2x) = −2x² + 36x. b) −2(x − 9)² + 162 ⇒ x = 9 m. c) A = 162 m².', 'Wie lang ist die Seite parallel zur Wand?'))
+ST.knobel('optimierung', Z('Ein 40 cm langer Draht wird in zwei Stücke geteilt, aus jedem wird ein Quadrat gebogen. Wie lang muss das erste Stück sein, damit beide Quadrate zusammen möglichst wenig Fläche haben?', 20, '20',
+          'Stücke x und 40 − x, Seiten x/4 und (40 − x)/4. Fläche (x² + (40 − x)²) : 16 = (2x² − 80x + 1 600) : 16 = (2(x − 20)² + 800) : 16. Am kleinsten bei x = 20: zwei gleiche Quadrate mit je 25 cm².',
+          'Stelle die Gesamtfläche als Term auf.', einheit='cm'))
+ST.knobel('optimierung', Z('Mit 120 m Zaun wird ein Rechteck eingezäunt und durch einen Zaun parallel zu einer Seite in zwei Teile geteilt. Wie groß kann die eingezäunte Fläche höchstens werden?', 600, '20 * 30',
+          'Seiten a und b, drei Zaunstücke der Länge b: 2a + 3b = 120 ⇒ a = 60 − 1,5b. A = b(60 − 1,5b) = −1,5b² + 60b = −1,5(b − 20)² + 600. Größte Fläche 600 m² bei b = 20 m, a = 30 m.',
+          'Zähle genau, wie viele Zaunstücke welche Länge haben.', einheit='m²'))
+
+
 if __name__ == '__main__':
     d = bauen('terme.quadratische_extreme',
           'Quadratische Terme mit der quadratischen Ergänzung umformen, ihr Minimum oder Maximum bestimmen und einfache Optimierungsaufgaben lösen.',
@@ -501,3 +652,4 @@ if __name__ == '__main__':
                  'Schreibweise Extremwert: „x = □; T = □“ statt T_min/T_max (Indizes in der App schwer lesbar).'])
     umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
     durchsicht(d)
+    stufen('terme.quadratische_extreme', ST)

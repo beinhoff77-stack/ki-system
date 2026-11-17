@@ -549,6 +549,167 @@ def durchsicht(d):
         })
 
 
+# ---- STUFEN (Zwanzigste Runde, Zusatz RS/IB, Zweig stufen-rsib-1) ----
+from _stufen_rsib1 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('funktionen.transformation', 20_91_6)
+Z, A, L = ST.Z, ST.A, ST.L
+_S = 'S(□ | □)'
+
+# nach_oben
+ST.stufenleiter('nach_oben', 'Den Scheitel einer nach oben oder unten verschobenen Normalparabel angeben und die passende Gleichung erkennen.',
+                'Verschobene Parabeln noch einmal verschieben, Punkte mitverschieben, y-Werte berechnen, Scheitel am Bild ablesen.',
+                'Nötige Verschiebung rückwärts bestimmen, e aus Nullstellen, Abstand zweier Parabeln und Schnittpunkte begründen, Symmetrie nutzen, Fehler „− heißt oben“, Bedingung für Nullstellen.')
+ST.typ('nach_oben', 'Die Normalparabel wird um', 'erkennen', s=1)
+ST.typ('nach_oben', 'Die Normalparabel y = x² wird um', 'direkt')
+ST.typ('nach_oben', '/^Die Parabel y = \\(x .*verschoben\\. Gib den neuen Scheitel an/', 'mehrschritt')
+ST.typ('nach_oben', 'P(−1 | 1) liegt auf', 'umkehr')
+ST.typ('nach_oben', 'Die gezeichnete Parabel', 'darstellung')
+ST.typ('nach_oben', 'Die Normalparabel wird um 6 nach unten', 'mehrschritt')
+ST.typ('nach_oben', '/soll so verschoben werden|so nach oben oder unten verschoben, dass sie durch/', 'rueckwaerts')
+ST.typ('nach_oben', '/^(Die Parabel y = x² \\+ e schneidet|Der Punkt P\\(2 \\| 7\\))/', 'verknuepfen')
+ST.typ('nach_oben', '/^(Die Parabeln y = x² \\+ 2|Hat die Parabel)/', 'begruenden')
+ST.neu('nach_oben', 'fehler', A('Jemand sagt: „y = x² − 4 ist die Normalparabel, um 4 nach oben verschoben.“ Was stimmt?', 'Falsch: − 4 heißt 4 nach unten, der Scheitel ist S(0 | −4).',
+       ['Richtig.', 'Falsch: 4 nach rechts.', 'Falsch: 4 nach links.'], 'Zu jedem y-Wert der Normalparabel wird 4 abgezogen. Der Scheitel rutscht von (0 | 0) nach (0 | −4).', 'Was passiert mit dem Scheitel (0 | 0)?'))
+ST.neu('nach_oben', 'parameter', A('Für welche Zahlen e hat die Parabel y = x² + e zwei Schnittpunkte mit der x-Achse?', 'für e < 0', ['für e > 0', 'für e = 0', 'für jedes e'],
+       'Der Scheitel liegt bei (0 | e). Liegt er unter der x-Achse (e < 0), schneidet die nach oben geöffnete Parabel die Achse zweimal. Bei e = 0 berührt sie nur.', 'Wo liegt der Scheitel?'))
+ST.knobel('nach_oben', Z('Wie viele Punkte mit ganzzahligen Koordinaten liegen auf der Parabel y = x² − 6, wenn man nur y-Werte von 0 bis 10 zulässt?', 4, '4',
+          'x² − 6 soll zwischen 0 und 10 liegen, also x² zwischen 6 und 16. Ganze x: ±3 (x² = 9) und ±4 (x² = 16). Punkte (−4 | 10), (−3 | 3), (3 | 3), (4 | 10).', 'Welche Quadratzahlen liegen zwischen 6 und 16?'))
+ST.knobel('nach_oben', Z('Ein Quadrat mit Seitenlänge 4 hat zwei Ecken auf der x-Achse und zwei Ecken auf der Parabel y = −x² + e. Es liegt symmetrisch zur y-Achse über der x-Achse. Wie groß ist e?', 8, '4 + 4',
+          'Die oberen Ecken sind (−2 | 4) und (2 | 4). Einsetzen: 4 = −4 + e ⇒ e = 8.', 'Bestimme zuerst die Koordinaten der oberen Ecken.'))
+
+# nach_rechts
+ST.stufenleiter('nach_rechts', 'Den Scheitel von y = (x − d)² ablesen und die Gleichung zu einer Verschiebung nach links oder rechts erkennen.',
+                'Scheitel von (x − d)² + e, weiter verschieben, y-Achsenabschnitt, Gleichung zum Scheitel, Scheitel am Bild.',
+                'd aus einem Punkt rückwärts, zwei mögliche d, gleiche y-Werte zweier Parabeln, Fehler „+ heißt rechts“, (3 − x)² begründen, Rinne als Modell, Prüfungsaufgabe.')
+ST.typ('nach_rechts', 'Gib den Scheitel der Parabel y = (x − 5)² + 5', 'mehrschritt')
+ST.typ('nach_rechts', 'Gib den Scheitel der Parabel y = (x + 1)² − 2', 'mehrschritt')
+ST.typ('nach_rechts', 'Gib den Scheitel der Parabel', 'direkt')
+ST.typ('nach_rechts', '/^(Die Normalparabel wird um \\d+ nach (links|rechts) verschoben\\. Welche|Wie entsteht)/', 'erkennen')
+ST.typ('nach_rechts', 'Die gezeichnete Parabel', 'darstellung')
+ST.typ('nach_rechts', '/^(Die Parabel y = \\(x \\+ 3\\)² wird um|Wo schneidet)/', 'mehrschritt')
+ST.typ('nach_rechts', 'Die Parabel y = (x − d)² hat', 'parameter')
+ST.typ('nach_rechts', 'Jemand sagt', 'fehler')
+ST.typ('nach_rechts', '/^(Die Normalparabel wird nur|Die Parabel y = \\(x − d\\)² geht durch)/', 'rueckwaerts')
+ST.typ('nach_rechts', 'An welcher Stelle', 'verknuepfen')
+ST.neu('nach_rechts', 'umkehr', L('Eine nach links oder rechts verschobene Normalparabel hat den Scheitel S(−5 | 0). Ergänze ihre Gleichung.', 'y = (x + □)²', [5], ['5'],
+       'Die Klammer muss für x = −5 null sein: x + 5. Also y = (x + 5)².', 'Für welches x wird die Klammer null?'))
+ST.neu('nach_rechts', 'begruenden', A('Stimmt: y = (x − 3)² und y = (3 − x)² beschreiben dieselbe Parabel?', 'Ja, denn 3 − x = −(x − 3), und beim Quadrieren fällt das Minus weg.',
+       ['Nein, die eine ist nach links verschoben.', 'Nein, die eine ist nach unten geöffnet.', 'Nur für x = 3.'],
+       '(3 − x)² = (−(x − 3))² = (x − 3)². Beide haben den Scheitel S(3 | 0).', 'Setze ein paar Zahlen ein und vergleiche.'))
+ST.neu('nach_rechts', 'transfer', Z('Eine Rinne hat das Querschnittsprofil y = (x − 1,5)² (in dm); der tiefste Punkt liegt bei y = 0. Wie breit ist die Rinne auf der Höhe y = 1?', 2, '2.5 - 0.5',
+       '(x − 1,5)² = 1 ⇒ x − 1,5 = ±1 ⇒ x = 0,5 oder x = 2,5. Breite 2,5 − 0,5 = 2 dm.', 'Welche Zahlen ergeben quadriert 1?', einheit='dm'))
+ST.neu('nach_rechts', 'pruefung', L('Die Normalparabel wird um 3 nach rechts verschoben. a) Ergänze die Gleichung. b) Gib den Schnittpunkt mit der y-Achse an. c) Liegt (5 | 4) auf der Parabel? (1 = ja, 0 = nein)',
+       'a) y = (x − □)²; b) (□ | □); c) □', [3, 0, 9, 1], ['3', '0', '(0 - 3) ** 2', '1'],
+       'a) y = (x − 3)². b) x = 0: (−3)² = 9, also (0 | 9). c) (5 − 3)² = 4: ja.', 'Bei b) und c) einsetzen.'))
+ST.knobel('nach_rechts', Z('Für welches d ≠ 0 schneiden sich y = (x − d)² und y = x² genau bei x = 3?', 6, '6',
+          '(3 − d)² = 3² = 9 ⇒ 3 − d = 3 oder 3 − d = −3 ⇒ d = 0 oder d = 6. Gesucht ist d = 6. Der Schnittpunkt liegt genau in der Mitte zwischen den Scheiteln 0 und 6.', 'Setze x = 3 in beide Gleichungen ein.'))
+ST.knobel('nach_rechts', L('Die Parabeln y = (x − 1)² und y = (x − 7)² schneiden sich. In welchem Punkt?', 'P(□ | □)', [4, 9], ['(1 + 7) // 2', '(4 - 1) ** 2'],
+          'Beide sind gleich weite Normalparabeln, also liegt der Schnittpunkt aus Symmetriegründen in der Mitte der Scheitel: x = 4. y = (4 − 1)² = 9.', 'Nutze die Symmetrie.'))
+
+# strecken
+ST.stufenleiter('strecken', 'y-Werte von y = a · x² berechnen und gestreckt/gestaucht/nach unten geöffnet erkennen.',
+                'a aus einem Punkt bestimmen, mit a weiterrechnen, a am Bild ablesen, Brückenbogen.',
+                'Enge begründen, Fehler „kleines a ist enger“, Bereich für a, Satellitenschüssel als Modell, Schnitt mit einer Waagrechten, Wert über a rückwärts, Prüfungsaufgabe.')
+ST.typ('strecken', 'Berechne den y-Wert', 'direkt')
+ST.typ('strecken', 'Wie sieht die Parabel', 'erkennen')
+ST.typ('strecken', 'Die Parabel y = a · x² geht durch P(2 | 3)', 'mehrschritt')
+ST.typ('strecken', 'Die Parabel y = a · x² geht durch', 'umkehr')
+ST.typ('strecken', 'Die gezeichnete Parabel', 'darstellung')
+ST.typ('strecken', 'Ein Brückenbogen', 'einkleidung')
+ST.typ('strecken', 'Welche Parabel ist enger', 'begruenden')
+ST.neu('strecken', 'fehler', A('Jemand sagt: „y = 0,5x² ist enger als die Normalparabel, weil 0,5 kleiner als 1 ist.“ Was stimmt?', 'Falsch: Bei 0,5 werden alle y-Werte halbiert, die Parabel ist weiter (gestaucht).',
+       ['Richtig.', 'Falsch: Sie ist nach unten geöffnet.', 'Falsch: Sie ist genauso weit.'], 'Bei x = 2: Normalparabel 4, y = 0,5x² nur 2. Die Parabel steigt langsamer, sie ist weiter.', 'Vergleiche die y-Werte bei x = 2.'))
+ST.neu('strecken', 'parameter', A('Für welche a ist y = a · x² nach unten geöffnet und weiter als die Normalparabel?', 'für −1 < a < 0', ['für a < −1', 'für 0 < a < 1', 'für a > 1'],
+       'Nach unten geöffnet: a < 0. Weiter (gestaucht): Betrag von a kleiner als 1. Zusammen −1 < a < 0.', 'Zwei Bedingungen: Vorzeichen und Betrag.'))
+ST.neu('strecken', 'transfer', Z('Eine Satellitenschüssel hat im Querschnitt die Form y = a · x² (in cm, tiefster Punkt im Ursprung). Sie ist 60 cm breit und 9 cm tief. Berechne a.', 0.01, '9 / 900',
+       'Der Rand liegt bei x = 30 und y = 9: 9 = a · 900 ⇒ a = 0,01.', 'Wo liegt der Rand der Schüssel im Koordinatensystem?'))
+ST.neu('strecken', 'verknuepfen', Z('Die Parabel y = 2x² und die Gerade y = 8 schneiden sich zweimal. Wie weit liegen die Schnittpunkte auseinander?', 4, '2 - (-2)',
+       '2x² = 8 ⇒ x² = 4 ⇒ x = ±2. Abstand 2 − (−2) = 4.', 'Setze 2x² = 8.'))
+ST.neu('strecken', 'rueckwaerts', Z('Die Parabel y = a · x² geht durch Q(−1 | 0,5). Welchen y-Wert hat sie bei x = 3?', 4.5, '0.5 * 9',
+       'Aus 0,5 = a · 1 folgt a = 0,5. Bei x = 3: 0,5 · 9 = 4,5.', 'Bestimme zuerst a.'))
+ST.neu('strecken', 'pruefung', L('Die Parabel y = a · x² geht durch P(4 | −8). a) Gib a als Bruch an (Zähler über Nenner, Vorzeichen in den Zähler). b) Ist sie nach oben (1) oder nach unten (2) geöffnet? c) Welchen y-Wert hat sie bei x = −2?',
+       'a) □/□; b) □; c) □', [-1, 2, 2, -2], ['-1', '2', '2', '-1 / 2 * 4'], 'a) −8 = a · 16 ⇒ a = −1/2. b) a < 0: nach unten. c) −½ · 4 = −2.', 'Setze P ein.'))
+ST.knobel('strecken', Z('Die Gerade y = 16 schneidet die Parabeln y = x² und y = 4x². Um wie viel ist die Sehne (Strecke zwischen den Schnittpunkten) auf y = x² länger als auf y = 4x²?', 4, '8 - 4',
+          'x² = 16 ⇒ x = ±4, Sehne 8. 4x² = 16 ⇒ x = ±2, Sehne 4. Unterschied 4. Der Faktor 4 macht die Parabel in x-Richtung halb so breit.', 'Berechne beide Sehnen.'))
+ST.knobel('strecken', Z('Für welches a schneidet die Parabel y = a · x² die Gerade y = 2x außer im Ursprung genau bei x = 4?', 0.5, '8 / 16',
+          'Bei x = 4 hat die Gerade y = 8. Also a · 16 = 8 ⇒ a = 0,5. Probe: 0,5x² = 2x ⇒ x(0,5x − 2) = 0 ⇒ x = 0 oder x = 4.', 'Welchen y-Wert hat die Gerade bei x = 4?'))
+
+# spiegeln
+ST.stufenleiter('spiegeln', 'Einen Punkt an der x- oder y-Achse spiegeln; erkennen, welche Koordinate das Vorzeichen wechselt.',
+                'Scheitel einer gespiegelten Parabel angeben, Gleichung des Bildes bestimmen.',
+                'Symmetrische Parabeln begründen, zwei Spiegelungen hintereinander, Schnittpunkt mit dem Bild, Spiegelung aus Bild und Urbild erschließen, Fehler „falsche Achse“, Parameter, Prüfungsaufgabe.')
+ST.typ('spiegeln', 'Spiegle P', 'direkt')
+ST.typ('spiegeln', '/wird an der [xy]-Achse gespiegelt\\. Gib den Scheitel/', 'mehrschritt')
+ST.typ('spiegeln', '/an der x-Achse gespiegelt\\. Welche Gleichung/', 'darstellung')
+ST.typ('spiegeln', '/an der y-Achse gespiegelt\\. Welche Gleichung/', 'umkehr')
+ST.typ('spiegeln', '/^(Welche Parabel ändert sich NICHT|Die Parabel y = x² \\+ 1 wird)/', 'begruenden')
+ST.typ('spiegeln', '/^(Die Parabel y = \\(x − 1\\)² \\+ 2 wird erst|Die Parabel y = \\(x − 3\\)² − 4 wird)/', 'verknuepfen')
+ST.typ('spiegeln', 'Welche Spiegelung bildet', 'rueckwaerts')
+ST.neu('spiegeln', 'erkennen', A('Bei welcher Spiegelung wechselt nur die x-Koordinate eines Punktes ihr Vorzeichen?', 'Spiegelung an der y-Achse', ['Spiegelung an der x-Achse', 'Spiegelung am Ursprung', 'bei keiner'],
+       'An der y-Achse wird links und rechts vertauscht: (3 | 2) ↦ (−3 | 2). Die Höhe bleibt.', 'Probiere mit dem Punkt (3 | 2).'))
+ST.neu('spiegeln', 'fehler', A('Jemand spiegelt y = (x − 2)² + 3 an der x-Achse und schreibt y = (x + 2)² + 3. Was stimmt?', 'Falsch: Das ist die Spiegelung an der y-Achse. An der x-Achse: y = −(x − 2)² − 3.',
+       ['Richtig.', 'Falsch: y = −(x + 2)² + 3.', 'Falsch: y = (x − 2)² − 3.'], 'An der x-Achse wechseln alle y-Werte das Vorzeichen: y = −((x − 2)² + 3). Der Scheitel geht von (2 | 3) nach (2 | −3).', 'Was passiert mit dem Scheitel (2 | 3)?'))
+ST.neu('spiegeln', 'parameter', Z('Für welches d ändert sich die Parabel y = (x − d)² + 5 beim Spiegeln an der y-Achse nicht?', 0, '0',
+       'Spiegeln an der y-Achse bildet den Scheitel (d | 5) auf (−d | 5) ab. Gleich bleibt er nur für d = −d, also d = 0.', 'Wohin kommt der Scheitel?'))
+ST.neu('spiegeln', 'pruefung', L('Gegeben ist y = (x + 1)² − 4. a) Spiegle an der x-Achse: Gib den Scheitel an. b) Spiegle die Ausgangsparabel an der y-Achse: Gib den Scheitel an. c) Ist das Bild aus a) nach unten geöffnet? (1 = ja, 0 = nein)',
+       'a) S(□ | □); b) S(□ | □); c) □', [-1, 4, 1, -4, 1], ['-1', '4', '1', '-4', '1'],
+       'Scheitel (−1 | −4). a) (−1 | 4), Bild nach unten geöffnet. b) (1 | −4). c) ja.', 'Spiegle jeweils den Scheitel.'))
+ST.knobel('spiegeln', L('Eine Parabel wird erst an der x-Achse und dann an der y-Achse gespiegelt. Das Ergebnis ist y = −(x + 3)² + 2. Wie lautete die Ausgangsparabel?', 'y = (x − □)² − □', [3, 2], ['3', '2'],
+          'Rückwärts: Der Scheitel des Ergebnisses ist (−3 | 2). Erst an der y-Achse zurück: (3 | 2), dann an der x-Achse zurück: (3 | −2), und die Öffnung wieder nach oben. Also y = (x − 3)² − 2.', 'Mache die Spiegelungen in umgekehrter Reihenfolge rückgängig.'))
+ST.knobel('spiegeln', Z('Wie viele der Parabeln y = (x − d)² + e mit d, e aus {−1, 0, 1} ändern sich beim Spiegeln an der y-Achse nicht?', 3, '3',
+          'Unverändert bleibt eine Parabel nur, wenn ihr Scheitel auf der y-Achse liegt, also d = 0. Für e gibt es 3 Möglichkeiten: 3 Parabeln (von 9).', 'Wo muss der Scheitel liegen?'))
+
+# kombiniert
+ST.stufenleiter('kombiniert', 'Den Scheitel von a(x − d)² + e ablesen; Öffnung und Streckung erkennen.',
+                'Gleichung aus einer Beschreibung von Spiegeln, Strecken und Verschieben, y-Werte berechnen, Scheitel am Bild, Verschiebungsvektor.',
+                'Fehler beim Scheitelablesen, Gleichung aus Scheitel und Punkt, a und e aus zwei Punkten, Nullstellen, gleicher Scheitel begründen, Bedingung ohne Nullstellen, Prüfungsaufgabe.')
+ST.typ('kombiniert', 'Gib den Scheitel der Parabel', 'direkt')
+ST.typ('kombiniert', '/^(Die Normalparabel wird|Berechne den y-Wert)/', 'mehrschritt')
+ST.typ('kombiniert', 'Die gezeichnete Parabel', 'darstellung')
+ST.typ('kombiniert', 'Um welchen Vektor', 'umkehr')
+ST.typ('kombiniert', 'Jemand liest', 'fehler')
+ST.typ('kombiniert', 'Eine Parabel', 'rueckwaerts')
+ST.typ('kombiniert', 'Die Parabel y = −(x − 1)² + 4 schneidet', 'verknuepfen')
+ST.neu('kombiniert', 'erkennen', A('Welche Parabel ist nach unten geöffnet und gestreckt?', 'y = −3(x − 1)² + 2', ['y = 3(x − 1)² + 2', 'y = −0,5(x − 1)² + 2', 'y = 0,5(x + 1)² − 2'],
+       'Nach unten geöffnet: a negativ. Gestreckt: Betrag von a größer als 1. Das trifft nur auf a = −3 zu.', 'Achte auf Vorzeichen und Betrag von a.'))
+ST.neu('kombiniert', 'begruenden', A('Stimmt: Die Parabeln y = 2(x − 1)² + 3 und y = −2(x − 1)² + 3 haben denselben Scheitel?', 'Ja, beide S(1 | 3); die eine ist nach oben, die andere nach unten geöffnet.',
+       ['Nein, die zweite hat S(1 | −3).', 'Nein, die zweite hat S(−1 | 3).', 'Nur wenn x = 1 ist.'], 'Der Scheitel hängt nur von d und e ab. Das Vorzeichen von a entscheidet über die Öffnung.', 'Wovon hängt der Scheitel ab?'))
+ST.neu('kombiniert', 'parameter', A('Für welche Zahlen e hat die Parabel y = −2(x − 1)² + e keine Schnittpunkte mit der x-Achse?', 'für e < 0', ['für e > 0', 'für e > −2', 'für keine'],
+       'Die Parabel ist nach unten geöffnet, ihr höchster Punkt ist (1 | e). Liegt er unter der x-Achse, gibt es keinen Schnittpunkt.', 'Wo liegt der höchste Punkt?'))
+ST.neu('kombiniert', 'pruefung', L('Die Normalparabel wird an der x-Achse gespiegelt, mit dem Faktor 2 gestreckt, um 1 nach rechts und um 8 nach oben verschoben. a) Gib a und den Scheitel an. b) Wo schneidet sie die y-Achse? c) Gib die positive Nullstelle an.',
+       'a) a = □; S(□ | □); b) y = □; c) x = □', [-2, 1, 8, 6, 3], ['-2', '1', '8', '-2 * 1 + 8', '1 + 2'],
+       'a) y = −2(x − 1)² + 8, a = −2, S(1 | 8). b) x = 0: −2 + 8 = 6. c) −2(x − 1)² + 8 = 0 ⇒ (x − 1)² = 4 ⇒ x = 3 (oder −1).', 'Stelle zuerst die Gleichung auf.'))
+ST.knobel('kombiniert', Z('Eine Parabel y = a(x − 2)² + e geht durch (0 | 5) und hat den Scheitel (2 | 1). Welchen y-Wert hat sie bei x = 5?', 10, '1 * 9 + 1',
+          'Scheitel: e = 1. Aus (0 | 5): 5 = a · 4 + 1 ⇒ a = 1. Bei x = 5: (5 − 2)² + 1 = 10.', 'Lies e am Scheitel ab.'))
+ST.knobel('kombiniert', Z('Ein Rechteck hat zwei Ecken auf der x-Achse und zwei Ecken auf der Parabel y = −(x − 3)² + 9, symmetrisch zum Scheitel. Die oberen Ecken liegen auf der Höhe y = 5. Wie groß ist das Rechteck?', 20, '4 * 5',
+          '−(x − 3)² + 9 = 5 ⇒ (x − 3)² = 4 ⇒ x = 1 oder x = 5. Breite 4, Höhe 5, Fläche 20 FE.', 'Wo hat die Parabel den Wert 5?', einheit='FE'))
+
+# punkte
+ST.stufenleiter('punkte', 'Einen Punkt bei g(x) = f(x) + c oder f(x − d) mitverschieben; Verschiebungsrichtung erkennen.',
+                'Punkte bei a · f(x − d) + e abbilden, Bildpunkt auswählen, Wert von f aus g zurückrechnen, Scheitelform aus f = x².',
+                'Fehler bei der Richtung von f(x ± d), Urpunkt aus dem Bildpunkt, Scheitel nach mehreren Schritten, Fixpunkt begründen, Parameter für die Lage auf der y-Achse, Prüfungsaufgabe.')
+ST.typ('punkte', '/Wohin kommt P auf dem Graphen von g\\(x\\) = f\\(x( [−+] \\d)?\\)( [+−] \\d)?\\?$/', 'direkt')
+ST.typ('punkte', '/(Wohin kommt P|Welcher Punkt liegt) auf/', 'mehrschritt')
+ST.typ('punkte', 'Der Punkt P(2 | 4)', 'umkehr')
+ST.typ('punkte', 'Es ist f(x) = x²', 'darstellung')
+ST.typ('punkte', '/^P\\(\\d \\| −\\d\\) liegt auf f\\. Jemand/', 'fehler')
+ST.typ('punkte', '/^(Der Punkt P′|Auf dem Graphen)/', 'rueckwaerts')
+ST.typ('punkte', 'Der Graph von f hat den Scheitel', 'verknuepfen')
+ST.typ('punkte', 'Es ist g(x) = f(x − 3) + 2', 'begruenden')
+ST.neu('punkte', 'erkennen', A('Welche Verschiebung beschreibt g(x) = f(x + 4)?', 'um 4 nach links', ['um 4 nach rechts', 'um 4 nach oben', 'um 4 nach unten'],
+       'Was bei f an der Stelle x passiert, passiert bei g schon an der Stelle x − 4. Der Graph rückt 4 nach links.', 'Für welches x ist das Argument von f gleich 0?'))
+ST.neu('punkte', 'parameter', Z('P(2 | 3) liegt auf dem Graphen von f. Für welches c liegt der zugehörige Punkt auf dem Graphen von g(x) = f(x − c) auf der y-Achse?', -2, '-2',
+       'f(x − c) verschiebt um c nach rechts: Bildpunkt (2 + c | 3). Auf der y-Achse: 2 + c = 0 ⇒ c = −2 (also 2 nach links).', 'Wohin wandert die x-Koordinate?'))
+ST.neu('punkte', 'pruefung', L('P(1 | 2) und Q(3 | −1) liegen auf dem Graphen von f. Es ist g(x) = −f(x − 2) + 4. a) Gib den Bildpunkt von P an. b) Gib den Bildpunkt von Q an.',
+       "P′(□ | □); Q′(□ | □)", [3, 2, 5, 5], ['1 + 2', '-2 + 4', '3 + 2', '1 + 4'],
+       'x: 2 nach rechts. y: erst das Vorzeichen umdrehen, dann plus 4. P′(3 | −2 + 4) = (3 | 2). Q′(5 | 1 + 4) = (5 | 5).', 'Erst x, dann y Schritt für Schritt.'))
+ST.knobel('punkte', L('Die Abbildung „g(x) = f(x − 2) + 1“ wird dreimal hintereinander angewendet. Wohin kommt der Punkt P(0 | 0)?', 'P‴(□ | □)', [6, 3], ['3 * 2', '3 * 1'],
+          'Jede Anwendung schiebt um 2 nach rechts und 1 nach oben. Dreimal: 6 nach rechts, 3 nach oben, also (6 | 3).', 'Was macht eine einzelne Anwendung mit einem Punkt?'))
+ST.knobel('punkte', A('Es ist g(x) = −f(x) + 4. Welche Punkte des Graphen von f liegen auch auf dem Graphen von g an derselben Stelle (Punkt und Bild gleich)?', 'alle Punkte mit y = 2',
+          ['alle Punkte mit y = 4', 'nur der Scheitel', 'keine'], 'Ein Punkt (x | y) wird zu (x | −y + 4). Gleich bleibt er, wenn −y + 4 = y, also y = 2.', 'Setze y und Bild-y gleich.'))
+
+
 if __name__ == '__main__':
     d = bauen('funktionen.transformation',
           'Graphen verschieben, strecken und an den Achsen spiegeln – an der Normalparabel und an beliebigen Graphen über Bildpunkte.',
@@ -561,3 +722,4 @@ if __name__ == '__main__':
           offen=['Klasse laut Liste RS 9; gebaut an Normalparabel und allgemeinen Graphen (Bildpunkte). Die RS-10-Erweiterung (transformierte Potenz-, Exponential- und Logarithmusfunktionen, Spiegelung an y = x) ist weggelassen; die Spiegelung an y = x steht im Thema funktionen.umkehr.'])
     umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
     durchsicht(d)
+    stufen('funktionen.transformation', ST)

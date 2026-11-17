@@ -581,3 +581,170 @@ def durchsicht(d):
 
 
 durchsicht(d)
+
+
+# ---- STUFEN (Zwanzigste Runde, Zusatz RS/IB, Zweig stufen-rsib-1) ----
+from _stufen_rsib1 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('groessen.verhaeltnisse', 20_21_12)
+Z, A, L = ST.Z, ST.A, ST.L
+
+# kuerzen
+ST.stufenleiter('kuerzen', 'Ein Verhältnis aus einer Sachsituation aufstellen und vollständig kürzen; das gekürzte Verhältnis erkennen.',
+                'Große Zahlen und verschiedene Einheiten kürzen, Verhältnis in einen Anteil umwandeln, ungekürzte Zahl rückwärts.',
+                'Drei Größen, Dezimalzahlen und Brüche im Verhältnis, Änderung eines Verhältnisses rückwärts, Fehler „nicht vollständig gekürzt“, Unkürzbarkeit begründen, Prüfungsaufgabe.')
+ST.typ('kuerzen', '/Gib das Verhältnis .* gekürzt an\\.$/', 'direkt')
+ST.typ('kuerzen', 'Kürze das Verhältnis 1,5', 'verknuepfen')
+ST.typ('kuerzen', 'Kürze das Verhältnis', 'mehrschritt')
+ST.typ('kuerzen', 'Ein Saft wird aus', 'transfer')
+ST.typ('kuerzen', 'Schreibe das Verhältnis', 'verknuepfen')
+ST.typ('kuerzen', 'In einer Klasse ist das Verhältnis', 'darstellung')
+ST.typ('kuerzen', 'In einer Gruppe ist das Verhältnis', 'rueckwaerts')
+ST.neu('kuerzen', 'erkennen', A('Welches Verhältnis ist 12 : 18 vollständig gekürzt?', '2 : 3', ['4 : 6', '6 : 9', '3 : 2'],
+       '12 und 18 sind beide durch 6 teilbar: 12 : 6 = 2, 18 : 6 = 3. 4 : 6 und 6 : 9 lassen sich noch weiter kürzen.', 'Suche den größten gemeinsamen Teiler.'))
+ST.neu('kuerzen', 'umkehr', Z('Ein Verhältnis wurde durch 5 gekürzt und lautet jetzt 3 : 8. Wie hieß die erste Zahl vorher?', 15, '3 * 5',
+       'Kürzen durch 5 heißt: beide Zahlen wurden durch 5 geteilt. Rückwärts: 3 · 5 = 15 (und 8 · 5 = 40).', 'Mache das Kürzen rückgängig.'))
+ST.neu('kuerzen', 'fehler', A('Jemand kürzt 24 : 36 zu 4 : 6 und sagt: „Weiter geht es nicht.“ Was stimmt?', 'Falsch: 4 : 6 lässt sich noch durch 2 kürzen: 2 : 3.',
+       ['Richtig.', 'Falsch: Richtig ist 3 : 4.', 'Falsch: Richtig ist 6 : 9.'], '4 und 6 sind beide gerade. Mit dem größten gemeinsamen Teiler 12 kürzt man direkt: 24 : 36 = 2 : 3.', 'Haben 4 und 6 noch einen gemeinsamen Teiler?'))
+ST.neu('kuerzen', 'begruenden', A('Stimmt: Das Verhältnis 7 : 9 lässt sich nicht weiter kürzen?', 'Ja, 7 und 9 haben außer 1 keinen gemeinsamen Teiler.', ['Nein, durch 3.', 'Nein, durch 7.', 'Nur, wenn man Dezimalzahlen erlaubt.'],
+       'Teiler von 7: 1, 7. Teiler von 9: 1, 3, 9. Gemeinsam ist nur die 1, also ist 7 : 9 schon vollständig gekürzt.', 'Schreibe die Teiler beider Zahlen auf.'))
+ST.neu('kuerzen', 'pruefung', L('In einer Schule sind 240 Mädchen und 288 Jungen. a) Gib das Verhältnis Mädchen : Jungen gekürzt an. b) Welcher Anteil aller Kinder sind Mädchen? Gib ihn als gekürzten Bruch an.',
+       'a) □ : □; b) □/□', [5, 6, 5, 11], ['240 // 48', '288 // 48', '5', '5 + 6'], 'a) Größter gemeinsamer Teiler 48: 5 : 6. b) 5 von 5 + 6 = 11 Teilen: 5/11.', 'Bei b) zählen alle Teile zusammen.'))
+ST.knobel('kuerzen', L('Zwei Zahlen stehen im Verhältnis 3 : 5. Addiert man zu jeder 4, stehen sie im Verhältnis 2 : 3. Wie heißen die Zahlen?', '□ und □', [12, 20], ['3 * 4', '5 * 4'],
+          'Die Zahlen sind 3k und 5k. (3k + 4) : (5k + 4) = 2 : 3 ⇒ 3 · (3k + 4) = 2 · (5k + 4) ⇒ 9k + 12 = 10k + 8 ⇒ k = 4. Also 12 und 20. Probe: 16 : 24 = 2 : 3.', 'Schreibe die Zahlen als 3k und 5k.'))
+ST.knobel('kuerzen', L('Es gilt a : b = 2 : 3 und b : c = 4 : 5. Gib a : b : c mit möglichst kleinen ganzen Zahlen an.', '□ : □ : □', [8, 12, 15], ['8', '12', '15'],
+          'b muss in beiden Verhältnissen gleich sein. 3 und 4 haben das kleinste gemeinsame Vielfache 12: a : b = 8 : 12 und b : c = 12 : 15. Also 8 : 12 : 15.', 'Bringe b in beiden Verhältnissen auf dieselbe Zahl.'))
+
+# gleichwertig
+ST.stufenleiter('gleichwertig', 'Gleichwertige Verhältnisse durch Erweitern ergänzen und erkennen.',
+                'Mischungen vergleichen, Rezept mit drei Zutaten, Gesamtzahl aus einem Teil, Modellmaßstab, Verhältnis aus einem Bild.',
+                'Fehler „addieren statt multiplizieren“, x : 3 = 12 : x, Mischung nachbessern, Prozent als Verhältnis, Sirupmenge rückwärts, Prüfungsaufgabe.')
+ST.typ('gleichwertig', 'Ergänze', 'direkt')
+ST.typ('gleichwertig', 'Welches Verhältnis ist gleichwertig zu', 'erkennen')
+ST.typ('gleichwertig', 'Ina sagt', 'fehler')
+ST.typ('gleichwertig', 'Mischung A', 'einkleidung')
+ST.typ('gleichwertig', 'Für welche positive Zahl', 'parameter')
+ST.typ('gleichwertig', '/^(Mehl, Zucker|Mädchen und Jungen)/', 'mehrschritt')
+ST.typ('gleichwertig', 'Welche beiden Verhältnisse', 'begruenden')
+ST.neu('gleichwertig', 'darstellung', A('Ein Bild zeigt 2 Becher Mehl und 1 Becher Milch. Welches Verhältnis Mehl : Milch ist dazu gleichwertig?', '6 : 3', ['3 : 6', '2 : 3', '4 : 3'],
+       'Mehl : Milch = 2 : 1. Mal 3 erweitert: 6 : 3.', 'Lies erst das Verhältnis am Bild ab.'))
+ST.neu('gleichwertig', 'einkleidung', Z('Ein Modellauto ist im Verhältnis 1 : 18 gebaut. Das echte Auto ist 4,5 m lang. Wie lang ist das Modell in cm?', 25, '450 / 18',
+       '4,5 m = 450 cm. 450 cm : 18 = 25 cm.', 'Rechne zuerst in cm um.', einheit='cm'))
+ST.neu('gleichwertig', 'transfer', Z('Für eine Fruchtschorle mischt man Saft und Wasser im Verhältnis 2 : 3. Man hat schon 1 l Saft und 1 l Wasser gemischt. Wie viel Liter Wasser muss man noch dazugeben?', 0.5, '1 * 3 / 2 - 1',
+       'Zu 1 l Saft gehören 1 · 3 : 2 = 1,5 l Wasser. Es fehlen noch 0,5 l.', 'Wie viel Wasser gehört zu 1 l Saft?', einheit='l'))
+ST.neu('gleichwertig', 'verknuepfen', A('Ein Teil ist 40 % des Ganzen. Welches Verhältnis Teil : Ganzes ist das?', '2 : 5', ['2 : 3', '4 : 6', '5 : 2'],
+       '40 % = 40/100 = 2/5, also Teil : Ganzes = 2 : 5. (Teil : Rest wäre 2 : 3.)', 'Schreibe die Prozentzahl als gekürzten Bruch.'))
+ST.neu('gleichwertig', 'rueckwaerts', Z('Sirup und Wasser wurden im Verhältnis 1 : 5 gemischt. Nach dem Dazugießen von 100 ml Wasser ist das Verhältnis 1 : 7. Wie viel ml Sirup ist im Getränk?', 50, '100 // 2',
+       'Sirup s, Wasser 5s. Nachher 5s + 100 = 7s ⇒ 2s = 100 ⇒ s = 50 ml. Probe: 50 : 350 = 1 : 7.', 'Schreibe den Sirup als s.', einheit='ml'))
+ST.neu('gleichwertig', 'pruefung', L('a) Sind 6 : 9 und 10 : 15 gleichwertig? (1 = ja, 0 = nein) b) Sind 4 : 5 und 12 : 16 gleichwertig? c) Ergänze: 9 : 12 = □ : 20.', 'a) □; b) □; c) □', [1, 0, 15],
+       ['1', '0', '15'], 'a) Beide gekürzt 2 : 3: ja. b) 4 : 5 und 3 : 4: nein. c) 9 : 12 = 3 : 4 = 15 : 20.', 'Kürze die Verhältnisse zum Vergleichen.'))
+ST.knobel('gleichwertig', Z('Für welche positive Zahl x sind x : 6 und 6 : (x + 5) gleichwertig?', 4, '4',
+          'Gleichwertig heißt: x · (x + 5) = 6 · 6 = 36. Probieren: x = 4 ergibt 4 · 9 = 36. Probe: 4 : 6 = 2 : 3 und 6 : 9 = 2 : 3.', 'Schreibe die Bedingung als Produkt und probiere.'))
+ST.knobel('gleichwertig', Z('Wie viele Verhältnisse a : b mit natürlichen Zahlen a und b, beide höchstens 20, sind gleichwertig zu 3 : 4?', 5, '20 // 4',
+          'Gleichwertig sind 3k : 4k. Damit 4k ≤ 20 gilt, ist k = 1, …, 5: 3 : 4, 6 : 8, 9 : 12, 12 : 16, 15 : 20. Also 5.', 'Erweitere 3 : 4 schrittweise.'))
+
+# aufteilen
+ST.stufenleiter('aufteilen', 'Eine Größe im Verhältnis zweier Zahlen aufteilen; die Zahl der Teile erkennen.',
+                'Sachsituationen mit Teig, Gewinn und Seil, drei Personen, Gesamtmenge aus einem Teil.',
+                'Gesamtmenge aus Unterschied und kleinstem Anteil, Rechteck mit Umfang, Fehler „durch jede Zahl einzeln geteilt“, Hälfte begründen, Parameter k, Gewinn nach Einsatz, Prüfungsaufgabe.')
+ST.typ('aufteilen', 'Teile ', 'direkt')
+ST.typ('aufteilen', '/^(Für einen Teig|Zwei Geschwister|Ein [\\d,]+ m langes Seil)/', 'einkleidung')
+ST.typ('aufteilen', 'Wasser und Saft', 'umkehr')
+ST.typ('aufteilen', '240 € werden', 'mehrschritt')
+ST.typ('aufteilen', '/^(Zwei Freunde|Ein Erbe)/', 'rueckwaerts')
+ST.typ('aufteilen', 'Ein Rechteck', 'verknuepfen')
+ST.neu('aufteilen', 'erkennen', A('110 € sollen im Verhältnis 7 : 4 aufgeteilt werden. In wie viele gleiche Teile teilt man zuerst?', 'in 11 Teile', ['in 7 Teile', 'in 4 Teile', 'in 28 Teile'],
+       '7 + 4 = 11 Teile. Ein Teil ist 110 € : 11 = 10 €.', 'Zähle die Teile zusammen.'))
+ST.neu('aufteilen', 'direkt', L('Verteile 60 Murmeln im Verhältnis 1 : 2.', '□ und □', [20, 40], ['60 // 3', '2 * 20'],
+       '1 + 2 = 3 Teile, ein Teil 60 : 3 = 20. Also 20 und 40 Murmeln.', 'Wie viele Teile gibt es?'))
+ST.neu('aufteilen', 'fehler', A('Jemand teilt 90 € im Verhältnis 2 : 1 so auf: 90 : 2 = 45 € und 90 : 1 = 90 €. Was stimmt?', 'Falsch: Es gibt 3 Teile zu je 30 €, also 60 € und 30 €.',
+       ['Richtig.', 'Falsch: 45 € und 45 €.', 'Falsch: 80 € und 10 €.'], 'Zusammen müssen es 90 € sein, nicht 135 €. Erst die Teile zählen: 2 + 1 = 3, ein Teil 30 €.', 'Ergeben beide Beträge zusammen 90 €?'))
+ST.neu('aufteilen', 'begruenden', A('Stimmt: Teilt man im Verhältnis 1 : 1 : 2, bekommt der Größte genau die Hälfte?', 'Ja: 2 von 1 + 1 + 2 = 4 Teilen sind die Hälfte.', ['Nein, ein Drittel.', 'Nein, zwei Drittel.', 'Das hängt vom Betrag ab.'],
+       'Es gibt 4 Teile. Der Größte bekommt 2 davon, also 2/4 = 1/2 – egal wie groß der Betrag ist.', 'Wie viele Teile gibt es insgesamt?'))
+ST.neu('aufteilen', 'parameter', Z('400 € werden im Verhältnis 3 : k aufgeteilt. Der erste Anteil ist 120 €. Wie groß ist k?', 7, '400 // 40 - 3',
+       '3 Teile sind 120 €, ein Teil 40 €. 400 € sind 10 Teile, also 3 + k = 10 ⇒ k = 7.', 'Wie groß ist ein Teil?'))
+ST.neu('aufteilen', 'transfer', Z('Drei Freunde zahlen für ein Los 5 €, 10 € und 15 €. Sie gewinnen 240 € und teilen gerecht nach ihren Einsätzen. Wie viel bekommt der, der 10 € gezahlt hat?', 80, '240 * 10 // 30',
+       'Verhältnis 5 : 10 : 15 = 1 : 2 : 3, also 6 Teile zu je 40 €. Der Zweite bekommt 2 Teile: 80 €.', 'Stelle zuerst das Verhältnis der Einsätze auf.', einheit='€'))
+ST.neu('aufteilen', 'pruefung', L('Ein Gewinn von 1 800 € wird im Verhältnis 2 : 3 : 4 verteilt. a) Wie viel Euro ist ein Teil? b) Wie viel bekommt der Größte? c) Wie viel mehr bekommt der Größte als der Kleinste?',
+       'a) □ €; b) □ €; c) □ €', [200, 800, 400], ['1800 // 9', '4 * 200', '(4 - 2) * 200'], 'a) 2 + 3 + 4 = 9 Teile, 1 800 : 9 = 200 €. b) 4 · 200 = 800 €. c) 800 − 400 = 400 €.', 'Erst die Teile zählen.'))
+ST.knobel('aufteilen', Z('Drei Geschwister teilen Bonbons im Verhältnis 2 : 3 : 4. Das jüngste bekommt 12 Bonbons weniger als das älteste. Wie viele Bonbons sind es insgesamt?', 54, '9 * 6',
+          'Der Unterschied sind 4 − 2 = 2 Teile = 12 Bonbons, also ein Teil 6. Insgesamt 9 Teile: 54 Bonbons (12, 18, 24).', 'Wie viele Teile sind der Unterschied?'))
+ST.knobel('aufteilen', Z('Ein Betrag wird im Verhältnis 3 : 5 geteilt. Bei einer Teilung im Verhältnis 1 : 1 bekäme der Erste 30 € mehr. Wie groß ist der Betrag?', 240, '8 * 30',
+          '3 : 5 sind 8 Teile. Bei 1 : 1 bekommt jeder 4 Teile. Der Erste bekäme also 1 Teil mehr: 1 Teil = 30 €. Betrag 8 · 30 = 240 €.', 'Wie viele Teile bekommt der Erste jeweils?', einheit='€'))
+
+# proportion
+ST.stufenleiter('proportion', 'Eine Proportion lösen und Rezeptmengen mit dem Dreisatz umrechnen; die passende Proportion erkennen.',
+                'Krumme Faktoren, Verbrauch eines Autos, Kartenmaßstab in beide Richtungen.',
+                'Nicht proportionale Situationen begründen, indirekte Proportionalität, Wechselkurs und Poster als Modell, Maßstab rückwärts, Fehler „addiert statt multipliziert“, Prüfungsaufgabe Karte.')
+ST.typ('proportion', 'Löse die Proportion', 'direkt')
+ST.typ('proportion', 'Für 5 Portionen braucht man 250', 'direkt')
+ST.typ('proportion', 'Für ', 'mehrschritt')
+ST.typ('proportion', 'Ein Auto braucht', 'einkleidung')
+ST.typ('proportion', 'Eine Wanderkarte', 'darstellung')
+ST.typ('proportion', 'Maßstab 1 :', 'umkehr')
+ST.typ('proportion', '/^\\d Hemden/', 'begruenden')
+ST.typ('proportion', '3 Maler', 'verknuepfen')
+ST.typ('proportion', '/^(Der Wechselkurs|Ein Handyfoto)/', 'transfer')
+ST.typ('proportion', 'Auf einer Karte', 'rueckwaerts')
+ST.neu('proportion', 'erkennen', A('3 Hefte kosten 6 €. Welche Proportion passt zur Frage „Was kosten 5 Hefte?“', '3 : 6 = 5 : x', ['3 : 5 = x : 6', '3 : 6 = x : 5', '6 : 3 = 5 : x'],
+       'Hefte : Preis bleibt gleich: 3 : 6 = 5 : x. Dann x = 10 €.', 'Was steht links, was rechts im Verhältnis?'))
+ST.neu('proportion', 'fehler', A('Jemand löst 3 : 4 = x : 12 mit x = 11: „Von 4 nach 12 sind es 8 mehr, also 3 + 8.“ Was stimmt?', 'Falsch: Man multipliziert, 4 · 3 = 12, also x = 3 · 3 = 9.',
+       ['Richtig.', 'Falsch: x = 16.', 'Falsch: x = 1.'], 'Gleichwertige Verhältnisse entstehen durch Malnehmen. 11 : 12 ist nicht gleichwertig zu 3 : 4, aber 9 : 12 schon.', 'Mach die Probe mit gekürzten Verhältnissen.'))
+ST.neu('proportion', 'pruefung', L('Eine Karte hat den Maßstab 1 : 200 000. a) Wie viele km sind 3 cm auf der Karte? b) Wie viele cm sind 10 km in Wirklichkeit auf der Karte?', 'a) □ km; b) □ cm', [6, 5],
+       ['3 * 200000 // 100000', '10 * 100000 // 200000'], 'a) 3 cm · 200 000 = 600 000 cm = 6 km. b) 10 km = 1 000 000 cm, : 200 000 = 5 cm.', '1 km = 100 000 cm.'))
+ST.knobel('proportion', Z('3 Katzen fangen in 3 Minuten 3 Mäuse. Wie viele Katzen fangen in 100 Minuten 100 Mäuse (alle gleich schnell)?', 3, '3',
+          'Die 3 Katzen fangen zusammen 1 Maus pro Minute. In 100 Minuten fangen sie also 100 Mäuse. Man braucht nur 3 Katzen.', 'Wie viele Mäuse fangen die 3 Katzen pro Minute?'))
+ST.knobel('proportion', Z('Ein Rezept für 4 Personen braucht 3 Eier. Für wie viele Personen reicht eine Packung mit 10 Eiern höchstens (Eier dürfen übrig bleiben)?', 13, '13',
+          'Pro Person 3 : 4 = 0,75 Eier. 10 : 0,75 = 13,3… Für 13 Personen braucht man 9,75 Eier, für 14 schon 10,5. Also 13 Personen.', 'Wie viele Eier braucht eine Person?'))
+
+# einheitsrate
+ST.stufenleiter('einheitsrate', 'Den Wert für eine Einheit bestimmen (pro Stunde, pro Stück, pro kg) und anwenden; eine Einheitsrate erkennen.',
+                'Preise pro 100 g, Angebote vergleichen, Aktion „4 für 3“, Reichweite aus dem Verbrauch.',
+                'Mehrere Angebote, Ersparnis pro Stück und Liter, Seiten pro Minute, Geschwindigkeiten vergleichen, Fehler „Gesamtpreis verglichen“, gleich teurer Preis als Parameter, Prüfungsaufgabe.')
+ST.typ('einheitsrate', '/^(Ein Radfahrer|\\d Hefte|Ein Zug|Äpfel kosten)/', 'direkt')
+ST.typ('einheitsrate', 'Kaffee wird angeboten – A: 1 000', 'transfer')
+ST.typ('einheitsrate', '/^(Kaffee wird angeboten|Eine Packung)/', 'mehrschritt')
+ST.typ('einheitsrate', 'Aktion', 'einkleidung')
+ST.typ('einheitsrate', 'Ein Auto verbraucht', 'umkehr')
+ST.typ('einheitsrate', '/^(Angebot A: 3|Saft: 1,5|Ein Drucker)/', 'verknuepfen')
+ST.typ('einheitsrate', 'Läuferin', 'begruenden')
+ST.neu('einheitsrate', 'erkennen', A('Welche Angabe ist eine Einheitsrate?', '3 € pro kg', ['3 € für 2 kg', '2 kg Äpfel', '12 Äpfel in der Tüte'],
+       'Eine Einheitsrate gibt an, wie viel auf genau eine Einheit kommt: 3 € für 1 kg.', 'Auf wie viel bezieht sich die Angabe?'))
+ST.neu('einheitsrate', 'fehler', A('Jemand vergleicht 500 g für 4 € mit 1 kg für 7 € und sagt: „Das erste ist billiger, weil 4 € weniger ist als 7 €.“ Was stimmt?', 'Falsch: Pro kg kostet das erste 8 €, das zweite nur 7 €.',
+       ['Richtig.', 'Falsch: Beide sind gleich teuer.', 'Falsch: Das zweite kostet 14 € pro kg.'], 'Man muss gleiche Mengen vergleichen: 500 g für 4 € sind 8 € pro kg.', 'Rechne beide auf 1 kg um.'))
+ST.neu('einheitsrate', 'parameter', Z('Packung A: 400 g für 5,20 €. Packung B: 600 g für p €. Bei welchem Preis p sind beide gleich günstig?', 7.8, '5.2 / 4 * 6',
+       'A kostet 5,20 € : 4 = 1,30 € pro 100 g. Gleich günstig: 6 · 1,30 € = 7,80 €.', 'Berechne den Preis pro 100 g.', einheit='€'))
+ST.neu('einheitsrate', 'pruefung', L('Saft: einzeln 1 l für 1,20 € oder im 6er-Pack (je 1 l) für 6,30 €. a) Wie viel Cent kostet 1 l im 6er-Pack? b) Wie viel Cent spart man pro Liter?', 'a) □ ct; b) □ ct', [105, 15],
+       ['630 // 6', '120 - 105'], 'a) 6,30 € : 6 = 1,05 € = 105 ct. b) 120 ct − 105 ct = 15 ct.', 'Rechne in Cent.'))
+ST.knobel('einheitsrate', Z('Ein Wasserhahn füllt eine Wanne in 12 Minuten, ein zweiter in 6 Minuten. Wie lange dauert es mit beiden zusammen?', 4, '4',
+          'Pro Minute füllt der erste 1/12, der zweite 1/6 = 2/12 der Wanne. Zusammen 3/12 = 1/4 pro Minute, also 4 Minuten.', 'Welchen Teil der Wanne füllt jeder Hahn pro Minute?', einheit='min'))
+ST.knobel('einheitsrate', Z('Ein Auto fährt 60 km mit 60 km/h und danach 60 km mit 120 km/h. Wie groß ist die Durchschnittsgeschwindigkeit?', 80, '120 / 1.5',
+          'Zeit: 1 h + 0,5 h = 1,5 h für 120 km. 120 : 1,5 = 80 km/h – nicht 90 km/h, denn das Auto ist länger langsam unterwegs.', 'Rechne die Gesamtzeit aus.', einheit='km/h'))
+
+# aenderung
+ST.stufenleiter('aenderung', 'Eine Änderungsrate aus Anfangs- und Endwert berechnen; schneller und langsamer erkennen.',
+                'Negative Raten, Werte aus der Rate berechnen, Rate aus einer Tabelle, Leerlaufen eines Pools.',
+                'Anfangswert rückwärts, gleiche Höhe zweier Kerzen, Bedeutung einer negativen Rate, Fehler beim Vorzeichen, Bereich für die Rate, Akku als Modell, Prüfungsaufgabe.')
+ST.typ('aenderung', '/^(Ein Becken enthält|Um \\d+ Uhr)/', 'direkt')
+ST.typ('aenderung', 'Robotermäher', 'erkennen')
+ST.typ('aenderung', '/^Ein Tank (wird mit \\d+ Litern pro Minute gefüllt\\. Am Anfang|enthält)/', 'umkehr')
+ST.typ('aenderung', '/^(Eine Kerze ist|Ein Flugzeug)/', 'mehrschritt')
+ST.typ('aenderung', 'Ein Becken: nach', 'darstellung')
+ST.typ('aenderung', 'Ein Pool', 'einkleidung')
+ST.typ('aenderung', '/^(Ein Tank wird mit \\d+ Litern pro Minute gefüllt\\. Nach|Von 8 Uhr)/', 'rueckwaerts')
+ST.typ('aenderung', 'Kerze A', 'verknuepfen')
+ST.typ('aenderung', 'Die Änderungsrate', 'begruenden')
+ST.neu('aenderung', 'fehler', A('Jemand berechnet die Änderungsrate von 20 °C um 14 Uhr auf 14 °C um 17 Uhr als (20 − 14) : 3 = +2 °C pro Stunde. Was stimmt?', 'Falsch: Die Temperatur sinkt, die Rate ist −2 °C pro Stunde.',
+       ['Richtig.', 'Falsch: −6 °C pro Stunde.', 'Falsch: +6 °C pro Stunde.'], 'Änderung = Endwert − Anfangswert = 14 − 20 = −6 °C in 3 h, also −2 °C pro Stunde.', 'Rechne Endwert minus Anfangswert.'))
+ST.neu('aenderung', 'parameter', A('Ein Becken enthält 100 l. Für welche Zuflussraten r (in Litern pro Minute) sind nach 10 Minuten mehr als 150 l darin?', 'für r > 5', ['für r > 15', 'für r < 5', 'für r > 50'],
+       '100 + 10r > 150 ⇒ 10r > 50 ⇒ r > 5.', 'Stelle eine Ungleichung auf.'))
+ST.neu('aenderung', 'transfer', Z('Ein Handyakku zeigt 80 % und verliert 6 Prozentpunkte pro Stunde. Bei 20 % kommt eine Warnung. Nach wie vielen Stunden?', 10, '(80 - 20) // 6',
+       'Es müssen 80 − 20 = 60 Prozentpunkte verbraucht werden: 60 : 6 = 10 Stunden.', 'Wie viel muss sich ändern?', einheit='h'))
+ST.neu('aenderung', 'pruefung', L('Eine Badewanne enthält 30 l. Es fließen 12 l pro Minute zu. a) Wie viel Liter sind es nach 5 Minuten? b) Nach wie vielen Minuten sind es 150 l?', 'a) □ l; b) □ min', [90, 10],
+       ['30 + 12 * 5', '(150 - 30) // 12'], 'a) 30 + 12 · 5 = 90 l. b) 150 − 30 = 120 l, 120 : 12 = 10 min.', 'Anfangswert plus Rate mal Zeit.'))
+ST.knobel('aenderung', Z('Kerze A ist 20 cm hoch und brennt in 4 Stunden ganz ab, Kerze B ist 15 cm hoch und brennt in 5 Stunden ab. Beide werden gleichzeitig angezündet. Nach wie vielen Stunden sind sie gleich hoch?', 2.5, '5 / 2',
+          'Raten: A −5 cm/h, B −3 cm/h. 20 − 5t = 15 − 3t ⇒ 5 = 2t ⇒ t = 2,5 h. Dann sind beide 7,5 cm hoch.', 'Bestimme zuerst die Abbrennraten.', einheit='h'))
+ST.knobel('aenderung', Z('Ein leeres Becken mit 200 l wird mit 8 l pro Minute gefüllt, gleichzeitig laufen 3 l pro Minute aus. Nach wie vielen Minuten ist es voll?', 40, '200 // (8 - 3)',
+          'Insgesamt kommen pro Minute 8 − 3 = 5 l dazu. 200 : 5 = 40 Minuten.', 'Wie groß ist die Änderungsrate insgesamt?', einheit='min'))
+
+stufen('groessen.verhaeltnisse', ST)

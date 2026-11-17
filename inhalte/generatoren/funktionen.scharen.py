@@ -596,6 +596,168 @@ def durchsicht(d):
         })
 
 
+# ---- STUFEN (Zwanzigste Runde, Zusatz RS/IB, Zweig stufen-rsib-1) ----
+from _stufen_rsib1 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('funktionen.scharen', 20_81_4)
+Z, A, L = ST.Z, ST.A, ST.L
+_G = 'y = □x + □'
+
+# einsetzen
+ST.stufenleiter('einsetzen', 'Einen Parameterwert einsetzen und die Gleichung der Geraden angeben oder erkennen.',
+                'y-Werte für Parameter und Stelle berechnen, Punktprobe, Parameter aus einem Punkt, Tarif als Schar.',
+                'Punkt auf keiner Geraden begründen, doppelte Steigung, Bedingung für k, gleiche y-Werte, Tarif rückwärts, Wirkung von k, Fehler „k an falscher Stelle“, Prüfungsaufgabe.')
+ST.typ('einsetzen', 'Gegeben ist die Schar y = k · x + 3. Für welche', 'parameter')
+ST.typ('einsetzen', '/^Gegeben ist die Schar .*Gib die Gleichung/', 'direkt')
+ST.typ('einsetzen', 'Welche Gleichung gehört', 'erkennen')
+ST.typ('einsetzen', '/Berechne für k = .* den y-Wert/', 'mehrschritt')
+ST.typ('einsetzen', '/^Liegt der Punkt P\\(.*mit k =/', 'mehrschritt')
+ST.typ('einsetzen', '/^(Für welchen Wert von k geht|Gegeben ist die Schar y = \\(k − 1\\) · x \\+ 2k\\. Für welches k)/', 'umkehr')
+ST.typ('einsetzen', 'Liegt der Punkt P(0 | 5)', 'begruenden')
+ST.typ('einsetzen', 'In der Schar y = k · x − 1', 'verknuepfen')
+ST.typ('einsetzen', 'Die Geraden der Schar y = k · x + 1', 'begruenden')
+ST.typ('einsetzen', 'Taxi-Tarif', 'rueckwaerts')
+ST.typ('einsetzen', 'Gegeben ist die Schar y = k · x + 4. Um wie viel', 'parameter')
+ST.neu('einsetzen', 'einkleidung', Z('Die Schar y = k · x + 3 beschreibt Taxitarife (x in km, y in €). Was kostet eine Fahrt über 6 km beim Tarif mit k = 1,5?', 12, '1.5 * 6 + 3',
+       'Für k = 1,5: y = 1,5x + 3. Bei x = 6: 1,5 · 6 + 3 = 9 + 3 = 12 €.', 'Erst k einsetzen, dann x.', einheit='€'))
+ST.neu('einsetzen', 'fehler', A('Jemand schreibt für die Schar y = −2x + k und k = 3 die Gleichung y = 3x − 2. Was stimmt?', 'Falsch: k ersetzt nur das Zahlglied, richtig ist y = −2x + 3.',
+       ['Richtig.', 'Falsch: Richtig ist y = −6x.', 'Falsch: Richtig ist y = 3x + 3.'], 'Der Parameter steht dort, wo k steht – hier als Zahlglied. Die Steigung −2 bleibt.', 'Wo genau steht k in der Gleichung?'))
+ST.neu('einsetzen', 'pruefung', L('Gegeben ist die Schar y = (k − 1) · x + 3. a) Gib die Gleichung für k = 4 an. b) Berechne für k = 4 den y-Wert bei x = −2. c) Für welches k geht die Gerade durch (2 | 1)?',
+       'a) y = □x + □; b) □; c) k = □', [3, 3, -3, 0], ['4 - 1', '3', '3 * (-2) + 3', '0'],
+       'a) y = 3x + 3. b) 3 · (−2) + 3 = −3. c) (k − 1) · 2 + 3 = 1 ⇒ 2k − 2 = −2 ⇒ k = 0.', 'Bei c) den Punkt einsetzen und nach k auflösen.'))
+ST.knobel('einsetzen', L('Alle Geraden der Schar y = k · x + k gehen durch einen gemeinsamen Punkt. Welchen?', 'P(□ | □)', [-1, 0], ['-1', '0'],
+          'y = k · x + k = k · (x + 1). Für x = −1 ist die Klammer 0, also y = 0 – egal wie groß k ist. Gemeinsamer Punkt (−1 | 0).', 'Klammere k aus.'))
+ST.knobel('einsetzen', Z('Die Geraden y = k · x + 1 für k = 1, 2, 3, …, 10 schneiden die waagrechte Gerade y = 11. Bei wie vielen davon ist die x-Koordinate des Schnittpunkts eine ganze Zahl?', 4, '4',
+          'k · x + 1 = 11 ⇒ x = 10 : k. Ganz ist das nur, wenn k ein Teiler von 10 ist: k = 1, 2, 5, 10. Also 4 Geraden.', 'Stelle x in Abhängigkeit von k dar.'))
+
+# parallelenschar
+ST.stufenleiter('parallelenschar', 'In y = mx + t den Achsenabschnitt t aus einem Punkt bestimmen; erkennen, dass alle Geraden parallel sind.',
+                't am Bild ablesen, Parallele durch einen Punkt, t aus dem Nullpunkt der Geraden.',
+                'Fehler beim Einsetzen negativer Zahlen, Abstand zweier Parallelen, Bedingung an t, Parallelen schneiden sich nie, Paketpreis als Modell, Prüfungsaufgabe.')
+ST.typ('parallelenschar', 'Welche Gerade der Schar', 'direkt')
+ST.typ('parallelenschar', 'Die gezeichnete Gerade', 'darstellung')
+ST.typ('parallelenschar', 'Die Schar lautet', 'mehrschritt')
+ST.typ('parallelenschar', 'Gib die Gleichung der Geraden an, die parallel', 'mehrschritt')
+ST.typ('parallelenschar', 'Für welches t schneidet', 'umkehr')
+ST.typ('parallelenschar', 'Jemand rechnet', 'fehler')
+ST.typ('parallelenschar', '/^(Zwei Geraden der Schar|Eine Gerade der Schar)/', 'verknuepfen')
+ST.neu('parallelenschar', 'erkennen', A('Was haben alle Geraden der Schar y = 2x + t gemeinsam?', 'die Steigung 2 – sie sind parallel', ['den y-Achsenabschnitt 2', 'den Punkt (0 | 2)', 'nichts'],
+       'In y = 2x + t ändert sich nur t. Die Steigung ist immer 2, alle Geraden sind parallel.', 'Was ändert sich, was bleibt gleich?'))
+ST.neu('parallelenschar', 'parameter', A('Für welche t schneidet die Gerade der Schar y = 2x + t die x-Achse rechts vom Ursprung (x > 0)?', 'für t < 0', ['für t > 0', 'für t > 2', 'für jedes t'],
+       'Nullstelle: 2x + t = 0 ⇒ x = −t : 2. Positiv ist das genau für t < 0.', 'Berechne die Nullstelle in Abhängigkeit von t.'))
+ST.neu('parallelenschar', 'begruenden', A('Stimmt: Zwei verschiedene Geraden der Schar y = 3x + t schneiden sich nie?', 'Ja: gleiche Steigung, verschiedene Achsenabschnitte – sie sind parallel.',
+       ['Nein, sie schneiden sich im Ursprung.', 'Nein, sie schneiden sich bei x = 3.', 'Nur wenn t positiv ist.'],
+       '3x + t₁ = 3x + t₂ würde t₁ = t₂ verlangen. Bei verschiedenen t gibt es keine Lösung, also keinen Schnittpunkt.', 'Setze zwei Geraden der Schar gleich.'))
+ST.neu('parallelenschar', 'transfer', Z('Ein Paketdienst verlangt 0,80 € pro kg plus einen festen Grundpreis. Ein 5-kg-Paket kostet 9 €. Wie viel kostet ein 12-kg-Paket?', 14.6, '0.8 * 12 + (9 - 0.8 * 5)',
+       'Modell y = 0,8x + t. Aus 9 = 0,8 · 5 + t folgt t = 5. Für 12 kg: 0,8 · 12 + 5 = 14,60 €.', 'Stelle die Geradengleichung mit unbekanntem Grundpreis auf.', einheit='€'))
+ST.neu('parallelenschar', 'pruefung', L('Gegeben ist die Schar y = −0,5x + t. a) Bestimme t für die Gerade durch P(4 | 1). b) Wo schneidet diese Gerade die x-Achse?', 'a) t = □; b) x = □', [3, 6], ['1 + 0.5 * 4', '3 / 0.5'],
+       'a) 1 = −0,5 · 4 + t ⇒ t = 3. b) −0,5x + 3 = 0 ⇒ x = 6.', 'Erst t, dann die Nullstelle.'))
+ST.knobel('parallelenschar', Z('Wie viele Geraden der Schar y = x + t mit ganzzahligem t gehen durch mindestens einen Gitterpunkt (a | b) mit 1 ≤ a ≤ 4 und 1 ≤ b ≤ 4?', 7, '3 - (-3) + 1',
+          'Durch (a | b) geht die Gerade mit t = b − a. b − a kann −3, −2, …, 3 sein, das sind 7 Werte – die 7 Diagonalen des 4 × 4-Gitters.', 'Welcher t-Wert gehört zum Punkt (a | b)?'))
+ST.knobel('parallelenschar', Z('Welche Gerade der Schar y = −2x + t (t > 0) schließt mit den beiden Achsen ein Dreieck mit 9 FE ein? Gib t an.', 6, '6',
+          'Achsenschnittpunkte: (0 | t) und (t/2 | 0). Fläche = ½ · t · t/2 = t²/4 = 9 ⇒ t² = 36 ⇒ t = 6.', 'Bestimme beide Achsenschnittpunkte mit t.'))
+
+# bueschel
+ST.stufenleiter('bueschel', 'Das Zentrum Z eines Geradenbüschels ablesen.',
+                'Zentrum bei y = m · x + t, Steigung durch einen weiteren Punkt, Lichtstrahl als Büschel.',
+                'Steigung aus zwei Punkten, senkrechte Gerade begründen, Zentrum aus versteckter Form, Gerade durch den Ursprung, Bedingung an m, Fehler beim Vorzeichen, Prüfungsaufgabe.')
+ST.typ('bueschel', 'Alle Geraden der Schar y = m · (', 'direkt')
+ST.typ('bueschel', 'Welchen Punkt haben alle', 'erkennen')
+ST.typ('bueschel', 'Die Schar y = m · x', 'darstellung')
+ST.typ('bueschel', 'Für welches m geht', 'umkehr')
+ST.typ('bueschel', 'Eine Gerade geht durch Z', 'verknuepfen')
+ST.typ('bueschel', 'Gehört die Parallele', 'begruenden')
+ST.typ('bueschel', 'Alle Geraden der Schar y = m · x + 2m', 'transfer')
+ST.typ('bueschel', '/^(Welche Gerade des Büschels|Für welches m schneidet)/', 'parameter')
+ST.neu('bueschel', 'einkleidung', Z('Ein Scheinwerfer im Punkt Z(0 | 3) leuchtet geradlinig auf den Boden (x-Achse). Der Lichtstrahl soll bei x = 6 auftreffen. Welche Steigung hat der Strahl?', -0.5, '(0 - 3) / (6 - 0)',
+       'Büschel y = m · x + 3. Bei x = 6 soll y = 0 sein: 0 = 6m + 3 ⇒ m = −0,5.', 'Welche Gerade durch Z trifft (6 | 0)?'))
+ST.neu('bueschel', 'fehler', A('Jemand sagt: „Der gemeinsame Punkt der Schar y = m · (x + 3) − 2 ist Z(3 | −2).“ Was stimmt?', 'Falsch: Die Klammer wird für x = −3 null, also Z(−3 | −2).',
+       ['Richtig.', 'Falsch: Z(3 | 2).', 'Falsch: Z(−2 | 3).'], 'x + 3 = 0 heißt x = −3. Dann ist y = −2 für jedes m.', 'Für welches x wird die Klammer null?'))
+ST.neu('bueschel', 'pruefung', L('Gegeben ist das Büschel y = m · (x − 2) + 1. a) Gib das Zentrum Z an. b) Für welches m geht die Gerade durch (4 | 5)? c) Wo schneidet diese Gerade die y-Achse?',
+       'Z(□ | □); m = □; y = □', [2, 1, 2, -3], ['2', '1', '(5 - 1) // (4 - 2)', '2 * (0 - 2) + 1'],
+       'a) Z(2 | 1). b) 5 = m · 2 + 1 ⇒ m = 2. c) y = 2 · (0 − 2) + 1 = −3.', 'Bei c) x = 0 einsetzen.'))
+ST.knobel('bueschel', A('Welche Gerade gehört zu beiden Büscheln y = m · (x − 1) + 2 und y = n · (x − 5) + 2?', 'y = 2', ['y = x + 1', 'y = 2x', 'Keine Gerade gehört zu beiden.'],
+          'Eine Gerade in beiden Büscheln geht durch beide Zentren (1 | 2) und (5 | 2). Diese liegen auf gleicher Höhe, also ist es die waagrechte Gerade y = 2 (m = n = 0).', 'Durch welche zwei Punkte muss die Gerade gehen?'))
+ST.knobel('bueschel', A('Für welche m schneidet die Gerade des Büschels y = m · (x − 2) + 3 die x-Achse rechts vom Ursprung (x > 0)?', 'für m < 0 oder m > 1,5', ['für m > 0', 'für m < 0', 'für m > 1,5'],
+          'Nullstelle: 0 = m · (x − 2) + 3 ⇒ x = 2 − 3/m. Für m < 0 ist −3/m positiv, also x > 2. Für m > 0 braucht man 3/m < 2, also m > 1,5. Für 0 < m ≤ 1,5 liegt die Nullstelle bei x ≤ 0. Für m = 0 gibt es keine Nullstelle.',
+          'Zeichne das Zentrum (2 | 3) und drehe die Gerade.'))
+
+# wirkung
+ST.stufenleiter('wirkung', 'Erkennen, wo der Parameter steht; k für eine waagrechte Gerade bestimmen.',
+                'k für eine vorgegebene Steigung, Bereich fallender Geraden, k aus einem gezeichneten Graphen.',
+                'Gerade durch den Ursprung begründen, steiler als eine gegebene Gerade, Fehler beim Bereich, Nullstelle nach Punktbedingung, Prüfungsaufgabe.')
+ST.typ('wirkung', '/parallel zur x-Achse\\?$/', 'direkt')
+ST.typ('wirkung', '/parallel zu y = /', 'mehrschritt')
+ST.typ('wirkung', 'Welche Steigung hat', 'erkennen')
+ST.typ('wirkung', 'Für welche k fallen', 'umkehr')
+ST.typ('wirkung', 'Die gezeichnete Gerade', 'darstellung')
+ST.typ('wirkung', '/^Gibt es in der Schar y = \\(k/', 'begruenden')
+ST.typ('wirkung', '/^(Gibt es in der Schar y = k · x \\+ k|Für welche k steigt)/', 'parameter')
+ST.neu('wirkung', 'mehrschritt', Z('Für welches k hat die Gerade der Schar y = (3k − 6) · x + 1 die Steigung 9?', 5, '(9 + 6) // 3',
+       'Steigung 3k − 6 = 9 ⇒ 3k = 15 ⇒ k = 5.', 'Setze den Faktor vor x gleich 9.'))
+ST.neu('wirkung', 'fehler', A('Jemand sagt: „In der Schar y = (k − 2) · x + 1 fallen die Geraden für k < 0.“ Was stimmt?', 'Falsch: Sie fallen für k < 2, denn die Steigung ist k − 2.',
+       ['Richtig.', 'Falsch: Sie fallen für k > 2.', 'Falsch: Sie fallen nie.'], 'Fallend heißt Steigung negativ: k − 2 < 0 ⇒ k < 2. Auch k = 1 gibt schon eine fallende Gerade.', 'Was ist hier die Steigung?'))
+ST.neu('wirkung', 'verknuepfen', Z('Die Gerade der Schar y = (k − 1) · x + 2 geht durch P(3 | 8). Wo schneidet sie die x-Achse?', -1, '-2 / 2',
+       '8 = (k − 1) · 3 + 2 ⇒ k − 1 = 2. Gerade y = 2x + 2. Nullstelle: 2x + 2 = 0 ⇒ x = −1.', 'Bestimme zuerst die Steigung aus dem Punkt.'))
+ST.neu('wirkung', 'pruefung', L('Gegeben ist die Schar y = (2k − 4) · x + 3. a) Für welches k ist die Gerade parallel zur x-Achse? b) Für welches k ist sie parallel zu y = 2x? c) Gib die Steigung für k = 0 an.',
+       'a) □; b) □; c) □', [2, 3, -4], ['4 // 2', '(2 + 4) // 2', '2 * 0 - 4'], 'a) 2k − 4 = 0 ⇒ k = 2. b) 2k − 4 = 2 ⇒ k = 3. c) 2 · 0 − 4 = −4.', 'Die Steigung ist der Faktor vor x.'))
+ST.knobel('wirkung', L('Alle Geraden der Schar y = (k − 1) · x + k gehen durch einen gemeinsamen Punkt. Welchen?', 'P(□ | □)', [-1, 1], ['-1', '1'],
+          'y = kx − x + k = k · (x + 1) − x. Für x = −1 fällt k weg: y = 0 + 1 = 1. Gemeinsamer Punkt (−1 | 1).', 'Ordne nach k und suche das x, bei dem k wegfällt.'))
+ST.knobel('wirkung', A('Für welche k ist die Gerade y = (k − 3) · x + k steigend und schneidet die y-Achse unterhalb von 5?', 'für 3 < k < 5', ['für k > 3', 'für k < 5', 'für k > 5'],
+          'Steigend: k − 3 > 0 ⇒ k > 3. y-Achsenabschnitt k < 5. Beides zusammen: 3 < k < 5.', 'Stelle zwei Bedingungen auf.'))
+
+# loesung_parameter
+ST.stufenleiter('loesung_parameter', 'k · x = c für einen gegebenen Wert von k lösen.',
+                'Gleichungen mit k in Klammern lösen, Schnittstelle zweier Geraden, k ohne Lösung, Tarifvergleich.',
+                'Fallunterscheidung begründen, parallele Geraden, Bedingung „unendlich viele“ und „positiv“, rückwärts aus dem Schnittpunkt, Fehler „Teilen durch null“.')
+ST.typ('loesung_parameter', 'Löse k · x', 'direkt')
+ST.typ('loesung_parameter', '/keine Lösung\\?$/', 'umkehr')
+ST.typ('loesung_parameter', '/^(Die Geraden|Löse \\(k)/', 'mehrschritt')
+ST.typ('loesung_parameter', 'Wie viele Lösungen hat', 'begruenden')
+ST.typ('loesung_parameter', '/keinen Schnittpunkt/', 'verknuepfen')
+ST.typ('loesung_parameter', '/genau bei x/', 'rueckwaerts')
+ST.typ('loesung_parameter', '/^Für welche[s]? k (hat|ist)/', 'parameter')
+ST.neu('loesung_parameter', 'erkennen', A('Welche Gleichung hat für k = 0 keine Lösung?', 'k · x = 4', ['x + k = 4', 'k + x = 0', 'x = k'],
+       'Für k = 0 wird k · x = 4 zu 0 = 4, das stimmt für kein x. Die anderen werden zu x = 4, x = 0 und x = 0.', 'Setze k = 0 ein.'))
+ST.neu('loesung_parameter', 'direkt', Z('Löse (k − 1) · x = 12 für k = 4.', 4, '12 // 3', 'Für k = 4: 3x = 12 ⇒ x = 4.', 'Erst k einsetzen.'))
+ST.neu('loesung_parameter', 'einkleidung', Z('Tarif A kostet 4 € Grundgebühr plus 2 € pro Stunde, Tarif B kostet k € pro Stunde ohne Grundgebühr. Für k = 3: Nach wie vielen Stunden kosten beide gleich viel?', 4, '4 // (3 - 2)',
+       '2x + 4 = 3x ⇒ (3 − 2) · x = 4 ⇒ x = 4 Stunden.', 'Setze beide Kosten gleich.', einheit='Stunden'))
+ST.neu('loesung_parameter', 'fehler', A('Jemand löst (k − 3) · x = 6 und schreibt: „x = 6 : (k − 3) für jedes k.“ Was fehlt?', 'Für k = 3 darf man nicht teilen: Dann gibt es keine Lösung.',
+       ['Nichts, das stimmt immer.', 'Für k = 0 gibt es keine Lösung.', 'Für k = 6 gibt es unendlich viele Lösungen.'], 'Für k = 3 steht da 0 · x = 6, das stimmt für kein x. Durch null darf man nicht teilen.', 'Wann wird der Faktor vor x null?'))
+ST.knobel('loesung_parameter', Z('Für wie viele ganze Zahlen k ist die Lösung von (k + 1) · x = 12 eine ganze Zahl?', 12, '2 * 6',
+          'x = 12 : (k + 1) ist ganz, wenn k + 1 ein Teiler von 12 ist – auch negativ: ±1, ±2, ±3, ±4, ±6, ±12. Das sind 12 Werte für k + 1, also 12 Werte für k.', 'Auch negative Teiler zählen.'))
+ST.knobel('loesung_parameter', Z('Die Gleichung (k − 2) · x = k² − 4 hat für k = 2 unendlich viele Lösungen. Welche Lösung hat sie für k = 7?', 9, '7 + 2',
+          'k² − 4 = (k − 2)(k + 2). Für k ≠ 2 darf man durch k − 2 teilen: x = k + 2. Für k = 7: x = 9. Probe: 5 · 9 = 45 = 49 − 4.', 'Zerlege k² − 4 in ein Produkt.'))
+
+# sachaufgabe
+ST.stufenleiter('sachaufgabe', 'Kosten mit Grundgebühr und Preis je Einheit ausrechnen; den passenden Term erkennen.',
+                'Preis je Einheit aus einem Rechnungsbetrag, Verbrauch aus den Kosten, Ersparnis zweier Tarife, Tarif aus einer Tabelle.',
+                'Gleiche Kosten bestimmen, Tarif aus zwei Rechnungen, Tarifänderung, Fehler „Grundgebühr mehrfach“, Bedingung an die Grundgebühr, Tarifvergleich als Prüfungsaufgabe.')
+ST.typ('sachaufgabe', '/Wie viel kostet es für/', 'direkt')
+ST.typ('sachaufgabe', '/(Berechne m\\.|Wie hoch ist m\\?|Wie viele kWh)/', 'umkehr')
+ST.typ('sachaufgabe', 'Handytarif A', 'mehrschritt')
+ST.typ('sachaufgabe', '/Bei welcher Menge/', 'verknuepfen')
+ST.typ('sachaufgabe', '/(Wie hoch ist die Anfahrt|Wie hoch ist die Grundgebühr)/', 'rueckwaerts')
+ST.typ('sachaufgabe', '/^(Ein Fahrradverleih hat einen festen Tarif|Ein Taxiunternehmen erhöht)/', 'transfer')
+ST.neu('sachaufgabe', 'erkennen', A('Ein Kino verlangt 2 € Buchungsgebühr plus m € pro Ticket. Welcher Term beschreibt die Kosten für x Tickets?', 'm · x + 2', ['2 · x + m', '(m + 2) · x', 'm + 2 + x'],
+       'Der Preis je Ticket wird mit der Anzahl multipliziert, die Gebühr kommt einmal dazu: m · x + 2.', 'Was fällt einmal an, was pro Ticket?'))
+ST.neu('sachaufgabe', 'darstellung', Z('Ein Tarif steht in einer Tabelle: 2 h kosten 11 €, 4 h kosten 19 €, 6 h kosten 27 €. Wie viel kostet jede weitere Stunde (m)?', 4, '(19 - 11) / (4 - 2)',
+       'Von 2 h auf 4 h steigen die Kosten um 8 €, also 4 € pro Stunde. Probe: von 4 h auf 6 h ebenfalls + 8 €.', 'Wie stark steigen die Kosten von Spalte zu Spalte?', einheit='€'))
+ST.neu('sachaufgabe', 'fehler', A('Bei 5 € Grundgebühr und 3 € pro Stunde rechnet jemand für 4 Stunden: (5 + 3) · 4 = 32 €. Was stimmt?', 'Falsch: Die Grundgebühr zahlt man nur einmal: 5 + 3 · 4 = 17 €.',
+       ['Richtig.', 'Falsch: 5 · 4 + 3 = 23 €.', 'Falsch: 5 + 3 + 4 = 12 €.'], 'Nur der Stundenpreis wird mit 4 multipliziert. Die Grundgebühr fällt einmal an.', 'Wie oft zahlt man die Grundgebühr?'))
+ST.neu('sachaufgabe', 'parameter', A('Ein Verleih kostet t € Grundgebühr plus 4 € pro Stunde. Für welche t ist eine 3-Stunden-Fahrt höchstens 20 € teuer?', 't ≤ 8', ['t ≤ 20', 't ≥ 8', 't ≤ 12'],
+       't + 4 · 3 ≤ 20 ⇒ t ≤ 8.', 'Stelle eine Ungleichung auf.'))
+ST.neu('sachaufgabe', 'pruefung', L('Tarif A: 10 € Grundgebühr und 0,20 € pro km. Tarif B: 4 € Grundgebühr und 0,35 € pro km. a) Was kostet Tarif A für 60 km? b) Ab wie vielen ganzen Kilometern ist A günstiger als B?',
+       'a) □ €; b) ab □ km', [22, 41], ['10 + 0.2 * 60', '40 + 1'],
+       'a) 10 + 0,20 · 60 = 22 €. b) Gleich teuer: 10 + 0,2x = 4 + 0,35x ⇒ 6 = 0,15x ⇒ x = 40. Darüber ist A günstiger, also ab 41 km.', 'Bestimme zuerst, wann beide gleich viel kosten.'))
+ST.knobel('sachaufgabe', L('Tarif A: 0 € Grundgebühr, 0,15 € pro Minute. Tarif B: 5 € Grundgebühr, 0,10 € pro Minute. Tarif C: 15 € Grundgebühr, 0,05 € pro Minute. Bei wie vielen Minuten sind A und C gleich teuer – und was kostet dann B?',
+          '□ Minuten; B kostet □ €', [150, 20], ['15 / 0.1', '5 + 0.1 * 150'],
+          'A = C: 0,15x = 15 + 0,05x ⇒ 0,10x = 15 ⇒ x = 150. Dann kosten A und C je 22,50 €, B aber nur 5 + 15 = 20 €. Genau dort ist B günstiger als beide.', 'Setze erst A und C gleich.'))
+ST.knobel('sachaufgabe', A('Ein Taxi hat Grundgebühr t und Kilometerpreis m. Fahrten über 4 km und 10 km kosten zusammen 34 €. Eine Fahrt über 7 km kostet 17 €. Kann man m und t bestimmen?',
+          'Nein: Beide Angaben sagen dasselbe aus (7m + t = 17).', ['Ja: m = 2 €, t = 3 €.', 'Ja: m = 1 €, t = 10 €.', 'Nein: Die Angaben widersprechen sich.'],
+          '4m + t + 10m + t = 34 ⇒ 14m + 2t = 34 ⇒ 7m + t = 17. Das ist genau die zweite Angabe. Es gibt viele Lösungen, z. B. m = 2, t = 3 oder m = 1, t = 10.', 'Vereinfache die erste Angabe.'))
+
+
 if __name__ == '__main__':
     d = bauen('funktionen.scharen',
           'Geradenscharen mit Parameter verstehen: Parameter einsetzen und bestimmen, Parallelenscharen und Geradenbüschel erkennen, parameterabhängige Lösungen untersuchen.',
@@ -610,3 +772,4 @@ if __name__ == '__main__':
                  'Schreibweise der Scharen: g_k bzw. „Schar y = k · x + 2“; Indizes wie g₋₃ nur in der Erklärung.'])
     umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
     durchsicht(d)
+    stufen('funktionen.scharen', ST)

@@ -753,3 +753,183 @@ DS_KARTEN = {
 
 if __name__ == '__main__':
     durchsicht('stochastik.verknuepft', DS, DS_KARTEN)
+
+
+# ---- STUFEN (Zwanzigste Runde, Zweig stufen-kl9) ----
+from _stufen_kl9 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('stochastik.verknuepft', 20_9_6)
+Z, A, L = ST.Z, ST.A, ST.L
+
+# verknuepfen
+ST.stufenleiter('verknuepfen', 'A ∩ B, A ∪ B und Ā in Worten deuten und bei Zahlen 1 bis 20 abzählen.',
+                'Ereignisse in Zeichen schreiben, „A, aber nicht B“ abzählen, Sachsituation mit zwei Merkmalen.',
+                '„Weder noch“ und Gegenereignisse von Verknüpfungen, Bedingungen an Teiler, Fehler bei „oder“, Beschreibungen beurteilen.')
+ST.typ('verknuepfen', '/Was bedeutet das Ereignis/', 'erkennen')
+ST.typ('verknuepfen', '/weder A/', 'verknuepfen')
+ST.typ('verknuepfen', 'Aus den Zahlen 1 bis 20 wird zufällig eine gezogen.', 'direkt', s=1)
+ST.typ('verknuepfen', '/Wie schreibt man das Ereignis/', 'darstellung')
+ST.typ('verknuepfen', 'Aus 50 Kugeln', 'transfer')
+ST.typ('verknuepfen', '/^(S: |In zwei verschiedenen)/', 'begruenden')
+ST.typ('verknuepfen', 'Beim Würfeln ist A = {2; 4; 6}', 'verknuepfen')
+ST.typ('verknuepfen', '/^(Aus den Zahlen|Beim Würfeln)/', 'mehrschritt')
+ST.neu('verknuepfen', 'einkleidung', Z('In einer Klasse mit 25 Kindern spielen 10 Fußball, 8 Handball und 3 beides. Wie viele Kinder spielen Fußball, aber nicht Handball?', 7, '10 - 3',
+       'Fußball, aber nicht Handball ist F ∩ H̄: alle Fußballer ohne die, die beides spielen: 10 − 3 = 7.', 'Wer spielt beides? Diese Kinder musst du abziehen.'))
+ST.neu('verknuepfen', 'fehler', A('Jemand sagt: „A ∪ B heißt: A und B treten beide ein.“ Was stimmt?', 'Falsch: A ∪ B heißt mindestens eines tritt ein; beide zugleich ist A ∩ B.',
+       ['Richtig.', 'Falsch: A ∪ B heißt keines tritt ein.', 'Falsch: A ∪ B heißt genau eines tritt ein.'], 'Vereinigung (∪) = „oder“ = mindestens eines. Schnitt (∩) = „und“ = beide.', 'Denk an das Beispiel der Lernkarte.'))
+ST.neu('verknuepfen', 'parameter', A('Aus den Zahlen 1 bis 20 wird eine gezogen. A: „durch k teilbar“, B: „gerade“. Für welches k gilt A ∩ B = A, also jede Zahl aus A ist auch gerade?', 'k = 4', ['k = 3', 'k = 5', 'k = 7'],
+       'A ∩ B = A heißt: A liegt ganz in B. Alle Vielfachen von 4 sind gerade. Bei 3, 5 und 7 gibt es ungerade Vielfache (3, 5, 7).', 'Suche ein ungerades Vielfaches.'))
+ST.knobel('verknuepfen', Z('Wie viele der Zahlen von 1 bis 100 sind weder durch 2 noch durch 3 teilbar?', 33, '100 - 50 - 33 + 16',
+          'Durch 2 teilbar: 50, durch 3: 33, durch beide (also durch 6): 16. Mindestens durch eine: 50 + 33 − 16 = 67. Weder noch: 100 − 67 = 33.',
+          'Zähle erst die Zahlen, die durch 2 oder 3 teilbar sind – ohne doppelt zu zählen.'))
+ST.knobel('verknuepfen', Z('Aus 1 bis 30 wird gezogen. A: „durch 2 teilbar“, B: „durch 3 teilbar“, C: „durch 5 teilbar“. Wie viele Zahlen liegen in A ∩ B ∩ C̄?', 4, '30 // 6 - 1',
+          'A ∩ B sind die Vielfachen von 6: 6, 12, 18, 24, 30. Davon ist nur 30 auch durch 5 teilbar. Also bleiben 4 Zahlen.',
+          'Was haben Zahlen gemeinsam, die durch 2 und durch 3 teilbar sind?'))
+
+# additionssatz
+ST.stufenleiter('additionssatz', 'P(A ∪ B) = P(A) + P(B) − P(A ∩ B) mit gegebenen Werten.',
+                'Rückwärts P(A ∩ B) finden, „keines“ berechnen, Prozentangaben und Glücksräder.',
+                'Fehlende Einzelwahrscheinlichkeit, Grenzen für P(A ∩ B), Fehler ohne Schnitt, Parameter p, Mängel-Statistik, mehrteilige Aufgabe.')
+ST.typ('additionssatz', '/^Es gilt P\\(A\\) = [\\d,]+, P\\(B\\) = [\\d,]+ und P\\(A ∩ B\\) = [\\d,]+\\. Berechne P\\(A ∪ B\\)/', 'direkt')
+ST.typ('additionssatz', '/und P\\(A ∪ B\\) = .* Berechne P\\(A ∩ B\\)/', 'umkehr')
+ST.typ('additionssatz', '/Mit welcher Wahrscheinlichkeit tritt keines/', 'mehrschritt')
+ST.typ('additionssatz', '/^(Beim Würfeln|In einer Klasse|Bei einem Glücksrad)/', 'einkleidung')
+ST.typ('additionssatz', '/^Aus 1 bis/', 'mehrschritt')
+ST.typ('additionssatz', 'Von 800', 'transfer')
+ST.typ('additionssatz', 'Es gilt P(A) = 0,45', 'rueckwaerts')
+ST.typ('additionssatz', 'Es gilt P(A) = 0,6 und', 'begruenden')
+ST.typ('additionssatz', 'A und B sind unvereinbar', 'verknuepfen')
+ST.neu('additionssatz', 'erkennen', A('Warum zieht man im Additionssatz P(A ∩ B) ab?', 'Weil P(A) + P(B) die Ergebnisse in A ∩ B doppelt zählt.', ['Weil A ∩ B nie eintreten kann.', 'Weil man immer etwas abziehen muss.', 'Weil P(A ∩ B) größer als 1 ist.'],
+       'Die Ergebnisse, die in A und in B liegen, stecken in P(A) und in P(B). Einmal abziehen korrigiert das.', 'Denk an die Schnittmenge im Bild.'))
+ST.neu('additionssatz', 'direkt', Z('Bei einer Umfrage ist P(A) = 0,3, P(B) = 0,4 und P(A ∩ B) = 0,1. Berechne P(A ∪ B).', 0.6, '0.3 + 0.4 - 0.1',
+       'P(A ∪ B) = 0,3 + 0,4 − 0,1 = 0,6.', 'Addieren und die Schnittmenge einmal abziehen.'))
+ST.neu('additionssatz', 'einkleidung', Z('In einer Klasse tragen 30 % eine Brille, 20 % eine Zahnspange und 5 % beides. Wie viel Prozent tragen mindestens eines davon?', 45, '30 + 20 - 5',
+       '30 % + 20 % − 5 % = 45 %.', 'Mindestens eines heißt „oder“.', einheit='%'))
+ST.neu('additionssatz', 'fehler', A('Jemand rechnet bei P(A) = 0,5 und P(B) = 0,7: P(A ∪ B) = 0,5 + 0,7 = 1,2. Was stimmt?', 'Falsch: Eine Wahrscheinlichkeit ist höchstens 1; P(A ∩ B) muss abgezogen werden.',
+       ['Richtig.', 'Falsch: P(A ∪ B) = 0,35.', 'Falsch: P(A ∪ B) = 0,2.'], 'Ohne Schnittmenge zählt man doppelt. Hier ist P(A ∩ B) mindestens 0,2, also P(A ∪ B) höchstens 1.', 'Kann eine Wahrscheinlichkeit größer als 1 sein?'))
+ST.neu('additionssatz', 'parameter', Z('Es gilt P(A) = P(B) = p, P(A ∩ B) = 0,1 und P(A ∪ B) = 0,7. Wie groß ist p?', 0.4, '(0.7 + 0.1) / 2',
+       '0,7 = p + p − 0,1 ⇒ 2p = 0,8 ⇒ p = 0,4.', 'Setze in den Additionssatz ein.'))
+ST.neu('additionssatz', 'pruefung', L('Von 200 Gästen trinken 120 Kaffee, 90 essen Kuchen, 50 tun beides. a) Wie viele haben mindestens eines davon? b) Wie viele weder noch?', 'a) □; b) □', [160, 40], ['120 + 90 - 50', '200 - 160'],
+       'a) 120 + 90 − 50 = 160. b) 200 − 160 = 40.', 'Erst „oder“, dann der Rest.'))
+ST.neu('additionssatz', 'transfer', Z('Bei einem Versand sind 8 % der Pakete zu spät, 5 % beschädigt und 2 % beides. Mit welcher Wahrscheinlichkeit ist ein Paket pünktlich und unbeschädigt?', 0.89, '1 - (0.08 + 0.05 - 0.02)',
+       'Mindestens ein Problem: 0,08 + 0,05 − 0,02 = 0,11. Kein Problem: 1 − 0,11 = 0,89.', 'Bilde das Gegenereignis von „mindestens ein Problem“.'))
+ST.knobel('additionssatz', Z('Es gilt P(A) = 0,6 und P(B) = 0,7. Wie groß kann P(A ∩ B) höchstens sein?', 0.6, 'min(0.6, 0.7)',
+          'A ∩ B liegt ganz in A, also P(A ∩ B) ≤ P(A) = 0,6. Der Wert 0,6 ist möglich, wenn A ganz in B liegt; dann ist P(A ∪ B) = 0,7 ≤ 1.',
+          'Kann der Schnitt größer sein als eines der beiden Ereignisse?'))
+ST.knobel('additionssatz', Z('Wie viele Zahlen von 1 bis 30 sind durch 2, 3 oder 5 teilbar?', 22, '15 + 10 + 6 - 5 - 3 - 2 + 1',
+          'Einzeln: 15 + 10 + 6. Doppelt gezählt sind Vielfache von 6 (5), 10 (3) und 15 (2): abziehen. Die 30 (durch alle drei) wurde dreimal addiert und dreimal abgezogen: einmal dazu. 31 − 10 + 1 = 22.',
+          'Wie beim Additionssatz, nur mit drei Ereignissen. Achte auf Zahlen, die in allen dreien liegen.'))
+
+# vierfeld
+ST.stufenleiter('vierfeld', 'Ein fehlendes Feld aus Zeilen- oder Spaltensumme ergänzen.',
+                'Mehrere Felder nacheinander ergänzen, aus drei Angaben die ganze Tafel bauen, ein inneres Feld rückwärts bestimmen.',
+                'Falsche Summen finden, Prozentangaben verketten, Bedingungen wie „doppelt so groß“, Unmögliches erkennen.')
+ST.typ('vierfeld', 'Untersucht werden', 'direkt', s=1)
+ST.typ('vierfeld', '/In der Tafel ist genau eine Summe falsch/', 'fehler')
+ST.typ('vierfeld', '/% haben A\\. Unter denen mit A/', 'verknuepfen')
+ST.typ('vierfeld', '/Ergänze das Feld „\\?“/', 'darstellung')
+ST.typ('vierfeld', '/^(Untersucht werden|In einer Vierfeldertafel ist)/', 'mehrschritt')
+ST.typ('vierfeld', 'Von 400 Befragten', 'transfer')
+ST.typ('vierfeld', 'In einer Vierfeldertafel mit 100 Personen', 'rueckwaerts')
+ST.typ('vierfeld', '120 Jugendliche', 'verknuepfen')
+ST.neu('vierfeld', 'erkennen', A('In welchem Feld einer Vierfeldertafel stehen die Personen „A, aber nicht B“?', 'A ∩ B̄', ['A ∩ B', 'Ā ∩ B', 'Ā ∩ B̄'],
+       '„nicht B“ heißt B̄. Zusammen mit A: A ∩ B̄.', 'Übersetze „nicht B“ in Zeichen.'))
+ST.neu('vierfeld', 'umkehr', Z('In einer Tafel mit 200 Personen ist B = 70 (Randsumme) und Ā ∩ B̄ = 90. Wie groß ist A ∩ B̄?', 40, '(200 - 70) - 90',
+       'B̄ = 200 − 70 = 130. In der Spalte B̄: A ∩ B̄ = 130 − 90 = 40.', 'Bestimme zuerst die Randsumme von B̄.'))
+ST.neu('vierfeld', 'begruenden', A('Kann es in einer Tafel mit 100 Personen A = 70, B = 20 und A ∩ B = 30 geben?', 'Nein, A ∩ B kann nicht größer als B sein.', ['Ja.', 'Nein, A + B muss 100 sein.', 'Nur wenn Ā ∩ B̄ = 0 ist.'],
+       'A ∩ B ist ein Teil von B. 30 > 20 ist unmöglich.', 'Vergleiche A ∩ B mit B.'))
+ST.neu('vierfeld', 'pruefung', L('Von 300 Gästen trinken 180 Kaffee, 120 davon essen auch Kuchen. 60 Gäste nehmen weder Kaffee noch Kuchen. a) Wie viele essen Kuchen, ohne Kaffee zu trinken? b) Wie viele essen insgesamt Kuchen?', 'a) □; b) □', [60, 180],
+       ['(300 - 180) - 60', '120 + 60'], 'Ohne Kaffee: 300 − 180 = 120 Gäste, davon 60 ohne alles, also 60 mit Kuchen. Kuchen insgesamt: 120 + 60 = 180.', 'Lege eine Vierfeldertafel an: Kaffee ja/nein, Kuchen ja/nein.'))
+ST.knobel('vierfeld', Z('In einer Gruppe hat jeder Vierte mit A auch B, jeder Dritte mit B auch A. 80 von 200 Personen haben weder A noch B. Wie viele haben A?', 80, '4 * 20',
+          'A ∩ B = A/4 = B/3. Mit A = 4k ist A ∩ B = k und B = 3k. Mindestens eines: 4k + 3k − k = 6k = 200 − 80 = 120, also k = 20 und A = 80.',
+          'Nenne die Zahl in A ∩ B einfach k.'))
+ST.knobel('vierfeld', Z('In einer Gruppe hat genau die Hälfte das Merkmal A und genau ein Drittel das Merkmal B. 10 Personen haben beides, 40 keines. Wie groß ist die Gruppe?', 180, '(40 - 10) * 6',
+          'Mindestens eines: n/2 + n/3 − 10 = 5n/6 − 10. Keines: n − (5n/6 − 10) = n/6 + 10 = 40. Also n/6 = 30, n = 180.',
+          'Stelle eine Gleichung für „keines“ auf.'))
+
+# tafel_wkeit
+ST.stufenleiter('tafel_wkeit', 'Ein inneres Feld oder eine Randsumme durch die Gesamtzahl teilen.',
+                'Wahrscheinlichkeiten aus Tafeln mit Anzahlen oder Wahrscheinlichkeiten, „oder“ aus der Tafel, ein Feld rückwärts.',
+                'Fehlende Felder über den Additionssatz, Fehler beim Lesen eines Feldes, Summe der Felder begründen, Parameter p, mehrteilige Aufgabe.')
+ST.typ('tafel_wkeit', 'Die Tafel zeigt', 'direkt', s=1)
+ST.typ('tafel_wkeit', '/^(Die Tafel|Die Tafel enthält)/', 'darstellung', s=2)
+ST.typ('tafel_wkeit', '/^(Von 250|In einer Tafel gilt P\\(A ∩ B\\) = 0,1 )/', 'mehrschritt')
+ST.typ('tafel_wkeit', '/^Die Tafel zeigt/', 'verknuepfen')
+ST.typ('tafel_wkeit', 'Es gilt P(A) = 0,4, P(B) = 0,5', 'rueckwaerts')
+ST.typ('tafel_wkeit', 'In einer Tafel mit relativen', 'verknuepfen')
+ST.neu('tafel_wkeit', 'erkennen', A('Was erhältst du, wenn du die Randsumme der Zeile A durch die Gesamtzahl teilst?', 'P(A)', ['P(A ∩ B)', 'P(B)', 'P(A ∪ B)'],
+       'Die Zeilensumme zählt alle mit A. Geteilt durch alle: P(A).', 'Welche Personen zählt die Zeile A?'))
+ST.neu('tafel_wkeit', 'umkehr', Z('Es gilt P(A) = 0,4 und P(A ∩ B̄) = 0,25. Berechne P(A ∩ B).', 0.15, '0.4 - 0.25',
+       'Die Zeile A besteht aus A ∩ B und A ∩ B̄: P(A ∩ B) = 0,4 − 0,25 = 0,15.', 'Die beiden Felder der Zeile ergeben zusammen P(A).'))
+ST.neu('tafel_wkeit', 'fehler', A('Jemand liest P(A ∩ B) = 0,15 aus der Tafel und sagt: „Also haben 15 % das Merkmal A.“ Was stimmt?', 'Falsch: 15 % haben A und B; für P(A) braucht man die Randsumme.',
+       ['Richtig.', 'Falsch: 15 % haben B.', 'Falsch: 85 % haben A.'], 'P(A) = P(A ∩ B) + P(A ∩ B̄). Das innere Feld zeigt nur einen Teil von A.', 'Welche Personen stehen in diesem Feld?'))
+ST.neu('tafel_wkeit', 'begruenden', A('Stimmt: Die vier inneren Felder einer Tafel mit Wahrscheinlichkeiten ergeben zusammen immer 1?', 'Ja, jedes Ergebnis liegt in genau einem der vier Felder.', ['Nein, nur die Randsummen ergeben 1.', 'Nein, sie ergeben 2.', 'Nur wenn A und B unvereinbar sind.'],
+       'Jede Person hat A oder nicht, B oder nicht – genau eine der vier Kombinationen. Zusammen sind das alle: 1.', 'Kann eine Person in zwei Feldern stehen?'))
+ST.neu('tafel_wkeit', 'parameter', Z('In einer Tafel ist P(A ∩ B) = p, P(A ∩ B̄) = 2p, P(Ā ∩ B) = 3p und P(Ā ∩ B̄) = 4p. Wie groß ist P(A)?', 0.3, '3 * 0.1',
+       'Alle Felder zusammen: 10p = 1, also p = 0,1. P(A) = p + 2p = 0,3.', 'Was ergeben alle vier Felder zusammen?'))
+ST.neu('tafel_wkeit', 'pruefung', L('Von 500 Gästen haben 200 gegessen (A), 150 gespielt (B), 50 beides. a) P(A) in Prozent? b) P(A ∪ B) in Prozent?', 'a) □ %; b) □ %', [40, 60], ['200 * 100 // 500', '(200 + 150 - 50) * 100 // 500'],
+       'a) 200 : 500 = 0,4 = 40 %. b) 200 + 150 − 50 = 300, 300 : 500 = 60 %.', 'Erst Anzahlen, dann durch 500.'))
+ST.knobel('tafel_wkeit', Z('In einer Tafel gilt P(A ∩ B) = 0,2, P(Ā ∩ B̄) = 0,4 und P(A) = P(B). Wie groß ist P(A)?', 0.4, '0.2 + 0.2',
+          'Die beiden anderen Felder sind gleich groß, weil P(A) = P(B): A ∩ B̄ = Ā ∩ B = y. 0,2 + 2y + 0,4 = 1, also y = 0,2. P(A) = 0,2 + 0,2 = 0,4.',
+          'Was folgt aus P(A) = P(B) für die beiden übrigen Felder?'))
+ST.knobel('tafel_wkeit', Z('In einer Tafel mit Anzahlen gilt P(A) = 0,35 und P(A ∩ B) = 0,12. Wie viele Personen sind es mindestens?', 100, '100',
+          '0,35 · n und 0,12 · n müssen ganze Zahlen sein. 0,35 = 7/20 verlangt ein Vielfaches von 20, 0,12 = 3/25 ein Vielfaches von 25. Das kleinste gemeinsame Vielfache ist 100.',
+          'Schreibe die Wahrscheinlichkeiten als gekürzte Brüche.'))
+
+# bedingt
+ST.stufenleiter('bedingt', 'P_B(A) in einer Tafel ablesen: nur die Spalte B zählt.',
+                'Die Bedingung aus einem Text erkennen, Tafeln mit Merkmal A als Bedingung, P(B) im Baum.',
+                'Test-Aufgaben, Baumdiagramme rückwärts, P(B) aus P(A ∩ B) und P_B(A), Verwechslung von Zeile und Spalte finden.')
+ST.typ('bedingt', 'Berechne P_B(A), also', 'direkt')
+ST.typ('bedingt', 'Was bedeutet P_B(A)', 'erkennen')
+ST.typ('bedingt', 'Die Tafel zeigt', 'darstellung')
+ST.typ('bedingt', 'In der Spalte B', 'mehrschritt')
+ST.typ('bedingt', 'Berechne mit dem Baumdiagramm P(B)', 'mehrschritt')
+ST.typ('bedingt', '/^(Berechne mit dem Baumdiagramm P_B|Von 200 Schülerinnen)/', 'verknuepfen')
+ST.typ('bedingt', '/^(Ein Test|In einer Lostrommel)/', 'transfer')
+ST.typ('bedingt', 'Es gilt P(A ∩ B)', 'rueckwaerts')
+ST.neu('bedingt', 'direkt', Z('Von 40 Personen mit dem Merkmal B haben 10 auch das Merkmal A. Berechne P_B(A) als Dezimalzahl.', 0.25, '10 / 40',
+       'Bedingung B: nur die 40 Personen zählen. P_B(A) = 10 : 40 = 0,25.', 'Teile durch die Anzahl mit B.'))
+ST.neu('bedingt', 'einkleidung', L('In einer Klasse tragen 12 von 30 Kindern eine Brille; 4 der Brillenträger sind Linkshänder. Ein Brillenträger wird zufällig gewählt. Mit welcher Wahrscheinlichkeit ist er Linkshänder?', '□/□', [1, 3], ['1', '3'],
+       'Bedingung: Brille. Nur die 12 Brillenträger zählen: 4/12 = 1/3.', 'Wer zählt, wenn man schon weiß, dass das Kind eine Brille trägt?'))
+ST.neu('bedingt', 'fehler', A('Spalte B hat 50 Personen, Zeile A hat 80, A ∩ B = 20. Jemand rechnet P_B(A) = 20/80. Was stimmt?', 'Falsch: Bei der Bedingung B zählt die Spalte B: P_B(A) = 20/50 = 0,4.',
+       ['Richtig.', 'Falsch: P_B(A) = 50/80.', 'Falsch: P_B(A) = 20/130.'], '20/80 = 0,25 wäre P_A(B), also die Bedingung A. Bei P_B(A) teilt man durch die Anzahl in B.', 'Was steht unten im Bruch bei der Bedingung B?'))
+ST.knobel('bedingt', Z('In einer Klasse sind 60 % Mädchen. 50 % der Mädchen und 25 % der Jungen spielen ein Instrument. Ein Kind mit Instrument wird zufällig gewählt. Mit welcher Wahrscheinlichkeit ist es ein Mädchen?', 0.75, '0.3 / (0.3 + 0.1)',
+          'Mädchen mit Instrument: 0,6 · 0,5 = 0,3. Jungen mit Instrument: 0,4 · 0,25 = 0,1. Bedingung Instrument: 0,3 : (0,3 + 0,1) = 0,75.',
+          'Rechne mit 100 Kindern: Wie viele Mädchen und wie viele Jungen spielen ein Instrument?'))
+ST.knobel('bedingt', L('Zwei Münzen werden geworfen. Du erfährst: Mindestens eine zeigt Kopf. Mit welcher Wahrscheinlichkeit zeigen beide Kopf?', '□/□', [1, 3], ['1', '3'],
+          'Ergebnisse: KK, KZ, ZK, ZZ. Mindestens einmal Kopf lässt KK, KZ, ZK übrig – drei gleich wahrscheinliche. Nur KK hat zweimal Kopf: 1/3, nicht 1/2.',
+          'Schreib alle Ergebnisse auf und streiche, was nicht passt.'))
+
+# verstehen
+ST.stufenleiter('verstehen', 'Gegenereignis von „mindestens einmal“ benennen und Grenzen 0 ≤ P ≤ 1 kennen.',
+                'Behauptungen über Unvereinbarkeit prüfen, mögliche Werte für P(A ∪ B) finden, Alltagsaussagen und Tafeln deuten.',
+                'Fehler im Additionssatz und bei „bestimmt“ finden, sichere Aussagen begründen, Bedingungen an P(B), unmögliche Angaben erkennen.')
+ST.typ('verstehen', '/^(Bei \\d+ |A und B sind unvereinbar|Was ist das Gegenereignis|Welcher Wert kann keine)/', 'erkennen')
+ST.typ('verstehen', 'Jemand behauptet', 'mehrschritt')
+ST.typ('verstehen', '/Jemand rechnet/', 'fehler')
+ST.typ('verstehen', 'In einer Urne', 'fehler')
+ST.typ('verstehen', '/Welcher Wert ist für P\\(A ∪ B\\) möglich/', 'umkehr', s=2)
+ST.typ('verstehen', '/Welcher Wert ist für P\\(A ∪ B\\) möglich/', 'verknuepfen')
+ST.typ('verstehen', '/^(Ein Glücksrad|Es gilt P\\(A\\) = 0,6 und P\\(B\\) = 0,5)/', 'begruenden')
+ST.typ('verstehen', 'Welche Angaben sind unmöglich', 'verknuepfen')
+ST.neu('verstehen', 'direkt', Z('Eine Münze wird zweimal geworfen. Berechne P(mindestens einmal Kopf) über das Gegenereignis.', 0.75, '1 - 0.25',
+       'Gegenereignis: keinmal Kopf, also ZZ mit 1/4 = 0,25. Gesucht: 1 − 0,25 = 0,75.', 'Was ist das Gegenteil von „mindestens einmal“?'))
+ST.neu('verstehen', 'einkleidung', A('Im Wetterbericht: Regen 60 %, Sonne 70 % am selben Tag. Jemand sagt: „Regen und Sonne schließen sich heute aus.“ Kann das stimmen?', 'Nein: Unvereinbar hieße 60 % + 70 % = 130 % > 100 %.',
+       ['Ja.', 'Ja, wenn es abends regnet.', 'Nein, Regen und Sonne treten nie zusammen auf.'], 'Bei unvereinbaren Ereignissen addieren sich die Wahrscheinlichkeiten, die Summe dürfte höchstens 1 sein.', 'Wie bei der Behauptung auf der Lernkarte.'))
+ST.neu('verstehen', 'darstellung', A('In einer Tafel mit Wahrscheinlichkeiten steht im Feld A ∩ B eine 0. Was bedeutet das?', 'A und B sind unvereinbar.', ['A ist das Gegenereignis von B.', 'A tritt nie ein.', 'B tritt sicher ein.'],
+       'P(A ∩ B) = 0: A und B treten nie gemeinsam ein. Das heißt unvereinbar. Gegenereignis wäre zusätzlich P(Ā ∩ B̄) = 0.', 'Was bedeutet das Feld A ∩ B?'))
+ST.neu('verstehen', 'einkleidung', A('Beim Würfeln: A „Augenzahl mindestens 5“, B „Augenzahl höchstens 2“. Was stimmt?', 'A und B sind unvereinbar, aber B ist nicht das Gegenereignis von A.',
+       ['B ist das Gegenereignis von A.', 'A und B sind nicht unvereinbar.', 'A und B treten immer gemeinsam ein.'], 'A = {5; 6}, B = {1; 2}: kein gemeinsames Ergebnis. Ā wäre {1; 2; 3; 4}, also mehr als B.', 'Schreib A und B als Mengen.'))
+ST.neu('verstehen', 'parameter', A('Für welche Werte von P(B) können A und B mit P(A) = 0,45 unvereinbar sein?', 'für 0 ≤ P(B) ≤ 0,55', ['für alle P(B)', 'nur für P(B) = 0,55', 'für P(B) ≥ 0,45'],
+       'Unvereinbar heißt P(A ∪ B) = P(A) + P(B) ≤ 1, also P(B) ≤ 0,55.', 'Die Summe darf 1 nicht übersteigen.'))
+ST.knobel('verstehen', L('Eine Münze wird viermal geworfen. Mit welcher Wahrscheinlichkeit kommt mindestens zweimal Kopf?', '□/□', [11, 16], ['16 - 1 - 4', '16'],
+          '16 gleich wahrscheinliche Ergebnisse. Gegenereignis: keinmal Kopf (1 Ergebnis) oder genau einmal Kopf (4 Ergebnisse). P = 1 − 5/16 = 11/16.',
+          'Zähle das Gegenereignis: höchstens einmal Kopf.'))
+ST.knobel('verstehen', A('A ist mit B und mit C unvereinbar. P(A) = 0,3, P(B) = 0,4, P(C) = 0,5. Können B und C unvereinbar sein?', 'Nein, sie überschneiden sich mit mindestens 0,2.',
+          ['Ja.', 'Nein, B und C müssen gleich sein.', 'Das kann man nicht entscheiden.'],
+          'B und C liegen beide in Ā mit P(Ā) = 0,7. P(B ∪ C) ≤ 0,7, aber P(B) + P(C) = 0,9. Also P(B ∩ C) = 0,9 − P(B ∪ C) ≥ 0,2 > 0.',
+          'Wo liegen B und C, wenn sie A nie treffen?'))
+
+if __name__ == '__main__':
+    stufen('stochastik.verknuepft', ST)

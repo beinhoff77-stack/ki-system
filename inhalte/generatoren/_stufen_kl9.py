@@ -96,8 +96,8 @@ def anwenden(d, st):
         i, g = treffer[0]
         benutzt[i] += 1
         a['_g'] = g
-    for i, r in enumerate(st.regeln):
-        assert benutzt[i], f'Regel ohne Treffer: {r}'
+    ungenutzt = [r for i, r in enumerate(st.regeln) if not benutzt[i]]
+    assert not ungenutzt, 'Regeln ohne Treffer:\n' + '\n'.join(map(str, ungenutzt))
     # überzählig bestimmen: je Lernkarte, Stufe, Typ, Satzbau höchstens 2; Stufe 3 je Typ höchstens 3
     for lz in lzs:
         gruppen, je_typ3 = collections.Counter(), collections.Counter()

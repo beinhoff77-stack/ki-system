@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 14:40 – STATUS
+stochastik.verknuepft fertig: 28 neue Übungen, 12 Knobel-Bordkarten, 17 überzählig (ohne Typ). inhalt_pruefen OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
+
 ## 2026-11-17 14:37 – STATUS
 gleichungen.lgs3 fertig: 42 neue Übungen, 11 Knobel-Bordkarten (stufenform nur eine: Stufenform ist reines Rückwärtseinsetzen, eine zweite Idee wäre nur eine Wiederholung), 21 überzählig (ohne Typ). inhalt_pruefen OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
 

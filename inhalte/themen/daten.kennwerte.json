@@ -465,10 +465,10 @@
     "mittelwert",
     "mittel_tabelle",
     "mittel_rueckwaerts",
-    "modal_spannweite",
     "verstehen"
    ],
    "lernziele_vertiefung": [
+    "modal_spannweite",
     "median"
    ],
    "testaufgaben_je_lernziel": 1

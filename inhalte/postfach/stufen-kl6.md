@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 16:05 – STATUS
+**bruch.dezimal** fertig: 14 umgestuft, 50 neue Übungen, 16 Knobel-Bordkarten, 54 überzählige. Prüfskript OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
+
 ## 2026-11-17 15:30 – STATUS
 **bruch.brueche** fertig: jede Übung hat ihren Typ g (13 umgestuft), 55 neue Übungen, 20 Knobel-Bordkarten, 50 überzählige (ohne g, Liste im Abschlussbericht).
 Prüfskript OK, 0 Gruppen „gleich gebaut hintereinander“; Nachweis OK (alte Aufgaben nur g/s geändert; Prüfung ohne die überzähligen OK).

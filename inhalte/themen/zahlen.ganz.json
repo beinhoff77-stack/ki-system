@@ -29,14 +29,17 @@
    {
     "titel": "Addieren und Subtrahieren",
     "lernziele": [
+     "schriftlich_plus_minus",
      "addieren",
-     "subtrahieren"
+     "subtrahieren",
+     "umkehraufgabe"
     ]
    },
    {
     "titel": "Alles zusammen",
     "lernziele": [
      "ketten",
+     "verstehen",
      "sach"
     ]
    }
@@ -296,6 +299,275 @@
     }
    },
    {
+    "lernziel": "schriftlich_plus_minus",
+    "titel": "Schriftlich addieren und subtrahieren",
+    "einstieg": "Ein Flughafen zählt im Januar 1 286 450 Fluggäste und im Februar 947 380. Wie viele sind das zusammen? So große Zahlen rechnest du ⟦schriftlich⟧.",
+    "woerter": [
+     [
+      "schriftlich",
+      "mit dem Stift untereinander rechnen, Stelle für Stelle von rechts"
+     ],
+     [
+      "Übertrag",
+      "ergibt eine Stelle 10 oder mehr, wandert 1 in die nächste Stelle"
+     ],
+     [
+      "Überschlag",
+      "mit gerundeten Zahlen grob rechnen, um das Ergebnis zu prüfen"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "M",
+      "HT",
+      "ZT",
+      "T",
+      "H",
+      "Z",
+      "E"
+     ],
+     "zeilen": [
+      [
+       "Jan",
+       "1",
+       "2",
+       "8",
+       "6",
+       "4",
+       "5",
+       "0"
+      ],
+      [
+       "+ Feb",
+       "",
+       "9",
+       "4",
+       "7",
+       "3",
+       "8",
+       "0"
+      ],
+      [
+       "Übertrag",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "=",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Schreibe die Zahlen untereinander: Einer unter Einer, Zehner unter Zehner."
+     },
+     {
+      "text": "Zehner: 5 + 8 = 13. Schreibe 3, die 1 ist der ⟦Übertrag⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "Jan",
+         "1",
+         "2",
+         "8",
+         "6",
+         "4",
+         "5",
+         "0"
+        ],
+        [
+         "+ Feb",
+         "",
+         "9",
+         "4",
+         "7",
+         "3",
+         "8",
+         "0"
+        ],
+        [
+         "Übertrag",
+         "",
+         "",
+         "",
+         "",
+         "1",
+         "",
+         ""
+        ],
+        [
+         "=",
+         "",
+         "",
+         "",
+         "",
+         "",
+         "3",
+         "0"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Hunderter: 4 + 3 + 1 = 8. So geht es Stelle für Stelle weiter.",
+      "bild": {
+       "zeilen": [
+        [
+         "Jan",
+         "1",
+         "2",
+         "8",
+         "6",
+         "4",
+         "5",
+         "0"
+        ],
+        [
+         "+ Feb",
+         "",
+         "9",
+         "4",
+         "7",
+         "3",
+         "8",
+         "0"
+        ],
+        [
+         "Übertrag",
+         "",
+         "",
+         "",
+         "",
+         "1",
+         "",
+         ""
+        ],
+        [
+         "=",
+         "",
+         "",
+         "",
+         "",
+         "8",
+         "3",
+         "0"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Zusammen sind es ⟦2 233 830⟧ Fluggäste.",
+      "bild": {
+       "zeilen": [
+        [
+         "Jan",
+         "1",
+         "2",
+         "8",
+         "6",
+         "4",
+         "5",
+         "0"
+        ],
+        [
+         "+ Feb",
+         "",
+         "9",
+         "4",
+         "7",
+         "3",
+         "8",
+         "0"
+        ],
+        [
+         "Übertrag",
+         "1",
+         "1",
+         "1",
+         "",
+         "1",
+         "",
+         ""
+        ],
+        [
+         "=",
+         "2",
+         "2",
+         "3",
+         "3",
+         "8",
+         "3",
+         "0"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Überschlag: 1 300 000 + 900 000 = 2 200 000. Das passt."
+     }
+    ],
+    "fehler": "Den Übertrag vergessen ergibt 1 123 730 Fluggäste. Der Überschlag sagt etwa 2 200 000. Da fehlt eine ganze Million.",
+    "fehler_bild": {
+     "zeilen": [
+      [
+       "Jan",
+       "1",
+       "2",
+       "8",
+       "6",
+       "4",
+       "5",
+       "0"
+      ],
+      [
+       "+ Feb",
+       "",
+       "9",
+       "4",
+       "7",
+       "3",
+       "8",
+       "0"
+      ],
+      [
+       "Übertrag",
+       "",
+       "",
+       "",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "falsch",
+       "1",
+       "1",
+       "2",
+       "3",
+       "7",
+       "3",
+       "0"
+      ]
+     ]
+    },
+    "regel": "Stelle für Stelle von rechts rechnen, den ⟦Übertrag⟧ mitnehmen. Beim Minus tauschst du notfalls 1 der nächsten Stelle gegen 10. Prüfe mit einem Überschlag."
+   },
+   {
     "lernziel": "addieren",
     "titel": "Ganze Zahlen addieren",
     "regel": "Plus heißt auf der Zahlengeraden ⟦nach rechts⟧. Plus eine negative Zahl heißt nach links: (−3) + (−5) = −8.",
@@ -493,6 +765,112 @@
     }
    },
    {
+    "lernziel": "umkehraufgabe",
+    "titel": "Gleichungen mit Umkehraufgaben lösen",
+    "einstieg": "Bis mittags wurde es 7 Grad wärmer, jetzt sind es 3 °C. Wie kalt war es morgens? Die unbekannte Temperatur heißt x, die Rechnung ist eine ⟦Gleichung⟧.",
+    "woerter": [
+     [
+      "Gleichung",
+      "zwei Seiten mit Gleichheitszeichen, eine Zahl ist noch unbekannt"
+     ],
+     [
+      "x",
+      "steht für die gesuchte Zahl, wie ein leeres Kästchen"
+     ],
+     [
+      "Umkehraufgabe",
+      "die Rechnung rückwärts: aus plus wird minus, aus minus wird plus"
+     ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": -10,
+     "ende": 10,
+     "abschnitte": 20,
+     "beschriftet": "anfang_ende"
+    },
+    "schritte": [
+     {
+      "text": "Gleichung: x + 7 = 3. Gesucht ist der Startwert x.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 3,
+         "name": "mittags"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Umkehraufgabe: Von 3 aus gehst du 7 Schritte zurück nach links.",
+      "bild": {
+       "boegen": [
+        {
+         "von": 3,
+         "bis": -4,
+         "name": "−7"
+        }
+       ]
+      }
+     },
+     {
+      "text": "x = 3 − 7 = ⟦−4⟧. Morgens waren es −4 °C.",
+      "bild": {
+       "boegen": [
+        {
+         "von": 3,
+         "bis": -4,
+         "name": "−7"
+        }
+       ],
+       "punkte": [
+        {
+         "wert": -4,
+         "name": "morgens"
+        },
+        {
+         "wert": 3,
+         "name": "mittags"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Probe: (−4) + 7 = 3. Die Gleichung stimmt.",
+      "bild": {
+       "boegen": [
+        {
+         "von": -4,
+         "bis": 3,
+         "name": "+7"
+        }
+       ]
+      }
+     }
+    ],
+    "fehler": "x = 3 + 7 = 10 ist falsch. Dann wäre es morgens wärmer gewesen als mittags. Rückwärts musst du plus in minus umkehren.",
+    "fehler_bild": {
+     "boegen": [
+      {
+       "von": 3,
+       "bis": 10,
+       "name": "falsche Richtung"
+      }
+     ],
+     "punkte": [
+      {
+       "wert": 3,
+       "name": "mittags"
+      },
+      {
+       "wert": 10,
+       "name": "falsch"
+      }
+     ]
+    },
+    "regel": "Rechne rückwärts mit der ⟦Umkehraufgabe⟧. Aus + 7 wird − 7, aus − 7 wird + 7. Mach immer die Probe."
+   },
+   {
     "lernziel": "ketten",
     "titel": "Mehrere Zahlen hintereinander",
     "regel": "Erst ⟦jede Klammer auflösen⟧, dann rechnen. Plus-Zahlen und Minus-Zahlen getrennt sammeln und voneinander abziehen.",
@@ -558,6 +936,89 @@
      "abschnitte": 20,
      "beschriftet": "anfang_ende"
     }
+   },
+   {
+    "lernziel": "verstehen",
+    "titel": "Stimmt das? Mit Gegenbeispiel prüfen",
+    "einstieg": "Jemand behauptet: Von zwei Zahlen ist die mit dem größeren Betrag größer. Bei 5 und 3 stimmt das. Ein Fall, in dem es nicht stimmt, heißt ⟦Gegenbeispiel⟧.",
+    "woerter": [
+     [
+      "Aussage",
+      "ein Satz, der entweder stimmt oder nicht stimmt"
+     ],
+     [
+      "Gegenbeispiel",
+      "ein Beispiel, bei dem die Aussage nicht stimmt"
+     ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": -10,
+     "ende": 10,
+     "abschnitte": 20,
+     "beschriftet": "anfang_ende"
+    },
+    "schritte": [
+     {
+      "text": "Aussage: Die Zahl mit dem größeren Betrag ist die größere."
+     },
+     {
+      "text": "Probiere −8 und 3: |−8| = 8 ist größer als |3| = 3.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": -8,
+         "name": "−8"
+        },
+        {
+         "wert": 3,
+         "name": "3"
+        }
+       ],
+       "boegen": [
+        {
+         "von": 0,
+         "bis": -8,
+         "name": "8"
+        },
+        {
+         "von": 0,
+         "bis": 3,
+         "name": "3"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Aber −8 liegt links von 3. Also ist ⟦−8 < 3⟧.",
+      "bild": {
+       "boegen": [],
+       "bereich": {
+        "von": -8,
+        "bis": 3
+       }
+      }
+     },
+     {
+      "text": "Ein Gegenbeispiel genügt: Die Aussage ist ⟦falsch⟧."
+     }
+    ],
+    "fehler": "Bei 5 und 3 stimmt die Aussage zufällig. Ein passendes Beispiel beweist nicht, dass sie immer stimmt.",
+    "fehler_bild": {
+     "punkte": [
+      {
+       "wert": 3,
+       "name": "3"
+      },
+      {
+       "wert": 5,
+       "name": "5"
+      }
+     ],
+     "boegen": [],
+     "bereich": []
+    },
+    "regel": "Ein ⟦Gegenbeispiel⟧ genügt, um eine Aussage zu widerlegen. Für „stimmt immer“ reichen Beispiele nicht."
    },
    {
     "lernziel": "sach",
@@ -644,6 +1105,27 @@
      "ketten",
      "sach"
     ]
+   },
+   {
+    "k": "schriftlich",
+    "text": "Schriftlich addieren und subtrahieren mit Überschlag",
+    "lernziele": [
+     "schriftlich_plus_minus"
+    ]
+   },
+   {
+    "k": "gleichungen",
+    "text": "Gleichungen durch Probieren und Umkehraufgaben lösen",
+    "lernziele": [
+     "umkehraufgabe"
+    ]
+   },
+   {
+    "k": "begruenden",
+    "text": "Aussagen prüfen und mit Gegenbeispielen widerlegen",
+    "lernziele": [
+     "verstehen"
+    ]
    }
   ],
   "bewertung": {
@@ -652,9 +1134,12 @@
     "zahlengerade",
     "ordnen",
     "betrag",
+    "schriftlich_plus_minus",
     "addieren",
     "subtrahieren",
+    "umkehraufgabe",
     "ketten",
+    "verstehen",
     "sach"
    ],
    "lernziele_vertiefung": [],
@@ -5510,6 +5995,1526 @@
    "c": "-7 + 12 - 9",
    "w": "Rückwärts: mittags −7 + 12 = 5 °C, morgens 5 − 9 = −4 °C.",
    "h": "Rechne rückwärts: Gefallen wird zu plus, gestiegen wird zu minus."
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne schriftlich: 95 880 + 7 776"
+   },
+   "o": {
+    "wert": 103656
+   },
+   "c": "95880 + 7776",
+   "w": "Stellengerecht untereinander, von rechts mit Übertrag: 95 880 + 7 776 = 103 656. Überschlag: 96 000 + 8 000 = 104 000.",
+   "h": "Einer unter Einer, dann von rechts Stelle für Stelle. Den Übertrag in der nächsten Stelle mitzählen."
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne schriftlich: 102 334 − 77 916"
+   },
+   "o": {
+    "wert": 24418
+   },
+   "c": "102334 - 77916",
+   "w": "Stellengerecht untereinander, von rechts mit Entbündeln: 102 334 − 77 916 = 24 418. Überschlag: 100 000 − 80 000 = 20 000.",
+   "h": "Von rechts rechnen. Reicht eine Ziffer oben nicht, tausche 1 der nächsten Stelle gegen 10."
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne schriftlich: 426 256 − 7 966"
+   },
+   "o": {
+    "wert": 418290
+   },
+   "c": "426256 - 7966",
+   "w": "Stellengerecht untereinander, von rechts mit Entbündeln: 426 256 − 7 966 = 418 290. Überschlag: 430 000 − 10 000 = 420 000.",
+   "h": "Von rechts rechnen. Reicht eine Ziffer oben nicht, tausche 1 der nächsten Stelle gegen 10."
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne schriftlich: 67 087 + 1 464"
+   },
+   "o": {
+    "wert": 68551
+   },
+   "c": "67087 + 1464",
+   "w": "Stellengerecht untereinander, von rechts mit Übertrag: 67 087 + 1 464 = 68 551. Überschlag: 67 000 + 1 000 = 68 000.",
+   "h": "Einer unter Einer, dann von rechts Stelle für Stelle. Den Übertrag in der nächsten Stelle mitzählen."
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Nur ein Ergebnis kann zu 8 214 878 − 5 423 666 gehören. Entscheide mit einem Überschlag."
+   },
+   "a": [
+    "3 791 212",
+    "279 121",
+    "27 912 120",
+    "2 791 212"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Überschlag: 8 200 000 − 5 400 000 = 2 800 000. Nur 2 791 212 liegt in der Nähe. Die anderen sind 10-mal zu klein, 10-mal zu groß oder um eine Million daneben.",
+   "h": "Runde beide Zahlen grob und rechne im Kopf. Welches Ergebnis liegt in der Nähe?"
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Großstadt hat 8 298 952 Einwohner, eine andere 556 785. Wie viele Einwohner hat die größere Stadt mehr?"
+   },
+   "o": {
+    "wert": 7742167
+   },
+   "c": "8298952 - 556785",
+   "w": "Unterschied heißt minus: 8 298 952 − 556 785 = 7 742 167. Überschlag: 8 300 000 − 600 000 = 7 700 000.",
+   "h": "Von rechts rechnen. Reicht eine Ziffer oben nicht, tausche 1 der nächsten Stelle gegen 10."
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne schriftlich: 2 337 767 + 897 120"
+   },
+   "o": {
+    "wert": 3234887
+   },
+   "c": "2337767 + 897120",
+   "w": "Stellengerecht untereinander, von rechts mit Übertrag: 2 337 767 + 897 120 = 3 234 887. Überschlag: 2 300 000 + 900 000 = 3 200 000.",
+   "h": "Einer unter Einer, dann von rechts Stelle für Stelle. Den Übertrag in der nächsten Stelle mitzählen."
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Verein hat für ein Stadion 1 563 337 € gesammelt. Gebraucht werden nur 773 123 €. Wie viel Euro bleiben übrig?"
+   },
+   "o": {
+    "wert": 790214,
+    "einheit": "€"
+   },
+   "c": "1563337 - 773123",
+   "w": "Unterschied heißt minus: 1 563 337 − 773 123 = 790 214. Überschlag: 1 600 000 − 800 000 = 800 000.",
+   "h": "Von rechts rechnen. Reicht eine Ziffer oben nicht, tausche 1 der nächsten Stelle gegen 10."
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne schriftlich: 4 884 196 − 505 117"
+   },
+   "o": {
+    "wert": 4379079
+   },
+   "c": "4884196 - 505117",
+   "w": "Stellengerecht untereinander, von rechts mit Entbündeln: 4 884 196 − 505 117 = 4 379 079. Überschlag: 4 900 000 − 500 000 = 4 400 000.",
+   "h": "Von rechts rechnen. Reicht eine Ziffer oben nicht, tausche 1 der nächsten Stelle gegen 10."
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Großstadt hat 3 219 989 Einwohner, eine andere 1 740 947. Wie viele Einwohner hat die größere Stadt mehr?"
+   },
+   "o": {
+    "wert": 1479042
+   },
+   "c": "3219989 - 1740947",
+   "w": "Unterschied heißt minus: 3 219 989 − 1 740 947 = 1 479 042. Überschlag: 3 200 000 − 1 700 000 = 1 500 000.",
+   "h": "Von rechts rechnen. Reicht eine Ziffer oben nicht, tausche 1 der nächsten Stelle gegen 10."
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet schriftlich 702 315 − 248 607 und erhält 546 312. Was ist passiert?"
+   },
+   "a": [
+    "Nichts, die Rechnung stimmt.",
+    "In manchen Stellen wurde die kleinere von der größeren Ziffer abgezogen. Richtig ist 453 708.",
+    "Es hätte plus gerechnet werden müssen: 950 922.",
+    "Ein Übertrag wurde vergessen. Richtig ist 546 322."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Bei den Einern ist oben 5, unten 7: Hier muss man entbündeln, nicht 7 − 5 rechnen. Richtig: 702 315 − 248 607 = 453 708. Probe: 453 708 + 248 607 = 702 315.",
+   "h": "Mach die Probe mit Plus. Kommt 702 315 heraus?"
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Ziffer fehlt: 3 □75 418 − 1 286 509 = 2 488 909. Welche Ziffer gehört in das Kästchen?",
+    "schablone": "□",
+    "hinweis": "Trage die fehlende Ziffer ein."
+   },
+   "o": {
+    "werte": [
+     7
+    ]
+   },
+   "c": [
+    "(2488909 + 1286509) // 100000 % 10"
+   ],
+   "w": "Umkehraufgabe: 2 488 909 + 1 286 509 = 3 775 418. Die fehlende Ziffer ist 7.",
+   "h": "Rechne rückwärts mit Plus."
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Ziffernkarten 2, 4, 5, 7, 8, 9 legst du zwei dreistellige Zahlen. Jede Karte wird genau einmal benutzt. Wie groß ist der kleinste mögliche Unterschied der beiden Zahlen?"
+   },
+   "o": {
+    "wert": 29
+   },
+   "c": "527 - 498",
+   "w": "Die Hunderter sollen sich nur um 1 unterscheiden, zum Beispiel 5 und 4. Dann muss die größere Zahl hinten möglichst klein, die kleinere möglichst groß sein: 527 − 498 = 29. Kleiner geht es nicht.",
+   "h": "Wähle zwei benachbarte Hunderterziffern. Was legst du dann hinten hin?"
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet schriftlich 851 536 − 297 853 = 646 323. Was ist falsch?"
+   },
+   "a": [
+    "In manchen Stellen wurde „oben minus unten“ einfach umgedreht. Richtig ist 553 683.",
+    "Ein Übertrag wurde vergessen. Richtig ist 646 333.",
+    "Nichts, die Rechnung stimmt.",
+    "Es hätte plus gerechnet werden müssen: 1 149 389."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Wo die obere Ziffer kleiner ist, wurde die kleinere von der größeren abgezogen statt zu entbündeln. Richtig: 851 536 − 297 853 = 553 683. Probe: 553 683 + 297 853 = 851 536.",
+   "h": "Mach die Probe mit Plus: Kommt die obere Zahl heraus?"
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Ziffer ist verdeckt: 6 8□1 160 + 299 530 = 7 160 690. Welche Ziffer gehört in das Kästchen?",
+    "schablone": "□",
+    "hinweis": "Trage die fehlende Ziffer ein."
+   },
+   "o": {
+    "werte": [
+     6
+    ]
+   },
+   "c": [
+    "(7160690 - 299530) // 10000 % 10"
+   ],
+   "w": "Rückwärts mit der Umkehraufgabe: 7 160 690 − 299 530 = 6 861 160. An der verdeckten Stelle steht 6.",
+   "h": "Rechne rückwärts: Ergebnis minus die zweite Zahl."
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet schriftlich 630 421 − 257 926 = 427 505. Was ist falsch?"
+   },
+   "a": [
+    "In manchen Stellen wurde „oben minus unten“ einfach umgedreht. Richtig ist 372 495.",
+    "Nichts, die Rechnung stimmt.",
+    "Es hätte plus gerechnet werden müssen: 888 347.",
+    "Ein Übertrag wurde vergessen. Richtig ist 427 515."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Wo die obere Ziffer kleiner ist, wurde die kleinere von der größeren abgezogen statt zu entbündeln. Richtig: 630 421 − 257 926 = 372 495. Probe: 372 495 + 257 926 = 630 421.",
+   "h": "Mach die Probe mit Plus: Kommt die obere Zahl heraus?"
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Ziffer ist verdeckt: 4 3□5 873 + 262 409 = 4 578 282. Welche Ziffer gehört in das Kästchen?",
+    "schablone": "□",
+    "hinweis": "Trage die fehlende Ziffer ein."
+   },
+   "o": {
+    "werte": [
+     1
+    ]
+   },
+   "c": [
+    "(4578282 - 262409) // 10000 % 10"
+   ],
+   "w": "Rückwärts mit der Umkehraufgabe: 4 578 282 − 262 409 = 4 315 873. An der verdeckten Stelle steht 1.",
+   "h": "Rechne rückwärts: Ergebnis minus die zweite Zahl."
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Ziffer ist verdeckt: 6 76□ 079 + 907 296 = 7 668 375. Welche Ziffer gehört in das Kästchen?",
+    "schablone": "□",
+    "hinweis": "Trage die fehlende Ziffer ein."
+   },
+   "o": {
+    "werte": [
+     1
+    ]
+   },
+   "c": [
+    "(7668375 - 907296) // 1000 % 10"
+   ],
+   "w": "Rückwärts mit der Umkehraufgabe: 7 668 375 − 907 296 = 6 761 079. An der verdeckten Stelle steht 1.",
+   "h": "Rechne rückwärts: Ergebnis minus die zweite Zahl."
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne schriftlich: 2 266 458 − 451 278"
+   },
+   "o": {
+    "wert": 1815180
+   },
+   "c": "2266458 - 451278",
+   "w": "Stellengerecht untereinander, von rechts mit Entbündeln: 2 266 458 − 451 278 = 1 815 180. Überschlag: 2 300 000 − 500 000 = 1 800 000."
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne schriftlich: 6 663 623 + 3 543 096"
+   },
+   "o": {
+    "wert": 10206719
+   },
+   "c": "6663623 + 3543096",
+   "w": "Stellengerecht untereinander, von rechts mit Übertrag: 6 663 623 + 3 543 096 = 10 206 719. Überschlag: 6 700 000 + 3 500 000 = 10 200 000."
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Nur ein Ergebnis kann zu 6 415 736 − 523 113 gehören. Entscheide mit einem Überschlag."
+   },
+   "a": [
+    "5 892 623",
+    "589 262",
+    "58 926 230",
+    "6 892 623"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Überschlag: 6 400 000 − 500 000 = 5 900 000. Nur 5 892 623 liegt in der Nähe. Die anderen sind 10-mal zu klein, 10-mal zu groß oder um eine Million daneben."
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne schriftlich: 8 518 248 − 3 674 059"
+   },
+   "o": {
+    "wert": 4844189
+   },
+   "c": "8518248 - 3674059",
+   "w": "Stellengerecht untereinander, von rechts mit Entbündeln: 8 518 248 − 3 674 059 = 4 844 189. Überschlag: 8 500 000 − 3 700 000 = 4 800 000."
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Nur ein Ergebnis kann zu 8 409 852 − 3 168 733 gehören. Entscheide mit einem Überschlag."
+   },
+   "a": [
+    "6 241 119",
+    "524 111",
+    "52 411 190",
+    "5 241 119"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Überschlag: 8 400 000 − 3 200 000 = 5 200 000. Nur 5 241 119 liegt in der Nähe. Die anderen sind 10-mal zu klein, 10-mal zu groß oder um eine Million daneben."
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Nur ein Ergebnis kann zu 5 886 329 − 3 901 169 gehören. Entscheide mit einem Überschlag."
+   },
+   "a": [
+    "19 851 600",
+    "1 985 160",
+    "198 516",
+    "2 985 160"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Überschlag: 5 900 000 − 3 900 000 = 2 000 000. Nur 1 985 160 liegt in der Nähe. Die anderen sind 10-mal zu klein, 10-mal zu groß oder um eine Million daneben."
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Freizeitpark hatte im Frühjahr 2 673 750 Besucher und im Sommer 461 219. Wie viele Besucher waren es zusammen?"
+   },
+   "o": {
+    "wert": 3134969
+   },
+   "c": "2673750 + 461219",
+   "w": "Zusammen heißt plus: 2 673 750 + 461 219 = 3 134 969. Überschlag: 2 700 000 + 500 000 = 3 200 000."
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Großstadt hat 5 591 436 Einwohner, eine andere 4 432 086. Wie viele Einwohner hat die größere Stadt mehr?"
+   },
+   "o": {
+    "wert": 1159350
+   },
+   "c": "5591436 - 4432086",
+   "w": "Unterschied heißt minus: 5 591 436 − 4 432 086 = 1 159 350. Überschlag: 5 600 000 − 4 400 000 = 1 200 000."
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Bahnstrecke hatte im ersten Halbjahr 7 783 590 Fahrgäste, im zweiten 518 291. Wie viele Fahrgäste waren es im ganzen Jahr?"
+   },
+   "o": {
+    "wert": 8301881
+   },
+   "c": "7783590 + 518291",
+   "w": "Zusammen heißt plus: 7 783 590 + 518 291 = 8 301 881. Überschlag: 7 800 000 + 500 000 = 8 300 000."
+  },
+  {
+   "l": "schriftlich_plus_minus",
+   "t": "schriftlich",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne schriftlich: 5 065 876 + 686 941"
+   },
+   "o": {
+    "wert": 5752817
+   },
+   "c": "5065876 + 686941",
+   "w": "Stellengerecht untereinander, von rechts mit Übertrag: 5 065 876 + 686 941 = 5 752 817. Überschlag: 5 100 000 + 700 000 = 5 800 000."
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung x + 11 = 6. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "(6) - (11)",
+   "w": "Umkehraufgabe von plus 11 ist minus 11: x = 6 − 11 = −5. Probe: (−5) + 11 = 6 ✓",
+   "h": "Kehre plus mit minus um: Rechne das Ergebnis minus die bekannte Zahl."
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung x + 5 = −4. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -9
+   },
+   "c": "(-4) - (5)",
+   "w": "Umkehraufgabe von plus 5 ist minus 5: x = −4 − 5 = −9. Probe: (−9) + 5 = −4 ✓",
+   "h": "Kehre plus mit minus um: Rechne das Ergebnis minus die bekannte Zahl."
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung x + 6 = −6. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -12
+   },
+   "c": "(-6) - (6)",
+   "w": "Umkehraufgabe von plus 6 ist minus 6: x = −6 − 6 = −12. Probe: (−12) + 6 = −6 ✓",
+   "h": "Kehre plus mit minus um: Rechne das Ergebnis minus die bekannte Zahl."
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung x − 15 = −12. Wie groß ist x?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(-12) + (15)",
+   "w": "Umkehraufgabe von minus 15 ist plus 15: x = −12 + 15 = 3. Probe: 3 − 15 = −12 ✓",
+   "h": "Kehre minus mit plus um: Rechne das Ergebnis plus die abgezogene Zahl."
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung 3 + x = −24. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -27
+   },
+   "c": "(-24) - (3)",
+   "w": "Umkehraufgabe von plus 3 ist minus 3: x = −24 − 3 = −27. Probe: 3 + (−27) = −24 ✓",
+   "h": "Kehre plus mit minus um: Rechne das Ergebnis minus die bekannte Zahl."
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung x + (−17) = −2. Wie groß ist x?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "(-2) - (-17)",
+   "w": "Umkehraufgabe von plus (−17) ist minus (−17): x = −2 − (−17) = 15. Probe: 15 + (−17) = −2 ✓",
+   "h": "Kehre plus mit minus um: Rechne das Ergebnis minus die bekannte Zahl."
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung 28 − x = −21. Wie groß ist x?"
+   },
+   "o": {
+    "wert": 49
+   },
+   "c": "(28) - (-21)",
+   "w": "Von 28 wird x abgezogen und es bleibt −21. Also ist x der Unterschied: x = 28 − (−21) = 49. Probe: 28 − 49 = −21 ✓",
+   "h": "Frage: Wie viel muss ich von der ersten Zahl abziehen, damit das Ergebnis herauskommt?"
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung (−33) − x = −25. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -8
+   },
+   "c": "(-33) - (-25)",
+   "w": "Von −33 wird x abgezogen und es bleibt −25. Also ist x der Unterschied: x = −33 − (−25) = −8. Probe: −33 − (−8) = −25 ✓",
+   "h": "Frage: Wie viel muss ich von der ersten Zahl abziehen, damit das Ergebnis herauskommt?"
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Umkehraufgabe löst die Gleichung x − 40 = −23?"
+   },
+   "a": [
+    "x = 40 − (−23)",
+    "x = −23 − 40",
+    "x = −23 + 40"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Umkehraufgabe von minus 40 ist plus 40: x = −23 + 40 = 17. Probe: 17 − 40 = −23 ✓",
+   "h": "Plus kehrt man mit minus um, minus mit plus."
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung x + (−10) = −29. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -19
+   },
+   "c": "(-29) - (-10)",
+   "w": "Umkehraufgabe von plus (−10) ist minus (−10): x = −29 − (−10) = −19. Probe: (−19) + (−10) = −29 ✓",
+   "h": "Kehre plus mit minus um: Rechne das Ergebnis minus die bekannte Zahl."
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung 1 205 340 − x = 386 917. Wie groß ist x?"
+   },
+   "o": {
+    "wert": 818423
+   },
+   "c": "1205340 - 386917",
+   "w": "Von 1 205 340 wird x abgezogen und es bleiben 386 917. Also ist x der Unterschied: 1 205 340 − 386 917 = 818 423. Probe: 1 205 340 − 818 423 = 386 917 ✓",
+   "h": "Was muss man von 1 205 340 abziehen, damit 386 917 übrig bleibt? Rechne schriftlich."
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze die Lücke so, dass die Rechnung stimmt: (□ − 15) + 8 = −3",
+    "schablone": "(□ − 15) + 8 = −3",
+    "hinweis": "Trage die fehlende Zahl ein (mit Minus, falls negativ)."
+   },
+   "o": {
+    "werte": [
+     4
+    ]
+   },
+   "c": [
+    "-3 - 8 + 15"
+   ],
+   "w": "Rückwärts, den letzten Schritt zuerst: −3 − 8 = −11. Dann −11 + 15 = 4. Probe: (4 − 15) + 8 = −11 + 8 = −3 ✓",
+   "h": "Kehre zuerst das „+ 8“ um, danach das „− 15“."
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche ganze Zahl x gilt x + x = x − 5? Probiere aus."
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "-5",
+   "w": "Probieren: x = −5 ergibt links (−5) + (−5) = −10 und rechts (−5) − 5 = −10 ✓. Links steht x zweimal, rechts einmal und dazu „− 5“: Das zweite x muss −5 sein.",
+   "h": "Probiere auch negative Zahlen. Links wird x zweimal genommen, rechts nur einmal."
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Nach einer Abbuchung von 200 € steht ein Konto bei −30 €. Löse x − 200 = −30: Wie hoch war der Kontostand vorher?"
+   },
+   "o": {
+    "wert": 170,
+    "einheit": "€"
+   },
+   "c": "(-30) + 200",
+   "w": "Umkehraufgabe von minus 200 ist plus 200: x = −30 + 200 = 170. Probe: 170 − 200 = −30 ✓",
+   "h": "Kehre minus mit plus um: Die abgebuchten Euro wieder dazu."
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung 184 + x = 72. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -112
+   },
+   "c": "(72) - (184)",
+   "w": "Umkehraufgabe von plus 184 ist minus 184: x = 72 − 184 = −112. Probe: 184 + (−112) = 72 ✓",
+   "h": "Kehre plus mit minus um: Rechne das Ergebnis minus die bekannte Zahl."
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung 181 − x = −33. Wie groß ist x?"
+   },
+   "o": {
+    "wert": 214
+   },
+   "c": "(181) - (-33)",
+   "w": "Von 181 wird x abgezogen und es bleibt −33. Also ist x der Unterschied: x = 181 − (−33) = 214. Probe: 181 − 214 = −33 ✓",
+   "h": "Frage: Wie viel muss ich von der ersten Zahl abziehen, damit das Ergebnis herauskommt?"
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bis zum Abend wurde es um 4 Grad wärmer. Jetzt sind es −8 °C. Löse x + 4 = −8: Wie warm war es morgens?"
+   },
+   "o": {
+    "wert": -12,
+    "einheit": "°C"
+   },
+   "c": "(-8) - 4",
+   "w": "Umkehraufgabe von plus 4 ist minus 4: x = −8 − 4 = −12. Probe: (−12) + 4 = −8 ✓",
+   "h": "Rechne rückwärts: Es war morgens kälter."
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung x − (−93) = −194. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -287
+   },
+   "c": "(-194) + (-93)",
+   "w": "Umkehraufgabe von minus (−93) ist plus (−93): x = −194 + (−93) = −287. Probe: (−287) − (−93) = −194 ✓",
+   "h": "Kehre minus mit plus um: Rechne das Ergebnis plus die abgezogene Zahl."
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Umkehraufgabe löst die Gleichung x − 32 = −33?"
+   },
+   "a": [
+    "x = 32 − (−33)",
+    "x = −33 + 32",
+    "x = −33 − 32"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Umkehraufgabe von minus 32 ist plus 32: x = −33 + 32 = −1. Probe: (−1) − 32 = −33 ✓"
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung 33 − x = −30. Wie groß ist x?"
+   },
+   "o": {
+    "wert": 63
+   },
+   "c": "(33) - (-30)",
+   "w": "Von 33 wird x abgezogen und es bleibt −30. Also ist x der Unterschied: x = 33 − (−30) = 63. Probe: 33 − 63 = −30 ✓"
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung x − (−22) = −45. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -67
+   },
+   "c": "(-45) + (-22)",
+   "w": "Umkehraufgabe von minus (−22) ist plus (−22): x = −45 + (−22) = −67. Probe: (−67) − (−22) = −45 ✓"
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung 28 + x = −55. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -83
+   },
+   "c": "(-55) - (28)",
+   "w": "Umkehraufgabe von plus 28 ist minus 28: x = −55 − 28 = −83. Probe: 28 + (−83) = −55 ✓"
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Umkehraufgabe löst die Gleichung x + 4 = −7?"
+   },
+   "a": [
+    "x = −7 + 4",
+    "x = −7 − 4",
+    "x = 4 − (−7)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Umkehraufgabe von plus 4 ist minus 4: x = −7 − 4 = −11. Probe: (−11) + 4 = −7 ✓"
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Umkehraufgabe löst die Gleichung x + 19 = −9?"
+   },
+   "a": [
+    "x = 19 − (−9)",
+    "x = −9 + 19",
+    "x = −9 − 19"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Umkehraufgabe von plus 19 ist minus 19: x = −9 − 19 = −28. Probe: (−28) + 19 = −9 ✓"
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung x − 57 = −47. Wie groß ist x?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "(-47) + (57)",
+   "w": "Umkehraufgabe von minus 57 ist plus 57: x = −47 + 57 = 10. Probe: 10 − 57 = −47 ✓"
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung x − (−34) = −5. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -39
+   },
+   "c": "(-5) + (-34)",
+   "w": "Umkehraufgabe von minus (−34) ist plus (−34): x = −5 + (−34) = −39. Probe: (−39) − (−34) = −5 ✓"
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung 46 + x = 29. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -17
+   },
+   "c": "(29) - (46)",
+   "w": "Umkehraufgabe von plus 46 ist minus 46: x = 29 − 46 = −17. Probe: 46 + (−17) = 29 ✓"
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Umkehraufgabe löst die Gleichung x − 3 = −25?"
+   },
+   "a": [
+    "x = −25 + 3",
+    "x = 3 − (−25)",
+    "x = −25 − 3"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Umkehraufgabe von minus 3 ist plus 3: x = −25 + 3 = −22. Probe: (−22) − 3 = −25 ✓"
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Aussage: „Subtrahiert man von a die Zahl b, ist das Ergebnis kleiner als a.“ Welches Zahlenpaar ist ein Gegenbeispiel?"
+   },
+   "a": [
+    "a = 1 und b = 13",
+    "a = −19 und b = −6",
+    "a = 19 und b = 10"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Für a = −19 und b = −6 gilt: (−19) − (−6) = −13. Hier stimmt die Aussage nicht. Bei den anderen Paaren stimmt sie.",
+   "h": "Setze jedes Paar ein. Gesucht ist das Paar, bei dem die Aussage nicht stimmt."
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Aussage: „Sind a und b negativ, dann ist auch a − b negativ.“ Stimmt sie für a = −10 und b = −14?"
+   },
+   "a": [
+    "Ja, für dieses Paar stimmt sie.",
+    "Nein, dieses Paar ist ein Gegenbeispiel.",
+    "Das kann man nicht nachprüfen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nachrechnen: (−10) − (−14) = 4. Für dieses Paar stimmt sie nicht – es ist ein Gegenbeispiel.",
+   "h": "Setze die Zahlen ein und rechne nach."
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Aussage: „Von zwei Zahlen a und b ist die mit dem größeren Betrag die größere.“ Welches Zahlenpaar ist ein Gegenbeispiel?"
+   },
+   "a": [
+    "a = 7 und b = −15",
+    "a = 16 und b = 8",
+    "a = −3 und b = 15"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für a = 7 und b = −15 gilt: |7| = 7, |−15| = 15 und 7 > −15. Hier stimmt die Aussage nicht. Bei den anderen Paaren stimmt sie.",
+   "h": "Setze jedes Paar ein. Gesucht ist das Paar, bei dem die Aussage nicht stimmt."
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Aussage: „|a + b| ist so groß wie |a| + |b|.“ Welches Zahlenpaar ist ein Gegenbeispiel?"
+   },
+   "a": [
+    "a = 13 und b = −3",
+    "a = −3 und b = −4",
+    "a = −11 und b = −9"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für a = 13 und b = −3 gilt: |13 + (−3)| = 10, |13| + |−3| = 16. Hier stimmt die Aussage nicht. Bei den anderen Paaren stimmt sie.",
+   "h": "Setze jedes Paar ein. Gesucht ist das Paar, bei dem die Aussage nicht stimmt."
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Aussage: „Ist a positiv und b negativ, dann ist a + b negativ.“ Welches Zahlenpaar ist ein Gegenbeispiel?"
+   },
+   "a": [
+    "a = 18 und b = −14",
+    "a = 10 und b = −19",
+    "a = 3 und b = −15",
+    "a = 12 und b = −14"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für a = 18 und b = −14 gilt: 18 + (−14) = 4. Hier stimmt die Aussage nicht. Bei den anderen Paaren stimmt sie.",
+   "h": "Setze jedes Paar ein. Gesucht ist das Paar, bei dem die Aussage nicht stimmt."
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Aussage: „Sind a und b negativ, dann ist auch a − b negativ.“ Welches Zahlenpaar ist ein Gegenbeispiel?"
+   },
+   "a": [
+    "a = −13 und b = −14",
+    "a = −18 und b = −12",
+    "a = −14 und b = −6",
+    "a = −17 und b = −5"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für a = −13 und b = −14 gilt: (−13) − (−14) = 1. Hier stimmt die Aussage nicht. Bei den anderen Paaren stimmt sie.",
+   "h": "Setze jedes Paar ein. Gesucht ist das Paar, bei dem die Aussage nicht stimmt."
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt diese Aussage immer? „Ist a kleiner als b, dann ist auch |a| kleiner als |b|.“"
+   },
+   "a": [
+    "Ja, sie stimmt immer.",
+    "Nein. Gegenbeispiel: −10 < −1; |−10| = 10 und |−1| = 1.",
+    "Nein, sie stimmt nie."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Für a = −10 und b = −1 gilt −10 < −1; |−10| = 10 und |−1| = 1: Die Aussage ist falsch. Sie stimmt aber manchmal, zum Beispiel für a = 1 und b = 5: 1 < 5; |1| = 1 und |5| = 5.",
+   "h": "Probiere verschiedene Zahlen, auch negative und die 0."
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt diese Aussage immer? „Subtrahiert man von a die Zahl b, ist das Ergebnis kleiner als a.“"
+   },
+   "a": [
+    "Ja, sie stimmt immer.",
+    "Nein, sie stimmt nie.",
+    "Nein. Gegenbeispiel: 14 − (−3) = 17."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Für a = 14 und b = −3 gilt 14 − (−3) = 17: Die Aussage ist falsch. Sie stimmt aber manchmal, zum Beispiel für a = −19 und b = 10: (−19) − 10 = −29.",
+   "h": "Probiere verschiedene Zahlen, auch negative und die 0."
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt diese Aussage immer? „Ist a positiv und b negativ, dann ist a + b negativ.“"
+   },
+   "a": [
+    "Nein. Gegenbeispiel: 20 + (−11) = 9.",
+    "Nein, sie stimmt nie.",
+    "Ja, sie stimmt immer."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für a = 20 und b = −11 gilt 20 + (−11) = 9: Die Aussage ist falsch. Sie stimmt aber manchmal, zum Beispiel für a = 7 und b = −8: 7 + (−8) = −1.",
+   "h": "Probiere verschiedene Zahlen, auch negative und die 0."
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Aussage: „Sind a und b negativ, dann ist auch a − b negativ.“ Welches Zahlenpaar ist ein Gegenbeispiel?"
+   },
+   "a": [
+    "a = −10 und b = −16",
+    "a = −12 und b = −4",
+    "a = −11 und b = −1",
+    "a = −16 und b = −10"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für a = −10 und b = −16 gilt: (−10) − (−16) = 6. Hier stimmt die Aussage nicht. Bei den anderen Paaren stimmt sie.",
+   "h": "Setze jedes Paar ein. Gesucht ist das Paar, bei dem die Aussage nicht stimmt."
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand behauptet: „Die Gegenzahl einer ganzen Zahl ist immer negativ.“ Welches Beispiel widerlegt das?"
+   },
+   "a": [
+    "Die Gegenzahl von 4 ist −4.",
+    "Die Gegenzahl von −4 ist 4.",
+    "Die Gegenzahl von 9 ist −9."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Gegenzahl von −4 ist 4, und 4 ist positiv. Damit ist die Aussage widerlegt. Die anderen Beispiele passen zur Aussage, beweisen aber nichts.",
+   "h": "Suche ein Beispiel, bei dem die Gegenzahl nicht negativ ist."
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „(−9) − (−4) ist negativ, weil die Differenz zweier negativer Zahlen immer negativ ist.“ Was stimmt?"
+   },
+   "a": [
+    "Alles stimmt: Die Differenz zweier negativer Zahlen ist immer negativ.",
+    "Das Ergebnis −5 stimmt, die Begründung nicht: (−4) − (−9) = 5 ist positiv.",
+    "Das Ergebnis ist falsch: (−9) − (−4) = 5."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "(−9) − (−4) = (−9) + 4 = −5, das Ergebnis ist negativ. Die Begründung ist aber falsch: (−4) − (−9) = (−4) + 9 = 5 ist ein Gegenbeispiel.",
+   "h": "Rechne (−9) − (−4) aus. Prüfe dann die Begründung mit vertauschten Zahlen."
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele dieser vier Aussagen stimmen immer? (1) Die Summe zweier negativer Zahlen ist negativ. (2) Die Differenz zweier negativer Zahlen ist negativ. (3) |a + b| ist so groß wie |a| + |b|. (4) Eine Zahl plus ihre Gegenzahl ergibt 0."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "1 + 0 + 0 + 1",
+   "w": "Immer wahr sind (1) und (4). Gegenbeispiele: zu (2) (−3) − (−8) = 5, zu (3) |5 + (−2)| = 3, aber |5| + |−2| = 7. Also stimmen 2 Aussagen immer.",
+   "h": "Suche für jede Aussage ein Gegenbeispiel. Probiere dabei negative Zahlen."
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Nur eine dieser Aussagen stimmt immer. Welche?"
+   },
+   "a": [
+    "Ist a positiv und b negativ, dann ist a + b negativ.",
+    "Sind a und b negativ, dann ist auch a − b negativ.",
+    "Addiert man zu a die Gegenzahl von a, erhält man 0.",
+    "|a + b| ist so groß wie |a| + |b|."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die anderen haben Gegenbeispiele: (−7) − (−17) = 10; 12 + (−3) = 9; |4 + (−15)| = 11, |4| + |−15| = 19.",
+   "h": "Suche für jede Aussage ein Gegenbeispiel. Wo findest du keines?"
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand prüft „Sind a und b negativ, dann ist auch a − b negativ.“ mit a = −10 und b = −4 und sagt: „Passt, also stimmt sie immer.“ Was ist richtig?"
+   },
+   "a": [
+    "Die Aussage stimmt nie.",
+    "Das stimmt, weil (−10) − (−4) = −6.",
+    "Das stimmt. Ein Beispiel genügt als Begründung.",
+    "Ein passendes Beispiel beweist nichts. Gegenbeispiel: (−3) − (−17) = 14."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Für a = −10 und b = −4 passt es: (−10) − (−4) = −6. Aber für a = −3 und b = −17 nicht: (−3) − (−17) = 14. Ein Gegenbeispiel genügt, um die Aussage zu widerlegen.",
+   "h": "Kann ein einziges passendes Beispiel zeigen, dass etwas immer stimmt?"
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand prüft „Ist a kleiner als b, dann ist auch |a| kleiner als |b|.“ mit a = −4 und b = 10 und sagt: „Passt, also stimmt sie immer.“ Was ist richtig?"
+   },
+   "a": [
+    "Das stimmt. Ein Beispiel genügt als Begründung.",
+    "Das stimmt, weil −4 < 10; |−4| = 4 und |10| = 10.",
+    "Die Aussage stimmt nie.",
+    "Ein passendes Beispiel beweist nichts. Gegenbeispiel: −17 < −1; |−17| = 17 und |−1| = 1."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Für a = −4 und b = 10 passt es: −4 < 10; |−4| = 4 und |10| = 10. Aber für a = −17 und b = −1 nicht: −17 < −1; |−17| = 17 und |−1| = 1. Ein Gegenbeispiel genügt, um die Aussage zu widerlegen.",
+   "h": "Kann ein einziges passendes Beispiel zeigen, dass etwas immer stimmt?"
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Nur eine dieser Aussagen stimmt immer. Welche?"
+   },
+   "a": [
+    "Von zwei Zahlen a und b ist die mit dem größeren Betrag die größere.",
+    "Sind a und b negativ, dann ist auch a + b negativ.",
+    "Die Summe a + b ist größer als a und auch größer als b.",
+    "|a + b| ist so groß wie |a| + |b|."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die anderen haben Gegenbeispiele: |−6| = 6, |2| = 2 und 2 > −6; |(−14) + 6| = 8, |−14| + |6| = 20; (−11) + (−16) = −27.",
+   "h": "Suche für jede Aussage ein Gegenbeispiel. Wo findest du keines?"
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Nur eine dieser Aussagen stimmt immer. Welche?"
+   },
+   "a": [
+    "Subtrahiert man von a die Zahl b, ist das Ergebnis kleiner als a.",
+    "Sind a und b negativ, dann ist auch a + b negativ.",
+    "Ist a kleiner als b, dann ist auch |a| kleiner als |b|.",
+    "Ist a positiv und b negativ, dann ist a + b negativ."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die anderen haben Gegenbeispiele: 6 − (−7) = 13; −16 < 13; |−16| = 16 und |13| = 13; 20 + (−4) = 16.",
+   "h": "Suche für jede Aussage ein Gegenbeispiel. Wo findest du keines?"
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt diese Aussage immer? „Sind a und b negativ, dann ist auch a − b negativ.“"
+   },
+   "a": [
+    "Ja, sie stimmt immer.",
+    "Nein, sie stimmt nie.",
+    "Nein. Gegenbeispiel: (−7) − (−14) = 7."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Für a = −7 und b = −14 gilt (−7) − (−14) = 7: Die Aussage ist falsch. Sie stimmt aber manchmal, zum Beispiel für a = −13 und b = −1: (−13) − (−1) = −12."
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt diese Aussage immer? „Ist a kleiner als b, dann ist auch |a| kleiner als |b|.“"
+   },
+   "a": [
+    "Nein. Gegenbeispiel: −10 < 4; |−10| = 10 und |4| = 4.",
+    "Nein, sie stimmt nie.",
+    "Ja, sie stimmt immer."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für a = −10 und b = 4 gilt −10 < 4; |−10| = 10 und |4| = 4: Die Aussage ist falsch. Sie stimmt aber manchmal, zum Beispiel für a = −8 und b = 10: −8 < 10; |−8| = 8 und |10| = 10."
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Aussage: „Ist a kleiner als b, dann ist auch |a| kleiner als |b|.“ Welches Zahlenpaar ist ein Gegenbeispiel?"
+   },
+   "a": [
+    "a = −5 und b = 11",
+    "a = −11 und b = 20",
+    "a = −18 und b = 5",
+    "a = −4 und b = 11"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Für a = −18 und b = 5 gilt: −18 < 5; |−18| = 18 und |5| = 5. Hier stimmt die Aussage nicht. Bei den anderen Paaren stimmt sie."
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt diese Aussage immer? „Addiert man zu a die Gegenzahl von a, erhält man 0.“"
+   },
+   "a": [
+    "Ja, sie stimmt immer.",
+    "Nein. Gegenbeispiel: 1 + (−1) = 0.",
+    "Nein, sie stimmt nie."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Aussage stimmt immer, ein Gegenbeispiel gibt es nicht. Beispiel: 1 + (−1) = 0. Das bestätigt sie, ist also kein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Aussage: „Subtrahiert man von a die Zahl b, ist das Ergebnis kleiner als a.“ Welches Zahlenpaar ist ein Gegenbeispiel?"
+   },
+   "a": [
+    "a = −17 und b = 4",
+    "a = 5 und b = 14",
+    "a = 14 und b = 13",
+    "a = 13 und b = −3"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Für a = 13 und b = −3 gilt: 13 − (−3) = 16. Hier stimmt die Aussage nicht. Bei den anderen Paaren stimmt sie."
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt diese Aussage immer? „Subtrahiert man von a die Zahl b, ist das Ergebnis kleiner als a.“"
+   },
+   "a": [
+    "Nein. Gegenbeispiel: (−19) − (−15) = −4.",
+    "Ja, sie stimmt immer.",
+    "Nein, sie stimmt nie."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für a = −19 und b = −15 gilt (−19) − (−15) = −4: Die Aussage ist falsch. Sie stimmt aber manchmal, zum Beispiel für a = 17 und b = 3: 17 − 3 = 14."
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt diese Aussage immer? „Von zwei Zahlen a und b ist die mit dem größeren Betrag die größere.“"
+   },
+   "a": [
+    "Nein, sie stimmt nie.",
+    "Nein. Gegenbeispiel: |−9| = 9, |−20| = 20 und −9 > −20.",
+    "Ja, sie stimmt immer."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Für a = −9 und b = −20 gilt |−9| = 9, |−20| = 20 und −9 > −20: Die Aussage ist falsch. Sie stimmt aber manchmal, zum Beispiel für a = 20 und b = −15: |20| = 20, |−15| = 15 und 20 > −15."
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt diese Aussage immer? „Sind a und b negativ, dann ist auch a + b negativ.“"
+   },
+   "a": [
+    "Ja, sie stimmt immer.",
+    "Nein. Gegenbeispiel: (−16) + (−9) = −25.",
+    "Nein, sie stimmt nie."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Aussage stimmt immer, ein Gegenbeispiel gibt es nicht. Beispiel: (−16) + (−9) = −25. Das bestätigt sie, ist also kein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt diese Aussage immer? „Die Summe a + b ist größer als a und auch größer als b.“"
+   },
+   "a": [
+    "Nein, sie stimmt nie.",
+    "Nein. Gegenbeispiel: (−4) + (−6) = −10.",
+    "Ja, sie stimmt immer."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Für a = −4 und b = −6 gilt (−4) + (−6) = −10: Die Aussage ist falsch. Sie stimmt aber manchmal, zum Beispiel für a = 9 und b = 17: 9 + 17 = 26."
+  },
+  {
+   "l": "verstehen",
+   "t": "begruenden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt diese Aussage immer? „|a + b| ist so groß wie |a| + |b|.“"
+   },
+   "a": [
+    "Nein. Gegenbeispiel: |(−1) + 12| = 11, |−1| + |12| = 13.",
+    "Ja, sie stimmt immer.",
+    "Nein, sie stimmt nie."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für a = −1 und b = 12 gilt |(−1) + 12| = 11, |−1| + |12| = 13: Die Aussage ist falsch. Sie stimmt aber manchmal, zum Beispiel für a = 1 und b = 11: |1 + 11| = 12, |1| + |11| = 12."
   }
  ]
 }

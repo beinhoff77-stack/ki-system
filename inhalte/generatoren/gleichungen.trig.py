@@ -697,3 +697,44 @@ if __name__ == '__main__':
                  'Lösungsbereich durchgängig 0° ≤ x < 360°; Bogenmaß ist nicht enthalten (gehört nicht zur 9. Klasse).'])
     anhaengen(d, 9913, schwer)
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+
+
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl9) ----
+from _durchsicht_kl9 import Befunde as _DSB, durchsicht  # noqa: E402
+
+DS = _DSB('gleichungen.trig', 19_9_13)
+# sinus: negative Werte brauchen den Schritt über 180° (Stufe 2); dieselbe Aufgabe stand auf Stufe 1 und 3
+DS.stufe('sinus', 'Löse sin x = −0,5 im Bereich 0° ≤ x < 360°.', 2)
+DS.stufe('sinus', 'Löse sin x = −0,9 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.', 2)
+# kosinus: kleinere Lösung runden ist Stufe 2; neue Stufe-3-Aufgabe verbindet cos und sin
+DS.stufe('kosinus', 'Löse cos x = −0,05 im Bereich 0° ≤ x < 360°. Gib die kleinere Lösung auf eine Nachkommastelle an.', 2)
+DS.neu('kosinus', 3, DS.L('Für welche x im Bereich 0° ≤ x < 360° gilt cos x = sin 30°? Ohne Taschenrechner.', 'x₁ = □°; x₂ = □°', [60, 300], ['60', '300'],
+                          'sin 30° = 0,5. cos x = 0,5 gilt für x = 60° und x = 360° − 60° = 300°.', 'Rechne zuerst sin 30° aus.'))
+# tangens: ein Winkel aus tan⁻¹ ist Stufe 1, die zweite Lösung bei negativem v wie Stufe 2
+for _t in ('Eine Rampe steigt auf 8 m waagrechter Länge um 0,5 m. Unter welchem Winkel steigt sie? Runde auf eine Nachkommastelle.',
+           'Ein Weg hat 22 % Steigung. Wie groß ist der Steigungswinkel? Runde auf eine Nachkommastelle.',
+           'Ein Weg hat 18 % Steigung. Wie groß ist der Steigungswinkel? Runde auf eine Nachkommastelle.'):
+    DS.stufe('tangens', _t, 1)
+for _t in ('Löse tan x = −1,82 im Bereich 0° ≤ x < 360°. Gib die kleinere Lösung auf eine Nachkommastelle an.',
+           'Löse tan x = −1,12 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an.',
+           'Löse tan x = −0,35 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an.'):
+    DS.stufe('tangens', _t, 2)
+# umformen: a sin x + b = c und sin x auf beiden Seiten sind Stufe 2
+for _t in ('Löse 6 · sin x + 1 = 4 im Bereich 0° ≤ x < 360°.', 'Löse 3 sin x − 3 = sin x − 2 im Bereich 0° ≤ x < 360°.',
+           'Löse 5 sin x − 2 = 3 sin x − 3 im Bereich 0° ≤ x < 360°.', 'Löse 3 · cos x + 2 = cos x + 1 im Bereich 0° ≤ x < 360°.'):
+    DS.stufe('umformen', _t, 2)
+# anwendung: je eine Hafen-Aufgabe auf Stufe 2; Sinussatz und Flächenformel kommen erst in trigo.allgemein (Reihenfolge 14)
+DS.stufe('anwendung', 'Die Wassertiefe in einem Hafen ist t(x) = 8 + 4 · sin x (in m; x in Grad, 360° entsprechen einem Tag). Für welche x im Bereich 0° ≤ x < 360° ist das Wasser 10 m tief?', 2)
+DS.stufe('anwendung', 'Die Wassertiefe in einem Hafen ist t(x) = 4 + 2 · sin x (in m; x in Grad, 360° entsprechen einem Tag). Für welche x im Bereich 0° ≤ x < 360° ist das Wasser 5 m tief?', 2)
+DS.ersetze('anwendung', 'Im Dreieck ABC ist a = 9 cm, b = 12 cm und α = 40°. Der Winkel β ist stumpf. Berechne β (auf eine Nachkommastelle).',
+           DS.Z('In einem Dreieck ist α = 25° und sin β = 0,9. Der Winkel β ist stumpf. Wie groß ist γ? Runde auf eine Nachkommastelle.', 39.2, '180 - 25 - (180 - 64.158482002216)',
+                'sin⁻¹(0,9) ≈ 64,2°. Stumpf: β = 180° − 64,2° ≈ 115,8°. γ = 180° − 25° − 115,8° ≈ 39,2°.',
+                'Erst den stumpfen Winkel β bestimmen, dann die Winkelsumme.', einheit='°', toleranz=0.1))
+DS.ersetze('anwendung', 'Ein Dreieck hat die Seiten a = 5 cm und b = 8 cm und den Flächeninhalt 10 cm². Der Winkel γ zwischen a und b ist stumpf. Wie groß ist γ?',
+           DS.Z('Ein Dreieck hat die Seiten a = 5 cm und b = 8 cm und den Flächeninhalt A = 1/2 · a · b · sin γ = 10 cm². Der Winkel γ zwischen a und b ist stumpf. Wie groß ist γ?', 150, '180 - 30',
+                '1/2 · 5 · 8 · sin γ = 10 ⇒ sin γ = 0,5 ⇒ γ = 30° oder 150°. Stumpf: γ = 150°.',
+                'Setze die Zahlen in die Formel ein und löse nach sin γ auf.', einheit='°'))
+DS.fuer_sebastian('gleichungen.trig (Reihenfolge 13) steht vor trigo.allgemein (14). Der Einheitskreis, sin(180° − α) und die Flächenformel werden aber erst dort erklärt. Vorschlag: Reihenfolge tauschen.')
+
+if __name__ == '__main__':
+    durchsicht('gleichungen.trig', DS)

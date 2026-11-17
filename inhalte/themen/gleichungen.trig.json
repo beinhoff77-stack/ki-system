@@ -625,7 +625,7 @@
    "l": "sinus",
    "t": "sinus",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse sin x = −0,5 im Bereich 0° ≤ x < 360°.",
@@ -880,7 +880,7 @@
    "l": "sinus",
    "t": "sinus",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse sin x = −0,9 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
@@ -1503,7 +1503,7 @@
    "l": "kosinus",
    "t": "kosinus",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse cos x = −0,05 im Bereich 0° ≤ x < 360°. Gib die kleinere Lösung auf eine Nachkommastelle an."
@@ -1955,7 +1955,7 @@
    "l": "tangens",
    "t": "tangens",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Eine Rampe steigt auf 8 m waagrechter Länge um 0,5 m. Unter welchem Winkel steigt sie? Runde auf eine Nachkommastelle."
@@ -1973,7 +1973,7 @@
    "l": "tangens",
    "t": "tangens",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse tan x = −1,82 im Bereich 0° ≤ x < 360°. Gib die kleinere Lösung auf eine Nachkommastelle an."
@@ -1991,7 +1991,7 @@
    "l": "tangens",
    "t": "tangens",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse tan x = −1,12 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an."
@@ -2009,7 +2009,7 @@
    "l": "tangens",
    "t": "tangens",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Weg hat 22 % Steigung. Wie groß ist der Steigungswinkel? Runde auf eine Nachkommastelle."
@@ -2027,7 +2027,7 @@
    "l": "tangens",
    "t": "tangens",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse tan x = −0,35 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an."
@@ -2045,7 +2045,7 @@
    "l": "tangens",
    "t": "tangens",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Weg hat 18 % Steigung. Wie groß ist der Steigungswinkel? Runde auf eine Nachkommastelle."
@@ -3205,7 +3205,7 @@
    "l": "umformen",
    "t": "umformen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse 3 sin x − 3 = sin x − 2 im Bereich 0° ≤ x < 360°.",
@@ -3309,7 +3309,7 @@
    "l": "umformen",
    "t": "umformen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse 5 sin x − 2 = 3 sin x − 3 im Bereich 0° ≤ x < 360°.",
@@ -3845,7 +3845,7 @@
    "l": "anwendung",
    "t": "anwendung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Die Wassertiefe in einem Hafen ist t(x) = 8 + 4 · sin x (in m; x in Grad, 360° entsprechen einem Tag). Für welche x im Bereich 0° ≤ x < 360° ist das Wasser 10 m tief?",
@@ -3929,7 +3929,7 @@
    "l": "anwendung",
    "t": "anwendung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Die Wassertiefe in einem Hafen ist t(x) = 4 + 2 · sin x (in m; x in Grad, 360° entsprechen einem Tag). Für welche x im Bereich 0° ≤ x < 360° ist das Wasser 5 m tief?",
@@ -4401,6 +4401,30 @@
    "h": "Kosinus: an der x-Achse spiegeln."
   },
   {
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Für welche x im Bereich 0° ≤ x < 360° gilt cos x = sin 30°? Ohne Taschenrechner.",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     60,
+     300
+    ]
+   },
+   "c": [
+    "60",
+    "300"
+   ],
+   "w": "sin 30° = 0,5. cos x = 0,5 gilt für x = 60° und x = 360° − 60° = 300°.",
+   "h": "Rechne zuerst sin 30° aus."
+  },
+  {
    "l": "tangens",
    "t": "tangens",
    "p": "uebung",
@@ -4638,7 +4662,7 @@
    "l": "umformen",
    "t": "umformen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse 6 · sin x + 1 = 4 im Bereich 0° ≤ x < 360°.",
@@ -4662,7 +4686,7 @@
    "l": "umformen",
    "t": "umformen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse 3 · cos x + 2 = cos x + 1 im Bereich 0° ≤ x < 360°.",
@@ -4808,7 +4832,7 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat die Seiten a = 5 cm und b = 8 cm und den Flächeninhalt 10 cm². Der Winkel γ zwischen a und b ist stumpf. Wie groß ist γ?"
+    "text": "Ein Dreieck hat die Seiten a = 5 cm und b = 8 cm und den Flächeninhalt A = 1/2 · a · b · sin γ = 10 cm². Der Winkel γ zwischen a und b ist stumpf. Wie groß ist γ?"
    },
    "o": {
     "wert": 150,
@@ -4816,7 +4840,7 @@
    },
    "c": "180 - 30",
    "w": "1/2 · 5 · 8 · sin γ = 10 ⇒ sin γ = 0,5 ⇒ γ = 30° oder 150°. Stumpf: γ = 150°.",
-   "h": "Flächenformel, dann beide Lösungen bedenken."
+   "h": "Setze die Zahlen in die Formel ein und löse nach sin γ auf."
   },
   {
    "l": "anwendung",
@@ -4842,16 +4866,16 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 9 cm, b = 12 cm und α = 40°. Der Winkel β ist stumpf. Berechne β (auf eine Nachkommastelle)."
+    "text": "In einem Dreieck ist α = 25° und sin β = 0,9. Der Winkel β ist stumpf. Wie groß ist γ? Runde auf eine Nachkommastelle."
    },
    "o": {
-    "wert": 121,
+    "wert": 39.2,
     "einheit": "°",
     "toleranz": 0.1
    },
-   "c": "round(121.013030465184, 1)",
-   "w": "sin β = 12 · sin 40° : 9 ≈ 0,857 ⇒ 59,0° oder 180° − 59,0° = 121,0°. Stumpf: β ≈ 121,0° (40° + 121° < 180° passt).",
-   "h": "Der Taschenrechner liefert nur den spitzen Winkel. Rechne 180° minus."
+   "c": "round(180 - 25 - (180 - 64.158482002216), 1)",
+   "w": "sin⁻¹(0,9) ≈ 64,2°. Stumpf: β = 180° − 64,2° ≈ 115,8°. γ = 180° − 25° − 115,8° ≈ 39,2°.",
+   "h": "Erst den stumpfen Winkel β bestimmen, dann die Winkelsumme."
   },
   {
    "l": "anwendung",

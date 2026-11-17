@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 13:34 – STATUS
+gleichungen.trig fertig: 15 umgestuft, 2 ersetzt (anwendung: Sinussatz und Flächenformel ohne Erklärung – kommen erst in trigo.allgemein), 1 neu (kosinus S3). Keine Karte geändert. Für Sebastian: Reihenfolge 13/14 tauschen. inhalt_pruefen OK, Nachweis OK.
+
 ## 2026-11-17 13:33 – STATUS
 trigo.rechtwinklig fertig: 17 umgestuft, 4 neu (seite S3: Fläche, Mindestlänge; winkel S3: Diagonalen, Basiswinkel). Karte beziehungen: Schritt 5 und Regel ergänzt (sin α = cos(90° − α), das die Aufgaben schon nutzten). inhalt_pruefen OK, Nachweis OK.
 

@@ -17,7 +17,8 @@
    {
     "titel": "Indirekte Proportionalität",
     "lernziele": [
-     "indirekt"
+     "indirekt",
+     "indirekt_sach"
     ]
    },
    {
@@ -134,6 +135,101 @@
       }
      ]
     }
+   },
+   {
+    "lernziel": "indirekt_sach",
+    "titel": "Sachaufgaben: umgekehrter Dreisatz",
+    "einstieg": "Ein Reisebus für die Klassenfahrt kostet zusammen 960 €. Fahren 24 Kinder mit, zahlt jedes 40 €. Fahren mehr mit, zahlt jedes weniger. Die Rechnung dafür heißt ⟦umgekehrter Dreisatz⟧.",
+    "woerter": [
+     [
+      "umgekehrter Dreisatz",
+      "Dreisatz über die 1, bei dem man erst malnimmt und dann teilt"
+     ],
+     [
+      "Gesamtpreis",
+      "was alle zusammen zahlen; er bleibt gleich, egal wie viele mitfahren"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Kinder",
+      "24",
+      "1",
+      "30"
+     ],
+     "zeilen": [
+      [
+       "€ je Kind",
+       "40",
+       "?",
+       "?"
+      ]
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Das Produkt bleibt gleich: 24 · 40 € = 960 € Gesamtpreis.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Kinder",
+        "24",
+        "1",
+        "30"
+       ],
+       "zeilen": [
+        [
+         "€ je Kind",
+         "40",
+         "960",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Ein Kind allein müsste alles zahlen: 960 €. Hier wird mal 24 gerechnet."
+     },
+     {
+      "text": "Bei 30 Kindern teilen sich alle die 960 €: je ⟦32 €⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Kinder",
+        "24",
+        "1",
+        "30"
+       ],
+       "zeilen": [
+        [
+         "€ je Kind",
+         "40",
+         "960",
+         "32"
+        ]
+       ]
+      }
+     }
+    ],
+    "probe": "30 · 32 € = 960 € ✓",
+    "fehler": "Nicht wie beim normalen Dreisatz rechnen. 40 € : 24 · 30 = 50 € wäre mehr je Kind, obwohl mehr mitfahren.",
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Kinder",
+      "24",
+      "30"
+     ],
+     "zeilen": [
+      [
+       "€ je Kind",
+       "40",
+       "50 ✗ (richtig: 32)"
+      ]
+     ]
+    },
+    "regel": "Bei „je mehr, desto weniger“: erst malnehmen, dann teilen. Prüfe vorher, ob das ⟦Produkt⟧ wirklich gleich bleibt."
    },
    {
     "lernziel": "definitionsmenge",
@@ -547,6 +643,13 @@
     ]
    },
    {
+    "k": "indirekt_sach",
+    "text": "Sachaufgaben: umgekehrter Dreisatz",
+    "lernziele": [
+     "indirekt_sach"
+    ]
+   },
+   {
     "k": "definitionsmenge",
     "text": "Definitionsmenge von a/(x + b) + c",
     "lernziele": [
@@ -585,6 +688,7 @@
   "bewertung": {
    "lernziele_pflicht": [
     "indirekt",
+    "indirekt_sach",
     "definitionsmenge",
     "asymptoten",
     "achsenpunkte",
@@ -4268,6 +4372,543 @@
    },
    "w": "Für a > 0 haben x und f(x) immer dasselbe Vorzeichen (Äste im 1. und 3. Feld). P(−2 | 3) hat verschiedene Vorzeichen. Die anderen passen zu a = 6.",
    "h": "Welche Vorzeichen haben x und y, wenn a positiv ist?"
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Mit 90 km/h dauert eine Fahrt 5 h. Wie viele Stunden dauert sie mit 50 km/h?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "h"
+   },
+   "c": "90 * 5 / 50",
+   "w": "Die Strecke ist 90 · 5 = 450 km. 450 : 50 = 9 h.",
+   "h": "Berechne zuerst die Strecke. Sie bleibt gleich."
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Futtervorrat reicht für 3 Pferde 40 Tage. Wie viele Tage reicht er für 20 Pferde?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "Tage"
+   },
+   "c": "3 * 40 / 20",
+   "w": "Der Vorrat reicht für 3 · 40 = 120 Pferdetage. 120 : 20 = 6 Tage.",
+   "h": "Wie viele Tage würde er für 1 Pferd reichen?"
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Ausflug kostet zusammen 480 €. Bei 12 Teilnehmern zahlt jeder 40 €. Wie viel zahlt jeder bei 15 Teilnehmern?"
+   },
+   "o": {
+    "wert": 32,
+    "einheit": "€"
+   },
+   "c": "12 * 40 / 15",
+   "w": "Gesamtpreis 12 · 40 € = 480 €. Geteilt durch 15: 32 €.",
+   "h": "Rechne zuerst den Gesamtpreis aus. Er bleibt gleich."
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Futtervorrat reicht für 5 Pferde 24 Tage. Wie viele Tage reicht er für 8 Pferde?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "Tage"
+   },
+   "c": "5 * 24 / 8",
+   "w": "Der Vorrat reicht für 5 · 24 = 120 Pferdetage. 120 : 8 = 15 Tage.",
+   "h": "Wie viele Tage würde er für 1 Pferd reichen?"
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie ist die Zuordnung „Anzahl gleicher Brötchen → Gesamtpreis“?"
+   },
+   "a": [
+    "indirekt proportional",
+    "direkt proportional",
+    "weder noch"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Doppelt so viel Eingabe ergibt doppelt so viel Ausgabe; der Quotient bleibt gleich. Also: direkt proportional.",
+   "h": "Was passiert, wenn du die erste Größe verdoppelst?"
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gleiche Pumpen leeren ein Becken. Ergänze die Tabelle: Wie viele Stunden brauchen die Pumpen an der Stelle „?“",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Pumpen",
+      "3",
+      "4",
+      "6"
+     ],
+     "zeilen": [
+      [
+       "Stunden",
+       "?",
+       "9",
+       "6"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "h"
+   },
+   "c": "4 * 9 / 3",
+   "w": "Produkt aus einer vollen Spalte: 4 · 9 = 36 Pumpenstunden. 36 : 3 = 12 h.",
+   "h": "Nimm eine vollständige Spalte und bilde das Produkt."
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Zahnräder greifen ineinander. Rad A hat 36 Zähne und dreht sich 8-mal. Rad B hat 16 Zähne. Wie oft dreht sich Rad B?"
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "36 * 8 / 16",
+   "w": "Es greifen gleich viele Zähne ineinander: 36 · 8 = 288 Zähne. Rad B: 288 : 16 = 18 Umdrehungen.",
+   "h": "Wie viele Zähne laufen insgesamt am Berührpunkt vorbei? Diese Zahl ist für beide Räder gleich."
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Beet soll 48 m² groß sein. Ist es 12 m breit, wird es 4 m lang. Wie lang wird es bei 6 m Breite?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "m"
+   },
+   "c": "12 * 4 / 6",
+   "w": "Breite · Länge = 48 m² bleibt gleich. 48 : 6 = 8 m.",
+   "h": "Die Fläche ist das Produkt aus Breite und Länge."
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Beet soll 24 m² groß sein. Ist es 3 m breit, wird es 8 m lang. Wie lang wird es bei 6 m Breite?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "m"
+   },
+   "c": "3 * 8 / 6",
+   "w": "Breite · Länge = 24 m² bleibt gleich. 24 : 6 = 4 m.",
+   "h": "Die Fläche ist das Produkt aus Breite und Länge."
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie ist die Zuordnung „gefahrene Kilometer → Taxipreis mit 4 € Grundgebühr“?"
+   },
+   "a": [
+    "indirekt proportional",
+    "direkt proportional",
+    "weder noch"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Weder der Quotient noch das Produkt bleibt gleich. Verdoppeln führt weder zum Doppelten noch zur Hälfte. Also: weder noch.",
+   "h": "Was passiert, wenn du die erste Größe verdoppelst?"
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für eine eingeschlossene Luftmenge gilt bei gleicher Temperatur: Druck · Volumen bleibt gleich. Bei 2 bar nimmt sie 6 l ein. Welches Volumen hat sie bei 3 bar?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "l"
+   },
+   "c": "2 * 6 / 3",
+   "w": "Produkt: 2 bar · 6 l = 12. Bei 3 bar: 12 : 3 = 4 l. Mehr Druck, weniger Volumen.",
+   "h": "Das Produkt aus Druck und Volumen bleibt gleich."
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zug fährt 300 km mit 120 km/h. Wegen einer Baustelle darf er auf der ganzen Strecke nur 100 km/h fahren. Wie viele Minuten Verspätung hat er?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "min"
+   },
+   "c": "(300 / 100 - 300 / 120) * 60",
+   "w": "Geplant: 300 : 120 = 2,5 h. Jetzt: 300 : 100 = 3 h. Unterschied 0,5 h = 30 min.",
+   "h": "Berechne beide Fahrzeiten für dieselbe Strecke."
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "x und y sind indirekt proportional. Wird x um 2 größer, halbiert sich y. Wie groß war x?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Das Produkt bleibt gleich: (x + 2) · y/2 = x · y. Also (x + 2) : 2 = x, das heißt x + 2 = 2x und x = 2. Probe: 2 · y = 4 · y/2 ✓",
+   "h": "Halbiert sich y, muss sich x verdoppeln. Welche Zahl verdoppelt sich, wenn man 2 dazuzählt?"
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zug fährt eine Strecke normalerweise mit 100 km/h in 1,5 h. Wegen Bauarbeiten fährt er nur 75 km/h. Wie viele Minuten braucht er länger?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "min"
+   },
+   "c": "(100 * (3/2) / 75 - (3/2)) * 60",
+   "w": "Strecke 100 · 1,5 = 150 km. Neue Fahrzeit 150 : 75 = 2 h. Unterschied 0,5 h = 30 min.",
+   "h": "Berechne zuerst die Strecke, dann die neue Fahrzeit."
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Futtervorrat reicht für 8 Schafe 45 Tage. Nach 15 Tagen werden 4 Schafe verkauft. Wie viele Tage reicht der Rest noch?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "Tage"
+   },
+   "c": "8 * (45 - 15) / (8 - 4)",
+   "w": "Nach 15 Tagen reicht der Rest für 8 Schafe noch 30 Tage, das sind 240 Schaftage. Für 4 Schafe: 240 : 4 = 60 Tage.",
+   "h": "Wie viele Tage würde der Rest für die ursprüngliche Herde noch reichen?"
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "6 gleiche Pumpen fördern in 3 h zusammen 72 m³ Wasser. Wie viele Stunden brauchen 4 Pumpen für 48 m³?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "h"
+   },
+   "c": "48 / (4 * 72 / (6 * 3))",
+   "w": "Eine Pumpe schafft in 1 h 72 : (6 · 3) = 4 m³. 4 Pumpen schaffen 16 m³ pro Stunde. 48 : 16 = 3 h.",
+   "h": "Rechne zuerst aus, wie viel 1 Pumpe in 1 Stunde schafft."
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "4 gleiche Pumpen leeren ein Becken in 15 h. Nach 6 h fällt 1 Pumpe aus. Wie viele Stunden dauert das Leeren insgesamt?"
+   },
+   "o": {
+    "wert": 18,
+    "einheit": "h"
+   },
+   "c": "6 + (4 * 15 - 4 * 6) / (4 - 1)",
+   "w": "Arbeit: 4 · 15 = 60 Pumpenstunden. Nach 6 h sind 24 erledigt, 36 bleiben. 3 Pumpen brauchen dafür 36 : 3 = 12 h. Insgesamt 6 + 12 = 18 h.",
+   "h": "Rechne in Pumpenstunden: Wie viel ist schon geschafft, wie viel bleibt?"
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "4 gleiche Pumpen fördern in 6 h zusammen 120 m³ Wasser. Wie viele Stunden brauchen 8 Pumpen für 60 m³?"
+   },
+   "o": {
+    "wert": 1.5,
+    "einheit": "h"
+   },
+   "c": "60 / (8 * 120 / (4 * 6))",
+   "w": "Eine Pumpe schafft in 1 h 120 : (4 · 6) = 5 m³. 8 Pumpen schaffen 40 m³ pro Stunde. 60 : 40 = 1,5 h.",
+   "h": "Rechne zuerst aus, wie viel 1 Pumpe in 1 Stunde schafft."
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Zahnräder greifen ineinander. Rad A hat 40 Zähne und dreht sich 9-mal. Rad B hat 30 Zähne. Wie oft dreht sich Rad B?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "40 * 9 / 30",
+   "w": "Es greifen gleich viele Zähne ineinander: 40 · 9 = 360 Zähne. Rad B: 360 : 30 = 12 Umdrehungen."
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gleiche Pumpen leeren ein Becken. Ergänze die Tabelle: Wie viele Stunden brauchen die Pumpen an der Stelle „?“",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Pumpen",
+      "12",
+      "6",
+      "8"
+     ],
+     "zeilen": [
+      [
+       "Stunden",
+       "4",
+       "8",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "h"
+   },
+   "c": "12 * 4 / 8",
+   "w": "Produkt aus einer vollen Spalte: 12 · 4 = 48 Pumpenstunden. 48 : 8 = 6 h."
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie ist die Zuordnung „getankte Liter → Preis an der Zapfsäule“?"
+   },
+   "a": [
+    "direkt proportional",
+    "indirekt proportional",
+    "weder noch"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Doppelt so viel Eingabe ergibt doppelt so viel Ausgabe; der Quotient bleibt gleich. Also: direkt proportional."
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gleiche Pumpen leeren ein Becken. Ergänze die Tabelle: Wie viele Stunden brauchen die Pumpen an der Stelle „?“",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Pumpen",
+      "9",
+      "3",
+      "12"
+     ],
+     "zeilen": [
+      [
+       "Stunden",
+       "?",
+       "12",
+       "3"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "h"
+   },
+   "c": "3 * 12 / 9",
+   "w": "Produkt aus einer vollen Spalte: 3 · 12 = 36 Pumpenstunden. 36 : 9 = 4 h."
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Beet soll 90 m² groß sein. Ist es 3 m breit, wird es 30 m lang. Wie lang wird es bei 10 m Breite?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "m"
+   },
+   "c": "3 * 30 / 10",
+   "w": "Breite · Länge = 90 m² bleibt gleich. 90 : 10 = 9 m."
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Zahnräder greifen ineinander. Rad A hat 40 Zähne und dreht sich 9-mal. Rad B hat 45 Zähne. Wie oft dreht sich Rad B?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "40 * 9 / 45",
+   "w": "Es greifen gleich viele Zähne ineinander: 40 · 9 = 360 Zähne. Rad B: 360 : 45 = 8 Umdrehungen."
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gleiche Pumpen leeren ein Becken. Ergänze die Tabelle: Wie viele Stunden brauchen die Pumpen an der Stelle „?“",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Pumpen",
+      "5",
+      "3",
+      "6"
+     ],
+     "zeilen": [
+      [
+       "Stunden",
+       "12",
+       "?",
+       "10"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "h"
+   },
+   "c": "6 * 10 / 3",
+   "w": "Produkt aus einer vollen Spalte: 6 · 10 = 60 Pumpenstunden. 60 : 3 = 20 h."
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Beet soll 120 m² groß sein. Ist es 3 m breit, wird es 40 m lang. Wie lang wird es bei 10 m Breite?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "m"
+   },
+   "c": "3 * 40 / 10",
+   "w": "Breite · Länge = 120 m² bleibt gleich. 120 : 10 = 12 m."
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Zahnräder greifen ineinander. Rad A hat 30 Zähne und dreht sich 12-mal. Rad B hat 24 Zähne. Wie oft dreht sich Rad B?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "30 * 12 / 24",
+   "w": "Es greifen gleich viele Zähne ineinander: 30 · 12 = 360 Zähne. Rad B: 360 : 24 = 15 Umdrehungen."
+  },
+  {
+   "l": "indirekt_sach",
+   "t": "indirekt_sach",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Zahnräder greifen ineinander. Rad A hat 48 Zähne und dreht sich 5-mal. Rad B hat 40 Zähne. Wie oft dreht sich Rad B?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "48 * 5 / 40",
+   "w": "Es greifen gleich viele Zähne ineinander: 48 · 5 = 240 Zähne. Rad B: 240 : 40 = 6 Umdrehungen."
   }
  ],
  "offen": [

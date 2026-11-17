@@ -64,6 +64,109 @@
      },
      {
       "text": "Mit π ≈ 3,14 gerechnet: u ≈ ⟦25,1 cm⟧."
+     },
+     {
+      "text": "Warum etwa 3,14? Sechseck innen hat 3 · d, Quadrat außen 4 · d.",
+      "bild": {
+       "typ": "figur",
+       "kreise": [
+        {
+         "m": "M",
+         "r": 4
+        }
+       ],
+       "punkte": {
+        "M": [
+         0,
+         0
+        ],
+        "_S1": [
+         4,
+         0
+        ],
+        "_S2": [
+         2,
+         3.464
+        ],
+        "_S3": [
+         -2,
+         3.464
+        ],
+        "_S4": [
+         -4,
+         0
+        ],
+        "_S5": [
+         -2,
+         -3.464
+        ],
+        "_S6": [
+         2,
+         -3.464
+        ],
+        "_Q1": [
+         4,
+         4
+        ],
+        "_Q2": [
+         -4,
+         4
+        ],
+        "_Q3": [
+         -4,
+         -4
+        ],
+        "_Q4": [
+         4,
+         -4
+        ]
+       },
+       "linien": [
+        [
+         "_S1",
+         "_S2"
+        ],
+        [
+         "_S2",
+         "_S3"
+        ],
+        [
+         "_S3",
+         "_S4"
+        ],
+        [
+         "_S4",
+         "_S5"
+        ],
+        [
+         "_S5",
+         "_S6"
+        ],
+        [
+         "_S6",
+         "_S1",
+         "innen: 3 · d"
+        ],
+        [
+         "_Q1",
+         "_Q2"
+        ],
+        [
+         "_Q2",
+         "_Q3"
+        ],
+        [
+         "_Q3",
+         "_Q4"
+        ],
+        [
+         "_Q4",
+         "_Q1",
+         "außen: 4 · d",
+         "gestrichelt"
+        ]
+       ]
+      }
      }
     ],
     "fehler": "u = π · r ist falsch. Dann reicht das Etikett nur halb herum: 12,6 cm statt 25,1 cm. Man braucht den ⟦Durchmesser⟧.",
@@ -5447,6 +5550,116 @@
    },
    "w": "Umfang 30: r ≈ 4,77 cm, V ≈ π · 22,8 · 20 ≈ 1 432 cm³. Umfang 20: r ≈ 3,18 cm, V ≈ π · 10,1 · 30 ≈ 955 cm³. Der Radius geht quadratisch ein.",
    "h": "Bestimme jeweils r aus dem Umfang und vergleiche π · r² · h."
+  },
+  {
+   "l": "umfang",
+   "t": "umfang",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Um einen runden Teller wird ein Faden gelegt: 75,4 cm. Der Durchmesser ist 24 cm. Welchen Näherungswert für π ergibt das? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 3.14,
+    "toleranz": 0.01
+   },
+   "c": "round(754 / 240, 2)",
+   "w": "π = Umfang : Durchmesser = 75,4 : 24 ≈ 3,1417 ≈ 3,14.",
+   "h": "π ist das Verhältnis von Umfang zu Durchmesser."
+  },
+  {
+   "l": "umfang",
+   "t": "umfang",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Um einen Kreis mit d = 6 cm liegt ein Quadrat, das ihn außen berührt. Wie lang ist der Umfang des Quadrats?"
+   },
+   "o": {
+    "wert": 24,
+    "einheit": "cm"
+   },
+   "c": "4 * 6",
+   "w": "Jede Quadratseite ist so lang wie der Durchmesser: 4 · 6 cm = 24 cm. Der Kreisumfang (≈ 18,8 cm) ist kürzer.",
+   "h": "Wie lang ist eine Seite des Quadrats im Vergleich zum Durchmesser?"
+  },
+  {
+   "l": "umfang",
+   "t": "umfang",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einen Kreis mit r = 5 cm ist ein regelmäßiges Sechseck gezeichnet. Seine Seiten sind so lang wie der Radius. Wie lang ist sein Umfang?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "cm"
+   },
+   "c": "6 * 5",
+   "w": "6 Seiten zu je 5 cm: 30 cm. Das sind 3 · d (d = 10 cm). Der Kreis ist etwas länger, π ist also größer als 3.",
+   "h": "Ein regelmäßiges Sechseck im Kreis besteht aus 6 gleichseitigen Dreiecken."
+  },
+  {
+   "l": "umfang",
+   "t": "umfang",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Sechseck innen im Kreis hat den Umfang 3 · d, ein Quadrat außen herum 4 · d. Was folgt daraus für π?"
+   },
+   "a": [
+    "π ist genau 3,5.",
+    "π ist größer als 4.",
+    "π liegt zwischen 3 und 4.",
+    "π ist kleiner als 3."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Kreis liegt zwischen den beiden Vielecken, also ist sein Umfang länger als 3 · d und kürzer als 4 · d. π liegt zwischen 3 und 4; genauer ist π ≈ 3,14.",
+   "h": "Welche Figur ist länger, welche kürzer als der Kreis?"
+  },
+  {
+   "l": "umfang",
+   "t": "umfang",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Fahrradreifen hat 70 cm Durchmesser. Bei einer Umdrehung rollt das Rad 2,20 m weit. Welchen Näherungswert für π ergibt das? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 3.14,
+    "toleranz": 0.01
+   },
+   "c": "round(220 / 70, 2)",
+   "w": "Eine Umdrehung ist ein Umfang: 220 cm. π ≈ 220 : 70 ≈ 3,1429 ≈ 3,14. Gleiche Einheit verwenden: 2,20 m = 220 cm.",
+   "h": "Rechne beide Längen in cm. Was legt das Rad bei einer Umdrehung zurück?"
+  },
+  {
+   "l": "umfang",
+   "t": "umfang",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein regelmäßiges Achteck innen im Kreis hat etwa den Umfang 3,06 · d. Jemand behauptet: „π = 3 genügt doch.“ Was stimmt?"
+   },
+   "a": [
+    "Nein: Schon das Achteck innen ist länger als 3 · d, der Kreis ist noch länger.",
+    "Ja: 3,06 ist fast 3.",
+    "Ja: Das Sechseck hat genau 3 · d.",
+    "Nein: π ist größer als 4."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Je mehr Ecken das innere Vieleck hat, desto näher kommt sein Umfang an den Kreis: 3 · d (Sechseck), 3,06 · d (Achteck), … bis π · d ≈ 3,14 · d. π ist also sicher größer als 3,06.",
+   "h": "Liegt der Kreis innerhalb oder außerhalb des Achtecks? Welche Linie ist dann länger?"
   }
  ],
  "offen": [

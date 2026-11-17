@@ -615,6 +615,49 @@ BF.nicht_umgesetzt('verstehen S2 „Jemand rechnet A = 2 · π · r …“ (3×)
 baue = mit_befunden(baue, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- LÜCKEN (Achtzehnte Runde, Teil B: Karte „umfang“ um den Schritt „Warum etwa 3,14?“ erweitert, siehe _luecken_kl8.py) ----
+# LehrplanPLUS M8 7: Kreiszahl π näherungsweise bestimmen (Messen; Vielecke innen und außen). Liste klasse8.json, Dringlichkeit niedrig.
+from _bausatz import Z as _Z  # noqa: E402
+from _luecken_kl8 import Luecken, mit_luecken  # noqa: E402
+
+LK = Luecken('messen.kreisberechnung', 18_8_7)
+_H = 3.464  # 4 · √3/2, Ecken des Sechsecks im Kreis mit r = 4
+_SCHRITT_PI = {
+    'text': 'Warum etwa 3,14? Sechseck innen hat 3 · d, Quadrat außen 4 · d.',
+    'bild': {'typ': 'figur', 'kreise': [{'m': 'M', 'r': 4}],
+             'punkte': {'M': [0, 0], '_S1': [4, 0], '_S2': [2, _H], '_S3': [-2, _H], '_S4': [-4, 0], '_S5': [-2, -_H], '_S6': [2, -_H],
+                        '_Q1': [4, 4], '_Q2': [-4, 4], '_Q3': [-4, -4], '_Q4': [4, -4]},
+             'linien': [['_S1', '_S2'], ['_S2', '_S3'], ['_S3', '_S4'], ['_S4', '_S5'], ['_S5', '_S6'], ['_S6', '_S1', 'innen: 3 · d'],
+                        ['_Q1', '_Q2'], ['_Q2', '_Q3'], ['_Q3', '_Q4'], ['_Q4', '_Q1', 'außen: 4 · d', 'gestrichelt']]},
+}
+_AUF = [
+    ('uebung', 1, lambda: _Z('Um einen runden Teller wird ein Faden gelegt: 75,4 cm. Der Durchmesser ist 24 cm. Welchen Näherungswert für π ergibt das? Runde auf zwei Nachkommastellen.',
+                             Fr(157, 50), 'round(754 / 240, 2)', 'π = Umfang : Durchmesser = 75,4 : 24 ≈ 3,1417 ≈ 3,14.',
+                             'π ist das Verhältnis von Umfang zu Durchmesser.', toleranz=0.01)),
+    ('uebung', 1, lambda: _Z('Um einen Kreis mit d = 6 cm liegt ein Quadrat, das ihn außen berührt. Wie lang ist der Umfang des Quadrats?', 24, '4 * 6',
+                             'Jede Quadratseite ist so lang wie der Durchmesser: 4 · 6 cm = 24 cm. Der Kreisumfang (≈ 18,8 cm) ist kürzer.',
+                             'Wie lang ist eine Seite des Quadrats im Vergleich zum Durchmesser?', einheit='cm')),
+    ('uebung', 2, lambda: _Z('In einen Kreis mit r = 5 cm ist ein regelmäßiges Sechseck gezeichnet. Seine Seiten sind so lang wie der Radius. Wie lang ist sein Umfang?', 30, '6 * 5',
+                             '6 Seiten zu je 5 cm: 30 cm. Das sind 3 · d (d = 10 cm). Der Kreis ist etwas länger, π ist also größer als 3.',
+                             'Ein regelmäßiges Sechseck im Kreis besteht aus 6 gleichseitigen Dreiecken.', einheit='cm')),
+    ('uebung', 2, lambda: LK.A('Ein Sechseck innen im Kreis hat den Umfang 3 · d, ein Quadrat außen herum 4 · d. Was folgt daraus für π?', 'π liegt zwischen 3 und 4.',
+                               ['π ist genau 3,5.', 'π ist kleiner als 3.', 'π ist größer als 4.'],
+                               'Der Kreis liegt zwischen den beiden Vielecken, also ist sein Umfang länger als 3 · d und kürzer als 4 · d. π liegt zwischen 3 und 4; genauer ist π ≈ 3,14.',
+                               'Welche Figur ist länger, welche kürzer als der Kreis?')),
+    ('uebung', 3, lambda: _Z('Ein Fahrradreifen hat 70 cm Durchmesser. Bei einer Umdrehung rollt das Rad 2,20 m weit. Welchen Näherungswert für π ergibt das? Runde auf zwei Nachkommastellen.',
+                             Fr(157, 50), 'round(220 / 70, 2)', 'Eine Umdrehung ist ein Umfang: 220 cm. π ≈ 220 : 70 ≈ 3,1429 ≈ 3,14. Gleiche Einheit verwenden: 2,20 m = 220 cm.',
+                             'Rechne beide Längen in cm. Was legt das Rad bei einer Umdrehung zurück?', toleranz=0.01)),
+    ('uebung', 3, lambda: LK.A('Ein regelmäßiges Achteck innen im Kreis hat etwa den Umfang 3,06 · d. Jemand behauptet: „π = 3 genügt doch.“ Was stimmt?',
+                               'Nein: Schon das Achteck innen ist länger als 3 · d, der Kreis ist noch länger.',
+                               ['Ja: 3,06 ist fast 3.', 'Ja: Das Sechseck hat genau 3 · d.', 'Nein: π ist größer als 4.'],
+                               'Je mehr Ecken das innere Vieleck hat, desto näher kommt sein Umfang an den Kreis: 3 · d (Sechseck), 3,06 · d (Achteck), … bis π · d ≈ 3,14 · d. '
+                               'π ist also sicher größer als 3,06.', 'Liegt der Kreis innerhalb oder außerhalb des Achtecks? Welche Linie ist dann länger?')),
+]
+LK.erweitere('umfang', 4, _SCHRITT_PI, _AUF)
+baue = mit_luecken(baue, LK)
+# ---- LÜCKEN ENDE ----
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Kreis', ['umfang', 'flaeche', 'exakt', 'verstehen']), ('Teile von Kreisen', ['sektor', 'zusammengesetzt']), ('Zylinder', ['zylinder'])],

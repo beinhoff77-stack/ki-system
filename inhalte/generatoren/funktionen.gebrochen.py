@@ -552,6 +552,169 @@ BF.nicht_umgesetzt('indirekt: Überschneidung mit groessen.indirekt', 'Kein Mang
 baue = mit_befunden(baue, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- LÜCKEN (Achtzehnte Runde, Teil B: neue Lernkarte „indirekt_sach“ nach „indirekt“, siehe _luecken_kl8.py) ----
+# LehrplanPLUS M8 3: Spezialfall y = a/x als indirekt proportionale Zuordnung zweier Größen, auch in naturwissenschaftlichen Kontexten
+# (ISB, Schwerpunktsetzungen Jgst. 8). Sachaufgaben mit Produktgleichheit und Dreisatz „umgekehrt“.
+# Vorbilder (Typ und Niveau, nicht Wortlaut/Zahlen): BMT8 (Fahrzeit bei geringerer Geschwindigkeit, Verspätung), Grundwissen 8 (Vorrat/Arbeiter/Pumpen,
+# Boyle-Mariotte als Physik-Beispiel), RS-Jahrgangsstufentest 8 (direkt, indirekt oder keins von beiden erkennen).
+import collections  # noqa: E402
+
+from _bausatz import eur  # noqa: E402
+from _luecken_kl8 import K as _K, P as _P, Luecken, mit_luecken  # noqa: E402
+
+LK = Luecken('funktionen.gebrochen', 18_8_3)
+_LZ = 'indirekt_sach'
+_TAB = lambda kopf, zeile: {'typ': 'tabelle', 'kopf': kopf, 'zeilen': [zeile]}
+
+_KARTE = {
+    'lernziel': _LZ, 'titel': 'Sachaufgaben: umgekehrter Dreisatz',
+    'einstieg': 'Ein Reisebus für die Klassenfahrt kostet zusammen 960 €. Fahren 24 Kinder mit, zahlt jedes 40 €. '
+                'Fahren mehr mit, zahlt jedes weniger. Die Rechnung dafür heißt ⟦umgekehrter Dreisatz⟧.',
+    'woerter': [['umgekehrter Dreisatz', 'Dreisatz über die 1, bei dem man erst malnimmt und dann teilt'],
+                ['Gesamtpreis', 'was alle zusammen zahlen; er bleibt gleich, egal wie viele mitfahren']],
+    'bild': _TAB(['Kinder', '24', '1', '30'], ['€ je Kind', '40', '?', '?']),
+    'schritte': [{'text': 'Das Produkt bleibt gleich: 24 · 40 € = 960 € Gesamtpreis.', 'bild': _TAB(['Kinder', '24', '1', '30'], ['€ je Kind', '40', '960', '?'])},
+                 {'text': 'Ein Kind allein müsste alles zahlen: 960 €. Hier wird mal 24 gerechnet.'},
+                 {'text': 'Bei 30 Kindern teilen sich alle die 960 €: je ⟦32 €⟧.', 'bild': _TAB(['Kinder', '24', '1', '30'], ['€ je Kind', '40', '960', '32'])}],
+    'probe': '30 · 32 € = 960 € ✓',
+    'fehler': 'Nicht wie beim normalen Dreisatz rechnen. 40 € : 24 · 30 = 50 € wäre mehr je Kind, obwohl mehr mitfahren.',
+    'fehler_bild': _TAB(['Kinder', '24', '30'], ['€ je Kind', '40', '50 ✗ (richtig: 32)']),
+    'regel': 'Bei „je mehr, desto weniger“: erst malnehmen, dann teilen. Prüfe vorher, ob das ⟦Produkt⟧ wirklich gleich bleibt.',
+}
+_W = collections.Counter()
+
+
+def _wahl(R, st, arten):
+    n = min(_W[(st, a)] for a in arten)
+    a = R.choice([x for x in arten if _W[(st, x)] == n])
+    _W[(st, a)] += 1
+    return a
+
+
+def _teiler(n, lo, hi):
+    return [d for d in range(lo, hi + 1) if n % d == 0]
+
+
+# Zuordnungen zum Erkennen: (Text, Art)
+_ERKENNEN = [('Anzahl gleicher Brötchen → Gesamtpreis', 'direkt proportional'), ('Anzahl gleicher Pumpen → Zeit, bis ein Becken leer ist', 'indirekt proportional'),
+             ('Alter eines Kindes → Körpergröße', 'weder noch'), ('Geschwindigkeit → Fahrzeit für dieselbe Strecke', 'indirekt proportional'),
+             ('Zahl der Gäste → Stücke je Gast bei einem Blech Kuchen', 'indirekt proportional'), ('getankte Liter → Preis an der Zapfsäule', 'direkt proportional'),
+             ('gefahrene Kilometer → Taxipreis mit 4 € Grundgebühr', 'weder noch'), ('Breite eines Rechtecks → Länge bei 24 cm² Fläche', 'indirekt proportional'),
+             ('Zahl der Zähne eines Zahnrads → Umdrehungen beim Mitdrehen eines festen Rads', 'indirekt proportional'),
+             ('Seitenlänge eines Quadrats → Flächeninhalt', 'weder noch'), ('Arbeitsstunden → Lohn bei festem Stundenlohn', 'direkt proportional')]
+
+
+def g_indirekt_sach(R, st):
+    if st == 1:
+        art = _wahl(R, 1, ['teilen', 'vorrat', 'fahrt'])
+        if art == 'teilen':
+            gesamt = R.choice([360, 480, 600, 720, 840, 960, 1080, 1200])
+            n1, n2 = R.sample(_teiler(gesamt, 10, 40), 2)
+            t = f'Ein Ausflug kostet zusammen {zt(gesamt)} €. Bei {n1} Teilnehmern zahlt jeder {zt(gesamt // n1)} €. Wie viel zahlt jeder bei {n2} Teilnehmern?'
+            return Z(t, Fr(gesamt, n2), f'{n1} * {gesamt // n1} / {n2}', f'Gesamtpreis {n1} · {zt(gesamt // n1)} € = {zt(gesamt)} €. Geteilt durch {n2}: {zt(Fr(gesamt, n2))} €.',
+                     'Rechne zuerst den Gesamtpreis aus. Er bleibt gleich.', einheit='€')
+        if art == 'vorrat':
+            tiere, tage = R.choice([(4, 30), (6, 20), (5, 24), (8, 15), (3, 40), (10, 12), (12, 10)])
+            k = tiere * tage
+            neu = R.choice([d for d in _teiler(k, 2, 20) if d != tiere])
+            return Z(f'Ein Futtervorrat reicht für {tiere} Pferde {tage} Tage. Wie viele Tage reicht er für {neu} Pferde?', Fr(k, neu), f'{tiere} * {tage} / {neu}',
+                     f'Der Vorrat reicht für {tiere} · {tage} = {k} Pferdetage. {k} : {neu} = {zt(Fr(k, neu))} Tage.', 'Wie viele Tage würde er für 1 Pferd reichen?', einheit='Tage')
+        v1 = R.choice([40, 50, 60, 80, 90, 100, 120])
+        t1 = R.choice([2, 3, 4, 5, 6])
+        s = v1 * t1
+        v2 = R.choice([v for v in (30, 40, 45, 50, 60, 75, 80, 90, 100, 120, 150) if v != v1 and Fr(s, v).denominator in (1, 2, 4)])
+        return Z(f'Mit {v1} km/h dauert eine Fahrt {t1} h. Wie viele Stunden dauert sie mit {v2} km/h?', Fr(s, v2), f'{v1} * {t1} / {v2}',
+                 f'Die Strecke ist {v1} · {t1} = {s} km. {s} : {v2} = {zt(Fr(s, v2))} h.', 'Berechne zuerst die Strecke. Sie bleibt gleich.', einheit='h')
+    if st == 2:
+        art = _wahl(R, 2, ['erkennen', 'zahnrad', 'rechteck', 'tabelle'])
+        if art == 'erkennen':
+            text, richtig = R.choice(_ERKENNEN)
+            grund = {'direkt proportional': 'Doppelt so viel Eingabe ergibt doppelt so viel Ausgabe; der Quotient bleibt gleich.',
+                     'indirekt proportional': 'Doppelt so viel Eingabe ergibt halb so viel Ausgabe; das Produkt bleibt gleich.',
+                     'weder noch': 'Weder der Quotient noch das Produkt bleibt gleich. Verdoppeln führt weder zum Doppelten noch zur Hälfte.'}[richtig]
+            return LK.A(f'Wie ist die Zuordnung „{text}“?', richtig, [x for x in ['direkt proportional', 'indirekt proportional', 'weder noch'] if x != richtig],
+                        f'{grund} Also: {richtig}.', 'Was passiert, wenn du die erste Größe verdoppelst?')
+        if art == 'zahnrad':
+            za, ua = R.choice([(24, 10), (36, 8), (30, 12), (48, 5), (40, 9), (20, 18)])
+            k = za * ua
+            zb = R.choice([z for z in (12, 15, 16, 18, 20, 24, 30, 36, 40, 45, 60) if z != za and k % z == 0])
+            return Z(f'Zwei Zahnräder greifen ineinander. Rad A hat {za} Zähne und dreht sich {ua}-mal. Rad B hat {zb} Zähne. Wie oft dreht sich Rad B?', Fr(k, zb), f'{za} * {ua} / {zb}',
+                     f'Es greifen gleich viele Zähne ineinander: {za} · {ua} = {k} Zähne. Rad B: {k} : {zb} = {zt(Fr(k, zb))} Umdrehungen.',
+                     'Wie viele Zähne laufen insgesamt am Berührpunkt vorbei? Diese Zahl ist für beide Räder gleich.')
+        if art == 'rechteck':
+            f = R.choice([24, 36, 48, 60, 72, 90, 120])
+            a1, a2 = R.sample(_teiler(f, 2, 15), 2)
+            return Z(f'Ein Beet soll {f} m² groß sein. Ist es {a1} m breit, wird es {zt(Fr(f, a1))} m lang. Wie lang wird es bei {a2} m Breite?', Fr(f, a2), f'{a1} * {f // a1} / {a2}',
+                     f'Breite · Länge = {f} m² bleibt gleich. {f} : {a2} = {zt(Fr(f, a2))} m.', 'Die Fläche ist das Produkt aus Breite und Länge.', einheit='m')
+        k = R.choice([36, 48, 60, 72, 120])
+        xs = R.sample(_teiler(k, 2, 12), 3)
+        i = R.randrange(3)
+        kopf = ['Pumpen'] + [str(x) for x in xs]
+        zeile = ['Stunden'] + [zt(Fr(k, x)) if j != i else '?' for j, x in enumerate(xs)]
+        t = 'Gleiche Pumpen leeren ein Becken. Ergänze die Tabelle: Wie viele Stunden brauchen die Pumpen an der Stelle „?“'
+        j = (i + 1) % 3
+        return Z(t, Fr(k, xs[i]), f'{xs[j]} * {cz(Fr(k, xs[j]))} / {xs[i]}',
+                 f'Produkt aus einer vollen Spalte: {xs[j]} · {zt(Fr(k, xs[j]))} = {k} Pumpenstunden. {k} : {xs[i]} = {zt(Fr(k, xs[i]))} h.',
+                 'Nimm eine vollständige Spalte und bilde das Produkt.', einheit='h') | {'f': {'text': t, 'grafik': _TAB(kopf, zeile)}}
+    art = _wahl(R, 3, ['ausfall', 'doppel', 'weniger_tiere', 'verspaetung'])
+    if art == 'ausfall':
+        while True:
+            n, h = R.choice([(6, 10), (5, 12), (8, 9), (4, 15), (10, 6), (6, 8)])
+            k = n * h
+            nach = R.randint(1, h - 2)
+            aus = R.choice([1, 2])
+            rest = k - n * nach
+            if rest % (n - aus) == 0: break
+        gesamt = nach + rest // (n - aus)
+        return Z(f'{n} gleiche Pumpen leeren ein Becken in {h} h. Nach {nach} h {"fallen" if aus > 1 else "fällt"} {aus} Pumpe{"n" if aus > 1 else ""} aus. Wie viele Stunden dauert das Leeren insgesamt?',
+                 gesamt, f'{nach} + ({n} * {h} - {n} * {nach}) / ({n} - {aus})',
+                 f'Arbeit: {n} · {h} = {k} Pumpenstunden. Nach {nach} h sind {n * nach} erledigt, {rest} bleiben. {n - aus} Pumpen brauchen dafür {rest} : {n - aus} = {rest // (n - aus)} h. '
+                 f'Insgesamt {nach} + {rest // (n - aus)} = {gesamt} h.', 'Rechne in Pumpenstunden: Wie viel ist schon geschafft, wie viel bleibt?', einheit='h')
+    if art == 'doppel':
+        n1, h1, m1 = R.choice([(4, 6, 120), (3, 5, 90), (5, 4, 100), (6, 3, 72), (2, 9, 108)])
+        je = Fr(m1, n1 * h1)
+        n2 = R.choice([x for x in (2, 3, 4, 5, 6, 8) if x != n1])
+        m2 = R.choice([m for m in range(30, 181, 6) if Fr(m, n2 * je).denominator in (1, 2) and m != m1])
+        return Z(f'{n1} gleiche Pumpen fördern in {h1} h zusammen {m1} m³ Wasser. Wie viele Stunden brauchen {n2} Pumpen für {m2} m³?', Fr(m2, n2 * je),
+                 f'{m2} / ({n2} * {m1} / ({n1} * {h1}))',
+                 f'Eine Pumpe schafft in 1 h {m1} : ({n1} · {h1}) = {zt(je)} m³. {n2} Pumpen schaffen {zt(n2 * je)} m³ pro Stunde. {m2} : {zt(n2 * je)} = {zt(Fr(m2, n2 * je))} h.',
+                 'Rechne zuerst aus, wie viel 1 Pumpe in 1 Stunde schafft.', einheit='h')
+    if art == 'weniger_tiere':
+        while True:
+            tiere, tage = R.choice([(12, 30), (10, 24), (8, 45), (15, 20), (20, 18)])
+            nach = R.randint(2, tage // 2)
+            weg = R.choice([2, 3, 4, 5])
+            rest = tiere * (tage - nach)
+            if rest % (tiere - weg) == 0: break
+        return Z(f'Ein Futtervorrat reicht für {tiere} Schafe {tage} Tage. Nach {nach} Tagen werden {weg} Schafe verkauft. Wie viele Tage reicht der Rest noch?', Fr(rest, tiere - weg),
+                 f'{tiere} * ({tage} - {nach}) / ({tiere} - {weg})',
+                 f'Nach {nach} Tagen reicht der Rest für {tiere} Schafe noch {tage - nach} Tage, das sind {rest} Schaftage. Für {tiere - weg} Schafe: {rest} : {tiere - weg} = {zt(Fr(rest, tiere - weg))} Tage.',
+                 'Wie viele Tage würde der Rest für die ursprüngliche Herde noch reichen?', einheit='Tage')
+    v1, t1 = R.choice([(90, 2), (100, 3), (80, Fr(3, 2)), (150, 2), (120, 3), (100, Fr(3, 2))])
+    s = v1 * t1
+    v2 = R.choice([v for v in (60, 75, 80, 90, 100, 120) if v < v1 and (Fr(s, v) * 60).denominator == 1])
+    d = (Fr(s, v2) - t1) * 60
+    return Z(f'Ein Zug fährt eine Strecke normalerweise mit {v1} km/h in {zt(t1)} h. Wegen Bauarbeiten fährt er nur {v2} km/h. Wie viele Minuten braucht er länger?', d,
+             f'({v1} * {cz(t1)} / {v2} - {cz(t1)}) * 60',
+             f'Strecke {v1} · {zt(t1)} = {zt(s)} km. Neue Fahrzeit {zt(s)} : {v2} = {zt(Fr(s, v2))} h. Unterschied {zt(Fr(s, v2) - t1)} h = {zt(d)} min.',
+             'Berechne zuerst die Strecke, dann die neue Fahrzeit.', einheit='min')
+
+
+_FEST = [
+    lambda: Z('Für eine eingeschlossene Luftmenge gilt bei gleicher Temperatur: Druck · Volumen bleibt gleich. Bei 2 bar nimmt sie 6 l ein. Welches Volumen hat sie bei 3 bar?',
+              4, '2 * 6 / 3', 'Produkt: 2 bar · 6 l = 12. Bei 3 bar: 12 : 3 = 4 l. Mehr Druck, weniger Volumen.', 'Das Produkt aus Druck und Volumen bleibt gleich.', einheit='l') | {'_art': _P},
+    lambda: Z('Ein Zug fährt 300 km mit 120 km/h. Wegen einer Baustelle darf er auf der ganzen Strecke nur 100 km/h fahren. Wie viele Minuten Verspätung hat er?', 30,
+              '(300 / 100 - 300 / 120) * 60', 'Geplant: 300 : 120 = 2,5 h. Jetzt: 300 : 100 = 3 h. Unterschied 0,5 h = 30 min.',
+              'Berechne beide Fahrzeiten für dieselbe Strecke.', einheit='min') | {'_art': _P},
+    lambda: Z('x und y sind indirekt proportional. Wird x um 2 größer, halbiert sich y. Wie groß war x?', 2, '2',
+              'Das Produkt bleibt gleich: (x + 2) · y/2 = x · y. Also (x + 2) : 2 = x, das heißt x + 2 = 2x und x = 2. Probe: 2 · y = 4 · y/2 ✓',
+              'Halbiert sich y, muss sich x verdoppeln. Welche Zahl verdoppelt sich, wenn man 2 dazuzählt?') | {'_art': _K},
+]
+LK.karte(_KARTE, nach='indirekt', abschnitt='Indirekte Proportionalität', gen=g_indirekt_sach, fest=_FEST)
+baue = mit_luecken(baue, LK)
+# ---- LÜCKEN ENDE ----
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Indirekte Proportionalität', ['indirekt']), ('Hyperbeln untersuchen', ['definitionsmenge', 'asymptoten', 'achsenpunkte']),

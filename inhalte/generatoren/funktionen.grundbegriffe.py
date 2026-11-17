@@ -825,6 +825,174 @@ BF.fuer_sebastian('funktionen.grundbegriffe: Der Eintrag in „offen“ („Krei
 baue = mit_befunden(baue, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- LÜCKEN (Achtzehnte Runde, Teil B: neue Lernkarte „sachzusammenhang“ am Ende, siehe _luecken_kl8.py) ----
+# LehrplanPLUS M8 1 (Funktion und Term): funktionale Zusammenhänge aus dem Alltag (z. B. Stromtarife, Temperaturverläufe) mit Tabellen,
+# Diagrammen und, wo möglich, Termen erfassen und beschreiben (ISB, Schwerpunktsetzungen Jgst. 8).
+# Vorbilder (Typ und Niveau, nicht Wortlaut/Zahlen): BMT8 2022/2025 (Tarif/Formel in Tabelle), BMT10 2024 (Schnittpunkt zweier Tarife),
+# VERA-8 (Temperaturkurve lesen und deuten).
+import collections  # noqa: E402
+
+from _bausatz import eur  # noqa: E402
+from _luecken_kl8 import K as _K, P as _P, Luecken, mit_luecken  # noqa: E402
+
+LK = Luecken('funktionen.grundbegriffe', 18_8_1)
+_LZ = 'sachzusammenhang'
+_KO = lambda **k: {'typ': 'koordinaten', **k}
+
+_KARTE = {
+    'lernziel': _LZ, 'titel': 'Zusammenhänge aus dem Alltag beschreiben',
+    'einstieg': 'Ein Handytarif kostet 5 € Grundgebühr im Monat und 2 € je GB. Der Preis hängt von den GB ab. '
+                'Das ist ein ⟦funktionaler Zusammenhang⟧: Man zeigt ihn als Tabelle, Term oder Graph.',
+    'woerter': [['funktionaler Zusammenhang', 'eine Größe hängt eindeutig von einer anderen ab, z. B. der Preis von den GB'],
+                ['Grundgebühr', 'fester Betrag, den man immer zahlt, auch bei 0 GB']],
+    'bild': _KO(x=[0, 7], y=[0, 18], graphen=[{'art': 'linear', 'm': 2, 't': 5, 'name': 'Preis', 'bereich': [0, 6.5]}], name_x='GB', name_y='€', schritt_y=2),
+    'schritte': [{'text': 'Tabelle: 0 GB kosten 5 €, 1 GB 7 €, 2 GB 9 €.',
+                  'bild': {'typ': 'tabelle', 'kopf': ['GB (Eingabe)', '0', '1', '2', '3'], 'zeilen': [['Preis in €', '5', '7', '9', '11']]}},
+                 {'text': 'Je GB kommen 2 € dazu. Term: K(x) = 5 + 2 · x.'},
+                 {'text': 'Im Graphen liegen diese Punkte auf einer Linie, Start bei 5 €.',
+                  'bild': _KO(x=[0, 7], y=[0, 18], graphen=[{'art': 'linear', 'm': 2, 't': 5, 'name': 'Preis', 'bereich': [0, 6.5]}], name_x='GB', name_y='€', schritt_y=2,
+                              punkte=[{'x': 0, 'y': 5}, {'x': 1, 'y': 7}, {'x': 2, 'y': 9}, {'x': 3, 'y': 11}])},
+                 {'text': 'Am Graphen abgelesen: Für 15 € bekommt man ⟦5 GB⟧.',
+                  'bild': {'strecken': [[0, 15, 5, 15, 'gestrichelt'], [5, 15, 5, 0, 'gestrichelt']], 'punkte': [{'x': 5, 'y': 15, 'name': '(5 | 15)'}]}}],
+    'probe': 'K(5) = 5 + 2 · 5 = 15 ✓',
+    'fehler': 'Die Grundgebühr nicht vergessen: 3 GB kosten 5 € + 3 · 2 € = 11 €, nicht 6 €. Wie eine Rechnung ohne den festen Monatspreis.',
+    'fehler_bild': _KO(x=[0, 7], y=[0, 18], graphen=[{'art': 'linear', 'm': 2, 't': 5, 'name': 'richtig', 'bereich': [0, 6.5]},
+                                                    {'art': 'linear', 'm': 2, 't': 0, 'name': 'ohne 5 €', 'bereich': [0, 6.5]}],
+                       name_x='GB', name_y='€', schritt_y=2, punkte=[{'x': 3, 'y': 11, 'name': '11 €'}, {'x': 3, 'y': 6, 'name': '6 €'}]),
+    'regel': 'Erst die feste Größe, dann die Änderung pro Einheit. Tabelle, Term und Graph zeigen denselben ⟦Zusammenhang⟧.',
+}
+
+# Tarife: (Wer, Einheit Einzahl, Einheit Mehrzahl, Grundgebühren, Preise je Einheit, Anzahlen, Mehrzahl im Dativ, Kurzname)
+_TARIFE = [('Ein Handytarif', 'GB', 'GB', range(4, 11), [Fr(1), Fr(3, 2), Fr(2), Fr(5, 2), Fr(3)], range(2, 11), 'GB', 'Handytarife'),
+           ('Ein Fahrradverleih', 'Stunde', 'Stunden', range(3, 9), [Fr(2), Fr(5, 2), Fr(3), Fr(4)], range(2, 9), 'Stunden', 'Tarife beim Fahrradverleih'),
+           ('Ein Stromtarif', 'kWh', 'kWh', range(8, 16), [Fr(25, 100), Fr(3, 10), Fr(35, 100), Fr(4, 10)], range(100, 401, 20), 'kWh', 'Stromtarife'),
+           ('Ein Kletterhallen-Abo', 'Besuch', 'Besuche', range(10, 31, 5), [Fr(4), Fr(5), Fr(6), Fr(15, 2)], range(2, 13), 'Besuchen', 'Abos der Kletterhalle')]
+_W = collections.Counter()
+
+
+def _wahl(R, st, arten):
+    n = min(_W[(st, a)] for a in arten)
+    a = R.choice([x for x in arten if _W[(st, x)] == n])
+    _W[(st, a)] += 1
+    return a
+
+
+def _tarif(R, voll=False):
+    wer, e1, e2, gs, ps, xs, e3, kurz = R.choice(_TARIFE)
+    t = (wer, e1, e2, Fr(R.choice(list(gs))), R.choice(ps), list(xs))
+    return t + (e3, kurz) if voll else t
+
+
+def _temp(R):
+    """Temperaturverlauf T(h) = M − (h − p)² : 4 zwischen 8 und 20 Uhr; ganze Werte bei geraden Abständen zu p."""
+    M, p = R.randint(18, 27), R.choice([13, 14, 15])
+    k = [M - Fr(p * p, 4), Fr(p, 2), Fr(-1, 4)]
+    T = lambda h: M - Fr((h - p) ** 2, 4)
+    gr = _KO(x=[8, 20], y=[M - 10, M + 2], graphen=[{'art': 'poly', 'k': [float(c) if Fr(c).denominator != 1 else int(c) for c in k], 'name': 'T', 'bereich': [8, 20]}],
+             name_x='Uhr', name_y='°C', schritt_y=1, schritt_x=1)
+    return M, p, T, gr
+
+
+def g_sachzusammenhang(R, st):
+    if st == 1:
+        art = _wahl(R, 1, ['preis', 'temp_lesen', 'term'])
+        if art == 'preis':
+            wer, e1, e2, g, p, xs = _tarif(R)
+            x = R.choice(xs)
+            return Z(f'{wer} kostet {eur(g)} € Grundgebühr und {eur(p)} € je {e1}. Wie viel Euro kosten {x} {e2 if x != 1 else e1}?', g + p * x, f'{cz(g)} + {cz(p)} * {x}',
+                     f'Grundgebühr plus {x} · {eur(p)} €: {eur(g)} € + {eur(p * x)} € = {eur(g + p * x)} €.', 'Die Grundgebühr zahlt man immer, dazu der Preis je Einheit mal die Anzahl.',
+                     einheit='€')
+        if art == 'temp_lesen':
+            M, p, T, gr = _temp(R)
+            h = R.choice([x for x in range(8, 21) if (x - p) % 2 == 0 and x != p])
+            return Z(f'Der Graph zeigt den Temperaturverlauf an einem Sommertag. Wie warm war es um {h} Uhr?', T(h), f'{M} - ({h} - {p})**2 / 4',
+                     f'Bei {h} Uhr senkrecht hoch zum Graphen, dann waagrecht zur Temperatur-Achse: {zt(T(h))} °C.', 'Suche die Uhrzeit unten auf der Achse und gehe senkrecht bis zum Graphen.',
+                     einheit='°C') | {'f': {'text': f'Der Graph zeigt den Temperaturverlauf an einem Sommertag. Wie warm war es um {h} Uhr?', 'grafik': gr}}
+        wer, e1, e2, g, p, xs = _tarif(R)
+        return LK.A(f'{wer} kostet {eur(g)} € Grundgebühr und {eur(p)} € je {e1}. Welcher Term gibt die Kosten K in € für x {e2} an?', f'K(x) = {eur(g)} + {eur(p)} · x',
+                    [f'K(x) = {eur(p)} + {eur(g)} · x', f'K(x) = ({eur(g)} + {eur(p)}) · x', f'K(x) = {eur(p)} · x'],
+                    f'Fest sind {eur(g)} €, für jede Einheit kommen {eur(p)} € dazu: K(x) = {eur(g)} + {eur(p)} · x. Nur dieser Term ergibt bei x = 0 die Grundgebühr.',
+                    'Welcher Betrag ist fest, welcher wird mit der Anzahl x multipliziert?')
+    if st == 2:
+        art = _wahl(R, 2, ['rueck', 'tab_term', 'temp_aenderung', 'temp_max'])
+        if art == 'rueck':
+            wer, e1, e2, g, p, xs = _tarif(R)
+            x = R.choice(xs)
+            k = g + p * x
+            return Z(f'{wer} kostet {eur(g)} € Grundgebühr und {eur(p)} € je {e1}. Die Rechnung beträgt {eur(k)} €. Wie viele {e2} waren es?', x, f'({cz(k)} - {cz(g)}) / {cz(p)}',
+                     f'Ohne Grundgebühr: {eur(k)} € − {eur(g)} € = {eur(k - g)} €. Geteilt durch {eur(p)} €: {x} {e2 if x != 1 else e1}.',
+                     'Ziehe zuerst die Grundgebühr ab. Dann teile durch den Preis je Einheit.')
+        if art == 'tab_term':
+            wer, e1, e2, g, p, xs = _tarif(R)
+            if p.denominator != 1 or g.denominator != 1: return g_sachzusammenhang(R, st)
+            x0 = R.randint(1, 3)
+            tab = {'typ': 'tabelle', 'kopf': [f'{e2} (x)'] + [str(x0 + i) for i in range(4)], 'zeilen': [['Kosten in €'] + [eur(g + p * (x0 + i)) for i in range(4)]]}
+            return L(f'Die Tabelle gehört zu einem Tarif mit Grundgebühr und festem Preis je {e1}. Gib den Term an.', 'K(x) = □ + □ · x', [g, p], [cz(g), cz(p)],
+                     f'Je {e1} mehr steigen die Kosten um {eur(p)} €: Preis je Einheit {eur(p)}. Rückwärts bis x = 0: {eur(g + p * x0)} − {x0} · {eur(p)} = {eur(g)} € Grundgebühr. '
+                     f'K(x) = {eur(g)} + {eur(p)} · x.', 'Um wie viel steigen die Kosten von Spalte zu Spalte? Rechne dann zurück bis x = 0.',
+                     hinweis='Zwei ganze Zahlen eintragen.') | {'f': {'text': f'Die Tabelle gehört zu einem Tarif mit Grundgebühr und festem Preis je {e1}. Gib den Term an.',
+                                                                      'schablone': 'K(x) = □ + □ · x', 'hinweis': 'Zwei ganze Zahlen eintragen.', 'grafik': tab}}
+        M, p, T, gr = _temp(R)
+        if art == 'temp_max':
+            t = f'Der Graph zeigt den Temperaturverlauf an einem Tag. Um wie viel Uhr war es am wärmsten?'
+            return Z(t, p, f'{p}', f'Der höchste Punkt des Graphen liegt bei {p} Uhr ({M} °C). Davor steigt, danach sinkt die Temperatur.',
+                     'Suche den höchsten Punkt des Graphen und lies unten die Uhrzeit ab.', einheit='Uhr') | {'f': {'text': t, 'grafik': gr}}
+        h1 = R.choice([x for x in range(8, 13) if (x - p) % 2 == 0])
+        h2 = R.choice([x for x in range(h1 + 2, p + 1) if (x - p) % 2 == 0] or [p])
+        t = f'Der Graph zeigt den Temperaturverlauf an einem Tag. Um wie viel Grad ist es von {h1} Uhr bis {h2} Uhr wärmer geworden?'
+        return Z(t, T(h2) - T(h1), f'({M} - ({h2} - {p})**2 / 4) - ({M} - ({h1} - {p})**2 / 4)',
+                 f'Abgelesen: {h1} Uhr {zt(T(h1))} °C, {h2} Uhr {zt(T(h2))} °C. Unterschied: {zt(T(h2))} − {zt(T(h1))} = {zt(T(h2) - T(h1))} Grad.',
+                 'Lies beide Temperaturen ab und bilde den Unterschied.', einheit='°C') | {'f': {'text': t, 'grafik': gr}}
+    art = _wahl(R, 3, ['gleich', 'aussage', 'guenstiger'])
+    if art in ('gleich', 'guenstiger'):
+        for _ in range(200):
+            wer, e1, e2, g, p, xs, e3, kurz = _tarif(R, voll=True)
+            g2 = g + R.choice([2, 3, 4, 5, 6, 10])
+            p2 = p - R.choice([Fr(1, 2), Fr(1), Fr(5, 100), Fr(1, 10)])
+            if p2 <= 0: continue
+            x = (g2 - g) / (p - p2)
+            if x.denominator == 1 and xs[0] <= x <= xs[-1]: break
+        else:
+            return g_sachzusammenhang(R, st)
+        tarif = f'Zwei {kurz}: A kostet {eur(g)} € Grundgebühr und {eur(p)} € je {e1}, B kostet {eur(g2)} € Grundgebühr und {eur(p2)} € je {e1}.'
+        if art == 'gleich':
+            return Z(f'{tarif} Bei wie vielen {e3} kosten beide gleich viel?', x, f'({cz(g2)} - {cz(g)}) / ({cz(p)} - {cz(p2)})',
+                     f'B startet {eur(g2 - g)} € teurer, spart aber {eur(p - p2)} € je {e1}. Gleich teuer nach {eur(g2 - g)} : {eur(p - p2)} = {zt(x)} {e2}. '
+                     f'Probe: {eur(g + p * x)} € = {eur(g2 + p2 * x)} €.', 'Wie viel teurer startet B, und wie viel spart B je Einheit?')
+        x2 = x + R.choice([2, 4, 5]) * (1 if e1 != 'kWh' else 20)
+        d = (g + p * x2) - (g2 + p2 * x2)
+        return Z(f'{tarif} Um wie viel Euro ist B bei {zt(x2)} {e3} günstiger?', d, f'({cz(g)} + {cz(p)} * {zt(x2)}) - ({cz(g2)} + {cz(p2)} * {zt(x2)})',
+                 f'A: {eur(g)} + {eur(p)} · {zt(x2)} = {eur(g + p * x2)} €. B: {eur(g2)} + {eur(p2)} · {zt(x2)} = {eur(g2 + p2 * x2)} €. Unterschied {eur(d)} €.',
+                 'Rechne beide Rechnungen aus und vergleiche.', einheit='€')
+    M, p, T, gr = _temp(R)
+    hs = [x for x in range(8, 21) if (x - p) % 2 == 0 and x != p]
+    a, b = R.sample([x for x in hs if x < p], 1)[0], R.sample([x for x in hs if x > p], 1)[0]
+    richtig = f'Zwischen {p} Uhr und 20 Uhr sinkt die Temperatur.'
+    falsch = [f'Zwischen {a} Uhr und {p} Uhr sinkt die Temperatur.', f'Um {b} Uhr ist es wärmer als um {p} Uhr.', f'Die höchste Temperatur beträgt {M + 2} °C.']
+    return LK.A('Der Graph zeigt den Temperaturverlauf an einem Tag. Welche Aussage stimmt?', richtig, falsch,
+                f'Der Graph steigt bis {p} Uhr (höchster Wert {M} °C) und fällt danach bis 20 Uhr. Deshalb stimmt nur: {richtig}',
+                'Wo steigt der Graph, wo fällt er? Wo ist sein höchster Punkt?', grafik=gr)
+
+
+_GR0 = _KO(x=[8, 20], y=[10, 22], graphen=[{'art': 'poly', 'k': [-29, 7, -0.25], 'name': 'T', 'bereich': [8, 20]}], name_x='Uhr', name_y='°C', schritt_y=1, schritt_x=1)
+_FEST = [
+    lambda: Z('Stromtarif A: 9 € Grundpreis im Monat und 0,30 € je kWh. Stromtarif B: 15 € Grundpreis und 0,25 € je kWh. Bei welchem Monatsverbrauch kosten beide gleich viel?',
+              120, '(15 - 9) / (30/100 - 25/100)', 'B kostet 6 € mehr Grundpreis, ist aber je kWh 0,05 € billiger. 6 : 0,05 = 120 kWh. '
+              'Probe: A: 9 + 0,30 · 120 = 45 €; B: 15 + 0,25 · 120 = 45 €.', 'Wie viel teurer startet B? Wie viel spart B je kWh?', einheit='kWh') | {'_art': _P},
+    lambda: Z('Stromtarif A: 9 € Grundpreis und 0,30 € je kWh, Tarif B: 15 € Grundpreis und 0,25 € je kWh. Eine Familie verbraucht 200 kWh im Monat. '
+              'Um wie viel Euro ist der günstigere Tarif billiger?', 4, '(9 + 30/100 * 200) - (15 + 25/100 * 200)',
+              'A: 9 + 0,30 · 200 = 69 €. B: 15 + 0,25 · 200 = 65 €. B ist um 4 € billiger.', 'Berechne beide Monatsrechnungen.', einheit='€') | {'_art': _P},
+    lambda: LK.A('Die Zuordnung Uhrzeit → Temperatur im Bild ist eine Funktion. Ist auch die Zuordnung Temperatur → Uhrzeit eine Funktion?',
+                 'Nein: Zu 16 °C gehören zwei Uhrzeiten, 10 Uhr und 18 Uhr.',
+                 ['Ja: Man vertauscht nur Eingabe und Ausgabe.', 'Ja: Zu jeder Uhrzeit gibt es genau eine Temperatur.', 'Nein: Temperaturen können negativ sein.'],
+                 'Eine Funktion braucht zu jeder Eingabe genau eine Ausgabe. Eine waagrechte Linie bei 16 °C trifft den Graphen zweimal: um 10 Uhr und um 18 Uhr. '
+                 'Rückwärts ist die Zuordnung also nicht eindeutig.', 'Gehe von einer Temperatur waagrecht zum Graphen. Wie oft triffst du ihn?', grafik=_GR0, art=_K),
+]
+LK.karte(_KARTE, nach='*', abschnitt='Graph und Nullstellen', gen=g_sachzusammenhang, fest=_FEST)
+baue = mit_luecken(baue, LK)
+# ---- LÜCKEN ENDE ----
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Was ist eine Funktion?', ['eindeutig', 'mengen']), ('Mit dem Term rechnen', ['funktionswert', 'stelle', 'wertetabelle', 'graph_lesen']),

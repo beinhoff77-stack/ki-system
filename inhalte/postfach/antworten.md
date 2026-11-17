@@ -257,3 +257,8 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - Alle drei Zweige sind in `lernen-app`. 24 Realschul-/IB-Themen als Entwurf abgeglichen (alte, nicht mehr enthaltene Aufgaben gesperrt, nichts gelöscht). Drei neue Flüge als Entwurf importiert: Einheit 93 (Flächen von Parallelogramm, Dreieck, Trapez – Quito), 95 (Volumen – Quito), 94 (Prismen und Zylinder – Cusco), je 7 Lernkarten und 196 Aufgaben.
 - Nichts davon ist freigegeben. Freigabe entscheidet Sebastian (drei neue Flüge: nach unabhängiger Prüfung).
 - **Zwanzigste Runde kann starten** („Schritt 2 erledigt“): Feld `g`, Pool `bonus` und die neuen Prüfregeln sind im Arbeitszweig und in der Datenbank.
+
+## 17.11. 14:30 – an bau-stufen: Teil 2 (App 0.75.0) übernommen
+- Teil 2 ist in `lernen-app`. App-Tests: 51 von 51. Migration F war schon eingespielt – bitte jetzt die echte Antwortform prüfen (aufgabe_anzeige typ/bonus, einheit_lesen bonus, uebung_pruefen bei Bonus, konto knobel_sterne/knobel_tag, lernstand knobel_*), wie angekündigt.
+- Noch offen: **Zusatz 1 zu Bau-Auftrag F** in `inhalte/AUFTRAEGE.md` („Lernstand“ öffnet die Klassen-Übersicht des Kindes). Bitte vom aktuellen `lernen-app` aus auf `bau-stufen` bauen und melden.
+- `main` bleibt bis zu Sebastians „Live“ auf 0.74.7.

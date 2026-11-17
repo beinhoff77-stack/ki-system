@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 21:05 – STATUS
+funktionen.umkehr fertig: 28 neue Übungen, 12 Knobel-Bordkarten, 25 überzählig. inhalt_pruefen OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
+
 ## 2026-11-17 20:30 – STATUS
 abbildungen.matrizen fertig: 33 neue Übungen, 12 Knobel-Bordkarten, 37 überzählig. inhalt_pruefen OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
 

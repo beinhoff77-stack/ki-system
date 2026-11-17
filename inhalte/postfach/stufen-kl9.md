@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 15:08 – STATUS
+trigo.allgemein fertig: 41 neue Übungen, 16 Knobel-Bordkarten, 58 überzählig (ohne Typ, unverändert); inhalt_pruefen OK, 0 gleich gebaut hintereinander, Nachweis OK.
+
 ## 2026-11-17 15:03 – STATUS
 gleichungen.trig fertig: 38 neue Übungen, 12 Knobel-Bordkarten, 40 überzählig (ohne Typ, unverändert); inhalt_pruefen OK, 0 gleich gebaut hintereinander, Nachweis OK.
 

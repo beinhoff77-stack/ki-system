@@ -619,6 +619,185 @@ def durchsicht(d):
         })
 
 
+# ---- STUFEN (Zwanzigste Runde, Zusatz RS/IB, Zweig stufen-rsib-1) ----
+from _stufen_rsib1 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('abbildungen.vektoren', 20_71_2)
+Z, A, L = ST.Z, ST.A, ST.L
+_V = '(□ | □)'
+_P = 'P(□ | □)'
+
+# vektor_bestimmen
+ST.stufenleiter('vektor_bestimmen', 'Vektor AB als Spitze minus Fuß ausrechnen und den passenden Vektor erkennen.',
+                'Mit negativen Koordinaten rechnen, Fußpunkt aus Vektor und Spitze bestimmen, Weg im Gelände als Vektor.',
+                'Fehler „Fuß minus Spitze“ finden, Vektoren verketten, Parameter, Lage auf einer Geraden begründen, gleiche Teilstrecken aus einem Gesamtweg, Prüfungsaufgabe AB + BC = AC.')
+ST.typ('vektor_bestimmen', 'Berechne den Vektor AB', 'direkt')
+ST.typ('vektor_bestimmen', '/^Berechne den Vektor (RS|CD)/', 'mehrschritt')
+ST.typ('vektor_bestimmen', 'Welcher Vektor führt', 'erkennen')
+ST.typ('vektor_bestimmen', 'Es gilt Vektor AB', 'umkehr')
+ST.typ('vektor_bestimmen', 'Jemand rechnet', 'fehler')
+ST.typ('vektor_bestimmen', 'Gegeben sind P(1 | 2)', 'verknuepfen')
+ST.typ('vektor_bestimmen', '/^Gegeben (ist|sind) A\\(1 \\| 3\\)/', 'parameter')
+ST.typ('vektor_bestimmen', 'Für die Punkte A', 'begruenden')
+ST.typ('vektor_bestimmen', 'Für den Vektor AB = (a | b)', 'rueckwaerts')
+ST.neu('vektor_bestimmen', 'einkleidung', L('Ein Wanderweg führt vom Parkplatz P(2 | 1) zur Hütte H(7 | 4); eine Einheit ist 1 km. Gib den Vektor PH an.', _V, [5, 3], ['7 - 2', '4 - 1'],
+       'Spitze minus Fuß: PH = (7 − 2 | 4 − 1) = (5 | 3), also 5 km nach Osten und 3 km nach Norden.', 'Welcher Punkt ist der Fuß, welcher die Spitze?'))
+ST.neu('vektor_bestimmen', 'transfer', L('Eine Drohne fliegt von S(0 | 0) aus dreimal hintereinander denselben Vektor und landet bei Z(12 | −9). Welcher Vektor ist ein einzelner Flug?', _V, [4, -3], ['12 // 3', '-9 // 3'],
+       'Drei gleiche Flüge ergeben SZ = (12 | −9). Ein Flug ist ein Drittel davon: (4 | −3).', 'Wie hängt der Gesamtweg mit einem Flug zusammen?'))
+ST.neu('vektor_bestimmen', 'pruefung', L('Gegeben sind A(−2 | 1), B(3 | 4) und C(1 | −2). a) Berechne AB. b) Berechne BC. c) Berechne AC und prüfe, ob AB + BC = AC gilt.',
+       'AB = (□ | □); BC = (□ | □); AC = (□ | □)', [5, 3, -2, -6, 3, -3], ['3 + 2', '4 - 1', '1 - 3', '-2 - 4', '1 + 2', '-2 - 1'],
+       'a) AB = (3 − (−2) | 4 − 1) = (5 | 3). b) BC = (1 − 3 | −2 − 4) = (−2 | −6). c) AC = (3 | −3). Probe: (5 + (−2) | 3 + (−6)) = (3 | −3). Stimmt.', 'Immer Spitze minus Fuß.'))
+ST.knobel('vektor_bestimmen', Z('A und B sind verschiedene Gitterpunkte mit Koordinaten aus {0, 1, 2} (also 9 Punkte). Wie viele verschiedene Vektoren AB können dabei entstehen?', 24, '5 * 5 - 1',
+          'Jede Koordinate des Vektors ist eine Differenz zweier Zahlen aus {0, 1, 2}, also −2, −1, 0, 1 oder 2. Alle 5 · 5 = 25 Kombinationen kommen vor, nur (0 | 0) nicht, weil A ≠ B. Also 24.',
+          'Welche Werte kann eine Koordinate des Vektors annehmen?'))
+ST.knobel('vektor_bestimmen', Z('Wie viele Vektoren (a | b) mit ganzen Zahlen a und b gibt es, bei denen |a| + |b| = 3 ist (also insgesamt genau 3 Kästchen waagrecht und senkrecht)?', 12, '4 * 3',
+          'a = 0: b = ±3 (2 Vektoren). a = ±3: b = 0 (2). |a| = 1, |b| = 2: 4 Vektoren. |a| = 2, |b| = 1: 4 Vektoren. Zusammen 2 + 2 + 4 + 4 = 12. Das sind die Punkte auf einer „Raute“ um den Ursprung.',
+          'Ordne nach dem Wert von |a|.'))
+
+# bildpunkt
+ST.stufenleiter('bildpunkt', 'Einen Punkt mit einem Vektor verschieben: Koordinaten addieren, Bildpunkt erkennen.',
+                'Mit negativen Koordinaten, Vektor beschrieben in Worten, mehrere Punkte einer Figur, Vektor aus Punkt und Bildpunkt, Urpunkt.',
+                'Startpunkt nach zwei Verschiebungen, Parameter, Reihenfolge begründen, Fehler „abgezogen statt addiert“, Mittelpunkt verschieben, Zugzahl bestimmen, Prüfungsaufgabe.')
+ST.typ('bildpunkt', 'Verschiebe P', 'direkt')
+ST.typ('bildpunkt', 'Wohin kommt', 'erkennen')
+ST.typ('bildpunkt', 'Ein Dreieck ABC wird verschoben', 'mehrschritt')
+ST.typ('bildpunkt', 'Eine Verschiebung bildet', 'umkehr')
+ST.typ('bildpunkt', 'Ein Punkt wird zweimal', 'rueckwaerts')
+ST.typ('bildpunkt', 'Die Punkte P(x', 'parameter')
+ST.neu('bildpunkt', 'darstellung', L('Der Pfeil v führt 4 Kästchen nach links und 1 nach oben. Wohin kommt P(2 | 2)?', "P′(□ | □)", [-2, 3], ['2 - 4', '2 + 1'],
+       'v = (−4 | 1). P′ = (2 + (−4) | 2 + 1) = (−2 | 3).', 'Nach links heißt negative x-Koordinate.'))
+ST.neu('bildpunkt', 'einkleidung', L('Eine Spielfigur steht auf dem Feld (3 | 2). Ihr Zug ist der Vektor (2 | −1). Auf welchem Feld steht sie danach?', '(□ | □)', [5, 1], ['3 + 2', '2 - 1'],
+       '(3 + 2 | 2 + (−1)) = (5 | 1).', 'Koordinaten einzeln addieren.'))
+ST.neu('bildpunkt', 'mehrschritt', L('Das Dreieck A(1 | 1), B(4 | 1), C(2 | 3) wird mit v = (−2 | 3) verschoben. Gib A′ und C′ an.', "A′(□ | □); C′(□ | □)", [-1, 4, 0, 6], ['1 - 2', '1 + 3', '2 - 2', '3 + 3'],
+       'A′ = (1 − 2 | 1 + 3) = (−1 | 4). C′ = (2 − 2 | 3 + 3) = (0 | 6).', 'Jeder Punkt wird mit demselben Vektor verschoben.'))
+ST.neu('bildpunkt', 'fehler', A('Jemand verschiebt P(3 | −2) mit v = (−4 | 5) und erhält P′(7 | −7). Was stimmt?', 'Falsch: Er hat abgezogen statt addiert. Richtig ist P′(−1 | 3).',
+       ['Richtig.', 'Falsch: Richtig ist P′(−7 | 7).', 'Falsch: Richtig ist P′(1 | −3).'],
+       '3 + (−4) = −1 und −2 + 5 = 3. 3 − (−4) = 7 und −2 − 5 = −7 – das wäre die Verschiebung mit dem Gegenvektor.', 'Mach die Probe mit „plus v“.'))
+ST.neu('bildpunkt', 'begruenden', A('Stimmt: Verschiebt man erst mit v und dann mit w, kommt man an dieselbe Stelle wie erst mit w und dann mit v?', 'Ja, weil man die Koordinaten in beliebiger Reihenfolge addieren darf.',
+       ['Nein, die Reihenfolge ist wichtig.', 'Nur wenn v und w gleich sind.', 'Nur wenn beide nach rechts zeigen.'],
+       'P + v + w und P + w + v haben dieselben Koordinaten, denn beim Addieren ist die Reihenfolge egal (Kommutativgesetz).', 'Probiere ein Beispiel.'))
+ST.neu('bildpunkt', 'transfer', Z('Eine Figur startet bei (−5 | 0) und wird bei jedem Zug mit (2 | 1) verschoben. Nach wie vielen Zügen liegt sie zum ersten Mal rechts der y-Achse (x > 0)?', 3, '3',
+       'Die x-Koordinate ist nach n Zügen −5 + 2n. n = 2: −1, n = 3: 1 > 0. Also nach 3 Zügen.', 'Verfolge nur die x-Koordinate.'))
+ST.neu('bildpunkt', 'verknuepfen', L('Das Quadrat A(0 | 0), B(2 | 0), C(2 | 2), D(0 | 2) wird so verschoben, dass sein Mittelpunkt auf (5 | 5) liegt. Wohin kommt A?', "A′(□ | □)", [4, 4], ['5 - 1', '5 - 1'],
+       'Der Mittelpunkt des Quadrats ist M(1 | 1). v = (5 − 1 | 5 − 1) = (4 | 4). A′ = (0 + 4 | 0 + 4) = (4 | 4).', 'Bestimme zuerst den Mittelpunkt und daraus v.'))
+ST.neu('bildpunkt', 'pruefung', L('Das Dreieck A(−2 | 1), B(2 | 0), C(0 | 3) wird so verschoben, dass A′(1 | −1) ist. a) Gib v an. b) Berechne B′ und C′.', "v = (□ | □); B′(□ | □); C′(□ | □)", [3, -2, 5, -2, 3, 1],
+       ['1 + 2', '-1 - 1', '2 + 3', '0 - 2', '0 + 3', '3 - 2'], 'a) v = A′ − A = (3 | −2). b) B′ = (5 | −2), C′ = (3 | 1).', 'Den Vektor bekommst du aus A und A′.'))
+ST.knobel('bildpunkt', L('Ein Punkt startet bei (0 | 0) und wird abwechselnd mit (3 | 1) und mit (−2 | 1) verschoben, beginnend mit (3 | 1). Wo ist er nach 10 Verschiebungen?', _V, [5, 10], ['5 * 1', '5 * 2'],
+          'Je zwei Verschiebungen ergeben zusammen (3 + (−2) | 1 + 1) = (1 | 2). 10 Verschiebungen sind 5 solche Paare: 5 · (1 | 2) = (5 | 10).', 'Fasse immer zwei Verschiebungen zusammen.'))
+ST.knobel('bildpunkt', Z('Man darf beliebig oft mit (2 | 1) und mit (1 | 3) verschieben, in beliebiger Reihenfolge. Von (0 | 0) soll man nach (7 | 11) kommen. Wie viele Verschiebungen braucht man insgesamt?', 5, '2 + 3',
+          'a-mal (2 | 1) und b-mal (1 | 3): 2a + b = 7 und a + 3b = 11. Aus der ersten b = 7 − 2a, eingesetzt: a + 21 − 6a = 11 ⇒ a = 2, b = 3. Zusammen 5 Verschiebungen.', 'Zähle, wie oft jeder Vektor vorkommt.'))
+
+# gegenvektor
+ST.stufenleiter('gegenvektor', 'Den Gegenvektor angeben (Vorzeichen umdrehen) und erkennen, dass er eine Verschiebung rückgängig macht.',
+                'Urpunkt aus Bildpunkt und Vektor, Rückweg nach zwei Fahrten, Rückweg in einer Sachsituation.',
+                'Verschiebung aus einem Punktpaar auf eine andere Ecke übertragen, Parameter, Nullvektor begründen, Fehler „weiter statt zurück“, Bedingung für einen zweiten Vektor, Prüfungsaufgabe.')
+ST.typ('gegenvektor', 'Gib den Gegenvektor', 'direkt')
+ST.typ('gegenvektor', 'Mit welchem Vektor macht man', 'erkennen')
+ST.typ('gegenvektor', 'Bei ', 'umkehr')
+ST.typ('gegenvektor', 'Ein Roboter fährt', 'mehrschritt')
+ST.typ('gegenvektor', 'Die Punkte P′', 'parameter')
+ST.typ('gegenvektor', 'Ein Viereck wurde verschoben', 'rueckwaerts')
+ST.typ('gegenvektor', 'Eine Verschiebung bildet', 'verknuepfen')
+ST.typ('gegenvektor', 'Ein Vektor v ist gleich', 'begruenden')
+ST.typ('gegenvektor', 'Bildpunkt P′', 'fehler')
+ST.typ('gegenvektor', 'Ein Punkt wird zuerst', 'transfer')
+ST.neu('gegenvektor', 'erkennen', A('Welcher Vektor ist der Gegenvektor zu v = (3 | −5)?', '(−3 | 5)', ['(3 | 5)', '(−3 | −5)', '(5 | −3)'],
+       'Beim Gegenvektor drehen beide Vorzeichen um: (−3 | 5).', 'Beide Koordinaten ändern das Vorzeichen.'))
+ST.neu('gegenvektor', 'einkleidung', L('Ein Kran hebt eine Kiste vom Platz (2 | 0) mit dem Vektor (7 | 4) an eine neue Stelle (Maße in m). Mit welchem Vektor bringt er sie zurück?', _V, [-7, -4], ['-7', '-4'],
+       'Zurück geht es mit dem Gegenvektor (−7 | −4). Wo die Kiste startet, spielt dafür keine Rolle.', 'Was macht eine Verschiebung rückgängig?'))
+ST.neu('gegenvektor', 'begruenden', A('Stimmt: v + (−v) ergibt immer den Nullvektor (0 | 0)?', 'Ja: Hin und wieder zurück, man landet am Start.', ['Nein, das Doppelte von v.', 'Nur wenn v nach rechts zeigt.', 'Nein, (0 | 0) gibt es nicht.'],
+       '(a | b) + (−a | −b) = (0 | 0). Eine Verschiebung mit v und danach mit −v bringt jeden Punkt an seinen Platz zurück.', 'Addiere ein Beispiel.'))
+ST.neu('gegenvektor', 'pruefung', L('Ein Dreieck wurde mit v = (4 | −3) verschoben. Die Bildpunkte sind A′(2 | 1), B′(6 | 1) und C′(3 | 5). a) Gib −v an. b) Berechne A und C.',
+       '−v = (□ | □); A(□ | □); C(□ | □)', [-4, 3, -2, 4, -1, 8], ['-4', '3', '2 - 4', '1 + 3', '3 - 4', '5 + 3'],
+       'a) −v = (−4 | 3). b) A = A′ + (−v) = (−2 | 4), C = (3 − 4 | 5 + 3) = (−1 | 8).', 'Zurück geht es mit dem Gegenvektor.'))
+ST.knobel('gegenvektor', L('Von (0 | 0) aus wird nacheinander verschoben mit v, 2 · (−v), 3 · v, 4 · (−v), …, bis 10 · (−v). Dabei ist v = (1 | 2). Wo landet man?', _V, [-5, -10], ['1 - 2 + 3 - 4 + 5 - 6 + 7 - 8 + 9 - 10', '2 * (-5)'],
+          'Zusammen ist es (1 − 2 + 3 − 4 + … + 9 − 10) · v. Je zwei Summanden ergeben −1, fünf Paare also −5. −5 · (1 | 2) = (−5 | −10).', 'Fasse immer zwei Schritte zusammen.'))
+ST.knobel('gegenvektor', L('Für welchen Vektor v ist der Gegenvektor −v genauso groß wie v + (6 | −4)?', _V, [-3, 2], ['-6 // 2', '4 // 2'],
+          '−v = v + (6 | −4) heißt 2 · v = −(6 | −4) = (−6 | 4), also v = (−3 | 2). Probe: −v = (3 | −2) und v + (6 | −4) = (3 | −2).', 'Schreibe v = (a | b) und vergleiche die Koordinaten einzeln.'))
+
+# addition
+ST.stufenleiter('addition', 'Zwei Vektoren koordinatenweise addieren und eine Summe erkennen.',
+                'AB + BC = AC, drei Verschiebungen zu einer zusammenfassen, fehlenden Summanden bestimmen.',
+                'Geschlossener Weg im Viereck, Boot mit Strömung, Unabhängigkeit vom Zwischenpunkt begründen, passende Summanden suchen, Vorzeichenfehler finden, Parameter, Prüfungsaufgabe Flugroute.')
+ST.typ('addition', 'Berechne (', 'direkt')
+ST.typ('addition', 'Welche Summe stimmt', 'erkennen')
+ST.typ('addition', 'Es gilt Vektor AB', 'mehrschritt')
+ST.typ('addition', 'Eine Figur wird nacheinander', 'einkleidung')
+ST.typ('addition', 'Ergänze', 'umkehr')
+ST.typ('addition', 'Im Viereck ABCD', 'verknuepfen')
+ST.typ('addition', 'Ein Boot', 'transfer')
+ST.typ('addition', '/^(Gegeben sind A\\(0 \\| 0\\) und C|Berechne Vektor AB \\+ Vektor BA)/', 'begruenden')
+ST.typ('addition', 'Welche zwei der Vektoren', 'rueckwaerts')
+ST.neu('addition', 'erkennen', A('Welche Rechnung beschreibt: erst 3 nach rechts und 1 nach unten, dann 2 nach links und 4 nach oben?', '(3 | −1) + (−2 | 4)',
+       ['(3 | 1) + (2 | 4)', '(3 | −1) + (2 | −4)', '(−3 | 1) + (−2 | 4)'], 'Rechts und oben sind positiv, links und unten negativ: (3 | −1) + (−2 | 4) = (1 | 3).', 'Übersetze jede Bewegung in einen Vektor.'))
+ST.neu('addition', 'fehler', A('Jemand rechnet (3 | −2) + (−5 | 4) = (8 | −6). Was stimmt?', 'Falsch: 3 + (−5) = −2 und −2 + 4 = 2, also (−2 | 2).',
+       ['Richtig.', 'Falsch: (−2 | −6).', 'Falsch: (8 | 2).'], 'Er hat die zweiten Koordinaten abgezogen statt addiert. Richtig: (3 + (−5) | −2 + 4) = (−2 | 2).', 'Rechne jede Koordinate langsam nach.'))
+ST.neu('addition', 'parameter', Z('Für welche Zahl k gilt (k | 2) + (3 | k) = (7 | 6)?', 4, '7 - 3',
+       'x-Koordinate: k + 3 = 7 ⇒ k = 4. y-Koordinate: 2 + k = 6 ⇒ k = 4. Beide passen, also k = 4.', 'Stelle für jede Koordinate eine Gleichung auf.'))
+ST.neu('addition', 'pruefung', L('Ein Flugzeug fliegt von A aus mit dem Vektor (40 | 30) nach B und dann mit (−10 | 50) nach C (Angaben in km). a) Gib den Vektor AC an. b) Mit welchem Vektor fliegt es direkt zurück nach A?',
+       'AC = (□ | □); zurück (□ | □)', [30, 80, -30, -80], ['40 - 10', '30 + 50', '-30', '-80'],
+       'a) AC = (40 + (−10) | 30 + 50) = (30 | 80). b) Zurück: Gegenvektor (−30 | −80).', 'AC ist die Summe der beiden Flüge.'))
+ST.knobel('addition', L('Addiere die zehn Vektoren (1 | 1), (2 | 3), (3 | 5), …, (10 | 19) (die x-Koordinate wächst jeweils um 1, die y-Koordinate um 2).', _V, [55, 100], ['1+2+3+4+5+6+7+8+9+10', '1+3+5+7+9+11+13+15+17+19'],
+          'x: 1 + 2 + … + 10 = 55 (fünf Paare zu 11). y: 1 + 3 + … + 19 = 100 (fünf Paare zu 20). Summe (55 | 100).', 'Addiere geschickt, z. B. erste und letzte Zahl zusammen.'))
+ST.knobel('addition', A('Man darf (2 | 1) und (−1 | 2) beliebig oft addieren, auch mit Minus davor. Welcher Punkt ist von (0 | 0) aus erreichbar?', '(5 | 5)', ['(4 | 4)', '(1 | 1)', '(3 | 1)'],
+          'a · (2 | 1) + b · (−1 | 2) = (2a − b | a + 2b). Für (5 | 5): 2a − b = 5 und a + 2b = 5 ⇒ a = 3, b = 1. Für (4 | 4) ergibt sich a = 2,4 – keine ganze Zahl, ebenso bei (1 | 1) und (3 | 1).',
+          'Schreibe das Ziel als a · (2 | 1) + b · (−1 | 2).'))
+
+# punkt_berechnen
+ST.stufenleiter('punkt_berechnen', 'Die vierte Ecke C eines Parallelogramms aus A, AB und AD bestimmen; gleiche Vektoren erkennen.',
+                'Vierte Ecke aus drei Eckpunkten, fehlende Ecke B, Pfosten eines Beets.',
+                'Mittelpunkt mit Vektoren, Parameter, drei mögliche vierte Ecken begründen, Fehler beim Vektor finden, Ecken aus dem Diagonalenschnittpunkt, Prüfungsaufgabe.')
+ST.typ('punkt_berechnen', 'Im Parallelogramm ABCD ist A(0 | 0)', 'direkt')
+ST.typ('punkt_berechnen', '/sind A\\([^)]*\\), B\\([^)]*\\) und C\\(.*(Berechne|Wo liegt) D/', 'mehrschritt')
+ST.typ('punkt_berechnen', 'Im Parallelogramm ABCD sind A(1 | 0)', 'fehler')
+ST.typ('punkt_berechnen', 'Im Parallelogramm ABCD sind A', 'umkehr')
+ST.typ('punkt_berechnen', 'Berechne den Mittelpunkt', 'verknuepfen')
+ST.typ('punkt_berechnen', 'Gegeben sind A(0 | 0)', 'parameter')
+ST.typ('punkt_berechnen', 'A(0 | 0), B(4 | 0) und C(5 | 3)', 'begruenden')
+ST.neu('punkt_berechnen', 'erkennen', A('Im Parallelogramm ABCD: Welcher Vektor ist gleich dem Vektor AD?', 'Vektor BC', ['Vektor CB', 'Vektor AB', 'Vektor DC'],
+       'Gegenüberliegende Seiten sind gleich lang, parallel und gleich gerichtet: AD = BC. CB zeigt in die Gegenrichtung.', 'Welche Seite liegt AD gegenüber – und in welche Richtung zeigt sie?'))
+ST.neu('punkt_berechnen', 'direkt', L('Ein Parallelogramm ABCD hat die Ecke A(1 | 2) und die Seitenvektoren AB = (4 | 0) und AD = (1 | 3). Gib die Ecke C an.', 'C(□ | □)', [6, 5], ['1 + 4 + 1', '2 + 0 + 3'],
+       'C = A + AB + AD = (1 + 4 + 1 | 2 + 0 + 3) = (6 | 5).', 'Von A aus erst AB, dann AD gehen.'))
+ST.neu('punkt_berechnen', 'einkleidung', L('Ein rechteckiges Beet bekommt vier Eckpfosten. Drei stehen bei A(1 | 1), B(5 | 1) und C(5 | 4). Wo muss der vierte Pfosten D stehen?', 'D(□ | □)', [1, 4], ['1 + 5 - 5', '1 + 4 - 1'],
+       'D = A + BC = (1 + 0 | 1 + 3) = (1 | 4).', 'Von A aus geht es so weiter wie von B nach C.'))
+ST.neu('punkt_berechnen', 'rueckwaerts', L('Im Parallelogramm ABCD schneiden sich die Diagonalen in M(2 | 3). Es ist A(−1 | 1) und B(4 | 0). Berechne C und D.', 'C(□ | □); D(□ | □)', [5, 5, 0, 6],
+       ['2 * 2 + 1', '2 * 3 - 1', '2 * 2 - 4', '2 * 3 - 0'], 'M ist Mitte von [AC]: C = M + AM = (2 + 3 | 3 + 2) = (5 | 5). Ebenso D = M + BM = (2 − 2 | 3 + 3) = (0 | 6).', 'Die Diagonalen halbieren sich.'))
+ST.neu('punkt_berechnen', 'pruefung', L('Gegeben sind A(−3 | −1), B(3 | 1) und D(−1 | 5) eines Parallelogramms ABCD. a) Berechne C. b) Berechne den Mittelpunkt M von [AC].', 'C(□ | □); M(□ | □)', [5, 7, 1, 3],
+       ['3 + 2', '1 + 6', '(-3 + 5) // 2', '(-1 + 7) // 2'], 'a) AD = (2 | 6), C = B + AD = (5 | 7). b) M = A + ½ · AC = (−3 + 4 | −1 + 4) = (1 | 3). M ist auch Mitte von [BD].', 'C = B + AD.'))
+ST.knobel('punkt_berechnen', Z('A(0 | 0), B(6 | 0) und C(2 | 4) sind drei Ecken eines Parallelogramms; die vierte Ecke kann an drei Stellen liegen. Diese drei Punkte bilden ein großes Dreieck. Wievielmal so groß ist es wie das Dreieck ABC?', 4, '48 // 12',
+          'Die drei möglichen Ecken: A + C − B = (−4 | 4), A + B − C = (4 | −4), B + C − A = (8 | 4). Das große Dreieck hat 48 FE, ABC hat 12 FE: viermal so groß. '
+          'A, B, C sind genau die Seitenmitten des großen Dreiecks.', 'Bestimme alle drei möglichen vierten Ecken.'))
+ST.knobel('punkt_berechnen', L('Ein Parallelogramm ABCD hat A(0 | 0) und C(6 | 4). B liegt auf der x-Achse, D auf der y-Achse. Bestimme B und D.', 'B(□ | □); D(□ | □)', [6, 0, 0, 4], ['6', '0', '0', '4'],
+          'B(b | 0), D(0 | d). Im Parallelogramm gilt C = B + AD = (b + 0 | 0 + d) = (b | d). Also b = 6, d = 4: B(6 | 0), D(0 | 4). Es ist sogar ein Rechteck.', 'Schreibe B und D mit Unbekannten.'))
+
+# eigenschaften
+ST.stufenleiter('eigenschaften', 'Wissen und anwenden: Verschieben ändert Längen, Winkel und Flächen nicht.',
+                'Hin- und Rückverschiebung, Bildstrecke als Vektor, Vektor aus zwei Punkten auf eine Figur anwenden, Fläche des Bilds, Stempelmuster.',
+                'Mögliche Bildpunkte begründen, Fixpunkt, gleiche Verschiebungsweite, Parallelogramm AA′B′B, Fehler „Strecken werden länger“, Fries-Fläche, Parameter, Prüfungsaufgabe.')
+ST.typ('eigenschaften', '/^Ein (Dreieck|Viereck) .*(lang|Fläche|Winkel).*\\?$/', 'direkt', s=1)
+ST.typ('eigenschaften', 'Welche Aussage', 'erkennen')
+ST.typ('eigenschaften', '/^(Ein Dreieck mit dem Umfang|Zeige mit Vektoren)/', 'mehrschritt')
+ST.typ('eigenschaften', 'Das Dreieck ABC mit A(0 | 0), B(4 | 0) und C(0 | 3)', 'darstellung')
+ST.typ('eigenschaften', 'Das Dreieck ABC mit A(0 | 0), B(3 | 1)', 'umkehr')
+ST.typ('eigenschaften', '/^(Bei einer Verschiebung|Ein Dreieck ABC wird mit v = \\(4 \\| −3\\))/', 'begruenden')
+ST.typ('eigenschaften', 'Zeige, dass AA′B′B', 'verknuepfen')
+ST.neu('eigenschaften', 'einkleidung', Z('Ein quadratischer Stempel mit 3 cm Seitenlänge wird mehrmals nebeneinander gedruckt, jedes Mal um (4 | 0) cm verschoben. Wie breit ist die Lücke zwischen zwei Abdrücken?', 1, '4 - 3',
+       'Der Abdruck ist 3 cm breit und wird um 4 cm nach rechts verschoben. Lücke: 4 − 3 = 1 cm.', 'Wie weit wird verschoben, wie breit ist ein Abdruck?', einheit='cm'))
+ST.neu('eigenschaften', 'fehler', A('Jemand sagt: „Bei der Verschiebung mit v = (3 | 4) wird jede Strecke um 3 länger.“ Was stimmt?', 'Falsch: Bei einer Verschiebung bleiben alle Längen gleich.',
+       ['Richtig.', 'Falsch: Sie wird um 4 länger.', 'Falsch: Sie wird um 7 länger.'], 'Eine Verschiebung bewegt die Figur nur. Jede Bildstrecke ist genauso lang wie die Originalstrecke und parallel zu ihr.', 'Was ändert eine Verschiebung an der Figur?'))
+ST.neu('eigenschaften', 'transfer', Z('Ein Fries entsteht, indem ein Dreieck mit 6 cm² Fläche fünfmal hintereinander um (4 | 0) cm verschoben wird. Die Dreiecke überlappen nicht. Welche Fläche bedecken alle Dreiecke zusammen?', 36, '6 * 6',
+       'Das Original und fünf Bilder sind 6 Dreiecke, jedes mit 6 cm². 6 · 6 = 36 cm².', 'Zähle das Original mit.', einheit='cm²'))
+ST.neu('eigenschaften', 'parameter', Z('Das Dreieck A(0 | 0), B(4 | 0), C(1 | 3) wird mit v = (k | 2) verschoben. Für welches k liegt C′ auf der y-Achse?', -1, '0 - 1',
+       'C′ = (1 + k | 5). Auf der y-Achse ist die x-Koordinate 0: 1 + k = 0 ⇒ k = −1.', 'Was gilt für Punkte auf der y-Achse?'))
+ST.neu('eigenschaften', 'pruefung', L('Das Rechteck A(0 | 0), B(4 | 0), C(4 | 2), D(0 | 2) wird mit v = (−1 | 3) verschoben. a) Berechne C′. b) Wie groß ist A′B′C′D′ in FE? c) Wie lang ist A′B′?',
+       "C′(□ | □); A = □ FE; A′B′ = □", [3, 5, 8, 4], ['4 - 1', '2 + 3', '4 * 2', '4'],
+       'a) C′ = (3 | 5). b) Die Fläche bleibt: 4 · 2 = 8 FE. c) Die Länge bleibt: A′B′ = 4.', 'Was ändert sich bei einer Verschiebung, was nicht?'))
+ST.knobel('eigenschaften', Z('Ein Rechteck mit A(0 | 0), B(4 | 0), C(4 | 2), D(0 | 2) wird mit v = (2 | 1) verschoben. Wie groß ist die Fläche, die das Rechteck und sein Bild gemeinsam bedecken (Überlappung)?', 2, '(4 - 2) * (2 - 1)',
+          'Das Bild reicht von x = 2 bis 6 und von y = 1 bis 3. Gemeinsam: x von 2 bis 4 (Breite 2), y von 1 bis 2 (Höhe 1). Überlappung 2 · 1 = 2 FE.', 'Zeichne beide Rechtecke.', einheit='FE'))
+ST.knobel('eigenschaften', Z('Ein Quadrat mit Seitenlänge 3 wird mit v = (a | 0) verschoben, 0 < a < 3. Quadrat und Bild bedecken zusammen 15 FE. Wie groß ist a?', 2, '3 - 3 // 3',
+          'Zusammen bedecken sie 9 + 9 − Überlappung. Die Überlappung ist ein Rechteck 3 · (3 − a). 18 − 3 · (3 − a) = 15 ⇒ 3 − a = 1 ⇒ a = 2.', 'Was wird doppelt gezählt?'))
+
+
 if __name__ == '__main__':
     d = bauen('abbildungen.vektoren',
           'Vektoren als Verschiebungen verstehen, Bildpunkte, Gegenvektoren und Vektorsummen berechnen und Punkte mit Vektoren bestimmen.',
@@ -634,3 +813,4 @@ if __name__ == '__main__':
                  'App-Wunsch: Pfeilspitzen für Vektoren im Koordinatensystem. Bis dahin erscheinen Verschiebungspfeile als Strecken.'])
     umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
     durchsicht(d)
+    stufen('abbildungen.vektoren', ST)

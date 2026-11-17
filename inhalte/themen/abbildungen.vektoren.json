@@ -916,6 +916,31 @@
    "l": "vektor_bestimmen",
    "t": "vektor_bestimmen",
    "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Vektor RS für R(−4 | −5) und S(0 | 6).",
+    "schablone": "Vektor RS = (□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     4,
+     11
+    ]
+   },
+   "w": "Spitze minus Fuß: (0 − (−4) | 6 − (−5)) = (4 | 11).",
+   "h": "Spitze minus Fuß. Minus einer negativen Zahl wird plus.",
+   "c": [
+    "(0) - (-4)",
+    "(6) - (-5)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "vektor_bestimmen",
+   "t": "vektor_bestimmen",
+   "p": "uebung",
    "s": 1,
    "y": "luecken",
    "f": {
@@ -934,7 +959,157 @@
    "c": [
     "1 - 2",
     "6 - 2"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "vektor_bestimmen",
+   "t": "vektor_bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Vektor CD für C(0 | −1) und D(−1 | 1).",
+    "schablone": "Vektor CD = (□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -1,
+     2
+    ]
+   },
+   "w": "Spitze minus Fuß: (−1 − 0 | 1 − (−1)) = (−1 | 2).",
+   "h": "Spitze minus Fuß. Minus einer negativen Zahl wird plus.",
+   "c": [
+    "(-1) - (0)",
+    "(1) - (-1)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "vektor_bestimmen",
+   "t": "vektor_bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Vektor führt von A(2 | −1) nach B(4 | −3)?"
+   },
+   "a": [
+    "(6 | −4)",
+    "(2 | −2)",
+    "(−2 | 2)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Spitze minus Fuß: (4 − 2 | −3 − (−1)) = (2 | −2).",
+   "h": "Von A nach B: Spitze B minus Fuß A.",
+   "g": "erkennen"
+  },
+  {
+   "l": "vektor_bestimmen",
+   "t": "vektor_bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Vektor RS für R(4 | 2) und S(−4 | 5).",
+    "schablone": "Vektor RS = (□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -8,
+     3
+    ]
+   },
+   "w": "Spitze minus Fuß: (−4 − 4 | 5 − 2) = (−8 | 3).",
+   "h": "Spitze minus Fuß. Minus einer negativen Zahl wird plus.",
+   "c": [
+    "(-4) - (4)",
+    "(5) - (2)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "vektor_bestimmen",
+   "t": "vektor_bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Es gilt Vektor AB = (9 | 0) und B(6 | −6). Berechne den Fußpunkt A.",
+    "schablone": "A(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -3,
+     -6
+    ]
+   },
+   "w": "B = A + Vektor AB, also A = B − Vektor AB = (6 − 9 | −6 − 0) = (−3 | −6).",
+   "h": "Von B aus musst du den Vektor rückwärts gehen.",
+   "c": [
+    "(6) - (9)",
+    "(-6) - (0)"
+   ],
+   "g": "umkehr"
+  },
+  {
+   "l": "vektor_bestimmen",
+   "t": "vektor_bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Vektor AB für A(3 | 5) und B(4 | 5).",
+    "schablone": "Vektor AB = (□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     1,
+     0
+    ]
+   },
+   "w": "Spitze minus Fuß: (4 − 3 | 5 − 5) = (1 | 0).",
+   "h": "Rechne für x und y getrennt: Koordinate von B minus Koordinate von A.",
+   "c": [
+    "4 - 3",
+    "5 - 5"
    ]
+  },
+  {
+   "l": "vektor_bestimmen",
+   "t": "vektor_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben ist A(1 | 3). Die Punkte B liegen bei B(x | 2x). Gib den Vektor AB in Abhängigkeit von x an.",
+    "schablone": "Vektor AB = (□ · x + □ | □ · x + □)",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     1,
+     -1,
+     2,
+     -3
+    ]
+   },
+   "c": [
+    "1",
+    "-1",
+    "2",
+    "-3"
+   ],
+   "w": "Spitze minus Fuß: AB = (x − 1 | 2x − 3) = (1 · x + (−1) | 2 · x + (−3)).",
+   "h": "Rechne wie mit Zahlen: x von B minus x von A, y von B minus y von A.",
+   "g": "parameter"
   },
   {
    "l": "vektor_bestimmen",
@@ -958,7 +1133,87 @@
    "c": [
     "2 - 5",
     "2 - 1"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "vektor_bestimmen",
+   "t": "vektor_bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Vektor AB für A(5 | 3) und B(8 | 2).",
+    "schablone": "Vektor AB = (□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      9
+     ],
+     "y": [
+      -1,
+      4
+     ],
+     "schritt_x": 1,
+     "schritt_y": 1,
+     "punkte": [
+      {
+       "x": 5,
+       "y": 3,
+       "name": "A"
+      },
+      {
+       "x": 8,
+       "y": 2,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       5,
+       3,
+       8,
+       2
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     -1
+    ]
+   },
+   "w": "Spitze minus Fuß: (8 − 5 | 2 − 3) = (3 | −1).",
+   "h": "Rechne für x und y getrennt: Koordinate von B minus Koordinate von A.",
+   "c": [
+    "8 - 5",
+    "2 - 3"
    ]
+  },
+  {
+   "l": "vektor_bestimmen",
+   "t": "vektor_bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Vektor führt von A(0 | 3) nach B(−6 | 1)?"
+   },
+   "a": [
+    "(−6 | 4)",
+    "(−6 | −2)",
+    "(−2 | −6)",
+    "(6 | 2)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Spitze minus Fuß: (−6 − 0 | 1 − 3) = (−6 | −2).",
+   "h": "Von A nach B: Spitze B minus Fuß A.",
+   "g": "erkennen"
   },
   {
    "l": "vektor_bestimmen",
@@ -1045,130 +1300,26 @@
    "l": "vektor_bestimmen",
    "t": "vektor_bestimmen",
    "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Berechne den Vektor AB für A(5 | 3) und B(8 | 2).",
-    "schablone": "Vektor AB = (□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -1,
-      9
-     ],
-     "y": [
-      -1,
-      4
-     ],
-     "schritt_x": 1,
-     "schritt_y": 1,
-     "punkte": [
-      {
-       "x": 5,
-       "y": 3,
-       "name": "A"
-      },
-      {
-       "x": 8,
-       "y": 2,
-       "name": "B"
-      }
-     ],
-     "strecken": [
-      [
-       5,
-       3,
-       8,
-       2
-      ]
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     3,
-     -1
-    ]
-   },
-   "w": "Spitze minus Fuß: (8 − 5 | 2 − 3) = (3 | −1).",
-   "h": "Rechne für x und y getrennt: Koordinate von B minus Koordinate von A.",
-   "c": [
-    "8 - 5",
-    "2 - 3"
-   ]
-  },
-  {
-   "l": "vektor_bestimmen",
-   "t": "vektor_bestimmen",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Berechne den Vektor AB für A(3 | 5) und B(4 | 5).",
-    "schablone": "Vektor AB = (□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     1,
-     0
-    ]
-   },
-   "w": "Spitze minus Fuß: (4 − 3 | 5 − 5) = (1 | 0).",
-   "h": "Rechne für x und y getrennt: Koordinate von B minus Koordinate von A.",
-   "c": [
-    "4 - 3",
-    "5 - 5"
-   ]
-  },
-  {
-   "l": "vektor_bestimmen",
-   "t": "vektor_bestimmen",
-   "p": "uebung",
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Berechne den Vektor RS für R(−4 | −5) und S(0 | 6).",
-    "schablone": "Vektor RS = (□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     4,
-     11
-    ]
-   },
-   "w": "Spitze minus Fuß: (0 − (−4) | 6 − (−5)) = (4 | 11).",
-   "h": "Spitze minus Fuß. Minus einer negativen Zahl wird plus.",
-   "c": [
-    "(0) - (-4)",
-    "(6) - (-5)"
-   ]
-  },
-  {
-   "l": "vektor_bestimmen",
-   "t": "vektor_bestimmen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Berechne den Vektor CD für C(0 | −1) und D(−1 | 1).",
+    "text": "Berechne den Vektor CD für C(−4 | 5) und D(−1 | −6).",
     "schablone": "Vektor CD = (□ | □)",
     "hinweis": "x-Koordinate, y-Koordinate"
    },
    "o": {
     "werte": [
-     -1,
-     2
+     3,
+     -11
     ]
    },
-   "w": "Spitze minus Fuß: (−1 − 0 | 1 − (−1)) = (−1 | 2).",
+   "w": "Spitze minus Fuß: (−1 − (−4) | −6 − 5) = (3 | −11).",
    "h": "Spitze minus Fuß. Minus einer negativen Zahl wird plus.",
    "c": [
-    "(-1) - (0)",
-    "(1) - (-1)"
-   ]
+    "(-1) - (-4)",
+    "(-6) - (5)"
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "vektor_bestimmen",
@@ -1177,22 +1328,48 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Berechne den Vektor RS für R(4 | 2) und S(−4 | 5).",
-    "schablone": "Vektor RS = (□ | □)",
+    "text": "Es gilt Vektor AB = (4 | 4) und B(−1 | 0). Berechne den Fußpunkt A.",
+    "schablone": "A(□ | □)",
     "hinweis": "x-Koordinate, y-Koordinate"
    },
    "o": {
     "werte": [
-     -8,
+     -5,
+     -4
+    ]
+   },
+   "w": "B = A + Vektor AB, also A = B − Vektor AB = (−1 − 4 | 0 − 4) = (−5 | −4).",
+   "h": "Von B aus musst du den Vektor rückwärts gehen.",
+   "c": [
+    "(-1) - (4)",
+    "(0) - (4)"
+   ],
+   "g": "umkehr"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Ein Wanderweg führt vom Parkplatz P(2 | 1) zur Hütte H(7 | 4); eine Einheit ist 1 km. Gib den Vektor PH an.",
+    "schablone": "(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     5,
      3
     ]
    },
-   "w": "Spitze minus Fuß: (−4 − 4 | 5 − 2) = (−8 | 3).",
-   "h": "Spitze minus Fuß. Minus einer negativen Zahl wird plus.",
    "c": [
-    "(-4) - (4)",
-    "(5) - (2)"
-   ]
+    "7 - 2",
+    "4 - 1"
+   ],
+   "w": "Spitze minus Fuß: PH = (7 − 2 | 4 − 1) = (5 | 3), also 5 km nach Osten und 3 km nach Norden.",
+   "h": "Welcher Punkt ist der Fuß, welcher die Spitze?",
+   "l": "vektor_bestimmen",
+   "t": "vektor_bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung"
   },
   {
    "l": "vektor_bestimmen",
@@ -1225,30 +1402,6 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Berechne den Vektor CD für C(−4 | 5) und D(−1 | −6).",
-    "schablone": "Vektor CD = (□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     3,
-     -11
-    ]
-   },
-   "w": "Spitze minus Fuß: (−1 − (−4) | −6 − 5) = (3 | −11).",
-   "h": "Spitze minus Fuß. Minus einer negativen Zahl wird plus.",
-   "c": [
-    "(-1) - (-4)",
-    "(-6) - (5)"
-   ]
-  },
-  {
-   "l": "vektor_bestimmen",
-   "t": "vektor_bestimmen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
     "text": "Berechne den Vektor RS für R(−2 | 1) und S(2 | −1).",
     "schablone": "Vektor RS = (□ | □)",
     "hinweis": "x-Koordinate, y-Koordinate"
@@ -1270,47 +1423,6 @@
    "l": "vektor_bestimmen",
    "t": "vektor_bestimmen",
    "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Vektor führt von A(2 | −1) nach B(4 | −3)?"
-   },
-   "a": [
-    "(6 | −4)",
-    "(2 | −2)",
-    "(−2 | 2)"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Spitze minus Fuß: (4 − 2 | −3 − (−1)) = (2 | −2).",
-   "h": "Von A nach B: Spitze B minus Fuß A."
-  },
-  {
-   "l": "vektor_bestimmen",
-   "t": "vektor_bestimmen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Vektor führt von A(0 | 3) nach B(−6 | 1)?"
-   },
-   "a": [
-    "(−6 | 4)",
-    "(−6 | −2)",
-    "(−2 | −6)",
-    "(6 | 2)"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Spitze minus Fuß: (−6 − 0 | 1 − 3) = (−6 | −2).",
-   "h": "Von A nach B: Spitze B minus Fuß A."
-  },
-  {
-   "l": "vektor_bestimmen",
-   "t": "vektor_bestimmen",
-   "p": "uebung",
    "s": 3,
    "y": "auswahl",
    "f": {
@@ -1326,7 +1438,8 @@
     "index": 3
    },
    "w": "Spitze minus Fuß: (1 − 3 | 4 − (−2)) = (−2 | 6). Sein Ergebnis (2 | −6) ist der Vektor BA, er zeigt zurück.",
-   "h": "Welcher Punkt ist die Spitze, welcher der Fuß?"
+   "h": "Welcher Punkt ist die Spitze, welcher der Fuß?",
+   "g": "fehler"
   },
   {
    "l": "vektor_bestimmen",
@@ -1350,83 +1463,8 @@
     "6 + 4"
    ],
    "w": "PQ = (4 − 1 | 6 − 2) = (3 | 4). R = Q + PQ = (4 + 3 | 6 + 4) = (7 | 10).",
-   "h": "Berechne zuerst PQ und gehe denselben Weg noch einmal ab Q."
-  },
-  {
-   "l": "vektor_bestimmen",
-   "t": "vektor_bestimmen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Es gilt Vektor AB = (9 | 0) und B(6 | −6). Berechne den Fußpunkt A.",
-    "schablone": "A(□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     -3,
-     -6
-    ]
-   },
-   "w": "B = A + Vektor AB, also A = B − Vektor AB = (6 − 9 | −6 − 0) = (−3 | −6).",
-   "h": "Von B aus musst du den Vektor rückwärts gehen.",
-   "c": [
-    "(6) - (9)",
-    "(-6) - (0)"
-   ]
-  },
-  {
-   "l": "vektor_bestimmen",
-   "t": "vektor_bestimmen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Es gilt Vektor AB = (4 | 4) und B(−1 | 0). Berechne den Fußpunkt A.",
-    "schablone": "A(□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     -5,
-     -4
-    ]
-   },
-   "w": "B = A + Vektor AB, also A = B − Vektor AB = (−1 − 4 | 0 − 4) = (−5 | −4).",
-   "h": "Von B aus musst du den Vektor rückwärts gehen.",
-   "c": [
-    "(-1) - (4)",
-    "(0) - (4)"
-   ]
-  },
-  {
-   "l": "vektor_bestimmen",
-   "t": "vektor_bestimmen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Gegeben ist A(1 | 3). Die Punkte B liegen bei B(x | 2x). Gib den Vektor AB in Abhängigkeit von x an.",
-    "schablone": "Vektor AB = (□ · x + □ | □ · x + □)",
-    "hinweis": "Trage die Zahlen ein."
-   },
-   "o": {
-    "werte": [
-     1,
-     -1,
-     2,
-     -3
-    ]
-   },
-   "c": [
-    "1",
-    "-1",
-    "2",
-    "-3"
-   ],
-   "w": "Spitze minus Fuß: AB = (x − 1 | 2x − 3) = (1 · x + (−1) | 2 · x + (−3)).",
-   "h": "Rechne wie mit Zahlen: x von B minus x von A, y von B minus y von A."
+   "h": "Berechne zuerst PQ und gehe denselben Weg noch einmal ab Q.",
+   "g": "verknuepfen"
   },
   {
    "l": "vektor_bestimmen",
@@ -1442,7 +1480,8 @@
    },
    "c": "3/2",
    "w": "AB = (x − 1 | 2x − 3). Waagrecht heißt 2x − 3 = 0, also x = 1,5.",
-   "h": "Stelle AB mit x auf. Welcher Teil muss 0 sein?"
+   "h": "Stelle AB mit x auf. Welcher Teil muss 0 sein?",
+   "g": "parameter"
   },
   {
    "l": "vektor_bestimmen",
@@ -1463,31 +1502,8 @@
     "index": 0
    },
    "w": "AB = (3 | 2) und BC = (3 | 2): Von A nach B und von B nach C geht es gleich weit in dieselbe Richtung. Also liegen alle drei auf einer Geraden, B in der Mitte.",
-   "h": "Gehe den Weg AB zweimal hintereinander."
-  },
-  {
-   "l": "vektor_bestimmen",
-   "t": "vektor_bestimmen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Für den Vektor AB = (a | b) gilt a = b. Der Fußpunkt ist A(−2 | 5), die Spitze B liegt auf der x-Achse. Berechne B.",
-    "schablone": "B(□ | □)",
-    "hinweis": "Trage die Zahlen ein."
-   },
-   "o": {
-    "werte": [
-     -7,
-     0
-    ]
-   },
-   "c": [
-    "-2 + (0 - 5)",
-    "0"
-   ],
-   "w": "B auf der x-Achse: y = 0. Also b = 0 − 5 = −5 und a = b = −5. B = (−2 + (−5) | 0) = (−7 | 0).",
-   "h": "Welche y-Koordinate hat ein Punkt auf der x-Achse?"
+   "h": "Gehe den Weg AB zweimal hintereinander.",
+   "g": "begruenden"
   },
   {
    "l": "vektor_bestimmen",
@@ -1720,6 +1736,148 @@
    ]
   },
   {
+   "l": "vektor_bestimmen",
+   "t": "vektor_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Für den Vektor AB = (a | b) gilt a = b. Der Fußpunkt ist A(−2 | 5), die Spitze B liegt auf der x-Achse. Berechne B.",
+    "schablone": "B(□ | □)",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     -7,
+     0
+    ]
+   },
+   "c": [
+    "-2 + (0 - 5)",
+    "0"
+   ],
+   "w": "B auf der x-Achse: y = 0. Also b = 0 − 5 = −5 und a = b = −5. B = (−2 + (−5) | 0) = (−7 | 0).",
+   "h": "Welche y-Koordinate hat ein Punkt auf der x-Achse?",
+   "g": "rueckwaerts"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Eine Drohne fliegt von S(0 | 0) aus dreimal hintereinander denselben Vektor und landet bei Z(12 | −9). Welcher Vektor ist ein einzelner Flug?",
+    "schablone": "(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     4,
+     -3
+    ]
+   },
+   "c": [
+    "12 // 3",
+    "-9 // 3"
+   ],
+   "w": "Drei gleiche Flüge ergeben SZ = (12 | −9). Ein Flug ist ein Drittel davon: (4 | −3).",
+   "h": "Wie hängt der Gesamtweg mit einem Flug zusammen?",
+   "l": "vektor_bestimmen",
+   "t": "vektor_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben sind A(−2 | 1), B(3 | 4) und C(1 | −2). a) Berechne AB. b) Berechne BC. c) Berechne AC und prüfe, ob AB + BC = AC gilt.",
+    "schablone": "AB = (□ | □); BC = (□ | □); AC = (□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     5,
+     3,
+     -2,
+     -6,
+     3,
+     -3
+    ]
+   },
+   "c": [
+    "3 + 2",
+    "4 - 1",
+    "1 - 3",
+    "-2 - 4",
+    "1 + 2",
+    "-2 - 1"
+   ],
+   "w": "a) AB = (3 − (−2) | 4 − 1) = (5 | 3). b) BC = (1 − 3 | −2 − 4) = (−2 | −6). c) AC = (3 | −3). Probe: (5 + (−2) | 3 + (−6)) = (3 | −3). Stimmt.",
+   "h": "Immer Spitze minus Fuß.",
+   "l": "vektor_bestimmen",
+   "t": "vektor_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind verschiedene Gitterpunkte mit Koordinaten aus {0, 1, 2} (also 9 Punkte). Wie viele verschiedene Vektoren AB können dabei entstehen?"
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "5 * 5 - 1",
+   "w": "Jede Koordinate des Vektors ist eine Differenz zweier Zahlen aus {0, 1, 2}, also −2, −1, 0, 1 oder 2. Alle 5 · 5 = 25 Kombinationen kommen vor, nur (0 | 0) nicht, weil A ≠ B. Also 24.",
+   "h": "Welche Werte kann eine Koordinate des Vektors annehmen?",
+   "l": "vektor_bestimmen",
+   "t": "vektor_bestimmen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Vektoren (a | b) mit ganzen Zahlen a und b gibt es, bei denen |a| + |b| = 3 ist (also insgesamt genau 3 Kästchen waagrecht und senkrecht)?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "4 * 3",
+   "w": "a = 0: b = ±3 (2 Vektoren). a = ±3: b = 0 (2). |a| = 1, |b| = 2: 4 Vektoren. |a| = 2, |b| = 1: 4 Vektoren. Zusammen 2 + 2 + 4 + 4 = 12. Das sind die Punkte auf einer „Raute“ um den Ursprung.",
+   "h": "Ordne nach dem Wert von |a|.",
+   "l": "vektor_bestimmen",
+   "t": "vektor_bestimmen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Dreieck ABC wird verschoben. A(−1 | 2) hat den Bildpunkt A'(0 | −5). Berechne das Bild von B(2 | −2).",
+    "schablone": "B'(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     3,
+     -9
+    ]
+   },
+   "w": "Verschiebungsvektor v = Vektor AA' = (1 | −7). B' = (2 + 1 | −2 + (−7)) = (3 | −9).",
+   "h": "Bestimme zuerst den Verschiebungsvektor aus A und A'.",
+   "c": [
+    "(2) + (0) - (-1)",
+    "(-2) + (-5) - (2)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
    "l": "bildpunkt",
    "t": "bildpunkt",
    "p": "uebung",
@@ -1741,7 +1899,106 @@
    "c": [
     "2 + 5",
     "6 + 2"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wohin kommt P(7 | −5) bei der Verschiebung mit v = (7 | −6)?"
+   },
+   "a": [
+    "P'(14 | −11)",
+    "P'(0 | 1)",
+    "P'(14 | 1)",
+    "P'(1 | 2)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "x: 7 + 7 = 14, y: −5 + (−6) = −11. P'(14 | −11).",
+   "h": "x zu x, y zu y – und auf die Vorzeichen achten.",
+   "g": "erkennen"
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Dreieck ABC wird verschoben. A(−4 | 2) hat den Bildpunkt A'(3 | −5). Berechne das Bild von B(−5 | 0).",
+    "schablone": "B'(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     2,
+     -7
+    ]
+   },
+   "w": "Verschiebungsvektor v = Vektor AA' = (7 | −7). B' = (−5 + 7 | 0 + (−7)) = (2 | −7).",
+   "h": "Bestimme zuerst den Verschiebungsvektor aus A und A'.",
+   "c": [
+    "(-5) + (3) - (-4)",
+    "(0) + (-5) - (2)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe P(4 | 6) mit dem Vektor v = (2 | 1).",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     6,
+     7
+    ]
+   },
+   "w": "x: 4 + 2 = 6, y: 6 + 1 = 7. P'(6 | 7).",
+   "h": "Addiere die x-Koordinaten und die y-Koordinaten getrennt.",
+   "c": [
+    "4 + 2",
+    "6 + 1"
    ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Punkte P(x | 2x) werden mit v = (3 | −1) verschoben. Gib die Bildpunkte P′ in Abhängigkeit von x an.",
+    "schablone": "P′(x + □ | □ · x + □)",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     3,
+     2,
+     -1
+    ]
+   },
+   "c": [
+    "3",
+    "2",
+    "-1"
+   ],
+   "w": "x-Koordinate: x + 3. y-Koordinate: 2x + (−1) = 2x − 1. Also P′(x + 3 | 2 · x − 1).",
+   "h": "Addiere den Vektor wie bei Zahlen; x bleibt stehen.",
+   "g": "parameter"
   },
   {
    "l": "bildpunkt",
@@ -1765,7 +2022,54 @@
    "c": [
     "2 + 1",
     "3 + 4"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe P(2 | 1) mit dem Vektor v = (4 | 4).",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     6,
+     5
+    ]
+   },
+   "w": "x: 2 + 4 = 6, y: 1 + 4 = 5. P'(6 | 5).",
+   "h": "Addiere die x-Koordinaten und die y-Koordinaten getrennt.",
+   "c": [
+    "2 + 4",
+    "1 + 4"
    ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wohin kommt P(2 | 3) bei der Verschiebung mit v = (2 | −7)?"
+   },
+   "a": [
+    "P'(4 | −4)",
+    "P'(−5 | 5)",
+    "P'(4 | 10)",
+    "P'(0 | 10)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "x: 2 + 2 = 4, y: 3 + (−7) = −4. P'(4 | −4).",
+   "h": "x zu x, y zu y – und auf die Vorzeichen achten.",
+   "g": "erkennen"
   },
   {
    "l": "bildpunkt",
@@ -1819,49 +2123,201 @@
    "l": "bildpunkt",
    "t": "bildpunkt",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Verschiebe P(2 | 1) mit dem Vektor v = (4 | 4).",
+    "text": "Eine Verschiebung bildet P(1 | 2) auf P′(4 | 0) ab. Ein anderer Punkt Q wird dabei auf Q′(0 | 0) abgebildet. Wo lag Q?",
+    "schablone": "Q(□ | □)",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     -3,
+     2
+    ]
+   },
+   "c": [
+    "0 - (4 - 1)",
+    "0 - (0 - 2)"
+   ],
+   "w": "Vektor v = P′ − P = (3 | −2). Q = Q′ − v = (0 − 3 | 0 + 2) = (−3 | 2).",
+   "h": "Berechne zuerst den Verschiebungsvektor aus P und P′.",
+   "g": "umkehr"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Der Pfeil v führt 4 Kästchen nach links und 1 nach oben. Wohin kommt P(2 | 2)?",
+    "schablone": "P′(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     -2,
+     3
+    ]
+   },
+   "c": [
+    "2 - 4",
+    "2 + 1"
+   ],
+   "w": "v = (−4 | 1). P′ = (2 + (−4) | 2 + 1) = (−2 | 3).",
+   "h": "Nach links heißt negative x-Koordinate.",
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung"
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe P(0 | 6) mit dem Vektor v = (−6 | 4).",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
    },
    "o": {
     "werte": [
-     6,
-     5
+     -6,
+     10
     ]
    },
-   "w": "x: 2 + 4 = 6, y: 1 + 4 = 5. P'(6 | 5).",
-   "h": "Addiere die x-Koordinaten und die y-Koordinaten getrennt.",
+   "w": "x: 0 + (−6) = −6, y: 6 + 4 = 10. P'(−6 | 10).",
+   "h": "Negative Koordinaten im Vektor heißen: nach links bzw. nach unten.",
    "c": [
-    "2 + 4",
-    "1 + 4"
+    "(0) + (-6)",
+    "(6) + (4)"
    ]
   },
   {
    "l": "bildpunkt",
    "t": "bildpunkt",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Verschiebe P(4 | 6) mit dem Vektor v = (2 | 1).",
+    "text": "Verschiebe P(−5 | −7) mit dem Vektor v = (1 | −2).",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
    },
    "o": {
     "werte": [
-     6,
-     7
+     -4,
+     -9
     ]
    },
-   "w": "x: 4 + 2 = 6, y: 6 + 1 = 7. P'(6 | 7).",
-   "h": "Addiere die x-Koordinaten und die y-Koordinaten getrennt.",
+   "w": "x: −5 + 1 = −4, y: −7 + (−2) = −9. P'(−4 | −9).",
+   "h": "Negative Koordinaten im Vektor heißen: nach links bzw. nach unten.",
    "c": [
-    "4 + 2",
-    "6 + 1"
+    "(-5) + (1)",
+    "(-7) + (-2)"
    ]
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Eine Spielfigur steht auf dem Feld (3 | 2). Ihr Zug ist der Vektor (2 | −1). Auf welchem Feld steht sie danach?",
+    "schablone": "(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     5,
+     1
+    ]
+   },
+   "c": [
+    "3 + 2",
+    "2 - 1"
+   ],
+   "w": "(3 + 2 | 2 + (−1)) = (5 | 1).",
+   "h": "Koordinaten einzeln addieren.",
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung"
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe P(−6 | 6) mit dem Vektor v = (0 | −4).",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -6,
+     2
+    ]
+   },
+   "w": "x: −6 + 0 = −6, y: 6 + (−4) = 2. P'(−6 | 2).",
+   "h": "Negative Koordinaten im Vektor heißen: nach links bzw. nach unten.",
+   "c": [
+    "(-6) + (0)",
+    "(6) + (-4)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe P(−3 | 5) mit dem Vektor v = (−4 | −1).",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -7,
+     4
+    ]
+   },
+   "w": "x: −3 + (−4) = −7, y: 5 + (−1) = 4. P'(−7 | 4).",
+   "h": "Negative Koordinaten im Vektor heißen: nach links bzw. nach unten.",
+   "c": [
+    "(-3) + (-4)",
+    "(5) + (-1)"
+   ]
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Das Dreieck A(1 | 1), B(4 | 1), C(2 | 3) wird mit v = (−2 | 3) verschoben. Gib A′ und C′ an.",
+    "schablone": "A′(□ | □); C′(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     -1,
+     4,
+     0,
+     6
+    ]
+   },
+   "c": [
+    "1 - 2",
+    "1 + 3",
+    "2 - 2",
+    "3 + 3"
+   ],
+   "w": "A′ = (1 − 2 | 1 + 3) = (−1 | 4). C′ = (2 − 2 | 3 + 3) = (0 | 6).",
+   "h": "Jeder Punkt wird mit demselben Vektor verschoben.",
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt"
   },
   {
    "l": "bildpunkt",
@@ -1915,266 +2371,6 @@
    "l": "bildpunkt",
    "t": "bildpunkt",
    "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Verschiebe P(−6 | 6) mit dem Vektor v = (0 | −4).",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
-   },
-   "o": {
-    "werte": [
-     -6,
-     2
-    ]
-   },
-   "w": "x: −6 + 0 = −6, y: 6 + (−4) = 2. P'(−6 | 2).",
-   "h": "Negative Koordinaten im Vektor heißen: nach links bzw. nach unten.",
-   "c": [
-    "(-6) + (0)",
-    "(6) + (-4)"
-   ]
-  },
-  {
-   "l": "bildpunkt",
-   "t": "bildpunkt",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Verschiebe P(−3 | 5) mit dem Vektor v = (−4 | −1).",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
-   },
-   "o": {
-    "werte": [
-     -7,
-     4
-    ]
-   },
-   "w": "x: −3 + (−4) = −7, y: 5 + (−1) = 4. P'(−7 | 4).",
-   "h": "Negative Koordinaten im Vektor heißen: nach links bzw. nach unten.",
-   "c": [
-    "(-3) + (-4)",
-    "(5) + (-1)"
-   ]
-  },
-  {
-   "l": "bildpunkt",
-   "t": "bildpunkt",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Verschiebe P(0 | 6) mit dem Vektor v = (−6 | 4).",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
-   },
-   "o": {
-    "werte": [
-     -6,
-     10
-    ]
-   },
-   "w": "x: 0 + (−6) = −6, y: 6 + 4 = 10. P'(−6 | 10).",
-   "h": "Negative Koordinaten im Vektor heißen: nach links bzw. nach unten.",
-   "c": [
-    "(0) + (-6)",
-    "(6) + (4)"
-   ]
-  },
-  {
-   "l": "bildpunkt",
-   "t": "bildpunkt",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Verschiebe P(−5 | −7) mit dem Vektor v = (1 | −2).",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
-   },
-   "o": {
-    "werte": [
-     -4,
-     -9
-    ]
-   },
-   "w": "x: −5 + 1 = −4, y: −7 + (−2) = −9. P'(−4 | −9).",
-   "h": "Negative Koordinaten im Vektor heißen: nach links bzw. nach unten.",
-   "c": [
-    "(-5) + (1)",
-    "(-7) + (-2)"
-   ]
-  },
-  {
-   "l": "bildpunkt",
-   "t": "bildpunkt",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wohin kommt P(7 | −5) bei der Verschiebung mit v = (7 | −6)?"
-   },
-   "a": [
-    "P'(14 | −11)",
-    "P'(0 | 1)",
-    "P'(14 | 1)",
-    "P'(1 | 2)"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "x: 7 + 7 = 14, y: −5 + (−6) = −11. P'(14 | −11).",
-   "h": "x zu x, y zu y – und auf die Vorzeichen achten."
-  },
-  {
-   "l": "bildpunkt",
-   "t": "bildpunkt",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Ein Dreieck ABC wird verschoben. A(−1 | 2) hat den Bildpunkt A'(0 | −5). Berechne das Bild von B(2 | −2).",
-    "schablone": "B'(□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     3,
-     -9
-    ]
-   },
-   "w": "Verschiebungsvektor v = Vektor AA' = (1 | −7). B' = (2 + 1 | −2 + (−7)) = (3 | −9).",
-   "h": "Bestimme zuerst den Verschiebungsvektor aus A und A'.",
-   "c": [
-    "(2) + (0) - (-1)",
-    "(-2) + (-5) - (2)"
-   ]
-  },
-  {
-   "l": "bildpunkt",
-   "t": "bildpunkt",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Ein Dreieck ABC wird verschoben. A(−4 | 2) hat den Bildpunkt A'(3 | −5). Berechne das Bild von B(−5 | 0).",
-    "schablone": "B'(□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     2,
-     -7
-    ]
-   },
-   "w": "Verschiebungsvektor v = Vektor AA' = (7 | −7). B' = (−5 + 7 | 0 + (−7)) = (2 | −7).",
-   "h": "Bestimme zuerst den Verschiebungsvektor aus A und A'.",
-   "c": [
-    "(-5) + (3) - (-4)",
-    "(0) + (-5) - (2)"
-   ]
-  },
-  {
-   "l": "bildpunkt",
-   "t": "bildpunkt",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Ein Dreieck ABC wird verschoben. A(2 | −5) hat den Bildpunkt A'(5 | −12). Berechne das Bild von B(3 | −4).",
-    "schablone": "B'(□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     6,
-     -11
-    ]
-   },
-   "w": "Verschiebungsvektor v = Vektor AA' = (3 | −7). B' = (3 + 3 | −4 + (−7)) = (6 | −11).",
-   "h": "Bestimme zuerst den Verschiebungsvektor aus A und A'.",
-   "c": [
-    "(3) + (5) - (2)",
-    "(-4) + (-12) - (-5)"
-   ]
-  },
-  {
-   "l": "bildpunkt",
-   "t": "bildpunkt",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wohin kommt P(2 | 3) bei der Verschiebung mit v = (2 | −7)?"
-   },
-   "a": [
-    "P'(4 | −4)",
-    "P'(−5 | 5)",
-    "P'(4 | 10)",
-    "P'(0 | 10)"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "x: 2 + 2 = 4, y: 3 + (−7) = −4. P'(4 | −4).",
-   "h": "x zu x, y zu y – und auf die Vorzeichen achten."
-  },
-  {
-   "l": "bildpunkt",
-   "t": "bildpunkt",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Ein Dreieck ABC wird verschoben. A(1 | −4) hat den Bildpunkt A'(2 | −7). Berechne das Bild von B(−2 | 0).",
-    "schablone": "B'(□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     -1,
-     -3
-    ]
-   },
-   "w": "Verschiebungsvektor v = Vektor AA' = (1 | −3). B' = (−2 + 1 | 0 + (−3)) = (−1 | −3).",
-   "h": "Bestimme zuerst den Verschiebungsvektor aus A und A'.",
-   "c": [
-    "(-2) + (2) - (1)",
-    "(0) + (-7) - (-4)"
-   ]
-  },
-  {
-   "l": "bildpunkt",
-   "t": "bildpunkt",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Die Punkte P(x | 2x) werden mit v = (3 | −1) verschoben. Gib die Bildpunkte P′ in Abhängigkeit von x an.",
-    "schablone": "P′(x + □ | □ · x + □)",
-    "hinweis": "Trage die Zahlen ein."
-   },
-   "o": {
-    "werte": [
-     3,
-     2,
-     -1
-    ]
-   },
-   "c": [
-    "3",
-    "2",
-    "-1"
-   ],
-   "w": "x-Koordinate: x + 3. y-Koordinate: 2x + (−1) = 2x − 1. Also P′(x + 3 | 2 · x − 1).",
-   "h": "Addiere den Vektor wie bei Zahlen; x bleibt stehen."
-  },
-  {
-   "l": "bildpunkt",
-   "t": "bildpunkt",
-   "p": "uebung",
    "s": 3,
    "y": "zahl",
    "f": {
@@ -2185,55 +2381,8 @@
    },
    "c": "1/2",
    "w": "P′(x + 3 | 2x − 1). Auf der x-Achse ist y = 0: 2x − 1 = 0 ⇒ x = 0,5.",
-   "h": "Stelle zuerst P′ mit x auf."
-  },
-  {
-   "l": "bildpunkt",
-   "t": "bildpunkt",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Eine Verschiebung bildet P(1 | 2) auf P′(4 | 0) ab. Ein anderer Punkt Q wird dabei auf Q′(0 | 0) abgebildet. Wo lag Q?",
-    "schablone": "Q(□ | □)",
-    "hinweis": "Trage die Zahlen ein."
-   },
-   "o": {
-    "werte": [
-     -3,
-     2
-    ]
-   },
-   "c": [
-    "0 - (4 - 1)",
-    "0 - (0 - 2)"
-   ],
-   "w": "Vektor v = P′ − P = (3 | −2). Q = Q′ − v = (0 − 3 | 0 + 2) = (−3 | 2).",
-   "h": "Berechne zuerst den Verschiebungsvektor aus P und P′."
-  },
-  {
-   "l": "bildpunkt",
-   "t": "bildpunkt",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Ein Punkt wird zweimal hintereinander mit v = (2 | −3) verschoben und landet bei (5 | 0). Wo startete er?",
-    "schablone": "Start(□ | □)",
-    "hinweis": "Trage die Zahlen ein."
-   },
-   "o": {
-    "werte": [
-     1,
-     6
-    ]
-   },
-   "c": [
-    "5 - 2*2",
-    "0 + 2*3"
-   ],
-   "w": "Zweimal v ist (4 | −6). Start = (5 − 4 | 0 + 6) = (1 | 6).",
-   "h": "Wie weit ist er insgesamt gerutscht?"
+   "h": "Stelle zuerst P′ mit x auf.",
+   "g": "parameter"
   },
   {
    "l": "bildpunkt",
@@ -2466,6 +2615,265 @@
    ]
   },
   {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Punkt wird zweimal hintereinander mit v = (2 | −3) verschoben und landet bei (5 | 0). Wo startete er?",
+    "schablone": "Start(□ | □)",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     1,
+     6
+    ]
+   },
+   "c": [
+    "5 - 2*2",
+    "0 + 2*3"
+   ],
+   "w": "Zweimal v ist (4 | −6). Start = (5 − 4 | 0 + 6) = (1 | 6).",
+   "h": "Wie weit ist er insgesamt gerutscht?",
+   "g": "rueckwaerts"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand verschiebt P(3 | −2) mit v = (−4 | 5) und erhält P′(7 | −7). Was stimmt?"
+   },
+   "a": [
+    "Falsch: Richtig ist P′(1 | −3).",
+    "Falsch: Richtig ist P′(−7 | 7).",
+    "Richtig.",
+    "Falsch: Er hat abgezogen statt addiert. Richtig ist P′(−1 | 3)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "3 + (−4) = −1 und −2 + 5 = 3. 3 − (−4) = 7 und −2 − 5 = −7 – das wäre die Verschiebung mit dem Gegenvektor.",
+   "h": "Mach die Probe mit „plus v“.",
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt: Verschiebt man erst mit v und dann mit w, kommt man an dieselbe Stelle wie erst mit w und dann mit v?"
+   },
+   "a": [
+    "Ja, weil man die Koordinaten in beliebiger Reihenfolge addieren darf.",
+    "Nur wenn beide nach rechts zeigen.",
+    "Nur wenn v und w gleich sind.",
+    "Nein, die Reihenfolge ist wichtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "P + v + w und P + w + v haben dieselben Koordinaten, denn beim Addieren ist die Reihenfolge egal (Kommutativgesetz).",
+   "h": "Probiere ein Beispiel.",
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Eine Figur startet bei (−5 | 0) und wird bei jedem Zug mit (2 | 1) verschoben. Nach wie vielen Zügen liegt sie zum ersten Mal rechts der y-Achse (x > 0)?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Die x-Koordinate ist nach n Zügen −5 + 2n. n = 2: −1, n = 3: 1 > 0. Also nach 3 Zügen.",
+   "h": "Verfolge nur die x-Koordinate.",
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Das Quadrat A(0 | 0), B(2 | 0), C(2 | 2), D(0 | 2) wird so verschoben, dass sein Mittelpunkt auf (5 | 5) liegt. Wohin kommt A?",
+    "schablone": "A′(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     4,
+     4
+    ]
+   },
+   "c": [
+    "5 - 1",
+    "5 - 1"
+   ],
+   "w": "Der Mittelpunkt des Quadrats ist M(1 | 1). v = (5 − 1 | 5 − 1) = (4 | 4). A′ = (0 + 4 | 0 + 4) = (4 | 4).",
+   "h": "Bestimme zuerst den Mittelpunkt und daraus v.",
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Das Dreieck A(−2 | 1), B(2 | 0), C(0 | 3) wird so verschoben, dass A′(1 | −1) ist. a) Gib v an. b) Berechne B′ und C′.",
+    "schablone": "v = (□ | □); B′(□ | □); C′(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     3,
+     -2,
+     5,
+     -2,
+     3,
+     1
+    ]
+   },
+   "c": [
+    "1 + 2",
+    "-1 - 1",
+    "2 + 3",
+    "0 - 2",
+    "0 + 3",
+    "3 - 2"
+   ],
+   "w": "a) v = A′ − A = (3 | −2). b) B′ = (5 | −2), C′ = (3 | 1).",
+   "h": "Den Vektor bekommst du aus A und A′.",
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Dreieck ABC wird verschoben. A(2 | −5) hat den Bildpunkt A'(5 | −12). Berechne das Bild von B(3 | −4).",
+    "schablone": "B'(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     6,
+     -11
+    ]
+   },
+   "w": "Verschiebungsvektor v = Vektor AA' = (3 | −7). B' = (3 + 3 | −4 + (−7)) = (6 | −11).",
+   "h": "Bestimme zuerst den Verschiebungsvektor aus A und A'.",
+   "c": [
+    "(3) + (5) - (2)",
+    "(-4) + (-12) - (-5)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Dreieck ABC wird verschoben. A(1 | −4) hat den Bildpunkt A'(2 | −7). Berechne das Bild von B(−2 | 0).",
+    "schablone": "B'(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -1,
+     -3
+    ]
+   },
+   "w": "Verschiebungsvektor v = Vektor AA' = (1 | −3). B' = (−2 + 1 | 0 + (−3)) = (−1 | −3).",
+   "h": "Bestimme zuerst den Verschiebungsvektor aus A und A'.",
+   "c": [
+    "(-2) + (2) - (1)",
+    "(0) + (-7) - (-4)"
+   ]
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Ein Punkt startet bei (0 | 0) und wird abwechselnd mit (3 | 1) und mit (−2 | 1) verschoben, beginnend mit (3 | 1). Wo ist er nach 10 Verschiebungen?",
+    "schablone": "(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     5,
+     10
+    ]
+   },
+   "c": [
+    "5 * 1",
+    "5 * 2"
+   ],
+   "w": "Je zwei Verschiebungen ergeben zusammen (3 + (−2) | 1 + 1) = (1 | 2). 10 Verschiebungen sind 5 solche Paare: 5 · (1 | 2) = (5 | 10).",
+   "h": "Fasse immer zwei Verschiebungen zusammen.",
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Man darf beliebig oft mit (2 | 1) und mit (1 | 3) verschieben, in beliebiger Reihenfolge. Von (0 | 0) soll man nach (7 | 11) kommen. Wie viele Verschiebungen braucht man insgesamt?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "2 + 3",
+   "w": "a-mal (2 | 1) und b-mal (1 | 3): 2a + b = 7 und a + 3b = 11. Aus der ersten b = 7 − 2a, eingesetzt: a + 21 − 6a = 11 ⇒ a = 2, b = 3. Zusammen 5 Verschiebungen.",
+   "h": "Zähle, wie oft jeder Vektor vorkommt.",
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bei der Verschiebung mit v = (−4 | 6) entsteht der Bildpunkt P'(−9 | 12). Berechne den Urpunkt P.",
+    "schablone": "P(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -5,
+     6
+    ]
+   },
+   "w": "Gegenvektor −v = (4 | −6). P = (−9 + 4 | 12 + (−6)) = (−5 | 6).",
+   "h": "Gehe mit dem Gegenvektor zurück.",
+   "c": [
+    "(-9) - (-4)",
+    "(12) - (6)"
+   ],
+   "g": "umkehr"
+  },
+  {
    "l": "gegenvektor",
    "t": "gegenvektor",
    "p": "uebung",
@@ -2487,7 +2895,151 @@
    "c": [
     "-(-6)",
     "-(-9)"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bei der Verschiebung mit v = (5 | 6) entsteht der Bildpunkt P'(−1 | 10). Berechne den Urpunkt P.",
+    "schablone": "P(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -6,
+     4
+    ]
+   },
+   "w": "Gegenvektor −v = (−5 | −6). P = (−1 + (−5) | 10 + (−6)) = (−6 | 4).",
+   "h": "Gehe mit dem Gegenvektor zurück.",
+   "c": [
+    "(-1) - (5)",
+    "(10) - (6)"
+   ],
+   "g": "umkehr"
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit welchem Vektor macht man die Verschiebung mit v = (4 | 3) wieder rückgängig?"
+   },
+   "a": [
+    "(3 | 4)",
+    "(−4 | 3)",
+    "(−4 | −3)",
+    "(4 | 3)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Umkehrabbildung ist die Verschiebung mit dem Gegenvektor −v = (−4 | −3).",
+   "h": "Welcher Vektor führt genau zurück?",
+   "g": "erkennen"
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einer Verschiebung mit v = (7 | 6) ist P'(10 | 6) der Bildpunkt. Wo lag P?"
+   },
+   "a": [
+    "P(−10 | −6)",
+    "P(17 | 12)",
+    "P(3 | 12)",
+    "P(3 | 0)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gegenvektor −v = (−7 | −6). P = (10 + (−7) | 6 + (−6)) = (3 | 0).",
+   "h": "Nicht weiter schieben, sondern zurück: Gegenvektor.",
+   "g": "umkehr"
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Roboter fährt von P(0 | 0) erst um (−5 | 5), dann um (−3 | 6). Mit welchem Vektor kommt er auf direktem Weg zurück nach P?",
+    "schablone": "Vektor = (□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     8,
+     -11
+    ]
+   },
+   "w": "Gesamtweg: (−5 | 5) + (−3 | 6) = (−8 | 11). Zurück: Gegenvektor (8 | −11).",
+   "h": "Fasse beide Fahrten zu einem Vektor zusammen und nimm dann den Gegenvektor.",
+   "c": [
+    "-((-5) + (-3))",
+    "-((5) + (6))"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Gegenvektor zu v = (−2 | 8) an.",
+    "schablone": "−v = (□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     2,
+     -8
+    ]
+   },
+   "w": "Beide Koordinaten bekommen das andere Vorzeichen: −v = (2 | −8).",
+   "h": "Gleich lang, aber genau entgegengesetzt.",
+   "c": [
+    "-(-2)",
+    "-(8)"
    ]
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Vektor v ist gleich seinem Gegenvektor −v. Gib v an.",
+    "schablone": "v = (□ | □)",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     0,
+     0
+    ]
+   },
+   "c": [
+    "0",
+    "0"
+   ],
+   "w": "Eine Zahl, die gleich ihrer Gegenzahl ist, ist 0. Also v = (0 | 0): Der Nullvektor verschiebt gar nicht.",
+   "h": "Welche Zahl bleibt gleich, wenn man ihr Vorzeichen umdreht?",
+   "g": "begruenden"
   },
   {
    "l": "gegenvektor",
@@ -2511,7 +3063,54 @@
    "c": [
     "-(0)",
     "-(-5)"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Gegenvektor zu v = (4 | −6) an.",
+    "schablone": "−v = (□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -4,
+     6
+    ]
+   },
+   "w": "Beide Koordinaten bekommen das andere Vorzeichen: −v = (−4 | 6).",
+   "h": "Gleich lang, aber genau entgegengesetzt.",
+   "c": [
+    "-(4)",
+    "-(-6)"
    ]
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Vektor ist der Gegenvektor zu v = (3 | −5)?"
+   },
+   "a": [
+    "(−3 | −5)",
+    "(5 | −3)",
+    "(−3 | 5)",
+    "(3 | 5)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Beim Gegenvektor drehen beide Vorzeichen um: (−3 | 5).",
+   "h": "Beide Koordinaten ändern das Vorzeichen.",
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
   },
   {
    "l": "gegenvektor",
@@ -2565,48 +3164,71 @@
    "l": "gegenvektor",
    "t": "gegenvektor",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Gib den Gegenvektor zu v = (4 | −6) an.",
-    "schablone": "−v = (□ | □)",
+    "text": "Ein Roboter fährt von P(−3 | 6) erst um (−7 | −3), dann um (−1 | 0). Mit welchem Vektor kommt er auf direktem Weg zurück nach P?",
+    "schablone": "Vektor = (□ | □)",
     "hinweis": "x-Koordinate, y-Koordinate"
    },
    "o": {
     "werte": [
-     -4,
-     6
+     8,
+     3
     ]
    },
-   "w": "Beide Koordinaten bekommen das andere Vorzeichen: −v = (−4 | 6).",
-   "h": "Gleich lang, aber genau entgegengesetzt.",
+   "w": "Gesamtweg: (−7 | −3) + (−1 | 0) = (−8 | −3). Zurück: Gegenvektor (8 | 3).",
+   "h": "Fasse beide Fahrten zu einem Vektor zusammen und nimm dann den Gegenvektor.",
    "c": [
-    "-(4)",
-    "-(-6)"
-   ]
+    "-((-7) + (-1))",
+    "-((-3) + (0))"
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "gegenvektor",
    "t": "gegenvektor",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einer Verschiebung mit v = (5 | 1) ist P'(5 | 1) der Bildpunkt. Wo lag P?"
+   },
+   "a": [
+    "P(10 | 2)",
+    "P(0 | 0)",
+    "P(0 | 2)",
+    "P(−5 | −1)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegenvektor −v = (−5 | −1). P = (5 + (−5) | 1 + (−1)) = (0 | 0).",
+   "h": "Nicht weiter schieben, sondern zurück: Gegenvektor.",
+   "g": "umkehr"
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Gib den Gegenvektor zu v = (−2 | 8) an.",
-    "schablone": "−v = (□ | □)",
+    "text": "Bei der Verschiebung mit v = (7 | 3) entsteht der Bildpunkt P'(12 | 5). Berechne den Urpunkt P.",
+    "schablone": "P(□ | □)",
     "hinweis": "x-Koordinate, y-Koordinate"
    },
    "o": {
     "werte": [
-     2,
-     -8
+     5,
+     2
     ]
    },
-   "w": "Beide Koordinaten bekommen das andere Vorzeichen: −v = (2 | −8).",
-   "h": "Gleich lang, aber genau entgegengesetzt.",
+   "w": "Gegenvektor −v = (−7 | −3). P = (12 + (−7) | 5 + (−3)) = (5 | 2).",
+   "h": "Gehe mit dem Gegenvektor zurück.",
    "c": [
-    "-(-2)",
-    "-(8)"
+    "(12) - (7)",
+    "(5) - (3)"
    ]
   },
   {
@@ -2616,46 +3238,47 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Bei der Verschiebung mit v = (−4 | 6) entsteht der Bildpunkt P'(−9 | 12). Berechne den Urpunkt P.",
+    "text": "Bei der Verschiebung mit v = (−4 | 5) entsteht der Bildpunkt P'(−9 | 8). Berechne den Urpunkt P.",
     "schablone": "P(□ | □)",
     "hinweis": "x-Koordinate, y-Koordinate"
    },
    "o": {
     "werte": [
      -5,
-     6
+     3
     ]
    },
-   "w": "Gegenvektor −v = (4 | −6). P = (−9 + 4 | 12 + (−6)) = (−5 | 6).",
+   "w": "Gegenvektor −v = (4 | −5). P = (−9 + 4 | 8 + (−5)) = (−5 | 3).",
    "h": "Gehe mit dem Gegenvektor zurück.",
    "c": [
     "(-9) - (-4)",
-    "(12) - (6)"
+    "(8) - (5)"
    ]
   },
   {
+   "y": "luecken",
+   "f": {
+    "text": "Ein Kran hebt eine Kiste vom Platz (2 | 0) mit dem Vektor (7 | 4) an eine neue Stelle (Maße in m). Mit welchem Vektor bringt er sie zurück?",
+    "schablone": "(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     -7,
+     -4
+    ]
+   },
+   "c": [
+    "-7",
+    "-4"
+   ],
+   "w": "Zurück geht es mit dem Gegenvektor (−7 | −4). Wo die Kiste startet, spielt dafür keine Rolle.",
+   "h": "Was macht eine Verschiebung rückgängig?",
    "l": "gegenvektor",
    "t": "gegenvektor",
    "p": "uebung",
    "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Bei der Verschiebung mit v = (5 | 6) entsteht der Bildpunkt P'(−1 | 10). Berechne den Urpunkt P.",
-    "schablone": "P(□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     -6,
-     4
-    ]
-   },
-   "w": "Gegenvektor −v = (−5 | −6). P = (−1 + (−5) | 10 + (−6)) = (−6 | 4).",
-   "h": "Gehe mit dem Gegenvektor zurück.",
-   "c": [
-    "(-1) - (5)",
-    "(10) - (6)"
-   ]
+   "g": "einkleidung"
   },
   {
    "l": "gegenvektor",
@@ -2710,165 +3333,6 @@
    "t": "gegenvektor",
    "p": "uebung",
    "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Bei der Verschiebung mit v = (7 | 3) entsteht der Bildpunkt P'(12 | 5). Berechne den Urpunkt P.",
-    "schablone": "P(□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     5,
-     2
-    ]
-   },
-   "w": "Gegenvektor −v = (−7 | −3). P = (12 + (−7) | 5 + (−3)) = (5 | 2).",
-   "h": "Gehe mit dem Gegenvektor zurück.",
-   "c": [
-    "(12) - (7)",
-    "(5) - (3)"
-   ]
-  },
-  {
-   "l": "gegenvektor",
-   "t": "gegenvektor",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Bei der Verschiebung mit v = (−4 | 5) entsteht der Bildpunkt P'(−9 | 8). Berechne den Urpunkt P.",
-    "schablone": "P(□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     -5,
-     3
-    ]
-   },
-   "w": "Gegenvektor −v = (4 | −5). P = (−9 + 4 | 8 + (−5)) = (−5 | 3).",
-   "h": "Gehe mit dem Gegenvektor zurück.",
-   "c": [
-    "(-9) - (-4)",
-    "(8) - (5)"
-   ]
-  },
-  {
-   "l": "gegenvektor",
-   "t": "gegenvektor",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Bei einer Verschiebung mit v = (7 | 6) ist P'(10 | 6) der Bildpunkt. Wo lag P?"
-   },
-   "a": [
-    "P(−10 | −6)",
-    "P(17 | 12)",
-    "P(3 | 12)",
-    "P(3 | 0)"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Gegenvektor −v = (−7 | −6). P = (10 + (−7) | 6 + (−6)) = (3 | 0).",
-   "h": "Nicht weiter schieben, sondern zurück: Gegenvektor."
-  },
-  {
-   "l": "gegenvektor",
-   "t": "gegenvektor",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Ein Roboter fährt von P(0 | 0) erst um (−5 | 5), dann um (−3 | 6). Mit welchem Vektor kommt er auf direktem Weg zurück nach P?",
-    "schablone": "Vektor = (□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     8,
-     -11
-    ]
-   },
-   "w": "Gesamtweg: (−5 | 5) + (−3 | 6) = (−8 | 11). Zurück: Gegenvektor (8 | −11).",
-   "h": "Fasse beide Fahrten zu einem Vektor zusammen und nimm dann den Gegenvektor.",
-   "c": [
-    "-((-5) + (-3))",
-    "-((5) + (6))"
-   ]
-  },
-  {
-   "l": "gegenvektor",
-   "t": "gegenvektor",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Ein Roboter fährt von P(−3 | 6) erst um (−7 | −3), dann um (−1 | 0). Mit welchem Vektor kommt er auf direktem Weg zurück nach P?",
-    "schablone": "Vektor = (□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     8,
-     3
-    ]
-   },
-   "w": "Gesamtweg: (−7 | −3) + (−1 | 0) = (−8 | −3). Zurück: Gegenvektor (8 | 3).",
-   "h": "Fasse beide Fahrten zu einem Vektor zusammen und nimm dann den Gegenvektor.",
-   "c": [
-    "-((-7) + (-1))",
-    "-((-3) + (0))"
-   ]
-  },
-  {
-   "l": "gegenvektor",
-   "t": "gegenvektor",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Mit welchem Vektor macht man die Verschiebung mit v = (4 | 3) wieder rückgängig?"
-   },
-   "a": [
-    "(3 | 4)",
-    "(−4 | 3)",
-    "(−4 | −3)",
-    "(4 | 3)"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Die Umkehrabbildung ist die Verschiebung mit dem Gegenvektor −v = (−4 | −3).",
-   "h": "Welcher Vektor führt genau zurück?"
-  },
-  {
-   "l": "gegenvektor",
-   "t": "gegenvektor",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Bei einer Verschiebung mit v = (5 | 1) ist P'(5 | 1) der Bildpunkt. Wo lag P?"
-   },
-   "a": [
-    "P(10 | 2)",
-    "P(0 | 0)",
-    "P(0 | 2)",
-    "P(−5 | −1)"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Gegenvektor −v = (−5 | −1). P = (5 + (−5) | 1 + (−1)) = (0 | 0).",
-   "h": "Nicht weiter schieben, sondern zurück: Gegenvektor."
-  },
-  {
-   "l": "gegenvektor",
-   "t": "gegenvektor",
-   "p": "uebung",
-   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Bei einer Verschiebung mit v = (1 | 1) ist P'(4 | −2) der Bildpunkt. Wo lag P?"
@@ -2909,7 +3373,8 @@
     "-1 - 4"
    ],
    "w": "Gegenvektor −v = (1 | −4). P = (2x + 1 | x − 1 − 4) = (2 · x + 1 | x − 5).",
-   "h": "Mit dem Gegenvektor kommst du vom Bild zurück."
+   "h": "Mit dem Gegenvektor kommst du vom Bild zurück.",
+   "g": "parameter"
   },
   {
    "l": "gegenvektor",
@@ -2933,7 +3398,8 @@
     "2 - (0 - 5)"
    ],
    "w": "v = A′ − A = (3 | −5). Zurück mit −v = (−3 | 5): C = (4 − 3 | 2 + 5) = (1 | 7).",
-   "h": "Erst v bestimmen, dann mit dem Gegenvektor zurückrechnen."
+   "h": "Erst v bestimmen, dann mit dem Gegenvektor zurückrechnen.",
+   "g": "rueckwaerts"
   },
   {
    "l": "gegenvektor",
@@ -2957,76 +3423,8 @@
     "1 - 2"
    ],
    "w": "v = Q − P = (4 | −2). Q′ = Q + v = (10 | −1).",
-   "h": "Welcher Vektor bringt P nach Q?"
-  },
-  {
-   "l": "gegenvektor",
-   "t": "gegenvektor",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Ein Vektor v ist gleich seinem Gegenvektor −v. Gib v an.",
-    "schablone": "v = (□ | □)",
-    "hinweis": "Trage die Zahlen ein."
-   },
-   "o": {
-    "werte": [
-     0,
-     0
-    ]
-   },
-   "c": [
-    "0",
-    "0"
-   ],
-   "w": "Eine Zahl, die gleich ihrer Gegenzahl ist, ist 0. Also v = (0 | 0): Der Nullvektor verschiebt gar nicht.",
-   "h": "Welche Zahl bleibt gleich, wenn man ihr Vorzeichen umdreht?"
-  },
-  {
-   "l": "gegenvektor",
-   "t": "gegenvektor",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Bildpunkt P′(4 | −1), Vektor v = (−2 | 3). Jemand rechnet: P = (4 + (−2) | −1 + 3) = (2 | 2). Was stimmt?"
-   },
-   "a": [
-    "Richtig gerechnet.",
-    "Falsch: Richtig ist P(−6 | 4).",
-    "Falsch: Er schiebt weiter statt zurück. Richtig ist P(6 | −4).",
-    "Falsch: Richtig ist P(2 | −4)."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Zurück geht es mit −v = (2 | −3): P = (4 + 2 | −1 − 3) = (6 | −4). Er hat v noch einmal addiert.",
-   "h": "Mit welchem Vektor kommst du vom Bildpunkt zurück?"
-  },
-  {
-   "l": "gegenvektor",
-   "t": "gegenvektor",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Ein Punkt wird zuerst mit v = (3 | −4) und dann mit einem Vektor w verschoben. Danach liegt er genau 2 Einheiten rechts von seinem Start. Berechne w.",
-    "schablone": "w = (□ | □)",
-    "hinweis": "Trage die Zahlen ein."
-   },
-   "o": {
-    "werte": [
-     -1,
-     4
-    ]
-   },
-   "c": [
-    "2 - 3",
-    "0 - (-4)"
-   ],
-   "w": "Insgesamt soll (2 | 0) herauskommen: v + w = (2 | 0). Also w = (2 − 3 | 0 + 4) = (−1 | 4).",
-   "h": "Welcher Vektor beschreibt „2 nach rechts“?"
+   "h": "Welcher Vektor bringt P nach Q?",
+   "g": "verknuepfen"
   },
   {
    "l": "gegenvektor",
@@ -3259,6 +3657,158 @@
    ]
   },
   {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bildpunkt P′(4 | −1), Vektor v = (−2 | 3). Jemand rechnet: P = (4 + (−2) | −1 + 3) = (2 | 2). Was stimmt?"
+   },
+   "a": [
+    "Richtig gerechnet.",
+    "Falsch: Richtig ist P(−6 | 4).",
+    "Falsch: Er schiebt weiter statt zurück. Richtig ist P(6 | −4).",
+    "Falsch: Richtig ist P(2 | −4)."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Zurück geht es mit −v = (2 | −3): P = (4 + 2 | −1 − 3) = (6 | −4). Er hat v noch einmal addiert.",
+   "h": "Mit welchem Vektor kommst du vom Bildpunkt zurück?",
+   "g": "fehler"
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Punkt wird zuerst mit v = (3 | −4) und dann mit einem Vektor w verschoben. Danach liegt er genau 2 Einheiten rechts von seinem Start. Berechne w.",
+    "schablone": "w = (□ | □)",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     -1,
+     4
+    ]
+   },
+   "c": [
+    "2 - 3",
+    "0 - (-4)"
+   ],
+   "w": "Insgesamt soll (2 | 0) herauskommen: v + w = (2 | 0). Also w = (2 − 3 | 0 + 4) = (−1 | 4).",
+   "h": "Welcher Vektor beschreibt „2 nach rechts“?",
+   "g": "transfer"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt: v + (−v) ergibt immer den Nullvektor (0 | 0)?"
+   },
+   "a": [
+    "Nur wenn v nach rechts zeigt.",
+    "Ja: Hin und wieder zurück, man landet am Start.",
+    "Nein, das Doppelte von v.",
+    "Nein, (0 | 0) gibt es nicht."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "(a | b) + (−a | −b) = (0 | 0). Eine Verschiebung mit v und danach mit −v bringt jeden Punkt an seinen Platz zurück.",
+   "h": "Addiere ein Beispiel.",
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Ein Dreieck wurde mit v = (4 | −3) verschoben. Die Bildpunkte sind A′(2 | 1), B′(6 | 1) und C′(3 | 5). a) Gib −v an. b) Berechne A und C.",
+    "schablone": "−v = (□ | □); A(□ | □); C(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     -4,
+     3,
+     -2,
+     4,
+     -1,
+     8
+    ]
+   },
+   "c": [
+    "-4",
+    "3",
+    "2 - 4",
+    "1 + 3",
+    "3 - 4",
+    "5 + 3"
+   ],
+   "w": "a) −v = (−4 | 3). b) A = A′ + (−v) = (−2 | 4), C = (3 − 4 | 5 + 3) = (−1 | 8).",
+   "h": "Zurück geht es mit dem Gegenvektor.",
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Von (0 | 0) aus wird nacheinander verschoben mit v, 2 · (−v), 3 · v, 4 · (−v), …, bis 10 · (−v). Dabei ist v = (1 | 2). Wo landet man?",
+    "schablone": "(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     -5,
+     -10
+    ]
+   },
+   "c": [
+    "1 - 2 + 3 - 4 + 5 - 6 + 7 - 8 + 9 - 10",
+    "2 * (-5)"
+   ],
+   "w": "Zusammen ist es (1 − 2 + 3 − 4 + … + 9 − 10) · v. Je zwei Summanden ergeben −1, fünf Paare also −5. −5 · (1 | 2) = (−5 | −10).",
+   "h": "Fasse immer zwei Schritte zusammen.",
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Für welchen Vektor v ist der Gegenvektor −v genauso groß wie v + (6 | −4)?",
+    "schablone": "(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     -3,
+     2
+    ]
+   },
+   "c": [
+    "-6 // 2",
+    "4 // 2"
+   ],
+   "w": "−v = v + (6 | −4) heißt 2 · v = −(6 | −4) = (−6 | 4), also v = (−3 | 2). Probe: −v = (3 | −2) und v + (6 | −4) = (3 | −2).",
+   "h": "Schreibe v = (a | b) und vergleiche die Koordinaten einzeln.",
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
    "l": "addition",
    "t": "addition",
    "p": "uebung",
@@ -3280,7 +3830,151 @@
    "c": [
     "2 + 5",
     "4 + 6"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Summe stimmt für (6 | 8) + (7 | 4)?"
+   },
+   "a": [
+    "(10 | 15)",
+    "(13 | 12)",
+    "(−1 | 4)",
+    "(42 | 32)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "x: 6 + 7 = 13, y: 8 + 4 = 12. Summe (13 | 12).",
+   "h": "Addiert wird x mit x und y mit y.",
+   "g": "erkennen"
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Es gilt Vektor AB = (6 | −8) und Vektor BC = (4 | −1). Berechne Vektor AC.",
+    "schablone": "Vektor AC = (□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     10,
+     -9
+    ]
+   },
+   "w": "Vektorkette: Vektor AC = Vektor AB + Vektor BC. x: 6 + 4 = 10, y: −8 + (−1) = −9. Summe (10 | −9).",
+   "h": "Von A über B nach C: die Vektoren hintereinander.",
+   "c": [
+    "(6) + (4)",
+    "(-8) + (-1)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze: (−1 | −8) + v = (7 | −13).",
+    "schablone": "v = (□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     8,
+     -5
+    ]
+   },
+   "w": "v = (7 | −13) − (−1 | −8) = (7 − (−1) | −13 − (−8)) = (8 | −5).",
+   "h": "Welcher Vektor fehlt noch? Rechne Ergebnis minus bekannten Vektor.",
+   "c": [
+    "(7) - (-1)",
+    "(-13) - (-8)"
+   ],
+   "g": "umkehr"
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Figur wird nacheinander mit (3 | −1), (−3 | 5) und (−5 | 5) verschoben. Durch welche einzige Verschiebung erreicht man dasselbe?",
+    "schablone": "Vektor = (□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -5,
+     9
+    ]
+   },
+   "w": "Alle drei addieren: (3 + (−3) + (−5) | −1 + 5 + 5) = (−5 | 9).",
+   "h": "Nacheinander verschieben heißt Vektoren addieren.",
+   "c": [
+    "(3) + (-3) + (-5)",
+    "(-1) + (5) + (5)"
+   ],
+   "g": "einkleidung"
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne (0 | 2) + (6 | 5).",
+    "schablone": "(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     6,
+     7
+    ]
+   },
+   "w": "x: 0 + 6 = 6, y: 2 + 5 = 7.",
+   "h": "x mit x, y mit y.",
+   "c": [
+    "0 + 6",
+    "2 + 5"
    ]
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben sind A(0 | 0) und C(5 | 3). Der Punkt B(x | 2) wandert auf einer waagrechten Linie. Was gilt für Vektor AB + Vektor BC?"
+   },
+   "a": [
+    "Er wird größer, je weiter B rechts liegt.",
+    "Er ist (x + 5 | 5).",
+    "Er ist immer (5 | 3), egal wo B liegt.",
+    "Er ist immer (0 | 0)."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "AB + BC = AC: Der Umweg über B endet immer in C. AC = (5 | 3) hängt nicht von x ab.",
+   "h": "Wo beginnt der erste Pfeil, wo endet der zweite?",
+   "g": "begruenden"
   },
   {
    "l": "addition",
@@ -3304,7 +3998,54 @@
    "c": [
     "4 + 6",
     "3 + 4"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne (3 | 7) + (5 | 4).",
+    "schablone": "(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     8,
+     11
+    ]
+   },
+   "w": "x: 3 + 5 = 8, y: 7 + 4 = 11.",
+   "h": "x mit x, y mit y.",
+   "c": [
+    "3 + 5",
+    "7 + 4"
    ]
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Rechnung beschreibt: erst 3 nach rechts und 1 nach unten, dann 2 nach links und 4 nach oben?"
+   },
+   "a": [
+    "(3 | −1) + (2 | −4)",
+    "(3 | −1) + (−2 | 4)",
+    "(3 | 1) + (2 | 4)",
+    "(−3 | 1) + (−2 | 4)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Rechts und oben sind positiv, links und unten negativ: (3 | −1) + (−2 | 4) = (1 | 3).",
+   "h": "Übersetze jede Bewegung in einen Vektor.",
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
   },
   {
    "l": "addition",
@@ -3358,49 +4099,26 @@
    "l": "addition",
    "t": "addition",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Berechne (3 | 7) + (5 | 4).",
-    "schablone": "(□ | □)",
+    "text": "Es gilt Vektor AB = (6 | 7) und Vektor BC = (−4 | 1). Berechne Vektor AC.",
+    "schablone": "Vektor AC = (□ | □)",
     "hinweis": "x-Koordinate, y-Koordinate"
    },
    "o": {
     "werte": [
-     8,
-     11
+     2,
+     8
     ]
    },
-   "w": "x: 3 + 5 = 8, y: 7 + 4 = 11.",
-   "h": "x mit x, y mit y.",
+   "w": "Vektorkette: Vektor AC = Vektor AB + Vektor BC. x: 6 + (−4) = 2, y: 7 + 1 = 8. Summe (2 | 8).",
+   "h": "Von A über B nach C: die Vektoren hintereinander.",
    "c": [
-    "3 + 5",
-    "7 + 4"
-   ]
-  },
-  {
-   "l": "addition",
-   "t": "addition",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Berechne (0 | 2) + (6 | 5).",
-    "schablone": "(□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     6,
-     7
-    ]
-   },
-   "w": "x: 0 + 6 = 6, y: 2 + 5 = 7.",
-   "h": "x mit x, y mit y.",
-   "c": [
-    "0 + 6",
-    "2 + 5"
-   ]
+    "(6) + (-4)",
+    "(7) + (1)"
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "addition",
@@ -3409,22 +4127,48 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Es gilt Vektor AB = (6 | −8) und Vektor BC = (4 | −1). Berechne Vektor AC.",
-    "schablone": "Vektor AC = (□ | □)",
+    "text": "Ergänze: (8 | −3) + v = (5 | −5).",
+    "schablone": "v = (□ | □)",
     "hinweis": "x-Koordinate, y-Koordinate"
    },
    "o": {
     "werte": [
-     10,
-     -9
+     -3,
+     -2
     ]
    },
-   "w": "Vektorkette: Vektor AC = Vektor AB + Vektor BC. x: 6 + 4 = 10, y: −8 + (−1) = −9. Summe (10 | −9).",
-   "h": "Von A über B nach C: die Vektoren hintereinander.",
+   "w": "v = (5 | −5) − (8 | −3) = (5 − 8 | −5 − (−3)) = (−3 | −2).",
+   "h": "Welcher Vektor fehlt noch? Rechne Ergebnis minus bekannten Vektor.",
    "c": [
-    "(6) + (4)",
-    "(-8) + (-1)"
-   ]
+    "(5) - (8)",
+    "(-5) - (-3)"
+   ],
+   "g": "umkehr"
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Figur wird nacheinander mit (−6 | −6), (−1 | −2) und (−3 | 5) verschoben. Durch welche einzige Verschiebung erreicht man dasselbe?",
+    "schablone": "Vektor = (□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -10,
+     -3
+    ]
+   },
+   "w": "Alle drei addieren: (−6 + (−1) + (−3) | −6 + (−2) + 5) = (−10 | −3).",
+   "h": "Nacheinander verschieben heißt Vektoren addieren.",
+   "c": [
+    "(-6) + (-1) + (-3)",
+    "(-6) + (-2) + (5)"
+   ],
+   "g": "einkleidung"
   },
   {
    "l": "addition",
@@ -3472,30 +4216,6 @@
    "c": [
     "(6) + (6)",
     "(5) + (2)"
-   ]
-  },
-  {
-   "l": "addition",
-   "t": "addition",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Es gilt Vektor AB = (6 | 7) und Vektor BC = (−4 | 1). Berechne Vektor AC.",
-    "schablone": "Vektor AC = (□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     2,
-     8
-    ]
-   },
-   "w": "Vektorkette: Vektor AC = Vektor AB + Vektor BC. x: 6 + (−4) = 2, y: 7 + 1 = 8. Summe (2 | 8).",
-   "h": "Von A über B nach C: die Vektoren hintereinander.",
-   "c": [
-    "(6) + (-4)",
-    "(7) + (1)"
    ]
   },
   {
@@ -3553,147 +4273,6 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Ergänze: (−1 | −8) + v = (7 | −13).",
-    "schablone": "v = (□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     8,
-     -5
-    ]
-   },
-   "w": "v = (7 | −13) − (−1 | −8) = (7 − (−1) | −13 − (−8)) = (8 | −5).",
-   "h": "Welcher Vektor fehlt noch? Rechne Ergebnis minus bekannten Vektor.",
-   "c": [
-    "(7) - (-1)",
-    "(-13) - (-8)"
-   ]
-  },
-  {
-   "l": "addition",
-   "t": "addition",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Eine Figur wird nacheinander mit (3 | −1), (−3 | 5) und (−5 | 5) verschoben. Durch welche einzige Verschiebung erreicht man dasselbe?",
-    "schablone": "Vektor = (□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     -5,
-     9
-    ]
-   },
-   "w": "Alle drei addieren: (3 + (−3) + (−5) | −1 + 5 + 5) = (−5 | 9).",
-   "h": "Nacheinander verschieben heißt Vektoren addieren.",
-   "c": [
-    "(3) + (-3) + (-5)",
-    "(-1) + (5) + (5)"
-   ]
-  },
-  {
-   "l": "addition",
-   "t": "addition",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Ergänze: (8 | −3) + v = (5 | −5).",
-    "schablone": "v = (□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     -3,
-     -2
-    ]
-   },
-   "w": "v = (5 | −5) − (8 | −3) = (5 − 8 | −5 − (−3)) = (−3 | −2).",
-   "h": "Welcher Vektor fehlt noch? Rechne Ergebnis minus bekannten Vektor.",
-   "c": [
-    "(5) - (8)",
-    "(-5) - (-3)"
-   ]
-  },
-  {
-   "l": "addition",
-   "t": "addition",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Eine Figur wird nacheinander mit (−6 | −6), (−1 | −2) und (−3 | 5) verschoben. Durch welche einzige Verschiebung erreicht man dasselbe?",
-    "schablone": "Vektor = (□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     -10,
-     -3
-    ]
-   },
-   "w": "Alle drei addieren: (−6 + (−1) + (−3) | −6 + (−2) + 5) = (−10 | −3).",
-   "h": "Nacheinander verschieben heißt Vektoren addieren.",
-   "c": [
-    "(-6) + (-1) + (-3)",
-    "(-6) + (-2) + (5)"
-   ]
-  },
-  {
-   "l": "addition",
-   "t": "addition",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Summe stimmt für (6 | 8) + (7 | 4)?"
-   },
-   "a": [
-    "(10 | 15)",
-    "(13 | 12)",
-    "(−1 | 4)",
-    "(42 | 32)"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "x: 6 + 7 = 13, y: 8 + 4 = 12. Summe (13 | 12).",
-   "h": "Addiert wird x mit x und y mit y."
-  },
-  {
-   "l": "addition",
-   "t": "addition",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Eine Figur wird nacheinander mit (2 | 5), (1 | −7) und (−6 | 6) verschoben. Durch welche einzige Verschiebung erreicht man dasselbe?",
-    "schablone": "Vektor = (□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     -3,
-     4
-    ]
-   },
-   "w": "Alle drei addieren: (2 + 1 + (−6) | 5 + (−7) + 6) = (−3 | 4).",
-   "h": "Nacheinander verschieben heißt Vektoren addieren.",
-   "c": [
-    "(2) + (1) + (-6)",
-    "(5) + (-7) + (6)"
-   ]
-  },
-  {
-   "l": "addition",
-   "t": "addition",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
     "text": "Im Viereck ABCD gilt: Vektor AB = (4 | 1), Vektor BC = (−1 | 3), Vektor CD = (−4 | 1). Berechne Vektor DA.",
     "schablone": "Vektor DA = (□ | □)",
     "hinweis": "Trage die Zahlen ein."
@@ -3709,7 +4288,8 @@
     "-(1 + 3 + 1)"
    ],
    "w": "AB + BC + CD = (−1 | 5) führt von A nach D. Zurück von D nach A: DA = (1 | −5).",
-   "h": "Der Rundweg A → B → C → D → A endet wieder am Start."
+   "h": "Der Rundweg A → B → C → D → A endet wieder am Start.",
+   "g": "verknuepfen"
   },
   {
    "l": "addition",
@@ -3733,28 +4313,8 @@
     "3*(-2)"
    ],
    "w": "Pro Stunde zusammen (6 | −2). Drei Stunden: (6 | −2) + (6 | −2) + (6 | −2) = (18 | −6).",
-   "h": "Addiere zuerst beide Bewegungen einer Stunde."
-  },
-  {
-   "l": "addition",
-   "t": "addition",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Gegeben sind A(0 | 0) und C(5 | 3). Der Punkt B(x | 2) wandert auf einer waagrechten Linie. Was gilt für Vektor AB + Vektor BC?"
-   },
-   "a": [
-    "Er wird größer, je weiter B rechts liegt.",
-    "Er ist (x + 5 | 5).",
-    "Er ist immer (5 | 3), egal wo B liegt.",
-    "Er ist immer (0 | 0)."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "AB + BC = AC: Der Umweg über B endet immer in C. AC = (5 | 3) hängt nicht von x ab.",
-   "h": "Wo beginnt der erste Pfeil, wo endet der zweite?"
+   "h": "Addiere zuerst beide Bewegungen einer Stunde.",
+   "g": "transfer"
   },
   {
    "l": "addition",
@@ -3778,7 +4338,8 @@
     "5 + (-5)"
    ],
    "w": "AB = (4 | 5), BA = (−4 | −5). Summe (0 | 0): hin und zurück ist kein Weg.",
-   "h": "Wo landest du, wenn du hin- und zurückgehst?"
+   "h": "Wo landest du, wenn du hin- und zurückgehst?",
+   "g": "begruenden"
   },
   {
    "l": "addition",
@@ -3799,7 +4360,8 @@
     "index": 0
    },
    "w": "(2 | 3) + (3 | −1) = (5 | 2). Die anderen Paare: (0 | 2), (3 | 1), (2 | 3).",
-   "h": "Prüfe zuerst die x-Werte: Welche zwei ergeben 5?"
+   "h": "Prüfe zuerst die x-Werte: Welche zwei ergeben 5?",
+   "g": "rueckwaerts"
   },
   {
    "l": "addition",
@@ -4032,6 +4594,170 @@
    ]
   },
   {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet (3 | −2) + (−5 | 4) = (8 | −6). Was stimmt?"
+   },
+   "a": [
+    "Falsch: (8 | 2).",
+    "Falsch: (−2 | −6).",
+    "Falsch: 3 + (−5) = −2 und −2 + 4 = 2, also (−2 | 2).",
+    "Richtig."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Er hat die zweiten Koordinaten abgezogen statt addiert. Richtig: (3 + (−5) | −2 + 4) = (−2 | 2).",
+   "h": "Rechne jede Koordinate langsam nach.",
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl k gilt (k | 2) + (3 | k) = (7 | 6)?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "7 - 3",
+   "w": "x-Koordinate: k + 3 = 7 ⇒ k = 4. y-Koordinate: 2 + k = 6 ⇒ k = 4. Beide passen, also k = 4.",
+   "h": "Stelle für jede Koordinate eine Gleichung auf.",
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Ein Flugzeug fliegt von A aus mit dem Vektor (40 | 30) nach B und dann mit (−10 | 50) nach C (Angaben in km). a) Gib den Vektor AC an. b) Mit welchem Vektor fliegt es direkt zurück nach A?",
+    "schablone": "AC = (□ | □); zurück (□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     30,
+     80,
+     -30,
+     -80
+    ]
+   },
+   "c": [
+    "40 - 10",
+    "30 + 50",
+    "-30",
+    "-80"
+   ],
+   "w": "a) AC = (40 + (−10) | 30 + 50) = (30 | 80). b) Zurück: Gegenvektor (−30 | −80).",
+   "h": "AC ist die Summe der beiden Flüge.",
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "l": "addition",
+   "t": "addition",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Figur wird nacheinander mit (2 | 5), (1 | −7) und (−6 | 6) verschoben. Durch welche einzige Verschiebung erreicht man dasselbe?",
+    "schablone": "Vektor = (□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -3,
+     4
+    ]
+   },
+   "w": "Alle drei addieren: (2 + 1 + (−6) | 5 + (−7) + 6) = (−3 | 4).",
+   "h": "Nacheinander verschieben heißt Vektoren addieren.",
+   "c": [
+    "(2) + (1) + (-6)",
+    "(5) + (-7) + (6)"
+   ]
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Addiere die zehn Vektoren (1 | 1), (2 | 3), (3 | 5), …, (10 | 19) (die x-Koordinate wächst jeweils um 1, die y-Koordinate um 2).",
+    "schablone": "(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     55,
+     100
+    ]
+   },
+   "c": [
+    "1+2+3+4+5+6+7+8+9+10",
+    "1+3+5+7+9+11+13+15+17+19"
+   ],
+   "w": "x: 1 + 2 + … + 10 = 55 (fünf Paare zu 11). y: 1 + 3 + … + 19 = 100 (fünf Paare zu 20). Summe (55 | 100).",
+   "h": "Addiere geschickt, z. B. erste und letzte Zahl zusammen.",
+   "l": "addition",
+   "t": "addition",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Man darf (2 | 1) und (−1 | 2) beliebig oft addieren, auch mit Minus davor. Welcher Punkt ist von (0 | 0) aus erreichbar?"
+   },
+   "a": [
+    "(4 | 4)",
+    "(1 | 1)",
+    "(5 | 5)",
+    "(3 | 1)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "a · (2 | 1) + b · (−1 | 2) = (2a − b | a + 2b). Für (5 | 5): 2a − b = 5 und a + 2b = 5 ⇒ a = 3, b = 1. Für (4 | 4) ergibt sich a = 2,4 – keine ganze Zahl, ebenso bei (1 | 1) und (3 | 1).",
+   "h": "Schreibe das Ziel als a · (2 | 1) + b · (−1 | 2).",
+   "l": "addition",
+   "t": "addition",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "l": "punkt_berechnen",
+   "t": "punkt_berechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Im Parallelogramm ABCD sind A(4 | 2), B(5 | 5) und C(2 | 2) gegeben. Berechne D.",
+    "schablone": "D(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     1,
+     -1
+    ]
+   },
+   "w": "Vektor BC = (−3 | −3). D = A + Vektor BC = (4 + (−3) | 2 + (−3)) = (1 | −1).",
+   "h": "Im Parallelogramm ist Vektor AD = Vektor BC.",
+   "c": [
+    "(4) + (2) - (5)",
+    "(2) + (2) - (5)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
    "l": "punkt_berechnen",
    "t": "punkt_berechnen",
    "p": "uebung",
@@ -4053,7 +4779,33 @@
    "c": [
     "3 + 2",
     "2 + 2"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "punkt_berechnen",
+   "t": "punkt_berechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Im Parallelogramm ABCD sind A(−4 | 0), B(−6 | 2) und C(−9 | 1) gegeben. Berechne D.",
+    "schablone": "D(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -7,
+     -1
+    ]
+   },
+   "w": "Vektor BC = (−3 | −1). D = A + Vektor BC = (−4 + (−3) | 0 + (−1)) = (−7 | −1).",
+   "h": "Im Parallelogramm ist Vektor AD = Vektor BC.",
+   "c": [
+    "(-4) + (-9) - (-6)",
+    "(0) + (1) - (2)"
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "punkt_berechnen",
@@ -4077,7 +4829,199 @@
    "c": [
     "2 + 0",
     "1 + 4"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "punkt_berechnen",
+   "t": "punkt_berechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Parallelogramm ABCD sind A(0 | 4), B(−2 | 8) und C(−1 | 5) gegeben. Wo liegt D?"
+   },
+   "a": [
+    "D(−1 | 7)",
+    "D(−3 | 9)",
+    "D(1 | 1)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Vektor BC = (1 | −3), D = A + Vektor BC = (1 | 1). Die anderen Punkte ergeben kein Parallelogramm ABCD (falsche Reihenfolge der Ecken).",
+   "h": "D liegt gegenüber von B. Welcher Vektor führt von A nach D?",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "punkt_berechnen",
+   "t": "punkt_berechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Im Parallelogramm ABCD sind A(−1 | 0), C(−8 | 4) und D(−6 | 1) gegeben. Berechne B.",
+    "schablone": "B(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -3,
+     3
+    ]
+   },
+   "w": "Vektor DC = (−2 | 3) = Vektor AB. B = A + Vektor DC = (−1 + (−2) | 0 + 3) = (−3 | 3).",
+   "h": "Welche Seite ist parallel und gleich lang wie AB?",
+   "c": [
+    "(-1) + (-8) - (-6)",
+    "(0) + (4) - (1)"
+   ],
+   "g": "umkehr"
+  },
+  {
+   "l": "punkt_berechnen",
+   "t": "punkt_berechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Mittelpunkt M der Strecke [PQ] mit P(2 | 4) und Q(6 | 4) mithilfe des Vektors PQ.",
+    "schablone": "M(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     4,
+     4
+    ]
+   },
+   "w": "Vektor PQ = (4 | 0), die Hälfte ist (2 | 0). M = P + (2 | 0) = (4 | 4).",
+   "h": "M liegt auf halbem Weg: P plus der halbe Vektor PQ.",
+   "c": [
+    "(2) + ((6) - (2)) / 2",
+    "(4) + ((4) - (4)) / 2"
+   ],
+   "g": "verknuepfen"
+  },
+  {
+   "l": "punkt_berechnen",
+   "t": "punkt_berechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben sind A(0 | 0) und B(5 | 1). Die Punkte D liegen bei D(x | 3). Sie bilden Parallelogramme ABCD. Gib C in Abhängigkeit von x an.",
+    "schablone": "C(x + □ | □)",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     5,
+     4
+    ]
+   },
+   "c": [
+    "5",
+    "3 + 1"
+   ],
+   "w": "Im Parallelogramm gilt DC = AB = (5 | 1). C = D + AB = (x + 5 | 4).",
+   "h": "Welcher Vektor führt von D nach C?",
+   "g": "parameter"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Im Parallelogramm ABCD: Welcher Vektor ist gleich dem Vektor AD?"
+   },
+   "a": [
+    "Vektor BC",
+    "Vektor CB",
+    "Vektor AB",
+    "Vektor DC"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegenüberliegende Seiten sind gleich lang, parallel und gleich gerichtet: AD = BC. CB zeigt in die Gegenrichtung.",
+   "h": "Welche Seite liegt AD gegenüber – und in welche Richtung zeigt sie?",
+   "l": "punkt_berechnen",
+   "t": "punkt_berechnen",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
+  },
+  {
+   "l": "punkt_berechnen",
+   "t": "punkt_berechnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Im Parallelogramm ABCD ist A(0 | 0), Vektor AB = (5 | 0) und Vektor AD = (3 | 5). Berechne C.",
+    "schablone": "C(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     8,
+     5
+    ]
+   },
+   "w": "C = A + Vektor AB + Vektor AD = (0 + 5 + 3 | 0 + 0 + 5) = (8 | 5).",
+   "h": "Von A aus erst AB entlang, dann ein Stück wie AD.",
+   "c": [
+    "5 + 3",
+    "0 + 5"
    ]
+  },
+  {
+   "l": "punkt_berechnen",
+   "t": "punkt_berechnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Im Parallelogramm ABCD ist A(0 | 0), Vektor AB = (4 | 1) und Vektor AD = (2 | 2). Berechne C.",
+    "schablone": "C(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     6,
+     3
+    ]
+   },
+   "w": "C = A + Vektor AB + Vektor AD = (0 + 4 + 2 | 0 + 1 + 2) = (6 | 3).",
+   "h": "Von A aus erst AB entlang, dann ein Stück wie AD.",
+   "c": [
+    "4 + 2",
+    "1 + 2"
+   ]
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Ein Parallelogramm ABCD hat die Ecke A(1 | 2) und die Seitenvektoren AB = (4 | 0) und AD = (1 | 3). Gib die Ecke C an.",
+    "schablone": "C(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     6,
+     5
+    ]
+   },
+   "c": [
+    "1 + 4 + 1",
+    "2 + 0 + 3"
+   ],
+   "w": "C = A + AB + AD = (1 + 4 + 1 | 2 + 0 + 3) = (6 | 5).",
+   "h": "Von A aus erst AB, dann AD gehen.",
+   "l": "punkt_berechnen",
+   "t": "punkt_berechnen",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt"
   },
   {
    "l": "punkt_berechnen",
@@ -4131,48 +5075,70 @@
    "l": "punkt_berechnen",
    "t": "punkt_berechnen",
    "p": "uebung",
-   "s": 1,
-   "y": "luecken",
+   "s": 2,
+   "y": "auswahl",
    "f": {
-    "text": "Im Parallelogramm ABCD ist A(0 | 0), Vektor AB = (5 | 0) und Vektor AD = (3 | 5). Berechne C.",
-    "schablone": "C(□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
+    "text": "Im Parallelogramm ABCD sind A(3 | 0), B(8 | −2) und C(10 | 0) gegeben. Wo liegt D?"
    },
+   "a": [
+    "D(5 | 2)",
+    "D(1 | −2)",
+    "D(15 | −2)"
+   ],
    "o": {
-    "werte": [
-     8,
-     5
-    ]
+    "index": 0
    },
-   "w": "C = A + Vektor AB + Vektor AD = (0 + 5 + 3 | 0 + 0 + 5) = (8 | 5).",
-   "h": "Von A aus erst AB entlang, dann ein Stück wie AD.",
-   "c": [
-    "5 + 3",
-    "0 + 5"
-   ]
+   "w": "Vektor BC = (2 | 2), D = A + Vektor BC = (5 | 2). Die anderen Punkte ergeben kein Parallelogramm ABCD (falsche Reihenfolge der Ecken).",
+   "h": "D liegt gegenüber von B. Welcher Vektor führt von A nach D?",
+   "g": "mehrschritt"
   },
   {
    "l": "punkt_berechnen",
    "t": "punkt_berechnen",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Im Parallelogramm ABCD ist A(0 | 0), Vektor AB = (4 | 1) und Vektor AD = (2 | 2). Berechne C.",
-    "schablone": "C(□ | □)",
+    "text": "Im Parallelogramm ABCD sind A(3 | −5), C(2 | −3) und D(1 | −4) gegeben. Berechne B.",
+    "schablone": "B(□ | □)",
     "hinweis": "x-Koordinate, y-Koordinate"
    },
    "o": {
     "werte": [
-     6,
-     3
+     4,
+     -4
     ]
    },
-   "w": "C = A + Vektor AB + Vektor AD = (0 + 4 + 2 | 0 + 1 + 2) = (6 | 3).",
-   "h": "Von A aus erst AB entlang, dann ein Stück wie AD.",
+   "w": "Vektor DC = (1 | 1) = Vektor AB. B = A + Vektor DC = (3 + 1 | −5 + 1) = (4 | −4).",
+   "h": "Welche Seite ist parallel und gleich lang wie AB?",
    "c": [
-    "4 + 2",
-    "1 + 2"
+    "(3) + (2) - (1)",
+    "(-5) + (-3) - (-4)"
+   ],
+   "g": "umkehr"
+  },
+  {
+   "l": "punkt_berechnen",
+   "t": "punkt_berechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Im Parallelogramm ABCD sind A(3 | −5), B(6 | −3) und C(5 | −2) gegeben. Berechne D.",
+    "schablone": "D(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     2,
+     -4
+    ]
+   },
+   "w": "Vektor BC = (−1 | 1). D = A + Vektor BC = (3 + (−1) | −5 + 1) = (2 | −4).",
+   "h": "Im Parallelogramm ist Vektor AD = Vektor BC.",
+   "c": [
+    "(3) + (5) - (6)",
+    "(-5) + (-2) - (-3)"
    ]
   },
   {
@@ -4182,46 +5148,47 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Im Parallelogramm ABCD sind A(4 | 2), B(5 | 5) und C(2 | 2) gegeben. Berechne D.",
+    "text": "Im Parallelogramm ABCD sind A(2 | 2), B(0 | 7) und C(−4 | 2) gegeben. Berechne D.",
     "schablone": "D(□ | □)",
     "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -2,
+     -3
+    ]
+   },
+   "w": "Vektor BC = (−4 | −5). D = A + Vektor BC = (2 + (−4) | 2 + (−5)) = (−2 | −3).",
+   "h": "Im Parallelogramm ist Vektor AD = Vektor BC.",
+   "c": [
+    "(2) + (-4) - (0)",
+    "(2) + (2) - (7)"
+   ]
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Ein rechteckiges Beet bekommt vier Eckpfosten. Drei stehen bei A(1 | 1), B(5 | 1) und C(5 | 4). Wo muss der vierte Pfosten D stehen?",
+    "schablone": "D(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
    },
    "o": {
     "werte": [
      1,
-     -1
+     4
     ]
    },
-   "w": "Vektor BC = (−3 | −3). D = A + Vektor BC = (4 + (−3) | 2 + (−3)) = (1 | −1).",
-   "h": "Im Parallelogramm ist Vektor AD = Vektor BC.",
    "c": [
-    "(4) + (2) - (5)",
-    "(2) + (2) - (5)"
-   ]
-  },
-  {
+    "1 + 5 - 5",
+    "1 + 4 - 1"
+   ],
+   "w": "D = A + BC = (1 + 0 | 1 + 3) = (1 | 4).",
+   "h": "Von A aus geht es so weiter wie von B nach C.",
    "l": "punkt_berechnen",
    "t": "punkt_berechnen",
    "p": "uebung",
    "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Im Parallelogramm ABCD sind A(−4 | 0), B(−6 | 2) und C(−9 | 1) gegeben. Berechne D.",
-    "schablone": "D(□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     -7,
-     -1
-    ]
-   },
-   "w": "Vektor BC = (−3 | −1). D = A + Vektor BC = (−4 + (−3) | 0 + (−1)) = (−7 | −1).",
-   "h": "Im Parallelogramm ist Vektor AD = Vektor BC.",
-   "c": [
-    "(-4) + (-9) - (-6)",
-    "(0) + (1) - (2)"
-   ]
+   "g": "einkleidung"
   },
   {
    "l": "punkt_berechnen",
@@ -4319,142 +5286,6 @@
    "l": "punkt_berechnen",
    "t": "punkt_berechnen",
    "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Im Parallelogramm ABCD sind A(3 | −5), B(6 | −3) und C(5 | −2) gegeben. Berechne D.",
-    "schablone": "D(□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     2,
-     -4
-    ]
-   },
-   "w": "Vektor BC = (−1 | 1). D = A + Vektor BC = (3 + (−1) | −5 + 1) = (2 | −4).",
-   "h": "Im Parallelogramm ist Vektor AD = Vektor BC.",
-   "c": [
-    "(3) + (5) - (6)",
-    "(-5) + (-2) - (-3)"
-   ]
-  },
-  {
-   "l": "punkt_berechnen",
-   "t": "punkt_berechnen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Im Parallelogramm ABCD sind A(2 | 2), B(0 | 7) und C(−4 | 2) gegeben. Berechne D.",
-    "schablone": "D(□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     -2,
-     -3
-    ]
-   },
-   "w": "Vektor BC = (−4 | −5). D = A + Vektor BC = (2 + (−4) | 2 + (−5)) = (−2 | −3).",
-   "h": "Im Parallelogramm ist Vektor AD = Vektor BC.",
-   "c": [
-    "(2) + (-4) - (0)",
-    "(2) + (2) - (7)"
-   ]
-  },
-  {
-   "l": "punkt_berechnen",
-   "t": "punkt_berechnen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Parallelogramm ABCD sind A(0 | 4), B(−2 | 8) und C(−1 | 5) gegeben. Wo liegt D?"
-   },
-   "a": [
-    "D(−1 | 7)",
-    "D(−3 | 9)",
-    "D(1 | 1)"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Vektor BC = (1 | −3), D = A + Vektor BC = (1 | 1). Die anderen Punkte ergeben kein Parallelogramm ABCD (falsche Reihenfolge der Ecken).",
-   "h": "D liegt gegenüber von B. Welcher Vektor führt von A nach D?"
-  },
-  {
-   "l": "punkt_berechnen",
-   "t": "punkt_berechnen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Parallelogramm ABCD sind A(3 | 0), B(8 | −2) und C(10 | 0) gegeben. Wo liegt D?"
-   },
-   "a": [
-    "D(5 | 2)",
-    "D(1 | −2)",
-    "D(15 | −2)"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Vektor BC = (2 | 2), D = A + Vektor BC = (5 | 2). Die anderen Punkte ergeben kein Parallelogramm ABCD (falsche Reihenfolge der Ecken).",
-   "h": "D liegt gegenüber von B. Welcher Vektor führt von A nach D?"
-  },
-  {
-   "l": "punkt_berechnen",
-   "t": "punkt_berechnen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Im Parallelogramm ABCD sind A(−1 | 0), C(−8 | 4) und D(−6 | 1) gegeben. Berechne B.",
-    "schablone": "B(□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     -3,
-     3
-    ]
-   },
-   "w": "Vektor DC = (−2 | 3) = Vektor AB. B = A + Vektor DC = (−1 + (−2) | 0 + 3) = (−3 | 3).",
-   "h": "Welche Seite ist parallel und gleich lang wie AB?",
-   "c": [
-    "(-1) + (-8) - (-6)",
-    "(0) + (4) - (1)"
-   ]
-  },
-  {
-   "l": "punkt_berechnen",
-   "t": "punkt_berechnen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Berechne den Mittelpunkt M der Strecke [PQ] mit P(2 | 4) und Q(6 | 4) mithilfe des Vektors PQ.",
-    "schablone": "M(□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     4,
-     4
-    ]
-   },
-   "w": "Vektor PQ = (4 | 0), die Hälfte ist (2 | 0). M = P + (2 | 0) = (4 | 4).",
-   "h": "M liegt auf halbem Weg: P plus der halbe Vektor PQ.",
-   "c": [
-    "(2) + ((6) - (2)) / 2",
-    "(4) + ((4) - (4)) / 2"
-   ]
-  },
-  {
-   "l": "punkt_berechnen",
-   "t": "punkt_berechnen",
-   "p": "uebung",
    "s": 3,
    "y": "luecken",
    "f": {
@@ -4473,113 +5304,8 @@
    "c": [
     "(-3) + ((5) - (-3)) / 2",
     "(-3) + ((-1) - (-3)) / 2"
-   ]
-  },
-  {
-   "l": "punkt_berechnen",
-   "t": "punkt_berechnen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Im Parallelogramm ABCD sind A(3 | −5), C(2 | −3) und D(1 | −4) gegeben. Berechne B.",
-    "schablone": "B(□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     4,
-     -4
-    ]
-   },
-   "w": "Vektor DC = (1 | 1) = Vektor AB. B = A + Vektor DC = (3 + 1 | −5 + 1) = (4 | −4).",
-   "h": "Welche Seite ist parallel und gleich lang wie AB?",
-   "c": [
-    "(3) + (2) - (1)",
-    "(-5) + (-3) - (-4)"
-   ]
-  },
-  {
-   "l": "punkt_berechnen",
-   "t": "punkt_berechnen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Gegeben sind A(0 | 0) und B(5 | 1). Die Punkte D liegen bei D(x | 3). Sie bilden Parallelogramme ABCD. Gib C in Abhängigkeit von x an.",
-    "schablone": "C(x + □ | □)",
-    "hinweis": "Trage die Zahlen ein."
-   },
-   "o": {
-    "werte": [
-     5,
-     4
-    ]
-   },
-   "c": [
-    "5",
-    "3 + 1"
    ],
-   "w": "Im Parallelogramm gilt DC = AB = (5 | 1). C = D + AB = (x + 5 | 4).",
-   "h": "Welcher Vektor führt von D nach C?"
-  },
-  {
-   "l": "punkt_berechnen",
-   "t": "punkt_berechnen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Gegeben sind A(0 | 0), B(5 | 1) und D(x | 3). Für welches x liegt die vierte Ecke C des Parallelogramms ABCD auf der y-Achse?"
-   },
-   "o": {
-    "wert": -5
-   },
-   "c": "0 - 5",
-   "w": "C = D + AB = (x + 5 | 4). Auf der y-Achse ist x + 5 = 0, also x = −5.",
-   "h": "Stelle C mit x auf. Welche Koordinate ist auf der y-Achse 0?"
-  },
-  {
-   "l": "punkt_berechnen",
-   "t": "punkt_berechnen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "A(0 | 0), B(4 | 0) und C(5 | 3) sind drei Ecken eines Parallelogramms; die vierte Ecke kann an drei Stellen liegen. Welcher Punkt ist KEINE davon?"
-   },
-   "a": [
-    "(1 | 3)",
-    "(9 | 3)",
-    "(−1 | −3)",
-    "(3 | 3)"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Die drei Möglichkeiten: A + BC = (1 | 3), B + AC = (9 | 3), A + CB = (−1 | −3). (3 | 3) passt zu keiner.",
-   "h": "Lege nacheinander jede Seite als Diagonale fest."
-  },
-  {
-   "l": "punkt_berechnen",
-   "t": "punkt_berechnen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Parallelogramm ABCD sind A(1 | 0), B(4 | 1) und C(5 | 4). Jemand rechnet D = B + Vektor AC = (8 | 5). Was stimmt?"
-   },
-   "a": [
-    "Richtig gerechnet.",
-    "Falsch. Richtig ist D = C + Vektor AB = (8 | 5).",
-    "Falsch. Richtig ist D(4 | 4).",
-    "Falsch. Richtig ist D = A + Vektor BC = (2 | 3)."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "D liegt gegenüber von B. Im Parallelogramm ist AD = BC = (1 | 3), also D = (1 + 1 | 0 + 3) = (2 | 3).",
-   "h": "Welche Seite ist parallel und gleich lang wie AD?"
+   "g": "verknuepfen"
   },
   {
    "l": "punkt_berechnen",
@@ -4944,6 +5670,171 @@
    ]
   },
   {
+   "l": "punkt_berechnen",
+   "t": "punkt_berechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Gegeben sind A(0 | 0), B(5 | 1) und D(x | 3). Für welches x liegt die vierte Ecke C des Parallelogramms ABCD auf der y-Achse?"
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "0 - 5",
+   "w": "C = D + AB = (x + 5 | 4). Auf der y-Achse ist x + 5 = 0, also x = −5.",
+   "h": "Stelle C mit x auf. Welche Koordinate ist auf der y-Achse 0?",
+   "g": "parameter"
+  },
+  {
+   "l": "punkt_berechnen",
+   "t": "punkt_berechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "A(0 | 0), B(4 | 0) und C(5 | 3) sind drei Ecken eines Parallelogramms; die vierte Ecke kann an drei Stellen liegen. Welcher Punkt ist KEINE davon?"
+   },
+   "a": [
+    "(1 | 3)",
+    "(9 | 3)",
+    "(−1 | −3)",
+    "(3 | 3)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die drei Möglichkeiten: A + BC = (1 | 3), B + AC = (9 | 3), A + CB = (−1 | −3). (3 | 3) passt zu keiner.",
+   "h": "Lege nacheinander jede Seite als Diagonale fest.",
+   "g": "begruenden"
+  },
+  {
+   "l": "punkt_berechnen",
+   "t": "punkt_berechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Parallelogramm ABCD sind A(1 | 0), B(4 | 1) und C(5 | 4). Jemand rechnet D = B + Vektor AC = (8 | 5). Was stimmt?"
+   },
+   "a": [
+    "Richtig gerechnet.",
+    "Falsch. Richtig ist D = C + Vektor AB = (8 | 5).",
+    "Falsch. Richtig ist D(4 | 4).",
+    "Falsch. Richtig ist D = A + Vektor BC = (2 | 3)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "D liegt gegenüber von B. Im Parallelogramm ist AD = BC = (1 | 3), also D = (1 + 1 | 0 + 3) = (2 | 3).",
+   "h": "Welche Seite ist parallel und gleich lang wie AD?",
+   "g": "fehler"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Im Parallelogramm ABCD schneiden sich die Diagonalen in M(2 | 3). Es ist A(−1 | 1) und B(4 | 0). Berechne C und D.",
+    "schablone": "C(□ | □); D(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     5,
+     5,
+     0,
+     6
+    ]
+   },
+   "c": [
+    "2 * 2 + 1",
+    "2 * 3 - 1",
+    "2 * 2 - 4",
+    "2 * 3 - 0"
+   ],
+   "w": "M ist Mitte von [AC]: C = M + AM = (2 + 3 | 3 + 2) = (5 | 5). Ebenso D = M + BM = (2 − 2 | 3 + 3) = (0 | 6).",
+   "h": "Die Diagonalen halbieren sich.",
+   "l": "punkt_berechnen",
+   "t": "punkt_berechnen",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben sind A(−3 | −1), B(3 | 1) und D(−1 | 5) eines Parallelogramms ABCD. a) Berechne C. b) Berechne den Mittelpunkt M von [AC].",
+    "schablone": "C(□ | □); M(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     5,
+     7,
+     1,
+     3
+    ]
+   },
+   "c": [
+    "3 + 2",
+    "1 + 6",
+    "(-3 + 5) // 2",
+    "(-1 + 7) // 2"
+   ],
+   "w": "a) AD = (2 | 6), C = B + AD = (5 | 7). b) M = A + ½ · AC = (−3 + 4 | −1 + 4) = (1 | 3). M ist auch Mitte von [BD].",
+   "h": "C = B + AD.",
+   "l": "punkt_berechnen",
+   "t": "punkt_berechnen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "A(0 | 0), B(6 | 0) und C(2 | 4) sind drei Ecken eines Parallelogramms; die vierte Ecke kann an drei Stellen liegen. Diese drei Punkte bilden ein großes Dreieck. Wievielmal so groß ist es wie das Dreieck ABC?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "48 // 12",
+   "w": "Die drei möglichen Ecken: A + C − B = (−4 | 4), A + B − C = (4 | −4), B + C − A = (8 | 4). Das große Dreieck hat 48 FE, ABC hat 12 FE: viermal so groß. A, B, C sind genau die Seitenmitten des großen Dreiecks.",
+   "h": "Bestimme alle drei möglichen vierten Ecken.",
+   "l": "punkt_berechnen",
+   "t": "punkt_berechnen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Ein Parallelogramm ABCD hat A(0 | 0) und C(6 | 4). B liegt auf der x-Achse, D auf der y-Achse. Bestimme B und D.",
+    "schablone": "B(□ | □); D(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     6,
+     0,
+     0,
+     4
+    ]
+   },
+   "c": [
+    "6",
+    "0",
+    "0",
+    "4"
+   ],
+   "w": "B(b | 0), D(0 | d). Im Parallelogramm gilt C = B + AD = (b + 0 | 0 + d) = (b | d). Also b = 6, d = 4: B(6 | 0), D(0 | 4). Es ist sogar ein Rechteck.",
+   "h": "Schreibe B und D mit Unbekannten.",
+   "l": "punkt_berechnen",
+   "t": "punkt_berechnen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
    "l": "eigenschaften",
    "t": "eigenschaften",
    "p": "uebung",
@@ -4958,7 +5849,30 @@
    },
    "c": "(17/2)",
    "w": "Die Verschiebung ist längentreu: A'C' = 8,5 mm.",
-   "h": "Ändert eine Verschiebung Längen?"
+   "h": "Ändert eine Verschiebung Längen?",
+   "g": "direkt"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über die Parallelverschiebung ist FALSCH?"
+   },
+   "a": [
+    "Der Umlaufsinn bleibt gleich.",
+    "Jede Strecke ist parallel zu ihrer Bildstrecke.",
+    "Winkel ändern sich, Längen bleiben gleich.",
+    "Längen und Winkel bleiben erhalten."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "„Winkel ändern sich, Längen bleiben gleich.“ ist falsch. Eine Verschiebung ändert nur die Lage – sie ist eine Kongruenzabbildung.",
+   "h": "Was ändert sich bei einer Verschiebung überhaupt?",
+   "g": "erkennen"
   },
   {
    "l": "eigenschaften",
@@ -4975,7 +5889,30 @@
    },
    "c": "52",
    "w": "Die Verschiebung ist flächentreu: 52 cm².",
-   "h": "Bild und Urbild sind deckungsgleich."
+   "h": "Bild und Urbild sind deckungsgleich.",
+   "g": "direkt"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über die Parallelverschiebung ist FALSCH?"
+   },
+   "a": [
+    "Punkte, die weiter weg vom Ursprung liegen, werden weiter verschoben.",
+    "Der Umlaufsinn bleibt gleich.",
+    "Bild und Urbild sind deckungsgleich.",
+    "Die Verbindungsstrecken von Punkt und Bildpunkt sind alle gleich lang und parallel."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "„Punkte, die weiter weg vom Ursprung liegen, werden weiter verschoben.“ ist falsch. Eine Verschiebung ändert nur die Lage – sie ist eine Kongruenzabbildung.",
+   "h": "Was ändert sich bei einer Verschiebung überhaupt?",
+   "g": "erkennen"
   },
   {
    "l": "eigenschaften",
@@ -4992,7 +5929,55 @@
    },
    "c": "6",
    "w": "Die Verschiebung ist längentreu: A'C' = 6 mm.",
-   "h": "Ändert eine Verschiebung Längen?"
+   "h": "Ändert eine Verschiebung Längen?",
+   "g": "direkt"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Zeige mit Vektoren, dass A'B' parallel und gleich lang wie AB ist: A(2 | 0), B(4 | −5), v = (−3 | −5). Berechne Vektor A'B'.",
+    "schablone": "Vektor A'B' = (□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     2,
+     -5
+    ]
+   },
+   "w": "A'(−1 | −5), B'(1 | −10). Vektor A'B' = (2 | −5) = Vektor AB. Gleicher Vektor heißt: parallel und gleich lang.",
+   "h": "Berechne erst A' und B', dann den Vektor zwischen ihnen.",
+   "c": [
+    "(1) - (-1)",
+    "(-10) - (-5)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einer Verschiebung wird P(5 | −4) auf P'(2 | 1) abgebildet. Kann X(−5 | −2) dabei auf Y(−8 | 0) abgebildet werden?"
+   },
+   "a": [
+    "Nein, X bleibt bei einer Verschiebung liegen.",
+    "Nein, X wird auf X'(−8 | 3) abgebildet.",
+    "Ja, weil Y genauso weit vom Ursprung entfernt ist.",
+    "Ja, jeder Punkt kann beliebig verschoben werden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Alle Punkte werden mit demselben Vektor v = (−3 | 5) verschoben, also X' = (−8 | 3) ≠ Y.",
+   "h": "Bei einer Verschiebung bekommen alle Punkte denselben Vektor.",
+   "g": "begruenden"
   },
   {
    "l": "eigenschaften",
@@ -5009,7 +5994,77 @@
    },
    "c": "11",
    "w": "Die Verschiebung ist längentreu: B'C' = 11 cm.",
-   "h": "Ändert eine Verschiebung Längen?"
+   "h": "Ändert eine Verschiebung Längen?",
+   "g": "direkt"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über die Parallelverschiebung ist richtig?"
+   },
+   "a": [
+    "Jede Strecke ist parallel zu ihrer Bildstrecke.",
+    "Punkte, die weiter weg vom Ursprung liegen, werden weiter verschoben.",
+    "Der Umlaufsinn kehrt sich um.",
+    "Die Fläche wird größer, wenn v nach oben zeigt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "„Jede Strecke ist parallel zu ihrer Bildstrecke.“ stimmt: Die Verschiebung ist längen-, winkel- und flächentreu und parallelentreu.",
+   "h": "Stell dir ein Schiebepuzzle vor: Was passiert mit einem Teil?",
+   "g": "erkennen"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Zeige mit Vektoren, dass A'B' parallel und gleich lang wie AB ist: A(3 | 2), B(−1 | 3), v = (−5 | −5). Berechne Vektor A'B'.",
+    "schablone": "Vektor A'B' = (□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -4,
+     1
+    ]
+   },
+   "w": "A'(−2 | −3), B'(−6 | −2). Vektor A'B' = (−4 | 1) = Vektor AB. Gleicher Vektor heißt: parallel und gleich lang.",
+   "h": "Berechne erst A' und B', dann den Vektor zwischen ihnen.",
+   "c": [
+    "(-6) - (-2)",
+    "(-2) - (-3)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einer Verschiebung bleibt der Punkt P(2 | 5) an seinem Platz. Was folgt daraus?"
+   },
+   "a": [
+    "Nur P bleibt liegen, die anderen Punkte rutschen.",
+    "Alle Punkte auf einer Geraden durch P bleiben liegen.",
+    "Das ist bei einer Verschiebung unmöglich.",
+    "Der Vektor ist (0 | 0): Alle Punkte bleiben liegen."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Bleibt P liegen, ist v = P′ − P = (0 | 0). Alle Punkte werden mit demselben Vektor verschoben, also bleibt jeder Punkt liegen.",
+   "h": "Welcher Vektor bringt P auf sich selbst?",
+   "g": "begruenden"
   },
   {
    "l": "eigenschaften",
@@ -5026,7 +6081,30 @@
    },
    "c": "51",
    "w": "Die Verschiebung ist winkeltreu: α' = 51°.",
-   "h": "Ändert eine Verschiebung Winkel?"
+   "h": "Ändert eine Verschiebung Winkel?",
+   "g": "direkt"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über die Parallelverschiebung ist richtig?"
+   },
+   "a": [
+    "Der Umlaufsinn kehrt sich um.",
+    "Punkte, die weiter weg vom Ursprung liegen, werden weiter verschoben.",
+    "Alle Punkte werden gleich weit verschoben.",
+    "Winkel ändern sich, Längen bleiben gleich."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "„Alle Punkte werden gleich weit verschoben.“ stimmt: Die Verschiebung ist längen-, winkel- und flächentreu und parallelentreu.",
+   "h": "Stell dir ein Schiebepuzzle vor: Was passiert mit einem Teil?",
+   "g": "erkennen"
   },
   {
    "l": "eigenschaften",
@@ -5050,84 +6128,79 @@
    "t": "eigenschaften",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Welche Aussage über die Parallelverschiebung ist FALSCH?"
+    "text": "Das Dreieck ABC mit A(0 | 0), B(4 | 0) und C(0 | 3) wird mit v = (2 | 5) verschoben. Wie groß ist die Fläche des Bilddreiecks A'B'C' in FE?"
    },
-   "a": [
-    "Der Umlaufsinn bleibt gleich.",
-    "Jede Strecke ist parallel zu ihrer Bildstrecke.",
-    "Winkel ändern sich, Längen bleiben gleich.",
-    "Längen und Winkel bleiben erhalten."
-   ],
    "o": {
-    "index": 2
+    "wert": 6,
+    "einheit": "FE"
    },
-   "w": "„Winkel ändern sich, Längen bleiben gleich.“ ist falsch. Eine Verschiebung ändert nur die Lage – sie ist eine Kongruenzabbildung.",
-   "h": "Was ändert sich bei einer Verschiebung überhaupt?"
+   "c": "4*3/2",
+   "w": "Die Verschiebung ändert die Fläche nicht. ABC ist rechtwinklig mit den Katheten 4 und 3: Fläche 1/2 · 4 · 3 = 6 FE.",
+   "h": "Brauchst du dafür das Bilddreieck überhaupt?",
+   "g": "darstellung"
   },
   {
    "l": "eigenschaften",
    "t": "eigenschaften",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Welche Aussage über die Parallelverschiebung ist FALSCH?"
+    "text": "Ein Dreieck mit dem Umfang 34 cm wird zuerst mit v = (6 | 2) und danach mit dem Gegenvektor verschoben. Welchen Umfang hat das Ergebnis?"
    },
-   "a": [
-    "Punkte, die weiter weg vom Ursprung liegen, werden weiter verschoben.",
-    "Der Umlaufsinn bleibt gleich.",
-    "Bild und Urbild sind deckungsgleich.",
-    "Die Verbindungsstrecken von Punkt und Bildpunkt sind alle gleich lang und parallel."
-   ],
    "o": {
-    "index": 0
+    "wert": 34,
+    "einheit": "cm"
    },
-   "w": "„Punkte, die weiter weg vom Ursprung liegen, werden weiter verschoben.“ ist falsch. Eine Verschiebung ändert nur die Lage – sie ist eine Kongruenzabbildung.",
-   "h": "Was ändert sich bei einer Verschiebung überhaupt?"
+   "c": "34",
+   "w": "Beide Verschiebungen sind längentreu; außerdem landet das Dreieck wieder am Ausgangsort. Umfang 34 cm.",
+   "h": "Was bewirkt der Gegenvektor? Ändert sich irgendeine Länge?",
+   "g": "mehrschritt"
   },
   {
    "l": "eigenschaften",
    "t": "eigenschaften",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
+   "y": "luecken",
    "f": {
-    "text": "Welche Aussage über die Parallelverschiebung ist richtig?"
+    "text": "Das Dreieck ABC mit A(0 | 0), B(3 | 1) und C(1 | 4) wird so verschoben, dass A auf B fällt. Wo landet C?",
+    "schablone": "C′(□ | □)",
+    "hinweis": "Trage die Zahlen ein."
    },
-   "a": [
-    "Jede Strecke ist parallel zu ihrer Bildstrecke.",
-    "Punkte, die weiter weg vom Ursprung liegen, werden weiter verschoben.",
-    "Der Umlaufsinn kehrt sich um.",
-    "Die Fläche wird größer, wenn v nach oben zeigt."
-   ],
    "o": {
-    "index": 0
+    "werte": [
+     4,
+     5
+    ]
    },
-   "w": "„Jede Strecke ist parallel zu ihrer Bildstrecke.“ stimmt: Die Verschiebung ist längen-, winkel- und flächentreu und parallelentreu.",
-   "h": "Stell dir ein Schiebepuzzle vor: Was passiert mit einem Teil?"
+   "c": [
+    "1 + 3",
+    "4 + 1"
+   ],
+   "w": "A soll auf B: v = B − A = (3 | 1). C′ = (1 + 3 | 4 + 1) = (4 | 5).",
+   "h": "Welcher Vektor bringt A nach B?",
+   "g": "umkehr"
   },
   {
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratischer Stempel mit 3 cm Seitenlänge wird mehrmals nebeneinander gedruckt, jedes Mal um (4 | 0) cm verschoben. Wie breit ist die Lücke zwischen zwei Abdrücken?"
+   },
+   "o": {
+    "wert": 1,
+    "einheit": "cm"
+   },
+   "c": "4 - 3",
+   "w": "Der Abdruck ist 3 cm breit und wird um 4 cm nach rechts verschoben. Lücke: 4 − 3 = 1 cm.",
+   "h": "Wie weit wird verschoben, wie breit ist ein Abdruck?",
    "l": "eigenschaften",
    "t": "eigenschaften",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über die Parallelverschiebung ist richtig?"
-   },
-   "a": [
-    "Der Umlaufsinn kehrt sich um.",
-    "Punkte, die weiter weg vom Ursprung liegen, werden weiter verschoben.",
-    "Alle Punkte werden gleich weit verschoben.",
-    "Winkel ändern sich, Längen bleiben gleich."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "„Alle Punkte werden gleich weit verschoben.“ stimmt: Die Verschiebung ist längen-, winkel- und flächentreu und parallelentreu.",
-   "h": "Stell dir ein Schiebepuzzle vor: Was passiert mit einem Teil?"
+   "g": "einkleidung"
   },
   {
    "l": "eigenschaften",
@@ -5176,130 +6249,6 @@
    "t": "eigenschaften",
    "p": "uebung",
    "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Zeige mit Vektoren, dass A'B' parallel und gleich lang wie AB ist: A(2 | 0), B(4 | −5), v = (−3 | −5). Berechne Vektor A'B'.",
-    "schablone": "Vektor A'B' = (□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     2,
-     -5
-    ]
-   },
-   "w": "A'(−1 | −5), B'(1 | −10). Vektor A'B' = (2 | −5) = Vektor AB. Gleicher Vektor heißt: parallel und gleich lang.",
-   "h": "Berechne erst A' und B', dann den Vektor zwischen ihnen.",
-   "c": [
-    "(1) - (-1)",
-    "(-10) - (-5)"
-   ]
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Zeige mit Vektoren, dass A'B' parallel und gleich lang wie AB ist: A(3 | 2), B(−1 | 3), v = (−5 | −5). Berechne Vektor A'B'.",
-    "schablone": "Vektor A'B' = (□ | □)",
-    "hinweis": "x-Koordinate, y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     -4,
-     1
-    ]
-   },
-   "w": "A'(−2 | −3), B'(−6 | −2). Vektor A'B' = (−4 | 1) = Vektor AB. Gleicher Vektor heißt: parallel und gleich lang.",
-   "h": "Berechne erst A' und B', dann den Vektor zwischen ihnen.",
-   "c": [
-    "(-6) - (-2)",
-    "(-2) - (-3)"
-   ]
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Bei einer Verschiebung wird P(5 | −4) auf P'(2 | 1) abgebildet. Kann X(−5 | −2) dabei auf Y(−8 | 0) abgebildet werden?"
-   },
-   "a": [
-    "Nein, X bleibt bei einer Verschiebung liegen.",
-    "Nein, X wird auf X'(−8 | 3) abgebildet.",
-    "Ja, weil Y genauso weit vom Ursprung entfernt ist.",
-    "Ja, jeder Punkt kann beliebig verschoben werden."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Alle Punkte werden mit demselben Vektor v = (−3 | 5) verschoben, also X' = (−8 | 3) ≠ Y.",
-   "h": "Bei einer Verschiebung bekommen alle Punkte denselben Vektor."
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Das Dreieck ABC mit A(0 | 0), B(4 | 0) und C(0 | 3) wird mit v = (2 | 5) verschoben. Wie groß ist die Fläche des Bilddreiecks A'B'C' in FE?"
-   },
-   "o": {
-    "wert": 6,
-    "einheit": "FE"
-   },
-   "c": "4*3/2",
-   "w": "Die Verschiebung ändert die Fläche nicht. ABC ist rechtwinklig mit den Katheten 4 und 3: Fläche 1/2 · 4 · 3 = 6 FE.",
-   "h": "Brauchst du dafür das Bilddreieck überhaupt?"
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Bei einer Verschiebung bleibt der Punkt P(2 | 5) an seinem Platz. Was folgt daraus?"
-   },
-   "a": [
-    "Nur P bleibt liegen, die anderen Punkte rutschen.",
-    "Alle Punkte auf einer Geraden durch P bleiben liegen.",
-    "Das ist bei einer Verschiebung unmöglich.",
-    "Der Vektor ist (0 | 0): Alle Punkte bleiben liegen."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Bleibt P liegen, ist v = P′ − P = (0 | 0). Alle Punkte werden mit demselben Vektor verschoben, also bleibt jeder Punkt liegen.",
-   "h": "Welcher Vektor bringt P auf sich selbst?"
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck mit dem Umfang 34 cm wird zuerst mit v = (6 | 2) und danach mit dem Gegenvektor verschoben. Welchen Umfang hat das Ergebnis?"
-   },
-   "o": {
-    "wert": 34,
-    "einheit": "cm"
-   },
-   "c": "34",
-   "w": "Beide Verschiebungen sind längentreu; außerdem landet das Dreieck wieder am Ausgangsort. Umfang 34 cm.",
-   "h": "Was bewirkt der Gegenvektor? Ändert sich irgendeine Länge?"
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "uebung",
-   "s": 3,
    "y": "zahl",
    "f": {
     "text": "Ein Dreieck ABC wird mit v = (4 | −3) verschoben. Die Strecke [AA′] ist 5 cm lang. Wie lang ist die Strecke [BB′]?"
@@ -5310,59 +6259,8 @@
    },
    "c": "5",
    "w": "Alle Punkte werden mit demselben Vektor verschoben. Darum sind alle Verbindungsstrecken [AA′], [BB′], [CC′] gleich lang: 5 cm.",
-   "h": "Wie weit rutscht jeder Punkt?"
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Zeige, dass AA′B′B ein Parallelogramm ist: A(1 | 1), B(4 | 2), v = (1 | 3). Berechne die Vektoren AA′ und BB′.",
-    "schablone": "AA′ = (□ | □) und BB′ = (□ | □)",
-    "hinweis": "Trage die Zahlen ein."
-   },
-   "o": {
-    "werte": [
-     1,
-     3,
-     1,
-     3
-    ]
-   },
-   "c": [
-    "1",
-    "3",
-    "1",
-    "3"
-   ],
-   "w": "A′(2 | 4), B′(5 | 5). AA′ = (1 | 3) und BB′ = (1 | 3) sind gleich: gegenüberliegende Seiten parallel und gleich lang – ein Parallelogramm.",
-   "h": "Berechne erst A′ und B′, dann die Vektoren."
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Das Dreieck ABC mit A(0 | 0), B(3 | 1) und C(1 | 4) wird so verschoben, dass A auf B fällt. Wo landet C?",
-    "schablone": "C′(□ | □)",
-    "hinweis": "Trage die Zahlen ein."
-   },
-   "o": {
-    "werte": [
-     4,
-     5
-    ]
-   },
-   "c": [
-    "1 + 3",
-    "4 + 1"
-   ],
-   "w": "A soll auf B: v = B − A = (3 | 1). C′ = (1 + 3 | 4 + 1) = (4 | 5).",
-   "h": "Welcher Vektor bringt A nach B?"
+   "h": "Wie weit rutscht jeder Punkt?",
+   "g": "begruenden"
   },
   {
    "l": "eigenschaften",
@@ -5563,6 +6461,156 @@
     "index": 3
    },
    "w": "„Jede Strecke ist parallel zu ihrer Bildstrecke.“ stimmt: Die Verschiebung ist längen-, winkel- und flächentreu und parallelentreu."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Zeige, dass AA′B′B ein Parallelogramm ist: A(1 | 1), B(4 | 2), v = (1 | 3). Berechne die Vektoren AA′ und BB′.",
+    "schablone": "AA′ = (□ | □) und BB′ = (□ | □)",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     1,
+     3,
+     1,
+     3
+    ]
+   },
+   "c": [
+    "1",
+    "3",
+    "1",
+    "3"
+   ],
+   "w": "A′(2 | 4), B′(5 | 5). AA′ = (1 | 3) und BB′ = (1 | 3) sind gleich: gegenüberliegende Seiten parallel und gleich lang – ein Parallelogramm.",
+   "h": "Berechne erst A′ und B′, dann die Vektoren.",
+   "g": "verknuepfen"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „Bei der Verschiebung mit v = (3 | 4) wird jede Strecke um 3 länger.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Sie wird um 4 länger.",
+    "Falsch: Bei einer Verschiebung bleiben alle Längen gleich.",
+    "Richtig.",
+    "Falsch: Sie wird um 7 länger."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Eine Verschiebung bewegt die Figur nur. Jede Bildstrecke ist genauso lang wie die Originalstrecke und parallel zu ihr.",
+   "h": "Was ändert eine Verschiebung an der Figur?",
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein Fries entsteht, indem ein Dreieck mit 6 cm² Fläche fünfmal hintereinander um (4 | 0) cm verschoben wird. Die Dreiecke überlappen nicht. Welche Fläche bedecken alle Dreiecke zusammen?"
+   },
+   "o": {
+    "wert": 36,
+    "einheit": "cm²"
+   },
+   "c": "6 * 6",
+   "w": "Das Original und fünf Bilder sind 6 Dreiecke, jedes mit 6 cm². 6 · 6 = 36 cm².",
+   "h": "Zähle das Original mit.",
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Das Dreieck A(0 | 0), B(4 | 0), C(1 | 3) wird mit v = (k | 2) verschoben. Für welches k liegt C′ auf der y-Achse?"
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "0 - 1",
+   "w": "C′ = (1 + k | 5). Auf der y-Achse ist die x-Koordinate 0: 1 + k = 0 ⇒ k = −1.",
+   "h": "Was gilt für Punkte auf der y-Achse?",
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Das Rechteck A(0 | 0), B(4 | 0), C(4 | 2), D(0 | 2) wird mit v = (−1 | 3) verschoben. a) Berechne C′. b) Wie groß ist A′B′C′D′ in FE? c) Wie lang ist A′B′?",
+    "schablone": "C′(□ | □); A = □ FE; A′B′ = □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     3,
+     5,
+     8,
+     4
+    ]
+   },
+   "c": [
+    "4 - 1",
+    "2 + 3",
+    "4 * 2",
+    "4"
+   ],
+   "w": "a) C′ = (3 | 5). b) Die Fläche bleibt: 4 · 2 = 8 FE. c) Die Länge bleibt: A′B′ = 4.",
+   "h": "Was ändert sich bei einer Verschiebung, was nicht?",
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck mit A(0 | 0), B(4 | 0), C(4 | 2), D(0 | 2) wird mit v = (2 | 1) verschoben. Wie groß ist die Fläche, die das Rechteck und sein Bild gemeinsam bedecken (Überlappung)?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "FE"
+   },
+   "c": "(4 - 2) * (2 - 1)",
+   "w": "Das Bild reicht von x = 2 bis 6 und von y = 1 bis 3. Gemeinsam: x von 2 bis 4 (Breite 2), y von 1 bis 2 (Höhe 1). Überlappung 2 · 1 = 2 FE.",
+   "h": "Zeichne beide Rechtecke.",
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat mit Seitenlänge 3 wird mit v = (a | 0) verschoben, 0 < a < 3. Quadrat und Bild bedecken zusammen 15 FE. Wie groß ist a?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "3 - 3 // 3",
+   "w": "Zusammen bedecken sie 9 + 9 − Überlappung. Die Überlappung ist ein Rechteck 3 · (3 − a). 18 − 3 · (3 − a) = 15 ⇒ 3 − a = 1 ⇒ a = 2.",
+   "h": "Was wird doppelt gezählt?",
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
   }
  ],
  "offen": [

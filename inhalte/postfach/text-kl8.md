@@ -2,6 +2,32 @@
 
 Neueste Meldung oben.
 
+## 2026-11-18 02:14 – STATUS messen.koerper_darstellung
+
+### messen.koerper_darstellung
+
+Anteil Textaufgaben an den Übungen mit g: vorher 12% (nur einkleidung/transfer) bzw. 18% (mit anerkannten Sachaufgaben anderer Typen) → nachher **40%**.
+
+| Lernkarte | vorher S1/S2/S3 (Lehrer) | vorher S1/S2/S3 (mit anderen Typen) | nachher S1/S2/S3 | neu Übung | neu Sicherung/Korrektur | überzählig | Sicherung/Korrektur Text nachher |
+|---|---|---|---|---|---|---|---|
+| prisma | 0/1/2 | 0/1/3 | 1/3/5 = 9 | 5 | 2/1 | 2 | 2/1 |
+| netz | 0/1/3 | 0/1/4 | 1/3/5 = 9 | 4 | 2/1 | 1 | 2/1 |
+| zylinder | 0/1/1 | 0/1/3 | 1/3/5 = 9 | 5 | 2/1 | 1 | 2/1 |
+| schraegbild | 0/0/1 | 0/0/2 | 1/3/4 = 8 | 6 | 2/1 | 6 | 2/1 |
+| ansichten | 0/1/2 | 0/1/3 | 1/3/5 = 9 | 5 | 2/1 | 6 | 2/1 |
+| beurteilen | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 5 | 2/1 |
+
+Beispiele (je Stufe eine neue Textaufgabe, Wortlaut):
+
+- Stufe 1 (prisma): „Ein Zelt hat die Form eines dreiseitigen Prismas, auch der Boden ist aus Stoff. Aus wie vielen Stoffflächen besteht das Zelt?“
+- Stufe 2 (schraegbild): „Ein Schuhkarton ist 30 cm breit, 12 cm hoch und 18 cm tief. Er wird in Originalgröße im Schrägbild (q = 1/2, ω = 45°) gezeichnet, die Breite vorn. Wie lang wird die Tiefe gezeichnet?“
+- Stufe 3 (beurteilen): „Eine Verpackung soll ein Prisma mit 10 Flächen sein und höchstens 25 Kanten haben. Wie viele Kanten hat sie?“
+
+Überzählig (g entfernt, Aufgabe bleibt): 21 – schraegbild S2 umkehr (Anteil 40 %); schraegbild S2 umkehr (Anteil 40 %); beurteilen S2 mehrschritt (Anteil 40 %); ansichten S2 umkehr (Anteil 40 %); ansichten S2 umkehr (Anteil 40 %); beurteilen S3 begruenden (Anteil 40 %); schraegbild S2 darstellung (Anteil 40 %); ansichten S1 erkennen (Anteil 40 %); beurteilen S2 umkehr (Anteil 40 %); schraegbild S2 umkehr (Anteil 40 %); ansichten S2 umkehr (Anteil 40 %); prisma S2 umkehr (Anteil 40 %) …
+Als Sachaufgabe anerkannte alte Aufgaben anderer Typen: 6 Übungen, 0 Sicherung/Korrektur.
+Sachbezug über echte Gegenstände (Zelt, Pavillon, Verpackung, Etikett, Pläne im Maßstab). Für 40 % verlieren 21 alte reine Begriffs-/Rechenaufgaben ihr g.
+
+
 ## 2026-11-18 02:11 – STATUS gleichungen.formeln
 
 ### gleichungen.formeln

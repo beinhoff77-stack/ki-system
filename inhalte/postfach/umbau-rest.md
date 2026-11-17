@@ -1,5 +1,9 @@
 # Postfach umbau-rest (Paket UR, Achte Runde)
 
+## 2026-11-17 02:08 – STATUS
+groessen.verhaeltnisse umgebaut (6 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_rest.umbau_schreiben); probe entfällt.
+Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/groessen.verhaeltnisse.json`: 168 Aufgaben, alle wörtlich gleich; titel/lernziel unverändert. inhalt_pruefen: 0 Fehler, 0 Hinweise. Zeichnungen gerendert (app-eigenes lernErklaerung im Browser), angesehen. Ohne fehler_bild: kuerzen (Einheitenfehler), aufteilen (die Schrittbilder zeigen die richtige Aufteilung), einheitsrate (Denkfehler), aenderung (Rechenfehler mit Endwerten).
+
 ## 2026-11-17 02:06 – STATUS
 mengen.grundbegriffe umgebaut (5 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_rest.umbau_schreiben); probe entfällt.
 Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/mengen.grundbegriffe.json`: 140 Aufgaben, alle wörtlich gleich; titel/lernziel unverändert. inhalt_pruefen: 0 Fehler, 0 Hinweise. Zeichnungen gerendert (app-eigenes lernErklaerung im Browser), angesehen. Ohne fehler_bild: schnitt und vereinigung (Denkfehler beim Sammeln; das Schrittbild zeigt die richtige Aufteilung), verstehen (allgemeine Aussage ohne festes Beispiel). Venn-Bilder mit venn() aus _ib.py; in den Karten sind die Kreisnamen an die Außenkanten gerückt, weil lange Namen (Fußball/Schwimmen) bei 16-px-Schrift überlappten. Die Aufgaben-Grafiken nutzen weiter venn() unverändert – dort kann dieselbe Überlappung auftreten (siehe offen im Abschlussbericht).

@@ -947,6 +947,47 @@ baue = mit_luecken(baue, LK)
 # ---- LÜCKEN ENDE ----
 
 
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Kl. 8, siehe _durchsicht_kl8.py) ----
+from _durchsicht_kl8 import Durchsicht, mit_durchsicht  # noqa: E402
+
+DS = Durchsicht('funktionen.linear', 19_8_2)
+# ablesen: m bzw. t aus y = mx + t direkt ablesen ist Stufe 1; Steigungsdreieck wie auf Stufe 2
+for _t in ['Gib die Steigung m der Geraden y = −4x + 6 an.', 'Gib den y-Achsenabschnitt t der Geraden y = 1,5x + 7 an.', 'Gib die Steigung m der Geraden y = 6x + 9 an.']:
+    DS.stufe('ablesen', _t, 1)
+DS.stufe('ablesen', 'Das Bild zeigt eine Gerade mit Steigungsdreieck. Wie groß ist die Steigung m?', 2, enthaelt='"wert": -1.5')
+DS.stufen('ablesen', 'S1 t ablesen; S2 teils m/t direkt ablesen wie S1; S3 teils Steigungsdreieck wie S2',
+          'S1 m und t direkt ablesen; S2 umsortierte Form, Steigungsdreieck, Graph, steilste Gerade; S3 nach y auflösen, Prozent-Steigung, Parameter a')
+# zwei_punkte: Steigung aus zwei ganzzahligen Punkten ist Stufe 1; Kollinearität und Fehler finden wie auf Stufe 2
+DS.stufe('zwei_punkte', 'Berechne die Steigung der Geraden durch P(3 | 3) und Q(5 | 11).', 1)
+DS.stufe('zwei_punkte', 'Berechne die Steigung der Geraden durch P(1 | 1) und Q(−3 | 45).', 1)
+DS.stufe('zwei_punkte', 'Liegen A(−1 | 0), B(1 | 6) und C(3 | 14) auf einer Geraden?', 2)
+DS.stufe('zwei_punkte', 'Jemand rechnet für P(−3 | −3), Q(1 | −11): m = (−11 − (−3)) : (−3 − 1) = 2. Was ist falsch?', 2)
+DS.stufen('zwei_punkte', 'S1/S2 teils dieselbe Rechnung; S3 teils dieselbe Kollinearitäts- und Fehleraufgabe wie S2',
+          'S1 m aus zwei Punkten; S2 Dezimalzahlen, Kollinearität, Fehler finden, Bild; S3 waagrecht/senkrecht, Rampe, fehlende Koordinate, x und y vertauscht')
+# proportional: sechs gleiche „y = k · x durch P“-Übungen in Reihe → zwei durch Einkleidung und Umkehrung ersetzt
+DS.ersetze('proportional', 'Die Gerade y = k · x geht durch P(6 | 6). Berechne y für x = −2.', DS.Z(
+    'Ein Auto verbraucht 6,4 l Benzin auf 100 km. Der Verbrauch ist proportional zur Strecke. Wie viele Liter braucht es für 250 km?', 16, '6.4 / 100 * 250',
+    'k = 6,4 : 100 = 0,064 l je km. Für 250 km: 0,064 · 250 = 16 l.', 'Berechne zuerst den Verbrauch für 1 km (k).', einheit='l'))
+DS.ersetze('proportional', 'Die Gerade y = k · x geht durch P(1 | −1). Berechne y für x = 6.', DS.Z(
+    'Ein Wasserhahn füllt in 3 Minuten 27 Liter in eine Wanne. Wie viele Minuten braucht er für 45 Liter?', 5, '45 / (27 / 3)',
+    'k = 27 : 3 = 9 Liter pro Minute. Gesucht ist x mit 9 · x = 45: x = 45 : 9 = 5 Minuten.', 'Berechne k. Hier ist y gegeben und x gesucht.', einheit='min'))
+DS.stufen('proportional', 'S1 Dreisatz; S2 sechsmal dieselbe k-Aufgabe; S3 Fehler, Taxi, Zuwachs, Parameter',
+          'S1 Dreisatz; S2 k-Aufgabe, Einkleidung, Umkehrung (x gesucht), Proportionalität prüfen; S3 Fehler finden, Taxi nicht proportional, aus Zuwachs schließen, Parameter')
+# aufstellen: Term aus Grundpreis und Preis je Einheit direkt ablesen ist Stufe 2
+DS.stufe('aufstellen', 'Ein Handwerker berechnet 30 € Anfahrt und 45 € pro Stunde. Gib die Kosten K(x) für x Stunden an.', 2)
+DS.stufe('aufstellen', 'Ein Wassertank enthält 150 Liter. Pro Minute fließen 4 Liter ab. Gib den Inhalt V(x) nach x Minuten an.', 2)
+DS.stufen('aufstellen', 'S1 m und t gegeben; S2 m und Punkt; S3 teils Sachterm direkt ablesen',
+          'S1 m und t gegeben; S2 m und Punkt, Sachterm, parallel; S3 zwei Punkte, zwei Rechnungen, parallel zu AB, Achsenpunkte')
+# deuten: Bedeutung einer Zahl ist Stufe 1
+DS.stufe('deuten', 'Eine Kerze brennt ab: h(x) = −x + 15 (x in Stunden, h in cm). Welche Aussage ist richtig?', 1)
+DS.stufen('deuten', 'S1 Bedeutung von m/t; S2 rückwärts rechnen; S3 teils Bedeutung wie S1',
+          'S1 Bedeutung von m und t; S2 Wert zu x und x zu Wert; S3 Tarifvergleich, Gerade aus zwei Messwerten, Graph deuten, parallele Tarife')
+DS.stufen('schnittpunkte', 'S1 Achsenschnittpunkte; S2 zwei Geraden gleichsetzen; S3 Tarifvergleich, Parameter, Dreiecksfläche')
+DS.stufen('lage', 'S1 Lage ablesen; S2 senkrecht über Produkt −1, Steigung angeben; S3 Sonderformen, senkrechte Gerade durch P, Parameter, rechter Winkel im Dreieck')
+DS.stufen('graph_ablesen', 'S1 ganze Steigung am Graphen; S2 Bruch-Steigung, Graph zur Gleichung; S3 fallend, Nullstelle über Dreiecke, kleinstes Dreieck, Treppe')
+baue = mit_durchsicht(baue, DS)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Steigung und Achsenabschnitt', ['ablesen', 'zwei_punkte', 'proportional']), ('Geraden bestimmen', ['aufstellen', 'schnittpunkte', 'lage']),

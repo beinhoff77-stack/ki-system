@@ -897,3 +897,45 @@ if __name__ == '__main__':
     ergaenzen(datei, schwer())
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
     luecken_einbauen()  # Achtzehnte Runde (luecken-kl10): verstehen um schiefe Prismen erweitert – ganz am Ende
+
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl10) ----------
+# Gesamtdurchsicht Klasse 10: jede Lernkarte und jede Aufgabe gelesen und nachgerechnet. Läuft ganz am Ende auf der fertigen Datei.
+# Stufe 1 = vorgerechnetes Beispiel mit anderen Zahlen, Stufe 2 = Abwandlung/Umkehrung, Stufe 3 = anderer Gedanke.
+def durchsicht():
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from _durchsicht_kl10 import Durchsicht
+    D = Durchsicht('raum.pyramide_kegel_kugel', 19090)
+    # pyr_volumen: Dreieck als Grundfläche ist nur eine andere Grundfläche, kein neuer Gedanke → Stufe 2
+    D.stufe([13, 15], 2, 'Eine Pyramide hat als Grundfläche ein Dreieck')
+    # pyr_oberflaeche: Oberfläche aus a und h ist genau das vorgerechnete Beispiel der Karte → Stufe 1;
+    # Aufgabe 41 hatte sogar die Zahlen der Karte (a = 6, h = 4) → ersetzt durch andere Zahlen
+    D.stufe([40, 42, 43, 44, 45], 1, 'Eine quadratische Pyramide hat die Grundkante')
+    D.ersetze(41, 'Eine quadratische Pyramide hat die Grundkante 6 cm und die Höhe 4 cm',
+              D.Z('Eine quadratische Pyramide hat die Grundkante 12 cm und die Höhe 8 cm. Berechne ihre Oberfläche.', 384, '12 ** 2 + 2 * 12 * 10',
+                  'hₛ = √(8² + 6²) = 10 cm; O = 12² + 4 · ½ · 12 · 10 = 144 + 240 = 384 cm².', 'Erst hₛ mit Pythagoras, dann O = G + M.', einheit='cm²',
+                  grafik={'typ': 'figur', 'punkte': {'S': [0, 8], 'M': [0, 0], 'F': [6.0, 0], '_G': [-6.0, 0]}, 'flaeche': ['_G', 'F', 'S'],
+                          'linien': [['_G', 'F', ''], ['_G', 'S', ''], ['S', 'F', 'hₛ'], ['M', 'F', 'a/2 = 6'], ['M', 'S', 'h = 8', 'gestrichelt']],
+                          'rechter_winkel': [['M', 'F', 'S']], 'label': 'Schnitt durch die Pyramide: Höhe, halbe Grundkante, Seitenhöhe'}), s=1)
+    # kegel_volumen: Höhe aus dem Volumen ist eine Umkehrung → Stufe 2
+    D.stufe(range(68, 74), 2, 'Ein Kegel mit dem Radius')
+    # kegel_mantel: Oberfläche aus r und h = Kette der Karte (s, dann M) plus Boden → Stufe 2; Sektor → Grundkreis = Umkehrung der Winkelformel → Stufe 2
+    D.stufe([96, 97, 99, 100], 2, 'Ein Kegel hat den Radius')
+    D.stufe([98, 101], 2, 'Aus einem Kreissektor')
+    # kugel: Radius aus Volumen/Oberfläche ist eine Umkehrung → Stufe 2
+    D.stufe([124, 125, 128, 129], 2, 'Eine Kugel hat')
+    D.stufe([126, 127], 2, 'Ein Globus')
+    # sachkontext: Pyramidenvolumen mit großen Zahlen ist kein anderer Gedanke → Stufe 2
+    D.stufe([153, 157], 2, 'Eine quadratische Pyramide (als Modell')
+    # verstehen: Fehler „π · r · h“ ist auf Stufe 2 schon dreimal da → Stufe 2
+    D.stufe([180, 184, 185], 2, 'Jemand rechnet die Mantelfläche eines Kegels')
+    D.fuer_sebastian('raum.pyramide_kegel_kugel/verstehen: Zwei Übungen haben denselben Fragetext („Bei einem Kegel wird nur die Höhe verdoppelt. …“, Stufe 1 und Stufe 2). '
+                     'Nicht ersetzt, weil die Sperre nach Fragetext beide träfe – eine davon bitte löschen oder umformulieren lassen.')
+    D.fuer_sebastian('raum.pyramide_kegel_kugel: Schrägbild und Netz von Pyramide und Kegel (M10 5) fehlen als eigene Aufgaben; '
+                     'die App kann Kegel-Schrägbilder und Kegelnetze nicht zeichnen (App-Wunsch).')
+    D.anwenden()
+
+
+if __name__ == '__main__':
+    durchsicht()  # Neunzehnte Runde (durchsicht-kl10) – ganz am Ende

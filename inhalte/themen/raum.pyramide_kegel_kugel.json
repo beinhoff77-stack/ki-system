@@ -3404,7 +3404,7 @@
    "l": "pyr_volumen",
    "t": "pyr_volumen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Pyramide hat als Grundfläche ein Dreieck mit Grundseite 5 cm und Höhe 5 cm. Die Pyramide ist 3 cm hoch. Berechne ihr Volumen."
@@ -3529,7 +3529,7 @@
    "l": "pyr_volumen",
    "t": "pyr_volumen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Pyramide hat als Grundfläche ein Dreieck mit Grundseite 8 cm und Höhe 8 cm. Die Pyramide ist 3 cm hoch. Berechne ihr Volumen."
@@ -5260,7 +5260,7 @@
    "l": "pyr_oberflaeche",
    "t": "pyr_oberflaeche",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Eine quadratische Pyramide hat die Grundkante 24 cm und die Höhe 5 cm. Berechne ihre Oberfläche.",
@@ -5339,27 +5339,27 @@
    "l": "pyr_oberflaeche",
    "t": "pyr_oberflaeche",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Eine quadratische Pyramide hat die Grundkante 6 cm und die Höhe 4 cm. Berechne ihre Oberfläche.",
+    "text": "Eine quadratische Pyramide hat die Grundkante 12 cm und die Höhe 8 cm. Berechne ihre Oberfläche.",
     "grafik": {
      "typ": "figur",
      "punkte": {
       "S": [
        0,
-       4
+       8
       ],
       "M": [
        0,
        0
       ],
       "F": [
-       3.0,
+       6.0,
        0
       ],
       "_G": [
-       -3.0,
+       -6.0,
        0
       ]
      },
@@ -5387,12 +5387,12 @@
       [
        "M",
        "F",
-       "a/2 = 3"
+       "a/2 = 6"
       ],
       [
        "M",
        "S",
-       "h = 4",
+       "h = 8",
        "gestrichelt"
       ]
      ],
@@ -5407,18 +5407,18 @@
     }
    },
    "o": {
-    "wert": 96,
+    "wert": 384,
     "einheit": "cm²"
    },
-   "c": "6 ** 2 + 2 * 6 * (4 ** 2 + 3 ** 2) / 5",
-   "w": "hₛ = √(4² + 3²) = 5 cm; O = 6² + 4 · ½ · 6 · 5 = 36 + 60 = 96 cm².",
+   "c": "12 ** 2 + 2 * 12 * 10",
+   "w": "hₛ = √(8² + 6²) = 10 cm; O = 12² + 4 · ½ · 12 · 10 = 144 + 240 = 384 cm².",
    "h": "Erst hₛ mit Pythagoras, dann O = G + M."
   },
   {
    "l": "pyr_oberflaeche",
    "t": "pyr_oberflaeche",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Eine quadratische Pyramide hat die Grundkante 40 cm und die Höhe 15 cm. Berechne ihre Oberfläche.",
@@ -5497,7 +5497,7 @@
    "l": "pyr_oberflaeche",
    "t": "pyr_oberflaeche",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Eine quadratische Pyramide hat die Grundkante 18 cm und die Höhe 12 cm. Berechne ihre Oberfläche.",
@@ -5576,7 +5576,7 @@
    "l": "pyr_oberflaeche",
    "t": "pyr_oberflaeche",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Eine quadratische Pyramide hat die Grundkante 14 cm und die Höhe 24 cm. Berechne ihre Oberfläche.",
@@ -5655,7 +5655,7 @@
    "l": "pyr_oberflaeche",
    "t": "pyr_oberflaeche",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Eine quadratische Pyramide hat die Grundkante 32 cm und die Höhe 12 cm. Berechne ihre Oberfläche.",
@@ -7557,7 +7557,7 @@
    "l": "kegel_volumen",
    "t": "kegel_volumen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Kegel mit dem Radius 5 cm hat das Volumen 287 cm³. Wie hoch ist er (eine Nachkommastelle)?"
@@ -7575,7 +7575,7 @@
    "l": "kegel_volumen",
    "t": "kegel_volumen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Kegel mit dem Radius 10 cm hat das Volumen 882 cm³. Wie hoch ist er (eine Nachkommastelle)?"
@@ -7593,7 +7593,7 @@
    "l": "kegel_volumen",
    "t": "kegel_volumen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Kegel mit dem Radius 5 cm hat das Volumen 202 cm³. Wie hoch ist er (eine Nachkommastelle)?"
@@ -7611,7 +7611,7 @@
    "l": "kegel_volumen",
    "t": "kegel_volumen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Kegel mit dem Radius 7 cm hat das Volumen 1 065 cm³. Wie hoch ist er (eine Nachkommastelle)?"
@@ -7629,7 +7629,7 @@
    "l": "kegel_volumen",
    "t": "kegel_volumen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Kegel mit dem Radius 7 cm hat das Volumen 418 cm³. Wie hoch ist er (eine Nachkommastelle)?"
@@ -7647,7 +7647,7 @@
    "l": "kegel_volumen",
    "t": "kegel_volumen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Kegel mit dem Radius 2 cm hat das Volumen 16 cm³. Wie hoch ist er (eine Nachkommastelle)?"
@@ -8989,7 +8989,7 @@
    "l": "kegel_mantel",
    "t": "kegel_mantel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Kegel hat den Radius 7 cm und die Höhe 24 cm. Berechne seine Oberfläche auf eine Nachkommastelle.",
@@ -9069,7 +9069,7 @@
    "l": "kegel_mantel",
    "t": "kegel_mantel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Kegel hat den Radius 15 cm und die Höhe 20 cm. Berechne seine Oberfläche auf eine Nachkommastelle.",
@@ -9149,7 +9149,7 @@
    "l": "kegel_mantel",
    "t": "kegel_mantel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Aus einem Kreissektor mit Radius 17 cm und Mittelpunktswinkel 90° wird ein Kegelmantel gerollt. Welchen Radius hat der Grundkreis?",
@@ -9294,7 +9294,7 @@
    "l": "kegel_mantel",
    "t": "kegel_mantel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Kegel hat den Radius 24 cm und die Höhe 10 cm. Berechne seine Oberfläche auf eine Nachkommastelle.",
@@ -9374,7 +9374,7 @@
    "l": "kegel_mantel",
    "t": "kegel_mantel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Kegel hat den Radius 8 cm und die Höhe 15 cm. Berechne seine Oberfläche auf eine Nachkommastelle.",
@@ -9454,7 +9454,7 @@
    "l": "kegel_mantel",
    "t": "kegel_mantel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Aus einem Kreissektor mit Radius 17 cm und Mittelpunktswinkel 270° wird ein Kegelmantel gerollt. Welchen Radius hat der Grundkreis?",
@@ -10453,7 +10453,7 @@
    "l": "kugel",
    "t": "kugel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Kugel hat das Volumen 4 312 cm³. Berechne ihren Radius auf zwei Nachkommastellen."
@@ -10471,7 +10471,7 @@
    "l": "kugel",
    "t": "kugel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Kugel hat das Volumen 4 693 cm³. Berechne ihren Radius auf zwei Nachkommastellen."
@@ -10489,7 +10489,7 @@
    "l": "kugel",
    "t": "kugel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Globus hat eine Oberfläche von 7 854 cm². Welchen Durchmesser hat er? Runde auf eine Nachkommastelle."
@@ -10507,7 +10507,7 @@
    "l": "kugel",
    "t": "kugel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Globus hat eine Oberfläche von 3 217 cm². Welchen Durchmesser hat er? Runde auf eine Nachkommastelle."
@@ -10525,7 +10525,7 @@
    "l": "kugel",
    "t": "kugel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Kugel hat die Oberfläche 1 167 cm². Berechne ihren Radius auf zwei Nachkommastellen."
@@ -10543,7 +10543,7 @@
    "l": "kugel",
    "t": "kugel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Kugel hat das Volumen 4 900 cm³. Berechne ihren Radius auf zwei Nachkommastellen."
@@ -11399,7 +11399,7 @@
    "l": "sachkontext",
    "t": "sachkontext",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine quadratische Pyramide (als Modell eines Bauwerks) hat die Grundkante 147 m und die Höhe 92 m. Berechne das Volumen auf ganze m³."
@@ -11595,7 +11595,7 @@
    "l": "sachkontext",
    "t": "sachkontext",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine quadratische Pyramide (als Modell eines Bauwerks) hat die Grundkante 215 m und die Höhe 143 m. Berechne das Volumen auf ganze m³."
@@ -12154,7 +12154,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Jemand rechnet die Mantelfläche eines Kegels mit r = 2 cm und h = 6 cm als M = π · r · h. Was stimmt?"
@@ -12238,7 +12238,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Jemand rechnet die Mantelfläche eines Kegels mit r = 4 cm und h = 6 cm als M = π · r · h. Was stimmt?"
@@ -12259,7 +12259,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Jemand rechnet die Mantelfläche eines Kegels mit r = 5 cm und h = 8 cm als M = π · r · h. Was stimmt?"

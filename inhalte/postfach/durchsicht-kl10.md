@@ -27,3 +27,7 @@ Ersetzt (bitte sperren; verstehen, Übung Stufe 2): „Jemand löst x³ = 36x, i
 
 ## 2026-11-17 – STATUS: raum.schraegbilder fertig
 Alle 6 Lernkarten und 181 Aufgaben gelesen und nachgerechnet, keine falsche Lösung. 35 umgestuft (u. a. Stufe 1 in `lage` hatte nur 3 Übungen), Lernkarten unverändert. Prüfskript OK, Nachweis OK.
+
+## 2026-11-17 – STATUS: raum.pyramide_kegel_kugel fertig
+Alle 7 Lernkarten und 244 Aufgaben gelesen und nachgerechnet, keine falsche Lösung. 30 umgestuft, 1 ersetzt, Lernkarten unverändert. Prüfskript OK, Nachweis OK.
+- ersetzt (pyr_oberflaeche, Nr. 41): „Eine quadratische Pyramide hat die Grundkante 6 cm und die Höhe 4 cm. Berechne ihre Oberfläche.“ (gleiche Zahlen wie das Beispiel der Karte)

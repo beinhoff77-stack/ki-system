@@ -288,7 +288,7 @@
    "ib_myp": 3
   },
   "reihenfolge": {
-   "gym_by": 4
+   "gym_by": 5
   },
   "umfang": "Sehr große und kleine Zahlen mit Zehnerpotenzen und Vorsilben darstellen.",
   "lehrplan_gym": [
@@ -377,7 +377,7 @@
    "ib_myp": 3
   },
   "reihenfolge": {
-   "gym_by": 5
+   "gym_by": 6
   },
   "umfang": "Potenzen mit natürlichen, ganzen und rationalen Exponenten, Potenzgesetze.",
   "lehrplan_gym": [
@@ -400,7 +400,7 @@
    "ib_myp": 1
   },
   "reihenfolge": {
-   "gym_by": 6
+   "gym_by": 7
   },
   "umfang": "Prozentwert, Grundwert, Prozentsatz; vermehrter/verminderter Grundwert; Zinsen.",
   "lehrplan_gym": [
@@ -419,7 +419,7 @@
    "gym_by": 6
   },
   "reihenfolge": {
-   "gym_by": 7
+   "gym_by": 8
   },
   "umfang": "Kapital, Jahreszinssatz und Zinsen unterscheiden, Jahreszinsen berechnen (auch mit Komma-Zinssatz), Zinssatz und Kapital rückwärts bestimmen und Zinsen für Teile eines Jahres berechnen.",
   "lehrplan_gym": [
@@ -440,7 +440,7 @@
    "ib_myp": 1
   },
   "reihenfolge": {
-   "gym_by": 8
+   "gym_by": 9
   },
   "umfang": "Häufigkeiten, Tabellen, Diagramme, irreführende Darstellungen erkennen.",
   "lehrplan_gym": [
@@ -463,7 +463,7 @@
    "ib_myp": 2
   },
   "reihenfolge": {
-   "gym_by": 9
+   "gym_by": 10
   },
   "umfang": "Mittelwert, Median, Modalwert, Spannweite, Quartile, Boxplot.",
   "lehrplan_gym": [
@@ -722,6 +722,27 @@
    "Kreis und Zylinder"
   ],
   "datei": "inhalte/themen/messen.kreisberechnung.json"
+ },
+ {
+  "thema_id": 99,
+  "thema_schluessel": "messen.flaechen_vielecke",
+  "block_id": 114,
+  "ort": "Quito",
+  "gebiet": "Fläche und Raum",
+  "titel": "Flächen von Parallelogramm, Dreieck und Trapez",
+  "klasse": {
+   "gym_by": 6
+  },
+  "reihenfolge": {
+   "gym_by": 4
+  },
+  "umfang": "Flächeninhalt von Parallelogramm, Dreieck und Trapez durch Zerlegen und Ergänzen herleiten und berechnen, fehlende Längen rückwärts bestimmen, zusammengesetzte Figuren, Oberfläche einfacher Körper, Flächen vergleichen und abschätzen.",
+  "lehrplan_gym": [
+   "M6 2.1 Flächeninhalt: Parallelogramm, Dreieck, Trapez herleiten und berechnen",
+   "Flächeninhalte in Sachsituationen näherungsweise bestimmen",
+   "Oberflächeninhalte einfacher Körper berechnen"
+  ],
+  "datei": "inhalte/themen/messen.flaechen_vielecke.json"
  },
  {
   "thema_id": 61,

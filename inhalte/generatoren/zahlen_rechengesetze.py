@@ -961,5 +961,458 @@ BF.stufe('punkt_strich', 'Berechne 81 : 3 : 3 + 5 · 12.', 2)
 befunde_anwenden(DATEI, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- LÜCKEN (Achtzehnte Runde, Teil B, Zweig luecken-kl5): vier neue Lernkarten, siehe _luecken_kl5.py ----
+# Lehrplan M5 3.1 (schriftlich dividieren auch mit mehrstelligen Teilern über zehn; Produkte/Quotienten ganzer Zahlen auch im Kopf;
+# Gleichungen a · x = b, x : a = b, a : x = b durch Probieren oder Umkehraufgabe) und M5 3.2 (Vorwärts- und Rückwärtsarbeiten,
+# Sachaufgaben mit allen Grundrechenarten). Die Karte „schriftlich“ bleibt unverändert; schriftlich_geteilt steht direkt dahinter.
+# Alle bisherigen Karten und Aufgaben bleiben unverändert; neue Aufgaben hängen hinten an (Zufallsstarts 18_5_4 … 18_5_7).
+from _luecken_kl5 import mische as m18, neue_karte  # noqa: E402
+
+
+# --- Lernkarte kopfrechnen ---
+def g_kopf(R, s):
+    if s == 1:
+        art = R.choice(['zerlegen', 'zerlegen', 'vorteil'])
+        if art == 'zerlegen':
+            a, b = R.randint(3, 9), R.choice([x for x in range(12, 50) if x % 10])
+            z, e = b // 10 * 10, b % 10
+            return {'y': 'zahl', 'f': {'text': f'Rechne im Kopf: {a} · {b}'}, 'o': {'wert': a * b}, 'c': f'{a} * {b}',
+                    'w': f'Zerlegen: {b} = {z} + {e}. {a} · {z} = {a * z} und {a} · {e} = {a * e}. Zusammen {a * z} + {a * e} = {zt(a * b)}.',
+                    'h': f'Zerlege {b} in Zehner und Einer.'}
+        k, (p, q) = R.choice([x for x in range(3, 20) if x % 10]), R.choice([(25, 4), (4, 25), (2, 50), (50, 2), (5, 20)])
+        return {'y': 'zahl', 'f': {'text': f'Rechne im Kopf: {p} · {k} · {q}'}, 'o': {'wert': p * k * q}, 'c': f'{p} * {k} * {q}',
+                'w': f'Vertauschen: {p} · {q} = {p * q}. Dann {p * q} · {k} = {zt(p * q * k)}.', 'h': f'Welche zwei Zahlen ergeben zusammen eine glatte Zahl?'}
+    if s == 2:
+        art = R.choice(['fast', 'fast', 'negativ', 'geteilt', 'weg'])
+        if art == 'fast':
+            a = R.randint(3, 9); b = R.choice([99, 98, 49, 199, 101, 102, 51])
+            r = b - (b % 50 if b % 50 < 25 else b % 50 - 50)
+            d = b - r
+            return {'y': 'zahl', 'f': {'text': f'Rechne im Kopf: {a} · {b}'}, 'o': {'wert': a * b}, 'c': f'{a} * {b}',
+                    'w': f'{b} = {r} {"+" if d > 0 else "−"} {abs(d)}. {a} · {r} = {zt(a * r)}, {a} · {abs(d)} = {a * abs(d)}. {zt(a * r)} {"+" if d > 0 else "−"} {a * abs(d)} = {zt(a * b)}.',
+                    'h': f'{b} liegt nahe bei {r}. Rechne erst mit {r}, dann korrigiere.'}
+        if art == 'negativ':
+            a, b = R.choice([-1, 1]) * R.randint(3, 9), R.choice([-1, 1]) * R.choice([x for x in range(12, 40) if x % 10])
+            if a > 0 and b > 0: a = -a
+            return {'y': 'zahl', 'f': {'text': f'Rechne im Kopf: {kl(a)} · {kl(b)}'}, 'o': {'wert': a * b}, 'c': f'({a}) * ({b})',
+                    'w': f'Erst ohne Vorzeichen zerlegen: {abs(a)} · {abs(b)} = {abs(a) * (abs(b) // 10 * 10)} + {abs(a) * (abs(b) % 10)} = {abs(a * b)}. '
+                         f'{"Verschiedene" if (a < 0) != (b < 0) else "Gleiche"} Vorzeichen: {zt(a * b)}.',
+                    'h': 'Rechne zuerst ohne Vorzeichen. Überlege dann das Vorzeichen.'}
+        if art == 'geteilt':
+            a, q = R.randint(3, 9), R.randint(11, 99)
+            n = a * q * 10
+            neg = R.random() < .5
+            return {'y': 'zahl', 'f': {'text': f'Rechne im Kopf: {kl(-n if neg else n)} : {a}'}, 'o': {'wert': -q * 10 if neg else q * 10}, 'c': f'({-n if neg else n}) / {a}',
+                    'w': f'Ohne die Null: {a * q} : {a} = {q}. Die Null kommt wieder dazu: {q * 10}.' + (' Minus durch plus ergibt minus.' if neg else ''),
+                    'h': 'Lass die Null am Ende weg, teile, und hänge sie wieder an.'}
+        a, b = R.randint(3, 9), R.choice([x for x in range(21, 99) if x % 10 not in (0, 1, 9)])
+        z, e = b // 10 * 10, b % 10
+        r = f'{a} · {z} + {a} · {e}'
+        opts, i = m18(R, r, [f'{a} · {z} + {e}', f'{a} · {z} · {e}', f'{a} + {z} · {e}'])
+        return {'y': 'auswahl', 'f': {'text': f'Welcher Rechenweg passt zu {a} · {b}?'}, 'a': opts, 'o': {'index': i},
+                'w': f'{b} = {z} + {e}. Jeder Teil wird mal {a} genommen: {r} = {a * z} + {a * e} = {a * b}. Bei „{a} · {z} + {e}“ fehlt das „mal {a}“ bei den Einern.',
+                'h': 'Beide Teile der zerlegten Zahl müssen mal genommen werden.'}
+    art = R.choice(['ausklammern', 'vier', 'neun', 'fehler'])
+    if art == 'ausklammern':
+        a = R.randint(3, 19); b = R.randint(11, 89); c = 100 - b
+        return {'y': 'zahl', 'f': {'text': f'Rechne im Kopf: {a} · {b} + {a} · {c}'}, 'o': {'wert': a * 100}, 'c': f'{a} * {b} + {a} * {c}',
+                'w': f'Ausklammern: {a} · ({b} + {c}) = {a} · 100 = {zt(a * 100)}.', 'h': f'Beide Produkte haben den Faktor {a}. Was ergibt {b} + {c}?'}
+    if art == 'vier':
+        k = R.randint(3, 19) * 4; neg = R.random() < .6
+        return {'y': 'zahl', 'f': {'text': f'Rechne im Kopf: {"(−25)" if neg else "25"} · {k}'}, 'o': {'wert': -25 * k if neg else 25 * k}, 'c': f'{-25 if neg else 25} * {k}',
+                'w': f'{k} = 4 · {k // 4}. 25 · 4 = 100, also 100 · {k // 4} = {zt(25 * k)}.' + (' Mit dem Minus: ' + zt(-25 * k) + '.' if neg else ''),
+                'h': 'Zerlege die zweite Zahl so, dass ein Faktor 4 entsteht.'}
+    if art == 'neun':
+        a = R.randint(3, 9); b = R.choice([999, 990, 1001, 1010])
+        return {'y': 'zahl', 'f': {'text': f'Rechne im Kopf: {a} · {zt(b)}'}, 'o': {'wert': a * b}, 'c': f'{a} * {b}',
+                'w': f'{zt(b)} = 1 000 {"−" if b < 1000 else "+"} {abs(b - 1000)}. {a} · 1 000 = {zt(a * 1000)}, {a} · {abs(b - 1000)} = {a * abs(b - 1000)}. Ergebnis {zt(a * b)}.',
+                'h': f'{zt(b)} liegt nahe bei 1 000.'}
+    a, b = R.randint(3, 9), R.choice([x for x in range(21, 99) if x % 10 not in (0, 1)])
+    z, e = b // 10 * 10, b % 10
+    f = a * z + e
+    opts, i = m18(R, f'Die {e} Einer wurden nicht mal {a} genommen. Richtig ist {a * b}.',
+                  ['Nichts, das stimmt.', f'Es hätte {a} · {z} − {e} heißen müssen: {a * z - e}.', f'Die Zehner sind falsch. Richtig ist {zt(a * z * 10 + a * e)}.'])
+    return {'y': 'auswahl', 'f': {'text': f'Jemand rechnet im Kopf {a} · {b} = {a} · {z} + {e} = {f}. Was ist falsch?'}, 'a': opts, 'o': {'index': i},
+            'w': f'Richtig: {a} · {b} = {a} · {z} + {a} · {e} = {a * z} + {a * e} = {a * b}. Jeder Teil der Zerlegung muss mal {a} genommen werden.',
+            'h': 'Rechne selbst mit Zerlegen nach. Wurden beide Teile mal genommen?'}
+
+
+KARTE_KOPF = {
+    'lernziel': 'kopfrechnen', 'titel': 'Geschickt im Kopf rechnen',
+    'einstieg': 'Sechs Kinder fahren in den Freizeitpark, jede Karte kostet 47 €. An der Kasse hast du keinen Stift. Mit einem Trick rechnest du ⟦im Kopf⟧.',
+    'woerter': [['im Kopf', 'ohne Stift und Taschenrechner, nur mit Denken'], ['zerlegen', 'eine Zahl in leichte Teile aufteilen: 47 = 40 + 7']],
+    'bild': {'typ': 'tabelle', 'kopf': ['Teil', 'Rechnung', 'Euro'], 'zeilen': [['40 €', '6 · 40', '?'], ['7 €', '6 · 7', '?'], ['zusammen', '6 · 47', '?']]},
+    'schritte': [
+        {'text': '47 zerlegen: 47 = 40 + 7.'},
+        {'text': 'Sechs Karten zu 40 €: 6 · 40 = 240.', 'bild': {'zeilen': [['40 €', '6 · 40', '240'], ['7 €', '6 · 7', '?'], ['zusammen', '6 · 47', '?']]}},
+        {'text': 'Dazu sechsmal 7 €: 6 · 7 = 42.', 'bild': {'zeilen': [['40 €', '6 · 40', '240'], ['7 €', '6 · 7', '42'], ['zusammen', '6 · 47', '?']]}},
+        {'text': 'Zusammen: 240 + 42 = ⟦282 €⟧.', 'bild': {'zeilen': [['40 €', '6 · 40', '240'], ['7 €', '6 · 7', '42'], ['zusammen', '240 + 42', '282']]}}],
+    'fehler': '6 · 47 = 240 + 7 ist falsch. Jede der sechs Karten kostet 7 € mehr, nicht nur eine.',
+    'fehler_bild': {'zeilen': [['falsch', '240 + 7', '247'], ['richtig', '240 + 42', '282'], ['Abstand', '5 · 7', '35']]},
+    'regel': 'Zerlege eine Zahl in ⟦leichte Teile⟧ und rechne jeden Teil. Auch praktisch: 25 · 4 = 100 und 98 = 100 − 2.',
+}
+FEST_KOPF = [
+    # Prüfungsvorbild: Klammer-Term im Kopf (Jahrgangsstufentest 6 Realschule Bayern 2025, Nr. 1a „4 · (75 − 15)“)
+    Z(3, 'Rechne im Kopf auf zwei Wegen und vergleiche: 8 · (125 − 25)', '8 * (125 - 25)',
+      'Weg 1: Klammer zuerst, 125 − 25 = 100, 8 · 100 = 800. Weg 2: verteilen, 8 · 125 − 8 · 25 = 1 000 − 200 = 800. Beide Wege ergeben 800.',
+      'Rechne zuerst die Klammer aus – oder verteile die 8 auf beide Zahlen.'),
+    # Prüfungsvorbild: Rechenvorteil durch Vertauschen (ISB, Illustrierende Aufgaben LehrplanPLUS M6 1.3, Aufgabe 1 „im Kopf rechnen“)
+    Z(3, 'Rechne im Kopf geschickt: (−37) · 4 · (−25)', '(-37) * 4 * (-25)',
+      'Vertauschen: 4 · (−25) = −100. Dann (−37) · (−100) = 3 700. Minus mal minus ergibt plus.',
+      'Welche zwei Faktoren ergeben zusammen 100 oder −100?'),
+    # Knobelaufgabe: einen Kopfrechentrick prüfen und übertragen
+    wahl(3, 'Ein Trick: 15 · 15 = 10 · 20 + 25 = 225. Welche Rechnung liefert nach demselben Trick 35 · 35?',
+         ['30 · 40 + 25', '30 · 30 + 25', '35 · 30 + 25', '40 · 40 − 25'], lambda o: rw(o) == 35 * 35 and o.startswith('30 · 40'),
+         'Beim Trick nimmt man die Zehnerzahl einmal kleiner (10) und einmal größer (20) und hängt 25 an. Bei 35: 30 · 40 + 25 = 1 200 + 25 = 1 225 = 35 · 35.',
+         'Schau, wie aus 15 die Zahlen 10 und 20 werden.'),
+]
+
+
+# --- Lernkarte umkehraufgabe_mal ---
+def _glm(form, a, x):
+    """Gleichung zu Form und Lösung x; gibt (text, b, c-Ausdruck für x)."""
+    if form == 'ax': b = a * x; return f'{kl(a)} · x = {zt(b)}', b, f'({b}) / ({a})'
+    if form == 'xa': b = x * a; return f'x · {kl(a)} = {zt(b)}', b, f'({b}) / ({a})'
+    if form == 'x:a': b = x // a; return f'x : {kl(a)} = {zt(b)}', b, f'({b}) * ({a})'
+    b = a // x; return f'{kl(a)} : x = {zt(b)}', b, f'({a}) / ({b})'
+
+
+def _umkm_weg(form, a, b, x):
+    if form in ('ax', 'xa'):
+        return f'Umkehraufgabe von „mal {kl(a)}“ ist „geteilt durch {kl(a)}“: x = {kl(b)} : {kl(a)} = {zt(x)}. Probe: {kl(a)} · {kl(x)} = {zt(b)} ✓'
+    if form == 'x:a':
+        return f'Umkehraufgabe von „geteilt durch {kl(a)}“ ist „mal {kl(a)}“: x = {kl(b)} · {kl(a)} = {zt(x)}. Probe: {kl(x)} : {kl(a)} = {zt(b)} ✓'
+    return f'{zt(a)} wird durch x geteilt und es kommt {zt(b)} heraus. Also ist x = {kl(a)} : {kl(b)} = {zt(x)}. Probe: {kl(a)} : {kl(x)} = {zt(b)} ✓'
+
+
+H_UMKM = {'ax': 'Kehre mal mit geteilt um. Denk an die Vorzeichenregel.', 'xa': 'Kehre mal mit geteilt um. Denk an die Vorzeichenregel.',
+          'x:a': 'Kehre geteilt mit mal um. Denk an die Vorzeichenregel.', 'a:x': 'Frage: Durch welche Zahl muss ich teilen? Rechne die erste Zahl geteilt durch das Ergebnis.'}
+
+
+def g_umkm(R, s):
+    if s == 2 and R.random() < .2:
+        form = R.choice(['ax', 'x:a'])
+        a, x = R.choice([-1, 1]) * R.randint(3, 12), R.choice([-1, 1]) * R.randint(2, 12)
+        if a > 0 and x > 0: x = -x
+        if form == 'x:a': a = abs(a) if R.random() < .5 else a
+        text, b, c = _glm(form, a, x * a if form == 'x:a' else x)
+        if form == 'x:a': x = x * a
+        r = f'x = {kl(b)} : {kl(a)}' if form == 'ax' else f'x = {kl(b)} · {kl(a)}'
+        f = [f'x = {kl(b)} · {kl(a)}' if form == 'ax' else f'x = {kl(b)} : {kl(a)}', f'x = {kl(b)} − {kl(a)}', f'x = {kl(a)} : {kl(b)}' if form == 'ax' else f'x = {kl(b)} + {kl(a)}']
+        if len(set([r] + f)) < 4: return g_umkm(R, s)
+        opts, i = m18(R, r, f)
+        return {'y': 'auswahl', 'f': {'text': f'Welche Umkehraufgabe löst die Gleichung {text}?'}, 'a': opts, 'o': {'index': i},
+                'w': _umkm_weg(form, a, b, x), 'h': 'Mal kehrt man mit geteilt um, geteilt mit mal.'}
+    if s == 3 and R.random() < .5:
+        art = R.choice(['sach_rate', 'sach_temp', 'probieren', 'zwei'])
+        if art == 'sach_rate':
+            n, r = R.randint(3, 12), R.randint(2, 15) * 5
+            return {'y': 'zahl', 'f': {'text': f'Ein Konto steht nach {n} gleichen Abbuchungen bei {zt(-n * r)} €. Vorher war es bei 0 €. Löse {n} · x = {zt(-n * r)}: Wie groß war jede Abbuchung als Zahl?'},
+                    'o': {'wert': -r, 'einheit': '€'}, 'c': f'({-n * r}) / {n}', 'w': _umkm_weg('ax', n, -n * r, -r) + f' Jede Abbuchung war {r} €.',
+                    'h': 'Kehre mal mit geteilt um. Eine Abbuchung ist eine negative Zahl.'}
+        if art == 'sach_temp':
+            n, d = R.randint(3, 8), R.randint(2, 6)
+            return {'y': 'zahl', 'f': {'text': f'In einer Kältekammer ändert sich die Temperatur jede Stunde gleich stark. Nach {n} Stunden hat sie sich um {zt(-n * d)} Grad geändert. Löse {n} · x = {zt(-n * d)}: Um wie viel Grad ändert sie sich pro Stunde?'},
+                    'o': {'wert': -d, 'einheit': '°C'}, 'c': f'({-n * d}) / {n}', 'w': _umkm_weg('ax', n, -n * d, -d) + f' Es wird jede Stunde {d} Grad kälter.',
+                    'h': 'Kehre mal mit geteilt um. Kälter heißt: negative Änderung.'}
+        if art == 'probieren':
+            a, x = R.choice([-1, 1]) * R.randint(24, 96), R.choice([-1, 1]) * R.randint(2, 12)
+            if a % x or a > 0 and x > 0: return g_umkm(R, s)
+            b = a // x
+            kand = sorted({x, -x, b, a * b if abs(a * b) < 1000 else x + 1} - {0})
+            if x not in kand or len(kand) < 3: return g_umkm(R, s)
+            opts, i = m18(R, zt(x), [zt(k) for k in kand if k != x][:3])
+            return {'y': 'auswahl', 'f': {'text': f'Welche Zahl ist eine Lösung von {zt(a)} : x = {zt(b)}? Probiere die Zahlen aus.'}, 'a': opts, 'o': {'index': i},
+                    'w': f'Einsetzen: {kl(a)} : {kl(x)} = {zt(a // x)} ✓. ' + _umkm_weg('a:x', a, b, x), 'h': 'Setze jede Zahl für x ein und rechne nach.'}
+        a, x, d = R.randint(2, 6), R.choice([-1, 1]) * R.randint(2, 12), R.randint(3, 20)
+        b = a * x + d
+        return {'y': 'zahl', 'f': {'text': f'Löse die Gleichung {a} · x + {d} = {zt(b)}. Wie groß ist x?'}, 'o': {'wert': x}, 'c': f'(({b}) - {d}) / {a}',
+                'w': f'Rückwärts, den letzten Schritt zuerst: {zt(b)} − {d} = {zt(b - d)}. Dann {kl(b - d)} : {a} = {zt(x)}. Probe: {a} · {kl(x)} + {d} = {zt(b)} ✓',
+                'h': f'Kehre zuerst das „+ {d}“ um, danach das „mal {a}“.'}
+    g = {1: 9, 2: 14, 3: 20}[s]
+    form = R.choice(['ax', 'x:a'] if s == 1 else ['ax', 'xa', 'x:a', 'a:x'] + (['a:x'] if s == 3 else []))
+    for _ in range(300):
+        a, x = R.choice([-1, 1]) * R.randint(2, g), R.choice([-1, 1]) * R.randint(2, g)
+        if a > 0 and x > 0: continue
+        if form == 'x:a':
+            x = x * a; text, b, c = _glm(form, a, x)
+        elif form == 'a:x':
+            a = a * x; text, b, c = _glm(form, a, x)
+        else:
+            text, b, c = _glm(form, a, x)
+        break
+    return {'y': 'zahl', 'f': {'text': f'Löse die Gleichung {text}. Wie groß ist x?'}, 'o': {'wert': x}, 'c': c,
+            'w': _umkm_weg(form, a, b, x), 'h': H_UMKM[form]}
+
+
+KARTE_UMKM = {
+    'lernziel': 'umkehraufgabe_mal', 'titel': 'Mal- und Geteilt-Gleichungen lösen',
+    'einstieg': 'Ein Taucher sinkt jede Minute gleich viel und ist nach 6 Minuten bei −48 m. Wie viele Meter sind es pro Minute? Mit x für diese Zahl heißt die ⟦Gleichung⟧ 6 · x = −48.',
+    'woerter': [['Gleichung', 'zwei Seiten mit Gleichheitszeichen, eine Zahl ist noch unbekannt'], ['x', 'steht für die gesuchte Zahl, wie ein leeres Kästchen'],
+                ['Umkehraufgabe', 'die Rechnung rückwärts: aus mal wird geteilt, aus geteilt wird mal']],
+    'bild': {'typ': 'zahlenstrahl', 'start': -48, 'ende': 0, 'abschnitte': 6, 'beschriftet': 'alle'},
+    'schritte': [
+        {'text': 'Die Gleichung heißt 6 · x = −48. Gesucht ist x.', 'bild': {'punkte': [{'wert': -48, 'name': 'nach 6 min'}]}},
+        {'text': 'Umkehraufgabe: Aus „mal 6“ wird „geteilt durch 6“.',
+         'bild': {'boegen': [{'von': 0, 'bis': -8}, {'von': -8, 'bis': -16}, {'von': -16, 'bis': -24}, {'von': -24, 'bis': -32}, {'von': -32, 'bis': -40}, {'von': -40, 'bis': -48}]}},
+        {'text': 'x = (−48) : 6 = ⟦−8⟧. Er sinkt 8 m pro Minute.', 'bild': {'punkte': [{'wert': -8, 'name': '1 min'}, {'wert': -48, 'name': 'nach 6 min'}]}},
+        {'text': 'Probe: 6 · (−8) = −48. Die Gleichung stimmt.'}],
+    'fehler': 'x = (−48) · 6 ist falsch. Dann wäre der Taucher bei −288 m. Mal kehrst du mit geteilt um.',
+    'regel': 'Mal kehrst du mit ⟦geteilt⟧ um, geteilt mit mal. Bei 12 : x = −3 fragst du: 12 geteilt durch was?',
+}
+FEST_UMKM = [
+    # Prüfungsvorbild: Lücke in einer Division ergänzen (Jahrgangsstufentest 6 Realschule Bayern 2024, Nr. 7 „__ : __ = −70“)
+    L(3, 'Ergänze die Lücke so, dass die Rechnung stimmt: □ : (−6) = −70', '□ : (−6) = −70', 'Trage die fehlende Zahl ein (mit Minus, falls negativ).',
+      ['(-70) * (-6)'], 'Umkehraufgabe: □ = (−70) · (−6) = 420. Probe: 420 : (−6) = −70 ✓', 'Kehre „geteilt durch (−6)“ mit „mal (−6)“ um.'),
+    # Prüfungsvorbild: Lücke in einem Klammer-Term (Jahrgangsstufentest 6 Realschule Bayern 2019, Nr. 7 „3 · (__ − 15) = 18“)
+    L(3, 'Ergänze die Lücke so, dass die Rechnung stimmt: 4 · (□ − 12) = −20', '4 · (□ − 12) = −20', 'Trage die fehlende Zahl ein (mit Minus, falls negativ).',
+      ['(-20) / 4 + 12'], 'Rückwärts: Zuerst „mal 4“ umkehren: (−20) : 4 = −5. Dann „− 12“ umkehren: −5 + 12 = 7. Probe: 4 · (7 − 12) = 4 · (−5) = −20 ✓',
+      'Was muss in der Klammer herauskommen? Kehre zuerst das „mal 4“ um.'),
+    # Knobelaufgabe: systematisches Probieren mit negativen Zahlen
+    Z(3, 'Ich denke mir eine ganze Zahl. Multipliziere ich sie mit −3, erhalte ich dasselbe wie beim Addieren von 8. Welche Zahl ist es?', str(einzig([x for x in range(-50, 51) if x * (-3) == x + 8])),
+      'Probieren: x = −2 ergibt (−2) · (−3) = 6 und (−2) + 8 = 6 ✓. Für positive Zahlen ist „mal −3“ negativ, „plus 8“ aber positiv – die Zahl muss negativ sein.',
+      'Probiere kleine negative Zahlen aus: −1, −2, −3 …'),
+]
+
+
+# --- Lernkarte schriftlich_geteilt ---
+def _dividend(R, d, ziffern, mit_null):
+    for _ in range(500):
+        q = R.randint(10 ** (ziffern - 1), 10 ** ziffern - 1)
+        z = str(q)
+        if mit_null != ('0' in z[1:]): continue
+        if not mit_null and '0' in z: continue
+        return q, q * d
+    raise SystemExit('kein Quotient')
+
+
+def _div_weg(n, d):
+    """Kurzer Lösungsweg der schriftlichen Division (Teilschritte)."""
+    s, rest, teile, start = str(n), 0, [], True
+    for ch in s:
+        rest = rest * 10 + int(ch)
+        if start and rest < d: continue
+        start = False
+        q = rest // d
+        teile.append(f'{zt(rest)} : {d} = {q}' + (f', Rest {zt(rest - q * d)}' if rest - q * d else ''))
+        rest -= q * d
+    return '; '.join(teile)
+
+
+BUSSE = {'n': 0}  # Bus-Aufgabe höchstens zweimal
+
+
+def g_sdiv(R, s):
+    if s == 1:
+        d = R.choice([x for x in range(12, 40) if x % 10])
+        q, n = _dividend(R, d, 2 if d > 19 else R.choice([2, 3]), False)
+        return {'y': 'zahl', 'f': {'text': f'Teile schriftlich: {zt(n)} : {d}'}, 'o': {'wert': q}, 'c': f'{n} / {d}',
+                'w': f'{_div_weg(n, d)}. Ergebnis {zt(q)}. Probe: {zt(q)} · {d} = {zt(n)}.', 'h': f'Schreibe dir zuerst die Vielfachen von {d} auf: {d}, {2 * d}, {3 * d} …'}
+    if s == 2:
+        art = R.choice(['null', 'null', 'rest', 'ueberschlag'])
+        if art == 'null':
+            d = R.choice([x for x in range(11, 49) if x % 10])
+            q, n = _dividend(R, d, 3, True)
+            return {'y': 'zahl', 'f': {'text': f'Teile schriftlich: {zt(n)} : {d}'}, 'o': {'wert': q}, 'c': f'{n} / {d}',
+                    'w': f'{_div_weg(n, d)}. Ergebnis {zt(q)}. Die 0 im Ergebnis nicht vergessen. Probe: {zt(q)} · {d} = {zt(n)}.',
+                    'h': 'Reicht eine heruntergeholte Zahl nicht für den Teiler, schreibst du eine 0 ins Ergebnis.'}
+        if art == 'rest':
+            d = R.choice([x for x in range(12, 40) if x % 10]); n = R.randint(300, 2000)
+            if n % d == 0: return g_sdiv(R, s)
+            return {'y': 'zahl', 'f': {'text': f'Teile schriftlich {zt(n)} : {d}. Wie groß ist der Rest?'}, 'o': {'wert': n % d}, 'c': f'{n} % {d}',
+                    'w': f'{zt(n)} : {d} = {n // d} Rest {n % d}. Probe: {n // d} · {d} + {n % d} = {zt(n)}.', 'h': 'Teile wie immer. Was am Ende übrig bleibt, ist der Rest.'}
+        d = R.choice([x for x in range(12, 49) if x % 10])
+        q, n = _dividend(R, d, 3, R.random() < .5)
+        opts, i = m18(R, zt(q), [zt(q * 10), zt(q // 10) if q // 10 else zt(q * 100), zt(q * 100)] if q // 10 else [zt(q * 10), zt(q * 100)])
+        e = 10 ** (len(str(n)) - 2)
+        nr, dr = (n + e // 2) // e * e, (d + 5) // 10 * 10
+        return {'y': 'auswahl', 'f': {'text': f'Welches Ergebnis passt zu {zt(n)} : {d}? Entscheide mit einem Überschlag.'}, 'a': opts, 'o': {'index': i},
+                'w': f'Überschlag: {zt(nr)} : {dr} ≈ {zt(nr // dr)}. Das Ergebnis ist also dreistellig. Genau: {zt(n)} : {d} = {zt(q)}.',
+                'h': 'Runde beide Zahlen und rechne im Kopf. Wie viele Stellen hat das Ergebnis?'}
+    art = R.choice(['drei', 'busse', 'fehler', 'gross'])
+    if art == 'busse':
+        BUSSE['n'] += 1
+        if BUSSE['n'] > 2: art = R.choice(['drei', 'fehler', 'gross'])
+    if art == 'drei':
+        d = R.choice([125, 250, 112, 115, 135, 225, 150])
+        q, n = _dividend(R, d, 3, R.random() < .3)
+        return {'y': 'zahl', 'f': {'text': f'Teile schriftlich: {zt(n)} : {d}'}, 'o': {'wert': q}, 'c': f'{n} / {d}',
+                'w': f'{_div_weg(n, d)}. Ergebnis {zt(q)}. Probe: {zt(q)} · {d} = {zt(n)}.',
+                'h': f'Der Teiler hat drei Stellen. Nimm so viele Ziffern, dass die Zahl größer als {d} ist.'}
+    if art == 'busse':
+        p = R.choice([48, 52, 56, 45, 60]); n = R.randint(380, 1400)
+        if n % p == 0: return g_sdiv(R, s)
+        k = n // p + 1
+        return {'y': 'zahl', 'f': {'text': f'{zt(n)} Kinder fahren zu einem Sportfest. Ein Bus hat {p} Plätze. Wie viele Busse braucht man mindestens?'},
+                'o': {'wert': k}, 'c': f'{n} // {p} + 1',
+                'w': f'{zt(n)} : {p} = {n // p} Rest {n % p}. {n // p} Busse sind voll, für die übrigen {n % p} Kinder braucht man noch einen Bus: {k}.',
+                'h': 'Teile schriftlich. Was machst du mit den Kindern, die übrig bleiben?'}
+    if art == 'fehler':
+        d = R.choice([x for x in range(12, 40) if x % 10])
+        q, n = _dividend(R, d, 3, True)
+        if q % 10 == 0: return g_sdiv(R, s)
+        f = int(str(q).replace('0', ''))
+        opts, i = m18(R, f'Die 0 im Ergebnis fehlt. Richtig ist {zt(q)}.',
+                      ['Nichts, das stimmt.', f'Am Ende fehlt eine 0. Richtig ist {zt(f * 10)}.', f'Es bleibt ein Rest. Richtig ist {zt(f)} Rest 1.'])
+        return {'y': 'auswahl', 'f': {'text': f'Jemand rechnet schriftlich {zt(n)} : {d} = {zt(f)}. Was ist falsch?'}, 'a': opts, 'o': {'index': i},
+                'w': f'{_div_weg(n, d)}. Richtig ist {zt(q)}. Probe: {zt(q)} · {d} = {zt(n)}. Der Überschlag zeigt: Das Ergebnis muss dreistellig sein.',
+                'h': 'Mach die Probe: Ergebnis mal Teiler. Kommt die große Zahl heraus?'}
+    d = R.choice([x for x in range(13, 49) if x % 10])
+    q, n = _dividend(R, d, 4, R.random() < .5)
+    return {'y': 'zahl', 'f': {'text': f'Teile schriftlich: {zt(n)} : {d}'}, 'o': {'wert': q}, 'c': f'{n} / {d}',
+            'w': f'{_div_weg(n, d)}. Ergebnis {zt(q)}. Probe: {zt(q)} · {d} = {zt(n)}.', 'h': f'Schreibe dir die Vielfachen von {d} auf. Achte auf Nullen im Ergebnis.'}
+
+
+SDIV_LEER = [['74 : 24', '', '', ''], ['28 : 24', '', '', ''], ['48 : 24', '', '', '']]
+KARTE_SDIV = {
+    'lernziel': 'schriftlich_geteilt', 'titel': 'Schriftlich teilen: Teiler über 10',
+    'einstieg': 'Ein Konzert bringt 7 488 € ein. Das Geld wird gerecht an 24 Musikerinnen und Musiker verteilt. Bei einem zweistelligen ⟦Teiler⟧ hilft das Einmaleins allein nicht.',
+    'woerter': [['Teiler', 'die Zahl, durch die du teilst: bei 7 488 : 24 ist es 24'], ['herunterholen', 'die nächste Ziffer der großen Zahl neben den Rest schreiben']],
+    'bild': {'typ': 'tabelle', 'kopf': ['Teil', 'Ziffer', 'mal 24', 'Rest'], 'zeilen': SDIV_LEER},
+    'schritte': [
+        {'text': '7 : 24 geht nicht. Nimm die ersten zwei Ziffern: 74.'},
+        {'text': '74 : 24 = 3, denn 3 · 24 = 72. Es bleibt Rest 2.',
+         'bild': {'zeilen': [['74 : 24', '3', '72', '2'], SDIV_LEER[1], SDIV_LEER[2]]}},
+        {'text': 'Die 8 herunterholen: 28 : 24 = 1, Rest 4.', 'bild': {'zeilen': [['74 : 24', '3', '72', '2'], ['28 : 24', '1', '24', '4'], SDIV_LEER[2]]}},
+        {'text': 'Die letzte 8 herunterholen: 48 : 24 = 2. Das ergibt ⟦312⟧ €.',
+         'bild': {'zeilen': [['74 : 24', '3', '72', '2'], ['28 : 24', '1', '24', '4'], ['48 : 24', '2', '48', '0']]}},
+        {'text': 'Überschlag: 7 500 : 25 = 300. Das passt.'}],
+    'fehler': 'Die 1 vergessen ergibt 32 € pro Person. Der Überschlag sagt etwa 300 €. Jede heruntergeholte Ziffer bringt eine Ziffer im Ergebnis.',
+    'fehler_bild': {'zeilen': [['74 : 24', '3', '72', '2'], ['28 : 24', 'fehlt', '', ''], ['48 : 24', '2', '48', '0']]},
+    'regel': 'Teilen, malnehmen, abziehen, ⟦herunterholen⟧ – bis keine Ziffer übrig ist. Tipp: Schreib dir die Vielfachen des Teilers auf.',
+}
+assert 7488 // 24 == 312 and 7488 % 24 == 0
+FEST_SDIV = [
+    # Prüfungsvorbild: schriftliche Division mit zweistelligem Teiler (Jahrgangsstufentest 6 Realschule Bayern 2016 Nr. 2, 2021 Nr. 1a, 2025 Nr. 1b)
+    Z(3, 'Teile schriftlich: 23 715 : 15', '23715 / 15', '23 : 15 = 1, Rest 8; 87 : 15 = 5, Rest 12; 121 : 15 = 8, Rest 1; 15 : 15 = 1. Ergebnis 1 581. Probe: 1 581 · 15 = 23 715.',
+      'Schreibe dir die Vielfachen von 15 auf: 15, 30, 45, 60 …'),
+    # Prüfungsvorbild: erst teilen, dann vervielfachen (Jahrgangsstufentest 6 Realschule Bayern 2020, Nr. 13 „25 Güterwagen – 30 Güterwagen“)
+    Z(3, '18 gleich schwere Kisten wiegen zusammen 846 kg. Wie viel wiegen 25 solche Kisten?', '846 / 18 * 25',
+      'Eine Kiste: 846 : 18 = 47 kg. 25 Kisten: 47 · 25 = 1 175 kg.', 'Rechne zuerst aus, wie schwer eine Kiste ist.', einheit='kg'),
+    # Knobelaufgabe: mit Division und Rest rückwärts denken
+    Z(3, 'Welche ist die größte vierstellige Zahl, die sich ohne Rest durch 37 teilen lässt?', '37 * (9999 // 37)',
+      '9 999 : 37 = 270 Rest 9. Zieht man den Rest ab, geht es auf: 9 999 − 9 = 9 990 = 37 · 270.', 'Teile die größte vierstellige Zahl durch 37. Was machst du mit dem Rest?'),
+]
+
+
+# --- Lernkarte sach ---
+def g_sach(R, s):
+    if s == 1:
+        art = R.choice(['kasse', 'temp', 'eintritt'])
+        if art == 'kasse':
+            k, n, p, a = R.randint(2, 9) * 10, R.randint(18, 30), R.choice([4, 5, 6, 8]), R.randint(8, 25) * 10
+            e = k + n * p - a
+            if e < 0: return g_sach(R, s)
+            return {'y': 'zahl', 'f': {'text': f'In der Klassenkasse sind {k} €. {n} Kinder zahlen je {p} € ein. Dann kostet der Ausflug {a} €. Wie viel Euro bleiben in der Kasse?'},
+                    'o': {'wert': e, 'einheit': '€'}, 'c': f'{k} + {n} * {p} - {a}',
+                    'w': f'Vorwärts: Einzahlung {n} · {p} = {n * p} €. {k} + {n * p} = {k + n * p} €. Nach dem Ausflug: {k + n * p} − {a} = {e} €.',
+                    'h': 'Rechne der Reihe nach: erst einzahlen, dann bezahlen.'}
+        if art == 'temp':
+            t, h, d = -R.randint(5, 20), R.randint(3, 6), R.randint(2, 5)
+            return {'y': 'zahl', 'f': {'text': f'Morgens zeigt das Thermometer {zt(t)} °C. Dann wird es {h} Stunden lang jede Stunde {d} Grad wärmer. Wie warm ist es danach?'},
+                    'o': {'wert': t + h * d, 'einheit': '°C'}, 'c': f'({t}) + {h} * {d}',
+                    'w': f'Wärmer um {h} · {d} = {h * d} Grad. {kl(t)} + {h * d} = {zt(t + h * d)} °C.', 'h': 'Rechne zuerst aus, um wie viel Grad es insgesamt wärmer wird.'}
+        n, p, m = R.randint(80, 250), R.choice([6, 7, 8, 9]), R.randint(2, 6) * 100
+        return {'y': 'zahl', 'f': {'text': f'Ein Schulkino verkauft {n} Karten zu je {p} €. Die Filmmiete kostet {m} €. Wie viel Euro Gewinn bleiben?'},
+                'o': {'wert': n * p - m, 'einheit': '€'}, 'c': f'{n} * {p} - {m}',
+                'w': f'Einnahmen: {n} · {p} = {zt(n * p)} €. Gewinn: {zt(n * p)} − {m} = {zt(n * p - m)} €.', 'h': 'Erst die Einnahmen ausrechnen, dann die Miete abziehen.'}
+    if s == 2:
+        art = R.choice(['kasse_r', 'raetsel', 'term', 'aufzug'])
+        if art == 'kasse_r':
+            a, g, q = R.randint(8, 30) * 10, R.choice([3, 4, 5, 6]), R.randint(15, 60)
+            return {'y': 'zahl', 'f': {'text': f'Aus der Klassenkasse gehen {a} € an den Bus. Den Rest teilen {g} Gruppen gleich auf, jede bekommt {q} €. Wie viel Euro waren in der Kasse?'},
+                    'o': {'wert': q * g + a, 'einheit': '€'}, 'c': f'{q} * {g} + {a}',
+                    'w': f'Rückwärts, den letzten Schritt zuerst: {q} · {g} = {q * g} €. Dazu der Bus: {q * g} + {a} = {q * g + a} €. Probe: {q * g + a} − {a} = {q * g}, {q * g} : {g} = {q}.',
+                    'h': 'Arbeite rückwärts: Kehre zuerst das Teilen um, dann das Bezahlen.'}
+        if art == 'raetsel':
+            a, b, x = R.randint(2, 9), R.randint(3, 30), R.randint(2, 20)
+            c = a * x + b
+            return {'y': 'zahl', 'f': {'text': f'Ich denke mir eine Zahl. Ich multipliziere sie mit {a} und addiere {b}. Ich erhalte {c}. Welche Zahl habe ich mir gedacht?'},
+                    'o': {'wert': x}, 'c': f'({c} - {b}) / {a}',
+                    'w': f'Rückwärts: {c} − {b} = {c - b}, dann {c - b} : {a} = {x}. Probe: {x} · {a} + {b} = {c} ✓', 'h': 'Kehre die Schritte in umgekehrter Reihenfolge um.'}
+        if art == 'term':
+            n, p, a = R.randint(20, 40), R.randint(3, 9), R.randint(20, 90)
+            r = f'{n} · {p} − {a}'
+            f = [f'{n} · ({p} − {a})', f'({n} + {p}) − {a}', f'{n} · {p} + {a}']
+            opts, i = m18(R, r, f)
+            return {'y': 'auswahl', 'f': {'text': f'Ein Fest: {n} Gäste zahlen je {p} € Eintritt. Davon gehen {a} € für Getränke ab. Welcher Term berechnet, was übrig bleibt?'},
+                    'a': opts, 'o': {'index': i}, 'w': f'Einnahmen: {n} · {p}. Davon gehen {a} € ab: {r} = {n * p - a} €.',
+                    'h': 'Was wird zuerst ausgerechnet, was danach abgezogen?'}
+        e, k, u, o = R.randint(-3, 8), R.randint(2, 4), R.randint(2, 5), R.randint(3, 9)
+        st = e - o + k * u
+        return {'y': 'zahl', 'f': {'text': f'Ein Aufzug fährt {k}-mal je {u} Stockwerke nach unten und danach {o} Stockwerke nach oben. Er hält in Stockwerk {zt(e)}. In welchem Stockwerk ist er losgefahren?'},
+                'o': {'wert': st}, 'c': f'({e}) - {o} + {k} * {u}',
+                'w': f'Rückwärts: Die {o} nach oben werden zu „{o} nach unten“: {zt(e)} − {o} = {zt(e - o)}. Die {k} · {u} = {k * u} nach unten werden zu „nach oben“: {zt(e - o)} + {k * u} = {zt(st)}.',
+                'h': 'Arbeite rückwärts: nach oben wird nach unten und umgekehrt.'}
+    art = R.choice(['raetsel_neg', 'kuehl', 'konto'])
+    if art == 'raetsel_neg':
+        a, b, x = -R.randint(2, 6), R.randint(5, 30), R.choice([-1, 1]) * R.randint(2, 15)
+        c = a * x + b
+        return {'y': 'zahl', 'f': {'text': f'Ich denke mir eine Zahl. Ich multipliziere sie mit {kl(a)} und addiere {b}. Ich erhalte {zt(c)}. Welche Zahl habe ich mir gedacht?'},
+                'o': {'wert': x}, 'c': f'(({c}) - {b}) / ({a})',
+                'w': f'Rückwärts: {zt(c)} − {b} = {zt(c - b)}, dann {kl(c - b)} : {kl(a)} = {zt(x)}. Probe: {kl(x)} · {kl(a)} + {b} = {zt(c)} ✓',
+                'h': 'Kehre die Schritte in umgekehrter Reihenfolge um. Achte auf die Vorzeichen.'}
+    if art == 'kuehl':
+        h, d, w, e = R.randint(3, 6), R.randint(3, 6), R.randint(2, 8), -R.randint(12, 24)
+        st = e - w + h * d
+        return {'y': 'zahl', 'f': {'text': f'Ein Kühlraum wird {h} Stunden lang jede Stunde {d} Grad kälter. Danach wird er {w} Grad wärmer und hat jetzt {zt(e)} °C. Wie kalt war er am Anfang?'},
+                'o': {'wert': st, 'einheit': '°C'}, 'c': f'({e}) - {w} + {h} * {d}',
+                'w': f'Rückwärts: {zt(e)} − {w} = {zt(e - w)} °C. Dann die {h} · {d} = {h * d} Grad Abkühlung umkehren: {zt(e - w)} + {h * d} = {zt(st)} °C. Probe: {zt(st)} − {h * d} + {w} = {zt(e)} ✓',
+                'h': 'Arbeite rückwärts: aus wärmer wird kälter, aus kälter wird wärmer.'}
+    r, n, ein, e = R.randint(2, 6) * 5, R.randint(3, 8), R.randint(4, 12) * 10, -R.randint(2, 12) * 5
+    st = e - ein + n * r
+    return {'y': 'zahl', 'f': {'text': f'Von einem Konto werden {n}-mal je {r} € abgebucht. Dann werden {ein} € eingezahlt. Jetzt steht es bei {zt(e)} €. Wie war der Kontostand am Anfang?'},
+            'o': {'wert': st, 'einheit': '€'}, 'c': f'({e}) - {ein} + {n} * {r}',
+            'w': f'Rückwärts: {zt(e)} − {ein} = {zt(e - ein)} €. Die Abbuchungen {n} · {r} = {n * r} € kommen wieder dazu: {zt(e - ein)} + {n * r} = {zt(st)} €.',
+            'h': 'Kehre zuerst das Einzahlen um, dann die Abbuchungen.'}
+
+
+SACH_KOPF = ['', 'vorwärts', 'rückwärts']
+KARTE_SACH = {
+    'lernziel': 'sach', 'titel': 'Sachaufgaben: vorwärts und rückwärts',
+    'einstieg': 'Aus der Klassenkasse gehen 180 € an den Bus. Den Rest teilen 4 Gruppen, jede bekommt 35 €. Den Anfangsbetrag findest du durch ⟦Rückwärtsarbeiten⟧.',
+    'woerter': [['Rückwärtsarbeiten', 'vom Ende aus jeden Schritt umkehren, bis du beim Anfang bist'], ['Probe', 'nachrechnen, ob das Ergebnis zur Geschichte passt']],
+    'bild': {'typ': 'tabelle', 'kopf': SACH_KOPF, 'zeilen': [['Kasse', '?', '?'], ['Bus', '− 180 €', ''], ['Gruppen', ': 4', ''], ['je Gruppe', '35 €', '35 €']]},
+    'schritte': [
+        {'text': 'Vorwärts: Kasse minus 180 €, dann geteilt durch 4. Das ergibt 35 €.'},
+        {'text': 'Rückwärts beginnst du am Ende: 35 € · 4 = 140 €.',
+         'bild': {'zeilen': [['Kasse', '?', '?'], ['Bus', '− 180 €', ''], ['Gruppen', ': 4', '· 4 = 140 €'], ['je Gruppe', '35 €', '35 €']]}},
+        {'text': 'Dann kommen die 180 € für den Bus wieder dazu.',
+         'bild': {'zeilen': [['Kasse', '?', '?'], ['Bus', '− 180 €', '+ 180 €'], ['Gruppen', ': 4', '· 4 = 140 €'], ['je Gruppe', '35 €', '35 €']]}},
+        {'text': '140 + 180 = 320. In der Kasse waren ⟦320 €⟧.',
+         'bild': {'zeilen': [['Kasse', '?', '320 €'], ['Bus', '− 180 €', '+ 180 €'], ['Gruppen', ': 4', '· 4 = 140 €'], ['je Gruppe', '35 €', '35 €']]}},
+        {'text': 'Probe: 320 − 180 = 140 und 140 : 4 = 35. Passt.'}],
+    'fehler': 'Falsche Reihenfolge: 35 + 180 = 215, dann 215 · 4 = 860 €. Kehre zuerst den letzten Schritt um, hier das Teilen.',
+    'fehler_bild': {'zeilen': [['Kasse', '?', '860 €'], ['Bus', '− 180 €', 'zuerst + 180'], ['Gruppen', ': 4', 'dann · 4'], ['je Gruppe', '35 €', 'falsch']]},
+    'regel': 'Beim ⟦Rückwärtsarbeiten⟧ beginnst du am Ende. Kehre jeden Schritt um, den letzten zuerst. Mach zum Schluss die Probe.',
+}
+assert (320 - 180) // 4 == 35
+FEST_SACH = [
+    # Prüfungsvorbild: Rückwärtsarbeiten mit „die Hälfte und dann noch …“ (Jahrgangsstufentest 8 Realschule Bayern 2005, in SMART Gymnasium Jgst. 6)
+    Z(3, 'Ein Kind verschenkt die Hälfte seiner Sticker und danach noch 6 Sticker. Jetzt hat es noch 15 Sticker. Wie viele hatte es am Anfang?', '(15 + 6) * 2',
+      'Rückwärts: Vor dem Verschenken der 6 waren es 15 + 6 = 21. Das war die Hälfte, also am Anfang 21 · 2 = 42. Probe: 42 : 2 = 21, 21 − 6 = 15 ✓',
+      'Fang am Ende an. Kehre zuerst „noch 6 verschenkt“ um, dann „die Hälfte“.'),
+    # Prüfungsvorbild: Term zu einem Text (Jahrgangsstufentest 6 Realschule Bayern 2016: „Multipliziere die Differenz … mit der Summe …“)
+    wahl(3, 'Multipliziere die Differenz von 90 und 15 mit der Summe aus 4 und 8. Welcher Term passt?',
+         ['(90 − 15) · (4 + 8)', '90 − 15 · 4 + 8', '(90 − 15) · 4 + 8', '90 − 15 · (4 + 8)'], lambda o: o == '(90 − 15) · (4 + 8)',
+         'Differenz von 90 und 15: (90 − 15). Summe aus 4 und 8: (4 + 8). Beide werden multipliziert, also braucht jede ihre Klammer: (90 − 15) · (4 + 8) = 75 · 12 = 900.',
+         'Differenz und Summe müssen zuerst ausgerechnet werden. Was braucht man dafür?'),
+    # Prüfungsvorbild: fehlende Information erkennen (Jahrgangsstufentest 6 Realschule Bayern 2019, Nr. 14)
+    wahl(3, 'Eine Klasse fährt mit dem Bus ins Museum. Der Bus kostet 420 €, jedes Kind zahlt 15 €. Welche Angabe fehlt, um zu berechnen, wie viel Geld übrig bleibt?',
+         ['wie viele Kinder mitfahren', 'wie lange die Fahrt dauert', 'wie viele Sitzplätze der Bus hat', 'wann das Museum öffnet'], lambda o: o == 'wie viele Kinder mitfahren',
+         'Übrig bleibt: Anzahl der Kinder · 15 € − 420 €. Ohne die Anzahl der Kinder kann man nicht rechnen. Die anderen Angaben braucht man für die Rechnung nicht.',
+         'Schreibe die Rechnung auf. Welche Zahl fehlt darin?'),
+    # Knobelaufgabe: Rückwärtsarbeiten mit negativen Zahlen
+    Z(3, 'Ich denke mir eine Zahl, multipliziere sie mit (−2), addiere 15 und teile durch 3. Ich erhalte −1. Welche Zahl habe ich mir gedacht?', '((-1) * 3 - 15) / (-2)',
+      'Rückwärts: (−1) · 3 = −3. Dann −3 − 15 = −18. Dann (−18) : (−2) = 9. Probe: 9 · (−2) = −18, −18 + 15 = −3, (−3) : 3 = −1 ✓',
+      'Fang hinten an: Kehre zuerst „durch 3“ um, dann „plus 15“, dann „mal (−2)“.'),
+]
+
+neue_karte(DATEI, KARTE_KOPF, 'verteilen', 'Geschickt rechnen', 'gesetze', g_kopf, 18_5_4, FEST_KOPF)
+neue_karte(DATEI, KARTE_UMKM, 'geteilt_ganz', 'Mal und geteilt mit ganzen Zahlen', ('gleichungen', 'Gleichungen mit mal und geteilt durch Umkehraufgaben lösen'), g_umkm, 18_5_5, FEST_UMKM)
+neue_karte(DATEI, KARTE_SDIV, 'schriftlich', 'Große Rechnungen', 'verfahren', g_sdiv, 18_5_6, FEST_SDIV)
+neue_karte(DATEI, KARTE_SACH, 'schriftlich_geteilt', ('Anwenden', 'Große Rechnungen'), ('anwenden', 'Sachaufgaben mit allen Grundrechenarten, Vorwärts- und Rückwärtsarbeiten'), g_sach, 18_5_7, FEST_SACH)
+# ---- LÜCKEN ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI, 'zahlen.rechengesetze.json')

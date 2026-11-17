@@ -31,21 +31,30 @@
     "lernziele": [
      "vorteil",
      "differenz_summe",
-     "verteilen"
+     "verteilen",
+     "kopfrechnen"
     ]
    },
    {
     "titel": "Mal und geteilt mit ganzen Zahlen",
     "lernziele": [
      "mal_ganz",
-     "geteilt_ganz"
+     "geteilt_ganz",
+     "umkehraufgabe_mal"
     ]
    },
    {
     "titel": "Große Rechnungen",
     "lernziele": [
      "ueberschlag",
-     "schriftlich"
+     "schriftlich",
+     "schriftlich_geteilt"
+    ]
+   },
+   {
+    "titel": "Anwenden",
+    "lernziele": [
+     "sach"
     ]
    }
   ],
@@ -663,6 +672,138 @@
     }
    },
    {
+    "lernziel": "kopfrechnen",
+    "titel": "Geschickt im Kopf rechnen",
+    "einstieg": "Sechs Kinder fahren in den Freizeitpark, jede Karte kostet 47 €. An der Kasse hast du keinen Stift. Mit einem Trick rechnest du ⟦im Kopf⟧.",
+    "woerter": [
+     [
+      "im Kopf",
+      "ohne Stift und Taschenrechner, nur mit Denken"
+     ],
+     [
+      "zerlegen",
+      "eine Zahl in leichte Teile aufteilen: 47 = 40 + 7"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Teil",
+      "Rechnung",
+      "Euro"
+     ],
+     "zeilen": [
+      [
+       "40 €",
+       "6 · 40",
+       "?"
+      ],
+      [
+       "7 €",
+       "6 · 7",
+       "?"
+      ],
+      [
+       "zusammen",
+       "6 · 47",
+       "?"
+      ]
+     ]
+    },
+    "schritte": [
+     {
+      "text": "47 zerlegen: 47 = 40 + 7."
+     },
+     {
+      "text": "Sechs Karten zu 40 €: 6 · 40 = 240.",
+      "bild": {
+       "zeilen": [
+        [
+         "40 €",
+         "6 · 40",
+         "240"
+        ],
+        [
+         "7 €",
+         "6 · 7",
+         "?"
+        ],
+        [
+         "zusammen",
+         "6 · 47",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Dazu sechsmal 7 €: 6 · 7 = 42.",
+      "bild": {
+       "zeilen": [
+        [
+         "40 €",
+         "6 · 40",
+         "240"
+        ],
+        [
+         "7 €",
+         "6 · 7",
+         "42"
+        ],
+        [
+         "zusammen",
+         "6 · 47",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Zusammen: 240 + 42 = ⟦282 €⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "40 €",
+         "6 · 40",
+         "240"
+        ],
+        [
+         "7 €",
+         "6 · 7",
+         "42"
+        ],
+        [
+         "zusammen",
+         "240 + 42",
+         "282"
+        ]
+       ]
+      }
+     }
+    ],
+    "fehler": "6 · 47 = 240 + 7 ist falsch. Jede der sechs Karten kostet 7 € mehr, nicht nur eine.",
+    "fehler_bild": {
+     "zeilen": [
+      [
+       "falsch",
+       "240 + 7",
+       "247"
+      ],
+      [
+       "richtig",
+       "240 + 42",
+       "282"
+      ],
+      [
+       "Abstand",
+       "5 · 7",
+       "35"
+      ]
+     ]
+    },
+    "regel": "Zerlege eine Zahl in ⟦leichte Teile⟧ und rechne jeden Teil. Auch praktisch: 25 · 4 = 100 und 98 = 100 − 2."
+   },
+   {
     "lernziel": "mal_ganz",
     "titel": "Ganze Zahlen multiplizieren",
     "regel": "Erst die Zahlen ohne Vorzeichen malnehmen. ⟦Gleiche Vorzeichen⟧ ergeben plus, verschiedene ergeben minus.",
@@ -849,6 +990,96 @@
      "abschnitte": 6,
      "beschriftet": "anfang_ende"
     }
+   },
+   {
+    "lernziel": "umkehraufgabe_mal",
+    "titel": "Mal- und Geteilt-Gleichungen lösen",
+    "einstieg": "Ein Taucher sinkt jede Minute gleich viel und ist nach 6 Minuten bei −48 m. Wie viele Meter sind es pro Minute? Mit x für diese Zahl heißt die ⟦Gleichung⟧ 6 · x = −48.",
+    "woerter": [
+     [
+      "Gleichung",
+      "zwei Seiten mit Gleichheitszeichen, eine Zahl ist noch unbekannt"
+     ],
+     [
+      "x",
+      "steht für die gesuchte Zahl, wie ein leeres Kästchen"
+     ],
+     [
+      "Umkehraufgabe",
+      "die Rechnung rückwärts: aus mal wird geteilt, aus geteilt wird mal"
+     ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": -48,
+     "ende": 0,
+     "abschnitte": 6,
+     "beschriftet": "alle"
+    },
+    "schritte": [
+     {
+      "text": "Die Gleichung heißt 6 · x = −48. Gesucht ist x.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": -48,
+         "name": "nach 6 min"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Umkehraufgabe: Aus „mal 6“ wird „geteilt durch 6“.",
+      "bild": {
+       "boegen": [
+        {
+         "von": 0,
+         "bis": -8
+        },
+        {
+         "von": -8,
+         "bis": -16
+        },
+        {
+         "von": -16,
+         "bis": -24
+        },
+        {
+         "von": -24,
+         "bis": -32
+        },
+        {
+         "von": -32,
+         "bis": -40
+        },
+        {
+         "von": -40,
+         "bis": -48
+        }
+       ]
+      }
+     },
+     {
+      "text": "x = (−48) : 6 = ⟦−8⟧. Er sinkt 8 m pro Minute.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": -8,
+         "name": "1 min"
+        },
+        {
+         "wert": -48,
+         "name": "nach 6 min"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Probe: 6 · (−8) = −48. Die Gleichung stimmt."
+     }
+    ],
+    "fehler": "x = (−48) · 6 ist falsch. Dann wäre der Taucher bei −288 m. Mal kehrst du mit geteilt um.",
+    "regel": "Mal kehrst du mit ⟦geteilt⟧ um, geteilt mit mal. Bei 12 : x = −3 fragst du: 12 geteilt durch was?"
    },
    {
     "lernziel": "ueberschlag",
@@ -1038,6 +1269,317 @@
       ]
      ]
     }
+   },
+   {
+    "lernziel": "schriftlich_geteilt",
+    "titel": "Schriftlich teilen: Teiler über 10",
+    "einstieg": "Ein Konzert bringt 7 488 € ein. Das Geld wird gerecht an 24 Musikerinnen und Musiker verteilt. Bei einem zweistelligen ⟦Teiler⟧ hilft das Einmaleins allein nicht.",
+    "woerter": [
+     [
+      "Teiler",
+      "die Zahl, durch die du teilst: bei 7 488 : 24 ist es 24"
+     ],
+     [
+      "herunterholen",
+      "die nächste Ziffer der großen Zahl neben den Rest schreiben"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Teil",
+      "Ziffer",
+      "mal 24",
+      "Rest"
+     ],
+     "zeilen": [
+      [
+       "74 : 24",
+       "",
+       "",
+       ""
+      ],
+      [
+       "28 : 24",
+       "",
+       "",
+       ""
+      ],
+      [
+       "48 : 24",
+       "",
+       "",
+       ""
+      ]
+     ]
+    },
+    "schritte": [
+     {
+      "text": "7 : 24 geht nicht. Nimm die ersten zwei Ziffern: 74."
+     },
+     {
+      "text": "74 : 24 = 3, denn 3 · 24 = 72. Es bleibt Rest 2.",
+      "bild": {
+       "zeilen": [
+        [
+         "74 : 24",
+         "3",
+         "72",
+         "2"
+        ],
+        [
+         "28 : 24",
+         "",
+         "",
+         ""
+        ],
+        [
+         "48 : 24",
+         "",
+         "",
+         ""
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Die 8 herunterholen: 28 : 24 = 1, Rest 4.",
+      "bild": {
+       "zeilen": [
+        [
+         "74 : 24",
+         "3",
+         "72",
+         "2"
+        ],
+        [
+         "28 : 24",
+         "1",
+         "24",
+         "4"
+        ],
+        [
+         "48 : 24",
+         "",
+         "",
+         ""
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Die letzte 8 herunterholen: 48 : 24 = 2. Das ergibt ⟦312⟧ €.",
+      "bild": {
+       "zeilen": [
+        [
+         "74 : 24",
+         "3",
+         "72",
+         "2"
+        ],
+        [
+         "28 : 24",
+         "1",
+         "24",
+         "4"
+        ],
+        [
+         "48 : 24",
+         "2",
+         "48",
+         "0"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Überschlag: 7 500 : 25 = 300. Das passt."
+     }
+    ],
+    "fehler": "Die 1 vergessen ergibt 32 € pro Person. Der Überschlag sagt etwa 300 €. Jede heruntergeholte Ziffer bringt eine Ziffer im Ergebnis.",
+    "fehler_bild": {
+     "zeilen": [
+      [
+       "74 : 24",
+       "3",
+       "72",
+       "2"
+      ],
+      [
+       "28 : 24",
+       "fehlt",
+       "",
+       ""
+      ],
+      [
+       "48 : 24",
+       "2",
+       "48",
+       "0"
+      ]
+     ]
+    },
+    "regel": "Teilen, malnehmen, abziehen, ⟦herunterholen⟧ – bis keine Ziffer übrig ist. Tipp: Schreib dir die Vielfachen des Teilers auf."
+   },
+   {
+    "lernziel": "sach",
+    "titel": "Sachaufgaben: vorwärts und rückwärts",
+    "einstieg": "Aus der Klassenkasse gehen 180 € an den Bus. Den Rest teilen 4 Gruppen, jede bekommt 35 €. Den Anfangsbetrag findest du durch ⟦Rückwärtsarbeiten⟧.",
+    "woerter": [
+     [
+      "Rückwärtsarbeiten",
+      "vom Ende aus jeden Schritt umkehren, bis du beim Anfang bist"
+     ],
+     [
+      "Probe",
+      "nachrechnen, ob das Ergebnis zur Geschichte passt"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "vorwärts",
+      "rückwärts"
+     ],
+     "zeilen": [
+      [
+       "Kasse",
+       "?",
+       "?"
+      ],
+      [
+       "Bus",
+       "− 180 €",
+       ""
+      ],
+      [
+       "Gruppen",
+       ": 4",
+       ""
+      ],
+      [
+       "je Gruppe",
+       "35 €",
+       "35 €"
+      ]
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Vorwärts: Kasse minus 180 €, dann geteilt durch 4. Das ergibt 35 €."
+     },
+     {
+      "text": "Rückwärts beginnst du am Ende: 35 € · 4 = 140 €.",
+      "bild": {
+       "zeilen": [
+        [
+         "Kasse",
+         "?",
+         "?"
+        ],
+        [
+         "Bus",
+         "− 180 €",
+         ""
+        ],
+        [
+         "Gruppen",
+         ": 4",
+         "· 4 = 140 €"
+        ],
+        [
+         "je Gruppe",
+         "35 €",
+         "35 €"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Dann kommen die 180 € für den Bus wieder dazu.",
+      "bild": {
+       "zeilen": [
+        [
+         "Kasse",
+         "?",
+         "?"
+        ],
+        [
+         "Bus",
+         "− 180 €",
+         "+ 180 €"
+        ],
+        [
+         "Gruppen",
+         ": 4",
+         "· 4 = 140 €"
+        ],
+        [
+         "je Gruppe",
+         "35 €",
+         "35 €"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "140 + 180 = 320. In der Kasse waren ⟦320 €⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "Kasse",
+         "?",
+         "320 €"
+        ],
+        [
+         "Bus",
+         "− 180 €",
+         "+ 180 €"
+        ],
+        [
+         "Gruppen",
+         ": 4",
+         "· 4 = 140 €"
+        ],
+        [
+         "je Gruppe",
+         "35 €",
+         "35 €"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Probe: 320 − 180 = 140 und 140 : 4 = 35. Passt."
+     }
+    ],
+    "fehler": "Falsche Reihenfolge: 35 + 180 = 215, dann 215 · 4 = 860 €. Kehre zuerst den letzten Schritt um, hier das Teilen.",
+    "fehler_bild": {
+     "zeilen": [
+      [
+       "Kasse",
+       "?",
+       "860 €"
+      ],
+      [
+       "Bus",
+       "− 180 €",
+       "zuerst + 180"
+      ],
+      [
+       "Gruppen",
+       ": 4",
+       "dann · 4"
+      ],
+      [
+       "je Gruppe",
+       "35 €",
+       "falsch"
+      ]
+     ]
+    },
+    "regel": "Beim ⟦Rückwärtsarbeiten⟧ beginnst du am Ende. Kehre jeden Schritt um, den letzten zuerst. Mach zum Schluss die Probe."
    }
   ],
   "teilfaehigkeiten": [
@@ -1055,7 +1597,8 @@
     "lernziele": [
      "vorteil",
      "differenz_summe",
-     "verteilen"
+     "verteilen",
+     "kopfrechnen"
     ]
    },
    {
@@ -1071,7 +1614,8 @@
     "text": "Überschlag und schriftliche Verfahren",
     "lernziele": [
      "ueberschlag",
-     "schriftlich"
+     "schriftlich",
+     "schriftlich_geteilt"
     ]
    },
    {
@@ -1079,6 +1623,20 @@
     "text": "Termstrukturen erkennen",
     "lernziele": [
      "termaufbau"
+    ]
+   },
+   {
+    "k": "gleichungen",
+    "text": "Gleichungen mit mal und geteilt durch Umkehraufgaben lösen",
+    "lernziele": [
+     "umkehraufgabe_mal"
+    ]
+   },
+   {
+    "k": "anwenden",
+    "text": "Sachaufgaben mit allen Grundrechenarten, Vorwärts- und Rückwärtsarbeiten",
+    "lernziele": [
+     "sach"
     ]
    }
   ],
@@ -1090,10 +1648,14 @@
     "vorteil",
     "differenz_summe",
     "verteilen",
+    "kopfrechnen",
     "mal_ganz",
     "geteilt_ganz",
+    "umkehraufgabe_mal",
     "ueberschlag",
-    "schriftlich"
+    "schriftlich",
+    "schriftlich_geteilt",
+    "sach"
    ],
    "lernziele_vertiefung": [],
    "testaufgaben_je_lernziel": 1,
@@ -6347,6 +6909,1877 @@
    },
    "w": "42 : 6 = 7, dann 3 : 6 = 0 (0 aufschreiben), dann 36 : 6 = 6. Ergebnis 706. Überschlag: 4 200 : 6 = 700.",
    "h": "Mach einen Überschlag: 4 200 : 6."
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne im Kopf: 9 · 24"
+   },
+   "o": {
+    "wert": 216
+   },
+   "c": "9 * 24",
+   "w": "Zerlegen: 24 = 20 + 4. 9 · 20 = 180 und 9 · 4 = 36. Zusammen 180 + 36 = 216.",
+   "h": "Zerlege 24 in Zehner und Einer."
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne im Kopf: 50 · 11 · 2"
+   },
+   "o": {
+    "wert": 1100
+   },
+   "c": "50 * 11 * 2",
+   "w": "Vertauschen: 50 · 2 = 100. Dann 100 · 11 = 1 100.",
+   "h": "Welche zwei Zahlen ergeben zusammen eine glatte Zahl?"
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne im Kopf: 5 · 14 · 20"
+   },
+   "o": {
+    "wert": 1400
+   },
+   "c": "5 * 14 * 20",
+   "w": "Vertauschen: 5 · 20 = 100. Dann 100 · 14 = 1 400.",
+   "h": "Welche zwei Zahlen ergeben zusammen eine glatte Zahl?"
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne im Kopf: 25 · 8 · 4"
+   },
+   "o": {
+    "wert": 800
+   },
+   "c": "25 * 8 * 4",
+   "w": "Vertauschen: 25 · 4 = 100. Dann 100 · 8 = 800.",
+   "h": "Welche zwei Zahlen ergeben zusammen eine glatte Zahl?"
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne im Kopf: (−3) · (−34)"
+   },
+   "o": {
+    "wert": 102
+   },
+   "c": "(-3) * (-34)",
+   "w": "Erst ohne Vorzeichen zerlegen: 3 · 34 = 90 + 12 = 102. Gleiche Vorzeichen: 102.",
+   "h": "Rechne zuerst ohne Vorzeichen. Überlege dann das Vorzeichen."
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne im Kopf: 920 : 4"
+   },
+   "o": {
+    "wert": 230
+   },
+   "c": "(920) / 4",
+   "w": "Ohne die Null: 92 : 4 = 23. Die Null kommt wieder dazu: 230.",
+   "h": "Lass die Null am Ende weg, teile, und hänge sie wieder an."
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Rechenweg passt zu 8 · 55?"
+   },
+   "a": [
+    "8 + 50 · 5",
+    "8 · 50 + 8 · 5",
+    "8 · 50 + 5",
+    "8 · 50 · 5"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "55 = 50 + 5. Jeder Teil wird mal 8 genommen: 8 · 50 + 8 · 5 = 400 + 40 = 440. Bei „8 · 50 + 5“ fehlt das „mal 8“ bei den Einern.",
+   "h": "Beide Teile der zerlegten Zahl müssen mal genommen werden."
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Rechenweg passt zu 5 · 63?"
+   },
+   "a": [
+    "5 · 60 + 5 · 3",
+    "5 · 60 · 3",
+    "5 · 60 + 3",
+    "5 + 60 · 3"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "63 = 60 + 3. Jeder Teil wird mal 5 genommen: 5 · 60 + 5 · 3 = 300 + 15 = 315. Bei „5 · 60 + 3“ fehlt das „mal 5“ bei den Einern.",
+   "h": "Beide Teile der zerlegten Zahl müssen mal genommen werden."
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne im Kopf: (−9) · (−29)"
+   },
+   "o": {
+    "wert": 261
+   },
+   "c": "(-9) * (-29)",
+   "w": "Erst ohne Vorzeichen zerlegen: 9 · 29 = 180 + 81 = 261. Gleiche Vorzeichen: 261.",
+   "h": "Rechne zuerst ohne Vorzeichen. Überlege dann das Vorzeichen."
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne im Kopf: 4 · 199"
+   },
+   "o": {
+    "wert": 796
+   },
+   "c": "4 * 199",
+   "w": "199 = 200 − 1. 4 · 200 = 800, 4 · 1 = 4. 800 − 4 = 796.",
+   "h": "199 liegt nahe bei 200. Rechne erst mit 200, dann korrigiere."
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne im Kopf auf zwei Wegen und vergleiche: 8 · (125 − 25)"
+   },
+   "o": {
+    "wert": 800
+   },
+   "c": "8 * (125 - 25)",
+   "w": "Weg 1: Klammer zuerst, 125 − 25 = 100, 8 · 100 = 800. Weg 2: verteilen, 8 · 125 − 8 · 25 = 1 000 − 200 = 800. Beide Wege ergeben 800.",
+   "h": "Rechne zuerst die Klammer aus – oder verteile die 8 auf beide Zahlen."
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne im Kopf geschickt: (−37) · 4 · (−25)"
+   },
+   "o": {
+    "wert": 3700
+   },
+   "c": "(-37) * 4 * (-25)",
+   "w": "Vertauschen: 4 · (−25) = −100. Dann (−37) · (−100) = 3 700. Minus mal minus ergibt plus.",
+   "h": "Welche zwei Faktoren ergeben zusammen 100 oder −100?"
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Trick: 15 · 15 = 10 · 20 + 25 = 225. Welche Rechnung liefert nach demselben Trick 35 · 35?"
+   },
+   "a": [
+    "30 · 40 + 25",
+    "40 · 40 − 25",
+    "30 · 30 + 25",
+    "35 · 30 + 25"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Beim Trick nimmt man die Zehnerzahl einmal kleiner (10) und einmal größer (20) und hängt 25 an. Bei 35: 30 · 40 + 25 = 1 200 + 25 = 1 225 = 35 · 35.",
+   "h": "Schau, wie aus 15 die Zahlen 10 und 20 werden."
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne im Kopf: 5 · 1 010"
+   },
+   "o": {
+    "wert": 5050
+   },
+   "c": "5 * 1010",
+   "w": "1 010 = 1 000 + 10. 5 · 1 000 = 5 000, 5 · 10 = 50. Ergebnis 5 050.",
+   "h": "1 010 liegt nahe bei 1 000."
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne im Kopf: (−25) · 20"
+   },
+   "o": {
+    "wert": -500
+   },
+   "c": "-25 * 20",
+   "w": "20 = 4 · 5. 25 · 4 = 100, also 100 · 5 = 500. Mit dem Minus: −500.",
+   "h": "Zerlege die zweite Zahl so, dass ein Faktor 4 entsteht."
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne im Kopf: 13 · 47 + 13 · 53"
+   },
+   "o": {
+    "wert": 1300
+   },
+   "c": "13 * 47 + 13 * 53",
+   "w": "Ausklammern: 13 · (47 + 53) = 13 · 100 = 1 300.",
+   "h": "Beide Produkte haben den Faktor 13. Was ergibt 47 + 53?"
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet im Kopf 4 · 36 = 4 · 30 + 6 = 126. Was ist falsch?"
+   },
+   "a": [
+    "Nichts, das stimmt.",
+    "Die Zehner sind falsch. Richtig ist 1 224.",
+    "Es hätte 4 · 30 − 6 heißen müssen: 114.",
+    "Die 6 Einer wurden nicht mal 4 genommen. Richtig ist 144."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Richtig: 4 · 36 = 4 · 30 + 4 · 6 = 120 + 24 = 144. Jeder Teil der Zerlegung muss mal 4 genommen werden.",
+   "h": "Rechne selbst mit Zerlegen nach. Wurden beide Teile mal genommen?"
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne im Kopf: 4 · 52 + 4 · 48"
+   },
+   "o": {
+    "wert": 400
+   },
+   "c": "4 * 52 + 4 * 48",
+   "w": "Ausklammern: 4 · (52 + 48) = 4 · 100 = 400.",
+   "h": "Beide Produkte haben den Faktor 4. Was ergibt 52 + 48?"
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne im Kopf: (−3 120) : 6"
+   },
+   "o": {
+    "wert": -520
+   },
+   "c": "(-3120) / 6",
+   "w": "Ohne die Null: 312 : 6 = 52. Die Null kommt wieder dazu: 520. Minus durch plus ergibt minus."
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Rechenweg passt zu 6 · 92?"
+   },
+   "a": [
+    "6 · 90 · 2",
+    "6 + 90 · 2",
+    "6 · 90 + 2",
+    "6 · 90 + 6 · 2"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "92 = 90 + 2. Jeder Teil wird mal 6 genommen: 6 · 90 + 6 · 2 = 540 + 12 = 552. Bei „6 · 90 + 2“ fehlt das „mal 6“ bei den Einern."
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne im Kopf: 3 · (−22)"
+   },
+   "o": {
+    "wert": -66
+   },
+   "c": "(3) * (-22)",
+   "w": "Erst ohne Vorzeichen zerlegen: 3 · 22 = 60 + 6 = 66. Verschiedene Vorzeichen: −66."
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne im Kopf: 9 · 49"
+   },
+   "o": {
+    "wert": 441
+   },
+   "c": "9 * 49",
+   "w": "49 = 50 − 1. 9 · 50 = 450, 9 · 1 = 9. 450 − 9 = 441."
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne im Kopf: 7 · (−15)"
+   },
+   "o": {
+    "wert": -105
+   },
+   "c": "(7) * (-15)",
+   "w": "Erst ohne Vorzeichen zerlegen: 7 · 15 = 70 + 35 = 105. Verschiedene Vorzeichen: −105."
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Rechenweg passt zu 8 · 88?"
+   },
+   "a": [
+    "8 · 80 + 8 · 8",
+    "8 + 80 · 8",
+    "8 · 80 + 8",
+    "8 · 80 · 8"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "88 = 80 + 8. Jeder Teil wird mal 8 genommen: 8 · 80 + 8 · 8 = 640 + 64 = 704. Bei „8 · 80 + 8“ fehlt das „mal 8“ bei den Einern."
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne im Kopf: (−6) · 37"
+   },
+   "o": {
+    "wert": -222
+   },
+   "c": "(-6) * (37)",
+   "w": "Erst ohne Vorzeichen zerlegen: 6 · 37 = 180 + 42 = 222. Verschiedene Vorzeichen: −222."
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne im Kopf: 4 270 : 7"
+   },
+   "o": {
+    "wert": 610
+   },
+   "c": "(4270) / 7",
+   "w": "Ohne die Null: 427 : 7 = 61. Die Null kommt wieder dazu: 610."
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne im Kopf: 9 · 199"
+   },
+   "o": {
+    "wert": 1791
+   },
+   "c": "9 * 199",
+   "w": "199 = 200 − 1. 9 · 200 = 1 800, 9 · 1 = 9. 1 800 − 9 = 1 791."
+  },
+  {
+   "l": "kopfrechnen",
+   "t": "gesetze",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Rechenweg passt zu 4 · 26?"
+   },
+   "a": [
+    "4 · 20 + 6",
+    "4 · 20 · 6",
+    "4 · 20 + 4 · 6",
+    "4 + 20 · 6"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "26 = 20 + 6. Jeder Teil wird mal 4 genommen: 4 · 20 + 4 · 6 = 80 + 24 = 104. Bei „4 · 20 + 6“ fehlt das „mal 4“ bei den Einern."
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung x : (−5) = 7. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -35
+   },
+   "c": "(7) * (-5)",
+   "w": "Umkehraufgabe von „geteilt durch (−5)“ ist „mal (−5)“: x = 7 · (−5) = −35. Probe: (−35) : (−5) = 7 ✓",
+   "h": "Kehre geteilt mit mal um. Denk an die Vorzeichenregel."
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung (−8) · x = −32. Wie groß ist x?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(-32) / (-8)",
+   "w": "Umkehraufgabe von „mal (−8)“ ist „geteilt durch (−8)“: x = (−32) : (−8) = 4. Probe: (−8) · 4 = −32 ✓",
+   "h": "Kehre mal mit geteilt um. Denk an die Vorzeichenregel."
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung x : (−7) = −6. Wie groß ist x?"
+   },
+   "o": {
+    "wert": 42
+   },
+   "c": "(-6) * (-7)",
+   "w": "Umkehraufgabe von „geteilt durch (−7)“ ist „mal (−7)“: x = (−6) · (−7) = 42. Probe: 42 : (−7) = −6 ✓",
+   "h": "Kehre geteilt mit mal um. Denk an die Vorzeichenregel."
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung x : (−9) = −4. Wie groß ist x?"
+   },
+   "o": {
+    "wert": 36
+   },
+   "c": "(-4) * (-9)",
+   "w": "Umkehraufgabe von „geteilt durch (−9)“ ist „mal (−9)“: x = (−4) · (−9) = 36. Probe: 36 : (−9) = −4 ✓",
+   "h": "Kehre geteilt mit mal um. Denk an die Vorzeichenregel."
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Umkehraufgabe löst die Gleichung 5 · x = −10?"
+   },
+   "a": [
+    "x = (−10) − 5",
+    "x = 5 : (−10)",
+    "x = (−10) : 5",
+    "x = (−10) · 5"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Umkehraufgabe von „mal 5“ ist „geteilt durch 5“: x = (−10) : 5 = −2. Probe: 5 · (−2) = −10 ✓",
+   "h": "Mal kehrt man mit geteilt um, geteilt mit mal."
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung x : (−13) = −3. Wie groß ist x?"
+   },
+   "o": {
+    "wert": 39
+   },
+   "c": "(-3) * (-13)",
+   "w": "Umkehraufgabe von „geteilt durch (−13)“ ist „mal (−13)“: x = (−3) · (−13) = 39. Probe: 39 : (−13) = −3 ✓",
+   "h": "Kehre geteilt mit mal um. Denk an die Vorzeichenregel."
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung x : (−9) = −13. Wie groß ist x?"
+   },
+   "o": {
+    "wert": 117
+   },
+   "c": "(-13) * (-9)",
+   "w": "Umkehraufgabe von „geteilt durch (−9)“ ist „mal (−9)“: x = (−13) · (−9) = 117. Probe: 117 : (−9) = −13 ✓",
+   "h": "Kehre geteilt mit mal um. Denk an die Vorzeichenregel."
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Umkehraufgabe löst die Gleichung (−6) · x = 42?"
+   },
+   "a": [
+    "x = (−6) : 42",
+    "x = 42 : (−6)",
+    "x = 42 − (−6)",
+    "x = 42 · (−6)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Umkehraufgabe von „mal (−6)“ ist „geteilt durch (−6)“: x = 42 : (−6) = −7. Probe: (−6) · (−7) = 42 ✓",
+   "h": "Mal kehrt man mit geteilt um, geteilt mit mal."
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Umkehraufgabe löst die Gleichung x : 8 = −6?"
+   },
+   "a": [
+    "x = (−6) : 8",
+    "x = (−6) + 8",
+    "x = (−6) − 8",
+    "x = (−6) · 8"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Umkehraufgabe von „geteilt durch 8“ ist „mal 8“: x = (−6) · 8 = −48. Probe: (−48) : 8 = −6 ✓",
+   "h": "Mal kehrt man mit geteilt um, geteilt mit mal."
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung x : (−7) = 2. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -14
+   },
+   "c": "(2) * (-7)",
+   "w": "Umkehraufgabe von „geteilt durch (−7)“ ist „mal (−7)“: x = 2 · (−7) = −14. Probe: (−14) : (−7) = 2 ✓",
+   "h": "Kehre geteilt mit mal um. Denk an die Vorzeichenregel."
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze die Lücke so, dass die Rechnung stimmt: □ : (−6) = −70",
+    "schablone": "□ : (−6) = −70",
+    "hinweis": "Trage die fehlende Zahl ein (mit Minus, falls negativ)."
+   },
+   "o": {
+    "werte": [
+     420
+    ]
+   },
+   "c": [
+    "(-70) * (-6)"
+   ],
+   "w": "Umkehraufgabe: □ = (−70) · (−6) = 420. Probe: 420 : (−6) = −70 ✓",
+   "h": "Kehre „geteilt durch (−6)“ mit „mal (−6)“ um."
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze die Lücke so, dass die Rechnung stimmt: 4 · (□ − 12) = −20",
+    "schablone": "4 · (□ − 12) = −20",
+    "hinweis": "Trage die fehlende Zahl ein (mit Minus, falls negativ)."
+   },
+   "o": {
+    "werte": [
+     7
+    ]
+   },
+   "c": [
+    "(-20) / 4 + 12"
+   ],
+   "w": "Rückwärts: Zuerst „mal 4“ umkehren: (−20) : 4 = −5. Dann „− 12“ umkehren: −5 + 12 = 7. Probe: 4 · (7 − 12) = 4 · (−5) = −20 ✓",
+   "h": "Was muss in der Klammer herauskommen? Kehre zuerst das „mal 4“ um."
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ich denke mir eine ganze Zahl. Multipliziere ich sie mit −3, erhalte ich dasselbe wie beim Addieren von 8. Welche Zahl ist es?"
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-2",
+   "w": "Probieren: x = −2 ergibt (−2) · (−3) = 6 und (−2) + 8 = 6 ✓. Für positive Zahlen ist „mal −3“ negativ, „plus 8“ aber positiv – die Zahl muss negativ sein.",
+   "h": "Probiere kleine negative Zahlen aus: −1, −2, −3 …"
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung x : (−18) = −18. Wie groß ist x?"
+   },
+   "o": {
+    "wert": 324
+   },
+   "c": "(-18) * (-18)",
+   "w": "Umkehraufgabe von „geteilt durch (−18)“ ist „mal (−18)“: x = (−18) · (−18) = 324. Probe: 324 : (−18) = −18 ✓",
+   "h": "Kehre geteilt mit mal um. Denk an die Vorzeichenregel."
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung 4 · x + 11 = −13. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "((-13) - 11) / 4",
+   "w": "Rückwärts, den letzten Schritt zuerst: −13 − 11 = −24. Dann (−24) : 4 = −6. Probe: 4 · (−6) + 11 = −13 ✓",
+   "h": "Kehre zuerst das „+ 11“ um, danach das „mal 4“."
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung 17 · x = −68. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "(-68) / (17)",
+   "w": "Umkehraufgabe von „mal 17“ ist „geteilt durch 17“: x = (−68) : 17 = −4. Probe: 17 · (−4) = −68 ✓",
+   "h": "Kehre mal mit geteilt um. Denk an die Vorzeichenregel."
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Kältekammer ändert sich die Temperatur jede Stunde gleich stark. Nach 3 Stunden hat sie sich um −9 Grad geändert. Löse 3 · x = −9: Um wie viel Grad ändert sie sich pro Stunde?"
+   },
+   "o": {
+    "wert": -3,
+    "einheit": "°C"
+   },
+   "c": "(-9) / 3",
+   "w": "Umkehraufgabe von „mal 3“ ist „geteilt durch 3“: x = (−9) : 3 = −3. Probe: 3 · (−3) = −9 ✓ Es wird jede Stunde 3 Grad kälter.",
+   "h": "Kehre mal mit geteilt um. Kälter heißt: negative Änderung."
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung x : 17 = −19. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -323
+   },
+   "c": "(-19) * (17)",
+   "w": "Umkehraufgabe von „geteilt durch 17“ ist „mal 17“: x = (−19) · 17 = −323. Probe: (−323) : 17 = −19 ✓",
+   "h": "Kehre geteilt mit mal um. Denk an die Vorzeichenregel."
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung (−81) : x = 9. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -9
+   },
+   "c": "(-81) / (9)",
+   "w": "−81 wird durch x geteilt und es kommt 9 heraus. Also ist x = (−81) : 9 = −9. Probe: (−81) : (−9) = 9 ✓"
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung (−8) · x = 48. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "(48) / (-8)",
+   "w": "Umkehraufgabe von „mal (−8)“ ist „geteilt durch (−8)“: x = 48 : (−8) = −6. Probe: (−8) · (−6) = 48 ✓"
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung 50 : x = −10. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "(50) / (-10)",
+   "w": "50 wird durch x geteilt und es kommt −10 heraus. Also ist x = 50 : (−10) = −5. Probe: 50 : (−5) = −10 ✓"
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung x : (−5) = 10. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -50
+   },
+   "c": "(10) * (-5)",
+   "w": "Umkehraufgabe von „geteilt durch (−5)“ ist „mal (−5)“: x = 10 · (−5) = −50. Probe: (−50) : (−5) = 10 ✓"
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung (−3) · x = −36. Wie groß ist x?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "(-36) / (-3)",
+   "w": "Umkehraufgabe von „mal (−3)“ ist „geteilt durch (−3)“: x = (−36) : (−3) = 12. Probe: (−3) · 12 = −36 ✓"
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung x · (−7) = 84. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -12
+   },
+   "c": "(84) / (-7)",
+   "w": "Umkehraufgabe von „mal (−7)“ ist „geteilt durch (−7)“: x = 84 : (−7) = −12. Probe: (−7) · (−12) = 84 ✓"
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Umkehraufgabe löst die Gleichung x : (−10) = −12?"
+   },
+   "a": [
+    "x = (−12) + (−10)",
+    "x = (−12) · (−10)",
+    "x = (−12) − (−10)",
+    "x = (−12) : (−10)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Umkehraufgabe von „geteilt durch (−10)“ ist „mal (−10)“: x = (−12) · (−10) = 120. Probe: 120 : (−10) = −12 ✓"
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung (−32) : x = −4. Wie groß ist x?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(-32) / (-4)",
+   "w": "−32 wird durch x geteilt und es kommt −4 heraus. Also ist x = (−32) : (−4) = 8. Probe: (−32) : 8 = −4 ✓"
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung (−26) : x = 2. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -13
+   },
+   "c": "(-26) / (2)",
+   "w": "−26 wird durch x geteilt und es kommt 2 heraus. Also ist x = (−26) : 2 = −13. Probe: (−26) : (−13) = 2 ✓"
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung x : 11 = −6. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -66
+   },
+   "c": "(-6) * (11)",
+   "w": "Umkehraufgabe von „geteilt durch 11“ ist „mal 11“: x = (−6) · 11 = −66. Probe: (−66) : 11 = −6 ✓"
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Teile schriftlich: 2 555 : 35"
+   },
+   "o": {
+    "wert": 73
+   },
+   "c": "2555 / 35",
+   "w": "255 : 35 = 7, Rest 10; 105 : 35 = 3. Ergebnis 73. Probe: 73 · 35 = 2 555.",
+   "h": "Schreibe dir zuerst die Vielfachen von 35 auf: 35, 70, 105 …"
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Teile schriftlich: 756 : 21"
+   },
+   "o": {
+    "wert": 36
+   },
+   "c": "756 / 21",
+   "w": "75 : 21 = 3, Rest 12; 126 : 21 = 6. Ergebnis 36. Probe: 36 · 21 = 756.",
+   "h": "Schreibe dir zuerst die Vielfachen von 21 auf: 21, 42, 63 …"
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Teile schriftlich: 1 326 : 34"
+   },
+   "o": {
+    "wert": 39
+   },
+   "c": "1326 / 34",
+   "w": "132 : 34 = 3, Rest 30; 306 : 34 = 9. Ergebnis 39. Probe: 39 · 34 = 1 326.",
+   "h": "Schreibe dir zuerst die Vielfachen von 34 auf: 34, 68, 102 …"
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Teile schriftlich: 2 548 : 26"
+   },
+   "o": {
+    "wert": 98
+   },
+   "c": "2548 / 26",
+   "w": "254 : 26 = 9, Rest 20; 208 : 26 = 8. Ergebnis 98. Probe: 98 · 26 = 2 548.",
+   "h": "Schreibe dir zuerst die Vielfachen von 26 auf: 26, 52, 78 …"
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Ergebnis passt zu 4 704 : 42? Entscheide mit einem Überschlag."
+   },
+   "a": [
+    "11",
+    "1 120",
+    "112",
+    "11 200"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Überschlag: 4 700 : 40 ≈ 117. Das Ergebnis ist also dreistellig. Genau: 4 704 : 42 = 112.",
+   "h": "Runde beide Zahlen und rechne im Kopf. Wie viele Stellen hat das Ergebnis?"
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Teile schriftlich 1 485 : 37. Wie groß ist der Rest?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "1485 % 37",
+   "w": "1 485 : 37 = 40 Rest 5. Probe: 40 · 37 + 5 = 1 485.",
+   "h": "Teile wie immer. Was am Ende übrig bleibt, ist der Rest."
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Teile schriftlich: 26 650 : 41"
+   },
+   "o": {
+    "wert": 650
+   },
+   "c": "26650 / 41",
+   "w": "266 : 41 = 6, Rest 20; 205 : 41 = 5; 0 : 41 = 0. Ergebnis 650. Die 0 im Ergebnis nicht vergessen. Probe: 650 · 41 = 26 650.",
+   "h": "Reicht eine heruntergeholte Zahl nicht für den Teiler, schreibst du eine 0 ins Ergebnis."
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Ergebnis passt zu 7 449 : 39? Entscheide mit einem Überschlag."
+   },
+   "a": [
+    "19",
+    "19 100",
+    "1 910",
+    "191"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Überschlag: 7 400 : 40 ≈ 185. Das Ergebnis ist also dreistellig. Genau: 7 449 : 39 = 191.",
+   "h": "Runde beide Zahlen und rechne im Kopf. Wie viele Stellen hat das Ergebnis?"
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Teile schriftlich: 1 560 : 15"
+   },
+   "o": {
+    "wert": 104
+   },
+   "c": "1560 / 15",
+   "w": "15 : 15 = 1; 6 : 15 = 0, Rest 6; 60 : 15 = 4. Ergebnis 104. Die 0 im Ergebnis nicht vergessen. Probe: 104 · 15 = 1 560.",
+   "h": "Reicht eine heruntergeholte Zahl nicht für den Teiler, schreibst du eine 0 ins Ergebnis."
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Teile schriftlich 1 311 : 15. Wie groß ist der Rest?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "1311 % 15",
+   "w": "1 311 : 15 = 87 Rest 6. Probe: 87 · 15 + 6 = 1 311.",
+   "h": "Teile wie immer. Was am Ende übrig bleibt, ist der Rest."
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Teile schriftlich: 23 715 : 15"
+   },
+   "o": {
+    "wert": 1581
+   },
+   "c": "23715 / 15",
+   "w": "23 : 15 = 1, Rest 8; 87 : 15 = 5, Rest 12; 121 : 15 = 8, Rest 1; 15 : 15 = 1. Ergebnis 1 581. Probe: 1 581 · 15 = 23 715.",
+   "h": "Schreibe dir die Vielfachen von 15 auf: 15, 30, 45, 60 …"
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "18 gleich schwere Kisten wiegen zusammen 846 kg. Wie viel wiegen 25 solche Kisten?"
+   },
+   "o": {
+    "wert": 1175,
+    "einheit": "kg"
+   },
+   "c": "846 / 18 * 25",
+   "w": "Eine Kiste: 846 : 18 = 47 kg. 25 Kisten: 47 · 25 = 1 175 kg.",
+   "h": "Rechne zuerst aus, wie schwer eine Kiste ist."
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche ist die größte vierstellige Zahl, die sich ohne Rest durch 37 teilen lässt?"
+   },
+   "o": {
+    "wert": 9990
+   },
+   "c": "37 * (9999 // 37)",
+   "w": "9 999 : 37 = 270 Rest 9. Zieht man den Rest ab, geht es auf: 9 999 − 9 = 9 990 = 37 · 270.",
+   "h": "Teile die größte vierstellige Zahl durch 37. Was machst du mit dem Rest?"
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "450 Kinder fahren zu einem Sportfest. Ein Bus hat 60 Plätze. Wie viele Busse braucht man mindestens?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "450 // 60 + 1",
+   "w": "450 : 60 = 7 Rest 30. 7 Busse sind voll, für die übrigen 30 Kinder braucht man noch einen Bus: 8.",
+   "h": "Teile schriftlich. Was machst du mit den Kindern, die übrig bleiben?"
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "563 Kinder fahren zu einem Sportfest. Ein Bus hat 52 Plätze. Wie viele Busse braucht man mindestens?"
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "563 // 52 + 1",
+   "w": "563 : 52 = 10 Rest 43. 10 Busse sind voll, für die übrigen 43 Kinder braucht man noch einen Bus: 11.",
+   "h": "Teile schriftlich. Was machst du mit den Kindern, die übrig bleiben?"
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Teile schriftlich: 238 000 : 250"
+   },
+   "o": {
+    "wert": 952
+   },
+   "c": "238000 / 250",
+   "w": "2 380 : 250 = 9, Rest 130; 1 300 : 250 = 5, Rest 50; 500 : 250 = 2. Ergebnis 952. Probe: 952 · 250 = 238 000.",
+   "h": "Der Teiler hat drei Stellen. Nimm so viele Ziffern, dass die Zahl größer als 250 ist."
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Teile schriftlich: 104 500 : 250"
+   },
+   "o": {
+    "wert": 418
+   },
+   "c": "104500 / 250",
+   "w": "1 045 : 250 = 4, Rest 45; 450 : 250 = 1, Rest 200; 2 000 : 250 = 8. Ergebnis 418. Probe: 418 · 250 = 104 500.",
+   "h": "Der Teiler hat drei Stellen. Nimm so viele Ziffern, dass die Zahl größer als 250 ist."
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Teile schriftlich: 136 260 : 18"
+   },
+   "o": {
+    "wert": 7570
+   },
+   "c": "136260 / 18",
+   "w": "136 : 18 = 7, Rest 10; 102 : 18 = 5, Rest 12; 126 : 18 = 7; 0 : 18 = 0. Ergebnis 7 570. Probe: 7 570 · 18 = 136 260.",
+   "h": "Schreibe dir die Vielfachen von 18 auf. Achte auf Nullen im Ergebnis."
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Teile schriftlich: 5 130 : 19"
+   },
+   "o": {
+    "wert": 270
+   },
+   "c": "5130 / 19",
+   "w": "51 : 19 = 2, Rest 13; 133 : 19 = 7; 0 : 19 = 0. Ergebnis 270. Die 0 im Ergebnis nicht vergessen. Probe: 270 · 19 = 5 130."
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Teile schriftlich: 8 680 : 14"
+   },
+   "o": {
+    "wert": 620
+   },
+   "c": "8680 / 14",
+   "w": "86 : 14 = 6, Rest 2; 28 : 14 = 2; 0 : 14 = 0. Ergebnis 620. Die 0 im Ergebnis nicht vergessen. Probe: 620 · 14 = 8 680."
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Teile schriftlich: 6 960 : 12"
+   },
+   "o": {
+    "wert": 580
+   },
+   "c": "6960 / 12",
+   "w": "69 : 12 = 5, Rest 9; 96 : 12 = 8; 0 : 12 = 0. Ergebnis 580. Die 0 im Ergebnis nicht vergessen. Probe: 580 · 12 = 6 960."
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Teile schriftlich 937 : 17. Wie groß ist der Rest?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "937 % 17",
+   "w": "937 : 17 = 55 Rest 2. Probe: 55 · 17 + 2 = 937."
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Teile schriftlich: 15 050 : 25"
+   },
+   "o": {
+    "wert": 602
+   },
+   "c": "15050 / 25",
+   "w": "150 : 25 = 6; 5 : 25 = 0, Rest 5; 50 : 25 = 2. Ergebnis 602. Die 0 im Ergebnis nicht vergessen. Probe: 602 · 25 = 15 050."
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Teile schriftlich: 2 484 : 12"
+   },
+   "o": {
+    "wert": 207
+   },
+   "c": "2484 / 12",
+   "w": "24 : 12 = 2; 8 : 12 = 0, Rest 8; 84 : 12 = 7. Ergebnis 207. Die 0 im Ergebnis nicht vergessen. Probe: 207 · 12 = 2 484."
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Teile schriftlich: 37 620 : 38"
+   },
+   "o": {
+    "wert": 990
+   },
+   "c": "37620 / 38",
+   "w": "376 : 38 = 9, Rest 34; 342 : 38 = 9; 0 : 38 = 0. Ergebnis 990. Die 0 im Ergebnis nicht vergessen. Probe: 990 · 38 = 37 620."
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Teile schriftlich 486 : 31. Wie groß ist der Rest?"
+   },
+   "o": {
+    "wert": 21
+   },
+   "c": "486 % 31",
+   "w": "486 : 31 = 15 Rest 21. Probe: 15 · 31 + 21 = 486."
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Teile schriftlich: 11 917 : 17"
+   },
+   "o": {
+    "wert": 701
+   },
+   "c": "11917 / 17",
+   "w": "119 : 17 = 7; 1 : 17 = 0, Rest 1; 17 : 17 = 1. Ergebnis 701. Die 0 im Ergebnis nicht vergessen. Probe: 701 · 17 = 11 917."
+  },
+  {
+   "l": "schriftlich_geteilt",
+   "t": "verfahren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Teile schriftlich: 23 760 : 44"
+   },
+   "o": {
+    "wert": 540
+   },
+   "c": "23760 / 44",
+   "w": "237 : 44 = 5, Rest 17; 176 : 44 = 4; 0 : 44 = 0. Ergebnis 540. Die 0 im Ergebnis nicht vergessen. Probe: 540 · 44 = 23 760."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In der Klassenkasse sind 70 €. 21 Kinder zahlen je 5 € ein. Dann kostet der Ausflug 150 €. Wie viel Euro bleiben in der Kasse?"
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "€"
+   },
+   "c": "70 + 21 * 5 - 150",
+   "w": "Vorwärts: Einzahlung 21 · 5 = 105 €. 70 + 105 = 175 €. Nach dem Ausflug: 175 − 150 = 25 €.",
+   "h": "Rechne der Reihe nach: erst einzahlen, dann bezahlen."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Schulkino verkauft 249 Karten zu je 8 €. Die Filmmiete kostet 200 €. Wie viel Euro Gewinn bleiben?"
+   },
+   "o": {
+    "wert": 1792,
+    "einheit": "€"
+   },
+   "c": "249 * 8 - 200",
+   "w": "Einnahmen: 249 · 8 = 1 992 €. Gewinn: 1 992 − 200 = 1 792 €.",
+   "h": "Erst die Einnahmen ausrechnen, dann die Miete abziehen."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In der Klassenkasse sind 80 €. 23 Kinder zahlen je 6 € ein. Dann kostet der Ausflug 190 €. Wie viel Euro bleiben in der Kasse?"
+   },
+   "o": {
+    "wert": 28,
+    "einheit": "€"
+   },
+   "c": "80 + 23 * 6 - 190",
+   "w": "Vorwärts: Einzahlung 23 · 6 = 138 €. 80 + 138 = 218 €. Nach dem Ausflug: 218 − 190 = 28 €.",
+   "h": "Rechne der Reihe nach: erst einzahlen, dann bezahlen."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Schulkino verkauft 118 Karten zu je 9 €. Die Filmmiete kostet 200 €. Wie viel Euro Gewinn bleiben?"
+   },
+   "o": {
+    "wert": 862,
+    "einheit": "€"
+   },
+   "c": "118 * 9 - 200",
+   "w": "Einnahmen: 118 · 9 = 1 062 €. Gewinn: 1 062 − 200 = 862 €.",
+   "h": "Erst die Einnahmen ausrechnen, dann die Miete abziehen."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Fest: 39 Gäste zahlen je 4 € Eintritt. Davon gehen 43 € für Getränke ab. Welcher Term berechnet, was übrig bleibt?"
+   },
+   "a": [
+    "(39 + 4) − 43",
+    "39 · 4 + 43",
+    "39 · (4 − 43)",
+    "39 · 4 − 43"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Einnahmen: 39 · 4. Davon gehen 43 € ab: 39 · 4 − 43 = 113 €.",
+   "h": "Was wird zuerst ausgerechnet, was danach abgezogen?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Fest: 39 Gäste zahlen je 9 € Eintritt. Davon gehen 44 € für Getränke ab. Welcher Term berechnet, was übrig bleibt?"
+   },
+   "a": [
+    "(39 + 9) − 44",
+    "39 · (9 − 44)",
+    "39 · 9 + 44",
+    "39 · 9 − 44"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Einnahmen: 39 · 9. Davon gehen 44 € ab: 39 · 9 − 44 = 307 €.",
+   "h": "Was wird zuerst ausgerechnet, was danach abgezogen?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Fest: 30 Gäste zahlen je 9 € Eintritt. Davon gehen 83 € für Getränke ab. Welcher Term berechnet, was übrig bleibt?"
+   },
+   "a": [
+    "(30 + 9) − 83",
+    "30 · (9 − 83)",
+    "30 · 9 + 83",
+    "30 · 9 − 83"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Einnahmen: 30 · 9. Davon gehen 83 € ab: 30 · 9 − 83 = 187 €.",
+   "h": "Was wird zuerst ausgerechnet, was danach abgezogen?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aufzug fährt 3-mal je 3 Stockwerke nach unten und danach 8 Stockwerke nach oben. Er hält in Stockwerk 8. In welchem Stockwerk ist er losgefahren?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(8) - 8 + 3 * 3",
+   "w": "Rückwärts: Die 8 nach oben werden zu „8 nach unten“: 8 − 8 = 0. Die 3 · 3 = 9 nach unten werden zu „nach oben“: 0 + 9 = 9.",
+   "h": "Arbeite rückwärts: nach oben wird nach unten und umgekehrt."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus der Klassenkasse gehen 250 € an den Bus. Den Rest teilen 4 Gruppen gleich auf, jede bekommt 58 €. Wie viel Euro waren in der Kasse?"
+   },
+   "o": {
+    "wert": 482,
+    "einheit": "€"
+   },
+   "c": "58 * 4 + 250",
+   "w": "Rückwärts, den letzten Schritt zuerst: 58 · 4 = 232 €. Dazu der Bus: 232 + 250 = 482 €. Probe: 482 − 250 = 232, 232 : 4 = 58.",
+   "h": "Arbeite rückwärts: Kehre zuerst das Teilen um, dann das Bezahlen."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aufzug fährt 4-mal je 3 Stockwerke nach unten und danach 6 Stockwerke nach oben. Er hält in Stockwerk −2. In welchem Stockwerk ist er losgefahren?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(-2) - 6 + 4 * 3",
+   "w": "Rückwärts: Die 6 nach oben werden zu „6 nach unten“: −2 − 6 = −8. Die 4 · 3 = 12 nach unten werden zu „nach oben“: −8 + 12 = 4.",
+   "h": "Arbeite rückwärts: nach oben wird nach unten und umgekehrt."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind verschenkt die Hälfte seiner Sticker und danach noch 6 Sticker. Jetzt hat es noch 15 Sticker. Wie viele hatte es am Anfang?"
+   },
+   "o": {
+    "wert": 42
+   },
+   "c": "(15 + 6) * 2",
+   "w": "Rückwärts: Vor dem Verschenken der 6 waren es 15 + 6 = 21. Das war die Hälfte, also am Anfang 21 · 2 = 42. Probe: 42 : 2 = 21, 21 − 6 = 15 ✓",
+   "h": "Fang am Ende an. Kehre zuerst „noch 6 verschenkt“ um, dann „die Hälfte“."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Multipliziere die Differenz von 90 und 15 mit der Summe aus 4 und 8. Welcher Term passt?"
+   },
+   "a": [
+    "90 − 15 · (4 + 8)",
+    "(90 − 15) · (4 + 8)",
+    "90 − 15 · 4 + 8",
+    "(90 − 15) · 4 + 8"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Differenz von 90 und 15: (90 − 15). Summe aus 4 und 8: (4 + 8). Beide werden multipliziert, also braucht jede ihre Klammer: (90 − 15) · (4 + 8) = 75 · 12 = 900.",
+   "h": "Differenz und Summe müssen zuerst ausgerechnet werden. Was braucht man dafür?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Klasse fährt mit dem Bus ins Museum. Der Bus kostet 420 €, jedes Kind zahlt 15 €. Welche Angabe fehlt, um zu berechnen, wie viel Geld übrig bleibt?"
+   },
+   "a": [
+    "wie viele Sitzplätze der Bus hat",
+    "wie viele Kinder mitfahren",
+    "wie lange die Fahrt dauert",
+    "wann das Museum öffnet"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Übrig bleibt: Anzahl der Kinder · 15 € − 420 €. Ohne die Anzahl der Kinder kann man nicht rechnen. Die anderen Angaben braucht man für die Rechnung nicht.",
+   "h": "Schreibe die Rechnung auf. Welche Zahl fehlt darin?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ich denke mir eine Zahl, multipliziere sie mit (−2), addiere 15 und teile durch 3. Ich erhalte −1. Welche Zahl habe ich mir gedacht?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "((-1) * 3 - 15) / (-2)",
+   "w": "Rückwärts: (−1) · 3 = −3. Dann −3 − 15 = −18. Dann (−18) : (−2) = 9. Probe: 9 · (−2) = −18, −18 + 15 = −3, (−3) : 3 = −1 ✓",
+   "h": "Fang hinten an: Kehre zuerst „durch 3“ um, dann „plus 15“, dann „mal (−2)“."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Von einem Konto werden 6-mal je 20 € abgebucht. Dann werden 110 € eingezahlt. Jetzt steht es bei −40 €. Wie war der Kontostand am Anfang?"
+   },
+   "o": {
+    "wert": -30,
+    "einheit": "€"
+   },
+   "c": "(-40) - 110 + 6 * 20",
+   "w": "Rückwärts: −40 − 110 = −150 €. Die Abbuchungen 6 · 20 = 120 € kommen wieder dazu: −150 + 120 = −30 €.",
+   "h": "Kehre zuerst das Einzahlen um, dann die Abbuchungen."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ich denke mir eine Zahl. Ich multipliziere sie mit (−6) und addiere 9. Ich erhalte −39. Welche Zahl habe ich mir gedacht?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "((-39) - 9) / (-6)",
+   "w": "Rückwärts: −39 − 9 = −48, dann (−48) : (−6) = 8. Probe: 8 · (−6) + 9 = −39 ✓",
+   "h": "Kehre die Schritte in umgekehrter Reihenfolge um. Achte auf die Vorzeichen."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ich denke mir eine Zahl. Ich multipliziere sie mit (−4) und addiere 15. Ich erhalte −21. Welche Zahl habe ich mir gedacht?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "((-21) - 15) / (-4)",
+   "w": "Rückwärts: −21 − 15 = −36, dann (−36) : (−4) = 9. Probe: 9 · (−4) + 15 = −21 ✓",
+   "h": "Kehre die Schritte in umgekehrter Reihenfolge um. Achte auf die Vorzeichen."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Von einem Konto werden 8-mal je 20 € abgebucht. Dann werden 80 € eingezahlt. Jetzt steht es bei −35 €. Wie war der Kontostand am Anfang?"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "€"
+   },
+   "c": "(-35) - 80 + 8 * 20",
+   "w": "Rückwärts: −35 − 80 = −115 €. Die Abbuchungen 8 · 20 = 160 € kommen wieder dazu: −115 + 160 = 45 €.",
+   "h": "Kehre zuerst das Einzahlen um, dann die Abbuchungen."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus der Klassenkasse gehen 250 € an den Bus. Den Rest teilen 4 Gruppen gleich auf, jede bekommt 50 €. Wie viel Euro waren in der Kasse?"
+   },
+   "o": {
+    "wert": 450,
+    "einheit": "€"
+   },
+   "c": "50 * 4 + 250",
+   "w": "Rückwärts, den letzten Schritt zuerst: 50 · 4 = 200 €. Dazu der Bus: 200 + 250 = 450 €. Probe: 450 − 250 = 200, 200 : 4 = 50."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus der Klassenkasse gehen 80 € an den Bus. Den Rest teilen 3 Gruppen gleich auf, jede bekommt 55 €. Wie viel Euro waren in der Kasse?"
+   },
+   "o": {
+    "wert": 245,
+    "einheit": "€"
+   },
+   "c": "55 * 3 + 80",
+   "w": "Rückwärts, den letzten Schritt zuerst: 55 · 3 = 165 €. Dazu der Bus: 165 + 80 = 245 €. Probe: 245 − 80 = 165, 165 : 3 = 55."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aufzug fährt 4-mal je 2 Stockwerke nach unten und danach 6 Stockwerke nach oben. Er hält in Stockwerk 4. In welchem Stockwerk ist er losgefahren?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(4) - 6 + 4 * 2",
+   "w": "Rückwärts: Die 6 nach oben werden zu „6 nach unten“: 4 − 6 = −2. Die 4 · 2 = 8 nach unten werden zu „nach oben“: −2 + 8 = 6."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aufzug fährt 2-mal je 3 Stockwerke nach unten und danach 6 Stockwerke nach oben. Er hält in Stockwerk 4. In welchem Stockwerk ist er losgefahren?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(4) - 6 + 2 * 3",
+   "w": "Rückwärts: Die 6 nach oben werden zu „6 nach unten“: 4 − 6 = −2. Die 2 · 3 = 6 nach unten werden zu „nach oben“: −2 + 6 = 4."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus der Klassenkasse gehen 220 € an den Bus. Den Rest teilen 6 Gruppen gleich auf, jede bekommt 44 €. Wie viel Euro waren in der Kasse?"
+   },
+   "o": {
+    "wert": 484,
+    "einheit": "€"
+   },
+   "c": "44 * 6 + 220",
+   "w": "Rückwärts, den letzten Schritt zuerst: 44 · 6 = 264 €. Dazu der Bus: 264 + 220 = 484 €. Probe: 484 − 220 = 264, 264 : 6 = 44."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ich denke mir eine Zahl. Ich multipliziere sie mit 7 und addiere 7. Ich erhalte 63. Welche Zahl habe ich mir gedacht?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(63 - 7) / 7",
+   "w": "Rückwärts: 63 − 7 = 56, dann 56 : 7 = 8. Probe: 8 · 7 + 7 = 63 ✓"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Fest: 32 Gäste zahlen je 3 € Eintritt. Davon gehen 26 € für Getränke ab. Welcher Term berechnet, was übrig bleibt?"
+   },
+   "a": [
+    "32 · (3 − 26)",
+    "(32 + 3) − 26",
+    "32 · 3 − 26",
+    "32 · 3 + 26"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Einnahmen: 32 · 3. Davon gehen 26 € ab: 32 · 3 − 26 = 70 €."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ich denke mir eine Zahl. Ich multipliziere sie mit 4 und addiere 3. Ich erhalte 51. Welche Zahl habe ich mir gedacht?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "(51 - 3) / 4",
+   "w": "Rückwärts: 51 − 3 = 48, dann 48 : 4 = 12. Probe: 12 · 4 + 3 = 51 ✓"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aufzug fährt 2-mal je 5 Stockwerke nach unten und danach 6 Stockwerke nach oben. Er hält in Stockwerk 3. In welchem Stockwerk ist er losgefahren?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "(3) - 6 + 2 * 5",
+   "w": "Rückwärts: Die 6 nach oben werden zu „6 nach unten“: 3 − 6 = −3. Die 2 · 5 = 10 nach unten werden zu „nach oben“: −3 + 10 = 7."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aufzug fährt 3-mal je 4 Stockwerke nach unten und danach 6 Stockwerke nach oben. Er hält in Stockwerk −2. In welchem Stockwerk ist er losgefahren?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(-2) - 6 + 3 * 4",
+   "w": "Rückwärts: Die 6 nach oben werden zu „6 nach unten“: −2 − 6 = −8. Die 3 · 4 = 12 nach unten werden zu „nach oben“: −8 + 12 = 4."
   }
  ]
 }

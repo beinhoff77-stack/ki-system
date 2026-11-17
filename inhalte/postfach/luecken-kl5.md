@@ -2,6 +2,12 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 14:30 – STATUS: zahlen.rechengesetze fertig
+Vier neue Lernkarten (Pflicht), 112 neue Aufgaben (je Karte 4/6/8 Übungen, 1 Test, 3 Korrektur, 6 Sicherung), hinten angehängt, Zufallsstarts 18_5_4–7:
+kopfrechnen (Stelle 7, nach verteilen), umkehraufgabe_mal (Stelle 10, nach geteilt_ganz), schriftlich_geteilt (Stelle 13, direkt nach der unveränderten Karte schriftlich), sach (Stelle 14, am Ende).
+Neuer Abschnitt „Anwenden“ (nur sach) hinter „Große Rechnungen“ → 5 Abschnitte statt 2–4; neue Teilfähigkeiten gleichungen und anwenden, kopfrechnen hängt an gesetze, schriftlich_geteilt an verfahren.
+Prüfskript OK ohne Hinweise; Nachweis: alle 310 alten Aufgaben und 10 alten Karten unverändert, NACHWEIS OK. Alle 112 Aufgaben gelesen; dabei verbessert: Auswahl „Fehler finden“ bei der Division ließ bei Ergebnissen mit Endnull zwei richtige Antworten zu (jetzt ausgeschlossen), Bus-Aufgabe höchstens zweimal, Stufe 1 der Division mit kleineren Zahlen.
+
 ## 2026-11-17 13:40 – STATUS: zahlen.ganz fertig
 Drei neue Lernkarten (Pflicht), 84 neue Aufgaben (je Karte 18 Übungen 4/6/8, 1 Test, 3 Korrektur, 6 Sicherung), hinten angehängt, Zufallsstarts 18_5_1–3:
 schriftlich_plus_minus (Stelle 5, vor addieren), umkehraufgabe (Stelle 8, nach subtrahieren), verstehen (Stelle 10, nach ketten).

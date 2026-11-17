@@ -572,3 +572,138 @@ d = bauen('funktionen.betrag',
       offen=['Lehrplan-Feld leer: Umfang nach Themenliste (Graph, stückweise Beschreibung) plus einfache Betragsgleichungen und eine Betragsungleichung als Anwendung (Toleranzbereich). Annahme MYP 4.'],
       plan=PLAN2)
 umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
+
+
+# ---- STUFEN (Zwanzigste Runde, Zusatz Realschule/IB, Zweig stufen-rsib-2) ----
+from _stufen_rsib2 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('funktionen.betrag', 20_2_4)
+Z, A, L = ST.Z, ST.A, ST.L
+X2 = 'x₁ = □; x₂ = □'
+ST.vorbild += ['IB MYP eAssessment Mathematics (Extended): Betragsfunktion, Knickpunkt, Gleichungen und Ungleichungen mit Beträgen',
+               'Toleranz-Aufgaben („erlaubte Abweichung“) aus Realschul-Abschlussprüfungen und Berufsschul-Eingangstests, nachgebaut']
+
+# betrag
+ST.stufenleiter('betrag', 'Betrag einer Zahl, Abstand zweier Zahlen als |a − b|.',
+                'Funktionswerte von |x − d| + e, mehrere Beträge in einem Term, Abstände in Sachsituationen, Zahl aus Betrag und Vorzeichen.',
+                'Ausdrücke vergleichen, ganze Zahlen im Abstand zählen, Zahl aus Abstand und Lage, Fehler |a| + |b| = |a + b|, Parameter, Wege mit Vorzeichen.')
+ST.typ('betrag', '/^Was ist größer/', 'erkennen')
+ST.typ('betrag', '/^/', 'direkt', s=1)
+ST.typ('betrag', '/^/', 'mehrschritt', s=2)
+ST.typ('betrag', '/^Welcher Ausdruck/', 'begruenden')
+ST.typ('betrag', '/^Berechne \\|# − \\|/'.replace('#', '\\d+'), 'mehrschritt')
+ST.typ('betrag', '/Wie viele ganze Zahlen/', 'verknuepfen')
+ST.typ('betrag', '/^/', 'rueckwaerts', s=3)
+ST.neu('betrag', 'einkleidung', Z('Ein Thermometer zeigt morgens −7 °C und mittags 5 °C. Um wie viel Grad ist es wärmer geworden?', 12, 'abs(5 - (-7))',
+       'Abstand der Temperaturen: |5 − (−7)| = |12| = 12 °C.', 'Abstand zweier Zahlen: Betrag der Differenz.', einheit='°C'))
+ST.neu('betrag', 'umkehr', Z('Für eine Zahl a gilt |a| = 6 und a < 0. Welche Zahl ist a?', -6, '-6',
+       '|a| = 6 haben die Zahlen 6 und −6. Weil a negativ ist: a = −6.', 'Welche zwei Zahlen haben den Betrag 6?'))
+ST.neu('betrag', 'fehler', A('Jemand rechnet: |−3| + |5| = |−3 + 5| = 2. Was stimmt?', 'Falsch: |−3| + |5| = 3 + 5 = 8.', ['Richtig.', 'Falsch: Es ergibt −8.', 'Falsch: Es ergibt −2.'],
+       'Man darf die Beträge nicht zusammenfassen: Erst jeden Betrag berechnen (3 und 5), dann addieren.', 'Rechne jeden Betrag einzeln aus.'))
+ST.neu('betrag', 'parameter', Z('Für welche Zahl a gilt |a − 3| = |a + 3|?', 0, '0',
+       '|a − 3| ist der Abstand zu 3, |a + 3| der Abstand zu −3. Gleich weit von 3 und −3 liegt nur die Mitte: a = 0.', 'Deute beide Beträge als Abstände.'))
+ST.neu('betrag', 'transfer', Z('Ein Aufzug fährt vom 2. Untergeschoss (−2) in den 5. Stock und dann ins 1. Untergeschoss (−1). Wie viele Stockwerke legt er insgesamt zurück?', 13, 'abs(5 - (-2)) + abs(-1 - 5)',
+       'Erste Fahrt |5 − (−2)| = 7, zweite |−1 − 5| = 6. Zusammen 13 Stockwerke.', 'Rechne jede Fahrt als Abstand.'))
+ST.knobel('betrag', Z('Wie viele ganze Zahlen x erfüllen |x| + |x − 3| = 3?', 4, '4',
+          '|x| + |x − 3| ist die Summe der Abstände zu 0 und zu 3. Liegt x zwischen 0 und 3, ist sie genau 3; außerhalb ist sie größer. Ganze Zahlen: 0, 1, 2, 3 – vier.',
+          'Deute die Summe als zwei Abstände auf dem Zahlenstrahl.'))
+ST.knobel('betrag', Z('Für welche Zahl x ist |x − 1| + |x − 5| + |x − 6| am kleinsten?', 5, '5',
+          'Summe der Abstände zu 1, 5 und 6. Bei x = 5: 4 + 0 + 1 = 5. Rückt x nach links, wachsen zwei Abstände und nur einer schrumpft; nach rechts ebenso. Am kleinsten ist die Summe bei der mittleren Zahl 5.',
+          'Probiere x = 4, 5 und 6.'))
+
+# graph
+ST.stufenleiter('graph', 'Knickpunkt von |x − d| + e ablesen.',
+                'Öffnung und Faktor, Knickpunkt am Bild ablesen, Gleichung aus Knickpunkt aufstellen.',
+                'Term zum Graphen, a aus einem Punkt, Schnittpunkte mit Waagrechten, Steigung der Äste, Wertemenge.')
+ST.typ('graph', '/^/', 'direkt', s=1)
+ST.typ('graph', '/Knickpunkt des Graphen von f\\(x\\) = \\d/', 'mehrschritt')
+ST.typ('graph', '/^/', 'darstellung', s=2)
+ST.typ('graph', '/Welcher Funktionsterm/', 'rueckwaerts')
+ST.typ('graph', '/Bestimme a/', 'parameter')
+ST.typ('graph', '/Schnittpunkte|Steigung/', 'verknuepfen')
+ST.typ('graph', '/^/', 'begruenden', s=3)
+ST.neu('graph', 'erkennen', A('Welche Form hat der Graph von f(x) = |x|?', 'ein V mit der Spitze im Ursprung', ['eine Gerade durch den Ursprung', 'eine Parabel', 'ein umgedrehtes V mit Spitze bei (0 | 1)'],
+       'Für x ≥ 0 ist f(x) = x, für x < 0 ist f(x) = −x: zwei Halbgeraden, die sich in (0 | 0) treffen.', 'Rechne f(−2), f(0) und f(2) aus.'))
+ST.neu('graph', 'umkehr', L('Ein V-förmiger Graph mit Faktor 1 hat den Knickpunkt (3 | −2). Gib seine Gleichung an.', 'f(x) = |x − □| − □', [3, 2], ['3', '2'],
+       'Knick bei x = 3: |x − 3|. Um 2 nach unten: − 2. f(x) = |x − 3| − 2.', 'Wie verschiebt d, wie e?'))
+ST.knobel('graph', Z('Der Graph von f(x) = |x − 2| und die Gerade y = 4 schließen ein Dreieck ein. Wie groß ist sein Flächeninhalt?', 16, '8*4/2',
+          'Schnittpunkte: |x − 2| = 4 ⇒ x = −2 und x = 6. Die Grundseite auf y = 4 ist 8 lang, die Spitze (2 | 0) liegt 4 tiefer: A = 8 · 4 : 2 = 16.',
+          'Bestimme die Ecken des Dreiecks.', einheit='FE'))
+ST.knobel('graph', A('Wie viele gemeinsame Punkte haben die Graphen von f(x) = |x| und g(x) = −|x − 4| + 4?', 'unendlich viele', ['keinen', 'genau einen', 'genau zwei'],
+          'Für 0 ≤ x ≤ 4 ist f(x) = x und g(x) = −(4 − x) + 4 = x. Die Graphen haben die ganze Strecke von (0 | 0) bis (4 | 4) gemeinsam.',
+          'Schreibe beide Funktionen für 0 ≤ x ≤ 4 ohne Betrag.'))
+
+# stueckweise
+ST.stufenleiter('stueckweise', 'Für einen Bereich den Term ohne Betrag angeben.',
+                'Grenze bestimmen, Funktionswert der stückweisen Funktion, Betrag mit Summand.',
+                'Grenze und Term bei |2x − 4|, stückweise Funktion mit einem Betrag schreiben, |x| + |x − 9| deuten, Fehler beim Minus, Parameter a.')
+ST.typ('stueckweise', '/^/', 'direkt', s=1)
+ST.typ('stueckweise', '/Bei welchem x liegt die Grenze/', 'umkehr')
+ST.typ('stueckweise', '/^Für x </', 'darstellung', s=2)
+ST.typ('stueckweise', '/^/', 'mehrschritt', s=2)
+ST.typ('stueckweise', '/Gib die Grenze und den Term/', 'verknuepfen')
+ST.typ('stueckweise', '/Schreibe f mit einem Betrag/', 'rueckwaerts')
+ST.typ('stueckweise', '/\\|x\\| \\+ \\|x − /', 'transfer')
+ST.typ('stueckweise', '/^/', 'fehler', s=3)
+ST.neu('stueckweise', 'erkennen', A('f(x) = |x − 5|. Welcher Term gilt für x ≥ 5?', 'x − 5', ['−x + 5', '−x − 5', 'x + 5'],
+       'Für x ≥ 5 ist x − 5 nicht negativ; der Betrag ändert nichts.', 'Ist x − 5 für x ≥ 5 positiv oder negativ?'))
+ST.neu('stueckweise', 'parameter', Z('f(x) = |x − a| + 1 hat für x ≥ a den Term x − 3. Wie groß ist a?', 4, '1 + 3',
+       'Für x ≥ a gilt f(x) = x − a + 1. Gleich x − 3 ⇒ −a + 1 = −3 ⇒ a = 4.', 'Schreibe f für x ≥ a ohne Betrag.'))
+ST.knobel('stueckweise', L('f(x) = |x − 1| + |x − 3| hat für x > 3 den Term 2x − 4. Welchen Term hat f für x < 1?', '□x + □', [-2, 4], ['-2', '4'],
+          'Für x < 1 sind beide Klammern negativ: −(x − 1) − (x − 3) = −x + 1 − x + 3 = −2x + 4. (Zwischen 1 und 3 ist f konstant 2.)',
+          'Welche Vorzeichen haben x − 1 und x − 3 für x < 1?', hinweis='Tippe den Term ein, z. B. −2x + 4.'))
+ST.knobel('stueckweise', Z('Wie viele ganze Zahlen x mit −10 ≤ x ≤ 10 erfüllen |x − 2| + |x + 2| = 4?', 5, '5',
+          'Zwischen −2 und 2 ist die Summe der Abstände zu 2 und −2 immer 4; außerhalb größer. Ganze Zahlen −2, −1, 0, 1, 2: fünf.',
+          'Deute die beiden Beträge als Abstände.'))
+
+# gleichung
+ST.stufenleiter('gleichung', '|x − a| = r durch „Abstand r von a“ lösen.',
+                'Gleichung erst umformen, Sonderfälle (rechts 0 oder negativ), Sachsituation, Gleichung zu gegebenen Lösungen.',
+                'Toleranzen deuten, Ungleichungen |x − a| ≤ r, gleich weit von zwei Zahlen, Parameter c.')
+ST.typ('gleichung', '/Wie viele Lösungen/', 'erkennen')
+ST.typ('gleichung', '/^/', 'direkt', s=1)
+ST.typ('gleichung', '/^/', 'mehrschritt', s=2)
+ST.typ('gleichung', '/Welche Grenze wird verletzt/', 'transfer')
+ST.typ('gleichung', '/Für welche x gilt/', 'verknuepfen')
+ST.typ('gleichung', '/^Löse \\|x − \\(/', 'begruenden')
+ST.typ('gleichung', '/^/', 'parameter', s=3)
+ST.neu('gleichung', 'erkennen', Z('Wie viele Lösungen hat |x − 5| = 0?', 1, '1', 'Abstand 0 von 5 hat nur x = 5: eine Lösung.', 'Welcher Punkt hat von 5 den Abstand 0?'))
+ST.neu('gleichung', 'einkleidung', L('Ein Haus steht an einer geraden Straße 3 km von einem Bahnhof bei Kilometer 12 entfernt. Bei welchen Kilometern kann es stehen? (kleinere zuerst)', X2, [9, 15], ['12 - 3', '12 + 3'],
+       '|x − 12| = 3 ⇒ x = 9 oder x = 15.', 'Abstand 3 nach links und nach rechts.'))
+ST.neu('gleichung', 'umkehr', L('Die Gleichung |x − m| = r hat die Lösungen 2 und 10. Wie groß sind m und r?', 'm = □; r = □', [6, 4], ['(2 + 10)/2', '(10 - 2)/2'],
+       'm liegt genau in der Mitte: (2 + 10) : 2 = 6. Der Abstand zu jeder Lösung ist r = 4.', 'Wo liegt m zwischen den Lösungen?'))
+ST.knobel('gleichung', Z('Löse |x − 1| = 2x − 4.', 3, '3',
+          'Fall x ≥ 1: x − 1 = 2x − 4 ⇒ x = 3 (passt). Fall x < 1: −x + 1 = 2x − 4 ⇒ x = 5/3, das ist nicht kleiner als 1 – fällt weg. Probe: |3 − 1| = 2 = 2 · 3 − 4.',
+          'Unterscheide zwei Fälle und prüfe jede Lösung.'))
+ST.knobel('gleichung', Z('Wie viele Lösungen hat die Gleichung ||x| − 3| = 1?', 4, '4',
+          'Innen: |x| − 3 = 1 oder |x| − 3 = −1, also |x| = 4 oder |x| = 2. Jede hat zwei Lösungen: x = ±4, ±2. Vier Lösungen.',
+          'Löse zuerst nach |x| auf.'))
+
+# verstehen
+ST.stufenleiter('verstehen', 'Erkennen, dass ein Betrag nie negativ ist; eine Aussage mit einer Zahl testen.',
+                'Unvollständige Lösungen erkennen, Formeln an Beispielen prüfen, Abstände in Wegen.',
+                'Aussagen für alle a, Gegenbeispiele, Bereiche wie |a| = −a, |a · b| = |a| · |b|, Fehler „ein Beispiel beweist“.')
+ST.typ('verstehen', '/^Kann/', 'erkennen')
+ST.typ('verstehen', '/^/', 'direkt', s=1)
+ST.typ('verstehen', '/^Ali/', 'umkehr')
+ST.typ('verstehen', '/^/', 'mehrschritt', s=2)
+ST.typ('verstehen', '/Gegenbeispiel|für alle Zahlen/', 'begruenden')
+ST.typ('verstehen', '/^Für welche/', 'parameter')
+ST.typ('verstehen', '/^/', 'verknuepfen', s=3)
+ST.neu('verstehen', 'einkleidung', A('Zwei Kinder starten am selben Punkt einer geraden Straße: eines geht 3 km nach Westen (−3), das andere 5 km nach Osten (5). Wie weit sind sie dann voneinander entfernt?',
+       '8 km = |5 − (−3)|', ['2 km = |5 + (−3)|', '−8 km', '15 km'],
+       'Der Abstand ist der Betrag der Differenz der Positionen: |5 − (−3)| = 8 km.', 'Zeichne die Straße als Zahlenstrahl.'))
+ST.neu('verstehen', 'fehler', A('Jemand prüft |a − b| = |a| − |b| mit a = 5, b = 2: 3 = 3. Er schreibt: „Also stimmt es immer.“ Was ist falsch?',
+       'Ein Beispiel beweist nichts: a = 2, b = 5 gibt 3 = −3, falsch.', ['Nichts, die Rechnung stimmt.', 'Er hätte a = b nehmen müssen.', '|a − b| ist nie gleich |a| − |b|.'],
+       'Um „immer“ zu zeigen, reicht kein Beispiel; ein einziges Gegenbeispiel widerlegt die Aussage. Mit a = 2, b = 5: |−3| = 3, aber 2 − 5 = −3.',
+       'Vertausche die Zahlen.'))
+ST.knobel('verstehen', Z('Für wie viele ganze Zahlen a mit −10 ≤ a ≤ 10 gilt |a + 3| = |a| + 3?', 11, '11',
+          'Für a ≥ 0 sind a + 3 und a positiv: beide Seiten sind a + 3. Für a < 0 ist |a| + 3 > |a + 3| (z. B. a = −1: 2 ≠ 4). Also a = 0, 1, …, 10: elf Zahlen.',
+          'Teste ein negatives und ein positives a.'))
+ST.knobel('verstehen', A('Wann gilt |a + b| = |a| + |b| genau?', 'wenn a und b nicht verschiedene Vorzeichen haben (eine darf 0 sein)',
+          ['immer', 'nur wenn a = b', 'nur wenn beide negativ sind'],
+          'Haben a und b gleiche Vorzeichen, zeigen beide in dieselbe Richtung: Die Längen addieren sich. Bei verschiedenen Vorzeichen heben sie sich teilweise auf, dann ist |a + b| kleiner.',
+          'Denk an Pfeile auf dem Zahlenstrahl.'))
+
+if __name__ == '__main__':
+    stufen('funktionen.betrag', ST)

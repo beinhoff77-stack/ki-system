@@ -709,3 +709,177 @@ d = bauen('stochastik.bedingt',
              'Satz von Bayes nur über natürliche Häufigkeiten (1 000 Fälle), ohne Formel – passend zu MYP 4.'],
       vertiefung=['rueckschluss'], plan=PLAN2)
 umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
+
+
+# ---- STUFEN (Zwanzigste Runde, Zusatz Realschule/IB, Zweig stufen-rsib-2) ----
+from _stufen_rsib2 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('stochastik.bedingt', 20_2_3)
+Z, A, L = ST.Z, ST.A, ST.L
+B = 'Zähler und Nenner eintragen (gekürzt).'
+ST.vorbild += ['IB MYP eAssessment Mathematics (Extended): bedingte Wahrscheinlichkeit aus Tabelle, Venn-Diagramm und Baum',
+               'Mathematik-Abitur/Abschlussprüfung, Teil Stochastik: Vierfeldertafel und Test-Aufgabe (falsch-positive Befunde), nachgebaut auf Klassenniveau']
+
+# tafel
+ST.stufenleiter('tafel', 'P(A | B) als Anteil in der Zeile oder Spalte von B aus der Vierfeldertafel ablesen.',
+                'Fehlendes Feld ergänzen, Bedingung mit „nicht“, Tafel aus einem Sachtext.',
+                'Tafel aus Prozentangaben aufstellen, P(B | A) aus P(A | B), zwei bedingte Wahrscheinlichkeiten vergleichen, Fehler „falsche Gruppe“, Parameter.')
+ST.typ('tafel', '/^/', 'direkt', s=1)
+ST.typ('tafel', '/Ein Feld fehlt/', 'mehrschritt')
+ST.typ('tafel', '/^/', 'darstellung', s=2)
+ST.typ('tafel', '/Welche Wahrscheinlichkeit ist größer/', 'begruenden')
+ST.typ('tafel', '/^An einer Schule mit/', 'transfer')
+ST.typ('tafel', '/Berechne P\\(Rad \\| Brille\\)/', 'rueckwaerts')
+ST.neu('tafel', 'erkennen', A('Bei P(Brille | Rad) teilt man durch die Zahl einer Gruppe. Welche?', 'alle Radfahrer', ['alle Brillenträger', 'alle Befragten', 'die Radfahrer mit Brille'],
+       'Hinter dem Strich steht die Bedingung „Rad“. Nur diese Gruppe zählt; durch ihre Größe wird geteilt.', 'Was steht hinter dem Strich?'))
+ST.neu('tafel', 'einkleidung', L('Von 80 Kindern einer Jahrgangsstufe haben 30 ein Haustier, 12 davon einen Hund. Wie groß ist P(Hund | Haustier)?', '□/□', [2, 5], ['2', '5'],
+       'Bedingung „Haustier“: 30 Kinder. Davon 12 mit Hund: 12/30 = 2/5. Die 80 spielen keine Rolle.', 'Welche Gruppe ist die Bedingung?', hinweis=B))
+ST.neu('tafel', 'fehler', A('50 Kinder fahren Rad, 20 davon tragen eine Brille; insgesamt tragen 80 Kinder eine Brille. Jemand rechnet P(Brille | Rad) = 20 : 80 = 0,25. Was stimmt?',
+       'Falsch: Er teilt durch die Brillenträger. Richtig ist 20 : 50 = 0,4.', ['Richtig.', 'Falsch: Richtig ist 50 : 80.', 'Falsch: Richtig ist 20 : 130.'],
+       '20 : 80 wäre P(Rad | Brille). Für P(Brille | Rad) zählt nur die Gruppe der 50 Radfahrer.', 'Durch welche Gruppe muss man teilen?'))
+ST.neu('tafel', 'parameter', Z('In einer Klasse haben 12 Kinder einen Hund. x von ihnen spielen ein Instrument. Für welches x ist P(Instrument | Hund) = 0,25?', 3, '0.25*12',
+       'x : 12 = 0,25 ⇒ x = 3.', 'Welche Gruppe steht im Nenner?'))
+ST.knobel('tafel', Z('In einer Vierfeldertafel mit 200 Personen gilt P(A | B) = 0,3 und P(A | nicht B) = 0,3. Außerdem ist P(B) = 0,4. Wie viele Personen haben A?', 60, '0.3*80 + 0.3*120',
+          'B: 80 Personen, davon 30 % mit A = 24. Nicht B: 120 Personen, davon 30 % = 36. Zusammen 60 – genau 30 % von 200. Ist der Anteil in beiden Gruppen gleich, ist er auch insgesamt so groß.',
+          'Rechne beide Gruppen getrennt aus.'))
+ST.knobel('tafel', Z('100 Personen: P(A | B) = 1/2, P(B | A) = 1/3, und 12 Personen haben A und B. Wie viele haben weder A noch B?', 52, '100 - (24 + 36 - 12)',
+          '12 sind die Hälfte von B ⇒ B hat 24. 12 sind ein Drittel von A ⇒ A hat 36. A oder B: 24 + 36 − 12 = 48. Weder noch: 100 − 48 = 52.',
+          'Was sagt P(A | B) = 1/2 über die Größe von B?'))
+
+# formel
+ST.stufenleiter('formel', 'P(A | B) = P(A ∩ B) : P(B) mit gegebenen Werten.',
+                'P(nicht A | B), P(A ∩ B) oder P(B) aus der Formel zurückrechnen, Formel in Sachsituationen.',
+                'Werte aus dem Venn-Diagramm, Additionssatz dazu, P(A) aus zwei bedingten Wahrscheinlichkeiten, Fehler „mal statt durch“.')
+ST.typ('formel', '/^/', 'direkt', s=1)
+ST.typ('formel', '/Berechne P\\(nicht A \\| B\\)/', 'mehrschritt')
+ST.typ('formel', '/Berechne P\\(A ∩ B\\)|Berechne P\\(B\\)/', 'umkehr')
+ST.typ('formel', '/^/', 'direkt', s=2)
+ST.typ('formel', '/Das Venn-Diagramm/', 'transfer')
+ST.typ('formel', '/P\\(A ∪ B\\)/', 'verknuepfen')
+ST.typ('formel', '/Wie groß ist P\\(A\\)/', 'rueckwaerts')
+ST.typ('formel', '/^/', 'fehler', s=3)
+ST.neu('formel', 'erkennen', A('Was bedeutet der senkrechte Strich in P(A | B)?', '„unter der Bedingung, dass B eingetreten ist“', ['„A geteilt durch B“', '„A oder B“', '„A und B“'],
+       'P(A | B) liest man „Wahrscheinlichkeit von A unter der Bedingung B“: Man schaut nur auf die Fälle, in denen B eingetreten ist.', 'Wie liest man P(A | B)?'))
+ST.neu('formel', 'direkt', Z('25 % aller Fälle gehören zu B, 20 % aller Fälle gehören zu A und zu B. Wie groß ist P(A | B)?', 0.8, '0.2/0.25',
+       'P(A | B) = 0,2 : 0,25 = 0,8.', 'Setze in die Formel ein.'))
+ST.neu('formel', 'einkleidung', Z('In einem Ort regnet es an 30 % der Tage. An 12 % aller Tage regnet es und es ist kalt. Wie groß ist P(kalt | Regen)?', 0.4, '0.12/0.3',
+       'P(kalt | Regen) = P(kalt ∩ Regen) : P(Regen) = 0,12 : 0,3 = 0,4.', 'Welche Größe ist die Bedingung?'))
+ST.neu('formel', 'einkleidung', Z('20 % aller Kunden einer Bäckerei kaufen Kuchen, 8 % kaufen Kuchen und Kaffee. Wie viel Prozent der Kuchenkäufer kaufen auch Kaffee?', 40, '0.08/0.2*100',
+       'P(Kaffee | Kuchen) = 0,08 : 0,2 = 0,4 = 40 %.', 'Die Kuchenkäufer sind die Bedingung.', einheit='%'))
+ST.knobel('formel', Z('Es gilt P(A | B) = 0,5, P(B | A) = 0,25 und P(A) = 0,4. Wie groß ist P(B)?', 0.2, '0.25*0.4/0.5',
+          'Aus P(B | A): P(A ∩ B) = 0,25 · 0,4 = 0,1. Aus P(A | B): P(B) = P(A ∩ B) : P(A | B) = 0,1 : 0,5 = 0,2.',
+          'Beide Formeln enthalten P(A ∩ B).'))
+ST.knobel('formel', A('Für zwei Ereignisse gilt P(A | B) = 1. Was folgt daraus?', 'Immer wenn B eintritt, tritt auch A ein.', ['A und B sind gleich wahrscheinlich.', 'A tritt immer ein.', 'B tritt immer ein.'],
+          'P(A ∩ B) = P(B): Alle B-Fälle sind auch A-Fälle. Über die Fälle außerhalb von B sagt das nichts – A muss nicht immer eintreten.',
+          'Setze P(A | B) = 1 in die Formel ein.'))
+
+# baum
+ST.stufenleiter('baum', 'Einen Pfad beim Ziehen ohne Zurücklegen berechnen; zweite Stufe nach bekanntem ersten Zug.',
+                'Zwei Pfade addieren (gleich-/verschiedenfarbig), Sachsituationen, Wahrscheinlichkeit der zweiten Stufe zurückdenken.',
+                'Gegenereignis „mindestens eine“, Anzahl aus der Wahrscheinlichkeit, mit/ohne Zurücklegen vergleichen, Fehler „Nenner bleibt gleich“.')
+ST.typ('baum', '/Die erste Kugel ist/', 'erkennen')
+ST.typ('baum', '/^/', 'direkt', s=1)
+ST.typ('baum', '/^/', 'mehrschritt', s=2)
+ST.typ('baum', '/Klassensprecher/', 'transfer')
+ST.typ('baum', '/mindestens eine/', 'verknuepfen')
+ST.typ('baum', '/Wie viele rote Kugeln/', 'rueckwaerts')
+ST.typ('baum', '/^/', 'begruenden', s=3)
+ST.neu('baum', 'einkleidung', L('In einer Tüte sind 5 Erdbeer- und 3 Zitronenbonbons. Du nimmst ohne hinzusehen zwei. Wie groß ist P(beide Erdbeer)?', '□/□', [5, 14], ['5', '14'],
+       '5/8 · 4/7 = 20/56 = 5/14.', 'Nach dem ersten Erdbeerbonbon sind noch 4 von 7 da.', hinweis=B))
+ST.neu('baum', 'umkehr', L('In einer Urne mit 5 Kugeln gilt P(erste Kugel rot) = 3/5. Wie groß ist P(zweite Kugel rot | erste rot) beim Ziehen ohne Zurücklegen?', '□/□', [1, 2], ['1', '2'],
+       '3/5 heißt: 3 rote von 5. Nach einer roten bleiben 2 rote von 4: 2/4 = 1/2.', 'Wie viele rote Kugeln sind am Anfang drin?', hinweis=B))
+ST.neu('baum', 'fehler', A('Bei 3 roten und 2 blauen Kugeln rechnet jemand für zwei Züge ohne Zurücklegen: P(rot, rot) = 3/5 · 3/5 = 9/25. Was stimmt?',
+       'Falsch: Beim zweiten Zug sind es 2 rote von 4, also 3/5 · 2/4 = 3/10.', ['Richtig.', 'Falsch: 3/5 + 2/4.', 'Falsch: 3/5 · 2/5.'],
+       'Er hat wie mit Zurücklegen gerechnet. Ohne Zurücklegen ändern sich Zähler und Nenner im zweiten Zug.', 'Was ändert sich nach dem ersten Zug?'))
+ST.knobel('baum', Z('In einer Schublade liegen 4 schwarze und 6 weiße Socken. Wie viele Socken muss man im Dunkeln mindestens herausnehmen, um sicher zwei gleichfarbige zu haben?', 3, '2 + 1',
+          'Mit 2 Socken kann man Pech haben: eine schwarze, eine weiße. Bei der dritten Socke passt sie in jedem Fall zu einer der beiden Farben. Es gibt nur 2 Farben, also reichen 3.',
+          'Was ist das größte Pech, das man haben kann?'))
+ST.knobel('baum', L('In einer Urne liegen 3 rote Kugeln und 1 blaue. Man zieht ohne Zurücklegen, bis die blaue kommt. Wie groß ist die Wahrscheinlichkeit, dass sie erst im 4. Zug kommt?', '□/□', [1, 4], ['1', '4'],
+          'Erst dreimal rot: 3/4 · 2/3 · 1/2 = 1/4, dann ist nur noch die blaue übrig. Anders gedacht: Die blaue Kugel steht in einer zufälligen Reihenfolge mit gleicher Chance an jeder der 4 Stellen.',
+          'Gibt es eine Stelle, an der die blaue Kugel wahrscheinlicher liegt als an einer anderen?', hinweis=B))
+
+# unabhaengig
+ST.stufenleiter('unabhaengig', 'Unabhängig: P(A ∩ B) = P(A) · P(B) prüfen bzw. ausrechnen.',
+                'Unabhängigkeit an der Vierfeldertafel prüfen, P(A | B) = P(A) nutzen, Sachsituationen, fehlenden Wert zurückrechnen.',
+                'Anzahl für Unabhängigkeit, „mindestens eine“ bei unabhängigen Geräten, unvereinbar ≠ unabhängig, Spielerfehlschluss, Parameter.')
+ST.typ('unabhaengig', '/Sind A und B unabhängig/', 'erkennen', s=1)
+ST.typ('unabhaengig', '/^/', 'direkt', s=1)
+ST.typ('unabhaengig', '/Vierfeldertafel/', 'darstellung')
+ST.typ('unabhaengig', '/^/', 'mehrschritt', s=2)
+ST.typ('unabhaengig', '/Wie viele müssen beides tun/', 'rueckwaerts')
+ST.typ('unabhaengig', '/Pumpe/', 'transfer')
+ST.typ('unabhaengig', '/^/', 'begruenden', s=3)
+ST.neu('unabhaengig', 'direkt', L('Ein Würfel zeigt eine 6 mit der Wahrscheinlichkeit 1/6, eine Münze zeigt Kopf mit 1/2. Beide werden unabhängig geworfen. Wie groß ist P(6 und Kopf)?', '□/□', [1, 12], ['1', '12'],
+       'Unabhängig: 1/6 · 1/2 = 1/12.', 'Multipliziere die beiden Wahrscheinlichkeiten.', hinweis=B))
+ST.neu('unabhaengig', 'einkleidung', Z('Eine Ampel ist mit der Wahrscheinlichkeit 0,4 rot, eine zweite – unabhängig davon – mit 0,5. Wie groß ist die Wahrscheinlichkeit, dass beide rot sind?', 0.2, '0.4*0.5',
+       'Unabhängig: 0,4 · 0,5 = 0,2.', 'Unabhängig heißt: multiplizieren.'))
+ST.neu('unabhaengig', 'umkehr', Z('A und B sind unabhängig, P(A ∩ B) = 0,12 und P(A) = 0,3. Wie groß ist P(B)?', 0.4, '0.12/0.3',
+       '0,3 · P(B) = 0,12 ⇒ P(B) = 0,4.', 'Setze in P(A ∩ B) = P(A) · P(B) ein.'))
+ST.neu('unabhaengig', 'parameter', Z('Es gilt P(A) = 0,5, P(B) = p und P(A ∩ B) = 0,15. Für welches p sind A und B unabhängig?', 0.3, '0.15/0.5',
+       'Unabhängig: 0,5 · p = 0,15 ⇒ p = 0,3.', 'Setze die Bedingung für Unabhängigkeit an.'))
+ST.knobel('unabhaengig', A('Zwei Würfel werden geworfen. A: „Der erste Würfel zeigt eine gerade Zahl.“ B: „Die Augensumme ist 7.“ Sind A und B unabhängig?', 'Ja.',
+          ['Nein, die Summe hängt vom ersten Würfel ab.', 'Nein, A und B schließen sich aus.', 'Das kann man nicht berechnen.'],
+          'P(A) = 1/2, P(B) = 6/36 = 1/6. A ∩ B: (2,5), (4,3), (6,1) – 3 von 36 = 1/12 = 1/2 · 1/6. Überraschend: Egal was der erste Würfel zeigt, genau eine Zahl des zweiten ergibt 7.',
+          'Zähle die Paare für A ∩ B.'))
+ST.knobel('unabhaengig', Z('Wie oft muss man eine faire Münze mindestens werfen, damit die Wahrscheinlichkeit für „mindestens einmal Kopf“ größer als 0,99 ist?', 7, '7',
+          'P(mindestens einmal Kopf) = 1 − 0,5ⁿ. Gefordert 0,5ⁿ < 0,01. 0,5⁶ = 1/64 ≈ 0,016 ist noch zu groß, 0,5⁷ = 1/128 ≈ 0,008 reicht. Also 7 Würfe.',
+          'Rechne mit dem Gegenereignis „nie Kopf“.'))
+
+# rueckschluss
+ST.stufenleiter('rueckschluss', 'Mit 1 000 gedachten Fällen die erste Stufe und einen Pfad ausrechnen.',
+                'Alle gemeldeten Fälle zusammenzählen, Fehlalarme bestimmen, Sachsituationen.',
+                'Vom Befund zurück auf die Ursache (P(defekt | gemeldet)), „nicht gemeldet, aber defekt“, warum viele Fehlalarme entstehen, Fehler „Trefferquote = Sicherheit“.')
+ST.typ('rueckschluss', '/Wie viele davon sind/', 'erkennen')
+ST.typ('rueckschluss', '/^/', 'direkt', s=1)
+ST.typ('rueckschluss', '/defekt und werden gemeldet/', 'direkt')
+ST.typ('rueckschluss', '/insgesamt gemeldet/', 'mehrschritt')
+ST.typ('rueckschluss', '/^/', 'umkehr', s=2)
+ST.typ('rueckschluss', '/wurde nicht gemeldet/', 'verknuepfen')
+ST.typ('rueckschluss', '/wurde (gemeldet|markiert)\\. Wie groß/', 'rueckwaerts')
+ST.typ('rueckschluss', '/^/', 'begruenden', s=3)
+ST.neu('rueckschluss', 'einkleidung', Z('In 5 % der Nächte ist ein Einbrecher am Haus. Die Alarmanlage schlägt dann in 98 % der Fälle an, in den übrigen Nächten irrtümlich in 2 %. Stelle dir 1 000 Nächte vor. In wie vielen Nächten schlägt sie an?',
+       68, '0.98*50 + 0.02*950', 'Einbruch: 50 Nächte, davon 49 Alarm. Ruhig: 950 Nächte, davon 19 Fehlalarm. Zusammen 68.', 'Zwei Gruppen getrennt rechnen.'))
+ST.neu('rueckschluss', 'einkleidung', Z('Von 1 000 Losen sind 5 % Gewinne. Ein Händler legt 60 % der Gewinne und 10 % der Nieten nach vorne. Wie viele Lose liegen vorne?',
+       125, '0.6*50 + 0.1*950', '50 Gewinne, davon 30 vorne. 950 Nieten, davon 95 vorne. Zusammen 125.', 'Wie viele Gewinne und Nieten gibt es?'))
+ST.neu('rueckschluss', 'fehler', A('Ein Test erkennt 90 % der Kranken. Jemand sagt: „Wer positiv getestet wird, ist also zu 90 % krank.“ Was stimmt?',
+       'Falsch: 90 % ist P(positiv | krank), nicht P(krank | positiv).', ['Richtig.', 'Falsch: Er ist zu 10 % krank.', 'Falsch: Er ist sicher krank.'],
+       'Gefragt ist die umgekehrte Bedingung. Sie hängt davon ab, wie häufig die Krankheit ist und wie viele Fehlalarme es gibt – bei seltenen Krankheiten kann sie weit unter 90 % liegen.',
+       'Welche Gruppe steht bei den 90 % hinter dem Strich?'))
+ST.knobel('rueckschluss', Z('Ein Prüfgerät meldet 80 % der defekten Geräte und irrtümlich 20 % der guten. Wie viel Prozent der Geräte müssen defekt sein, damit ein gemeldetes Gerät mit Wahrscheinlichkeit 0,5 defekt ist?',
+          20, '0.2/(0.8 + 0.2)*100', 'Anteil defekt p. Gemeldet und defekt: 0,8p. Gemeldet und gut: 0,2(1 − p). Gleich viele: 0,8p = 0,2 − 0,2p ⇒ p = 0,2 = 20 %.',
+          'Bei 0,5 müssen gleich viele defekte wie gute Geräte gemeldet werden.', einheit='%'))
+ST.knobel('rueckschluss', L('1 % der Menschen haben eine Krankheit. Ein Test erkennt 90 % der Kranken und schlägt bei 10 % der Gesunden falsch an. Der Test wird zweimal unabhängig gemacht und ist zweimal positiv. Wie groß ist P(krank | zweimal positiv)?',
+          '□/□', [9, 20], ['9', '20'], 'Stelle dir 10 000 Menschen vor: 100 krank, davon 0,9 · 0,9 · 100 = 81 zweimal positiv. 9 900 gesund, davon 0,1 · 0,1 · 9 900 = 99 zweimal positiv. 81 : 180 = 9/20.',
+          'Nimm 10 000 Menschen und gehe beide Tests durch.', hinweis=B))
+
+# verstehen
+ST.stufenleiter('verstehen', 'Einen Satz wie „90 % der Hundebesitzer …“ als P(… | Hundebesitzer) schreiben.',
+                'Umgekehrte Bedingung als Fehlschluss erkennen, P(A | B) und P(B | A) vergleichen, bedingten Anteil aus Sachtext.',
+                'Passende Rechnung wählen, Anteil an allen statt in der Gruppe, Teilmengen, Zeitungs-Fehlschluss, Gruppengröße rückwärts.')
+ST.typ('verstehen', '/^/', 'erkennen', s=1)
+ST.typ('verstehen', '/Jemand folgert/', 'umkehr')
+ST.typ('verstehen', '/^/', 'mehrschritt', s=2)
+ST.typ('verstehen', '/Welche Rechnung passt/', 'begruenden')
+ST.typ('verstehen', '/P\\(Geige/', 'transfer')
+ST.typ('verstehen', '/^Wann gilt/', 'begruenden')
+ST.typ('verstehen', '/^/', 'verknuepfen', s=3)
+ST.neu('verstehen', 'direkt', Z('Von 200 Hundebesitzern gehen 140 täglich spazieren. Wie groß ist P(spazieren | Hund)?', 0.7, '140/200',
+       'Bedingung: Hundebesitzer (200). Davon 140: 140 : 200 = 0,7.', 'Wer steht hinter dem Strich?'))
+ST.neu('verstehen', 'einkleidung', L('In einem Verein sind 40 Kinder, 25 davon Mädchen; 10 der Mädchen spielen Tischtennis. Wie groß ist P(Tischtennis | Mädchen)?', '□/□', [2, 5], ['2', '5'],
+       'Bedingung Mädchen: 25. Davon 10: 10/25 = 2/5.', 'Durch welche Zahl teilst du?', hinweis=B))
+ST.neu('verstehen', 'fehler', A('Eine Zeitung schreibt: „80 % der Unfallfahrer waren nüchtern. Nüchtern fahren ist also gefährlich.“ Was ist der Denkfehler?',
+       'Sie verwechselt P(nüchtern | Unfall) mit P(Unfall | nüchtern) – fast alle Fahrer sind nüchtern.',
+       ['Es müssten 100 % sein.', 'Der Anteil müsste in Prozentpunkten angegeben sein.', 'Kein Fehler, die Folgerung stimmt.'],
+       'Weil die meisten Menschen nüchtern fahren, sind auch die meisten Unfallfahrer nüchtern. Gefährlich wäre es nur, wenn P(Unfall | nüchtern) größer wäre als P(Unfall | betrunken) – und das ist es nicht.',
+       'Welche Bedingung steckt in der Zahl, welche in der Folgerung?'))
+ST.neu('verstehen', 'rueckwaerts', Z('In einer Gruppe gilt P(A | B) = 0,5 und P(B | A) = 0,2. 30 Personen haben A und B. Wie viele Personen haben A?', 150, '30/0.2',
+       'P(B | A) = 0,2 heißt: 30 sind 20 % der A-Personen. A hat 30 : 0,2 = 150 Personen. (B hat 60.)', 'Welche Bedingung gehört zu A?'))
+ST.knobel('verstehen', L('In einer Schule tragen 30 % der Kinder eine Brille. Von den Brillenträgern spielen 50 % Schach, von den übrigen 20 %. Wie groß ist P(Brille | Schach)?', '□/□', [15, 29], ['15', '29'],
+          'Von 100 Kindern: 30 mit Brille, davon 15 Schach. 70 ohne, davon 14 Schach. Schachspieler: 29, davon 15 mit Brille: 15/29.', 'Stelle dir 100 Kinder vor.', hinweis=B))
+ST.knobel('verstehen', A('Kann es zwei Ereignisse geben mit P(A | B) = 1 und gleichzeitig P(B | A) = 0,1?', 'Ja, wenn B in A liegt und nur ein Zehntel von A ausmacht.',
+          ['Nein, dann müsste auch P(B | A) = 1 sein.', 'Nein, bedingte Wahrscheinlichkeiten sind immer gleich.', 'Ja, aber nur, wenn A und B unabhängig sind.'],
+          'Beispiel: A = alle Kinder einer Schule, B = die Kinder der Klasse 5a (ein Zehntel). Jedes 5a-Kind ist Kind der Schule: P(A | B) = 1. Aber nur ein Zehntel der Kinder ist in der 5a: P(B | A) = 0,1.',
+          'Denk an eine kleine Gruppe innerhalb einer großen.'))
+
+if __name__ == '__main__':
+    stufen('stochastik.bedingt', ST)

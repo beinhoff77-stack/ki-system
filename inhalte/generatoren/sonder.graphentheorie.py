@@ -628,3 +628,149 @@ d = bauen('sonder.graphentheorie',
              'Graphen werden als figur gezeichnet (Knoten = beschriftete Punkte, Kanten = Linien mit Gewicht). Die App beschriftet Kantengewichte nach außen – bei Kanten zur Mitte kann die Zahl nah an einer anderen Linie stehen. Bitte in der Ansicht prüfen.'],
       vertiefung=['spannbaum'], plan=PLAN2)
 umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
+
+
+# ---- STUFEN (Zwanzigste Runde, Zusatz Realschule/IB, Zweig stufen-rsib-2) ----
+from _stufen_rsib2 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('sonder.graphentheorie', 20_2_7)
+Z, A, L = ST.Z, ST.A, ST.L
+ST.vorbild += ['IB MYP eAssessment Mathematics (Diskrete Mathematik, Extended/Projekt): Netzwerke, Eulerwege, kürzeste Wege, Spannbäume',
+               'Känguru der Mathematik / Mathematik-Olympiade: Graphen- und Handschlag-Aufgaben als Vorbild für die Knobel-Bordkarten (nur Art)']
+
+# grundbegriffe
+ST.stufenleiter('grundbegriffe', 'Grad eines Knotens und Zahl der Kanten am Graphen ablesen.',
+                'Gradsumme, Knoten mit ungeradem Grad, Graph aus einer Beschreibung, Kanten aus der Gradsumme.',
+                'Handschläge, Adjazenzmatrix, fehlender Grad rückwärts, Kanten bei gleichen Graden, Fehler „Gradsumme = Kantenzahl“.')
+ST.typ('grundbegriffe', '/^Welchen Grad|^Wie viele Kanten hat der Graph/', 'erkennen')
+ST.typ('grundbegriffe', '/^/', 'mehrschritt', s=2)
+ST.typ('grundbegriffe', '/Hand/', 'transfer')
+ST.typ('grundbegriffe', '/Adjazenzmatrix/', 'verknuepfen')
+ST.typ('grundbegriffe', '/Welchen Grad hat der letzte/', 'rueckwaerts')
+ST.typ('grundbegriffe', '/^/', 'verknuepfen', s=3)
+ST.neu('grundbegriffe', 'direkt', Z('Ein Graph hat die Kanten AB, AC, AD und BC. Welchen Grad hat A?', 3, '3', 'A liegt an AB, AC und AD: Grad 3.', 'Zähle die Kanten, in denen A vorkommt.'))
+ST.neu('grundbegriffe', 'einkleidung', Z('Anna kennt Ben und Cem, Ben kennt außerdem Cem und Dora, Ella kennt niemanden aus der Gruppe. Jede Bekanntschaft ist eine Kante. Wie viele Kanten hat der Graph?', 4, '4',
+       'Kanten: Anna–Ben, Anna–Cem, Ben–Cem, Ben–Dora. Ella ist ein Knoten ohne Kante.', 'Schreibe jede Bekanntschaft nur einmal auf.'))
+ST.neu('grundbegriffe', 'umkehr', Z('Die Summe aller Grade eines Graphen ist 18. Wie viele Kanten hat er?', 9, '18/2', 'Jede Kante zählt bei zwei Knoten: 18 : 2 = 9.', 'Wie oft wird jede Kante in der Gradsumme gezählt?'))
+ST.neu('grundbegriffe', 'fehler', A('Ein Graph hat die Kanten AB, BC, CA und CD. Jemand zählt die Grade 2 + 2 + 3 + 1 = 8 und sagt: „Der Graph hat 8 Kanten.“ Was stimmt?',
+       'Falsch: Die Gradsumme ist doppelt so groß wie die Kantenzahl, es sind 4 Kanten.', ['Richtig.', 'Falsch: Es sind 3 Kanten.', 'Falsch: Es sind 16 Kanten.'],
+       'Jede Kante hat zwei Enden und wird darum zweimal gezählt: 8 : 2 = 4.', 'Zähle die Kanten direkt.'))
+ST.knobel('grundbegriffe', A('In einer Klasse sind 25 Kinder. Kann jedes Kind mit genau 3 anderen Kindern der Klasse befreundet sein?', 'Nein, die Gradsumme 25 · 3 = 75 wäre ungerade.',
+          ['Ja, z. B. im Kreis.', 'Ja, wenn alle in drei Gruppen sitzen.', 'Das hängt von den Kindern ab.'],
+          'Kinder sind Knoten, Freundschaften Kanten. Die Gradsumme ist immer doppelt so groß wie die Kantenzahl, also gerade. 25 · 3 = 75 ist ungerade – unmöglich.',
+          'Was weißt du über die Summe aller Grade?'))
+ST.knobel('grundbegriffe', A('Kann es einen Graphen mit 7 Knoten (ohne Mehrfachkanten und Schleifen) geben, in dem alle Knoten verschiedene Grade haben?', 'Nein.',
+          ['Ja, mit den Graden 0 bis 6.', 'Ja, mit den Graden 1 bis 7.', 'Nur, wenn er zusammenhängend ist.'],
+          'Mögliche Grade sind 0 bis 6 – sieben Werte. Grad 6 heißt: mit allen verbunden; dann kann kein Knoten Grad 0 haben. Also bleiben nur 6 verschiedene Werte für 7 Knoten.',
+          'Können Grad 0 und Grad 6 gleichzeitig vorkommen?'))
+
+# euler
+ST.stufenleiter('euler', 'Mit der Zahl der ungeraden Knoten entscheiden: Eulerkreis, Eulerweg oder keins.',
+                'Ungerade Knoten aus einer Kantenliste bestimmen, Sachsituationen (Briefträger, Museum), Endknoten eines Eulerwegs.',
+                'Königsberger Brücken, Haus vom Nikolaus, fehlende Kante ergänzen, Mindestzahl neuer Kanten, Fehler „4 ungerade genügen“, vollständige Graphen als Parameter.')
+ST.typ('euler', '/^Hat der Graph/', 'erkennen')
+ST.typ('euler', '/^Wie viele Knoten mit ungeradem/', 'mehrschritt')
+ST.typ('euler', '/Königsberg/', 'transfer')
+ST.typ('euler', '/Ni-ko-laus/', 'begruenden')
+ST.typ('euler', '/zusätzliche Kante/', 'verknuepfen')
+ST.typ('euler', '/^/', 'rueckwaerts', s=3)
+ST.neu('euler', 'direkt', A('Ein zusammenhängender Graph hat die Grade 2, 2, 4, 2. Was gibt es?', 'einen Eulerkreis', ['nur einen Eulerweg', 'weder noch', 'Das kann man nicht sagen.'],
+       'Alle Grade sind gerade: Eulerkreis.', 'Zähle die ungeraden Grade.'))
+ST.neu('euler', 'direkt', A('Ein zusammenhängender Graph hat die Grade 3, 2, 3, 2. Was gibt es?', 'einen Eulerweg, aber keinen Eulerkreis', ['einen Eulerkreis', 'weder noch', 'zwei Eulerkreise'],
+       'Genau zwei ungerade Grade: Eulerweg von einem ungeraden Knoten zum anderen.', 'Zähle die ungeraden Grade.'))
+ST.neu('euler', 'einkleidung', A('Ein Briefträger will jede Straße eines Viertels genau einmal ablaufen und zum Start zurückkehren. An jeder Kreuzung treffen 2 oder 4 Straßen zusammen (Netz zusammenhängend). Geht das?',
+       'Ja, alle Grade sind gerade.', ['Nein, er muss Straßen doppelt gehen.', 'Nur, wenn er an einer Ecke startet.', 'Das hängt von der Länge ab.'],
+       'Kreuzungen sind Knoten, Straßen Kanten. Alle Grade gerade: Es gibt einen Eulerkreis.', 'Welche Grade haben die Kreuzungen?'))
+ST.neu('euler', 'einkleidung', A('Ein Museum: Räume sind Knoten, Türen Kanten. Die Räume haben 2, 3, 2, 3 und 2 Türen (zusammenhängend). Kann man jede Tür genau einmal durchschreiten?',
+       'Ja, wenn man in einem Raum mit 3 Türen beginnt und im anderen endet.', ['Ja, von jedem Raum aus und zurück.', 'Nein.', 'Nur mit einer Tür doppelt.'],
+       'Genau zwei ungerade Grade: Eulerweg zwischen den beiden Räumen mit 3 Türen.', 'Zähle die ungeraden Grade.'))
+ST.neu('euler', 'umkehr', A('In einem Graphen haben nur A und D einen ungeraden Grad. Ein Eulerweg beginnt in A. Wo endet er?', 'in D', ['in A', 'in einem Knoten mit geradem Grad', 'Das ist beliebig.'],
+       'Ein Eulerweg beginnt und endet in den beiden ungeraden Knoten.', 'Wo muss ein Eulerweg starten und enden?'))
+ST.neu('euler', 'mehrschritt', A('Ein Graph hat die Kanten AB, BC, CA, CD und DA. Welche Knoten haben einen ungeraden Grad?', 'A und C', ['B und D', 'alle', 'keiner'],
+       'Grade: A 3 (AB, CA, DA), B 2, C 3 (BC, CA, CD), D 2. Ungerade: A und C – es gibt einen Eulerweg von A nach C.', 'Zähle für jeden Knoten seine Kanten.'))
+ST.neu('euler', 'fehler', A('Jemand sagt: „Mein Graph hat 4 Knoten mit ungeradem Grad, also gibt es einen Eulerweg.“ Was stimmt?', 'Falsch: Ein Eulerweg braucht 0 oder 2 ungerade Knoten.',
+       ['Richtig.', 'Falsch: Es gibt dann sogar einen Eulerkreis.', 'Richtig, wenn der Graph zusammenhängend ist.'],
+       'Jeder Knoten außer Start und Ziel wird gleich oft betreten und verlassen – gerader Grad. Mit 4 ungeraden Knoten geht es nicht.', 'Welche Knoten dürfen ungerade sein?'))
+ST.neu('euler', 'parameter', A('Im vollständigen Graphen mit n Knoten ist jeder Knoten mit jedem verbunden. Für welche n zwischen 3 und 8 hat er einen Eulerkreis?', 'n = 3, 5, 7',
+       ['n = 4, 6, 8', 'für alle n', 'nur n = 3'], 'Jeder Knoten hat den Grad n − 1. Gerade ist er für ungerade n: 3, 5, 7.', 'Welchen Grad hat jeder Knoten?'))
+ST.knobel('euler', Z('Die 12 Kanten eines Würfels (8 Ecken) sollen alle abgelaufen werden, mit Rückkehr zum Start. Wie viele Kanten muss man dabei mindestens doppelt ablaufen?', 4, '8/2',
+          'Jede Ecke hat Grad 3 (ungerade). Jede doppelt gelaufene Kante macht zwei Ecken gerade. Für 8 ungerade Ecken braucht man mindestens 4 Kanten – und 4 gegenüberliegende parallele Kanten reichen.',
+          'Wie viele ungerade Ecken gibt es, und wie viele davon „repariert“ eine doppelte Kante?'))
+ST.knobel('euler', A('Ein Oktaeder hat 6 Ecken; an jeder Ecke treffen 4 Kanten zusammen. Kann man alle Kanten in einem Zug ablaufen und zum Start zurückkehren?', 'Ja, alle Grade sind gerade.',
+          ['Nein, 6 Ecken sind zu viele.', 'Nur ohne Rückkehr.', 'Nein, 4 ist zu groß.'],
+          'Der Kantengraph ist zusammenhängend, jeder Knoten hat Grad 4: Eulerkreis.', 'Welche Grade haben die Ecken?'))
+
+# kuerzester
+ST.stufenleiter('kuerzester', 'Schnellsten Weg in einem kleinen Netz ablesen.',
+                'Den kürzesten Weg als Knotenfolge angeben, Wege vergleichen, Netz aus einer Beschreibung.',
+                'Gesperrte Straße, Zwischenhalt, Erreichbarkeit in einer Zeitgrenze, Umweg kürzer als Direktweg, Fehler „immer die kürzeste nächste Kante“.')
+ST.typ('kuerzester', '/^Die Zahlen an den Kanten/', 'direkt')
+ST.typ('kuerzester', '/^/', 'darstellung', s=2)
+ST.typ('kuerzester', '/gesperrt/', 'transfer')
+ST.typ('kuerzester', '/halten|Wie viele Orte/', 'verknuepfen')
+ST.typ('kuerzester', '/^/', 'begruenden', s=3)
+ST.neu('kuerzester', 'erkennen', A('Kanten: A–B 4, B–C 3, A–C 9. Welcher Weg von A nach C ist kürzer?', 'über B (7)', ['direkt (9)', 'beide gleich', 'über C'],
+       'Über B: 4 + 3 = 7 < 9.', 'Rechne beide Wege aus.'))
+ST.neu('kuerzester', 'einkleidung', Z('Ein Bote fährt von Lager L zu Kunde K. Straßen: L–M 5 km, M–K 6 km, L–N 4 km, N–K 8 km, M–N 2 km. Wie lang ist die kürzeste Strecke?', 11, '5 + 6',
+       'L–M–K: 11. L–N–K: 12. L–N–M–K: 12. L–M–N–K: 15. Kürzeste: 11 km.', 'Gehe alle Wege durch.', einheit='km'))
+ST.neu('kuerzester', 'mehrschritt', Z('Kanten: A–B 2, B–C 2, C–D 2, A–D 7, B–D 5. Wie lang ist der kürzeste Weg von A nach D?', 6, '2 + 2 + 2',
+       'A–B–C–D: 6. A–B–D: 7. A–D: 7. Kürzester: 6.', 'Mehr Kanten kann kürzer sein.'))
+ST.neu('kuerzester', 'fehler', A('Kanten: A–B 1, B–D 10, A–C 3, C–D 3. Jemand nimmt immer die kürzeste nächste Kante: A–B–D, also 11. Was stimmt?',
+       'Falsch: A–C–D ist mit 6 kürzer; die kürzeste erste Kante führt nicht immer zum kürzesten Weg.', ['Richtig.', 'Falsch: A–D direkt mit 4.', 'Falsch: A–C–B–D mit 14.'],
+       'Man muss ganze Wege vergleichen (z. B. mit dem Dijkstra-Verfahren), nicht nur den ersten Schritt.', 'Rechne auch den Weg über C.'))
+ST.knobel('kuerzester', Z('Ein Stadtplan ist ein Gitter aus 3 mal 3 Häuserblöcken. Man geht nur nach rechts oder nach oben. Wie viele kürzeste Wege gibt es von der Ecke links unten zur Ecke rechts oben?', 20, '20',
+          'Jeder kürzeste Weg hat 3 Schritte nach rechts und 3 nach oben, zusammen 6. Zählt man an jeder Kreuzung die Wege dorthin (Summe der Werte links und unten), erhält man rechts oben 20.',
+          'Schreibe an jede Kreuzung, auf wie vielen Wegen man sie erreicht.'))
+ST.knobel('kuerzester', A('In einem Netz wird jede Kantenlänge um 1 erhöht. Bleibt der kürzeste Weg von A nach B immer derselbe?', 'Nein, Wege mit vielen Kanten werden stärker verlängert.',
+          ['Ja, immer.', 'Ja, die Reihenfolge der Wege ändert sich nie.', 'Nein, er wird immer kürzer.'],
+          'Beispiel: A–C–D–B mit 1 + 1 + 1 = 3 gegen A–B direkt mit 4. Nach +1: 6 gegen 5 – jetzt ist der direkte Weg kürzer.', 'Vergleiche einen Weg mit vielen kurzen und einen mit einer langen Kante.'))
+
+# spannbaum
+ST.stufenleiter('spannbaum', 'Kruskal-Start (kleinste Kante), Kanten eines Spannbaums = Knoten − 1.',
+                'Ersparnis gegenüber allen Leitungen, Kanten, die einen Kreis schließen, Spannbaum aus einer Kostenliste, Knoten aus Kanten.',
+                'Teuerste Leitung im Spannbaum, neue billige Leitung, unverzichtbare Leitung, Fehler „Kreis mitnehmen“.')
+ST.typ('spannbaum', '/Kruskal-Verfahren/', 'erkennen')
+ST.typ('spannbaum', '/^/', 'direkt', s=1)
+ST.typ('spannbaum', '/Wie viel spart man/', 'mehrschritt')
+ST.typ('spannbaum', '/^/', 'darstellung', s=2)
+ST.typ('spannbaum', '/teuerste Leitung, die/', 'verknuepfen')
+ST.typ('spannbaum', '/Eine neue Leitung/', 'transfer')
+ST.typ('spannbaum', '/^/', 'begruenden', s=3)
+ST.neu('spannbaum', 'einkleidung', Z('Vier Inseln sollen mit Brücken verbunden werden. Kosten in Mio €: A–B 3, A–C 5, B–C 4, B–D 6, C–D 2. Wie viel kostet die günstigste Verbindung aller Inseln?', 9, '2 + 3 + 4',
+       'Kruskal: C–D (2), A–B (3), B–C (4) – jetzt hängen alle zusammen. 2 + 3 + 4 = 9 Mio €.', 'Nimm die Brücken der Größe nach.', einheit='Mio €'))
+ST.neu('spannbaum', 'umkehr', Z('Ein Spannbaum hat 15 Kanten. Wie viele Knoten hat der Graph?', 16, '15 + 1', 'Spannbaum: Kanten = Knoten − 1, also 16 Knoten.', 'Wie hängen Kanten und Knoten bei einem Baum zusammen?'))
+ST.neu('spannbaum', 'fehler', A('Jemand nimmt beim Kruskal-Verfahren auch eine billige Kante, die einen Kreis schließt. Was ist falsch daran?', 'Die Kante verbindet nichts Neues und kostet nur zusätzlich.',
+       ['Nichts, billige Kanten sind immer gut.', 'Dann fehlt ein Knoten.', 'Kreise sind nur bei teuren Kanten verboten.'],
+       'Schließt eine Kante einen Kreis, sind ihre Enden schon verbunden. Sie bringt keinen Nutzen, aber Kosten – ein Spannbaum hat keine Kreise.', 'Was verbindet diese Kante?'))
+ST.knobel('spannbaum', A('Alle Leitungen eines Netzes haben verschiedene Kosten. Gehört die billigste Leitung immer zum minimalen Spannbaum?', 'Ja.',
+          ['Nein, nur wenn sie an einem Randknoten liegt.', 'Nur bei Kruskal, nicht bei anderen Verfahren.', 'Nein, nie.'],
+          'Angenommen, sie fehlt. Fügt man sie hinzu, entsteht ein Kreis; nimmt man dafür eine andere (teurere) Kante dieses Kreises heraus, bleibt alles verbunden und wird billiger – Widerspruch.',
+          'Was passiert, wenn man sie in einen Spannbaum ohne sie einfügt?'))
+ST.knobel('spannbaum', Z('Ein Graph mit 5 Knoten ist ein einziger Kreis (5 Kanten). Wie viele verschiedene Spannbäume hat er?', 5, '5',
+          'Ein Spannbaum braucht 4 Kanten ohne Kreis. Man muss genau eine der 5 Kanten weglassen – jede Wahl ergibt einen anderen Spannbaum: 5.', 'Wie viele Kanten muss man weglassen?'))
+
+# verstehen
+ST.stufenleiter('verstehen', 'Gradfolgen mit ungerader Summe als unmöglich erkennen; Baum: Knoten = Kanten + 1.',
+                'Gradfolgen prüfen, „genau 3 ungerade Knoten“, Straßennetz als Baum, überflüssige Kanten.',
+                'Gerade Gradsumme reicht nicht immer, höchste Kantenzahl, Eulerkreis-Fehlschluss, gleicher Grad rückwärts.')
+ST.typ('verstehen', '/^Kann es einen Graphen/', 'erkennen', s=1)
+ST.typ('verstehen', '/^/', 'direkt', s=1)
+ST.typ('verstehen', '/Ist es ein Baum/', 'einkleidung', s=2)
+ST.typ('verstehen', '/^/', 'mehrschritt', s=2)
+ST.typ('verstehen', '/^Leo/', 'fehler')
+ST.typ('verstehen', '/höchstens/', 'verknuepfen')
+ST.typ('verstehen', '/Ist es ein Baum/', 'transfer')
+ST.typ('verstehen', '/^/', 'begruenden', s=3)
+ST.neu('verstehen', 'umkehr', Z('Ein zusammenhängender Graph mit 10 Knoten hat 12 Kanten. Wie viele Kanten muss man mindestens entfernen, damit ein Baum entsteht?', 3, '12 - (10 - 1)',
+       'Ein Baum mit 10 Knoten hat 9 Kanten. 12 − 9 = 3 Kanten müssen weg (je eine aus einem Kreis).', 'Wie viele Kanten hat ein Baum mit 10 Knoten?'))
+ST.neu('verstehen', 'rueckwaerts', Z('Ein Graph hat 6 Knoten, alle mit demselben Grad, und 9 Kanten. Welchen Grad hat jeder Knoten?', 3, '2*9/6',
+       'Gradsumme 2 · 9 = 18, verteilt auf 6 Knoten: 18 : 6 = 3.', 'Wie groß ist die Gradsumme?'))
+ST.knobel('verstehen', A('Stimmt: In jeder Gruppe von mindestens 2 Personen gibt es zwei, die gleich viele Bekannte in der Gruppe haben?', 'Ja.',
+          ['Nein, man kann es immer verschieden machen.', 'Nur bei geraden Gruppengrößen.', 'Nur, wenn jeder jemanden kennt.'],
+          'Bei n Personen sind 0 bis n − 1 Bekannte möglich. 0 und n − 1 schließen sich aus (wer alle kennt, wird von jedem gekannt). Also nur n − 1 Werte für n Personen: Zwei müssen gleich sein.',
+          'Können „kennt niemanden“ und „kennt alle“ gleichzeitig vorkommen?'))
+ST.knobel('verstehen', Z('Ein Graph ohne Kreise besteht aus mehreren Bäumen (ein „Wald“). Er hat 20 Knoten und 16 Kanten. Aus wie vielen Bäumen besteht er?', 4, '20 - 16',
+          'Jeder Baum hat eine Kante weniger als Knoten. Bei k Bäumen fehlen also k Kanten: 20 − k = 16 ⇒ k = 4.', 'Wie viele Kanten fehlen pro Baum gegenüber den Knoten?'))
+
+if __name__ == '__main__':
+    stufen('sonder.graphentheorie', ST)

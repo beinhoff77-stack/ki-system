@@ -631,3 +631,133 @@ d = bauen('sonder.logik',
              'Wahrheitswerte in Lücken als 1 (wahr) / 0 (falsch), weil Lücken nur ganze Zahlen erlauben. In der Tabelle stehen w/f.',
              'Feld klasse: {"zusatz": 10} statt {} (Prüfskript verlangt einen Eintrag) – siehe FRAGE im Postfach.'], plan=PLAN2)
 umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
+
+
+# ---- STUFEN (Zwanzigste Runde, Zusatz Realschule/IB, Zweig stufen-rsib-2) ----
+from _stufen_rsib2 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('sonder.logik', 20_2_11)
+Z, A, L = ST.Z, ST.A, ST.L
+ST.vorbild += ['Känguru der Mathematik / Mathematik-Olympiade: Ritter-und-Lügner- und Wahrheitsaufgaben als Vorbild für die Knobel-Bordkarten (nur Art)']
+
+# aussagen
+ST.stufenleiter('aussagen', 'Erkennen, ob ein Satz eine Aussage ist, und ihren Wahrheitswert bestimmen.',
+                'Aussageformen, Sätze ohne Wahrheitswert, Aussagen im Alltag, Aussageform in Zeichen.',
+                'All- und Existenzaussagen, Lösungen einer Aussageform zählen, Ritter und Lügner, Fehler „Beispiele beweisen“, Parameter in einer Aussageform.')
+ST.typ('aussagen', '/Wahrheitswert/', 'direkt', s=1)
+ST.typ('aussagen', '/^/', 'erkennen', s=1)
+ST.typ('aussagen', '/Wann wird daraus/', 'umkehr')
+ST.typ('aussagen', '/^/', 'mehrschritt', s=2)
+ST.typ('aussagen', '/^Setze für x/', 'verknuepfen')
+ST.typ('aussagen', '/Ritter/', 'transfer')
+ST.typ('aussagen', '/^/', 'begruenden', s=3)
+ST.neu('aussagen', 'einkleidung', A('Auf einer Anzeige am Bahnsteig steht: „Dieser Zug fährt nach Hamburg.“ Ist das eine Aussage im Sinne der Logik?', 'Ja, sie ist entweder wahr oder falsch.',
+       ['Nein, weil man es nicht sofort weiß.', 'Nein, weil sie keine Zahl enthält.', 'Nur, wenn der Zug pünktlich ist.'],
+       'Eine Aussage ist ein Satz, der eindeutig wahr oder falsch ist – auch wenn man den Wahrheitswert erst nachprüfen muss.', 'Kann der Satz wahr oder falsch sein?'))
+ST.neu('aussagen', 'darstellung', A('Wie schreibt man die Aussageform „x ist größer als 3“ in Zeichen?', 'x > 3', ['x < 3', 'x ≥ 3', '3 > x'], '„größer als“ ist >; x steht links.', 'Lies von links nach rechts.'))
+ST.neu('aussagen', 'fehler', A('Jemand sagt: „„Jede Primzahl ist ungerade“ ist wahr, denn 3, 5, 7 und 11 sind ungerade.“ Was stimmt?', 'Falsch: 2 ist eine gerade Primzahl, ein Gegenbeispiel genügt.',
+       ['Richtig.', 'Falsch: 9 ist eine ungerade Primzahl.', 'Falsch: Man müsste noch 13 prüfen.'],
+       'Eine Allaussage wird durch Beispiele nicht bewiesen, aber durch ein einziges Gegenbeispiel widerlegt: 2.', 'Gibt es eine gerade Primzahl?'))
+ST.neu('aussagen', 'parameter', Z('Setze für x die Zahlen 1, 2, …, 10 ein. Für welche kleinste ganze Zahl a ist die Aussageform „3x < a“ genau für x = 1, 2, 3, 4 wahr?', 13, '3*4 + 1',
+       'x = 4 muss passen: 12 < a. x = 5 darf nicht passen: 15 < a ist falsch, also a ≤ 15. Kleinstes a ist 13.', 'Was muss für x = 4 gelten, was für x = 5?'))
+ST.knobel('aussagen', A('Ritter sagen immer die Wahrheit, Lügner lügen immer. A sagt: „Wir sind beide Lügner.“ Was sind A und B?', 'A ist Lügner, B ist Ritter.',
+          ['Beide sind Lügner.', 'Beide sind Ritter.', 'A ist Ritter, B ist Lügner.'],
+          'Wäre A Ritter, wäre seine Aussage wahr – dann wäre A Lügner. Widerspruch. Also ist A Lügner und die Aussage falsch: Nicht beide sind Lügner, also ist B Ritter.', 'Kann A ein Ritter sein?'))
+ST.knobel('aussagen', A('Ist der Satz „Dieser Satz ist falsch.“ eine Aussage im Sinne der Logik?', 'Nein, man kann ihm keinen Wahrheitswert geben.',
+          ['Ja, er ist wahr.', 'Ja, er ist falsch.', 'Ja, weil er ein vollständiger Satz ist.'],
+          'Wäre er wahr, wäre er falsch; wäre er falsch, wäre er wahr. Beides führt zum Widerspruch – er ist weder wahr noch falsch und damit keine Aussage.', 'Nimm an, er ist wahr – was folgt?'))
+
+# negation
+ST.stufenleiter('negation', 'Einfache Aussagen verneinen und den Wahrheitswert von ¬p angeben.',
+                'Gegenbeispiele, „alle“ und „und/oder“ verneinen, Verneinung in Zeichen.',
+                'Wenn-dann verneinen, Quantoren mit „und/oder“, doppelte Verneinung, Fehler beim Verneinen von „es gibt“.')
+ST.typ('negation', '/^Verneine/', 'direkt')
+ST.typ('negation', '/^/', 'erkennen', s=1)
+ST.typ('negation', '/Bäume|Zug kommt/', 'einkleidung')
+ST.typ('negation', '/^/', 'mehrschritt', s=2)
+ST.typ('negation', '/„Wenn/', 'verknuepfen')
+ST.typ('negation', '/bedeutet dasselbe/', 'begruenden')
+ST.typ('negation', '/^/', 'transfer', s=3)
+ST.neu('negation', 'darstellung', A('Welcher Ausdruck ist die Verneinung von p ∧ q?', '¬p ∨ ¬q', ['¬p ∧ ¬q', 'p ∨ q', '¬p ∧ q'],
+       '„p und q“ ist falsch, sobald mindestens eine der beiden falsch ist: ¬p ∨ ¬q (Regel von De Morgan).', 'Wann ist „p und q“ falsch?'))
+ST.neu('negation', 'fehler', A('Verneinung von „Es gibt eine Zahl, die größer als 5 und gerade ist.“ Jemand schreibt: „Es gibt eine Zahl, die höchstens 5 und ungerade ist.“ Was stimmt?',
+       'Falsch: richtig ist „Jede Zahl ist höchstens 5 oder ungerade.“', ['Richtig.', 'Falsch: richtig ist „Keine Zahl ist größer als 5.“', 'Falsch: richtig ist „Jede Zahl ist größer als 5 und ungerade.“'],
+       '„Es gibt“ wird zu „jede“, und „und“ wird beim Verneinen zu „oder“.', 'Was wird aus „es gibt“ und aus „und“?'))
+ST.knobel('negation', A('Verneine: „In jeder Klasse gibt es mindestens ein Kind, das alle Aufgaben gelöst hat.“', 'Es gibt eine Klasse, in der jedes Kind mindestens eine Aufgabe nicht gelöst hat.',
+          ['In keiner Klasse hat ein Kind alle Aufgaben gelöst.', 'In jeder Klasse gibt es ein Kind, das keine Aufgabe gelöst hat.', 'Es gibt eine Klasse, in der kein Kind eine Aufgabe gelöst hat.'],
+          'Von außen nach innen verneinen: „jede Klasse“ → „es gibt eine Klasse“, „es gibt ein Kind“ → „jedes Kind“, „alle Aufgaben gelöst“ → „mindestens eine nicht gelöst“.', 'Verneine Schritt für Schritt von außen nach innen.'))
+ST.knobel('negation', A('p: „Höchstens zwei der drei Lampen brennen.“ Wie lautet ¬p?', 'Alle drei Lampen brennen.', ['Keine Lampe brennt.', 'Mindestens zwei Lampen brennen.', 'Höchstens eine Lampe brennt.'],
+          '„Höchstens zwei“ heißt 0, 1 oder 2. Das Gegenteil ist der einzige übrige Fall: 3.', 'Welche Anzahlen erlaubt p, welche bleiben übrig?'))
+
+# verknuepfen
+ST.stufenleiter('verknuepfen', 'Wahrheitswert von p ∧ q und p ∨ q bestimmen.',
+                'Verneinte Verknüpfungen, „oder“ im Alltag, aus p ∨ q falsch auf p und q schließen.',
+                'Wahre Ausdrücke auswählen, Zählen mit „und“/„und nicht“, Wahrheitswerte rückwärts, Fehler „doppelt gezählt“, Zusammenhang ∧ und ∨ begründen.')
+ST.typ('verknuepfen', '/p ∨ q wahr oder falsch/', 'direkt')
+ST.typ('verknuepfen', '/^/', 'erkennen', s=1)
+ST.typ('verknuepfen', '/^/', 'mehrschritt', s=2)
+ST.typ('verknuepfen', '/Welcher Ausdruck ist wahr/', 'verknuepfen')
+ST.typ('verknuepfen', '/Für wie viele n/', 'transfer')
+ST.typ('verknuepfen', '/^/', 'rueckwaerts', s=3)
+ST.neu('verknuepfen', 'einkleidung', A('Eintritt frei, wenn man unter 12 Jahre alt ist oder einen Schülerausweis hat. Hat jemand mit 15 Jahren und Schülerausweis freien Eintritt?', 'Ja.',
+       ['Nein, weil er älter als 12 ist.', 'Nein, weil nur eine Bedingung erfüllt ist.', 'Nur, wenn er beides erfüllt.'],
+       '„oder“ ist wahr, sobald eine Bedingung erfüllt ist: Der Schülerausweis genügt.', 'Wie viele Bedingungen müssen bei „oder“ erfüllt sein?'))
+ST.neu('verknuepfen', 'umkehr', A('Man weiß: p ∨ q ist falsch. Was weiß man über p und q?', 'Beide sind falsch.', ['Beide sind wahr.', 'Genau eine ist falsch.', 'Man weiß nichts.'],
+       'p ∨ q ist nur dann falsch, wenn p und q beide falsch sind.', 'Wann ist „oder“ falsch?'))
+ST.neu('verknuepfen', 'fehler', A('Für n von 1 bis 20: p: „n ist durch 2 teilbar“, q: „n ist durch 3 teilbar“. Jemand zählt für p ∨ q: 10 + 6 = 16. Was stimmt?', 'Falsch: 6, 12, 18 sind doppelt gezählt; es sind 13.',
+       ['Richtig.', 'Falsch: es sind 10.', 'Falsch: es sind 3.'], 'Durch 2: 10, durch 3: 6, durch beide (6, 12, 18): 3. Also 10 + 6 − 3 = 13.', 'Welche Zahlen erfüllen beides?'))
+ST.neu('verknuepfen', 'begruenden', A('Stimmt: Wenn p ∧ q wahr ist, dann ist auch p ∨ q wahr?', 'Ja, dann sind p und q wahr, also erst recht eines von beiden.', ['Nein, nie.', 'Nur, wenn p falsch ist.', 'Nein, „oder“ heißt „entweder – oder“.'],
+       'p ∧ q wahr heißt: beide wahr. Für p ∨ q reicht schon eine wahre.', 'Was heißt p ∧ q wahr?'))
+ST.knobel('verknuepfen', Z('Wie viele der Zahlen 1 bis 100 sind durch 2 oder durch 5 teilbar?', 60, '50 + 20 - 10',
+          'Durch 2: 50, durch 5: 20. Durch beide (also durch 10): 10, die sonst doppelt gezählt wären. 50 + 20 − 10 = 60.', 'Achte auf Zahlen, die beides erfüllen.'))
+ST.knobel('verknuepfen', A('Von drei Personen sagt genau eine die Wahrheit. A: „B lügt.“ B: „C lügt.“ C: „A und B lügen.“ Wer sagt die Wahrheit?', 'B', ['A', 'C', 'niemand'],
+          'A wahr ⇒ B lügt ⇒ C sagt die Wahrheit: zwei Wahre. C wahr ⇒ A und B lügen; A lügt heißt aber B sagt die Wahrheit: Widerspruch. B wahr ⇒ C lügt; A sagt „B lügt“ – falsch, A lügt; C sagt „A und B lügen“ – falsch. Genau einer: B.',
+          'Probiere jede Person als die einzige Wahre aus.'))
+
+# tafel
+ST.stufenleiter('tafel', 'Einzelne Zeilen und einfache Spalten (∧, ∨) ausfüllen.',
+                'Spalten mit ¬, Zeilen zählen, falsche Zeile finden.',
+                'Gleichwertigkeit prüfen, Tafeln mit drei Aussagen, Ausdruck aus einer Spalte, allgemeingültige Ausdrücke.')
+ST.typ('tafel', '/^Fülle/', 'direkt', s=1)
+ST.typ('tafel', '/^/', 'erkennen', s=1)
+ST.typ('tafel', '/^Fülle|In wie vielen der 4/', 'darstellung', s=2)
+ST.typ('tafel', '/^/', 'mehrschritt', s=2)
+ST.typ('tafel', '/gleichwertig/', 'begruenden')
+ST.typ('tafel', '/drei Aussagen/', 'transfer')
+ST.typ('tafel', '/Die Spalte eines Ausdrucks/', 'rueckwaerts')
+ST.typ('tafel', '/^/', 'verknuepfen', s=3)
+ST.neu('tafel', 'umkehr', A('In welcher Zeile der Wahrheitstafel ist ¬p ∨ q falsch?', 'p wahr, q falsch', ['p falsch, q wahr', 'p wahr, q wahr', 'p falsch, q falsch'],
+       '¬p ∨ q ist nur falsch, wenn ¬p und q beide falsch sind, also p wahr und q falsch.', 'Wann ist ein „oder“ falsch?'))
+ST.knobel('tafel', Z('Wie viele verschiedene Spalten kann ein Ausdruck aus p und q in der Wahrheitstafel (4 Zeilen) überhaupt haben?', 16, '2**4',
+          'Jede der 4 Zeilen kann w oder f sein, unabhängig voneinander: 2 · 2 · 2 · 2 = 16 mögliche Spalten. Jede davon lässt sich mit ¬, ∧, ∨ auch wirklich bauen.', 'Wie viele Möglichkeiten hat jede Zeile?'))
+ST.knobel('tafel', Z('Wahrheitstafel mit p, q, r (8 Zeilen). In wie vielen Zeilen ist (p ∨ q) ∧ (q ∨ r) ∧ (p ∨ r) wahr?', 4, '3 + 1',
+          'Jedes Paar muss mindestens eine wahre Aussage enthalten. Das geht genau dann, wenn höchstens eine der drei falsch ist: drei Zeilen mit genau zwei wahren plus die Zeile www – zusammen 4.',
+          'Was passiert, wenn zwei der drei Aussagen falsch sind?'))
+
+# folgerung
+ST.stufenleiter('folgerung', 'Wahrheitswert von p ⇒ q bestimmen.',
+                'Umkehrung prüfen, Rückschluss vom Dann-Teil, Wenn-dann im Alltag.',
+                'Sichere Folgerungen (Kontraposition), Kartenaufgabe, Fehler „Umkehrschluss“, Modus tollens, Gegenbeispiele zählen.')
+ST.typ('folgerung', '/^p ist wahr/', 'direkt')
+ST.typ('folgerung', '/^/', 'erkennen', s=1)
+ST.typ('folgerung', '/Darf man schließen/', 'umkehr')
+ST.typ('folgerung', '/regnet/', 'einkleidung')
+ST.typ('folgerung', '/^/', 'mehrschritt', s=2)
+ST.typ('folgerung', '/folgt sicher/', 'begruenden')
+ST.typ('folgerung', '/Karte/', 'transfer')
+ST.typ('folgerung', '/^/', 'mehrschritt', s=3)
+ST.neu('folgerung', 'fehler', A('„Wenn es regnet, ist die Straße nass.“ Die Straße ist nass. Jemand folgert: „Also hat es geregnet.“ Was stimmt?', 'Falsch: Die Straße kann auch aus einem anderen Grund nass sein.',
+       ['Richtig.', 'Richtig, weil die Aussage wahr ist.', 'Falsch: Dann hat es sicher nicht geregnet.'],
+       'Aus p ⇒ q und q folgt p nicht (Umkehrschluss). Ein Rasensprenger macht die Straße auch nass.', 'Gibt es andere Gründe für eine nasse Straße?'))
+ST.neu('folgerung', 'rueckwaerts', A('p ⇒ q ist wahr, und q ist falsch. Was folgt für p?', 'p ist falsch.', ['p ist wahr.', 'Über p weiß man nichts.', 'p und q sind gleich.'],
+       'Wäre p wahr, müsste q wahr sein. q ist falsch, also kann p nicht wahr sein.', 'Was wäre, wenn p wahr wäre?'))
+ST.neu('folgerung', 'parameter', Z('Für wie viele n aus 1, 2, …, 10 ist „Wenn n gerade ist, dann ist n durch 4 teilbar“ falsch?', 3, '3',
+       'Falsch nur, wenn n gerade, aber nicht durch 4 teilbar ist: n = 2, 6, 10. Für ungerade n ist die Folgerung wahr.', 'Wann ist eine Wenn-dann-Aussage falsch?'))
+ST.knobel('folgerung', A('„Wer regelmäßig übt, besteht die Prüfung.“ (wahr) Jemand hat die Prüfung nicht bestanden. Was folgt sicher?', 'Diese Person hat nicht regelmäßig geübt.',
+          ['Diese Person hat gar nicht geübt.', 'Nichts.', 'Diese Person hat regelmäßig geübt.'],
+          'Kontraposition: Aus p ⇒ q folgt ¬q ⇒ ¬p. Nicht bestanden ⇒ nicht regelmäßig geübt. „Gar nicht geübt“ folgt nicht – vielleicht nur unregelmäßig.', 'Nutze die Kontraposition.'))
+ST.knobel('folgerung', A('Wahr oder falsch: „Wenn 2 + 2 = 5 ist, dann ist der Mond aus Käse.“', 'wahr', ['falsch', 'keine Aussage', 'wahr und falsch zugleich'],
+          'p ⇒ q ist nur falsch, wenn p wahr und q falsch ist. Hier ist p falsch – dann ist die Folgerung in der Logik immer wahr, egal was q sagt.', 'Wann genau ist p ⇒ q falsch?'))
+
+if __name__ == '__main__':
+    stufen('sonder.logik', ST)

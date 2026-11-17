@@ -575,3 +575,158 @@ d = bauen('daten.standardabweichung',
       offen=['σ wird als Standardabweichung der Gesamtheit berechnet (Teilen durch n), wie im IB MYP üblich. Die Stichproben-Form (durch n − 1) ist bewusst nicht enthalten.',
              'Im IB wird σ meist mit dem Taschenrechner (GDC) bestimmt. Hier rechnen die Kinder mit kleinen Datensätzen von Hand, um die Bedeutung zu verstehen.'], plan=PLAN2)
 umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
+
+
+# ---- STUFEN (Zwanzigste Runde, Zusatz Realschule/IB, Zweig stufen-rsib-2) ----
+import math  # noqa: E402
+from _stufen_rsib2 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('daten.standardabweichung', 20_2_2)
+Z, A, L = ST.Z, ST.A, ST.L
+ST.vorbild += ['IB MYP eAssessment Mathematics (Extended): Streumaße berechnen und Datensätze vergleichen (mehrteilige Datenaufgabe)']
+
+# abweichung
+ST.stufenleiter('abweichung', 'Mittelwert berechnen, Abweichung eines Werts (Wert − Mittelwert) ausrechnen.',
+                'Wert aus Abweichung, stärkste Abweichung finden, Abweichungen in Sachsituationen.',
+                'Fehlenden Wert aus dem Mittelwert, letzte Abweichung über „Summe = 0“, Fehler beim Vorzeichen, Messfehler-Überlegung.')
+ST.typ('abweichung', '/^/', 'direkt', s=1)
+ST.typ('abweichung', '/Berechne die Abweichung des Wertes/', 'direkt')
+ST.typ('abweichung', '/Wie groß ist dieser Wert/', 'umkehr')
+ST.typ('abweichung', '/^/', 'mehrschritt', s=2)
+ST.typ('abweichung', '/Wie groß ist der fehlende Wert/', 'rueckwaerts')
+ST.typ('abweichung', '/Wie groß ist der neue Mittelwert/', 'mehrschritt')
+ST.typ('abweichung', '/Wie groß ist die letzte Abweichung/', 'verknuepfen')
+ST.typ('abweichung', '/^/', 'begruenden', s=3)
+ST.neu('abweichung', 'erkennen', Z('Die Werte 4; 7; 10 haben den Mittelwert 7. Welcher Wert hat die Abweichung 0?', 7, '7',
+       'Abweichung 0 heißt: Der Wert ist genau der Mittelwert. 7 − 7 = 0.', 'Wann ist Wert − Mittelwert gleich 0?'))
+ST.neu('abweichung', 'einkleidung', Z('Ein Bäcker wiegt vier Brote: 495 g, 510 g, 502 g und 493 g; der Mittelwert ist 500 g. Um wie viel Gramm liegt das schwerste Brot über dem Mittelwert?', 10, '510 - 500',
+       'Das schwerste wiegt 510 g: 510 − 500 = 10 g.', 'Welches Brot ist das schwerste?', einheit='g'))
+ST.neu('abweichung', 'einkleidung', Z('Die Temperaturen einer Woche haben den Mittelwert 18 °C. Am Montag waren es 13 °C. Wie groß ist die Abweichung des Montags vom Mittelwert?', -5, '13 - 18',
+       'Abweichung = Wert − Mittelwert = 13 − 18 = −5 °C. Negativ: Der Montag lag darunter.', 'Wert minus Mittelwert.', einheit='°C'))
+ST.neu('abweichung', 'fehler', A('Jemand berechnet für 3; 5; 10 (Mittelwert 6) die Abweichungen 3; 1; 4. Was stimmt?', 'Falsch: Die Vorzeichen fehlen, richtig sind −3; −1; 4.',
+       ['Richtig.', 'Falsch: Richtig sind 3; 5; 10.', 'Falsch: Richtig sind −3; 1; −4.'],
+       'Abweichung = Wert − Mittelwert: 3 − 6 = −3, 5 − 6 = −1, 10 − 6 = 4. Probe: Die Summe muss 0 sein.', 'Prüfe mit der Summe der Abweichungen.'))
+ST.neu('abweichung', 'transfer', A('Eine Waage zeigt bei jedem Wiegen 3 g zu viel an. Was gilt für die Abweichungen der Messwerte vom Mittelwert?', 'Sie bleiben gleich.',
+       ['Jede wird um 3 g größer.', 'Jede wird um 3 g kleiner.', 'Sie werden alle 0.'],
+       'Jeder Wert ist um 3 g zu groß, also auch der Mittelwert. Wert − Mittelwert ändert sich dadurch nicht.', 'Was passiert mit dem Mittelwert?'))
+ST.knobel('abweichung', Z('Drei Zahlen haben den Mittelwert 10. Zwei von ihnen weichen um 4 und um −7 vom Mittelwert ab. Wie heißt die dritte Zahl?', 13, '10 + (0 - 4 + 7)',
+          'Die Abweichungen ergeben zusammen 0: 4 + (−7) + d = 0 ⇒ d = 3. Die dritte Zahl ist 10 + 3 = 13. Probe: 14, 3, 13 haben die Summe 30.',
+          'Was weißt du über die Summe aller Abweichungen?'))
+ST.knobel('abweichung', A('Bei fünf Zahlen ist die Summe der Abweichungsbeträge |Wert − Mittelwert| gleich 0. Was folgt daraus?', 'Alle fünf Zahlen sind gleich.',
+          ['Die Zahlen sind 1, 2, 3, 4, 5.', 'Der Mittelwert ist 0.', 'Das ist unmöglich.'],
+          'Beträge sind nie negativ. Ihre Summe ist nur 0, wenn jeder Betrag 0 ist – jede Zahl ist also gleich dem Mittelwert.',
+          'Kann eine Summe von nicht-negativen Zahlen 0 sein, wenn eine davon positiv ist?'))
+
+# varianz
+ST.stufenleiter('varianz', 'Varianz nach dem Schema (Mittelwert, Abweichungen, quadrieren, mitteln) berechnen.',
+                'Varianz aus gegebenen Abweichungen, zwei Datensätze vergleichen, Varianz in einer Sachsituation.',
+                'Fehlenden Wert bestimmen und dann die Varianz, Werte aus Mittelwert und Varianz, Fehler (−12)² = −144, Wirkung eines Werts genau am Mittelwert.')
+ST.typ('varianz', '/^/', 'direkt', s=1)
+ST.typ('varianz', '/Welcher hat die größere Varianz/', 'mehrschritt')
+ST.typ('varianz', '/^/', 'umkehr', s=2)
+ST.typ('varianz', '/Bestimme x und danach/', 'verknuepfen')
+ST.typ('varianz', '/Mia rechnet/', 'fehler')
+ST.typ('varianz', '/Zwei Werte haben/', 'rueckwaerts')
+ST.typ('varianz', '/^/', 'begruenden', s=3)
+ST.neu('varianz', 'erkennen', A('Welcher Schritt kommt bei der Varianz direkt nach dem Berechnen der Abweichungen?', 'Die Abweichungen quadrieren.',
+       ['Die Abweichungen addieren.', 'Die Wurzel ziehen.', 'Durch die Anzahl teilen.'], 'Reihenfolge: Mittelwert, Abweichungen, quadrieren, Mittelwert der Quadrate.', 'Schau auf das Beispiel der Lernkarte.'))
+ST.neu('varianz', 'einkleidung', Z('Ein Imker wiegt vier Honiggläser: 498 g, 502 g, 503 g und 497 g. Berechne die Varianz der Massen (in g²).', 6.5, '((498-500)**2 + (502-500)**2 + (503-500)**2 + (497-500)**2)/4',
+       'Mittelwert 2 000 : 4 = 500 g. Abweichungen −2; 2; 3; −3. Quadrate 4; 4; 9; 9, Summe 26. Varianz 26 : 4 = 6,5 g².', 'Erst den Mittelwert.', einheit='g²'))
+ST.knobel('varianz', Z('Die Werte 3; 5; 7; x (mit x > 7) haben die Varianz 5. Wie groß ist x?', 9, '9',
+          'Probiere: x = 9 gibt den Mittelwert 24 : 4 = 6, Abweichungen −3; −1; 1; 3, Quadrate 9 + 1 + 1 + 9 = 20, Varianz 5. Je größer x, desto weiter liegt es vom Rest weg und desto größer wird die Varianz – es gibt nur diese Lösung.',
+          'Wähle x so, dass die Werte symmetrisch um den Mittelwert liegen.'))
+ST.knobel('varianz', A('Alle Werte eines Datensatzes liegen zwischen 10 und 20 (Grenzen eingeschlossen). Kann die Varianz größer als 25 sein?', 'Nein, höchstens 25.',
+          ['Ja, wenn es sehr viele Werte sind.', 'Ja, bis 100.', 'Nein, höchstens 10.'],
+          'Am meisten streuen die Werte, wenn die Hälfte bei 10 und die Hälfte bei 20 liegt: Mittelwert 15, jede Abweichung ±5, Varianz 25. Jeder Wert weiter innen verkleinert die Abweichungen.',
+          'Wo müssen die Werte liegen, damit sie möglichst weit vom Mittelwert weg sind?'))
+
+# sigma
+s1 = round(math.sqrt(2), 2); s2 = round(math.sqrt(2.5), 2); s3 = round(math.sqrt(3), 2)
+ST.stufenleiter('sigma', 'σ als Wurzel der Varianz berechnen; σ für kleine Datensätze.',
+                'Varianz aus σ, σ in Sachsituationen (Runden, Füllmengen), Streuung zweier Angaben vergleichen.',
+                'Häufigkeitstabelle, Datensätze vergleichen, Werte aus Mittelwert und σ, Fehler „nicht quadriert“, Parameter a, mehrteilige Aufgabe.')
+ST.typ('sigma', '/^/', 'direkt', s=1)
+ST.typ('sigma', 'Die Varianz ist', 'direkt')
+ST.typ('sigma', '/^/', 'umkehr', s=2)
+ST.typ('sigma', 'Körpergrößen in cm', 'einkleidung')
+ST.typ('sigma', 'Massen in kg', 'umkehr')
+ST.typ('sigma', 'Die Tabelle zeigt', 'verknuepfen')
+ST.typ('sigma', '/^/', 'begruenden', s=3)
+ST.neu('sigma', 'erkennen', A('Die Werte eines Datensatzes sind in cm gemessen. Welche Einheit hat die Standardabweichung σ?', 'cm', ['cm²', 'keine Einheit', '%'],
+       'Die Varianz hat cm², die Wurzel daraus wieder cm. Darum ist σ leichter zu deuten als die Varianz.', 'Was macht die Wurzel aus cm²?'))
+ST.neu('sigma', 'einkleidung', Z('Ein Läufer läuft fünf Runden in 60 s, 62 s, 58 s, 61 s und 59 s. Berechne σ auf zwei Nachkommastellen.', s1, f'round({math.sqrt(2)!r}, 2)',
+       'Mittelwert 300 : 5 = 60 s. Abweichungen 0; 2; −2; 1; −1, Quadrate 0 + 4 + 4 + 1 + 1 = 10. Varianz 2, σ = √2 ≈ 1,41 s.', 'Erst Mittelwert, dann Varianz, dann Wurzel.', einheit='s', toleranz=0.01))
+ST.neu('sigma', 'einkleidung', Z('Vier Saftflaschen enthalten 1 002 ml, 998 ml, 1 001 ml und 999 ml. Berechne σ auf zwei Nachkommastellen.', s2, f'round({math.sqrt(2.5)!r}, 2)',
+       'Mittelwert 1 000 ml. Abweichungen 2; −2; 1; −1, Quadrate 4 + 4 + 1 + 1 = 10. Varianz 2,5, σ ≈ 1,58 ml.', 'Rechne mit den Abweichungen von 1 000.', einheit='ml', toleranz=0.01))
+ST.neu('sigma', 'mehrschritt', A('Datensatz A hat σ = 3, Datensatz B hat die Varianz 10. Welcher streut stärker?', 'B, denn √10 ≈ 3,16 > 3', ['A, denn 3 ist eine Standardabweichung', 'beide gleich', 'B, denn 10 > 3'],
+       'Vergleichbar sind nur gleiche Größen: σ von B ist √10 ≈ 3,16. Das ist etwas mehr als 3. „10 > 3“ vergleicht Äpfel mit Birnen.', 'Rechne beide in σ um.'))
+ST.neu('sigma', 'rueckwaerts', L('Zwei Werte haben den Mittelwert 10 und die Standardabweichung 3. Wie heißen sie? (kleinerer zuerst)', '□ und □', [7, 13], ['10 - 3', '10 + 3'],
+       'Bei zwei Werten liegen beide gleich weit vom Mittelwert: 10 − d und 10 + d. Varianz d² = 9, also σ = d = 3. Die Werte sind 7 und 13.', 'Wie liegen zwei Werte um ihren Mittelwert?'))
+ST.neu('sigma', 'fehler', A('Jemand berechnet σ von 2; 4; 6; 8 so: Abweichungen −3; −1; 1; 3, Summe 0, also σ = 0. Was stimmt?', 'Falsch: Die Abweichungen müssen erst quadriert werden; σ = √5 ≈ 2,24.',
+       ['Richtig.', 'Falsch: σ = 8.', 'Falsch: σ = 2.'],
+       'Die Summe der Abweichungen ist immer 0. Darum quadriert man: 9 + 1 + 1 + 9 = 20, Varianz 5, σ = √5 ≈ 2,24.', 'Welcher Schritt fehlt?'))
+ST.neu('sigma', 'parameter', Z('Für welches a > 0 haben die Werte 10 − a; 10; 10 + a die Varianz 6?', 3, '3',
+       'Mittelwert 10. Quadrate a², 0, a², Varianz 2a² : 3 = 6 ⇒ a² = 9 ⇒ a = 3.', 'Stelle die Varianz mit a auf.'))
+ST.neu('sigma', 'pruefung', L('Werte: 4; 8; 6; 10; 7. a) Mittelwert, b) Varianz, c) Standardabweichung.', 'a) □; b) □; c) □', [7, 4, 2], ['(4+8+6+10+7)/5', '(9+1+1+9+0)/5', '2'],
+       'a) 35 : 5 = 7. b) Abweichungen −3; 1; −1; 3; 0, Quadrate 9 + 1 + 1 + 9 + 0 = 20, 20 : 5 = 4. c) σ = √4 = 2.', 'Arbeite die Teile nacheinander ab.'))
+ST.knobel('sigma', Z('Ein Datensatz besteht nur aus den Werten 0 und 10, beide gleich oft. Wie groß ist σ?', 5, '5',
+          'Mittelwert 5. Jeder Wert weicht um genau 5 ab, jedes Quadrat ist 25, die Varianz 25, σ = 5 – egal, wie viele Werte es sind.', 'Wie weit liegt jeder Wert vom Mittelwert weg?'))
+ST.knobel('sigma', Z('Zu den Werten 4 und 6 soll ein dritter Wert so dazukommen, dass σ der drei Werte möglichst klein wird. Welcher Wert?', 5, '5',
+          'Ein Wert genau am Mittelwert 5 trägt 0 zur Summe der Quadrate bei: σ² = (1 + 1 + 0) : 3. Jeder andere Wert verschiebt den Mittelwert und vergrößert die Quadrate.', 'Welcher Wert weicht am wenigsten ab?'))
+
+# eigenschaften
+ST.stufenleiter('eigenschaften', 'Wirkung von „+ Zahl“ (σ bleibt) und „· Zahl“ (σ mal Betrag) direkt anwenden; σ = 0 bei gleichen Werten.',
+                'Zwei Schritte nacheinander, negativer Faktor, Mittelwert statt σ gesucht, Bonuspunkte.',
+                'Umrechnungen (Prozent, Fahrenheit), die Änderung rückwärts erschließen, Fehler „− 5 macht σ kleiner“, negativer Faktor als Parameter.')
+ST.typ('eigenschaften', 'Alle 5 Werte', 'erkennen')
+ST.typ('eigenschaften', '/^/', 'direkt', s=1)
+ST.typ('eigenschaften', 'Ein Datensatz hat σ = 5. Jeder Wert wird mit 2 multipliziert.', 'direkt')
+ST.typ('eigenschaften', '/Wie groß ist der neue Mittelwert/', 'umkehr')
+ST.typ('eigenschaften', '/^/', 'mehrschritt', s=2)
+ST.typ('eigenschaften', 'Ein Test hat höchstens 20 Punkte', 'transfer')
+ST.typ('eigenschaften', 'Tagestemperaturen', 'verknuepfen')
+ST.typ('eigenschaften', '/Was wurde gemacht|Mit welcher Zahl wurde/', 'rueckwaerts')
+ST.typ('eigenschaften', '/^/', 'begruenden', s=3)
+ST.neu('eigenschaften', 'einkleidung', Z('Alle Kinder einer Klasse bekommen 2 Bonuspunkte. Vorher war σ = 3,5 Punkte. Wie groß ist σ danach?', 3.5, '3.5',
+       'Jeder Wert und der Mittelwert steigen um 2; die Abstände bleiben gleich: σ = 3,5 Punkte.', 'Was passiert mit den Abständen zum Mittelwert?', einheit='Punkte'))
+ST.neu('eigenschaften', 'fehler', A('Jemand sagt: „Zieht man von jedem Wert 5 ab, wird σ um 5 kleiner.“ Was stimmt?', 'Falsch: σ bleibt gleich, nur der Mittelwert sinkt um 5.',
+       ['Richtig.', 'Falsch: σ wird um 25 kleiner.', 'Falsch: σ wird 0.'],
+       'Die ganze Datenreihe rutscht um 5 nach unten, auch der Mittelwert. Die Abstände – und damit σ – bleiben.', 'Was passiert mit den Abständen?'))
+ST.neu('eigenschaften', 'parameter', A('Jeder Wert eines Datensatzes wird mit derselben Zahl k multipliziert. Vorher war σ = 4, danach σ = 10. Welche Werte kann k haben?',
+       'k = 2,5 oder k = −2,5', ['nur k = 2,5', 'k = 6 oder k = −6', 'nur k = 6'],
+       'σ wird mit dem Betrag von k multipliziert: |k| · 4 = 10 ⇒ |k| = 2,5. Ein negatives k spiegelt die Werte, die Streuung bleibt gleich groß.', 'Was macht ein negativer Faktor mit den Abständen?'))
+ST.knobel('eigenschaften', A('A: 1; 2; 3; 4; 5. B: 101; 102; 103; 104; 105. C: 10; 20; 30; 40; 50. Welche zwei Datensätze haben dieselbe Standardabweichung?', 'A und B',
+          ['A und C', 'B und C', 'alle drei'],
+          'B entsteht aus A durch + 100: σ bleibt. C entsteht aus A durch · 10: σ wird zehnmal so groß. Also haben A und B dasselbe σ (≈ 1,41).', 'Wie entsteht B aus A, wie C aus A?'))
+ST.knobel('eigenschaften', L('Ein Datensatz hat x̄ = 20 und σ = 4. Aus jedem Wert x bildet man (x − 20) : 4. Welchen Mittelwert und welches σ haben die neuen Werte?', 'x̄ = □; σ = □', [0, 1], ['(20 - 20)/4', '4/4'],
+          'Minus 20 verschiebt den Mittelwert auf 0, σ bleibt 4. Geteilt durch 4: Mittelwert 0, σ = 1. So vergleicht man Werte aus verschiedenen Tests („Standardisieren“).',
+          'Zwei Schritte: erst verschieben, dann stauchen.'))
+
+# deuten
+ST.stufenleiter('deuten', 'Den Bereich x̄ − σ bis x̄ + σ angeben; kleineres σ = gleichmäßiger.',
+                'Werte im Bereich zählen, Gruppen vergleichen, aus dem Bereich x̄ und σ zurückrechnen.',
+                'Aussagen zu Klassen prüfen, Abstand in σ ausdrücken, σ aus einem Wert rückwärts, Wirkung eines Ausreißers, mehrteiliger Vergleich.')
+ST.typ('deuten', 'Gewicht der Brötchen', 'erkennen')
+ST.typ('deuten', '/^/', 'direkt', s=1)
+ST.typ('deuten', '/^Gruppe 1/', 'einkleidung')
+ST.typ('deuten', '/^/', 'mehrschritt', s=2)
+ST.typ('deuten', '/Wie viele Standardabweichungen/', 'verknuepfen')
+ST.typ('deuten', 'Zwei Maschinen', 'transfer')
+ST.typ('deuten', '/^/', 'begruenden', s=3)
+ST.neu('deuten', 'umkehr', L('Der Bereich x̄ − σ bis x̄ + σ geht von 40 bis 56. Wie groß sind x̄ und σ?', 'x̄ = □; σ = □', [48, 8], ['(40 + 56)/2', '(56 - 40)/2'],
+       'x̄ liegt in der Mitte: (40 + 56) : 2 = 48. Der Bereich ist 2σ breit: 16 : 2 = 8.', 'Wo liegt der Mittelwert im Bereich?'))
+ST.neu('deuten', 'rueckwaerts', Z('Der Wert 70 liegt genau 2 Standardabweichungen über dem Mittelwert 60. Wie groß ist σ?', 5, '(70 - 60)/2',
+       'Abstand 70 − 60 = 10 sind 2σ, also σ = 5.', 'Welcher Abstand entspricht 2σ?'))
+ST.neu('deuten', 'pruefung', A('Zwei Sprinter laufen je fünfmal 100 m (in s). A: 12,0; 12,2; 11,8; 12,1; 11,9. B: 11,6; 12,5; 11,9; 12,4; 11,6. Welche Aussage stimmt?',
+       'Beide haben den Mittelwert 12,0 s; A ist konstanter.', ['B ist im Mittel schneller.', 'Beide sind gleich konstant.', 'A hat den kleineren Mittelwert.'],
+       'Summen jeweils 60,0 s, also Mittelwert 12,0 s. A weicht höchstens 0,2 s ab, B bis zu 0,5 s: A hat das kleinere σ.', 'Berechne erst beide Mittelwerte, dann vergleiche die Abweichungen.'))
+ST.knobel('deuten', A('Klasse 1: x̄ = 60 Punkte, σ = 10. Klasse 2: x̄ = 50 Punkte, σ = 5. Lea hat in Klasse 1 75 Punkte, Tim in Klasse 2 62 Punkte. Wer liegt im Vergleich zu seiner Klasse weiter vorn?',
+          'Tim: 2,4 σ über dem Mittel, Lea nur 1,5 σ.', ['Lea, sie hat mehr Punkte.', 'Beide gleich.', 'Das kann man nicht vergleichen.'],
+          'Lea: (75 − 60) : 10 = 1,5 Standardabweichungen. Tim: (62 − 50) : 5 = 2,4 Standardabweichungen. Gemessen an der eigenen Klasse ist Tim besser.',
+          'Miss den Abstand zum Klassenmittel in „σ-Schritten“.'))
+ST.knobel('deuten', Z('Drei Werte haben den Mittelwert 10 und σ = 0. Der Wert 14 kommt dazu. Wie groß ist σ der vier Werte? Runde auf zwei Nachkommastellen.', round(math.sqrt(3), 2), f'round({math.sqrt(3)!r}, 2)',
+          'σ = 0 heißt: Alle drei Werte sind 10. Neu: 10; 10; 10; 14, Mittelwert 11. Abweichungen −1; −1; −1; 3, Quadrate 1 + 1 + 1 + 9 = 12, Varianz 3, σ = √3 ≈ 1,73.',
+          'Was bedeutet σ = 0 für die drei Werte?', toleranz=0.01))
+
+if __name__ == '__main__':
+    stufen('daten.standardabweichung', ST)

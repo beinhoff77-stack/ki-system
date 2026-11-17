@@ -771,3 +771,174 @@ d = bauen('daten.zweidimensional',
              'App-Wunsch (optional): Das Kind kann die Ausgleichsgerade noch nicht selbst einzeichnen; Aufgaben dazu fehlen deshalb.'],
       vertiefung=[], plan=PLAN2)
 umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
+
+
+# ---- STUFEN (Zwanzigste Runde, Zusatz Realschule/IB, Zweig stufen-rsib-2) ----
+from _stufen_rsib2 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('daten.zweidimensional', 20_2_1)
+Z, A, L = ST.Z, ST.A, ST.L
+ST.vorbild += ['IB MYP eAssessment Mathematics (Statistik: Streudiagramm, Korrelation, Ausgleichsgerade, mehrteilige Datenaufgabe)',
+               'VERA-8 Leitidee Daten (Daten aus Tabellen auswerten, Aussagen zu Zusammenhängen beurteilen)']
+
+# ablesen
+ST.stufenleiter('ablesen', 'Einen Punkt ablesen (x nach rechts, y nach oben), Punkte zählen.',
+                'Unterschiede zwischen Punkten, Punkte über einer Grenze zählen, x zum größten y finden, zwei Bedingungen, Einheit Tausend €.',
+                'Mittelwert oder Prozent aus abgelesenen Werten, fehlenden y-Wert aus dem Mittelwert, Achsen vertauscht, Punkt wandert, mehrteilige Tabellenaufgabe.')
+ST.typ('ablesen', 'Das Streudiagramm zeigt Alter des Autos und Wert; jeder Punkt', 'erkennen')
+ST.typ('ablesen', '/^/', 'direkt', s=1)
+ST.typ('ablesen', '/Um wie viel unterscheiden/', 'mehrschritt')
+ST.typ('ablesen', '/Welchen x-Wert hat der Punkt/', 'umkehr')
+ST.typ('ablesen', '/Bei wie vielen Punkten ist der x-Wert/', 'mehrschritt')
+ST.typ('ablesen', '/Wie viel Euro ist das Auto wert/', 'einkleidung')
+ST.typ('ablesen', '/^/', 'darstellung', s=2)
+ST.typ('ablesen', '/^/', 'verknuepfen', s=3)
+ST.neu('ablesen', 'begruenden', A('Stimmt: In einem Streudiagramm kann zu einem x-Wert immer nur ein Punkt gehören?', 'Nein: Zwei Kinder können gleich lange lernen und verschiedene Punkte haben.',
+       ['Ja, sonst wäre es kein Streudiagramm.', 'Ja, jeder x-Wert kommt nur einmal vor.', 'Nein, aber dann müssen die y-Werte gleich sein.'],
+       'Jeder Punkt ist ein Kind (ein Auto …). Zwei Kinder mit 4 Stunden Lernzeit ergeben zwei Punkte übereinander, z. B. (4 | 55) und (4 | 70).', 'Denk an zwei Kinder mit gleicher Lernzeit.'))
+ST.neu('ablesen', 'fehler', A('Im Streudiagramm Lernzeit (x, in h) – Punkte (y) liegt ein Punkt bei (4 | 60). Jemand sagt: „Dieses Kind hat 60 Stunden gelernt und 4 Punkte bekommen.“ Was stimmt?',
+       'Falsch: x und y sind vertauscht – 4 Stunden, 60 Punkte.', ['Richtig.', 'Falsch: 40 Stunden und 6 Punkte.', 'Falsch: 4 Stunden und 6 Punkte.'],
+       'Die erste Zahl ist x (nach rechts, Lernzeit), die zweite y (nach oben, Punkte): 4 Stunden, 60 Punkte.', 'Welche Zahl gehört zur Achse nach rechts?'))
+ST.neu('ablesen', 'rueckwaerts', Z('Ein Streudiagramm hat 5 Punkte: (1 | 40), (2 | 50), (3 | ?), (4 | 65), (5 | 80). Der Mittelwert der y-Werte ist 58. Welcher y-Wert gehört zum Punkt bei x = 3?',
+       55, '5*58 - (40 + 50 + 65 + 80)', 'Summe aller y-Werte: 5 · 58 = 290. Die bekannten ergeben 40 + 50 + 65 + 80 = 235. Fehlt 290 − 235 = 55.',
+       'Wie groß ist die Summe aller fünf y-Werte?'))
+ST.neu('ablesen', 'transfer', L('Ein Streudiagramm zeigt Alter eines Autos (x, in Jahren) und seinen Wert (y, in Tausend €). Ein Auto liegt bei (3 | 18). Ein Jahr später ist es 2 000 € weniger wert. Wo liegt sein neuer Punkt?',
+       '(□ | □)', [4, 16], ['3 + 1', '18 - 2'], 'Ein Jahr älter: x = 4. 2 000 € = 2 Tausend € weniger: y = 16. Der Punkt wandert nach rechts unten.', 'Achte auf die Einheit „Tausend €“.'))
+ST.neu('ablesen', 'pruefung', L('Messwerte (x: Lernzeit in h, y: Punkte): (1 | 45), (2 | 50), (3 | 62), (4 | 70), (5 | 73). a) Wie viele Punkte liegen über y = 60? b) Mittelwert der y-Werte? c) Wie viel Prozent haben mehr als 2 h gelernt?',
+       'a) □; b) □; c) □ %', [3, 60, 60], ['3', '(45 + 50 + 62 + 70 + 73)/5', '3/5*100'],
+       'a) 62, 70, 73: drei. b) 300 : 5 = 60. c) x = 3, 4, 5: drei von fünf = 60 %.', 'Arbeite die Teile nacheinander ab.'))
+ST.knobel('ablesen', Z('In einem Streudiagramm liegen 10 Punkte. 6 haben einen x-Wert über 5, 7 einen y-Wert über 50, und 2 Punkte haben keines von beidem. Wie viele Punkte haben beides?',
+          5, '6 + 7 - (10 - 2)', 'Mindestens eine Bedingung erfüllen 10 − 2 = 8 Punkte. Zählt man 6 + 7 = 13, werden die Punkte mit beidem doppelt gezählt: 13 − 8 = 5.',
+          'Wie viele Punkte erfüllen mindestens eine der beiden Bedingungen?'))
+ST.knobel('ablesen', Z('Fünf Punkte haben den Mittelwert der y-Werte 20. Ein sechster Punkt kommt dazu, danach ist der Mittelwert 22. Welchen y-Wert hat der neue Punkt?',
+          32, '6*22 - 5*20', 'Vorher Summe 5 · 20 = 100, nachher 6 · 22 = 132. Der neue Punkt bringt 132 − 100 = 32. Er hebt jeden der sechs um 2 an: 20 + 6 · 2 = 32.',
+          'Rechne mit Summen statt mit Mittelwerten.'))
+
+# zusammenhang
+ST.stufenleiter('zusammenhang', 'Positiv, negativ oder kein Zusammenhang am Bild oder an einer Beschreibung erkennen.',
+                'Zusammenhang in Alltagssätzen erwarten, stark/schwach unterscheiden, zur Art die passende Punktwolke beschreiben.',
+                'Aussagen über Tendenzen prüfen, Ausnahmen deuten, Gruppen vergleichen, Größenpaar zum Bild finden, Fehler „fallend = kein Zusammenhang“, Daten aus Tabelle.')
+ST.typ('zusammenhang', '/^/', 'erkennen', s=1)
+ST.typ('zusammenhang', 'Welche Art von Zusammenhang erwartest du?', 'einkleidung')
+ST.typ('zusammenhang', 'Beschreibe den Zusammenhang', 'darstellung')
+ST.typ('zusammenhang', '/^/', 'darstellung', s=2)
+ST.typ('zusammenhang', 'Für zwei Gruppen', 'transfer')
+ST.typ('zusammenhang', 'Die Achsen des Streudiagramms sind nicht beschriftet', 'rueckwaerts')
+ST.typ('zusammenhang', '/^/', 'begruenden', s=3)
+ST.neu('zusammenhang', 'direkt', A('Die Punkte steigen von links unten nach rechts oben und liegen eng an einer gedachten Linie. Welcher Zusammenhang ist das?', 'stark positiv',
+       ['stark negativ', 'schwach positiv', 'kein Zusammenhang'], 'Steigend heißt positiv, eng an einer Linie heißt stark.', 'Steigen oder fallen die Punkte? Wie eng liegen sie?'))
+ST.neu('zusammenhang', 'direkt', A('Die Punkte bilden eine runde Wolke ohne erkennbare Richtung. Welcher Zusammenhang ist das?', 'kein Zusammenhang',
+       ['schwach positiv', 'stark negativ', 'stark positiv'], 'Ohne Richtung steigt y weder mit x noch fällt es: kein Zusammenhang.', 'Kannst du eine Richtung erkennen?'))
+ST.neu('zusammenhang', 'umkehr', A('Zwischen zwei Größen besteht ein stark negativer Zusammenhang. Wie sieht das Streudiagramm aus?',
+       'Die Punkte fallen von links oben nach rechts unten und liegen eng beieinander.',
+       ['Die Punkte steigen und liegen weit verstreut.', 'Die Punkte fallen, liegen aber weit verstreut.', 'Die Punkte liegen auf einer waagrechten Linie.'],
+       'Negativ: fallend. Stark: eng an einer Linie.', 'Übersetze „negativ“ und „stark“ einzeln.'))
+ST.neu('zusammenhang', 'fehler', A('Jemand sagt über ein Streudiagramm: „Die Punkte fallen von links nach rechts, also gibt es keinen Zusammenhang.“ Was stimmt?',
+       'Falsch: Fallende Punkte zeigen einen negativen Zusammenhang.', ['Richtig.', 'Falsch: Fallende Punkte zeigen einen positiven Zusammenhang.', 'Falsch: Man kann es ohne Zahlen nicht sagen.'],
+       'Kein Zusammenhang heißt: keine Richtung. Fallen die Punkte, wird y mit größerem x kleiner – ein negativer Zusammenhang.', 'Was bedeutet „kein Zusammenhang“ im Bild?'))
+ST.neu('zusammenhang', 'verknuepfen', A('Bei 8 Punkten gilt: Wird x um 1 größer, wird y immer um genau 3 kleiner. Welcher Zusammenhang liegt vor?',
+       'perfekt negativ: alle Punkte liegen auf einer fallenden Geraden', ['schwach negativ', 'stark positiv', 'kein Zusammenhang'],
+       'Immer genau −3 pro Schritt heißt: Die Punkte liegen auf einer Geraden mit Steigung −3. Enger geht es nicht.', 'Denk an eine lineare Funktion mit Steigung −3.'))
+ST.neu('zusammenhang', 'pruefung', A('Ein Händler notiert Alter (x, in Jahren) und Verkaufspreis (y, in €) von Fahrrädern: (1 | 300), (2 | 260), (4 | 190), (5 | 160), (7 | 90). Welche Aussage trifft zu?',
+       'Stark negativer Zusammenhang: Ältere Räder bringen deutlich weniger.', ['Stark positiver Zusammenhang.', 'Kein Zusammenhang, weil die Abstände ungleich sind.', 'Schwach negativer Zusammenhang, weil ein Rad 90 € kostet.'],
+       'Mit jedem Jahr sinkt der Preis um etwa 35 €, ohne Ausnahme: fallend und eng an einer Linie.', 'Trage die Punkte in Gedanken ein: steigt oder fällt y, und wie gleichmäßig?'))
+ST.knobel('zusammenhang', A('Ein Streudiagramm zeigt Körpergröße in cm (x) und Schuhgröße (y) von 20 Kindern, stark positiv. Man schreibt die Größen in Metern statt in Zentimetern. Was passiert mit dem Zusammenhang?',
+          'Nichts: Er bleibt stark positiv.', ['Er wird schwächer.', 'Er wird negativ.', 'Er verschwindet.'],
+          'Alle x-Werte werden durch 100 geteilt. Das Bild wird nur waagrecht zusammengeschoben; die Reihenfolge der Punkte und ihre Lage zueinander bleiben gleich. Die Art des Zusammenhangs hängt nicht von der Einheit ab.',
+          'Was ändert sich an der Reihenfolge der Punkte?'))
+ST.knobel('zusammenhang', Z('Die Punkte (1 | 5), (2 | 4) und (3 | 3) liegen auf einer fallenden Geraden. Ein vierter Punkt hat x = 7. Welchen y-Wert muss er haben, damit alle vier genau auf dieser Geraden liegen?',
+          -1, '5 - (7 - 1)', 'Pro Schritt nach rechts sinkt y um 1: y = 6 − x. Bei x = 7: y = 6 − 7 = −1.', 'Wie viel sinkt y je Schritt nach rechts?'))
+
+# gerade
+ST.stufenleiter('gerade', 'Mit der Gleichung der Ausgleichsgeraden einen y-Wert schätzen oder an der Geraden ablesen.',
+                'Steigung im Sachzusammenhang deuten, Wert ablesen, x zu einem gewünschten y finden, Abweichung eines Kindes von der Schätzung.',
+                'Gerade aus zwei Punkten aufstellen, Grenzen der Schätzung (ganze Stunden, Extrapolation), Fehler beim Deuten, Parameter m bestimmen.')
+ST.typ('gerade', 'Lies an der Ausgleichsgeraden ab', 'erkennen', s=1)
+ST.typ('gerade', '/^/', 'direkt', s=1)
+ST.typ('gerade', 'Lies an der Ausgleichsgeraden ab', 'darstellung')
+ST.typ('gerade', 'Die Ausgleichsgerade hat die Gleichung', 'direkt')
+ST.typ('gerade', '/^x:/', 'einkleidung')
+ST.typ('gerade', '/Um wie viele Punkte liegt er unter/', 'mehrschritt')
+ST.typ('gerade', 'Eine Ausgleichsgerade geht durch', 'verknuepfen')
+ST.typ('gerade', '/Ab welcher ganzen Stundenzahl/', 'rueckwaerts')
+ST.typ('gerade', '/^/', 'begruenden', s=3)
+ST.neu('gerade', 'umkehr', Z('Die Ausgleichsgerade y = 5x + 40 schätzt Testpunkte (y) aus der Lernzeit in Stunden (x). Bei welcher Lernzeit schätzt sie 75 Punkte?', 7, '(75 - 40)/5',
+       '5x + 40 = 75 ⇒ 5x = 35 ⇒ x = 7 Stunden.', 'Setze y = 75 und löse nach x auf.', einheit='h'))
+ST.neu('gerade', 'fehler', A('Jemand deutet y = 5x + 40 (x: Lernzeit in h, y: Punkte) so: „Ohne Lernen gibt es 5 Punkte, jede Stunde bringt 40 Punkte.“ Was stimmt?',
+       'Falsch: Ohne Lernen etwa 40 Punkte, jede Stunde etwa 5 Punkte mehr.', ['Richtig.', 'Falsch: Jede Stunde bringt 45 Punkte.', 'Falsch: Ohne Lernen gibt es 0 Punkte.'],
+       'Die Zahl vor x ist die Steigung (pro Stunde +5), die Zahl allein ist der Wert bei x = 0 (40).', 'Setze x = 0 und x = 1 ein.'))
+ST.neu('gerade', 'parameter', Z('Die Ausgleichsgerade y = m · x + 30 soll für x = 5 den Wert 55 schätzen. Wie groß muss m sein?', 5, '(55 - 30)/5',
+       'm · 5 + 30 = 55 ⇒ 5m = 25 ⇒ m = 5.', 'Setze x = 5 und y = 55 ein.'))
+ST.knobel('gerade', Z('Für Jungen gilt die Ausgleichsgerade y = 4x + 30, für Mädchen y = 3x + 38 (x: Lernzeit in h, y: Punkte). Bei welcher Lernzeit sagen beide Geraden gleich viele Punkte voraus?',
+          8, '(38 - 30)/(4 - 3)', 'Gleichsetzen: 4x + 30 = 3x + 38 ⇒ x = 8 Stunden (beide 62 Punkte). Davor liegen die Mädchen vorn, danach die Jungen, weil ihre Gerade steiler ist.',
+          'Wo schneiden sich die beiden Geraden?', einheit='h'))
+ST.knobel('gerade', Z('Eine gute Ausgleichsgerade geht durch den Punkt (Mittelwert der x | Mittelwert der y). Messwerte: x = 2, 4, 6 und y = 50, 60, 76. Die Gerade hat die Steigung 6,5. Wie groß ist t in y = 6,5x + t?',
+          36, '(50 + 60 + 76)/3 - 6.5*4', 'Mittelwerte: x̄ = 4, ȳ = 186 : 3 = 62. Der Punkt (4 | 62) liegt auf der Geraden: 62 = 6,5 · 4 + t = 26 + t ⇒ t = 36.',
+          'Berechne zuerst die beiden Mittelwerte.'))
+
+# ausreisser
+ST.stufenleiter('ausreisser', 'Den Punkt finden, der nicht zum Muster passt.',
+                'Erwarteten Wert aus dem Muster berechnen, Abstand des Ausreißers, Ausreißer in Messreihen des Alltags erkennen.',
+                'Wirkung auf Ausgleichsgerade und Mittelwert, sinnvoller Umgang, Fehler „unbequeme Werte löschen“, Ausreißer aus Mittelwerten rückwärts bestimmen.')
+ST.typ('ausreisser', '/^/', 'erkennen', s=1)
+ST.typ('ausreisser', '/^Punkt [A-Z] ist ein Ausreißer. Die anderen/', 'mehrschritt')
+ST.typ('ausreisser', '/Um wie viel liegt Punkt/', 'mehrschritt')
+ST.typ('ausreisser', '/^/', 'darstellung', s=2)
+ST.typ('ausreisser', '/Was passiert mit der Ausgleichsgeraden/', 'begruenden')
+ST.typ('ausreisser', '/Mittelwert der y-Werte/', 'verknuepfen')
+ST.typ('ausreisser', '/Was ist sinnvoll/', 'transfer')
+ST.neu('ausreisser', 'direkt', Z('Fünf Punkte haben die x-Werte 1 bis 5 und die y-Werte 20, 24, 28, 75, 36. Bei welchem x-Wert liegt der Ausreißer?', 4, '4',
+       'Die y-Werte wachsen um je 4: 20, 24, 28, (32), 36. Bei x = 4 steht 75 statt etwa 32.', 'Um wie viel wachsen die y-Werte sonst?'))
+ST.neu('ausreisser', 'direkt', A('Messpunkte: (1 | 10), (2 | 12), (3 | 14), (4 | 3), (5 | 18). Welcher Punkt ist ein Ausreißer?', '(4 | 3)', ['(1 | 10)', '(3 | 14)', '(5 | 18)'],
+       'Das Muster wächst um 2 je Schritt; bei x = 4 wären etwa 16 zu erwarten, nicht 3.', 'Welches Muster haben die anderen Punkte?'))
+ST.neu('ausreisser', 'einkleidung', A('Eine Waage zeigt bei fünf Messungen desselben Pakets 2,1 kg, 2,0 kg, 2,2 kg, 12,1 kg und 2,1 kg. Welcher Wert ist vermutlich ein Fehler?', '12,1 kg', ['2,0 kg', '2,2 kg', 'keiner'],
+       'Vier Werte liegen bei etwa 2 kg. 12,1 kg passt nicht – vermutlich eine 1 zu viel getippt.', 'Wo liegen die meisten Werte?'))
+ST.neu('ausreisser', 'einkleidung', A('Temperaturen um 12 Uhr an sechs Sommertagen: 18 °C, 19 °C, 21 °C, 20 °C, −19 °C, 22 °C. Was ist am wahrscheinlichsten passiert?',
+       'Bei −19 °C wurde ein Minuszeichen falsch notiert.', ['Am fünften Tag hat es geschneit.', 'Alle Werte sind gleich gut.', 'Der Wert 22 °C ist der Ausreißer.'],
+       'Im Sommer passen 18 bis 22 °C. −19 °C liegt weit weg; vermutlich war es +19 °C.', 'Was passt nicht zur Jahreszeit?'))
+ST.neu('ausreisser', 'fehler', A('Jemand löscht in seiner Messreihe alle Punkte, die nicht zu seiner Vermutung passen, und nennt sie „Ausreißer“. Was ist daran falsch?',
+       'Er schönt die Daten: Ausreißer darf man nur bei einem erkennbaren Fehler weglassen.', ['Nichts, Ausreißer stören immer.', 'Er hätte die Punkte verdoppeln müssen.', 'Er müsste auch die passenden Punkte löschen.'],
+       'Ein Punkt ist kein Ausreißer, nur weil er nicht ins Wunschbild passt. Weglassen nur mit Grund (Messfehler, Schreibfehler) und mit Hinweis.', 'Wann darf man einen Messwert weglassen?'))
+ST.neu('ausreisser', 'rueckwaerts', Z('Ohne den Ausreißer haben vier y-Werte den Mittelwert 30. Mit ihm haben die fünf Werte den Mittelwert 36. Welchen y-Wert hat der Ausreißer?', 60, '5*36 - 4*30',
+       'Summe mit Ausreißer 5 · 36 = 180, ohne 4 · 30 = 120. Ausreißer: 180 − 120 = 60.', 'Rechne mit den Summen.'))
+ST.knobel('ausreisser', Z('Sechs Messwerte haben den Mittelwert 20. Ein Wert wurde falsch abgeschrieben: In der Liste steht 74 statt 14. Wie groß ist der richtige Mittelwert?',
+          10, '(6*20 - 74 + 14)/6', 'Falsche Summe 6 · 20 = 120. Richtig: 120 − 74 + 14 = 60. Mittelwert 60 : 6 = 10. Ein einziger Schreibfehler hat den Mittelwert verdoppelt.',
+          'Was ändert sich an der Summe?'))
+ST.knobel('ausreisser', Z('Eine Messreihe hat 9 Werte, ihr Median ist 15. Der größte Wert (20) wird durch einen Ausreißer 1 000 ersetzt. Wie groß ist danach der Median?',
+          15, '15', 'Der Median ist der mittlere (5.) Wert der geordneten Liste. Der größte Wert bleibt der größte, die Reihenfolge der unteren Werte ändert sich nicht: Der Median bleibt 15. Der Mittelwert dagegen springt nach oben.',
+          'Welcher Wert ist der Median, und rutscht er beim Ändern des größten Werts?'))
+
+# kausal
+ST.stufenleiter('kausal', 'Zu einer Korrelation die vernünftigste Erklärung (oft eine dritte Größe) wählen.',
+                'Dritte Größen in Alltagsbeobachtungen benennen, „beweist das …?“ beurteilen, Korrelation ohne Ursache erkennen.',
+                'Experiment planen, Fehlschlüsse finden, fehlende Vergleichsgruppe, Freiwilligen-Effekt, Studienaufbau bewerten.')
+ST.typ('kausal', '/^/', 'erkennen', s=1)
+ST.typ('kausal', '/^/', 'einkleidung', s=2)
+ST.typ('kausal', '/Wie kann man das am besten überprüfen/', 'transfer')
+ST.typ('kausal', '/Jemand folgert/', 'fehler')
+ST.typ('kausal', '/^/', 'begruenden', s=3)
+ST.neu('kausal', 'direkt', A('Im Dezember werden mehr Lebkuchen und mehr Lichterketten verkauft. Welche dritte Größe erklärt beides?', 'die Weihnachtszeit',
+       ['Lebkuchen machen Lust auf Lichterketten.', 'Lichterketten machen hungrig.', 'Es gibt keinen Zusammenhang.'],
+       'Beides steigt, weil Weihnachten naht – das eine verursacht das andere nicht.', 'Was passiert im Dezember?'))
+ST.neu('kausal', 'umkehr', A('Welche Beobachtung zeigt eine Korrelation, bei der KEINE Größe die andere verursacht?',
+       '„In Jahren mit mehr Störchen gab es mehr Geburten.“', ['„Je mehr man tankt, desto voller ist der Tank.“', '„Je stärker der Wind, desto schneller drehen sich Windräder.“', '„Je mehr man übt, desto besser spielt man Klavier.“'],
+       'Störche bringen keine Kinder. Beides hing z. B. vom Leben auf dem Land ab. Bei den anderen ist eine Ursache klar.', 'Bei welcher Beobachtung ist die Ursache unsinnig?'))
+ST.neu('kausal', 'darstellung', A('Ein Streudiagramm zeigt verkaufte Eiskugeln (x) und Sonnenbrand-Fälle (y) je Tag: stark positiv. Was zeigt es sicher?',
+       'Die beiden Größen steigen meist gemeinsam.', ['Eis verursacht Sonnenbrand.', 'Sonnenbrand macht Lust auf Eis.', 'Es gibt keinen Zusammenhang.'],
+       'Ein Streudiagramm zeigt nur, dass Werte gemeinsam steigen (Korrelation). Die Ursache – hier das sonnige Wetter – steht nicht im Bild.', 'Was kann ein Bild aus Punkten zeigen, was nicht?'))
+ST.neu('kausal', 'pruefung', A('200 Kinder werden per Los in zwei Gruppen geteilt: 100 lernen mit einer App, 100 ohne. Danach ist die App-Gruppe im Test 8 Punkte besser. Warum ist dieser Aufbau aussagekräftiger als eine Umfrage unter App-Nutzern?',
+       'Durch das Los unterscheiden sich die Gruppen nur in der App.', ['Weil 200 Kinder immer genügen.', 'Weil 8 Punkte viel sind.', 'Weil Umfragen verboten sind.'],
+       'Bei freiwilligen Nutzern könnten fleißigere Kinder die App wählen. Das Los verteilt Fleiß, Vorwissen usw. gleichmäßig; ein Unterschied geht dann vermutlich auf die App zurück.',
+       'Wodurch könnten sich die Gruppen sonst noch unterscheiden?'))
+ST.knobel('kausal', A('Statistik einer Stadt: Je mehr Feuerwehrleute bei einem Brand im Einsatz sind, desto größer ist der Schaden. Welche Folgerung ist richtig?',
+          'Große Brände sind die gemeinsame Ursache: Sie richten mehr Schaden an und brauchen mehr Feuerwehrleute.',
+          ['Man sollte weniger Feuerwehrleute schicken.', 'Feuerwehrleute verursachen Schäden.', 'Die Zahlen müssen falsch sein.'],
+          'Die dritte Größe ist die Größe des Brandes. Sie erklärt beide Werte. Weniger Feuerwehrleute würden den Schaden sogar vergrößern.',
+          'Woran liegt es, wie viele Feuerwehrleute ausrücken?'))
+ST.knobel('kausal', A('Je stärker sich Windräder drehen, desto stärker weht der Wind. Jemand folgert: „Die Windräder machen den Wind.“ Welcher Denkfehler liegt vor?',
+          'Ursache und Wirkung sind vertauscht.', ['Eine dritte Größe fehlt.', 'Die Stichprobe ist zu klein.', 'Es gibt gar keinen Zusammenhang.'],
+          'Der Zusammenhang ist echt, aber die Richtung falsch: Der Wind treibt die Windräder an, nicht umgekehrt. Eine Korrelation sagt nichts über die Richtung.',
+          'Was war zuerst da?'))
+
+if __name__ == '__main__':
+    stufen('daten.zweidimensional', ST)

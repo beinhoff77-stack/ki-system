@@ -484,3 +484,152 @@ d = bauen('finanzen.zinseszins',
              'Feld klasse: {"zusatz": 10} statt {} (Prüfskript verlangt einen Eintrag) – siehe FRAGE im Postfach.',
              'Überschneidung möglich mit bruch.prozent / Wachstum (Gymnasium Klasse 7 bzw. funktionen.exponential_log Klasse 10); hier eigenständig mit Zinsen.'], plan=PLAN2)
 umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
+
+
+# ---- STUFEN (Zwanzigste Runde, Zusatz Realschule/IB, Zweig stufen-rsib-2) ----
+from _stufen_rsib2 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('finanzen.zinseszins', 20_2_10)
+Z, A, L = ST.Z, ST.A, ST.L
+ST.vorbild += ['ISB Bayern, Muster-Abschlussprüfung Realschule Mathematik II (Muster 2022, Aufgabe B 2: Wachstum, „nach wie vielen Jahren erstmals …“, auf ganze Jahre runden) – https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Mathematik/Weiterentwicklung_Abschlusspruefung/Muster-Abschlusspruefungen_II/mii_muster2022_b1b2.pdf',
+               'IQB, Illustrierende Lernaufgabe Sek. I „Zinseszins“ (Fehlvorstellung lineares statt exponentielles Weiterrechnen; nur Art) – https://www.iqb.hu-berlin.de/media/exercise_files/Lernaufgaben_Mathematik_Sek_I/Zinseszins_Aufgabe.pdf']
+
+# jahr
+ST.stufenleiter('jahr', 'Zinsen und Kapital nach einem Jahr berechnen.',
+                'Zwei Jahre Schritt für Schritt, Tabelle Jahr für Jahr, Kapital aus den Zinsen eines Jahres.',
+                'Zinseszins gegen einfache Zinsen, Einzahlung zwischendurch, Anfangskapital aus Zinsen im 2. Jahr, Fehler „zweimal die gleichen Zinsen“, wachsende Zinsen begründen.')
+ST.typ('jahr', '/^/', 'direkt', s=1)
+ST.typ('jahr', '/^/', 'mehrschritt', s=2)
+ST.typ('jahr', '/Wie viel mehr bringt/', 'verknuepfen')
+ST.typ('jahr', '/zahlt man/', 'transfer')
+ST.typ('jahr', '/^/', 'rueckwaerts', s=3)
+ST.neu('jahr', 'erkennen', A('Was bedeutet Zinseszins?', 'Die Zinsen werden dem Kapital zugeschlagen und im nächsten Jahr mitverzinst.',
+       ['Man bekommt jedes Jahr die gleichen Zinsen.', 'Die Zinsen werden jedes Jahr ausgezahlt.', 'Der Zinssatz steigt jedes Jahr.'],
+       'Beim Zinseszins wächst die Grundlage: Zinsen bringen selbst wieder Zinsen.', 'Was passiert mit den Zinsen nach dem ersten Jahr?'))
+ST.neu('jahr', 'einkleidung', Z('Für ein Kind werden 500 € mit 4 % Zinseszins angelegt. Wie viel ist nach 2 Jahren auf dem Konto?', 540.8, '500*1.04**2',
+       'Jahr 1: 500 € + 20 € = 520 €. Jahr 2: 520 € + 20,80 € = 540,80 €.', 'Rechne Jahr für Jahr.', einheit='€'))
+ST.neu('jahr', 'umkehr', Z('Bei 5 % Zinsen gab es im ersten Jahr 30 € Zinsen. Wie hoch war das Kapital?', 600, '30/0.05', '5 % sind 30 €, also 1 % = 6 € und 100 % = 600 €.', 'Von 5 % auf 100 % schließen.', einheit='€'))
+ST.neu('jahr', 'darstellung', L('2 000 € zu 5 % Zinseszins. Fülle die Tabelle aus.', 'Jahr 1: Zinsen □ €, Kapital □ €; Jahr 2: Zinsen □ €, Kapital □ €', [100, 2100, 105, 2205],
+       ['2000*0.05', '2000*1.05', '2100*0.05', '2000*1.05**2'], 'Jahr 1: 100 € Zinsen, 2 100 €. Jahr 2: 5 % von 2 100 € = 105 €, 2 205 €.', 'Im 2. Jahr wird vom neuen Kapital gerechnet.'))
+ST.neu('jahr', 'fehler', A('1 000 € liegen 2 Jahre bei 5 % Zinseszins. Jemand rechnet: „2 · 50 € = 100 € Zinsen, also 1 100 €.“ Was stimmt?', 'Falsch: Es sind 1 102,50 €.',
+       ['Richtig.', 'Falsch: Es sind 1 105 €.', 'Falsch: Es sind 1 050 €.'], 'Im 2. Jahr gibt es 5 % von 1 050 € = 52,50 €. Zusammen 1 102,50 €.', 'Wovon werden die Zinsen im 2. Jahr berechnet?'))
+ST.neu('jahr', 'begruenden', A('Stimmt: Beim Zinseszins (Zinssatz größer als 0) sind die Zinsen jedes Jahr größer als im Jahr davor?', 'Ja, weil das Kapital jedes Jahr größer wird.',
+       ['Nein, sie sind jedes Jahr gleich.', 'Nein, sie werden kleiner.', 'Nur bei Zinssätzen über 10 %.'],
+       'Zinsen = p % vom aktuellen Kapital. Das Kapital wächst jedes Jahr um die Zinsen, also wachsen auch die nächsten Zinsen.', 'Wovon hängen die Zinsen eines Jahres ab?'))
+ST.knobel('jahr', L('Ein Kapital bringt mit Zinseszins im ersten Jahr 40 € und im zweiten Jahr 42 € Zinsen. Wie hoch sind Zinssatz und Anfangskapital?', 'p = □ %; K₀ = □ €', [5, 800],
+          ['(42/40 - 1)*100', '40/0.05'],
+          'Die Zinsen des 2. Jahres sind die des 1. Jahres mal q: 42 : 40 = 1,05, also p = 5 %. Dann sind 40 € genau 5 % von K₀: K₀ = 800 €.', 'Wie hängen die Zinsen zweier aufeinanderfolgender Jahre zusammen?'))
+ST.knobel('jahr', A('Was bringt mehr: ein Jahr zu 10 % oder zwei Jahre zu je 5 % Zinseszins?', 'zwei Jahre zu je 5 % (Faktor 1,1025 statt 1,10)', ['ein Jahr zu 10 %', 'beides gleich viel', 'Das hängt vom Kapital ab.'],
+          '1,05 · 1,05 = 1,1025 > 1,10. Im zweiten Jahr werden die Zinsen des ersten Jahres mitverzinst: 5 % von 5 % = 0,25 % zusätzlich – unabhängig vom Kapital.', 'Vergleiche die Faktoren.'))
+
+# faktor
+ST.stufenleiter('faktor', 'Wachstumsfaktor q = 1 + p/100 bilden und erkennen, ob Zunahme oder Abnahme.',
+                'Zinssatz aus q, Abnahmefaktor, Rechnung zu einem Text, mit q rechnen.',
+                'Faktoren verketten, +20 % / −20 %, halbjährliche Zinsen, Fehler „+10 % +10 % = +20 %“, Prozentsatz aus Gesamtfaktor.')
+ST.typ('faktor', '/^/', 'direkt', s=1)
+ST.typ('faktor', '/Zinssatz in %|Um wie viel Prozent/', 'umkehr')
+ST.typ('faktor', '/^/', 'einkleidung', s=2)
+ST.typ('faktor', '/im zweiten mit/', 'verknuepfen')
+ST.typ('faktor', '/sinkt danach/', 'transfer')
+ST.typ('faktor', '/^/', 'begruenden', s=3)
+ST.neu('faktor', 'erkennen', A('Welcher Faktor beschreibt eine Abnahme?', '0,92', ['1,08', '1,2', '2'], 'Ein Faktor kleiner als 1 verkleinert: 0,92 heißt −8 %.', 'Größer oder kleiner als 1?'))
+ST.neu('faktor', 'direkt', Z('Ein Preis von 50 € steigt um 6 %. Rechne mit dem Faktor: Wie hoch ist der neue Preis?', 53, '50*1.06', '50 € · 1,06 = 53 €.', 'q = 1 + 6/100.', einheit='€'))
+ST.neu('faktor', 'mehrschritt', Z('1 000 € werden 2 Jahre lang mit dem Faktor q = 1,05 verzinst. Wie hoch ist das Kapital danach?', 1102.5, '1000*1.05**2',
+       '1 000 € · 1,05 · 1,05 = 1 102,50 €.', 'Zweimal mit q multiplizieren.', einheit='€'))
+ST.neu('faktor', 'darstellung', A('Welche Rechnung passt zu: „Der Wert W sinkt jedes Jahr um 12 %“ (Wert nach einem Jahr)?', 'W · 0,88', ['W · 1,12', 'W − 0,12', 'W · 0,12'],
+       '100 % − 12 % = 88 %, also Faktor 0,88. W · 0,12 wäre nur der Verlust.', 'Wie viel Prozent bleiben übrig?'))
+ST.neu('faktor', 'fehler', A('Ein Preis steigt zweimal hintereinander um 10 %. Jemand sagt: „Insgesamt sind das 20 %.“ Was stimmt?', 'Falsch: 1,1 · 1,1 = 1,21, also 21 %.',
+       ['Richtig.', 'Falsch: Es sind 100 %.', 'Falsch: Es sind 11 %.'], 'Die zweite Erhöhung bezieht sich auf den schon erhöhten Preis. Faktoren werden multipliziert, nicht Prozente addiert.', 'Multipliziere die Faktoren.'))
+ST.neu('faktor', 'rueckwaerts', Z('Nach zwei gleichen prozentualen Erhöhungen wurde ein Preis insgesamt mit 1,21 multipliziert. Um wie viel Prozent stieg er jedes Mal?', 10, '(1.1 - 1)*100',
+       'q · q = 1,21 ⇒ q = 1,1 (denn 1,1² = 1,21). Also 10 % pro Erhöhung.', 'Welche Zahl ergibt mit sich selbst multipliziert 1,21?', einheit='%'))
+ST.knobel('faktor', Z('Ein Preis sinkt um 20 %. Um wie viel Prozent muss er danach steigen, damit er wieder so hoch ist wie vorher?', 25, '(1/0.8 - 1)*100',
+          'Nach der Senkung: Faktor 0,8. Gesucht q mit 0,8 · q = 1 ⇒ q = 1,25. Also +25 %, weil sich die Erhöhung auf den kleineren Preis bezieht.', 'Mit welchem Faktor kommt man von 0,8 wieder auf 1?', einheit='%'))
+ST.knobel('faktor', A('Eine Bank zahlt statt 12 % pro Jahr jeden Monat 1 %, die mitverzinst werden. Ist das im Jahr mehr oder weniger als 12 %?', 'mehr (etwa 12,7 %)',
+          ['weniger', 'genau 12 %', 'genau 13 %'],
+          'Jahresfaktor 1,01¹² ≈ 1,1268. Jeder Monatszins wird in den Folgemonaten mitverzinst, darum kommt etwas mehr als 12 % heraus.', 'Rechne mit Faktoren: 12-mal 1,01.'))
+
+# formel
+ST.stufenleiter('formel', 'Kₙ = K₀ · qⁿ einsetzen und ausrechnen.',
+                'Gesamtzinsen, Wertverlust, Zinssatz aus der Formel ablesen, Formel zu einem Text.',
+                'Zwei Angebote vergleichen, Zinsen genau eines Jahres, Fehler „mal n statt hoch n“, Zinssatz zu einem Endkapital, Proportionalität zu K₀, mehrteilige Prüfungsaufgabe.')
+ST.typ('formel', '/^/', 'direkt', s=1)
+ST.typ('formel', '/Auto/', 'einkleidung')
+ST.typ('formel', '/^/', 'mehrschritt', s=2)
+ST.typ('formel', '/Angebot A/', 'transfer')
+ST.typ('formel', '/^/', 'verknuepfen', s=3)
+ST.neu('formel', 'erkennen', A('Welcher Term gibt das Kapital nach 7 Jahren bei 3 % Zinseszins an (K₀ = 1 000 €)?', '1 000 · 1,03⁷', ['1 000 · 1,03 · 7', '1 000 · 0,03⁷', '1 000 + 7 · 30'],
+       'Kₙ = K₀ · qⁿ mit q = 1,03 und n = 7.', 'Wie oft wird mit q multipliziert?'))
+ST.neu('formel', 'direkt', Z('Berechne das Kapital nach 2 Jahren: 800 € zu 5 % Zinseszins.', 882, '800*1.05**2', '800 € · 1,05² = 800 € · 1,1025 = 882 €.', 'K₂ = K₀ · q².', einheit='€'))
+ST.neu('formel', 'umkehr', Z('In der Rechnung K₈ = 3 000 € · 1,025⁸ steckt ein Zinssatz. Wie groß ist er in %?', 2.5, '(1.025 - 1)*100', 'q = 1,025 = 1 + 2,5/100, also p = 2,5 %.', 'Lies q ab.', einheit='%'))
+ST.neu('formel', 'darstellung', A('Welche Rechnung passt zu: „4 500 € werden 6 Jahre mit 3,5 % Zinseszins angelegt“?', '4 500 · 1,035⁶', ['4 500 · 1,035 · 6', '4 500 · 0,035⁶', '4 500 · 1,35⁶'],
+       'q = 1 + 3,5/100 = 1,035, n = 6: K₆ = 4 500 · 1,035⁶.', 'Bilde zuerst q.'))
+ST.neu('formel', 'fehler', A('2 000 € liegen 3 Jahre bei 5 % Zinseszins. Jemand rechnet 2 000 · 1,05 · 3 = 6 300 €. Was stimmt?', 'Falsch: Man muss potenzieren: 2 000 · 1,05³ = 2 315,25 €.',
+       ['Richtig.', 'Falsch: 2 000 · 0,05 · 3 = 300 €.', 'Falsch: 2 000 + 3 · 1,05 = 2 003,15 €.'],
+       '„Mal 3“ verdreifacht das Geld. Richtig wird dreimal mit 1,05 multipliziert: 1,05³ = 1,157625.', 'Wie oft wird mit q multipliziert?'))
+ST.neu('formel', 'parameter', Z('Für welchen ganzzahligen Zinssatz p werden aus 1 000 € in 2 Jahren genau 1 166,40 €?', 8, '(1.08 - 1)*100',
+       'q² = 1 166,40 : 1 000 = 1,1664. 1,08² = 1,1664 ⇒ q = 1,08, p = 8 %.', 'Teile durch K₀ und suche q.', einheit='%'))
+ST.neu('formel', 'begruenden', A('Stimmt: Legt man bei gleichem Zinssatz und gleicher Laufzeit doppelt so viel Geld an, hat man am Ende doppelt so viel?', 'Ja, Kₙ = K₀ · qⁿ ist proportional zu K₀.',
+       ['Nein, wegen des Zinseszinses mehr als doppelt so viel.', 'Nein, weniger als doppelt so viel.', 'Nur bei einer Laufzeit von einem Jahr.'],
+       'qⁿ hängt nicht von K₀ ab. Verdoppelt man K₀, verdoppelt sich das Produkt K₀ · qⁿ.', 'Wo steht K₀ in der Formel?'))
+ST.neu('formel', 'pruefung', L('Ein Betrag von 2 000 € wird zu 5 % Zinseszins angelegt. a) Wie hoch ist das Kapital nach 2 Jahren? b) Nach wie vielen ganzen Jahren sind erstmals mehr als 2 400 € auf dem Konto?',
+       'a) □ €; b) □ Jahre', [2205, 4], ['2000*1.05**2', '4'],
+       'a) 2 000 · 1,05² = 2 205 €. b) Nach 3 Jahren 2 315,25 €, nach 4 Jahren 2 431,01 €: erstmals nach 4 Jahren über 2 400 €.', 'Für b) rechne Jahr für Jahr weiter.'))
+ST.knobel('formel', A('Zwei Konten: A hat 1 000 € zu 4 %, B hat 1 040 € zu 4 % (beide Zinseszins). Wie verhält sich der Unterschied der Kontostände in den folgenden Jahren?', 'Er wächst jedes Jahr um 4 %.',
+          ['Er bleibt immer 40 €.', 'Er wird kleiner.', 'Er verdoppelt sich jedes Jahr.'],
+          'Unterschied nach n Jahren: 1 040 · 1,04ⁿ − 1 000 · 1,04ⁿ = 40 · 1,04ⁿ. Er wird also wie ein eigenes Kapital mitverzinst.', 'Klammere 1,04ⁿ aus.'))
+ST.knobel('formel', Z('Ein Kapital wächst mit 10 % Zinseszins. Nach 2 Jahren beträgt es 1 210 €. Wie viel beträgt es nach 4 Jahren?', 1464.1, '1210*1.1**2',
+          'Von Jahr 2 bis Jahr 4 kommen noch zwei Faktoren 1,1 dazu: 1 210 € · 1,21 = 1 464,10 €. Das Anfangskapital braucht man dafür nicht.', 'Rechne von Jahr 2 aus weiter.', einheit='€'))
+
+# rueck
+ST.stufenleiter('rueck', 'Anfangskapital nach einem Jahr durch Teilen durch q.',
+                'Zinssatz aus Anfangs- und Endkapital, Anfangskapital nach zwei Jahren, Rückrechnung in einer Sachsituation.',
+                'Zinssatz über zwei Jahre, heute anlegen für ein Ziel, Laufzeit bestimmen, Fehler „Zinsen abziehen“, „+25 % ist nicht −25 %“.')
+ST.typ('rueck', '/^/', 'direkt', s=1)
+ST.typ('rueck', '/Zinssatz in %/', 'umkehr', s=2)
+ST.typ('rueck', '/^/', 'mehrschritt', s=2)
+ST.typ('rueck', '/Zinssatz in %/', 'rueckwaerts')
+ST.typ('rueck', '/heute/', 'verknuepfen')
+ST.typ('rueck', '/Wie viele Jahre/', 'transfer')
+ST.typ('rueck', '/^/', 'mehrschritt', s=3)
+ST.neu('rueck', 'erkennen', A('Wie kommt man vom Endkapital Kₙ zurück zum Anfangskapital K₀?', 'durch qⁿ teilen', ['p % abziehen', 'mit qⁿ multiplizieren', 'n · p % abziehen'],
+       'Kₙ = K₀ · qⁿ ⇒ K₀ = Kₙ : qⁿ.', 'Kehre die Rechnung um.'))
+ST.neu('rueck', 'direkt', Z('Ein Kapital ist durch 3 % Zinsen in einem Jahr auf 2 060 € gewachsen. Wie hoch war es vorher?', 2000, '2060/1.03', '2 060 € : 1,03 = 2 000 €.', 'Teile durch q.', einheit='€'))
+ST.neu('rueck', 'einkleidung', Z('Ein Fahrrad kostet nach einer Preiserhöhung um 8 % jetzt 540 €. Was kostete es vorher?', 500, '540/1.08', '540 € : 1,08 = 500 €.', 'Der alte Preis ist 100 %.', einheit='€'))
+ST.neu('rueck', 'darstellung', A('Nach 3 Jahren mit 10 % Zinseszins sind 1 331 € auf dem Konto. Welche Rechnung liefert das Anfangskapital?', '1 331 : 1,1³', ['1 331 − 3 · 133,10', '1 331 · 0,9³', '1 331 : 1,3'],
+       'K₀ = K₃ : q³ = 1 331 : 1,331 = 1 000 €. 0,9³ wäre eine Abnahme um 10 % pro Jahr – das ist nicht die Umkehrung.', 'Welche Rechnung macht K₀ · 1,1³ rückgängig?'))
+ST.neu('rueck', 'fehler', A('Nach 2 Jahren mit 10 % Zinseszins sind 1 210 € auf dem Konto. Jemand rechnet 1 210 − 2 · 121 = 968 €. Was stimmt?', 'Falsch: 1 210 : 1,1² = 1 000 €.',
+       ['Richtig.', 'Falsch: 1 210 − 2 · 100 = 1 010 €.', 'Falsch: 1 210 · 0,8 = 968 € ist auch richtig.'],
+       'Die Zinsen wurden vom kleineren Kapital berechnet. Rückwärts teilt man durch q²: 1 210 : 1,21 = 1 000. Probe: 1 000 → 1 100 → 1 210.', 'Mache die Probe vorwärts.'))
+ST.neu('rueck', 'begruenden', A('Ein Kapital ist um 25 % gestiegen. Stimmt: Um zurückzurechnen, zieht man 25 % vom neuen Wert ab?', 'Nein: Man teilt durch 1,25, das sind nur 20 % weniger.',
+       ['Ja.', 'Nein: Man zieht 125 % ab.', 'Nein: Man teilt durch 0,75.'], 'Beispiel 100 € → 125 €. 25 % von 125 € sind 31,25 €, das ergäbe 93,75 €. 125 : 1,25 = 100 – das sind 20 % weniger als 125.', 'Probiere es mit 100 €.'))
+ST.knobel('rueck', Z('Ein Kapital wuchs in 2 Jahren mit gleichem Zinssatz (Zinseszins) um insgesamt 44 %. Wie hoch war der Zinssatz?', 20, '(1.2 - 1)*100',
+          'Gesamtfaktor 1,44 = q² ⇒ q = 1,2. Der Zinssatz war 20 % – nicht 22 %, weil die Zinsen des ersten Jahres mitverzinst werden.', 'Welcher Faktor ergibt quadriert 1,44?', einheit='%'))
+ST.knobel('rueck', Z('Nach 3 Jahren mit 10 % Zinseszins sind 2 662 € auf dem Konto. Wie viel Zinsen gab es im ersten Jahr?', 200, '2662/1.1**3*0.1',
+          'K₀ = 2 662 : 1,331 = 2 000 €. Zinsen im ersten Jahr: 10 % von 2 000 € = 200 €.', 'Bestimme zuerst das Anfangskapital.', einheit='€'))
+
+# vergleich
+ST.stufenleiter('vergleich', 'Verdopplungszeit durch Probieren, einfache Zinsen gegen Zinseszins.',
+                'Halbierungszeit bei Wertverlust, Tabelle über mehrere Jahre, Zinssatz zu einer Verdopplungszeit.',
+                'Angebote mit Bonus, zwei Autos, wann Zinseszins einfache Zinsen überholt, Faustregel 72 : p, Fehler „100 : p“.')
+ST.typ('vergleich', '/einfachen Zinsen oder mit Zinseszins/', 'erkennen')
+ST.typ('vergleich', '/^/', 'direkt', s=1)
+ST.typ('vergleich', '/Auto verliert/', 'einkleidung')
+ST.typ('vergleich', '/^/', 'mehrschritt', s=2)
+ST.typ('vergleich', '/Bonus/', 'verknuepfen')
+ST.typ('vergleich', '/Ab welchem Jahr/', 'begruenden')
+ST.typ('vergleich', '/^/', 'transfer', s=3)
+ST.neu('vergleich', 'umkehr', A('Ein Kapital hat sich mit Zinseszins in 10 Jahren etwa verdoppelt. Welcher Zinssatz passt am besten?', '7 %', ['5 %', '10 %', '20 %'],
+       '1,05¹⁰ ≈ 1,63, 1,07¹⁰ ≈ 1,97, 1,10¹⁰ ≈ 2,59. Am nächsten an 2 liegt 7 %.', 'Rechne q¹⁰ für die Angebote aus.'))
+ST.neu('vergleich', 'darstellung', L('1 000 € zu 10 % Zinseszins. Trage das Kapital nach 1, 2 und 3 Jahren ein.', '□ €; □ €; □ €', [1100, 1210, 1331], ['1000*1.1', '1000*1.1**2', '1000*1.1**3'],
+       '1 000 · 1,1 = 1 100; · 1,1 = 1 210; · 1,1 = 1 331.', 'Jedes Jahr mit 1,1 multiplizieren.'))
+ST.neu('vergleich', 'fehler', A('Jemand sagt: „Bei 6 % Zinseszins verdoppelt sich ein Kapital nach 100 : 6 ≈ 17 Jahren.“ Was stimmt?', 'Falsch: Schon nach 12 Jahren (1,06¹² ≈ 2,01).',
+       ['Richtig.', 'Falsch: nach 6 Jahren.', 'Falsch: nach 20 Jahren.'],
+       '100 : 6 gilt für einfache Zinsen. Mit Zinseszins: 1,06¹¹ ≈ 1,90, 1,06¹² ≈ 2,01. Die Faustregel 72 : 6 = 12 passt.', 'Rechne 1,06ⁿ für einige n aus.'))
+ST.knobel('vergleich', Z('Konto A: 1 000 € zu 10 %. Konto B: 2 000 € zu 3 % (beide Zinseszins). Nach wie vielen ganzen Jahren hat A erstmals mehr Geld als B?', 11, '11',
+          'Nach 10 Jahren: A ≈ 2 593,74 €, B ≈ 2 687,83 € – B liegt noch vorn. Nach 11 Jahren: A ≈ 2 853,12 €, B ≈ 2 768,47 € – jetzt liegt A vorn. Der höhere Zinssatz holt den doppelten Startbetrag ein.',
+          'Rechne beide Konten für einige Jahre aus.', einheit='Jahre'))
+ST.knobel('vergleich', A('Was bringt mehr: 70 Jahre lang 1 % Zinseszins oder einmalig 70 % Zinsen?', '70 Jahre 1 % Zinseszins (etwa Verdopplung, +100 %)', ['einmalig 70 %', 'beides gleich', 'Das hängt vom Kapital ab.'],
+          'Faustregel: Verdopplung nach 72 : 1 = 72 Jahren; genauer 1,01⁷⁰ ≈ 2,007. Das sind etwa +100 % statt +70 %.', 'Denke an die Faustregel 72 : p.'))
+
+if __name__ == '__main__':
+    stufen('finanzen.zinseszins', ST)

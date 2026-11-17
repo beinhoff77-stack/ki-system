@@ -560,3 +560,144 @@ d = bauen('zahlen.schranken',
              'Lernkarte „grenzen“: Fehlerbereich als Strecke im Koordinatensystem (untere Schranke voller, obere hohler Punkt) – ein Zahlenstrahl mit markiertem Bereich wäre schöner (App-Wunsch).',
              'Feld klasse: {"zusatz": 10} statt {} (Prüfskript verlangt einen Eintrag) – siehe FRAGE im Postfach.'], plan=PLAN2)
 umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
+
+
+# ---- STUFEN (Zwanzigste Runde, Zusatz Realschule/IB, Zweig stufen-rsib-2) ----
+from _stufen_rsib2 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('zahlen.schranken', 20_2_12)
+Z, A, L = ST.Z, ST.A, ST.L
+ST.vorbild += ['IB MYP / GCSE-Stil „upper and lower bounds“ (Schranken bei Summen, Produkten, Quotienten; Entscheiden mit Schranken) – nur Art und Niveau']
+
+# grenzen
+ST.stufenleiter('grenzen', 'Untere und obere Schranke einer gerundeten Zahl angeben.',
+                'Gerundeten Wert aus dem Fehlerbereich, „auf 5 genau“, gerundete Angaben in Meldungen, Fehlerbereich als Ungleichung.',
+                'Werte ausschließen, Anzahlen höchstens/mindestens, Rundung auf zwei Stellen verknüpfen, Fehler „≤ statt <“.')
+ST.typ('grenzen', '/^Eine Zahl x ist auf Hunderter gerundet: \\d/', 'direkt', s=2)
+ST.typ('grenzen', '/^/', 'direkt', s=1)
+ST.typ('grenzen', '/Auf welchen Wert/', 'umkehr')
+ST.typ('grenzen', '/^/', 'mehrschritt', s=2)
+ST.typ('grenzen', '/NICHT sein/', 'begruenden')
+ST.typ('grenzen', '/Teilnehmer|Zuschauer/', 'transfer')
+ST.typ('grenzen', '/^/', 'verknuepfen', s=3)
+ST.neu('grenzen', 'erkennen', A('Eine Zahl x ergibt auf Zehner gerundet 40. Welcher Wert ist möglich?', '35', ['45', '34', '46'],
+       'Der Fehlerbereich ist 35 ≤ x < 45. 35 rundet auf 40, 45 schon auf 50, 34 auf 30.', 'Ab wann rundet man auf, ab wann ab?'))
+ST.neu('grenzen', 'einkleidung', Z('Eine Zeitung meldet „etwa 3 500 Besucher“ (auf Hunderter gerundet). Wie viele Besucher waren es mindestens?', 3450, '3500 - 50',
+       'Untere Schranke 3 500 − 50 = 3 450. Bei 3 450 wird auf 3 500 aufgerundet.', 'Halbe Rundungseinheit abziehen.', einheit='Besucher'))
+ST.neu('grenzen', 'darstellung', A('Eine Zahl x ist auf Zehner gerundet: 60. Welcher Fehlerbereich passt?', '55 ≤ x < 65', ['55 < x ≤ 65', '50 ≤ x < 70', '59,5 ≤ x < 60,5'],
+       'Halbe Rundungseinheit 5: von 55 (gehört dazu) bis unter 65 (rundet schon auf 70).', 'Welche Grenze gehört dazu, welche nicht?'))
+ST.neu('grenzen', 'fehler', A('x ist auf Ganze gerundet: 12. Jemand schreibt den Fehlerbereich 11,5 ≤ x ≤ 12,5. Was stimmt?', 'Falsch: richtig ist 11,5 ≤ x < 12,5, denn 12,5 rundet auf 13.',
+       ['Richtig.', 'Falsch: richtig ist 11 ≤ x ≤ 13.', 'Falsch: richtig ist 11,5 < x < 12,5.'], 'Die untere Schranke gehört dazu, die obere nicht.', 'Worauf rundet man 12,5?'))
+ST.knobel('grenzen', Z('Eine ganze Zahl x ergibt auf Zehner gerundet 50 und auf 5 genau gerundet 55. Wie viele Werte sind möglich?', 2, '2',
+          'Auf Zehner 50: 45 ≤ x < 55. Auf 5 genau 55: 52,5 ≤ x < 57,5. Beides zusammen: 52,5 ≤ x < 55, ganzzahlig also 53 und 54.', 'Schreibe beide Fehlerbereiche auf und überlagere sie.'))
+ST.knobel('grenzen', Z('Eine Zahl wird zuerst auf Zehntel gerundet, dann wird das Ergebnis auf Ganze gerundet. Am Ende steht 3. Wie groß kann die ursprüngliche Zahl mindestens sein?', 2.45, '2.5 - 0.05',
+          'Das Zwischenergebnis muss mindestens 2,5 sein (sonst rundet es auf 2). 2,5 entsteht beim Runden auf Zehntel ab 2,45. Also ab 2,45 – direkt auf Ganze gerundet gäbe 2,45 aber 2!',
+          'Rechne rückwärts: Welches Zwischenergebnis braucht man mindestens?'))
+
+# messen
+ST.stufenleiter('messen', 'Schranken eines Messwerts mit Einheit angeben.',
+                'Genauigkeit aus dem Fehlerbereich, Breite des Fehlerbereichs, Fehlerbereich einer Zeitmessung.',
+                'Ist ein Wert möglich?, relativer Fehler in %, Messungen vergleichen, Fehler „ganze Einheit als Fehler“.')
+ST.typ('messen', '/^/', 'direkt', s=1)
+ST.typ('messen', '/Wie genau wurde/', 'umkehr')
+ST.typ('messen', '/Abstand zwischen/', 'mehrschritt')
+ST.typ('messen', '/^/', 'einkleidung', s=2)
+ST.typ('messen', '/Kann der wahre Wert/', 'begruenden')
+ST.typ('messen', '/Prozent/', 'verknuepfen')
+ST.typ('messen', '/^/', 'transfer', s=3)
+ST.neu('messen', 'erkennen', A('Ein Paket wurde auf 0,1 kg genau gewogen: 2,4 kg. Welcher wahre Wert ist möglich?', '2,36 kg', ['2,34 kg', '2,45 kg', '2,5 kg'],
+       'Fehlerbereich 2,35 kg ≤ m < 2,45 kg. Nur 2,36 kg liegt darin.', 'Bestimme beide Schranken.'))
+ST.neu('messen', 'fehler', A('Eine Länge wurde auf ganze cm gemessen: 8 cm. Jemand sagt: „Der größte mögliche Fehler ist 1 cm.“ Was stimmt?', 'Falsch: höchstens 0,5 cm.',
+       ['Richtig.', 'Falsch: höchstens 0,1 cm.', 'Falsch: höchstens 2 cm.'], 'Der wahre Wert liegt zwischen 7,5 cm und 8,5 cm, also höchstens eine halbe Einheit neben 8 cm.', 'Wie weit kann der wahre Wert höchstens entfernt sein?'))
+ST.knobel('messen', Z('Eine Waage zeigt auf 0,1 kg genau. Zehn gleiche Bücher wiegen zusammen 6,3 kg. Wie groß ist der größte mögliche Fehler für die Masse eines Buches (in g)?', 5, '50/10',
+          'Die Gesamtmasse ist auf ±0,05 kg = 50 g bekannt. Durch 10 geteilt ist auch der Fehler zehnmal kleiner: 5 g pro Buch. Gemeinsam wiegen macht genauer.',
+          'Wie groß ist der Fehler der Gesamtmasse?', einheit='g'))
+ST.knobel('messen', A('Welche Angabe ist genauer: „4,0 m“ oder „4 m“?', '„4,0 m“ (Fehlerbereich 3,95 m bis 4,05 m)', ['„4 m“', 'beide gleich genau', 'Das kann man nicht sagen.'],
+          '„4,0 m“ ist auf 0,1 m gerundet, der wahre Wert liegt zwischen 3,95 m und 4,05 m. „4 m“ ist auf ganze m gerundet: 3,5 m bis 4,5 m. Die Null nach dem Komma trägt Information.',
+          'Auf welche Stelle ist jeweils gerundet?'))
+
+# summe
+ST.stufenleiter('summe', 'Untere/obere Schranke einer Summe zweier Werte.',
+                'Differenzen, drei Summanden, Umfang, einen Summanden rückwärts bestimmen.',
+                'Reststück eines Seils, dritte Dreiecksseite, Fehler bei der Differenz, Breite des Fehlerbereichs begründen, Anzahl der Summanden.')
+ST.typ('summe', '/^/', 'direkt', s=1)
+ST.typ('summe', '/a − b|Fehlerbereich von a \\+ b/', 'mehrschritt')
+ST.typ('summe', '/^/', 'einkleidung', s=2)
+ST.typ('summe', '/Seil/', 'verknuepfen')
+ST.typ('summe', '/^/', 'transfer', s=3)
+ST.neu('summe', 'erkennen', A('Wie erhält man die obere Schranke von a + b?', 'obere Schranke von a + obere Schranke von b', ['obere von a + untere von b', 'untere von a + untere von b', 'a + b + 1'],
+       'Die Summe ist am größten, wenn beide Summanden am größten sind.', 'Wann ist eine Summe am größten?'))
+ST.neu('summe', 'umkehr', Z('a = 6 cm und b sind auf ganze cm gerundet. Die untere Schranke von a + b ist 9 cm. Welcher gerundete Wert steht für b?', 4, '9 - 5.5 + 0.5',
+       'Untere Schranke von a: 5,5 cm. Also untere Schranke von b: 9 − 5,5 = 3,5 cm, gerundet b = 4 cm.', 'Ziehe die untere Schranke von a ab.', einheit='cm'))
+ST.neu('summe', 'fehler', A('a = 9 cm, b = 4 cm (ganze cm). Jemand berechnet die obere Schranke von a − b als 9,5 − 4,5 = 5 cm. Was stimmt?', 'Falsch: 9,5 − 3,5 = 6 cm.',
+       ['Richtig.', 'Falsch: 8,5 − 3,5 = 5 cm.', 'Falsch: 9,5 + 4,5 = 14 cm.'], 'Eine Differenz ist am größten, wenn man vom größten a das kleinste b abzieht.', 'Welches b macht a − b am größten?'))
+ST.neu('summe', 'begruenden', A('Warum ist der Fehlerbereich einer Summe breiter als der jedes einzelnen Summanden?', 'Die Rundungsfehler können sich addieren.',
+       ['Weil man beim Addieren rundet.', 'Das stimmt nicht, er ist gleich breit.', 'Weil Summen größer sind.'],
+       'Im ungünstigsten Fall sind alle Werte zu groß (oder alle zu klein) gerundet; dann summieren sich die halben Rundungseinheiten.', 'Was passiert, wenn alle Werte zu klein gerundet wurden?'))
+ST.neu('summe', 'parameter', Z('Mehrere Strecken, jede auf ganze cm gerundet, werden addiert. Bei wie vielen Strecken ist der Fehlerbereich der Summe (obere minus untere Schranke) 5 cm breit?', 5, '5/1',
+       'Jede Strecke trägt einen Fehlerbereich der Breite 1 cm bei (±0,5 cm). Bei n Strecken ist er n cm breit: n = 5.', 'Wie breit ist der Fehlerbereich einer einzelnen Strecke?'))
+ST.knobel('summe', Z('Eine Treppe hat 10 Stufen, jede 17 cm hoch (auf ganze cm gerundet). Wie groß ist die obere Schranke der Gesamthöhe?', 175, '10*17.5',
+          'Jede Stufe ist kleiner als 17,5 cm, zusammen also kleiner als 175 cm. Der Fehler wächst mit jeder Stufe: ±5 cm statt ±0,5 cm.', 'Nimm für jede Stufe die obere Schranke.', einheit='cm'))
+ST.knobel('summe', A('a = 10 cm und b = 10 cm, beide auf ganze cm gerundet. Was weiß man über a − b?', 'a − b liegt zwischen −1 cm und 1 cm, kann also auch negativ sein.',
+          ['a − b = 0 cm genau.', 'a − b liegt zwischen 0 cm und 1 cm.', 'a − b liegt zwischen −0,5 cm und 0,5 cm.'],
+          'Größte Differenz: 10,5 − 9,5 = 1 (knapp darunter); kleinste: 9,5 − 10,5 = −1. Gleich gerundete Werte sagen nicht, dass die wahren Werte gleich sind.', 'Bilde die größte und die kleinste Differenz.'))
+
+# produkt
+ST.stufenleiter('produkt', 'Obere/untere Schranke einer Rechteckfläche.',
+                'Geschwindigkeit als Quotient, Volumen, Seitenlänge rückwärts, richtige Rechnung für den Quotienten.',
+                'Anzahl voller Gläser, Breite aus Fläche und Länge, größter Flächenunterschied, Fehler „falsche Schranke beim Produkt“, Quotientenregel begründen.')
+ST.typ('produkt', '/^/', 'direkt', s=1)
+ST.typ('produkt', '/Läufer/', 'mehrschritt')
+ST.typ('produkt', '/^/', 'einkleidung', s=2)
+ST.typ('produkt', '/Gläser/', 'verknuepfen')
+ST.typ('produkt', '/mindestens\\?/', 'rueckwaerts')
+ST.typ('produkt', '/^/', 'transfer', s=3)
+ST.neu('produkt', 'erkennen', A('Ein Rechteck hat gerundete Seiten. Wie erhält man die größtmögliche Fläche?', 'obere Schranke mal obere Schranke', ['untere mal untere', 'obere mal untere', 'gerundete Länge mal gerundete Breite'],
+       'Ein Produkt positiver Zahlen ist am größten, wenn beide Faktoren am größten sind.', 'Wann ist ein Produkt am größten?'))
+ST.neu('produkt', 'umkehr', Z('Ein Quadrat hat eine auf ganze cm gerundete Seite. Die obere Schranke der Fläche ist 30,25 cm². Welcher gerundete Wert steht für die Seite?', 5, '5.5 - 0.5',
+       '30,25 = 5,5². Die obere Schranke der Seite ist 5,5 cm, also wurde auf 5 cm gerundet.', 'Welche Zahl ergibt quadriert 30,25?', einheit='cm'))
+ST.neu('produkt', 'darstellung', A('100 m in 12 s (beides auf ganze Einheiten gerundet). Welche Rechnung liefert die kleinstmögliche Geschwindigkeit?', '99,5 : 12,5', ['100,5 : 11,5', '99,5 : 11,5', '100 : 12'],
+       'Ein Quotient ist am kleinsten, wenn der Zähler klein und der Nenner groß ist.', 'Wie wird ein Bruch möglichst klein?'))
+ST.neu('produkt', 'fehler', A('Ein Rechteck ist 6 cm × 4 cm (ganze cm). Jemand berechnet die untere Schranke der Fläche als 5,5 · 4,5 = 24,75 cm². Was stimmt?', 'Falsch: 5,5 · 3,5 = 19,25 cm².',
+       ['Richtig.', 'Falsch: 6,5 · 4,5 = 29,25 cm².', 'Falsch: 6 · 4 − 0,5 = 23,5 cm².'], 'Für die untere Schranke braucht man von beiden Seiten die untere Schranke.', 'Welche Schranken gehören zur kleinsten Fläche?'))
+ST.neu('produkt', 'begruenden', A('Stimmt: Den größten Wert von a : b erhält man mit der oberen Schranke von a und der oberen Schranke von b?', 'Nein: obere Schranke von a durch untere Schranke von b.',
+       ['Ja.', 'Nein: untere von a durch obere von b.', 'Nein: untere von a durch untere von b.'], 'Ein größerer Nenner macht den Quotienten kleiner. Für den größten Wert braucht man den kleinsten Nenner.', 'Was macht ein größerer Nenner?'))
+ST.knobel('produkt', Z('Ein Würfel hat die Kantenlänge 10 cm (auf ganze cm gerundet). Wie groß ist der Unterschied zwischen oberer und unterer Schranke des Volumens (in cm³)?', 300.25, '10.5**3 - 9.5**3',
+          '10,5³ = 1 157,625 und 9,5³ = 857,375. Unterschied 300,25 cm³ – rund 30 % des Nennwerts 1 000 cm³, obwohl die Kante nur um 5 % unsicher ist. Beim Potenzieren wachsen relative Fehler.',
+          'Berechne beide Volumen.', einheit='cm³'))
+ST.knobel('produkt', A('Ein Quadrat hat die Fläche 50 cm² (auf ganze cm² gerundet). Wie genau kann man die Seitenlänge sicher angeben?', 'nur auf ganze cm: 7 cm',
+          ['auf mm: 7,1 cm', 'auf hundertstel cm: 7,07 cm', 'auf mm: 7,0 cm'],
+          'Die Seite liegt zwischen √49,5 ≈ 7,04 cm und √50,5 ≈ 7,11 cm. Auf Zehntel gerundet ergibt das 7,0 oder 7,1 – nicht eindeutig. Auf ganze cm gerundet ist es sicher 7 cm.',
+          'Runde beide Schranken auf dieselbe Stelle und vergleiche.'))
+
+# entscheiden
+ST.stufenleiter('entscheiden', 'Mit einfachen Schranken entscheiden, ob etwas sicher passt oder erlaubt ist.',
+                'Bretter und Lasten mit mehreren Teilen, Höchstlast rückwärts, richtigen Vergleich wählen.',
+                'Sichere Aussagen über Flächen, Fahrzeiten, sinnvolle Genauigkeit, Fehler in einer Rechnung finden.')
+ST.typ('entscheiden', '/Aufzug/', 'direkt', s=1)
+ST.typ('entscheiden', '/^/', 'erkennen', s=1)
+ST.typ('entscheiden', '/Stimmt das/', 'fehler')
+ST.typ('entscheiden', '/^/', 'einkleidung', s=2)
+ST.typ('entscheiden', '/Was lässt sich/', 'begruenden')
+ST.typ('entscheiden', '/Zug/', 'transfer')
+ST.typ('entscheiden', '/^/', 'verknuepfen', s=3)
+ST.neu('entscheiden', 'mehrschritt', A('4 Kisten zu je 23 kg (auf ganze kg gerundet) sollen auf einen Anhänger, der höchstens 93 kg tragen darf. Ist das sicher erlaubt?', 'Nein, zusammen können sie bis zu 94 kg wiegen.',
+       ['Ja, 4 · 23 = 92 kg.', 'Ja, 4 · 22,5 = 90 kg.', 'Nein, sie wiegen sicher mehr als 93 kg.'],
+       'Ungünstigster Fall: 4 · 23,5 kg = 94 kg > 93 kg. Sicher erlaubt ist es also nicht (verboten aber auch nicht sicher).', 'Rechne mit der oberen Schranke.'))
+ST.neu('entscheiden', 'mehrschritt', A('3 Regale zu je 80 cm Breite sollen nebeneinander an eine 243 cm breite Wand (alle Maße auf ganze cm gerundet). Passen sie sicher?', 'Ja: höchstens 241,5 cm Regale, mindestens 242,5 cm Wand.',
+       ['Nein, 3 · 80,5 = 241,5 cm ist zu viel.', 'Das kann man nicht sagen.', 'Nein, 243 − 240 = 3 cm ist zu wenig Spiel.'],
+       'Obere Schranke der Regale: 3 · 80,5 = 241,5 cm. Untere Schranke der Wand: 242,5 cm. 241,5 < 242,5: passt sicher.', 'Vergleiche den ungünstigsten Fall.'))
+ST.neu('entscheiden', 'umkehr', Z('Ein Aufzug soll 6 Personen zu je 80 kg (auf ganze kg gerundet) sicher tragen. Welche Höchstlast (in ganzen kg) braucht er mindestens?', 483, '6*80.5',
+       'Ungünstigster Fall: 6 · 80,5 kg = 483 kg. Mit einer Höchstlast von 483 kg ist die Fahrt sicher erlaubt.', 'Rechne mit der oberen Schranke.', einheit='kg'))
+ST.neu('entscheiden', 'darstellung', A('Ein Schrank hat die Breite b, die Lücke die Breite L (beide gerundet). Welcher Vergleich zeigt, dass der Schrank sicher passt?', 'obere Schranke von b ≤ untere Schranke von L',
+       ['b ≤ L', 'untere Schranke von b ≤ obere Schranke von L', 'obere Schranke von b ≤ obere Schranke von L'],
+       'Sicher heißt: Selbst der breiteste mögliche Schrank passt in die schmalste mögliche Lücke.', 'Denke an den ungünstigsten Fall.'))
+ST.knobel('entscheiden', A('Eine Brücke darf mit höchstens 40 t belastet werden. Ein Lkw wiegt 12 t, seine Ladung 27 t (beides auf ganze t gerundet). Darf er sicher darüber?', 'Ja: zusammen sind es weniger als 12,5 t + 27,5 t = 40 t.',
+          ['Nein, 12,5 t + 27,5 t = 40 t ist schon zu viel.', 'Nein, man weiß es nicht.', 'Ja, weil 12 + 27 = 39 t.'],
+          'Die oberen Schranken gehören nicht zum Fehlerbereich: Der Lkw wiegt weniger als 12,5 t, die Ladung weniger als 27,5 t, zusammen also weniger als 40 t. Die Grenze 40 t wird sicher nicht überschritten.',
+          'Gehört die obere Schranke selbst zum Fehlerbereich?'))
+ST.knobel('entscheiden', Z('Platten zu je 30 cm Länge (auf ganze cm gerundet) sollen eine 300 cm lange Strecke (auf ganze cm gerundet) lückenlos belegen. Wie viele Platten braucht man, um sicher zu sein?', 11, '11',
+          'Ungünstigster Fall: Platten nur 29,5 cm, Strecke fast 300,5 cm. 10 Platten: 295 cm – zu wenig. 11 Platten: 324,5 cm – reicht sicher.', 'Kurze Platten und lange Strecke ist der ungünstigste Fall.'))
+
+if __name__ == '__main__':
+    stufen('zahlen.schranken', ST)

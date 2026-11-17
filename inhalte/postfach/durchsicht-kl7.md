@@ -3,6 +3,9 @@
 Neueste Meldung oben.
 
 ## 2026-11-17 – STATUS
+daten.boxplot fertig: 23 umgestuft (Stufen unterschieden sich vor allem in der Länge der Datenliste), 4 neu. Prüfer OK, Nachweis OK. (Nachweis-Skript verbessert: neue Übungen direkt hinter einer umgestuften Aufgabe werden jetzt richtig zugeordnet.)
+
+## 2026-11-17 – STATUS
 bruch.prozent_grundwert fertig: 16 umgestuft, 2 ersetzt, 6 neu. Prüfer OK, Nachweis OK.
 
 ## 2026-11-17 – STATUS

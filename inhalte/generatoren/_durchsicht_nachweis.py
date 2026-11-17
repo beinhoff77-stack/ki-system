@@ -48,9 +48,18 @@ def main(thema, stand='origin/lernen-app'):
                 z['neu'] += 1
                 if b['p'] != 'uebung': F.append('neue Aufgabe nicht im Pool uebung')
             continue
-        if tag != 'replace' or i2 - i1 != j2 - j1:
+        if tag != 'replace' or i2 - i1 > j2 - j1:
             F.append(f'Aufgaben gelöscht/umsortiert bei {i1}–{i2} → {j1}–{j2}'); continue
-        for a, b in zip(A[i1:i2], N[j1:j2]):
+        # geänderte alte Aufgaben stehen an ihrer Stelle; ein Überschuss auf der neuen Seite sind eingefügte neue Übungen
+        paare = list(zip(A[i1:i2], N[j1:j1 + (i2 - i1)]))
+        if any((a['l'], a['p']) != (b['l'], b['p']) for a, b in paare):
+            paare = list(zip(A[i1:i2], N[j2 - (i2 - i1):j2])); rest = N[j1:j2 - (i2 - i1)]
+        else:
+            rest = N[j1 + (i2 - i1):j2]
+        for b in rest:
+            z['neu'] += 1
+            if b['p'] != 'uebung': F.append('neue Aufgabe nicht im Pool uebung')
+        for a, b in paare:
             if (a['l'], a['p'], a['t']) != (b['l'], b['p'], b['t']): F.append(f'Lernkarte/Pool geändert: {a["f"]["text"][:50]}')
             if a['f']['text'] != b['f']['text'] or a.get('a') != b.get('a') or a['f'] != b['f'] or a['y'] != b['y']:
                 z['ersetzt'] += 1

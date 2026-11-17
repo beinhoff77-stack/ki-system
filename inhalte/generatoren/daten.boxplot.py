@@ -642,6 +642,57 @@ BF.nicht_umgesetzt('vergleichen: Stufe 1 und 2 gleich gebaut („Welche Aussage 
 
 # ---- BEFUNDE ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Klasse 7, siehe _durchsicht_kl7.py) ----
+# Hauptmangel: Stufen unterschieden sich oft nur in der Länge der Datenliste. Umgestuft; bei quartile neue Stufe-3-Gedanken (Anteile, Wirkung von Änderungen).
+from _durchsicht_kl7 import Durchsicht, durchsicht_datei  # noqa: E402
+
+DS = Durchsicht('daten.boxplot', 19_7_7)
+# median: Stufe 2 = Stufe 1 mit längerer Liste, Stufe 3 = noch längere Liste
+for _t in ['Seiten gelesen pro Tag: 27; 48; 58; 38; 17; 40; 47; 59; 54; 45; 59. Bestimme den Median.',
+           'Punkte in einem Test (höchstens 30): 2; 12; 9; 19; 16; 19. Bestimme den Median.',
+           'Seiten gelesen pro Tag: 23; 4; 45; 14; 27; 31; 23; 6; 10; 38. Bestimme den Median.']:
+    DS.stufe('median', _t, 1)
+for _t in ['Körpergröße in cm: 156; 170; 143; 160; 158; 157; 161; 149; 138; 150; 149; 173; 155; 158; 164. Bestimme den Median.',
+           'Seiten gelesen pro Tag: 38; 44; 20; 54; 12; 38; 38; 5; 33; 30; 56; 21. Bestimme den Median.']:
+    DS.stufe('median', _t, 2)
+DS.neu('median', 2, DS.Z('Zu den Werten 4; 6; 9; 11 kommt der Wert 20 dazu. Um wie viel steigt der Median?', 1.5, '9 - (6 + 9) / 2',
+                         'Vorher: (6 + 9) : 2 = 7,5. Nachher 4; 6; 9; 11; 20 mit Median 9. Er steigt um 1,5.', 'Bestimme den Median vorher und nachher.'))
+# kennwerte: „Bestimme Modalwert/Spannweite“ ist das Beispiel mit anderen Zahlen → Stufe 1
+for _t in ['Minuten Hausaufgaben von 6 Kindern: 7; 24; 9; 24; 4; 10. Bestimme die Spannweite.',
+           'Tore in der Saison von 6 Kindern: 12; 8; 24; 19; 6; 6. Bestimme den Modalwert.',
+           'Liegestütze in einer Minute von 8 Kindern: 11; 15; 14; 21; 17; 18; 25; 25. Bestimme den Modalwert.',
+           'Euro Taschengeld von 6 Kindern: 14; 12; 11; 9; 10; 12. Bestimme den Modalwert.',
+           'Gelesene Bücher im Jahr von 5 Kindern: 1; 9; 20; 9; 16. Bestimme den Modalwert.',
+           'Gelesene Bücher im Jahr von 5 Kindern: 6; 14; 22; 10; 6. Bestimme die Spannweite.']:
+    DS.stufe('kennwerte', _t, 1)
+# mittel_median: „Welcher Wert beschreibt die Mitte besser?“ steht genauso in Stufe 2
+DS.stufe('mittel_median', 'Werte: 12; 10; 17; 90; 20. Welcher Wert beschreibt die typische Mitte besser?', 2)
+DS.stufe('mittel_median', 'Wartezeiten an einer Kasse (min): 7; 4; 11; 5; 9. Welcher Wert beschreibt die typische Mitte besser?', 2)
+# quartile: Stufe 3 waren vor allem längere Listen → Stufe 2; neue Stufe-3-Gedanken
+for _t in ['Werte: 3; 6; 42; 32; 15; 19; 45; 22; 43; 30; 3; 18; 45; 25; 38. Bestimme das untere Quartil.',
+           'Werte: 32; 22; 22; 17; 18; 42; 47; 1; 37; 19; 11; 36; 8; 4; 50. Bestimme den Quartilsabstand Q₃ − Q₁.',
+           'Werte: 23; 36; 30; 13; 33; 46; 9; 10; 37; 48; 26; 31; 26. Bestimme das obere Quartil.',
+           'Werte: 48; 32; 47; 2; 23; 5; 25; 38; 10; 48; 24; 5; 47; 40; 36. Bestimme das untere Quartil.',
+           '13 Kinder notieren ihre Bildschirmzeit am Wochenende (in Stunden): 3; 5; 5; 6; 8; 9; 11; 12; 12; 14; 15; 18; 21. Bestimme das obere Quartil.',
+           'Werte: 1; 2; 4; 4; 5; 7; 8; 10; 11; 11; 15; 20. Bestimme den Quartilsabstand Q₃ − Q₁.']:
+    DS.stufe('quartile', _t, 2)
+DS.neu('quartile', 3, DS.Z('Eine Datenreihe hat 20 verschiedene Werte. Wie viele davon sind kleiner als das untere Quartil Q₁?', 5, '20 / 4',
+                           'Untere Hälfte: die 10 kleinsten Werte. Q₁ liegt zwischen dem 5. und 6. Wert, also sind genau 5 Werte kleiner.',
+                           'Bei 20 Werten hat die untere Hälfte 10 Werte. Wo liegt deren Mitte?'))
+DS.neu('quartile', 3, DS.A('Eine Datenreihe hat 7 Werte. Der größte Wert wird verdoppelt. Was passiert mit dem oberen Quartil Q₃?',
+                           'Q₃ bleibt gleich: Es ist der mittlere der drei oberen Werte, nicht der größte.',
+                           ['Q₃ verdoppelt sich ebenfalls.', 'Q₃ wird größer, aber nicht doppelt so groß.', 'Q₃ wird kleiner.'],
+                           'Bei 7 Werten ist die obere Hälfte der 5., 6. und 7. Wert; Q₃ ist der 6. Wert. Der 7. (größte) Wert ändert ihn nicht.',
+                           'Welcher Wert der geordneten Liste ist bei 7 Werten Q₃?'))
+DS.neu('quartile', 3, DS.Z('Eine Datenreihe hat Q₁ = 12 und Q₃ = 20. Jeder Wert wird um 5 erhöht. Wie groß ist jetzt der Quartilsabstand?', 8, '(20 + 5) - (12 + 5)',
+                           'Beide Quartile wachsen um 5: 17 und 25. Der Abstand bleibt 25 − 17 = 8.', 'Was passiert mit Q₁ und Q₃, wenn alle Werte gleich stark wachsen?'))
+# vergleichen: „gleichmäßiger“/„insgesamt höher“ stehen schon in Stufe 2; eine Stufe-2-Aufgabe ist gleich gebaut wie Stufe 1
+DS.stufe('vergleichen', 'Ergebnisse zweier Klassen beim 1 000-m-Lauf (in s), siehe Boxplots. In welcher Klasse sind die Leistungen gleichmäßiger?', 2)
+DS.stufe('vergleichen', 'Ergebnisse zweier Klassen beim Hochsprung (in cm), siehe Boxplots. Welche Klasse sprang insgesamt höher?', 2, anzahl=2)
+DS.stufe('vergleichen', 'Ergebnisse zweier Klassen beim 1 000-m-Lauf (in s), siehe Boxplots. Welche Aussage ist richtig?', 1, enthaelt='"s": 2')
+# ---- DURCHSICHT ENDE ----
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Kennwerte', ['median', 'kennwerte', 'mittel_median']), ('Quartile und Boxplot', ['quartile', 'boxplot']), ('Vergleichen', ['vergleichen'])],
@@ -651,3 +702,4 @@ if __name__ == '__main__':
          offen=['Quartile werden als Median der unteren bzw. oberen Hälfte bestimmt (bei ungerader Anzahl ohne den Median). Schulbücher verwenden teils andere Verfahren; bitte mit dem Buch des Kindes abgleichen.'])
     anhaengen(META['thema_schluessel'], schwer())
     befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+    durchsicht_datei(META['thema_schluessel'], DS)  # Neunzehnte Runde: zuletzt

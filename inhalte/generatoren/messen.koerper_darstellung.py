@@ -838,3 +838,10 @@ if __name__ == '__main__':
                 'Ansichten werden weiter nur in Worten abgefragt.',
                 'Überschneidung mit raum.schraegbilder: Die Schrägbild-Regeln für Prismen stehen hier; raum.schraegbilder konzentriert sich auf Pyramiden.',
                 'Zylinder: Der Kreisumfang wird in den Aufgaben gegeben, weil Kreisberechnungen (π) erst im Thema messen.kreisberechnung folgen.'])
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('messen.koerper_darstellung')
+# ---- BEREINIGEN ENDE ----

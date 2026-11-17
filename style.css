@@ -3523,10 +3523,6 @@ body.lern-seite { padding-bottom: 32px; }
 .lp-warte { color: var(--warn); font-weight: 700; }
 @media (max-width: 520px) { .lp-kacheln { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .lern-plan-themen { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
-.lern-plan-themen li { display: grid; grid-template-columns: 10px 1fr; align-items: start; gap: 2px 8px; font-size: .9rem; }
-.lern-plan-themen li > :not(.lp-punkt) { grid-column: 2; }
-.lern-plan-themen li > .lp-punkt { margin-top: .4em; }
-.lern-plan-themen .lp-punkt { align-self: center; }
 .lern-plan-jg { font-weight: 800; white-space: nowrap; }
 .lp-text > .lern-plan-jg { font-size: .9rem; }
 .lern-plan-auswahl > li { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 6px 0; border-top: 1px solid var(--border); }
@@ -4127,3 +4123,22 @@ details.lr-woerter > summary::-webkit-details-marker { display: none; }
 .lern-chips-zeile a.lern-chip[aria-current] { background: var(--text); color: var(--surface, #fff); border-color: var(--text); }
 a.lern-mini-linie { text-decoration: none; min-height: 28px; border-radius: 6px; } a.lern-mini-linie:hover { background: var(--info-bg); }
 details.lern-vorlage summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; } .lern-vorlage-liste { margin: 6px 0 0; padding-left: 22px; } .lp-stufen label { display: inline-flex; align-items: center; gap: 4px; }
+
+/* M3: aufgeklappter Ort – eine Zeile je Flug, Häkchen links in derselben Zeile */
+.lern-plan-themen li { display: flex; align-items: center; flex-wrap: wrap; gap: 2px 10px; min-height: 44px; font-size: .9rem; padding: 2px 0; border-top: 1px solid var(--border, #eee); }
+.lern-plan-themen li:first-child { border-top: 0; }
+.lern-plan-themen li > .lern-plan-im, .lern-plan-themen li > .lp-punkt { flex: none; }
+.lern-plan-themen .lern-plan-im { display: inline-grid; place-items: center; width: 44px; height: 44px; margin: -6px -6px -6px -10px; cursor: pointer; }
+.lern-plan-themen li > span { flex: 1 1 12em; min-width: 0; }
+.lern-plan-themen li > small, .lern-plan-themen li > a { flex: none; }
+/* M4: Ort über der Klasse des Kindes */
+.lern-plan-ueber { display: block; color: #8A4B00; font-weight: 700; }
+.lr-band-stempel { margin: 4px 0 0; font-size: 13px; }
+.lr-kommt .lr-wegzeile { opacity: 1; }
+
+/* M8: Menüknopf im Fluss der Seite (oben rechts und am Ende) statt schwebend */
+.lr-mit-menue .lr-menue { position: static; width: 48px; height: 48px; font-size: 24px; box-shadow: none; border-radius: 12px; display: inline-grid; place-items: center; }
+.lr-mit-menue .lr-menue.lr-menue-unten { width: auto; padding: 0 18px; font-size: 18px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; }
+.lr-menue-zeile { display: flex; justify-content: flex-end; margin: -6px 0 -8px; }
+.lr-menue-zeile.unten { justify-content: center; margin: 8px 0 0; }
+.lr-mit-menue .lr-inhalt { padding-bottom: 24px; }

@@ -468,11 +468,12 @@ test('Kinderplan: Schulart und Klasse setzen', async (t) => {
   await rom.getByText('Gym 5 · RS 5 · IB 2').waitFor();
   // Rechts der Lehrplan der eigenen Schulart und Klasse
   assert.equal(await page.getByRole('combobox', { name: 'Schulart' }).inputValue(), 'gym_by');
-  assert.equal(await page.getByRole('combobox', { name: 'Klasse' }).inputValue(), '5');
+  assert.equal(await page.getByRole('combobox', { name: 'Klasse', exact: true }).inputValue(), '5');
   await page.screenshot({ path: path.join(root, 'test-results/themenplan-390.png'), fullPage: true });
-  await page.getByRole('spinbutton', { name: 'Klasse' }).fill('6');
-  await page.getByRole('button', { name: 'Speichern', exact: true }).click();
-  await page.getByText('Gespeichert.').first().waitFor();
+  // M2: Klasse ist eine Auswahl und speichert sofort – kein eigener Knopf
+  assert.equal(await page.locator('.lp-kindform button').count(), 0);
+  await page.getByRole('combobox', { name: 'Klasse des Kindes' }).selectOption('6');
+  await page.locator('.lp-kindform [role=status]', { hasText: 'Gespeichert' }).waitFor();
   assert.deepEqual(calls.find((c) => c.aktion === 'schule_kind_setzen').daten, { lernender_id: 1, klasse: 6 });
 });
 
@@ -580,7 +581,7 @@ test('Gestaltung Abflug: Abflugtafel, Bordkarte mit Tastenfeld, Kurskorrektur, L
   await page.screenshot({ path: path.join(root, 'test-results/abflug-tafel-390.png') });
   // Menüblatt statt Leiste
   assert.equal(await page.locator('.lr-nav').count(), 0);
-  await page.getByRole('button', { name: 'Menü' }).click();
+  await page.getByRole('button', { name: 'Menü', exact: true }).first().click();
   assert.deepEqual(await page.locator('.lr-blatt-liste a').allInnerTexts(), ['Abflugtafel', 'Mein Weg', 'Merkheft', 'Reisepass']); // K2: 4 Einträge
   await page.screenshot({ path: path.join(root, 'test-results/abflug-menue-390.png') });
   await page.getByRole('button', { name: 'Schließen' }).click();
@@ -836,10 +837,12 @@ test('A2/N2: „Kurz gesagt“ ist bei allen Merksätzen aus inhalte/themen höc
   const zwei = await page.evaluate((rs) => rs.map((r) => lernKurzGesagt(r)).filter((k) => { const e = lernSatzEnde(k); return e > 0 && e < k.length; }), regeln);
   assert.deepEqual(zwei, []);
   // unabhängige Gegenprobe: kein „Satzende + Großbuchstabe“ mehr, außer nach den Abkürzungen und Aufzählungen
-  const verdacht = await page.evaluate((rs) => rs.map((r) => lernKurzGesagt(r)).filter((k) => /(?<!\b(?:z\.\s?B|d\.\s?h|u\.\s?a|bzw|ca|usw|vgl|[zdu]|\d{1,2}))[.!?]\s+[A-ZÄÖÜ]/.test(k.replace(/\b\d+,\d+\./g, '#'))), regeln);
+  const verdacht = await page.evaluate((rs) => rs.map((r) => lernKurzGesagt(r)).filter((k) => /(?<!\b(?:z\.\s?B|d\.\s?h|u\.\s?a|bzw|ca|usw|vgl|[zdu]|(?<!:\s?)\d{1,2}|:\s?1))[.!?]\s+[A-ZÄÖÜ]/.test(k.replace(/\b\d+,\d+\./g, '#'))), regeln);
   assert.deepEqual(verdacht, []);
-  assert.deepEqual(await page.evaluate(() => ['Unter null schreibst du ein Minus, z. B. −3. Das ist kalt.', 'Man rechnet ca. 5 Stück, d. h. viel. Fertig!', 'Ist das so? Ja.', 'Die 3. Wurzel ist gemeint. Mehr.'].map(lernKurzGesagt)),
-    ['Unter null schreibst du ein Minus, z. B. −3.', 'Man rechnet ca. 5 Stück, d. h. viel.', 'Ist das so?', 'Die 3. Wurzel ist gemeint.']);
+  assert.deepEqual(await page.evaluate(() => ['Unter null schreibst du ein Minus, z. B. −3. Das ist kalt.', 'Man rechnet ca. 5 Stück, d. h. viel. Fertig!', 'Ist das so? Ja.', 'Die 3. Wurzel ist gemeint. Mehr.',
+    'Arithmetische Reihe: ⟦Sₙ = n · (a₁ + aₙ) : 2⟧. Erstes plus letztes Glied.', 'So geht es: 1. Kürzen, 2. Multiplizieren. Fertig.', 'Teile durch 2. Dann fertig.'].map(lernKurzGesagt)),
+    ['Unter null schreibst du ein Minus, z. B. −3.', 'Man rechnet ca. 5 Stück, d. h. viel.', 'Ist das so?', 'Die 3. Wurzel ist gemeint.',
+      'Arithmetische Reihe: Sₙ = n · (a₁ + aₙ) : 2.', 'So geht es: 1. Kürzen, 2. Multiplizieren.', 'Teile durch 2.']); // P1: „: 2.“ ist keine Aufzählung
 });
 
 test('A2/N1: Tabelle und Stellentafel – nur die geänderte Zelle ist hervorgehoben', async (t) => {
@@ -898,10 +901,12 @@ test('N4: Startknopf „Erst 1 Wiederholung ›“, danach „Weiter nach Rom �
 test('N5–N7: Detektiv nur ohne Fehlermuster; Test-Kopf „Ort · Flug“; Testergebnis mit Abflug-Knöpfen und grüner Markierung', async (t) => {
   const { page } = await setup(t, { gestaltung: 'nacht' });
   // N5 (Code): der Detektiv hängt an LERN_GRUND – mit erkanntem Muster kein Detektiv
-  const quelle = fs.readFileSync(path.join(root, 'lernen.js'), 'utf8');
-  assert.equal((quelle.match(/e\.fehler && !LERN_GRUND\[r\.grund\] \? el\('div', \{ class: 'lr-fehler lr-detektiv' \}/g) || []).length, 2);
   await page.goto(origin + '/#/lerneinheit/1-1-test');
   await page.getByRole('heading', { name: 'Rom · Natürliche Zahlen' }).waitFor(); // N6
+  // M6: bei Auswahl-Bordkarten ohne Muster je Option ein neutraler Satz statt des Etappen-Musters
+  assert.deepEqual(await page.evaluate(() => { const e = { fehler: 'Muster X' };
+    return [!!lernDetektiv({ antworttyp: 'zahl' }, e, { grund: 'vorzeichen' }, 'T'), lernDetektiv({ antworttyp: 'zahl' }, e, {}, 'T')?.textContent, lernDetektiv({ antworttyp: 'auswahl' }, e, {}, 'T')?.textContent]; }),
+    [false, 'TMuster X', 'NOCH EINMAL HINSEHENSchau dir deine Wahl und die Frage noch einmal an.']);
   await page.getByRole('button', { name: 'Test starten' }).click();
   await page.getByText('elf Millionen vierhundertneunzigtausendeinundfünfzig').click();
   await page.getByRole('button', { name: 'Weiter ›' }).click();
@@ -1229,4 +1234,153 @@ test('E-4: Neuer Plan aus Lehrplan-Vorlage – Orte der Klasse in Lehrplan-Reihe
   await page.locator('.lern-plan-stand', { hasText: 'Rückgängig gemacht · Gespeichert' }).waitFor();
   await page.waitForFunction(() => document.querySelectorAll('.lern-plan-zeile').length === 1);
   assert.deepEqual(db.eintraege.map((x) => x.block_id), [202]);
+});
+
+// ---------- Schritt E: Befunde M1–M9 der Nachprüfung 0.74.5 und P1–P3 der Nachprüfung Phase 2 ----------
+// Kind A (Gym 5): Plan Rom (Kl. 5) und New York (Kl. 7). anpassen(u) verändert die Übersicht.
+const planKindA = (route, mehr = (u) => u) => (aktion, e) => {
+  if (aktion !== 'schule_uebersicht') return null;
+  const u = structuredClone(e); u.lernende[0].route = route.map((b, i) => ({ block_id: b, position: i + 1, art: 'normal', status: 'offen', kann_schon: false })); return mehr(u);
+};
+const kacheln = (page) => page.locator('.lr-zahlen .lr-zahl').evaluateAll((zs) => zs.map((z) => z.innerText.replace(/\s+/g, ' ').trim()));
+
+test('M1/M4: „Gerade dran“ nur der aktuelle Ort; Klasse-7-Ort im Klasse-5-Plan unter „Später“, außer vorgezogen', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: planKindA([49, 52]) });
+  await page.goto(origin + '/#/weg/1');
+  await page.locator('.lr-zahlen').waitFor();
+  assert.deepEqual(await kacheln(page), ['0 kann ich', '1 gerade dran', '1 kommen noch']); // Athen (Kl. 5, noch ohne Inhalt) kommt noch
+  assert.deepEqual(await page.locator('.lr-dran b').first().allInnerTexts(), ['Natürliche Zahlen']);
+  assert.equal(await page.locator('.lr-dran').count(), 1);
+  const spaeter = page.locator('details.lr-mehr', { hasText: 'Später' });
+  await spaeter.locator('summary').click();
+  assert.match(await spaeter.innerText(), /Einfache Zinsen/, 'New York (Kl. 7) steht unter „Später“');
+});
+
+test('M1/M4/M9: vorgezogener Ort ist dran, der Rest unter „Kommt noch“; Satz „Alles aus Klasse 5 …“', async (t) => {
+  const ohneAthen = (u) => { u.orte = u.orte.filter((o) => o.block_id !== 48); return u; };
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: planKindA([52, 49], ohneAthen) });
+  await page.goto(origin + '/#/weg/1');
+  await page.locator('.lr-zahlen').waitFor();
+  assert.deepEqual(await kacheln(page), ['0 kann ich', '1 gerade dran', '1 kommen noch']);
+  assert.match(await page.locator('.lr-dran').innerText(), /Einfache Zinsen/, 'New York ist vor Rom eingeplant → vorgezogen, also dran');
+  assert.match(await page.locator('.lr-kommt').innerText(), /Natürliche[\s\S]*1 Flug/);
+  await page.getByText('Alles aus Klasse 5 steht schon in deinem Plan.').waitFor();
+  assert.equal(await page.getByText('Für deine Klasse ist alles verteilt.').count(), 0);
+});
+
+test('M5: Abflugtafel zeigt das nächste Zwischenziel (Etappen bis der Flug gelandet ist)', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' });
+  await page.goto(origin + '/#/reise/1');
+  const band = page.locator('.lr-band small');
+  await band.waitFor();
+  assert.match(await band.innerText(), /^Noch \d+ Etappen? bis ›Natürliche Zahlen‹ gelandet$/);
+  assert.equal(await page.getByText(/bis zum Stempel/).count(), 0);
+});
+
+test('M7: „Worum geht’s“ ohne Bild, wenn Schritt 1 dasselbe Bild ergänzt; sonst bleibt das Bild oben', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' });
+  await page.goto(origin + '/#/reise/1'); await page.getByRole('heading', { name: /Abflüge/ }).waitFor();
+  const n = await page.evaluate(() => {
+    const bild = { typ: 'tabelle', kopf: ['x', 'y'], zeilen: [['1', '2'], ['3', '?']] };
+    const zaehle = (e) => { const d = lernErklaerung(e); return [d.querySelectorAll('.lr-tafel').length, d.querySelectorAll('.lr-sogehts .lr-tafel').length]; };
+    return [zaehle({ einstieg: 'Worum.', bild, regel: 'R.', schritte: [{ text: 'Ergänzen.', bild: { zeilen: [['1', '2'], ['3', '6']] } }, { text: 'Fertig.' }] }),
+      zaehle({ einstieg: 'Worum.', bild, regel: 'R.', schritte: [{ text: 'Lesen.' }, { text: 'Ergänzen.', bild: { zeilen: [['1', '2'], ['3', '6']] } }] })];
+  });
+  assert.deepEqual(n, [[1, 1], [2, 1]]);
+});
+
+test('M2/M3/M4: Flugplan – Klasse ohne Speichern-Knopf; Häkchen in der Zeile des Flugs; Ort über der Klasse markiert', async (t) => {
+  const { page, calls } = await setup(t);
+  await page.setViewportSize({ width: 820, height: 1180 });
+  const orte = vieleOrte().slice(0, 3);
+  orte.push({ block_id: 300, titel: 'Körper', stadt: 'Cusco', kontinent: 'Raum', themen: [{ thema_id: 900, titel: 'Netze', jahrgang: { gym_by: 8 }, stand: 'offen', einheit: { id: 990, status: 'geprueft', karten: 6, aufgaben: 40, neu: 0 } }] });
+  const db = await planDb(page, calls, { orte, plan: [100, 300, 101] });
+  await page.goto(origin + '/#/plan/1');
+  const cusco = page.locator('.lern-plan-zeile', { hasText: 'Cusco' });
+  await cusco.waitFor();
+  assert.equal(await cusco.locator('.lern-plan-ueber').innerText(), 'Klasse 8 – über der Klasse des Kindes · vorgezogen'); // vor Wien (Kl. 5)
+  // ans Ende → Kind sieht ihn unter „Später“
+  await cusco.getByRole('button', { name: 'Cusco – Körper nach unten' }).click();
+  await page.waitForFunction(() => document.querySelector('.lern-plan-stand').textContent === 'Gespeichert');
+  assert.deepEqual(db.eintraege.map((x) => x.block_id), [100, 101, 300]);
+  assert.equal(await page.locator('.lern-plan-zeile', { hasText: 'Cusco' }).locator('.lern-plan-ueber').innerText(), 'Klasse 8 – über der Klasse des Kindes · Kind sieht ihn unter „Später“');
+  assert.equal(await page.locator('.lern-plan-zeile', { hasText: 'Rom' }).locator('.lern-plan-ueber').count(), 0);
+  // M3: aufgeklappt steht das Häkchen in derselben Zeile wie der Flugname
+  const rom = page.locator('.lern-plan-zeile', { hasText: 'Rom' });
+  await rom.locator('.lern-plan-ort').click();
+  const flug = rom.locator('.lern-plan-themen li').first();
+  const [h, n] = [await flug.locator('input[type=checkbox]').boundingBox(), await flug.locator('b').boundingBox()];
+  assert.ok(Math.abs((h.y + h.height / 2) - (n.y + n.height / 2)) < 12 && h.x < n.x, 'Häkchen links neben dem Flugnamen');
+  assert.ok((await flug.boundingBox()).height <= 60, 'eine Zeile je Flug');
+  await page.screenshot({ path: path.join(root, 'test-results/m3-ort-aufgeklappt-820.png') });
+  // M2: kein Knopf „Speichern“, Klasse speichert sofort
+  assert.equal(await page.locator('.lp-kindform button').count(), 0);
+  await page.getByRole('combobox', { name: 'Klasse des Kindes' }).selectOption('8');
+  await page.locator('.lp-kindform [role=status]', { hasText: 'Gespeichert' }).waitFor();
+  assert.equal(await page.locator('.lern-plan-ueber').count(), 0, 'mit Klasse 8 liegt nichts mehr darüber');
+});
+
+test('M8: Menüknopf schwebt nicht über dem Inhalt (Handy und Tablet, beim Rollen)', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' });
+  for (const [b, h] of [[390, 844], [820, 1180]]) {
+    await page.setViewportSize({ width: b, height: h });
+    for (const ziel of ['/#/reise/1', '/#/weg/1']) {
+      await page.goto(origin + ziel); await page.locator('.lr-menue').first().waitFor();
+      for (const y of [0, 300, 900]) {
+        await page.evaluate((yy) => window.scrollTo(0, yy), y);
+        const ueber = await page.evaluate(() => [...document.querySelectorAll('.lr-menue')].filter((m) => getComputedStyle(m).position === 'fixed').length);
+        assert.equal(ueber, 0, `${b} px ${ziel} bei ${y}`);
+        // An der Stelle jedes sichtbaren Menüknopfs liegt der Knopf selbst – nichts anderes darunter oder darüber
+        const frei = await page.evaluate(() => [...document.querySelectorAll('.lr-menue')].map((m) => { const r = m.getBoundingClientRect();
+          if (r.bottom < 0 || r.top > innerHeight) return true;
+          const neben = [...document.querySelectorAll('.lr-inhalt a, .lr-inhalt button, .lr-inhalt p, .lr-inhalt h1')].filter((x) => !m.contains(x) && !x.contains(m) && x.checkVisibility());
+          const z = neben.find((x) => { const q = x.getBoundingClientRect(); return !(q.right <= r.left || q.left >= r.right || q.bottom <= r.top || q.top >= r.bottom); }); return z ? z.className + ' ' + z.textContent.slice(0, 40) : true; }).find((x) => x !== true) ?? true);
+        if (frei !== true) await page.screenshot({ path: path.join(root, 'test-results/m8-fehler.png') });
+        assert.ok(frei === true, `Menüknopf überdeckt nichts: ${b} px ${ziel} bei ${y}: ${frei}`);
+      }
+    }
+  }
+});
+
+test('Flugplan ziehen: Rechner mit Maus und Handy mit Finger (mit Rollen)', async (t) => {
+  const { page, calls } = await setup(t);
+  await page.setViewportSize({ width: 1280, height: 800 });
+  const db = await planDb(page, calls, { orte: vieleOrte(), plan: STAEDTE.slice(0, 12).map((_, i) => 100 + i) });
+  await page.goto(origin + '/#/plan/1');
+  const zeilen = page.locator('.lern-plan-zeile'); await zeilen.nth(11).waitFor();
+  // Maus: Platz 6 (Oslo) → Platz 2
+  const g = await zeilen.nth(5).locator('.lern-plan-griff').boundingBox(); const z = await zeilen.nth(1).boundingBox();
+  await page.mouse.move(g.x + g.width / 2, g.y + g.height / 2); await page.mouse.down();
+  await page.mouse.move(g.x + g.width / 2, z.y + 6, { steps: 10 }); await page.mouse.up();
+  await page.waitForFunction(() => document.querySelector('.lern-plan-stand').textContent === 'Gespeichert');
+  assert.deepEqual(db.eintraege.slice(0, 3).map((x) => x.block_id), [100, 105, 101]);
+  // Handy, Finger: letzte Zeile (Accra) bis ganz nach oben – die Seite rollt beim Ziehen am oberen Rand mit
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(origin + '/#/plan/1');
+  await zeilen.nth(11).waitFor();
+  await zeilen.nth(11).scrollIntoViewIfNeeded();
+  await page.evaluate(() => window.scrollBy(0, 200));
+  const griff = await zeilen.nth(11).locator('.lern-plan-griff').boundingBox();
+  assert.equal(await zeilen.nth(11).locator('.lern-plan-griff').evaluate((x) => getComputedStyle(x).touchAction), 'none');
+  await page.evaluate(async ({ x, y }) => {
+    const opt = (yy) => ({ bubbles: true, pointerId: 9, pointerType: 'touch', isPrimary: true, clientX: x, clientY: yy, button: 0 });
+    document.elementFromPoint(x, y).dispatchEvent(new PointerEvent('pointerdown', opt(y)));
+    for (let i = 1; i <= 10; i++) window.dispatchEvent(new PointerEvent('pointermove', opt(y + (20 - y) * i / 10)));
+    for (let i = 0; i < 300 && window.scrollY > 0; i++) await new Promise((r) => setTimeout(r, 16)); // rollt am Rand nach oben
+    const erste = document.querySelector('ol.lern-plan').getBoundingClientRect(); // Zeilen sind beim Ziehen verschoben – die Liste selbst nicht
+    window.dispatchEvent(new PointerEvent('pointermove', opt(erste.top + 4)));
+    window.dispatchEvent(new PointerEvent('pointerup', opt(erste.top + 4)));
+  }, { x: griff.x + griff.width / 2, y: griff.y + griff.height / 2 });
+  await page.waitForFunction(() => document.querySelector('.lern-plan-stand').textContent === 'Gespeichert');
+  assert.equal(db.eintraege[0].block_id, 111, 'Accra steht jetzt vorn');
+});
+
+test('P2: Mein Weg · Karte wählt die Orte nach derselben Regel wie „Stand“ (Schulart des Kindes)', async (t) => {
+  // RS-Kind Klasse 6: Athen (Teilbarkeit rs_by 6) gehört dazu, Rom (rs_by 5) nicht – obwohl block.ziel_klasse 5 ist
+  const rs = (aktion, e) => { const u = standAnpassen()(aktion, e); if (!u || aktion !== 'schule_uebersicht') return u; Object.assign(u.lernende[0], { schulart: 'rs_by', klasse: 6, stufen: {} }); return u; };
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: rs });
+  await page.goto(origin + '/#/weg/1-karte');
+  await page.locator('.lr-ortliste li').first().waitFor();
+  const orte = await page.locator('.lr-ortliste').innerText();
+  assert.match(orte, /Athen/); assert.doesNotMatch(orte, /Rom/);
 });

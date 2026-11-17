@@ -2,6 +2,38 @@
 
 Neueste oben.
 
+## 2026-11-17 – Schritt E fertig (M1–M9, P1–P3) – App 0.74.7 – **P3 wartet auf Migration**
+
+**Schritt D gegen die echte Antwortform geprüft** (nur lesend): Spalten `lernender.stufen` und `thema.lehrplan_reihenfolge` da, 68 Flüge mit Reihenfolge, alle Kinder `stufen = {}`.
+`schule_uebersicht.themen` (92 Flüge, alle mit Ort und Kontinent; Feld `reihenfolge` = lehrplan_reihenfolge) und `lernende[].stufen`, `schule_plan_lesen.kind.stufen` und
+`themen[].lehrplan_reihenfolge`, `schule_lernstand` mit `sitzt_am`/`bis_sitzt`, `schule_kind_setzen` mit `stufen` und weiter `klasse` – alles wie die App es liest. Keine Abweichung.
+
+**Behoben**
+- **M1** Mein Weg · Stand: „Gerade dran“ = nur der aktuelle Ort; die übrigen Orte im Plan unter „Kommt noch“ (mit Zahl der Flüge). Kacheln zählen Orte: „kann ich · gerade dran (0/1) · kommen noch“.
+- **M2** Flugplan: Klasse und Stufen je Schulart sind Auswahlfelder und speichern sofort; kein Knopf „Speichern“ mehr.
+- **M3** Aufgeklappter Ort: eine Zeile je Flug, Häkchen links in derselben Zeile (Tippfläche 44 px).
+- **M4** Ort, dessen geplante Flüge alle über der Klasse des Kindes liegen: im Flugplan „Klasse 8 – über der Klasse des Kindes · Kind sieht ihn unter „Später““ bzw. „· vorgezogen“.
+  Beim Kind kommt er unter „Später“, außer er steht im Plan vor einem Ort der eigenen (oder einer früheren) Klasse oder das Kind hat dort schon angefangen.
+  Mit echten Daten bitte ansehen: Kind A hat laut Prüfbericht Cusco (Gym 8) und Adelaide (Gym 6) im Plan – wenn sie vor Klasse-5-Orten stehen, gelten sie als vorgezogen.
+- **M5** Abflugtafel: Ziel = Etappen bis der aktuelle Flug gelandet ist („Noch 3 Etappen bis ›Ganze Zahlen‹ gelandet“); darunter klein „Stempel Rom: 1 von 5 Flügen gelandet“.
+- **M6** Detektiv: bei Auswahl-Bordkarten „Schau dir deine Wahl und die Frage noch einmal an.“ statt des Etappen-Musters. Für die Inhalts-Chats: Es gibt heute kein Feld für ein
+  Fehlermuster je falscher Option (5 627 Auswahl-Bordkarten, Felder l t p s y a o f w h). Soll es kommen, braucht die Aufgabe ein Feld (Vorschlag `m`: {Index der Option: Satz}) und die App liest es dann.
+- **M7** Erklärung: Ergänzt Schritt 1 das Kartenbild, steht das Bild nur bei Schritt 1 (nicht zusätzlich bei „Worum geht’s“).
+- **M8** Menüknopf ≡ schwebt nicht mehr: oben rechts und am Seitenende im Fluss der Seite. Test auf 390 und 820 px bei drei Roll-Positionen: überdeckt nichts.
+- **M9** „Alles aus Klasse 5 steht schon in deinem Plan.“ (mit der Klasse des Kindes).
+- **Nicht nachgestellt:** Ziehen im Flugplan mit Maus (Rechner) und Finger (Handy, mit Rollen am oberen Rand) als eigener Test – klappt. Startseite: GYM/RS/IB-Balken zählen
+  ohne `jahrgang` die Klasse des Ortes (kein „–“ mehr, wenn Flüge mit Klasse da sind); mit echten Daten liefert die Übersicht `jahrgang` und `themen`.
+- **P1** „Kurz gesagt“: Aufzählung beginnt nur mit „1.“; „(a₁ + aₙ) : 2.“ ist Satzende. Test über alle Merksätze mit schärferer Gegenprobe und Beispielen.
+- **P2** Mein Weg · Karte: ein Ort gehört zur Klasse, wenn ein geplanter Flug dort `jahrgang[schulart]` = Stufe des Kindes hat (wie „Stand“); „Kommt noch“/„Später“ ebenso.
+- **P3** Migration **`supabase/migrations/20261117_w150_e_ort_fertig_bei_abwahl.sql`** (nicht ausgeführt; pglast ok; Stellen im Live-Text geprüft; kein DROP/DELETE):
+  `schule_plan_setzen` setzt nach dem Speichern jeden Ort des Plans auf „fertig“, dessen `ort_stand` „abgeschlossen“ meldet (Sterne bucht `route_sterne` einmal);
+  ein „fertiger“ Ort wird wieder „offen“, wenn ein abgewählter, nicht erledigter Flug zurückkommt (gebuchte Sterne bleiben, kein doppeltes Buchen).
+  Einmalige Nachbuchung hängender Orte (heute: 0 Zeilen). Die Antwort bleibt gleich; `route_aenderung.ereignis` bekommt `fertig_durch_abwahl` und `wieder_offen`.
+  App: braucht kein neues Feld; der neue Status erscheint beim nächsten Laden des Plans.
+
+Tests: lernen 46 von 46 (neu: M1/M4 zweimal, M5, M7, M2/M3/M4 Plan, M8, Ziehen Maus/Finger, P2; angepasst: N5–N7 prüft das Verhalten statt des Quelltexts, Kinderplan Klasse, Menü). Suche: die bekannten alten Fehler.
+Merge auf `main` erst nach „Live“.
+
 ## 2026-11-17 – Schritt D (K3, K4, E-4) gebaut – App 0.74.6 – **wartet auf Migration**
 
 **Schritt C gegen die echte Antwortform geprüft** (nur lesend): `route.ausgelassen`/`status_vor_entfernen`, `rueckmeldung.bezug`, `plan_lesen.kann_abwaehlen`,

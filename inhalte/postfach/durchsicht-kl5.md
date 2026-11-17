@@ -2,6 +2,10 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 15:05 – STATUS: geometrie.ortslinien fertig
+Umgestuft 14 (Stufe 3 → 2: Schnittpunktzahl zweier Kreise = Grundgedanke der Karte zwei_kreise 3, „Sender“-Aufgabe 4, sechsmal gleiche Verknüpfungsaufgabe → 3 davon, Leine/Durchmesser-Aussage 3, Abstand zweier Parallelen 1), sonst nichts geändert.
+Prüfskript OK, Nachweis OK (190 von 204 unverändert). Hinweis: Der Flug passt zu M5 2 („Punkte mit vorgegebenen Abstandsbedingungen bestimmen“); die frühere Meldung „Ortslinien erst Jgst. 7“ betrifft nur Mittelsenkrechte/Winkelhalbierende.
+
 ## 2026-11-17 14:50 – STATUS: geometrie.grundbegriffe fertig
 Umgestuft 11 (Stufe 3 → 2: Rechteck-Ecke ergänzen 2 von 4, „Wie liegen g und h?“ aus Koordinaten ablesen 3, Funkmast = Grundfall Kreis/Punkt 2, „zusammengesetzter Winkel“ 4), ersetzt 2 (vierecke: zwei Aufgaben verlangten Flächeninhalt, der erst im Flug messen.flaechen kommt → Parallelogramm-Ecke im Koordinatensystem, genauester Vierecksname), Lernkarten verbessert 0.
 Prüfskript OK, Nachweis OK (225 von 238 unverändert). Zwischendurch lernen-app (c976669) in den Zweig geführt.

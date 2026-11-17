@@ -643,7 +643,8 @@
    "c": [
     "210",
     "330"
-   ]
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "sinus",
@@ -660,7 +661,77 @@
    },
    "c": "180 - 80",
    "w": "Beim Sinus gilt x₂ = 180° − 80° = 100°.",
-   "h": "Spiegle am Einheitskreis an der y-Achse."
+   "h": "Spiegle am Einheitskreis an der y-Achse.",
+   "g": "direkt"
+  },
+  {
+   "l": "sinus",
+   "t": "sinus",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse sin x = 0,27 im Bereich 0° ≤ x < 360°. Gib die kleinere Lösung auf eine Nachkommastelle an."
+   },
+   "o": {
+    "wert": 15.7,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(15.664266851374, 1)",
+   "w": "sin⁻¹(0,27) ≈ 15,7°; Lösungen ≈ 15,7° und 164,3°. Kleinere: 15,7°.",
+   "h": "Zweite Lösung über 180° − x₁; negative Werte in den Bereich bis 360° verschieben.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "sinus",
+   "t": "sinus",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 2 · sin x − 1 = 0 für 0° ≤ x ≤ 180° ohne Taschenrechner.",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "Grad-Zahlen, kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     30,
+     150
+    ]
+   },
+   "w": "2 sin x = 1 ⇒ sin x = 0,5. Im Bereich 0° bis 180°: x = 30° und x = 180° − 30° = 150°.",
+   "h": "Erst sin x allein stellen. sin 30° = 0,5 kennst du.",
+   "c": [
+    "30",
+    "180 - 30"
+   ],
+   "g": "verknuepfen"
+  },
+  {
+   "l": "sinus",
+   "t": "sinus",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse sin x = 0 im Bereich 0° ≤ x < 360°.",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     180
+    ]
+   },
+   "w": "Besondere Werte am Einheitskreis: sin x = 0 für 0° und 180°.",
+   "h": "Nutze die besonderen Werte (0°, 30°, 45°, 60°, 90°) und die Symmetrie am Einheitskreis.",
+   "c": [
+    "0",
+    "180"
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "sinus",
@@ -677,7 +748,146 @@
    },
    "c": "180 - 47",
    "w": "Beim Sinus gilt x₂ = 180° − 47° = 133°.",
+   "h": "Spiegle am Einheitskreis an der y-Achse.",
+   "g": "direkt"
+  },
+  {
+   "l": "sinus",
+   "t": "sinus",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse sin x = 0,29 im Bereich 0° ≤ x < 360°. Gib die kleinere Lösung auf eine Nachkommastelle an."
+   },
+   "o": {
+    "wert": 16.9,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(16.857956022497, 1)",
+   "w": "sin⁻¹(0,29) ≈ 16,9°; Lösungen ≈ 16,9° und 163,1°. Kleinere: 16,9°.",
+   "h": "Zweite Lösung über 180° − x₁; negative Werte in den Bereich bis 360° verschieben.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "sinus",
+   "t": "sinus",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Lösungen hat sin x = 0,3 im Bereich 0° ≤ x < 720°?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "2 * 2",
+   "w": "In jeder vollen Umdrehung (360°) gibt es zwei Lösungen. 720° sind zwei Umdrehungen: 2 · 2 = 4 Lösungen.",
+   "h": "Wie viele Lösungen gibt es in einer Umdrehung? Wie viele Umdrehungen sind 720°?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "sinus",
+   "t": "sinus",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse sin x = 0,55 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an."
+   },
+   "o": {
+    "wert": 146.6,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(146.632987030768, 1)",
+   "w": "sin⁻¹(0,55) ≈ 33,4°; Lösungen ≈ 33,4° und 146,6°. Größere: 146,6°.",
+   "h": "Zweite Lösung über 180° − x₁; negative Werte in den Bereich bis 360° verschieben.",
+   "g": "mehrschritt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Wie bekommt man bei sin x = v aus der ersten Lösung x₁ die zweite Lösung?"
+   },
+   "a": [
+    "x₂ = 180° − x₁",
+    "x₂ = −x₁",
+    "x₂ = x₁ + 180°",
+    "x₂ = 360° − x₁"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Am Riesenrad ist die Gondel bei x₁ und bei 180° − x₁ gleich hoch (Spiegelung an der senkrechten Achse).",
+   "h": "Wo ist die Gondel gleich hoch?",
+   "l": "sinus",
+   "t": "sinus",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
+  },
+  {
+   "l": "sinus",
+   "t": "sinus",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse sin x = −0,7 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
+    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     224,
+     316
+    ]
+   },
+   "w": "sin⁻¹(−0,7) ≈ −44,4° liegt nicht im Bereich. 180° + 44,4° ≈ 224° und 360° − 44,4° ≈ 316°.",
+   "h": "Negativer Sinus: Der Punkt liegt unterhalb der x-Achse (3. und 4. Quadrant).",
+   "c": [
+    "round(224.427004000806, 0)",
+    "round(315.572995999194, 0)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "sinus",
+   "t": "sinus",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Lösung von sin x ≈ 0,866 im Bereich 0° ≤ x < 360° ist x₁ = 60°. Bestimme die zweite Lösung."
+   },
+   "o": {
+    "wert": 120,
+    "einheit": "°"
+   },
+   "c": "180 - 60",
+   "w": "Beim Sinus gilt x₂ = 180° − 60° = 120°.",
    "h": "Spiegle am Einheitskreis an der y-Achse."
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme mit dem Taschenrechner die Lösung von sin x = 0,25 zwischen 0° und 90°. Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 14.5,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(14.477512185929925, 1)",
+   "w": "sin⁻¹(0,25) ≈ 14,5°. (Die zweite Lösung wäre 180° − 14,5° = 165,5°.)",
+   "h": "Taste sin⁻¹, Rechner auf DEG.",
+   "l": "sinus",
+   "t": "sinus",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt"
   },
   {
    "l": "sinus",
@@ -717,169 +927,6 @@
    "l": "sinus",
    "t": "sinus",
    "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Lösung von sin x ≈ 0,866 im Bereich 0° ≤ x < 360° ist x₁ = 60°. Bestimme die zweite Lösung."
-   },
-   "o": {
-    "wert": 120,
-    "einheit": "°"
-   },
-   "c": "180 - 60",
-   "w": "Beim Sinus gilt x₂ = 180° − 60° = 120°.",
-   "h": "Spiegle am Einheitskreis an der y-Achse."
-  },
-  {
-   "l": "sinus",
-   "t": "sinus",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse sin x = 0,27 im Bereich 0° ≤ x < 360°. Gib die kleinere Lösung auf eine Nachkommastelle an."
-   },
-   "o": {
-    "wert": 15.7,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(15.664266851374, 1)",
-   "w": "sin⁻¹(0,27) ≈ 15,7°; Lösungen ≈ 15,7° und 164,3°. Kleinere: 15,7°.",
-   "h": "Zweite Lösung über 180° − x₁; negative Werte in den Bereich bis 360° verschieben."
-  },
-  {
-   "l": "sinus",
-   "t": "sinus",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse sin x = 0 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     0,
-     180
-    ]
-   },
-   "w": "Besondere Werte am Einheitskreis: sin x = 0 für 0° und 180°.",
-   "h": "Nutze die besonderen Werte (0°, 30°, 45°, 60°, 90°) und die Symmetrie am Einheitskreis.",
-   "c": [
-    "0",
-    "180"
-   ]
-  },
-  {
-   "l": "sinus",
-   "t": "sinus",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse sin x = 1 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x = □°",
-    "hinweis": "die Lösung"
-   },
-   "o": {
-    "werte": [
-     90
-    ]
-   },
-   "w": "Besondere Werte am Einheitskreis: sin x = 1 für 90°.",
-   "h": "Nutze die besonderen Werte (0°, 30°, 45°, 60°, 90°) und die Symmetrie am Einheitskreis.",
-   "c": [
-    "90"
-   ]
-  },
-  {
-   "l": "sinus",
-   "t": "sinus",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse sin x = −1 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x = □°",
-    "hinweis": "die Lösung"
-   },
-   "o": {
-    "werte": [
-     270
-    ]
-   },
-   "w": "Besondere Werte am Einheitskreis: sin x = −1 für 270°.",
-   "h": "Nutze die besonderen Werte (0°, 30°, 45°, 60°, 90°) und die Symmetrie am Einheitskreis.",
-   "c": [
-    "270"
-   ]
-  },
-  {
-   "l": "sinus",
-   "t": "sinus",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse sin x = 0,29 im Bereich 0° ≤ x < 360°. Gib die kleinere Lösung auf eine Nachkommastelle an."
-   },
-   "o": {
-    "wert": 16.9,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(16.857956022497, 1)",
-   "w": "sin⁻¹(0,29) ≈ 16,9°; Lösungen ≈ 16,9° und 163,1°. Kleinere: 16,9°.",
-   "h": "Zweite Lösung über 180° − x₁; negative Werte in den Bereich bis 360° verschieben."
-  },
-  {
-   "l": "sinus",
-   "t": "sinus",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse sin x = 0,55 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an."
-   },
-   "o": {
-    "wert": 146.6,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(146.632987030768, 1)",
-   "w": "sin⁻¹(0,55) ≈ 33,4°; Lösungen ≈ 33,4° und 146,6°. Größere: 146,6°.",
-   "h": "Zweite Lösung über 180° − x₁; negative Werte in den Bereich bis 360° verschieben."
-  },
-  {
-   "l": "sinus",
-   "t": "sinus",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse sin x = −0,7 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
-    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     224,
-     316
-    ]
-   },
-   "w": "sin⁻¹(−0,7) ≈ −44,4° liegt nicht im Bereich. 180° + 44,4° ≈ 224° und 360° − 44,4° ≈ 316°.",
-   "h": "Negativer Sinus: Der Punkt liegt unterhalb der x-Achse (3. und 4. Quadrant).",
-   "c": [
-    "round(224.427004000806, 0)",
-    "round(315.572995999194, 0)"
-   ]
-  },
-  {
-   "l": "sinus",
-   "t": "sinus",
-   "p": "uebung",
    "s": 2,
    "y": "luecken",
    "f": {
@@ -898,100 +945,55 @@
     "round(295.841932763167, 0)"
    ],
    "w": "sin⁻¹(−0,9) ≈ −64,2° liegt nicht im Bereich. 180° + 64,2° ≈ 244° und 360° − 64,2° ≈ 296°.",
-   "h": "Negativer Sinus: Der Punkt liegt unterhalb der x-Achse (3. und 4. Quadrant)."
+   "h": "Negativer Sinus: Der Punkt liegt unterhalb der x-Achse (3. und 4. Quadrant).",
+   "g": "mehrschritt"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Eine Gondel ist y = 10 · sin x Meter über der Achse des Riesenrads (x Drehwinkel). Bei welchen Winkeln im Bereich 0° ≤ x < 360° ist sie 8 m über der Achse? Runde auf ganze Grad.",
+    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
+    "hinweis": "kleinerer Winkel zuerst"
+   },
+   "o": {
+    "werte": [
+     53,
+     127
+    ]
+   },
+   "c": [
+    "round(53.13010235415599, 0)",
+    "round(180 - 53.13010235415599, 0)"
+   ],
+   "w": "10 sin x = 8 ⇒ sin x = 0,8 ⇒ x₁ ≈ 53,1° ≈ 53°, x₂ = 180° − 53,1° ≈ 126,9° ≈ 127°.",
+   "h": "Teile zuerst durch 10.",
+   "l": "sinus",
+   "t": "sinus",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung"
   },
   {
    "l": "sinus",
    "t": "sinus",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Jemand gibt für sin x = 0,1 im Bereich 0° ≤ x < 360° die Lösungen 5,7° und 354,3° an. Was stimmt?"
+    "text": "sin x = 0,4 hat die Lösung x₁ ≈ 23,6°. Welche zweite Lösung gibt es im Bereich 0° ≤ x < 360°?"
    },
    "a": [
-    "Falsch: richtig sind 5,7° und 185,7°.",
-    "Falsch: Das ist die Regel für den Kosinus; richtig sind 5,7° und 174,3°.",
-    "Falsch: Es gibt nur eine Lösung.",
-    "Richtig."
+    "66,4°",
+    "156,4°",
+    "203,6°",
+    "336,4°"
    ],
    "o": {
     "index": 1
    },
-   "w": "Beim Sinus spiegelt man an der y-Achse: x₂ = 180° − x₁ ≈ 174,3°. Probe: sin 354,3° ist negativ.",
-   "h": "Mache für die zweite Angabe die Probe am Einheitskreis."
-  },
-  {
-   "l": "sinus",
-   "t": "sinus",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse sin x = −0,72 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
-    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     226,
-     314
-    ]
-   },
-   "w": "sin⁻¹(−0,72) ≈ −46,1° liegt nicht im Bereich. 180° + 46,1° ≈ 226° und 360° − 46,1° ≈ 314°.",
-   "h": "Negativer Sinus: Der Punkt liegt unterhalb der x-Achse (3. und 4. Quadrant).",
-   "c": [
-    "round(226.054480437691, 0)",
-    "round(313.945519562309, 0)"
-   ]
-  },
-  {
-   "l": "sinus",
-   "t": "sinus",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse sin x = −0,46 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
-    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     207,
-     333
-    ]
-   },
-   "w": "sin⁻¹(−0,46) ≈ −27,4° liegt nicht im Bereich. 180° + 27,4° ≈ 207° und 360° − 27,4° ≈ 333°.",
-   "h": "Negativer Sinus: Der Punkt liegt unterhalb der x-Achse (3. und 4. Quadrant).",
-   "c": [
-    "round(207.387107502654, 0)",
-    "round(332.612892497346, 0)"
-   ]
-  },
-  {
-   "l": "sinus",
-   "t": "sinus",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse sin x = −0,31 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
-    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     198,
-     342
-    ]
-   },
-   "w": "sin⁻¹(−0,31) ≈ −18,1° liegt nicht im Bereich. 180° + 18,1° ≈ 198° und 360° − 18,1° ≈ 342°.",
-   "h": "Negativer Sinus: Der Punkt liegt unterhalb der x-Achse (3. und 4. Quadrant).",
-   "c": [
-    "round(198.059230490784, 0)",
-    "round(341.940769509216, 0)"
-   ]
+   "w": "Beim Sinus gilt x₂ = 180° − x₁ = 156,4°.",
+   "h": "Sinus: an der y-Achse spiegeln.",
+   "g": "mehrschritt"
   },
   {
    "l": "sinus",
@@ -1164,6 +1166,432 @@
    "w": "sin⁻¹(0,24) ≈ 13,9°; Lösungen ≈ 13,9° und 166,1°. Kleinere: 13,9°."
   },
   {
+   "y": "zahl",
+   "f": {
+    "text": "Die Gleichung sin x = v hat im Bereich 0° ≤ x < 360° die Lösung x = 210°. Wie groß ist v?"
+   },
+   "o": {
+    "wert": -0.5
+   },
+   "c": "-0.5",
+   "w": "210° = 180° + 30°: Die Gondel steht so tief unter der Achse wie bei 30° darüber. sin 210° = −sin 30° = −0,5.",
+   "h": "Vergleiche 210° mit 30°.",
+   "l": "sinus",
+   "t": "sinus",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr"
+  },
+  {
+   "l": "sinus",
+   "t": "sinus",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse sin x = 1 im Bereich 0° ≤ x < 360°.",
+    "schablone": "x = □°",
+    "hinweis": "die Lösung"
+   },
+   "o": {
+    "werte": [
+     90
+    ]
+   },
+   "w": "Besondere Werte am Einheitskreis: sin x = 1 für 90°.",
+   "h": "Nutze die besonderen Werte (0°, 30°, 45°, 60°, 90°) und die Symmetrie am Einheitskreis.",
+   "c": [
+    "90"
+   ]
+  },
+  {
+   "l": "sinus",
+   "t": "sinus",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse sin x = −0,31 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
+    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     198,
+     342
+    ]
+   },
+   "w": "sin⁻¹(−0,31) ≈ −18,1° liegt nicht im Bereich. 180° + 18,1° ≈ 198° und 360° − 18,1° ≈ 342°.",
+   "h": "Negativer Sinus: Der Punkt liegt unterhalb der x-Achse (3. und 4. Quadrant).",
+   "c": [
+    "round(198.059230490784, 0)",
+    "round(341.940769509216, 0)"
+   ]
+  },
+  {
+   "l": "sinus",
+   "t": "sinus",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse sin x = 0,9 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "Grad-Zahlen, kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     64,
+     116
+    ]
+   },
+   "w": "sin⁻¹(0,9) ≈ 64,2°, zweite Lösung 180° − 64,2° ≈ 115,8°. Gerundet 64° und 116°.",
+   "h": "x₂ = 180° − x₁.",
+   "c": [
+    "round(64.158067236833, 0)",
+    "round(115.841932763167, 0)"
+   ]
+  },
+  {
+   "l": "sinus",
+   "t": "sinus",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse sin x = −1 im Bereich 0° ≤ x < 360°.",
+    "schablone": "x = □°",
+    "hinweis": "die Lösung"
+   },
+   "o": {
+    "werte": [
+     270
+    ]
+   },
+   "w": "Besondere Werte am Einheitskreis: sin x = −1 für 270°.",
+   "h": "Nutze die besonderen Werte (0°, 30°, 45°, 60°, 90°) und die Symmetrie am Einheitskreis.",
+   "c": [
+    "270"
+   ]
+  },
+  {
+   "l": "sinus",
+   "t": "sinus",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse sin x = −0,72 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
+    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     226,
+     314
+    ]
+   },
+   "w": "sin⁻¹(−0,72) ≈ −46,1° liegt nicht im Bereich. 180° + 46,1° ≈ 226° und 360° − 46,1° ≈ 314°.",
+   "h": "Negativer Sinus: Der Punkt liegt unterhalb der x-Achse (3. und 4. Quadrant).",
+   "c": [
+    "round(226.054480437691, 0)",
+    "round(313.945519562309, 0)"
+   ]
+  },
+  {
+   "l": "sinus",
+   "t": "sinus",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse sin x = −0,46 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
+    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     207,
+     333
+    ]
+   },
+   "w": "sin⁻¹(−0,46) ≈ −27,4° liegt nicht im Bereich. 180° + 27,4° ≈ 207° und 360° − 27,4° ≈ 333°.",
+   "h": "Negativer Sinus: Der Punkt liegt unterhalb der x-Achse (3. und 4. Quadrant).",
+   "c": [
+    "round(207.387107502654, 0)",
+    "round(332.612892497346, 0)"
+   ]
+  },
+  {
+   "l": "sinus",
+   "t": "sinus",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand gibt für sin x = 0,1 im Bereich 0° ≤ x < 360° die Lösungen 5,7° und 354,3° an. Was stimmt?"
+   },
+   "a": [
+    "Falsch: richtig sind 5,7° und 185,7°.",
+    "Falsch: Das ist die Regel für den Kosinus; richtig sind 5,7° und 174,3°.",
+    "Falsch: Es gibt nur eine Lösung.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Beim Sinus spiegelt man an der y-Achse: x₂ = 180° − x₁ ≈ 174,3°. Probe: sin 354,3° ist negativ.",
+   "h": "Mache für die zweite Angabe die Probe am Einheitskreis.",
+   "g": "fehler"
+  },
+  {
+   "l": "sinus",
+   "t": "sinus",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 6 cm und 8 cm, die den Winkel φ einschließen. Sein Flächeninhalt ist A(φ) = 24 · sin φ (in cm²). Für welchen spitzen Winkel φ ist A = 18 cm²? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 48.6,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(48.590377890729, 1)",
+   "w": "24 · sin φ = 18 ⇒ sin φ = 0,75 ⇒ φ ≈ 48,6° (spitz; der stumpfe Winkel 131,4° hätte dieselbe Fläche).",
+   "h": "Setze A = 18 und stelle nach sin φ um.",
+   "g": "transfer"
+  },
+  {
+   "l": "sinus",
+   "t": "sinus",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse sin x = −0,5 im Bereich 0° ≤ x < 360° ohne Taschenrechner.",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "Grad-Zahlen, kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     210,
+     330
+    ]
+   },
+   "w": "sin x < 0: unterhalb der Mitte. Bezugswinkel 30°: x = 180° + 30° = 210° und x = 360° − 30° = 330°.",
+   "h": "Bezugswinkel 30°, dann in die beiden unteren Viertel.",
+   "c": [
+    "180 + 30",
+    "360 - 30"
+   ],
+   "g": "verknuepfen"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche Werte v hat sin x = v im Bereich 0° ≤ x < 360° genau zwei Lösungen?"
+   },
+   "a": [
+    "für −1 ≤ v ≤ 1",
+    "für alle v",
+    "für v > 1",
+    "für −1 < v < 1"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Bei |v| > 1 gibt es keine Lösung, bei v = 1 oder v = −1 genau eine (90° bzw. 270°), dazwischen immer zwei.",
+   "h": "Was passiert bei v = 1?",
+   "l": "sinus",
+   "t": "sinus",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt: Hat sin x = v die Lösung 40°, dann hat sin x = −v im Bereich 0° ≤ x < 360° die Lösungen 220° und 320°?"
+   },
+   "a": [
+    "Nur wenn v größer als 0,5 ist.",
+    "Nein, sin x = −v hat keine Lösung.",
+    "Nein, die Lösungen sind −40° und 140°.",
+    "Ja: 220° = 40° + 180° und 320° = 360° − 40° liegen so tief unter der Achse wie 40° darüber."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Eine halbe Drehung weiter (x + 180°) und die Spiegelung 360° − x kehren das Vorzeichen des Sinus um: sin 220° = sin 320° = −sin 40°.",
+   "h": "Zeichne die Gondel bei 40°, 220° und 320°.",
+   "l": "sinus",
+   "t": "sinus",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Die beiden Lösungen einer Gleichung sin x = v liegen zwischen 0° und 180° und sind 100° voneinander entfernt. Wie heißen sie?",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     40,
+     140
+    ]
+   },
+   "c": [
+    "(180 - 100) // 2",
+    "(180 + 100) // 2"
+   ],
+   "w": "Es gilt x₂ = 180° − x₁ und x₂ − x₁ = 100°. Also 180° − 2x₁ = 100°, x₁ = 40°, x₂ = 140°.",
+   "h": "Nutze x₂ = 180° − x₁.",
+   "l": "sinus",
+   "t": "sinus",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Löse ohne Taschenrechner im Bereich 0° ≤ x < 360°: a) sin x = 1, b) sin x = 0, c) sin x = −1.",
+    "schablone": "a) x = □°; b) x₁ = □°, x₂ = □°; c) x = □°",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     90,
+     0,
+     180,
+     270
+    ]
+   },
+   "c": [
+    "90",
+    "0",
+    "180",
+    "270"
+   ],
+   "w": "a) ganz oben: 90°. b) auf Höhe der Achse: 0° und 180°. c) ganz unten: 270°.",
+   "h": "Denk an die Gondel ganz oben, auf Achsenhöhe und ganz unten.",
+   "l": "sinus",
+   "t": "sinus",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Lösungen hat sin x = 0,2 im Bereich 0° ≤ x < 1 080°?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "3 * 2",
+   "w": "Bei jeder vollen Drehung um 360° ist die Gondel zweimal auf der Höhe 0,2 (einmal aufwärts, einmal abwärts). 1 080° sind 3 volle Drehungen, also 3 · 2 = 6 Lösungen.",
+   "h": "Wie viele volle Drehungen sind 1 080°?",
+   "l": "sinus",
+   "t": "sinus",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Für welche x im Bereich 0° ≤ x < 360° gilt sin x = sin(x + 180°)?",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     180
+    ]
+   },
+   "c": [
+    "0",
+    "180"
+   ],
+   "w": "Eine halbe Drehung weiter ist die Gondel genau gegenüber: sin(x + 180°) = −sin x. Aus sin x = −sin x folgt sin x = 0, also x = 0° oder x = 180°.",
+   "h": "Wo ist die Gondel eine halbe Drehung später?",
+   "l": "sinus",
+   "t": "sinus",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse cos x = 1 im Bereich 0° ≤ x < 360°.",
+    "schablone": "x = □°",
+    "hinweis": "die Lösung"
+   },
+   "o": {
+    "werte": [
+     0
+    ]
+   },
+   "w": "Besondere Werte am Einheitskreis: cos x = 1 für 0°.",
+   "h": "Nutze die besonderen Werte (0°, 30°, 45°, 60°, 90°) und die Symmetrie am Einheitskreis.",
+   "c": [
+    "0"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Lösung von cos x ≈ −0,9925 im Bereich 0° ≤ x < 360° ist x₁ = 173°. Bestimme die zweite Lösung."
+   },
+   "o": {
+    "wert": 187,
+    "einheit": "°"
+   },
+   "c": "360 - 173",
+   "w": "Beim Kosinus gilt x₂ = 360° − 173° = 187°.",
+   "h": "Spiegle am Einheitskreis an der x-Achse.",
+   "g": "direkt"
+  },
+  {
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "cos x = 0,54 hat die Lösung x₁ ≈ 57,3°. Welche ist die zweite Lösung im Bereich 0° ≤ x < 360°?"
+   },
+   "a": [
+    "237,3°",
+    "122,7°",
+    "−57,3°",
+    "302,7°"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Beim Kosinus spiegelt man an der x-Achse: x₂ = 360° − x₁ ≈ 302,7°. (180° − x₁ wäre die Sinus-Regel, x₁ + 180° die Tangens-Regel.)",
+   "h": "Welche Spiegelung am Einheitskreis lässt die x-Koordinate gleich?",
+   "g": "mehrschritt"
+  },
+  {
    "l": "kosinus",
    "t": "kosinus",
    "p": "uebung",
@@ -1185,24 +1613,74 @@
    "c": [
     "60",
     "300"
-   ]
+   ],
+   "g": "direkt"
   },
   {
    "l": "kosinus",
    "t": "kosinus",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine Lösung von cos x ≈ −0,9925 im Bereich 0° ≤ x < 360° ist x₁ = 173°. Bestimme die zweite Lösung."
+    "text": "Löse cos x = 0,35 im Bereich 0° ≤ x < 360°. Gib die kleinere Lösung auf eine Nachkommastelle an."
    },
    "o": {
-    "wert": 187,
-    "einheit": "°"
+    "wert": 69.5,
+    "einheit": "°",
+    "toleranz": 0.1
    },
-   "c": "360 - 173",
-   "w": "Beim Kosinus gilt x₂ = 360° − 173° = 187°.",
-   "h": "Spiegle am Einheitskreis an der x-Achse."
+   "c": "round(69.512684885277, 1)",
+   "w": "cos⁻¹(0,35) ≈ 69,5°; Lösungen ≈ 69,5° und 290,5°. Kleinere: 69,5°.",
+   "h": "Zweite Lösung über 360° − x₁.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 2 · cos x + 1 = 0 im Bereich 0° ≤ x < 360° ohne Taschenrechner.",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "Grad-Zahlen, kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     120,
+     240
+    ]
+   },
+   "w": "cos x = −0,5. Bezugswinkel 60°, Kosinus negativ links: x = 180° − 60° = 120° und x = 360° − 120° = 240°.",
+   "h": "cos 60° = 0,5. Wo ist der Kosinus negativ?",
+   "c": [
+    "180 - 60",
+    "360 - 120"
+   ],
+   "g": "verknuepfen"
+  },
+  {
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "cos x = 0,17 hat die Lösung x₁ ≈ 80,2°. Welche ist die zweite Lösung im Bereich 0° ≤ x < 360°?"
+   },
+   "a": [
+    "99,8°",
+    "260,2°",
+    "279,8°",
+    "−80,2°"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Beim Kosinus spiegelt man an der x-Achse: x₂ = 360° − x₁ ≈ 279,8°. (180° − x₁ wäre die Sinus-Regel, x₁ + 180° die Tangens-Regel.)",
+   "h": "Welche Spiegelung am Einheitskreis lässt die x-Koordinate gleich?",
+   "g": "mehrschritt"
   },
   {
    "l": "kosinus",
@@ -1219,7 +1697,80 @@
    },
    "c": "360 - 133",
    "w": "Beim Kosinus gilt x₂ = 360° − 133° = 227°.",
-   "h": "Spiegle am Einheitskreis an der x-Achse."
+   "h": "Spiegle am Einheitskreis an der x-Achse.",
+   "g": "direkt"
+  },
+  {
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse cos x = −0,57 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
+    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     125,
+     235
+    ]
+   },
+   "w": "cos⁻¹(−0,57) ≈ 124,8°; zweite Lösung 360° − 124,8° ≈ 235°.",
+   "h": "Die zweite Lösung ist 360° − x₁.",
+   "c": [
+    "round(124.750225753682, 0)",
+    "round(235.249774246318, 0)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche x im Bereich 0° ≤ x < 360° gilt cos x = cos 40°?"
+   },
+   "a": [
+    "x = 40° und x = 140°",
+    "x = 40° und x = 220°",
+    "nur x = 40°",
+    "x = 40° und x = 320°"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gleicher Kosinus heißt gleiche x-Koordinate: Spiegelung an der x-Achse, also 360° − 40° = 320°. 140° hätte den gleichen Sinus.",
+   "h": "Wo auf dem Einheitskreis haben zwei Punkte die gleiche x-Koordinate?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse cos x = −0,61 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
+    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     128,
+     232
+    ]
+   },
+   "w": "cos⁻¹(−0,61) ≈ 127,6°; zweite Lösung 360° − 127,6° ≈ 232°.",
+   "h": "Die zweite Lösung ist 360° − x₁.",
+   "c": [
+    "round(127.589502964857, 0)",
+    "round(232.410497035143, 0)"
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "kosinus",
@@ -1243,7 +1794,49 @@
    "c": [
     "90",
     "270"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse cos x = −0,05 im Bereich 0° ≤ x < 360°. Gib die kleinere Lösung auf eine Nachkommastelle an."
+   },
+   "o": {
+    "wert": 92.9,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(92.865983982599, 1)",
+   "w": "cos⁻¹(−0,05) ≈ 92,9°; Lösungen ≈ 92,9° und 267,1°. Kleinere: 92,9°.",
+   "h": "Zweite Lösung über 360° − x₁.",
+   "g": "mehrschritt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Wie bekommt man bei cos x = v aus der ersten Lösung x₁ die zweite Lösung?"
+   },
+   "a": [
+    "x₂ = x₁ + 180°",
+    "x₂ = x₁ − 90°",
+    "x₂ = 360° − x₁",
+    "x₂ = 180° − x₁"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der waagrechte Abstand von der Achse ist bei x₁ und bei 360° − x₁ gleich (Spiegelung an der waagrechten Achse).",
+   "h": "Wo ist die Gondel gleich weit rechts?",
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
   },
   {
    "l": "kosinus",
@@ -1286,260 +1879,50 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Löse cos x = 1 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x = □°",
-    "hinweis": "die Lösung"
+    "text": "Löse cos x = 1 im Bereich 0° ≤ x ≤ 720°.",
+    "schablone": "x₁ = □°; x₂ = □°; x₃ = □°",
+    "hinweis": "Grad-Zahlen, kleinere zuerst"
    },
    "o": {
     "werte": [
-     0
+     0,
+     360,
+     720
     ]
    },
-   "w": "Besondere Werte am Einheitskreis: cos x = 1 für 0°.",
-   "h": "Nutze die besonderen Werte (0°, 30°, 45°, 60°, 90°) und die Symmetrie am Einheitskreis.",
+   "w": "cos x = 1 ganz rechts auf dem Einheitskreis: bei 0°, nach einer Runde bei 360° und nach zwei Runden bei 720° (Grenze gehört dazu).",
+   "h": "Der Bereich umfasst zwei volle Runden – und das Ende 720° gehört dazu.",
    "c": [
-    "0"
-   ]
-  },
-  {
-   "l": "kosinus",
-   "t": "kosinus",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "cos x = 0,54 hat die Lösung x₁ ≈ 57,3°. Welche ist die zweite Lösung im Bereich 0° ≤ x < 360°?"
-   },
-   "a": [
-    "237,3°",
-    "122,7°",
-    "−57,3°",
-    "302,7°"
+    "0",
+    "360",
+    "2 * 360"
    ],
-   "o": {
-    "index": 3
-   },
-   "w": "Beim Kosinus spiegelt man an der x-Achse: x₂ = 360° − x₁ ≈ 302,7°. (180° − x₁ wäre die Sinus-Regel, x₁ + 180° die Tangens-Regel.)",
-   "h": "Welche Spiegelung am Einheitskreis lässt die x-Koordinate gleich?"
+   "g": "mehrschritt"
   },
   {
-   "l": "kosinus",
-   "t": "kosinus",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
+   "y": "luecken",
    "f": {
-    "text": "Löse cos x = 0,35 im Bereich 0° ≤ x < 360°. Gib die kleinere Lösung auf eine Nachkommastelle an."
+    "text": "Der waagrechte Abstand einer Gondel von der Achse des Riesenrads ist d = 10 · cos x (in m, rechts positiv). Bei welchen Drehwinkeln im Bereich 0° ≤ x < 360° ist sie 6 m rechts der Achse? Runde auf ganze Grad.",
+    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
+    "hinweis": "kleinerer Winkel zuerst"
    },
    "o": {
-    "wert": 69.5,
-    "einheit": "°",
-    "toleranz": 0.1
+    "werte": [
+     53,
+     307
+    ]
    },
-   "c": "round(69.512684885277, 1)",
-   "w": "cos⁻¹(0,35) ≈ 69,5°; Lösungen ≈ 69,5° und 290,5°. Kleinere: 69,5°.",
-   "h": "Zweite Lösung über 360° − x₁."
-  },
-  {
-   "l": "kosinus",
-   "t": "kosinus",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "cos x = 0,17 hat die Lösung x₁ ≈ 80,2°. Welche ist die zweite Lösung im Bereich 0° ≤ x < 360°?"
-   },
-   "a": [
-    "99,8°",
-    "260,2°",
-    "279,8°",
-    "−80,2°"
+   "c": [
+    "round(53.13010235415599, 0)",
+    "round(360 - 53.13010235415599, 0)"
    ],
-   "o": {
-    "index": 2
-   },
-   "w": "Beim Kosinus spiegelt man an der x-Achse: x₂ = 360° − x₁ ≈ 279,8°. (180° − x₁ wäre die Sinus-Regel, x₁ + 180° die Tangens-Regel.)",
-   "h": "Welche Spiegelung am Einheitskreis lässt die x-Koordinate gleich?"
-  },
-  {
+   "w": "10 cos x = 6 ⇒ cos x = 0,6 ⇒ x₁ ≈ 53,1° ≈ 53°, x₂ = 360° − 53,1° ≈ 306,9° ≈ 307°.",
+   "h": "Teile zuerst durch 10.",
    "l": "kosinus",
    "t": "kosinus",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "cos x = 0,78 hat die Lösung x₁ ≈ 38,7°. Welche ist die zweite Lösung im Bereich 0° ≤ x < 360°?"
-   },
-   "a": [
-    "141,3°",
-    "218,7°",
-    "321,3°",
-    "−38,7°"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Beim Kosinus spiegelt man an der x-Achse: x₂ = 360° − x₁ ≈ 321,3°. (180° − x₁ wäre die Sinus-Regel, x₁ + 180° die Tangens-Regel.)",
-   "h": "Welche Spiegelung am Einheitskreis lässt die x-Koordinate gleich?"
-  },
-  {
-   "l": "kosinus",
-   "t": "kosinus",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "cos x = −0,03 hat die Lösung x₁ ≈ 91,7°. Welche ist die zweite Lösung im Bereich 0° ≤ x < 360°?"
-   },
-   "a": [
-    "−91,7°",
-    "88,3°",
-    "271,7°",
-    "268,3°"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Beim Kosinus spiegelt man an der x-Achse: x₂ = 360° − x₁ ≈ 268,3°. (180° − x₁ wäre die Sinus-Regel, x₁ + 180° die Tangens-Regel.)",
-   "h": "Welche Spiegelung am Einheitskreis lässt die x-Koordinate gleich?"
-  },
-  {
-   "l": "kosinus",
-   "t": "kosinus",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse cos x = −0,57 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
-    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     125,
-     235
-    ]
-   },
-   "w": "cos⁻¹(−0,57) ≈ 124,8°; zweite Lösung 360° − 124,8° ≈ 235°.",
-   "h": "Die zweite Lösung ist 360° − x₁.",
-   "c": [
-    "round(124.750225753682, 0)",
-    "round(235.249774246318, 0)"
-   ]
-  },
-  {
-   "l": "kosinus",
-   "t": "kosinus",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse cos x = −0,61 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
-    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     128,
-     232
-    ]
-   },
-   "w": "cos⁻¹(−0,61) ≈ 127,6°; zweite Lösung 360° − 127,6° ≈ 232°.",
-   "h": "Die zweite Lösung ist 360° − x₁.",
-   "c": [
-    "round(127.589502964857, 0)",
-    "round(232.410497035143, 0)"
-   ]
-  },
-  {
-   "l": "kosinus",
-   "t": "kosinus",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse cos x = −0,68 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
-    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     133,
-     227
-    ]
-   },
-   "w": "cos⁻¹(−0,68) ≈ 132,8°; zweite Lösung 360° − 132,8° ≈ 227°.",
-   "h": "Die zweite Lösung ist 360° − x₁.",
-   "c": [
-    "round(132.843643043596, 0)",
-    "round(227.156356956404, 0)"
-   ]
-  },
-  {
-   "l": "kosinus",
-   "t": "kosinus",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse cos x = −0,46 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
-    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     117,
-     243
-    ]
-   },
-   "w": "cos⁻¹(−0,46) ≈ 117,4°; zweite Lösung 360° − 117,4° ≈ 243°.",
-   "h": "Die zweite Lösung ist 360° − x₁.",
-   "c": [
-    "round(117.387107502654, 0)",
-    "round(242.612892497346, 0)"
-   ]
-  },
-  {
-   "l": "kosinus",
-   "t": "kosinus",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse cos x = −0,05 im Bereich 0° ≤ x < 360°. Gib die kleinere Lösung auf eine Nachkommastelle an."
-   },
-   "o": {
-    "wert": 92.9,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(92.865983982599, 1)",
-   "w": "cos⁻¹(−0,05) ≈ 92,9°; Lösungen ≈ 92,9° und 267,1°. Kleinere: 92,9°.",
-   "h": "Zweite Lösung über 360° − x₁."
-  },
-  {
-   "l": "kosinus",
-   "t": "kosinus",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse cos x = −0,2 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
-    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     102,
-     258
-    ]
-   },
-   "w": "cos⁻¹(−0,2) ≈ 101,5°; zweite Lösung 360° − 101,5° ≈ 258°.",
-   "h": "Die zweite Lösung ist 360° − x₁.",
-   "c": [
-    "round(101.536959032815, 0)",
-    "round(258.463040967184, 0)"
-   ]
+   "g": "einkleidung"
   },
   {
    "l": "kosinus",
@@ -1728,6 +2111,364 @@
    "w": "cos⁻¹(−0,43) ≈ 115,5°; Lösungen ≈ 115,5° und 244,5°. Kleinere: 115,5°."
   },
   {
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "cos x = −0,8 hat die Lösung x₁ ≈ 143,1°. Welche zweite Lösung gibt es im Bereich 0° ≤ x < 360°?"
+   },
+   "a": [
+    "323,9°",
+    "323,1°",
+    "216,9°",
+    "36,9°"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Beim Kosinus gilt x₂ = 360° − x₁ = 216,9°.",
+   "h": "Kosinus: an der x-Achse spiegeln.",
+   "g": "mehrschritt"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Die Gleichung cos x = v hat im Bereich 0° ≤ x < 360° die Lösung x = 300°. Wie groß ist v?"
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "0.5",
+   "w": "300° = 360° − 60°, also cos 300° = cos 60° = 0,5. Die zweite Lösung ist 60°.",
+   "h": "Welcher Winkel gehört zu 300° als Partner?",
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr"
+  },
+  {
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "cos x = 0,78 hat die Lösung x₁ ≈ 38,7°. Welche ist die zweite Lösung im Bereich 0° ≤ x < 360°?"
+   },
+   "a": [
+    "141,3°",
+    "218,7°",
+    "321,3°",
+    "−38,7°"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Beim Kosinus spiegelt man an der x-Achse: x₂ = 360° − x₁ ≈ 321,3°. (180° − x₁ wäre die Sinus-Regel, x₁ + 180° die Tangens-Regel.)",
+   "h": "Welche Spiegelung am Einheitskreis lässt die x-Koordinate gleich?"
+  },
+  {
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse cos x = −0,2 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
+    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     102,
+     258
+    ]
+   },
+   "w": "cos⁻¹(−0,2) ≈ 101,5°; zweite Lösung 360° − 101,5° ≈ 258°.",
+   "h": "Die zweite Lösung ist 360° − x₁.",
+   "c": [
+    "round(101.536959032815, 0)",
+    "round(258.463040967184, 0)"
+   ]
+  },
+  {
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse cos x = 0,3 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "Grad-Zahlen, kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     73,
+     287
+    ]
+   },
+   "w": "cos⁻¹(0,3) ≈ 72,5°, zweite Lösung 360° − 72,5° ≈ 287,5°. Gerundet 73° und 287°.",
+   "h": "x₂ = 360° − x₁. Runde jede Lösung einzeln.",
+   "c": [
+    "round(72.542396876278, 0)",
+    "round(287.457603123722, 0)"
+   ]
+  },
+  {
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "cos x = −0,03 hat die Lösung x₁ ≈ 91,7°. Welche ist die zweite Lösung im Bereich 0° ≤ x < 360°?"
+   },
+   "a": [
+    "−91,7°",
+    "88,3°",
+    "271,7°",
+    "268,3°"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Beim Kosinus spiegelt man an der x-Achse: x₂ = 360° − x₁ ≈ 268,3°. (180° − x₁ wäre die Sinus-Regel, x₁ + 180° die Tangens-Regel.)",
+   "h": "Welche Spiegelung am Einheitskreis lässt die x-Koordinate gleich?"
+  },
+  {
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse cos x = −0,68 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
+    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     133,
+     227
+    ]
+   },
+   "w": "cos⁻¹(−0,68) ≈ 132,8°; zweite Lösung 360° − 132,8° ≈ 227°.",
+   "h": "Die zweite Lösung ist 360° − x₁.",
+   "c": [
+    "round(132.843643043596, 0)",
+    "round(227.156356956404, 0)"
+   ]
+  },
+  {
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse cos x = −0,46 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
+    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     117,
+     243
+    ]
+   },
+   "w": "cos⁻¹(−0,46) ≈ 117,4°; zweite Lösung 360° − 117,4° ≈ 243°.",
+   "h": "Die zweite Lösung ist 360° − x₁.",
+   "c": [
+    "round(117.387107502654, 0)",
+    "round(242.612892497346, 0)"
+   ]
+  },
+  {
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Strecke hat die Länge d(φ) = 10 · cos φ (in cm) für 0° < φ < 90°. Für welchen Winkel φ ist sie 7 cm lang? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 45.6,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(45.572995999194, 1)",
+   "w": "10 · cos φ = 7 ⇒ cos φ = 0,7 ⇒ φ ≈ 45,6°.",
+   "h": "Setze d = 7 und stelle nach cos φ um.",
+   "g": "transfer"
+  },
+  {
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Für welche x im Bereich 0° ≤ x < 360° gilt cos x = sin 30°? Ohne Taschenrechner.",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     60,
+     300
+    ]
+   },
+   "c": [
+    "60",
+    "300"
+   ],
+   "w": "sin 30° = 0,5. cos x = 0,5 gilt für x = 60° und x = 360° − 60° = 300°.",
+   "h": "Rechne zuerst sin 30° aus.",
+   "g": "verknuepfen"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst cos x = 0,2 im Bereich 0° ≤ x < 360° und gibt 78,5° und 101,5° an. Was stimmt?"
+   },
+   "a": [
+    "Falsch: x₂ = 78,5° + 180° = 258,5°.",
+    "Richtig.",
+    "Falsch: Beim Kosinus ist x₂ = 360° − 78,5° = 281,5°.",
+    "Falsch: Es gibt nur eine Lösung."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "x₂ = 180° − x₁ ist die Regel für den Sinus. Probe: cos 101,5° ist negativ, cos 281,5° ≈ 0,2.",
+   "h": "Mache die Probe mit cos 101,5°.",
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche Werte v hat cos x = v im Bereich 0° ≤ x ≤ 180° genau eine Lösung?"
+   },
+   "a": [
+    "für keinen Wert v",
+    "für alle v mit −1 ≤ v ≤ 1",
+    "nur für v = 1 und v = −1",
+    "für alle v"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Von 0° bis 180° fährt die Gondel von ganz rechts nach ganz links, cos x fällt dabei von 1 auf −1 und nimmt jeden Wert dazwischen genau einmal an.",
+   "h": "Wie ändert sich cos x von 0° bis 180°?",
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt: cos x = 0 hat im Bereich 0° ≤ x < 360° genau die Lösungen 90° und 270°?"
+   },
+   "a": [
+    "Ja: Ganz oben und ganz unten ist der waagrechte Abstand 0; dazu passt 270° = 360° − 90°.",
+    "Nein, die Lösungen sind 90° und 180°.",
+    "Nein, nur 90°.",
+    "Nein, die Lösungen sind 0° und 180°."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "cos x ist der waagrechte Abstand von der Achse. Er ist 0, wenn die Gondel senkrecht über oder unter der Achse steht: 90° und 270°.",
+   "h": "Wo ist die Gondel direkt über oder unter der Achse?",
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Löse im Bereich 0° ≤ x < 360°: a) cos x = −0,3 (ganze Grad), b) cos x = −1, c) Wie viele Lösungen hat 2 cos x = 3?",
+    "schablone": "a) x₁ ≈ □°, x₂ ≈ □°; b) x = □°; c) □ Lösungen",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     107,
+     253,
+     180,
+     0
+    ]
+   },
+   "c": [
+    "round(107.4576031237221, 0)",
+    "round(360 - 107.4576031237221, 0)",
+    "180",
+    "0"
+   ],
+   "w": "a) cos⁻¹(−0,3) ≈ 107,5° ≈ 107°, x₂ = 360° − 107,5° ≈ 252,5° ≈ 253°. b) ganz links: 180°. c) cos x = 1,5 > 1: keine Lösung.",
+   "h": "Bei c) erst durch 2 teilen.",
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Die beiden Lösungen einer Gleichung cos x = v im Bereich 0° ≤ x < 360° liegen genau 100° auseinander. Wie heißen sie?",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     130,
+     230
+    ]
+   },
+   "c": [
+    "(360 - 100) // 2",
+    "(360 + 100) // 2"
+   ],
+   "w": "Es gilt x₂ = 360° − x₁ und x₂ − x₁ = 100°. Also 360° − 2x₁ = 100°, x₁ = 130°, x₂ = 230°. Probe: cos 130° = cos 230° ≈ −0,64. (Mit x₁ = 50° wären es 260° Abstand.)",
+   "h": "Nutze x₂ = 360° − x₁.",
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Lösungen hat cos x = 0,3 im Bereich −360° < x < 360°?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "2 + 2",
+   "w": "Von 0° bis 360° gibt es zwei Lösungen (≈ 72,5° und ≈ 287,5°). Rückwärts gedreht (−360° bis 0°) wiederholt sich alles: ≈ −72,5° und ≈ −287,5°. Zusammen 4.",
+   "h": "Ein negativer Winkel heißt: im Uhrzeigersinn drehen.",
+   "l": "kosinus",
+   "t": "kosinus",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
    "l": "tangens",
    "t": "tangens",
    "p": "uebung",
@@ -1742,7 +2483,27 @@
    },
    "c": "14 + 180",
    "w": "Beim Tangens gilt x₂ = 14° + 180° = 194°.",
-   "h": "Der Tangens wiederholt sich alle 180°."
+   "h": "Der Tangens wiederholt sich alle 180°.",
+   "g": "direkt"
+  },
+  {
+   "l": "tangens",
+   "t": "tangens",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse tan x = −0,29 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an."
+   },
+   "o": {
+    "wert": 343.8,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(343.827840984217, 1)",
+   "w": "tan⁻¹(−0,29) ≈ −16,2°; Lösungen ≈ 163,8° und 343,8°. Größere: 343,8°.",
+   "h": "Zweite Lösung über x₁ + 180°.",
+   "g": "mehrschritt"
   },
   {
    "l": "tangens",
@@ -1766,7 +2527,27 @@
    "c": [
     "0",
     "180"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "tangens",
+   "t": "tangens",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse tan x = 4,87 im Bereich 0° ≤ x < 360°. Gib die kleinere Lösung auf eine Nachkommastelle an."
+   },
+   "o": {
+    "wert": 78.4,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(78.396245591329, 1)",
+   "w": "tan⁻¹(4,87) ≈ 78,4°; Lösungen ≈ 78,4° und 258,4°. Kleinere: 78,4°.",
+   "h": "Zweite Lösung über x₁ + 180°.",
+   "g": "mehrschritt"
   },
   {
    "l": "tangens",
@@ -1783,7 +2564,27 @@
    },
    "c": "39 + 180",
    "w": "Beim Tangens gilt x₂ = 39° + 180° = 219°.",
-   "h": "Der Tangens wiederholt sich alle 180°."
+   "h": "Der Tangens wiederholt sich alle 180°.",
+   "g": "direkt"
+  },
+  {
+   "l": "tangens",
+   "t": "tangens",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse tan x = 1,82 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an."
+   },
+   "o": {
+    "wert": 241.2,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(241.213381689986, 1)",
+   "w": "tan⁻¹(1,82) ≈ 61,2°; Lösungen ≈ 61,2° und 241,2°. Größere: 241,2°.",
+   "h": "Zweite Lösung über x₁ + 180°.",
+   "g": "mehrschritt"
   },
   {
    "l": "tangens",
@@ -1807,7 +2608,148 @@
    "c": [
     "135",
     "315"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "tangens",
+   "t": "tangens",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse tan x = −√3 im Bereich 0° ≤ x < 360° ohne Taschenrechner (tan 60° = √3).",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "Grad-Zahlen, kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     120,
+     300
+    ]
+   },
+   "w": "Bezugswinkel 60°. Tangens negativ links oben und rechts unten: x = 180° − 60° = 120° und x = 120° + 180° = 300°.",
+   "h": "Der Tangens wiederholt sich alle 180°.",
+   "c": [
+    "180 - 60",
+    "120 + 180"
+   ],
+   "g": "verknuepfen"
+  },
+  {
+   "l": "tangens",
+   "t": "tangens",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Rampe steigt auf 8 m waagrechter Länge um 0,5 m. Unter welchem Winkel steigt sie? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 3.6,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(3.576334374997, 1)",
+   "w": "tan α = 0,5 : 8 = 0,0625 ⇒ α = tan⁻¹(0,0625) ≈ 3,6°.",
+   "h": "Höhe : waagrechte Länge ist der Tangens des Steigungswinkels.",
+   "g": "direkt"
+  },
+  {
+   "l": "tangens",
+   "t": "tangens",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse tan x = −1,82 im Bereich 0° ≤ x < 360°. Gib die kleinere Lösung auf eine Nachkommastelle an."
+   },
+   "o": {
+    "wert": 118.8,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(118.786618310014, 1)",
+   "w": "tan⁻¹(−1,82) ≈ −61,2°; Lösungen ≈ 118,8° und 298,8°. Kleinere: 118,8°.",
+   "h": "Zweite Lösung über x₁ + 180°.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "tangens",
+   "t": "tangens",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Weg hat 22 % Steigung. Wie groß ist der Steigungswinkel? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 12.4,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(12.407418527401, 1)",
+   "w": "tan α = 0,22 ⇒ α ≈ 12,4°.",
+   "h": "22 % Steigung heißt tan α = 22/100.",
+   "g": "direkt"
+  },
+  {
+   "l": "tangens",
+   "t": "tangens",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Lösungen hat tan x = 5 im Bereich 0° ≤ x < 900°?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "900 // 180",
+   "w": "Der Tangens wiederholt sich alle 180°: genau eine Lösung pro 180°-Abschnitt. 900° : 180° = 5 Lösungen.",
+   "h": "Wie oft passt 180° in 900°?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "tangens",
+   "t": "tangens",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Weg hat 18 % Steigung. Wie groß ist der Steigungswinkel? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 10.2,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(10.203973721732, 1)",
+   "w": "tan α = 0,18 ⇒ α ≈ 10,2°.",
+   "h": "18 % Steigung heißt tan α = 18/100.",
+   "g": "direkt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Nach wie viel Grad wiederholen sich die Werte des Tangens?"
+   },
+   "a": [
+    "nach 180°",
+    "nach 45°",
+    "nach 90°",
+    "nach 360°"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Gegenspeiche eine halbe Drehung weiter hat dieselbe Steigung: tan(x + 180°) = tan x.",
+   "h": "Denk an die Gegenspeiche.",
+   "l": "tangens",
+   "t": "tangens",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
   },
   {
    "l": "tangens",
@@ -1848,180 +2790,22 @@
    "t": "tangens",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Löse tan x = −0,29 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an."
+    "text": "tan x = 2 hat die Lösung x₁ ≈ 63,4°. Welche zweite Lösung gibt es im Bereich 0° ≤ x < 360°?"
    },
+   "a": [
+    "243,4°",
+    "296,6°",
+    "153,4°",
+    "116,6°"
+   ],
    "o": {
-    "wert": 343.8,
-    "einheit": "°",
-    "toleranz": 0.1
+    "index": 0
    },
-   "c": "round(343.827840984217, 1)",
-   "w": "tan⁻¹(−0,29) ≈ −16,2°; Lösungen ≈ 163,8° und 343,8°. Größere: 343,8°.",
-   "h": "Zweite Lösung über x₁ + 180°."
-  },
-  {
-   "l": "tangens",
-   "t": "tangens",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse tan x = 4,87 im Bereich 0° ≤ x < 360°. Gib die kleinere Lösung auf eine Nachkommastelle an."
-   },
-   "o": {
-    "wert": 78.4,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(78.396245591329, 1)",
-   "w": "tan⁻¹(4,87) ≈ 78,4°; Lösungen ≈ 78,4° und 258,4°. Kleinere: 78,4°.",
-   "h": "Zweite Lösung über x₁ + 180°."
-  },
-  {
-   "l": "tangens",
-   "t": "tangens",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse tan x = 1,82 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an."
-   },
-   "o": {
-    "wert": 241.2,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(241.213381689986, 1)",
-   "w": "tan⁻¹(1,82) ≈ 61,2°; Lösungen ≈ 61,2° und 241,2°. Größere: 241,2°.",
-   "h": "Zweite Lösung über x₁ + 180°."
-  },
-  {
-   "l": "tangens",
-   "t": "tangens",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse tan x = −2,77 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an."
-   },
-   "o": {
-    "wert": 289.9,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(289.850131351280, 1)",
-   "w": "tan⁻¹(−2,77) ≈ −70,1°; Lösungen ≈ 109,9° und 289,9°. Größere: 289,9°.",
-   "h": "Zweite Lösung über x₁ + 180°."
-  },
-  {
-   "l": "tangens",
-   "t": "tangens",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse tan x = 3,58 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an."
-   },
-   "o": {
-    "wert": 254.4,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(254.393377857069, 1)",
-   "w": "tan⁻¹(3,58) ≈ 74,4°; Lösungen ≈ 74,4° und 254,4°. Größere: 254,4°.",
-   "h": "Zweite Lösung über x₁ + 180°."
-  },
-  {
-   "l": "tangens",
-   "t": "tangens",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse tan x = −1,8 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an."
-   },
-   "o": {
-    "wert": 299.1,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(299.054604099077, 1)",
-   "w": "tan⁻¹(−1,8) ≈ −60,9°; Lösungen ≈ 119,1° und 299,1°. Größere: 299,1°.",
-   "h": "Zweite Lösung über x₁ + 180°."
-  },
-  {
-   "l": "tangens",
-   "t": "tangens",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Rampe steigt auf 8 m waagrechter Länge um 0,5 m. Unter welchem Winkel steigt sie? Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 3.6,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(3.576334374997, 1)",
-   "w": "tan α = 0,5 : 8 = 0,0625 ⇒ α = tan⁻¹(0,0625) ≈ 3,6°.",
-   "h": "Höhe : waagrechte Länge ist der Tangens des Steigungswinkels."
-  },
-  {
-   "l": "tangens",
-   "t": "tangens",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse tan x = −1,82 im Bereich 0° ≤ x < 360°. Gib die kleinere Lösung auf eine Nachkommastelle an."
-   },
-   "o": {
-    "wert": 118.8,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(118.786618310014, 1)",
-   "w": "tan⁻¹(−1,82) ≈ −61,2°; Lösungen ≈ 118,8° und 298,8°. Kleinere: 118,8°.",
-   "h": "Zweite Lösung über x₁ + 180°."
-  },
-  {
-   "l": "tangens",
-   "t": "tangens",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse tan x = −1,12 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an."
-   },
-   "o": {
-    "wert": 311.8,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(311.760299703898, 1)",
-   "w": "tan⁻¹(−1,12) ≈ −48,2°; Lösungen ≈ 131,8° und 311,8°. Größere: 311,8°.",
-   "h": "Zweite Lösung über x₁ + 180°."
-  },
-  {
-   "l": "tangens",
-   "t": "tangens",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Weg hat 22 % Steigung. Wie groß ist der Steigungswinkel? Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 12.4,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(12.407418527401, 1)",
-   "w": "tan α = 0,22 ⇒ α ≈ 12,4°.",
-   "h": "22 % Steigung heißt tan α = 22/100."
+   "w": "Beim Tangens gilt x₂ = x₁ + 180° = 243,4°.",
+   "h": "Tangens: plus 180°.",
+   "g": "mehrschritt"
   },
   {
    "l": "tangens",
@@ -2040,24 +2824,6 @@
    "c": "round(340.709953780811, 1)",
    "w": "tan⁻¹(−0,35) ≈ −19,3°; Lösungen ≈ 160,7° und 340,7°. Größere: 340,7°.",
    "h": "Zweite Lösung über x₁ + 180°."
-  },
-  {
-   "l": "tangens",
-   "t": "tangens",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Weg hat 18 % Steigung. Wie groß ist der Steigungswinkel? Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 10.2,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(10.203973721732, 1)",
-   "w": "tan α = 0,18 ⇒ α ≈ 10,2°.",
-   "h": "18 % Steigung heißt tan α = 18/100."
   },
   {
    "l": "tangens",
@@ -2230,6 +2996,311 @@
    "w": "tan⁻¹(−0,44) ≈ −23,7°; Lösungen ≈ 156,3° und 336,3°. Kleinere: 156,3°."
   },
   {
+   "y": "luecken",
+   "f": {
+    "text": "Ein Zeiger zeigt vom Ursprung auf einen Punkt der Geraden y = 3x. Welchen Winkel kann er mit der positiven x-Achse bilden (im Bereich 0° ≤ x < 360°)? Runde auf ganze Grad.",
+    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
+    "hinweis": "kleinerer Winkel zuerst"
+   },
+   "o": {
+    "werte": [
+     72,
+     252
+    ]
+   },
+   "c": [
+    "round(71.56505117707799, 0)",
+    "round(71.56505117707799 + 180, 0)"
+   ],
+   "w": "Die Steigung der Geraden ist tan x = 3 ⇒ x₁ ≈ 71,6° ≈ 72°. Auf die andere Seite der Geraden zeigt x₂ ≈ 251,6° ≈ 252°.",
+   "h": "Steigung = tan x.",
+   "l": "tangens",
+   "t": "tangens",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung"
+  },
+  {
+   "l": "tangens",
+   "t": "tangens",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse tan x = −1,8 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an."
+   },
+   "o": {
+    "wert": 299.1,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(299.054604099077, 1)",
+   "w": "tan⁻¹(−1,8) ≈ −60,9°; Lösungen ≈ 119,1° und 299,1°. Größere: 299,1°.",
+   "h": "Zweite Lösung über x₁ + 180°."
+  },
+  {
+   "l": "tangens",
+   "t": "tangens",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse tan x = −1,12 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an."
+   },
+   "o": {
+    "wert": 311.8,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(311.760299703898, 1)",
+   "w": "tan⁻¹(−1,12) ≈ −48,2°; Lösungen ≈ 131,8° und 311,8°. Größere: 311,8°.",
+   "h": "Zweite Lösung über x₁ + 180°."
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Die Gleichung tan x = v hat im Bereich 0° ≤ x < 360° die Lösung x = 225°. Wie groß ist v?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "225° = 45° + 180°. Der Tangens wiederholt sich alle 180°: tan 225° = tan 45° = 1.",
+   "h": "Ziehe 180° ab.",
+   "l": "tangens",
+   "t": "tangens",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr"
+  },
+  {
+   "l": "tangens",
+   "t": "tangens",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse tan x = −2,77 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an."
+   },
+   "o": {
+    "wert": 289.9,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(289.850131351280, 1)",
+   "w": "tan⁻¹(−2,77) ≈ −70,1°; Lösungen ≈ 109,9° und 289,9°. Größere: 289,9°.",
+   "h": "Zweite Lösung über x₁ + 180°."
+  },
+  {
+   "l": "tangens",
+   "t": "tangens",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse tan x = 3,58 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an."
+   },
+   "o": {
+    "wert": 254.4,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(254.393377857069, 1)",
+   "w": "tan⁻¹(3,58) ≈ 74,4°; Lösungen ≈ 74,4° und 254,4°. Größere: 254,4°.",
+   "h": "Zweite Lösung über x₁ + 180°."
+  },
+  {
+   "l": "tangens",
+   "t": "tangens",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse tan x = 0,5 im Bereich 0° ≤ x < 360°. Gib die kleinere Lösung auf eine Nachkommastelle an."
+   },
+   "o": {
+    "wert": 26.6,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(26.565051177078, 1)",
+   "w": "tan⁻¹(0,5) ≈ 26,6°.",
+   "h": "Umkehrtaste tan⁻¹."
+  },
+  {
+   "l": "tangens",
+   "t": "tangens",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Das Volumen eines Prismas ist V(φ) = 12 · tan φ (in cm³) für 0° < φ < 90°. Für welchen Winkel φ ist V = 30 cm³? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 68.2,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(68.198590513648, 1)",
+   "w": "12 · tan φ = 30 ⇒ tan φ = 2,5 ⇒ φ ≈ 68,2°.",
+   "h": "Setze V = 30 und stelle nach tan φ um.",
+   "g": "transfer"
+  },
+  {
+   "l": "tangens",
+   "t": "tangens",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3 · tan x − 2 = 0 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an."
+   },
+   "o": {
+    "wert": 213.7,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(213.690067525980, 1)",
+   "w": "tan x = 2/3 ⇒ x₁ ≈ 33,7°, x₂ = x₁ + 180° ≈ 213,7°.",
+   "h": "Erst tan x allein stellen, dann + 180°.",
+   "g": "verknuepfen"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst tan x = 3 im Bereich 0° ≤ x < 360° und gibt 71,6° und 108,4° an. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Beim Tangens ist x₂ = 71,6° + 180° = 251,6°.",
+    "Falsch: x₂ = 360° − 71,6° = 288,4°.",
+    "Richtig.",
+    "Falsch: Es gibt nur eine Lösung."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "180° − x₁ ist die Regel für den Sinus. Probe: tan 108,4° ist negativ, tan 251,6° ≈ 3.",
+   "h": "Mache die Probe mit tan 108,4°.",
+   "l": "tangens",
+   "t": "tangens",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche Werte v hat tan x = v im Bereich 0° ≤ x < 360° genau zwei Lösungen?"
+   },
+   "a": [
+    "für keinen Wert v",
+    "nur für v > 0",
+    "für alle v",
+    "nur für −1 ≤ v ≤ 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Tangens nimmt jeden Wert an (jede Steigung ist möglich), und zwar alle 180° wieder. Im Bereich bis 360° also immer zweimal.",
+   "h": "Gibt es eine Steigung, die keine Gerade hat?",
+   "l": "tangens",
+   "t": "tangens",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt: tan x = −2 hat im Bereich 0° ≤ x < 360° eine Lösung zwischen 90° und 180° und eine zwischen 270° und 360°?"
+   },
+   "a": [
+    "Nein, es gibt keine Lösung.",
+    "Nein, beide liegen zwischen 0° und 90°.",
+    "Nein, die Lösungen sind 63,4° und 243,4°.",
+    "Ja: tan⁻¹(−2) ≈ −63,4°; plus 180° gibt 116,6°, plus 360° gibt 296,6°."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Negative Steigung heißt: Der Zeiger zeigt nach links oben oder nach rechts unten. Das sind die Bereiche 90° bis 180° und 270° bis 360°.",
+   "h": "In welchen Bereichen ist die Steigung negativ?",
+   "l": "tangens",
+   "t": "tangens",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Löse im Bereich 0° ≤ x < 360° (ganze Grad): a) tan x = 1, b) tan x = −1, c) tan x = 0,4.",
+    "schablone": "a) □° und □°; b) □° und □°; c) □° und □°",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     45,
+     225,
+     135,
+     315,
+     22,
+     202
+    ]
+   },
+   "c": [
+    "45",
+    "45 + 180",
+    "135",
+    "135 + 180",
+    "round(21.80140948635181, 0)",
+    "round(21.80140948635181 + 180, 0)"
+   ],
+   "w": "a) 45°, 225°. b) tan⁻¹(−1) = −45° ⇒ 135° und 315°. c) tan⁻¹(0,4) ≈ 21,8° ≈ 22° und 201,8° ≈ 202°.",
+   "h": "Immer x₂ = x₁ + 180°.",
+   "l": "tangens",
+   "t": "tangens",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Lösungen hat tan x = 2 im Bereich 0° ≤ x < 1 000°?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "tan⁻¹(2) ≈ 63,4°. Alle 180° kommt eine Lösung dazu: 63,4°, 243,4°, 423,4°, 603,4°, 783,4°, 963,4°. Die nächste, 1 143,4°, ist zu groß. Also 6 Lösungen.",
+   "h": "Zähle 63,4° + k · 180° ab.",
+   "l": "tangens",
+   "t": "tangens",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Für einen spitzen Winkel x gilt tan x = 4 · tan(90° − x). Wie groß ist x? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 63.4,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(63.43494882292201, 1)",
+   "w": "Im rechtwinkligen Dreieck tauschen für 90° − x Gegen- und Ankathete die Rollen: tan(90° − x) = 1 : tan x. Also tan x = 4 : tan x, (tan x)² = 4, tan x = 2 (x spitz), x ≈ 63,4°.",
+   "h": "Was ist tan(90° − x) im rechtwinkligen Dreieck?",
+   "l": "tangens",
+   "t": "tangens",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
    "l": "anzahl",
    "t": "anzahl",
    "p": "uebung",
@@ -2247,107 +3318,8 @@
     "index": 0
    },
    "w": "|1,3| > 1, aber sin x liegt zwischen −1 und 1: keine Lösung.",
-   "h": "Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt."
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat sin x = 0,4 im Bereich 0° ≤ x < 360°?"
-   },
-   "a": [
-    "genau eine Lösung",
-    "zwei Lösungen",
-    "keine Lösung"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Die Gerade y = 0,4 schneidet den Graphen im Bereich zweimal: zwei Lösungen.",
-   "h": "Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt."
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat cos x = −0,7 im Bereich 0° ≤ x < 360°?"
-   },
-   "a": [
-    "genau eine Lösung",
-    "keine Lösung",
-    "zwei Lösungen"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Die Gerade y = −0,7 schneidet den Graphen im Bereich zweimal: zwei Lösungen.",
-   "h": "Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt."
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat tan x = −1,6 im Bereich 0° ≤ x < 360°?"
-   },
-   "a": [
-    "genau eine Lösung",
-    "zwei Lösungen",
-    "keine Lösung"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "tan x nimmt jeden Wert an, mit Periode 180°: zwei Lösungen.",
-   "h": "Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt."
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat cos x = −0,8 im Bereich 0° ≤ x < 360°?"
-   },
-   "a": [
-    "keine Lösung",
-    "zwei Lösungen",
-    "genau eine Lösung"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Die Gerade y = −0,8 schneidet den Graphen im Bereich zweimal: zwei Lösungen.",
-   "h": "Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt."
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat tan x = −3 im Bereich 0° ≤ x < 360°?"
-   },
-   "a": [
-    "genau eine Lösung",
-    "zwei Lösungen",
-    "keine Lösung"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "tan x nimmt jeden Wert an, mit Periode 180°: zwei Lösungen.",
-   "h": "Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt."
+   "h": "Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt.",
+   "g": "erkennen"
   },
   {
    "l": "anzahl",
@@ -2367,53 +3339,29 @@
     "index": 1
    },
    "w": "tan x nimmt jeden Wert an, mit Periode 180°: zwei Lösungen.",
-   "h": "Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt."
+   "h": "Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt.",
+   "g": "mehrschritt"
   },
   {
    "l": "anzahl",
    "t": "anzahl",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Im Bild siehst du den Graphen von y = sin x und die Gerade y = −1. Wie viele Lösungen hat sin x = −1 im Bereich 0° ≤ x < 360°?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      360
-     ],
-     "y": [
-      -2.5,
-      2.5
-     ],
-     "grad": true,
-     "schritt_x": 90,
-     "graphen": [
-      {
-       "art": "sin",
-       "a": 1,
-       "b": 1,
-       "c": 0,
-       "d": 0,
-       "name": "sin x"
-      }
-     ],
-     "waagrecht": [
-      -1
-     ]
-    }
+    "text": "Wie viele Lösungen hat sin x = 0,4 im Bereich 0° ≤ x < 360°?"
    },
    "a": [
-    "keine Lösung",
     "genau eine Lösung",
-    "zwei Lösungen"
+    "zwei Lösungen",
+    "keine Lösung"
    ],
    "o": {
     "index": 1
    },
-   "w": "sin x = −1 nur an einem Punkt des Einheitskreises: eine Lösung.",
-   "h": "Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt."
+   "w": "Die Gerade y = 0,4 schneidet den Graphen im Bereich zweimal: zwei Lösungen.",
+   "h": "Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt.",
+   "g": "erkennen"
   },
   {
    "l": "anzahl",
@@ -2433,7 +3381,29 @@
     "index": 1
    },
    "w": "cos x = 1 nur an einem Punkt des Einheitskreises: eine Lösung.",
-   "h": "Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt."
+   "h": "Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat tan x = −1,6 im Bereich 0° ≤ x < 360°?"
+   },
+   "a": [
+    "genau eine Lösung",
+    "zwei Lösungen",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "tan x nimmt jeden Wert an, mit Periode 180°: zwei Lösungen.",
+   "h": "Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt.",
+   "g": "erkennen"
   },
   {
    "l": "anzahl",
@@ -2453,7 +3423,29 @@
     "index": 2
    },
    "w": "sin x = −1 nur an einem Punkt des Einheitskreises: eine Lösung.",
-   "h": "Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt."
+   "h": "Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat cos x = −0,7 im Bereich 0° ≤ x < 360°?"
+   },
+   "a": [
+    "genau eine Lösung",
+    "keine Lösung",
+    "zwei Lösungen"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Gerade y = −0,7 schneidet den Graphen im Bereich zweimal: zwei Lösungen.",
+   "h": "Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt.",
+   "g": "erkennen"
   },
   {
    "l": "anzahl",
@@ -2473,27 +3465,8 @@
     "index": 1
    },
    "w": "Die Gerade y = 0,45 schneidet den Graphen im Bereich zweimal: zwei Lösungen.",
-   "h": "Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt."
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat tan x = 1 im Bereich 0° ≤ x < 360°?"
-   },
-   "a": [
-    "genau eine Lösung",
-    "keine Lösung",
-    "zwei Lösungen"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "tan x nimmt jeden Wert an, mit Periode 180°: zwei Lösungen.",
-   "h": "Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt."
+   "h": "Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt.",
+   "g": "mehrschritt"
   },
   {
    "l": "anzahl",
@@ -2514,28 +3487,8 @@
     "index": 3
    },
    "w": "sin x = a/5 hat genau eine Lösung, wenn a/5 = 1 oder a/5 = −1, also a = ±5 (x = 90° bzw. 270°).",
-   "h": "Teile durch 5. Wann hat sin x = Wert genau eine Lösung?"
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "4 cos x + 6 = b hat im Bereich 0° ≤ x < 360° keine Lösung, wenn …"
-   },
-   "a": [
-    "b > 1 oder b < −1",
-    "b > 4 oder b < −4",
-    "2 < b < 10",
-    "b > 10 oder b < 2"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "4 cos x + 6 liegt zwischen 4 · (−1) + 6 = 2 und 4 · 1 + 6 = 10. Außerhalb davon gibt es keine Lösung.",
-   "h": "Welche Werte kann der linke Term annehmen, wenn cos x zwischen −1 und 1 liegt?"
+   "h": "Teile durch 5. Wann hat sin x = Wert genau eine Lösung?",
+   "g": "parameter"
   },
   {
    "l": "anzahl",
@@ -2556,49 +3509,8 @@
     "index": 0
    },
    "w": "sin 90° = 1 ≠ −1. Der Wert −1 ist ein Extremwert; nur ein Punkt am Einheitskreis hat diese Koordinate: x = 270°.",
-   "h": "Setze beide Winkel zur Probe ein."
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand gibt für cos x = 1 im Bereich 0° ≤ x < 360° die Lösungen 0° und 180° an. Was stimmt?"
-   },
-   "a": [
-    "Falsch: Es gibt nur die Lösung 0°.",
-    "Falsch: Nur 180° ist Lösung.",
-    "Richtig.",
-    "Falsch: Es gibt keine Lösung."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "cos 180° = −1 ≠ 1. Der Wert 1 ist ein Extremwert; nur ein Punkt am Einheitskreis hat diese Koordinate: x = 0°.",
-   "h": "Setze beide Winkel zur Probe ein."
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand löst cos x = 1,7, bekommt am Taschenrechner eine Fehlermeldung und rechnet stattdessen cos⁻¹(0,7) ≈ 45,6°. Was stimmt?"
-   },
-   "a": [
-    "Falsch: cos x ≤ 1, die Gleichung hat keine Lösung.",
-    "Falsch: x ≈ 314,4°.",
-    "Richtig, 1,7 − 1 = 0,7.",
-    "Falsch: Es gibt unendlich viele Lösungen."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Die Fehlermeldung ist richtig: Am Einheitskreis sind Sinus und Kosinus Koordinaten, also höchstens 1. 1,7 > 1 ist unmöglich.",
-   "h": "Welche Werte kann sin x bzw. cos x annehmen?"
+   "h": "Setze beide Winkel zur Probe ein.",
+   "g": "fehler"
   },
   {
    "l": "anzahl",
@@ -2619,7 +3531,155 @@
     "index": 2
    },
    "w": "2 cos x + 5 liegt zwischen 2 · (−1) + 5 = 3 und 2 · 1 + 5 = 7. Außerhalb davon gibt es keine Lösung.",
-   "h": "Welche Werte kann der linke Term annehmen, wenn cos x zwischen −1 und 1 liegt?"
+   "h": "Welche Werte kann der linke Term annehmen, wenn cos x zwischen −1 und 1 liegt?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat cos x = −0,8 im Bereich 0° ≤ x < 360°?"
+   },
+   "a": [
+    "keine Lösung",
+    "zwei Lösungen",
+    "genau eine Lösung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Gerade y = −0,8 schneidet den Graphen im Bereich zweimal: zwei Lösungen.",
+   "h": "Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt.",
+   "g": "erkennen"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat tan x = 1 im Bereich 0° ≤ x < 360°?"
+   },
+   "a": [
+    "genau eine Lösung",
+    "keine Lösung",
+    "zwei Lösungen"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "tan x nimmt jeden Wert an, mit Periode 180°: zwei Lösungen.",
+   "h": "Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "4 cos x + 6 = b hat im Bereich 0° ≤ x < 360° keine Lösung, wenn …"
+   },
+   "a": [
+    "b > 1 oder b < −1",
+    "b > 4 oder b < −4",
+    "2 < b < 10",
+    "b > 10 oder b < 2"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "4 cos x + 6 liegt zwischen 4 · (−1) + 6 = 2 und 4 · 1 + 6 = 10. Außerhalb davon gibt es keine Lösung.",
+   "h": "Welche Werte kann der linke Term annehmen, wenn cos x zwischen −1 und 1 liegt?",
+   "g": "parameter"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand gibt für cos x = 1 im Bereich 0° ≤ x < 360° die Lösungen 0° und 180° an. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Es gibt nur die Lösung 0°.",
+    "Falsch: Nur 180° ist Lösung.",
+    "Richtig.",
+    "Falsch: Es gibt keine Lösung."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "cos 180° = −1 ≠ 1. Der Wert 1 ist ein Extremwert; nur ein Punkt am Einheitskreis hat diese Koordinate: x = 0°.",
+   "h": "Setze beide Winkel zur Probe ein.",
+   "g": "fehler"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat cos x = 0,5 im Bereich 0° ≤ x ≤ 180°?"
+   },
+   "a": [
+    "zwei",
+    "genau eine",
+    "drei",
+    "keine"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Im ganzen Kreis wären es 60° und 300°. Im Bereich bis 180° liegt nur 60°.",
+   "h": "Bestimme alle Lösungen und prüfe, welche im Bereich liegen.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat tan x = −3 im Bereich 0° ≤ x < 360°?"
+   },
+   "a": [
+    "genau eine Lösung",
+    "zwei Lösungen",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "tan x nimmt jeden Wert an, mit Periode 180°: zwei Lösungen.",
+   "h": "Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt.",
+   "g": "erkennen"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "sin x = 1 hat im Bereich 0° ≤ x < 360° genau eine Lösung. Gib sie an."
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "90",
+   "w": "sin x = 1 heißt: Die Gondel ist ganz oben. Das ist nur bei x = 90° so.",
+   "h": "Wo ist die Gondel ganz oben?",
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt"
   },
   {
    "l": "anzahl",
@@ -2890,6 +3950,308 @@
    "w": "|−1,8| > 1, aber cos x liegt zwischen −1 und 1: keine Lösung."
   },
   {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Bild siehst du den Graphen von y = sin x und die Gerade y = −1. Wie viele Lösungen hat sin x = −1 im Bereich 0° ≤ x < 360°?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -2.5,
+      2.5
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 1,
+       "b": 1,
+       "c": 0,
+       "d": 0,
+       "name": "sin x"
+      }
+     ],
+     "waagrecht": [
+      -1
+     ]
+    }
+   },
+   "a": [
+    "keine Lösung",
+    "genau eine Lösung",
+    "zwei Lösungen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "sin x = −1 nur an einem Punkt des Einheitskreises: eine Lösung.",
+   "h": "Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt.",
+   "g": "darstellung"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat cos x = −1,5?"
+   },
+   "a": [
+    "keine",
+    "eine",
+    "zwei"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "cos x liegt immer zwischen −1 und 1.",
+   "h": "Welche Werte kann der Kosinus annehmen?",
+   "g": "mehrschritt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Für welchen Wert v hat cos x = v im Bereich 0° ≤ x < 360° genau eine Lösung, nämlich x = 0°?"
+   },
+   "a": [
+    "v = 0,5",
+    "v = 0",
+    "v = −1",
+    "v = 1"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Bei x = 0° steht die Gondel ganz rechts: cos 0° = 1, und nur dort.",
+   "h": "Wo steht die Gondel bei 0°?",
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Gondel hat die Höhe h(x) = 13 − 10 · cos x (in m). Wie oft während einer Umdrehung (0° ≤ x < 360°) ist sie genau 25 m hoch?"
+   },
+   "a": [
+    "einmal",
+    "nie",
+    "viermal",
+    "zweimal"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "13 − 10 cos x = 25 ⇒ cos x = −1,2 < −1: keine Lösung. Höchstens ist die Gondel 13 + 10 = 23 m hoch.",
+   "h": "Stelle nach cos x um.",
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat sin x = −1 im Bereich 0° ≤ x < 360°?"
+   },
+   "a": [
+    "zwei",
+    "genau eine",
+    "keine"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nur bei 270° ist sin x = −1.",
+   "h": "Tiefster Punkt des Einheitskreises."
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst cos x = 1,7, bekommt am Taschenrechner eine Fehlermeldung und rechnet stattdessen cos⁻¹(0,7) ≈ 45,6°. Was stimmt?"
+   },
+   "a": [
+    "Falsch: cos x ≤ 1, die Gleichung hat keine Lösung.",
+    "Falsch: x ≈ 314,4°.",
+    "Richtig, 1,7 − 1 = 0,7.",
+    "Falsch: Es gibt unendlich viele Lösungen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Fehlermeldung ist richtig: Am Einheitskreis sind Sinus und Kosinus Koordinaten, also höchstens 1. 1,7 > 1 ist unmöglich.",
+   "h": "Welche Werte kann sin x bzw. cos x annehmen?",
+   "g": "fehler"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche Zahl c hat die Gleichung 3 · sin x = c im Bereich 0° ≤ x < 360° keine Lösung?"
+   },
+   "a": [
+    "c = −2",
+    "c = 0",
+    "c = 4",
+    "c = 3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "sin x = c/3 braucht −1 ≤ c/3 ≤ 1, also −3 ≤ c ≤ 3. Nur c = 4 liegt außerhalb.",
+   "h": "Stelle nach sin x um. Welche Werte kann sin x annehmen?",
+   "g": "parameter"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Lösungen hat sin x = cos x im Bereich 0° ≤ x < 720°?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "2 * 2",
+   "w": "In einer Umdrehung: 45° und 225° (tan x = 1). In zwei Umdrehungen: 4 Lösungen.",
+   "h": "Teile durch cos x: Welche Gleichung entsteht? Wie oft passt ihre Periode hinein?",
+   "g": "verknuepfen"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Wie viele Lösungen haben die Gleichungen im Bereich 0° ≤ x < 360°? a) sin x = 0,9 b) cos x = −1 c) tan x = 7 d) 2 sin x = 3",
+    "schablone": "a) □; b) □; c) □; d) □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     2,
+     1,
+     2,
+     0
+    ]
+   },
+   "c": [
+    "2",
+    "1",
+    "2",
+    "0"
+   ],
+   "w": "a) |0,9| < 1: zwei. b) v = −1: eine (180°). c) Tangens: immer zwei. d) sin x = 1,5 > 1: keine.",
+   "h": "Erst prüfen: Liegt v zwischen −1 und 1?",
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat (sin x)² = 1 im Bereich 0° ≤ x < 360°?"
+   },
+   "a": [
+    "vier",
+    "keine",
+    "eine",
+    "zwei"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "sin x = 1 (bei 90°) oder sin x = −1 (bei 270°): zwei Lösungen.",
+   "h": "Aus (sin x)² = 1 folgt sin x = 1 oder sin x = −1."
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Lösungen hat (cos x)² = 0,25 im Bereich 0° ≤ x < 360°?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "2 + 2",
+   "w": "(cos x)² = 0,25 heißt cos x = 0,5 oder cos x = −0,5. Jede der beiden Gleichungen hat zwei Lösungen: 60°, 300° und 120°, 240°. Zusammen 4.",
+   "h": "Welche Zahlen ergeben quadriert 0,25?",
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Für wie viele ganze Zahlen a mit −5 ≤ a ≤ 5 hat a · sin x = 2 im Bereich 0° ≤ x < 360° genau zwei Lösungen?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "Für a = 0 steht 0 = 2 da: keine Lösung. Sonst sin x = 2 : a. Genau zwei Lösungen gibt es bei −1 < 2 : a < 1, also bei |a| > 2: a = ±3, ±4, ±5. Das sind 6 Zahlen. (a = ±2 ergibt sin x = ±1: nur eine Lösung.)",
+   "h": "Teile durch a. Was ist mit a = 0 und a = ±2?",
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 8 cos x + 1 = 1,8 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
+    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     84,
+     276
+    ]
+   },
+   "w": "8 cos x = 0,8 ⇒ cos x = 0,1 ⇒ x ≈ 84° und x ≈ 276°.",
+   "h": "Erst nach cos x umstellen, dann mit dem Taschenrechner beide Lösungen bestimmen.",
+   "c": [
+    "round(84.260829522733, 0)",
+    "round(275.739170477267, 0)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
    "l": "umformen",
    "t": "umformen",
    "p": "uebung",
@@ -2911,7 +4273,33 @@
    "c": [
     "30",
     "150"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3 tan x − 6 = −9 im Bereich 0° ≤ x < 360°.",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     135,
+     315
+    ]
+   },
+   "w": "3 tan x = −3 ⇒ tan x = −1 ⇒ 135° und 315°.",
+   "h": "Bringe die Zahl auf die andere Seite und teile durch den Faktor.",
+   "c": [
+    "135",
+    "315"
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "umformen",
@@ -2935,7 +4323,83 @@
    "c": [
     "90",
     "270"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 2 tan x + 5 = 3 im Bereich 0° ≤ x < 360°.",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     135,
+     315
+    ]
+   },
+   "w": "2 tan x = −2 ⇒ tan x = −1 ⇒ 135° und 315°.",
+   "h": "Bringe die Zahl auf die andere Seite und teile durch den Faktor.",
+   "c": [
+    "135",
+    "315"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3 sin x = 3 cos x im Bereich 0° ≤ x < 360°.",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     45,
+     225
+    ]
+   },
+   "w": "Durch cos x teilen (cos x ≠ 0): tan x = 1 ⇒ x₁ = 45°, x₂ = 225°.",
+   "h": "Teile beide Seiten durch cos x.",
+   "c": [
+    "45",
+    "45 + 180"
+   ],
+   "g": "verknuepfen"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 6 cos x + 7 = 4 im Bereich 0° ≤ x < 360°.",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     120,
+     240
+    ]
+   },
+   "w": "6 cos x = −3 ⇒ cos x = −0,5 ⇒ 120° und 240°.",
+   "h": "Bringe die Zahl auf die andere Seite und teile durch den Faktor.",
+   "c": [
+    "120",
+    "240"
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "umformen",
@@ -2959,7 +4423,141 @@
    "c": [
     "210",
     "330"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 8 cos x + 6 = 0,4 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
+    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     134,
+     226
+    ]
+   },
+   "w": "8 cos x = −5,6 ⇒ cos x = −0,7 ⇒ x ≈ 134° und x ≈ 226°.",
+   "h": "Erst nach cos x umstellen, dann mit dem Taschenrechner beide Lösungen bestimmen.",
+   "c": [
+    "round(134.427004000806, 0)",
+    "round(225.572995999194, 0)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 2 (cos x)² = 0,5 im Bereich 0° ≤ x < 360°.",
+    "schablone": "x₁ = □°; x₂ = □°; x₃ = □°; x₄ = □°",
+    "hinweis": "aufsteigend"
+   },
+   "o": {
+    "werte": [
+     60,
+     120,
+     240,
+     300
+    ]
+   },
+   "w": "(cos x)² = 0,25 ⇒ cos x = ±0,5 ⇒ 60°, 120°, 240°, 300°.",
+   "h": "Ziehe die Wurzel: Denke an beide Vorzeichen.",
+   "c": [
+    "60",
+    "120",
+    "240",
+    "300"
+   ],
+   "g": "verknuepfen"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 2 cos x − 6 = −5,8 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
+    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     84,
+     276
+    ]
+   },
+   "w": "2 cos x = 0,2 ⇒ cos x = 0,1 ⇒ x ≈ 84° und x ≈ 276°.",
+   "h": "Erst nach cos x umstellen, dann mit dem Taschenrechner beide Lösungen bestimmen.",
+   "c": [
+    "round(84.260829522733, 0)",
+    "round(275.739170477267, 0)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse sin x · cos x = 0 im Bereich 0° ≤ x < 360°.",
+    "schablone": "x₁ = □°; x₂ = □°; x₃ = □°; x₄ = □°",
+    "hinweis": "Grad-Zahlen, kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     90,
+     180,
+     270
+    ]
+   },
+   "w": "Ein Produkt ist 0, wenn ein Faktor 0 ist: sin x = 0 (0°, 180°) oder cos x = 0 (90°, 270°).",
+   "h": "Satz vom Nullprodukt – wie bei quadratischen Gleichungen.",
+   "c": [
+    "0",
+    "90",
+    "180",
+    "270"
+   ],
+   "g": "transfer"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3 sin x − 3 = sin x − 2 im Bereich 0° ≤ x < 360°.",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     30,
+     150
+    ]
+   },
+   "w": "sin x auf eine Seite: 2 sin x = 1 ⇒ sin x = 0,5 ⇒ 30° und 150°.",
+   "h": "Bringe alle sin-x-Glieder auf eine Seite wie bei einer linearen Gleichung.",
+   "c": [
+    "30",
+    "150"
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "umformen",
@@ -2983,7 +4581,55 @@
    "c": [
     "120",
     "240"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 5 sin x − 2 = 3 sin x − 3 im Bereich 0° ≤ x < 360°.",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     210,
+     330
+    ]
+   },
+   "w": "sin x auf eine Seite: 2 sin x = −1 ⇒ sin x = −0,5 ⇒ 210° und 330°.",
+   "h": "Bringe alle sin-x-Glieder auf eine Seite wie bei einer linearen Gleichung.",
+   "c": [
+    "210",
+    "330"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Was ist bei 4 sin x − 1 = 1 der erste Umformungsschritt?"
+   },
+   "a": [
+    "sin⁻¹ auf die 4 anwenden",
+    "auf beiden Seiten 1 addieren",
+    "mit 4 multiplizieren",
+    "durch sin teilen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Erst die Zahl ohne sin wegschaffen: 4 sin x = 2. Dann durch 4 teilen: sin x = 0,5.",
+   "h": "Wie bei einer linearen Gleichung.",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
   },
   {
    "l": "umformen",
@@ -3031,302 +4677,6 @@
    "c": [
     "60",
     "300"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 8 cos x + 1 = 1,8 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
-    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     84,
-     276
-    ]
-   },
-   "w": "8 cos x = 0,8 ⇒ cos x = 0,1 ⇒ x ≈ 84° und x ≈ 276°.",
-   "h": "Erst nach cos x umstellen, dann mit dem Taschenrechner beide Lösungen bestimmen.",
-   "c": [
-    "round(84.260829522733, 0)",
-    "round(275.739170477267, 0)"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 3 tan x − 6 = −9 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     135,
-     315
-    ]
-   },
-   "w": "3 tan x = −3 ⇒ tan x = −1 ⇒ 135° und 315°.",
-   "h": "Bringe die Zahl auf die andere Seite und teile durch den Faktor.",
-   "c": [
-    "135",
-    "315"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 2 tan x + 5 = 3 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     135,
-     315
-    ]
-   },
-   "w": "2 tan x = −2 ⇒ tan x = −1 ⇒ 135° und 315°.",
-   "h": "Bringe die Zahl auf die andere Seite und teile durch den Faktor.",
-   "c": [
-    "135",
-    "315"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 6 cos x + 7 = 4 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     120,
-     240
-    ]
-   },
-   "w": "6 cos x = −3 ⇒ cos x = −0,5 ⇒ 120° und 240°.",
-   "h": "Bringe die Zahl auf die andere Seite und teile durch den Faktor.",
-   "c": [
-    "120",
-    "240"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 8 cos x + 6 = 0,4 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
-    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     134,
-     226
-    ]
-   },
-   "w": "8 cos x = −5,6 ⇒ cos x = −0,7 ⇒ x ≈ 134° und x ≈ 226°.",
-   "h": "Erst nach cos x umstellen, dann mit dem Taschenrechner beide Lösungen bestimmen.",
-   "c": [
-    "round(134.427004000806, 0)",
-    "round(225.572995999194, 0)"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 2 cos x − 6 = −5,8 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
-    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     84,
-     276
-    ]
-   },
-   "w": "2 cos x = 0,2 ⇒ cos x = 0,1 ⇒ x ≈ 84° und x ≈ 276°.",
-   "h": "Erst nach cos x umstellen, dann mit dem Taschenrechner beide Lösungen bestimmen.",
-   "c": [
-    "round(84.260829522733, 0)",
-    "round(275.739170477267, 0)"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 3 sin x = 3 cos x im Bereich 0° ≤ x < 360°.",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     45,
-     225
-    ]
-   },
-   "w": "Durch cos x teilen (cos x ≠ 0): tan x = 1 ⇒ x₁ = 45°, x₂ = 225°.",
-   "h": "Teile beide Seiten durch cos x.",
-   "c": [
-    "45",
-    "45 + 180"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 3 sin x − 3 = sin x − 2 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     30,
-     150
-    ]
-   },
-   "w": "sin x auf eine Seite: 2 sin x = 1 ⇒ sin x = 0,5 ⇒ 30° und 150°.",
-   "h": "Bringe alle sin-x-Glieder auf eine Seite wie bei einer linearen Gleichung.",
-   "c": [
-    "30",
-    "150"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 2 (cos x)² = 0,5 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x₁ = □°; x₂ = □°; x₃ = □°; x₄ = □°",
-    "hinweis": "aufsteigend"
-   },
-   "o": {
-    "werte": [
-     60,
-     120,
-     240,
-     300
-    ]
-   },
-   "w": "(cos x)² = 0,25 ⇒ cos x = ±0,5 ⇒ 60°, 120°, 240°, 300°.",
-   "h": "Ziehe die Wurzel: Denke an beide Vorzeichen.",
-   "c": [
-    "60",
-    "120",
-    "240",
-    "300"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 4 (sin x)² = 1 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x₁ = □°; x₂ = □°; x₃ = □°; x₄ = □°",
-    "hinweis": "aufsteigend"
-   },
-   "o": {
-    "werte": [
-     30,
-     150,
-     210,
-     330
-    ]
-   },
-   "w": "(sin x)² = 0,25 ⇒ sin x = 0,5 oder sin x = −0,5 ⇒ 30°, 150°, 210°, 330°.",
-   "h": "Ziehe die Wurzel: Denke an beide Vorzeichen.",
-   "c": [
-    "30",
-    "150",
-    "210",
-    "330"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse sin x = cos x im Bereich 0° ≤ x < 360°.",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     45,
-     225
-    ]
-   },
-   "w": "Durch cos x teilen (cos x ≠ 0): tan x = 1 ⇒ x₁ = 45°, x₂ = 225°.",
-   "h": "Teile beide Seiten durch cos x.",
-   "c": [
-    "45",
-    "45 + 180"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 5 sin x − 2 = 3 sin x − 3 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     210,
-     330
-    ]
-   },
-   "w": "sin x auf eine Seite: 2 sin x = −1 ⇒ sin x = −0,5 ⇒ 210° und 330°.",
-   "h": "Bringe alle sin-x-Glieder auf eine Seite wie bei einer linearen Gleichung.",
-   "c": [
-    "210",
-    "330"
    ]
   },
   {
@@ -3554,6 +4904,384 @@
    ]
   },
   {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 6 · sin x + 1 = 4 im Bereich 0° ≤ x < 360°.",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "Grad-Zahlen, kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     30,
+     150
+    ]
+   },
+   "w": "6 sin x = 3 ⇒ sin x = 0,5 ⇒ x = 30° oder x = 150°.",
+   "h": "Erst 1 abziehen, dann durch 6 teilen.",
+   "c": [
+    "30",
+    "180 - 30"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl c hat 2 sin x + c = 3 die Lösung x = 90°?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "3 - 2",
+   "w": "sin 90° = 1, also 2 · 1 + c = 3 und c = 1.",
+   "h": "Setze x = 90° ein.",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3 · cos x + 2 = cos x + 1 im Bereich 0° ≤ x < 360°.",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "Grad-Zahlen, kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     120,
+     240
+    ]
+   },
+   "w": "2 cos x = −1 ⇒ cos x = −0,5 ⇒ x = 120° oder x = 240°.",
+   "h": "Bringe alle cos x auf eine Seite.",
+   "c": [
+    "180 - 60",
+    "180 + 60"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Ein Kolben steht beim Drehwinkel x bei s = 5 + 4 · cos x (in cm). Bei welchen Winkeln im Bereich 0° ≤ x < 360° steht er bei 3 cm?",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinerer Winkel zuerst"
+   },
+   "o": {
+    "werte": [
+     120,
+     240
+    ]
+   },
+   "c": [
+    "180 - 60",
+    "360 - 120"
+   ],
+   "w": "5 + 4 cos x = 3 ⇒ 4 cos x = −2 ⇒ cos x = −0,5 ⇒ x = 120° oder x = 240°.",
+   "h": "Stelle nach cos x um.",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 2 · cos x = 1 im Bereich 0° ≤ x < 360°.",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "Grad-Zahlen, kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     60,
+     300
+    ]
+   },
+   "w": "cos x = 0,5 ⇒ x = 60° oder x = 300°.",
+   "h": "Durch 2 teilen.",
+   "c": [
+    "60",
+    "360 - 60"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 4 (sin x)² = 1 im Bereich 0° ≤ x < 360°.",
+    "schablone": "x₁ = □°; x₂ = □°; x₃ = □°; x₄ = □°",
+    "hinweis": "aufsteigend"
+   },
+   "o": {
+    "werte": [
+     30,
+     150,
+     210,
+     330
+    ]
+   },
+   "w": "(sin x)² = 0,25 ⇒ sin x = 0,5 oder sin x = −0,5 ⇒ 30°, 150°, 210°, 330°.",
+   "h": "Ziehe die Wurzel: Denke an beide Vorzeichen.",
+   "c": [
+    "30",
+    "150",
+    "210",
+    "330"
+   ],
+   "g": "verknuepfen"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse sin x + 1 = 0 im Bereich 0° ≤ x < 360°.",
+    "schablone": "x = □°",
+    "hinweis": "Grad-Zahl"
+   },
+   "o": {
+    "werte": [
+     270
+    ]
+   },
+   "w": "sin x = −1 nur bei 270°.",
+   "h": "Stelle sin x allein.",
+   "c": [
+    "270"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 2 · (sin x)² = sin x im Bereich 0° ≤ x < 360°.",
+    "schablone": "x₁ = □°; x₂ = □°; x₃ = □°; x₄ = □°",
+    "hinweis": "Grad-Zahlen, kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     30,
+     150,
+     180
+    ]
+   },
+   "w": "sin x · (2 sin x − 1) = 0: sin x = 0 (0°, 180°) oder sin x = 0,5 (30°, 150°). Falle: Durch sin x teilen verliert 0° und 180°.",
+   "h": "Nicht durch sin x teilen! Ausklammern.",
+   "c": [
+    "0",
+    "30",
+    "150",
+    "180"
+   ],
+   "g": "transfer"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst 3 sin x + 2 = 5 so: sin x = 5 − 2 − 3 = 0, also x = 0° oder 180°. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: sin x = 7 : 3, keine Lösung.",
+    "Falsch: 3 sin x = 3, also sin x = 1 und x = 90°.",
+    "Falsch: x = 30° oder 150°."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die 3 ist ein Faktor und wird durch Teilen entfernt, nicht durch Abziehen: 3 sin x = 3 ⇒ sin x = 1.",
+   "h": "Ist die 3 ein Summand oder ein Faktor?",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche Zahlen c hat 2 cos x + 3 = c im Bereich 0° ≤ x < 360° Lösungen?"
+   },
+   "a": [
+    "für alle c",
+    "für 0 ≤ c ≤ 3",
+    "für 1 ≤ c ≤ 5",
+    "für −1 ≤ c ≤ 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "cos x = (c − 3) : 2 muss zwischen −1 und 1 liegen: −2 ≤ c − 3 ≤ 2, also 1 ≤ c ≤ 5.",
+   "h": "Stelle nach cos x um.",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Löse im Bereich 0° ≤ x < 360°: a) 2 sin x + 3 = 4, b) 5 tan x = 5, c) 4 cos x = 4.",
+    "schablone": "a) □° und □°; b) □° und □°; c) □°",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     30,
+     150,
+     45,
+     225,
+     0
+    ]
+   },
+   "c": [
+    "30",
+    "180 - 30",
+    "45",
+    "45 + 180",
+    "0"
+   ],
+   "w": "a) sin x = 0,5: 30°, 150°. b) tan x = 1: 45°, 225°. c) cos x = 1: 0°.",
+   "h": "Immer zuerst sin x, tan x oder cos x allein stellen.",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse sin x = cos x im Bereich 0° ≤ x < 360°.",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     45,
+     225
+    ]
+   },
+   "w": "Durch cos x teilen (cos x ≠ 0): tan x = 1 ⇒ x₁ = 45°, x₂ = 225°.",
+   "h": "Teile beide Seiten durch cos x.",
+   "c": [
+    "45",
+    "45 + 180"
+   ]
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Löse 2 (sin x)² + sin x − 1 = 0 im Bereich 0° ≤ x < 360°.",
+    "schablone": "x₁ = □°; x₂ = □°; x₃ = □°",
+    "hinweis": "der Größe nach"
+   },
+   "o": {
+    "werte": [
+     30,
+     150,
+     270
+    ]
+   },
+   "c": [
+    "30",
+    "180 - 30",
+    "270"
+   ],
+   "w": "Setze u = sin x: 2u² + u − 1 = 0, also u = (−1 ± 3) : 4, u = 0,5 oder u = −1. sin x = 0,5 gibt 30° und 150°, sin x = −1 gibt 270°.",
+   "h": "Ersetze sin x durch u und löse die quadratische Gleichung.",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Löse (sin x)² = 3 · (cos x)² im Bereich 0° ≤ x < 360°.",
+    "schablone": "x₁ = □°; x₂ = □°; x₃ = □°; x₄ = □°",
+    "hinweis": "der Größe nach"
+   },
+   "o": {
+    "werte": [
+     60,
+     120,
+     240,
+     300
+    ]
+   },
+   "c": [
+    "60",
+    "180 - 60",
+    "180 + 60",
+    "360 - 60"
+   ],
+   "w": "Teile durch (cos x)² (cos x = 0 ist keine Lösung, denn dann wäre auch sin x = 0): (tan x)² = 3, tan x = √3 oder tan x = −√3. tan x = √3: 60°, 240°. tan x = −√3: 120°, 300°.",
+   "h": "Teile durch (cos x)².",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Wassertiefe in einem Hafen ist t(x) = 8 + 4 · sin x (in m; x in Grad, 360° entsprechen einem Tag). Für welche x im Bereich 0° ≤ x < 360° ist das Wasser 6 m tief?",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinerer Wert zuerst"
+   },
+   "o": {
+    "werte": [
+     210,
+     330
+    ]
+   },
+   "w": "8 + 4 sin x = 6 ⇒ sin x = −0,5 ⇒ x = 210° oder 330°.",
+   "h": "Stelle nach sin x um.",
+   "c": [
+    "210",
+    "330"
+   ],
+   "g": "einkleidung"
+  },
+  {
    "l": "anwendung",
    "t": "anwendung",
    "p": "uebung",
@@ -3575,7 +5303,70 @@
    "c": [
     "60",
     "300"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Wassertiefe in einem Hafen ist t(x) = 8 + 4 · sin x (in m; x in Grad, 360° entsprechen einem Tag). Für welche x im Bereich 0° ≤ x < 360° ist das Wasser 10 m tief?",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinerer Wert zuerst"
+   },
+   "o": {
+    "werte": [
+     30,
+     150
+    ]
+   },
+   "w": "8 + 4 sin x = 10 ⇒ sin x = 0,5 ⇒ x = 30° oder 150°.",
+   "h": "Stelle nach sin x um.",
+   "c": [
+    "30",
+    "150"
+   ],
+   "g": "einkleidung"
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Dreieck ist α = 34° und sin β = 0,7. β ist der größte Winkel des Dreiecks. Berechne β (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 135.6,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(180 - 44.427004000806, 1)",
+   "w": "β₁ = sin⁻¹(0,7) ≈ 44,4° wäre kleiner als der dritte Winkel 101,6°. Also β = 180° − β₁ ≈ 135,6° (dann γ ≈ 10,4°).",
+   "h": "Zu einem Sinuswert gibt es einen spitzen und einen stumpfen Winkel. Welcher kann der größte Winkel sein?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Gondel im Riesenrad ist h(x) = 20 − 18 · cos x Meter hoch (x Drehwinkel in Grad). Bei welchem Drehwinkel zwischen 0° und 180° ist sie 29 m hoch?"
+   },
+   "o": {
+    "wert": 120,
+    "einheit": "°"
+   },
+   "c": "180 - 60",
+   "w": "20 − 18 cos x = 29 ⇒ cos x = −0,5 ⇒ x = 120° (im Bereich 0° bis 180° die einzige Lösung).",
+   "h": "Gleichung aufstellen und nach cos x umstellen.",
+   "g": "transfer"
   },
   {
    "l": "anwendung",
@@ -3599,7 +5390,186 @@
    "c": [
     "120",
     "240"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einem Dreieck ist α = 142° und sin β = 0,7. Wie viele Werte kommen für β in Frage?"
+   },
+   "a": [
+    "zwei Winkel",
+    "genau ein Winkel",
+    "kein Winkel"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "sin β = 0,7 ⇒ β ≈ 44,4° oder β ≈ 135,6°. 142° + 44,4° ≥ 180°. 142° + 135,6° ≥ 180°. Also kein Winkel.",
+   "h": "Bestimme beide Winkel zum Sinuswert und prüfe die Winkelsumme.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Tageslänge an einem Ort ist d(x) = 12 + 4 · sin x Stunden (x in Grad, 360° entsprechen einem Jahr). Für welche x ist der Tag genau 14 Stunden lang?",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "Grad-Zahlen, kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     30,
+     150
+    ]
+   },
+   "w": "12 + 4 sin x = 14 ⇒ sin x = 0,5 ⇒ x = 30° oder x = 150°.",
+   "h": "Gleichung aufstellen, sin x allein stellen.",
+   "c": [
+    "30",
+    "180 - 30"
+   ],
+   "g": "einkleidung"
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Dreieck ist α = 22° und sin β = 0,5. β ist der größte Winkel des Dreiecks. Berechne β (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 150,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(180 - 30.000000000000, 1)",
+   "w": "β₁ = sin⁻¹(0,5) ≈ 30,0° wäre kleiner als der dritte Winkel 128,0°. Also β = 180° − β₁ ≈ 150,0° (dann γ ≈ 8,0°).",
+   "h": "Zu einem Sinuswert gibt es einen spitzen und einen stumpfen Winkel. Welcher kann der größte Winkel sein?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten a = 5 cm und b = 8 cm und den Flächeninhalt A = 1/2 · a · b · sin γ = 10 cm². Der Winkel γ zwischen a und b ist stumpf. Wie groß ist γ?"
+   },
+   "o": {
+    "wert": 150,
+    "einheit": "°"
+   },
+   "c": "180 - 30",
+   "w": "1/2 · 5 · 8 · sin γ = 10 ⇒ sin γ = 0,5 ⇒ γ = 30° oder 150°. Stumpf: γ = 150°.",
+   "h": "Setze die Zahlen in die Formel ein und löse nach sin γ auf.",
+   "g": "transfer"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck gilt sin β = 0,6. Welche Winkel kommen für β zunächst in Frage?"
+   },
+   "a": [
+    "etwa 36,9° und 323,1°",
+    "etwa 36,9° und 143,1°",
+    "nur etwa 36,9°",
+    "etwa 53,1° und 126,9°"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "sin⁻¹(0,6) ≈ 36,9°, dazu 180° − 36,9° = 143,1°. Ein Dreieckswinkel liegt zwischen 0° und 180°, darum kommt 323,1° nicht in Frage.",
+   "h": "Zweite Lösung beim Sinus: 180° − x₁.",
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Die Höhe einer Gondel eines Riesenrads ist h(x) = 14 − 12 · cos x (in m, x = Drehwinkel in Grad). Für welche Winkel im Bereich 0° ≤ x < 360° ist die Gondel 20 m hoch?",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinerer Winkel zuerst"
+   },
+   "o": {
+    "werte": [
+     120,
+     240
+    ]
+   },
+   "w": "14 − 12 cos x = 20 ⇒ cos x = −0,5 ⇒ x = 120° oder 240°.",
+   "h": "Stelle nach cos x um.",
+   "c": [
+    "120",
+    "240"
    ]
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Die Höhe einer Gondel eines Riesenrads ist h(x) = 17 − 12 · cos x (in m, x = Drehwinkel in Grad). Für welche Winkel im Bereich 0° ≤ x < 360° ist die Gondel 23 m hoch?",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinerer Winkel zuerst"
+   },
+   "o": {
+    "werte": [
+     120,
+     240
+    ]
+   },
+   "w": "17 − 12 cos x = 23 ⇒ cos x = −0,5 ⇒ x = 120° oder 240°.",
+   "h": "Stelle nach cos x um.",
+   "c": [
+    "120",
+    "240"
+   ]
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Die Gondel eines Riesenrads ist h(x) = 15 − 10 · cos x Meter hoch (x Drehwinkel). Bei welchen Winkeln 0° ≤ x < 360° ist sie genau 15 m hoch?",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinerer Winkel zuerst"
+   },
+   "o": {
+    "werte": [
+     90,
+     270
+    ]
+   },
+   "c": [
+    "90",
+    "360 - 90"
+   ],
+   "w": "15 − 10 cos x = 15 ⇒ cos x = 0 ⇒ x = 90° oder x = 270°.",
+   "h": "Stelle nach cos x um.",
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt"
   },
   {
    "l": "anwendung",
@@ -3653,74 +5623,6 @@
    "l": "anwendung",
    "t": "anwendung",
    "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Die Höhe einer Gondel eines Riesenrads ist h(x) = 14 − 12 · cos x (in m, x = Drehwinkel in Grad). Für welche Winkel im Bereich 0° ≤ x < 360° ist die Gondel 20 m hoch?",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "kleinerer Winkel zuerst"
-   },
-   "o": {
-    "werte": [
-     120,
-     240
-    ]
-   },
-   "w": "14 − 12 cos x = 20 ⇒ cos x = −0,5 ⇒ x = 120° oder 240°.",
-   "h": "Stelle nach cos x um.",
-   "c": [
-    "120",
-    "240"
-   ]
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Die Höhe einer Gondel eines Riesenrads ist h(x) = 17 − 12 · cos x (in m, x = Drehwinkel in Grad). Für welche Winkel im Bereich 0° ≤ x < 360° ist die Gondel 23 m hoch?",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "kleinerer Winkel zuerst"
-   },
-   "o": {
-    "werte": [
-     120,
-     240
-    ]
-   },
-   "w": "17 − 12 cos x = 23 ⇒ cos x = −0,5 ⇒ x = 120° oder 240°.",
-   "h": "Stelle nach cos x um.",
-   "c": [
-    "120",
-    "240"
-   ]
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "In einem Dreieck ist α = 142° und sin β = 0,7. Wie viele Werte kommen für β in Frage?"
-   },
-   "a": [
-    "zwei Winkel",
-    "genau ein Winkel",
-    "kein Winkel"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "sin β = 0,7 ⇒ β ≈ 44,4° oder β ≈ 135,6°. 142° + 44,4° ≥ 180°. 142° + 135,6° ≥ 180°. Also kein Winkel.",
-   "h": "Bestimme beide Winkel zum Sinuswert und prüfe die Winkelsumme."
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -3735,219 +5637,26 @@
     "index": 1
    },
    "w": "sin β = 0,66 ⇒ β ≈ 41,3° oder β ≈ 138,7°. 141° + 41,3° ≥ 180°. 141° + 138,7° ≥ 180°. Also kein Winkel.",
-   "h": "Bestimme beide Winkel zum Sinuswert und prüfe die Winkelsumme."
+   "h": "Bestimme beide Winkel zum Sinuswert und prüfe die Winkelsumme.",
+   "g": "mehrschritt"
   },
   {
    "l": "anwendung",
    "t": "anwendung",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "In einem Dreieck ist α = 62° und sin β = 0,93. Wie viele Werte kommen für β in Frage?"
-   },
-   "a": [
-    "genau ein Winkel",
-    "zwei Winkel",
-    "kein Winkel"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "sin β = 0,93 ⇒ β ≈ 68,4° oder β ≈ 111,6°. 62° + 68,4° < 180°. 62° + 111,6° < 180°. Also zwei Winkel.",
-   "h": "Bestimme beide Winkel zum Sinuswert und prüfe die Winkelsumme."
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "In einem Dreieck ist α = 51° und sin β = 0,52. Wie viele Werte kommen für β in Frage?"
-   },
-   "a": [
-    "zwei Winkel",
-    "genau ein Winkel",
-    "kein Winkel"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "sin β = 0,52 ⇒ β ≈ 31,3° oder β ≈ 148,7°. 51° + 31,3° < 180°. 51° + 148,7° ≥ 180°. Also genau ein Winkel.",
-   "h": "Bestimme beide Winkel zum Sinuswert und prüfe die Winkelsumme."
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "In einem Dreieck ist α = 142° und sin β = 0,55. Wie viele Werte kommen für β in Frage?"
-   },
-   "a": [
-    "kein Winkel",
-    "zwei Winkel",
-    "genau ein Winkel"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "sin β = 0,55 ⇒ β ≈ 33,4° oder β ≈ 146,6°. 142° + 33,4° < 180°. 142° + 146,6° ≥ 180°. Also genau ein Winkel.",
-   "h": "Bestimme beide Winkel zum Sinuswert und prüfe die Winkelsumme."
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "In einem Dreieck ist α = 57° und sin β = 0,95. Wie viele Werte kommen für β in Frage?"
-   },
-   "a": [
-    "genau ein Winkel",
-    "zwei Winkel",
-    "kein Winkel"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "sin β = 0,95 ⇒ β ≈ 71,8° oder β ≈ 108,2°. 57° + 71,8° < 180°. 57° + 108,2° < 180°. Also zwei Winkel.",
-   "h": "Bestimme beide Winkel zum Sinuswert und prüfe die Winkelsumme."
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Die Wassertiefe in einem Hafen ist t(x) = 8 + 4 · sin x (in m; x in Grad, 360° entsprechen einem Tag). Für welche x im Bereich 0° ≤ x < 360° ist das Wasser 6 m tief?",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "kleinerer Wert zuerst"
-   },
-   "o": {
-    "werte": [
-     210,
-     330
-    ]
-   },
-   "w": "8 + 4 sin x = 6 ⇒ sin x = −0,5 ⇒ x = 210° oder 330°.",
-   "h": "Stelle nach sin x um.",
-   "c": [
-    "210",
-    "330"
-   ]
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Die Wassertiefe in einem Hafen ist t(x) = 8 + 4 · sin x (in m; x in Grad, 360° entsprechen einem Tag). Für welche x im Bereich 0° ≤ x < 360° ist das Wasser 10 m tief?",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "kleinerer Wert zuerst"
-   },
-   "o": {
-    "werte": [
-     30,
-     150
-    ]
-   },
-   "w": "8 + 4 sin x = 10 ⇒ sin x = 0,5 ⇒ x = 30° oder 150°.",
-   "h": "Stelle nach sin x um.",
-   "c": [
-    "30",
-    "150"
-   ]
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "In einem Dreieck ist α = 34° und sin β = 0,7. β ist der größte Winkel des Dreiecks. Berechne β (auf eine Nachkommastelle)."
+    "text": "Die Auslenkung eines Pendels ist s(x) = 10 · sin x (in cm). Für welchen Winkel x zwischen 0° und 90° ist s = 5 cm?"
    },
    "o": {
-    "wert": 135.6,
-    "einheit": "°",
-    "toleranz": 0.1
+    "wert": 30,
+    "einheit": "°"
    },
-   "c": "round(180 - 44.427004000806, 1)",
-   "w": "β₁ = sin⁻¹(0,7) ≈ 44,4° wäre kleiner als der dritte Winkel 101,6°. Also β = 180° − β₁ ≈ 135,6° (dann γ ≈ 10,4°).",
-   "h": "Zu einem Sinuswert gibt es einen spitzen und einen stumpfen Winkel. Welcher kann der größte Winkel sein?"
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Die Wassertiefe in einem Hafen ist t(x) = 4 + 2 · sin x (in m; x in Grad, 360° entsprechen einem Tag). Für welche x im Bereich 0° ≤ x < 360° ist das Wasser 3 m tief?",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "kleinerer Wert zuerst"
-   },
-   "o": {
-    "werte": [
-     210,
-     330
-    ]
-   },
-   "w": "4 + 2 sin x = 3 ⇒ sin x = −0,5 ⇒ x = 210° oder 330°.",
-   "h": "Stelle nach sin x um.",
-   "c": [
-    "210",
-    "330"
-   ]
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "In einem Dreieck ist α = 22° und sin β = 0,5. β ist der größte Winkel des Dreiecks. Berechne β (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 150,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(180 - 30.000000000000, 1)",
-   "w": "β₁ = sin⁻¹(0,5) ≈ 30,0° wäre kleiner als der dritte Winkel 128,0°. Also β = 180° − β₁ ≈ 150,0° (dann γ ≈ 8,0°).",
-   "h": "Zu einem Sinuswert gibt es einen spitzen und einen stumpfen Winkel. Welcher kann der größte Winkel sein?"
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Die Wassertiefe in einem Hafen ist t(x) = 4 + 2 · sin x (in m; x in Grad, 360° entsprechen einem Tag). Für welche x im Bereich 0° ≤ x < 360° ist das Wasser 5 m tief?",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "kleinerer Wert zuerst"
-   },
-   "o": {
-    "werte": [
-     30,
-     150
-    ]
-   },
-   "w": "4 + 2 sin x = 5 ⇒ sin x = 0,5 ⇒ x = 30° oder 150°.",
-   "h": "Stelle nach sin x um.",
-   "c": [
-    "30",
-    "150"
-   ]
+   "c": "180 / 6",
+   "w": "10 sin x = 5 ⇒ sin x = 0,5 ⇒ x = 30°.",
+   "h": "Nach sin x umstellen.",
+   "g": "einkleidung"
   },
   {
    "l": "anwendung",
@@ -4140,15 +5849,113 @@
    "w": "sin β = 0,83 ⇒ β ≈ 56,1° oder β ≈ 123,9°. 35° + 56,1° < 180°. 35° + 123,9° < 180°. Also zwei Winkel."
   },
   {
-   "l": "sinus",
-   "t": "sinus",
+   "l": "anwendung",
+   "t": "anwendung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einem Dreieck ist α = 142° und sin β = 0,55. Wie viele Werte kommen für β in Frage?"
+   },
+   "a": [
+    "kein Winkel",
+    "zwei Winkel",
+    "genau ein Winkel"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "sin β = 0,55 ⇒ β ≈ 33,4° oder β ≈ 146,6°. 142° + 33,4° < 180°. 142° + 146,6° ≥ 180°. Also genau ein Winkel.",
+   "h": "Bestimme beide Winkel zum Sinuswert und prüfe die Winkelsumme."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einem Dreieck ist α = 57° und sin β = 0,95. Wie viele Werte kommen für β in Frage?"
+   },
+   "a": [
+    "genau ein Winkel",
+    "zwei Winkel",
+    "kein Winkel"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "sin β = 0,95 ⇒ β ≈ 71,8° oder β ≈ 108,2°. 57° + 71,8° < 180°. 57° + 108,2° < 180°. Also zwei Winkel.",
+   "h": "Bestimme beide Winkel zum Sinuswert und prüfe die Winkelsumme."
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Die Wassertiefe ist t(x) = 8 + a · sin x (in m). Bei x = 90° ist das Wasser 11 m tief. Wie groß ist a?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "m"
+   },
+   "c": "11 - 8",
+   "w": "sin 90° = 1, also 8 + a = 11 und a = 3 m.",
+   "h": "Setze x = 90° ein.",
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr"
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einem Dreieck ist α = 62° und sin β = 0,93. Wie viele Werte kommen für β in Frage?"
+   },
+   "a": [
+    "genau ein Winkel",
+    "zwei Winkel",
+    "kein Winkel"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "sin β = 0,93 ⇒ β ≈ 68,4° oder β ≈ 111,6°. 62° + 68,4° < 180°. 62° + 111,6° < 180°. Also zwei Winkel.",
+   "h": "Bestimme beide Winkel zum Sinuswert und prüfe die Winkelsumme."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einem Dreieck ist α = 51° und sin β = 0,52. Wie viele Werte kommen für β in Frage?"
+   },
+   "a": [
+    "zwei Winkel",
+    "genau ein Winkel",
+    "kein Winkel"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "sin β = 0,52 ⇒ β ≈ 31,3° oder β ≈ 148,7°. 51° + 31,3° < 180°. 51° + 148,7° ≥ 180°. Also genau ein Winkel.",
+   "h": "Bestimme beide Winkel zum Sinuswert und prüfe die Winkelsumme."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Löse 2 · sin x − 1 = 0 für 0° ≤ x ≤ 180° ohne Taschenrechner.",
+    "text": "Die Wassertiefe in einem Hafen ist t(x) = 4 + 2 · sin x (in m; x in Grad, 360° entsprechen einem Tag). Für welche x im Bereich 0° ≤ x < 360° ist das Wasser 5 m tief?",
     "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "Grad-Zahlen, kleinere zuerst"
+    "hinweis": "kleinerer Wert zuerst"
    },
    "o": {
     "werte": [
@@ -4156,691 +5963,12 @@
      150
     ]
    },
-   "w": "2 sin x = 1 ⇒ sin x = 0,5. Im Bereich 0° bis 180°: x = 30° und x = 180° − 30° = 150°.",
-   "h": "Erst sin x allein stellen. sin 30° = 0,5 kennst du.",
+   "w": "4 + 2 sin x = 5 ⇒ sin x = 0,5 ⇒ x = 30° oder 150°.",
+   "h": "Stelle nach sin x um.",
    "c": [
     "30",
-    "180 - 30"
+    "150"
    ]
-  },
-  {
-   "l": "sinus",
-   "t": "sinus",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten 6 cm und 8 cm, die den Winkel φ einschließen. Sein Flächeninhalt ist A(φ) = 24 · sin φ (in cm²). Für welchen spitzen Winkel φ ist A = 18 cm²? Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 48.6,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(48.590377890729, 1)",
-   "w": "24 · sin φ = 18 ⇒ sin φ = 0,75 ⇒ φ ≈ 48,6° (spitz; der stumpfe Winkel 131,4° hätte dieselbe Fläche).",
-   "h": "Setze A = 18 und stelle nach sin φ um."
-  },
-  {
-   "l": "sinus",
-   "t": "sinus",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele Lösungen hat sin x = 0,3 im Bereich 0° ≤ x < 720°?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "2 * 2",
-   "w": "In jeder vollen Umdrehung (360°) gibt es zwei Lösungen. 720° sind zwei Umdrehungen: 2 · 2 = 4 Lösungen.",
-   "h": "Wie viele Lösungen gibt es in einer Umdrehung? Wie viele Umdrehungen sind 720°?"
-  },
-  {
-   "l": "sinus",
-   "t": "sinus",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse sin x = −0,5 im Bereich 0° ≤ x < 360° ohne Taschenrechner.",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "Grad-Zahlen, kleinere zuerst"
-   },
-   "o": {
-    "werte": [
-     210,
-     330
-    ]
-   },
-   "w": "sin x < 0: unterhalb der Mitte. Bezugswinkel 30°: x = 180° + 30° = 210° und x = 360° − 30° = 330°.",
-   "h": "Bezugswinkel 30°, dann in die beiden unteren Viertel.",
-   "c": [
-    "180 + 30",
-    "360 - 30"
-   ]
-  },
-  {
-   "l": "sinus",
-   "t": "sinus",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse sin x = 0,9 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "Grad-Zahlen, kleinere zuerst"
-   },
-   "o": {
-    "werte": [
-     64,
-     116
-    ]
-   },
-   "w": "sin⁻¹(0,9) ≈ 64,2°, zweite Lösung 180° − 64,2° ≈ 115,8°. Gerundet 64° und 116°.",
-   "h": "x₂ = 180° − x₁.",
-   "c": [
-    "round(64.158067236833, 0)",
-    "round(115.841932763167, 0)"
-   ]
-  },
-  {
-   "l": "sinus",
-   "t": "sinus",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "sin x = 0,4 hat die Lösung x₁ ≈ 23,6°. Welche zweite Lösung gibt es im Bereich 0° ≤ x < 360°?"
-   },
-   "a": [
-    "66,4°",
-    "156,4°",
-    "203,6°",
-    "336,4°"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Beim Sinus gilt x₂ = 180° − x₁ = 156,4°.",
-   "h": "Sinus: an der y-Achse spiegeln."
-  },
-  {
-   "l": "kosinus",
-   "t": "kosinus",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 2 · cos x + 1 = 0 im Bereich 0° ≤ x < 360° ohne Taschenrechner.",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "Grad-Zahlen, kleinere zuerst"
-   },
-   "o": {
-    "werte": [
-     120,
-     240
-    ]
-   },
-   "w": "cos x = −0,5. Bezugswinkel 60°, Kosinus negativ links: x = 180° − 60° = 120° und x = 360° − 120° = 240°.",
-   "h": "cos 60° = 0,5. Wo ist der Kosinus negativ?",
-   "c": [
-    "180 - 60",
-    "360 - 120"
-   ]
-  },
-  {
-   "l": "kosinus",
-   "t": "kosinus",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Strecke hat die Länge d(φ) = 10 · cos φ (in cm) für 0° < φ < 90°. Für welchen Winkel φ ist sie 7 cm lang? Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 45.6,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(45.572995999194, 1)",
-   "w": "10 · cos φ = 7 ⇒ cos φ = 0,7 ⇒ φ ≈ 45,6°.",
-   "h": "Setze d = 7 und stelle nach cos φ um."
-  },
-  {
-   "l": "kosinus",
-   "t": "kosinus",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Für welche x im Bereich 0° ≤ x < 360° gilt cos x = cos 40°?"
-   },
-   "a": [
-    "x = 40° und x = 140°",
-    "x = 40° und x = 220°",
-    "nur x = 40°",
-    "x = 40° und x = 320°"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Gleicher Kosinus heißt gleiche x-Koordinate: Spiegelung an der x-Achse, also 360° − 40° = 320°. 140° hätte den gleichen Sinus.",
-   "h": "Wo auf dem Einheitskreis haben zwei Punkte die gleiche x-Koordinate?"
-  },
-  {
-   "l": "kosinus",
-   "t": "kosinus",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse cos x = 1 im Bereich 0° ≤ x ≤ 720°.",
-    "schablone": "x₁ = □°; x₂ = □°; x₃ = □°",
-    "hinweis": "Grad-Zahlen, kleinere zuerst"
-   },
-   "o": {
-    "werte": [
-     0,
-     360,
-     720
-    ]
-   },
-   "w": "cos x = 1 ganz rechts auf dem Einheitskreis: bei 0°, nach einer Runde bei 360° und nach zwei Runden bei 720° (Grenze gehört dazu).",
-   "h": "Der Bereich umfasst zwei volle Runden – und das Ende 720° gehört dazu.",
-   "c": [
-    "0",
-    "360",
-    "2 * 360"
-   ]
-  },
-  {
-   "l": "kosinus",
-   "t": "kosinus",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse cos x = 0,3 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "Grad-Zahlen, kleinere zuerst"
-   },
-   "o": {
-    "werte": [
-     73,
-     287
-    ]
-   },
-   "w": "cos⁻¹(0,3) ≈ 72,5°, zweite Lösung 360° − 72,5° ≈ 287,5°. Gerundet 73° und 287°.",
-   "h": "x₂ = 360° − x₁. Runde jede Lösung einzeln.",
-   "c": [
-    "round(72.542396876278, 0)",
-    "round(287.457603123722, 0)"
-   ]
-  },
-  {
-   "l": "kosinus",
-   "t": "kosinus",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "cos x = −0,8 hat die Lösung x₁ ≈ 143,1°. Welche zweite Lösung gibt es im Bereich 0° ≤ x < 360°?"
-   },
-   "a": [
-    "323,9°",
-    "323,1°",
-    "216,9°",
-    "36,9°"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Beim Kosinus gilt x₂ = 360° − x₁ = 216,9°.",
-   "h": "Kosinus: an der x-Achse spiegeln."
-  },
-  {
-   "l": "kosinus",
-   "t": "kosinus",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Für welche x im Bereich 0° ≤ x < 360° gilt cos x = sin 30°? Ohne Taschenrechner.",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "Je Lücke eine ganze Zahl."
-   },
-   "o": {
-    "werte": [
-     60,
-     300
-    ]
-   },
-   "c": [
-    "60",
-    "300"
-   ],
-   "w": "sin 30° = 0,5. cos x = 0,5 gilt für x = 60° und x = 360° − 60° = 300°.",
-   "h": "Rechne zuerst sin 30° aus."
-  },
-  {
-   "l": "tangens",
-   "t": "tangens",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Das Volumen eines Prismas ist V(φ) = 12 · tan φ (in cm³) für 0° < φ < 90°. Für welchen Winkel φ ist V = 30 cm³? Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 68.2,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(68.198590513648, 1)",
-   "w": "12 · tan φ = 30 ⇒ tan φ = 2,5 ⇒ φ ≈ 68,2°.",
-   "h": "Setze V = 30 und stelle nach tan φ um."
-  },
-  {
-   "l": "tangens",
-   "t": "tangens",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse tan x = −√3 im Bereich 0° ≤ x < 360° ohne Taschenrechner (tan 60° = √3).",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "Grad-Zahlen, kleinere zuerst"
-   },
-   "o": {
-    "werte": [
-     120,
-     300
-    ]
-   },
-   "w": "Bezugswinkel 60°. Tangens negativ links oben und rechts unten: x = 180° − 60° = 120° und x = 120° + 180° = 300°.",
-   "h": "Der Tangens wiederholt sich alle 180°.",
-   "c": [
-    "180 - 60",
-    "120 + 180"
-   ]
-  },
-  {
-   "l": "tangens",
-   "t": "tangens",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele Lösungen hat tan x = 5 im Bereich 0° ≤ x < 900°?"
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "900 // 180",
-   "w": "Der Tangens wiederholt sich alle 180°: genau eine Lösung pro 180°-Abschnitt. 900° : 180° = 5 Lösungen.",
-   "h": "Wie oft passt 180° in 900°?"
-  },
-  {
-   "l": "tangens",
-   "t": "tangens",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 3 · tan x − 2 = 0 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an."
-   },
-   "o": {
-    "wert": 213.7,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(213.690067525980, 1)",
-   "w": "tan x = 2/3 ⇒ x₁ ≈ 33,7°, x₂ = x₁ + 180° ≈ 213,7°.",
-   "h": "Erst tan x allein stellen, dann + 180°."
-  },
-  {
-   "l": "tangens",
-   "t": "tangens",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse tan x = 0,5 im Bereich 0° ≤ x < 360°. Gib die kleinere Lösung auf eine Nachkommastelle an."
-   },
-   "o": {
-    "wert": 26.6,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(26.565051177078, 1)",
-   "w": "tan⁻¹(0,5) ≈ 26,6°.",
-   "h": "Umkehrtaste tan⁻¹."
-  },
-  {
-   "l": "tangens",
-   "t": "tangens",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "tan x = 2 hat die Lösung x₁ ≈ 63,4°. Welche zweite Lösung gibt es im Bereich 0° ≤ x < 360°?"
-   },
-   "a": [
-    "243,4°",
-    "296,6°",
-    "153,4°",
-    "116,6°"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Beim Tangens gilt x₂ = x₁ + 180° = 243,4°.",
-   "h": "Tangens: plus 180°."
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Für welche Zahl c hat die Gleichung 3 · sin x = c im Bereich 0° ≤ x < 360° keine Lösung?"
-   },
-   "a": [
-    "c = −2",
-    "c = 0",
-    "c = 4",
-    "c = 3"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "sin x = c/3 braucht −1 ≤ c/3 ≤ 1, also −3 ≤ c ≤ 3. Nur c = 4 liegt außerhalb.",
-   "h": "Stelle nach sin x um. Welche Werte kann sin x annehmen?"
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat cos x = 0,5 im Bereich 0° ≤ x ≤ 180°?"
-   },
-   "a": [
-    "zwei",
-    "genau eine",
-    "drei",
-    "keine"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Im ganzen Kreis wären es 60° und 300°. Im Bereich bis 180° liegt nur 60°.",
-   "h": "Bestimme alle Lösungen und prüfe, welche im Bereich liegen."
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele Lösungen hat sin x = cos x im Bereich 0° ≤ x < 720°?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "2 * 2",
-   "w": "In einer Umdrehung: 45° und 225° (tan x = 1). In zwei Umdrehungen: 4 Lösungen.",
-   "h": "Teile durch cos x: Welche Gleichung entsteht? Wie oft passt ihre Periode hinein?"
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat (sin x)² = 1 im Bereich 0° ≤ x < 360°?"
-   },
-   "a": [
-    "vier",
-    "keine",
-    "eine",
-    "zwei"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "sin x = 1 (bei 90°) oder sin x = −1 (bei 270°): zwei Lösungen.",
-   "h": "Aus (sin x)² = 1 folgt sin x = 1 oder sin x = −1."
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat cos x = −1,5?"
-   },
-   "a": [
-    "keine",
-    "eine",
-    "zwei"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "cos x liegt immer zwischen −1 und 1.",
-   "h": "Welche Werte kann der Kosinus annehmen?"
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat sin x = −1 im Bereich 0° ≤ x < 360°?"
-   },
-   "a": [
-    "zwei",
-    "genau eine",
-    "keine"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Nur bei 270° ist sin x = −1.",
-   "h": "Tiefster Punkt des Einheitskreises."
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 6 · sin x + 1 = 4 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "Grad-Zahlen, kleinere zuerst"
-   },
-   "o": {
-    "werte": [
-     30,
-     150
-    ]
-   },
-   "w": "6 sin x = 3 ⇒ sin x = 0,5 ⇒ x = 30° oder x = 150°.",
-   "h": "Erst 1 abziehen, dann durch 6 teilen.",
-   "c": [
-    "30",
-    "180 - 30"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 3 · cos x + 2 = cos x + 1 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "Grad-Zahlen, kleinere zuerst"
-   },
-   "o": {
-    "werte": [
-     120,
-     240
-    ]
-   },
-   "w": "2 cos x = −1 ⇒ cos x = −0,5 ⇒ x = 120° oder x = 240°.",
-   "h": "Bringe alle cos x auf eine Seite.",
-   "c": [
-    "180 - 60",
-    "180 + 60"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse sin x · cos x = 0 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x₁ = □°; x₂ = □°; x₃ = □°; x₄ = □°",
-    "hinweis": "Grad-Zahlen, kleinere zuerst"
-   },
-   "o": {
-    "werte": [
-     0,
-     90,
-     180,
-     270
-    ]
-   },
-   "w": "Ein Produkt ist 0, wenn ein Faktor 0 ist: sin x = 0 (0°, 180°) oder cos x = 0 (90°, 270°).",
-   "h": "Satz vom Nullprodukt – wie bei quadratischen Gleichungen.",
-   "c": [
-    "0",
-    "90",
-    "180",
-    "270"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 2 · (sin x)² = sin x im Bereich 0° ≤ x < 360°.",
-    "schablone": "x₁ = □°; x₂ = □°; x₃ = □°; x₄ = □°",
-    "hinweis": "Grad-Zahlen, kleinere zuerst"
-   },
-   "o": {
-    "werte": [
-     0,
-     30,
-     150,
-     180
-    ]
-   },
-   "w": "sin x · (2 sin x − 1) = 0: sin x = 0 (0°, 180°) oder sin x = 0,5 (30°, 150°). Falle: Durch sin x teilen verliert 0° und 180°.",
-   "h": "Nicht durch sin x teilen! Ausklammern.",
-   "c": [
-    "0",
-    "30",
-    "150",
-    "180"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 2 · cos x = 1 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "Grad-Zahlen, kleinere zuerst"
-   },
-   "o": {
-    "werte": [
-     60,
-     300
-    ]
-   },
-   "w": "cos x = 0,5 ⇒ x = 60° oder x = 300°.",
-   "h": "Durch 2 teilen.",
-   "c": [
-    "60",
-    "360 - 60"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse sin x + 1 = 0 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x = □°",
-    "hinweis": "Grad-Zahl"
-   },
-   "o": {
-    "werte": [
-     270
-    ]
-   },
-   "w": "sin x = −1 nur bei 270°.",
-   "h": "Stelle sin x allein.",
-   "c": [
-    "270"
-   ]
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Gondel im Riesenrad ist h(x) = 20 − 18 · cos x Meter hoch (x Drehwinkel in Grad). Bei welchem Drehwinkel zwischen 0° und 180° ist sie 29 m hoch?"
-   },
-   "o": {
-    "wert": 120,
-    "einheit": "°"
-   },
-   "c": "180 - 60",
-   "w": "20 − 18 cos x = 29 ⇒ cos x = −0,5 ⇒ x = 120° (im Bereich 0° bis 180° die einzige Lösung).",
-   "h": "Gleichung aufstellen und nach cos x umstellen."
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten a = 5 cm und b = 8 cm und den Flächeninhalt A = 1/2 · a · b · sin γ = 10 cm². Der Winkel γ zwischen a und b ist stumpf. Wie groß ist γ?"
-   },
-   "o": {
-    "wert": 150,
-    "einheit": "°"
-   },
-   "c": "180 - 30",
-   "w": "1/2 · 5 · 8 · sin γ = 10 ⇒ sin γ = 0,5 ⇒ γ = 30° oder 150°. Stumpf: γ = 150°.",
-   "h": "Setze die Zahlen in die Formel ein und löse nach sin γ auf."
   },
   {
    "l": "anwendung",
@@ -4857,7 +5985,8 @@
    },
    "c": "240 - 120",
    "w": "h > 35 ⇔ cos x < −0,5. Das gilt zwischen 120° und 240°: über 240° − 120° = 120°, also ein Drittel der Runde.",
-   "h": "Bestimme die beiden Winkel mit h = 35 m. Dazwischen ist die Gondel höher."
+   "h": "Bestimme die beiden Winkel mit h = 35 m. Dazwischen ist die Gondel höher.",
+   "g": "transfer"
   },
   {
    "l": "anwendung",
@@ -4875,48 +6004,141 @@
    },
    "c": "round(180 - 25 - (180 - 64.158482002216), 1)",
    "w": "sin⁻¹(0,9) ≈ 64,2°. Stumpf: β = 180° − 64,2° ≈ 115,8°. γ = 180° − 25° − 115,8° ≈ 39,2°.",
-   "h": "Erst den stumpfen Winkel β bestimmen, dann die Winkelsumme."
+   "h": "Erst den stumpfen Winkel β bestimmen, dann die Winkelsumme.",
+   "g": "verknuepfen"
   },
   {
+   "y": "auswahl",
+   "f": {
+    "text": "In einem Dreieck ist α = 30° und sin β = 0,8. Jemand gibt nur β ≈ 53,1° an. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Es gibt kein solches Dreieck.",
+    "Falsch: nur 126,9° ist möglich.",
+    "Unvollständig: Auch β ≈ 126,9° passt, denn 30° + 126,9° < 180°.",
+    "Richtig, nur 53,1° ist möglich."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "sin β = 0,8 ⇒ β ≈ 53,1° oder β ≈ 126,9°. Beide lassen mit α = 30° noch Platz für γ: γ ≈ 96,9° oder γ ≈ 23,1°.",
+   "h": "Prüfe beide Winkel mit der Winkelsumme.",
    "l": "anwendung",
    "t": "anwendung",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "In einem Dreieck ist sin β = 0,8, also β ≈ 53,1° oder β ≈ 126,9°. Für welche Winkel α sind beide Werte möglich?"
+   },
+   "a": [
+    "für alle α",
+    "für α < 53,1°",
+    "für α > 53,1°",
+    "für α < 126,9°"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Auch der stumpfe Wert muss passen: α + 126,9° < 180°, also α < 53,1°.",
+   "h": "Wann hat der stumpfe Wert noch Platz?",
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
    "y": "luecken",
    "f": {
-    "text": "Die Tageslänge an einem Ort ist d(x) = 12 + 4 · sin x Stunden (x in Grad, 360° entsprechen einem Jahr). Für welche x ist der Tag genau 14 Stunden lang?",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "Grad-Zahlen, kleinere zuerst"
+    "text": "Eine Gondel hat die Höhe h(x) = 25 − 20 · cos x (in m). a) Wie hoch ist sie bei x = 0°? b) Wie hoch ist sie höchstens? c) Bei welchen Winkeln 0° ≤ x < 360° ist sie 35 m hoch?",
+    "schablone": "a) □ m; b) □ m; c) □° und □°",
+    "hinweis": "Je Lücke eine ganze Zahl."
    },
    "o": {
     "werte": [
-     30,
-     150
+     5,
+     45,
+     120,
+     240
     ]
    },
-   "w": "12 + 4 sin x = 14 ⇒ sin x = 0,5 ⇒ x = 30° oder x = 150°.",
-   "h": "Gleichung aufstellen, sin x allein stellen.",
    "c": [
-    "30",
-    "180 - 30"
-   ]
+    "25 - 20",
+    "25 + 20",
+    "180 - 60",
+    "360 - 120"
+   ],
+   "w": "a) cos 0° = 1: 25 − 20 = 5 m. b) bei cos x = −1: 25 + 20 = 45 m. c) 25 − 20 cos x = 35 ⇒ cos x = −0,5 ⇒ 120° und 240°.",
+   "h": "Für c) nach cos x umstellen.",
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
   },
   {
    "l": "anwendung",
    "t": "anwendung",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
+   "s": 3,
+   "y": "luecken",
    "f": {
-    "text": "Die Auslenkung eines Pendels ist s(x) = 10 · sin x (in cm). Für welchen Winkel x zwischen 0° und 90° ist s = 5 cm?"
+    "text": "Die Wassertiefe in einem Hafen ist t(x) = 4 + 2 · sin x (in m; x in Grad, 360° entsprechen einem Tag). Für welche x im Bereich 0° ≤ x < 360° ist das Wasser 3 m tief?",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinerer Wert zuerst"
    },
    "o": {
-    "wert": 30,
+    "werte": [
+     210,
+     330
+    ]
+   },
+   "w": "4 + 2 sin x = 3 ⇒ sin x = −0,5 ⇒ x = 210° oder 330°.",
+   "h": "Stelle nach sin x um.",
+   "c": [
+    "210",
+    "330"
+   ]
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Die Tageslänge an einem Ort ist d(x) = 12 + 4 · sin x Stunden (x in Grad, 360° entsprechen einem Jahr). Über wie viele Grad des Jahres ist der Tag länger als 14 Stunden?"
+   },
+   "o": {
+    "wert": 120,
     "einheit": "°"
    },
-   "c": "180 / 6",
-   "w": "10 sin x = 5 ⇒ sin x = 0,5 ⇒ x = 30°.",
-   "h": "Nach sin x umstellen."
+   "c": "150 - 30",
+   "w": "12 + 4 sin x > 14 heißt sin x > 0,5. Die Grenzen sind 30° und 150°; dazwischen ist sin x größer als 0,5. Das sind 150° − 30° = 120°, also ein Drittel des Jahres.",
+   "h": "Bestimme erst, wann der Tag genau 14 Stunden lang ist.",
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "In einem Dreieck gilt sin α = 0,5 und sin β = 0,5. Wie groß ist γ?"
+   },
+   "o": {
+    "wert": 120,
+    "einheit": "°"
+   },
+   "c": "180 - 30 - 30",
+   "w": "α und β sind jeweils 30° oder 150°. Zweimal 150° ist zu viel. 30° und 150° ergeben schon 180°, dann bleibt für γ nichts. Also α = β = 30° und γ = 120°.",
+   "h": "Probiere alle Paare aus 30° und 150°.",
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
   }
  ],
  "offen": [

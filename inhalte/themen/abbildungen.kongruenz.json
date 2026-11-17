@@ -21,7 +21,9 @@
     "titel": "Spiegeln",
     "lernziele": [
      "achsenspiegelung",
-     "punktspiegelung"
+     "punktspiegelung",
+     "mittelsenkrechte",
+     "winkelhalbierende"
     ]
    },
    {
@@ -35,6 +37,7 @@
     "titel": "Symmetrie und Eigenschaften",
     "lernziele": [
      "symmetrie",
+     "vierecke_ordnen",
      "parkett",
      "eigenschaften"
     ]
@@ -248,6 +251,686 @@
       "der Punkt genau in der Mitte einer Strecke"
      ]
     ]
+   },
+   {
+    "lernziel": "mittelsenkrechte",
+    "titel": "Mittelsenkrechte und Lot",
+    "einstieg": "Zwei Freundinnen wohnen in den Häusern A und B. Sie suchen Treffpunkte, die von beiden Häusern gleich weit weg sind. Alle diese Punkte liegen auf einer Geraden: der ⟦Mittelsenkrechten⟧.",
+    "woerter": [
+     [
+      "Mittelsenkrechte",
+      "Gerade durch die Mitte von [AB], senkrecht zu [AB]"
+     ],
+     [
+      "Abstand",
+      "Länge des kürzesten Wegs; zu einer Geraden immer senkrecht gemessen"
+     ],
+     [
+      "Lot",
+      "Gerade durch einen Punkt, die senkrecht auf einer anderen Geraden steht"
+     ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0.0,
+       0.0
+      ],
+      "B": [
+       6.0,
+       0.0
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "AB = 6 cm"
+      ]
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Zeichne um A und um B Kreise mit gleichem Radius, hier 4 cm.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "A": [
+         0.0,
+         0.0
+        ],
+        "B": [
+         6.0,
+         0.0
+        ]
+       },
+       "linien": [
+        [
+         "A",
+         "B",
+         "AB = 6 cm"
+        ]
+       ],
+       "kreise": [
+        {
+         "m": "A",
+         "r": 4
+        },
+        {
+         "m": "B",
+         "r": 4
+        }
+       ]
+      }
+     },
+     {
+      "text": "Die beiden Kreise schneiden sich in P und Q.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "A": [
+         0.0,
+         0.0
+        ],
+        "B": [
+         6.0,
+         0.0
+        ],
+        "P": [
+         3.0,
+         2.646
+        ],
+        "Q": [
+         3.0,
+         -2.646
+        ]
+       },
+       "linien": [
+        [
+         "A",
+         "B",
+         "AB = 6 cm"
+        ]
+       ],
+       "kreise": [
+        {
+         "m": "A",
+         "r": 4
+        },
+        {
+         "m": "B",
+         "r": 4
+        }
+       ]
+      }
+     },
+     {
+      "text": "Die Gerade PQ ist die ⟦Mittelsenkrechte m⟧ von [AB].",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "A": [
+         0.0,
+         0.0
+        ],
+        "B": [
+         6.0,
+         0.0
+        ],
+        "P": [
+         3.0,
+         2.646
+        ],
+        "Q": [
+         3.0,
+         -2.646
+        ],
+        "M": [
+         3.0,
+         0.0
+        ],
+        "_m1": [
+         3.0,
+         -3.6
+        ],
+        "_m2": [
+         3.0,
+         3.6
+        ]
+       },
+       "linien": [
+        [
+         "A",
+         "B",
+         "AB = 6 cm"
+        ],
+        [
+         "_m1",
+         "_m2",
+         "m"
+        ]
+       ],
+       "kreise": [
+        {
+         "m": "A",
+         "r": 4
+        },
+        {
+         "m": "B",
+         "r": 4
+        }
+       ],
+       "rechter_winkel": [
+        [
+         "M",
+         "B",
+         "_m2"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Jeder Punkt X auf m hat von A und B den gleichen Abstand.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "A": [
+         0.0,
+         0.0
+        ],
+        "B": [
+         6.0,
+         0.0
+        ],
+        "M": [
+         3.0,
+         0.0
+        ],
+        "X": [
+         3.0,
+         2.0
+        ],
+        "_m1": [
+         3.0,
+         -3.6
+        ],
+        "_m2": [
+         3.0,
+         3.6
+        ]
+       },
+       "linien": [
+        [
+         "A",
+         "B",
+         "AB = 6 cm"
+        ],
+        [
+         "_m1",
+         "_m2",
+         "m"
+        ],
+        [
+         "X",
+         "A",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "X",
+         "B",
+         "",
+         "gestrichelt"
+        ]
+       ],
+       "rechter_winkel": [
+        [
+         "M",
+         "B",
+         "_m2"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Für das ⟦Lot⟧ von C auf g: Kreis um C, dann Mittelsenkrechte der Schnittpunkte.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "C": [
+         3.0,
+         3.0
+        ],
+        "P": [
+         0.354,
+         0.0
+        ],
+        "Q": [
+         5.646,
+         0.0
+        ],
+        "F": [
+         3.0,
+         0.0
+        ],
+        "_g1": [
+         -1.0,
+         0.0
+        ],
+        "_g2": [
+         7.0,
+         0.0
+        ]
+       },
+       "linien": [
+        [
+         "_g1",
+         "_g2",
+         "g"
+        ],
+        [
+         "C",
+         "F",
+         "Lot",
+         "gestrichelt"
+        ]
+       ],
+       "kreise": [
+        {
+         "m": "C",
+         "r": 4
+        }
+       ],
+       "rechter_winkel": [
+        [
+         "F",
+         "_g2",
+         "C"
+        ]
+       ]
+      }
+     }
+    ],
+    "probe": "P liegt auf beiden Kreisen: PA = PB = 4 cm ✓",
+    "fehler": "Zu kleine Kreise schneiden sich nicht – wie Freundinnen, die nicht weit genug laufen. Bei AB = 6 cm braucht man mehr als 3 cm.",
+    "fehler_bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0.0,
+       0.0
+      ],
+      "B": [
+       6.0,
+       0.0
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "AB = 6 cm"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "A",
+       "r": 2.5
+      },
+      {
+       "m": "B",
+       "r": 2.5
+      }
+     ]
+    },
+    "regel": "Auf der Mittelsenkrechten liegen alle Punkte gleich weit von A und B. Sie steht ⟦senkrecht⟧ auf [AB] und halbiert die Strecke."
+   },
+   {
+    "lernziel": "winkelhalbierende",
+    "titel": "Die Winkelhalbierende",
+    "einstieg": "Zwei Zäune treffen sich an einer Ecke. Ein Weg soll genau mittendrin verlaufen, also von beiden Zäunen gleich weit weg. Dieser Weg ist die ⟦Winkelhalbierende⟧.",
+    "woerter": [
+     [
+      "Winkelhalbierende",
+      "Halbgerade vom Scheitel aus, die den Winkel in zwei gleich große Teile teilt"
+     ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0.0,
+       0.0
+      ],
+      "_a1": [
+       6.0,
+       0.0
+      ],
+      "_a2": [
+       2.052,
+       5.638
+      ]
+     },
+     "linien": [
+      [
+       "S",
+       "_a1"
+      ],
+      [
+       "S",
+       "_a2"
+      ]
+     ],
+     "winkel": [
+      [
+       "S",
+       "_a1",
+       "_a2",
+       "70°"
+      ]
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Zeichne einen Kreis um den Scheitel S. Er schneidet die Schenkel in P und Q.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "S": [
+         0.0,
+         0.0
+        ],
+        "_a1": [
+         6.0,
+         0.0
+        ],
+        "_a2": [
+         2.052,
+         5.638
+        ],
+        "P": [
+         3.0,
+         0.0
+        ],
+        "Q": [
+         1.026,
+         2.819
+        ]
+       },
+       "linien": [
+        [
+         "S",
+         "_a1"
+        ],
+        [
+         "S",
+         "_a2"
+        ]
+       ],
+       "kreise": [
+        {
+         "m": "S",
+         "r": 3
+        }
+       ]
+      }
+     },
+     {
+      "text": "Zeichne um P und um Q Kreise mit gleichem Radius. Sie schneiden sich in W.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "S": [
+         0.0,
+         0.0
+        ],
+        "_a1": [
+         6.0,
+         0.0
+        ],
+        "_a2": [
+         2.052,
+         5.638
+        ],
+        "P": [
+         3.0,
+         0.0
+        ],
+        "Q": [
+         1.026,
+         2.819
+        ],
+        "W": [
+         3.499,
+         2.45
+        ]
+       },
+       "linien": [
+        [
+         "S",
+         "_a1"
+        ],
+        [
+         "S",
+         "_a2"
+        ]
+       ],
+       "kreise": [
+        {
+         "m": "P",
+         "r": 2.5
+        },
+        {
+         "m": "Q",
+         "r": 2.5
+        }
+       ]
+      }
+     },
+     {
+      "text": "Die Halbgerade von S durch W ist die ⟦Winkelhalbierende w⟧: 35° und 35°.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "S": [
+         0.0,
+         0.0
+        ],
+        "_a1": [
+         6.0,
+         0.0
+        ],
+        "_a2": [
+         2.052,
+         5.638
+        ],
+        "W": [
+         3.499,
+         2.45
+        ],
+        "_w": [
+         5.324,
+         3.728
+        ]
+       },
+       "linien": [
+        [
+         "S",
+         "_a1"
+        ],
+        [
+         "S",
+         "_a2"
+        ],
+        [
+         "S",
+         "_w",
+         "w"
+        ]
+       ],
+       "winkel": [
+        [
+         "S",
+         "_a1",
+         "W",
+         "35°"
+        ],
+        [
+         "S",
+         "W",
+         "_a2",
+         "35°"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Jeder Punkt X auf w hat von beiden Schenkeln den gleichen ⟦Abstand⟧.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "S": [
+         0.0,
+         0.0
+        ],
+        "_a1": [
+         6.0,
+         0.0
+        ],
+        "_a2": [
+         2.052,
+         5.638
+        ],
+        "X": [
+         3.277,
+         2.294
+        ],
+        "_w": [
+         5.324,
+         3.728
+        ],
+        "_F1": [
+         3.277,
+         0.0
+        ],
+        "_F2": [
+         1.121,
+         3.079
+        ]
+       },
+       "linien": [
+        [
+         "S",
+         "_a1"
+        ],
+        [
+         "S",
+         "_a2"
+        ],
+        [
+         "S",
+         "_w",
+         "w"
+        ],
+        [
+         "X",
+         "_F1",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "X",
+         "_F2",
+         "",
+         "gestrichelt"
+        ]
+       ],
+       "rechter_winkel": [
+        [
+         "_F1",
+         "_a1",
+         "X"
+        ],
+        [
+         "_F2",
+         "S",
+         "X"
+        ]
+       ]
+      }
+     }
+    ],
+    "probe": "35° + 35° = 70° ✓",
+    "fehler": "Abstand schräg gemessen: Der Weg zum Zaun zählt nur auf dem kürzesten, senkrechten Stück. Schräg gemessen wirkt X ungleich weit weg.",
+    "fehler_bild": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0.0,
+       0.0
+      ],
+      "_a1": [
+       6.0,
+       0.0
+      ],
+      "_a2": [
+       2.052,
+       5.638
+      ],
+      "X": [
+       3.277,
+       2.294
+      ],
+      "_w": [
+       5.324,
+       3.728
+      ],
+      "_F1": [
+       3.277,
+       0.0
+      ],
+      "_s": [
+       1.2,
+       0.0
+      ]
+     },
+     "linien": [
+      [
+       "S",
+       "_a1"
+      ],
+      [
+       "S",
+       "_a2"
+      ],
+      [
+       "S",
+       "_w",
+       "w"
+      ],
+      [
+       "X",
+       "_s",
+       "schräg",
+       "gestrichelt"
+      ],
+      [
+       "X",
+       "_F1",
+       "Lot",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "_F1",
+       "_a1",
+       "X"
+      ]
+     ]
+    },
+    "regel": "Auf der Winkelhalbierenden liegen alle Punkte gleich weit von beiden Schenkeln. Sie teilt den Winkel in zwei ⟦gleich große⟧ Teile."
    },
    {
     "lernziel": "verschiebung",
@@ -801,6 +1484,356 @@
     }
    },
    {
+    "lernziel": "vierecke_ordnen",
+    "titel": "Symmetrische Vierecke ordnen",
+    "einstieg": "Ein Fliesenleger sortiert Fliesen nach ihrer Symmetrie. Dabei merkt er: Jede quadratische Fliese passt auch in die Kiste der Rauten. So entsteht das ⟦Haus der Vierecke⟧.",
+    "woerter": [
+     [
+      "Haus der Vierecke",
+      "Schema: oben die allgemeinen, unten die besonderen Vierecke"
+     ],
+     [
+      "Drachenviereck",
+      "Viereck mit einer Symmetrieachse durch zwei gegenüberliegende Ecken"
+     ],
+     [
+      "gleichschenkliges Trapez",
+      "Viereck mit einer Symmetrieachse durch die Mitten zweier Seiten"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Viereck",
+      "Achsen",
+      "Punktsymmetrie"
+     ],
+     "zeilen": [
+      [
+       "Quadrat",
+       "4",
+       "ja"
+      ],
+      [
+       "Rechteck",
+       "2",
+       "ja"
+      ],
+      [
+       "Raute",
+       "2",
+       "ja"
+      ],
+      [
+       "Parallelogramm",
+       "0",
+       "ja"
+      ],
+      [
+       "Drachenviereck",
+       "1",
+       "nein"
+      ],
+      [
+       "gleichschenkl. Trapez",
+       "1",
+       "nein"
+      ]
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Eine Raute hat zwei Symmetrieachsen: ihre beiden Diagonalen.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "A": [
+         0.0,
+         2.0
+        ],
+        "B": [
+         3.0,
+         0.0
+        ],
+        "C": [
+         6.0,
+         2.0
+        ],
+        "D": [
+         3.0,
+         4.0
+        ],
+        "_l": [
+         -1.0,
+         2.0
+        ],
+        "_r": [
+         7.0,
+         2.0
+        ],
+        "_o": [
+         3.0,
+         5.0
+        ],
+        "_u": [
+         3.0,
+         -1.0
+        ]
+       },
+       "flaeche": [
+        "A",
+        "B",
+        "C",
+        "D"
+       ],
+       "linien": [
+        [
+         "A",
+         "B"
+        ],
+        [
+         "B",
+         "C"
+        ],
+        [
+         "C",
+         "D"
+        ],
+        [
+         "D",
+         "A"
+        ],
+        [
+         "_l",
+         "_r",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_u",
+         "_o",
+         "",
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Ein Quadrat hat diese zwei Achsen auch – und noch zwei dazu.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "A": [
+         0.0,
+         0.0
+        ],
+        "B": [
+         4.0,
+         0.0
+        ],
+        "C": [
+         4.0,
+         4.0
+        ],
+        "D": [
+         0.0,
+         4.0
+        ],
+        "_1": [
+         -1.0,
+         -1.0
+        ],
+        "_2": [
+         5.0,
+         5.0
+        ],
+        "_3": [
+         -1.0,
+         5.0
+        ],
+        "_4": [
+         5.0,
+         -1.0
+        ],
+        "_5": [
+         2.0,
+         -1.0
+        ],
+        "_6": [
+         2.0,
+         5.0
+        ],
+        "_7": [
+         -1.0,
+         2.0
+        ],
+        "_8": [
+         5.0,
+         2.0
+        ]
+       },
+       "flaeche": [
+        "A",
+        "B",
+        "C",
+        "D"
+       ],
+       "linien": [
+        [
+         "A",
+         "B"
+        ],
+        [
+         "B",
+         "C"
+        ],
+        [
+         "C",
+         "D"
+        ],
+        [
+         "D",
+         "A"
+        ],
+        [
+         "_1",
+         "_2",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_4",
+         "_3",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_5",
+         "_6",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_7",
+         "_8",
+         "",
+         "gestrichelt"
+        ]
+       ],
+       "rechter_winkel": [
+        [
+         "A",
+         "B",
+         "D"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Also ist ⟦jedes Quadrat eine Raute⟧, aber nicht jede Raute ein Quadrat."
+     },
+     {
+      "text": "Ebenso ist jede Raute ein Drachenviereck, jedes Rechteck ein gleichschenkliges Trapez.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Viereck",
+        "Achsen",
+        "Punktsymmetrie"
+       ],
+       "zeilen": [
+        [
+         "Quadrat",
+         "4",
+         "ja"
+        ],
+        [
+         "Rechteck",
+         "2",
+         "ja"
+        ],
+        [
+         "Raute",
+         "2",
+         "ja"
+        ],
+        [
+         "Parallelogramm",
+         "0",
+         "ja"
+        ],
+        [
+         "Drachenviereck",
+         "1",
+         "nein"
+        ],
+        [
+         "gleichschenkl. Trapez",
+         "1",
+         "nein"
+        ]
+       ]
+      }
+     }
+    ],
+    "probe": "Quadrat: 4 Achsen und punktsymmetrisch – es hat alles, was Raute und Rechteck haben ✓",
+    "fehler": "„Jede Raute ist ein Quadrat“ stimmt nicht: Eine schiefe Raute hat keinen rechten Winkel. Wie bei Fliesen zählt die Richtung des Satzes.",
+    "fehler_bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0.0,
+       0.0
+      ],
+      "B": [
+       4.0,
+       0.0
+      ],
+      "C": [
+       6.571,
+       3.064
+      ],
+      "D": [
+       2.571,
+       3.064
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "D",
+       "50°"
+      ]
+     ]
+    },
+    "regel": "Je mehr Symmetrie, desto weiter unten im Haus der Vierecke. Ein Viereck unten hat alle ⟦Eigenschaften⟧ der Vierecke darüber."
+   },
+   {
     "lernziel": "parkett",
     "titel": "Lückenlos auslegen (Parkett)",
     "regel": "360° muss durch den ⟦Innenwinkel⟧ teilbar sein. Nur dann passen die Fliesen lückenlos.",
@@ -1176,6 +2209,20 @@
     ]
    },
    {
+    "k": "mittelsenkrechte",
+    "text": "Mittelsenkrechte und Lot",
+    "lernziele": [
+     "mittelsenkrechte"
+    ]
+   },
+   {
+    "k": "winkelhalbierende",
+    "text": "Winkelhalbierende",
+    "lernziele": [
+     "winkelhalbierende"
+    ]
+   },
+   {
     "k": "verschiebung",
     "text": "Figuren verschieben",
     "lernziele": [
@@ -1197,6 +2244,13 @@
     ]
    },
    {
+    "k": "vierecke_ordnen",
+    "text": "Symmetrische Vierecke ordnen",
+    "lernziele": [
+     "vierecke_ordnen"
+    ]
+   },
+   {
     "k": "parkett",
     "text": "Lückenlos auslegen (Parkett)",
     "lernziele": [
@@ -1215,7 +2269,10 @@
    "lernziele_pflicht": [
     "achsenspiegelung",
     "punktspiegelung",
+    "mittelsenkrechte",
+    "winkelhalbierende",
     "symmetrie",
+    "vierecke_ordnen",
     "eigenschaften"
    ],
    "lernziele_vertiefung": [
@@ -1227,7 +2284,8 @@
   },
   "quellen": {
    "erklaerungen": "Eigene Fassung (Claude).",
-   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Gymnasium)."
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Gymnasium).",
+   "luecken_kl7": "LehrplanPLUS Gymnasium Bayern, M7 2.1 (https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/7/mathematik): Mittelsenkrechte, Lote und Winkelhalbierende konstruieren und das Vorgehen beschreiben; Abstandsprobleme; symmetrische Vierecke ordnen. Prüfungsvorbilder (Typ und Niveau, eigene Zahlen): Bayerischer Mathematik-Test 8 (ISB) 2024 A4b, 2019 A4, 2022 A1, 2014 B, 2023 A3."
   }
  },
  "aufgaben": [
@@ -9962,6 +11020,2730 @@
    },
    "w": "(x | y) → (x | −y) → (−x | y). Nur das Vorzeichen von x ist am Ende anders: Spiegelung an der y-Achse.",
    "h": "Verfolge einen Punkt wie (2 | 3) durch beide Abbildungen."
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Zwei Leuchttürme stehen bei L₁(1 | 6) und L₂(7 | 6). Ein Schiff fährt auf der Route durch (0 | 1) und (8 | 5). An welchem Punkt P der Route ist es von beiden Leuchttürmen gleich weit entfernt?",
+    "schablone": "P(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      9
+     ],
+     "y": [
+      -1,
+      7
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 6,
+       "name": "L₁"
+      },
+      {
+       "x": 7,
+       "y": 6,
+       "name": "L₂"
+      }
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 0.5,
+       "t": 1,
+       "name": "Route"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     4,
+     3
+    ]
+   },
+   "c": [
+    "(1 + 7) / 2",
+    "1 + 4 / 2"
+   ],
+   "w": "P liegt auf der Mittelsenkrechten von [L₁L₂]: x = (1 + 7) : 2 = 4. Die Route steigt je 2 nach rechts um 1: bei x = 4 ist y = 1 + 2 = 3. P(4 | 3).",
+   "h": "Gleich weit von beiden Türmen: Mittelsenkrechte. Wo schneidet sie die Route?"
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Häuser A(−1 | 0), B(7 | 0) und C(−1 | 6) sollen einen gemeinsamen Spielplatz bekommen, der von allen drei Häusern gleich weit entfernt ist. Wo liegt er?",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      8
+     ],
+     "y": [
+      -1,
+      7
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": 0,
+       "name": "A"
+      },
+      {
+       "x": 7,
+       "y": 0,
+       "name": "B"
+      },
+      {
+       "x": -1,
+       "y": 6,
+       "name": "C"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     3
+    ]
+   },
+   "c": [
+    "(-1 + 7) / 2",
+    "(0 + 6) / 2"
+   ],
+   "w": "Mittelsenkrechte von [AB]: x = 3. Mittelsenkrechte von [AC]: y = 3. Sie schneiden sich in S(3 | 3); S ist von A, B und C je 5 Einheiten entfernt.",
+   "h": "Zwei Mittelsenkrechten reichen: eine für A und B, eine für A und C."
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Punkte A und B sind 8 cm voneinander entfernt. Wie viele Punkte gibt es, die von A und B gleich weit entfernt sind und von A genau 3 cm?"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "Solche Punkte müssten auf der Mittelsenkrechten liegen. Ihr nächster Punkt zu A ist die Mitte, 4 cm von A. 3 cm ist zu wenig: kein Punkt.",
+   "h": "Wie nah kommt die Mittelsenkrechte an A heran?"
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Die Punkte A(−4 | −5) und B(−4 | 3) liegen übereinander. Gib die Mittelsenkrechte von [AB] an.",
+    "schablone": "y = □",
+    "hinweis": "Trage die Zahl ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      1
+     ],
+     "y": [
+      -6,
+      4
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": -5,
+       "name": "A"
+      },
+      {
+       "x": -4,
+       "y": 3,
+       "name": "B"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -1
+    ]
+   },
+   "c": [
+    "(-5 + 3) / 2"
+   ],
+   "w": "Die Mittelsenkrechte ist hier waagrecht und geht durch die Mitte: y = (−5 + 3) : 2 = −1.",
+   "h": "Die Mittelsenkrechte geht durch die Mitte der Strecke und steht senkrecht auf ihr."
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Die Punkte A(−5 | −1) und B(1 | −1) liegen auf einer waagrechten Linie. Gib die Mittelsenkrechte von [AB] an.",
+    "schablone": "x = □",
+    "hinweis": "Trage die Zahl ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      2
+     ],
+     "y": [
+      -2,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": -1,
+       "name": "A"
+      },
+      {
+       "x": 1,
+       "y": -1,
+       "name": "B"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -2
+    ]
+   },
+   "c": [
+    "(-5 + 1) / 2"
+   ],
+   "w": "Die Mittelsenkrechte ist senkrecht und geht durch die Mitte von [AB]: x = (−5 + 1) : 2 = −2.",
+   "h": "Die Mittelsenkrechte geht durch die Mitte der Strecke."
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Durch welchen Punkt M geht die Mittelsenkrechte von [AB] mit A(1 | 0) und B(9 | 6)?",
+    "schablone": "M(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      10
+     ],
+     "y": [
+      -1,
+      7
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 0,
+       "name": "A"
+      },
+      {
+       "x": 9,
+       "y": 6,
+       "name": "B"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     5,
+     3
+    ]
+   },
+   "c": [
+    "(1 + 9) / 2",
+    "(0 + 6) / 2"
+   ],
+   "w": "M ist die Mitte von [AB]: x = (1 + 9) : 2 = 5, y = (0 + 6) : 2 = 3.",
+   "h": "Die Mittelsenkrechte geht durch den Mittelpunkt der Strecke."
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Punkt R liegt auf der Mittelsenkrechten von [AB]. Was gilt sicher?"
+   },
+   "a": [
+    "R ist der Mittelpunkt von [AB].",
+    "R ist von A doppelt so weit entfernt wie von B.",
+    "R liegt auf der Strecke [AB].",
+    "R ist von A und B gleich weit entfernt."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Alle Punkte der Mittelsenkrechten sind von A und B gleich weit entfernt. Der Mittelpunkt ist nur einer davon.",
+   "h": "Was haben alle Punkte der Mittelsenkrechten gemeinsam?"
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fälle das Lot von P(0 | 3) auf die waagrechte Gerade g: y = −2. Wo ist der Lotfußpunkt F?",
+    "schablone": "F(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      1
+     ],
+     "y": [
+      -3,
+      4
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 3,
+       "name": "P"
+      }
+     ],
+     "waagrecht": [
+      -2
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     0,
+     -2
+    ]
+   },
+   "c": [
+    "0",
+    "-2"
+   ],
+   "w": "Das Lot auf eine waagrechte Gerade ist senkrecht: x bleibt 0, F liegt auf g, also y = −2.",
+   "h": "Das Lot auf eine waagrechte Gerade geht senkrecht nach oben oder unten."
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Zwei Häuser stehen bei A(0 | 3) und B(8 | 3). An der Straße (x-Achse) soll ein Spielplatz S hin, von beiden Häusern gleich weit entfernt.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      9
+     ],
+     "y": [
+      -1,
+      4
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 3,
+       "name": "A"
+      },
+      {
+       "x": 8,
+       "y": 3,
+       "name": "B"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     4,
+     0
+    ]
+   },
+   "c": [
+    "(0 + 8) / 2",
+    "0"
+   ],
+   "w": "S liegt auf der Mittelsenkrechten x = 4 von [AB] und auf der x-Achse: S(4 | 0).",
+   "h": "Gleich weit von A und B: Mittelsenkrechte. Dann mit der Straße schneiden."
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "P' ist das Bild von P bei einer Achsenspiegelung. Wo liegt die Spiegelachse?"
+   },
+   "a": [
+    "Sie ist parallel zu [PP'].",
+    "Sie geht durch P und steht senkrecht auf [PP'].",
+    "Sie ist die Mittelsenkrechte von [PP'].",
+    "Sie ist die Gerade durch P und P'."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Bei der Achsenspiegelung ist P' gleich weit von der Achse entfernt wie P, und [PP'] steht senkrecht auf ihr: die Mittelsenkrechte.",
+   "h": "Denk an die Achsenspiegelung: senkrecht zur Achse, gleich weit auf die andere Seite."
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Du willst das Lot von C auf die Gerade g konstruieren. Was ist der erste Schritt?"
+   },
+   "a": [
+    "Einen Kreis um einen beliebigen Punkt von g zeichnen.",
+    "Einen Kreis um C zeichnen, der g zweimal schneidet.",
+    "C mit einem beliebigen Punkt von g verbinden.",
+    "Die Gerade durch C parallel zu g zeichnen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der Kreis um C liefert zwei Punkte auf g, die gleich weit von C entfernt sind. Ihre Mittelsenkrechte ist das Lot durch C.",
+   "h": "Du brauchst zwei Punkte auf g, die von C gleich weit entfernt sind."
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie weit ist Q(5 | −3) von der Geraden g: y = 2 entfernt? (1 Einheit = 1 cm)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      6
+     ],
+     "y": [
+      -4,
+      3
+     ],
+     "punkte": [
+      {
+       "x": 5,
+       "y": -3,
+       "name": "Q"
+      }
+     ],
+     "waagrecht": [
+      2
+     ]
+    }
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "cm"
+   },
+   "c": "abs(-3 - (2))",
+   "w": "Gemessen wird auf dem Lot (senkrecht): von y = −3 bis y = 2 sind es 5 cm.",
+   "h": "Der Abstand zu einer Geraden wird senkrecht gemessen."
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P liegt auf der Mittelsenkrechten von [AB] und ist 11,5 cm von A entfernt. Wie weit ist P von B entfernt?"
+   },
+   "o": {
+    "wert": 11.5,
+    "einheit": "cm"
+   },
+   "c": "23/2",
+   "w": "Punkte der Mittelsenkrechten sind von A und B gleich weit entfernt: ebenfalls 11,5 cm.",
+   "h": "Was bedeutet es, auf der Mittelsenkrechten zu liegen?"
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben sind A(−1 | −2) und B(2 | 1). Welcher Punkt liegt auf der Mittelsenkrechten von [AB]?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      3
+     ],
+     "y": [
+      -3,
+      2
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": -2,
+       "name": "A"
+      },
+      {
+       "x": 2,
+       "y": 1,
+       "name": "B"
+      }
+     ]
+    }
+   },
+   "a": [
+    "P(2 | −2)",
+    "P(2 | 0)",
+    "P(1 | −2)",
+    "P(3 | −2)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "P(2 | −2) ist von A und von B jeweils 3 Einheiten entfernt (einmal waagrecht, einmal senkrecht gezählt). Die anderen Punkte sind von A und B verschieden weit entfernt.",
+   "h": "Zähle Kästchen: Suche einen Punkt, der von A und B gleich weit weg ist, ohne schräg messen zu müssen."
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Punkt C liegt 3 cm über der Geraden g. Wie viele Punkte sind von g genau 2 cm und von C genau 3 cm entfernt?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -3,
+      7
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 3,
+       "name": "C"
+      }
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 0,
+       "t": 0,
+       "name": "g"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Punkte mit Abstand 2 cm von g liegen auf zwei Parallelen (2 cm über und unter g). Der Kreis um C mit 3 cm trifft die obere 2-mal (Abstand 1 cm) und die untere 0-mal (Abstand 5 cm). Zusammen 2.",
+   "h": "Zeichne die zwei Parallelen zu g und den Kreis um C. Zähle die Schnittpunkte."
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Drei Orte liegen bei A(0 | 2), B(4 | 2) und C(0 | 10). Ein Funkmast soll von allen drei Orten gleich weit entfernt sein. Wo steht er?",
+    "schablone": "M(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -1,
+      11
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 2,
+       "name": "A"
+      },
+      {
+       "x": 4,
+       "y": 2,
+       "name": "B"
+      },
+      {
+       "x": 0,
+       "y": 10,
+       "name": "C"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     2,
+     6
+    ]
+   },
+   "c": [
+    "(0 + 4) / 2",
+    "(2 + 10) / 2"
+   ],
+   "w": "M liegt auf der Mittelsenkrechten von [AB] (x = 2) und auf der von [AC] (y = 6). Schnittpunkt: M(2 | 6).",
+   "h": "Gleich weit von A und B: eine Mittelsenkrechte. Gleich weit von A und C: noch eine. Wo schneiden sie sich?"
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Fälle das Lot von P(4 | −2) auf die Gerade y = x. Wo ist der Lotfußpunkt F?",
+    "schablone": "F(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -3,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 4,
+       "y": -2,
+       "name": "P"
+      }
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 0,
+       "name": "y = x"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     1,
+     1
+    ]
+   },
+   "c": [
+    "(4 + -2) / 2",
+    "(4 + -2) / 2"
+   ],
+   "w": "Spiegle P an y = x: P'(−2 | 4). Die Gerade y = x ist die Mittelsenkrechte von [PP'], F ist die Mitte: F(1 | 1).",
+   "h": "Spiegle P an y = x (x und y tauschen). Der Fußpunkt ist die Mitte von P und P'."
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "AB = 4 cm. Wie viele Punkte sind von A und B gleich weit entfernt und zugleich genau 3 cm von A entfernt?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Die Punkte liegen auf der Mittelsenkrechten und auf dem Kreis um A mit 3 cm. Der nächste Punkt der Mittelsenkrechten ist die Mitte (2 cm von A). Darum gibt es 2 solche Punkte.",
+   "h": "Mittelsenkrechte und Kreis um A schneiden – wie nah kommt die Mittelsenkrechte an A heran?"
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Zwei Häuser stehen bei A(0 | 6) und B(6 | 6). An der Straße (x-Achse) soll eine Bank S hin, von beiden Häusern gleich weit entfernt.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      7
+     ],
+     "y": [
+      -1,
+      7
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 6,
+       "name": "A"
+      },
+      {
+       "x": 6,
+       "y": 6,
+       "name": "B"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     0
+    ]
+   },
+   "c": [
+    "(0 + 6) / 2",
+    "0"
+   ],
+   "w": "S liegt auf der Mittelsenkrechten x = 3 von [AB] und auf der x-Achse: S(3 | 0)."
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Zwei Häuser stehen bei A(−2 | 5) und B(2 | 5). An der Straße (x-Achse) soll ein Briefkasten S hin, von beiden Häusern gleich weit entfernt.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      3
+     ],
+     "y": [
+      -1,
+      6
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 5,
+       "name": "A"
+      },
+      {
+       "x": 2,
+       "y": 5,
+       "name": "B"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     0,
+     0
+    ]
+   },
+   "c": [
+    "(-2 + 2) / 2",
+    "0"
+   ],
+   "w": "S liegt auf der Mittelsenkrechten x = 0 von [AB] und auf der x-Achse: S(0 | 0)."
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie weit ist C(4 | 3) von der Geraden g: y = 6 entfernt? (1 Einheit = 1 cm)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -1,
+      7
+     ],
+     "punkte": [
+      {
+       "x": 4,
+       "y": 3,
+       "name": "C"
+      }
+     ],
+     "waagrecht": [
+      6
+     ]
+    }
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm"
+   },
+   "c": "abs(3 - (6))",
+   "w": "Gemessen wird auf dem Lot (senkrecht): von y = 3 bis y = 6 sind es 3 cm."
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Q liegt auf der Mittelsenkrechten von [AB] und ist 9,5 cm von A entfernt. Wie weit ist Q von B entfernt?"
+   },
+   "o": {
+    "wert": 9.5,
+    "einheit": "cm"
+   },
+   "c": "19/2",
+   "w": "Punkte der Mittelsenkrechten sind von A und B gleich weit entfernt: ebenfalls 9,5 cm."
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie weit ist C(0 | −2) von der Geraden g: y = 5 entfernt? (1 Einheit = 1 cm)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      1
+     ],
+     "y": [
+      -3,
+      6
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": -2,
+       "name": "C"
+      }
+     ],
+     "waagrecht": [
+      5
+     ]
+    }
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "cm"
+   },
+   "c": "abs(-2 - (5))",
+   "w": "Gemessen wird auf dem Lot (senkrecht): von y = −2 bis y = 5 sind es 7 cm."
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "T liegt auf der Mittelsenkrechten von [AB] und ist 3 cm von A entfernt. Wie weit ist T von B entfernt?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm"
+   },
+   "c": "3",
+   "w": "Punkte der Mittelsenkrechten sind von A und B gleich weit entfernt: ebenfalls 3 cm."
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "AB = 11 cm. Die Kreise um A und um B mit gleichem Radius sollen sich in zwei Punkten schneiden. Welcher Radius passt?"
+   },
+   "a": [
+    "5 cm",
+    "4 cm",
+    "6,5 cm",
+    "5,5 cm"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Radius muss größer als die halbe Strecke sein: größer als 5,5 cm. Nur 6,5 cm ist größer."
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fälle das Lot von P(5 | −1) auf die senkrechte Gerade g: x = 3. Wo ist der Lotfußpunkt F?",
+    "schablone": "F(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      6
+     ],
+     "y": [
+      -2,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 5,
+       "y": -1,
+       "name": "P"
+      }
+     ],
+     "senkrecht": [
+      3
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     -1
+    ]
+   },
+   "c": [
+    "3",
+    "-1"
+   ],
+   "w": "Das Lot auf eine senkrechte Gerade ist waagrecht: y bleibt −1, F liegt auf g, also x = 3."
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Für die Mittelsenkrechte von [AB] zeichnest du Kreise um A und um B. Was muss für ihre Radien gelten?"
+   },
+   "a": [
+    "Die Radien dürfen verschieden sein.",
+    "Beide gleich groß und größer als die Hälfte von AB.",
+    "Beide genau so groß wie AB.",
+    "Beide kleiner als die Hälfte von AB."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gleiche Radien geben Punkte gleich weit von A und B. Größer als die halbe Strecke, sonst schneiden sich die Kreise nicht. AB selbst geht auch, ist aber keine Bedingung."
+  },
+  {
+   "l": "mittelsenkrechte",
+   "t": "mittelsenkrechte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie weit ist P(6 | 7) von der Geraden g: y = 5 entfernt? (1 Einheit = 1 cm)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      7
+     ],
+     "y": [
+      -1,
+      8
+     ],
+     "punkte": [
+      {
+       "x": 6,
+       "y": 7,
+       "name": "P"
+      }
+     ],
+     "waagrecht": [
+      5
+     ]
+    }
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "cm"
+   },
+   "c": "abs(7 - (5))",
+   "w": "Gemessen wird auf dem Lot (senkrecht): von y = 7 bis y = 5 sind es 2 cm."
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Feld wird von zwei geraden Wegen begrenzt: der x-Achse und der y-Achse. Ein Baum soll von beiden Wegen gleich weit entfernt sein und am Bach von (0 | 10) nach (10 | 0) stehen.",
+    "schablone": "B(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      11
+     ],
+     "y": [
+      -1,
+      11
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 10
+      },
+      {
+       "x": 10,
+       "y": 0
+      }
+     ],
+     "strecken": [
+      [
+       0,
+       10,
+       10,
+       0
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     5,
+     5
+    ]
+   },
+   "c": [
+    "10 / 2",
+    "10 / 2"
+   ],
+   "w": "Gleich weit von beiden Wegen: Winkelhalbierende y = x. Auf dem Bach gilt x + y = 10. Also B(5 | 5).",
+   "h": "Gleich weit von beiden Achsen heißt: x und y sind gleich."
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum stehen die Winkelhalbierenden zweier Nebenwinkel immer senkrecht aufeinander?"
+   },
+   "a": [
+    "Die beiden Hälften ergeben zusammen 180° : 2 = 90°.",
+    "Weil Nebenwinkel immer gleich groß sind.",
+    "Weil eine Winkelhalbierende immer senkrecht auf einem Schenkel steht.",
+    "Weil Nebenwinkel immer 90° groß sind."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nebenwinkel ergeben zusammen 180°. Ihre Hälften ergeben zusammen die Hälfte davon, also 90°.",
+   "h": "Wie viel ergeben Nebenwinkel zusammen? Und ihre Hälften?"
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Punkte sind von der x-Achse und von der y-Achse jeweils genau 3 Einheiten entfernt?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Es muss |x| = 3 und |y| = 3 gelten: (3 | 3), (−3 | 3), (−3 | −3), (3 | −3). Das sind 4 Punkte – auf den beiden Winkelhalbierenden der Achsen.",
+   "h": "Denk an alle vier Quadranten."
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "X liegt auf der Winkelhalbierenden des Winkels mit den Schenkeln s und t. X ist 2,5 cm von s entfernt. Wie weit ist X von t entfernt?"
+   },
+   "o": {
+    "wert": 2.5,
+    "einheit": "cm"
+   },
+   "c": "5/2",
+   "w": "Punkte der Winkelhalbierenden sind von beiden Schenkeln gleich weit entfernt: 2,5 cm.",
+   "h": "Was haben alle Punkte der Winkelhalbierenden gemeinsam?"
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Punkt ist von der x-Achse und von der y-Achse gleich weit entfernt?"
+   },
+   "a": [
+    "P(4 | 5)",
+    "P(3 | 5)",
+    "P(4 | 4)",
+    "P(5 | 3)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Abstand zur x-Achse ist der y-Wert, Abstand zur y-Achse der x-Wert. Bei P(4 | 4) sind beide 4: Der Punkt liegt auf der Winkelhalbierenden y = x.",
+   "h": "Der Abstand zur x-Achse ist |y|, zur y-Achse |x|."
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Q liegt auf der Winkelhalbierenden von α. Was gilt sicher?"
+   },
+   "a": [
+    "Q ist vom Scheitel genau so weit entfernt wie von jedem Schenkel.",
+    "Q ist von beiden Schenkeln gleich weit entfernt.",
+    "Q liegt auf einem der beiden Schenkel.",
+    "Q ist von beiden Schenkeln doppelt so weit entfernt wie vom Scheitel."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Alle Punkte der Winkelhalbierenden haben von beiden Schenkeln den gleichen (senkrecht gemessenen) Abstand.",
+   "h": "Woran erkennt man einen Punkt auf der Winkelhalbierenden?"
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Winkelhalbierende teilt den Winkel α = 130°. Wie groß ist jeder der beiden Teile?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0.0,
+       0.0
+      ],
+      "_a": [
+       5.0,
+       0.0
+      ],
+      "_b": [
+       -3.214,
+       3.83
+      ],
+      "_w": [
+       2.324,
+       4.985
+      ]
+     },
+     "linien": [
+      [
+       "S",
+       "_a"
+      ],
+      [
+       "S",
+       "_b"
+      ],
+      [
+       "S",
+       "_w",
+       "w",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "S",
+       "_a",
+       "_b",
+       "130°"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 65,
+    "einheit": "°"
+   },
+   "c": "130 / 2",
+   "w": "Halbieren: 130° : 2 = 65°.",
+   "h": "Halbierende heißt: zwei gleich große Teile."
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Winkelhalbierende von α bildet mit einem Schenkel 56°. Wie groß ist der Nebenwinkel von α?"
+   },
+   "o": {
+    "wert": 68,
+    "einheit": "°"
+   },
+   "c": "180 - 2 * 56",
+   "w": "α = 2 · 56° = 112°. Nebenwinkel: 180° − 112° = 68°.",
+   "h": "Erst α bestimmen, dann zu 180° ergänzen."
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben sind die Geraden g: y = 2 und h: x = −3. Welcher Punkt ist von g und h gleich weit entfernt?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -1,
+      8
+     ],
+     "waagrecht": [
+      2
+     ],
+     "senkrecht": [
+      -3
+     ]
+    }
+   },
+   "a": [
+    "P(0 | 2)",
+    "P(−2 | 5)",
+    "P(3 | 5)",
+    "P(0 | 5)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Abstand zu g: |y − (2)|, Abstand zu h: |x − (−3)|. Bei P(0 | 5) sind beide 3.",
+   "h": "Zähle die Kästchen senkrecht bis g und waagrecht bis h."
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Winkelhalbierende teilt α in zwei Teile. Jeder Teil ist 48° groß. Wie groß ist α?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0.0,
+       0.0
+      ],
+      "_a": [
+       5.0,
+       0.0
+      ],
+      "_b": [
+       -0.523,
+       4.973
+      ],
+      "_w": [
+       3.68,
+       4.087
+      ]
+     },
+     "linien": [
+      [
+       "S",
+       "_a"
+      ],
+      [
+       "S",
+       "_b"
+      ],
+      [
+       "S",
+       "_w",
+       "w",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "S",
+       "_a",
+       "_w",
+       "48°"
+      ],
+      [
+       "S",
+       "_w",
+       "_b",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 96,
+    "einheit": "°"
+   },
+   "c": "2 * 48",
+   "w": "Zwei gleiche Teile: α = 2 · 48° = 96°.",
+   "h": "Die beiden Teile sind gleich groß."
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "α = 82° und β = 98° sind Nebenwinkel. Wie groß ist der Winkel zwischen den Winkelhalbierenden von α und β?"
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "82 / 2 + 98 / 2",
+   "w": "82° : 2 + 98° : 2 = 41° + 49° = 90°.",
+   "h": "Addiere die beiden Hälften."
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P liegt im 1. Quadranten auf der Winkelhalbierenden von x-Achse und y-Achse und hat von der x-Achse den Abstand 7. Gib P an.",
+    "schablone": "P(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein."
+   },
+   "o": {
+    "werte": [
+     7,
+     7
+    ]
+   },
+   "c": [
+    "7",
+    "7"
+   ],
+   "w": "Auf dieser Winkelhalbierenden (y = x) sind beide Abstände gleich: P(7 | 7).",
+   "h": "Von beiden Achsen gleich weit entfernt."
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Kreise um P und Q haben sich im Punkt W geschnitten. Was ist der letzte Schritt für die Winkelhalbierende?"
+   },
+   "a": [
+    "Einen Kreis um W zeichnen.",
+    "Die Strecke [PW] zeichnen.",
+    "Die Gerade durch P und Q zeichnen.",
+    "Die Halbgerade von S durch W zeichnen."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "S und W liegen beide auf der Winkelhalbierenden; die Halbgerade von S durch W ist sie.",
+   "h": "Welche zwei Punkte liegen sicher auf der Winkelhalbierenden?"
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Zwei Straßen verlaufen entlang der x-Achse und der y-Achse. Ein Brunnen soll von beiden Straßen gleich weit entfernt sein und am Weg von (0 | 14) nach (14 | 0) liegen.",
+    "schablone": "B(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      15
+     ],
+     "y": [
+      -1,
+      15
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 14
+      },
+      {
+       "x": 14,
+       "y": 0
+      }
+     ],
+     "strecken": [
+      [
+       0,
+       14,
+       14,
+       0
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     7,
+     7
+    ]
+   },
+   "c": [
+    "14 / 2",
+    "14 / 2"
+   ],
+   "w": "Gleich weit von beiden Straßen: Winkelhalbierende y = x. Auf dem Weg gilt x + y = 14. Also x = y = 7: B(7 | 7).",
+   "h": "Gleich weit von beiden Achsen heißt: x und y sind gleich."
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "g: y = 2 und h: x = −2 kreuzen sich. Gesucht ist der Punkt rechts von h und oberhalb von g, der von g und h gleich weit entfernt ist und auf y = 5 liegt.",
+    "schablone": "P(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      3
+     ],
+     "y": [
+      -1,
+      7
+     ],
+     "waagrecht": [
+      2,
+      5
+     ],
+     "senkrecht": [
+      -2
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     1,
+     5
+    ]
+   },
+   "c": [
+    "-2 + 3",
+    "2 + 3"
+   ],
+   "w": "Auf y = 5 ist der Abstand zu g gleich 3. Also ist auch der Abstand zu h gleich 3: x = −2 + 3 = 1.",
+   "h": "Bestimme zuerst den Abstand zu g; derselbe Abstand gilt für h."
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "α = 160° wird halbiert. Wie groß ist der Winkel zwischen der Winkelhalbierenden und der Verlängerung eines Schenkels über den Scheitel hinaus?"
+   },
+   "o": {
+    "wert": 100,
+    "einheit": "°"
+   },
+   "c": "180 - 80",
+   "w": "Halbgerade und Verlängerung bilden mit dem Schenkel eine Gerade: 180° − 80° = 100°.",
+   "h": "Schenkel und seine Verlängerung bilden eine Gerade (180°)."
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Punkte sind von beiden Koordinatenachsen gleich weit entfernt und haben von der y-Achse den Abstand 2?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Es gilt |x| = |y| = 2: (2 | 2), (−2 | 2), (−2 | −2), (2 | −2) – in jedem Quadranten einer, also 4.",
+   "h": "Die Achsen bilden vier Winkel. Jeder hat eine Winkelhalbierende."
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben sind die Geraden g: y = 0 und h: x = −2. Welcher Punkt ist von g und h gleich weit entfernt?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "waagrecht": [
+      0
+     ],
+     "senkrecht": [
+      -2
+     ]
+    }
+   },
+   "a": [
+    "P(1 | 0)",
+    "P(−2 | 2)",
+    "P(0 | 2)",
+    "P(0 | 3)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Abstand zu g: |y − (0)|, Abstand zu h: |x − (−2)|. Bei P(0 | 2) sind beide 2.",
+   "h": "Zähle die Kästchen senkrecht bis g und waagrecht bis h."
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben sind die Geraden g: y = 3 und h: x = 2. Welcher Punkt ist von g und h gleich weit entfernt?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      10
+     ],
+     "y": [
+      -1,
+      9
+     ],
+     "waagrecht": [
+      3
+     ],
+     "senkrecht": [
+      2
+     ]
+    }
+   },
+   "a": [
+    "P(5 | 6)",
+    "P(5 | 7)",
+    "P(6 | 3)",
+    "P(3 | 6)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Abstand zu g: |y − (3)|, Abstand zu h: |x − (2)|. Bei P(5 | 6) sind beide 3."
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Winkelhalbierende teilt α in zwei Teile. Jeder Teil ist 53° groß. Wie groß ist α?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0.0,
+       0.0
+      ],
+      "_a": [
+       5.0,
+       0.0
+      ],
+      "_b": [
+       -1.378,
+       4.806
+      ],
+      "_w": [
+       3.31,
+       4.392
+      ]
+     },
+     "linien": [
+      [
+       "S",
+       "_a"
+      ],
+      [
+       "S",
+       "_b"
+      ],
+      [
+       "S",
+       "_w",
+       "w",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "S",
+       "_a",
+       "_w",
+       "53°"
+      ],
+      [
+       "S",
+       "_w",
+       "_b",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 106,
+    "einheit": "°"
+   },
+   "c": "2 * 53",
+   "w": "Zwei gleiche Teile: α = 2 · 53° = 106°."
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "α = 116° und β = 64° sind Nebenwinkel. Wie groß ist der Winkel zwischen den Winkelhalbierenden von α und β?"
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "116 / 2 + 64 / 2",
+   "w": "116° : 2 + 64° : 2 = 58° + 32° = 90°."
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P liegt im 1. Quadranten auf der Winkelhalbierenden von x-Achse und y-Achse und hat von der y-Achse den Abstand 4. Gib P an.",
+    "schablone": "P(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein."
+   },
+   "o": {
+    "werte": [
+     4,
+     4
+    ]
+   },
+   "c": [
+    "4",
+    "4"
+   ],
+   "w": "Auf dieser Winkelhalbierenden (y = x) sind beide Abstände gleich: P(4 | 4)."
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Winkelhalbierende teilt α in zwei Teile. Jeder Teil ist 17° groß. Wie groß ist α?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0.0,
+       0.0
+      ],
+      "_a": [
+       5.0,
+       0.0
+      ],
+      "_b": [
+       4.145,
+       2.796
+      ],
+      "_w": [
+       5.26,
+       1.608
+      ]
+     },
+     "linien": [
+      [
+       "S",
+       "_a"
+      ],
+      [
+       "S",
+       "_b"
+      ],
+      [
+       "S",
+       "_w",
+       "w",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "S",
+       "_a",
+       "_w",
+       "17°"
+      ],
+      [
+       "S",
+       "_w",
+       "_b",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 34,
+    "einheit": "°"
+   },
+   "c": "2 * 17",
+   "w": "Zwei gleiche Teile: α = 2 · 17° = 34°."
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Für die Winkelhalbierende hast du einen Kreis um den Scheitel S gezeichnet. Er schneidet die Schenkel in P und Q. Was folgt?"
+   },
+   "a": [
+    "Einen zweiten Kreis um S zeichnen.",
+    "Kreise mit gleichem Radius um P und um Q zeichnen.",
+    "Die Gerade durch P und Q verlängern.",
+    "Die Strecke [PQ] zeichnen und fertig."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Kreise um P und Q schneiden sich in einem Punkt W, der gleich weit von P und Q ist. Die Halbgerade SW halbiert den Winkel."
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Winkelhalbierende von α bildet mit einem Schenkel 32°. Wie groß ist der Nebenwinkel von α?"
+   },
+   "o": {
+    "wert": 116,
+    "einheit": "°"
+   },
+   "c": "180 - 2 * 32",
+   "w": "α = 2 · 32° = 64°. Nebenwinkel: 180° − 64° = 116°."
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben sind die Geraden g: y = 1 und h: x = −1. Welcher Punkt ist von g und h gleich weit entfernt?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      9
+     ],
+     "y": [
+      -1,
+      8
+     ],
+     "waagrecht": [
+      1
+     ],
+     "senkrecht": [
+      -1
+     ]
+    }
+   },
+   "a": [
+    "P(3 | 6)",
+    "P(4 | 1)",
+    "P(7 | 5)",
+    "P(3 | 5)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Abstand zu g: |y − (1)|, Abstand zu h: |x − (−1)|. Bei P(3 | 5) sind beide 4."
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Winkelhalbierende von α bildet mit einem Schenkel 62°. Wie groß ist der Nebenwinkel von α?"
+   },
+   "o": {
+    "wert": 56,
+    "einheit": "°"
+   },
+   "c": "180 - 2 * 62",
+   "w": "α = 2 · 62° = 124°. Nebenwinkel: 180° − 124° = 56°."
+  },
+  {
+   "l": "winkelhalbierende",
+   "t": "winkelhalbierende",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben sind die Geraden g: y = 1 und h: x = −2. Welcher Punkt ist von g und h gleich weit entfernt?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      6
+     ],
+     "y": [
+      -1,
+      7
+     ],
+     "waagrecht": [
+      1
+     ],
+     "senkrecht": [
+      -2
+     ]
+    }
+   },
+   "a": [
+    "P(1 | 4)",
+    "P(4 | 4)",
+    "P(−2 | 4)",
+    "P(−1 | 4)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Abstand zu g: |y − (1)|, Abstand zu h: |x − (−2)|. Bei P(1 | 4) sind beide 3."
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Tim behauptet: „Jedes Viereck mit genau zwei Symmetrieachsen ist ein Rechteck.“ Welches Viereck zeigt, dass Tim nicht recht hat?"
+   },
+   "a": [
+    "eine Raute, die kein Quadrat ist",
+    "ein Drachenviereck, das keine Raute ist",
+    "ein Quadrat",
+    "ein Parallelogramm, das kein Rechteck ist"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Eine Raute (kein Quadrat) hat genau zwei Symmetrieachsen – die Diagonalen – ist aber kein Rechteck. Ein Quadrat hat vier Achsen.",
+   "h": "Suche ein Viereck mit genau zwei Achsen, das keine rechten Winkel hat."
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Viereck ist ein Drachenviereck und zugleich ein Parallelogramm. Welches Viereck ist es sicher?"
+   },
+   "a": [
+    "gleichschenkliges Trapez",
+    "Raute",
+    "Quadrat",
+    "Rechteck"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Im Haus der Vierecke steht unter Drachenviereck und Parallelogramm die Raute. Ein Quadrat wäre möglich, ist aber nicht sicher.",
+   "h": "Welches Viereck steht direkt unter beiden?"
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Viereck ist ein gleichschenkliges Trapez und zugleich ein Drachenviereck. Welches Viereck ist es?"
+   },
+   "a": [
+    "Rechteck",
+    "Parallelogramm",
+    "Quadrat",
+    "Raute"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Es braucht eine Achse durch zwei Ecken (Drachen) und eine durch zwei Seitenmitten (Trapez). Unter beiden steht im Haus der Vierecke nur das Quadrat.",
+   "h": "Verfolge im Haus der Vierecke beide Vierecke nach unten, bis sie sich treffen."
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Viereck hat genau eine Symmetrieachse, die durch zwei Ecken geht. Welches ist es?"
+   },
+   "a": [
+    "Quadrat",
+    "Raute",
+    "Parallelogramm",
+    "Drachenviereck"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Drachenviereck: genau eine Symmetrieachse, die durch zwei Ecken geht. Die anderen Vierecke haben andere Achsen.",
+   "h": "Zähle die Achsen und schau, wo sie verlaufen: durch Ecken oder durch Seitenmitten?"
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist wahr?"
+   },
+   "a": [
+    "Jedes Quadrat ist eine Raute.",
+    "Jedes Drachenviereck ist ein Parallelogramm.",
+    "Jedes Rechteck ist ein Quadrat.",
+    "Jedes Drachenviereck ist ein Quadrat."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Im Haus der Vierecke führt ein Weg von „Quadrat“ nach oben zu „Raute“: Jedes Quadrat ist eine Raute. Die anderen Sätze gelten nur umgekehrt oder gar nicht.",
+   "h": "Im Haus der Vierecke: Ein Viereck weiter unten ist auch jedes Viereck darüber, mit dem es verbunden ist."
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele dieser Vierecke sind punktsymmetrisch: Raute, Drachenviereck, Rechteck, Quadrat?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "punktsymmetrisch: Raute, Rechteck, Quadrat – das sind 3.",
+   "h": "Geh die Liste einzeln durch. Punktsymmetrisch: nach halber Drehung gleich."
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Viereck hat genau zwei Symmetrieachsen, die durch Ecken gehen. Welches ist es?"
+   },
+   "a": [
+    "gleichschenkliges Trapez",
+    "Quadrat",
+    "Raute",
+    "Parallelogramm"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Raute: genau zwei Symmetrieachsen, die durch Ecken gehen. Die anderen Vierecke haben andere Achsen.",
+   "h": "Zähle die Achsen und schau, wo sie verlaufen: durch Ecken oder durch Seitenmitten?"
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist falsch?"
+   },
+   "a": [
+    "Jedes Quadrat ist ein Drachenviereck.",
+    "Jedes Rechteck ist ein Parallelogramm.",
+    "Jedes Rechteck ist ein gleichschenkliges Trapez.",
+    "Jedes Drachenviereck ist eine Raute."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Jedes Drachenviereck ist eine Raute. stimmt nicht. Umgekehrt stimmt es: Jede Raute ist ein Drachenviereck.",
+   "h": "Prüfe bei jedem Satz die Richtung: Ist das erste Viereck ein Spezialfall des zweiten?"
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Viereck ist abgebildet (maßstäblich gezeichnet)? Wähle die genaueste Bezeichnung.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0.0,
+       0.0
+      ],
+      "B": [
+       2.0,
+       4.5
+      ],
+      "C": [
+       0.0,
+       6.0
+      ],
+      "D": [
+       -2.0,
+       4.5
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Quadrat",
+    "Drachenviereck",
+    "Parallelogramm",
+    "Rechteck"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Das Bild zeigt ein Drachenviereck: genau eine Symmetrieachse, die durch zwei Ecken geht.",
+   "h": "Prüfe Seitenlängen, rechte Winkel und mögliche Faltachsen."
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Haus der Vierecke stehen direkt über dem Rechteck zwei Vierecke. Welche?"
+   },
+   "a": [
+    "Quadrat und Raute",
+    "Parallelogramm und Drachenviereck",
+    "Raute und Drachenviereck",
+    "Parallelogramm und gleichschenkliges Trapez"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Direkt darüber stehen die nächst allgemeineren Vierecke: Parallelogramm und gleichschenkliges Trapez.",
+   "h": "Welche Symmetrie verliert das Viereck, wenn man eine Bedingung weglässt?"
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wo verlaufen die Symmetrieachsen eines Drachenvierecks?"
+   },
+   "a": [
+    "nur eine Achse, durch zwei gegenüberliegende Ecken",
+    "nur eine Achse, durch die Mitten der beiden parallelen Seiten",
+    "durch die Mitten je zweier gegenüberliegender Seiten",
+    "durch je zwei gegenüberliegende Ecken (die Diagonalen)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Drachenviereck: genau eine Symmetrieachse, die durch zwei Ecken geht.",
+   "h": "Falte in Gedanken: Wo liegen die Hälften genau aufeinander?"
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Viereck ist eine Raute und zugleich ein gleichschenkliges Trapez. Welches Viereck ist es sicher?"
+   },
+   "a": [
+    "Drachenviereck",
+    "Quadrat",
+    "Rechteck",
+    "Parallelogramm"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Es hat die Symmetrien beider Vierecke. Im Haus der Vierecke ist das ein Quadrat (oder ein Spezialfall davon).",
+   "h": "Suche das Viereck, das unter beiden steht – das höchste davon."
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Viereck ist abgebildet (maßstäblich gezeichnet)? Wähle die genaueste Bezeichnung.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0.0,
+       0.0
+      ],
+      "B": [
+       6.0,
+       0.0
+      ],
+      "C": [
+       6.0,
+       3.0
+      ],
+      "D": [
+       0.0,
+       3.0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Drachenviereck",
+    "Quadrat",
+    "Rechteck",
+    "Raute"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Das Bild zeigt ein Rechteck: genau zwei Symmetrieachsen, die durch Seitenmitten gehen.",
+   "h": "Prüfe Seitenlängen, rechte Winkel und mögliche Faltachsen."
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Quadrat, Rechteck, Raute, Parallelogramm, Drachenviereck, gleichschenkliges Trapez (jeweils ohne Spezialfälle): Wie viele davon sind achsensymmetrisch, aber nicht punktsymmetrisch?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Drachenviereck, gleichschenkliges Trapez – also 2.",
+   "h": "Nutze die Tabelle: Achsen und Punktsymmetrie je Viereck."
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Viereck ist ein Drachenviereck und zugleich ein Rechteck. Welches Viereck ist es sicher?"
+   },
+   "a": [
+    "Raute",
+    "Quadrat",
+    "gleichschenkliges Trapez",
+    "Parallelogramm"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Es hat die Symmetrien beider Vierecke. Im Haus der Vierecke ist das ein Quadrat (oder ein Spezialfall davon).",
+   "h": "Suche das Viereck, das unter beiden steht – das höchste davon."
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Eigenschaft hat jedes Rechteck, aber nicht jedes Parallelogramm?"
+   },
+   "a": [
+    "Punktsymmetrie",
+    "gegenüberliegende Seiten gleich lang",
+    "vier gleich lange Seiten",
+    "vier rechte Winkel"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Vier rechte Winkel: Das gilt für jedes Rechteck, aber nicht für jedes Parallelogramm. Die anderen Eigenschaften haben entweder beide oder keines sicher.",
+   "h": "Prüfe jede Eigenschaft für beide Vierecke."
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Quadrat, Rechteck, Raute, Parallelogramm, Drachenviereck, gleichschenkliges Trapez (jeweils ohne Spezialfälle): Wie viele davon sind punktsymmetrisch, aber nicht achsensymmetrisch?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "Parallelogramm (wenn es weder Rechteck noch Raute ist) – also 1.",
+   "h": "Nutze die Tabelle: Achsen und Punktsymmetrie je Viereck."
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Eigenschaft hat jede Raute, aber nicht jedes Parallelogramm?"
+   },
+   "a": [
+    "Punktsymmetrie",
+    "vier rechte Winkel",
+    "mindestens zwei Symmetrieachsen",
+    "gegenüberliegende Seiten parallel"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Mindestens zwei Symmetrieachsen: Das gilt für jede Raute, aber nicht für jedes Parallelogramm. Die anderen Eigenschaften haben entweder beide oder keines sicher.",
+   "h": "Prüfe jede Eigenschaft für beide Vierecke."
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Viereck ist abgebildet (maßstäblich gezeichnet)? Wähle die genaueste Bezeichnung.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0.0,
+       0.0
+      ],
+      "B": [
+       7.0,
+       0.0
+      ],
+      "C": [
+       5.0,
+       3.0
+      ],
+      "D": [
+       2.0,
+       3.0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "gleichschenkliges Trapez",
+    "Quadrat",
+    "Drachenviereck",
+    "Raute"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Das Bild zeigt ein gleichschenkliges Trapez: genau eine Symmetrieachse, die durch zwei Seitenmitten geht."
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Viereck ist eine Raute und zugleich ein Rechteck. Welches Viereck ist es sicher?"
+   },
+   "a": [
+    "Quadrat",
+    "gleichschenkliges Trapez",
+    "Parallelogramm",
+    "Drachenviereck"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Es hat die Symmetrien beider Vierecke. Im Haus der Vierecke ist das ein Quadrat (oder ein Spezialfall davon)."
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Viereck ist abgebildet (maßstäblich gezeichnet)? Wähle die genaueste Bezeichnung.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0.0,
+       0.0
+      ],
+      "B": [
+       6.0,
+       0.0
+      ],
+      "C": [
+       6.0,
+       5.0
+      ],
+      "D": [
+       0.0,
+       5.0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Quadrat",
+    "Drachenviereck",
+    "Rechteck",
+    "Raute"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Das Bild zeigt ein Rechteck: genau zwei Symmetrieachsen, die durch Seitenmitten gehen."
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Haus der Vierecke stehen direkt über der Raute zwei Vierecke. Welche?"
+   },
+   "a": [
+    "Rechteck und Quadrat",
+    "Parallelogramm und Drachenviereck",
+    "Parallelogramm und gleichschenkliges Trapez",
+    "Rechteck und Drachenviereck"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Direkt darüber stehen die nächst allgemeineren Vierecke: Parallelogramm und Drachenviereck."
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Viereck ist abgebildet (maßstäblich gezeichnet)? Wähle die genaueste Bezeichnung.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0.0,
+       0.0
+      ],
+      "B": [
+       3.0,
+       0.0
+      ],
+      "C": [
+       3.0,
+       6.0
+      ],
+      "D": [
+       0.0,
+       6.0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Quadrat",
+    "Raute",
+    "Drachenviereck",
+    "Rechteck"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Das Bild zeigt ein Rechteck: genau zwei Symmetrieachsen, die durch Seitenmitten gehen."
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Haus der Vierecke stehen direkt über dem Quadrat zwei Vierecke. Welche?"
+   },
+   "a": [
+    "Drachenviereck und gleichschenkliges Trapez",
+    "Raute und Drachenviereck",
+    "Rechteck und Parallelogramm",
+    "Rechteck und Raute"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Direkt darüber stehen die nächst allgemeineren Vierecke: Rechteck und Raute."
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wo verlaufen die Symmetrieachsen eines Rechtecks?"
+   },
+   "a": [
+    "durch die Mitten je zweier gegenüberliegender Seiten",
+    "nur eine Achse, durch die Mitten der beiden parallelen Seiten",
+    "durch je zwei gegenüberliegende Ecken (die Diagonalen)",
+    "nur eine Achse, durch zwei gegenüberliegende Ecken"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Rechteck: genau zwei Symmetrieachsen, die durch Seitenmitten gehen."
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Viereck hat genau eine Symmetrieachse, die durch zwei Seitenmitten geht. Welches ist es?"
+   },
+   "a": [
+    "Drachenviereck",
+    "gleichschenkliges Trapez",
+    "Quadrat",
+    "Raute"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "gleichschenkliges Trapez: genau eine Symmetrieachse, die durch zwei Seitenmitten geht. Die anderen Vierecke haben andere Achsen."
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Viereck ist abgebildet (maßstäblich gezeichnet)? Wähle die genaueste Bezeichnung.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0.0,
+       0.0
+      ],
+      "B": [
+       5.0,
+       0.0
+      ],
+      "C": [
+       5.0,
+       3.0
+      ],
+      "D": [
+       0.0,
+       3.0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Quadrat",
+    "Drachenviereck",
+    "Rechteck",
+    "Raute"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Das Bild zeigt ein Rechteck: genau zwei Symmetrieachsen, die durch Seitenmitten gehen."
+  },
+  {
+   "l": "vierecke_ordnen",
+   "t": "vierecke_ordnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wo verlaufen die Symmetrieachsen einer Raute?"
+   },
+   "a": [
+    "nur eine Achse, durch zwei gegenüberliegende Ecken",
+    "durch die Mitten je zweier gegenüberliegender Seiten",
+    "nur eine Achse, durch die Mitten der beiden parallelen Seiten",
+    "durch je zwei gegenüberliegende Ecken (die Diagonalen)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Raute: genau zwei Symmetrieachsen, die durch Ecken gehen."
   }
  ],
  "offen": [
@@ -9969,6 +13751,7 @@
   "Neue Lernkarte „parkett“ (aus der Prüfung): Bild einer Ecke mit sechs Dreiecken; Aufgaben rechnerisch. Ganze Parkettflächen als Bild wären möglich, sind aber nicht eingebaut.",
   "Annahme der Prüfung, nicht umgesetzt: Drehungen würden in Klasse 7 vor allem konstruierend behandelt. Die Koordinatenregeln bleiben, werden aber über das Mitdrehen des Weges (rechts/oben) begründet; Konstruieren durch das Kind kann die App nicht.",
   "lehrplan_gym ist für dieses Thema in themenliste.json leer (Hinweis der Prüfung); themenliste.json gehört nicht zu diesem Paket und bleibt unverändert.",
-  "Drehungen nur um Vielfache von 90°, weil andere Winkel im Koordinatensystem ohne Trigonometrie nicht exakt berechenbar sind."
+  "Drehungen nur um Vielfache von 90°, weil andere Winkel im Koordinatensystem ohne Trigonometrie nicht exakt berechenbar sind.",
+  "Achtzehnte Runde (luecken-kl7): neue Lernkarten mittelsenkrechte, winkelhalbierende (nach punktspiegelung) und vierecke_ordnen (nach symmetrie), alle Pflicht (LehrplanPLUS M7 2.1). Konstruieren mit Zirkel und Lineal kann das Kind in der App nicht; geprüft werden Eigenschaften, Konstruktionsschritte (Auswahl) und Abstandsprobleme im Koordinatensystem ohne schräge Längen (Pythagoras kommt erst später)."
  ]
 }

@@ -864,6 +864,211 @@ BF.fuer_sebastian('geometrie.konstruktion/kongruenzsatz: SsW-Fälle (Stufe 3) si
 
 # ---- BEFUNDE ENDE ----
 
+# ---------- Achtzehnte Runde, Teil B (luecken-kl7): Lernkarte „planfigur“ laut LehrplanPLUS M7 5 ----------
+# Lücke aus inhalte/pruefung/aufbau/klasse7.json („luecken“, Dringlichkeit mittel): Dreiecke aus gegebenen Stücken (auch mit Höhen) konstruieren,
+# Planfigur nutzen, Konstruktionsbeschreibung. LehrplanPLUS Gymnasium M7 5: „konstruieren Dreiecke aus verschiedenen Bestimmungsstücken
+# (darunter insbesondere Höhen) und nutzen zur Ideenfindung Planfiguren“. Das Kind kann in der App nicht zeichnen: abgefragt werden Planfigur lesen,
+# Reihenfolge/fehlende Schritte der Konstruktionsbeschreibung (Auswahl), Radien und Abstände sowie die Lage von C im Koordinatensystem.
+# Vorbilder (Typ und Niveau, eigene Zahlen): ISB/Uni Bayreuth SMART „Konstruktionen in Jgst. 7“ (Planfigur, Höhe als Parallele),
+# Schulaufgabe Kl. 7 (klassenarbeiten.de Nr. 3023: Dreieck aus b, s_b, h_b mit Konstruktionsbeschreibung), BMT8 2012 A8 (Punkt C konstruieren).
+from _luecken_kl7 import Karte, begrenzt, einfuegen, fig, koord, pol, zf  # noqa: E402
+
+
+def _pf_karte():
+    oft = begrenzt()
+    A, B = (0, 0), (6, 0)
+    C = pol(4, 50)
+    S = pol(6, 50)
+    plan = fig({'A': A, 'B': B, 'C': C}, flaeche=['A', 'B', 'C'], linien=[['A', 'B', 'c = 6 cm'], ['A', 'C', 'b = 4 cm'], ['B', 'C', 'a', 'gestrichelt']],
+               winkel=[['A', 'B', 'C', '50°']])
+    s2 = fig({'A': A, 'B': B}, linien=[['A', 'B', 'c = 6 cm']])
+    s3 = fig({'A': A, 'B': B, '_s': S}, linien=[['A', 'B', 'c = 6 cm'], ['A', '_s']], winkel=[['A', 'B', '_s', '50°']])
+    s4 = fig({'A': A, 'B': B, '_s': S, 'C': C}, linien=[['A', 'B', 'c = 6 cm'], ['A', '_s'], ['B', 'C']], winkel=[['A', 'B', '_s', '50°']], kreise=[{'m': 'A', 'r': 4}])
+    Ch = (3 / math.tan(math.radians(50)), 3)
+    s5 = fig({'A': A, 'B': B, '_s': S, 'C': Ch, '_F': (Ch[0], 0), '_p1': (-1, 3), '_p2': (7, 3)},
+             linien=[['A', 'B', 'c = 6 cm'], ['A', '_s'], ['_p1', '_p2', 'Parallele', 'gestrichelt'], ['C', '_F', 'h_c = 3 cm', 'gestrichelt'], ['B', 'C']],
+             winkel=[['A', 'B', '_s', '50°']], rechter_winkel=[['_F', 'B', 'C']])
+    falsch = fig({'A': A, 'B': B, '_s': S}, linien=[['A', 'B', 'c = 6 cm'], ['A', '_s']], winkel=[['A', 'B', '_s', '50°']], kreise=[{'m': 'B', 'r': 4}])
+    e = {
+        'lernziel': 'planfigur',
+        'titel': 'Planfigur und Konstruktionsbeschreibung',
+        'einstieg': 'Ein Zimmermann skizziert einen Dachgiebel grob und schreibt die Maße dazu: die ⟦Planfigur⟧. '
+                    'Danach notiert er, was er nacheinander anzeichnet: die ⟦Konstruktionsbeschreibung⟧.',
+        'woerter': [['Planfigur', 'grobe Skizze mit allen gegebenen Stücken, damit man den Weg plant'],
+                    ['Konstruktionsbeschreibung', 'die Schritte der Konstruktion in der richtigen Reihenfolge'],
+                    ['h_c', 'Höhe auf c: senkrechter Abstand der Ecke C von der Seite c']],
+        'bild': plan,
+        'schritte': [
+            {'text': 'Gegeben: c = 6 cm, α = 50°, b = 4 cm – siehe Planfigur.'},
+            {'text': 'Beginne mit der Seite c: Zeichne [AB] mit 6 cm.', 'bild': s2},
+            {'text': 'Trage in A den Winkel 50° an.', 'bild': s3},
+            {'text': 'Der Kreis um A mit 4 cm schneidet den Schenkel in ⟦C⟧.', 'bild': s4},
+            {'text': 'Ist h_c statt b gegeben: C liegt auf der Parallelen zu c im Abstand h_c.', 'bild': s5},
+        ],
+        'probe': 'C ist 4 cm von A entfernt und liegt auf dem 50°-Schenkel ✓',
+        'fehler': 'Kreis um den falschen Punkt: b = [AC] beginnt in A. Ein Kreis um B mit 4 cm ist wie Messen vom falschen Ende der Latte.',
+        'fehler_bild': falsch,
+        'regel': 'Erst die Planfigur, dann mit einer gegebenen Seite beginnen. Kreis, Winkel oder Parallele liefern die dritte Ecke ⟦C⟧.',
+    }
+
+    def p_radius(R, B_):
+        oft('radius', 4)
+        while True:
+            a, b, c = R.randint(3, 9), R.randint(3, 9), R.randint(5, 10)
+            if len({a, b, c}) == 3 and a + b > c and a + c > b and b + c > a: break
+        um = R.choice(['A', 'B'])
+        r = b if um == 'A' else a
+        return B_.Z(f'Konstruiere das Dreieck ABC mit c = {c} cm, a = {a} cm und b = {b} cm. Du beginnst mit [AB]. Welchen Radius hat der Kreis um {um}?', r, str(r),
+                    f'Um {um} liegt die Seite {"b = [AC]" if um == "A" else "a = [BC]"}: Radius {r} cm.',
+                    'In der Planfigur: Welche Seite beginnt in diesem Punkt und endet in C?', einheit='cm')
+
+    def p_par(R, B_):
+        c, h = R.randint(4, 9), R.choice([2, 2.5, 3, 3.5, 4, 4.5, 5])
+        return B_.Z(f'Für ein Dreieck sind c = {c} cm und h_c = {zf(h)} cm gegeben. In welchem Abstand zu [AB] zeichnest du die Parallele, auf der C liegt?', h, str(h),
+                    f'h_c ist der senkrechte Abstand von C zur Seite c. Die Parallele hat also den Abstand {zf(h)} cm.', 'h_c steht senkrecht auf c.', einheit='cm')
+
+    def p_start(R, B_):
+        c, al, b = R.randint(4, 8), R.choice([40, 50, 55, 60, 65, 70]), R.randint(3, 7)
+        oft(('start', c, al, b), 1)
+        return B_.A(f'Gegeben: c = {c} cm, α = {al}°, b = {b} cm. Welcher Schritt kann der erste sein?', f'[AB] mit {c} cm zeichnen.',
+                    [f'In B den Winkel {al}° antragen.', f'Kreis um C mit {b} cm zeichnen.', f'Kreis um B mit {b} cm zeichnen.'],
+                    f'Man beginnt mit einer gegebenen Seite. [AB] = {c} cm geht; die anderen Schritte brauchen einen Punkt, den es noch nicht gibt, oder sind falsch (α liegt bei A, b beginnt in A).',
+                    'Was kannst du sofort zeichnen, ohne einen Punkt zu brauchen, den es noch nicht gibt?')
+
+    def p_gegen(R, B_):
+        w, s = R.choice([('α', 'a'), ('β', 'b'), ('γ', 'c')])
+        oft(('gegen', w))
+        andere = [x for x in 'abc' if x != s]
+        return B_.A(f'In der Planfigur eines Dreiecks ABC: Welche Seite liegt dem Winkel {w} gegenüber?', s, andere + ['keine, alle Seiten berühren ' + w],
+                    f'Gegenüber dem Winkel {w} liegt die Seite {s} (kleiner Buchstabe, gleiche Ecke).', 'Der Winkel an Ecke A heißt α, die Seite gegenüber von A heißt a.')
+
+    def p_zwischen(R, B_):
+        s, ecken, f = R.choice([('a', 'B und C', ['A und B', 'A und C', 'A und C oder A und B']), ('b', 'A und C', ['A und B', 'B und C', 'nur bei A']),
+                                ('c', 'A und B', ['A und C', 'B und C', 'nur bei C'])])
+        oft(('zw', s))
+        return B_.A(f'Zwischen welchen Ecken liegt die Seite {s} im Dreieck ABC?', ecken, f,
+                    f'Die Seite {s} liegt der Ecke {s.upper()} gegenüber, also zwischen {ecken}.', 'Die Seite heißt wie die Ecke, der sie gegenüberliegt.')
+
+    def p_k45(R, B_):
+        oft('k45', 3)
+        c, k = R.randint(6, 10), R.randint(2, 5)
+        return B_.L(f'A(0 | 0), B({c} | 0). Das Dreieck ABC hat α = 45° und h_c = {k} cm, C liegt oberhalb von [AB] (1 Einheit = 1 cm). Gib C an.',
+                    'C(□ | □)', [k, k], [str(k), str(k)],
+                    f'Der 45°-Schenkel in A ist die Gerade y = x. Die Parallele zu [AB] im Abstand {k} ist y = {k}. Schnittpunkt: C({k} | {k}).',
+                    'Ein 45°-Winkel in A: Der freie Schenkel geht je 1 nach rechts und 1 nach oben.', 'Trage die x- und die y-Koordinate ein.',
+                    grafik=koord([(0, 0, 'A'), (c, 0, 'B')], y=[k + 1]))
+
+    def p_k90(R, B_):
+        c, k = R.randint(4, 9), R.randint(2, 6)
+        ecke = R.choice(['A', 'B'])
+        x = 0 if ecke == 'A' else c
+        return B_.L(f'A(0 | 0), B({c} | 0). Das Dreieck ABC hat in {ecke} einen rechten Winkel und h_c = {k} cm, C liegt oberhalb von [AB]. Gib C an.',
+                    'C(□ | □)', [x, k], [str(x), str(k)],
+                    f'Der freie Schenkel in {ecke} steht senkrecht auf [AB]: x = {x}. Die Parallele im Abstand {k}: y = {k}. C({x} | {k}).',
+                    f'Ein rechter Winkel in {ecke}: Der Schenkel geht senkrecht nach oben.', 'Trage die x- und die y-Koordinate ein.',
+                    grafik=koord([(0, 0, 'A'), (c, 0, 'B')], y=[k + 1]))
+
+    def p_b45(R, B_):
+        c, k = R.randint(6, 10), R.randint(2, 4)
+        return B_.L(f'A(0 | 0), B({c} | 0). Das Dreieck ABC hat β = 45° und h_c = {k} cm, C liegt oberhalb von [AB] (1 Einheit = 1 cm). Gib C an.',
+                    'C(□ | □)', [c - k, k], [f'{c} - {k}', str(k)],
+                    f'Der 45°-Schenkel in B geht je 1 nach links und 1 nach oben. Bei y = {k} ist er {k} links von B: C({c - k} | {k}).',
+                    'Vom Punkt B aus: so viele Kästchen nach links wie nach oben.', 'Trage die x- und die y-Koordinate ein.', art='pruefung',
+                    grafik=koord([(0, 0, 'A'), (c, 0, 'B')], y=[k + 1]))
+
+    def p_anzahl(R, B_):
+        c, h = R.randint(6, 10), R.randint(2, 5)
+        b = R.choice([h - 1, h, h + 1, h + 2]) if h > 2 else R.choice([h, h + 1, h + 2])
+        anz = 2 if b > h else (1 if b == h else 0)
+        return B_.Z(f'Gegeben: c = {c} cm, h_c = {h} cm, b = {b} cm. Wie viele mögliche Punkte C gibt es oberhalb von [AB]?', anz, str(anz),
+                    f'C liegt auf der Parallelen im Abstand {h} cm und auf dem Kreis um A mit {b} cm. '
+                    + ('Der Kreis reicht höher als die Parallele: 2 Schnittpunkte.' if anz == 2 else 'Der Kreis berührt die Parallele genau einmal.' if anz == 1 else 'Der Kreis reicht nicht bis zur Parallelen: kein Punkt.'),
+                    'Vergleiche den Radius b mit dem Abstand h_c der Parallelen.', art='pruefung')
+
+    def p_fehlt(R, B_):
+        if R.random() < 0.5:
+            c, al, be = R.randint(4, 8), R.choice([35, 40, 50, 55, 60]), R.choice([45, 65, 70, 75])
+            oft(('wsw', c, al, be))
+            return B_.A(f'Konstruktionsbeschreibung für c = {c} cm, α = {al}°, β = {be}°: 1. [AB] mit {c} cm zeichnen. 2. In A den Winkel {al}° antragen. 3. ??? '
+                        '4. Der Schnittpunkt der freien Schenkel ist C. Was fehlt in Schritt 3?', f'In B den Winkel {be}° antragen.',
+                        [f'In A den Winkel {be}° antragen.', f'Kreis um B mit {c} cm zeichnen.', f'In C den Winkel {180 - al - be}° antragen.'],
+                        f'Der Winkel β = {be}° gehört an die Ecke B. Erst dann gibt es zwei freie Schenkel, die sich in C schneiden.',
+                        'Welches gegebene Stück wurde noch nicht benutzt – und an welcher Ecke liegt es?')
+        while True:
+            a, b, c = R.randint(3, 8), R.randint(3, 8), R.randint(5, 9)
+            if len({a, b, c}) == 3 and a + b > c and abs(a - b) < c: break
+        oft(('sss', a, b, c))
+        return B_.A(f'Konstruktionsbeschreibung für c = {c} cm, a = {a} cm, b = {b} cm: 1. [AB] mit {c} cm zeichnen. 2. Kreis um A mit {b} cm. 3. ??? '
+                    '4. Ein Schnittpunkt der Kreise ist C. Was fehlt in Schritt 3?', f'Kreis um B mit {a} cm.',
+                    [f'Kreis um B mit {b} cm.', f'Kreis um A mit {a} cm.', f'In B einen rechten Winkel antragen.'],
+                    f'a = [BC] beginnt in B und ist {a} cm lang: Kreis um B mit {a} cm.', 'Welche Seite beginnt in B?')
+
+    def p_hoehe(R, B_):
+        h, s, f = R.choice([('h_a', 'auf der Seite a (oder ihrer Verlängerung)', ['auf der Seite b', 'auf der Seite c', 'auf keiner Seite']),
+                            ('h_b', 'auf der Seite b (oder ihrer Verlängerung)', ['auf der Seite a', 'auf der Seite c', 'auf keiner Seite']),
+                            ('h_c', 'auf der Seite c (oder ihrer Verlängerung)', ['auf der Seite a', 'auf der Seite b', 'auf keiner Seite'])])
+        oft(('hoehe', h))
+        return B_.A(f'Auf welcher Seite steht die Höhe {h} senkrecht?', s, f,
+                    f'{h} ist das Lot von der Ecke {h[-1].upper()} auf die gegenüberliegende Seite {h[-1]}.', 'Der Index sagt, zu welcher Seite die Höhe gehört.')
+
+    def p_ort(R, B_):
+        h = R.choice([2, 2.5, 3, 3.5, 4, 5])
+        oft('ort', 2)
+        return B_.A(f'Von einem Dreieck kennst du [AB] und h_c = {zf(h)} cm. Wo liegen alle möglichen Punkte C oberhalb von [AB]?',
+                    f'auf der Parallelen zu [AB] im Abstand {zf(h)} cm',
+                    [f'auf dem Kreis um A mit {zf(h)} cm', 'auf der Mittelsenkrechten von [AB]', f'auf dem Lot zu [AB] in A, {zf(h)} cm hoch'],
+                    'Alle Punkte mit demselben senkrechten Abstand zu [AB] liegen auf einer Parallelen. Wo genau C liegt, legt erst ein weiteres Stück fest.',
+                    'h_c ist ein Abstand zur Seite c – kein Abstand zu A.')
+
+    def p_stumpf(R, B_):
+        al = R.choice([100, 110, 120, 130, 140])
+        oft(('stumpf', al))
+        return B_.A(f'Im Dreieck ABC ist α = {al}°. Wo liegt der Fußpunkt der Höhe h_c?', 'außerhalb von [AB], auf der Verlängerung über A hinaus',
+                    ['genau in der Mitte von [AB]', 'zwischen A und B', 'außerhalb von [AB], auf der Verlängerung über B hinaus'],
+                    f'Bei α = {al}° neigt sich C über A hinaus nach außen. Das Lot von C trifft die Gerade AB links von A.',
+                    'Skizziere eine Planfigur mit stumpfem Winkel bei A.')
+
+    def f_beschr(R, B_):
+        return B_.A('Welche Konstruktionsbeschreibung passt zu c = 5 cm, h_c = 3 cm und α = 60°?',
+                    '[AB] mit 5 cm; Parallele zu [AB] im Abstand 3 cm; in A den Winkel 60° antragen; der Schnittpunkt ist C.',
+                    ['[AB] mit 5 cm; Parallele zu [AB] im Abstand 3 cm; in B den Winkel 60° antragen; der Schnittpunkt ist C.',
+                     '[AB] mit 5 cm; Kreis um A mit 3 cm; in A den Winkel 60° antragen; der Schnittpunkt ist C.',
+                     '[AB] mit 5 cm; Lot zu [AB] in B, 3 cm lang; in A den Winkel 60° antragen; der Schnittpunkt ist C.'],
+                    'h_c gibt den Abstand von C zu [AB]: Parallele im Abstand 3 cm. α liegt bei A. Der freie Schenkel trifft die Parallele in C.',
+                    'Prüfe jeden Schritt: Gehört der Winkel zu A? Ist h_c ein Abstand zur Seite?', art='pruefung')
+
+    def f_b45(R, B_):
+        return B_.L('Konstruiere das Dreieck ABC mit c = 7 cm, h_c = 3 cm und β = 45°. A liegt bei (0 | 0), B bei (7 | 0), C oberhalb von [AB]. Gib C an.',
+                    'C(□ | □)', [4, 3], ['7 - 3', '3'],
+                    'Parallele zu [AB] im Abstand 3 cm: y = 3. Der 45°-Schenkel in B geht je 1 nach links und oben; bei y = 3 ist er 3 links von B: C(4 | 3).',
+                    'Erst die Parallele (h_c), dann der Winkel in B.', 'Trage die x- und die y-Koordinate ein.', art='pruefung',
+                    grafik=koord([(0, 0, 'A'), (7, 0, 'B')], y=[4]))
+
+    def f_knobel(R, B_):
+        return B_.L('Ein gleichschenkliges Dreieck ABC mit Basis [AB] hat A(0 | 0), B(8 | 0) und h_c = 5 cm; C liegt oberhalb von [AB]. Gib C an.',
+                    'C(□ | □)', [4, 5], ['8 / 2', '5'],
+                    'C ist von A und B gleich weit entfernt, liegt also auf der Mittelsenkrechten x = 4. Mit h_c = 5 cm: C(4 | 5).',
+                    'Welche Linie enthält alle Punkte, die von A und B gleich weit entfernt sind?', 'Trage die x- und die y-Koordinate ein.', art='knobel',
+                    grafik=koord([(0, 0, 'A'), (8, 0, 'B')], y=[6]))
+
+    return Karte(e, 'konstruierbar', 'Kongruenz und Konstruktion', 'Planfigur und Konstruktionsbeschreibung',
+                 {1: [p_radius, p_par, p_start, p_gegen, p_zwischen], 2: [p_k45, p_fehlt, p_hoehe, p_k90, p_ort, p_radius], 3: [p_anzahl, p_b45, p_stumpf, p_fehlt, p_anzahl]},
+                 fest3=[f_beschr, f_b45, f_knobel])
+
+
+_LUECKEN_QUELLE = ('LehrplanPLUS Gymnasium Bayern, M7 5 (https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/7/mathematik): „konstruieren Dreiecke aus '
+                   'verschiedenen Bestimmungsstücken (darunter insbesondere Höhen) und nutzen zur Ideenfindung Planfiguren“. Vorbilder (Typ und Niveau, eigene Zahlen): '
+                   'ISB/Uni Bayreuth SMART „Konstruktionen in Jgst. 7“; Schulaufgabe Kl. 7 (klassenarbeiten.de Nr. 3023); Bayerischer Mathematik-Test 8 (ISB) 2012 A8.')
+_LUECKEN_OFFEN = ['Achtzehnte Runde (luecken-kl7): neue Pflicht-Lernkarte planfigur nach konstruierbar (LehrplanPLUS M7 5). Selbst konstruieren kann das Kind in der App weiterhin nicht; '
+                  'abgefragt werden Planfigur lesen, fehlende Schritte der Konstruktionsbeschreibung (Auswahl), Radien/Abstände, die Lage von C (h_c als Parallele) im '
+                  'Koordinatensystem mit 45°- und 90°-Winkeln (ohne schräge Längen) und die Anzahl möglicher Punkte C. Mittelsenkrechte und Winkelhalbierende stehen seit '
+                  'dieser Runde in abbildungen.kongruenz (Klasse 7); der ältere Hinweis auf geometrie.ortslinien oben ist damit überholt.']
+
+
+def luecken():
+    return [_pf_karte()]
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Winkel', ['parallelen', 'winkelsumme', 'gleichschenklig', 'vierecke']), ('Kongruenz und Konstruktion', ['kongruenzsatz', 'konstruierbar']), ('Beweisen', ['satz_kehrsatz'])],
@@ -875,3 +1080,4 @@ if __name__ == '__main__':
                 'Mittelsenkrechte und Winkelhalbierende als Ortslinien sind Stoff von geometrie.ortslinien (Klasse 5) und hier nicht wiederholt.'])
     anhaengen(META['thema_schluessel'], schwer())
     befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+    einfuegen(META['thema_schluessel'], luecken(), 7250, quelle=_LUECKEN_QUELLE, offen=_LUECKEN_OFFEN)  # Achtzehnte Runde: zuletzt

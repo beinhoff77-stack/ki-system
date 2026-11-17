@@ -5673,7 +5673,61 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Gegeben: a = 6 cm, c = 9 cm, α = 25° (α liegt a gegenüber). Wie viele Dreiecke gibt es?"
+    "text": "Gegeben: a = 6 cm, c = 9 cm, α = 25° (α liegt a gegenüber). Wie viele Dreiecke gibt es?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       9,
+       0
+      ],
+      "_F": [
+       13.41,
+       6.25
+      ],
+      "_L": [
+       7.39,
+       3.45
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "c = 9 cm"
+      ],
+      [
+       "A",
+       "_F",
+       ""
+      ],
+      [
+       "B",
+       "_L",
+       "≈ 3,8 cm",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "_L",
+       "B",
+       "A"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "_F",
+       "α = 25°"
+      ]
+     ]
+    }
    },
    "a": [
     "genau ein (rechtwinkliges) Dreieck",
@@ -5694,7 +5748,61 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Gegeben: a = 10 cm, c = 7 cm, α = 65° (α liegt a gegenüber). Wie viele Dreiecke gibt es?"
+    "text": "Gegeben: a = 10 cm, c = 7 cm, α = 65° (α liegt a gegenüber). Wie viele Dreiecke gibt es?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       7,
+       0
+      ],
+      "_F": [
+       5.36,
+       11.5
+      ],
+      "_L": [
+       1.25,
+       2.68
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "c = 7 cm"
+      ],
+      [
+       "A",
+       "_F",
+       ""
+      ],
+      [
+       "B",
+       "_L",
+       "≈ 6,3 cm",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "_L",
+       "B",
+       "A"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "_F",
+       "α = 65°"
+      ]
+     ]
+    }
    },
    "a": [
     "genau ein Dreieck (SsW: der Winkel liegt der längeren Seite gegenüber)",
@@ -5715,7 +5823,61 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Gegeben: a = 2 cm, c = 5 cm, α = 35° (α liegt a gegenüber). Wie viele Dreiecke gibt es?"
+    "text": "Gegeben: a = 2 cm, c = 5 cm, α = 35° (α liegt a gegenüber). Wie viele Dreiecke gibt es?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "_F": [
+       5.73,
+       4.02
+      ],
+      "_L": [
+       3.36,
+       2.35
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "c = 5 cm"
+      ],
+      [
+       "A",
+       "_F",
+       ""
+      ],
+      [
+       "B",
+       "_L",
+       "≈ 2,9 cm",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "_L",
+       "B",
+       "A"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "_F",
+       "α = 35°"
+      ]
+     ]
+    }
    },
    "a": [
     "genau ein Dreieck (SsW: der Winkel liegt der längeren Seite gegenüber)",
@@ -5736,7 +5898,61 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Gegeben: a = 3 cm, c = 6 cm, α = 30° (α liegt a gegenüber). Wie viele Dreiecke gibt es?"
+    "text": "Gegeben: a = 3 cm, c = 6 cm, α = 30° (α liegt a gegenüber). Wie viele Dreiecke gibt es?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       6,
+       0
+      ],
+      "_F": [
+       6.93,
+       4
+      ],
+      "_L": [
+       4.5,
+       2.6
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "c = 6 cm"
+      ],
+      [
+       "A",
+       "_F",
+       ""
+      ],
+      [
+       "B",
+       "_L",
+       "3 cm",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "_L",
+       "B",
+       "A"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "_F",
+       "α = 30°"
+      ]
+     ]
+    }
    },
    "a": [
     "genau ein Dreieck (SsW: der Winkel liegt der längeren Seite gegenüber)",
@@ -7944,7 +8160,54 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "In den Dreiecken ABC und DEF gilt: AB = DE = 5 cm, AC = DF = 7 cm und ∠ABC = ∠DEF = 75°. Sind die Dreiecke sicher kongruent?"
+    "text": "In den Dreiecken ABC und DEF gilt: AB = DE = 5 cm, AC = DF = 7 cm und ∠ABC = ∠DEF = 75°. Sind die Dreiecke sicher kongruent?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "B": [
+       0,
+       0
+      ],
+      "A": [
+       5,
+       0
+      ],
+      "C": [
+       1.65,
+       6.14
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "5 cm"
+      ],
+      [
+       "A",
+       "C",
+       "7 cm"
+      ],
+      [
+       "B",
+       "C",
+       ""
+      ]
+     ],
+     "winkel": [
+      [
+       "B",
+       "A",
+       "C",
+       "75°"
+      ]
+     ]
+    }
    },
    "a": [
     "Ja, nach SWS.",
@@ -7965,7 +8228,54 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "In den Dreiecken ABC und DEF gilt: AB = DE = 7 cm, AC = DF = 5 cm und ∠ABC = ∠DEF = 40°. Sind die Dreiecke sicher kongruent?"
+    "text": "In den Dreiecken ABC und DEF gilt: AB = DE = 7 cm, AC = DF = 5 cm und ∠ABC = ∠DEF = 40°. Sind die Dreiecke sicher kongruent?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "B": [
+       0,
+       0
+      ],
+      "A": [
+       7,
+       0
+      ],
+      "C": [
+       5.78,
+       4.85
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "7 cm"
+      ],
+      [
+       "A",
+       "C",
+       "5 cm"
+      ],
+      [
+       "B",
+       "C",
+       ""
+      ]
+     ],
+     "winkel": [
+      [
+       "B",
+       "A",
+       "C",
+       "40°"
+      ]
+     ]
+    }
    },
    "a": [
     "Ja, zwei Seiten und ein Winkel reichen immer.",

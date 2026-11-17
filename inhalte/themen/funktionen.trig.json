@@ -77,6 +77,68 @@
      },
      {
       "text": "Der Bogen ist dann ein Drittel von π: ⟦60° = π/3⟧ ≈ 1,05."
+     },
+     {
+      "text": "Genauso gilt: 90° = π/2, 270° = 3π/2 und 360° = ⟦2π⟧.",
+      "bild": {
+       "strecken": [
+        [
+         0,
+         0,
+         1,
+         0
+        ]
+       ],
+       "punkte": [
+        {
+         "x": 0,
+         "y": 1,
+         "name": "π/2"
+        },
+        {
+         "x": -1,
+         "y": 0,
+         "name": "π"
+        },
+        {
+         "x": 0,
+         "y": -1,
+         "name": "3π/2"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Ab jetzt steht x meist im Bogenmaß. Die Achse zeigt π/2, π, 3π/2, 2π.",
+      "bild": {
+       "x": [
+        0,
+        6.2832
+       ],
+       "y": [
+        -1.5,
+        1.5
+       ],
+       "pi": true,
+       "grad": false,
+       "schritt_x": 1.570796,
+       "schritt_y": 0.5,
+       "streckung": 1.4,
+       "kreise": [],
+       "strecken": [],
+       "punkte": [],
+       "graphen": [
+        {
+         "art": "sin",
+         "a": 1,
+         "b": 1,
+         "c": 0.0,
+         "d": 0,
+         "bogen": true,
+         "name": "sin x"
+        }
+       ]
+      }
      }
     ],
     "fehler": "60° = 60π ist falsch. Das wären 30 ganze Runden. Man muss durch ⟦180°⟧ teilen: 60 : 180 = 1/3.",
@@ -258,7 +320,7 @@
    {
     "lernziel": "periode",
     "titel": "Periode und Periodizität",
-    "regel": "Bei sin(b · x) gilt: Periode p = 360° : b. Größeres b heißt ⟦kürzere Periode⟧.",
+    "regel": "Periode von sin(b · x): ⟦2π : b⟧ = 360° : b. Größeres b heißt kürzere Periode.",
     "schritte": [
      {
       "text": "f(x) = sin(3x): Der Faktor vor x ist b = 3."
@@ -291,7 +353,43 @@
       }
      },
      {
-      "text": "Die Periode ist p = 360° : 3 = ⟦120°⟧, im Bogenmaß 2π/3."
+      "text": "Die Periode ist p = 360° : 3 = ⟦120°⟧."
+     },
+     {
+      "text": "Im Bogenmaß: p = 2π : 3 = 2π/3, also ein Drittel von 2π.",
+      "bild": {
+       "x": [
+        0,
+        6.2832
+       ],
+       "pi": true,
+       "grad": false,
+       "schritt_x": 1.570796,
+       "senkrecht": [
+        2.0944
+       ],
+       "graphen": [
+        {
+         "art": "sin",
+         "a": 1,
+         "b": 1,
+         "c": 0.0,
+         "d": 0,
+         "bogen": true,
+         "name": "sin x"
+        },
+        {
+         "art": "sin",
+         "a": 1,
+         "b": 3,
+         "c": 0.0,
+         "d": 0,
+         "bogen": true,
+         "name": "sin(3x)",
+         "name_x": 4.8869
+        }
+       ]
+      }
      }
     ],
     "fehler": "Die Periode ist nicht 3 · 360° = 1 080°. Der Faktor 3 macht die Schwingung ⟦schneller⟧, wie ein Rad mit dreifachem Tempo.",
@@ -407,6 +505,51 @@
         }
        ]
       }
+     },
+     {
+      "text": "Im Bogenmaß: größter Wert 4 bei x = π/2, kleinster −2 bei 3π/2.",
+      "bild": {
+       "x": [
+        0,
+        6.2832
+       ],
+       "pi": true,
+       "grad": false,
+       "schritt_x": 1.570796,
+       "graphen": [
+        {
+         "art": "sin",
+         "a": 1,
+         "b": 1,
+         "c": 0.0,
+         "d": 0,
+         "bogen": true,
+         "name": "sin x",
+         "name_x": 3.4907
+        },
+        {
+         "art": "sin",
+         "a": 3,
+         "b": 1,
+         "c": 0.0,
+         "d": 1,
+         "bogen": true,
+         "name": "f"
+        }
+       ],
+       "punkte": [
+        {
+         "x": 1.5708,
+         "y": 4,
+         "name": "π/2: 4"
+        },
+        {
+         "x": 4.7124,
+         "y": -2,
+         "name": "3π/2: −2"
+        }
+       ]
+      }
      }
     ],
     "fehler": "Die Wertemenge ist nicht [−3; 3]. Das Wasser schwankt nicht um die Markierung, sondern um eine Mitte ⟦1 höher⟧.",
@@ -454,12 +597,12 @@
     "fehler_bild": {
      "punkte": [
       {
-       "x": 90,
+       "x": 1.5708,
        "y": 4,
        "name": "4, nicht 3"
       },
       {
-       "x": 270,
+       "x": 4.7124,
        "y": -2,
        "name": "−2, nicht −3"
       }
@@ -469,7 +612,7 @@
    {
     "lernziel": "zuordnen",
     "titel": "Graph und Term zuordnen",
-    "regel": "Lies Mittellinie, Amplitude und Periode ab. Start auf der Mittellinie: ⟦sin⟧. Start ganz oben: cos.",
+    "regel": "Lies Mittellinie, Amplitude und Periode ab. Start auf der Mittellinie: ⟦sin⟧. Start ganz oben: cos. b = 2π : p.",
     "schritte": [
      {
       "text": "Die Kurve schwankt um y = 0: Mittellinie y = 0, also d = 0.",
@@ -504,6 +647,32 @@
      },
      {
       "text": "Start auf der Mittellinie, steigend: Das passt zu sin. ⟦f(x) = 2 · sin(2x)⟧."
+     },
+     {
+      "text": "Im Bogenmaß endet die Schwingung bei π: b = 2π : π = 2.",
+      "bild": {
+       "x": [
+        0,
+        6.2832
+       ],
+       "pi": true,
+       "grad": false,
+       "schritt_x": 1.570796,
+       "graphen": [
+        {
+         "art": "sin",
+         "a": 2,
+         "b": 2,
+         "c": 0.0,
+         "d": 0,
+         "bogen": true
+        }
+       ],
+       "senkrecht": [
+        3.1416
+       ],
+       "punkte": []
+      }
      }
     ],
     "fehler": "b = 180 ist falsch. sin(180x) würde auf diesen 180° ganze 90 Schwingungen machen. Richtig ist ⟦b = 360° : p⟧ = 2.",
@@ -550,7 +719,7 @@
    {
     "lernziel": "eigenschaften",
     "titel": "Nullstellen und Symmetrie",
-    "regel": "Nullstellen: sin bei 0°, 180°, 360°; cos bei ⟦90°, 270°⟧. Es gilt cos x = sin(x + 90°).",
+    "regel": "Nullstellen: sin bei 0, π, 2π; cos bei ⟦π/2, 3π/2⟧ (90°, 270°). Es gilt cos x = sin(x + π/2).",
     "schritte": [
      {
       "text": "cos x ist der Abstand der Gondel nach rechts von der Mitte."
@@ -585,6 +754,49 @@
      },
      {
       "text": "Der cos-Graph ist achsensymmetrisch zur y-Achse, der sin-Graph punktsymmetrisch."
+     },
+     {
+      "text": "Im Bogenmaß: cos hat Nullstellen bei π/2 und 3π/2, sin bei 0 und π.",
+      "bild": {
+       "x": [
+        -6.2832,
+        6.2832
+       ],
+       "pi": true,
+       "grad": false,
+       "schritt_x": 1.570796,
+       "graphen": [
+        {
+         "art": "cos",
+         "a": 1,
+         "b": 1,
+         "c": 0.0,
+         "d": 0,
+         "bogen": true,
+         "name": "cos x"
+        }
+       ],
+       "punkte": [
+        {
+         "x": -4.7124,
+         "y": 0
+        },
+        {
+         "x": -1.5708,
+         "y": 0
+        },
+        {
+         "x": 1.5708,
+         "y": 0,
+         "name": "π/2"
+        },
+        {
+         "x": 4.7124,
+         "y": 0,
+         "name": "3π/2"
+        }
+       ]
+      }
      }
     ],
     "fehler": "cos x hat bei 0° keine Nullstelle. Beim Start ist die Gondel ganz rechts: ⟦cos 0° = 1⟧. Die Nullstelle bei 0° hat sin x.",
@@ -641,7 +853,7 @@
    {
     "lernziel": "anwendung",
     "titel": "Periodische Vorgänge beschreiben",
-    "regel": "h(t) = a · sin(b · t) + d beschreibt periodische Vorgänge. d = Mitte, |a| = halbe Schwankung, ⟦b = 360° : Periodendauer⟧.",
+    "regel": "h(t) = a · sin(b · t) + d. Mitte d, halbe Schwankung |a|. ⟦b = 2π : Periodendauer⟧ oder 360° : Periodendauer.",
     "schritte": [
      {
       "text": "Pro Minute dreht sich das Rad um 360° : 12 = 30°."
@@ -677,6 +889,9 @@
         }
        ]
       }
+     },
+     {
+      "text": "Im Bogenmaß: 30° = π/6, also h(t) = 20 − 18 · cos(π/6 · t)."
      }
     ],
     "fehler": "b = 12 ist falsch. Dann drehte sich das Rad nur 12° pro Minute, eine Runde dauerte 30 Minuten. Richtig ist ⟦b = 30°⟧.",
@@ -6438,13 +6653,1260 @@
    },
    "w": "36° · 2 = 72°. Im DEG-Modus: cos 72° ≈ 0,309, h ≈ 30 − 7,7 ≈ 22,3 m. Im RAD-Modus wird cos(72 im Bogenmaß) ≈ −0,967 gerechnet – ein ganz anderer Winkel.",
    "h": "In welcher Einheit steht der Winkel in der Formel?"
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib 210° im Bogenmaß als Vielfaches von π an.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     7,
+     6
+    ]
+   },
+   "w": "210° · π/180° = 210/180 · π = 7/6 · π = 7π/6.",
+   "h": "Teile durch 180° und kürze.",
+   "c": [
+    "210 // 30",
+    "180 // 30"
+   ]
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Grad sind 5π/9?"
+   },
+   "o": {
+    "wert": 100,
+    "einheit": "°"
+   },
+   "c": "5 * 180 / 9",
+   "w": "5π/9 = 5 · 180° : 9 = 100°.",
+   "h": "Ersetze π durch 180°."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Winkel hat im Bogenmaß die Größe 2,5. Wie viel Grad sind das? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 143.2,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(143.239448782706, 1)",
+   "w": "2,5 · 180° : π ≈ 143,2°.",
+   "h": "Grad = Bogenmaß · 180° : π."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib −120° im Bogenmaß als Vielfaches von π an.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     -2,
+     3
+    ]
+   },
+   "w": "−120° · π/180° = −120/180 · π = −2/3 · π = −2π/3.",
+   "h": "Ein negativer Winkel bleibt negativ. Kürze 120/180.",
+   "c": [
+    "-120 // 60",
+    "180 // 60"
+   ]
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Winkel ist am größten?"
+   },
+   "a": [
+    "3π/4",
+    "100°",
+    "1,5 (im Bogenmaß)",
+    "2 (im Bogenmaß)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "3π/4 = 135°. 2 im Bogenmaß ≈ 114,6°, 1,5 im Bogenmaß ≈ 85,9°. Am größten ist 3π/4.",
+   "h": "Rechne alles in Grad um: · 180° : π."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Radius 8 cm. Wie lang ist der Bogen zum Mittelpunktswinkel 3π/4? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 18.8,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(18.849555921539, 1)",
+   "w": "Bogenlänge = Radius · Winkel im Bogenmaß = 8 · 3π/4 = 6π ≈ 18,8 cm.",
+   "h": "Im Bogenmaß gilt: b = r · x."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rad mit dem Radius 30 cm rollt 1 m weit, ohne zu rutschen. Um welchen Winkel (im Bogenmaß) hat es sich gedreht? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 3.33,
+    "toleranz": 0.01
+   },
+   "c": "round(3.333333333333, 2)",
+   "w": "Der abgerollte Weg ist der Bogen: x = b : r = 100 cm : 30 cm ≈ 3,33.",
+   "h": "Rechne 1 m in cm um. Winkel = Bogen : Radius."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Minutenzeiger einer Uhr dreht sich von 12:00 Uhr bis 12:40 Uhr. Um welchen Winkel dreht er sich (im Bogenmaß)?"
+   },
+   "a": [
+    "40π",
+    "3π/4",
+    "2π/3",
+    "4π/3"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "40 Minuten sind 2/3 einer Stunde: 2/3 · 360° = 240°. 240° = 240/180 · π = 4π/3.",
+   "h": "Welcher Anteil einer vollen Drehung (2π) sind 40 Minuten?"
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von cos(π) an."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "-1",
+   "w": "π = 180°: Der Punkt liegt am Einheitskreis ganz links. cos(π) = −1.",
+   "h": "cos ist der Abstand nach rechts."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von sin(π/2) an."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "π/2 = 90°: Der Punkt liegt ganz oben. sin(π/2) = 1.",
+   "h": "sin ist die Höhe am Einheitskreis."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von cos(5π/3) an."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "1/2",
+   "w": "5π/3 = 300°. Der Punkt liegt rechts unten, so weit rechts wie bei 60°: cos(5π/3) = 0,5.",
+   "h": "Rechne in Grad um und vergleiche mit 60°."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von sin(11π/6) an."
+   },
+   "o": {
+    "wert": -0.5
+   },
+   "c": "-1/2",
+   "w": "11π/6 = 330°. Der Punkt liegt rechts unten, so tief wie bei 30° hoch: sin(11π/6) = −0,5.",
+   "h": "330° fehlen 30° bis zur vollen Runde."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Wert ist am größten?"
+   },
+   "a": [
+    "sin(π/6)",
+    "cos(π)",
+    "cos(π/6)",
+    "sin(5π/4)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "cos(π/6) = ½√3 ≈ 0,87; sin(π/6) = 0,5; sin(5π/4) = −½√2 ≈ −0,71; cos(π) = −1.",
+   "h": "Bestimme jeden Wert am Einheitskreis."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne ohne Taschenrechner: cos(π) + 2 · sin(π/6) + cos(2π)."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "-1 + 2 * 1/2 + 1",
+   "w": "−1 + 2 · 0,5 + 1 = 1.",
+   "h": "Bestimme jeden Wert am Einheitskreis."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Gleichung sin x = −0,5 hat im Intervall [π; 2π] zwei Lösungen. Gib die kleinere als Vielfaches von π an.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     7,
+     6
+    ]
+   },
+   "w": "sin(π/6) = 0,5. Die Höhe −0,5 hat der Punkt bei π + π/6 = 7π/6 und bei 2π − π/6 = 11π/6. Die kleinere ist 7π/6.",
+   "h": "Am Einheitskreis gibt es unten zwei Punkte mit der Höhe −0,5.",
+   "c": [
+    "7",
+    "6"
+   ]
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet sin(π/2) im DEG-Modus und erhält etwa 0,027. Was stimmt?"
+   },
+   "a": [
+    "Richtig: sin(π/2) ≈ 0,027.",
+    "Falsch: π/2 steht im Bogenmaß; im RAD-Modus ergibt sich 1.",
+    "Falsch: Das Ergebnis ist 0.",
+    "Falsch: Das Ergebnis ist 0,5."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Im DEG-Modus wird π/2 ≈ 1,57 als 1,57° gelesen, sin(1,57°) ≈ 0,027. Gemeint ist der Winkel π/2 = 90°: sin(π/2) = 1.",
+   "h": "In welcher Einheit steht π/2?"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Welche Periode hat f(x) = sin(x) im Bogenmaß? Gib sie als Vielfaches von π an.",
+    "schablone": "□ · π",
+    "hinweis": "Zahl vor π"
+   },
+   "o": {
+    "werte": [
+     2
+    ]
+   },
+   "w": "Eine volle Umdrehung sind 360° = 2π. Periode 2π.",
+   "h": "Wie viel sind 360° im Bogenmaß?",
+   "c": [
+    "2"
+   ]
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Welche Periode hat f(x) = sin(4x) im Bogenmaß? Gib sie als Vielfaches von π an.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "w": "p = 2π : b = 2π : 4 = π/2.",
+   "h": "Im Bogenmaß gilt p = 2π : b.",
+   "c": [
+    "2 // 2",
+    "4 // 2"
+   ]
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Periode hat f(x) = sin(2πx) (x im Bogenmaß)?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "2 / 2",
+   "w": "p = 2π : b = 2π : 2π = 1.",
+   "h": "Hier ist b = 2π."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Welche Periode hat f(x) = cos(2x/3) (x im Bogenmaß)? Gib sie als Vielfaches von π an.",
+    "schablone": "□ · π",
+    "hinweis": "Zahl vor π"
+   },
+   "o": {
+    "werte": [
+     3
+    ]
+   },
+   "w": "b = 2/3, also p = 2π : 2/3 = 2π · 3/2 = 3π.",
+   "h": "Durch einen Bruch teilt man, indem man mit dem Kehrwert malnimmt.",
+   "c": [
+    "2 * 3 // 2"
+   ]
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph zeigt f(x) = sin(b · x) (x im Bogenmaß). Wie groß ist b?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      6.2832
+     ],
+     "y": [
+      -2,
+      2
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 1,
+       "b": 2,
+       "c": 0,
+       "d": 0,
+       "bogen": true
+      }
+     ],
+     "pi": true,
+     "schritt_y": 1
+    }
+   },
+   "a": [
+    "4",
+    "2",
+    "1",
+    "0,5"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Eine Schwingung reicht von 0 bis π, die Periode ist π. b = 2π : π = 2.",
+   "h": "Lies die Periode ab: Wo ist die erste Schwingung fertig?"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = cos(b · x) (x im Bogenmaß, b > 0) hat die Periode π/3. Bestimme b."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "2 * 3",
+   "w": "2π : b = π/3 ⇒ b = 2π : π/3 = 2 · 3 = 6.",
+   "h": "Setze in p = 2π : b ein."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Welche kleinste Periode hat f(x) = sin(x) + cos(2x) (x im Bogenmaß)? Gib sie als Vielfaches von π an.",
+    "schablone": "□ · π",
+    "hinweis": "Zahl vor π"
+   },
+   "o": {
+    "werte": [
+     2
+    ]
+   },
+   "w": "sin x hat die Periode 2π, cos(2x) die Periode π. Beide wiederholen sich gleichzeitig erst nach 2π.",
+   "h": "Bestimme beide Perioden. Wann wiederholen sich beide zugleich?",
+   "c": [
+    "2"
+   ]
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Pendel schwingt nach s(t) = 5 · sin(π/2 · t) (t in s, x im Bogenmaß). Wie viele Sekunden dauert eine volle Schwingung?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "s"
+   },
+   "c": "2 * 2",
+   "w": "p = 2π : b = 2π : π/2 = 4 s.",
+   "h": "Hier ist b = π/2."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Amplitude hat f(x) = 4 · sin(x) − 2 (x im Bogenmaß)?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Die Amplitude ist der Faktor vor sin: 4. Die −2 verschiebt nur nach unten.",
+   "h": "Welche Zahl steht vor sin?"
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen größten Wert hat f(x) = 2 · cos(x) + 3 (x im Bogenmaß)?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "3 + 2",
+   "w": "Mittellinie 3, Amplitude 2: größter Wert 3 + 2 = 5.",
+   "h": "Größter Wert = Mittellinie + Amplitude."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen Wert hat f(x) = 2 · sin(x) − 1 an der Stelle x = 3π/2?"
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "2 * (-1) - 1",
+   "w": "sin(3π/2) = −1, also f(3π/2) = 2 · (−1) − 1 = −3.",
+   "h": "3π/2 = 270°: Wo liegt der Punkt am Einheitskreis?"
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Wertemenge von f(x) = 3 · cos(2x) − 1 an (x im Bogenmaß).",
+    "schablone": "W = [□; □]",
+    "hinweis": "Kleinster und größter Wert"
+   },
+   "o": {
+    "werte": [
+     -4,
+     2
+    ]
+   },
+   "w": "Amplitude 3, Mittellinie y = −1: von −1 − 3 = −4 bis −1 + 3 = 2. Der Faktor 2 vor x ändert nur die Periode.",
+   "h": "Mittellinie minus und plus Amplitude.",
+   "c": [
+    "-1 - 3",
+    "-1 + 3"
+   ]
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "An welcher Stelle im Intervall [0; 2π[ nimmt f(x) = 2 · sin(x) + 1 seinen kleinsten Wert an?"
+   },
+   "a": [
+    "x = π/2",
+    "x = π",
+    "x = 3π/2",
+    "x = 0"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "f ist am kleinsten, wenn sin x = −1 ist. Das ist bei 3π/2 (270°) der Fall: f(3π/2) = −1.",
+   "h": "Wann ist sin x am kleinsten?"
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "f(x) = a · sin(x) + d (x im Bogenmaß) hat bei x = π/2 den Wert 7 und bei x = 3π/2 den Wert −1. Bestimme a und d.",
+    "schablone": "a = □; d = □",
+    "hinweis": "Zwei Zahlen"
+   },
+   "o": {
+    "werte": [
+     4,
+     3
+    ]
+   },
+   "w": "sin(π/2) = 1 und sin(3π/2) = −1: a + d = 7 und −a + d = −1. Addieren: 2d = 6, d = 3; dann a = 4.",
+   "h": "Setze beide Stellen ein und löse das Gleichungssystem.",
+   "c": [
+    "(7 - (-1)) // 2",
+    "(7 + (-1)) // 2"
+   ]
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = a · cos(x) + 2 (x im Bogenmaß, a > 0) hat den kleinsten Wert −3. Welchen Wert hat f(π/3)?"
+   },
+   "o": {
+    "wert": 4.5
+   },
+   "c": "5 * 1/2 + 2",
+   "w": "Kleinster Wert 2 − a = −3 ⇒ a = 5. f(π/3) = 5 · cos(π/3) + 2 = 5 · 0,5 + 2 = 4,5.",
+   "h": "Bestimme zuerst a aus dem kleinsten Wert."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche Werte von a hat f(x) = a · cos(x) + 1 (x im Bogenmaß) Nullstellen?"
+   },
+   "a": [
+    "für alle a ≠ 0",
+    "für a ≥ 1 oder a ≤ −1",
+    "nur für a > 1",
+    "für a > 1 oder a < −1"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der kleinste Wert ist 1 − |a|. Nullstellen gibt es, wenn er höchstens 0 ist: |a| ≥ 1. Bei |a| = 1 berührt der Graph die x-Achse.",
+   "h": "Wann reicht die Kurve bis zur x-Achse hinunter?"
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term gehört zum gezeichneten Graphen (x im Bogenmaß)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      6.2832
+     ],
+     "y": [
+      -2,
+      2
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 1,
+       "b": 1,
+       "c": 0,
+       "d": 0,
+       "bogen": true
+      }
+     ],
+     "pi": true,
+     "schritt_y": 1
+    }
+   },
+   "a": [
+    "f(x) = cos(x)",
+    "f(x) = −cos(x)",
+    "f(x) = sin(x)",
+    "f(x) = −sin(x)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der Graph startet bei x = 0 ganz oben (y = 1) und hat die Periode 2π: cos x.",
+   "h": "Wo liegt der Graph bei x = 0?"
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term gehört zum gezeichneten Graphen (x im Bogenmaß)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      6.2832
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 3,
+       "b": 1,
+       "c": 0,
+       "d": 0,
+       "bogen": true
+      }
+     ],
+     "pi": true,
+     "schritt_y": 1
+    }
+   },
+   "a": [
+    "f(x) = sin(x) + 3",
+    "f(x) = sin(3x)",
+    "f(x) = 3 · cos(x)",
+    "f(x) = 3 · sin(x)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Start auf der Mittellinie y = 0, steigend: sin. Höchster Wert 3, Periode 2π: 3 · sin(x).",
+   "h": "Lies den höchsten Wert und die Periode ab."
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term gehört zum gezeichneten Graphen (x im Bogenmaß)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      6.2832
+     ],
+     "y": [
+      -1,
+      3
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 1,
+       "b": 2,
+       "c": 0,
+       "d": 1,
+       "bogen": true
+      }
+     ],
+     "pi": true,
+     "schritt_y": 1
+    }
+   },
+   "a": [
+    "f(x) = sin(0,5x) + 1",
+    "f(x) = cos(2x) + 1",
+    "f(x) = sin(2x) + 1",
+    "f(x) = 2 · sin(x) + 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Mittellinie y = 1, Amplitude 1, eine Schwingung bis π: b = 2π : π = 2. Start auf der Mittellinie, steigend: sin(2x) + 1.",
+   "h": "Lies Mittellinie, Amplitude und Periode ab."
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term hat die Periode 4π und die Mittellinie y = 2 (x im Bogenmaß)?"
+   },
+   "a": [
+    "f(x) = sin(0,5x) + 2",
+    "f(x) = sin(4x) + 2",
+    "f(x) = sin(2x) + 2",
+    "f(x) = 2 · sin(0,5x)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Periode 4π ⇒ b = 2π : 4π = 0,5. Mittellinie y = 2 ⇒ + 2.",
+   "h": "Rechne b = 2π : p aus."
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term gehört zum gezeichneten Graphen (x im Bogenmaß)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      6.2832
+     ],
+     "y": [
+      -3,
+      3
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": -2,
+       "b": 1,
+       "c": 0,
+       "d": 0,
+       "bogen": true
+      }
+     ],
+     "pi": true,
+     "schritt_y": 1
+    }
+   },
+   "a": [
+    "f(x) = −2 · cos(x)",
+    "f(x) = −sin(2x)",
+    "f(x) = 2 · sin(x)",
+    "f(x) = −2 · sin(x)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Start auf der Mittellinie y = 0, aber fallend; tiefster Wert −2 bei π/2, Periode 2π: −2 · sin(x).",
+   "h": "Steigt oder fällt der Graph bei x = 0?"
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Funktion f(x) = a · sin(b · x) + d (x im Bogenmaß, a > 0, b > 0) hat einen Hochpunkt bei (π/4 | 6). Der nächste Tiefpunkt liegt bei (3π/4 | 0). Bestimme a, b und d.",
+    "schablone": "a = □; b = □; d = □",
+    "hinweis": "Drei Zahlen"
+   },
+   "o": {
+    "werte": [
+     3,
+     2,
+     3
+    ]
+   },
+   "w": "d = (6 + 0) : 2 = 3, a = (6 − 0) : 2 = 3. Vom Hoch- zum Tiefpunkt ist eine halbe Periode: π/2, also p = π und b = 2π : π = 2. Probe: sin(2 · π/4) = 1.",
+   "h": "Vom Hochpunkt bis zum nächsten Tiefpunkt ist eine halbe Periode.",
+   "c": [
+    "(6 - 0) // 2",
+    "2 // 1",
+    "(6 + 0) // 2"
+   ]
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term gehört zum gezeichneten Graphen (x im Bogenmaß)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      12.5664
+     ],
+     "y": [
+      -3,
+      3
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 2,
+       "b": 0.5,
+       "c": 0,
+       "d": 0,
+       "bogen": true
+      }
+     ],
+     "pi": true,
+     "schritt_y": 1
+    }
+   },
+   "a": [
+    "f(x) = 2 · cos(0,5x)",
+    "f(x) = 0,5 · cos(2x)",
+    "f(x) = 2 · sin(0,5x)",
+    "f(x) = 2 · cos(2x)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Start ganz oben bei 2: cos mit Amplitude 2. Eine Schwingung reicht bis 4π: b = 2π : 4π = 0,5.",
+   "h": "Lies die Periode genau ab: Wo ist der Graph wieder ganz oben?"
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht der Graph von g(x) = sin(x − π/3) + 2 aus dem Graphen von sin x?"
+   },
+   "a": [
+    "um π/3 nach links und um 2 nach oben verschoben",
+    "mit dem Faktor 2 gestreckt und um π/3 nach rechts verschoben",
+    "um π/3 nach rechts und um 2 nach unten verschoben",
+    "um π/3 nach rechts und um 2 nach oben verschoben"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "x − π/3: Derselbe Wert kommt π/3 später, also nach rechts. + 2 schiebt nach oben.",
+   "h": "Bei x − c wandert der Graph nach rechts."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Wo hat sin x (x im Bogenmaß) die kleinste positive Nullstelle? Gib sie als Vielfaches von π an.",
+    "schablone": "□ · π",
+    "hinweis": "Zahl vor π"
+   },
+   "o": {
+    "werte": [
+     1
+    ]
+   },
+   "w": "sin x ist die Höhe. Sie ist nach 0 erst wieder bei 180° = π gleich 0.",
+   "h": "Wann ist die Gondel wieder auf Höhe der Mitte?",
+   "c": [
+    "1"
+   ]
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "An welcher Stelle im Intervall [0; 2π[ hat sin x einen Tiefpunkt? Gib sie als Vielfaches von π an.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     3,
+     2
+    ]
+   },
+   "w": "Ganz unten ist der Punkt bei 270° = 3π/2.",
+   "h": "Wann ist die Höhe am kleinsten?",
+   "c": [
+    "3",
+    "2"
+   ]
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die kleinste positive Nullstelle von f(x) = sin(3x) (x im Bogenmaß).",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "w": "sin u = 0 zuerst wieder bei u = π. 3x = π ⇒ x = π/3.",
+   "h": "Ersetze 3x durch u.",
+   "c": [
+    "1",
+    "3"
+   ]
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Nullstellen hat cos x im Intervall [0; 4π] (x im Bogenmaß)?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "2 * 2",
+   "w": "Nullstellen bei π/2, 3π/2, 5π/2 und 7π/2: Das sind 4.",
+   "h": "In jeder Periode 2π hat cos zwei Nullstellen."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage stimmt (x im Bogenmaß)?"
+   },
+   "a": [
+    "cos(4π/3) = cos(π/3)",
+    "sin(−π/3) = sin(π/3)",
+    "cos(−π/3) = cos(π/3)",
+    "cos(−π/3) = −cos(π/3)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der cos-Graph ist achsensymmetrisch zur y-Achse: cos(−x) = cos x. sin ist punktsymmetrisch: sin(−x) = −sin x. cos(4π/3) = −0,5, cos(π/3) = 0,5.",
+   "h": "Welcher Graph ist achsensymmetrisch zur y-Achse?"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Gleichung cos x = 0,5 hat im Intervall [0; 2π[ zwei Lösungen. Gib beide als Vielfache von π an, die kleinere zuerst.",
+    "schablone": "x₁ = □/□ · π; x₂ = □/□ · π",
+    "hinweis": "Zwei Brüche vor π (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     3,
+     5,
+     3
+    ]
+   },
+   "w": "cos(π/3) = 0,5. Der zweite Punkt gleicher Rechts-Lage liegt gespiegelt an der x-Achse: 2π − π/3 = 5π/3.",
+   "h": "Am Einheitskreis gibt es zwei Punkte mit dem Abstand 0,5 nach rechts.",
+   "c": [
+    "1",
+    "3",
+    "6 - 1",
+    "3"
+   ]
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Lösungen hat die Gleichung sin(2x) = 0,5 im Intervall [0; 2π[ (x im Bogenmaß)?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "2 * 2",
+   "w": "Mit u = 2x läuft u von 0 bis 4π, also zwei volle Perioden. In jeder Periode hat sin u = 0,5 zwei Lösungen: zusammen 4.",
+   "h": "Ersetze 2x durch u. Welchen Bereich durchläuft u?"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = x · sin(x) (x im Bogenmaß)?"
+   },
+   "a": [
+    "achsensymmetrisch zur y-Achse",
+    "achsensymmetrisch zur Geraden x = π",
+    "punktsymmetrisch zum Ursprung",
+    "keine Symmetrie"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "f(−x) = (−x) · sin(−x) = (−x) · (−sin x) = x · sin x = f(x). Das ist Achsensymmetrie zur y-Achse.",
+   "h": "Berechne f(−x) mit sin(−x) = −sin x."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Der Wasserstand in einem Hafen ist h(t) = 3 + 2 · sin(π/6 · t) (t in Stunden, h in m). Wie hoch steht das Wasser bei t = 0?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "m"
+   },
+   "c": "3 + 2 * 0",
+   "w": "sin(0) = 0, also h(0) = 3 + 0 = 3 m.",
+   "h": "Setze t = 0 ein."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "h(t) = 3 + 2 · sin(π/6 · t) (t in Stunden, h in m). Wie hoch steht das Wasser höchstens?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "m"
+   },
+   "c": "3 + 2",
+   "w": "sin ist höchstens 1: 3 + 2 · 1 = 5 m.",
+   "h": "Mittellinie plus Amplitude."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "h(t) = 3 + 2 · sin(π/6 · t) (t in Stunden). Nach wie vielen Stunden wiederholt sich der Wasserstand?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "h"
+   },
+   "c": "2 * 6",
+   "w": "p = 2π : π/6 = 12 Stunden.",
+   "h": "Im Bogenmaß gilt p = 2π : b."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "h(t) = 3 + 2 · sin(π/6 · t) (t in Stunden, h in m). Wie hoch steht das Wasser nach 1 Stunde?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "m"
+   },
+   "c": "3 + 2 * 1/2",
+   "w": "sin(π/6) = 0,5: h(1) = 3 + 2 · 0,5 = 4 m.",
+   "h": "π/6 = 30°."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Riesenrad braucht 8 Minuten für eine Umdrehung. Bestimme b in h(t) = a · sin(b · t) + d (t in min, b im Bogenmaß).",
+    "schablone": "b = □/□ · π",
+    "hinweis": "Bruch vor π (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     4
+    ]
+   },
+   "w": "Eine Umdrehung ist 2π in 8 Minuten: b = 2π : 8 = π/4.",
+   "h": "b = 2π : Periodendauer.",
+   "c": [
+    "1",
+    "8 // 2"
+   ]
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Höhe einer Gondel ist h(t) = 25 − 20 · cos(π/10 · t) (t in min, h in m). Wie hoch ist sie nach 13 Minuten? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 36.8,
+    "einheit": "m",
+    "toleranz": 0.1
+   },
+   "c": "round(36.755705045849, 1)",
+   "w": "π/10 · 13 = 1,3π (234°). cos(1,3π) ≈ −0,588, h ≈ 25 + 11,76 ≈ 36,8 m. Rechner im RAD-Modus!",
+   "h": "Setze t = 13 ein und rechne im RAD-Modus."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "h(t) = 25 − 20 · cos(π/10 · t) (t in min, h in m). Wie viele Minuten einer Umdrehung ist die Gondel höher als 35 m? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 6.7,
+    "einheit": "min",
+    "toleranz": 0.1
+   },
+   "c": "round(6.666666666667, 1)",
+   "w": "25 − 20 · cos u > 35 ⇔ cos u < −0,5 ⇔ 2π/3 < u < 4π/3. Das ist 1/3 einer Periode; die Umlaufzeit ist 2π : π/10 = 20 min: ≈ 6,7 min.",
+   "h": "Für welche Winkel ist cos u < −0,5? Welcher Anteil einer Umdrehung ist das?"
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "T(t) = 15 + 8 · sin(π/12 · (t − 9)) (t in Stunden nach Mitternacht, T in °C). Um wie viel Uhr ist es am wärmsten?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "Uhr"
+   },
+   "c": "9 + 6",
+   "w": "Am wärmsten bei sin(…) = 1, also π/12 · (t − 9) = π/2 ⇒ t − 9 = 6 ⇒ t = 15. Das ist 15 Uhr.",
+   "h": "sin ist 1 beim Winkel π/2."
   }
  ],
  "offen": [
-  "Zeichnungen: Graphen in den Lernkarten „werte“, „periode“, „parameter“, „zuordnen“, „eigenschaften“, „anwendung“; Aufgaben „Graph und Term zuordnen“, „Periode ablesen“, „Amplitude ablesen“ zeigen den Graphen. Die x-Achse ist in Grad beschriftet (grad: true), weil π-Beschriftungen nicht möglich sind; Bogenmaß wird über Umrechnung geübt.",
+  "Zeichnungen: Graphen in den Lernkarten „werte“, „periode“, „parameter“, „zuordnen“, „eigenschaften“, „anwendung“; Aufgaben „Graph und Term zuordnen“, „Periode ablesen“, „Amplitude ablesen“ zeigen den Graphen. Bogenmaß (Fünfzehnte Runde): Die Lernkarten führen nach dem Gradmaß-Einstieg das Bogenmaß mit (Graphen mit π-Achse, pi: true); je Lernkarte 8 Übungen im Bogenmaß. Die älteren Aufgaben-Graphen bleiben in Grad beschriftet.",
   "Verschiebung in x-Richtung: nach der Prüfung als Zuordnungsaufgabe mit Zeichnung (Stufe 3, „zuordnen“) aufgenommen; keine eigene Lernkarte.",
   "Prüfung eingearbeitet (Runde 3): Bogenlänge, exakte Werte mit Wurzeln (½√2, ½√3), Vorzeichen ohne Rechner, Term aus Kennwerten, Verschiebung in x-Richtung, Riesenrad-Modell aus Sachangaben, Zeitpunkt bestimmen, Gezeiten. Ganzzahlige Vielfache von π als „□ · π“. Zuordnen: kein Graph doppelt je Stufe, gleichwertige Terme nie zusammen als Optionen.",
-  "Vorschlag der Prüfung an den Haupt-Chat (App, nicht Inhalt): x-Achse in Vielfachen von π beschriften (π/2, π, 3π/2) – würde „bogenmass“ und „werte“ anschaulicher machen. Bis dahin Gradbeschriftung.",
   "Rechenausdruck c: Sinus/Kosinus-Werte als 12-stellige Konstanten mit Toleranz."
  ]
 }

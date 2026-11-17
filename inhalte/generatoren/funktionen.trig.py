@@ -632,6 +632,44 @@ KLAR = {
 }
 
 
+# ---------- Fünfzehnte Runde (Zweig nacharbeit): Bogenmaß in den Lernkarten durchgehend mitführen ----------
+# Gradmaß bleibt der Einstieg; jede Karte bekommt am Ende einen Schritt im Bogenmaß (Graphen mit π-Achse, "pi": true).
+_PI = {'pi': True, 'grad': False, 'schritt_x': round(PI / 2, 6)}
+_P = lambda k: round(k * PI, 4)  # noqa: E731  k · π als Zahl für die Zeichnung
+KLAR['bogenmass']['schritte'] += [
+    {'text': 'Genauso gilt: 90° = π/2, 270° = 3π/2 und 360° = ⟦2π⟧.',
+     'bild': {'strecken': [[0, 0, 1, 0]], 'punkte': [{'x': 0, 'y': 1, 'name': 'π/2'}, {'x': -1, 'y': 0, 'name': 'π'}, {'x': 0, 'y': -1, 'name': '3π/2'}]}},
+    {'text': 'Ab jetzt steht x meist im Bogenmaß. Die Achse zeigt π/2, π, 3π/2, 2π.',
+     'bild': {'x': [0, _P(2)], 'y': [-1.5, 1.5], **_PI, 'schritt_y': 0.5, 'streckung': 1.4, 'kreise': [], 'strecken': [], 'punkte': [],
+              'graphen': [{'art': 'sin', 'a': 1, 'b': 1, 'c': 0.0, 'd': 0, 'bogen': True, 'name': 'sin x'}]}}]
+KLAR['periode']['schritte'][2] = {'text': 'Die Periode ist p = 360° : 3 = ⟦120°⟧.'}
+KLAR['periode']['schritte'].append(
+    {'text': 'Im Bogenmaß: p = 2π : 3 = 2π/3, also ein Drittel von 2π.',
+     'bild': {'x': [0, _P(2)], **_PI, 'senkrecht': [_P(Fr(2, 3))],
+              'graphen': [{'art': 'sin', 'a': 1, 'b': 1, 'c': 0.0, 'd': 0, 'bogen': True, 'name': 'sin x'},
+                          {'art': 'sin', 'a': 1, 'b': 3, 'c': 0.0, 'd': 0, 'bogen': True, 'name': 'sin(3x)', 'name_x': _P(Fr(14, 9))}]}})
+KLAR['periode']['regel'] = 'Periode von sin(b · x): ⟦2π : b⟧ = 360° : b. Größeres b heißt kürzere Periode.'
+KLAR['parameter']['schritte'].append(
+    {'text': 'Im Bogenmaß: größter Wert 4 bei x = π/2, kleinster −2 bei 3π/2.',
+     'bild': {'x': [0, _P(2)], **_PI,
+              'graphen': [{'art': 'sin', 'a': 1, 'b': 1, 'c': 0.0, 'd': 0, 'bogen': True, 'name': 'sin x', 'name_x': _P(Fr(10, 9))},
+                          {'art': 'sin', 'a': 3, 'b': 1, 'c': 0.0, 'd': 1, 'bogen': True, 'name': 'f'}],
+              'punkte': [{'x': _P(Fr(1, 2)), 'y': 4, 'name': 'π/2: 4'}, {'x': _P(Fr(3, 2)), 'y': -2, 'name': '3π/2: −2'}]}})
+KLAR['parameter']['fehler_bild'] = {'punkte': [{'x': _P(Fr(1, 2)), 'y': 4, 'name': '4, nicht 3'}, {'x': _P(Fr(3, 2)), 'y': -2, 'name': '−2, nicht −3'}]}
+KLAR['zuordnen']['schritte'].append(
+    {'text': 'Im Bogenmaß endet die Schwingung bei π: b = 2π : π = 2.',
+     'bild': {'x': [0, _P(2)], **_PI, 'graphen': [{'art': 'sin', 'a': 2, 'b': 2, 'c': 0.0, 'd': 0, 'bogen': True}],
+              'senkrecht': [_P(1)], 'punkte': []}})
+KLAR['zuordnen']['regel'] = 'Lies Mittellinie, Amplitude und Periode ab. Start auf der Mittellinie: ⟦sin⟧. Start ganz oben: cos. b = 2π : p.'
+KLAR['eigenschaften']['schritte'].append(
+    {'text': 'Im Bogenmaß: cos hat Nullstellen bei π/2 und 3π/2, sin bei 0 und π.',
+     'bild': {'x': [_P(-2), _P(2)], **_PI, 'graphen': [{'art': 'cos', 'a': 1, 'b': 1, 'c': 0.0, 'd': 0, 'bogen': True, 'name': 'cos x'}],
+              'punkte': [{'x': _P(Fr(-3, 2)), 'y': 0}, {'x': _P(Fr(-1, 2)), 'y': 0}, {'x': _P(Fr(1, 2)), 'y': 0, 'name': 'π/2'}, {'x': _P(Fr(3, 2)), 'y': 0, 'name': '3π/2'}]}})
+KLAR['eigenschaften']['regel'] = 'Nullstellen: sin bei 0, π, 2π; cos bei ⟦π/2, 3π/2⟧ (90°, 270°). Es gilt cos x = sin(x + π/2).'
+KLAR['anwendung']['schritte'].append({'text': 'Im Bogenmaß: 30° = π/6, also h(t) = 20 − 18 · cos(π/6 · t).'})
+KLAR['anwendung']['regel'] = 'h(t) = a · sin(b · t) + d. Mitte d, halbe Schwankung |a|. ⟦b = 2π : Periodendauer⟧ oder 360° : Periodendauer.'
+
+
 GEN = schoen({'bogenmass': g_bogenmass, 'werte': g_werte, 'periode': g_periode, 'parameter': g_parameter, 'zuordnen': g_zuordnen,
               'eigenschaften': g_eigenschaften, 'anwendung': g_anwendung})
 
@@ -807,6 +845,214 @@ BF.fuer_sebastian('funktionen.trig: Die alten Aufgaben arbeiten fast nur im Grad
 
 # ---- BEFUNDE ENDE ----
 
+
+# ---- Fünfzehnte Runde (Zweig nacharbeit): je Lernkarte 8 neue Übungen im Bogenmaß (Stufe 1: 2, Stufe 2: 3, Stufe 3: 3) ----
+# Eigener Zufallsstart (nur zum Mischen der Antworten); wird erst NACH Zehnter Runde und Befunden angehängt, alte Aufgaben bleiben gleich.
+def nacharbeit():
+    start(15004)
+    N = []
+
+    def neu(l, s, a):
+        assert a is not None, 'zu wenige Antworten'
+        a['l'], a['s'] = l, s
+        N.append(a)
+
+    def rz(wahr, nd):
+        w = gerundet(wahr, nd)
+        assert w is not None
+        return w, f'round({K(wahr)}, {nd})'
+
+    def pq(text, z, n, w, h, c=None):
+        return luecken(text, '□/□ · π', 'Bruch vor π (gekürzt)', [z, n], w, h, c=c or [str(z), str(n)])
+
+    def pk(text, k, w, h, c=None):
+        return luecken(text, '□ · π', 'Zahl vor π', [k], w, h, c=c or [str(k)])
+
+    def gb(gs, x1=2, y=None, **kw):
+        return koord([dict(g, bogen=True) for g in gs], x=(0, round(x1 * PI, 4)), y=y, pi=True, schritt_y=1, **kw)
+
+    # --- bogenmass ---
+    neu('bogenmass', 1, pq('Gib 210° im Bogenmaß als Vielfaches von π an.', 7, 6, '210° · π/180° = 210/180 · π = 7/6 · π = 7π/6.',
+                           'Teile durch 180° und kürze.', c=['210 // 30', '180 // 30']))
+    neu('bogenmass', 1, zahl('Wie viel Grad sind 5π/9?', '5π/9 = 5 · 180° : 9 = 100°.', 'Ersetze π durch 180°.', 100, '5 * 180 / 9', einheit='°'))
+    w, c = rz(2.5 * 180 / PI, 1)
+    neu('bogenmass', 2, zahl('Ein Winkel hat im Bogenmaß die Größe 2,5. Wie viel Grad sind das? Runde auf eine Nachkommastelle.',
+                             f'2,5 · 180° : π ≈ {dz(w)}°.', 'Grad = Bogenmaß · 180° : π.', w, c, einheit='°', tol=0.1))
+    neu('bogenmass', 2, pq('Gib −120° im Bogenmaß als Vielfaches von π an.', -2, 3, '−120° · π/180° = −120/180 · π = −2/3 · π = −2π/3.',
+                           'Ein negativer Winkel bleibt negativ. Kürze 120/180.', c=['-120 // 60', '180 // 60']))
+    neu('bogenmass', 2, auswahl('Welcher Winkel ist am größten?', '3π/4', ['2 (im Bogenmaß)', '100°', '1,5 (im Bogenmaß)'],
+                                '3π/4 = 135°. 2 im Bogenmaß ≈ 114,6°, 1,5 im Bogenmaß ≈ 85,9°. Am größten ist 3π/4.', 'Rechne alles in Grad um: · 180° : π.'))
+    w, c = rz(8 * 3 * PI / 4, 1)
+    neu('bogenmass', 3, zahl('Ein Kreis hat den Radius 8 cm. Wie lang ist der Bogen zum Mittelpunktswinkel 3π/4? Runde auf eine Nachkommastelle.',
+                             f'Bogenlänge = Radius · Winkel im Bogenmaß = 8 · 3π/4 = 6π ≈ {dz(w)} cm.', 'Im Bogenmaß gilt: b = r · x.', w, c, einheit='cm', tol=0.1))
+    w, c = rz(100 / 30, 2)
+    neu('bogenmass', 3, zahl('Ein Rad mit dem Radius 30 cm rollt 1 m weit, ohne zu rutschen. Um welchen Winkel (im Bogenmaß) hat es sich gedreht? Runde auf zwei Nachkommastellen.',
+                             f'Der abgerollte Weg ist der Bogen: x = b : r = 100 cm : 30 cm ≈ {dz(w)}.', 'Rechne 1 m in cm um. Winkel = Bogen : Radius.', w, c, tol=0.01))
+    neu('bogenmass', 3, auswahl('Der Minutenzeiger einer Uhr dreht sich von 12:00 Uhr bis 12:40 Uhr. Um welchen Winkel dreht er sich (im Bogenmaß)?', '4π/3',
+                                ['2π/3', '3π/4', '40π'], '40 Minuten sind 2/3 einer Stunde: 2/3 · 360° = 240°. 240° = 240/180 · π = 4π/3.',
+                                'Welcher Anteil einer vollen Drehung (2π) sind 40 Minuten?'))
+    # --- werte ---
+    neu('werte', 1, zahl('Gib den exakten Wert von cos(π) an.', 'π = 180°: Der Punkt liegt am Einheitskreis ganz links. cos(π) = −1.', 'cos ist der Abstand nach rechts.', -1, '-1'))
+    neu('werte', 1, zahl('Gib den exakten Wert von sin(π/2) an.', 'π/2 = 90°: Der Punkt liegt ganz oben. sin(π/2) = 1.', 'sin ist die Höhe am Einheitskreis.', 1, '1'))
+    neu('werte', 2, zahl('Gib den exakten Wert von cos(5π/3) an.', '5π/3 = 300°. Der Punkt liegt rechts unten, so weit rechts wie bei 60°: cos(5π/3) = 0,5.',
+                         'Rechne in Grad um und vergleiche mit 60°.', Fr(1, 2), '1/2'))
+    neu('werte', 2, zahl('Gib den exakten Wert von sin(11π/6) an.', '11π/6 = 330°. Der Punkt liegt rechts unten, so tief wie bei 30° hoch: sin(11π/6) = −0,5.',
+                         '330° fehlen 30° bis zur vollen Runde.', Fr(-1, 2), '-1/2'))
+    neu('werte', 2, auswahl('Welcher Wert ist am größten?', 'cos(π/6)', ['sin(π/6)', 'sin(5π/4)', 'cos(π)'],
+                            'cos(π/6) = ½√3 ≈ 0,87; sin(π/6) = 0,5; sin(5π/4) = −½√2 ≈ −0,71; cos(π) = −1.', 'Bestimme jeden Wert am Einheitskreis.'))
+    neu('werte', 3, zahl('Berechne ohne Taschenrechner: cos(π) + 2 · sin(π/6) + cos(2π).', '−1 + 2 · 0,5 + 1 = 1.', 'Bestimme jeden Wert am Einheitskreis.', 1, '-1 + 2 * 1/2 + 1'))
+    neu('werte', 3, pq('Die Gleichung sin x = −0,5 hat im Intervall [π; 2π] zwei Lösungen. Gib die kleinere als Vielfaches von π an.', 7, 6,
+                       'sin(π/6) = 0,5. Die Höhe −0,5 hat der Punkt bei π + π/6 = 7π/6 und bei 2π − π/6 = 11π/6. Die kleinere ist 7π/6.',
+                       'Am Einheitskreis gibt es unten zwei Punkte mit der Höhe −0,5.'))
+    neu('werte', 3, auswahl('Jemand rechnet sin(π/2) im DEG-Modus und erhält etwa 0,027. Was stimmt?', 'Falsch: π/2 steht im Bogenmaß; im RAD-Modus ergibt sich 1.',
+                            ['Richtig: sin(π/2) ≈ 0,027.', 'Falsch: Das Ergebnis ist 0,5.', 'Falsch: Das Ergebnis ist 0.'],
+                            'Im DEG-Modus wird π/2 ≈ 1,57 als 1,57° gelesen, sin(1,57°) ≈ 0,027. Gemeint ist der Winkel π/2 = 90°: sin(π/2) = 1.',
+                            'In welcher Einheit steht π/2?'))
+    # --- periode ---
+    neu('periode', 1, pk('Welche Periode hat f(x) = sin(x) im Bogenmaß? Gib sie als Vielfaches von π an.', 2, 'Eine volle Umdrehung sind 360° = 2π. Periode 2π.', 'Wie viel sind 360° im Bogenmaß?'))
+    neu('periode', 1, pq('Welche Periode hat f(x) = sin(4x) im Bogenmaß? Gib sie als Vielfaches von π an.', 1, 2, 'p = 2π : b = 2π : 4 = π/2.', 'Im Bogenmaß gilt p = 2π : b.',
+                         c=['2 // 2', '4 // 2']))
+    neu('periode', 2, zahl('Welche Periode hat f(x) = sin(2πx) (x im Bogenmaß)?', 'p = 2π : b = 2π : 2π = 1.', 'Hier ist b = 2π.', 1, '2 / 2'))
+    neu('periode', 2, pk('Welche Periode hat f(x) = cos(2x/3) (x im Bogenmaß)? Gib sie als Vielfaches von π an.', 3, 'b = 2/3, also p = 2π : 2/3 = 2π · 3/2 = 3π.',
+                         'Durch einen Bruch teilt man, indem man mit dem Kehrwert malnimmt.', c=['2 * 3 // 2']))
+    neu('periode', 2, mit_grafik(auswahl('Der Graph zeigt f(x) = sin(b · x) (x im Bogenmaß). Wie groß ist b?', '2', ['1', '0,5', '4'],
+                                         'Eine Schwingung reicht von 0 bis π, die Periode ist π. b = 2π : π = 2.', 'Lies die Periode ab: Wo ist die erste Schwingung fertig?'),
+                                 gb([{'art': 'sin', 'a': 1, 'b': 2, 'c': 0, 'd': 0}], y=(-2, 2))))
+    neu('periode', 3, zahl('f(x) = cos(b · x) (x im Bogenmaß, b > 0) hat die Periode π/3. Bestimme b.', '2π : b = π/3 ⇒ b = 2π : π/3 = 2 · 3 = 6.', 'Setze in p = 2π : b ein.', 6, '2 * 3'))
+    neu('periode', 3, pk('Welche kleinste Periode hat f(x) = sin(x) + cos(2x) (x im Bogenmaß)? Gib sie als Vielfaches von π an.', 2,
+                         'sin x hat die Periode 2π, cos(2x) die Periode π. Beide wiederholen sich gleichzeitig erst nach 2π.',
+                         'Bestimme beide Perioden. Wann wiederholen sich beide zugleich?'))
+    neu('periode', 3, zahl('Ein Pendel schwingt nach s(t) = 5 · sin(π/2 · t) (t in s, x im Bogenmaß). Wie viele Sekunden dauert eine volle Schwingung?',
+                           'p = 2π : b = 2π : π/2 = 4 s.', 'Hier ist b = π/2.', 4, '2 * 2', einheit='s'))
+    # --- parameter ---
+    neu('parameter', 1, zahl('Welche Amplitude hat f(x) = 4 · sin(x) − 2 (x im Bogenmaß)?', 'Die Amplitude ist der Faktor vor sin: 4. Die −2 verschiebt nur nach unten.',
+                             'Welche Zahl steht vor sin?', 4, '4'))
+    neu('parameter', 1, zahl('Welchen größten Wert hat f(x) = 2 · cos(x) + 3 (x im Bogenmaß)?', 'Mittellinie 3, Amplitude 2: größter Wert 3 + 2 = 5.',
+                             'Größter Wert = Mittellinie + Amplitude.', 5, '3 + 2'))
+    neu('parameter', 2, zahl('Welchen Wert hat f(x) = 2 · sin(x) − 1 an der Stelle x = 3π/2?', 'sin(3π/2) = −1, also f(3π/2) = 2 · (−1) − 1 = −3.',
+                             '3π/2 = 270°: Wo liegt der Punkt am Einheitskreis?', -3, '2 * (-1) - 1'))
+    neu('parameter', 2, luecken('Gib die Wertemenge von f(x) = 3 · cos(2x) − 1 an (x im Bogenmaß).', 'W = [□; □]', 'Kleinster und größter Wert', [-4, 2],
+                                'Amplitude 3, Mittellinie y = −1: von −1 − 3 = −4 bis −1 + 3 = 2. Der Faktor 2 vor x ändert nur die Periode.',
+                                'Mittellinie minus und plus Amplitude.', c=['-1 - 3', '-1 + 3']))
+    neu('parameter', 2, auswahl('An welcher Stelle im Intervall [0; 2π[ nimmt f(x) = 2 · sin(x) + 1 seinen kleinsten Wert an?', 'x = 3π/2', ['x = π/2', 'x = π', 'x = 0'],
+                                'f ist am kleinsten, wenn sin x = −1 ist. Das ist bei 3π/2 (270°) der Fall: f(3π/2) = −1.', 'Wann ist sin x am kleinsten?'))
+    neu('parameter', 3, luecken('f(x) = a · sin(x) + d (x im Bogenmaß) hat bei x = π/2 den Wert 7 und bei x = 3π/2 den Wert −1. Bestimme a und d.', 'a = □; d = □', 'Zwei Zahlen', [4, 3],
+                                'sin(π/2) = 1 und sin(3π/2) = −1: a + d = 7 und −a + d = −1. Addieren: 2d = 6, d = 3; dann a = 4.',
+                                'Setze beide Stellen ein und löse das Gleichungssystem.', c=['(7 - (-1)) // 2', '(7 + (-1)) // 2']))
+    neu('parameter', 3, zahl('f(x) = a · cos(x) + 2 (x im Bogenmaß, a > 0) hat den kleinsten Wert −3. Welchen Wert hat f(π/3)?',
+                             'Kleinster Wert 2 − a = −3 ⇒ a = 5. f(π/3) = 5 · cos(π/3) + 2 = 5 · 0,5 + 2 = 4,5.', 'Bestimme zuerst a aus dem kleinsten Wert.',
+                             Fr(9, 2), '5 * 1/2 + 2'))
+    neu('parameter', 3, auswahl('Für welche Werte von a hat f(x) = a · cos(x) + 1 (x im Bogenmaß) Nullstellen?', 'für a ≥ 1 oder a ≤ −1',
+                                ['nur für a > 1', 'für alle a ≠ 0', 'für a > 1 oder a < −1'],
+                                'Der kleinste Wert ist 1 − |a|. Nullstellen gibt es, wenn er höchstens 0 ist: |a| ≥ 1. Bei |a| = 1 berührt der Graph die x-Achse.',
+                                'Wann reicht die Kurve bis zur x-Achse hinunter?'))
+    # --- zuordnen ---
+    neu('zuordnen', 1, mit_grafik(auswahl('Welcher Term gehört zum gezeichneten Graphen (x im Bogenmaß)?', 'f(x) = cos(x)', ['f(x) = sin(x)', 'f(x) = −cos(x)', 'f(x) = −sin(x)'],
+                                          'Der Graph startet bei x = 0 ganz oben (y = 1) und hat die Periode 2π: cos x.', 'Wo liegt der Graph bei x = 0?'),
+                                  gb([{'art': 'cos', 'a': 1, 'b': 1, 'c': 0, 'd': 0}], y=(-2, 2))))
+    neu('zuordnen', 1, mit_grafik(auswahl('Welcher Term gehört zum gezeichneten Graphen (x im Bogenmaß)?', 'f(x) = 3 · sin(x)', ['f(x) = sin(3x)', 'f(x) = sin(x) + 3', 'f(x) = 3 · cos(x)'],
+                                          'Start auf der Mittellinie y = 0, steigend: sin. Höchster Wert 3, Periode 2π: 3 · sin(x).', 'Lies den höchsten Wert und die Periode ab.'),
+                                  gb([{'art': 'sin', 'a': 3, 'b': 1, 'c': 0, 'd': 0}], y=(-4, 4))))
+    neu('zuordnen', 2, mit_grafik(auswahl('Welcher Term gehört zum gezeichneten Graphen (x im Bogenmaß)?', 'f(x) = sin(2x) + 1',
+                                          ['f(x) = sin(0,5x) + 1', 'f(x) = 2 · sin(x) + 1', 'f(x) = cos(2x) + 1'],
+                                          'Mittellinie y = 1, Amplitude 1, eine Schwingung bis π: b = 2π : π = 2. Start auf der Mittellinie, steigend: sin(2x) + 1.',
+                                          'Lies Mittellinie, Amplitude und Periode ab.'),
+                                  gb([{'art': 'sin', 'a': 1, 'b': 2, 'c': 0, 'd': 1}], y=(-1, 3))))
+    neu('zuordnen', 2, auswahl('Welcher Term hat die Periode 4π und die Mittellinie y = 2 (x im Bogenmaß)?', 'f(x) = sin(0,5x) + 2',
+                               ['f(x) = sin(4x) + 2', 'f(x) = 2 · sin(0,5x)', 'f(x) = sin(2x) + 2'],
+                               'Periode 4π ⇒ b = 2π : 4π = 0,5. Mittellinie y = 2 ⇒ + 2.', 'Rechne b = 2π : p aus.'))
+    neu('zuordnen', 2, mit_grafik(auswahl('Welcher Term gehört zum gezeichneten Graphen (x im Bogenmaß)?', 'f(x) = −2 · sin(x)', ['f(x) = 2 · sin(x)', 'f(x) = −2 · cos(x)', 'f(x) = −sin(2x)'],
+                                          'Start auf der Mittellinie y = 0, aber fallend; tiefster Wert −2 bei π/2, Periode 2π: −2 · sin(x).', 'Steigt oder fällt der Graph bei x = 0?'),
+                                  gb([{'art': 'sin', 'a': -2, 'b': 1, 'c': 0, 'd': 0}], y=(-3, 3))))
+    neu('zuordnen', 3, luecken('Eine Funktion f(x) = a · sin(b · x) + d (x im Bogenmaß, a > 0, b > 0) hat einen Hochpunkt bei (π/4 | 6). Der nächste Tiefpunkt liegt bei (3π/4 | 0). Bestimme a, b und d.',
+                               'a = □; b = □; d = □', 'Drei Zahlen', [3, 2, 3],
+                               'd = (6 + 0) : 2 = 3, a = (6 − 0) : 2 = 3. Vom Hoch- zum Tiefpunkt ist eine halbe Periode: π/2, also p = π und b = 2π : π = 2. Probe: sin(2 · π/4) = 1.',
+                               'Vom Hochpunkt bis zum nächsten Tiefpunkt ist eine halbe Periode.', c=['(6 - 0) // 2', '2 // 1', '(6 + 0) // 2']))
+    neu('zuordnen', 3, mit_grafik(auswahl('Welcher Term gehört zum gezeichneten Graphen (x im Bogenmaß)?', 'f(x) = 2 · cos(0,5x)',
+                                          ['f(x) = 2 · cos(2x)', 'f(x) = 0,5 · cos(2x)', 'f(x) = 2 · sin(0,5x)'],
+                                          'Start ganz oben bei 2: cos mit Amplitude 2. Eine Schwingung reicht bis 4π: b = 2π : 4π = 0,5.',
+                                          'Lies die Periode genau ab: Wo ist der Graph wieder ganz oben?'),
+                                  gb([{'art': 'cos', 'a': 2, 'b': 0.5, 'c': 0, 'd': 0}], x1=4, y=(-3, 3))))
+    neu('zuordnen', 3, auswahl('Wie entsteht der Graph von g(x) = sin(x − π/3) + 2 aus dem Graphen von sin x?', 'um π/3 nach rechts und um 2 nach oben verschoben',
+                               ['um π/3 nach links und um 2 nach oben verschoben', 'um π/3 nach rechts und um 2 nach unten verschoben', 'mit dem Faktor 2 gestreckt und um π/3 nach rechts verschoben'],
+                               'x − π/3: Derselbe Wert kommt π/3 später, also nach rechts. + 2 schiebt nach oben.', 'Bei x − c wandert der Graph nach rechts.'))
+    # --- eigenschaften ---
+    neu('eigenschaften', 1, pk('Wo hat sin x (x im Bogenmaß) die kleinste positive Nullstelle? Gib sie als Vielfaches von π an.', 1,
+                               'sin x ist die Höhe. Sie ist nach 0 erst wieder bei 180° = π gleich 0.', 'Wann ist die Gondel wieder auf Höhe der Mitte?'))
+    neu('eigenschaften', 1, pq('An welcher Stelle im Intervall [0; 2π[ hat sin x einen Tiefpunkt? Gib sie als Vielfaches von π an.', 3, 2,
+                               'Ganz unten ist der Punkt bei 270° = 3π/2.', 'Wann ist die Höhe am kleinsten?'))
+    neu('eigenschaften', 2, pq('Bestimme die kleinste positive Nullstelle von f(x) = sin(3x) (x im Bogenmaß).', 1, 3,
+                               'sin u = 0 zuerst wieder bei u = π. 3x = π ⇒ x = π/3.', 'Ersetze 3x durch u.'))
+    neu('eigenschaften', 2, zahl('Wie viele Nullstellen hat cos x im Intervall [0; 4π] (x im Bogenmaß)?', 'Nullstellen bei π/2, 3π/2, 5π/2 und 7π/2: Das sind 4.',
+                                 'In jeder Periode 2π hat cos zwei Nullstellen.', 4, '2 * 2'))
+    neu('eigenschaften', 2, auswahl('Welche Aussage stimmt (x im Bogenmaß)?', 'cos(−π/3) = cos(π/3)',
+                                    ['cos(−π/3) = −cos(π/3)', 'sin(−π/3) = sin(π/3)', 'cos(4π/3) = cos(π/3)'],
+                                    'Der cos-Graph ist achsensymmetrisch zur y-Achse: cos(−x) = cos x. sin ist punktsymmetrisch: sin(−x) = −sin x. cos(4π/3) = −0,5, cos(π/3) = 0,5.',
+                                    'Welcher Graph ist achsensymmetrisch zur y-Achse?'))
+    neu('eigenschaften', 3, luecken('Die Gleichung cos x = 0,5 hat im Intervall [0; 2π[ zwei Lösungen. Gib beide als Vielfache von π an, die kleinere zuerst.',
+                                    'x₁ = □/□ · π; x₂ = □/□ · π', 'Zwei Brüche vor π (gekürzt)', [1, 3, 5, 3],
+                                    'cos(π/3) = 0,5. Der zweite Punkt gleicher Rechts-Lage liegt gespiegelt an der x-Achse: 2π − π/3 = 5π/3.',
+                                    'Am Einheitskreis gibt es zwei Punkte mit dem Abstand 0,5 nach rechts.', c=['1', '3', '6 - 1', '3']))
+    neu('eigenschaften', 3, zahl('Wie viele Lösungen hat die Gleichung sin(2x) = 0,5 im Intervall [0; 2π[ (x im Bogenmaß)?',
+                                 'Mit u = 2x läuft u von 0 bis 4π, also zwei volle Perioden. In jeder Periode hat sin u = 0,5 zwei Lösungen: zusammen 4.',
+                                 'Ersetze 2x durch u. Welchen Bereich durchläuft u?', 4, '2 * 2'))
+    neu('eigenschaften', 3, auswahl('Welche Symmetrie hat der Graph von f(x) = x · sin(x) (x im Bogenmaß)?', 'achsensymmetrisch zur y-Achse',
+                                    ['punktsymmetrisch zum Ursprung', 'keine Symmetrie', 'achsensymmetrisch zur Geraden x = π'],
+                                    'f(−x) = (−x) · sin(−x) = (−x) · (−sin x) = x · sin x = f(x). Das ist Achsensymmetrie zur y-Achse.',
+                                    'Berechne f(−x) mit sin(−x) = −sin x.'))
+    # --- anwendung ---
+    neu('anwendung', 1, zahl('Der Wasserstand in einem Hafen ist h(t) = 3 + 2 · sin(π/6 · t) (t in Stunden, h in m). Wie hoch steht das Wasser bei t = 0?',
+                             'sin(0) = 0, also h(0) = 3 + 0 = 3 m.', 'Setze t = 0 ein.', 3, '3 + 2 * 0', einheit='m'))
+    neu('anwendung', 1, zahl('h(t) = 3 + 2 · sin(π/6 · t) (t in Stunden, h in m). Wie hoch steht das Wasser höchstens?', 'sin ist höchstens 1: 3 + 2 · 1 = 5 m.',
+                             'Mittellinie plus Amplitude.', 5, '3 + 2', einheit='m'))
+    neu('anwendung', 2, zahl('h(t) = 3 + 2 · sin(π/6 · t) (t in Stunden). Nach wie vielen Stunden wiederholt sich der Wasserstand?', 'p = 2π : π/6 = 12 Stunden.',
+                             'Im Bogenmaß gilt p = 2π : b.', 12, '2 * 6', einheit='h'))
+    neu('anwendung', 2, zahl('h(t) = 3 + 2 · sin(π/6 · t) (t in Stunden, h in m). Wie hoch steht das Wasser nach 1 Stunde?', 'sin(π/6) = 0,5: h(1) = 3 + 2 · 0,5 = 4 m.',
+                             'π/6 = 30°.', 4, '3 + 2 * 1/2', einheit='m'))
+    neu('anwendung', 2, luecken('Ein Riesenrad braucht 8 Minuten für eine Umdrehung. Bestimme b in h(t) = a · sin(b · t) + d (t in min, b im Bogenmaß).', 'b = □/□ · π',
+                                'Bruch vor π (gekürzt)', [1, 4], 'Eine Umdrehung ist 2π in 8 Minuten: b = 2π : 8 = π/4.', 'b = 2π : Periodendauer.', c=['1', '8 // 2']))
+    w, c = rz(25 - 20 * math.cos(PI / 10 * 13), 1)
+    neu('anwendung', 3, zahl('Die Höhe einer Gondel ist h(t) = 25 − 20 · cos(π/10 · t) (t in min, h in m). Wie hoch ist sie nach 13 Minuten? Runde auf eine Nachkommastelle.',
+                             f'π/10 · 13 = 1,3π (234°). cos(1,3π) ≈ −0,588, h ≈ 25 + 11,76 ≈ {dz(w)} m. Rechner im RAD-Modus!',
+                             'Setze t = 13 ein und rechne im RAD-Modus.', w, c, einheit='m', tol=0.1))
+    w, c = rz(20 / 3, 1)
+    neu('anwendung', 3, zahl('h(t) = 25 − 20 · cos(π/10 · t) (t in min, h in m). Wie viele Minuten einer Umdrehung ist die Gondel höher als 35 m? Runde auf eine Nachkommastelle.',
+                             f'25 − 20 · cos u > 35 ⇔ cos u < −0,5 ⇔ 2π/3 < u < 4π/3. Das ist 1/3 einer Periode; die Umlaufzeit ist 2π : π/10 = 20 min: ≈ {dz(w)} min.',
+                             'Für welche Winkel ist cos u < −0,5? Welcher Anteil einer Umdrehung ist das?', w, c, einheit='min', tol=0.1))
+    neu('anwendung', 3, zahl('T(t) = 15 + 8 · sin(π/12 · (t − 9)) (t in Stunden nach Mitternacht, T in °C). Um wie viel Uhr ist es am wärmsten?',
+                             'Am wärmsten bei sin(…) = 1, also π/12 · (t − 9) = π/2 ⇒ t − 9 = 6 ⇒ t = 15. Das ist 15 Uhr.', 'sin ist 1 beim Winkel π/2.', 15, '9 + 6', einheit='Uhr'))
+    return N
+
+
+def nacharbeit_anhaengen(thema, neue):
+    """Hängt die Übungen der Fünfzehnten Runde an (alte Aufgaben bleiben unverändert und in derselben Reihenfolge)."""
+    import json
+    from _kl10 import THEMEN, _schluessel, _hoch
+    pfad = THEMEN / f'{thema}.json'
+    roh = pfad.read_text(encoding='utf-8')
+    d = json.loads(roh)
+    lz = [e['lernziel'] for e in d['inhalt']['etappen']]
+    beispiele = {(s['text'] if isinstance(s, dict) else s).strip() for e in d['inhalt']['etappen'] for s in e.get('schritte', [])}
+    gesehen = {_schluessel(a) for a in d['aufgaben']}
+    zahl_ = {(l, s): 0 for l in lz for s in (1, 2, 3)}
+    for a in neue:
+        l, s = a.pop('l'), a.pop('s')
+        assert l in lz and s in (1, 2, 3)
+        assert a.get('h') and len(a.get('w', '')) >= 15, a['f']['text']
+        if a['y'] == 'zahl': assert 'c' in a
+        a['f']['text'] = _hoch(a['f']['text']); a['w'] = _hoch(a['w'])
+        if 'a' in a: a['a'] = [_hoch(x) for x in a['a']]
+        k = _schluessel(a)
+        assert k not in gesehen, f'Dublette: {a["f"]["text"]}'
+        assert a['f']['text'].strip() not in beispiele
+        gesehen.add(k)
+        d['aufgaben'].append({'l': l, 't': a.pop('t', None) or l, 'p': 'uebung', 's': s, **a})
+        zahl_[(l, s)] += 1
+    for l in lz:
+        assert (zahl_[(l, 1)], zahl_[(l, 2)], zahl_[(l, 3)]) == (2, 3, 3), f'{l}: {zahl_}'
+    pfad.write_text(json.dumps(d, ensure_ascii=False, indent=1) + ('\n' if roh.endswith('\n') else ''), encoding='utf-8')
+    print(f'{pfad.name}: {len(neue)} Bogenmaß-Übungen (Fünfzehnte Runde) angehängt, jetzt {len(d["aufgaben"])} Aufgaben')
+
 if __name__ == '__main__':
     datei = bauen('funktionen.trig',
           'Sinus- und Kosinusfunktion mit Grad- und Bogenmaß beschreiben, Periode, Amplitude und Verschiebung deuten, Graph und Term zuordnen und periodische Vorgänge modellieren.',
@@ -816,10 +1062,10 @@ if __name__ == '__main__':
           ETAPPEN, GEN, klar=KLAR,
           meiden={'bogenmass': ['Gib 60° im Bogenmaß'], 'werte': ['sin(5π/6)'], 'periode': ['f(x) = sin(3x)?'], 'parameter': ['f(x) = 3 · sin(x) + 1'],
                   'anwendung': ['h(t) = 20 − 18 · cos(30° · t) (t in Minuten, h in m). Wie hoch ist sie nach 4 min']},
-          offen=['Zeichnungen: Graphen in den Lernkarten „werte“, „periode“, „parameter“, „zuordnen“, „eigenschaften“, „anwendung“; Aufgaben „Graph und Term zuordnen“, „Periode ablesen“, „Amplitude ablesen“ zeigen den Graphen. Die x-Achse ist in Grad beschriftet (grad: true), weil π-Beschriftungen nicht möglich sind; Bogenmaß wird über Umrechnung geübt.',
+          offen=['Zeichnungen: Graphen in den Lernkarten „werte“, „periode“, „parameter“, „zuordnen“, „eigenschaften“, „anwendung“; Aufgaben „Graph und Term zuordnen“, „Periode ablesen“, „Amplitude ablesen“ zeigen den Graphen. Bogenmaß (Fünfzehnte Runde): Die Lernkarten führen nach dem Gradmaß-Einstieg das Bogenmaß mit (Graphen mit π-Achse, pi: true); je Lernkarte 8 Übungen im Bogenmaß. Die älteren Aufgaben-Graphen bleiben in Grad beschriftet.',
                  'Verschiebung in x-Richtung: nach der Prüfung als Zuordnungsaufgabe mit Zeichnung (Stufe 3, „zuordnen“) aufgenommen; keine eigene Lernkarte.',
                  'Prüfung eingearbeitet (Runde 3): Bogenlänge, exakte Werte mit Wurzeln (½√2, ½√3), Vorzeichen ohne Rechner, Term aus Kennwerten, Verschiebung in x-Richtung, Riesenrad-Modell aus Sachangaben, Zeitpunkt bestimmen, Gezeiten. Ganzzahlige Vielfache von π als „□ · π“. Zuordnen: kein Graph doppelt je Stufe, gleichwertige Terme nie zusammen als Optionen.',
-                 'Vorschlag der Prüfung an den Haupt-Chat (App, nicht Inhalt): x-Achse in Vielfachen von π beschriften (π/2, π, 3π/2) – würde „bogenmass“ und „werte“ anschaulicher machen. Bis dahin Gradbeschriftung.',
                  'Rechenausdruck c: Sinus/Kosinus-Werte als 12-stellige Konstanten mit Toleranz.'])
     ergaenzen(datei, schwer())
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+    nacharbeit_anhaengen('funktionen.trig', nacharbeit())  # Fünfzehnte Runde: Bogenmaß-Übungen, ganz am Ende

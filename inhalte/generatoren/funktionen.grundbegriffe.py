@@ -832,5 +832,6 @@ if __name__ == '__main__':
          'Funktionen als eindeutige Zuordnungen erkennen; mit Funktionsterm, Wertetabelle und Graph arbeiten; Definitions- und Wertemenge sowie Nullstellen bestimmen.',
          ['Funktion: Jedem x genau ein y.', 'f(a) berechnen: a einsetzen. f(x) = b lösen: x gesucht.',
           'Nullstelle: f(x) = 0. P(a | b) liegt auf dem Graphen, wenn f(a) = b.'],
-         offen=['„Ist dieser Graph eine Funktion?“ mit einem Gegenbeispiel (Kreis, liegende Parabel) braucht eine Kurve, die die App noch nicht zeichnen kann. '
-                'Gebaut: Punktwolken (zwei Punkte übereinander) und Parabeln als Beispiel für „ja“.'])
+         offen=['„Ist dieser Graph eine Funktion?“: Gebaut sind Punktwolken (zwei Punkte übereinander) als Gegenbeispiel und Parabeln als Beispiel für „ja“. '
+                'Einen Kreis kann die App inzwischen zeichnen (koordinaten.kreise); Aufgaben mit dem Kreis als Gegenbeispiel sind noch nicht gebaut (möglich als Ergänzung). '
+                'Eine liegende Parabel gibt es nicht als Graph-Art.'])

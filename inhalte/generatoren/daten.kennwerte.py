@@ -336,7 +336,7 @@ GEN = {'mittelwert': g_mittel, 'mittel_tabelle': g_tab, 'mittel_rueckwaerts': g_
 DATEI = datei(E, 'Das arithmetische Mittel bestimmen und deuten, Modalwert, Spannweite und Median ermitteln und Kennwerte kritisch beurteilen.', MERKE,
               [('Mittelwert', ['mittelwert', 'mittel_tabelle', 'mittel_rueckwaerts']),
                ('Weitere Kennwerte', ['modal_spannweite', 'median', 'verstehen'])],
-              ETAPPEN, GEN, vertiefung=['median'],
+              ETAPPEN, GEN, vertiefung=['modal_spannweite', 'median'],
               offen=['„umfang“ nennt Median, Quartile und Boxplot; der Kl.-6-Lehrplan (lehrplan_gym) verlangt nur das arithmetische Mittel. Quartile und Boxplot weggelassen (höhere Klasse, Boxplot braucht außerdem eine Zeichnung). Median als Vertiefung (nicht Pflicht) aufgenommen, Modalwert und Spannweite als einfache Ergänzung zum Mittelwert.',
                      'Falls der Median doch Pflicht werden soll: in bewertung.lernziele_pflicht verschieben.'])
 

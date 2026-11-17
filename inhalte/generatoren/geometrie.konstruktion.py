@@ -292,6 +292,29 @@ def ssw_fall(R, fall):
             c = R.choice([6, 8, 10, 12]); return c // 2, c, 30
 
 
+def ssw_bild(a, c, al):
+    """Fünfzehnte Runde: Zeichnung zu „Gegeben a, c, α (α liegt a gegenüber)“ – Seite c, Winkel α mit freiem Schenkel und
+    der Abstand von B zum freien Schenkel (Lot). Den Kreis um B zeichnet das Kind in Gedanken; a steht im Text."""
+    r = math.radians(al)
+    u = (math.cos(r), math.sin(r))
+    h = c * math.sin(r)
+    t = c * math.cos(r)
+    lang = max(t + math.sqrt(max(a * a - h * h, 0)), c) + 2
+    abst = f'{a} cm' if abs(h - round(h)) < 1e-9 else f'≈ {zt(Fr(str(round(h, 1))))} cm'
+    return figur({'A': (0, 0), 'B': (c, 0), '_F': (round(lang * u[0], 2), round(lang * u[1], 2)), '_L': (round(t * u[0], 2), round(t * u[1], 2))},
+                 linien=[('A', 'B', f'c = {c} cm'), ('A', '_F', ''), ('B', '_L', abst, 'gestrichelt')],
+                 rechter_winkel=[('_L', 'B', 'A')], winkel=[('A', 'B', '_F', f'α = {al}°')])
+
+
+def ssw_dreieck(ab, ac, wb):
+    """Fünfzehnte Runde: Dreieck ABC mit AB, AC und dem Winkel bei B (eine mögliche Lage von C)."""
+    r = math.radians(wb)
+    t = ab * math.cos(r) + math.sqrt(ac * ac - (ab * math.sin(r)) ** 2)
+    C = (round(t * math.cos(r), 2), round(t * math.sin(r), 2))
+    return figur({'B': (0, 0), 'A': (ab, 0), 'C': C}, flaeche=('A', 'B', 'C'),
+                 linien=[('A', 'B', f'{ab} cm'), ('A', 'C', f'{ac} cm'), ('B', 'C', '')], winkel=[('B', 'A', 'C', f'{wb}°')])
+
+
 SSW_ANTW = {'eindeutig': 'genau ein Dreieck (SsW: der Winkel liegt der längeren Seite gegenüber)', 'zwei': 'zwei verschiedene Dreiecke',
             'recht': 'genau ein (rechtwinkliges) Dreieck', 'kein': 'kein Dreieck'}
 
@@ -305,8 +328,10 @@ def g_kongruenzsatz(R, st):
              'zwei': f'a = {a} cm ist kürzer als c = {c} cm, aber länger als der Abstand von B zum freien Schenkel (≈ {zt(Fr(str(round(h, 1))))} cm): Der Kreis um B schneidet zweimal.',
              'kein': f'Der Abstand von B zum freien Schenkel ist ≈ {zt(Fr(str(round(h, 1))))} cm, a = {a} cm ist kürzer: Der Kreis um B erreicht den Schenkel nicht.',
              'recht': f'Der Abstand von B zum freien Schenkel ist bei α = 30° genau c : 2 = {a} cm: Der Kreis berührt den Schenkel nur in einem Punkt, dort ist der Winkel 90°.'}[fall]
-        return A(R, f'Gegeben: a = {a} cm, c = {c} cm, α = {al}° (α liegt a gegenüber). Wie viele Dreiecke gibt es?', SSW_ANTW[fall],
+        aufg = A(R, f'Gegeben: a = {a} cm, c = {c} cm, α = {al}° (α liegt a gegenüber). Wie viele Dreiecke gibt es?', SSW_ANTW[fall],
                  [v for k, v in SSW_ANTW.items() if k != fall], w, 'Zeichne c und α. Schlage um B einen Kreis mit Radius a: Wie oft trifft er den freien Schenkel?')
+        aufg['f']['grafik'] = ssw_bild(a, c, al)  # Fünfzehnte Runde: Lage der gegebenen Stücke ablesbar
+        return aufg
     a, b, c = sorted(R.sample(range(3, 12), 3))
     w1, w2 = R.sample(range(25, 80, 5), 2)
     art = R.choice(SAETZE if st > 1 else SAETZE[:3])
@@ -744,11 +769,11 @@ def schwer():
         'β liegt nicht zwischen a und c, sondern der Seite b gegenüber. b ist die größere der beiden Seiten: SsW.', 'Welcher Seite liegt der Winkel gegenüber, und ist sie die größere?')
     N.A('kongruenzsatz', 3, 'In den Dreiecken ABC und DEF gilt: AB = DE = 5 cm, AC = DF = 7 cm und ∠ABC = ∠DEF = 75°. Sind die Dreiecke sicher kongruent?', 'Ja, nach SsW: Der Winkel liegt der längeren Seite (7 cm) gegenüber.',
         ['Nein, dafür bräuchte man drei Seiten.', 'Ja, nach SWS.', 'Nein, der Winkel liegt nicht zwischen den Seiten.'],
-        'Der Winkel bei B liegt der Seite AC = 7 cm gegenüber. 7 cm > 5 cm: Das ist SsW, also kongruent.', 'Welcher Seite liegt der Winkel bei B gegenüber?', art=P)
+        'Der Winkel bei B liegt der Seite AC = 7 cm gegenüber. 7 cm > 5 cm: Das ist SsW, also kongruent.', 'Welcher Seite liegt der Winkel bei B gegenüber?', art=P, grafik=ssw_dreieck(5, 7, 75))
     N.A('kongruenzsatz', 3, 'In den Dreiecken ABC und DEF gilt: AB = DE = 7 cm, AC = DF = 5 cm und ∠ABC = ∠DEF = 40°. Sind die Dreiecke sicher kongruent?', 'Nein: Der Winkel liegt der kürzeren Seite gegenüber; es kann zwei verschiedene Dreiecke geben.',
         ['Ja, nach SsW.', 'Ja, nach SWS.', 'Ja, zwei Seiten und ein Winkel reichen immer.'],
         'Der Winkel bei B liegt AC = 5 cm gegenüber, der kürzeren Seite. Das ist kein Kongruenzsatz (sSW): Der Kreis um A mit 5 cm kann den freien Schenkel zweimal schneiden.',
-        'SsW gilt nur, wenn der Winkel der GRÖSSEREN Seite gegenüberliegt.', art=P)
+        'SsW gilt nur, wenn der Winkel der GRÖSSEREN Seite gegenüberliegt.', art=P, grafik=ssw_dreieck(7, 5, 40))
     N.A('kongruenzsatz', 3, 'Zwei Dreiecke haben beide die Winkel 50°, 60° und 70°. Sind sie sicher kongruent?', 'Nein: Ein Dreieck kann eine vergrößerte Kopie des anderen sein.',
         ['Ja, nach WSW.', 'Ja, drei gleiche Winkel reichen.', 'Nein, weil 50° + 60° + 70° nicht 180° ist.'],
         'Gleiche Winkel legen nur die Form fest, nicht die Größe. Ein Gegenbeispiel: dasselbe Dreieck doppelt so groß gezeichnet. „WWW“ ist kein Kongruenzsatz.',

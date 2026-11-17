@@ -563,6 +563,71 @@
         ]
        ]
       }
+     },
+     {
+      "text": "Schiff: Drehwinkel 50°. Der Dreieckswinkel am Wendepunkt ist ⟦180° − 50° = 130°⟧.",
+      "bild": {
+       "punkte": {
+        "Start": [
+         0,
+         0
+        ],
+        "W": [
+         5,
+         0
+        ],
+        "_V": [
+         8,
+         0
+        ],
+        "Ziel": [
+         7.57,
+         3.06
+        ]
+       },
+       "flaeche": [
+        "Start",
+        "W",
+        "Ziel"
+       ],
+       "linien": [
+        [
+         "Start",
+         "W",
+         "5 km"
+        ],
+        [
+         "W",
+         "_V",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "W",
+         "Ziel",
+         "4 km"
+        ],
+        [
+         "Start",
+         "Ziel",
+         "?"
+        ]
+       ],
+       "winkel": [
+        [
+         "W",
+         "_V",
+         "Ziel",
+         "50°"
+        ],
+        [
+         "W",
+         "Ziel",
+         "Start",
+         "130°"
+        ]
+       ]
+      }
      }
     ],
     "fehler": "c² = 25 + 64 − 80 = 9 ist falsch. Der Faktor cos 60° = 0,5 fehlt.",
@@ -575,6 +640,10 @@
      [
       "eingeschlossener Winkel γ",
       "der Winkel zwischen a und b"
+     ],
+     [
+      "Drehwinkel",
+      "um so viel Grad ändert ein Schiff am Wendepunkt seine Richtung"
      ]
     ],
     "bild": {
@@ -625,6 +694,25 @@
      ]
     },
     "fehler_bild": {
+     "punkte": {
+      "C": [
+       0,
+       0
+      ],
+      "A": [
+       8,
+       0
+      ],
+      "B": [
+       2.5,
+       4.33
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
      "linien": [
       [
        "C",
@@ -640,6 +728,14 @@
        "A",
        "B",
        "c = 3? zu kurz"
+      ]
+     ],
+     "winkel": [
+      [
+       "C",
+       "A",
+       "B",
+       "60°"
       ]
      ]
     }

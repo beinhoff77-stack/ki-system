@@ -617,7 +617,14 @@ KARTEN = {
                {'text': 'Abstand gleich Radius: Er berührt den Kreis genau einmal. Das ist eine ⟦Tangente⟧.',
                 'bild': {'linien': [['M', '_T', 'r = 4 cm'], ['_A', '_B', 'Tangente']]}},
                {'text': 'Näher als 4 cm: Die Sekante schneidet zweimal. Weiter weg: Die Passante verfehlt ihn.',
-                'bild': {'linien': [['M', '_T', 'r = 4 cm'], ['_A', '_B', 'Tangente'], ['_S1', '_S2', 'Sekante'], ['_P1', '_P2', 'Passante']]}}],
+                'bild': {'linien': [['M', '_T', 'r = 4 cm'], ['_A', '_B', 'Tangente'], ['_S1', '_S2', 'Sekante'], ['_P1', '_P2', 'Passante']]}},
+               # Fünfzehnte Runde: zwei Kreise (passend zu den Stufe-3-Aufgaben) – Abstand der Mittelpunkte mit r₁ + r₂ vergleichen
+               {'text': 'Radius 3 m und 2 m, Mittelpunkte 5 m entfernt: Die Kreise ⟦berühren sich⟧.',
+                'bild': {'punkte': {'M₁': [0, 0], 'M₂': [5, 0], '_R1': [0, 3], '_R2': [5, 2]}, 'kreise': [{'m': 'M₁', 'r': 3}, {'m': 'M₂', 'r': 2}],
+                         'linien': [['M₁', '_R1', '3 m'], ['M₂', '_R2', '2 m'], ['M₁', 'M₂', '5 m', 'gestrichelt']]}},
+               {'text': 'Mittelpunkte 7 m entfernt, mehr als 3 + 2 = 5: Die Kreise liegen ⟦getrennt⟧.',
+                'bild': {'punkte': {'M₁': [0, 0], 'M₂': [7, 0], '_R1': [0, 3], '_R2': [7, 2]}, 'kreise': [{'m': 'M₁', 'r': 3}, {'m': 'M₂', 'r': 2}],
+                         'linien': [['M₁', '_R1', '3 m'], ['M₂', '_R2', '2 m'], ['M₁', 'M₂', '7 m', 'gestrichelt']]}}],
   'fehler': 'Bei Abstand gleich Radius von zwei Schnittpunkten sprechen ist falsch. Der Weg streift den nassen Kreis nur an einer Stelle.',
   'regel': 'Vergleiche den Abstand ⟦d⟧ mit dem Radius r. Kleiner: Sekante, gleich: Tangente, größer: Passante.'},
  'winkelarten': {

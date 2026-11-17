@@ -222,14 +222,21 @@ UMBAU = {
  'kosinussatz_seite': {
   'einstieg': 'Von einer Hütte führen zwei Wege, 5 km und 8 km lang. Sie bilden einen Winkel von 60°. Wie weit liegen die Enden auseinander? Hier hilft der ⟦Kosinussatz⟧.',
   'woerter': [['Kosinussatz', 'c² = a² + b² − 2ab · cos γ'],
-              ['eingeschlossener Winkel γ', 'der Winkel zwischen a und b']],
+              ['eingeschlossener Winkel γ', 'der Winkel zwischen a und b'],
+              ['Drehwinkel', 'um so viel Grad ändert ein Schiff am Wendepunkt seine Richtung']],
   'bild': {'typ': 'figur', 'punkte': _K1, 'flaeche': ['A', 'B', 'C'], 'linien': _k1('c = ?'), 'winkel': [['C', 'A', 'B', '60°']]},
   'schritte': [{'text': 'a = 5 km, b = 8 km, eingeschlossener Winkel γ = 60°.'},
                {'text': 'Kosinussatz: c² = 5² + 8² − 2 · 5 · 8 · cos 60°.'},
                {'text': 'Mit cos 60° = 0,5: c² = 25 + 64 − 40 = 49.'},
-               {'text': 'Also ⟦c = 7 km⟧.', 'bild': {'linien': _k1('c = 7 km')}}],
+               {'text': 'Also ⟦c = 7 km⟧.', 'bild': {'linien': _k1('c = 7 km')}},
+               # Fünfzehnte Runde: Kurs-/Schiff-Aufgaben – Dreieckswinkel = 180° − Drehwinkel
+               {'text': 'Schiff: Drehwinkel 50°. Der Dreieckswinkel am Wendepunkt ist ⟦180° − 50° = 130°⟧.',
+                'bild': {'punkte': {'Start': [0, 0], 'W': [5, 0], '_V': [8, 0], 'Ziel': [7.57, 3.06]}, 'flaeche': ['Start', 'W', 'Ziel'],
+                         'linien': [['Start', 'W', '5 km'], ['W', '_V', '', 'gestrichelt'], ['W', 'Ziel', '4 km'], ['Start', 'Ziel', '?']],
+                         'winkel': [['W', '_V', 'Ziel', '50°'], ['W', 'Ziel', 'Start', '130°']]}}],
   'fehler': 'c² = 25 + 64 − 80 = 9 ist falsch. Der Faktor cos 60° = 0,5 fehlt.',
-  'fehler_bild': {'linien': _k1('c = 3? zu kurz')},
+  # vollständig angegeben, weil das Bild des letzten Schritts (Schiff) sonst mit übernommen würde; Anzeige wie bisher
+  'fehler_bild': {'punkte': _K1, 'flaeche': ['A', 'B', 'C'], 'linien': _k1('c = 3? zu kurz'), 'winkel': [['C', 'A', 'B', '60°']]},
   'regel': 'Es gilt ⟦c² = a² + b² − 2ab · cos γ⟧. Bei γ = 90° ist das Pythagoras.'},
  'kosinussatz_winkel': {
   'einstieg': 'Drei Stangen von 3 m, 5 m und 7 m werden zum Dreieck gesteckt. Welchen Winkel bilden die kurzen Stangen? Du stellst um und ⟦berechnest den Winkel⟧.',

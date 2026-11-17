@@ -2,6 +2,10 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 16:50 – STATUS: gleichungen.einfach fertig
+Umgestuft 5 (Stufe 3 → 2: „a : x = b“ und „a − x = b“ kamen schon in Stufe 2 vor). Prüfskript OK, Nachweis OK (226 von 231 unverändert).
+Überschneidung (nur gemeldet): zahlen.ganz/umkehraufgabe und zahlen.rechengesetze/umkehraufgabe_mal üben dieselben Gleichungsformen mit ganzen Zahlen.
+
 ## 2026-11-17 16:35 – STATUS: stochastik.kombinatorik fertig
 Umgestuft 8 (Stufe 3 → 2: „Wörter aus KATZE/HUND/MAUS“ = n · (n−1) · … wie Stufe 1, Eisbecher und Code-Anzahl wie Stufe 2, je eine Wiederholung bei Mützen, geraden Zahlen, Münzbaum). Prüfskript OK, Nachweis OK (230 von 238 unverändert).
 

@@ -72,3 +72,15 @@ def durchsicht_anwenden(datei, ds):
         {'zaehler': dict(ds.zaehler), 'ersetzt': ds.ersetzt, 'karten': [(lz, vn) for lz, _, vn in ds.karten],
          'sebastian': ds.sebastian, 'nicht': ds.nicht}, ensure_ascii=False, indent=1))
     return datei
+
+
+def mit_durchsicht(baue, ds):
+    """Für Generatoren, deren baue(...) die Datei selbst schreibt (Muster mit_befunden in _befunde.py)."""
+    from _befunde import THEMEN
+
+    def baue_durchsicht(meta, *args, **kwargs):
+        d = baue(meta, *args, **kwargs)
+        durchsicht_anwenden(d, ds)
+        (THEMEN / f"{meta['thema_schluessel']}.json").write_text(json.dumps(d, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
+        return d
+    return baue_durchsicht

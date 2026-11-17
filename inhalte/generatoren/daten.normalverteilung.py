@@ -567,3 +567,143 @@ d = bauen('daten.normalverteilung',
              'App-Wunsch: Graphart „Glockenkurve“ (Normalverteilungsdichte mit μ und σ, Fläche zwischen zwei Grenzen färbbar). Bisher Ersatz: Säulendiagramm in Glockenform und Tabelle der Streifen-Anteile.',
              'Feld klasse: {"zusatz": 10} statt {} (Prüfskript verlangt einen Eintrag) – siehe FRAGE im Postfach.'], plan=PLAN2)
 umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
+
+
+# ---- STUFEN (Zwanzigste Runde, Zusatz Realschule/IB, Zweig stufen-rsib-2) ----
+from _stufen_rsib2 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('daten.normalverteilung', 20_2_9)
+Z, A, L = ST.Z, ST.A, ST.L
+
+# eigenschaften
+ST.stufenleiter('eigenschaften', 'Spitze und Median der Glockenkurve bei μ ablesen.',
+                'Symmetrie nutzen, Breite über σ vergleichen, Histogramm zuordnen.',
+                'Fehlvorstellungen „Median ≠ Mittelwert“, zwei Glocken vergleichen, nicht normalverteilte Größen, σ als Parameter der Höhe, μ aus symmetrischen Werten.')
+ST.typ('eigenschaften', '/Median/', 'erkennen', s=1)
+ST.typ('eigenschaften', '/^/', 'direkt', s=1)
+ST.typ('eigenschaften', '/2,5 %/', 'mehrschritt')
+ST.typ('eigenschaften', '/16 %/', 'einkleidung')
+ST.typ('eigenschaften', '/^/', 'darstellung', s=2)
+ST.typ('eigenschaften', '/Jemand behauptet/', 'fehler')
+ST.typ('eigenschaften', '/am wenigsten normalverteilt/', 'transfer')
+ST.typ('eigenschaften', '/^/', 'begruenden', s=3)
+ST.neu('eigenschaften', 'rueckwaerts', Z('Bei einer Normalverteilung kommen die verschiedenen Werte 42 und 58 gleich häufig vor. Wie groß ist μ?', 50, '(42 + 58)/2',
+       'Gleich häufig heißt: gleich weit von μ entfernt, auf beiden Seiten. μ liegt in der Mitte: (42 + 58) : 2 = 50.', 'Die Glocke ist symmetrisch um μ.'))
+ST.neu('eigenschaften', 'parameter', A('Die Fläche unter der Glockenkurve bleibt immer 1 (100 %). Was passiert mit der Höhe der Spitze, wenn σ verdoppelt wird?', 'Sie halbiert sich.',
+       ['Sie verdoppelt sich.', 'Sie bleibt gleich.', 'Sie wird viermal so hoch.'],
+       'Doppelt so breit bei gleicher Fläche: Die Kurve muss halb so hoch sein. (Die Höhe der Spitze ist proportional zu 1/σ.)', 'Was muss gleich bleiben?'))
+ST.knobel('eigenschaften', Z('Klasse A: μ = 60 Punkte, σ = 5 Punkte. Klasse B: μ = 70 Punkte, σ = 5 Punkte. Bei welcher Punktzahl schneiden sich die beiden Glockenkurven?', 65, '(60 + 70)/2',
+          'Beide Kurven haben dieselbe Form, B ist nur um 10 nach rechts verschoben. Aus Symmetriegründen sind sie genau in der Mitte gleich hoch: bei 65 Punkten (je eine Standardabweichung entfernt).',
+          'Wie sieht die eine Kurve im Vergleich zur anderen aus?', einheit='Punkte'))
+ST.knobel('eigenschaften', A('Die Lebensdauer von Glühbirnen sei genau normalverteilt mit μ = 1 200 h und σ = 80 h. Gibt es in diesem Modell auch Glühbirnen mit negativer Lebensdauer?',
+          'Ja, mit einem verschwindend kleinen Anteil – das Modell ist nur eine Näherung.', ['Nein, die Kurve endet bei 0.', 'Ja, etwa 2,5 %.', 'Nein, weil σ positiv ist.'],
+          'Die Glockenkurve ist überall größer als 0, auch links von 0 h. 0 h liegt aber 15 σ unter μ – dieser Anteil ist praktisch null. In Wirklichkeit gibt es keine negative Lebensdauer: Die Normalverteilung beschreibt die Daten nur näherungsweise.',
+          'Wo endet die Glockenkurve?'))
+
+# regel
+ST.stufenleiter('regel', 'Bereiche μ ± σ, μ ± 2σ und die zugehörigen Prozente angeben.',
+                'Bereiche ausrechnen, Anzahlen bei n Messwerten, σ aus dem 68-%-Bereich, Achsenbeschriftung.',
+                'μ und σ aus einem Bereich, Anzahl außerhalb, Eignung einer Normalverteilung prüfen, Fehler „95 % auf einer Seite“, σ als Parameter.')
+ST.typ('regel', '/^In welchem Bereich/', 'erkennen')
+ST.typ('regel', '/^/', 'direkt', s=1)
+ST.typ('regel', '/Messwerte|99,7 %/', 'einkleidung', s=2)
+ST.typ('regel', '/^/', 'mehrschritt', s=2)
+ST.typ('regel', '/Bestimme μ und σ/', 'rueckwaerts')
+ST.typ('regel', '/nicht zwischen/', 'verknuepfen')
+ST.typ('regel', '/Passt dazu/', 'begruenden')
+ST.typ('regel', '/^/', 'mehrschritt', s=3)
+ST.neu('regel', 'erkennen', A('Welcher Anteil einer Normalverteilung liegt etwa im Bereich μ ± 2σ?', 'etwa 95 %', ['etwa 68 %', 'etwa 99,7 %', 'etwa 50 %'],
+       'Faustregel: μ ± σ 68 %, μ ± 2σ 95 %, μ ± 3σ 99,7 %.', 'Erinnere dich an 68 – 95 – 99,7.'))
+ST.neu('regel', 'umkehr', Z('Eine Größe ist normalverteilt mit μ = 80. Etwa 68 % der Werte liegen zwischen 74 und 86. Wie groß ist σ?', 6, '86 - 80',
+       '68 % liegen in μ ± σ. Also μ + σ = 86 ⇒ σ = 6.', 'Welcher Bereich gehört zu 68 %?'))
+ST.neu('regel', 'darstellung', L('Beschrifte die Achse unter einer Glocke mit μ = 50 und σ = 4: μ − 2σ, μ − σ, μ + σ, μ + 2σ.', '□; □; □; □', [42, 46, 54, 58], ['50 - 8', '50 - 4', '50 + 4', '50 + 8'],
+       '50 − 8 = 42, 50 − 4 = 46, 50 + 4 = 54, 50 + 8 = 58.', 'Gehe von μ in σ-Schritten nach links und rechts.'))
+ST.neu('regel', 'fehler', A('μ = 100, σ = 10. Jemand sagt: „Zwischen 100 und 120 liegen etwa 95 % der Werte.“ Was stimmt?', 'Falsch: Das ist nur die obere Hälfte von μ ± 2σ, also etwa 47,5 %.',
+       ['Richtig.', 'Falsch: Es sind etwa 68 %.', 'Falsch: Es sind etwa 34 %.'], '95 % liegen zwischen 80 und 120. Wegen der Symmetrie liegt davon die Hälfte über 100: 47,5 %.', 'Wo liegt die andere Hälfte der 95 %?'))
+ST.neu('regel', 'parameter', Z('μ = 50. Für welches σ liegen etwa 95 % der Werte zwischen 38 und 62?', 6, '(62 - 50)/2', '95 % gehören zu μ ± 2σ: 2σ = 62 − 50 = 12 ⇒ σ = 6.', 'Welcher Bereich gehört zu 95 %?'))
+ST.knobel('regel', Z('μ = 100, σ = 15. Etwa wie viel Prozent der Werte liegen zwischen 115 und 130?', 13.5, '95/2 - 68/2',
+          '115 = μ + σ, 130 = μ + 2σ. Zwischen μ und μ + 2σ liegen 47,5 %, zwischen μ und μ + σ 34 %. Differenz: 13,5 %.', 'Rechne von μ aus und ziehe ab.', einheit='%'))
+ST.knobel('regel', Z('10 000 Messwerte sind normalverteilt. Etwa wie viele liegen oberhalb von μ + 3σ?', 15, '10000*0.3/100/2',
+          'Außerhalb von μ ± 3σ liegen 100 % − 99,7 % = 0,3 %, auf jeder Seite die Hälfte: 0,15 %. 0,15 % von 10 000 sind 15.', 'Wie viel liegt außerhalb, und wie verteilt es sich?'))
+
+# anteile
+ST.stufenleiter('anteile', 'Anteil über μ + σ oder unter μ − σ (16 %), über μ (50 %).',
+                'Anteile über μ + 2σ oder unter μ − 3σ, Anzahlen bei n Messwerten, σ aus einem Anteil.',
+                'Unsymmetrische Bereiche, Grenzwert zu einem Anteil, Anteil außerhalb, Fehler „5 % statt 2,5 %“, 16 % begründen.')
+ST.typ('anteile', '/mehr als 1 000 h/', 'erkennen')
+ST.typ('anteile', '/^/', 'direkt', s=1)
+ST.typ('anteile', '/Messwerte/', 'einkleidung')
+ST.typ('anteile', '/^/', 'mehrschritt', s=2)
+ST.typ('anteile', '/Ab welchem Wert/', 'rueckwaerts')
+ST.typ('anteile', '/außerhalb|2 950/', 'transfer')
+ST.typ('anteile', '/^/', 'verknuepfen', s=3)
+ST.neu('anteile', 'umkehr', Z('Eine Größe ist normalverteilt mit μ = 76. Etwa 16 % der Werte liegen über 84. Wie groß ist σ?', 8, '84 - 76',
+       'Über μ + σ liegen etwa 16 %. Also μ + σ = 84 ⇒ σ = 8.', 'Zu welcher Grenze gehören 16 % oben?'))
+ST.neu('anteile', 'fehler', A('μ = 60, σ = 12. Jemand sagt: „Weniger als 36 Punkte haben etwa 5 %.“ Was stimmt?', 'Falsch: Es sind etwa 2,5 %.',
+       ['Richtig.', 'Falsch: Es sind etwa 16 %.', 'Falsch: Es sind etwa 0,15 %.'],
+       '36 = μ − 2σ. Außerhalb von μ ± 2σ liegen 5 %, aber nur die Hälfte davon unten: 2,5 %.', 'Liegen die 5 % auf einer oder auf beiden Seiten?'))
+ST.neu('anteile', 'begruenden', A('Warum haben bei jeder Normalverteilung etwa 16 % der Werte mehr als μ + σ?', 'Außerhalb von μ ± σ liegen 32 %, wegen der Symmetrie die Hälfte oben.',
+       ['Weil 16 die Hälfte von 32 ist, egal wo.', 'Weil σ immer 16 % von μ ist.', 'Das gilt nur, wenn μ = 0 ist.'],
+       '100 % − 68 % = 32 % liegen außerhalb von μ ± σ. Die Glocke ist symmetrisch, also je 16 % oben und unten.', 'Wie viel liegt außerhalb von μ ± σ?'))
+ST.neu('anteile', 'erkennen', A('Wie viel Prozent der Werte einer Normalverteilung sind größer als μ?', '50 %', ['68 %', '34 %', '16 %'],
+       'Die Glocke ist symmetrisch um μ: Die Hälfte liegt rechts davon.', 'Denke an die Symmetrie.'))
+ST.knobel('anteile', A('Maschine A füllt mit μ = 500 ml, σ = 2 ml; Maschine B mit μ = 502 ml, σ = 4 ml. Flaschen unter 496 ml sind unterfüllt. Welche Maschine liefert weniger unterfüllte Flaschen?',
+          'A (etwa 2,5 %), obwohl B im Mittel mehr einfüllt', ['B, weil ihr Mittelwert größer ist', 'beide gleich viele', 'B (etwa 2,5 %)'],
+          'A: 496 = 500 − 2 · 2 = μ − 2σ ⇒ etwa 2,5 % darunter. B: 496 = 502 − 1,5 · 4 = μ − 1,5σ ⇒ mehr als 2,5 % (zwischen 2,5 % und 16 %). Die kleinere Streuung von A wiegt den kleineren Mittelwert auf.',
+          'Drücke 496 ml jeweils in σ-Schritten von μ aus.'))
+ST.knobel('anteile', Z('μ = 100, σ = 10. Etwa wie viel Prozent der Werte liegen zwischen 80 und 90 oder zwischen 110 und 120?', 27, '2*(95/2 - 68/2)',
+          'Zwischen 110 und 120 (μ + σ bis μ + 2σ): 47,5 % − 34 % = 13,5 %. Wegen der Symmetrie genauso viel zwischen 80 und 90. Zusammen 27 %.', 'Rechne eine Seite aus und nutze die Symmetrie.', einheit='%'))
+
+# zwert
+ST.stufenleiter('zwert', 'z = (x − μ) : σ ausrechnen.',
+                'Negative und Kommazahl-z-Werte, x aus z, z in einer neuen Sachsituation.',
+                'Anteil zu einem z-Wert, μ oder σ rückwärts, Fehler „Vorzeichen vertauscht“, gleiche z-Werte begründen.')
+ST.typ('zwert', '/^/', 'direkt', s=1)
+ST.typ('zwert', '/Welcher Wert x/', 'umkehr')
+ST.typ('zwert', '/^/', 'mehrschritt', s=2)
+ST.typ('zwert', '/Wie groß ist μ|Wie groß ist σ/', 'rueckwaerts')
+ST.typ('zwert', '/Prozent/', 'verknuepfen')
+ST.typ('zwert', '/^/', 'mehrschritt', s=3)
+ST.neu('zwert', 'erkennen', A('Was bedeutet der z-Wert 0?', 'Der Wert ist genau gleich μ.', ['Der Wert ist 0.', 'Der Wert ist ungewöhnlich.', 'σ ist 0.'],
+       'z = (x − μ) : σ = 0 genau dann, wenn x = μ.', 'Setze z = 0 in die Formel.'))
+ST.neu('zwert', 'einkleidung', Z('Weitsprung in einer Klasse: μ = 4,00 m, σ = 0,30 m. Ein Kind springt 4,60 m. Wie groß ist sein z-Wert?', 2, '(4.60 - 4.00)/0.30',
+       '(4,60 − 4,00) : 0,30 = 0,60 : 0,30 = 2.', 'Abstand zum Mittelwert durch σ.'))
+ST.neu('zwert', 'fehler', A('μ = 50, σ = 5, x = 40. Jemand rechnet z = (50 − 40) : 5 = 2. Was stimmt?', 'Falsch: z = (40 − 50) : 5 = −2; der Wert liegt unter μ.',
+       ['Richtig.', 'Falsch: z = 40 : 5 = 8.', 'Falsch: z = (40 − 50) : 10 = −1.'], 'Immer x − μ rechnen: Werte unter μ haben einen negativen z-Wert.', 'Liegt x über oder unter μ?'))
+ST.neu('zwert', 'begruenden', A('Zwei normalverteilte Größen: Wert a hat in der ersten den z-Wert 1,2, Wert b in der zweiten auch. Stimmt: Unter a liegt derselbe Anteil wie unter b?', 'Ja.',
+       ['Nein, das hängt von μ ab.', 'Nein, das hängt von σ ab.', 'Nur wenn beide denselben Mittelwert haben.'],
+       'Der z-Wert misst den Abstand zu μ in σ-Schritten. Jede Normalverteilung sieht in z-Werten gleich aus (Standardnormalverteilung), also gehört zu z = 1,2 überall derselbe Anteil.',
+       'Was misst der z-Wert?'))
+ST.knobel('zwert', A('Zu allen Testergebnissen einer Klasse werden 5 Bonuspunkte addiert. Was passiert mit den z-Werten?', 'Sie bleiben gleich.',
+          ['Sie steigen um 5.', 'Sie steigen um 5 : σ.', 'Sie werden alle 0.'],
+          'Jedes x steigt um 5, μ steigt auch um 5, die Abstände x − μ bleiben gleich und σ ändert sich nicht. Also bleibt z = (x − μ) : σ gleich.', 'Was passiert mit μ und σ?'))
+ST.knobel('zwert', Z('In derselben Normalverteilung hat ein Wert den z-Wert 2, ein anderer den z-Wert −1. Die beiden Werte liegen 18 cm auseinander. Wie groß ist σ?', 6, '18/3',
+          'Der Unterschied der z-Werte ist 2 − (−1) = 3, also liegen die Werte 3σ auseinander: 3σ = 18 cm ⇒ σ = 6 cm.', 'Wie viele σ liegen zwischen z = −1 und z = 2?', einheit='cm'))
+
+# vergleichen
+ST.stufenleiter('vergleichen', 'Mit z-Werten entscheiden, welches Ergebnis relativ besser ist; |z| > 2 als ungewöhnlich erkennen.',
+                'z-Werte zweier Fächer vergleichen, Unterschied der z-Werte, Punktzahl zu einem z-Wert.',
+                'Gleich gute Punktzahl in einem anderen Test, drei Fächer vergleichen, Anteil über einem Wert, Fehler „mehr Punkte = besser“, Sinn der z-Werte begründen.')
+ST.typ('vergleichen', '/ungewöhnlich/', 'direkt', s=1)
+ST.typ('vergleichen', '/^/', 'erkennen', s=1)
+ST.typ('vergleichen', '/ungewöhnlich/', 'einkleidung')
+ST.typ('vergleichen', '/^/', 'mehrschritt', s=2)
+ST.typ('vergleichen', '/genauso gut/', 'rueckwaerts')
+ST.typ('vergleichen', '/In welchem Fach/', 'verknuepfen')
+ST.typ('vergleichen', '/^/', 'transfer', s=3)
+ST.neu('vergleichen', 'umkehr', Z('Mathe: μ = 70 Punkte, σ = 5 Punkte. Welche Punktzahl hat den z-Wert 1,2?', 76, '70 + 1.2*5', 'x = μ + z · σ = 70 + 6 = 76.', 'Stelle die z-Formel nach x um.', einheit='Punkte'))
+ST.neu('vergleichen', 'fehler', A('Mathe: 80 Punkte (μ = 70, σ = 10). Deutsch: 75 Punkte (μ = 60, σ = 10). Jemand sagt: „Mathe ist besser, weil es mehr Punkte sind.“ Was stimmt?',
+       'Falsch: Deutsch hat z = 1,5, Mathe nur z = 1.', ['Richtig.', 'Falsch: Beide sind gleich gut.', 'Falsch: Mathe hat z = 0,5.'],
+       'Mathe: (80 − 70) : 10 = 1. Deutsch: (75 − 60) : 10 = 1,5. Relativ zur Klasse ist Deutsch besser.', 'Berechne beide z-Werte.'))
+ST.neu('vergleichen', 'begruenden', A('Warum vergleicht man Ergebnisse aus verschiedenen Tests mit z-Werten statt mit Punkten?', 'z-Werte berücksichtigen Mittelwert und Streuung des jeweiligen Tests.',
+       ['z-Werte sind immer größer.', 'Punkte kann man nicht vergleichen, weil sie ganzzahlig sind.', 'z-Werte sind immer positiv.'],
+       'Ein Test kann leichter sein (größeres μ) oder enger streuen (kleineres σ). Der z-Wert misst, wie weit ein Ergebnis über dem Durchschnitt liegt – in der Streuung dieses Tests.', 'Was ist bei zwei Tests verschieden?'))
+ST.knobel('vergleichen', A('Klasse 1: μ = 60, σ = 5. Klasse 2: μ = 60, σ = 15. Lisa (Klasse 1) und Tim (Klasse 2) haben beide 70 Punkte. Wer ist in seiner Klasse besser platziert?', 'Lisa',
+          ['Tim', 'beide gleich', 'Das kann man nicht sagen.'],
+          'Lisa: z = 10 : 5 = 2, nur etwa 2,5 % sind besser. Tim: z = 10 : 15 ≈ 0,67, etwa ein Viertel ist besser. Gleicher Abstand zu μ zählt in einer eng streuenden Klasse mehr.',
+          'Gleicher Abstand zum Mittelwert – aber wie groß ist er jeweils in σ?'))
+ST.knobel('vergleichen', Z('In Test A (σ = 4) liegt Ben 6 Punkte über dem Mittelwert, in Test B 9 Punkte darüber. Relativ ist er in beiden Tests gleich gut. Wie groß ist σ in Test B?', 6, '9/(6/4)',
+          'Gleich gut heißt gleicher z-Wert: 6 : 4 = 1,5. In B: 9 : σ = 1,5 ⇒ σ = 6.', 'Berechne zuerst den z-Wert in Test A.'))
+
+if __name__ == '__main__':
+    stufen('daten.normalverteilung', ST)

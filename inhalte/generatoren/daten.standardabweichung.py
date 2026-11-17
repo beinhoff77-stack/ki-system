@@ -5,6 +5,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _ib import *  # noqa: E402,F403
+from _rsib2 import PLAN2, art3  # noqa: E402
 
 start(7904)
 
@@ -82,7 +83,9 @@ def g_abweichung(s):
     xs = datensatz(n, 2, 30 if s < 3 else 60, var_endlich=False)
     if not xs: return None
     m = mw(xs)
-    art = R.choice({1: ['mittel', 'abw'], 2: ['abw', 'abw_neg', 'mittel'], 3: ['fehlend', 'summe', 'betrag']}[s])
+    # Durchsicht 19: Stufe 2 = unter dem Mittelwert, größte Abweichung, Wert aus Abweichung; Stufe 3 = rückwärts, neuer Wert, Summe 0 nutzen
+    art = R.choice({1: ['mittel', 'abw'], 2: ['abw_neg', 'betrag', 'rueck_wert']}[s]) if s < 3 else art3('fehlend', 'neu_dazu', 'abw_fehlt', ['fehlend', 'summe', 'neu_dazu', 'abw_fehlt'])
+    if art in ('rueck_wert', 'neu_dazu', 'abw_fehlt'): return abweichung3(art)
     if art == 'mittel':
         return zahl(f'Berechne den Mittelwert x̄ der Werte {liste(xs)}.', f'Summe {sum(xs)}, Anzahl {n}: x̄ = {sum(xs)} : {n} = {dz(m)}.',
                     'Alle Werte addieren und durch die Anzahl teilen.', m, f'({" + ".join(map(str, xs))}) / {n}')
@@ -117,7 +120,9 @@ def g_varianz(s):
     xs = datensatz(n, 1, 12 if s == 1 else 25)
     if not xs: return None
     m, v = mw(xs), var(xs)
-    art = R.choice({1: ['voll', 'quadrate'], 2: ['voll', 'voll', 'aus_abw'], 3: ['fehler', 'voll', 'vergleich']}[s])
+    # Durchsicht 19: Stufe 3 = vergleichen, Fehler finden, zwei Werte rückwärts, Wirkung eines neuen Wertes (vorher: meist dieselbe Rechnung wie Stufe 2)
+    art = R.choice({1: ['voll', 'quadrate'], 2: ['aus_abw', 'vergleich']}[s]) if s < 3 else art3('luecke_var', 'fehler', 'zwei_werte', ['luecke_var', 'fehler', 'zwei_werte', 'neuer_mw'])
+    if art in ('zwei_werte', 'neuer_mw', 'luecke_var'): return varianz3(art)
     weg = f'x̄ = {dz(m)}. Quadrate der Abweichungen: {quad_weg(xs)} = {dz(v * n)}. Varianz: {dz(v * n)} : {n} = {dz(v)}.'
     c = f'(({") ** 2 + (".join(f"{x} - {m}" for x in xs)}) ** 2) / {n}'
     if art == 'voll':
@@ -148,7 +153,9 @@ def g_varianz(s):
 
 
 def g_sigma(s):
-    art = R.choice({1: ['aus_var', 'ganz'], 2: ['ganz', 'gerundet', 'aus_var_r'], 3: ['gerundet', 'einheit', 'rueck']}[s])
+    # Durchsicht 19: Varianz aus σ (bisher Stufe 3) ist eine Umkehrung -> Stufe 2; Stufe 3 = Sachdaten mit Einheit, Häufigkeitstabelle, gespiegelte Datensätze, Einheit der Varianz
+    art = R.choice({1: ['aus_var', 'ganz'], 2: ['gerundet', 'aus_var_r', 'rueck']}[s]) if s < 3 else art3('einheit', 'haeufig', 'spiegel', ['einheit', 'haeufig', 'spiegel', 'einheit_var'])
+    if art in ('haeufig', 'spiegel', 'einheit_var'): return sigma3(art)
     if art == 'aus_var':
         q = R.randint(2, 15)
         return zahl(f'Die Varianz eines Datensatzes ist {q * q}. Wie groß ist die Standardabweichung σ?', f'σ = √{q * q} = {q}, denn {q} · {q} = {q * q}.',
@@ -190,7 +197,9 @@ def g_sigma(s):
 def g_eigenschaften(s):
     sg = R.choice([2, 3, 4, 5, Fr(5, 2), Fr(3, 2), 6])
     m = R.randint(10, 60)
-    art = R.choice({1: ['plus', 'gleich', 'plus'], 2: ['mal', 'plus', 'minus', 'mw_plus'], 3: ['beides', 'mal_neg', 'vergleich', 'beides']}[s])
+    # Durchsicht 19: „mal k, dann plus d“ und „mal (−k)“ sind mehrere Schritte -> Stufe 2; Stufe 3 = Umrechnen in %, °C→°F, rückwärts, σ = 0 deuten
+    art = R.choice({1: ['plus', 'gleich', 'mal'], 2: ['minus', 'mw_plus', 'beides', 'mal_neg', 'vergleich', 'mal']}[s]) if s < 3 else art3('umrechnung', 'temperatur', 'rueckwaerts', ['umrechnung', 'temperatur', 'rueckwaerts', 'null'])
+    if art in ('umrechnung', 'temperatur', 'rueckwaerts', 'null'): return eigenschaften3(art)
     if art == 'plus':
         d = R.randint(2, 10)
         return zahl(f'Ein Datensatz hat x̄ = {m} und σ = {dz(sg)}. Zu jedem Wert wird {d} addiert. Wie groß ist die neue Standardabweichung?',
@@ -236,7 +245,9 @@ def g_eigenschaften(s):
 
 
 def g_deuten(s):
-    art = R.choice({1: ['bereich_unten', 'bereich_oben', 'enger'], 2: ['enger', 'bereich_unten', 'zaehlen', 'aussage'], 3: ['zaehlen', 'aussage', 'sach', 'einordnen']}[s])
+    # Durchsicht 19: Zählen im Bereich und „liegt der Wert darin?“ -> Stufe 2; Stufe 3 = Mittelwert und σ zugleich deuten, Abstand in σ, Ausreißer: Median gegen σ
+    art = R.choice({1: ['bereich_unten', 'bereich_oben', 'enger'], 2: ['zaehlen', 'aussage', 'einordnen']}[s]) if s < 3 else art3('zwei_merkmale', 'z_wert', 'ausreisser_sigma', ['zwei_merkmale', 'z_wert', 'ausreisser_sigma', 'sach'])
+    if art in ('zwei_merkmale', 'z_wert', 'ausreisser_sigma'): return deuten3(art)
     if art in ('bereich_unten', 'bereich_oben'):
         m = R.randint(20, 80)
         sg = R.randint(2, 12)
@@ -286,6 +297,164 @@ def g_deuten(s):
     innen = abs(x - m) < sg
     return ja_nein(f'Bei einer Messreihe ist x̄ = {m} und σ = {sg}. Liegt der Wert {x} im Bereich x̄ − σ bis x̄ + σ?', innen,
                    f'Bereich: {m - sg} bis {m + sg}. {x} liegt {"darin" if innen else "außerhalb"}.', 'Berechne beide Grenzen.')
+
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil B, Zweig durchsicht-rsib-2) ----------
+# Neue Arten für Stufe 2/3. Prüfungsvorbilder: IB MYP Extended (Fragenbanken/eAssessment-Stil): fehlender Wert und neuer Mittelwert,
+# Streuung zweier Datensätze vergleichen, Fehler in einer Rechnung finden, Häufigkeitstabelle, Umrechnen (mal k plus d),
+# „Wie viele Standardabweichungen über dem Mittelwert?“, zwei Verteilungen mit Mittelwert und σ vergleichen. Eigene Zahlen.
+def abweichung3(art):
+    if art == 'rueck_wert':
+        m = R.randint(10, 60)
+        a = R.choice([-1, 1]) * R.randint(2, 12)
+        return zahl(f'Der Mittelwert eines Datensatzes ist {m}. Ein Wert hat die Abweichung {dz(a)}. Wie groß ist dieser Wert?',
+                    f'Abweichung = Wert − Mittelwert, also Wert = Mittelwert + Abweichung = {m} + {kl(a)} = {m + a}.',
+                    'Stelle „Abweichung = Wert − Mittelwert“ nach dem Wert um.', m + a, f'{m} + ({a})')
+    if art == 'neu_dazu':
+        n = R.choice([4, 5, 6, 9])
+        m = R.randint(12, 40)
+        x = R.randint(m - 15, m + 25)
+        neu = Fr(n * m + x, n + 1)
+        if x == m or not endlich(neu) or neu * 10 != int(neu * 10): return None
+        return zahl(f'{n} Werte haben den Mittelwert {m}. Ein weiterer Wert {x} kommt dazu. Wie groß ist der neue Mittelwert?',
+                    f'Alte Summe: {n} · {m} = {n * m}. Neue Summe: {n * m} + {x} = {n * m + x}. Neuer Mittelwert: {n * m + x} : {n + 1} = {dz(neu)}.',
+                    'Rechne zuerst die Summe der alten Werte aus dem Mittelwert zurück.', neu, f'({n} * {m} + {x}) / {n + 1}')
+    # abw_fehlt: Summe der Abweichungen ist 0
+    n = R.choice([4, 5, 6])
+    ab = [R.choice([-1, 1]) * R.randint(1, 9) for _ in range(n - 1)]
+    f = -sum(ab)
+    if f == 0 or abs(f) > 15: return None
+    return zahl(f'Von {n} Werten kennt man {n - 1} Abweichungen vom Mittelwert: {"; ".join(dz(a) for a in ab)}. Wie groß ist die letzte Abweichung?',
+                f'Alle Abweichungen zusammen ergeben 0. Bisher: {dz(sum(ab))}. Also fehlt {dz(f)}.',
+                'Was ergeben alle Abweichungen zusammen?', f, f'-({" + ".join(f"({a})" for a in ab)})')
+
+
+def varianz3(art):
+    if art == 'zwei_werte':
+        m, d = R.randint(5, 30), R.randint(2, 9)
+        return luecken(f'Zwei Werte haben den Mittelwert {m} und die Varianz {d * d}. Wie heißen die beiden Werte? (kleinerer zuerst)', '□ und □', 'Zwei ganze Zahlen',
+                       [m - d, m + d], f'Beide Werte liegen gleich weit vom Mittelwert weg, Abweichungen −a und a. Varianz (a² + a²) : 2 = a² = {d * d}, also a = {d}. Werte: {m - d} und {m + d}.',
+                       'Bei zwei Werten sind die Abweichungen gleich groß, nur mit anderem Vorzeichen.', c=[f'{m} - {d}', f'{m} + {d}'])
+    if art == 'luecke_var':
+        n = R.choice([4, 5])
+        xs = datensatz(n, 1, 20)
+        if not xs: return None
+        m, v = mw(xs), var(xs)
+        if v.denominator != 1: return None
+        k = R.randrange(n)
+        bek = '; '.join('x' if i == k else str(x) for i, x in enumerate(xs))
+        return luecken(f'Die Werte {bek} haben den Mittelwert {dz(m)}. Bestimme x und danach die Varianz der {n} Werte.', 'x = □; Varianz = □', 'Zwei ganze Zahlen',
+                       [xs[k], int(v)], f'Summe: {n} · {dz(m)} = {dz(n * m)}, also x = {dz(n * m)} − {sum(xs) - xs[k]} = {xs[k]}. Varianz: ({quad_weg(xs)}) : {n} = {dz(v)}.',
+                       'Mittelwert mal Anzahl ergibt die Summe – so findest du x. Dann wie gewohnt die Varianz.', c=[f'{n} * {m} - {sum(xs) - xs[k]}', f'{v}'])
+    # neuer_mw: ein Wert gleich dem Mittelwert kommt dazu
+    n = R.choice([3, 4])
+    xs = datensatz(n, 1, 15)
+    if not xs: return None
+    m, v = mw(xs), var(xs)
+    v2 = v * n / (n + 1)
+    return auswahl(f'Werte: {liste(xs)} (x̄ = {dz(m)}, Varianz {dz(v)}). Ein neuer Wert {dz(m)} kommt dazu – genau der Mittelwert. Was passiert mit der Varianz?', 'Sie wird kleiner.',
+                   ['Sie wird größer.', 'Sie bleibt gleich.', 'Sie wird 0.'],
+                   f'Der Mittelwert bleibt {dz(m)}, die neue Abweichung ist 0. Die Summe der Quadrate bleibt {dz(v * n)}, wird aber durch {n + 1} statt {n} geteilt: {dz(v * n)} : {n + 1} ≈ {dz(round(float(v2), 2))}.',
+                   'Welche Abweichung hat der neue Wert? Durch wie viele Werte teilst du danach?')
+
+
+def sigma3(art):
+    if art == 'haeufig':
+        werte = sorted(R.sample(range(0, 6), R.choice([3, 4])))
+        anz = [R.randint(1, 6) for _ in werte]
+        xs = [w for w, a in zip(werte, anz) for _ in range(a)]
+        n = len(xs)
+        if n < 6 or n > 16: return None
+        m, v = mw(xs), var(xs)
+        w = gerundet(math.sqrt(v), 2)
+        if w is None or not endlich(m): return None
+        t = tabelle(['Tore'] + [str(x) for x in werte], [['Spiele'] + [str(a) for a in anz]])
+        return mit_grafik(zahl(f'Die Tabelle zeigt, wie viele Tore eine Mannschaft in ihren {n} Spielen geschossen hat. Berechne die Standardabweichung der Torzahlen auf zwei Nachkommastellen.',
+                               f'Mittelwert: ({" + ".join(f"{w_} · {a}" for w_, a in zip(werte, anz))}) : {n} = {dz(m)}. '
+                               f'Varianz: ({" + ".join(f"{a} · {kl(w_ - m)}²" for w_, a in zip(werte, anz))}) : {n} ≈ {dz(round(float(v), 4))}. σ ≈ {dz(w)}.',
+                               'Jeder Wert zählt so oft, wie er in der Tabelle vorkommt.', w, f'round({K(math.sqrt(v))}, 2)', tol=0.01), t)
+    if art == 'spiegel':
+        a, b = sorted(R.sample(range(2, 30), 2))
+        n = R.choice([4, 5])
+        A = [a] * (n - 1) + [b]
+        B = [a] + [b] * (n - 1)
+        q = math.sqrt(var(A))
+        return auswahl(f'Datensatz A: {liste(A)}. Datensatz B: {liste(B)}. Welche Aussage stimmt?', 'Beide haben dieselbe Standardabweichung.',
+                       ['A hat die größere Standardabweichung.', 'B hat die größere Standardabweichung.', 'Beide haben denselben Mittelwert.'],
+                       f'B ist A „gespiegelt“: In A liegt ein Wert allein oben, in B einer allein unten. Die Abstände zum jeweiligen Mittelwert sind gleich groß, '
+                       f'also gleiches σ ≈ {dz(round(q, 2))}. Die Mittelwerte ({dz(mw(A))} und {dz(mw(B))}) sind verschieden.',
+                       'Vergleiche die Abstände der Werte zum eigenen Mittelwert – nicht die Werte selbst.')
+    # einheit_var
+    g, e = R.choice([('Zeiten', 's'), ('Längen', 'cm'), ('Massen', 'kg'), ('Längen', 'm')])
+    q = R.randint(2, 9)
+    return auswahl(f'{g} in {e} haben die Standardabweichung σ = {q} {e}. Welche Varianz gehört dazu?', f'{q * q} {e}²',
+                   [f'{q * q} {e}', f'{q} {e}²', f'{2 * q} {e}'],
+                   f'Varianz = σ² = {q}² = {q * q}. Die Einheit wird mitquadriert: {e}².', 'Die Varianz ist σ zum Quadrat – auch die Einheit.')
+
+
+def eigenschaften3(art):
+    if art == 'umrechnung':
+        maxp, k = R.choice([(20, 5), (25, 4), (50, 2), (10, 10)])
+        m = R.randint(maxp // 3, maxp - 3)
+        sg = R.randint(2, 4)
+        return luecken(f'Ein Test hat höchstens {maxp} Punkte. Ergebnis: x̄ = {m} Punkte, σ = {sg} Punkte. Die Lehrkraft rechnet alle Ergebnisse in Prozent um (mal {k}). '
+                       'Wie groß sind danach Mittelwert und Standardabweichung?', 'x̄ = □ %; σ = □ %', 'Zwei ganze Zahlen',
+                       [m * k, sg * k], f'Jeder Wert wird mit {k} multipliziert. Mittelwert: {m} · {k} = {m * k} %. Standardabweichung: {sg} · {k} = {sg * k} %.',
+                       'Mal k wirkt auf den Mittelwert und auf σ.', c=[f'{m} * {k}', f'{sg} * {k}'])
+    if art == 'temperatur':
+        m, sg = R.randint(5, 25), R.choice([2, 3, 4, 5, Fr(5, 2)])
+        return zahl(f'Tagestemperaturen eines Monats: x̄ = {m} °C, σ = {dz(sg)} °C. In Fahrenheit rechnet man F = 1,8 · C + 32. Wie groß ist σ in °F?',
+                    f'Mal 1,8 vergrößert alle Abstände: {dz(sg)} · 1,8 = {dz(sg * Fr(9, 5))}. Plus 32 verschiebt nur. σ = {dz(sg * Fr(9, 5))} °F.',
+                    'Welcher Teil der Umrechnung ändert die Abstände, welcher nur die Lage?', sg * Fr(9, 5), f'{float(sg)} * 1.8', einheit='°F')
+    if art == 'rueckwaerts':
+        if R.random() < .5:
+            sg, k = R.choice([(Fr(5, 2), 4), (2, 3), (3, 5), (Fr(3, 2), 4), (4, Fr(5, 2))])
+            return zahl(f'Alle Werte eines Datensatzes wurden mit derselben positiven Zahl multipliziert. Dadurch stieg σ von {dz(sg)} auf {dz(sg * k)}. Mit welcher Zahl wurde multipliziert?',
+                        f'Mal k macht σ k-mal so groß: {dz(sg * k)} : {dz(sg)} = {dz(k)}.', 'Wie hängen altes σ, neues σ und der Faktor zusammen?', k, f'{float(sg * k)} / {float(sg)}')
+        m, d, sg = R.randint(15, 40), R.randint(3, 9), R.randint(2, 5)
+        f = Fr(m + d, m)
+        return auswahl(f'Nach einer Änderung aller Werte stieg x̄ von {m} auf {m + d}, σ blieb {sg}. Was wurde gemacht?', f'Zu jedem Wert wurde {d} addiert.',
+                       [f'Jeder Wert wurde mit {dz(round(float(f), 2))} multipliziert.', f'Zu jedem Wert wurde {sg} addiert.', f'Jeder Wert wurde mit {d} multipliziert.'],
+                       f'σ blieb gleich, also wurde nur verschoben: {m} + {d} = {m + d}. Beim Multiplizieren hätte sich σ mit verändert.',
+                       'Welche Änderung lässt σ gleich?')
+    # null
+    return auswahl('Ein Datensatz hat die Standardabweichung σ = 0. Welche Aussage stimmt sicher?', 'Alle Werte sind gleich.',
+                   ['Alle Werte sind 0.', 'Der Mittelwert ist 0.', 'Es gibt nur einen einzigen Wert.'],
+                   'σ = 0 heißt: Kein Wert weicht vom Mittelwert ab. Also sind alle Werte gleich dem Mittelwert – welcher Zahl, ist offen.',
+                   'Was bedeutet es, wenn alle Abweichungen 0 sind?')
+
+
+def deuten3(art):
+    if art == 'zwei_merkmale':
+        m1, m2 = R.sample(range(10, 20), 2)
+        s1, s2 = R.sample(range(1, 7), 2)
+        mehr = 'A' if m1 > m2 else 'B'
+        gl = 'A' if s1 < s2 else 'B'
+        opt = {(x, y): f'{x} hat im Schnitt mehr Punkte, die Ergebnisse in {y} sind gleichmäßiger.' for x in 'AB' for y in 'AB'}
+        r = opt.pop((mehr, gl))
+        return auswahl(f'Test mit 20 Punkten. Klasse A: x̄ = {m1}, σ = {s1}. Klasse B: x̄ = {m2}, σ = {s2}. Welche Aussage stimmt?', r, list(opt.values()),
+                       f'Der Mittelwert vergleicht die Leistung: {max(m1, m2)} > {min(m1, m2)}, also {mehr}. σ vergleicht die Streuung: kleineres σ ({min(s1, s2)}) bei {gl}.',
+                       'Prüfe zwei Dinge getrennt: Wer hat den größeren Mittelwert? Wer hat das kleinere σ?')
+    if art == 'z_wert':
+        m, sg = R.randint(20, 70), R.choice([2, 4, 5, 6, 8, 10])
+        k = R.choice([Fr(1, 2), 1, Fr(3, 2), 2, Fr(5, 2), 3])
+        oben = R.random() < .6
+        x = m + (1 if oben else -1) * k * sg
+        if x != int(x): return None
+        return zahl(f'Ein Datensatz hat x̄ = {m} und σ = {sg}. Wie viele Standardabweichungen liegt der Wert {int(x)} {"über" if oben else "unter"} dem Mittelwert?',
+                    f'Abstand: {abs(int(x) - m)}. In Standardabweichungen: {abs(int(x) - m)} : {sg} = {dz(k)}.',
+                    'Berechne den Abstand zum Mittelwert und teile durch σ.', k, f'abs({int(x)} - {m}) / {sg}')
+    if art == 'ausreisser_sigma':
+        a = R.randint(5, 20)
+        xs = [a, a + 1, a + 2, a + 3, a + 4]
+        big = a + 4 + R.choice([30, 40, 50])
+        ys = xs[:4] + [big]
+        r = 'σ wird viel größer, der Median bleibt gleich.'
+        return auswahl(f'Datensatz: {liste(xs)}. Der größte Wert {a + 4} wird durch {big} ersetzt. Welche Aussage stimmt?', r,
+                       ['Median und σ ändern sich kaum.', 'Der Median wird viel größer, σ bleibt gleich.', 'Median und σ werden beide viel größer.'],
+                       f'Der Median ist der mittlere Wert: vorher und nachher {a + 2}. σ hängt von allen Abständen ab: vorher ≈ {dz(round(math.sqrt(var(xs)), 2))}, nachher ≈ {dz(round(math.sqrt(var(ys)), 2))}.',
+                       'Welcher Kennwert hängt nur vom mittleren Wert ab, welcher von allen Abständen?')
+    return None
 
 
 GEN = {'abweichung': g_abweichung, 'varianz': g_varianz, 'sigma': g_sigma, 'eigenschaften': g_eigenschaften, 'deuten': g_deuten}
@@ -368,6 +537,8 @@ UMBAU = {
              'bild': {'punkte': _pk((8, ''), (16, ''), (11, '11'), (19, '19')), 'bereich': None, 'boegen': [{'von': 8, 'bis': 11, 'name': '+3'}, {'von': 16, 'bis': 19, 'name': '+3'}]}},
             {'text': 'Alle Abstände zum neuen Mittelwert 15 bleiben 4: ⟦σ = 4⟧.',
              'bild': {'boegen': None, 'punkte': _pk((11, '11'), (19, '19')), 'bereich': {'von': 11, 'bis': 19}}},
+            {'text': 'Verdoppelt man dagegen 8; 8; 16; 16, verdoppeln sich die Abstände: ⟦σ = 8⟧.',
+             'bild': _zs(0, 40, 20, punkte=_pk((16, '16'), (32, '32')), bereich={'von': 16, 'bis': 32})},
         ],
         'fehler': 'σ = 4 + 3 = 7 ist falsch. Die Werte ⟦verschieben sich gemeinsam⟧, ihre Abstände bleiben gleich.',
         'regel': 'Plus eine Zahl: ⟦σ bleibt gleich⟧. Mal k: σ wird mal |k|. Alle Werte gleich: σ = 0.',
@@ -402,5 +573,5 @@ d = bauen('daten.standardabweichung',
       [('Streuung messen', ['abweichung', 'varianz', 'sigma']), ('Verstehen und deuten', ['eigenschaften', 'deuten'])],
       ETAPPEN, GEN,
       offen=['σ wird als Standardabweichung der Gesamtheit berechnet (Teilen durch n), wie im IB MYP üblich. Die Stichproben-Form (durch n − 1) ist bewusst nicht enthalten.',
-             'Im IB wird σ meist mit dem Taschenrechner (GDC) bestimmt. Hier rechnen die Kinder mit kleinen Datensätzen von Hand, um die Bedeutung zu verstehen.'])
+             'Im IB wird σ meist mit dem Taschenrechner (GDC) bestimmt. Hier rechnen die Kinder mit kleinen Datensätzen von Hand, um die Bedeutung zu verstehen.'], plan=PLAN2)
 umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

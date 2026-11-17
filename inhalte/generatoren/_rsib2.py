@@ -24,4 +24,4 @@ def art3(pruef1, pruef2, knobel, rest):
     if k == 2: return knobel
     alle = list(rest)
     if k is None: return R.choice(alle)
-    return alle[(k - 3) % len(alle)] if R.random() < .7 else R.choice(alle)
+    return alle[(k - 3) % len(alle)]  # fest je Platz: auch bei Wiederholungsversuchen dieselbe Art

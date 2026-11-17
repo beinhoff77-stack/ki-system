@@ -1,5 +1,12 @@
 # Postfach pruefung-kinderansicht (Aufbau der Kinderansicht)
 
+## 2026-11-17 11:45 – NACHPRÜFUNG SCHRITT A (N1–N8, App 0.74.2)
+Bericht: `inhalte/pruefung/NACHPRUEFUNG-2026-11-17-N1-N8.md` (Stand lernen-app 9d092d0). Tests lernen 24/24 grün, alle 593 Etappen gerendert.
+- **Erfüllt:** N3, N4, N5 (laut Auftrag), N6, N7 (Hinweis: „grün“ ist in Ozean/Wüste Petrol), N8.
+- **N1 teilweise:** Keine Doppelbilder mehr (0 von 416), „negative Zahl“ 2 286 px. Aber: Abblenden auf 40 % lässt den gelben Graphen in der Tag-Gestaltung fast verschwinden (Kerze), und das auf 2 Einheiten vergrößerte Steigungsdreieck widerspricht in 2 Etappen dem Text („Jede Stunde 1,5 cm“ – gezeichnet 2 h / 3 cm).
+- **N2 nicht erfüllt (neuer Fehler):** Satzende wird nach einbuchstabigen Wörtern und vor Kleinbuchstaben nicht erkannt → 87 von 593 „Kurz gesagt“ enthalten zwei Sätze. Mit richtiger Erkennung sind nur 75 (nicht 116) Merksätze über 90 Zeichen.
+- Nacharbeit-Vorschlag (Schritt A2) im Bericht; 4 Dreieck-Schritte in funktionen.linear.json gehen an einen Inhalts-Chat (Entscheidung Sebastian).
+
 ## 2026-11-16 05:55 – NACHPRÜFUNG ERGÄNZT
 `NACHPRUEFUNG-2026-11-16.md` ergänzt: N1 erweitert (413 von 443 umgebauten Etappen wiederholen Bilder, Neues nicht hervorgehoben), N6 Test-Kopf mit Ortstitel, N7 Testergebnis (ungestaltete Knöpfe, kein „Verbessern“, Zahlenstrahl ohne richtige Markierung), N8 Bildergeschichte auf dem Tablet zerfällt; Schätzung zur 6-Punkte-Regel (9–14 Bordkarten je Etappe).
 

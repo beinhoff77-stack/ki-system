@@ -60,7 +60,7 @@ def neu(lz, g, aufgabe): return ('neu', lz, g, aufgabe)
 def knobel(lz, aufgabe): return ('knobel', lz, aufgabe)
 def ersetze(lz, muster, aufgabe, g=None, n=1): return ('ersetze', lz, muster, aufgabe, g, n)
 def karte(lz, **felder): return ('karte', lz, felder)
-def umschreiben(lz, muster, ersetzungen, n=None, felder=('f.text', 'f.schablone', 'f.hinweis', 'a', 'w', 'h')):
+def umschreiben(lz, muster, ersetzungen, n=None, felder=('f.text', 'f.schablone', 'f.hinweis', 'a', 'w', 'h', 'grafik.namen')):
     """Texte einer Aufgabe per (regex, ersatz)-Liste umformulieren; Lösung (o, c), Pool, Stufe, Typ und Grafik bleiben.
     Ändert sich der Fragetext, kommt der alte in „ersetzt“; sonst wird nur der Lösungsweg/Tipp geführt."""
     return ('umschreiben', lz, muster, ersetzungen, n, felder)
@@ -301,6 +301,9 @@ def anwenden(d, thema, plan):
                         k = fld[2:]
                         if isinstance(a['f'].get(k), str): a['f'][k] = sub(a['f'][k])
                     elif fld == 'a' and isinstance(a.get('a'), list): a['a'] = [sub(x) if isinstance(x, str) else x for x in a['a']]
+                    elif fld == 'grafik.namen':
+                        for gr in (a['f'].get('grafik') or {}).get('graphen', []):
+                            if isinstance(gr.get('name'), str): gr['name'] = sub(gr['name'])
                     elif isinstance(a.get(fld), str): a[fld] = sub(a[fld])
                 assert json.dumps(a, ensure_ascii=False, sort_keys=True) != vorher, f'{thema}/{lz}: umschreiben ändert nichts an „{alt_text}“'
                 if a.get('y') == 'auswahl': assert len(set(a['a'])) == len(a['a']), a['a']

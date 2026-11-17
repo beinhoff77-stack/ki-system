@@ -286,3 +286,68 @@ PLAN['daten.boxplot'] = [
     her('daten.kennwerte', 'verstehen', 'mittel_median', r'S2:^(Stimmt die Aussage\? „(Taschengeld|Wenn ein sehr großer Wert|Der Mittelwert liegt immer|Verdoppelt man alle)|Ein Kind sagt: „Mein Mittelwert)', 6, auto=True),
     her('daten.kennwerte', 'verstehen', 'mittel_median', r'S3:.', auto=True),
 ]
+
+# ======================= Klasse 7 =======================
+# A1: Winkel an Parallelen und Winkelsumme im Dreieck stehen in geometrie.winkelsaetze (Reihenfolge 4) vor geometrie.konstruktion (8).
+# Die Karten konstruktion/parallelen und /winkelsumme entfallen; ihre Stufe-3-Aufgaben, Knobel und besonderen Stufe-2-Aufgaben
+# ziehen nach winkelsaetze/stufen_wechsel bzw. /innenwinkelsumme (nur, was die Grenzen einhält).
+# A2: Satz des Thales (konstruktion/satz_kehrsatz, /gleichschenklig) → geometrie.kreis; satz_kehrsatz wird aufgefüllt.
+PLAN['geometrie.konstruktion'] = [
+    entfaellt('parallelen'), entfaellt('winkelsumme'),
+    weg('satz_kehrsatz', r'^(Satz des Thales: „Wenn C auf dem Kreis|Beweisschritte \(M Mittelpunkt, A und C auf dem Kreis\))', 2),
+    weg('gleichschenklig', r'^In einem Kreis mit Mittelpunkt M ist \[AB\] ein Durchmesser', 1),
+    neu('gleichschenklig', 'fehler', A('In einem gleichschenkligen Dreieck ist der Winkel an der Spitze 40°. Jemand rechnet: „Jeder Basiswinkel ist 180° − 40° = 140°.“ Was ist falsch?',
+        'Die 140° teilen sich zwei gleich große Basiswinkel: Jeder ist 70°.', ['Die Basiswinkel sind zusammen 40°, also je 20°.', 'Nichts: Jeder Basiswinkel ist 140°.'],
+        'Winkelsumme 180°: Für beide Basiswinkel zusammen bleiben 180° − 40° = 140°. Sie sind gleich groß, also je 70°. Ein Winkel von 140° wäre allein schon zu groß.',
+        'Wie viele Basiswinkel hat das Dreieck, und was gilt für sie?')),
+    neu('satz_kehrsatz', 'transfer', A('Satz: „Wenn zwei Geraden parallel sind, dann sind die Wechselwinkel an einer dritten Geraden gleich groß.“ Wie lautet der Kehrsatz, und ist er wahr?',
+        '„Wenn die Wechselwinkel gleich groß sind, dann sind die Geraden parallel.“ – wahr.',
+        ['„Wenn die Wechselwinkel gleich groß sind, dann sind die Geraden parallel.“ – falsch.', '„Wenn zwei Geraden parallel sind, dann sind die Wechselwinkel gleich groß.“ – wahr.'],
+        'Beim Kehrsatz tauschen Wenn-Teil und Dann-Teil. Er ist wahr: Das ist genau die Umkehrung, mit der man Parallelität prüft (Flug Winkelsätze, „Sind die Geraden parallel?“).',
+        'Tausche Wenn und Dann. Woran erkennst du parallele Geraden?')),
+    neu('satz_kehrsatz', 'transfer', A('Satz aus dem Alltag: „Wenn es regnet, ist die Straße nass.“ Welcher Fall widerlegt den Kehrsatz?',
+        'Die Straße ist nass, weil ein Sprengwagen gefahren ist, es regnet aber nicht.', ['Es regnet, und die Straße ist nass.', 'Es regnet nicht, und die Straße ist trocken.'],
+        'Der Kehrsatz lautet: „Wenn die Straße nass ist, dann regnet es.“ Ein Gegenbeispiel braucht eine nasse Straße ohne Regen – etwa nach einem Sprengwagen.',
+        'Schreibe zuerst den Kehrsatz auf. Ein Gegenbeispiel erfüllt seinen Wenn-Teil, aber nicht seinen Dann-Teil.')),
+]
+PLAN['geometrie.winkelsaetze'] = [
+    her('geometrie.konstruktion', 'parallelen', 'stufen_wechsel', r'S3:.', auto=True),
+    her('geometrie.konstruktion', 'winkelsumme', 'innenwinkelsumme', r'S3:.', auto=True),
+    # A2: Innenwinkel regelmäßiger Vielecke (Parkett) erst nach der Winkelsumme im Vieleck → Vertiefungskarte zieht aus abbildungen.kongruenz hierher
+    karte_her('abbildungen.kongruenz', 'parkett', 'Winkelsummen', vertiefung=True, nach='vieleck'),
+]
+PLAN['geometrie.kreis'] = [
+    her('geometrie.konstruktion', 'satz_kehrsatz', 'umkehrung', r'^Satz des Thales: „Wenn C auf dem Kreis', 1, auto=True),
+    her('geometrie.konstruktion', 'satz_kehrsatz', 'beweis', r'^Beweisschritte \(M Mittelpunkt, A und C auf dem Kreis\)', 1, auto=True),
+    her('geometrie.konstruktion', 'gleichschenklig', 'thales', r'^In einem Kreis mit Mittelpunkt M ist \[AB\] ein Durchmesser', 1, auto=True),
+]
+# A2: Achsenspiegelung ohne Geradengleichungen (erst Kl. 8): Achse als senkrechte/waagrechte Gerade durch einen Punkt der Koordinatenachse
+# oder als Gerade durch zwei Punkte. Lösungen, Grafiken (bis auf Namen der Geraden), Stufen und Typen bleiben.
+_ACHSE = [
+    (r'an der Geraden x = (−?\d+) \(senkrecht zur x-Achse\)', r'an der senkrechten Achse durch (\1 | 0)'),
+    (r'an der Geraden y = (−?\d+) \(parallel zur x-Achse\)', r'an der waagrechten Achse durch (0 | \1)'),
+    (r'an der Geraden x = (−?\d+) gespiegelt', r'an der senkrechten Achse durch (\1 | 0) gespiegelt'),
+    (r'an der Winkelhalbierenden y = x|an der Geraden y = x\b', 'an der Geraden durch (0 | 0) und (1 | 1)'),
+    (r'an der Geraden y = −x', 'an der Geraden durch (0 | 0) und (1 | −1)'),
+    (r'Gib die Achse an\.', 'Gib den Punkt an, in dem die Achse die Koordinatenachse schneidet.'),
+    (r'Eine Symmetrieachse ist parallel zur y-Achse\. Gib sie an\.', 'Eine Symmetrieachse ist parallel zur y-Achse. Gib den Punkt an, in dem sie die x-Achse schneidet.'),
+    (r'^y = □$', '(0 | □)'), (r'^x = □$', '(□ | 0)'),
+    (r'Bei der Spiegelung an y = x', 'Bei der Spiegelung an dieser Geraden'), (r'An y = −?x werden', 'An dieser Geraden werden'),
+    (r'Bei y = x tauschen', 'An dieser Geraden tauschen'), (r'Wie bei y = x tauschen', 'Wie an der Geraden durch (0 | 0) und (1 | 1) tauschen'),
+    (r'^y = x$', 'a'), (r'^y = −x$', 'a'),
+    (r'(?<![\w|])([xy]) = (−?\d+)', r'\1-Wert \2'),
+]
+PLAN['abbildungen.kongruenz'] = [
+    entfaellt('parkett'),
+    umschreiben('achsenspiegelung', r'[xy] = −?\d|y = −?x\b|Gib die Achse an|Symmetrieachse ist parallel', _ACHSE),
+    umschreiben('achsenspiegelung', r'^(P\(4 \| −3\) wird erst an der x-Achse|Eine Billardkugel liegt bei A\(1 \| 3\))', _ACHSE, 2),
+    umschreiben('achsenspiegelung', r'^Bei einer Achsenspiegelung wird A\(−2 \| 3\) auf A', [(r'links von x = 1,', 'links von der Achse,')], 1),
+    karte('achsenspiegelung', schritte=[
+        {'text': 'P(4 | 3) wird an der senkrechten Achse durch (1 | 0) gespiegelt.'},
+        {'text': 'P liegt 3 Kästchen rechts von der Achse.', 'bild': {'strecken': [[1, 3, 4, 3, 'gestrichelt']]}},
+        {'text': "Auf der anderen Seite 3 Kästchen nach links: ⟦P'(−2 | 3)⟧.",
+         'bild': {'punkte': [{'x': 4, 'y': 3, 'name': 'P'}, {'x': -2, 'y': 3, 'name': "P'"}], 'strecken': [[-2, 3, 4, 3, 'gestrichelt']]}},
+        {'text': "Achse durch O und (1 | 1): x und y tauschen, also P'(3 | 4).",
+         'bild': {'typ': 'koordinaten', 'x': [-1, 5], 'y': [-1, 5], 'graphen': [{'art': 'linear', 'm': 1, 't': 0, 'name': 'a'}],
+                  'punkte': [{'x': 4, 'y': 3, 'name': 'P'}, {'x': 3, 'y': 4, 'name': "P'"}], 'strecken': [[4, 3, 3, 4, 'gestrichelt']]}}]),
+]

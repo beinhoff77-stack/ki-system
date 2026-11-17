@@ -20,8 +20,6 @@
    {
     "titel": "Winkel",
     "lernziele": [
-     "parallelen",
-     "winkelsumme",
      "gleichschenklig",
      "vierecke"
     ]
@@ -42,531 +40,6 @@
    }
   ],
   "etappen": [
-   {
-    "lernziel": "parallelen",
-    "titel": "Winkel an Parallelen",
-    "regel": "An Parallelen sind ⟦Stufenwinkel und Wechselwinkel⟧ gleich groß. Ohne Parallelen gilt das nicht.",
-    "schritte": [
-     {
-      "text": "g und h sind parallel. Bei S ist der Winkel 55°."
-     },
-     {
-      "text": "β liegt bei T an derselben Stelle: Stufenwinkel, also ⟦β = 55°⟧.",
-      "bild": {
-       "typ": "figur",
-       "punkte": {
-        "S": [
-         2,
-         0
-        ],
-        "T": [
-         4.1,
-         3
-        ],
-        "_t1": [
-         0.6,
-         -2
-        ],
-        "_t2": [
-         5.5,
-         5
-        ],
-        "_g1": [
-         -2,
-         0
-        ],
-        "_g2": [
-         8.1,
-         0
-        ],
-        "_h1": [
-         -2,
-         3
-        ],
-        "_h2": [
-         8.1,
-         3
-        ]
-       },
-       "linien": [
-        [
-         "_g1",
-         "_g2",
-         "g"
-        ],
-        [
-         "_h1",
-         "_h2",
-         "h"
-        ],
-        [
-         "_t1",
-         "_t2"
-        ]
-       ],
-       "winkel": [
-        [
-         "S",
-         "_g2",
-         "T",
-         "55°"
-        ],
-        [
-         "T",
-         "_h2",
-         "_t2",
-         "β"
-        ]
-       ]
-      }
-     },
-     {
-      "text": "γ liegt gegenüber, in Z-Form: Wechselwinkel, also ⟦γ = 55°⟧.",
-      "bild": {
-       "typ": "figur",
-       "punkte": {
-        "S": [
-         2,
-         0
-        ],
-        "T": [
-         4.1,
-         3
-        ],
-        "_t1": [
-         0.6,
-         -2
-        ],
-        "_t2": [
-         5.5,
-         5
-        ],
-        "_g1": [
-         -2,
-         0
-        ],
-        "_g2": [
-         8.1,
-         0
-        ],
-        "_h1": [
-         -2,
-         3
-        ],
-        "_h2": [
-         8.1,
-         3
-        ]
-       },
-       "linien": [
-        [
-         "_g1",
-         "_g2",
-         "g"
-        ],
-        [
-         "_h1",
-         "_h2",
-         "h"
-        ],
-        [
-         "_t1",
-         "_t2"
-        ]
-       ],
-       "winkel": [
-        [
-         "S",
-         "_g2",
-         "T",
-         "55°"
-        ],
-        [
-         "T",
-         "_h2",
-         "_t2",
-         "β"
-        ],
-        [
-         "T",
-         "_h1",
-         "S",
-         "γ"
-        ]
-       ]
-      }
-     }
-    ],
-    "fehler": "Laufen die Straßen aufeinander zu, sind die Stufenwinkel ⟦verschieden⟧. Die Regel gilt nur für parallele Geraden.",
-    "bild": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       2,
-       0
-      ],
-      "T": [
-       4.1,
-       3
-      ],
-      "_t1": [
-       0.6,
-       -2
-      ],
-      "_t2": [
-       5.5,
-       5
-      ],
-      "_g1": [
-       -2,
-       0
-      ],
-      "_g2": [
-       8.1,
-       0
-      ],
-      "_h1": [
-       -2,
-       3
-      ],
-      "_h2": [
-       8.1,
-       3
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "_t1",
-       "_t2"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_g2",
-       "T",
-       "55°"
-      ]
-     ]
-    },
-    "einstieg": "Auf dem Stadtplan laufen zwei Straßen nebeneinander, ohne sich zu treffen. Eine dritte kreuzt beide schräg. An beiden Kreuzungen sind die Winkel gleich: ⟦Stufenwinkel⟧ und Wechselwinkel.",
-    "woerter": [
-     [
-      "parallel",
-      "überall gleich weit auseinander; die Geraden treffen sich nie"
-     ],
-     [
-      "Stufenwinkel",
-      "Winkel in gleicher Lage an beiden Kreuzungen"
-     ],
-     [
-      "Wechselwinkel",
-      "Winkel auf verschiedenen Seiten; zusammen bilden sie ein Z"
-     ]
-    ],
-    "fehler_bild": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       2,
-       0
-      ],
-      "T": [
-       4.1,
-       3
-      ],
-      "_t1": [
-       0.6,
-       -2
-      ],
-      "_t2": [
-       5.5,
-       5
-      ],
-      "_g1": [
-       -2,
-       0
-      ],
-      "_g2": [
-       8.1,
-       0
-      ],
-      "_h1": [
-       0.1,
-       2.29
-      ],
-      "_h2": [
-       8.1,
-       3.71
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "_t1",
-       "_t2"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_g2",
-       "T",
-       "55°"
-      ],
-      [
-       "T",
-       "_h2",
-       "_t2",
-       "65°"
-      ]
-     ]
-    }
-   },
-   {
-    "lernziel": "winkelsumme",
-    "titel": "Winkel im Dreieck berechnen",
-    "regel": "Im Dreieck ergeben die Winkel zusammen ⟦180°⟧. Den fehlenden Winkel bekommst du durch Abziehen.",
-    "schritte": [
-     {
-      "text": "Unten sind 50° und 75° gemessen. Gesucht ist γ oben."
-     },
-     {
-      "text": "Alle drei Winkel ergeben zusammen 180°."
-     },
-     {
-      "text": "γ = 180° − 50° − 75° = ⟦55°⟧.",
-      "bild": {
-       "typ": "figur",
-       "punkte": {
-        "A": [
-         0,
-         0
-        ],
-        "B": [
-         6,
-         0
-        ],
-        "C": [
-         4.55,
-         5.42
-        ]
-       },
-       "flaeche": [
-        "A",
-        "B",
-        "C"
-       ],
-       "linien": [
-        [
-         "A",
-         "B"
-        ],
-        [
-         "B",
-         "C"
-        ],
-        [
-         "C",
-         "A"
-        ]
-       ],
-       "winkel": [
-        [
-         "A",
-         "B",
-         "C",
-         "50°"
-        ],
-        [
-         "B",
-         "C",
-         "A",
-         "75°"
-        ],
-        [
-         "C",
-         "A",
-         "B",
-         "55°"
-        ]
-       ]
-      }
-     },
-     {
-      "text": "Warum 180°? Mit einer Parallele oben liegen alle drei auf einer Geraden.",
-      "bild": {
-       "typ": "figur",
-       "punkte": {
-        "A": [
-         0,
-         0
-        ],
-        "B": [
-         6,
-         0
-        ],
-        "C": [
-         4.55,
-         5.42
-        ],
-        "_l": [
-         1.55,
-         5.42
-        ],
-        "_r": [
-         7.55,
-         5.42
-        ]
-       },
-       "flaeche": [
-        "A",
-        "B",
-        "C"
-       ],
-       "linien": [
-        [
-         "A",
-         "B"
-        ],
-        [
-         "B",
-         "C"
-        ],
-        [
-         "C",
-         "A"
-        ],
-        [
-         "_l",
-         "_r",
-         "Parallele",
-         "gestrichelt"
-        ]
-       ],
-       "winkel": [
-        [
-         "A",
-         "B",
-         "C",
-         "50°"
-        ],
-        [
-         "B",
-         "C",
-         "A",
-         "75°"
-        ],
-        [
-         "C",
-         "_l",
-         "A",
-         "50°"
-        ],
-        [
-         "C",
-         "B",
-         "_r",
-         "75°"
-        ],
-        [
-         "C",
-         "A",
-         "B",
-         "55°"
-        ]
-       ]
-      }
-     }
-    ],
-    "fehler": "360° gilt für Vierecke, nicht für Dreiecke. 360° − 50° − 75° ergäbe 235° – so einen Giebel ⟦gibt es nicht⟧.",
-    "bild": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       6,
-       0
-      ],
-      "C": [
-       4.55,
-       5.42
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "B",
-       "C",
-       "50°"
-      ],
-      [
-       "B",
-       "C",
-       "A",
-       "75°"
-      ],
-      [
-       "C",
-       "A",
-       "B",
-       "γ"
-      ]
-     ]
-    },
-    "einstieg": "Ein Gartenhaus bekommt einen dreieckigen Giebel. Der Zimmermann misst unten links 50° und unten rechts 75°. Den Winkel oben rechnet er aus – mit der ⟦Winkelsumme⟧.",
-    "woerter": [
-     [
-      "Winkelsumme",
-      "alle drei Winkel im Dreieck zusammen: 180°"
-     ],
-     [
-      "γ",
-      "Gamma, der Name des Winkels oben (unten heißen sie α und β)"
-     ]
-    ]
-   },
    {
     "lernziel": "gleichschenklig",
     "titel": "Gleichschenklige Dreiecke",
@@ -1640,20 +1113,6 @@
   ],
   "teilfaehigkeiten": [
    {
-    "k": "parallelen",
-    "text": "Winkel an Parallelen",
-    "lernziele": [
-     "parallelen"
-    ]
-   },
-   {
-    "k": "winkelsumme",
-    "text": "Winkel im Dreieck berechnen",
-    "lernziele": [
-     "winkelsumme"
-    ]
-   },
-   {
     "k": "gleichschenklig",
     "text": "Gleichschenklige Dreiecke",
     "lernziele": [
@@ -1698,8 +1157,6 @@
   ],
   "bewertung": {
    "lernziele_pflicht": [
-    "parallelen",
-    "winkelsumme",
     "gleichschenklig",
     "kongruenzsatz",
     "konstruierbar",
@@ -1717,2703 +1174,6 @@
   }
  },
  "aufgaben": [
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "g ∥ h. Bei S ist α = 125° (rechts oberhalb). Wie groß ist β bei T (links unterhalb)?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       2,
-       0
-      ],
-      "T": [
-       -0.1,
-       3
-      ],
-      "_t1": [
-       3.4,
-       -2
-      ],
-      "_t2": [
-       -1.5,
-       5
-      ],
-      "_g1": [
-       -2,
-       0
-      ],
-      "_g2": [
-       6,
-       0
-      ],
-      "_h1": [
-       -2,
-       3
-      ],
-      "_h2": [
-       6,
-       3
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "_t1",
-       "_t2"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_g2",
-       "T",
-       "125°"
-      ],
-      [
-       "T",
-       "_h1",
-       "S",
-       "β"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 125,
-    "einheit": "°"
-   },
-   "c": "125",
-   "w": "β und α sind Wechselwinkel an Parallelen, also gleich groß: β = 125°.",
-   "h": "Stufenwinkel: gleiche Lage. Wechselwinkel: Z-Form. Beide sind an Parallelen gleich groß.",
-   "g": "direkt"
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "g ∥ h. Bei S ist der markierte Winkel 130° (links unterhalb). Wie groß ist β bei T (links unterhalb)?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       2,
-       0
-      ],
-      "T": [
-       -0.52,
-       3
-      ],
-      "_t1": [
-       3.68,
-       -2
-      ],
-      "_t2": [
-       -2.2,
-       5
-      ],
-      "_g1": [
-       -2,
-       0
-      ],
-      "_g2": [
-       6,
-       0
-      ],
-      "_h1": [
-       -2,
-       3
-      ],
-      "_h2": [
-       6,
-       3
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "_t1",
-       "_t2"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_g1",
-       "_t1",
-       "130°"
-      ],
-      [
-       "T",
-       "_h1",
-       "S",
-       "β"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 130,
-    "einheit": "°"
-   },
-   "c": "130",
-   "w": "An S liegt rechts oberhalb 130°, die Nebenwinkel sind 50°, der Scheitelwinkel ist 130°. Bei T sind die Winkel in gleicher Lage gleich (Stufenwinkel): β = 130°.",
-   "h": "Bestimme erst alle vier Winkel bei S (Nebenwinkel: 180° minus, Scheitelwinkel: gleich). Bei T ist es genauso.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "g ∥ h. Zwei Wechselwinkel sind (4x + 20)° und 80° groß. Berechne x."
-   },
-   "o": {
-    "wert": 15
-   },
-   "c": "(80 - 20) / 4",
-   "w": "Wechselwinkel sind gleich: 4x + 20 = 80 → 4x = 60 → x = 15.",
-   "h": "Wechselwinkel an Parallelen sind gleich groß. Stelle eine Gleichung auf.",
-   "g": "parameter"
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "g ∥ h. Bei S ist α = 45° (rechts oberhalb). Wie groß ist β bei T (links unterhalb)?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       2,
-       0
-      ],
-      "T": [
-       5,
-       3
-      ],
-      "_t1": [
-       0,
-       -2
-      ],
-      "_t2": [
-       7,
-       5
-      ],
-      "_g1": [
-       -2,
-       0
-      ],
-      "_g2": [
-       9,
-       0
-      ],
-      "_h1": [
-       -2,
-       3
-      ],
-      "_h2": [
-       9,
-       3
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "_t1",
-       "_t2"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_g2",
-       "T",
-       "45°"
-      ],
-      [
-       "T",
-       "_h1",
-       "S",
-       "β"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 45,
-    "einheit": "°"
-   },
-   "c": "45",
-   "w": "β und α sind Wechselwinkel an Parallelen, also gleich groß: β = 45°.",
-   "h": "Stufenwinkel: gleiche Lage. Wechselwinkel: Z-Form. Beide sind an Parallelen gleich groß.",
-   "g": "direkt"
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "g ∥ h. Bei S ist der markierte Winkel 120° (rechts oberhalb). Wie groß ist β bei T (links oberhalb)?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       2,
-       0
-      ],
-      "T": [
-       0.27,
-       3
-      ],
-      "_t1": [
-       3.15,
-       -2
-      ],
-      "_t2": [
-       -0.88,
-       5
-      ],
-      "_g1": [
-       -2,
-       0
-      ],
-      "_g2": [
-       6,
-       0
-      ],
-      "_h1": [
-       -2,
-       3
-      ],
-      "_h2": [
-       6,
-       3
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "_t1",
-       "_t2"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_g2",
-       "T",
-       "120°"
-      ],
-      [
-       "T",
-       "_t2",
-       "_h1",
-       "β"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 60,
-    "einheit": "°"
-   },
-   "c": "60",
-   "w": "An S liegt rechts oberhalb 120°, die Nebenwinkel sind 60°, der Scheitelwinkel ist 120°. Bei T sind die Winkel in gleicher Lage gleich (Stufenwinkel): β = 60°.",
-   "h": "Bestimme erst alle vier Winkel bei S (Nebenwinkel: 180° minus, Scheitelwinkel: gleich). Bei T ist es genauso.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "g ∥ h. Ein Dreieck hat eine Ecke C auf g und die beiden anderen Ecken auf h. Bei C bilden die Dreiecksseiten mit g die Winkel 50° (links) und 65° (rechts). Wie groß ist der Innenwinkel des Dreiecks bei C?"
-   },
-   "o": {
-    "wert": 65,
-    "einheit": "°"
-   },
-   "c": "180 - 50 - 65",
-   "w": "An C liegen auf der Geraden g drei Winkel nebeneinander: 50°, der Innenwinkel und 65°. Zusammen 180°: 180° − 50° − 65° = 65°.",
-   "h": "Auf einer Geraden ergeben die Winkel nebeneinander 180°.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand sagt: „Scheitelwinkel sind gleich groß, auch wenn keine Parallelen da sind.“ Was stimmt?"
-   },
-   "a": [
-    "Falsch: Nebenwinkel ergänzen sich zu 180°.",
-    "Richtig: Scheitelwinkel liegen an derselben Kreuzung.",
-    "Falsch: Wechselwinkel an Parallelen sind gleich groß.",
-    "Falsch: Nur wenn die beiden Geraden parallel sind."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Richtig: Scheitelwinkel liegen an derselben Kreuzung.",
-   "h": "Denke an das Bild mit zwei Geraden und einer Geraden, die beide schneidet.",
-   "g": "fehler"
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "g ∥ h. Bei S ist ein Winkel (3x + 15)° groß (rechts oberhalb), bei T der Winkel links oberhalb 45°. Berechne x."
-   },
-   "o": {
-    "wert": 40
-   },
-   "c": "(180 - 45 - 15) / 3",
-   "w": "Links oberhalb bei T ist Nebenwinkel des Stufenwinkels: (3x + 15)° + 45° = 180° → 3x = 120° → x = 40.",
-   "h": "Der Winkel links oberhalb bei T ergänzt den Stufenwinkel zu 180°.",
-   "g": "parameter"
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "g ∥ h. Bei S ist der markierte Winkel 65° (links oberhalb). Wie groß ist β bei T (rechts oberhalb)?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       2,
-       0
-      ],
-      "T": [
-       0.6,
-       3
-      ],
-      "_t1": [
-       2.93,
-       -2
-      ],
-      "_t2": [
-       -0.33,
-       5
-      ],
-      "_g1": [
-       -2,
-       0
-      ],
-      "_g2": [
-       6,
-       0
-      ],
-      "_h1": [
-       -2,
-       3
-      ],
-      "_h2": [
-       6,
-       3
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "_t1",
-       "_t2"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "T",
-       "_g1",
-       "65°"
-      ],
-      [
-       "T",
-       "_h2",
-       "_t2",
-       "β"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 115,
-    "einheit": "°"
-   },
-   "c": "115",
-   "w": "An S liegt rechts oberhalb 115°, die Nebenwinkel sind 65°, der Scheitelwinkel ist 115°. Bei T sind die Winkel in gleicher Lage gleich (Stufenwinkel): β = 115°.",
-   "h": "Bestimme erst alle vier Winkel bei S (Nebenwinkel: 180° minus, Scheitelwinkel: gleich). Bei T ist es genauso.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Gerade k schneidet die Geraden g und h. Welche Beobachtung beweist, dass g und h parallel sind?"
-   },
-   "a": [
-    "Zwei Scheitelwinkel sind gleich groß.",
-    "Ein Paar Wechselwinkel ist gleich groß.",
-    "Zwei Nebenwinkel ergeben 180°.",
-    "Zwei Stufenwinkel ergeben zusammen 180°."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Scheitel- und Nebenwinkel gelten an jeder Kreuzung, auch ohne Parallelen. Nur gleich große Wechsel- oder Stufenwinkel zeigen, dass g ∥ h.",
-   "h": "Welche Beziehung gilt nur, wenn die Geraden parallel sind?",
-   "g": "umkehr"
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Geraden g und h sind nicht parallel; ihr Schnittpunkt liegt außerhalb des Blattes. Eine dritte Gerade k schneidet g unter 70° und h unter 50° (beide Winkel liegen zwischen g und h auf der Seite des Schnittpunkts). Unter welchem Winkel schneiden sich g und h?"
-   },
-   "o": {
-    "wert": 60,
-    "einheit": "°"
-   },
-   "c": "180 - 70 - 50",
-   "w": "g, h und k bilden ein Dreieck. Zwei seiner Winkel sind 70° und 50°. Der dritte (am Schnittpunkt von g und h) ist 180° − 70° − 50° = 60°.",
-   "h": "Denke dir das Dreieck aus den drei Geraden.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "g ∥ h. Welche Winkel-Beziehung haben der Winkel bei S (links oberhalb) und der Winkel bei T (rechts unterhalb)?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       2,
-       0
-      ],
-      "T": [
-       0.91,
-       3
-      ],
-      "_t1": [
-       2.73,
-       -2
-      ],
-      "_t2": [
-       0.18,
-       5
-      ],
-      "_g1": [
-       -2,
-       0
-      ],
-      "_g2": [
-       6,
-       0
-      ],
-      "_h1": [
-       -2,
-       3
-      ],
-      "_h2": [
-       6,
-       3
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "_t1",
-       "_t2"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "T",
-       "_g1",
-       "1"
-      ],
-      [
-       "T",
-       "S",
-       "_h2",
-       "2"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "keins von beiden",
-    "Wechselwinkel",
-    "Scheitelwinkel",
-    "Stufenwinkel"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "links oberhalb bei S und rechts unterhalb bei T: Z-Form (gegenüberliegende Seiten) → Wechselwinkel. Scheitelwinkel liegen am selben Schnittpunkt.",
-   "h": "Stufenwinkel: gleiche Lage an beiden Kreuzungen. Wechselwinkel: Z-Form.",
-   "g": "darstellung"
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "g ∥ h. Bei S ist α = 50° (rechts oberhalb). Wie groß ist β bei T (rechts oberhalb)?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       2,
-       0
-      ],
-      "T": [
-       4.52,
-       3
-      ],
-      "_t1": [
-       0.32,
-       -2
-      ],
-      "_t2": [
-       6.2,
-       5
-      ],
-      "_g1": [
-       -2,
-       0
-      ],
-      "_g2": [
-       8.52,
-       0
-      ],
-      "_h1": [
-       -2,
-       3
-      ],
-      "_h2": [
-       8.52,
-       3
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "_t1",
-       "_t2"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_g2",
-       "T",
-       "50°"
-      ],
-      [
-       "T",
-       "_h2",
-       "_t2",
-       "β"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 50,
-    "einheit": "°"
-   },
-   "c": "50",
-   "w": "β und α sind Stufenwinkel an Parallelen, also gleich groß: β = 50°.",
-   "h": "Stufenwinkel: gleiche Lage. Wechselwinkel: Z-Form. Beide sind an Parallelen gleich groß.",
-   "g": "direkt"
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "g ∥ h, k schneidet beide. Wie heißen zwei Winkel, die an den beiden Schnittpunkten in Z-Form liegen?"
-   },
-   "a": [
-    "Wechselwinkel",
-    "Scheitelwinkel",
-    "Nebenwinkel",
-    "Stufenwinkel"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Wechselwinkel liegen auf verschiedenen Seiten von k und „wechseln“ die Seite der Parallelen – wie die Ecken eines Z. Stufenwinkel liegen in gleicher Lage (F-Form).",
-   "h": "Denke an die Buchstaben F und Z."
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "g ∥ h. Bei S ist der markierte Winkel 85° (rechts oberhalb). Wie groß ist β bei T (links oberhalb)?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       2,
-       0
-      ],
-      "T": [
-       2.26,
-       3
-      ],
-      "_t1": [
-       1.83,
-       -2
-      ],
-      "_t2": [
-       2.43,
-       5
-      ],
-      "_g1": [
-       -2,
-       0
-      ],
-      "_g2": [
-       6.26,
-       0
-      ],
-      "_h1": [
-       -2,
-       3
-      ],
-      "_h2": [
-       6.26,
-       3
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "_t1",
-       "_t2"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_g2",
-       "T",
-       "85°"
-      ],
-      [
-       "T",
-       "_t2",
-       "_h1",
-       "β"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 95,
-    "einheit": "°"
-   },
-   "c": "95",
-   "w": "An S liegt rechts oberhalb 85°, die Nebenwinkel sind 95°, der Scheitelwinkel ist 85°. Bei T sind die Winkel in gleicher Lage gleich (Stufenwinkel): β = 95°."
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Gerade schneidet g in S unter 75° und h in T unter 70° (beide Winkel rechts oberhalb). Sind g und h parallel?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       2,
-       0
-      ],
-      "T": [
-       2.8,
-       3
-      ],
-      "_t1": [
-       1.46,
-       -2
-      ],
-      "_t2": [
-       3.34,
-       5
-      ],
-      "_g1": [
-       -2,
-       0
-      ],
-      "_g2": [
-       6.8,
-       0
-      ],
-      "_h1": [
-       -1.2,
-       3.35
-      ],
-      "_h2": [
-       6.8,
-       2.65
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "_t1",
-       "_t2"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_g2",
-       "T",
-       "75°"
-      ],
-      [
-       "T",
-       "_h2",
-       "_t2",
-       "70°"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "Das kann man ohne Länge nicht entscheiden.",
-    "Ja, die Stufenwinkel sind gleich groß.",
-    "Ja, zwei Geraden sind immer parallel.",
-    "Nein, die Stufenwinkel sind verschieden groß."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Stufenwinkel 75° und 70°: verschieden → g und h sind nicht parallel."
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "g ∥ h. Bei S ist der markierte Winkel 110° (links oberhalb). Wie groß ist β bei T (rechts unterhalb)?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       2,
-       0
-      ],
-      "T": [
-       3.09,
-       3
-      ],
-      "_t1": [
-       1.27,
-       -2
-      ],
-      "_t2": [
-       3.82,
-       5
-      ],
-      "_g1": [
-       -2,
-       0
-      ],
-      "_g2": [
-       7.09,
-       0
-      ],
-      "_h1": [
-       -2,
-       3
-      ],
-      "_h2": [
-       7.09,
-       3
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "_t1",
-       "_t2"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "T",
-       "_g1",
-       "110°"
-      ],
-      [
-       "T",
-       "S",
-       "_h2",
-       "β"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 110,
-    "einheit": "°"
-   },
-   "c": "110",
-   "w": "An S liegt rechts oberhalb 70°, die Nebenwinkel sind 110°, der Scheitelwinkel ist 70°. Bei T sind die Winkel in gleicher Lage gleich (Stufenwinkel): β = 110°."
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "g ∥ h. Welche Winkel-Beziehung haben der Winkel bei S (links unterhalb) und der Winkel bei T (rechts oberhalb)?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       2,
-       0
-      ],
-      "T": [
-       -0.1,
-       3
-      ],
-      "_t1": [
-       3.4,
-       -2
-      ],
-      "_t2": [
-       -1.5,
-       5
-      ],
-      "_g1": [
-       -2,
-       0
-      ],
-      "_g2": [
-       6,
-       0
-      ],
-      "_h1": [
-       -2,
-       3
-      ],
-      "_h2": [
-       6,
-       3
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "_t1",
-       "_t2"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_g1",
-       "_t1",
-       "1"
-      ],
-      [
-       "T",
-       "_h2",
-       "_t2",
-       "2"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "keins von beiden",
-    "Scheitelwinkel",
-    "Stufenwinkel",
-    "Wechselwinkel"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "links unterhalb bei S und rechts oberhalb bei T: Z-Form (gegenüberliegende Seiten) → Wechselwinkel. Scheitelwinkel liegen am selben Schnittpunkt."
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "g ∥ h. Bei S ist der markierte Winkel 65° (rechts oberhalb). Wie groß ist β bei T (links unterhalb)?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       2,
-       0
-      ],
-      "T": [
-       3.4,
-       3
-      ],
-      "_t1": [
-       1.07,
-       -2
-      ],
-      "_t2": [
-       4.33,
-       5
-      ],
-      "_g1": [
-       -2,
-       0
-      ],
-      "_g2": [
-       7.4,
-       0
-      ],
-      "_h1": [
-       -2,
-       3
-      ],
-      "_h2": [
-       7.4,
-       3
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "_t1",
-       "_t2"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_g2",
-       "T",
-       "65°"
-      ],
-      [
-       "T",
-       "_h1",
-       "S",
-       "β"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 65,
-    "einheit": "°"
-   },
-   "c": "65",
-   "w": "An S liegt rechts oberhalb 65°, die Nebenwinkel sind 115°, der Scheitelwinkel ist 65°. Bei T sind die Winkel in gleicher Lage gleich (Stufenwinkel): β = 65°."
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Gerade schneidet g in S unter 70° und h in T unter 75° (beide Winkel rechts oberhalb). Sind g und h parallel?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       2,
-       0
-      ],
-      "T": [
-       3.09,
-       3
-      ],
-      "_t1": [
-       1.27,
-       -2
-      ],
-      "_t2": [
-       3.82,
-       5
-      ],
-      "_g1": [
-       -2,
-       0
-      ],
-      "_g2": [
-       7.09,
-       0
-      ],
-      "_h1": [
-       -0.91,
-       2.65
-      ],
-      "_h2": [
-       7.09,
-       3.35
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "_t1",
-       "_t2"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_g2",
-       "T",
-       "70°"
-      ],
-      [
-       "T",
-       "_h2",
-       "_t2",
-       "75°"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "Ja, die Stufenwinkel sind gleich groß.",
-    "Ja, zwei Geraden sind immer parallel.",
-    "Das kann man ohne Länge nicht entscheiden.",
-    "Nein, die Stufenwinkel sind verschieden groß."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Stufenwinkel 70° und 75°: verschieden → g und h sind nicht parallel."
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "g ∥ h. Bei S ist der markierte Winkel 35° (links oberhalb). Wie groß ist β bei T (links oberhalb)?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       2,
-       0
-      ],
-      "T": [
-       -2.28,
-       3
-      ],
-      "_t1": [
-       4.86,
-       -2
-      ],
-      "_t2": [
-       -5.14,
-       5
-      ],
-      "_g1": [
-       -2,
-       0
-      ],
-      "_g2": [
-       6,
-       0
-      ],
-      "_h1": [
-       -2,
-       3
-      ],
-      "_h2": [
-       6,
-       3
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "_t1",
-       "_t2"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "T",
-       "_g1",
-       "35°"
-      ],
-      [
-       "T",
-       "_t2",
-       "_h1",
-       "β"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 35,
-    "einheit": "°"
-   },
-   "c": "35",
-   "w": "An S liegt rechts oberhalb 145°, die Nebenwinkel sind 35°, der Scheitelwinkel ist 145°. Bei T sind die Winkel in gleicher Lage gleich (Stufenwinkel): β = 35°."
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "g ∥ h. Welche Winkel-Beziehung haben der Winkel bei S (links unterhalb) und der Winkel bei T (rechts oberhalb)?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       2,
-       0
-      ],
-      "T": [
-       2.53,
-       3
-      ],
-      "_t1": [
-       1.65,
-       -2
-      ],
-      "_t2": [
-       2.88,
-       5
-      ],
-      "_g1": [
-       -2,
-       0
-      ],
-      "_g2": [
-       6.53,
-       0
-      ],
-      "_h1": [
-       -2,
-       3
-      ],
-      "_h2": [
-       6.53,
-       3
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "_t1",
-       "_t2"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_g1",
-       "_t1",
-       "1"
-      ],
-      [
-       "T",
-       "_h2",
-       "_t2",
-       "2"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "Stufenwinkel",
-    "Scheitelwinkel",
-    "keins von beiden",
-    "Wechselwinkel"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "links unterhalb bei S und rechts oberhalb bei T: Z-Form (gegenüberliegende Seiten) → Wechselwinkel. Scheitelwinkel liegen am selben Schnittpunkt."
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "g ∥ h. Bei S ist der markierte Winkel 50° (rechts oberhalb). Wie groß ist β bei T (rechts oberhalb)?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       2,
-       0
-      ],
-      "T": [
-       4.52,
-       3
-      ],
-      "_t1": [
-       0.32,
-       -2
-      ],
-      "_t2": [
-       6.2,
-       5
-      ],
-      "_g1": [
-       -2,
-       0
-      ],
-      "_g2": [
-       8.52,
-       0
-      ],
-      "_h1": [
-       -2,
-       3
-      ],
-      "_h2": [
-       8.52,
-       3
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "_t1",
-       "_t2"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_g2",
-       "T",
-       "50°"
-      ],
-      [
-       "T",
-       "_h2",
-       "_t2",
-       "β"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 50,
-    "einheit": "°"
-   },
-   "c": "50",
-   "w": "An S liegt rechts oberhalb 50°, die Nebenwinkel sind 130°, der Scheitelwinkel ist 50°. Bei T sind die Winkel in gleicher Lage gleich (Stufenwinkel): β = 50°."
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Gerade schneidet g in S unter 130° und h in T unter 130° (beide Winkel rechts oberhalb). Sind g und h parallel?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       2,
-       0
-      ],
-      "T": [
-       -0.52,
-       3
-      ],
-      "_t1": [
-       3.68,
-       -2
-      ],
-      "_t2": [
-       -2.2,
-       5
-      ],
-      "_g1": [
-       -2,
-       0
-      ],
-      "_g2": [
-       6,
-       0
-      ],
-      "_h1": [
-       -2,
-       3
-      ],
-      "_h2": [
-       6,
-       3
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "_t1",
-       "_t2"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_g2",
-       "T",
-       "130°"
-      ],
-      [
-       "T",
-       "_h2",
-       "_t2",
-       "130°"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "Ja, die Stufenwinkel sind gleich groß.",
-    "Ja, zwei Geraden sind immer parallel.",
-    "Das kann man ohne Länge nicht entscheiden.",
-    "Nein, die Stufenwinkel sind verschieden groß."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Stufenwinkel 130° und 130°: gleich → g ∥ h (Kehrsatz)."
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck ist bei C rechtwinklig, α = 31°. Berechne β.",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       6,
-       0
-      ],
-      "C": [
-       4.41,
-       2.65
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ]
-     ],
-     "rechter_winkel": [
-      [
-       "C",
-       "A",
-       "B"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "B",
-       "C",
-       "31°"
-      ],
-      [
-       "B",
-       "C",
-       "A",
-       "β"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 59,
-    "einheit": "°"
-   },
-   "c": "180 - 90 - 31",
-   "w": "β = 180° − 90° − 31° = 59°.",
-   "h": "Ein rechter Winkel hat 90°.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "In einem Dreieck ist α = 100° und β = 56°. Berechne γ.",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       6,
-       0
-      ],
-      "C": [
-       -2.12,
-       12.04
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "B",
-       "C",
-       "100°"
-      ],
-      [
-       "B",
-       "C",
-       "A",
-       "56°"
-      ],
-      [
-       "C",
-       "A",
-       "B",
-       "γ"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 24,
-    "einheit": "°"
-   },
-   "c": "180 - 100 - 56",
-   "w": "γ = 180° − 100° − 56° = 24°.",
-   "h": "Die drei Winkel ergeben zusammen 180°.",
-   "g": "direkt"
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck ist bei C rechtwinklig, α = 64°. Berechne β.",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       6,
-       0
-      ],
-      "C": [
-       1.15,
-       2.36
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ]
-     ],
-     "rechter_winkel": [
-      [
-       "C",
-       "A",
-       "B"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "B",
-       "C",
-       "64°"
-      ],
-      [
-       "B",
-       "C",
-       "A",
-       "β"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 26,
-    "einheit": "°"
-   },
-   "c": "180 - 90 - 64",
-   "w": "β = 180° − 90° − 64° = 26°.",
-   "h": "Ein rechter Winkel hat 90°.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "uebung",
-   "s": 1,
-   "g": "direkt",
-   "y": "zahl",
-   "f": {
-    "text": "In einem Dreieck ist β = 48° und γ = 71°. Berechne α."
-   },
-   "o": {
-    "wert": 61,
-    "einheit": "°"
-   },
-   "c": "180 - 48 - 71",
-   "w": "180° − 48° − 71° = 61°.",
-   "h": "Die drei Winkel ergeben 180°."
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck hat einen rechten Winkel und zwei gleich große Winkel. Wie groß ist einer der beiden gleich großen Winkel?"
-   },
-   "o": {
-    "wert": 45,
-    "einheit": "°"
-   },
-   "c": "(180 - 90) / 2",
-   "w": "180° − 90° = 90° bleiben für die beiden gleichen Winkel: 90° : 2 = 45°.",
-   "h": "Was bleibt von 180° nach dem rechten Winkel?",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "In einem Dreieck ist α = 54° und β = 83°. Berechne γ.",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       6,
-       0
-      ],
-      "C": [
-       5.13,
-       7.06
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "B",
-       "C",
-       "54°"
-      ],
-      [
-       "B",
-       "C",
-       "A",
-       "83°"
-      ],
-      [
-       "C",
-       "A",
-       "B",
-       "γ"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 43,
-    "einheit": "°"
-   },
-   "c": "180 - 54 - 83",
-   "w": "γ = 180° − 54° − 83° = 43°.",
-   "h": "Die drei Winkel ergeben zusammen 180°."
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Außenwinkel bei C ist der Nebenwinkel von γ. Berechne ihn für α = 120° und β = 39°."
-   },
-   "o": {
-    "wert": 159,
-    "einheit": "°"
-   },
-   "c": "120 + 39",
-   "w": "Außenwinkel bei C = α + β = 120° + 39° = 159°. (Probe: 180° − γ = 180° − 21° = 159°)",
-   "h": "Außenwinkel = 180° − Innenwinkel, oder Summe der beiden anderen Innenwinkel.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Winkel eines Dreiecks verhalten sich wie 2 : 3 : 4. Wie groß ist der größte Winkel?"
-   },
-   "o": {
-    "wert": 80,
-    "einheit": "°"
-   },
-   "c": "180 / 9 * 4",
-   "w": "2 + 3 + 4 = 9 Teile = 180°, ein Teil = 20°. Größter Winkel: 4 · 20° = 80°.",
-   "h": "Wie viele gleiche Teile sind es zusammen?",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "In einem Dreieck ist β 3-mal so groß wie α, und γ = 76°. Wie groß ist α?"
-   },
-   "o": {
-    "wert": 26,
-    "einheit": "°"
-   },
-   "c": "(180 - 76) / (3 + 1)",
-   "w": "α + 3α + 76° = 180° → 4α = 104° → α = 26°.",
-   "h": "Schreibe β mit α und stelle eine Gleichung auf.",
-   "g": "rueckwaerts"
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand sagt: „In einem rechtwinkligen Dreieck ist α = 33°, also β = 147°.“ Was stimmt?"
-   },
-   "a": [
-    "Falsch: β = 90° + 33° = 123°.",
-    "Richtig: β = 180° − 33° = 147°.",
-    "Falsch: β = 180° − 90° − 33° = 57°.",
-    "Falsch: β = 33°, weil beide spitzen Winkel gleich sind."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Falsch: β = 180° − 90° − 33° = 57°.",
-   "h": "Rechne die Winkelsumme nach.",
-   "g": "fehler"
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Dreieck ist α = 65° und β = 64°. Durch C ist die Parallele zu [AB] gezeichnet. Rechts von C entsteht zwischen Parallele und Dreiecksseite ein Winkel von 64°. Warum?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       6,
-       0
-      ],
-      "C": [
-       2.93,
-       6.29
-      ],
-      "_l": [
-       -0.07,
-       6.29
-      ],
-      "_r": [
-       5.93,
-       6.29
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ],
-      [
-       "_l",
-       "_r",
-       "Parallele",
-       "gestrichelt"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "B",
-       "C",
-       "65°"
-      ],
-      [
-       "B",
-       "C",
-       "A",
-       "64°"
-      ],
-      [
-       "C",
-       "B",
-       "_r",
-       "64°"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "Scheitelwinkel von α",
-    "Nebenwinkel von γ",
-    "Wechselwinkel zu β",
-    "Stufenwinkel zu γ"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Die Parallele durch C und [AB] werden von der Seite [BC] geschnitten: Z-Form, also Wechselwinkel zu β. Mit γ zusammen ergibt das 180°.",
-   "h": "Welche Gerade schneidet die beiden Parallelen? Liegen die Winkel in Z-Form?",
-   "g": "darstellung"
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Der Außenwinkel bei A ist 130°, und β = 70°. Wie groß ist γ?"
-   },
-   "o": {
-    "wert": 60,
-    "einheit": "°"
-   },
-   "c": "180 - (180 - 130) - 70",
-   "w": "α ist der Nebenwinkel des Außenwinkels: 180° − 130° = 50°. γ = 180° − 50° − 70° = 60°.",
-   "h": "Bestimme zuerst α aus dem Außenwinkel.",
-   "g": "umkehr"
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Dreieck hat einen stumpfen Winkel. Was gilt für die beiden anderen Winkel?"
-   },
-   "a": [
-    "Einer ist auch stumpf.",
-    "Sie sind gleich groß.",
-    "Beide sind spitz.",
-    "Einer ist ein rechter Winkel."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Der stumpfe Winkel ist größer als 90°. Für die beiden anderen bleiben zusammen weniger als 90°, also ist jeder kleiner als 90°.",
-   "h": "Wie viel bleibt von 180° übrig?"
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "In einem Dreieck ist γ genauso groß wie α und β zusammen. Wie groß ist γ?"
-   },
-   "o": {
-    "wert": 90,
-    "einheit": "°"
-   },
-   "c": "180 / 2",
-   "w": "α + β + γ = 180° und α + β = γ. Also γ + γ = 180° und γ = 90°. Das Dreieck ist rechtwinklig.",
-   "h": "Ersetze α + β in der Winkelsumme durch γ.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Außenwinkel bei C ist der Nebenwinkel von γ. Berechne ihn für α = 113° und β = 45°."
-   },
-   "o": {
-    "wert": 158,
-    "einheit": "°"
-   },
-   "c": "113 + 45",
-   "w": "Außenwinkel bei C = α + β = 113° + 45° = 158°. (Probe: 180° − γ = 180° − 22° = 158°)"
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck ist bei C rechtwinklig, α = 48°. Berechne β.",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       6,
-       0
-      ],
-      "C": [
-       2.69,
-       2.98
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ]
-     ],
-     "rechter_winkel": [
-      [
-       "C",
-       "A",
-       "B"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "B",
-       "C",
-       "48°"
-      ],
-      [
-       "B",
-       "C",
-       "A",
-       "β"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 42,
-    "einheit": "°"
-   },
-   "c": "180 - 90 - 48",
-   "w": "β = 180° − 90° − 48° = 42°."
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Dreieck ist α = 57° und β = 49°. Durch C ist die Parallele zu [AB] gezeichnet. Links von C entsteht zwischen Parallele und Dreiecksseite ein Winkel von 57°. Warum?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       6,
-       0
-      ],
-      "C": [
-       2.57,
-       3.95
-      ],
-      "_l": [
-       -0.43,
-       3.95
-      ],
-      "_r": [
-       5.57,
-       3.95
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ],
-      [
-       "_l",
-       "_r",
-       "Parallele",
-       "gestrichelt"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "B",
-       "C",
-       "57°"
-      ],
-      [
-       "B",
-       "C",
-       "A",
-       "49°"
-      ],
-      [
-       "C",
-       "_l",
-       "A",
-       "57°"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "Scheitelwinkel von β",
-    "Stufenwinkel zu γ",
-    "Nebenwinkel von γ",
-    "Wechselwinkel zu α"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Die Parallele durch C und [AB] werden von der Seite [AC] geschnitten: Z-Form, also Wechselwinkel zu α. Mit γ zusammen ergibt das 180°."
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Außenwinkel bei C ist der Nebenwinkel von γ. Berechne ihn für α = 29° und β = 96°."
-   },
-   "o": {
-    "wert": 125,
-    "einheit": "°"
-   },
-   "c": "29 + 96",
-   "w": "Außenwinkel bei C = α + β = 29° + 96° = 125°. (Probe: 180° − γ = 180° − 55° = 125°)"
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck ist bei C rechtwinklig, α = 51°. Berechne β.",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       6,
-       0
-      ],
-      "C": [
-       2.38,
-       2.93
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ]
-     ],
-     "rechter_winkel": [
-      [
-       "C",
-       "A",
-       "B"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "B",
-       "C",
-       "51°"
-      ],
-      [
-       "B",
-       "C",
-       "A",
-       "β"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 39,
-    "einheit": "°"
-   },
-   "c": "180 - 90 - 51",
-   "w": "β = 180° − 90° − 51° = 39°."
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Dreieck ist α = 60° und β = 89°. Durch C ist die Parallele zu [AB] gezeichnet. Rechts von C entsteht zwischen Parallele und Dreiecksseite ein Winkel von 89°. Warum?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       6,
-       0
-      ],
-      "C": [
-       5.82,
-       10.09
-      ],
-      "_l": [
-       2.82,
-       10.09
-      ],
-      "_r": [
-       8.82,
-       10.09
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ],
-      [
-       "_l",
-       "_r",
-       "Parallele",
-       "gestrichelt"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "B",
-       "C",
-       "60°"
-      ],
-      [
-       "B",
-       "C",
-       "A",
-       "89°"
-      ],
-      [
-       "C",
-       "B",
-       "_r",
-       "89°"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "Wechselwinkel zu β",
-    "Nebenwinkel von γ",
-    "Scheitelwinkel von α",
-    "Stufenwinkel zu γ"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Die Parallele durch C und [AB] werden von der Seite [BC] geschnitten: Z-Form, also Wechselwinkel zu β. Mit γ zusammen ergibt das 180°."
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Außenwinkel bei C ist der Nebenwinkel von γ. Berechne ihn für α = 35° und β = 108°."
-   },
-   "o": {
-    "wert": 143,
-    "einheit": "°"
-   },
-   "c": "35 + 108",
-   "w": "Außenwinkel bei C = α + β = 35° + 108° = 143°. (Probe: 180° − γ = 180° − 37° = 143°)"
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck ist bei C rechtwinklig, α = 61°. Berechne β.",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       6,
-       0
-      ],
-      "C": [
-       1.41,
-       2.54
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ]
-     ],
-     "rechter_winkel": [
-      [
-       "C",
-       "A",
-       "B"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "B",
-       "C",
-       "61°"
-      ],
-      [
-       "B",
-       "C",
-       "A",
-       "β"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 29,
-    "einheit": "°"
-   },
-   "c": "180 - 90 - 61",
-   "w": "β = 180° − 90° − 61° = 29°."
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Dreieck ist α = 27° und β = 63°. Durch C ist die Parallele zu [AB] gezeichnet. Rechts von C entsteht zwischen Parallele und Dreiecksseite ein Winkel von 63°. Warum?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       6,
-       0
-      ],
-      "C": [
-       4.76,
-       2.43
-      ],
-      "_l": [
-       1.76,
-       2.43
-      ],
-      "_r": [
-       7.76,
-       2.43
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ],
-      [
-       "_l",
-       "_r",
-       "Parallele",
-       "gestrichelt"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "B",
-       "C",
-       "27°"
-      ],
-      [
-       "B",
-       "C",
-       "A",
-       "63°"
-      ],
-      [
-       "C",
-       "B",
-       "_r",
-       "63°"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "Stufenwinkel zu γ",
-    "Wechselwinkel zu β",
-    "Nebenwinkel von γ",
-    "Scheitelwinkel von α"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Die Parallele durch C und [AB] werden von der Seite [BC] geschnitten: Z-Form, also Wechselwinkel zu β. Mit γ zusammen ergibt das 180°."
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Außenwinkel bei C ist der Nebenwinkel von γ. Berechne ihn für α = 55° und β = 79°."
-   },
-   "o": {
-    "wert": 134,
-    "einheit": "°"
-   },
-   "c": "55 + 79",
-   "w": "Außenwinkel bei C = α + β = 55° + 79° = 134°. (Probe: 180° − γ = 180° − 46° = 134°)"
-  },
   {
    "l": "gleichschenklig",
    "t": "gleichschenklig",
@@ -4525,24 +1285,6 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "M ist der Mittelpunkt der Strecke [AB]. Das Dreieck MBC ist gleichseitig, und es gilt MA = MC. Wie groß ist der Winkel ∠MAC?"
-   },
-   "o": {
-    "wert": 30,
-    "einheit": "°"
-   },
-   "c": "(180 - (180 - 60)) / 2",
-   "w": "∠BMC = 60° (gleichseitig), also ∠AMC = 180° − 60° = 120°. Das Dreieck AMC ist gleichschenklig: ∠MAC = (180° − 120°) : 2 = 30°.",
-   "h": "Bestimme zuerst den Winkel bei M im Dreieck AMC.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "gleichschenklig",
-   "t": "gleichschenklig",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
     "text": "Bei einem gleichschenkligen Dreieck ist der Außenwinkel an einem Basiswinkel 148°. Wie groß ist der Spitzenwinkel?"
    },
    "o": {
@@ -4553,128 +1295,6 @@
    "w": "Basiswinkel = 180° − 148° = 32°. Spitzenwinkel = 180° − 2 · 32° = 116°.",
    "h": "Erst den Basiswinkel aus dem Nebenwinkel bestimmen.",
    "g": "rueckwaerts"
-  },
-  {
-   "l": "gleichschenklig",
-   "t": "gleichschenklig",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "In einem Kreis mit Mittelpunkt M ist [AB] ein Durchmesser; C liegt auf dem Kreis. Der Winkel ∠BAC ist 28°. Wie groß ist der Winkel ∠BMC?"
-   },
-   "o": {
-    "wert": 56,
-    "einheit": "°"
-   },
-   "c": "2 * 28",
-   "w": "MA = MC (Radien), also ist das Dreieck AMC gleichschenklig: ∠MCA = 28°. ∠AMC = 180° − 56° = 124°. ∠BMC ist sein Nebenwinkel: 56° = 2 · 28°.",
-   "h": "Welche Strecken im Dreieck AMC sind Radien?",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "gleichschenklig",
-   "t": "gleichschenklig",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Der Außenwinkel an der Spitze eines gleichschenkligen Dreiecks ist 54°. Wie groß ist ein Basiswinkel?"
-   },
-   "o": {
-    "wert": 27,
-    "einheit": "°"
-   },
-   "c": "54 / 2",
-   "w": "Spitzenwinkel = 180° − 54° = 126°. Basiswinkel = (180° − 126°) : 2 = 27°. Kurz: Der Außenwinkel ist die Summe der beiden Basiswinkel.",
-   "h": "Erst den Spitzenwinkel aus dem Nebenwinkel bestimmen.",
-   "g": "rueckwaerts"
-  },
-  {
-   "l": "gleichschenklig",
-   "t": "gleichschenklig",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein gleichschenkliges Dreieck hat den Basiswinkel 52°. Wie groß ist der Spitzenwinkel?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       6,
-       0
-      ],
-      "C": [
-       3,
-       3.84
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "B",
-       "C",
-       "52°"
-      ],
-      [
-       "C",
-       "A",
-       "B",
-       "?"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 76,
-    "einheit": "°"
-   },
-   "c": "180 - 2 * 52",
-   "w": "Zwei Basiswinkel: 2 · 52° = 104°. Spitzenwinkel: 180° − 104° = 76°.",
-   "h": "Es gibt zwei gleich große Basiswinkel.",
-   "g": "umkehr"
-  },
-  {
-   "l": "gleichschenklig",
-   "t": "gleichschenklig",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein gleichschenkliges Dreieck hat einen Winkel von 140°. Wie groß sind die beiden anderen Winkel? Gib einen davon an."
-   },
-   "o": {
-    "wert": 20,
-    "einheit": "°"
-   },
-   "c": "(180 - 140) / 2",
-   "w": "140° ist stumpf. Zwei solche Winkel hätten zusammen mehr als 180°, also kann 140° kein Basiswinkel sein – er ist der Spitzenwinkel. Basiswinkel: (180° − 140°) : 2 = 20°.",
-   "h": "Kann ein stumpfer Winkel zweimal im Dreieck vorkommen?",
-   "g": "mehrschritt"
   },
   {
    "l": "gleichschenklig",
@@ -4751,7 +1371,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein gleichschenkliges Dreieck hat den Basiswinkel 64°. Wie groß ist der Spitzenwinkel?",
+    "text": "Ein gleichschenkliges Dreieck hat den Basiswinkel 52°. Wie groß ist der Spitzenwinkel?",
     "grafik": {
      "typ": "figur",
      "punkte": {
@@ -4765,7 +1385,7 @@
       ],
       "C": [
        3,
-       6.15
+       3.84
       ]
      },
      "flaeche": [
@@ -4792,7 +1412,7 @@
        "A",
        "B",
        "C",
-       "64°"
+       "52°"
       ],
       [
        "C",
@@ -4804,11 +1424,11 @@
     }
    },
    "o": {
-    "wert": 52,
+    "wert": 76,
     "einheit": "°"
    },
-   "c": "180 - 2 * 64",
-   "w": "Zwei Basiswinkel: 2 · 64° = 128°. Spitzenwinkel: 180° − 128° = 52°.",
+   "c": "180 - 2 * 52",
+   "w": "Zwei Basiswinkel: 2 · 52° = 104°. Spitzenwinkel: 180° − 104° = 76°.",
    "h": "Es gibt zwei gleich große Basiswinkel.",
    "g": "umkehr"
   },
@@ -4883,19 +1503,247 @@
    "l": "gleichschenklig",
    "t": "gleichschenklig",
    "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gleichschenkliges Dreieck hat einen Winkel von 140°. Wie groß sind die beiden anderen Winkel? Gib einen davon an."
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "°"
+   },
+   "c": "(180 - 140) / 2",
+   "w": "140° ist stumpf. Zwei solche Winkel hätten zusammen mehr als 180°, also kann 140° kein Basiswinkel sein – er ist der Spitzenwinkel. Basiswinkel: (180° − 140°) : 2 = 20°.",
+   "h": "Kann ein stumpfer Winkel zweimal im Dreieck vorkommen?",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "gleichschenklig",
+   "t": "gleichschenklig",
+   "p": "uebung",
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein gleichschenkliges Dreieck hat einen Winkel von 50°. Wie groß kann der Spitzenwinkel sein? Gib den größeren der beiden möglichen Werte an."
+    "text": "M ist der Mittelpunkt der Strecke [AB]. Das Dreieck MBC ist gleichseitig, und es gilt MA = MC. Wie groß ist der Winkel ∠MAC?"
    },
    "o": {
-    "wert": 80,
+    "wert": 30,
     "einheit": "°"
    },
-   "c": "180 - 2 * 50",
-   "w": "Fall 1: 50° ist der Spitzenwinkel. Fall 2: 50° ist ein Basiswinkel, dann ist der Spitzenwinkel 180° − 2 · 50° = 80°. Größerer Wert: 80°.",
-   "h": "Der 50°-Winkel kann Spitzenwinkel oder Basiswinkel sein.",
-   "g": "begruenden"
+   "c": "(180 - (180 - 60)) / 2",
+   "w": "∠BMC = 60° (gleichseitig), also ∠AMC = 180° − 60° = 120°. Das Dreieck AMC ist gleichschenklig: ∠MAC = (180° − 120°) : 2 = 30°.",
+   "h": "Bestimme zuerst den Winkel bei M im Dreieck AMC.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "gleichschenklig",
+   "t": "gleichschenklig",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Außenwinkel an der Spitze eines gleichschenkligen Dreiecks ist 54°. Wie groß ist ein Basiswinkel?"
+   },
+   "o": {
+    "wert": 27,
+    "einheit": "°"
+   },
+   "c": "54 / 2",
+   "w": "Spitzenwinkel = 180° − 54° = 126°. Basiswinkel = (180° − 126°) : 2 = 27°. Kurz: Der Außenwinkel ist die Summe der beiden Basiswinkel.",
+   "h": "Erst den Spitzenwinkel aus dem Nebenwinkel bestimmen.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "gleichschenklig",
+   "t": "gleichschenklig",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist jeder Innenwinkel eines gleichseitigen Dreiecks?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "180 / 3",
+   "w": "Alle drei Winkel sind gleich: 180° : 3 = 60°.",
+   "h": "Teile die Winkelsumme gerecht auf."
+  },
+  {
+   "l": "gleichschenklig",
+   "t": "gleichschenklig",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Winkel sind in einem gleichschenkligen Dreieck gleich groß?"
+   },
+   "a": [
+    "die beiden Basiswinkel",
+    "Spitzenwinkel und ein Basiswinkel",
+    "alle drei",
+    "keine zwei"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Basiswinkel liegen an der Basis, gegenüber den gleich langen Schenkeln – sie sind gleich groß. Alle drei gleich sind sie nur im gleichseitigen Dreieck.",
+   "h": "Falte das Dreieck an seiner Symmetrieachse."
+  },
+  {
+   "l": "gleichschenklig",
+   "t": "gleichschenklig",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gleichschenkliges Dreieck hat den Spitzenwinkel γ = 66°. Wie groß ist ein Basiswinkel?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       6,
+       0
+      ],
+      "C": [
+       3,
+       4.62
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "winkel": [
+      [
+       "C",
+       "A",
+       "B",
+       "66°"
+      ],
+      [
+       "A",
+       "B",
+       "C",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 57,
+    "einheit": "°"
+   },
+   "c": "(180 - 66) / 2",
+   "w": "(180° − 66°) : 2 = 57°.",
+   "h": "Die beiden Basiswinkel sind gleich groß."
+  },
+  {
+   "l": "gleichschenklig",
+   "t": "gleichschenklig",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gleichschenkliges Dreieck hat den Basiswinkel 64°. Wie groß ist der Spitzenwinkel?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       6,
+       0
+      ],
+      "C": [
+       3,
+       6.15
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "64°"
+      ],
+      [
+       "C",
+       "A",
+       "B",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 52,
+    "einheit": "°"
+   },
+   "c": "180 - 2 * 64",
+   "w": "Zwei Basiswinkel: 2 · 64° = 128°. Spitzenwinkel: 180° − 128° = 52°.",
+   "h": "Es gibt zwei gleich große Basiswinkel.",
+   "g": "umkehr"
+  },
+  {
+   "l": "gleichschenklig",
+   "t": "gleichschenklig",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gleichschenkliges Dreieck hat einen Winkel von 164°. Wie groß sind die beiden anderen Winkel? Gib einen davon an."
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "°"
+   },
+   "c": "(180 - 164) / 2",
+   "w": "164° ist stumpf. Zwei solche Winkel hätten zusammen mehr als 180°, also kann 164° kein Basiswinkel sein – er ist der Spitzenwinkel. Basiswinkel: (180° − 164°) : 2 = 8°.",
+   "h": "Kann ein stumpfer Winkel zweimal im Dreieck vorkommen?"
   },
   {
    "l": "gleichschenklig",
@@ -4963,6 +1811,170 @@
    "c": "180 - 2 * 24",
    "w": "Zwei Basiswinkel: 2 · 24° = 48°. Spitzenwinkel: 180° − 48° = 132°.",
    "h": "Es gibt zwei gleich große Basiswinkel."
+  },
+  {
+   "l": "gleichschenklig",
+   "t": "gleichschenklig",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Hausgiebel ist ein gleichschenkliges Dreieck mit 110° an der Spitze. Wie groß ist der Winkel an jeder der beiden unteren Ecken?"
+   },
+   "o": {
+    "wert": 35,
+    "einheit": "°"
+   },
+   "c": "(180 - 110) / 2",
+   "w": "180° − 110° = 70°, auf zwei gleiche Basiswinkel verteilt: 35°.",
+   "h": "Die beiden unteren Winkel sind gleich groß."
+  },
+  {
+   "l": "gleichschenklig",
+   "t": "gleichschenklig",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gleichschenkliges Dreieck hat einen Winkel von 124°. Wie groß sind die beiden anderen Winkel? Gib einen davon an."
+   },
+   "o": {
+    "wert": 28,
+    "einheit": "°"
+   },
+   "c": "(180 - 124) / 2",
+   "w": "124° ist stumpf. Zwei solche Winkel hätten zusammen mehr als 180°, also kann 124° kein Basiswinkel sein – er ist der Spitzenwinkel. Basiswinkel: (180° − 124°) : 2 = 28°.",
+   "h": "Kann ein stumpfer Winkel zweimal im Dreieck vorkommen?",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "gleichschenklig",
+   "t": "gleichschenklig",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gleichschenkliges Dreieck hat einen Winkel von 50°. Wie groß kann der Spitzenwinkel sein? Gib den größeren der beiden möglichen Werte an."
+   },
+   "o": {
+    "wert": 80,
+    "einheit": "°"
+   },
+   "c": "180 - 2 * 50",
+   "w": "Fall 1: 50° ist der Spitzenwinkel. Fall 2: 50° ist ein Basiswinkel, dann ist der Spitzenwinkel 180° − 2 · 50° = 80°. Größerer Wert: 80°.",
+   "h": "Der 50°-Winkel kann Spitzenwinkel oder Basiswinkel sein.",
+   "g": "begruenden"
+  },
+  {
+   "l": "gleichschenklig",
+   "t": "gleichschenklig",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Außenwinkel an der Spitze eines gleichschenkligen Dreiecks ist 86°. Wie groß ist ein Basiswinkel?"
+   },
+   "o": {
+    "wert": 43,
+    "einheit": "°"
+   },
+   "c": "86 / 2",
+   "w": "Spitzenwinkel = 180° − 86° = 94°. Basiswinkel = (180° − 94°) : 2 = 43°. Kurz: Der Außenwinkel ist die Summe der beiden Basiswinkel.",
+   "h": "Erst den Spitzenwinkel aus dem Nebenwinkel bestimmen.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "gleichschenklig",
+   "t": "gleichschenklig",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dach ist im Querschnitt ein gleichschenkliges Dreieck. Der Winkel am First beträgt 44°. Wie steil ist das Dach (Winkel zwischen Dachfläche und waagrechtem Boden)?"
+   },
+   "o": {
+    "wert": 68,
+    "einheit": "°"
+   },
+   "c": "(180 - 44) / 2",
+   "w": "Die Dachneigung ist ein Basiswinkel: (180° − 44°) : 2 = 68°.",
+   "h": "Der Winkel am First ist der Spitzenwinkel.",
+   "g": "transfer"
+  },
+  {
+   "l": "gleichschenklig",
+   "t": "gleichschenklig",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem gleichschenkligen Dreieck ist jeder Basiswinkel doppelt so groß wie der Spitzenwinkel. Wie groß ist der Spitzenwinkel?"
+   },
+   "o": {
+    "wert": 36,
+    "einheit": "°"
+   },
+   "c": "180 / 5",
+   "w": "Spitzenwinkel x, Basiswinkel 2x: x + 2x + 2x = 180°, also 5x = 180° und x = 36°.",
+   "h": "Stelle eine Gleichung mit dem Spitzenwinkel x auf.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "gleichschenklig",
+   "t": "gleichschenklig",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "In einem gleichschenkligen Dreieck ist der Winkel an der Spitze 40°. Jemand rechnet: „Jeder Basiswinkel ist 180° − 40° = 140°.“ Was ist falsch?"
+   },
+   "a": [
+    "Nichts: Jeder Basiswinkel ist 140°.",
+    "Die 140° teilen sich zwei gleich große Basiswinkel: Jeder ist 70°.",
+    "Die Basiswinkel sind zusammen 40°, also je 20°."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Winkelsumme 180°: Für beide Basiswinkel zusammen bleiben 180° − 40° = 140°. Sie sind gleich groß, also je 70°. Ein Winkel von 140° wäre allein schon zu groß.",
+   "h": "Wie viele Basiswinkel hat das Dreieck, und was gilt für sie?"
+  },
+  {
+   "l": "gleichschenklig",
+   "t": "gleichschenklig",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist AB = AC. Auf [AC] liegt ein Punkt D mit AD = BD = BC. Wie groß ist der Winkel bei A?"
+   },
+   "o": {
+    "wert": 36,
+    "einheit": "°"
+   },
+   "c": "180 / 5",
+   "w": "Nenne den Winkel bei A x. Dreieck ABD ist gleichschenklig (AD = BD), also ∢ABD = x. Der Winkel BDC ist Außenwinkel von ABD: 2x. Dreieck BCD ist gleichschenklig (BD = BC), also ∢BCD = ∢BDC = 2x. Dreieck ABC ist gleichschenklig (AB = AC), also ∢ABC = ∢ACB = 2x. Winkelsumme in ABC: x + 2x + 2x = 180°, also x = 36°.",
+   "h": "Nenne den gesuchten Winkel x und arbeite dich über die gleichschenkligen Teildreiecke vor."
+  },
+  {
+   "l": "gleichschenklig",
+   "t": "gleichschenklig",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele verschiedene gleichschenklige Dreiecke gibt es, deren Winkel ganze Gradzahlen sind und deren Spitzenwinkel ein Vielfaches von 10° ist?"
+   },
+   "o": {
+    "wert": 17
+   },
+   "c": "170 / 10",
+   "w": "Spitzenwinkel s, Basiswinkel (180° − s) : 2. Bei jedem Vielfachen von 10° ist 180° − s gerade, der Basiswinkel also ganzzahlig. Möglich sind s = 10°, 20°, …, 170° (0° und 180° ergeben kein Dreieck): 17 Werte. Verschiedene Spitzenwinkel ergeben verschiedene Winkelsätze.",
+   "h": "Welche Spitzenwinkel sind möglich, und wird der Basiswinkel dann ganzzahlig?"
   },
   {
    "l": "gleichschenklig",
@@ -7317,23 +4329,22 @@
    "l": "satz_kehrsatz",
    "t": "satz_kehrsatz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Jemand prüft eine Aussage über Dreiecke an 20 Beispielen, und sie stimmt jedes Mal. Was folgt daraus?"
+    "text": "Widerlege den Kehrsatz: „Wenn ein Viereck ein Rechteck ist, dann ist es ein Quadrat.“ Welches Gegenbeispiel passt?"
    },
    "a": [
-    "Sie ist bewiesen, wenn die Dreiecke verschieden groß waren.",
-    "Sie ist bewiesen, 20 Beispiele genügen.",
-    "Sie ist damit noch nicht bewiesen; man braucht eine allgemeine Begründung.",
-    "Sie ist falsch, sonst bräuchte man keine Beispiele."
+    "Ein Rechteck 2 cm × 5 cm",
+    "Ein Quadrat mit 4 cm Seitenlänge",
+    "Eine Raute mit 60°-Winkel"
    ],
    "o": {
-    "index": 2
+    "index": 0
    },
-   "w": "Beispiele können eine Vermutung stützen, aber nicht beweisen – das 21. Dreieck könnte ein Gegenbeispiel sein. Zum Widerlegen genügt dagegen ein einziges Gegenbeispiel.",
-   "h": "Was unterscheidet Vermutung und Beweis?",
-   "g": "begruenden"
+   "w": "Ein Rechteck 2 cm × 5 cm erfüllt die Voraussetzung, aber nicht die Behauptung. Ein Quadrat mit 4 cm Seitenlänge erfüllt beide oder die Voraussetzung nicht.",
+   "h": "Das Gegenbeispiel muss den Wenn-Teil erfüllen, den Dann-Teil nicht.",
+   "g": "umkehr"
   },
   {
    "l": "satz_kehrsatz",
@@ -7361,22 +4372,23 @@
    "l": "satz_kehrsatz",
    "t": "satz_kehrsatz",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Widerlege den Kehrsatz: „Wenn ein Viereck ein Rechteck ist, dann ist es ein Quadrat.“ Welches Gegenbeispiel passt?"
+    "text": "Jemand prüft eine Aussage über Dreiecke an 20 Beispielen, und sie stimmt jedes Mal. Was folgt daraus?"
    },
    "a": [
-    "Ein Rechteck 2 cm × 5 cm",
-    "Ein Quadrat mit 4 cm Seitenlänge",
-    "Eine Raute mit 60°-Winkel"
+    "Sie ist bewiesen, wenn die Dreiecke verschieden groß waren.",
+    "Sie ist bewiesen, 20 Beispiele genügen.",
+    "Sie ist damit noch nicht bewiesen; man braucht eine allgemeine Begründung.",
+    "Sie ist falsch, sonst bräuchte man keine Beispiele."
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "w": "Ein Rechteck 2 cm × 5 cm erfüllt die Voraussetzung, aber nicht die Behauptung. Ein Quadrat mit 4 cm Seitenlänge erfüllt beide oder die Voraussetzung nicht.",
-   "h": "Das Gegenbeispiel muss den Wenn-Teil erfüllen, den Dann-Teil nicht.",
-   "g": "umkehr"
+   "w": "Beispiele können eine Vermutung stützen, aber nicht beweisen – das 21. Dreieck könnte ein Gegenbeispiel sein. Zum Widerlegen genügt dagegen ein einziges Gegenbeispiel.",
+   "h": "Was unterscheidet Vermutung und Beweis?",
+   "g": "begruenden"
   },
   {
    "l": "satz_kehrsatz",
@@ -7405,22 +4417,327 @@
    "t": "satz_kehrsatz",
    "p": "uebung",
    "s": 3,
+   "g": "transfer",
    "y": "auswahl",
    "f": {
-    "text": "Beweisschritte (M Mittelpunkt, A und C auf dem Kreis): (I) MA = MC, weil beide Radien sind. (II) Also ist das Dreieck AMC gleichschenklig. (III) Darum gilt ∠MAC = ∠MCA. In welcher Reihenfolge ist der Beweis richtig?"
+    "text": "Satz: „Wenn zwei Geraden parallel sind, dann sind die Wechselwinkel an einer dritten Geraden gleich groß.“ Wie lautet der Kehrsatz, und ist er wahr?"
    },
    "a": [
-    "I, II, III",
-    "II, I, III",
-    "III, II, I",
-    "I, III, II"
+    "„Wenn zwei Geraden parallel sind, dann sind die Wechselwinkel gleich groß.“ – wahr.",
+    "„Wenn die Wechselwinkel gleich groß sind, dann sind die Geraden parallel.“ – falsch.",
+    "„Wenn die Wechselwinkel gleich groß sind, dann sind die Geraden parallel.“ – wahr."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Beim Kehrsatz tauschen Wenn-Teil und Dann-Teil. Er ist wahr: Das ist genau die Umkehrung, mit der man Parallelität prüft (Flug Winkelsätze, „Sind die Geraden parallel?“).",
+   "h": "Tausche Wenn und Dann. Woran erkennst du parallele Geraden?"
+  },
+  {
+   "l": "satz_kehrsatz",
+   "t": "satz_kehrsatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Satz: „Wenn ein Viereck ein Parallelogramm ist, dann halbieren sich seine Diagonalen.“ Ist der Kehrsatz „Wenn sich die Diagonalen eines Vierecks halbieren, dann ist es ein Parallelogramm.“ wahr?"
+   },
+   "a": [
+    "Der Kehrsatz ist falsch, Gegenbeispiel: ein Rechteck 2 cm × 5 cm.",
+    "Der Kehrsatz ist falsch, Gegenbeispiel: ein Drachenviereck, das keine Raute ist.",
+    "Der Kehrsatz ist wahr.",
+    "Der Kehrsatz ist falsch, weil Kehrsätze nie stimmen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Kehrsatz ist wahr. Ein Drachenviereck, das keine Raute ist und ein Rechteck 2 cm × 5 cm sind keine Gegenbeispiele: Bei ihnen ist die Voraussetzung nicht erfüllt oder die Behauptung doch erfüllt.",
+   "h": "Ein Gegenbeispiel muss den Wenn-Teil des Kehrsatzes erfüllen, den Dann-Teil aber nicht.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "satz_kehrsatz",
+   "t": "satz_kehrsatz",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht aus einem Satz „Wenn A, dann B“ sein Kehrsatz?"
+   },
+   "a": [
+    "„Wenn B, dann A.“",
+    "„A und B gelten immer zusammen.“",
+    "„Wenn nicht A, dann nicht B.“",
+    "„Wenn A, dann nicht B.“"
    ],
    "o": {
     "index": 0
    },
-   "w": "Erst die Begründung (Radien), dann die Folgerung „gleichschenklig“, daraus die gleichen Basiswinkel. Jeder Schritt braucht den vorigen.",
-   "h": "Welcher Schritt braucht keinen anderen? Welcher braucht welchen?",
-   "g": "verknuepfen"
+   "w": "Beim Kehrsatz tauschen Voraussetzung und Folgerung die Plätze. Ob er wahr ist, muss man eigens prüfen.",
+   "h": "Was wird vertauscht?"
+  },
+  {
+   "l": "satz_kehrsatz",
+   "t": "satz_kehrsatz",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie lautet der Kehrsatz zu: „Wenn ein Dreieck gleichseitig ist, dann sind alle Winkel 60°.“"
+   },
+   "a": [
+    "Wenn die Diagonalen eines Vierecks gleich lang sind, dann ist es ein Rechteck.",
+    "Wenn ein Dreieck gleichseitig ist, dann sind alle Winkel 60°.",
+    "Wenn sich die Diagonalen eines Vierecks halbieren, dann ist es ein Parallelogramm.",
+    "Wenn in einem Dreieck alle Winkel 60° sind, dann ist es gleichseitig."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Voraussetzung und Behauptung werden vertauscht: „Wenn in einem Dreieck alle Winkel 60° sind, dann ist es gleichseitig.“",
+   "h": "Tausche den Wenn-Teil und den Dann-Teil.",
+   "g": "direkt"
+  },
+  {
+   "l": "satz_kehrsatz",
+   "t": "satz_kehrsatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Schüler sagt: „Der Satz ‚Wenn ein Viereck ein Rechteck ist, dann hat es vier rechte Winkel.‘ ist wahr, also ist auch der Kehrsatz wahr.“ Ist die Begründung richtig?"
+   },
+   "a": [
+    "Ja, weil man den Satz nur umdrehen muss.",
+    "Nein, denn der Satz selbst ist falsch.",
+    "Ja, ein Kehrsatz ist immer wahr, wenn der Satz wahr ist.",
+    "Nein: Die Begründung ist falsch, auch wenn der Kehrsatz hier zufällig stimmt."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Aus der Wahrheit eines Satzes folgt nichts über den Kehrsatz; er muss eigens bewiesen werden.",
+   "h": "Gibt es Sätze, deren Kehrsatz falsch ist?",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "satz_kehrsatz",
+   "t": "satz_kehrsatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Widerlege den Kehrsatz: „Wenn eine Zahl durch 3 teilbar ist, dann ist sie durch 6 teilbar.“ Welches Gegenbeispiel passt?"
+   },
+   "a": [
+    "Die Zahl 8",
+    "Die Zahl 12",
+    "Die Zahl 9"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Zahl 9 erfüllt die Voraussetzung, aber nicht die Behauptung. Die Zahl 12 erfüllt beide oder die Voraussetzung nicht.",
+   "h": "Das Gegenbeispiel muss den Wenn-Teil erfüllen, den Dann-Teil nicht.",
+   "g": "umkehr"
+  },
+  {
+   "l": "satz_kehrsatz",
+   "t": "satz_kehrsatz",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "auswahl",
+   "f": {
+    "text": "Im Bus hängt: „Wenn du einen Fahrschein hast, darfst du mitfahren.“ Lena folgert: „Wer mitfährt, hat einen Fahrschein.“ Was hat sie gemacht?"
+   },
+   "a": [
+    "Sie hat den Kehrsatz gebildet – er folgt nicht aus dem Satz.",
+    "Sie hat den Satz nur anders gesagt.",
+    "Sie hat richtig gefolgert.",
+    "Sie hat das Gegenteil des Satzes gesagt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Satz: Fahrschein → mitfahren. Lenas Aussage: mitfahren → Fahrschein. Das ist der Kehrsatz. Der Satz sagt nichts über Leute, die ohne Fahrschein mitfahren (z. B. Kleinkinder).",
+   "h": "Was ist im Satz die Voraussetzung, was die Folgerung?"
+  },
+  {
+   "l": "satz_kehrsatz",
+   "t": "satz_kehrsatz",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „‚Wenn eine Zahl durch 4 teilbar ist, ist sie gerade.‘ ist wahr. Also ist jede gerade Zahl durch 4 teilbar.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Das ist der Kehrsatz, und er ist falsch – Gegenbeispiel 6.",
+    "Falsch: Schon der Satz ist falsch.",
+    "Falsch: Gegenbeispiel 8.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Aus einem wahren Satz folgt nicht sein Kehrsatz. 6 ist gerade, aber nicht durch 4 teilbar. 8 wäre kein Gegenbeispiel – 8 ist durch 4 teilbar.",
+   "h": "Suche eine gerade Zahl, die nicht durch 4 teilbar ist."
+  },
+  {
+   "l": "satz_kehrsatz",
+   "t": "satz_kehrsatz",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "auswahl",
+   "f": {
+    "text": "„Wenn ein Dreieck gleichschenklig ist, hat es zwei gleich große Winkel“ und sein Kehrsatz sind beide wahr. Wie fasst man beide kurz zusammen?"
+   },
+   "a": [
+    "„Ein Dreieck ist genau dann gleichschenklig, wenn es zwei gleich große Winkel hat.“",
+    "„Ein Dreieck ist immer gleichschenklig.“",
+    "„Wenn ein Dreieck gleichschenklig ist, ist es gleichseitig.“",
+    "„Manche Dreiecke mit zwei gleichen Winkeln sind gleichschenklig.“"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "„Genau dann, wenn“ fasst Satz und Kehrsatz zusammen: Die Bedingungen folgen auseinander in beide Richtungen.",
+   "h": "Welche Wendung drückt beide Richtungen aus?"
+  },
+  {
+   "l": "satz_kehrsatz",
+   "t": "satz_kehrsatz",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher dieser wahren Sätze hat auch einen wahren Kehrsatz?"
+   },
+   "a": [
+    "„Wenn eine Zahl durch 6 teilbar ist, dann ist sie durch 3 teilbar.“",
+    "„Wenn zwei Winkel Scheitelwinkel sind, dann sind sie gleich groß.“",
+    "„Wenn ein Viereck ein Quadrat ist, dann ist es ein Rechteck.“",
+    "„Wenn ein Dreieck gleichseitig ist, dann sind alle seine Winkel 60°.“"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ein Dreieck mit drei 60°-Winkeln ist gleichseitig – der Kehrsatz stimmt. Gegenbeispiele zu den anderen Kehrsätzen: ein Rechteck 2 cm × 5 cm, die Zahl 9, zwei gleich große Winkel an verschiedenen Kreuzungen.",
+   "h": "Bilde zu jedem Satz den Kehrsatz und suche ein Gegenbeispiel."
+  },
+  {
+   "l": "satz_kehrsatz",
+   "t": "satz_kehrsatz",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "auswahl",
+   "f": {
+    "text": "Der Kehrsatz eines Satzes lautet: „Wenn ein Viereck vier rechte Winkel hat, dann ist es ein Rechteck.“ Wie lautet der ursprüngliche Satz?"
+   },
+   "a": [
+    "„Wenn ein Viereck kein Rechteck ist, dann hat es keine vier rechten Winkel.“",
+    "„Wenn ein Viereck vier rechte Winkel hat, dann ist es ein Quadrat.“",
+    "„Jedes Viereck hat vier rechte Winkel.“",
+    "„Wenn ein Viereck ein Rechteck ist, dann hat es vier rechte Winkel.“"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Der Kehrsatz des Kehrsatzes ist wieder der ursprüngliche Satz: Voraussetzung und Folgerung tauschen noch einmal die Plätze.",
+   "h": "Tausche Voraussetzung und Folgerung zurück."
+  },
+  {
+   "l": "satz_kehrsatz",
+   "t": "satz_kehrsatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Satz: „Wenn ein Viereck ein Quadrat ist, dann sind seine Diagonalen gleich lang und stehen senkrecht aufeinander.“ Ist der Kehrsatz wahr?"
+   },
+   "a": [
+    "Ja, weil der Satz wahr ist.",
+    "Nein: Ein Rechteck ist ein Gegenbeispiel.",
+    "Ja, nur Quadrate haben solche Diagonalen.",
+    "Nein: Ein Drachenviereck kann gleich lange, senkrechte Diagonalen haben, ohne Quadrat zu sein."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gegenbeispiel: Diagonale [AC] von (0 | 0) bis (4 | 0) und [BD] von (1 | −2) bis (1 | 2). Beide 4 lang und senkrecht, aber sie halbieren sich nicht: ein Drachenviereck, kein Quadrat. (Beim Rechteck stehen sie nicht senkrecht.)",
+   "h": "Die Diagonalen müssen sich nicht in der Mitte schneiden. Probiere eine Skizze.",
+   "g": "begruenden"
+  },
+  {
+   "l": "satz_kehrsatz",
+   "t": "satz_kehrsatz",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "auswahl",
+   "f": {
+    "text": "Satz aus dem Alltag: „Wenn es regnet, ist die Straße nass.“ Welcher Fall widerlegt den Kehrsatz?"
+   },
+   "a": [
+    "Es regnet nicht, und die Straße ist trocken.",
+    "Es regnet, und die Straße ist nass.",
+    "Die Straße ist nass, weil ein Sprengwagen gefahren ist, es regnet aber nicht."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Kehrsatz lautet: „Wenn die Straße nass ist, dann regnet es.“ Ein Gegenbeispiel braucht eine nasse Straße ohne Regen – etwa nach einem Sprengwagen.",
+   "h": "Schreibe zuerst den Kehrsatz auf. Ein Gegenbeispiel erfüllt seinen Wenn-Teil, aber nicht seinen Dann-Teil."
+  },
+  {
+   "l": "satz_kehrsatz",
+   "t": "satz_kehrsatz",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "auswahl",
+   "f": {
+    "text": "„Wenn eine Zahl durch 2 und durch 3 teilbar ist, dann ist sie durch 6 teilbar“ ist wahr. Gilt auch: „Wenn eine Zahl durch 4 und durch 6 teilbar ist, dann ist sie durch 24 teilbar“?"
+   },
+   "a": [
+    "Ja, das gilt wie bei 2 und 3.",
+    "Nein: Keine Zahl ist durch 4 und 6 teilbar.",
+    "Nein: 12 ist durch 4 und 6 teilbar, aber nicht durch 24.",
+    "Ja: 4 · 6 = 24."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Bei 2 und 3 klappt es, weil sie keinen gemeinsamen Teiler außer 1 haben. 4 und 6 haben den gemeinsamen Teiler 2: Schon 12 ist durch beide teilbar. Richtig wäre: durch 4 und 6 teilbar ⇒ durch 12 (kleinstes gemeinsames Vielfaches) teilbar.",
+   "h": "Suche die kleinste Zahl, die durch 4 und durch 6 teilbar ist."
+  },
+  {
+   "l": "satz_kehrsatz",
+   "t": "satz_kehrsatz",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "auswahl",
+   "f": {
+    "text": "Auf Karten steht vorn eine Zahl und hinten eine Farbe. Regel: „Wenn vorn eine gerade Zahl steht, dann ist hinten rot.“ Vor dir liegen: 4, 7, rot, blau. Welche Karten musst du umdrehen, um die Regel zu prüfen?"
+   },
+   "a": [
+    "die 4 und die blaue Karte",
+    "nur die 4",
+    "die 4 und die rote Karte",
+    "alle vier Karten"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Verletzen kann die Regel nur eine Karte mit gerader Zahl und nicht roter Rückseite. Die 4 muss hinten rot sein – umdrehen. Die blaue Karte darf vorn keine gerade Zahl haben – umdrehen. Die 7 ist egal (über ungerade Zahlen sagt die Regel nichts), die rote auch: Rot mit ungerader Zahl ist erlaubt – das wäre nur der Kehrsatz.",
+   "h": "Welche Karte könnte die Regel überhaupt verletzen?"
   },
   {
    "l": "satz_kehrsatz",
@@ -7621,1092 +4938,6 @@
     "index": 0
    },
    "w": "Der Kehrsatz ist falsch, Gegenbeispiel: die Zahl 9. Die Zahl 9 erfüllt den Wenn-Teil des Kehrsatzes, aber nicht den Dann-Teil."
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "g ∥ h. Ein Weg führt von A auf g zu einem Punkt P zwischen den Geraden und von dort zu B auf h (siehe Bild, nicht maßstäblich). Bei A ist der Winkel 35°, bei B 40°. Wie groß ist der Winkel bei P?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "_G1": [
-       -1,
-       4
-      ],
-      "_G2": [
-       6,
-       4
-      ],
-      "_H1": [
-       -1,
-       0
-      ],
-      "_H2": [
-       6,
-       0
-      ],
-      "A": [
-       0,
-       4
-      ],
-      "P": [
-       3,
-       2
-      ],
-      "B": [
-       0,
-       0
-      ]
-     },
-     "linien": [
-      [
-       "_G1",
-       "_G2",
-       "g"
-      ],
-      [
-       "_H1",
-       "_H2",
-       "h"
-      ],
-      [
-       "A",
-       "P"
-      ],
-      [
-       "P",
-       "B"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "P",
-       "_G2",
-       "35°"
-      ],
-      [
-       "B",
-       "_H2",
-       "P",
-       "40°"
-      ],
-      [
-       "P",
-       "A",
-       "B",
-       "?"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 75,
-    "einheit": "°"
-   },
-   "c": "35 + 40",
-   "w": "Zeichne durch P eine Parallele zu g. Sie teilt den Winkel bei P in zwei Wechselwinkel: 35° und 40°. Zusammen 75°.",
-   "h": "Hilfslinie: Zeichne durch P eine weitere Parallele.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "uebung",
-   "s": 3,
-   "g": "transfer",
-   "y": "zahl",
-   "f": {
-    "text": "Eine Leiter lehnt an einer senkrechten Wand und bildet mit dem waagrechten Boden 70°. Eine zweite Leiter steht parallel zur ersten. Welchen Winkel bildet die zweite Leiter mit der Wand?"
-   },
-   "o": {
-    "wert": 20,
-    "einheit": "°"
-   },
-   "c": "90 - 70",
-   "w": "Die zweite Leiter bildet mit dem Boden ebenfalls 70° (Stufenwinkel an Parallelen). Wand und Boden stehen senkrecht: 90° − 70° = 20°.",
-   "h": "Welchen Winkel bildet die zweite Leiter mit dem Boden?"
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Gerade schneidet g in S unter 85° und h in T unter 95° (beide Winkel rechts oberhalb). Sind g und h parallel?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       2,
-       0
-      ],
-      "T": [
-       2.26,
-       3
-      ],
-      "_t1": [
-       1.83,
-       -2
-      ],
-      "_t2": [
-       2.43,
-       5
-      ],
-      "_g1": [
-       -2,
-       0
-      ],
-      "_g2": [
-       6.26,
-       0
-      ],
-      "_h1": [
-       -1.74,
-       2.29
-      ],
-      "_h2": [
-       6.26,
-       3.71
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "_t1",
-       "_t2"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_g2",
-       "T",
-       "85°"
-      ],
-      [
-       "T",
-       "_h2",
-       "_t2",
-       "95°"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "Ja, zwei Geraden sind immer parallel.",
-    "Das kann man ohne Länge nicht entscheiden.",
-    "Nein, die Stufenwinkel sind verschieden groß.",
-    "Ja, die Stufenwinkel sind gleich groß."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Stufenwinkel 85° und 95°: verschieden → g und h sind nicht parallel.",
-   "h": "Sind Stufenwinkel gleich, sind die Geraden parallel – und umgekehrt.",
-   "g": "umkehr"
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand sagt: „Stufenwinkel sind immer gleich groß.“ Was stimmt?"
-   },
-   "a": [
-    "Falsch: Wechselwinkel an Parallelen sind gleich groß.",
-    "Falsch: Nur wenn die beiden Geraden parallel sind.",
-    "Falsch: Nebenwinkel ergänzen sich zu 180°.",
-    "Richtig: Scheitelwinkel liegen an derselben Kreuzung."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Falsch: Nur wenn die beiden Geraden parallel sind.",
-   "h": "Denke an das Bild mit zwei Geraden und einer Geraden, die beide schneidet.",
-   "g": "fehler"
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "g ∥ h. Bei S ist α = 70° (rechts oberhalb). Wie groß ist β bei T (rechts oberhalb)?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       2,
-       0
-      ],
-      "T": [
-       3.09,
-       3
-      ],
-      "_t1": [
-       1.27,
-       -2
-      ],
-      "_t2": [
-       3.82,
-       5
-      ],
-      "_g1": [
-       -2,
-       0
-      ],
-      "_g2": [
-       7.09,
-       0
-      ],
-      "_h1": [
-       -2,
-       3
-      ],
-      "_h2": [
-       7.09,
-       3
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "_t1",
-       "_t2"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_g2",
-       "T",
-       "70°"
-      ],
-      [
-       "T",
-       "_h2",
-       "_t2",
-       "β"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 70,
-    "einheit": "°"
-   },
-   "c": "70",
-   "w": "β und α sind Stufenwinkel an Parallelen, also gleich groß: β = 70°.",
-   "h": "Stufenwinkel: gleiche Lage. Wechselwinkel: Z-Form. Beide sind an Parallelen gleich groß.",
-   "g": "direkt"
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "g ∥ h. Welche Winkel-Beziehung haben der Winkel bei S (links unterhalb) und der Winkel bei T (links oberhalb)?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       2,
-       0
-      ],
-      "T": [
-       -1.58,
-       3
-      ],
-      "_t1": [
-       4.38,
-       -2
-      ],
-      "_t2": [
-       -3.96,
-       5
-      ],
-      "_g1": [
-       -2,
-       0
-      ],
-      "_g2": [
-       6,
-       0
-      ],
-      "_h1": [
-       -2,
-       3
-      ],
-      "_h2": [
-       6,
-       3
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "_t1",
-       "_t2"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_g1",
-       "_t1",
-       "1"
-      ],
-      [
-       "T",
-       "_t2",
-       "_h1",
-       "2"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "Wechselwinkel",
-    "Scheitelwinkel",
-    "keins von beiden",
-    "Stufenwinkel"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "links unterhalb bei S und links oberhalb bei T: weder gleiche Lage noch Z-Form; diese Winkel ergänzen sich zu 180°. Scheitelwinkel liegen am selben Schnittpunkt.",
-   "h": "Stufenwinkel: gleiche Lage an beiden Kreuzungen. Wechselwinkel: Z-Form.",
-   "g": "darstellung"
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Zwei parallele Geraden werden von einer dritten Geraden geschnitten. Einer der acht Winkel ist 38° groß. Wie viele der acht Winkel sind 142° groß?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "8 / 2",
-   "w": "An jeder Kreuzung: 2 Winkel mit 38° (Scheitelwinkel) und 2 mit 180° − 38° = 142°. Wegen der Parallelen ist es an beiden Kreuzungen gleich: 4 Winkel mit 142°.",
-   "h": "Überlege erst an einer Kreuzung, dann an der zweiten.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "g ∥ h. Ein Stufenwinkelpaar hat die Größen (2x + 10)° und (5x − 35)°. Wie groß ist jeder der beiden Winkel?"
-   },
-   "o": {
-    "wert": 40,
-    "einheit": "°"
-   },
-   "c": "2 * 15 + 10",
-   "w": "Stufenwinkel an Parallelen sind gleich: 2x + 10 = 5x − 35, also 45 = 3x und x = 15. Winkel: 2 · 15 + 10 = 40°.",
-   "h": "Setze beide Terme gleich und löse. Gefragt ist der Winkel, nicht x.",
-   "g": "parameter"
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "g ∥ h. Die Gerade k schneidet g unter 50°, die Gerade l schneidet h unter 70° (beide Winkel rechts oberhalb). k und l schneiden sich zwischen g und h. Wie groß ist der spitze Winkel zwischen k und l?"
-   },
-   "o": {
-    "wert": 20,
-    "einheit": "°"
-   },
-   "c": "70 - 50",
-   "w": "Zeichne durch den Schnittpunkt P von k und l eine Parallele p zu g und h. Dann bildet k mit p wieder 50° und l mit p 70° (Stufenwinkel, beide rechts oberhalb). k und l verlaufen also in Richtungen, die sich um 70° − 50° = 20° unterscheiden. Der spitze Winkel zwischen ihnen ist 20°.",
-   "h": "Zeichne durch den Schnittpunkt von k und l eine weitere Parallele."
-  },
-  {
-   "l": "parallelen",
-   "t": "parallelen",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "g ∥ h, k schneidet g in S und h in T. An S und an T liegt je ein Winkel zwischen den Parallelen auf derselben Seite von k. Ihre Winkelhalbierenden schneiden sich in P. Wie groß ist der Winkel SPT?"
-   },
-   "o": {
-    "wert": 90,
-    "einheit": "°"
-   },
-   "c": "180 - 180 / 2",
-   "w": "Die beiden Winkel zwischen den Parallelen auf derselben Seite ergänzen sich zu 180° (einer ist Nebenwinkel des Stufenwinkels des anderen). Ihre Hälften ergeben zusammen 90°. Im Dreieck SPT bleibt für den Winkel bei P: 180° − 90° = 90°.",
-   "h": "Was ergeben die beiden Winkel bei S und T zusammen?"
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand sagt: „Ein Dreieck hat die Winkel 28°, 58° und 104°.“ Was stimmt?"
-   },
-   "a": [
-    "Richtig: Alle drei Winkel sind kleiner als 180°.",
-    "Falsch: Ein Winkel ist zu klein.",
-    "Richtig: 28° + 58° + 104° = 180°.",
-    "Falsch: Die Summe ist 190°, nicht 180°."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Falsch: Die Summe ist 190°, nicht 180°.",
-   "h": "Rechne die Winkelsumme nach.",
-   "g": "fehler"
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Dreieck ist α = 29° und β = 37°. Durch C ist die Parallele zu [AB] gezeichnet. Links von C entsteht zwischen Parallele und Dreiecksseite ein Winkel von 29°. Warum?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       6,
-       0
-      ],
-      "C": [
-       3.46,
-       1.92
-      ],
-      "_l": [
-       0.46,
-       1.92
-      ],
-      "_r": [
-       6.46,
-       1.92
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ],
-      [
-       "_l",
-       "_r",
-       "Parallele",
-       "gestrichelt"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "B",
-       "C",
-       "29°"
-      ],
-      [
-       "B",
-       "C",
-       "A",
-       "37°"
-      ],
-      [
-       "C",
-       "_l",
-       "A",
-       "29°"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "Stufenwinkel zu γ",
-    "Nebenwinkel von γ",
-    "Scheitelwinkel von β",
-    "Wechselwinkel zu α"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Die Parallele durch C und [AB] werden von der Seite [AC] geschnitten: Z-Form, also Wechselwinkel zu α. Mit γ zusammen ergibt das 180°.",
-   "h": "Welche Gerade schneidet die beiden Parallelen? Liegen die Winkel in Z-Form?",
-   "g": "darstellung"
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Außenwinkel bei C ist der Nebenwinkel von γ. Berechne ihn für α = 34° und β = 120°."
-   },
-   "o": {
-    "wert": 154,
-    "einheit": "°"
-   },
-   "c": "34 + 120",
-   "w": "Außenwinkel bei C = α + β = 34° + 120° = 154°. (Probe: 180° − γ = 180° − 26° = 154°)",
-   "h": "Außenwinkel = 180° − Innenwinkel, oder Summe der beiden anderen Innenwinkel.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "In einem Dreieck ist β 4-mal so groß wie α, und γ = 65°. Wie groß ist α?"
-   },
-   "o": {
-    "wert": 23,
-    "einheit": "°"
-   },
-   "c": "(180 - 65) / (4 + 1)",
-   "w": "α + 4α + 65° = 180° → 5α = 115° → α = 23°.",
-   "h": "Schreibe β mit α und stelle eine Gleichung auf.",
-   "g": "rueckwaerts"
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Kann der größte Innenwinkel eines Dreiecks 55° groß sein?"
-   },
-   "a": [
-    "Ja: 55° ist ein spitzer Winkel.",
-    "Nein: Der größte Winkel muss immer stumpf sein.",
-    "Nein: Alle drei Winkel wären höchstens 55°, zusammen höchstens 165° < 180°.",
-    "Ja, zum Beispiel 55°, 55° und 70°."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Ist 55° der größte Winkel, sind die anderen höchstens 55°. Dann ist die Summe höchstens 3 · 55° = 165°, aber sie muss 180° sein. (Der größte Winkel ist immer mindestens 60°.)",
-   "h": "Was ist die größtmögliche Winkelsumme, wenn kein Winkel größer als 55° ist?",
-   "g": "begruenden"
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "In einem Dreieck ist α = 42° und β = 51°. Berechne γ.",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       6,
-       0
-      ],
-      "C": [
-       3.47,
-       3.12
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "B",
-       "C",
-       "42°"
-      ],
-      [
-       "B",
-       "C",
-       "A",
-       "51°"
-      ],
-      [
-       "C",
-       "A",
-       "B",
-       "γ"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 87,
-    "einheit": "°"
-   },
-   "c": "180 - 42 - 51",
-   "w": "γ = 180° − 42° − 51° = 87°.",
-   "h": "Die drei Winkel ergeben zusammen 180°.",
-   "g": "direkt"
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein fünfzackiger Stern wird ohne Absetzen aus fünf Strecken gezeichnet (Pentagramm). Wie groß ist die Summe der fünf Winkel an den Spitzen?"
-   },
-   "o": {
-    "wert": 180,
-    "einheit": "°"
-   },
-   "c": "180",
-   "w": "Beim regelmäßigen Stern ist jede Spitze 36° groß: 5 · 36° = 180°. Man kann zeigen, dass die Summe bei jedem solchen Stern 180° ist (Außenwinkel-Überlegung im Dreieck).",
-   "h": "Rechne beim regelmäßigen Stern: Das innere Fünfeck hat Winkel von 108°, die Nebenwinkel sind 72°.",
-   "g": "transfer"
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "In einem Dreieck ist α = 38° und β = 110°. Berechne γ.",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       6,
-       0
-      ],
-      "C": [
-       8.38,
-       6.55
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "B",
-       "C",
-       "38°"
-      ],
-      [
-       "B",
-       "C",
-       "A",
-       "110°"
-      ],
-      [
-       "C",
-       "A",
-       "B",
-       "γ"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 32,
-    "einheit": "°"
-   },
-   "c": "180 - 38 - 110",
-   "w": "γ = 180° − 38° − 110° = 32°.",
-   "h": "Die drei Winkel ergeben zusammen 180°."
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Alle drei Winkel eines Dreiecks sind Vielfache von 20°. Wie viele verschiedene Winkelkombinationen gibt es (die Reihenfolge zählt nicht)?"
-   },
-   "o": {
-    "wert": 7
-   },
-   "c": "7",
-   "w": "In 20°-Schritten gerechnet: drei positive ganze Zahlen mit Summe 180 : 20 = 9. Aufzählen mit a ≤ b ≤ c: 1+1+7, 1+2+6, 1+3+5, 1+4+4, 2+2+5, 2+3+4, 3+3+3. Das sind 7 Kombinationen, z. B. 20°, 20°, 140° oder 60°, 60°, 60°.",
-   "h": "Zähle in 20°-Einheiten. Welche Summe müssen die drei Anzahlen haben?"
-  },
-  {
-   "l": "winkelsumme",
-   "t": "winkelsumme",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "In einem Dreieck ist der größte Winkel fünfmal so groß wie der kleinste, und der dritte liegt genau in der Mitte zwischen beiden. Wie groß ist der kleinste Winkel?"
-   },
-   "o": {
-    "wert": 20,
-    "einheit": "°"
-   },
-   "c": "180 / 9",
-   "w": "Kleinster x, größter 5x, der dritte in der Mitte: (x + 5x) : 2 = 3x. Summe 9x = 180°, also x = 20°. Die Winkel sind 20°, 60°, 100°.",
-   "h": "Drücke alle drei Winkel durch den kleinsten aus."
-  },
-  {
-   "l": "gleichschenklig",
-   "t": "gleichschenklig",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Der Außenwinkel an der Spitze eines gleichschenkligen Dreiecks ist 86°. Wie groß ist ein Basiswinkel?"
-   },
-   "o": {
-    "wert": 43,
-    "einheit": "°"
-   },
-   "c": "86 / 2",
-   "w": "Spitzenwinkel = 180° − 86° = 94°. Basiswinkel = (180° − 94°) : 2 = 43°. Kurz: Der Außenwinkel ist die Summe der beiden Basiswinkel.",
-   "h": "Erst den Spitzenwinkel aus dem Nebenwinkel bestimmen.",
-   "g": "rueckwaerts"
-  },
-  {
-   "l": "gleichschenklig",
-   "t": "gleichschenklig",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein gleichschenkliges Dreieck hat einen Winkel von 164°. Wie groß sind die beiden anderen Winkel? Gib einen davon an."
-   },
-   "o": {
-    "wert": 8,
-    "einheit": "°"
-   },
-   "c": "(180 - 164) / 2",
-   "w": "164° ist stumpf. Zwei solche Winkel hätten zusammen mehr als 180°, also kann 164° kein Basiswinkel sein – er ist der Spitzenwinkel. Basiswinkel: (180° − 164°) : 2 = 8°.",
-   "h": "Kann ein stumpfer Winkel zweimal im Dreieck vorkommen?"
-  },
-  {
-   "l": "gleichschenklig",
-   "t": "gleichschenklig",
-   "p": "uebung",
-   "s": 1,
-   "g": "direkt",
-   "y": "zahl",
-   "f": {
-    "text": "Wie groß ist jeder Innenwinkel eines gleichseitigen Dreiecks?"
-   },
-   "o": {
-    "wert": 60,
-    "einheit": "°"
-   },
-   "c": "180 / 3",
-   "w": "Alle drei Winkel sind gleich: 180° : 3 = 60°.",
-   "h": "Teile die Winkelsumme gerecht auf."
-  },
-  {
-   "l": "gleichschenklig",
-   "t": "gleichschenklig",
-   "p": "uebung",
-   "s": 2,
-   "g": "einkleidung",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Hausgiebel ist ein gleichschenkliges Dreieck mit 110° an der Spitze. Wie groß ist der Winkel an jeder der beiden unteren Ecken?"
-   },
-   "o": {
-    "wert": 35,
-    "einheit": "°"
-   },
-   "c": "(180 - 110) / 2",
-   "w": "180° − 110° = 70°, auf zwei gleiche Basiswinkel verteilt: 35°.",
-   "h": "Die beiden unteren Winkel sind gleich groß."
-  },
-  {
-   "l": "gleichschenklig",
-   "t": "gleichschenklig",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dach ist im Querschnitt ein gleichschenkliges Dreieck. Der Winkel am First beträgt 44°. Wie steil ist das Dach (Winkel zwischen Dachfläche und waagrechtem Boden)?"
-   },
-   "o": {
-    "wert": 68,
-    "einheit": "°"
-   },
-   "c": "(180 - 44) / 2",
-   "w": "Die Dachneigung ist ein Basiswinkel: (180° − 44°) : 2 = 68°.",
-   "h": "Der Winkel am First ist der Spitzenwinkel.",
-   "g": "transfer"
-  },
-  {
-   "l": "gleichschenklig",
-   "t": "gleichschenklig",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "In einem gleichschenkligen Dreieck ist jeder Basiswinkel doppelt so groß wie der Spitzenwinkel. Wie groß ist der Spitzenwinkel?"
-   },
-   "o": {
-    "wert": 36,
-    "einheit": "°"
-   },
-   "c": "180 / 5",
-   "w": "Spitzenwinkel x, Basiswinkel 2x: x + 2x + 2x = 180°, also 5x = 180° und x = 36°.",
-   "h": "Stelle eine Gleichung mit dem Spitzenwinkel x auf.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "gleichschenklig",
-   "t": "gleichschenklig",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Winkel sind in einem gleichschenkligen Dreieck gleich groß?"
-   },
-   "a": [
-    "die beiden Basiswinkel",
-    "Spitzenwinkel und ein Basiswinkel",
-    "alle drei",
-    "keine zwei"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Die Basiswinkel liegen an der Basis, gegenüber den gleich langen Schenkeln – sie sind gleich groß. Alle drei gleich sind sie nur im gleichseitigen Dreieck.",
-   "h": "Falte das Dreieck an seiner Symmetrieachse."
-  },
-  {
-   "l": "gleichschenklig",
-   "t": "gleichschenklig",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein gleichschenkliges Dreieck hat einen Winkel von 124°. Wie groß sind die beiden anderen Winkel? Gib einen davon an."
-   },
-   "o": {
-    "wert": 28,
-    "einheit": "°"
-   },
-   "c": "(180 - 124) / 2",
-   "w": "124° ist stumpf. Zwei solche Winkel hätten zusammen mehr als 180°, also kann 124° kein Basiswinkel sein – er ist der Spitzenwinkel. Basiswinkel: (180° − 124°) : 2 = 28°.",
-   "h": "Kann ein stumpfer Winkel zweimal im Dreieck vorkommen?",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "gleichschenklig",
-   "t": "gleichschenklig",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein gleichschenkliges Dreieck hat den Spitzenwinkel γ = 66°. Wie groß ist ein Basiswinkel?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       6,
-       0
-      ],
-      "C": [
-       3,
-       4.62
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ]
-     ],
-     "winkel": [
-      [
-       "C",
-       "A",
-       "B",
-       "66°"
-      ],
-      [
-       "A",
-       "B",
-       "C",
-       "?"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 57,
-    "einheit": "°"
-   },
-   "c": "(180 - 66) / 2",
-   "w": "(180° − 66°) : 2 = 57°.",
-   "h": "Die beiden Basiswinkel sind gleich groß."
-  },
-  {
-   "l": "gleichschenklig",
-   "t": "gleichschenklig",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Im Dreieck ABC ist AB = AC. Auf [AC] liegt ein Punkt D mit AD = BD = BC. Wie groß ist der Winkel bei A?"
-   },
-   "o": {
-    "wert": 36,
-    "einheit": "°"
-   },
-   "c": "180 / 5",
-   "w": "Nenne den Winkel bei A x. Dreieck ABD ist gleichschenklig (AD = BD), also ∢ABD = x. Der Winkel BDC ist Außenwinkel von ABD: 2x. Dreieck BCD ist gleichschenklig (BD = BC), also ∢BCD = ∢BDC = 2x. Dreieck ABC ist gleichschenklig (AB = AC), also ∢ABC = ∢ACB = 2x. Winkelsumme in ABC: x + 2x + 2x = 180°, also x = 36°.",
-   "h": "Nenne den gesuchten Winkel x und arbeite dich über die gleichschenkligen Teildreiecke vor."
-  },
-  {
-   "l": "gleichschenklig",
-   "t": "gleichschenklig",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele verschiedene gleichschenklige Dreiecke gibt es, deren Winkel ganze Gradzahlen sind und deren Spitzenwinkel ein Vielfaches von 10° ist?"
-   },
-   "o": {
-    "wert": 17
-   },
-   "c": "170 / 10",
-   "w": "Spitzenwinkel s, Basiswinkel (180° − s) : 2. Bei jedem Vielfachen von 10° ist 180° − s gerade, der Basiswinkel also ganzzahlig. Möglich sind s = 10°, 20°, …, 170° (0° und 180° ergeben kein Dreieck): 17 Werte. Verschiedene Spitzenwinkel ergeben verschiedene Winkelsätze.",
-   "h": "Welche Spitzenwinkel sind möglich, und wird der Basiswinkel dann ganzzahlig?"
   },
   {
    "l": "kongruenzsatz",
@@ -9673,313 +5904,6 @@
    },
    "w": "Je zwei Nachbarwinkel des Parallelogramms ergeben 180°, ihre Hälften also 90°. Im Dreieck aus der gemeinsamen Seite und den beiden Halbierenden bleibt für den Schnittwinkel 180° − 90° = 90°. Das gilt an allen vier Ecken des neuen Vierecks: vier rechte Winkel, also ein Rechteck.",
    "h": "Untersuche den Winkel, unter dem sich die Halbierenden zweier Nachbarwinkel schneiden."
-  },
-  {
-   "l": "satz_kehrsatz",
-   "t": "satz_kehrsatz",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Satz: „Wenn ein Viereck ein Parallelogramm ist, dann halbieren sich seine Diagonalen.“ Ist der Kehrsatz „Wenn sich die Diagonalen eines Vierecks halbieren, dann ist es ein Parallelogramm.“ wahr?"
-   },
-   "a": [
-    "Der Kehrsatz ist falsch, Gegenbeispiel: ein Rechteck 2 cm × 5 cm.",
-    "Der Kehrsatz ist falsch, Gegenbeispiel: ein Drachenviereck, das keine Raute ist.",
-    "Der Kehrsatz ist wahr.",
-    "Der Kehrsatz ist falsch, weil Kehrsätze nie stimmen."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Der Kehrsatz ist wahr. Ein Drachenviereck, das keine Raute ist und ein Rechteck 2 cm × 5 cm sind keine Gegenbeispiele: Bei ihnen ist die Voraussetzung nicht erfüllt oder die Behauptung doch erfüllt.",
-   "h": "Ein Gegenbeispiel muss den Wenn-Teil des Kehrsatzes erfüllen, den Dann-Teil aber nicht.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "satz_kehrsatz",
-   "t": "satz_kehrsatz",
-   "p": "uebung",
-   "s": 3,
-   "g": "fehler",
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand sagt: „‚Wenn eine Zahl durch 4 teilbar ist, ist sie gerade.‘ ist wahr. Also ist jede gerade Zahl durch 4 teilbar.“ Was stimmt?"
-   },
-   "a": [
-    "Falsch: Das ist der Kehrsatz, und er ist falsch – Gegenbeispiel 6.",
-    "Falsch: Schon der Satz ist falsch.",
-    "Falsch: Gegenbeispiel 8.",
-    "Richtig."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Aus einem wahren Satz folgt nicht sein Kehrsatz. 6 ist gerade, aber nicht durch 4 teilbar. 8 wäre kein Gegenbeispiel – 8 ist durch 4 teilbar.",
-   "h": "Suche eine gerade Zahl, die nicht durch 4 teilbar ist."
-  },
-  {
-   "l": "satz_kehrsatz",
-   "t": "satz_kehrsatz",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Satz des Thales: „Wenn C auf dem Kreis mit dem Durchmesser [AB] liegt, dann ist der Winkel bei C ein rechter Winkel.“ Wie lautet der Kehrsatz?"
-   },
-   "a": [
-    "Wenn C auf dem Kreis liegt, dann ist das Dreieck gleichschenklig.",
-    "Wenn der Winkel bei C ein rechter Winkel ist, dann liegt C auf dem Kreis mit dem Durchmesser [AB].",
-    "Wenn der Winkel bei C ein rechter Winkel ist, dann ist [AB] ein Radius.",
-    "Wenn C nicht auf dem Kreis liegt, dann ist der Winkel bei C kein rechter."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Beim Kehrsatz werden Voraussetzung („C auf dem Kreis“) und Folgerung („rechter Winkel bei C“) vertauscht. Dieser Kehrsatz ist sogar wahr.",
-   "h": "Vertausche Wenn-Teil und Dann-Teil.",
-   "g": "transfer"
-  },
-  {
-   "l": "satz_kehrsatz",
-   "t": "satz_kehrsatz",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Schüler sagt: „Der Satz ‚Wenn ein Viereck ein Rechteck ist, dann hat es vier rechte Winkel.‘ ist wahr, also ist auch der Kehrsatz wahr.“ Ist die Begründung richtig?"
-   },
-   "a": [
-    "Ja, weil man den Satz nur umdrehen muss.",
-    "Nein, denn der Satz selbst ist falsch.",
-    "Ja, ein Kehrsatz ist immer wahr, wenn der Satz wahr ist.",
-    "Nein: Die Begründung ist falsch, auch wenn der Kehrsatz hier zufällig stimmt."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Aus der Wahrheit eines Satzes folgt nichts über den Kehrsatz; er muss eigens bewiesen werden.",
-   "h": "Gibt es Sätze, deren Kehrsatz falsch ist?",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "satz_kehrsatz",
-   "t": "satz_kehrsatz",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Wie entsteht aus einem Satz „Wenn A, dann B“ sein Kehrsatz?"
-   },
-   "a": [
-    "„Wenn B, dann A.“",
-    "„A und B gelten immer zusammen.“",
-    "„Wenn nicht A, dann nicht B.“",
-    "„Wenn A, dann nicht B.“"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Beim Kehrsatz tauschen Voraussetzung und Folgerung die Plätze. Ob er wahr ist, muss man eigens prüfen.",
-   "h": "Was wird vertauscht?"
-  },
-  {
-   "l": "satz_kehrsatz",
-   "t": "satz_kehrsatz",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Widerlege den Kehrsatz: „Wenn eine Zahl durch 3 teilbar ist, dann ist sie durch 6 teilbar.“ Welches Gegenbeispiel passt?"
-   },
-   "a": [
-    "Die Zahl 8",
-    "Die Zahl 12",
-    "Die Zahl 9"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Die Zahl 9 erfüllt die Voraussetzung, aber nicht die Behauptung. Die Zahl 12 erfüllt beide oder die Voraussetzung nicht.",
-   "h": "Das Gegenbeispiel muss den Wenn-Teil erfüllen, den Dann-Teil nicht.",
-   "g": "umkehr"
-  },
-  {
-   "l": "satz_kehrsatz",
-   "t": "satz_kehrsatz",
-   "p": "uebung",
-   "s": 3,
-   "g": "verknuepfen",
-   "y": "auswahl",
-   "f": {
-    "text": "„Wenn ein Dreieck gleichschenklig ist, hat es zwei gleich große Winkel“ und sein Kehrsatz sind beide wahr. Wie fasst man beide kurz zusammen?"
-   },
-   "a": [
-    "„Ein Dreieck ist genau dann gleichschenklig, wenn es zwei gleich große Winkel hat.“",
-    "„Ein Dreieck ist immer gleichschenklig.“",
-    "„Wenn ein Dreieck gleichschenklig ist, ist es gleichseitig.“",
-    "„Manche Dreiecke mit zwei gleichen Winkeln sind gleichschenklig.“"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "„Genau dann, wenn“ fasst Satz und Kehrsatz zusammen: Die Bedingungen folgen auseinander in beide Richtungen.",
-   "h": "Welche Wendung drückt beide Richtungen aus?"
-  },
-  {
-   "l": "satz_kehrsatz",
-   "t": "satz_kehrsatz",
-   "p": "uebung",
-   "s": 3,
-   "g": "pruefung",
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher dieser wahren Sätze hat auch einen wahren Kehrsatz?"
-   },
-   "a": [
-    "„Wenn eine Zahl durch 6 teilbar ist, dann ist sie durch 3 teilbar.“",
-    "„Wenn zwei Winkel Scheitelwinkel sind, dann sind sie gleich groß.“",
-    "„Wenn ein Viereck ein Quadrat ist, dann ist es ein Rechteck.“",
-    "„Wenn ein Dreieck gleichseitig ist, dann sind alle seine Winkel 60°.“"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Ein Dreieck mit drei 60°-Winkeln ist gleichseitig – der Kehrsatz stimmt. Gegenbeispiele zu den anderen Kehrsätzen: ein Rechteck 2 cm × 5 cm, die Zahl 9, zwei gleich große Winkel an verschiedenen Kreuzungen.",
-   "h": "Bilde zu jedem Satz den Kehrsatz und suche ein Gegenbeispiel."
-  },
-  {
-   "l": "satz_kehrsatz",
-   "t": "satz_kehrsatz",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie lautet der Kehrsatz zu: „Wenn ein Dreieck gleichseitig ist, dann sind alle Winkel 60°.“"
-   },
-   "a": [
-    "Wenn die Diagonalen eines Vierecks gleich lang sind, dann ist es ein Rechteck.",
-    "Wenn ein Dreieck gleichseitig ist, dann sind alle Winkel 60°.",
-    "Wenn sich die Diagonalen eines Vierecks halbieren, dann ist es ein Parallelogramm.",
-    "Wenn in einem Dreieck alle Winkel 60° sind, dann ist es gleichseitig."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Voraussetzung und Behauptung werden vertauscht: „Wenn in einem Dreieck alle Winkel 60° sind, dann ist es gleichseitig.“",
-   "h": "Tausche den Wenn-Teil und den Dann-Teil.",
-   "g": "direkt"
-  },
-  {
-   "l": "satz_kehrsatz",
-   "t": "satz_kehrsatz",
-   "p": "uebung",
-   "s": 3,
-   "g": "rueckwaerts",
-   "y": "auswahl",
-   "f": {
-    "text": "Der Kehrsatz eines Satzes lautet: „Wenn ein Viereck vier rechte Winkel hat, dann ist es ein Rechteck.“ Wie lautet der ursprüngliche Satz?"
-   },
-   "a": [
-    "„Wenn ein Viereck kein Rechteck ist, dann hat es keine vier rechten Winkel.“",
-    "„Wenn ein Viereck vier rechte Winkel hat, dann ist es ein Quadrat.“",
-    "„Jedes Viereck hat vier rechte Winkel.“",
-    "„Wenn ein Viereck ein Rechteck ist, dann hat es vier rechte Winkel.“"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Der Kehrsatz des Kehrsatzes ist wieder der ursprüngliche Satz: Voraussetzung und Folgerung tauschen noch einmal die Plätze.",
-   "h": "Tausche Voraussetzung und Folgerung zurück."
-  },
-  {
-   "l": "satz_kehrsatz",
-   "t": "satz_kehrsatz",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Satz: „Wenn ein Viereck ein Quadrat ist, dann sind seine Diagonalen gleich lang und stehen senkrecht aufeinander.“ Ist der Kehrsatz wahr?"
-   },
-   "a": [
-    "Ja, weil der Satz wahr ist.",
-    "Nein: Ein Rechteck ist ein Gegenbeispiel.",
-    "Ja, nur Quadrate haben solche Diagonalen.",
-    "Nein: Ein Drachenviereck kann gleich lange, senkrechte Diagonalen haben, ohne Quadrat zu sein."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Gegenbeispiel: Diagonale [AC] von (0 | 0) bis (4 | 0) und [BD] von (1 | −2) bis (1 | 2). Beide 4 lang und senkrecht, aber sie halbieren sich nicht: ein Drachenviereck, kein Quadrat. (Beim Rechteck stehen sie nicht senkrecht.)",
-   "h": "Die Diagonalen müssen sich nicht in der Mitte schneiden. Probiere eine Skizze.",
-   "g": "begruenden"
-  },
-  {
-   "l": "satz_kehrsatz",
-   "t": "satz_kehrsatz",
-   "p": "uebung",
-   "s": 2,
-   "g": "einkleidung",
-   "y": "auswahl",
-   "f": {
-    "text": "Im Bus hängt: „Wenn du einen Fahrschein hast, darfst du mitfahren.“ Lena folgert: „Wer mitfährt, hat einen Fahrschein.“ Was hat sie gemacht?"
-   },
-   "a": [
-    "Sie hat den Kehrsatz gebildet – er folgt nicht aus dem Satz.",
-    "Sie hat den Satz nur anders gesagt.",
-    "Sie hat richtig gefolgert.",
-    "Sie hat das Gegenteil des Satzes gesagt."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Satz: Fahrschein → mitfahren. Lenas Aussage: mitfahren → Fahrschein. Das ist der Kehrsatz. Der Satz sagt nichts über Leute, die ohne Fahrschein mitfahren (z. B. Kleinkinder).",
-   "h": "Was ist im Satz die Voraussetzung, was die Folgerung?"
-  },
-  {
-   "l": "satz_kehrsatz",
-   "t": "satz_kehrsatz",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "auswahl",
-   "f": {
-    "text": "„Wenn eine Zahl durch 2 und durch 3 teilbar ist, dann ist sie durch 6 teilbar“ ist wahr. Gilt auch: „Wenn eine Zahl durch 4 und durch 6 teilbar ist, dann ist sie durch 24 teilbar“?"
-   },
-   "a": [
-    "Ja, das gilt wie bei 2 und 3.",
-    "Nein: Keine Zahl ist durch 4 und 6 teilbar.",
-    "Nein: 12 ist durch 4 und 6 teilbar, aber nicht durch 24.",
-    "Ja: 4 · 6 = 24."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Bei 2 und 3 klappt es, weil sie keinen gemeinsamen Teiler außer 1 haben. 4 und 6 haben den gemeinsamen Teiler 2: Schon 12 ist durch beide teilbar. Richtig wäre: durch 4 und 6 teilbar ⇒ durch 12 (kleinstes gemeinsames Vielfaches) teilbar.",
-   "h": "Suche die kleinste Zahl, die durch 4 und durch 6 teilbar ist."
-  },
-  {
-   "l": "satz_kehrsatz",
-   "t": "satz_kehrsatz",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "auswahl",
-   "f": {
-    "text": "Auf Karten steht vorn eine Zahl und hinten eine Farbe. Regel: „Wenn vorn eine gerade Zahl steht, dann ist hinten rot.“ Vor dir liegen: 4, 7, rot, blau. Welche Karten musst du umdrehen, um die Regel zu prüfen?"
-   },
-   "a": [
-    "die 4 und die blaue Karte",
-    "nur die 4",
-    "die 4 und die rote Karte",
-    "alle vier Karten"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Verletzen kann die Regel nur eine Karte mit gerader Zahl und nicht roter Rückseite. Die 4 muss hinten rot sein – umdrehen. Die blaue Karte darf vorn keine gerade Zahl haben – umdrehen. Die 7 ist egal (über ungerade Zahlen sagt die Regel nichts), die rote auch: Rot mit ungerader Zahl ist erlaubt – das wäre nur der Kehrsatz.",
-   "h": "Welche Karte könnte die Regel überhaupt verletzen?"
   },
   {
    "l": "planfigur",

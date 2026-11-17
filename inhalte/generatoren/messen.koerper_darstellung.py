@@ -713,6 +713,121 @@ DSX.stufen('beurteilen', 'S1 und S2 dieselbe Frage „Welche Aussage ist richtig
 baue = mit_durchsicht(baue, DSX)
 # ---- DURCHSICHT ENDE ----
 
+# ---- STUFEN (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, siehe _stufen_kl8.py) ----
+from _stufen_kl8 import Stufen, mit_stufen  # noqa: E402
+
+ST = Stufen('messen.koerper_darstellung', 20_8_10)
+SA, SZ, SL = ST.A, ST.Z, ST.L
+def T(lz, *regeln):
+    for m, g in regeln: ST.typ(lz, m, g)
+
+# --- prisma ---
+ST.leiter('prisma', 'Ecken, Kanten und Flächen eines n-seitigen Prismas zählen',
+          'rückwärts von Kanten/Ecken auf n, Kanten aus Flächen, Sachkörper (Zelt)',
+          'unmögliche Zahlen begründen, Zahlen prüfen, Kantenlängen verknüpfen, Euler, abgeschnittene Ecke, n aus einer Summe')
+T('prisma', (r'Summe', 'pruefung'), (r'^Wie viele (Kanten|Flächen) hat ein', 'direkt'), (r'Wie viele Ecken hat seine Grundfläche\?$', 'umkehr'), (r'^Ein Prisma hat \d+ (Flächen|Kanten)\. Wie viele (Kanten|Ecken) hat es', 'mehrschritt'),
+  (r'^Kann ein Prisma', 'begruenden'), (r'12 Ecken, 18 Kanten', 'rueckwaerts'), (r'Seitenlänge|Draht', 'verknuepfen'), (r'Ecken \+ Flächen − Kanten|abgeschnitten', 'transfer'),
+  (r'Summe', 'pruefung'))
+ST.neu('prisma', 'erkennen', SA('Welcher Körper ist ein Prisma?', 'eine quaderförmige Schachtel', ['ein Kegel', 'eine Pyramide', 'eine Kugel'], 'Ein Quader hat zwei gleiche, parallele Grundflächen und Rechtecke als Seiten.', 'Ein Prisma hat zwei gleiche, parallele Grundflächen.'))
+ST.neu('prisma', 'einkleidung', SZ('Ein Zelt hat die Form eines dreiseitigen Prismas. Jede Kante ist eine Stange. Wie viele Stangen braucht man?', 9, '3 * 3', 'Ein dreiseitiges Prisma hat 3 · 3 = 9 Kanten.', 'Kanten eines n-seitigen Prismas: 3n.'))
+ST.knobel('prisma', SZ('Ein Prisma hat Ecken und Flächen zusammen 50. Wie viele Kanten hat es?', 48, '3 * 16',
+    'Für ein n-seitiges Prisma: Ecken 2n, Flächen n + 2. 2n + n + 2 = 50 ⇒ n = 16. Kanten 3n = 48.', 'Schreibe Ecken und Flächen mit n.'))
+ST.knobel('prisma', SZ('Von jeder der 8 Ecken eines Würfels wird eine kleine Ecke gerade abgeschnitten. Wie viele Kanten hat der neue Körper?', 36, '12 + 8 * 3',
+    'Die 12 alten Kanten bleiben (kürzer) erhalten. An jeder abgeschnittenen Ecke entsteht ein Dreieck mit 3 neuen Kanten: 12 + 8 · 3 = 36.', 'Was entsteht an jeder abgeschnittenen Ecke?'))
+
+# --- netz ---
+ST.leiter('netz', 'Netzfläche eines Quaders berechnen, Gegenflächen am Spielwürfel',
+          'Würfelnetze prüfen, Prismen-Netz mit Dreieck, Geschenkpapier, Kante aus der Netzfläche',
+          'Höhe rückwärts, Schachtel ohne Deckel, Gegenflächen im Netz, sechstes Quadrat, angemalte Würfel')
+T('netz', (r'Spielwürfel ergeben|Teilflächen', 'erkennen'), (r'^Ein Quader ist|^Ein Würfel hat die Kantenlänge', 'direkt'), (r'Lässt sich das Netz', 'darstellung'),
+  (r'rechtwinkliges Dreieck', 'mehrschritt'), (r'Das Netz eines Quaders hat die Fläche', 'rueckwaerts'), (r'ohne Deckel|gegenüber\?|27 kleinen', 'transfer'),
+  (r'sechste Quadrat', 'begruenden'), (r'Feld X', 'pruefung'), (r'4 × 4 × 4', 'verknuepfen'))
+ST.neu('netz', 'einkleidung', SZ('Ein Geschenkkarton (Quader 30 cm × 20 cm × 10 cm) wird vollständig mit Papier beklebt. Wie viel Papier braucht man ohne Überlappung?', 2200, '2 * (30 * 20 + 30 * 10 + 20 * 10)',
+    '2 · (600 + 300 + 200) = 2 200 cm².', 'Je zwei gleiche Rechtecke.', einheit='cm²'))
+ST.neu('netz', 'umkehr', SZ('Ein Würfelnetz hat die Fläche 96 cm². Wie lang ist eine Kante?', 4, '4', '6 Quadrate: 96 : 6 = 16 cm² je Quadrat, Kante 4 cm.', 'Teile durch die Anzahl der Quadrate.', einheit='cm'))
+ST.knobel('netz', SZ('Ein Würfel aus 5 × 5 × 5 kleinen Würfeln wird außen angemalt. Wie viele kleine Würfel haben genau eine bemalte Fläche?', 54, '6 * 3 * 3',
+    'Genau eine Fläche bemalt haben die Würfel in der Mitte jeder Außenfläche, ohne Rand: 3 × 3 = 9 je Fläche. 6 Flächen: 54.', 'Welche Würfel einer Außenfläche liegen nicht an einer Kante?'))
+ST.knobel('netz', SZ('Ein Quader hat die Kanten 1 cm, 3 cm und c cm; seine Netzfläche ist 62 cm². Bestimme c.', 7, '(62 / 2 - 3) / 4',
+    'Netzfläche 2 · (1 · 3 + 1 · c + 3 · c) = 2 · (3 + 4c) = 62 ⇒ 3 + 4c = 31 ⇒ c = 7.', 'Stelle die Netzfläche mit c auf.', einheit='cm'))
+
+# --- zylinder ---
+ST.leiter('zylinder', 'die Teile eines Zylindernetzes benennen, Länge des Mantelrechtecks angeben',
+          'Mantelfläche = Umfang · Höhe, Radius aus der Mantellänge, Litfaßsäule',
+          'ganze Netzfläche, Überlappung, Rechteck rollen, Mantel-Vergleiche begründen, Fehler (Durchmesser statt Umfang), Prüfungsaufgabe')
+T('zylinder', (r'Aus welchen Flächen|Teilflächen', 'erkennen'), (r'Wie lang ist das Mantelrechteck im Netz\?$', 'direkt'), (r'Wie groß ist die Mantelfläche', 'mehrschritt'),
+  (r'Radius 5 cm und die Höhe 10', 'mehrschritt'), (r'Welchen Radius hat der Grundkreis|Welchen Umfang hat', 'umkehr'), (r'gesamte Netzfläche', 'verknuepfen'),
+  (r'überlappt', 'transfer'), (r'Dose B|Quader sind beide', 'begruenden'), (r'gerollt|doppelt so hoch', 'rueckwaerts'), (r'Welches Rechteck', 'pruefung'))
+ST.neu('zylinder', 'einkleidung', SZ('Eine Litfaßsäule ist 3 m hoch, ihr Umfang ist 4 m. Wie viel m² Werbefläche bietet ihr Mantel?', 12, '4 * 3', 'Mantel = Umfang · Höhe = 4 · 3 = 12 m².', 'Das abgerollte Plakat ist ein Rechteck.', einheit='m²'))
+ST.neu('zylinder', 'fehler', SA('Jemand berechnet die Mantelfläche eines Zylinders mit d = 4 cm und h = 10 cm als 4 · 10 = 40 cm². Was ist falsch?', 'Er hat den Durchmesser statt des Umfangs genommen; richtig ist etwa 12,56 · 10 = 125,6 cm².',
+    ['Nichts.', 'Er hätte den Radius nehmen müssen: 20 cm².', 'Er hätte 4 · 4 · 10 rechnen müssen.'], 'Die Länge des Mantelrechtecks ist der Umfang u = π · d ≈ 12,56 cm.', 'Wie lang ist das Rechteck, das um die Dose reicht?'))
+ST.knobel('zylinder', SZ('Ein Blatt (21 cm × 29,7 cm) wird einmal zu einer hohen, einmal zu einer flachen Röhre gerollt (ohne Überlappung). Wie viel Mal so groß ist die Mantelfläche der hohen Röhre wie die der flachen?', 1, '1',
+    'In beiden Fällen ist der Mantel genau das Blatt: 21 · 29,7 cm². Die Mantelflächen sind gleich, der Faktor ist 1 – nur die Volumen unterscheiden sich.', 'Woraus besteht der Mantel?'))
+ST.knobel('zylinder', SZ('Ein Etikett von 18,84 cm Länge passt genau einmal um eine Dose (π ≈ 3,14). Wie viele solche Dosen passen nebeneinander in eine Reihe auf ein 60 cm langes Brett?', 10, '60 / (1884/100 / (314/100))',
+    'u = π · d ⇒ d = 18,84 : 3,14 = 6 cm. 60 : 6 = 10 Dosen.', 'Bestimme aus dem Umfang den Durchmesser.'))
+
+# --- schraegbild ---
+ST.leiter('schraegbild', 'Kanten nach hinten mit q = 1/2 verkürzt zeichnen, wahre Längen vorne erkennen',
+          'wahre Länge rückwärts, Parallelogramme und verdeckte Kanten erkennen, Würfel zeichnen',
+          'anderes q, Volumen/Oberfläche aus dem Bild, Maßstab, Fehler q = 1, Verkürzung begründen, q bestimmen')
+T('schraegbild', (r'die Breite\?$', 'erkennen'), (r'^Eine Kante führt', 'direkt'), (r'Wie lang ist sie in Wirklichkeit|Wie tief ist der Quader in Wirklichkeit', 'umkehr'),
+  (r'Parallelogramm|verkürzt gezeichnet|gestrichelt', 'darstellung'), (r'Würfel mit 4 cm', 'mehrschritt'), (r'q = 3/4', 'transfer'), (r'Volumen|Maßstab', 'verknuepfen'),
+  (r'q = 1 statt', 'fehler'), (r'Oberfläche', 'pruefung'))
+ST.neu('schraegbild', 'erkennen', SA('Welche Kanten eines Quaders zeichnet man im Schrägbild in wahrer Länge?', 'die Kanten der Vorderfläche', ['die Kanten nach hinten', 'alle Kanten', 'keine Kante'],
+    'Die Vorderfläche liegt parallel zur Zeichenebene und wird unverändert gezeichnet. Nur Kanten nach hinten werden verkürzt.', 'Welche Fläche liegt parallel zum Blatt?'))
+ST.neu('schraegbild', 'begruenden', SA('Warum zeichnet man im Schrägbild die Kanten nach hinten verkürzt?', 'Damit die Zeichnung räumlich wirkt – voll lang sähe der Körper zu tief aus.',
+    ['Damit die Zeichnung aufs Blatt passt.', 'Weil Kanten nach hinten wirklich kürzer sind.', 'Das ist nur bei Würfeln so.'], 'Das Auge schätzt nach hinten führende Strecken kürzer ein. Die echte Länge ändert sich nicht.', 'Sind die Kanten in Wirklichkeit kürzer?'))
+ST.neu('schraegbild', 'parameter', SZ('Eine 12 cm lange Kante nach hinten ist im Schrägbild 9 cm lang gezeichnet. Welcher Verkürzungsfaktor q wurde benutzt? Gib ihn als Dezimalzahl an.', 0.75, '9 / 12', 'q = gezeichnet : wirklich = 9 : 12 = 0,75.', 'Teile die gezeichnete durch die wirkliche Länge.'))
+ST.neu('schraegbild', 'rueckwaerts', SZ('Im Schrägbild (q = 1/2) eines Quaders sind Breite 6 cm, Höhe 4 cm und die Kante nach hinten 1,5 cm gezeichnet. Wie groß ist die Oberfläche des echten Quaders?', 108, '2 * (6 * 4 + 6 * 3 + 4 * 3)',
+    'Echte Tiefe 3 cm. O = 2 · (24 + 18 + 12) = 108 cm².', 'Rechne zuerst die echte Tiefe aus.', einheit='cm²'))
+ST.knobel('schraegbild', SZ('Ein Würfel wird mit q = 1/2 gezeichnet, die Kanten nach hinten sind 2,5 cm lang. Wie viele solche Würfel passen in einen Karton von 50 cm × 50 cm × 50 cm?', 1000, '(50 / 5)**3',
+    'Echte Kante 5 cm. In jede Richtung passen 50 : 5 = 10 Würfel: 10 · 10 · 10 = 1 000.', 'Wie lang ist die Würfelkante wirklich?'))
+ST.knobel('schraegbild', SZ('Im Schrägbild (q = 1/2) sind alle 12 Kanten eines Quaders zusammen 34 cm lang gezeichnet. Er ist 4 cm breit und 3 cm hoch. Wie tief ist er wirklich?', 3, '(34 - 16 - 12) / 2',
+    'Gezeichnet: 4 Breiten (16 cm) + 4 Höhen (12 cm) + 4 halbe Tiefen = 2t. 28 + 2t = 34 ⇒ t = 3 cm.', 'Welche Kanten sind verkürzt, welche nicht?', einheit='cm'))
+
+# --- ansichten ---
+ST.leiter('ansichten', 'die Vorder- oder Draufsicht eines einfachen Körpers nennen',
+          'aus zwei Ansichten auf den Körper schließen, liegende Körper, Sachkörper (Turm)',
+          'zusammengesetzte Körper verknüpfen, Körper aus drei Ansichten, Würfelgebäude zählen, Ansichten verwechseln als Fehler')
+T('ansichten', (r'^Welche Form hat die (Vorderansicht|Draufsicht) –', 'erkennen'), (r'^Welcher Körper hat die Vorderansicht „Kreis“', 'transfer'), (r'^Welcher Körper hat', 'umkehr'),
+  (r'liegenden Zylinders', 'darstellung'), (r'Bleistift|Pyramide mit derselben|liegt quer', 'verknuepfen'), (r'Seitenansicht Rechteck und die Draufsicht Dreieck', 'rueckwaerts'),
+  (r'in einer Reihe', 'transfer'), (r'Würfelgebäude', 'pruefung'))
+ST.neu('ansichten', 'direkt', SA('Welche Form hat die Draufsicht eines Würfels?', 'Quadrat', ['Rechteck', 'Kreis', 'Dreieck'], 'Von oben sieht man eine Würfelfläche – ein Quadrat.', 'Welche Fläche sieht man von oben?'))
+ST.neu('ansichten', 'einkleidung', SA('Ein runder Turm hat ein kegelförmiges Dach. Wie sieht er von oben aus?', 'ein Kreis (die Spitze in der Mitte)', ['ein Dreieck', 'ein Rechteck mit Dreieck', 'ein Quadrat'],
+    'Von oben sieht man nur den kreisförmigen Umriss; die Dachspitze liegt über der Mitte.', 'Welche Form hat der Turm im Querschnitt?'))
+ST.neu('ansichten', 'fehler', SA('Jemand zeichnet als Vorderansicht einer stehenden Dose einen Kreis. Was ist falsch?', 'Von vorn sieht man ein Rechteck; der Kreis ist die Draufsicht.',
+    ['Nichts.', 'Von vorn sieht man ein Dreieck.', 'Von vorn sieht man zwei Kreise.'], 'Eine stehende Dose sieht man von vorn als Rechteck (Höhe × Durchmesser).', 'Von wo sieht man die Kreisfläche?'))
+ST.knobel('ansichten', SZ('Ein einstöckiges Würfelgebäude zeigt von vorn 3 Quadrate nebeneinander und von der Seite 2 Quadrate nebeneinander. Wie viele Würfel hat es mindestens?', 3, '3',
+    'Die Würfel stehen in einem 3 × 2-Raster. Jede der 3 Spalten (Vorderansicht) und jede der 2 Reihen (Seitenansicht) braucht mindestens einen Würfel. Mit 3 Würfeln geht es, etwa diagonal versetzt: Spalten 1, 2, 3 in den Reihen 1, 2, 2.',
+    'Welche Stellen müssen von vorn und von der Seite besetzt sein?'))
+ST.knobel('ansichten', SZ('Ein Körper aus Einheitswürfeln passt in ein 2 × 2 × 2-Raster und sieht von vorn, von der Seite und von oben jeweils wie ein volles 2 × 2-Quadrat aus. Wie viele Würfel hat er mindestens?', 4, '4',
+    'Jede Ansicht braucht 4 besetzte Felder; ein Würfel deckt in jeder Ansicht genau ein Feld. Mit 4 Würfeln geht es: unten links-vorn und rechts-hinten, oben rechts-vorn und links-hinten. Mit 3 Würfeln wären in der Draufsicht höchstens 3 Felder voll.',
+    'Wie viele Felder kann ein Würfel in einer Ansicht abdecken?'))
+
+# --- beurteilen ---
+ST.leiter('beurteilen', 'eine richtige Aussage über Körper erkennen',
+          'die falsche Aussage finden, Aussagen zu Netz, Verpackung und Kantenlängen prüfen',
+          'Prisma-Definition begründen, Behauptungen anderer widerlegen, Volumen bei verdoppelten Kanten, 2 026 Kanten, falsche Aussagen in Prüfungsform')
+T('beurteilen', (r'Welche Aussage (über Körper )?ist richtig\?$', 'erkennen'), (r'besonderer Quader', 'direkt'), (r'Zylinder und Prismen ist FALSCH|^Welche Aussage ist FALSCH\?$', 'umkehr'),
+  (r'Zylinder ist ein Prisma|^Lea', 'begruenden'), (r'Prismen und Pyramiden ist FALSCH|^Welche Aussage über Prismen ist FALSCH', 'fehler'), (r'^Tom', 'verknuepfen'), (r'2 026', 'transfer'))
+ST.neu('beurteilen', 'einkleidung', SA('Ein Schokoriegel hat die Form eines dreiseitigen Prismas. Welche Aussage über seine Verpackung stimmt?', 'Sie besteht aus 2 Dreiecken und 3 Rechtecken.',
+    ['Sie besteht aus 3 Dreiecken und 2 Rechtecken.', 'Sie besteht aus 6 Rechtecken.', 'Sie besteht aus 2 Dreiecken und 2 Rechtecken.'], 'Zwei dreieckige Grundflächen, für jede Dreiecksseite ein Rechteck.', 'Wie viele Seitenflächen hat ein dreiseitiges Prisma?'))
+ST.neu('beurteilen', 'darstellung', SA('Ein Netz besteht aus 2 Sechsecken und 6 Rechtecken. Welche Aussage über den gefalteten Körper stimmt?', 'Es ist ein sechsseitiges Prisma mit 12 Ecken.',
+    ['Es ist eine sechsseitige Pyramide.', 'Es ist ein Prisma mit 6 Ecken.', 'Es ist ein Würfel.'], 'Zwei gleiche Grundflächen und Rechtecke: Prisma. n = 6, also 2n = 12 Ecken.', 'Welche Körper haben zwei gleiche Grundflächen?'))
+ST.neu('beurteilen', 'mehrschritt', SA('Welche Aussage über ein fünfseitiges Prisma ist richtig?', 'Es hat 10 Ecken, 15 Kanten und 7 Flächen.',
+    ['Es hat 5 Ecken, 10 Kanten und 7 Flächen.', 'Es hat 10 Ecken, 10 Kanten und 7 Flächen.', 'Es hat 10 Ecken, 15 Kanten und 5 Flächen.'], 'n = 5: 2n = 10 Ecken, 3n = 15 Kanten, n + 2 = 7 Flächen.', 'Prüfe alle drei Zahlen.'))
+ST.neu('beurteilen', 'mehrschritt', SA('Welche Aussage über einen Würfel mit 3 cm Kantenlänge stimmt?', 'Seine Kanten sind zusammen 36 cm lang.', ['Seine Kanten sind zusammen 18 cm lang.', 'Seine Oberfläche ist 27 cm².', 'Er hat 6 Ecken.'],
+    '12 Kanten · 3 cm = 36 cm. Oberfläche 6 · 9 = 54 cm², 8 Ecken.', 'Wie viele Kanten hat ein Würfel?'))
+ST.neu('beurteilen', 'pruefung', SA('Ein Prisma hat 21 Kanten. Welche Aussage stimmt?', 'Es hat 14 Ecken und 9 Flächen.', ['Es hat 7 Ecken und 9 Flächen.', 'Es hat 14 Ecken und 7 Flächen.', 'Es hat 21 Ecken und 9 Flächen.'],
+    '3n = 21 ⇒ n = 7. Ecken 2n = 14, Flächen n + 2 = 9.', 'Bestimme zuerst n aus der Kantenzahl.'))
+ST.neu('beurteilen', 'parameter', SA('Für welche n stimmt: „Ein n-seitiges Prisma hat mehr Kanten als eine n-seitige Pyramide Ecken“?', 'für alle n ≥ 3', ['nur für n > 5', 'für kein n', 'nur für gerade n'],
+    'Prisma: 3n Kanten, Pyramide: n + 1 Ecken. 3n > n + 1 gilt für alle n ≥ 1, also für jedes Prisma.', 'Vergleiche 3n mit n + 1.'))
+ST.knobel('beurteilen', SA('Welche Zahl kann die Kantenzahl einer Pyramide, aber nicht die eines Prismas sein?', '8', ['9', '15', '12'],
+    'Prismen haben 3n Kanten (9, 12, 15 …), Pyramiden 2n Kanten (6, 8, 10, 12 …). 8 ist gerade, aber nicht durch 3 teilbar. 12 geht bei beiden, 9 und 15 nur beim Prisma.', 'Stelle beide Kantenformeln auf.'))
+ST.knobel('beurteilen', SZ('Ein Prisma und eine Pyramide haben dieselbe n-eckige Grundfläche und zusammen 35 Kanten. Bestimme n.', 7, '35 / 5',
+    'Prisma 3n Kanten, Pyramide 2n Kanten: 5n = 35 ⇒ n = 7.', 'Addiere die Kantenformeln.'))
+baue = mit_stufen(baue, ST)
+# ---- STUFEN ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Körper und Netze', ['prisma', 'netz', 'zylinder']), ('Darstellen', ['schraegbild', 'ansichten']), ('Verstehen', ['beurteilen'])],

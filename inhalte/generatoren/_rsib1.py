@@ -134,3 +134,9 @@ def finde(d, teil, pool='uebung'):
     t = [a['f']['text'] for a in d['aufgaben'] if teil in a['f']['text'] and (pool is None or a['p'] == pool)]
     assert len(t) == 1, ('nicht eindeutig', teil, len(t))
     return t[0]
+
+
+def rund(x, n):
+    """Gerundeter Wert und Rechenausdruck „round(Zahl, n)“ für Ergebnisse mit Wurzeln, π, Logarithmen."""
+    x = round(float(x), 12)
+    return round(x, n), f'round({x!r}, {n})'

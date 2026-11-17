@@ -1,5 +1,8 @@
 # Postfach durchsicht-rsib-1 (Neunzehnte Runde, Teil B, Chat 1)
 
+## 2026-11-17 16:00 – STATUS
+gleichungen.reinquadratisch fertig: 6 umgestuft, 5 ersetzt, 18 neu (Stufe 3: Gleichung zu gegebener Lösungsmenge, flächengleiche Figuren, Bremsweg, Fallzeiten-Vergleich, binomische Formel erkennen). inhalt_pruefen: OK, 0 Hinweise.
+
 ## 2026-11-17 15:40 – STATUS
 funktionen.transformation fertig: 7 umgestuft (Ablesen und Einsetzen von Stufe 3 auf 2), 7 ersetzt (u. a. viermal gleiche Spiegel-Frage), 19 neu (Stufe 3: Parabel aus Scheitel und Punkt, Brückenbogen, a und e aus zwei Punkten, zwei mögliche Verschiebungen). inhalt_pruefen: OK, 0 Hinweise.
 

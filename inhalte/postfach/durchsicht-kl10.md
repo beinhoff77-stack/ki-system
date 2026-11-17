@@ -16,3 +16,7 @@ Alle 6 Lernkarten und 180 Aufgaben gelesen und nachgerechnet, keine falsche Lös
 
 ## 2026-11-17 – STATUS: funktionen.trig fertig
 Alle 8 Lernkarten und 334 Aufgaben gelesen und nachgerechnet, keine falsche Lösung. 27 umgestuft, Merksatz `bogenmass` um die Bogenlänge beim Radius r ergänzt. Prüfskript OK, Nachweis OK.
+
+## 2026-11-17 – STATUS: funktionen.ganzrational fertig
+Alle 7 Lernkarten und 238 Aufgaben gelesen und nachgerechnet. 33 umgestuft, 1 ersetzt (zweite richtige Auswahlantwort), Lernkarten unverändert. Prüfskript OK, Nachweis OK.
+Ersetzt (bitte sperren; randverhalten, Übung Stufe 3): „Der Graph von f(x) = a · x⁴ + x³ verläuft von links unten nach rechts unten. Was gilt für a?“ – die Antwort „a < 1“ war ebenfalls richtig.

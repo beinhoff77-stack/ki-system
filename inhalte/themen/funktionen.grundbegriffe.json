@@ -1170,7 +1170,7 @@
    "l": "eindeutig",
    "t": "eindeutig",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Ist die Zuordnung (8 | 9), (−5 | 1), (4 | 0), (0 | −7), (5 | 6), (0 | −4), (−3 | 9) eine Funktion?"
@@ -1191,7 +1191,7 @@
    "l": "eindeutig",
    "t": "eindeutig",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Ist die Zuordnung (0 | 4), (7 | 5), (3 | 1), (6 | −4), (−3 | 3), (−6 | −3) eine Funktion?"
@@ -1253,7 +1253,7 @@
    "l": "eindeutig",
    "t": "eindeutig",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Ist die Zuordnung (3 | −1), (4 | 0), (−6 | 0), (2 | 7) eine Funktion?"
@@ -1316,7 +1316,7 @@
    "l": "eindeutig",
    "t": "eindeutig",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Jedem Schüler wird sein Geburtstag zugeordnet. Und umgekehrt: Jedem Geburtstag wird ein Schüler zugeordnet. Welche Zuordnungen sind Funktionen?"
@@ -1337,7 +1337,7 @@
    "l": "eindeutig",
    "t": "eindeutig",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ist der gezeichnete Graph der Graph einer Funktion?",
@@ -2651,7 +2651,7 @@
    "l": "funktionswert",
    "t": "funktionswert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne f(−2) für f(x) = −x² + x."
@@ -2667,7 +2667,7 @@
    "l": "funktionswert",
    "t": "funktionswert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne f(−4) für f(x) = 3x + 5,5."
@@ -2699,7 +2699,7 @@
    "l": "funktionswert",
    "t": "funktionswert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne f(−0,5) für f(x) = 2,5x − 5."
@@ -2950,7 +2950,7 @@
    "l": "funktionswert",
    "t": "funktionswert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "f(x) = −x² + 4. Berechne f(2) − f(−3)."
@@ -3131,7 +3131,7 @@
    "l": "stelle",
    "t": "stelle",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Für welches x ist f(x) = 4, wenn f(x) = 2/x?"
@@ -3147,7 +3147,7 @@
    "l": "stelle",
    "t": "stelle",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Für welches x gilt f(x) = 21, wenn f(x) = 2,5x − 9?"
@@ -3183,7 +3183,7 @@
    "l": "stelle",
    "t": "stelle",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Für welches x gilt f(x) = −33, wenn f(x) = 3x − 3?"
@@ -4657,7 +4657,7 @@
    "l": "graph_lesen",
    "t": "graph_lesen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Lies am Graphen ab: An welcher Stelle hat f den Wert −1? Gib den Punkt an.",
@@ -4700,7 +4700,7 @@
    "l": "graph_lesen",
    "t": "graph_lesen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Für welche x gilt f(x) = 1? Lies am Graphen ab (kleinere Stelle zuerst).",
@@ -4746,7 +4746,7 @@
    "l": "graph_lesen",
    "t": "graph_lesen",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Lies am Graphen ab: f(−2) = ?",
@@ -4781,7 +4781,7 @@
    "l": "graph_lesen",
    "t": "graph_lesen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Lies am Graphen ab: An welcher Stelle hat f den Wert 2? Gib den Punkt an.",
@@ -5602,7 +5602,7 @@
    "l": "nullstellen",
    "t": "nullstellen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Berechne die Nullstelle von f(x) = −6x + 18."
@@ -5618,7 +5618,7 @@
    "l": "nullstellen",
    "t": "nullstellen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Berechne die Nullstelle von f(x) = 2x + 6."
@@ -6150,7 +6150,7 @@
    "l": "punkt_graph",
    "t": "punkt_graph",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welcher Punkt liegt auf dem Graphen von f(x) = −2x − 7?"
@@ -6283,7 +6283,7 @@
    "l": "punkt_graph",
    "t": "punkt_graph",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welcher Punkt liegt auf dem Graphen von f(x) = 5x + 2?"
@@ -6321,16 +6321,21 @@
    "t": "punkt_graph",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Der Punkt P(−5 | −26) liegt auf dem Graphen von f(x) = k · x + 4. Bestimme k."
+    "text": "Tom prüft, ob P(−2 | 7) auf dem Graphen von f(x) = −3x + 1 liegt. Er rechnet −3 · 7 + 1 = −20 und sagt: „−20 ≠ −2, also nein.“ Was stimmt?"
    },
+   "a": [
+    "Tom hat x und y vertauscht. f(−2) = −3 · (−2) + 1 = 7: P liegt auf dem Graphen.",
+    "Man muss 7 und −2 addieren: 5 ≠ 1, also nein.",
+    "Tom hat recht, P liegt nicht auf dem Graphen.",
+    "Tom hat x und y vertauscht. f(−2) = 5, also liegt P nicht darauf."
+   ],
    "o": {
-    "wert": 6
+    "index": 0
    },
-   "c": "(-26 - (4)) / (-5)",
-   "w": "f(−5) = −26: k · (−5) + 4 = −26 → k · (−5) = −30 → k = 6.",
-   "h": "Setze die Koordinaten von P in die Gleichung y = f(x) ein und löse nach k."
+   "w": "In P(−2 | 7) ist −2 der x-Wert. Einsetzen: f(−2) = −3 · (−2) + 1 = 6 + 1 = 7. Das ist genau der y-Wert, also liegt P auf dem Graphen.",
+   "h": "Welche Zahl in P(−2 | 7) ist x? Setze nur diese ein."
   },
   {
    "l": "punkt_graph",
@@ -6355,14 +6360,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Der Punkt P(1 | −1) liegt auf dem Graphen von f(x) = k · x + 5. Bestimme k."
+    "text": "Der Punkt Q(b | 10) liegt auf dem Graphen von f(x) = 2x² + 2. Seine x-Koordinate ist positiv. Bestimme b."
    },
    "o": {
-    "wert": -6
+    "wert": 2
    },
-   "c": "(-1 - (5)) / (1)",
-   "w": "f(1) = −1: k · 1 + 5 = −1 → k · 1 = −6 → k = −6.",
-   "h": "Setze die Koordinaten von P in die Gleichung y = f(x) ein und löse nach k."
+   "c": "2",
+   "w": "Einsetzen: 2b² + 2 = 10, also 2b² = 8 und b² = 4. Es gibt b = 2 und b = −2; positiv ist b = 2. Probe: 2 · 2² + 2 = 10.",
+   "h": "Setze den y-Wert gleich: 2b² + 2 = 10. Welche Zahl ergibt im Quadrat 4?"
   },
   {
    "l": "punkt_graph",
@@ -7644,6 +7649,43 @@
    },
    "c": "(79 - 9) / (7/20)",
    "w": "Ohne Grundgebühr: 79 € − 9 € = 70 €. Geteilt durch 0,35 €: 200 kWh."
+  },
+  {
+   "l": "funktionswert",
+   "t": "funktionswert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für f(x) = a · x + 3 gilt f(2) = 11. Bestimme a."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(11 - 3) / 2",
+   "w": "Einsetzen: a · 2 + 3 = 11. Also 2a = 8 und a = 4. Probe: f(2) = 4 · 2 + 3 = 11.",
+   "h": "Setze x = 2 ein und schreibe die Gleichung a · 2 + 3 = 11 auf."
+  },
+  {
+   "l": "funktionswert",
+   "t": "funktionswert",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Lea berechnet f(−3) für f(x) = −x² + 2 so: −3² + 2 = −9 + 2 = −7. Ihr Freund meint, die Klammer fehlt. Was stimmt?"
+   },
+   "a": [
+    "Richtig ist −(−3)² + 2 = 9 + 2 = 11.",
+    "Lea hat richtig gerechnet: f(−3) = −(−3)² + 2 = −9 + 2 = −7.",
+    "Richtig ist −(−3) · 2 + 2 = 8.",
+    "Richtig ist (−3)² + 2 = 11."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Das Minus vor x² bleibt vor dem Quadrat: −(−3)² = −9. Lea hat die Klammer nicht geschrieben, aber zufällig richtig gerechnet: −3² ist auch −9. Ergebnis −7.",
+   "h": "Rechne sauber mit Klammer: −(−3)². Was kommt heraus?"
   }
  ],
  "offen": [

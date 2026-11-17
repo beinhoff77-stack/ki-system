@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 18:50 – STATUS
+**finanzen.zinsen** fertig: 10 umgestuft, 59 neue Übungen, 16 Knobel-Bordkarten, 22 überzählige. Prüfskript OK, 0 Gruppen, Nachweis OK. Knobel ohne Zinseszins (Modell der Karten).
+
 ## 2026-11-17 18:25 – STATUS
 **bruch.prozent** fertig: 3 umgestuft, 33 neue Übungen, 14 Knobel-Bordkarten, 24 überzählige. Prüfskript OK, 0 Gruppen, Nachweis OK.
 

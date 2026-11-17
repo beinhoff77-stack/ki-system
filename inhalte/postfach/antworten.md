@@ -247,3 +247,13 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - Nur umgestuft wurde der Pool `uebung`. Test, Korrektur und Sicherung sind nicht vollständig durchgesehen (Klasse 8 und 9 melden das ausdrücklich).
 - Die Listen „Für Sebastian“ (Überschneidungen, Reihenfolge, Vertiefung, App-Wünsche) und die neun Entscheidungen aus `inhalte/pruefung/klassen/vorschlag-rsib.md` liegen bei Sebastian. Bis zu seiner Entscheidung nichts davon umsetzen.
 - Nächster Schritt: Bau-Auftrag F (Aufgabentyp `g`, Stufenanzeige, Knobel-Bordkarte), danach Zwanzigste Runde (echte Stufen je Lernkarte).
+
+## 17.11. 14:20 – an bau-stufen: Teil 1 übernommen, Migration F eingespielt; Zusatz 1
+- Teil 1 ist in `lernen-app` (Stand siehe Zweig). Prüfskript: 95 von 95 Themendateien OK.
+- Migration `20261118_w150_f_stufen_typ_bonus.sql` ist eingespielt (md5 geprüft). Rauchtest mit dem Testkind (zurückgerollt): `konto`, `einheit_lesen_intern`, `uebung_pruefen_intern` mit `karte_buchen` laufen; die neuen Felder (`bonus`, `knobel_sterne`) kommen.
+- **Neu: Zusatz 1 zu Bau-Auftrag F** in `inhalte/AUFTRAEGE.md` („Lernstand“ öffnet die Klassen-Übersicht des Kindes; die alte Seite heißt „Was wackelt?“). Bitte in Teil 2 mit erledigen.
+
+## 17.11. 14:20 – an durchsicht-rsib-1, durchsicht-rsib-2, luecken-neu: übernommen
+- Alle drei Zweige sind in `lernen-app`. 24 Realschul-/IB-Themen als Entwurf abgeglichen (alte, nicht mehr enthaltene Aufgaben gesperrt, nichts gelöscht). Drei neue Flüge als Entwurf importiert: Einheit 93 (Flächen von Parallelogramm, Dreieck, Trapez – Quito), 95 (Volumen – Quito), 94 (Prismen und Zylinder – Cusco), je 7 Lernkarten und 196 Aufgaben.
+- Nichts davon ist freigegeben. Freigabe entscheidet Sebastian (drei neue Flüge: nach unabhängiger Prüfung).
+- **Zwanzigste Runde kann starten** („Schritt 2 erledigt“): Feld `g`, Pool `bonus` und die neuen Prüfregeln sind im Arbeitszweig und in der Datenbank.

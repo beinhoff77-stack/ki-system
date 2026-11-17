@@ -1426,6 +1426,18 @@ Meldung in inhalte/postfach/bau-stufen.md: zuerst „Teil 1 fertig“ (README, P
 Grenzen wie im Bau-Auftrag E-1: Datenbank nicht ausführen, kein Merge nach main oder lernen-app, keine Inhalte in inhalte/themen ändern. Arbeite ohne Rückfragen durch.
 ```
 
+## Zusatz 1 zu Bau-Auftrag F (17.11., Wunsch von Sebastian): „Lernstand“ öffnet die Klassen-Übersicht
+
+**Befund (Sebastian, mit Bildschirmfoto):** Die Seite „Stand über Schularten“ in der Kind-Ebene (Tabelle Kontinente × Klassen, z. B. „Kind A · Gymnasium“) ist für ihn *der* Lernstand. Man kommt aber nur über die kleine Karte „Stand über Schularten“ und dann über das Kind dorthin. Der Knopf „Lernstand“ an der Kinderkarte öffnet stattdessen „Was wackelt?“ – das erwartet er dort nicht.
+
+**Auftrag (in Teil 2 mit erledigen, kein eigener Zweig):**
+1. Der Knopf „Lernstand“ an jeder Kinderkarte (Eltern/Lehrer-Startseite) öffnet direkt die Kind-Ebene von „Stand über Schularten“ für dieses Kind, in seiner Schulart (Tabelle Kontinente × Klassen). Ein Klick, kein Umweg.
+2. Diese Seite heißt in Titel und Kopfzeile „Lernstand <Name>“. Schulart-Umschalter, „Einstieg prüfen“ und der Weg in die Zelle (Flüge und Etappen) bleiben, wie sie sind.
+3. Die bisherige Lernstand-Seite heißt überall „Was wackelt?“ und bekommt an der Kinderkarte einen eigenen Knopf „Was wackelt?“ neben „Lernstand“. Der Verweis von der Tabelle dorthin bleibt. Die Adresse `#/lernstand/<id>` zeigt künftig auf die Tabelle; „Was wackelt?“ bekommt eine eigene Adresse; alte Verweise in der App anpassen.
+4. Die Vergleichsseite aller Kinder (Ebene 1) bleibt über die Karte erreichbar, heißt dort „Alle Kinder im Vergleich“.
+5. Info-Seite („So funktioniert’s“) und der Satz „Frag Mama oder Papa – sie sehen im Lernstand, wo es hakt.“ im selben Schritt an die neuen Namen anpassen. Tests anpassen bzw. ergänzen (Klick auf „Lernstand“ zeigt die Tabelle des Kindes).
+6. Keine Datenbank-Änderung nötig. Meldung wie gehabt in `inhalte/postfach/bau-stufen.md`.
+
 # Zwanzigste Runde (Inhalte): echte Stufe 3 und Knobel-Bordkarten – je Klasse neu bauen
 
 Voraussetzung: Bau-Auftrag F Teil 1 ist nach lernen-app zusammengeführt (Prüfskript kennt „g“ und Pool „bonus“) und die Neunzehnte Runde (Durchsicht) ist eingespielt.

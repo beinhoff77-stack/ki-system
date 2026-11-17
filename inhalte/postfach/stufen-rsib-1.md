@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 18:50 – STATUS
+funktionen.transformation fertig: 23 neue Übungen, 12 Knobel-Bordkarten, 18 überzählig. inhalt_pruefen OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
+
 ## 2026-11-17 18:15 – STATUS
 terme.quadratische_extreme fertig: 27 neue Übungen, 10 Knobel-Bordkarten, 27 überzählig. inhalt_pruefen OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
 

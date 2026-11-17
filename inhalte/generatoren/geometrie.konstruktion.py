@@ -954,7 +954,7 @@ def _pf_karte():
         c, k = R.randint(6, 10), R.randint(2, 5)
         return B_.L(f'A(0 | 0), B({c} | 0). Das Dreieck ABC hat α = 45° und h_c = {k} cm, C liegt oberhalb von [AB] (1 Einheit = 1 cm). Gib C an.',
                     'C(□ | □)', [k, k], [str(k), str(k)],
-                    f'Der 45°-Schenkel in A ist die Gerade y = x. Die Parallele zu [AB] im Abstand {k} ist y = {k}. Schnittpunkt: C({k} | {k}).',
+                    f'Der 45°-Schenkel in A geht je 1 nach rechts und 1 nach oben. Die Parallele zu [AB] im Abstand {k} liegt {k} Kästchen über [AB]. Dort trifft der Schenkel sie: C({k} | {k}).',
                     'Ein 45°-Winkel in A: Der freie Schenkel geht je 1 nach rechts und 1 nach oben.', 'Trage die x- und die y-Koordinate ein.',
                     grafik=koord([(0, 0, 'A'), (c, 0, 'B')], y=[k + 1]))
 
@@ -964,7 +964,7 @@ def _pf_karte():
         x = 0 if ecke == 'A' else c
         return B_.L(f'A(0 | 0), B({c} | 0). Das Dreieck ABC hat in {ecke} einen rechten Winkel und h_c = {k} cm, C liegt oberhalb von [AB]. Gib C an.',
                     'C(□ | □)', [x, k], [str(x), str(k)],
-                    f'Der freie Schenkel in {ecke} steht senkrecht auf [AB]: x = {x}. Die Parallele im Abstand {k}: y = {k}. C({x} | {k}).',
+                    f'Der freie Schenkel in {ecke} steht senkrecht auf [AB], C liegt also genau über {ecke} (x-Wert {x}). Die Parallele im Abstand {k} liegt {k} Kästchen hoch. C({x} | {k}).',
                     f'Ein rechter Winkel in {ecke}: Der Schenkel geht senkrecht nach oben.', 'Trage die x- und die y-Koordinate ein.',
                     grafik=koord([(0, 0, 'A'), (c, 0, 'B')], y=[k + 1]))
 
@@ -972,7 +972,7 @@ def _pf_karte():
         c, k = R.randint(6, 10), R.randint(2, 4)
         return B_.L(f'A(0 | 0), B({c} | 0). Das Dreieck ABC hat β = 45° und h_c = {k} cm, C liegt oberhalb von [AB] (1 Einheit = 1 cm). Gib C an.',
                     'C(□ | □)', [c - k, k], [f'{c} - {k}', str(k)],
-                    f'Der 45°-Schenkel in B geht je 1 nach links und 1 nach oben. Bei y = {k} ist er {k} links von B: C({c - k} | {k}).',
+                    f'Der 45°-Schenkel in B geht je 1 nach links und 1 nach oben. In der Höhe {k} ist er {k} links von B: C({c - k} | {k}).',
                     'Vom Punkt B aus: so viele Kästchen nach links wie nach oben.', 'Trage die x- und die y-Koordinate ein.', art='pruefung',
                     grafik=koord([(0, 0, 'A'), (c, 0, 'B')], y=[k + 1]))
 
@@ -1040,14 +1040,14 @@ def _pf_karte():
     def f_b45(R, B_):
         return B_.L('Konstruiere das Dreieck ABC mit c = 7 cm, h_c = 3 cm und β = 45°. A liegt bei (0 | 0), B bei (7 | 0), C oberhalb von [AB]. Gib C an.',
                     'C(□ | □)', [4, 3], ['7 - 3', '3'],
-                    'Parallele zu [AB] im Abstand 3 cm: y = 3. Der 45°-Schenkel in B geht je 1 nach links und oben; bei y = 3 ist er 3 links von B: C(4 | 3).',
+                    'Parallele zu [AB] im Abstand 3 cm: 3 Kästchen über [AB]. Der 45°-Schenkel in B geht je 1 nach links und oben; in der Höhe 3 ist er 3 links von B: C(4 | 3).',
                     'Erst die Parallele (h_c), dann der Winkel in B.', 'Trage die x- und die y-Koordinate ein.', art='pruefung',
                     grafik=koord([(0, 0, 'A'), (7, 0, 'B')], y=[4]))
 
     def f_knobel(R, B_):
         return B_.L('Ein gleichschenkliges Dreieck ABC mit Basis [AB] hat A(0 | 0), B(8 | 0) und h_c = 5 cm; C liegt oberhalb von [AB]. Gib C an.',
                     'C(□ | □)', [4, 5], ['8 / 2', '5'],
-                    'C ist von A und B gleich weit entfernt, liegt also auf der Mittelsenkrechten x = 4. Mit h_c = 5 cm: C(4 | 5).',
+                    'C ist von A und B gleich weit entfernt, liegt also auf der Mittelsenkrechten von [AB]; sie geht senkrecht durch die Mitte (4 | 0). Mit h_c = 5 cm: C(4 | 5).',
                     'Welche Linie enthält alle Punkte, die von A und B gleich weit entfernt sind?', 'Trage die x- und die y-Koordinate ein.', art='knobel',
                     grafik=koord([(0, 0, 'A'), (8, 0, 'B')], y=[6]))
 
@@ -1069,6 +1069,32 @@ def luecken():
     return [_pf_karte()]
 
 
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Klasse 7, siehe _durchsicht_kl7.py) ----
+from _durchsicht_kl7 import Durchsicht, durchsicht_datei  # noqa: E402
+
+DS = Durchsicht('geometrie.konstruktion', 19_7_8)
+# vierecke: „360° minus drei Winkel“ ist ein Schritt (Befund Runde 10) → Stufe 1
+for _t in ['In einem Viereck ist α = 76°, β = 69° und γ = 76°. Berechne δ.', 'In einem Viereck ist α = 111°, β = 117° und γ = 90°. Berechne δ.',
+           'In einem Viereck ist α = 68°, β = 96° und γ = 72°. Berechne δ.', 'In einem Viereck ist α = 117°, β = 70° und γ = 76°. Berechne δ.']:
+    DS.stufe('vierecke', _t, 1)
+# konstruierbar: viermal „wie viele ganzzahlige Längen“ in Stufe 3 → zwei davon Stufe 2 (Stufe 2 fragt schon Mindest-/Höchstlänge)
+DS.stufe('konstruierbar', 'Zwei Seiten eines Dreiecks sind 9 cm und 5 cm lang. Wie viele verschiedene ganzzahlige Längen (in cm) sind für die dritte Seite möglich?', 2)
+DS.stufe('konstruierbar', 'Zwei Seiten eines Dreiecks sind 3 cm und 3 cm lang. Wie viele verschiedene ganzzahlige Längen (in cm) sind für die dritte Seite möglich?', 2)
+# satz_kehrsatz: „Widerlege den Kehrsatz … Welches Gegenbeispiel passt?“ steht genauso in Stufe 2; eine Stufe-1-Frage stand doppelt
+DS.stufe('satz_kehrsatz', 'Widerlege den Kehrsatz: „Wenn ein Viereck ein Rechteck ist, dann ist es ein Quadrat.“ Welches Gegenbeispiel passt?', 2)
+DS.stufe('satz_kehrsatz', 'Widerlege den Kehrsatz: „Wenn eine Zahl durch 3 teilbar ist, dann ist sie durch 6 teilbar.“ Welches Gegenbeispiel passt?', 2)
+DS.ersetze('satz_kehrsatz', 'Wie lautet der Kehrsatz zu: „Wenn ein Viereck eine Raute ist, dann ist es ein Parallelogramm.“',
+           DS.A('Wie lautet der Kehrsatz zu: „Wenn zwei Geraden parallel sind, dann sind die Stufenwinkel gleich groß.“',
+                'Wenn die Stufenwinkel gleich groß sind, dann sind die Geraden parallel.',
+                ['Wenn zwei Geraden nicht parallel sind, dann sind die Stufenwinkel verschieden groß.',
+                 'Wenn zwei Geraden parallel sind, dann sind die Wechselwinkel gleich groß.',
+                 'Wenn die Stufenwinkel gleich groß sind, dann schneiden sich die Geraden.'],
+                'Beim Kehrsatz tauschen Wenn-Teil und Dann-Teil die Plätze. Hier ist der Kehrsatz auch wahr: Es ist die Umkehrung, mit der man Parallelität prüft.',
+                'Tausche nur Wenn-Teil und Dann-Teil – nichts verneinen, nichts dazu erfinden.'),
+           enthaelt='Diagonalen eines Vierecks halbieren', pools=('uebung',))
+# ---- DURCHSICHT ENDE ----
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Winkel', ['parallelen', 'winkelsumme', 'gleichschenklig', 'vierecke']), ('Kongruenz und Konstruktion', ['kongruenzsatz', 'konstruierbar']), ('Beweisen', ['satz_kehrsatz'])],
@@ -1081,3 +1107,4 @@ if __name__ == '__main__':
     anhaengen(META['thema_schluessel'], schwer())
     befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
     einfuegen(META['thema_schluessel'], luecken(), 7250, quelle=_LUECKEN_QUELLE, offen=_LUECKEN_OFFEN)  # Achtzehnte Runde: zuletzt
+    durchsicht_datei(META['thema_schluessel'], DS)  # Neunzehnte Runde: zuletzt

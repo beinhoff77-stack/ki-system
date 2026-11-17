@@ -3,6 +3,9 @@
 Neueste Meldung oben.
 
 ## 2026-11-17 – STATUS
+geometrie.konstruktion fertig: 8 umgestuft, 1 ersetzt (doppelte Stufe-1-Frage), 9 Lösungswege in planfigur ohne Geradengleichungen (Prüf-Befund). Prüfer OK, Nachweis OK.
+
+## 2026-11-17 – STATUS
 daten.boxplot fertig: 23 umgestuft (Stufen unterschieden sich vor allem in der Länge der Datenliste), 4 neu. Prüfer OK, Nachweis OK. (Nachweis-Skript verbessert: neue Übungen direkt hinter einer umgestuften Aufgabe werden jetzt richtig zugeordnet.)
 
 ## 2026-11-17 – STATUS

@@ -802,25 +802,8 @@
    },
    "c": "round(3.141592653589793 * 20, 1)",
    "w": "u = π · d = π · 20 ≈ 62,8 cm.",
-   "h": "Rechne mit der π-Taste und runde erst am Ende."
-  },
-  {
-   "l": "umfang",
-   "t": "umfang",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Umfang eines Kreises mit r = 12 cm. Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 75.4,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(2 * 3.141592653589793 * 12, 1)",
-   "w": "u = 2 · π · 12 ≈ 75,4 cm.",
-   "h": "Rechne mit der π-Taste und runde erst am Ende."
+   "h": "Rechne mit der π-Taste und runde erst am Ende.",
+   "g": "direkt"
   },
   {
    "l": "umfang",
@@ -841,7 +824,27 @@
     "index": 0
    },
    "w": "28,3 : 9 ≈ 3,14. Das ist π – bei jedem Kreis gleich.",
-   "h": "Teile den Umfang durch den Durchmesser."
+   "h": "Teile den Umfang durch den Durchmesser.",
+   "g": "erkennen"
+  },
+  {
+   "l": "umfang",
+   "t": "umfang",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Umfang eines Kreises mit r = 12 cm. Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 75.4,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(2 * 3.141592653589793 * 12, 1)",
+   "w": "u = 2 · π · 12 ≈ 75,4 cm.",
+   "h": "Rechne mit der π-Taste und runde erst am Ende.",
+   "g": "direkt"
   },
   {
    "l": "umfang",
@@ -862,7 +865,8 @@
     "index": 1
    },
    "w": "25,1 : 8 ≈ 3,14. Das ist π – bei jedem Kreis gleich.",
-   "h": "Teile den Umfang durch den Durchmesser."
+   "h": "Teile den Umfang durch den Durchmesser.",
+   "g": "erkennen"
   },
   {
    "l": "umfang",
@@ -880,7 +884,8 @@
    },
    "c": "round(3.141592653589793 * 36, 1)",
    "w": "u = π · d = π · 36 ≈ 113,1 cm.",
-   "h": "Rechne mit der π-Taste und runde erst am Ende."
+   "h": "Rechne mit der π-Taste und runde erst am Ende.",
+   "g": "direkt"
   },
   {
    "l": "umfang",
@@ -898,7 +903,25 @@
    },
    "c": "round(2 * 3.141592653589793 * (313/10), 1)",
    "w": "u = 2 · π · 31,3 ≈ 196,7 cm.",
-   "h": "Rechne mit der π-Taste und runde erst am Ende."
+   "h": "Rechne mit der π-Taste und runde erst am Ende.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "umfang",
+   "t": "umfang",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rad mit 60 cm Durchmesser rollt 500 m weit. Wie viele volle Umdrehungen macht es?"
+   },
+   "o": {
+    "wert": 265
+   },
+   "c": "50000 // (3.141592653589793 * 60)",
+   "w": "Eine Umdrehung = Umfang = π · 60 cm ≈ 188,5 cm. 50 000 cm : 188,5 cm ≈ 265,3 → 265 volle Umdrehungen.",
+   "h": "Bei einer Umdrehung rollt das Rad einen Umfang weit. Rechne alles in cm.",
+   "g": "transfer"
   },
   {
    "l": "umfang",
@@ -919,7 +942,8 @@
     "index": 2
    },
    "w": "94,2 : 30 ≈ 3,14. Das ist π – bei jedem Kreis gleich.",
-   "h": "Teile den Umfang durch den Durchmesser."
+   "h": "Teile den Umfang durch den Durchmesser.",
+   "g": "erkennen"
   },
   {
    "l": "umfang",
@@ -937,7 +961,8 @@
    },
    "c": "round(2 * 3.141592653589793 * 59, 1)",
    "w": "u = 2 · π · 59 ≈ 370,7 cm.",
-   "h": "Rechne mit der π-Taste und runde erst am Ende."
+   "h": "Rechne mit der π-Taste und runde erst am Ende.",
+   "g": "einkleidung"
   },
   {
    "l": "umfang",
@@ -955,7 +980,8 @@
    },
    "c": "round(2 * 3.141592653589793 * (46/5), 1)",
    "w": "u = 2 · π · 9,2 ≈ 57,8 cm.",
-   "h": "Rechne mit der π-Taste und runde erst am Ende."
+   "h": "Rechne mit der π-Taste und runde erst am Ende.",
+   "g": "direkt"
   },
   {
    "l": "umfang",
@@ -982,22 +1008,6 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Rad mit 60 cm Durchmesser rollt 500 m weit. Wie viele volle Umdrehungen macht es?"
-   },
-   "o": {
-    "wert": 265
-   },
-   "c": "50000 // (3.141592653589793 * 60)",
-   "w": "Eine Umdrehung = Umfang = π · 60 cm ≈ 188,5 cm. 50 000 cm : 188,5 cm ≈ 265,3 → 265 volle Umdrehungen.",
-   "h": "Bei einer Umdrehung rollt das Rad einen Umfang weit. Rechne alles in cm."
-  },
-  {
-   "l": "umfang",
-   "t": "umfang",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
     "text": "Ein Rad mit 66 cm Durchmesser rollt 1 km weit. Wie viele volle Umdrehungen macht es?"
    },
    "o": {
@@ -1005,7 +1015,8 @@
    },
    "c": "100000 // (3.141592653589793 * 66)",
    "w": "Eine Umdrehung = Umfang = π · 66 cm ≈ 207,3 cm. 100 000 cm : 207,3 cm ≈ 482,3 → 482 volle Umdrehungen.",
-   "h": "Bei einer Umdrehung rollt das Rad einen Umfang weit. Rechne alles in cm."
+   "h": "Bei einer Umdrehung rollt das Rad einen Umfang weit. Rechne alles in cm.",
+   "g": "transfer"
   },
   {
    "l": "umfang",
@@ -1023,25 +1034,27 @@
    },
    "c": "round((374/5) / (2 * 3.141592653589793), 1)",
    "w": "u = 2πr → r = u : (2π) = 74,8 : (2π) ≈ 11,9 cm.",
-   "h": "Stelle u = 2πr nach r um."
+   "h": "Stelle u = 2πr nach r um.",
+   "g": "umkehr"
   },
   {
    "l": "umfang",
    "t": "umfang",
    "p": "uebung",
-   "s": 1,
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Kreis hat den Durchmesser 43,2 cm. Berechne den Umfang. Runde auf eine Nachkommastelle."
+    "text": "An einem Riesenrad hängen 20 Gondeln in gleichen Abständen. Entlang des Rands sind zwei Gondeln 9,4 m voneinander entfernt. Welchen Durchmesser hat das Rad etwa? Runde auf ganze Meter."
    },
    "o": {
-    "wert": 135.7,
-    "einheit": "cm",
-    "toleranz": 0.1
+    "wert": 60.0,
+    "einheit": "m",
+    "toleranz": 1
    },
-   "c": "round(3.141592653589793 * (216/5), 1)",
-   "w": "u = π · d = π · 43,2 ≈ 135,7 cm.",
-   "h": "Rechne mit der π-Taste und runde erst am Ende."
+   "c": "round(20 * 9.4 / 3.141592653589793)",
+   "w": "Umfang ≈ 20 · 9,4 m = 188 m. d = u : π = 188 : π ≈ 59,8 m, also etwa 60 m.",
+   "h": "Wie lang ist der ganze Rand?",
+   "g": "rueckwaerts"
   },
   {
    "l": "umfang",
@@ -1217,6 +1230,46 @@
    "l": "umfang",
    "t": "umfang",
    "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Was ist länger: der Umfang eines Kreises mit d = 10 cm oder die Umfänge von zwei Kreisen mit je d = 5 cm zusammen?"
+   },
+   "a": [
+    "der große Kreis",
+    "die zwei kleinen Kreise",
+    "Beide sind gleich lang.",
+    "Das kann man ohne π nicht sagen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Großer Kreis: π · 10. Zwei kleine: 2 · π · 5 = π · 10. Der Umfang ist proportional zum Durchmesser.",
+   "h": "Rechne beide Umfänge mit π als Zeichen aus.",
+   "g": "begruenden"
+  },
+  {
+   "l": "umfang",
+   "t": "umfang",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Durchmesser 43,2 cm. Berechne den Umfang. Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 135.7,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653589793 * (216/5), 1)",
+   "w": "u = π · d = π · 43,2 ≈ 135,7 cm.",
+   "h": "Rechne mit der π-Taste und runde erst am Ende."
+  },
+  {
+   "l": "umfang",
+   "t": "umfang",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1229,7 +1282,8 @@
    },
    "c": "round(50 / 3.141592653589793, 1)",
    "w": "d = u : π = 50 : π ≈ 15,9 cm.",
-   "h": "u = π · d. Stelle nach d um."
+   "h": "u = π · d. Stelle nach d um.",
+   "g": "umkehr"
   },
   {
    "l": "umfang",
@@ -1247,7 +1301,8 @@
    },
    "c": "round(3.141592653589793 * 1.4, 2)",
    "w": "u = π · d = π · 1,4 m ≈ 4,40 m.",
-   "h": "Die Borte ist so lang wie der Umfang."
+   "h": "Die Borte ist so lang wie der Umfang.",
+   "g": "einkleidung"
   },
   {
    "l": "umfang",
@@ -1265,25 +1320,8 @@
    },
    "c": "round(3.141592653589793 * 8 * 50000 / 100000, 1)",
    "w": "Wirklicher Durchmesser: 8 cm · 50 000 = 400 000 cm = 4 km. Ufer ≈ π · 4 km ≈ 12,6 km.",
-   "h": "Rechne zuerst den echten Durchmesser in km aus."
-  },
-  {
-   "l": "umfang",
-   "t": "umfang",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "An einem Riesenrad hängen 20 Gondeln in gleichen Abständen. Entlang des Rands sind zwei Gondeln 9,4 m voneinander entfernt. Welchen Durchmesser hat das Rad etwa? Runde auf ganze Meter."
-   },
-   "o": {
-    "wert": 60.0,
-    "einheit": "m",
-    "toleranz": 1
-   },
-   "c": "round(20 * 9.4 / 3.141592653589793)",
-   "w": "Umfang ≈ 20 · 9,4 m = 188 m. d = u : π = 188 : π ≈ 59,8 m, also etwa 60 m.",
-   "h": "Wie lang ist der ganze Rand?"
+   "h": "Rechne zuerst den echten Durchmesser in km aus.",
+   "g": "verknuepfen"
   },
   {
    "l": "umfang",
@@ -1301,28 +1339,8 @@
    },
    "c": "round(100 / (2 * 3.141592653589793), 1)",
    "w": "Neuer Umfang = alter Umfang + 100 cm. Da u = 2πr, wächst r um 100 : (2π) ≈ 15,9 cm – egal wie groß der Ball ist.",
-   "h": "Wie ändert sich r, wenn u um 100 cm wächst?"
-  },
-  {
-   "l": "umfang",
-   "t": "umfang",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Was ist länger: der Umfang eines Kreises mit d = 10 cm oder die Umfänge von zwei Kreisen mit je d = 5 cm zusammen?"
-   },
-   "a": [
-    "der große Kreis",
-    "die zwei kleinen Kreise",
-    "Beide sind gleich lang.",
-    "Das kann man ohne π nicht sagen."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Großer Kreis: π · 10. Zwei kleine: 2 · π · 5 = π · 10. Der Umfang ist proportional zum Durchmesser.",
-   "h": "Rechne beide Umfänge mit π als Zeichen aus."
+   "h": "Wie ändert sich r, wenn u um 100 cm wächst?",
+   "g": "transfer"
   },
   {
    "l": "flaeche",
@@ -1340,7 +1358,30 @@
    },
    "c": "round(3.141592653589793 * 8 ** 2, 1)",
    "w": "A = π · 8² = π · 64 ≈ 201,1 cm².",
-   "h": "Erst r² berechnen, dann mal π."
+   "h": "Erst r² berechnen, dann mal π.",
+   "g": "direkt"
+  },
+  {
+   "l": "flaeche",
+   "t": "flaeche",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Pizza mit 36 cm Durchmesser kostet 10 €, zwei Pizzen mit je 24 cm kosten zusammen auch 10 €. Wo bekommst du mehr Pizza?"
+   },
+   "a": [
+    "bei der großen (1018 cm² gegen 905 cm²)",
+    "bei den zwei kleinen (48 cm > 36 cm)",
+    "Das kann man ohne Preis pro Stück nicht sagen.",
+    "gleich viel"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Groß: π · 18² ≈ 1018 cm². Zwei kleine: 2 · π · 12² ≈ 905 cm². Es zählt die Fläche, nicht der Durchmesser.",
+   "h": "Vergleiche die Flächen, nicht die Durchmesser.",
+   "g": "transfer"
   },
   {
    "l": "flaeche",
@@ -1358,61 +1399,8 @@
    },
    "c": "round(3.141592653589793 * (30 / 2) ** 2, 1)",
    "w": "r = 30 : 2 = 15 cm. A = π · 15² ≈ 706,9 cm².",
-   "h": "Zuerst den Radius bestimmen."
-  },
-  {
-   "l": "flaeche",
-   "t": "flaeche",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kreis hat den Durchmesser 6 cm. Berechne den Flächeninhalt. Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 28.3,
-    "einheit": "cm²",
-    "toleranz": 0.1
-   },
-   "c": "round(3.141592653589793 * (6 / 2) ** 2, 1)",
-   "w": "r = 6 : 2 = 3 cm. A = π · 3² ≈ 28,3 cm².",
-   "h": "Zuerst den Radius bestimmen."
-  },
-  {
-   "l": "flaeche",
-   "t": "flaeche",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kreis hat den Durchmesser 10 cm. Berechne den Flächeninhalt. Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 78.5,
-    "einheit": "cm²",
-    "toleranz": 0.1
-   },
-   "c": "round(3.141592653589793 * (10 / 2) ** 2, 1)",
-   "w": "r = 10 : 2 = 5 cm. A = π · 5² ≈ 78,5 cm².",
-   "h": "Zuerst den Radius bestimmen."
-  },
-  {
-   "l": "flaeche",
-   "t": "flaeche",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Flächeninhalt eines Kreises mit r = 17 cm. Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 907.9,
-    "einheit": "cm²",
-    "toleranz": 0.1
-   },
-   "c": "round(3.141592653589793 * 17 ** 2, 1)",
-   "w": "A = π · 17² = π · 289 ≈ 907,9 cm².",
-   "h": "Erst r² berechnen, dann mal π."
+   "h": "Zuerst den Radius bestimmen.",
+   "g": "direkt"
   },
   {
    "l": "flaeche",
@@ -1436,6 +1424,25 @@
    "l": "flaeche",
    "t": "flaeche",
    "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Durchmesser 6 cm. Berechne den Flächeninhalt. Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 28.3,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653589793 * (6 / 2) ** 2, 1)",
+   "w": "r = 6 : 2 = 3 cm. A = π · 3² ≈ 28,3 cm².",
+   "h": "Zuerst den Radius bestimmen.",
+   "g": "direkt"
+  },
+  {
+   "l": "flaeche",
+   "t": "flaeche",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1448,7 +1455,8 @@
    },
    "c": "round(5, 1)",
    "w": "A = π · r², also r² = 78,5 : π ≈ 25. Die Zahl, die mit sich selbst malgenommen 25 ergibt, ist 5. Der Radius ist etwa 5,0 m.",
-   "h": "Rechne rückwärts: erst durch π teilen, dann die Zahl suchen, deren Quadrat herauskommt."
+   "h": "Rechne rückwärts: erst durch π teilen, dann die Zahl suchen, deren Quadrat herauskommt.",
+   "g": "umkehr"
   },
   {
    "l": "flaeche",
@@ -1484,81 +1492,8 @@
    },
    "c": "round(31.4 * 31.4 / (4 * 3.14159265), 1)",
    "w": "Aus dem Umfang den Radius: r = 31,4 : (2 · π) ≈ 5 cm. Dann A = π · r² ≈ π · 25 ≈ 78,5 cm².",
-   "h": "Berechne zuerst den Radius aus dem Umfang."
-  },
-  {
-   "l": "flaeche",
-   "t": "flaeche",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Flächeninhalt eines Kreises mit r = 14 cm. Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 615.8,
-    "einheit": "cm²",
-    "toleranz": 0.1
-   },
-   "c": "round(3.141592653589793 * 14 ** 2, 1)",
-   "w": "A = π · 14² = π · 196 ≈ 615,8 cm².",
-   "h": "Erst r² berechnen, dann mal π."
-  },
-  {
-   "l": "flaeche",
-   "t": "flaeche",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Pizza mit 36 cm Durchmesser kostet 10 €, zwei Pizzen mit je 24 cm kosten zusammen auch 10 €. Wo bekommst du mehr Pizza?"
-   },
-   "a": [
-    "bei der großen (1018 cm² gegen 905 cm²)",
-    "bei den zwei kleinen (48 cm > 36 cm)",
-    "Das kann man ohne Preis pro Stück nicht sagen.",
-    "gleich viel"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Groß: π · 18² ≈ 1018 cm². Zwei kleine: 2 · π · 12² ≈ 905 cm². Es zählt die Fläche, nicht der Durchmesser.",
-   "h": "Vergleiche die Flächen, nicht die Durchmesser."
-  },
-  {
-   "l": "flaeche",
-   "t": "flaeche",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kreis soll genauso viel Fläche haben wie ein Quadrat mit 10 cm Seitenlänge. Welchen Radius braucht er? Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 5.6,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(5.6, 1)",
-   "w": "Das Quadrat hat 100 cm². Also π · r² = 100, r² = 100 : π ≈ 31,8. Da 5,6 · 5,6 ≈ 31,4 und 5,7 · 5,7 ≈ 32,5 sind, ist r ≈ 5,6 cm.",
-   "h": "Setze π · r² gleich der Quadratfläche und rechne rückwärts."
-  },
-  {
-   "l": "flaeche",
-   "t": "flaeche",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kreis hat den Flächeninhalt 36π cm². Wie groß ist sein Radius?"
-   },
-   "o": {
-    "wert": 6,
-    "einheit": "cm"
-   },
-   "c": "36 / 6",
-   "w": "π · r² = 36π → r² = 36 → r = 6 cm (denn 6 · 6 = 36).",
-   "h": "Teile durch π. Welche Zahl mal sich selbst ergibt den Rest?"
+   "h": "Berechne zuerst den Radius aus dem Umfang.",
+   "g": "mehrschritt"
   },
   {
    "l": "flaeche",
@@ -1579,7 +1514,101 @@
     "index": 2
    },
    "w": "Groß: π · 14² ≈ 616 cm². Zwei kleine: 2 · π · 10² ≈ 628 cm². Es zählt die Fläche, nicht der Durchmesser.",
-   "h": "Vergleiche die Flächen, nicht die Durchmesser."
+   "h": "Vergleiche die Flächen, nicht die Durchmesser.",
+   "g": "transfer"
+  },
+  {
+   "l": "flaeche",
+   "t": "flaeche",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Mit 20 m Zaun soll ein Beet eingezäunt werden – als Quadrat oder als Kreis. Wie viele m² Fläche hat der Kreis mehr? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 6.8,
+    "einheit": "m²",
+    "toleranz": 0.1
+   },
+   "c": "round((20 / (2 * 3.141592653589793))**2 * 3.141592653589793 - 5**2, 1)",
+   "w": "Quadrat: Seite 5 m, A = 25 m². Kreis: r = 20 : (2π) ≈ 3,18 m, A ≈ 31,8 m². Unterschied ≈ 6,8 m².",
+   "h": "Bestimme beim Kreis zuerst den Radius aus dem Umfang.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "flaeche",
+   "t": "flaeche",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Durchmesser 10 cm. Berechne den Flächeninhalt. Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 78.5,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653589793 * (10 / 2) ** 2, 1)",
+   "w": "r = 10 : 2 = 5 cm. A = π · 5² ≈ 78,5 cm².",
+   "h": "Zuerst den Radius bestimmen."
+  },
+  {
+   "l": "flaeche",
+   "t": "flaeche",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Flächeninhalt eines Kreises mit r = 17 cm. Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 907.9,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653589793 * 17 ** 2, 1)",
+   "w": "A = π · 17² = π · 289 ≈ 907,9 cm².",
+   "h": "Erst r² berechnen, dann mal π.",
+   "g": "direkt"
+  },
+  {
+   "l": "flaeche",
+   "t": "flaeche",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis soll genauso viel Fläche haben wie ein Quadrat mit 10 cm Seitenlänge. Welchen Radius braucht er? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 5.6,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(5.6, 1)",
+   "w": "Das Quadrat hat 100 cm². Also π · r² = 100, r² = 100 : π ≈ 31,8. Da 5,6 · 5,6 ≈ 31,4 und 5,7 · 5,7 ≈ 32,5 sind, ist r ≈ 5,6 cm.",
+   "h": "Setze π · r² gleich der Quadratfläche und rechne rückwärts.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "flaeche",
+   "t": "flaeche",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Flächeninhalt eines Kreises mit r = 14 cm. Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 615.8,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653589793 * 14 ** 2, 1)",
+   "w": "A = π · 14² = π · 196 ≈ 615,8 cm².",
+   "h": "Erst r² berechnen, dann mal π."
   },
   {
    "l": "flaeche",
@@ -1758,6 +1787,24 @@
    "s": 2,
    "y": "zahl",
    "f": {
+    "text": "Ein Kreis hat den Flächeninhalt 36π cm². Wie groß ist sein Radius?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "36 / 6",
+   "w": "π · r² = 36π → r² = 36 → r = 6 cm (denn 6 · 6 = 36).",
+   "h": "Teile durch π. Welche Zahl mal sich selbst ergibt den Rest?",
+   "g": "umkehr"
+  },
+  {
+   "l": "flaeche",
+   "t": "flaeche",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
     "text": "Ein runder Teppich hat den Durchmesser 2,4 m. Berechne seine Fläche. Runde auf zwei Nachkommastellen."
    },
    "o": {
@@ -1767,7 +1814,8 @@
    },
    "c": "round(3.141592653589793 * 1.2**2, 2)",
    "w": "r = 1,2 m. A = π · 1,2² ≈ 4,52 m².",
-   "h": "Erst den Radius bestimmen."
+   "h": "Erst den Radius bestimmen.",
+   "g": "einkleidung"
   },
   {
    "l": "flaeche",
@@ -1787,7 +1835,8 @@
     "index": 2
    },
    "w": "Quadrat: 16 cm². Kreis: π · 2,5² ≈ 19,6 cm². Der Kreis ist größer.",
-   "h": "Berechne beide Flächen."
+   "h": "Berechne beide Flächen.",
+   "g": "mehrschritt"
   },
   {
    "l": "flaeche",
@@ -1808,25 +1857,8 @@
     "index": 0
    },
    "w": "Klein: π · 13² ≈ 531 cm², 531 : 7 ≈ 76 cm² pro €. Groß: π · 19,5² ≈ 1 195 cm², 1 195 : 14 ≈ 85 cm² pro €. Die große lohnt sich mehr.",
-   "h": "Berechne beide Flächen und teile durch den Preis."
-  },
-  {
-   "l": "flaeche",
-   "t": "flaeche",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Mit 20 m Zaun soll ein Beet eingezäunt werden – als Quadrat oder als Kreis. Wie viele m² Fläche hat der Kreis mehr? Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 6.8,
-    "einheit": "m²",
-    "toleranz": 0.1
-   },
-   "c": "round((20 / (2 * 3.141592653589793))**2 * 3.141592653589793 - 5**2, 1)",
-   "w": "Quadrat: Seite 5 m, A = 25 m². Kreis: r = 20 : (2π) ≈ 3,18 m, A ≈ 31,8 m². Unterschied ≈ 6,8 m².",
-   "h": "Bestimme beim Kreis zuerst den Radius aus dem Umfang."
+   "h": "Berechne beide Flächen und teile durch den Preis.",
+   "g": "transfer"
   },
   {
    "l": "flaeche",
@@ -1842,7 +1874,8 @@
    },
    "c": "(36 - 2 * 9) / 36",
    "w": "Großer Kreis: 36π. Kleine Kreise: 2 · 9π = 18π. Frei: 18π, also 18π : 36π = 0,5 – die Hälfte.",
-   "h": "Rechne mit π als Zeichen. Es kürzt sich weg."
+   "h": "Rechne mit π als Zeichen. Es kürzt sich weg.",
+   "g": "verknuepfen"
   },
   {
    "l": "flaeche",
@@ -1859,7 +1892,110 @@
    },
    "c": "2",
    "w": "2 · π · r = π · r². Teilen durch π · r: 2 = r. Probe: u = 4π, A = 4π.",
-   "h": "Setze die Formeln gleich und teile durch π · r."
+   "h": "Setze die Formeln gleich und teile durch π · r.",
+   "g": "parameter"
+  },
+  {
+   "l": "flaeche",
+   "t": "flaeche",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Formel gilt für den Flächeninhalt eines Kreises?"
+   },
+   "a": [
+    "A = 2 · π · r",
+    "A = π · r",
+    "A = π · d²",
+    "A = π · r²"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Kreisfläche wächst mit dem Quadrat des Radius: A = π · r².",
+   "h": "Welche Formel enthält r²?"
+  },
+  {
+   "l": "flaeche",
+   "t": "flaeche",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kreis berührt alle vier Seiten eines Quadrats mit 10 cm Seitenlänge. Welcher Term gibt die Kreisfläche an?"
+   },
+   "a": [
+    "10 · 10",
+    "π · 10²",
+    "π · 5²",
+    "2 · π · 5"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Durchmesser ist so lang wie die Quadratseite: d = 10 cm, r = 5 cm, A = π · 5².",
+   "h": "Wie lang ist der Durchmesser im Bild?"
+  },
+  {
+   "l": "flaeche",
+   "t": "flaeche",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Für einen Kreis mit d = 10 cm rechnet jemand A = π · 10² ≈ 314 cm². Was stimmt?"
+   },
+   "a": [
+    "Falsch: r = 5 cm, also A = π · 25 ≈ 78,5 cm².",
+    "Richtig.",
+    "Falsch: A = π · 10 ≈ 31,4 cm².",
+    "Falsch: A = 2 · π · 5 ≈ 31,4 cm²."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "In die Formel gehört der Radius. Mit dem Durchmesser wird das Ergebnis viermal zu groß.",
+   "h": "Welche Länge gehört in die Formel?"
+  },
+  {
+   "l": "flaeche",
+   "t": "flaeche",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Umfang 30π cm, ein anderer den Umfang 10π cm. Wie viel Mal so groß ist die Fläche des ersten?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "3**2",
+   "w": "Die Umfänge verhalten sich wie 3 : 1, also auch die Radien. Flächen wachsen mit dem Quadrat: 3² = 9.",
+   "h": "Vergleiche zuerst die Radien."
+  },
+  {
+   "l": "flaeche",
+   "t": "flaeche",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Ziege ist mit einem 3 m langen Strick außen an der Ecke eines großen rechteckigen Stalls angebunden. Wie viel m² Weide kann sie erreichen (π ≈ 3,14)? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 21.2,
+    "einheit": "m²",
+    "toleranz": 0.1
+   },
+   "c": "round(3/4 * 314/100 * 9, 1)",
+   "w": "Der Stall versperrt ein Viertel des Kreises um die Ecke. Erreichbar sind drei Viertel: 3/4 · 3,14 · 9 ≈ 21,2 m².",
+   "h": "Welcher Teil des Kreises um die Ecke ist durch den Stall versperrt?"
   },
   {
    "l": "exakt",
@@ -1875,7 +2011,26 @@
    },
    "c": "2 * 12",
    "w": "u = 2 · π · 12 = 24π cm.",
-   "h": "u = 2 · π · r. Rechne 2 · r."
+   "h": "u = 2 · π · r. Rechne 2 · r.",
+   "g": "direkt"
+  },
+  {
+   "l": "exakt",
+   "t": "exakt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Umfang 10π cm. Wie groß ist sein Radius?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "cm"
+   },
+   "c": "10 / 2",
+   "w": "2πr = 10π → r = 5 cm.",
+   "h": "Vergleiche 2 · π · r mit dem gegebenen Umfang.",
+   "g": "umkehr"
   },
   {
    "l": "exakt",
@@ -1891,7 +2046,25 @@
    },
    "c": "2 * 8",
    "w": "u = 2 · π · 8 = 16π cm.",
-   "h": "u = 2 · π · r. Rechne 2 · r."
+   "h": "u = 2 · π · r. Rechne 2 · r.",
+   "g": "direkt"
+  },
+  {
+   "l": "exakt",
+   "t": "exakt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Durchmesser 29 cm. Gib den Flächeninhalt exakt an: A = □ · π cm². Welche Zahl gehört in das Kästchen?"
+   },
+   "o": {
+    "wert": 210.25
+   },
+   "c": "(29 / 2) ** 2",
+   "w": "r = 14,5 cm. A = π · 14,5² = 210,25π cm².",
+   "h": "Erst den Radius bestimmen, dann quadrieren.",
+   "g": "mehrschritt"
   },
   {
    "l": "exakt",
@@ -1908,6 +2081,83 @@
    "c": "2 * 11",
    "w": "u = 2 · π · 11 = 22π cm.",
    "h": "u = 2 · π · r. Rechne 2 · r."
+  },
+  {
+   "l": "exakt",
+   "t": "exakt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Umfang 76π cm. Wie groß ist sein Radius?"
+   },
+   "o": {
+    "wert": 38,
+    "einheit": "cm"
+   },
+   "c": "76 / 2",
+   "w": "2πr = 76π → r = 38 cm.",
+   "h": "Vergleiche 2 · π · r mit dem gegebenen Umfang.",
+   "g": "umkehr"
+  },
+  {
+   "l": "exakt",
+   "t": "exakt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreisring hat den Außenradius 12 cm und den Innenradius 10 cm. Gib den Flächeninhalt exakt an: A = □ · π cm²."
+   },
+   "o": {
+    "wert": 44
+   },
+   "c": "12 ** 2 - 10 ** 2",
+   "w": "A = π · (12² − 10²) = π · (144 − 100) = 44π cm².",
+   "h": "Großer Kreis minus kleiner Kreis.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "exakt",
+   "t": "exakt",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Figur besteht aus einem Quadrat (Seite 8 cm) und einem aufgesetzten Halbkreis über der oberen Seite. Gib den Umfang der Figur exakt an.",
+    "schablone": "u = □ + □ · π cm",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     24,
+     4
+    ]
+   },
+   "c": [
+    "3 * 8",
+    "8 / 2"
+   ],
+   "w": "Drei Quadratseiten: 3 · 8 = 24 cm (die obere liegt innen). Halbkreisbogen: π · 8 : 2 = 4π cm. u = 24 + 4π cm.",
+   "h": "Welche Seiten gehören zum Rand? Der Halbkreis hat den halben Umfang eines Kreises mit d = 8 cm.",
+   "g": "pruefung"
+  },
+  {
+   "l": "exakt",
+   "t": "exakt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Umfang 12π cm. Ein zweiter Kreis hat doppelt so viel Fläche. Gib die Fläche des zweiten Kreises exakt an: A = □ · π cm². Welche Zahl?"
+   },
+   "o": {
+    "wert": 72
+   },
+   "c": "2 * 6**2",
+   "w": "r = 6 cm, A₁ = 36π cm². Doppelte Fläche: 72π cm². (Achtung: nicht den Radius verdoppeln – das gäbe die vierfache Fläche.)",
+   "h": "Bestimme zuerst A₁.",
+   "g": "transfer"
   },
   {
    "l": "exakt",
@@ -1932,39 +2182,6 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Kreis hat den Umfang 10π cm. Wie groß ist sein Radius?"
-   },
-   "o": {
-    "wert": 5,
-    "einheit": "cm"
-   },
-   "c": "10 / 2",
-   "w": "2πr = 10π → r = 5 cm.",
-   "h": "Vergleiche 2 · π · r mit dem gegebenen Umfang."
-  },
-  {
-   "l": "exakt",
-   "t": "exakt",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kreis hat den Durchmesser 29 cm. Gib den Flächeninhalt exakt an: A = □ · π cm². Welche Zahl gehört in das Kästchen?"
-   },
-   "o": {
-    "wert": 210.25
-   },
-   "c": "(29 / 2) ** 2",
-   "w": "r = 14,5 cm. A = π · 14,5² = 210,25π cm².",
-   "h": "Erst den Radius bestimmen, dann quadrieren."
-  },
-  {
-   "l": "exakt",
-   "t": "exakt",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
     "text": "Ein Kreis hat den Durchmesser 28 cm. Gib den Flächeninhalt exakt an: A = □ · π cm². Welche Zahl gehört in das Kästchen?"
    },
    "o": {
@@ -1972,40 +2189,8 @@
    },
    "c": "(28 / 2) ** 2",
    "w": "r = 14 cm. A = π · 14² = 196π cm².",
-   "h": "Erst den Radius bestimmen, dann quadrieren."
-  },
-  {
-   "l": "exakt",
-   "t": "exakt",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kreis hat den Durchmesser 27 cm. Gib den Flächeninhalt exakt an: A = □ · π cm². Welche Zahl gehört in das Kästchen?"
-   },
-   "o": {
-    "wert": 182.25
-   },
-   "c": "(27 / 2) ** 2",
-   "w": "r = 13,5 cm. A = π · 13,5² = 182,25π cm².",
-   "h": "Erst den Radius bestimmen, dann quadrieren."
-  },
-  {
-   "l": "exakt",
-   "t": "exakt",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kreis hat den Umfang 76π cm. Wie groß ist sein Radius?"
-   },
-   "o": {
-    "wert": 38,
-    "einheit": "cm"
-   },
-   "c": "76 / 2",
-   "w": "2πr = 76π → r = 38 cm.",
-   "h": "Vergleiche 2 · π · r mit dem gegebenen Umfang."
+   "h": "Erst den Radius bestimmen, dann quadrieren.",
+   "g": "mehrschritt"
   },
   {
    "l": "exakt",
@@ -2028,6 +2213,22 @@
    "l": "exakt",
    "t": "exakt",
    "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Durchmesser 27 cm. Gib den Flächeninhalt exakt an: A = □ · π cm². Welche Zahl gehört in das Kästchen?"
+   },
+   "o": {
+    "wert": 182.25
+   },
+   "c": "(27 / 2) ** 2",
+   "w": "r = 13,5 cm. A = π · 13,5² = 182,25π cm².",
+   "h": "Erst den Radius bestimmen, dann quadrieren."
+  },
+  {
+   "l": "exakt",
+   "t": "exakt",
+   "p": "uebung",
    "s": 3,
    "y": "zahl",
    "f": {
@@ -2038,55 +2239,8 @@
    },
    "c": "(20 / 2) ** 2",
    "w": "2πr = 20π → r = 10. A = π · 10² = 100π cm².",
-   "h": "Bestimme erst r aus dem Umfang."
-  },
-  {
-   "l": "exakt",
-   "t": "exakt",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kreisring hat den Außenradius 12 cm und den Innenradius 10 cm. Gib den Flächeninhalt exakt an: A = □ · π cm²."
-   },
-   "o": {
-    "wert": 44
-   },
-   "c": "12 ** 2 - 10 ** 2",
-   "w": "A = π · (12² − 10²) = π · (144 − 100) = 44π cm².",
-   "h": "Großer Kreis minus kleiner Kreis."
-  },
-  {
-   "l": "exakt",
-   "t": "exakt",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Lea rechnet für einen Kreis mit d = 10 cm: A = π · 10² = 100π cm². Berichtige: A = □ · π cm². Welche Zahl gehört in das Kästchen?"
-   },
-   "o": {
-    "wert": 25
-   },
-   "c": "(10 / 2) ** 2",
-   "w": "Lea hat den Durchmesser quadriert. Richtig ist der Radius r = 5 cm: A = π · 5² = 25π cm².",
-   "h": "In die Flächenformel gehört der Radius."
-  },
-  {
-   "l": "exakt",
-   "t": "exakt",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kreisring hat den Außenradius 9 cm und den Innenradius 4 cm. Gib den Flächeninhalt exakt an: A = □ · π cm²."
-   },
-   "o": {
-    "wert": 65
-   },
-   "c": "9 ** 2 - 4 ** 2",
-   "w": "A = π · (9² − 4²) = π · (81 − 16) = 65π cm².",
-   "h": "Großer Kreis minus kleiner Kreis."
+   "h": "Bestimme erst r aus dem Umfang.",
+   "g": "rueckwaerts"
   },
   {
    "l": "exakt",
@@ -2249,6 +2403,40 @@
    "l": "exakt",
    "t": "exakt",
    "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Lea rechnet für einen Kreis mit d = 10 cm: A = π · 10² = 100π cm². Berichtige: A = □ · π cm². Welche Zahl gehört in das Kästchen?"
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "(10 / 2) ** 2",
+   "w": "Lea hat den Durchmesser quadriert. Richtig ist der Radius r = 5 cm: A = π · 5² = 25π cm².",
+   "h": "In die Flächenformel gehört der Radius.",
+   "g": "fehler"
+  },
+  {
+   "l": "exakt",
+   "t": "exakt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreisring hat den Außenradius 9 cm und den Innenradius 4 cm. Gib den Flächeninhalt exakt an: A = □ · π cm²."
+   },
+   "o": {
+    "wert": 65
+   },
+   "c": "9 ** 2 - 4 ** 2",
+   "w": "A = π · (9² − 4²) = π · (81 − 16) = 65π cm².",
+   "h": "Großer Kreis minus kleiner Kreis.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "exakt",
+   "t": "exakt",
+   "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
@@ -2259,7 +2447,8 @@
    },
    "c": "9",
    "w": "u = π · d = 9π cm.",
-   "h": "Mit dem Durchmesser ist u = π · d."
+   "h": "Mit dem Durchmesser ist u = π · d.",
+   "g": "direkt"
   },
   {
    "l": "exakt",
@@ -2276,31 +2465,8 @@
    },
    "c": "2 * 7",
    "w": "r² = 49 ⇔ r = 7 cm. d = 14 cm.",
-   "h": "Erst r aus r² = 49, dann verdoppeln."
-  },
-  {
-   "l": "exakt",
-   "t": "exakt",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Eine Figur besteht aus einem Quadrat (Seite 8 cm) und einem aufgesetzten Halbkreis über der oberen Seite. Gib den Umfang der Figur exakt an.",
-    "schablone": "u = □ + □ · π cm",
-    "hinweis": "Je Lücke eine ganze Zahl."
-   },
-   "o": {
-    "werte": [
-     24,
-     4
-    ]
-   },
-   "c": [
-    "3 * 8",
-    "8 / 2"
-   ],
-   "w": "Drei Quadratseiten: 3 · 8 = 24 cm (die obere liegt innen). Halbkreisbogen: π · 8 : 2 = 4π cm. u = 24 + 4π cm.",
-   "h": "Welche Seiten gehören zum Rand? Der Halbkreis hat den halben Umfang eines Kreises mit d = 8 cm."
+   "h": "Erst r aus r² = 49, dann verdoppeln.",
+   "g": "umkehr"
   },
   {
    "l": "exakt",
@@ -2324,23 +2490,8 @@
     "4**2 / 2"
    ],
    "w": "Quadrat: 64 cm². Halbkreis mit r = 4 cm: π · 16 : 2 = 8π cm². A = 64 + 8π cm².",
-   "h": "Der Radius des Halbkreises ist 4 cm."
-  },
-  {
-   "l": "exakt",
-   "t": "exakt",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kreis hat den Umfang 12π cm. Ein zweiter Kreis hat doppelt so viel Fläche. Gib die Fläche des zweiten Kreises exakt an: A = □ · π cm². Welche Zahl?"
-   },
-   "o": {
-    "wert": 72
-   },
-   "c": "2 * 6**2",
-   "w": "r = 6 cm, A₁ = 36π cm². Doppelte Fläche: 72π cm². (Achtung: nicht den Radius verdoppeln – das gäbe die vierfache Fläche.)",
-   "h": "Bestimme zuerst A₁."
+   "h": "Der Radius des Halbkreises ist 4 cm.",
+   "g": "pruefung"
   },
   {
    "l": "exakt",
@@ -2356,7 +2507,103 @@
    },
    "c": "8 / 4",
    "w": "Der Draht ist der Umfang: 4 · s = 8π cm ⇔ s = 2π cm (≈ 6,28 cm).",
-   "h": "π bleibt als Zeichen stehen, du teilst nur die Zahl davor."
+   "h": "π bleibt als Zeichen stehen, du teilst nur die Zahl davor.",
+   "g": "transfer"
+  },
+  {
+   "l": "exakt",
+   "t": "exakt",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Was bedeutet es, die Fläche „exakt“ als A = 25π cm² anzugeben?"
+   },
+   "a": [
+    "Man rundet auf ganze Zahlen.",
+    "π bleibt als Zeichen stehen, es wird nicht gerundet.",
+    "Man gibt nur den Radius an.",
+    "Man rechnet mit π = 3."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Jede Dezimalnäherung von π ist ungenau. Mit dem Zeichen π bleibt das Ergebnis genau.",
+   "h": "Wo entsteht beim Rechnen ein Rundungsfehler?"
+  },
+  {
+   "l": "exakt",
+   "t": "exakt",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "luecken",
+   "f": {
+    "text": "Eine runde Tischplatte hat 1 m Durchmesser. Gib ihren Flächeninhalt exakt an.",
+    "schablone": "A = □/□ · π m²",
+    "hinweis": "Bruch vor π."
+   },
+   "o": {
+    "werte": [
+     1,
+     4
+    ]
+   },
+   "c": [
+    "1",
+    "4"
+   ],
+   "w": "r = 1/2 m, A = π · (1/2)² = 1/4 · π m².",
+   "h": "Rechne mit dem Radius 1/2."
+  },
+  {
+   "l": "exakt",
+   "t": "exakt",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "luecken",
+   "f": {
+    "text": "An jede Seite eines Quadrats mit 4 cm Seitenlänge wird außen ein Halbkreis gesetzt. Gib den Umfang der entstehenden Figur exakt an.",
+    "schablone": "□ · π cm",
+    "hinweis": "Zahl vor π."
+   },
+   "o": {
+    "werte": [
+     8
+    ]
+   },
+   "c": [
+    "4 * 2"
+   ],
+   "w": "Der Rand besteht nur aus den vier Halbkreisbögen (die Quadratseiten liegen innen). Jeder Bogen ist π · 4 : 2 = 2π lang, zusammen 8π cm.",
+   "h": "Welche Linien bilden überhaupt den Rand?"
+  },
+  {
+   "l": "exakt",
+   "t": "exakt",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "luecken",
+   "f": {
+    "text": "An jede Seite eines Quadrats mit 4 cm Seitenlänge wird außen ein Halbkreis gesetzt. Gib den Flächeninhalt der ganzen Figur exakt an.",
+    "schablone": "□ + □ · π cm²",
+    "hinweis": "Zahl und Zahl vor π."
+   },
+   "o": {
+    "werte": [
+     16,
+     8
+    ]
+   },
+   "c": [
+    "4 * 4",
+    "4 * 2"
+   ],
+   "w": "Quadrat 16 cm². Jeder Halbkreis (r = 2) hat π · 4 : 2 = 2π cm². Vier Halbkreise: 8π. Zusammen 16 + 8π cm².",
+   "h": "Zerlege die Figur in Quadrat und vier Halbkreise."
   },
   {
    "l": "verstehen",
@@ -2372,7 +2619,30 @@
    },
    "c": "3",
    "w": "u = 2πr wächst wie r: Faktor 3.",
-   "h": "Setze für r einmal 1 und einmal 3 ein und vergleiche."
+   "h": "Setze für r einmal 1 und einmal 3 ein und vergleiche.",
+   "g": "direkt"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kreis hat r = 9 cm. Jemand rechnet u = π · 9. Was ist der Fehler?"
+   },
+   "a": [
+    "Die Rechnung ist richtig.",
+    "Statt des Radius wurde der Durchmesser quadriert.",
+    "Das ist die Formel für den Umfang, nicht für die Fläche.",
+    "Für den Umfang braucht man den Durchmesser: u = π · d = π · 18."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Für den Umfang braucht man den Durchmesser: u = π · d = π · 18. Richtig: u = 2π · 9, A = π · 9².",
+   "h": "Vergleiche mit u = 2πr und A = πr².",
+   "g": "fehler"
   },
   {
    "l": "verstehen",
@@ -2388,81 +2658,8 @@
    },
    "c": "3 ** 2",
    "w": "A = πr² wächst wie r²: Faktor 3² = 9.",
-   "h": "Setze für r einmal 1 und einmal 3 ein und vergleiche."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Der Radius eines Kreises wird vervierfacht. Mit welchem Faktor ändert sich der Flächeninhalt?"
-   },
-   "o": {
-    "wert": 16
-   },
-   "c": "4 ** 2",
-   "w": "A = πr² wächst wie r²: Faktor 4² = 16.",
-   "h": "Setze für r einmal 1 und einmal 4 ein und vergleiche."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Der Radius eines Kreises wird verdoppelt. Mit welchem Faktor ändert sich der Flächeninhalt?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "2 ** 2",
-   "w": "A = πr² wächst wie r²: Faktor 2² = 4.",
-   "h": "Setze für r einmal 1 und einmal 2 ein und vergleiche."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Kreis hat r = 9 cm. Jemand rechnet u = π · 9. Was ist der Fehler?"
-   },
-   "a": [
-    "Die Rechnung ist richtig.",
-    "Statt des Radius wurde der Durchmesser quadriert.",
-    "Das ist die Formel für den Umfang, nicht für die Fläche.",
-    "Für den Umfang braucht man den Durchmesser: u = π · d = π · 18."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Für den Umfang braucht man den Durchmesser: u = π · d = π · 18. Richtig: u = 2π · 9, A = π · 9².",
-   "h": "Vergleiche mit u = 2πr und A = πr²."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Kreis hat r = 7 cm. Jemand rechnet A = 2 · π · 7. Was ist der Fehler?"
-   },
-   "a": [
-    "Das ist die Formel für den Umfang, nicht für die Fläche.",
-    "Für den Umfang braucht man den Durchmesser: u = π · d = π · 14.",
-    "Die Rechnung ist richtig.",
-    "Statt des Radius wurde der Durchmesser quadriert."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Das ist die Formel für den Umfang, nicht für die Fläche. Richtig: u = 2π · 7, A = π · 7².",
-   "h": "Vergleiche mit u = 2πr und A = πr²."
+   "h": "Setze für r einmal 1 und einmal 3 ein und vergleiche.",
+   "g": "direkt"
   },
   {
    "l": "verstehen",
@@ -2479,28 +2676,64 @@
    },
    "c": "20 * 2 ** 2",
    "w": "Doppelter Radius heißt vierfache Fläche: 4 · 20 cm² = 80 cm².",
-   "h": "Die Fläche wächst mit r²."
+   "h": "Die Fläche wächst mit r².",
+   "g": "mehrschritt"
   },
   {
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Der Radius eines Kreises wird vervierfacht. Mit welchem Faktor ändert sich der Flächeninhalt?"
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "4 ** 2",
+   "w": "A = πr² wächst wie r²: Faktor 4² = 16.",
+   "h": "Setze für r einmal 1 und einmal 4 ein und vergleiche.",
+   "g": "direkt"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Ein Kreis hat r = 4 cm. Jemand rechnet A = 2 · π · 4. Was ist der Fehler?"
+    "text": "Ein Kreis hat r = 7 cm. Jemand rechnet A = 2 · π · 7. Was ist der Fehler?"
    },
    "a": [
-    "Die Rechnung ist richtig.",
     "Das ist die Formel für den Umfang, nicht für die Fläche.",
-    "Für den Umfang braucht man den Durchmesser: u = π · d = π · 8.",
+    "Für den Umfang braucht man den Durchmesser: u = π · d = π · 14.",
+    "Die Rechnung ist richtig.",
     "Statt des Radius wurde der Durchmesser quadriert."
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
-   "w": "Das ist die Formel für den Umfang, nicht für die Fläche. Richtig: u = 2π · 4, A = π · 4².",
-   "h": "Vergleiche mit u = 2πr und A = πr²."
+   "w": "Das ist die Formel für den Umfang, nicht für die Fläche. Richtig: u = 2π · 7, A = π · 7².",
+   "h": "Vergleiche mit u = 2πr und A = πr².",
+   "g": "fehler"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Der Radius eines Kreises wird verdoppelt. Mit welchem Faktor ändert sich der Flächeninhalt?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "2 ** 2",
+   "w": "A = πr² wächst wie r²: Faktor 2² = 4.",
+   "h": "Setze für r einmal 1 und einmal 2 ein und vergleiche.",
+   "g": "direkt"
   },
   {
    "l": "verstehen",
@@ -2516,13 +2749,98 @@
    },
    "c": "(3/2) ** 2",
    "w": "Der Radius ändert sich mit dem Faktor 1,5. Die Fläche wächst wie r²: 1,5² = 2,25.",
-   "h": "Die Fläche hängt von r² ab. Quadriere den Faktor."
+   "h": "Die Fläche hängt von r² ab. Quadriere den Faktor.",
+   "g": "mehrschritt"
   },
   {
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Kreis hat den größeren Flächeninhalt: einer mit r = 8 cm oder einer mit u = 48 cm?"
+   },
+   "a": [
+    "Der Kreis mit r = 8 cm",
+    "Beide sind gleich groß.",
+    "Der Kreis mit u = 48 cm",
+    "Das kann man nicht vergleichen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Aus u = 48 cm folgt r = 48 : (2π) ≈ 7,64 cm. Der größere Radius gibt die größere Fläche.",
+   "h": "Berechne aus dem Umfang den Radius.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis soll doppelt so viel Fläche bekommen. Mit welcher Zahl muss man seinen Radius malnehmen? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 1.41,
+    "toleranz": 0.01
+   },
+   "c": "round(1.41, 2)",
+   "w": "Die Fläche wächst mit dem Quadrat des Faktors. Gesucht ist k mit k · k = 2: 1,41 · 1,41 ≈ 1,99, 1,42 · 1,42 ≈ 2,02. Also k ≈ 1,41 – nicht 2.",
+   "h": "Welche Zahl ergibt mit sich selbst malgenommen 2?",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Pizza mit 30 cm Durchmesser kostet doppelt so viel wie eine mit 15 cm. Ist die große Pizza günstiger?"
+   },
+   "a": [
+    "Nein: Doppelter Preis für doppelte Größe ist gleich teuer.",
+    "Ja: Sie hat die vierfache Fläche zum doppelten Preis.",
+    "Das kann man ohne π nicht sagen.",
+    "Nein: Die kleine hat mehr Rand."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Doppelter Durchmesser gibt 2² = 4-fache Fläche. Für den doppelten Preis bekommt man also viermal so viel Pizza.",
+   "h": "Wie ändert sich die Fläche bei doppeltem Durchmesser?",
+   "g": "transfer"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kreis hat r = 4 cm. Jemand rechnet A = 2 · π · 4. Was ist der Fehler?"
+   },
+   "a": [
+    "Die Rechnung ist richtig.",
+    "Das ist die Formel für den Umfang, nicht für die Fläche.",
+    "Für den Umfang braucht man den Durchmesser: u = π · d = π · 8.",
+    "Statt des Radius wurde der Durchmesser quadriert."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Das ist die Formel für den Umfang, nicht für die Fläche. Richtig: u = 2π · 4, A = π · 4².",
+   "h": "Vergleiche mit u = 2πr und A = πr².",
+   "g": "fehler"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
    "y": "auswahl",
    "f": {
     "text": "Ein Kreis hat r = 9 cm. Jemand rechnet A = π · 18². Was ist der Fehler?"
@@ -2546,27 +2864,6 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welcher Kreis hat den größeren Flächeninhalt: einer mit r = 8 cm oder einer mit u = 48 cm?"
-   },
-   "a": [
-    "Der Kreis mit r = 8 cm",
-    "Beide sind gleich groß.",
-    "Der Kreis mit u = 48 cm",
-    "Das kann man nicht vergleichen."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Aus u = 48 cm folgt r = 48 : (2π) ≈ 7,64 cm. Der größere Radius gibt die größere Fläche.",
-   "h": "Berechne aus dem Umfang den Radius."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
     "text": "Welcher Kreis hat den größeren Flächeninhalt: einer mit r = 7 cm oder einer mit u = 38 cm?"
    },
    "a": [
@@ -2579,41 +2876,8 @@
     "index": 2
    },
    "w": "Aus u = 38 cm folgt r = 38 : (2π) ≈ 6,05 cm. Der größere Radius gibt die größere Fläche.",
-   "h": "Berechne aus dem Umfang den Radius."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kreis soll doppelt so viel Fläche bekommen. Mit welcher Zahl muss man seinen Radius malnehmen? Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 1.41,
-    "toleranz": 0.01
-   },
-   "c": "round(1.41, 2)",
-   "w": "Die Fläche wächst mit dem Quadrat des Faktors. Gesucht ist k mit k · k = 2: 1,41 · 1,41 ≈ 1,99, 1,42 · 1,42 ≈ 2,02. Also k ≈ 1,41 – nicht 2.",
-   "h": "Welche Zahl ergibt mit sich selbst malgenommen 2?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein großer Kreis hat 9-mal so viel Fläche wie ein kleiner Kreis mit r = 2 cm. Welchen Radius hat der große Kreis?"
-   },
-   "o": {
-    "wert": 6,
-    "einheit": "cm"
-   },
-   "c": "2 * 3",
-   "w": "9-fache Fläche heißt Radius mal 3, denn 3² = 9. Also r = 3 · 2 cm = 6 cm.",
-   "h": "Rechne rückwärts: Welcher Faktor ergibt quadriert 9?"
+   "h": "Berechne aus dem Umfang den Radius.",
+   "g": "verknuepfen"
   },
   {
    "l": "verstehen",
@@ -2809,6 +3073,24 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein großer Kreis hat 9-mal so viel Fläche wie ein kleiner Kreis mit r = 2 cm. Welchen Radius hat der große Kreis?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "2 * 3",
+   "w": "9-fache Fläche heißt Radius mal 3, denn 3² = 9. Also r = 3 · 2 cm = 6 cm.",
+   "h": "Rechne rückwärts: Welcher Faktor ergibt quadriert 9?",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -2819,7 +3101,8 @@
    },
    "c": "0.5**2",
    "w": "Halber Durchmesser heißt halber Radius: Fläche · 0,5² = · 0,25.",
-   "h": "Die Fläche hängt von r² ab."
+   "h": "Die Fläche hängt von r² ab.",
+   "g": "mehrschritt"
   },
   {
    "l": "verstehen",
@@ -2835,28 +3118,8 @@
    },
    "c": "2**2",
    "w": "Doppelter Umfang heißt doppelter Radius. Fläche · 2² = · 4.",
-   "h": "Was passiert mit r, wenn u doppelt so groß wird?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Pizza mit 30 cm Durchmesser kostet doppelt so viel wie eine mit 15 cm. Ist die große Pizza günstiger?"
-   },
-   "a": [
-    "Nein: Doppelter Preis für doppelte Größe ist gleich teuer.",
-    "Ja: Sie hat die vierfache Fläche zum doppelten Preis.",
-    "Das kann man ohne π nicht sagen.",
-    "Nein: Die kleine hat mehr Rand."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Doppelter Durchmesser gibt 2² = 4-fache Fläche. Für den doppelten Preis bekommt man also viermal so viel Pizza.",
-   "h": "Wie ändert sich die Fläche bei doppeltem Durchmesser?"
+   "h": "Was passiert mit r, wenn u doppelt so groß wird?",
+   "g": "umkehr"
   },
   {
    "l": "verstehen",
@@ -2872,7 +3135,8 @@
    },
    "c": "50**2",
    "w": "Jede Länge ist 50-mal so groß, also auch der Radius. Fläche: 50² = 2 500-mal so groß.",
-   "h": "Die Fläche hängt vom Quadrat des Radius ab."
+   "h": "Die Fläche hängt vom Quadrat des Radius ab.",
+   "g": "transfer"
   },
   {
    "l": "verstehen",
@@ -2889,13 +3153,14 @@
    },
    "c": "(1.1**2 - 1) * 100",
    "w": "Neuer Radius 1,1 · r. Fläche · 1,1² = · 1,21. Das ist ein Zuwachs um 21 %, nicht um 10 % oder 20 %.",
-   "h": "Rechne mit dem Faktor 1,1."
+   "h": "Rechne mit dem Faktor 1,1.",
+   "g": "pruefung"
   },
   {
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Der Radius eines Kreises wird um 1 cm vergrößert. Um wie viel wächst der Umfang? Runde auf zwei Nachkommastellen."
@@ -2907,73 +3172,110 @@
    },
    "c": "round(2 * 3.141592653589793 * 1, 2)",
    "w": "u = 2πr. Neuer Umfang 2π(r + 1) = 2πr + 2π. Er wächst um 2π ≈ 6,28 cm – bei jedem Kreis, egal wie groß.",
-   "h": "Rechne 2π(r + 1) aus."
+   "h": "Rechne 2π(r + 1) aus.",
+   "g": "direkt"
   },
   {
-   "l": "sektor",
-   "t": "sektor",
+   "l": "verstehen",
+   "t": "verstehen",
    "p": "uebung",
    "s": 1,
-   "y": "zahl",
+   "g": "erkennen",
+   "y": "auswahl",
    "f": {
-    "text": "Ein Kreisausschnitt hat den Mittelpunktswinkel 90°. Welcher Anteil des Kreises ist das? Gib ihn als Dezimalzahl an."
+    "text": "Wenn der Radius doppelt so groß wird, wird der Umfang …"
    },
+   "a": [
+    "halb so groß",
+    "viermal so groß",
+    "doppelt so groß",
+    "gleich groß"
+   ],
    "o": {
-    "wert": 0.25
+    "index": 2
    },
-   "c": "90 / 360",
-   "w": "Anteil = 90° : 360° = 0,25.",
-   "h": "Teile den Winkel durch 360°."
+   "w": "u = 2πr wächst im gleichen Verhältnis wie r.",
+   "h": "Steht r in der Umfangsformel quadriert?"
   },
   {
-   "l": "sektor",
-   "t": "sektor",
+   "l": "verstehen",
+   "t": "verstehen",
    "p": "uebung",
-   "s": 1,
-   "y": "zahl",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "auswahl",
    "f": {
-    "text": "Ein Kreisausschnitt hat den Mittelpunktswinkel 72°. Welcher Anteil des Kreises ist das? Gib ihn als Dezimalzahl an."
+    "text": "Eine Pizzeria verdoppelt den Durchmesser ihrer runden Pizza (gleiche Dicke). Wie viel Teig braucht sie dann?"
    },
+   "a": [
+    "genauso viel",
+    "doppelt so viel",
+    "dreimal so viel",
+    "viermal so viel"
+   ],
    "o": {
-    "wert": 0.2
+    "index": 3
    },
-   "c": "72 / 360",
-   "w": "Anteil = 72° : 360° = 0,2.",
-   "h": "Teile den Winkel durch 360°."
+   "w": "Die Teigmenge hängt von der Fläche ab; doppelter Durchmesser heißt vierfache Fläche.",
+   "h": "Wovon hängt die Teigmenge ab?"
   },
   {
-   "l": "sektor",
-   "t": "sektor",
+   "l": "verstehen",
+   "t": "verstehen",
    "p": "uebung",
-   "s": 1,
-   "y": "zahl",
+   "s": 2,
+   "g": "darstellung",
+   "y": "auswahl",
    "f": {
-    "text": "Ein Kreisausschnitt hat den Mittelpunktswinkel 30°. Wie viel Prozent des Kreises sind das? (Runde auf eine Nachkommastelle.)"
+    "text": "Eine Tabelle zeigt r = 1, 2, 3 cm und A ≈ 3,1; 12,6; 28,3 cm². Wie wächst A?"
    },
+   "a": [
+    "gleichmäßig um 9,4 cm²",
+    "mit dem Quadrat von r, im Verhältnis 1 : 4 : 9",
+    "im Verhältnis 1 : 2 : 3",
+    "mit dem Doppelten von r"
+   ],
    "o": {
-    "wert": 8.3,
-    "einheit": "%",
-    "toleranz": 0.1
+    "index": 1
    },
-   "c": "round(30 / 360 * 100, 1)",
-   "w": "Anteil = 30° : 360° = 1/12 ≈ 8,3 %.",
-   "h": "Teile den Winkel durch 360°."
+   "w": "12,6 : 3,1 ≈ 4 und 28,3 : 3,1 ≈ 9 – das sind 2² und 3².",
+   "h": "Teile die Flächen durch die erste."
   },
   {
-   "l": "sektor",
-   "t": "sektor",
-   "p": "uebung",
-   "s": 1,
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
    "y": "zahl",
    "f": {
-    "text": "Ein Kreisausschnitt hat den Mittelpunktswinkel 45°. Welcher Anteil des Kreises ist das? Gib ihn als Dezimalzahl an."
+    "text": "Der Radius eines Kreises wird um 20 % verkleinert. Um wie viel Prozent nimmt der Flächeninhalt ab?"
    },
    "o": {
-    "wert": 0.125
+    "wert": 36,
+    "einheit": "%"
    },
-   "c": "45 / 360",
-   "w": "Anteil = 45° : 360° = 0,125.",
-   "h": "Teile den Winkel durch 360°."
+   "c": "100 - (8/10)**2 * 100",
+   "w": "Neuer Radius 0,8 · r, neue Fläche 0,8² = 0,64 der alten. Abnahme 36 % – nicht 20 % und nicht 40 %.",
+   "h": "Mit welchem Faktor wird die Fläche multipliziert?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Drei Kreise haben die Radien 3 cm, 4 cm und r. Die Fläche des dritten ist so groß wie die der beiden anderen zusammen. Bestimme r."
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "cm"
+   },
+   "c": "5",
+   "w": "π · r² = π · 9 + π · 16 = 25π ⇒ r² = 25 ⇒ r = 5 cm.",
+   "h": "Schreibe die Flächen mit π und teile durch π."
   },
   {
    "l": "sektor",
@@ -2991,25 +3293,25 @@
    },
    "c": "round(120 / 360 * 3.141592653589793 * 2 ** 2, 1)",
    "w": "A = 120/360 · π · 2² ≈ 4,2 cm².",
-   "h": "Fläche = Anteil · ganze Kreisfläche."
+   "h": "Fläche = Anteil · ganze Kreisfläche.",
+   "g": "mehrschritt"
   },
   {
    "l": "sektor",
    "t": "sektor",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Kreisausschnitt hat r = 12 cm und α = 60°. Berechne seinen Flächeninhalt. Runde auf eine Nachkommastelle."
+    "text": "Ein Kreisausschnitt hat den Mittelpunktswinkel 90°. Welcher Anteil des Kreises ist das? Gib ihn als Dezimalzahl an."
    },
    "o": {
-    "wert": 75.4,
-    "einheit": "cm²",
-    "toleranz": 0.1
+    "wert": 0.25
    },
-   "c": "round(60 / 360 * 3.141592653589793 * 12 ** 2, 1)",
-   "w": "A = 60/360 · π · 12² ≈ 75,4 cm².",
-   "h": "Fläche = Anteil · ganze Kreisfläche."
+   "c": "90 / 360",
+   "w": "Anteil = 90° : 360° = 0,25.",
+   "h": "Teile den Winkel durch 360°.",
+   "g": "direkt"
   },
   {
    "l": "sektor",
@@ -3045,7 +3347,8 @@
    },
    "c": "round(300 / 360 * 2 * 3.141592653589793 * 15, 1)",
    "w": "b = 300/360 · 2π · 15 ≈ 78,5 cm.",
-   "h": "Bogen = Anteil · Umfang."
+   "h": "Bogen = Anteil · Umfang.",
+   "g": "mehrschritt"
   },
   {
    "l": "sektor",
@@ -3064,6 +3367,79 @@
    "c": "round(135 / 360 * 3.141592653589793 * 15 ** 2, 1)",
    "w": "A = 135/360 · π · 15² ≈ 265,1 cm².",
    "h": "Fläche = Anteil · ganze Kreisfläche."
+  },
+  {
+   "l": "sektor",
+   "t": "sektor",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreisausschnitt mit r = 3 cm hat die Bogenlänge 3π cm. Wie groß ist der Mittelpunktswinkel?"
+   },
+   "o": {
+    "wert": 180,
+    "einheit": "°"
+   },
+   "c": "3 / (2 * 3) * 360",
+   "w": "Ganzer Umfang: 2π · 3 = 6π cm. Anteil: 3π : 6π = 0,5. Winkel: 0,5 · 360° = 180°.",
+   "h": "Welcher Anteil des ganzen Umfangs ist der Bogen?",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "sektor",
+   "t": "sektor",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreisausschnitt hat den Mittelpunktswinkel 72°. Welcher Anteil des Kreises ist das? Gib ihn als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.2
+   },
+   "c": "72 / 360",
+   "w": "Anteil = 72° : 360° = 0,2.",
+   "h": "Teile den Winkel durch 360°.",
+   "g": "direkt"
+  },
+  {
+   "l": "sektor",
+   "t": "sektor",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreisausschnitt hat r = 12 cm und α = 60°. Berechne seinen Flächeninhalt. Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 75.4,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(60 / 360 * 3.141592653589793 * 12 ** 2, 1)",
+   "w": "A = 60/360 · π · 12² ≈ 75,4 cm².",
+   "h": "Fläche = Anteil · ganze Kreisfläche.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "sektor",
+   "t": "sektor",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Scheibenwischer ist 55 cm lang und überstreicht 120°. Die inneren 12 cm wischen nicht. Wie groß ist die gewischte Fläche? Runde auf ganze cm²."
+   },
+   "o": {
+    "wert": 3017,
+    "einheit": "cm²",
+    "toleranz": 1
+   },
+   "c": "round(120 / 360 * 3.141592653589793 * (55 ** 2 - 12 ** 2), 0)",
+   "w": "Gewischt wird ein Ausschnitt aus einem Kreisring: 120/360 · π · (55² − 12²) = 120/360 · π · 2881 ≈ 3017 cm².",
+   "h": "Ausschnitt eines Kreisrings: Anteil · π · (R² − r²).",
+   "g": "transfer"
   },
   {
    "l": "sektor",
@@ -3090,33 +3466,51 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Scheibenwischer ist 55 cm lang und überstreicht 120°. Die inneren 12 cm wischen nicht. Wie groß ist die gewischte Fläche? Runde auf ganze cm²."
+    "text": "Ein Kreisausschnitt mit r = 4 cm hat den Flächeninhalt 4π cm². Wie groß ist der Mittelpunktswinkel?"
    },
    "o": {
-    "wert": 3017,
-    "einheit": "cm²",
-    "toleranz": 1
+    "wert": 90,
+    "einheit": "°"
    },
-   "c": "round(120 / 360 * 3.141592653589793 * (55 ** 2 - 12 ** 2), 0)",
-   "w": "Gewischt wird ein Ausschnitt aus einem Kreisring: 120/360 · π · (55² − 12²) = 120/360 · π · 2881 ≈ 3017 cm².",
-   "h": "Ausschnitt eines Kreisrings: Anteil · π · (R² − r²)."
+   "c": "4 / 16 * 360",
+   "w": "Ganzer Kreis: π · 4² = 16π cm². Anteil: 4π : 16π = 0,25. Winkel: 0,25 · 360° = 90°.",
+   "h": "Welcher Anteil der ganzen Kreisfläche ist der Ausschnitt?",
+   "g": "rueckwaerts"
   },
   {
    "l": "sektor",
    "t": "sektor",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Kreisausschnitt mit r = 3 cm hat die Bogenlänge 3π cm. Wie groß ist der Mittelpunktswinkel?"
+    "text": "Ein Kreisausschnitt hat den Mittelpunktswinkel 30°. Wie viel Prozent des Kreises sind das? (Runde auf eine Nachkommastelle.)"
    },
    "o": {
-    "wert": 180,
-    "einheit": "°"
+    "wert": 8.3,
+    "einheit": "%",
+    "toleranz": 0.1
    },
-   "c": "3 / (2 * 3) * 360",
-   "w": "Ganzer Umfang: 2π · 3 = 6π cm. Anteil: 3π : 6π = 0,5. Winkel: 0,5 · 360° = 180°.",
-   "h": "Welcher Anteil des ganzen Umfangs ist der Bogen?"
+   "c": "round(30 / 360 * 100, 1)",
+   "w": "Anteil = 30° : 360° = 1/12 ≈ 8,3 %.",
+   "h": "Teile den Winkel durch 360°.",
+   "g": "direkt"
+  },
+  {
+   "l": "sektor",
+   "t": "sektor",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreisausschnitt hat den Mittelpunktswinkel 45°. Welcher Anteil des Kreises ist das? Gib ihn als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.125
+   },
+   "c": "45 / 360",
+   "w": "Anteil = 45° : 360° = 0,125.",
+   "h": "Teile den Winkel durch 360°."
   },
   {
    "l": "sektor",
@@ -3135,23 +3529,6 @@
    "c": "round(210 / 360 * 3.141592653589793 * (19/10) ** 2, 1)",
    "w": "A = 210/360 · π · 1,9² ≈ 6,6 cm².",
    "h": "Fläche = Anteil · ganze Kreisfläche."
-  },
-  {
-   "l": "sektor",
-   "t": "sektor",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kreisausschnitt mit r = 4 cm hat den Flächeninhalt 4π cm². Wie groß ist der Mittelpunktswinkel?"
-   },
-   "o": {
-    "wert": 90,
-    "einheit": "°"
-   },
-   "c": "4 / 16 * 360",
-   "w": "Ganzer Kreis: π · 4² = 16π cm². Anteil: 4π : 16π = 0,25. Winkel: 0,25 · 360° = 90°.",
-   "h": "Welcher Anteil der ganzen Kreisfläche ist der Ausschnitt?"
   },
   {
    "l": "sektor",
@@ -3339,7 +3716,8 @@
    },
    "c": "round(2 * 3.141592653589793 * 10 * 36 / 360, 1)",
    "w": "b = 2π · 10 · 36/360 = 2π ≈ 6,3 cm.",
-   "h": "36° ist ein Zehntel des Vollkreises."
+   "h": "36° ist ein Zehntel des Vollkreises.",
+   "g": "mehrschritt"
   },
   {
    "l": "sektor",
@@ -3357,7 +3735,8 @@
    },
    "c": "round(3.141592653589793 * 15**2 / 8, 1)",
    "w": "Ganze Pizza: π · 15² ≈ 706,9 cm². Ein Achtel ≈ 88,4 cm².",
-   "h": "Radius 15 cm. Dann durch 8."
+   "h": "Radius 15 cm. Dann durch 8.",
+   "g": "einkleidung"
   },
   {
    "l": "sektor",
@@ -3375,7 +3754,8 @@
    },
    "c": "round(2 * 3.141592653589793 * 12 / 3, 1)",
    "w": "20 Minuten sind ein Drittel der Stunde (120°). Weg = 2π · 12 : 3 = 8π ≈ 25,1 cm.",
-   "h": "Welcher Teil des Kreises ist das?"
+   "h": "Welcher Teil des Kreises ist das?",
+   "g": "transfer"
   },
   {
    "l": "sektor",
@@ -3392,7 +3772,8 @@
    },
    "c": "0.15 * 360",
    "w": "15 % von 360° = 0,15 · 360° = 54°.",
-   "h": "Der ganze Kreis sind 100 % = 360°."
+   "h": "Der ganze Kreis sind 100 % = 360°.",
+   "g": "verknuepfen"
   },
   {
    "l": "sektor",
@@ -3409,7 +3790,8 @@
    },
    "c": "4 / 36 * 360",
    "w": "Kleiner Kreis: 4π. Großer Kreis: 36π. Anteil 4π : 36π = 1/9. α = 360° : 9 = 40°.",
-   "h": "Rechne mit π als Zeichen."
+   "h": "Rechne mit π als Zeichen.",
+   "g": "rueckwaerts"
   },
   {
    "l": "sektor",
@@ -3427,121 +3809,106 @@
    },
    "c": "round(2 * 3.141592653589793 * 4 / 4 + 2 * 4, 1)",
    "w": "Bogen: 2π · 4 : 4 = 2π ≈ 6,28 cm. Dazu zwei Radien: 8 cm. Rand ≈ 14,3 cm.",
-   "h": "Der Rand besteht nicht nur aus dem Bogen."
+   "h": "Der Rand besteht nicht nur aus dem Bogen.",
+   "g": "pruefung"
   },
   {
-   "l": "zusammengesetzt",
-   "t": "zusammengesetzt",
+   "l": "sektor",
+   "t": "sektor",
    "p": "uebung",
    "s": 1,
-   "y": "zahl",
+   "g": "erkennen",
+   "y": "auswahl",
    "f": {
-    "text": "Ein Kreisring hat den Außenradius 13 cm und den Innenradius 5 cm. Berechne seinen Flächeninhalt. Runde auf eine Nachkommastelle.",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "M": [
-       0,
-       0
-      ],
-      "_P": [
-       13,
-       0
-      ],
-      "_Q": [
-       0,
-       5
-      ]
-     },
-     "linien": [
-      [
-       "M",
-       "_P",
-       "R = 13 cm"
-      ],
-      [
-       "M",
-       "_Q",
-       "r = 5 cm"
-      ]
-     ],
-     "kreise": [
-      {
-       "m": "M",
-       "r": 13
-      },
-      {
-       "m": "M",
-       "r": 5
-      }
-     ]
-    }
+    "text": "Welcher Mittelpunktswinkel gehört zu einem Viertelkreis?"
    },
+   "a": [
+    "90°",
+    "45°",
+    "180°",
+    "25°"
+   ],
    "o": {
-    "wert": 452.4,
-    "einheit": "cm²",
-    "toleranz": 0.1
+    "index": 0
    },
-   "c": "round(3.141592653589793 * (13 ** 2 - 5 ** 2), 1)",
-   "w": "A = π · (13² − 5²) = π · 144 ≈ 452,4 cm².",
-   "h": "Großer Kreis minus kleiner Kreis."
+   "w": "Ein Viertel von 360° sind 90°.",
+   "h": "Der ganze Kreis hat 360°."
   },
   {
-   "l": "zusammengesetzt",
-   "t": "zusammengesetzt",
+   "l": "sektor",
+   "t": "sektor",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
+   "g": "umkehr",
    "y": "zahl",
    "f": {
-    "text": "Ein Kreisring hat den Außenradius 14 cm und den Innenradius 2 cm. Berechne seinen Flächeninhalt. Runde auf eine Nachkommastelle.",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "M": [
-       0,
-       0
-      ],
-      "_P": [
-       14,
-       0
-      ],
-      "_Q": [
-       0,
-       2
-      ]
-     },
-     "linien": [
-      [
-       "M",
-       "_P",
-       "R = 14 cm"
-      ],
-      [
-       "M",
-       "_Q",
-       "r = 2 cm"
-      ]
-     ],
-     "kreise": [
-      {
-       "m": "M",
-       "r": 14
-      },
-      {
-       "m": "M",
-       "r": 2
-      }
-     ]
-    }
+    "text": "Ein Kreisausschnitt ist ein Drittel des ganzen Kreises. Wie groß ist sein Mittelpunktswinkel?"
    },
    "o": {
-    "wert": 603.2,
-    "einheit": "cm²",
-    "toleranz": 0.1
+    "wert": 120,
+    "einheit": "°"
    },
-   "c": "round(3.141592653589793 * (14 ** 2 - 2 ** 2), 1)",
-   "w": "A = π · (14² − 2²) = π · 192 ≈ 603,2 cm².",
-   "h": "Großer Kreis minus kleiner Kreis."
+   "c": "360 / 3",
+   "w": "360° : 3 = 120°.",
+   "h": "Der ganze Kreis hat 360°."
+  },
+  {
+   "l": "sektor",
+   "t": "sektor",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Für einen Ausschnitt mit α = 90° und r = 4 cm rechnet jemand A = 90 · π · 4². Was ist falsch?"
+   },
+   "a": [
+    "Der Anteil fehlt: A = 90/360 · π · 16 = 4π cm².",
+    "Nichts.",
+    "Es muss 90 · π · 4 heißen.",
+    "Es muss 360 · π · 4² heißen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der Ausschnitt ist der Anteil α/360 des Kreises, nicht das α-fache.",
+   "h": "Welcher Teil des Kreises ist der Ausschnitt?"
+  },
+  {
+   "l": "sektor",
+   "t": "sektor",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis wird in drei Ausschnitte geteilt, deren Winkel sich wie 1 : 2 : 3 verhalten. Wie groß ist der größte Winkel?"
+   },
+   "o": {
+    "wert": 180,
+    "einheit": "°"
+   },
+   "c": "360 * 3 / 6",
+   "w": "1 + 2 + 3 = 6 Teile zu je 60°. Der größte hat 3 · 60° = 180° – ein Halbkreis.",
+   "h": "Wie viele gleiche Teile sind es insgesamt?"
+  },
+  {
+   "l": "sektor",
+   "t": "sektor",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreisausschnitt mit r = 10 cm hat die Bogenlänge 10 cm. Wie groß ist sein Flächeninhalt?"
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "cm²"
+   },
+   "c": "10 * 10 / 2",
+   "w": "Der Bogen ist der Anteil b/u des Umfangs; denselben Anteil hat die Fläche: A = b/(2πr) · πr² = b · r : 2 = 10 · 10 : 2 = 50 cm². π kürzt sich weg.",
+   "h": "Welcher Anteil des Kreises ist der Ausschnitt – ausgedrückt über den Bogen?"
   },
   {
    "l": "zusammengesetzt",
@@ -3598,120 +3965,6 @@
    },
    "c": "round(3.141592653589793 * (15 ** 2 - 8 ** 2), 1)",
    "w": "A = π · (15² − 8²) = π · 161 ≈ 505,8 cm².",
-   "h": "Großer Kreis minus kleiner Kreis."
-  },
-  {
-   "l": "zusammengesetzt",
-   "t": "zusammengesetzt",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kreisring hat den Außenradius 13 cm und den Innenradius 4 cm. Berechne seinen Flächeninhalt. Runde auf eine Nachkommastelle.",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "M": [
-       0,
-       0
-      ],
-      "_P": [
-       13,
-       0
-      ],
-      "_Q": [
-       0,
-       4
-      ]
-     },
-     "linien": [
-      [
-       "M",
-       "_P",
-       "R = 13 cm"
-      ],
-      [
-       "M",
-       "_Q",
-       "r = 4 cm"
-      ]
-     ],
-     "kreise": [
-      {
-       "m": "M",
-       "r": 13
-      },
-      {
-       "m": "M",
-       "r": 4
-      }
-     ]
-    }
-   },
-   "o": {
-    "wert": 480.7,
-    "einheit": "cm²",
-    "toleranz": 0.1
-   },
-   "c": "round(3.141592653589793 * (13 ** 2 - 4 ** 2), 1)",
-   "w": "A = π · (13² − 4²) = π · 153 ≈ 480,7 cm².",
-   "h": "Großer Kreis minus kleiner Kreis."
-  },
-  {
-   "l": "zusammengesetzt",
-   "t": "zusammengesetzt",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kreisring hat den Außenradius 11 cm und den Innenradius 7 cm. Berechne seinen Flächeninhalt. Runde auf eine Nachkommastelle.",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "M": [
-       0,
-       0
-      ],
-      "_P": [
-       11,
-       0
-      ],
-      "_Q": [
-       0,
-       7
-      ]
-     },
-     "linien": [
-      [
-       "M",
-       "_P",
-       "R = 11 cm"
-      ],
-      [
-       "M",
-       "_Q",
-       "r = 7 cm"
-      ]
-     ],
-     "kreise": [
-      {
-       "m": "M",
-       "r": 11
-      },
-      {
-       "m": "M",
-       "r": 7
-      }
-     ]
-    }
-   },
-   "o": {
-    "wert": 226.2,
-    "einheit": "cm²",
-    "toleranz": 0.1
-   },
-   "c": "round(3.141592653589793 * (11 ** 2 - 7 ** 2), 1)",
-   "w": "A = π · (11² − 7²) = π · 72 ≈ 226,2 cm².",
    "h": "Großer Kreis minus kleiner Kreis."
   },
   {
@@ -3782,7 +4035,8 @@
    },
    "c": "round(3.141592653589793 * 14 ** 2 / 4 - 14 ** 2 / 2, 1)",
    "w": "Viertelkreis π · 14² : 4, Dreieck 14 · 14 : 2 = 98. A ≈ 55,9 cm².",
-   "h": "Viertelkreis minus Dreieck. Im Bild ist das Dreieck markiert; gesucht ist das Stück zwischen Sehne und Bogen."
+   "h": "Viertelkreis minus Dreieck. Im Bild ist das Dreieck markiert; gesucht ist das Stück zwischen Sehne und Bogen.",
+   "g": "mehrschritt"
   },
   {
    "l": "zusammengesetzt",
@@ -3791,7 +4045,7 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Kreisring hat den Außenradius 15 cm und den Innenradius 12 cm. Berechne seinen Flächeninhalt. Runde auf eine Nachkommastelle.",
+    "text": "Ein Kreisring hat den Außenradius 13 cm und den Innenradius 4 cm. Berechne seinen Flächeninhalt. Runde auf eine Nachkommastelle.",
     "grafik": {
      "typ": "figur",
      "punkte": {
@@ -3800,46 +4054,115 @@
        0
       ],
       "_P": [
-       15,
+       13,
        0
       ],
       "_Q": [
        0,
-       12
+       4
       ]
      },
      "linien": [
       [
        "M",
        "_P",
-       "R = 15 cm"
+       "R = 13 cm"
       ],
       [
        "M",
        "_Q",
-       "r = 12 cm"
+       "r = 4 cm"
       ]
      ],
      "kreise": [
       {
        "m": "M",
-       "r": 15
+       "r": 13
       },
       {
        "m": "M",
-       "r": 12
+       "r": 4
       }
      ]
     }
    },
    "o": {
-    "wert": 254.5,
+    "wert": 480.7,
     "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(3.141592653589793 * (15 ** 2 - 12 ** 2), 1)",
-   "w": "A = π · (15² − 12²) = π · 81 ≈ 254,5 cm².",
+   "c": "round(3.141592653589793 * (13 ** 2 - 4 ** 2), 1)",
+   "w": "A = π · (13² − 4²) = π · 153 ≈ 480,7 cm².",
    "h": "Großer Kreis minus kleiner Kreis."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In ein Quadrat mit Seitenlänge 11 cm wird ein Kreis gezeichnet, der alle vier Seiten berührt. Wie groß ist die Fläche außerhalb des Kreises im Quadrat? Runde auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       11,
+       0
+      ],
+      "C": [
+       11,
+       11
+      ],
+      "D": [
+       0,
+       11
+      ],
+      "_M": [
+       5.5,
+       5.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "11 cm"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "_M",
+       "r": 5.5
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 26,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(11 ** 2 - 3.141592653589793 * (11 / 2) ** 2, 1)",
+   "w": "Quadrat 121 cm², Kreis mit r = 5,5: π · 5,5². Differenz ≈ 26,0 cm².",
+   "h": "Der Kreis hat den Durchmesser = Seitenlänge.",
+   "g": "verknuepfen"
   },
   {
    "l": "zusammengesetzt",
@@ -3848,7 +4171,7 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Kreisring hat den Außenradius 14 cm und den Innenradius 12 cm. Berechne seinen Flächeninhalt. Runde auf eine Nachkommastelle.",
+    "text": "Ein Kreisring hat den Außenradius 11 cm und den Innenradius 7 cm. Berechne seinen Flächeninhalt. Runde auf eine Nachkommastelle.",
     "grafik": {
      "typ": "figur",
      "punkte": {
@@ -3857,46 +4180,123 @@
        0
       ],
       "_P": [
-       14,
+       11,
        0
       ],
       "_Q": [
        0,
-       12
+       7
       ]
      },
      "linien": [
       [
        "M",
        "_P",
-       "R = 14 cm"
+       "R = 11 cm"
       ],
       [
        "M",
        "_Q",
-       "r = 12 cm"
+       "r = 7 cm"
       ]
      ],
      "kreise": [
       {
        "m": "M",
-       "r": 14
+       "r": 11
       },
       {
        "m": "M",
-       "r": 12
+       "r": 7
       }
      ]
     }
    },
    "o": {
-    "wert": 163.4,
+    "wert": 226.2,
     "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(3.141592653589793 * (14 ** 2 - 12 ** 2), 1)",
-   "w": "A = π · (14² − 12²) = π · 52 ≈ 163,4 cm².",
+   "c": "round(3.141592653589793 * (11 ** 2 - 7 ** 2), 1)",
+   "w": "A = π · (11² − 7²) = π · 72 ≈ 226,2 cm².",
    "h": "Großer Kreis minus kleiner Kreis."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Laufbahn besteht aus zwei geraden Stücken von je 22 m und zwei Halbkreisen mit Radius 6 m. Wie lang ist eine Runde? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 81.7,
+    "einheit": "m",
+    "toleranz": 0.1
+   },
+   "c": "round(2 * 22 + 2 * 3.141592653589793 * 6, 1)",
+   "w": "Gerade: 2 · 22 = 44 m. Zwei Halbkreise = ein Kreis: 2π · 6. Zusammen ≈ 81,7 m.",
+   "h": "Zwei Halbkreise ergeben zusammen einen ganzen Kreis.",
+   "g": "transfer"
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreisring hat den Außenradius 13 cm und den Innenradius 5 cm. Berechne seinen Flächeninhalt. Runde auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_P": [
+       13,
+       0
+      ],
+      "_Q": [
+       0,
+       5
+      ]
+     },
+     "linien": [
+      [
+       "M",
+       "_P",
+       "R = 13 cm"
+      ],
+      [
+       "M",
+       "_Q",
+       "r = 5 cm"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 13
+      },
+      {
+       "m": "M",
+       "r": 5
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 452.4,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653589793 * (13 ** 2 - 5 ** 2), 1)",
+   "w": "A = π · (13² − 5²) = π · 144 ≈ 452,4 cm².",
+   "h": "Großer Kreis minus kleiner Kreis.",
+   "g": "direkt"
   },
   {
    "l": "zusammengesetzt",
@@ -3966,7 +4366,8 @@
    },
    "c": "round(3.141592653589793 * 11 ** 2 / 4 - 11 ** 2 / 2, 1)",
    "w": "Viertelkreis π · 11² : 4, Dreieck 11 · 11 : 2 = 60,5. A ≈ 34,5 cm².",
-   "h": "Viertelkreis minus Dreieck. Im Bild ist das Dreieck markiert; gesucht ist das Stück zwischen Sehne und Bogen."
+   "h": "Viertelkreis minus Dreieck. Im Bild ist das Dreieck markiert; gesucht ist das Stück zwischen Sehne und Bogen.",
+   "g": "mehrschritt"
   },
   {
    "l": "zusammengesetzt",
@@ -3975,7 +4376,7 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Kreisring hat den Außenradius 15 cm und den Innenradius 13 cm. Berechne seinen Flächeninhalt. Runde auf eine Nachkommastelle.",
+    "text": "Ein Kreisring hat den Außenradius 15 cm und den Innenradius 12 cm. Berechne seinen Flächeninhalt. Runde auf eine Nachkommastelle.",
     "grafik": {
      "typ": "figur",
      "punkte": {
@@ -3989,7 +4390,7 @@
       ],
       "_Q": [
        0,
-       13
+       12
       ]
      },
      "linien": [
@@ -4001,7 +4402,7 @@
       [
        "M",
        "_Q",
-       "r = 13 cm"
+       "r = 12 cm"
       ]
      ],
      "kreise": [
@@ -4011,18 +4412,18 @@
       },
       {
        "m": "M",
-       "r": 13
+       "r": 12
       }
      ]
     }
    },
    "o": {
-    "wert": 175.9,
+    "wert": 254.5,
     "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(3.141592653589793 * (15 ** 2 - 13 ** 2), 1)",
-   "w": "A = π · (15² − 13²) = π · 56 ≈ 175,9 cm².",
+   "c": "round(3.141592653589793 * (15 ** 2 - 12 ** 2), 1)",
+   "w": "A = π · (15² − 12²) = π · 81 ≈ 254,5 cm².",
    "h": "Großer Kreis minus kleiner Kreis."
   },
   {
@@ -4032,66 +4433,151 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "In ein Quadrat mit Seitenlänge 11 cm wird ein Kreis gezeichnet, der alle vier Seiten berührt. Wie groß ist die Fläche außerhalb des Kreises im Quadrat? Runde auf eine Nachkommastelle.",
+    "text": "Ein Fenster besteht aus einem Rechteck (1 m breit, 1,5 m hoch) mit einem aufgesetzten Halbkreis (Durchmesser 1 m). Berechne die Glasfläche. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 1.89,
+    "einheit": "m²",
+    "toleranz": 0.01
+   },
+   "c": "round(1 * 1.5 + 3.141592653589793 * 0.5**2 / 2, 2)",
+   "w": "Rechteck: 1,5 m². Halbkreis: π · 0,5² : 2 ≈ 0,39 m². Zusammen ≈ 1,89 m².",
+   "h": "Zerlege in Rechteck und Halbkreis.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreisring hat den Außenradius 14 cm und den Innenradius 2 cm. Berechne seinen Flächeninhalt. Runde auf eine Nachkommastelle.",
     "grafik": {
      "typ": "figur",
      "punkte": {
-      "A": [
+      "M": [
        0,
        0
       ],
-      "B": [
-       11,
+      "_P": [
+       14,
        0
       ],
-      "C": [
-       11,
-       11
-      ],
-      "D": [
+      "_Q": [
        0,
-       11
-      ],
-      "_M": [
-       5.5,
-       5.5
+       2
       ]
      },
      "linien": [
       [
-       "A",
-       "B",
-       "11 cm"
+       "M",
+       "_P",
+       "R = 14 cm"
       ],
       [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "D"
-      ],
-      [
-       "D",
-       "A"
+       "M",
+       "_Q",
+       "r = 2 cm"
       ]
      ],
      "kreise": [
       {
-       "m": "_M",
-       "r": 5.5
+       "m": "M",
+       "r": 14
+      },
+      {
+       "m": "M",
+       "r": 2
       }
      ]
     }
    },
    "o": {
-    "wert": 26,
+    "wert": 603.2,
     "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(11 ** 2 - 3.141592653589793 * (11 / 2) ** 2, 1)",
-   "w": "Quadrat 121 cm², Kreis mit r = 5,5: π · 5,5². Differenz ≈ 26,0 cm².",
-   "h": "Der Kreis hat den Durchmesser = Seitenlänge."
+   "c": "round(3.141592653589793 * (14 ** 2 - 2 ** 2), 1)",
+   "w": "A = π · (14² − 2²) = π · 192 ≈ 603,2 cm².",
+   "h": "Großer Kreis minus kleiner Kreis.",
+   "g": "direkt"
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Sportplatz besteht aus einem Rechteck (80 m × 60 m) und je einem Halbkreis an den beiden 60-m-Seiten. Wie groß ist die Rasenfläche? Runde auf ganze m²."
+   },
+   "o": {
+    "wert": 7627.0,
+    "einheit": "m²",
+    "toleranz": 1
+   },
+   "c": "round(80 * 60 + 3.141592653589793 * 30**2)",
+   "w": "Die zwei Halbkreise (r = 30 m) ergeben zusammen einen Kreis: π · 900 ≈ 2 827 m². Dazu 4 800 m². Gesamt ≈ 7 627 m².",
+   "h": "Zwei Halbkreise sind ein ganzer Kreis.",
+   "g": "transfer"
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreisring hat den Außenradius 14 cm und den Innenradius 12 cm. Berechne seinen Flächeninhalt. Runde auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_P": [
+       14,
+       0
+      ],
+      "_Q": [
+       0,
+       12
+      ]
+     },
+     "linien": [
+      [
+       "M",
+       "_P",
+       "R = 14 cm"
+      ],
+      [
+       "M",
+       "_Q",
+       "r = 12 cm"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 14
+      },
+      {
+       "m": "M",
+       "r": 12
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 163.4,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653589793 * (14 ** 2 - 12 ** 2), 1)",
+   "w": "A = π · (14² − 12²) = π · 52 ≈ 163,4 cm².",
+   "h": "Großer Kreis minus kleiner Kreis."
   },
   {
    "l": "zusammengesetzt",
@@ -4109,43 +4595,8 @@
    },
    "c": "round(3.141592653589793 * 20 + 2 * 20, 1)",
    "w": "Halber Umfang π · 20, dazu der Durchmesser 40 cm. Zusammen ≈ 102,8 cm.",
-   "h": "Der gerade Rand gehört auch dazu."
-  },
-  {
-   "l": "zusammengesetzt",
-   "t": "zusammengesetzt",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Laufbahn besteht aus zwei geraden Stücken von je 22 m und zwei Halbkreisen mit Radius 6 m. Wie lang ist eine Runde? Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 81.7,
-    "einheit": "m",
-    "toleranz": 0.1
-   },
-   "c": "round(2 * 22 + 2 * 3.141592653589793 * 6, 1)",
-   "w": "Gerade: 2 · 22 = 44 m. Zwei Halbkreise = ein Kreis: 2π · 6. Zusammen ≈ 81,7 m.",
-   "h": "Zwei Halbkreise ergeben zusammen einen ganzen Kreis."
-  },
-  {
-   "l": "zusammengesetzt",
-   "t": "zusammengesetzt",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kreisring soll 100 cm² groß sein. Der Innenradius ist 3 cm. Wie groß muss der Außenradius sein? Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 6.4,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(6.4, 1)",
-   "w": "π · R² − π · 3² = 100, also R² = 100 : π + 9 ≈ 31,8 + 9 = 40,8. Da 6,4 · 6,4 ≈ 41,0 und 6,3 · 6,3 ≈ 39,7 sind, ist R ≈ 6,4 cm.",
-   "h": "Ringfläche = große Kreisfläche minus kleine. Rechne rückwärts."
+   "h": "Der gerade Rand gehört auch dazu.",
+   "g": "pruefung"
   },
   {
    "l": "zusammengesetzt",
@@ -4841,6 +5292,82 @@
    "l": "zusammengesetzt",
    "t": "zusammengesetzt",
    "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreisring hat den Außenradius 15 cm und den Innenradius 13 cm. Berechne seinen Flächeninhalt. Runde auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_P": [
+       15,
+       0
+      ],
+      "_Q": [
+       0,
+       13
+      ]
+     },
+     "linien": [
+      [
+       "M",
+       "_P",
+       "R = 15 cm"
+      ],
+      [
+       "M",
+       "_Q",
+       "r = 13 cm"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 15
+      },
+      {
+       "m": "M",
+       "r": 13
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 175.9,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653589793 * (15 ** 2 - 13 ** 2), 1)",
+   "w": "A = π · (15² − 13²) = π · 56 ≈ 175,9 cm².",
+   "h": "Großer Kreis minus kleiner Kreis."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreisring soll 100 cm² groß sein. Der Innenradius ist 3 cm. Wie groß muss der Außenradius sein? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 6.4,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(6.4, 1)",
+   "w": "π · R² − π · 3² = 100, also R² = 100 : π + 9 ≈ 31,8 + 9 = 40,8. Da 6,4 · 6,4 ≈ 41,0 und 6,3 · 6,3 ≈ 39,7 sind, ist R ≈ 6,4 cm.",
+   "h": "Ringfläche = große Kreisfläche minus kleine. Rechne rückwärts.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -4853,7 +5380,8 @@
    },
    "c": "round(3.141592653589793 * (5**2 - 3**2), 1)",
    "w": "Radien 5 cm und 3 cm. A = π · (25 − 9) = 16π ≈ 50,3 cm².",
-   "h": "Achtung: Durchmesser gegeben – erst halbieren."
+   "h": "Achtung: Durchmesser gegeben – erst halbieren.",
+   "g": "umkehr"
   },
   {
    "l": "zusammengesetzt",
@@ -4871,43 +5399,8 @@
    },
    "c": "round(3.141592653589793 * 6**2 / 2, 1)",
    "w": "r = 6 cm. Halber Kreis: π · 36 : 2 ≈ 56,5 cm².",
-   "h": "Radius bestimmen, Kreisfläche halbieren."
-  },
-  {
-   "l": "zusammengesetzt",
-   "t": "zusammengesetzt",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Fenster besteht aus einem Rechteck (1 m breit, 1,5 m hoch) mit einem aufgesetzten Halbkreis (Durchmesser 1 m). Berechne die Glasfläche. Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 1.89,
-    "einheit": "m²",
-    "toleranz": 0.01
-   },
-   "c": "round(1 * 1.5 + 3.141592653589793 * 0.5**2 / 2, 2)",
-   "w": "Rechteck: 1,5 m². Halbkreis: π · 0,5² : 2 ≈ 0,39 m². Zusammen ≈ 1,89 m².",
-   "h": "Zerlege in Rechteck und Halbkreis."
-  },
-  {
-   "l": "zusammengesetzt",
-   "t": "zusammengesetzt",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Sportplatz besteht aus einem Rechteck (80 m × 60 m) und je einem Halbkreis an den beiden 60-m-Seiten. Wie groß ist die Rasenfläche? Runde auf ganze m²."
-   },
-   "o": {
-    "wert": 7627.0,
-    "einheit": "m²",
-    "toleranz": 1
-   },
-   "c": "round(80 * 60 + 3.141592653589793 * 30**2)",
-   "w": "Die zwei Halbkreise (r = 30 m) ergeben zusammen einen Kreis: π · 900 ≈ 2 827 m². Dazu 4 800 m². Gesamt ≈ 7 627 m².",
-   "h": "Zwei Halbkreise sind ein ganzer Kreis."
+   "h": "Radius bestimmen, Kreisfläche halbieren.",
+   "g": "mehrschritt"
   },
   {
    "l": "zusammengesetzt",
@@ -4977,7 +5470,8 @@
    },
    "c": "round(100 - 3.141592653589793 * 25, 1)",
    "w": "Vier Viertelkreise mit r = 5 cm sind zusammen ein ganzer Kreis: 25π ≈ 78,5 cm². Rest: 100 − 78,5 ≈ 21,5 cm².",
-   "h": "Wie viele ganze Kreise ergeben die vier Viertel?"
+   "h": "Wie viele ganze Kreise ergeben die vier Viertel?",
+   "g": "verknuepfen"
   },
   {
    "l": "zusammengesetzt",
@@ -4995,7 +5489,125 @@
    },
    "c": "round(8 * 4 - 2 * 3.141592653589793 * 4, 1)",
    "w": "Rechteck: 8 cm × 4 cm = 32 cm². Kreise: 2 · π · 4 = 8π ≈ 25,1 cm². Rest ≈ 6,9 cm².",
-   "h": "Wie lang und wie breit ist das Rechteck?"
+   "h": "Wie lang und wie breit ist das Rechteck?",
+   "g": "transfer"
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Wie berechnet man den Flächeninhalt eines Kreisrings?"
+   },
+   "a": [
+    "Umfang mal Breite",
+    "π mal Differenz der Radien",
+    "große Kreisfläche minus kleine Kreisfläche",
+    "große plus kleine Kreisfläche"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Ring ist der große Kreis ohne das Loch: π · R² − π · r².",
+   "h": "Was bleibt übrig, wenn man das Loch herausnimmt?"
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreisring hat den Außenradius 5 cm und den Innenradius 3 cm. Gib seinen Flächeninhalt exakt an: A = □ · π cm². Welche Zahl gehört in das Kästchen?"
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "5**2 - 3**2",
+   "w": "A = π · 25 − π · 9 = 16π cm².",
+   "h": "Ziehe die Quadrate der Radien voneinander ab."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein runder Teich (r = 3 m) ist von einem 1 m breiten Weg umgeben. Wie groß ist die Wegfläche? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 22,
+    "einheit": "m²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.14159265 * (16 - 9), 1)",
+   "w": "Der Weg ist ein Ring mit R = 4 m und r = 3 m: π · (16 − 9) = 7π ≈ 22,0 m².",
+   "h": "Wie groß ist der Außenradius?"
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "auswahl",
+   "f": {
+    "text": "Über einer 6 cm langen Strecke AB ist ein Halbkreis gezeichnet. Welcher Term gibt den Umfang der Figur (Bogen und Strecke) an?"
+   },
+   "a": [
+    "π · 6 : 2",
+    "π · 3² : 2",
+    "π · 6 + 6",
+    "π · 6 : 2 + 6"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Halber Kreisumfang π · d : 2 plus die gerade Strecke d.",
+   "h": "Aus welchen zwei Teilen besteht der Rand?"
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "In einem Quadrat mit 2 cm Seitenlänge werden um zwei gegenüberliegende Ecken Viertelkreise mit Radius 2 cm gezeichnet. Wie groß ist die Fläche, in der sie sich überlappen (π ≈ 3,14)? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 2.28,
+    "einheit": "cm²",
+    "toleranz": 0.01
+   },
+   "c": "round(2 * 314/100 * 4 / 4 - 4, 2)",
+   "w": "Jeder Viertelkreis hat π · 4 : 4 = π cm². Zusammen 2π ≈ 6,28 cm², aber das Quadrat hat nur 4 cm². Was doppelt gezählt wurde, ist die Überlappung: 6,28 − 4 = 2,28 cm².",
+   "h": "Addiere beide Viertelkreise und vergleiche mit dem Quadrat."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreisring ist genauso groß wie sein innerer Kreis (Innenradius 5 cm). Wie groß ist das Quadrat des Außenradius, also R²?"
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "cm²"
+   },
+   "c": "2 * 25",
+   "w": "π · R² − π · 25 = π · 25 ⇒ R² = 50. (R ist etwa 7,07 cm.)",
+   "h": "Stelle die Gleichung mit π auf und teile durch π."
   },
   {
    "l": "zylinder",
@@ -5013,61 +5625,8 @@
    },
    "c": "round(3.141592653589793 * 4 ** 2 * 13, 1)",
    "w": "V = π · 4² · 13 ≈ 653,5 cm³.",
-   "h": "Grundfläche π · r² mal Höhe."
-  },
-  {
-   "l": "zylinder",
-   "t": "zylinder",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Zylinder hat r = 9 cm und h = 17 cm. Berechne sein Volumen. Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 4326,
-    "einheit": "cm³",
-    "toleranz": 0.1
-   },
-   "c": "round(3.141592653589793 * 9 ** 2 * 17, 1)",
-   "w": "V = π · 9² · 17 ≈ 4326,0 cm³.",
-   "h": "Grundfläche π · r² mal Höhe."
-  },
-  {
-   "l": "zylinder",
-   "t": "zylinder",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Zylinder hat r = 3 cm und h = 11 cm. Berechne seine Mantelfläche. Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 207.3,
-    "einheit": "cm²",
-    "toleranz": 0.1
-   },
-   "c": "round(2 * 3.141592653589793 * 3 * 11, 1)",
-   "w": "M = 2π · 3 · 11 ≈ 207,3 cm².",
-   "h": "Mantel = Umfang des Grundkreises · Höhe."
-  },
-  {
-   "l": "zylinder",
-   "t": "zylinder",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Zylinder hat r = 6 cm und h = 6 cm. Berechne seine Mantelfläche. Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 226.2,
-    "einheit": "cm²",
-    "toleranz": 0.1
-   },
-   "c": "round(2 * 3.141592653589793 * 6 * 6, 1)",
-   "w": "M = 2π · 6 · 6 ≈ 226,2 cm².",
-   "h": "Mantel = Umfang des Grundkreises · Höhe."
+   "h": "Grundfläche π · r² mal Höhe.",
+   "g": "direkt"
   },
   {
    "l": "zylinder",
@@ -5091,6 +5650,25 @@
    "l": "zylinder",
    "t": "zylinder",
    "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder hat r = 9 cm und h = 17 cm. Berechne sein Volumen. Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 4326,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653589793 * 9 ** 2 * 17, 1)",
+   "w": "V = π · 9² · 17 ≈ 4326,0 cm³.",
+   "h": "Grundfläche π · r² mal Höhe.",
+   "g": "direkt"
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -5103,7 +5681,8 @@
    },
    "c": "round(2 * 3.141592653589793 * 9 ** 2 + 2 * 3.141592653589793 * 9 * 9, 1)",
    "w": "O = 2π · 9² + 2π · 9 · 9 ≈ 1017,9 cm².",
-   "h": "Zwei Kreise plus Mantel."
+   "h": "Zwei Kreise plus Mantel.",
+   "g": "mehrschritt"
   },
   {
    "l": "zylinder",
@@ -5112,16 +5691,17 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Zylinder hat r = 5 cm und h = 7 cm. Berechne seine Mantelfläche. Runde auf eine Nachkommastelle."
+    "text": "Ein Zylinder hat r = 3 cm und h = 11 cm. Berechne seine Mantelfläche. Runde auf eine Nachkommastelle."
    },
    "o": {
-    "wert": 219.9,
+    "wert": 207.3,
     "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(2 * 3.141592653589793 * 5 * 7, 1)",
-   "w": "M = 2π · 5 · 7 ≈ 219,9 cm².",
-   "h": "Mantel = Umfang des Grundkreises · Höhe."
+   "c": "round(2 * 3.141592653589793 * 3 * 11, 1)",
+   "w": "M = 2π · 3 · 11 ≈ 207,3 cm².",
+   "h": "Mantel = Umfang des Grundkreises · Höhe.",
+   "g": "direkt"
   },
   {
    "l": "zylinder",
@@ -5145,24 +5725,6 @@
    "l": "zylinder",
    "t": "zylinder",
    "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Zylinder hat r = 4 cm und h = 4 cm. Berechne sein Volumen. Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 201.1,
-    "einheit": "cm³",
-    "toleranz": 0.1
-   },
-   "c": "round(3.141592653589793 * 4 ** 2 * 4, 1)",
-   "w": "V = π · 4² · 4 ≈ 201,1 cm³.",
-   "h": "Grundfläche π · r² mal Höhe."
-  },
-  {
-   "l": "zylinder",
-   "t": "zylinder",
-   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -5175,25 +5737,8 @@
    },
    "c": "round(200 * 1000 / (3.141592653589793 * 30 ** 2), 1)",
    "w": "200 l = 200 000 cm³. V = π · r² · h → h = V : (π · r²) = 200 000 : (π · 900) ≈ 70,7 cm.",
-   "h": "Rechne Liter in cm³ um und stelle V = π · r² · h nach h um."
-  },
-  {
-   "l": "zylinder",
-   "t": "zylinder",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Zylinder hat r = 7,4 cm und h = 28,7 cm. Berechne seine Oberfläche. Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 1678.5,
-    "einheit": "cm²",
-    "toleranz": 0.1
-   },
-   "c": "round(2 * 3.141592653589793 * (37/5) ** 2 + 2 * 3.141592653589793 * (37/5) * (287/10), 1)",
-   "w": "O = 2π · 7,4² + 2π · 7,4 · 28,7 ≈ 1678,5 cm².",
-   "h": "Zwei Kreise plus Mantel."
+   "h": "Rechne Liter in cm³ um und stelle V = π · r² · h nach h um.",
+   "g": "umkehr"
   },
   {
    "l": "zylinder",
@@ -5220,16 +5765,91 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Zylinder hat r = 1,6 cm und h = 7,5 cm. Berechne seine Oberfläche. Runde auf eine Nachkommastelle."
+    "text": "Eine Dose hat den Durchmesser 8 cm und die Höhe 11 cm. Berechne ihr Volumen. Runde auf ganze cm³."
    },
    "o": {
-    "wert": 91.5,
+    "wert": 553.0,
+    "einheit": "cm³",
+    "toleranz": 1
+   },
+   "c": "round(3.141592653589793 * 4**2 * 11)",
+   "w": "V = π · 4² · 11 ≈ 552,9 ≈ 553 cm³.",
+   "h": "Erst den Radius bestimmen.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein zylinderförmiges Glas hat innen den Radius 3 cm und ist 8 cm hoch mit Wasser gefüllt. Man gießt 100 cm³ dazu. Um wie viel cm steigt der Wasserspiegel? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 3.5,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(100 / (3.141592653589793 * 9), 1)",
+   "w": "Grundfläche: π · 3² ≈ 28,3 cm². Anstieg: 100 : 28,3 ≈ 3,5 cm. Die 8 cm braucht man nicht.",
+   "h": "Das zusätzliche Wasser bildet einen flachen Zylinder.",
+   "g": "transfer"
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder hat r = 6 cm und h = 6 cm. Berechne seine Mantelfläche. Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 226.2,
     "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(2 * 3.141592653589793 * (8/5) ** 2 + 2 * 3.141592653589793 * (8/5) * (15/2), 1)",
-   "w": "O = 2π · 1,6² + 2π · 1,6 · 7,5 ≈ 91,5 cm².",
-   "h": "Zwei Kreise plus Mantel."
+   "c": "round(2 * 3.141592653589793 * 6 * 6, 1)",
+   "w": "M = 2π · 6 · 6 ≈ 226,2 cm².",
+   "h": "Mantel = Umfang des Grundkreises · Höhe.",
+   "g": "direkt"
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder hat r = 4 cm und h = 4 cm. Berechne sein Volumen. Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 201.1,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653589793 * 4 ** 2 * 4, 1)",
+   "w": "V = π · 4² · 4 ≈ 201,1 cm³.",
+   "h": "Grundfläche π · r² mal Höhe."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder hat r = 5 cm und h = 7 cm. Berechne seine Mantelfläche. Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 219.9,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(2 * 3.141592653589793 * 5 * 7, 1)",
+   "w": "M = 2π · 5 · 7 ≈ 219,9 cm².",
+   "h": "Mantel = Umfang des Grundkreises · Höhe."
   },
   {
    "l": "zylinder",
@@ -5238,16 +5858,17 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Regenfass mit r = 35 cm enthält 250 l Wasser. Wie hoch steht das Wasser? Runde auf eine Nachkommastelle."
+    "text": "Ein Zylinder hat r = 7,4 cm und h = 28,7 cm. Berechne seine Oberfläche. Runde auf eine Nachkommastelle."
    },
    "o": {
-    "wert": 65,
-    "einheit": "cm",
+    "wert": 1678.5,
+    "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(250 * 1000 / (3.141592653589793 * 35 ** 2), 1)",
-   "w": "250 l = 250 000 cm³. V = π · r² · h → h = V : (π · r²) = 250 000 : (π · 1225) ≈ 65,0 cm.",
-   "h": "Rechne Liter in cm³ um und stelle V = π · r² · h nach h um."
+   "c": "round(2 * 3.141592653589793 * (37/5) ** 2 + 2 * 3.141592653589793 * (37/5) * (287/10), 1)",
+   "w": "O = 2π · 7,4² + 2π · 7,4 · 28,7 ≈ 1678,5 cm².",
+   "h": "Zwei Kreise plus Mantel.",
+   "g": "mehrschritt"
   },
   {
    "l": "zylinder",
@@ -5426,16 +6047,35 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine Dose hat den Durchmesser 8 cm und die Höhe 11 cm. Berechne ihr Volumen. Runde auf ganze cm³."
+    "text": "Ein Regenfass mit r = 35 cm enthält 250 l Wasser. Wie hoch steht das Wasser? Runde auf eine Nachkommastelle."
    },
    "o": {
-    "wert": 553.0,
-    "einheit": "cm³",
-    "toleranz": 1
+    "wert": 65,
+    "einheit": "cm",
+    "toleranz": 0.1
    },
-   "c": "round(3.141592653589793 * 4**2 * 11)",
-   "w": "V = π · 4² · 11 ≈ 552,9 ≈ 553 cm³.",
-   "h": "Erst den Radius bestimmen."
+   "c": "round(250 * 1000 / (3.141592653589793 * 35 ** 2), 1)",
+   "w": "250 l = 250 000 cm³. V = π · r² · h → h = V : (π · r²) = 250 000 : (π · 1225) ≈ 65,0 cm.",
+   "h": "Rechne Liter in cm³ um und stelle V = π · r² · h nach h um.",
+   "g": "umkehr"
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder hat r = 1,6 cm und h = 7,5 cm. Berechne seine Oberfläche. Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 91.5,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(2 * 3.141592653589793 * (8/5) ** 2 + 2 * 3.141592653589793 * (8/5) * (15/2), 1)",
+   "w": "O = 2π · 1,6² + 2π · 1,6 · 7,5 ≈ 91,5 cm².",
+   "h": "Zwei Kreise plus Mantel."
   },
   {
    "l": "zylinder",
@@ -5453,13 +6093,14 @@
    },
    "c": "round(3.141592653589793 * 1.2 * 3, 1)",
    "w": "Mantel = Umfang · Höhe = π · 1,2 · 3 ≈ 11,3 m².",
-   "h": "Der Mantel ist ein aufgerolltes Rechteck: Umfang mal Höhe."
+   "h": "Der Mantel ist ein aufgerolltes Rechteck: Umfang mal Höhe.",
+   "g": "einkleidung"
   },
   {
    "l": "zylinder",
    "t": "zylinder",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ein Zylinder hat den Durchmesser 6 cm und die Höhe 10 cm. Welcher Term gibt sein Volumen an?"
@@ -5474,25 +6115,8 @@
     "index": 3
    },
    "w": "V = π · r² · h mit r = 3 cm: π · 3² · 10 = 90π cm³. 2 · π · 3 · 10 ist die Mantelfläche, π · 6² · 10 nimmt den Durchmesser statt des Radius.",
-   "h": "Welcher Term enthält r² und h?"
-  },
-  {
-   "l": "zylinder",
-   "t": "zylinder",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein zylinderförmiges Glas hat innen den Radius 3 cm und ist 8 cm hoch mit Wasser gefüllt. Man gießt 100 cm³ dazu. Um wie viel cm steigt der Wasserspiegel? Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 3.5,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(100 / (3.141592653589793 * 9), 1)",
-   "w": "Grundfläche: π · 3² ≈ 28,3 cm². Anstieg: 100 : 28,3 ≈ 3,5 cm. Die 8 cm braucht man nicht.",
-   "h": "Das zusätzliche Wasser bildet einen flachen Zylinder."
+   "h": "Welcher Term enthält r² und h?",
+   "g": "darstellung"
   },
   {
    "l": "zylinder",
@@ -5513,7 +6137,8 @@
     "index": 2
    },
    "w": "A: π · 4 · 8 = 32π. B: π · 16 · 2 = 32π. Doppelter Radius vervierfacht die Grundfläche, ein Viertel der Höhe gleicht das aus.",
-   "h": "Rechne mit π als Zeichen."
+   "h": "Rechne mit π als Zeichen.",
+   "g": "begruenden"
   },
   {
    "l": "zylinder",
@@ -5534,7 +6159,167 @@
     "index": 1
    },
    "w": "Umfang 30: r ≈ 4,77 cm, V ≈ π · 22,8 · 20 ≈ 1 432 cm³. Umfang 20: r ≈ 3,18 cm, V ≈ π · 10,1 · 30 ≈ 955 cm³. Der Radius geht quadratisch ein.",
-   "h": "Bestimme jeweils r aus dem Umfang und vergleiche π · r² · h."
+   "h": "Bestimme jeweils r aus dem Umfang und vergleiche π · r² · h.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Formel gibt das Volumen eines Zylinders an?"
+   },
+   "a": [
+    "V = π · r · h",
+    "V = π · r² · h",
+    "V = π · d² · h",
+    "V = 2 · π · r · h"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Grundfläche (Kreis π · r²) mal Höhe.",
+   "h": "Volumen = Grundfläche · Höhe."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Für d = 10 cm und h = 4 cm rechnet jemand V = π · 10² · 4 ≈ 1 256 cm³. Was ist falsch?"
+   },
+   "a": [
+    "Er hat den Durchmesser quadriert; mit r = 5: V = π · 25 · 4 ≈ 314 cm³.",
+    "Er hätte 2 · π · 10 · 4 rechnen müssen.",
+    "Nichts.",
+    "Die Höhe muss quadriert werden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "In π · r² gehört der Radius. Mit d wird das Volumen viermal zu groß.",
+   "h": "Welche Länge gehört in die Kreisflächenformel?"
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder hat das Volumen 1 000 cm³ und ist 10 cm hoch. Wie groß ist seine Grundfläche?"
+   },
+   "o": {
+    "wert": 100,
+    "einheit": "cm²"
+   },
+   "c": "1000 / 10",
+   "w": "G = V : h = 100 cm².",
+   "h": "Volumen = Grundfläche · Höhe – rückwärts."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "auswahl",
+   "f": {
+    "text": "Wie ändert sich das Volumen eines Zylinders, wenn man r verdoppelt und h halbiert?"
+   },
+   "a": [
+    "Es bleibt gleich.",
+    "Es vervierfacht sich.",
+    "Es verdoppelt sich.",
+    "Es halbiert sich."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "π · (2r)² · h/2 = π · 4r² · h/2 = 2 · π · r² · h.",
+   "h": "Setze 2r und h/2 in die Formel ein."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Eine zylinderförmige Vase (r = 5 cm) ist 20 cm hoch und zu drei Vierteln mit Wasser gefüllt. Wie viele Liter sind darin? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 1.18,
+    "einheit": "l",
+    "toleranz": 0.01
+   },
+   "c": "round(3.14159265 * 25 * 15 / 1000, 2)",
+   "w": "Wasserhöhe 15 cm. V = π · 25 · 15 ≈ 1 178 cm³ ≈ 1,18 l.",
+   "h": "Berechne zuerst die Wasserhöhe; 1 l = 1 000 cm³."
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rohr ist 2 m lang, innen hat es 4 cm, außen 5 cm Radius. Wie viel cm³ Material hat es? Runde auf ganze cm³."
+   },
+   "o": {
+    "wert": 5655,
+    "einheit": "cm³",
+    "toleranz": 1
+   },
+   "c": "round(3.14159265 * (25 - 16) * 200)",
+   "w": "Querschnitt ist ein Kreisring: π · (25 − 16) = 9π cm². Mal 200 cm Länge: 1 800π ≈ 5 655 cm³.",
+   "h": "Welche Form hat der Querschnitt?"
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Eine volle Dose (r = 4 cm, h = 10 cm) wird in eine Dose mit r = 8 cm umgegossen. Wie hoch steht das Wasser dort?"
+   },
+   "o": {
+    "wert": 2.5,
+    "einheit": "cm"
+   },
+   "c": "10 / 4",
+   "w": "Doppelter Radius heißt vierfache Grundfläche. Bei gleichem Volumen ist die Höhe ein Viertel: 10 : 4 = 2,5 cm.",
+   "h": "Wie verändert sich die Grundfläche?"
+  },
+  {
+   "l": "zylinder",
+   "t": "zylinder",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "In einen Würfel mit 10 cm Kantenlänge passt genau ein Zylinder, der alle Seiten berührt. Wie viel Prozent des Würfels füllt er (π ≈ 3,14)?"
+   },
+   "o": {
+    "wert": 78.5,
+    "einheit": "%",
+    "toleranz": 0.1
+   },
+   "c": "round(314/100 * 25 * 10 / 1000 * 100, 1)",
+   "w": "Zylinder: r = 5, h = 10: V = 3,14 · 25 · 10 = 785 cm³. Würfel: 1 000 cm³. Anteil 78,5 % – genau π/4, egal wie groß der Würfel ist.",
+   "h": "Welchen Radius und welche Höhe hat der Zylinder?"
   },
   {
    "l": "umfang",
@@ -5551,7 +6336,8 @@
    },
    "c": "round(754 / 240, 2)",
    "w": "π = Umfang : Durchmesser = 75,4 : 24 ≈ 3,1417 ≈ 3,14.",
-   "h": "π ist das Verhältnis von Umfang zu Durchmesser."
+   "h": "π ist das Verhältnis von Umfang zu Durchmesser.",
+   "g": "erkennen"
   },
   {
    "l": "umfang",
@@ -5568,7 +6354,8 @@
    },
    "c": "4 * 6",
    "w": "Jede Quadratseite ist so lang wie der Durchmesser: 4 · 6 cm = 24 cm. Der Kreisumfang (≈ 18,8 cm) ist kürzer.",
-   "h": "Wie lang ist eine Seite des Quadrats im Vergleich zum Durchmesser?"
+   "h": "Wie lang ist eine Seite des Quadrats im Vergleich zum Durchmesser?",
+   "g": "direkt"
   },
   {
    "l": "umfang",
@@ -5585,7 +6372,8 @@
    },
    "c": "6 * 5",
    "w": "6 Seiten zu je 5 cm: 30 cm. Das sind 3 · d (d = 10 cm). Der Kreis ist etwas länger, π ist also größer als 3.",
-   "h": "Ein regelmäßiges Sechseck im Kreis besteht aus 6 gleichseitigen Dreiecken."
+   "h": "Ein regelmäßiges Sechseck im Kreis besteht aus 6 gleichseitigen Dreiecken.",
+   "g": "mehrschritt"
   },
   {
    "l": "umfang",
@@ -5606,7 +6394,8 @@
     "index": 2
    },
    "w": "Der Kreis liegt zwischen den beiden Vielecken, also ist sein Umfang länger als 3 · d und kürzer als 4 · d. π liegt zwischen 3 und 4; genauer ist π ≈ 3,14.",
-   "h": "Welche Figur ist länger, welche kürzer als der Kreis?"
+   "h": "Welche Figur ist länger, welche kürzer als der Kreis?",
+   "g": "darstellung"
   },
   {
    "l": "umfang",
@@ -5623,7 +6412,8 @@
    },
    "c": "round(220 / 70, 2)",
    "w": "Eine Umdrehung ist ein Umfang: 220 cm. π ≈ 220 : 70 ≈ 3,1429 ≈ 3,14. Gleiche Einheit verwenden: 2,20 m = 220 cm.",
-   "h": "Rechne beide Längen in cm. Was legt das Rad bei einer Umdrehung zurück?"
+   "h": "Rechne beide Längen in cm. Was legt das Rad bei einer Umdrehung zurück?",
+   "g": "rueckwaerts"
   },
   {
    "l": "umfang",
@@ -5644,7 +6434,44 @@
     "index": 0
    },
    "w": "Je mehr Ecken das innere Vieleck hat, desto näher kommt sein Umfang an den Kreis: 3 · d (Sechseck), 3,06 · d (Achteck), … bis π · d ≈ 3,14 · d. π ist also sicher größer als 3,06.",
-   "h": "Liegt der Kreis innerhalb oder außerhalb des Achtecks? Welche Linie ist dann länger?"
+   "h": "Liegt der Kreis innerhalb oder außerhalb des Achtecks? Welche Linie ist dann länger?",
+   "g": "begruenden"
+  },
+  {
+   "l": "umfang",
+   "t": "umfang",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Seil liegt straff um den Äquator (etwa 40 000 km). Es wird um 6,28 m verlängert und so angehoben, dass es überall gleich weit absteht. Wie groß ist dieser Abstand (π ≈ 3,14)?"
+   },
+   "o": {
+    "wert": 1,
+    "einheit": "m"
+   },
+   "c": "628/100 / (2 * 314/100)",
+   "w": "u = 2πr. Wird u um 6,28 m größer, wächst r um 6,28 : (2 · 3,14) = 1 m – unabhängig davon, wie groß der Kreis ist. Unter dem Seil passt also überall ein Kind durch.",
+   "h": "Um wie viel wächst r, wenn u um einen bestimmten Betrag wächst?"
+  },
+  {
+   "l": "umfang",
+   "t": "umfang",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Räder mit 50 cm und 30 cm Umfang rollen nebeneinander los, an beiden ist die markierte Stelle unten. Nach wie vielen Zentimetern sind beide Markierungen zum ersten Mal wieder gleichzeitig unten?"
+   },
+   "o": {
+    "wert": 150,
+    "einheit": "cm"
+   },
+   "c": "150",
+   "w": "Die Markierung des ersten Rads ist nach 50, 100, 150 … cm unten, die des zweiten nach 30, 60, 90, 120, 150 … cm. Zum ersten Mal gemeinsam: kgV(50; 30) = 150 cm.",
+   "h": "Wann ist jede Markierung für sich wieder unten?"
   }
  ],
  "offen": [

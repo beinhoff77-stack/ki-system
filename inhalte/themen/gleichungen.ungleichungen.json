@@ -645,6 +645,28 @@
    "l": "umformen",
    "t": "umformen",
    "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 4x ≤ −4."
+   },
+   "a": [
+    "x ≥ 1",
+    "x ≥ −1",
+    "x ≤ −1",
+    "x ≤ 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": ": 4 auf beiden Seiten: x ≤ −1.",
+   "h": "Forme wie bei einer Gleichung um. Das Zeichen bleibt gleich.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
    "s": 1,
    "y": "auswahl",
    "f": {
@@ -660,49 +682,30 @@
     "index": 0
    },
    "w": "+ 2 auf beiden Seiten: x ≤ −6.",
-   "h": "Forme wie bei einer Gleichung um. Das Zeichen bleibt gleich."
+   "h": "Forme wie bei einer Gleichung um. Das Zeichen bleibt gleich.",
+   "g": "direkt"
   },
   {
    "l": "umformen",
    "t": "umformen",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Löse die Ungleichung 4x ≤ −4."
+    "text": "Löse die Ungleichung 7x + 2 > 23."
    },
    "a": [
-    "x ≥ 1",
-    "x ≥ −1",
-    "x ≤ −1",
-    "x ≤ 1"
+    "x < 3",
+    "x > −3",
+    "x < −3",
+    "x > 3"
    ],
    "o": {
-    "index": 2
+    "index": 3
    },
-   "w": ": 4 auf beiden Seiten: x ≤ −1.",
-   "h": "Forme wie bei einer Gleichung um. Das Zeichen bleibt gleich."
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Löse die Ungleichung 2x < 12."
-   },
-   "a": [
-    "x > 6",
-    "x < 6",
-    "x < −6",
-    "x > −6"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": ": 2 auf beiden Seiten: x < 6.",
-   "h": "Forme wie bei einer Gleichung um. Das Zeichen bleibt gleich."
+   "w": "7x + 2 > 23 | − 2 → 7x > 21 | : 7 → x > 3.",
+   "h": "Erst den Summanden ohne x wegbringen, dann durch die Zahl vor x teilen.",
+   "g": "mehrschritt"
   },
   {
    "l": "umformen",
@@ -725,28 +728,8 @@
    },
    "zahl": 5,
    "w": "+ 11 auf beiden Seiten: x < 5. Die Grenze ist 5.",
-   "h": "Rechne zuerst die Grenze aus, dann suche sie auf dem Zahlenstrahl."
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Löse die Ungleichung 7x + 2 > 23."
-   },
-   "a": [
-    "x < 3",
-    "x > −3",
-    "x < −3",
-    "x > 3"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "7x + 2 > 23 | − 2 → 7x > 21 | : 7 → x > 3.",
-   "h": "Erst den Summanden ohne x wegbringen, dann durch die Zahl vor x teilen."
+   "h": "Rechne zuerst die Grenze aus, dann suche sie auf dem Zahlenstrahl.",
+   "g": "erkennen"
   },
   {
    "l": "umformen",
@@ -762,7 +745,30 @@
    },
    "c": "(17 - (17)) / 2",
    "w": "2x + 17 > 17 | − 17 → 2x > 0 | : 2 → x > 0.",
-   "h": "Erst den Summanden ohne x wegbringen, dann durch die Zahl vor x teilen."
+   "h": "Erst den Summanden ohne x wegbringen, dann durch die Zahl vor x teilen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 4x + 10 ≤ 4x + 3."
+   },
+   "a": [
+    "x ≤ −7",
+    "L = ℚ (jede Zahl)",
+    "x ≤ 0",
+    "L = { } (keine Zahl)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "| − 4x: 10 ≤ 3. Das x ist weggefallen; die Aussage ist immer falsch, also gibt es keine Lösung.",
+   "h": "Bringe die x-Glieder auf eine Seite. Was bleibt übrig?",
+   "g": "begruenden"
   },
   {
    "l": "umformen",
@@ -778,7 +784,30 @@
    },
    "c": "(16 - (-9)) / 5",
    "w": "5x − 9 ≤ 16 | + 9 → 5x ≤ 25 | : 5 → x ≤ 5.",
-   "h": "Erst den Summanden ohne x wegbringen, dann durch die Zahl vor x teilen."
+   "h": "Erst den Summanden ohne x wegbringen, dann durch die Zahl vor x teilen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 2x < 12."
+   },
+   "a": [
+    "x > 6",
+    "x < 6",
+    "x < −6",
+    "x > −6"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": ": 2 auf beiden Seiten: x < 6.",
+   "h": "Forme wie bei einer Gleichung um. Das Zeichen bleibt gleich.",
+   "g": "direkt"
   },
   {
    "l": "umformen",
@@ -799,7 +828,8 @@
     "index": 1
    },
    "w": "8x + 20 > 4 | − 20 → 8x > −16 | : 8 → x > −2.",
-   "h": "Erst den Summanden ohne x wegbringen, dann durch die Zahl vor x teilen."
+   "h": "Erst den Summanden ohne x wegbringen, dann durch die Zahl vor x teilen.",
+   "g": "mehrschritt"
   },
   {
    "l": "umformen",
@@ -836,7 +866,8 @@
    },
    "c": "(85 - (13)) / 8",
    "w": "8x + 13 < 85 | − 13 → 8x < 72 | : 8 → x < 9.",
-   "h": "Erst den Summanden ohne x wegbringen, dann durch die Zahl vor x teilen."
+   "h": "Erst den Summanden ohne x wegbringen, dann durch die Zahl vor x teilen.",
+   "g": "mehrschritt"
   },
   {
    "l": "umformen",
@@ -869,27 +900,6 @@
    "c": "(9 - (-3)) / (7 - 4)",
    "w": "| − 4x → 3x − 3 ≤ 9 | + 3 → 3x ≤ 12 | : 3 → x ≤ 4.",
    "h": "Bringe alle x-Glieder auf die linke Seite, alle Zahlen auf die rechte."
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Löse die Ungleichung 4x + 10 ≤ 4x + 3."
-   },
-   "a": [
-    "x ≤ −7",
-    "L = ℚ (jede Zahl)",
-    "x ≤ 0",
-    "L = { } (keine Zahl)"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "| − 4x: 10 ≤ 3. Das x ist weggefallen; die Aussage ist immer falsch, also gibt es keine Lösung.",
-   "h": "Bringe die x-Glieder auf eine Seite. Was bleibt übrig?"
   },
   {
    "l": "umformen",
@@ -1108,7 +1118,7 @@
    "l": "umformen",
    "t": "umformen",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Wie viele der Zahlen −2,5; −0,5; 0 und 1,5 erfüllen die Ungleichung 3x + 4 > 2,5?"
@@ -1118,7 +1128,8 @@
    },
    "c": "1 + 1",
    "w": "3x > −1,5 ⇔ x > −0,5. Es passen 0 und 1,5. −0,5 ist die Grenze und gehört bei „>“ nicht dazu, −2,5 ist zu klein.",
-   "h": "Löse die Ungleichung zuerst. Prüfe die Grenze besonders."
+   "h": "Löse die Ungleichung zuerst. Prüfe die Grenze besonders.",
+   "g": "erkennen"
   },
   {
    "l": "umformen",
@@ -1139,7 +1150,8 @@
     "index": 2
    },
    "w": "2x + 6 > 2x + 1 ⇔ 6 > 1. Das stimmt immer, egal welches x. Jede Zahl ist Lösung.",
-   "h": "Löse die Klammer auf. Was passiert mit x?"
+   "h": "Löse die Klammer auf. Was passiert mit x?",
+   "g": "begruenden"
   },
   {
    "l": "umformen",
@@ -1155,7 +1167,8 @@
    },
    "c": "2",
    "w": "Umformen: (a − 2) · x < 0. Für a = 2 steht 0 < 0 da – das ist nie wahr, keine Lösung. Für jedes andere a gibt es Lösungen.",
-   "h": "Bringe alles mit x auf eine Seite."
+   "h": "Bringe alles mit x auf eine Seite.",
+   "g": "parameter"
   },
   {
    "l": "umformen",
@@ -1171,28 +1184,172 @@
    },
    "c": "5 * 4 - 7",
    "w": "An der Grenze x = 4 gilt Gleichheit: 5 · 4 − 7 = c ⇔ c = 13.",
-   "h": "Setze die Grenze in den linken Term ein."
+   "h": "Setze die Grenze in den linken Term ein.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Das Dreifache einer Zahl, vermindert um 7, ist kleiner als 20. Welches ist die größte ganze Zahl, für die das gilt?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(20 + 7) // 3 - 1",
+   "w": "3x − 7 < 20 ⇒ 3x < 27 ⇒ x < 9. Die 9 selbst gehört nicht dazu, die größte ganze Zahl ist 8.",
+   "h": "Schreibe den Satz als Ungleichung mit x."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Ungleichung hat die Lösungsmenge x > 4?"
+   },
+   "a": [
+    "3x − 2 < 10",
+    "3x + 2 > 10",
+    "3x − 2 > 14",
+    "3x − 2 > 10"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "3x − 2 > 10 ⇒ 3x > 12 ⇒ x > 4. Die anderen ergeben x > 16/3, x < 4 und x > 8/3.",
+   "h": "Löse jede Ungleichung und vergleiche mit x > 4."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Ben löst 2x + 6 > 10 so: 2x > 16, also x > 8. Wo steckt der Fehler?"
+   },
+   "a": [
+    "Er hätte durch 6 teilen müssen.",
+    "Er hat 6 addiert statt abgezogen; richtig ist 2x > 4, also x > 2.",
+    "Es gibt keinen Fehler.",
+    "Beim Teilen durch 2 hätte er das Zeichen umdrehen müssen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Um +6 wegzubekommen, zieht man auf beiden Seiten 6 ab: 2x > 4. Durch 2 (positiv) ändert sich das Zeichen nicht: x > 2.",
+   "h": "Mach die Probe mit x = 3."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zug soll eine 120 km lange Strecke in höchstens 1,5 Stunden schaffen. Mit welcher Durchschnittsgeschwindigkeit muss er mindestens fahren?"
+   },
+   "o": {
+    "wert": 80,
+    "einheit": "km/h"
+   },
+   "c": "120 / (15/10)",
+   "w": "Strecke = Geschwindigkeit · Zeit: 1,5 · v ≥ 120 ⇒ v ≥ 80. Er muss mindestens 80 km/h fahren.",
+   "h": "Stelle mit v eine Ungleichung für die Strecke in 1,5 Stunden auf."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Für wie viele natürliche Zahlen n ist 3n − 4 kleiner als 2n + 1 und zugleich größer als 0?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "4 - 2 + 1",
+   "w": "3n − 4 < 2n + 1 ⇒ n < 5. 3n − 4 > 0 ⇒ n > 4/3. Also n = 2, 3, 4: drei Zahlen.",
+   "h": "Löse beide Bedingungen einzeln und suche die natürlichen Zahlen dazwischen."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 5 cm, 8 cm und x cm (x ganzzahlig). Wie viele Werte für x sind möglich? (Zwei Seiten zusammen müssen länger sein als die dritte.)"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "12 - 4 + 1",
+   "w": "5 + x > 8 ⇒ x > 3, und 5 + 8 > x ⇒ x < 13 (5 + x > 8 gilt dann ohnehin). Möglich sind 4, 5, …, 12: neun Werte.",
+   "h": "Schreibe für jede Seite die Dreiecksungleichung auf."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Die Summe dreier aufeinanderfolgender ganzer Zahlen liegt zwischen 100 und 110 (Grenzen ausgeschlossen). Wie viele Möglichkeiten gibt es für die mittlere Zahl?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "36 - 34 + 1",
+   "w": "Nennt man die mittlere Zahl m, sind die drei Zahlen m − 1, m und m + 1. Ihre Summe ist 3m. Aus 100 < 3m < 110 folgt 33,3… < m < 36,6…, also m = 34, 35 oder 36. Probe: 102, 105, 108 liegen zwischen 100 und 110. Es gibt drei Möglichkeiten.",
+   "h": "Wie lässt sich die Summe dreier aufeinanderfolgender Zahlen mit nur einer Variablen schreiben?"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Eine ganze Zahl x ist größer als die Hälfte von x + 7, aber kleiner als ein Drittel von x + 20. Wie viele solche Zahlen gibt es?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "9 - 8 + 1",
+   "w": "x > (x + 7) : 2 ⇒ 2x > x + 7 ⇒ x > 7. x < (x + 20) : 3 ⇒ 3x < x + 20 ⇒ 2x < 20 ⇒ x < 10. Also x = 8 oder x = 9: zwei Zahlen. Probe mit 8: 8 > 7,5 und 8 < 9,33.",
+   "h": "Übersetze jeden Satzteil in eine eigene Ungleichung und befreie sie vom Bruch."
   },
   {
    "l": "umdrehen",
    "t": "umdrehen",
    "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
+   "s": 2,
+   "y": "zahl",
    "f": {
-    "text": "Löse die Ungleichung −x > 2."
+    "text": "Löse −x + 1 ≤ 0. Die Lösung hat die Form x ≥ □. Gib die Zahl an."
    },
-   "a": [
-    "x > −2",
-    "x < 2",
-    "x < −2",
-    "x > 2"
-   ],
    "o": {
-    "index": 2
+    "wert": 1
    },
-   "w": ": (−1) auf beiden Seiten, Zeichen umdrehen → x < −2.",
-   "h": "Teilst du durch eine negative Zahl, drehst du das Zeichen um."
+   "c": "(0 - (1)) / (-1 - (0))",
+   "w": "| − 1 → −x ≤ −1 | : (−1), Zeichen umdrehen → x ≥ 1.",
+   "h": "Teilst du durch eine negative Zahl, drehst du das Zeichen um.",
+   "g": "mehrschritt"
   },
   {
    "l": "umdrehen",
@@ -1213,65 +1370,8 @@
     "index": 0
    },
    "w": "−6 → 12 und −3 → 6. 12 liegt rechts von 6 auf dem Zahlenstrahl, also 12 > 6. Das Zeichen hat sich umgedreht.",
-   "h": "Rechne beide Zahlen aus und vergleiche sie auf dem Zahlenstrahl."
-  },
-  {
-   "l": "umdrehen",
-   "t": "umdrehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Es gilt 1 < 9. Multipliziere beide Seiten mit (−1). Was stimmt dann?"
-   },
-   "a": [
-    "−1 > −9",
-    "1 < 9",
-    "−1 < −9",
-    "−1 = −9"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "1 → −1 und 9 → −9. −1 liegt rechts von −9 auf dem Zahlenstrahl, also −1 > −9. Das Zeichen hat sich umgedreht.",
-   "h": "Rechne beide Zahlen aus und vergleiche sie auf dem Zahlenstrahl."
-  },
-  {
-   "l": "umdrehen",
-   "t": "umdrehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Löse die Ungleichung −9x ≤ 63."
-   },
-   "a": [
-    "x ≥ 7",
-    "x ≤ −7",
-    "x ≥ −7",
-    "x ≤ 7"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": ": (−9) auf beiden Seiten, Zeichen umdrehen → x ≥ −7.",
-   "h": "Teilst du durch eine negative Zahl, drehst du das Zeichen um."
-  },
-  {
-   "l": "umdrehen",
-   "t": "umdrehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse −x + 1 ≤ 0. Die Lösung hat die Form x ≥ □. Gib die Zahl an."
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "(0 - (1)) / (-1 - (0))",
-   "w": "| − 1 → −x ≤ −1 | : (−1), Zeichen umdrehen → x ≥ 1.",
-   "h": "Teilst du durch eine negative Zahl, drehst du das Zeichen um."
+   "h": "Rechne beide Zahlen aus und vergleiche sie auf dem Zahlenstrahl.",
+   "g": "erkennen"
   },
   {
    "l": "umdrehen",
@@ -1287,7 +1387,30 @@
    },
    "c": "(-15 - (-6)) / (-3 - (0))",
    "w": "| + 6 → −3x ≤ −9 | : (−3), Zeichen umdrehen → x ≥ 3.",
-   "h": "Teilst du durch eine negative Zahl, drehst du das Zeichen um."
+   "h": "Teilst du durch eine negative Zahl, drehst du das Zeichen um.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung −x > 2."
+   },
+   "a": [
+    "x > −2",
+    "x < 2",
+    "x < −2",
+    "x > 2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": ": (−1) auf beiden Seiten, Zeichen umdrehen → x < −2.",
+   "h": "Teilst du durch eine negative Zahl, drehst du das Zeichen um.",
+   "g": "direkt"
   },
   {
    "l": "umdrehen",
@@ -1308,7 +1431,30 @@
     "index": 3
    },
    "w": "| + 8 → −x < 5 | : (−1), Zeichen umdrehen → x > −5.",
-   "h": "Teilst du durch eine negative Zahl, drehst du das Zeichen um."
+   "h": "Teilst du durch eine negative Zahl, drehst du das Zeichen um.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Es gilt 1 < 9. Multipliziere beide Seiten mit (−1). Was stimmt dann?"
+   },
+   "a": [
+    "−1 > −9",
+    "1 < 9",
+    "−1 < −9",
+    "−1 = −9"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "1 → −1 und 9 → −9. −1 liegt rechts von −9 auf dem Zahlenstrahl, also −1 > −9. Das Zeichen hat sich umgedreht.",
+   "h": "Rechne beide Zahlen aus und vergleiche sie auf dem Zahlenstrahl.",
+   "g": "erkennen"
   },
   {
    "l": "umdrehen",
@@ -1329,81 +1475,8 @@
     "index": 1
    },
    "w": "| + 5 → −8x ≥ 40 | : (−8), Zeichen umdrehen → x ≤ −5.",
-   "h": "Teilst du durch eine negative Zahl, drehst du das Zeichen um."
-  },
-  {
-   "l": "umdrehen",
-   "t": "umdrehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Es gilt −9 < 12. Teile beide Seiten durch (−3). Was stimmt dann?"
-   },
-   "a": [
-    "3 < −4",
-    "3 = −4",
-    "−3 < 4",
-    "3 > −4"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "−9 → 3 und 12 → −4. 3 liegt rechts von −4 auf dem Zahlenstrahl, also 3 > −4. Das Zeichen hat sich umgedreht.",
-   "h": "Rechne beide Zahlen aus und vergleiche sie auf dem Zahlenstrahl."
-  },
-  {
-   "l": "umdrehen",
-   "t": "umdrehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse −x + 8 ≥ 14. Die Lösung hat die Form x ≤ □. Gib die Zahl an."
-   },
-   "o": {
-    "wert": -6
-   },
-   "c": "(14 - (8)) / (-1 - (0))",
-   "w": "| − 8 → −x ≥ 6 | : (−1), Zeichen umdrehen → x ≤ −6.",
-   "h": "Teilst du durch eine negative Zahl, drehst du das Zeichen um."
-  },
-  {
-   "l": "umdrehen",
-   "t": "umdrehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x + 15 ≥ 3x + 33. Die Lösung hat die Form x ≤ □. Gib die Zahl an."
-   },
-   "o": {
-    "wert": -9
-   },
-   "c": "(33 - (15)) / (1 - (3))",
-   "w": "| − 3x → −2x + 15 ≥ 33 | − 15 → −2x ≥ 18 | : (−2), Zeichen umdrehen → x ≤ −9.",
-   "h": "Alle x nach links bringen. Ist der Faktor vor x negativ, beim Teilen das Zeichen umdrehen."
-  },
-  {
-   "l": "umdrehen",
-   "t": "umdrehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Löse die Ungleichung 3x − 4 < 5x + 8."
-   },
-   "a": [
-    "x < 6",
-    "x > 6",
-    "x > −6",
-    "x < −6"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "| − 5x → −2x − 4 < 8 | + 4 → −2x < 12 | : (−2), Zeichen umdrehen → x > −6.",
-   "h": "Alle x nach links bringen. Ist der Faktor vor x negativ, beim Teilen das Zeichen umdrehen."
+   "h": "Teilst du durch eine negative Zahl, drehst du das Zeichen um.",
+   "g": "mehrschritt"
   },
   {
    "l": "umdrehen",
@@ -1428,13 +1501,118 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 6x + 12 > 11x − 33. Die Lösung hat die Form x < □. Gib die Zahl an."
+    "text": "Löse −x + 8 ≥ 14. Die Lösung hat die Form x ≤ □. Gib die Zahl an."
    },
    "o": {
-    "wert": 9
+    "wert": -6
    },
-   "c": "(-33 - (12)) / (6 - (11))",
-   "w": "| − 11x → −5x + 12 > −33 | − 12 → −5x > −45 | : (−5), Zeichen umdrehen → x < 9.",
+   "c": "(14 - (8)) / (-1 - (0))",
+   "w": "| − 8 → −x ≥ 6 | : (−1), Zeichen umdrehen → x ≤ −6.",
+   "h": "Teilst du durch eine negative Zahl, drehst du das Zeichen um.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für zwei Zahlen gilt a < b. Welche Aussage stimmt dann sicher?"
+   },
+   "a": [
+    "−a > −b",
+    "a < −b",
+    "a² < b²",
+    "−a < −b"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Mal (−1) dreht das Zeichen: −a > −b. a² < b² stimmt nicht immer: a = −3, b = 1 gibt 9 > 1. a < −b ist für a = 1, b = 2 falsch.",
+   "h": "Teste mit negativen Zahlen, z. B. a = −3 und b = 1.",
+   "g": "begruenden"
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 3x − 4 < 5x + 8."
+   },
+   "a": [
+    "x < 6",
+    "x > 6",
+    "x > −6",
+    "x < −6"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "| − 5x → −2x − 4 < 8 | + 4 → −2x < 12 | : (−2), Zeichen umdrehen → x > −6.",
+   "h": "Alle x nach links bringen. Ist der Faktor vor x negativ, beim Teilen das Zeichen umdrehen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung −9x ≤ 63."
+   },
+   "a": [
+    "x ≥ 7",
+    "x ≤ −7",
+    "x ≥ −7",
+    "x ≤ 7"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": ": (−9) auf beiden Seiten, Zeichen umdrehen → x ≥ −7.",
+   "h": "Teilst du durch eine negative Zahl, drehst du das Zeichen um.",
+   "g": "direkt"
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Es gilt −9 < 12. Teile beide Seiten durch (−3). Was stimmt dann?"
+   },
+   "a": [
+    "3 < −4",
+    "3 = −4",
+    "−3 < 4",
+    "3 > −4"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "−9 → 3 und 12 → −4. 3 liegt rechts von −4 auf dem Zahlenstrahl, also 3 > −4. Das Zeichen hat sich umgedreht.",
+   "h": "Rechne beide Zahlen aus und vergleiche sie auf dem Zahlenstrahl.",
+   "g": "erkennen"
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x + 15 ≥ 3x + 33. Die Lösung hat die Form x ≤ □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": -9
+   },
+   "c": "(33 - (15)) / (1 - (3))",
+   "w": "| − 3x → −2x + 15 ≥ 33 | − 15 → −2x ≥ 18 | : (−2), Zeichen umdrehen → x ≤ −9.",
    "h": "Alle x nach links bringen. Ist der Faktor vor x negativ, beim Teilen das Zeichen umdrehen."
   },
   {
@@ -1624,6 +1802,22 @@
    "s": 2,
    "y": "zahl",
    "f": {
+    "text": "Löse 6x + 12 > 11x − 33. Die Lösung hat die Form x < □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(-33 - (12)) / (6 - (11))",
+   "w": "| − 11x → −5x + 12 > −33 | − 12 → −5x > −45 | : (−5), Zeichen umdrehen → x < 9.",
+   "h": "Alle x nach links bringen. Ist der Faktor vor x negativ, beim Teilen das Zeichen umdrehen."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
     "text": "Löse 6 − 2x > 0. Die Lösung hat die Form x < □. Gib die Zahl an."
    },
    "o": {
@@ -1668,13 +1862,14 @@
     "index": 1
    },
    "w": "3 − 5x < 18 ⇔ −5x < 15 stimmt. Durch −5 teilen dreht das Zeichen: x > −3. Probe: x = 0 erfüllt 3 < 18, liegt aber nicht in „x < −3“.",
-   "h": "Mache eine Probe mit x = 0."
+   "h": "Mache eine Probe mit x = 0.",
+   "g": "fehler"
   },
   {
    "l": "umdrehen",
    "t": "umdrehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Löse −0,2x + 1 ≤ 3 und gib die Lösungsmenge als Intervall an."
@@ -1689,28 +1884,8 @@
     "index": 3
    },
    "w": "−0,2x ≤ 2. Durch −0,2 teilen, Zeichen umdrehen: x ≥ −10. Die Grenze gehört dazu: [−10; ∞[.",
-   "h": "2 : (−0,2) = −10. Und das Zeichen?"
-  },
-  {
-   "l": "umdrehen",
-   "t": "umdrehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Für zwei Zahlen gilt a < b. Welche Aussage stimmt dann sicher?"
-   },
-   "a": [
-    "−a > −b",
-    "a < −b",
-    "a² < b²",
-    "−a < −b"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Mal (−1) dreht das Zeichen: −a > −b. a² < b² stimmt nicht immer: a = −3, b = 1 gibt 9 > 1. a < −b ist für a = 1, b = 2 falsch.",
-   "h": "Teste mit negativen Zahlen, z. B. a = −3 und b = 1."
+   "h": "2 : (−0,2) = −10. Und das Zeichen?",
+   "g": "mehrschritt"
   },
   {
    "l": "umdrehen",
@@ -1731,7 +1906,198 @@
     "index": 1
    },
    "w": "−3x > x ⇔ −4x > 0 ⇔ x < 0 (durch −4 teilen). Probe: x = −1 gibt 3 > −1 ✓, x = 1 gibt −3 > 1 ✗.",
-   "h": "Bringe x auf eine Seite. Oder probiere x = 1 und x = −1."
+   "h": "Bringe x auf eine Seite. Oder probiere x = 1 und x = −1.",
+   "g": "begruenden"
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Tauchboot ist in 20 m Tiefe und sinkt jede Minute 4 m weiter. Nach wie vielen ganzen Minuten ist es zum ersten Mal tiefer als 60 m? (Höhe in m: −20 − 4t)"
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "(60 - 20) // 4 + 1",
+   "w": "−20 − 4t < −60 ⇒ −4t < −40 ⇒ t > 10 (Zeichen umdrehen!). Genau nach 10 Minuten sind es 60 m, tiefer erst danach: nach 11 Minuten.",
+   "h": "Schreibe die Höhe als Term und stelle „tiefer als −60 m“ als Ungleichung auf."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Ungleichung hat die Lösungsmenge x ≤ −3?"
+   },
+   "a": [
+    "−4x ≥ 12",
+    "−4x ≤ 12",
+    "4x ≥ −12",
+    "−4x ≥ −12"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "−4x ≥ 12 ⇒ x ≤ −3 (durch −4, Zeichen dreht sich). −4x ≤ 12 ergibt x ≥ −3, 4x ≥ −12 ergibt x ≥ −3, −4x ≥ −12 ergibt x ≤ 3.",
+   "h": "Löse jede Ungleichung; achte beim Teilen durch eine negative Zahl auf das Zeichen."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl wird mit (−3) multipliziert, dann wird 5 addiert. Das Ergebnis ist höchstens −16. Welches ist die kleinste mögliche Zahl?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "(-16 - 5) / (-3)",
+   "w": "−3x + 5 ≤ −16 ⇒ −3x ≤ −21 ⇒ x ≥ 7. Die kleinste Zahl ist 7 (Probe: −21 + 5 = −16).",
+   "h": "Stelle die Ungleichung auf und denke beim Teilen durch −3 an das Zeichen."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Für welchen Wert von a hat a · x ≤ −10 die Lösungsmenge x ≥ 2?"
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "-10 / 2",
+   "w": "Das Zeichen hat sich umgedreht, also ist a negativ. Dann gilt x ≥ −10 : a = 2, also a = −5. Probe: −5x ≤ −10 ⇒ x ≥ 2.",
+   "h": "Was sagt das umgedrehte Zeichen über das Vorzeichen von a?"
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Konto steht bei 50 €. Jeden Monat werden 12 € abgebucht, sonst passiert nichts. Nach wie vielen vollen Monaten ist es zum ersten Mal im Minus?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "50 // 12 + 1",
+   "w": "50 − 12m < 0 ⇒ −12m < −50 ⇒ m > 4,1… Nach 4 Monaten sind noch 2 € da, nach 5 Monaten −10 €.",
+   "h": "Stelle den Kontostand nach m Monaten als Term auf."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "auswahl",
+   "f": {
+    "text": "Löse 5 − 2x ≥ x + 8 und prüfe: Welche der Zahlen −4, −1, 0 und 2 sind Lösungen?"
+   },
+   "a": [
+    "0 und 2",
+    "−1, 0 und 2",
+    "−4 und −1",
+    "nur −4"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "5 − 2x ≥ x + 8 ⇒ −3x ≥ 3 ⇒ x ≤ −1. Von den Zahlen sind −4 und −1 Lösungen (−1 mit Gleichheit: 7 ≥ 7).",
+   "h": "Erst lösen, dann jede Zahl mit der Lösungsmenge vergleichen."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Für welche x ist der Term 2 − 3x positiv und zugleich kleiner als 11? Wie viele ganze Zahlen sind das?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "0 - (-2) + 1",
+   "w": "2 − 3x > 0 ⇒ x < 2/3. 2 − 3x < 11 ⇒ −3x < 9 ⇒ x > −3. Ganze Zahlen dazwischen: −2, −1, 0. Das sind drei.",
+   "h": "Zwei Ungleichungen: einmal „> 0“, einmal „< 11“."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Für welche ganze Zahl a hat (a − 3) · x < 6 die Lösungsmenge x > −3?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "3 - 2",
+   "w": "Das Zeichen hat sich umgedreht, also ist a − 3 negativ. Dann gilt x > 6 : (a − 3). Das soll −3 sein: 6 : (a − 3) = −3 ⇒ a − 3 = −2 ⇒ a = 1. Probe: −2x < 6 ⇒ x > −3.",
+   "h": "Was verrät die Richtung des Zeichens in der Lösung über den Faktor vor x?"
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "auswahl",
+   "f": {
+    "text": "Es gilt a < b < 0. Welche Zahl ist sicher die größte?"
+   },
+   "a": [
+    "Das hängt von a und b ab.",
+    "a · b",
+    "a²",
+    "b²"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Multipliziert man a < b mit der negativen Zahl a, dreht sich das Zeichen: a² > a · b. Multipliziert man a < b mit der negativen Zahl b: a · b > b². Also a² > a · b > b². Beispiel a = −3, b = −1: 9 > 3 > 1.",
+   "h": "Multipliziere die Ungleichung a < b nacheinander mit a und mit b – beide sind negativ."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 4(x + 6) > 6x + 8."
+   },
+   "a": [
+    "x < −8",
+    "x < 8",
+    "x < −16",
+    "x > 8"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Klammern auflösen: 4x + 24 > 6x + 8. − 6x: −2x + 24 > 8. − 24: −2x > −16. : (−2), Zeichen umdrehen → x < 8.",
+   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x.",
+   "g": "mehrschritt"
   },
   {
    "l": "klammern",
@@ -1752,7 +2118,25 @@
     "index": 0
    },
    "w": "Klammern auflösen: 5x − 10 ≥ −40. + 10: 5x ≥ −30. : 5 → x ≥ −6.",
-   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
+   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x.",
+   "g": "direkt"
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −2(x + 4) ≥ 6x − 40. Die Lösung hat die Form x ≤ □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(-40 - (-8)) / ((-2) - (6))",
+   "w": "Klammern auflösen: −2x − 8 ≥ 6x − 40. − 6x: −8x − 8 ≥ −40. + 8: −8x ≥ −32. : (−8), Zeichen umdrehen → x ≤ 4.",
+   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x.",
+   "g": "mehrschritt"
   },
   {
    "l": "klammern",
@@ -1773,7 +2157,64 @@
     "index": 1
    },
    "w": "Klammern auflösen: 2x + 4 < 8. − 4: 2x < 4. : 2 → x < 2.",
-   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
+   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x.",
+   "g": "direkt"
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −2(x − 1) ≤ 4x − 34. Die Lösung hat die Form x ≥ □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(-34 - (2)) / ((-2) - (4))",
+   "w": "Klammern auflösen: −2x + 2 ≤ 4x − 34. − 4x: −6x + 2 ≤ −34. − 2: −6x ≤ −36. : (−6), Zeichen umdrehen → x ≥ 6.",
+   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x + 1)/2 − (x − 3)/4 > 1. Die Lösung hat die Form x > □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "4 - 5",
+   "w": "Mal 4: 2(x + 1) − (x − 3) > 4 ⇔ 2x + 2 − x + 3 > 4 ⇔ x + 5 > 4 ⇔ x > −1.",
+   "h": "Multipliziere mit 4. Der zweite Zähler kommt in Klammern.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 3(x + 1) ≤ 2x − 2."
+   },
+   "a": [
+    "x ≤ −5",
+    "x ≤ 5",
+    "x ≤ 1",
+    "x ≥ −5"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Klammern auflösen: 3x + 3 ≤ 2x − 2. − 2x: x + 3 ≤ −2. − 3: x ≤ −5.",
+   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x.",
+   "g": "mehrschritt"
   },
   {
    "l": "klammern",
@@ -1794,7 +2235,30 @@
     "index": 2
    },
    "w": "Klammern auflösen: 5x − 30 < 5. + 30: 5x < 35. : 5 → x < 7.",
-   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
+   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x.",
+   "g": "direkt"
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 5(x + 2) ≤ −3x + 10."
+   },
+   "a": [
+    "x ≥ 0",
+    "x ≤ 2,5",
+    "x ≤ 0",
+    "x ≤ 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Klammern auflösen: 5x + 10 ≤ −3x + 10. + 3x: 8x + 10 ≤ 10. − 10: 8x ≤ 0. : 8 → x ≤ 0.",
+   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x.",
+   "g": "mehrschritt"
   },
   {
    "l": "klammern",
@@ -1821,28 +2285,7 @@
    "l": "klammern",
    "t": "klammern",
    "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Löse die Ungleichung 4(x + 6) > 6x + 8."
-   },
-   "a": [
-    "x < −8",
-    "x < 8",
-    "x < −16",
-    "x > 8"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Klammern auflösen: 4x + 24 > 6x + 8. − 6x: −2x + 24 > 8. − 24: −2x > −16. : (−2), Zeichen umdrehen → x < 8.",
-   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
-  },
-  {
-   "l": "klammern",
-   "t": "klammern",
-   "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Löse die Ungleichung 5(x − 5) < −40."
@@ -1866,80 +2309,6 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse −2(x + 4) ≥ 6x − 40. Die Lösung hat die Form x ≤ □. Gib die Zahl an."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "(-40 - (-8)) / ((-2) - (6))",
-   "w": "Klammern auflösen: −2x − 8 ≥ 6x − 40. − 6x: −8x − 8 ≥ −40. + 8: −8x ≥ −32. : (−8), Zeichen umdrehen → x ≤ 4.",
-   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
-  },
-  {
-   "l": "klammern",
-   "t": "klammern",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse −2(x − 1) ≤ 4x − 34. Die Lösung hat die Form x ≥ □. Gib die Zahl an."
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "(-34 - (2)) / ((-2) - (4))",
-   "w": "Klammern auflösen: −2x + 2 ≤ 4x − 34. − 4x: −6x + 2 ≤ −34. − 2: −6x ≤ −36. : (−6), Zeichen umdrehen → x ≥ 6.",
-   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
-  },
-  {
-   "l": "klammern",
-   "t": "klammern",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Löse die Ungleichung 3(x + 1) ≤ 2x − 2."
-   },
-   "a": [
-    "x ≤ −5",
-    "x ≤ 5",
-    "x ≤ 1",
-    "x ≥ −5"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Klammern auflösen: 3x + 3 ≤ 2x − 2. − 2x: x + 3 ≤ −2. − 3: x ≤ −5.",
-   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
-  },
-  {
-   "l": "klammern",
-   "t": "klammern",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Löse die Ungleichung 5(x + 2) ≤ −3x + 10."
-   },
-   "a": [
-    "x ≥ 0",
-    "x ≤ 2,5",
-    "x ≤ 0",
-    "x ≤ 1"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Klammern auflösen: 5x + 10 ≤ −3x + 10. + 3x: 8x + 10 ≤ 10. − 10: 8x ≤ 0. : 8 → x ≤ 0.",
-   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
-  },
-  {
-   "l": "klammern",
-   "t": "klammern",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
     "text": "Löse −2(x + 1) − 3(x + 4) ≤ −x + 2. Die Lösung hat die Form x ≥ □. Gib die Zahl an."
    },
    "o": {
@@ -1947,7 +2316,8 @@
    },
    "c": "(2 - (-14)) / ((-5) - (-1))",
    "w": "Klammern auflösen: −5x − 14 ≤ −x + 2. + x: −4x − 14 ≤ 2. + 14: −4x ≤ 16. : (−4), Zeichen umdrehen → x ≥ −4.",
-   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
+   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x.",
+   "g": "mehrschritt"
   },
   {
    "l": "klammern",
@@ -1969,7 +2339,7 @@
    "l": "klammern",
    "t": "klammern",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse 4(x + 1) − 2(x + 4) > 3x − 2. Die Lösung hat die Form x < □. Gib die Zahl an."
@@ -1979,27 +2349,6 @@
    },
    "c": "(-2 - (-4)) / ((2) - (3))",
    "w": "Klammern auflösen: 2x − 4 > 3x − 2. − 3x: −x − 4 > −2. + 4: −x > 2. : (−1), Zeichen umdrehen → x < −2.",
-   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
-  },
-  {
-   "l": "klammern",
-   "t": "klammern",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Löse die Ungleichung −3(x − 1) − 5(x + 3) < −3x − 7."
-   },
-   "a": [
-    "x > 3,8",
-    "x > 1",
-    "x < −1",
-    "x > −1"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Klammern auflösen: −8x − 12 < −3x − 7. + 3x: −5x − 12 < −7. + 12: −5x < 5. : (−5), Zeichen umdrehen → x > −1.",
    "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
   },
   {
@@ -2202,6 +2551,27 @@
    "t": "klammern",
    "p": "uebung",
    "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung −3(x − 1) − 5(x + 3) < −3x − 7."
+   },
+   "a": [
+    "x > 3,8",
+    "x > 1",
+    "x < −1",
+    "x > −1"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Klammern auflösen: −8x − 12 < −3x − 7. + 3x: −5x − 12 < −7. + 12: −5x < 5. : (−5), Zeichen umdrehen → x > −1.",
+   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse 3(2 − x) ≤ 12. Die Lösung hat die Form x ≥ □. Gib die Zahl an."
@@ -2236,22 +2606,6 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Löse (x + 1)/2 − (x − 3)/4 > 1. Die Lösung hat die Form x > □. Gib die Zahl an."
-   },
-   "o": {
-    "wert": -1
-   },
-   "c": "4 - 5",
-   "w": "Mal 4: 2(x + 1) − (x − 3) > 4 ⇔ 2x + 2 − x + 3 > 4 ⇔ x + 5 > 4 ⇔ x > −1.",
-   "h": "Multipliziere mit 4. Der zweite Zähler kommt in Klammern."
-  },
-  {
-   "l": "klammern",
-   "t": "klammern",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
     "text": "Löse x(x + 2) ≤ x² − 6. Die Lösung hat die Form x ≤ □. Gib die Zahl an."
    },
    "o": {
@@ -2259,7 +2613,8 @@
    },
    "c": "-6 / 2",
    "w": "x² + 2x ≤ x² − 6 ⇔ 2x ≤ −6 ⇔ x ≤ −3. Das x² fällt weg.",
-   "h": "Multipliziere aus. Was passiert mit x²?"
+   "h": "Multipliziere aus. Was passiert mit x²?",
+   "g": "verknuepfen"
   },
   {
    "l": "klammern",
@@ -2280,7 +2635,8 @@
     "index": 2
    },
    "w": "4x − 4 − 4x + 6 < 1 ⇔ 2 < 1. Das ist nie wahr. Keine Zahl erfüllt die Ungleichung.",
-   "h": "Löse beide Klammern auf. Achte auf −2 · (−3)."
+   "h": "Löse beide Klammern auf. Achte auf −2 · (−3).",
+   "g": "begruenden"
   },
   {
    "l": "klammern",
@@ -2296,7 +2652,176 @@
    },
    "c": "30 // 5 - 1",
    "w": "6 − 2x > 3x − 24 ⇔ 30 > 5x ⇔ x < 6. Die 6 gehört nicht dazu, die größte ganze Zahl ist 5.",
-   "h": "Löse zuerst. Ist die Grenze selbst erlaubt?"
+   "h": "Löse zuerst. Ist die Grenze selbst erlaubt?",
+   "g": "pruefung"
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Ungleichung entsteht, wenn man bei 3(x − 2) > 9 die Klammer auflöst?"
+   },
+   "a": [
+    "3x − 6 > 9",
+    "3x − 2 > 9",
+    "3x + 6 > 9",
+    "x − 6 > 9"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die 3 wird mit jedem Glied der Klammer multipliziert: 3 · x − 3 · 2 = 3x − 6.",
+   "h": "Jedes Glied in der Klammer wird mit 3 malgenommen."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 4 cm breit und (x + 3) cm lang. Sein Flächeninhalt soll mindestens 28 cm² sein. Wie groß muss x mindestens sein?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "28 / 4 - 3",
+   "w": "4(x + 3) ≥ 28 ⇒ 4x + 12 ≥ 28 ⇒ 4x ≥ 16 ⇒ x ≥ 4.",
+   "h": "Fläche = Breite · Länge, als Ungleichung mit „mindestens“."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl muss im Kästchen stehen, damit 2(x − □) < x + 1 die Lösungsmenge x < 7 hat?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(7 - 1) / 2",
+   "w": "Mit der Zahl k: 2x − 2k < x + 1 ⇒ x < 1 + 2k. Aus 1 + 2k = 7 folgt k = 3.",
+   "h": "Rechne mit einem Buchstaben für das Kästchen und vergleiche mit x < 7."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Tim rechnet: 3 − 2(x + 1) > 5 ⇒ 3 − 2x + 2 > 5 ⇒ −2x > 0 ⇒ x < 0. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: Richtig ist x < 2.",
+    "Falsch: Das Zeichen darf sich nicht umdrehen, also x > 0.",
+    "Falsch: −2 · (+1) = −2, also 1 − 2x > 5 und x < −2."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Das Minus vor der Klammer wirkt auf beide Glieder: −2(x + 1) = −2x − 2. Dann 1 − 2x > 5 ⇒ −2x > 4 ⇒ x < −2.",
+   "h": "Löse die Klammer langsam auf: Was ist −2 · (+1)?"
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Ab welchem Wert von k ist jede Zahl x eine Lösung von 3(x + k) ≥ 3x + 12?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "12 / 3",
+   "w": "3x + 3k ≥ 3x + 12 ⇒ 3k ≥ 12 (x fällt weg). Für k ≥ 4 stimmt das für jedes x, für k < 4 für kein x. Gesucht ist k = 4.",
+   "h": "Löse die Klammer auf – was passiert mit x?"
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Die größte ganze Lösung von 2(x + 1) < c ist 6 (c ganz). Welches ist der kleinste mögliche Wert von c?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "2 * (6 + 1) + 1",
+   "w": "2(x + 1) < c ⇒ x < (c − 2) : 2. Damit 6 Lösung ist, muss 6 < (c − 2) : 2 sein, also c > 14. Damit 7 keine Lösung ist, muss (c − 2) : 2 ≤ 7 sein, also c ≤ 16. Kleinster Wert: c = 15.",
+   "h": "Was muss für x = 6 gelten, was für x = 7?"
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Saal hat drei Reihen mit je (x + 4) Stühlen und eine letzte Reihe mit 2x Stühlen. Es sollen mindestens 37 Plätze sein. Wie viele Stühle hat die letzte Reihe mindestens?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "2 * (37 - 12) / 5",
+   "w": "3(x + 4) + 2x ≥ 37 ⇒ 5x + 12 ≥ 37 ⇒ x ≥ 5. Die letzte Reihe hat 2x ≥ 10 Stühle.",
+   "h": "Stelle die Platzzahl als Term mit x auf – gefragt ist am Ende 2x."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Für welche ganzen Zahlen n gilt 2(n + 3) < 3(n − 1) < 2(n + 8)? Gib die Summe all dieser Zahlen an."
+   },
+   "o": {
+    "wert": 126
+   },
+   "c": "(10 + 18) * 9 / 2",
+   "w": "Linker Teil: 2n + 6 < 3n − 3 ⇒ n > 9. Rechter Teil: 3n − 3 < 2n + 16 ⇒ n < 19. Also n = 10, 11, …, 18 (neun Zahlen). Summe: (10 + 18) · 9 : 2 = 126.",
+   "h": "Teile die Doppelungleichung in zwei Ungleichungen; für die Summe hilft ein Trick wie beim kleinen Gauß."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahlen x erfüllen 5(x − 2) − 3(x − 4) ≥ 2(x + 1)?"
+   },
+   "a": [
+    "nur x ≤ 0",
+    "jede Zahl",
+    "keine Zahl",
+    "nur x ≥ 1"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Links: 5x − 10 − 3x + 12 = 2x + 2. Rechts: 2x + 2. Die Ungleichung heißt also 2x + 2 ≥ 2x + 2 – das stimmt immer (mit Gleichheit). Jede Zahl ist Lösung.",
+   "h": "Vereinfache beide Seiten ganz, bevor du nach x auflöst."
   },
   {
    "l": "intervall",
@@ -2317,28 +2842,8 @@
     "index": 3
    },
    "w": "Die Grenze gehört dazu, und x ist größer als −6: L = [−6; ∞[.",
-   "h": "Zeigt das Zeichen nach links (<, ≤), reicht das Intervall bis −∞. Gehört die Grenze dazu?"
-  },
-  {
-   "l": "intervall",
-   "t": "intervall",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Schreibe die Lösungsmenge von x < 0 als Intervall."
-   },
-   "a": [
-    "L = ]−∞; 0[",
-    "L = ]−∞; 0]",
-    "L = [0; ∞[",
-    "L = ]0; ∞["
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Die Grenze gehört nicht dazu, und x ist kleiner als 0: L = ]−∞; 0[.",
-   "h": "Zeigt das Zeichen nach links (<, ≤), reicht das Intervall bis −∞. Gehört die Grenze dazu?"
+   "h": "Zeigt das Zeichen nach links (<, ≤), reicht das Intervall bis −∞. Gehört die Grenze dazu?",
+   "g": "direkt"
   },
   {
    "l": "intervall",
@@ -2359,28 +2864,8 @@
     "index": 3
    },
    "w": "Bis −∞: x ist kleiner; die Klammer bei −5 zeigt nach außen, die Grenze gehört nicht dazu. Also x < −5.",
-   "h": "Wohin reicht das Intervall (−∞ oder ∞)? Gehört die Grenze dazu?"
-  },
-  {
-   "l": "intervall",
-   "t": "intervall",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Schreibe die Lösungsmenge von x < −8 als Intervall."
-   },
-   "a": [
-    "L = ]−∞; −8]",
-    "L = ]−∞; −8[",
-    "L = [−8; ∞[",
-    "L = ]−8; ∞["
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Die Grenze gehört nicht dazu, und x ist kleiner als −8: L = ]−∞; −8[.",
-   "h": "Zeigt das Zeichen nach links (<, ≤), reicht das Intervall bis −∞. Gehört die Grenze dazu?"
+   "h": "Wohin reicht das Intervall (−∞ oder ∞)? Gehört die Grenze dazu?",
+   "g": "erkennen"
   },
   {
    "l": "intervall",
@@ -2401,7 +2886,52 @@
     "index": 0
    },
    "w": "−2x − 12 ≥ −20 → −2x ≥ −8 → x ≤ 4 (Zeichen umgedreht, da durch eine negative Zahl geteilt). L = ]−∞; 4].",
-   "h": "Erst lösen, dann das Intervall aufschreiben. Achte auf negative Faktoren vor x."
+   "h": "Erst lösen, dann das Intervall aufschreiben. Achte auf negative Faktoren vor x.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse −12 < 2x − 4 < 2 und gib die Lösungsmenge als Intervall an."
+   },
+   "a": [
+    "L = ]−8; −1[",
+    "L = ]−12; 2[",
+    "L = [−4; 3]",
+    "L = ]−4; 3["
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Auf allen drei Teilen + 4: −8 < 2x < 6. Durch 2: −4 < x < 3. L = ]−4; 3[.",
+   "h": "Rechne auf allen drei Teilen gleichzeitig. Dann gibt es eine linke und eine rechte Grenze.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe die Lösungsmenge von x < 0 als Intervall."
+   },
+   "a": [
+    "L = ]−∞; 0[",
+    "L = ]−∞; 0]",
+    "L = [0; ∞[",
+    "L = ]0; ∞["
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Grenze gehört nicht dazu, und x ist kleiner als 0: L = ]−∞; 0[.",
+   "h": "Zeigt das Zeichen nach links (<, ≤), reicht das Intervall bis −∞. Gehört die Grenze dazu?",
+   "g": "direkt"
   },
   {
    "l": "intervall",
@@ -2422,13 +2952,14 @@
     "index": 2
    },
    "w": "−2x + 4 ≤ 12 → −2x ≤ 8 → x ≥ −4 (Zeichen umgedreht, da durch eine negative Zahl geteilt). L = [−4; ∞[.",
-   "h": "Erst lösen, dann das Intervall aufschreiben. Achte auf negative Faktoren vor x."
+   "h": "Erst lösen, dann das Intervall aufschreiben. Achte auf negative Faktoren vor x.",
+   "g": "mehrschritt"
   },
   {
    "l": "intervall",
    "t": "intervall",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welche Ungleichung gehört zur Lösungsmenge L = ]9,5; ∞[?"
@@ -2443,7 +2974,52 @@
     "index": 0
    },
    "w": "Bis ∞: x ist größer; die Klammer bei 9,5 zeigt nach außen, die Grenze gehört nicht dazu. Also x > 9,5.",
-   "h": "Wohin reicht das Intervall (−∞ oder ∞)? Gehört die Grenze dazu?"
+   "h": "Wohin reicht das Intervall (−∞ oder ∞)? Gehört die Grenze dazu?",
+   "g": "erkennen"
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse 3 < 5x + 3 < 23 und gib die Lösungsmenge als Intervall an."
+   },
+   "a": [
+    "L = ]1,2; 5,2[",
+    "L = [0; 4]",
+    "L = ]0; 4[",
+    "L = ]3; 23["
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Auf allen drei Teilen − 3: 0 < 5x < 20. Durch 5: 0 < x < 4. L = ]0; 4[.",
+   "h": "Rechne auf allen drei Teilen gleichzeitig. Dann gibt es eine linke und eine rechte Grenze.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe die Lösungsmenge von x < −8 als Intervall."
+   },
+   "a": [
+    "L = ]−∞; −8]",
+    "L = ]−∞; −8[",
+    "L = [−8; ∞[",
+    "L = ]−8; ∞["
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Grenze gehört nicht dazu, und x ist kleiner als −8: L = ]−∞; −8[.",
+   "h": "Zeigt das Zeichen nach links (<, ≤), reicht das Intervall bis −∞. Gehört die Grenze dazu?",
+   "g": "direkt"
   },
   {
    "l": "intervall",
@@ -2464,13 +3040,14 @@
     "index": 1
    },
    "w": "−4x − 3 < 17 → −4x < 20 → x > −5 (Zeichen umgedreht, da durch eine negative Zahl geteilt). L = ]−5; ∞[.",
-   "h": "Erst lösen, dann das Intervall aufschreiben. Achte auf negative Faktoren vor x."
+   "h": "Erst lösen, dann das Intervall aufschreiben. Achte auf negative Faktoren vor x.",
+   "g": "mehrschritt"
   },
   {
    "l": "intervall",
    "t": "intervall",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welche Ungleichung gehört zur Lösungsmenge L = ]−∞; −1,5[?"
@@ -2485,7 +3062,8 @@
     "index": 3
    },
    "w": "Bis −∞: x ist kleiner; die Klammer bei −1,5 zeigt nach außen, die Grenze gehört nicht dazu. Also x < −1,5.",
-   "h": "Wohin reicht das Intervall (−∞ oder ∞)? Gehört die Grenze dazu?"
+   "h": "Wohin reicht das Intervall (−∞ oder ∞)? Gehört die Grenze dazu?",
+   "g": "erkennen"
   },
   {
    "l": "intervall",
@@ -2515,48 +3093,6 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Löse −12 < 2x − 4 < 2 und gib die Lösungsmenge als Intervall an."
-   },
-   "a": [
-    "L = ]−8; −1[",
-    "L = ]−12; 2[",
-    "L = [−4; 3]",
-    "L = ]−4; 3["
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Auf allen drei Teilen + 4: −8 < 2x < 6. Durch 2: −4 < x < 3. L = ]−4; 3[.",
-   "h": "Rechne auf allen drei Teilen gleichzeitig. Dann gibt es eine linke und eine rechte Grenze."
-  },
-  {
-   "l": "intervall",
-   "t": "intervall",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Löse 3 < 5x + 3 < 23 und gib die Lösungsmenge als Intervall an."
-   },
-   "a": [
-    "L = ]1,2; 5,2[",
-    "L = [0; 4]",
-    "L = ]0; 4[",
-    "L = ]3; 23["
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Auf allen drei Teilen − 3: 0 < 5x < 20. Durch 5: 0 < x < 4. L = ]0; 4[.",
-   "h": "Rechne auf allen drei Teilen gleichzeitig. Dann gibt es eine linke und eine rechte Grenze."
-  },
-  {
-   "l": "intervall",
-   "t": "intervall",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
     "text": "Löse 5 ≤ 2x + 7 ≤ 7 und gib die Lösungsmenge als Intervall an."
    },
    "a": [
@@ -2569,7 +3105,8 @@
     "index": 0
    },
    "w": "Auf allen drei Teilen − 7: −2 ≤ 2x ≤ 0. Durch 2: −1 ≤ x ≤ 0. L = [−1; 0].",
-   "h": "Rechne auf allen drei Teilen gleichzeitig. Dann gibt es eine linke und eine rechte Grenze."
+   "h": "Rechne auf allen drei Teilen gleichzeitig. Dann gibt es eine linke und eine rechte Grenze.",
+   "g": "verknuepfen"
   },
   {
    "l": "intervall",
@@ -2832,7 +3369,8 @@
     "index": 0
    },
    "w": "2x ≥ 5 ⇔ x ≥ 2,5. Bei −2x ≥ −5 dreht sich das Zeichen: x ≤ 2,5.",
-   "h": "Löse jede Ungleichung und vergleiche."
+   "h": "Löse jede Ungleichung und vergleiche.",
+   "g": "umkehr"
   },
   {
    "l": "intervall",
@@ -2853,7 +3391,8 @@
     "index": 3
    },
    "w": "Erste Ungleichung: x > 2. Zweite: x ≤ 6. Beides gleichzeitig: 2 < x ≤ 6, also ]2; 6].",
-   "h": "Löse beide Ungleichungen. „Zugleich“ heißt: Beides muss gelten."
+   "h": "Löse beide Ungleichungen. „Zugleich“ heißt: Beides muss gelten.",
+   "g": "transfer"
   },
   {
    "l": "intervall",
@@ -2890,7 +3429,8 @@
    },
    "c": "3 - (-2) + 1",
    "w": "−9 < 3x ≤ 9 ⇔ −3 < x ≤ 3. Ganze Zahlen: −2, −1, 0, 1, 2, 3. Das sind 6.",
-   "h": "Löse zuerst. −3 gehört nicht dazu, 3 schon."
+   "h": "Löse zuerst. −3 gehört nicht dazu, 3 schon.",
+   "g": "pruefung"
   },
   {
    "l": "intervall",
@@ -2911,7 +3451,142 @@
     "index": 0
    },
    "w": "Erste: x ≤ 2. Zweite: x > 4. Keine Zahl ist zugleich höchstens 2 und größer als 4.",
-   "h": "Zeichne beide Bereiche auf einem Zahlenstrahl."
+   "h": "Zeichne beide Bereiche auf einem Zahlenstrahl.",
+   "g": "begruenden"
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Fahrgeschäft ist für Personen ab 1,20 m bis einschließlich 1,90 m Körpergröße erlaubt. Welches Intervall beschreibt die erlaubten Größen (in m)?"
+   },
+   "a": [
+    "]1,2; 1,9[",
+    "]1,2; 1,9]",
+    "[1,2; 1,9[",
+    "[1,2; 1,9]"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "„ab“ und „einschließlich“ heißen: beide Grenzen gehören dazu – eckige Klammern nach innen.",
+   "h": "Gehören 1,20 m und 1,90 m selbst dazu?"
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "auswahl",
+   "f": {
+    "text": "Am Zahlenstrahl ist bei −2 ein ausgefüllter Punkt gezeichnet, von dort geht ein Pfeil nach links. Welche Menge ist das?"
+   },
+   "a": [
+    "[−2; ∞[",
+    "]−2; ∞[",
+    "]−∞; −2]",
+    "]−∞; −2["
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Pfeil nach links: alle kleineren Zahlen. Ausgefüllter Punkt: −2 gehört dazu. Also ]−∞; −2].",
+   "h": "Welche Richtung zeigt der Pfeil, und gehört −2 dazu?"
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand schreibt für −1 ≤ x < 4 das Intervall [−1; 4]. Was ist falsch?"
+   },
+   "a": [
+    "Die −1 gehört nicht dazu: richtig ist ]−1; 4].",
+    "Die 4 gehört nicht dazu: richtig ist [−1; 4[.",
+    "Nichts, es stimmt.",
+    "Beide Grenzen gehören nicht dazu: richtig ist ]−1; 4[."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "−1 ≤ x: −1 gehört dazu, Klammer [ . x < 4: 4 gehört nicht dazu, Klammer [ nach außen: 4[.",
+   "h": "Prüfe jede Grenze einzeln: „≤“ oder „<“?"
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Für welchen Wert von a ist die Lösungsmenge von a ≤ 2x < 10 das Intervall [3; 5[?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "2 * 3",
+   "w": "a ≤ 2x < 10 ⇒ a : 2 ≤ x < 5. Die linke Grenze soll 3 sein: a : 2 = 3 ⇒ a = 6.",
+   "h": "Teile die ganze Doppelungleichung durch 2."
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Intervall hat die Länge 3,5. Wie viele ganze Zahlen kann es höchstens enthalten?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "3 + 1",
+   "w": "Beginnt das Intervall genau bei einer ganzen Zahl und enthält diese, etwa [0; 3,5], liegen 0, 1, 2 und 3 darin – vier Zahlen. Fünf ganze Zahlen bräuchten von der kleinsten bis zur größten mindestens die Länge 4. Also höchstens vier.",
+   "h": "Wie weit liegen die kleinste und die größte von n ganzen Zahlen mindestens auseinander?"
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele ganze Zahlen x haben von der Zahl 3 einen Abstand kleiner als 5?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "7 - (-1) + 1",
+   "w": "Abstand kleiner als 5 heißt: 3 − 5 < x < 3 + 5, also −2 < x < 8 – das Intervall ]−2; 8[. Ganze Zahlen darin: −1, 0, 1, …, 7, also 7 − (−1) + 1 = 9 Zahlen.",
+   "h": "Schreibe „Abstand kleiner als 5“ als Doppelungleichung."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die kleinste ganze Zahl an, die −4x + 7 < 6 erfüllt."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "-((-1) // 4)",
+   "w": "Lösen: x > 0,25 (Zeichen umgedreht). Die kleinste ganze Zahl ist 1.",
+   "h": "Löse zuerst die Ungleichung. Liegt die Grenze zwischen zwei ganzen Zahlen, überlege, welche noch passt.",
+   "g": "mehrschritt"
   },
   {
    "l": "pruefen",
@@ -2932,7 +3607,25 @@
     "index": 3
    },
    "w": "Einsetzen: 3 · 4 + 5 = 17, und 17 ≤ 8 ist falsch. Lösung ist x ≤ 1.",
-   "h": "Setze jede Zahl ein oder löse die Ungleichung zuerst."
+   "h": "Setze jede Zahl ein oder löse die Ungleichung zuerst.",
+   "g": "erkennen"
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die kleinste ganze Zahl an, die −4x − 5 < −14 erfüllt."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "-((-9) // 4)",
+   "w": "Lösen: x > 2,25 (Zeichen umgedreht). Die kleinste ganze Zahl ist 3.",
+   "h": "Löse zuerst die Ungleichung. Liegt die Grenze zwischen zwei ganzen Zahlen, überlege, welche noch passt.",
+   "g": "mehrschritt"
   },
   {
    "l": "pruefen",
@@ -2953,81 +3646,8 @@
     "index": 1
    },
    "w": "Einsetzen: 6 · (−3) + 4 = −14, und −14 < 4 ist wahr. Lösung ist x < 0.",
-   "h": "Setze jede Zahl ein oder löse die Ungleichung zuerst."
-  },
-  {
-   "l": "pruefen",
-   "t": "pruefen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Zahl ist eine Lösung von 3x + 5 > 14?"
-   },
-   "a": [
-    "0",
-    "3",
-    "4",
-    "2"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Einsetzen: 3 · 4 + 5 = 17, und 17 > 14 ist wahr. Lösung ist x > 3.",
-   "h": "Setze jede Zahl ein oder löse die Ungleichung zuerst."
-  },
-  {
-   "l": "pruefen",
-   "t": "pruefen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Zahl ist eine Lösung von 4x + 7 < 19?"
-   },
-   "a": [
-    "0",
-    "6",
-    "4",
-    "3"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Einsetzen: 4 · 0 + 7 = 7, und 7 < 19 ist wahr. Lösung ist x < 3.",
-   "h": "Setze jede Zahl ein oder löse die Ungleichung zuerst."
-  },
-  {
-   "l": "pruefen",
-   "t": "pruefen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Gib die kleinste ganze Zahl an, die −4x + 7 < 6 erfüllt."
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "-((-1) // 4)",
-   "w": "Lösen: x > 0,25 (Zeichen umgedreht). Die kleinste ganze Zahl ist 1.",
-   "h": "Löse zuerst die Ungleichung. Liegt die Grenze zwischen zwei ganzen Zahlen, überlege, welche noch passt."
-  },
-  {
-   "l": "pruefen",
-   "t": "pruefen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Gib die kleinste ganze Zahl an, die −4x − 5 < −14 erfüllt."
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "-((-9) // 4)",
-   "w": "Lösen: x > 2,25 (Zeichen umgedreht). Die kleinste ganze Zahl ist 3.",
-   "h": "Löse zuerst die Ungleichung. Liegt die Grenze zwischen zwei ganzen Zahlen, überlege, welche noch passt."
+   "h": "Setze jede Zahl ein oder löse die Ungleichung zuerst.",
+   "g": "erkennen"
   },
   {
    "l": "pruefen",
@@ -3043,55 +3663,8 @@
    },
    "c": "-((-2) // 3)",
    "w": "Lösen: x ≥ 2/3 (Zeichen umgedreht). Die kleinste ganze Zahl ist 1.",
-   "h": "Löse zuerst die Ungleichung. Liegt die Grenze zwischen zwei ganzen Zahlen, überlege, welche noch passt."
-  },
-  {
-   "l": "pruefen",
-   "t": "pruefen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Gib die größte ganze Zahl an, die 3x + 9 < −20 erfüllt."
-   },
-   "o": {
-    "wert": -10
-   },
-   "c": "-29 // 3",
-   "w": "Lösen: x < −29/3. Die größte ganze Zahl ist −10.",
-   "h": "Löse zuerst die Ungleichung. Liegt die Grenze zwischen zwei ganzen Zahlen, überlege, welche noch passt."
-  },
-  {
-   "l": "pruefen",
-   "t": "pruefen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Gib die größte ganze Zahl an, die 4x + 2 < 20 erfüllt."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "9 // 2",
-   "w": "Lösen: x < 4,5. Die größte ganze Zahl ist 4.",
-   "h": "Löse zuerst die Ungleichung. Liegt die Grenze zwischen zwei ganzen Zahlen, überlege, welche noch passt."
-  },
-  {
-   "l": "pruefen",
-   "t": "pruefen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Gib die kleinste ganze Zahl an, die 3x − 10 > 4 erfüllt."
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "-((-14) // 3)",
-   "w": "Lösen: x > 14/3. Die kleinste ganze Zahl ist 5.",
-   "h": "Löse zuerst die Ungleichung. Liegt die Grenze zwischen zwei ganzen Zahlen, überlege, welche noch passt."
+   "h": "Löse zuerst die Ungleichung. Liegt die Grenze zwischen zwei ganzen Zahlen, überlege, welche noch passt.",
+   "g": "mehrschritt"
   },
   {
    "l": "pruefen",
@@ -3112,7 +3685,47 @@
     "index": 1
    },
    "w": "Richtig: −4x > 20, durch (−4) mit Umdrehen: x < −5.",
-   "h": "Rechne jeden Schritt selbst nach und vergleiche."
+   "h": "Rechne jeden Schritt selbst nach und vergleiche.",
+   "g": "fehler"
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist eine Lösung von 3x + 5 > 14?"
+   },
+   "a": [
+    "0",
+    "3",
+    "4",
+    "2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Einsetzen: 3 · 4 + 5 = 17, und 17 > 14 ist wahr. Lösung ist x > 3.",
+   "h": "Setze jede Zahl ein oder löse die Ungleichung zuerst.",
+   "g": "erkennen"
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die größte ganze Zahl an, die 3x + 9 < −20 erfüllt."
+   },
+   "o": {
+    "wert": -10
+   },
+   "c": "-29 // 3",
+   "w": "Lösen: x < −29/3. Die größte ganze Zahl ist −10.",
+   "h": "Löse zuerst die Ungleichung. Liegt die Grenze zwischen zwei ganzen Zahlen, überlege, welche noch passt.",
+   "g": "mehrschritt"
   },
   {
    "l": "pruefen",
@@ -3133,7 +3746,30 @@
     "index": 3
    },
    "w": "Richtig: −4x > −4, durch (−4) mit Umdrehen: x < 1.",
-   "h": "Rechne jeden Schritt selbst nach und vergleiche."
+   "h": "Rechne jeden Schritt selbst nach und vergleiche.",
+   "g": "fehler"
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist eine Lösung von 4x + 7 < 19?"
+   },
+   "a": [
+    "0",
+    "6",
+    "4",
+    "3"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Einsetzen: 4 · 0 + 7 = 7, und 7 < 19 ist wahr. Lösung ist x < 3.",
+   "h": "Setze jede Zahl ein oder löse die Ungleichung zuerst.",
+   "g": "erkennen"
   },
   {
    "l": "pruefen",
@@ -3155,6 +3791,39 @@
    },
    "w": "Richtig: −6x > 6, durch (−6) mit Umdrehen: x < −1.",
    "h": "Rechne jeden Schritt selbst nach und vergleiche."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die größte ganze Zahl an, die 4x + 2 < 20 erfüllt."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "9 // 2",
+   "w": "Lösen: x < 4,5. Die größte ganze Zahl ist 4.",
+   "h": "Löse zuerst die Ungleichung. Liegt die Grenze zwischen zwei ganzen Zahlen, überlege, welche noch passt.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die kleinste ganze Zahl an, die 3x − 10 > 4 erfüllt."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "-((-14) // 3)",
+   "w": "Lösen: x > 14/3. Die kleinste ganze Zahl ist 5.",
+   "h": "Löse zuerst die Ungleichung. Liegt die Grenze zwischen zwei ganzen Zahlen, überlege, welche noch passt."
   },
   {
    "l": "pruefen",
@@ -3331,7 +4000,7 @@
    "l": "pruefen",
    "t": "pruefen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welche Zahl ist eine Lösung von −2x + 3 > 10?"
@@ -3383,7 +4052,8 @@
     "index": 0
    },
    "w": "Einsetzen: 3 · 2 − 4 = 2, und 2 > 2 ist falsch. Lösen: 2x > 4 ⇔ x > 2. Ein Beispiel beweist ohnehin keine Aussage über alle Zahlen.",
-   "h": "Prüfe Toms Beispiel selbst nach."
+   "h": "Prüfe Toms Beispiel selbst nach.",
+   "g": "begruenden"
   },
   {
    "l": "pruefen",
@@ -3404,7 +4074,8 @@
     "index": 2
    },
    "w": "0 liegt in Leas Lösung x ≥ −2, erfüllt die Ungleichung aber nicht. Also ist Leas Lösung falsch. −3x ≥ 6 ⇔ x ≤ −2.",
-   "h": "Liegt 0 in Leas Lösungsmenge?"
+   "h": "Liegt 0 in Leas Lösungsmenge?",
+   "g": "fehler"
   },
   {
    "l": "pruefen",
@@ -3420,7 +4091,8 @@
    },
    "c": "8 - 1",
    "w": "x < 8. Positive ganze Zahlen: 1, 2, …, 7. Das sind 7. Die 8 gehört nicht dazu.",
-   "h": "Löse zuerst. Zähle dann ab 1."
+   "h": "Löse zuerst. Zähle dann ab 1.",
+   "g": "pruefung"
   },
   {
    "l": "pruefen",
@@ -3436,7 +4108,414 @@
    },
    "c": "6 / (-2)",
    "w": "Aus „≥“ wurde „≤“: Es wurde durch eine negative Zahl geteilt, a < 0. Grenze 6/a = −2 ⇔ a = −3. Probe: −3x ≥ 6 ⇔ x ≤ −2.",
-   "h": "Das Zeichen hat sich umgedreht. Was weißt du dann über a?"
+   "h": "Das Zeichen hat sich umgedreht. Was weißt du dann über a?",
+   "g": "parameter"
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Mach die Probe für x = −2 bei 3 − 4x > 10: Welchen Wert hat die linke Seite?"
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "3 - 4 * (-2)",
+   "w": "3 − 4 · (−2) = 3 + 8 = 11. Da 11 > 10 ist, ist x = −2 eine Lösung.",
+   "h": "Setze −2 in Klammern für x ein."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Becken fasst 500 l und enthält schon 140 l. Pro Minute fließen 25 l zu. Nach wie vielen ganzen Minuten ist es höchstens voll, aber noch nicht übergelaufen? Gib die größte Minutenzahl an."
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "(500 - 140) // 25",
+   "w": "140 + 25t ≤ 500 ⇒ 25t ≤ 360 ⇒ t ≤ 14,4. Die größte ganze Zahl ist 14.",
+   "h": "Stelle den Inhalt nach t Minuten als Term auf."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl a ergibt für 4x − a < 2 die Lösungsmenge x < 3?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "4 * 3 - 2",
+   "w": "4x − a < 2 ⇒ 4x < 2 + a ⇒ x < (2 + a) : 4. Das soll 3 sein: 2 + a = 12 ⇒ a = 10.",
+   "h": "Löse mit dem Buchstaben a nach x auf."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Die Ungleichung 3x + b ≤ 20 hat die Lösungsmenge x ≤ 5. Bestimme b."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "20 - 3 * 5",
+   "w": "An der Grenze gilt Gleichheit: 3 · 5 + b = 20 ⇒ b = 5. Probe: 3x + 5 ≤ 20 ⇒ x ≤ 5.",
+   "h": "Was gilt genau an der Grenze x = 5?"
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche der Zahlen 1/2, 2/3 und 3/4 erfüllen 12x − 7 < 2?"
+   },
+   "a": [
+    "1/2 und 2/3",
+    "nur 3/4",
+    "nur 1/2",
+    "alle drei"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "12x − 7 < 2 ⇒ x < 9/12 = 3/4. 1/2 und 2/3 sind kleiner als 3/4, 3/4 selbst nicht (12 · 3/4 − 7 = 2, nicht < 2).",
+   "h": "Löse nach x auf und vergleiche die Brüche, am besten mit Nenner 12."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Für wie viele natürliche Zahlen n ist (n − 4) · (n − 10) kleiner als 0?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "9 - 5 + 1",
+   "w": "Ein Produkt ist negativ, wenn genau ein Faktor negativ ist. n − 10 < 0 und n − 4 > 0 heißt 4 < n < 10, also n = 5, 6, 7, 8, 9. Beide Faktoren negativ (n < 4) ergibt ein positives Produkt. Fünf Zahlen.",
+   "h": "Wann ist ein Produkt zweier Zahlen negativ?"
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Zahlen x und y erfüllen x + y < 10 und x − y > 6. Was gilt sicher?"
+   },
+   "a": [
+    "x < 8",
+    "y < 2",
+    "x > 8",
+    "y > 2"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Aus x − y > 6 folgt y − x < −6. Addiert man x + y < 10 und y − x < −6, ergibt sich 2y < 4, also y < 2. Über x lässt sich nichts Sicheres sagen: x = 7, y = 0 passt (x < 8), x = 100, y = −95 auch (x > 8).",
+   "h": "Gleich gerichtete Ungleichungen darf man addieren – bring beide in dieselbe Richtung."
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse −x < 2x + 3 mithilfe der Graphen.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      4
+     ],
+     "y": [
+      -10,
+      12
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -1,
+       "t": 0,
+       "name": "y = −x"
+      },
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 3,
+       "name": "y = 2x + 3"
+      }
+     ]
+    }
+   },
+   "a": [
+    "x < −1",
+    "x > 0",
+    "x > 1",
+    "x > −1"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Geraden schneiden sich bei x = −1. Für x > −1 liegt die erste unterhalb der zweiten. Lösung: x > −1.",
+   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die linke Gerade unterhalb der rechten?",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Abbildung zeigt die Geraden f und g. Gib die Lösungsmenge von f(x) ≤ g(x) an.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      4
+     ],
+     "y": [
+      -15,
+      8
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": -6,
+       "name": "f"
+      },
+      {
+       "art": "linear",
+       "m": 3,
+       "t": -5,
+       "name": "g"
+      }
+     ]
+    }
+   },
+   "a": [
+    "L = ]−1; ∞[",
+    "L = ]−∞; −1]",
+    "L = [−1; ∞[",
+    "L = [1; ∞["
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Geraden schneiden sich bei x = −1. Für x ≥ −1 liegt f unterhalb von g (am Schnittpunkt sind beide gleich, er gehört bei ≤ dazu). Lösung: x ≥ −1. Als Intervall: L = [−1; ∞[.",
+   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die Gerade f unterhalb von g?",
+   "g": "darstellung"
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −2x + 1 > 0,5x + 6 mit den Graphen. Die Lösung hat die Form x < □. Gib die Zahl an.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      3
+     ],
+     "y": [
+      -6,
+      15
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -2,
+       "t": 1,
+       "name": "y = −2x + 1"
+      },
+      {
+       "art": "linear",
+       "m": 0.5,
+       "t": 6,
+       "name": "y = 0,5x + 6"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "((6) - (1)) / ((-2) - ((1/2)))",
+   "w": "Die Geraden schneiden sich bei x = −2. Für x < −2 liegt die erste oberhalb der zweiten. Lösung: x < −2.",
+   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die linke Gerade oberhalb der rechten?",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Abbildung zeigt die Geraden f und g. Gib die Lösungsmenge von f(x) ≤ g(x) an.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -9,
+      1
+     ],
+     "y": [
+      -11,
+      11
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 4,
+       "name": "f"
+      },
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 8,
+       "name": "g"
+      }
+     ]
+    }
+   },
+   "a": [
+    "L = [4; ∞[",
+    "L = ]−∞; −4]",
+    "L = ]−4; ∞[",
+    "L = [−4; ∞["
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Geraden schneiden sich bei x = −4. Für x ≥ −4 liegt f unterhalb von g (am Schnittpunkt sind beide gleich, er gehört bei ≤ dazu). Lösung: x ≥ −4. Als Intervall: L = [−4; ∞[.",
+   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die Gerade f unterhalb von g?",
+   "g": "darstellung"
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse x + 4 > 2x + 3 mithilfe der Graphen.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      6
+     ],
+     "y": [
+      -6,
+      15
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 4,
+       "name": "y = x + 4"
+      },
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 3,
+       "name": "y = 2x + 3"
+      }
+     ]
+    }
+   },
+   "a": [
+    "x < 1",
+    "x > 1",
+    "x < −1",
+    "x < 4"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Geraden schneiden sich bei x = 1. Für x < 1 liegt die erste oberhalb der zweiten. Lösung: x < 1.",
+   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die linke Gerade oberhalb der rechten?",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Abbildung zeigt die Geraden f und g. Für welche x liegt f unterhalb von g, Schnittpunkt eingeschlossen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      4
+     ],
+     "y": [
+      -10,
+      12
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -1,
+       "t": 0,
+       "name": "f"
+      },
+      {
+       "art": "linear",
+       "m": -2,
+       "t": -1,
+       "name": "g"
+      }
+     ]
+    }
+   },
+   "a": [
+    "x ≥ 1",
+    "x ≤ −1",
+    "x ≤ 1",
+    "x ≥ −1"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Geraden schneiden sich bei x = −1. Für x ≤ −1 liegt f unterhalb von g (am Schnittpunkt sind beide gleich, er gehört bei ≤ dazu). Lösung: x ≤ −1.",
+   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die Gerade f unterhalb von g?",
+   "g": "darstellung"
   },
   {
    "l": "grafisch",
@@ -3485,7 +4564,8 @@
     "index": 0
    },
    "w": "Die Gerade schneidet die x-Achse bei x = −4. Rechts davon liegt sie oberhalb. Am Schnittpunkt liegt sie genau auf der Achse, er gehört also nicht dazu. Lösung: x > −4.",
-   "h": "Suche den Schnittpunkt mit der x-Achse. Gehört er dazu, wenn die Gerade „echt oberhalb“ liegen soll?"
+   "h": "Suche den Schnittpunkt mit der x-Achse. Gehört er dazu, wenn die Gerade „echt oberhalb“ liegen soll?",
+   "g": "direkt"
   },
   {
    "l": "grafisch",
@@ -3534,7 +4614,142 @@
     "index": 3
    },
    "w": "Die Geraden schneiden sich bei x = 3. Für x > 3 liegt die erste oberhalb der zweiten. Lösung: x > 3.",
-   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die linke Gerade oberhalb der rechten?"
+   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die linke Gerade oberhalb der rechten?",
+   "g": "erkennen"
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −0,5x − 1 > x + 5 mit den Graphen. Die Lösung hat die Form x < □. Gib die Zahl an.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -9,
+      1
+     ],
+     "y": [
+      -5,
+      7
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -0.5,
+       "t": -1,
+       "name": "y = −0,5x − 1"
+      },
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 5,
+       "name": "y = x + 5"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "((5) - (-1)) / (((-1/2)) - (1))",
+   "w": "Die Geraden schneiden sich bei x = −4. Für x < −4 liegt die erste oberhalb der zweiten. Lösung: x < −4.",
+   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die linke Gerade oberhalb der rechten?",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Abbildung zeigt die Geraden f und g. Gib die Lösungsmenge von f(x) > g(x) an.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -9,
+      1
+     ],
+     "y": [
+      -3,
+      15
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -2,
+       "t": 0,
+       "name": "f"
+      },
+      {
+       "art": "linear",
+       "m": 0.5,
+       "t": 10,
+       "name": "g"
+      }
+     ]
+    }
+   },
+   "a": [
+    "L = ]−∞; −4[",
+    "L = ]−4; ∞[",
+    "L = ]−∞; 4[",
+    "L = ]−∞; −4]"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Geraden schneiden sich bei x = −4. Für x < −4 liegt f oberhalb von g. Lösung: x < −4. Als Intervall: L = ]−∞; −4[.",
+   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die Gerade f oberhalb von g?",
+   "g": "darstellung"
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche x liegt der Graph von f: y = 2x − 1 zwischen den Geraden y = 1 und y = 5 (Grenzen ausgeschlossen)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -2,
+      7
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": -1,
+       "name": "f"
+      }
+     ],
+     "waagrecht": [
+      1,
+      5
+     ]
+    }
+   },
+   "a": [
+    "L = ]1; 5[",
+    "L = [1; 3]",
+    "L = ]0; 3[",
+    "L = ]1; 3["
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "1 < 2x − 1 < 5 ⇔ 2 < 2x < 6 ⇔ 1 < x < 3. Am Bild: f trifft y = 1 bei x = 1 und y = 5 bei x = 3.",
+   "h": "Lies die beiden Schnittstellen ab.",
+   "g": "verknuepfen"
   },
   {
    "l": "grafisch",
@@ -3583,7 +4798,8 @@
     "index": 2
    },
    "w": "Die Geraden schneiden sich bei x = 2. Für x < 2 liegt die erste unterhalb der zweiten. Lösung: x < 2.",
-   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die linke Gerade unterhalb der rechten?"
+   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die linke Gerade unterhalb der rechten?",
+   "g": "erkennen"
   },
   {
    "l": "grafisch",
@@ -3632,181 +4848,8 @@
     "index": 1
    },
    "w": "Die Gerade schneidet die x-Achse bei x = 2. Links davon liegt sie unterhalb. Am Schnittpunkt liegt sie genau auf der Achse, er gehört also nicht dazu. Lösung: x < 2.",
-   "h": "Suche den Schnittpunkt mit der x-Achse. Gehört er dazu, wenn die Gerade „echt unterhalb“ liegen soll?"
-  },
-  {
-   "l": "grafisch",
-   "t": "grafisch",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Löse −x < 2x + 3 mithilfe der Graphen.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -6,
-      4
-     ],
-     "y": [
-      -10,
-      12
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": -1,
-       "t": 0,
-       "name": "y = −x"
-      },
-      {
-       "art": "linear",
-       "m": 2,
-       "t": 3,
-       "name": "y = 2x + 3"
-      }
-     ]
-    }
-   },
-   "a": [
-    "x < −1",
-    "x > 0",
-    "x > 1",
-    "x > −1"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Die Geraden schneiden sich bei x = −1. Für x > −1 liegt die erste unterhalb der zweiten. Lösung: x > −1.",
-   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die linke Gerade unterhalb der rechten?"
-  },
-  {
-   "l": "grafisch",
-   "t": "grafisch",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse −2x + 1 > 0,5x + 6 mit den Graphen. Die Lösung hat die Form x < □. Gib die Zahl an.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -7,
-      3
-     ],
-     "y": [
-      -6,
-      15
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": -2,
-       "t": 1,
-       "name": "y = −2x + 1"
-      },
-      {
-       "art": "linear",
-       "m": 0.5,
-       "t": 6,
-       "name": "y = 0,5x + 6"
-      }
-     ]
-    }
-   },
-   "o": {
-    "wert": -2
-   },
-   "c": "((6) - (1)) / ((-2) - ((1/2)))",
-   "w": "Die Geraden schneiden sich bei x = −2. Für x < −2 liegt die erste oberhalb der zweiten. Lösung: x < −2.",
-   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die linke Gerade oberhalb der rechten?"
-  },
-  {
-   "l": "grafisch",
-   "t": "grafisch",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Löse x + 4 > 2x + 3 mithilfe der Graphen.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -4,
-      6
-     ],
-     "y": [
-      -6,
-      15
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": 1,
-       "t": 4,
-       "name": "y = x + 4"
-      },
-      {
-       "art": "linear",
-       "m": 2,
-       "t": 3,
-       "name": "y = 2x + 3"
-      }
-     ]
-    }
-   },
-   "a": [
-    "x < 1",
-    "x > 1",
-    "x < −1",
-    "x < 4"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Die Geraden schneiden sich bei x = 1. Für x < 1 liegt die erste oberhalb der zweiten. Lösung: x < 1.",
-   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die linke Gerade oberhalb der rechten?"
-  },
-  {
-   "l": "grafisch",
-   "t": "grafisch",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse −0,5x − 1 > x + 5 mit den Graphen. Die Lösung hat die Form x < □. Gib die Zahl an.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -9,
-      1
-     ],
-     "y": [
-      -5,
-      7
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": -0.5,
-       "t": -1,
-       "name": "y = −0,5x − 1"
-      },
-      {
-       "art": "linear",
-       "m": 1,
-       "t": 5,
-       "name": "y = x + 5"
-      }
-     ]
-    }
-   },
-   "o": {
-    "wert": -4
-   },
-   "c": "((5) - (-1)) / (((-1/2)) - (1))",
-   "w": "Die Geraden schneiden sich bei x = −4. Für x < −4 liegt die erste oberhalb der zweiten. Lösung: x < −4.",
-   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die linke Gerade oberhalb der rechten?"
+   "h": "Suche den Schnittpunkt mit der x-Achse. Gehört er dazu, wenn die Gerade „echt unterhalb“ liegen soll?",
+   "g": "direkt"
   },
   {
    "l": "grafisch",
@@ -3847,232 +4890,8 @@
    },
    "c": "((-12) - (-6)) / ((1) - (3))",
    "w": "Die Geraden schneiden sich bei x = 3. Für x ≤ 3 liegt die erste oberhalb der zweiten (am Schnittpunkt sind beide gleich, er gehört bei ≥ dazu). Lösung: x ≤ 3.",
-   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die linke Gerade oberhalb der rechten?"
-  },
-  {
-   "l": "grafisch",
-   "t": "grafisch",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse −2x − 2 > 3x + 3 mit den Graphen. Die Lösung hat die Form x < □. Gib die Zahl an.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -6,
-      4
-     ],
-     "y": [
-      -15,
-      15
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": -2,
-       "t": -2,
-       "name": "y = −2x − 2"
-      },
-      {
-       "art": "linear",
-       "m": 3,
-       "t": 3,
-       "name": "y = 3x + 3"
-      }
-     ]
-    }
-   },
-   "o": {
-    "wert": -1
-   },
-   "c": "((3) - (-2)) / ((-2) - (3))",
-   "w": "Die Geraden schneiden sich bei x = −1. Für x < −1 liegt die erste oberhalb der zweiten. Lösung: x < −1.",
-   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die linke Gerade oberhalb der rechten?"
-  },
-  {
-   "l": "grafisch",
-   "t": "grafisch",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Die Abbildung zeigt die Geraden f und g. Gib die Lösungsmenge von f(x) ≤ g(x) an.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -6,
-      4
-     ],
-     "y": [
-      -15,
-      8
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": 2,
-       "t": -6,
-       "name": "f"
-      },
-      {
-       "art": "linear",
-       "m": 3,
-       "t": -5,
-       "name": "g"
-      }
-     ]
-    }
-   },
-   "a": [
-    "L = ]−1; ∞[",
-    "L = ]−∞; −1]",
-    "L = [−1; ∞[",
-    "L = [1; ∞["
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Die Geraden schneiden sich bei x = −1. Für x ≥ −1 liegt f unterhalb von g (am Schnittpunkt sind beide gleich, er gehört bei ≤ dazu). Lösung: x ≥ −1. Als Intervall: L = [−1; ∞[.",
-   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die Gerade f unterhalb von g?"
-  },
-  {
-   "l": "grafisch",
-   "t": "grafisch",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Die Abbildung zeigt die Geraden f und g. Gib die Lösungsmenge von f(x) ≤ g(x) an.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -9,
-      1
-     ],
-     "y": [
-      -11,
-      11
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": 1,
-       "t": 4,
-       "name": "f"
-      },
-      {
-       "art": "linear",
-       "m": 2,
-       "t": 8,
-       "name": "g"
-      }
-     ]
-    }
-   },
-   "a": [
-    "L = [4; ∞[",
-    "L = ]−∞; −4]",
-    "L = ]−4; ∞[",
-    "L = [−4; ∞["
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Die Geraden schneiden sich bei x = −4. Für x ≥ −4 liegt f unterhalb von g (am Schnittpunkt sind beide gleich, er gehört bei ≤ dazu). Lösung: x ≥ −4. Als Intervall: L = [−4; ∞[.",
-   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die Gerade f unterhalb von g?"
-  },
-  {
-   "l": "grafisch",
-   "t": "grafisch",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Die Abbildung zeigt die Geraden f und g. Für welche x liegt f unterhalb von g, Schnittpunkt eingeschlossen?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -6,
-      4
-     ],
-     "y": [
-      -10,
-      12
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": -1,
-       "t": 0,
-       "name": "f"
-      },
-      {
-       "art": "linear",
-       "m": -2,
-       "t": -1,
-       "name": "g"
-      }
-     ]
-    }
-   },
-   "a": [
-    "x ≥ 1",
-    "x ≤ −1",
-    "x ≤ 1",
-    "x ≥ −1"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Die Geraden schneiden sich bei x = −1. Für x ≤ −1 liegt f unterhalb von g (am Schnittpunkt sind beide gleich, er gehört bei ≤ dazu). Lösung: x ≤ −1.",
-   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die Gerade f unterhalb von g?"
-  },
-  {
-   "l": "grafisch",
-   "t": "grafisch",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Die Abbildung zeigt die Geraden f und g. Gib die Lösungsmenge von f(x) > g(x) an.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -9,
-      1
-     ],
-     "y": [
-      -3,
-      15
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": -2,
-       "t": 0,
-       "name": "f"
-      },
-      {
-       "art": "linear",
-       "m": 0.5,
-       "t": 10,
-       "name": "g"
-      }
-     ]
-    }
-   },
-   "a": [
-    "L = ]−∞; −4[",
-    "L = ]−4; ∞[",
-    "L = ]−∞; 4[",
-    "L = ]−∞; −4]"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Die Geraden schneiden sich bei x = −4. Für x < −4 liegt f oberhalb von g. Lösung: x < −4. Als Intervall: L = ]−∞; −4[.",
-   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die Gerade f oberhalb von g?"
+   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die linke Gerade oberhalb der rechten?",
+   "g": "mehrschritt"
   },
   {
    "l": "grafisch",
@@ -4521,6 +5340,47 @@
    "s": 2,
    "y": "zahl",
    "f": {
+    "text": "Löse −2x − 2 > 3x + 3 mit den Graphen. Die Lösung hat die Form x < □. Gib die Zahl an.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      4
+     ],
+     "y": [
+      -15,
+      15
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -2,
+       "t": -2,
+       "name": "y = −2x − 2"
+      },
+      {
+       "art": "linear",
+       "m": 3,
+       "t": 3,
+       "name": "y = 3x + 3"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "((3) - (-2)) / ((-2) - (3))",
+   "w": "Die Geraden schneiden sich bei x = −1. Für x < −1 liegt die erste oberhalb der zweiten. Lösung: x < −1.",
+   "h": "Suche den Schnittpunkt. Auf welcher Seite davon liegt die linke Gerade oberhalb der rechten?"
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
     "text": "Löse x − 1 < −x + 3 mit den Graphen. Die Lösung hat die Form x < □. Gib die Zahl an.",
     "grafik": {
      "typ": "koordinaten",
@@ -4593,13 +5453,14 @@
     "index": 3
    },
    "w": "Die Gerade schneidet die x-Achse bei −2. Rechts davon liegt sie oberhalb der Achse.",
-   "h": "Wo schneidet die Gerade die x-Achse?"
+   "h": "Wo schneidet die Gerade die x-Achse?",
+   "g": "darstellung"
   },
   {
    "l": "grafisch",
    "t": "grafisch",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Tarif A (Gerade f) und Tarif B (Gerade g): x ist die Gesprächszeit in Minuten, y der Preis in €. Für welche Gesprächszeiten ist A billiger?",
@@ -4643,51 +5504,8 @@
     "index": 1
    },
    "w": "Die Geraden schneiden sich bei x = 50. Rechts davon liegt f unter g, also ist A billiger. f: y = 0,1x + 5, g: y = 0,2x.",
-   "h": "Billiger heißt: Die Gerade liegt weiter unten."
-  },
-  {
-   "l": "grafisch",
-   "t": "grafisch",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Für welche x liegt der Graph von f: y = 2x − 1 zwischen den Geraden y = 1 und y = 5 (Grenzen ausgeschlossen)?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -1,
-      5
-     ],
-     "y": [
-      -2,
-      7
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": 2,
-       "t": -1,
-       "name": "f"
-      }
-     ],
-     "waagrecht": [
-      1,
-      5
-     ]
-    }
-   },
-   "a": [
-    "L = ]1; 5[",
-    "L = [1; 3]",
-    "L = ]0; 3[",
-    "L = ]1; 3["
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "1 < 2x − 1 < 5 ⇔ 2 < 2x < 6 ⇔ 1 < x < 3. Am Bild: f trifft y = 1 bei x = 1 und y = 5 bei x = 3.",
-   "h": "Lies die beiden Schnittstellen ab."
+   "h": "Billiger heißt: Die Gerade liegt weiter unten.",
+   "g": "einkleidung"
   },
   {
    "l": "grafisch",
@@ -4733,7 +5551,8 @@
     "index": 1
    },
    "w": "f(x) > 0 für x < 2, g(x) > 0 für x > 2. Beides zugleich geht nicht. Bei x = 2 sind beide 0.",
-   "h": "Wo liegt jede Gerade über der x-Achse?"
+   "h": "Wo liegt jede Gerade über der x-Achse?",
+   "g": "transfer"
   },
   {
    "l": "grafisch",
@@ -4749,7 +5568,150 @@
    },
    "c": "0",
    "w": "Steigt oder fällt die Gerade (m ≠ 0), kommt sie irgendwann über y = 3. Nur die waagrechte Gerade y = 2 (m = 0) bleibt immer darunter.",
-   "h": "Was passiert mit einer steigenden Geraden weit rechts?"
+   "h": "Was passiert mit einer steigenden Geraden weit rechts?",
+   "g": "parameter"
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Für f(x) = 2x − 6 sagt jemand: „f(x) > 0 gilt für x < 3, denn links von 3 ist der Graph oben.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Die Gerade steigt, links von 3 liegt sie unter der x-Achse; richtig ist x > 3.",
+    "Falsch: richtig ist x > −6.",
+    "Richtig.",
+    "Falsch: richtig ist x < −3."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "f(0) = −6 < 0 – links von der Nullstelle 3 ist der Graph unten. Wegen der positiven Steigung ist f(x) > 0 rechts von 3: x > 3.",
+   "h": "Setze eine Zahl links von 3 ein, z. B. 0."
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Geraden f und g haben dieselbe Steigung, aber verschiedene y-Achsenabschnitte. Was gilt für die Ungleichung f(x) < g(x)?"
+   },
+   "a": [
+    "Sie gilt genau für x > 0.",
+    "Sie hat genau eine Lösung.",
+    "Sie gilt für alle x links vom Schnittpunkt.",
+    "Sie gilt entweder für alle x oder für kein x."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Parallele Geraden schneiden sich nie: Eine liegt überall oberhalb der anderen. Ist g die obere, gilt f(x) < g(x) für alle x, sonst für keins.",
+   "h": "Haben parallele Geraden einen Schnittpunkt?"
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Die Ungleichung 3x + b > 0 hat die Lösungsmenge x > −2. Wo schneidet die Gerade y = 3x + b die y-Achse? Gib b an."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "3 * 2",
+   "w": "Die Grenze −2 ist die Nullstelle: 3 · (−2) + b = 0 ⇒ b = 6. Die Gerade schneidet die y-Achse bei 6.",
+   "h": "Was bedeutet die Grenze der Lösungsmenge für den Graphen?"
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade g geht durch (0 | 1) und (2 | 5). Für welche x liegt g oberhalb der Geraden y = 7? Gib die Grenze an: x > □."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(7 - 1) / 2",
+   "w": "Steigung (5 − 1) : 2 = 2, also g: y = 2x + 1. 2x + 1 > 7 ⇒ x > 3.",
+   "h": "Bestimme zuerst die Geradengleichung von g."
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "luecken",
+   "f": {
+    "text": "Für welche x liegt die Gerade y = x + 1 oberhalb von y = 2x − 2 und zugleich oberhalb von y = −x + 3? Gib die Lösungsmenge an.",
+    "schablone": "]□; □[",
+    "hinweis": "Linke und rechte Grenze."
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "c": [
+    "1",
+    "3"
+   ],
+   "w": "x + 1 > 2x − 2 ⇒ x < 3. x + 1 > −x + 3 ⇒ 2x > 2 ⇒ x > 1. Beides zusammen: 1 < x < 3, also ]1; 3[.",
+   "h": "Zwei Ungleichungen, dann die gemeinsamen x suchen."
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Gezeichnet sind die Geraden y = x, y = 6 − x und y = 2. Für wie viele ganze Zahlen x liegt die Gerade y = 2 unterhalb der beiden anderen Geraden?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "3 - 3 + 1",
+   "w": "y = 2 unter y = x heißt 2 < x. y = 2 unter y = 6 − x heißt 2 < 6 − x, also x < 4. Beides zusammen: 2 < x < 4, die einzige ganze Zahl ist 3.",
+   "h": "Übersetze „liegt unterhalb“ für jede der beiden Geraden in eine Ungleichung."
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "auswahl",
+   "f": {
+    "text": "Die Geraden y = 2x + a und y = −x + 9 schneiden sich an der Stelle x = 2. Für welche x gilt 2x + a > −x + 9? (a muss man dafür nicht ausrechnen.)"
+   },
+   "a": [
+    "für alle x",
+    "x > 3",
+    "x > 2",
+    "x < 2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Grenze der Lösungsmenge ist die Schnittstelle x = 2. Rechts davon liegt die steigende Gerade (Steigung 2) über der fallenden (Steigung −1). Also x > 2. (Zur Probe: a = 3, dann 3x > 6.)",
+   "h": "Welche der beiden Geraden steigt, welche fällt – und wo liegt die Grenze?"
   },
   {
    "l": "sachaufgabe",
@@ -4765,7 +5727,94 @@
    },
    "c": "(400 - 73) // 35",
    "w": "73 + 35x ≤ 400 → 35x ≤ 327 → x ≤ 327/35 ≈ 9,34. Bei „höchstens“ wird abgerundet: höchstens 9 Kisten.",
-   "h": "Stelle eine Ungleichung mit „≤“ auf. Nur ganze Kisten sind möglich."
+   "h": "Stelle eine Ungleichung mit „≤“ auf. Nur ganze Kisten sind möglich.",
+   "g": "direkt"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Taxifahrt kostet 4 € Grundpreis und 2 € je angefangenen Kilometer. Wie viele Kilometer kann man mit 30 € höchstens fahren?"
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "((30) - 4) * 1 // 2",
+   "w": "4 + 2x ≤ 30 → 2x ≤ 26 → x ≤ 13. Ab dem 14. angefangenen Kilometer wird es zu teuer, also höchstens 13 km.",
+   "h": "Stelle die Ungleichung auf und runde passend.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aufzug darf höchstens 450 kg tragen. Eine Person (77 kg) will Kisten zu je 45 kg mitnehmen. Wie viele Kisten darf sie höchstens einladen?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(450 - 77) // 45",
+   "w": "77 + 45x ≤ 450 → 45x ≤ 373 → x ≤ 373/45 ≈ 8,29. Bei „höchstens“ wird abgerundet: höchstens 8 Kisten.",
+   "h": "Stelle eine Ungleichung mit „≤“ auf. Nur ganze Kisten sind möglich.",
+   "g": "direkt"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Taxifahrt kostet 4,50 € Grundpreis und 2,20 € je angefangenen Kilometer. Wie viele Kilometer kann man mit 25 € höchstens fahren?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(25 * 2 - 9) * 5 // (11 * 2)",
+   "w": "4,50 + 2,20x ≤ 25 → 2,20x ≤ 20,50 → x ≤ 205/22 ≈ 9,32. Ab dem 10. angefangenen Kilometer wird es zu teuer, also höchstens 9 km.",
+   "h": "Stelle die Ungleichung auf und runde passend.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Fitness-Studio A: 0 € Grundbetrag, 2 € je Besuch. Studio B: 10 € Grundbetrag, 1,50 € je Besuch. Ab wie vielen Besuchen im Monat ist B billiger?"
+   },
+   "o": {
+    "wert": 21
+   },
+   "c": "(10 - 0) * 2 // 1 + 1",
+   "w": "10 + 1,50x < 0 + 2x → 0,50x > 10 → x > 20. Ab 21 Besuchen.",
+   "h": "Stelle „Kosten B < Kosten A“ auf und löse nach x.",
+   "g": "transfer"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für eine Fahrt kostet der Bus 450 €, dazu kommen 18 € Eintritt pro Person. Pro Person sollen höchstens 30 € anfallen. Wie viele Personen müssen mindestens mitfahren?"
+   },
+   "o": {
+    "wert": 38,
+    "einheit": "Personen"
+   },
+   "c": "450 // 12 + 1",
+   "w": "Kosten pro Person: (450 + 18n)/n ≤ 30 ⇔ 450 + 18n ≤ 30n ⇔ 450 ≤ 12n ⇔ n ≥ 37,5. Also mindestens 38 Personen.",
+   "h": "Der Bus wird geteilt. Stelle die Kosten pro Person als Bruch auf.",
+   "g": "verknuepfen"
   },
   {
    "l": "sachaufgabe",
@@ -4786,23 +5835,8 @@
     "index": 1
    },
    "w": "Erspartes nach x Wochen: 90 + 25x; „mindestens“ heißt ≥: 90 + 25x ≥ 420.",
-   "h": "Was wird zusammengezählt? Welches Zeichen passt zu „höchstens“, „mindestens“, „mehr als“?"
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Aufzug darf höchstens 450 kg tragen. Eine Person (77 kg) will Kisten zu je 45 kg mitnehmen. Wie viele Kisten darf sie höchstens einladen?"
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "(450 - 77) // 45",
-   "w": "77 + 45x ≤ 450 → 45x ≤ 373 → x ≤ 373/45 ≈ 8,29. Bei „höchstens“ wird abgerundet: höchstens 8 Kisten.",
-   "h": "Stelle eine Ungleichung mit „≤“ auf. Nur ganze Kisten sind möglich."
+   "h": "Was wird zusammengezählt? Welches Zeichen passt zu „höchstens“, „mindestens“, „mehr als“?",
+   "g": "erkennen"
   },
   {
    "l": "sachaufgabe",
@@ -4818,7 +5852,60 @@
    },
    "c": "(35 - 5) * 2 // 7",
    "w": "5 + 3,50x ≤ 35 → 3,50x ≤ 30 → x ≤ 60/7 ≈ 8,57. Höchstens 8 Pakete.",
-   "h": "Grundgebühr + Preis · Anzahl ≤ Höchstbetrag."
+   "h": "Grundgebühr + Preis · Anzahl ≤ Höchstbetrag.",
+   "g": "direkt"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Fitness-Studio A: 3 € Grundbetrag, 2 € je Besuch. Studio B: 15 € Grundbetrag, 1,50 € je Besuch. Ab wie vielen Besuchen im Monat ist B billiger?"
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "(15 - 3) * 2 // 1 + 1",
+   "w": "15 + 1,50x < 3 + 2x → 0,50x > 12 → x > 24. Ab 25 Besuchen.",
+   "h": "Stelle „Kosten B < Kosten A“ auf und löse nach x.",
+   "g": "transfer"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einem Sparbuch sind 59 €. Jede Woche kommen 15 € dazu. Nach wie vielen Wochen sind zum ersten Mal mehr als 200 € darauf?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "(200 - 59) // 15 + 1",
+   "w": "59 + 15x > 200 → x > 9,4. Kleinste ganze Zahl: 10 Wochen.",
+   "h": "„Mehr als“ bedeutet >. Gesucht ist die kleinste passende ganze Zahl.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Lena hat in drei Tests 12, 9 und 13 Punkte. Wie viele Punkte braucht sie im vierten Test mindestens, damit ihr Durchschnitt mindestens 12 Punkte beträgt?"
+   },
+   "o": {
+    "wert": 14,
+    "einheit": "Punkte"
+   },
+   "c": "4 * 12 - (12 + 9 + 13)",
+   "w": "(12 + 9 + 13 + x)/4 ≥ 12 ⇔ 34 + x ≥ 48 ⇔ x ≥ 14.",
+   "h": "Der Durchschnitt ist die Summe geteilt durch 4.",
+   "g": "verknuepfen"
   },
   {
    "l": "sachaufgabe",
@@ -4834,23 +5921,8 @@
    },
    "c": "(35 - 12) * 1 // 3",
    "w": "12 + 3x ≤ 35 → 3x ≤ 23 → x ≤ 23/3 ≈ 7,67. Höchstens 7 Pakete.",
-   "h": "Grundgebühr + Preis · Anzahl ≤ Höchstbetrag."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Taxifahrt kostet 4 € Grundpreis und 2 € je angefangenen Kilometer. Wie viele Kilometer kann man mit 30 € höchstens fahren?"
-   },
-   "o": {
-    "wert": 13
-   },
-   "c": "((30) - 4) * 1 // 2",
-   "w": "4 + 2x ≤ 30 → 2x ≤ 26 → x ≤ 13. Ab dem 14. angefangenen Kilometer wird es zu teuer, also höchstens 13 km.",
-   "h": "Stelle die Ungleichung auf und runde passend."
+   "h": "Grundgebühr + Preis · Anzahl ≤ Höchstbetrag.",
+   "g": "direkt"
   },
   {
    "l": "sachaufgabe",
@@ -4872,7 +5944,7 @@
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Handytarif kostet im Monat 12 € Grundgebühr und 2 € je zusätzliches Datenpaket. Man will höchstens 40 € zahlen. Wie viele Datenpakete kann man höchstens kaufen?"
@@ -4883,107 +5955,6 @@
    "c": "(40 - 12) * 1 // 2",
    "w": "12 + 2x ≤ 40 → 2x ≤ 28 → x ≤ 14. Höchstens 14 Pakete.",
    "h": "Grundgebühr + Preis · Anzahl ≤ Höchstbetrag."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Für ein Fahrrad (Preis 420 €) hat jemand 60 € gespart und legt jede Woche 25 € dazu. Welche Ungleichung beschreibt: „Das Geld reicht mindestens für das Fahrrad“ (x = Anzahl Wochen)?"
-   },
-   "a": [
-    "60 + 25x ≥ 420",
-    "25 + 60x ≥ 420",
-    "60 + 25x > 420",
-    "60 + 25x ≤ 420"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Erspartes nach x Wochen: 60 + 25x; „mindestens“ heißt ≥: 60 + 25x ≥ 420.",
-   "h": "Was wird zusammengezählt? Welches Zeichen passt zu „höchstens“, „mindestens“, „mehr als“?"
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Taxifahrt kostet 4,50 € Grundpreis und 2,20 € je angefangenen Kilometer. Wie viele Kilometer kann man mit 25 € höchstens fahren?"
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "(25 * 2 - 9) * 5 // (11 * 2)",
-   "w": "4,50 + 2,20x ≤ 25 → 2,20x ≤ 20,50 → x ≤ 205/22 ≈ 9,32. Ab dem 10. angefangenen Kilometer wird es zu teuer, also höchstens 9 km.",
-   "h": "Stelle die Ungleichung auf und runde passend."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Fitness-Studio A: 0 € Grundbetrag, 2 € je Besuch. Studio B: 10 € Grundbetrag, 1,50 € je Besuch. Ab wie vielen Besuchen im Monat ist B billiger?"
-   },
-   "o": {
-    "wert": 21
-   },
-   "c": "(10 - 0) * 2 // 1 + 1",
-   "w": "10 + 1,50x < 0 + 2x → 0,50x > 10 → x > 20. Ab 21 Besuchen.",
-   "h": "Stelle „Kosten B < Kosten A“ auf und löse nach x."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kinobesuch kostet 12 €. Mit einer Jahreskarte für 60 € zahlt man pro Besuch nur 5 €. Ab wie vielen Besuchen ist man mit der Jahreskarte billiger?"
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "60 * 1 // 7 + 1",
-   "w": "60 + 5x < 12x → 7x > 60 → x > 60/7 ≈ 8,57. Ab 9 Besuchen.",
-   "h": "Kosten mit Karte < Kosten ohne Karte. Gesucht ist die kleinste ganze Zahl."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Fitness-Studio A: 3 € Grundbetrag, 2 € je Besuch. Studio B: 15 € Grundbetrag, 1,50 € je Besuch. Ab wie vielen Besuchen im Monat ist B billiger?"
-   },
-   "o": {
-    "wert": 25
-   },
-   "c": "(15 - 3) * 2 // 1 + 1",
-   "w": "15 + 1,50x < 3 + 2x → 0,50x > 12 → x > 24. Ab 25 Besuchen.",
-   "h": "Stelle „Kosten B < Kosten A“ auf und löse nach x."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Auf einem Sparbuch sind 59 €. Jede Woche kommen 15 € dazu. Nach wie vielen Wochen sind zum ersten Mal mehr als 200 € darauf?"
-   },
-   "o": {
-    "wert": 10
-   },
-   "c": "(200 - 59) // 15 + 1",
-   "w": "59 + 15x > 200 → x > 9,4. Kleinste ganze Zahl: 10 Wochen.",
-   "h": "„Mehr als“ bedeutet >. Gesucht ist die kleinste passende ganze Zahl."
   },
   {
    "l": "sachaufgabe",
@@ -5154,6 +6125,45 @@
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Für ein Fahrrad (Preis 420 €) hat jemand 60 € gespart und legt jede Woche 25 € dazu. Welche Ungleichung beschreibt: „Das Geld reicht mindestens für das Fahrrad“ (x = Anzahl Wochen)?"
+   },
+   "a": [
+    "60 + 25x ≥ 420",
+    "25 + 60x ≥ 420",
+    "60 + 25x > 420",
+    "60 + 25x ≤ 420"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Erspartes nach x Wochen: 60 + 25x; „mindestens“ heißt ≥: 60 + 25x ≥ 420.",
+   "h": "Was wird zusammengezählt? Welches Zeichen passt zu „höchstens“, „mindestens“, „mehr als“?",
+   "g": "erkennen"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kinobesuch kostet 12 €. Mit einer Jahreskarte für 60 € zahlt man pro Besuch nur 5 €. Ab wie vielen Besuchen ist man mit der Jahreskarte billiger?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "60 * 1 // 7 + 1",
+   "w": "60 + 5x < 12x → 7x > 60 → x > 60/7 ≈ 8,57. Ab 9 Besuchen.",
+   "h": "Kosten mit Karte < Kosten ohne Karte. Gesucht ist die kleinste ganze Zahl.",
+   "g": "pruefung"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -5165,7 +6175,8 @@
    },
    "c": "(20 - 6) / 1.4",
    "w": "6 + 1,40 · h ≤ 20 ⇔ 1,40 · h ≤ 14 ⇔ h ≤ 10.",
-   "h": "Stelle eine Ungleichung mit „höchstens“ auf."
+   "h": "Stelle eine Ungleichung mit „höchstens“ auf.",
+   "g": "einkleidung"
   },
   {
    "l": "sachaufgabe",
@@ -5182,41 +6193,8 @@
    },
    "c": "36 // 4.5 + 1",
    "w": "4,50 · n > 36 ⇔ n > 8. Bei 8 Besuchen kostet beides 36 €. Ab 9 Besuchen ist die Zehnerkarte billiger.",
-   "h": "Wann kosten Einzelkarten mehr als 36 €?"
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Für eine Fahrt kostet der Bus 450 €, dazu kommen 18 € Eintritt pro Person. Pro Person sollen höchstens 30 € anfallen. Wie viele Personen müssen mindestens mitfahren?"
-   },
-   "o": {
-    "wert": 38,
-    "einheit": "Personen"
-   },
-   "c": "450 // 12 + 1",
-   "w": "Kosten pro Person: (450 + 18n)/n ≤ 30 ⇔ 450 + 18n ≤ 30n ⇔ 450 ≤ 12n ⇔ n ≥ 37,5. Also mindestens 38 Personen.",
-   "h": "Der Bus wird geteilt. Stelle die Kosten pro Person als Bruch auf."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Lena hat in drei Tests 12, 9 und 13 Punkte. Wie viele Punkte braucht sie im vierten Test mindestens, damit ihr Durchschnitt mindestens 12 Punkte beträgt?"
-   },
-   "o": {
-    "wert": 14,
-    "einheit": "Punkte"
-   },
-   "c": "4 * 12 - (12 + 9 + 13)",
-   "w": "(12 + 9 + 13 + x)/4 ≥ 12 ⇔ 34 + x ≥ 48 ⇔ x ≥ 14.",
-   "h": "Der Durchschnitt ist die Summe geteilt durch 4."
+   "h": "Wann kosten Einzelkarten mehr als 36 €?",
+   "g": "mehrschritt"
   },
   {
    "l": "sachaufgabe",
@@ -5233,7 +6211,8 @@
    },
    "c": "24 / 4",
    "w": "Breite b, Länge b + 3. 2b + 2(b + 3) ≤ 30 ⇔ 4b + 6 ≤ 30 ⇔ b ≤ 6.",
-   "h": "Umfang = 2 · Länge + 2 · Breite."
+   "h": "Umfang = 2 · Länge + 2 · Breite.",
+   "g": "verknuepfen"
   },
   {
    "l": "sachaufgabe",
@@ -5250,7 +6229,127 @@
    },
    "c": "(30 - 20) / (2 - 1)",
    "w": "30 − 2t < 20 − t ⇔ 10 < t. Ab mehr als 10 Stunden ist A kürzer (bei 10 h sind beide 10 cm).",
-   "h": "Stelle für jede Kerze einen Term auf."
+   "h": "Stelle für jede Kerze einen Term auf.",
+   "g": "transfer"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aufzug trägt höchstens 400 kg. Eine Person (73 kg) will 10 gleich schwere Kisten mitnehmen. Wie schwer darf eine Kiste höchstens sein? Runde auf eine Nachkommastelle (abrunden)."
+   },
+   "o": {
+    "wert": 32.7,
+    "einheit": "kg",
+    "toleranz": 0.1
+   },
+   "c": "round((400 - 73) / 10, 1)",
+   "w": "73 + 10k ≤ 400 ⇒ 10k ≤ 327 ⇒ k ≤ 32,7 kg.",
+   "h": "Gesucht ist diesmal das Gewicht einer Kiste, nicht die Anzahl."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Tabelle zeigt einen Tarif: 1 Paket 8,50 €, 2 Pakete 12 €, 3 Pakete 15,50 €. Welche Ungleichung beschreibt „höchstens 30 €“ (x = Anzahl der Pakete)?"
+   },
+   "a": [
+    "5 + 3,5x ≤ 30",
+    "5 + 3,5x ≥ 30",
+    "8,5x ≤ 30",
+    "3,5 + 5x ≤ 30"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Jedes Paket kostet 3,50 € mehr; zurückgerechnet bleiben 8,50 € − 3,50 € = 5 € Grundpreis. Also 5 + 3,5x ≤ 30.",
+   "h": "Um wie viel steigt der Preis pro Paket, und was bleibt für 0 Pakete?"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Kugel Eis kostet 1,80 €. Jemand rechnet für 50 €: „50 : 1,80 ≈ 27,8, also 28 Kugeln.“ Was ist falsch?"
+   },
+   "a": [
+    "Es sind höchstens 26 Kugeln.",
+    "Man muss abrunden: 28 Kugeln kosten 50,40 €, das ist zu viel; höchstens 27.",
+    "Man muss 50 · 1,80 rechnen.",
+    "Nichts, 28 stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "1,80x ≤ 50 ⇒ x ≤ 27,7… Bei „höchstens“ zählt nur die ganze Zahl unterhalb: 27 Kugeln (48,60 €).",
+   "h": "Probiere: Was kosten 28 Kugeln?"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Studio A kostet 20 € im Monat plus 2 € je Besuch, Studio B 30 € im Monat plus 2 € je Besuch. Ab wie vielen Besuchen ist B billiger?"
+   },
+   "a": [
+    "Ab 6 Besuchen.",
+    "Ab 11 Besuchen.",
+    "Ab 21 Besuchen.",
+    "Nie: B ist immer genau 10 € teurer."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "30 + 2x < 20 + 2x ⇒ 30 < 20 – das ist falsch, für jedes x. Gleicher Preis je Besuch heißt: Der Unterschied bleibt immer 10 €.",
+   "h": "Stelle die Ungleichung auf und vereinfache."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bus kostet 300 € fest, dazu 12 € Eintritt pro Person. Alle zahlen gleich viel, jeder höchstens 22 €. In den Bus passen höchstens 50 Personen. Wie viele verschiedene Gruppengrößen sind möglich?"
+   },
+   "o": {
+    "wert": 21
+   },
+   "c": "50 - 30 + 1",
+   "w": "Kosten pro Person bei n Personen: (300 + 12n) : n = 300 : n + 12. Das soll höchstens 22 sein: 300 : n ≤ 10 ⇒ n ≥ 30. Zusammen mit n ≤ 50: n = 30, 31, …, 50. Das sind 21 Gruppengrößen.",
+   "h": "Teile die Gesamtkosten auf die Personen auf – welcher Teil hängt von n ab?"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Sitzplätze kosten 15 €, Stehplätze 9 €. Eine Gruppe von genau 26 Personen hat 300 € und möchte möglichst viele Sitzplätze. Wie viele Sitzplätze sind höchstens möglich?"
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "(300 - 9 * 26) // 6",
+   "w": "Mit s Sitzplätzen: 15s + 9(26 − s) ≤ 300 ⇒ 6s + 234 ≤ 300 ⇒ 6s ≤ 66 ⇒ s ≤ 11. Probe: 11 · 15 + 15 · 9 = 165 + 135 = 300 €.",
+   "h": "Stell dir vor, zuerst bekommen alle einen Stehplatz – was kostet dann jedes „Upgrade“?"
   }
  ],
  "offen": [

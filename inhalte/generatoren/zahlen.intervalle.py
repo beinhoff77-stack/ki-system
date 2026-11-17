@@ -507,6 +507,120 @@ DS.stufen('enthalten', 'S1 Zahl im Intervall wählen; S2 ganze Zahlen zählen; S
 baue = mit_durchsicht(baue, DS)
 # ---- DURCHSICHT ENDE ----
 
+# ---- STUFEN (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, siehe _stufen_kl8.py) ----
+from _stufen_kl8 import Stufen, mit_stufen  # noqa: E402
+
+ST = Stufen('zahlen.intervalle', 20_8_2)
+SA, SZ, SL = ST.A, ST.Z, ST.L
+def T(lz, *regeln):
+    for m, g in regeln: ST.typ(lz, m, g)
+
+# --- lesen ---
+ST.leiter('lesen', 'Intervallschreibweise in Worte/Ungleichung übersetzen, Intervall am Bild erkennen',
+          'Sachgrenzen („ab“, „bis einschließlich“) als Intervall, Intervall aus Anfang und Länge, Ungleichungspaar ↔ Intervall',
+          'Mengen verknüpfen (ohne, zugleich), Parameter, Fehler beim Lesen deuten, Unendlichkeit begründen, rückwärts aus Mitte und Länge')
+T('lesen', (r'^Was bedeutet', 'direkt'), (r'^Welches Intervall zeigt', 'erkennen'), (r'Zoo|Nachkommastelle', 'transfer'),
+  (r'aber nicht in', 'verknuepfen'), (r'\[a; a \+ 3\[', 'parameter'), (r'Aquarium|Karussell|Impfstoff|Paket', 'einkleidung'))
+ST.neu('lesen', 'umkehr', SA('Ein Intervall beginnt bei −2 (gehört dazu) und ist 5 lang; das rechte Ende gehört nicht dazu. Welches Intervall ist es?', '[−2; 3[', ['[−2; 3]', ']−2; 3[', '[−2; 7['],
+    'Rechtes Ende: −2 + 5 = 3. Links gehört −2 dazu: [ ; rechts nicht: 3[.', 'Rechne zuerst das rechte Ende aus.'))
+ST.neu('lesen', 'darstellung', SA('Welches Intervall beschreibt „x ≥ −1 und zugleich x < 4“?', '[−1; 4[', [']−1; 4]', '[−1; 4]', ']−∞; 4['],
+    'x ≥ −1: −1 gehört dazu. x < 4: 4 gehört nicht dazu. Zusammen [−1; 4[.', 'Übersetze jede Ungleichung in eine Grenze mit Klammer.'))
+ST.neu('lesen', 'fehler', SA('Jemand liest ]−3; 2] als „alle Zahlen von −3 bis 2, beide gehören dazu“. Was ist falsch?', 'Die −3 gehört nicht dazu, nur die 2.',
+    ['Nichts, das stimmt.', 'Die 2 gehört nicht dazu, nur die −3.', 'Keine der beiden Grenzen gehört dazu.'],
+    'Bei −3 zeigt die Klammer nach außen ( ] ): −3 gehört nicht dazu. Bei 2 zeigt sie nach innen ( ] am Ende ): 2 gehört dazu.', 'Schau jede Klammer einzeln an: zeigt sie zur Zahl hin oder weg?'))
+ST.neu('lesen', 'begruenden', SA('Stimmt die Aussage: „Jedes Intervall ]a; b[ mit a < b enthält unendlich viele Zahlen“?', 'Ja: Zwischen zwei verschiedenen Zahlen liegen immer unendlich viele weitere.',
+    ['Nein, nur wenn b − a größer als 1 ist.', 'Nein, ohne die Grenzen bleibt nichts übrig.', 'Ja, aber es sind nur ganze Zahlen.'],
+    'Zwischen a und b liegt die Mitte, zwischen a und der Mitte wieder eine Mitte usw. – das hört nie auf. Ganz kleine Intervalle wie ]0; 0,001[ enthalten also unendlich viele Zahlen.', 'Denk an die Mitte zwischen zwei Zahlen – und dann wieder an eine Mitte.'))
+ST.neu('lesen', 'rueckwaerts', SZ('Ein Intervall [a; b] hat die Mitte 3 und die Länge 10. Bestimme a.', -2, '3 - 10 / 2',
+    'Von der Mitte aus geht es je die halbe Länge, also 5, nach links und rechts: a = 3 − 5 = −2, b = 8.', 'Wie weit ist die Mitte von jeder Grenze entfernt?'))
+ST.neu('lesen', 'pruefung', SA('A = [−4; 1[ und B = ]−1; 3]. Welche Menge enthält genau die Zahlen, die in A oder in B (oder in beiden) liegen?', '[−4; 3]', [']−1; 1[', '[−4; 3[', ']−4; 3]'],
+    'A reicht von −4 (dabei) bis 1, B von −1 bis 3 (dabei). Die Teile überlappen, zusammen also von −4 bis 3, beide Enden dabei: [−4; 3]. ]−1; 1[ wären nur die gemeinsamen Zahlen.', 'Zeichne beide Intervalle untereinander an einen Zahlenstrahl.'))
+ST.knobel('lesen', SZ('Wie viele Intervalle [a; b] mit ganzen Zahlen a und b und 0 ≤ a < b ≤ 5 gibt es?', 15, '6 * 5 / 2',
+    'Man wählt zwei verschiedene Zahlen aus 0, 1, 2, 3, 4, 5; die kleinere ist a, die größere b. Für a = 0 gibt es 5 Möglichkeiten für b, für a = 1 vier, … für a = 4 eine: 5 + 4 + 3 + 2 + 1 = 15.',
+    'Ordne nach der linken Grenze a und zähle für jedes a die möglichen b.'))
+ST.knobel('lesen', SZ('Das Intervall [a; b] enthält genau 5 ganze Zahlen, das Intervall ]a; b[ genau 3. Wie lang ist das Intervall?', 4, '5 - 1',
+    'Lässt man die Grenzen weg, fallen genau 2 ganze Zahlen weg – also sind a und b selbst ganze Zahlen. [a; b] enthält dann a, a + 1, …, b, das sind b − a + 1 = 5 Zahlen. Also b − a = 4.',
+    'Warum fallen beim Weglassen der Grenzen genau zwei ganze Zahlen weg?'))
+
+# --- schreiben ---
+ST.leiter('schreiben', 'eine Doppelungleichung als Intervall schreiben, die passende Schreibweise erkennen',
+          'Zahlenbereiche aus Worten, Sachbereiche und gelöste Ungleichungen als Intervall',
+          'Abstand und „nicht negativ“ deuten, Brüche/Dezimalzahlen verknüpfen, Parameter, rückwärts umrechnen, begründen, wann es kein einziges Intervall gibt')
+T('schreiben', (r'^Schreibe (?!als)', 'direkt'), (r'^Jemand schreibt', 'fehler'), (r'^Schreibe als Intervall: alle Zahlen, deren Abstand|nicht negativ', 'transfer'),
+  (r'^Schreibe als Intervall', 'darstellung'), (r'^Ein Gerät', 'einkleidung'), (r'^Löse', 'mehrschritt'))
+ST.neu('schreiben', 'erkennen', SA('Welche Schreibweise passt zu „x liegt zwischen 1 und 2, 1 gehört dazu, 2 nicht“?', '[1; 2[', [']1; 2]', '[1; 2]', ']1; 2['],
+    'Gehört eine Grenze dazu, zeigt die Klammer zur Zahl hin. Also links [1, rechts 2[.', 'Welche Grenze gehört dazu?'))
+ST.neu('schreiben', 'verknuepfen', SA('Schreibe als Intervall: alle Zahlen, die größer als 1/4 und höchstens 3/4 sind (mit Dezimalzahlen).', ']0,25; 0,75]', ['[0,25; 0,75[', ']0,25; 0,75[', '[0,25; 0,75]'],
+    '1/4 = 0,25 (gehört nicht dazu), 3/4 = 0,75 (gehört dazu): ]0,25; 0,75].', 'Wandle die Brüche um und entscheide für jede Grenze.'))
+ST.neu('schreiben', 'parameter', SZ('Für welche Zahl k ist [k; 2k] ein Intervall der Länge 6?', 6, '12 - 6',
+    'Länge = rechte Grenze − linke Grenze = 2k − k = k. Also k = 6, das Intervall ist [6; 12].', 'Schreibe die Länge mit k.'))
+ST.neu('schreiben', 'rueckwaerts', SA('Jede Zahl eines Intervalls wird verdoppelt, dann wird 1 addiert. Heraus kommt [−1; 7]. Wie hieß das Intervall vorher?', '[−1; 3]', ['[−2; 6]', '[0; 4]', '[−1; 7]'],
+    'Rückwärts: erst 1 abziehen, dann halbieren. −1 → −2 → −1; 7 → 6 → 3. Also [−1; 3].', 'Mach die Schritte in umgekehrter Reihenfolge rückgängig.'))
+ST.neu('schreiben', 'pruefung', SZ('Schreibe die Zahlen, die mindestens 2,5 und kleiner als 7 sind, als Intervall und gib seine Länge an.', 4.5, '7 - 25 / 10',
+    'Das Intervall ist [2,5; 7[. Seine Länge ist 7 − 2,5 = 4,5 (ob die Grenzen dazugehören, ändert die Länge nicht).', 'Länge = rechte Grenze − linke Grenze.'))
+ST.neu('schreiben', 'begruenden', SA('Kann man „alle Zahlen außer 0“ als ein einziges Intervall schreiben?', 'Nein: Es sind zwei getrennte Teile, ]−∞; 0[ und ]0; ∞[.',
+    ['Ja: ]−∞; ∞[.', 'Ja: ]0; ∞[.', 'Ja: [−∞; ∞].'], 'Ein Intervall hat keine Lücke. „Alle außer 0“ hat bei 0 ein Loch, deshalb braucht man zwei Intervalle.', 'Hat ein Intervall Lücken?'))
+ST.knobel('schreiben', SZ('Für welche Zahlen x liegt x² im Intervall [4; 9]? Die Lösung besteht aus zwei Intervallen. Wie lang sind beide zusammen?', 2, '(3 - 2) + (-2 - (-3))',
+    'x² zwischen 4 und 9 gilt für 2 ≤ x ≤ 3, aber auch für negative x: (−3)² = 9, (−2)² = 4. Also [−3; −2] und [2; 3]. Jedes ist 1 lang, zusammen 2.',
+    'Vergiss die negativen Zahlen nicht.'))
+ST.knobel('schreiben', SZ('Wie viele Intervalle [a; b] mit ganzen Grenzen haben die Länge 5 und enthalten die Zahl 0?', 6, '0 - (-5) + 1',
+    'b = a + 5. 0 liegt darin, wenn a ≤ 0 ≤ a + 5, also −5 ≤ a ≤ 0. Für a gibt es −5, −4, −3, −2, −1, 0: sechs Intervalle.', 'Lass das Intervall wie ein Fenster über den Zahlenstrahl gleiten.'))
+
+# --- enthalten ---
+ST.leiter('enthalten', 'prüfen, ob eine Zahl im Intervall liegt, Länge eines Intervalls',
+          'ganze Zahlen im Intervall zählen, Sachlänge, aus der Anzahl eine Grenze bestimmen',
+          'Schnitt und Vereinigung, Parameter, Zählfehler deuten, Teilmenge begründen, Brüche zählen, Prüfungsaufgabe mit zwei Mengen')
+T('enthalten', (r'^Welche Zahl liegt|^Markiere', 'erkennen'), (r'^Wie viele ganze Zahlen', 'mehrschritt'), (r'Wie lang ist es', 'mehrschritt'),
+  (r'gleichzeitig|oder in', 'verknuepfen'), (r'\]a; 7\]', 'parameter'), (r'Brüche', 'transfer'))
+ST.neu('enthalten', 'direkt', SZ('Wie lang ist das Intervall [−2; 5]?', 7, '5 - (-2)', 'Länge = rechte Grenze − linke Grenze = 5 − (−2) = 7.', 'Rechne rechte minus linke Grenze.'))
+ST.neu('enthalten', 'einkleidung', SZ('Ein Parkhaus lässt Autos von 1,50 m bis 2,10 m Höhe hinein. Wie viele Zentimeter umfasst dieser Bereich?', 60, '210 - 150',
+    'Das Intervall ist [1,5; 2,1] (in m), seine Länge 0,6 m = 60 cm.', 'Rechne in Zentimetern: 210 − 150.', einheit='cm'))
+ST.neu('enthalten', 'umkehr', SZ('Das Intervall [−3; b] enthält genau 8 ganze Zahlen; b ist ganz. Bestimme b.', 4, '-3 + 8 - 1',
+    'Die ganzen Zahlen sind −3, −2, …, b. Das sind b − (−3) + 1 = b + 4 Zahlen. b + 4 = 8 ⇒ b = 4.', 'Zähle von −3 an acht ganze Zahlen ab.'))
+ST.neu('enthalten', 'fehler', SA('Jemand zählt die ganzen Zahlen in ]−2; 3[ so: −2, −1, 0, 1, 2, 3 – also 6. Was stimmt?', 'Falsch: −2 und 3 gehören nicht dazu, es sind 4.',
+    ['Richtig, es sind 6.', 'Falsch: Es sind 5, nur die 3 fehlt.', 'Falsch: Es sind 3.'],
+    'Beide Klammern zeigen nach außen: −2 und 3 gehören nicht dazu. Übrig bleiben −1, 0, 1, 2.', 'Schau dir beide Klammern an.'))
+ST.neu('enthalten', 'begruenden', SA('Stimmt die Aussage: „Liegt eine Zahl in [1; 4], dann liegt sie auch in ]0; 5[“?', 'Ja: [1; 4] liegt ganz innerhalb von ]0; 5[.',
+    ['Nein: 1 und 4 gehören nicht zu ]0; 5[.', 'Nein: ]0; 5[ ist kürzer.', 'Nur für ganze Zahlen.'],
+    'Jede Zahl x mit 1 ≤ x ≤ 4 erfüllt auch 0 < x < 5, denn 0 < 1 und 4 < 5. Auch 1 und 4 selbst liegen also in ]0; 5[.', 'Vergleiche die Grenzen beider Intervalle.'))
+ST.neu('enthalten', 'pruefung', SZ('Gegeben sind A = [−6; 2[ und B = ]−1; 5]. Wie viele ganze Zahlen liegen in A und zugleich in B?', 2, '1 - 0 + 1',
+    'Gemeinsam ist ]−1; 2[. Ganze Zahlen darin: 0 und 1. Das sind zwei.', 'Bestimme zuerst den gemeinsamen Teil der beiden Intervalle.'))
+ST.knobel('enthalten', SZ('Wie viele Zahlen mit höchstens zwei Nachkommastellen liegen im Intervall ]0; 1[?', 99, '99 - 1 + 1',
+    'Jede solche Zahl lässt sich als Hundertstel schreiben: 0,01; 0,02; …; 0,99 (0,1 ist 0,10 usw.). Das sind 99 Zahlen; 0 und 1 gehören nicht dazu.',
+    'Schreibe jede Zahl mit genau zwei Nachkommastellen.'))
+ST.knobel('enthalten', SZ('Ein Intervall hat die Länge 2,5 und enthält seine Grenzen. Wie viele ganze Zahlen enthält es mindestens?', 2, '2',
+    'Egal wo das Intervall liegt: Von der linken Grenze aus kommt nach höchstens 1 die erste ganze Zahl, nach einer weiteren Einheit die zweite – zusammen höchstens 2 ≤ 2,5. Also immer mindestens 2. Beispiel mit genau 2: [0,1; 2,6] enthält 1 und 2.',
+    'Wie weit muss man von einer beliebigen Stelle höchstens gehen, bis zwei ganze Zahlen kommen?'))
+
+# --- beurteilen ---
+ST.leiter('beurteilen', 'eine richtige Aussage über ein Intervall erkennen',
+          'die falsche Aussage finden, Sachgrenzen und Zahlenstrahl-Bilder beurteilen, Mitte bestimmen und prüfen',
+          'allgemeine Aussagen begründen, Sonderfall [a; a], Fehler deuten, Parameter, Brüche, Schnittmenge wie in einer Prüfung')
+T('beurteilen', (r'^Tim|^Lisa|JEDES', 'begruenden'), (r'ist richtig\?$', 'erkennen'), (r'FALSCH\?$', 'umkehr'), (r'^Stimmt die Aussage', 'direkt'), (r'\[5; 5\]', 'transfer'))
+ST.neu('beurteilen', 'einkleidung', SA('Ein Schwimmkurs ist für Kinder von 6 bis unter 10 Jahren. Welche Aussage stimmt?', 'Ein Kind mit 6 Jahren darf mit, eines mit 10 nicht.',
+    ['Beide dürfen mit.', 'Keines der beiden darf mit.', 'Ein Kind mit 10 darf mit, eines mit 6 nicht.'], 'Das Alter liegt in [6; 10[: 6 gehört dazu, 10 nicht.', 'Schreibe die Altersgrenze als Intervall.'))
+ST.neu('beurteilen', 'darstellung', SA('Am Zahlenstrahl ist bei 1 ein leerer Kreis, bei 4 ein ausgefüllter Punkt, dazwischen ist die Strecke dick. Welche Aussage stimmt?', 'Das ist ]1; 4]: 4 gehört dazu, 1 nicht.',
+    ['Das ist [1; 4[.', 'Das ist [1; 4].', 'Das ist ]1; 4[.'], 'Leerer Kreis: Grenze gehört nicht dazu. Ausgefüllter Punkt: Grenze gehört dazu.', 'Was bedeuten leerer Kreis und ausgefüllter Punkt?'))
+ST.neu('beurteilen', 'mehrschritt', SA('Liegt die Mitte des Intervalls [−3; 7] im Intervall ]0; 2]?', 'Ja, die Mitte ist 2 und 2 gehört dazu.', ['Nein, die Mitte ist 5.', 'Nein, die Mitte ist 2, aber 2 gehört nicht dazu.', 'Ja, die Mitte ist 1.'],
+    'Mitte: (−3 + 7) : 2 = 2. In ]0; 2] gehört die 2 dazu.', 'Erst die Mitte berechnen, dann die Klammer bei 2 ansehen.'))
+ST.neu('beurteilen', 'fehler', SA('Jemand sagt: „−2,5 liegt in [−2; 3], weil −2,5 größer als −2 ist.“ Was ist falsch?', '−2,5 ist kleiner als −2, liegt also links davon und nicht im Intervall.',
+    ['Nichts, die Aussage stimmt.', '−2,5 liegt nicht darin, weil es keine ganze Zahl ist.', 'Die Grenze −2 gehört nicht dazu.'],
+    'Bei negativen Zahlen ist die mit dem größeren Betrag die kleinere: −2,5 < −2. Damit liegt −2,5 außerhalb.', 'Wo liegt −2,5 am Zahlenstrahl – links oder rechts von −2?'))
+ST.neu('beurteilen', 'parameter', SA('Für welche Zahlen a ist die Aussage „3 liegt in ]a; 5]“ wahr?', 'für alle a < 3', ['für alle a ≤ 3', 'für alle a > 3', 'nur für a = 3'],
+    '3 liegt in ]a; 5], wenn a < 3 ≤ 5. Für a = 3 gehört die 3 wegen der offenen Klammer nicht dazu.', 'Probiere a = 3 und a = 2,9.'))
+ST.neu('beurteilen', 'verknuepfen', SA('Welche Aussage über das Intervall ]−1/2; 1/3[ ist richtig?', '0,3 liegt darin.', ['−0,6 liegt darin.', '0,4 liegt darin.', '−1/2 liegt darin.'],
+    '−1/2 = −0,5 und 1/3 ≈ 0,333. 0,3 liegt dazwischen. −0,6 ist zu klein, 0,4 zu groß, −1/2 ist die ausgeschlossene Grenze.', 'Wandle die Grenzen in Dezimalzahlen um.'))
+ST.neu('beurteilen', 'pruefung', SA('Gegeben sind A = [0; 4] und B = ]2; 6[. Welche Aussage ist richtig?', 'Die gemeinsamen Zahlen bilden ]2; 4].', ['Die gemeinsamen Zahlen bilden [2; 4].', 'Die 2 liegt in beiden.', 'Die 6 liegt in B.'],
+    'Gemeinsam: größer als 2 (wegen B) und höchstens 4 (wegen A): ]2; 4]. Die 2 gehört nicht zu B, die 6 auch nicht.', 'Zeichne beide Intervalle untereinander.'))
+ST.knobel('beurteilen', SA('A = [0; 3], B = [2; 5] und C = [4; 7]. Welche Aussage stimmt?', 'Keine Zahl liegt in allen drei, aber jede Zahl aus [0; 7] liegt in mindestens einem.',
+    ['Die 3 liegt in allen drei.', 'Es gibt eine Zahl in [0; 7], die in keinem liegt.', 'Die Zahlen, die in genau zwei Intervallen liegen, bilden [2; 5].'],
+    'A und C haben keine gemeinsame Zahl (3 < 4), also liegt keine Zahl in allen drei. A und B überlappen von 2 bis 3, B und C von 4 bis 5 – dadurch gibt es keine Lücke von 0 bis 7. In genau zwei Intervallen liegen nur [2; 3] und [4; 5], nicht ganz [2; 5].',
+    'Zeichne die drei Intervalle übereinander und such Lücken und Überlappungen.'))
+ST.knobel('beurteilen', SZ('In wie vielen der Intervalle [1; 2], [1; 3], [1; 4], …, [1; 100] liegt die Zahl 37,5?', 63, '100 - 38 + 1',
+    '37,5 liegt in [1; n], wenn n ≥ 37,5 ist, also für n = 38, 39, …, 100. Das sind 100 − 38 + 1 = 63 Intervalle.', 'Für welche rechten Grenzen n ist 37,5 dabei?'))
+baue = mit_stufen(baue, ST)
+# ---- STUFEN ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Schreibweise', ['lesen', 'schreiben']), ('Zahlen im Intervall', ['enthalten', 'beurteilen'])],

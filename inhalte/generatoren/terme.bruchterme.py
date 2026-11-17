@@ -772,6 +772,185 @@ DSX.stufen('multiplizieren', 'S1 Malnehmen; S2 Teilen mit Kehrbruch; S3 Klammert
 baue = mit_durchsicht(baue, DSX)
 # ---- DURCHSICHT ENDE ----
 
+# ---- STUFEN (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, siehe _stufen_kl8.py) ----
+from _stufen_kl8 import Stufen, mit_stufen  # noqa: E402
+
+ST = Stufen('terme.bruchterme', 20_8_3)
+SA, SZ, SL = ST.A, ST.Z, ST.L
+def T(lz, *regeln):
+    for m, g in regeln: ST.typ(lz, m, g)
+
+# --- definitionsmenge ---
+ST.leiter('definitionsmenge', 'die Zahl finden, für die ein einfacher Nenner 0 wird, und D angeben',
+          'Nenner mit Faktor oder Produkt, Sachterm deuten, zu einer Definitionsmenge den Term finden',
+          'mehrere Nenner verknüpfen, Nenner, der nie 0 wird, begründen, Fehler beim Vorzeichen, Parameter, rückwärts, Sachmodell')
+T('definitionsmenge', (r'^Gib die Definitionsmenge von [^/]+/\(x [−+] \d+\) an', 'direkt'), (r'^Für welche Zahl ist der Term [^/]+/\(x [−+]', 'erkennen'),
+  (r'x² \+ \d\)', 'begruenden'), (r'\) \+ \d/\(|\) : \(|x² − \dx', 'verknuepfen'), (r'^Welcher Term hat', 'umkehr'), (r'^Ein Term hat', 'rueckwaerts'), (r'Wert von a', 'parameter'),
+  (r'^Für welche Zahl|^Gib die Definitionsmenge', 'mehrschritt'))
+ST.neu('definitionsmenge', 'einkleidung', SZ('Bei einer Feier zahlen alle Gäste gleich viel, nur die zwei Gastgeber nicht: Jeder zahlt 240/(n − 2) €, wenn n Personen da sind. Für welche Personenzahl n ergibt der Term keinen Sinn?', 2, '2',
+    'Der Nenner n − 2 ist für n = 2 null – dann gäbe es niemanden, der zahlt.', 'Wann wird der Nenner 0?'))
+ST.neu('definitionsmenge', 'fehler', SA('Jemand sagt: „Die Definitionsmenge von 4/(x + 5) ist ℚ \\ {5}.“ Was stimmt?', 'Falsch: Der Nenner ist 0 für x = −5, also ℚ \\ {−5}.',
+    ['Richtig.', 'Falsch: D = ℚ \\ {4}.', 'Falsch: D = ℚ, der Nenner wird nie 0.'], 'x + 5 = 0 ⇒ x = −5. Für x = 5 ist der Nenner 10, das ist erlaubt.', 'Setze 5 und −5 in den Nenner ein.'))
+ST.neu('definitionsmenge', 'begruenden', SA('Haben 1/(x − 2) und x/(x² − 2x) dieselbe Definitionsmenge?', 'Nein: Der zweite Term ist auch für x = 0 nicht definiert.',
+    ['Ja, beide ℚ \\ {2}.', 'Ja, man kann den zweiten zu 1/(x − 2) kürzen.', 'Nein: Der erste ist für x = 0 nicht definiert.'],
+    'x² − 2x = x(x − 2) ist für x = 0 und x = 2 null, also D = ℚ \\ {0; 2}. Beim ersten fehlt nur die 2. Kürzen ändert die Werte, aber nicht die ursprüngliche Definitionsmenge.', 'Zerlege den Nenner x² − 2x in Faktoren.'))
+ST.neu('definitionsmenge', 'transfer', SZ('Am Hebel gilt: Die nötige Kraft ist 600/a Newton, wenn man im Abstand a (in m) von der Drehachse drückt. a = 0 ergibt keinen Sinn. Wie groß ist die Kraft bei a = 1,5 m?', 400, '600 / (15/10)',
+    'F = 600/1,5 = 400 N. Bei a = 0 (genau an der Achse) wäre der Nenner 0 – dort kann man den Hebel nicht drehen.', 'Setze 1,5 für a ein.', einheit='N'))
+ST.knobel('definitionsmenge', SZ('Der Term 1/((x − 1)(x − 2)(x − 3)) ist für drei Zahlen nicht definiert. Für wie viele ganze Zahlen x von −5 bis 5 ist sein Wert positiv?', 2, '5 - 4 + 1',
+    'Der Bruch ist positiv, wenn der Nenner positiv ist. Ein Produkt aus drei Faktoren ist positiv, wenn keiner oder genau zwei negativ sind. Keiner negativ: x > 3, also x = 4, 5. Genau zwei negativ: 1 < x < 2 – dort gibt es keine ganze Zahl. Antwort: 2.',
+    'Wann ist ein Produkt aus drei Zahlen positiv? Zähle die negativen Faktoren.'))
+ST.knobel('definitionsmenge', SA('Der Term 1/(x − a) + 1/(x − b) hat die Definitionsmenge ℚ \\ {2}. Was folgt?', 'a = b = 2', ['a = 2, b beliebig', 'a + b = 2', 'a = −b'],
+    'Ausgeschlossen sind genau a und b. Wenn nur die 2 fehlt, müssen beide Zahlen 2 sein. Wäre b ≠ 2, fehlte auch b.', 'Welche Zahlen schließt jeder der beiden Nenner aus?'))
+
+# --- termwert ---
+ST.leiter('termwert', 'eine Zahl in einen Bruchterm einsetzen und ausrechnen',
+          'Ergebnis als gekürzter Bruch, Sachterm auswerten, gesuchtes x zu einem Wert bestimmen',
+          'rückwärts aus dem Wert, verketten T(T(x)), Fehler beim Einsetzen, Parameter, Tabellenkalkulation, unmöglichen Wert begründen')
+T('termwert', (r'gekürzten Bruch', 'mehrschritt'), (r'^Berechne T\([^)]*\) für T\(x\) = ', 'direkt'), (r'^Für welches x hat T\(x\) = −?\d+/', 'umkehr'), (r'den Wert −1', 'umkehr'),
+  (r'gekürzten Bruch', 'mehrschritt'), (r'Bestimme a', 'parameter'), (r'Zelle', 'transfer'), (r'für kein x', 'begruenden'))
+ST.neu('termwert', 'erkennen', SA('Welcher Term hat für x = 2 den Wert 1?', '(x + 4)/6', ['(x + 4)/(x + 4) − 1', 'x/4', '3/(x + 4)'],
+    '(2 + 4)/6 = 1. Die anderen ergeben 0, 1/2 und 1/2.', 'Setze 2 in jeden Term ein.'))
+ST.neu('termwert', 'einkleidung', SZ('Bei n Personen kostet eine Busfahrt jeden (300 + 15n)/n Euro. Was zahlt jeder bei 20 Personen?', 30, '(300 + 15 * 20) / 20',
+    '(300 + 300)/20 = 600/20 = 30 €.', 'Setze n = 20 ein.', einheit='€'))
+ST.neu('termwert', 'fehler', SA('Für T(x) = (x + 6)/(x − 2) rechnet jemand: T(−2) = (−2 + 6)/(−2 − 2) = 4/0 – „nicht definiert“. Was stimmt?', 'Falsch: −2 − 2 = −4, also T(−2) = 4/(−4) = −1.',
+    ['Richtig, T(−2) gibt es nicht.', 'Falsch: T(−2) = 1.', 'Falsch: T(−2) = 4.'], 'Der Nenner ist −2 − 2 = −4, nicht 0. Nicht definiert ist T nur bei x = 2.', 'Rechne den Nenner langsam nach.'))
+ST.neu('termwert', 'rueckwaerts', SZ('Für T(x) = 12/(x − 3) gilt T(a) = −4. Bestimme a.', 0, '3 + 12 / (-4)',
+    '12/(a − 3) = −4 ⇒ a − 3 = 12 : (−4) = −3 ⇒ a = 0. Probe: 12/(−3) = −4.', 'Welche Zahl muss im Nenner stehen, damit −4 herauskommt?'))
+ST.neu('termwert', 'verknuepfen', SZ('Für T(x) = (x + 1)/(x − 1): Berechne T(T(3)).', 3, '((4/2) + 1) / ((4/2) - 1)',
+    'Innen: T(3) = 4/2 = 2. Außen: T(2) = 3/1 = 3.', 'Rechne zuerst T(3) aus und setze das Ergebnis wieder ein.'))
+ST.neu('termwert', 'pruefung', SZ('Gegeben ist T(x) = (2x − 1)/(x + 4). Für welches x hat T den Wert 0?', 0.5, '1 / 2',
+    'Ein Bruch ist 0, wenn der Zähler 0 ist (und der Nenner nicht): 2x − 1 = 0 ⇒ x = 0,5. Der Nenner ist dort 4,5.', 'Wann ist ein Bruch gleich null?'))
+ST.neu('termwert', 'begruenden', SA('Stimmt: „T(x) = 1/x wird umso kleiner, je größer x ist“?', 'Nicht für alle x: T(−1) = −1 ist kleiner als T(2) = 0,5.',
+    ['Ja, für alle x ≠ 0.', 'Nein, 1/x wird immer größer.', 'Ja, aber nur für negative x.'],
+    'Für positive x stimmt es, aber nicht, wenn man eine negative und eine positive Zahl vergleicht: −1 < 2, trotzdem T(−1) < T(2).', 'Probiere eine negative und eine positive Zahl.'))
+ST.knobel('termwert', SZ('Für wie viele ganze Zahlen x ist (x + 7)/(x + 1) eine ganze Zahl?', 8, '2 * 4',
+    '(x + 7)/(x + 1) = (x + 1 + 6)/(x + 1) = 1 + 6/(x + 1). Ganz ist das genau dann, wenn x + 1 ein Teiler von 6 ist: ±1, ±2, ±3, ±6. Das sind 8 Möglichkeiten (x = 0, −2, 1, −3, 2, −4, 5, −7).',
+    'Zerlege den Zähler so, dass der Nenner darin vorkommt.'))
+ST.knobel('termwert', SZ('Für T(x) = x/(x + 1): Berechne T(1) · T(2) · T(3) · … · T(9).', 0.1, '1 / 10',
+    'Das Produkt ist 1/2 · 2/3 · 3/4 · … · 9/10. Jeder Nenner kürzt sich mit dem nächsten Zähler, übrig bleiben 1 oben und 10 unten: 1/10 = 0,1.',
+    'Schreib die ersten drei Faktoren nebeneinander und schau, was sich kürzt.'))
+
+# --- kuerzen ---
+ST.leiter('kuerzen', 'gemeinsame Faktoren (Zahl, Potenz von x) in Zähler und Nenner kürzen',
+          'erst ausklammern, dann kürzen; den Term finden, der gekürzt ein Ergebnis ergibt; Tabellenwerte durch Kürzen erklären',
+          'binomische Formeln verknüpfen, „Summen kürzen“ als Fehler deuten, begründen, Parameter, ungekürzten Term rekonstruieren')
+T('kuerzen', (r'^Kürze vollständig: \d+x[⁰¹²³⁴⁵⁶⁷⁸⁹]*/\(\d+x', 'direkt'), (r'^Tom', 'fehler'), (r'x²', 'verknuepfen'), (r'\(x − \d+\)/\(\d+ − x\)', 'transfer'), (r'Wert von a', 'parameter'), (r'^Kürze', 'mehrschritt'))
+ST.neu('kuerzen', 'erkennen', SA('Welcher Bruchterm lässt sich durch x kürzen?', '3x/(5x²)', ['(x + 3)/(5x)', '3/(x + 5)', '(3 + x)/(5 + x)'],
+    'Nur in 3x/(5x²) ist x in Zähler UND Nenner ein Faktor: 3x/(5x²) = 3/(5x). In den anderen steht x in einer Summe.', 'Kürzen darf man nur Faktoren.'))
+ST.neu('kuerzen', 'umkehr', SA('Welcher Term ergibt vollständig gekürzt 2/x?', '6x/(3x²)', ['6x/(3x)', '(2 + x)/(x + x)', '2x/(x + x²)'],
+    '6x/(3x²): durch 3x kürzen ergibt 2/x. 6x/(3x) = 2, (2 + x)/(2x) lässt sich nicht kürzen, 2x/(x + x²) = 2/(1 + x).', 'Kürze jeden Term und vergleiche.'))
+ST.neu('kuerzen', 'darstellung', SA('Für T(x) = (2x + 4)/(x + 2) zeigt eine Tabelle: x = 1 → 2, x = 3 → 2, x = 10 → 2. Welche gekürzte Form erklärt das?', 'T(x) = 2 (für x ≠ −2)', ['T(x) = 2x', 'T(x) = x + 2', 'T(x) = 4'],
+    '2x + 4 = 2(x + 2). Kürzen durch (x + 2) ergibt 2 – für jedes erlaubte x.', 'Klammere im Zähler aus.'))
+ST.neu('kuerzen', 'einkleidung', SA('Ein Rechteck hat den Flächeninhalt (6x² + 3x) cm² und ist 3x cm breit. Wie lang ist es?', '(2x + 1) cm', ['(2x + 3x) cm', '(6x + 1) cm', '(2x² + x) cm'],
+    'Länge = Fläche : Breite = (6x² + 3x)/(3x) = 3x(2x + 1)/(3x) = 2x + 1.', 'Teile die Fläche durch die Breite und kürze.'))
+ST.neu('kuerzen', 'begruenden', SA('Darf man (x + 5)/(x + 5)² zu 1/(x + 5) kürzen?', 'Ja: (x + 5) ist in Zähler und Nenner ein Faktor (für x ≠ −5).',
+    ['Nein: Summen darf man nie kürzen.', 'Nein: Es kommt 1/5 heraus.', 'Ja: Es kommt x + 5 heraus.'],
+    '(x + 5)² = (x + 5)(x + 5). Die ganze Klammer ist ein Faktor; einmal gekürzt bleibt 1/(x + 5).', 'Ist die Klammer hier Summand oder Faktor?'))
+ST.neu('kuerzen', 'rueckwaerts', SL('Ein Bruchterm wurde durch (x − 2) gekürzt und ergab 3/(x + 1). Der ungekürzte Nenner war (x + 1)(x − 2). Wie hieß der ungekürzte Zähler (ausmultipliziert)?', '□x − □', [3, 6], ['3', '6'],
+    'Zum Rückgängigmachen erweitert man mit (x − 2): Zähler 3 · (x − 2) = 3x − 6.', 'Kürzen rückgängig machen heißt erweitern.'))
+ST.neu('kuerzen', 'pruefung', SZ('Kürze (4x² − 8x)/(2x) und berechne dann den Wert für x = 5.', 6, '2 * 5 - 4',
+    '4x² − 8x = 4x(x − 2). Durch 2x gekürzt: 2(x − 2) = 2x − 4. Für x = 5: 10 − 4 = 6.', 'Klammere im Zähler zuerst 4x aus.'))
+ST.knobel('kuerzen', SZ('Für wie viele natürliche Zahlen n von 1 bis 20 lässt sich der Bruch (n + 4)/(n + 1) noch kürzen?', 7, '(20 - 2) // 3 + 1',
+    'Ein gemeinsamer Teiler von n + 4 und n + 1 teilt auch ihre Differenz 3. Kürzbar ist der Bruch also genau, wenn 3 beide teilt, d. h. wenn n + 1 durch 3 teilbar ist: n = 2, 5, 8, 11, 14, 17, 20 – sieben Zahlen.',
+    'Was teilt ein gemeinsamer Teiler zweier Zahlen außer den Zahlen selbst noch?'))
+ST.knobel('kuerzen', SZ('Der Bruchterm (x² − 1)/(x² + 2x + 1) wird vollständig gekürzt. Welchen Wert hat das Ergebnis für x = 3?', 0.5, '(3 - 1) / (3 + 1)',
+    'Zähler: x² − 1 = (x + 1)(x − 1). Nenner: x² + 2x + 1 = (x + 1)². Gekürzt: (x − 1)/(x + 1). Für x = 3: 2/4 = 0,5.',
+    'Zähler und Nenner sind beide binomische Formeln.'))
+
+# --- erweitern ---
+ST.leiter('erweitern', 'einen Bruchterm auf einen vorgegebenen Nenner erweitern',
+          'den Erweiterungsfaktor bestimmen, Zähler mit Klammer erweitern, gleichwertigen Term mit gegebenem Nenner finden',
+          'Nenner erst faktorisieren, Hauptnenner, Erweitern mit −1, Fehler beim Ausmultiplizieren, begründen, rückwärts zum ursprünglichen Term')
+T('erweitern', (r'4x² \+ \d+x|3x \+ 27', 'verknuepfen'), (r'Hauptnenner|1 − x', 'transfer'), (r'Ergänze den Nenner', 'rueckwaerts'),
+  (r'^Mit welchem Term', 'umkehr'), (r'^Erweitere \d+/', 'direkt'), (r'^Erweitere', 'mehrschritt'))
+ST.neu('erweitern', 'erkennen', SA('Welcher Bruch ist eine Erweiterung von 3/x?', '6/(2x)', ['6/(x + 2)', '(3 + x)/(x + x)', '3x/x'],
+    '6/(2x): Zähler und Nenner wurden mit 2 multipliziert. Bei den anderen wurde addiert oder nur ein Teil verändert.', 'Erweitern = Zähler UND Nenner mit demselben Faktor malnehmen.'))
+ST.neu('erweitern', 'darstellung', SA('Welcher Term hat für jedes x ≠ 0 denselben Wert wie 2/(5x) und den Nenner 15x³?', '6x²/(15x³)', ['6/(15x³)', '2x²/(15x³)', '6x/(15x³)'],
+    '15x³ = 5x · 3x². Also auch den Zähler mit 3x² malnehmen: 2 · 3x² = 6x².', 'Womit muss man 5x malnehmen, um 15x³ zu erhalten?'))
+ST.neu('erweitern', 'fehler', SA('Jemand erweitert 2/(x + 3) mit x und schreibt 2x/(x² + 3). Was ist falsch?', 'Der ganze Nenner muss mit x multipliziert werden: x(x + 3) = x² + 3x.',
+    ['Nichts.', 'Man darf nur den Nenner erweitern.', 'Der Zähler müsste 2 + x heißen.'], 'Beim Erweitern wird jeder Summand des Nenners mit x multipliziert: x · x + x · 3.', 'Multipliziere die Klammer (x + 3) vollständig mit x.'))
+ST.neu('erweitern', 'begruenden', SA('Verändert das Erweitern eines Bruchterms seinen Wert?', 'Nein: Zähler und Nenner werden mit demselben Faktor (≠ 0) multipliziert – das ist wie · 1.',
+    ['Ja, er wird größer.', 'Ja, wenn man mit x erweitert.', 'Nur bei negativen Zahlen.'], 'a/b = (a · k)/(b · k), weil k/k = 1 ist. Nur k = 0 ist verboten (beim Erweitern mit x also x ≠ 0).', 'Was ist k/k?'))
+ST.knobel('erweitern', SZ('Der Bruch 3/7 wird so erweitert, dass Zähler und Nenner zusammen 150 ergeben. Wie heißt der neue Nenner?', 105, '7 * 150 / 10',
+    'Mit dem Faktor k: Zähler 3k, Nenner 7k, zusammen 10k = 150 ⇒ k = 15. Neuer Nenner 7 · 15 = 105 (der Bruch heißt 45/105).',
+    'Schreibe Zähler und Nenner mit dem unbekannten Erweiterungsfaktor.'))
+ST.knobel('erweitern', SZ('Der Bruchterm x/(x + 2) wird mit (x − 1) erweitert. Für welches x ist der neue Term nicht definiert, der alte aber schon?', 1, '1',
+    'Neu: x(x − 1)/((x + 2)(x − 1)). Der neue Nenner ist 0 für x = −2 und x = 1, der alte nur für x = −2. Also x = 1: Erweitern mit einem Term kann die Definitionsmenge verkleinern.',
+    'Vergleiche, wann der alte und wann der neue Nenner 0 wird.'))
+
+# --- addieren ---
+ST.leiter('addieren', 'gleichnamige Bruchterme addieren/subtrahieren und den Hauptnenner erkennen',
+          'auf Hauptnenner bringen, Zahl und Bruch zusammenfassen, Sachsituation (Anteile), fehlenden Zähler bestimmen',
+          'verschiedene Nenner mit Klammer, Fehler 1/x + 1/y = 2/(x + y) widerlegen, Parameter, rückwärts, Prüfungsaufgabe mit Vereinfachen')
+T('addieren', (r'^Fasse zusammen: \d+/\((x [−+] \d+)\) [+−] \d+/\(\1\)$', 'direkt'), (r'^Fasse zusammen: \d+/x [+−] \d+/\(x [−+] \d+\)$', 'verknuepfen'), (r'\(2 − x\)', 'begruenden'), (r'vereinfache', 'pruefung'),
+  (r'− 1$', 'transfer'), (r'Bestimme a', 'parameter'), (r'^Fasse', 'mehrschritt'))
+ST.neu('addieren', 'erkennen', SA('Welcher Hauptnenner passt zu 1/x + 1/(3x)?', '3x', ['3x²', '4x', 'x'], '3x ist durch x und durch 3x teilbar – der kleinste gemeinsame Nenner.', 'Welcher Nenner enthält beide Nenner?'))
+ST.neu('addieren', 'einkleidung', SA('Pumpe A füllt ein Becken in x Stunden, Pumpe B in 2x Stunden. Welchen Anteil füllen beide zusammen in einer Stunde?', '3/(2x)', ['2/(3x)', '1/(3x)', '3/x'],
+    'In einer Stunde: A schafft 1/x, B schafft 1/(2x). Zusammen 2/(2x) + 1/(2x) = 3/(2x).', 'Welchen Teil schafft jede Pumpe in einer Stunde?'))
+ST.neu('addieren', 'umkehr', SL('Ergänze die Zahl im Zähler: 5/x − □/x = 2/x', '□', [3], ['5 - 2'], 'Gleicher Nenner: 5 − □ = 2, also □ = 3.', 'Bei gleichem Nenner rechnet man nur mit den Zählern.', hinweis='Eine ganze Zahl.'))
+ST.neu('addieren', 'fehler', SA('Jemand rechnet 1/x + 1/y = 2/(x + y). Mit welchen Zahlen sieht man, dass das falsch ist?', 'x = 1, y = 1: links 2, rechts 1.',
+    ['x = 2, y = 2: links 1, rechts 1/2 – also richtig.', 'Gar nicht, es ist richtig.', 'Nur mit x = 0 und y = 0.'],
+    'Ein Gegenbeispiel genügt: 1/1 + 1/1 = 2, aber 2/(1 + 1) = 1. Richtig wäre (x + y)/(xy).', 'Setze einfache Zahlen ein und vergleiche beide Seiten.'))
+ST.neu('addieren', 'rueckwaerts', SL('Zu 5/x wurde ein Bruchterm addiert, das Ergebnis ist (5x + 3)/x². Wie heißt der addierte Term?', '□/x²', [3], ['3'],
+    '5/x = 5x/x². Von (5x + 3)/x² bleibt nach Abziehen 3/x².', 'Bring 5/x auf den Nenner x² und vergleiche die Zähler.', hinweis='Ganze Zahl im Zähler.'))
+ST.knobel('addieren', SZ('Berechne 1/(1 · 2) + 1/(2 · 3) + 1/(3 · 4) + … + 1/(9 · 10).', 0.9, '1 - 1/10',
+    'Jeder Summand lässt sich als Differenz schreiben: 1/(n(n + 1)) = 1/n − 1/(n + 1), z. B. 1/2 = 1 − 1/2, 1/6 = 1/2 − 1/3. In der Summe heben sich alle mittleren Glieder auf: 1 − 1/10 = 0,9.',
+    'Schreibe 1/(1 · 2) und 1/(2 · 3) jeweils als Differenz zweier Stammbrüche.'))
+ST.knobel('addieren', SA('Welcher Term ist für jedes x > 0 größer: 1/x + 1/(x + 2) oder 2/(x + 1)?', '1/x + 1/(x + 2)', ['2/(x + 1)', 'beide sind gleich', 'das hängt von x ab'],
+    'Zieht man 2/(x + 1) von 1/x + 1/(x + 2) ab, ergibt sich nach dem Gleichnamigmachen 2/(x(x + 1)(x + 2)). Für x > 0 ist das positiv. Beispiel x = 1: 1 + 1/3 = 4/3 > 1.',
+    'Bilde die Differenz der beiden Terme und bestimme ihr Vorzeichen.'))
+
+# --- multiplizieren ---
+ST.leiter('multiplizieren', 'zwei Bruchterme multiplizieren und kürzen, Kehrwert erkennen',
+          'dividieren (mit dem Kehrwert malnehmen), Flächen mit Bruchtermen, fehlenden Faktor finden',
+          'Klammerterme kürzen, Fehler beim Dividieren deuten, Aussagen widerlegen, Parameter, rückwärts, Ergebnis als Zahl')
+T('multiplizieren', (r'^Berechne und kürze: \(\d+/\(\d+x[⁰¹²³⁴⁵⁶⁷⁸⁹]*\)\) · ', 'direkt'), (r'\(x [−+] \d+\)²|\(x² − 9\)', 'verknuepfen'), (r'eine Zahl', 'pruefung'),
+  (r'^Mit welchem Bruchterm', 'umkehr'), (r'^Berechne', 'mehrschritt'))
+ST.neu('multiplizieren', 'erkennen', SA('Was ist der Kehrwert von (x + 2)/(3x)?', '3x/(x + 2)', ['(x + 2)/(3x)', '−(x + 2)/(3x)', '(3x + 2)/x'],
+    'Beim Kehrwert tauschen Zähler und Nenner die Plätze.', 'Zähler und Nenner tauschen.'))
+ST.neu('multiplizieren', 'einkleidung', SA('Ein Rechteck ist (x + 1)/2 m lang und 4/(x + 1) m breit. Wie groß ist sein Flächeninhalt?', '2 m²', ['(x + 1)²/8 m²', '2(x + 1) m²', '(x + 5)/2 m²'],
+    'A = (x + 1)/2 · 4/(x + 1) = 4(x + 1)/(2(x + 1)) = 2 – unabhängig von x.', 'Multipliziere und kürze die Klammer.'))
+ST.neu('multiplizieren', 'fehler', SA('Jemand rechnet (2/x) : (4/x) = 8/x². Was stimmt?', 'Falsch: Man multipliziert mit dem Kehrwert: 2/x · x/4 = 1/2.', ['Richtig.', 'Falsch: Es kommt 2 heraus.', 'Falsch: Es kommt x/2 heraus.'],
+    'Geteilt durch einen Bruch heißt mal den Kehrwert: (2/x) · (x/4) = 2x/(4x) = 1/2.', 'Was macht man beim Dividieren durch einen Bruch?'))
+ST.neu('multiplizieren', 'begruenden', SA('Stimmt: „Das Produkt zweier Bruchterme mit x ist nie eine ganze Zahl“?', 'Falsch: z. B. 2/x · x/1 = 2 (für x ≠ 0).',
+    ['Richtig.', 'Richtig, weil immer ein x übrig bleibt.', 'Falsch, aber nur für x = 1.'], 'Ein Gegenbeispiel genügt: Das x kann sich wegkürzen, dann bleibt eine Zahl.', 'Such zwei Bruchterme, bei denen sich x wegkürzt.'))
+ST.neu('multiplizieren', 'parameter', SZ('Für welche Zahl a gilt (a/x) · (x²/6) = x für alle x ≠ 0?', 6, '6',
+    '(a/x) · (x²/6) = a · x²/(6x) = a · x/6. Das soll x sein, also a/6 = 1 ⇒ a = 6.', 'Rechne das Produkt allgemein mit a aus.'))
+ST.neu('multiplizieren', 'rueckwaerts', SL('Ein Term wurde durch 3/x geteilt, heraus kam 2x². Wie hieß der Term?', '□x', [6], ['2 * 3'],
+    'Rückwärts: mit 3/x malnehmen. 2x² · 3/x = 6x.', 'Das Gegenteil von „durch 3/x teilen“ ist „mal 3/x“.', hinweis='Eine ganze Zahl vor x.'))
+ST.knobel('multiplizieren', SZ('Berechne (1 + 1/2) · (1 + 1/3) · (1 + 1/4) · … · (1 + 1/9).', 5, '10 / 2',
+    'Jede Klammer ist ein Bruch: 3/2 · 4/3 · 5/4 · … · 10/9. Jeder Zähler kürzt sich mit dem nächsten Nenner, übrig bleibt 10/2 = 5.',
+    'Schreib jede Klammer als einen einzigen Bruch.'))
+ST.knobel('multiplizieren', SA('Für x ≠ 0 und x ≠ 1 ist T(x) = 1/(1 − x). Was ergibt T(T(T(x)))?', 'x', ['1/(1 − x)', '(x − 1)/x', '1'],
+    'T(T(x)) = 1/(1 − 1/(1 − x)) = 1/((1 − x − 1)/(1 − x)) = (1 − x)/(−x) = (x − 1)/x. Dann T((x − 1)/x) = 1/(1 − (x − 1)/x) = 1/(1/x) = x. Dreimal angewendet kommt man zurück zum Anfang.',
+    'Rechne Schritt für Schritt und vereinfache nach jedem Schritt den Doppelbruch.'))
+
+# --- fehler_finden ---
+ST.leiter('fehler_finden', 'eine richtige Umformung erkennen bzw. eine einfache auf Richtigkeit prüfen',
+          'die falsche Umformung finden, mit einer Probezahl prüfen, Tabelle und Definitionsmenge zusammendenken',
+          'begründen, warum Summanden nicht gekürzt werden, Fehler im Rechenweg deuten, Gegenbeispiele, binomische Formeln verknüpfen')
+T('fehler_finden', (r'^Warum', 'begruenden'), (r'Umformung ist richtig', 'erkennen'), (r'FALSCH', 'umkehr'), (r'^Tim|^Lena', 'fehler'),
+  (r'trotzdem eine wahre', 'transfer'), (r'^Mit welcher Zahl', 'pruefung'))
+ST.neu('fehler_finden', 'direkt', SA('Ist 4x/(2x) = 2 für alle x ≠ 0 richtig?', 'Ja, man kürzt durch 2x.', ['Nein, es kommt 2x heraus.', 'Nein, es kommt 1/2 heraus.'],
+    '4x/(2x): Zähler und Nenner durch 2x teilen ergibt 2/1 = 2.', 'Kürze Zahl und x getrennt.'))
+ST.neu('fehler_finden', 'direkt', SA('Ist 3/x + 2/x = 5/x richtig (für x ≠ 0)?', 'Ja: Bei gleichem Nenner addiert man nur die Zähler.', ['Nein, es ist 5/(2x).', 'Nein, es ist 6/x.'],
+    '3/x + 2/x = (3 + 2)/x = 5/x. Der Nenner bleibt gleich.', 'Was passiert beim Addieren gleichnamiger Brüche mit dem Nenner?'))
+ST.neu('fehler_finden', 'einkleidung', SA('Eine Torte ist in x gleiche Stücke geteilt. Anna isst 1 Stück, Ben 2 Stücke. Jemand schreibt für den gegessenen Anteil 1/x + 2/x = 3/(2x). Was stimmt?', 'Falsch: Es sind 3/x – der Nenner bleibt x.',
+    ['Richtig.', 'Falsch: Es sind 2/x.', 'Falsch: Es sind 3/x².'], 'Zusammen wurden 3 von x Stücken gegessen, also 3/x. Den Nenner addiert man nicht.', 'Wie viele Stücke von wie vielen wurden gegessen?'))
+ST.neu('fehler_finden', 'mehrschritt', SA('Prüfe mit x = 2: Welche Umformung kann NICHT stimmen?', '(x + 4)/(x + 2) = 4/2', ['(x² + 2x)/x = x + 2', '3/x + 1/x = 4/x', 'x/(2x) = 1/2'],
+    'Für x = 2: (2 + 4)/(2 + 2) = 6/4 = 1,5, aber 4/2 = 2. Die anderen stimmen für x = 2 (4 = 4, 2 = 2, 1/2 = 1/2).', 'Setze in beide Seiten jeder Umformung 2 ein.'))
+ST.neu('fehler_finden', 'darstellung', SA('Eine Tabelle zeigt für (x² + x)/x und x + 1 dieselben Werte bei x = 1, 2, 3 und 4. Gibt es ein x, für das sich die Terme trotzdem unterscheiden?', 'Ja, x = 0: Dort ist der linke Term nicht definiert.',
+    ['Nein, für kein x.', 'Ja, x = −1.', 'Ja, für alle negativen x.'], '(x² + x)/x = x + 1 gilt nur für x ≠ 0. Bei x = 0 hat der rechte Term den Wert 1, der linke keinen.', 'Denk an die Definitionsmenge.'))
+ST.neu('fehler_finden', 'verknuepfen', SA('Welche Umformung ist richtig?', '(x² + 2x + 1)/(x + 1) = x + 1', ['(x² + 1)/(x + 1) = x + 1', '(x² + 4)/(x + 2) = x + 2', '(x + 1)²/(x + 1) = x² + 1'],
+    'x² + 2x + 1 = (x + 1)² (binomische Formel). Gekürzt durch (x + 1) bleibt x + 1. x² + 1 und x² + 4 lassen sich nicht zerlegen.', 'Welcher Zähler ist eine binomische Formel?'))
+ST.knobel('fehler_finden', SA('Für welche Zahlen x stimmt die falsche „Kürzung“ (x + 3)/(x + 5) = 3/5 trotzdem?', 'nur für x = 0', ['für keine Zahl', 'für alle x ≠ −5', 'für x = 0 und x = −5'],
+    'Über Kreuz: 5(x + 3) = 3(x + 5) ⇒ 5x + 15 = 3x + 15 ⇒ 2x = 0 ⇒ x = 0. Nur dort stimmt es zufällig.', 'Wann sind zwei Brüche gleich? Multipliziere über Kreuz.'))
+ST.knobel('fehler_finden', SA('Jemand „kürzt“ 16/64, indem er die beiden Sechsen streicht, und erhält zufällig richtig 1/4. Bei welchem Bruch klappt dieser falsche Trick auch?', '19/95 = 1/5', ['12/24 = 1/4', '13/39 = 1/9', '15/56 = 1/6'],
+    '19/95 = 1/5 stimmt wirklich (95 = 5 · 19). 12/24 = 1/2, 13/39 = 1/3, 15/56 ist nicht 1/6. Der Trick funktioniert nur in seltenen Zufällen.',
+    'Rechne jeden Bruch wirklich aus und vergleiche.'))
+baue = mit_stufen(baue, ST)
+# ---- STUFEN ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Grundlagen', ['definitionsmenge', 'termwert']), ('Kürzen und Erweitern', ['kuerzen', 'erweitern']),

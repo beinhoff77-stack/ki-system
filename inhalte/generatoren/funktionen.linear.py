@@ -988,6 +988,170 @@ DS.stufen('graph_ablesen', 'S1 ganze Steigung am Graphen; S2 Bruch-Steigung, Gra
 baue = mit_durchsicht(baue, DS)
 # ---- DURCHSICHT ENDE ----
 
+# ---- STUFEN (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, siehe _stufen_kl8.py) ----
+from _stufen_kl8 import Stufen, mit_stufen  # noqa: E402
+
+ST = Stufen('funktionen.linear', 20_8_8)
+SA, SZ, SL = ST.A, ST.Z, ST.L
+def T(lz, *regeln):
+    for m, g in regeln: ST.typ(lz, m, g)
+
+# --- ablesen ---
+ST.leiter('ablesen', 'm und t aus y = mx + t ablesen',
+          'umsortierte Form (y = 4 − 5x), Steigungsdreieck und Bild, steilste Gerade, Sachgleichung deuten',
+          'erst nach y auflösen, Prozent-Steigung, rückwärts aus Gitterpunkten, Parameter, Fehler beim Ablesen, gleiche Steigung begründen')
+T('ablesen', (r'^Gib den y-Achsenabschnitt t der Geraden y = |^Gib die Steigung m der Geraden y = −?\d+(,\d+)?x', 'direkt'), (r'^Gib die Gleichung der gezeichneten', 'erkennen'),
+  (r'Gitterpunkte', 'rueckwaerts'), (r'Welche Gleichung gehört|Steigungsdreieck', 'darstellung'), (r'Geraden y = \d+ − |am steilsten', 'mehrschritt'), (r'Straße', 'transfer'),
+  (r'Bestimme a', 'parameter'), (r'.', 'verknuepfen'))
+ST.neu('ablesen', 'einkleidung', SA('Ein Sparkonto: y = 15x + 120 (x Monate, y in €). Welche Zahl gibt an, wie viel jeden Monat dazukommt?', '15', ['120', '135', 'x'],
+    'Die Steigung 15 ist der Zuwachs pro Monat, 120 € waren am Anfang da.', 'Welche Zahl steht vor x?'))
+ST.neu('ablesen', 'fehler', SA('Jemand liest bei y = 3 − 2x die Steigung m = 3 ab. Was stimmt?', 'Falsch: m ist die Zahl vor x, also −2; t = 3.', ['Richtig.', 'Falsch: m = 2.', 'Falsch: m = −3.'],
+    'y = 3 − 2x = −2x + 3. Die Steigung gehört zu x, egal wo es steht.', 'Sortiere den Term als y = mx + t.'))
+ST.neu('ablesen', 'begruenden', SA('Haben y = 2x + 1 und y = 2x − 3 dieselbe Steigung, und was folgt daraus?', 'Ja, m = 2: Die Geraden sind parallel.', ['Ja, m = 2: Sie schneiden sich bei x = 2.', 'Nein, die Steigungen sind 1 und −3.', 'Ja: Sie sind dieselbe Gerade.'],
+    'Gleiche Steigung bedeutet gleiche Richtung. Die Achsenabschnitte 1 und −3 sind verschieden – also parallel, nicht gleich.', 'Vergleiche erst m, dann t.'))
+ST.knobel('ablesen', SZ('Die Gerade y = mx + t geht durch (0 | 4) und schneidet die x-Achse bei x = 8. Wie groß ist m · t?', -2, '(-4/8) * 4',
+    't = 4 (y-Achsenabschnitt). Von (0 | 4) nach (8 | 0): 4 nach unten bei 8 nach rechts, m = −0,5. m · t = −2.', 'Lies t direkt ab und bestimme m aus den beiden Achsenpunkten.'))
+ST.knobel('ablesen', SA('Für y = mx + t gilt m > 0 und t < 0. Durch welchen Quadranten geht die Gerade sicher NICHT?', 'den 2. Quadranten (links oben)', ['den 1. Quadranten (rechts oben)', 'den 3. Quadranten (links unten)', 'den 4. Quadranten (rechts unten)'],
+    'Die Gerade steigt und schneidet die y-Achse unterhalb von 0. Links von der y-Achse liegt sie also noch tiefer – immer unten, nie im 2. Quadranten. Rechts steigt sie irgendwann über die x-Achse (1. Quadrant).',
+    'Zeichne eine Skizze mit einem Beispiel, z. B. y = x − 2.'))
+
+# --- graph_ablesen ---
+ST.leiter('graph_ablesen', 't am Graphen ablesen, mit einem Steigungsdreieck (1 nach rechts) zeichnen',
+          'Steigungsdreiecke aus ganzen Kästchen, Bruchsteigung, Gerade zur Gleichung finden, Treppe als Sachbild',
+          'Wahl der Geraden begründen, kleinstes passendes Dreieck, große Dreiecke umrechnen, Steigung aus Gitterpunkten, Nullstelle beim Zeichnen, Zeichenfehler')
+T('graph_ablesen', (r'^Lies am Graphen den y-Achsenabschnitt|\(1 nach rechts\)', 'erkennen'), (r'^Du zeichnest die Gerade y = 2x', 'direkt'),
+  (r'^Welche der gezeichneten|Steigungsdreieck aus ganzen Kästchen\. Gib|^Die Gerade geht durch die beiden markierten Gitterpunkte\. Welche', 'darstellung'),
+  (r'2 nach rechts\. Bei|5 nach rechts\.', 'mehrschritt'), (r'Treppe', 'einkleidung'), (r'Begründe', 'begruenden'), (r'0,4|−0,5x \+ 1', 'transfer'),
+  (r'großes Steigungsdreieck', 'verknuepfen'), (r'Gib ihre Steigung', 'rueckwaerts'), (r'−0,75x', 'pruefung'))
+ST.neu('graph_ablesen', 'fehler', SA('Jemand zeichnet y = −2x + 1: Start bei (0 | 1), dann 1 nach rechts und 2 nach oben. Was ist falsch?', 'Bei m = −2 geht es 2 nach unten, nicht nach oben.',
+    ['Nichts.', 'Er hätte bei (1 | 0) starten müssen.', 'Er hätte 2 nach rechts gehen müssen.'], 'Negative Steigung: Die Gerade fällt. Richtig ist (0 | 1) → (1 | −1).', 'Was bedeutet das Minus vor der 2?'))
+ST.knobel('graph_ablesen', SZ('Eine Strecke verbindet die Gitterpunkte (0 | 0) und (12 | 8). Durch wie viele weitere Gitterpunkte geht sie dazwischen?', 3, '4 - 1',
+    'Die Steigung 8/12 = 2/3 lässt sich kürzen: Alle 3 nach rechts geht es 2 nach oben. Gitterpunkte bei x = 3, 6, 9 (und am Ende 12). Dazwischen also 3.', 'Kürze die Steigung so weit wie möglich.'))
+ST.knobel('graph_ablesen', SZ('Wie viele Gitterpunkte (x | y) mit 0 ≤ x ≤ 20 liegen auf der Geraden y = (2/5)x + 1?', 5, '20 / 5 + 1',
+    'y ist nur ganz, wenn (2/5) · x ganz ist, also wenn x durch 5 teilbar ist: x = 0, 5, 10, 15, 20. Fünf Gitterpunkte.', 'Wann ist 2/5 · x eine ganze Zahl?'))
+
+# --- zwei_punkte ---
+ST.leiter('zwei_punkte', 'die Steigung aus zwei gegebenen Punkten mit (y₂ − y₁) : (x₂ − x₁) berechnen',
+          'Kommazahlen, drei Punkte auf einer Geraden, Beschreibung „4 nach rechts, 6 nach unten“, Höhenprofil',
+          'waagrechte/senkrechte Gerade begründen, Fehler bei der Reihenfolge, Rampe nach Vorschrift, Parameter a, rückwärts zu einer Koordinate')
+T('zwei_punkte', (r'Q\(7 \| 5\)|Q\(3 \| 5\)', 'begruenden'), (r'^Berechne die Steigung der Geraden durch P\(\S+ \| \S+\) und Q\(\S+ \| −?\d+\)\.$', 'direkt'), (r'^Lies die Koordinaten', 'erkennen'),
+  (r'^Jemand rechnet|^Tom', 'fehler'), (r'Liegen', 'mehrschritt'), (r'4 Einheiten nach rechts', 'darstellung'), (r'Q\(7 \| 5\)|Q\(3 \| 5\)', 'begruenden'),
+  (r'Rampe', 'transfer'), (r'C\(a', 'parameter'), (r'^Berechne', 'mehrschritt'))
+ST.neu('zwei_punkte', 'einkleidung', SZ('Ein Wanderweg steigt von 400 m Höhe (bei km 0) auf 640 m Höhe (bei km 3). Wie viele Höhenmeter sind es im Mittel pro km?', 80, '(640 - 400) / 3',
+    'Steigung = Höhenunterschied : Strecke = 240 : 3 = 80 m pro km.', 'Teile den Höhenunterschied durch die Strecke.', einheit='m'))
+ST.neu('zwei_punkte', 'rueckwaerts', SZ('Eine Gerade mit der Steigung 3 geht durch P(2 | 5) und Q(6 | y). Bestimme y.', 17, '5 + 3 * 4', '4 nach rechts heißt 3 · 4 = 12 nach oben: y = 5 + 12 = 17.', 'Wie weit ist es von x = 2 bis x = 6?'))
+ST.knobel('zwei_punkte', SZ('Wie viele der Punkte (1 | 3), (2 | 5), (3 | 8), (4 | 9), (5 | 11) liegen auf der Geraden durch die ersten beiden Punkte?', 4, '4',
+    'Durch (1 | 3) und (2 | 5): Steigung 2, also y = 2x + 1. Prüfen: (3 | 7) wäre richtig, (3 | 8) liegt daneben; (4 | 9) und (5 | 11) passen. Mit den ersten beiden sind es 4 Punkte.', 'Bestimme erst die Gleichung und prüfe dann jeden Punkt.'))
+ST.knobel('zwei_punkte', SA('Die Steigung von A nach B ist 2, die von B nach C ebenfalls 2. Was folgt sicher?', 'A, B und C liegen auf einer Geraden.', ['Das Dreieck ABC ist rechtwinklig.', 'Die Strecken AB und BC sind gleich lang.', 'Man kann nichts sagen.'],
+    'Beide Strecken haben dieselbe Richtung und den gemeinsamen Punkt B – sie liegen auf derselben Geraden durch B mit Steigung 2. Über die Längen sagt das nichts.', 'Welche Gerade mit Steigung 2 geht durch B?'))
+
+# --- proportional ---
+ST.leiter('proportional', 'mit dem Dreisatz bei einer proportionalen Zuordnung rechnen',
+          'Ursprungsgerade durch einen Punkt, Verbrauch und Füllzeit, Tabellen auf Proportionalität prüfen',
+          'Rezeptfehler deuten, Grundgebühr begründet ausschließen, Zuwachs nutzen, Parameter, rückwärts, Maßstab verknüpfen, mehrteilige Preisaufgabe')
+T('proportional', (r'^\d+(,\d+)? (l|m|kg) \S+ kosten', 'direkt'), (r'Welche Gleichung beschreibt', 'erkennen'), (r'^Die Gerade y = k · x', 'mehrschritt'),
+  (r'Auto verbraucht|Wasserhahn', 'einkleidung'), (r'^Ist die Zuordnung', 'darstellung'), (r'^y ist proportional zu x\. Für', 'mehrschritt'),
+  (r'Lisa', 'fehler'), (r'Taxi', 'begruenden'), (r'Wenn x um', 'transfer'), (r'Bestimme a', 'parameter'))
+ST.neu('proportional', 'erkennen', SA('Welche Zuordnung ist proportional?', 'Anzahl der Brötchen ↦ Preis (je 0,40 €)', ['Alter ↦ Körpergröße', 'Taxistrecke ↦ Preis mit Grundgebühr', 'Seitenlänge ↦ Fläche eines Quadrats'],
+    'Doppelt so viele Brötchen kosten doppelt so viel, 0 Brötchen kosten 0 €. Bei den anderen stimmt das nicht.', 'Prüfe: doppelt so viel – doppelt so viel?'))
+ST.neu('proportional', 'rueckwaerts', SZ('Eine proportionale Zuordnung ordnet der 7 den Wert 24,5 zu. Welcher Zahl ordnet sie 14 zu?', 4, '14 / (245/10 / 7)', 'k = 24,5 : 7 = 3,5. 14 : 3,5 = 4.', 'Bestimme zuerst den Faktor k.'))
+ST.neu('proportional', 'verknuepfen', SZ('Auf einer Karte im Maßstab 1 : 25 000 sind zwei Orte 6 cm voneinander entfernt. Wie viele km sind es in Wirklichkeit?', 1.5, '6 * 25000 / 100000',
+    '6 cm · 25 000 = 150 000 cm = 1 500 m = 1,5 km. Karte und Wirklichkeit sind proportional.', 'Rechne erst in cm, dann in km um.', einheit='km'))
+ST.neu('proportional', 'pruefung', SZ('3,5 kg Äpfel kosten 5,60 €. Wie viel kg bekommt man für 8 €?', 5, '8 / (56/10 / (35/10))', '1 kg kostet 5,60 : 3,5 = 1,60 €. Für 8 €: 8 : 1,60 = 5 kg.', 'Rechne zuerst den Preis für 1 kg aus.', einheit='kg'))
+ST.neu('proportional', 'begruenden', SA('Stimmt: „Der Graph einer proportionalen Zuordnung ist immer eine Gerade durch den Ursprung“?', 'Ja: y = k · x hat bei x = 0 den Wert 0 und wächst gleichmäßig.',
+    ['Nein, er kann die y-Achse überall schneiden.', 'Nur wenn k positiv ist.', 'Nein, er ist eine Kurve.'], 'Für jede proportionale Zuordnung gilt y = k · x. Das ist eine Gerade mit t = 0.', 'Welchen Wert hat y für x = 0?'))
+ST.knobel('proportional', SZ('3 Maler streichen in 4 Tagen 12 Zimmer. Wie viele Zimmer streichen 5 Maler in 6 Tagen bei gleichem Tempo?', 30, '12 / (3 * 4) * 5 * 6',
+    'Ein Maler schafft an einem Tag 12 : (3 · 4) = 1 Zimmer. 5 Maler in 6 Tagen: 5 · 6 · 1 = 30 Zimmer.', 'Rechne zuerst, was ein Maler an einem Tag schafft.'))
+ST.knobel('proportional', SZ('y ist proportional zu x, und z ist proportional zu y. Für x = 2 ist y = 6, und für y = 6 ist z = 15. Welchen Wert hat z für x = 10?', 75, '10 * 3 * 15 / 6',
+    'y = 3x, z = 2,5y. Also z = 2,5 · 3x = 7,5x – auch z ist proportional zu x. Für x = 10: z = 75.', 'Verkette die beiden Faktoren.'))
+
+# --- aufstellen ---
+ST.leiter('aufstellen', 'aus m und t die Geradengleichung bilden',
+          'aus m und einem Punkt, Sachsituationen (Sparschwein, Tank), parallele Gerade',
+          'aus zwei Punkten, Kostenaufgabe mit zwei Angaben, Achsenpunkte wie in einer Prüfung, x/y-Verwechslung als Fehler, warum ein Punkt nicht reicht')
+T('aufstellen', (r'schneidet die y-Achse bei', 'direkt'), (r'Steigung -?−?\d+ und geht durch', 'mehrschritt'), (r'Sparschwein|Handwerker|Wassertank', 'einkleidung'),
+  (r'^Eine Gerade ist parallel', 'umkehr'), (r'P\(0 \| −3\)', 'mehrschritt'), (r'Elektrikerin', 'transfer'), (r'parallel zur Geraden durch', 'verknuepfen'),
+  (r'x-Achse bei', 'pruefung'), (r'geht durch', 'rueckwaerts'))
+ST.neu('aufstellen', 'erkennen', SA('Eine Gerade hat m = 4 und t = −1. Welche Gleichung passt?', 'y = 4x − 1', ['y = −x + 4', 'y = 4x + 1', 'y = −4x − 1'], 'y = mx + t mit m = 4, t = −1.', 'Steigung vor x, Achsenabschnitt dahinter.'))
+ST.neu('aufstellen', 'direkt', SL('Gib die Gleichung der Geraden mit der Steigung −2 an, die durch den Ursprung geht.', 'y = □x + □', [-2, 0], ['-2', '0'], 'Durch den Ursprung heißt t = 0: y = −2x + 0.', 'Welchen y-Achsenabschnitt hat eine Gerade durch (0 | 0)?', hinweis='Ganze Zahlen, auch negativ.'))
+ST.neu('aufstellen', 'fehler', SA('Gerade mit m = 2 durch P(3 | 1): Jemand setzt 3 = 2 · 1 + t und erhält t = 1. Was stimmt?', 'Falsch: x und y vertauscht. Richtig: 1 = 2 · 3 + t, also t = −5.',
+    ['Richtig.', 'Falsch: t = 3.', 'Falsch: t = 5.'], 'P(3 | 1) heißt x = 3, y = 1. Eingesetzt in y = 2x + t: 1 = 6 + t.', 'Welche Zahl von P ist x, welche y?'))
+ST.neu('aufstellen', 'begruenden', SA('Kann man aus einem einzigen Punkt eine Geradengleichung aufstellen?', 'Nein: Durch einen Punkt gehen unendlich viele Geraden; man braucht noch die Steigung oder einen zweiten Punkt.',
+    ['Ja, immer.', 'Ja, wenn der Punkt auf der y-Achse liegt.', 'Nur bei Ursprungsgeraden.'], 'Für y = mx + t braucht man zwei Angaben. Ein Punkt liefert nur eine Gleichung für m und t.', 'Wie viele Unbekannte hat y = mx + t?'))
+ST.knobel('aufstellen', SZ('Eine Gerade geht durch (2 | 5), und ihre Nullstelle ist doppelt so groß wie ihr y-Achsenabschnitt t (t ≠ 0). Bestimme t.', 6, '5 + 2 / 2',
+    'Nullstelle x₀ = −t/m soll 2t sein ⇒ −t/m = 2t ⇒ m = −1/2. Dann 5 = −0,5 · 2 + t ⇒ t = 6. Probe: y = −0,5x + 6 hat die Nullstelle 12 = 2 · 6 ✓.', 'Drücke die Nullstelle mit m und t aus.'))
+ST.knobel('aufstellen', SZ('Eine Gerade geht durch (−1 | 7) und (3 | −1). An welcher Stelle hat sie den Wert 100?', -47.5, '(100 - 5) / (-2)',
+    'm = (−1 − 7) : (3 + 1) = −2, t = 7 − 2 = 5: y = −2x + 5. −2x + 5 = 100 ⇒ x = −47,5.', 'Stelle zuerst die Gleichung auf.'))
+
+# --- schnittpunkte ---
+ST.leiter('schnittpunkte', 'Nullstelle und y-Achsenabschnitt einer Geraden bestimmen',
+          'Schnittpunkt zweier Geraden durch Gleichsetzen, Tarifvergleich, Gerade durch einen gegebenen Schnittpunkt finden',
+          'Parameter a, Dreiecksfläche verknüpfen, parallele Geraden begründen, Fehler (y vergessen), Verfolgung modellieren, allgemeine Form wie in einer Prüfung')
+T('schnittpunkte', (r'Berechne die Nullstelle', 'direkt'), (r'y-Achse\? Gib', 'erkennen'), (r'Fitnessstudio', 'einkleidung'), (r'Bestimme a', 'parameter'),
+  (r'Dreieck', 'verknuepfen'), (r'.', 'mehrschritt'))
+ST.neu('schnittpunkte', 'umkehr', SA('Zwei Geraden schneiden sich in S(2 | 3). Welche Gerade kann eine davon sein?', 'y = 2x − 1', ['y = x + 2', 'y = 3x', 'y = −x + 4'],
+    'Nur bei y = 2x − 1 gilt für x = 2 der Wert 3. Die anderen ergeben 4, 6 und 2.', 'Setze x = 2 ein.'))
+ST.neu('schnittpunkte', 'fehler', SA('Für y = 2x + 1 und y = −x + 7 rechnet jemand: 2x + 1 = −x + 7 ⇒ x = 2, also S(2 | 2). Was stimmt?', 'Falsch: y = 2 · 2 + 1 = 5, also S(2 | 5).', ['Richtig.', 'Falsch: S(2 | 7).', 'Falsch: x = 3.'],
+    'Die y-Koordinate erhält man durch Einsetzen von x = 2 in eine der Gleichungen, nicht durch Abschreiben von x.', 'Wie bekommt man y?'))
+ST.neu('schnittpunkte', 'begruenden', SA('Warum haben y = 3x + 1 und y = 3x − 2 keinen Schnittpunkt?', 'Gleiche Steigung, verschiedener Achsenabschnitt: Die Geraden sind parallel.',
+    ['Weil 1 und −2 verschiedene Vorzeichen haben.', 'Sie haben doch einen bei x = 0.', 'Weil 3 eine ungerade Zahl ist.'], 'Gleichsetzen: 3x + 1 = 3x − 2 ⇒ 1 = −2 – falsch, also kein Schnittpunkt.', 'Setze gleich und schau, was mit x passiert.'))
+ST.neu('schnittpunkte', 'rueckwaerts', SZ('Die Gerade y = −x + t schneidet die Gerade y = 2x an der Stelle x = 3. Bestimme t.', 9, '2 * 3 + 3', 'Bei x = 3 hat y = 2x den Wert 6. Also −3 + t = 6 ⇒ t = 9.', 'Berechne zuerst den y-Wert des Schnittpunkts.'))
+ST.neu('schnittpunkte', 'transfer', SZ('Zwei Läufer starten gleichzeitig in dieselbe Richtung: A bei Kilometer 0 mit 12 km/h, B bei Kilometer 3 mit 10 km/h. Nach wie vielen Minuten holt A B ein?', 90, '3 / (12 - 10) * 60',
+    'Orte: A: 12t, B: 3 + 10t. 12t = 3 + 10t ⇒ t = 1,5 h = 90 Minuten.', 'Stelle für jeden Läufer den Ort nach t Stunden auf.', einheit='min'))
+ST.neu('schnittpunkte', 'pruefung', SL('Berechne den Schnittpunkt von g: y = 0,5x − 1 und h: x + 2y = 6.', 'S(□ | □)', [4, 1], ['4', '1'],
+    'h nach y auflösen: y = 3 − 0,5x. 0,5x − 1 = 3 − 0,5x ⇒ x = 4, y = 1.', 'Bring h zuerst in die Form y = mx + t.', hinweis='Koordinaten als ganze Zahlen.'))
+ST.neu('schnittpunkte', 'verknuepfen', SZ('Die Geraden y = x und y = −x + 6 bilden zusammen mit der y-Achse ein Dreieck. Wie groß ist sein Flächeninhalt?', 9, '6 * 3 / 2',
+    'Ecken: (0 | 0), (0 | 6) und der Schnittpunkt (3 | 3). Grundseite auf der y-Achse 6, Höhe 3 (Abstand von der y-Achse): A = 6 · 3 : 2 = 9.', 'Bestimme die drei Eckpunkte.', einheit='FE'))
+ST.knobel('schnittpunkte', SZ('Die Geraden y = x, y = 2x − 2 und y = −x + k gehen durch einen gemeinsamen Punkt. Bestimme k.', 4, '2 + 2',
+    'y = x und y = 2x − 2 schneiden sich in (2 | 2). Die dritte muss durch (2 | 2): −2 + k = 2 ⇒ k = 4.', 'Welcher Punkt ist der einzige Kandidat?'))
+ST.knobel('schnittpunkte', SZ('Für wie viele ganze Zahlen m schneiden sich y = m · x und y = −x + 6 in einem Punkt mit ganzzahligen Koordinaten?', 8, '2 * 4',
+    'mx = −x + 6 ⇒ x = 6 : (m + 1). x ist ganz, wenn m + 1 ein Teiler von 6 ist: ±1, ±2, ±3, ±6. Dann ist auch y = −x + 6 ganz. Acht Werte: m = 0, 1, 2, 5, −2, −3, −4, −7.',
+    'Löse nach x auf – wann ist der Bruch ganz?'))
+
+# --- lage ---
+ST.leiter('lage', 'an den Steigungen erkennen: parallel, schneidend; Steigung einer Parallelen angeben',
+          'Kommazahl-Steigungen, senkrechte Steigung (m₁ · m₂ = −1), parallele Gerade auswählen, Sachsituation',
+          'gleiche Gerade begründen, Senkrechte durch einen Punkt, Parameter, rechten Winkel im Dreieck prüfen, Fehler (Gegenzahl statt Kehrwert), Laser-Spiegel')
+T('lage', (r'^Gib die Steigung einer Geraden an, die parallel', 'direkt'), (r'^Wie liegen die Geraden g: y = −?\d*x( [+−] \d+)? und h: y = −?\d*x( [+−] \d+)? zueinander\?$', 'erkennen'),
+  (r'senkrecht auf y|^Welche Gerade ist parallel', 'umkehr'), (r'unendlich viele|Schnittpunkte haben', 'begruenden'), (r'steht senkrecht auf g', 'rueckwaerts'),
+  (r'Wert von a', 'parameter'), (r'Dreieck', 'verknuepfen'), (r'.', 'mehrschritt'))
+ST.neu('lage', 'einkleidung', SA('Zwei Handläufe einer Treppe haben die Gleichungen y = 0,6x + 1 und y = 0,6x + 2. Wie verlaufen sie zueinander?', 'parallel', ['sie schneiden sich', 'senkrecht', 'sie liegen aufeinander'],
+    'Gleiche Steigung 0,6, verschiedener Achsenabschnitt: parallel im Abstand.', 'Vergleiche die Steigungen.'))
+ST.neu('lage', 'fehler', SA('Jemand sagt: „y = 2x + 1 und y = −2x + 1 stehen senkrecht aufeinander, weil die Steigungen Gegenzahlen sind.“ Was stimmt?', 'Falsch: Senkrecht heißt m₁ · m₂ = −1; hier ist 2 · (−2) = −4.',
+    ['Richtig.', 'Falsch: Sie sind parallel.', 'Falsch: Sie sind identisch.'], 'Die senkrechte Steigung zu 2 ist −1/2 (negativer Kehrwert), nicht −2.', 'Multipliziere die Steigungen.'))
+ST.neu('lage', 'transfer', SZ('Ein Lichtstrahl verläuft auf y = 0,5x. Ein ebener Spiegel steht im Punkt (4 | 2) senkrecht zum Strahl. Welche Steigung hat die Spiegellinie?', -2, '-1 / (1/2)',
+    'Senkrecht zu m = 0,5: m₂ = −1 : 0,5 = −2.', 'Senkrecht heißt: Produkt der Steigungen −1.'))
+ST.neu('lage', 'pruefung', SA('g: y = 3x − 2. Welche Aussage stimmt?', 'h: y = −(1/3)x + 5 steht senkrecht auf g.', ['h: y = 3x + 5 steht senkrecht auf g.', 'h: y = −3x steht senkrecht auf g.', 'h: y = (1/3)x steht senkrecht auf g.'],
+    '3 · (−1/3) = −1. Bei den anderen: 3 · 3 = 9 (parallel), 3 · (−3) = −9, 3 · 1/3 = 1.', 'Prüfe für jede Gerade das Produkt der Steigungen.'))
+ST.neu('lage', 'begruenden', SA('Kann eine Gerade zu zwei Geraden parallel sein, die sich schneiden?', 'Nein: Dann hätten beide dieselbe Steigung und könnten sich nicht schneiden.',
+    ['Ja, immer.', 'Ja, wenn sie zwischen ihnen liegt.', 'Nur wenn sie durch den Schnittpunkt geht.'], 'Parallel zu beiden heißt: gleiche Steigung wie beide. Dann wären die beiden selbst parallel – Widerspruch.', 'Was müsste für die Steigungen gelten?'))
+ST.knobel('lage', SZ('Ein Viereck hat die Ecken A(0 | 0), B(4 | 2), C(3 | 4) und D(−1 | 2). Wie viele rechte Winkel hat es?', 4, '4',
+    'Steigungen: AB 2/4 = 0,5; BC 2/(−1) = −2; CD (−2)/(−4) = 0,5; DA 2/(−1) = −2. Benachbarte Seiten haben immer 0,5 · (−2) = −1 – alle vier Ecken sind rechte Winkel (ein Rechteck).',
+    'Berechne alle vier Seitensteigungen.'))
+ST.knobel('lage', SZ('Für welche Zahl a stehen y = a · x + 1 und y = (a − 2) · x senkrecht aufeinander?', 1, '1',
+    'Senkrecht: a · (a − 2) = −1 ⇒ a² − 2a + 1 = 0 ⇒ (a − 1)² = 0 ⇒ a = 1. Probe: Steigungen 1 und −1, Produkt −1 ✓.', 'Stelle die Bedingung auf und erkenne eine binomische Formel.'))
+
+# --- deuten ---
+ST.leiter('deuten', 'Steigung und Achsenabschnitt im Sachzusammenhang deuten, einen Wert berechnen',
+          'aus einem Betrag die Zeit/Strecke zurückrechnen, Einheiten umrechnen, wann der Tank leer ist',
+          'Tarife und Kerzen vergleichen, aus zwei Messwerten rückwärts, y-Achsenabschnitt begründen, Fehldeutung, Prozentanteil verknüpfen')
+T('deuten', (r'Schnittpunkt mit der y-Achse|Taxi B', 'begruenden'), (r'Was bedeutet|Welche Aussage ist richtig', 'erkennen'), (r'Berechne den Wert', 'direkt'), (r'Handytarif: K|Planschbecken', 'umkehr'),
+  (r'Taxifahrt|Tank wird geleert', 'einkleidung'), (r'Ballon', 'mehrschritt'), (r'Zwei Taxi|Kerze A', 'transfer'), (r'Nach 2 Stunden', 'rueckwaerts'),
+  (r'Schnittpunkt mit der y-Achse|Taxi B', 'begruenden'))
+ST.neu('deuten', 'fehler', SA('Für K(x) = 0,09x + 10 (x Minuten, K in €) sagt jemand: „Eine Minute kostet 10 €.“ Was stimmt?', 'Falsch: 10 € ist die Grundgebühr, eine Minute kostet 0,09 €.',
+    ['Richtig.', 'Falsch: Eine Minute kostet 10,09 €.', 'Falsch: Eine Minute kostet 0,90 €.'], 'Die Zahl vor x ist der Preis pro Minute, die Zahl ohne x fällt einmal an.', 'Welche Zahl gehört zu x?'))
+ST.neu('deuten', 'verknuepfen', SZ('Ein Tarif: K(x) = 0,15x + 6 (x Minuten, K in €). Wie viel Prozent der Rechnung macht bei 40 Minuten die Grundgebühr aus?', 50, '6 / (15/100 * 40 + 6) * 100',
+    'K(40) = 6 + 6 = 12 €. Grundgebühr 6 € von 12 € sind 50 %.', 'Berechne zuerst die ganze Rechnung.', einheit='%'))
+ST.neu('deuten', 'pruefung', SZ('Ein Becken enthält 400 l, pro Minute fließen 25 l ab. Stelle V(x) auf und berechne, nach wie vielen Minuten noch 150 l darin sind.', 10, '(400 - 150) / 25',
+    'V(x) = 400 − 25x. 400 − 25x = 150 ⇒ x = 10 Minuten.', 'Anfangswert und Änderung pro Minute ergeben V(x).', einheit='min'))
+ST.knobel('deuten', SZ('Zwei gleich hohe Kerzen: Die erste brennt in 4 h ganz ab, die zweite in 6 h. Nach wie vielen Stunden ist die zweite doppelt so hoch wie die erste?', 3, '3',
+    'Höhe h am Anfang. Erste: h · (1 − t/4), zweite: h · (1 − t/6). Bedingung: 1 − t/6 = 2 · (1 − t/4) = 2 − t/2 ⇒ t/2 − t/6 = 1 ⇒ t/3 = 1 ⇒ t = 3. Probe: 1/4 h und 1/2 h ✓.',
+    'Die Anfangshöhe kürzt sich weg – rechne mit Anteilen.', einheit='h'))
+ST.knobel('deuten', SZ('Ein Händler hat Kosten K(x) = 2x + 300 und Einnahmen E(x) = 5x (x verkaufte Stück, in €). Ab wie vielen Stück macht er Gewinn?', 101, '300 / (5 - 2) + 1',
+    'Gewinn heißt E(x) > K(x): 5x > 2x + 300 ⇒ 3x > 300 ⇒ x > 100. Bei genau 100 Stück ist der Gewinn 0, ab 101 positiv.', 'Wann sind Einnahmen echt größer als Kosten?'))
+baue = mit_stufen(baue, ST)
+# ---- STUFEN ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Steigung und Achsenabschnitt', ['ablesen', 'zwei_punkte', 'proportional']), ('Geraden bestimmen', ['aufstellen', 'schnittpunkte', 'lage']),

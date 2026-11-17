@@ -844,6 +844,223 @@ DSX.stufen('sachaufgabe', 'S2 wiederholte Eintritt- und Hühner-Aufgaben', 'S1 S
 baue = mit_durchsicht(baue, DSX)
 # ---- DURCHSICHT ENDE ----
 
+# ---- STUFEN (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, siehe _stufen_kl8.py) ----
+from _stufen_kl8 import Stufen, mit_stufen  # noqa: E402
+
+ST = Stufen('gleichungen.lgs2', 20_8_6)
+SA, SZ, SL = ST.A, ST.Z, ST.L
+def T(lz, *regeln):
+    for m, g in regeln: ST.typ(lz, m, g)
+XY = 'x = □; y = □'
+
+# --- pruefen ---
+ST.leiter('pruefen', 'ein Zahlenpaar in beide Gleichungen einsetzen bzw. die Lösung unter mehreren Paaren erkennen',
+          'Teilantworten (nur I erfüllt), Kommazahlen, Sachpreise prüfen, Paar finden, das nur eine Gleichung erfüllt',
+          'Parameter c, Sachsituation als System, unvollständige Probe als Fehler, Anzahl der Lösungen begründen, mit Geraden verknüpfen')
+T('pruefen', (r'Welches Zahlenpaar ist die Lösung\?$', 'erkennen'), (r'aber NICHT', 'umkehr'), (r'Bestimme c', 'parameter'), (r'Rechteck', 'transfer'),
+  (r'\(a \| 2a\)', 'rueckwaerts'), (r'positiven ganzen Zahlen', 'transfer'), (r'^Gegeben|^Ist', 'mehrschritt'))
+ST.neu('pruefen', 'direkt', SA('Ist (2 | 1) eine Lösung von I: x + y = 3 und II: x − y = 1?', 'Ja, beide Gleichungen stimmen.', ['Nein, nur I stimmt.', 'Nein, nur II stimmt.'],
+    'I: 2 + 1 = 3 ✓. II: 2 − 1 = 1 ✓.', 'Setze x = 2 und y = 1 in beide Gleichungen ein.'))
+ST.neu('pruefen', 'einkleidung', SA('Ein Heft und ein Stift kosten zusammen 3 €, zwei Hefte und ein Stift 4,50 €. Passt „Heft 1,50 €, Stift 1,50 €“?', 'Ja, beide Angaben stimmen.',
+    ['Nein, nur die erste stimmt.', 'Nein, nur die zweite stimmt.', 'Nein, keine stimmt.'], '1,50 + 1,50 = 3 ✓ und 2 · 1,50 + 1,50 = 4,50 ✓.', 'Prüfe jede Preisangabe einzeln.'))
+ST.neu('pruefen', 'fehler', SA('Jemand prüft (3 | 1) für I: x + 2y = 5 und II: 2x − y = 4 nur in I (3 + 2 = 5 ✓) und schreibt „Lösung“. Was stimmt?', 'Falsch: In II gilt 6 − 1 = 5 ≠ 4 – (3 | 1) ist keine Lösung.',
+    ['Richtig, eine Gleichung genügt.', 'Richtig, denn auch II stimmt.', 'Falsch: Auch I stimmt nicht.'], 'Eine Lösung muss beide Gleichungen erfüllen. II: 2 · 3 − 1 = 5, nicht 4.', 'Prüfe auch die zweite Gleichung.'))
+ST.neu('pruefen', 'begruenden', SA('Kann ein System aus zwei linearen Gleichungen genau zwei Lösungen haben?', 'Nein: Zwei Geraden haben keinen, genau einen oder unendlich viele gemeinsame Punkte.',
+    ['Ja, wenn die Geraden sich zweimal schneiden.', 'Ja, bei parallelen Geraden.', 'Nur wenn eine Gleichung x² enthält.'], 'Zwei verschiedene Geraden schneiden sich höchstens einmal. Haben sie zwei gemeinsame Punkte, sind sie gleich – dann gibt es unendlich viele.', 'Wie oft können sich zwei Geraden schneiden?'))
+ST.neu('pruefen', 'pruefung', SZ('Das Zahlenpaar (2 | y) ist Lösung von I: 3x + 2y = 14. Bestimme y und prüfe, ob das Paar auch II: x − y = −2 erfüllt. Gib y an.', 4, '(14 - 3 * 2) / 2',
+    '6 + 2y = 14 ⇒ y = 4. II: 2 − 4 = −2 ✓ – (2 | 4) ist die Lösung des Systems.', 'Setze x = 2 in I ein.'))
+ST.neu('pruefen', 'verknuepfen', SA('Welches Zahlenpaar liegt auf beiden Geraden y = 2x − 1 und y = −x + 5?', '(2 | 3)', ['(3 | 2)', '(1 | 1)', '(0 | 5)'],
+    '(2 | 3): 2 · 2 − 1 = 3 ✓ und −2 + 5 = 3 ✓. (1 | 1) liegt nur auf der ersten, (0 | 5) nur auf der zweiten.', 'Ein gemeinsamer Punkt erfüllt beide Geradengleichungen.'))
+ST.knobel('pruefen', SZ('Wie viele Zahlenpaare (x | y) aus natürlichen Zahlen (0 erlaubt) erfüllen 3x + 5y = 30?', 3, '3',
+    '5y = 30 − 3x muss durch 5 teilbar sein, also muss 3x durch 5 teilbar sein: x = 0, 5, 10. Dann y = 6, 3, 0. Drei Paare: (0 | 6), (5 | 3), (10 | 0).',
+    'Welche Werte darf x haben, damit 30 − 3x durch 5 teilbar ist?'))
+ST.knobel('pruefen', SZ('Das System I: x + y = k, II: x − y = 1 hat eine Lösung mit x = 2y. Bestimme k.', 3, '2 + 1',
+    'Aus II und x = 2y: 2y − y = 1 ⇒ y = 1, x = 2. Dann k = x + y = 3.', 'Nutze x = 2y zuerst in der Gleichung ohne k.'))
+
+# --- grafisch ---
+ST.leiter('grafisch', 'den Schnittpunkt zweier gezeichneter Geraden ablesen bzw. berechnen',
+          'Gleichungen zum Zeichnen umstellen, Lösungsanzahl am Bild, Tarifgeraden, Probe am abgelesenen Punkt',
+          'Ablesefehler deuten, Bruch-Schnittpunkt rechnen, System zum Bild finden, Parallele ohne Lösung, Parameter, Geraden aus Punkten')
+T('grafisch', (r'^Lies die Lösung des Gleichungssystems I: \S+ [+−] \S+ = |^Lies die Lösung des Gleichungssystems I: y', 'erkennen'), (r'^Lies den Schnittpunkt', 'erkennen'),
+  (r'Wie viele Lösungen|zeichnen\.? Welche', 'darstellung'), (r'^Tim', 'mehrschritt'), (r'^Gegeben: .* Jemand liest', 'fehler'), (r'genau \(gekürzter', 'verknuepfen'),
+  (r'^Welches Gleichungssystem gehört', 'rueckwaerts'), (r'KEINE Lösung', 'begruenden'), (r'Denke dir', 'transfer'))
+ST.neu('grafisch', 'direkt', SL('Die Geraden y = x + 1 und y = −x + 3 schneiden sich. Bestimme den Schnittpunkt.', 'S(□ | □)', [1, 2], ['1', '2'],
+    'x + 1 = −x + 3 ⇒ 2x = 2 ⇒ x = 1, y = 2.', 'Gleiche y-Werte: setze die Terme gleich.', hinweis='Koordinaten als ganze Zahlen.'))
+ST.neu('grafisch', 'einkleidung', SZ('Tarif A: y = 10 + 2x, Tarif B: y = 4x (x Stunden, y Kosten in €). Im Diagramm schneiden sich die Geraden. Nach wie vielen Stunden kosten beide gleich viel?', 5, '10 / (4 - 2)',
+    '10 + 2x = 4x ⇒ 2x = 10 ⇒ x = 5 h (beide 20 €).', 'Der Schnittpunkt ist die Stelle gleicher Kosten.', einheit='h'))
+ST.neu('grafisch', 'mehrschritt', SL('Stelle I: 3x + y = 5 und II: x − y = −1 nach y um und bestimme den Schnittpunkt der Geraden.', 'S(□ | □)', [1, 2], ['1', '2'],
+    'I: y = −3x + 5, II: y = x + 1. −3x + 5 = x + 1 ⇒ x = 1, y = 2.', 'Erst beide nach y auflösen, dann gleichsetzen.', hinweis='Koordinaten als ganze Zahlen.'))
+ST.neu('grafisch', 'umkehr', SA('Zwei Geraden schneiden sich in (1 | 4); die erste ist y = 2x + 2. Welche kann die zweite sein?', 'y = −x + 5', ['y = x + 4', 'y = 2x + 4', 'y = −x + 4'],
+    'Die zweite muss durch (1 | 4) gehen: −1 + 5 = 4 ✓. y = x + 4 ergibt 5, y = −x + 4 ergibt 3, y = 2x + 4 ist parallel zur ersten.', 'Setze x = 1 in jede Gerade ein.'))
+ST.neu('grafisch', 'parameter', SZ('Für welches m schneidet die Gerade y = m · x die Gerade y = −x + 6 an der Stelle x = 2?', 2, '(-2 + 6) / 2',
+    'Bei x = 2 hat y = −x + 6 den Wert 4. Also muss m · 2 = 4 sein, m = 2.', 'Berechne zuerst den y-Wert des Schnittpunkts.'))
+ST.neu('grafisch', 'pruefung', SL('Gerade g geht durch (0 | 1) und (1 | 3), Gerade h durch (0 | 7) und (1 | 6). Bestimme den Schnittpunkt.', 'S(□ | □)', [2, 5], ['2', '5'],
+    'g: y = 2x + 1, h: y = −x + 7. 2x + 1 = −x + 7 ⇒ x = 2, y = 5.', 'Stelle zuerst beide Geradengleichungen auf.', hinweis='Koordinaten als ganze Zahlen.'))
+ST.knobel('grafisch', SZ('Die drei Geraden y = x + 1, y = −x + 5 und y = a · x − 1 gehen durch einen gemeinsamen Punkt. Bestimme a.', 2, '(3 + 1) / 2',
+    'Die ersten beiden schneiden sich bei x + 1 = −x + 5 ⇒ x = 2, y = 3. Die dritte muss durch (2 | 3): 2a − 1 = 3 ⇒ a = 2.',
+    'Welcher Punkt kommt überhaupt in Frage?'))
+ST.knobel('grafisch', SZ('Die Geraden y = 2x und y = −x + 6 bilden mit der x-Achse ein Dreieck. Wie groß ist sein Flächeninhalt?', 12, '6 * 4 / 2',
+    'Schnittpunkt der Geraden: 2x = −x + 6 ⇒ (2 | 4). Mit der x-Achse: y = 2x bei (0 | 0), y = −x + 6 bei (6 | 0). Grundseite 6, Höhe 4: A = 6 · 4 : 2 = 12.',
+    'Bestimme die drei Eckpunkte.', einheit='FE'))
+
+# --- einsetzen ---
+ST.leiter('einsetzen', 'einen Term y = … in die andere Gleichung einsetzen (mit Klammer) und lösen',
+          'erst x = … oder Kommazahlen, Altersaufgabe, Konstante aus der Lösung bestimmen, gewöhnliches System selbst lösen',
+          'Klammerfehler deuten, unendlich viele Lösungen begründen, rückwärts zu einer Konstanten, Rechteck verknüpfen, Parameter, Zahlenrätsel')
+T('einsetzen', (r'^Löse mit dem Einsetzungsverfahren: I: y = ', 'direkt'), (r'^Löse mit dem Einsetzungsverfahren|^Löse: I: 2x', 'mehrschritt'),
+  (r'Vater', 'einkleidung'), (r'Wie viele Lösungen', 'begruenden'), (r'^Ben', 'fehler'))
+ST.neu('einsetzen', 'erkennen', SA('Bei I: y = 2x − 1 und II: 3x + y = 9: Was wird in II für y eingesetzt?', '(2x − 1)', ['(3x + y)', '9', '(2x + 1)'],
+    'Aus I kennt man y = 2x − 1. Dieser Term ersetzt y in II: 3x + (2x − 1) = 9.', 'Was steht in I auf der anderen Seite von y?'))
+ST.neu('einsetzen', 'umkehr', SZ('Bei I: y = 3x und II: x + y = c ergibt das Einsetzungsverfahren x = 5. Bestimme c.', 20, '5 + 3 * 5', 'x + 3x = c ⇒ 4x = c. Mit x = 5: c = 20 (y = 15).', 'Setze I in II ein und dann x = 5.'))
+ST.neu('einsetzen', 'rueckwaerts', SZ('Das System I: y = 2x + b, II: x + y = 7 hat die Lösung (2 | 5). Bestimme b.', 1, '5 - 2 * 2', 'Einsetzen in I: 5 = 2 · 2 + b ⇒ b = 1. (II stimmt: 2 + 5 = 7.)', 'Setze das Lösungspaar in die Gleichung mit b ein.'))
+ST.neu('einsetzen', 'verknuepfen', SZ('Ein Rechteck ist 3 cm länger als breit, sein Umfang ist 26 cm. Wie groß ist sein Flächeninhalt? (l = b + 3 und 2l + 2b = 26)', 40, '8 * 5',
+    'Einsetzen: 2(b + 3) + 2b = 26 ⇒ 4b = 20 ⇒ b = 5, l = 8. A = 8 · 5 = 40 cm².', 'Löse zuerst das System, dann rechne die Fläche aus.', einheit='cm²'))
+ST.neu('einsetzen', 'parameter', SA('Für welches a hat das System I: y = a · x, II: y = 2x + 3 keine Lösung?', 'a = 2', ['a = 3', 'a = 0', 'a = −2'],
+    'Einsetzen: a · x = 2x + 3 ⇒ (a − 2) · x = 3. Für a = 2 steht 0 = 3 da – keine Lösung (parallele Geraden).', 'Setze ein und schau, wann x wegfällt.'))
+ST.neu('einsetzen', 'begruenden', SA('Warum setzt man beim Einsetzen von y = 2x − 1 in 3x − y = 4 eine Klammer?', 'Das Minus vor y gilt für den ganzen Term: 3x − (2x − 1) = 3x − 2x + 1.',
+    ['Klammern sind nur Schönheit, man kann sie weglassen.', 'Damit man zuerst 2x − 1 ausrechnen kann.', 'Weil y immer in Klammern steht.'],
+    'Ohne Klammer stünde 3x − 2x − 1 – das wäre ein anderer Term. y ist der ganze Term 2x − 1.', 'Vergleiche 3x − (2x − 1) mit 3x − 2x − 1.'))
+ST.neu('einsetzen', 'pruefung', SL('Löse I: x = 2y + 1, II: 3x − 4y = 7 und mache die Probe.', XY, [5, 2], ['5', '2'],
+    '3(2y + 1) − 4y = 7 ⇒ 2y + 3 = 7 ⇒ y = 2, x = 5. Probe II: 15 − 8 = 7 ✓.', 'Setze den Term für x mit Klammer in II ein.'))
+ST.neu('einsetzen', 'transfer', SZ('Die größere von zwei Zahlen ist um 4 größer als das Doppelte der kleineren. Zusammen ergeben sie 40. Wie heißt die größere Zahl?', 28, '2 * 12 + 4',
+    'y = 2x + 4 und x + y = 40 ⇒ 3x + 4 = 40 ⇒ x = 12, y = 28.', 'Stelle zwei Gleichungen auf und setze ein.'))
+ST.knobel('einsetzen', SZ('Es gilt x = y + z, y = z + 1 und x + y + z = 14. Bestimme x.', 7, '2 * 3 + 1',
+    'Alles durch z ausdrücken: y = z + 1, x = (z + 1) + z = 2z + 1. Dann (2z + 1) + (z + 1) + z = 14 ⇒ 4z = 12 ⇒ z = 3, y = 4, x = 7.',
+    'Drücke x und y nur mit z aus.'))
+ST.knobel('einsetzen', SZ('Ein Großvater ist heute 60, sein Enkel 12 Jahre alt. Vor wie vielen Jahren war der Großvater 13-mal so alt wie der Enkel?', 8, '(13 * 12 - 60) / 12',
+    'Vor t Jahren: 60 − t = 13 · (12 − t) ⇒ 60 − t = 156 − 13t ⇒ 12t = 96 ⇒ t = 8. Damals: 52 und 4 Jahre, 52 = 13 · 4.',
+    'Schreibe beide Alter „vor t Jahren“ als Term.'))
+
+# --- gleichsetzen ---
+ST.leiter('gleichsetzen', 'zwei nach y aufgelöste Gleichungen gleichsetzen und lösen',
+          'erst eine Gleichung umstellen, x = … gleichsetzen, Tarifvergleich, System zu einer Gleichung finden',
+          'Treffpunkt und Kerzen modellieren, Rechenfehler deuten, rückwärts zur Geraden, Terme verknüpfen, keine Lösung begründen, Parameter')
+T('gleichsetzen', (r'^Löse mit dem Gleichsetzungsverfahren: I: y = .* II: y = ', 'direkt'), (r'^Löse mit dem Gleichsetzungsverfahren', 'mehrschritt'),
+  (r'Handytarif', 'einkleidung'), (r'Wanderer', 'transfer'), (r'Was ergibt sich', 'begruenden'), (r'Wert von t', 'parameter'))
+ST.neu('gleichsetzen', 'erkennen', SA('Welche Gleichung entsteht beim Gleichsetzen von I: y = 3x − 2 und II: y = x + 4?', '3x − 2 = x + 4', ['3x − 2 = 0', '3x + x = −2 + 4', 'y = 4x + 2'],
+    'Beide rechten Seiten sind y, also gleich: 3x − 2 = x + 4.', 'Was ist an beiden Gleichungen gleich?'))
+ST.neu('gleichsetzen', 'umkehr', SA('Welches System führt beim Gleichsetzen auf 2x + 3 = 5x − 6?', 'I: y = 2x + 3, II: y = 5x − 6', ['I: y = 2x + 5x, II: y = 3 − 6', 'I: 2x + 3 = y, II: 5x = 6', 'I: y = 2x − 3, II: y = 5x + 6'],
+    'Gleichsetzen verbindet die beiden rechten Seiten zweier Gleichungen y = …', 'Welche zwei Terme stehen links und rechts?'))
+ST.neu('gleichsetzen', 'darstellung', SA('Im Bild schneiden sich die Geraden y = 0,5x + 2 und y = −x + 5. Welche Gleichung löst man, um den Schnittpunkt genau zu bestimmen?', '0,5x + 2 = −x + 5',
+    ['0,5x + 2 = 0', '0,5x = −x', 'y = 0,5x + 2 − x + 5'], 'Im Schnittpunkt haben beide Geraden denselben y-Wert: 0,5x + 2 = −x + 5 ⇒ x = 2, y = 3.', 'Was ist im Schnittpunkt für beide Geraden gleich?'))
+ST.neu('gleichsetzen', 'fehler', SA('Jemand setzt y = 2x + 4 und y = −x + 1 gleich: 2x + 4 = −x + 1 ⇒ x = 1. Was stimmt?', 'Falsch: 3x = −3, also x = −1 und y = 2.',
+    ['Richtig.', 'Falsch: x = 3.', 'Falsch: x = −3.'], 'Auf beiden Seiten +x und −4: 3x = −3 ⇒ x = −1. Probe: 2 · (−1) + 4 = 2 und 1 + 1 = 2 ✓.', 'Mach die Probe mit x = 1 in beiden Gleichungen.'))
+ST.neu('gleichsetzen', 'rueckwaerts', SZ('Zwei Geraden schneiden sich in S(3 | 7). Die eine ist y = 2x + 1, die andere hat die Steigung −2. Wie groß ist ihr y-Achsenabschnitt?', 13, '7 + 2 * 3',
+    'Die zweite Gerade y = −2x + t geht durch (3 | 7): 7 = −6 + t ⇒ t = 13.', 'Setze den Schnittpunkt in die zweite Gerade ein.'))
+ST.neu('gleichsetzen', 'verknuepfen', SZ('Für welches x haben die Terme 3(x − 2) und 2x + 5 denselben Wert? Gib diesen Wert an.', 27, '2 * 11 + 5',
+    '3x − 6 = 2x + 5 ⇒ x = 11. Wert: 2 · 11 + 5 = 27 (und 3 · 9 = 27 ✓).', 'Setze die Terme gleich – gefragt ist am Ende der Wert, nicht x.'))
+ST.neu('gleichsetzen', 'pruefung', SL('Löse I: y = 1,5x − 2, II: y = −0,5x + 6 und gib die Lösung an.', XY, [4, 4], ['4', '4'],
+    '1,5x − 2 = −0,5x + 6 ⇒ 2x = 8 ⇒ x = 4, y = 4.', 'Bring alle x auf eine Seite.'))
+ST.neu('gleichsetzen', 'transfer', SZ('Kerze A ist 20 cm lang und brennt 2 cm pro Stunde ab, Kerze B ist 14 cm lang und brennt 1 cm pro Stunde ab. Wie lang sind beide, wenn sie gleich lang sind?', 8, '14 - 6',
+    '20 − 2t = 14 − t ⇒ t = 6 h. Dann sind beide 20 − 12 = 8 cm lang.', 'Stelle für jede Kerze die Länge nach t Stunden auf.', einheit='cm'))
+ST.knobel('gleichsetzen', SZ('Um 8 Uhr fährt ein Bus mit 60 km/h los, um 9 Uhr folgt auf derselben Strecke ein Auto mit 90 km/h. Um wie viel Uhr holt das Auto den Bus ein?', 11, '8 + 90 / (90 - 60)',
+    'Nach t Stunden (ab 8 Uhr): Bus 60t, Auto 90(t − 1). 60t = 90t − 90 ⇒ t = 3. Also um 11 Uhr (beide nach 180 km).',
+    'Miss die Zeit für beide ab 8 Uhr.', einheit='Uhr'))
+ST.knobel('gleichsetzen', SZ('Wann nach 3 Uhr stehen großer und kleiner Uhrzeiger zum ersten Mal genau übereinander? Gib die Minuten nach 3 Uhr an, auf eine Nachkommastelle gerundet.', 16.4, 'round(90 / (6 - 1/2), 1)',
+    'Der große Zeiger dreht 6° pro Minute, der kleine 0,5° pro Minute und steht um 3 Uhr bei 90°. Nach t Minuten: 6t = 90 + 0,5t ⇒ 5,5t = 90 ⇒ t ≈ 16,4 Minuten.',
+    'Beschreibe die Winkel beider Zeiger nach t Minuten.', einheit='min', toleranz=0.1))
+
+# --- addition ---
+ST.leiter('addition', 'zwei Gleichungen mit Gegenzahlen addieren, den passenden Faktor erkennen',
+          'eine Gleichung vervielfachen, Preisaufgaben, Gleichung so ergänzen, dass eine Variable wegfällt',
+          'Brüche und Dezimalzahlen verknüpfen, Fehler (rechte Seite vergessen), begründen, Parameter, rückwärts, geschickt addieren')
+T('addition', (r'I: (4x \+ 2y = 34|−5x \+ 5y = −35|−5x \+ y = −10|3x \+ 2y = −21|5x \+ 4y = 63) ', 'direkt'), (r'Mit welcher Zahl', 'erkennen'),
+  (r'0,5x', 'verknuepfen'), (r'geschickt', 'transfer'), (r'^Löse', 'mehrschritt'))
+ST.neu('addition', 'direkt', SL('Löse mit dem Additionsverfahren: I: x + y = 7, II: x − y = 3.', XY, [5, 2], ['5', '2'], 'Addieren: 2x = 10 ⇒ x = 5, y = 2.', 'Vor y stehen schon Gegenzahlen.'))
+ST.neu('addition', 'einkleidung', SZ('3 Brezeln und 2 Kakao kosten 7,40 €, 1 Brezel und 2 Kakao kosten 5 €. Was kostet eine Brezel?', 1.2, '(74/10 - 5) / 2',
+    'Subtrahieren (I − II): 2 Brezeln = 2,40 € ⇒ 1 Brezel = 1,20 €.', 'Die Kakaos sind in beiden Angaben gleich – zieh ab.', einheit='€'))
+ST.neu('addition', 'umkehr', SL('Ergänze die zweite Gleichung so, dass beim Addieren mit I: 3x + 2y = 8 das y wegfällt: II: x + □ · y = 4', 'II: x + □ · y = 4', [-2], ['-2'],
+    'Vor y braucht man die Gegenzahl von 2, also −2.', 'Was ergibt mit 2 zusammen 0?', hinweis='Eine ganze Zahl, auch negativ.'))
+ST.neu('addition', 'darstellung', SA('Eine Preistafel zeigt: 2 Äpfel und 1 Birne kosten 1,60 €, 1 Apfel und 1 Birne kosten 1,10 €. Welches System passt (a Apfel, b Birne)?', 'I: 2a + b = 1,6; II: a + b = 1,1',
+    ['I: 2a + b = 1,1; II: a + b = 1,6', 'I: 2(a + b) = 1,6; II: a + b = 1,1', 'I: a + 2b = 1,6; II: a + b = 1,1'], 'Jede Zeile der Tafel wird eine Gleichung. Subtrahiert: a = 0,50 €, b = 0,60 €.', 'Übersetze jede Zeile einzeln.'))
+ST.neu('addition', 'fehler', SA('Jemand addiert I: 2x + y = 7 und II: 3x − y = 8 und schreibt 5x = 1. Was stimmt?', 'Falsch: Auch die rechten Seiten werden addiert: 5x = 15, x = 3.',
+    ['Richtig.', 'Falsch: 5x = −1.', 'Falsch: Man muss subtrahieren.'], 'Linke Seiten addieren und rechte Seiten addieren: 5x = 7 + 8 = 15.', 'Was passiert mit 7 und 8?'))
+ST.neu('addition', 'begruenden', SA('Warum darf man zwei Gleichungen addieren?', 'Aus a = b und c = d folgt a + c = b + d – man addiert auf beiden Seiten Gleiches.',
+    ['Weil Plus immer erlaubt ist.', 'Man darf es nur, wenn beide rechten Seiten gleich sind.', 'Das ist eine Regel, die man nicht begründen kann.'], 'Weil c = d ist, addiert man links c und rechts d – also auf beiden Seiten dasselbe. Wie bei einer Waage.', 'Denk an die Waage.'))
+ST.neu('addition', 'parameter', SZ('Man multipliziert II: 2x + 3y = 1 mit (−2) und addiert sie zu I: 4x + k · y = 9. Für welches k fällt dabei auch y weg?', 6, '2 * 3',
+    'II · (−2): −4x − 6y = −2. Addiert: (k − 6)y = 7. y fällt weg für k = 6 – dann steht 0 = 7 da (keine Lösung).', 'Schreibe den Faktor vor y nach dem Addieren mit k.'))
+ST.neu('addition', 'rueckwaerts', SZ('Nach dem Addieren zweier Gleichungen stand 7x = 21, danach ergab sich y = 2. Die erste Gleichung war 2x + y = 8, die zweite hat die Form 5x − y = c. Bestimme c.', 13, '5 * 3 - 2',
+    'x = 3, y = 2. Einsetzen in die zweite: c = 15 − 2 = 13. (Probe: 2x + y + 5x − y = 7x = 8 + 13 = 21 ✓.)', 'Bestimme zuerst x und y.'))
+ST.neu('addition', 'pruefung', SL('Löse I: 2x + 5y = 1, II: 3x − 2y = 11.', XY, [3, -1], ['3', '-1'],
+    'I · 2: 4x + 10y = 2, II · 5: 15x − 10y = 55. Addieren: 19x = 57 ⇒ x = 3. Dann 6 + 5y = 1 ⇒ y = −1.', 'Mach die Zahlen vor y zu Gegenzahlen (10 und −10).'))
+ST.neu('addition', 'verknuepfen', SL('Löse I: x/2 + y/3 = 4, II: x/2 − y/3 = 0.', XY, [4, 6], ['4', '6'],
+    'Addieren: x = 4. In II: 2 − y/3 = 0 ⇒ y = 6.', 'Die Brüche mit y sind schon Gegenzahlen.'))
+ST.knobel('addition', SZ('Für drei Zahlen gilt a + b = 13, b + c = 17 und a + c = 16. Wie groß ist c?', 10, '(13 + 17 + 16) / 2 - 13',
+    'Alle drei addieren: 2(a + b + c) = 46 ⇒ a + b + c = 23. Davon a + b = 13 abziehen: c = 10.', 'Addiere alle drei Gleichungen.'))
+ST.knobel('addition', SZ('Es gilt 2 024x + 2 025y = 2 026 und 2 025x + 2 024y = 2 023. Bestimme x + y.', 1, '(2026 + 2023) / (2024 + 2025)',
+    'Addieren: 4 049x + 4 049y = 4 049 ⇒ x + y = 1. (Subtrahieren ergäbe x − y = −3.)', 'Ganz ohne Auflösen: Was passiert beim Addieren?'))
+
+# --- verfahren ---
+ST.leiter('verfahren', 'an der Form erkennen, welches Verfahren passt, und es anwenden',
+          'eine Gleichung erst passend umstellen, Sachsätze als System, ein System zu einem Verfahren finden',
+          'begründen, warum ein Weg umständlich ist, Faktoren wählen, drei Gleichungen, geschicktes Addieren/Subtrahieren, Methodenfehler')
+T('verfahren', (r'^Welches Verfahren ist für', 'erkennen'), (r'Warum ist das umständlich', 'begruenden'), (r'^Bei I: y = 3x − 1', 'transfer'),
+  (r'erste Schritt', 'pruefung'), (r'III', 'parameter'), (r'Addiere und subtrahiere', 'verknuepfen'))
+ST.neu('verfahren', 'direkt', SL('Löse I: y = 2x, II: y = x + 3 mit dem passenden Verfahren.', XY, [3, 6], ['3', '6'], 'Gleichsetzen: 2x = x + 3 ⇒ x = 3, y = 6.', 'Beide Gleichungen sind nach y aufgelöst.'))
+ST.neu('verfahren', 'mehrschritt', SL('Bringe I: 2y − 4x = 6 in die Form y = …, damit man gleichsetzen kann.', 'y = □x + □', [2, 3], ['2', '3'], '+4x: 2y = 4x + 6, durch 2: y = 2x + 3.', 'Erst 4x auf die andere Seite, dann durch 2.'))
+ST.neu('verfahren', 'mehrschritt', SA('I: 3x + 2y = 12, II: y = x + 1. Welches Verfahren ist geschickt, und was ergibt sich für x?', 'Einsetzen; x = 2', ['Gleichsetzen; x = 2', 'Addieren; x = 3', 'Einsetzen; x = 3'],
+    'II ist nach y aufgelöst: 3x + 2(x + 1) = 12 ⇒ 5x = 10 ⇒ x = 2.', 'Eine Gleichung ist schon aufgelöst.'))
+ST.neu('verfahren', 'einkleidung', SA('Tarif A: K = 5 + 0,2x, Tarif B: K = 0,3x. Welches Verfahren passt für „Wann kosten beide gleich viel?“', 'Gleichsetzen, weil beide nach K aufgelöst sind.',
+    ['Addieren, weil Kosten addiert werden.', 'Einsetzen von x in K.', 'Keins – man muss probieren.'], '5 + 0,2x = 0,3x ⇒ x = 50.', 'Wie sind beide Gleichungen aufgebaut?'))
+ST.neu('verfahren', 'einkleidung', SA('„Ein Stift kostet doppelt so viel wie ein Radiergummi, zusammen 1,50 €“: I: s = 2r, II: s + r = 1,5. Welcher Weg ist geschickt?', 'Einsetzen: 2r für s in II.',
+    ['Addieren der beiden Gleichungen.', 'Gleichsetzen von I und II.', 'Grafisch, rechnen geht nicht.'], '2r + r = 1,5 ⇒ r = 0,50 €, s = 1 €.', 'Eine Gleichung sagt genau, was s ist.'))
+ST.neu('verfahren', 'umkehr', SA('Für welches System ist das Additionsverfahren am geschicktesten?', 'I: 2x + 3y = 7, II: 4x − 3y = 5', ['I: y = 2x, II: y = x + 1', 'I: x = 3y, II: 2x + y = 7', 'I: y = 4 − x, II: y = 2x'],
+    'Vor y stehen 3 und −3: Addieren lässt y sofort wegfallen. Die anderen sind nach x oder y aufgelöst.', 'Wo stehen schon Gegenzahlen?'))
+ST.neu('verfahren', 'darstellung', SA('Zwei Geraden sind gezeichnet, ihre Gleichungen haben beide die Form y = m · x + t. Welches Rechenverfahren passt am besten?', 'Gleichsetzen', ['Addieren', 'Einsetzen von x', 'Keins, man kann nur ablesen.'],
+    'Beide Gleichungen geben y an – man setzt die rechten Seiten gleich.', 'Welche Größe steht in beiden Gleichungen allein?'))
+ST.neu('verfahren', 'fehler', SA('Jemand addiert I: y = 3x + 1 und II: y = −x + 5 und erhält 2y = 2x + 6. Was stimmt?', 'Richtig gerechnet, aber umständlich: Gleichsetzen ergibt sofort 3x + 1 = −x + 5, x = 1.',
+    ['Falsch gerechnet.', 'Richtig und der schnellste Weg.', 'Man darf diese Gleichungen nicht addieren.'], 'Die Addition stimmt, hilft aber nicht weiter – y und x sind noch beide da.', 'Ist eine Variable weggefallen?'))
+ST.knobel('verfahren', SZ('Für I: a · x + y = 5 und II: x + a · y = 5 (a ≠ 1 und a ≠ −1) gilt immer x = y. Bestimme x für a = 4.', 1, '5 / (4 + 1)',
+    'I − II: (a − 1)x − (a − 1)y = 0 ⇒ (a − 1)(x − y) = 0 ⇒ x = y (weil a ≠ 1). Eingesetzt: (a + 1)x = 5. Für a = 4: 5x = 5, x = 1.',
+    'Ziehe die Gleichungen voneinander ab.'))
+ST.knobel('verfahren', SZ('Für welches c hat das System I: y = 2x + 1, II: 4x − 2y = c unendlich viele Lösungen?', -2, '-2 * 1',
+    'Einsetzen: 4x − 2(2x + 1) = c ⇒ −2 = c. Für c = −2 ist II ein Vielfaches von I (unendlich viele Lösungen), sonst keine Lösung.', 'Setze I in II ein – was bleibt übrig?'))
+
+# --- loesbarkeit ---
+ST.leiter('loesbarkeit', 'an Steigung und Achsenabschnitt erkennen: keine, eine oder unendlich viele Lösungen',
+          'Vielfache von Gleichungen erkennen, Bedeutung am Bild, Sachsituation ohne Lösung',
+          'Parameter für keine/unendlich viele Lösungen, zwei Lösungen ⇒ unendlich viele, drei Gleichungen, Fehldeutung von 0 = 0')
+T('loesbarkeit', (r'^Wie viele Lösungen hat I: \S+ = \S+ [+−] \S+   II: \S+ = ', 'erkennen'), (r'^Ein Gleichungssystem hat', 'darstellung'),
+  (r'Wert von a', 'parameter'), (r'Werte von a', 'parameter'), (r'Kästchen', 'rueckwaerts'), (r'Lösungen \(1', 'begruenden'), (r'III', 'transfer'),
+  (r'^Wie viele Lösungen', 'mehrschritt'))
+ST.neu('loesbarkeit', 'direkt', SA('I: y = 2x + 1, II: y = 2x + 5. Was ergibt das Gleichsetzen?', '1 = 5 – falsch, also keine Lösung.', ['x = 4', '0 = 0, also unendlich viele Lösungen', 'x = 0'],
+    '2x + 1 = 2x + 5 ⇒ 1 = 5. Das ist nie wahr.', 'Was passiert mit 2x?'))
+ST.neu('loesbarkeit', 'einkleidung', SA('Zwei Kerzen brennen gleich schnell ab (2 cm pro Stunde). Die eine ist 20 cm lang, die andere 15 cm. Werden sie jemals gleich lang?', 'Nie – das System hat keine Lösung.',
+    ['Ja, nach 5 Stunden.', 'Ja, nach 2,5 Stunden.', 'Immer, sie sind gleich lang.'], '20 − 2t = 15 − 2t ⇒ 20 = 15 – falsch. Der Unterschied von 5 cm bleibt.', 'Ändert sich der Unterschied der Längen?'))
+ST.neu('loesbarkeit', 'fehler', SA('Jemand erhält beim Lösen 0 = 0 und schreibt: „x = 0, also genau eine Lösung.“ Was stimmt?', 'Falsch: 0 = 0 ist immer wahr – es gibt unendlich viele Lösungen.',
+    ['Richtig.', 'Falsch: Es gibt keine Lösung.', 'Falsch: Die Lösung ist x = 1.'], 'Wenn x ganz wegfällt und eine wahre Aussage bleibt, stimmt jede Zahl: Die Geraden liegen aufeinander.', 'Steht in 0 = 0 überhaupt noch ein x?'))
+ST.neu('loesbarkeit', 'pruefung', SA('I: 2x − y = 3, II: 4x − 2y = k. Welche Aussage stimmt?', 'Für k = 6 gibt es unendlich viele Lösungen, für jedes andere k keine.',
+    ['Für jedes k gibt es genau eine Lösung.', 'Für k = 6 gibt es keine Lösung.', 'Für k = 3 gibt es unendlich viele Lösungen.'],
+    'II − 2 · I: 0 = k − 6. Für k = 6 ist das wahr (unendlich viele), sonst falsch (keine).', 'Vergleiche II mit dem Doppelten von I.'))
+ST.knobel('loesbarkeit', SZ('Für wie viele ganze Zahlen a mit −5 ≤ a ≤ 5 hat das System I: a · x + 2y = 4, II: 2x + a · y = 4 genau eine Lösung?', 9, '11 - 2',
+    'Keine genau eine Lösung gibt es, wenn die Geraden parallel sind oder aufeinander liegen. Steigungen: −a/2 und −2/a (für a ≠ 0). Gleich, wenn a · a = 4, also a = 2 oder a = −2. (a = 0: y = 2 und x = 2 – genau eine Lösung.) Von 11 Werten fallen 2 weg: 9.',
+    'Wann sind die beiden Geraden parallel?'))
+ST.knobel('loesbarkeit', SA('Gegeben sind die Geraden y = x, y = 2x − 3 und y = −x + 6. Was stimmt?', 'Alle drei gehen durch (3 | 3).',
+    ['Je zwei schneiden sich, aber nie alle drei in einem Punkt.', 'Zwei davon sind parallel.', 'Sie haben keinen gemeinsamen Punkt.'],
+    'y = x und y = 2x − 3 schneiden sich bei x = 3, y = 3. Auch −3 + 6 = 3: der dritte geht durch denselben Punkt.', 'Bestimme einen Schnittpunkt und prüfe ihn mit der dritten Geraden.'))
+
+# --- sachaufgabe ---
+ST.leiter('sachaufgabe', 'eine vertraute Sachaufgabe (Köpfe/Beine, Münzen) mit zwei Gleichungen lösen oder das System erkennen',
+          'Eintritt, Münzen mit Kommabeträgen, Zimmer, Rechteck, zu einem System die Frage finden',
+          'Mischung, Alter rückwärts, Ziffernrätsel verknüpfen, Bleistift-Falle begründen, Parameter, falsche Gleichung deuten, Prüfungsaufgabe Pizza')
+T('sachaufgabe', (r'^Die Summe zweier Zahlen ist \d+, ihre Differenz|^In einer Spardose sind \d+ Münzen, nur 2-€- und 1-€-|^Auf einem Hof leben Hühner und Kaninchen, zusammen 18', 'direkt'),
+  (r'Welches Gleichungssystem passt', 'erkennen'), (r'dreimal so groß', 'mehrschritt'), (r'Rechteck', 'mehrschritt'), (r'Fitness|Händler', 'transfer'),
+  (r'Pizzen', 'pruefung'), (r'Mutter', 'rueckwaerts'), (r'Bleistift', 'begruenden'), (r'zweistellige', 'verknuepfen'), (r'.', 'einkleidung'))
+ST.neu('sachaufgabe', 'umkehr', SA('Welche Frage passt zum System x + y = 12 und 2x + 4y = 34?', '12 Tiere, Hühner und Kaninchen, haben zusammen 34 Beine. Wie viele sind es jeweils?',
+    ['12 Hühner haben 34 Beine.', 'Ein Huhn und ein Kaninchen kosten zusammen 12 €.', 'Zwei Zahlen haben die Summe 34.'], 'x + y = 12 zählt Köpfe, 2x + 4y zählt Beine (Huhn 2, Kaninchen 4).', 'Was bedeuten die Zahlen 2 und 4?'))
+ST.neu('sachaufgabe', 'parameter', SZ('In einer Spardose sind 20 Münzen, nur 1-€- und 2-€-Stücke, zusammen B €. Für welchen Betrag B sind es gleich viele 1-€- wie 2-€-Stücke?', 30, '10 * 1 + 10 * 2',
+    'Gleich viele heißt je 10 Münzen: 10 · 1 € + 10 · 2 € = 30 €.', 'Wie viele Münzen jeder Sorte sind es dann?', einheit='€'))
+ST.neu('sachaufgabe', 'fehler', SA('Für „Ein Heft kostet 2 € mehr als ein Stift“ (h Heft, s Stift) schreibt jemand s = h + 2. Was stimmt?', 'Falsch: Das Heft ist teurer, also h = s + 2.',
+    ['Richtig.', 'Falsch: h = 2s.', 'Falsch: h + s = 2.'], 'Probe mit Zahlen: Stift 1 €, Heft 3 €. Dann gilt 3 = 1 + 2, also h = s + 2.', 'Setze Beispielpreise ein.'))
+ST.knobel('sachaufgabe', SZ('In einem Stall stehen Hühner und Kühe. Es gibt 14 Beine mehr als doppelt so viele wie Köpfe. Wie viele Kühe sind es?', 7, '14 / 2',
+    'Mit h Hühnern und k Kühen: Beine 2h + 4k, Köpfe h + k. 2h + 4k = 2(h + k) + 14 ⇒ 2k = 14 ⇒ k = 7. Die Zahl der Hühner bleibt unbekannt – sie wird gar nicht gebraucht.',
+    'Wie viele Beine hätten alle, wenn jedes Tier nur 2 hätte?'))
+ST.knobel('sachaufgabe', SZ('Eine zweistellige Zahl ist 4-mal so groß wie ihre Quersumme. Vertauscht man ihre Ziffern, wird sie um 27 größer. Wie heißt die Zahl?', 36, '10 * 3 + 6',
+    'Zehner a, Einer b: 10a + b = 4(a + b) ⇒ 6a = 3b ⇒ b = 2a. Vertauscht: (10b + a) − (10a + b) = 9(b − a) = 27 ⇒ b − a = 3. Also a = 3, b = 6: die Zahl 36 (Probe: 4 · 9 = 36, 63 − 36 = 27).',
+    'Schreibe die Zahl als 10a + b.'))
+baue = mit_stufen(baue, ST)
+# ---- STUFEN ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Grundidee', ['pruefen', 'grafisch']), ('Lösungsverfahren', ['einsetzen', 'gleichsetzen', 'addition', 'verfahren']),

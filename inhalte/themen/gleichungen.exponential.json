@@ -3463,19 +3463,19 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Für welche Zahlen x ist log₂(5 − x) definiert?"
+    "text": "Welche Aussage ist falsch?"
    },
    "a": [
-    "x > 0",
-    "x ≤ 5",
-    "x > 5",
-    "x < 5"
+    "lg(6 + 3) = lg 6 + lg 3",
+    "lg(6³) = 3 · lg 6",
+    "lg 10 = 1",
+    "lg 1 = 0"
    ],
    "o": {
-    "index": 3
+    "index": 0
    },
-   "w": "Logarithmen gibt es nur von Zahlen größer als 0: 5 − x > 0 ⇔ x < 5. Bei x = 5 wäre es log₂(0) – nicht definiert.",
-   "h": "Was in der Klammer steht, muss größer als 0 sein."
+   "w": "Für Summen gibt es keine solche Regel: lg(9) ≈ 0,954, aber lg 6 + lg 3 ≈ 1,255.",
+   "h": "Prüfe jede Aussage mit dem Taschenrechner."
   },
   {
    "l": "verstehen",
@@ -3484,19 +3484,19 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Lösung hat 4^x = 1?"
+    "text": "Welche Aussage ist falsch?"
    },
    "a": [
-    "x = 1/4",
-    "x = 0",
-    "keine Lösung",
-    "x = 1"
+    "lg(3 + 2) = lg 3 + lg 2",
+    "lg(3²) = 2 · lg 3",
+    "lg 10 = 1",
+    "lg 1 = 0"
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
-   "w": "Jede Zahl hoch 0 ist 1: 4⁰ = 1. Also x = log₄(1) = 0.",
-   "h": "Mit welchem Exponenten wird aus einer Zahl 1?"
+   "w": "Für Summen gibt es keine solche Regel: lg(5) ≈ 0,699, aber lg 3 + lg 2 ≈ 0,778.",
+   "h": "Prüfe jede Aussage mit dem Taschenrechner."
   },
   {
    "l": "verstehen",
@@ -3526,19 +3526,19 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Jemand sagt: „lg(1 000) ist dreimal so groß wie lg(10).“ Was stimmt?"
+    "text": "Welche Aussage ist falsch?"
    },
    "a": [
-    "Falsch: lg(1 000) ist hundertmal so groß.",
-    "Falsch: lg(1 000) = 1 000 : 10 = 100.",
-    "Falsch: Beide sind gleich groß.",
-    "Richtig."
+    "lg 10 = 1",
+    "lg(6²) = 2 · lg 6",
+    "lg 1 = 0",
+    "lg(6 + 2) = lg 6 + lg 2"
    ],
    "o": {
     "index": 3
    },
-   "w": "lg(1 000) = 3, denn 10³ = 1 000; lg(10) = 1. Also dreimal so groß – wie die Potenzregel sagt: lg(10³) = 3 · lg 10.",
-   "h": "Berechne beide Logarithmen einzeln."
+   "w": "Für Summen gibt es keine solche Regel: lg(8) ≈ 0,903, aber lg 6 + lg 2 ≈ 1,079.",
+   "h": "Prüfe jede Aussage mit dem Taschenrechner."
   },
   {
    "l": "verstehen",
@@ -4452,6 +4452,69 @@
    "c": "round(1 / 0.301, 2)",
    "w": "y = log₂(10) heißt 2^y = 10. Auf beiden Seiten lg: y · lg 2 = lg 10 = 1. Also y = 1 : 0,301 ≈ 3,32.",
    "h": "Schreibe y = log₂(10) als Potenzgleichung und nimm auf beiden Seiten lg."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche Zahlen x ist log₂(5 − x) definiert?"
+   },
+   "a": [
+    "x > 0",
+    "x ≤ 5",
+    "x > 5",
+    "x < 5"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Logarithmen gibt es nur von Zahlen größer als 0: 5 − x > 0 ⇔ x < 5. Bei x = 5 wäre es log₂(0) – nicht definiert.",
+   "h": "Was in der Klammer steht, muss größer als 0 sein."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösung hat 4^x = 1?"
+   },
+   "a": [
+    "x = 1/4",
+    "x = 0",
+    "keine Lösung",
+    "x = 1"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Jede Zahl hoch 0 ist 1: 4⁰ = 1. Also x = log₄(1) = 0.",
+   "h": "Mit welchem Exponenten wird aus einer Zahl 1?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „lg(1 000) ist dreimal so groß wie lg(10).“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: lg(1 000) ist hundertmal so groß.",
+    "Falsch: lg(1 000) = 1 000 : 10 = 100.",
+    "Falsch: Beide sind gleich groß.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "lg(1 000) = 3, denn 10³ = 1 000; lg(10) = 1. Also dreimal so groß – wie die Potenzregel sagt: lg(10³) = 3 · lg 10.",
+   "h": "Berechne beide Logarithmen einzeln."
   }
  ],
  "offen": [

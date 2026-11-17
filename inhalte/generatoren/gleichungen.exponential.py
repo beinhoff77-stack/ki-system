@@ -779,18 +779,20 @@ def durchsicht():
                                  'Schreibe y = log₂(10) als Potenzgleichung und nimm auf beiden Seiten lg.', toleranz=0.01))
     # wachstum: Population 40 → 300 bei 5 % ist die Stufe-1-Rechnung in Worten → Stufe 2
     D.stufe(127, 2, 'Eine Population wächst um 5 %')
-    # verstehen: Abwechslung – fünfmal „keine Lösung“ (Stufe 1) und sechsmal „Welche Aussage ist falsch?“ (Stufe 2) hintereinander
+    # verstehen: Abwechslung – fünfmal „keine Lösung“ (Stufe 1) und sechsmal „Welche Aussage ist falsch?“ (Stufe 2) hintereinander.
+    # Zwei „keine Lösung“-Aufgaben werden ersetzt; die sechs „Welche Aussage ist falsch?“ haben denselben Fragetext (Sperren nach Text träfe alle) –
+    # sie bleiben, dazu kommen drei Stufe-2-Übungen anderer Art.
     D.ersetze(144, 'Welche Lösung hat 5^x = −15 625', D.A('Welchen Wert hat log₇(7)?', '1', ['0', '7', '49'],
                                                           '7¹ = 7, also log₇(7) = 1. Allgemein: log_b(b) = 1.', 'Mit welchem Exponenten wird aus 7 wieder 7?'))
     D.ersetze(151, 'Welche Lösung hat 3^x = −9', D.A('Welche Zahl ist 2^(−3)?', '1/8', ['−8', '−6', '8'],
                                                      'Ein Minus im Exponenten bildet den Kehrwert: 2^(−3) = 1 : 2³ = 1/8. Das Ergebnis bleibt positiv.',
                                                      'Ein negativer Exponent macht die Zahl nicht negativ. Was macht er?'))
-    D.ersetze(153, 'Welche Aussage ist falsch', D.A('Für welche Zahlen x ist log₂(5 − x) definiert?', 'x < 5', ['x > 5', 'x ≤ 5', 'x > 0'],
+    D.neu('verstehen', 2, D.A('Für welche Zahlen x ist log₂(5 − x) definiert?', 'x < 5', ['x > 5', 'x ≤ 5', 'x > 0'],
                                                     'Logarithmen gibt es nur von Zahlen größer als 0: 5 − x > 0 ⇔ x < 5. Bei x = 5 wäre es log₂(0) – nicht definiert.',
                                                     'Was in der Klammer steht, muss größer als 0 sein.'))
-    D.ersetze(154, 'Welche Aussage ist falsch', D.A('Welche Lösung hat 4^x = 1?', 'x = 0', ['x = 1', 'x = 1/4', 'keine Lösung'],
+    D.neu('verstehen', 2, D.A('Welche Lösung hat 4^x = 1?', 'x = 0', ['x = 1', 'x = 1/4', 'keine Lösung'],
                                                     'Jede Zahl hoch 0 ist 1: 4⁰ = 1. Also x = log₄(1) = 0.', 'Mit welchem Exponenten wird aus einer Zahl 1?'))
-    D.ersetze(156, 'Welche Aussage ist falsch', D.A('Jemand sagt: „lg(1 000) ist dreimal so groß wie lg(10).“ Was stimmt?', 'Richtig.',
+    D.neu('verstehen', 2, D.A('Jemand sagt: „lg(1 000) ist dreimal so groß wie lg(10).“ Was stimmt?', 'Richtig.',
                                                     ['Falsch: lg(1 000) ist hundertmal so groß.', 'Falsch: lg(1 000) = 1 000 : 10 = 100.', 'Falsch: Beide sind gleich groß.'],
                                                     'lg(1 000) = 3, denn 10³ = 1 000; lg(10) = 1. Also dreimal so groß – wie die Potenzregel sagt: lg(10³) = 3 · lg 10.',
                                                     'Berechne beide Logarithmen einzeln.'))

@@ -2,6 +2,33 @@
 
 Neueste Meldung oben.
 
+## 2026-11-18 02:30 – STATUS funktionen.gebrochen
+
+### funktionen.gebrochen
+
+Anteil Textaufgaben an den Übungen mit g: vorher 13% (nur einkleidung/transfer) bzw. 26% (mit anerkannten Sachaufgaben anderer Typen) → nachher **41%**.
+
+| Lernkarte | vorher S1/S2/S3 (Lehrer) | vorher S1/S2/S3 (mit anderen Typen) | nachher S1/S2/S3 | neu Übung | neu Sicherung/Korrektur | überzählig | Sicherung/Korrektur Text nachher |
+|---|---|---|---|---|---|---|---|
+| indirekt | 0/2/1 | 4/2/4 | 4/3/6 = 13 | 3 | 0/0 | 0 | 4/1 |
+| indirekt_sach | 0/3/3 | 4/6/7 | 4/6/9 = 19 | 2 | 0/0 | 0 | 6/2 |
+| definitionsmenge | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 0 | 2/1 |
+| asymptoten | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 0 | 2/1 |
+| achsenpunkte | 0/1/0 | 0/1/0 | 1/3/4 = 8 | 7 | 2/1 | 0 | 2/1 |
+| parameter | 0/0/2 | 0/0/2 | 1/3/4 = 8 | 6 | 2/1 | 0 | 2/1 |
+| beurteilen | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 0 | 2/1 |
+
+Beispiele (je Stufe eine neue Textaufgabe, Wortlaut):
+
+- Stufe 1 (definitionsmenge): „Die Busmiete für einen Ausflug wird geteilt: Jeder zahlt k(x) = 480/x Euro (x Personen). Für welche Personenzahl ist der Term nicht definiert?“
+- Stufe 2 (asymptoten): „Ein Verein druckt Kalender: 450 € Einrichtung und 2,50 € pro Stück. Für die Stückkosten gilt k(x) = 450/x + 2,5. Welchem Betrag nähern sich die Stückkosten bei sehr großer Auflage?“
+- Stufe 3 (beurteilen): „Ein Fotograf kommt um 8 Uhr in die Schule. Ein Klassenfoto kostet pro Kind k(x) = 90/x + 2 Euro. Jemand sagt: „Für 25 Kinder sind es 5,60 € pro Kind.“ Was stimmt?“
+
+Überzählig (g entfernt, Aufgabe bleibt): 0
+Als Sachaufgabe anerkannte alte Aufgaben anderer Typen: 18 Übungen, 13 Sicherung/Korrektur.
+Sachkontexte: Stückkosten a/x + b (Druck, Bus, Workshop), Fahrzeit s/v, Saftanteil, Abkühlung, Gewinn pro Stück; Asymptoten und Nullstellen werden im Kontext gedeutet.
+
+
 ## 2026-11-18 02:27 – STATUS funktionen.linear
 
 ### funktionen.linear

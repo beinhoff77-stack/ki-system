@@ -966,6 +966,77 @@ BF.fuer_sebastian('groessen.indirekt: lehrplan_gym leer und Überschneidung mit 
 baue = mit_befunden(baue, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Kl. 8, siehe _durchsicht_kl8.py) ----
+from _durchsicht_kl8 import Durchsicht, mit_durchsicht  # noqa: E402
+
+DSX = Durchsicht('groessen.indirekt', 19_8_5)
+# erkennen: viermal dieselbe „Je mehr, desto weniger“-Frage in Reihe → zwei ersetzt
+DSX.ersetze('erkennen', '„Bergwanderung: Höhe → Temperatur: Je mehr, desto weniger, also indirekt proportional.“ Stimmt die Begründung?', DSX.A(
+    'Bei einer Zuordnung gehört zu x = 2 der Wert y = 9 und zu x = 6 der Wert y = 3. Was kann man sicher sagen?',
+    'Sie kann indirekt proportional sein, direkt proportional ist sie sicher nicht.',
+    ['Sie ist sicher direkt proportional.', 'Sie ist sicher indirekt proportional.', 'Sie kann direkt proportional sein, indirekt sicher nicht.'],
+    'x wird verdreifacht (2 → 6), y wird gedrittelt (9 → 3); das Produkt ist beide Male 18. Das passt zu indirekt proportional. Direkt proportional geht nicht, '
+    'sonst müsste y auch dreimal so groß werden. Sicher ist es aber nur, wenn alle weiteren Paare auch das Produkt 18 haben.',
+    'Was passiert mit y, wenn x dreimal so groß wird? Reichen zwei Paare für ein sicheres Urteil?'))
+DSX.ersetze('erkennen', '„Gebrauchtwagen: Alter → Wert: Je mehr, desto weniger, also indirekt proportional.“ Stimmt die Begründung?', DSX.A(
+    'Anzahl der Maler → Tage, bis ein Haus gestrichen ist. Was muss gleich bleiben, damit diese Zuordnung indirekt proportional ist?',
+    'Dasselbe Haus und gleich schnell arbeitende Maler.', ['Die Zahl der Tage.', 'Die Zahl der Maler.', 'Nichts, das gilt immer.'],
+    'Indirekt proportional heißt: Das Produkt Maler · Tage (die Arbeit) bleibt gleich. Das stimmt nur bei derselben Arbeit und wenn jeder Maler gleich viel schafft.',
+    'Was gibt das Produkt Maler · Tage an?'))
+DSX.stufen('erkennen', 'S1 doppelt → halb prüfen; S2 indirekte Zuordnung auswählen, Messwerte prüfen; S3 viermal dieselbe „Je mehr, desto weniger“-Frage',
+          'S1 doppelt → halb prüfen; S2 auswählen, Messwerte prüfen; S3 Begründungen bewerten, aus zwei Paaren schließen, Bedingungen des Modells, Prozent-Änderung')
+# vervielfachen: fehlenden x-Wert suchen ist eine Umkehrung (Stufe 2), kein neuer Gedanke
+for _w in (5, 6, 10, 4):
+    DSX.stufe('vervielfachen', 'Die Zuordnung ' + {5: 'Pumpen → Stunden', 6: 'Personen → Stunden', 10: 'Personen → Stunden', 4: 'Helfer → Minuten'}[_w]
+             + ' ist indirekt proportional. Welcher x-Wert fehlt?', 2, enthaelt=f'"wert": {_w}')
+DSX.stufen('vervielfachen', 'S1/S2 Tabelle mit Faktor ergänzen; S3 fünfmal fehlender x-Wert (Umkehrung)',
+          'S1 Tabelle mit ganzem Faktor; S2 Faktor nicht ganz, x-Wert gesucht, Einkleidung; S3 Zwischenschritt, zwei Lücken, Faktor 1,5 rückwärts, Parameter a')
+# dreisatz: viermal derselbe Fehler „geteilt statt mal“ in Reihe → zwei durch andere Stufe-3-Gedanken ersetzt
+DSX.ersetze('dreisatz', '3 Bagger heben eine Baugrube in 13 Tagen aus. Wie lange brauchen 6 Bagger? Jemand rechnet: 13 : 3 · 6 = 26 Tage. Was ist falsch?', DSX.Z(
+    'Mit 4 gleich starken Pumpen dauert das Leeren eines Beckens 9 Stunden. Es soll höchstens 6 Stunden dauern. Wie viele Pumpen braucht man mindestens?', 6, '4 * 9 / 6',
+    'Arbeit: 4 · 9 = 36 Pumpenstunden. In 6 Stunden schaffen das 36 : 6 = 6 Pumpen. Mit 5 Pumpen dauert es 7,2 h – zu lange.',
+    'Rechne die Arbeit in Pumpenstunden aus. Wie viele Pumpen schaffen sie in 6 Stunden?', einheit='Pumpen'))
+DSX.ersetze('dreisatz', '10 Helfer räumen eine Turnhalle in 51 Minuten auf. Wie lange brauchen 4 Helfer? Jemand rechnet: 51 : 10 · 4 = 20,4 Minuten. Was ist falsch?', DSX.Z(
+    'Ein Futtervorrat reicht für 20 Schafe 30 Tage. Wie viele Schafe muss der Schäfer verkaufen, damit der Vorrat 40 Tage reicht?', 5, '20 - 20 * 30 / 40',
+    'Vorrat: 20 · 30 = 600 Schaftage. Für 40 Tage reicht er für 600 : 40 = 15 Schafe. Verkaufen: 20 − 15 = 5 Schafe.',
+    'Für wie viele Schafe reicht der Vorrat 40 Tage? Gefragt ist der Unterschied.', einheit='Schafe'))
+DSX.stufen('dreisatz', 'S1 über die Einheit; S2 zwei Schritte, Rechnung wählen; S3 viermal derselbe Fehler',
+          'S1 über die Einheit; S2 zwei Schritte, Rechnung wählen; S3 Fehler finden, Mindestanzahl, Verkauf, Ausfall mitten im Vorgang, Geschwindigkeit, zwei Größen gleichzeitig')
+# graph: Bedeutung eines Punktes und y-Wert ablesen sind kein Stufe-3-Gedanke
+for _p in ('P(12 | 3)', 'P(6 | 4)', 'P(2 | 12)'):
+    _f = '36' if _p == 'P(12 | 3)' else '24'
+    DSX.stufe('graph', f'Alle Rechtecke mit {_f} cm² Flächeninhalt: Breite x → Länge y. Der Punkt {_p} liegt auf dem Graphen. Was bedeutet der Punkt?', 2)
+DSX.stufe('graph', 'Der Graph gehört zu y = 6 : x. Welchen y-Wert hat er bei x = 8? (Dezimalzahl)', 1)
+DSX.stufen('graph', 'S1 k bestimmen; S2 Punktprobe; S3 teils Punkt deuten und Wert ablesen',
+          'S1 k bestimmen, Wert ablesen; S2 Punktprobe, Punkt deuten; S3 zwei Hyperbeln unterscheiden, gleiche Rechteckflächen, Schnitt mit y = x, Bereich oberhalb')
+# unterscheiden: Stufe 1 und 2 waren dieselbe Tabellenfrage → vier nach Stufe 1, zwei neue Stufe-2-Aufgaben
+for _a in ['["indirekt proportional", "weder noch", "nicht zu entscheiden", "direkt proportional"]',
+           '["weder noch", "direkt proportional", "nicht zu entscheiden", "indirekt proportional"]',
+           '["weder noch", "nicht zu entscheiden", "direkt proportional", "indirekt proportional"]',
+           '["indirekt proportional", "nicht zu entscheiden", "weder noch", "direkt proportional"]']:
+    DSX.stufe('unterscheiden', 'Welche Art von Zuordnung zeigt die Tabelle?', 1, enthaelt=_a)
+DSX.stufe('unterscheiden', 'Die Zuordnung ist indirekt proportional. Ergänze den fehlenden Wert.', 2, enthaelt='"wert": 3')
+DSX.stufe('unterscheiden', 'Die Zuordnung ist indirekt proportional. Ergänze den fehlenden Wert.', 2, enthaelt='"wert": 5')
+DSX.neu('unterscheiden', 2, DSX.Z('Die Zuordnung soll direkt proportional sein und enthält das Paar (4 | 10). Welcher y-Wert gehört zu x = 6?', 15, '10 / 4 * 6',
+                                'Direkt proportional: gleicher Quotient. 10 : 4 = 2,5, also y = 2,5 · 6 = 15. (Indirekt wäre es 40 : 6.)',
+                                'Direkt: Der Quotient y : x bleibt gleich.'))
+DSX.neu('unterscheiden', 2, DSX.A('Eine Zuordnung enthält die Paare (2 | 6) und (6 | 2). Welche Art kann sie NICHT sein?', 'direkt proportional',
+                                ['indirekt proportional', 'weder noch', 'Man kann keine ausschließen.'],
+                                'Quotienten: 6 : 2 = 3, aber 2 : 6 = 1/3 – verschieden, also nicht direkt proportional. Produkte: 12 und 12 – indirekt ist möglich, ebenso weder noch.',
+                                'Vergleiche die Quotienten und die Produkte der beiden Paare.'))
+DSX.stufen('unterscheiden', 'S1 und S2 dieselbe Tabellenfrage; S3 teils Tabelle ergänzen wie Stufe 1',
+          'S1 Art der Tabelle bestimmen; S2 Term zuordnen, Tabelle passend ergänzen, Art ausschließen; S3 Begründung bewerten, zwei Zuordnungen im Sachkontext, Tabellenkalkulation, x → 1/y')
+# sach: Fahrzeiten wie auf Stufe 2
+DSX.stufe('sach', 'Bei 60 km/h dauert eine Fahrt 120 Minuten. Wie viele Minuten dauert sie bei 100 km/h?', 2)
+DSX.stufe('sach', 'Bei 80 km/h dauert eine Fahrt 90 Minuten. Wie viele Minuten dauert sie bei 150 km/h?', 2)
+DSX.stufen('sach', 'S1 einfache Sachaufgabe; S2 Einkleidungen; S3 teils Fahrzeit wie S2',
+          'S1 einfache Sachaufgabe; S2 Einkleidungen (Fliesen, Müsli, Fahrzeit), direkt oder indirekt?; S3 Fehler bei Grundgebühr, Wippe, Zahnrad, Gleichung mit Unbekannter, Prozent')
+DSX.stufen('produkt', 'S1 Produkt bilden, Wert ergänzen; S2 Tabelle prüfen; S3 Fehler in Tabelle, Preisgeld rückwärts, Wippe, Tabellenkalkulation, x = y')
+DSX.fuer_sebastian('groessen.indirekt überschneidet sich stark mit funktionen.gebrochen (Karten „indirekt“ und – seit der Achtzehnten Runde – „indirekt_sach“): '
+                  'Doppelt → halb, Produktgleichheit, Dreisatz umgekehrt, Hyperbel und dieselben Pumpen-/Vorrat-Aufgaben kommen in beiden Flügen vor.')
+baue = mit_durchsicht(baue, DSX)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Erkennen', ['erkennen', 'vervielfachen', 'produkt']), ('Rechnen', ['dreisatz']),

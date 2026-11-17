@@ -2,6 +2,35 @@
 
 Neueste Meldung oben.
 
+## 2026-11-18 02:25 – STATUS funktionen.grundbegriffe
+
+### funktionen.grundbegriffe
+
+Anteil Textaufgaben an den Übungen mit g: vorher 14% (nur einkleidung/transfer) bzw. 27% (mit anerkannten Sachaufgaben anderer Typen) → nachher **41%**.
+
+| Lernkarte | vorher S1/S2/S3 (Lehrer) | vorher S1/S2/S3 (mit anderen Typen) | nachher S1/S2/S3 | neu Übung | neu Sicherung/Korrektur | überzählig | Sicherung/Korrektur Text nachher |
+|---|---|---|---|---|---|---|---|
+| eindeutig | 0/5/1 | 0/6/1 | 1/6/4 = 11 | 4 | 2/1 | 0 | 2/1 |
+| mengen | 0/2/0 | 0/2/0 | 1/3/4 = 8 | 6 | 2/1 | 0 | 2/1 |
+| funktionswert | 0/1/1 | 0/1/2 | 1/3/4 = 8 | 5 | 2/1 | 0 | 2/1 |
+| stelle | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 0 | 2/1 |
+| wertetabelle | 0/1/1 | 0/2/1 | 1/3/4 = 8 | 5 | 2/1 | 0 | 2/1 |
+| graph_lesen | 0/1/2 | 0/2/3 | 1/3/5 = 9 | 4 | 2/1 | 0 | 2/1 |
+| nullstellen | 0/1/2 | 0/1/2 | 1/3/4 = 8 | 5 | 2/1 | 0 | 2/1 |
+| punkt_graph | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 0 | 2/1 |
+| sachzusammenhang | 0/0/3 | 4/6/10 | 4/6/12 = 22 | 2 | 0/0 | 0 | 6/3 |
+
+Beispiele (je Stufe eine neue Textaufgabe, Wortlaut):
+
+- Stufe 1 (eindeutig): „In einer Klasse wird jedem Kind seine Körpergröße zugeordnet. Ist die Zuordnung Kind → Größe eine Funktion?“
+- Stufe 2 (wertetabelle): „Ein Taxi kostet f(x) = 3 + 2x Euro für x km. Fülle die Wertetabelle aus.“
+- Stufe 3 (sachzusammenhang): „Ein Mietwagen kostet 39 € pro Tag und 0,25 € pro km. Der Tank fasst 50 l. Eine Familie fährt in 3 Tagen 420 km. Was kostet die Miete?“
+
+Überzählig (g entfernt, Aufgabe bleibt): 0
+Als Sachaufgabe anerkannte alte Aufgaben anderer Typen: 22 Übungen, 9 Sicherung/Korrektur.
+Sachkontexte: Tarife, Taxi, Kerzen, Tanks/Akkus, Wertetabellen und Graphen aus Alltagsmessungen; Funktionsbegriff an Zuordnungen aus Schule und Alltag.
+
+
 ## 2026-11-18 02:21 – STATUS gleichungen.ungleichungen
 
 ### gleichungen.ungleichungen

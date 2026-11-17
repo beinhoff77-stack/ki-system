@@ -1,0 +1,11627 @@
+{
+ "thema_schluessel": "messen.volumen",
+ "thema_id": 100,
+ "block_id": 114,
+ "klasse": {
+  "gym_by": 6
+ },
+ "autor": "Claude (Achtzehnte Runde, Teil A; Generator messen.volumen.py)",
+ "inhalt": {
+  "ziel": "Volumen mit Einheitswürfeln verstehen, mit der Quaderformel berechnen, Volumeneinheiten mit Liter und Milliliter umrechnen, fehlende Kanten und Füllhöhen rückwärts bestimmen, zusammengesetzte Körper zerlegen und ergänzen und Volumen im Alltag abschätzen.",
+  "merke": [
+   "Volumen: Würfel je Schicht mal Zahl der Schichten.",
+   "Quader: V = a · b · c, Würfel: V = a · a · a.",
+   "Volumeneinheiten: Umrechnungszahl 1 000.",
+   "1 l = 1 dm³, 1 ml = 1 cm³, 1 m³ = 1 000 l.",
+   "Rückwärts: Höhe = Volumen : Grundfläche.",
+   "Doppelte Kanten: 8-faches Volumen."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Volumen und Quader",
+    "lernziele": [
+     "einheitswuerfel",
+     "quader"
+    ]
+   },
+   {
+    "titel": "Einheiten",
+    "lernziele": [
+     "einheiten",
+     "liter"
+    ]
+   },
+   {
+    "titel": "Flexibel anwenden",
+    "lernziele": [
+     "rueckwaerts",
+     "zusammengesetzt",
+     "verstehen"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "einheitswuerfel",
+    "titel": "Volumen mit Einheitswürfeln",
+    "einstieg": "Beim Umzug soll ein Karton mit Bauklötzen gefüllt werden. Jeder Klotz ist ein Würfel mit 1 cm Kante. Wie viele passen hinein? Das ist das ⟦Volumen⟧.",
+    "woerter": [
+     [
+      "Volumen",
+      "wie viel Raum ein Körper einnimmt; Zeichen V"
+     ],
+     [
+      "Einheitswürfel",
+      "Würfel mit 1 cm (oder 1 dm, 1 m) Kantenlänge"
+     ],
+     [
+      "cm³",
+      "Kubikzentimeter: so viel Raum wie ein Würfel mit 1 cm Kante"
+     ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.061,
+       1.061
+      ],
+      "_v1": [
+       4.0,
+       0.0
+      ],
+      "_h1": [
+       5.061,
+       1.061
+      ],
+      "_v2": [
+       4.0,
+       2.0
+      ],
+      "_h2": [
+       5.061,
+       3.061
+      ],
+      "_v3": [
+       0.0,
+       2.0
+      ],
+      "_h3": [
+       1.061,
+       3.061
+      ],
+      "_ga1": [
+       1,
+       0
+      ],
+      "_gb1": [
+       1,
+       2
+      ],
+      "_gc1": [
+       2.061,
+       3.061
+      ],
+      "_ga2": [
+       2,
+       0
+      ],
+      "_gb2": [
+       2,
+       2
+      ],
+      "_gc2": [
+       3.061,
+       3.061
+      ],
+      "_ga3": [
+       3,
+       0
+      ],
+      "_gb3": [
+       3,
+       2
+      ],
+      "_gc3": [
+       4.061,
+       3.061
+      ],
+      "_gd1": [
+       0,
+       1
+      ],
+      "_ge1": [
+       4,
+       1
+      ],
+      "_gf1": [
+       5.061,
+       2.061
+      ],
+      "_gg1": [
+       0.354,
+       2.354
+      ],
+      "_gh1": [
+       4.354,
+       2.354
+      ],
+      "_gi1": [
+       4.354,
+       0.354
+      ],
+      "_gg2": [
+       0.707,
+       2.707
+      ],
+      "_gh2": [
+       4.707,
+       2.707
+      ],
+      "_gi2": [
+       4.707,
+       0.707
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "4 cm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "2 cm"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "3 cm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_ga1",
+       "_gb1"
+      ],
+      [
+       "_gb1",
+       "_gc1"
+      ],
+      [
+       "_ga2",
+       "_gb2"
+      ],
+      [
+       "_gb2",
+       "_gc2"
+      ],
+      [
+       "_ga3",
+       "_gb3"
+      ],
+      [
+       "_gb3",
+       "_gc3"
+      ],
+      [
+       "_gd1",
+       "_ge1"
+      ],
+      [
+       "_ge1",
+       "_gf1"
+      ],
+      [
+       "_gg1",
+       "_gh1"
+      ],
+      [
+       "_gh1",
+       "_gi1"
+      ],
+      [
+       "_gg2",
+       "_gh2"
+      ],
+      [
+       "_gh2",
+       "_gi2"
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3"
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Der Karton ist 4 cm lang, 3 cm tief und 2 cm hoch."
+     },
+     {
+      "text": "Auf den Boden passt eine Schicht: 4 · 3 = 12 Einheitswürfel.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "_v0": [
+         0.0,
+         0.0
+        ],
+        "_h0": [
+         1.061,
+         1.061
+        ],
+        "_v1": [
+         4.0,
+         0.0
+        ],
+        "_h1": [
+         5.061,
+         1.061
+        ],
+        "_v2": [
+         4.0,
+         1.0
+        ],
+        "_h2": [
+         5.061,
+         2.061
+        ],
+        "_v3": [
+         0.0,
+         1.0
+        ],
+        "_h3": [
+         1.061,
+         2.061
+        ],
+        "_ga1": [
+         1,
+         0
+        ],
+        "_gb1": [
+         1,
+         1
+        ],
+        "_gc1": [
+         2.061,
+         2.061
+        ],
+        "_ga2": [
+         2,
+         0
+        ],
+        "_gb2": [
+         2,
+         1
+        ],
+        "_gc2": [
+         3.061,
+         2.061
+        ],
+        "_ga3": [
+         3,
+         0
+        ],
+        "_gb3": [
+         3,
+         1
+        ],
+        "_gc3": [
+         4.061,
+         2.061
+        ],
+        "_gg1": [
+         0.354,
+         1.354
+        ],
+        "_gh1": [
+         4.354,
+         1.354
+        ],
+        "_gi1": [
+         4.354,
+         0.354
+        ],
+        "_gg2": [
+         0.707,
+         1.707
+        ],
+        "_gh2": [
+         4.707,
+         1.707
+        ],
+        "_gi2": [
+         4.707,
+         0.707
+        ]
+       },
+       "linien": [
+        [
+         "_v0",
+         "_v1",
+         "4 cm"
+        ],
+        [
+         "_v1",
+         "_v2",
+         ""
+        ],
+        [
+         "_v2",
+         "_v3",
+         ""
+        ],
+        [
+         "_v3",
+         "_v0",
+         "1 cm"
+        ],
+        [
+         "_h0",
+         "_h1",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_h1",
+         "_h2",
+         ""
+        ],
+        [
+         "_h2",
+         "_h3",
+         ""
+        ],
+        [
+         "_h3",
+         "_h0",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_v0",
+         "_h0",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_v1",
+         "_h1",
+         "3 cm"
+        ],
+        [
+         "_v2",
+         "_h2",
+         ""
+        ],
+        [
+         "_v3",
+         "_h3",
+         ""
+        ],
+        [
+         "_ga1",
+         "_gb1"
+        ],
+        [
+         "_gb1",
+         "_gc1"
+        ],
+        [
+         "_ga2",
+         "_gb2"
+        ],
+        [
+         "_gb2",
+         "_gc2"
+        ],
+        [
+         "_ga3",
+         "_gb3"
+        ],
+        [
+         "_gb3",
+         "_gc3"
+        ],
+        [
+         "_gg1",
+         "_gh1"
+        ],
+        [
+         "_gh1",
+         "_gi1"
+        ],
+        [
+         "_gg2",
+         "_gh2"
+        ],
+        [
+         "_gh2",
+         "_gi2"
+        ]
+       ],
+       "flaeche": [
+        "_v0",
+        "_v1",
+        "_v2",
+        "_v3"
+       ],
+       "rechter_winkel": [],
+       "kreise": [],
+       "winkel": []
+      }
+     },
+     {
+      "text": "Es passen 2 Schichten übereinander: 2 · 12 = 24.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "_v0": [
+         0.0,
+         0.0
+        ],
+        "_h0": [
+         1.061,
+         1.061
+        ],
+        "_v1": [
+         4.0,
+         0.0
+        ],
+        "_h1": [
+         5.061,
+         1.061
+        ],
+        "_v2": [
+         4.0,
+         2.0
+        ],
+        "_h2": [
+         5.061,
+         3.061
+        ],
+        "_v3": [
+         0.0,
+         2.0
+        ],
+        "_h3": [
+         1.061,
+         3.061
+        ],
+        "_ga1": [
+         1,
+         0
+        ],
+        "_gb1": [
+         1,
+         2
+        ],
+        "_gc1": [
+         2.061,
+         3.061
+        ],
+        "_ga2": [
+         2,
+         0
+        ],
+        "_gb2": [
+         2,
+         2
+        ],
+        "_gc2": [
+         3.061,
+         3.061
+        ],
+        "_ga3": [
+         3,
+         0
+        ],
+        "_gb3": [
+         3,
+         2
+        ],
+        "_gc3": [
+         4.061,
+         3.061
+        ],
+        "_gd1": [
+         0,
+         1
+        ],
+        "_ge1": [
+         4,
+         1
+        ],
+        "_gf1": [
+         5.061,
+         2.061
+        ],
+        "_gg1": [
+         0.354,
+         2.354
+        ],
+        "_gh1": [
+         4.354,
+         2.354
+        ],
+        "_gi1": [
+         4.354,
+         0.354
+        ],
+        "_gg2": [
+         0.707,
+         2.707
+        ],
+        "_gh2": [
+         4.707,
+         2.707
+        ],
+        "_gi2": [
+         4.707,
+         0.707
+        ]
+       },
+       "linien": [
+        [
+         "_v0",
+         "_v1",
+         "4 cm"
+        ],
+        [
+         "_v1",
+         "_v2",
+         ""
+        ],
+        [
+         "_v2",
+         "_v3",
+         ""
+        ],
+        [
+         "_v3",
+         "_v0",
+         "2 cm"
+        ],
+        [
+         "_h0",
+         "_h1",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_h1",
+         "_h2",
+         ""
+        ],
+        [
+         "_h2",
+         "_h3",
+         ""
+        ],
+        [
+         "_h3",
+         "_h0",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_v0",
+         "_h0",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_v1",
+         "_h1",
+         "3 cm"
+        ],
+        [
+         "_v2",
+         "_h2",
+         ""
+        ],
+        [
+         "_v3",
+         "_h3",
+         ""
+        ],
+        [
+         "_ga1",
+         "_gb1"
+        ],
+        [
+         "_gb1",
+         "_gc1"
+        ],
+        [
+         "_ga2",
+         "_gb2"
+        ],
+        [
+         "_gb2",
+         "_gc2"
+        ],
+        [
+         "_ga3",
+         "_gb3"
+        ],
+        [
+         "_gb3",
+         "_gc3"
+        ],
+        [
+         "_gd1",
+         "_ge1"
+        ],
+        [
+         "_ge1",
+         "_gf1"
+        ],
+        [
+         "_gg1",
+         "_gh1"
+        ],
+        [
+         "_gh1",
+         "_gi1"
+        ],
+        [
+         "_gg2",
+         "_gh2"
+        ],
+        [
+         "_gh2",
+         "_gi2"
+        ]
+       ],
+       "flaeche": [
+        "_v0",
+        "_v1",
+        "_v2",
+        "_v3"
+       ],
+       "rechter_winkel": [],
+       "kreise": [],
+       "winkel": []
+      }
+     },
+     {
+      "text": "Das Volumen ist ⟦24 cm³⟧."
+     }
+    ],
+    "fehler": "Nur die sichtbaren Würfel zählen ist falsch. Innen und hinten liegen auch Würfel. Rechne Schichten mal Würfel je Schicht.",
+    "regel": "Volumen: ⟦Würfel je Schicht mal Zahl der Schichten⟧. Man misst es in cm³, dm³ oder m³."
+   },
+   {
+    "lernziel": "quader",
+    "titel": "Volumen von Quader und Würfel",
+    "einstieg": "Zum Umzug gibt es Kartons in vielen Größen. Wie viel passt in einen? Mit der ⟦Quaderformel⟧ rechnest du das Volumen, ohne Würfel zu zählen.",
+    "woerter": [
+     [
+      "Quaderformel",
+      "V = a · b · c: Länge mal Breite mal Höhe"
+     ],
+     [
+      "Würfel",
+      "Quader mit lauter gleich langen Kanten: V = a · a · a"
+     ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.414,
+       1.414
+      ],
+      "_v1": [
+       6.0,
+       0.0
+      ],
+      "_h1": [
+       7.414,
+       1.414
+      ],
+      "_v2": [
+       6.0,
+       5.0
+      ],
+      "_h2": [
+       7.414,
+       6.414
+      ],
+      "_v3": [
+       0.0,
+       5.0
+      ],
+      "_h3": [
+       1.414,
+       6.414
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "6 dm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "5 dm"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "4 dm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3"
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Der Karton ist 6 dm lang, 4 dm breit und 5 dm hoch."
+     },
+     {
+      "text": "Boden: 6 dm · 4 dm = 24 dm². Darauf passen 24 Würfel."
+     },
+     {
+      "text": "Er ist 5 Schichten hoch: 24 · 5 = ⟦120 dm³⟧."
+     },
+     {
+      "text": "Quaderformel: V = 6 dm · 4 dm · 5 dm = 120 dm³."
+     },
+     {
+      "text": "Ein Würfel mit 3 dm Kante: 3 · 3 · 3 = 27 dm³.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "_v0": [
+         0.0,
+         0.0
+        ],
+        "_h0": [
+         1.061,
+         1.061
+        ],
+        "_v1": [
+         3.0,
+         0.0
+        ],
+        "_h1": [
+         4.061,
+         1.061
+        ],
+        "_v2": [
+         3.0,
+         3.0
+        ],
+        "_h2": [
+         4.061,
+         4.061
+        ],
+        "_v3": [
+         0.0,
+         3.0
+        ],
+        "_h3": [
+         1.061,
+         4.061
+        ]
+       },
+       "linien": [
+        [
+         "_v0",
+         "_v1",
+         "3 dm"
+        ],
+        [
+         "_v1",
+         "_v2",
+         ""
+        ],
+        [
+         "_v2",
+         "_v3",
+         ""
+        ],
+        [
+         "_v3",
+         "_v0",
+         "3 dm"
+        ],
+        [
+         "_h0",
+         "_h1",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_h1",
+         "_h2",
+         ""
+        ],
+        [
+         "_h2",
+         "_h3",
+         ""
+        ],
+        [
+         "_h3",
+         "_h0",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_v0",
+         "_h0",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_v1",
+         "_h1",
+         "3 dm"
+        ],
+        [
+         "_v2",
+         "_h2",
+         ""
+        ],
+        [
+         "_v3",
+         "_h3",
+         ""
+        ]
+       ],
+       "flaeche": [
+        "_v0",
+        "_v1",
+        "_v2",
+        "_v3"
+       ],
+       "rechter_winkel": [],
+       "kreise": [],
+       "winkel": []
+      }
+     }
+    ],
+    "fehler": "Verschiedene Einheiten nicht einfach malnehmen. Erst umrechnen: 40 cm sind 4 dm. Dann 6 · 4 · 5.",
+    "fehler_bild": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.414,
+       1.414
+      ],
+      "_v1": [
+       6.0,
+       0.0
+      ],
+      "_h1": [
+       7.414,
+       1.414
+      ],
+      "_v2": [
+       6.0,
+       5.0
+      ],
+      "_h2": [
+       7.414,
+       6.414
+      ],
+      "_v3": [
+       0.0,
+       5.0
+      ],
+      "_h3": [
+       1.414,
+       6.414
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "6 dm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "5 dm"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "40 cm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3"
+     ],
+     "rechter_winkel": [],
+     "kreise": [],
+     "winkel": []
+    },
+    "regel": "Quader: ⟦V = a · b · c⟧. Rechne vorher alle Kanten in dieselbe Einheit um."
+   },
+   {
+    "lernziel": "einheiten",
+    "titel": "Volumeneinheiten umrechnen",
+    "einstieg": "Ein Würfel mit 1 dm Kante ist innen 10 cm lang, breit und hoch. Darin stecken 10 · 10 · 10 Würfelchen mit 1 cm Kante. Darum ist die ⟦Umrechnungszahl⟧ 1 000.",
+    "woerter": [
+     [
+      "Umrechnungszahl",
+      "Faktor zwischen zwei benachbarten Einheiten; bei Volumen 1 000"
+     ],
+     [
+      "dm³",
+      "Kubikdezimeter: Würfel mit 1 dm Kante"
+     ],
+     [
+      "m³",
+      "Kubikmeter: Würfel mit 1 m Kante"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Einheit",
+      "so viel in der nächstkleineren"
+     ],
+     "zeilen": [
+      [
+       "1 m³",
+       "1 000 dm³"
+      ],
+      [
+       "1 dm³",
+       "1 000 cm³"
+      ],
+      [
+       "1 cm³",
+       "1 000 mm³"
+      ]
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Gesucht: 2,5 dm³ in cm³. Von dm³ zu cm³ ist es ein Schritt."
+     },
+     {
+      "text": "Zur kleineren Einheit mal 1 000: 2,5 · 1 000 = ⟦2 500 cm³⟧."
+     },
+     {
+      "text": "Umgekehrt durch 1 000: 3 500 cm³ = 3,5 dm³."
+     },
+     {
+      "text": "Von m³ zu cm³ sind es zwei Schritte: mal 1 000 000."
+     }
+    ],
+    "fehler": "Nicht mit 100 umrechnen wie bei Flächen. 2,5 dm³ sind 2 500 cm³, nicht 250 cm³.",
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Rechnung",
+      "Ergebnis"
+     ],
+     "zeilen": [
+      [
+       "2,5 · 100",
+       "250 cm³ – falsch"
+      ],
+      [
+       "2,5 · 1 000",
+       "2 500 cm³ – richtig"
+      ]
+     ]
+    },
+    "regel": "Volumen: ⟦Umrechnungszahl 1 000⟧. Bei m³, dm³, cm³, mm³ ist jeder Schritt mal oder durch 1 000."
+   },
+   {
+    "lernziel": "liter",
+    "titel": "Liter und Milliliter",
+    "einstieg": "Auf der Saftpackung steht 1 l, auf der Medizinflasche 50 ml. Liter und Milliliter messen auch Volumen. Ein Liter passt genau in einen ⟦Würfel mit 1 dm Kante⟧.",
+    "woerter": [
+     [
+      "Liter (l)",
+      "1 l = 1 dm³; so viel passt in einen Würfel mit 10 cm Kante"
+     ],
+     [
+      "Milliliter (ml)",
+      "1 ml = 1 cm³; der tausendste Teil eines Liters"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Volumen",
+      "Hohlmaß"
+     ],
+     "zeilen": [
+      [
+       "1 m³",
+       "1 000 l"
+      ],
+      [
+       "1 dm³",
+       "1 l"
+      ],
+      [
+       "1 cm³",
+       "1 ml"
+      ],
+      [
+       "1 l",
+       "1 000 ml"
+      ]
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Ein Aquarium ist 50 cm lang, 30 cm breit und 40 cm hoch.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "_v0": [
+         0.0,
+         0.0
+        ],
+        "_h0": [
+         10.607,
+         10.607
+        ],
+        "_v1": [
+         50.0,
+         0.0
+        ],
+        "_h1": [
+         60.607,
+         10.607
+        ],
+        "_v2": [
+         50.0,
+         40.0
+        ],
+        "_h2": [
+         60.607,
+         50.607
+        ],
+        "_v3": [
+         0.0,
+         40.0
+        ],
+        "_h3": [
+         10.607,
+         50.607
+        ]
+       },
+       "linien": [
+        [
+         "_v0",
+         "_v1",
+         "50 cm"
+        ],
+        [
+         "_v1",
+         "_v2",
+         ""
+        ],
+        [
+         "_v2",
+         "_v3",
+         ""
+        ],
+        [
+         "_v3",
+         "_v0",
+         "40 cm"
+        ],
+        [
+         "_h0",
+         "_h1",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_h1",
+         "_h2",
+         ""
+        ],
+        [
+         "_h2",
+         "_h3",
+         ""
+        ],
+        [
+         "_h3",
+         "_h0",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_v0",
+         "_h0",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_v1",
+         "_h1",
+         "30 cm"
+        ],
+        [
+         "_v2",
+         "_h2",
+         ""
+        ],
+        [
+         "_v3",
+         "_h3",
+         ""
+        ]
+       ],
+       "flaeche": [
+        "_v0",
+        "_v1",
+        "_v2",
+        "_v3"
+       ]
+      }
+     },
+     {
+      "text": "In dm: 5 dm · 3 dm · 4 dm = 60 dm³.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "_v0": [
+         0.0,
+         0.0
+        ],
+        "_h0": [
+         1.061,
+         1.061
+        ],
+        "_v1": [
+         5.0,
+         0.0
+        ],
+        "_h1": [
+         6.061,
+         1.061
+        ],
+        "_v2": [
+         5.0,
+         4.0
+        ],
+        "_h2": [
+         6.061,
+         5.061
+        ],
+        "_v3": [
+         0.0,
+         4.0
+        ],
+        "_h3": [
+         1.061,
+         5.061
+        ]
+       },
+       "linien": [
+        [
+         "_v0",
+         "_v1",
+         "5 dm"
+        ],
+        [
+         "_v1",
+         "_v2",
+         ""
+        ],
+        [
+         "_v2",
+         "_v3",
+         ""
+        ],
+        [
+         "_v3",
+         "_v0",
+         "4 dm"
+        ],
+        [
+         "_h0",
+         "_h1",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_h1",
+         "_h2",
+         ""
+        ],
+        [
+         "_h2",
+         "_h3",
+         ""
+        ],
+        [
+         "_h3",
+         "_h0",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_v0",
+         "_h0",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_v1",
+         "_h1",
+         "3 dm"
+        ],
+        [
+         "_v2",
+         "_h2",
+         ""
+        ],
+        [
+         "_v3",
+         "_h3",
+         ""
+        ]
+       ],
+       "flaeche": [
+        "_v0",
+        "_v1",
+        "_v2",
+        "_v3"
+       ],
+       "rechter_winkel": [],
+       "kreise": [],
+       "winkel": []
+      }
+     },
+     {
+      "text": "1 dm³ ist 1 Liter. Das Aquarium fasst ⟦60 l⟧."
+     },
+     {
+      "text": "Ein Glas mit 250 cm³ fasst 250 Milliliter."
+     }
+    ],
+    "fehler": "1 l ist nicht 1 cm³, sondern 1 dm³. Wer 60 000 cm³ als 60 000 l liest, hat 1 000-mal zu viel.",
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Liter"
+     ],
+     "zeilen": [
+      [
+       "60 000 cm³",
+       "60 l"
+      ],
+      [
+       "60 000 dm³",
+       "60 000 l"
+      ]
+     ]
+    },
+    "regel": "⟦1 l = 1 dm³⟧ und 1 ml = 1 cm³. Außerdem: 1 l = 1 000 ml, 1 m³ = 1 000 l."
+   },
+   {
+    "lernziel": "rueckwaerts",
+    "titel": "Fehlende Kante und Füllhöhe",
+    "einstieg": "In ein leeres Aquarium werden 48 Liter Wasser gefüllt. Wie hoch steht das Wasser? Du rechnest ⟦rückwärts⟧ vom Volumen zur Höhe.",
+    "woerter": [
+     [
+      "Grundfläche",
+      "die Bodenfläche: Länge mal Breite"
+     ],
+     [
+      "Füllhöhe",
+      "wie hoch das Wasser im Gefäß steht"
+     ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.414,
+       1.414
+      ],
+      "_v1": [
+       6.0,
+       0.0
+      ],
+      "_h1": [
+       7.414,
+       1.414
+      ],
+      "_v2": [
+       6.0,
+       5.0
+      ],
+      "_h2": [
+       7.414,
+       6.414
+      ],
+      "_v3": [
+       0.0,
+       5.0
+      ],
+      "_h3": [
+       1.414,
+       6.414
+      ],
+      "_w0": [
+       0,
+       2.0
+      ],
+      "_w1": [
+       6.0,
+       2.0
+      ],
+      "_w2": [
+       7.414,
+       3.414
+      ],
+      "_w3": [
+       1.414,
+       3.414
+      ],
+      "_wt": [
+       3.0,
+       1.0
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "6 dm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "5 dm"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "4 dm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_w0",
+       "_w1"
+      ],
+      [
+       "_w1",
+       "_w2"
+      ],
+      [
+       "_w2",
+       "_w3",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_wt",
+       "_wt",
+       "Wasser: ? dm",
+       "gestrichelt"
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_w1",
+      "_w0"
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Das Aquarium hat eine Grundfläche von 6 dm · 4 dm = 24 dm²."
+     },
+     {
+      "text": "48 l sind 48 dm³. Das Wasser ist ein Quader mit diesem Boden."
+     },
+     {
+      "text": "Rückwärts: 48 : 24 = 2. Die Füllhöhe ist ⟦2 dm⟧.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "_v0": [
+         0.0,
+         0.0
+        ],
+        "_h0": [
+         1.414,
+         1.414
+        ],
+        "_v1": [
+         6.0,
+         0.0
+        ],
+        "_h1": [
+         7.414,
+         1.414
+        ],
+        "_v2": [
+         6.0,
+         5.0
+        ],
+        "_h2": [
+         7.414,
+         6.414
+        ],
+        "_v3": [
+         0.0,
+         5.0
+        ],
+        "_h3": [
+         1.414,
+         6.414
+        ],
+        "_w0": [
+         0,
+         2.0
+        ],
+        "_w1": [
+         6.0,
+         2.0
+        ],
+        "_w2": [
+         7.414,
+         3.414
+        ],
+        "_w3": [
+         1.414,
+         3.414
+        ],
+        "_wt": [
+         3.0,
+         1.0
+        ]
+       },
+       "linien": [
+        [
+         "_v0",
+         "_v1",
+         "6 dm"
+        ],
+        [
+         "_v1",
+         "_v2",
+         ""
+        ],
+        [
+         "_v2",
+         "_v3",
+         ""
+        ],
+        [
+         "_v3",
+         "_v0",
+         "5 dm"
+        ],
+        [
+         "_h0",
+         "_h1",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_h1",
+         "_h2",
+         ""
+        ],
+        [
+         "_h2",
+         "_h3",
+         ""
+        ],
+        [
+         "_h3",
+         "_h0",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_v0",
+         "_h0",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_v1",
+         "_h1",
+         "4 dm"
+        ],
+        [
+         "_v2",
+         "_h2",
+         ""
+        ],
+        [
+         "_v3",
+         "_h3",
+         ""
+        ],
+        [
+         "_w0",
+         "_w1"
+        ],
+        [
+         "_w1",
+         "_w2"
+        ],
+        [
+         "_w2",
+         "_w3",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_wt",
+         "_wt",
+         "Wasser: 2 dm",
+         "gestrichelt"
+        ]
+       ],
+       "flaeche": [
+        "_v0",
+        "_v1",
+        "_w1",
+        "_w0"
+       ],
+       "rechter_winkel": [],
+       "kreise": [],
+       "winkel": []
+      }
+     }
+    ],
+    "fehler": "Nicht durch eine Kante teilen: 48 : 6 = 8 ist keine Höhe. Teile durch die ganze Grundfläche 24 dm².",
+    "regel": "Rückwärts: ⟦Höhe = Volumen : Grundfläche⟧. Wähle vorher passende Einheiten."
+   },
+   {
+    "lernziel": "zusammengesetzt",
+    "titel": "Zusammengesetzte Körper",
+    "einstieg": "Eine Stufe aus Beton ist kein Quader. Sie ist ein zusammengesetzter Körper. Du ⟦zerlegst⟧ sie in Quader und addierst deren Volumen.",
+    "woerter": [
+     [
+      "zusammengesetzter Körper",
+      "Körper aus mehreren Quadern"
+     ],
+     [
+      "Restkörper",
+      "was übrig bleibt, wenn man ein Stück herausschneidet"
+     ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.768,
+       1.768
+      ],
+      "_v1": [
+       6.0,
+       0.0
+      ],
+      "_h1": [
+       7.768,
+       1.768
+      ],
+      "_v2": [
+       6.0,
+       2.0
+      ],
+      "_h2": [
+       7.768,
+       3.768
+      ],
+      "_v3": [
+       3.0,
+       2.0
+      ],
+      "_h3": [
+       4.768,
+       3.768
+      ],
+      "_v4": [
+       3.0,
+       4.0
+      ],
+      "_h4": [
+       4.768,
+       5.768
+      ],
+      "_v5": [
+       0.0,
+       4.0
+      ],
+      "_h5": [
+       1.768,
+       5.768
+      ],
+      "_l0": [
+       0,
+       0
+      ],
+      "_l1": [
+       0,
+       2.0
+      ],
+      "_l2": [
+       0,
+       4.0
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "6 dm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v4",
+       ""
+      ],
+      [
+       "_v4",
+       "_v5",
+       ""
+      ],
+      [
+       "_v5",
+       "_v0",
+       ""
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h4",
+       ""
+      ],
+      [
+       "_h4",
+       "_h5",
+       ""
+      ],
+      [
+       "_h5",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "5 dm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_v4",
+       "_h4",
+       ""
+      ],
+      [
+       "_v5",
+       "_h5",
+       ""
+      ],
+      [
+       "_l0",
+       "_l1",
+       "2 dm"
+      ],
+      [
+       "_l1",
+       "_l2",
+       "2 dm"
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3",
+      "_v4",
+      "_v5"
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Zerlege die Stufe in zwei Quader.",
+      "bild": {
+       "punkte": {
+        "_v0": [
+         0.0,
+         0.0
+        ],
+        "_h0": [
+         1.768,
+         1.768
+        ],
+        "_v1": [
+         6.0,
+         0.0
+        ],
+        "_h1": [
+         7.768,
+         1.768
+        ],
+        "_v2": [
+         6.0,
+         2.0
+        ],
+        "_h2": [
+         7.768,
+         3.768
+        ],
+        "_v3": [
+         3.0,
+         2.0
+        ],
+        "_h3": [
+         4.768,
+         3.768
+        ],
+        "_v4": [
+         3.0,
+         4.0
+        ],
+        "_h4": [
+         4.768,
+         5.768
+        ],
+        "_v5": [
+         0.0,
+         4.0
+        ],
+        "_h5": [
+         1.768,
+         5.768
+        ],
+        "_l0": [
+         0,
+         0
+        ],
+        "_l1": [
+         0,
+         2.0
+        ],
+        "_l2": [
+         0,
+         4.0
+        ],
+        "_t0": [
+         0,
+         2
+        ]
+       },
+       "linien": [
+        [
+         "_v0",
+         "_v1",
+         "6 dm"
+        ],
+        [
+         "_v1",
+         "_v2",
+         ""
+        ],
+        [
+         "_v2",
+         "_v3",
+         ""
+        ],
+        [
+         "_v3",
+         "_v4",
+         ""
+        ],
+        [
+         "_v4",
+         "_v5",
+         ""
+        ],
+        [
+         "_v5",
+         "_v0",
+         ""
+        ],
+        [
+         "_h0",
+         "_h1",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_h1",
+         "_h2",
+         ""
+        ],
+        [
+         "_h2",
+         "_h3",
+         ""
+        ],
+        [
+         "_h3",
+         "_h4",
+         ""
+        ],
+        [
+         "_h4",
+         "_h5",
+         ""
+        ],
+        [
+         "_h5",
+         "_h0",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_v0",
+         "_h0",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_v1",
+         "_h1",
+         "5 dm"
+        ],
+        [
+         "_v2",
+         "_h2",
+         ""
+        ],
+        [
+         "_v3",
+         "_h3",
+         ""
+        ],
+        [
+         "_v4",
+         "_h4",
+         ""
+        ],
+        [
+         "_v5",
+         "_h5",
+         ""
+        ],
+        [
+         "_l0",
+         "_l1",
+         "2 dm"
+        ],
+        [
+         "_l1",
+         "_l2",
+         "2 dm"
+        ],
+        [
+         "_t0",
+         "_v2",
+         "",
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Unten: 6 dm · 5 dm · 2 dm = 60 dm³."
+     },
+     {
+      "text": "Oben: 3 dm · 5 dm · 2 dm = 30 dm³."
+     },
+     {
+      "text": "Zusammen: 60 dm³ + 30 dm³ = ⟦90 dm³⟧."
+     },
+     {
+      "text": "Oder ergänzen: Quader 120 dm³ minus Restkörper-Lücke 30 dm³."
+     }
+    ],
+    "fehler": "Nicht die äußeren Maße malnehmen. 6 · 5 · 4 = 120 dm³ wäre ein ganzer Quader. Oben rechts fehlt ein Stück.",
+    "fehler_bild": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.768,
+       1.768
+      ],
+      "_v1": [
+       6.0,
+       0.0
+      ],
+      "_h1": [
+       7.768,
+       1.768
+      ],
+      "_v2": [
+       6.0,
+       2.0
+      ],
+      "_h2": [
+       7.768,
+       3.768
+      ],
+      "_v3": [
+       3.0,
+       2.0
+      ],
+      "_h3": [
+       4.768,
+       3.768
+      ],
+      "_v4": [
+       3.0,
+       4.0
+      ],
+      "_h4": [
+       4.768,
+       5.768
+      ],
+      "_v5": [
+       0.0,
+       4.0
+      ],
+      "_h5": [
+       1.768,
+       5.768
+      ],
+      "_l0": [
+       0,
+       0
+      ],
+      "_l1": [
+       0,
+       2.0
+      ],
+      "_l2": [
+       0,
+       4.0
+      ],
+      "_x1": [
+       6,
+       4
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "6 dm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v4",
+       ""
+      ],
+      [
+       "_v4",
+       "_v5",
+       ""
+      ],
+      [
+       "_v5",
+       "_v0",
+       ""
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h4",
+       ""
+      ],
+      [
+       "_h4",
+       "_h5",
+       ""
+      ],
+      [
+       "_h5",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "5 dm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_v4",
+       "_h4",
+       ""
+      ],
+      [
+       "_v5",
+       "_h5",
+       ""
+      ],
+      [
+       "_l0",
+       "_l1",
+       "2 dm"
+      ],
+      [
+       "_l1",
+       "_l2",
+       "2 dm"
+      ],
+      [
+       "_v2",
+       "_x1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_x1",
+       "_v4",
+       "fehlt",
+       "gestrichelt"
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3",
+      "_v4",
+      "_v5"
+     ],
+     "rechter_winkel": [],
+     "kreise": [],
+     "winkel": []
+    },
+    "regel": "⟦Zerlegen⟧ in Quader und addieren. Oder zum Quader ergänzen und das Fehlende abziehen."
+   },
+   {
+    "lernziel": "verstehen",
+    "titel": "Volumen schätzen und beurteilen",
+    "einstieg": "Wie viel Luft ist in deinem Klassenzimmer? Genau messen kannst du das nicht. Mit einem Quader findest du aber einen ⟦Näherungswert⟧.",
+    "woerter": [
+     [
+      "Näherungswert",
+      "ein ungefähr richtiger Wert"
+     ],
+     [
+      "abschätzen",
+      "mit runden Zahlen ungefähr ausrechnen"
+     ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       2.475,
+       2.475
+      ],
+      "_v1": [
+       9.0,
+       0.0
+      ],
+      "_h1": [
+       11.475,
+       2.475
+      ],
+      "_v2": [
+       9.0,
+       3.0
+      ],
+      "_h2": [
+       11.475,
+       5.475
+      ],
+      "_v3": [
+       0.0,
+       3.0
+      ],
+      "_h3": [
+       2.475,
+       5.475
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "9 m"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "3 m"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "7 m"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3"
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Das Zimmer ist etwa 9 m lang, 7 m breit und 3 m hoch."
+     },
+     {
+      "text": "Abschätzen: 9 m · 7 m · 3 m = ⟦189 m³⟧, rund 190 m³."
+     },
+     {
+      "text": "Schränke und Menschen brauchen auch Platz. Es bleibt ein Näherungswert."
+     },
+     {
+      "text": "Alle Kanten doppelt so lang: Volumen 2 · 2 · 2 = 8-mal so groß."
+     }
+    ],
+    "fehler": "Doppelt so lange Kanten heißt nicht doppeltes Volumen. Jede der drei Kanten verdoppelt sich: 8-mal so viel.",
+    "regel": "Prüfe Ergebnisse mit einem ⟦Näherungswert⟧. Doppelte Kanten ergeben das 8-fache Volumen."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "einheitswuerfel",
+    "text": "Volumen mit Einheitswürfeln",
+    "lernziele": [
+     "einheitswuerfel"
+    ]
+   },
+   {
+    "k": "quader",
+    "text": "Volumen von Quader und Würfel",
+    "lernziele": [
+     "quader"
+    ]
+   },
+   {
+    "k": "einheiten",
+    "text": "Volumeneinheiten umrechnen",
+    "lernziele": [
+     "einheiten"
+    ]
+   },
+   {
+    "k": "liter",
+    "text": "Liter und Milliliter",
+    "lernziele": [
+     "liter"
+    ]
+   },
+   {
+    "k": "rueckwaerts",
+    "text": "Fehlende Kante und Füllhöhe",
+    "lernziele": [
+     "rueckwaerts"
+    ]
+   },
+   {
+    "k": "zusammengesetzt",
+    "text": "Zusammengesetzte Körper",
+    "lernziele": [
+     "zusammengesetzt"
+    ]
+   },
+   {
+    "k": "verstehen",
+    "text": "Volumen schätzen und beurteilen",
+    "lernziele": [
+     "verstehen"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "einheitswuerfel",
+    "quader",
+    "einheiten",
+    "liter",
+    "rueckwaerts",
+    "zusammengesetzt",
+    "verstehen"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1,
+   "hilfen_im_test": false
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude).",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern, Gymnasium M6 2.2 „Volumen“ (https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/6/mathematik).",
+   "pruefungsvorbilder": "Typ und Niveau nach: Bayerischer Mathematik-Test 8 (ISB) 2005 A5 (Umzugskartons), 2007 A3 (Einheiten umwandeln), 2008 (Restkörper), 2009 A1 (geteilter Würfel), 2013 B3 (Niederschlag als Quader), 2018 A4 (Aussagen beurteilen), 2022 A6 (gleiches Volumen erkennen), 2023 A (Volumen in Litern, Quaderhöhe), 2025 A (Bauelement, Maßstab und Volumen); Jahrgangsstufentest Realschule 6 (ISB) 2010 Nr. 18 (Volumen eines Messbechers); VERA-8 2012 Modul C („Würfelkörper“). Eigene Zahlen und Einkleidung."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Der Quader ist aus Würfeln mit 1 cm Kante gebaut: 4 cm lang, 2 cm tief, 4 cm hoch. Wie viele Würfel sind es?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       0.707,
+       0.707
+      ],
+      "_v1": [
+       4.0,
+       0.0
+      ],
+      "_h1": [
+       4.707,
+       0.707
+      ],
+      "_v2": [
+       4.0,
+       4.0
+      ],
+      "_h2": [
+       4.707,
+       4.707
+      ],
+      "_v3": [
+       0.0,
+       4.0
+      ],
+      "_h3": [
+       0.707,
+       4.707
+      ],
+      "_ga1": [
+       1,
+       0
+      ],
+      "_gb1": [
+       1,
+       4
+      ],
+      "_gc1": [
+       1.707,
+       4.707
+      ],
+      "_ga2": [
+       2,
+       0
+      ],
+      "_gb2": [
+       2,
+       4
+      ],
+      "_gc2": [
+       2.707,
+       4.707
+      ],
+      "_ga3": [
+       3,
+       0
+      ],
+      "_gb3": [
+       3,
+       4
+      ],
+      "_gc3": [
+       3.707,
+       4.707
+      ],
+      "_gd1": [
+       0,
+       1
+      ],
+      "_ge1": [
+       4,
+       1
+      ],
+      "_gf1": [
+       4.707,
+       1.707
+      ],
+      "_gd2": [
+       0,
+       2
+      ],
+      "_ge2": [
+       4,
+       2
+      ],
+      "_gf2": [
+       4.707,
+       2.707
+      ],
+      "_gd3": [
+       0,
+       3
+      ],
+      "_ge3": [
+       4,
+       3
+      ],
+      "_gf3": [
+       4.707,
+       3.707
+      ],
+      "_gg1": [
+       0.354,
+       4.354
+      ],
+      "_gh1": [
+       4.354,
+       4.354
+      ],
+      "_gi1": [
+       4.354,
+       0.354
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "4 cm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "4 cm"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "2 cm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_ga1",
+       "_gb1"
+      ],
+      [
+       "_gb1",
+       "_gc1"
+      ],
+      [
+       "_ga2",
+       "_gb2"
+      ],
+      [
+       "_gb2",
+       "_gc2"
+      ],
+      [
+       "_ga3",
+       "_gb3"
+      ],
+      [
+       "_gb3",
+       "_gc3"
+      ],
+      [
+       "_gd1",
+       "_ge1"
+      ],
+      [
+       "_ge1",
+       "_gf1"
+      ],
+      [
+       "_gd2",
+       "_ge2"
+      ],
+      [
+       "_ge2",
+       "_gf2"
+      ],
+      [
+       "_gd3",
+       "_ge3"
+      ],
+      [
+       "_ge3",
+       "_gf3"
+      ],
+      [
+       "_gg1",
+       "_gh1"
+      ],
+      [
+       "_gh1",
+       "_gi1"
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3"
+     ]
+    }
+   },
+   "o": {
+    "wert": 32
+   },
+   "c": "4 * 2 * 4",
+   "w": "Eine Schicht: 4 · 2 = 8 Würfel. 4 Schichten: 4 · 8 = 32 Würfel, also 32 cm³.",
+   "h": "Würfel je Schicht mal Schichten."
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 3 cm lang, 2 cm tief und 1 cm hoch. Wie viele Einheitswürfel (1 cm³) liegen in der untersten Schicht?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       0.707,
+       0.707
+      ],
+      "_v1": [
+       3.0,
+       0.0
+      ],
+      "_h1": [
+       3.707,
+       0.707
+      ],
+      "_v2": [
+       3.0,
+       1.0
+      ],
+      "_h2": [
+       3.707,
+       1.707
+      ],
+      "_v3": [
+       0.0,
+       1.0
+      ],
+      "_h3": [
+       0.707,
+       1.707
+      ],
+      "_ga1": [
+       1,
+       0
+      ],
+      "_gb1": [
+       1,
+       1
+      ],
+      "_gc1": [
+       1.707,
+       1.707
+      ],
+      "_ga2": [
+       2,
+       0
+      ],
+      "_gb2": [
+       2,
+       1
+      ],
+      "_gc2": [
+       2.707,
+       1.707
+      ],
+      "_gg1": [
+       0.354,
+       1.354
+      ],
+      "_gh1": [
+       3.354,
+       1.354
+      ],
+      "_gi1": [
+       3.354,
+       0.354
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "3 cm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "1 cm"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "2 cm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_ga1",
+       "_gb1"
+      ],
+      [
+       "_gb1",
+       "_gc1"
+      ],
+      [
+       "_ga2",
+       "_gb2"
+      ],
+      [
+       "_gb2",
+       "_gc2"
+      ],
+      [
+       "_gg1",
+       "_gh1"
+      ],
+      [
+       "_gh1",
+       "_gi1"
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3"
+     ]
+    }
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "3 * 2",
+   "w": "Die unterste Schicht ist 3 Würfel lang und 2 Würfel tief: 3 · 2 = 6.",
+   "h": "Nur die Bodenschicht zählen."
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Der Quader ist aus Würfeln mit 1 cm Kante gebaut: 4 cm lang, 4 cm tief, 4 cm hoch. Wie viele Würfel sind es?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.414,
+       1.414
+      ],
+      "_v1": [
+       4.0,
+       0.0
+      ],
+      "_h1": [
+       5.414,
+       1.414
+      ],
+      "_v2": [
+       4.0,
+       4.0
+      ],
+      "_h2": [
+       5.414,
+       5.414
+      ],
+      "_v3": [
+       0.0,
+       4.0
+      ],
+      "_h3": [
+       1.414,
+       5.414
+      ],
+      "_ga1": [
+       1,
+       0
+      ],
+      "_gb1": [
+       1,
+       4
+      ],
+      "_gc1": [
+       2.414,
+       5.414
+      ],
+      "_ga2": [
+       2,
+       0
+      ],
+      "_gb2": [
+       2,
+       4
+      ],
+      "_gc2": [
+       3.414,
+       5.414
+      ],
+      "_ga3": [
+       3,
+       0
+      ],
+      "_gb3": [
+       3,
+       4
+      ],
+      "_gc3": [
+       4.414,
+       5.414
+      ],
+      "_gd1": [
+       0,
+       1
+      ],
+      "_ge1": [
+       4,
+       1
+      ],
+      "_gf1": [
+       5.414,
+       2.414
+      ],
+      "_gd2": [
+       0,
+       2
+      ],
+      "_ge2": [
+       4,
+       2
+      ],
+      "_gf2": [
+       5.414,
+       3.414
+      ],
+      "_gd3": [
+       0,
+       3
+      ],
+      "_ge3": [
+       4,
+       3
+      ],
+      "_gf3": [
+       5.414,
+       4.414
+      ],
+      "_gg1": [
+       0.354,
+       4.354
+      ],
+      "_gh1": [
+       4.354,
+       4.354
+      ],
+      "_gi1": [
+       4.354,
+       0.354
+      ],
+      "_gg2": [
+       0.707,
+       4.707
+      ],
+      "_gh2": [
+       4.707,
+       4.707
+      ],
+      "_gi2": [
+       4.707,
+       0.707
+      ],
+      "_gg3": [
+       1.061,
+       5.061
+      ],
+      "_gh3": [
+       5.061,
+       5.061
+      ],
+      "_gi3": [
+       5.061,
+       1.061
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "4 cm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "4 cm"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "4 cm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_ga1",
+       "_gb1"
+      ],
+      [
+       "_gb1",
+       "_gc1"
+      ],
+      [
+       "_ga2",
+       "_gb2"
+      ],
+      [
+       "_gb2",
+       "_gc2"
+      ],
+      [
+       "_ga3",
+       "_gb3"
+      ],
+      [
+       "_gb3",
+       "_gc3"
+      ],
+      [
+       "_gd1",
+       "_ge1"
+      ],
+      [
+       "_ge1",
+       "_gf1"
+      ],
+      [
+       "_gd2",
+       "_ge2"
+      ],
+      [
+       "_ge2",
+       "_gf2"
+      ],
+      [
+       "_gd3",
+       "_ge3"
+      ],
+      [
+       "_ge3",
+       "_gf3"
+      ],
+      [
+       "_gg1",
+       "_gh1"
+      ],
+      [
+       "_gh1",
+       "_gi1"
+      ],
+      [
+       "_gg2",
+       "_gh2"
+      ],
+      [
+       "_gh2",
+       "_gi2"
+      ],
+      [
+       "_gg3",
+       "_gh3"
+      ],
+      [
+       "_gh3",
+       "_gi3"
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3"
+     ]
+    }
+   },
+   "o": {
+    "wert": 64
+   },
+   "c": "4 * 4 * 4",
+   "w": "Eine Schicht: 4 · 4 = 16 Würfel. 4 Schichten: 4 · 16 = 64 Würfel, also 64 cm³.",
+   "h": "Würfel je Schicht mal Schichten."
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 2 cm lang, 4 cm tief und 3 cm hoch. Wie viele Einheitswürfel (1 cm³) liegen in der untersten Schicht?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.414,
+       1.414
+      ],
+      "_v1": [
+       2.0,
+       0.0
+      ],
+      "_h1": [
+       3.414,
+       1.414
+      ],
+      "_v2": [
+       2.0,
+       3.0
+      ],
+      "_h2": [
+       3.414,
+       4.414
+      ],
+      "_v3": [
+       0.0,
+       3.0
+      ],
+      "_h3": [
+       1.414,
+       4.414
+      ],
+      "_ga1": [
+       1,
+       0
+      ],
+      "_gb1": [
+       1,
+       3
+      ],
+      "_gc1": [
+       2.414,
+       4.414
+      ],
+      "_gd1": [
+       0,
+       1
+      ],
+      "_ge1": [
+       2,
+       1
+      ],
+      "_gf1": [
+       3.414,
+       2.414
+      ],
+      "_gd2": [
+       0,
+       2
+      ],
+      "_ge2": [
+       2,
+       2
+      ],
+      "_gf2": [
+       3.414,
+       3.414
+      ],
+      "_gg1": [
+       0.354,
+       3.354
+      ],
+      "_gh1": [
+       2.354,
+       3.354
+      ],
+      "_gi1": [
+       2.354,
+       0.354
+      ],
+      "_gg2": [
+       0.707,
+       3.707
+      ],
+      "_gh2": [
+       2.707,
+       3.707
+      ],
+      "_gi2": [
+       2.707,
+       0.707
+      ],
+      "_gg3": [
+       1.061,
+       4.061
+      ],
+      "_gh3": [
+       3.061,
+       4.061
+      ],
+      "_gi3": [
+       3.061,
+       1.061
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "2 cm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "3 cm"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "4 cm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_ga1",
+       "_gb1"
+      ],
+      [
+       "_gb1",
+       "_gc1"
+      ],
+      [
+       "_gd1",
+       "_ge1"
+      ],
+      [
+       "_ge1",
+       "_gf1"
+      ],
+      [
+       "_gd2",
+       "_ge2"
+      ],
+      [
+       "_ge2",
+       "_gf2"
+      ],
+      [
+       "_gg1",
+       "_gh1"
+      ],
+      [
+       "_gh1",
+       "_gi1"
+      ],
+      [
+       "_gg2",
+       "_gh2"
+      ],
+      [
+       "_gh2",
+       "_gi2"
+      ],
+      [
+       "_gg3",
+       "_gh3"
+      ],
+      [
+       "_gh3",
+       "_gi3"
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3"
+     ]
+    }
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "2 * 4",
+   "w": "Die unterste Schicht ist 2 Würfel lang und 4 Würfel tief: 2 · 4 = 8.",
+   "h": "Nur die Bodenschicht zählen."
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein großer Würfel mit 5 cm Kantenlänge soll aus Würfeln mit 1 cm Kante gebaut werden. Wie viele kleine Würfel braucht man?"
+   },
+   "o": {
+    "wert": 125
+   },
+   "c": "5 * 5 * 5",
+   "w": "Eine Schicht: 5 · 5 = 25. 5 Schichten: 25 · 5 = 125.",
+   "h": "Würfel je Schicht mal Schichten."
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Karton ist innen 10 cm lang, 6 cm breit und 4 cm hoch. Wie viele Würfel mit 2 cm Kante passen hinein?"
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "(10 / 2) * (6 / 2) * (4 / 2)",
+   "w": "Je Richtung passen 5, 3 und 2 Würfel: 5 · 3 · 2 = 30.",
+   "h": "Wie viele 2-cm-Würfel passen in jede Richtung?"
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Volumen hat ungefähr ein Stecknadelkopf?"
+   },
+   "a": [
+    "etwa 1 cm³",
+    "etwa 1 mm³",
+    "etwa 1 m³",
+    "etwa 1 dm³"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ein Stecknadelkopf hat ungefähr 1 mm³. Vergleiche: 1 cm³ ist ein Zuckerwürfel, 1 dm³ eine Milchtüte, 1 m³ eine große Kiste.",
+   "h": "Denke an Zuckerwürfel (cm³) und Milchtüte (dm³)."
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Würfel mit 1 cm Kante passen in 4 Würfel mit je 1 dm Kante?"
+   },
+   "o": {
+    "wert": 4000
+   },
+   "c": "4 * 10 * 10 * 10",
+   "w": "1 dm = 10 cm. In einen dm-Würfel passen 10 · 10 · 10 = 1 000 Zentimeterwürfel. 4 solche: 4 000.",
+   "h": "Wie viele cm sind 1 dm?"
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader aus 120 Würfeln hat in jeder Schicht 30 Würfel. Wie viele Schichten hat er?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "120 / 30",
+   "w": "120 : 30 = 4 Schichten.",
+   "h": "Wie oft passt eine Schicht hinein?"
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Würfel mit 1 cm Kante passen in 2 Würfel mit je 1 dm Kante?"
+   },
+   "o": {
+    "wert": 2000
+   },
+   "c": "2 * 10 * 10 * 10",
+   "w": "1 dm = 10 cm. In einen dm-Würfel passen 10 · 10 · 10 = 1 000 Zentimeterwürfel. 2 solche: 2 000.",
+   "h": "Wie viele cm sind 1 dm?"
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Treppenkörper ist aus Würfeln gebaut: 3 Würfel tief, unten 4 Würfel breit, in der Mitte 3, oben 2. Wie viele Würfel fehlen, damit ein Quader (4 · 3 · 3 Würfel) entsteht?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.061,
+       1.061
+      ],
+      "_v1": [
+       4.0,
+       0.0
+      ],
+      "_h1": [
+       5.061,
+       1.061
+      ],
+      "_v2": [
+       4.0,
+       1.0
+      ],
+      "_h2": [
+       5.061,
+       2.061
+      ],
+      "_v3": [
+       3.0,
+       1.0
+      ],
+      "_h3": [
+       4.061,
+       2.061
+      ],
+      "_v4": [
+       3.0,
+       2.0
+      ],
+      "_h4": [
+       4.061,
+       3.061
+      ],
+      "_v5": [
+       2.0,
+       2.0
+      ],
+      "_h5": [
+       3.061,
+       3.061
+      ],
+      "_v6": [
+       2.0,
+       3.0
+      ],
+      "_h6": [
+       3.061,
+       4.061
+      ],
+      "_v7": [
+       0.0,
+       3.0
+      ],
+      "_h7": [
+       1.061,
+       4.061
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       ""
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v4",
+       ""
+      ],
+      [
+       "_v4",
+       "_v5",
+       ""
+      ],
+      [
+       "_v5",
+       "_v6",
+       ""
+      ],
+      [
+       "_v6",
+       "_v7",
+       ""
+      ],
+      [
+       "_v7",
+       "_v0",
+       ""
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h4",
+       ""
+      ],
+      [
+       "_h4",
+       "_h5",
+       ""
+      ],
+      [
+       "_h5",
+       "_h6",
+       ""
+      ],
+      [
+       "_h6",
+       "_h7",
+       ""
+      ],
+      [
+       "_h7",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "3 cm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_v4",
+       "_h4",
+       ""
+      ],
+      [
+       "_v5",
+       "_h5",
+       ""
+      ],
+      [
+       "_v6",
+       "_h6",
+       ""
+      ],
+      [
+       "_v7",
+       "_h7",
+       ""
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3",
+      "_v4",
+      "_v5",
+      "_v6",
+      "_v7"
+     ]
+    }
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "4 * 3 * 3 - (4 * 3 + 3 * 3 + 2 * 3)",
+   "w": "Vorhanden: 4 · 3 + 3 · 3 + 2 · 3 = 12 + 9 + 6 = 27 Würfel. Quader: 4 · 3 · 3 = 36. Es fehlen 36 − 27 = 9 Würfel.",
+   "h": "Zähle Schicht für Schicht."
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Karton ist innen 30 cm lang, 20 cm breit und 20 cm hoch. Wie viele Würfel mit 5 cm Kante passen hinein?"
+   },
+   "o": {
+    "wert": 96
+   },
+   "c": "(30 / 5) * (20 / 5) * (20 / 5)",
+   "w": "Je Richtung: 30 : 5 = 6, 20 : 5 = 4, 20 : 5 = 4. Zusammen 6 · 4 · 4 = 96 Würfel.",
+   "h": "Wie viele 5-cm-Würfel passen in jede Richtung?"
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel aus 4 · 4 · 4 kleinen Würfeln wird außen rot angemalt. Wie viele kleine Würfel haben genau eine rote Fläche?"
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "6 * (4 - 2) * (4 - 2)",
+   "w": "Genau eine Fläche rot haben die Würfel in der Mitte jeder Außenfläche: je 2 · 2 = 4. Der Würfel hat 6 Flächen: 6 · 4 = 24.",
+   "h": "Welche Würfel liegen auf einer Fläche, aber nicht am Rand?"
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pyramide aus Würfeln hat 6 Schichten: oben 1 Würfel, darunter 2 · 2, dann 3 · 3 und so weiter. Wie viele Würfel sind es?"
+   },
+   "o": {
+    "wert": 91
+   },
+   "c": "1 * 1 + 2 * 2 + 3 * 3 + 4 * 4 + 5 * 5 + 6 * 6",
+   "w": "1 + 4 + 9 + 16 + 25 + 36 = 91.",
+   "h": "Zähle jede Schicht einzeln."
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "72 gleiche Würfel sollen zu einem Quader mit einer Grundfläche von 6 · 4 Würfeln gestapelt werden. Wie hoch wird der Quader (in Würfeln)?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "72 / (6 * 4)",
+   "w": "Eine Schicht: 6 · 4 = 24. 72 : 24 = 3 Schichten.",
+   "h": "Wie viele Würfel hat eine Schicht?"
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel aus 4 · 4 · 4 kleinen Würfeln wird außen rot angemalt. Wie viele kleine Würfel haben gar keine rote Fläche?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(4 - 2) * (4 - 2) * (4 - 2)",
+   "w": "Ohne Farbe sind nur die inneren Würfel: in jeder Richtung 4 − 2 = 2. Also 2 · 2 · 2 = 8.",
+   "h": "Welche Würfel berühren den Rand nicht?"
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Regal liegen 4 gleiche Stapel. Jeder Stapel hat 9 Schichten aus je 6 Würfeln (1 cm³). Wie viel cm³ sind es zusammen?"
+   },
+   "o": {
+    "wert": 216,
+    "einheit": "cm³"
+   },
+   "c": "4 * 9 * 6",
+   "w": "Ein Stapel: 9 · 6 = 54 cm³. 4 Stapel: 216 cm³.",
+   "h": "Ein Stapel zuerst."
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader aus 1-cm-Würfeln ist 4 cm · 4 cm · 3 cm groß. Aus einer Ecke wird ein Würfel mit 3 cm Kante herausgenommen. Wie viele kleine Würfel bleiben?"
+   },
+   "o": {
+    "wert": 21
+   },
+   "c": "4 * 4 * 3 - 3 * 3 * 3",
+   "w": "Vorher 48 Würfel. Die Ecke besteht aus 3 · 3 · 3 = 27 Würfeln. Es bleiben 21.",
+   "h": "Erst alle, dann die Ecke abziehen."
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader aus 80 Würfeln hat in jeder Schicht 20 Würfel. Wie viele Schichten hat er?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "80 / 20",
+   "w": "80 : 20 = 4 Schichten."
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Karton ist innen 12 cm lang, 8 cm breit und 6 cm hoch. Wie viele Würfel mit 2 cm Kante passen hinein?"
+   },
+   "o": {
+    "wert": 72
+   },
+   "c": "(12 / 2) * (8 / 2) * (6 / 2)",
+   "w": "Je Richtung passen 6, 4 und 3 Würfel: 6 · 4 · 3 = 72."
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Volumen hat ungefähr ein Kühlschrank?"
+   },
+   "a": [
+    "etwa 0,3 m³",
+    "etwa 300 cm³",
+    "etwa 3 m³",
+    "etwa 30 dm³"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein Kühlschrank hat ungefähr 0,3 m³. Vergleiche: 1 cm³ ist ein Zuckerwürfel, 1 dm³ eine Milchtüte, 1 m³ eine große Kiste."
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein großer Würfel mit 3 cm Kantenlänge soll aus Würfeln mit 1 cm Kante gebaut werden. Wie viele kleine Würfel braucht man?"
+   },
+   "o": {
+    "wert": 27
+   },
+   "c": "3 * 3 * 3",
+   "w": "Eine Schicht: 3 · 3 = 9. 3 Schichten: 9 · 3 = 27."
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader aus 20 Würfeln hat in jeder Schicht 10 Würfel. Wie viele Schichten hat er?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "20 / 10",
+   "w": "20 : 10 = 2 Schichten."
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Volumen hat ungefähr eine Milchtüte (1 l)?"
+   },
+   "a": [
+    "1 cm³",
+    "1 m³",
+    "10 cm³",
+    "1 dm³"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Eine Milchtüte (1 l) hat ungefähr 1 dm³. Vergleiche: 1 cm³ ist ein Zuckerwürfel, 1 dm³ eine Milchtüte, 1 m³ eine große Kiste."
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Würfel mit 1 cm Kante passen in 5 Würfel mit je 1 dm Kante?"
+   },
+   "o": {
+    "wert": 5000
+   },
+   "c": "5 * 10 * 10 * 10",
+   "w": "1 dm = 10 cm. In einen dm-Würfel passen 10 · 10 · 10 = 1 000 Zentimeterwürfel. 5 solche: 5 000."
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader aus 12 Würfeln hat in jeder Schicht 6 Würfel. Wie viele Schichten hat er?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "12 / 6",
+   "w": "12 : 6 = 2 Schichten."
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein großer Würfel mit 2 cm Kantenlänge soll aus Würfeln mit 1 cm Kante gebaut werden. Wie viele kleine Würfel braucht man?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "2 * 2 * 2",
+   "w": "Eine Schicht: 2 · 2 = 4. 2 Schichten: 4 · 2 = 8."
+  },
+  {
+   "l": "einheitswuerfel",
+   "t": "einheitswuerfel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Karton ist innen 8 cm lang, 8 cm breit und 8 cm hoch. Wie viele Würfel mit 2 cm Kante passen hinein?"
+   },
+   "o": {
+    "wert": 64
+   },
+   "c": "(8 / 2) * (8 / 2) * (8 / 2)",
+   "w": "Je Richtung passen 4, 4 und 4 Würfel: 4 · 4 · 4 = 64."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Volumen des Quaders: 11 m lang, 4 m breit, 5 m hoch.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.414,
+       1.414
+      ],
+      "_v1": [
+       11.0,
+       0.0
+      ],
+      "_h1": [
+       12.414,
+       1.414
+      ],
+      "_v2": [
+       11.0,
+       5.0
+      ],
+      "_h2": [
+       12.414,
+       6.414
+      ],
+      "_v3": [
+       0.0,
+       5.0
+      ],
+      "_h3": [
+       1.414,
+       6.414
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "11 m"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "5 m"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "4 m"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3"
+     ]
+    }
+   },
+   "o": {
+    "wert": 220,
+    "einheit": "m³"
+   },
+   "c": "11 * 4 * 5",
+   "w": "V = a · b · c = 11 m · 4 m · 5 m = 220 m³.",
+   "h": "Länge mal Breite mal Höhe."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel hat 4 cm Kantenlänge. Wie groß ist sein Volumen?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.414,
+       1.414
+      ],
+      "_v1": [
+       4.0,
+       0.0
+      ],
+      "_h1": [
+       5.414,
+       1.414
+      ],
+      "_v2": [
+       4.0,
+       4.0
+      ],
+      "_h2": [
+       5.414,
+       5.414
+      ],
+      "_v3": [
+       0.0,
+       4.0
+      ],
+      "_h3": [
+       1.414,
+       5.414
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "4 cm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "4 cm"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "4 cm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3"
+     ]
+    }
+   },
+   "o": {
+    "wert": 64,
+    "einheit": "cm³"
+   },
+   "c": "4 * 4 * 4",
+   "w": "V = 4 · 4 · 4 = 64 cm³.",
+   "h": "Beim Würfel sind alle Kanten gleich."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel hat 5 m Kantenlänge. Wie groß ist sein Volumen?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.768,
+       1.768
+      ],
+      "_v1": [
+       5.0,
+       0.0
+      ],
+      "_h1": [
+       6.768,
+       1.768
+      ],
+      "_v2": [
+       5.0,
+       5.0
+      ],
+      "_h2": [
+       6.768,
+       6.768
+      ],
+      "_v3": [
+       0.0,
+       5.0
+      ],
+      "_h3": [
+       1.768,
+       6.768
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "5 m"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "5 m"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "5 m"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3"
+     ]
+    }
+   },
+   "o": {
+    "wert": 125,
+    "einheit": "m³"
+   },
+   "c": "5 * 5 * 5",
+   "w": "V = 5 · 5 · 5 = 125 m³.",
+   "h": "Beim Würfel sind alle Kanten gleich."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Volumen des Quaders: 6 m lang, 8 m breit, 7 m hoch.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       2.828,
+       2.828
+      ],
+      "_v1": [
+       6.0,
+       0.0
+      ],
+      "_h1": [
+       8.828,
+       2.828
+      ],
+      "_v2": [
+       6.0,
+       7.0
+      ],
+      "_h2": [
+       8.828,
+       9.828
+      ],
+      "_v3": [
+       0.0,
+       7.0
+      ],
+      "_h3": [
+       2.828,
+       9.828
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "6 m"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "7 m"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "8 m"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3"
+     ]
+    }
+   },
+   "o": {
+    "wert": 336,
+    "einheit": "m³"
+   },
+   "c": "6 * 8 * 7",
+   "w": "V = a · b · c = 6 m · 8 m · 7 m = 336 m³.",
+   "h": "Länge mal Breite mal Höhe."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 8,5 cm lang, 2 cm breit und 2 cm hoch. Berechne sein Volumen.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       0.707,
+       0.707
+      ],
+      "_v1": [
+       8.5,
+       0.0
+      ],
+      "_h1": [
+       9.207,
+       0.707
+      ],
+      "_v2": [
+       8.5,
+       2.0
+      ],
+      "_h2": [
+       9.207,
+       2.707
+      ],
+      "_v3": [
+       0.0,
+       2.0
+      ],
+      "_h3": [
+       0.707,
+       2.707
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "8,5 cm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "2 cm"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "2 cm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3"
+     ]
+    }
+   },
+   "o": {
+    "wert": 34,
+    "einheit": "cm³"
+   },
+   "c": "8.5 * 2 * 2",
+   "w": "V = 8,5 · 2 · 2 = 34 cm³.",
+   "h": "Auch mit Kommazahlen: a · b · c."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel hat die Kantenlänge 0,3 m. Berechne sein Volumen in m³."
+   },
+   "o": {
+    "wert": 0.027,
+    "einheit": "m³"
+   },
+   "c": "0.3 * 0.3 * 0.3",
+   "w": "V = 0,3 · 0,3 · 0,3 = 0,027 m³.",
+   "h": "Dreimal die Kante."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Sandkasten ist 3 m lang und 2 m breit. Er wird 40 cm hoch mit Sand gefüllt. Wie viele m³ Sand braucht man?"
+   },
+   "o": {
+    "wert": 2.4,
+    "einheit": "m³"
+   },
+   "c": "3 * 2 * 0.4",
+   "w": "40 cm = 0,4 m. V = 3 · 2 · 0,4 = 2,4 m³.",
+   "h": "Die Höhe zuerst in m."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Quader ist 7 cm lang, 2 cm breit und 5 cm hoch. Welche Rechnung liefert sein Volumen?"
+   },
+   "a": [
+    "7 + 2 + 5",
+    "2 · (7 · 2 + 7 · 5 + 2 · 5)",
+    "7 · 2 · 5",
+    "4 · (7 + 2 + 5)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "V = a · b · c = 70 cm³. Die anderen Rechnungen geben a + b + c, die Oberfläche bzw. die Länge aller 12 Kanten.",
+   "h": "Volumen: Länge mal Breite mal Höhe."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kiste ist 1 m lang, 5 dm breit und 40 cm hoch. Wie groß ist ihr Volumen in dm³?"
+   },
+   "o": {
+    "wert": 200,
+    "einheit": "dm³"
+   },
+   "c": "1 * 10 * 5 * 40 / 10",
+   "w": "In dm: 10 dm, 5 dm, 4 dm. V = 10 · 5 · 4 = 200 dm³.",
+   "h": "Alle Kanten zuerst in dm."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 1,5 cm lang, 7 cm breit und 2 cm hoch. Berechne sein Volumen.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       2.475,
+       2.475
+      ],
+      "_v1": [
+       1.5,
+       0.0
+      ],
+      "_h1": [
+       3.975,
+       2.475
+      ],
+      "_v2": [
+       1.5,
+       2.0
+      ],
+      "_h2": [
+       3.975,
+       4.475
+      ],
+      "_v3": [
+       0.0,
+       2.0
+      ],
+      "_h3": [
+       2.475,
+       4.475
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "1,5 cm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "2 cm"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "7 cm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3"
+     ]
+    }
+   },
+   "o": {
+    "wert": 21,
+    "einheit": "cm³"
+   },
+   "c": "1.5 * 7 * 2",
+   "w": "V = 1,5 · 7 · 2 = 21 cm³.",
+   "h": "Auch mit Kommazahlen: a · b · c."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Umzugskarton ist 60 cm lang, 40 cm breit und 40 cm hoch. Ein kleinerer Karton soll halb so viel fassen. Welche Maße passen?"
+   },
+   "a": [
+    "60 cm · 40 cm · 20 cm",
+    "60 cm · 40 cm · 30 cm",
+    "30 cm · 20 cm · 20 cm",
+    "50 cm · 30 cm · 30 cm"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Groß: 60 · 40 · 40 = 96 000 cm³. Halb: 48 000 cm³ = 60 · 40 · 20. Halbiert man alle Kanten (30 · 20 · 20 = 12 000 cm³), ist es nur ein Achtel; 50 · 30 · 30 = 45 000 cm³ und 60 · 40 · 30 = 72 000 cm³ sind nicht die Hälfte.",
+   "h": "Halbiere genau eine Kante."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel mit 4 cm Kante wird entlang einer Diagonale von oben nach unten in zwei gleiche Teile geschnitten. Wie groß ist das Volumen eines Teils?"
+   },
+   "o": {
+    "wert": 32,
+    "einheit": "cm³"
+   },
+   "c": "4 * 4 * 4 / 2",
+   "w": "Würfel: 4 · 4 · 4 = 64 cm³. Die beiden Teile sind gleich groß: 64 : 2 = 32 cm³.",
+   "h": "Wie groß ist der ganze Würfel?"
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele verschiedene Quader mit ganzzahligen Kantenlängen (in cm) haben genau 24 cm³? Quader, die nur gedreht sind, zählen als gleich."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "Kanten a ≤ b ≤ c mit a · b · c = 24: 1·1·24, 1·2·12, 1·3·8, 1·4·6, 2·2·6, 2·3·4. Das sind 6 Quader.",
+   "h": "Beginne mit der kleinsten Kante 1, dann 2."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für ein Fundament (5 m lang, 3 m breit, 80 cm tief) wird Beton bestellt. 1 m³ kostet 110 €. Wie teuer ist der Beton?"
+   },
+   "o": {
+    "wert": 1320,
+    "einheit": "€"
+   },
+   "c": "5 * 3 * 0.8 * 110",
+   "w": "V = 5 · 3 · 0,8 = 12 m³. Preis: 12 · 110 € = 1 320 €.",
+   "h": "Tiefe in m, Volumen, dann der Preis."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel hat das Volumen 343 cm³. Wie lang ist eine Kante?"
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "cm"
+   },
+   "c": "7 + 343 - 7 * 7 * 7",
+   "w": "Probieren: 7 · 7 · 7 = 343. Die Kante ist 7 cm lang.",
+   "h": "Welche Zahl dreimal mit sich selbst malgenommen ergibt das Volumen?"
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Das Kantenmodell eines Quaders braucht 60 cm Draht. Er ist 3 cm lang und 6 cm breit. Wie groß ist sein Volumen?"
+   },
+   "o": {
+    "wert": 108,
+    "einheit": "cm³"
+   },
+   "c": "3 * 6 * (60 / 4 - 3 - 6)",
+   "w": "Je 4 Kanten sind gleich lang: 60 : 4 = 15 cm = Länge + Breite + Höhe. Höhe: 15 − 3 − 6 = 6 cm. V = 3 · 6 · 6 = 108 cm³.",
+   "h": "Ein Quader hat je 4 gleich lange Kanten."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "64 gleiche Päckchen (6 cm · 4 cm · 3 cm) werden zu einem großen Paket gestapelt: 4 in die Länge, 4 in die Breite, 4 in die Höhe. Wie groß ist das Volumen des großen Pakets?"
+   },
+   "o": {
+    "wert": 4608,
+    "einheit": "cm³"
+   },
+   "c": "(4 * 6) * (4 * 4) * (4 * 3)",
+   "w": "Maße: 24 cm · 16 cm · 12 cm = 4 608 cm³. Probe: 64 · 72 cm³ = 4 608 cm³.",
+   "h": "Rechne die Maße des großen Pakets aus – oder Päckchen mal Volumen."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Karton A ist 6 dm · 4 dm · 6 dm groß, Karton B 4 dm · 6 dm · 7 dm. Um wie viel dm³ ist B größer als A?"
+   },
+   "o": {
+    "wert": 24,
+    "einheit": "dm³"
+   },
+   "c": "4 * 6 * 7 - 6 * 4 * 6",
+   "w": "A: 144 dm³. B: 168 dm³. Unterschied: 24 dm³.",
+   "h": "Rechne beide aus."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel hat die Kantenlänge 0,2 m. Berechne sein Volumen in m³."
+   },
+   "o": {
+    "wert": 0.008,
+    "einheit": "m³"
+   },
+   "c": "0.2 * 0.2 * 0.2",
+   "w": "V = 0,2 · 0,2 · 0,2 = 0,008 m³."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Quader ist 5 cm lang, 3 cm breit und 5 cm hoch. Welche Rechnung liefert sein Volumen?"
+   },
+   "a": [
+    "4 · (5 + 3 + 5)",
+    "5 · 3 · 5",
+    "5 + 3 + 5",
+    "2 · (5 · 3 + 5 · 5 + 3 · 5)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "V = a · b · c = 75 cm³. Die anderen Rechnungen geben a + b + c, die Oberfläche bzw. die Länge aller 12 Kanten."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kiste ist 3 m lang, 4 dm breit und 50 cm hoch. Wie groß ist ihr Volumen in dm³?"
+   },
+   "o": {
+    "wert": 600,
+    "einheit": "dm³"
+   },
+   "c": "3 * 10 * 4 * 50 / 10",
+   "w": "In dm: 30 dm, 4 dm, 5 dm. V = 30 · 4 · 5 = 600 dm³."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Sandkasten ist 2 m lang und 2 m breit. Er wird 20 cm hoch mit Sand gefüllt. Wie viele m³ Sand braucht man?"
+   },
+   "o": {
+    "wert": 0.8,
+    "einheit": "m³"
+   },
+   "c": "2 * 2 * 0.2",
+   "w": "20 cm = 0,2 m. V = 2 · 2 · 0,2 = 0,8 m³."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Quader ist 3 cm lang, 6 cm breit und 3 cm hoch. Welche Rechnung liefert sein Volumen?"
+   },
+   "a": [
+    "3 · 6 · 3",
+    "4 · (3 + 6 + 3)",
+    "3 + 6 + 3",
+    "2 · (3 · 6 + 3 · 3 + 6 · 3)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "V = a · b · c = 54 cm³. Die anderen Rechnungen geben a + b + c, die Oberfläche bzw. die Länge aller 12 Kanten."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Sandkasten ist 2 m lang und 1,5 m breit. Er wird 40 cm hoch mit Sand gefüllt. Wie viele m³ Sand braucht man?"
+   },
+   "o": {
+    "wert": 1.2,
+    "einheit": "m³"
+   },
+   "c": "2 * 1.5 * 0.4",
+   "w": "40 cm = 0,4 m. V = 2 · 1,5 · 0,4 = 1,2 m³."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kiste ist 3 m lang, 5 dm breit und 30 cm hoch. Wie groß ist ihr Volumen in dm³?"
+   },
+   "o": {
+    "wert": 450,
+    "einheit": "dm³"
+   },
+   "c": "3 * 10 * 5 * 30 / 10",
+   "w": "In dm: 30 dm, 5 dm, 3 dm. V = 30 · 5 · 3 = 450 dm³."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 6,5 cm lang, 2 cm breit und 10 cm hoch. Berechne sein Volumen.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       0.707,
+       0.707
+      ],
+      "_v1": [
+       6.5,
+       0.0
+      ],
+      "_h1": [
+       7.207,
+       0.707
+      ],
+      "_v2": [
+       6.5,
+       10.0
+      ],
+      "_h2": [
+       7.207,
+       10.707
+      ],
+      "_v3": [
+       0.0,
+       10.0
+      ],
+      "_h3": [
+       0.707,
+       10.707
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "6,5 cm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "10 cm"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "2 cm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3"
+     ]
+    }
+   },
+   "o": {
+    "wert": 130,
+    "einheit": "cm³"
+   },
+   "c": "6.5 * 2 * 10",
+   "w": "V = 6,5 · 2 · 10 = 130 cm³."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kiste ist 2 m lang, 8 dm breit und 30 cm hoch. Wie groß ist ihr Volumen in dm³?"
+   },
+   "o": {
+    "wert": 480,
+    "einheit": "dm³"
+   },
+   "c": "2 * 10 * 8 * 30 / 10",
+   "w": "In dm: 20 dm, 8 dm, 3 dm. V = 20 · 8 · 3 = 480 dm³."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Sandkasten ist 2 m lang und 2,5 m breit. Er wird 20 cm hoch mit Sand gefüllt. Wie viele m³ Sand braucht man?"
+   },
+   "o": {
+    "wert": 1,
+    "einheit": "m³"
+   },
+   "c": "2 * 2.5 * 0.2",
+   "w": "20 cm = 0,2 m. V = 2 · 2,5 · 0,2 = 1 m³."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 4 000 cm³ = ? dm³"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "dm³"
+   },
+   "c": "4000 / 1000",
+   "w": "Zur größeren Einheit durch 1 000: 4 000 cm³ = 4 dm³.",
+   "h": "Bei Volumen ist die Umrechnungszahl 1 000."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 17 dm³ = ? cm³"
+   },
+   "o": {
+    "wert": 17000,
+    "einheit": "cm³"
+   },
+   "c": "17 * 1000",
+   "w": "Zur kleineren Einheit mal 1 000: 17 dm³ = 17 000 cm³.",
+   "h": "Bei Volumen ist die Umrechnungszahl 1 000."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 5 000 mm³ = ? cm³"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "cm³"
+   },
+   "c": "5000 / 1000",
+   "w": "Zur größeren Einheit durch 1 000: 5 000 mm³ = 5 cm³.",
+   "h": "Bei Volumen ist die Umrechnungszahl 1 000."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 5 cm³ = ? mm³"
+   },
+   "o": {
+    "wert": 5000,
+    "einheit": "mm³"
+   },
+   "c": "5 * 1000",
+   "w": "Zur kleineren Einheit mal 1 000: 5 cm³ = 5 000 mm³.",
+   "h": "Bei Volumen ist die Umrechnungszahl 1 000."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 5 m³ = ? cm³"
+   },
+   "o": {
+    "wert": 5000000,
+    "einheit": "cm³"
+   },
+   "c": "5 * 1000 * 1000",
+   "w": "Zwei Schritte: m³ → dm³ → cm³, also mal 1 000 000. 5 m³ = 5 000 000 cm³.",
+   "h": "Von m³ über dm³ zu cm³."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 4 m³ 545 dm³ in m³ (Kommazahl)."
+   },
+   "o": {
+    "wert": 4.545,
+    "einheit": "m³"
+   },
+   "c": "4 + 545 / 1000",
+   "w": "545 dm³ = 0,545 m³. Zusammen 4,545 m³.",
+   "h": "Jede kleinere Einheit bekommt drei Stellen nach dem Komma."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 115 dm³ = ? m³"
+   },
+   "o": {
+    "wert": 0.115,
+    "einheit": "m³"
+   },
+   "c": "115 / 1000",
+   "w": "Durch 1 000: 115 dm³ = 0,115 m³.",
+   "h": "Verschiebe das Komma um drei Stellen."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Angabe ist das größte Volumen?"
+   },
+   "a": [
+    "2,1 dm³",
+    "300 000 mm³",
+    "0,3 dm³",
+    "2 500 cm³"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "In dm³: 2 500 cm³ = 2,5 dm³, 2,1 dm³, 0,3 dm³, 300 000 mm³ = 0,3 dm³. Am größten: 2 500 cm³.",
+   "h": "Rechne alles in dm³ um."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 8 m³ = ? cm³"
+   },
+   "o": {
+    "wert": 8000000,
+    "einheit": "cm³"
+   },
+   "c": "8 * 1000 * 1000",
+   "w": "Zwei Schritte: m³ → dm³ → cm³, also mal 1 000 000. 8 m³ = 8 000 000 cm³.",
+   "h": "Von m³ über dm³ zu cm³."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 1 m³ 938 dm³ in m³ (Kommazahl)."
+   },
+   "o": {
+    "wert": 1.938,
+    "einheit": "m³"
+   },
+   "c": "1 + 938 / 1000",
+   "w": "938 dm³ = 0,938 m³. Zusammen 1,938 m³.",
+   "h": "Jede kleinere Einheit bekommt drei Stellen nach dem Komma."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Angabe beschreibt das gleiche Volumen wie 0,2 dm³?"
+   },
+   "a": [
+    "20 cm³",
+    "0,2 m³",
+    "200 cm³",
+    "2 000 cm³"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "0,2 dm³ = 0,2 · 1 000 cm³ = 200 cm³. 0,2 m³ wären 200 dm³.",
+   "h": "Rechne in cm³ um."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 2 m³ + 300 dm³ + 4 000 cm³ in dm³."
+   },
+   "o": {
+    "wert": 2304,
+    "einheit": "dm³"
+   },
+   "c": "2 * 1000 + 300 + 4000 / 1000",
+   "w": "2 m³ = 2 000 dm³, 4 000 cm³ = 4 dm³. Summe: 2 000 + 300 + 4 = 2 304 dm³.",
+   "h": "Alles in dm³ umrechnen."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel mit 1 m Kante wird in Würfel mit 1 cm Kante zerschnitten. Man legt alle in eine Reihe. Wie viele km ist die Reihe lang?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "km"
+   },
+   "c": "100 * 100 * 100 / 100000",
+   "w": "1 m³ = 1 000 000 cm³, also 1 000 000 Würfelchen zu je 1 cm. Reihe: 1 000 000 cm = 10 000 m = 10 km.",
+   "h": "Wie viele cm³ hat 1 m³?"
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel mit 8 cm Kante wird in Würfel mit 1 mm Kante zerlegt. Wie viele sind es?"
+   },
+   "o": {
+    "wert": 512000
+   },
+   "c": "(8 * 10) ** 3",
+   "w": "8 cm = 80 mm. Würfelchen: 80 · 80 · 80 = 512 000. Das sind 512 cm³ = 512 000 mm³.",
+   "h": "Rechne die Kante in mm um."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Tom rechnet: 3,7 dm³ = 370 cm³. Was stimmt?"
+   },
+   "a": [
+    "Falsch, richtig ist 37 000 cm³.",
+    "Falsch, richtig ist 37 cm³.",
+    "Falsch, richtig ist 3 700 cm³ (mal 1 000).",
+    "Richtig, man rechnet mal 100."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Bei Volumen ist die Umrechnungszahl 1 000: 3,7 · 1 000 = 3 700 cm³. Mal 100 gilt bei Flächen.",
+   "h": "Wie viele cm³ hat 1 dm³?"
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 1 dm³ + 610 cm³ + 28 mm³ in cm³."
+   },
+   "o": {
+    "wert": 1610.028,
+    "einheit": "cm³"
+   },
+   "c": "1 * 1000 + 610 + 28 / 1000",
+   "w": "1 dm³ = 1 000 cm³, 28 mm³ = 0,028 cm³. Summe: 1 610,028 cm³.",
+   "h": "Erst alles in cm³ umrechnen."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 0,025 m³ = ? cm³"
+   },
+   "o": {
+    "wert": 25000,
+    "einheit": "cm³"
+   },
+   "c": "0.025 * 1000000",
+   "w": "0,025 m³ = 25 dm³ = 25 000 cm³.",
+   "h": "Zwei Schritte mal 1 000."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Reihenfolge ist von klein nach groß richtig?"
+   },
+   "a": [
+    "800 cm³ < 0,002 m³ < 1 dm³ < 1 200 cm³",
+    "0,002 m³ < 800 cm³ < 1 dm³ < 1 200 cm³",
+    "1 dm³ < 800 cm³ < 0,002 m³ < 1 200 cm³",
+    "800 cm³ < 1 dm³ < 1 200 cm³ < 0,002 m³"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "In cm³: 800, 1 000, 1 200 und 0,002 m³ = 2 000 cm³.",
+   "h": "Rechne alles in cm³ um."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 4 m³ 811 dm³ in m³ (Kommazahl)."
+   },
+   "o": {
+    "wert": 4.811,
+    "einheit": "m³"
+   },
+   "c": "4 + 811 / 1000",
+   "w": "811 dm³ = 0,811 m³. Zusammen 4,811 m³."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 7,33 m³ = ? dm³"
+   },
+   "o": {
+    "wert": 7330,
+    "einheit": "dm³"
+   },
+   "c": "7.33 * 1000",
+   "w": "Mal 1 000: 7,33 m³ = 7 330 dm³."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 5 m³ 7 dm³ in m³ (Kommazahl)."
+   },
+   "o": {
+    "wert": 5.007,
+    "einheit": "m³"
+   },
+   "c": "5 + 7 / 1000",
+   "w": "7 dm³ = 0,007 m³. Zusammen 5,007 m³."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 6 m³ = ? cm³"
+   },
+   "o": {
+    "wert": 6000000,
+    "einheit": "cm³"
+   },
+   "c": "6 * 1000 * 1000",
+   "w": "Zwei Schritte: m³ → dm³ → cm³, also mal 1 000 000. 6 m³ = 6 000 000 cm³."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 7 m³ 80 dm³ in m³ (Kommazahl)."
+   },
+   "o": {
+    "wert": 7.08,
+    "einheit": "m³"
+   },
+   "c": "7 + 80 / 1000",
+   "w": "80 dm³ = 0,08 m³. Zusammen 7,08 m³."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 477 cm³ = ? dm³"
+   },
+   "o": {
+    "wert": 0.477,
+    "einheit": "dm³"
+   },
+   "c": "477 / 1000",
+   "w": "Durch 1 000: 477 cm³ = 0,477 dm³."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 5 m³ 598 dm³ in m³ (Kommazahl)."
+   },
+   "o": {
+    "wert": 5.598,
+    "einheit": "m³"
+   },
+   "c": "5 + 598 / 1000",
+   "w": "598 dm³ = 0,598 m³. Zusammen 5,598 m³."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 3 m³ 677 dm³ in m³ (Kommazahl)."
+   },
+   "o": {
+    "wert": 3.677,
+    "einheit": "m³"
+   },
+   "c": "3 + 677 / 1000",
+   "w": "677 dm³ = 0,677 m³. Zusammen 3,677 m³."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 4 m³ = ? cm³"
+   },
+   "o": {
+    "wert": 4000000,
+    "einheit": "cm³"
+   },
+   "c": "4 * 1000 * 1000",
+   "w": "Zwei Schritte: m³ → dm³ → cm³, also mal 1 000 000. 4 m³ = 4 000 000 cm³."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 1 m³ 788 dm³ in m³ (Kommazahl)."
+   },
+   "o": {
+    "wert": 1.788,
+    "einheit": "m³"
+   },
+   "c": "1 + 788 / 1000",
+   "w": "788 dm³ = 0,788 m³. Zusammen 1,788 m³."
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Eimer fasst 79 dm³. Wie viele Liter sind das?"
+   },
+   "o": {
+    "wert": 79,
+    "einheit": "l"
+   },
+   "c": "79",
+   "w": "1 dm³ = 1 l, also 79 dm³ = 79 l.",
+   "h": "Wie viel ist 1 dm³ in Liter?"
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 5 l = ? ml"
+   },
+   "o": {
+    "wert": 5000,
+    "einheit": "ml"
+   },
+   "c": "5 * 1000",
+   "w": "1 l = 1 000 ml, also 5 l = 5 000 ml.",
+   "h": "1 l = 1 000 ml."
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 200 ml = ? l"
+   },
+   "o": {
+    "wert": 0.2,
+    "einheit": "l"
+   },
+   "c": "200 / 1000",
+   "w": "Durch 1 000: 200 ml = 0,2 l.",
+   "h": "1 000 ml sind 1 l."
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Becher fasst 580 cm³. Wie viele ml sind das?"
+   },
+   "o": {
+    "wert": 580,
+    "einheit": "ml"
+   },
+   "c": "580",
+   "w": "1 cm³ = 1 ml, also 580 cm³ = 580 ml.",
+   "h": "Wie viel ist 1 cm³ in ml?"
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Flasche enthält 1,5 l. Wie viel cm³ sind das?"
+   },
+   "o": {
+    "wert": 1500,
+    "einheit": "cm³"
+   },
+   "c": "1.5 * 1000",
+   "w": "1,5 l = 1 500 ml = 1 500 cm³.",
+   "h": "1 l = 1 000 ml und 1 ml = 1 cm³."
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 2,7 dm³ = ? ml"
+   },
+   "o": {
+    "wert": 2700,
+    "einheit": "ml"
+   },
+   "c": "2.7 * 1000",
+   "w": "2,7 dm³ = 2,7 l = 2 700 ml.",
+   "h": "1 dm³ = 1 l = 1 000 ml."
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium ist 80 cm lang, 20 cm breit und 40 cm hoch. Wie viele Liter fasst es?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       7.071,
+       7.071
+      ],
+      "_v1": [
+       80.0,
+       0.0
+      ],
+      "_h1": [
+       87.071,
+       7.071
+      ],
+      "_v2": [
+       80.0,
+       40.0
+      ],
+      "_h2": [
+       87.071,
+       47.071
+      ],
+      "_v3": [
+       0.0,
+       40.0
+      ],
+      "_h3": [
+       7.071,
+       47.071
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "80 cm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "40 cm"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "20 cm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3"
+     ]
+    }
+   },
+   "o": {
+    "wert": 64,
+    "einheit": "l"
+   },
+   "c": "80 * 20 * 40 / 1000",
+   "w": "In dm: 8 · 2 · 4 = 64 dm³ = 64 l.",
+   "h": "Rechne in dm um, dann ist dm³ gleich Liter."
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Pool fasst 12 m³ Wasser. Wie viele Liter sind das?"
+   },
+   "o": {
+    "wert": 12000,
+    "einheit": "l"
+   },
+   "c": "12 * 1000",
+   "w": "1 m³ = 1 000 dm³ = 1 000 l. 12 m³ = 12 000 l.",
+   "h": "Wie viele dm³ hat 1 m³?"
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus einer Flasche mit 0,75 l Saft werden Gläser mit je 150 ml gefüllt. Wie viele volle Gläser gibt es?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "0.75 * 1000 / 150",
+   "w": "0,75 l = 750 ml. 750 : 150 = 5 Gläser.",
+   "h": "Rechne die Flasche in ml um."
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Flasche enthält 0,33 l. Wie viel cm³ sind das?"
+   },
+   "o": {
+    "wert": 330,
+    "einheit": "cm³"
+   },
+   "c": "0.33 * 1000",
+   "w": "0,33 l = 330 ml = 330 cm³.",
+   "h": "1 l = 1 000 ml und 1 ml = 1 cm³."
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Auf ein Flachdach mit 40 m² fallen in einer Nacht 15 mm Regen. Wie viele Liter Wasser sind das?"
+   },
+   "o": {
+    "wert": 600,
+    "einheit": "l"
+   },
+   "c": "40 * 15",
+   "w": "Auf 1 m²: 10 dm · 10 dm · 0,15 dm = 15 dm³ = 15 l. Auf 40 m²: 40 · 15 = 600 l.",
+   "h": "Rechne den Regen auf 1 m² als flachen Quader in dm."
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Messbecher fasst 0,5 l. Wie oft muss man ihn ausleeren, um ein Aquarium (40 cm lang, 25 cm breit, 30 cm hoch) ganz zu füllen?"
+   },
+   "o": {
+    "wert": 60
+   },
+   "c": "40 * 25 * 30 / 1000 / 0.5",
+   "w": "Aquarium: 4 dm · 2,5 dm · 3 dm = 30 dm³ = 30 l. 30 l : 0,5 l = 60-mal.",
+   "h": "Rechne das Aquarium in Liter um."
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Wasserhahn tropft jede Sekunde. Ein Tropfen hat 0,05 ml. Wie viele Liter gehen an einem Tag verloren?"
+   },
+   "o": {
+    "wert": 4.32,
+    "einheit": "l"
+   },
+   "c": "0.05 * 60 * 60 * 24 / 1000",
+   "w": "Ein Tag hat 24 · 60 · 60 = 86 400 Sekunden. 86 400 · 0,05 ml = 4 320 ml = 4,32 l.",
+   "h": "Wie viele Sekunden hat ein Tag?"
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Behälter fasst am meisten?"
+   },
+   "a": [
+    "eine 5-l-Flasche",
+    "ein Würfel mit 2 dm Kante",
+    "6 000 cm³ in einer Schüssel",
+    "ein Quader 10 cm · 10 cm · 50 cm"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Würfel: 2 · 2 · 2 = 8 dm³ = 8 l. Die Flasche fasst 5 l, die Schüssel 6 l, der Quader 1 · 1 · 5 = 5 dm³ = 5 l.",
+   "h": "Rechne alles in Liter um."
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind gießt 12 Eimer mit je 10 l Wasser in ein leeres Becken (80 cm lang, 50 cm breit). Wie hoch steht das Wasser in cm?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "cm"
+   },
+   "c": "12 * 10 * 1000 / (80 * 50)",
+   "w": "Wasser: 12 · 10 = 120 l = 120 000 cm³. Grundfläche 80 · 50 = 4 000 cm². Höhe: 120 000 : 4 000 = 30 cm.",
+   "h": "Liter in cm³, dann durch die Grundfläche."
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium (80 cm lang, 40 cm breit, 50 cm hoch) wird bis 10 cm unter den Rand gefüllt. Wie viele Liter Wasser sind darin?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       14.142,
+       14.142
+      ],
+      "_v1": [
+       80.0,
+       0.0
+      ],
+      "_h1": [
+       94.142,
+       14.142
+      ],
+      "_v2": [
+       80.0,
+       50.0
+      ],
+      "_h2": [
+       94.142,
+       64.142
+      ],
+      "_v3": [
+       0.0,
+       50.0
+      ],
+      "_h3": [
+       14.142,
+       64.142
+      ],
+      "_w0": [
+       0,
+       40.0
+      ],
+      "_w1": [
+       80.0,
+       40.0
+      ],
+      "_w2": [
+       94.142,
+       54.142
+      ],
+      "_w3": [
+       14.142,
+       54.142
+      ],
+      "_wt": [
+       40.0,
+       20.0
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "80 cm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "50 cm"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "40 cm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_w0",
+       "_w1"
+      ],
+      [
+       "_w1",
+       "_w2"
+      ],
+      [
+       "_w2",
+       "_w3",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_wt",
+       "_wt",
+       "Wasser: 40 cm",
+       "gestrichelt"
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_w1",
+      "_w0"
+     ]
+    }
+   },
+   "o": {
+    "wert": 128,
+    "einheit": "l"
+   },
+   "c": "80 * 40 * (50 - 10) / 1000",
+   "w": "Wasserhöhe: 50 − 10 = 40 cm. V = 80 · 40 · 40 = 128 000 cm³ = 128 l.",
+   "h": "Wie hoch steht das Wasser?"
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Regentank ist 2 m lang, 2 m breit und 0,8 m hoch. Pro Tag werden 50 l für den Garten entnommen. Nach wie vielen Tagen ist der volle Tank leer?"
+   },
+   "o": {
+    "wert": 64
+   },
+   "c": "2 * 2 * 0.8 * 1000 / 50",
+   "w": "V = 2 · 2 · 0,8 = 3,2 m³ = 3 200 l. 3 200 : 50 = 64 Tage.",
+   "h": "Erst das Volumen in Liter."
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Auf ein Garagendach mit 15 m² fallen 8 mm Regen. Wie viele Liter Wasser sind das?"
+   },
+   "o": {
+    "wert": 120,
+    "einheit": "l"
+   },
+   "c": "8 * 15",
+   "w": "Auf 1 m² ist das ein Quader 10 dm · 10 dm · 0,08 dm = 8 dm³ = 8 l. Auf 15 m²: 8 · 15 = 120 l.",
+   "h": "Wie viel Wasser fällt auf 1 m²? Rechne in dm."
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 1,2 dm³ = ? ml"
+   },
+   "o": {
+    "wert": 1200,
+    "einheit": "ml"
+   },
+   "c": "1.2 * 1000",
+   "w": "1,2 dm³ = 1,2 l = 1 200 ml."
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium ist 60 cm lang, 20 cm breit und 40 cm hoch. Wie viele Liter fasst es?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       7.071,
+       7.071
+      ],
+      "_v1": [
+       60.0,
+       0.0
+      ],
+      "_h1": [
+       67.071,
+       7.071
+      ],
+      "_v2": [
+       60.0,
+       40.0
+      ],
+      "_h2": [
+       67.071,
+       47.071
+      ],
+      "_v3": [
+       0.0,
+       40.0
+      ],
+      "_h3": [
+       7.071,
+       47.071
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "60 cm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "40 cm"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "20 cm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3"
+     ]
+    }
+   },
+   "o": {
+    "wert": 48,
+    "einheit": "l"
+   },
+   "c": "60 * 20 * 40 / 1000",
+   "w": "In dm: 6 · 2 · 4 = 48 dm³ = 48 l."
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Pool fasst 30 m³ Wasser. Wie viele Liter sind das?"
+   },
+   "o": {
+    "wert": 30000,
+    "einheit": "l"
+   },
+   "c": "30 * 1000",
+   "w": "1 m³ = 1 000 dm³ = 1 000 l. 30 m³ = 30 000 l."
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus einer Flasche mit 1 l Saft werden Gläser mit je 200 ml gefüllt. Wie viele volle Gläser gibt es?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "1 * 1000 / 200",
+   "w": "1 l = 1 000 ml. 1 000 : 200 = 5 Gläser."
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus einer Flasche mit 2 l Saft werden Gläser mit je 250 ml gefüllt. Wie viele volle Gläser gibt es?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "2 * 1000 / 250",
+   "w": "2 l = 2 000 ml. 2 000 : 250 = 8 Gläser."
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium ist 100 cm lang, 20 cm breit und 40 cm hoch. Wie viele Liter fasst es?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       7.071,
+       7.071
+      ],
+      "_v1": [
+       100.0,
+       0.0
+      ],
+      "_h1": [
+       107.071,
+       7.071
+      ],
+      "_v2": [
+       100.0,
+       40.0
+      ],
+      "_h2": [
+       107.071,
+       47.071
+      ],
+      "_v3": [
+       0.0,
+       40.0
+      ],
+      "_h3": [
+       7.071,
+       47.071
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "100 cm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "40 cm"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "20 cm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3"
+     ]
+    }
+   },
+   "o": {
+    "wert": 80,
+    "einheit": "l"
+   },
+   "c": "100 * 20 * 40 / 1000",
+   "w": "In dm: 10 · 2 · 4 = 80 dm³ = 80 l."
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 0,1 dm³ = ? ml"
+   },
+   "o": {
+    "wert": 100,
+    "einheit": "ml"
+   },
+   "c": "0.1 * 1000",
+   "w": "0,1 dm³ = 0,1 l = 100 ml."
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Planschbecken fasst 0,5 m³ Wasser. Wie viele Liter sind das?"
+   },
+   "o": {
+    "wert": 500,
+    "einheit": "l"
+   },
+   "c": "0.5 * 1000",
+   "w": "1 m³ = 1 000 dm³ = 1 000 l. 0,5 m³ = 500 l."
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus einer Flasche mit 3 l Saft werden Gläser mit je 200 ml gefüllt. Wie viele volle Gläser gibt es?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "3 * 1000 / 200",
+   "w": "3 l = 3 000 ml. 3 000 : 200 = 15 Gläser."
+  },
+  {
+   "l": "liter",
+   "t": "liter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium ist 100 cm lang, 40 cm breit und 50 cm hoch. Wie viele Liter fasst es?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       14.142,
+       14.142
+      ],
+      "_v1": [
+       100.0,
+       0.0
+      ],
+      "_h1": [
+       114.142,
+       14.142
+      ],
+      "_v2": [
+       100.0,
+       50.0
+      ],
+      "_h2": [
+       114.142,
+       64.142
+      ],
+      "_v3": [
+       0.0,
+       50.0
+      ],
+      "_h3": [
+       14.142,
+       64.142
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "100 cm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "50 cm"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "40 cm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3"
+     ]
+    }
+   },
+   "o": {
+    "wert": 200,
+    "einheit": "l"
+   },
+   "c": "100 * 40 * 50 / 1000",
+   "w": "In dm: 10 · 4 · 5 = 200 dm³ = 200 l."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat 162 dm³. Er ist 3 dm lang und 9 dm hoch. Wie breit ist er?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "dm"
+   },
+   "c": "162 / (3 * 9)",
+   "w": "3 · 9 = 27. 162 : 27 = 6 dm.",
+   "h": "Teile durch das Produkt der beiden bekannten Kanten."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat 54 cm³. Er ist 6 cm lang und 3 cm breit. Wie hoch ist er?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.061,
+       1.061
+      ],
+      "_v1": [
+       6.0,
+       0.0
+      ],
+      "_h1": [
+       7.061,
+       1.061
+      ],
+      "_v2": [
+       6.0,
+       3.0
+      ],
+      "_h2": [
+       7.061,
+       4.061
+      ],
+      "_v3": [
+       0.0,
+       3.0
+      ],
+      "_h3": [
+       1.061,
+       4.061
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "6 cm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "?"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "3 cm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3"
+     ]
+    }
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm"
+   },
+   "c": "54 / (6 * 3)",
+   "w": "Grundfläche: 6 · 3 = 18 cm². Höhe: 54 : 18 = 3 cm.",
+   "h": "Volumen durch Grundfläche."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat 256 cm³. Er ist 8 cm lang und 4 cm breit. Wie hoch ist er?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.414,
+       1.414
+      ],
+      "_v1": [
+       8.0,
+       0.0
+      ],
+      "_h1": [
+       9.414,
+       1.414
+      ],
+      "_v2": [
+       8.0,
+       8.0
+      ],
+      "_h2": [
+       9.414,
+       9.414
+      ],
+      "_v3": [
+       0.0,
+       8.0
+      ],
+      "_h3": [
+       1.414,
+       9.414
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "8 cm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "?"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "4 cm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3"
+     ]
+    }
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "cm"
+   },
+   "c": "256 / (8 * 4)",
+   "w": "Grundfläche: 8 · 4 = 32 cm². Höhe: 256 : 32 = 8 cm.",
+   "h": "Volumen durch Grundfläche."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat 90 dm³. Er ist 3 dm lang und 5 dm hoch. Wie breit ist er?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "dm"
+   },
+   "c": "90 / (3 * 5)",
+   "w": "3 · 5 = 15. 90 : 15 = 6 dm.",
+   "h": "Teile durch das Produkt der beiden bekannten Kanten."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat das Volumen 161 cm³ und ist 7 cm hoch. Wie groß ist seine Grundfläche?"
+   },
+   "o": {
+    "wert": 23,
+    "einheit": "cm²"
+   },
+   "c": "161 / 7",
+   "w": "Grundfläche · Höhe = Volumen. 161 : 7 = 23 cm².",
+   "h": "Volumen durch Höhe."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In ein leeres Becken (40 cm lang, 30 cm breit) werden 18 l Wasser gegossen. Wie hoch steht das Wasser in cm?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "cm"
+   },
+   "c": "18 * 1000 / (40 * 30)",
+   "w": "18 l = 18 000 cm³. Grundfläche: 40 · 30 = 1 200 cm². Höhe: 18 000 : 1 200 = 15 cm.",
+   "h": "Liter in cm³ umrechnen."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat 21,6 m³, eine Länge von 4 m und eine Breite von 2 m. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 2.7,
+    "einheit": "m"
+   },
+   "c": "21.6 / (4 * 2)",
+   "w": "4 · 2 = 8 m². 21,6 : 8 = 2,7 m.",
+   "h": "Volumen durch Grundfläche."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium hat einen Boden von 5 dm · 4 dm. Es werden 60 l Wasser eingefüllt. Wie hoch steht das Wasser?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.414,
+       1.414
+      ],
+      "_v1": [
+       5.0,
+       0.0
+      ],
+      "_h1": [
+       6.414,
+       1.414
+      ],
+      "_v2": [
+       5.0,
+       5.0
+      ],
+      "_h2": [
+       6.414,
+       6.414
+      ],
+      "_v3": [
+       0.0,
+       5.0
+      ],
+      "_h3": [
+       1.414,
+       6.414
+      ],
+      "_w0": [
+       0,
+       3.0
+      ],
+      "_w1": [
+       5.0,
+       3.0
+      ],
+      "_w2": [
+       6.414,
+       4.414
+      ],
+      "_w3": [
+       1.414,
+       4.414
+      ],
+      "_wt": [
+       2.5,
+       1.5
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "5 dm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "5 dm"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "4 dm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_w0",
+       "_w1"
+      ],
+      [
+       "_w1",
+       "_w2"
+      ],
+      [
+       "_w2",
+       "_w3",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_wt",
+       "_wt",
+       "Wasser: ? dm",
+       "gestrichelt"
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_w1",
+      "_w0"
+     ]
+    }
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "dm"
+   },
+   "c": "60 / (5 * 4)",
+   "w": "60 l = 60 dm³. Grundfläche 20 dm². Füllhöhe: 60 : 20 = 3 dm.",
+   "h": "Liter sind dm³. Dann durch die Grundfläche."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat 19,2 m³, eine Länge von 4 m und eine Breite von 2 m. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 2.4,
+    "einheit": "m"
+   },
+   "c": "19.2 / (4 * 2)",
+   "w": "4 · 2 = 8 m². 19,2 : 8 = 2,4 m.",
+   "h": "Volumen durch Grundfläche."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat das Volumen 64 cm³ und ist 2 cm hoch. Wie groß ist seine Grundfläche?"
+   },
+   "o": {
+    "wert": 32,
+    "einheit": "cm²"
+   },
+   "c": "64 / 2",
+   "w": "Grundfläche · Höhe = Volumen. 64 : 2 = 32 cm².",
+   "h": "Volumen durch Höhe."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein aufblasbares Luftkissen hat laut Hersteller 360 l Volumen. Ein Quader mit gleichem Volumen ist 30 dm lang und 8 dm breit. Wie hoch ist dieser Quader?"
+   },
+   "o": {
+    "wert": 1.5,
+    "einheit": "dm"
+   },
+   "c": "360 / (30 * 8)",
+   "w": "360 l = 360 dm³. Grundfläche: 30 · 8 = 240 dm². Höhe: 360 : 240 = 1,5 dm.",
+   "h": "Liter sind dm³."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Umzugskarton fasst 72 l. Er ist 60 cm lang und 40 cm breit. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "cm"
+   },
+   "c": "72 * 1000 / (60 * 40)",
+   "w": "72 l = 72 000 cm³. Grundfläche 2 400 cm². 72 000 : 2 400 = 30 cm.",
+   "h": "Liter in cm³."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Aquarium (50 cm · 30 cm Grundfläche) steht das Wasser 20 cm hoch. Ein Stein wird hineingelegt, danach steht es 21,5 cm hoch. Wie viel cm³ hat der Stein?"
+   },
+   "o": {
+    "wert": 2250,
+    "einheit": "cm³"
+   },
+   "c": "50 * 30 * (21.5 - 20)",
+   "w": "Das Wasser steigt um 1,5 cm. Der Stein verdrängt einen flachen Quader: 50 · 30 · 1,5 = 2 250 cm³.",
+   "h": "Um wie viel steigt das Wasser?"
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wasser steht in Gefäß A (25 cm · 20 cm Grundfläche) 12 cm hoch. Es wird in Gefäß B (40 cm · 20 cm Grundfläche) umgefüllt. Wie hoch steht es dort?"
+   },
+   "o": {
+    "wert": 7.5,
+    "einheit": "cm"
+   },
+   "c": "25 * 20 * 12 / (40 * 20)",
+   "w": "Wasser: 25 · 20 · 12 = 6 000 cm³. In B: 6 000 : 800 = 7,5 cm.",
+   "h": "Das Volumen bleibt gleich."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Stein wird in ein Aquarium (50 cm · 30 cm Grundfläche) gelegt und ist ganz unter Wasser. Das Wasser steigt um 1 cm. Wie groß ist das Volumen des Steins?"
+   },
+   "o": {
+    "wert": 1500,
+    "einheit": "cm³"
+   },
+   "c": "50 * 30 * 1",
+   "w": "Der Stein verdrängt genau sein Volumen: 50 · 30 · 1 = 1 500 cm³.",
+   "h": "Das gestiegene Wasser ist ein flacher Quader."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Umzugskarton fasst 36 l. Er ist 40 cm lang und 30 cm breit. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "cm"
+   },
+   "c": "36 * 1000 / (40 * 30)",
+   "w": "36 l = 36 000 cm³. Grundfläche 1 200 cm². Höhe: 36 000 : 1 200 = 30 cm.",
+   "h": "Liter in cm³."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Säule ist 6 cm lang, 6 cm breit und 48 cm hoch. Ein Würfel soll das gleiche Volumen haben. Wie lang ist seine Kante?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "cm"
+   },
+   "c": "12 + 6 * 6 * 48 - 12 * 12 * 12",
+   "w": "V = 6 · 6 · 48 = 1 728 cm³. Probieren: 12 · 12 · 12 = 1 728. Die Kante ist 12 cm.",
+   "h": "Welche Zahl dreimal malgenommen ergibt das Volumen?"
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kiste (40 cm · 30 cm · 20 cm) ist zu drei Viertel mit Sand gefüllt. Wie viele Liter Sand sind darin?"
+   },
+   "o": {
+    "wert": 18,
+    "einheit": "l"
+   },
+   "c": "40 * 30 * 20 / 1000 * 0.75",
+   "w": "Ganze Kiste: 24 l. Davon drei Viertel: 18 l.",
+   "h": "Erst die ganze Kiste in Liter."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In ein leeres Becken (50 cm lang, 40 cm breit) werden 30 l Wasser gegossen. Wie hoch steht das Wasser in cm?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "cm"
+   },
+   "c": "30 * 1000 / (50 * 40)",
+   "w": "30 l = 30 000 cm³. Grundfläche: 50 · 40 = 2 000 cm². Höhe: 30 000 : 2 000 = 15 cm."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium hat einen Boden von 6 dm · 4 dm. Es werden 24 l Wasser eingefüllt. Wie hoch steht das Wasser?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.414,
+       1.414
+      ],
+      "_v1": [
+       6.0,
+       0.0
+      ],
+      "_h1": [
+       7.414,
+       1.414
+      ],
+      "_v2": [
+       6.0,
+       3.0
+      ],
+      "_h2": [
+       7.414,
+       4.414
+      ],
+      "_v3": [
+       0.0,
+       3.0
+      ],
+      "_h3": [
+       1.414,
+       4.414
+      ],
+      "_w0": [
+       0,
+       1.0
+      ],
+      "_w1": [
+       6.0,
+       1.0
+      ],
+      "_w2": [
+       7.414,
+       2.414
+      ],
+      "_w3": [
+       1.414,
+       2.414
+      ],
+      "_wt": [
+       3.0,
+       0.5
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "6 dm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "3 dm"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "4 dm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_w0",
+       "_w1"
+      ],
+      [
+       "_w1",
+       "_w2"
+      ],
+      [
+       "_w2",
+       "_w3",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_wt",
+       "_wt",
+       "Wasser: ? dm",
+       "gestrichelt"
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_w1",
+      "_w0"
+     ]
+    }
+   },
+   "o": {
+    "wert": 1,
+    "einheit": "dm"
+   },
+   "c": "24 / (6 * 4)",
+   "w": "24 l = 24 dm³. Grundfläche 24 dm². Füllhöhe: 24 : 24 = 1 dm."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium hat einen Boden von 5 dm · 3 dm. Es werden 37,5 l Wasser eingefüllt. Wie hoch steht das Wasser?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.061,
+       1.061
+      ],
+      "_v1": [
+       5.0,
+       0.0
+      ],
+      "_h1": [
+       6.061,
+       1.061
+      ],
+      "_v2": [
+       5.0,
+       4.0
+      ],
+      "_h2": [
+       6.061,
+       5.061
+      ],
+      "_v3": [
+       0.0,
+       4.0
+      ],
+      "_h3": [
+       1.061,
+       5.061
+      ],
+      "_w0": [
+       0,
+       2.5
+      ],
+      "_w1": [
+       5.0,
+       2.5
+      ],
+      "_w2": [
+       6.061,
+       3.561
+      ],
+      "_w3": [
+       1.061,
+       3.561
+      ],
+      "_wt": [
+       2.5,
+       1.25
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "5 dm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "4 dm"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "3 dm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_w0",
+       "_w1"
+      ],
+      [
+       "_w1",
+       "_w2"
+      ],
+      [
+       "_w2",
+       "_w3",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_wt",
+       "_wt",
+       "Wasser: ? dm",
+       "gestrichelt"
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_w1",
+      "_w0"
+     ]
+    }
+   },
+   "o": {
+    "wert": 2.5,
+    "einheit": "dm"
+   },
+   "c": "37.5 / (5 * 3)",
+   "w": "37,5 l = 37,5 dm³. Grundfläche 15 dm². Füllhöhe: 37,5 : 15 = 2,5 dm."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat 100 m³, eine Länge von 8 m und eine Breite von 5 m. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 2.5,
+    "einheit": "m"
+   },
+   "c": "100 / (8 * 5)",
+   "w": "8 · 5 = 40 m². 100 : 40 = 2,5 m."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In ein leeres Becken (80 cm lang, 25 cm breit) werden 30 l Wasser gegossen. Wie hoch steht das Wasser in cm?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "cm"
+   },
+   "c": "30 * 1000 / (80 * 25)",
+   "w": "30 l = 30 000 cm³. Grundfläche: 80 · 25 = 2 000 cm². Höhe: 30 000 : 2 000 = 15 cm."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat das Volumen 144 cm³ und ist 3 cm hoch. Wie groß ist seine Grundfläche?"
+   },
+   "o": {
+    "wert": 48,
+    "einheit": "cm²"
+   },
+   "c": "144 / 3",
+   "w": "Grundfläche · Höhe = Volumen. 144 : 3 = 48 cm²."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium hat einen Boden von 6 dm · 4 dm. Es werden 60 l Wasser eingefüllt. Wie hoch steht das Wasser?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.414,
+       1.414
+      ],
+      "_v1": [
+       6.0,
+       0.0
+      ],
+      "_h1": [
+       7.414,
+       1.414
+      ],
+      "_v2": [
+       6.0,
+       4.0
+      ],
+      "_h2": [
+       7.414,
+       5.414
+      ],
+      "_v3": [
+       0.0,
+       4.0
+      ],
+      "_h3": [
+       1.414,
+       5.414
+      ],
+      "_w0": [
+       0,
+       2.5
+      ],
+      "_w1": [
+       6.0,
+       2.5
+      ],
+      "_w2": [
+       7.414,
+       3.914
+      ],
+      "_w3": [
+       1.414,
+       3.914
+      ],
+      "_wt": [
+       3.0,
+       1.25
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "6 dm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       "4 dm"
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "4 dm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_w0",
+       "_w1"
+      ],
+      [
+       "_w1",
+       "_w2"
+      ],
+      [
+       "_w2",
+       "_w3",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_wt",
+       "_wt",
+       "Wasser: ? dm",
+       "gestrichelt"
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_w1",
+      "_w0"
+     ]
+    }
+   },
+   "o": {
+    "wert": 2.5,
+    "einheit": "dm"
+   },
+   "c": "60 / (6 * 4)",
+   "w": "60 l = 60 dm³. Grundfläche 24 dm². Füllhöhe: 60 : 24 = 2,5 dm."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat 52 m³, eine Länge von 4 m und eine Breite von 5 m. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 2.6,
+    "einheit": "m"
+   },
+   "c": "52 / (4 * 5)",
+   "w": "4 · 5 = 20 m². 52 : 20 = 2,6 m."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In ein leeres Becken (40 cm lang, 30 cm breit) werden 24 l Wasser gegossen. Wie hoch steht das Wasser in cm?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "cm"
+   },
+   "c": "24 * 1000 / (40 * 30)",
+   "w": "24 l = 24 000 cm³. Grundfläche: 40 · 30 = 1 200 cm². Höhe: 24 000 : 1 200 = 20 cm."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat das Volumen 162 cm³ und ist 9 cm hoch. Wie groß ist seine Grundfläche?"
+   },
+   "o": {
+    "wert": 18,
+    "einheit": "cm²"
+   },
+   "c": "162 / 9",
+   "w": "Grundfläche · Höhe = Volumen. 162 : 9 = 18 cm²."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Stufe besteht aus zwei Quadern: unten 5 dm · 5 dm · 1 dm, oben 2 dm · 5 dm · 3 dm. Wie groß ist ihr Volumen?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.768,
+       1.768
+      ],
+      "_v1": [
+       5.0,
+       0.0
+      ],
+      "_h1": [
+       6.768,
+       1.768
+      ],
+      "_v2": [
+       5.0,
+       1.0
+      ],
+      "_h2": [
+       6.768,
+       2.768
+      ],
+      "_v3": [
+       2.0,
+       1.0
+      ],
+      "_h3": [
+       3.768,
+       2.768
+      ],
+      "_v4": [
+       2.0,
+       4.0
+      ],
+      "_h4": [
+       3.768,
+       5.768
+      ],
+      "_v5": [
+       0.0,
+       4.0
+      ],
+      "_h5": [
+       1.768,
+       5.768
+      ],
+      "_l0": [
+       0,
+       0
+      ],
+      "_l1": [
+       0,
+       1.0
+      ],
+      "_l2": [
+       0,
+       4.0
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "5 dm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v4",
+       ""
+      ],
+      [
+       "_v4",
+       "_v5",
+       ""
+      ],
+      [
+       "_v5",
+       "_v0",
+       ""
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h4",
+       ""
+      ],
+      [
+       "_h4",
+       "_h5",
+       ""
+      ],
+      [
+       "_h5",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "5 dm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_v4",
+       "_h4",
+       ""
+      ],
+      [
+       "_v5",
+       "_h5",
+       ""
+      ],
+      [
+       "_l0",
+       "_l1",
+       "1 dm"
+      ],
+      [
+       "_l1",
+       "_l2",
+       "3 dm"
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3",
+      "_v4",
+      "_v5"
+     ]
+    }
+   },
+   "o": {
+    "wert": 55,
+    "einheit": "dm³"
+   },
+   "c": "5 * 5 * 1 + 2 * 5 * 3",
+   "w": "Unten 25 dm³, oben 30 dm³. Zusammen 55 dm³.",
+   "h": "Zerlegen in zwei Quader."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Stufe besteht aus zwei Quadern: unten 5 dm · 3 dm · 2 dm, oben 4 dm · 3 dm · 2 dm. Wie groß ist ihr Volumen?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.061,
+       1.061
+      ],
+      "_v1": [
+       5.0,
+       0.0
+      ],
+      "_h1": [
+       6.061,
+       1.061
+      ],
+      "_v2": [
+       5.0,
+       2.0
+      ],
+      "_h2": [
+       6.061,
+       3.061
+      ],
+      "_v3": [
+       4.0,
+       2.0
+      ],
+      "_h3": [
+       5.061,
+       3.061
+      ],
+      "_v4": [
+       4.0,
+       4.0
+      ],
+      "_h4": [
+       5.061,
+       5.061
+      ],
+      "_v5": [
+       0.0,
+       4.0
+      ],
+      "_h5": [
+       1.061,
+       5.061
+      ],
+      "_l0": [
+       0,
+       0
+      ],
+      "_l1": [
+       0,
+       2.0
+      ],
+      "_l2": [
+       0,
+       4.0
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "5 dm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v4",
+       ""
+      ],
+      [
+       "_v4",
+       "_v5",
+       ""
+      ],
+      [
+       "_v5",
+       "_v0",
+       ""
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h4",
+       ""
+      ],
+      [
+       "_h4",
+       "_h5",
+       ""
+      ],
+      [
+       "_h5",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "3 dm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_v4",
+       "_h4",
+       ""
+      ],
+      [
+       "_v5",
+       "_h5",
+       ""
+      ],
+      [
+       "_l0",
+       "_l1",
+       "2 dm"
+      ],
+      [
+       "_l1",
+       "_l2",
+       "2 dm"
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3",
+      "_v4",
+      "_v5"
+     ]
+    }
+   },
+   "o": {
+    "wert": 54,
+    "einheit": "dm³"
+   },
+   "c": "5 * 3 * 2 + 4 * 3 * 2",
+   "w": "Unten 30 dm³, oben 24 dm³. Zusammen 54 dm³.",
+   "h": "Zerlegen in zwei Quader."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Stufe besteht aus zwei Quadern: unten 8 dm · 6 dm · 1 dm, oben 2 dm · 6 dm · 2 dm. Wie groß ist ihr Volumen?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       2.121,
+       2.121
+      ],
+      "_v1": [
+       8.0,
+       0.0
+      ],
+      "_h1": [
+       10.121,
+       2.121
+      ],
+      "_v2": [
+       8.0,
+       1.0
+      ],
+      "_h2": [
+       10.121,
+       3.121
+      ],
+      "_v3": [
+       2.0,
+       1.0
+      ],
+      "_h3": [
+       4.121,
+       3.121
+      ],
+      "_v4": [
+       2.0,
+       3.0
+      ],
+      "_h4": [
+       4.121,
+       5.121
+      ],
+      "_v5": [
+       0.0,
+       3.0
+      ],
+      "_h5": [
+       2.121,
+       5.121
+      ],
+      "_l0": [
+       0,
+       0
+      ],
+      "_l1": [
+       0,
+       1.0
+      ],
+      "_l2": [
+       0,
+       3.0
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "8 dm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v4",
+       ""
+      ],
+      [
+       "_v4",
+       "_v5",
+       ""
+      ],
+      [
+       "_v5",
+       "_v0",
+       ""
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h4",
+       ""
+      ],
+      [
+       "_h4",
+       "_h5",
+       ""
+      ],
+      [
+       "_h5",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "6 dm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_v4",
+       "_h4",
+       ""
+      ],
+      [
+       "_v5",
+       "_h5",
+       ""
+      ],
+      [
+       "_l0",
+       "_l1",
+       "1 dm"
+      ],
+      [
+       "_l1",
+       "_l2",
+       "2 dm"
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3",
+      "_v4",
+      "_v5"
+     ]
+    }
+   },
+   "o": {
+    "wert": 72,
+    "einheit": "dm³"
+   },
+   "c": "8 * 6 * 1 + 2 * 6 * 2",
+   "w": "Unten 48 dm³, oben 24 dm³. Zusammen 72 dm³.",
+   "h": "Zerlegen in zwei Quader."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Stufe besteht aus zwei Quadern: unten 7 dm · 3 dm · 2 dm, oben 2 dm · 3 dm · 2 dm. Wie groß ist ihr Volumen?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.061,
+       1.061
+      ],
+      "_v1": [
+       7.0,
+       0.0
+      ],
+      "_h1": [
+       8.061,
+       1.061
+      ],
+      "_v2": [
+       7.0,
+       2.0
+      ],
+      "_h2": [
+       8.061,
+       3.061
+      ],
+      "_v3": [
+       2.0,
+       2.0
+      ],
+      "_h3": [
+       3.061,
+       3.061
+      ],
+      "_v4": [
+       2.0,
+       4.0
+      ],
+      "_h4": [
+       3.061,
+       5.061
+      ],
+      "_v5": [
+       0.0,
+       4.0
+      ],
+      "_h5": [
+       1.061,
+       5.061
+      ],
+      "_l0": [
+       0,
+       0
+      ],
+      "_l1": [
+       0,
+       2.0
+      ],
+      "_l2": [
+       0,
+       4.0
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "7 dm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v4",
+       ""
+      ],
+      [
+       "_v4",
+       "_v5",
+       ""
+      ],
+      [
+       "_v5",
+       "_v0",
+       ""
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h4",
+       ""
+      ],
+      [
+       "_h4",
+       "_h5",
+       ""
+      ],
+      [
+       "_h5",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "3 dm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_v4",
+       "_h4",
+       ""
+      ],
+      [
+       "_v5",
+       "_h5",
+       ""
+      ],
+      [
+       "_l0",
+       "_l1",
+       "2 dm"
+      ],
+      [
+       "_l1",
+       "_l2",
+       "2 dm"
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3",
+      "_v4",
+      "_v5"
+     ]
+    }
+   },
+   "o": {
+    "wert": 54,
+    "einheit": "dm³"
+   },
+   "c": "7 * 3 * 2 + 2 * 3 * 2",
+   "w": "Unten 42 dm³, oben 12 dm³. Zusammen 54 dm³.",
+   "h": "Zerlegen in zwei Quader."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Stufe ist 8 dm lang, 3 dm breit und insgesamt 7 dm hoch. Oben rechts fehlt ein Quader (6 dm lang, 3 dm hoch, so breit wie die Stufe). Berechne das Volumen durch Ergänzen.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.061,
+       1.061
+      ],
+      "_v1": [
+       8.0,
+       0.0
+      ],
+      "_h1": [
+       9.061,
+       1.061
+      ],
+      "_v2": [
+       8.0,
+       4.0
+      ],
+      "_h2": [
+       9.061,
+       5.061
+      ],
+      "_v3": [
+       2.0,
+       4.0
+      ],
+      "_h3": [
+       3.061,
+       5.061
+      ],
+      "_v4": [
+       2.0,
+       7.0
+      ],
+      "_h4": [
+       3.061,
+       8.061
+      ],
+      "_v5": [
+       0.0,
+       7.0
+      ],
+      "_h5": [
+       1.061,
+       8.061
+      ],
+      "_l0": [
+       0,
+       0
+      ],
+      "_l1": [
+       0,
+       4.0
+      ],
+      "_l2": [
+       0,
+       7.0
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "8 dm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v4",
+       ""
+      ],
+      [
+       "_v4",
+       "_v5",
+       ""
+      ],
+      [
+       "_v5",
+       "_v0",
+       ""
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h4",
+       ""
+      ],
+      [
+       "_h4",
+       "_h5",
+       ""
+      ],
+      [
+       "_h5",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "3 dm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_v4",
+       "_h4",
+       ""
+      ],
+      [
+       "_v5",
+       "_h5",
+       ""
+      ],
+      [
+       "_l0",
+       "_l1",
+       "4 dm"
+      ],
+      [
+       "_l1",
+       "_l2",
+       "3 dm"
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3",
+      "_v4",
+      "_v5"
+     ]
+    }
+   },
+   "o": {
+    "wert": 114,
+    "einheit": "dm³"
+   },
+   "c": "8 * 7 * 3 - 6 * 3 * 3",
+   "w": "Ganzer Quader: 8 · 3 · 7 = 168 dm³. Fehlend: 6 · 3 · 3 = 54 dm³. Volumen: 114 dm³.",
+   "h": "Ganzer Quader minus fehlendes Stück."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Treppe hat 3 Stufen. Jede Stufe ist 3 dm hoch und 3 dm tief, die Treppe ist 4 dm breit. Wie groß ist ihr Volumen (massiv)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.414,
+       1.414
+      ],
+      "_v1": [
+       9.0,
+       0.0
+      ],
+      "_h1": [
+       10.414,
+       1.414
+      ],
+      "_v2": [
+       9.0,
+       3.0
+      ],
+      "_h2": [
+       10.414,
+       4.414
+      ],
+      "_v3": [
+       6.0,
+       3.0
+      ],
+      "_h3": [
+       7.414,
+       4.414
+      ],
+      "_v4": [
+       6.0,
+       6.0
+      ],
+      "_h4": [
+       7.414,
+       7.414
+      ],
+      "_v5": [
+       3.0,
+       6.0
+      ],
+      "_h5": [
+       4.414,
+       7.414
+      ],
+      "_v6": [
+       3.0,
+       9.0
+      ],
+      "_h6": [
+       4.414,
+       10.414
+      ],
+      "_v7": [
+       0.0,
+       9.0
+      ],
+      "_h7": [
+       1.414,
+       10.414
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       ""
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v4",
+       ""
+      ],
+      [
+       "_v4",
+       "_v5",
+       ""
+      ],
+      [
+       "_v5",
+       "_v6",
+       ""
+      ],
+      [
+       "_v6",
+       "_v7",
+       ""
+      ],
+      [
+       "_v7",
+       "_v0",
+       ""
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h4",
+       ""
+      ],
+      [
+       "_h4",
+       "_h5",
+       ""
+      ],
+      [
+       "_h5",
+       "_h6",
+       ""
+      ],
+      [
+       "_h6",
+       "_h7",
+       ""
+      ],
+      [
+       "_h7",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "4 dm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_v4",
+       "_h4",
+       ""
+      ],
+      [
+       "_v5",
+       "_h5",
+       ""
+      ],
+      [
+       "_v6",
+       "_h6",
+       ""
+      ],
+      [
+       "_v7",
+       "_h7",
+       ""
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3",
+      "_v4",
+      "_v5",
+      "_v6",
+      "_v7"
+     ]
+    }
+   },
+   "o": {
+    "wert": 216,
+    "einheit": "dm³"
+   },
+   "c": "3 * 3 * 4 + 6 * 3 * 4 + 9 * 3 * 4",
+   "w": "Zerlegen in waagrechte Schichten: unten 9 dm, dann 6 dm, oben 3 dm lang, je 3 dm hoch und 4 dm breit: 108 + 72 + 36 = 216 dm³.",
+   "h": "Zerlege in drei Schichten."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Holzkiste ohne Deckel ist außen 14 cm · 10 cm · 8 cm groß. Wände und Boden sind 2 cm dick. Wie viel cm³ Holz hat sie?"
+   },
+   "o": {
+    "wert": 760,
+    "einheit": "cm³"
+   },
+   "c": "14 * 10 * 8 - (14 - 2 * 2) * (10 - 2 * 2) * (8 - 2)",
+   "w": "Außen: 1 120 cm³. Innenraum: 10 · 6 · 6 = 360 cm³. Holz: 760 cm³.",
+   "h": "Außen minus Innenraum. Oben ist kein Deckel."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einen Quader (8 cm · 8 cm · 3 cm) wird ein Würfel mit 2 cm Kante geklebt. Wie groß ist das Volumen zusammen?"
+   },
+   "o": {
+    "wert": 200,
+    "einheit": "cm³"
+   },
+   "c": "8 * 8 * 3 + 2 * 2 * 2",
+   "w": "Quader: 192 cm³, Würfel: 8 cm³. Zusammen 200 cm³.",
+   "h": "Beide Volumen addieren."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Holzkiste ohne Deckel ist außen 20 cm · 15 cm · 10 cm groß. Wände und Boden sind 2 cm dick. Wie viel cm³ Holz hat sie?"
+   },
+   "o": {
+    "wert": 1592,
+    "einheit": "cm³"
+   },
+   "c": "20 * 15 * 10 - (20 - 2 * 2) * (15 - 2 * 2) * (10 - 2)",
+   "w": "Außen: 3 000 cm³. Innenraum: 16 · 11 · 8 = 1 408 cm³. Holz: 1 592 cm³.",
+   "h": "Außen minus Innenraum. Oben ist kein Deckel."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Treppe hat 3 Stufen. Jede Stufe ist 2 dm hoch und 2 dm tief, die Treppe ist 8 dm breit. Wie groß ist ihr Volumen (massiv)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       2.828,
+       2.828
+      ],
+      "_v1": [
+       6.0,
+       0.0
+      ],
+      "_h1": [
+       8.828,
+       2.828
+      ],
+      "_v2": [
+       6.0,
+       2.0
+      ],
+      "_h2": [
+       8.828,
+       4.828
+      ],
+      "_v3": [
+       4.0,
+       2.0
+      ],
+      "_h3": [
+       6.828,
+       4.828
+      ],
+      "_v4": [
+       4.0,
+       4.0
+      ],
+      "_h4": [
+       6.828,
+       6.828
+      ],
+      "_v5": [
+       2.0,
+       4.0
+      ],
+      "_h5": [
+       4.828,
+       6.828
+      ],
+      "_v6": [
+       2.0,
+       6.0
+      ],
+      "_h6": [
+       4.828,
+       8.828
+      ],
+      "_v7": [
+       0.0,
+       6.0
+      ],
+      "_h7": [
+       2.828,
+       8.828
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       ""
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v4",
+       ""
+      ],
+      [
+       "_v4",
+       "_v5",
+       ""
+      ],
+      [
+       "_v5",
+       "_v6",
+       ""
+      ],
+      [
+       "_v6",
+       "_v7",
+       ""
+      ],
+      [
+       "_v7",
+       "_v0",
+       ""
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h4",
+       ""
+      ],
+      [
+       "_h4",
+       "_h5",
+       ""
+      ],
+      [
+       "_h5",
+       "_h6",
+       ""
+      ],
+      [
+       "_h6",
+       "_h7",
+       ""
+      ],
+      [
+       "_h7",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "8 dm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_v4",
+       "_h4",
+       ""
+      ],
+      [
+       "_v5",
+       "_h5",
+       ""
+      ],
+      [
+       "_v6",
+       "_h6",
+       ""
+      ],
+      [
+       "_v7",
+       "_h7",
+       ""
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3",
+      "_v4",
+      "_v5",
+      "_v6",
+      "_v7"
+     ]
+    }
+   },
+   "o": {
+    "wert": 192,
+    "einheit": "dm³"
+   },
+   "c": "2 * 2 * 8 + 4 * 2 * 8 + 6 * 2 * 8",
+   "w": "Zerlegen in waagrechte Schichten: unten 6 dm, dann 4 dm, oben 2 dm lang, je 2 dm hoch und 8 dm breit: 96 + 64 + 32 = 192 dm³.",
+   "h": "Zerlege in drei Schichten."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus einem Quader (12 cm · 9 cm · 8 cm) wird an einer Ecke ein Würfel mit 5 cm Kante herausgeschnitten. Wie groß ist das Volumen des Restkörpers?"
+   },
+   "o": {
+    "wert": 739,
+    "einheit": "cm³"
+   },
+   "c": "12 * 9 * 8 - 5 * 5 * 5",
+   "w": "Quader: 864 cm³. Würfel: 125 cm³. Restkörper: 864 − 125 = 739 cm³.",
+   "h": "Ganzer Quader minus Würfel."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bauteil aus Beton hat die Form eines L: 6 dm lang, 4 dm breit, an der linken Seite 5 dm hoch, sonst nur 2 dm hoch. Der hohe Teil ist 2 dm lang. Alle Ecken sind rechte Winkel. Volumen?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.414,
+       1.414
+      ],
+      "_v1": [
+       6.0,
+       0.0
+      ],
+      "_h1": [
+       7.414,
+       1.414
+      ],
+      "_v2": [
+       6.0,
+       2.0
+      ],
+      "_h2": [
+       7.414,
+       3.414
+      ],
+      "_v3": [
+       2.0,
+       2.0
+      ],
+      "_h3": [
+       3.414,
+       3.414
+      ],
+      "_v4": [
+       2.0,
+       5.0
+      ],
+      "_h4": [
+       3.414,
+       6.414
+      ],
+      "_v5": [
+       0.0,
+       5.0
+      ],
+      "_h5": [
+       1.414,
+       6.414
+      ],
+      "_l0": [
+       0,
+       0
+      ],
+      "_l1": [
+       0,
+       2.0
+      ],
+      "_l2": [
+       0,
+       5.0
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "6 dm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v4",
+       ""
+      ],
+      [
+       "_v4",
+       "_v5",
+       ""
+      ],
+      [
+       "_v5",
+       "_v0",
+       ""
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h4",
+       ""
+      ],
+      [
+       "_h4",
+       "_h5",
+       ""
+      ],
+      [
+       "_h5",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "4 dm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_v4",
+       "_h4",
+       ""
+      ],
+      [
+       "_v5",
+       "_h5",
+       ""
+      ],
+      [
+       "_l0",
+       "_l1",
+       "2 dm"
+      ],
+      [
+       "_l1",
+       "_l2",
+       "3 dm"
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3",
+      "_v4",
+      "_v5"
+     ]
+    }
+   },
+   "o": {
+    "wert": 72,
+    "einheit": "dm³"
+   },
+   "c": "6 * 4 * 2 + 2 * 4 * (5 - 2)",
+   "w": "Unten: 6 · 4 · 2 = 48 dm³. Hoher Teil darüber: 2 · 4 · 3 = 24 dm³. Zusammen 72 dm³.",
+   "h": "Zerlege in einen flachen und einen hohen Quader."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel aus 3 · 3 · 3 Holzwürfeln wird durchbohrt: von vorn, von oben und von der Seite je genau durch die Mitte (durch eine ganze Reihe). Wie viele Holzwürfel bleiben?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "27 - (3 + 3 + 3 - 2)",
+   "w": "Jede Bohrung nimmt 3 Würfel. Der mittelste Würfel wird dreimal gezählt: 3 + 3 + 3 − 2 = 7 entfernt. Es bleiben 27 − 7 = 20.",
+   "h": "Welcher Würfel liegt in allen drei Bohrungen?"
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein U-förmiger Betonblock ist 12 dm breit, 4 dm tief und 6 dm hoch. Von oben ist eine Rinne ausgespart: 6 dm breit, 3 dm tief, über die ganze Tiefe. Wie viel Beton ist das?"
+   },
+   "o": {
+    "wert": 216,
+    "einheit": "dm³"
+   },
+   "c": "12 * 4 * 6 - (12 - 2 * 3) * 4 * (6 - 3)",
+   "w": "Ganzer Block: 288 dm³. Rinne: 6 · 4 · 3 = 72 dm³. Beton: 216 dm³.",
+   "h": "Block minus Rinne."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Mauer ist 12 m lang, 1 m hoch und 30 cm dick. Ein 1 m breiter Durchgang geht durch die ganze Höhe. Wie viele m³ Mauerwerk sind es?"
+   },
+   "o": {
+    "wert": 3.3,
+    "einheit": "m³"
+   },
+   "c": "12 * 1 * 0.3 - 1 * 1 * 0.3",
+   "w": "Ganze Mauer: 12 · 1 · 0,3 = 3,6 m³. Durchgang: 1 · 1 · 0,3 = 0,3 m³. Mauerwerk: 3,3 m³.",
+   "h": "Dicke in m umrechnen. Dann den Durchgang abziehen."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Schwimmbecken ist 16 m lang und 8 m breit. Es ist 2 m tief, nur ein 6 m langer Nichtschwimmerteil (ganze Breite) ist 1 m tief. Wie viele m³ Wasser passen hinein?"
+   },
+   "o": {
+    "wert": 208,
+    "einheit": "m³"
+   },
+   "c": "16 * 8 * 2 - 6 * 8 * (2 - 1)",
+   "w": "Ganz tief wären 16 · 8 · 2 = 256 m³. Im Nichtschwimmerteil fehlen 6 · 8 · 1 = 48 m³. Wasser: 208 m³.",
+   "h": "Ergänze zum tiefen Becken und ziehe ab."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rahmen aus Holz ist außen 20 cm · 12 cm groß, 4 cm hoch, und die Wände sind 2 cm dick (kein Boden). Wie viel cm³ Holz hat er?"
+   },
+   "o": {
+    "wert": 448,
+    "einheit": "cm³"
+   },
+   "c": "20 * 12 * 4 - (20 - 2 * 2) * (12 - 2 * 2) * 4",
+   "w": "Außen: 960 cm³. Loch: 16 · 8 · 4 = 512 cm³. Holz: 448 cm³.",
+   "h": "Außen minus Loch."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne im Kopf: Ein Quader ist 10 cm · 4 cm · 25 cm groß. Wie groß ist sein Volumen?"
+   },
+   "o": {
+    "wert": 1000,
+    "einheit": "cm³"
+   },
+   "c": "10 * 4 * 25",
+   "w": "Geschickt rechnen: 4 · 25 = 100. Dann 10 · 100 = 1 000 cm³.",
+   "h": "Welche zwei Zahlen ergeben zusammen 100?"
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einen Quader (6 cm · 6 cm · 3 cm) wird ein Würfel mit 2 cm Kante geklebt. Wie groß ist das Volumen zusammen?"
+   },
+   "o": {
+    "wert": 116,
+    "einheit": "cm³"
+   },
+   "c": "6 * 6 * 3 + 2 * 2 * 2",
+   "w": "Quader: 108 cm³, Würfel: 8 cm³. Zusammen 116 cm³."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Stufe ist 6 dm lang, 6 dm breit und insgesamt 6 dm hoch. Oben rechts fehlt ein Quader (2 dm lang, 4 dm hoch, so breit wie die Stufe). Berechne das Volumen durch Ergänzen.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       2.121,
+       2.121
+      ],
+      "_v1": [
+       6.0,
+       0.0
+      ],
+      "_h1": [
+       8.121,
+       2.121
+      ],
+      "_v2": [
+       6.0,
+       2.0
+      ],
+      "_h2": [
+       8.121,
+       4.121
+      ],
+      "_v3": [
+       4.0,
+       2.0
+      ],
+      "_h3": [
+       6.121,
+       4.121
+      ],
+      "_v4": [
+       4.0,
+       6.0
+      ],
+      "_h4": [
+       6.121,
+       8.121
+      ],
+      "_v5": [
+       0.0,
+       6.0
+      ],
+      "_h5": [
+       2.121,
+       8.121
+      ],
+      "_l0": [
+       0,
+       0
+      ],
+      "_l1": [
+       0,
+       2.0
+      ],
+      "_l2": [
+       0,
+       6.0
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "6 dm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v4",
+       ""
+      ],
+      [
+       "_v4",
+       "_v5",
+       ""
+      ],
+      [
+       "_v5",
+       "_v0",
+       ""
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h4",
+       ""
+      ],
+      [
+       "_h4",
+       "_h5",
+       ""
+      ],
+      [
+       "_h5",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "6 dm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_v4",
+       "_h4",
+       ""
+      ],
+      [
+       "_v5",
+       "_h5",
+       ""
+      ],
+      [
+       "_l0",
+       "_l1",
+       "2 dm"
+      ],
+      [
+       "_l1",
+       "_l2",
+       "4 dm"
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3",
+      "_v4",
+      "_v5"
+     ]
+    }
+   },
+   "o": {
+    "wert": 168,
+    "einheit": "dm³"
+   },
+   "c": "6 * 6 * 6 - 2 * 4 * 6",
+   "w": "Ganzer Quader: 6 · 6 · 6 = 216 dm³. Fehlend: 2 · 6 · 4 = 48 dm³. Volumen: 168 dm³."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Stufe ist 8 dm lang, 4 dm breit und insgesamt 6 dm hoch. Oben rechts fehlt ein Quader (4 dm lang, 3 dm hoch, so breit wie die Stufe). Berechne das Volumen durch Ergänzen.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.414,
+       1.414
+      ],
+      "_v1": [
+       8.0,
+       0.0
+      ],
+      "_h1": [
+       9.414,
+       1.414
+      ],
+      "_v2": [
+       8.0,
+       3.0
+      ],
+      "_h2": [
+       9.414,
+       4.414
+      ],
+      "_v3": [
+       4.0,
+       3.0
+      ],
+      "_h3": [
+       5.414,
+       4.414
+      ],
+      "_v4": [
+       4.0,
+       6.0
+      ],
+      "_h4": [
+       5.414,
+       7.414
+      ],
+      "_v5": [
+       0.0,
+       6.0
+      ],
+      "_h5": [
+       1.414,
+       7.414
+      ],
+      "_l0": [
+       0,
+       0
+      ],
+      "_l1": [
+       0,
+       3.0
+      ],
+      "_l2": [
+       0,
+       6.0
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "8 dm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v4",
+       ""
+      ],
+      [
+       "_v4",
+       "_v5",
+       ""
+      ],
+      [
+       "_v5",
+       "_v0",
+       ""
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h4",
+       ""
+      ],
+      [
+       "_h4",
+       "_h5",
+       ""
+      ],
+      [
+       "_h5",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "4 dm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_v4",
+       "_h4",
+       ""
+      ],
+      [
+       "_v5",
+       "_h5",
+       ""
+      ],
+      [
+       "_l0",
+       "_l1",
+       "3 dm"
+      ],
+      [
+       "_l1",
+       "_l2",
+       "3 dm"
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3",
+      "_v4",
+      "_v5"
+     ]
+    }
+   },
+   "o": {
+    "wert": 144,
+    "einheit": "dm³"
+   },
+   "c": "8 * 6 * 4 - 4 * 3 * 4",
+   "w": "Ganzer Quader: 8 · 4 · 6 = 192 dm³. Fehlend: 4 · 4 · 3 = 48 dm³. Volumen: 144 dm³."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einen Quader (6 cm · 4 cm · 2 cm) wird ein Würfel mit 2 cm Kante geklebt. Wie groß ist das Volumen zusammen?"
+   },
+   "o": {
+    "wert": 56,
+    "einheit": "cm³"
+   },
+   "c": "6 * 4 * 2 + 2 * 2 * 2",
+   "w": "Quader: 48 cm³, Würfel: 8 cm³. Zusammen 56 cm³."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einen Quader (8 cm · 5 cm · 3 cm) wird ein Würfel mit 2 cm Kante geklebt. Wie groß ist das Volumen zusammen?"
+   },
+   "o": {
+    "wert": 128,
+    "einheit": "cm³"
+   },
+   "c": "8 * 5 * 3 + 2 * 2 * 2",
+   "w": "Quader: 120 cm³, Würfel: 8 cm³. Zusammen 128 cm³."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Stufe ist 9 dm lang, 5 dm breit und insgesamt 8 dm hoch. Oben rechts fehlt ein Quader (7 dm lang, 4 dm hoch, so breit wie die Stufe). Berechne das Volumen durch Ergänzen.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.768,
+       1.768
+      ],
+      "_v1": [
+       9.0,
+       0.0
+      ],
+      "_h1": [
+       10.768,
+       1.768
+      ],
+      "_v2": [
+       9.0,
+       4.0
+      ],
+      "_h2": [
+       10.768,
+       5.768
+      ],
+      "_v3": [
+       2.0,
+       4.0
+      ],
+      "_h3": [
+       3.768,
+       5.768
+      ],
+      "_v4": [
+       2.0,
+       8.0
+      ],
+      "_h4": [
+       3.768,
+       9.768
+      ],
+      "_v5": [
+       0.0,
+       8.0
+      ],
+      "_h5": [
+       1.768,
+       9.768
+      ],
+      "_l0": [
+       0,
+       0
+      ],
+      "_l1": [
+       0,
+       4.0
+      ],
+      "_l2": [
+       0,
+       8.0
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "9 dm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v4",
+       ""
+      ],
+      [
+       "_v4",
+       "_v5",
+       ""
+      ],
+      [
+       "_v5",
+       "_v0",
+       ""
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h4",
+       ""
+      ],
+      [
+       "_h4",
+       "_h5",
+       ""
+      ],
+      [
+       "_h5",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "5 dm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_v4",
+       "_h4",
+       ""
+      ],
+      [
+       "_v5",
+       "_h5",
+       ""
+      ],
+      [
+       "_l0",
+       "_l1",
+       "4 dm"
+      ],
+      [
+       "_l1",
+       "_l2",
+       "4 dm"
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3",
+      "_v4",
+      "_v5"
+     ]
+    }
+   },
+   "o": {
+    "wert": 220,
+    "einheit": "dm³"
+   },
+   "c": "9 * 8 * 5 - 7 * 4 * 5",
+   "w": "Ganzer Quader: 9 · 5 · 8 = 360 dm³. Fehlend: 7 · 5 · 4 = 140 dm³. Volumen: 220 dm³."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Stufe ist 10 dm lang, 4 dm breit und insgesamt 7 dm hoch. Oben rechts fehlt ein Quader (8 dm lang, 3 dm hoch, so breit wie die Stufe). Berechne das Volumen durch Ergänzen.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.414,
+       1.414
+      ],
+      "_v1": [
+       10.0,
+       0.0
+      ],
+      "_h1": [
+       11.414,
+       1.414
+      ],
+      "_v2": [
+       10.0,
+       4.0
+      ],
+      "_h2": [
+       11.414,
+       5.414
+      ],
+      "_v3": [
+       2.0,
+       4.0
+      ],
+      "_h3": [
+       3.414,
+       5.414
+      ],
+      "_v4": [
+       2.0,
+       7.0
+      ],
+      "_h4": [
+       3.414,
+       8.414
+      ],
+      "_v5": [
+       0.0,
+       7.0
+      ],
+      "_h5": [
+       1.414,
+       8.414
+      ],
+      "_l0": [
+       0,
+       0
+      ],
+      "_l1": [
+       0,
+       4.0
+      ],
+      "_l2": [
+       0,
+       7.0
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "10 dm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v4",
+       ""
+      ],
+      [
+       "_v4",
+       "_v5",
+       ""
+      ],
+      [
+       "_v5",
+       "_v0",
+       ""
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h4",
+       ""
+      ],
+      [
+       "_h4",
+       "_h5",
+       ""
+      ],
+      [
+       "_h5",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "4 dm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_v4",
+       "_h4",
+       ""
+      ],
+      [
+       "_v5",
+       "_h5",
+       ""
+      ],
+      [
+       "_l0",
+       "_l1",
+       "4 dm"
+      ],
+      [
+       "_l1",
+       "_l2",
+       "3 dm"
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3",
+      "_v4",
+      "_v5"
+     ]
+    }
+   },
+   "o": {
+    "wert": 184,
+    "einheit": "dm³"
+   },
+   "c": "10 * 7 * 4 - 8 * 3 * 4",
+   "w": "Ganzer Quader: 10 · 4 · 7 = 280 dm³. Fehlend: 8 · 4 · 3 = 96 dm³. Volumen: 184 dm³."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einen Quader (8 cm · 8 cm · 4 cm) wird ein Würfel mit 3 cm Kante geklebt. Wie groß ist das Volumen zusammen?"
+   },
+   "o": {
+    "wert": 283,
+    "einheit": "cm³"
+   },
+   "c": "8 * 8 * 4 + 3 * 3 * 3",
+   "w": "Quader: 256 cm³, Würfel: 27 cm³. Zusammen 283 cm³."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Treppe hat 3 Stufen. Jede Stufe ist 2 dm hoch und 2 dm tief, die Treppe ist 5 dm breit. Wie groß ist ihr Volumen (massiv)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       1.768,
+       1.768
+      ],
+      "_v1": [
+       6.0,
+       0.0
+      ],
+      "_h1": [
+       7.768,
+       1.768
+      ],
+      "_v2": [
+       6.0,
+       2.0
+      ],
+      "_h2": [
+       7.768,
+       3.768
+      ],
+      "_v3": [
+       4.0,
+       2.0
+      ],
+      "_h3": [
+       5.768,
+       3.768
+      ],
+      "_v4": [
+       4.0,
+       4.0
+      ],
+      "_h4": [
+       5.768,
+       5.768
+      ],
+      "_v5": [
+       2.0,
+       4.0
+      ],
+      "_h5": [
+       3.768,
+       5.768
+      ],
+      "_v6": [
+       2.0,
+       6.0
+      ],
+      "_h6": [
+       3.768,
+       7.768
+      ],
+      "_v7": [
+       0.0,
+       6.0
+      ],
+      "_h7": [
+       1.768,
+       7.768
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       ""
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v4",
+       ""
+      ],
+      [
+       "_v4",
+       "_v5",
+       ""
+      ],
+      [
+       "_v5",
+       "_v6",
+       ""
+      ],
+      [
+       "_v6",
+       "_v7",
+       ""
+      ],
+      [
+       "_v7",
+       "_v0",
+       ""
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       ""
+      ],
+      [
+       "_h3",
+       "_h4",
+       ""
+      ],
+      [
+       "_h4",
+       "_h5",
+       ""
+      ],
+      [
+       "_h5",
+       "_h6",
+       ""
+      ],
+      [
+       "_h6",
+       "_h7",
+       ""
+      ],
+      [
+       "_h7",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "5 dm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_v4",
+       "_h4",
+       ""
+      ],
+      [
+       "_v5",
+       "_h5",
+       ""
+      ],
+      [
+       "_v6",
+       "_h6",
+       ""
+      ],
+      [
+       "_v7",
+       "_h7",
+       ""
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3",
+      "_v4",
+      "_v5",
+      "_v6",
+      "_v7"
+     ]
+    }
+   },
+   "o": {
+    "wert": 120,
+    "einheit": "dm³"
+   },
+   "c": "2 * 2 * 5 + 4 * 2 * 5 + 6 * 2 * 5",
+   "w": "Zerlegen in waagrechte Schichten: unten 6 dm, dann 4 dm, oben 2 dm lang, je 2 dm hoch und 5 dm breit: 60 + 40 + 20 = 120 dm³."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einen Quader (7 cm · 6 cm · 3 cm) wird ein Würfel mit 4 cm Kante geklebt. Wie groß ist das Volumen zusammen?"
+   },
+   "o": {
+    "wert": 190,
+    "einheit": "cm³"
+   },
+   "c": "7 * 6 * 3 + 4 * 4 * 4",
+   "w": "Quader: 126 cm³, Würfel: 64 cm³. Zusammen 190 cm³."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "In welcher Einheit gibt man das Volumen eines Klassenzimmers sinnvoll an?"
+   },
+   "a": [
+    "mm³",
+    "ml",
+    "cm³",
+    "m³"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Für das Volumen eines Klassenzimmers passt m³: Die Zahl ist dann weder riesig noch winzig.",
+   "h": "Welche Einheit gibt eine handliche Zahl?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viel Wasser passt ungefähr in einen Esslöffel?"
+   },
+   "a": [
+    "15 l",
+    "150 ml",
+    "15 ml",
+    "1,5 l"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ein sinnvoller Näherungswert für einen Esslöffel ist 15 ml.",
+   "h": "Vergleiche mit einer 1-l-Flasche."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "In welcher Einheit gibt man das Volumen eines Zuckerwürfels sinnvoll an?"
+   },
+   "a": [
+    "cm³",
+    "dm³",
+    "m³",
+    "l"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für das Volumen eines Zuckerwürfels passt cm³: Die Zahl ist dann weder riesig noch winzig.",
+   "h": "Welche Einheit gibt eine handliche Zahl?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viel Wasser passt ungefähr in eine Badewanne?"
+   },
+   "a": [
+    "150 l",
+    "15 ml",
+    "15 l",
+    "1 500 l"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein sinnvoller Näherungswert für eine Badewanne ist 150 l.",
+   "h": "Vergleiche mit einer 1-l-Flasche."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Lena rechnet: 16 cm · 10 cm · 20 cm = 3 200 cm³ = 32 l. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Es sind 3 200 l.",
+    "Richtig.",
+    "Falsch: 3 200 cm³ sind 3,2 l.",
+    "Falsch: Es sind 320 l."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "1 l = 1 000 cm³. Also 3 200 : 1 000 = 3,2 l.",
+   "h": "Wie viele cm³ hat ein Liter?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat 24 cm³. Eine Kante wird verdreifacht. Wie groß ist das neue Volumen?"
+   },
+   "o": {
+    "wert": 72,
+    "einheit": "cm³"
+   },
+   "c": "24 * 3",
+   "w": "Wird eine Kante doppelt (dreimal) so lang, wird das Volumen doppelt (dreimal) so groß. Hier wird es 3-mal so groß: 24 · 3 = 72 cm³.",
+   "h": "Wie oft passt der alte Quader in den neuen?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat 120 cm³. Er wird genau in der Mitte durchgeschnitten, parallel zu einer Seitenfläche. Wie groß ist eine Hälfte?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "cm³"
+   },
+   "c": "120 / 2",
+   "w": "Beide Hälften sind gleich groß: 120 : 2 = 60 cm³.",
+   "h": "Welche Kante wird halbiert?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Getränkepackung ist etwa 7 cm · 6 cm · 24 cm groß. Wie viel passt ungefähr hinein?"
+   },
+   "a": [
+    "etwa 10 000 ml",
+    "etwa 1 000 ml",
+    "etwa 100 ml",
+    "etwa 1 000 l"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "7 · 6 · 24 = 1 008 cm³ ≈ 1 000 ml.",
+   "h": "Volumen in cm³ ist gleich ml."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Lena rechnet: 19 cm · 17 cm · 18 cm = 5 814 cm³ = 58,14 l. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: 5 814 cm³ sind 5,814 l.",
+    "Falsch: Es sind 581,4 l.",
+    "Falsch: Es sind 5 814 l."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "1 l = 1 000 cm³. Also 5 814 : 1 000 = 5,814 l.",
+   "h": "Wie viele cm³ hat ein Liter?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Getränkepackung ist etwa 6 cm · 6 cm · 28 cm groß. Wie viel passt ungefähr hinein?"
+   },
+   "a": [
+    "etwa 1 000 ml",
+    "etwa 1 000 l",
+    "etwa 10 000 ml",
+    "etwa 100 ml"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "6 · 6 · 28 = 1 008 cm³ ≈ 1 000 ml.",
+   "h": "Volumen in cm³ ist gleich ml."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Bauteil wird im Maßstab 1 : 10 als Modell gebaut. Wie groß ist das Volumen des Originals im Vergleich zum Modell?"
+   },
+   "a": [
+    "30-mal so groß",
+    "1 000-mal so groß",
+    "10-mal so groß",
+    "100-mal so groß"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Jede der drei Kanten ist 10-mal so lang: 10 · 10 · 10 = 1 000.",
+   "h": "Wie oft wird jede Kante länger?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Haben zwei Quader das gleiche Volumen, so haben sie auch die gleiche Oberfläche.“"
+   },
+   "a": [
+    "Ja, aber nur bei Würfeln.",
+    "Nein, gleich große Quader gibt es nicht.",
+    "Ja, Volumen und Oberfläche hängen fest zusammen.",
+    "Nein: 1 cm · 1 cm · 8 cm und 2 cm · 2 cm · 2 cm haben 8 cm³, aber 34 cm² und 24 cm²."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ein Gegenbeispiel genügt: 2 · (1 + 8 + 8) = 34 cm² und 6 · 4 = 24 cm² bei gleichem Volumen 8 cm³.",
+   "h": "Suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel hat 27 cm³. Ein zweiter Würfel hat eine dreimal so lange Kante. Wie viel cm³ hat er?"
+   },
+   "o": {
+    "wert": 729,
+    "einheit": "cm³"
+   },
+   "c": "27 * 3 * 3 * 3",
+   "w": "Erster Würfel: Kante 3 cm. Zweiter: 9 cm, Volumen 9 · 9 · 9 = 729 cm³ – das 27-fache.",
+   "h": "Wie lang ist die Kante des ersten Würfels?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "1 l Wasser wiegt 1 kg. Wie viel kg wiegt das Wasser in einem vollen Würfel mit 4 dm Kante?"
+   },
+   "o": {
+    "wert": 64,
+    "einheit": "kg"
+   },
+   "c": "4 * 4 * 4",
+   "w": "V = 4 · 4 · 4 = 64 dm³ = 64 l. Das wiegt 64 kg.",
+   "h": "Volumen in Liter."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kinderzimmer ist 5 m lang, 4 m breit und 2,5 m hoch. Pro Person sollte man mindestens 10 m³ Luft rechnen. Für wie viele Personen reicht der Raum höchstens?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5 * 4 * 2.5 // 10",
+   "w": "V = 5 · 4 · 2,5 = 50 m³. 50 : 10 = 5 – also höchstens 5 Personen.",
+   "h": "Volumen ausrechnen, dann durch 10; nur ganze Personen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Quader haben beide 24 cm³: 1 cm · 1 cm · 24 cm und 2 cm · 3 cm · 4 cm. Was stimmt?"
+   },
+   "a": [
+    "Der kurze Quader hat die größere Oberfläche.",
+    "Sie haben auch die gleiche Oberfläche.",
+    "Gleiches Volumen, aber verschiedene Oberflächen (98 cm² und 52 cm²).",
+    "Der lange Quader hat das größere Volumen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Oberflächen: 2 · (1 + 24 + 24) = 98 cm² und 2 · (6 + 8 + 12) = 52 cm². Das Volumen ist bei beiden 24 cm³.",
+   "h": "Rechne beide Oberflächen aus."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Klassenzimmer ist etwa 8 m lang, 7 m breit und 3 m hoch. Wie viele Liter Luft sind darin ungefähr?"
+   },
+   "a": [
+    "etwa 17 000 000 l",
+    "etwa 1 700 l",
+    "etwa 170 l",
+    "etwa 170 000 l"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "8 · 7 · 3 = 168 m³ ≈ 170 m³. 1 m³ = 1 000 l, also etwa 170 000 l.",
+   "h": "Erst m³, dann Liter."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist richtig?"
+   },
+   "a": [
+    "Ein Würfel mit 1 dm Kante fasst so viel wie 100 Würfel mit 1 cm Kante.",
+    "Ein Liter ist so groß wie ein Würfel mit 1 cm Kante.",
+    "Ein Würfel mit 1 dm Kante fasst so viel wie 1 000 Würfel mit 1 cm Kante.",
+    "1 m³ sind 100 Liter."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "1 dm = 10 cm, also 10 · 10 · 10 = 1 000 cm³. 1 m³ = 1 000 l, und 1 l = 1 dm³.",
+   "h": "Rechne jede Aussage nach."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat 24 cm³. Eine Kante wird verdoppelt. Wie groß ist das neue Volumen?"
+   },
+   "o": {
+    "wert": 48,
+    "einheit": "cm³"
+   },
+   "c": "24 * 2",
+   "w": "Wird eine Kante doppelt (dreimal) so lang, wird das Volumen doppelt (dreimal) so groß. Hier wird es 2-mal so groß: 24 · 2 = 48 cm³."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat 64 cm³. Er wird genau in der Mitte durchgeschnitten, parallel zu einer Seitenfläche. Wie groß ist eine Hälfte?"
+   },
+   "o": {
+    "wert": 32,
+    "einheit": "cm³"
+   },
+   "c": "64 / 2",
+   "w": "Beide Hälften sind gleich groß: 64 : 2 = 32 cm³."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat 30 cm³. Eine Kante wird verdoppelt. Wie groß ist das neue Volumen?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "cm³"
+   },
+   "c": "30 * 2",
+   "w": "Wird eine Kante doppelt (dreimal) so lang, wird das Volumen doppelt (dreimal) so groß. Hier wird es 2-mal so groß: 30 · 2 = 60 cm³."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Getränkepackung ist etwa 9 cm · 6 cm · 19 cm groß. Wie viel passt ungefähr hinein?"
+   },
+   "a": [
+    "etwa 10 000 ml",
+    "etwa 1 000 l",
+    "etwa 100 ml",
+    "etwa 1 000 ml"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "9 · 6 · 19 = 1 026 cm³ ≈ 1 000 ml."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Lena rechnet: 24 cm · 16 cm · 25 cm = 9 600 cm³ = 96 l. Was stimmt?"
+   },
+   "a": [
+    "Falsch: 9 600 cm³ sind 9,6 l.",
+    "Richtig.",
+    "Falsch: Es sind 960 l.",
+    "Falsch: Es sind 9 600 l."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "1 l = 1 000 cm³. Also 9 600 : 1 000 = 9,6 l."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat 24 cm³. Alle drei Kanten werden verdoppelt. Wie groß ist das neue Volumen?"
+   },
+   "o": {
+    "wert": 192,
+    "einheit": "cm³"
+   },
+   "c": "24 * 8",
+   "w": "Wird eine Kante doppelt (dreimal) so lang, wird das Volumen doppelt (dreimal) so groß. Hier wird es 8-mal so groß: 24 · 8 = 192 cm³."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat 48 cm³. Er wird genau in der Mitte durchgeschnitten, parallel zu einer Seitenfläche. Wie groß ist eine Hälfte?"
+   },
+   "o": {
+    "wert": 24,
+    "einheit": "cm³"
+   },
+   "c": "48 / 2",
+   "w": "Beide Hälften sind gleich groß: 48 : 2 = 24 cm³."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Lena rechnet: 21 cm · 18 cm · 29 cm = 10 962 cm³ = 109,62 l. Was stimmt?"
+   },
+   "a": [
+    "Falsch: 10 962 cm³ sind 10,962 l.",
+    "Richtig.",
+    "Falsch: Es sind 1 096,2 l.",
+    "Falsch: Es sind 10 962 l."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "1 l = 1 000 cm³. Also 10 962 : 1 000 = 10,962 l."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat 96 cm³. Er wird genau in der Mitte durchgeschnitten, parallel zu einer Seitenfläche. Wie groß ist eine Hälfte?"
+   },
+   "o": {
+    "wert": 48,
+    "einheit": "cm³"
+   },
+   "c": "96 / 2",
+   "w": "Beide Hälften sind gleich groß: 96 : 2 = 48 cm³."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Getränkepackung ist etwa 7 cm · 7 cm · 20 cm groß. Wie viel passt ungefähr hinein?"
+   },
+   "a": [
+    "etwa 100 ml",
+    "etwa 10 000 ml",
+    "etwa 1 000 l",
+    "etwa 1 000 ml"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "7 · 7 · 20 = 980 cm³ ≈ 1 000 ml."
+  }
+ ],
+ "offen": [
+  "Schrägbilder von Quadern und Stufen sind als Figur aus Strecken gezeichnet (Tiefe halb so lang unter 45°, verdeckte Kanten gestrichelt), Maßstab per Skript geprüft.",
+  "Messen mit Hohlmaßen (Umfüllen, Messbecher) kann das Kind in der App nicht selbst; es kommt als Sachaufgabe vor.",
+  "Keine Gleichungen mit x (erst Klasse 7): fehlende Kanten und Füllhöhen werden rückwärts gerechnet (Volumen : Grundfläche)."
+ ]
+}

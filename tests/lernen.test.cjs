@@ -1185,6 +1185,7 @@ test('K4: Eltern – Stand über Schularten: Übersicht, Landkarte mit Einstiegs
   await felder.nth(0).click();
   await page.waitForURL(/#\/schulstand\/1-gym_by$/);
   await page.locator('.lern-stand-raster').waitFor();
+  await page.getByText('Orientierung, keine Einstufung durch eine Schule').first().waitFor(); // erst lesen, wenn die Seite fertig gezeichnet ist (sonst gelegentlich „Lade …“)
   assert.match(await page.locator('main').innerText(), /Orientierung, keine Einstufung durch eine Schule/);
   // Einstieg prüfen Klasse 7: alles bis Klasse 6 = 3 Flüge Kl. 5 + 1 Flug Kl. 6 → 2 von 4 gelandet = 50 % → rot
   await page.locator('.lern-chips-zeile[aria-label="Einstieg prüfen"] a', { hasText: 'Kl. 7' }).click();

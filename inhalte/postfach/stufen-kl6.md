@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 17:35 – STATUS
+**terme.potenzgesetze** fertig: 10 umgestuft, 35 neue Übungen, 14 Knobel-Bordkarten, 2 überzählige. Prüfskript OK, 0 Gruppen, Nachweis OK.
+
 ## 2026-11-17 17:15 – STATUS
 **zahlen.potenzen_zehner** fertig: 6 umgestuft, 22 neue Übungen, 14 Knobel-Bordkarten, 10 überzählige. Prüfskript OK, 0 Gruppen, Nachweis OK.
 

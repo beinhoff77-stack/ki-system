@@ -731,5 +731,119 @@ befunde_anwenden(DATEI, DS)
 # ---- DURCHSICHT ENDE ----
 
 
+# ---------- STUFEN (Zwanzigste Runde, Zweig stufen-kl6) ----------
+from _stufen_kl6 import Stufen, stufen_datei  # noqa: E402
+
+ST = Stufen('terme.potenzgesetze', 20_6_5)
+Z, A, L, N, K, TB = ST.Z, ST.A, ST.L, ST.neu, ST.knobel, ST.typ_bau
+B = '□/□'
+
+lz = 'potenz_begriff'
+ST.leiter(lz, 'Potenzen natürlicher Zahlen ausrechnen, Basis und Exponent benennen.', 'Potenzen von Brüchen, Dezimalzahlen und negativen Zahlen; Würfelvolumen; Basis zu einer Potenz finden.',
+          'Potenzen vergleichen, Wachstum, −a² gegen (−a)², Endziffern, Würfel aus Würfeln, Fehler deuten, rückwärts über zweimal Quadrieren.')
+TB(lz, 2, 'Ein Würfel hat', 'einkleidung')
+TB(lz, 3, 'Welche Zahl ist größer', 'begruenden'); TB(lz, 3, 'Ein Modellwürfel', 'verknuepfen')
+N(lz, Z('umkehr', 'Welche natürliche Zahl ergibt hoch 3 genau 125?', 5, '5', '5³ = 5 · 5 · 5 = 125.', 'Probiere kleine Zahlen aus.'))
+N(lz, Z('fehler', 'Ein Kind rechnet 5³ = 15. Wie heißt das richtige Ergebnis?', 125, '5 ** 3', 'Es hat 5 · 3 gerechnet. Richtig: 5 · 5 · 5 = 125.', 'Was bedeutet der Exponent 3?'))
+N(lz, Z('rueckwaerts', 'Eine positive Zahl wird quadriert und das Ergebnis noch einmal quadriert. Es kommt 81 heraus. Welche Zahl war es?', 3, '3', 'Zurück: 81 ist 9², und 9 ist 3². Also war die Zahl 3.', 'Welche Zahl ergibt quadriert 81?'))
+K(lz, Z('knobel', 'Wie viele Quadratzahlen liegen zwischen 50 und 500?', 15, '22 - 8 + 1', 'Die kleinste ist 8² = 64, die größte 22² = 484 (23² = 529 ist zu groß). Von 8 bis 22 sind es 15 Zahlen.', 'Suche die kleinste und die größte passende Quadratzahl.'))
+K(lz, Z('knobel', 'Auf welche Ziffer endet 7¹⁰⁰?', 1, '7 ** 100 % 10', 'Die Endziffern von 7¹, 7², 7³, 7⁴ sind 7, 9, 3, 1 – dann wiederholt es sich alle 4 Schritte. 100 ist durch 4 teilbar, also endet 7¹⁰⁰ wie 7⁴ auf 1.',
+        'Schreibe die Endziffern von 7¹, 7², 7³, … auf.'))
+
+lz = 'negativer_exponent'
+ST.leiter(lz, 'a⁻ⁿ als Bruch schreiben, a⁰ = 1 kennen.', 'Potenzen von Brüchen mit negativem Exponenten, Brüche als Potenz schreiben, Summen, Größen aus dem Alltag.',
+          'Verhältnisse, Vorzeichen, kleinste Zahl finden, Exponent bestimmen, Fehler deuten, rückwärts, Zahlen ordnen.')
+TB(lz, 2, 'Schreibe 1/81', 'umkehr')
+TB(lz, 3, 'Welche dieser Zahlen ist negativ', 'begruenden'); TB(lz, 3, 'Welche Zahl ist am kleinsten', 'verknuepfen')
+N(lz, Z('einkleidung', 'Ein winziges Lebewesen ist 2⁻³ mm lang. Wie viele Millimeter sind das als Dezimalzahl?', 0.125, '2 ** -3', '2⁻³ = 1/2³ = 1/8 = 0,125 mm.', 'Schreibe 2⁻³ zuerst als Bruch.', einheit='mm'))
+N(lz, Z('rueckwaerts', 'Von einer Zahl x wird die Potenz x⁻¹ genommen und mit 4 malgenommen. Es kommt 1/2 heraus. Wie heißt x?', 8, '4 / (1 / 2)', 'x⁻¹ · 4 = 1/2, also x⁻¹ = 1/8 und x = 8.', 'x⁻¹ ist der Kehrbruch von x.'))
+N(lz, A('pruefung', 'Welche der Zahlen 2⁻¹, 2⁰, 2⁻² und (−2)⁻¹ ist am kleinsten?', '(−2)⁻¹', ['2⁻²', '2⁻¹', '2⁰'], '(−2)⁻¹ = −1/2 ist negativ. Die anderen: 1/2, 1, 1/4.', 'Schreibe alle als Bruch.'))
+K(lz, L('knobel', 'Berechne 2⁻¹ + 2⁻² + 2⁻³ + 2⁻⁴ + 2⁻⁵.', B, [31, 32], ['2 ** 5 - 1', '2 ** 5'],
+        'Das ist 1/2 + 1/4 + 1/8 + 1/16 + 1/32. Bis 1 fehlt immer genau der letzte Summand: Es fehlt 1/32. Also 31/32.', 'Stell dir vor, du gehst bis zur Hälfte, dann die Hälfte vom Rest, … Wie viel fehlt bis 1?'))
+K(lz, Z('knobel', 'Für welche ganze Zahl n gilt 8ⁿ = 1/8?', -1, '-1', '8⁻¹ = 1/8. Also n = −1. (Andere Exponenten geben 8, 64, 1/64, …)', 'Was bedeutet ein Minus im Exponenten?'))
+
+lz = 'mal_gleiche_basis'
+ST.leiter(lz, 'Bei gleicher Basis die Exponenten addieren; die passende Regel erkennen.', 'Mit negativen Exponenten und Variablen, drei Faktoren, fehlenden Exponenten ergänzen, als Dezimalzahl.',
+          'Lichtjahre, Zahl als Potenz umschreiben, Paare zählen, Fehler deuten, Aussagen prüfen, rückwärts, Zerlegen in Faktoren.')
+for t in ('z³', 'y⁻³', 'a⁵', '10⁻¹', '3⁻²', 'x²', '3⁴'):
+    TB(lz, 2, t, 'mehrschritt')
+TB(lz, 3, 'Ergänze den Exponenten', 'umkehr', neu_s=2)
+TB(lz, 3, 'Ein Lichtjahr', 'verknuepfen')
+N(lz, A('erkennen', 'Welche Regel gilt bei a³ · a⁴?', 'Exponenten addieren: a⁷', ['Exponenten malnehmen: a¹²', 'Basen malnehmen: a²'], 'Gleiche Basis beim Malnehmen: Exponenten addieren, 3 + 4 = 7.', 'Schreibe a³ · a⁴ einmal ganz aus.'))
+N(lz, Z('einkleidung', 'Eine Kiste enthält 10² Packungen mit je 10³ Schrauben. Es sind 10ᵏ Schrauben. Wie groß ist k?', 5, '2 + 3', '10² · 10³ = 10⁵ (100 · 1 000 = 100 000).', 'Gleiche Basis: Exponenten addieren.'))
+N(lz, A('begruenden', 'Stimmt die Aussage? „2³ · 3³ kann man mit der Regel für gleiche Basen zusammenfassen.“', 'Nein, die Basen sind verschieden. Hier hilft die Regel für gleiche Exponenten: 6³.',
+        ['Ja: 2³ · 3³ = 5⁶.', 'Ja: 2³ · 3³ = 6⁶.'], 'Die Regel „Exponenten addieren“ gilt nur bei gleicher Basis. Bei gleichem Exponenten werden die Basen malgenommen: 2³ · 3³ = 6³.', 'Sind die Basen gleich?'))
+N(lz, Z('rueckwaerts', 'Eine Bakterienzahl verdoppelt sich jede Stunde. Nach k Stunden und dann noch 3 Stunden ist sie auf das 2⁹-fache gewachsen. Wie groß ist k?', 6, '9 - 3', '2ᵏ · 2³ = 2⁹, also k + 3 = 9, k = 6.', 'Schreibe das Wachstum als Produkt von Zweierpotenzen.'))
+N(lz, Z('pruefung', 'Schreibe 8 · 16 · 32 als Zweierpotenz 2ᵉ. Wie groß ist e?', 12, '3 + 4 + 5', '8 = 2³, 16 = 2⁴, 32 = 2⁵. Zusammen 2³⁺⁴⁺⁵ = 2¹².', 'Schreibe jeden Faktor als Zweierpotenz.'))
+N(lz, Z('transfer', 'Wie viele Dreierpotenzen 3ⁿ (n mindestens 1, jede höchstens 3⁵) muss man mindestens malnehmen, um 3¹² zu erhalten?', 3, '-(-12 // 5)',
+        'Jeder Faktor bringt höchstens 5 zum Exponenten. Zwei Faktoren schaffen höchstens 10, drei schaffen 12 (z. B. 3⁵ · 3⁵ · 3²).', 'Wie viel kann jeder Faktor höchstens beitragen?'))
+K(lz, Z('knobel', '2¹⁰ + 2¹⁰ = 2ᵏ. Wie groß ist k?', 11, '11', 'Zweimal dieselbe Zahl ist das Doppelte: 2 · 2¹⁰ = 2¹ · 2¹⁰ = 2¹¹. Also k = 11 (nicht 20!).', 'Was ist eine Zahl plus dieselbe Zahl?'))
+K(lz, Z('knobel', '4⁵ · 8⁴ = 2ᵏ. Wie groß ist k?', 22, '2 * 5 + 3 * 4', '4 = 2², also 4⁵ = 2¹⁰. 8 = 2³, also 8⁴ = 2¹². Zusammen 2¹⁰ · 2¹² = 2²².', 'Schreibe 4 und 8 als Zweierpotenzen.'))
+
+lz = 'geteilt_gleiche_basis'
+ST.leiter(lz, 'Bei gleicher Basis die Exponenten subtrahieren; die passende Regel erkennen.', 'Negative Ergebnisse, Variablen, Malnehmen und Teilen gemischt, fehlenden Exponenten ergänzen, Sachsituation.',
+          'Festplatte und Filme, rückwärts zum Exponenten, gemischte Basen zerlegen, Fehler deuten, Aussagen prüfen, für welche n, Speicher als Prüfungsaufgabe.')
+for t in ('y⁵', 'a⁻³', '3⁴ :', 'z⁻²', '2¹ :', '2³ · 2³', '3⁵ · 3³', 'x⁸', '5³ :'):
+    TB(lz, 2, t, 'mehrschritt')
+TB(lz, 3, 'Eine Festplatte', 'verknuepfen'); TB(lz, 3, '2¹⁰ : 2ⁿ', 'rueckwaerts')
+N(lz, A('erkennen', 'Welche Regel gilt bei a⁷ : a³?', 'Exponenten abziehen: a⁴', ['Exponenten teilen: a⁷ʹ³', 'Basen teilen: 1⁴'], 'Gleiche Basis beim Teilen: Exponenten abziehen, 7 − 3 = 4.', 'Kürze a⁷/a³ in Gedanken.'))
+N(lz, Z('umkehr', 'Ergänze: 7ᵏ : 7² = 7⁵. Wie groß ist k?', 7, '5 + 2', 'k − 2 = 5, also k = 7.', 'Welcher Exponent minus 2 ergibt 5?'))
+N(lz, Z('einkleidung', 'Ein Lager hat 10⁶ Schrauben. Sie werden in Kisten zu je 10² Stück verpackt. Es sind 10ᵏ Kisten. Wie groß ist k?', 4, '6 - 2', '10⁶ : 10² = 10⁴ = 10 000 Kisten.', 'Teilen bei gleicher Basis: Exponenten abziehen.'))
+N(lz, A('begruenden', 'Stimmt die Aussage? „a⁵ : a⁵ = a⁰ = 0“', 'Nein: a⁵ : a⁵ = 1, also ist a⁰ = 1.', ['Ja, das stimmt.', 'Nein: a⁵ : a⁵ = a.'], 'Eine Zahl geteilt durch sich selbst ist 1. Deshalb gilt a⁰ = 1 (für a nicht 0).', 'Was ist 8 : 8?'))
+N(lz, Z('parameter', 'Für wie viele natürliche Zahlen n von 1 bis 10 ist 2¹⁰ : 2ⁿ größer als 100?', 3, '3', '2¹⁰ : 2ⁿ = 2¹⁰⁻ⁿ. Größer als 100 ist das ab 2⁷ = 128, also für 10 − n ≥ 7, n = 1, 2, 3.', 'Welche Zweierpotenz ist die erste über 100?'))
+N(lz, Z('pruefung', 'Ein Speicher fasst 2³⁰ Byte, eine Datei hat 2²⁰ Byte. Wie viele Dateien passen hinein? Gib die Anzahl als 2ᵉ an. Wie groß ist e?', 10, '30 - 20', '2³⁰ : 2²⁰ = 2¹⁰ = 1 024 Dateien.', 'Teile die beiden Potenzen.'))
+N(lz, Z('transfer', 'Berechne 10⁴ : 10⁴ : 10⁴ · 10⁸.', 10000, '10 ** (4 - 4 - 4 + 8)', 'Von links: 10⁴ : 10⁴ = 10⁰ = 1, dann 1 : 10⁴ = 10⁻⁴, dann 10⁻⁴ · 10⁸ = 10⁴ = 10 000.', 'Rechne von links nach rechts mit den Exponenten.'))
+K(lz, Z('knobel', 'Berechne (2¹⁰ − 2⁹) : 2⁸.', 2, '(2 ** 10 - 2 ** 9) // 2 ** 8', '2¹⁰ ist das Doppelte von 2⁹. Das Doppelte minus einmal ist einmal: 2¹⁰ − 2⁹ = 2⁹. Dann 2⁹ : 2⁸ = 2¹ = 2.', 'Wie viel ist 2¹⁰ − 2⁹? Denke an „das Doppelte minus einmal“.'))
+K(lz, Z('knobel', 'Berechne 3¹⁰⁰ : 3⁹⁸ − 3⁰.', 8, '3 ** 2 - 1', 'Bei gleicher Basis Exponenten abziehen: 3¹⁰⁰ : 3⁹⁸ = 3¹⁰⁰⁻⁹⁸ = 3² = 9. Und 3⁰ = 1. Also 9 − 1 = 8.', 'Du musst die großen Potenzen nicht ausrechnen.'))
+
+lz = 'gleicher_exponent'
+ST.leiter(lz, 'Bei gleichem Exponenten die Basen malnehmen; das Ergebnis erkennen.', 'Geschickt rechnen mit Produkten 10, 1 oder 100, auch beim Teilen und mit Brüchen; fehlende Basis finden; Quadrat vergrößern.',
+          'Drei Faktoren, Bruchbasen, Fehler deuten, Aussage „Summe“ widerlegen, rückwärts, für welche Basis, Würfel aus Würfeln, Nullen zählen.')
+TB(lz, 2, 'Fasse zusammen', 'erkennen', neu_s=1)
+TB(lz, 3, '36²', 'umkehr', neu_s=2); TB(lz, 3, '30²', 'umkehr', neu_s=2); TB(lz, 3, 'Welche Zahl gehört ins Kästchen? □³', 'umkehr', neu_s=2)
+N(lz, Z('einkleidung', 'Ein Quadrat hat die Seitenlänge 2,5 cm. Ein zweites Quadrat hat eine 4-mal so lange Seite. Wie groß ist die Fläche des zweiten in cm²?', 100, '(2.5 * 4) ** 2', '(2,5 · 4)² = 10² = 100 cm². Geschickt: 2,5² · 4² = (2,5 · 4)².', 'Wie lang ist die Seite des zweiten Quadrats?', einheit='cm²'))
+N(lz, A('begruenden', 'Stimmt die Aussage? „2³ + 5³ = 7³“', 'Nein: 8 + 125 = 133, aber 7³ = 343.', ['Ja, wie bei 2³ · 5³ = 10³.', 'Ja, gleicher Exponent heißt Basen addieren.'],
+        'Die Regel für gleiche Exponenten gilt nur beim Malnehmen, nicht beim Addieren.', 'Rechne beide Seiten aus.'))
+N(lz, Z('rueckwaerts', 'Eine positive Zahl wird quadriert und mit 4² malgenommen. Es kommt 400 heraus. Welche Zahl war es?', 5, '5', 'x² · 4² = (4x)² = 400 = 20². Also 4x = 20, x = 5.', 'Fasse x² · 4² zu einem Quadrat zusammen.'))
+N(lz, Z('parameter', 'Für welche natürliche Zahl a gilt a³ · 5³ = 1 000 000?', 20, '100 // 5', 'a³ · 5³ = (5a)³ = 1 000 000 = 100³. Also 5a = 100, a = 20.', '1 000 000 ist eine Kubikzahl. Von welcher Zahl?'))
+N(lz, Z('verknuepfen', 'Ein Würfel mit 4 cm Kantenlänge wird aus kleinen Würfeln mit 0,5 cm Kantenlänge gebaut. Wie viele kleine Würfel braucht man?', 512, '(4 / 0.5) ** 3', 'Je Kante passen 4 : 0,5 = 8 kleine Würfel. 8³ = 512.', 'Wie viele kleine Würfel liegen entlang einer Kante?'))
+N(lz, Z('pruefung', 'Berechne 4⁵ · 25⁵ geschickt. Wie viele Nullen hat das Ergebnis?', 10, '10', '4⁵ · 25⁵ = (4 · 25)⁵ = 100⁵ = 10¹⁰: eine 1 mit 10 Nullen.', 'Was ergibt 4 · 25?'))
+K(lz, Z('knobel', 'Welche Ziffer steht am Anfang der Zahl 2²⁰ · 5¹⁹?', 2, '2', '2²⁰ · 5¹⁹ = 2 · 2¹⁹ · 5¹⁹ = 2 · 10¹⁹. Das ist eine 2 mit 19 Nullen.', 'Nimm einen Faktor 2 heraus, damit gleiche Exponenten entstehen.'))
+K(lz, Z('knobel', 'Wie viele Stellen hat die Zahl 2¹⁰ · 5⁸?', 9, '9', '2¹⁰ · 5⁸ = 2² · 2⁸ · 5⁸ = 4 · 10⁸ = 400 000 000. Das sind 9 Stellen.', 'Mache die Exponenten gleich, indem du Zweien abspaltest.'))
+
+lz = 'anwenden'
+ST.leiter(lz, 'Eine Zahl als Potenz schreiben und Exponenten addieren; die passende Regel erkennen.', 'Geschickt mit 2 · 5 = 10 rechnen, Teilen, Falten, Zahlen als Zweier- oder Zehnerpotenz darstellen.',
+          'Stapelhöhe, große Potenzen vergleichen, Nullen am Ende, Fehler deuten, rückwärts zur Zahl der Faltungen, für welche n, Bevölkerungsdichte.')
+TB(lz, 2, 'Ein Blatt Papier wird', 'einkleidung'); TB(lz, 2, '16 · 4', 'darstellung'); TB(lz, 2, '100²', 'darstellung')
+TB(lz, 2, '10⁹ :', 'mehrschritt'); TB(lz, 2, '3⁶ :', 'mehrschritt')
+TB(lz, 3, 'Was ergibt 3³', 'mehrschritt', neu_s=2); TB(lz, 3, '16 · 32', 'darstellung', neu_s=2)
+TB(lz, 3, 'Ein Blatt Papier ist', 'verknuepfen'); TB(lz, 3, 'Welche Zahl ist größer', 'begruenden')
+N(lz, A('erkennen', 'Welches Potenzgesetz brauchst du für 3⁴ · 3²?', 'gleiche Basis: Exponenten addieren', ['gleicher Exponent: Basen malnehmen', 'Exponenten malnehmen'], 'Die Basis 3 ist gleich, also 3⁴ · 3² = 3⁶.', 'Was ist gleich: die Basis oder der Exponent?'))
+N(lz, Z('fehler', 'Ein Kind rechnet 2⁴ · 2³ = 4⁷. Wie viel ist das Ergebnis richtig als Zahl?', 128, '2 ** 7', 'Die Basis bleibt 2: 2⁴ · 2³ = 2⁷ = 128.', 'Was passiert mit der Basis?'))
+N(lz, Z('rueckwaerts', 'Ein Blatt wird mehrmals in der Mitte gefaltet. Jedes Falten verdoppelt die Lagen. Am Ende liegen 128 Lagen übereinander. Wie oft wurde gefaltet?', 7, '7', '128 = 2⁷. Also wurde 7-mal gefaltet.', 'Schreibe 128 als Zweierpotenz.'))
+N(lz, Z('parameter', 'Für welche natürliche Zahl n gilt 2ⁿ · 5ⁿ = 1 000 000?', 6, '6', '2ⁿ · 5ⁿ = 10ⁿ = 1 000 000 = 10⁶. Also n = 6.', 'Fasse 2ⁿ · 5ⁿ zusammen.'))
+N(lz, Z('pruefung', 'Ein Land hat etwa 9 · 10⁶ Einwohner und eine Fläche von etwa 4,5 · 10⁵ km². Wie viele Einwohner kommen im Mittel auf 1 km²?', 20, '9 * 10 ** 6 / (4.5 * 10 ** 5)',
+        '9 : 4,5 = 2 und 10⁶ : 10⁵ = 10. Also 2 · 10 = 20 Einwohner je km².', 'Teile die Zahlen vorne und die Zehnerpotenzen getrennt.'))
+K(lz, A('knobel', 'Welche Zahl ist größer: 2¹⁰⁰ oder 10³⁰?', '2¹⁰⁰', ['10³⁰', 'Beide sind gleich groß.'],
+        '2¹⁰ = 1 024 ist etwas mehr als 10³ = 1 000. 2¹⁰⁰ ist 2¹⁰ zehnmal malgenommen, 10³⁰ ist 10³ zehnmal malgenommen. Also ist 2¹⁰⁰ größer.', 'Vergleiche zuerst 2¹⁰ mit 10³.'))
+K(lz, Z('knobel', 'Auf ein Schachbrett legt man auf das 1. Feld 1 Reiskorn, auf das 2. Feld 2, auf das 3. Feld 4 und so weiter, immer doppelt so viele. Auf welchem Feld liegen zum ersten Mal mehr als 1 000 Körner?', 11, '11',
+        'Auf Feld n liegen 2ⁿ⁻¹ Körner. 2⁹ = 512 (Feld 10) ist noch zu wenig, 2¹⁰ = 1 024 liegt auf Feld 11.', 'Wie viele Körner liegen auf Feld n?'))
+
+lz = 'fehler_finden'
+ST.leiter(lz, 'Einfache Potenzrechnungen auf Richtigkeit prüfen; eine Potenz ausrechnen.', 'Den Fehler bei einer Regel benennen und berichtigen, auch in Sachsituationen; vom falschen Exponenten zum richtigen.',
+          'Basis falsch, Exponent falsch, −4², Summe statt Produkt deuten; für welche Basis eine falsche Regel zufällig stimmt; rückwärts aus einem falschen Ergebnis.')
+for t in ('Ein Kind rechnet', 'Stimmt die Rechnung'):
+    TB(lz, 2, t, 'mehrschritt')
+TB(lz, 3, 'Ein Kind rechnet 2³ + 2³', 'verknuepfen')
+N(lz, Z('direkt', 'Rechne nach: Wie viel ist 2⁵?', 32, '2 ** 5', '2 · 2 · 2 · 2 · 2 = 32.', 'Nimm die 2 fünfmal mit sich selbst mal.'))
+N(lz, Z('einkleidung', 'Ein Kind sagt: „Ein Würfel mit 3 cm Kantenlänge hat ein Volumen von 9 cm³.“ Wie groß ist das Volumen richtig?', 27, '3 ** 3', 'Volumen = 3³ = 27 cm³. Das Kind hat 3² gerechnet.', 'Volumen eines Würfels: Kante hoch 3.', einheit='cm³'))
+N(lz, Z('umkehr', 'Ein Kind soll k in 2ᵏ = 32 finden und schreibt k = 16. Wie groß ist k richtig?', 5, '5', '2⁵ = 32. Das Kind hat 32 : 2 gerechnet.', 'Wie oft musst du 2 mit sich malnehmen, um 32 zu erhalten?'))
+N(lz, A('parameter', 'Die Regel „a² · a³ = a⁶“ ist falsch. Für welche Zahlen a stimmt sie trotzdem?', 'für a = 0 und a = 1', ['nur für a = 2', 'für keine Zahl', 'für alle Zahlen'],
+        'Richtig ist a² · a³ = a⁵. a⁵ und a⁶ sind nur für a = 0 und a = 1 gleich (0 = 0 und 1 = 1).', 'Für welche Zahlen ist jede Potenz gleich?'))
+N(lz, Z('rueckwaerts', 'Ein Kind hat bei aᵏ · a² die Exponenten malgenommen und a¹² erhalten. Was wäre der richtige Exponent gewesen?', 8, '12 // 2 + 2', 'k · 2 = 12, also k = 6. Richtig: a⁶ · a² = a⁸.', 'Bestimme zuerst k.'))
+K(lz, Z('knobel', 'Ein Kind schreibt 2⁵ + 2⁵ = 2¹⁰. Richtig ist 2ᵏ. Wie groß ist k?', 6, '6', '2⁵ + 2⁵ = 2 · 2⁵ = 2⁶ = 64. Das Kind hat die Exponenten addiert, als ob es malnehmen würde.', 'Was ist eine Zahl plus dieselbe Zahl?'))
+K(lz, Z('knobel', 'Berechne (−2)³ + (−2)² + (−2)¹ + (−2)⁰.', -5, '(-2) ** 3 + (-2) ** 2 + (-2) + 1', '(−2)³ = −8, (−2)² = 4, (−2)¹ = −2, (−2)⁰ = 1. Zusammen: −8 + 4 − 2 + 1 = −5.', 'Achte bei jeder Potenz auf das Vorzeichen.'))
+
 if __name__ == '__main__':
     schreibe(DATEI)
+    stufen_datei('terme.potenzgesetze', ST)

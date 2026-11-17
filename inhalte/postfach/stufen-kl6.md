@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 18:05 – STATUS
+**messen.volumen** fertig: 2 umgestuft, 8 neue Übungen, 14 Knobel-Bordkarten, 3 überzählige. Prüfskript OK, 0 Gruppen, Nachweis OK.
+
 ## 2026-11-17 18:00 – STATUS
 **messen.flaechen_vielecke** fertig: Typen vergeben (die Prüfungsvorbild-Aufgaben der Achtzehnten Runde als „pruefung“), 5 neue Übungen, 14 Knobel-Bordkarten, 1 überzählige. Prüfskript OK, 0 Gruppen, Nachweis OK.
 

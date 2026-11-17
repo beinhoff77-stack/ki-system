@@ -696,6 +696,109 @@ def datei():
     }, anz
 
 
+# ---------- STUFEN (Zwanzigste Runde, Zweig stufen-kl6) ----------
+from _stufen_kl6 import Stufen, stufen_datei  # noqa: E402
+
+ST = Stufen('messen.volumen', 20_6_11)
+SZ, SA, SN, SK, STB = ST.Z, ST.A, ST.neu, ST.knobel, ST.typ_bau
+
+lz = 'einheitswuerfel'
+ST.leiter(lz, 'Würfel in einem Quader zählen; Volumen aus Länge, Breite, Höhe in Würfeln.', 'Größere Würfel in Kartons, Umrechnen zwischen Würfelgrößen, Schichten rückwärts.',
+          'Treppen und Pyramiden aus Würfeln, bemalte Würfel, Quader aus vorgegebener Würfelzahl, Ecke herausnehmen, Stapel im Regal.')
+STB(lz, 1, 'Ein Quader ist', 'direkt'); STB(lz, 2, 'Ein Karton', 'einkleidung'); STB(lz, 2, 'Welches Volumen', 'einkleidung'); STB(lz, 2, 'Ein Quader aus 120', 'umkehr')
+for t, g in (('Ein Treppenkörper', 'pruefung'), ('Ein Karton ist innen 30', 'pruefung'), ('Ein Würfel aus 4', 'transfer'), ('Eine Pyramide', 'transfer'),
+             ('72 gleiche', 'rueckwaerts'), ('In einem Regal', 'verknuepfen'), ('Ein Quader aus 1-cm', 'verknuepfen')):
+    STB(lz, 3, t, g)
+SK(lz, SZ('knobel', 'Ein Würfel aus 5 · 5 · 5 kleinen Würfeln wird außen bemalt. Wie viele kleine Würfel haben genau zwei bemalte Flächen?', 36, '12 * 3',
+         'Genau zwei Flächen haben die Würfel an den Kanten, ohne die Ecken. Jede der 12 Kanten hat 5 − 2 = 3 solche Würfel: 12 · 3 = 36.', 'Wo liegen Würfel mit genau zwei Farbflächen?'))
+SK(lz, SZ('knobel', 'Ein hohler Würfel hat 5 cm Außenkante und überall 1 cm dicke Wände (auch Boden und Deckel). Wie viele Würfel mit 1 cm Kante braucht man dafür?', 98, '5 ** 3 - 3 ** 3',
+         'Ein voller Würfel hätte 125 kleine Würfel. Innen ist ein Hohlraum von 3 · 3 · 3 = 27 Würfeln. 125 − 27 = 98.', 'Rechne den vollen Würfel minus den Hohlraum.'))
+
+lz = 'quader'
+ST.leiter(lz, 'V = a · b · c für Quader und V = a³ für Würfel mit gegebenen Kanten; die Formel erkennen.', 'Dezimalzahlen und gemischte Einheiten, Sandkasten und Kisten, passende Rechnung auswählen.',
+          'Halbes Volumen planen, Würfel teilen, Quader mit 24 cm³ zählen, Kosten, Kante aus Volumen, Kantenmodell rückwärts, Stapeln, Vergleich.')
+STB(lz, 1, 'Berechne das Volumen', 'direkt'); STB(lz, 1, 'Ein Würfel hat', 'direkt')
+STB(lz, 2, 'Ein Quader ist 8,5', 'mehrschritt'); STB(lz, 2, 'Ein Würfel hat die Kantenlänge 0,3', 'mehrschritt'); STB(lz, 2, 'Eine Kiste', 'mehrschritt'); STB(lz, 2, 'Ein Quader ist 7 cm', 'darstellung')
+for t, g in (('Ein Umzugskarton', 'pruefung'), ('Ein Würfel mit 4 cm Kante', 'pruefung'), ('Wie viele verschiedene', 'parameter'), ('Für ein Fundament', 'verknuepfen'),
+             ('Ein Würfel hat das Volumen', 'rueckwaerts'), ('Das Kantenmodell', 'rueckwaerts'), ('64 gleiche', 'transfer'), ('Karton A', 'transfer')):
+    STB(lz, 3, t, g)
+SN(lz, SA('erkennen', 'Welche Formel gibt das Volumen eines Quaders mit den Kanten a, b und c?', 'V = a · b · c', ['V = 2 · (a · b + a · c + b · c)', 'V = a + b + c'],
+         'Volumen: Grundfläche mal Höhe, also a · b · c. Die zweite Formel ist die Oberfläche.', 'Wie viele Würfel passen hinein?'))
+SK(lz, SZ('knobel', 'Ein Quader hat drei verschiedene Seitenflächen mit 12 cm², 15 cm² und 20 cm². Wie groß ist sein Volumen?', 60, '3 * 4 * 5',
+         'Die Kanten a, b, c erfüllen a · b = 12, a · c = 15, b · c = 20. Probieren: a = 3, b = 4, c = 5 passt (12, 15, 20). V = 3 · 4 · 5 = 60 cm³.', 'Suche drei Zahlen, deren Produkte zu zweit 12, 15 und 20 ergeben.', einheit='cm³'))
+SK(lz, SZ('knobel', 'Ein Würfel wird so vergrößert, dass jede Kante doppelt so lang ist. Wie viel Mal so groß wird sein Volumen?', 8, '2 ** 3',
+         'Länge, Breite und Höhe werden je verdoppelt: 2 · 2 · 2 = 8. Ein Würfel mit 2 cm Kante hat 8 cm³, einer mit 4 cm Kante 64 cm³ = 8 · 8 cm³.', 'Rechne ein Beispiel mit 1 cm und 2 cm Kante.'))
+
+lz = 'einheiten'
+ST.leiter(lz, 'Volumeneinheiten mit der Umrechnungszahl 1 000 umrechnen.', 'Über zwei Stufen umrechnen, gemischte Angaben in Kommaschreibweise, in die größere Einheit, Größen vergleichen.',
+          'Gleiche Volumen erkennen, Summen gemischter Einheiten, Würfel in Würfel zerlegen und aneinanderreihen, Fehler deuten, Reihenfolge begründen, Kante rückwärts.')
+STB(lz, 2, 'Schreibe 4 m³', 'darstellung'); STB(lz, 2, 'Rechne um: 115', 'umkehr')
+for t, g in (('Welche Angabe beschreibt', 'pruefung'), ('Berechne 2 m³', 'pruefung'), ('Ein Würfel mit 1 m', 'transfer'), ('Ein Würfel mit 8 cm', 'transfer'),
+             ('Tom', 'fehler'), ('Berechne 1 dm³', 'transfer'), ('Welche Reihenfolge', 'begruenden')):
+    STB(lz, 3, t, g)
+STB(lz, 3, 'Rechne um: 0,025', 'mehrschritt', neu_s=2)
+SN(lz, SA('erkennen', 'Welche Umrechnungszahl gilt zwischen benachbarten Volumeneinheiten (z. B. dm³ und cm³)?', 1000, [100, 10, 60], '1 dm = 10 cm, also 1 dm³ = 10 · 10 · 10 cm³ = 1 000 cm³.', 'Ein Würfel hat drei Kanten.'))
+SN(lz, SZ('rueckwaerts', 'Ein Würfel hat das Volumen 1 000 000 mm³. Wie lang ist seine Kante in cm?', 10, '100 / 10', '1 000 000 mm³ = 1 000 cm³ = 10 · 10 · 10 cm³. Die Kante ist 10 cm (= 100 mm) lang.', 'Rechne zuerst in cm³ um.', einheit='cm'))
+SK(lz, SZ('knobel', 'Wie viele Kubikmillimeter sind ein Kubikmeter? Schreibe als 10ⁿ. Wie groß ist n?', 9, '3 * 3', '1 m = 1 000 mm = 10³ mm. 1 m³ = 10³ · 10³ · 10³ mm³ = 10⁹ mm³.', 'Rechne zuerst die Länge 1 m in mm um, dann dreimal malnehmen.'))
+SK(lz, SZ('knobel', 'Eine Ameise trägt jeden Tag 1 mm³ Erde weg. Wie viele Jahre (zu 365 Tagen) braucht sie für 1 dm³? Runde auf ganze Jahre.', 2740, 'round(1000000 / 365)',
+         '1 dm³ = 1 000 cm³ = 1 000 000 mm³. 1 000 000 Tage : 365 ≈ 2 739,7 – also etwa 2 740 Jahre.', 'Wie viele mm³ hat ein dm³?'))
+
+lz = 'liter'
+ST.leiter(lz, 'Liter, Milliliter und dm³ umrechnen; wissen, wie viel ml ein Liter hat.', 'cm³ und dm³ in Liter, Aquarien, Pools, Gläser aus einer Flasche.',
+          'Regen auf Dächern, Messbecher, tropfender Hahn, Behälter vergleichen, Füllhöhe rückwärts, Teilfüllung, Verbrauch über Tage.')
+for t, g in (('Auf ein Flachdach', 'pruefung'), ('Ein Messbecher', 'pruefung'), ('Ein Wasserhahn', 'transfer'), ('Welcher Behälter', 'begruenden'),
+             ('Ein Kind gießt', 'rueckwaerts'), ('Ein Aquarium', 'transfer'), ('Ein Regentank', 'transfer'), ('Auf ein Garagendach', 'verknuepfen')):
+    STB(lz, 3, t, g)
+SN(lz, SA('erkennen', 'Wie viele Milliliter hat ein Liter?', 1000, [100, 10, 10000], 'Milli heißt ein Tausendstel: 1 l = 1 000 ml.', 'Was bedeutet „milli“?'))
+SK(lz, SZ('knobel', 'Ein Glas fasst 250 ml. Ein Würfel mit 20 cm Kante wird ganz mit Wasser gefüllt. Wie viele Gläser kann man damit füllen?', 32, '20 ** 3 / 250',
+         '20 · 20 · 20 cm³ = 8 000 cm³ = 8 000 ml. 8 000 : 250 = 32 Gläser. (Ein 20-cm-Würfel ist achtmal so groß wie ein 10-cm-Würfel mit 1 l.)', 'Wie viele ml passen in den Würfel?'))
+SK(lz, SZ('knobel', 'Auf 1 m² fällt 1 mm Regen. Wie viele Liter Wasser sind das?', 1, '10 * 10 * 0.01',
+         '1 m² = 10 dm · 10 dm, 1 mm = 0,01 dm. Volumen: 10 · 10 · 0,01 dm³ = 1 dm³ = 1 l. Deshalb sagt man: 1 mm Regen = 1 Liter je m².', 'Rechne alles in dm um.', einheit='l'))
+
+lz = 'rueckwaerts'
+ST.leiter(lz, 'Aus Volumen und zwei Kanten die dritte Kante bestimmen.', 'Grundfläche aus Volumen und Höhe, Füllhöhe in Becken und Aquarien, Höhe aus Litern.',
+          'Luftkissen und Kartons als Quader, Stein im Aquarium, Umfüllen in ein anderes Gefäß, Säule und Würfel gleich groß, Teilfüllung.')
+for t, g in (('Ein aufblasbares', 'pruefung'), ('Ein Umzugskarton fasst 72', 'pruefung'), ('In einem Aquarium', 'transfer'), ('Wasser steht', 'transfer'),
+             ('Ein Stein', 'rueckwaerts'), ('Ein Umzugskarton fasst 36', 'rueckwaerts'), ('Eine Säule', 'verknuepfen'), ('Eine Kiste', 'verknuepfen')):
+    STB(lz, 3, t, g)
+SK(lz, SZ('knobel', 'Ein Würfel hat dasselbe Volumen wie ein Quader mit 2 cm · 4 cm · 8 cm. Wie lang ist die Kante des Würfels?', 4, '4',
+         'Der Quader hat 2 · 4 · 8 = 64 cm³. Ein Würfel mit 64 cm³ hat die Kante 4 cm, denn 4 · 4 · 4 = 64.', 'Berechne das Volumen und suche die passende Kubikzahl.', einheit='cm'))
+SK(lz, SZ('knobel', 'In einem Aquarium mit 40 cm · 25 cm Grundfläche steht das Wasser. Wie viele Würfel mit 5 cm Kante muss man hineinlegen (ganz unter Wasser), damit das Wasser um 1 cm steigt?', 8, '40 * 25 * 1 / 5 ** 3',
+         'Damit das Wasser 1 cm steigt, braucht es 40 · 25 · 1 = 1 000 cm³ zusätzliches Volumen. Ein Würfel hat 125 cm³. 1 000 : 125 = 8 Würfel.', 'Welches Volumen hat eine 1 cm hohe Wasserschicht?'))
+
+lz = 'zusammengesetzt'
+ST.leiter(lz, 'Volumen eines Körpers aus zwei Quadern addieren; erkennen, ob addiert oder subtrahiert wird.', 'Stufen und Treppen, Kisten mit Wänden, aufgesetzte Würfel.',
+          'Ausgeschnittene Ecken, L-Bauteile, durchbohrte Würfel, Rinnen, Mauern mit Durchgang, Becken mit zwei Tiefen, Rahmen, Fehler deuten.')
+STB(lz, 1, 'Die Stufe besteht', 'direkt'); STB(lz, 2, 'Eine Treppe', 'einkleidung')
+for t, g in (('Aus einem Quader', 'pruefung'), ('Ein Bauteil', 'pruefung'), ('Ein Würfel aus 3', 'transfer'), ('Ein U-förmiger', 'transfer'),
+             ('Eine Mauer', 'verknuepfen'), ('Ein Schwimmbecken', 'transfer'), ('Ein Rahmen', 'verknuepfen')):
+    STB(lz, 3, t, g)
+STB(lz, 3, 'Rechne im Kopf', 'mehrschritt', neu_s=2)
+SN(lz, SZ('direkt', 'Ein Körper besteht aus zwei Quadern: 4 cm · 3 cm · 2 cm und 2 cm · 3 cm · 5 cm. Wie groß ist sein Volumen?', 54, '4 * 3 * 2 + 2 * 3 * 5', '24 cm³ + 30 cm³ = 54 cm³.', 'Berechne beide Quader und addiere.', einheit='cm³'))
+SN(lz, SA('erkennen', 'Wie berechnest du das Volumen eines Quaders, aus dem ein Stück herausgeschnitten wurde?', 'großer Quader minus herausgeschnittenes Stück', ['großer Quader plus Stück', 'nur das Stück'],
+         'Was fehlt, wird abgezogen.', 'Was fehlt dem Körper?'))
+SN(lz, SZ('fehler', 'Ein Körper besteht aus einem Quader 6 cm · 4 cm · 2 cm und darauf einem Quader 2 cm · 4 cm · 3 cm. Ein Kind rechnet 6 · 4 · 5 = 120 cm³. Wie groß ist das Volumen richtig?', 72, '6 * 4 * 2 + 2 * 4 * 3',
+         'Das Kind hat so gerechnet, als wäre der ganze Körper 5 cm hoch. Richtig: 48 cm³ + 24 cm³ = 72 cm³.', 'Ist der Körper überall 5 cm hoch?', einheit='cm³'))
+SK(lz, SZ('knobel', 'Durch einen Würfel mit 6 cm Kante wird genau in der Mitte ein quadratisches Loch (2 cm · 2 cm) ganz hindurch gebohrt. Wie groß ist das Restvolumen?', 192, '6 ** 3 - 2 * 2 * 6',
+         'Würfel: 216 cm³. Das Loch ist ein Quader 2 · 2 · 6 = 24 cm³. Rest: 192 cm³.', 'Welche Form hat das herausgebohrte Stück?', einheit='cm³'))
+SK(lz, SZ('knobel', 'Durch einen Würfel mit 6 cm Kante werden drei quadratische Löcher (2 cm · 2 cm) gebohrt: von vorn, von oben und von der Seite, alle durch die Mitte. Wie groß ist das Restvolumen?', 160, '216 - (3 * 24 - 2 * 8)',
+         'Drei Löcher je 24 cm³ wären 72 cm³. Sie kreuzen sich aber im mittleren Würfel (2 · 2 · 2 = 8 cm³), der dreimal gezählt wurde. Weggebohrt sind 72 − 2 · 8 = 56 cm³, Rest 216 − 56 = 160 cm³.',
+         'Wo überschneiden sich die Löcher? Zähle diesen Teil nur einmal.', einheit='cm³'))
+
+lz = 'verstehen'
+ST.leiter(lz, 'Einheiten und Größen von Volumen einschätzen; Würfelvolumen berechnen.', 'Rechnungen prüfen, Kanten verdreifachen, halbieren, Inhalte schätzen.',
+          'Maßstab, Volumen und Oberfläche unterscheiden, Würfel mit dreifacher Kante, Liter und Kilogramm, Luft je Person, Aussagen begründen.')
+STB(lz, 2, 'Lena', 'mehrschritt'); STB(lz, 2, 'Eine Getränkepackung', 'einkleidung')
+for t, g in (('Ein Bauteil', 'pruefung'), ('Stimmt die Aussage', 'begruenden'), ('Ein Würfel hat 27', 'transfer'), ('1 l Wasser', 'verknuepfen'),
+             ('Ein Kinderzimmer', 'transfer'), ('Zwei Quader', 'begruenden'), ('Ein Klassenzimmer', 'transfer'), ('Welche Aussage', 'begruenden')):
+    STB(lz, 3, t, g)
+SN(lz, SZ('direkt', 'Wie viele cm³ hat ein Würfel mit 3 cm Kantenlänge?', 27, '3 ** 3', '3 · 3 · 3 = 27 cm³.', 'Kante mal Kante mal Kante.', einheit='cm³'))
+SK(lz, SZ('knobel', 'Ein Quader ist 2 cm · 3 cm · 4 cm groß. Jede Kante wird um 1 cm länger. Um wie viele cm³ wächst das Volumen?', 36, '3 * 4 * 5 - 2 * 3 * 4',
+         'Vorher: 24 cm³. Nachher: 3 · 4 · 5 = 60 cm³. Es wächst um 36 cm³ – viel mehr, als man denkt.', 'Rechne beide Volumen aus.', einheit='cm³'))
+SK(lz, SZ('knobel', 'Bei einem Würfel ist die Zahl für das Volumen (in cm³) gleich der Zahl für die Oberfläche (in cm²). Wie lang ist seine Kante?', 6, '6',
+         'Volumen a · a · a, Oberfläche 6 · a · a. Gleich sind sie, wenn a = 6: 216 cm³ und 6 · 36 = 216 cm².', 'Vergleiche a · a · a mit 6 · a · a.', einheit='cm'))
+
 if __name__ == '__main__':
     d_, anz = datei()
     schreiben(ZIEL, d_, anz)
+    stufen_datei('messen.volumen', ST)

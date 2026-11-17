@@ -1369,7 +1369,7 @@
    "l": "brueche_plus_minus",
    "t": "brueche_plus_minus",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Berechne 3 − 1/8 − 6/7.",
@@ -1393,7 +1393,7 @@
    "l": "brueche_plus_minus",
    "t": "brueche_plus_minus",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Berechne 3 − 2/3 − 3/5.",
@@ -1417,7 +1417,7 @@
    "l": "brueche_plus_minus",
    "t": "brueche_plus_minus",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Berechne 2 1/3 + 3 1/6. Gib das Ergebnis als Bruch an.",
@@ -1441,7 +1441,7 @@
    "l": "brueche_plus_minus",
    "t": "brueche_plus_minus",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Berechne 3 − 8/9 − 3/7.",
@@ -1911,7 +1911,7 @@
    "l": "dezimal_plus_minus",
    "t": "dezimal_plus_minus",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Einkauf kostet 6,47 €, 8,34 €, 8,66 €. Bezahlt wird mit einem 100-€-Schein. Wie viel Euro gibt es zurück?"
@@ -1928,7 +1928,7 @@
    "l": "dezimal_plus_minus",
    "t": "dezimal_plus_minus",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Einkauf kostet 0,84 €, 6,47 €, 8,76 €. Bezahlt wird mit einem 50-€-Schein. Wie viel Euro gibt es zurück?"
@@ -1945,7 +1945,7 @@
    "l": "dezimal_plus_minus",
    "t": "dezimal_plus_minus",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Einkauf kostet 7,51 €, 8,49 €, 12,07 €. Bezahlt wird mit einem 100-€-Schein. Wie viel Euro gibt es zurück?"
@@ -1962,7 +1962,7 @@
    "l": "dezimal_plus_minus",
    "t": "dezimal_plus_minus",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Einkauf kostet 0,72 €, 6,46 €, 13,74 €. Bezahlt wird mit einem 100-€-Schein. Wie viel Euro gibt es zurück?"
@@ -1979,7 +1979,7 @@
    "l": "dezimal_plus_minus",
    "t": "dezimal_plus_minus",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viel fehlt von 2,837 bis 5,8?"
@@ -1995,7 +1995,7 @@
    "l": "dezimal_plus_minus",
    "t": "dezimal_plus_minus",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viel fehlt von 4,8 bis 8,164?"
@@ -2393,7 +2393,7 @@
    "l": "vorzeichen",
    "t": "vorzeichen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Konto steht auf −32,39 €. Es werden 18,12 € eingezahlt und danach 34,12 € abgebucht. Wie ist der neue Kontostand?"
@@ -2410,7 +2410,7 @@
    "l": "vorzeichen",
    "t": "vorzeichen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Berechne (−2/3) : (−4/5).",
@@ -2434,7 +2434,7 @@
    "l": "vorzeichen",
    "t": "vorzeichen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Berechne (−5/6) : (−2/3).",
@@ -2458,7 +2458,7 @@
    "l": "vorzeichen",
    "t": "vorzeichen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "1/11",
@@ -2479,7 +2479,7 @@
    "l": "vorzeichen",
    "t": "vorzeichen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Berechne (−1/8) + 1/5 und gib das Ergebnis vollständig gekürzt an."
@@ -2500,7 +2500,7 @@
    "l": "vorzeichen",
    "t": "vorzeichen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Berechne (−3/5) : 1/4.",
@@ -3066,7 +3066,7 @@
    "l": "brueche_mal",
    "t": "brueche_mal",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Ein Rechteck ist 2/3 m lang und 1/3 m breit. Wie groß ist sein Flächeninhalt in m²?",
@@ -3090,7 +3090,7 @@
    "l": "brueche_mal",
    "t": "brueche_mal",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "In einer Flasche sind 1/5 l Saft. Davon wird 2/3 getrunken. Wie viele Liter sind das?",
@@ -3114,7 +3114,7 @@
    "l": "brueche_mal",
    "t": "brueche_mal",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Ein Rechteck ist 3/4 m lang und 4/5 m breit. Wie groß ist sein Flächeninhalt in m²?",
@@ -3138,7 +3138,7 @@
    "l": "brueche_mal",
    "t": "brueche_mal",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "In einer Flasche sind 2/5 l Saft. Davon wird 1/2 getrunken. Wie viele Liter sind das?",
@@ -3162,7 +3162,7 @@
    "l": "brueche_mal",
    "t": "brueche_mal",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "In einer Flasche sind 3/8 l Saft. Davon wird 1/5 getrunken. Wie viele Liter sind das?",
@@ -3186,7 +3186,7 @@
    "l": "brueche_mal",
    "t": "brueche_mal",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "In einer Flasche sind 1/4 l Saft. Davon wird 1/2 getrunken. Wie viele Liter sind das?",
@@ -3717,7 +3717,7 @@
    "l": "brueche_geteilt",
    "t": "brueche_geteilt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viele Gläser zu je 3/4 l kann man aus 15/4 l Saft füllen?"
@@ -3754,7 +3754,7 @@
    "l": "brueche_geteilt",
    "t": "brueche_geteilt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Ein Rechteck hat den Flächeninhalt 1/6 m² und ist 1/3 m breit. Wie lang ist es?",
@@ -3778,7 +3778,7 @@
    "l": "brueche_geteilt",
    "t": "brueche_geteilt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Ein Rechteck hat den Flächeninhalt 5/28 m² und ist 5/7 m breit. Wie lang ist es?",
@@ -3802,7 +3802,7 @@
    "l": "brueche_geteilt",
    "t": "brueche_geteilt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Ein Rechteck hat den Flächeninhalt 8/15 m² und ist 2/3 m breit. Wie lang ist es?",
@@ -4269,7 +4269,7 @@
    "l": "dezimal_mal",
    "t": "dezimal_mal",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "3,5",
@@ -4290,7 +4290,7 @@
    "l": "dezimal_mal",
    "t": "dezimal_mal",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Kilogramm Äpfel kostet 2,79 €. Was kosten 1,6 kg? Runde auf Cent."
@@ -4307,7 +4307,7 @@
    "l": "dezimal_mal",
    "t": "dezimal_mal",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Kilogramm Äpfel kostet 2,75 €. Was kosten 3,3 kg? Runde auf Cent."
@@ -4324,7 +4324,7 @@
    "l": "dezimal_mal",
    "t": "dezimal_mal",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Kilogramm Äpfel kostet 1,94 €. Was kosten 4,3 kg? Runde auf Cent."
@@ -4341,7 +4341,7 @@
    "l": "dezimal_mal",
    "t": "dezimal_mal",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "0,44",
@@ -4362,7 +4362,7 @@
    "l": "dezimal_mal",
    "t": "dezimal_mal",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "0,01",
@@ -4725,7 +4725,7 @@
    "l": "dezimal_geteilt",
    "t": "dezimal_geteilt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "230",
@@ -4746,7 +4746,7 @@
    "l": "dezimal_geteilt",
    "t": "dezimal_geteilt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Rolle Band ist 3,5 m lang. Wie viele Stücke von 0,25 m Länge kann man abschneiden?"
@@ -4762,7 +4762,7 @@
    "l": "dezimal_geteilt",
    "t": "dezimal_geteilt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Rolle Band ist 5,5 m lang. Wie viele Stücke von 0,25 m Länge kann man abschneiden?"
@@ -4778,7 +4778,7 @@
    "l": "dezimal_geteilt",
    "t": "dezimal_geteilt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "9 Kinder teilen sich 57 € gerecht. Wie viel Euro bekommt jedes Kind? Runde auf ganze Cent."
@@ -4796,7 +4796,7 @@
    "l": "dezimal_geteilt",
    "t": "dezimal_geteilt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "9 Kinder teilen sich 84 € gerecht. Wie viel Euro bekommt jedes Kind? Runde auf ganze Cent."
@@ -4814,7 +4814,7 @@
    "l": "dezimal_geteilt",
    "t": "dezimal_geteilt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 47 : 7 und runde auf zwei Nachkommastellen."
@@ -5205,7 +5205,7 @@
    "l": "rechenvorteile",
    "t": "rechenvorteile",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne geschickt: 7/3 · 3/7 · 2 · 0,5"
@@ -5221,7 +5221,7 @@
    "l": "rechenvorteile",
    "t": "rechenvorteile",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne geschickt: 14 : 0,5 : 2"
@@ -5237,7 +5237,7 @@
    "l": "rechenvorteile",
    "t": "rechenvorteile",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "352",
@@ -5257,7 +5257,7 @@
    "l": "rechenvorteile",
    "t": "rechenvorteile",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne geschickt: 8 · 0,5 · 2 · 1/8"
@@ -5273,7 +5273,7 @@
    "l": "rechenvorteile",
    "t": "rechenvorteile",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "84",
@@ -5293,7 +5293,7 @@
    "l": "rechenvorteile",
    "t": "rechenvorteile",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne geschickt: 13 : 0,25 : 2"
@@ -5683,7 +5683,7 @@
    "l": "gemischt",
    "t": "gemischt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne (3,4 − 1,8) : 0,25."
@@ -5699,7 +5699,7 @@
    "l": "gemischt",
    "t": "gemischt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 3/2 · 2/5 − 1/4 · 5/2. Gib das Ergebnis als Dezimalzahl an."
@@ -5715,7 +5715,7 @@
    "l": "gemischt",
    "t": "gemischt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Kind kauft 2 Hefte zu je 0,36 € und 2 Stifte zu je 0,54 €. Es bezahlt mit 20 €. Wie viel bekommt es zurück?"
@@ -5732,7 +5732,7 @@
    "l": "gemischt",
    "t": "gemischt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 3/2 · 3/5 − 2/5 · 1/8. Gib das Ergebnis als Dezimalzahl an."
@@ -5748,7 +5748,7 @@
    "l": "gemischt",
    "t": "gemischt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 3/2 · 5/2 − 1/8 · 1/5. Gib das Ergebnis als Dezimalzahl an."
@@ -5764,7 +5764,7 @@
    "l": "gemischt",
    "t": "gemischt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Kind kauft 2 Hefte zu je 1,81 € und 4 Stifte zu je 0,86 €. Es bezahlt mit 20 €. Wie viel bekommt es zurück?"
@@ -6112,7 +6112,7 @@
    "l": "fehler_finden",
    "t": "fehler_finden",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "a": [
     "Die Rechnung ist richtig.",
@@ -6133,7 +6133,7 @@
    "l": "fehler_finden",
    "t": "fehler_finden",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "a": [
     "Man hätte die Zähler malnehmen müssen.",
@@ -6154,7 +6154,7 @@
    "l": "fehler_finden",
    "t": "fehler_finden",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "a": [
     "Nenner dürfen nicht addiert werden.",
@@ -6191,7 +6191,7 @@
    "l": "fehler_finden",
    "t": "fehler_finden",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Die Rechnung ist richtig.",
@@ -6228,7 +6228,7 @@
    "l": "fehler_finden",
    "t": "fehler_finden",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "49,02",
@@ -6249,7 +6249,7 @@
    "l": "fehler_finden",
    "t": "fehler_finden",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "1 377,1",
@@ -7329,7 +7329,7 @@
    "l": "rechenvorteile",
    "t": "rechenvorteile",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne geschickt: 1,25 · 0,8 · 2,5 · 0,4 · 3,7"
@@ -7377,6 +7377,44 @@
    "c": "6 / ((3/4) * (4/3) * 0.5)",
    "h": "Fasse zuerst die bekannten Faktoren geschickt zusammen.",
    "w": "3/4 · 4/3 = 1, also bleibt □ · 0,5 = 6. □ = 6 : 0,5 = 12."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist 36 : 4 : 3 dasselbe wie 36 : 3 : 4?"
+   },
+   "a": [
+    "Nein: 36 : 3 : 4 = 48.",
+    "Nein: Beim Teilen darf man nie etwas vertauschen.",
+    "Ja: Beides ist 3. Man teilt nacheinander durch 4 und durch 3, die Reihenfolge der Teiler ist egal.",
+    "Ja, aber nur, weil 36 durch 12 teilbar ist."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "36 : 4 : 3 = 9 : 3 = 3 und 36 : 3 : 4 = 12 : 4 = 3. Vertauschen der Teiler ist erlaubt (beides ist 36 : 12) – nur umklammern zu 36 : (4 : 3) ist verboten.",
+   "h": "Rechne beide Seiten von links nach rechts aus."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kilogramm Kirschen kostet 4,80 €. Ein Kind kauft 0,25 kg, ein anderes 0,75 kg. Wie viel zahlen beide zusammen?"
+   },
+   "o": {
+    "wert": 4.8,
+    "einheit": "€"
+   },
+   "c": "4.8 * (0.25 + 0.75)",
+   "w": "Geschickt: Beide zahlen zusammen für 0,25 kg + 0,75 kg = 1 kg. Also 4,80 €.",
+   "h": "Rechne erst aus, wie viele Kilogramm beide zusammen kaufen."
   },
   {
    "l": "gemischt",

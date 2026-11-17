@@ -869,5 +869,46 @@ def _merk_aufgaben():
 karte_neu(DATEI, _MERK, _merk_aufgaben(), seed=6211, nach='dezimal_zu_bruch', teil_text='Merkwerte Bruch – Dezimalzahl – Prozent im Kopf umwandeln')
 
 
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil A, Zweig durchsicht-kl6) ----------
+# Stufen nach dem Gedanken: S1 = Beispiel mit anderen Zahlen, S2 = Abwandlung/Einkleidung/Umkehrung, S3 = anderer Gedanke.
+from _durchsicht_kl6 import Befunde, befunde_anwenden  # noqa: E402
+
+DS = Befunde('bruch.dezimal', 19_6_2)
+# stellenwerte: Ziffer in der Tafel ablesen = Grundform → S1; eine Ziffer um 1 erhöhen = kleine Abwandlung → S2
+DS.stufe('stellenwerte', 'Trage 3,116 in eine Stellenwerttafel mit E, z, h, t ein. Welche Ziffer steht bei z?', 1)
+DS.stufe('stellenwerte', 'Trage 6,442 in eine Stellenwerttafel mit E, z, h, t ein. Welche Ziffer steht bei h?', 1)
+DS.stufe('stellenwerte', 'Die Ziffer an der Hundertstelstelle von 6,057 wird um 1 größer. Wie heißt die neue Zahl?', 2)
+# vergleichen_ordnen: Markieren auf einem Hundertstel-Ausschnitt viermal hintereinander = eine Abwandlung → S2; zweite „Mitte“-Aufgabe → S2
+for _t in ('Markiere 4,44 am Zahlenstrahl (von 4,4 bis 4,5, 10 gleiche Teile).', 'Markiere 2,83 am Zahlenstrahl (von 2,8 bis 2,9, 10 gleiche Teile).',
+           'Markiere 4,78 am Zahlenstrahl (von 4,7 bis 4,8, 10 gleiche Teile).', 'Markiere 2,17 am Zahlenstrahl (von 2,1 bis 2,2, 10 gleiche Teile).',
+           'Welche Zahl liegt genau in der Mitte zwischen 12,7 und 12,8?'):
+    DS.stufe('vergleichen_ordnen', _t, 2)
+# runden: Preise auf Cent = Hundertstel runden wie Stufe 2; 6,348 ohne neue Falle → S2
+for _t in ('Ein Liter Diesel kostet 1,555 €. Runde auf ganze Cent.', 'Ein Liter Benzin kostet 1,679 €. Runde auf ganze Cent.',
+           'Ein Liter Benzin kostet 1,871 €. Runde auf ganze Cent.', 'Runde 6,348 auf Zehntel.'):
+    DS.stufe('runden', _t, 2)
+# bruch_zu_dezimal: erst kürzen, dann umwandeln bzw. Bruch + Dezimalzahl (viermal gleich gebaut) = Abwandlung → S2
+for _t in ('Schreibe 9/12 als Dezimalzahl.', 'Schreibe 99/220 als Dezimalzahl.', 'Berechne 3/4 + 0,5 und gib das Ergebnis als Dezimalzahl an.',
+           'Berechne 5/2 + 0,9 und gib das Ergebnis als Dezimalzahl an.', 'Berechne 2/5 + 1,4 und gib das Ergebnis als Dezimalzahl an.',
+           'Berechne 7/4 + 0,2 und gib das Ergebnis als Dezimalzahl an.'):
+    DS.stufe('bruch_zu_dezimal', _t, 2)
+# dezimal_zu_bruch: nur mehr Nachkommastellen → S2
+for _t in ('Schreibe 0,325 als vollständig gekürzten Bruch.', 'Schreibe 4,97 als vollständig gekürzten Bruch. Ein Bruch größer als 1 ist erlaubt.',
+           'Schreibe 1,96 als vollständig gekürzten Bruch. Ein Bruch größer als 1 ist erlaubt.'):
+    DS.stufe('dezimal_zu_bruch', _t, 2)
+# periodisch: Periodenlänge aus der angegebenen Schreibweise ablesen = S1; dritte „n-te Stelle“-Aufgabe in Folge → S2
+DS.stufe('periodisch', '1/9 = 0,1̅. Wie viele Ziffern hat die Periode?', 1)
+DS.stufe('periodisch', '1/13 = 0,0̅7̅6̅9̅2̅3̅. Wie viele Ziffern hat die Periode?', 1)
+DS.stufe('periodisch', '2/3 = 0,6̅. Welche Ziffer steht an der 11. Nachkommastelle?', 2)
+DS.stufe('periodisch', '10/27 = 0,3̅7̅0̅. Welche Ziffer steht an der 15. Nachkommastelle?', 2)
+# verstehen: Regel der Karte „periodisch“ direkt anwenden → S2; zweite gleich gebaute Fehleraussage → S2
+DS.stufe('verstehen', 'Stimmt die Aussage? „Ein vollständig gekürzter Bruch mit dem Nenner 20 ist als Dezimalzahl endlich.“', 2)
+DS.stufe('verstehen', 'Stimmt die Aussage? „Ein vollständig gekürzter Bruch mit dem Nenner 12 ist als Dezimalzahl endlich.“', 2)
+DS.stufe('verstehen', 'Stimmt die Aussage? „Eine Zahl mit drei Nachkommastellen ist immer größer als eine mit einer, z. B. 0,362 > 0,7.“', 2)
+befunde_anwenden(DATEI, DS)
+# ---- DURCHSICHT ENDE ----
+
+
 if __name__ == '__main__':
     schreibe(DATEI)

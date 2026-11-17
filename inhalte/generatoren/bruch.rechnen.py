@@ -1334,5 +1334,71 @@ karte_neu(DATEI, _POT, _pot_aufgaben(), seed=6194, nach='dezimal_geteilt', teil_
 karte_neu(DATEI, _SACH, _sach_aufgaben(), seed=6195, nach='fehler_finden', teil_text='Sachaufgaben mit Anteilen von Anteilen lösen')
 
 
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil A, Zweig durchsicht-kl6) ----------
+# Stufen nach dem Gedanken: S1 = Beispiel mit anderen Zahlen, S2 = Abwandlung/Einkleidung/Umkehrung, S3 = anderer Gedanke.
+from _durchsicht_kl6 import Befunde, befunde_anwenden  # noqa: E402
+
+DS = Befunde('bruch.rechnen', 19_6_3)
+_S = DS.stufe
+# brueche_plus_minus: Ganze minus zwei Brüche (dreimal gleich gebaut) und Summe gemischter Zahlen = Abwandlung → S2
+for _t in ('Berechne 3 − 1/8 − 6/7.', 'Berechne 3 − 2/3 − 3/5.', 'Berechne 3 − 8/9 − 3/7.', 'Berechne 2 1/3 + 3 1/6. Gib das Ergebnis als Bruch an.'):
+    _S('brueche_plus_minus', _t, 2)
+# dezimal_plus_minus: Rückgeld (viermal gleich gebaut) und „Wie viel fehlt?“ = Einkleidung bzw. Umkehrung → S2
+for _t in ('Ein Einkauf kostet 6,47 €, 8,34 €, 8,66 €. Bezahlt wird mit einem 100-€-Schein. Wie viel Euro gibt es zurück?',
+           'Ein Einkauf kostet 0,84 €, 6,47 €, 8,76 €. Bezahlt wird mit einem 50-€-Schein. Wie viel Euro gibt es zurück?',
+           'Ein Einkauf kostet 7,51 €, 8,49 €, 12,07 €. Bezahlt wird mit einem 100-€-Schein. Wie viel Euro gibt es zurück?',
+           'Ein Einkauf kostet 0,72 €, 6,46 €, 13,74 €. Bezahlt wird mit einem 100-€-Schein. Wie viel Euro gibt es zurück?',
+           'Wie viel fehlt von 2,837 bis 5,8?', 'Wie viel fehlt von 4,8 bis 8,164?'):
+    _S('dezimal_plus_minus', _t, 2)
+# vorzeichen: Kontostand = Einkleidung; Teilen mit Vorzeichen und Addieren mit Hauptnenner = dieselbe Regel wie S2 → S2
+for _t in ('Ein Konto steht auf −32,39 €. Es werden 18,12 € eingezahlt und danach 34,12 € abgebucht. Wie ist der neue Kontostand?',
+           'Berechne (−2/3) : (−4/5).', 'Berechne (−5/6) : (−2/3).', 'Berechne (−1/4) + 2/7.',
+           'Berechne (−1/8) + 1/5 und gib das Ergebnis vollständig gekürzt an.', 'Berechne (−3/5) : 1/4.'):
+    _S('vorzeichen', _t, 2)
+# brueche_mal: Rechteckfläche und „Flasche … davon getrunken“ = Bruch · Bruch eingekleidet → S2
+for _t in ('Ein Rechteck ist 2/3 m lang und 1/3 m breit. Wie groß ist sein Flächeninhalt in m²?', 'Ein Rechteck ist 3/4 m lang und 4/5 m breit. Wie groß ist sein Flächeninhalt in m²?',
+           'In einer Flasche sind 1/5 l Saft. Davon wird 2/3 getrunken. Wie viele Liter sind das?', 'In einer Flasche sind 2/5 l Saft. Davon wird 1/2 getrunken. Wie viele Liter sind das?',
+           'In einer Flasche sind 3/8 l Saft. Davon wird 1/5 getrunken. Wie viele Liter sind das?', 'In einer Flasche sind 1/4 l Saft. Davon wird 1/2 getrunken. Wie viele Liter sind das?'):
+    _S('brueche_mal', _t, 2)
+# brueche_geteilt: Gläser füllen und Rechteckseite aus Fläche = Teilen eingekleidet → S2
+for _t in ('Wie viele Gläser zu je 3/4 l kann man aus 15/4 l Saft füllen?', 'Ein Rechteck hat den Flächeninhalt 1/6 m² und ist 1/3 m breit. Wie lang ist es?',
+           'Ein Rechteck hat den Flächeninhalt 5/28 m² und ist 5/7 m breit. Wie lang ist es?', 'Ein Rechteck hat den Flächeninhalt 8/15 m² und ist 2/3 m breit. Wie lang ist es?'):
+    _S('brueche_geteilt', _t, 2)
+# dezimal_mal: Nachkommastellen zählen als Auswahl und Preis · Menge = S2
+for _t in ('Was ergibt 0,7 · 0,05?', 'Was ergibt 0,4 · 0,04?', 'Was ergibt 0,2 · 0,05?', 'Ein Kilogramm Äpfel kostet 2,79 €. Was kosten 1,6 kg? Runde auf Cent.',
+           'Ein Kilogramm Äpfel kostet 2,75 €. Was kosten 3,3 kg? Runde auf Cent.', 'Ein Kilogramm Äpfel kostet 1,94 €. Was kosten 4,3 kg? Runde auf Cent.'):
+    _S('dezimal_mal', _t, 2)
+# dezimal_geteilt: Auswahl, Band abschneiden, gerecht teilen und runden = S2
+for _t in ('Was ergibt 2,07 : 0,09?', 'Eine Rolle Band ist 3,5 m lang. Wie viele Stücke von 0,25 m Länge kann man abschneiden?',
+           'Eine Rolle Band ist 5,5 m lang. Wie viele Stücke von 0,25 m Länge kann man abschneiden?', '9 Kinder teilen sich 57 € gerecht. Wie viel Euro bekommt jedes Kind? Runde auf ganze Cent.',
+           '9 Kinder teilen sich 84 € gerecht. Wie viel Euro bekommt jedes Kind? Runde auf ganze Cent.', 'Berechne 47 : 7 und runde auf zwei Nachkommastellen.'):
+    _S('dezimal_geteilt', _t, 2)
+# rechenvorteile: „Teilen nicht umklammern“ viermal hintereinander = die Falle der Karte direkt; lange Produkte = längere Rechnung → S2
+for _t in ('Berechne geschickt: 7/3 · 3/7 · 2 · 0,5', 'Berechne geschickt: 14 : 0,5 : 2', 'Was ergibt 22 : 0,25 : 4?', 'Berechne geschickt: 8 · 0,5 · 2 · 1/8',
+           'Was ergibt 42 : 0,5 : 4?', 'Berechne geschickt: 13 : 0,25 : 2', 'Berechne geschickt: 1,25 · 0,8 · 2,5 · 0,4 · 3,7'):
+    _S('rechenvorteile', _t, 2)
+# d) rechenvorteile: zwei Stufe-3-Aufgaben mit neuem Gedanken (Teiler vertauschen begründen; Rechenvorteil im Sachkontext)
+DS.neu('rechenvorteile', 3, DS.A('Ist 36 : 4 : 3 dasselbe wie 36 : 3 : 4?', 'Ja: Beides ist 3. Man teilt nacheinander durch 4 und durch 3, die Reihenfolge der Teiler ist egal.',
+                                  ['Nein: Beim Teilen darf man nie etwas vertauschen.', 'Nein: 36 : 3 : 4 = 48.', 'Ja, aber nur, weil 36 durch 12 teilbar ist.'],
+                                  '36 : 4 : 3 = 9 : 3 = 3 und 36 : 3 : 4 = 12 : 4 = 3. Vertauschen der Teiler ist erlaubt (beides ist 36 : 12) – nur umklammern zu 36 : (4 : 3) ist verboten.',
+                                  'Rechne beide Seiten von links nach rechts aus.'))
+DS.neu('rechenvorteile', 3, DS.Z('Ein Kilogramm Kirschen kostet 4,80 €. Ein Kind kauft 0,25 kg, ein anderes 0,75 kg. Wie viel zahlen beide zusammen?', 4.8, '4.8 * (0.25 + 0.75)',
+                                  'Geschickt: Beide zahlen zusammen für 0,25 kg + 0,75 kg = 1 kg. Also 4,80 €.', 'Rechne erst aus, wie viele Kilogramm beide zusammen kaufen.', einheit='€'))
+# gemischt: (… ) : 0,25 und lange Produkt-Differenzen = längere Rechnung; Rückgeld = Einkleidung → S2
+for _t in ('Berechne (3,4 − 1,8) : 0,25.', 'Berechne 3/2 · 2/5 − 1/4 · 5/2. Gib das Ergebnis als Dezimalzahl an.', 'Berechne 3/2 · 3/5 − 2/5 · 1/8. Gib das Ergebnis als Dezimalzahl an.',
+           'Berechne 3/2 · 5/2 − 1/8 · 1/5. Gib das Ergebnis als Dezimalzahl an.', 'Ein Kind kauft 2 Hefte zu je 0,36 € und 2 Stifte zu je 0,54 €. Es bezahlt mit 20 €. Wie viel bekommt es zurück?',
+           'Ein Kind kauft 2 Hefte zu je 1,81 € und 4 Stifte zu je 0,86 €. Es bezahlt mit 20 €. Wie viel bekommt es zurück?'):
+    _S('gemischt', _t, 2)
+# fehler_finden: „Nenner addiert“ ist der Stufe-1-Fehler → S1; Kehrbruch-Fehler und Überschlag wie in S2 → S2
+for _t in ('Ein Kind rechnet: 3/4 + 2/7 = 5/11. Was ist der Fehler?', 'Ein Kind rechnet: 2/3 + 1/4 = 3/7. Was ist der Fehler?', 'Ein Kind rechnet: 2/3 + 1/2 = 3/5. Was ist der Fehler?'):
+    _S('fehler_finden', _t, 1)
+for _t in ('Ein Kind rechnet: 1/2 : 3/5 = 2/1 · 3/5. Was ist der Fehler?', 'Welches Ergebnis von 5,7 · 8,6 kann nach einem Überschlag stimmen?',
+           'Welches Ergebnis von 29,3 · 4,7 kann nach einem Überschlag stimmen?'):
+    _S('fehler_finden', _t, 2)
+befunde_anwenden(DATEI, DS)
+# ---- DURCHSICHT ENDE ----
+
+
 if __name__ == '__main__':
     schreibe(DATEI)

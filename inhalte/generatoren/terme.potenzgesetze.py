@@ -694,5 +694,42 @@ BF.stufe('mal_gleiche_basis', 'Berechne 2² · 2² mit dem Potenzgesetz und gib 
 befunde_anwenden(DATEI, BF)
 # ---- BEFUNDE ENDE ----
 
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil A, Zweig durchsicht-kl6) ----------
+from _durchsicht_kl6 import Befunde, befunde_anwenden  # noqa: E402
+
+DS = Befunde('terme.potenzgesetze', 19_6_5)
+_S = DS.stufe
+# potenz_begriff: Würfelvolumen viermal hintereinander; eine Potenz direkt ausrechnen = Stufe-1-Gedanke
+for _t in ('Ein Würfel hat die Kantenlänge 4 cm. Sein Volumen ist 4³ cm³. Berechne das Volumen.', 'Ein Würfel hat die Kantenlänge 9 cm. Sein Volumen ist 9³ cm³. Berechne das Volumen.'):
+    _S('potenz_begriff', _t, 1)
+# negativer_exponent: Summe zweier Potenzen mit negativem Exponenten viermal gleich gebaut = wie 5⁰ + 5⁻¹ in Stufe 2
+for _t in ('Berechne 3⁻² + 3⁻¹.', 'Berechne 4⁻³ + 4⁻¹.', 'Berechne 3⁻² + 3⁻³.', 'Berechne 4⁻¹ + 4⁻².'):
+    _S('negativer_exponent', _t, 2)
+# mal_gleiche_basis: Exponenten addieren und Wert ausrechnen = Stufe 1; Dezimalzahl-Ergebnis und zweite Lücke = Stufe 2
+_S('mal_gleiche_basis', 'Berechne 2³ · 2² mit dem Potenzgesetz und gib den Wert an.', 1)
+for _t in ('Ergänze den Exponenten: 5⁵ · 5ᵏ = 5¹³. Wie groß ist k?', 'Berechne 10⁶ · 10⁻⁸ und gib das Ergebnis als Dezimalzahl an.',
+           'Berechne 10² · 10⁻⁸ und gib das Ergebnis als Dezimalzahl an.'):
+    _S('mal_gleiche_basis', _t, 2)
+# geteilt_gleiche_basis: Dezimalzahl-Ergebnis und zwei Gesetze nacheinander = mehrere Schritte → S2
+for _t in ('Berechne 10¹ : 10⁶ und gib das Ergebnis als Dezimalzahl an.', '2³ · 2³ : 2¹ = 2ᵉ. Wie groß ist e?', '3⁵ · 3³ : 3⁴ = 3ᵉ. Wie groß ist e?'):
+    _S('geteilt_gleiche_basis', _t, 2)
+# gleicher_exponent: Basen zum Produkt 1, 10, 100 zusammenfassen = Stufe-2-Muster („geschickt“)
+for _t in ('Berechne geschickt: 2⁻¹ · 5⁻¹ und gib das Ergebnis als Dezimalzahl an.', 'Berechne geschickt: 5⁻¹ · 20⁻¹ und gib das Ergebnis als Dezimalzahl an.',
+           'Berechne geschickt: (4/5)³ · 5³', 'Berechne geschickt: 25⁴ · 0,04⁴'):
+    _S('gleicher_exponent', _t, 2)
+# anwenden: Falten = Verdoppeln eingekleidet; 16 · 4 als Zweierpotenz und zweite Auswahl gleicher Bauart → S2
+for _t in ('Ein Blatt Papier wird 8-mal in der Mitte gefaltet. Jedes Falten verdoppelt die Anzahl der Lagen. Wie viele Lagen liegen danach übereinander?',
+           'Ein Blatt Papier wird 4-mal in der Mitte gefaltet. Jedes Falten verdoppelt die Anzahl der Lagen. Wie viele Lagen liegen danach übereinander?',
+           '16 · 4 = 2ᵉ. Wie groß ist e?', 'Was ergibt 2³ · 5²?'):
+    _S('anwenden', _t, 2)
+# fehler_finden: zweiter „Basis malgenommen“-Fehler und negativer Exponent = schon in Stufe 2 → S2
+for _t in ('Ein Kind rechnet: 4³ · 4² = 16⁵. Welcher Satz beschreibt den Fehler richtig?', 'Ein Kind rechnet: 4⁴ · 4² = 16⁶. Welcher Satz beschreibt den Fehler richtig?',
+           'Ein Kind rechnet: 4⁻³ = −64. Was ist falsch?', 'Ein Kind rechnet: 2⁻³ = −8. Was ist falsch?'):
+    _S('fehler_finden', _t, 2)
+befunde_anwenden(DATEI, DS)
+# ---- DURCHSICHT ENDE ----
+
+
 if __name__ == '__main__':
     schreibe(DATEI)

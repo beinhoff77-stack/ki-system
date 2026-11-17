@@ -850,7 +850,7 @@
    "l": "stellenwerte",
    "t": "stellenwerte",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Trage 3,116 in eine Stellenwerttafel mit E, z, h, t ein. Welche Ziffer steht bei z?"
@@ -882,7 +882,7 @@
    "l": "stellenwerte",
    "t": "stellenwerte",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Trage 6,442 in eine Stellenwerttafel mit E, z, h, t ein. Welche Ziffer steht bei h?"
@@ -951,7 +951,7 @@
    "l": "stellenwerte",
    "t": "stellenwerte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Die Ziffer an der Hundertstelstelle von 6,057 wird um 1 größer. Wie heißt die neue Zahl?"
@@ -1456,7 +1456,7 @@
    "l": "vergleichen_ordnen",
    "t": "vergleichen_ordnen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "markierung",
    "f": {
     "text": "Markiere 4,44 am Zahlenstrahl (von 4,4 bis 4,5, 10 gleiche Teile).",
@@ -1480,7 +1480,7 @@
    "l": "vergleichen_ordnen",
    "t": "vergleichen_ordnen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "markierung",
    "f": {
     "text": "Markiere 2,83 am Zahlenstrahl (von 2,8 bis 2,9, 10 gleiche Teile).",
@@ -1504,7 +1504,7 @@
    "l": "vergleichen_ordnen",
    "t": "vergleichen_ordnen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "markierung",
    "f": {
     "text": "Markiere 4,78 am Zahlenstrahl (von 4,7 bis 4,8, 10 gleiche Teile).",
@@ -1544,7 +1544,7 @@
    "l": "vergleichen_ordnen",
    "t": "vergleichen_ordnen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Welche Zahl liegt genau in der Mitte zwischen 12,7 und 12,8?"
@@ -1560,7 +1560,7 @@
    "l": "vergleichen_ordnen",
    "t": "vergleichen_ordnen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "markierung",
    "f": {
     "text": "Markiere 2,17 am Zahlenstrahl (von 2,1 bis 2,2, 10 gleiche Teile).",
@@ -1991,7 +1991,7 @@
    "l": "runden",
    "t": "runden",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Liter Diesel kostet 1,555 €. Runde auf ganze Cent."
@@ -2008,7 +2008,7 @@
    "l": "runden",
    "t": "runden",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Liter Benzin kostet 1,679 €. Runde auf ganze Cent."
@@ -2067,7 +2067,7 @@
    "l": "runden",
    "t": "runden",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "6,35",
@@ -2088,7 +2088,7 @@
    "l": "runden",
    "t": "runden",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Liter Benzin kostet 1,871 €. Runde auf ganze Cent."
@@ -2462,7 +2462,7 @@
    "l": "bruch_zu_dezimal",
    "t": "bruch_zu_dezimal",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Schreibe 9/12 als Dezimalzahl."
@@ -2478,7 +2478,7 @@
    "l": "bruch_zu_dezimal",
    "t": "bruch_zu_dezimal",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Schreibe 99/220 als Dezimalzahl."
@@ -2494,7 +2494,7 @@
    "l": "bruch_zu_dezimal",
    "t": "bruch_zu_dezimal",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 3/4 + 0,5 und gib das Ergebnis als Dezimalzahl an."
@@ -2510,7 +2510,7 @@
    "l": "bruch_zu_dezimal",
    "t": "bruch_zu_dezimal",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 5/2 + 0,9 und gib das Ergebnis als Dezimalzahl an."
@@ -2526,7 +2526,7 @@
    "l": "bruch_zu_dezimal",
    "t": "bruch_zu_dezimal",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 2/5 + 1,4 und gib das Ergebnis als Dezimalzahl an."
@@ -2542,7 +2542,7 @@
    "l": "bruch_zu_dezimal",
    "t": "bruch_zu_dezimal",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 7/4 + 0,2 und gib das Ergebnis als Dezimalzahl an."
@@ -3021,7 +3021,7 @@
    "l": "dezimal_zu_bruch",
    "t": "dezimal_zu_bruch",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Schreibe 0,325 als vollständig gekürzten Bruch.",
@@ -3087,7 +3087,7 @@
    "l": "dezimal_zu_bruch",
    "t": "dezimal_zu_bruch",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Schreibe 4,97 als vollständig gekürzten Bruch. Ein Bruch größer als 1 ist erlaubt.",
@@ -3111,7 +3111,7 @@
    "l": "dezimal_zu_bruch",
    "t": "dezimal_zu_bruch",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Schreibe 1,96 als vollständig gekürzten Bruch. Ein Bruch größer als 1 ist erlaubt.",
@@ -3670,7 +3670,7 @@
    "l": "periodisch",
    "t": "periodisch",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "2/3 = 0,6̅. Welche Ziffer steht an der 11. Nachkommastelle?"
@@ -3686,7 +3686,7 @@
    "l": "periodisch",
    "t": "periodisch",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "1/9 = 0,1̅. Wie viele Ziffern hat die Periode?"
@@ -3702,7 +3702,7 @@
    "l": "periodisch",
    "t": "periodisch",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "10/27 = 0,3̅7̅0̅. Welche Ziffer steht an der 15. Nachkommastelle?"
@@ -3718,7 +3718,7 @@
    "l": "periodisch",
    "t": "periodisch",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "1/13 = 0,0̅7̅6̅9̅2̅3̅. Wie viele Ziffern hat die Periode?"
@@ -4214,7 +4214,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Das kann man nicht entscheiden.",
@@ -4234,7 +4234,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Ja, die Aussage stimmt.",
@@ -4274,7 +4274,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Nein. 12 = 2 · 2 · 3. Ein anderer Primfaktor als 2 und 5, also periodisch.",

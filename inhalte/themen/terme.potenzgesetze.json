@@ -799,7 +799,7 @@
    "l": "potenz_begriff",
    "t": "potenz_begriff",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Würfel hat die Kantenlänge 4 cm. Sein Volumen ist 4³ cm³. Berechne das Volumen."
@@ -869,7 +869,7 @@
    "l": "potenz_begriff",
    "t": "potenz_begriff",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Würfel hat die Kantenlänge 9 cm. Sein Volumen ist 9³ cm³. Berechne das Volumen."
@@ -1316,7 +1316,7 @@
    "l": "negativer_exponent",
    "t": "negativer_exponent",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Berechne 3⁻² + 3⁻¹.",
@@ -1340,7 +1340,7 @@
    "l": "negativer_exponent",
    "t": "negativer_exponent",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Berechne 4⁻³ + 4⁻¹.",
@@ -1364,7 +1364,7 @@
    "l": "negativer_exponent",
    "t": "negativer_exponent",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Berechne 3⁻² + 3⁻³.",
@@ -1388,7 +1388,7 @@
    "l": "negativer_exponent",
    "t": "negativer_exponent",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Berechne 4⁻¹ + 4⁻².",
@@ -1828,7 +1828,7 @@
    "l": "mal_gleiche_basis",
    "t": "mal_gleiche_basis",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ergänze den Exponenten: 5⁵ · 5ᵏ = 5¹³. Wie groß ist k?"
@@ -1844,7 +1844,7 @@
    "l": "mal_gleiche_basis",
    "t": "mal_gleiche_basis",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 10⁶ · 10⁻⁸ und gib das Ergebnis als Dezimalzahl an."
@@ -1860,7 +1860,7 @@
    "l": "mal_gleiche_basis",
    "t": "mal_gleiche_basis",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Berechne 2³ · 2² mit dem Potenzgesetz und gib den Wert an."
@@ -1892,7 +1892,7 @@
    "l": "mal_gleiche_basis",
    "t": "mal_gleiche_basis",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 10² · 10⁻⁸ und gib das Ergebnis als Dezimalzahl an."
@@ -2265,7 +2265,7 @@
    "l": "geteilt_gleiche_basis",
    "t": "geteilt_gleiche_basis",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 10¹ : 10⁶ und gib das Ergebnis als Dezimalzahl an."
@@ -2281,7 +2281,7 @@
    "l": "geteilt_gleiche_basis",
    "t": "geteilt_gleiche_basis",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "2³ · 2³ : 2¹ = 2ᵉ. Wie groß ist e?"
@@ -2329,7 +2329,7 @@
    "l": "geteilt_gleiche_basis",
    "t": "geteilt_gleiche_basis",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "3⁵ · 3³ : 3⁴ = 3ᵉ. Wie groß ist e?"
@@ -2728,7 +2728,7 @@
    "l": "gleicher_exponent",
    "t": "gleicher_exponent",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne geschickt: 2⁻¹ · 5⁻¹ und gib das Ergebnis als Dezimalzahl an."
@@ -2744,7 +2744,7 @@
    "l": "gleicher_exponent",
    "t": "gleicher_exponent",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne geschickt: 5⁻¹ · 20⁻¹ und gib das Ergebnis als Dezimalzahl an."
@@ -2792,7 +2792,7 @@
    "l": "gleicher_exponent",
    "t": "gleicher_exponent",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne geschickt: (4/5)³ · 5³"
@@ -3171,7 +3171,7 @@
    "l": "anwenden",
    "t": "anwenden",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Blatt Papier wird 8-mal in der Mitte gefaltet. Jedes Falten verdoppelt die Anzahl der Lagen. Wie viele Lagen liegen danach übereinander?"
@@ -3187,7 +3187,7 @@
    "l": "anwenden",
    "t": "anwenden",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Blatt Papier wird 4-mal in der Mitte gefaltet. Jedes Falten verdoppelt die Anzahl der Lagen. Wie viele Lagen liegen danach übereinander?"
@@ -3224,7 +3224,7 @@
    "l": "anwenden",
    "t": "anwenden",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "16 · 4 = 2ᵉ. Wie groß ist e?"
@@ -3240,7 +3240,7 @@
    "l": "anwenden",
    "t": "anwenden",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "200",
@@ -3671,7 +3671,7 @@
    "l": "fehler_finden",
    "t": "fehler_finden",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ein Kind rechnet: 4³ · 4² = 16⁵. Welcher Satz beschreibt den Fehler richtig?"
@@ -3713,7 +3713,7 @@
    "l": "fehler_finden",
    "t": "fehler_finden",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Exponenten subtrahieren, nicht teilen: 4⁸.",
@@ -3734,7 +3734,7 @@
    "l": "fehler_finden",
    "t": "fehler_finden",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ein Kind rechnet: 4⁴ · 4² = 16⁶. Welcher Satz beschreibt den Fehler richtig?"
@@ -3755,7 +3755,7 @@
    "l": "fehler_finden",
    "t": "fehler_finden",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Nichts, die Rechnung ist richtig.",
@@ -4480,7 +4480,7 @@
    "l": "gleicher_exponent",
    "t": "gleicher_exponent",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne geschickt: 25⁴ · 0,04⁴"

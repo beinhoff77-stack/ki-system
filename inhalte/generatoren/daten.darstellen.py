@@ -739,5 +739,44 @@ BF.stufe('relative_haeufigkeit', 'Bei 20 Münzwürfen lag die relative Häufigke
 befunde_anwenden(DATEI, BF)
 # ---- BEFUNDE ENDE ----
 
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil A, Zweig durchsicht-kl6) ----------
+from _durchsicht_kl6 import Befunde, befunde_anwenden  # noqa: E402
+
+DS = Befunde('daten.darstellen', 19_6_8)
+_S = DS.stufe
+# absolute_haeufigkeit: Auszählen einer Liste mit „weder … noch“ = Stufe 2 (wie „Rad oder Auto“)
+for _t in ('Umfrage Lieblingsfach: Mathe, Kunst, Mathe, Sport, Deutsch, Kunst, Mathe, Kunst, Kunst, Kunst, Kunst, Sport, Kunst, Sport, Musik. Wie viele Kinder nannten weder „Kunst“ noch „Mathe“?',
+           'Umfrage Lieblingsfach: Mathe, Deutsch, Deutsch, Deutsch, Sport, Sport, Deutsch, Musik, Mathe, Deutsch, Kunst, Kunst, Sport. Wie viele Kinder nannten weder „Deutsch“ noch „Kunst“?'):
+    _S('absolute_haeufigkeit', _t, 2)
+# relative_haeufigkeit: Münzwürfe rückwärts wie in Stufe 2; Rest-Anteil zweimal → einmal S2
+for _t in ('Bei 40 Münzwürfen lag die relative Häufigkeit für „Zahl“ bei 20 %. Wie oft fiel „Zahl“?', 'Bei 60 Münzwürfen lag die relative Häufigkeit für „Zahl“ bei 10 %. Wie oft fiel „Zahl“?',
+           'Haustier: Hund 15 %, Katze 20 %, der Rest wählt Hamster. Wie viel Prozent wählen Hamster?'):
+    _S('relative_haeufigkeit', _t, 2)
+# tabelle_auswerten: Prozentanteil aus Tabelle (dreimal) und „zweithäufigste“ (dreimal) → Stufe 2, einmal bleibt S3
+for _t in ('Die Tabelle zeigt eine Umfrage zum Thema Schulweg. Wie viel Prozent haben „zu Fuß“ gewählt?', 'Die Tabelle zeigt eine Umfrage zum Thema Lieblingsfach. Wie viel Prozent haben „Kunst“ gewählt?',
+           'Die Tabelle zeigt eine Umfrage zum Thema Schulweg. Wie viel Prozent haben „Rad“ gewählt?'):
+    _S('tabelle_auswerten', _t, 2)
+_S('tabelle_auswerten', 'Die Tabelle zeigt eine Umfrage zum Thema Lieblingssport. Was wurde am zweithäufigsten genannt?', 2, anzahl=2)
+# saeulendiagramm: Prozent ablesen und Säulenhöhe mit gegebenem Maßstab = Stufe 2
+for _t in ('Das Säulendiagramm zeigt eine Umfrage zum Thema Schulweg. Wie viel Prozent der Befragten nennen „zu Fuß“?',
+           'Das Säulendiagramm zeigt eine Umfrage zum Thema Haustier. Wie viel Prozent der Befragten nennen „Hamster“?',
+           'Die Tabelle zeigt eine Umfrage zum Thema Lieblingsobst. Maßstab: 1 cm für 4 Kinder. Wie hoch wird die höchste Säule?',
+           'Die Tabelle zeigt eine Umfrage zum Thema Schulweg. Maßstab: 1 cm für 4 Kinder. Wie hoch wird die höchste Säule?'):
+    _S('saeulendiagramm', _t, 2)
+# kreisdiagramm: Winkel → Prozent wie Stufe 2; „dritter Teil“ dreimal → einmal bleibt S3
+for _t in ('Ein Kreisausschnitt hat einen Winkel von 234°. Wie viel Prozent stellt er dar?',
+           'Ein Kreisdiagramm hat die Winkel 108° und 54° und einen dritten Teil. Wie viel Prozent stellt der dritte Teil dar?',
+           'Ein Kreisdiagramm hat die Winkel 162° und 108° und einen dritten Teil. Wie viel Prozent stellt der dritte Teil dar?'):
+    _S('kreisdiagramm', _t, 2)
+# irrefuehrend: Summe 100 % prüfen dreimal → einmal bleibt S3; Bildfläche 2-fach = Vorstufe zum 3-fach-Fall
+for _t in ('Ein Kreisdiagramm zeigt die Anteile 20 %, 40 % und 15 % – mehr Teile gibt es nicht. Kann das stimmen?',
+           'Ein Kreisdiagramm zeigt die Anteile 30 %, 20 % und 25 % – mehr Teile gibt es nicht. Kann das stimmen?',
+           'Ein Bild-Diagramm zeigt den 2-fachen Wert durch ein Bild, das 2-mal so hoch und 2-mal so breit ist. Wie viel Mal so groß ist die Bildfläche?'):
+    _S('irrefuehrend', _t, 2)
+befunde_anwenden(DATEI, DS)
+# ---- DURCHSICHT ENDE ----
+
+
 if __name__ == '__main__':
     schreibe(DATEI)

@@ -476,6 +476,33 @@
         }
        ]
       }
+     },
+     {
+      "text": "Hat der Strahl 10 Teile, erweitere zuerst: 3/5 = 6/10, also der 6. Strich.",
+      "bild": {
+       "abschnitte": 10,
+       "punkte": [
+        {
+         "wert": 0.6,
+         "name": "6/10",
+         "zahl": false
+        }
+       ]
+      }
+     },
+     {
+      "text": "Brüche über 1: 7/5 sind 5 Stücke bis 1 und noch 2 weiter.",
+      "bild": {
+       "ende": 2,
+       "abschnitte": 10,
+       "punkte": [
+        {
+         "wert": 1.4,
+         "name": "7/5",
+         "zahl": false
+        }
+       ]
+      }
      }
     ],
     "fehler": "3/5 beim 5. Strich ist falsch. Dort bist du schon an der Festwiese, also bei 1.",
@@ -922,7 +949,7 @@
    "l": "bruchteil_von",
    "t": "bruchteil_von",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viele Minuten sind 13/20 Stunde?"
@@ -939,7 +966,7 @@
    "l": "bruchteil_von",
    "t": "bruchteil_von",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viele Minuten sind 3/10 Stunde?"
@@ -973,7 +1000,7 @@
    "l": "bruchteil_von",
    "t": "bruchteil_von",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viele ml sind 5/8 l?"
@@ -2798,7 +2825,7 @@
    "l": "anteil_bestimmen",
    "t": "anteil_bestimmen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Welcher Anteil des Kreises ist weiß (nicht gefärbt)?",
@@ -2992,7 +3019,7 @@
    "l": "anteil_bestimmen",
    "t": "anteil_bestimmen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Welcher Anteil des Rechtecks ist weiß (nicht gefärbt)?",
@@ -3160,7 +3187,7 @@
    "l": "anteil_bestimmen",
    "t": "anteil_bestimmen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Welcher Anteil des Kreises ist weiß (nicht gefärbt)?",
@@ -3434,7 +3461,7 @@
    "l": "anteil_bestimmen",
    "t": "anteil_bestimmen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Welcher Anteil von 1 km sind 300 m?",
@@ -3482,7 +3509,7 @@
    "l": "anteil_bestimmen",
    "t": "anteil_bestimmen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Welcher Anteil einer Stunde sind 50 Minuten?",
@@ -4709,7 +4736,7 @@
    "l": "ganzes_bestimmen",
    "t": "ganzes_bestimmen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Wassertank ist zu 3/4 gefüllt und enthält 210 l. Wie viele Liter passen in den vollen Tank?"
@@ -4742,7 +4769,7 @@
    "l": "ganzes_bestimmen",
    "t": "ganzes_bestimmen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Wanderer hat 3/10 seines Weges geschafft. Das sind 6 km. Wie lang ist der ganze Weg?"
@@ -4759,7 +4786,7 @@
    "l": "ganzes_bestimmen",
    "t": "ganzes_bestimmen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Wassertank ist zu 7/8 gefüllt und enthält 840 l. Wie viele Liter passen in den vollen Tank?"
@@ -4792,7 +4819,7 @@
    "l": "ganzes_bestimmen",
    "t": "ganzes_bestimmen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Wassertank ist zu 5/6 gefüllt und enthält 300 l. Wie viele Liter passen in den vollen Tank?"
@@ -5245,7 +5272,7 @@
    "l": "erweitern",
    "t": "erweitern",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Mit welcher Zahl wurde 4/5 erweitert, wenn 16/20 herauskommt?"
@@ -5261,7 +5288,7 @@
    "l": "erweitern",
    "t": "erweitern",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Erweitere 12/25 auf den Nenner 100.",
@@ -5285,7 +5312,7 @@
    "l": "erweitern",
    "t": "erweitern",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Mit welcher Zahl wurde 1/4 erweitert, wenn 24/96 herauskommt?"
@@ -5301,7 +5328,7 @@
    "l": "erweitern",
    "t": "erweitern",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Mit welcher Zahl wurde 8/9 erweitert, wenn 56/63 herauskommt?"
@@ -5317,7 +5344,7 @@
    "l": "erweitern",
    "t": "erweitern",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Erweitere 3/4 auf den Nenner 100.",
@@ -5863,7 +5890,7 @@
    "l": "kuerzen",
    "t": "kuerzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Kürze 175/325 vollständig.",
@@ -5887,7 +5914,7 @@
    "l": "kuerzen",
    "t": "kuerzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "2/6",
@@ -5928,7 +5955,7 @@
    "l": "kuerzen",
    "t": "kuerzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Nein, man kann noch weiter kürzen.",
@@ -5948,7 +5975,7 @@
    "l": "kuerzen",
    "t": "kuerzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "2/9",
@@ -5969,7 +5996,7 @@
    "l": "kuerzen",
    "t": "kuerzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Ja, durch 2.",
@@ -6339,7 +6366,7 @@
    "l": "vergleichen",
    "t": "vergleichen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "a": [
     "1/2",
@@ -6395,7 +6422,7 @@
    "l": "vergleichen",
    "t": "vergleichen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "a": [
     "Beide sind gleich groß",
@@ -6475,7 +6502,7 @@
    "l": "vergleichen",
    "t": "vergleichen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "1/4",
@@ -6496,7 +6523,7 @@
    "l": "vergleichen",
    "t": "vergleichen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "1/2",
@@ -6517,7 +6544,7 @@
    "l": "vergleichen",
    "t": "vergleichen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "3/5",
@@ -6559,7 +6586,7 @@
    "l": "vergleichen",
    "t": "vergleichen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "3/4",
@@ -7044,7 +7071,7 @@
    "l": "zahlenstrahl",
    "t": "zahlenstrahl",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "markierung",
    "f": {
     "text": "Markiere 1/4 am Zahlenstrahl (von 0 bis 2, 16 gleiche Teile).",
@@ -7092,7 +7119,7 @@
    "l": "zahlenstrahl",
    "t": "zahlenstrahl",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Der Zahlenstrahl von 0 bis 1 ist in 20 gleiche Teile geteilt. Auf welchen Bruch zeigt der Pfeil?",
@@ -7146,7 +7173,7 @@
    "l": "zahlenstrahl",
    "t": "zahlenstrahl",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Der Zahlenstrahl von 0 bis 1 ist in 20 gleiche Teile geteilt. Auf welchen Bruch zeigt der Pfeil?",
@@ -7178,7 +7205,7 @@
    "l": "zahlenstrahl",
    "t": "zahlenstrahl",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "markierung",
    "f": {
     "text": "Markiere 3/4 am Zahlenstrahl (von 0 bis 2, 16 gleiche Teile).",
@@ -7562,7 +7589,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "a": [
     "Das kann man nicht entscheiden.",
@@ -7602,7 +7629,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "a": [
     "Ja, Zähler und Nenner durch 4 geteilt.",
@@ -7662,7 +7689,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Nein, die Aussage ist falsch.",
@@ -7682,7 +7709,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Das kann man nicht entscheiden.",
@@ -7702,7 +7729,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Ja. Hauptnenner 72: 7/9 ist größer als 3/8.",
@@ -9655,7 +9682,7 @@
    "l": "vergleichen",
    "t": "vergleichen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welcher Bruch ist größer: 7/12 oder 11/18?"
@@ -9675,7 +9702,7 @@
    "l": "vergleichen",
    "t": "vergleichen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Bestimme den Hauptnenner von 1/6, 3/8 und 4/9."

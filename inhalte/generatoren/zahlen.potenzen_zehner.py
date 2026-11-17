@@ -743,5 +743,35 @@ BF.stufe('vergleichen_pruefen', 'Welche Zahl ist größer: 1,9 · 10⁻² oder 5
 befunde_anwenden(DATEI, BF)
 # ---- BEFUNDE ENDE ----
 
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil A, Zweig durchsicht-kl6) ----------
+from _durchsicht_kl6 import Befunde, befunde_anwenden  # noqa: E402
+
+DS = Befunde('zahlen.potenzen_zehner', 19_6_4)
+_S = DS.stufe
+# gross_wissenschaftlich: „a · 10ⁿ + b · 10ᵐ ausschreiben“ dreimal gleich gebaut = Abwandlung → S2
+for _t in ('Berechne 2 · 10⁵ + 9 · 10² und schreibe das Ergebnis ohne Zehnerpotenz.', 'Berechne 7 · 10⁶ + 1 · 10⁴ und schreibe das Ergebnis ohne Zehnerpotenz.',
+           'Berechne 9 · 10⁷ + 1 · 10² und schreibe das Ergebnis ohne Zehnerpotenz.'):
+    _S('gross_wissenschaftlich', _t, 2)
+# vorsilben_gross: MW → W ist das Stufe-1-Muster; GB → MB und MB → kB wie in Stufe 2
+_S('vorsilben_gross', 'Ein Kraftwerk leistet 20 MW. Wie viele Watt sind das? Schreibe die Zahl aus.', 1)
+_S('vorsilben_gross', 'Ein Film hat 0,7 GB. Wie viele MB sind das? (1 GB = 1 000 MB)', 2)
+_S('vorsilben_gross', 'Rechne um: 4,9 MB = ? kB', 2)
+# negativer_exponent: „Welche ist am kleinsten?“ viermal gleich gebaut = Vergleichen → S2
+for _t in ('Welche dieser Zahlen ist am kleinsten: 10⁻³, 10¹, 10⁻¹, 10⁻⁴?', 'Welche dieser Zahlen ist am kleinsten: 10², 10¹, 10⁻⁷, 10⁻⁴?',
+           'Welche dieser Zahlen ist am kleinsten: 10⁻⁶, 10⁻², 10⁰, 10⁻⁷?', 'Welche dieser Zahlen ist am kleinsten: 10⁻⁵, 10¹, 10⁻¹, 10⁻⁴?'):
+    _S('negativer_exponent', _t, 2)
+# klein_wissenschaftlich: Bakterium in a · 10ⁿ = eingekleidetes Umschreiben → S2
+_S('klein_wissenschaftlich', 'Ein Bakterium ist etwa 0,000002 m lang. Schreibe die Zahl als a · 10ⁿ. Wie groß ist n?', 2)
+# vorsilben_klein: µm → nm ist Umrechnen wie S2; Computer-Takt dreimal hintereinander → zwei nach S2
+_S('vorsilben_klein', 'Rechne um: 6 µm = ? nm', 2)
+_S('vorsilben_klein', 'Ein Rechenschritt eines Computers dauert 10 ns. Wie viele Schritte schafft er in 1 Sekunde?', 2)
+_S('vorsilben_klein', 'Ein Rechenschritt eines Computers dauert 5 ns. Wie viele Schritte schafft er in 1 Sekunde?', 2)
+# vergleichen_pruefen: gleiche Mantisse, Exponent um 1 verschieden = Stufe-2-Vergleich
+_S('vergleichen_pruefen', 'Wie viel Mal so groß ist 8 · 10⁶ wie 8 · 10⁵?', 2)
+befunde_anwenden(DATEI, DS)
+# ---- DURCHSICHT ENDE ----
+
+
 if __name__ == '__main__':
     schreibe(DATEI)

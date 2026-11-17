@@ -1048,5 +1048,61 @@ karte_erweitern(DATEI, 'vergleichen', _vgl_aufgaben(), seed=6182,
 karte_neu(DATEI, _ZB, _zb_aufgaben(), seed=6183, vor='verstehen', teil_text='Brüche als Zahlen: negative Brüche ordnen, Bruch als Quotient')
 
 
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil A, Zweig durchsicht-kl6) ----------
+# Stufen nach dem Gedanken: S1 = Beispiel mit anderen Zahlen, S2 = Abwandlung/Einkleidung/Umkehrung, S3 = anderer Gedanke.
+# Läuft nach allen bisherigen Abschnitten; nur die hier genannten Aufgaben und Lernkarten ändern sich (Nachweis _durchsicht_kl6_nachweis.py).
+from _durchsicht_kl6 import Befunde, befunde_anwenden, schritt_einfuegen  # noqa: E402
+
+DS = Befunde('bruch.brueche', 19_6_1)
+# bruchteil_von: Einheiten umrechnen ist dieselbe Rechnung wie die Stufe-2-Aufgaben „3/4 Stunde“, „3/8 kg“ → Stufe 2
+for _t in ('Wie viele Minuten sind 13/20 Stunde?', 'Wie viele Minuten sind 3/10 Stunde?', 'Wie viele ml sind 5/8 l?'):
+    DS.stufe('bruchteil_von', _t, 2)
+# anteil_bestimmen: Anteil am Bild ablesen (auch „weiß“) und Einheiten-Anteile sind Abwandlungen, kein neuer Gedanke → Stufe 2
+DS.stufe('anteil_bestimmen', 'Welcher Anteil des Kreises ist weiß (nicht gefärbt)?', 2, anzahl=2, enthaelt='"s": 3')
+DS.stufe('anteil_bestimmen', 'Welcher Anteil des Rechtecks ist weiß (nicht gefärbt)?', 2, enthaelt='"s": 3')
+DS.stufe('anteil_bestimmen', 'Welcher Anteil von 1 km sind 300 m?', 2)
+DS.stufe('anteil_bestimmen', 'Welcher Anteil einer Stunde sind 50 Minuten?', 2)
+# ganzes_bestimmen: „Tank zu 3/4 gefüllt“ / „3/10 des Weges“ = Stufe-2-Rechnung in Worten → Stufe 2
+DS.stufe('ganzes_bestimmen', 'Ein Wassertank ist zu 3/4 gefüllt und enthält 210 l. Wie viele Liter passen in den vollen Tank?', 2)
+DS.stufe('ganzes_bestimmen', 'Ein Wassertank ist zu 7/8 gefüllt und enthält 840 l. Wie viele Liter passen in den vollen Tank?', 2)
+DS.stufe('ganzes_bestimmen', 'Ein Wassertank ist zu 5/6 gefüllt und enthält 300 l. Wie viele Liter passen in den vollen Tank?', 2)
+DS.stufe('ganzes_bestimmen', 'Ein Wanderer hat 3/10 seines Weges geschafft. Das sind 6 km. Wie lang ist der ganze Weg?', 2)
+# erweitern: „Mit welcher Zahl wurde … erweitert?“ und „auf den Nenner 100“ sind die Ergänze-Aufgaben der Stufe 2
+for _t in ('Mit welcher Zahl wurde 4/5 erweitert, wenn 16/20 herauskommt?', 'Mit welcher Zahl wurde 1/4 erweitert, wenn 24/96 herauskommt?',
+           'Mit welcher Zahl wurde 8/9 erweitert, wenn 56/63 herauskommt?', 'Erweitere 12/25 auf den Nenner 100.', 'Erweitere 3/4 auf den Nenner 100.'):
+    DS.stufe('erweitern', _t, 2)
+# kuerzen: vollständig kürzen mit größeren Zahlen bzw. als Auswahl = Stufe 2; zweite „vollständig gekürzt?“-Frage direkt hintereinander → Stufe 2
+for _t in ('Kürze 175/325 vollständig.', 'Welcher Bruch entsteht, wenn man 18/90 vollständig kürzt?', 'Welcher Bruch entsteht, wenn man 18/144 vollständig kürzt?',
+           'Ein Kind kürzt 36/60 zu 12/20. Ist der Bruch damit vollständig gekürzt?', 'Kann man 22/46 kürzen?'):
+    DS.stufe('kuerzen', _t, 2)
+# vergleichen: Stammbrüche bzw. gleiche Zähler = Regel der Karte direkt → Stufe 1; Ordnen mehrerer Brüche über den Hauptnenner = Stufe 2
+DS.stufe('vergleichen', 'Welcher Bruch ist größer: 1/3 oder 1/2?', 1)
+DS.stufe('vergleichen', 'Welcher Bruch ist größer: 2/3 oder 2/7?', 1)
+for _t in ('Welcher ist der kleinste Bruch: 1/2, 1/4, 2/5, 2/3?', 'Welcher ist der größte Bruch: 3/4, 1/2, 5/6, 4/7?', 'Welcher ist der größte Bruch: 7/8, 3/4, 5/7, 3/5?',
+           'Welcher ist der kleinste Bruch: 3/4, 1/2, 5/12, 4/9?', 'Welcher Bruch ist größer: 7/12 oder 11/18?', 'Bestimme den Hauptnenner von 1/6, 3/8 und 4/9.'):
+    DS.stufe('vergleichen', _t, 2)
+# zahlenstrahl: 16 Teile bis 2 = Erweitern wie in Stufe 2; Pfeil ablesen = Umkehrung der Stufe-2-Aufgabe
+DS.stufe('zahlenstrahl', 'Markiere 1/4 am Zahlenstrahl (von 0 bis 2, 16 gleiche Teile).', 2)
+DS.stufe('zahlenstrahl', 'Markiere 3/4 am Zahlenstrahl (von 0 bis 2, 16 gleiche Teile).', 2)
+DS.stufe('zahlenstrahl', 'Der Zahlenstrahl von 0 bis 1 ist in 20 gleiche Teile geteilt. Auf welchen Bruch zeigt der Pfeil?', 2, anzahl=2)
+# verstehen: Kürzen nachprüfen = Stufe 1; Größenvergleich mit Hauptnenner und „3/2 > 1“ = Stufe 2
+DS.stufe('verstehen', 'Stimmt die Aussage? „3/6 kann man zu 1/2 kürzen.“', 1)
+DS.stufe('verstehen', 'Stimmt die Aussage? „4/8 kann man zu 1/2 kürzen.“', 1)
+for _t in ('Stimmt die Aussage? „2/5 ist größer als 1/3.“', 'Stimmt die Aussage? „7/9 ist größer als 3/8.“',
+           'Stimmt die Aussage? „Ein Bruch mit Zähler größer als Nenner, wie 3/2, ist größer als 1.“'):
+    DS.stufe('verstehen', _t, 2)
+befunde_anwenden(DATEI, DS)
+
+# e) zahlenstrahl: Die Stufe-2-Aufgaben verlangen mehr Teile als der Nenner und Brüche über 1 – das zeigte die Karte nicht.
+schritt_einfuegen(DATEI, 'zahlenstrahl', 3, {'text': 'Hat der Strahl 10 Teile, erweitere zuerst: 3/5 = 6/10, also der 6. Strich.',
+                                             'bild': {'abschnitte': 10, 'punkte': [{'wert': 0.6, 'name': '6/10', 'zahl': False}]}},
+                  'zahlenstrahl: vorher nur „Nenner = Zahl der Teile“; nachher zwei Schritte mehr: erweitern, wenn der Strahl feiner geteilt ist, und Brüche über 1.')
+schritt_einfuegen(DATEI, 'zahlenstrahl', 4, {'text': 'Brüche über 1: 7/5 sind 5 Stücke bis 1 und noch 2 weiter.',
+                                             'bild': {'ende': 2, 'abschnitte': 10, 'punkte': [{'wert': 1.4, 'name': '7/5', 'zahl': False}]}},
+                  'zahlenstrahl: vorher nur „Nenner = Zahl der Teile“; nachher zwei Schritte mehr: erweitern, wenn der Strahl feiner geteilt ist, und Brüche über 1.')
+# ---- DURCHSICHT ENDE ----
+
+
 if __name__ == '__main__':
     schreibe(DATEI)

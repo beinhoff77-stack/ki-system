@@ -1,7 +1,7 @@
 {
  "thema_schluessel": "zahlen.potenzen_zehner",
  "thema_id": 19,
- "block_id": 49,
+ "block_id": 44,
  "klasse": {
   "gym_by": 6,
   "rs_by": 5,
@@ -1221,7 +1221,7 @@
    "l": "gross_wissenschaftlich",
    "t": "gross_wissenschaftlich",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 2 · 10⁵ + 9 · 10² und schreibe das Ergebnis ohne Zehnerpotenz."
@@ -1237,7 +1237,7 @@
    "l": "gross_wissenschaftlich",
    "t": "gross_wissenschaftlich",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 7 · 10⁶ + 1 · 10⁴ und schreibe das Ergebnis ohne Zehnerpotenz."
@@ -1269,7 +1269,7 @@
    "l": "gross_wissenschaftlich",
    "t": "gross_wissenschaftlich",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne 9 · 10⁷ + 1 · 10² und schreibe das Ergebnis ohne Zehnerpotenz."
@@ -1688,7 +1688,7 @@
    "l": "vorsilben_gross",
    "t": "vorsilben_gross",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Kraftwerk leistet 20 MW. Wie viele Watt sind das? Schreibe die Zahl aus."
@@ -1705,7 +1705,7 @@
    "l": "vorsilben_gross",
    "t": "vorsilben_gross",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Film hat 0,7 GB. Wie viele MB sind das? (1 GB = 1 000 MB)"
@@ -1770,7 +1770,7 @@
    "l": "vorsilben_gross",
    "t": "vorsilben_gross",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Rechne um: 4,9 MB = ? kB"
@@ -2167,7 +2167,7 @@
    "l": "negativer_exponent",
    "t": "negativer_exponent",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "10⁻³",
@@ -2188,7 +2188,7 @@
    "l": "negativer_exponent",
    "t": "negativer_exponent",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "10²",
@@ -2209,7 +2209,7 @@
    "l": "negativer_exponent",
    "t": "negativer_exponent",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "10⁻⁶",
@@ -2230,7 +2230,7 @@
    "l": "negativer_exponent",
    "t": "negativer_exponent",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "10⁻⁵",
@@ -2702,7 +2702,7 @@
    "l": "klein_wissenschaftlich",
    "t": "klein_wissenschaftlich",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Bakterium ist etwa 0,000002 m lang. Schreibe die Zahl als a · 10ⁿ. Wie groß ist n?"
@@ -3184,7 +3184,7 @@
    "l": "vorsilben_klein",
    "t": "vorsilben_klein",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Rechne um: 6 µm = ? nm"
@@ -3201,7 +3201,7 @@
    "l": "vorsilben_klein",
    "t": "vorsilben_klein",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Rechenschritt eines Computers dauert 10 ns. Wie viele Schritte schafft er in 1 Sekunde?"
@@ -3217,7 +3217,7 @@
    "l": "vorsilben_klein",
    "t": "vorsilben_klein",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Rechenschritt eines Computers dauert 5 ns. Wie viele Schritte schafft er in 1 Sekunde?"
@@ -3655,7 +3655,7 @@
    "l": "vergleichen_pruefen",
    "t": "vergleichen_pruefen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viel Mal so groß ist 8 · 10⁶ wie 8 · 10⁵?"

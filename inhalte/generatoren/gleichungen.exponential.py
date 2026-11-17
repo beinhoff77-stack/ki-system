@@ -757,3 +757,56 @@ if __name__ == '__main__':
                  'Prüfung eingearbeitet (Runde 3): Potenzregel begründet; neue Aufgabentypen Basis/Argument bestimmen, Kehrwert-Exponenten, gemeinsame Basis mit Verschiebung, Halbwertszeit und Wachstumsrate bestimmen. „wachstum“: in jedem Pool mindestens die Hälfte Zeitfragen; Geldbeträge auf Cent mit Toleranz 0,01.'])
     ergaenzen(datei, schwer())
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl10) ----------
+# Gesamtdurchsicht: jede Lernkarte und jede Aufgabe gelesen und nachgerechnet. Läuft ganz am Ende auf der fertigen Datei.
+def durchsicht():
+    from _durchsicht_kl10 import Durchsicht
+    D = Durchsicht('gleichungen.exponential', 19020)
+    # logarithmus: „log₂(x) = 3, bestimme x“ ist die einfache Umkehrung (Stufe 2), kein anderer Gedanke
+    D.stufe(13, 2, 'Es gilt log₂(x) = 3')
+    D.stufe(17, 2, 'Es gilt log₃(x) = 3')
+    # gleiche_basis: „a · b^x = c“ heißt nur: erst teilen (Abwandlung, Stufe 2)
+    D.stufe([41, 42, 45], 2, 'Löse ')
+    # mit_log_loesen: b^(mx + n) = c ist die Stufe-2-Rechnung mit einem linearen Schritt mehr → Stufe 2
+    D.stufe(range(68, 74), 2, 'Löse ')
+    # potenzregel: b^x = a^(x + n) ist genau das vorgerechnete Beispiel; die dreifache Auswahl „Welche Umformung ist richtig?“ ist Wissen, kein anderer Gedanke
+    D.stufe([96, 97, 101], 2, 'Löse ')
+    D.stufe([98, 99, 100], 2, 'Welche Umformung ist richtig')
+    D.neu('potenzregel', 3, D.Z('Es gilt lg 2 ≈ 0,301. Bestimme log₂(10) ohne Taschenrechner. Runde auf zwei Nachkommastellen.', 3.32, 'round(1 / 0.301, 2)',
+                                 'y = log₂(10) heißt 2^y = 10. Auf beiden Seiten lg: y · lg 2 = lg 10 = 1. Also y = 1 : 0,301 ≈ 3,32.',
+                                 'Schreibe y = log₂(10) als Potenzgleichung und nimm auf beiden Seiten lg.', toleranz=0.01))
+    # wachstum: Population 40 → 300 bei 5 % ist die Stufe-1-Rechnung in Worten → Stufe 2
+    D.stufe(127, 2, 'Eine Population wächst um 5 %')
+    # verstehen: Abwechslung – fünfmal „keine Lösung“ (Stufe 1) und sechsmal „Welche Aussage ist falsch?“ (Stufe 2) hintereinander
+    D.ersetze(144, 'Welche Lösung hat 5^x = −15 625', D.A('Welchen Wert hat log₇(7)?', '1', ['0', '7', '49'],
+                                                          '7¹ = 7, also log₇(7) = 1. Allgemein: log_b(b) = 1.', 'Mit welchem Exponenten wird aus 7 wieder 7?'))
+    D.ersetze(151, 'Welche Lösung hat 3^x = −9', D.A('Welche Zahl ist 2^(−3)?', '1/8', ['−8', '−6', '8'],
+                                                     'Ein Minus im Exponenten bildet den Kehrwert: 2^(−3) = 1 : 2³ = 1/8. Das Ergebnis bleibt positiv.',
+                                                     'Ein negativer Exponent macht die Zahl nicht negativ. Was macht er?'))
+    D.ersetze(153, 'Welche Aussage ist falsch', D.A('Für welche Zahlen x ist log₂(5 − x) definiert?', 'x < 5', ['x > 5', 'x ≤ 5', 'x > 0'],
+                                                    'Logarithmen gibt es nur von Zahlen größer als 0: 5 − x > 0 ⇔ x < 5. Bei x = 5 wäre es log₂(0) – nicht definiert.',
+                                                    'Was in der Klammer steht, muss größer als 0 sein.'))
+    D.ersetze(154, 'Welche Aussage ist falsch', D.A('Welche Lösung hat 4^x = 1?', 'x = 0', ['x = 1', 'x = 1/4', 'keine Lösung'],
+                                                    'Jede Zahl hoch 0 ist 1: 4⁰ = 1. Also x = log₄(1) = 0.', 'Mit welchem Exponenten wird aus einer Zahl 1?'))
+    D.ersetze(156, 'Welche Aussage ist falsch', D.A('Jemand sagt: „lg(1 000) ist dreimal so groß wie lg(10).“ Was stimmt?', 'Richtig.',
+                                                    ['Falsch: lg(1 000) ist hundertmal so groß.', 'Falsch: lg(1 000) = 1 000 : 10 = 100.', 'Falsch: Beide sind gleich groß.'],
+                                                    'lg(1 000) = 3, denn 10³ = 1 000; lg(10) = 1. Also dreimal so groß – wie die Potenzregel sagt: lg(10³) = 3 · lg 10.',
+                                                    'Berechne beide Logarithmen einzeln.'))
+    # Lernkarte mit_log_loesen: „x = lg 10 : lg 2“ kam ohne Begründung (die Potenzregel folgt erst eine Karte später)
+    D.karte('mit_log_loesen', schritte=[
+        {'text': '3 · 2^x = 30 heißt: 3 Bakterien, x Stunden verdoppelt, ergeben 30.'},
+        {'text': 'Zuerst durch 3 teilen, damit die Potenz allein steht: 2^x = 10.'},
+        {'text': '2³ = 8 und 2⁴ = 16. Also liegt x zwischen 3 und 4.',
+         'bild': {'punkte': [{'x': 3, 'y': 24, 'name': '3 h: 24'}, {'x': 4, 'y': 48, 'name': '4 h: 48'}]}},
+        {'text': 'Nach der Bedeutung des Logarithmus ist x = log₂(10).'},
+        {'text': 'Der Rechner rechnet das als lg 10 : lg 2 ≈ ⟦3,32⟧ Stunden.',
+         'bild': {'punkte': [{'x': 3.32, 'y': 30, 'name': '≈ 3,32 h'}], 'senkrecht': [3.32]}}])
+    # Lernkarte wachstum: „q = 1 + p“ ließ offen, ob p in Prozent gemeint ist
+    D.karte('wachstum', regel='Ansatz Anfangswert · q^t = Ziel, dann logarithmieren. Zunahme um p %: ⟦q = 1 + p/100⟧, Abnahme: q = 1 − p/100.')
+    D.anwenden()
+
+
+if __name__ == '__main__':
+    durchsicht()  # Neunzehnte Runde (durchsicht-kl10) – ganz am Ende

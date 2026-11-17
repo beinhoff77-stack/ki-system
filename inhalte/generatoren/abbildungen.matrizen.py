@@ -353,8 +353,130 @@ def g_skalarprodukt(s):
 GEN = {'bildpunkt': g_bildpunkt, 'abbildungsmatrix': g_abbildungsmatrix, 'drehung': g_drehung, 'rechnen': g_rechnen,
        'inverse': g_inverse, 'skalarprodukt': g_skalarprodukt}
 
+# ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_rest import umbau_schreiben  # noqa: E402
+
+from _umbau_rest import ko, pkte, tab  # noqa: E402
+
+_SP = ['', 'Spalte 1', 'Spalte 2']
+
+
+def _bp(x, y):
+    return tab(['M', 'mal x = 5', 'mal y = 2', 'ergibt'], ['Zeile 1 → x′', '2', '−1', x], ['Zeile 2 → y′', '3', '4', y])
+
+
+def _ab(a, b, c, d):
+    return tab(['A · B', 'Spalte 1', 'Spalte 2'], ['Zeile 1', a, b], ['Zeile 2', c, d])
+
+
+_E = {'E₁': (1, 0), 'E₂': (0, 1)}
+_M = [['M Zeile 1', '3', '1'], ['M Zeile 2', '5', '2']]
+UMBAU = {
+    'bildpunkt': {
+        'einstieg': 'Ein Grafikprogramm verschiebt, dreht und spiegelt Bilder. Dafür speichert es vier Zahlen in einem Schema '
+                    'mit zwei Zeilen. So ein Zahlenschema heißt ⟦Matrix⟧.',
+        'woerter': [['Matrix', 'Zahlenschema mit Zeilen und Spalten; hier zeilenweise geschrieben: (a  b; c  d)'],
+                    ['Zeile mal Spalte', 'die Zahlen einer Zeile mit x und y malnehmen und addieren']],
+        'bild': _bp('?', '?'),
+        'schritte': [
+            {'text': 'M = (2  −1; 3  4) bildet P(5 | 2) ab.'},
+            {'text': 'Zeile mal Spalte: x′ = 2 · 5 + (−1) · 2 = 8.', 'bild': _bp('8', '?')},
+            {'text': 'Mit Zeile 2: y′ = 3 · 5 + 4 · 2 = 23.', 'bild': _bp('8', '23')},
+            {'text': 'Also ⟦P′(8 | 23)⟧.',
+             'bild': ko([-1, 10], [-2, 25], pkte({'P': (5, 2), 'P′': (8, 23)}), schritt=0, schritt_x=2, schritt_y=5, pfeile=[[5, 2, 8, 23]])},
+        ],
+        'fehler': 'Spaltenweise rechnen ist falsch: 2 · 5 + 3 · 2 = 16. Für x′ nimmst du die ⟦erste Zeile⟧, also 2 und −1.',
+        'regel': 'Bildpunkt: ⟦Zeile mal Spalte⟧. Die erste Zeile ergibt x′, die zweite Zeile ergibt y′.',
+    },
+    'abbildungsmatrix': {
+        'einstieg': 'Das Grafikprogramm muss nur wissen, wohin (1 | 0) und (0 | 1) gehen. '
+                    'Daraus baut es die ganze Matrix. Die beiden heißen ⟦Einheitspunkte⟧.',
+        'woerter': [['Einheitspunkte', 'die Punkte (1 | 0) und (0 | 1)'],
+                    ['Spalte', 'die Zahlen, die in der Matrix untereinanderstehen']],
+        'bild': ko([-2, 2], [-2, 2], _E),
+        'schritte': [
+            {'text': 'Spiegelung an der y-Achse: (1 | 0) geht nach (−1 | 0).',
+             'bild': {'punkte': pkte({**_E, 'E₁′': (-1, 0)}), 'pfeile': [[1, 0, -1, 0]]}},
+            {'text': '(0 | 1) liegt auf der Achse und bleibt, wo er ist.'},
+            {'text': 'Bilder als Spalten: ⟦(−1  0; 0  1)⟧.', 'bild': tab(_SP, ['Zeile 1', '−1', '0'], ['Zeile 2', '0', '1'])},
+        ],
+        'fehler': '(0  1; −1  0) dreht nicht um 90°, sondern um ⟦−90°⟧. Bei +90° muss (1 | 0) nach (0 | 1) gehen.',
+        'fehler_bild': ko([-2, 2], [-2, 2], pkte({'E₁': (1, 0), 'falsch': (0, -1)}), pfeile=[[1, 0, 0, -1, '−90°']]),
+        'regel': 'Die Spalten sind die ⟦Bilder der Einheitspunkte⟧. Erst (1 | 0) abbilden, dann (0 | 1), beides als Spalte eintragen.',
+    },
+    'drehung': {
+        'einstieg': 'Ein Riesenrad dreht eine Gondel um seine Mitte. Die Gondel bleibt gleich weit von der Mitte entfernt. '
+                    'Für jeden Winkel φ gibt es eine ⟦Drehmatrix⟧.',
+        'woerter': [['φ', 'griechischer Buchstabe „phi“ für den Drehwinkel'],
+                    ['Drehmatrix', '(cos φ  −sin φ; sin φ  cos φ); dreht um O gegen den Uhrzeigersinn']],
+        'bild': ko([-1, 5], [-1, 5], {'P': (4, 0), 'O': (0, 0)}, kreise=[{'m': [0, 0], 'r': 4}]),
+        'schritte': [
+            {'text': 'P(4 | 0) wird um φ = 30° gedreht.'},
+            {'text': 'x′ = 4 · cos 30° − 0 · sin 30° ≈ 3,46.'},
+            {'text': 'y′ = 4 · sin 30° + 0 · cos 30° = 2.'},
+            {'text': 'Also ⟦P′(3,46 | 2)⟧, wieder 4 von der Mitte entfernt.',
+             'bild': {'punkte': pkte({'P': (4, 0), 'O': (0, 0), 'P′': (3.46, 2)}), 'strecken': [[0, 0, 4, 0], [0, 0, 3.46, 2]]}},
+        ],
+        'fehler': 'x′ = x · cos φ + y · sin φ ist falsch. Oben rechts steht ⟦−sin φ⟧, sonst dreht es falsch herum.',
+        'regel': 'Drehung um φ: ⟦(cos φ  −sin φ; sin φ  cos φ)⟧. Der Abstand zu O bleibt gleich.',
+    },
+    'rechnen': {
+        'einstieg': 'Das Programm soll erst spiegeln und dann drehen. Statt zweimal zu rechnen, fasst es beide Matrizen zu einer zusammen. '
+                    'Das heißt ⟦Matrizen multiplizieren⟧.',
+        'woerter': [['A · B', 'das Matrizenprodukt: erst B anwenden, dann A'],
+                    ['Einträge', 'die vier Zahlen einer Matrix']],
+        'bild': _ab('?', '?', '?', '?'),
+        'schritte': [
+            {'text': 'A = (1  2; 0  3) und B = (4  0; 1  −1).'},
+            {'text': 'Oben links in A · B: Zeile 1 von A mal Spalte 1 von B.'},
+            {'text': '1 · 4 + 2 · 1 = 6.', 'bild': _ab('6', '?', '?', '?')},
+            {'text': 'Ebenso die anderen Einträge: A · B = ⟦(6  −2; 3  −3)⟧.', 'bild': _ab('6', '−2', '3', '−3')},
+        ],
+        'fehler': 'Eintrag für Eintrag malnehmen, also (4  0; 0  −3), ist falsch. Es gilt ⟦Zeile mal Spalte⟧, und meist ist A · B ≠ B · A.',
+        'fehler_bild': _ab('4 ✗', '0 ✗', '0 ✗', '−3 ✗'),
+        'regel': 'A · B: ⟦Zeile von A mal Spalte von B⟧. Addieren und Vervielfachen gehen dagegen Eintrag für Eintrag.',
+    },
+    'inverse': {
+        'einstieg': 'Das Programm soll eine Drehung rückgängig machen. Dafür braucht es die umgekehrte Matrix. '
+                    'Sie heißt ⟦inverse Matrix⟧ und existiert nur, wenn die Determinante nicht 0 ist.',
+        'woerter': [['Determinante', 'die Zahl a · d − b · c'],
+                    ['inverse Matrix', 'macht die Abbildung rückgängig; geschrieben M⁻¹']],
+        'bild': tab(_SP, *_M),
+        'schritte': [
+            {'text': 'Determinante von M: 3 · 2 − 1 · 5 = 1.'},
+            {'text': 'Sie ist nicht 0, also gibt es die inverse Matrix.'},
+            {'text': 'a und d tauschen, b und c bekommen ein Minus.',
+             'bild': tab(_SP, *_M, ['M⁻¹ Zeile 1', '2', '−1'], ['M⁻¹ Zeile 2', '−5', '3'])},
+            {'text': 'Durch die Determinante 1 teilen: ⟦M⁻¹ = (2  −1; −5  3)⟧.'},
+        ],
+        'fehler': '(2  −5; −1  3) ist falsch. b und c ⟦bleiben an ihrem Platz⟧ und wechseln nur das Vorzeichen.',
+        'regel': 'Inverse: a und d tauschen, b und c mit Minus. Dann ⟦durch die Determinante teilen⟧, die nicht 0 sein darf.',
+    },
+    'skalarprodukt': {
+        'einstieg': 'Ein Zimmermann prüft, ob zwei Balken einen rechten Winkel bilden. Mit Vektoren geht das ohne Geodreieck: '
+                    'Er rechnet eine Zahl aus. Sie heißt ⟦Skalarprodukt⟧.',
+        'woerter': [['Skalarprodukt', 'a₁ · b₁ + a₂ · b₂ – eine Zahl, kein Vektor'],
+                    ['senkrecht', 'im rechten Winkel'], ['|a|', 'die Länge des Vektors a']],
+        'bild': ko([-1, 6], [-4, 5], pfeile=[[0, 0, 3, 4, 'a'], [0, 0, 4, -3, 'b']]),
+        'schritte': [
+            {'text': 'Skalarprodukt von a = (3 | 4) und b = (4 | −3):'},
+            {'text': '3 · 4 + 4 · (−3) = 0, also ⟦senkrecht⟧.'},
+            {'text': 'Mit c = (5 | 0) ist a · c = 15.', 'bild': {'pfeile': [[0, 0, 3, 4, 'a'], [0, 0, 5, 0, 'c']]}},
+            {'text': '|a| = |c| = 5, also cos φ = 15 : 25 = 0,6.'},
+            {'text': 'Der Winkel ist ⟦φ ≈ 53,1°⟧.'},
+        ],
+        'fehler': '(12 | −12) als Ergebnis ist falsch. Das Skalarprodukt ist ⟦eine Zahl⟧: Die Produkte werden addiert.',
+        'regel': 'Skalarprodukt: ⟦a₁ · b₁ + a₂ · b₂⟧. Ist es 0, stehen die Vektoren senkrecht aufeinander.',
+    },
+}
+UMBAU_OFFEN = []
+UMBAU_WEG = []
+# ---------- Ende UMBAU ----------
+
+
 if __name__ == '__main__':
-    bauen('abbildungen.matrizen',
+    d = bauen('abbildungen.matrizen',
           'Abbildungen im Koordinatensystem mit Matrizen beschreiben (Spiegelung, Drehung, Streckung), mit Matrizen rechnen, Umkehrmatrizen bestimmen und das Skalarprodukt nutzen.',
           ["P'(x' | y') mit M = (a  b; c  d): x' = a · x + b · y, y' = c · x + d · y.",
            'Die Spalten der Matrix sind die Bilder von (1 | 0) und (0 | 1).', 'Drehung um φ: (cos φ  −sin φ; sin φ  cos φ).',
@@ -366,3 +488,4 @@ if __name__ == '__main__':
           offen=['Matrizen werden zeilenweise als (a  b; c  d) geschrieben; Lückenschablone (□ □; □ □). App-Wunsch: echte Matrixdarstellung (2×2-Klammer) im Text oder als Zeichnung.',
                  'IB MYP 4: Lösen linearer Gleichungssysteme mit der inversen Matrix nur als Urpunkt-Aufgabe enthalten; Parkettierungen nicht enthalten (bräuchten Zeichnungen).',
                  'Spiegelung an beliebigen Ursprungsgeraden (cos 2α, sin 2α) weggelassen; nur Achsen, y = x, Drehungen und zentrische Streckung.'])
+    umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

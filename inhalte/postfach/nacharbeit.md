@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 01:56 – STATUS
+geometrie.konstruktion fertig: Lernkarte kongruenzsatz – alle 6 Stufe-3-Aufgaben zum Fall SsW haben jetzt eine Zeichnung (figur): bei „Wie viele Dreiecke gibt es?“ Seite c, Winkel α mit freiem Schenkel und das Lot von B auf den Schenkel mit seiner Länge; bei „Dreiecke ABC und DEF“ das Dreieck mit AB, AC und dem Winkel bei B. Fragetexte, Antworten, Lösungen unverändert, nur f.grafik ergänzt – keine Aufgabe ersetzt. inhalt_pruefen OK, Nachweis OK (6 Aufgaben, nur Feld f).
+
 ## 2026-11-17 01:54 – STATUS
 geometrie.ortslinien fertig: Lernkarte zwei_kreise – neuer letzter Schritt „Bei 0,5 km Abstand ist 0,5 < 5 − 4: Kreis im Kreis, kein Ort.“ mit Zeichnung. Aufgaben unverändert; inhalt_pruefen OK ohne Hinweise, Nachweis OK (nur schritte). Hinweis: Der Generator schreibt jetzt block_id 83 (Kairo, aus themenliste.json); die Datei hatte 79. Ich habe 79 in der Datei belassen (nicht beauftragt) – bitte beim Einspielen entscheiden.
 

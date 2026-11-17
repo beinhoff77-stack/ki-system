@@ -1,0 +1,582 @@
+# Überzählige Übungen, Zwanzigste Runde, Klasse 9
+
+Diese Übungen bleiben unverändert und ohne Typ `g` (nichts gelöscht). Grund: mehr als 2 gleich gebaute Übungen desselben Typs auf einer Stufe, oder auf Stufe 3 mehr als 3 Übungen desselben Typs. Angabe: Lernkarte (bisherige Stufe): Aufgabentext.
+
+## zahlen.wurzeln_basis
+
+- quadratwurzel (S1): Berechne √36.
+- quadratwurzel (S1): Berechne √9.
+- quadratwurzel (S1): Berechne √121.
+- quadratwurzel (S1): Berechne √16.
+- quadratwurzel (S2): Berechne √8 100.
+- quadratwurzel (S2): Für welche Zahl x gilt √x = 22?
+- quadratwurzel (S2): Für welche Zahl x gilt √x = 1,2?
+- quadratwurzel (S2): Für welche Zahl x gilt √x = 7?
+- quadratwurzel (S2): Berechne 4 · √169 − √16.
+- quadratwurzel (S2): Berechne √(2 · 98).
+- wurzel_dezimal (S1): Berechne √0,0016.
+- wurzel_dezimal (S1): Berechne √0,0036.
+- wurzel_dezimal (S1): Berechne √0,0025.
+- wurzel_dezimal (S1): Berechne √0,25.
+- wurzel_dezimal (S2): Berechne √1,69.
+- wurzel_dezimal (S2): Berechne √0,0144.
+- wurzel_dezimal (S2): Berechne √2,56.
+- wurzel_dezimal (S2): Berechne √(9/169).
+- wurzel_dezimal (S3): Berechne 4 · √(25/196). Gib das Ergebnis als gekürzten Bruch an.
+- wurzel_dezimal (S2): Berechne √(144/25).
+- kubikwurzel (S1): Berechne ∛1 000.
+- kubikwurzel (S1): Berechne ∛8.
+- kubikwurzel (S1): Berechne ∛512.
+- kubikwurzel (S1): Berechne ∛125.
+- kubikwurzel (S2): Berechne ∛0,000008.
+- kubikwurzel (S2): Berechne ∛0,343.
+- kubikwurzel (S2): Berechne ∛0,000125.
+- kubikwurzel (S2): Berechne ∛0,125.
+- kubikwurzel (S2): Berechne ∛64 · √25.
+- kubikwurzel (S2): Berechne ∛(216/343).
+- kubikwurzel (S2): Berechne ∛(8/125).
+- kubikwurzel (S2): Berechne ∛8 000.
+- abschaetzen (S1): Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √15?
+- abschaetzen (S1): Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √79?
+- abschaetzen (S1): Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √92?
+- abschaetzen (S1): Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √20?
+- abschaetzen (S1): Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √285?
+- abschaetzen (S1): Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √323?
+- abschaetzen (S1): Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √103?
+- abschaetzen (S1): Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √404?
+- abschaetzen (S1): Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √1 605?
+- abschaetzen (S2): Zwischen welchen Zehnteln liegt √82?
+- abschaetzen (S1): Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √788?
+- abschaetzen (S1): Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √648?
+- abschaetzen (S1): Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √1 291?
+- abschaetzen (S2): Zwischen welchen Zehnteln liegt √0,5?
+- abschaetzen (S1): Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √200?
+- wurzel_deuten (S1): Welchen Wert hat (√42)²?
+- wurzel_deuten (S1): Was gilt für √(−121)?
+- wurzel_deuten (S1): Welchen Wert hat (√88)²?
+- wurzel_deuten (S1): Welchen Wert hat (√79)²?
+- wurzel_deuten (S1): Was gilt für √(−289)?
+- wurzel_deuten (S3): Jemand rechnet: √(100 + 49) = √100 + √49 = 17. Was stimmt?
+- wurzel_deuten (S3): Jemand rechnet: √(144 + 100) = √144 + √100 = 22. Was stimmt?
+- wurzel_sache (S1): Ein quadratisches Beet hat einen Flächeninhalt von 361 m². Wie lang ist eine Seite?
+- wurzel_sache (S1): Ein quadratisches Beet hat einen Flächeninhalt von 49 m². Wie lang ist eine Seite?
+- wurzel_sache (S1): Ein quadratisches Beet hat einen Flächeninhalt von 121 m². Wie lang ist eine Seite?
+- wurzel_sache (S1): Ein quadratisches Beet hat einen Flächeninhalt von 144 m². Wie lang ist eine Seite?
+- wurzel_sache (S3): Ein Würfel hat eine Oberfläche von 1 014 cm². Wie lang ist eine Kante?
+- wurzel_sache (S2): Ein Würfel hat eine Oberfläche von 486 cm². Wie lang ist eine Kante?
+- wurzel_sache (S2): Ein Würfel hat eine Oberfläche von 1 350 cm². Wie lang ist eine Kante?
+
+## zahlen.reell
+
+- zahlarten (S1): Ist √576 rational oder irrational?
+- zahlarten (S1): Ist √103 rational oder irrational?
+- zahlarten (S1): Ist √289 rational oder irrational?
+- zahlarten (S2): Welche der Zahlen ist irrational?
+- zahlarten (S2): Welche der Zahlen ist irrational?
+- eingrenzen (S1): Berechne 4,3² (für die Intervallschachtelung).
+- eingrenzen (S1): Berechne 7,3² (für die Intervallschachtelung).
+- eingrenzen (S1): Berechne 8,2² (für die Intervallschachtelung).
+- eingrenzen (S1): Berechne 1,3² (für die Intervallschachtelung).
+- eingrenzen (S2): Zwischen welchen Zahlen mit 1 Nachkommastelle liegt √176?
+- eingrenzen (S2): Zwischen welchen Zahlen mit 1 Nachkommastelle liegt √58?
+- eingrenzen (S2): Zwischen welchen Zahlen mit 1 Nachkommastelle liegt √96?
+- eingrenzen (S2): Zwischen welchen Zahlen mit 1 Nachkommastelle liegt √92?
+- eingrenzen (S2): Zwischen welchen Zahlen mit 2 Nachkommastellen liegt √105?
+- eingrenzen (S2): Zwischen welchen Zahlen mit 2 Nachkommastellen liegt √19?
+- eingrenzen (S2): Zwischen welchen Zahlen mit 2 Nachkommastellen liegt √56?
+- eingrenzen (S2): Zwischen welchen Zahlen mit 2 Nachkommastellen liegt √150?
+- wurzel_mal (S1): Berechne √6 · √96.
+- wurzel_mal (S1): Berechne √72 · √2.
+- wurzel_mal (S1): Berechne √350 · √14.
+- wurzel_mal (S1): Berechne √10 · √40.
+- wurzel_mal (S2): Berechne √1215 : √15.
+- wurzel_mal (S2): Berechne √252 : √7.
+- wurzel_mal (S2): Berechne √180 : √5.
+- wurzel_mal (S2): Berechne √375 : √15.
+- wurzel_mal (S3): Vereinfache √(11x) · √(44x) für x ≥ 0.
+- wurzel_mal (S2): Berechne √72 : √2.
+- wurzel_mal (S1): Berechne √3 · √12.
+- teilweise (S1): Ziehe teilweise die Wurzel, so weit wie möglich: √44.
+- teilweise (S1): Ziehe teilweise die Wurzel, so weit wie möglich: √28.
+- teilweise (S1): Ziehe teilweise die Wurzel, so weit wie möglich: √96.
+- teilweise (S1): Ziehe teilweise die Wurzel, so weit wie möglich: √54.
+- teilweise (S1): Ziehe teilweise die Wurzel, so weit wie möglich: √208.
+- teilweise (S1): Ziehe teilweise die Wurzel, so weit wie möglich: √810.
+- teilweise (S1): Ziehe teilweise die Wurzel, so weit wie möglich: √1 215.
+- teilweise (S1): Ziehe teilweise die Wurzel, so weit wie möglich: √704.
+- teilweise (S1): Ziehe teilweise die Wurzel, so weit wie möglich: √600.
+- teilweise (S1): Ziehe teilweise die Wurzel, so weit wie möglich: √384.
+- teilweise (S1): Ziehe teilweise die Wurzel, so weit wie möglich: √1 300.
+- teilweise (S1): Ziehe teilweise die Wurzel, so weit wie möglich: √250.
+- teilweise (S1): Ziehe teilweise die Wurzel, so weit wie möglich: √180.
+- teilweise (S2): Schreibe 3√7 als eine einzige Wurzel.
+- zusammenfassen (S1): Fasse zusammen: 5√2 + 2√2.
+- zusammenfassen (S1): Fasse zusammen: 7√10 + 5√10.
+- zusammenfassen (S2): Fasse zusammen: √63 − √175.
+- zusammenfassen (S3): Multipliziere aus und fasse zusammen: (5 + √10)².
+- zusammenfassen (S3): Berechne (7 + √2) · (7 − √2).
+- zusammenfassen (S3): Multipliziere aus und fasse zusammen: (2 + √7)².
+- zusammenfassen (S2): Fasse zusammen: √27 − √3.
+- nenner_rational (S1): Mache den Nenner rational: 56/√14.
+- nenner_rational (S1): Mache den Nenner rational: 33/√11.
+- nenner_rational (S1): Mache den Nenner rational: 18/√6.
+- nenner_rational (S1): Mache den Nenner rational: 55/√11.
+- nenner_rational (S2): Mache den Nenner rational: 168/(4√14).
+- nenner_rational (S2): Mache den Nenner rational: 50/(5√5).
+- nenner_rational (S2): Mache den Nenner rational: 156/(3√13).
+- nenner_rational (S2): Mache den Nenner rational: 120/(4√15).
+- nenner_rational (S2): Mache den Nenner rational: 3/(√5 − 2).
+- nenner_rational (S3): Mache den Nenner rational: 8/(√11 − 3).
+- nenner_rational (S2): Mache den Nenner rational: 9/(√7 − 2).
+- nenner_rational (S3): Mache den Nenner rational: 4/(√3 − 1).
+- nenner_rational (S1): Mache den Nenner rational: 15/√5.
+- heron (S2): Berechne für √2 mit dem Startwert 1 zwei Schritte des Heron-Verfahrens. Gib x₂ auf drei Nachkommastellen an.
+
+## funktionen.quadratisch
+
+- scheitel (S1): Gib den Scheitel der Parabel y = 4(x + 2)² − 1 an.
+- scheitel (S1): Gib den Scheitel der Parabel y = 2(x + 8)² − 2 an.
+- umformen (S1): Bestimme den Scheitel von y = x² − 4x + 4.
+- umformen (S1): Bestimme den Scheitel von y = x² − 14x + 42.
+- nullstellen (S1): Bestimme die Nullstellen von y = (x + 2) · (x − 6).
+- nullstellen (S1): Bestimme die Nullstellen von y = (x + 4) · (x − 1).
+- punkte (S3): Der Punkt P(2 | 5) liegt auf dem Graphen von y = ax² − 3. Bestimme a.
+- bestimmen (S1): Eine Parabel hat den Scheitel S(5 | 1) und geht durch P(4 | 0). Bestimme a in y = a(x − d)² + e.
+- bestimmen (S1): Eine Parabel hat den Scheitel S(−3 | −3) und geht durch P(0 | 6). Bestimme a in y = a(x − d)² + e.
+- bestimmen (S1): Eine Parabel hat den Scheitel S(−3 | −2) und geht durch P(−5 | 2). Bestimme a in y = a(x − d)² + e.
+- bestimmen (S1): Eine Parabel hat den Scheitel S(−3 | −1) und geht durch P(−2 | 2). Bestimme a in y = a(x − d)² + e.
+- bestimmen (S1): Eine Parabel hat den Scheitel S(−4 | −4) und geht durch P(−5 | −7). Bestimme a in y = a(x − d)² + e.
+- bestimmen (S1): Eine Parabel hat den Scheitel S(−1 | 3) und geht durch P(2 | 30). Bestimme a in y = a(x − d)² + e.
+- bestimmen (S2): Eine Parabel hat die Nullstellen x₁ = −5 und x₂ = 6 und geht durch P(2 | 28). Bestimme a in y = a(x − x₁)(x − x₂).
+- bestimmen (S1): Eine Parabel hat den Scheitel S(2 | 2) und geht durch P(−1 | −16). Bestimme a in y = a(x − d)² + e.
+- bestimmen (S2): Eine Parabel hat die Nullstellen x₁ = −6 und x₂ = 3 und geht durch P(0 | 54). Bestimme a in y = a(x − x₁)(x − x₂).
+- bestimmen (S2): Eine Parabel hat die Nullstellen x₁ = −2 und x₂ = 0 und geht durch P(4 | −48). Bestimme a in y = a(x − x₁)(x − x₂).
+- bestimmen (S2): Eine Parabel hat die Nullstellen x₁ = −3 und x₂ = −1 und geht durch P(3 | −72). Bestimme a in y = a(x − x₁)(x − x₂).
+- bestimmen (S2): Eine Parabel hat die Nullstellen x₁ = −4 und x₂ = 4 und geht durch P(0 | 32). Bestimme a in y = a(x − x₁)(x − x₂).
+- extremwert (S2): Zwei Zahlen haben die Summe 36. Wie groß ist ihr Produkt höchstens?
+- extremwert (S2): Ein rechteckiges Gehege soll mit 12 m Zaun umgeben werden. Welchen größten Flächeninhalt kann es haben?
+- extremwert (S3): An einer Hauswand soll ein rechteckiger Auslauf mit 96 m Zaun abgegrenzt werden (die Wand ersetzt eine Seite). Welche Fläche ist höchstens möglich?
+- extremwert (S2): An einer Hauswand soll ein rechteckiger Auslauf mit 76 m Zaun abgegrenzt werden (die Wand ersetzt eine Seite). Welche Fläche ist höchstens möglich?
+
+## gleichungen.quadratisch
+
+- reinquadratisch (S1): Löse x² − 196 = 0.
+- reinquadratisch (S1): Löse x² = 100.
+- reinquadratisch (S2): Welche Lösungsmenge hat 2x² + 2 = 0?
+- reinquadratisch (S1): Löse 4x² − 144 = 0.
+- reinquadratisch (S2): Jemand löst 2x² = 50 so: x = ±√50. Was stimmt?
+- ausklammern (S1): Löse x² + 10x = 0.
+- ausklammern (S1): Löse x² + 9x = 0.
+- ausklammern (S2): Löse 5x² + 20x = 0.
+- ausklammern (S2): Löse 7x² + 21x = 0.
+- ausklammern (S2): Löse 2x² = −4x.
+- ausklammern (S2): Löse 5x² = 30x.
+- faktorisieren (S1): Löse (x + 2) · (x − 3) = 0.
+- faktorisieren (S1): Löse (x + 4) · (x − 2) = 0.
+- faktorisieren (S2): Löse 16x² − 64 = 0 durch Faktorisieren.
+- faktorisieren (S2): Löse x² − 5x + 4 = 0 durch Faktorisieren.
+- ergaenzung (S1): Bringe x² − 8x + 15 = 0 mit quadratischer Ergänzung auf die Form (x − …)² = ….
+- ergaenzung (S1): Bringe x² − 14x + 47 = 0 mit quadratischer Ergänzung auf die Form (x − …)² = ….
+- ergaenzung (S1): Bringe x² − 6x + 3 = 0 mit quadratischer Ergänzung auf die Form (x − …)² = ….
+- ergaenzung (S1): Bringe x² − 14x + 44 = 0 mit quadratischer Ergänzung auf die Form (x − …)² = ….
+- ergaenzung (S2): Löse x² − 10x − 56 = 0 mit quadratischer Ergänzung.
+- loesungsformel (S3): Löse (2x + 1)² = 3x + 4.
+- diskriminante (S2): Für welche Zahl c hat x² − 14x + c = 0 genau eine Lösung?
+- diskriminante (S2): Für welche Zahl c hat x² + 4x + c = 0 genau eine Lösung?
+- sachaufgabe (S1): Ein quadratischer Garten hat 900 m² Fläche. Wie viele Meter Zaun braucht man ringsum?
+- sachaufgabe (S1): Ein quadratischer Garten hat 169 m² Fläche. Wie viele Meter Zaun braucht man ringsum?
+- sachaufgabe (S1): Ein quadratischer Garten hat 225 m² Fläche. Wie viele Meter Zaun braucht man ringsum?
+- sachaufgabe (S1): Ein quadratischer Garten hat 441 m² Fläche. Wie viele Meter Zaun braucht man ringsum?
+- sachaufgabe (S2): Ein Rechteck ist 3 cm länger als breit und hat einen Flächeninhalt von 208 cm². Wie breit ist es?
+- sachaufgabe (S2): Ein Rechteck ist 5 cm länger als breit und hat einen Flächeninhalt von 300 cm². Wie breit ist es?
+- sachaufgabe (S2): Ein Rechteck ist 4 cm länger als breit und hat einen Flächeninhalt von 60 cm². Wie breit ist es?
+- sachaufgabe (S2): Ein Rechteck ist 2 cm länger als breit und hat einen Flächeninhalt von 80 cm². Wie breit ist es?
+- sachaufgabe (S3): Ein Bild ist 30 cm × 40 cm groß. Es bekommt einen gleich breiten Rahmen; Bild und Rahmen haben zusammen 2 184 cm². Wie breit ist der Rahmen?
+- sachaufgabe (S3): Der Anhalteweg eines Autos ist Reaktionsweg plus Bremsweg: 0,3 · v + 0,01 · v² (v in km/h, Weg in m). Bei welcher Geschwindigkeit ist der Anhalteweg 40 m lang?
+- sachaufgabe (S3): Ein Ball wird geworfen. Seine Höhe ist h(t) = 2 + 15t − 5t² (t in s, h in m). Nach wie vielen Sekunden landet er auf dem Boden? Runde auf eine Nachkommastelle.
+
+## gleichungen.lgs3
+
+- pruefen (S1): Setze (x | y | z) = (2 | 3 | −2) in die linke Seite von −2x + 2y + z = 0 ein. Welcher Wert ergibt sich?
+- parabel (S1): Die Parabel y = ax² + bx + c geht durch (0 | −2), (1 | −5), (−1 | −1). Bestimme a, b und c.
+- parabel (S1): Die Parabel y = ax² + bx + c geht durch (0 | 2), (1 | −4), (−1 | 4). Bestimme a, b und c.
+- parabel (S1): Die Parabel y = ax² + bx + c geht durch (0 | −6), (1 | −7), (−1 | −1). Bestimme a, b und c.
+- parabel (S1): Die Parabel y = ax² + bx + c geht durch (0 | 6), (1 | 9), (−1 | 7). Bestimme a, b und c.
+- parabel (S2): Die Parabel y = ax² + bx + c geht durch (0 | 6), (2 | 4), (−2 | −16). Bestimme a, b und c.
+- parabel (S2): Die Parabel y = ax² + bx + c geht durch (−1 | −6), (0 | 0), (1 | 2). Bestimme a, b und c.
+- parabel (S2): Die Parabel y = ax² + bx + c geht durch (0 | −2), (−1 | −1), (2 | −16). Bestimme a, b und c.
+- parabel (S2): Die Parabel y = ax² + bx + c geht durch (0 | −5), (1 | −7), (3 | 1). Bestimme a, b und c.
+- parabel (S2): Die Parabel y = ax² + bx + c geht durch (−2 | −7), (1 | −1), (3 | −27). Bestimme a, b und c.
+- parabel (S3): Die Parabel y = ax² + bx + c geht durch (−3 | −30), (−1 | −6), (3 | −30). Bestimme a, b und c.
+- parabel (S2): Die Parabel y = ax² + bx + c geht durch (−1 | −8), (1 | −2), (2 | 4). Bestimme a, b und c.
+- parabel (S3): Die Parabel y = ax² + bx + c geht durch (−3 | −12), (2 | −7), (3 | −18). Bestimme a, b und c.
+- sachaufgabe (S1): Drei Zahlen haben die Summe 61. Die zweite ist 4-mal so groß wie die erste, die dritte ist um 1 größer als die erste. Bestimme die Zahlen.
+- sachaufgabe (S1): Drei Zahlen haben die Summe 21. Die zweite ist 4-mal so groß wie die erste, die dritte ist um 3 größer als die erste. Bestimme die Zahlen.
+- sachaufgabe (S1): Drei Zahlen haben die Summe 25. Die zweite ist 4-mal so groß wie die erste, die dritte ist um 7 größer als die erste. Bestimme die Zahlen.
+- sachaufgabe (S1): Drei Zahlen haben die Summe 66. Die zweite ist 4-mal so groß wie die erste, die dritte ist um 6 größer als die erste. Bestimme die Zahlen.
+- sachaufgabe (S2): Ein Sportverein hat 197 Mitglieder in den Abteilungen Fußball, Tennis und Schwimmen (jedes Mitglied in genau einer). Fußball hat 3-mal so viele Mitglieder wie Tennis, Schwimmen 17 mehr als Tennis. Wie viele sind es je Abteilung?
+- sachaufgabe (S2): Ein Sportverein hat 178 Mitglieder in den Abteilungen Fußball, Tennis und Schwimmen (jedes Mitglied in genau einer). Fußball hat 3-mal so viele Mitglieder wie Tennis, Schwimmen 8 mehr als Tennis. Wie viele sind es je Abteilung?
+- sachaufgabe (S2): Ein Sportverein hat 76 Mitglieder in den Abteilungen Fußball, Tennis und Schwimmen (jedes Mitglied in genau einer). Fußball hat 2-mal so viele Mitglieder wie Tennis, Schwimmen 8 mehr als Tennis. Wie viele sind es je Abteilung?
+- sachaufgabe (S2): Ein Sportverein hat 75 Mitglieder in den Abteilungen Fußball, Tennis und Schwimmen (jedes Mitglied in genau einer). Fußball hat 3-mal so viele Mitglieder wie Tennis, Schwimmen 20 mehr als Tennis. Wie viele sind es je Abteilung?
+
+## stochastik.verknuepft
+
+- additionssatz (S1): Es gilt P(A) = 0,4, P(B) = 0,3 und P(A ∩ B) = 0,1. Berechne P(A ∪ B).
+- additionssatz (S1): Es gilt P(A) = 0,5, P(B) = 0,2 und P(A ∩ B) = 0,1. Berechne P(A ∪ B).
+- additionssatz (S1): Es gilt P(A) = 0,7, P(B) = 0,3 und P(A ∩ B) = 0,2. Berechne P(A ∪ B).
+- additionssatz (S1): Es gilt P(A) = 0,6, P(B) = 0,3 und P(A ∩ B) = 0,2. Berechne P(A ∪ B).
+- additionssatz (S2): Es gilt P(A) = 0,3, P(B) = 0,5 und P(A ∪ B) = 0,76. Berechne P(A ∩ B).
+- additionssatz (S2): Es gilt P(A) = 0,3, P(B) = 0,4 und P(A ∪ B) = 0,64. Berechne P(A ∩ B).
+- additionssatz (S2): Es gilt P(A) = 0,4, P(B) = 0,35 und P(A ∩ B) = 0,15. Berechne P(A ∪ B).
+- vierfeld (S2): Untersucht werden 100 Besucher eines Freibads. A: „ist Erwachsener“, B: „hat eine Jahreskarte“. 70 haben A, 46 haben B, 42 haben beides. Wie viele haben weder A noch B?
+- bedingt (S1): Berechne P_B(A), also die Wahrscheinlichkeit für A unter der Bedingung B, als Dezimalzahl.
+- bedingt (S1): Berechne P_B(A), also die Wahrscheinlichkeit für A unter der Bedingung B, als Dezimalzahl.
+- bedingt (S1): Berechne P_B(A), also die Wahrscheinlichkeit für A unter der Bedingung B, als Dezimalzahl.
+- bedingt (S1): Berechne P_B(A), also die Wahrscheinlichkeit für A unter der Bedingung B, als Dezimalzahl.
+- bedingt (S2): Die Tafel zeigt 200 Besucher eines Freibads. A: „ist Erwachsener“, B: „hat eine Jahreskarte“. Ein Besucher mit Merkmal A wird zufällig ausgewählt. Mit welcher Wahrscheinlichkeit gilt dann auch B? Gib P_A(B) als Dezimalzahl an.
+- bedingt (S3): Berechne mit dem Baumdiagramm P_B(A) als gekürzten Bruch.
+- bedingt (S3): Berechne mit dem Baumdiagramm P_B(A) als gekürzten Bruch.
+- verstehen (S1): Bei 6 Münzwürfen ist A: „mindestens einmal Kopf“. Was ist das Gegenereignis Ā?
+- verstehen (S3): P(A) = 0,6, P(B) = 0,5, P(A ∩ B) = 0,2. Jemand rechnet P(A ∪ B) = 1,1. Was stimmt?
+
+## abbildungen.aehnlichkeit
+
+- streckung (S1): Eine Strecke der Länge 2 cm wird zentrisch mit k = 3 gestreckt. Wie lang ist die Bildstrecke?
+- streckung (S1): Eine Strecke der Länge 11 cm wird zentrisch mit k = 1,5 gestreckt. Wie lang ist die Bildstrecke?
+- streckung (S1): Eine Strecke der Länge 15 cm wird zentrisch mit k = 0,5 gestreckt. Wie lang ist die Bildstrecke?
+- streckung (S1): Eine Strecke der Länge 17 cm wird zentrisch mit k = 1,5 gestreckt. Wie lang ist die Bildstrecke?
+- streckung (S2): Bei einer zentrischen Streckung mit Zentrum Z ist ZP = 2 cm und ZP' = 4 cm (P' auf dem Strahl ZP). Bestimme k.
+- streckung (S2): Strecke den Punkt P(−8 | −6) zentrisch mit dem Zentrum Z(−2 | −4) und k = −3. Gib den Bildpunkt P' an.
+- streckung (S2): Strecke den Punkt P(−4 | 0) zentrisch mit dem Zentrum Z(2 | 2) und k = −0,5. Gib den Bildpunkt P' an.
+- streckung (S2): Strecke den Punkt P(−6 | −2) zentrisch mit dem Zentrum Z(−4 | 0) und k = 1,5. Gib den Bildpunkt P' an.
+- streckung (S2): Strecke den Punkt P(−2 | 2) zentrisch mit dem Zentrum Z(4 | 2) und k = −0,5. Gib den Bildpunkt P' an.
+- streckung (S2): Strecke den Punkt P(−3 | 0) zentrisch mit dem Zentrum Z(1 | −4) und k = 1,5. Gib den Bildpunkt P' an.
+- aehnlich (S1): Zwei Dreiecke sind ähnlich mit k = 1,5. Eine Seite des kleinen Dreiecks ist 6 cm lang. Wie lang ist die entsprechende Seite des großen?
+- aehnlich (S1): Zwei Dreiecke sind ähnlich mit k = 4. Eine Seite des kleinen Dreiecks ist 4 cm lang. Wie lang ist die entsprechende Seite des großen?
+- aehnlich (S1): Zwei Dreiecke sind ähnlich mit k = 2,5. Eine Seite des kleinen Dreiecks ist 5 cm lang. Wie lang ist die entsprechende Seite des großen?
+- aehnlich (S1): Zwei Dreiecke sind ähnlich mit k = 1,5. Eine Seite des kleinen Dreiecks ist 8 cm lang. Wie lang ist die entsprechende Seite des großen?
+- aehnlich (S2): Dreieck 1 hat die Winkel 75° und 78°. Dreieck 2 hat die Winkel 78° und 37°. Sind die Dreiecke ähnlich?
+- aehnlich (S2): Dreieck 1 hat die Winkel 77° und 52°. Dreieck 2 hat die Winkel 52° und 61°. Sind die Dreiecke ähnlich?
+- aehnlich (S3): Papierformate wie DIN A4 sind so gebaut, dass Länge : Breite = √2 gilt; deshalb ist ein halbiertes Blatt ähnlich zum ganzen. Ein Blatt ist 21 cm breit. Wie lang ist es? Runde auf eine Nachkommastelle.
+- aehnlich (S3): Zwei Dreiecke sind ähnlich. Das kleine hat 18 cm Umfang, das große 45 cm. Die kürzeste Seite des großen ist 10 cm lang. Wie lang ist die kürzeste Seite des kleinen?
+- strahlensatz1 (S1): Es gilt AB ∥ A'B'. SA = 4 cm, SA' = 7 cm, SB = 6 cm. Berechne SB'.
+- strahlensatz1 (S1): Es gilt AB ∥ A'B'. SA = 4 cm, SA' = 10 cm, SB = 3 cm. Berechne SB'.
+- strahlensatz1 (S1): Es gilt AB ∥ A'B'. SA = 3 cm, SA' = 9 cm, SB = 5 cm. Berechne SB'.
+- strahlensatz1 (S1): Es gilt AB ∥ A'B'. SA = 7 cm, SA' = 21 cm, SB = 4 cm. Berechne SB'.
+- strahlensatz1 (S2): Es gilt AB ∥ A'B'. SA = 3 cm, AA' = 6 cm, SB = 6 cm. Berechne SB'.
+- strahlensatz1 (S2): Es gilt AB ∥ A'B'. SA = 4 cm, AA' = 6 cm, SB = 8 cm. Berechne SB'.
+- strahlensatz1 (S2): Es gilt AB ∥ A'B'. SA = 2 cm, AA' = 3 cm, SB = 8 cm. Berechne SB'.
+- strahlensatz1 (S2): Es gilt AB ∥ A'B'. SA = 3 cm, SA' = 9 cm, SB = 4 cm. Berechne SB'.
+- strahlensatz2 (S1): Es gilt AB ∥ A'B'. SA = 7 cm, SA' = 14 cm, AB = 7 cm. Berechne A'B'.
+- strahlensatz2 (S1): Es gilt AB ∥ A'B'. SA = 3 cm, SA' = 4,5 cm, AB = 8 cm. Berechne A'B'.
+- strahlensatz2 (S1): Es gilt AB ∥ A'B'. SA = 6 cm, SA' = 15 cm, AB = 6 cm. Berechne A'B'.
+- strahlensatz2 (S1): Es gilt AB ∥ A'B'. SA = 7 cm, SA' = 14 cm, AB = 9 cm. Berechne A'B'.
+- strahlensatz2 (S2): Es gilt AB ∥ A'B'. AB = 4 cm, A'B' = 8 cm, SA' = 16 cm. Berechne SA.
+- strahlensatz2 (S2): Es gilt AB ∥ A'B'. AB = 10 cm, A'B' = 30 cm, SA' = 21 cm. Berechne SA.
+- strahlensatz2 (S2): Es gilt AB ∥ A'B'. AB = 10 cm, A'B' = 16 cm, SA' = 14,4 cm. Berechne SA.
+- strahlensatz2 (S2): Es gilt AB ∥ A'B'. SA = 2 cm, AA' = 1 cm, AB = 2 cm. Jemand rechnet A'B' = 2 · 1 : 2 = 1 cm. Was stimmt?
+- strahlensatz2 (S3): Es gilt AB ∥ A'B'. SA = 5 cm, AB = 4 cm, A'B' = 7 cm. Berechne AA'.
+- strahlensatz2 (S2): Es gilt AB ∥ A'B'. SA = 4 cm, SA' = 10 cm, AB = 3 cm. Berechne A'B'.
+- flaeche_volumen (S1): Alle Längen einer Figur werden mit 3 multipliziert. Die Figur hatte 24 cm² Flächeninhalt. Wie groß ist er jetzt?
+- flaeche_volumen (S1): Alle Längen einer Figur werden mit 4 multipliziert. Die Figur hatte 11 cm² Flächeninhalt. Wie groß ist er jetzt?
+- flaeche_volumen (S1): Alle Längen einer Figur werden mit 3 multipliziert. Die Figur hatte 12 cm² Flächeninhalt. Wie groß ist er jetzt?
+- flaeche_volumen (S1): Alle Längen einer Figur werden mit 2 multipliziert. Die Figur hatte 26 cm² Flächeninhalt. Wie groß ist er jetzt?
+- flaeche_volumen (S2): Ein Körper hat 16 cm³ Volumen. Alle Kanten werden mit k = 0,5 multipliziert. Wie groß ist das neue Volumen?
+- flaeche_volumen (S2): Ein Körper hat 16 cm³ Volumen. Alle Kanten werden mit k = 1,5 multipliziert. Wie groß ist das neue Volumen?
+- flaeche_volumen (S2): Ein Körper hat 8 cm³ Volumen. Alle Kanten werden mit k = 1,5 multipliziert. Wie groß ist das neue Volumen?
+- flaeche_volumen (S2): Ein Modell im Maßstab 1 : 100 hat eine Grundfläche von 3 cm². Wie groß ist die Grundfläche des Originals in m²?
+- flaeche_volumen (S3): Ein Modell im Maßstab 1 : 100 hat eine Grundfläche von 2 cm². Wie groß ist die Grundfläche des Originals in m²?
+- flaeche_volumen (S2): Ein Modell im Maßstab 1 : 50 hat eine Grundfläche von 4 cm². Wie groß ist die Grundfläche des Originals in m²?
+- anwendung (S1): Ein 2 m langer Stab wirft einen 3 m langen Schatten. Zur gleichen Zeit wirft ein Baum einen 36 m langen Schatten. Wie hoch ist er?
+- anwendung (S2): Daumensprung: Dein Arm ist 65 cm lang, deine Augen sind 6,5 cm voneinander entfernt. Schließt du abwechselnd ein Auge, springt dein Daumen vor einem Haus um 60 m hin und her. Wie weit ist das Haus entfernt?
+- anwendung (S1): Ein 1 m langer Stab wirft einen 2 m langen Schatten. Zur gleichen Zeit wirft ein Baum einen 38 m langen Schatten. Wie hoch ist er?
+- anwendung (S1): Ein 1 m langer Stab wirft einen 2 m langen Schatten. Zur gleichen Zeit wirft ein Mast einen 28 m langen Schatten. Wie hoch ist er?
+- anwendung (S3): Mit ausgestrecktem Arm (0,65 m vom Auge) verdeckt ein 2,5 cm breiter Daumen genau ein 15 m hohes Gebäude. Wie weit ist das Gebäude entfernt?
+- anwendung (S3): Ein 10 cm langes Lineal wird senkrecht 60 cm vor das Auge gehalten und verdeckt genau einen Turm, der 90 m entfernt ist. Wie hoch ist der Turm? (Die Augenhöhe wird vernachlässigt.)
+
+## funktionen.potenz
+
+- werte (S3): Berechne f(−2) für f(x) = −3x³.
+- werte (S2): Berechne f(−2) für f(x) = −2x³.
+- werte (S2): Berechne f(10) für f(x) = 0,003x⁴.
+- symmetrie (S2): Welche Symmetrie hat der gezeigte Graph?
+- symmetrie (S3): Welche Symmetrie hat der Graph von y = x⁴ − 3x² + 1?
+- parameter (S1): y = a · x² geht durch P(1 | −1). Bestimme a.
+- parameter (S1): y = a · x² geht durch P(2 | 8). Bestimme a.
+- parameter (S2): y = a · x³ geht durch P(3 | 27). Bestimme a.
+- parameter (S2): y = a · x³ geht durch P(4 | 64). Bestimme a.
+- parameter (S3): Der Graph von y = a · xⁿ geht durch P(−2 | 24) und Q(1 | −3). Bestimme n.
+- parameter (S2): Der Graph von y = a · xⁿ geht durch P(−2 | 16) und Q(3 | 36). Bestimme n.
+- negativ (S1): Berechne f(5) für f(x) = x⁻². Gib das Ergebnis als Dezimalzahl an.
+- wurzelfunktion (S1): f(x) = x³ für x ≥ 0. Für welches x ist f(x) = 27?
+- wurzelfunktion (S1): f(x) = x² für x ≥ 0. Für welches x ist f(x) = 100?
+
+## gleichungen.potenz
+
+- gerade (S1): Bestimme alle Lösungen von 121 = x².
+- gerade (S3): Jemand löst x⁴ = −81 mit x = ±3. Was stimmt?
+- ungerade (S1): Löse x³ = 8.
+- ungerade (S1): Löse x³ = 125.
+- ungerade (S1): Löse x³ = 1.
+- ungerade (S1): Löse x³ = 1 000.
+- ungerade (S2): Löse x³ = −512.
+- ungerade (S2): Löse x⁵ = −0,03125.
+- ungerade (S3): Löse x⁵ = −7,59375.
+- ungerade (S2): Löse x³ = −3,375.
+- ungerade (S2): Löse x⁵ = −0,00243.
+- ungerade (S2): Löse x³ = −1 000.
+- anzahl (S3): Jemand sagt: „x⁵ = 243 hat die Lösungen 3 und −3.“ Was stimmt?
+- umformen (S1): Löse 2x² = 72.
+- umformen (S1): Löse 4x³ = 256.
+- umformen (S2): Löse 2x⁴ + 1 = 163.
+- umformen (S3): Löse (x − 3)⁴ = 256.
+- umformen (S3): Löse (x + 1)² = 49.
+- umformen (S3): Löse x⁵ − 16x = 0.
+- naeherung (S1): Löse x³ = 179. Runde auf zwei Nachkommastellen.
+- naeherung (S1): Löse x³ = 226. Runde auf zwei Nachkommastellen.
+- naeherung (S1): Löse x³ = 214. Runde auf zwei Nachkommastellen.
+- naeherung (S1): Löse x³ = 153. Runde auf zwei Nachkommastellen.
+- naeherung (S2): Löse 4x⁶ = 820. Gib die negative Lösung auf zwei Nachkommastellen an.
+- naeherung (S2): Löse x⁴ = 50. Gib die positive Lösung auf zwei Nachkommastellen an.
+- sachaufgabe (S1): Ein würfelförmiger Karton hat 343 dm³ Volumen. Wie lang ist eine Kante?
+- sachaufgabe (S2): Ein Guthaben wächst in 2 Jahren bei gleichem Zinssatz (mit Zinseszins) von 20 000 € auf 20 808 €. Wie hoch ist der Zinssatz in Prozent?
+- sachaufgabe (S2): Eine quadratische Terrasse ist mit 361 quadratischen Platten mit 40 cm Seitenlänge belegt. Wie lang ist eine Seite der Terrasse in m?
+- sachaufgabe (S3): Eine Kiste hat eine quadratische Grundfläche. Sie ist 2-mal so hoch wie breit und hat 128 cm³ Volumen. Wie breit ist sie?
+- sachaufgabe (S2): Ein Quader (2 cm × 2 cm × 16 cm) wird eingeschmolzen und zu einem Würfel mit gleichem Volumen gegossen. Wie lang ist eine Würfelkante?
+
+## zahlen.rationale_exponenten
+
+- nte_wurzel (S1): Berechne ³√125.
+- nte_wurzel (S1): Berechne ³√64.
+- potenz_wert (S1): Berechne 64^(1/3).
+- potenz_wert (S1): Berechne 81^(1/2).
+- potenz_wert (S1): Berechne 9^(1/2).
+- potenz_wert (S1): Berechne 16^(1/4).
+- potenz_wert (S3): Berechne 32^(−3/5). Gib das Ergebnis als Dezimalzahl an.
+- potenz_wert (S3): Berechne 81^(−5/2).
+- potenz_wert (S3): Berechne 0,001^(−2/3).
+- potenz_wert (S2): Berechne 125^(2/3).
+- potenz_wert (S2): Berechne 9^(−1/2).
+- umwandeln (S2): Welcher Term ist gleich x^(7/4) für x ≥ 0?
+- umwandeln (S2): Welcher Term ist gleich x^(3/5) für x ≥ 0?
+- zusammenfassen (S1): Fasse zu einer Potenz zusammen (x > 0): x^(1/4) · x^(1/6).
+- zusammenfassen (S1): Fasse zu einer Potenz zusammen (x > 0): x^(3/2) · x^(5/6).
+- zusammenfassen (S1): Fasse zu einer Potenz zusammen (x > 0): x^(5/3) · x^(1/2).
+- zusammenfassen (S1): Fasse zu einer Potenz zusammen (x > 0): x^(4/5) · x^(3/4).
+- zusammenfassen (S3): Berechne 81^(1/2) : 81^(1/4).
+- zusammenfassen (S3): Berechne 27^(1/2) · 3^(1/2).
+- gleichung_exp (S1): Löse x² = 100 für x > 0.
+- gleichung_exp (S1): Löse x^(1/4) = 2 für x > 0.
+- gleichung_exp (S1): Löse x^(1/4) = 3 für x > 0.
+- gleichung_exp (S2): Löse x^(4/3) = 256 für x > 0.
+- gleichung_exp (S2): Löse x^(5/3) = 243 für x > 0.
+- gleichung_exp (S3): Löse 2 · x^(4/3) = 32 für x > 0.
+- gleichung_exp (S1): Löse x^(1/2) = 6 für x > 0.
+- gleichung_exp (S2): Löse x^(2/5) = 4 für x > 0.
+- gleichung_exp (S2): Löse 2 · x^(1/2) = 14 für x > 0.
+- verstehen (S1): Jemand rechnet 100^(1/2) = 50. Was stimmt?
+- verstehen (S1): Was ist 36^(−1/2)?
+- verstehen (S1): Welche Aussage gilt für x ≥ 0?
+- verstehen (S1): Welche Aussage gilt für x ≥ 0?
+- verstehen (S1): Welche Aussage gilt für x ≥ 0?
+- verstehen (S2): Jemand rechnet 32^(2/5) = 32 · 2 : 5. Was ist richtig?
+- verstehen (S3): Jemand rechnet 27^(2/3) = 27 · 2 : 3. Was ist richtig?
+- verstehen (S3): Jemand rechnet 49^(3/2) = 49 · 3 : 2. Was ist richtig?
+- verstehen (S1): Welche Aussage gilt für x ≥ 0?
+
+## trigo.pythagoras
+
+- hypotenuse (S1): Ein rechtwinkliges Dreieck hat die Katheten a = 5 cm und b = 12 cm. Berechne die Hypotenuse c.
+- hypotenuse (S1): Ein rechtwinkliges Dreieck hat die Katheten a = 16 cm und b = 12 cm. Berechne die Hypotenuse c.
+- hypotenuse (S1): Ein rechtwinkliges Dreieck hat die Katheten a = 8 cm und b = 6 cm. Berechne die Hypotenuse c.
+- hypotenuse (S1): Ein rechtwinkliges Dreieck hat die Katheten a = 15 cm und b = 20 cm. Berechne die Hypotenuse c.
+- hypotenuse (S1): Ein rechtwinkliges Dreieck hat die Katheten a = 24 cm und b = 7 cm. Berechne die Hypotenuse c.
+- hypotenuse (S1): Ein rechtwinkliges Dreieck hat die Katheten a = 27 cm und b = 36 cm. Berechne die Hypotenuse c.
+- hypotenuse (S2): Ein rechtwinkliges Dreieck hat die Katheten 15 cm und 6 cm. Berechne die Hypotenuse auf eine Nachkommastelle.
+- hypotenuse (S2): Ein rechtwinkliges Dreieck hat die Katheten 10 cm und 2 cm. Berechne die Hypotenuse auf eine Nachkommastelle.
+- hypotenuse (S2): Ein rechtwinkliges Dreieck hat die Katheten 11 cm und 5 cm. Berechne die Hypotenuse auf eine Nachkommastelle.
+- hypotenuse (S2): Ein rechtwinkliges Dreieck hat die Katheten 13 cm und 14 cm. Berechne die Hypotenuse auf eine Nachkommastelle.
+- hypotenuse (S2): Ein rechtwinkliges Dreieck hat die Katheten 13 cm und 13 cm. Berechne die Hypotenuse auf eine Nachkommastelle.
+- kathete (S1): Ein rechtwinkliges Dreieck hat die Hypotenuse c = 13 cm und die Kathete b = 12 cm. Berechne die Kathete a.
+- kathete (S1): Ein rechtwinkliges Dreieck hat die Hypotenuse c = 25 cm und die Kathete b = 15 cm. Berechne die Kathete a.
+- kathete (S1): Ein rechtwinkliges Dreieck hat die Hypotenuse c = 17 cm und die Kathete b = 15 cm. Berechne die Kathete a.
+- kathete (S1): Ein rechtwinkliges Dreieck hat die Hypotenuse c = 5 cm und die Kathete b = 3 cm. Berechne die Kathete a.
+- kathete (S1): Ein rechtwinkliges Dreieck hat die Hypotenuse c = 51 cm und die Kathete b = 45 cm. Berechne die Kathete a.
+- kathete (S1): Ein rechtwinkliges Dreieck hat die Hypotenuse c = 40 cm und die Kathete b = 32 cm. Berechne die Kathete a.
+- kathete (S2): Ein rechtwinkliges Dreieck hat die Hypotenuse c = 26 cm und die Kathete b = 24 cm. Berechne die Kathete a.
+- kathete (S1): Ein rechtwinkliges Dreieck hat die Hypotenuse c = 52 cm und die Kathete b = 20 cm. Berechne die Kathete a.
+- kathete (S2): Ein rechtwinkliges Dreieck hat die Hypotenuse c = 53 cm und die Kathete b = 45 cm. Berechne die Kathete a.
+- kathete (S2): Ein rechtwinkliges Dreieck hat die Hypotenuse c = 58 cm und die Kathete b = 40 cm. Berechne die Kathete a.
+- kathete (S2): Ein rechtwinkliges Dreieck hat die Hypotenuse c = 9 cm und die Kathete b = 5,4 cm. Berechne die Kathete a.
+- kathete (S1): Ein rechtwinkliges Dreieck hat die Hypotenuse c = 70 cm und die Kathete b = 42 cm. Berechne die Kathete a.
+- kathete (S3): Hypotenuse 25 cm, Kathete 20 cm. Jemand rechnet a² = 25² + 20² = 1025, a ≈ 32 cm. Was ist falsch?
+- umkehrung (S1): Ein Dreieck hat die Seiten 12 cm, 9 cm und 16 cm. Ist es rechtwinklig?
+- umkehrung (S1): Ein Dreieck hat die Seiten 10 cm, 6 cm und 8 cm. Ist es rechtwinklig?
+- umkehrung (S1): Ein Dreieck hat die Seiten 24 cm, 7 cm und 25 cm. Ist es rechtwinklig?
+- umkehrung (S1): Ein Dreieck hat die Seiten 8 cm, 6 cm und 9 cm. Ist es rechtwinklig?
+- umkehrung (S2): Ein Dreieck hat die Seiten 4 cm, 3 cm und 6 cm. Ist es rechtwinklig?
+- umkehrung (S2): Ein Dreieck hat die Seiten 80 cm, 81 cm und 18 cm. Ist es rechtwinklig?
+- umkehrung (S2): Ein Dreieck hat die Seiten 39 cm, 52 cm und 65 cm. Ist es rechtwinklig?
+- umkehrung (S2): Ein Dreieck hat die Seiten 8 cm, 6 cm und 11 cm. Ist es rechtwinklig?
+- umkehrung (S2): Ein Dreieck hat die Seiten 8 cm, 7 cm und 10 cm. Ist es rechtwinklig?
+- umkehrung (S2): Ein Dreieck hat die Seiten 42 cm, 56 cm und 71 cm. Ist es rechtwinklig?
+- umkehrung (S3): Im Dreieck ABC ist a = 13 cm, b = 84 cm, c = 85 cm. Welcher Winkel ist ein rechter Winkel?
+- umkehrung (S3): Ein Dreieck hat die Seiten 12 cm, 16 cm und 20 cm. Welcher Winkel liegt der 20-cm-Seite gegenüber?
+- koordinaten (S1): Berechne den Abstand der Punkte P(−6 | 3) und Q(6 | 8) (Einheit 1 cm).
+- koordinaten (S1): Berechne den Abstand der Punkte P(6 | 0) und Q(10 | 3) (Einheit 1 cm).
+- koordinaten (S2): Berechne den Abstand der Punkte P(1 | 3) und Q(−13 | 51) (Einheit 1 cm).
+- koordinaten (S2): Berechne den Abstand der Punkte P(−3 | −4) und Q(12 | 32) (Einheit 1 cm).
+- koordinaten (S2): Berechne den Abstand der Punkte P(2 | −5) und Q(26 | 2) (Einheit 1 cm).
+- koordinaten (S2): Berechne den Abstand der Punkte P(−1 | 5) und Q(26 | −31) (Einheit 1 cm).
+- koordinaten (S2): Berechne den Abstand der Punkte P(−1 | −1) und Q(23 | −11) (Einheit 1 cm).
+- koordinaten (S2): Berechne den Abstand der Punkte P(4 | −4) und Q(19 | −12) (Einheit 1 cm).
+- koordinaten (S2): Berechne den Abstand von P(6 | 0) und Q(9 | −6) auf zwei Nachkommastellen (Einheit 1 cm).
+- raum (S1): Ein Quader hat die Grundfläche 10 cm × 24 cm. Wie lang ist die Diagonale der Grundfläche?
+- raum (S1): Ein Quader hat die Grundfläche 9 cm × 12 cm. Wie lang ist die Diagonale der Grundfläche?
+- raum (S1): Ein Quader hat die Grundfläche 15 cm × 20 cm. Wie lang ist die Diagonale der Grundfläche?
+- raum (S1): Ein Quader hat die Grundfläche 8 cm × 15 cm. Wie lang ist die Diagonale der Grundfläche?
+- raum (S2): Ein Quader hat die Kanten 4 cm, 6 cm und 12 cm. Wie lang ist die Raumdiagonale?
+- raum (S2): Ein Quader hat die Kanten 2 cm, 5 cm und 14 cm. Wie lang ist die Raumdiagonale?
+- raum (S2): Ein Quader hat die Kanten 3 cm, 12 cm und 24 cm. Wie lang ist die Raumdiagonale?
+- raum (S2): Ein Quader hat die Kanten 8 cm, 12 cm und 24 cm. Wie lang ist die Raumdiagonale?
+- anwendung (S1): Eine 7 m lange Leiter lehnt an einer senkrechten Wand. Ihr Fuß steht 1,8 m von der Wand entfernt. In welcher Höhe berührt sie die Wand? Runde auf zwei Nachkommastellen.
+- anwendung (S1): Eine 8 m lange Leiter lehnt an einer senkrechten Wand. Ihr Fuß steht 0,7 m von der Wand entfernt. In welcher Höhe berührt sie die Wand? Runde auf zwei Nachkommastellen.
+- anwendung (S1): Eine 7 m lange Leiter lehnt an einer senkrechten Wand. Ihr Fuß steht 1,5 m von der Wand entfernt. In welcher Höhe berührt sie die Wand? Runde auf zwei Nachkommastellen.
+- anwendung (S2): Ein gleichschenkliges Dreieck hat die Basis 6 cm und Schenkel von 5 cm. Wie hoch ist es (Höhe auf die Basis)?
+
+## trigo.rechtwinklig
+
+- verhaeltnisse (S2): Im Dreieck ABC ist γ = 90°, a = 24 cm, b = 32 cm, c = 40 cm. Berechne sin β als Dezimalzahl.
+- seite (S1): Im Dreieck ABC ist γ = 90°, α = 43° und c = 15 cm. Berechne a (auf eine Nachkommastelle).
+- seite (S1): Im Dreieck ABC ist γ = 90°, α = 72° und c = 17 cm. Berechne a (auf eine Nachkommastelle).
+- seite (S2): Im Dreieck ABC ist γ = 90°, α = 73° und c = 22 cm. Berechne b (auf eine Nachkommastelle).
+- seite (S2): Im Dreieck ABC ist γ = 90°, α = 23° und b = 13 cm. Berechne a (auf eine Nachkommastelle).
+- seite (S2): Im Dreieck ABC ist γ = 90°, β = 57° und a = 6 cm. Berechne c (auf eine Nachkommastelle).
+- seite (S1): Im Dreieck ABC ist γ = 90°, α = 40° und c = 12 cm. Berechne a (auf eine Nachkommastelle).
+- seite (S2): Im Dreieck ABC ist γ = 90°, α = 25° und b = 20 cm. Berechne a (auf eine Nachkommastelle).
+- winkel (S1): Im Dreieck ABC ist γ = 90°, a = 15 cm und b = 8 cm. Berechne α (in Grad, auf eine Nachkommastelle).
+- winkel (S1): Im Dreieck ABC ist γ = 90°, a = 5 cm und b = 12 cm. Berechne α (in Grad, auf eine Nachkommastelle).
+- winkel (S1): Im Dreieck ABC ist γ = 90°, a = 8 cm und b = 7 cm. Berechne α (in Grad, auf eine Nachkommastelle).
+- winkel (S1): Im Dreieck ABC ist γ = 90°, a = 11 cm und b = 14 cm. Berechne α (in Grad, auf eine Nachkommastelle).
+- winkel (S2): Im Dreieck ABC ist γ = 90°, a = 8 cm und c = 17 cm. Berechne α (in Grad, auf eine Nachkommastelle).
+- winkel (S2): Im Dreieck ABC ist γ = 90°, a = 8 cm und c = 23 cm. Berechne α (in Grad, auf eine Nachkommastelle).
+- winkel (S2): Im Dreieck ABC ist γ = 90°, a = 6 cm und c = 22 cm. Berechne β (in Grad, auf eine Nachkommastelle).
+- winkel (S2): Im Dreieck ABC ist γ = 90°, a = 5 cm und c = 13 cm. Berechne β (in Grad, auf eine Nachkommastelle).
+- winkel (S2): Im Dreieck ABC ist γ = 90°, a = 2 cm und c = 22 cm. Berechne β (in Grad, auf eine Nachkommastelle).
+- winkel (S2): Im Dreieck ABC ist γ = 90°, a = 14 cm und c = 20 cm. Berechne β (in Grad, auf eine Nachkommastelle).
+- beziehungen (S2): Welcher Ausdruck ist gleich sin 81°?
+- beziehungen (S2): Welcher Ausdruck ist gleich sin 61°?
+- beziehungen (S2): Welcher Ausdruck ist gleich sin 13°?
+- beziehungen (S3): Jemand behauptet: „Für einen spitzen Winkel gilt sin α = 0,6 und cos α = 0,4, weil sin α + cos α = 1.“ Was stimmt?
+- beziehungen (S3): Jemand behauptet: „Für einen spitzen Winkel gilt sin α = 0,8 und cos α = 0,2, weil sin α + cos α = 1.“ Was stimmt?
+- anwendung (S1): Eine Straße hat 20 % Steigung. Wie groß ist der Steigungswinkel (in Grad, auf eine Nachkommastelle)?
+- anwendung (S1): Eine Straße hat 4 % Steigung. Wie groß ist der Steigungswinkel (in Grad, auf eine Nachkommastelle)?
+- anwendung (S1): Eine Straße hat 10 % Steigung. Wie groß ist der Steigungswinkel (in Grad, auf eine Nachkommastelle)?
+- anwendung (S1): Eine Straße hat 6 % Steigung. Wie groß ist der Steigungswinkel (in Grad, auf eine Nachkommastelle)?
+- anwendung (S2): Aus 115 m Entfernung sieht man die Spitze eines Turms unter dem Höhenwinkel 20° (Augenhöhe vernachlässigt). Wie hoch ist der Turm? Runde auf eine Nachkommastelle.
+- anwendung (S3): Ein Wanderweg ist 1 700 m lang und steigt gleichmäßig unter dem Winkel 13° an. Wie viele Höhenmeter überwindet er? Runde auf ganze Meter.
+- anwendung (S3): Ein Wanderweg ist 1 400 m lang und steigt gleichmäßig unter dem Winkel 13° an. Wie viele Höhenmeter überwindet er? Runde auf ganze Meter.
+
+## gleichungen.trig
+
+- sinus (S1): Eine Lösung von sin x ≈ 0,809 im Bereich 0° ≤ x < 360° ist x₁ = 54°. Bestimme die zweite Lösung.
+- sinus (S1): Eine Lösung von sin x ≈ 0,6947 im Bereich 0° ≤ x < 360° ist x₁ = 44°. Bestimme die zweite Lösung.
+- sinus (S1): Eine Lösung von sin x ≈ 0,866 im Bereich 0° ≤ x < 360° ist x₁ = 60°. Bestimme die zweite Lösung.
+- sinus (S2): Löse sin x = 1 im Bereich 0° ≤ x < 360°.
+- sinus (S2): Löse sin x = −1 im Bereich 0° ≤ x < 360°.
+- sinus (S2): Löse sin x = −0,72 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.
+- sinus (S2): Löse sin x = −0,46 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.
+- sinus (S2): Löse sin x = −0,31 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.
+- sinus (S2): Löse sin x = 0,9 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.
+- kosinus (S1): Eine Lösung von cos x ≈ 0,809 im Bereich 0° ≤ x < 360° ist x₁ = 36°. Bestimme die zweite Lösung.
+- kosinus (S1): Eine Lösung von cos x ≈ 0,0872 im Bereich 0° ≤ x < 360° ist x₁ = 85°. Bestimme die zweite Lösung.
+- kosinus (S2): cos x = 0,78 hat die Lösung x₁ ≈ 38,7°. Welche ist die zweite Lösung im Bereich 0° ≤ x < 360°?
+- kosinus (S2): cos x = −0,03 hat die Lösung x₁ ≈ 91,7°. Welche ist die zweite Lösung im Bereich 0° ≤ x < 360°?
+- kosinus (S2): Löse cos x = −0,68 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.
+- kosinus (S2): Löse cos x = −0,46 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.
+- kosinus (S2): Löse cos x = −0,2 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.
+- kosinus (S2): Löse cos x = 0,3 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.
+- tangens (S1): Eine Lösung von tan x ≈ 0,6249 im Bereich 0° ≤ x < 360° ist x₁ = 32°. Bestimme die zweite Lösung.
+- tangens (S1): Eine Lösung von tan x ≈ 1,1504 im Bereich 0° ≤ x < 360° ist x₁ = 49°. Bestimme die zweite Lösung.
+- tangens (S2): Löse tan x = −2,77 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an.
+- tangens (S2): Löse tan x = 3,58 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an.
+- tangens (S2): Löse tan x = −1,8 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an.
+- tangens (S2): Löse tan x = −1,12 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an.
+- tangens (S2): Löse tan x = −0,35 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an.
+- tangens (S2): Löse tan x = 0,5 im Bereich 0° ≤ x < 360°. Gib die kleinere Lösung auf eine Nachkommastelle an.
+- anzahl (S3): Wie viele Lösungen hat (sin x)² = 1 im Bereich 0° ≤ x < 360°?
+- anzahl (S2): Wie viele Lösungen hat sin x = −1 im Bereich 0° ≤ x < 360°?
+- umformen (S1): Löse 6 cos x = 0 im Bereich 0° ≤ x < 360°.
+- umformen (S1): Löse 4 cos x = 2 im Bereich 0° ≤ x < 360°.
+- umformen (S3): Löse sin x = cos x im Bereich 0° ≤ x < 360°.
+- anwendung (S1): Die Höhe einer Gondel eines Riesenrads ist h(x) = 15 − 12 · cos x (in m, x = Drehwinkel in Grad). Für welche Winkel im Bereich 0° ≤ x < 360° ist die Gondel 9 m hoch?
+- anwendung (S1): Die Höhe einer Gondel eines Riesenrads ist h(x) = 16 − 12 · cos x (in m, x = Drehwinkel in Grad). Für welche Winkel im Bereich 0° ≤ x < 360° ist die Gondel 10 m hoch?
+- anwendung (S1): Die Höhe einer Gondel eines Riesenrads ist h(x) = 14 − 12 · cos x (in m, x = Drehwinkel in Grad). Für welche Winkel im Bereich 0° ≤ x < 360° ist die Gondel 20 m hoch?
+- anwendung (S1): Die Höhe einer Gondel eines Riesenrads ist h(x) = 17 − 12 · cos x (in m, x = Drehwinkel in Grad). Für welche Winkel im Bereich 0° ≤ x < 360° ist die Gondel 23 m hoch?
+- anwendung (S2): In einem Dreieck ist α = 62° und sin β = 0,93. Wie viele Werte kommen für β in Frage?
+- anwendung (S2): In einem Dreieck ist α = 51° und sin β = 0,52. Wie viele Werte kommen für β in Frage?
+- anwendung (S2): In einem Dreieck ist α = 142° und sin β = 0,55. Wie viele Werte kommen für β in Frage?
+- anwendung (S2): In einem Dreieck ist α = 57° und sin β = 0,95. Wie viele Werte kommen für β in Frage?
+- anwendung (S3): Die Wassertiefe in einem Hafen ist t(x) = 4 + 2 · sin x (in m; x in Grad, 360° entsprechen einem Tag). Für welche x im Bereich 0° ≤ x < 360° ist das Wasser 3 m tief?
+- anwendung (S2): Die Wassertiefe in einem Hafen ist t(x) = 4 + 2 · sin x (in m; x in Grad, 360° entsprechen einem Tag). Für welche x im Bereich 0° ≤ x < 360° ist das Wasser 5 m tief?
+
+## trigo.allgemein
+
+- einheitskreis (S1): Gib den exakten Wert von cos 180° an.
+- einheitskreis (S1): Gib den exakten Wert von cos 0° an.
+- einheitskreis (S2): Es gilt sin 40° ≈ 0,6428. Wie groß ist sin 220° (vier Nachkommastellen)?
+- einheitskreis (S2): Es gilt sin 5° ≈ 0,0872. Wie groß ist sin 185° (vier Nachkommastellen)?
+- einheitskreis (S2): Es gilt sin 45° ≈ 0,7071. Wie groß ist sin 225° (vier Nachkommastellen)?
+- flaeche (S1): Ein Dreieck hat a = 11 cm, b = 7 cm und den eingeschlossenen Winkel γ = 150°. Berechne den Flächeninhalt.
+- flaeche (S1): Ein Dreieck hat a = 5 cm, b = 7 cm und den eingeschlossenen Winkel γ = 30°. Berechne den Flächeninhalt.
+- flaeche (S1): Ein Dreieck hat a = 13 cm, b = 4 cm und den eingeschlossenen Winkel γ = 150°. Berechne den Flächeninhalt.
+- flaeche (S1): Ein Dreieck hat a = 11 cm, b = 12 cm und den eingeschlossenen Winkel γ = 90°. Berechne den Flächeninhalt.
+- flaeche (S2): Ein Dreieck hat a = 10 cm, b = 13 cm und γ = 97°. Berechne den Flächeninhalt (auf eine Nachkommastelle).
+- flaeche (S2): Ein Dreieck hat a = 9 cm, b = 4 cm und γ = 128°. Berechne den Flächeninhalt (auf eine Nachkommastelle).
+- flaeche (S2): Ein Dreieck hat a = 13 cm, b = 11 cm und γ = 32°. Berechne den Flächeninhalt (auf eine Nachkommastelle).
+- flaeche (S2): Ein Dreieck hat a = 15 cm, b = 15 cm und γ = 154°. Berechne den Flächeninhalt (auf eine Nachkommastelle).
+- flaeche (S2): Ein Parallelogramm hat die Seiten 15 cm und 11 cm, die einen Winkel von 110° einschließen. Berechne den Flächeninhalt (auf eine Nachkommastelle).
+- flaeche (S2): Ein Dreieck hat a = 6 cm, b = 10 cm und γ = 40°. Berechne den Flächeninhalt (auf eine Nachkommastelle).
+- sinussatz_seite (S1): Im Dreieck ABC ist α = 36°, β = 96° und a = 14 cm. Berechne b (auf eine Nachkommastelle).
+- sinussatz_seite (S1): Im Dreieck ABC ist α = 46°, β = 100° und a = 8 cm. Berechne b (auf eine Nachkommastelle).
+- sinussatz_seite (S1): Im Dreieck ABC ist α = 72°, β = 28° und a = 9 cm. Berechne b (auf eine Nachkommastelle).
+- sinussatz_seite (S1): Im Dreieck ABC ist α = 50°, β = 88° und a = 9 cm. Berechne b (auf eine Nachkommastelle).
+- sinussatz_seite (S2): Im Dreieck ABC ist α = 74°, β = 62° und a = 15 cm. Berechne c (auf eine Nachkommastelle).
+- sinussatz_seite (S2): Im Dreieck ABC ist α = 24°, β = 37° und a = 6 cm. Berechne c (auf eine Nachkommastelle).
+- sinussatz_seite (S2): Im Dreieck ABC ist α = 48°, β = 85° und a = 3 cm. Berechne c (auf eine Nachkommastelle).
+- sinussatz_seite (S2): Im Dreieck ABC ist α = 72°, β = 37° und a = 4 cm. Berechne c (auf eine Nachkommastelle).
+- sinussatz_winkel (S1): Im Dreieck ABC ist a = 6 cm, b = 3 cm und α = 30°. Berechne β (auf eine Nachkommastelle).
+- sinussatz_winkel (S1): Im Dreieck ABC ist a = 6 cm, b = 4 cm und α = 30°. Berechne β (auf eine Nachkommastelle).
+- sinussatz_winkel (S1): Im Dreieck ABC ist a = 8 cm, b = 5 cm und α = 30°. Berechne β (auf eine Nachkommastelle).
+- sinussatz_winkel (S1): Im Dreieck ABC ist a = 7 cm, b = 5 cm und α = 30°. Berechne β (auf eine Nachkommastelle).
+- sinussatz_winkel (S1): Im Dreieck ABC ist a = 8 cm, b = 3 cm und α = 43°. Berechne β (auf eine Nachkommastelle).
+- sinussatz_winkel (S1): Im Dreieck ABC ist a = 14 cm, b = 6 cm und α = 65°. Berechne β (auf eine Nachkommastelle).
+- sinussatz_winkel (S2): Im Dreieck ABC ist a = 6 cm, b = 4 cm und α = 45°. Berechne β (auf eine Nachkommastelle).
+- sinussatz_winkel (S1): Im Dreieck ABC ist a = 12 cm, b = 8 cm und α = 60°. Berechne β (auf eine Nachkommastelle).
+- sinussatz_winkel (S3): Gegeben a = 15 cm, b = 17 cm, α = 37°. Gib alle möglichen Winkel β auf ganze Grad an.
+- sinussatz_winkel (S3): Gegeben a = 13 cm, b = 19 cm, α = 26°. Gib alle möglichen Winkel β auf ganze Grad an.
+- sinussatz_winkel (S1): Im Dreieck ABC ist a = 8 cm, b = 5 cm und α = 70°. Berechne β (auf eine Nachkommastelle).
+- sinussatz_winkel (S2): Im Dreieck ABC ist a = 10 cm, b = 6 cm und α = 50°. Berechne β (auf eine Nachkommastelle).
+- kosinussatz_seite (S1): Im Dreieck ABC ist a = 8 cm, b = 15 cm und γ = 60°. Berechne c.
+- kosinussatz_seite (S1): Im Dreieck ABC ist a = 15 cm, b = 8 cm und γ = 60°. Berechne c.
+- kosinussatz_seite (S1): Im Dreieck ABC ist a = 24 cm, b = 9 cm und γ = 60°. Berechne c.
+- kosinussatz_seite (S1): Im Dreieck ABC ist a = 5 cm, b = 21 cm und γ = 60°. Berechne c.
+- kosinussatz_seite (S1): Im Dreieck ABC ist a = 10 cm, b = 16 cm und γ = 60°. Berechne c.
+- kosinussatz_seite (S1): Im Dreieck ABC ist a = 16 cm, b = 6 cm und γ = 60°. Berechne c.
+- kosinussatz_seite (S2): Im Dreieck ABC ist a = 11 cm, b = 24 cm und γ = 120°. Berechne c.
+- kosinussatz_seite (S3): Ein Schiff fährt 7 km nach Osten, dreht dann um 145° nach links und fährt 15 km weiter. Wie weit ist es vom Start entfernt (auf eine Nachkommastelle)?
+- kosinussatz_seite (S2): Im Dreieck ABC ist a = 11 cm, b = 8 cm und γ = 85°. Berechne c (auf eine Nachkommastelle).
+- kosinussatz_seite (S3): Ein Schiff fährt 11 km nach Osten, dreht dann um 152° nach links und fährt 12 km weiter. Wie weit ist es vom Start entfernt (auf eine Nachkommastelle)?
+- kosinussatz_seite (S2): Im Dreieck ABC ist a = 6 cm, b = 9 cm und γ = 50°. Berechne c (auf eine Nachkommastelle).
+- kosinussatz_winkel (S1): Ein Dreieck hat die Seiten a = 3 cm, b = 4 cm, c = 5 cm. Berechne γ.
+- kosinussatz_winkel (S1): Ein Dreieck hat die Seiten a = 25 cm, b = 15 cm, c = 35 cm. Berechne γ.
+- kosinussatz_winkel (S1): Ein Dreieck hat die Seiten a = 9 cm, b = 12 cm, c = 15 cm. Berechne γ.
+- kosinussatz_winkel (S1): Ein Dreieck hat die Seiten a = 20 cm, b = 12 cm, c = 28 cm. Berechne γ.
+- kosinussatz_winkel (S1): Ein Dreieck hat die Seiten a = 16 cm, b = 10 cm, c = 14 cm. Berechne γ.
+- kosinussatz_winkel (S2): Ein Dreieck hat die Seiten a = 15 cm, b = 15 cm, c = 5 cm. Berechne γ (auf eine Nachkommastelle).
+- kosinussatz_winkel (S2): Ein Dreieck hat die Seiten a = 3 cm, b = 10 cm, c = 12 cm. Berechne γ (auf eine Nachkommastelle).
+- kosinussatz_winkel (S2): Ein Dreieck hat die Seiten a = 7 cm, b = 6 cm, c = 5 cm. Berechne γ (auf eine Nachkommastelle).
+- kosinussatz_winkel (S2): Ein Dreieck hat die Seiten a = 7 cm, b = 7 cm, c = 13 cm. Berechne γ (auf eine Nachkommastelle).
+- kosinussatz_winkel (S2): Ein dreieckiges Grundstück hat die Seiten 100 m, 70 m und 120 m. Wie groß ist der Winkel gegenüber der 120-m-Seite (auf eine Nachkommastelle)?
+- satz_waehlen (S1): Im Dreieck ABC ist a = 9 cm, c = 14 cm und β = 26°. Womit berechnest du die Seite b?
+- satz_waehlen (S2): Gegeben a = 9 cm, b = 6 cm, γ = 61°. Jemand will c mit dem Sinussatz berechnen. Was stimmt?

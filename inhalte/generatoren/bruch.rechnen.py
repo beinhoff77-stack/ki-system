@@ -1138,5 +1138,201 @@ BF.nicht_umgesetzt('gemischt S3 „3/2 · 2/5 − 1/4 · 5/2 …“ mit negative
 befunde_anwenden(DATEI, BF)
 # ---- BEFUNDE ENDE ----
 
+
+# ---------- LUECKEN (Achtzehnte Runde, Teil B, Zweig luecken-kl6) ----------
+# Läuft nach allen bisherigen Abschnitten mit eigenem Zufallsstart; vorhandene Karten und Aufgaben bleiben unverändert.
+# Lehrplan: LehrplanPLUS Gymnasium Bayern M6 1.3/1.4 (gemischte Zahlen addieren, subtrahieren, multiplizieren, dividieren; Potenzen mit
+# natürlichen Exponenten und rationalen Grundzahlen), M6 1.5 (Sachprobleme mit „Anteilen von Anteilen“, Skizze, Überschlag).
+# Prüfungsvorbilder: Bayerischer Mathematik-Test Jgst. 8 (ISB) 2021 Aufg. 1 (gehört das Minus zur Basis?), 2023 Aufg. 1c (Potenz eines Bruchs),
+# 2014 Gruppe B Aufg. 1c (Anteil vom Anteil), 2023 Aufg. 5a (Restanteil); Grundwissentest Jgst. 7 der Realschule (ISB) 2015 Nr. 1, 2017 Nr. 1
+# (Rechnen mit gemischten Zahlen), 2024 Nr. 3 (fehlende Punkte aus einem Anteil).
+from _luecken_kl6 import karte_neu, karte_erweitern, zahl, wahl, gemischt, bruch as lbruch  # noqa: E402
+
+
+def _gitter(flaeche=None):
+    """Quadrat 1 m × 1 m in 4 · 4 Kästchen; flaeche: Liste von Eckpunkten (Hilfspunkte) für die gefärbte Fläche."""
+    P = {}
+    for i in range(5):
+        for j in range(5):
+            P[f'_{i}_{j}'] = [float(i), float(j)]
+    L = [[f'_{i}_0', f'_{i}_4'] for i in range(5)] + [[f'_0_{j}', f'_4_{j}'] for j in range(5)] + [['_0_0', '_4_0', '1 m']]
+    b = {'typ': 'figur', 'punkte': P, 'linien': L}
+    if flaeche: b['flaeche'] = flaeche
+    return b
+
+
+_POT = {
+    'lernziel': 'potenzen', 'titel': 'Potenzen von Brüchen und Dezimalzahlen',
+    'einstieg': 'Ein quadratisches Beet ist 3/4 m lang und 3/4 m breit. Für die Fläche rechnest du 3/4 · 3/4. Kurz schreibt man (3/4)², eine ⟦Potenz⟧.',
+    'woerter': [['Potenz', 'ein Produkt aus lauter gleichen Faktoren, kurz geschrieben: (3/4)² = 3/4 · 3/4'],
+                ['Basis', 'die Zahl, die malgenommen wird; bei (3/4)² ist das 3/4'],
+                ['Exponent', 'die kleine Zahl oben: wie oft die Basis als Faktor vorkommt']],
+    'bild': _gitter(),
+    'schritte': [
+        {'text': 'Ein Quadrat mit 1 m Seite hat hier 16 gleiche Kästchen.'},
+        {'text': 'Das Beet ist 3 mal 3 Kästchen groß: 9 von 16.', 'bild': {'flaeche': ['_0_0', '_3_0', '_3_3', '_0_3']}},
+        {'text': 'Also ist (3/4)² = (3 · 3)/(4 · 4) = ⟦9/16⟧ m².'},
+        {'text': 'Die Basis ist 3/4, der Exponent 2. Er zählt die Faktoren.'},
+        {'text': 'Mit Dezimalzahl: 0,5³ = 0,5 · 0,5 · 0,5 = ⟦0,125⟧.'},
+    ],
+    'fehler': '(3/4)² ist nicht 6/8. Das wäre 3/4 · 2, also 12 Kästchen. Das Beet hat aber nur 9 Kästchen.',
+    'fehler_bild': {'flaeche': ['_0_0', '_3_0', '_3_4', '_0_4']},
+    'regel': 'Der ⟦Exponent⟧ sagt, wie oft die Basis malgenommen wird. Bei Brüchen: Zähler mal Zähler, Nenner mal Nenner.',
+    'probe': '9/16 ist kleiner als 3/4 = 12/16. Mal eine Zahl kleiner als 1 macht kleiner.',
+}
+
+
+def _pot_aufgaben():
+    U = 'uebung'
+    def b(t, E, h, w): return lambda R: lbruch(t, E, h, w)
+    def z(t, v, c, h, w): return lambda R: zahl(t, v, c, h, w)
+    ZN = 'Zähler mit sich selbst malnehmen, Nenner mit sich selbst malnehmen.'
+    KS = 'Rechne ohne Komma und zähle dann alle Nachkommastellen zusammen.'
+    return [
+        (U, 1, b('Berechne (2/3)².', '(2/3)**2', ZN, '(2 · 2)/(3 · 3) = 4/9.')),
+        (U, 1, z('Berechne 0,3².', Fr('0.09'), '0.3**2', KS, '0,3 · 0,3: 3 · 3 = 9, zwei Nachkommastellen: 0,09.')),
+        (U, 1, b('Berechne (1/2)³.', '(1/2)**3', 'Dreimal 1/2 als Faktor.', '1/2 · 1/2 · 1/2 = 1/8.')),
+        (U, 1, z('Berechne 1,5².', Fr('2.25'), '1.5**2', KS, '15 · 15 = 225, zwei Nachkommastellen: 2,25.')),
+        (U, 2, b('Berechne (−3/5)².', '(-3/5)**2', 'Minus mal Minus ergibt Plus.', '(−3/5) · (−3/5) = 9/25.')),
+        (U, 2, z('Berechne (−0,2)³.', Fr('-0.008'), '(-0.2)**3', 'Drei negative Faktoren: Das Ergebnis ist negativ.', '0,2 · 0,2 · 0,2 = 0,008. Drei Minuszeichen: −0,008.')),
+        (U, 2, b('Berechne (2/5)³.', '(2/5)**3', ZN, '(2 · 2 · 2)/(5 · 5 · 5) = 8/125.')),
+        (U, 2, z('Berechne 0,1⁴.', Fr('0.0001'), '0.1**4', 'Jeder Faktor 0,1 schiebt das Komma eine Stelle nach links.', '0,1 · 0,1 · 0,1 · 0,1 = 0,0001.')),
+        (U, 2, b('Berechne (1 1/2)². Gib das Ergebnis als Bruch an.', '(3/2)**2', 'Schreibe 1 1/2 zuerst als unechten Bruch.', '1 1/2 = 3/2. (3/2)² = 9/4.')),
+        (U, 2, z('Berechne (−1,2)².', Fr('1.44'), '(-1.2)**2', 'Gerader Exponent: Das Ergebnis ist positiv.', '12 · 12 = 144, zwei Nachkommastellen: 1,44. Positiv, weil (−) · (−) = (+).')),
+        (U, 3, z('Berechne −0,5² + (−0,5)².', 0, '-(0.5**2) + (-0.5)**2', 'Bei −0,5² gehört das Minus nicht zur Basis.',
+                 '−0,5² = −(0,5 · 0,5) = −0,25. (−0,5)² = 0,25. Zusammen 0.')),
+        (U, 3, b('Berechne (2/3)² · (3/2)³.', '(2/3)**2 * (3/2)**3', 'Schreibe alle Faktoren aus und kürze vor dem Ausrechnen.',
+                 '4/9 · 27/8 = 108/72 = 3/2. Mit Kürzen: zwei Paare 2/3 · 3/2 ergeben 1, übrig bleibt 3/2.')),
+        (U, 3, lambda R: wahl(R, 'Welche Zahl ist größer: (1/2)³ oder (1/3)²?', '(1/2)³', ['(1/3)²', 'Beide sind gleich groß.'],
+                              'Rechne beide Potenzen als Bruch aus und vergleiche.', '(1/2)³ = 1/8 und (1/3)² = 1/9. 1/8 ist größer als 1/9.', n=3)),
+        (U, 3, lambda R: wahl(R, 'Für welche Zahl ist das Quadrat kleiner als die Zahl selbst?', '0,5', ['2', '1', '1,5'],
+                              'Rechne für jede Zahl das Quadrat aus.', '0,5² = 0,25 < 0,5. Dagegen 2² = 4, 1² = 1 (gleich), 1,5² = 2,25.')),
+        (U, 3, b('Ein Kind rechnet (2/5)² = 4/5. Wie heißt das richtige Ergebnis?', '(2/5)**2', 'Auch der Nenner wird mit sich selbst malgenommen.',
+                 '(2 · 2)/(5 · 5) = 4/25. Das Kind hat nur den Zähler quadriert.')),
+        (U, 3, z('Ein Kind rechnet 0,2³ = 0,6. Wie heißt das richtige Ergebnis?', Fr('0.008'), '0.2**3', 'Potenz heißt malnehmen, nicht mal den Exponenten.',
+                 '0,2 · 0,2 · 0,2 = 0,008. Das Kind hat 0,2 · 3 gerechnet.')),
+        (U, 3, b('Ein Blatt Papier wird dreimal halbiert. Welcher Bruchteil des Blattes ist ein Stück?', '(1/2)**3',
+                 'Jedes Halbieren nimmt die Hälfte vom vorigen Stück.', '1/2 · 1/2 · 1/2 = (1/2)³ = 1/8.')),
+        (U, 3, lambda R: wahl(R, 'Welche Zahl ist negativ?', '(−1/2)³', ['(−1/2)²', '(−1/2)⁴', '(1/2)³'],
+                              'Zähle die Minuszeichen: gerade Anzahl gibt Plus, ungerade Minus.', '(−1/2)³ = −1/8. Bei den Exponenten 2 und 4 wird es positiv, (1/2)³ ist ohnehin positiv.')),
+        ('test', 2, b('Berechne (4/5)².', '(4/5)**2', '', '(4 · 4)/(5 · 5) = 16/25.')),
+        ('korrektur', 2, z('Berechne 0,7².', Fr('0.49'), '0.7**2', '', '7 · 7 = 49, zwei Nachkommastellen: 0,49.')),
+        ('korrektur', 2, b('Berechne (−1/3)³.', '(-1/3)**3', '', '(−1/3) · (−1/3) · (−1/3) = −1/27. Drei Minuszeichen ergeben Minus.')),
+        ('korrektur', 2, z('Berechne 2,5².', Fr('6.25'), '2.5**2', '', '25 · 25 = 625, zwei Nachkommastellen: 6,25.')),
+        ('sicherung', 2, b('Berechne (5/6)².', '(5/6)**2', '', '(5 · 5)/(6 · 6) = 25/36.')),
+        ('sicherung', 2, z('Berechne 0,4³.', Fr('0.064'), '0.4**3', '', '4 · 4 · 4 = 64, drei Nachkommastellen: 0,064.')),
+        ('sicherung', 2, b('Berechne (−2/3)².', '(-2/3)**2', '', '(−2/3) · (−2/3) = 4/9. Minus mal Minus ergibt Plus.')),
+        ('sicherung', 2, z('Berechne (−0,3)².', Fr('0.09'), '(-0.3)**2', '', '(−0,3) · (−0,3) = 0,09.')),
+        ('sicherung', 2, b('Berechne (3/2)³.', '(3/2)**3', '', '(3 · 3 · 3)/(2 · 2 · 2) = 27/8.')),
+        ('sicherung', 2, z('Berechne 1,1².', Fr('1.21'), '1.1**2', '', '11 · 11 = 121, zwei Nachkommastellen: 1,21.')),
+    ]
+
+
+_SACH = {
+    'lernziel': 'sach', 'titel': 'Sachaufgaben: Anteile von Anteilen',
+    'einstieg': '2/3 der Klasse fahren mit zum Ausflug. Von ihnen kommen 3/4 mit dem Rad. Welcher Teil der ganzen Klasse radelt? Das ist ein ⟦Anteil vom Anteil⟧.',
+    'woerter': [['Anteil vom Anteil', 'ein Bruchteil von einem Bruchteil: 3/4 von 2/3 heißt 3/4 · 2/3'],
+                ['Überschlag', 'schnelle Probe mit runden Zahlen: Kann das Ergebnis stimmen?']],
+    'bild': {'typ': 'bruchstreifen', 'teile': 3, 'gefaerbt': 2, 'ganzes': 'Klasse', 'teil_text': '2/3 fahren mit'},
+    'schritte': [
+        {'text': 'Zeichne die Klasse als Streifen. 2 von 3 Teilen fahren mit.'},
+        {'text': 'Teile jedes Drittel in 4 Stücke. Mitfahrer sind 8 von 12.',
+         'bild': {'zeilen': [{'teile': 12, 'gefaerbt': 8, 'teil_text': '8/12 fahren mit'}]}},
+        {'text': '3/4 der 8 Stücke radeln, also 6 Stücke.', 'bild': {'zeilen': [{'teile': 12, 'gefaerbt': 6, 'teil_text': '6/12 radeln'}]}},
+        {'text': '3/4 · 2/3 = 6/12 = ⟦1/2⟧. Die Hälfte der Klasse radelt.'},
+        {'text': 'Überschlag: etwas weniger als 2/3 – das passt.'},
+    ],
+    'fehler': '3/4 von 2/3 ist nicht 3/4 der Klasse. Die 3/4 gelten nur für die Mitfahrer, nicht für alle.',
+    'fehler_bild': {'zeilen': [{'teile': 4, 'gefaerbt': 3, 'teil_text': '3/4 der Klasse: falsch'}]},
+    'regel': '„Von“ heißt ⟦mal⟧: 3/4 von 2/3 = 3/4 · 2/3. Mach eine Skizze und prüfe mit einem Überschlag.',
+    'probe': '1/2 der Klasse ist weniger als 2/3 der Klasse – es fahren ja nicht alle Mitfahrer Rad.',
+}
+
+
+def _sach_aufgaben():
+    U = 'uebung'
+    def b(t, E, h, w): return lambda R: lbruch(t, E, h, w)
+    def z(t, v, c, h, w, e=None): return lambda R: zahl(t, v, c, h, w, einheit=e)
+    VON = '„Von“ heißt mal.'
+    return [
+        (U, 1, b('Wie viel ist 1/2 von 1/3?', '1/2 * 1/3', VON, '1/2 · 1/3 = 1/6.')),
+        (U, 1, b('Wie viel ist 2/3 von 3/5?', '2/3 * 3/5', VON, '2/3 · 3/5 = 6/15 = 2/5.')),
+        (U, 1, b('Eine halbe Pizza wird geviertelt. Welcher Bruchteil der ganzen Pizza ist ein Stück?', '1/4 * 1/2', 'Ein Stück ist 1/4 von 1/2.', '1/4 · 1/2 = 1/8.')),
+        (U, 1, b('Wie viel ist 3/5 von 5/6?', '3/5 * 5/6', VON + ' Kürze vor dem Ausrechnen.', '3/5 · 5/6 = 15/30 = 1/2.')),
+        (U, 2, z('Von 60 Kindern spielen 2/5 Fußball. Davon ist 1/3 Mädchen. Wie viele Mädchen spielen Fußball?', 8, '60 * 2/5 * 1/3',
+                 'Rechne zuerst, wie viele Kinder Fußball spielen.', '2/5 von 60 = 24 Kinder. 1/3 von 24 = 8 Mädchen.')),
+        (U, 2, b('4/5 der Kinder essen in der Mensa. Davon wählen 3/8 das Nudelgericht. Welcher Anteil aller Kinder isst Nudeln?', '3/8 * 4/5',
+                 'Anteil vom Anteil: malnehmen.', '3/8 · 4/5 = 12/40 = 3/10.')),
+        (U, 2, z('Ein Kuchen wiegt 1,2 kg. 3/4 werden verkauft. Der Rest wird halbiert. Wie viel Gramm wiegt eine Hälfte des Rests?', 150,
+                 '1200 * (1 - 3/4) / 2', 'Welcher Anteil bleibt übrig? Rechne in Gramm.', '1,2 kg = 1 200 g. Rest 1/4 = 300 g. Die Hälfte: 150 g.', 'g')),
+        (U, 2, z('Eine Flasche enthält 1,5 l Saft. 2/3 davon werden getrunken. Wie viele Liter bleiben?', Fr('0.5'), '1.5 * (1 - 2/3)',
+                 'Es bleibt 1/3 übrig.', '1/3 von 1,5 l = 0,5 l.', 'l')),
+        (U, 2, b('Die Hälfte eines Gartens ist Rasen. Auf 1/5 des Rasens stehen Bäume. Welcher Anteil des ganzen Gartens ist das?', '1/5 * 1/2',
+                 'Anteil vom Anteil: 1/5 von 1/2.', '1/5 · 1/2 = 1/10.')),
+        (U, 2, lambda R: wahl(R, 'Mache einen Überschlag: Etwa wie viel kosten 2,9 kg Äpfel zu 1,95 € je kg?', 'etwa 6 €', ['etwa 60 €', 'etwa 0,60 €', 'etwa 3 €'],
+                              'Runde beide Zahlen auf Ganze.', '2,9 ≈ 3 und 1,95 ≈ 2. 3 · 2 = 6, also etwa 6 € (genau 5,66 €).')),
+        (U, 3, b('3/5 der Besucher eines Zoos sind Kinder. 2/3 dieser Kinder gehen ins Affenhaus. Welcher Anteil aller Besucher sind Kinder im Affenhaus?',
+                 '2/3 * 3/5', 'Die 2/3 beziehen sich nur auf die Kinder.', '2/3 · 3/5 = 6/15 = 2/5 aller Besucher.')),
+        (U, 3, b('Ein Kind gibt 1/3 seines Taschengelds fürs Kino und 1/4 für Süßes aus. Vom Rest spart es die Hälfte. Welcher Anteil wird gespart?',
+                 '(1 - 1/3 - 1/4) / 2', 'Rechne zuerst den Rest aus. Hauptnenner 12.', 'Rest: 1 − 4/12 − 3/12 = 5/12. Die Hälfte davon: 5/24.')),
+        (U, 3, z('Ein Test hat Teil A und Teil B mit je 24 Punkten. Ein Kind schafft 5/6 von Teil A und 3/4 von Teil B. Wie viele Punkte fehlen ihm zur vollen Punktzahl?',
+                 10, '48 - 24 * 5/6 - 24 * 3/4', 'Rechne die Punkte in jedem Teil aus.', 'A: 5/6 von 24 = 20. B: 3/4 von 24 = 18. 48 − 38 = 10 Punkte fehlen.')),
+        (U, 3, z('Von einer Tafel Schokolade isst Lea die Hälfte. Tom isst 1/3 vom Rest, Mia die Hälfte des neuen Rests. Es bleiben 2 Stückchen. '
+                 'Wie viele Stückchen hatte die Tafel?', 12, '2 / ((1 - 1/2) * (1 - 1/3) * (1 - 1/2))',
+                 'Rechne rückwärts oder bestimme, welcher Anteil der Tafel am Ende übrig ist.',
+                 'Übrig: 1/2 · 2/3 · 1/2 = 1/6 der Tafel. 1/6 sind 2 Stückchen, also hatte die Tafel 12.')),
+        (U, 3, z('2/3 von 3/4 einer Wanderstrecke sind 12 km. Wie lang ist die ganze Strecke?', 24, '12 / (2/3 * 3/4)',
+                 'Welcher Anteil der ganzen Strecke sind 2/3 von 3/4?', '2/3 · 3/4 = 1/2. Die Hälfte sind 12 km, also 24 km.', 'km')),
+        (U, 3, lambda R: wahl(R, 'Ein Kind rechnet: „1/2 von 1/4 = 1/2 + 1/4 = 3/4.“ Was stimmt?', 'Falsch: „von“ heißt mal, 1/2 · 1/4 = 1/8.',
+                              ['Richtig.', 'Falsch: 1/2 von 1/4 = 2/6.', 'Falsch: 1/2 von 1/4 = 2.'],
+                              'Mach eine Skizze: die Hälfte von einem Viertel.', 'Die Hälfte eines Viertels ist ein Achtel. 3/4 wäre sogar mehr als 1/4 – das kann nicht sein.')),
+        (U, 3, z('Ein Kind rechnet: 2/3 von 3/4 von 600 € sind 1 200 €. Mache einen Überschlag. Wie viel Euro ist es richtig?', 300, '600 * 3/4 * 2/3',
+                 'Ein Anteil von 600 € kann nicht mehr als 600 € sein.', '3/4 von 600 € = 450 €. 2/3 von 450 € = 300 €.', '€')),
+        (U, 3, z('Ein Radladen hat 120 Räder. 3/8 davon sind E-Bikes, und 2/5 der E-Bikes sind Lastenräder. Wie viele E-Bikes sind keine Lastenräder?', 27,
+                 '120 * 3/8 * (1 - 2/5)', 'Rechne zuerst die E-Bikes aus.', '3/8 von 120 = 45 E-Bikes. 2/5 von 45 = 18 Lastenräder. 45 − 18 = 27.')),
+        ('test', 2, b('Wie viel ist 2/5 von 5/8?', '2/5 * 5/8', '', '2/5 · 5/8 = 10/40 = 1/4.')),
+        ('korrektur', 2, b('Wie viel ist 3/4 von 2/9?', '3/4 * 2/9', '', '3/4 · 2/9 = 6/36 = 1/6.')),
+        ('korrektur', 2, z('Wie viel Euro sind 1/3 von 3/5 von 50 €?', 10, '50 * 3/5 * 1/3', '', '3/5 von 50 € = 30 €. 1/3 von 30 € = 10 €.', '€')),
+        ('korrektur', 2, b('Wie viel ist 5/6 von 3/10?', '5/6 * 3/10', '', '5/6 · 3/10 = 15/60 = 1/4.')),
+        ('sicherung', 2, b('Wie viel ist 1/3 von 3/4?', '1/3 * 3/4', '', '1/3 · 3/4 = 3/12 = 1/4.')),
+        ('sicherung', 2, z('Wie viele Meter sind 2/3 von 1/2 von 90 m?', 30, '90 * 1/2 * 2/3', '', '1/2 von 90 m = 45 m. 2/3 von 45 m = 30 m.', 'm')),
+        ('sicherung', 2, b('Wie viel ist 4/7 von 7/8?', '4/7 * 7/8', '', '4/7 · 7/8 = 28/56 = 1/2.')),
+        ('sicherung', 2, z('Wie viel Gramm sind 3/4 von 2/5 von 200 g?', 60, '200 * 2/5 * 3/4', '', '2/5 von 200 g = 80 g. 3/4 von 80 g = 60 g.', 'g')),
+        ('sicherung', 2, b('Wie viel ist 1/2 von 4/5?', '1/2 * 4/5', '', '1/2 · 4/5 = 4/10 = 2/5.')),
+        ('sicherung', 2, z('Wie viele Kinder sind 1/4 von 2/3 von 120 Kindern?', 20, '120 * 2/3 * 1/4', '', '2/3 von 120 = 80. 1/4 von 80 = 20.')),
+    ]
+
+
+def _gem_rechnen(lz):
+    g = lambda t, E, h, w: (lambda R: gemischt(t, E, h, w))
+    MG = 'Schreibe die gemischten Zahlen zuerst als unechte Brüche. Das Ergebnis wieder als gemischte Zahl.'
+    return {
+        'brueche_plus_minus': [
+            (None, 2, g('Berechne 1 1/2 + 2 1/3. Gib das Ergebnis als gemischte Zahl an.', '3/2 + 7/3', MG,
+                        'Ganze: 1 + 2 = 3. Brüche: 1/2 + 1/3 = 3/6 + 2/6 = 5/6. Zusammen 3 5/6.')),
+            (None, 3, g('Berechne 4 1/5 − 1 3/4. Gib das Ergebnis als gemischte Zahl an.', '21/5 - 7/4', MG + ' Hauptnenner 20.',
+                        '21/5 − 7/4 = 84/20 − 35/20 = 49/20 = 2 9/20.')),
+        ],
+        'brueche_mal': [
+            (None, 2, g('Berechne 2 1/4 · 2/3. Gib das Ergebnis als gemischte Zahl an.', '9/4 * 2/3', MG,
+                        '2 1/4 = 9/4. 9/4 · 2/3 = 18/12 = 3/2 = 1 1/2.')),
+            (None, 3, g('Berechne 1 1/2 · 1 2/3. Gib das Ergebnis als gemischte Zahl an.', '3/2 * 5/3', MG + ' Achtung: Nicht Ganze mal Ganze und Bruch mal Bruch!',
+                        '3/2 · 5/3 = 15/6 = 5/2 = 2 1/2. (1 · 1 + 1/2 · 2/3 = 1 1/3 wäre falsch.)')),
+        ],
+        'brueche_geteilt': [
+            (None, 2, g('Berechne 3 1/2 : 2/3. Gib das Ergebnis als gemischte Zahl an.', '7/2 / (2/3)', MG,
+                        '3 1/2 = 7/2. 7/2 · 3/2 = 21/4 = 5 1/4.')),
+            (None, 3, g('Berechne 2 1/4 : 1 1/2. Gib das Ergebnis als gemischte Zahl an.', '9/4 / (3/2)', MG,
+                        '9/4 : 3/2 = 9/4 · 2/3 = 18/12 = 3/2 = 1 1/2.')),
+        ],
+    }[lz]
+
+
+for _i, _lz in enumerate(('brueche_plus_minus', 'brueche_mal', 'brueche_geteilt')):
+    karte_erweitern(DATEI, _lz, _gem_rechnen(_lz), seed=6191 + _i)
+karte_neu(DATEI, _POT, _pot_aufgaben(), seed=6194, nach='dezimal_geteilt', teil_text='Potenzen mit Bruch oder Dezimalzahl als Basis berechnen')
+karte_neu(DATEI, _SACH, _sach_aufgaben(), seed=6195, nach='fehler_finden', teil_text='Sachaufgaben mit Anteilen von Anteilen lösen')
+
+
 if __name__ == '__main__':
     schreibe(DATEI)

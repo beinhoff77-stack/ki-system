@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 14:55 – STATUS
+**bruch.rechnen** fertig: neue Karten `potenzen` (nach dezimal_geteilt) und `sach` (am Ende), je 28 Aufgaben, Pflicht; `brueche_plus_minus`, `brueche_mal`, `brueche_geteilt` je um 1 Übung Stufe 2 + 1 Stufe 3 mit gemischter Zahl als Ergebnis (Lücke „□ □/□“) erweitert, Kartentexte unverändert. Prüfskript OK, Nachweis JA.
+
 ## 2026-11-17 14:20 – STATUS
 **bruch.brueche** fertig: neue Karten `gemischte_zahlen` (nach kuerzen) und `zahlbereiche` (vor verstehen), je 28 Aufgaben (Ü 4/6/8, Test 1, Korrektur 3, Sicherung 6), Pflicht; Karte `vergleichen` um 2 Schritte (Primfaktorzerlegung) und 6 Übungen erweitert. Prüfskript OK, Nachweis „nur Neues dazu“ JA (`python3 -I inhalte/generatoren/_luecken_kl6_nachweis.py bruch.brueche vergleichen`).
 

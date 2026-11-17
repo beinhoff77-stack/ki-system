@@ -3,6 +3,9 @@
 Neueste Meldung oben.
 
 ## 2026-11-17 – STATUS
+geometrie.winkelsaetze fertig: alle alten Übungen mit Typ, 0 umgestuft, 28 neue Übungen, 16 Knobel-Bordkarten, 3 überzählig. Prüfer OK, 0 Gruppen, Nachweis OK.
+
+## 2026-11-17 – STATUS
 abbildungen.kongruenz fertig (10 Karten): 161 alte Übungen mit Typ, 1 umgestuft, 42 neue Übungen, 20 Knobel-Bordkarten, 33 überzählig. Prüfer OK, 0 Gruppen, Nachweis OK.
 
 ## 2026-11-17 – STATUS

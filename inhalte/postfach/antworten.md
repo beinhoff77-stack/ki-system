@@ -183,3 +183,12 @@ Folgen (Haupt-Chat):
 - Winkelsätze: Generator korrigiert (Stand eb6a852): Bei „stützt sich auf“ erscheinen Sätze über Vielecke mit weniger Ecken nicht mehr als falsche Auswahl; beim Stufenwinkel-Satz nicht mehr
   „Scheitelwinkel“ (derselbe Fehlertyp). Datei neu erzeugt, inhalt_pruefen OK, Entwurf in der Datenbank ersetzt (11 Aufgaben der Etappe beweisen neu gezogen). Wartet auf Sebastians Freigabe.
 - Die drei App-Befunde stehen als „Zusatz 4 zum Bau-Auftrag“ (P1–P3) in inhalte/AUFTRAEGE.md.
+
+## 17.11. – Winkelsätze freigegeben; Themen-Einträge für drei neue Flüge; Achtzehnte Runde
+- Entscheidung Sebastian („alles so, wie du sagst“): Winkelsätze freigeben, „Live“ erst nach Schritt E, Inhalte: zuerst Lücken, dann RS/IB.
+- Flug „Winkelsätze“ (Einheit 92, Addis Abeba, vor „Konstruktionen“) ist freigegeben: 8 Etappen, 224 Aufgaben.
+- Migration supabase/migrations/20261117_w150_luecken_themen_quito.sql eingespielt: neuer Ort Quito (Klasse 6, Kontinent „Fläche und Raum“, block_id 114) und drei Themen-Einträge –
+  messen.flaechen_vielecke (99, Quito), messen.volumen (100, Quito), messen.prisma_zylinder (101, Cusco). Noch ohne Inhalt.
+  Hinweis: Cusco hat damit einen zweiten Flug ohne Inhalt; der Ort gilt erst als abgeschlossen, wenn auch dieser Flug da und geschafft (oder abgewählt) ist.
+- Auftrag „Achtzehnte Runde“ (Teil A: drei neue Flüge, Zweig luecken-neu; Teil B: fehlende Etappen je Klasse, Zweige luecken-kl5 … luecken-kl10) in inhalte/AUFTRAEGE.md.
+- Die Meldung „Nachprüfung 0.74.5“ (M1–M9) des Prüf-Chats ist schon als „Zusatz 3 zum Bau-Auftrag“ beim Bau-Chat; M4 wurde mit echten Daten geprüft (kein Klasse-8-Ort im Plan der Klasse 5).

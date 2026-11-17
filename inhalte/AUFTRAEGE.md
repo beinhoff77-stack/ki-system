@@ -1210,3 +1210,65 @@ P3 Flugplan: Wählt man den letzten offenen Flug eines Ortes ab, zählt der Stem
    dessen ort_stand „abgeschlossen“ meldet (der Trigger route_sterne bucht die Sterne dann einmal); umgekehrt wird ein Ort, der nur wegen abgewählter Flüge „fertig“ war, wieder „offen“,
    wenn ein nicht geschaffter Flug zurück in den Plan kommt.
 ```
+
+# Achtzehnte Runde: Lücken laut Lehrplan schließen (Gymnasium)
+
+Grundlage: Aufbau-Prüfung vom 14.11. (inhalte/pruefung/aufbau/klasse5.json … klasse10.json, Feld „luecken“). Ein Teil ist inzwischen erledigt (zahlen.natuerlich, zahlen.teilbarkeit, terme.umformen,
+gleichungen.linear, geometrie.winkelsaetze, Bogenmaß in funktionen.trig, ergänzte Erklärschritte der Fünfzehnten Runde). Entscheidung Sebastian 17.11.: Lücken schließen.
+Teil A: drei neue Flüge (ein Chat, Zweig luecken-neu). Teil B: fehlende Etappen in vorhandenen Flügen (ein Chat je Klasse, Zweige luecken-kl5 … luecken-kl10).
+
+## Teil A – drei neue Flüge
+
+```text
+Du baust drei neue Themen („Flüge“) für eine Mathe-Lern-App (bayerisches Gymnasium, LehrplanPLUS).
+Repository: beinhoff77-stack/ki-system (lernen-app ist ein Zweig darin). Hole den aktuellen Stand des Zweigs lernen-app, lege davon den Zweig luecken-neu an und arbeite nur dort.
+Lies zuerst vollständig: inhalte/README.md (Format, Regeln, „Verständliche Erklärungen“ mit „Vorgabe seit 16.11.“, „Zeichnungen“, „Vertiefung“), inhalte/postfach/README.md,
+inhalte/vorlage_generator.py, in inhalte/AUFTRAEGE.md den Abschnitt „Zehnte Runde“ (Regeln für schwere Aufgaben und Prüfungsvorbilder, Urheberrecht) und in
+inhalte/pruefung/aufbau/klasse6.json und klasse8.json die Einträge unter „luecken“ zu diesen drei Themen. Als Muster für Aufbau und Zeichnungen: inhalte/generatoren/geometrie.winkelsaetze.py
+(neuester Flug, zweimal geprüft) und für Flächen/Körper inhalte/generatoren/messen.flaechen.py sowie messen.koerper_berechnung.py – deren Inhalte nicht wiederholen, sondern darauf aufbauen.
+
+Die drei Themen (Nummern sind in der Datenbank schon angelegt – genau so verwenden):
+1. messen.flaechen_vielecke – thema_id 99, block_id 114 (Quito), klasse {"gym_by": 6}, Titel „Flächen von Parallelogramm, Dreieck und Trapez“. LehrplanPLUS M6 2.1:
+   Flächeninhalt von Parallelogramm, Dreieck und Trapez durch Zerlegen und Ergänzen herleiten und berechnen, zusammengesetzte Figuren, Oberfläche einfacher Körper. Ohne Zeichnung nicht sinnvoll (figur).
+2. messen.volumen – thema_id 100, block_id 114 (Quito), klasse {"gym_by": 6}, Titel „Volumen“. LehrplanPLUS M6 2.2: Einheitswürfel, Quaderformel, Volumeneinheiten umrechnen
+   (mm³ bis m³, Liter und Milliliter), zusammengesetzte Körper, Sachaufgaben.
+3. messen.prisma_zylinder – thema_id 101, block_id 86 (Cusco), klasse {"gym_by": 8}, Titel „Prismen und Zylinder“. LehrplanPLUS M8 7: Volumen gerader Prismen (V = G · h) mit Begründung,
+   Oberfläche, Zylinder-Volumen und -Oberfläche, Sachaufgaben. In messen.kreisberechnung gibt es schon eine Karte „zylinder“ – nicht verschieben, nicht wiederholen, sondern darauf verweisen und vertiefen.
+Lies den Lehrplantext jeweils selbst nach (Websuche, lehrplanplus.bayern.de; Klasse 8 notfalls ISB-Material) und lege je Thema 6–8 Lernkarten fest, die letzte „verstehen/anwenden“.
+
+Je Thema: Generator inhalte/generatoren/<thema_schluessel>.py schreibt inhalte/themen/<thema_schluessel>.json. Lernkarten im neuen Muster (einstieg, woerter, Bildergeschichte mit Zeichnung je Schritt,
+fehler mit fehler_bild, regel mit erstem Satz ≤ 12 Wörter, probe). Je Lernkarte 18 Übungen (Stufe 1: 4, Stufe 2: 6, Stufe 3: 8; davon mindestens 2 nach Prüfungsvorbild und 1 Knobelaufgabe),
+1 Test, 3 Korrektur, 6 Sicherung. Lehren aus der Prüfung der Winkelsätze beachten: nichts verlangen, was im Lehrplan erst später kommt (in Klasse 6 keine Gleichungen mit x, in Klasse 8 kein Pythagoras);
+bei Auswahl-Aufgaben darf keine „falsche“ Antwort ebenfalls richtig sein; Zeichnungen maßstäblich (angeschriebene und gezeichnete Maße stimmen, per Skript prüfen); jede Figur-Aufgabe mit Bild.
+Eintrag je Thema in inhalte/themenliste.json (mit lehrplan_gym und reihenfolge innerhalb der Klasse).
+Fertig je Thema, wenn `python3 -I tools/inhalt_pruefen.py inhalte/themen/<datei>.json` OK meldet und du jede Aufgabe gelesen und nachgerechnet hast. Ein Thema = ein Commit + Push auf luecken-neu.
+Grenzen: Keine Datenbank, kein App-Code, keine Tests, kein Merge, keine anderen Themen. Meldungen in inhalte/postfach/luecken-neu.md (Status je Thema, am Ende Abschlussbericht mit Quellen).
+Arbeite ohne Rückfragen durch.
+```
+
+## Teil B – fehlende Etappen je Klasse (im Text `<N>` durch die Klasse ersetzen)
+
+```text
+Du schließt Lehrplan-Lücken in vorhandenen Themen einer Mathe-Lern-App (bayerisches Gymnasium, Klasse <N>). Die Themen sind für Kinder freigegeben.
+Repository: beinhoff77-stack/ki-system (lernen-app ist ein Zweig darin). Hole den aktuellen Stand des Zweigs lernen-app, lege davon den Zweig luecken-kl<N> an und arbeite nur dort.
+Lies zuerst vollständig: inhalte/README.md (Format, Regeln, „Verständliche Erklärungen“ mit „Vorgabe seit 16.11.“, „Zeichnungen“, „Vertiefung“), inhalte/postfach/README.md,
+in inhalte/AUFTRAEGE.md die Abschnitte „Zehnte Runde“ (schwere Aufgaben, Prüfungsvorbilder, Urheberrecht) und „Fünfzehnte Runde“ (Arbeitsweise und Nachweis bei freigegebenen Themen),
+und inhalte/pruefung/aufbau/klasse<N>.json – dort das Feld „luecken“ (was fehlt, Lehrplan-Bezug, wohin, Dringlichkeit).
+
+Schritt 1 – Bestandsaufnahme: Die Liste ist vom 14.11.; seitdem ist vieles gebaut. Prüfe jeden Eintrag gegen den heutigen Stand (inhalte/themen, inhalte/themenliste.json) und schreibe ins Postfach
+je Eintrag „erledigt (wo)“, „offen“ oder „nicht Teil dieses Auftrags“. Nicht Teil dieses Auftrags: neue Themen (messen.flaechen_vielecke, messen.volumen, messen.prisma_zylinder baut ein anderer Chat;
+zahlen.natuerlich, zahlen.teilbarkeit, terme.umformen, gleichungen.linear, geometrie.winkelsaetze gibt es schon) und das Verschieben von Lernkarten zwischen Themen (nur melden).
+Schritt 2 – jede offene Lücke schließen, Dringlichkeit „hoch“ zuerst: im Generator des genannten Themas eine neue Lernkarte an der unter „wohin“ genannten Stelle ergänzen (oder, wo „wohin“ das sagt,
+eine vorhandene Karte um einen Schritt und Aufgaben erweitern). Prüfe den Lehrplan-Bezug selbst nach (Websuche, lehrplanplus.bayern.de). Neue Lernkarte im neuen Muster (einstieg, woerter,
+Bildergeschichte mit Zeichnung je Schritt, fehler mit fehler_bild, regel mit erstem Satz ≤ 12 Wörter, probe) mit 18 Übungen (Stufe 1: 4, Stufe 2: 6, Stufe 3: 8; mindestens 2 nach Prüfungsvorbild,
+1 Knobelaufgabe), 1 Test, 3 Korrektur, 6 Sicherung. Steht der Stoff im Lehrplan der Klasse: Pflicht (bewertung.lernziele_pflicht); geht er darüber hinaus: Vertiefung.
+Nichts verlangen, was im Lehrplan erst später kommt; bei Auswahl-Aufgaben darf keine „falsche“ Antwort ebenfalls richtig sein; Zeichnungen maßstäblich.
+Regeln: Alle vorhandenen Lernkarten und Aufgaben bleiben Zeichen für Zeichen unverändert (Nachweis per Skript gegen origin/lernen-app: nur Neues kam dazu; wo eine vorhandene Karte erweitert wird,
+ist genau diese Karte geändert). Neue Aufgaben in einem eigenen Abschnitt des Generators mit eigenem festen Zufallsstart. Ein Thema = ein Commit + Push auf luecken-kl<N>.
+Fertig je Thema, wenn `python3 -I tools/inhalt_pruefen.py inhalte/themen/<datei>.json` OK meldet, der Nachweis stimmt und du jede neue Aufgabe gelesen und nachgerechnet hast.
+Grenzen: Keine Datenbank, kein App-Code, keine Tests, kein Merge. Meldungen in inhalte/postfach/luecken-kl<N>.md: zuerst die Bestandsaufnahme, dann je Thema eine Zeile,
+am Ende ein Abschlussbericht (neue Lernkarten mit Lehrplan-Bezug und Quelle, erweiterte Karten, was offen blieb und warum). Arbeite ohne Rückfragen durch.
+```
+
+Einspielen (Haupt-Chat): Teil A als Entwurf importieren (einheit_importieren), prüfen lassen, Freigabe durch Sebastian; Quito danach in den Plan der Klasse 6 aufnehmen.
+Teil B mit einheit_abgleichen(…, 'sperren') (Weg A); neue Etappen sind sofort sichtbar.

@@ -3,6 +3,9 @@
 Neueste Meldung oben.
 
 ## 2026-11-17 01:50 – STATUS
+funktionen.grundbegriffe fertig: offen-Eintrag „Kreis kann die App nicht zeichnen“ berichtigt (Kreis zeichenbar; Kreis-Gegenbeispiel als mögliche Ergänzung offen). Sonst nichts geändert; inhalt_pruefen OK, Nachweis OK (nur „offen“).
+
+## 2026-11-17 01:50 – STATUS
 geometrie.winkel fertig: veralteten offen-Eintrag („Winkelsätze Kl. 5“) berichtigt – Titel „Mit Winkeln rechnen“, Winkelsätze als eigener Flug Kl. 7, kreuzung Vertiefung. Sonst nichts geändert; inhalt_pruefen OK, Nachweis OK (nur „offen“).
 
 ## 2026-11-17 01:50 – STATUS

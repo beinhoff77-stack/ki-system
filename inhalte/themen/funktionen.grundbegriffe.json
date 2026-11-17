@@ -6526,6 +6526,6 @@
   }
  ],
  "offen": [
-  "„Ist dieser Graph eine Funktion?“ mit einem Gegenbeispiel (Kreis, liegende Parabel) braucht eine Kurve, die die App noch nicht zeichnen kann. Gebaut: Punktwolken (zwei Punkte übereinander) und Parabeln als Beispiel für „ja“."
+  "„Ist dieser Graph eine Funktion?“: Gebaut sind Punktwolken (zwei Punkte übereinander) als Gegenbeispiel und Parabeln als Beispiel für „ja“. Einen Kreis kann die App inzwischen zeichnen (koordinaten.kreise); Aufgaben mit dem Kreis als Gegenbeispiel sind noch nicht gebaut (möglich als Ergänzung). Eine liegende Parabel gibt es nicht als Graph-Art."
  ]
 }

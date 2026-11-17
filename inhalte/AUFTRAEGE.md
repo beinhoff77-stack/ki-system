@@ -1379,3 +1379,88 @@ Arbeite ohne Rückfragen durch.
 
 Einspielen (Haupt-Chat): Teil A mit einheit_abgleichen(…, 'sperren') (Weg A) und Sperren der „ersetzt“-Fassungen; Teil B als Entwurf abgleichen ('loeschen'), Freigabe durch Sebastian;
 Teil C ist Entscheidungsgrundlage (Klassen, Reihenfolge, neue Themen).
+
+# Bau-Auftrag F (App, Prüfskript, Datenbank): echte Stufen sichtbar und erzwungen, Bonus-Bordkarten
+
+Anlass (Sebastian 17.11.): Alle Durchsichten melden dasselbe – Stufe 2 oft dieselbe Rechnung wie Stufe 1, Stufe 3 mit Aufgaben der Stufe 2, dazu 3 bis 6 gleich gebaute Aufgaben hintereinander.
+Bisher prüft nichts mechanisch, ob sich Stufen im Gedanken unterscheiden. Das wird jetzt Regel, Prüfung und Anzeige. Danach folgt die Inhalts-Runde „Zwanzigste Runde“.
+
+```text
+Du bist der Bau-Chat für die Lern-App „Lernen Schule“. Neuer Auftrag F.
+Repository: beinhoff77-stack/ki-system. Hole den aktuellen Stand des Zweigs lernen-app und lege davon den Zweig bau-stufen an.
+Lies zuerst: AGENTS.md, in inhalte/AUFTRAEGE.md die Abschnitte „Bau-Auftrag E-1“ (Arbeitsweise, Tests, Version, Grenzen – gelten unverändert) und „Bau-Auftrag F“, inhalte/README.md,
+tools/inhalt_pruefen.py, und in inhalte/postfach/ zwei Abschlussberichte der Durchsicht (durchsicht-kl6.md, durchsicht-kl9.md auf den Zweigen origin/durchsicht-kl6 und origin/durchsicht-kl9),
+damit du das Problem kennst.
+
+1. Aufgabentyp je Bordkarte (Inhalt + Prüfskript + Datenbank)
+ - Neues Feld „g“ je Aufgabe = Aufgabentyp („Gedanke“), ein kurzer Schlüssel aus fester Liste:
+   Stufe 1: direkt (wie das Beispiel der Lernkarte, andere Zahlen) · erkennen (zuordnen, ablesen, benennen)
+   Stufe 2: mehrschritt (zwei bis drei Rechenschritte) · einkleidung (Sachsituation, die direkt auf die Rechnung führt) · umkehr (gesuchte Größe ist eine andere als im Beispiel) · darstellung (Wechsel Tabelle/Bild/Term)
+   Stufe 3: rueckwaerts (vom Ergebnis zur Ausgangsgröße über mehrere Schritte) · verknuepfen (braucht früheren Stoff dazu) · begruenden (Aussage prüfen, Gegenbeispiel) · fehler (Fehler in einer Rechnung finden und deuten)
+            · transfer (ungewohnte Einkleidung, Modell selbst aufstellen) · parameter (Variable statt Zahl, „für welche a …“) · pruefung (Aufbau wie eine echte Prüfungsaufgabe)
+   Bonus:   knobel (Wettbewerbsniveau, mehrere Ideen nötig)
+ - inhalte/README.md: Abschnitt „Stufen und Aufgabentypen“ mit dieser Liste, je Typ ein Satz und ein Beispiel; Regel: Die Stufe folgt aus dem Typ, nicht aus der Größe der Zahlen.
+ - tools/inhalt_pruefen.py: „g“ ist freiwillig (alte Aufgaben haben es nicht). Für Aufgaben MIT „g“ gilt als Fehler: unbekannter Typ; Typ passt nicht zur Stufe.
+   Für Lernkarten, deren Übungen ALLE ein „g“ haben, zusätzlich als Fehler: weniger als 2 verschiedene Typen in Stufe 1, weniger als 3 in Stufe 2, weniger als 4 in Stufe 3;
+   mehr als 2 Aufgaben desselben Typs je Stufe mit gleichem Satzbau (Fragetext nach Ersetzen aller Zahlen identisch). Als Hinweis für alle Lernkarten: Zahl der Übungen je Stufe mit „g“ / ohne „g“,
+   und „gleich gebaut hintereinander“ (3 oder mehr Übungen derselben Lernkarte in Folge mit identischem Fragetext nach Ersetzen der Zahlen). Die Ausgabe nennt am Ende je Datei die Zahl solcher Gruppen.
+ - Neuer Pool „bonus“ (Feld p): freiwillige Knobel-Bordkarte, zählt weder für „sitzt“ noch für Test; je Lernkarte höchstens 3; nur Typ knobel; Stufe 3. Prüfskript und README anpassen
+   (Mengenregeln der anderen Pools bleiben).
+ - Datenbank (Migration als Datei, nicht ausführen; Namensmuster 20261118_w150_f_*.sql; kein DROP, kein DELETE): Spalte schule.aufgabe.typ text; schule.aufgaben_einfuegen und
+   schule.einheit_abgleichen übernehmen a->>'g' nach typ (beim Abgleich auch für vorhandene Aufgaben mit gleicher Frage); Pool „bonus“ zulassen (Prüfbedingungen, art); die Antworten an die App
+   (Aufgabenliste der Einheit, Übung prüfen) liefern typ und bei Bonus-Bordkarten ein Kennzeichen; schule.karte_buchen zählt Bonus nicht (prüfen: tut es wegen pool <> 'uebung' schon nicht).
+   Belohnung: richtige Bonus-Bordkarte im ersten Versuch = 30 Sterne (schule.sterne, Grund „bonus“, je Aufgabe einmal) und ein Zähler „Knobel-Sterne“ im Konto.
+
+2. App – Kinderansicht
+ - Stufe auf jeder Bordkarte zeigen: kleines Zeichen im Kopf der Bordkarte (● leicht · ●● mittel · ●●● schwer, mit Text für Vorleser). Kein Druck: keine rote Farbe, kein „zu schwer“.
+ - Abwechslung: Die Auswahl der nächsten Bordkarte (waehleStufe in lernen.js) nimmt innerhalb der Ziel-Stufe nie zweimal hintereinander denselben Typ (Feld typ; fehlt es: nie zweimal
+   hintereinander denselben Fragetext nach Ersetzen der Zahlen) und bevorzugt Typen, die das Kind in dieser Etappe noch nicht hatte. Die „schwere Bordkarte im ersten Versuch“ für „sitzt“
+   bleibt Pflicht – wenn Typen vorhanden sind, zählt dafür nur eine Aufgabe mit Stufe-3-Typ (nicht eine umetikettierte leichte).
+ - Bonus-Bordkarte: Wenn eine Etappe sitzt und es für sie Bonus-Bordkarten gibt, bietet die Landung „★ Knobel-Bordkarte (freiwillig)“ an; außerdem höchstens einmal je Lerntag auf der Abflugtafel
+   („Knobeln des Tages“ aus einer sitzenden Etappe). Falsch kostet nichts und zeigt die Lösung mit Weg; richtig im ersten Versuch: 30 Sterne und ein Knobel-Stern, sichtbar im Reisepass
+   („Knobel-Sterne: n“). Kein zweiter Versuch mit Punktabzug, kein Einfluss auf „sitzt“, Wiederholung oder Test. Ohne Migration/ohne Bonus-Aufgaben erscheint nichts davon.
+ - Eltern/Lehrer: unter „Inhalte ansehen“ je Bordkarte Stufe und Typ; im Lernstand je Etappe „Knobel: x von y“.
+ - Info-Seite „So funktioniert’s“ im selben Schritt anpassen (drei Stufen = drei Arten zu denken; Knobel-Bordkarten freiwillig).
+Tests ergänzen (Stufenzeichen, keine zwei gleichen Typen hintereinander, Bonus-Angebot, Bonus zählt nicht für „sitzt“, Sterne). Version erhöhen, Commit + Push auf bau-stufen.
+Meldung in inhalte/postfach/bau-stufen.md: zuerst „Teil 1 fertig“ (README, Prüfskript, Migration als Datei) – darauf warten die Inhalts-Chats –, dann „Teil 2 fertig“ (App).
+Grenzen wie im Bau-Auftrag E-1: Datenbank nicht ausführen, kein Merge nach main oder lernen-app, keine Inhalte in inhalte/themen ändern. Arbeite ohne Rückfragen durch.
+```
+
+# Zwanzigste Runde (Inhalte): echte Stufe 3 und Knobel-Bordkarten – je Klasse neu bauen
+
+Voraussetzung: Bau-Auftrag F Teil 1 ist nach lernen-app zusammengeführt (Prüfskript kennt „g“ und Pool „bonus“) und die Neunzehnte Runde (Durchsicht) ist eingespielt.
+Ein Chat je Klasse (Zweige stufen-kl5 … stufen-kl10). Im Text `<N>` durch die Klasse ersetzen.
+
+```text
+Du baust für eine Mathe-Lern-App (bayerisches Gymnasium, Klasse <N>) Bordkarten mit ECHTEN Unterschieden in der Schwierigkeit. Die Themen sind für Kinder freigegeben.
+Repository: beinhoff77-stack/ki-system (lernen-app ist ein Zweig darin). Hole den aktuellen Stand des Zweigs lernen-app, lege davon den Zweig stufen-kl<N> an und arbeite nur dort.
+Lies zuerst vollständig: inhalte/README.md – besonders „Stufen und Aufgabentypen“ (Feld g, Pool bonus) –, inhalte/postfach/README.md, in inhalte/AUFTRAEGE.md die Abschnitte „Zehnte Runde“
+(Prüfungsvorbilder, Urheberrecht), „Fünfzehnte Runde“ (Arbeitsweise bei freigegebenen Themen) und „Bau-Auftrag F“ (Liste der Typen), und inhalte/postfach/durchsicht-kl<N>.md
+(dort steht je Lernkarte, worin sich die Stufen heute unterscheiden und was gefehlt hat).
+Deine Themen: alle Einträge in inhalte/themenliste.json mit klasse {"gym_by": <N>}.
+
+Das Problem, das du löst: Die Aufgaben stammen aus Vorlagen mit Zufallszahlen. Dadurch war Stufe 2 oft die Rechnung von Stufe 1 mit anderen Zahlen, Stufe 3 enthielt Stufe-2-Aufgaben, und es kamen
+3 bis 6 gleich gebaute Aufgaben hintereinander. „Schwer“ heißt ab jetzt: ein anderer Gedanke.
+
+Je Lernkarte (jede Lernkarte jedes Themas):
+1. Schreibe zuerst eine Stufen-Leiter in drei Zeilen: Was kann ein Kind auf Stufe 1, was muss es auf Stufe 2 zusätzlich können, welche neuen Gedanken verlangt Stufe 3? (kommt in den Bericht)
+2. Gib JEDER vorhandenen Übung der Lernkarte ihren Typ (Feld g) nach der Liste in der README. Passt eine Aufgabe zu keinem Typ ihrer Stufe, stufe sie um (Feld s) – Frage und Antworten bleiben gleich.
+3. Baue neue Übungen, bis die Lernkarte hat: Stufe 1 mindestens 4 (mindestens 2 Typen), Stufe 2 mindestens 6 (mindestens 3 Typen), Stufe 3 mindestens 8 mit mindestens 4 verschiedenen Typen
+   aus rueckwaerts, verknuepfen, begruenden, fehler, transfer, parameter, pruefung – je Typ höchstens 3. Jede neue Aufgabe ist einzeln entworfen: eigener Satzbau, eigene Situation, eigener Gedanke.
+   Zufallszahlen sind erlaubt, aber nicht mehrere Aufgaben aus derselben Vorlage. Für „pruefung“ echte Prüfungs- und Testaufgaben recherchieren (Websuche) und Typ und Niveau nachbauen, nie Wortlaut oder Zahlen.
+4. Baue je Lernkarte 2 Knobel-Bordkarten (Pool bonus, Typ knobel): Wettbewerbsniveau (Känguru, Mathematik-Olympiade Schulrunde, Pangea als Vorbild für die ART der Aufgabe), mit dem Stoff der Lernkarte
+   lösbar, aber erst mit einer eigenen Idee. Mit Tipp, der die Idee nicht verrät, und ausführlichem Lösungsweg. Wo eine Lernkarte dafür nichts hergibt, eine statt zwei und das begründen.
+5. Übungen der Lernkarte, die danach überflüssig sind (dieselbe Vorlage zum vierten Mal), meldest du unter „überzählig“ mit Fragetext – nicht löschen; der Haupt-Chat sperrt sie.
+6. Reihenfolge in der Datei: innerhalb einer Lernkarte nie zwei Aufgaben desselben Typs direkt hintereinander.
+Regeln: Lösungen vom Programm berechnen und von Hand nachrechnen; Rechenausdruck „c“ muss die Aufgabe wirklich nachrechnen. Bei Auswahl darf keine zweite Antwort richtig sein.
+Nichts verlangen, was im Lehrplan erst später kommt (Reihenfolge der Themenliste beachten). Zeichnungen maßstäblich. Lernkarten-Texte nicht ändern.
+Alles, was du nicht ausdrücklich änderst, bleibt Zeichen für Zeichen gleich (Nachweis per Skript gegen origin/lernen-app: bei alten Aufgaben ändern sich nur g und gegebenenfalls s).
+Fertig je Thema, wenn `python3 -I tools/inhalt_pruefen.py inhalte/themen/<datei>.json` OK meldet – ohne Fehler zu Typen und mit 0 Gruppen „gleich gebaut hintereinander“ – und du jede neue Aufgabe
+gelesen und nachgerechnet hast. Ein Thema = ein Commit + Push auf stufen-kl<N>.
+Grenzen: Keine Datenbank, kein App-Code, keine Tests, kein Merge. Keine Namen oder Daten von Kindern. Keine Schulbuch-, Prüfungs- oder Wettbewerbsaufgaben wörtlich übernehmen.
+Meldungen in inhalte/postfach/stufen-kl<N>.md: je Thema eine Zeile; am Ende Abschlussbericht mit (1) Stufen-Leiter je Lernkarte, (2) Tabelle je Lernkarte: Übungen je Stufe und Typ vorher → nachher,
+(3) Zahl neuer Übungen und Knobel-Bordkarten, (4) Liste „überzählig“, (5) Quellen der Prüfungsvorbilder, (6) drei Beispiel-Bordkarten je Stufe aus einer Lernkarte deiner Wahl im Wortlaut,
+damit Sebastian den Unterschied sieht. Arbeite ohne Rückfragen durch.
+```
+
+Einspielen (Haupt-Chat): Migration F einspielen, dann einheit_abgleichen(…, 'lassen') je Thema (übernimmt typ und Stufe, fügt Neues ein); „überzählig“ sperren.

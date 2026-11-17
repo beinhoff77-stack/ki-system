@@ -127,3 +127,10 @@ def nachtrag(d, neu=None, umstufen=None, berichtigen=None, ersetzen=None, karten
     print(f"{pfad.name}: Durchsicht rsib-1 – umgestuft {len(log['umgestuft'])}, berichtigt {len(log['berichtigt'])}, "
           f"ersetzt {len(log['ersetzt'])}, neu {sum(len(v) for v in log['neu'].values())}")
     return log
+
+
+def finde(d, teil, pool='uebung'):
+    """Vollständiger Fragetext der einzigen Aufgabe (im Pool), deren Text `teil` enthält."""
+    t = [a['f']['text'] for a in d['aufgaben'] if teil in a['f']['text'] and (pool is None or a['p'] == pool)]
+    assert len(t) == 1, ('nicht eindeutig', teil, len(t))
+    return t[0]

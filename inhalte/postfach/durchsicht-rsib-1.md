@@ -1,5 +1,8 @@
 # Postfach durchsicht-rsib-1 (Neunzehnte Runde, Teil B, Chat 1)
 
+## 2026-11-17 14:40 – STATUS
+daten.stichproben fertig: 8 umgestuft, 5 ersetzt (u. a. aussagen Stufe 1: sechsmal dieselbe Frage), 18 neu (Stufe 3: Fang-Wiederfang, Schlagzeilen und Werbeaussagen prüfen, Rücklaufquote, Mindestanzahl). inhalt_pruefen: OK, 0 Hinweise.
+
 ## 2026-11-17 14:20 – STATUS
 abbildungen.vektoren fertig: 14 umgestuft (Auswahl-Rechnungen von Stufe 3 auf 2 bzw. 1), 4 ersetzt, 26 neu (Stufe 3), Lernkarte punkt_berechnen um den Schritt „Mittelpunkt“ ergänzt (kam in Aufgaben vor, war nicht erklärt). inhalt_pruefen: OK, 0 Hinweise.
 

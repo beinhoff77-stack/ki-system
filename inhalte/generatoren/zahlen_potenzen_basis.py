@@ -677,6 +677,10 @@ for _lz, _t in [('schreibweise', '5 hoch wie viel ergibt 625?'),
     DS.stufe(_lz, _t, 2, enthaelt=lambda x: x['s'] == 3)
 durchsicht_anwenden(DATEI, DS)
 # ---- DURCHSICHT ENDE ----
+# ---- STUFEN (Zwanzigste Runde, Zweig stufen-kl5, siehe _stufen_kl5.py und _st5_zahlen_potenzen_basis.py) ----
+from _stufen_kl5 import stufen_anwenden  # noqa: E402
+stufen_anwenden(DATEI, 'zahlen.potenzen_basis')
+# ---- STUFEN ENDE ----
 
 if __name__ == '__main__':
     schreibe(DATEI, 'zahlen.potenzen_basis.json')

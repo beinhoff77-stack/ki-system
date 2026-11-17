@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 14:42 – STATUS: zahlen.potenzen_basis fertig
+7 Lernkarten: 38 neue Übungen, 14 Knobel-Bordkarten, 35 umgestuft, 16 überzählig. Prüfskript OK, 0 Gruppen „gleich gebaut hintereinander“, Gegenprobe ohne überzählige OK, Nachweis OK.
+
 ## 2026-11-17 14:38 – STATUS: zahlen.rechengesetze fertig
 14 Lernkarten: 92 neue Übungen, 28 Knobel-Bordkarten, 88 umgestuft, 65 überzählig. Prüfskript OK, 0 Gruppen „gleich gebaut hintereinander“, Gegenprobe ohne überzählige OK, Nachweis OK.
 

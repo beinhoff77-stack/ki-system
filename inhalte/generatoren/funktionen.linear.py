@@ -515,7 +515,7 @@ UMBAU = {
                {'text': 'Preis für 1 kg: 7,50 € : 3 = 2,50 €. Das ist k.', 'bild': {'punkte': [{'x': 0, 'y': 0, 'name': 'O'}, {'x': 1, 'y': 2.5, 'name': '(1 | 2,5)'}, {'x': 3, 'y': 7.5, 'name': '(3 | 7,5)'}]}},
                {'text': 'Die Funktion heißt ⟦y = 2,5 · x⟧. Sie geht durch den Ursprung O.'}],
   'fehler': 'y = 2x + 1 ist ⟦nicht⟧ proportional: Bei 0 kg müsstest du 1 € zahlen. Die Gerade verfehlt den Ursprung.',
-  'fehler_bild': {'graphen': [{'art': 'linear', 'm': 2.5, 't': 0, 'name': '2,5x'}, {'art': 'linear', 'm': 2, 't': 1, 'name': '2x + 1', 'name_x': 1.5}], 'punkte': [{'x': 0, 'y': 0, 'name': 'O'}, {'x': 0, 'y': 1, 'name': '1 €?'}]},
+  'fehler_bild': {'graphen': [{'art': 'linear', 'm': 2.5, 't': 0, 'name': '2,5x', 'name_x': 2.8}, {'art': 'linear', 'm': 2, 't': 1, 'name': '2x + 1'}], 'punkte': [{'x': 0, 'y': 0, 'name': 'O'}, {'x': 0, 'y': 1, 'name': '1 €?'}]},
   'regel': 'Proportional heißt ⟦y = k · x⟧, Gerade durch den Ursprung. k berechnest du als y : x.'},
  'aufstellen': {
   'einstieg': 'Du kennst die Steigung eines Weges und einen Punkt, an dem du gerade bist. Daraus berechnest du, wo der Weg beginnt. So stellst du die ⟦Geradengleichung⟧ auf.',

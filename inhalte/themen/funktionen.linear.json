@@ -342,14 +342,14 @@
        "art": "linear",
        "m": 2.5,
        "t": 0,
-       "name": "2,5x"
+       "name": "2,5x",
+       "name_x": 2.8
       },
       {
        "art": "linear",
        "m": 2,
        "t": 1,
-       "name": "2x + 1",
-       "name_x": 1.5
+       "name": "2x + 1"
       }
      ],
      "punkte": [

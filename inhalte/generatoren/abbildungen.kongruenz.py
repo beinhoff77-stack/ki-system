@@ -834,6 +834,658 @@ BF.stufe('eigenschaften', 'Welche Aussage über Kongruenzabbildungen ist richtig
 
 # ---- BEFUNDE ENDE ----
 
+# ---------- Achtzehnte Runde, Teil B (luecken-kl7): neue Lernkarten laut LehrplanPLUS M7 2.1 ----------
+# Lücken aus inhalte/pruefung/aufbau/klasse7.json („luecken“): Mittelsenkrechte, Lot, Winkelhalbierende (hoch) und
+# symmetrische Vierecke ordnen (niedrig). LehrplanPLUS Gymnasium M7 2.1: „konstruieren Mittelsenkrechte, Lote und Winkelhalbierende
+# und beschreiben ihr Vorgehen“; Abstandsprobleme; „ordnen … die Menge aller symmetrischen Vierecke anhand ihrer Symmetrieeigenschaften“.
+# Vorbilder (nur Typ und Niveau, eigene Zahlen): Bayerischer Mathematik-Test 8 (ISB) 2024 A4b (Schiff gleich weit von zwei Leuchttürmen),
+# 2019 A4 (Punkt gleich weit von drei Orten), 2022 A1 (Abstand von g und von C), 2014 B (Schnitt zweier Mittelsenkrechten), 2023 A3 (Raute, Gegenbeispiel).
+# Eigener Zufallsstart; die Karten werden nach dem bisherigen Zusammenbau eingesetzt, alte Karten und Aufgaben bleiben gleich.
+import math  # noqa: E402
+from _luecken_kl7 import Karte, begrenzt, einfuegen, fig, koord, pk, pol, zf  # noqa: E402
+
+_HP = 'Trage die x- und die y-Koordinate ein.'
+
+
+def _ms_karte():
+    oft = begrenzt()
+    A, B = (0, 0), (6, 0)
+    h = math.sqrt(16 - 9)
+    P, Q, M = (3, h), (3, -h), (3, 0)
+    basis = {'A': A, 'B': B}
+    kreise = [{'m': 'A', 'r': 4}, {'m': 'B', 'r': 4}]
+    ab = ['A', 'B', 'AB = 6 cm']
+    s1 = fig(basis, linien=[ab], kreise=kreise)
+    s2 = fig({**basis, 'P': P, 'Q': Q}, linien=[ab], kreise=kreise)
+    s3 = fig({**basis, 'P': P, 'Q': Q, 'M': M, '_m1': (3, -3.6), '_m2': (3, 3.6)}, linien=[ab, ['_m1', '_m2', 'm']], kreise=kreise,
+             rechter_winkel=[['M', 'B', '_m2']])
+    X = (3, 2)
+    s4 = fig({**basis, 'M': M, 'X': X, '_m1': (3, -3.6), '_m2': (3, 3.6)}, linien=[ab, ['_m1', '_m2', 'm'], ['X', 'A', '', 'gestrichelt'], ['X', 'B', '', 'gestrichelt']],
+             rechter_winkel=[['M', 'B', '_m2']])
+    w7 = math.sqrt(7)
+    s5 = fig({'C': (3, 3), 'P': (3 - w7, 0), 'Q': (3 + w7, 0), 'F': (3, 0), '_g1': (-1, 0), '_g2': (7, 0)},
+             linien=[['_g1', '_g2', 'g'], ['C', 'F', 'Lot', 'gestrichelt']], kreise=[{'m': 'C', 'r': 4}], rechter_winkel=[['F', '_g2', 'C']])
+    e = {
+        'lernziel': 'mittelsenkrechte',
+        'titel': 'Mittelsenkrechte und Lot',
+        'einstieg': 'Zwei Freundinnen wohnen in den Häusern A und B. Sie suchen Treffpunkte, die von beiden Häusern gleich weit weg sind. '
+                    'Alle diese Punkte liegen auf einer Geraden: der ⟦Mittelsenkrechten⟧.',
+        'woerter': [['Mittelsenkrechte', 'Gerade durch die Mitte von [AB], senkrecht zu [AB]'],
+                    ['Abstand', 'Länge des kürzesten Wegs; zu einer Geraden immer senkrecht gemessen'],
+                    ['Lot', 'Gerade durch einen Punkt, die senkrecht auf einer anderen Geraden steht']],
+        'bild': fig(basis, linien=[ab]),
+        'schritte': [
+            {'text': 'Zeichne um A und um B Kreise mit gleichem Radius, hier 4 cm.', 'bild': s1},
+            {'text': 'Die beiden Kreise schneiden sich in P und Q.', 'bild': s2},
+            {'text': 'Die Gerade PQ ist die ⟦Mittelsenkrechte m⟧ von [AB].', 'bild': s3},
+            {'text': 'Jeder Punkt X auf m hat von A und B den gleichen Abstand.', 'bild': s4},
+            {'text': 'Für das ⟦Lot⟧ von C auf g: Kreis um C, dann Mittelsenkrechte der Schnittpunkte.', 'bild': s5},
+        ],
+        'probe': 'P liegt auf beiden Kreisen: PA = PB = 4 cm ✓',
+        'fehler': 'Zu kleine Kreise schneiden sich nicht – wie Freundinnen, die nicht weit genug laufen. Bei AB = 6 cm braucht man mehr als 3 cm.',
+        'fehler_bild': fig(basis, linien=[ab], kreise=[{'m': 'A', 'r': 2.5}, {'m': 'B', 'r': 2.5}]),
+        'regel': 'Auf der Mittelsenkrechten liegen alle Punkte gleich weit von A und B. Sie steht ⟦senkrecht⟧ auf [AB] und halbiert die Strecke.',
+    }
+
+    def m_waag(R, B_):
+        y, a, k = R.randint(-3, 5), R.randint(-6, 3), R.randint(1, 5)
+        b = a + 2 * k
+        return B_.L(f'Die Punkte {pk("A", a, y)} und {pk("B", b, y)} liegen auf einer waagrechten Linie. Gib die Mittelsenkrechte von [AB] an.', 'x = □', [a + k], [f'({a} + {b}) / 2'],
+                    f'Die Mittelsenkrechte ist senkrecht und geht durch die Mitte von [AB]: x = ({zf(a)} + {zf(b)}) : 2 = {zf(a + k)}.',
+                    'Die Mittelsenkrechte geht durch die Mitte der Strecke.', 'Trage die Zahl ein.', grafik=koord([(a, y, 'A'), (b, y, 'B')]))
+
+    def m_senk(R, B_):
+        x, a, k = R.randint(-4, 5), R.randint(-5, 2), R.randint(1, 4)
+        b = a + 2 * k
+        return B_.L(f'Die Punkte {pk("A", x, a)} und {pk("B", x, b)} liegen übereinander. Gib die Mittelsenkrechte von [AB] an.', 'y = □', [a + k], [f'({a} + {b}) / 2'],
+                    f'Die Mittelsenkrechte ist hier waagrecht und geht durch die Mitte: y = ({zf(a)} + {zf(b)}) : 2 = {zf(a + k)}.',
+                    'Die Mittelsenkrechte geht durch die Mitte der Strecke und steht senkrecht auf ihr.', 'Trage die Zahl ein.', grafik=koord([(x, a, 'A'), (x, b, 'B')]))
+
+    def m_mitte(R, B_):
+        a, b = R.randint(-5, 3), R.randint(-4, 4)
+        dx, dy = 2 * R.randint(1, 4), 2 * R.randint(-3, 3)
+        if dy == 0: dy = 2
+        return B_.L(f'Durch welchen Punkt M geht die Mittelsenkrechte von [AB] mit {pk("A", a, b)} und {pk("B", a + dx, b + dy)}?', 'M(□ | □)',
+                    [a + dx // 2, b + dy // 2], [f'({a} + {a + dx}) / 2', f'({b} + {b + dy}) / 2'],
+                    f'M ist die Mitte von [AB]: x = ({zf(a)} + {zf(a + dx)}) : 2 = {zf(a + dx // 2)}, y = ({zf(b)} + {zf(b + dy)}) : 2 = {zf(b + dy // 2)}.',
+                    'Die Mittelsenkrechte geht durch den Mittelpunkt der Strecke.', _HP, grafik=koord([(a, b, 'A'), (a + dx, b + dy, 'B')]))
+
+    def m_eig(R, B_):
+        oft('eig')
+        p, (a, b) = R.choice('PQRX'), R.choice([('A', 'B'), ('C', 'D'), ('E', 'F'), ('K', 'L')])
+        richtig = f'{p} ist von {a} und {b} gleich weit entfernt.'
+        return B_.A(f'Der Punkt {p} liegt auf der Mittelsenkrechten von [{a}{b}]. Was gilt sicher?', richtig,
+                    [f'{p} ist der Mittelpunkt von [{a}{b}].', f'{p} liegt auf der Strecke [{a}{b}].', f'{p} ist von {a} doppelt so weit entfernt wie von {b}.'],
+                    f'Alle Punkte der Mittelsenkrechten sind von {a} und {b} gleich weit entfernt. Der Mittelpunkt ist nur einer davon.',
+                    'Was haben alle Punkte der Mittelsenkrechten gemeinsam?')
+
+    def m_achse(R, B_):
+        x, y = R.choice([v for v in range(-5, 6) if v]), R.choice([v for v in range(-5, 6) if v])
+        p = R.choice('PQR')
+        if R.random() < 0.5:
+            return B_.Z(f'Wie weit ist {pk(p, x, y)} von der x-Achse entfernt? (1 Einheit = 1 cm)', abs(y), f'abs({y})',
+                        f'Das Lot von {p} auf die x-Achse ist senkrecht und {zf(abs(y))} Einheiten lang: Abstand {zf(abs(y))} cm.',
+                        'Der Abstand wird auf dem Lot gemessen – senkrecht zur x-Achse.', einheit='cm', grafik=koord([(x, y, p)]))
+        return B_.Z(f'Wie weit ist {pk(p, x, y)} von der y-Achse entfernt? (1 Einheit = 1 cm)', abs(x), f'abs({x})',
+                    f'Das Lot von {p} auf die y-Achse ist waagrecht und {zf(abs(x))} Einheiten lang: Abstand {zf(abs(x))} cm.',
+                    'Der Abstand wird auf dem Lot gemessen – senkrecht zur y-Achse.', einheit='cm', grafik=koord([(x, y, p)]))
+
+    def m_gleich(R, B_):
+        d = R.choice([Fr(x, 2) for x in range(5, 25)])
+        p = R.choice('PQRT')
+        return B_.Z(f'{p} liegt auf der Mittelsenkrechten von [AB] und ist {zf(d)} cm von A entfernt. Wie weit ist {p} von B entfernt?', d, str(d),
+                    f'Punkte der Mittelsenkrechten sind von A und B gleich weit entfernt: ebenfalls {zf(d)} cm.',
+                    'Was bedeutet es, auf der Mittelsenkrechten zu liegen?', einheit='cm')
+
+    def m_radius(R, B_):
+        n = R.randint(5, 12)
+        halb = Fr(n, 2)
+        gross = [halb + Fr(k, 2) for k in (1, 2, 3)]
+        klein = [halb, halb - Fr(1, 2), halb - 1, halb - Fr(3, 2)]
+        r = R.choice(gross)
+        f = R.sample([x for x in klein if x > 0], 3)
+        return B_.A(f'AB = {n} cm. Die Kreise um A und um B mit gleichem Radius sollen sich in zwei Punkten schneiden. Welcher Radius passt?',
+                    f'{zf(r)} cm', [f'{zf(x)} cm' for x in f],
+                    f'Der Radius muss größer als die halbe Strecke sein: größer als {zf(halb)} cm. Nur {zf(r)} cm ist größer.',
+                    'Die Kreise müssen weiter reichen als bis zur Mitte von [AB].',
+                    pruef=lambda t: Fr(t.split()[0].replace(',', '.')) > halb)
+
+    def m_fuss(R, B_):
+        x, y = R.randint(-4, 6), R.randint(-3, 6)
+        c = R.choice([v for v in range(-3, 6) if v != y])
+        p = R.choice('PQC')
+        if R.random() < 0.5:
+            return B_.L(f'Fälle das Lot von {pk(p, x, y)} auf die waagrechte Gerade g: y = {zf(c)}. Wo ist der Lotfußpunkt F?', 'F(□ | □)', [x, c], [str(x), str(c)],
+                        f'Das Lot auf eine waagrechte Gerade ist senkrecht: x bleibt {zf(x)}, F liegt auf g, also y = {zf(c)}.',
+                        'Das Lot auf eine waagrechte Gerade geht senkrecht nach oben oder unten.', _HP, grafik=koord([(x, y, p)], y=[c], waagrecht=[c]))
+        return B_.L(f'Fälle das Lot von {pk(p, y, x)} auf die senkrechte Gerade g: x = {zf(c)}. Wo ist der Lotfußpunkt F?', 'F(□ | □)', [c, x], [str(c), str(x)],
+                    f'Das Lot auf eine senkrechte Gerade ist waagrecht: y bleibt {zf(x)}, F liegt auf g, also x = {zf(c)}.',
+                    'Das Lot auf eine senkrechte Gerade geht waagrecht nach links oder rechts.', _HP, grafik=koord([(y, x, p)], x=[c], senkrecht=[c]))
+
+    def m_abst(R, B_):
+        x, y = R.randint(-4, 6), R.randint(-3, 7)
+        c = R.choice([v for v in range(-3, 7) if v != y])
+        p = R.choice('PQC')
+        return B_.Z(f'Wie weit ist {pk(p, x, y)} von der Geraden g: y = {zf(c)} entfernt? (1 Einheit = 1 cm)', abs(y - c), f'abs({y} - ({c}))',
+                    f'Gemessen wird auf dem Lot (senkrecht): von y = {zf(y)} bis y = {zf(c)} sind es {zf(abs(y - c))} cm.',
+                    'Der Abstand zu einer Geraden wird senkrecht gemessen.', einheit='cm', grafik=koord([(x, y, p)], y=[c], waagrecht=[c]))
+
+    def m_spiel(R, B_):
+        oft('spiel', 3)
+        h, a, k = R.randint(3, 7), R.randint(-3, 3), R.randint(2, 4)
+        b = a + 2 * k
+        ding = R.choice(['ein Spielplatz', 'eine Bushaltestelle', 'ein Briefkasten', 'eine Bank'])
+        return B_.L(f'Zwei Häuser stehen bei {pk("A", a, h)} und {pk("B", b, h)}. An der Straße (x-Achse) soll {ding} S hin, von beiden Häusern gleich weit entfernt.',
+                    'S(□ | □)', [a + k, 0], [f'({a} + {b}) / 2', '0'],
+                    f'S liegt auf der Mittelsenkrechten x = {zf(a + k)} von [AB] und auf der x-Achse: S({zf(a + k)} | 0).',
+                    'Gleich weit von A und B: Mittelsenkrechte. Dann mit der Straße schneiden.', _HP, grafik=koord([(a, h, 'A'), (b, h, 'B')]))
+
+    def m_spiegel(R, B_):
+        oft('spiegel')
+        p = R.choice(['A', 'P', 'Q', 'R'])
+        return B_.A(f"{p}' ist das Bild von {p} bei einer Achsenspiegelung. Wo liegt die Spiegelachse?", f"Sie ist die Mittelsenkrechte von [{p}{p}'].",
+                    [f"Sie ist die Gerade durch {p} und {p}'.", f"Sie geht durch {p} und steht senkrecht auf [{p}{p}'].", f"Sie ist parallel zu [{p}{p}']."],
+                    f"Bei der Achsenspiegelung ist {p}' gleich weit von der Achse entfernt wie {p}, und [{p}{p}'] steht senkrecht auf ihr: die Mittelsenkrechte.",
+                    'Denk an die Achsenspiegelung: senkrecht zur Achse, gleich weit auf die andere Seite.')
+
+    def m_schritt(R, B_):
+        v = R.randint(0, 2)
+        oft(('schritt', v))
+        if v == 0:
+            return B_.A('Du hast um A und um B Kreise mit gleichem Radius gezeichnet. Sie schneiden sich in P und Q. Was ist der nächste Schritt?',
+                        'Die Gerade durch P und Q zeichnen.', ['Die Gerade durch A und P zeichnen.', 'Einen Kreis um P zeichnen.', 'Die Strecke [AP] halbieren.'],
+                        'Die Schnittpunkte P und Q sind gleich weit von A und B entfernt. Die Gerade PQ ist die Mittelsenkrechte.',
+                        'Welche Punkte kennst du jetzt, die gleich weit von A und B entfernt sind?')
+        if v == 1:
+            return B_.A('Du willst das Lot von C auf die Gerade g konstruieren. Was ist der erste Schritt?',
+                        'Einen Kreis um C zeichnen, der g zweimal schneidet.', ['Einen Kreis um einen beliebigen Punkt von g zeichnen.', 'Die Gerade durch C parallel zu g zeichnen.', 'C mit einem beliebigen Punkt von g verbinden.'],
+                        'Der Kreis um C liefert zwei Punkte auf g, die gleich weit von C entfernt sind. Ihre Mittelsenkrechte ist das Lot durch C.',
+                        'Du brauchst zwei Punkte auf g, die von C gleich weit entfernt sind.')
+        return B_.A('Für die Mittelsenkrechte von [AB] zeichnest du Kreise um A und um B. Was muss für ihre Radien gelten?',
+                    'Beide gleich groß und größer als die Hälfte von AB.', ['Beide genau so groß wie AB.', 'Beide kleiner als die Hälfte von AB.', 'Die Radien dürfen verschieden sein.'],
+                    'Gleiche Radien geben Punkte gleich weit von A und B. Größer als die halbe Strecke, sonst schneiden sich die Kreise nicht. AB selbst geht auch, ist aber keine Bedingung.',
+                    'Die Schnittpunkte sollen gleich weit von A und B entfernt sein – und es soll sie geben.')
+
+    def m_diag(R, B_):
+        a, b, k = R.randint(-3, 2), R.randint(-3, 2), R.randint(2, 5)
+        A_, B2 = (a, b), (a + k, b + k)
+        r = R.choice([(a + k, b), (a, b + k)])
+        d2 = lambda p, q: (p[0] - q[0]) ** 2 + (p[1] - q[1]) ** 2
+        auf = lambda p: d2(p, A_) == d2(p, B2)
+        kand = [(a + k, b + k - 1), (a + k + 1, b), (a + k - 1, b), (a, b + k + 1), (a + 1, b + 1), (a + k, b - 1), (a - 1, b + k)]
+        f = R.sample([p for p in kand if not auf(p)], 3)
+        nm = lambda p: pk('P', p[0], p[1])
+        return B_.A(f'Gegeben sind {pk("A", *A_)} und {pk("B", *B2)}. Welcher Punkt liegt auf der Mittelsenkrechten von [AB]?', nm(r), [nm(p) for p in f],
+                    f'{nm(r)} ist von A und von B jeweils {zf(k)} Einheiten entfernt (einmal waagrecht, einmal senkrecht gezählt). Die anderen Punkte sind von A und B verschieden weit entfernt.',
+                    'Zähle Kästchen: Suche einen Punkt, der von A und B gleich weit weg ist, ohne schräg messen zu müssen.',
+                    grafik=koord([(a, b, 'A'), (a + k, b + k, 'B')]),
+                    pruef=lambda t: t == nm(r))
+
+    def m_zwei(R, B_):
+        h, d = R.randint(1, 5), R.randint(1, 4)
+        r = R.randint(1, 6)
+        n = lambda dist: 2 if dist < r else (1 if dist == r else 0)
+        anz = n(abs(d - h)) + n(d + h)
+        return B_.Z(f'Der Punkt C liegt {h} cm über der Geraden g. Wie viele Punkte sind von g genau {d} cm und von C genau {r} cm entfernt?', anz, str(anz),
+                    f'Punkte mit Abstand {d} cm von g liegen auf zwei Parallelen ({d} cm über und unter g). Der Kreis um C mit {r} cm trifft die obere '
+                    f'{n(abs(d - h))}-mal (Abstand {abs(d - h)} cm) und die untere {n(d + h)}-mal (Abstand {d + h} cm). Zusammen {anz}.',
+                    'Zeichne die zwei Parallelen zu g und den Kreis um C. Zähle die Schnittpunkte.', art='pruefung',
+                    grafik=koord([(0, h, 'C')], x=[-r, r], y=[-d, h + r], graphen=[{'art': 'linear', 'm': 0, 't': 0, 'name': 'g'}]))
+
+    def m_drei(R, B_):
+        a, b, p, q = R.randint(-2, 2), R.randint(-2, 2), R.randint(2, 4), R.randint(2, 4)
+        if p == q: q += 1
+        orte = R.choice([('Ahorn', 'Birk', 'Celle'), ('Au', 'Berg', 'Chiem'), ('Alm', 'Bach', 'Ried')])
+        return B_.L(f'Drei Orte liegen bei {pk("A", a, b)}, {pk("B", a + 2 * p, b)} und {pk("C", a, b + 2 * q)}. Ein Funkmast soll von allen drei Orten gleich weit entfernt sein. Wo steht er?',
+                    'M(□ | □)', [a + p, b + q], [f'({a} + {a + 2 * p}) / 2', f'({b} + {b + 2 * q}) / 2'],
+                    f'M liegt auf der Mittelsenkrechten von [AB] (x = {zf(a + p)}) und auf der von [AC] (y = {zf(b + q)}). Schnittpunkt: M({zf(a + p)} | {zf(b + q)}).',
+                    'Gleich weit von A und B: eine Mittelsenkrechte. Gleich weit von A und C: noch eine. Wo schneiden sie sich?', _HP, art='pruefung',
+                    grafik=koord([(a, b, 'A'), (a + 2 * p, b, 'B'), (a, b + 2 * q, 'C')]))
+
+    def m_lot_diag(R, B_):
+        s = 2 * R.randint(1, 4)
+        x = R.randint(s // 2 + 1, s + 3)
+        y = s - x
+        if x == y: x, y = x + 1, y - 1
+        return B_.L(f'Fälle das Lot von {pk("P", x, y)} auf die Gerade y = x. Wo ist der Lotfußpunkt F?', 'F(□ | □)', [s // 2, s // 2], [f'({x} + {y}) / 2', f'({x} + {y}) / 2'],
+                    f"Spiegle P an y = x: P'({zf(y)} | {zf(x)}). Die Gerade y = x ist die Mittelsenkrechte von [PP'], F ist die Mitte: F({zf(s // 2)} | {zf(s // 2)}).",
+                    "Spiegle P an y = x (x und y tauschen). Der Fußpunkt ist die Mitte von P und P'.", _HP,
+                    grafik=koord([(x, y, 'P')], graphen=[{'art': 'linear', 'm': 1, 't': 0, 'name': 'y = x'}]))
+
+    def m_knobel(R, B_):
+        ab = R.randint(4, 10)
+        d = R.choice([Fr(ab, 2) - 1, Fr(ab, 2), Fr(ab, 2) + 1, Fr(ab, 2) + 2, Fr(ab, 2) - Fr(1, 2)])
+        anz = 0 if d < Fr(ab, 2) else (1 if d == Fr(ab, 2) else 2)
+        return B_.Z(f'AB = {ab} cm. Wie viele Punkte sind von A und B gleich weit entfernt und zugleich genau {zf(d)} cm von A entfernt?', anz, str(anz),
+                    f'Die Punkte liegen auf der Mittelsenkrechten und auf dem Kreis um A mit {zf(d)} cm. Der nächste Punkt der Mittelsenkrechten ist die Mitte '
+                    f'({zf(Fr(ab, 2))} cm von A). Darum gibt es {anz} solche Punkte.',
+                    'Mittelsenkrechte und Kreis um A schneiden – wie nah kommt die Mittelsenkrechte an A heran?', art='knobel')
+
+    # feste Stufe-3-Aufgaben (2 nach Prüfungsvorbild, 1 Knobel)
+    def f_leucht(R, B_):
+        return B_.L('Zwei Leuchttürme stehen bei L₁(1 | 6) und L₂(7 | 6). Ein Schiff fährt auf der Route durch (0 | 1) und (8 | 5). An welchem Punkt P der Route ist es von beiden Leuchttürmen gleich weit entfernt?',
+                    'P(□ | □)', [4, 3], ['(1 + 7) / 2', '1 + 4 / 2'],
+                    'P liegt auf der Mittelsenkrechten von [L₁L₂]: x = (1 + 7) : 2 = 4. Die Route steigt je 2 nach rechts um 1: bei x = 4 ist y = 1 + 2 = 3. P(4 | 3).',
+                    'Gleich weit von beiden Türmen: Mittelsenkrechte. Wo schneidet sie die Route?', _HP, art='pruefung',
+                    grafik=koord([(1, 6, 'L₁'), (7, 6, 'L₂')], x=[8], graphen=[{'art': 'linear', 'm': 0.5, 't': 1, 'name': 'Route'}]))
+
+    def f_drei(R, B_):
+        return B_.L('Die Häuser A(−1 | 0), B(7 | 0) und C(−1 | 6) sollen einen gemeinsamen Spielplatz bekommen, der von allen drei Häusern gleich weit entfernt ist. Wo liegt er?',
+                    'S(□ | □)', [3, 3], ['(-1 + 7) / 2', '(0 + 6) / 2'],
+                    'Mittelsenkrechte von [AB]: x = 3. Mittelsenkrechte von [AC]: y = 3. Sie schneiden sich in S(3 | 3); S ist von A, B und C je 5 Einheiten entfernt.',
+                    'Zwei Mittelsenkrechten reichen: eine für A und B, eine für A und C.', _HP, art='pruefung',
+                    grafik=koord([(-1, 0, 'A'), (7, 0, 'B'), (-1, 6, 'C')]))
+
+    def f_knobel(R, B_):
+        return B_.Z('Die Punkte A und B sind 8 cm voneinander entfernt. Wie viele Punkte gibt es, die von A und B gleich weit entfernt sind und von A genau 3 cm?', 0, '0',
+                    'Solche Punkte müssten auf der Mittelsenkrechten liegen. Ihr nächster Punkt zu A ist die Mitte, 4 cm von A. 3 cm ist zu wenig: kein Punkt.',
+                    'Wie nah kommt die Mittelsenkrechte an A heran?', art='knobel')
+
+    return Karte(e, 'punktspiegelung', 'Spiegeln', 'Mittelsenkrechte und Lot',
+                 {1: [m_waag, m_mitte, m_eig, m_achse, m_senk], 2: [m_gleich, m_radius, m_fuss, m_spiel, m_spiegel, m_schritt, m_abst],
+                  3: [m_diag, m_zwei, m_drei, m_lot_diag, m_knobel]},
+                 fest3=[f_leucht, f_drei, f_knobel])
+
+
+def _wf(alpha, marken=(), w=False, punkte=()):
+    """Winkel mit Scheitel S zwischen Schenkel nach rechts und Schenkel unter alpha (maßstäblich)."""
+    P1, P2 = pol(5, 0), pol(5, alpha)
+    pu = {'S': (0, 0), '_a': P1, '_b': P2}
+    li = [['S', '_a'], ['S', '_b']]
+    wk = []
+    if w:
+        pu['_w'] = pol(5.5, alpha / 2)
+        li.append(['S', '_w', 'w', 'gestrichelt'])
+    for von, bis, txt in marken:
+        wk.append(['S', von, bis, txt])
+    for k, v in punkte: pu[k] = v
+    return fig(pu, linien=li, winkel=wk)
+
+
+def _wh_karte():
+    oft = begrenzt()
+    al = 70
+    S = (0, 0)
+    a1, a2 = pol(6, 0), pol(6, al)
+    P, Q = pol(3, 0), pol(3, al)
+    # W auf der Winkelhalbierenden mit |WP| = 2.5
+    u = (math.cos(math.radians(al / 2)), math.sin(math.radians(al / 2)))
+    pu_ = u[0] * P[0] + u[1] * P[1]
+    t = pu_ + math.sqrt(pu_ ** 2 - (9 - 2.5 ** 2))
+    W = (t * u[0], t * u[1])
+    grund = {'S': S, '_a1': a1, '_a2': a2}
+    li = [['S', '_a1'], ['S', '_a2']]
+    s1 = fig({**grund, 'P': P, 'Q': Q}, linien=li, kreise=[{'m': 'S', 'r': 3}])
+    s2 = fig({**grund, 'P': P, 'Q': Q, 'W': W}, linien=li, kreise=[{'m': 'P', 'r': 2.5}, {'m': 'Q', 'r': 2.5}])
+    wend = (6.5 * u[0], 6.5 * u[1])
+    s3 = fig({**grund, 'W': W, '_w': wend}, linien=li + [['S', '_w', 'w']], winkel=[['S', '_a1', 'W', '35°'], ['S', 'W', '_a2', '35°']])
+    X = (4 * u[0], 4 * u[1])
+    v = (math.cos(math.radians(al)), math.sin(math.radians(al)))
+    F1 = (X[0], 0)
+    F2 = ((X[0] * v[0] + X[1] * v[1]) * v[0], (X[0] * v[0] + X[1] * v[1]) * v[1])
+    s4 = fig({**grund, 'X': X, '_w': wend, '_F1': F1, '_F2': F2}, linien=li + [['S', '_w', 'w'], ['X', '_F1', '', 'gestrichelt'], ['X', '_F2', '', 'gestrichelt']],
+             rechter_winkel=[['_F1', '_a1', 'X'], ['_F2', 'S', 'X']])
+    e = {
+        'lernziel': 'winkelhalbierende',
+        'titel': 'Die Winkelhalbierende',
+        'einstieg': 'Zwei Zäune treffen sich an einer Ecke. Ein Weg soll genau mittendrin verlaufen, also von beiden Zäunen gleich weit weg. '
+                    'Dieser Weg ist die ⟦Winkelhalbierende⟧.',
+        'woerter': [['Winkelhalbierende', 'Halbgerade vom Scheitel aus, die den Winkel in zwei gleich große Teile teilt']],
+        'bild': fig(grund, linien=li, winkel=[['S', '_a1', '_a2', '70°']]),
+        'schritte': [
+            {'text': 'Zeichne einen Kreis um den Scheitel S. Er schneidet die Schenkel in P und Q.', 'bild': s1},
+            {'text': 'Zeichne um P und um Q Kreise mit gleichem Radius. Sie schneiden sich in W.', 'bild': s2},
+            {'text': 'Die Halbgerade von S durch W ist die ⟦Winkelhalbierende w⟧: 35° und 35°.', 'bild': s3},
+            {'text': 'Jeder Punkt X auf w hat von beiden Schenkeln den gleichen ⟦Abstand⟧.', 'bild': s4},
+        ],
+        'probe': '35° + 35° = 70° ✓',
+        'fehler': 'Abstand schräg gemessen: Der Weg zum Zaun zählt nur auf dem kürzesten, senkrechten Stück. Schräg gemessen wirkt X ungleich weit weg.',
+        'fehler_bild': fig({**grund, 'X': X, '_w': wend, '_F1': F1, '_s': (1.2, 0)}, linien=li + [['S', '_w', 'w'], ['X', '_s', 'schräg', 'gestrichelt'], ['X', '_F1', 'Lot', 'gestrichelt']],
+                           rechter_winkel=[['_F1', '_a1', 'X']]),
+        'regel': 'Auf der Winkelhalbierenden liegen alle Punkte gleich weit von beiden Schenkeln. Sie teilt den Winkel in zwei ⟦gleich große⟧ Teile.',
+    }
+
+    def w_halb(R, B_):
+        a = 2 * R.randint(10, 85)
+        return B_.Z(f'Die Winkelhalbierende teilt den Winkel α = {a}°. Wie groß ist jeder der beiden Teile?', a // 2, f'{a} / 2',
+                    f'Halbieren: {a}° : 2 = {a // 2}°.', 'Halbierende heißt: zwei gleich große Teile.', einheit='°',
+                    grafik=_wf(a, [('_a', '_b', f'{a}°')], w=True))
+
+    def w_abst(R, B_):
+        d = R.choice([Fr(x, 2) for x in range(3, 19)])
+        p = R.choice('PXY')
+        return B_.Z(f'{p} liegt auf der Winkelhalbierenden des Winkels mit den Schenkeln s und t. {p} ist {zf(d)} cm von s entfernt. Wie weit ist {p} von t entfernt?', d, str(d),
+                    f'Punkte der Winkelhalbierenden sind von beiden Schenkeln gleich weit entfernt: {zf(d)} cm.',
+                    'Was haben alle Punkte der Winkelhalbierenden gemeinsam?', einheit='cm')
+
+    def w_achsen(R, B_):
+        k = R.randint(2, 6)
+        r = (k, k)
+        kand = [(k, k + 1), (k + 1, k - 1), (k, 0), (0, k), (k - 1, k + 1), (2 * k, k), (k, 2 * k)]
+        f = R.sample([p for p in kand if abs(p[0]) != abs(p[1])], 3)
+        nm = lambda p: pk('P', p[0], p[1])
+        return B_.A('Welcher Punkt ist von der x-Achse und von der y-Achse gleich weit entfernt?', nm(r), [nm(p) for p in f],
+                    f'Abstand zur x-Achse ist der y-Wert, Abstand zur y-Achse der x-Wert. Bei {nm(r)} sind beide {k}: Der Punkt liegt auf der Winkelhalbierenden y = x.',
+                    'Der Abstand zur x-Achse ist |y|, zur y-Achse |x|.', pruef=lambda t: t == nm(r))
+
+    def w_eig(R, B_):
+        oft('eig')
+        p = R.choice('PQX')
+        return B_.A(f'{p} liegt auf der Winkelhalbierenden von α. Was gilt sicher?', f'{p} ist von beiden Schenkeln gleich weit entfernt.',
+                    [f'{p} ist vom Scheitel genau so weit entfernt wie von jedem Schenkel.', f'{p} ist von beiden Schenkeln doppelt so weit entfernt wie vom Scheitel.',
+                     f'{p} liegt auf einem der beiden Schenkel.'],
+                    'Alle Punkte der Winkelhalbierenden haben von beiden Schenkeln den gleichen (senkrecht gemessenen) Abstand.',
+                    'Woran erkennt man einen Punkt auf der Winkelhalbierenden?')
+
+    def w_ganz(R, B_):
+        oft('ganz', 3)
+        h = R.randint(8, 85)
+        return B_.Z(f'Die Winkelhalbierende teilt α in zwei Teile. Jeder Teil ist {h}° groß. Wie groß ist α?', 2 * h, f'2 * {h}',
+                    f'Zwei gleiche Teile: α = 2 · {h}° = {2 * h}°.', 'Die beiden Teile sind gleich groß.', einheit='°',
+                    grafik=_wf(2 * h, [('_a', '_w', f'{h}°'), ('_w', '_b', '?')], w=True))
+
+    def w_neben(R, B_):
+        a = 2 * R.randint(15, 75)
+        b = 180 - a
+        oft('neben', 2)
+        return B_.Z(f'α = {a}° und β = {b}° sind Nebenwinkel. Wie groß ist der Winkel zwischen den Winkelhalbierenden von α und β?', 90, f'{a} / 2 + {b} / 2',
+                    f'{a}° : 2 + {b}° : 2 = {a // 2}° + {b // 2}° = 90°.', 'Addiere die beiden Hälften.', einheit='°')
+
+    def w_auf(R, B_):
+        oft('auf', 2)
+        d = R.randint(2, 7)
+        ach = R.choice(['x-Achse', 'y-Achse'])
+        return B_.L(f'P liegt im 1. Quadranten auf der Winkelhalbierenden von x-Achse und y-Achse und hat von der {ach} den Abstand {d}. Gib P an.', 'P(□ | □)', [d, d], [str(d), str(d)],
+                    f'Auf dieser Winkelhalbierenden (y = x) sind beide Abstände gleich: P({d} | {d}).', 'Von beiden Achsen gleich weit entfernt.', _HP)
+
+    def w_schritt(R, B_):
+        v = R.random() < 0.5
+        oft(('schritt', v))
+        if v:
+            return B_.A('Für die Winkelhalbierende hast du einen Kreis um den Scheitel S gezeichnet. Er schneidet die Schenkel in P und Q. Was folgt?',
+                        'Kreise mit gleichem Radius um P und um Q zeichnen.', ['Die Strecke [PQ] zeichnen und fertig.', 'Einen zweiten Kreis um S zeichnen.', 'Die Gerade durch P und Q verlängern.'],
+                        'Die Kreise um P und Q schneiden sich in einem Punkt W, der gleich weit von P und Q ist. Die Halbgerade SW halbiert den Winkel.',
+                        'Du brauchst noch einen zweiten Punkt auf der Winkelhalbierenden.')
+        return B_.A('Die Kreise um P und Q haben sich im Punkt W geschnitten. Was ist der letzte Schritt für die Winkelhalbierende?',
+                    'Die Halbgerade von S durch W zeichnen.', ['Die Strecke [PW] zeichnen.', 'Die Gerade durch P und Q zeichnen.', 'Einen Kreis um W zeichnen.'],
+                    'S und W liegen beide auf der Winkelhalbierenden; die Halbgerade von S durch W ist sie.', 'Welche zwei Punkte liegen sicher auf der Winkelhalbierenden?')
+
+    def w_rest(R, B_):
+        h = R.randint(15, 80)
+        return B_.Z(f'Die Winkelhalbierende von α bildet mit einem Schenkel {h}°. Wie groß ist der Nebenwinkel von α?', 180 - 2 * h, f'180 - 2 * {h}',
+                    f'α = 2 · {h}° = {2 * h}°. Nebenwinkel: 180° − {2 * h}° = {180 - 2 * h}°.', 'Erst α bestimmen, dann zu 180° ergänzen.', einheit='°')
+
+    def w_gerad(R, B_):
+        c, e0, k = R.randint(-2, 3), R.randint(-3, 2), R.randint(2, 4)
+        r = (e0 + k, c + k)
+        auf = lambda p: abs(p[0] - e0) == abs(p[1] - c)
+        kand = [(e0 + k, c + k + 1), (e0 + k + 1, c), (e0, c + k), (e0 + k, c), (e0 + 2 * k, c + k), (e0 + 1, c + k)]
+        f = R.sample([p for p in kand if not auf(p)], 3)
+        nm = lambda p: pk('P', p[0], p[1])
+        return B_.A(f'Gegeben sind die Geraden g: y = {zf(c)} und h: x = {zf(e0)}. Welcher Punkt ist von g und h gleich weit entfernt?', nm(r), [nm(p) for p in f],
+                    f'Abstand zu g: |y − ({zf(c)})|, Abstand zu h: |x − ({zf(e0)})|. Bei {nm(r)} sind beide {k}.',
+                    'Zähle die Kästchen senkrecht bis g und waagrecht bis h.', pruef=lambda t: t == nm(r),
+                    grafik=koord([], x=[e0 + 2 * k + 1], y=[c + k + 2], waagrecht=[c], senkrecht=[e0]))
+
+    def w_brunnen(R, B_):
+        k = R.choice([2, 3, 4, 6, 7])
+        return B_.L(f'Zwei Straßen verlaufen entlang der x-Achse und der y-Achse. Ein Brunnen soll von beiden Straßen gleich weit entfernt sein und am Weg von (0 | {2 * k}) nach ({2 * k} | 0) liegen.',
+                    'B(□ | □)', [k, k], [f'{2 * k} / 2', f'{2 * k} / 2'],
+                    f'Gleich weit von beiden Straßen: Winkelhalbierende y = x. Auf dem Weg gilt x + y = {2 * k}. Also x = y = {k}: B({k} | {k}).',
+                    'Gleich weit von beiden Achsen heißt: x und y sind gleich.', _HP, art='pruefung',
+                    grafik=koord([(0, 2 * k), (2 * k, 0)], strecken=[[0, 2 * k, 2 * k, 0]]))
+
+    def w_ecke(R, B_):
+        c, e0, m = R.randint(-2, 2), R.randint(-3, 1), R.randint(3, 6)
+        return B_.L(f'g: y = {zf(c)} und h: x = {zf(e0)} kreuzen sich. Gesucht ist der Punkt rechts von h und oberhalb von g, der von g und h gleich weit entfernt ist und auf y = {zf(c + m)} liegt.',
+                    'P(□ | □)', [e0 + m, c + m], [f'{e0} + {m}', f'{c} + {m}'],
+                    f'Auf y = {zf(c + m)} ist der Abstand zu g gleich {m}. Also ist auch der Abstand zu h gleich {m}: x = {zf(e0)} + {m} = {zf(e0 + m)}.',
+                    'Bestimme zuerst den Abstand zu g; derselbe Abstand gilt für h.', _HP,
+                    grafik=koord([], x=[e0 + m + 1], y=[c + m + 1], waagrecht=[c, c + m], senkrecht=[e0]))
+
+    def w_aussen(R, B_):
+        h = R.randint(20, 80)
+        return B_.Z(f'α = {2 * h}° wird halbiert. Wie groß ist der Winkel zwischen der Winkelhalbierenden und der Verlängerung eines Schenkels über den Scheitel hinaus?',
+                    180 - h, f'180 - {h}', f'Halbgerade und Verlängerung bilden mit dem Schenkel eine Gerade: 180° − {h}° = {180 - h}°.',
+                    'Schenkel und seine Verlängerung bilden eine Gerade (180°).', einheit='°')
+
+    def w_knobel(R, B_):
+        d = R.randint(2, 6)
+        ach = R.choice(['x-Achse', 'y-Achse'])
+        return B_.Z(f'Wie viele Punkte sind von beiden Koordinatenachsen gleich weit entfernt und haben von der {ach} den Abstand {d}?', 4, '4',
+                    f'Es gilt |x| = |y| = {d}: ({d} | {d}), (−{d} | {d}), (−{d} | −{d}), ({d} | −{d}) – in jedem Quadranten einer, also 4.',
+                    'Die Achsen bilden vier Winkel. Jeder hat eine Winkelhalbierende.', art='knobel')
+
+    def f_brunnen(R, B_):
+        return B_.L('Ein Feld wird von zwei geraden Wegen begrenzt: der x-Achse und der y-Achse. Ein Baum soll von beiden Wegen gleich weit entfernt sein und am Bach von (0 | 10) nach (10 | 0) stehen.',
+                    'B(□ | □)', [5, 5], ['10 / 2', '10 / 2'],
+                    'Gleich weit von beiden Wegen: Winkelhalbierende y = x. Auf dem Bach gilt x + y = 10. Also B(5 | 5).',
+                    'Gleich weit von beiden Achsen heißt: x und y sind gleich.', _HP, art='pruefung',
+                    grafik=koord([(0, 10), (10, 0)], strecken=[[0, 10, 10, 0]]))
+
+    def f_senk(R, B_):
+        return B_.A('Warum stehen die Winkelhalbierenden zweier Nebenwinkel immer senkrecht aufeinander?', 'Die beiden Hälften ergeben zusammen 180° : 2 = 90°.',
+                    ['Weil Nebenwinkel immer gleich groß sind.', 'Weil Nebenwinkel immer 90° groß sind.', 'Weil eine Winkelhalbierende immer senkrecht auf einem Schenkel steht.'],
+                    'Nebenwinkel ergeben zusammen 180°. Ihre Hälften ergeben zusammen die Hälfte davon, also 90°.',
+                    'Wie viel ergeben Nebenwinkel zusammen? Und ihre Hälften?', art='pruefung')
+
+    def f_knobel(R, B_):
+        return B_.Z('Wie viele Punkte sind von der x-Achse und von der y-Achse jeweils genau 3 Einheiten entfernt?', 4, '4',
+                    'Es muss |x| = 3 und |y| = 3 gelten: (3 | 3), (−3 | 3), (−3 | −3), (3 | −3). Das sind 4 Punkte – auf den beiden Winkelhalbierenden der Achsen.',
+                    'Denk an alle vier Quadranten.', art='knobel')
+
+    return Karte(e, 'mittelsenkrechte', 'Spiegeln', 'Winkelhalbierende',
+                 {1: [w_halb, w_abst, w_achsen, w_eig], 2: [w_ganz, w_neben, w_auf, w_schritt, w_rest, w_gerad], 3: [w_brunnen, w_ecke, w_aussen, w_knobel, w_gerad]},
+                 fest3=[f_brunnen, f_senk, f_knobel])
+
+
+_VI = ['Quadrat', 'Rechteck', 'Raute', 'Parallelogramm', 'Drachenviereck', 'gleichschenkliges Trapez']
+_ART = {'Raute': 'eine'}
+_JEDE = {'Quadrat': 'Jedes Quadrat', 'Rechteck': 'Jedes Rechteck', 'Raute': 'Jede Raute', 'Parallelogramm': 'Jedes Parallelogramm',
+         'Drachenviereck': 'Jedes Drachenviereck', 'gleichschenkliges Trapez': 'Jedes gleichschenklige Trapez'}
+_ACHSEN = {'Quadrat': 4, 'Rechteck': 2, 'Raute': 2, 'Parallelogramm': 0, 'Drachenviereck': 1, 'gleichschenkliges Trapez': 1}
+_PUNKT = {'Quadrat': True, 'Rechteck': True, 'Raute': True, 'Parallelogramm': True, 'Drachenviereck': False, 'gleichschenkliges Trapez': False}
+_UNTER = {'Quadrat': {'Rechteck', 'Raute', 'Parallelogramm', 'Drachenviereck', 'gleichschenkliges Trapez'},
+          'Rechteck': {'Parallelogramm', 'gleichschenkliges Trapez'}, 'Raute': {'Parallelogramm', 'Drachenviereck'},
+          'Parallelogramm': set(), 'Drachenviereck': set(), 'gleichschenkliges Trapez': set()}
+_BESCHR = {'Quadrat': 'vier Symmetrieachsen', 'Rechteck': 'genau zwei Symmetrieachsen, die durch Seitenmitten gehen',
+           'Raute': 'genau zwei Symmetrieachsen, die durch Ecken gehen', 'Drachenviereck': 'genau eine Symmetrieachse, die durch zwei Ecken geht',
+           'gleichschenkliges Trapez': 'genau eine Symmetrieachse, die durch zwei Seitenmitten geht', 'Parallelogramm': 'keine Symmetrieachse, ist aber punktsymmetrisch'}
+
+
+def _ein(x):
+    return f"{_ART.get(x, 'ein')} {x}"
+
+
+def _ist(x, y):
+    return x == y or y in _UNTER[x]
+
+
+def _treffen(x, y):
+    """speziellstes Viereck, das sicher sowohl x als auch y ist (Haus der Vierecke)."""
+    gem = [v for v in _VI if _ist(v, x) and _ist(v, y)]
+    allg = [v for v in gem if all(_ist(w, v) for w in gem)]
+    return allg[0] if len(allg) == 1 else None
+
+
+def _vo_karte():
+    oft = begrenzt()
+    raute = {'A': (0, 2), 'B': (3, 0), 'C': (6, 2), 'D': (3, 4)}
+    quad = {'A': (0, 0), 'B': (4, 0), 'C': (4, 4), 'D': (0, 4)}
+    rl = [['A', 'B'], ['B', 'C'], ['C', 'D'], ['D', 'A']]
+    s1 = fig({**raute, '_l': (-1, 2), '_r': (7, 2), '_o': (3, 5), '_u': (3, -1)}, flaeche=['A', 'B', 'C', 'D'],
+             linien=rl + [['_l', '_r', '', 'gestrichelt'], ['_u', '_o', '', 'gestrichelt']])
+    s2 = fig({**quad, '_1': (-1, -1), '_2': (5, 5), '_3': (-1, 5), '_4': (5, -1), '_5': (2, -1), '_6': (2, 5), '_7': (-1, 2), '_8': (5, 2)},
+             flaeche=['A', 'B', 'C', 'D'], linien=rl + [['_1', '_2', '', 'gestrichelt'], ['_4', '_3', '', 'gestrichelt'], ['_5', '_6', '', 'gestrichelt'], ['_7', '_8', '', 'gestrichelt']],
+             rechter_winkel=[['A', 'B', 'D']])
+    tab = {'typ': 'tabelle', 'kopf': ['Viereck', 'Achsen', 'Punktsymmetrie'],
+           'zeilen': [['Quadrat', '4', 'ja'], ['Rechteck', '2', 'ja'], ['Raute', '2', 'ja'], ['Parallelogramm', '0', 'ja'],
+                      ['Drachenviereck', '1', 'nein'], ['gleichschenkl. Trapez', '1', 'nein']]}
+    D50 = pol(4, 50)
+    e = {
+        'lernziel': 'vierecke_ordnen',
+        'titel': 'Symmetrische Vierecke ordnen',
+        'einstieg': 'Ein Fliesenleger sortiert Fliesen nach ihrer Symmetrie. Dabei merkt er: Jede quadratische Fliese passt auch in die Kiste der Rauten. '
+                    'So entsteht das ⟦Haus der Vierecke⟧.',
+        'woerter': [['Haus der Vierecke', 'Schema: oben die allgemeinen, unten die besonderen Vierecke'],
+                    ['Drachenviereck', 'Viereck mit einer Symmetrieachse durch zwei gegenüberliegende Ecken'],
+                    ['gleichschenkliges Trapez', 'Viereck mit einer Symmetrieachse durch die Mitten zweier Seiten']],
+        'bild': tab,
+        'schritte': [
+            {'text': 'Eine Raute hat zwei Symmetrieachsen: ihre beiden Diagonalen.', 'bild': s1},
+            {'text': 'Ein Quadrat hat diese zwei Achsen auch – und noch zwei dazu.', 'bild': s2},
+            {'text': 'Also ist ⟦jedes Quadrat eine Raute⟧, aber nicht jede Raute ein Quadrat.'},
+            {'text': 'Ebenso ist jede Raute ein Drachenviereck, jedes Rechteck ein gleichschenkliges Trapez.', 'bild': tab},
+        ],
+        'probe': 'Quadrat: 4 Achsen und punktsymmetrisch – es hat alles, was Raute und Rechteck haben ✓',
+        'fehler': '„Jede Raute ist ein Quadrat“ stimmt nicht: Eine schiefe Raute hat keinen rechten Winkel. Wie bei Fliesen zählt die Richtung des Satzes.',
+        'fehler_bild': fig({'A': (0, 0), 'B': (4, 0), 'C': (4 + D50[0], D50[1]), 'D': D50}, flaeche=['A', 'B', 'C', 'D'], linien=rl,
+                           winkel=[['A', 'B', 'D', '50°']]),
+        'regel': 'Je mehr Symmetrie, desto weiter unten im Haus der Vierecke. Ein Viereck unten hat alle ⟦Eigenschaften⟧ der Vierecke darüber.',
+    }
+
+    def v_wahr(R, B_):
+        x = R.choice([v for v in _VI if _UNTER[v]])
+        y = R.choice(sorted(_UNTER[x]))
+        paare = [(a, b) for a in _VI for b in _VI if a != b and not _ist(a, b)]
+        f = R.sample(paare, 3)
+        satz = lambda a, b: f'{_JEDE[a]} ist {_ein(b)}.'
+        return B_.A('Welche Aussage ist wahr?', satz(x, y), [satz(a, b) for a, b in f],
+                    f'Im Haus der Vierecke führt ein Weg von „{x}“ nach oben zu „{y}“: {satz(x, y)} Die anderen Sätze gelten nur umgekehrt oder gar nicht.',
+                    'Im Haus der Vierecke: Ein Viereck weiter unten ist auch jedes Viereck darüber, mit dem es verbunden ist.',
+                    pruef=lambda t: any(t == satz(a, b) for a in _VI for b in _VI if a != b and _ist(a, b)))
+
+    def v_beschr(R, B_):
+        x = R.choice(_VI)
+        oft(('beschr', x))
+        andere = R.sample([v for v in _VI if v != x], 3)
+        frage = R.choice(['Welches Viereck hat {}?', 'Ein Viereck hat {}. Welches ist es?'])
+        return B_.A(frage.format(_BESCHR[x]), x, andere,
+                    f'{x}: {_BESCHR[x]}. Die anderen Vierecke haben andere Achsen.', 'Zähle die Achsen und schau, wo sie verlaufen: durch Ecken oder durch Seitenmitten?',
+                    pruef=lambda t: t == x)
+
+    def v_zahl(R, B_):
+        aus = R.sample([v for v in _VI if v != 'Parallelogramm'], R.randint(4, 5))
+        eig = R.choice(['punktsymmetrisch', 'achsensymmetrisch'])
+        test = (lambda v: _PUNKT[v]) if eig == 'punktsymmetrisch' else (lambda v: _ACHSEN[v] > 0)
+        anz = sum(1 for v in aus if test(v))
+        return B_.Z(f'Wie viele dieser Vierecke sind {eig}: {", ".join(aus)}?', anz, str(anz),
+                    f'{eig}: ' + ', '.join(v for v in aus if test(v)) + f' – das sind {anz}.',
+                    'Geh die Liste einzeln durch.' + (' Punktsymmetrisch: nach halber Drehung gleich.' if eig == 'punktsymmetrisch' else ' Achsensymmetrisch: mindestens eine Faltachse.'))
+
+    def v_bild(R, B_):
+        x = R.choice(['Rechteck', 'Raute', 'Parallelogramm', 'Drachenviereck', 'gleichschenkliges Trapez'])
+        if x == 'Rechteck':
+            a, b = R.sample([3, 4, 5, 6], 2)
+            pu = {'A': (0, 0), 'B': (a, 0), 'C': (a, b), 'D': (0, b)}
+        elif x == 'Raute':
+            d1, d2 = R.sample([4, 5, 6, 7, 8], 2)
+            pu = {'A': (0, d2 / 2), 'B': (d1 / 2, 0), 'C': (d1, d2 / 2), 'D': (d1 / 2, d2)}
+        elif x == 'Parallelogramm':
+            a, o, h = R.choice([5, 6]), R.choice([1, 2]), R.choice([2, 3])
+            pu = {'A': (0, 0), 'B': (a, 0), 'C': (a + o, h), 'D': (o, h)}
+        elif x == 'Drachenviereck':
+            p, q, L = R.choice([2, 2.5, 3]), R.choice([1.5, 2]), R.choice([6, 7])
+            pu = {'A': (0, 0), 'B': (p, L - q), 'C': (0, L), 'D': (-p, L - q)}
+        else:
+            a, o, h = R.choice([6, 7]), R.choice([1, 1.5, 2]), R.choice([2, 3])
+            pu = {'A': (0, 0), 'B': (a, 0), 'C': (a - o, h), 'D': (o, h)}
+        f = R.sample([v for v in _VI if v != x and not _ist(x, v)], 3)
+        return B_.A('Welches Viereck ist abgebildet (maßstäblich gezeichnet)? Wähle die genaueste Bezeichnung.', x, f,
+                    f'Das Bild zeigt {_ein(x)}: {_BESCHR[x]}.', 'Prüfe Seitenlängen, rechte Winkel und mögliche Faltachsen.',
+                    grafik=fig(pu, flaeche=['A', 'B', 'C', 'D'], linien=[['A', 'B'], ['B', 'C'], ['C', 'D'], ['D', 'A']]), pruef=lambda t: t == x)
+
+    def v_ort(R, B_):
+        x = R.choice(['Raute', 'Rechteck', 'Drachenviereck', 'gleichschenkliges Trapez'])
+        oft(('ort', x))
+        ort = {'Raute': 'durch je zwei gegenüberliegende Ecken (die Diagonalen)', 'Rechteck': 'durch die Mitten je zweier gegenüberliegender Seiten',
+               'Drachenviereck': 'nur eine Achse, durch zwei gegenüberliegende Ecken', 'gleichschenkliges Trapez': 'nur eine Achse, durch die Mitten der beiden parallelen Seiten'}
+        return B_.A(f'Wo verlaufen die Symmetrieachsen {"einer" if x == "Raute" else "eines"} {x.replace("gleichschenkliges Trapez", "gleichschenkligen Trapezes").replace("Rechteck", "Rechtecks").replace("Drachenviereck", "Drachenvierecks")}?',
+                    ort[x], [v for k, v in ort.items() if k != x], f'{x}: {_BESCHR[x]}.', 'Falte in Gedanken: Wo liegen die Hälften genau aufeinander?')
+
+    def v_falsch(R, B_):
+        wahr = [(a, b) for a in _VI for b in _VI if a != b and _ist(a, b)]
+        falsch = [(a, b) for a in _VI for b in _VI if a != b and not _ist(a, b) and _ist(b, a)]
+        x = R.choice(falsch)
+        w = R.sample(wahr, 3)
+        satz = lambda a, b: f'{_JEDE[a]} ist {_ein(b)}.'
+        return B_.A('Welche Aussage ist falsch?', satz(*x), [satz(a, b) for a, b in w],
+                    f'{satz(*x)} stimmt nicht. Umgekehrt stimmt es: {_JEDE[x[1]]} ist {_ein(x[0])}.',
+                    'Prüfe bei jedem Satz die Richtung: Ist das erste Viereck ein Spezialfall des zweiten?',
+                    pruef=lambda t: t in [satz(a, b) for a, b in falsch])
+
+    def v_ueber(R, B_):
+        x, r, f = R.choice([('dem Quadrat', 'Rechteck und Raute', ['Raute und Drachenviereck', 'Rechteck und Parallelogramm', 'Drachenviereck und gleichschenkliges Trapez']),
+                            ('dem Rechteck', 'Parallelogramm und gleichschenkliges Trapez', ['Quadrat und Raute', 'Raute und Drachenviereck', 'Parallelogramm und Drachenviereck']),
+                            ('der Raute', 'Parallelogramm und Drachenviereck', ['Rechteck und Quadrat', 'Parallelogramm und gleichschenkliges Trapez', 'Rechteck und Drachenviereck'])])
+        return B_.A(f'Im Haus der Vierecke stehen direkt über {x} zwei Vierecke. Welche?', r, f,
+                    f'Direkt darüber stehen die nächst allgemeineren Vierecke: {r}.', 'Welche Symmetrie verliert das Viereck, wenn man eine Bedingung weglässt?')
+
+    def v_treff(R, B_, art=None):
+        paare = [(a, b) for a in _VI for b in _VI if a < b and not _ist(a, b) and not _ist(b, a) and _treffen(a, b)
+                 and {a, b} not in ({'Drachenviereck', 'Parallelogramm'}, {'Drachenviereck', 'gleichschenkliges Trapez'})]
+        a, b = R.choice(paare)
+        oft(('treffen', a, b))
+        t = _treffen(a, b)
+        f = R.sample([v for v in _VI if v != t and v not in (a, b)], 3)
+        return B_.A(f'Ein Viereck ist {_ein(a)} und zugleich {_ein(b)}. Welches Viereck ist es sicher?', t, f,
+                    f'Es hat die Symmetrien beider Vierecke. Im Haus der Vierecke ist das {_ein(t)} (oder ein Spezialfall davon).',
+                    'Suche das Viereck, das unter beiden steht – das höchste davon.', art=art, pruef=lambda x: x == t)
+
+    def v_treff3(R, B_):
+        return v_treff(R, B_, art='pruefung')
+
+    def v_nur(R, B_):
+        x, y, r, f = R.choice([
+            ('jede Raute', 'jedes Parallelogramm', 'mindestens zwei Symmetrieachsen', ['Punktsymmetrie', 'gegenüberliegende Seiten parallel', 'vier rechte Winkel']),
+            ('jedes Rechteck', 'jedes Parallelogramm', 'vier rechte Winkel', ['Punktsymmetrie', 'gegenüberliegende Seiten gleich lang', 'vier gleich lange Seiten']),
+            ('jedes Quadrat', 'jedes Rechteck', 'vier gleich lange Seiten', ['vier rechte Winkel', 'Punktsymmetrie', 'gegenüberliegende Seiten parallel'])])
+        return B_.A(f'Welche Eigenschaft hat {x}, aber nicht {y}?', r, f,
+                    f'{r[0].upper() + r[1:]}: Das gilt für {x}, aber nicht für {y}. Die anderen Eigenschaften haben entweder beide oder keines sicher.',
+                    'Prüfe jede Eigenschaft für beide Vierecke.')
+
+    def v_zahl3(R, B_):
+        frage, anz, liste = R.choice([('zugleich achsensymmetrisch und punktsymmetrisch', 3, 'Quadrat, Rechteck, Raute'),
+                                      ('achsensymmetrisch, aber nicht punktsymmetrisch', 2, 'Drachenviereck, gleichschenkliges Trapez'),
+                                      ('punktsymmetrisch, aber nicht achsensymmetrisch', 1, 'Parallelogramm (wenn es weder Rechteck noch Raute ist)')])
+        return B_.Z(f'Quadrat, Rechteck, Raute, Parallelogramm, Drachenviereck, gleichschenkliges Trapez (jeweils ohne Spezialfälle): Wie viele davon sind {frage}?', anz, str(anz),
+                    f'{liste} – also {anz}.', 'Nutze die Tabelle: Achsen und Punktsymmetrie je Viereck.')
+
+    def f_gegen(R, B_):
+        return B_.A('Tim behauptet: „Jedes Viereck mit genau zwei Symmetrieachsen ist ein Rechteck.“ Welches Viereck zeigt, dass Tim nicht recht hat?',
+                    'eine Raute, die kein Quadrat ist', ['ein Quadrat', 'ein Parallelogramm, das kein Rechteck ist', 'ein Drachenviereck, das keine Raute ist'],
+                    'Eine Raute (kein Quadrat) hat genau zwei Symmetrieachsen – die Diagonalen – ist aber kein Rechteck. Ein Quadrat hat vier Achsen.',
+                    'Suche ein Viereck mit genau zwei Achsen, das keine rechten Winkel hat.', art='pruefung')
+
+    def f_dp(R, B_):
+        return B_.A('Ein Viereck ist ein Drachenviereck und zugleich ein Parallelogramm. Welches Viereck ist es sicher?', 'Raute',
+                    ['Quadrat', 'Rechteck', 'gleichschenkliges Trapez'],
+                    'Im Haus der Vierecke steht unter Drachenviereck und Parallelogramm die Raute. Ein Quadrat wäre möglich, ist aber nicht sicher.',
+                    'Welches Viereck steht direkt unter beiden?', art='pruefung')
+
+    def f_knobel(R, B_):
+        return B_.A('Ein Viereck ist ein gleichschenkliges Trapez und zugleich ein Drachenviereck. Welches Viereck ist es?', 'Quadrat',
+                    ['Raute', 'Rechteck', 'Parallelogramm'],
+                    'Es braucht eine Achse durch zwei Ecken (Drachen) und eine durch zwei Seitenmitten (Trapez). Unter beiden steht im Haus der Vierecke nur das Quadrat.',
+                    'Verfolge im Haus der Vierecke beide Vierecke nach unten, bis sie sich treffen.', art='knobel')
+
+    return Karte(e, 'symmetrie', 'Symmetrie und Eigenschaften', 'Symmetrische Vierecke ordnen',
+                 {1: [v_beschr, v_wahr, v_zahl], 2: [v_falsch, v_bild, v_ueber, v_wahr, v_ort, v_beschr, v_treff], 3: [v_treff3, v_nur, v_zahl3, v_falsch]},
+                 fest3=[f_gegen, f_dp, f_knobel])
+
+
+def luecken():
+    return [_ms_karte(), _wh_karte(), _vo_karte()]
+
+
+_LUECKEN_QUELLE = ('LehrplanPLUS Gymnasium Bayern, M7 2.1 (https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/7/mathematik): Mittelsenkrechte, Lote und '
+                   'Winkelhalbierende konstruieren und das Vorgehen beschreiben; Abstandsprobleme; symmetrische Vierecke ordnen. Prüfungsvorbilder (Typ und Niveau, '
+                   'eigene Zahlen): Bayerischer Mathematik-Test 8 (ISB) 2024 A4b, 2019 A4, 2022 A1, 2014 B, 2023 A3.')
+_LUECKEN_OFFEN = ['Achtzehnte Runde (luecken-kl7): neue Lernkarten mittelsenkrechte, winkelhalbierende (nach punktspiegelung) und vierecke_ordnen (nach symmetrie), alle Pflicht '
+                  '(LehrplanPLUS M7 2.1). Konstruieren mit Zirkel und Lineal kann das Kind in der App nicht; geprüft werden Eigenschaften, Konstruktionsschritte (Auswahl) '
+                  'und Abstandsprobleme im Koordinatensystem ohne schräge Längen (Pythagoras kommt erst später).']
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Spiegeln', ['achsenspiegelung', 'punktspiegelung']), ('Verschieben und Drehen', ['verschiebung', 'drehung']), ('Symmetrie und Eigenschaften', ['symmetrie', 'parkett', 'eigenschaften'])],
@@ -849,3 +1501,4 @@ if __name__ == '__main__':
                 'Drehungen nur um Vielfache von 90°, weil andere Winkel im Koordinatensystem ohne Trigonometrie nicht exakt berechenbar sind.'])
     anhaengen(META['thema_schluessel'], schwer())
     befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+    einfuegen(META['thema_schluessel'], luecken(), 7180, quelle=_LUECKEN_QUELLE, offen=_LUECKEN_OFFEN)  # Achtzehnte Runde: zuletzt

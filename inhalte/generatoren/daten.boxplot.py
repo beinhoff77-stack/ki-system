@@ -693,6 +693,207 @@ DS.stufe('vergleichen', 'Ergebnisse zweier Klassen beim 1 000-m-Lauf (in s), sie
 # ---- DURCHSICHT ENDE ----
 
 
+# ---- STUFEN (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, siehe _stufen_kl7.py) ----
+# Vorbilder (Typ und Niveau, eigene Zahlen): Jahrgangsstufentest/BMT8 (ISB) – Median einer geraden Liste, Durchschnitt mit zusätzlicher Person,
+# Quartilsabstand bestimmen, zwei Boxplots vergleichen; Knobel nach der Art von Känguru 7/8 (Median-Summen, Kennwerte nach Ergänzung).
+from _stufen_kl7 import Stufen, stufen_datei  # noqa: E402
+
+ST = Stufen('daten.boxplot', 20_7_7)
+# median
+ST.leiter('median', 'Median einer kurzen ungeraden Liste bestimmen; Ordnen als ersten Schritt erkennen.',
+          'Median bei gerader Anzahl, fehlenden Wert aus dem Median, Anzahl unter dem Median, Median nach einem neuen Wert.',
+          'Median aus Häufigkeitstabelle und Diagramm, Prozentangaben, Ersetzen begründen, Mindestwert rückwärts, Fehler „ungeordnet“, Prüfungsaufgabe Weitsprung.')
+ST.regel('median', 1, '', 'direkt')
+ST.regel('median', 2, 'Kinder', 'einkleidung')
+ST.regel('median', 2, 'x', 'umkehr')
+ST.regel('median', 2, '', 'mehrschritt')
+ST.regel('median', 3, 'Kopiergeld', 'transfer')
+ST.regel('median', 3, 'ersetzt', 'begruenden')
+ST.regel('median', 3, 'mindestens', 'rueckwaerts')
+ST.regel('median', 3, '', 'verknuepfen')
+ST.neu('median', 1, 'erkennen', ST.A('Was muss man tun, bevor man den Median bestimmt?', 'die Werte der Größe nach ordnen', ['alle Werte addieren', 'den größten Wert streichen', 'die Werte durch ihre Anzahl teilen'],
+                                     'Der Median ist der Wert in der Mitte der geordneten Liste. Ohne Ordnen steht in der Mitte ein zufälliger Wert.', 'Was bedeutet „Mitte“ beim Median?'))
+ST.neu('median', 3, 'fehler', ST.A('Werte: 8; 3; 12; 5; 9. Jemand sagt: „Der Median ist 12, denn 12 steht in der Mitte.“ Was stimmt?', 'Falsch: Geordnet 3; 5; 8; 9; 12 – der Median ist 8.',
+                                   ['Richtig.', 'Falsch: Der Median ist 7,4.', 'Falsch: Der Median ist 9.'],
+                                   'Er hat die Liste nicht geordnet. Geordnet steht 8 in der Mitte. 7,4 wäre das arithmetische Mittel.', 'Ist die Liste geordnet?'))
+ST.neu('median', 3, 'pruefung', ST.Z('Weitsprungweiten von 8 Kindern (in m): 3,2; 2,8; 3,5; 3,0; 2,9; 3,6; 3,1; 3,3. Bestimme den Median.', 3.15, '(3.1 + 3.2) / 2',
+                                     'Geordnet: 2,8; 2,9; 3,0; 3,1; 3,2; 3,3; 3,5; 3,6. Bei 8 Werten liegt der Median zwischen dem 4. und 5. Wert: (3,1 + 3,2) : 2 = 3,15 m.',
+                                     'Ordne zuerst. Wie viele Werte sind es?', einheit='m'))
+ST.knobel('median', ST.Z('Sieben verschiedene natürliche Zahlen (ab 1) haben den Median 5. Wie groß ist die Summe aller sieben Zahlen mindestens?', 32, '1 + 2 + 3 + 5 + 6 + 7 + 8',
+                         'Geordnet steht 5 an 4. Stelle. Davor stehen drei verschiedene Zahlen kleiner als 5 – am kleinsten 1, 2, 3. Danach drei verschiedene Zahlen größer als 5 – am kleinsten 6, 7, 8. '
+                         'Summe: 1 + 2 + 3 + 5 + 6 + 7 + 8 = 32.',
+                         'Wie viele Zahlen stehen vor und hinter dem Median, und wie klein dürfen sie sein?'))
+ST.knobel('median', ST.Z('Eine Liste aus 9 Zahlen hat den Median 20. Man fügt zwei Zahlen hinzu: 5 und 50. Wie groß ist der Median der 11 Zahlen?', 20, '20',
+                         'Geordnet ist 20 der 5. Wert, davor stehen 4 Werte. Die 5 kommt irgendwo davor (sie ist kleiner als 20), die 50 irgendwo dahinter. '
+                         'Jetzt stehen vor der 20 genau 5 Werte und dahinter ebenfalls 5 – die 20 ist der 6. von 11 Werten, also wieder der Median.',
+                         'Zähle, wie viele Werte vor und hinter der 20 stehen – vorher und nachher.'))
+# kennwerte
+ST.leiter('kennwerte', 'Spannweite und Modalwert ablesen; Kennwert am Namen erkennen.',
+          'Arithmetisches Mittel berechnen, Summe aus dem Mittel, Spannweite nach Verschieben, gerecht teilen.',
+          'Fehlenden Wert aus dem Mittel, Durchschnittsnote aus Prozenten, Formel in der Tabellenkalkulation, Klammerfehler, nötige Punktzahl, Begründung, Parameter, Prüfungsaufgabe.')
+ST.regel('kennwerte', 1, '', 'direkt')
+ST.regel('kennwerte', 2, 'Summe', 'umkehr')
+ST.regel('kennwerte', 2, '', 'mehrschritt')
+ST.regel('kennwerte', 3, 'Mathenote', 'transfer')
+ST.regel('kennwerte', 3, 'ohne Klammer', 'fehler')
+ST.regel('kennwerte', 3, 'Formel', 'verknuepfen')
+ST.regel('kennwerte', 3, '', 'rueckwaerts')
+ST.neu('kennwerte', 1, 'erkennen', ST.A('Wie heißt der Kennwert, der angibt, welcher Wert am häufigsten vorkommt?', 'Modalwert', ['Median', 'Spannweite', 'arithmetisches Mittel'],
+                                        'Der Modalwert ist der häufigste Wert. Der Median ist der mittlere, die Spannweite der Abstand zwischen größtem und kleinstem Wert.', 'Denke an „Mode“: was gerade am meisten vorkommt.'))
+ST.neu('kennwerte', 2, 'einkleidung', ST.Z('Fünf Freunde haben 4 €, 7 €, 3 €, 10 € und 6 € dabei. Sie legen alles zusammen und teilen gerecht. Wie viel bekommt jeder?', 6, '(4 + 7 + 3 + 10 + 6) / 5',
+                                           'Zusammen 30 €, durch 5: 6 €. Das ist das arithmetische Mittel.', 'Addiere alles und teile durch die Anzahl.', einheit='€'))
+ST.neu('kennwerte', 3, 'begruenden', ST.A('Kann das arithmetische Mittel größer als der größte Wert sein?', 'Nein: Ersetzt man jeden Wert durch den größten, wird die Summe nicht kleiner – das Mittel ist höchstens der größte Wert.',
+                                          ['Ja, wenn es viele Werte sind.', 'Ja, wenn ein Ausreißer dabei ist.', 'Nein, aber nur bei ganzen Zahlen.'],
+                                          'Jeder Wert ist höchstens so groß wie der größte Wert M. Die Summe von n Werten ist also höchstens n · M, das Mittel höchstens M. Genauso ist es mindestens der kleinste Wert.',
+                                          'Was wäre, wenn alle Werte so groß wären wie der größte?'))
+ST.neu('kennwerte', 3, 'parameter', ST.Z('Die Werte 4; 7; 9; a haben das arithmetische Mittel 8. Wie groß ist a?', 12, '4 * 8 - (4 + 7 + 9)', 'Summe muss 4 · 8 = 32 sein. 4 + 7 + 9 = 20, also a = 12.',
+                                         'Welche Summe gehört zum Mittel 8 bei 4 Werten?'))
+ST.neu('kennwerte', 3, 'pruefung', ST.Z('In einer Klasse mit 24 Kindern ist das Durchschnittsalter 12,5 Jahre. Die Lehrerin (38 Jahre) wird mitgezählt. Wie groß ist das Durchschnittsalter jetzt?', 13.52, '(24 * 12.5 + 38) / 25',
+                                        'Summe der Kinder: 24 · 12,5 = 300 Jahre. Mit der Lehrerin: 338 Jahre bei 25 Personen: 338 : 25 = 13,52 Jahre.',
+                                        'Berechne zuerst die Summe aller Alter.', einheit='Jahre'))
+ST.knobel('kennwerte', ST.Z('Das arithmetische Mittel von fünf Zahlen ist 10. Lässt man eine Zahl weg, ist das Mittel der übrigen vier 8. Welche Zahl wurde weggelassen?', 18, '5 * 10 - 4 * 8',
+                            'Summe der fünf Zahlen: 5 · 10 = 50. Summe der vier übrigen: 4 · 8 = 32. Die weggelassene Zahl ist 50 − 32 = 18.',
+                            'Rechne mit Summen statt mit Mittelwerten.'))
+ST.knobel('kennwerte', ST.Z('Wie viele verschiedene Werte muss eine Datenreihe mindestens enthalten, damit sie genau einen Modalwert hat und Modalwert, Median und arithmetisches Mittel alle verschieden sind?',
+                            3, '3',
+                            'Mit nur zwei verschiedenen Werten a und b: Der Modalwert ist der häufigere, sagen wir a. Dann ist mehr als die Hälfte der Werte gleich a, und der Median ist auch a. Also reichen zwei Werte nicht. '
+                            'Mit drei geht es: 1; 1; 2; 6 hat Modalwert 1, Median 1,5 und Mittelwert 2,5.',
+                            'Untersuche zuerst Datenreihen mit nur zwei verschiedenen Werten.'))
+# mittel_median
+ST.leiter('mittel_median', 'Arithmetisches Mittel berechnen; Rechenweg erkennen.',
+          'Mittelwert und Median vergleichen, typische Mitte wählen, Kennwert, der sich nicht ändert.',
+          'Gehälter mit Ausreißer, Prozentverteilungen, Wert so ändern, dass das Mittel passt, Ausreißer entfernen, Fehler „Mitte der Spannweite“, Begründung, Prüfungsaufgabe.')
+ST.regel('mittel_median', 1, '', 'direkt')
+ST.regel('mittel_median', 2, 'Wartezeiten', 'einkleidung')
+ST.regel('mittel_median', 2, 'sicher NICHT', 'umkehr')
+ST.regel('mittel_median', 2, '', 'mehrschritt')
+ST.regel('mittel_median', 3, 'Firma', 'transfer')
+ST.regel('mittel_median', 3, 'geändert', 'rueckwaerts')
+ST.regel('mittel_median', 3, '', 'verknuepfen')
+ST.neu('mittel_median', 1, 'erkennen', ST.A('Wie berechnet man das arithmetische Mittel?', 'alle Werte addieren und durch ihre Anzahl teilen',
+                                            ['den mittleren Wert der geordneten Liste nehmen', 'größten und kleinsten Wert addieren und halbieren', 'den häufigsten Wert nehmen'],
+                                            'Mittel = Summe : Anzahl. Der mittlere Wert der geordneten Liste ist der Median, der häufigste der Modalwert.', 'Denke an „gerecht verteilen“.'))
+ST.neu('mittel_median', 3, 'fehler', ST.A('Jemand sagt: „Der Mittelwert liegt immer genau in der Mitte zwischen kleinstem und größtem Wert.“ Was stimmt?',
+                                          'Falsch: Bei 1; 2; 9 liegt die Mitte bei 5, der Mittelwert ist 4.', ['Richtig.', 'Falsch: Der Mittelwert ist immer der Median.', 'Falsch: Der Mittelwert ist immer kleiner als die Mitte.'],
+                                          'Der Mittelwert hängt von allen Werten ab, nicht nur von den beiden äußersten. Bei 1; 2; 9: (1 + 9) : 2 = 5, aber (1 + 2 + 9) : 3 = 4. Bei 1; 8; 9 wäre er 6 – größer als 5.',
+                                          'Probiere ein kleines Beispiel.'))
+ST.neu('mittel_median', 3, 'begruenden', ST.A('Warum ändert ein einzelner riesiger Ausreißer den Median kaum, den Mittelwert aber stark?', 'Der Median hängt nur von der Reihenfolge ab, der Mittelwert von der Größe jedes Werts.',
+                                              ['Weil der Median immer kleiner ist.', 'Weil man den Ausreißer beim Median weglässt.', 'Weil der Mittelwert nur aus zwei Werten berechnet wird.'],
+                                              'Wird der größte Wert noch größer, bleibt er der größte – die Mitte der Liste bleibt dieselbe. Beim Mittelwert geht der Ausreißer mit seiner ganzen Größe in die Summe ein.',
+                                              'Was passiert mit der Reihenfolge, was mit der Summe?'))
+ST.neu('mittel_median', 3, 'pruefung', ST.Z('Hausaufgabenzeiten von fünf Tagen (in min): 20; 25; 15; 30; 90. Um wie viele Minuten ist der Mittelwert größer als der Median?', 11, '(20 + 25 + 15 + 30 + 90) / 5 - 25',
+                                            'Mittelwert: 180 : 5 = 36 min. Geordnet 15; 20; 25; 30; 90, Median 25 min. Unterschied 11 min – der Ausreißer 90 zieht den Mittelwert hoch.',
+                                            'Berechne beide Kennwerte; ordne für den Median.', einheit='min'))
+ST.knobel('mittel_median', ST.Z('Fünf positive ganze Zahlen haben den Median 6, das arithmetische Mittel 5 und als einzigen Modalwert 8. Wie groß ist die kleinste der fünf Zahlen?', 1, '25 - 6 - 8 - 8 - 2',
+                                 'Geordnet a ≤ b ≤ 6 ≤ d ≤ e. Der Modalwert 8 muss mindestens zweimal vorkommen; das geht nur hinter dem Median: d = e = 8. '
+                                 'Summe 5 · 5 = 25, also a + b = 25 − 6 − 16 = 3. Mit positiven ganzen Zahlen: a = 1, b = 2 (a = b ginge nicht ganzzahlig, und 8 bliebe einziger Modalwert). Die kleinste Zahl ist 1.',
+                                 'Wo in der geordneten Liste kann der Modalwert stehen, und wie oft muss er vorkommen?'))
+ST.knobel('mittel_median', ST.Z('Drei Zahlen haben den Mittelwert 10 und den Median 12. Wie groß kann die kleinste Zahl höchstens sein?', 6, '30 - 12 - 12',
+                                 'Geordnet a ≤ 12 ≤ c mit a + 12 + c = 30, also a + c = 18. Damit a möglichst groß wird, muss c möglichst klein sein – c ist aber mindestens 12. '
+                                 'Also a = 18 − 12 = 6. Probe: 6; 12; 12 hat Mittel 10 und Median 12 ✓.',
+                                 'Die Summe ist fest. Wie klein darf die größte Zahl werden?'))
+# quartile
+ST.leiter('quartile', 'Oberes Quartil einer ungeraden Liste bestimmen; Anteil unter Q₁ erkennen.',
+          'Quartile bei gerader Anzahl, Quartilsabstand, Bildschirmzeiten, Q₁ aus Q₃ und Quartilsabstand.',
+          'Werte in der Box zählen, fehlenden Wert rückwärts, Anzahlen begründen, Verdoppeln und Verschieben, Fehler bei Q₁, Lauf mit 200 Personen, Prüfungsaufgabe.')
+ST.regel('quartile', 1, '', 'direkt')
+ST.regel('quartile', 2, 'Kinder', 'einkleidung')
+ST.regel('quartile', 2, '', 'mehrschritt')
+ST.regel('quartile', 3, 'innerhalb der Box', 'verknuepfen')
+ST.regel('quartile', 3, 'x', 'rueckwaerts')
+ST.regel('quartile', 3, '', 'begruenden')
+ST.neu('quartile', 1, 'erkennen', ST.A('Welcher Anteil der Werte liegt etwa unterhalb des unteren Quartils Q₁?', 'etwa ein Viertel (25 %)', ['etwa die Hälfte (50 %)', 'etwa drei Viertel (75 %)', 'gar keiner'],
+                                       'Median und Quartile teilen die geordnete Liste in vier etwa gleich große Teile. Unter Q₁ liegt das erste Viertel.', 'Das Wort „Quartil“ kommt von „Viertel“.'))
+ST.neu('quartile', 2, 'umkehr', ST.Z('Der Quartilsabstand einer Datenreihe ist 12, das obere Quartil ist 30. Wie groß ist das untere Quartil?', 18, '30 - 12', 'Q₃ − Q₁ = 12, also Q₁ = 30 − 12 = 18.',
+                                     'Wie ist der Quartilsabstand definiert?'))
+ST.neu('quartile', 3, 'fehler', ST.A('Werte: 2; 4; 5; 7; 8; 10; 11; 13. Jemand gibt Q₁ = 4 an. Was stimmt?', 'Falsch: Die untere Hälfte ist 2; 4; 5; 7, ihr Median ist Q₁ = 4,5.',
+                                     ['Richtig.', 'Falsch: Q₁ = 5.', 'Falsch: Q₁ = 2.'],
+                                     '8 Werte: untere Hälfte sind die ersten vier. Ihr Median liegt zwischen dem 2. und 3. Wert: (4 + 5) : 2 = 4,5. Er hat einfach den 2. Wert genommen.',
+                                     'Wie viele Werte hat die untere Hälfte?'))
+ST.neu('quartile', 3, 'transfer', ST.Z('Bei einem Volkslauf mit 200 Teilnehmenden ist das obere Quartil der Zielzeiten 52 min. Etwa wie viele Läuferinnen und Läufer brauchten länger als 52 min?', 50, '200 / 4',
+                                       'Über Q₃ liegt etwa ein Viertel der Werte: 200 : 4 = 50.', 'Welcher Anteil liegt über dem oberen Quartil?'))
+ST.neu('quartile', 3, 'pruefung', ST.Z('Werte: 12; 15; 9; 20; 14; 18; 11. Bestimme den Quartilsabstand.', 7, '18 - 11',
+                                       'Geordnet: 9; 11; 12; 14; 15; 18; 20. Median 14. Untere Hälfte 9; 11; 12 → Q₁ = 11. Obere Hälfte 15; 18; 20 → Q₃ = 18. Quartilsabstand 18 − 11 = 7. '
+                                       '(Festlegung hier: Bei ungerader Anzahl gehört der Median zu keiner Hälfte.)',
+                                       'Ordne, bilde die Hälften und bestimme ihre Mediane.'))
+ST.knobel('quartile', ST.Z('Eine Datenreihe aus 8 Zahlen hat Q₁ = 10, Median 15 und Q₃ = 20. Wie groß ist die Summe des 2. bis 7. Werts der geordneten Liste?', 90, '2 * 10 + 2 * 15 + 2 * 20',
+                           'Bei 8 Werten gilt: Q₁ = (2. + 3. Wert) : 2, Median = (4. + 5. Wert) : 2, Q₃ = (6. + 7. Wert) : 2. '
+                           'Also 2. + 3. = 20, 4. + 5. = 30, 6. + 7. = 40. Zusammen 90 – egal, wie die einzelnen Werte aussehen.',
+                           'Aus welchen Werten werden Q₁, Median und Q₃ bei 8 Werten gebildet?'))
+ST.knobel('quartile', ST.Z('Eine Datenreihe hat 11 Werte. Wie viele Werte können höchstens größer als das obere Quartil Q₃ sein?', 2, '11 - 9',
+                           'Geordnet ist der Median der 6. Wert. Die obere Hälfte sind der 7. bis 11. Wert, ihr Median ist der 9. Wert – das ist Q₃. '
+                           'Größer als Q₃ können nur der 10. und 11. Wert sein, also höchstens 2 (wenn sie verschieden von Q₃ sind).',
+                           'Welcher Platz in der geordneten Liste ist Q₃?'))
+# boxplot
+ST.leiter('boxplot', 'Median, Quartile und Maximum am Boxplot ablesen; fünf Kennwerte erkennen.',
+          'Anteile unter oder über einer Marke ablesen, Spannweite, Finalplätze beim Wettlauf.',
+          'Boxplot zu Daten wählen, Anzahlen bei bekannter Gesamtzahl, falsche Aussage finden, Datenreihe zum Boxplot, Antenne.')
+ST.regel('boxplot', 1, '', 'direkt')
+ST.regel('boxplot', 2, 'Etwa wie viel Prozent', 'darstellung')
+ST.regel('boxplot', 2, '', 'mehrschritt')
+ST.regel('boxplot', 3, 'Welcher Boxplot passt', 'verknuepfen')
+ST.regel('boxplot', 3, 'Antenne', 'verknuepfen')
+ST.regel('boxplot', 3, 'NICHT', 'begruenden')
+ST.regel('boxplot', 3, 'Welche Datenreihe', 'rueckwaerts')
+ST.regel('boxplot', 3, '', 'transfer')
+ST.neu('boxplot', 1, 'erkennen', ST.A('Welche fünf Kennwerte zeigt ein Boxplot?', 'Minimum, Q₁, Median, Q₃, Maximum',
+                                      ['Minimum, Mittelwert, Median, Modalwert, Maximum', 'Q₁, Q₂, Q₃, Q₄, Q₅', 'Spannweite, Median und drei Ausreißer'],
+                                      'Die Antennen enden bei Minimum und Maximum, die Box reicht von Q₁ bis Q₃, der Strich in der Box ist der Median. Den Mittelwert zeigt ein Boxplot nicht.', 'Was begrenzt die Box, was die Antennen?'))
+ST.neu('boxplot', 2, 'einkleidung', ST.Z('Bei einem Wettlauf (Zeiten in s) zeigt der Boxplot das untere Quartil bei 12 s. Alle, die schneller als 12 s waren, kommen ins Finale. Etwa wie viel Prozent sind das?', 25, '100 / 4',
+                                         'Schneller heißt kürzere Zeit, also unter Q₁. Dort liegt etwa ein Viertel der Werte: 25 %.', 'Liegen schnelle Zeiten links oder rechts im Boxplot?', einheit='%'))
+ST.knobel('boxplot', ST.A('Ein Boxplot hat die Box von 20 bis 40 und den Median 25. Kann das arithmetische Mittel der Daten größer als 40 sein?', 'Ja, wenn das Maximum sehr groß ist.',
+                          ['Nein, das Mittel liegt immer in der Box.', 'Nein, das Mittel liegt immer zwischen Q₁ und Median.', 'Nein, das Mittel ist immer 30.'],
+                          'Beispiel mit 8 Werten: 10; 20; 20; 24; 26; 40; 40; 1 000. Q₁ = (20 + 20) : 2 = 20, Median (24 + 26) : 2 = 25, Q₃ = (40 + 40) : 2 = 40. '
+                          'Die Summe ist 1 180, das Mittel 147,5 – weit über 40. Der Boxplot zeigt den Mittelwert nicht, und ein einziger Ausreißer kann ihn beliebig groß machen.',
+                          'Versuche, eine Datenreihe mit einem riesigen Maximum zu bauen.'))
+ST.knobel('boxplot', ST.Z('Zu 20 Werten gehört ein Boxplot (Festlegung: bei ungerader Anzahl gehört der Median zu keiner Hälfte). Ein neuer Wert kommt dazu, der kleiner ist als alle bisherigen. Wie viele der fünf Kennwerte können sich dadurch höchstens ändern?',
+                          3, '3',
+                          'Alte Werte geordnet a₁ bis a₂₀. Vorher: Median (a₁₀ + a₁₁) : 2, Q₁ = (a₅ + a₆) : 2, Q₃ = (a₁₅ + a₁₆) : 2. Nachher 21 Werte, der neue steht vorn: '
+                          'Median ist der 11. Wert = a₁₀, die untere Hälfte sind der neue Wert und a₁ bis a₉, also Q₁ = (a₄ + a₅) : 2; die obere Hälfte a₁₁ bis a₂₀ ergibt wieder Q₃ = (a₁₅ + a₁₆) : 2. '
+                          'Maximum und Q₃ bleiben sicher gleich. Minimum, Q₁ und Median können sich ändern: höchstens 3.',
+                          'Schreibe auf, aus welchen Plätzen der geordneten Liste jeder Kennwert vorher und nachher gebildet wird.'))
+# vergleichen
+ST.leiter('vergleichen', 'Aussagen über Median und Streuung an zwei Boxplots erkennen; Mediane vergleichen.',
+          'Gleichmäßigkeit über den Quartilsabstand, besseres Abschneiden über den Median, Anteile über einer Marke.',
+          'Falsche Aussage finden, Anzahlen in zwei Klassen, gleiche Kennwerte deuten, Quartilsabstände vergleichen, Fehler „längere Box = mehr Kinder“, Box rückwärts, Prüfungsaufgabe.')
+ST.regel('vergleichen', 1, '', 'erkennen')
+ST.regel('vergleichen', 2, 'Welche Größe vergleicht man', 'erkennen', neu_s=1)
+ST.regel('vergleichen', 2, 'gleichmäßiger', 'mehrschritt')
+ST.regel('vergleichen', 2, 'Welche Aussage ist richtig', 'mehrschritt')
+ST.regel('vergleichen', 2, 'mindestens die Hälfte', 'darstellung')
+ST.regel('vergleichen', 2, '', 'einkleidung')
+ST.regel('vergleichen', 3, 'obere Quartil', 'transfer')
+ST.regel('vergleichen', 3, 'Quartilsabstand', 'verknuepfen')
+ST.regel('vergleichen', 3, '', 'begruenden')
+ST.neu('vergleichen', 1, 'direkt', ST.Z('Die 7a hat im Test den Median 14 Punkte, die 7b den Median 17 Punkte. Um wie viele Punkte liegt der Median der 7b höher?', 3, '17 - 14',
+                                       '17 − 14 = 3 Punkte.', 'Ziehe die Mediane voneinander ab.'))
+ST.neu('vergleichen', 3, 'fehler', ST.A('Jemand sagt: „Die Box der 7a ist länger als die der 7b, also haben in der 7a mehr Kinder mitgemacht.“ Was stimmt?',
+                                        'Falsch: Die Länge der Box zeigt, wie weit die mittlere Hälfte streut, nicht die Anzahl.',
+                                        ['Richtig.', 'Falsch: Eine längere Box bedeutet weniger Kinder.', 'Falsch: Die Box zeigt den Mittelwert.'],
+                                        'In jeder Box liegt etwa die Hälfte der jeweiligen Klasse, egal wie groß sie ist. Eine lange Box heißt: Die mittleren Werte liegen weit auseinander.',
+                                        'Was liegt in jeder Box – unabhängig von der Klassengröße?'))
+ST.neu('vergleichen', 3, 'verknuepfen', ST.Z('In der 7a (24 Kinder) liegt das untere Quartil bei 8 Punkten, in der 7b (28 Kinder) der Median bei 8 Punkten. Etwa wie viele Kinder beider Klassen haben weniger als 8 Punkte?',
+                                             20, '24 / 4 + 28 / 2', '7a: unter Q₁ etwa ein Viertel, 24 : 4 = 6. 7b: unter dem Median etwa die Hälfte, 28 : 2 = 14. Zusammen etwa 20.',
+                                             'Welcher Anteil liegt in jeder Klasse unter 8 Punkten?'))
+ST.neu('vergleichen', 3, 'rueckwaerts', ST.Z('Die Box der 7a reicht von 10 bis 16 Punkten. Die Box der 7b ist doppelt so lang und beginnt bei 8 Punkten. Bei wie vielen Punkten endet sie?', 20, '8 + 2 * (16 - 10)',
+                                             'Box der 7a: 16 − 10 = 6 Punkte lang. Box der 7b: 12 Punkte lang, also von 8 bis 20.', 'Wie lang ist die Box der 7a?'))
+ST.neu('vergleichen', 3, 'pruefung', ST.A('7a: Minimum 2, Q₁ 6, Median 9, Q₃ 12, Maximum 15. 7b: Minimum 4, Q₁ 8, Median 9, Q₃ 10, Maximum 18. Welche Aussage ist richtig?',
+                                          'In der 7b liegen die mittleren 50 % enger beieinander.',
+                                          ['Die 7b hat den größeren Median.', 'Die Spannweite der 7a ist größer.', 'In der 7a hat deutlich mehr als die Hälfte über 9 Punkte.'],
+                                          'Quartilsabstand 7a: 12 − 6 = 6, 7b: 10 − 8 = 2 – die Box der 7b ist viel schmaler. Die Mediane sind gleich (9). Spannweiten: 7a 13, 7b 14. Über dem Median liegt in jeder Klasse etwa die Hälfte.',
+                                          'Prüfe jede Aussage mit den Zahlen.'))
+ST.knobel('vergleichen', ST.Z('Zwei Klassen mit je 25 Kindern haben im Test beide den Median 12 Punkte. Wie groß ist der Median aller 50 Ergebnisse zusammen?', 12, '12',
+                              'In jeder Klasse haben mindestens 13 Kinder höchstens 12 Punkte und mindestens 13 Kinder mindestens 12 Punkte. Zusammen: mindestens 26 der 50 Werte sind ≤ 12, also ist der 26. Wert ≤ 12; '
+                              'und mindestens 26 Werte sind ≥ 12, also ist der 25. Wert ≥ 12. Weil der 25. Wert nicht größer als der 26. ist, sind beide genau 12. Der Median (25. + 26. Wert) : 2 ist 12.',
+                              'Zähle in beiden Klassen, wie viele Werte höchstens und mindestens 12 sind.'))
+ST.knobel('vergleichen', ST.A('Zwei gleich große Klassen: In der A ist der Median 10 Punkte, in der B 14 Punkte. Wo liegt der Median beider Klassen zusammen?', 'irgendwo von 10 bis 14 Punkten',
+                              ['genau bei 12 Punkten', 'immer unter 10 Punkten', 'Das kann jeder Wert sein.'],
+                              'Mindestens die Hälfte von A hat höchstens 10, mindestens die Hälfte von B höchstens 14 Punkte – zusammen mindestens die Hälfte aller Werte höchstens 14: Der gemeinsame Median ist höchstens 14. '
+                              'Genauso hat mindestens die Hälfte aller Werte mindestens 10 Punkte: Er ist mindestens 10. Genau 12 muss er nicht sein – das hängt von den übrigen Werten ab.',
+                              'Was weißt du über die Hälfte der Werte in jeder Klasse?'))
+# ---- STUFEN ENDE ----
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Kennwerte', ['median', 'kennwerte', 'mittel_median']), ('Quartile und Boxplot', ['quartile', 'boxplot']), ('Vergleichen', ['vergleichen'])],
@@ -703,3 +904,4 @@ if __name__ == '__main__':
     anhaengen(META['thema_schluessel'], schwer())
     befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
     durchsicht_datei(META['thema_schluessel'], DS)  # Neunzehnte Runde: zuletzt
+    stufen_datei(META['thema_schluessel'], ST)  # Zwanzigste Runde: zuletzt

@@ -3,6 +3,9 @@
 Neueste Meldung oben.
 
 ## 2026-11-17 – STATUS
+daten.boxplot fertig: alle alten Übungen mit Typ (außer überzähligen), 1 umgestuft, 24 neue Übungen, 12 Knobel-Bordkarten, 3 überzählig. Prüfer OK, 0 Gruppen, Nachweis OK.
+
+## 2026-11-17 – STATUS
 bruch.prozent_grundwert fertig: 125 alte Übungen mit Typ, 5 umgestuft (reine Faktor-Rechnungen nach Stufe 2, Fehleraufgabe „Tom“ nach Stufe 3), 28 neue Übungen, 14 Knobel-Bordkarten, 22 überzählig. Prüfer OK, 0 Gruppen, Nachweis OK.
 
 ## 2026-11-17 – STATUS

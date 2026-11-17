@@ -1,5 +1,8 @@
 # Postfach durchsicht-rsib-2 (Neunzehnte Runde, Teil B, Chat 2)
 
+## 2026-11-17 17:55 – STATUS
+daten.normalverteilung fertig: Stufen getrennt (u. a. „Welcher Bereich hat 99,7 %?“ war Stufe 3), 8 Stufe-3-Übungen je Karte (zwei Glocken deuten, μ und σ aus einem Bereich, Modellkritik, zusammengesetzte Bereiche, gleich gute Leistung, z → Anteil), Karte eigenschaften um den Median ergänzt, überlappende Beschriftung behoben. inhalt_pruefen OK ohne Hinweise.
+
 ## 2026-11-17 17:30 – STATUS
 sonder.optimierung fertig: Grammatikfehler behoben („bei den Tischen“, „Ein Tisch braucht“), ratbare Aufgabe „Wie viele Eckpunkte?“ (immer 4) ersetzt, Stufen getrennt, 8 Stufe-3-Übungen je Karte (Punkt auf dem Rand, Anteil p %, dritte Bedingung, Zielfunktion parallel zum Rand, Parameter a, Ecken selbst bestimmen). inhalt_pruefen OK ohne Hinweise.
 

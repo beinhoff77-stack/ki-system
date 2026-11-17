@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _ib import *  # noqa: E402,F403
+from _rsib2 import PLAN2, art3  # noqa: E402
 
 start(8010)
 
@@ -99,7 +100,7 @@ ETAPPEN = [
 
 
 def g_eigenschaften(s):
-    art = R.choice({1: ['spitze', 'symmetrie', 'median'], 2: ['breite', 'symmetrie_wert', 'histogramm', 'median'], 3: ['breite', 'histogramm', 'fehler', 'symmetrie_wert']}[s])
+    art = R.choice({1: ['spitze', 'symmetrie', 'median'], 2: ['breite', 'symmetrie_wert', 'histogramm'], 3: ['breite', 'histogramm', 'fehler', 'symmetrie_wert']}[s])  # Durchsicht 19
     g, e, mu, sg = kxt()
     if art == 'spitze':
         return zahl(f'{der(g)} {g} ist normalverteilt mit μ = {dz(mu)} {e} und σ = {dz(sg)} {e}. Bei welchem Wert hat die Glockenkurve ihre Spitze?',
@@ -148,7 +149,7 @@ def g_regel(s):
     g, e, mu, sg = kxt()
     k = R.choice([1, 2, 3]) if s > 1 else R.choice([1, 2])
     p = {1: 68, 2: 95, 3: Fr(997, 10)}[k]
-    art = R.choice({1: ['prozent', 'grenzen'], 2: ['prozent', 'grenzen', 'anzahl'], 3: ['anzahl', 'welches_k', 'grenzen_dez']}[s])
+    art = R.choice({1: ['prozent', 'grenzen'], 2: ['anzahl', 'grenzen', 'welches_k'], 3: ['anzahl', 'welches_k', 'grenzen_dez']}[s])  # Durchsicht 19: „welcher Bereich“ ist kein Stufe-3-Gedanke
     if art == 'prozent':
         return zahl(f'{der(g)} {g} ist normalverteilt mit μ = {dz(mu)} {e} und σ = {dz(sg)} {e}. Wie viel Prozent der Werte liegen etwa zwischen {dz(mu - k * sg)} {e} und {dz(mu + k * sg)} {e}?',
                     f'{dz(mu - k * sg)} = μ − {k if k > 1 else ""}σ und {dz(mu + k * sg)} = μ + {k if k > 1 else ""}σ. Nach der Regel: etwa {dz(p)} %.',
@@ -210,7 +211,7 @@ def g_anteile(s):
 
 def g_zwert(s):
     g, e, mu, sg = kxt()
-    art = R.choice({1: ['z', 'z'], 2: ['z', 'z_neg', 'x'], 3: ['z_dez', 'x_neg', 'sigma']}[s])
+    art = R.choice({1: ['z', 'z'], 2: ['z_neg', 'x', 'x_neg', 'z_dez'], 3: ['z_dez', 'x_neg', 'sigma']}[s])  # Durchsicht 19
     if art in ('z', 'z_neg'):
         z = R.choice([1, 2, 3]) * (-1 if art == 'z_neg' else 1)
         x = mu + z * sg
@@ -240,7 +241,7 @@ FAECHER = [('Mathe', 'Deutsch'), ('Weitsprung', 'Sprint'), ('Test A', 'Test B'),
 
 
 def g_vergleichen(s):
-    art = R.choice({1: ['besser', 'ungewoehnlich'], 2: ['besser', 'ungewoehnlich', 'zvergleich'], 3: ['besser_falle', 'ungewoehnlich_wert', 'zvergleich']}[s])
+    art = R.choice({1: ['besser', 'ungewoehnlich'], 2: ['ungewoehnlich', 'zvergleich'], 3: ['besser_falle', 'ungewoehnlich_wert', 'zvergleich']}[s])  # Durchsicht 19
     if art in ('besser', 'besser_falle', 'zvergleich'):
         for _ in range(100):
             m1, s1, m2, s2 = R.choice([50, 60, 70]), R.choice([4, 5, 8, 10]), R.choice([40, 55, 65, 75]), R.choice([4, 5, 8, 10])
@@ -274,7 +275,173 @@ def g_vergleichen(s):
                    'Rechne μ − 2σ und μ + 2σ.', c=[f'{mu} - 2 * {sg}', f'{mu} + 2 * {sg}'])
 
 
-GEN = dativ({'eigenschaften': g_eigenschaften, 'regel': g_regel, 'anteile': g_anteile, 'zwert': g_zwert, 'vergleichen': g_vergleichen})
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil B, Zweig durchsicht-rsib-2) ----------
+# Prüfungsvorbilder: IB MYP Extended / Verlagsinhalt Normalverteilung (Glocken vergleichen, μ und σ aus einem 95-%-Bereich, Anteil zwischen
+# μ − σ und μ + 2σ, „wie viele von n liegen außerhalb“, gleich gute Leistung in zwei Tests, z-Wert → Anteil). Eigene Zahlen.
+def eigen3(art):
+    if art == 'zwei_kurven':
+        m1, m2 = R.sample([40, 50, 60, 70], 2)
+        s1, s2 = R.sample([4, 6, 8, 10], 2)
+        lo, hi = min(m1, m2) - 3 * max(s1, s2), max(m1, m2) + 3 * max(s1, s2)
+        b = {'typ': 'koordinaten', 'x': [lo, hi], 'y': [0, 1.2], 'schritt_x': 10, 'schritt_y': 0.5, 'name_y': ' ',
+             'graphen': [{'art': 'glocke', 'a': round(min(s1, s2) / s1, 3), 'mu': m1, 'sigma': s1, 'name': 'A', 'name_x': m1},
+                         {'art': 'glocke', 'a': round(min(s1, s2) / s2, 3), 'mu': m2, 'sigma': s2, 'name': 'B', 'name_x': m2}]}
+        groesser_mu = 'A' if m1 > m2 else 'B'
+        groesser_s = 'A' if s1 > s2 else 'B'
+        opt = {(m, s_): f'{m} hat den größeren Mittelwert, {s_} streut stärker.' for m in 'AB' for s_ in 'AB'}
+        r = opt.pop((groesser_mu, groesser_s))
+        return mit_grafik(auswahl('Die Zeichnung zeigt zwei Normalverteilungen A und B. Welche Aussage stimmt?', r, list(opt.values()),
+                                  f'Die Spitze von A liegt bei {m1}, die von B bei {m2}: größerer Mittelwert bei {groesser_mu}. Die breitere, flachere Glocke ({groesser_s}) hat das größere σ.',
+                                  'Mittelwert: Wo ist die Spitze? Streuung: Welche Glocke ist breiter?'), b)
+    # nicht_normal
+    r = 'die Augenzahl beim Würfeln mit einem fairen Würfel'
+    return auswahl('Welche Größe ist am wenigsten normalverteilt?', r,
+                   ['die Körpergröße erwachsener Frauen', 'die Füllmenge von Saftflaschen aus einer Maschine', 'das Gewicht von Äpfeln einer Sorte'],
+                   'Beim fairen Würfel ist jede Augenzahl 1 bis 6 gleich wahrscheinlich: Das Säulendiagramm ist flach, keine Glocke. Die anderen Größen häufen sich um einen Mittelwert.',
+                   'Gibt es einen Wert, um den sich die Ergebnisse häufen und nach außen seltener werden?')
+
+
+def regel3(art):
+    g, e, mu, sg = kxt()
+    if art == 'sigma_aus_bereich':
+        k = R.choice([1, 2])
+        p = {1: '68', 2: '95'}[k]
+        return luecken(f'{der(g)} {g} ist normalverteilt. Etwa {p} % der Werte liegen zwischen {dz(mu - k * sg)} {e} und {dz(mu + k * sg)} {e}. Bestimme μ und σ.',
+                       'μ = □; σ = □', 'zwei ganze Zahlen', [mu, sg],
+                       f'μ liegt in der Mitte: ({dz(mu - k * sg)} + {dz(mu + k * sg)}) : 2 = {dz(mu)}. {p} % gehören zu μ ± {k if k > 1 else ""}σ: {dz(mu + k * sg)} − {dz(mu)} = {dz(k * sg)}'
+                       + (f', also σ = {dz(k * sg)} : {k} = {dz(sg)}.' if k > 1 else f' = σ.'),
+                       f'Die Mitte des Bereichs ist μ. Welcher Bereich (μ ± σ, μ ± 2σ, …) gehört zu {p} %?', c=[str(mu), str(sg)])
+    if art == 'anzahl_ausserhalb':
+        n = R.choice([400, 600, 800, 1000, 2000])
+        k = R.choice([2, 2, 3])
+        p = {2: Fr(5), 3: Fr(3, 10)}[k]
+        anz = n * p / 100
+        if anz.denominator != 1: return None
+        return zahl(f'{dz(n)} Werte: {g}, μ = {dz(mu)} {e}, σ = {dz(sg)} {e}. Etwa wie viele Werte liegen nicht zwischen {dz(mu - k * sg)} {e} und {dz(mu + k * sg)} {e}?',
+                    f'Der Bereich ist μ ± {k}σ mit etwa {"95" if k == 2 else "99,7"} %. Außerhalb: {dz(p)} %. {dz(p)} % von {dz(n)} = {dz(anz)}.',
+                    'Welcher Anteil liegt im Bereich? Der Rest liegt außerhalb.', anz, f'{n} * {float(p)} / 100')
+    # modell: passt eine Normalverteilung?
+    mu2, sg2 = R.choice([(10, 6), (8, 5), (6, 4), (12, 7)])
+    r = f'Nein: μ − 2σ = {dz(mu2 - 2 * sg2)} min wäre eine negative Zeit, trotzdem müssten dort noch etwa 2,5 % liegen.'
+    return auswahl(f'Fahrzeiten zur Schule haben μ = {mu2} min und σ = {sg2} min. Passt dazu eine Normalverteilung gut?', r,
+                   ['Ja, Fahrzeiten sind immer normalverteilt.', 'Ja, weil σ kleiner als μ ist.', 'Nein, weil σ größer als 5 min ist.'],
+                   f'Bei einer Normalverteilung lägen etwa 2,5 % unter μ − 2σ = {dz(mu2 - 2 * sg2)} min. Negative Fahrzeiten gibt es nicht: Das Modell passt schlecht (die echte Verteilung ist schief).',
+                   'Berechne μ − 2σ. Ist so ein Wert in der Wirklichkeit möglich?')
+
+
+def anteile3(art):
+    g, e, mu, sg = kxt()
+    if art == 'zusammengesetzt':
+        a, b = R.choice([(-1, 2), (-2, 1), (-3, 1), (-1, 3), (-3, -1), (1, 3), (-2, 0)])
+        p = anteil(a, b)
+        return zahl(f'{der(g)} {g} ist normalverteilt mit μ = {dz(mu)} {e} und σ = {dz(sg)} {e}. Wie viel Prozent liegen etwa zwischen {dz(mu + a * sg)} {e} und {dz(mu + b * sg)} {e}?',
+                    f'{dz(mu + a * sg)} ist {grenzwort(a)}, {dz(mu + b * sg)} ist {grenzwort(b)}. Streifen addieren: '
+                    + ' + '.join(dz(STREIFEN[(u, u + 1)]) + ' %' for u in range(a, b)) + f' = {dz(p)} %.',
+                    'Teile den Bereich in σ-Streifen (34 %, 13,5 %, 2,35 %) und addiere.', p, f'{float(p)}', einheit='%')
+    # grenze_gesucht
+    k, p = R.choice([(1, '16'), (2, '2,5')])
+    oben = R.random() < .5
+    gr = mu + k * sg if oben else mu - k * sg
+    return zahl(f'{der(g)} {g} ist normalverteilt mit μ = {dz(mu)} {e} und σ = {dz(sg)} {e}. Ab welchem Wert gehört man zu den {p} % mit den {"größten" if oben else "kleinsten"} Werten?',
+                f'{p} % liegen {"über" if oben else "unter"} {grenzwort(k if oben else -k)} = {dz(mu)} {"+" if oben else "−"} {dz(k * sg)} = {dz(gr)} {e}.',
+                f'Welche σ-Grenze schneidet {p} % ab?', gr, f'{mu} {"+" if oben else "-"} {k} * {sg}', einheit=e)
+
+
+def z3(art):
+    g, e, mu, sg = kxt()
+    if art == 'z_anteil':
+        z = R.choice([-2, -1, 1, 2])
+        oben = R.random() < .5
+        p = anteil(z, 4) if oben else anteil(-4, z)
+        return zahl(f'{g}: μ = {dz(mu)} {e}, σ = {dz(sg)} {e}. Ein Wert hat den z-Wert {dz(z)}. Wie viel Prozent der Werte liegen etwa {"darüber" if oben else "darunter"}?',
+                    f'z = {dz(z)} heißt: der Wert liegt bei {grenzwort(z)}. {"Darüber" if oben else "Darunter"} liegen etwa {dz(p)} % (68-95-99,7-Regel, halbiert und addiert).',
+                    'Übersetze den z-Wert in eine σ-Grenze und nutze die Faustregel.', p, f'{float(p)}', einheit='%')
+    # mu_aus_z
+    z = R.choice([-2, -1.5, -1, 1, 1.5, 2])
+    x = mu + z * sg
+    if x != int(x): return None
+    return zahl(f'{g}: σ = {dz(sg)} {e}. Der Wert {dz(int(x))} {e} hat den z-Wert {dz(z)}. Wie groß ist μ?',
+                f'z = (x − μ) : σ ⇒ x − μ = z · σ = {dz(z * sg)} ⇒ μ = {dz(int(x))} − {kl(z * sg)} = {dz(mu)} {e}.',
+                'Stelle z = (x − μ) : σ nach μ um.', mu, f'{int(x)} - ({z}) * {sg}', einheit=e)
+
+
+def vergl3(art):
+    if art == 'gleich_gut':
+        m1, s1, m2, s2 = R.choice([50, 60, 70]), R.choice([4, 5, 8, 10]), R.choice([55, 65, 75]), R.choice([4, 5, 8, 10])
+        z = R.choice([0.5, 1, 1.5, 2, -1])
+        x1, x2 = m1 + z * s1, m2 + z * s2
+        if x1 != int(x1) or x2 != int(x2) or (m1, s1) == (m2, s2): return None
+        return zahl(f'Test A: μ = {m1}, σ = {s1}. Test B: μ = {m2}, σ = {s2}. Wie viele Punkte in Test B sind genauso gut wie {int(x1)} Punkte in Test A?',
+                    f'z in A: ({int(x1)} − {m1}) : {s1} = {dz(z)}. Gleich gut heißt gleicher z-Wert: x = {m2} + {kl(z)} · {s2} = {dz(int(x2))}.',
+                    'Berechne den z-Wert in Test A und übertrage ihn auf Test B.', int(x2), f'{m2} + ({int(x1)} - {m1}) / {s1} * {s2}')
+    if art == 'drei':
+        faecher = ['Mathe', 'Deutsch', 'Englisch']
+        zs = R.sample([-1, 0.5, 1, 1.5, 2], 3)
+        daten = []
+        for f, z in zip(faecher, zs):
+            m, s_ = R.choice([50, 60, 70]), R.choice([4, 5, 8, 10])
+            x = m + z * s_
+            if x != int(x): return None
+            daten.append((f, int(x), m, s_, z))
+        best = max(daten, key=lambda d: d[4])
+        return auswahl('Ergebnisse: ' + '; '.join(f'{f}: {x} Punkte (μ = {m}, σ = {s_})' for f, x, m, s_, _ in daten) + '. In welchem Fach ist das Ergebnis im Vergleich am besten?',
+                       best[0], [d[0] for d in daten if d != best] + ['In allen gleich gut'],
+                       'z-Werte: ' + '; '.join(f'{f}: ({x} − {m}) : {s_} = {dz(z)}' for f, x, m, s_, z in daten) + f'. Am größten: {best[0]}.',
+                       'Rechne für jedes Fach den z-Wert aus.')
+    # prozent_besser
+    g, e, mu, sg = kxt()
+    z = R.choice([1, 2, -1])
+    x = mu + z * sg
+    p = anteil(z, 4)
+    return zahl(f'{g}: μ = {dz(mu)} {e}, σ = {dz(sg)} {e}. Jemand hat den Wert {dz(x)} {e}. Wie viel Prozent haben etwa einen größeren Wert?',
+                f'z = ({dz(x)} − {dz(mu)}) : {dz(sg)} = {dz(z)}. Über {grenzwort(z)} liegen etwa {dz(p)} %.',
+                'Erst den z-Wert, dann die Faustregel.', p, f'{float(p)}', einheit='%')
+
+
+def _filter(g, s, teil, nicht=False):
+    for _ in range(120):
+        t = g(s)
+        if t and ((teil in t['f']['text']) != nicht): return t
+    return None
+
+
+def g2_eigenschaften(s):
+    if s < 3: return g_eigenschaften(s)
+    art = art3('fehler', 'zwei_kurven', 'nicht_normal', ['fehler', 'zwei_kurven', 'zwei_kurven', 'fehler', 'zwei_kurven'])
+    if art == 'fehler': return _filter(g_eigenschaften, 3, 'behauptet')
+    return eigen3(art)
+
+
+def g2_regel(s):
+    if s < 3: return g_regel(s)
+    art = art3('sigma_aus_bereich', 'anzahl_ausserhalb', 'modell', ['sigma_aus_bereich', 'anzahl_ausserhalb', 'modell', 'grenzen_dez', 'sigma_aus_bereich'])
+    if art == 'grenzen_dez': return _filter(g_regel, 3, 'Grenzen')
+    return regel3(art)
+
+
+def g2_anteile(s):
+    if s < 3: return g_anteile(s)
+    art = art3('zusammengesetzt', 'aussen', 'grenze_gesucht', ['zusammengesetzt', 'aussen', 'grenze_gesucht', 'anzahl', 'zusammengesetzt'])
+    if art == 'aussen': return _filter(g_anteile, 3, 'außerhalb')
+    if art == 'anzahl': return _filter(g_anteile, 3, 'Messwerte')
+    return anteile3(art)
+
+
+def g2_zwert(s):
+    if s < 3: return g_zwert(s)
+    art = art3('z_anteil', 'mu_aus_z', 'sigma', ['z_anteil', 'mu_aus_z', 'sigma', 'z_dez', 'z_anteil'])
+    if art == 'sigma': return _filter(g_zwert, 3, 'Wie groß ist σ')
+    if art == 'z_dez': return _filter(g_zwert, 3, 'Berechne den z-Wert')
+    return z3(art)
+
+
+def g2_vergleichen(s):
+    if s == 1: return g_vergleichen(1)
+    if s == 2: return g_vergleichen(R.choice([2, 3]))
+    return vergl3(art3('gleich_gut', 'drei', 'prozent_besser', ['gleich_gut', 'drei', 'prozent_besser', 'gleich_gut', 'drei']))
+
+
+GEN = dativ({'eigenschaften': g2_eigenschaften, 'regel': g2_regel, 'anteile': g2_anteile, 'zwert': g2_zwert, 'vergleichen': g2_vergleichen})
 
 # ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
 # Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
@@ -317,10 +484,11 @@ UMBAU = {
             {'text': 'Füllmengen: μ = 500 ml und σ = 5 ml.'},
             {'text': 'Die Spitze der Glocke liegt bei ⟦500 ml⟧.', 'bild': {'punkte': pkte({'μ': (500, 1)})}},
             {'text': '495 ml und 505 ml liegen gleich weit weg: gleich häufig.', 'bild': {'senkrecht': [495, 505]}},
+            {'text': 'Wegen der Symmetrie ist auch der Median ⟦500 ml⟧.'},
         ],
         'fehler': '„Größeres σ macht die Glocke höher“ ist falsch. Größeres σ heißt ⟦breiter und flacher⟧, die Gesamtfläche bleibt 100 %.',
-        'fehler_bild': {'graphen': [{'art': 'glocke', 'a': 1, 'mu': 500, 'sigma': 5, 'name': 'σ = 5'},
-                                    {'art': 'glocke', 'a': 0.5, 'mu': 500, 'sigma': 10, 'name': 'σ = 10'}], 'punkte': None, 'senkrecht': None},
+        'fehler_bild': {'graphen': [{'art': 'glocke', 'a': 1, 'mu': 500, 'sigma': 5, 'name': 'σ = 5', 'name_x': 505},
+                                    {'art': 'glocke', 'a': 0.5, 'mu': 500, 'sigma': 10, 'name': 'σ = 10', 'name_x': 513}], 'punkte': None, 'senkrecht': None},
         'regel': 'Normalverteilt: eine Glocke, ⟦symmetrisch um μ⟧. σ bestimmt die Breite.',
     },
     'regel': {
@@ -397,5 +565,5 @@ d = bauen('daten.normalverteilung',
       ETAPPEN, GEN,
       offen=['Ohne Lehrplan-Zuordnung (Verlagsinhalt IB Extended); Niveau Klasse 9/10 angenommen. Rechnung nur mit der 68-95-99,7-Regel, keine Tabellen der Standardnormalverteilung und keine Taschenrechner-Funktionen (normalcdf).',
              'App-Wunsch: Graphart „Glockenkurve“ (Normalverteilungsdichte mit μ und σ, Fläche zwischen zwei Grenzen färbbar). Bisher Ersatz: Säulendiagramm in Glockenform und Tabelle der Streifen-Anteile.',
-             'Feld klasse: {"zusatz": 10} statt {} (Prüfskript verlangt einen Eintrag) – siehe FRAGE im Postfach.'])
+             'Feld klasse: {"zusatz": 10} statt {} (Prüfskript verlangt einen Eintrag) – siehe FRAGE im Postfach.'], plan=PLAN2)
 umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

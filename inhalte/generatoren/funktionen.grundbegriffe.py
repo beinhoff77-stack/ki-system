@@ -1060,6 +1060,189 @@ DS.stufen('sachzusammenhang', 'S1 Tarif einsetzen, Temperatur ablesen, Term wäh
 baue = mit_durchsicht(baue, DS)
 # ---- DURCHSICHT ENDE ----
 
+# ---- STUFEN (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, siehe _stufen_kl8.py) ----
+from _stufen_kl8 import Stufen, mit_stufen  # noqa: E402
+
+ST = Stufen('funktionen.grundbegriffe', 20_8_7)
+SA, SZ, SL = ST.A, ST.Z, ST.L
+def T(lz, *regeln):
+    for m, g in regeln: ST.typ(lz, m, g)
+
+# --- eindeutig ---
+ST.leiter('eindeutig', 'an Wertepaaren erkennen, ob jedes x genau ein y hat',
+          'Alltagszuordnungen und ihre Umkehrung beurteilen, Tabelle und Graph prüfen, die Nicht-Funktion finden',
+          'Rennstrecke und Kreis begründen, Fehler in einer Behauptung finden, Parameter a, rückwärts zum Urbild, Geometrie verknüpfen, Tabellen wie in einer Prüfung')
+T('eindeutig', (r'\(a \| 2\)', 'parameter'), (r'^Ist die Zuordnung \(', 'erkennen'), (r'KEINE Funktion\?$', 'umkehr'), (r'gezeichnete Graph|Temperatur an einem Tag', 'darstellung'),
+  (r'Rennwagen', 'transfer'), (r'^Mia', 'fehler'), (r'\(a \| 2\)', 'parameter'), (r'Kreis', 'begruenden'), (r'.', 'einkleidung'))
+ST.neu('eindeutig', 'direkt', SA('Gehört in den Paaren (1 | 2), (2 | 4), (3 | 6) zu jedem x genau ein y?', 'Ja: Jedes x kommt nur einmal vor.', ['Nein: Die 2 kommt zweimal vor.', 'Nein: Die y-Werte sind alle verschieden.'],
+    'Die x-Werte 1, 2, 3 sind verschieden – jedes x hat genau ein y. Dass 2 auch als y vorkommt, spielt keine Rolle.', 'Schau nur auf die ersten Zahlen der Paare.'))
+ST.neu('eindeutig', 'rueckwaerts', SZ('Eine Funktion ordnet jeder Zahl ihr Dreifaches plus 2 zu. Welcher Zahl ist die 17 zugeordnet?', 5, '(17 - 2) / 3', '3x + 2 = 17 ⇒ x = 5.', 'Rechne rückwärts: erst 2 abziehen, dann durch 3.'))
+ST.neu('eindeutig', 'verknuepfen', SA('Seitenlänge eines Quadrats ↦ Flächeninhalt und umgekehrt Flächeninhalt ↦ Seitenlänge. Welche Zuordnungen sind Funktionen?', 'beide, weil Seitenlängen positiv sind',
+    ['nur die erste', 'nur die zweite', 'keine'], 'Zu jeder Seite gibt es genau eine Fläche (a · a). Umgekehrt gehört zu jeder Fläche genau eine positive Seitenlänge (z. B. 9 cm² ↦ 3 cm).', 'Kann zu einer Fläche eine zweite Seitenlänge passen?'))
+ST.neu('eindeutig', 'pruefung', SA('Welche Tabelle beschreibt eine Funktion? A: (1 | 2), (2 | 3), (1 | 4). B: (0 | 1), (1 | 1), (2 | 1). C: (3 | 0), (3 | 1), (4 | 2).', 'nur B', ['nur A', 'A und C', 'keine'],
+    'In A hat x = 1 zwei Werte, in C hat x = 3 zwei Werte. In B hat jedes x genau einen Wert – dass es immer 1 ist, ist erlaubt.', 'Suche in jeder Tabelle ein x, das doppelt vorkommt.'))
+ST.neu('eindeutig', 'begruenden', SA('Die Zuordnung (1 | 5), (2 | 5), (3 | □) soll so ergänzt werden, dass auch die umgekehrte Zuordnung y ↦ x eine Funktion ist. Geht das?', 'Nein: Zur 5 gehören schon zwei x-Werte.',
+    ['Ja, mit □ = 5.', 'Ja, mit jeder Zahl außer 5.', 'Ja, mit □ = 1.'], 'Umgekehrt würde 5 ↦ 1 und 5 ↦ 2 gelten – das ist schon keine Funktion, egal was man ergänzt.', 'Schau die Paare von rechts nach links an.'))
+ST.knobel('eindeutig', SZ('Wie viele verschiedene Funktionen gibt es, die jeder der Zahlen 1, 2 und 3 eine der Zahlen 0 oder 1 zuordnen?', 8, '2 * 2 * 2',
+    'Für die 1 gibt es 2 Möglichkeiten, für die 2 ebenso, für die 3 ebenso: 2 · 2 · 2 = 8 Funktionen (z. B. 1 ↦ 0, 2 ↦ 1, 3 ↦ 1).',
+    'Entscheide Zahl für Zahl, wohin sie geht.'))
+ST.knobel('eindeutig', SA('Jeder natürlichen Zahl ab 2 wird ihr kleinster Teiler größer als 1 zugeordnet. Ist auch die umgekehrte Zuordnung eine Funktion?', 'Nein: Zum Teiler 2 gehören z. B. 4 und 6.',
+    ['Ja, jeder Teiler gehört zu genau einer Zahl.', 'Ja, weil jede Zahl genau einen kleinsten Teiler hat.', 'Nein, weil manche Zahlen keinen kleinsten Teiler haben.'],
+    'Die Zuordnung selbst ist eine Funktion (jede Zahl hat genau einen kleinsten Teiler > 1). Umgekehrt hat aber z. B. 2 viele Urbilder: 2, 4, 6, 8 …', 'Welche Zahlen haben den kleinsten Teiler 2?'))
+
+# --- mengen ---
+ST.leiter('mengen', 'die maximale Definitionsmenge bei einem einfachen Nenner angeben',
+          'Wertemenge zu einer kleinen Definitionsmenge berechnen, Sachdefinitionsmenge, Zahl finden, die kein Funktionswert ist',
+          'Nenner mit Produkt, Wertebereich von x² begründen, Fehler (D statt W), Parameter, Prüfungsaufgabe D = W')
+T('mengen', (r'^Gib die maximale Definitionsmenge von f\(x\) = −?\d+/\(x [−+] \d+\) an', 'direkt'), (r'Wertemenge W an', 'mehrschritt'),
+  (r'KEIN Funktionswert', 'umkehr'), (r'Becken', 'einkleidung'), (r'\(\(x', 'verknuepfen'), (r'Welche Aussage über die Funktionswerte|x² \+ 1\) an', 'begruenden'),
+  (r'Bestimme a', 'parameter'), (r'^Gib die maximale', 'mehrschritt'))
+ST.neu('mengen', 'erkennen', SA('Welche Zahl gehört NICHT zur maximalen Definitionsmenge von f(x) = 3/(x + 6)?', '−6', ['6', '0', '3'], 'Bei x = −6 wäre der Nenner 0.', 'Wann wird der Nenner 0?'))
+ST.neu('mengen', 'fehler', SA('Für f(x) = 2x mit D = {1; 2; 3} schreibt jemand W = {1; 2; 3}. Was stimmt?', 'Falsch: W enthält die Funktionswerte 2, 4 und 6.', ['Richtig.', 'Falsch: W = {2}.', 'Falsch: W = ℚ.'],
+    'W ist die Menge der Funktionswerte: f(1) = 2, f(2) = 4, f(3) = 6. Er hat D abgeschrieben.', 'Berechne jeden Funktionswert.'))
+ST.neu('mengen', 'pruefung', SA('f(x) = 10/x mit D = {1; 2; 5; 10}. Welche Aussage stimmt?', 'D und W sind dieselbe Menge.', ['W = {10}', 'W hat mehr Elemente als D.', '0 gehört zu W.'],
+    'f(1) = 10, f(2) = 5, f(5) = 2, f(10) = 1 – also W = {1; 2; 5; 10} = D.', 'Berechne alle vier Funktionswerte.'))
+ST.knobel('mengen', SZ('f(x) = x² mit D = {−3; −2; −1; 0; 1; 2; 3}. Wie viele Elemente hat die Wertemenge?', 4, '4',
+    'Funktionswerte: 9, 4, 1, 0, 1, 4, 9. Doppelte zählen nur einmal: W = {0; 1; 4; 9} – vier Elemente, obwohl D sieben hat.', 'Haben x und −x denselben Funktionswert?'))
+ST.knobel('mengen', SA('Eine Funktion f mit D = {1; 2; 3; 4} hat die Wertemenge W = {7}. Was folgt?', 'f ordnet jeder Zahl die 7 zu.', ['f ist keine Funktion.', 'Nur f(1) = 7.', 'f(7) = 1.'],
+    'W enthält nur die 7, also muss jeder Funktionswert 7 sein: f(1) = f(2) = f(3) = f(4) = 7. Das ist erlaubt (konstante Funktion).', 'Welche Werte kann f überhaupt annehmen?'))
+
+# --- funktionswert ---
+ST.leiter('funktionswert', 'eine Zahl in einen linearen Term einsetzen',
+          'Terme mit x², Brüchen, Kommazahlen; Differenz zweier Werte; Tabellenkalkulation; Sachterm',
+          'gleiche Werte f(a) = f(a + 1), rückwärts zu a, Klammerfehler bei −3², Symmetrie begründen, verketten, Wurf-Modell, Prüfungsaufgabe')
+T('funktionswert', (r'^Berechne f\(\S+\) für f\(x\) = −?\d*x [+−] \d+\.$', 'direkt'), (r'Tabellenkalkulation', 'darstellung'), (r'f\(a\) = f\(a \+ 1\)', 'parameter'),
+  (r'a · x \+ 3', 'rueckwaerts'), (r'^Lea', 'fehler'), (r'.', 'mehrschritt'))
+ST.neu('funktionswert', 'erkennen', SA('Was bedeutet f(3) = 7?', 'Die Funktion ordnet der Zahl 3 den Wert 7 zu.', ['f mal 3 ergibt 7.', 'Der Graph schneidet die y-Achse bei 3.', 'x = 7 und y = 3.'],
+    'f(3) ist der Funktionswert an der Stelle 3; er beträgt 7. Der Punkt (3 | 7) liegt auf dem Graphen.', 'Was steht in der Klammer, was rechts?'))
+ST.neu('funktionswert', 'einkleidung', SZ('Ein Taxi kostet K(s) = 3,50 + 2,20 · s (s in km, K in €). Was kostet eine Fahrt von 5 km?', 14.5, '35/10 + 22/10 * 5', 'K(5) = 3,50 + 11 = 14,50 €.', 'Setze s = 5 ein.', einheit='€'))
+ST.neu('funktionswert', 'begruenden', SA('Stimmt: „Für f(x) = x² gilt f(−a) = f(a) für jede Zahl a“?', 'Ja: (−a)² = (−a) · (−a) = a².', ['Nein, f(−a) ist immer negativ.', 'Nur für a > 0.', 'Nur für a = 0.'],
+    'Minus mal Minus ergibt Plus, deshalb haben a und −a dasselbe Quadrat. Der Graph ist spiegelbildlich zur y-Achse.', 'Rechne ein Beispiel mit a = 3.'))
+ST.neu('funktionswert', 'begruenden', SA('Ist „f(x) = 5 für alle x“ eine Funktion?', 'Ja: Jedem x wird genau ein Wert zugeordnet, nämlich 5.', ['Nein, weil x nicht im Term vorkommt.', 'Nein, weil alle Werte gleich sind.', 'Nur für x = 5.'],
+    'Eine Funktion verlangt nur: zu jedem x genau ein y. Gleiche y-Werte sind erlaubt (konstante Funktion).', 'Was verlangt die Definition einer Funktion?'))
+ST.neu('funktionswert', 'verknuepfen', SZ('Für f(x) = 2x + 1 und g(x) = x − 3: Berechne f(g(5)).', 5, '2 * (5 - 3) + 1', 'Innen: g(5) = 2. Außen: f(2) = 5.', 'Rechne zuerst die innere Funktion aus.'))
+ST.neu('funktionswert', 'transfer', SZ('Ein Ball wird hochgeworfen. Seine Höhe ist h(t) = 20t − 5t² (t in s, h in m). Wie hoch ist er nach 1,5 s?', 18.75, '20 * 15/10 - 5 * (15/10)**2',
+    'h(1,5) = 30 − 5 · 2,25 = 30 − 11,25 = 18,75 m.', 'Achte auf Punkt vor Strich und das Quadrat.', einheit='m'))
+ST.neu('funktionswert', 'pruefung', SZ('Gegeben f(x) = −2x² + 3x. Berechne f(−1) + f(2).', -7, '(-2 * 1 - 3) + (-2 * 4 + 6)', 'f(−1) = −2 − 3 = −5, f(2) = −8 + 6 = −2. Summe −7.', 'Setze negative Zahlen in Klammern ein.'))
+ST.knobel('funktionswert', SZ('Für eine Funktion gilt f(x + 1) = f(x) + 3 und f(0) = 2. Berechne f(10).', 32, '2 + 10 * 3',
+    'Mit jedem Schritt um 1 nach rechts wächst der Wert um 3: f(1) = 5, f(2) = 8, … f(10) = 2 + 10 · 3 = 32.', 'Rechne f(1), f(2), f(3) aus und such das Muster.'))
+ST.knobel('funktionswert', SZ('Für eine Funktion gilt f(2x) = 4 · f(x) und f(1) = 3. Berechne f(8).', 192, '3 * 4**3',
+    'f(2) = 4 · f(1) = 12, f(4) = 4 · f(2) = 48, f(8) = 4 · f(4) = 192.', 'Wie kommt man von 1 durch Verdoppeln zu 8?'))
+
+# --- stelle ---
+ST.leiter('stelle', 'zu einem Funktionswert die Stelle bei einem linearen Term finden',
+          'Klammer-, Bruch- und Kommaterme, Sachaufgabe (Handwerkerrechnung), Term erst bestimmen, dann Stelle',
+          'Sonderfall „kein x“ begründen, zwei Stellen bei x², Bruchterm verknüpfen, Fehler (einsetzen statt lösen), rückwärts, Akku-Modell')
+T('stelle', (r'^Für welches x gilt f\(x\) = \S+, wenn f\(x\) = −?\d*x [+−] \d+\?$|wenn f\(x\) = −\(x \+ 1\)', 'direkt'), (r'f\(x\) = 0, wenn f\(x\) = 2\?', 'begruenden'),
+  (r'Welche Zahl muss c', 'parameter'), (r'Handwerker', 'einkleidung'), (r'\(x \+ 3\)/\(x − 1\)|x² − 7', 'verknuepfen'), (r'.', 'mehrschritt'))
+ST.neu('stelle', 'erkennen', SA('Was ist bei der Frage „Für welches x ist f(x) = 5?“ gesucht?', 'eine Stelle x, deren Funktionswert 5 ist', ['der Funktionswert an der Stelle 5', 'das Produkt f · 5', 'der Schnittpunkt mit der y-Achse'],
+    'Der Funktionswert 5 ist gegeben, die Stelle x gesucht: Man löst f(x) = 5.', 'Was ist gegeben, was gesucht?'))
+ST.neu('stelle', 'umkehr', SZ('Für f(x) = 3x + b gilt f(4) = 10. Für welches x ist f(x) = 1?', 1, '(1 + 2) / 3', 'b = 10 − 12 = −2. Dann 3x − 2 = 1 ⇒ x = 1.', 'Bestimme zuerst b.'))
+ST.neu('stelle', 'fehler', SA('Für f(x) = 4x − 6 soll man die Stelle mit f(x) = 10 finden. Jemand rechnet 4 · 10 − 6 = 34. Was stimmt?', 'Falsch: Gesucht ist x mit 4x − 6 = 10, also x = 4.',
+    ['Richtig, x = 34.', 'Falsch: x = 10.', 'Falsch: x = 1,5.'], 'Er hat 10 eingesetzt (f(10) berechnet), statt die Gleichung zu lösen.', 'Ist 10 hier x oder f(x)?'))
+ST.neu('stelle', 'rueckwaerts', SZ('Eine Zahl wird verdoppelt, dann wird 3 abgezogen und das Ergebnis halbiert. Heraus kommt 5,5. Welche Zahl war es?', 7, '(55/10 * 2 + 3) / 2',
+    'Rückwärts: 5,5 · 2 = 11, + 3 = 14, : 2 = 7. Probe: (14 − 3) : 2 = 5,5 ✓.', 'Mache jeden Schritt in umgekehrter Reihenfolge rückgängig.'))
+ST.neu('stelle', 'transfer', SZ('Ein Handyakku ist zu 80 % geladen und verliert pro Stunde 6 Prozentpunkte: L(t) = 80 − 6t. Nach wie vielen Stunden sind noch 20 % übrig?', 10, '(80 - 20) / 6',
+    '80 − 6t = 20 ⇒ 6t = 60 ⇒ t = 10 Stunden.', 'Setze L(t) = 20.', einheit='h'))
+ST.neu('stelle', 'pruefung', SZ('Die Funktion f(x) = −2x + 7 hat an der Stelle a den Wert 1. Berechne a und dann f(a + 1). Gib f(a + 1) an.', -1, '-2 * 4 + 7',
+    '−2a + 7 = 1 ⇒ a = 3. f(4) = −8 + 7 = −1.', 'Erst die Stelle a, dann den neuen Funktionswert.'))
+ST.knobel('stelle', SZ('f(x) gibt den Abstand der Zahl x zur Zahl 2 an. An wie vielen ganzzahligen Stellen ist f(x) ≤ 3?', 7, '5 - (-1) + 1',
+    'Abstand höchstens 3 von 2 heißt −1 ≤ x ≤ 5. Ganze Zahlen: −1, 0, 1, 2, 3, 4, 5 – sieben Stellen.', 'Gehe vom Punkt 2 aus nach links und rechts.'))
+ST.knobel('stelle', SZ('Für f(x) = x² − 6x + 10: An welcher Stelle x ist der Funktionswert am kleinsten?', 3, '6 / 2',
+    'x² − 6x + 10 = (x − 3)² + 1 (binomische Formel). Ein Quadrat ist nie negativ, am kleinsten (0) für x = 3. Dann ist f(3) = 1 der kleinste Wert.',
+    'Versuche, den Term als (x − a)² + b zu schreiben.'))
+
+# --- wertetabelle ---
+ST.leiter('wertetabelle', 'einen fehlenden y-Wert in der Wertetabelle eines linearen Terms ergänzen',
+          'x²-Terme, fehlenden x-Wert finden, Nullstelle aus der Tabelle, Sachtabelle (Schneehöhe)',
+          'Term zur Tabelle rückwärts finden, Parameter a, Fehler beim Quadrieren, begründen (gleiche Zuwächse), Summe wie in einer Prüfung')
+T('wertetabelle', (r'^Die Tabelle gehört zu f\(x\) = −?\d*x( [+−] \d+)?\. Welcher|^Wertetabelle zu f\(x\) = −?\d*x [+−] \d+: .* y-Wert', 'direkt'),
+  (r'x-Wert fehlt|f\(x\) = 0\?', 'umkehr'), (r'Welcher Term beschreibt die Höhe', 'darstellung'), (r'42 cm', 'einkleidung'), (r'Welcher Funktionsterm passt', 'rueckwaerts'),
+  (r'a · x²', 'parameter'), (r'^Welcher Term passt', 'transfer'), (r'.', 'mehrschritt'))
+ST.neu('wertetabelle', 'erkennen', SA('Welches Wertepaar passt in die Tabelle von f(x) = 2x + 1?', '(3 | 7)', ['(3 | 6)', '(7 | 3)', '(1 | 2)'], 'f(3) = 2 · 3 + 1 = 7.', 'Setze die erste Zahl ein.'))
+ST.neu('wertetabelle', 'fehler', SA('In der Tabelle zu f(x) = x² steht (−3 | −9). Was ist falsch?', 'Es muss (−3 | 9) heißen, denn (−3)² = 9.', ['Nichts.', 'Es muss (3 | −9) heißen.', 'Es muss (−3 | −6) heißen.'],
+    'Quadrat einer negativen Zahl: (−3) · (−3) = 9. −9 wäre −(3²).', 'Rechne (−3) · (−3).'))
+ST.neu('wertetabelle', 'begruenden', SA('In einer Wertetabelle wächst y jedes Mal um 4, wenn x um 1 wächst. Was folgt für den Term?', 'Er hat die Form f(x) = 4x + b.', ['Er hat die Form f(x) = x + 4.', 'Er hat die Form f(x) = 4x².', 'Man kann nichts sagen.'],
+    'Gleiche Zuwächse bei gleichen Schritten bedeuten: Der Faktor vor x ist der Zuwachs, also 4. Den Rest b liest man bei x = 0 ab.', 'Was passiert bei 4x + b, wenn x um 1 größer wird?'))
+ST.neu('wertetabelle', 'verknuepfen', SA('Eine Wertetabelle enthält (0 | 0), (1 | 3), (2 | 6) und (3 | 9). Welche Zuordnung passt dazu?', 'Anzahl der Hefte ↦ Preis, wenn ein Heft 3 € kostet',
+    ['Alter ↦ Körpergröße', 'Anzahl der Hefte ↦ Preis, wenn man 3 € Grundgebühr zahlt', 'Seitenlänge ↦ Fläche eines Quadrats'],
+    'Doppelte Anzahl, doppelter Preis, und 0 ↦ 0: Das ist eine proportionale Zuordnung mit dem Faktor 3 (y = 3x).', 'Was passiert mit y, wenn x verdoppelt wird?'))
+ST.neu('wertetabelle', 'pruefung', SZ('Eine Tabelle zu f(x) = 3x − 2 beginnt bei x = −1 und läuft in Einerschritten bis x = 4. Wie groß ist die Summe aller y-Werte?', 15, '3 * 9 - 2 * 6',
+    'y-Werte: −5, −2, 1, 4, 7, 10. Summe 15 (oder: 3 · (−1 + 0 + 1 + 2 + 3 + 4) − 6 · 2 = 27 − 12).', 'Schreibe die sechs y-Werte auf.'))
+ST.knobel('wertetabelle', SZ('In einer Wertetabelle von f(x) = x² + b · x stehen (1 | 4) und (2 | □). Welche Zahl fehlt?', 10, '4 + 2 * 3',
+    'Aus (1 | 4): 1 + b = 4 ⇒ b = 3. Dann f(2) = 4 + 6 = 10.', 'Bestimme zuerst b aus dem bekannten Paar.'))
+ST.knobel('wertetabelle', SZ('Eine Tabelle zeigt x = 1, 2, 3, 4 mit y = 1, 4, 9, 16. Welcher y-Wert gehört zu x = 2,5, wenn dasselbe Muster gilt?', 6.25, '(25/10)**2',
+    'Die y-Werte sind die Quadrate: y = x². Für 2,5: 2,5 · 2,5 = 6,25 – nicht der Mittelwert 6,5 von 4 und 9.', 'Welche Rechnung macht aus 1, 2, 3, 4 die Zahlen 1, 4, 9, 16?'))
+
+# --- graph_lesen ---
+ST.leiter('graph_lesen', 'einen Funktionswert am Graphen ablesen',
+          'zu einem y-Wert die Stelle(n) finden, Sachgraph (Badewanne)',
+          'Bereiche (unterhalb der Achse, gleichbleibend) deuten, Parameter c, x und y vertauscht als Fehler, Graph und Funktionsbegriff begründen, Fläche verknüpfen')
+T('graph_lesen', (r'^Lies am Graphen ab: f\(', 'erkennen'), (r'Parabel', 'erkennen'), (r'Gib den Punkt an', 'umkehr'), (r'Für welche x gilt f\(x\) = ', 'mehrschritt'),
+  (r'nach 5 Minuten', 'einkleidung'), (r'20 cm hoch', 'mehrschritt'), (r'unterhalb der x-Achse|bleibt der Wasserstand', 'transfer'), (r'Zahl c', 'parameter'))
+ST.neu('graph_lesen', 'direkt', SZ('Ein Graph geht durch die Punkte (0 | 3), (1 | 5) und (2 | 7). Welchen Wert hat f(1)?', 5, '5', 'Der Punkt (1 | 5) liegt auf dem Graphen, also f(1) = 5.', 'Suche den Punkt mit x = 1.'))
+ST.neu('graph_lesen', 'fehler', SA('Jemand liest „f(2) = 5“ ab, weil der Graph durch (5 | 2) geht. Was stimmt?', 'Falsch: (5 | 2) bedeutet f(5) = 2.', ['Richtig.', 'Falsch: Es bedeutet f(2) = 2.', 'Falsch: Es bedeutet f(5) = 5.'],
+    'Im Punkt (x | y) steht zuerst die Stelle, dann der Funktionswert: f(5) = 2.', 'Welche Zahl ist x, welche y?'))
+ST.neu('graph_lesen', 'begruenden', SA('Ein Graph schneidet die y-Achse zweimal. Kann das der Graph einer Funktion sein?', 'Nein: Dann gehörten zu x = 0 zwei Werte.', ['Ja, wenn er die x-Achse nur einmal schneidet.', 'Ja, immer.', 'Nur bei Parabeln.'],
+    'Alle Punkte auf der y-Achse haben x = 0. Zwei Schnittpunkte heißen: x = 0 hat zwei y-Werte – das verbietet die Definition.', 'Welchen x-Wert haben Punkte auf der y-Achse?'))
+ST.neu('graph_lesen', 'rueckwaerts', SZ('Ein gerader Graph geht durch (0 | −1) und steigt pro Kästchen nach rechts um 2 Kästchen. An welcher Stelle hat er den Wert 7?', 4, '(7 + 1) / 2',
+    'Von −1 bis 7 sind es 8 Kästchen nach oben, also 8 : 2 = 4 Kästchen nach rechts: x = 4.', 'Wie viele Schritte nach rechts braucht man für 8 nach oben?'))
+ST.neu('graph_lesen', 'verknuepfen', SZ('Ein Graph verläuft geradlinig von (−2 | 0) über (0 | 4) nach (2 | 0). Wie groß ist die Fläche, die er mit der x-Achse einschließt?', 8, '4 * 4 / 2',
+    'Es entsteht ein Dreieck mit Grundseite 4 (von −2 bis 2) und Höhe 4: A = 4 · 4 : 2 = 8.', 'Welche Figur bilden Graph und x-Achse?', einheit='FE'))
+ST.neu('graph_lesen', 'pruefung', SA('Ein Graph zeigt: Die Temperatur steigt von 8 °C um 6 Uhr gleichmäßig auf 20 °C um 12 Uhr. Wann waren es 14 °C?', 'um 9 Uhr', ['um 10 Uhr', 'um 8 Uhr', 'um 11 Uhr'],
+    '14 °C liegt genau in der Mitte zwischen 8 °C und 20 °C, also auch zeitlich in der Mitte: 9 Uhr.', 'Gleichmäßig heißt: gleiche Zeit, gleicher Anstieg.'))
+ST.knobel('graph_lesen', SZ('Der Graph von f ist eine Zickzacklinie durch (0 | 0), (1 | 2), (2 | 0), (3 | 2), (4 | 0) und so weiter. Welchen Wert hat f(101)?', 2, '2',
+    'An geraden Stellen ist der Wert 0, an ungeraden 2. 101 ist ungerade, also f(101) = 2.', 'Was haben die Stellen mit dem Wert 2 gemeinsam?'))
+ST.knobel('graph_lesen', SZ('Ein Graph verläuft geradlinig von (0 | 6) nach (3 | 0) und dann geradlinig nach (6 | 6). Für wie viele ganze Zahlen x von 0 bis 6 gilt f(x) < 3?', 3, '3',
+    'Links fällt er pro Schritt um 2: f(0) = 6, f(1) = 4, f(2) = 2, f(3) = 0. Rechts steigt er: f(4) = 2, f(5) = 4, f(6) = 6. Kleiner als 3 bei x = 2, 3, 4.', 'Berechne den Wert an jeder ganzen Stelle.'))
+
+# --- nullstellen ---
+ST.leiter('nullstellen', 'die Nullstelle einer linearen Funktion berechnen',
+          'Produktform und x² + 5, Sachfunktion (Kerze), Funktion zu einer Nullstelle finden',
+          'Bruchfunktionen verknüpfen, Achsenpunkte wie in einer Prüfung, gekürzte Nullstelle begründen, Parameter b, Summe der Nullstellen')
+T('nullstellen', (r'^Berechne die Nullstelle von f\(x\) = −?\d+x [+−] \d+\.$', 'direkt'), (r'Kerze', 'einkleidung'), (r'schneidet die x-Achse im Punkt N', 'pruefung'), (r'\(x² − 9\)', 'begruenden'), (r'\)/\(x', 'verknuepfen'),
+  (r'x\(−5x|Summe aller', 'transfer'), (r'schneidet die x-Achse im Punkt N', 'pruefung'), (r'\(x² − 9\)', 'begruenden'), (r'Wert von b', 'parameter'), (r'.', 'mehrschritt'))
+ST.neu('nullstellen', 'erkennen', SA('Was ist eine Nullstelle von f?', 'eine Stelle x mit f(x) = 0', ['der Wert f(0)', 'ein Punkt auf der y-Achse', 'eine Stelle, an der f nicht definiert ist'],
+    'An einer Nullstelle ist der Funktionswert 0 – dort trifft der Graph die x-Achse.', 'Was ist dort null: x oder f(x)?'))
+ST.neu('nullstellen', 'umkehr', SA('Welche Funktion hat die Nullstelle x = −2?', 'f(x) = 3x + 6', ['f(x) = 3x − 6', 'f(x) = x − 2', 'f(x) = −2x'], 'f(−2) = −6 + 6 = 0. Die anderen haben 2, 2 und 0 als Nullstelle.', 'Setze −2 in jeden Term ein.'))
+ST.knobel('nullstellen', SZ('Wie viele Nullstellen hat f(x) = (x² − 4)(x² − 9)?', 4, '4',
+    'Ein Produkt ist 0, wenn ein Faktor 0 ist. x² = 4 bei x = 2 und −2, x² = 9 bei x = 3 und −3. Vier Nullstellen.', 'Wann ist x² − 4 gleich 0? Denk an negative Zahlen.'))
+ST.knobel('nullstellen', SZ('Für welchen Wert von a hat f(x) = (x − a)(x + 3) genau eine Nullstelle?', -3, '-3',
+    'Nullstellen sind a und −3. Nur eine verschiedene gibt es, wenn beide gleich sind: a = −3.', 'Welche zwei Nullstellen hat f im Allgemeinen?'))
+
+# --- punkt_graph ---
+ST.leiter('punkt_graph', 'prüfen, ob ein Punkt auf dem Graphen einer linearen Funktion liegt',
+          'x²- und Bruchterme, Lage oberhalb/unterhalb, Stelle zu einem y-Wert, Sachgraph',
+          'Parameter k aus einem Punkt, Fehler beim Einsetzen, rückwärts zur Koordinate, zwei Punkte verknüpfen, P(a | a), Definitionslücke begründen')
+T('punkt_graph', (r'^Welcher Punkt liegt auf dem Graphen von f\(x\) = −?\d+x [+−] \d+\?$', 'erkennen'), (r'^Lies am Graphen', 'erkennen'), (r'An welcher Stelle x', 'umkehr'),
+  (r'^Liegt der Punkt Q', 'darstellung'), (r'Bestimme k', 'parameter'), (r'^Tom', 'fehler'), (r'Q\(b', 'rueckwaerts'), (r'^Liegt der Punkt P\(3', 'pruefung'),
+  (r'A\(1 \| 3\)', 'verknuepfen'), (r'P\(a \| a\)', 'transfer'), (r'P\(2 \| 1\)', 'begruenden'), (r'.', 'mehrschritt'))
+ST.neu('punkt_graph', 'direkt', SA('Liegt P(2 | 7) auf dem Graphen von f(x) = 3x + 1?', 'Ja: f(2) = 7.', ['Nein: f(2) = 6.', 'Nein: f(7) = 2.'], 'f(2) = 3 · 2 + 1 = 7 – genau die y-Koordinate von P.', 'Berechne f(2) und vergleiche mit 7.'))
+ST.neu('punkt_graph', 'einkleidung', SA('Ein Fahrradverleih: K(x) = 5 + 2x (x Stunden, K in €). Liegt der Punkt (4 | 12) auf dem Graphen?', 'Nein: 4 Stunden kosten 13 €, nicht 12 €.',
+    ['Ja: 4 Stunden kosten 12 €.', 'Ja: 12 Stunden kosten 4 €.', 'Nein: 4 Stunden kosten 8 €.'], 'K(4) = 5 + 8 = 13 ≠ 12.', 'Berechne K(4).'))
+ST.knobel('punkt_graph', SZ('Wie viele Punkte mit ganzzahligen Koordinaten liegen auf dem Graphen von f(x) = 6/x?', 8, '2 * 4',
+    '6/x ist ganz, wenn x ein Teiler von 6 ist: 1, 2, 3, 6 und −1, −2, −3, −6. Das sind 8 Punkte, z. B. (2 | 3) und (−3 | −2).', 'Wann ist 6/x eine ganze Zahl? Vergiss die negativen Teiler nicht.'))
+ST.knobel('punkt_graph', SZ('Die Punkte (1 | a), (2 | 2a) und (3 | 9) liegen auf dem Graphen von f(x) = m · x. Bestimme a.', 3, '9 / 3',
+    'Aus (3 | 9): 3m = 9 ⇒ m = 3. Dann a = f(1) = 3 (und 2a = f(2) = 6 ✓).', 'Welcher der drei Punkte verrät m ohne Unbekannte?'))
+
+# --- sachzusammenhang ---
+ST.leiter('sachzusammenhang', 'einen Wert aus einem Sachgraphen ablesen, Kosten berechnen, den Kostenterm erkennen',
+          'Änderungen und Höchstwert am Graphen, Stundenzahl aus der Rechnung, Term aus einer Tabelle',
+          'Tarife vergleichen, Aussagen über Verläufe begründen, Fehler im Kostenterm, Preiserhöhung verknüpfen, Prüfungsaufgaben mit zwei Tarifen')
+T('sachzusammenhang', (r'Wie warm war es', 'erkennen'), (r'Wie viel Euro kosten', 'direkt'), (r'Welcher Term gibt', 'erkennen'), (r'Um wie viel Grad', 'mehrschritt'),
+  (r'am wärmsten', 'darstellung'), (r'Die Rechnung beträgt', 'umkehr'), (r'^Die Tabelle gehört', 'darstellung'), (r'Monatsverb|beim Fahrradverleih', 'transfer'),
+  (r'Familie verbraucht|Handytarife', 'pruefung'), (r'Welche Aussage stimmt|Ist auch die Zuordnung', 'begruenden'))
+ST.neu('sachzusammenhang', 'fehler', SA('Für „5 € Grundgebühr und 2 € je Stunde“ schreibt jemand K(x) = 5x + 2. Was stimmt?', 'Falsch: Richtig ist K(x) = 5 + 2x.', ['Richtig.', 'Falsch: K(x) = 7x.', 'Falsch: K(x) = 2 + 5.'],
+    'Die Grundgebühr fällt einmal an, der Stundenpreis x-mal. Probe: 3 Stunden kosten 5 + 6 = 11 €, aber 5 · 3 + 2 = 17.', 'Mach die Probe mit 3 Stunden.'))
+ST.neu('sachzusammenhang', 'verknuepfen', SZ('Ein Tarif kostet 12 € Grundgebühr und 0,50 € je Minute. Beide Beträge werden um 25 % erhöht. Was kosten danach 40 Minuten?', 40, '(12 + 40 * 5/10) * 125/100',
+    'Vorher: 12 + 20 = 32 €. Erhöht man alles um 25 %: 32 · 1,25 = 40 €.', 'Erhöhung um 25 % heißt mal 1,25 – egal ob vorher oder nachher.', einheit='€'))
+ST.knobel('sachzusammenhang', SZ('Tarif A: 10 € plus 1 € je Stunde. Tarif B: 2 € je Stunde. Tarif C: 16 € pauschal. Für wie viele ganze Stundenzahlen von 1 bis 20 ist B echt am billigsten?', 7, '7',
+    'B billiger als A: 2h < 10 + h ⇒ h < 10. B billiger als C: 2h < 16 ⇒ h < 8. Beides für h = 1, …, 7: sieben Stundenzahlen.', 'Vergleiche B mit jedem der beiden anderen Tarife einzeln.'))
+ST.knobel('sachzusammenhang', SZ('Ein Wassertank enthält 200 l. Pro Minute fließen 8 l ab und gleichzeitig 3 l zu. Nach wie vielen Minuten ist er leer?', 40, '200 / (8 - 3)',
+    'Pro Minute nimmt der Inhalt um 8 − 3 = 5 l ab: V(t) = 200 − 5t. V(t) = 0 ⇒ t = 40 Minuten.', 'Um wie viel ändert sich der Inhalt pro Minute insgesamt?', einheit='min'))
+baue = mit_stufen(baue, ST)
+# ---- STUFEN ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Was ist eine Funktion?', ['eindeutig', 'mengen']), ('Mit dem Term rechnen', ['funktionswert', 'stelle', 'wertetabelle', 'graph_lesen']),

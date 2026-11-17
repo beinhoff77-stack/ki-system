@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 14:51 – STATUS
+zahlen.rationale_exponenten fertig: 39 neue Übungen, 12 Knobel-Bordkarten, 37 überzählig (ohne Typ). inhalt_pruefen OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
+
 ## 2026-11-17 14:48 – STATUS
 gleichungen.potenz fertig: 36 neue Übungen, 12 Knobel-Bordkarten, 30 überzählig (ohne Typ). inhalt_pruefen OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
 

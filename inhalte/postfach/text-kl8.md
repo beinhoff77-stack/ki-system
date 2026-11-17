@@ -2,6 +2,33 @@
 
 Neueste Meldung oben.
 
+## 2026-11-18 02:34 – STATUS gleichungen.bruch
+
+### gleichungen.bruch
+
+Anteil Textaufgaben an den Übungen mit g: vorher 15% (nur einkleidung/transfer) bzw. 17% (mit anerkannten Sachaufgaben anderer Typen) → nachher **40%**.
+
+| Lernkarte | vorher S1/S2/S3 (Lehrer) | vorher S1/S2/S3 (mit anderen Typen) | nachher S1/S2/S3 | neu Übung | neu Sicherung/Korrektur | überzählig | Sicherung/Korrektur Text nachher |
+|---|---|---|---|---|---|---|---|
+| definitionsmenge | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 4 | 2/1 |
+| ein_bruch | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 3 | 2/1 |
+| ueber_kreuz | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 5 | 2/1 |
+| hauptnenner | 0/3/1 | 0/3/3 | 1/3/5 = 9 | 3 | 2/1 | 0 | 2/1 |
+| scheinloesung | 0/1/0 | 0/1/0 | 1/3/4 = 8 | 7 | 2/1 | 6 | 2/1 |
+| verhaeltnis | 0/5/2 | 1/5/2 | 1/5/4 = 10 | 2 | 2/0 | 0 | 2/2 |
+| graphisch | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 4 | 2/1 |
+
+Beispiele (je Stufe eine neue Textaufgabe, Wortlaut):
+
+- Stufe 1 (definitionsmenge): „Für eine Busfahrt gilt: Jeder zahlt 480/x Euro. Man löst 480/x = 16. Welche Zahl gehört nicht zur Definitionsmenge?“
+- Stufe 2 (definitionsmenge): „Gegen die Strömung braucht ein Boot für 36 km die Zeit 36/(v − 3) Stunden. Man löst 36/(v − 3) = 4. Welche Zahl ist ausgeschlossen?“
+- Stufe 3 (graphisch): „Ein Klassenzimmer hat 30 Plätze. Für eine Klassenfahrt zeigt der Graph f(x) = 450/x + 12 die Kosten pro Kind. Bei welcher Kinderzahl schneidet er die Gerade y = 30?“
+
+Überzählig (g entfernt, Aufgabe bleibt): 22 – scheinloesung S3 begruenden (Anteil 40 %); ueber_kreuz S3 verknuepfen (Anteil 40 %); scheinloesung S2 mehrschritt (Anteil 40 %); graphisch S3 begruenden (Anteil 40 %); definitionsmenge S3 verknuepfen (Anteil 40 %); scheinloesung S3 pruefung (Anteil 40 %); ueber_kreuz S3 pruefung (Anteil 40 %); ein_bruch S3 pruefung (Anteil 40 %); definitionsmenge S1 direkt (Anteil 40 %); graphisch S1 erkennen (Anteil 40 %); scheinloesung S2 mehrschritt (Anteil 40 %); ueber_kreuz S2 mehrschritt (Anteil 40 %) …
+Als Sachaufgabe anerkannte alte Aufgaben anderer Typen: 3 Übungen, 2 Sicherung/Korrektur.
+Sachkontexte: Kosten pro Person, Fahrzeiten mit Strömung/Wind, gemeinsame Arbeit (Rohre, Maler, Mähroboter), Mischungen; Karte „Scheinlösung“: Lösungen werden zusätzlich am Sachzusammenhang geprüft (negative Zeiten/Mengen). 22 überzählige alte Aufgaben verlieren g.
+
+
 ## 2026-11-18 02:32 – STATUS terme.bruchterme
 
 ### terme.bruchterme

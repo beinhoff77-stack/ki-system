@@ -873,6 +873,144 @@ ST.knobel('graphisch', SA('Die Hyperbel y = k/x und die Gerade y = −x + 5 schn
 baue = mit_stufen(baue, ST)
 # ---- STUFEN ENDE ----
 
+# ---------- TEXT: Zweiundzwanzigste Runde (18.11., Auftrag des Lehrers) – mehr Textaufgaben, siehe _text_kl8.py ----------
+from _text_kl8 import Text, mit_text, text_auf_datei  # noqa: E402
+TX = Text('gleichungen.bruch', 22_8_5)
+TZ, TA, TL, TW = TX.Z, TX.A, TX.L, TX.W
+
+# --- definitionsmenge ---
+TX.u('definitionsmenge', 'direkt', TZ('Für eine Busfahrt gilt: Jeder zahlt 480/x Euro. Man löst 480/x = 16. Welche Zahl gehört nicht zur Definitionsmenge?', '0',
+    TW('Nenner x.', 'ausgeschlossene Zahl.', 'Nenner = 0.', 'x = 0.', 'D = ℚ \\ {0}.'), 'Wann wird der Nenner 0?'))
+TX.u('definitionsmenge', 'einkleidung', TZ('Gegen die Strömung braucht ein Boot für 36 km die Zeit 36/(v − 3) Stunden. Man löst 36/(v − 3) = 4. Welche Zahl ist ausgeschlossen?', '3',
+    TW('Nenner v − 3.', 'ausgeschlossene Zahl.', 'Nenner = 0.', 'v = 3.', 'D = ℚ \\ {3}.'), 'Setze den Nenner gleich 0.'))
+TX.u('definitionsmenge', 'mehrschritt', TX.A('Ein Radfahrer fährt hin mit v, zurück mit (v + 2) km/h; Gesamtzeit 12/v + 12/(v + 2) = 5. Welche Definitionsmenge hat die Gleichung?', 'ℚ \\ {−2; 0}', ['ℚ \\ {0}', 'ℚ \\ {2; 0}', 'ℚ \\ {5}'],
+    TW('Nenner v und v + 2.', 'D.', 'Jeden Nenner = 0.', 'v = 0, v = −2.', 'D = ℚ \\ {−2; 0}.'), 'Es gibt zwei Nenner.'))
+TX.u('definitionsmenge', 'pruefung', TZ('Ein 25-m-Becken wird mit zwei Leitungen gefüllt; die erste allein braucht 6 h. Für die zweite gilt 1/6 + 1/(x − 2) = 1/3. Welche Zahl ist ausgeschlossen?', '2',
+    TW('Nenner 6, 3 und x − 2; die Beckenlänge spielt keine Rolle.', 'ausgeschlossene Zahl.', 'Nur x − 2 kann 0 werden.', 'x = 2.', 'D = ℚ \\ {2}.'), 'Welche Nenner enthalten x?'), huerde='ueberfluessig')
+TX.u('definitionsmenge', 'fehler', TX.A('Für die Kosten pro Kind gilt (240 + 4x)/x = 10. Jemand sagt: „D = ℚ \\ {−60}, weil 240 + 4x dort 0 wird.“ Was stimmt?',
+    'Falsch: Nur der Nenner zählt – D = ℚ \\ {0}.', ['Richtig.', 'Falsch: D = ℚ \\ {10}.', 'Falsch: D = ℚ.'],
+    TW('Nenner x.', 'richtige D.', 'Nur Nenner prüfen.', 'x ≠ 0.', 'D = ℚ \\ {0}.'), 'Welcher Teil eines Bruchs darf nicht 0 sein?'), huerde='entscheidung')
+TX.u('definitionsmenge', 'transfer', TX.A('300 € Hüttenmiete werden geteilt, 4 Betreuer zahlen nichts: 300/(x − 4) = 15 (x = alle Personen). In die Hütte passen 30 Personen. Was gilt?', 'x ≠ 4 – und die Lösung x = 24 passt auch zur Hütte.', ['x ≠ 0; Lösung 20.', 'x ≠ 4; Lösung 20.', 'x ≠ 15; Lösung 24.'],
+    TW('D = ℚ \\ {4}; höchstens 30 Personen.', 'D und sinnvolle Lösung.', 'Nenner prüfen, lösen, mit 30 vergleichen.', 'x − 4 = 20 ⇒ x = 24 ≤ 30.', 'x ≠ 4; Lösung 24 Personen.'), 'Löse und vergleiche mit der Hüttengröße.'), huerde='zwei')
+TX.s('definitionsmenge', TZ('Für eine Fahrt gilt 150/(v + 10) = 2. Welche Zahl ist ausgeschlossen?', '-10',
+    TW('Nenner v + 10.', 'ausgeschlossene Zahl.', 'v + 10 = 0.', 'v = −10.', 'D = ℚ \\ {−10}.')))
+TX.s('definitionsmenge', TZ('Für die Kosten pro Person gilt 360/(x − 2) = 20. Welche Zahl ist ausgeschlossen?', '2',
+    TW('Nenner x − 2.', 'ausgeschlossene Zahl.', 'x − 2 = 0.', 'x = 2.', 'D = ℚ \\ {2}.')))
+TX.k('definitionsmenge', TZ('Für eine Fahrzeit gilt 80/(v − 5) = 4. Welche Zahl ist ausgeschlossen?', '5',
+    TW('Nenner v − 5.', 'ausgeschlossene Zahl.', 'v − 5 = 0.', 'v = 5.', 'D = ℚ \\ {5}.')))
+
+# --- ein_bruch ---
+TX.u('ein_bruch', 'direkt', TZ('480 € Busmiete werden geteilt, jeder zahlt 16 €: 480/x = 16. Wie viele Personen fahren mit?', '480 / 16',
+    TW('480/x = 16.', 'x.', 'Mit x multiplizieren, durch 16 teilen.', 'x = 30.', 'Es fahren 30 Personen mit.'), 'Multipliziere mit x.'))
+TX.u('ein_bruch', 'einkleidung', TZ('Ein Zug braucht für 270 km genau 2,25 Stunden. Mit welcher Durchschnittsgeschwindigkeit fährt er? (270/v = 2,25)', '270 / 2.25',
+    TW('270/v = 2,25.', 'v.', 'Mit v multiplizieren.', '2,25v = 270 ⇒ v = 120.', 'Er fährt 120 km/h.'), 'Stelle nach v um.', einheit='km/h'))
+TX.u('ein_bruch', 'mehrschritt', TZ('Ein Fotobuch kostet pro Stück (90 + 12x)/x Euro bei x Exemplaren. Bei wie vielen Exemplaren kostet jedes 15 €?', '90 / (15 - 12)',
+    TW('(90 + 12x)/x = 15.', 'x.', 'Mit x multiplizieren.', '90 + 12x = 15x ⇒ x = 30.', 'Bei 30 Exemplaren.'), 'Multipliziere beide Seiten mit x.'))
+TX.u('ein_bruch', 'pruefung', TZ('Ein Klassenfoto kostet pro Kind 90/x + 2 Euro. Der Fotograf kommt um 8 Uhr, jedes Kind bekommt 2 Abzüge. Bei wie vielen Kindern zahlt jedes 5,60 €?', '90 / (5.6 - 2)',
+    TW('90/x + 2 = 5,6; Uhrzeit und Abzüge spielen keine Rolle.', 'x.', '2 abziehen, nach x umstellen.', '90/x = 3,6 ⇒ x = 25.', 'Bei 25 Kindern.'), 'Welche Angaben stehen in der Gleichung?'), huerde='ueberfluessig')
+TX.u('ein_bruch', 'transfer', TZ('Gibt man zu 3 l Saft x Liter Wasser, ist der Saftanteil 3/(3 + x). Er soll höchstens 20 % betragen. Wie viele Liter Wasser braucht man mindestens?', '3 / 0.2 - 3',
+    TW('3/(3 + x) = 0,2 als Grenze.', 'kleinstes x.', 'Gleichung lösen, dann deuten.', '3 = 0,6 + 0,2x ⇒ x = 12.', 'Mindestens 12 l Wasser.'), 'Mehr Wasser – kleinerer Anteil.', einheit='l'), huerde='deuten')
+TX.u('ein_bruch', 'fehler', TX.A('Ein Auto fährt eine Strecke in 3/4 Stunden mit 80 km/h. Jemand löst s/80 = 3/4 so: s = 80 : 3/4 ≈ 106,7 km. Was stimmt?',
+    'Falsch: s = 80 · 3/4 = 60 km.', ['Richtig.', 'Falsch: s = 3/4 : 80.', 'Falsch: s = 120 km.'],
+    TW('s/80 = 3/4.', 'richtiges s.', 'Mit 80 multiplizieren.', '80 · 0,75 = 60.', 'Die Strecke ist 60 km.'), 'Was ist die Umkehrung von „durch 80“?'), huerde='entscheidung')
+TX.s('ein_bruch', TZ('Jeder zahlt 360/x = 12 Euro. Wie viele Personen sind es?', '360 / 12',
+    TW('360/x = 12.', 'x.', 'Umstellen.', 'x = 30.', '30 Personen.')))
+TX.s('ein_bruch', TZ('Für eine Fahrt gilt 200/v = 2,5. Wie schnell ist man?', '200 / 2.5',
+    TW('200/v = 2,5.', 'v.', 'Umstellen.', 'v = 80.', '80 km/h.'), einheit='km/h'))
+TX.k('ein_bruch', TZ('Pro Stück gilt 120/x + 3 = 7 Euro. Wie viele Stück sind es?', '120 / 4',
+    TW('120/x = 4.', 'x.', 'Umstellen.', 'x = 30.', '30 Stück.')))
+
+# --- ueber_kreuz ---
+TX.u('ueber_kreuz', 'direkt', TZ('Ein Auto fährt 120 km in derselben Zeit wie ein Rad 30 km. Das Auto ist 45 km/h schneller: 120/(v + 45) = 30/v. Wie schnell ist das Rad?', '30 * 45 / 90',
+    TW('120/(v + 45) = 30/v.', 'v.', 'Über Kreuz multiplizieren.', '120v = 30v + 1 350 ⇒ 90v = 1 350 ⇒ v = 15.', 'Das Rad fährt 15 km/h.'), 'Multipliziere über Kreuz.', einheit='km/h'))
+TX.u('ueber_kreuz', 'einkleidung', TZ('Ein Lkw fährt 90 km, ein Pkw in derselben Zeit 120 km; der Pkw ist 10 km/h schneller. Wie schnell ist der Lkw? (90/v = 120/(v + 10))', '900 / 30',
+    TW('90/v = 120/(v + 10).', 'v.', 'Über Kreuz.', '90v + 900 = 120v ⇒ v = 30.', 'Der Lkw fährt 30 km/h.'), 'Gleiche Zeit – die Brüche sind gleich.', einheit='km/h'))
+TX.u('ueber_kreuz', 'mehrschritt', TZ('Saft und Wasser: In Glas A sind 2 dl Saft in x dl Getränk, in Glas B 3 dl Saft in (x + 2) dl Getränk. Beide schmecken gleich stark: 2/x = 3/(x + 2). Wie viele dl enthält Glas A?', '4',
+    TW('2/x = 3/(x + 2).', 'x.', 'Über Kreuz.', '2x + 4 = 3x ⇒ x = 4.', 'Glas A enthält 4 dl.'), 'Gleich stark heißt gleicher Anteil.', einheit='dl'))
+TX.u('ueber_kreuz', 'pruefung', TZ('Zwei Wanderer starten um 8 Uhr mit gleich schwerem Gepäck. A läuft 12 km in derselben Zeit wie B 15 km; B ist 1 km/h schneller. Wie schnell ist A? (12/v = 15/(v + 1))', '4',
+    TW('12/v = 15/(v + 1); Uhrzeit und Gepäck spielen keine Rolle.', 'v.', 'Über Kreuz.', '12v + 12 = 15v ⇒ v = 4.', 'A läuft 4 km/h.'), 'Welche Angaben brauchst du nicht?', einheit='km/h'), huerde='ueberfluessig')
+TX.u('ueber_kreuz', 'fehler', TX.A('Für zwei Boote gilt 24/(v − 2) = 36/(v + 2). Jemand multipliziert über Kreuz und schreibt: 24(v − 2) = 36(v + 2). Was stimmt?',
+    'Falsch: Richtig ist 24(v + 2) = 36(v − 2), also v = 10.', ['Richtig.', 'Falsch: 24 · 36 = (v − 2)(v + 2).', 'Falsch: 24 + (v + 2) = 36 + (v − 2).'],
+    TW('24/(v − 2) = 36/(v + 2).', 'richtiger Ansatz.', 'Zähler links mal Nenner rechts.', '24v + 48 = 36v − 72 ⇒ v = 10.', 'Der Ansatz ist vertauscht; v = 10.'), 'Was wird beim Über-Kreuz-Multiplizieren mit was multipliziert?'), huerde='entscheidung')
+TX.u('ueber_kreuz', 'begruenden', TX.A('Für zwei Fahrten gilt 60/v = 90/(v + 20). Jemand erhält v = 40 und sagt: „Das Rad fährt 40 km/h, das Auto 60 km/h.“ Was stimmt?',
+    'Richtig: 60/40 = 1,5 h und 90/60 = 1,5 h.', ['Falsch: v = 20.', 'Falsch: Das Auto fährt 90 km/h.', 'Falsch: Die Zeiten sind verschieden.'],
+    TW('60/v = 90/(v + 20).', 'Prüfen.', 'Probe mit v = 40.', '60/40 = 1,5; 90/60 = 1,5.', 'Die Aussage stimmt.'), 'Mache die Probe.'), huerde='entscheidung')
+TX.s('ueber_kreuz', TZ('Löse 20/v = 30/(v + 5) (zwei Läufer, gleiche Zeit). Wie groß ist v?', '10',
+    TW('20/v = 30/(v + 5).', 'v.', 'Über Kreuz.', '20v + 100 = 30v ⇒ v = 10.', 'v = 10.'), einheit='km/h'))
+TX.s('ueber_kreuz', TZ('Löse 40/x = 60/(x + 10) (zwei Gruppen, gleicher Betrag pro Person). Wie groß ist x?', '20',
+    TW('40/x = 60/(x + 10).', 'x.', 'Über Kreuz.', '40x + 400 = 60x ⇒ x = 20.', 'x = 20.')))
+TX.k('ueber_kreuz', TZ('Löse 30/v = 45/(v + 10) (zwei Fahrzeuge, gleiche Zeit). Wie groß ist v?', '20',
+    TW('30/v = 45/(v + 10).', 'v.', 'Über Kreuz.', '30v + 300 = 45v ⇒ v = 20.', 'v = 20.'), einheit='km/h'))
+
+# --- hauptnenner ---
+TX.u('hauptnenner', 'direkt', TZ('Rohr A füllt einen Tank allein in 6 h, zusammen mit Rohr B dauert es 4 h: 1/6 + 1/x = 1/4. Wie lange braucht Rohr B allein?', '1 / (1/4 - 1/6)',
+    TW('1/6 + 1/x = 1/4.', 'x.', 'Hauptnenner 12x.', '2x + 12 = 3x ⇒ x = 12.', 'Rohr B braucht 12 h.'), 'Multipliziere mit dem Hauptnenner 12x.', einheit='h'))
+TX.u('hauptnenner', 'pruefung', TZ('Zwei Mähroboter mähen einen 800 m² großen Rasen. Der erste allein braucht 3 h, zusammen brauchen sie 2 h. Wie lange braucht der zweite allein?', '1 / (1/2 - 1/3)',
+    TW('1/3 + 1/x = 1/2; die Fläche spielt keine Rolle.', 'x.', 'Hauptnenner 6x.', '2x + 6 = 3x ⇒ x = 6.', 'Der zweite braucht allein 6 h.'), 'Welche Angabe gehört nicht in die Gleichung?', einheit='h'), huerde='ueberfluessig')
+TX.u('hauptnenner', 'transfer', TZ('Ein Radfahrer fährt 24 km hin mit v km/h und zurück mit 2v km/h, insgesamt in 3 Stunden: 24/v + 24/(2v) = 3. Wie viele Minuten dauert die Rückfahrt?', '24 / 24 * 60',
+    TW('24/v + 12/v = 3.', 'Rückfahrzeit in Minuten.', 'Lösen, dann Rückfahrt berechnen.', '36/v = 3 ⇒ v = 12; zurück 24 : 24 = 1 h.', 'Die Rückfahrt dauert 60 Minuten.'), 'Gefragt ist nur die Rückfahrt.', einheit='min'), huerde='deuten')
+TX.s('hauptnenner', TZ('Zwei Hähne füllen eine Wanne: A allein in 10 min, zusammen in 6 min: 1/10 + 1/x = 1/6. Wie lange braucht B allein?', '1 / (1/6 - 1/10)',
+    TW('1/10 + 1/x = 1/6.', 'x.', 'Hauptnenner 30x.', '3x + 30 = 5x ⇒ x = 15.', '15 min.'), einheit='min'))
+TX.s('hauptnenner', TZ('Zwei Maler: A allein 4 Tage, zusammen 3 Tage: 1/4 + 1/x = 1/3. Wie lange braucht B allein?', '1 / (1/3 - 1/4)',
+    TW('1/4 + 1/x = 1/3.', 'x.', 'Hauptnenner 12x.', '3x + 12 = 4x ⇒ x = 12.', '12 Tage.'), einheit='Tage'))
+TX.k('hauptnenner', TZ('Zwei Pumpen: A allein 5 h, zusammen 4 h: 1/5 + 1/x = 1/4. Wie lange braucht B allein?', '1 / (1/4 - 1/5)',
+    TW('1/5 + 1/x = 1/4.', 'x.', 'Hauptnenner 20x.', '4x + 20 = 5x ⇒ x = 20.', '20 h.'), einheit='h'))
+
+# --- scheinloesung (Lösung im Sachzusammenhang prüfen) ---
+TX.u('scheinloesung', 'erkennen', TX.A('Für die Fahrzeit gegen die Strömung gilt 24/(v − 4) = 3. Man erhält v = 12. Gehört die Lösung zur Definitionsmenge?', 'Ja, nur v = 4 ist ausgeschlossen.', ['Nein, 12 ist ausgeschlossen.', 'Nein, man muss v = 4 nehmen.'],
+    TW('D = ℚ \\ {4}, Lösung 12.', 'Ist 12 erlaubt?', 'Mit D vergleichen.', '12 ≠ 4.', 'Die Lösung ist gültig.'), 'Welche Zahl ist ausgeschlossen?'))
+TX.u('scheinloesung', 'einkleidung', TX.A('Gibt man zu 3 l Saft x Liter Wasser, ist der Saftanteil 3/(3 + x). Jemand möchte einen Anteil von 1,5 und löst 3/(3 + x) = 1,5. Er erhält x = −1. Was bedeutet das?',
+    'Keine sinnvolle Lösung: Man kann kein Wasser wegnehmen – ein Anteil über 1 ist unmöglich.', ['Man gibt 1 l Wasser dazu.', 'Man gibt 1,5 l Wasser dazu.'],
+    TW('3/(3 + x) = 1,5 ⇒ x = −1.', 'Deutung.', 'Lösung mit der Situation vergleichen.', 'x < 0 ist im Sachzusammenhang unmöglich.', 'Die Gleichung hat keine sinnvolle Lösung.'), 'Kann man −1 Liter Wasser dazugeben?'))
+TX.u('scheinloesung', 'mehrschritt', TZ('Für die Kosten pro Person gilt 200/(x − 5) = 8 (x = alle Personen, 5 zahlen nichts). Löse und prüfe, ob die Lösung zu D gehört. Gib x an.', '200 / 8 + 5',
+    TW('D = ℚ \\ {5}.', 'x.', 'Umstellen, mit D vergleichen.', 'x − 5 = 25 ⇒ x = 30 ≠ 5.', 'x = 30 ist gültig.'), 'Erst lösen, dann prüfen.'))
+TX.u('scheinloesung', 'fehler', TX.A('Jemand löst für zwei Tarife (x − 4)/(x − 4) = 1 und sagt: „Jede Zahl ist eine Lösung.“ Was stimmt?', 'Falsch: Alle Zahlen außer 4.', ['Richtig.', 'Falsch: Nur x = 4.', 'Falsch: Keine Zahl.'],
+    TW('D = ℚ \\ {4}.', 'Lösungsmenge.', 'Für x ≠ 4 ist der Bruch 1.', 'L = ℚ \\ {4}.', 'Alle Zahlen außer 4.'), 'Was ist bei x = 4 mit dem Nenner?'), huerde='entscheidung')
+TX.u('scheinloesung', 'pruefung', TZ('Eine Gruppe von 12 Personen fährt mit einem 50-Sitzer-Bus. Für die Kosten pro Person gilt 600/(x + 12) = 20, wobei x Personen später dazukommen. Wie viele kommen dazu?', '600 / 20 - 12',
+    TW('600/(x + 12) = 20; D = ℚ \\ {−12}; die Sitzzahl prüft nur die Obergrenze.', 'x.', 'Umstellen, prüfen.', 'x + 12 = 30 ⇒ x = 18; 30 ≤ 50 ✓.', 'Es kommen 18 Personen dazu.'), 'Prüfe die Lösung mit D und mit der Sitzzahl.'), huerde='zwei')
+TX.u('scheinloesung', 'parameter', TX.A('Für die Fahrzeit gilt 60/(v − 10) = t. Für welches t gibt es eine Lösung v = 10, die keine Lösung ist?', 'für kein t – v = 10 ist immer ausgeschlossen', ['für t = 0', 'für t = 6', 'für t = 60'],
+    TW('D = ℚ \\ {10}.', 'Kann v = 10 Lösung sein?', 'v = 10 macht den Nenner 0.', 'Für kein t.', 'v = 10 kann nie Lösung sein.'), 'Darf v = 10 überhaupt eingesetzt werden?'))
+TX.u('scheinloesung', 'transfer', TZ('Ein Becken wird von zwei Pumpen geleert: 1/x + 1/(x + 6) = 1/4 (x in h). Jemand erhält x = 6 und x = −4. Wie viele Stunden braucht die schnellere Pumpe allein?', '6',
+    TW('x = 6 oder x = −4.', 'sinnvolle Lösung.', 'Negative Zeiten ausschließen.', 'x = −4 ist sinnlos.', 'Die schnellere Pumpe braucht 6 Stunden.'), 'Welche der beiden Zahlen kann eine Zeit sein?', einheit='h'), huerde='deuten')
+TX.s('scheinloesung', TZ('Für eine Fahrt gilt 45/(v − 5) = 3. Löse und gib v an.', '45 / 3 + 5',
+    TW('D = ℚ \\ {5}.', 'v.', 'Umstellen.', 'v − 5 = 15 ⇒ v = 20.', 'v = 20 ist gültig.'), einheit='km/h'))
+TX.s('scheinloesung', TX.A('Für den Saftanteil gilt 2/(2 + x) = 2. Was gilt für die Lösung?', 'x = −1, im Sachzusammenhang sinnlos.', ['x = 1, gültig.', 'x = 0, gültig.'],
+    TW('2 = 4 + 2x.', 'x.', 'Umstellen, deuten.', 'x = −1.', 'Keine sinnvolle Lösung.')))
+TX.k('scheinloesung', TZ('Für die Kosten pro Person gilt 120/(x − 3) = 10. Löse und gib x an.', '120 / 10 + 3',
+    TW('D = ℚ \\ {3}.', 'x.', 'Umstellen.', 'x − 3 = 12 ⇒ x = 15.', 'x = 15.')))
+
+# --- verhaeltnis ---
+TX.u('verhaeltnis', 'pruefung', TZ('Für eine Limonade werden Sirup und Wasser im Verhältnis 1 : 7 gemischt. Die Flasche ist 30 cm hoch. Wie viel ml Sirup braucht man für 1,2 l Limonade?', '1200 / 8',
+    TW('1 : 7, also 1 von 8 Teilen; 1,2 l = 1 200 ml; die Flaschenhöhe spielt keine Rolle.', 'Sirup.', '1 200 : 8.', '150.', 'Man braucht 150 ml Sirup.'), 'Wie viele Teile hat die Mischung insgesamt?', einheit='ml'), huerde='ueberfluessig')
+TX.u('verhaeltnis', 'fehler', TX.A('Beton wird aus Zement und Kies im Verhältnis 1 : 4 gemischt. Jemand will 50 kg Beton und nimmt 12,5 kg Zement. Was stimmt?', 'Falsch: 1 von 5 Teilen – 10 kg Zement.', ['Richtig: 50 : 4 = 12,5.', 'Falsch: 40 kg Zement.', 'Falsch: 5 kg Zement.'],
+    TW('1 : 4 → 5 Teile.', 'Zementmenge.', '50 : 5.', '10.', 'Man braucht 10 kg Zement.'), 'Wie viele Teile gibt es insgesamt?'), huerde='entscheidung')
+TX.s('verhaeltnis', TZ('Saft und Wasser werden im Verhältnis 2 : 3 gemischt. Wie viel ml Saft sind in 500 ml Schorle?', '500 / 5 * 2',
+    TW('2 von 5 Teilen.', 'Saft.', '500 : 5 · 2.', '200.', '200 ml.'), einheit='ml'))
+TX.s('verhaeltnis', TZ('Ein Gewinn von 360 € wird im Verhältnis 4 : 5 geteilt. Wie viel bekommt der kleinere Teil?', '360 / 9 * 4',
+    TW('4 von 9 Teilen.', 'kleinerer Teil.', '360 : 9 · 4.', '160.', '160 €.'), einheit='€'))
+
+# --- graphisch ---
+TX.u('graphisch', 'direkt', TZ('Die Kosten pro Person sind f(x) = 240/x Euro. Am Graphen liest man ab, wo f(x) = 8 ist. Für welches x ist das?', '240 / 8',
+    TW('240/x = 8.', 'x.', 'Schnittpunkt mit y = 8.', 'x = 30.', 'Bei 30 Personen.'), 'Wo schneidet der Graph die Gerade y = 8?'))
+TX.u('graphisch', 'einkleidung', TZ('Für eine 180-km-Fahrt gilt t(v) = 180/v. Am Graphen sucht man den Punkt mit t = 2. Welches v gehört dazu?', '180 / 2',
+    TW('180/v = 2.', 'v.', 'Ablesen oder rechnen.', 'v = 90.', 'v = 90 km/h.'), 'Welcher x-Wert gehört zu y = 2?', einheit='km/h'))
+TX.u('graphisch', 'darstellung', TZ('Ein Graph zeigt die Stückkosten k(x) = 300/x + 5. Er schneidet die Gerade y = 11. Bei welcher Stückzahl?', '300 / 6',
+    TW('300/x + 5 = 11.', 'x.', 'Gleichung zum Schnittpunkt lösen.', '300/x = 6 ⇒ x = 50.', 'Bei 50 Stück.'), 'Stelle die Gleichung zum Schnittpunkt auf.'))
+TX.u('graphisch', 'pruefung', TZ('Ein Klassenzimmer hat 30 Plätze. Für eine Klassenfahrt zeigt der Graph f(x) = 450/x + 12 die Kosten pro Kind. Bei welcher Kinderzahl schneidet er die Gerade y = 30?', '450 / 18',
+    TW('450/x + 12 = 30; die Platzzahl spielt keine Rolle.', 'x.', 'Schnittpunkt berechnen.', '450/x = 18 ⇒ x = 25.', 'Bei 25 Kindern.'), 'Welche Angabe brauchst du nicht?'), huerde='ueberfluessig')
+TX.u('graphisch', 'transfer', TX.A('Die Graphen von k(x) = 600/x + 4 (Anbieter A) und der Geraden y = 10 (Anbieter B, fester Preis) schneiden sich. Für welche Stückzahlen ist A günstiger?', 'ab mehr als 100 Stück', ['bis 100 Stück', 'ab 60 Stück', 'nie'],
+    TW('600/x + 4 = 10 ⇒ x = 100.', 'Bereich, in dem A unten liegt.', 'Schnittpunkt, dann rechts davon.', 'Für x > 100 ist 600/x + 4 < 10.', 'A ist ab mehr als 100 Stück günstiger.'), 'Liegt der Graph von A rechts vom Schnittpunkt über oder unter y = 10?'), huerde='entscheidung')
+TX.u('graphisch', 'fehler', TX.A('Für die Fahrzeit gilt t(v) = 120/v. Jemand liest am Graphen ab: „Bei t = 3 ist v = 360.“ Was stimmt?', 'Falsch: 120/v = 3 ⇒ v = 40.', ['Richtig.', 'Falsch: v = 3.', 'Falsch: v = 117.'],
+    TW('120/v = 3.', 'richtiges v.', 'Umstellen.', 'v = 40.', 'v = 40 km/h.'), 'Hat man multipliziert statt geteilt?'), huerde='deuten')
+TX.s('graphisch', TZ('Der Graph von f(x) = 360/x schneidet y = 12. Bei welchem x?', '360 / 12',
+    TW('360/x = 12.', 'x.', 'Umstellen.', '30.', 'x = 30.')))
+TX.s('graphisch', TZ('Der Graph von k(x) = 200/x + 3 schneidet y = 7. Bei welchem x?', '200 / 4',
+    TW('200/x = 4.', 'x.', 'Umstellen.', '50.', 'x = 50.')))
+TX.k('graphisch', TZ('Der Graph von t(v) = 150/v schneidet t = 2,5. Bei welchem v?', '150 / 2.5',
+    TW('150/v = 2,5.', 'v.', 'Umstellen.', '60.', 'v = 60.'), einheit='km/h'))
+baue = mit_text(baue, TX)
+# ---- TEXT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Bruchgleichungen lösen', ['definitionsmenge', 'ein_bruch', 'ueber_kreuz', 'hauptnenner']), ('Prüfen', ['scheinloesung']), ('Verhältnisse und Graphen', ['verhaeltnis', 'graphisch'])],

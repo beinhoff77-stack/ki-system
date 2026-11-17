@@ -1535,3 +1535,77 @@ Grundlagen: `inhalte/themenliste.json` (Felder `klasse`, `reihenfolge`, `block_i
 6. **Fehlender Realschul-Stoff** (aus `vorschlag-rsib.md`): je neuem Thema Titel, Plan-Klasse, Ort, 5–8 Lernkarten als Stichworte (Zentrische Streckung im Koordinatensystem, Vierecke und Drehung, Trigonometrie-Ergänzung Klasse 10, weitere).
 7. **Folgen für zwei Kinder** (nur als Kind A, Klasse 5, und Kind B, Klasse 8): Wie viele Flüge kommen je Klasse dazu, wie viele liegen bei Kind B dann in schon abgeschlossenen Klassen?
 Tatsachen, Annahmen und Meinungen trennen; Quellen nennen. Meldung in `inhalte/postfach/plan-mindeststand.md`.
+
+# Bau-Auftrag G (Werkstatt-Wunsch 176): Motivation & Lernerfolg – P1 Punkteregel ohne Minuspunkte, P2 Mischkarten, P3 Expeditionen (Technik)
+
+Von Sebastian freigegeben (17.11.2026). **Nicht neu verhandeln:** (1) Minuspunkte raus – Regel und Text. (2) 6 Aufgaben allein reichen nicht als Nachweis; die Regel unten gilt und wird nach dem Start an echten Daten überprüft. (3) Gemischte Aufgaben: vor allem Expeditionen, zusätzlich gemischte Reihenfolge. (4) P4–P7 kommen danach (nicht Teil dieses Auftrags).
+
+**Rahmen:** Repository beinhoff77-stack/ki-system, Zweig `bau-motivation` (von aktuellem `lernen-app`). Es baut nur dieser eine Chat am App-Code. Die Datenbank ändert nur der Haupt-Chat: Migrationen als Datei nach `supabase/migrations/20261118_w176_<teil>_<name>.sql`, nicht ausführen; kein DROP von Tabellen, Spalten, Funktionen, kein DELETE; Lernstände dürfen nie verloren gehen. Lesen der Datenbank ist erlaubt. Keine Kindernamen, Schlüssel oder Zugangscodes in Code, Commits, Meldungen. Reisewörter gelten überall (Flug, Etappe, Bordkarte, Kontinent). Ändert sich eine Lernregel, wird die Info-Seite „So funktioniert’s“ und `inhalte/README.md` im selben Schritt angepasst. Tests: `tests/lernen.test.cjs` erweitern, alle grün. Kein Merge nach `lernen-app` oder `main`. Meldungen in `inhalte/postfach/bau-motivation.md` (neueste oben), nach jedem Teil „FERTIG: Teil n“ mit: was gebaut, welche Migration, welche neuen Felder für die App, was nicht geprüft werden konnte.
+
+**Stand heute (wichtig, weicht von der ersten Spezifikation ab):** App 0.75.1 live. Migration F ist eingespielt: `schule.aufgabe.typ` ist für alle Übungen der 71 freigegebenen Flüge gesetzt (Typen: Stufe 1 direkt, erkennen · Stufe 2 mehrschritt, einkleidung, umkehr, darstellung · Stufe 3 rueckwaerts, verknuepfen, begruenden, fehler, transfer, parameter, pruefung · Bonus knobel); jede Etappe hat mindestens 4 / 6 / 8 freie Übungen auf Stufe 1 / 2 / 3 und Knobel-Bordkarten (Pool `bonus`, zählen nicht für „sitzt“). `schule.karte_buchen` (zuletzt geändert durch `20261118_w150_f_stufen_typ_bonus.sql`, davor `20261116_w150_sitzt_regel_6_mit_schwer.sql`): richtig im 1. Versuch ohne Tipp +1, Fehler −2 (mindestens 0), Tipp oder 2. Versuch 0; „sitzt“ bei `serie ≥ karte_ziel` (6; bei wenigen Aufgaben mindestens 2) und `schwer_ok`. Die App wählt die Bordkarte mit `lernWaehleBordkarte` (Stufe nach Punktestand, nie zwei gleiche Typen hintereinander).
+
+Reihenfolge: **Teil 1 (P1) → Teil 2 (Format für P3) → Teil 3 (P2) → Teil 4 (P3 Technik).** Nach jedem Teil melden und auf den Haupt-Chat warten (Zusammenführen, Migration, Prüfung durch ChatGPT, „Live“ von Sebastian).
+
+## Teil 1 – P1: Neue Punkteregel „gelandet“ / „sicher“ ohne Minuspunkte
+
+**Regel „gelandet“** (intern bleibt `sitzt = true`). Alle Bedingungen müssen erfüllt sein:
+1. `eigene_loesungen ≥ ziel` (6; bei wenigen freien Übungen wie bisher mindestens 2). Es zählt nur „richtig im 1. Versuch ohne Tipp“.
+2. Darunter mindestens 2 verschiedene Aufgabentypen (`aufgabe.typ`), sofern die Etappe mindestens 2 Typen hat.
+3. Darunter mindestens 1 Stufe-3-Aufgabe mit Stufe-3-Typ (wie `schwer_ok` heute), sofern vorhanden.
+4. Die letzten 3 gewerteten Bordkarten in Folge richtig: `folge ≥ min(3, ziel)`.
+
+**Fehler:** keine Abzüge. Endgültig falsch → `folge = 0`. Tipp oder 2. Versuch richtig → zählt nicht, `folge` bleibt unverändert.
+**Stufensteuerung:** Die Stufe steigt mit den eigenen Lösungen (anteilig wie bisher) und fällt erst nach 2 endgültigen Fehlern in Folge um 1 – nicht nach jedem Fehler.
+**Neue Felder in `schule.karte_stand` (Vorschlag):** `eigene_loesungen int`, `typen text[]`, `folge int`, `fehler_folge int`. `serie` bleibt für alte App-Fassungen lesbar oder wird ersetzt – entscheide und dokumentiere es. Die alte App (0.75.1) darf nach dem Einspielen der Migration nicht brechen, bis die neue live ist.
+**Bestandsübernahme (in der Migration):** `eigene_loesungen = serie`; `folge = least(serie, 3)`; `typen` aus `schule.versuch` nachrechnen, wo möglich; **bereits sitzende Etappen bleiben sitzend**. Kein Lernstand geht verloren. In der Meldung: Zahlen vorher/nachher (Etappen sitzend, Summe der Punkte) – ohne Namen.
+
+**„sicher“** (nur Anzeige, kein neuer Lernweg): gelandet + Wiederholungen bis zur Stufe „14 Lerntage“ bestanden + (sobald P2 live ist) mindestens 1 richtige Mischkarte + Nachtest des Flugs bestanden. Einen vorhandenen Status gesichert/„sicher“ nutzen; sichtbar machen für Kind und Eltern.
+
+**App:**
+- Den Satz „Ein Fehler kostet 2 Punkte“ ersatzlos streichen. Nach einem Fehler: Lösungsweg/Fehler-Detektiv wie bisher, Abschluss „Die nächste zählt wieder voll.“
+- Fortschritt ehrlich und ohne Strafbild: Checkliste je Etappe, z. B. „Eigene Lösungen 4/6 · 2 Aufgabentypen ✓ · schwere ✓ · 3 in Folge: 1/3“. Nichts fällt sichtbar zurück außer „in Folge“.
+- Getrennter Aktivitätszähler: „heute X Aufgaben selbst gelöst“ (ohne Bezug zur Schwelle).
+- Kindertexte: „GELANDET“ bleibt; Zusatz „Sicher wird die Etappe, wenn du sie in ein paar Tagen wieder kannst.“
+- Info-Seite („Wie wird gelernt?“), Eltern-Ansichten („Bordkarten bis sitzt“, „Was wackelt?“, Lernstand) und README anpassen. Nirgends mehr „−2“ oder „Punkte verlieren“.
+
+**Tests:** Regel-Fälle als Rauchtest mit dem Testkind (in einer Transaktion, zurückgerollt; Skript in die Meldung): 6 richtige ohne Typvielfalt → nicht gelandet · 6 richtige, letzte falsch → nicht gelandet · Tipp-Treffer zählt nicht und bricht die Folge nicht · 2 Fehler in Folge senken die Stufe um 1, einer nicht · Etappe mit wenigen Aufgaben · Bestandsübernahme · Knobel-Bordkarte zählt weiter nicht. App-Tests erweitern.
+
+## Teil 2 – Format für Expeditionen (nur README und Prüfskript, kein App-Code)
+
+Damit die Inhalte-Chats früh anfangen können: lege das Dateiformat fest und beschreibe es in `inhalte/README.md` (Abschnitt „Expeditionen“) mit einem vollständigen Beispiel; erweitere `tools/inhalt_pruefen.py`.
+- Datei je Expedition: `inhalte/expeditionen/<klasse>-<name>.json`, erzeugt von `inhalte/generatoren/expedition_<name>.py` (alle Lösungen vom Programm berechnet).
+- Inhalt: Klasse, Titel, Einleitung/Kontext, optionale Grafik (die Zeichenarten der App: Koordinatensystem, Figur, Diagramme, Tabelle …), `voraussetzungen` = Liste `{thema_schluessel, lernziel}`, `teile` = 3–5 Teile mit Frage, Antworttyp (Zahl, Auswahl, Lücken, Markierung, Text – nur Formen, die die App schon prüft), Lösung, Rechenausdruck `c`, Lösungsweg, Bezug `{thema_schluessel, lernziel}`, optional Tipp. Folgeteile müssen mit der **richtigen** Lösung des Vorteils weiterrechnen können (kein Folgefehler-Domino): Der Text jedes Teils nennt die nötigen Werte.
+- Prüfskript: Voraussetzungen existieren (Thema und Lernkarte in `inhalte/themen/`); jeder Teil nachgerechnet; Bezug jedes Teils steht in den Voraussetzungen; Klasse passt zu allen Voraussetzungen (Plan-Klasse des Themas ≤ Klasse der Expedition); keine doppelten Fragetexte; 3–5 Teile.
+- Beispiel-Expedition „Handytarif“ (Klasse 8) als Datei mitliefern: a) Tarif A: 5 € + 0,10 €/min – Term aufstellen · b) Welcher Graph gehört zu A? (Auswahl aus 3 Graphen) · c) Ab wie vielen Minuten ist Tarif B (12 € Flat) günstiger? · d) B wird 15 % teurer – neue Antwort?
+Melde „FERTIG: Teil 2“ – darauf setzen zwei Inhalte-Chats auf.
+
+## Teil 3 – P2: Gemischte Reihenfolge (Mischkarten)
+
+Ziel: Das Kind muss selbst erkennen, welches Verfahren passt. Keine Zusatzkarten, kein Pflicht-Tor – nur Umordnung der ohnehin anstehenden Übung. Dynamisch je Kind, unabhängig von der Plan-Reihenfolge: Quelle sind **nur Etappen, die bei diesem Kind sitzen** (gleiches Muster wie `api.schule_wiederholung`).
+
+**Server** (neu, z. B. `api.schule_mischkarte` oder als Feld in einer bestehenden Aktion – keine neue Aktion in `lernen-api`, wenn es ohne geht; sonst melden):
+- Kandidaten: sitzende Etappen des Kindes, außer der gerade geübten.
+- Gewichtung: (1) gleicher Flug, (2) gleicher Kontinent bzw. verwechselbare Verfahren, (3) gelegentlich ein älterer Flug (z. B. jede 3. Mischkarte).
+- Aufgabe: Pool `uebung`, Stufe 2–3, freigegeben, am seltensten gesehen (wie Wiederholung), **ohne** Etappen-Titel in der Anzeige. Entwürfe nur für das Testkind.
+
+**Einsatz in der App:**
+- Start erst, wenn im aktuellen Flug mindestens 3 Etappen sitzen.
+- Jede 4. Bordkarte im normalen Üben ist eine Mischkarte; bei `lernender.klasse ≤ 6` jede 6. (Startwerte als Regel in `schule.regel`, später an Daten justieren).
+- Kennzeichnung neutral: „Aus deiner Reise – erkennst du, was gefragt ist?“; nach der Lösung die Etappe nennen („Das war: Grundwert gesucht – Rom“).
+
+**Wirkung:**
+- Die Mischkarte zählt **nicht** für „gelandet“ der aktuellen Etappe.
+- Richtig: Beleg „in Mischung erkannt“ für die Herkunftsetappe (neues Feld, z. B. `karte_stand.misch_ok_am`) → Bedingung für „sicher“ (Teil 1).
+- Falsch: keine Abzüge; die Herkunftsetappe ist am nächsten Lerntag fällig (wie ein Fehler in der Wiederholung). Die Grenze „höchstens 6 Wiederholungen vor einem Flug“ bleibt.
+
+**Tests:** keine Mischkarte bei weniger als 3 sitzenden Etappen · nur sitzende Etappen · Fehler → fällig · zählt nicht für die aktuelle Etappe · Dosis für Klasse ≤ 6 · Knobel-Bordkarten und gesperrte Aufgaben kommen nie als Mischkarte.
+
+## Teil 4 – P3: Expeditionen (Technik)
+
+- **Datenmodell** (du entscheidest und begründest): neue Tabelle `schule.expedition` (id, klasse, titel, einleitung, grafik, teile jsonb, voraussetzungen jsonb, status entwurf/geprueft/freigegeben, version) **oder** eigener Pool in `schule.aufgabe` mit Teil-Gruppe. Versuche je Teil in `schule.versuch` (Bezug auf den Teil). Import-Funktion für die Dateien aus Teil 2 (wie `einheit_importieren`/`einheit_abgleichen`: neu anlegen, abgleichen, nichts löschen).
+- **Auswahl dynamisch je Kind:** Eine Expedition wird nur angeboten, wenn **alle** Voraussetzungs-Etappen beim Kind sitzen. Plan-Reihenfolge egal. Entwürfe sieht nur das Testkind.
+- **Ablauf:** Jeder Teil wird einzeln geprüft; bei Fehler ein 2. Versuch, dann Lösung zeigen und mit dem nächsten Teil auf Basis der richtigen Lösung weitermachen. Keine Minuspunkte. Teil richtig im 1. Versuch → Beleg „in neuer Aufgabe angewandt“ für die betroffene Etappe (Feld vorsehen, Anzeige kommt mit P5). Teil falsch → betroffene Etappe am nächsten Lerntag fällig (wie Teil 3).
+- **Platz in der Reise:** am Ende eines Flugs bzw. nach 2–3 Flügen als „Expedition“ mit eigenem Stempel; angeboten, nie erzwungen; zählt nicht für „gelandet“. Sterne: Vorschlag machen (Regel in `schule.regel`), nicht höher als ein Ort.
+- **Grafik:** Die App zeichnet (vorhanden). Das Kind kann ablesen, einen Graphen auswählen, einen Punkt bestimmen – selbst zeichnen geht nicht.
+- **Eltern/Lehrer:** Expeditionen in „Inhalte ansehen“ lesbar; im Lernstand je Kind: angeboten / begonnen / geschafft.
+- **Tests:** keine Expedition ohne alle Voraussetzungen · Folgeteil nach Fehler nutzbar · Belege und Fälligkeit richtig · Entwurf nur Testkind · Abbruch mitten in der Expedition verliert nichts.

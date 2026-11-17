@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 13:25 – STATUS
+gleichungen.lgs3 fertig: 18 umgestuft (größere Zahlen/gewöhnliche Systeme von 3 auf 2, Zahlenrätsel von 2 auf 1), 2 neu (parabel Stufe 3: Symmetrie nutzen, Fehler finden). Keine Karte geändert. Für Sebastian: Umfang (6 Karten) groß gegenüber dem Lehrplan. inhalt_pruefen OK, Nachweis OK.
+
 ## 2026-11-17 13:24 – STATUS
 Zusatz aus der Prüfung der Achtzehnten Runde erledigt: gleichungen.quadratisch/bruchgleichung – Scheinlösung jetzt in der Bildergeschichte (Schritt 5 mit Tabelle, Wort „Scheinlösung“, Merksatz) und in einer Sicherungsaufgabe (ersetzt: „Löse die Bruchgleichung 2/x = x + 1 (D = ℝ ohne 0). Kleinere Lösung zuerst.“ → x²/(x − 4) = 16/(x − 4)). lernen-app (c976669) vorher in den Zweig geführt. inhalt_pruefen OK, Nachweis OK.
 

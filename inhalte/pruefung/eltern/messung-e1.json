@@ -1,0 +1,149 @@
+{
+ "tablet": {
+  "start": {
+   "url": "/lernen",
+   "hoehe": 2114,
+   "text": "ⓘ So funktioniert’s\n\nLERNREISE\n\nWer lernt heute?\nKind A\n\nJetzt: Rom · Natürliche Zahlen (2/4)\n\nLernreise öffnen ›\nKind B\n\nJetzt: New York · Einfache Zinsen (0/6)\n\nLernreise öffnen ›\nTestkind\nzum Ausprobieren\n\nJetzt: Rom · Natürliche Zahlen (0/4)\n\nLernreise öffnen ›\n\nELTERN UND LEHRER\n\nFlüge und Rückmeldungen\nLehrplan-Übersicht\n\nAlle Flüge je Schulart und Klasse: was fertig ist, was in Prüfung ist, was noch fehlt – mit Inhalten zum Ansehen.\n\nÖffnen ›\nLernstand Kind A\n\nWas sitzt, was wackelt – mit den echten falschen Antworten.\n\nAnsehen ›\nLernstand Kind B\n\nWas sitzt, was wackelt – mit den echten falschen Antworten.\n\nAnsehen ›\nFlugplan Kind A\n\nNoch kein Plan – alle Flüge sichtbar\n\nPlan bearbeiten ›\nFlugplan Kind B\n\nNoch kein Plan – alle Flüge sichtbar\n\nPlan bearbeiten ›\nRückmeldungen an die Entwicklung\n\nFlug fehlt, zu ungenau, mehr Bordkarten … hier eintragen\n\nÖffnen ›\nAntworten auf eure Anmerkungen\n\nRom – Natürliche Zahlen: 6 neue Aufgaben ergänzt.\n\nAlle Rückmeldungen ›"
+  },
+  "plan": {
+   "hoehe": 5339,
+   "zeilen": 12,
+   "speichernKnopf": false,
+   "zeileHoehe": 507,
+   "tippflaeche": [
+    40,
+    48
+   ]
+  },
+  "verschieben": {
+   "tipps": 8,
+   "status": "Gespeichert\nRückgängig"
+  },
+  "ungespeichert": {
+   "warnung": false,
+   "melbourneDanach": 2
+  },
+  "themaEinzeln": 0,
+  "rueckgaengig": {
+   "melbourne": 2
+  },
+  "konflikt": {
+   "text": "Der Plan wurde inzwischen von jemand anderem geändert. Deine letzte Änderung ist nicht gespeichert – es wird nichts überschrieben.\nNeu laden",
+   "neuLaden": 1,
+   "gesperrt": true,
+   "nachNeuLaden": 2,
+   "danachSpeichern": "Gespeichert\nRückgängig"
+  },
+  "infoVomPlan": 1,
+  "infoVonStart": 1,
+  "info": {
+   "url": "/info",
+   "schritte": 4,
+   "fragen": 7
+  },
+  "lehrplan": {
+   "hoehe": 16682
+  },
+  "hilfe": [
+   "ⓘ So funktioniert’s"
+  ]
+ },
+ "handy": {
+  "start": {
+   "url": "/lernen",
+   "hoehe": 2038,
+   "text": "ⓘ So funktioniert’s\n\nLERNREISE\n\nWer lernt heute?\nKind A\n\nJetzt: Rom · Natürliche Zahlen (2/4)\n\nLernreise öffnen ›\nKind B\n\nJetzt: New York · Einfache Zinsen (0/6)\n\nLernreise öffnen ›\nTestkind\nzum Ausprobieren\n\nJetzt: Rom · Natürliche Zahlen (0/4)\n\nLernreise öffnen ›\n\nELTERN UND LEHRER\n\nFlüge und Rückmeldungen\nLehrplan-Übersicht\n\nAlle Flüge je Schulart und Klasse: was fertig ist, was in Prüfung ist, was noch fehlt – mit Inhalten zum Ansehen.\n\nÖffnen ›\nLernstand Kind A\n\nWas sitzt, was wackelt – mit den echten falschen Antworten.\n\nAnsehen ›\nLernstand Kind B\n\nWas sitzt, was wackelt – mit den echten falschen Antworten.\n\nAnsehen ›\nFlugplan Kind A\n\nNoch kein Plan – alle Flüge sichtbar\n\nPlan bearbeiten ›\nFlugplan Kind B\n\nNoch kein Plan – alle Flüge sichtbar\n\nPlan bearbeiten ›\nRückmeldungen an die Entwicklung\n\nFlug fehlt, zu ungenau, mehr Bordkarten … hier eintragen\n\nÖffnen ›\nAntworten auf eure Anmerkungen\n\nRom – Natürliche Zahlen: 6 neue Aufgaben ergänzt.\n\nAlle Rückmeldungen ›"
+  },
+  "plan": {
+   "hoehe": 6524,
+   "zeilen": 12,
+   "speichernKnopf": false,
+   "zeileHoehe": 695,
+   "tippflaeche": [
+    40,
+    48
+   ]
+  },
+  "verschieben": {
+   "tipps": 8,
+   "status": "Gespeichert\nRückgängig"
+  },
+  "ungespeichert": {
+   "warnung": false,
+   "melbourneDanach": 2
+  },
+  "themaEinzeln": 0,
+  "rueckgaengig": {
+   "melbourne": 2
+  },
+  "konflikt": {
+   "text": "Der Plan wurde inzwischen von jemand anderem geändert. Deine letzte Änderung ist nicht gespeichert – es wird nichts überschrieben.\nNeu laden",
+   "neuLaden": 1,
+   "gesperrt": true,
+   "nachNeuLaden": 2,
+   "danachSpeichern": "Gespeichert\nRückgängig"
+  },
+  "infoVomPlan": 1,
+  "infoVonStart": 1,
+  "info": {
+   "url": "/info",
+   "schritte": 4,
+   "fragen": 7
+  },
+  "lehrplan": {
+   "hoehe": 22058
+  },
+  "hilfe": [
+   "ⓘ So funktioniert’s"
+  ]
+ },
+ "rechner": {
+  "start": {
+   "url": "/lernen",
+   "hoehe": 2175,
+   "text": "ⓘ So funktioniert’s\n\nLERNREISE\n\nWer lernt heute?\nKind A\n\nJetzt: Rom · Natürliche Zahlen (2/4)\n\nLernreise öffnen ›\nKind B\n\nJetzt: New York · Einfache Zinsen (0/6)\n\nLernreise öffnen ›\nTestkind\nzum Ausprobieren\n\nJetzt: Rom · Natürliche Zahlen (0/4)\n\nLernreise öffnen ›\n\nELTERN UND LEHRER\n\nFlüge und Rückmeldungen\nLehrplan-Übersicht\n\nAlle Flüge je Schulart und Klasse: was fertig ist, was in Prüfung ist, was noch fehlt – mit Inhalten zum Ansehen.\n\nÖffnen ›\nLernstand Kind A\n\nWas sitzt, was wackelt – mit den echten falschen Antworten.\n\nAnsehen ›\nLernstand Kind B\n\nWas sitzt, was wackelt – mit den echten falschen Antworten.\n\nAnsehen ›\nFlugplan Kind A\n\nNoch kein Plan – alle Flüge sichtbar\n\nPlan bearbeiten ›\nFlugplan Kind B\n\nNoch kein Plan – alle Flüge sichtbar\n\nPlan bearbeiten ›\nRückmeldungen an die Entwicklung\n\nFlug fehlt, zu ungenau, mehr Bordkarten … hier eintragen\n\nÖffnen ›\nAntworten auf eure Anmerkungen\n\nRom – Natürliche Zahlen: 6 neue Aufgaben ergänzt.\n\nAlle Rückmeldungen ›"
+  },
+  "plan": {
+   "hoehe": 5381,
+   "zeilen": 12,
+   "speichernKnopf": false,
+   "zeileHoehe": 507,
+   "tippflaeche": [
+    40,
+    48
+   ]
+  },
+  "verschieben": {
+   "tipps": 8,
+   "status": "Gespeichert\nRückgängig"
+  },
+  "ungespeichert": {
+   "warnung": false,
+   "melbourneDanach": 2
+  },
+  "themaEinzeln": 0,
+  "rueckgaengig": {
+   "melbourne": 2
+  },
+  "konflikt": {
+   "text": "Der Plan wurde inzwischen von jemand anderem geändert. Deine letzte Änderung ist nicht gespeichert – es wird nichts überschrieben.\nNeu laden",
+   "neuLaden": 1,
+   "gesperrt": true,
+   "nachNeuLaden": 2,
+   "danachSpeichern": "Gespeichert\nRückgängig"
+  },
+  "infoVomPlan": 1,
+  "infoVonStart": 1,
+  "info": {
+   "url": "/info",
+   "schritte": 4,
+   "fragen": 7
+  },
+  "lehrplan": {
+   "hoehe": 16724
+  },
+  "hilfe": [
+   "ⓘ So funktioniert’s"
+  ]
+ }
+}

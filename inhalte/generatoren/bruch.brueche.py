@@ -1104,5 +1104,282 @@ schritt_einfuegen(DATEI, 'zahlenstrahl', 4, {'text': 'Brüche über 1: 7/5 sind 
 # ---- DURCHSICHT ENDE ----
 
 
+# ---------- STUFEN (Zwanzigste Runde, Zweig stufen-kl6) ----------
+# Typ g für jede Übung (Vorschlag nach Textmerkmalen, hier von Hand korrigiert), neue Übungen bis S1 ≥ 4, S2 ≥ 6, S3 ≥ 8 (≥ 4 Typen), je Lernkarte 2 Knobel-Bordkarten.
+from _stufen_kl6 import Stufen, stufen_datei  # noqa: E402
+
+ST = Stufen('bruch.brueche', 20_6_1)
+Z, A, L, M, T, N, K = ST.Z, ST.A, ST.L, ST.M, ST.typ, ST.neu, ST.knobel
+B = '□/□'
+
+# --- bruchteil_von ---
+lz = 'bruchteil_von'
+ST.leiter(lz, 'Bruchteil einer Größe ausrechnen: durch den Nenner teilen, mal den Zähler nehmen.',
+          'Bruchteil in Sachsituationen und mit Umrechnen von Einheiten; erkennen, welcher Bruchteil eine Größe ist.',
+          'Rest nach mehreren Bruchteilen, rückwärts zum Ausgangsbetrag, Fehler deuten, mit Flächen verknüpfen, für welche Nenner es aufgeht.')
+for t in ('Ein Buch hat ', 'In einer Kiste liegen', 'Für ein Konzert gibt es', 'Ein Tag hat 24 Stunden'):
+    ST.typ_bau(lz, 2, t, 'einkleidung')
+T(lz, 'Von 40 € Erspartem gibt ein Kind 1/2 für Bücher und 1/5 für Kino aus. Wie viel Euro bleiben übrig?', 'transfer')
+T(lz, 'Was ist mehr: 2/3 von 90 € oder 3/4 von 80 €? Gib den Unterschied in Euro an.', 'begruenden')
+N(lz, A('erkennen', 'Mit welcher Rechnung bekommst du 3/4 von 20 m?', '20 m : 4 · 3', ['20 m · 4 : 3', '20 m : 3 · 4', '20 m − 3/4'],
+        'Erst durch den Nenner 4 teilen (ein Viertel), dann mal den Zähler 3: 20 m : 4 · 3 = 15 m.', 'Was bedeutet der Nenner, was der Zähler?'))
+N(lz, L('umkehr', 'Welcher Bruchteil von 60 € sind 45 €? Gib den Bruch vollständig gekürzt an.', B, [3, 4], ['45 // 15', '60 // 15'],
+        '45 € von 60 € sind 45/60. Gekürzt mit 15: 3/4.', 'Schreibe zuerst Teil durch Ganzes.'))
+N(lz, Z('rueckwaerts', 'Ein Kind gibt erst 1/4 seines Geldes aus und danach noch 6 €. Jetzt hat es noch 21 €. Wie viel Geld hatte es am Anfang?', 36, '(21 + 6) * 4 / 3',
+        'Vor den 6 € hatte es 27 €. Das sind 3/4 des Anfangs, also 1/4 = 9 € und das Ganze 36 €.', 'Geh Schritt für Schritt zurück: zuerst die 6 € wieder dazu.', einheit='€'))
+N(lz, Z('verknuepfen', 'Ein Rechteck ist 24 cm lang. Seine Breite ist 3/8 der Länge. Wie groß ist der Flächeninhalt in cm²?', 216, '24 * (24 * 3 / 8)',
+        'Breite: 24 cm : 8 · 3 = 9 cm. Fläche: 24 cm · 9 cm = 216 cm².', 'Berechne zuerst die Breite.', einheit='cm²'))
+N(lz, Z('parameter', 'Für wie viele natürliche Zahlen n größer als 3 ist 3/n von 24 eine ganze Zahl?', 9, '9',
+        '3/n von 24 = 72 : n. Ganz wird das für die Teiler von 72 über 3: 4, 6, 8, 9, 12, 18, 24, 36, 72 – das sind 9.', 'Rechne 3/n von 24 als eine einzige Division.'))
+K(lz, Z('knobel', 'Ein Kind liest am ersten Tag die Hälfte eines Buchs, am zweiten Tag 1/3 vom Rest und am dritten Tag 1/4 vom neuen Rest. Jetzt fehlen noch 30 Seiten. Wie viele Seiten hat das Buch?',
+        120, '30 * 4 / 3 * 3 / 2 * 2',
+        'Rückwärts: 30 Seiten sind 3/4 des Rests nach Tag 2, also war er 40 Seiten. 40 Seiten sind 2/3 des Rests nach Tag 1, also 60 Seiten. 60 Seiten sind die Hälfte, also hat das Buch 120 Seiten.',
+        'Fang beim Ende an und frag dich jeweils: Welcher Bruchteil des vorigen Rests ist übrig geblieben?'))
+K(lz, Z('knobel', 'Drei Geschwister teilen 72 Murmeln: Das erste bekommt 1/3, das zweite 1/4, das dritte den Rest. Dann gibt das dritte dem ersten so viele ab, dass beide gleich viele haben. Wie viele hat das erste jetzt?',
+        27, '(72 / 3 + (72 - 72 / 3 - 72 / 4)) / 2',
+        'Erstes: 24, zweites: 18, drittes: 72 − 24 − 18 = 30. Das erste und das dritte haben zusammen 54. Gleich viele heißt je 27 – das dritte gibt 3 ab.',
+        'Rechne erst aus, wie viele jedes Kind bekommt. Was bleibt beim Abgeben gleich?'))
+
+# --- anteil_bestimmen ---
+lz = 'anteil_bestimmen'
+ST.leiter(lz, 'Anteil an einem Bild ablesen oder „Teil von Ganzem“ als Bruch schreiben.',
+          'Anteil in Sachsituationen, mit Einheiten und am Bild mit ungleich gezählten Teilen bestimmen und kürzen.',
+          'Rest-Anteil, Anteil vom Rest, Verhältnis gegen Anteil, Fehler beim Teilen durch den Rest, Anteile von Gruppen vergleichen, mögliche Gruppengrößen.')
+for t in ('Von 12 Losen', 'Von 12 Plätzen'):
+    ST.typ_bau(lz, 2, t, 'einkleidung')
+T(lz, 'Von 24 Kindern kommen 4 mit dem Bus, 4 mit dem Rad, der Rest zu Fuß. Welcher Anteil kommt zu Fuß?', 'transfer')
+T(lz, 'Ein Kind gibt 1/3 seines Taschengelds aus und danach die Hälfte vom Rest. Welcher Anteil des Taschengelds ist noch übrig?', 'verknuepfen')
+T(lz, 'In einer Dose liegen 3 rote und 5 blaue Kugeln. Wie viele rote Kugeln musst du dazulegen, damit genau die Hälfte aller Kugeln rot ist?', 'rueckwaerts')
+N(lz, L('direkt', 'Von 10 Murmeln sind 3 rot. Welcher Anteil der Murmeln ist rot?', B, [3, 10], ['3', '10'], '3 von 10 Murmeln: 3/10.', 'Zähler: wie viele rot sind. Nenner: wie viele es insgesamt sind.'))
+N(lz, A('fehler', 'Ein Kind sagt: „Von 20 Kindern sind 5 krank. Der Anteil der kranken Kinder ist 5/15.“ Was hat es falsch gemacht?',
+        'Es hat durch die 15 gesunden Kinder geteilt statt durch alle 20. Richtig ist 5/20 = 1/4.', ['Nichts, 5/15 stimmt.', 'Es hätte 15/20 schreiben müssen.', 'Es hätte 20/5 schreiben müssen.'],
+        'Der Anteil ist Teil durch Ganzes. Das Ganze sind alle 20 Kinder: 5/20 = 1/4.', 'Was ist hier das Ganze?'))
+N(lz, A('begruenden', 'In Gruppe A sind 3 von 4 Kindern Mädchen, in Gruppe B 6 von 8. Ein Kind sagt: „In B ist der Mädchen-Anteil größer.“ Stimmt das?',
+        'Nein, die Anteile sind gleich: 6/8 = 3/4.', ['Ja, weil 6 mehr ist als 3.', 'Ja, weil 8 mehr ist als 4.', 'Nein, in A ist er größer.'],
+        '6/8 gekürzt mit 2 ist 3/4. Mehr Mädchen heißt nicht größerer Anteil.', 'Kürze den Anteil von Gruppe B.'))
+N(lz, Z('parameter', 'Eine Klasse hat 8 Mädchen. Ihr Anteil ist größer als 1/2, aber kleiner als 2/3. Wie viele verschiedene Klassengrößen sind möglich?', 3, '3',
+        '8 ist mehr als die Hälfte, wenn die Klasse weniger als 16 Kinder hat. 8 ist weniger als 2/3, wenn sie mehr als 12 hat. Möglich: 13, 14, 15 – also 3.', 'Probiere Klassengrößen aus: Ab wann ist 8 nicht mehr die Mehrheit?'))
+K(lz, Z('knobel', 'Auf einem Fest sind 2/3 der Gäste Kinder. Es kommen 6 Erwachsene dazu. Jetzt ist genau die Hälfte der Gäste Kinder. Wie viele Kinder sind auf dem Fest?', 12, '12',
+        'Am Anfang sind doppelt so viele Kinder wie Erwachsene. Danach gleich viele. Also sind 6 Erwachsene so viele wie die ursprünglichen Erwachsenen: 6 Erwachsene vorher, 12 Kinder.',
+        'Vergleiche Kinder und Erwachsene vorher und nachher. Die Zahl der Kinder ändert sich nicht.'))
+K(lz, L('knobel', 'Ein Quadrat wird senkrecht in 4 gleiche Streifen geteilt, einer wird gefärbt. Dann wird es waagrecht in 3 gleiche Streifen geteilt, einer davon wird auch gefärbt. Welcher Anteil des Quadrats ist gefärbt?',
+        B, [1, 2], ['(3 + 4 - 1) // 6', '(4 * 3) // 6'],
+        'Teile das Quadrat in 4 · 3 = 12 kleine Felder. Der senkrechte Streifen hat 3 Felder, der waagrechte 4. Ein Feld gehört zu beiden. Gefärbt: 3 + 4 − 1 = 6 von 12 Feldern = 1/2.',
+        'Zeichne beide Teilungen in dasselbe Quadrat. Wie viele kleine Felder entstehen?'))
+
+# --- ganzes_bestimmen ---
+lz = 'ganzes_bestimmen'
+ST.leiter(lz, 'Aus einem Teil das Ganze bestimmen: durch den Zähler teilen, mal den Nenner nehmen.',
+          'In Sachsituationen das Ganze bestimmen; umgekehrt den Bruchteil aus Teil und Ganzem finden.',
+          'Das Fehlende statt des Ganzen, rückwärts über Ausgaben, Fehler deuten, mit Flächen verknüpfen, Aussagen prüfen, Nenner bestimmen.')
+ST.typ_bau(lz, 2, '3/10 eines Wasservorrats', 'direkt', neu_s=1)
+for t in ('3/5 einer Zeitspanne', '18 Seiten sind'):
+    ST.typ_bau(lz, 2, t, 'einkleidung')
+T(lz, 'Bei einer Umfrage nannten 45 Kinder Fußball als Lieblingssport. Das waren 3/8 aller Befragten. Wie viele Befragte nannten etwas anderes?', 'transfer')
+T(lz, 'Ein Riesenrad hat 20 gleiche Gondeln. 4 Gondeln haben zusammen 24 Sitzplätze. Wie viele Sitzplätze hat das ganze Riesenrad?', 'verknuepfen')
+T(lz, 'Ein Kind gibt 1/4 seines Geldes aus und hat danach noch 27 €. Wie viel Geld hatte es vorher?', 'rueckwaerts')
+N(lz, A('erkennen', '3/4 eines Weges sind 12 km. Mit welcher Rechnung bekommst du den ganzen Weg?', '12 km : 3 · 4', ['12 km · 3 : 4', '12 km : 4 · 3', '12 km + 3/4'],
+        '3 Viertel sind 12 km, also ein Viertel 4 km (durch 3). Das Ganze sind 4 Viertel: 16 km.', 'Wie viele Viertel sind 12 km, wie viele braucht das Ganze?'))
+N(lz, L('umkehr', 'Ein Tank fasst 240 l, darin sind 180 l. Zu welchem Bruchteil ist er gefüllt? Gib den Bruch vollständig gekürzt an.', B, [3, 4], ['180 // 60', '240 // 60'],
+        '180 l von 240 l sind 180/240. Gekürzt mit 60: 3/4.', 'Hier ist das Ganze bekannt. Gesucht ist der Bruch.'))
+N(lz, A('begruenden', 'Ein Kind sagt: „2/5 eines Weges sind 8 km. Dann sind 4/5 des Weges 16 km, also ist der ganze Weg 32 km lang.“ Stimmt das?',
+        'Nein: Aus 4/5 = 16 km folgt 1/5 = 4 km, das Ganze ist 20 km.', ['Ja, das stimmt.', 'Nein, der ganze Weg ist 16 km.', 'Nein, der ganze Weg ist 40 km.'],
+        '4/5 sind 16 km stimmt. Aber das Ganze sind 5/5, nicht 8/5: 1/5 = 4 km, also 20 km.', 'Wie viele Fünftel hat der ganze Weg?'))
+N(lz, Z('verknuepfen', '2/3 der Länge eines Rechtecks sind 12 cm. Es ist 5 cm breit. Wie groß ist sein Flächeninhalt?', 90, '12 / 2 * 3 * 5',
+        'Länge: 12 cm : 2 · 3 = 18 cm. Fläche: 18 cm · 5 cm = 90 cm².', 'Bestimme zuerst die ganze Länge.', einheit='cm²'))
+N(lz, Z('parameter', '3/n eines Vorrats sind 12 kg. Der ganze Vorrat wiegt 28 kg. Welche Zahl ist n?', 7, '28 * 3 / 12',
+        '1/n des Vorrats sind 12 kg : 3 = 4 kg. 28 kg : 4 kg = 7, also n = 7.', 'Wie viel ist ein einzelner Teil?'))
+K(lz, Z('knobel', 'Ein Glas ist zu 1/3 mit Saft gefüllt und wiegt 250 g. Zu 2/3 gefüllt wiegt es 400 g. Wie viel Gramm wiegt das leere Glas?', 100, '250 - (400 - 250)',
+        'Von 1/3 auf 2/3 kommt 1/3 Saft dazu: 400 g − 250 g = 150 g. Also wiegt 1/3 Saft 150 g. Das leere Glas: 250 g − 150 g = 100 g.',
+        'Was ändert sich zwischen den beiden Wägungen – und was bleibt gleich?', einheit='g'))
+K(lz, Z('knobel', 'Ein Wanderer hat 3/8 seines Weges geschafft. Nach weiteren 6 km hat er genau die Hälfte geschafft. Wie lang ist der ganze Weg?', 48, '6 * 8',
+        'Von 3/8 bis 1/2 = 4/8 ist es 1/8 des Weges. Diese 1/8 sind 6 km, also ist der Weg 8 · 6 km = 48 km.',
+        'Schreibe die Hälfte auch in Achteln.', einheit='km'))
+
+# --- erweitern ---
+lz = 'erweitern'
+ST.leiter(lz, 'Zähler und Nenner mit derselben Zahl malnehmen; gleichwertige Brüche erkennen.',
+          'Fehlenden Zähler oder Nenner ergänzen, den Erweiterungsfaktor finden, auf große Nenner erweitern, in Sachsituationen.',
+          'Rückwärts zum Ausgangsbruch, Fehler deuten, Aussagen prüfen, mit Vielfachen verknüpfen, Bedingungen an Zähler und Nenner, Prüfungsaufgabe.')
+ST.typ_bau(lz, 2, 'Ergänze', 'umkehr'); ST.typ_bau(lz, 2, 'Mit welcher Zahl', 'umkehr')
+ST.typ_bau(lz, 2, 'Erweitere 12/25 auf den Nenner 100', 'direkt', neu_s=1)
+T(lz, 'Welcher Bruch ist NICHT gleich 3/4?', 'erkennen', s=1)
+T(lz, 'Bringe 2/3 und 3/4 auf den kleinsten gemeinsamen Nenner.', 'verknuepfen')
+N(lz, L('direkt', 'Nimm Zähler und Nenner von 4/9 mal 5. Welcher Bruch entsteht?', B, [20, 45], ['4 * 5', '9 * 5'], '4 · 5 = 20 und 9 · 5 = 45: 20/45.', 'Beide, Zähler und Nenner, werden mit 5 malgenommen.'))
+N(lz, Z('einkleidung', 'Eine Pizza ist in 4 gleiche Stücke geschnitten, du isst 3 davon. Eine gleiche Pizza ist in 12 Stücke geschnitten. Wie viele Stücke musst du essen, um gleich viel zu essen?', 9, '3 * 12 / 4',
+        '3/4 = 9/12: Jedes Viertel wird in 3 Zwölftel geteilt. Du musst 9 Stücke essen.', 'In wie viele kleine Stücke wird jedes große Stück geteilt?'))
+N(lz, L('fehler', 'Ein Kind erweitert 3/4 mit 5 und schreibt 15/4. Wie heißt der richtig erweiterte Bruch?', B, [15, 20], ['3 * 5', '4 * 5'],
+        'Es hat nur den Zähler mal 5 genommen. Auch der Nenner muss mal 5: 15/20.', 'Was passiert beim Erweitern mit dem Nenner?'))
+N(lz, A('begruenden', 'Stimmt die Aussage? „Beim Erweitern wird der Bruch größer, weil Zähler und Nenner größer werden.“',
+        'Nein, der Wert bleibt gleich: Es gibt mehr Teile, aber jedes ist kleiner.', ['Ja, das stimmt.', 'Ja, aber nur beim Erweitern mit 10.', 'Nein, der Bruch wird kleiner.'],
+        '3/4 und 6/8 beschreiben dieselbe Menge: Jedes Viertel wird in 2 Achtel geteilt.', 'Zeichne 1/2 und 2/4 als Streifen.'))
+N(lz, Z('parameter', 'Für welche Zahl k gilt 5/k = 20/36?', 9, '36 * 5 / 20', 'Von 5 auf 20 wurde mit 4 erweitert. Also ist 36 = 4 · k, k = 9.', 'Mit welcher Zahl wurde der Zähler malgenommen?'))
+N(lz, Z('verknuepfen', 'Wie viele Brüche, die gleich 3/8 sind, haben einen Nenner zwischen 10 und 50?', 5, '5',
+        'Die Nenner müssen Vielfache von 8 sein: 16, 24, 32, 40, 48. Das sind 5 Brüche.', 'Welche Nenner entstehen beim Erweitern von 3/8?'))
+N(lz, Z('pruefung', 'Im Lager liegen 3/8 t Mehl. Erweitere den Bruch auf den Nenner 1 000. Wie viele Kilogramm Mehl sind das?', 375, '3 * 125',
+        '3/8 = 375/1 000 (mit 125 erweitert). 1/1 000 t = 1 kg, also 375 kg.', 'Mit welcher Zahl musst du 8 malnehmen, um 1 000 zu erhalten?', einheit='kg'))
+K(lz, Z('knobel', 'Ein Bruch ist gleich 2/7. Sein Nenner ist um 35 größer als sein Zähler. Wie heißt der Zähler?', 14, '35 // 5 * 2',
+        'Erweitert mit k: Zähler 2k, Nenner 7k. Der Unterschied ist 5k = 35, also k = 7. Zähler: 14 (der Bruch ist 14/49).',
+        'Schreib Zähler und Nenner als Vielfache derselben Zahl.'))
+K(lz, Z('knobel', 'Ein Bruch ist gleich 3/5. Zählt man zu seinem Zähler 4 dazu, ist er gleich 5/7. Wie heißt der Zähler des ursprünglichen Bruchs?', 21, '21',
+        'Der Bruch ist 3k/5k. Probiere k: Für k = 7 ist er 21/35, und (21 + 4)/35 = 25/35 = 5/7. Also ist der Zähler 21.',
+        'Schreib den Bruch als 3k/5k und probiere k = 1, 2, 3, …'))
+
+# --- kuerzen ---
+lz = 'kuerzen'
+ST.leiter(lz, 'Zähler und Nenner durch dieselbe Zahl teilen; einen passenden Teiler erkennen.',
+          'Vollständig kürzen, prüfen ob ein Bruch vollständig gekürzt ist, Anteile aus Sachsituationen kürzen, vom gekürzten Bruch zurück.',
+          'Rückwärts über mehrere Kürzungen, Fehler deuten (auch „Ziffern streichen“), Produkte vor dem Ausrechnen kürzen, für wie viele Zähler es geht, Prüfungsaufgabe.')
+ST.typ_bau(lz, 2, 'Kürze', 'mehrschritt'); ST.typ_bau(lz, 2, 'Welcher Bruch entsteht', 'mehrschritt'); ST.typ_bau(lz, 2, 'Ein Kind kürzt', 'mehrschritt'); ST.typ_bau(lz, 2, 'Kann man', 'mehrschritt')
+T(lz, 'Ein Kind kürzt 15/90 zu 5/30. Ist der Bruch damit vollständig gekürzt?', 'mehrschritt', s=2)
+T(lz, 'Ein Fußballspiel dauert 90 Minuten. Eine Mannschaft hat 54 Minuten lang den Ball. Welcher Anteil der Spielzeit ist das? Vollständig gekürzt.', 'einkleidung', s=2)
+T(lz, 'Kürze vollständig, am besten vor dem Ausrechnen: (12 · 25)/(15 · 40)', 'verknuepfen')
+N(lz, A('erkennen', 'Durch welche dieser Zahlen kann man 12/18 kürzen?', 6, [5, 4, 7], '6 teilt 12 und 18. 5, 4 und 7 teilen nicht beide Zahlen.', 'Die Zahl muss Zähler und Nenner ohne Rest teilen.'))
+N(lz, L('direkt', 'Teile Zähler und Nenner von 15/25 durch 5. Welcher Bruch entsteht?', B, [3, 5], ['15 // 5', '25 // 5'], '15 : 5 = 3 und 25 : 5 = 5: 3/5.', 'Teile beide Zahlen durch 5.'))
+N(lz, L('umkehr', 'Ein Bruch wurde mit 4 gekürzt und heißt jetzt 3/5. Wie hieß er vorher?', B, [12, 20], ['3 * 4', '5 * 4'], 'Zurück heißt: wieder mit 4 malnehmen. 12/20.', 'Kürzen rückgängig machen heißt erweitern.'))
+N(lz, L('fehler', 'Ein Kind kürzt 21/28 mit 7 und schreibt 3/28. Wie heißt der richtig gekürzte Bruch?', B, [3, 4], ['21 // 7', '28 // 7'],
+        'Es hat nur den Zähler durch 7 geteilt. Auch der Nenner: 28 : 7 = 4. Richtig ist 3/4.', 'Was passiert beim Kürzen mit dem Nenner?'))
+N(lz, L('rueckwaerts', 'Ein Bruch wurde erst mit 2 und dann mit 3 gekürzt. Jetzt heißt er 5/7. Wie hieß er am Anfang?', B, [30, 42], ['5 * 3 * 2', '7 * 3 * 2'],
+        'Zurück: erst mit 3 erweitern (15/21), dann mit 2 (30/42).', 'Mache die Schritte in umgekehrter Reihenfolge rückgängig.'))
+N(lz, Z('parameter', 'Für wie viele Zahlen n von 1 bis 20 lässt sich der Bruch n/21 kürzen?', 8, '8',
+        '21 = 3 · 7. Kürzen geht, wenn n durch 3 oder 7 teilbar ist: 3, 6, 9, 12, 15, 18 und 7, 14. Das sind 8 Zahlen.', 'Zerlege 21 in Primfaktoren.'))
+N(lz, L('pruefung', 'An einer Schule sind 360 Kinder. 120 kommen zu Fuß, 150 mit dem Rad, die übrigen mit dem Bus. Welcher Anteil kommt mit dem Bus? Gib ihn vollständig gekürzt an.', B, [1, 4],
+        ['(360 - 120 - 150) // 90', '360 // 90'], 'Bus: 360 − 120 − 150 = 90. Anteil 90/360, gekürzt mit 90: 1/4.', 'Berechne zuerst, wie viele mit dem Bus kommen.'))
+N(lz, Z('transfer', 'Ein Bruch hat den Nenner 36. Man kann ihn mit 6 kürzen; danach lässt er sich nicht weiter kürzen. Sein Zähler ist größer als 20 und kleiner als 36. Wie heißt der Zähler?', 30, '6 * 5',
+        'Der Zähler ist ein Vielfaches von 6: 24 oder 30. 24/36 ergibt mit 6 gekürzt 4/6 – das geht weiter. 30/36 ergibt 5/6 – fertig. Also 30.', 'Probiere die Vielfachen von 6 zwischen 20 und 36.'))
+K(lz, Z('knobel', 'Wie viele Brüche mit dem Nenner 30 und einem Zähler von 1 bis 29 lassen sich NICHT kürzen?', 8, '8',
+        '30 = 2 · 3 · 5. Nicht kürzbar ist n/30, wenn n weder durch 2 noch durch 3 noch durch 5 teilbar ist: 1, 7, 11, 13, 17, 19, 23, 29. Das sind 8.',
+        'Welche Primzahlen stecken in 30? Streiche ihre Vielfachen.'))
+K(lz, Z('knobel', 'Ein Bruch mit zweistelligem Zähler und zweistelligem Nenner lässt sich durch 2, durch 3 und durch 5 kürzen. Vollständig gekürzt heißt er 1/3. Wie heißt sein Zähler?', 30, '30',
+        'Zähler und Nenner müssen durch 2 · 3 · 5 = 30 teilbar sein, und der Nenner ist das Dreifache des Zählers. Zähler 30 und Nenner 90 passen; 60/180 hat einen dreistelligen Nenner.',
+        'Durch welche Zahl müssen Zähler und Nenner dann sicher teilbar sein?'))
+
+# --- gemischte_zahlen ---
+lz = 'gemischte_zahlen'
+ST.leiter(lz, 'Gemischte Zahl in unechten Bruch umwandeln und umgekehrt; gemischte Zahlen erkennen.',
+          'Umwandeln mit Kürzen, vergleichen, einordnen zwischen ganzen Zahlen, am Zahlenstrahl, in Sachsituationen, fehlenden Zähler finden.',
+          'Fehler deuten, mit Größen verknüpfen, Zahlen dazwischen finden, Ziffern-Rätsel, Aussagen prüfen, rückwärts aus dem Zähler.')
+ST.typ_bau(lz, 2, 'Schreibe 4 5/6', 'direkt', neu_s=1); ST.typ_bau(lz, 2, 'Schreibe 23/8', 'direkt', neu_s=1)
+ST.typ_bau(lz, 2, 'Wie viele Viertelstunden', 'einkleidung')
+T(lz, 'Ein Rezept braucht 1 3/4 Becher Mehl. Ein Becher fasst 200 g. Wie viele Gramm Mehl sind das?', 'verknuepfen')
+T(lz, 'Ein Band ist 5 1/4 m lang. Wie viele Stücke von je 1/4 m kann man abschneiden?', 'einkleidung', s=2)
+T(lz, 'Welche Aussage über 2 1/2 stimmt?', 'begruenden')
+N(lz, A('erkennen', 'Welche Zahl ist eine gemischte Zahl?', '2 1/3', ['7/3', '2/3', '23'], '2 1/3 besteht aus einer ganzen Zahl und einem echten Bruch.', 'Eine gemischte Zahl hat einen Ganzen-Teil und einen Bruch.'))
+N(lz, M('darstellung', 'Markiere 2 3/4 am Zahlenstrahl (von 0 bis 4, 16 gleiche Teile).', 0, 4, 16, 2.75,
+        'Jeder Teil ist 1/4. 2 3/4 = 11/4 liegt beim 11. Strich.', 'Wie groß ist ein Teil? Schreibe 2 3/4 als Viertel.'))
+N(lz, L('umkehr', 'Ein unechter Bruch mit dem Nenner 5 ist gleich 3 2/5. Wie heißt sein Zähler?', '□/5', [17], ['3 * 5 + 2'], '3 Ganze sind 15 Fünftel, dazu 2: 17/5.', 'Wie viele Fünftel sind 3 Ganze?'))
+N(lz, Z('rueckwaerts', 'Eine gemischte Zahl hat die ganze Zahl 3 und den Nenner 7. Als unechter Bruch hat sie den Zähler 26. Wie heißt der Zähler ihres Bruchteils?', 5, '26 - 3 * 7',
+        '3 Ganze sind 21 Siebtel. 26 − 21 = 5, also 3 5/7.', 'Wie viele Siebtel stecken in den 3 Ganzen?'))
+K(lz, Z('knobel', 'Eine gemischte Zahl a b/c wird aus drei verschiedenen Ziffern von 1 bis 9 gebildet, b/c ist ein echter Bruch. Wie viele solche Zahlen liegen zwischen 8 und 9?', 28, '8 * 7 // 2',
+        'Zwischen 8 und 9 muss a = 8 sein. Für b und c bleiben die Ziffern 1–7 und 9, also 8 Ziffern. Jedes Paar verschiedener Ziffern ergibt genau einen echten Bruch (kleinere Ziffer oben): 8 · 7 : 2 = 28.',
+        'Was muss die ganze Zahl sein? Wie viele Paare kannst du aus den übrigen Ziffern bilden?'))
+K(lz, Z('knobel', 'Zu Zähler und Nenner von 7/3 wird dieselbe Zahl addiert. Es entsteht 1 1/2. Welche Zahl wurde addiert?', 5, '5',
+        '1 1/2 = 3/2. Gesucht ist k mit (7 + k)/(3 + k) = 3/2. Probieren: k = 5 ergibt 12/8 = 3/2.',
+        'Schreib 1 1/2 als unechten Bruch und probiere kleine Zahlen.'))
+
+# --- vergleichen ---
+lz = 'vergleichen'
+ST.leiter(lz, 'Brüche mit gleichem Nenner oder gleichem Zähler vergleichen.',
+          'Mit Hauptnenner vergleichen und ordnen, in Sachsituationen und am Zahlenstrahl.',
+          'Abstand zu 1, Bruch dazwischen, Mischungen vergleichen, Lücke einsetzen, Aussagen und Fehler prüfen, Prüfungsaufgabe.')
+T(lz, 'Welcher Bruch liegt näher an 1: 5/6 oder 6/7?', 'begruenden')
+T(lz, 'Drei Saftmischungen: A aus 1 Teil Sirup und 3 Teilen Wasser, B aus 2 Teilen Sirup und 5 Teilen Wasser, C aus 3 Teilen Sirup und 8 Teilen Wasser. Welche Mischung schmeckt am stärksten nach Sirup?', 'verknuepfen')
+T(lz, 'Welche natürliche Zahl kannst du für □ einsetzen, damit 2/5 < □/10 < 3/5 gilt?', 'parameter')
+T(lz, 'Ordne 2/3, 3/5 und 5/8 der Größe nach. Welcher Bruch steht in der Mitte?', 'mehrschritt', s=2)
+N(lz, A('direkt', 'Setze das richtige Zeichen ein: 3/7 □ 5/7', '<', ['>', '='], 'Gleicher Nenner: Der Bruch mit dem kleineren Zähler ist kleiner. 3/7 < 5/7.', 'Vergleiche die Zähler.'))
+N(lz, A('direkt', 'Welcher der Brüche 2/9, 7/9 und 4/9 liegt der Größe nach in der Mitte?', '4/9', ['2/9', '7/9'], 'Gleiche Nenner: 2 < 4 < 7, also 2/9 < 4/9 < 7/9.', 'Ordne die Zähler.'))
+N(lz, A('einkleidung', 'In Klasse A fahren 2/3 der Kinder mit dem Rad, in Klasse B 3/5. In welcher Klasse ist der Anteil der Radfahrer größer?', 'in Klasse A', ['in Klasse B', 'Er ist gleich groß.'],
+        'Hauptnenner 15: 2/3 = 10/15, 3/5 = 9/15. 10/15 ist größer.', 'Bringe beide Brüche auf denselben Nenner.'))
+N(lz, M('darstellung', 'Markiere den größeren der Brüche 2/3 und 3/4 am Zahlenstrahl (von 0 bis 1, 12 gleiche Teile).', 0, 1, 12, 0.75,
+        '2/3 = 8/12 und 3/4 = 9/12. Größer ist 3/4, also der 9. Strich.', 'Schreibe beide Brüche in Zwölfteln.'))
+N(lz, A('fehler', 'Ein Kind sagt: „2/7 ist größer als 2/5, weil 7 größer ist als 5.“ Was ist der Fehler?',
+        'Bei gleichem Zähler ist der Bruch mit dem größeren Nenner kleiner, weil die Teile kleiner sind: 2/7 < 2/5.',
+        ['Es gibt keinen Fehler.', 'Man muss die Zähler vergleichen: 2 = 2, also gleich groß.', 'Man muss die Nenner addieren.'],
+        'Siebtel sind kleinere Stücke als Fünftel. Zwei kleine Stücke sind weniger als zwei große.', 'Stell dir zwei gleiche Kuchen vor.'))
+N(lz, A('pruefung', 'Drei Kinder essen von gleich großen Pizzen: Kind A 3/8, Kind B 2/5, Kind C 1/3 einer Pizza. Wer hat am meisten gegessen?', 'Kind B', ['Kind A', 'Kind C', 'Alle gleich viel'],
+        'Hauptnenner 120: 3/8 = 45/120, 2/5 = 48/120, 1/3 = 40/120. B hat am meisten.', 'Suche einen gemeinsamen Nenner für 8, 5 und 3.'))
+K(lz, A('knobel', 'Welcher der Brüche 5/11, 7/15 und 9/20 ist am größten?', '7/15', ['5/11', '9/20', 'Alle sind gleich groß.'],
+        'Alle drei sind etwas kleiner als 1/2. 5/11 fehlt 1/22 bis zur Hälfte, 7/15 fehlt 1/30, 9/20 fehlt 1/20. Am wenigsten fehlt bei 7/15, also ist er am größten.',
+        'Vergleiche nicht direkt, sondern mit einer bekannten Zahl in der Nähe.'))
+K(lz, Z('knobel', 'Wie viele Brüche mit dem Zähler 1 liegen zwischen 1/5 und 2/3? (Die Grenzen zählen nicht.)', 3, '3',
+        'Stammbrüche werden kleiner, je größer der Nenner ist. 1/2 und 1/3 sind kleiner als 2/3, 1/4 ist größer als 1/5, 1/5 zählt nicht. Also 1/2, 1/3, 1/4 – das sind 3. (1/1 ist größer als 2/3.)',
+        'Schreibe die Stammbrüche der Reihe nach auf: 1/1, 1/2, 1/3, …'))
+
+# --- zahlenstrahl ---
+lz = 'zahlenstrahl'
+ST.leiter(lz, 'Einen Bruch am Zahlenstrahl markieren, wenn die Teile zum Nenner passen; einen Bruch ablesen.',
+          'Markieren mit Erweitern, über 1 hinaus, in Sachsituationen, Ablesen mit Kürzen.',
+          'Strahl beginnt nicht bei 0, Mitte und Abstand, rückwärts zur Teilung, Fehler deuten, Aussagen prüfen, passende Teilung für mehrere Brüche.')
+ST.typ_bau(lz, 1, 'Markiere', 'direkt')
+ST.typ_bau(lz, 2, 'Der Zahlenstrahl von 0 bis 1 ist in 20', 'erkennen', neu_s=1)
+ST.typ_bau(lz, 3, 'Markiere 7/4 am Zahlenstrahl (von 1', 'transfer'); ST.typ_bau(lz, 3, 'Markiere 5/3 am Zahlenstrahl (von 1', 'transfer')
+T(lz, 'Markiere die Zahl, die genau in der Mitte zwischen 1/4 und 1/2 liegt (Zahlenstrahl von 0 bis 1, 8 gleiche Teile).', 'verknuepfen')
+T(lz, 'Markiere die Zahl, die um 3/10 größer ist als 3/2 (Zahlenstrahl von 0 bis 2, 10 gleiche Teile).', 'verknuepfen')
+T(lz, 'Auf einem Zahlenstrahl liegt 3/5 genau beim 9. Strich nach der 0. In wie viele gleiche Teile ist die Strecke von 0 bis 1 geteilt?', 'rueckwaerts')
+N(lz, M('mehrschritt', 'Markiere 2/3 am Zahlenstrahl (von 0 bis 1, 12 gleiche Teile).', 0, 1, 12, '2/3', '2/3 = 8/12, also der 8. Strich.', 'Erweitere 2/3 so, dass der Nenner 12 ist.'))
+N(lz, M('einkleidung', 'Ein Wanderweg ist 1 km lang (Zahlenstrahl von 0 bis 1 km, 10 gleiche Teile). Nach 3/5 des Weges steht eine Bank. Markiere die Bank.', 0, 1, 10, 0.6,
+        '3/5 = 6/10, also der 6. Strich.', 'Erweitere 3/5 auf Zehntel.'))
+N(lz, L('umkehr', 'Die Strecke von 0 bis 1 ist in 8 gleiche Teile geteilt. Ein Punkt liegt beim 6. Strich. Welcher vollständig gekürzte Bruch ist das?', B, [3, 4], ['6 // 2', '8 // 2'],
+        'Beim 6. Strich liegt 6/8. Gekürzt mit 2: 3/4.', 'Lies zuerst als Achtel ab, dann kürze.'))
+N(lz, M('mehrschritt', 'Markiere 1 1/3 am Zahlenstrahl (von 0 bis 2, 12 gleiche Teile).', 0, 2, 12, '4/3', 'Jeder Teil ist 1/6. 1 1/3 = 8/6, also der 8. Strich.', 'Wie groß ist ein Teil, wenn 2 Ganze in 12 Teile geteilt sind?'))
+N(lz, L('fehler', 'Der Zahlenstrahl geht von 0 bis 2 und ist in 8 gleiche Teile geteilt. Ein Kind soll 3/8 markieren und setzt den Punkt auf den 3. Strich. Welche Zahl hat es wirklich markiert?', B, [3, 4], ['3', '4'],
+        'Von 0 bis 2 in 8 Teilen ist jeder Teil 2/8 = 1/4. Der 3. Strich ist 3/4, nicht 3/8.', 'Wie groß ist ein Teil, wenn der Strahl bis 2 geht?'))
+N(lz, A('begruenden', 'Stimmt die Aussage? „Am Zahlenstrahl liegt 5/4 links von 1.“', 'Nein, 5/4 ist größer als 1 und liegt rechts davon.', ['Ja, weil 4 kleiner ist als 5.', 'Ja, Brüche liegen immer links von 1.'],
+        '5/4 = 1 1/4. Größere Zahlen liegen weiter rechts.', 'Ist 5/4 größer oder kleiner als 4/4?'))
+N(lz, Z('parameter', 'Die Strecke von 0 bis 1 wird in n gleiche Teile geteilt. Sowohl 2/3 als auch 3/4 sollen genau auf einem Strich liegen. Wie groß ist n mindestens?', 12, '12',
+        'n muss durch 3 und durch 4 teilbar sein. Das kleinste gemeinsame Vielfache ist 12.', 'Bei welchen Teilungen liegt 2/3 auf einem Strich?'))
+K(lz, L('knobel', 'Am Zahlenstrahl liegt A bei 1/3 und B bei 1/2. Ein Punkt C liegt so, dass B genau in der Mitte zwischen A und C liegt. Bei welcher Zahl liegt C?', B, [2, 3], ['2', '3'],
+        'Von A nach B sind es 1/2 − 1/3 = 1/6. C liegt noch einmal 1/6 weiter: 1/2 + 1/6 = 4/6 = 2/3.', 'Schreibe alles in Sechsteln.'))
+K(lz, Z('knobel', 'Zwischen 0 und 1 werden alle Brüche mit dem Nenner 4 und alle mit dem Nenner 6 markiert (0 und 1 nicht). Wie viele verschiedene Punkte sind das?', 7, '3 + 5 - 1',
+        'Viertel: 1/4, 2/4, 3/4 (3 Punkte). Sechstel: 1/6 bis 5/6 (5 Punkte). 2/4 und 3/6 sind beide 1/2 – derselbe Punkt. 3 + 5 − 1 = 7.',
+        'Gibt es Punkte, die zu beiden Teilungen gehören?'))
+
+# --- zahlbereiche ---
+lz = 'zahlbereiche'
+ST.leiter(lz, 'Brüche als Zahlen schreiben (auch Division), am Zahlenstrahl markieren, positive und negative Brüche vergleichen.',
+          'Negative Brüche ordnen, am Zahlenstrahl markieren, in Sachsituationen, Zahlbereiche zuordnen.',
+          'Mitte zwischen negativem und positivem Bruch, Begriffe verknüpfen, Fehler deuten, Aussage „nächste Zahl“ prüfen, Anzahl der Brüche in einem Bereich, rückwärts über Spiegeln.')
+T(lz, 'Welcher Term hat den gleichen Wert wie „ein Viertel von 3“?', 'verknuepfen')
+T(lz, 'Welche Zahl kommt direkt nach 1/2?', 'begruenden')
+T(lz, 'Ein Kind sagt: „−2/5 ist kleiner als −3/5, weil 2 kleiner ist als 3.“ Was stimmt?', 'fehler')
+T(lz, 'Ordne −1/2, 1/3, −2/3 und 1/4 der Größe nach, mit der kleinsten Zahl zuerst. Welche Zahl steht an zweiter Stelle?', 'mehrschritt', s=2)
+T(lz, 'Welche Zahl ist am kleinsten: −7/2, −3 oder −13/4?', 'mehrschritt', s=2)
+N(lz, A('einkleidung', 'Ein Taucher ist 3/4 m unter der Wasseroberfläche (−3/4 m). Ein zweiter Taucher ist 1/2 m tiefer. Welche Zahl beschreibt seine Lage?', '−5/4 m', ['−1/4 m', '5/4 m', '−1/2 m'],
+        'Tiefer heißt weiter ins Minus: −3/4 − 2/4 = −5/4 m.', 'Zeichne einen senkrechten Zahlenstrahl mit 0 an der Wasseroberfläche.'))
+N(lz, Z('parameter', 'Für wie viele ganze Zahlen n liegt n/3 zwischen −2 und 1? (Die Grenzen zählen nicht.)', 8, '8',
+        '−2 = −6/3 und 1 = 3/3. Dazwischen liegen n = −5, −4, −3, −2, −1, 0, 1, 2 – das sind 8.', 'Schreibe −2 und 1 als Drittel.'))
+N(lz, L('rueckwaerts', 'Ein Punkt wird am Zahlenstrahl an der 0 gespiegelt und danach um 1/2 nach rechts verschoben. Er landet bei −1/4. Wo lag er am Anfang?', B, [3, 4], ['3', '4'],
+        'Rückwärts: −1/4 − 1/2 = −3/4 (zurückschieben), dann spiegeln: 3/4.', 'Mache die Schritte von hinten rückgängig.'))
+K(lz, Z('knobel', 'Für wie viele ganze Zahlen k liegt k/5 zwischen −3/2 und 7/4? (Die Grenzen zählen nicht.)', 16, '8 - (-7) + 1',
+        '−3/2 = −7,5/5 und 7/4 = 8,75/5. Also muss k zwischen −7,5 und 8,75 liegen: k = −7, −6, …, 8. Das sind 16 Zahlen.',
+        'Schreibe beide Grenzen mit dem Nenner 5 – auch wenn der Zähler dabei keine ganze Zahl wird.'))
+K(lz, L('knobel', 'Die Zahlen −1/2, a und 1 liegen am Zahlenstrahl in dieser Reihenfolge, und a hat zu beiden den gleichen Abstand. Wie heißt a?', B, [1, 4], ['1', '4'],
+        'Der Abstand von −1/2 bis 1 ist 3/2. Die Hälfte davon ist 3/4. a = −1/2 + 3/4 = 1/4.', 'Wie weit ist es von −1/2 bis 1?'))
+
+# --- verstehen ---
+lz = 'verstehen'
+ST.leiter(lz, 'Einfache Aussagen über Brüche prüfen; einen Anteil als Bruch schreiben.',
+          'Aussagen prüfen, für die man rechnen, kürzen, erweitern oder umkehren muss; Aussagen in Sachsituationen.',
+          'Falsche Regeln durch Gegenbeispiel widerlegen, Fehler deuten, Anteile verschieden großer Gruppen, Zahlen finden, für die eine Aussage stimmt, rückwärts, mit Teilern verknüpfen.')
+ST.typ_bau(lz, 2, 'Stimmt die Aussage? „In einer Klasse', 'einkleidung')
+N(lz, L('direkt', 'Schreibe den Anteil „drei von acht“ als Bruch.', B, [3, 8], ['3', '8'], 'Drei von acht: Zähler 3, Nenner 8.', 'Wie viele von wie vielen?'))
+N(lz, A('umkehr', 'Stimmt die Aussage? „Wenn 1/4 einer Strecke 5 m sind, ist die ganze Strecke 20 m lang.“', 'Ja: 4 · 5 m = 20 m.', ['Nein, sie ist 9 m lang.', 'Nein, sie ist 1,25 m lang.'],
+        'Die ganze Strecke sind 4 Viertel, also 4 · 5 m = 20 m.', 'Wie viele Viertel hat das Ganze?'))
+N(lz, A('parameter', 'Für welche natürlichen Zahlen n stimmt: „n/7 ist kleiner als 1/2“?', 'für n = 1, 2, 3', ['für n = 1, 2, 3, 4', 'nur für n = 1', 'für alle n kleiner als 7'],
+        '1/2 = 3,5/7. Kleiner ist n/7 also für n = 1, 2, 3. Bei n = 4 ist 4/7 schon größer als 1/2.', 'Wie viele Siebtel sind die Hälfte?'))
+N(lz, Z('transfer', 'Ein Kind sagt: „Ich habe 3/4 meiner Aufgaben erledigt. Mir fehlen noch 5 Aufgaben.“ Wie viele Aufgaben sind es insgesamt?', 20, '5 * 4',
+        'Es fehlt 1/4 der Aufgaben, das sind 5. Also sind es insgesamt 4 · 5 = 20.', 'Welcher Bruchteil fehlt noch?'))
+N(lz, A('verknuepfen', 'Stimmt die Aussage? „Ist der Nenner eine Primzahl, lässt sich kein echter Bruch mit diesem Nenner kürzen.“',
+        'Ja: Eine Primzahl hat nur die Teiler 1 und sich selbst, und der Zähler ist kleiner als der Nenner.', ['Nein, 3/7 lässt sich kürzen.', 'Nur, wenn der Zähler gerade ist.', 'Nein, 2/7 lässt sich mit 2 kürzen.'],
+        'Zum Kürzen braucht man einen gemeinsamen Teiler größer als 1. Der Nenner hat nur sich selbst; der Zähler ist kleiner, also kein gemeinsamer Teiler.', 'Welche Teiler hat eine Primzahl?'))
+N(lz, Z('rueckwaerts', 'Ein Kind verschenkt 2/5 seiner Sammelkarten und bekommt danach 4 neue. Jetzt hat es 22 Karten. Wie viele hatte es am Anfang?', 30, '(22 - 4) / 3 * 5',
+        'Vor den neuen Karten hatte es 18. Das sind 3/5 des Anfangs, also 1/5 = 6 und das Ganze 30.', 'Geh von hinten zurück: zuerst die 4 neuen Karten abziehen.'))
+K(lz, A('knobel', 'Ein Kind sagt: „Ein Bruch wird größer, wenn ich zu Zähler und Nenner 1 addiere.“ Bei welchem Bruch stimmt das NICHT?', '5/3', ['1/2', '3/4', '2/7'],
+        '1/2 → 2/3, 3/4 → 4/5, 2/7 → 3/8 werden größer. 5/3 → 6/4 = 1 1/2 wird kleiner (vorher 1 2/3). Bei Brüchen über 1 geht es in die andere Richtung: Sie rücken näher an 1.',
+        'Probiere alle aus. Was ist bei dem besonderen Bruch anders?'))
+K(lz, Z('knobel', 'Von einer Torte isst Kind A 1/6, Kind B doppelt so viel wie A, Kind C so viel wie A und B zusammen. Wie viele Sechstel der Torte bleiben übrig?', 0, '6 - 1 - 2 - 3',
+        'A: 1/6, B: 2/6, C: 3/6. Zusammen 6/6 = die ganze Torte. Es bleibt nichts übrig: 0 Sechstel.', 'Rechne alles in Sechsteln.'))
+
 if __name__ == '__main__':
     schreibe(DATEI)
+    stufen_datei('bruch.brueche', ST)

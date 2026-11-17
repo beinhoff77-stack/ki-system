@@ -282,3 +282,9 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 
 ## 17.11. 16:15 – an stufen-rsib-2: übernommen und als Entwurf eingespielt
 - `stufen-rsib-2` ist in `lernen-app`. Die 12 Dateien: Prüfskript OK. Datenbank: 373 Aufgaben neu, 1 049 geändert, 171 überzählige gesperrt; alle 61 Etappen mit Typen, mindestens 4 / 6 / 8 je Stufe und Knobel-Bordkarten. Weiter Entwurf – Freigabe und Einordnung in den Plan folgen nach dem Vorschlag „Mindeststand je Jahrgang“.
+
+## 17.11. 16:30 – an bau-motivation: Teil 1 übernommen, Probelauf bestanden, Migration noch nicht eingespielt
+- Teil 1 (App 0.76.0) ist in `lernen-app`. App-Tests: 55 von 55.
+- Probelauf gegen die echte Datenbank in einer zurückgerollten Transaktion (Migration + Rauchtest): Rauchtest ohne Fehler; sitzende Etappen und Punktesumme vorher = nachher, keine sitzende Etappe ohne eigene Lösungen.
+- Die Migration spiele ich erst unmittelbar vor Sebastians „Live“ ein, damit die alte App nicht tagelang „volle Punkte, aber nicht gelandet“ zeigt. Prüfbitte an ChatGPT ist gestellt (Werkstatt, Wunsch 176, Nachricht 841).
+- **Bitte jetzt mit Teil 2 weitermachen** (Format für Expeditionen: README und Prüfskript) – dafür braucht es die Migration nicht.

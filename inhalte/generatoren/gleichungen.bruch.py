@@ -703,6 +703,176 @@ DSX.stufen('graphisch', 'S1 Schnitt mit waagrechter Linie; S2 Hyperbel und Gerad
 baue = mit_durchsicht(baue, DSX)
 # ---- DURCHSICHT ENDE ----
 
+# ---- STUFEN (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, siehe _stufen_kl8.py) ----
+from _stufen_kl8 import Stufen, mit_stufen  # noqa: E402
+
+ST = Stufen('gleichungen.bruch', 20_8_5)
+SA, SZ, SL = ST.A, ST.Z, ST.L
+def T(lz, *regeln):
+    for m, g in regeln: ST.typ(lz, m, g)
+
+# --- definitionsmenge ---
+ST.leiter('definitionsmenge', 'die eine Zahl ausschließen, für die ein einfacher Nenner 0 wird',
+          'mehrere Nenner, Gleichung zu einer Definitionsmenge finden, Sachgleichung und Tabelle deuten',
+          'Nenner faktorisieren, Nenner ohne Nullstelle begründen, Fehler beim Nullsetzen, Parameter, rückwärts zum Nenner, Anzahl ausgeschlossener Zahlen')
+T('definitionsmenge', (r'^Bestimme die Definitionsmenge von [−\d]+/\(x [−+] \d+\) = \d+\.$', 'direkt'), (r'x\(x|x² − 2x', 'verknuepfen'),
+  (r'^Welche Gleichung hat', 'umkehr'), (r'Wert von a', 'parameter'), (r'^Wie viele Zahlen', 'transfer'), (r'^Bestimme', 'mehrschritt'))
+ST.neu('definitionsmenge', 'erkennen', SA('Welche Zahl darf man in 4/(x − 7) = 2 nicht für x einsetzen?', '7', ['−7', '4', '2'], 'Für x = 7 wird der Nenner 7 − 7 = 0.', 'Wann wird der Nenner 0?'))
+ST.neu('definitionsmenge', 'direkt', SA('Gib für die Gleichung x/(x − 5) = 2 die Menge D aller erlaubten Zahlen an.', 'ℚ \\ {5}', ['ℚ \\ {−5}', 'ℚ \\ {0}', 'ℚ \\ {2}'], 'Der Nenner x − 5 ist 0 für x = 5.', 'Setze den Nenner gleich 0.'))
+ST.neu('definitionsmenge', 'einkleidung', SA('36 € werden auf x Personen und eine zusätzliche Person verteilt; jede bekommt 4 €: 36/(x + 1) = 4. Welche Zahl ist für x ausgeschlossen?', 'x = −1 – im Sachzusammenhang kommt sie ohnehin nicht vor.',
+    ['x = 1', 'x = 4', 'keine'], 'x + 1 = 0 für x = −1. Da x eine Personenzahl ist, wäre −1 sowieso sinnlos.', 'Setze den Nenner gleich 0.'))
+ST.neu('definitionsmenge', 'darstellung', SA('In einer Wertetabelle zu 5/(x + 4) steht bei x = −4 „Fehler“. Was bedeutet das für die Gleichung 5/(x + 4) = 1?', 'D = ℚ \\ {−4}: dort ist der Nenner 0.',
+    ['Die Lösung ist x = −4.', 'D = ℚ \\ {4}.', 'Die Gleichung hat keine Lösung.'], 'Der Rechner meldet „Fehler“, weil durch 0 geteilt würde. Diese Zahl gehört nicht zur Definitionsmenge.', 'Was passiert im Nenner bei x = −4?'))
+ST.neu('definitionsmenge', 'fehler', SA('Jemand bestimmt für 3/(2x − 6) = 1/x die Definitionsmenge ℚ \\ {0; 6}. Was stimmt?', 'Falsch: 2x − 6 = 0 gilt für x = 3, also D = ℚ \\ {0; 3}.',
+    ['Richtig.', 'Falsch: D = ℚ \\ {6}.', 'Falsch: D = ℚ \\ {−3; 0}.'], '2x − 6 = 0 ⇒ 2x = 6 ⇒ x = 3. Die 6 macht den Nenner zu 6, nicht zu 0.', 'Löse 2x − 6 = 0 wirklich nach x auf.'))
+ST.neu('definitionsmenge', 'begruenden', SA('Kann eine Bruchgleichung mit x im Nenner die Definitionsmenge ℚ haben?', 'Ja, z. B. 1/(x² + 1) = 1/2 – der Nenner wird nie 0.',
+    ['Nein, nie.', 'Ja, aber nur wenn x auch im Zähler steht.', 'Nein, x = 0 ist immer ausgeschlossen.'], 'x² + 1 ist immer mindestens 1. Dann muss keine Zahl ausgeschlossen werden.', 'Gibt es Nenner, die nie 0 werden?'))
+ST.neu('definitionsmenge', 'rueckwaerts', SA('Eine Gleichung hat die Definitionsmenge ℚ \\ {−4; 0}. Welcher Nenner kann darin vorkommen?', 'x² + 4x', ['x² − 4x', 'x + 4', 'x² + 4'],
+    'x² + 4x = x(x + 4) ist 0 für x = 0 und x = −4. x² − 4x schließt 0 und 4 aus, x + 4 nur −4, x² + 4 gar nichts.', 'Zerlege jeden Nenner in Faktoren.'))
+ST.knobel('definitionsmenge', SZ('Wie viele Zahlen schließt die Definitionsmenge von 1/(x − 1) + 1/(x² − 1) + 1/(x³ − x) = 0 aus?', 3, '3',
+    'x − 1 = 0 bei 1. x² − 1 = (x − 1)(x + 1) = 0 bei 1 und −1. x³ − x = x(x − 1)(x + 1) = 0 bei 0, 1 und −1. Zusammen: −1, 0, 1 – drei Zahlen.',
+    'Zerlege jeden Nenner in Faktoren und sammle alle Nullstellen, ohne doppelt zu zählen.'))
+ST.knobel('definitionsmenge', SA('Für welche Zahlen a schließt die Definitionsmenge von 1/(x − a) = 1/(x + a) nur eine einzige Zahl aus?', 'nur für a = 0', ['für alle a', 'für kein a', 'nur für a = 1'],
+    'Ausgeschlossen sind a und −a. Das ist nur eine Zahl, wenn a = −a, also a = 0 (dann ist es die 0).', 'Wann sind a und −a dieselbe Zahl?'))
+
+# --- ein_bruch ---
+ST.leiter('ein_bruch', 'a/x = b durch Malnehmen mit x lösen',
+          'Nenner mit Faktor oder Summand, Sachsituation als Bruchgleichung, Gleichung zu einem Satz finden, fehlenden Zähler bestimmen',
+          'leere Lösungsmenge begründen, Fehler beim Malnehmen deuten, rückwärts aus einer Denkaufgabe, Prozent verknüpfen, Parameter, Lösen mit Probe')
+T('ein_bruch', (r'^Löse \S+ = \S+/x\.$|^Löse \S+/x = \S+\.$', 'direkt'), (r'Geschenk', 'einkleidung'), (r'ersetzen', 'parameter'), (r'\(2x \+ 1\)/\(x − 3\) = 2', 'begruenden'),
+  (r'^Teilt man', 'transfer'), (r'^Löse', 'mehrschritt'))
+ST.neu('ein_bruch', 'erkennen', SA('Welche Zahl löst 12/x = 4?', '3', ['48', '8', '16'], '12 : 3 = 4. (48 wäre 12 · 4.)', 'Durch welche Zahl muss man 12 teilen, um 4 zu erhalten?'))
+ST.neu('ein_bruch', 'umkehr', SZ('Für welche Zahl a hat a/x = 5 die Lösung x = 1,2?', 6, '5 * 12/10', 'a = 5 · x = 5 · 1,2 = 6.', 'Setze x = 1,2 ein und löse nach a auf.'))
+ST.neu('ein_bruch', 'darstellung', SA('Welche Gleichung beschreibt: „Teilt man 24 durch eine Zahl, erhält man 6“?', '24/x = 6', ['x/24 = 6', '24 · x = 6', '24 − x = 6'], '„24 geteilt durch die Zahl“ ist 24/x.', 'Was wird durch was geteilt?'))
+ST.neu('ein_bruch', 'fehler', SA('Jemand löst 8/(x − 2) = 4 so: 8 = 4x − 2, also x = 2,5. Was stimmt?', 'Falsch: 8 = 4(x − 2) = 4x − 8, also x = 4.',
+    ['Richtig.', 'Falsch: x = 6.', 'Falsch: x = 0,5.'], 'Mal (x − 2) heißt: die ganze Klammer mal 4. Probe mit 4: 8/2 = 4 ✓, mit 2,5: 8/0,5 = 16 ✗.', 'Mach die Probe mit x = 2,5.'))
+ST.neu('ein_bruch', 'rueckwaerts', SZ('Man denkt sich eine Zahl, addiert 3, teilt 60 durch das Ergebnis und erhält 4. Welche Zahl war es?', 12, '60 / 4 - 3',
+    '60/(x + 3) = 4 ⇒ x + 3 = 15 ⇒ x = 12.', 'Rückwärts: Durch welche Zahl wurde 60 geteilt?'))
+ST.neu('ein_bruch', 'verknuepfen', SZ('Ein Betrag wird in x gleiche Raten geteilt. Jede Rate ist 12,5 % des Betrags. Wie viele Raten sind es?', 8, '100 / (125/10)',
+    'Eine Rate ist 1/x des Betrags: 1/x = 0,125 ⇒ x = 1 : 0,125 = 8.', 'Schreibe den Anteil einer Rate als Bruch mit x.'))
+ST.neu('ein_bruch', 'begruenden', SA('Kann eine Gleichung a/x = 0 mit a ≠ 0 eine Lösung haben?', 'Nein: Ein Bruch ist nur 0, wenn sein Zähler 0 ist – und a ist nicht 0.',
+    ['Ja, x = 0.', 'Ja, x = a.', 'Nur wenn a negativ ist.'], 'Malnehmen mit x ergäbe a = 0, ein Widerspruch. x = 0 ist zudem gar nicht erlaubt.', 'Wann ist ein Bruch gleich 0?'))
+ST.neu('ein_bruch', 'pruefung', SZ('Löse 2 + 6/x = 5 und mache die Probe. Gib x an.', 2, '6 / (5 - 2)',
+    '6/x = 3 ⇒ x = 2. D = ℚ \\ {0}, 2 gehört dazu. Probe: 2 + 6/2 = 5 ✓.', 'Bring zuerst die 2 auf die andere Seite.'))
+ST.knobel('ein_bruch', SZ('Für wie viele natürliche Zahlen x ist 24/x + x eine natürliche Zahl kleiner als 15?', 6, '6',
+    '24/x muss ganz sein, also ist x ein Teiler von 24: 1, 2, 3, 4, 6, 8, 12, 24. Werte von 24/x + x: 25, 14, 11, 10, 10, 11, 14, 25. Kleiner als 15 sind sie für x = 2, 3, 4, 6, 8, 12 – sechs Zahlen.',
+    'Wann ist 24/x überhaupt eine natürliche Zahl?'))
+ST.knobel('ein_bruch', SZ('Ein Bruch hat den Zähler 7. Vergrößert man den Nenner um 4, wird der Bruch halb so groß. Wie heißt der Nenner?', 4, '4',
+    '7/(n + 4) = 1/2 · 7/n = 7/(2n). Gleicher Zähler ⇒ gleicher Nenner: n + 4 = 2n ⇒ n = 4. Probe: 7/8 ist die Hälfte von 7/4.',
+    'Wie schreibt man „halb so groß“ bei einem Bruch mit dem Zähler 7?'))
+
+# --- ueber_kreuz ---
+ST.leiter('ueber_kreuz', 'a/x = b/(x + c) über Kreuz multiplizieren und lösen',
+          'zwei Klammernenner, Zähler mit x, Sachsituation und Satz als Gleichung',
+          'x² hebt sich weg, begründen warum über Kreuz erlaubt ist, Fehler (über Kreuz bei Summe), Parameter, rückwärts, Anteils-Transfer')
+T('ueber_kreuz', (r'^Löse \d+/x = \d+/\(x [−+] \d+\)\.$', 'direkt'), (r'^Löse \(x [−+] \d+\)/\(x [−+] \d+\) = \(x [−+] \d+\)/\(x [−+] \d+\)\.$', 'verknuepfen'),
+  (r'^Warum', 'begruenden'), (r'^Tom', 'fehler'), (r'Wert von a', 'parameter'), (r'^Löse|^Für welche Zahl z', 'mehrschritt'))
+ST.neu('ueber_kreuz', 'erkennen', SA('Welche Gleichung entsteht aus 3/x = 5/(x + 2) durch Multiplizieren über Kreuz?', '3(x + 2) = 5x', ['3x = 5(x + 2)', '3 · 5 = x(x + 2)', '3(x + 2) = 5'],
+    'Zähler links mal Nenner rechts = Zähler rechts mal Nenner links: 3 · (x + 2) = 5 · x.', 'Welcher Zähler wird mit welchem Nenner multipliziert?'))
+ST.neu('ueber_kreuz', 'erkennen', SA('Welche Zahl löst 6/x = 3/2?', '4', ['9', '2', '1'], '6/4 = 3/2 ✓. Über Kreuz: 3x = 12, x = 4.', 'Probiere die Zahlen aus oder multipliziere über Kreuz.'))
+ST.neu('ueber_kreuz', 'einkleidung', SZ('Läufer A schafft 10 km in derselben Zeit wie Läufer B 8 km. B ist 2 km/h langsamer als A. Wie schnell ist A? (10/v = 8/(v − 2))', 10, '2 * 10 / (10 - 8)',
+    '10(v − 2) = 8v ⇒ 10v − 20 = 8v ⇒ v = 10 km/h. Probe: 10/10 = 1 h und 8/8 = 1 h.', 'Zeit = Strecke : Geschwindigkeit – beide Zeiten sind gleich.', einheit='km/h'))
+ST.neu('ueber_kreuz', 'darstellung', SA('Welche Gleichung beschreibt: „Der Bruch mit Zähler 2 und Nenner x ist so groß wie der Bruch mit Zähler 3 und Nenner x + 4“?', '2/x = 3/(x + 4)',
+    ['x/2 = (x + 4)/3', '2/x = 3/x + 4', '2x = 3(x + 4)'], 'Zähler über Nenner: 2/x und 3/(x + 4); „so groß wie“ heißt =.', 'Schreibe beide Brüche einzeln auf.'))
+ST.neu('ueber_kreuz', 'rueckwaerts', SZ('Die Gleichung 4/x = 6/(x + c) hat die Lösung x = 8. Bestimme c.', 4, '6 * 8 / 4 - 8',
+    'Einsetzen: 4/8 = 6/(8 + c) ⇒ 4(8 + c) = 48 ⇒ 8 + c = 12 ⇒ c = 4.', 'Setze die bekannte Lösung ein.'))
+ST.neu('ueber_kreuz', 'transfer', SZ('In Klasse A tragen 6 von x Kindern eine Brille, in Klasse B 9 von x + 10 Kindern. Der Anteil ist gleich. Wie viele Kinder hat Klasse A?', 20, '6 * 10 / (9 - 6)',
+    '6/x = 9/(x + 10) ⇒ 6x + 60 = 9x ⇒ x = 20. Probe: 6/20 = 0,3 und 9/30 = 0,3.', 'Stelle für jede Klasse den Anteil als Bruch auf.'))
+ST.neu('ueber_kreuz', 'pruefung', SZ('Löse 2/(x − 1) = 3/(x + 1), prüfe, ob die Lösung zu D gehört, und gib sie an.', 5, '(2 + 3) / (3 - 2)',
+    'D = ℚ \\ {−1; 1}. 2(x + 1) = 3(x − 1) ⇒ 2x + 2 = 3x − 3 ⇒ x = 5. 5 ∈ D. Probe: 2/4 = 3/6 ✓.', 'Erst D, dann über Kreuz, dann die Probe.'))
+ST.knobel('ueber_kreuz', SZ('Zum Zähler und zum Nenner von 5/8 wird dieselbe Zahl x addiert. Der neue Bruch hat den Wert 3/4. Bestimme x.', 4, '(3 * 8 - 4 * 5) / (4 - 3)',
+    '(5 + x)/(8 + x) = 3/4 ⇒ 4(5 + x) = 3(8 + x) ⇒ 20 + 4x = 24 + 3x ⇒ x = 4. Probe: 9/12 = 3/4.', 'Stelle die Gleichung auf und multipliziere über Kreuz.'))
+ST.knobel('ueber_kreuz', SZ('Für welche Zahl x gilt x/(x + 1) = (x + 2)/(x + 4)?', 2, '2',
+    'Über Kreuz: x(x + 4) = (x + 2)(x + 1) ⇒ x² + 4x = x² + 3x + 2. Das x² fällt weg: x = 2. Probe: 2/3 = 4/6 ✓.', 'Trau dich auszumultiplizieren – vielleicht verschwindet etwas.'))
+
+# --- hauptnenner ---
+ST.leiter('hauptnenner', 'gleichnamige Brüche zusammenfassen und mit x malnehmen',
+          'Hauptnenner wie 5x, Zahl und Bruch gemischt, Arbeitsaufgaben (Pumpen, Streichen), fehlenden Zähler bestimmen',
+          'gleicher Nenner als Block, binomische Formel im Nenner, Identität und leere Menge begründen, Fehler beim Malnehmen, Parameter, drei Leitungen')
+T('hauptnenner', (r'^Löse \d+/x [+−] \d+/x = −?\d+\.$', 'direkt'), (r'Pumpen|Zaun', 'einkleidung'), (r'Rohr A', 'rueckwaerts'),
+  (r'\(x \+ 5\) \+ 1|x² − 4', 'verknuepfen'), (r'x/\(x − 1\) − 1|2/\(x − 3\) − 1/x', 'begruenden'), (r'^Löse', 'mehrschritt'))
+ST.neu('hauptnenner', 'erkennen', SA('Welcher Hauptnenner passt zu 2/x + 1/(3x) = 1?', '3x', ['x', '4x', '3x²'], '3x enthält x und 3x – der kleinste gemeinsame Nenner.', 'Welcher Nenner ist durch beide Nenner teilbar?'))
+ST.neu('hauptnenner', 'erkennen', SA('Wie lautet 3/x + 5/x zusammengefasst?', '8/x', ['8/(2x)', '15/x', '8/x²'], 'Gleicher Nenner: Zähler addieren, Nenner bleibt: 8/x.', 'Was passiert bei gleichem Nenner mit dem Nenner?'))
+ST.neu('hauptnenner', 'umkehr', SZ('Für welche Zahl a hat a/x + 2/x = 1 die Lösung x = 7?', 5, '7 - 2', '(a + 2)/x = 1 ⇒ a + 2 = x = 7 ⇒ a = 5.', 'Fasse die Brüche zusammen und setze x = 7 ein.'))
+ST.neu('hauptnenner', 'fehler', SA('Jemand multipliziert 2/x + 1 = 5/x mit x und schreibt 2 + 1 = 5. Was stimmt?', 'Falsch: Auch die 1 muss mit x malgenommen werden: 2 + x = 5, also x = 3.',
+    ['Richtig, die Gleichung hat keine Lösung.', 'Falsch: 2x + x = 5x.', 'Falsch: Man darf nicht mit x malnehmen.'], 'Jeder Summand wird mit x multipliziert: 2 + 1 · x = 5. Probe mit 3: 2/3 + 1 = 5/3 ✓.', 'Wird beim Malnehmen jeder Summand erfasst?'))
+ST.neu('hauptnenner', 'parameter', SZ('Für welche Zahl a hat 1/x + a/(2x) = 1 die Lösung x = 3?', 4, '2 * 3 - 2', 'Hauptnenner 2x: (2 + a)/(2x) = 1 ⇒ 2 + a = 2x = 6 ⇒ a = 4.', 'Bring beide Brüche auf den Nenner 2x.'))
+ST.neu('hauptnenner', 'transfer', SZ('Kopierer A schafft einen Auftrag in x Minuten, Kopierer B braucht doppelt so lange. Zusammen sind sie in 20 Minuten fertig. Wie lange bräuchte A allein?', 30, '20 * 3 / 2',
+    'In einer Minute: A schafft 1/x, B 1/(2x), zusammen 1/20. 1/x + 1/(2x) = 3/(2x) = 1/20 ⇒ 2x = 60 ⇒ x = 30 Minuten.', 'Stelle die Anteile pro Minute auf.', einheit='min'))
+ST.neu('hauptnenner', 'pruefung', SZ('Drei Leitungen füllen ein Becken: allein bräuchten sie 6 h, 4 h und 12 h. Wie lange dauert es mit allen dreien?', 2, '1 / (1/6 + 1/4 + 1/12)',
+    'In einer Stunde: 1/6 + 1/4 + 1/12 = 2/12 + 3/12 + 1/12 = 6/12 = 1/2 des Beckens. Für das ganze Becken: 2 Stunden.', 'Welchen Teil schafft jede Leitung in einer Stunde?', einheit='h'))
+ST.knobel('hauptnenner', SZ('Löse 1/x + 1/(2x) + 1/(3x) + 1/(6x) = 1.', 2, '(6 + 3 + 2 + 1) / 6',
+    'Hauptnenner 6x: (6 + 3 + 2 + 1)/(6x) = 12/(6x) = 2/x. Also 2/x = 1 ⇒ x = 2.', 'Bring alle Brüche auf einen gemeinsamen Nenner.'))
+ST.knobel('hauptnenner', SZ('Ein Meister braucht für eine Wand 4 h, sein Lehrling 12 h. Der Meister fängt allein an, nach 1 h hilft der Lehrling mit. Wie lange dauert die Arbeit insgesamt?', 3.25, '1 + (1 - 1/4) / (1/4 + 1/12)',
+    'Nach 1 h ist 1/4 geschafft, es fehlen 3/4. Zusammen schaffen sie pro Stunde 1/4 + 1/12 = 1/3. Für 3/4 brauchen sie (3/4) : (1/3) = 9/4 = 2,25 h. Insgesamt 3,25 h.',
+    'Teile die Arbeit in zwei Abschnitte: allein und zu zweit.', einheit='h'))
+
+# --- scheinloesung ---
+ST.leiter('scheinloesung', 'lösen und prüfen, ob die Lösung zu D gehört',
+          'Scheinlösung erkennen und L = { } schreiben, Bruch und Zahl gemischt, Gleichung mit Scheinlösung finden',
+          'begründen, warum die Scheinlösung fällt, binomische Formeln verknüpfen, Fehler beim Aufschreiben, Parameter für leere Lösungsmenge')
+T('scheinloesung', (r'^Gib die Lösungsmenge von \S+/\(x [−+] \d+\) = \S+/\(x [−+] \d+\) an\.$', 'direkt'), (r'^Warum ist', 'begruenden'),
+  (r'x² − 1', 'verknuepfen'), (r'^Mia', 'fehler'), (r'KEINE Lösung', 'parameter'), (r'^Gib die Lösungsmenge', 'mehrschritt'))
+ST.neu('scheinloesung', 'erkennen', SA('Die Rechnung ergibt x = 5, die Definitionsmenge ist ℚ \\ {5}. Wie heißt die Lösungsmenge?', 'L = { }', ['L = {5}', 'L = ℚ \\ {5}', 'L = {0}'],
+    '5 gehört nicht zu D – sie ist eine Scheinlösung. Es bleibt keine Lösung.', 'Gehört die gefundene Zahl zu D?'))
+ST.neu('scheinloesung', 'direkt', SZ('Löse (x + 3)/(x − 1) = 5/(x − 1) und gib x an, falls es zu D gehört.', 2, '5 - 3', 'D = ℚ \\ {1}. x + 3 = 5 ⇒ x = 2, und 2 gehört zu D.', 'Gleicher Nenner: Die Zähler müssen gleich sein.'))
+ST.neu('scheinloesung', 'einkleidung', SZ('In (x − 2) Flaschen werden (x + 6) Liter Saft gleichmäßig verteilt; in jede kommen 3 Liter. Wie viele Liter Saft sind es?', 12, '(6 + 2 * 3) / (3 - 1) + 6',
+    '(x + 6)/(x − 2) = 3 ⇒ x + 6 = 3x − 6 ⇒ x = 6. Saft: x + 6 = 12 Liter (in 4 Flaschen zu je 3 Liter).', 'Stelle die Gleichung auf – gefragt ist am Ende x + 6.', einheit='l'))
+ST.neu('scheinloesung', 'umkehr', SA('Welche Gleichung liefert beim Rechnen x = 4, obwohl 4 nicht zu D gehört?', '(x + 2)/(x − 4) = 6/(x − 4)',
+    ['(x + 2)/(x − 3) = 6/(x − 3)', '(x − 2)/(x + 4) = 2/(x + 4)', 'x/(x − 4) = 1'],
+    'Bei (x + 2)/(x − 4) = 6/(x − 4) folgt x + 2 = 6, also x = 4 – aber 4 ist ausgeschlossen. Bei den ersten beiden ist 4 erlaubt, bei x/(x − 4) = 1 kommt gar nicht 4 heraus (x = x − 4 ist falsch).', 'Rechne jede Gleichung und vergleiche mit D.'))
+ST.neu('scheinloesung', 'mehrschritt', SZ('Löse 4/(x + 1) = 2/(x + 1) + 1 und gib die Lösung an.', 1, '2 - 1', '2/(x + 1) = 1 ⇒ x + 1 = 2 ⇒ x = 1. 1 ∈ D (nur −1 ist ausgeschlossen).', 'Fasse die Brüche mit gleichem Nenner zuerst zusammen.'))
+ST.neu('scheinloesung', 'mehrschritt', SZ('Löse 10/(x − 3) = 2 + 4/(x − 3).', 6, '6 / 2 + 3', '6/(x − 3) = 2 ⇒ x − 3 = 3 ⇒ x = 6. 6 ∈ D = ℚ \\ {3}.', 'Bring den Bruch rechts auf die linke Seite.'))
+ST.neu('scheinloesung', 'pruefung', SA('Löse x/(x − 2) = 2/(x − 2) + 3 und gib die Lösungsmenge an.', 'L = { }', ['L = {2}', 'L = {3}', 'L = ℚ \\ {2}'],
+    'Mal (x − 2): x = 2 + 3(x − 2) = 3x − 4 ⇒ 2x = 4 ⇒ x = 2. Aber 2 ∉ D: Scheinlösung, L = { }.', 'Nach dem Lösen: Gehört die Zahl zu D?'))
+ST.knobel('scheinloesung', SA('Wie viele Lösungen hat x/(x − 1) + 1/(1 − x) = 1?', 'unendlich viele: alle x ≠ 1', ['keine', 'genau eine', 'genau zwei'],
+    '1/(1 − x) = −1/(x − 1). Also links (x − 1)/(x − 1) = 1 für jedes x ≠ 1. Die Gleichung stimmt für alle erlaubten x.', 'Schreibe den Nenner 1 − x mit dem Nenner x − 1.'))
+ST.knobel('scheinloesung', SZ('Die Gleichung (x² − 9)/(x − 3) = c hat für genau einen Wert von c keine Lösung. Für welchen?', 6, '3 + 3',
+    'Für x ≠ 3 ist (x² − 9)/(x − 3) = x + 3. Aus x + 3 = c folgt x = c − 3. Das ist nur verboten, wenn c − 3 = 3, also c = 6. Dann gibt es keine Lösung.',
+    'Kürze den Bruch mit einer binomischen Formel – welcher x-Wert ist verboten?'))
+
+# --- verhaeltnis ---
+ST.leiter('verhaeltnis', 'eine Verhältnisgleichung x : a = b : c lösen und erkennen',
+          'x im zweiten Glied, Mischungen und Maßstab, fehlendes Glied bestimmen',
+          'x auf beiden Seiten, Flächen im Maßstab, Differenz/Verhältnis verknüpfen, Fehler, Umordnen begründen, Parameter, Verhältnis ändert sich')
+T('verhaeltnis', (r'^Löse die Verhältnisgleichung x : [\d,]+ = \d+ : \d+\.$|^Löse die Verhältnisgleichung \d+ : x = (\d+) : \1\.$', 'direkt'),
+  (r'\(x [−+] \d+\) : \d', 'verknuepfen'), (r'Saft|[Kk]arte|Mehl|Beton', 'einkleidung'), (r'Hausmodell|Differenz', 'transfer'), (r'Jungen', 'pruefung'),
+  (r'^Löse', 'mehrschritt'))
+ST.neu('verhaeltnis', 'erkennen', SA('Welche Verhältnisgleichung passt zu „3 Teile Saft auf 5 Teile Wasser – also 12 Teile Saft auf x Teile Wasser“?', '3 : 5 = 12 : x', ['3 : 5 = x : 12', '5 : 3 = 12 : x', '3 : 12 = x : 5'],
+    'Saft : Wasser bleibt gleich: 3 : 5 = 12 : x.', 'Auf beiden Seiten muss die gleiche Reihenfolge stehen: Saft : Wasser.'))
+ST.neu('verhaeltnis', 'umkehr', SZ('In x : 8 = 3 : □ soll x = 12 herauskommen. Welche Zahl gehört ins Kästchen?', 2, '3 * 8 / 12', '12 : 8 = 3 : k ⇒ 12k = 24 ⇒ k = 2.', 'Setze x = 12 ein und löse nach dem Kästchen auf.'))
+ST.neu('verhaeltnis', 'fehler', SA('Jemand löst x : 4 = 6 : 8 so: x = 6 · 8 : 4 = 12. Was stimmt?', 'Falsch: x = 4 · 6 : 8 = 3.', ['Richtig.', 'Falsch: x = 8 · 4 : 6.', 'Falsch: x = 6 + 8 − 4 = 10.'],
+    'x : 4 = 0,75 ⇒ x = 3. Probe: 3 : 4 = 6 : 8 ✓, 12 : 4 = 3 ≠ 0,75.', 'Mach die Probe mit beiden Werten.'))
+ST.neu('verhaeltnis', 'begruenden', SA('Stimmt: „Aus a : b = c : d folgt a : c = b : d“ (alle Zahlen ≠ 0)?', 'Ja: Beide Gleichungen sind gleichwertig zu a · d = b · c.', ['Nein, das gilt nie.', 'Nur wenn a = c ist.', 'Nur für ganze Zahlen.'],
+    'Über Kreuz: a : b = c : d ⇔ a · d = b · c ⇔ a : c = b : d. Beispiel 2 : 4 = 3 : 6 und 2 : 3 = 4 : 6.', 'Multipliziere beide Gleichungen über Kreuz.'))
+ST.neu('verhaeltnis', 'parameter', SZ('Für welche positive Zahl k gilt 2 : k = k : 8?', 4, '4', 'Über Kreuz: k · k = 16 ⇒ k = 4 (positiv). Probe: 2 : 4 = 4 : 8 = 0,5.', 'Multipliziere über Kreuz.'))
+ST.knobel('verhaeltnis', SZ('Rote, blaue und grüne Kugeln: Rot : Blau = 3 : 4 und Blau : Grün = 2 : 5. Es sind 68 Kugeln. Wie viele sind grün?', 40, '68 * 10 / 17',
+    'Blau in beiden Verhältnissen gleich machen: Rot : Blau = 3 : 4, Blau : Grün = 4 : 10. Also Rot : Blau : Grün = 3 : 4 : 10, zusammen 17 Teile. 68 : 17 = 4 Kugeln je Teil, grün 10 · 4 = 40.',
+    'Bring die Zahl für Blau in beiden Verhältnissen auf denselben Wert.'))
+ST.knobel('verhaeltnis', SZ('500 ml Saft sind im Verhältnis Sirup : Wasser = 1 : 4 gemischt. Wie viel ml Sirup muss man dazugeben, damit das Verhältnis 1 : 2 wird?', 100, '400 / 2 - 100',
+    'Jetzt: 100 ml Sirup, 400 ml Wasser. Das Wasser bleibt gleich. Für 1 : 2 braucht man 200 ml Sirup, also 100 ml mehr.', 'Welche der beiden Mengen ändert sich nicht?', einheit='ml'))
+
+# --- graphisch ---
+ST.leiter('graphisch', 'die Lösung am Schnittpunkt einer Hyperbel mit einer waagrechten Geraden ablesen',
+          'Hyperbel und schräge Gerade, passende Gleichung zum Bild, Sachgraph',
+          'Anzahl der Lösungen begründen, Ablesefehler (x und y vertauscht), Parameter c ohne Lösung, rückwärts zur Geraden, Prüfungsaufgabe mit Punkt')
+T('graphisch', (r'^Lies die Lösung|^Das Bild zeigt', 'erkennen'), (r'größere Lösung', 'mehrschritt'), (r'^Welche Gleichung löst', 'umkehr'),
+  (r'Zahl c', 'parameter'), (r'Entscheide am Bild\.$', 'begruenden'), (r'4/x = x hat', 'transfer'), (r'Ursprungsgerade', 'rueckwaerts'), (r'mit den Graphen', 'darstellung'))
+ST.neu('graphisch', 'direkt', SZ('Löse 12/x = 3 rechnerisch – so kannst du den abgelesenen Schnittpunkt kontrollieren. Gib x an.', 4, '12 / 3', '12/x = 3 ⇒ x = 12 : 3 = 4.', 'Mal x, dann durch 3.'))
+ST.neu('graphisch', 'einkleidung', SZ('Für 120 km braucht man t = 120/v Stunden (v in km/h). Am Graphen sucht man die Stelle mit t = 1,5. Welche Geschwindigkeit ist das?', 80, '120 / (15/10)',
+    '120/v = 1,5 ⇒ v = 120 : 1,5 = 80 km/h.', 'Schnitt des Graphen mit der Geraden t = 1,5.', einheit='km/h'))
+ST.neu('graphisch', 'fehler', SA('Bei 6/x = 3 liest jemand den Schnittpunkt (3 | 2) ab und schreibt x = 3. Was stimmt?', 'Falsch: Der Schnittpunkt mit y = 3 ist (2 | 3), also x = 2.',
+    ['Richtig.', 'Falsch: x = 6.', 'Falsch: x = 1/2.'], 'Auf der Geraden y = 3 hat jeder Punkt die y-Koordinate 3. Der Schnittpunkt ist (2 | 3), weil 6/2 = 3.', 'Welche Koordinate muss auf der Geraden y = 3 gleich 3 sein?'))
+ST.neu('graphisch', 'pruefung', SZ('Der Graph von f(x) = a/x geht durch (2 | 5). An welcher Stelle x hat f den Wert 4?', 2.5, '2 * 5 / 4', 'a = 2 · 5 = 10. 10/x = 4 ⇒ x = 2,5.', 'Bestimme zuerst a mit dem Punkt.'))
+ST.knobel('graphisch', SZ('Für wie viele ganze Zahlen x liegt der Graph von f(x) = 6/x oberhalb der Geraden y = 1?', 5, '5 - 1 + 1',
+    'Für negative x ist 6/x negativ, also unter y = 1. Für positive x: 6/x > 1 ⇔ x < 6. Ganze Zahlen: 1, 2, 3, 4, 5 – fünf.',
+    'Unterscheide positive und negative x.'))
+ST.knobel('graphisch', SA('Die Hyperbel y = k/x und die Gerade y = −x + 5 schneiden sich in (1 | 4). Wo liegt der zweite Schnittpunkt?', '(4 | 1)', ['(−1 | −4)', '(4 | −1)', '(2 | 3)'],
+    'k = 1 · 4 = 4. Gesucht x mit 4/x = −x + 5. x = 4 passt: 4/4 = 1 und −4 + 5 = 1. Beide Graphen sind spiegelbildlich zur Geraden y = x – deshalb sind die Koordinaten vertauscht.',
+    'Bestimme k und probiere, ob das Vertauschen der Koordinaten hilft.'))
+baue = mit_stufen(baue, ST)
+# ---- STUFEN ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Bruchgleichungen lösen', ['definitionsmenge', 'ein_bruch', 'ueber_kreuz', 'hauptnenner']), ('Prüfen', ['scheinloesung']), ('Verhältnisse und Graphen', ['verhaeltnis', 'graphisch'])],

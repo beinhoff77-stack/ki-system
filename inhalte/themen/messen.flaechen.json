@@ -3117,7 +3117,7 @@
    "l": "rechteck",
    "t": "rechteck",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Rechteck ist 3 m lang und 30 cm breit. Wie groß ist der Flächeninhalt in dm²?"
@@ -3134,7 +3134,7 @@
    "l": "rechteck",
    "t": "rechteck",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Rechteck ist 6 m lang und 90 cm breit. Wie groß ist der Flächeninhalt in dm²?"
@@ -3185,7 +3185,7 @@
    "l": "rechteck",
    "t": "rechteck",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Rechteck ist 2 m lang und 90 cm breit. Wie groß ist der Flächeninhalt in dm²?"
@@ -3599,7 +3599,7 @@
    "l": "einheiten",
    "t": "einheiten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Zerlege: 3 569 mm² = □ cm² □ mm²",
@@ -3623,7 +3623,7 @@
    "l": "einheiten",
    "t": "einheiten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Bauernhof hat 12 ha Ackerland. Wie viele m² sind das?"
@@ -3661,7 +3661,7 @@
    "l": "einheiten",
    "t": "einheiten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Zerlege: 1 621 m² = □ a □ m²",
@@ -3685,7 +3685,7 @@
    "l": "einheiten",
    "t": "einheiten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Zerlege: 2 301 cm² = □ dm² □ cm²",
@@ -5641,7 +5641,7 @@
    "l": "zerlegen",
    "t": "zerlegen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Wohnung besteht aus einem Raum mit 3 m × 5 m, einem Raum mit 6 m × 6 m, einem Raum mit 5 m × 2 m und einem Raum mit 7 m × 5 m. Wie groß ist die Wohnfläche?"
@@ -5658,7 +5658,7 @@
    "l": "zerlegen",
    "t": "zerlegen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Wohnung besteht aus einem Raum mit 3 m × 6 m, einem Raum mit 5 m × 2 m, einem Raum mit 5 m × 6 m und einem Raum mit 8 m × 3 m. Wie groß ist die Wohnfläche?"
@@ -7950,14 +7950,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Rechteck ist 8 cm lang und 3 cm breit. Ein Quadrat hat denselben Umfang. Wie groß ist der Flächeninhalt des Quadrats?"
+    "text": "Ein Rechteck ist 9 cm lang und 5 cm breit. Ein Quadrat hat denselben Umfang. Wie groß ist der Flächeninhalt des Quadrats?"
    },
    "o": {
-    "wert": 30.25,
+    "wert": 49,
     "einheit": "cm²"
    },
-   "c": "((2 * 8 + 2 * 3) / 4) ** 2",
-   "w": "Umfang: 22 cm. Quadratseite: 22 cm : 4 = 5,5 cm. Fläche: 5,5 cm · 5,5 cm = 30,25 cm².",
+   "c": "((2 * 9 + 2 * 5) / 4) ** 2",
+   "w": "Umfang: 2 · 9 cm + 2 · 5 cm = 28 cm. Quadratseite: 28 cm : 4 = 7 cm. Fläche: 7 cm · 7 cm = 49 cm².",
    "h": "Berechne den Umfang und teile ihn auf 4 gleiche Seiten."
   },
   {
@@ -8245,7 +8245,7 @@
    "l": "zerlegen",
    "t": "zerlegen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein großes Quadrat hat 8 cm Seitenlänge. Darin liegt ein kleines Quadrat mit 3 cm Seitenlänge. Wie groß ist die Fläche zwischen den beiden Quadraten?"

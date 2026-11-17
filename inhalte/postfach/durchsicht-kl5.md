@@ -2,6 +2,10 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 17:30 – STATUS: messen.flaechen fertig
+Umgestuft 10 (Stufe 3 → 2: m · cm in dm², „Zerlege“ in zwei Flächeneinheiten, ha → m², Wohnung aus Räumen, Quadrat im Quadrat = Rahmen). Ersetzt 1 (Rechteck → Quadrat mit gleichem Umfang ergab 5,5 · 5,5 = 30,25 cm², Kommazahl mal Kommazahl ist Kl. 6; neu 9 cm × 5 cm → 49 cm²). Prüfskript OK, Nachweis OK (231 von 242 unverändert).
+Hinweis: Sachaufgaben mit 4,5 m × 2,5 m sind nur über die Umrechnung in cm/dm ohne Kommarechnung lösbar; Lösungsweg prüfen lassen (nicht geändert).
+
 ## 2026-11-17 17:15 – STATUS: groessen.proportional fertig
 Umgestuft 5 (Stufe 3 → 2: Taxi mit Grundgebühr = Gedanke der Park-Aufgabe in Stufe 2; einfacher Dreisatz vorwärts; „geschickt“ über 5er-Zwischenschritt wie Stufe 2). Prüfskript OK, Nachweis OK (212 von 217 unverändert).
 Für Sebastian: Karte „erkennen“ (Begriff proportional) geht über M5 hinaus (dort nur Schlussrechnung/Dreisatz) – Annahme, Lehrplan Kl. 6 nicht abrufbar.

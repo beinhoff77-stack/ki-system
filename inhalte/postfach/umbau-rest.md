@@ -1,5 +1,9 @@
 # Postfach umbau-rest (Paket UR, Achte Runde)
 
+## 2026-11-17 02:15 – STATUS
+funktionen.reihen umgebaut (5 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_rest.umbau_schreiben); probe entfällt.
+Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/funktionen.reihen.json`: 140 Aufgaben, alle wörtlich gleich; titel/lernziel unverändert. inhalt_pruefen: 0 Fehler, 0 Hinweise. Zeichnungen gerendert (app-eigenes lernErklaerung im Browser), angesehen. Ohne fehler_bild: alle 5 Karten – Fehler beim Zählen bzw. in der Formel (letztes Glied statt Summe, doppelt gezählt, qⁿ⁻¹ statt qⁿ, Ende vergessen); die Schrittbilder zeigen jeweils die richtige Rechnung.
+
 ## 2026-11-17 02:14 – STATUS
 funktionen.folgen umgebaut (5 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_rest.umbau_schreiben); probe entfällt.
 Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/funktionen.folgen.json`: 140 Aufgaben, alle wörtlich gleich; titel/lernziel unverändert. inhalt_pruefen: 0 Fehler, 0 Hinweise. Zeichnungen gerendert (app-eigenes lernErklaerung im Browser), angesehen. Ohne fehler_bild: alle 5 Karten – die Fehler sind Zähl- und Einsetzfehler (Platznummer statt Wert, n statt n − 1, Glied statt vorigem Glied, zu wenige Glieder); Säulenbilder würden nur die richtigen Werte wiederholen. Kartenbilder: Säulendiagramme der Folgenglieder (a₁, a₂, …) und eine Differenzen-/Quotiententabelle.

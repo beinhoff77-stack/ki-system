@@ -30,7 +30,8 @@
     "titel": "Kongruenz und Konstruktion",
     "lernziele": [
      "kongruenzsatz",
-     "konstruierbar"
+     "konstruierbar",
+     "planfigur"
     ]
    },
    {
@@ -1028,6 +1029,316 @@
     }
    },
    {
+    "lernziel": "planfigur",
+    "titel": "Planfigur und Konstruktionsbeschreibung",
+    "einstieg": "Ein Zimmermann skizziert einen Dachgiebel grob und schreibt die Maße dazu: die ⟦Planfigur⟧. Danach notiert er, was er nacheinander anzeichnet: die ⟦Konstruktionsbeschreibung⟧.",
+    "woerter": [
+     [
+      "Planfigur",
+      "grobe Skizze mit allen gegebenen Stücken, damit man den Weg plant"
+     ],
+     [
+      "Konstruktionsbeschreibung",
+      "die Schritte der Konstruktion in der richtigen Reihenfolge"
+     ],
+     [
+      "h_c",
+      "Höhe auf c: senkrechter Abstand der Ecke C von der Seite c"
+     ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0.0,
+       0.0
+      ],
+      "B": [
+       6.0,
+       0.0
+      ],
+      "C": [
+       2.571,
+       3.064
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "c = 6 cm"
+      ],
+      [
+       "A",
+       "C",
+       "b = 4 cm"
+      ],
+      [
+       "B",
+       "C",
+       "a",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "50°"
+      ]
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Gegeben: c = 6 cm, α = 50°, b = 4 cm – siehe Planfigur."
+     },
+     {
+      "text": "Beginne mit der Seite c: Zeichne [AB] mit 6 cm.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "A": [
+         0.0,
+         0.0
+        ],
+        "B": [
+         6.0,
+         0.0
+        ]
+       },
+       "linien": [
+        [
+         "A",
+         "B",
+         "c = 6 cm"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Trage in A den Winkel 50° an.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "A": [
+         0.0,
+         0.0
+        ],
+        "B": [
+         6.0,
+         0.0
+        ],
+        "_s": [
+         3.857,
+         4.596
+        ]
+       },
+       "linien": [
+        [
+         "A",
+         "B",
+         "c = 6 cm"
+        ],
+        [
+         "A",
+         "_s"
+        ]
+       ],
+       "winkel": [
+        [
+         "A",
+         "B",
+         "_s",
+         "50°"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Der Kreis um A mit 4 cm schneidet den Schenkel in ⟦C⟧.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "A": [
+         0.0,
+         0.0
+        ],
+        "B": [
+         6.0,
+         0.0
+        ],
+        "_s": [
+         3.857,
+         4.596
+        ],
+        "C": [
+         2.571,
+         3.064
+        ]
+       },
+       "linien": [
+        [
+         "A",
+         "B",
+         "c = 6 cm"
+        ],
+        [
+         "A",
+         "_s"
+        ],
+        [
+         "B",
+         "C"
+        ]
+       ],
+       "winkel": [
+        [
+         "A",
+         "B",
+         "_s",
+         "50°"
+        ]
+       ],
+       "kreise": [
+        {
+         "m": "A",
+         "r": 4
+        }
+       ]
+      }
+     },
+     {
+      "text": "Ist h_c statt b gegeben: C liegt auf der Parallelen zu c im Abstand h_c.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "A": [
+         0.0,
+         0.0
+        ],
+        "B": [
+         6.0,
+         0.0
+        ],
+        "_s": [
+         3.857,
+         4.596
+        ],
+        "C": [
+         2.517,
+         3.0
+        ],
+        "_F": [
+         2.517,
+         0.0
+        ],
+        "_p1": [
+         -1.0,
+         3.0
+        ],
+        "_p2": [
+         7.0,
+         3.0
+        ]
+       },
+       "linien": [
+        [
+         "A",
+         "B",
+         "c = 6 cm"
+        ],
+        [
+         "A",
+         "_s"
+        ],
+        [
+         "_p1",
+         "_p2",
+         "Parallele",
+         "gestrichelt"
+        ],
+        [
+         "C",
+         "_F",
+         "h_c = 3 cm",
+         "gestrichelt"
+        ],
+        [
+         "B",
+         "C"
+        ]
+       ],
+       "winkel": [
+        [
+         "A",
+         "B",
+         "_s",
+         "50°"
+        ]
+       ],
+       "rechter_winkel": [
+        [
+         "_F",
+         "B",
+         "C"
+        ]
+       ]
+      }
+     }
+    ],
+    "probe": "C ist 4 cm von A entfernt und liegt auf dem 50°-Schenkel ✓",
+    "fehler": "Kreis um den falschen Punkt: b = [AC] beginnt in A. Ein Kreis um B mit 4 cm ist wie Messen vom falschen Ende der Latte.",
+    "fehler_bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0.0,
+       0.0
+      ],
+      "B": [
+       6.0,
+       0.0
+      ],
+      "_s": [
+       3.857,
+       4.596
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "c = 6 cm"
+      ],
+      [
+       "A",
+       "_s"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "_s",
+       "50°"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "B",
+       "r": 4
+      }
+     ]
+    },
+    "regel": "Erst die Planfigur, dann mit einer gegebenen Seite beginnen. Kreis, Winkel oder Parallele liefern die dritte Ecke ⟦C⟧."
+   },
+   {
     "lernziel": "vierecke",
     "titel": "Winkel in symmetrischen Vierecken",
     "regel": "Im Parallelogramm sind ⟦gegenüberliegende⟧ Winkel gleich, benachbarte ergeben 180°. Beim Drachenviereck sind die beiden Winkel abseits der Symmetrieachse gleich. Jedes Viereck hat zusammen 360°.",
@@ -1364,6 +1675,13 @@
     ]
    },
    {
+    "k": "planfigur",
+    "text": "Planfigur und Konstruktionsbeschreibung",
+    "lernziele": [
+     "planfigur"
+    ]
+   },
+   {
     "k": "vierecke",
     "text": "Winkel in symmetrischen Vierecken",
     "lernziele": [
@@ -1385,6 +1703,7 @@
     "gleichschenklig",
     "kongruenzsatz",
     "konstruierbar",
+    "planfigur",
     "vierecke",
     "satz_kehrsatz"
    ],
@@ -1393,7 +1712,8 @@
   },
   "quellen": {
    "erklaerungen": "Eigene Fassung (Claude).",
-   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Gymnasium)."
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Gymnasium).",
+   "luecken_kl7": "LehrplanPLUS Gymnasium Bayern, M7 5 (https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/7/mathematik): „konstruieren Dreiecke aus verschiedenen Bestimmungsstücken (darunter insbesondere Höhen) und nutzen zur Ideenfindung Planfiguren“. Vorbilder (Typ und Niveau, eigene Zahlen): ISB/Uni Bayreuth SMART „Konstruktionen in Jgst. 7“; Schulaufgabe Kl. 7 (klassenarbeiten.de Nr. 3023); Bayerischer Mathematik-Test 8 (ISB) 2012 A8."
   }
  },
  "aufgaben": [
@@ -8674,10 +8994,797 @@
    },
    "w": "Beispiele können eine Vermutung stützen, aber nicht beweisen – das 21. Dreieck könnte ein Gegenbeispiel sein. Zum Widerlegen genügt dagegen ein einziges Gegenbeispiel.",
    "h": "Was unterscheidet Vermutung und Beweis?"
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Konstruktionsbeschreibung passt zu c = 5 cm, h_c = 3 cm und α = 60°?"
+   },
+   "a": [
+    "[AB] mit 5 cm; Lot zu [AB] in B, 3 cm lang; in A den Winkel 60° antragen; der Schnittpunkt ist C.",
+    "[AB] mit 5 cm; Kreis um A mit 3 cm; in A den Winkel 60° antragen; der Schnittpunkt ist C.",
+    "[AB] mit 5 cm; Parallele zu [AB] im Abstand 3 cm; in A den Winkel 60° antragen; der Schnittpunkt ist C.",
+    "[AB] mit 5 cm; Parallele zu [AB] im Abstand 3 cm; in B den Winkel 60° antragen; der Schnittpunkt ist C."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "h_c gibt den Abstand von C zu [AB]: Parallele im Abstand 3 cm. α liegt bei A. Der freie Schenkel trifft die Parallele in C.",
+   "h": "Prüfe jeden Schritt: Gehört der Winkel zu A? Ist h_c ein Abstand zur Seite?"
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Konstruiere das Dreieck ABC mit c = 7 cm, h_c = 3 cm und β = 45°. A liegt bei (0 | 0), B bei (7 | 0), C oberhalb von [AB]. Gib C an.",
+    "schablone": "C(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      8
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "A"
+      },
+      {
+       "x": 7,
+       "y": 0,
+       "name": "B"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     4,
+     3
+    ]
+   },
+   "c": [
+    "7 - 3",
+    "3"
+   ],
+   "w": "Parallele zu [AB] im Abstand 3 cm: y = 3. Der 45°-Schenkel in B geht je 1 nach links und oben; bei y = 3 ist er 3 links von B: C(4 | 3).",
+   "h": "Erst die Parallele (h_c), dann der Winkel in B."
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein gleichschenkliges Dreieck ABC mit Basis [AB] hat A(0 | 0), B(8 | 0) und h_c = 5 cm; C liegt oberhalb von [AB]. Gib C an.",
+    "schablone": "C(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      9
+     ],
+     "y": [
+      -1,
+      7
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "A"
+      },
+      {
+       "x": 8,
+       "y": 0,
+       "name": "B"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     4,
+     5
+    ]
+   },
+   "c": [
+    "8 / 2",
+    "5"
+   ],
+   "w": "C ist von A und B gleich weit entfernt, liegt also auf der Mittelsenkrechten x = 4. Mit h_c = 5 cm: C(4 | 5).",
+   "h": "Welche Linie enthält alle Punkte, die von A und B gleich weit entfernt sind?"
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben: c = 6 cm, α = 60°, b = 5 cm. Welcher Schritt kann der erste sein?"
+   },
+   "a": [
+    "[AB] mit 6 cm zeichnen.",
+    "In B den Winkel 60° antragen.",
+    "Kreis um B mit 5 cm zeichnen.",
+    "Kreis um C mit 5 cm zeichnen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Man beginnt mit einer gegebenen Seite. [AB] = 6 cm geht; die anderen Schritte brauchen einen Punkt, den es noch nicht gibt, oder sind falsch (α liegt bei A, b beginnt in A).",
+   "h": "Was kannst du sofort zeichnen, ohne einen Punkt zu brauchen, den es noch nicht gibt?"
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "In der Planfigur eines Dreiecks ABC: Welche Seite liegt dem Winkel γ gegenüber?"
+   },
+   "a": [
+    "keine, alle Seiten berühren γ",
+    "b",
+    "a",
+    "c"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gegenüber dem Winkel γ liegt die Seite c (kleiner Buchstabe, gleiche Ecke).",
+   "h": "Der Winkel an Ecke A heißt α, die Seite gegenüber von A heißt a."
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Ecken liegt die Seite b im Dreieck ABC?"
+   },
+   "a": [
+    "A und B",
+    "A und C",
+    "nur bei A",
+    "B und C"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Seite b liegt der Ecke B gegenüber, also zwischen A und C.",
+   "h": "Die Seite heißt wie die Ecke, der sie gegenüberliegt."
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Konstruiere das Dreieck ABC mit c = 10 cm, a = 6 cm und b = 9 cm. Du beginnst mit [AB]. Welchen Radius hat der Kreis um A?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "cm"
+   },
+   "c": "9",
+   "w": "Um A liegt die Seite b = [AC]: Radius 9 cm.",
+   "h": "In der Planfigur: Welche Seite beginnt in diesem Punkt und endet in C?"
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Von einem Dreieck kennst du [AB] und h_c = 4 cm. Wo liegen alle möglichen Punkte C oberhalb von [AB]?"
+   },
+   "a": [
+    "auf der Parallelen zu [AB] im Abstand 4 cm",
+    "auf dem Kreis um A mit 4 cm",
+    "auf der Mittelsenkrechten von [AB]",
+    "auf dem Lot zu [AB] in A, 4 cm hoch"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Alle Punkte mit demselben senkrechten Abstand zu [AB] liegen auf einer Parallelen. Wo genau C liegt, legt erst ein weiteres Stück fest.",
+   "h": "h_c ist ein Abstand zur Seite c – kein Abstand zu A."
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Konstruiere das Dreieck ABC mit c = 5 cm, a = 4 cm und b = 8 cm. Du beginnst mit [AB]. Welchen Radius hat der Kreis um B?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "4",
+   "w": "Um B liegt die Seite a = [BC]: Radius 4 cm.",
+   "h": "In der Planfigur: Welche Seite beginnt in diesem Punkt und endet in C?"
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "A(0 | 0), B(10 | 0). Das Dreieck ABC hat α = 45° und h_c = 5 cm, C liegt oberhalb von [AB] (1 Einheit = 1 cm). Gib C an.",
+    "schablone": "C(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      11
+     ],
+     "y": [
+      -1,
+      7
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "A"
+      },
+      {
+       "x": 10,
+       "y": 0,
+       "name": "B"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     5,
+     5
+    ]
+   },
+   "c": [
+    "5",
+    "5"
+   ],
+   "w": "Der 45°-Schenkel in A ist die Gerade y = x. Die Parallele zu [AB] im Abstand 5 ist y = 5. Schnittpunkt: C(5 | 5).",
+   "h": "Ein 45°-Winkel in A: Der freie Schenkel geht je 1 nach rechts und 1 nach oben."
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Konstruktionsbeschreibung für c = 9 cm, a = 8 cm, b = 6 cm: 1. [AB] mit 9 cm zeichnen. 2. Kreis um A mit 6 cm. 3. ??? 4. Ein Schnittpunkt der Kreise ist C. Was fehlt in Schritt 3?"
+   },
+   "a": [
+    "Kreis um A mit 8 cm.",
+    "Kreis um B mit 8 cm.",
+    "In B einen rechten Winkel antragen.",
+    "Kreis um B mit 6 cm."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "a = [BC] beginnt in B und ist 8 cm lang: Kreis um B mit 8 cm.",
+   "h": "Welche Seite beginnt in B?"
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Auf welcher Seite steht die Höhe h_b senkrecht?"
+   },
+   "a": [
+    "auf der Seite a",
+    "auf keiner Seite",
+    "auf der Seite c",
+    "auf der Seite b (oder ihrer Verlängerung)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "h_b ist das Lot von der Ecke B auf die gegenüberliegende Seite b.",
+   "h": "Der Index sagt, zu welcher Seite die Höhe gehört."
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "A(0 | 0), B(7 | 0). Das Dreieck ABC hat in B einen rechten Winkel und h_c = 2 cm, C liegt oberhalb von [AB]. Gib C an.",
+    "schablone": "C(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      8
+     ],
+     "y": [
+      -1,
+      4
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "A"
+      },
+      {
+       "x": 7,
+       "y": 0,
+       "name": "B"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     7,
+     2
+    ]
+   },
+   "c": [
+    "7",
+    "2"
+   ],
+   "w": "Der freie Schenkel in B steht senkrecht auf [AB]: x = 7. Die Parallele im Abstand 2: y = 2. C(7 | 2).",
+   "h": "Ein rechter Winkel in B: Der Schenkel geht senkrecht nach oben."
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Gegeben: c = 8 cm, h_c = 5 cm, b = 7 cm. Wie viele mögliche Punkte C gibt es oberhalb von [AB]?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "C liegt auf der Parallelen im Abstand 5 cm und auf dem Kreis um A mit 7 cm. Der Kreis reicht höher als die Parallele: 2 Schnittpunkte.",
+   "h": "Vergleiche den Radius b mit dem Abstand h_c der Parallelen."
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Gegeben: c = 10 cm, h_c = 5 cm, b = 6 cm. Wie viele mögliche Punkte C gibt es oberhalb von [AB]?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "C liegt auf der Parallelen im Abstand 5 cm und auf dem Kreis um A mit 6 cm. Der Kreis reicht höher als die Parallele: 2 Schnittpunkte.",
+   "h": "Vergleiche den Radius b mit dem Abstand h_c der Parallelen."
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "A(0 | 0), B(6 | 0). Das Dreieck ABC hat β = 45° und h_c = 3 cm, C liegt oberhalb von [AB] (1 Einheit = 1 cm). Gib C an.",
+    "schablone": "C(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      7
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "A"
+      },
+      {
+       "x": 6,
+       "y": 0,
+       "name": "B"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     3
+    ]
+   },
+   "c": [
+    "6 - 3",
+    "3"
+   ],
+   "w": "Der 45°-Schenkel in B geht je 1 nach links und 1 nach oben. Bei y = 3 ist er 3 links von B: C(3 | 3).",
+   "h": "Vom Punkt B aus: so viele Kästchen nach links wie nach oben."
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist α = 130°. Wo liegt der Fußpunkt der Höhe h_c?"
+   },
+   "a": [
+    "zwischen A und B",
+    "genau in der Mitte von [AB]",
+    "außerhalb von [AB], auf der Verlängerung über A hinaus",
+    "außerhalb von [AB], auf der Verlängerung über B hinaus"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Bei α = 130° neigt sich C über A hinaus nach außen. Das Lot von C trifft die Gerade AB links von A.",
+   "h": "Skizziere eine Planfigur mit stumpfem Winkel bei A."
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Konstruktionsbeschreibung für c = 6 cm, a = 8 cm, b = 7 cm: 1. [AB] mit 6 cm zeichnen. 2. Kreis um A mit 7 cm. 3. ??? 4. Ein Schnittpunkt der Kreise ist C. Was fehlt in Schritt 3?"
+   },
+   "a": [
+    "Kreis um A mit 8 cm.",
+    "In B einen rechten Winkel antragen.",
+    "Kreis um B mit 7 cm.",
+    "Kreis um B mit 8 cm."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "a = [BC] beginnt in B und ist 8 cm lang: Kreis um B mit 8 cm.",
+   "h": "Welche Seite beginnt in B?"
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Konstruiere das Dreieck ABC mit c = 10 cm, a = 5 cm und b = 6 cm. Du beginnst mit [AB]. Welchen Radius hat der Kreis um B?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "cm"
+   },
+   "c": "5",
+   "w": "Um B liegt die Seite a = [BC]: Radius 5 cm."
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Konstruiere das Dreieck ABC mit c = 5 cm, a = 9 cm und b = 7 cm. Du beginnst mit [AB]. Welchen Radius hat der Kreis um B?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "cm"
+   },
+   "c": "9",
+   "w": "Um B liegt die Seite a = [BC]: Radius 9 cm."
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "A(0 | 0), B(7 | 0). Das Dreieck ABC hat α = 45° und h_c = 2 cm, C liegt oberhalb von [AB] (1 Einheit = 1 cm). Gib C an.",
+    "schablone": "C(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      8
+     ],
+     "y": [
+      -1,
+      4
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "A"
+      },
+      {
+       "x": 7,
+       "y": 0,
+       "name": "B"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     2,
+     2
+    ]
+   },
+   "c": [
+    "2",
+    "2"
+   ],
+   "w": "Der 45°-Schenkel in A ist die Gerade y = x. Die Parallele zu [AB] im Abstand 2 ist y = 2. Schnittpunkt: C(2 | 2)."
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Konstruktionsbeschreibung für c = 6 cm, a = 3 cm, b = 7 cm: 1. [AB] mit 6 cm zeichnen. 2. Kreis um A mit 7 cm. 3. ??? 4. Ein Schnittpunkt der Kreise ist C. Was fehlt in Schritt 3?"
+   },
+   "a": [
+    "In B einen rechten Winkel antragen.",
+    "Kreis um B mit 3 cm.",
+    "Kreis um B mit 7 cm.",
+    "Kreis um A mit 3 cm."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "a = [BC] beginnt in B und ist 3 cm lang: Kreis um B mit 3 cm."
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Auf welcher Seite steht die Höhe h_a senkrecht?"
+   },
+   "a": [
+    "auf keiner Seite",
+    "auf der Seite b",
+    "auf der Seite a (oder ihrer Verlängerung)",
+    "auf der Seite c"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "h_a ist das Lot von der Ecke A auf die gegenüberliegende Seite a."
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "A(0 | 0), B(8 | 0). Das Dreieck ABC hat in A einen rechten Winkel und h_c = 4 cm, C liegt oberhalb von [AB]. Gib C an.",
+    "schablone": "C(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      9
+     ],
+     "y": [
+      -1,
+      6
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "A"
+      },
+      {
+       "x": 8,
+       "y": 0,
+       "name": "B"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     0,
+     4
+    ]
+   },
+   "c": [
+    "0",
+    "4"
+   ],
+   "w": "Der freie Schenkel in A steht senkrecht auf [AB]: x = 0. Die Parallele im Abstand 4: y = 4. C(0 | 4)."
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "A(0 | 0), B(8 | 0). Das Dreieck ABC hat α = 45° und h_c = 3 cm, C liegt oberhalb von [AB] (1 Einheit = 1 cm). Gib C an.",
+    "schablone": "C(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      9
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "A"
+      },
+      {
+       "x": 8,
+       "y": 0,
+       "name": "B"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     3
+    ]
+   },
+   "c": [
+    "3",
+    "3"
+   ],
+   "w": "Der 45°-Schenkel in A ist die Gerade y = x. Die Parallele zu [AB] im Abstand 3 ist y = 3. Schnittpunkt: C(3 | 3)."
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Konstruktionsbeschreibung für c = 4 cm, α = 55°, β = 65°: 1. [AB] mit 4 cm zeichnen. 2. In A den Winkel 55° antragen. 3. ??? 4. Der Schnittpunkt der freien Schenkel ist C. Was fehlt in Schritt 3?"
+   },
+   "a": [
+    "In B den Winkel 65° antragen.",
+    "Kreis um B mit 4 cm zeichnen.",
+    "In A den Winkel 65° antragen.",
+    "In C den Winkel 60° antragen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der Winkel β = 65° gehört an die Ecke B. Erst dann gibt es zwei freie Schenkel, die sich in C schneiden."
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "A(0 | 0), B(9 | 0). Das Dreieck ABC hat in B einen rechten Winkel und h_c = 6 cm, C liegt oberhalb von [AB]. Gib C an.",
+    "schablone": "C(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      10
+     ],
+     "y": [
+      -1,
+      8
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "A"
+      },
+      {
+       "x": 9,
+       "y": 0,
+       "name": "B"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     9,
+     6
+    ]
+   },
+   "c": [
+    "9",
+    "6"
+   ],
+   "w": "Der freie Schenkel in B steht senkrecht auf [AB]: x = 9. Die Parallele im Abstand 6: y = 6. C(9 | 6)."
+  },
+  {
+   "l": "planfigur",
+   "t": "planfigur",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Konstruktionsbeschreibung für c = 6 cm, a = 5 cm, b = 3 cm: 1. [AB] mit 6 cm zeichnen. 2. Kreis um A mit 3 cm. 3. ??? 4. Ein Schnittpunkt der Kreise ist C. Was fehlt in Schritt 3?"
+   },
+   "a": [
+    "Kreis um B mit 3 cm.",
+    "Kreis um B mit 5 cm.",
+    "Kreis um A mit 5 cm.",
+    "In B einen rechten Winkel antragen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "a = [BC] beginnt in B und ist 5 cm lang: Kreis um B mit 5 cm."
   }
  ],
  "offen": [
   "Konstruieren mit Zirkel und Lineal (Konstruktionsschritte, Planfigur, Ortslinien) kann die App nicht abfragen, weil das Kind nicht zeichnen kann. Gebaut wurden Winkelberechnungen mit Zeichnung, Kongruenzsätze, Konstruierbarkeit und Satz/Kehrsatz.",
-  "Mittelsenkrechte und Winkelhalbierende als Ortslinien sind Stoff von geometrie.ortslinien (Klasse 5) und hier nicht wiederholt."
+  "Mittelsenkrechte und Winkelhalbierende als Ortslinien sind Stoff von geometrie.ortslinien (Klasse 5) und hier nicht wiederholt.",
+  "Achtzehnte Runde (luecken-kl7): neue Pflicht-Lernkarte planfigur nach konstruierbar (LehrplanPLUS M7 5). Selbst konstruieren kann das Kind in der App weiterhin nicht; abgefragt werden Planfigur lesen, fehlende Schritte der Konstruktionsbeschreibung (Auswahl), Radien/Abstände, die Lage von C (h_c als Parallele) im Koordinatensystem mit 45°- und 90°-Winkeln (ohne schräge Längen) und die Anzahl möglicher Punkte C. Mittelsenkrechte und Winkelhalbierende stehen seit dieser Runde in abbildungen.kongruenz (Klasse 7); der ältere Hinweis auf geometrie.ortslinien oben ist damit überholt."
  ]
 }

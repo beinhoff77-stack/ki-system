@@ -1,6 +1,9 @@
 # Postfach luecken-kl7 (Achtzehnte Runde, Teil B, Klasse 7)
 
 ## 2026-11-17 – STATUS
+geometrie.konstruktion fertig: neue Pflicht-Lernkarte planfigur nach konstruierbar (LehrplanPLUS M7 5), 28 Aufgaben. Prüfer OK, Nachweis OK (7 alte Karten, 210 alte Aufgaben unverändert). Unter „offen“ ein neuer Eintrag, alte Einträge unverändert.
+
+## 2026-11-17 – STATUS
 abbildungen.kongruenz fertig: neue Lernkarten mittelsenkrechte und winkelhalbierende (nach punktspiegelung) und vierecke_ordnen (nach symmetrie), alle Pflicht (LehrplanPLUS M7 2.1), je 28 Aufgaben. Prüfer OK, Nachweis OK (`python3 -I inhalte/generatoren/_luecken_kl7_nachweis.py abbildungen.kongruenz`: 7 alte Karten und 210 alte Aufgaben unverändert).
 
 ## 2026-11-17 – STATUS: Bestandsaufnahme (inhalte/pruefung/aufbau/klasse7.json, Feld „luecken“, Stand origin/lernen-app 4a71771)

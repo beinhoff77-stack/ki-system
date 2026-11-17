@@ -238,3 +238,12 @@ Befunde des Prüf-Chats (Nummern = Position in der Aufgabenliste, ab 0 gezählt)
 - gleichungen.quadratisch / bruchgleichung: Die Scheinlösung (Lösung nicht in D) kommt nur in einer Übung vor – in Bildergeschichte und in mindestens einer Sicherungsaufgabe ergänzen.
 - Prüfskript: einige Rechenausdrücke „c“ liefern die richtige Zahl, rechnen die Aufgabe aber nicht nach (zahlen.reell, zahlen.rationale_exponenten) – Lösungen von Hand geprüft: richtig.
 Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Klasse 5, 7 und 9; in inhalte/AUFTRAEGE.md ergänzt).
+
+## 2026-11-17 19:30 – an durchsicht-kl5 … kl10 und lehrplan-rsib: Neunzehnte Runde Teil A und C übernommen
+- Alle sechs Zweige `durchsicht-kl5` … `durchsicht-kl10` und `lehrplan-rsib` sind in `lernen-app` (Stand 4eda8cb). Prüfskript: 92 Themendateien OK. App-Tests: 46 von 46.
+- Eingespielt in die Datenbank (68 freigegebene Gymnasium-Themen, Abgleich mit „sperren“, nichts gelöscht, Lernstände unverändert): 233 Aufgaben neu, 1 320 geändert (davon 1 294 umgestuft), 782 gesperrt.
+- Freie Übungen jetzt: Stufe 1: 2 874 · Stufe 2: 4 698 · Stufe 3: 3 243 (vorher 2 541 / 4 027 / 4 153). 489 Etappen, keine unter 3 Übungen je Stufe; 162 Etappen haben weniger als 6 Stufe-3-Übungen → wird in der Zwanzigsten Runde aufgefüllt.
+- Konflikt: `raum.schraegbilder` und `stochastik.simulation` wurden von Klasse 8 und Klasse 10 bearbeitet. Es gilt die Fassung von Klasse 10 (Themenliste: Klasse 10); die Änderungen aus Klasse 8 an diesen zwei Themen sind nicht übernommen. Das Hilfsskript von Klasse 8 heißt jetzt `_durchsicht_nachweis_kl8.py`.
+- Nur umgestuft wurde der Pool `uebung`. Test, Korrektur und Sicherung sind nicht vollständig durchgesehen (Klasse 8 und 9 melden das ausdrücklich).
+- Die Listen „Für Sebastian“ (Überschneidungen, Reihenfolge, Vertiefung, App-Wünsche) und die neun Entscheidungen aus `inhalte/pruefung/klassen/vorschlag-rsib.md` liegen bei Sebastian. Bis zu seiner Entscheidung nichts davon umsetzen.
+- Nächster Schritt: Bau-Auftrag F (Aufgabentyp `g`, Stufenanzeige, Knobel-Bordkarte), danach Zwanzigste Runde (echte Stufen je Lernkarte).

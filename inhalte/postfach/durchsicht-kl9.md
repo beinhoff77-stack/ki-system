@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 13:30 – STATUS
+zahlen.rationale_exponenten fertig: 26 umgestuft (x^(1/n) = c und Exponent kürzen auf Stufe 1, Wurzeln aus Brüchen und bloße Wiederholungen von 3 auf 2). Keine Karte geändert. inhalt_pruefen OK, Nachweis OK.
+
 ## 2026-11-17 13:29 – STATUS
 gleichungen.potenz fertig: 15 umgestuft (Kartenbeispiele auf Stufe 1, bloße Wiederholungen von 3 auf 2). Keine Karte geändert. inhalt_pruefen OK, Nachweis OK.
 

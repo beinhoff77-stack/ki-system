@@ -1553,7 +1553,7 @@
    "l": "schreiben",
    "t": "schreiben",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Schreibe x ≤ 5 als Intervall."
@@ -1574,7 +1574,7 @@
    "l": "schreiben",
    "t": "schreiben",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Schreibe x ≥ −3 als Intervall."
@@ -1595,7 +1595,7 @@
    "l": "schreiben",
    "t": "schreiben",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Schreibe x > 6 als Intervall."
@@ -1616,7 +1616,7 @@
    "l": "schreiben",
    "t": "schreiben",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Schreibe x ≥ −8 als Intervall."
@@ -1637,7 +1637,7 @@
    "l": "schreiben",
    "t": "schreiben",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Schreibe x ≥ 7 als Intervall."
@@ -1658,7 +1658,7 @@
    "l": "schreiben",
    "t": "schreiben",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Schreibe als Intervall: alle Zahlen, die mindestens −12 sind."
@@ -2793,7 +2793,7 @@
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Aussage über ]−7; 6[ ist FALSCH?"
@@ -2814,7 +2814,7 @@
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Aussage über ]−5; 0] ist FALSCH?"
@@ -2835,7 +2835,7 @@
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Aussage über [−3; 9] ist FALSCH?"
@@ -2856,7 +2856,7 @@
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Aussage über [−8; 3[ ist FALSCH?"

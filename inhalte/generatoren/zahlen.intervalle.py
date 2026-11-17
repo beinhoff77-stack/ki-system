@@ -487,6 +487,26 @@ BF.fuer_sebastian('zahlen.intervalle: lehrplan_gym der Karten ist leer – das T
 baue = mit_befunden(baue, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Kl. 8, siehe _durchsicht_kl8.py) ----
+from _durchsicht_kl8 import Durchsicht, mit_durchsicht  # noqa: E402
+
+DS = Durchsicht('zahlen.intervalle', 19_8_3)
+# schreiben: eine Ungleichung mit einer Grenze in ein Intervall übersetzen ist Stufe 1; in Worten gegebene Grenze ist Stufe 2
+for _t in ['Schreibe x ≤ 5 als Intervall.', 'Schreibe x ≥ −3 als Intervall.', 'Schreibe x > 6 als Intervall.', 'Schreibe x ≥ −8 als Intervall.', 'Schreibe x ≥ 7 als Intervall.']:
+    DS.stufe('schreiben', _t, 1)
+DS.stufe('schreiben', 'Schreibe als Intervall: alle Zahlen, die mindestens −12 sind.', 2)
+DS.stufen('schreiben', 'S1/S2 weitgehend dieselbe Übersetzung x ≥ a; S3 teils Worte wie S2',
+          'S1 Ungleichung → Intervall; S2 in Worten, Fehler finden, Dezimalgrenzen; S3 Sachkontext, Ungleichung erst lösen, Abstand, „nicht negativ“')
+# beurteilen: „Welche Aussage ist FALSCH?“ mit Zufallsintervall ist auf Stufe 2 und 3 derselbe Gedanke
+for _t in ['Welche Aussage über ]−7; 6[ ist FALSCH?', 'Welche Aussage über ]−5; 0] ist FALSCH?', 'Welche Aussage über [−3; 9] ist FALSCH?', 'Welche Aussage über [−8; 3[ ist FALSCH?']:
+    DS.stufe('beurteilen', _t, 2)
+DS.stufen('beurteilen', 'S1 richtige Aussage wählen; S2 und S3 dieselbe „FALSCH“-Aufgabe mit anderem Intervall',
+          'S1 richtige Aussage wählen; S2 falsche Aussage finden, Sonderfälle ]2; 3[ und ]−∞; 0[; S3 Fehlvorstellungen (nur Grenzen, Länge), [5; 5], Aussage über jedes Intervall')
+DS.stufen('lesen', 'S1 Intervall in Ungleichung; S2 Bild lesen, ∞, Dezimalgrenzen; S3 Sachkontext, Differenz zweier Intervalle, Parameter a, Anzahl Dezimalzahlen')
+DS.stufen('enthalten', 'S1 Zahl im Intervall wählen; S2 ganze Zahlen zählen; S3 Schnitt und Vereinigung, Länge, Parameter, Brüche zählen')
+baue = mit_durchsicht(baue, DS)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Schreibweise', ['lesen', 'schreiben']), ('Zahlen im Intervall', ['enthalten', 'beurteilen'])],

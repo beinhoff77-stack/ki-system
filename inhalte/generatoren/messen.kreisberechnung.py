@@ -727,6 +727,133 @@ DSX.stufen('zylinder', 'S1 und S2 dieselbe Formel; S3 Regenfass wie S2', 'S1 Vol
 baue = mit_durchsicht(baue, DSX)
 # ---- DURCHSICHT ENDE ----
 
+# ---- STUFEN (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, siehe _stufen_kl8.py) ----
+from _stufen_kl8 import Stufen, mit_stufen  # noqa: E402
+
+ST = Stufen('messen.kreisberechnung', 20_8_11)
+SA, SZ, SL = ST.A, ST.Z, ST.L
+def T(lz, *regeln):
+    for m, g in regeln: ST.typ(lz, m, g)
+PI = '3.14159265'
+
+# --- umfang ---
+ST.leiter('umfang', 'Umfang aus d oder r berechnen, u : d ≈ 3,14 erkennen',
+          'Sachkreise (Rad, Tisch, Borte), Radius/Durchmesser aus dem Umfang, Vielecke im Kreis',
+          'Umdrehungen und Maßstab verknüpfen, π-Näherung rückwärts, Seil-Rätsel, π = 3 begründet ablehnen')
+T('umfang', (r'Was ergibt u : d|Faden', 'erkennen'), (r'^Ein Kreis hat den Durchmesser [\d,]+ cm\. Berechne den Umfang|^Berechne den Umfang eines Kreises|Quadrat, das ihn außen', 'direkt'),
+  (r'Fahrradrad|Esstisch|Borte', 'einkleidung'), (r'Berechne den (Radius|Durchmesser)', 'umkehr'), (r'Sechseck gezeichnet', 'mehrschritt'), (r'Was folgt daraus für π', 'darstellung'),
+  (r'volle Umdrehungen|Seil', 'transfer'), (r'Maßstab', 'verknuepfen'), (r'Riesenrad|Fahrradreifen', 'rueckwaerts'), (r'Was ist länger|Achteck', 'begruenden'))
+ST.knobel('umfang', SZ('Ein Seil liegt straff um den Äquator (etwa 40 000 km). Es wird um 6,28 m verlängert und so angehoben, dass es überall gleich weit absteht. Wie groß ist dieser Abstand (π ≈ 3,14)?', 1, '628/100 / (2 * 314/100)',
+    'u = 2πr. Wird u um 6,28 m größer, wächst r um 6,28 : (2 · 3,14) = 1 m – unabhängig davon, wie groß der Kreis ist. Unter dem Seil passt also überall ein Kind durch.', 'Um wie viel wächst r, wenn u um einen bestimmten Betrag wächst?', einheit='m'))
+ST.knobel('umfang', SZ('Zwei Räder mit 50 cm und 30 cm Umfang rollen nebeneinander los, an beiden ist die markierte Stelle unten. Nach wie vielen Zentimetern sind beide Markierungen zum ersten Mal wieder gleichzeitig unten?', 150, '150',
+    'Die Markierung des ersten Rads ist nach 50, 100, 150 … cm unten, die des zweiten nach 30, 60, 90, 120, 150 … cm. Zum ersten Mal gemeinsam: kgV(50; 30) = 150 cm.', 'Wann ist jede Markierung für sich wieder unten?', einheit='cm'))
+
+# --- flaeche ---
+ST.leiter('flaeche', 'Kreisfläche aus r oder d berechnen, die Formel erkennen',
+          'Radius aus der Fläche, Fläche aus dem Umfang, Teppich, Kreis und Quadrat vergleichen',
+          'Pizza-Preise, gleiche Fläche wie ein Quadrat, Zaun und Anteil verknüpfen, Umfang = Fläche als Parameter, d statt r als Fehler')
+T('flaeche', (r'^Berechne den Flächeninhalt eines Kreises|^Ein Kreis hat den Durchmesser \d+ cm\. Berechne den Flächeninhalt', 'direkt'), (r'Teich|36π', 'umkehr'),
+  (r'Umfang 31,4|Was ist größer', 'mehrschritt'), (r'Teppich', 'einkleidung'), (r'Pizza', 'transfer'), (r'Quadrat mit 10 cm', 'rueckwaerts'), (r'Zaun|zwei Kreise', 'verknuepfen'),
+  (r'dieselbe Maßzahl', 'parameter'))
+ST.neu('flaeche', 'erkennen', SA('Welche Formel gilt für den Flächeninhalt eines Kreises?', 'A = π · r²', ['A = 2 · π · r', 'A = π · d²', 'A = π · r'], 'Die Kreisfläche wächst mit dem Quadrat des Radius: A = π · r².', 'Welche Formel enthält r²?'))
+ST.neu('flaeche', 'darstellung', SA('Ein Kreis berührt alle vier Seiten eines Quadrats mit 10 cm Seitenlänge. Welcher Term gibt die Kreisfläche an?', 'π · 5²', ['π · 10²', '10 · 10', '2 · π · 5'],
+    'Der Durchmesser ist so lang wie die Quadratseite: d = 10 cm, r = 5 cm, A = π · 5².', 'Wie lang ist der Durchmesser im Bild?'))
+ST.neu('flaeche', 'fehler', SA('Für einen Kreis mit d = 10 cm rechnet jemand A = π · 10² ≈ 314 cm². Was stimmt?', 'Falsch: r = 5 cm, also A = π · 25 ≈ 78,5 cm².', ['Richtig.', 'Falsch: A = π · 10 ≈ 31,4 cm².', 'Falsch: A = 2 · π · 5 ≈ 31,4 cm².'],
+    'In die Formel gehört der Radius. Mit dem Durchmesser wird das Ergebnis viermal zu groß.', 'Welche Länge gehört in die Formel?'))
+ST.knobel('flaeche', SZ('Ein Kreis hat den Umfang 30π cm, ein anderer den Umfang 10π cm. Wie viel Mal so groß ist die Fläche des ersten?', 9, '3**2',
+    'Die Umfänge verhalten sich wie 3 : 1, also auch die Radien. Flächen wachsen mit dem Quadrat: 3² = 9.', 'Vergleiche zuerst die Radien.'))
+ST.knobel('flaeche', SZ('Eine Ziege ist mit einem 3 m langen Strick außen an der Ecke eines großen rechteckigen Stalls angebunden. Wie viel m² Weide kann sie erreichen (π ≈ 3,14)? Runde auf eine Nachkommastelle.', 21.2, 'round(3/4 * 314/100 * 9, 1)',
+    'Der Stall versperrt ein Viertel des Kreises um die Ecke. Erreichbar sind drei Viertel: 3/4 · 3,14 · 9 ≈ 21,2 m².', 'Welcher Teil des Kreises um die Ecke ist durch den Stall versperrt?', einheit='m²', toleranz=0.1))
+
+# --- exakt ---
+ST.leiter('exakt', 'den Umfang exakt als Vielfaches von π angeben',
+          'Radius aus exaktem Umfang, Fläche exakt aus d, Sachkreis exakt',
+          'Fläche aus dem Umfang rückwärts, Kreisring verknüpfen, Fehler (d quadriert), zusammengesetzte Figur wie in einer Prüfung, Draht umformen')
+T('exakt', (r'Gib den Umfang exakt an', 'direkt'), (r'Umfang \d+π cm\. Wie groß ist sein Radius|49π', 'umkehr'), (r'Durchmesser \d+ cm\. Gib den Flächeninhalt exakt', 'mehrschritt'),
+  (r'Umfang 20π', 'rueckwaerts'), (r'Kreisring', 'verknuepfen'), (r'^Lea', 'fehler'), (r'Figur', 'pruefung'), (r'doppelt so viel Fläche|Draht', 'transfer'))
+ST.neu('exakt', 'erkennen', SA('Was bedeutet es, die Fläche „exakt“ als A = 25π cm² anzugeben?', 'π bleibt als Zeichen stehen, es wird nicht gerundet.', ['Man rundet auf ganze Zahlen.', 'Man rechnet mit π = 3.', 'Man gibt nur den Radius an.'],
+    'Jede Dezimalnäherung von π ist ungenau. Mit dem Zeichen π bleibt das Ergebnis genau.', 'Wo entsteht beim Rechnen ein Rundungsfehler?'))
+ST.neu('exakt', 'einkleidung', SL('Eine runde Tischplatte hat 1 m Durchmesser. Gib ihren Flächeninhalt exakt an.', 'A = □/□ · π m²', [1, 4], ['1', '4'], 'r = 1/2 m, A = π · (1/2)² = 1/4 · π m².', 'Rechne mit dem Radius 1/2.', hinweis='Bruch vor π.'))
+ST.knobel('exakt', SL('An jede Seite eines Quadrats mit 4 cm Seitenlänge wird außen ein Halbkreis gesetzt. Gib den Umfang der entstehenden Figur exakt an.', '□ · π cm', [8], ['4 * 2'],
+    'Der Rand besteht nur aus den vier Halbkreisbögen (die Quadratseiten liegen innen). Jeder Bogen ist π · 4 : 2 = 2π lang, zusammen 8π cm.', 'Welche Linien bilden überhaupt den Rand?', hinweis='Zahl vor π.'))
+ST.knobel('exakt', SL('An jede Seite eines Quadrats mit 4 cm Seitenlänge wird außen ein Halbkreis gesetzt. Gib den Flächeninhalt der ganzen Figur exakt an.', '□ + □ · π cm²', [16, 8], ['4 * 4', '4 * 2'],
+    'Quadrat 16 cm². Jeder Halbkreis (r = 2) hat π · 4 : 2 = 2π cm². Vier Halbkreise: 8π. Zusammen 16 + 8π cm².', 'Zerlege die Figur in Quadrat und vier Halbkreise.', hinweis='Zahl und Zahl vor π.'))
+
+# --- verstehen ---
+ST.leiter('verstehen', 'den Faktor für Umfang und Fläche bei vervielfachtem Radius angeben',
+          'Faktor bei 1,5, halbem Durchmesser, verdoppeltem Umfang; Fläche nach Vergrößerung; Sach- und Tabellenbeispiele',
+          'Kreise über r und u vergleichen, Faktor rückwärts, Pizza und Maßstab, Prozent wie in einer Prüfung, Umfangzuwachs begründen, typische Formelfehler deuten')
+T('verstehen', (r'^Der Radius eines Kreises wird', 'direkt'), (r'^Ein Kreis hat r = \d+ cm\. Jemand rechnet', 'fehler'), (r'20 cm²|1,5 multipliziert|halbiert', 'mehrschritt'),
+  (r'Umfang eines Kreises wird verdoppelt', 'umkehr'), (r'Welcher Kreis hat den größeren', 'verknuepfen'), (r'doppelt so viel Fläche|9-mal', 'rueckwaerts'),
+  (r'Pizza|Maßstab', 'transfer'), (r'10 %', 'pruefung'), (r'um 1 cm', 'begruenden'))
+ST.neu('verstehen', 'erkennen', SA('Wenn der Radius doppelt so groß wird, wird der Umfang …', 'doppelt so groß', ['viermal so groß', 'gleich groß', 'halb so groß'], 'u = 2πr wächst im gleichen Verhältnis wie r.', 'Steht r in der Umfangsformel quadriert?'))
+ST.neu('verstehen', 'einkleidung', SA('Eine Pizzeria verdoppelt den Durchmesser ihrer runden Pizza (gleiche Dicke). Wie viel Teig braucht sie dann?', 'viermal so viel', ['doppelt so viel', 'dreimal so viel', 'genauso viel'],
+    'Die Teigmenge hängt von der Fläche ab; doppelter Durchmesser heißt vierfache Fläche.', 'Wovon hängt die Teigmenge ab?'))
+ST.neu('verstehen', 'darstellung', SA('Eine Tabelle zeigt r = 1, 2, 3 cm und A ≈ 3,1; 12,6; 28,3 cm². Wie wächst A?', 'mit dem Quadrat von r, im Verhältnis 1 : 4 : 9', ['gleichmäßig um 9,4 cm²', 'im Verhältnis 1 : 2 : 3', 'mit dem Doppelten von r'],
+    '12,6 : 3,1 ≈ 4 und 28,3 : 3,1 ≈ 9 – das sind 2² und 3².', 'Teile die Flächen durch die erste.'))
+ST.knobel('verstehen', SZ('Der Radius eines Kreises wird um 20 % verkleinert. Um wie viel Prozent nimmt der Flächeninhalt ab?', 36, '100 - (8/10)**2 * 100',
+    'Neuer Radius 0,8 · r, neue Fläche 0,8² = 0,64 der alten. Abnahme 36 % – nicht 20 % und nicht 40 %.', 'Mit welchem Faktor wird die Fläche multipliziert?', einheit='%'))
+ST.knobel('verstehen', SZ('Drei Kreise haben die Radien 3 cm, 4 cm und r. Die Fläche des dritten ist so groß wie die der beiden anderen zusammen. Bestimme r.', 5, '5',
+    'π · r² = π · 9 + π · 16 = 25π ⇒ r² = 25 ⇒ r = 5 cm.', 'Schreibe die Flächen mit π und teile durch π.', einheit='cm'))
+
+# --- sektor ---
+ST.leiter('sektor', 'den Anteil eines Kreisausschnitts aus dem Mittelpunktswinkel bestimmen',
+          'Fläche und Bogenlänge mit dem Anteil, Pizzastück, Winkel zu einem Anteil',
+          'Winkel rückwärts aus Bogen oder Fläche, Scheibenwischer und Uhr, Kreisdiagramm verknüpfen, Rand wie in einer Prüfung, fehlender Anteil als Fehler')
+T('sektor', (r'Welcher Anteil des Kreises|Wie viel Prozent des Kreises', 'direkt'), (r'Berechne (seinen Flächeninhalt|die Bogenlänge)', 'mehrschritt'), (r'Pizza', 'einkleidung'),
+  (r'Scheibenwischer|Minutenzeiger', 'transfer'), (r'Wie groß ist der Mittelpunktswinkel\?$|denselben Flächeninhalt', 'rueckwaerts'), (r'Kreisdiagramm', 'verknuepfen'), (r'ganzer Rand', 'pruefung'))
+ST.neu('sektor', 'erkennen', SA('Welcher Mittelpunktswinkel gehört zu einem Viertelkreis?', '90°', ['45°', '180°', '25°'], 'Ein Viertel von 360° sind 90°.', 'Der ganze Kreis hat 360°.'))
+ST.neu('sektor', 'umkehr', SZ('Ein Kreisausschnitt ist ein Drittel des ganzen Kreises. Wie groß ist sein Mittelpunktswinkel?', 120, '360 / 3', '360° : 3 = 120°.', 'Der ganze Kreis hat 360°.', einheit='°'))
+ST.neu('sektor', 'fehler', SA('Für einen Ausschnitt mit α = 90° und r = 4 cm rechnet jemand A = 90 · π · 4². Was ist falsch?', 'Der Anteil fehlt: A = 90/360 · π · 16 = 4π cm².',
+    ['Nichts.', 'Es muss 90 · π · 4 heißen.', 'Es muss 360 · π · 4² heißen.'], 'Der Ausschnitt ist der Anteil α/360 des Kreises, nicht das α-fache.', 'Welcher Teil des Kreises ist der Ausschnitt?'))
+ST.knobel('sektor', SZ('Ein Kreis wird in drei Ausschnitte geteilt, deren Winkel sich wie 1 : 2 : 3 verhalten. Wie groß ist der größte Winkel?', 180, '360 * 3 / 6',
+    '1 + 2 + 3 = 6 Teile zu je 60°. Der größte hat 3 · 60° = 180° – ein Halbkreis.', 'Wie viele gleiche Teile sind es insgesamt?', einheit='°'))
+ST.knobel('sektor', SZ('Ein Kreisausschnitt mit r = 10 cm hat die Bogenlänge 10 cm. Wie groß ist sein Flächeninhalt?', 50, '10 * 10 / 2',
+    'Der Bogen ist der Anteil b/u des Umfangs; denselben Anteil hat die Fläche: A = b/(2πr) · πr² = b · r : 2 = 10 · 10 : 2 = 50 cm². π kürzt sich weg.', 'Welcher Anteil des Kreises ist der Ausschnitt – ausgedrückt über den Bogen?', einheit='cm²'))
+
+# --- zusammengesetzt ---
+ST.leiter('zusammengesetzt', 'einen Kreisring als Differenz zweier Kreisflächen berechnen',
+          'Kreisabschnitt, Ring aus Durchmessern, Halbkreis, Weg um einen Teich, Term für einen Umfang',
+          'Figuren zerlegen (Fenster, Sportplatz, Ecken), Laufbahn, Ring rückwärts, Rand eines Halbkreises wie in einer Prüfung')
+T('zusammengesetzt', (r'^Ein Kreisring hat den Außenradius \d+ cm und den Innenradius \d+ cm\. Berechne', 'direkt'), (r'Viertelkreis hat r|^Ein Halbkreis hat den Durchmesser', 'mehrschritt'),
+  (r'Außendurchmesser', 'umkehr'), (r'Quadrat mit Seitenlänge|Fenster|an jeder Ecke', 'verknuepfen'), (r'Halbkreis hat den Radius', 'pruefung'),
+  (r'Laufbahn|Sportplatz|Zwei Kreise', 'transfer'), (r'100 cm² groß', 'rueckwaerts'))
+ST.neu('zusammengesetzt', 'erkennen', SA('Wie berechnet man den Flächeninhalt eines Kreisrings?', 'große Kreisfläche minus kleine Kreisfläche', ['große plus kleine Kreisfläche', 'π mal Differenz der Radien', 'Umfang mal Breite'],
+    'Der Ring ist der große Kreis ohne das Loch: π · R² − π · r².', 'Was bleibt übrig, wenn man das Loch herausnimmt?'))
+ST.neu('zusammengesetzt', 'direkt', SZ('Ein Kreisring hat den Außenradius 5 cm und den Innenradius 3 cm. Gib seinen Flächeninhalt exakt an: A = □ · π cm². Welche Zahl gehört in das Kästchen?', 16, '5**2 - 3**2',
+    'A = π · 25 − π · 9 = 16π cm².', 'Ziehe die Quadrate der Radien voneinander ab.'))
+ST.neu('zusammengesetzt', 'einkleidung', SZ('Ein runder Teich (r = 3 m) ist von einem 1 m breiten Weg umgeben. Wie groß ist die Wegfläche? Runde auf eine Nachkommastelle.', 22, f'round({PI} * (16 - 9), 1)',
+    'Der Weg ist ein Ring mit R = 4 m und r = 3 m: π · (16 − 9) = 7π ≈ 22,0 m².', 'Wie groß ist der Außenradius?', einheit='m²', toleranz=0.1))
+ST.neu('zusammengesetzt', 'darstellung', SA('Über einer 6 cm langen Strecke AB ist ein Halbkreis gezeichnet. Welcher Term gibt den Umfang der Figur (Bogen und Strecke) an?', 'π · 6 : 2 + 6', ['π · 6 + 6', 'π · 3² : 2', 'π · 6 : 2'],
+    'Halber Kreisumfang π · d : 2 plus die gerade Strecke d.', 'Aus welchen zwei Teilen besteht der Rand?'))
+ST.knobel('zusammengesetzt', SZ('In einem Quadrat mit 2 cm Seitenlänge werden um zwei gegenüberliegende Ecken Viertelkreise mit Radius 2 cm gezeichnet. Wie groß ist die Fläche, in der sie sich überlappen (π ≈ 3,14)? Runde auf zwei Nachkommastellen.', 2.28, 'round(2 * 314/100 * 4 / 4 - 4, 2)',
+    'Jeder Viertelkreis hat π · 4 : 4 = π cm². Zusammen 2π ≈ 6,28 cm², aber das Quadrat hat nur 4 cm². Was doppelt gezählt wurde, ist die Überlappung: 6,28 − 4 = 2,28 cm².', 'Addiere beide Viertelkreise und vergleiche mit dem Quadrat.', einheit='cm²', toleranz=0.01))
+ST.knobel('zusammengesetzt', SZ('Ein Kreisring ist genauso groß wie sein innerer Kreis (Innenradius 5 cm). Wie groß ist das Quadrat des Außenradius, also R²?', 50, '2 * 25',
+    'π · R² − π · 25 = π · 25 ⇒ R² = 50. (R ist etwa 7,07 cm.)', 'Stelle die Gleichung mit π auf und teile durch π.', einheit='cm²'))
+
+# --- zylinder ---
+ST.leiter('zylinder', 'Volumen und Mantelfläche eines Zylinders mit der Formel berechnen',
+          'Oberfläche, Höhe aus dem Volumen (Regenfass), Dose, Litfaßsäule, Volumenterm erkennen',
+          'Wasserspiegel, Vergleiche und gerolltes Blatt begründen, d statt r als Fehler, Grundfläche rückwärts, Parameter, Vase und Rohr wie in einer Prüfung')
+T('zylinder', (r'Berechne sein Volumen|Berechne seine Mantelfläche', 'direkt'), (r'Berechne seine Oberfläche', 'mehrschritt'), (r'Regenfass', 'umkehr'),
+  (r'Dose|Litfaßsäule', 'einkleidung'), (r'Welcher Term', 'darstellung'), (r'Glas', 'transfer'), (r'Zylinder A', 'begruenden'), (r'Blatt', 'verknuepfen'))
+ST.neu('zylinder', 'erkennen', SA('Welche Formel gibt das Volumen eines Zylinders an?', 'V = π · r² · h', ['V = 2 · π · r · h', 'V = π · r · h', 'V = π · d² · h'], 'Grundfläche (Kreis π · r²) mal Höhe.', 'Volumen = Grundfläche · Höhe.'))
+ST.neu('zylinder', 'fehler', SA('Für d = 10 cm und h = 4 cm rechnet jemand V = π · 10² · 4 ≈ 1 256 cm³. Was ist falsch?', 'Er hat den Durchmesser quadriert; mit r = 5: V = π · 25 · 4 ≈ 314 cm³.',
+    ['Nichts.', 'Er hätte 2 · π · 10 · 4 rechnen müssen.', 'Die Höhe muss quadriert werden.'], 'In π · r² gehört der Radius. Mit d wird das Volumen viermal zu groß.', 'Welche Länge gehört in die Kreisflächenformel?'))
+ST.neu('zylinder', 'rueckwaerts', SZ('Ein Zylinder hat das Volumen 1 000 cm³ und ist 10 cm hoch. Wie groß ist seine Grundfläche?', 100, '1000 / 10', 'G = V : h = 100 cm².', 'Volumen = Grundfläche · Höhe – rückwärts.', einheit='cm²'))
+ST.neu('zylinder', 'parameter', SA('Wie ändert sich das Volumen eines Zylinders, wenn man r verdoppelt und h halbiert?', 'Es verdoppelt sich.', ['Es bleibt gleich.', 'Es vervierfacht sich.', 'Es halbiert sich.'],
+    'π · (2r)² · h/2 = π · 4r² · h/2 = 2 · π · r² · h.', 'Setze 2r und h/2 in die Formel ein.'))
+ST.neu('zylinder', 'pruefung', SZ('Eine zylinderförmige Vase (r = 5 cm) ist 20 cm hoch und zu drei Vierteln mit Wasser gefüllt. Wie viele Liter sind darin? Runde auf zwei Nachkommastellen.', 1.18, f'round({PI} * 25 * 15 / 1000, 2)',
+    'Wasserhöhe 15 cm. V = π · 25 · 15 ≈ 1 178 cm³ ≈ 1,18 l.', 'Berechne zuerst die Wasserhöhe; 1 l = 1 000 cm³.', einheit='l', toleranz=0.01))
+ST.neu('zylinder', 'transfer', SZ('Ein Rohr ist 2 m lang, innen hat es 4 cm, außen 5 cm Radius. Wie viel cm³ Material hat es? Runde auf ganze cm³.', 5655, f'round({PI} * (25 - 16) * 200)',
+    'Querschnitt ist ein Kreisring: π · (25 − 16) = 9π cm². Mal 200 cm Länge: 1 800π ≈ 5 655 cm³.', 'Welche Form hat der Querschnitt?', einheit='cm³', toleranz=1))
+ST.knobel('zylinder', SZ('Eine volle Dose (r = 4 cm, h = 10 cm) wird in eine Dose mit r = 8 cm umgegossen. Wie hoch steht das Wasser dort?', 2.5, '10 / 4',
+    'Doppelter Radius heißt vierfache Grundfläche. Bei gleichem Volumen ist die Höhe ein Viertel: 10 : 4 = 2,5 cm.', 'Wie verändert sich die Grundfläche?', einheit='cm'))
+ST.knobel('zylinder', SZ('In einen Würfel mit 10 cm Kantenlänge passt genau ein Zylinder, der alle Seiten berührt. Wie viel Prozent des Würfels füllt er (π ≈ 3,14)?', 78.5, 'round(314/100 * 25 * 10 / 1000 * 100, 1)',
+    'Zylinder: r = 5, h = 10: V = 3,14 · 25 · 10 = 785 cm³. Würfel: 1 000 cm³. Anteil 78,5 % – genau π/4, egal wie groß der Würfel ist.', 'Welchen Radius und welche Höhe hat der Zylinder?', einheit='%', toleranz=0.1))
+baue = mit_stufen(baue, ST)
+# ---- STUFEN ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Kreis', ['umfang', 'flaeche', 'exakt', 'verstehen']), ('Teile von Kreisen', ['sektor', 'zusammengesetzt']), ('Zylinder', ['zylinder'])],

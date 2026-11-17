@@ -833,3 +833,50 @@ if __name__ == '__main__':
     ergaenzen(datei, schwer())
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
     luecken_einbauen()  # Achtzehnte Runde (luecken-kl10): neue Karte linear_oder_exponentiell – ganz am Ende
+
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl10) ----------
+# Gesamtdurchsicht: jede Lernkarte und jede Aufgabe gelesen und nachgerechnet. Läuft ganz am Ende auf der fertigen Datei.
+# Stufen nach dem Gedanken (Stufe 1 = Beispiel mit anderen Zahlen, 2 = Abwandlung/Umkehrung/Einkleidung, 3 = anderer Gedanke):
+# Aufgaben, die nur größere Zahlen oder dieselbe Rechnung wie Stufe 1/2 sind, werden heruntergestuft.
+def durchsicht():
+    from _durchsicht_kl10 import Durchsicht
+    D = Durchsicht('funktionen.exponential_log', 19010)
+    # werte: „Berechne f(n) für f(x) = 200 · 1,5^x“ ist das Beispiel mit größeren Zahlen → Stufe 1
+    D.stufe([12, 14, 15, 16, 17], 1, 'Berechne f(')
+    D.stufe(13, 1, 'Berechne f(4) für f(x) = 1 000')
+    # faktor: Faktor in 2 Stunden = derselbe Gedanke wie „Faktor in 3 Jahren“ (Stufe 2)
+    D.stufe([42, 43], 2, 'Die Menge eines Medikaments')
+    # modell: Halbwertszeit mit glatter Zahl = Beispiel (Verdoppeln) rückwärts, eine Einkleidung → Stufe 2
+    D.stufe([72, 73], 2, 'Ein Medikament hat eine Halbwertszeit')
+    # graph: Stufe 2 wiederholte Stufe 1 (Term aus Graph, steigend/fallend, y-Achsenabschnitt) → Stufe 1;
+    # „keine Nullstelle“ auf Stufe 3 ist dieselbe Frage wie auf Stufe 2 → Stufe 2
+    D.stufe([91, 92, 93], 1, 'Welcher Funktionsterm')
+    D.stufe(94, 1, 'Ist der Graph von')
+    D.stufe(95, 1, 'In welchem Punkt schneidet')
+    D.stufe([99, 101], 2, 'Welche Aussage über den Graphen')
+    # logfunktion: Werte mit dem Rechner und reine Merkfakten (Asymptote, Punkt (1 | 0)) sind kein anderer Gedanke
+    D.stufe(129, 1, 'Berechne f(95) für f(x) = lg')
+    D.stufe([124, 126], 2, 'Berechne f(')
+    D.stufe(127, 2, 'Die Zeichnung zeigt den Graphen von f(x) = lg')
+    D.stufe(128, 2, 'Durch welchen Punkt')
+    # zeitpunkt: sechsmal „heißes Getränk“ = Stufe-1-Rechnung in einer Einkleidung → Stufe 2
+    D.stufe(range(152, 158), 2, 'Ein heißes Getränk')
+    # Lernkarte zeitpunkt: Sprung von „Logarithmieren“ direkt zu t = lg 1,5 : lg 1,05 – die Potenzregel fehlte als Schritt
+    D.karte('zeitpunkt',
+            woerter=[['Zeitpunkt', 'die Zeit t, zu der ein Wert erreicht wird'],
+                     ['Logarithmieren', 'den Logarithmus bilden, um an den Exponenten zu kommen'],
+                     ['lg', 'der Logarithmus zur Basis 10; am Rechner die Taste „log“']],
+            schritte=[{'text': 'Gesucht ist t mit 200 · 1,05^t = 300.'},
+                      {'text': 'Durch 200 teilen, damit die Potenz allein steht: 1,05^t = 1,5.'},
+                      {'text': 'Logarithmieren, also auf beiden Seiten lg nehmen: lg(1,05^t) = lg 1,5.'},
+                      {'text': 'Der Exponent t darf vor das lg: t · lg 1,05 = lg 1,5.'},
+                      {'text': 'Durch lg 1,05 teilen: t = lg 1,5 : lg 1,05 ≈ ⟦8,3⟧ Jahre.',
+                       'bild': {'senkrecht': [8.3], 'punkte': [{'x': 8.3, 'y': 300, 'name': '≈ 8,3 Jahre'}]}}])
+    D.fuer_sebastian('funktionen.exponential_log/zeitpunkt und gleichungen.exponential (wachstum, mit_log_loesen) überschneiden sich: Beide lösen a · b^t = c mit dem Logarithmus. '
+                     'exponential_log steht in der Reihenfolge vor gleichungen.exponential, nutzt die Potenzregel also, bevor sie dort erklärt wird (jetzt als Schritt auf der Karte).')
+    D.anwenden()
+
+
+if __name__ == '__main__':
+    durchsicht()  # Neunzehnte Runde (durchsicht-kl10) – ganz am Ende

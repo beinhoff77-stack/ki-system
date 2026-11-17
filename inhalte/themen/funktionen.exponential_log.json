@@ -792,7 +792,13 @@
       "text": "Durch 200 teilen, damit die Potenz allein steht: 1,05^t = 1,5."
      },
      {
-      "text": "Logarithmieren: t = lg 1,5 : lg 1,05 ≈ ⟦8,3⟧ Jahre.",
+      "text": "Logarithmieren, also auf beiden Seiten lg nehmen: lg(1,05^t) = lg 1,5."
+     },
+     {
+      "text": "Der Exponent t darf vor das lg: t · lg 1,05 = lg 1,5."
+     },
+     {
+      "text": "Durch lg 1,05 teilen: t = lg 1,5 : lg 1,05 ≈ ⟦8,3⟧ Jahre.",
       "bild": {
        "senkrecht": [
         8.3
@@ -846,6 +852,10 @@
      [
       "Logarithmieren",
       "den Logarithmus bilden, um an den Exponenten zu kommen"
+     ],
+     [
+      "lg",
+      "der Logarithmus zur Basis 10; am Rechner die Taste „log“"
      ]
     ]
    }
@@ -1116,7 +1126,7 @@
    "l": "werte",
    "t": "werte",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Berechne f(3) für f(x) = 200 · 1,5^x."
@@ -1132,7 +1142,7 @@
    "l": "werte",
    "t": "werte",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Berechne f(4) für f(x) = 1 000 · 1,5^x."
@@ -1148,7 +1158,7 @@
    "l": "werte",
    "t": "werte",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Berechne f(4) für f(x) = 200 · 1,5^x."
@@ -1164,7 +1174,7 @@
    "l": "werte",
    "t": "werte",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Berechne f(2) für f(x) = 400 · 1,5^x."
@@ -1180,7 +1190,7 @@
    "l": "werte",
    "t": "werte",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Berechne f(4) für f(x) = 400 · 0,8^x."
@@ -1196,7 +1206,7 @@
    "l": "werte",
    "t": "werte",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Berechne f(4) für f(x) = 400 · 1,5^x."
@@ -1601,7 +1611,7 @@
    "l": "faktor",
    "t": "faktor",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Die Menge eines Medikaments im Blut sinkt jede Stunde um 15 %. Um welchen Faktor ändert sie sich in 2 Stunden?"
@@ -1617,7 +1627,7 @@
    "l": "faktor",
    "t": "faktor",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Die Menge eines Medikaments im Blut sinkt jede Stunde um 25 %. Um welchen Faktor ändert sie sich in 2 Stunden?"
@@ -2134,7 +2144,7 @@
    "l": "modell",
    "t": "modell",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Medikament hat eine Halbwertszeit von 3 h. Anfangs sind 64 mg im Blut vorhanden. Wie viel mg sind es nach 9 h?"
@@ -2151,7 +2161,7 @@
    "l": "modell",
    "t": "modell",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Medikament hat eine Halbwertszeit von 8 h. Anfangs sind 160 mg im Blut vorhanden. Wie viel mg sind es nach 24 h?"
@@ -2684,7 +2694,7 @@
    "l": "graph",
    "t": "graph",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welcher Funktionsterm f(x) passt zum gezeichneten Graphen?",
@@ -2723,7 +2733,7 @@
    "l": "graph",
    "t": "graph",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welcher Funktionsterm f(x) passt zum gezeichneten Graphen?",
@@ -2762,7 +2772,7 @@
    "l": "graph",
    "t": "graph",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welcher Funktionsterm f(x) passt zum gezeichneten Graphen?",
@@ -2801,7 +2811,7 @@
    "l": "graph",
    "t": "graph",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Ist der Graph von f(x) = 4 · 1,5^x steigend oder fallend?"
@@ -2822,7 +2832,7 @@
    "l": "graph",
    "t": "graph",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "In welchem Punkt schneidet der Graph von f(x) = 3 · 3^x die y-Achse? (Zur Kontrolle ist der Graph gezeichnet.)",
@@ -2974,7 +2984,7 @@
    "l": "graph",
    "t": "graph",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Aussage über den Graphen von f(x) = 3 · 1,5^x ist richtig?"
@@ -3016,7 +3026,7 @@
    "l": "graph",
    "t": "graph",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Aussage über den Graphen von f(x) = 5 · 5^x ist richtig?"
@@ -3539,7 +3549,7 @@
    "l": "logfunktion",
    "t": "logfunktion",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne f(95) für f(x) = log₄(x) auf zwei Nachkommastellen."
@@ -3572,7 +3582,7 @@
    "l": "logfunktion",
    "t": "logfunktion",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Berechne f(8) für f(x) = log₅(x) auf zwei Nachkommastellen."
@@ -3589,7 +3599,7 @@
    "l": "logfunktion",
    "t": "logfunktion",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Die Zeichnung zeigt den Graphen von f(x) = lg(x). Welche Gerade ist Asymptote?",
@@ -3628,7 +3638,7 @@
    "l": "logfunktion",
    "t": "logfunktion",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Durch welchen Punkt gehen die Graphen aller Funktionen f(x) = log_b(x)?"
@@ -3649,7 +3659,7 @@
    "l": "logfunktion",
    "t": "logfunktion",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Berechne f(95) für f(x) = lg(x) auf zwei Nachkommastellen."
@@ -4084,7 +4094,7 @@
    "l": "zeitpunkt",
    "t": "zeitpunkt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein heißes Getränk hat eine Übertemperatur von 70 °C (über der Raumtemperatur), die pro Minute um 12 % abnimmt. Nach wie vielen Minuten beträgt sie nur noch 5 °C (eine Nachkommastelle)?"
@@ -4102,7 +4112,7 @@
    "l": "zeitpunkt",
    "t": "zeitpunkt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein heißes Getränk hat eine Übertemperatur von 75 °C (über der Raumtemperatur), die pro Minute um 12 % abnimmt. Nach wie vielen Minuten beträgt sie nur noch 30 °C (eine Nachkommastelle)?"
@@ -4120,7 +4130,7 @@
    "l": "zeitpunkt",
    "t": "zeitpunkt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein heißes Getränk hat eine Übertemperatur von 70 °C (über der Raumtemperatur), die pro Minute um 5 % abnimmt. Nach wie vielen Minuten beträgt sie nur noch 10 °C (eine Nachkommastelle)?"
@@ -4138,7 +4148,7 @@
    "l": "zeitpunkt",
    "t": "zeitpunkt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein heißes Getränk hat eine Übertemperatur von 60 °C (über der Raumtemperatur), die pro Minute um 6 % abnimmt. Nach wie vielen Minuten beträgt sie nur noch 12 °C (eine Nachkommastelle)?"
@@ -4156,7 +4166,7 @@
    "l": "zeitpunkt",
    "t": "zeitpunkt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein heißes Getränk hat eine Übertemperatur von 60 °C (über der Raumtemperatur), die pro Minute um 12 % abnimmt. Nach wie vielen Minuten beträgt sie nur noch 12 °C (eine Nachkommastelle)?"
@@ -4174,7 +4184,7 @@
    "l": "zeitpunkt",
    "t": "zeitpunkt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein heißes Getränk hat eine Übertemperatur von 65 °C (über der Raumtemperatur), die pro Minute um 10 % abnimmt. Nach wie vielen Minuten beträgt sie nur noch 20 °C (eine Nachkommastelle)?"
